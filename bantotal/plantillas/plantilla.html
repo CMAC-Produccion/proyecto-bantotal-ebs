@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Content-Type" content="text/html charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tabla sin Bordes</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .title {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            background-color: #a5a6a7;
+        }
+        .title-row {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        *{
+            font-family: Aptos, Aptos_EmbeddedFont, Aptos_MSFontService, Calibri, Helvetica, sans-serif;
+            font-size: 1.0em;
+        }
+    </style>
+</head>
+<body>
+	Estimado(a) Analista  #ANALISTA#
+	<p>Se realizo la gesti&oacute;n de  Cambio de tasa anual (#TIPO_EVENTO#)  para la cuenta-operaci&oacute;n #CUENTA_CLIENTE#-#OPERACION#, a continuaci&oacute;n, el detalle de la gesti&oacute;n:</p>
+    <table>
+        <thead>
+            <tr>
+                <td colspan="4" class="title">Gesti&oacute;n de cambio de Tasa - Despu&eacute;s del Otorgamiento - Instancia: #INSTANCIA#</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="title-row">Cliente</td>
+                <td>#NOMBRE_CLIENTE#</td>
+                <td class="title-row"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="title-row">Responsable</td>
+                <td>#ANALISTA#</td>
+                <td class="title-row">Agencia</td>
+                <td>#AGENCIA#</td>
+            </tr>
+            <tr>
+                <td class="title-row">Segmento</td>
+                <td>#SEGMENTO#</td>
+                <td class="title-row">Monto</td>
+                <td>#MONTO#</td>
+            </tr>
+			<tr>
+                <td class="title-row">Cuenta Cliente</td>
+                <td>#CUENTA_CLIENTE#</td>
+                <td class="title-row">Solicitud</td>
+                <td>#INSTANCIA#</td>
+            </tr>
+			<tr>
+                <td class="title-row">TEA Pizarra</td>
+                <td>#TASA_PIZARRA#</td>
+                <td class="title-row"><!--TASA PROPUESTA--></td>
+                <td></td>
+            </tr>
+			<tr>
+                <td class="title-row">Plazo</td>
+                <td>#PLAZO#</td>
+                <td class="title-row">TASA APROBADA</td>
+                <td>#TASA_APROBADA#</td>
+            </tr>
+			<tr>
+                <td class="title-row">Producto</td>
+                <td>#PRODUCTO#</td>
+                <td class="title-row"></td>
+                <td></td>
+            </tr>
+			<tr>
+                <td class="title-row">Motivo del Cambio</td>
+                <td>#MOTIVO#</td>
+                <td class="title-row"><!--Documentos sustentarios que se adjutan--></td>
+                <td></td>
+            </tr>
+			<tr>
+                <td class="title-row">Comentario de la Resoluci&oacute;n</td>
+                <td>#COMENTARIO#</td>
+                <td class="title-row"></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

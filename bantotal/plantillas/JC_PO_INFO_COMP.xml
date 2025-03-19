@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="WINDOWS-1252" ?>
+<dataTemplate  name= "JC_PO_INFO_COMP" description="JC Informe de Compras" version="1.0" defaultPackage="JC_PO_INFO_COMPRAS_PKG">
+<parameters>	
+	<parameter name="PN_SOLICITANTE"  	       		dataType="character"/>
+	<parameter name="PD_PERIODO_D"  	       		dataType="character"/>
+	<parameter name="PD_PERIODO_H"  	       		dataType="character"/>
+	<parameter name="PC_TIPO"  	       				dataType="character"/>
+	 
+</parameters>
+<dataQuery>
+<sqlStatement name="Q1">
+<![CDATA[
+
+select count(distinct solicitante) NOMBRE
+  from jc.jc_po_info_compras
+
+
+
+]]>
+</sqlStatement>
+	<sqlStatement name="Q2">
+	<![CDATA[
+select po.periodo_req,
+       po.num_req,
+       po.fecha_solicitud,
+       po.fecha_solicitud,
+       po.monto_solicitud,
+       po.solicitud,
+       po.solicitante,
+       po.cargo,
+       po.area_agencia,
+       po.fecha_aprob_solicitud,
+     po.distribution_num,
+       po.estado_requerimiento,
+       po.id_oc,
+       po.num_oc,
+       po.item,
+       po.periodo_compra,
+       po.descripcion,
+       po.fecha_compra,
+       po.proveedor,
+       po.comprador,
+       po.cod_art,
+       po.sku,
+       po.articulo,
+       po.unidad,
+       po.moneda,
+       po.tc,
+       to_char(po.fecha_tc, 'YYYY.MM.DD') as fecha_tc,
+       po.cantidad,
+     po.quantity_ordered, 
+       po.precio_unit,
+     
+     case when ts.DOC_SUNAT = '02' then 
+     po.quantity_ordered * po.precio_unit
+     else 
+     po.quantity_ordered * po.precio_unit * 1.18
+     end as Importe_Distribuido, 
+     
+     (po.cantidad * po.precio_unit * 1.18) as Calculo_Item,
+       po.monto_oc,
+     po.estado_oc,
+     po.centro_cost_cod,
+     po.centro_cost_desc,
+     po.nro_project,
+       po.nro_tarea,
+       po.cuenta_contable,
+       po.nro_recepcion,
+       po.monto_penalidad,
+	   to_char(ap.invoice_date, 'DD.MM.YYYY') as invoice_date,
+     to_char(po.gl_date, 'DD.MM.YYYY') as gl_date,
+       po.invoice_num,
+     to_char(po.check_date, 'DD.MM.YYYY') as check_date,
+       po.invoice_amount_usd,
+       po.invoice_amount_pen
+  from jc.jc_po_info_compras po, TS_AP_INVOICES_ALL ts, ap_invoices_all ap, po_vendors ve
+  where po.invoice_num = ap.invoice_num
+  and po.proveedor = ve.vendor_name
+  and ve.vendor_id = ap.vendor_id
+  and ap.invoice_id = ts.invoice_id
+ order by num_req ASC
+
+
+  	      ]]>
+    </sqlStatement>
+	<sqlStatement name="Q3">
+      <![CDATA[
+            SELECT
+				TO_CHAR(SYSDATE, 'DD/MM/YYYY HH24:mm:ss am') FECHA_ACTUAL
+			FROM DUAL
+      ]]>
+    </sqlStatement>
+</dataQuery>
+<dataTrigger name="beforeReport" source="JC_PO_INFO_COMPRAS_PKG.fu_carga(:PN_SOLICITANTE,:PD_PERIODO_D,:PD_PERIODO_H,:PC_TIPO)" />
+	<dataStructure>	
+	<group name="G_PARAMETER" source="Q1">
+	<element name = "NOMBRE" 	    		value = "NOMBRE" />
+	</group>
+        <group name="G_HEADER" source="Q2">
+		    <element name = "PERIODO_REQ" 	    		value = "PERIODO_REQ" />
+			<element name = "NUM_REQ" 	    			value = "NUM_REQ" />
+			<element name = "FECHA_SOLICITUD" 	    	value = "FECHA_SOLICITUD" />
+			<element name = "MONTO_SOLICITUD" 	    	value = "MONTO_SOLICITUD" />
+			<element name = "SOLICITUD" 	    		value = "SOLICITUD" />
+			<element name = "SOLICITANTE" 	    		value = "SOLICITANTE" />
+			<element name = "CARGO" 	    			value = "CARGO" />
+			<element name = "AREA_AGENCIA" 	    		value = "AREA_AGENCIA" />
+			<element name = "FECHA_APROB_SOLICITUD" 	value = "FECHA_APROB_SOLICITUD" />
+			<element name = "DISTRIBUTION_NUM" 	        value = "DISTRIBUTION_NUM" />
+			<element name = "ESTADO_REQUERIMIENTO" 	    value = "ESTADO_REQUERIMIENTO" />
+			<element name = "ID_OC" 	    			value = "ID_OC" />
+			<element name = "NUM_OC" 	    			value = "NUM_OC" />
+			<element name = "ITEM" 	    				value = "ITEM" />
+			<element name = "PERIODO_COMPRA" 	    	value = "PERIODO_COMPRA" />
+			<element name = "DESCRIPCION" 	    		value = "DESCRIPCION" />
+			<element name = "FECHA_COMPRA" 	    		value = "FECHA_COMPRA" />
+			<element name = "PROVEEDOR" 	    		value = "PROVEEDOR" />
+			<element name = "COMPRADOR" 	    		value = "COMPRADOR" />
+			<element name = "COD_ART" 	        		value = "COD_ART" />
+			<element name = "SKU" 	    				value = "SKU" />
+			<element name = "ARTICULO" 	    			value = "ARTICULO" />
+			<element name = "UNIDAD" 	    			value = "UNIDAD" />
+			<element name = "MONEDA" 	    			value = "MONEDA" />
+			<element name = "TC" 	    				value = "TC" />
+			<element name = "FECHA_TC" 	    			value = "FECHA_TC" />
+			<element name = "CANTIDAD" 	    			value = "CANTIDAD" />
+			<element name = "QUANTITY_ORDERED" 	    	value = "QUANTITY_ORDERED" />
+			<element name = "PRECIO_UNIT" 	    		value = "PRECIO_UNIT" />
+			<element name = "IMPORTE_DISTRIBUIDO" 	    value = "IMPORTE_DISTRIBUIDO" />
+			<element name = "CALCULO_ITEM" 	    		value = "CALCULO_ITEM" />
+			<element name = "MONTO_OC" 	    			value = "MONTO_OC" />
+			<element name = "ESTADO_OC" 	    		value = "ESTADO_OC" />
+			<element name = "CENTRO_COST_COD" 	    	value = "CENTRO_COST_COD" />
+			<element name = "CENTRO_COST_DESC" 	    	value = "CENTRO_COST_DESC" />
+			<element name = "NRO_PROJECT" 	    	    value = "NRO_PROJECT" />
+			<element name = "NRO_TAREA" 	    	    value = "NRO_TAREA" />
+			<element name = "CUENTA_CONTABLE" 	    	value = "CUENTA_CONTABLE" />
+			<element name = "NRO_RECEPCION" 	    	value = "NRO_RECEPCION" />
+			<element name = "MONTO_PENALIDAD" 	    	value = "MONTO_PENALIDAD" />
+			<element name = "INVOICE_DATE" 	    	    value = "INVOICE_DATE" />
+			<element name = "GL_DATE" 	    	        value = "GL_DATE" />
+			<element name = "INVOICE_NUM" 	    	    value = "INVOICE_NUM" />
+			<element name = "CHECK_DATE" 	    	    value = "CHECK_DATE" />
+			<element name = "INVOICE_AMOUNT_USD" 	    value = "INVOICE_AMOUNT_USD" />
+			<element name = "INVOICE_AMOUNT_PEN" 	    value = "INVOICE_AMOUNT_PEN" />
+
+	    </group>
+	<group name="G_DATE" source="Q3">
+	  <element name="FECHA_ACTUAL" value="FECHA_ACTUAL"/>
+	</group>
+	</dataStructure>
+	
+</dataTemplate>
