@@ -1,0 +1,958 @@
+<?xml version="1.0"?>
+<dataTemplate  name= "JC_XTR_REP_LIQ_OPER" description="JC - Informe de Liquidación de Operaciones" version="1.0" defaultPackage="">
+<parameters>	
+	<parameter name="P_DATE"  	          dataType="VARCHAR2"/>
+</parameters>
+<dataQuery>
+
+	<sqlStatement name="CANCELADO_PEN">
+	<![CDATA[
+		-------------------------------------OPERACIONES CANCELADAS-----------------------------------------
+select c.value_date, c.deal_date,
+a.amount_date  AMT_DATE,
+       case
+       when (select b.transaction_number
+           from XTR_ROLLOVER_TRANSACTIONS b
+          where b.cross_ref_to_trans = a.transaction_number
+            and b.deal_number = a.deal_number) is NOT NULL THEN
+        nvl(c.attribute_category,
+          (select distinct (b.attribute_category)
+           from XTR_ROLLOVER_TRANSACTIONS b
+          where 1 = 1
+            and b.cross_ref_to_trans = a.transaction_number
+            and b.deal_number = a.deal_number
+            and b.attribute_category is not null))
+       ELSE
+        nvl(c.attribute_category,
+          (select b.attribute_category
+           from XTR_ROLLOVER_TRANSACTIONS b
+          where b.transaction_number = a.transaction_number
+            and b.deal_number = a.deal_number
+            and b.attribute_category is not null))
+       END OPERACION_TIPO,
+       a.deal_subtype       OPERACION_SUB_TIPO,
+       a.product_type       PRODUCTO_TIPO,
+       a.cparty_code        CONTRAPARTE_CODIGO,
+       b.full_name          CONTRAPARTE_NOMBRE,
+       nvl(a.settlement_party,
+         decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+       a.amount_type        IMPORTE_TIPO,
+       a.currency           DIVISA,
+       a.cashflow_amount    LIQUIDACION_IMPORTE,
+       case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+       c.CAPITAL_PRICE PRECIO_POR_ACCION,
+       nvl(d.no_of_days, 0) PLAZO,
+       a.deal_number OPERACION_NRO,
+       a.transaction_number TRANSACCION_NRO,
+       (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+       a.settlement_authorised_by AUTH_BY,
+       a.DEALER_CODE REGISTER_BY,
+       TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+  from XTR_DEAL_DATE_AMOUNTS a
+  left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+  left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+  left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+  and a.transaction_number = d.transaction_number
+  where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+  and a.CASHFLOW_AMOUNT != 0
+  and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+  and a.STATUS_CODE != 'CANCELLED'
+  and a.CURRENCY = 'PEN'
+  and a.AMOUNT_DATE = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY')
+  and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+  and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+       and a.CASHFLOW_AMOUNT > 0) 
+      or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+       and a.CASHFLOW_AMOUNT < 0))
+  and ((a.deal_type != 'FX' and d.MATURITY_DATE = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+  or (a.deal_type = 'FX' and c.value_date != TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY')))
+  ORDER BY OPERACION_TIPO
+  /*UNION ALL*/
+  -------------------------------------SOLO FORWARD-----------------------------------------
+  /*select c.value_date, c.deal_date,
+       a.amount_date        AMT_DATE,
+           case
+           when (select b.transaction_number
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number) is NOT NULL THEN
+            nvl(c.attribute_category,
+              (select distinct (b.attribute_category)
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where 1 = 1
+                and b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           ELSE
+            nvl(c.attribute_category,
+              (select b.attribute_category
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.transaction_number = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           END OPERACION_TIPO,
+           a.deal_subtype       OPERACION_SUB_TIPO,
+           a.product_type       PRODUCTO_TIPO,
+           a.cparty_code        CONTRAPARTE_CODIGO,
+           b.full_name          CONTRAPARTE_NOMBRE,
+           nvl(a.settlement_party,
+             decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+           a.amount_type        IMPORTE_TIPO,
+           a.currency           DIVISA,
+           a.cashflow_amount    LIQUIDACION_IMPORTE,
+           case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+           c.CAPITAL_PRICE PRECIO_POR_ACCION,
+           nvl(d.no_of_days, 0) PLAZO,
+           a.deal_number OPERACION_NRO,
+           a.transaction_number TRANSACCION_NRO,
+           (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+           a.settlement_authorised_by AUTH_BY,
+           a.DEALER_CODE REGISTER_BY,
+           TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+      from XTR_DEAL_DATE_AMOUNTS a
+      left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+      left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+      left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+      and a.transaction_number = d.transaction_number
+      where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+      and a.CASHFLOW_AMOUNT != 0
+      and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+      and a.STATUS_CODE != 'CANCELLED'
+      and a.CURRENCY = 'PEN'
+      and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+      and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT > 0) 
+          or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT < 0))
+      and (a.deal_subtype = 'FORWARD' and c.value_date = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+      
+      UNION ALL*/
+      -------------------------------------SOLO SPOT-----------------------------------------
+/*  select c.value_date, c.deal_date,
+       a.amount_date        AMT_DATE,
+           case
+           when (select b.transaction_number
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number) is NOT NULL THEN
+            nvl(c.attribute_category,
+              (select distinct (b.attribute_category)
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where 1 = 1
+                and b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           ELSE
+            nvl(c.attribute_category,
+              (select b.attribute_category
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.transaction_number = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           END OPERACION_TIPO,
+           a.deal_subtype       OPERACION_SUB_TIPO,
+           a.product_type       PRODUCTO_TIPO,
+           a.cparty_code        CONTRAPARTE_CODIGO,
+           b.full_name          CONTRAPARTE_NOMBRE,
+           nvl(a.settlement_party,
+             decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+           a.amount_type        IMPORTE_TIPO,
+           a.currency           DIVISA,
+           a.cashflow_amount    LIQUIDACION_IMPORTE,
+           case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+           c.CAPITAL_PRICE PRECIO_POR_ACCION,
+           nvl(d.no_of_days, 0) PLAZO,
+           a.deal_number OPERACION_NRO,
+           a.transaction_number TRANSACCION_NRO,
+           (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+           a.settlement_authorised_by AUTH_BY,
+           a.DEALER_CODE REGISTER_BY,
+           TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+      from XTR_DEAL_DATE_AMOUNTS a
+      left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+      left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+      left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+      and a.transaction_number = d.transaction_number
+      where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+      and a.CASHFLOW_AMOUNT != 0
+      and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+      and a.STATUS_CODE != 'CANCELLED'
+      and a.CURRENCY = 'PEN'
+      and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+      and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT > 0) 
+          or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT < 0))
+      --and (a.deal_subtype = 'SPOT' and c.value_date = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+      AND a.deal_subtype = 'SPOT'
+    AND c.value_date = TO_CHAR(TO_DATE(:P_DATE, 'YYYY/MM/DD HH24:MI:SS'), 'DD/MM/YYYY')*/
+    --AND c.value_date <> c.deal_date
+   /*   ORDER BY OPERACION_TIPO*/
+         
+  	      ]]>
+   </sqlStatement >
+   <sqlStatement name="CANCELADO_USD">
+	<![CDATA[
+		-------------------------------------OPERACIONES CANCELADAS-----------------------------------------
+select c.value_date, c.deal_date,
+a.amount_date  AMT_DATE,
+       case
+       when (select b.transaction_number
+           from XTR_ROLLOVER_TRANSACTIONS b
+          where b.cross_ref_to_trans = a.transaction_number
+            and b.deal_number = a.deal_number) is NOT NULL THEN
+        nvl(c.attribute_category,
+          (select distinct (b.attribute_category)
+           from XTR_ROLLOVER_TRANSACTIONS b
+          where 1 = 1
+            and b.cross_ref_to_trans = a.transaction_number
+            and b.deal_number = a.deal_number
+            and b.attribute_category is not null))
+       ELSE
+        nvl(c.attribute_category,
+          (select b.attribute_category
+           from XTR_ROLLOVER_TRANSACTIONS b
+          where b.transaction_number = a.transaction_number
+            and b.deal_number = a.deal_number
+            and b.attribute_category is not null))
+       END OPERACION_TIPO,
+       a.deal_subtype       OPERACION_SUB_TIPO,
+       a.product_type       PRODUCTO_TIPO,
+       a.cparty_code        CONTRAPARTE_CODIGO,
+       b.full_name          CONTRAPARTE_NOMBRE,
+       nvl(a.settlement_party,
+         decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+       a.amount_type        IMPORTE_TIPO,
+       a.currency           DIVISA,
+       a.cashflow_amount    LIQUIDACION_IMPORTE,
+       case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+       c.CAPITAL_PRICE PRECIO_POR_ACCION,
+       nvl(d.no_of_days, 0) PLAZO,
+       a.deal_number OPERACION_NRO,
+       a.transaction_number TRANSACCION_NRO,
+       (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+       a.settlement_authorised_by AUTH_BY,
+       a.DEALER_CODE REGISTER_BY,
+       TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+  from XTR_DEAL_DATE_AMOUNTS a
+  left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+  left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+  left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+  and a.transaction_number = d.transaction_number
+  where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+  and a.CASHFLOW_AMOUNT != 0
+  and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+  and a.STATUS_CODE != 'CANCELLED'
+  and a.CURRENCY = 'USD'
+  and a.AMOUNT_DATE = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY')
+  and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+  and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+       and a.CASHFLOW_AMOUNT > 0) 
+      or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+       and a.CASHFLOW_AMOUNT < 0))
+  and ((a.deal_type != 'FX' and d.MATURITY_DATE = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+  or (a.deal_type = 'FX' and c.value_date != TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY')))
+  
+/*  UNION ALL*/
+  -------------------------------------SOLO FORWARD-----------------------------------------
+  /*select c.value_date, c.deal_date,
+       a.amount_date        AMT_DATE,
+           case
+           when (select b.transaction_number
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number) is NOT NULL THEN
+            nvl(c.attribute_category,
+              (select distinct (b.attribute_category)
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where 1 = 1
+                and b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           ELSE
+            nvl(c.attribute_category,
+              (select b.attribute_category
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.transaction_number = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           END OPERACION_TIPO,
+           a.deal_subtype       OPERACION_SUB_TIPO,
+           a.product_type       PRODUCTO_TIPO,
+           a.cparty_code        CONTRAPARTE_CODIGO,
+           b.full_name          CONTRAPARTE_NOMBRE,
+           nvl(a.settlement_party,
+             decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+           a.amount_type        IMPORTE_TIPO,
+           a.currency           DIVISA,
+           a.cashflow_amount    LIQUIDACION_IMPORTE,
+           case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+           c.CAPITAL_PRICE PRECIO_POR_ACCION,
+           nvl(d.no_of_days, 0) PLAZO,
+           a.deal_number OPERACION_NRO,
+           a.transaction_number TRANSACCION_NRO,
+           (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+           a.settlement_authorised_by AUTH_BY,
+           a.DEALER_CODE REGISTER_BY,
+           TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+      from XTR_DEAL_DATE_AMOUNTS a
+      left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+      left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+      left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+      and a.transaction_number = d.transaction_number
+      where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+      and a.CASHFLOW_AMOUNT != 0
+      and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+      and a.STATUS_CODE != 'CANCELLED'
+      and a.CURRENCY = 'USD'
+      and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+      and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT > 0) 
+          or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT < 0))
+      and (a.deal_subtype = 'FORWARD' and c.value_date = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+      
+      UNION ALL*/
+   /*   -------------------------------------SOLO SPOT-----------------------------------------
+  select c.value_date, c.deal_date,
+       a.amount_date        AMT_DATE,
+           case
+           when (select b.transaction_number
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number) is NOT NULL THEN
+            nvl(c.attribute_category,
+              (select distinct (b.attribute_category)
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where 1 = 1
+                and b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           ELSE
+            nvl(c.attribute_category,
+              (select b.attribute_category
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.transaction_number = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           END OPERACION_TIPO,
+           a.deal_subtype       OPERACION_SUB_TIPO,
+           a.product_type       PRODUCTO_TIPO,
+           a.cparty_code        CONTRAPARTE_CODIGO,
+           b.full_name          CONTRAPARTE_NOMBRE,
+           nvl(a.settlement_party,
+             decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+           a.amount_type        IMPORTE_TIPO,
+           a.currency           DIVISA,
+           a.cashflow_amount    LIQUIDACION_IMPORTE,
+           case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+           c.CAPITAL_PRICE PRECIO_POR_ACCION,
+           nvl(d.no_of_days, 0) PLAZO,
+           a.deal_number OPERACION_NRO,
+           a.transaction_number TRANSACCION_NRO,
+           (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+           a.settlement_authorised_by AUTH_BY,
+           a.DEALER_CODE REGISTER_BY,
+           TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+      from XTR_DEAL_DATE_AMOUNTS a
+      left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+      left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+      left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+      and a.transaction_number = d.transaction_number
+      where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+      and a.CASHFLOW_AMOUNT != 0
+      and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+      and a.STATUS_CODE != 'CANCELLED'
+      and a.CURRENCY = 'USD'
+      and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+      and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT > 0) 
+          or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT < 0))
+      --and (a.deal_subtype = 'SPOT' and c.value_date = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+      AND a.deal_subtype = 'SPOT'
+    AND c.value_date = TO_CHAR(TO_DATE(:P_DATE, 'YYYY/MM/DD HH24:MI:SS'), 'DD/MM/YYYY')
+    --AND c.value_date <> c.deal_date*/
+      ORDER BY OPERACION_TIPO
+  	      ]]>
+   </sqlStatement >
+   <sqlStatement name="ACTIVO_PEN">
+	<![CDATA[
+	-------------------------------------OPERACIONES DEL DIA-----------------------------------------
+select c.value_date, c.deal_date,
+         a.amount_date        AMT_DATE,
+         case
+         when (select b.transaction_number
+             from XTR_ROLLOVER_TRANSACTIONS b
+            where b.cross_ref_to_trans = a.transaction_number
+              and b.deal_number = a.deal_number) is NOT NULL THEN
+          nvl(c.attribute_category,
+            (select distinct (b.attribute_category)
+             from XTR_ROLLOVER_TRANSACTIONS b
+            where 1 = 1
+              and b.cross_ref_to_trans = a.transaction_number
+              and b.deal_number = a.deal_number
+              and b.attribute_category is not null))
+         ELSE
+          nvl(c.attribute_category,
+            (select b.attribute_category
+             from XTR_ROLLOVER_TRANSACTIONS b
+            where b.transaction_number = a.transaction_number
+              and b.deal_number = a.deal_number
+              and b.attribute_category is not null))
+         END OPERACION_TIPO,
+         a.deal_subtype       OPERACION_SUB_TIPO,
+         a.product_type       PRODUCTO_TIPO,
+         a.cparty_code        CONTRAPARTE_CODIGO,
+         b.full_name          CONTRAPARTE_NOMBRE,
+         nvl(a.settlement_party,
+           decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+         a.amount_type        IMPORTE_TIPO,
+         a.currency           DIVISA,
+         a.cashflow_amount    LIQUIDACION_IMPORTE,
+         case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+         c.CAPITAL_PRICE PRECIO_POR_ACCION,
+         nvl(d.no_of_days, 0) PLAZO,
+         a.deal_number OPERACION_NRO,
+         a.transaction_number TRANSACCION_NRO,
+         (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+         a.settlement_authorised_by AUTH_BY,
+         a.DEALER_CODE REGISTER_BY,
+         TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+    from XTR_DEAL_DATE_AMOUNTS a
+    left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+    left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+    left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+    and a.transaction_number = d.transaction_number
+    where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+    and a.CASHFLOW_AMOUNT != 0
+    and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+    and a.STATUS_CODE != 'CANCELLED'
+    and a.CURRENCY = 'PEN'
+    and a.AMOUNT_DATE = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY')
+    and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+    and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+         and a.CASHFLOW_AMOUNT > 0) 
+        or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+         and a.CASHFLOW_AMOUNT < 0))
+    and (a.deal_type != 'FX' and d.MATURITY_DATE != TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY') 
+    and d.START_DATE = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+  
+  UNION ALL
+  -------------------------------------SOLO FORWARDS-----------------------------------------
+  select c.value_date, c.deal_date,
+       a.amount_date        AMT_DATE,
+           case
+           when (select b.transaction_number
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number) is NOT NULL THEN
+            nvl(c.attribute_category,
+              (select distinct (b.attribute_category)
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where 1 = 1
+                and b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           ELSE
+            nvl(c.attribute_category,
+              (select b.attribute_category
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.transaction_number = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           END OPERACION_TIPO,
+           a.deal_subtype       OPERACION_SUB_TIPO,
+           a.product_type       PRODUCTO_TIPO,
+           a.cparty_code        CONTRAPARTE_CODIGO,
+           b.full_name          CONTRAPARTE_NOMBRE,
+           nvl(a.settlement_party,
+             decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+           a.amount_type        IMPORTE_TIPO,
+           a.currency           DIVISA,
+           a.cashflow_amount    LIQUIDACION_IMPORTE,
+           case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+           c.CAPITAL_PRICE PRECIO_POR_ACCION,
+           nvl(d.no_of_days, 0) PLAZO,
+           a.deal_number OPERACION_NRO,
+           a.transaction_number TRANSACCION_NRO,
+           (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+           a.settlement_authorised_by AUTH_BY,
+           a.DEALER_CODE REGISTER_BY,
+           TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+      from XTR_DEAL_DATE_AMOUNTS a
+      left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+      left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+      left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+      and a.transaction_number = d.transaction_number
+      where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+      and a.CASHFLOW_AMOUNT != 0
+      and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+      and a.STATUS_CODE != 'CANCELLED'
+      and a.CURRENCY = 'PEN'
+      and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+      and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT > 0) 
+          or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT < 0))
+      and (a.deal_subtype = 'FORWARD' and c.deal_date = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+      
+      UNION ALL
+      -------------------------------------SOLO SPOTS-----------------------------------------
+ select c.value_date, c.deal_date,
+       a.amount_date        AMT_DATE,
+           case
+           when (select b.transaction_number
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number) is NOT NULL THEN
+            nvl(c.attribute_category,
+              (select distinct (b.attribute_category)
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where 1 = 1
+                and b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           ELSE
+            nvl(c.attribute_category,
+              (select b.attribute_category
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.transaction_number = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           END OPERACION_TIPO,
+           a.deal_subtype       OPERACION_SUB_TIPO,
+           a.product_type       PRODUCTO_TIPO,
+           a.cparty_code        CONTRAPARTE_CODIGO,
+           b.full_name          CONTRAPARTE_NOMBRE,
+           nvl(a.settlement_party,
+             decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+           a.amount_type        IMPORTE_TIPO,
+           a.currency           DIVISA,
+           a.cashflow_amount    LIQUIDACION_IMPORTE,
+           case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+           c.CAPITAL_PRICE PRECIO_POR_ACCION,
+           nvl(d.no_of_days, 0) PLAZO,
+           a.deal_number OPERACION_NRO,
+           a.transaction_number TRANSACCION_NRO,
+           (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+           a.settlement_authorised_by AUTH_BY,
+           a.DEALER_CODE REGISTER_BY,
+           TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+      from XTR_DEAL_DATE_AMOUNTS a
+      left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+      left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+      left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+      and a.transaction_number = d.transaction_number
+      where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+      and a.CASHFLOW_AMOUNT != 0
+      and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+      and a.STATUS_CODE != 'CANCELLED'
+      and a.CURRENCY = 'USD'
+      and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+      and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT > 0) 
+          or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT < 0))
+      --and (a.deal_subtype = 'SPOT' and c.value_date = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+      AND a.deal_subtype = 'SPOT'
+    AND c.value_date = TO_CHAR(TO_DATE(:P_DATE, 'YYYY/MM/DD HH24:MI:SS'), 'DD/MM/YYYY')
+    --AND c.value_date <> c.deal_date
+      ORDER BY OPERACION_TIPO
+  	      ]]>
+   </sqlStatement >
+   
+ <sqlStatement name="ACTIVO_USD">
+	<![CDATA[
+	-------------------------------------OPERACIONES DEL DIA-----------------------------------------
+select c.value_date, c.deal_date,
+         a.amount_date        AMT_DATE,
+         case
+         when (select b.transaction_number
+             from XTR_ROLLOVER_TRANSACTIONS b
+            where b.cross_ref_to_trans = a.transaction_number
+              and b.deal_number = a.deal_number) is NOT NULL THEN
+          nvl(c.attribute_category,
+            (select distinct (b.attribute_category)
+             from XTR_ROLLOVER_TRANSACTIONS b
+            where 1 = 1
+              and b.cross_ref_to_trans = a.transaction_number
+              and b.deal_number = a.deal_number
+              and b.attribute_category is not null))
+         ELSE
+          nvl(c.attribute_category,
+            (select b.attribute_category
+             from XTR_ROLLOVER_TRANSACTIONS b
+            where b.transaction_number = a.transaction_number
+              and b.deal_number = a.deal_number
+              and b.attribute_category is not null))
+         END OPERACION_TIPO,
+         a.deal_subtype       OPERACION_SUB_TIPO,
+         a.product_type       PRODUCTO_TIPO,
+         a.cparty_code        CONTRAPARTE_CODIGO,
+         b.full_name          CONTRAPARTE_NOMBRE,
+         nvl(a.settlement_party,
+           decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+         a.amount_type        IMPORTE_TIPO,
+         a.currency           DIVISA,
+         a.cashflow_amount    LIQUIDACION_IMPORTE,
+         case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+         c.CAPITAL_PRICE PRECIO_POR_ACCION,
+         nvl(d.no_of_days, 0) PLAZO,
+         a.deal_number OPERACION_NRO,
+         a.transaction_number TRANSACCION_NRO,
+         (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+         a.settlement_authorised_by AUTH_BY,
+         a.DEALER_CODE REGISTER_BY,
+         TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+    from XTR_DEAL_DATE_AMOUNTS a
+    left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+    left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+    left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+    and a.transaction_number = d.transaction_number
+    where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+    and a.CASHFLOW_AMOUNT != 0
+    and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+    and a.STATUS_CODE != 'CANCELLED'
+    and a.CURRENCY = 'PEN'
+    and a.AMOUNT_DATE = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY')
+    and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+    and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+         and a.CASHFLOW_AMOUNT > 0) 
+        or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+         and a.CASHFLOW_AMOUNT < 0))
+    and (a.deal_type != 'FX' and d.MATURITY_DATE != TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY') 
+    and d.START_DATE = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+  
+  UNION ALL
+  -------------------------------------SOLO FORWARDS-----------------------------------------
+  select c.value_date, c.deal_date,
+       a.amount_date        AMT_DATE,
+           case
+           when (select b.transaction_number
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number) is NOT NULL THEN
+            nvl(c.attribute_category,
+              (select distinct (b.attribute_category)
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where 1 = 1
+                and b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           ELSE
+            nvl(c.attribute_category,
+              (select b.attribute_category
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.transaction_number = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           END OPERACION_TIPO,
+           a.deal_subtype       OPERACION_SUB_TIPO,
+           a.product_type       PRODUCTO_TIPO,
+           a.cparty_code        CONTRAPARTE_CODIGO,
+           b.full_name          CONTRAPARTE_NOMBRE,
+           nvl(a.settlement_party,
+             decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+           a.amount_type        IMPORTE_TIPO,
+           a.currency           DIVISA,
+           a.cashflow_amount    LIQUIDACION_IMPORTE,
+           case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+           c.CAPITAL_PRICE PRECIO_POR_ACCION,
+           nvl(d.no_of_days, 0) PLAZO,
+           a.deal_number OPERACION_NRO,
+           a.transaction_number TRANSACCION_NRO,
+           (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+           a.settlement_authorised_by AUTH_BY,
+           a.DEALER_CODE REGISTER_BY,
+           TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+      from XTR_DEAL_DATE_AMOUNTS a
+      left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+      left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+      left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+      and a.transaction_number = d.transaction_number
+      where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+      and a.CASHFLOW_AMOUNT != 0
+      and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+      and a.STATUS_CODE != 'CANCELLED'
+      and a.CURRENCY = 'PEN'
+      and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+      and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT > 0) 
+          or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT < 0))
+      and (a.deal_subtype = 'FORWARD' and c.deal_date = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+      
+      UNION ALL
+      -------------------------------------SOLO SPOTS-----------------------------------------
+ select c.value_date, c.deal_date,
+       a.amount_date        AMT_DATE,
+           case
+           when (select b.transaction_number
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number) is NOT NULL THEN
+            nvl(c.attribute_category,
+              (select distinct (b.attribute_category)
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where 1 = 1
+                and b.cross_ref_to_trans = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           ELSE
+            nvl(c.attribute_category,
+              (select b.attribute_category
+               from XTR_ROLLOVER_TRANSACTIONS b
+              where b.transaction_number = a.transaction_number
+                and b.deal_number = a.deal_number
+                and b.attribute_category is not null))
+           END OPERACION_TIPO,
+           a.deal_subtype       OPERACION_SUB_TIPO,
+           a.product_type       PRODUCTO_TIPO,
+           a.cparty_code        CONTRAPARTE_CODIGO,
+           b.full_name          CONTRAPARTE_NOMBRE,
+           nvl(a.settlement_party,
+             decode(sign(a.cashflow_amount), -1, a.cparty_code, a.company_code)) BENEFICIARY,
+           a.amount_type        IMPORTE_TIPO,
+           a.currency           DIVISA,
+           a.cashflow_amount    LIQUIDACION_IMPORTE,
+           case
+       when a.deal_type = 'ONC' then
+        TO_CHAR(d.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'NI' then
+        TO_CHAR(c.interest_rate, 'FM999999.0000')
+       when a.deal_type = 'BOND' then
+        TO_CHAR(c.coupon_rate, 'FM999999.0000')
+       end                  TASA,
+       TO_CHAR(c.TRANSACTION_RATE, 'FM999999.00000') AS TIPO_CAMBIO,
+           c.CAPITAL_PRICE PRECIO_POR_ACCION,
+           nvl(d.no_of_days, 0) PLAZO,
+           a.deal_number OPERACION_NRO,
+           a.transaction_number TRANSACCION_NRO,
+           (a.account_no || ' - ' || a.cparty_code) as NRO_CUENTA_COMPAÑIA,
+           a.settlement_authorised_by AUTH_BY,
+           a.DEALER_CODE REGISTER_BY,
+           TO_CHAR(d.MATURITY_DATE, 'DD/MM/YYYY') MATURITY_DATE
+      from XTR_DEAL_DATE_AMOUNTS a
+      left join XTR_PARTY_INFO b on a.cparty_code = b.PARTY_CODE
+      left join XTR_DEALS c on a.DEAL_NUMBER = c.DEAL_NO 
+      left join XTR_ROLLOVER_TRANSACTIONS d on a.deal_number = d.deal_number 
+      and a.transaction_number = d.transaction_number
+      where a.COMPANY_CODE like nvl(upper('CMACAQP'), a.COMPANY_CODE)
+      and a.CASHFLOW_AMOUNT != 0
+      and nvl(a.MULTIPLE_SETTLEMENTS, 'N') != 'Y'
+      and a.STATUS_CODE != 'CANCELLED'
+      and a.CURRENCY = 'USD'
+      and a.SETTLE = decode('ALL','AUTHORIZED','Y','UNAUTHORIZED','N',a.SETTLE) 
+      and ((nvl(a.SETTLEMENT_PARTY,a.COMPANY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT > 0) 
+          or (nvl(a.SETTLEMENT_PARTY,a.CPARTY_CODE) like nvl(upper(''),'%')
+           and a.CASHFLOW_AMOUNT < 0))
+      --and (a.deal_subtype = 'SPOT' and c.value_date = TO_CHAR(TO_DATE(:P_DATE,'YYYY/MM/DD HH24:MI:SS'),'DD/MM/YYYY'))
+      AND a.deal_subtype = 'SPOT'
+    AND c.value_date = TO_CHAR(TO_DATE(:P_DATE, 'YYYY/MM/DD HH24:MI:SS'), 'DD/MM/YYYY')
+    --AND c.value_date <> c.deal_date
+      ORDER BY OPERACION_TIPO
+  	      ]]>
+   </sqlStatement >
+   <sqlStatement name="FECHA">
+	<![CDATA[
+	SELECT TO_CHAR(TO_DATE(:P_DATE, 'YYYY/MM/DD HH24:MI:SS'), 'DD/MM/YYYY') F_PERIODO, TO_CHAR(SYSDATE, 'DD/MM/YYYY') F_REPORTE FROM DUAL
+  	      ]]>
+   </sqlStatement >
+</dataQuery>
+
+	<dataStructure>	
+        
+			<group name="CPEN" source="CANCELADO_PEN">
+					<element name = "AMT_DATE"         value = "AMT_DATE"/>
+					<element name = "OPERACION_TIPO"         value = "OPERACION_TIPO"/>
+					<element name = "OPERACION_SUB_TIPO"         value = "OPERACION_SUB_TIPO"/>
+					<element name = "PRODUCTO_TIPO"         value = "PRODUCTO_TIPO"/>
+					<element name = "CONTRAPARTE_CODIGO"         value = "CONTRAPARTE_CODIGO"/>
+					<element name = "CONTRAPARTE_NOMBRE"         value = "CONTRAPARTE_NOMBRE"/>
+					<element name = "BENEFICIARY"         value = "BENEFICIARY"/>
+					<element name = "IMPORTE_TIPO"         value = "IMPORTE_TIPO"/>
+					<element name = "DIVISA"         value = "DIVISA"/>
+					<element name = "LIQUIDACION_IMPORTE"         value = "LIQUIDACION_IMPORTE"/>
+					<element name = "TASA"         value = "TASA"/>
+					<element name = "TIPO_CAMBIO"         value = "TIPO_CAMBIO"/>
+					<element name = "PRECIO_POR_ACCION"         value = "PRECIO_POR_ACCION"/>
+					<element name = "PLAZO"         value = "PLAZO"/>
+					<element name = "OPERACION_NRO"         value = "OPERACION_NRO"/>
+					<element name = "TRANSACCION_NRO"         value = "TRANSACCION_NRO"/>
+					<element name = "NRO_CUENTA_COMPAÑIA"         value = "NRO_CUENTA_COMPAÑIA"/>
+					<element name = "AUTH_BY"         value = "AUTH_BY"/>
+					<element name = "REGISTER_BY"         value = "REGISTER_BY"/>
+					<element name = "CODE"         value = "CODE"/>
+					<element name = "MATURITY_DATE"         value = "MATURITY_DATE"/>
+			</group>
+			
+			<group name="CUSD" source="CANCELADO_USD">
+					<element name = "AMT_DATE"         value = "AMT_DATE"/>
+					<element name = "OPERACION_TIPO"         value = "OPERACION_TIPO"/>
+					<element name = "OPERACION_SUB_TIPO"         value = "OPERACION_SUB_TIPO"/>
+					<element name = "PRODUCTO_TIPO"         value = "PRODUCTO_TIPO"/>
+					<element name = "CONTRAPARTE_CODIGO"         value = "CONTRAPARTE_CODIGO"/>
+					<element name = "CONTRAPARTE_NOMBRE"         value = "CONTRAPARTE_NOMBRE"/>
+					<element name = "BENEFICIARY"         value = "BENEFICIARY"/>
+					<element name = "IMPORTE_TIPO"         value = "IMPORTE_TIPO"/>
+					<element name = "DIVISA"         value = "DIVISA"/>
+					<element name = "LIQUIDACION_IMPORTE"         value = "LIQUIDACION_IMPORTE"/>
+					<element name = "TASA"         value = "TASA"/>
+					<element name = "TIPO_CAMBIO"         value = "TIPO_CAMBIO"/>
+					<element name = "PRECIO_POR_ACCION"         value = "PRECIO_POR_ACCION"/>
+					<element name = "PLAZO"         value = "PLAZO"/>
+					<element name = "OPERACION_NRO"         value = "OPERACION_NRO"/>
+					<element name = "TRANSACCION_NRO"         value = "TRANSACCION_NRO"/>
+					<element name = "NRO_CUENTA_COMPAÑIA"         value = "NRO_CUENTA_COMPAÑIA"/>
+					<element name = "AUTH_BY"         value = "AUTH_BY"/>
+					<element name = "REGISTER_BY"         value = "REGISTER_BY"/>
+					<element name = "CODE"         value = "CODE"/>
+					<element name = "MATURITY_DATE"         value = "MATURITY_DATE"/>
+			</group>
+			
+			
+			<group name="APEN" source="ACTIVO_PEN">
+					<element name = "AMT_DATE"         value = "AMT_DATE"/>
+					<element name = "OPERACION_TIPO"         value = "OPERACION_TIPO"/>
+					<element name = "OPERACION_SUB_TIPO"         value = "OPERACION_SUB_TIPO"/>
+					<element name = "PRODUCTO_TIPO"         value = "PRODUCTO_TIPO"/>
+					<element name = "CONTRAPARTE_CODIGO"         value = "CONTRAPARTE_CODIGO"/>
+					<element name = "CONTRAPARTE_NOMBRE"         value = "CONTRAPARTE_NOMBRE"/>
+					<element name = "BENEFICIARY"         value = "BENEFICIARY"/>
+					<element name = "IMPORTE_TIPO"         value = "IMPORTE_TIPO"/>
+					<element name = "DIVISA"         value = "DIVISA"/>
+					<element name = "LIQUIDACION_IMPORTE"         value = "LIQUIDACION_IMPORTE"/>
+					<element name = "TASA"         value = "TASA"/>
+					<element name = "TIPO_CAMBIO"         value = "TIPO_CAMBIO"/>
+					<element name = "PRECIO_POR_ACCION"         value = "PRECIO_POR_ACCION"/>
+					<element name = "PLAZO"         value = "PLAZO"/>
+					<element name = "OPERACION_NRO"         value = "OPERACION_NRO"/>
+					<element name = "TRANSACCION_NRO"         value = "TRANSACCION_NRO"/>
+					<element name = "NRO_CUENTA_COMPAÑIA"         value = "NRO_CUENTA_COMPAÑIA"/>
+					<element name = "AUTH_BY"         value = "AUTH_BY"/>
+					<element name = "REGISTER_BY"         value = "REGISTER_BY"/>
+					<element name = "CODE"         value = "CODE"/>
+					<element name = "MATURITY_DATE"         value = "MATURITY_DATE"/>
+			</group>
+			
+			<group name="AUSD" source="ACTIVO_USD">
+					<element name = "AMT_DATE"         value = "AMT_DATE"/>
+					<element name = "OPERACION_TIPO"         value = "OPERACION_TIPO"/>
+					<element name = "OPERACION_SUB_TIPO"         value = "OPERACION_SUB_TIPO"/>
+					<element name = "PRODUCTO_TIPO"         value = "PRODUCTO_TIPO"/>
+					<element name = "CONTRAPARTE_CODIGO"         value = "CONTRAPARTE_CODIGO"/>
+					<element name = "CONTRAPARTE_NOMBRE"         value = "CONTRAPARTE_NOMBRE"/>
+					<element name = "BENEFICIARY"         value = "BENEFICIARY"/>
+					<element name = "IMPORTE_TIPO"         value = "IMPORTE_TIPO"/>
+					<element name = "DIVISA"         value = "DIVISA"/>
+					<element name = "LIQUIDACION_IMPORTE"         value = "LIQUIDACION_IMPORTE"/>
+					<element name = "TASA"         value = "TASA"/>
+					<element name = "TIPO_CAMBIO"         value = "TIPO_CAMBIO"/>
+					<element name = "PRECIO_POR_ACCION"         value = "PRECIO_POR_ACCION"/>
+					<element name = "PLAZO"         value = "PLAZO"/>
+					<element name = "OPERACION_NRO"         value = "OPERACION_NRO"/>
+					<element name = "TRANSACCION_NRO"         value = "TRANSACCION_NRO"/>
+					<element name = "NRO_CUENTA_COMPAÑIA"         value = "NRO_CUENTA_COMPAÑIA"/>
+					<element name = "AUTH_BY"         value = "AUTH_BY"/>
+					<element name = "REGISTER_BY"         value = "REGISTER_BY"/>
+					<element name = "CODE"         value = "CODE"/>
+					<element name = "MATURITY_DATE"         value = "MATURITY_DATE"/>
+			</group>
+			
+			<group name="FECHA" source="FECHA">
+					<element name = "F_PERIODO"         value = "F_PERIODO"/>
+					<element name = "F_REPORTE"         value = "F_REPORTE"/>
+			</group>
+	</dataStructure>
+	
+</dataTemplate>

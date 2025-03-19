@@ -1,0 +1,92 @@
+// Decompiled by DJ v3.2.2.67 Copyright 2002 Atanas Neshkov  Date: 29/03/2005 17:08:21
+// Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
+// Decompiler options: packimports(3) 
+// Source File Name:   crtjdbccalls.java
+
+package com.dlya.bantotal;
+
+import com.genexus.*;
+
+public final class crtjdbccalls extends GXProcedure
+{
+
+    public static void main(String args[])
+    {
+        Application.init(com.dlya.bantotal.GXcfg.class);
+        (new crtjdbccalls(-1)).execute();
+    }
+
+    public void initialize()
+    {
+    }
+
+    public void execute()
+    {
+        cmdBuffer = " DROP PROCEDURE PBAE011S ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PBAE011S (INOUT NUMERIC(3,0), INOUT CHAR(8), INOUT NUMERIC(3,0), INOUT CHAR(10)) EXTERNAL NAME PBAE011S LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PBAE010S ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PBAE010S (INOUT NUMERIC(3,0), INOUT CHAR(8), INOUT NUMERIC(3,0), INOUT CHAR(10)) EXTERNAL NAME PBAE010S LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PBAE013S ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PBAE013S (INOUT NUMERIC(3,0), INOUT NUMERIC(4,0), INOUT NUMERIC(2,0), INOUT NUMERIC(3,0), INOUT CHAR(10)) EXTERNAL NAME PBAE013S LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PX15302S ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PX15302S (INOUT NUMERIC(3,0), INOUT CHAR(8), INOUT CHAR(8), INOUT CHAR(1), INOUT CHAR(10)) EXTERNAL NAME PX15302S LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PP006SRV ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PP006SRV (INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(4,0), INOUT NUMERIC(5,0), INOUT CHAR(10), INOUT CHAR(10)) EXTERNAL NAME PP006SRV LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PP006SRV ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PP006SRV (INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(4,0), INOUT NUMERIC(5,0), INOUT CHAR(10), INOUT CHAR(10)) EXTERNAL NAME PP006SRV LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PP006RBX ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PP006RBX (INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(4,0), INOUT NUMERIC(4,0), INOUT CHAR(8), INOUT CHAR(1), INOUT NUMERIC(5,0), INOUT CHAR(10), INOUT CHAR(10)) EXTERNAL NAME PP006RBX LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PP006RBX ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PP006RBX (INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(4,0), INOUT NUMERIC(4,0), INOUT CHAR(8), INOUT CHAR(1), INOUT NUMERIC(5,0), INOUT CHAR(10), INOUT CHAR(10)) EXTERNAL NAME PP006RBX LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PW103SRV ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PW103SRV (INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(3,0), INOUT NUMERIC(4,0), INOUT CHAR(8), INOUT NUMERIC(5,0), INOUT CHAR(10)) EXTERNAL NAME PW103SRV LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PBAT098 ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PBAT098 (INOUT CHAR(10), INOUT NUMERIC(3,0), INOUT CHAR(8), INOUT CHAR(8), INOUT CHAR(1), INOUT CHAR(6), INOUT CHAR(100), INOUT NUMERIC(5,0), INOUT NUMERIC(3,0)) EXTERNAL NAME PBAT098 LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PBATCA4 ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PBATCA4 (INOUT CHAR(10), INOUT NUMERIC(3,0), INOUT CHAR(8), INOUT CHAR(8), INOUT CHAR(1)) EXTERNAL NAME PBATCA4 LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PBATCALL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PBATCALL (INOUT CHAR(10), INOUT NUMERIC(3,0), INOUT CHAR(8), INOUT CHAR(8), INOUT CHAR(1), INOUT CHAR(100), INOUT NUMERIC(5,0), INOUT NUMERIC(3,0)) EXTERNAL NAME PBATCALL LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " DROP PROCEDURE PP014JAS ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        cmdBuffer = " CREATE PROCEDURE PP014JAS (INOUT NUMERIC(5,0), INOUT NUMERIC(3,0), INOUT CHAR(8), INOUT CHAR(8), INOUT CHAR(1), INOUT NUMERIC(9,0)) EXTERNAL NAME PP014JAS LANGUAGE RPG GENERAL ";
+        ExecuteDirectSQL.execute(super.context, super.remoteHandle, "DEFAULT", cmdBuffer);
+        Application.commit(super.context, super.remoteHandle, "DEFAULT", "prte102bweb");
+        System.exit(0);
+    }
+
+    public crtjdbccalls(int i)
+    {
+        super(i, new ModelContext(com.dlya.bantotal.crtjdbccalls.class), "");
+    }
+
+    public crtjdbccalls(int i, ModelContext modelcontext)
+    {
+        super(i, modelcontext, "");
+    }
+
+    private String cmdBuffer;
+}
