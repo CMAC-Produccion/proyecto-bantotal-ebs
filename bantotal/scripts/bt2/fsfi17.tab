@@ -1,0 +1,47 @@
+create table FSFI17
+(
+  sfi17corr  NUMBER(9) not null,
+  sfi17emp   NUMBER(3) not null,
+  sfi17suc   NUMBER(3) not null,
+  sfi17mod   NUMBER(3) not null,
+  sfi17pap   NUMBER(4) not null,
+  sfi17ope   NUMBER(9) not null,
+  sfi17cta   NUMBER(9) not null,
+  sfi17top   NUMBER(3) not null,
+  sfi17rel   NUMBER(3) not null,
+  sfi17bemp  NUMBER(3) not null,
+  sfi17bsuc  NUMBER(3) not null,
+  sfi17bmod  NUMBER(3) not null,
+  sfi17bpap  NUMBER(4) not null,
+  sfi17bope  NUMBER(9) not null,
+  sfi17bcta  NUMBER(16) not null,
+  sfi17btop  NUMBER(3) not null,
+  sfi17imp01 NUMBER(17,2),
+  sfi17imp02 NUMBER(17,2),
+  sfi17imp03 NUMBER(17,2),
+  sfi17imp04 NUMBER(17,2),
+  sfi17imp05 NUMBER(17,2),
+  sfi17pre01 NUMBER(14,8),
+  sfi17pre02 NUMBER(14,8),
+  sfi17pre03 NUMBER(14,8),
+  sfi17cta01 NUMBER(9),
+  sfi17cta02 NUMBER(9),
+  sfi17cta03 NUMBER(9),
+  sfi17ope01 NUMBER(9),
+  sfi17ope02 NUMBER(9),
+  sfi17ope03 NUMBER(9),
+  sfi17mda01 NUMBER(4),
+  sfi17mda02 NUMBER(4),
+  sfi17mda03 NUMBER(4),
+  sfi17aux01 CHAR(1),
+  sfi17aux02 CHAR(1),
+  sfi17aux03 NUMBER(16),
+  sfi17aux04 NUMBER(16),
+  sfi17aux05 CHAR(20),
+  sfi17aux06 CHAR(20)
+)
+;
+create index FSFI1702 on FSFI17 (SFI17CORR, SFI17BEMP, SFI17BSUC, SFI17BMOD, SFI17BPAP, SFI17BOPE, SFI17BCTA, SFI17BTOP, SFI17REL, SFI17EMP, SFI17SUC, SFI17MOD, SFI17PAP, SFI17OPE, SFI17CTA, SFI17TOP);
+alter table FSFI17
+  add primary key (SFI17CORR, SFI17EMP, SFI17SUC, SFI17MOD, SFI17PAP, SFI17OPE, SFI17CTA, SFI17TOP, SFI17REL, SFI17BEMP, SFI17BSUC, SFI17BMOD, SFI17BPAP, SFI17BOPE, SFI17BCTA, SFI17BTOP);
+

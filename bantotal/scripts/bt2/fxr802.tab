@@ -1,0 +1,17 @@
+create table FXR802
+(
+  pgcod  NUMBER(3) not null,
+  numtip NUMBER(2) not null,
+  msgnum NUMBER(9) not null,
+  swtcod NUMBER(5) not null,
+  swtrel NUMBER(2) not null,
+  modulo NUMBER(3) not null,
+  operac NUMBER(9) not null,
+  subope NUMBER(3) not null
+)
+;
+create index FXR80202 on FXR802 (PGCOD, MODULO, OPERAC, SUBOPE);
+create index FXR80210 on FXR802 (PGCOD, SWTCOD, SWTREL, MODULO, OPERAC, SUBOPE, NUMTIP, MSGNUM);
+alter table FXR802
+  add primary key (PGCOD, NUMTIP, MSGNUM, SWTCOD, SWTREL, MODULO, OPERAC, SUBOPE);
+

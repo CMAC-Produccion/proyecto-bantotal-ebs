@@ -1,0 +1,39 @@
+create table PXFPFMZF
+(
+  opsior CHAR(2) not null,
+  opnfid NUMBER(7) not null,
+  opfces DATE not null,
+  opsuag NUMBER(4) not null,
+  opnuax NUMBER(9) not null,
+  opnuor NUMBER(2) not null,
+  opnomb CHAR(50),
+  opcall CHAR(35),
+  opnume NUMBER(6),
+  opunid NUMBER(4),
+  opcpos NUMBER(4),
+  oploca CHAR(15),
+  opprov CHAR(30),
+  opnroc NUMBER(13),
+  opimpo NUMBER(14,2),
+  opscap NUMBER(14,2),
+  opintd NUMBER(14,2),
+  opcomd NUMBER(14,2),
+  oppund NUMBER(14,2),
+  optasa NUMBER(6,4),
+  opplcu NUMBER(4),
+  opulpa DATE,
+  opdiat NUMBER(4),
+  opsapr NUMBER(14,2),
+  opclas NUMBER(1),
+  opfsal DATE,
+  op1vim DATE,
+  opfori DATE,
+  opscor NUMBER(14,2),
+  opsnco NUMBER(14,2),
+  opspco NUMBER(14,2),
+  opspnc NUMBER(14,2)
+)
+;
+alter table PXFPFMZF
+  add primary key (OPSIOR, OPNFID, OPFCES, OPSUAG, OPNUAX, OPNUOR);
+

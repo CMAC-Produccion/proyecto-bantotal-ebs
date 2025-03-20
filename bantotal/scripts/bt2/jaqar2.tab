@@ -1,0 +1,31 @@
+create table JAQAR2
+(
+  jaqar2anio NUMBER(4) not null,
+  jaqar2fmes NUMBER(2) not null,
+  jaqar2opsa NUMBER(3) not null,
+  jaqar2cana NUMBER(3) not null,
+  jaqar2pfis NUMBER(15),
+  jaqar2pjud NUMBER(15),
+  jaqar2quty NUMBER(15)
+)
+;
+comment on table JAQAR2
+  is 'Totalizadores por OPS y Canal';
+comment on column JAQAR2.jaqar2anio
+  is 'Año de Proceso';
+comment on column JAQAR2.jaqar2fmes
+  is 'Mes de Proceso';
+comment on column JAQAR2.jaqar2opsa
+  is 'OPS Asociada';
+comment on column JAQAR2.jaqar2cana
+  is 'Canal';
+comment on column JAQAR2.jaqar2pfis
+  is 'Persona Física';
+comment on column JAQAR2.jaqar2pjud
+  is 'Persona Jurídica';
+comment on column JAQAR2.jaqar2quty
+  is 'Total';
+create index JAQAR201 on JAQAR2 (JAQAR2OPSA, JAQAR2CANA);
+alter table JAQAR2
+  add primary key (JAQAR2ANIO, JAQAR2FMES, JAQAR2OPSA, JAQAR2CANA);
+

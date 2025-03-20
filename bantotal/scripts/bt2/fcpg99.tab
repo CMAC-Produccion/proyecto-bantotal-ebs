@@ -1,0 +1,18 @@
+create table FCPG99
+(
+  cpg99ins  NUMBER(10) not null,
+  cpg99wit  NUMBER(10) not null,
+  cpg99tab  CHAR(10) not null,
+  cpg99corr NUMBER(8) not null,
+  cpg99xml  LONG,
+  cpg99est  CHAR(1),
+  cpg99acc  CHAR(1),
+  cpg99img  CHAR(1)
+)
+;
+create index FCPG9902 on FCPG99 (CPG99INS, CPG99TAB, CPG99CORR);
+create index FCPG9903 on FCPG99 (CPG99INS, CPG99TAB, CPG99EST, CPG99CORR);
+create index FCPG9904 on FCPG99 (CPG99INS, CPG99EST, CPG99CORR);
+alter table FCPG99
+  add primary key (CPG99INS, CPG99WIT, CPG99TAB, CPG99CORR);
+

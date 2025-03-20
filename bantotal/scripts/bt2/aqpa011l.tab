@@ -1,0 +1,18 @@
+create table AQPA011L
+(
+  aqpa011lnucon NUMBER(10) not null,
+  aqpa011ltdoc  NUMBER(3) not null,
+  aqpa011lndoc  CHAR(12) not null,
+  aqpa011lburo  NUMBER(3) not null,
+  aqpa011lestad NUMBER(4),
+  aqpa011lfech  DATE,
+  aqpa011lhora  CHAR(8),
+  aqpa011lseria NUMBER(10),
+  aqpa011lhoraa CHAR(8),
+  aqpa011lfecha DATE
+)
+;
+create index AQPA011L1 on AQPA011L (AQPA011LTDOC, AQPA011LNDOC, AQPA011LBURO);
+alter table AQPA011L
+  add primary key (AQPA011LNUCON, AQPA011LTDOC, AQPA011LNDOC, AQPA011LBURO);
+

@@ -1,0 +1,12 @@
+create table JAQZ517
+(
+  jaqz517eval NUMBER(10) not null,
+  jaqz517cod  NUMBER(4) not null,
+  jaqz517mto  NUMBER(17,2)
+)
+;
+create index IDX_JAQZ517_01 on JAQZ517 (JAQZ517EVAL, JAQZ517COD);
+create index IDX_JAQZ517_02 on JAQZ517 (JAQZ517COD);
+alter table JAQZ517
+  add primary key (JAQZ517EVAL, JAQZ517COD);
+

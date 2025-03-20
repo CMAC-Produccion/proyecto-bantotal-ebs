@@ -1,0 +1,53 @@
+create table AQPA365
+(
+  aqpa365corr   NUMBER(4) not null,
+  aqpa365horar  CHAR(10) not null,
+  aqpa365pais   NUMBER(4) not null,
+  aqpa365tdoc   NUMBER(4) not null,
+  aqpa365ndoc   VARCHAR2(12) not null,
+  aqpa365inst   NUMBER(12) not null,
+  aqpa365frcc   DATE,
+  aqpa365enti   VARCHAR2(210),
+  aqpa365relac  VARCHAR2(25),
+  aqpa365util   NUMBER(17,2),
+  aqpa365nutil  NUMBER(17,2),
+  aqpa365factor NUMBER(10,6),
+  aqpa365cpoten NUMBER(17,2),
+  aqpa365naux1  NUMBER(17,2),
+  aqpa365naux2  NUMBER(17,2),
+  aqpa365naux3  NUMBER(17,2),
+  aqpa365vaux1  VARCHAR2(25),
+  aqpa365vaux2  VARCHAR2(25),
+  aqpa365vaux3  VARCHAR2(25),
+  aqpa365daux1  DATE,
+  aqpa365daux2  DATE,
+  aqpa365daux3  DATE
+)
+;
+comment on column AQPA365.aqpa365corr
+  is 'Correlativo';
+comment on column AQPA365.aqpa365pais
+  is 'Pais de Documento';
+comment on column AQPA365.aqpa365tdoc
+  is 'Tipo de Documento';
+comment on column AQPA365.aqpa365ndoc
+  is 'Nro de Documento';
+comment on column AQPA365.aqpa365inst
+  is 'Nro de Solicitud ';
+comment on column AQPA365.aqpa365frcc
+  is 'Fecha de RCC';
+comment on column AQPA365.aqpa365relac
+  is 'Relacion';
+comment on column AQPA365.aqpa365util
+  is 'Monto utilizado';
+comment on column AQPA365.aqpa365nutil
+  is 'Monto No Utilizado';
+comment on column AQPA365.aqpa365factor
+  is 'Factor';
+comment on column AQPA365.aqpa365cpoten
+  is 'Cuota Potencial';
+create index AQPA3652 on AQPA365 (AQPA365INST);
+create index AQPA3653 on AQPA365 (AQPA365PAIS, AQPA365TDOC, AQPA365NDOC);
+alter table AQPA365
+  add primary key (AQPA365CORR, AQPA365PAIS, AQPA365TDOC, AQPA365NDOC, AQPA365INST, AQPA365HORAR);
+

@@ -1,0 +1,91 @@
+create table AQPA141A
+(
+  aqpa141afec DATE not null,
+  aqpa141amod VARCHAR2(3) not null,
+  aqpa141ausr CHAR(10) not null,
+  aqpa141azon NUMBER(3) not null,
+  aqpa141asuc NUMBER(3) not null,
+  aqpa141acor NUMBER(9) not null,
+  aqpa141aage VARCHAR2(50),
+  aqpa141acod VARCHAR2(11),
+  aqpa141anom VARCHAR2(120),
+  aqpa141acar VARCHAR2(100),
+  aqpa141aing DATE,
+  aqpa141areg VARCHAR2(50),
+  aqpa141afag DATE,
+  aqpa141aant VARCHAR2(100),
+  aqpa141aan2 VARCHAR2(100),
+  aqpa141apai NUMBER(3),
+  aqpa141atpo NUMBER(2),
+  aqpa141anum CHAR(12),
+  aqpa141aax1 NUMBER(9),
+  aqpa141aax2 NUMBER(9),
+  aqpa141aax3 NUMBER(17,2),
+  aqpa141aax4 NUMBER(17,2),
+  aqpa141aax5 DATE,
+  aqpa141aax6 DATE,
+  aqpa141aax7 CHAR(100),
+  aqpa141aax8 CHAR(100),
+  aqpa141aax9 CHAR(100)
+)
+;
+comment on table AQPA141A
+  is 'DETALLE PROCESO REPORTE DE ROTACION';
+comment on column AQPA141A.aqpa141afec
+  is 'Fecha de proceso';
+comment on column AQPA141A.aqpa141amod
+  is 'Modo de ejecución';
+comment on column AQPA141A.aqpa141ausr
+  is 'Usuario negocio';
+comment on column AQPA141A.aqpa141azon
+  is 'Zona';
+comment on column AQPA141A.aqpa141asuc
+  is 'Sucursal';
+comment on column AQPA141A.aqpa141acor
+  is 'Correlativo';
+comment on column AQPA141A.aqpa141aage
+  is 'Agencia';
+comment on column AQPA141A.aqpa141acod
+  is 'Código de trabajador';
+comment on column AQPA141A.aqpa141anom
+  is 'Nombres y Apellidos';
+comment on column AQPA141A.aqpa141acar
+  is 'Cargo';
+comment on column AQPA141A.aqpa141aing
+  is 'Fecha de Ingreso';
+comment on column AQPA141A.aqpa141areg
+  is 'Región';
+comment on column AQPA141A.aqpa141afag
+  is 'Fecha de Ingreso Agencia';
+comment on column AQPA141A.aqpa141aant
+  is 'Antiguedad 1';
+comment on column AQPA141A.aqpa141aan2
+  is 'Antiguedad 2';
+comment on column AQPA141A.aqpa141apai
+  is 'Pais';
+comment on column AQPA141A.aqpa141atpo
+  is 'Tipo documento';
+comment on column AQPA141A.aqpa141anum
+  is 'Documento';
+comment on column AQPA141A.aqpa141aax1
+  is 'Auxiliar';
+comment on column AQPA141A.aqpa141aax2
+  is 'Auxiliar';
+comment on column AQPA141A.aqpa141aax3
+  is 'Auxiliar';
+comment on column AQPA141A.aqpa141aax4
+  is 'Auxiliar';
+comment on column AQPA141A.aqpa141aax5
+  is 'Auxiliar';
+comment on column AQPA141A.aqpa141aax6
+  is 'Auxiliar';
+comment on column AQPA141A.aqpa141aax7
+  is 'Auxiliar';
+comment on column AQPA141A.aqpa141aax8
+  is 'Auxiliar';
+comment on column AQPA141A.aqpa141aax9
+  is 'Auxiliar';
+create index AQPA141A2 on AQPA141A (AQPA141AAGE);
+alter table AQPA141A
+  add primary key (AQPA141AFEC, AQPA141AMOD, AQPA141AUSR, AQPA141AZON, AQPA141ASUC, AQPA141ACOR);
+

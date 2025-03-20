@@ -1,0 +1,12 @@
+create table FXR701
+(
+  rulnum    NUMBER(3) not null,
+  rulorden  NUMBER(3) not null,
+  rulstrcor NUMBER(3) not null,
+  rulstring CHAR(40),
+  rulstrlon NUMBER(2)
+)
+;
+alter table FXR701
+  add primary key (RULNUM, RULORDEN, RULSTRCOR);
+

@@ -1,0 +1,19 @@
+create table JAQY309
+(
+  jaqy309cor   NUMBER(18) not null,
+  jaqy309csuc  NUMBER(3),
+  jaqy309dsuc  CHAR(30),
+  jaqy309nom   CHAR(30),
+  jaqy309ndoc  CHAR(12),
+  jaqy309cta   NUMBER(9),
+  jaqy309oper  NUMBER(9),
+  jaqy309nlote NUMBER(9),
+  jaqy309dlote VARCHAR2(250),
+  jaqy309mto   NUMBER(17,2),
+  jaqy309fdmb  CHAR(8)
+)
+;
+create index IJAQY309_1 on JAQY309 (JAQY309NDOC, JAQY309CTA, JAQY309OPER);
+alter table JAQY309
+  add primary key (JAQY309COR);
+

@@ -1,0 +1,15 @@
+create table BNJ999
+(
+  bnj999cor NUMBER(3) not null,
+  bnj999pas NUMBER(3) not null,
+  bnj999pgm CHAR(8) not null,
+  bnj999ban NUMBER(4) not null,
+  bnj999ini DATE,
+  bnj999fin DATE,
+  bnj999rpr NUMBER(10),
+  bnj999rer NUMBER(10)
+)
+;
+alter table BNJ999
+  add primary key (BNJ999COR, BNJ999PAS, BNJ999PGM, BNJ999BAN);
+

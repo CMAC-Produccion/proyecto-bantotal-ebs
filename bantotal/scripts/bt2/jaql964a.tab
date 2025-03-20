@@ -1,0 +1,66 @@
+create table JAQL964A
+(
+  jaql964acor  NUMBER(10) not null,
+  jaql964atit2 VARCHAR2(100),
+  jaql964atdo2 NUMBER(3),
+  jaql964adoc2 CHAR(12),
+  jaql964adir2 VARCHAR2(150),
+  jaql964aubg2 CHAR(6),
+  jaql964atit3 VARCHAR2(100),
+  jaql964atdo3 NUMBER(3),
+  jaql964adoc3 CHAR(12),
+  jaql964adir3 VARCHAR2(150),
+  jaql964aubg3 CHAR(6),
+  jaql964apai2 NUMBER(3),
+  jaql964apai3 NUMBER(3),
+  jaql964adpt2 VARCHAR2(50),
+  jaql964apro2 VARCHAR2(50),
+  jaql964adpt3 VARCHAR2(50),
+  jaql964apro3 VARCHAR2(50),
+  jaql964adis2 VARCHAR2(50),
+  jaql964adis3 VARCHAR2(50)
+)
+;
+comment on table JAQL964A
+  is 'JAQL964A - Titulares Adicionales de JAQL964';
+comment on column JAQL964A.jaql964acor
+  is 'Correlativo de JAQL964';
+comment on column JAQL964A.jaql964atit2
+  is 'Segundo Titular';
+comment on column JAQL964A.jaql964atdo2
+  is 'Tipo Documento Segundo Titular';
+comment on column JAQL964A.jaql964adoc2
+  is 'Numdoc Segundo Titular';
+comment on column JAQL964A.jaql964adir2
+  is 'Direccion Segundo Titular';
+comment on column JAQL964A.jaql964aubg2
+  is 'Ubigeo Segundo Titular';
+comment on column JAQL964A.jaql964atit3
+  is 'Tercer Titular';
+comment on column JAQL964A.jaql964atdo3
+  is 'Tipo Documento Tercer Titular';
+comment on column JAQL964A.jaql964adoc3
+  is 'Numdoc Tercer Titular';
+comment on column JAQL964A.jaql964adir3
+  is 'Direccion Tercer Titular';
+comment on column JAQL964A.jaql964aubg3
+  is 'Ubigeo Tercer Titular';
+comment on column JAQL964A.jaql964apai2
+  is 'Pais Segundo Titular';
+comment on column JAQL964A.jaql964apai3
+  is 'Pais Tercer Titular';
+comment on column JAQL964A.jaql964adpt2
+  is 'Dpto Segundo Titular';
+comment on column JAQL964A.jaql964apro2
+  is 'Provincia Segundo Titular';
+comment on column JAQL964A.jaql964adpt3
+  is 'Dpto Tercer Titular';
+comment on column JAQL964A.jaql964apro3
+  is 'Provincia Tercer Titular';
+comment on column JAQL964A.jaql964adis2
+  is 'Distrito Segundo Titular';
+comment on column JAQL964A.jaql964adis3
+  is 'Distrito TercerTitular';
+alter table JAQL964A
+  add constraint PK_JAQL964_JAQL964ACOR primary key (JAQL964ACOR);
+

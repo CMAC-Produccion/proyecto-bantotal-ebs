@@ -1,0 +1,40 @@
+create table CTS001
+(
+  ctspemp1 NUMBER(3) not null,
+  ctstemp1 NUMBER(2) not null,
+  ctsnemp1 CHAR(12) not null,
+  ctspemp2 NUMBER(3) not null,
+  ctstemp2 NUMBER(2) not null,
+  ctsnemp2 CHAR(12) not null,
+  ctsctae2 NUMBER(9) not null,
+  ctstiprg NUMBER(1) not null,
+  ctsfecrg DATE not null,
+  ctshorrg CHAR(8) not null,
+  ctsusurg CHAR(10),
+  ctssucrg NUMBER(3),
+  ctsmdarm NUMBER(4),
+  ctsimprm NUMBER(17,2),
+  ctsretex CHAR(1),
+  ctsembpj NUMBER(5,2),
+  ctsembop NUMBER(9),
+  ctsembrf CHAR(18),
+  ctsembds CHAR(70),
+  ctsfecbj DATE,
+  ctssucbj NUMBER(3),
+  ctsusubj CHAR(10),
+  ctsauxd1 DATE,
+  ctsauxd2 DATE,
+  ctsauxn1 NUMBER(17,2),
+  ctsauxn2 NUMBER(9),
+  ctsauxt1 CHAR(30),
+  ctsauxt2 CHAR(30),
+  ctsmdacb NUMBER(4)
+)
+;
+create index CTS00102 on CTS001 (CTSCTAE2, CTSTIPRG, CTSFECRG);
+create index CTS00103 on CTS001 (CTSPEMP2, CTSTEMP2, CTSNEMP2, CTSCTAE2, CTSFECRG);
+create index CTS00104 on CTS001 (CTSFECRG, CTSPEMP1, CTSTEMP1, CTSNEMP1);
+create index CTS00105 on CTS001 (CTSPEMP1, CTSTEMP1, CTSNEMP1, CTSTIPRG, CTSFECRG);
+alter table CTS001
+  add primary key (CTSPEMP1, CTSTEMP1, CTSNEMP1, CTSPEMP2, CTSTEMP2, CTSNEMP2, CTSCTAE2, CTSTIPRG, CTSFECRG, CTSHORRG);
+

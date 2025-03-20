@@ -1,0 +1,32 @@
+create table SNGG11
+(
+  sngg11codc NUMBER(4) not null,
+  sngg11modc NUMBER(4) not null,
+  sngg11succ NUMBER(3) not null,
+  sngg11mdac NUMBER(4) not null,
+  sngg11papc NUMBER(4) not null,
+  sngg11ctac NUMBER(9) not null,
+  sngg11opec NUMBER(9) not null,
+  sngg11sopc NUMBER(3) not null,
+  sngg11tocr NUMBER(3) not null,
+  sngg11modg NUMBER(4) not null,
+  sngg11ctag NUMBER(9) not null,
+  sngg11opeg NUMBER(9) not null,
+  sngg11sopg NUMBER(3) not null,
+  sngg11cor  NUMBER(6) not null,
+  sngg11codg NUMBER(4),
+  sngg11toga NUMBER(3),
+  sngg11mdag NUMBER(4),
+  sngg11sucg NUMBER(3),
+  sngg11papg NUMBER(4),
+  sngg11cob  CHAR(3),
+  sngg11sc00 NUMBER(17,2),
+  sngg11sd01 NUMBER(17,2),
+  sngg11sg01 NUMBER(17,2),
+  sngg11sg00 NUMBER(17,2),
+  sngg11sd00 NUMBER(17,2)
+)
+;
+alter table SNGG11
+  add primary key (SNGG11CODC, SNGG11MODC, SNGG11SUCC, SNGG11MDAC, SNGG11PAPC, SNGG11CTAC, SNGG11OPEC, SNGG11SOPC, SNGG11TOCR, SNGG11MODG, SNGG11CTAG, SNGG11OPEG, SNGG11SOPG, SNGG11COR);
+

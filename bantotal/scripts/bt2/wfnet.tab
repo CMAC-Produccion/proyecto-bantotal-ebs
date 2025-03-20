@@ -1,0 +1,12 @@
+create table WFNET
+(
+  wfnetprcid   NUMBER(4) not null,
+  wfnettaskcod NUMBER(4) not null,
+  wfnetcndpgm  CHAR(254),
+  wfnetopttype CHAR(1),
+  wfnetprepty  CHAR(1)
+)
+;
+alter table WFNET
+  add primary key (WFNETPRCID, WFNETTASKCOD);
+

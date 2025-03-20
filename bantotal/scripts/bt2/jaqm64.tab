@@ -1,0 +1,66 @@
+create table JAQM64
+(
+  jaqm64tad NUMBER(9) not null,
+  jaqm64cod NUMBER(9) not null,
+  jaqm64des CHAR(200),
+  jaqm64por NUMBER(14,6),
+  jaqm64imp NUMBER(17,2),
+  jaqm64mod NUMBER(3),
+  jaqm64tra NUMBER(3),
+  jaqm64an1 NUMBER(9),
+  jaqm64an2 NUMBER(9),
+  jaqm64an3 NUMBER(9),
+  jaqm64ad1 DATE,
+  jaqm64ad2 DATE,
+  jaqm64ad3 DATE,
+  jaqm64ai1 NUMBER(17,2),
+  jaqm64ai2 NUMBER(17,2),
+  jaqm64ai3 NUMBER(17,2),
+  jaqm64ac1 CHAR(255),
+  jaqm64ac2 CHAR(255),
+  jaqm64ac3 CHAR(255)
+)
+;
+comment on table JAQM64
+  is 'Detalle tipo de adicionales cobro extra credito';
+comment on column JAQM64.jaqm64tad
+  is 'Tipo adicional';
+comment on column JAQM64.jaqm64cod
+  is 'Codigo Adicional';
+comment on column JAQM64.jaqm64des
+  is 'Descripcion';
+comment on column JAQM64.jaqm64por
+  is 'Porcentaje';
+comment on column JAQM64.jaqm64imp
+  is 'Importe';
+comment on column JAQM64.jaqm64mod
+  is 'Modulo transaccion';
+comment on column JAQM64.jaqm64tra
+  is 'Transaccion';
+comment on column JAQM64.jaqm64an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM64.jaqm64an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM64.jaqm64an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM64.jaqm64ad1
+  is 'Date Auxiliar 1';
+comment on column JAQM64.jaqm64ad2
+  is 'Date Auxiliar 2';
+comment on column JAQM64.jaqm64ad3
+  is 'Date Auxiliar 3';
+comment on column JAQM64.jaqm64ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM64.jaqm64ai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM64.jaqm64ai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM64.jaqm64ac1
+  is 'Character Auxiliar 1';
+comment on column JAQM64.jaqm64ac2
+  is 'Character Auxiliar 2';
+comment on column JAQM64.jaqm64ac3
+  is 'Character Auxiliar 3';
+alter table JAQM64
+  add primary key (JAQM64TAD, JAQM64COD);
+

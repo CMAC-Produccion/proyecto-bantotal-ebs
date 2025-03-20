@@ -1,0 +1,13 @@
+create table X9996P
+(
+  x9996acnco NUMBER(3) not null,
+  x9996bopco NUMBER(5) not null,
+  x9996cvart NUMBER(3) not null,
+  x9996pmome CHAR(8) not null,
+  x9996pcorr NUMBER(2) not null,
+  x9996ppgmp CHAR(10)
+)
+;
+alter table X9996P
+  add primary key (X9996ACNCO, X9996BOPCO, X9996CVART, X9996PMOME, X9996PCORR);
+

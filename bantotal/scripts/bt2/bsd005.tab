@@ -1,0 +1,15 @@
+create table BSD005
+(
+  bscpaisd NUMBER(3) not null,
+  bsctdocd NUMBER(2) not null,
+  bscndocd CHAR(12) not null,
+  bsccoddo NUMBER(2) not null,
+  bscdirec CHAR(80),
+  bscciud  NUMBER(8),
+  bsccel   CHAR(14)
+)
+;
+create index BSD00503 on BSD005 (BSCCIUD);
+alter table BSD005
+  add primary key (BSCPAISD, BSCTDOCD, BSCNDOCD, BSCCODDO);
+

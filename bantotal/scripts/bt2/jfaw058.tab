@@ -1,0 +1,25 @@
+create table JFAW058
+(
+  jfaw058pai NUMBER(3) not null,
+  jfaw058tdo NUMBER(2) not null,
+  jfaw058doc CHAR(12) not null,
+  jfaw058nm1 CHAR(25),
+  jfaw058nm2 CHAR(25),
+  jfaw058ap1 CHAR(30),
+  jfaw058ap2 CHAR(25),
+  jfaw058abi CHAR(1),
+  jfaw058ax1 NUMBER(17,2),
+  jfaw058ax2 NUMBER(17,2),
+  jfaw058ax3 NUMBER(17,2),
+  jfaw058ax4 NUMBER(17,2),
+  jfaw058ax5 CHAR(50),
+  jfaw058ax6 CHAR(50),
+  jfaw058ax7 CHAR(50),
+  jfaw058ax8 CHAR(50),
+  jfaw058ax9 DATE,
+  jfaw058a10 DATE
+)
+;
+alter table JFAW058
+  add primary key (JFAW058PAI, JFAW058TDO, JFAW058DOC);
+

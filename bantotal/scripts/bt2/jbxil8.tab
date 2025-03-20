@@ -1,0 +1,13 @@
+create table JBXIL8
+(
+  jbxil8op CHAR(10) not null,
+  jbxil8fe DATE not null,
+  jbxil8ho CHAR(8) not null,
+  jbxil8ra NUMBER(10) not null,
+  jbxil8en CLOB,
+  jbxil8sa CLOB,
+  jbxil8us CHAR(10)
+)
+;
+create unique index JBXIL801 on JBXIL8 (JBXIL8OP, JBXIL8FE, JBXIL8HO, JBXIL8RA);
+

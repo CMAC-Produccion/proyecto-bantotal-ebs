@@ -1,0 +1,30 @@
+create table AQPC252
+(
+  aqpccta  NUMBER(9) not null,
+  aqpcoper NUMBER(9) not null,
+  aqpcfec  DATE not null,
+  aqpctsbs VARCHAR2(10),
+  aqpcmadi NUMBER,
+  aqpcuni  VARCHAR2(20),
+  aqpcuser VARCHAR2(10)
+)
+;
+comment on table AQPC252
+  is 'REPROGRAMACIONES UNILATERAL';
+comment on column AQPC252.aqpccta
+  is 'CUENTA';
+comment on column AQPC252.aqpcoper
+  is 'OPERACIÓN';
+comment on column AQPC252.aqpcfec
+  is 'FECHA';
+comment on column AQPC252.aqpctsbs
+  is 'TIPO SBS';
+comment on column AQPC252.aqpcmadi
+  is 'MES ADICIONAL';
+comment on column AQPC252.aqpcuni
+  is 'UNILATERAL';
+comment on column AQPC252.aqpcuser
+  is 'USUARIO';
+alter table AQPC252
+  add primary key (AQPCCTA, AQPCOPER, AQPCFEC);
+

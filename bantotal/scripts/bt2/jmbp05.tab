@@ -1,0 +1,13 @@
+create table JMBP05
+(
+  jmbp05pgc NUMBER(3) not null,
+  jmbp05usr CHAR(10) not null,
+  jmbp05suc NUMBER(3),
+  jmbp05caj CHAR(1),
+  jmbp05prd CHAR(1)
+)
+;
+create index JMBP0502 on JMBP05 (JMBP05PGC, JMBP05SUC);
+alter table JMBP05
+  add primary key (JMBP05PGC, JMBP05USR);
+

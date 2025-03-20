@@ -1,0 +1,62 @@
+create table PROVISION
+(
+  tipsbs     VARCHAR2(21),
+  rrrubr     NUMBER(16),
+  bcsuc      NUMBER(3) not null,
+  bcmda      NUMBER(4) not null,
+  bcpap      NUMBER(4) not null,
+  bccta      NUMBER(9) not null,
+  bcoper     NUMBER(9) not null,
+  bcsbop     NUMBER(3) not null,
+  mtosalcap  NUMBER(17,2),
+  bcemp      NUMBER(3) not null,
+  bcmod      NUMBER(3),
+  bctop      NUMBER(3) not null,
+  bcprod     NUMBER(3),
+  bcfvto     DATE,
+  bcrubr     NUMBER(16) not null,
+  bcfech     DATE not null,
+  imppro     NUMBER,
+  improsaldo NUMBER
+)
+;
+comment on table PROVISION
+  is 'Tabla para cálculo de Provisión';
+comment on column PROVISION.tipsbs
+  is 'Tipo SBS';
+comment on column PROVISION.rrrubr
+  is 'Rubro';
+comment on column PROVISION.bcsuc
+  is 'Sucursal';
+comment on column PROVISION.bcmda
+  is 'Moneda';
+comment on column PROVISION.bcpap
+  is 'Papel';
+comment on column PROVISION.bccta
+  is 'Cuenta';
+comment on column PROVISION.bcoper
+  is 'Operación';
+comment on column PROVISION.bcsbop
+  is 'SubOperación';
+comment on column PROVISION.mtosalcap
+  is 'Monto Saldo Capital';
+comment on column PROVISION.bcemp
+  is 'Empresa';
+comment on column PROVISION.bcmod
+  is 'Modulo';
+comment on column PROVISION.bctop
+  is 'Tipo de Operación';
+comment on column PROVISION.bcprod
+  is 'Producto';
+comment on column PROVISION.bcfvto
+  is 'Fecha Vencimiento';
+comment on column PROVISION.bcrubr
+  is 'Rubro';
+comment on column PROVISION.bcfech
+  is 'Fecha';
+comment on column PROVISION.imppro
+  is 'Importe Provisión';
+comment on column PROVISION.improsaldo
+  is 'Importe Saldo';
+create index IX_PROVISION on PROVISION (BCEMP, BCMOD, BCSUC, BCMDA, BCPAP, BCCTA, BCOPER, BCSBOP, BCTOP, BCPROD, BCFVTO);
+

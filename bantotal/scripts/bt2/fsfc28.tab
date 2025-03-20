@@ -1,0 +1,33 @@
+create table FSFC28
+(
+  sfc28emp  NUMBER(3) not null,
+  sfc28mda1 NUMBER(4) not null,
+  sfc28mda2 NUMBER(4) not null,
+  sfc28fch  DATE not null,
+  sfc28pzo  NUMBER(5) not null,
+  sfc28pbid NUMBER(17,8),
+  sfc28pask NUMBER(17,8),
+  sfc28pmid NUMBER(17,8),
+  sfc28a01  NUMBER(17,8),
+  sfc28a02  NUMBER(17,8),
+  sfc28a03  NUMBER(17,8),
+  sfc28a04  NUMBER(17,8),
+  sfc28a05  NUMBER(17,8),
+  sfc28a06  CHAR(1),
+  sfc28a07  CHAR(1),
+  sfc28a08  CHAR(1),
+  sfc28a09  CHAR(1),
+  sfc28a10  CHAR(1),
+  sfc28a11  NUMBER(4),
+  sfc28a12  NUMBER(4),
+  sfc28a13  NUMBER(4),
+  sfc28a14  NUMBER(4),
+  sfc28a15  DATE,
+  sfc28a16  DATE,
+  sfc28a17  DATE,
+  sfc28a18  DATE
+)
+;
+alter table FSFC28
+  add primary key (SFC28EMP, SFC28MDA1, SFC28MDA2, SFC28FCH, SFC28PZO);
+

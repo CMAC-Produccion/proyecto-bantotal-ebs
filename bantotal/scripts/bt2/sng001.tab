@@ -1,0 +1,63 @@
+create table SNG001
+(
+  sng001inst NUMBER(10) not null,
+  sng001emp  NUMBER(3),
+  sng001cta  NUMBER(9),
+  sng001pais NUMBER(3),
+  sng001tdoc NUMBER(2),
+  sng001ndoc CHAR(12),
+  sng001ori  NUMBER(2),
+  sng229corr NUMBER(10),
+  sng001seg  NUMBER(4),
+  sng001tpcr NUMBER(2),
+  sng009cod  NUMBER(4),
+  sng001ever NUMBER(4),
+  sng001pre  NUMBER(17,9),
+  sng001age  NUMBER(3),
+  sng001ase  CHAR(10),
+  sng001usi  CHAR(10),
+  sng001fin  DATE,
+  sng015cod  NUMBER(4),
+  sng001usc  CHAR(10),
+  sng001emc  NUMBER(9),
+  sng001cmx  NUMBER(17,2),
+  sng014cod  NUMBER(4),
+  sng017cod  NUMBER(4),
+  sng017mto  NUMBER(17,2),
+  sng017cli  CHAR(1),
+  sng017mcr  NUMBER(17,2),
+  sng017cmo  NUMBER(17,2),
+  sng017cef  NUMBER(17,2),
+  sng017ana  NUMBER(2),
+  sng01icuot NUMBER(17,2),
+  sng01isuav NUMBER(17,2),
+  sng01ipmio NUMBER(17,2),
+  sng01mevai NUMBER(3),
+  sng01mevaf NUMBER(3),
+  sng01scori NUMBER(17,9),
+  sng01stgai VARCHAR2(40),
+  sng01scorf NUMBER(17,9),
+  sng01stgaf VARCHAR2(40),
+  sng01cuexm NUMBER(17,2),
+  sng01icexm NUMBER(17,2),
+  sng01sdocf NUMBER(17,2),
+  sng01fdsmb NUMBER(3),
+  sng001ejec NUMBER(5),
+  sng001evtc NUMBER(10),
+  sng001pzos NUMBER(5),
+  sng001ngrp NUMBER(9),
+  sng001ncic NUMBER(3)
+)
+;
+create index SNG00102 on SNG001 (SNG014COD);
+create index SNG00103 on SNG001 (SNG015COD);
+create index SNG00104 on SNG001 (SNG009COD);
+create index SNG00105 on SNG001 (SNG017COD);
+create index SNG00106 on SNG001 (SNG001NGRP);
+create index SNG00107 on SNG001 (SNG229CORR);
+create index SNG00108 on SNG001 (SNG001CTA);
+create index SNG00109 on SNG001 (SNG001PAIS, SNG001TDOC, SNG001NDOC);
+create index SNG00199 on SNG001 (SNG001ASE, SNG001FIN);
+alter table SNG001
+  add primary key (SNG001INST);
+

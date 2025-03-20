@@ -1,0 +1,18 @@
+create table FSFSTK
+(
+  sfstkemp   NUMBER(3) not null,
+  sfstkmerc  NUMBER(3) not null,
+  sfstkid    NUMBER(2) not null,
+  sfstkdesc  CHAR(35),
+  sfstkdesab CHAR(15),
+  sfstkcale  NUMBER(3),
+  sfstkmovcu CHAR(1),
+  sfstkenli1 NUMBER(9),
+  sfstkmovmo CHAR(1),
+  sfstkenli2 NUMBER(9),
+  sfstkhabi  CHAR(1)
+)
+;
+alter table FSFSTK
+  add primary key (SFSTKEMP, SFSTKMERC, SFSTKID);
+

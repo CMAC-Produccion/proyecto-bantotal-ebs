@@ -1,0 +1,14 @@
+create table X999JG
+(
+  x999j4cod NUMBER(2) not null,
+  x999jgcod NUMBER(2) not null,
+  x999jginf NUMBER(2) not null,
+  x999jgdsc CHAR(30),
+  x999jgmod NUMBER(3),
+  x999jgtrn NUMBER(3),
+  x999jgprg CHAR(10)
+)
+;
+alter table X999JG
+  add primary key (X999J4COD, X999JGCOD, X999JGINF);
+

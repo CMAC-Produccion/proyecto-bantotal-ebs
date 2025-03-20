@@ -1,0 +1,11 @@
+create table CEQ014
+(
+  ceq014ru NUMBER(18) not null,
+  ceq014bt NUMBER(16) not null,
+  ceq014ds CHAR(40)
+)
+;
+create index CEQ01403 on CEQ014 (CEQ014BT);
+alter table CEQ014
+  add primary key (CEQ014RU, CEQ014BT);
+

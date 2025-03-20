@@ -1,0 +1,18 @@
+create table FSFF53
+(
+  dtjemp NUMBER(3) not null,
+  dtjcod NUMBER(5) not null,
+  dtjdes CHAR(40),
+  dtja01 NUMBER(9),
+  dtja02 NUMBER(9),
+  dtja03 CHAR(5),
+  dtja04 CHAR(5),
+  dtja05 NUMBER(14,2),
+  dtja06 NUMBER(14,2),
+  dtja07 DATE,
+  dtja08 DATE
+)
+;
+alter table FSFF53
+  add primary key (DTJEMP, DTJCOD);
+

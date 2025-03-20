@@ -1,0 +1,11 @@
+create table TI00301
+(
+  impucod    NUMBER(3) not null,
+  ticorrmod  NUMBER(3) not null,
+  ticorrtrn  NUMBER(3) not null,
+  ticorrelat NUMBER(3)
+)
+;
+alter table TI00301
+  add primary key (IMPUCOD, TICORRMOD, TICORRTRN);
+

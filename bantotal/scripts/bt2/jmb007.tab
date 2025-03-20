@@ -1,0 +1,15 @@
+create table JMB007
+(
+  jmb007cod  NUMBER(5) not null,
+  jmb007dsc  CHAR(30),
+  segcod     NUMBER(2),
+  segdsc     NUMBER(4),
+  jmb007aux2 NUMBER(17,2),
+  jmb007aux3 CHAR(60),
+  jmb007aux4 CHAR(60)
+)
+;
+create index JMB00702 on JMB007 (SEGCOD);
+alter table JMB007
+  add primary key (JMB007COD);
+

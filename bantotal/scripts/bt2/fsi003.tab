@@ -1,0 +1,12 @@
+create table FSI003
+(
+  pgcod NUMBER(3) not null,
+  inprg CHAR(10) not null,
+  incol NUMBER(4) not null,
+  cicpo CHAR(8)
+)
+;
+create index FSI00302 on FSI003 (PGCOD, CICPO);
+alter table FSI003
+  add primary key (PGCOD, INPRG, INCOL);
+

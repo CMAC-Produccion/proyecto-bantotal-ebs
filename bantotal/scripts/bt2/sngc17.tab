@@ -1,0 +1,14 @@
+create table SNGC17
+(
+  sngc17pais NUMBER(3) not null,
+  sngc17ndoc CHAR(12) not null,
+  sngc17tdoc NUMBER(2) not null,
+  sngc17dcod NUMBER(2) not null,
+  sngc17corr NUMBER(2) not null,
+  sngc16ttel NUMBER(3)
+)
+;
+create index SNGC1702 on SNGC17 (SNGC16TTEL);
+alter table SNGC17
+  add primary key (SNGC17PAIS, SNGC17NDOC, SNGC17TDOC, SNGC17DCOD, SNGC17CORR);
+

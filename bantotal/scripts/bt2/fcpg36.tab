@@ -1,0 +1,23 @@
+create table FCPG36
+(
+  cpg36empbt NUMBER(3) not null,
+  cpg36conv  NUMBER(8) not null,
+  cpg36serv  NUMBER(3) not null,
+  cpg36frec  DATE not null,
+  cpg36nenv  NUMBER(3) not null,
+  cpg07cod   NUMBER(3) not null,
+  cpg36nenve NUMBER(2),
+  cpg36creg  NUMBER(10),
+  cpg36canal NUMBER(3),
+  cpg36est   CHAR(3),
+  cpg36blq   CHAR(1),
+  cpg36inst  NUMBER(10),
+  cpg36fto   CHAR(8)
+)
+;
+create index FCPG3602 on FCPG36 (CPG07COD);
+create index FCPG3603 on FCPG36 (CPG36INST);
+create index FCPG3604 on FCPG36 (CPG36EMPBT, CPG36FREC);
+alter table FCPG36
+  add primary key (CPG36EMPBT, CPG36CONV, CPG36SERV, CPG36FREC, CPG36NENV, CPG07COD);
+

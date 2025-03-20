@@ -1,0 +1,18 @@
+create table Z0E4DF
+(
+  z0e4dfcod NUMBER(4) not null,
+  z0e4dftip CHAR(5) not null,
+  z0e4dfnev NUMBER(9) not null,
+  z0e4dfcor NUMBER(9) not null,
+  z0e4dfarc CHAR(7),
+  z0e4dfcan NUMBER(6),
+  z0e4dffec NUMBER(6),
+  z0e4dfban CHAR(4),
+  z0e4dffil CHAR(157),
+  z0e4dfest CHAR(2),
+  z0e4dftex CHAR(50)
+)
+;
+alter table Z0E4DF
+  add primary key (Z0E4DFCOD, Z0E4DFTIP, Z0E4DFNEV, Z0E4DFCOR);
+

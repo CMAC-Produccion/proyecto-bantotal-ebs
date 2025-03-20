@@ -1,0 +1,20 @@
+create table CSMD019
+(
+  csmd018cor NUMBER(10) not null,
+  csmd019cor NUMBER(9) not null,
+  csmd019lin NUMBER(9),
+  csmd019doc CHAR(20),
+  csmd019mda NUMBER(4),
+  csmd019imp NUMBER(17,2),
+  csmd019fec DATE,
+  csmd019est CHAR(1),
+  csmd019pai NUMBER(3),
+  csmd019tdo NUMBER(2),
+  csmd019nro CHAR(12),
+  csmd019tas NUMBER(10,6),
+  csmd019plz CHAR(50)
+)
+;
+alter table CSMD019
+  add primary key (CSMD018COR, CSMD019COR);
+

@@ -1,0 +1,38 @@
+create table JAQL726
+(
+  jaql726pgco NUMBER(3) not null,
+  jaql726scmo NUMBER(3) not null,
+  jaql726scsu NUMBER(3) not null,
+  jaql726scmd NUMBER(4) not null,
+  jaql726scpa NUMBER(4) not null,
+  jaql726scct NUMBER(9) not null,
+  jaql726scop NUMBER(9) not null,
+  jaql726scsb NUMBER(3) not null,
+  jaql726scto NUMBER(3) not null,
+  jaql726porc NUMBER(5,2),
+  jaql726peri NUMBER(2),
+  jaql726mont NUMBER(17,2),
+  jaql726user CHAR(10),
+  jaql726feaf DATE,
+  jaql726esre CHAR(1),
+  jaql726fval DATE,
+  jaql726feur DATE,
+  jaql726fepr DATE,
+  jaql726au01 CHAR(50),
+  jaql726au02 CHAR(50),
+  jaql726au03 CHAR(50),
+  jaql726au04 NUMBER(15),
+  jaql726au05 NUMBER(15),
+  jaql726au06 NUMBER(15),
+  jaql726au07 NUMBER(17,2),
+  jaql726au08 NUMBER(17,2),
+  jaql726au09 NUMBER(17,2),
+  jaql726au10 DATE,
+  jaql726au11 DATE,
+  jaql726au12 DATE
+)
+;
+create index IDX_JAQL726_001 on JAQL726 (JAQL726ESRE, JAQL726FEPR);
+alter table JAQL726
+  add primary key (JAQL726PGCO, JAQL726SCMO, JAQL726SCSU, JAQL726SCMD, JAQL726SCPA, JAQL726SCCT, JAQL726SCOP, JAQL726SCSB, JAQL726SCTO);
+

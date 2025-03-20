@@ -1,0 +1,17 @@
+create table FPAE80
+(
+  pae51eva NUMBER(3) not null,
+  pae80mtz NUMBER(5) not null,
+  pae80dsc CHAR(40),
+  pae80scv NUMBER(17,9),
+  pae80pol CHAR(1),
+  pae80msg CHAR(80),
+  pae80def CHAR(1),
+  pae80pid NUMBER(5),
+  pae80res CHAR(1),
+  pae80scd CHAR(1)
+)
+;
+alter table FPAE80
+  add primary key (PAE51EVA, PAE80MTZ);
+

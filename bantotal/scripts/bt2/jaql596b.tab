@@ -1,0 +1,28 @@
+create table JAQL596B
+(
+  jaql596bcat NUMBER(3) not null,
+  jaql596bcav NUMBER(18,2),
+  jaql596bmn0 NUMBER(18,2),
+  jaql596bmn1 NUMBER(18,2) not null,
+  jaql596bbon NUMBER(18,2) not null,
+  jaql596btip CHAR(1) not null,
+  jaql596best CHAR(1) not null
+)
+;
+comment on table JAQL596B
+  is 'Tabla Metas Retencion Productividad';
+comment on column JAQL596B.jaql596bcat
+  is 'CODIGO CATEGORIA ANALISTA';
+comment on column JAQL596B.jaql596bcav
+  is 'RETENCION %CAV CLIENTE ALTO VALOR';
+comment on column JAQL596B.jaql596bmn0
+  is 'NIVEL 0';
+comment on column JAQL596B.jaql596bmn1
+  is 'NIVEL 1';
+comment on column JAQL596B.jaql596bbon
+  is 'MONTO POR CUMPLIMIENTO RETENCION';
+comment on column JAQL596B.jaql596btip
+  is 'TIPO ANALISTA P/C';
+comment on column JAQL596B.jaql596best
+  is 'ESTADO';
+

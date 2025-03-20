@@ -1,0 +1,33 @@
+create table AQPD304
+(
+  aqpd304recemp NUMBER(3) not null,
+  aqpd304reccod VARCHAR2(20) not null,
+  aqpd304recseq NUMBER(3) not null,
+  aqpd304rectip NUMBER(3),
+  aqpd304crefec DATE,
+  aqpd304crehor VARCHAR2(10),
+  aqpd304creusu CHAR(10),
+  aqpd304cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPD304
+  is 'Reclamos  - Tabla de Reclasificación';
+comment on column AQPD304.aqpd304recemp
+  is 'Reclamo - Empresa';
+comment on column AQPD304.aqpd304reccod
+  is 'Reclamo - Codigo';
+comment on column AQPD304.aqpd304recseq
+  is 'Reclasificación - Secuencia';
+comment on column AQPD304.aqpd304rectip
+  is 'Reclamo - Tipo Nuevo';
+comment on column AQPD304.aqpd304crefec
+  is 'Reclasificación - Fecha';
+comment on column AQPD304.aqpd304crehor
+  is 'Reclasificación - Hora';
+comment on column AQPD304.aqpd304creusu
+  is 'Reclasificación - Usuario';
+comment on column AQPD304.aqpd304cretim
+  is 'Reclasificación - Time';
+alter table AQPD304
+  add primary key (AQPD304RECEMP, AQPD304RECCOD, AQPD304RECSEQ);
+

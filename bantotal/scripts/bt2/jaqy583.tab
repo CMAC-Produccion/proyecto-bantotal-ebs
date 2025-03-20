@@ -1,0 +1,21 @@
+create table JAQY583
+(
+  jaqy583corre NUMBER(10) not null,
+  jaqy583cotrx VARCHAR2(20),
+  jaqy583opera CHAR(65),
+  jaqy583fecha DATE,
+  jaqy583hora  CHAR(8),
+  jaqy583moned CHAR(30),
+  jaqy583monto NUMBER(16,2),
+  jaqy583tarje CHAR(16),
+  jaqy583rpta  CHAR(9),
+  jaqy583usure CHAR(10),
+  jaqy583fecre TIMESTAMP(6) default sysdate,
+  jaqy583ctao  CHAR(27),
+  jaqy583ctad  CHAR(27)
+)
+;
+create index JAQY583_2 on JAQY583 (JAQY583FECHA, JAQY583HORA);
+alter table JAQY583
+  add primary key (JAQY583CORRE);
+

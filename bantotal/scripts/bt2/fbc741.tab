@@ -1,0 +1,27 @@
+create table FBC741
+(
+  bc741emp  NUMBER(3) not null,
+  bc741fch  DATE not null,
+  bc741suc  NUMBER(2) not null,
+  bc741age  NUMBER(2) not null,
+  bc741corr NUMBER(10) not null,
+  bc741osuc NUMBER(3),
+  bc741omod NUMBER(3),
+  bc741otrn NUMBER(3),
+  bc741orel NUMBER(4),
+  bc741oord NUMBER(2),
+  bc741osbo NUMBER(3),
+  bc741omda NUMBER(4),
+  bc741oimp NUMBER(17,2),
+  bc741otcb NUMBER(14,8),
+  bc741oarb NUMBER(14,8),
+  bc741orub NUMBER(16),
+  bc741octa NUMBER(9),
+  bc741oefe CHAR(1),
+  bc741usid CHAR(10)
+)
+;
+create index FBC74102 on FBC741 (BC741EMP, BC741FCH, BC741OSUC, BC741OMOD, BC741OTRN, BC741OREL, BC741OORD, BC741OSBO);
+alter table FBC741
+  add primary key (BC741EMP, BC741FCH, BC741SUC, BC741AGE, BC741CORR);
+

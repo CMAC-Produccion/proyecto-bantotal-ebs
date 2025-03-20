@@ -1,0 +1,15 @@
+create table LBPE12
+(
+  lbp012pais NUMBER(3) not null,
+  lbp012tdoc NUMBER(2) not null,
+  lbp012ndoc CHAR(12) not null,
+  lbp012mon  NUMBER(4) not null,
+  lbp012codl NUMBER(3) not null,
+  lbp012clag CHAR(3) not null,
+  lbpe12ren  NUMBER(3) not null,
+  lbpe12txt  CHAR(65)
+)
+;
+alter table LBPE12
+  add primary key (LBP012PAIS, LBP012TDOC, LBP012NDOC, LBP012MON, LBP012CODL, LBP012CLAG, LBPE12REN);
+

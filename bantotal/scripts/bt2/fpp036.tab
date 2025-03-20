@@ -1,0 +1,39 @@
+create table FPP036
+(
+  xllpgcod   NUMBER(3) not null,
+  xllaomod   NUMBER(3) not null,
+  xllaosuc   NUMBER(3) not null,
+  xllaomda   NUMBER(4) not null,
+  xllaopap   NUMBER(4) not null,
+  xllaocta   NUMBER(9) not null,
+  xllaooper  NUMBER(9) not null,
+  xllaosbop  NUMBER(3) not null,
+  xllaotop   NUMBER(3) not null,
+  pp036tipp  NUMBER(2) not null,
+  pp036corr  NUMBER(2) not null,
+  pp036pais  NUMBER(3),
+  pp036tdoc  NUMBER(2),
+  pp036ndoc  CHAR(12),
+  pp036ndocr CHAR(25),
+  pp036nom1  CHAR(25),
+  pp036nom2  CHAR(25),
+  pp036ape1  CHAR(30),
+  pp036ape2  CHAR(30),
+  pp036act   NUMBER(2),
+  pp036ing   NUMBER(17,2),
+  pp036eg    NUMBER(17,2),
+  pp036mail  CHAR(50),
+  pp036tel1  CHAR(20),
+  pp036tel2  CHAR(20),
+  pp036cel   CHAR(20),
+  pp036dom   CHAR(50),
+  pp036aux1  NUMBER(3),
+  pp036aux2  NUMBER(3),
+  pp036aux3  DATE,
+  pp036aux4  CHAR(100),
+  pp036aux5  CHAR(100)
+)
+;
+alter table FPP036
+  add primary key (XLLPGCOD, XLLAOMOD, XLLAOSUC, XLLAOMDA, XLLAOPAP, XLLAOCTA, XLLAOOPER, XLLAOSBOP, XLLAOTOP, PP036TIPP, PP036CORR);
+

@@ -1,0 +1,18 @@
+create table AQPA112
+(
+  aqpa112pae NUMBER(3) not null,
+  aqpa112tpe NUMBER(2) not null,
+  aqpa112nue CHAR(12) not null,
+  aqpa112pac NUMBER(3) not null,
+  aqpa112tpc NUMBER(2) not null,
+  aqpa112nuc CHAR(12) not null,
+  aqpa112ctc NUMBER(9) not null,
+  aqpa112aux NUMBER(9) not null,
+  aqpa112mdr NUMBER(4),
+  aqpa112mto NUMBER(17,2),
+  aqpa112mcc NUMBER(4)
+)
+;
+alter table AQPA112
+  add primary key (AQPA112PAE, AQPA112TPE, AQPA112NUE, AQPA112PAC, AQPA112TPC, AQPA112NUC, AQPA112CTC, AQPA112AUX);
+

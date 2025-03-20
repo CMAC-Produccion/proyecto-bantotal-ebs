@@ -1,0 +1,23 @@
+create table FSFIAI
+(
+  sfiaiemp NUMBER(3) not null,
+  sfiaipai NUMBER(3) not null,
+  sfiaitdo NUMBER(2) not null,
+  sfiaidoc CHAR(12) not null,
+  sfiaicta NUMBER(9) not null,
+  sfiaifch DATE not null,
+  sfiaihor CHAR(8) not null,
+  sfiaimov CHAR(1),
+  sfiaiusr CHAR(10),
+  sfiaihab CHAR(1),
+  sfiaia01 NUMBER(9),
+  sfiaia02 NUMBER(9),
+  sfiaia03 DATE,
+  sfiaia04 DATE,
+  sfiaia05 CHAR(35),
+  sfiaia06 CHAR(35)
+)
+;
+alter table FSFIAI
+  add primary key (SFIAIEMP, SFIAIPAI, SFIAITDO, SFIAIDOC, SFIAICTA, SFIAIFCH, SFIAIHOR);
+

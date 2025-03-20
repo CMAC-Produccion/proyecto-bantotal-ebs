@@ -1,0 +1,31 @@
+create table Z05107
+(
+  z05107apl NUMBER(4) not null,
+  z05107bnd CHAR(5) not null,
+  z05107cor NUMBER(9) not null,
+  z05107co2 NUMBER(9) not null,
+  z05107suc CHAR(3),
+  z05107tct CHAR(2),
+  z05107cta CHAR(7),
+  z05107tpt CHAR(1),
+  z05107imp NUMBER(15,2),
+  z05107tln NUMBER(8),
+  z05107cla NUMBER(3),
+  z05107fch NUMBER(8),
+  z05107ofe CHAR(3),
+  z05107pro CHAR(15),
+  z05107mon NUMBER(2),
+  z05107ven CHAR(1),
+  z05107cam NUMBER(2),
+  z05107cpr CHAR(4),
+  z05107fel CHAR(5),
+  z05107che CHAR(1),
+  z05107tar CHAR(12),
+  z05107col CHAR(1),
+  z05107ind CHAR(2),
+  z05107can CHAR(2)
+)
+;
+alter table Z05107
+  add primary key (Z05107APL, Z05107BND, Z05107COR, Z05107CO2);
+

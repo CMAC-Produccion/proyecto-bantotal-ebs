@@ -1,0 +1,34 @@
+create table JAQZ153D
+(
+  jaqz153dpgc NUMBER(3) not null,
+  jaqz153dsuc NUMBER(3) not null,
+  jaqz153dmod NUMBER(3) not null,
+  jaqz153dtrx NUMBER(3) not null,
+  jaqz153drel NUMBER(4) not null,
+  jaqz153dfec DATE not null,
+  jaqz153dhor CHAR(8),
+  jaqz153dusr CHAR(10),
+  jaqz153dpai NUMBER(3),
+  jaqz153dtpo NUMBER(2),
+  jaqz153dnum CHAR(12),
+  jaqz153dcta NUMBER(9),
+  jaqz153dfac NUMBER(3),
+  jaqz153dfco NUMBER(3),
+  jaqz153dfde DATE,
+  jaqz153dpa2 NUMBER(3) not null,
+  jaqz153dtp2 NUMBER(2) not null,
+  jaqz153dnu2 CHAR(12) not null,
+  jaqz153dax1 NUMBER(9),
+  jaqz153dax2 NUMBER(9),
+  jaqz153dax3 NUMBER(17,2),
+  jaqz153dax4 NUMBER(17,2),
+  jaqz153dax5 DATE,
+  jaqz153dax6 DATE,
+  jaqz153dax7 CHAR(100),
+  jaqz153dax8 CHAR(100),
+  jaqz153dax9 CHAR(100)
+)
+;
+alter table JAQZ153D
+  add primary key (JAQZ153DPGC, JAQZ153DSUC, JAQZ153DMOD, JAQZ153DTRX, JAQZ153DREL, JAQZ153DFEC, JAQZ153DPA2, JAQZ153DTP2, JAQZ153DNU2);
+

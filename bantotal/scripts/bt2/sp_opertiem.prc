@@ -1,0 +1,31 @@
+create or replace procedure SP_OPERTIEM(P_FECHA IN DATE)
+ IS
+begin
+--Atm Historico
+DELETE OPERTIEM;
+COMMIT;
+
+INSERT INTO OPERTIEM
+SELECT /*+ALL_ROWS*/
+       A.PGCOD,
+       A.HSUCOR,
+       A.HCMOD,
+       A.HTRAN,
+       A.HNREL,
+       B.TRNOM,
+       A.HFCON,
+       A.UBUSER,
+       A.HHING,
+       A.HHRET,
+       A.HHCONF,
+       A.HUCONF,
+       A.HMANU
+  FROM FSH115 A, FST034 B
+ WHERE A.PGCOD = B.PGCOD
+   AND A.HCMOD = B.TRMOD
+   AND A.HTRAN = B.TRNRO
+   AND A.HFCON = P_FECHA;/*TO_DATE('18072013','DDMMYYYY')*/
+COMMIT;
+END;
+/
+

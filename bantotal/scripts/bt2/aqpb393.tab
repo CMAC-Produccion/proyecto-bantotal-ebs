@@ -1,0 +1,139 @@
+create table AQPB393
+(
+  aqpb393usr     CHAR(10) not null,
+  aqpb393emp     NUMBER(3) not null,
+  aqpb393suc     NUMBER(3) not null,
+  aqpb393mod     NUMBER(3) not null,
+  aqpb393mda     NUMBER(4) not null,
+  aqpb393pap     NUMBER(4) not null,
+  aqpb393cta     NUMBER(9) not null,
+  aqpb393ope     NUMBER(9) not null,
+  aqpb393sbo     NUMBER(3) not null,
+  aqpb393top     NUMBER(3) not null,
+  aqpb393ins     NUMBER(10),
+  aqpb393sdo     NUMBER(18,2),
+  aqpb393mtoa    NUMBER(18,2),
+  aqpb393pcj     NUMBER(5,2),
+  aqpb393tip     NUMBER(2),
+  aqpb393empg    NUMBER(3),
+  aqpb393sucg    NUMBER(3),
+  aqpb393modg    NUMBER(3),
+  aqpb393mdag    NUMBER(4),
+  aqpb393papg    NUMBER(4),
+  aqpb393ctag    NUMBER(9),
+  aqpb393opeg    NUMBER(9),
+  aqpb393sbog    NUMBER(3),
+  aqpb393topg    NUMBER(3),
+  aqpb393estg    NUMBER(2),
+  aqpb393estgde  CHAR(30),
+  aqpb393mtoog   NUMBER(18,2),
+  aqpb393mtoag   NUMBER(18,2),
+  aqpb393est     CHAR(1),
+  aqpb393estc    NUMBER(2),
+  aqpb393estcde  CHAR(30),
+  aqpb393itcod   NUMBER(3) not null,
+  aqpb393itmod   NUMBER(3) not null,
+  aqpb393itsuc   NUMBER(3) not null,
+  aqpb393ittran  NUMBER(3) not null,
+  aqpb393itnrel  NUMBER(4) not null,
+  aqpb393itfcon  DATE not null,
+  aqpb393ithor   CHAR(8),
+  aqpb393itucnf  CHAR(10),
+  aqpb393usuact  CHAR(10),
+  aqpb393fecact  DATE,
+  aqpb393sucdes  CHAR(30),
+  aqpb393sucgdes CHAR(30)
+)
+;
+comment on table AQPB393
+  is 'Tabla Reporte Alta garantias fondo CRECER';
+comment on column AQPB393.aqpb393usr
+  is 'Usuario';
+comment on column AQPB393.aqpb393emp
+  is 'Codigo Empresa';
+comment on column AQPB393.aqpb393suc
+  is 'Sucursal del Credito';
+comment on column AQPB393.aqpb393mod
+  is 'Modulo del Credito';
+comment on column AQPB393.aqpb393mda
+  is 'Moneda del Credito';
+comment on column AQPB393.aqpb393pap
+  is 'Papel del Credito';
+comment on column AQPB393.aqpb393cta
+  is 'Cuenta del Credito';
+comment on column AQPB393.aqpb393ope
+  is 'Operacion del Credito';
+comment on column AQPB393.aqpb393sbo
+  is 'Suboperacion del Credito';
+comment on column AQPB393.aqpb393top
+  is 'Tipo operacion del Credito';
+comment on column AQPB393.aqpb393ins
+  is 'Codigo de solicitud o instancia';
+comment on column AQPB393.aqpb393sdo
+  is 'Saldo';
+comment on column AQPB393.aqpb393mtoa
+  is 'Monto Actual del Credito';
+comment on column AQPB393.aqpb393pcj
+  is 'Porcentaje';
+comment on column AQPB393.aqpb393tip
+  is 'Tipo';
+comment on column AQPB393.aqpb393empg
+  is 'Codigo empresa garantia';
+comment on column AQPB393.aqpb393sucg
+  is 'Sucursal Garantia';
+comment on column AQPB393.aqpb393modg
+  is 'Modulo Garantia';
+comment on column AQPB393.aqpb393mdag
+  is 'Moneda Garantia';
+comment on column AQPB393.aqpb393papg
+  is 'Papel Garantia';
+comment on column AQPB393.aqpb393ctag
+  is 'Cuenta Garantia';
+comment on column AQPB393.aqpb393opeg
+  is 'Operacion Garantia';
+comment on column AQPB393.aqpb393sbog
+  is 'Suboperacion Garantia';
+comment on column AQPB393.aqpb393topg
+  is 'Tipo Operacion Garantia';
+comment on column AQPB393.aqpb393estg
+  is 'Estado garantia';
+comment on column AQPB393.aqpb393estgde
+  is 'Descripcion Estado Garantia';
+comment on column AQPB393.aqpb393mtoog
+  is 'Monto Original Garantia';
+comment on column AQPB393.aqpb393mtoag
+  is 'Monto Actual Garantia';
+comment on column AQPB393.aqpb393est
+  is 'Estado';
+comment on column AQPB393.aqpb393estc
+  is 'Estado del Credito';
+comment on column AQPB393.aqpb393estcde
+  is 'Descripcion estado del credito';
+comment on column AQPB393.aqpb393itcod
+  is 'Codigo empresa de la transaccion';
+comment on column AQPB393.aqpb393itmod
+  is 'Modulo de la transaccion';
+comment on column AQPB393.aqpb393itsuc
+  is 'Sucursal de la transaccion';
+comment on column AQPB393.aqpb393ittran
+  is 'Transaccion';
+comment on column AQPB393.aqpb393itnrel
+  is 'Nro Relacion de la transaccion';
+comment on column AQPB393.aqpb393itfcon
+  is 'Fecha Contabilizacion';
+comment on column AQPB393.aqpb393ithor
+  is 'Hora Contabilizacion';
+comment on column AQPB393.aqpb393itucnf
+  is 'Usuario transaccion';
+comment on column AQPB393.aqpb393usuact
+  is 'Usuario Actualizacion';
+comment on column AQPB393.aqpb393fecact
+  is 'Fecha Actualizacion';
+comment on column AQPB393.aqpb393sucdes
+  is 'Sucursal Descripcion';
+comment on column AQPB393.aqpb393sucgdes
+  is 'Sucursal Garantia descripcion';
+create index AQPB393A2 on AQPB393 (AQPB393USR);
+alter table AQPB393
+  add primary key (AQPB393USR, AQPB393EMP, AQPB393SUC, AQPB393MOD, AQPB393MDA, AQPB393PAP, AQPB393CTA, AQPB393OPE, AQPB393SBO, AQPB393TOP, AQPB393ITCOD, AQPB393ITMOD, AQPB393ITSUC, AQPB393ITTRAN, AQPB393ITNREL, AQPB393ITFCON);
+

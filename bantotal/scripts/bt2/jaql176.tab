@@ -1,0 +1,25 @@
+create table JAQL176
+(
+  jaql174nro   NUMBER(10) not null,
+  jaql176pgcod NUMBER(3) not null,
+  jaql176scsuc NUMBER(3) not null,
+  jaql176scmod NUMBER(3) not null,
+  jaql176scmda NUMBER(4) not null,
+  jaql176scpap NUMBER(4) not null,
+  jaql176sccta NUMBER(9) not null,
+  jaql176scope NUMBER(9) not null,
+  jaql176scsbo NUMBER(3) not null,
+  jaql176sctop NUMBER(3) not null,
+  jaql176fecha DATE not null,
+  jaql176corr  NUMBER(15) not null,
+  jaql176cap   NUMBER(17,2),
+  jaql176int   NUMBER(17,2),
+  jaql176mor   NUMBER(17,2),
+  jaql176gas   NUMBER(17,2),
+  jaql176con   CHAR(20),
+  jaql176err   VARCHAR2(150)
+)
+;
+alter table JAQL176
+  add primary key (JAQL174NRO, JAQL176PGCOD, JAQL176SCSUC, JAQL176SCMOD, JAQL176SCMDA, JAQL176SCPAP, JAQL176SCCTA, JAQL176SCOPE, JAQL176SCSBO, JAQL176SCTOP, JAQL176FECHA, JAQL176CORR);
+

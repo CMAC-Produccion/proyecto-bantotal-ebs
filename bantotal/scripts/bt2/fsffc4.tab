@@ -1,0 +1,15 @@
+create table FSFFC4
+(
+  fsfg1nivc NUMBER(2) not null,
+  fsfg2nivc NUMBER(2) not null,
+  fsfg2nivd CHAR(50),
+  fsfg2nivt CLOB,
+  fsfg2nivo CLOB,
+  fsfg2tipo CHAR(1),
+  fsfg2inf  NUMBER(5)
+)
+;
+create index FSFFC403 on FSFFC4 (FSFG2INF);
+alter table FSFFC4
+  add primary key (FSFG1NIVC, FSFG2NIVC);
+

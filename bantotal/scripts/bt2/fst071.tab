@@ -1,0 +1,13 @@
+create table FST071
+(
+  fst071pai NUMBER(3) not null,
+  fst071dpt NUMBER(5) not null,
+  fst071loc NUMBER(5) not null,
+  fst071col NUMBER(9) not null,
+  fst071reg NUMBER(3),
+  fst071dsc CHAR(30)
+)
+;
+alter table FST071
+  add primary key (FST071PAI, FST071DPT, FST071LOC, FST071COL);
+

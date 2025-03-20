@@ -1,0 +1,50 @@
+create table JAQY711
+(
+  jaqy711corr  NUMBER(4) not null,
+  jaqy711cod   NUMBER(3) not null,
+  jaqy711mod   NUMBER(4) not null,
+  jaqy711suc   NUMBER(4) not null,
+  jaqy711mda   NUMBER(3) not null,
+  jaqy711pap   NUMBER(4) not null,
+  jaqy711cta   NUMBER(9) not null,
+  jaqy711ope   NUMBER(9) not null,
+  jaqy711sbo   NUMBER(3) not null,
+  jaqy711top   NUMBER(3) not null,
+  jaqy711fpag  DATE not null,
+  jaqy711fpro  DATE not null,
+  jaqy711tmod  NUMBER(3) not null,
+  jaqy711ttran NUMBER(3) not null,
+  jaqy711nrel  NUMBER(4) not null,
+  jaqy711tsuc  NUMBER(4) not null,
+  jaqy711ntra  CHAR(30),
+  jaqy711nage  CHAR(30),
+  jaqy711pai   NUMBER(3),
+  jaqy711tdc   NUMBER(2),
+  jaqy711ndc   CHAR(12),
+  jaqy711ncli  CHAR(100),
+  jaqy711fde   DATE,
+  jaqy711fasi  DATE,
+  jaqy711cin   NUMBER(16,2),
+  jaqy711mpa   NUMBER(16,2),
+  jaqy711cap   NUMBER(16,2),
+  jaqy711int   NUMBER(16,2),
+  jaqy711icom  NUMBER(16,2),
+  jaqy711mor   NUMBER(16,2),
+  jaqy711rob   NUMBER(16,2),
+  jaqy711gas   NUMBER(16,2),
+  jaqy711itf   NUMBER(16,2),
+  jaqy711abo   CHAR(5),
+  jaqy711dat   NUMBER(4),
+  jaqy711stat  NUMBER(2),
+  jaqy711ext   CHAR(1),
+  jaqy711seg   NUMBER(17,2),
+  jaqy711ftc   DATE
+)
+;
+create index JAQY711A3 on JAQY711 (JAQY711COD, JAQY711MOD, JAQY711SUC, JAQY711MDA, JAQY711PAP, JAQY711CTA, JAQY711OPE, JAQY711SBO, JAQY711TOP, JAQY711FPAG);
+create index JAQY711A4 on JAQY711 (JAQY711COD, JAQY711MDA, JAQY711PAP, JAQY711CTA, JAQY711OPE, JAQY711SBO, JAQY711FPAG);
+create index JAQY711_01 on JAQY711 (JAQY711TSUC, JAQY711NTRA, JAQY711TTRAN, JAQY711NREL, JAQY711FPRO);
+create index JAQY711_02 on JAQY711 (JAQY711COD, JAQY711FPAG);
+alter table JAQY711
+  add primary key (JAQY711CORR, JAQY711COD, JAQY711MOD, JAQY711SUC, JAQY711MDA, JAQY711PAP, JAQY711CTA, JAQY711OPE, JAQY711SBO, JAQY711TOP, JAQY711FPAG, JAQY711FPRO, JAQY711TSUC, JAQY711TMOD, JAQY711TTRAN, JAQY711NREL);
+

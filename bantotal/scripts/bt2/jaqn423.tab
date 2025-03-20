@@ -1,0 +1,32 @@
+create table JAQN423
+(
+  jaqn423fpr DATE not null,
+  jaqn423nco VARCHAR2(10) not null,
+  jaqn423cod VARCHAR2(40) not null,
+  jaqn423lot VARCHAR2(150) not null,
+  jaqn423tip VARCHAR2(150) not null,
+  jaqn423p01 VARCHAR2(150),
+  jaqn423p02 VARCHAR2(150),
+  jaqn423p03 VARCHAR2(150),
+  jaqn423p04 VARCHAR2(150),
+  jaqn423p05 VARCHAR2(150),
+  jaqn423p06 VARCHAR2(150),
+  jaqn423p07 VARCHAR2(150),
+  jaqn423p08 VARCHAR2(150),
+  jaqn423p09 VARCHAR2(150),
+  jaqn423p10 VARCHAR2(150),
+  jaqn423p11 VARCHAR2(150),
+  jaqn423p12 VARCHAR2(150),
+  jaqn423p13 VARCHAR2(150),
+  jaqn423p14 VARCHAR2(150),
+  jaqn423p15 VARCHAR2(150),
+  jaqn423p16 VARCHAR2(150),
+  jaqn423p17 VARCHAR2(150),
+  jaqn423p18 VARCHAR2(150),
+  jaqn423p19 VARCHAR2(150)
+)
+;
+create index JAQN4232 on JAQN423 (JAQN423FPR, JAQN423LOT);
+alter table JAQN423
+  add primary key (JAQN423FPR, JAQN423NCO, JAQN423COD, JAQN423LOT, JAQN423TIP);
+

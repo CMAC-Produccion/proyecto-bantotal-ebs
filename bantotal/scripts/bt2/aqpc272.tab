@@ -1,0 +1,104 @@
+create table AQPC272
+(
+  aqpc272tpcp VARCHAR2(15) not null,
+  aqpc272nrcp VARCHAR2(14) not null,
+  aqpc272femi TIMESTAMP(6) not null,
+  aqpc272fenv TIMESTAMP(6) not null,
+  aqpc272est1 VARCHAR2(1) not null,
+  aqpc272est2 VARCHAR2(1) not null,
+  aqpc272tdoc VARCHAR2(20),
+  aqpc272nrdc VARCHAR2(12),
+  aqpc272rzs  VARCHAR2(70),
+  aqpc272mdsc NUMBER(15,2),
+  aqpc272mtci NUMBER(15,2),
+  aqpc272mda  VARCHAR2(30),
+  aqpc272ndcr VARCHAR2(12),
+  aqpc272idcl VARCHAR2(10),
+  aqpc272idrs VARCHAR2(10),
+  aqpc272obs  VARCHAR2(30),
+  aqpc272etrm VARCHAR2(12),
+  aqpc272esun VARCHAR2(20),
+  aqpc272ecor VARCHAR2(8),
+  aqpc272epdf VARCHAR2(8),
+  aqpc272nrin NUMBER(9),
+  aqpc272tint VARCHAR2(12),
+  aqpc272semi VARCHAR2(20),
+  aqpc272suc  NUMBER(3),
+  aqpc272pemi VARCHAR2(20),
+  aqpc272grvd NUMBER(15,2),
+  aqpc272inft NUMBER(15,2),
+  aqpc272exnd NUMBER(15,2),
+  aqpc272grta NUMBER(15,2),
+  aqpc272expr NUMBER(15,2),
+  aqpc272tbl  VARCHAR2(7)
+)
+;
+comment on column AQPC272.aqpc272tpcp
+  is 'Tipo Comprobante';
+comment on column AQPC272.aqpc272nrcp
+  is 'Nro. Comprobante';
+comment on column AQPC272.aqpc272femi
+  is 'Fecha Emision';
+comment on column AQPC272.aqpc272fenv
+  is 'Fecha Envio';
+comment on column AQPC272.aqpc272est1
+  is 'Estado Bantotal';
+comment on column AQPC272.aqpc272est2
+  is 'Estado Sunat';
+comment on column AQPC272.aqpc272tdoc
+  is 'Tipo Documento';
+comment on column AQPC272.aqpc272nrdc
+  is 'Nro. Documento';
+comment on column AQPC272.aqpc272rzs
+  is 'Razon Social';
+comment on column AQPC272.aqpc272mdsc
+  is 'Monto Descuento';
+comment on column AQPC272.aqpc272mtci
+  is 'Monto Total TCI';
+comment on column AQPC272.aqpc272mda
+  is 'Moneda';
+comment on column AQPC272.aqpc272ndcr
+  is 'Nro. Documento Ref.';
+comment on column AQPC272.aqpc272idcl
+  is 'Id Cliente';
+comment on column AQPC272.aqpc272idrs
+  is 'Id Resumen';
+comment on column AQPC272.aqpc272obs
+  is 'Observacion';
+comment on column AQPC272.aqpc272etrm
+  is 'Estado Transmision';
+comment on column AQPC272.aqpc272esun
+  is 'Estado Sunat';
+comment on column AQPC272.aqpc272ecor
+  is 'Estado Correo';
+comment on column AQPC272.aqpc272epdf
+  is 'Estado PDF';
+comment on column AQPC272.aqpc272nrin
+  is 'Nro. Interno';
+comment on column AQPC272.aqpc272tint
+  is 'Tipo Integracion';
+comment on column AQPC272.aqpc272semi
+  is 'Sistema Emision';
+comment on column AQPC272.aqpc272suc
+  is 'Sucursal';
+comment on column AQPC272.aqpc272pemi
+  is 'Punto Emision';
+comment on column AQPC272.aqpc272grvd
+  is 'Gravada(1001)';
+comment on column AQPC272.aqpc272inft
+  is 'Inafecta(1002)';
+comment on column AQPC272.aqpc272exnd
+  is 'Exonerada(1003)';
+comment on column AQPC272.aqpc272grta
+  is 'Gratuita(1004)';
+comment on column AQPC272.aqpc272expr
+  is 'Exportacion(1005)';
+comment on column AQPC272.aqpc272tbl
+  is 'Nombre Tabla';
+create index AQPC272A2 on AQPC272 (AQPC272NRCP);
+create index AQPC272A3 on AQPC272 (AQPC272NRCP, AQPC272FEMI, AQPC272FENV);
+create index AQPC272A4 on AQPC272 (AQPC272EST1);
+create index AQPC272A5 on AQPC272 (AQPC272EST2);
+alter table AQPC272
+  add primary key (AQPC272TPCP, AQPC272NRCP, AQPC272FEMI, AQPC272FENV);
+

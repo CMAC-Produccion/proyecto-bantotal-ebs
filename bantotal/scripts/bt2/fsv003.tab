@@ -1,0 +1,12 @@
+create table FSV003
+(
+  sv001svnom CHAR(50) not null,
+  sv001svip  CHAR(20) not null,
+  sv001svprt NUMBER(5) not null,
+  sv002appno CHAR(50) not null,
+  sv003dsnom CHAR(50) not null
+)
+;
+alter table FSV003
+  add primary key (SV001SVNOM, SV001SVIP, SV001SVPRT, SV002APPNO, SV003DSNOM);
+

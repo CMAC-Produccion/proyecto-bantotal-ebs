@@ -1,0 +1,137 @@
+create table AQPC564
+(
+  aqpc564cor    NUMBER(30) not null,
+  aqpc564cue    NUMBER(10),
+  aqpc564ope    NUMBER,
+  aqpc564usu    CHAR(10),
+  aqpc564ins    NUMBER(10),
+  aqpc564fec    DATE,
+  aqpc564hor    VARCHAR2(15),
+  aqpc564cli    VARCHAR2(50),
+  aqpc564are    VARCHAR2(20),
+  aqpc564seg    VARCHAR2(50),
+  aqpc564age    VARCHAR2(70),
+  aqpc564map    NUMBER(17,2),
+  aqpc564tea    NUMBER(12,6),
+  aqpc564paj    NUMBER(10,4),
+  aqpc564tpr    NUMBER(12,6),
+  aqpc564des    VARCHAR2(50),
+  aqpc564gar    VARCHAR2(40),
+  aqpc564mot    VARCHAR2(500),
+  aqpc564arc    VARCHAR2(200),
+  aqpc564est    VARCHAR2(5),
+  aqpc564opi    VARCHAR2(500),
+  aqpc564uop    VARCHAR2(30),
+  aqpc564fop    DATE,
+  aqpc564eha    VARCHAR2(10),
+  aqpc564hca    VARCHAR2(15),
+  aqpc564car    BLOB,
+  aqpc564ufi    VARCHAR2(30),
+  aqpc564ffi    DATE,
+  aqpc564hfi    VARCHAR2(15),
+  aqpc564sco    VARCHAR2(10),
+  aqpc564pdef   NUMBER(10,7),
+  aqpc564srsgo  VARCHAR2(10),
+  aqpc564anali  VARCHAR2(70),
+  aqpc564gerag  VARCHAR2(70),
+  aqpc564estr   VARCHAR2(2),
+  aqpc564u512   VARCHAR2(30),
+  aqpc564u517   VARCHAR2(30),
+  aqpc564papro  NUMBER(10,4),
+  aqpc564teapro NUMBER(12,6),
+  aqpc564opire  VARCHAR2(500),
+  aqpc564tipoo  NUMBER(9),
+  aqpc564prfpa  CHAR(10),
+  aqpc564cargo  NUMBER(3),
+  aqpc564usrpa  CHAR(10),
+  aqpc564cmtpa  VARCHAR2(250),
+  aqpc564fpapr  DATE,
+  aqpc564hpapr  CHAR(8),
+  aqpc564tpapr  NUMBER(12,6),
+  aqpc564ppapr  NUMBER(10,4)
+)
+;
+comment on table AQPC564
+  is 'TABLA DE CAMBIO DE TASA';
+comment on column AQPC564.aqpc564cue
+  is 'CUENTA DEL CLIENTE';
+comment on column AQPC564.aqpc564usu
+  is 'USUARIO QUE REGISTRA CAMBIO';
+comment on column AQPC564.aqpc564ins
+  is 'NUMERO DE INSTANCIA DEL CREDITO';
+comment on column AQPC564.aqpc564fec
+  is 'FECHA DE CAMBIO';
+comment on column AQPC564.aqpc564hor
+  is 'HORA DE CAMBIO';
+comment on column AQPC564.aqpc564cli
+  is 'NOMBRE DE CLIENTE';
+comment on column AQPC564.aqpc564are
+  is 'ANALISTA RESPONSABLE';
+comment on column AQPC564.aqpc564seg
+  is 'SEGMENTO AL QUE PERTENECE EL CREDITO';
+comment on column AQPC564.aqpc564age
+  is 'AGENCIA';
+comment on column AQPC564.aqpc564map
+  is 'MONTO APROBADO DEL CREDITO';
+comment on column AQPC564.aqpc564tea
+  is 'TEA PIZARRA';
+comment on column AQPC564.aqpc564paj
+  is 'PORCENTAJE DE AJUSTE';
+comment on column AQPC564.aqpc564tpr
+  is 'TEA PROPUESTA';
+comment on column AQPC564.aqpc564des
+  is 'DESTINO';
+comment on column AQPC564.aqpc564gar
+  is 'GARANTIAS del CREDITO';
+comment on column AQPC564.aqpc564mot
+  is 'DESCRIPCION DEL MOTIVO DE CAMBIO DE TASA';
+comment on column AQPC564.aqpc564arc
+  is 'NOMBRE DEL ARCHIVO QUE SE SUBE AL SISTEMA';
+comment on column AQPC564.aqpc564sco
+  is 'SCORE';
+comment on column AQPC564.aqpc564pdef
+  is 'PROBABILIDAD DE DEFAULT';
+comment on column AQPC564.aqpc564srsgo
+  is 'SEGMENTACION DE RIESGO';
+comment on column AQPC564.aqpc564anali
+  is 'ANALISTA RESPONSABLE';
+comment on column AQPC564.aqpc564gerag
+  is 'GERENTE DE AGENCIA';
+comment on column AQPC564.aqpc564estr
+  is 'RECONSIDERACION S/N';
+comment on column AQPC564.aqpc564u512
+  is 'USUARIO DE LA GESTION PANEL AQPC512';
+comment on column AQPC564.aqpc564u517
+  is 'USUARIO DE LA GESTION PANEL AQPC517';
+comment on column AQPC564.aqpc564papro
+  is 'PORCENTAJE APROBADO';
+comment on column AQPC564.aqpc564teapro
+  is 'TEA APROBADA';
+comment on column AQPC564.aqpc564opire
+  is 'OPINION DE RECHAZO';
+comment on column AQPC564.aqpc564tipoo
+  is 'Cod. de Tipo de Operación - guia especial 11175';
+comment on column AQPC564.aqpc564prfpa
+  is 'Cod. Perfil del Primer Aprobador antes de GCreditos';
+comment on column AQPC564.aqpc564cargo
+  is 'Cod. Cargo de Primer Aprobador antes de GCreditos';
+comment on column AQPC564.aqpc564usrpa
+  is 'Usuario del Primer Aprobador antes de GCreditos';
+comment on column AQPC564.aqpc564cmtpa
+  is 'Comentario del Primer Aprobador';
+comment on column AQPC564.aqpc564fpapr
+  is 'Fecha de Pre-Aprobacion';
+comment on column AQPC564.aqpc564hpapr
+  is 'Hora de Pre-Aprobacion';
+comment on column AQPC564.aqpc564tpapr
+  is 'Tasa Pre-Aprobada';
+comment on column AQPC564.aqpc564ppapr
+  is 'Porcentaje Pre-Aprobado';
+create index AQPC564A1 on AQPC564 (AQPC564FEC, AQPC564USU);
+create index AQPC564A3 on AQPC564 (AQPC564EHA, AQPC564EST, AQPC564FEC);
+create index AQPC564A4 on AQPC564 (AQPC564EHA, AQPC564FEC);
+create index AQPC564A5 on AQPC564 (AQPC564EST, AQPC564FEC);
+create index AQPC564A6 on AQPC564 (AQPC564FEC);
+alter table AQPC564
+  add primary key (AQPC564COR);
+

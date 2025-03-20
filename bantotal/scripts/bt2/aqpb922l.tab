@@ -1,0 +1,102 @@
+create table AQPB922L
+(
+  aqpb922lfee   DATE,
+  aqpb922lemp   NUMBER(3),
+  aqpb922lsue   NUMBER(3),
+  aqpb922lmoe   NUMBER(3),
+  aqpb922ltre   NUMBER(3),
+  aqpb922lree   NUMBER(4),
+  aqpb922lins   NUMBER(10),
+  aqpb922lcta   NUMBER(9),
+  aqpb922lope   NUMBER(9),
+  aqpb922ldoc   VARCHAR2(12),
+  aqpb922lnoc   VARCHAR2(30),
+  aqpb922lntr   VARCHAR2(30),
+  aqpb922lnrc   NUMBER(4),
+  aqpb922lnco   VARCHAR2(50),
+  aqpb922lfve   DATE,
+  aqpb922lmoc   NUMBER(17,2),
+  aqpb922lmon   NUMBER(17,2),
+  aqpb922lpar   NUMBER(17,2),
+  aqpb922lsap   NUMBER(17,2),
+  aqpb922lemis  VARCHAR2(40),
+  aqpb922ldest  VARCHAR2(40),
+  aqpb922lcopi  VARCHAR2(40),
+  aqpb922lmesg  LONG,
+  aqpb922lasun  VARCHAR2(100),
+  aqpb922lflag  NUMBER(1),
+  aqpb922lerro  VARCHAR2(5),
+  aqpb922lermg  VARCHAR2(500),
+  aqpb922lusur  VARCHAR2(10),
+  aqpb922lfecr  DATE,
+  aqpb922lhora  VARCHAR2(15),
+  aqpb922lcorre NUMBER(10)
+)
+;
+comment on table AQPB922L
+  is 'TABLA LOG ENVIO CORREOS AUTOMATICO DE PAGOS CONSECUTIVOS';
+comment on column AQPB922L.aqpb922lfee
+  is 'Fecha Contabilizada';
+comment on column AQPB922L.aqpb922lemp
+  is 'Empresa';
+comment on column AQPB922L.aqpb922lsue
+  is 'Sucursal';
+comment on column AQPB922L.aqpb922lmoe
+  is 'Modulo';
+comment on column AQPB922L.aqpb922ltre
+  is 'Transacción';
+comment on column AQPB922L.aqpb922lree
+  is 'Relación';
+comment on column AQPB922L.aqpb922lins
+  is 'Instancia';
+comment on column AQPB922L.aqpb922lcta
+  is 'Cuenta';
+comment on column AQPB922L.aqpb922lope
+  is 'Operacion';
+comment on column AQPB922L.aqpb922ldoc
+  is 'Documento';
+comment on column AQPB922L.aqpb922lnoc
+  is 'Nombre Cliente';
+comment on column AQPB922L.aqpb922lntr
+  is 'Nombre Transacción';
+comment on column AQPB922L.aqpb922lnrc
+  is 'Numero de Cartera';
+comment on column AQPB922L.aqpb922lnco
+  is 'Nombre Convenio';
+comment on column AQPB922L.aqpb922lfve
+  is 'Fecha Vencimiento Cuota';
+comment on column AQPB922L.aqpb922lmoc
+  is 'Monto Cuota Crédito';
+comment on column AQPB922L.aqpb922lmon
+  is 'Monto Cuota Mora';
+comment on column AQPB922L.aqpb922lpar
+  is 'Pago Realizado';
+comment on column AQPB922L.aqpb922lsap
+  is 'Saldo Pendiente';
+comment on column AQPB922L.aqpb922lemis
+  is 'EMISOR';
+comment on column AQPB922L.aqpb922ldest
+  is 'DESTINATARIO';
+comment on column AQPB922L.aqpb922lcopi
+  is 'DESTINATARIO COPIA';
+comment on column AQPB922L.aqpb922lmesg
+  is 'MENSAJE';
+comment on column AQPB922L.aqpb922lasun
+  is 'ASUNTO';
+comment on column AQPB922L.aqpb922lflag
+  is 'FLAG si aplica o no';
+comment on column AQPB922L.aqpb922lerro
+  is 'COD. ERROR';
+comment on column AQPB922L.aqpb922lermg
+  is 'MENSAJE ERROR';
+comment on column AQPB922L.aqpb922lusur
+  is 'USUARIO';
+comment on column AQPB922L.aqpb922lfecr
+  is 'FECHA';
+comment on column AQPB922L.aqpb922lhora
+  is 'HORA';
+comment on column AQPB922L.aqpb922lcorre
+  is 'Correlativo de pago consecutivo';
+create index AQPB922LA2 on AQPB922L (AQPB922LFEE, AQPB922LEMP, AQPB922LSUE, AQPB922LMOE, AQPB922LTRE, AQPB922LREE);
+create index AQPB922LA3 on AQPB922L (AQPB922LFECR, AQPB922LHORA);
+

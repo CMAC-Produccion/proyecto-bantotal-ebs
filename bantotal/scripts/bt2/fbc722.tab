@@ -1,0 +1,42 @@
+create table FBC722
+(
+  bc722emp  NUMBER(3) not null,
+  bc722fch  DATE not null,
+  bc722inf  CHAR(10) not null,
+  bc722ent  NUMBER(3) not null,
+  bc722sbx  CHAR(5) not null,
+  bc722gpo  NUMBER(4) not null,
+  bc722trel NUMBER(3) not null,
+  bc722cruc CHAR(20) not null,
+  bc722corr NUMBER(10) not null,
+  bc722nomb CHAR(30),
+  bc722vali NUMBER(17,2),
+  bc722sdo  NUMBER(17,2),
+  bc722fvto DATE,
+  bc722tasa NUMBER(10,6),
+  bc722ntra NUMBER(17,2),
+  bc722dvta NUMBER(17,2),
+  bc722aven NUMBER(17,2),
+  bc722dbco NUMBER(17,2),
+  bc722dotb NUMBER(17,2),
+  bc722hinm NUMBER(17,2),
+  bc722hmue NUMBER(17,2),
+  bc722otra NUMBER(17,2),
+  bc722sgre NUMBER(17,2),
+  bc722mod  NUMBER(3),
+  bc722suc  NUMBER(3),
+  bc722mda  NUMBER(4),
+  bc722pap  NUMBER(4),
+  bc722cta  NUMBER(9),
+  bc722oper NUMBER(9),
+  bc722sbop NUMBER(3),
+  bc722tope NUMBER(3),
+  bc722aux1 DATE,
+  bc722aux2 NUMBER(17,2),
+  bc722aux3 CHAR(30)
+)
+;
+create index FBC72202 on FBC722 (BC722EMP, BC722MOD, BC722SUC, BC722MDA, BC722PAP, BC722CTA, BC722OPER, BC722SBOP, BC722TOPE, BC722FCH);
+alter table FBC722
+  add primary key (BC722EMP, BC722FCH, BC722INF, BC722ENT, BC722SBX, BC722GPO, BC722TREL, BC722CRUC, BC722CORR);
+

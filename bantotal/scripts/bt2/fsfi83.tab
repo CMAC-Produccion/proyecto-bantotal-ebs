@@ -1,0 +1,20 @@
+create table FSFI83
+(
+  sfi83emp   NUMBER(3) not null,
+  sfi83modu  NUMBER(3) not null,
+  sfi83tipo  NUMBER(3) not null,
+  sfi83agru  NUMBER(5) not null,
+  sfi83nmod  CHAR(30),
+  sfi83ntip  CHAR(30),
+  sfi83dag   CHAR(65),
+  sfi83auxn1 NUMBER(5),
+  sfi83auxn2 NUMBER(5),
+  sfi83auxn3 NUMBER(4),
+  sfi83auxc1 CHAR(1),
+  sfi83auxc2 CHAR(1),
+  sfi83auxc3 CHAR(1)
+)
+;
+alter table FSFI83
+  add primary key (SFI83EMP, SFI83MODU, SFI83TIPO, SFI83AGRU);
+

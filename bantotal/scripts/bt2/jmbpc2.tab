@@ -1,0 +1,16 @@
+create table JMBPC2
+(
+  mbpc2tipre NUMBER(1) not null,
+  mbpc2codcl NUMBER(10) not null,
+  mbpc2codem NUMBER(5) not null,
+  mbpc2tipcr CHAR(1) not null,
+  mbpc2codru NUMBER(14) not null,
+  mbpc2cond  NUMBER(4) not null,
+  mbpc2sdo   NUMBER(15,2),
+  mbpc2cat   CHAR(1),
+  mbpc2del2  CHAR(2)
+)
+;
+alter table JMBPC2
+  add primary key (MBPC2TIPRE, MBPC2CODCL, MBPC2CODEM, MBPC2TIPCR, MBPC2CODRU, MBPC2COND);
+

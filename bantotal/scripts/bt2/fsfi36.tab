@@ -1,0 +1,35 @@
+create table FSFI36
+(
+  sfi36emp   NUMBER(3) not null,
+  sfi36suc   NUMBER(3) not null,
+  sfi36mod   NUMBER(3) not null,
+  sfi36ope   NUMBER(9) not null,
+  sfi36top   NUMBER(3) not null,
+  sfi36ren   NUMBER(3) not null,
+  sfi33tipv  NUMBER(3) not null,
+  sfi36val   CHAR(1),
+  sfi36est   CHAR(1),
+  sfi36temp  NUMBER(3),
+  sfi36tsuc  NUMBER(3),
+  sfi36tmod  NUMBER(3),
+  sfi36ttran NUMBER(3),
+  sfi36trel  NUMBER(4),
+  sfi36com   CHAR(255),
+  sfi36aux1  DATE,
+  sfi36aux2  DATE,
+  sfi36aux3  NUMBER(9),
+  sfi36aux4  NUMBER(9),
+  sfi36aux5  CHAR(50),
+  sfi36aux6  CHAR(50),
+  sfi36aux7  NUMBER(17,2),
+  sfi36aux8  NUMBER(17,2),
+  sfi36aux9  CHAR(10),
+  sfi36aux10 CHAR(1),
+  sfi36aux11 CHAR(1),
+  sfi36aux12 CHAR(1),
+  sfi36aux13 CHAR(1)
+)
+;
+alter table FSFI36
+  add primary key (SFI36EMP, SFI36SUC, SFI36MOD, SFI36OPE, SFI36TOP, SFI36REN, SFI33TIPV);
+

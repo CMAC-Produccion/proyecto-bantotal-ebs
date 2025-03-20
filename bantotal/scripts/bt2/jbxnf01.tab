@@ -1,0 +1,28 @@
+create table JBXNF01
+(
+  jbxnf01usu CHAR(10) not null,
+  jbxnf01emp NUMBER(3) not null,
+  jbxnf01rub NUMBER(16) not null,
+  jbxnf01mda NUMBER(4) not null,
+  jbxnf01esp NUMBER(4) not null,
+  jbxnf01tod NUMBER(3) not null,
+  jbxnf01cta NUMBER(9) not null,
+  jbxnf01sct NUMBER(3) not null,
+  jbxnf01rde CHAR(40),
+  jbxnf01ton CHAR(30),
+  jbxnf01pap CHAR(30),
+  jbxnf01des CHAR(35),
+  jbxnf01sma NUMBER(17,2),
+  jbxnf01sam NUMBER(17,2),
+  jbxnf01sal NUMBER(17,2),
+  jbxnf01sme NUMBER(17,2),
+  jbxnf01pro NUMBER(17,2),
+  jbxnf01pme NUMBER(17,2),
+  jbxnf01var NUMBER(17,2),
+  jbxnf01vme NUMBER(17,2),
+  jbxnf01cnt NUMBER(4),
+  jbxnf01fch DATE
+)
+;
+create unique index JBXNF011 on JBXNF01 (JBXNF01USU, JBXNF01EMP, JBXNF01RUB, JBXNF01MDA, JBXNF01ESP, JBXNF01TOD, JBXNF01CTA, JBXNF01SCT);
+

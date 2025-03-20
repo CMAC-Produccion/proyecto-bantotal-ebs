@@ -1,0 +1,21 @@
+create table AQPA159
+(
+  aqpa159id        NUMBER(10) not null,
+  aqpa159fecreg    DATE,
+  aqpa159horreg    VARCHAR2(10),
+  aqpa159codcan    NUMBER(3),
+  aqpa159codreq    NUMBER(10),
+  aqpa159accion    VARCHAR2(100),
+  aqpa159jsonin    CLOB,
+  aqpa159xmlin     CLOB,
+  aqpa159jsonout   CLOB,
+  aqpa159xmlout    CLOB,
+  aqpa159coderr    CHAR(5),
+  aqpa159msjerr    VARCHAR2(100),
+  aqpa159codusu    CHAR(10),
+  aqpa159documento VARCHAR2(50)
+)
+;
+alter table AQPA159
+  add primary key (AQPA159ID);
+

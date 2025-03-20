@@ -1,0 +1,15 @@
+create table FSFT87
+(
+  sft87emp  NUMBER(3) not null,
+  sft87coin CHAR(15) not null,
+  sft87comi NUMBER(8) not null,
+  sft87mer  NUMBER(3),
+  sft87prod NUMBER(3),
+  sft87tiop NUMBER(2),
+  sft87desc CHAR(35),
+  sft87hab  CHAR(1)
+)
+;
+alter table FSFT87
+  add primary key (SFT87EMP, SFT87COIN, SFT87COMI);
+

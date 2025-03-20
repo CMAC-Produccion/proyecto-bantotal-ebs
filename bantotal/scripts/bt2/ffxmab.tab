@@ -1,0 +1,15 @@
+create table FFXMAB
+(
+  fxmabpgcod NUMBER(3) not null,
+  fxmabnumti NUMBER(2) not null,
+  fxmabmsgnu NUMBER(9) not null,
+  fxmabswtco NUMBER(5) not null,
+  fxmabswtre NUMBER(2) not null,
+  fxmabruta  CHAR(200)
+)
+;
+create index FFXMAB03 on FFXMAB (FXMABSWTCO, FXMABSWTRE);
+create index FFXMAB04 on FFXMAB (FXMABPGCOD, FXMABSWTCO, FXMABSWTRE);
+alter table FFXMAB
+  add primary key (FXMABPGCOD, FXMABNUMTI, FXMABMSGNU, FXMABSWTCO, FXMABSWTRE);
+

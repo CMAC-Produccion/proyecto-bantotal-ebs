@@ -1,0 +1,31 @@
+create table FSFT96
+(
+  sft95emp   NUMBER(3) not null,
+  sft95espe  NUMBER(4) not null,
+  sft95reduc NUMBER(4) not null,
+  sft96cust  NUMBER(9) not null,
+  sft96depo  NUMBER(9) not null,
+  sft96comi  NUMBER(9) not null,
+  sft96idcu  NUMBER(2) not null,
+  sft96est   CHAR(1),
+  sft96fepos DATE,
+  sft96vanom NUMBER(17,2),
+  sft96suc   NUMBER(3),
+  sft96mod   NUMBER(3),
+  sft96trn   NUMBER(3),
+  sft96nrel  NUMBER(4),
+  sft96fcon  DATE,
+  sft96fval  DATE,
+  sft96auxn1 NUMBER(17,7),
+  sft96auxn2 NUMBER(17,7),
+  sft96auxn3 NUMBER(17,2),
+  sft96auxn4 NUMBER(17,2),
+  sft96auxc1 CHAR(1),
+  sft96auxc2 CHAR(1),
+  sft96auxc3 CHAR(2),
+  sft96auxc4 CHAR(1)
+)
+;
+alter table FSFT96
+  add primary key (SFT95EMP, SFT95ESPE, SFT95REDUC, SFT96CUST, SFT96DEPO, SFT96COMI, SFT96IDCU);
+

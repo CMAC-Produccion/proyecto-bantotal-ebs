@@ -1,0 +1,24 @@
+create table JAQY348
+(
+  jaqy348pgc   NUMBER(3) not null,
+  jaqy348mod   NUMBER(3) not null,
+  jaqy348suc   NUMBER(3) not null,
+  jaqy348mda   NUMBER(3) not null,
+  jaqy348pap   NUMBER(4) not null,
+  jaqy348cta   NUMBER(9) not null,
+  jaqy348ope   NUMBER(9) not null,
+  jaqy348sbo   NUMBER(3) not null,
+  jaqy348top   NUMBER(3) not null,
+  jaqy348fec   DATE,
+  jaqy348itsuc NUMBER(3),
+  jaqy348itmod NUMBER(3),
+  jaqy348itra  NUMBER(3),
+  jaqy348itrel NUMBER(4),
+  jaqy348est   CHAR(1)
+)
+;
+create index JAQY348_IDX1 on JAQY348 (JAQY348PGC, JAQY348CTA, JAQY348EST);
+create index JAQY348_IDX2 on JAQY348 (JAQY348ITMOD, JAQY348ITRA, JAQY348ITSUC, JAQY348ITREL, JAQY348FEC);
+alter table JAQY348
+  add primary key (JAQY348PGC, JAQY348MOD, JAQY348SUC, JAQY348MDA, JAQY348PAP, JAQY348CTA, JAQY348OPE, JAQY348SBO, JAQY348TOP);
+

@@ -1,0 +1,11 @@
+create table SNG504
+(
+  sng501bien NUMBER(10) not null,
+  sng504corr NUMBER(4) not null,
+  sng504fch  DATE,
+  sng504dsc  CHAR(40)
+)
+;
+alter table SNG504
+  add primary key (SNG501BIEN, SNG504CORR);
+

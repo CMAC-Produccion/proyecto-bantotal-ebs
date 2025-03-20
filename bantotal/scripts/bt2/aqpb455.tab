@@ -1,0 +1,43 @@
+create table AQPB455
+(
+  aqpb455emp    NUMBER(3) not null,
+  aqpb455mod    NUMBER(4) not null,
+  aqpb455suc    NUMBER(3) not null,
+  aqpb455mda    NUMBER(4) not null,
+  aqpb455pap    NUMBER(4) not null,
+  aqpb455cta    NUMBER(9) not null,
+  aqpb455ope    NUMBER(9) not null,
+  aqpb455sbop   NUMBER(3) not null,
+  aqpb455tope   NUMBER(3) not null,
+  aqpb455fproc  DATE not null,
+  aqpb455hora   CHAR(8) not null,
+  aqpb455est    CHAR(1) not null,
+  qpb455fecha   DATE not null,
+  aqpb455monto  NUMBER(17,2),
+  aqpb455resta  NUMBER(17,2),
+  aqpb455porcnt NUMBER(17,2),
+  aqpb455auxn1  NUMBER(17,2),
+  aqpb455auxn2  NUMBER(17,2),
+  aqpb455auxv1  VARCHAR2(50),
+  aqpb455auxv2  VARCHAR2(50),
+  aqpb455auxd1  DATE
+)
+;
+comment on column AQPB455.aqpb455fproc
+  is 'FECHA PROCESO';
+comment on column AQPB455.aqpb455hora
+  is 'HORA PROCESO';
+comment on column AQPB455.aqpb455est
+  is 'ESTADO';
+comment on column AQPB455.qpb455fecha
+  is 'FECHA ABONO';
+comment on column AQPB455.aqpb455monto
+  is 'MONTO ABONO';
+comment on column AQPB455.aqpb455resta
+  is 'RESTA: ABONO ACTUAL - ANTERIOR';
+comment on column AQPB455.aqpb455porcnt
+  is 'PORCENTAJE - DIFERENCIA DE ABONO ACTUAL CON ANTERIOR';
+create index AQPB455A2 on AQPB455 (AQPB455EMP, AQPB455MOD, AQPB455SUC, AQPB455MDA, AQPB455PAP, AQPB455CTA, AQPB455OPE, AQPB455SBOP, AQPB455TOPE, AQPB455EST, AQPB455FPROC, QPB455FECHA);
+alter table AQPB455
+  add primary key (AQPB455EMP, AQPB455MOD, AQPB455SUC, AQPB455MDA, AQPB455PAP, AQPB455CTA, AQPB455OPE, AQPB455SBOP, AQPB455TOPE, AQPB455FPROC, AQPB455HORA, AQPB455EST, QPB455FECHA);
+

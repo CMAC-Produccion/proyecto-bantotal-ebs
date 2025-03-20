@@ -1,0 +1,16 @@
+create table FSN998
+(
+  fsn998emp NUMBER(3) not null,
+  fsn998suc NUMBER(3) not null,
+  fsn998cta NUMBER(9) not null,
+  fsn998prd NUMBER(3) not null,
+  fsn998num NUMBER(9),
+  fsn998tx1 CHAR(30),
+  fsn998tx2 CHAR(30),
+  fsn998no1 NUMBER(9),
+  fsn998no2 NUMBER(9)
+)
+;
+alter table FSN998
+  add primary key (FSN998EMP, FSN998SUC, FSN998CTA, FSN998PRD);
+

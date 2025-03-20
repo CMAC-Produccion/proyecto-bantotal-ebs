@@ -1,0 +1,45 @@
+create table JBVA23
+(
+  jbva23emp  NUMBER(3) not null,
+  jbva23mod  NUMBER(3) not null,
+  jbva23suc  NUMBER(3) not null,
+  jbva23mda  NUMBER(4) not null,
+  jbva23pap  NUMBER(4) not null,
+  jbva23cta  NUMBER(9) not null,
+  jbva23oper NUMBER(9) not null,
+  jbva23sbop NUMBER(3) not null,
+  jbva23tope NUMBER(3) not null,
+  jbva23cemp NUMBER(5),
+  jbva23cod1 NUMBER(5),
+  jbva23cod2 NUMBER(5),
+  jbva23cod3 NUMBER(5),
+  jbva23fch1 DATE,
+  jbva23fch2 DATE,
+  jbva23fch3 DATE,
+  jbva23imp1 NUMBER(17,2),
+  jbva23imp2 NUMBER(17,2),
+  jbva23imp3 NUMBER(17,2),
+  jbva23txt1 CHAR(30),
+  jbva23txt2 CHAR(30),
+  jbva23txt3 CHAR(30),
+  jbva23est1 CHAR(1),
+  jbva23est2 CHAR(1),
+  jbva23est3 CHAR(1),
+  jbva23por1 NUMBER(10,6),
+  jbva23por2 NUMBER(10,6),
+  jbva23por3 NUMBER(10,6),
+  jbva23cd   NUMBER(3),
+  jbva23mo   NUMBER(3),
+  jbva23su   NUMBER(3),
+  jbva23tr   NUMBER(3),
+  jbva23re   NUMBER(4),
+  jbva23fc   DATE,
+  jbva23or   NUMBER(2),
+  jbva23sb   NUMBER(3),
+  jbva23co   CHAR(1)
+)
+;
+create unique index JBVA2301 on JBVA23 (JBVA23EMP, JBVA23MOD, JBVA23SUC, JBVA23MDA, JBVA23PAP, JBVA23CTA, JBVA23OPER, JBVA23SBOP, JBVA23TOPE);
+create index JBVA2302 on JBVA23 (JBVA23CD, JBVA23MO, JBVA23SU, JBVA23TR, JBVA23RE, JBVA23OR, JBVA23SB);
+create index JBVA2303 on JBVA23 (JBVA23EMP, JBVA23CEMP, JBVA23CO);
+

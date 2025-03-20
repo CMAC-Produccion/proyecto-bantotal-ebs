@@ -1,0 +1,29 @@
+create table FOC581
+(
+  foc581pcod NUMBER(3) not null,
+  foc580caja NUMBER(3) not null,
+  foc581ben  NUMBER(15) not null,
+  foc581tpgo NUMBER(2),
+  foc581suc  NUMBER(3),
+  foc581pap  NUMBER(4),
+  foc581mda  NUMBER(4),
+  foc581mod  NUMBER(3),
+  foc581cta  NUMBER(9),
+  foc581scta NUMBER(3),
+  foc581tope NUMBER(3),
+  foc581cli  NUMBER(9),
+  foc581cb1d CHAR(8),
+  foc581cb2d CHAR(14),
+  foc581tit  CHAR(1),
+  foc581prov NUMBER(3),
+  foc581des  CHAR(1),
+  foc581tdoc NUMBER(2),
+  foc581ndoc CHAR(12),
+  foc581nom  CHAR(30),
+  foc581obs  CHAR(65)
+)
+;
+create index FOC58102 on FOC581 (FOC580CAJA);
+alter table FOC581
+  add primary key (FOC581PCOD, FOC580CAJA, FOC581BEN);
+

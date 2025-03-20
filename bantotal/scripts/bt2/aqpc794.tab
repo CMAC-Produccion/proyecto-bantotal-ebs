@@ -1,0 +1,87 @@
+create table AQPC794
+(
+  aqpc794corr  NUMBER(17) not null,
+  aqpc794usreg VARCHAR2(10) not null,
+  aqpc794fhreg DATE not null,
+  aqpc794horeg VARCHAR2(8) not null,
+  aqpc794crpg  NUMBER(10),
+  aqpc794inst  NUMBER(10),
+  aqpc794pais  NUMBER(3),
+  aqpc794tdoc  NUMBER(2),
+  aqpc794ndoc  VARCHAR2(12),
+  aqpc794emp   NUMBER(3),
+  aqpc794mod   NUMBER(3),
+  aqpc794suc   NUMBER(3),
+  aqpc794mda   NUMBER(4),
+  aqpc794pap   NUMBER(4),
+  aqpc794cta   NUMBER(9),
+  aqpc794oper  NUMBER(9),
+  aqpc794sbop  NUMBER(3),
+  aqpc794top   NUMBER(3),
+  aqpc794fhrpg DATE,
+  aqpc794ehab  VARCHAR2(1),
+  aqpc794erpg  VARCHAR2(1),
+  aqpc794trpg  NUMBER(4),
+  aqpc794drmt  VARCHAR2(1),
+  aqpc794fhvig DATE,
+  aqpc794dvig  NUMBER(5)
+)
+;
+comment on table AQPC794
+  is 'Reprogramación Remota';
+comment on column AQPC794.aqpc794corr
+  is 'Correlativo';
+comment on column AQPC794.aqpc794usreg
+  is 'Usuario del Registro';
+comment on column AQPC794.aqpc794fhreg
+  is 'Fecha del Registro';
+comment on column AQPC794.aqpc794horeg
+  is 'Hora del Registro';
+comment on column AQPC794.aqpc794crpg
+  is 'Correlativo de la Reprogramaci?n';
+comment on column AQPC794.aqpc794inst
+  is 'Instancia';
+comment on column AQPC794.aqpc794pais
+  is 'País del Documento';
+comment on column AQPC794.aqpc794tdoc
+  is 'Tipo del Documento';
+comment on column AQPC794.aqpc794ndoc
+  is 'Nro. del Documento';
+comment on column AQPC794.aqpc794emp
+  is 'Empresa';
+comment on column AQPC794.aqpc794mod
+  is 'Módulo';
+comment on column AQPC794.aqpc794suc
+  is 'Sucursal';
+comment on column AQPC794.aqpc794mda
+  is 'Moneda';
+comment on column AQPC794.aqpc794pap
+  is 'Papel';
+comment on column AQPC794.aqpc794cta
+  is 'Cuenta';
+comment on column AQPC794.aqpc794oper
+  is 'Operación';
+comment on column AQPC794.aqpc794sbop
+  is 'Suboperación';
+comment on column AQPC794.aqpc794top
+  is 'Tipo de Operación';
+comment on column AQPC794.aqpc794fhrpg
+  is 'Fecha de Reprogramación';
+comment on column AQPC794.aqpc794ehab
+  is 'Estado Habilitado';
+comment on column AQPC794.aqpc794erpg
+  is 'Estado de la Reprogramación';
+comment on column AQPC794.aqpc794trpg
+  is 'Tipo de la Reprogramación';
+comment on column AQPC794.aqpc794drmt
+  is 'V = Vigente / H = Histórico';
+comment on column AQPC794.aqpc794fhvig
+  is 'Fecha de Vigencia';
+comment on column AQPC794.aqpc794dvig
+  is 'Días Vigentes';
+create index AQPC794A2 on AQPC794 (AQPC794INST, AQPC794DRMT, AQPC794USREG, AQPC794FHREG);
+create index AQPC794A3 on AQPC794 (AQPC794CTA, AQPC794DRMT, AQPC794USREG, AQPC794FHREG);
+create index AQPC794A4 on AQPC794 (AQPC794INST, AQPC794DRMT, AQPC794FHREG);
+alter table AQPC794
+  add primary key (AQPC794CORR, AQPC794USREG, AQPC794FHREG, AQPC794HOREG);
+

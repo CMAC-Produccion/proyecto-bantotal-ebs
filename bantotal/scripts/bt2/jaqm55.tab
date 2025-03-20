@@ -1,0 +1,78 @@
+create table JAQM55
+(
+  jaqm55cop CHAR(50) not null,
+  jaqm55coe NUMBER(5) not null,
+  jaqm55cor NUMBER(4) not null,
+  jaqm55est CHAR(50),
+  jaqm55usu CHAR(10),
+  jaqm55suc NUMBER(3),
+  jaqm55fec DATE,
+  jaqm55acc VARCHAR2(200),
+  jaqm55hor CHAR(8),
+  jaqm55wie CHAR(40),
+  jaqm55com VARCHAR2(255),
+  jaqm55an1 NUMBER(9),
+  jaqm55an2 NUMBER(9),
+  jaqm55an3 NUMBER(9),
+  jaqm55ac1 VARCHAR2(255),
+  jaqm55ac2 VARCHAR2(255),
+  jaqm55ac3 VARCHAR2(255),
+  jaqm55af1 DATE,
+  jaqm55af2 DATE,
+  jaqm55af3 DATE,
+  jaqm55ai1 NUMBER(17,2),
+  jaqm55ai2 NUMBER(17,2),
+  jaqm55ai3 NUMBER(17,2)
+)
+;
+comment on table JAQM55
+  is 'Módulo de Poderes Traza de etapas';
+comment on column JAQM55.jaqm55cop
+  is 'Código de Proceso';
+comment on column JAQM55.jaqm55coe
+  is 'Código de Etapa';
+comment on column JAQM55.jaqm55cor
+  is 'Correlativo Relevante';
+comment on column JAQM55.jaqm55est
+  is 'Estado';
+comment on column JAQM55.jaqm55usu
+  is 'Usuario de ingreso';
+comment on column JAQM55.jaqm55suc
+  is 'Sucursal de ingreso';
+comment on column JAQM55.jaqm55fec
+  is 'Fecha';
+comment on column JAQM55.jaqm55acc
+  is 'Acción';
+comment on column JAQM55.jaqm55hor
+  is 'Hora';
+comment on column JAQM55.jaqm55wie
+  is 'Workstation ingreso';
+comment on column JAQM55.jaqm55com
+  is 'Comentario';
+comment on column JAQM55.jaqm55an1
+  is 'Auxiliar numérico 1';
+comment on column JAQM55.jaqm55an2
+  is 'Auxiliar numérico 2';
+comment on column JAQM55.jaqm55an3
+  is 'Auxiliar numérico 3';
+comment on column JAQM55.jaqm55ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM55.jaqm55ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM55.jaqm55ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM55.jaqm55af1
+  is 'Auxiliar fecha 1';
+comment on column JAQM55.jaqm55af2
+  is 'Auxiliar fecha 2';
+comment on column JAQM55.jaqm55af3
+  is 'Auxiliar fecha 3';
+comment on column JAQM55.jaqm55ai1
+  is 'Auxiliar importe 1';
+comment on column JAQM55.jaqm55ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM55.jaqm55ai3
+  is 'Auxiliar importe 3';
+alter table JAQM55
+  add primary key (JAQM55COP, JAQM55COE, JAQM55COR);
+

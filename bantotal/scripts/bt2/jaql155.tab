@@ -1,0 +1,21 @@
+create table JAQL155
+(
+  jaql155ani  NUMBER(4) not null,
+  jaql155mes  NUMBER(2) not null,
+  jaql155sbs  CHAR(10) not null,
+  jaql155ndoc CHAR(12) not null,
+  jaql155fre  DATE,
+  jaql155crd  NUMBER(17,2),
+  jaql155ind  NUMBER(17,2),
+  jaql155caf  NUMBER(17,2),
+  jaql155avo  NUMBER(17,2),
+  jaql155acb  NUMBER(17,2),
+  jaql155lnn  NUMBER(17,2),
+  jaql155cac  NUMBER(17,2),
+  jaql155hip  NUMBER(17,2),
+  jaql155ent  NUMBER(4)
+)
+;
+alter table JAQL155
+  add primary key (JAQL155ANI, JAQL155MES, JAQL155SBS, JAQL155NDOC);
+

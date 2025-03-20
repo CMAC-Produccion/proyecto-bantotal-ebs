@@ -1,0 +1,41 @@
+create table JAQL082
+(
+  jaql82coin CHAR(20) not null,
+  jaql82copa CHAR(20) not null,
+  jaql82fepa DATE not null,
+  jaql82cobt NUMBER(9) not null,
+  jaql82mone NUMBER(4),
+  jaql82mtop NUMBER(17,2),
+  jaql82tipa CHAR(1),
+  jaql82glos CHAR(100),
+  jaql82user CHAR(10),
+  jaql82cosr CHAR(20),
+  jaql82esta CHAR(1),
+  jaql82itcd NUMBER(3),
+  jaql82itsu NUMBER(3),
+  jaql82itmo NUMBER(3),
+  jaql82ittr NUMBER(3),
+  jaql82itre NUMBER(4),
+  jaql82itor NUMBER(2),
+  jaql82itsb NUMBER(4),
+  jaql82itfc DATE,
+  jaql82au01 CHAR(50),
+  jaql82au02 CHAR(50),
+  jaql82au03 CHAR(50),
+  jaql82au04 NUMBER(9),
+  jaql82au05 NUMBER(9),
+  jaql82au06 NUMBER(9),
+  jaql82au07 NUMBER(17,2),
+  jaql82au08 NUMBER(17,2),
+  jaql82au09 NUMBER(17,2),
+  jaql82au10 DATE,
+  jaql82au11 DATE,
+  jaql82au12 DATE
+)
+;
+create index JAQL8210001 on JAQL082 (JAQL82ITCD, JAQL82ITSU, JAQL82ITMO, JAQL82ITTR, JAQL82ITRE, JAQL82ITOR, JAQL82ITSB, JAQL82ITFC);
+create index JAQL8210003 on JAQL082 (JAQL82COIN, JAQL82FEPA);
+create index JAQL8210004 on JAQL082 (JAQL82COPA);
+alter table JAQL082
+  add primary key (JAQL82COIN, JAQL82COPA, JAQL82FEPA, JAQL82COBT);
+

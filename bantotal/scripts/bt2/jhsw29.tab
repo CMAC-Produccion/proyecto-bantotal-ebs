@@ -1,0 +1,12 @@
+create table JHSW29
+(
+  jhsw29wfin NUMBER(10) not null,
+  jhsw29id   NUMBER(14) not null,
+  jhsw29time DATE,
+  jhsw29pgm  CHAR(10),
+  jhsw29msg  CHAR(255)
+)
+;
+alter table JHSW29
+  add primary key (JHSW29WFIN, JHSW29ID);
+

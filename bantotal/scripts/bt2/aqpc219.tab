@@ -1,0 +1,51 @@
+create table AQPC219
+(
+  aqpc219fec DATE not null,
+  aqpc219hor VARCHAR2(8) not null,
+  aqpc219usu VARCHAR2(10) not null,
+  aqpc219cor NUMBER(17) not null,
+  aqpc219tip VARCHAR2(30),
+  aqpc219cta NUMBER(9),
+  aqpc219ope NUMBER(9),
+  aqpc219doc VARCHAR2(12),
+  aqpc219raz VARCHAR2(100),
+  aqpc219cap NUMBER(17),
+  aqpc219fpa DATE,
+  aqpc219sdo NUMBER(17,2),
+  aqpc219mon NUMBER(17,2),
+  aqpc219ndo NUMBER(17,2)
+)
+;
+comment on table AQPC219
+  is 'Log Reporte Amortizaciones Reactiva';
+comment on column AQPC219.aqpc219fec
+  is 'Fecha Registro';
+comment on column AQPC219.aqpc219hor
+  is 'Hora Registro';
+comment on column AQPC219.aqpc219usu
+  is 'Usuario Registro';
+comment on column AQPC219.aqpc219cor
+  is 'Correlativo';
+comment on column AQPC219.aqpc219tip
+  is 'Tipo';
+comment on column AQPC219.aqpc219cta
+  is 'Cuenta';
+comment on column AQPC219.aqpc219ope
+  is 'Numero Operacion';
+comment on column AQPC219.aqpc219doc
+  is 'Numero Documento';
+comment on column AQPC219.aqpc219raz
+  is 'Nombre / Razon Social';
+comment on column AQPC219.aqpc219cap
+  is 'Capital Original';
+comment on column AQPC219.aqpc219fpa
+  is 'Fecha del prepago';
+comment on column AQPC219.aqpc219sdo
+  is 'Saldo Insoluto del prestamo a la fecha del prepago parcial ';
+comment on column AQPC219.aqpc219mon
+  is 'Monto del prepago parcial';
+comment on column AQPC219.aqpc219ndo
+  is 'Nuevo Saldo Insoluto';
+alter table AQPC219
+  add primary key (AQPC219FEC, AQPC219HOR, AQPC219USU, AQPC219COR);
+

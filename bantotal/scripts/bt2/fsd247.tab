@@ -1,0 +1,18 @@
+create table FSD247
+(
+  pgcod     NUMBER(3) not null,
+  ubusertrs CHAR(10) not null,
+  ubfecing  DATE not null,
+  ubhraing  CHAR(8) not null,
+  ubsucori  NUMBER(3),
+  ubsucdst  NUMBER(3),
+  ubusuing  CHAR(10),
+  ubusuconf CHAR(10),
+  ubfecconf DATE,
+  ubhraconf CHAR(8),
+  ubestado  CHAR(1)
+)
+;
+alter table FSD247
+  add primary key (PGCOD, UBUSERTRS, UBFECING, UBHRAING);
+

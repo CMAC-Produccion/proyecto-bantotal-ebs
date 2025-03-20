@@ -1,0 +1,12 @@
+create table LTNL03
+(
+  ltnl01cor  NUMBER(10) not null,
+  ltnl03cor  NUMBER(10) not null,
+  lynl03pais NUMBER(3),
+  ltnl03tdoc NUMBER(2),
+  ltnl03doc  CHAR(25)
+)
+;
+alter table LTNL03
+  add primary key (LTNL01COR, LTNL03COR);
+

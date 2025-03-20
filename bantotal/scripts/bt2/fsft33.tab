@@ -1,0 +1,23 @@
+create table FSFT33
+(
+  kdecod     NUMBER(3) not null,
+  kdetmda    NUMBER(4) not null,
+  kderesi    CHAR(1) not null,
+  kdeifin    CHAR(1) not null,
+  kdetemi    NUMBER(4) not null,
+  kdegrusec  NUMBER(3) not null,
+  kdeplzo    NUMBER(5) not null,
+  kderdeptr  NUMBER(16),
+  kderdepint NUMBER(16),
+  kderdepfi  NUMBER(16),
+  kderub1    NUMBER(16),
+  kderub2    NUMBER(16),
+  kdecar1    CHAR(20),
+  kdecar2    CHAR(20),
+  kdenum1    NUMBER(9),
+  kdenum2    NUMBER(9)
+)
+;
+alter table FSFT33
+  add primary key (KDECOD, KDETMDA, KDERESI, KDEIFIN, KDETEMI, KDEGRUSEC, KDEPLZO);
+

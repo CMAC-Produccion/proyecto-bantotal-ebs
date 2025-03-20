@@ -1,0 +1,33 @@
+create table AQPB251C
+(
+  aqpb251cod  NUMBER(3) not null,
+  aqpb251mod  NUMBER(3) not null,
+  aqpb251suc  NUMBER(3) not null,
+  aqpb251mda  NUMBER(4) not null,
+  aqpb251pap  NUMBER(4) not null,
+  aqpb251cta  NUMBER(9) not null,
+  aqpb251oper NUMBER(9) not null,
+  aqpb251sbop NUMBER(3) not null,
+  aqpb251tope NUMBER(3) not null,
+  aqpb251fec  DATE not null,
+  aqpb251cor  NUMBER(9) not null,
+  aqpb251usu  VARCHAR2(10) not null,
+  aqpb251stat CHAR(1) not null,
+  aqpb251010  CHAR(1),
+  aqpb251011  CHAR(1),
+  aqpb251601  CHAR(1),
+  aqpb251611  CHAR(1),
+  aqpb251602  CHAR(1),
+  aqpb251612  CHAR(1),
+  aqpb251001  CHAR(1),
+  aqpb251002  CHAR(1),
+  aqpb251003  CHAR(1),
+  aqpb251012  CHAR(1),
+  aqpb251fex  DATE,
+  aqpb251uex  VARCHAR2(10)
+)
+;
+create index AQPB251C2 on AQPB251C (AQPB251FEC, AQPB251COR);
+alter table AQPB251C
+  add primary key (AQPB251COD, AQPB251MOD, AQPB251SUC, AQPB251MDA, AQPB251PAP, AQPB251CTA, AQPB251OPER, AQPB251SBOP, AQPB251TOPE, AQPB251FEC, AQPB251COR);
+

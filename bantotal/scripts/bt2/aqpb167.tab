@@ -1,0 +1,81 @@
+create table AQPB167
+(
+  aqpb167corr    NUMBER(10) not null,
+  aqpb167fec     DATE not null,
+  aqpb167hora    VARCHAR2(8) not null,
+  aqpb167pgtx    NUMBER(4) not null,
+  aqpb167suct    NUMBER(4) not null,
+  aqpb167modt    NUMBER(4) not null,
+  aqpb167ttran   NUMBER(6) not null,
+  aqpb167relt    NUMBER(6) not null,
+  aqpb167ordt    NUMBER(4) not null,
+  aqpb167sbor    NUMBER(4) not null,
+  aqpb167pgcod   VARCHAR2(3),
+  aqpb167mod     NUMBER(4),
+  aqpb167suc     NUMBER(4),
+  aqpb167mda     NUMBER(4),
+  aqpb167pap     NUMBER(4),
+  aqpb167cta     NUMBER(9),
+  aqpb167ope     NUMBER(9),
+  aqpb167sbop    NUMBER(4),
+  aqpb167tope    NUMBER(4),
+  aqpb167fdes    DATE,
+  aqpb167nseg    NUMBER,
+  aqpb167pcancel VARCHAR2(5),
+  aqpb167msnj    VARCHAR2(50)
+)
+;
+comment on table AQPB167
+  is 'log control seguros lineas';
+comment on column AQPB167.aqpb167corr
+  is 'correlativo';
+comment on column AQPB167.aqpb167fec
+  is 'fecha';
+comment on column AQPB167.aqpb167hora
+  is 'hora';
+comment on column AQPB167.aqpb167pgtx
+  is 'pgtx';
+comment on column AQPB167.aqpb167suct
+  is 'suc tx';
+comment on column AQPB167.aqpb167modt
+  is 'modulo tx';
+comment on column AQPB167.aqpb167ttran
+  is 'tx';
+comment on column AQPB167.aqpb167relt
+  is 'relacion tx';
+comment on column AQPB167.aqpb167ordt
+  is 'ordinal tx';
+comment on column AQPB167.aqpb167sbor
+  is 'subordinal tx';
+comment on column AQPB167.aqpb167pgcod
+  is 'pgcod linea';
+comment on column AQPB167.aqpb167mod
+  is 'mod linea';
+comment on column AQPB167.aqpb167suc
+  is 'suc linea';
+comment on column AQPB167.aqpb167mda
+  is 'moneda linea';
+comment on column AQPB167.aqpb167pap
+  is 'papel linea';
+comment on column AQPB167.aqpb167cta
+  is 'cuenta linea';
+comment on column AQPB167.aqpb167ope
+  is 'operacion linea';
+comment on column AQPB167.aqpb167sbop
+  is 'subordinal linea';
+comment on column AQPB167.aqpb167tope
+  is 'tipo de operacion linea';
+comment on column AQPB167.aqpb167fdes
+  is 'fecha de desembolso cupo';
+comment on column AQPB167.aqpb167nseg
+  is 'numero de seguros';
+comment on column AQPB167.aqpb167pcancel
+  is 'pcancel';
+comment on column AQPB167.aqpb167msnj
+  is 'Mnesaje';
+create index AQPB167A2 on AQPB167 (AQPB167FEC);
+create index AQPB167A3 on AQPB167 (AQPB167PGTX, AQPB167SUCT, AQPB167MODT, AQPB167TTRAN, AQPB167RELT, AQPB167ORDT);
+create index AQPB167A4 on AQPB167 (AQPB167PGCOD, AQPB167MOD, AQPB167SUC, AQPB167MDA, AQPB167PAP, AQPB167CTA, AQPB167OPE, AQPB167SBOP, AQPB167TOPE);
+alter table AQPB167
+  add primary key (AQPB167CORR, AQPB167FEC, AQPB167HORA, AQPB167PGTX, AQPB167SUCT, AQPB167MODT, AQPB167TTRAN, AQPB167RELT, AQPB167ORDT, AQPB167SBOR);
+

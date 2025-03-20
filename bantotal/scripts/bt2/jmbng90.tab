@@ -1,0 +1,26 @@
+create table JMBNG90
+(
+  jmbng90pgc NUMBER(3) not null,
+  jmbng90ejc NUMBER(5) not null,
+  jmbng90ejn CHAR(30),
+  jmbng90eci CHAR(20),
+  jmbng90sec NUMBER(4),
+  jmbng90niv NUMBER(4),
+  jmbng90esu NUMBER(4),
+  jmbng90efc DATE,
+  jmbng90mto NUMBER(17,2),
+  jmbng90sn1 CHAR(1),
+  jmbng90sn2 CHAR(1),
+  jmbng90sn3 CHAR(1),
+  jmbng90fin DATE,
+  jmbng90rpc NUMBER(3),
+  jmbng90sn4 CHAR(1),
+  jmbng90cd1 NUMBER(9),
+  jmbng90cd2 NUMBER(9),
+  jmbng90cd3 NUMBER(17,2),
+  jmbng90cd4 NUMBER(17,2)
+)
+;
+alter table JMBNG90
+  add primary key (JMBNG90PGC, JMBNG90EJC);
+

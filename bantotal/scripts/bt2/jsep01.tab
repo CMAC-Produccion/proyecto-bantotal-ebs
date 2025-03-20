@@ -1,0 +1,14 @@
+create table JSEP01
+(
+  jsep01emp NUMBER(3) not null,
+  jsep01suc NUMBER(3) not null,
+  jsep01cta NUMBER(9) not null,
+  jsep01sct NUMBER(3) not null,
+  jsep01num NUMBER(9),
+  jsep01x1  NUMBER(9),
+  jsep01x2  CHAR(20)
+)
+;
+alter table JSEP01
+  add primary key (JSEP01EMP, JSEP01SUC, JSEP01CTA, JSEP01SCT);
+

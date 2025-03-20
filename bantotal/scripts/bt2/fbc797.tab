@@ -1,0 +1,27 @@
+create table FBC797
+(
+  bc797pais NUMBER(3) not null,
+  bc797tdid NUMBER(2) not null,
+  bc797ndid CHAR(12) not null,
+  bc797idcl NUMBER(2),
+  bc797cage NUMBER(10),
+  bc797nomb CHAR(90),
+  bc797fnac DATE,
+  bc797lnac CHAR(40),
+  bc797eciv NUMBER(4),
+  bc797ciuu NUMBER(6),
+  bc797prof NUMBER(4),
+  bc797dird CHAR(90),
+  bc797telf CHAR(40),
+  bc797plaa NUMBER(4),
+  bc797agea NUMBER(4),
+  bc797cref NUMBER(4),
+  bc797rseg NUMBER(6),
+  bc797tper NUMBER(2),
+  bc797carg CHAR(40),
+  bc797empl CHAR(40)
+)
+;
+alter table FBC797
+  add primary key (BC797PAIS, BC797TDID, BC797NDID);
+

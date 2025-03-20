@@ -1,0 +1,92 @@
+create table JAQA78
+(
+  jaqa78id  VARCHAR2(25) not null,
+  jaqa78fch DATE,
+  jaqa78fen DATE,
+  jaqa78mde VARCHAR2(50),
+  jaqa78use VARCHAR2(10),
+  jaqa78cue VARCHAR2(500),
+  jaqa78mre VARCHAR2(50),
+  jaqa78dir VARCHAR2(500),
+  jaqa78asu VARCHAR2(200),
+  jaqa78adj VARCHAR2(500),
+  jaqa78cer NUMBER(10),
+  jaqa78err VARCHAR2(400),
+  jaqa78est CHAR(1),
+  jaqa78hrg CHAR(8),
+  jaqa78hre CHAR(8),
+  jaqa78an1 NUMBER(9),
+  jaqa78an2 NUMBER(9),
+  jaqa78an3 NUMBER(9),
+  jaqa78ad1 DATE,
+  jaqa78ad2 DATE,
+  jaqa78ad3 DATE,
+  jaqa78ai1 NUMBER(17,2),
+  jaqa78ai2 NUMBER(17,2),
+  jaqa78ai3 NUMBER(17,2),
+  jaqa78ac1 CHAR(255),
+  jaqa78ac2 CHAR(255),
+  jaqa78ac3 CHAR(255)
+)
+;
+comment on table JAQA78
+  is 'Log para envio de correos electronicos sobreendeudamiento';
+comment on column JAQA78.jaqa78id
+  is 'Autonumerico';
+comment on column JAQA78.jaqa78fch
+  is 'Fecha de gestion';
+comment on column JAQA78.jaqa78fen
+  is 'Fecha de envio';
+comment on column JAQA78.jaqa78mde
+  is 'Mail destinatario';
+comment on column JAQA78.jaqa78use
+  is 'Usuario destinatario';
+comment on column JAQA78.jaqa78cue
+  is 'Cuerpo Mensaje ';
+comment on column JAQA78.jaqa78mre
+  is 'Mail remitente';
+comment on column JAQA78.jaqa78dir
+  is 'Directorio';
+comment on column JAQA78.jaqa78asu
+  is 'Asunto';
+comment on column JAQA78.jaqa78adj
+  is 'Archivo Adjunto';
+comment on column JAQA78.jaqa78cer
+  is 'Codigo de error';
+comment on column JAQA78.jaqa78err
+  is 'Error';
+comment on column JAQA78.jaqa78est
+  is 'Estado';
+comment on column JAQA78.jaqa78hrg
+  is 'Hora de gestion ';
+comment on column JAQA78.jaqa78hre
+  is 'Hora de envio';
+comment on column JAQA78.jaqa78an1
+  is 'Auxiliar numerico1';
+comment on column JAQA78.jaqa78an2
+  is 'Auxiliar numerico2';
+comment on column JAQA78.jaqa78an3
+  is 'Auxiliar numerico3';
+comment on column JAQA78.jaqa78ad1
+  is 'Auxiliar date 1';
+comment on column JAQA78.jaqa78ad2
+  is 'Auxiliar date 2';
+comment on column JAQA78.jaqa78ad3
+  is 'Auxiliar date 3';
+comment on column JAQA78.jaqa78ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA78.jaqa78ai2
+  is 'Auxiliar importe 2';
+comment on column JAQA78.jaqa78ai3
+  is 'Auxiliar importe 3';
+comment on column JAQA78.jaqa78ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA78.jaqa78ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA78.jaqa78ac3
+  is 'Auxiliar caracter 3';
+create index JAQA78A2 on JAQA78 (JAQA78FEN, JAQA78EST);
+create unique index JAQA78A3 on JAQA78 (JAQA78ID);
+alter table JAQA78
+  add primary key (JAQA78ID);
+

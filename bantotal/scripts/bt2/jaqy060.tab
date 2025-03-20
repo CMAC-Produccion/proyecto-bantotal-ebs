@@ -1,0 +1,25 @@
+create table JAQY060
+(
+  jaqy060coor NUMBER(15) not null,
+  jaqy060usua VARCHAR2(12) not null,
+  jaqy060nuip VARCHAR2(20) not null,
+  jaqy060pgco NUMBER(4),
+  jaqy060pmod NUMBER(3),
+  jaqy060psuc NUMBER(3),
+  jaqy060pmda NUMBER(4),
+  jaqy060ppap NUMBER(4),
+  jaqy060pcta NUMBER(9),
+  jaqy060oper NUMBER(9),
+  jaqy060sbop NUMBER(3),
+  jaqy060tope NUMBER(3),
+  jaqy060mtod NUMBER(16,2),
+  jaqy060escr NUMBER(2),
+  jaqy060fede DATE,
+  jaqy060trel NUMBER(4)
+)
+;
+alter table JAQY060
+  add primary key (JAQY060COOR, JAQY060USUA, JAQY060NUIP);
+alter table JAQY060
+  add constraint UK_JAQY060 unique (JAQY060PGCO, JAQY060PMOD, JAQY060PSUC, JAQY060PMDA, JAQY060PPAP, JAQY060PCTA, JAQY060OPER, JAQY060SBOP, JAQY060TOPE, JAQY060USUA, JAQY060NUIP);
+

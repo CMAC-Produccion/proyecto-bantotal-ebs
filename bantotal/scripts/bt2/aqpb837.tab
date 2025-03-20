@@ -1,0 +1,86 @@
+create table AQPB837
+(
+  aqpb837fec  DATE not null,
+  aqpb837ndoc CHAR(12) not null,
+  aqpb837tdoc NUMBER(2),
+  aqpb837pais NUMBER(3),
+  aqpb837nom  CHAR(30),
+  aqpb837cta  NUMBER(9),
+  aqpb837var1 VARCHAR2(60),
+  aqpb837var2 VARCHAR2(60),
+  aqpb837var3 VARCHAR2(60),
+  aqpb837var4 VARCHAR2(60),
+  aqpb837var5 VARCHAR2(60) not null,
+  aqpb837mto1 NUMBER(17,2),
+  aqpb837mto2 NUMBER(17,2),
+  aqpb837mto3 NUMBER(17,2),
+  aqpb837mto4 NUMBER(17,2),
+  aqpb837mto5 NUMBER(17,2),
+  aqpb837imp1 NUMBER(10,6),
+  aqpb837imp2 NUMBER(10,6),
+  aqpb837imp3 NUMBER(10,6),
+  aqpb837imp4 NUMBER(10,6),
+  aqpb837imp5 NUMBER(10,6),
+  aqpb837est  CHAR(1),
+  aqpb837var6 VARCHAR2(60) not null,
+  aqpb837var7 VARCHAR2(60),
+  aqpb837var8 VARCHAR2(60)
+)
+;
+comment on table AQPB837
+  is 'CLIENTES OTRAS ENTIDADES';
+comment on column AQPB837.aqpb837fec
+  is 'fecha carga';
+comment on column AQPB837.aqpb837ndoc
+  is 'numero documento';
+comment on column AQPB837.aqpb837tdoc
+  is 'tipo de documento';
+comment on column AQPB837.aqpb837pais
+  is 'pais';
+comment on column AQPB837.aqpb837nom
+  is 'nombre';
+comment on column AQPB837.aqpb837cta
+  is 'cuenta cliente';
+comment on column AQPB837.aqpb837var1
+  is 'var 1';
+comment on column AQPB837.aqpb837var2
+  is 'var 2';
+comment on column AQPB837.aqpb837var3
+  is 'var 3';
+comment on column AQPB837.aqpb837var4
+  is 'var 4';
+comment on column AQPB837.aqpb837var5
+  is 'var 5';
+comment on column AQPB837.aqpb837mto1
+  is 'monto 1';
+comment on column AQPB837.aqpb837mto2
+  is 'monto 2';
+comment on column AQPB837.aqpb837mto3
+  is 'monto 3';
+comment on column AQPB837.aqpb837mto4
+  is 'monto 4';
+comment on column AQPB837.aqpb837mto5
+  is 'monto 5';
+comment on column AQPB837.aqpb837imp1
+  is 'importe 1';
+comment on column AQPB837.aqpb837imp2
+  is 'importe 2';
+comment on column AQPB837.aqpb837imp3
+  is 'importe 3';
+comment on column AQPB837.aqpb837imp4
+  is 'importe 4';
+comment on column AQPB837.aqpb837imp5
+  is 'importe 5';
+comment on column AQPB837.aqpb837est
+  is 'estado';
+comment on column AQPB837.aqpb837var6
+  is 'var 6';
+comment on column AQPB837.aqpb837var7
+  is 'var 7';
+comment on column AQPB837.aqpb837var8
+  is 'var 8';
+create index AQPB837A2 on AQPB837 (AQPB837NDOC);
+create index AQPB837A3 on AQPB837 (AQPB837PAIS, AQPB837TDOC, AQPB837NDOC);
+alter table AQPB837
+  add primary key (AQPB837FEC, AQPB837NDOC, AQPB837VAR5, AQPB837VAR6);
+

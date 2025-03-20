@@ -1,0 +1,18 @@
+create table XWF060
+(
+  xwfdocid   NUMBER(10) not null,
+  xwfdocdsc  CHAR(50),
+  xwfdocobl  CHAR(1),
+  xwfdoccli  CHAR(1),
+  xwfdocsfe  CHAR(1),
+  xwfdocsfv  CHAR(1),
+  xwfdocapzo CHAR(1),
+  xwfdocpzo  NUMBER(5),
+  xwfdocavto CHAR(1),
+  xwfdocpvto NUMBER(5),
+  msga00id   NUMBER(7)
+)
+;
+alter table XWF060
+  add primary key (XWFDOCID);
+

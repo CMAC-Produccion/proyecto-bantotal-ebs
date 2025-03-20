@@ -1,0 +1,125 @@
+create table AQPC809
+(
+  aqpc809itpgcod NUMBER(3) not null,
+  aqpc809itsuc   NUMBER(3) not null,
+  aqpc809itmod   NUMBER(3) not null,
+  aqpc809ittran  NUMBER(3) not null,
+  aqpc809itnrel  NUMBER(4) not null,
+  aqpc809itfcon  DATE not null,
+  aqpc809horat   VARCHAR2(10),
+  aqpc809agencit VARCHAR2(50),
+  aqpc809operadt VARCHAR2(20),
+  aqpc809product VARCHAR2(30),
+  aqpc809emp     NUMBER(3),
+  aqpc809modu    NUMBER(3),
+  aqpc809suc     NUMBER(3),
+  aqpc809mda     NUMBER(4),
+  aqpc809pap     NUMBER(4),
+  aqpc809cta     NUMBER(9),
+  aqpc809oper    NUMBER(9),
+  aqpc809sbop    NUMBER(3),
+  aqpc809tope    NUMBER(3),
+  aqpc809nomcli  VARCHAR2(100),
+  aqpc809monto   NUMBER(15,6),
+  aqpc809succli  VARCHAR2(50),
+  aqpc809tippgo  VARCHAR2(20),
+  aqpc809desmda  VARCHAR2(10),
+  aqpc809fecsis  DATE,
+  aqpc809horsis  CHAR(10),
+  aqpc809fechor  DATE,
+  aqpc809codcli  VARCHAR2(30),
+  aqpc809c1      VARCHAR2(400),
+  aqpc809c2      VARCHAR2(400),
+  aqpc809c3      VARCHAR2(400),
+  aqpc809c4      VARCHAR2(400),
+  aqpc809anali   VARCHAR2(10),
+  aqpc809gagen   VARCHAR2(10),
+  aqpc809numi    NUMBER(10),
+  aqpc809envp    VARCHAR2(2),
+  aqpc809errp    VARCHAR2(400),
+  aqpc809fecen   DATE,
+  aqpc809horen   VARCHAR2(20)
+)
+;
+comment on table AQPC809
+  is 'Tabla para Alerta de cancelaciones o pagos adelantados (amortizaciones) de créditos';
+comment on column AQPC809.aqpc809itpgcod
+  is 'itpgcod';
+comment on column AQPC809.aqpc809itsuc
+  is 'Sucursal transac.';
+comment on column AQPC809.aqpc809itmod
+  is 'Modulo transac..';
+comment on column AQPC809.aqpc809ittran
+  is 'Transación';
+comment on column AQPC809.aqpc809itnrel
+  is 'Nro. relación';
+comment on column AQPC809.aqpc809itfcon
+  is 'Fecha Contab.';
+comment on column AQPC809.aqpc809horat
+  is 'Hora';
+comment on column AQPC809.aqpc809agencit
+  is 'Agencia';
+comment on column AQPC809.aqpc809operadt
+  is 'Operador';
+comment on column AQPC809.aqpc809product
+  is 'Producto';
+comment on column AQPC809.aqpc809emp
+  is 'Empresa cred.';
+comment on column AQPC809.aqpc809modu
+  is 'Modulo cred.';
+comment on column AQPC809.aqpc809suc
+  is 'Sucursal cred.';
+comment on column AQPC809.aqpc809mda
+  is 'Moneda cred.';
+comment on column AQPC809.aqpc809pap
+  is 'Papel cred.';
+comment on column AQPC809.aqpc809cta
+  is 'Cuenta cred.';
+comment on column AQPC809.aqpc809oper
+  is 'Operacion cred.';
+comment on column AQPC809.aqpc809sbop
+  is 'Suboperacion cred.';
+comment on column AQPC809.aqpc809tope
+  is 'Tipooperacion cred.';
+comment on column AQPC809.aqpc809nomcli
+  is 'Nombre completo del cliente';
+comment on column AQPC809.aqpc809monto
+  is 'Monto de la cancelación o pago adelantado (amortización)';
+comment on column AQPC809.aqpc809tippgo
+  is 'Tipo de pago';
+comment on column AQPC809.aqpc809desmda
+  is 'Descripción Moneda';
+comment on column AQPC809.aqpc809fecsis
+  is 'Fecha Sistema';
+comment on column AQPC809.aqpc809horsis
+  is 'Hora Sistema';
+comment on column AQPC809.aqpc809fechor
+  is 'Fecha y hora';
+comment on column AQPC809.aqpc809codcli
+  is 'Cod. cliente';
+comment on column AQPC809.aqpc809c1
+  is 'C1';
+comment on column AQPC809.aqpc809c2
+  is 'C2';
+comment on column AQPC809.aqpc809c3
+  is 'C3';
+comment on column AQPC809.aqpc809c4
+  is 'C4';
+comment on column AQPC809.aqpc809anali
+  is 'Usuario Analista de créditos';
+comment on column AQPC809.aqpc809gagen
+  is 'Usuario Gerente agencia';
+comment on column AQPC809.aqpc809numi
+  is 'nro de intentos de conexion Misti';
+comment on column AQPC809.aqpc809envp
+  is 'si se envio o no el push';
+comment on column AQPC809.aqpc809errp
+  is 'error del push';
+comment on column AQPC809.aqpc809fecen
+  is 'fecha de envio';
+comment on column AQPC809.aqpc809horen
+  is 'hora de envio.';
+create index AQPC809A2 on AQPC809 (AQPC809FECSIS);
+alter table AQPC809
+  add primary key (AQPC809ITPGCOD, AQPC809ITSUC, AQPC809ITMOD, AQPC809ITTRAN, AQPC809ITNREL, AQPC809ITFCON);
+

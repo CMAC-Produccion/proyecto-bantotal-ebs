@@ -1,0 +1,34 @@
+create table AQPD854
+(
+  aqpd854emp  NUMBER(3),
+  aqpd854mod  NUMBER(3),
+  aqpd854suc  NUMBER(3),
+  aqpd854mda  NUMBER(4),
+  aqpd854pap  NUMBER(4),
+  aqpd854cta  NUMBER(9),
+  aqpd854ope  NUMBER(9),
+  aqpd854sbo  NUMBER(3),
+  aqpd854top  NUMBER(3),
+  aqpd854tcod NUMBER(3),
+  aqpd854tmod NUMBER(3),
+  aqpd854tpiz NUMBER(3),
+  aqpd854tcta NUMBER(9),
+  aqpd854tmda NUMBER(4),
+  aqpd854tpap NUMBER(4),
+  aqpd854tfde DATE,
+  aqpd854tmto NUMBER(17,2),
+  aqpd854ttas NUMBER(1),
+  aqpd854tpfi NUMBER(8),
+  aqpd854tpvi CHAR(1),
+  aqpd854esta CHAR(1),
+  aqpd854fecr TIMESTAMP(6),
+  aqpd854usur CHAR(30),
+  aqpd854tipr NUMBER(3),
+  aqpd854tipi VARCHAR2(2),
+  aqpd854fecm TIMESTAMP(6),
+  aqpd854msgi VARCHAR2(250),
+  aqpd854msgr VARCHAR2(250)
+)
+;
+create index AQPD854A1 on AQPD854 (AQPD854EMP, AQPD854MOD, AQPD854SUC, AQPD854MDA, AQPD854TPAP, AQPD854CTA, AQPD854OPE, AQPD854SBO, AQPD854TOP);
+

@@ -1,0 +1,18 @@
+create table SD4365
+(
+  sd65coddis NUMBER(4) not null,
+  sd65codent NUMBER(5) not null,
+  sd65fchinf NUMBER(6) not null,
+  sd65tpoid  NUMBER(2) not null,
+  sd65nroid  NUMBER(11) not null,
+  sd65tponmn NUMBER(2) not null,
+  sd65tpidin NUMBER(2) not null,
+  sd65nridin CHAR(11) not null,
+  sd65denint CHAR(55),
+  sd65porcpa NUMBER(5),
+  sd65rectif CHAR(1)
+)
+;
+alter table SD4365
+  add primary key (SD65CODDIS, SD65CODENT, SD65FCHINF, SD65TPOID, SD65NROID, SD65TPONMN, SD65TPIDIN, SD65NRIDIN);
+

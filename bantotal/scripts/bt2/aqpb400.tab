@@ -1,0 +1,101 @@
+create table AQPB400
+(
+  aqpb400usur    CHAR(10) not null,
+  aqpb400codsbs  VARCHAR2(12) not null,
+  aqpb400fproc   DATE,
+  aqpb400fcr     CHAR(10),
+  aqpb400hcr     CHAR(10),
+  aqpb400codemp  VARCHAR2(5) not null,
+  aqpb400desemp  VARCHAR2(150),
+  aqpb400cretip  VARCHAR2(4) not null,
+  aqpb400tidesc  VARCHAR2(30),
+  aqpb400ctac    VARCHAR2(15),
+  aqpb400desc    VARCHAR2(40),
+  aqpb400diaatr  NUMBER(10),
+  aqpb400calvig  VARCHAR2(4),
+  aqpb400descde  VARCHAR2(50),
+  aqpb400descal  VARCHAR2(30),
+  aqpb400saldo0  NUMBER(17,2),
+  aqpb400saldo1  NUMBER(17,2),
+  aqpb400saldo2  NUMBER(17,2),
+  aqpb400saldo3  NUMBER(17,2),
+  aqpb400saldo4  NUMBER(17,2),
+  aqpb400saldo5  NUMBER(17,2),
+  aqpb400saldo6  NUMBER(17,2),
+  aqpb400prcbase NUMBER(10,4),
+  aqpb400prdis1  NUMBER(10,4),
+  aqpb400prdis2  NUMBER(10,4),
+  aqpb400prdis3  NUMBER(10,4),
+  aqpb400prdis4  NUMBER(10,4),
+  aqpb400prdis5  NUMBER(10,4),
+  aqpb400prdis6  NUMBER(10,4),
+  aqpb400pagul6  CHAR(1)
+)
+;
+comment on table AQPB400
+  is 'Tabla log consulta saldos';
+comment on column AQPB400.aqpb400usur
+  is 'Usuario';
+comment on column AQPB400.aqpb400codsbs
+  is 'Codigo SBS';
+comment on column AQPB400.aqpb400fproc
+  is 'Fecha de proceso';
+comment on column AQPB400.aqpb400fcr
+  is 'Fecha creacion';
+comment on column AQPB400.aqpb400hcr
+  is 'Hora creacion';
+comment on column AQPB400.aqpb400codemp
+  is 'Codigo empresa';
+comment on column AQPB400.aqpb400desemp
+  is 'Descripcion empresa';
+comment on column AQPB400.aqpb400cretip
+  is 'Tipo Credito';
+comment on column AQPB400.aqpb400tidesc
+  is 'Descripcion tipo credito';
+comment on column AQPB400.aqpb400ctac
+  is 'Cuenta';
+comment on column AQPB400.aqpb400desc
+  is 'Descripcion';
+comment on column AQPB400.aqpb400diaatr
+  is 'Dias atraso';
+comment on column AQPB400.aqpb400calvig
+  is 'Calificacion vigente';
+comment on column AQPB400.aqpb400descde
+  is 'Descripcion defecto';
+comment on column AQPB400.aqpb400descal
+  is 'Descripcion calificacion';
+comment on column AQPB400.aqpb400saldo0
+  is 'Saldo mes inicial';
+comment on column AQPB400.aqpb400saldo1
+  is 'Saldo mes -1';
+comment on column AQPB400.aqpb400saldo2
+  is 'Saldo mes -2';
+comment on column AQPB400.aqpb400saldo3
+  is 'Saldo mes -3';
+comment on column AQPB400.aqpb400saldo4
+  is 'Saldo mes -4';
+comment on column AQPB400.aqpb400saldo5
+  is 'Saldo mes -5';
+comment on column AQPB400.aqpb400saldo6
+  is 'Saldo mes -6';
+comment on column AQPB400.aqpb400prcbase
+  is 'Porcentaje base';
+comment on column AQPB400.aqpb400prdis1
+  is 'Porcentaje disminucion 1er mes';
+comment on column AQPB400.aqpb400prdis2
+  is 'Porcentaje disminucion 2do mes';
+comment on column AQPB400.aqpb400prdis3
+  is 'Porcentaje disminucion 3er mes';
+comment on column AQPB400.aqpb400prdis4
+  is 'Porcentaje disminucion 4to mes';
+comment on column AQPB400.aqpb400prdis5
+  is 'Porcentaje disminucion 5to mes';
+comment on column AQPB400.aqpb400prdis6
+  is 'Porcentaje disminucion 6to mes';
+comment on column AQPB400.aqpb400pagul6
+  is 'Pago ultimos 6 meses';
+create index AQPB400A2 on AQPB400 (AQPB400CODSBS);
+create index AQPB400A3 on AQPB400 (AQPB400USUR, AQPB400CODSBS);
+alter table AQPB400
+  add primary key (AQPB400USUR, AQPB400CODSBS, AQPB400CODEMP, AQPB400CRETIP);
+

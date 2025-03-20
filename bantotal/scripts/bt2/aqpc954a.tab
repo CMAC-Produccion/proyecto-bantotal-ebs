@@ -1,0 +1,60 @@
+create table AQPC954A
+(
+  aqpc954ausu  VARCHAR2(10),
+  aqpc954afec  DATE,
+  aqpc954ahor  VARCHAR2(15),
+  aqpc954aemp  NUMBER(3),
+  aqpc954amod  NUMBER(5),
+  aqpc954asuc  NUMBER(5),
+  aqpc954amda  NUMBER(4),
+  aqpc954apap  NUMBER(4),
+  aqpc954acta  NUMBER(9),
+  aqpc954aope  NUMBER(9),
+  aqpc954asbo  NUMBER(5),
+  aqpc954atop  NUMBER(5),
+  aqpc954adir  VARCHAR2(140),
+  aqpc954aaux1 NUMBER(17,2),
+  aqpc954aaux2 VARCHAR2(100),
+  aqpc954aaux3 DATE,
+  aqpc954aaux4 NUMBER(10)
+)
+;
+comment on table AQPC954A
+  is 'Tabla temporal de direcciones de garantías que pueden ser coincidentes';
+comment on column AQPC954A.aqpc954ausu
+  is 'Usuario';
+comment on column AQPC954A.aqpc954afec
+  is 'Fecha Registro';
+comment on column AQPC954A.aqpc954ahor
+  is 'Hora Registro';
+comment on column AQPC954A.aqpc954aemp
+  is 'Empresa Garantia';
+comment on column AQPC954A.aqpc954amod
+  is 'Modulo Garantia';
+comment on column AQPC954A.aqpc954asuc
+  is 'Sucursal Garantia';
+comment on column AQPC954A.aqpc954amda
+  is 'Moneda Garantia';
+comment on column AQPC954A.aqpc954apap
+  is 'Papel Garantia';
+comment on column AQPC954A.aqpc954acta
+  is 'Cuenta Garantia';
+comment on column AQPC954A.aqpc954aope
+  is 'Operación Garantia';
+comment on column AQPC954A.aqpc954asbo
+  is 'Sub Operación Garantia';
+comment on column AQPC954A.aqpc954atop
+  is 'Tipo Operación Garantia';
+comment on column AQPC954A.aqpc954adir
+  is 'Dirección';
+comment on column AQPC954A.aqpc954aaux1
+  is 'Auxiliar1';
+comment on column AQPC954A.aqpc954aaux2
+  is 'Auxiliar2';
+comment on column AQPC954A.aqpc954aaux3
+  is 'Auxiliar3';
+comment on column AQPC954A.aqpc954aaux4
+  is 'Auxiliar Numerico';
+create index AQPC954AA2 on AQPC954A (AQPC954AUSU);
+create index AQPC954AA3 on AQPC954A (AQPC954AUSU, AQPC954AEMP, AQPC954AMOD, AQPC954ASUC, AQPC954AMDA, AQPC954APAP, AQPC954ACTA, AQPC954AOPE, AQPC954ASBO, AQPC954ATOP);
+

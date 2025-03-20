@@ -1,0 +1,83 @@
+create table AQPB924
+(
+  aqpb924cod  NUMBER(3) not null,
+  aqpb924tsuc NUMBER(4) not null,
+  aqpb924tmod NUMBER(4) not null,
+  aqpb924tran NUMBER(4) not null,
+  aqpb924nrel NUMBER(4) not null,
+  aqpb924tord NUMBER(4),
+  aqpb924fcon DATE not null,
+  aqpb924sald NUMBER(17,2),
+  aqpb924flcl VARCHAR2(2),
+  aqpb924fimp VARCHAR2(2),
+  aqpb924pai  NUMBER(5),
+  aqpb924tdo  NUMBER(5),
+  aqpb924doc  VARCHAR2(15),
+  aqpb924mod  NUMBER(5),
+  aqpb924suc  NUMBER(4),
+  aqpb924mda  NUMBER(4),
+  aqpb924pap  NUMBER(4),
+  aqpb924cta  NUMBER(9),
+  aqpb924ope  NUMBER(9),
+  aqpb924sbo  NUMBER(4),
+  aqpb924top  NUMBER(5),
+  aqpb924obs  VARCHAR2(300),
+  aqpb924fec  DATE,
+  aqpb924hor  VARCHAR2(8),
+  aqpb924usr  VARCHAR2(10)
+)
+;
+comment on table AQPB924
+  is 'TABLA LOG PARA VALIDAR IMPRESION DE CNA';
+comment on column AQPB924.aqpb924cod
+  is 'Empresa';
+comment on column AQPB924.aqpb924tsuc
+  is 'Sucursal Transaccion';
+comment on column AQPB924.aqpb924tmod
+  is 'Modulo Transaccion';
+comment on column AQPB924.aqpb924tran
+  is 'Trasaccion';
+comment on column AQPB924.aqpb924nrel
+  is 'Relacional';
+comment on column AQPB924.aqpb924tord
+  is 'Ordinal';
+comment on column AQPB924.aqpb924fcon
+  is 'Fecha Contabilizacion';
+comment on column AQPB924.aqpb924sald
+  is 'Importe a Pagar';
+comment on column AQPB924.aqpb924flcl
+  is 'Flag de cancelacion total S/N';
+comment on column AQPB924.aqpb924fimp
+  is 'Flag de impresión S/N';
+comment on column AQPB924.aqpb924pai
+  is 'Pais';
+comment on column AQPB924.aqpb924tdo
+  is 'Tipo Documento';
+comment on column AQPB924.aqpb924doc
+  is 'Documento';
+comment on column AQPB924.aqpb924mod
+  is 'Modulo';
+comment on column AQPB924.aqpb924suc
+  is 'Sucursal';
+comment on column AQPB924.aqpb924mda
+  is 'Moneda';
+comment on column AQPB924.aqpb924pap
+  is 'Papel';
+comment on column AQPB924.aqpb924cta
+  is 'Cuenta';
+comment on column AQPB924.aqpb924ope
+  is 'Operacion';
+comment on column AQPB924.aqpb924sbo
+  is 'Sub operacion';
+comment on column AQPB924.aqpb924top
+  is 'Tipo operacion';
+comment on column AQPB924.aqpb924fec
+  is 'Fecha registro';
+comment on column AQPB924.aqpb924hor
+  is 'Hora registro';
+comment on column AQPB924.aqpb924usr
+  is 'Usuario registro';
+create index AQPB924A3 on AQPB924 (AQPB924FEC, AQPB924HOR, AQPB924USR);
+alter table AQPB924
+  add primary key (AQPB924COD, AQPB924TSUC, AQPB924TMOD, AQPB924TRAN, AQPB924NREL, AQPB924FCON);
+

@@ -1,0 +1,111 @@
+create table JAQN2B
+(
+  jaqn2bfec DATE not null,
+  jaqn2bins NUMBER(9) not null,
+  jaqn2bcod NUMBER(3) not null,
+  jaqn2bsuc NUMBER(3) not null,
+  jaqn2bmod NUMBER(3) not null,
+  jaqn2bmda NUMBER(4) not null,
+  jaqn2bpap NUMBER(4) not null,
+  jaqn2bcta NUMBER(9) not null,
+  jaqn2bope NUMBER(9) not null,
+  jaqn2bsbo NUMBER(3) not null,
+  jaqn2btop NUMBER(3) not null,
+  jaqn2bcor NUMBER(9) not null,
+  jaqn2bmto NUMBER(17,2),
+  jaqn2btce NUMBER(10,6),
+  jaqn2btea NUMBER(10,6),
+  jaqn2bteo NUMBER(10,6),
+  jaqn2bpiz NUMBER(3),
+  jaqn2btts NUMBER(2),
+  jaqn2bplz NUMBER(5),
+  jaqn2bhor CHAR(10),
+  jaqn2busu CHAR(10),
+  jaqn2bwks CHAR(12),
+  jaqn2bai1 NUMBER(17,2),
+  jaqn2bai2 NUMBER(17,2),
+  jaqn2ban1 NUMBER(9),
+  jaqn2ban2 NUMBER(9),
+  jaqn2bac1 CHAR(100),
+  jaqn2bac2 CHAR(100),
+  jaqn2baf1 DATE,
+  jaqn2baf2 DATE,
+  jaqn2bat1 VARCHAR2(255),
+  jaqn2bat2 VARCHAR2(255),
+  jaqn2bfac NUMBER(10,6)
+)
+;
+comment on table JAQN2B
+  is 'Tabla Log TCEA - Factor Tasas';
+comment on column JAQN2B.jaqn2bfec
+  is 'Fecha';
+comment on column JAQN2B.jaqn2bins
+  is 'Instancia';
+comment on column JAQN2B.jaqn2bcod
+  is 'Empresa';
+comment on column JAQN2B.jaqn2bsuc
+  is 'Sucursal';
+comment on column JAQN2B.jaqn2bmod
+  is 'Modulo';
+comment on column JAQN2B.jaqn2bmda
+  is 'Moneda';
+comment on column JAQN2B.jaqn2bpap
+  is 'Papel';
+comment on column JAQN2B.jaqn2bcta
+  is 'Cuenta';
+comment on column JAQN2B.jaqn2bope
+  is 'Operacion';
+comment on column JAQN2B.jaqn2bsbo
+  is 'Subopracion';
+comment on column JAQN2B.jaqn2btop
+  is 'Tipo de Operacion';
+comment on column JAQN2B.jaqn2bcor
+  is 'Correlativo';
+comment on column JAQN2B.jaqn2bmto
+  is 'Monto';
+comment on column JAQN2B.jaqn2btce
+  is 'Tasa Original (TCEA)';
+comment on column JAQN2B.jaqn2btea
+  is 'Tasa Offset (5)';
+comment on column JAQN2B.jaqn2bteo
+  is 'Tasa Final';
+comment on column JAQN2B.jaqn2bpiz
+  is 'Pizarra';
+comment on column JAQN2B.jaqn2btts
+  is 'TipoTasa';
+comment on column JAQN2B.jaqn2bplz
+  is 'Plazo';
+comment on column JAQN2B.jaqn2bhor
+  is 'Hora';
+comment on column JAQN2B.jaqn2busu
+  is 'Usuario';
+comment on column JAQN2B.jaqn2bwks
+  is 'Workstation';
+comment on column JAQN2B.jaqn2bai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN2B.jaqn2bai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN2B.jaqn2ban1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN2B.jaqn2ban2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN2B.jaqn2bac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQN2B.jaqn2bac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQN2B.jaqn2baf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN2B.jaqn2baf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN2B.jaqn2bat1
+  is 'Auxiliar Texto 1';
+comment on column JAQN2B.jaqn2bat2
+  is 'Auxiliar Texto 2';
+comment on column JAQN2B.jaqn2bfac
+  is 'Factor';
+create index JAQN2BA3 on JAQN2B (JAQN2BCOD, JAQN2BCTA, JAQN2BOPE);
+create index JAQN2BA4 on JAQN2B (JAQN2BINS);
+create index JAQN2BA5 on JAQN2B (JAQN2BUSU);
+alter table JAQN2B
+  add constraint JAQN2BA1 primary key (JAQN2BFEC, JAQN2BINS, JAQN2BCOD, JAQN2BSUC, JAQN2BMOD, JAQN2BMDA, JAQN2BPAP, JAQN2BCTA, JAQN2BOPE, JAQN2BSBO, JAQN2BTOP, JAQN2BCOR);
+

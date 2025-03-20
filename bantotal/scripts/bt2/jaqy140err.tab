@@ -1,0 +1,50 @@
+create table JAQY140ERR
+(
+  jaqy140errcorr    NUMBER(10) not null,
+  jaqy140errpais    NUMBER(9) not null,
+  jaqy140errtdoc    NUMBER(9) not null,
+  jaqy140errndoc    VARCHAR2(12) not null,
+  jaqy140errtcamb   NUMBER(14,8),
+  jaqy140errinst    NUMBER(12) not null,
+  jaqy140errfec     DATE not null,
+  jaqy140errcapcaja NUMBER(17,2),
+  jaqy140errsldext  NUMBER(17,2),
+  jaqy140errresnet  NUMBER(17,2),
+  jaqy140errratio   NUMBER(17,6),
+  jaqy140errind     VARCHAR2(2),
+  jaqy140errest     VARCHAR2(2),
+  jaqy140errhora    CHAR(8) not null,
+  jaqy140erruser    VARCHAR2(10),
+  jaqy140errcoderr  VARCHAR2(50),
+  jaqy140errmsgerr  VARCHAR2(1500)
+)
+;
+comment on column JAQY140ERR.jaqy140errcorr
+  is 'Correlativo';
+comment on column JAQY140ERR.jaqy140errpais
+  is 'Pais de Documento';
+comment on column JAQY140ERR.jaqy140errtdoc
+  is 'Tipo de Documento';
+comment on column JAQY140ERR.jaqy140errndoc
+  is 'Nro de Documento';
+comment on column JAQY140ERR.jaqy140errtcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column JAQY140ERR.jaqy140errinst
+  is 'Instancia';
+comment on column JAQY140ERR.jaqy140errfec
+  is 'Fecha de Proceso';
+comment on column JAQY140ERR.jaqy140errcapcaja
+  is 'Capacidad en la Caja';
+comment on column JAQY140ERR.jaqy140errsldext
+  is 'Saldo Externo - Sistema Financiero';
+comment on column JAQY140ERR.jaqy140errresnet
+  is 'Resultado Neto';
+comment on column JAQY140ERR.jaqy140errratio
+  is 'Ratio Cuota Resultado';
+comment on column JAQY140ERR.jaqy140errind
+  is 'Indicador P pyme, C consumo';
+create index JAQY140ERRIDX002 on JAQY140ERR (JAQY140ERRCORR, JAQY140ERRFEC, JAQY140ERRHORA);
+create index JAQY140ERRIDX003 on JAQY140ERR (JAQY140ERRINST);
+alter table JAQY140ERR
+  add primary key (JAQY140ERRPAIS, JAQY140ERRTDOC, JAQY140ERRNDOC, JAQY140ERRINST, JAQY140ERRFEC, JAQY140ERRHORA);
+

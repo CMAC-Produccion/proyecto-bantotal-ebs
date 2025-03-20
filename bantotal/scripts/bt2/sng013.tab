@@ -1,0 +1,12 @@
+create table SNG013
+(
+  sng013mod NUMBER(3) not null,
+  sng013top NUMBER(3) not null,
+  sng013cor NUMBER(3) not null,
+  sng013sco NUMBER(3),
+  sng013inc CHAR(1)
+)
+;
+alter table SNG013
+  add primary key (SNG013MOD, SNG013TOP, SNG013COR);
+

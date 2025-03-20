@@ -1,0 +1,28 @@
+create table AQPA860
+(
+  aqpa860emp NUMBER(3) not null,
+  aqpa860mod NUMBER(3) not null,
+  aqpa860suc NUMBER(3) not null,
+  aqpa860mda NUMBER(4) not null,
+  aqpa860pap NUMBER(4) not null,
+  aqpa860cta NUMBER(9) not null,
+  aqpa860ope NUMBER(9) not null,
+  aqpa860sbo NUMBER(3) not null,
+  aqpa860top NUMBER(3) not null,
+  aqpa860fec DATE not null,
+  aqpa860cor NUMBER(9) not null,
+  aqpa860cap NUMBER(17,2),
+  aqpa860int NUMBER(17,2),
+  aqpa860seg NUMBER(17,2),
+  aqpa860mor NUMBER(17,2),
+  aqpa860icv NUMBER(17,2),
+  aqpa860pen NUMBER(17,2),
+  aqpa860oro NUMBER(17,2),
+  aqpa860mto NUMBER(17,2),
+  aqpa860fep DATE,
+  aqpa860fcu DATE not null
+)
+;
+alter table AQPA860
+  add primary key (AQPA860EMP, AQPA860MOD, AQPA860SUC, AQPA860MDA, AQPA860PAP, AQPA860CTA, AQPA860OPE, AQPA860SBO, AQPA860TOP, AQPA860FEC, AQPA860COR, AQPA860FCU);
+

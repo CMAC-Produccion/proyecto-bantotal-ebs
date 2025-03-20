@@ -1,0 +1,60 @@
+create table AQPB515G
+(
+  aqpb515gserial NUMBER(10) not null,
+  aqpb515gsecue  NUMBER(6) not null,
+  aqpb515gfenov  DATE,
+  aqpb515gcosus  VARCHAR2(10),
+  aqpb515gcocta  VARCHAR2(10),
+  aqpb515gnucta  VARCHAR2(25),
+  aqpb515gnorep  VARCHAR2(10),
+  aqpb515gvaini  NUMBER(17,2),
+  aqpb515gvasde  NUMBER(17,2),
+  aqpb515gmoros  VARCHAR2(10),
+  aqpb515ginend  VARCHAR2(10),
+  aqpb515gfeact  DATE,
+  aqpb515gnosus  VARCHAR2(50),
+  aqpb515gtidet  CHAR(2),
+  aqpb515gconcod VARCHAR2(16) not null,
+  aqpb515gcreusr VARCHAR2(30) not null,
+  aqpb515gcretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515G
+  is 'VALORES - EQUIFAX';
+comment on column AQPB515G.aqpb515gserial
+  is 'SERIAL';
+comment on column AQPB515G.aqpb515gsecue
+  is 'SECUENCIA';
+comment on column AQPB515G.aqpb515gfenov
+  is 'FECHA';
+comment on column AQPB515G.aqpb515gcosus
+  is 'CODIGO SUSCRIPTOR';
+comment on column AQPB515G.aqpb515gcocta
+  is 'CUENTA';
+comment on column AQPB515G.aqpb515gnucta
+  is 'CUENTA NUEVA';
+comment on column AQPB515G.aqpb515gnorep
+  is 'NUMERO DE REPORTE';
+comment on column AQPB515G.aqpb515gvaini
+  is 'VALOR INICIAL';
+comment on column AQPB515G.aqpb515gvasde
+  is 'VALOR DEUDA';
+comment on column AQPB515G.aqpb515gmoros
+  is 'MOROSIDAD';
+comment on column AQPB515G.aqpb515ginend
+  is 'INDICADOR';
+comment on column AQPB515G.aqpb515gfeact
+  is 'FECHA ACTUALIZACION';
+comment on column AQPB515G.aqpb515gnosus
+  is 'NOMBRE ENTIDAD';
+comment on column AQPB515G.aqpb515gtidet
+  is 'TIPO DETALLE';
+comment on column AQPB515G.aqpb515gconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515G.aqpb515gcreusr
+  is 'CONSULTA - USUARIO';
+comment on column AQPB515G.aqpb515gcretim
+  is 'CONSULTA - TIMESTAMP';
+alter table AQPB515G
+  add primary key (AQPB515GSERIAL, AQPB515GSECUE, AQPB515GCONCOD, AQPB515GCREUSR);
+

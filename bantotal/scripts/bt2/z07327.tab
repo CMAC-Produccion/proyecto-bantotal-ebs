@@ -1,0 +1,16 @@
+create table Z07327
+(
+  z07327pgc NUMBER(3) not null,
+  z07327cta NUMBER(9) not null,
+  z07327age NUMBER(2) not null,
+  z07327cor NUMBER(6) not null,
+  z07327mat NUMBER(2) not null,
+  z07327dve CHAR(1) not null,
+  z07327est CHAR(2)
+)
+;
+create index Z0732702 on Z07327 (Z07327AGE, Z07327COR, Z07327MAT, Z07327DVE, Z07327PGC, Z07327CTA);
+create index Z0732703 on Z07327 (Z07327PGC, Z07327CTA, Z07327EST);
+alter table Z07327
+  add primary key (Z07327PGC, Z07327CTA, Z07327AGE, Z07327COR, Z07327MAT, Z07327DVE);
+

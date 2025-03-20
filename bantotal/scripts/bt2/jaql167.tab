@@ -1,0 +1,29 @@
+create table JAQL167
+(
+  jaql167pgcod  NUMBER(3) not null,
+  jaql167scmod  NUMBER(3) not null,
+  jaql167scsuc  NUMBER(3) not null,
+  jaql167scmda  NUMBER(4) not null,
+  jaql167scpap  NUMBER(4) not null,
+  jaql167sccta  NUMBER(9) not null,
+  jaql167scope  NUMBER(9) not null,
+  jaql167scsbo  NUMBER(3) not null,
+  jaql167sctop  NUMBER(4) not null,
+  jaql167scfvl  DATE not null,
+  jaql167est    NUMBER(2) not null,
+  jaql167nropag NUMBER(10) not null,
+  jaql167codcom NUMBER(4) not null,
+  jaql167fpag   DATE,
+  jaql167impor  NUMBER(17,2),
+  d167cd        NUMBER(3),
+  d167su        NUMBER(3),
+  d167mo        NUMBER(3),
+  d167tr        NUMBER(3),
+  d167re        NUMBER(4),
+  d167co        CHAR(1)
+)
+;
+create index JAQL167001 on JAQL167 (D167CD, D167SU, D167MO, D167TR, D167RE, D167CO);
+alter table JAQL167
+  add primary key (JAQL167PGCOD, JAQL167SCMOD, JAQL167SCSUC, JAQL167SCMDA, JAQL167SCPAP, JAQL167SCCTA, JAQL167SCOPE, JAQL167SCSBO, JAQL167SCTOP, JAQL167SCFVL, JAQL167EST, JAQL167NROPAG, JAQL167CODCOM);
+

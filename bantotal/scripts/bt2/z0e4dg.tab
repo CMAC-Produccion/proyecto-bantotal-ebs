@@ -1,0 +1,24 @@
+create table Z0E4DG
+(
+  z0e4dgcod NUMBER(4) not null,
+  z0e4dgtip CHAR(5) not null,
+  z0e4dgnev NUMBER(9) not null,
+  z0e4dgcor NUMBER(9) not null,
+  z0e4dgtre CHAR(2),
+  z0e4dgarc CHAR(10),
+  z0e4dgbco NUMBER(3),
+  z0e4dgfii CHAR(4),
+  z0e4dgfpr NUMBER(8),
+  z0e4dghpr NUMBER(10),
+  z0e4dgfda NUMBER(8),
+  z0e4dghda NUMBER(10),
+  z0e4dgcde NUMBER(7),
+  z0e4dgcel NUMBER(7),
+  z0e4dgfil CHAR(191),
+  z0e4dgest CHAR(2)
+)
+;
+create index Z0E4DG02 on Z0E4DG (Z0E4DGEST);
+alter table Z0E4DG
+  add primary key (Z0E4DGCOD, Z0E4DGTIP, Z0E4DGNEV, Z0E4DGCOR);
+

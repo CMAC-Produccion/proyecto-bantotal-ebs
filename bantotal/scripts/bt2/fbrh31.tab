@@ -1,0 +1,19 @@
+create table FBRH31
+(
+  brh31pais  NUMBER(3) not null,
+  brh31tdoc  NUMBER(2) not null,
+  brh31ndoc  CHAR(12) not null,
+  brh31fch   DATE not null,
+  brh31hra   CHAR(8) not null,
+  brh31usu   CHAR(10),
+  brh31mail  CHAR(70),
+  brh31cel   CHAR(20),
+  brh31comp  CHAR(4),
+  brh31ecel  CHAR(1),
+  brh31email CHAR(1),
+  brh31ecli  CHAR(1)
+)
+;
+alter table FBRH31
+  add primary key (BRH31PAIS, BRH31TDOC, BRH31NDOC, BRH31FCH, BRH31HRA);
+

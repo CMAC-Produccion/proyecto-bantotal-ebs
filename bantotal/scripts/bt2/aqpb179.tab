@@ -1,0 +1,26 @@
+create table AQPB179
+(
+  aqpb179nreg    NUMBER(10) not null,
+  aqpb179fcorr   DATE not null,
+  aqpb179corr    NUMBER(10) not null,
+  aqpb179pai     NUMBER(5) not null,
+  aqpb179tdoc    NUMBER(5) not null,
+  aqpb179ndoc    VARCHAR2(30) not null,
+  aqpb179tcam    NUMBER(10,8),
+  aqpb179fproc   DATE,
+  aqpb179hproc   VARCHAR2(15),
+  aqpb179user    VARCHAR2(10),
+  aqpb179mntca   NUMBER(17,2),
+  aqpb179mntifi  NUMBER(17,2),
+  aqpb179cuopot  NUMBER(17,2),
+  aqpb179cuocont NUMBER(17,2),
+  aqpb179exdmns  NUMBER(17,2),
+  aqpb179ratio   NUMBER(10,6),
+  aqpb179est     VARCHAR2(10),
+  aqpb179tcarg   VARCHAR2(10)
+)
+;
+create index AQPB179A2 on AQPB179 (AQPB179FCORR, AQPB179CORR);
+alter table AQPB179
+  add primary key (AQPB179NREG, AQPB179FCORR, AQPB179CORR, AQPB179PAI, AQPB179TDOC, AQPB179NDOC);
+

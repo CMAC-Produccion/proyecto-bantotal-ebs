@@ -1,0 +1,18 @@
+create table JAQL453
+(
+  jaql453cod NUMBER(3),
+  jaql453mod NUMBER(3),
+  jaql453top NUMBER(3),
+  jaql453mda NUMBER(3),
+  jaql453pap NUMBER(3),
+  jaql453cta NUMBER(9),
+  jaql453ope NUMBER(9),
+  jaql453sbo NUMBER(6),
+  jaql453sor VARCHAR2(17),
+  jaql453fec DATE,
+  jaql453hor VARCHAR2(10),
+  jaql453tot NUMBER(17,2)
+)
+;
+create index IDX_JAQL453 on JAQL453 (JAQL453COD, JAQL453MOD, JAQL453TOP, JAQL453MDA, JAQL453PAP, JAQL453CTA, JAQL453OPE, JAQL453SBO);
+

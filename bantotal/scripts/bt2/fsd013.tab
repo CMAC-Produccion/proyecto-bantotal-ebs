@@ -1,0 +1,16 @@
+create table FSD013
+(
+  pmtit  NUMBER(2) not null,
+  pmcap  NUMBER(1) not null,
+  pmpzo  NUMBER(1) not null,
+  pmgru  NUMBER(2) not null,
+  pmnom  CHAR(40),
+  pmgvre NUMBER(16),
+  pmgvnr NUMBER(16),
+  pmpvre NUMBER(16),
+  pmpvnr NUMBER(16)
+)
+;
+alter table FSD013
+  add primary key (PMTIT, PMCAP, PMPZO, PMGRU);
+

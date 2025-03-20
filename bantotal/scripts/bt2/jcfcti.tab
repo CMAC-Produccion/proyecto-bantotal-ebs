@@ -1,0 +1,15 @@
+create table JCFCTI
+(
+  jcfctipgco NUMBER(3) not null,
+  jcfctisuc  NUMBER(3) not null,
+  jcfctimod  NUMBER(3) not null,
+  jcfctitrn  NUMBER(3) not null,
+  jcfctinrel NUMBER(4) not null,
+  jcfctifcon DATE not null,
+  jcfcticorr NUMBER(2) not null,
+  jcfctitxt  VARCHAR2(500)
+)
+;
+alter table JCFCTI
+  add primary key (JCFCTIPGCO, JCFCTISUC, JCFCTIMOD, JCFCTITRN, JCFCTINREL, JCFCTIFCON, JCFCTICORR);
+

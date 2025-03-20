@@ -1,0 +1,41 @@
+create table JAQN23
+(
+  jaqn23cod NUMBER(3) not null,
+  jaqn23mod NUMBER(3) not null,
+  jaqn23tcu NUMBER(3) not null,
+  jaqn23ctn NUMBER(9) not null,
+  jaqn23mon NUMBER(4) not null,
+  jaqn23pap NUMBER(4) not null,
+  jaqn23fvi DATE not null,
+  jaqn23mot NUMBER(17,2) not null,
+  jaqn23fin NUMBER(8),
+  jaqn23ccv CHAR(1)
+)
+;
+comment on table JAQN23
+  is 'Cabecera Curvas por cuenta';
+comment on column JAQN23.jaqn23cod
+  is 'Codigo empresa';
+comment on column JAQN23.jaqn23mod
+  is 'Modulo';
+comment on column JAQN23.jaqn23tcu
+  is 'Tipo curva';
+comment on column JAQN23.jaqn23ctn
+  is 'Cuenta';
+comment on column JAQN23.jaqn23mon
+  is 'Moneda';
+comment on column JAQN23.jaqn23pap
+  is 'Papel';
+comment on column JAQN23.jaqn23fvi
+  is 'Vigencia';
+comment on column JAQN23.jaqn23mot
+  is 'Monto';
+comment on column JAQN23.jaqn23fin
+  is 'Fecha Inv';
+comment on column JAQN23.jaqn23ccv
+  is 'Estado';
+create index JAQN232 on JAQN23 (JAQN23COD, JAQN23MOD, JAQN23TCU, JAQN23CTN, JAQN23MON, JAQN23PAP, JAQN23FIN, JAQN23MOT);
+create index JAQN233 on JAQN23 (JAQN23COD, JAQN23MOD, JAQN23TCU, JAQN23CTN, JAQN23MON, JAQN23PAP, JAQN23MOT, JAQN23FIN);
+alter table JAQN23
+  add primary key (JAQN23COD, JAQN23MOD, JAQN23TCU, JAQN23CTN, JAQN23MON, JAQN23PAP, JAQN23FVI, JAQN23MOT);
+

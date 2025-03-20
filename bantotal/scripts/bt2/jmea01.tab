@@ -1,0 +1,36 @@
+create table JMEA01
+(
+  jmea01nlot NUMBER(5) not null,
+  jmea01emp  CHAR(20) not null,
+  jmea01mut  CHAR(20) not null,
+  jmea01pepa NUMBER(3) not null,
+  jmea01petd NUMBER(2) not null,
+  jmea01pend CHAR(12) not null,
+  jmea01opeo CHAR(18) not null,
+  jmea01fpag CHAR(20),
+  jmea01cgr  NUMBER(8),
+  jmea01cori NUMBER(17,2),
+  jmea01cco  NUMBER(4),
+  jmea01ccp  NUMBER(4),
+  jmea01tcm  NUMBER(10,6),
+  jmea01ntar CHAR(22),
+  jmea01cbu  CHAR(22),
+  jmea01au1  NUMBER(9),
+  jmea01au2  NUMBER(9),
+  jmea01au3  DATE,
+  jmea01au4  DATE,
+  jmea01au5  CHAR(30),
+  jmea01au6  CHAR(30),
+  jmea01au7  NUMBER(17,2),
+  jmea01au8  NUMBER(17,2),
+  jmea01coc  NUMBER(10,6),
+  jmea01nli  CHAR(22),
+  jmea01au9  NUMBER(10,6),
+  jmea01au10 NUMBER(10,6),
+  jmea01au11 CHAR(1),
+  jmea01au12 CHAR(1)
+)
+;
+alter table JMEA01
+  add primary key (JMEA01NLOT, JMEA01EMP, JMEA01MUT, JMEA01PEPA, JMEA01PETD, JMEA01PEND, JMEA01OPEO);
+

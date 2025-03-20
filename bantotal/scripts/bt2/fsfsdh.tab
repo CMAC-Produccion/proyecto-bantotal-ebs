@@ -1,0 +1,27 @@
+create table FSFSDH
+(
+  sfsdhemp  NUMBER(3) not null,
+  sfsdhtmer NUMBER(3) not null,
+  sfsdhprpr CHAR(1) not null,
+  sfsdhcmsg NUMBER(4) not null,
+  sfsdhfmsg DATE not null,
+  sfsdhsec  NUMBER(5) not null,
+  sfsdheos  CHAR(1) not null,
+  sfsdhnro  NUMBER(16),
+  sfsdhmsgr NUMBER(4),
+  sfsdhfchr DATE,
+  sfsdhhorr CHAR(6),
+  sfsdhsecr NUMBER(5),
+  sfsdhsuc  NUMBER(3),
+  sfsdhmod  NUMBER(3),
+  sfsdhtrn  NUMBER(3),
+  sfsdhrel  NUMBER(4),
+  sfsdhfcon DATE,
+  sfsdhmnc  NUMBER(5),
+  sfsdhstat CHAR(2)
+)
+;
+create index FSFSDH02 on FSFSDH (SFSDHEMP, SFSDHTMER, SFSDHPRPR, SFSDHMSGR, SFSDHFCHR, SFSDHSECR);
+alter table FSFSDH
+  add primary key (SFSDHEMP, SFSDHTMER, SFSDHPRPR, SFSDHCMSG, SFSDHFMSG, SFSDHSEC, SFSDHEOS);
+

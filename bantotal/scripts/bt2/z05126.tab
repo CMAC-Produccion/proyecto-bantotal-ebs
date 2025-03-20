@@ -1,0 +1,22 @@
+create table Z05126
+(
+  z05126prd NUMBER(1) not null,
+  z05126ttr NUMBER(1) not null,
+  z05126mda NUMBER(4) not null,
+  z05126fpr DATE not null,
+  z05126fpe DATE not null,
+  z05126fcm DATE not null,
+  z05126cor NUMBER(9) not null,
+  z05126cte NUMBER(9),
+  z05126deb CHAR(12),
+  z05126tik CHAR(6),
+  z05126cb1 CHAR(8),
+  z05126cb2 CHAR(14),
+  z05126doc NUMBER(11),
+  z05126imp NUMBER(10,2),
+  z05126obs CHAR(25)
+)
+;
+alter table Z05126
+  add primary key (Z05126PRD, Z05126TTR, Z05126MDA, Z05126FPR, Z05126FPE, Z05126FCM, Z05126COR);
+

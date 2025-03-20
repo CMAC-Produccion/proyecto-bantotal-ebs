@@ -1,0 +1,34 @@
+create table JAQZ258R
+(
+  jaqz258rcodsbs VARCHAR2(3) not null,
+  jaqz258rmotsbs VARCHAR2(3) not null,
+  jaqz258rcodlo  VARCHAR2(3) not null,
+  jaqz258rmotlo  NUMBER(4) not null,
+  jaqz258rrev    NUMBER(4) not null,
+  jaqz258rt015   NUMBER(4),
+  jaqz258rt1530  NUMBER(4),
+  jaqz258rt3160  NUMBER(4),
+  jaqz258rt60m   NUMBER(4),
+  jaqz258rttot   NUMBER(4),
+  jaqz258rae015  NUMBER(4),
+  jaqz258rae1530 NUMBER(4),
+  jaqz258rae3160 NUMBER(4),
+  jaqz258rae60m  NUMBER(4),
+  jaqz258raesub  NUMBER(4),
+  jaqz258rau015  NUMBER(4),
+  jaqz258rau1530 NUMBER(4),
+  jaqz258rau3160 NUMBER(4),
+  jaqz258rau60m  NUMBER(4),
+  jaqz258rausub  NUMBER(4),
+  jaqz258ratot   NUMBER(4),
+  jaqz258rpda    NUMBER(9,2),
+  jaqz258rnmsbs  NUMBER(4),
+  jaqz258rncsbs  NUMBER(4),
+  jaqz258rcan    NUMBER(3) not null,
+  jaqz258rubirec VARCHAR2(6) not null
+)
+;
+create index JAQZ258R_01 on JAQZ258R (JAQZ258RNMSBS, JAQZ258RNCSBS, JAQZ258RUBIREC, JAQZ258RCAN, JAQZ258RREV);
+alter table JAQZ258R
+  add primary key (JAQZ258RCODSBS, JAQZ258RMOTSBS, JAQZ258RUBIREC, JAQZ258RCAN, JAQZ258RREV);
+

@@ -1,0 +1,27 @@
+create table FSFFAQ
+(
+  fsfaemp  NUMBER(3) not null,
+  fsfaanio NUMBER(4) not null,
+  fsfames  NUMBER(2) not null,
+  fsfapais NUMBER(3) not null,
+  fsfatdoc NUMBER(2) not null,
+  fsfadoc  CHAR(12) not null,
+  fsfbpais NUMBER(3) not null,
+  fsfbtdoc NUMBER(2) not null,
+  fsfbdoc  CHAR(12) not null,
+  fsfbtcap NUMBER(2),
+  fsfbacc1 NUMBER(15),
+  fsfbacc2 NUMBER(15),
+  fsfbacc3 NUMBER(15),
+  fsfbnum1 NUMBER(15),
+  fsfbnum2 NUMBER(15),
+  fsfbtxt1 CHAR(30),
+  fsfbtxt2 CHAR(30),
+  fsfbciiu NUMBER(4),
+  fsfbtinv NUMBER(2),
+  fsfbporc NUMBER(5,2)
+)
+;
+alter table FSFFAQ
+  add primary key (FSFAEMP, FSFAANIO, FSFAMES, FSFAPAIS, FSFATDOC, FSFADOC, FSFBPAIS, FSFBTDOC, FSFBDOC);
+

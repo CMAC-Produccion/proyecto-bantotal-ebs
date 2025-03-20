@@ -1,0 +1,27 @@
+create table FMD140
+(
+  pgcod     NUMBER(3) not null,
+  remmod    NUMBER(3) not null,
+  remoper   NUMBER(9) not null,
+  remintern CHAR(1),
+  remsuc    NUMBER(3),
+  remmda    NUMBER(4),
+  remmocsw1 CHAR(3),
+  rempap    NUMBER(4),
+  remcta    NUMBER(9),
+  remtipo   NUMBER(3),
+  remfing   DATE,
+  remfvto   DATE,
+  remfval   DATE,
+  remuser   CHAR(10),
+  remws     CHAR(10),
+  remaoimp  NUMBER(17,2),
+  remsaldo  NUMBER(17,2),
+  remsalant NUMBER(17,2)
+)
+;
+create index FMD14002 on FMD140 (PGCOD, REMCTA);
+create index FMD14003 on FMD140 (REMMDA);
+alter table FMD140
+  add primary key (PGCOD, REMMOD, REMOPER);
+

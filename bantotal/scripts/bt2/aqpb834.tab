@@ -1,0 +1,62 @@
+create table AQPB834
+(
+  aqpb834numdoc  VARCHAR2(50),
+  aqpb834veri    VARCHAR2(50),
+  aqpb834mesa    VARCHAR2(50),
+  aqpb834ubi     VARCHAR2(255),
+  aqpb834pater   VARCHAR2(255),
+  aqpb834mater   VARCHAR2(255),
+  aqpb834nombre  VARCHAR2(255),
+  aqpb834sexo    VARCHAR2(50),
+  aqpb834naci    VARCHAR2(50),
+  aqpb834codgra  VARCHAR2(50),
+  aqpb834restri  VARCHAR2(50),
+  aqpb834tipdoc  VARCHAR2(50),
+  aqpb834disca   VARCHAR2(50),
+  aqpb834dpto    VARCHAR2(255),
+  aqpb834prov    VARCHAR2(255),
+  aqpb834distr   VARCHAR2(255),
+  aqpb834nombrec VARCHAR2(255),
+  aqpb834grado   VARCHAR2(255)
+)
+;
+comment on table AQPB834
+  is 'Tabla Externa de Clientes BI Reniec 2020';
+comment on column AQPB834.aqpb834numdoc
+  is 'documento';
+comment on column AQPB834.aqpb834veri
+  is 'verificador';
+comment on column AQPB834.aqpb834mesa
+  is 'mesa';
+comment on column AQPB834.aqpb834ubi
+  is 'ubigeo';
+comment on column AQPB834.aqpb834pater
+  is 'paterno';
+comment on column AQPB834.aqpb834mater
+  is 'materno';
+comment on column AQPB834.aqpb834nombre
+  is 'nombres';
+comment on column AQPB834.aqpb834sexo
+  is 'sexo';
+comment on column AQPB834.aqpb834naci
+  is 'nacimiento';
+comment on column AQPB834.aqpb834codgra
+  is 'codgrado';
+comment on column AQPB834.aqpb834restri
+  is 'restriccion';
+comment on column AQPB834.aqpb834tipdoc
+  is 'tipodoc';
+comment on column AQPB834.aqpb834disca
+  is 'discapacidad';
+comment on column AQPB834.aqpb834dpto
+  is 'departamento';
+comment on column AQPB834.aqpb834prov
+  is 'provincia';
+comment on column AQPB834.aqpb834distr
+  is 'distrito';
+comment on column AQPB834.aqpb834nombrec
+  is 'nombre completo';
+comment on column AQPB834.aqpb834grado
+  is 'grado';
+create index AQPB834A2 on AQPB834 (AQPB834NUMDOC);
+

@@ -1,0 +1,32 @@
+create table JAQL013
+(
+  jaql13fecha DATE not null,
+  jaql13aceco NUMBER(9) not null,
+  jaql13ligen NUMBER(17,2),
+  jaql13escap NUMBER(17,2),
+  jaql13raend NUMBER(17,2),
+  jaql13repat NUMBER(17,2),
+  jaql13rocar NUMBER(17,2),
+  jaql13roinv NUMBER(17,2),
+  jaql13feinv NUMBER(8),
+  jaql13aux1  NUMBER(17,2),
+  jaql13aux2  NUMBER(17,2),
+  jaql13aux3  NUMBER(17,2),
+  jaql13aux4  NUMBER(17,2),
+  jaql13aux5  NUMBER(17,2),
+  jaql13aux6  NUMBER(17,2),
+  jaql13aux7  NUMBER(17,2),
+  jaql13aux8  NUMBER(17,2),
+  jaql13aux9  NUMBER(17,2),
+  jaql13aux10 NUMBER(17,2),
+  jaql13aux11 NUMBER(17,2),
+  jaql13aux12 NUMBER(17,2),
+  jaql13aux13 NUMBER(17,2),
+  jaql13aux14 CHAR(50),
+  jaql13aux15 DATE
+)
+;
+create index JAQL0132 on JAQL013 (JAQL13ACECO, JAQL13FEINV);
+alter table JAQL013
+  add primary key (JAQL13FECHA, JAQL13ACECO);
+

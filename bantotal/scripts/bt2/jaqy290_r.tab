@@ -1,0 +1,172 @@
+create table JAQY290_R
+(
+  jaqy290_remp  NUMBER(3) not null,
+  jaqy290_rcod  VARCHAR2(20) not null,
+  jaqy290_rage  NUMBER(3),
+  jaqy290_rani  NUMBER(4),
+  jaqy290_rtri  NUMBER(1),
+  jaqy290_rcor  NUMBER(9),
+  jaqy290_rpac  NUMBER(3),
+  jaqy290_rtdc  NUMBER(2),
+  jaqy290_rndc  CHAR(12),
+  jaqy290_rusr  CHAR(10),
+  jaqy290_rfcr  DATE,
+  jaqy290_rusp  CHAR(10),
+  jaqy290_rfcp  DATE,
+  jaqy290_rusc  CHAR(10),
+  jaqy290_rfcc  DATE,
+  jaqy290_rops  VARCHAR2(10),
+  jaqy290_rmot  NUMBER(3),
+  jaqy290_resr  NUMBER(3),
+  jaqy290_rflc  CHAR(1),
+  jaqy290_rfld  CHAR(1),
+  jaqy290_rcmr  VARCHAR2(1000),
+  jaqy290_rcms  VARCHAR2(500),
+  jaqy290_rest  CHAR(1),
+  jaqy290_rvir  NUMBER(3),
+  jaqy290_repr  NUMBER(3),
+  jaqy290_rnum  VARCHAR2(27),
+  jaqy290_rdoc  VARCHAR2(500),
+  jaqy290_rprc  NUMBER(3),
+  jaqy290_rmen  CHAR(1),
+  jaqy290_rvrp  NUMBER(3),
+  jaqy290_rtap  NUMBER(3),
+  jaqy290_rpaa  NUMBER(3),
+  jaqy290_rtda  NUMBER(4),
+  jaqy290_rnda  CHAR(12),
+  jaqy290_rtrc  NUMBER(3),
+  jaqy290_rdir  VARCHAR2(200),
+  jaqy290_rref  VARCHAR2(50),
+  jaqy290_rubg  VARCHAR2(8),
+  jaqy290_rweb  VARCHAR2(50),
+  jaqy290_redt  CHAR(1),
+  jaqy290_reml  VARCHAR2(200),
+  jaqy290_rtlf  VARCHAR2(20),
+  jaqy290_ract  NUMBER(3),
+  jaqy290_rcar  VARCHAR2(30),
+  jaqy290_rcel  VARCHAR2(20),
+  jaqy290_rfda  DATE,
+  jaqy290_rusa  CHAR(10),
+  jaqy290_rara  VARCHAR2(50),
+  jaqy290_raga  NUMBER(3),
+  jaqy290_rfra  DATE,
+  jaqy290_rrra  VARCHAR2(50),
+  jaqy290_rdaa  VARCHAR2(20),
+  jaqy290_rcra  VARCHAR2(500),
+  jaqy290_rhcr  CHAR(8) default TO_CHAR(sysdate, 'HH24:MI:SS'),
+  jaqy290_rapp  CHAR(50),
+  jaqy290_rapm  CHAR(50),
+  jaqy290_rnom  CHAR(50),
+  jaqy290_rnoj  CHAR(50),
+  jaqy290_rhor  CHAR(8),
+  jaqy290_rdlc  CHAR(140),
+  jaqy290_rubc  VARCHAR2(8),
+  jaqy290tipsbs VARCHAR2(1),
+  jaqy290diahab DATE,
+  jaqy290faprox DATE,
+  jaqy290dabsol NUMBER(3),
+  jaqy290susest VARCHAR2(1),
+  jaqy290susfec DATE,
+  jaqy290susflm DATE,
+  jaqy290susdia NUMBER(3),
+  jaqy290sususu CHAR(10),
+  jaqy290reafec DATE,
+  jaqy290reausu CHAR(10),
+  jaqy290fcccli DATE,
+  jaqy290rptenv VARCHAR2(100),
+  jaqy290fecenv DATE,
+  jaqy290horenv VARCHAR2(10),
+  jaqy290monope NUMBER(10,2),
+  jaqy290numope VARCHAR2(50),
+  jaqy290nomarc VARCHAR2(50),
+  jaqy290reqres CLOB,
+  jaqy290tippro VARCHAR2(1),
+  jaqy290caning NUMBER(9),
+  jaqy290canind VARCHAR2(30),
+  jaqy290ugprdp NUMBER(9),
+  jaqy290ugprpr NUMBER(9),
+  jaqy290flamp  DATE,
+  jaqy290reqter VARCHAR2(1),
+  jaqy290cretim TIMESTAMP(6),
+  jaqy290adotra VARCHAR2(1),
+  jaqy290fecanu DATE,
+  jaqy290modusr CHAR(10),
+  jaqy290modtim TIMESTAMP(6)
+)
+;
+comment on column JAQY290_R.jaqy290_reml
+  is 'EMAIL de Reclamante';
+comment on column JAQY290_R.jaqy290tipsbs
+  is 'V: Varios (No de Seguros), S: Seguros';
+comment on column JAQY290_R.jaqy290diahab
+  is 'Primer Dia Habil luego de Recepcion';
+comment on column JAQY290_R.jaqy290faprox
+  is 'Fecha de Respuesta Aprox';
+comment on column JAQY290_R.jaqy290dabsol
+  is 'Dias de Absolucion';
+comment on column JAQY290_R.jaqy290susest
+  is 'Suspensión Estado (I: Inicial, S: Suspendido, R: Reanudado)';
+comment on column JAQY290_R.jaqy290susfec
+  is 'Suspensión Fecha';
+comment on column JAQY290_R.jaqy290susflm
+  is 'Suspensión Fecha Limite';
+comment on column JAQY290_R.jaqy290susdia
+  is 'Suspensión Dias';
+comment on column JAQY290_R.jaqy290sususu
+  is 'Suspensión Usuario';
+comment on column JAQY290_R.jaqy290reafec
+  is 'Reanudado Fecha';
+comment on column JAQY290_R.jaqy290reausu
+  is 'Reanudado Usuario';
+comment on column JAQY290_R.jaqy290fcccli
+  is 'Fecha de Respuesta desde la perspectiva del Cliente';
+comment on column JAQY290_R.jaqy290rptenv
+  is 'Respuesta del envío del correo de constancia';
+comment on column JAQY290_R.jaqy290fecenv
+  is 'Fecha de Envío';
+comment on column JAQY290_R.jaqy290horenv
+  is 'Hora de Envío';
+comment on column JAQY290_R.jaqy290monope
+  is 'Costo del requerimiento de información';
+comment on column JAQY290_R.jaqy290numope
+  is 'Asiento contable del Pago';
+comment on column JAQY290_R.jaqy290nomarc
+  is 'Nombre de archivo de la constancia';
+comment on column JAQY290_R.jaqy290reqres
+  is 'REQ INFO - Respuesta';
+comment on column JAQY290_R.jaqy290tippro
+  is 'REQ INFO - Tipo de Producto';
+comment on column JAQY290_R.jaqy290caning
+  is 'REQ INFO - Canal de Ingreso SBS';
+comment on column JAQY290_R.jaqy290canind
+  is 'REQ INFO - Canal de Ingreso SBS Desc';
+comment on column JAQY290_R.jaqy290ugprdp
+  is 'REQ INFO - Ubicacion Geografica de Presentacion - DEPT';
+comment on column JAQY290_R.jaqy290ugprpr
+  is 'REQ INFO - Ubicacion Geografica de Presentacion - PROV';
+comment on column JAQY290_R.jaqy290flamp
+  is 'REQ INFO - Fecha Limite de Ampliacion';
+comment on column JAQY290_R.jaqy290reqter
+  is 'REQ Tiene Tercero';
+comment on column JAQY290_R.jaqy290cretim
+  is 'REQ Creacion';
+comment on column JAQY290_R.jaqy290adotra
+  is 'Adolescente Trabajador: V(Verdadero) - F(Falso)';
+comment on column JAQY290_R.jaqy290fecanu
+  is 'Fecha de Anulación';
+comment on column JAQY290_R.jaqy290modusr
+  is 'Usuario de Modificación';
+comment on column JAQY290_R.jaqy290modtim
+  is 'Time de Modificación';
+create index JAQY290_R01 on JAQY290_R (JAQY290_REMP, JAQY290_RUSR, JAQY290_RCOD);
+create index JAQY290_R02 on JAQY290_R (JAQY290_REMP, JAQY290_RAGE, JAQY290_RCOD);
+create index JAQY290_R03 on JAQY290_R (JAQY290_ROPS, JAQY290_RMOT, JAQY290_RESR);
+create index JAQY290_R04 on JAQY290_R (JAQY290_RAGE, JAQY290_RUSR, JAQY290_REPR);
+create index JAQY290_R05 on JAQY290_R (JAQY290_REMP, JAQY290_RANI, JAQY290_RTRI, JAQY290_RCOR);
+create index JAQY290_R06 on JAQY290_R (JAQY290_RPAC, JAQY290_RTDC, JAQY290_RNDC);
+create index JAQY290_R07 on JAQY290_R (JAQY290_REMP, JAQY290_RANI, JAQY290_RCOR);
+create index JAQY290_R08 on JAQY290_R (JAQY290_RFCR);
+create index JAQY290_R09 on JAQY290_R (JAQY290_RESR);
+alter table JAQY290_R
+  add primary key (JAQY290_REMP, JAQY290_RCOD);
+

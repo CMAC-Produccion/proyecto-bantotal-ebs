@@ -1,0 +1,14 @@
+create table JBXI45
+(
+  jx45paicod NUMBER(3) not null,
+  jx45doctip NUMBER(2) not null,
+  jx45docnro CHAR(12) not null,
+  jx44sercod NUMBER(4) not null,
+  jx45msnfre CHAR(1),
+  jx45horsol NUMBER(2),
+  jx45cansol CHAR(1)
+)
+;
+create unique index JBXI4501 on JBXI45 (JX45PAICOD, JX45DOCTIP, JX45DOCNRO, JX44SERCOD);
+create index JBXI4502 on JBXI45 (JX44SERCOD);
+

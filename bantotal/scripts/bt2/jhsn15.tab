@@ -1,0 +1,21 @@
+create table JHSN15
+(
+  jhsn15corr NUMBER(9) not null,
+  jhsn15cta  NUMBER(9) not null,
+  jhsn15fing DATE,
+  jhsn15fcnf DATE,
+  jhsn15hing CHAR(8),
+  jhsn15hcnf CHAR(8),
+  jhsn15uing CHAR(10),
+  jhsn15ucnf CHAR(20),
+  jhsn15sori NUMBER(3),
+  jhsn15sfin NUMBER(3),
+  jhsn15ejac NUMBER(3),
+  jhsn15ejde NUMBER(3),
+  jhsn15est  CHAR(1),
+  jhsn15com  CHAR(70)
+)
+;
+create unique index JHSN1501 on JHSN15 (JHSN15CORR, JHSN15CTA);
+create index JHSN1502 on JHSN15 (JHSN15CORR, JHSN15EST);
+

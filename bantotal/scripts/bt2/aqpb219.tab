@@ -1,0 +1,79 @@
+create table AQPB219
+(
+  aqpb219idl NUMBER(10) not null,
+  aqpb219pgc NUMBER(3),
+  aqpb219mod NUMBER(3),
+  aqpb219suc NUMBER(3),
+  aqpb219mda NUMBER(4),
+  aqpb219pap NUMBER(4),
+  aqpb219cta NUMBER(9),
+  aqpb219ope NUMBER(9),
+  aqpb219sbo NUMBER(3),
+  aqpb219top NUMBER(3),
+  aqpb219fal DATE,
+  aqpb219fpr DATE,
+  aqpb219hpr CHAR(8),
+  aqpb219est CHAR(5),
+  aqpb219nno NUMBER(9),
+  aqpb219dno VARCHAR2(50),
+  aqpb219mno VARCHAR2(50),
+  aqpb219cno VARCHAR2(20),
+  aqpb219fno DATE,
+  aqpb219hno CHAR(8),
+  aqpb219ect NUMBER(2),
+  aqpb219msg VARCHAR2(100)
+)
+;
+comment on table AQPB219
+  is 'Tabla de Notificaiones a cuentas digitales';
+comment on column AQPB219.aqpb219idl
+  is 'Correlativo de notificaciones';
+comment on column AQPB219.aqpb219pgc
+  is 'Codigo Empresa Caja Arequipa';
+comment on column AQPB219.aqpb219mod
+  is 'Modulo';
+comment on column AQPB219.aqpb219suc
+  is 'Sucursal';
+comment on column AQPB219.aqpb219mda
+  is 'Moneda';
+comment on column AQPB219.aqpb219pap
+  is 'Papel';
+comment on column AQPB219.aqpb219cta
+  is 'Cuenta';
+comment on column AQPB219.aqpb219ope
+  is 'Operacion';
+comment on column AQPB219.aqpb219sbo
+  is 'Suboperacion';
+comment on column AQPB219.aqpb219top
+  is 'Tipo Operacion';
+comment on column AQPB219.aqpb219fal
+  is 'Fecha alta de cuenta';
+comment on column AQPB219.aqpb219fpr
+  is 'Fecha de Proceso';
+comment on column AQPB219.aqpb219hpr
+  is 'Hora de Proceso';
+comment on column AQPB219.aqpb219est
+  is 'Estado de notificacion';
+comment on column AQPB219.aqpb219nno
+  is 'Numero de Notificacion';
+comment on column AQPB219.aqpb219dno
+  is 'Descripcion Notificacion';
+comment on column AQPB219.aqpb219mno
+  is 'Correo de Cliente';
+comment on column AQPB219.aqpb219cno
+  is 'Celular de Cliente';
+comment on column AQPB219.aqpb219fno
+  is 'Fecha de Notificacion';
+comment on column AQPB219.aqpb219hno
+  is 'Hora de Notificacion';
+comment on column AQPB219.aqpb219ect
+  is 'Estado de Cuenta';
+comment on column AQPB219.aqpb219msg
+  is 'Mensaje';
+create index AQPB2192 on AQPB219 (AQPB219PGC, AQPB219MOD, AQPB219SUC, AQPB219MDA, AQPB219PAP, AQPB219CTA, AQPB219OPE, AQPB219SBO, AQPB219TOP);
+create index AQPB2193 on AQPB219 (AQPB219EST, AQPB219FPR, AQPB219HPR);
+create index AQPB2194 on AQPB219 (AQPB219EST, AQPB219CTA);
+create index AQPB2195 on AQPB219 (AQPB219FAL, AQPB219EST);
+alter table AQPB219
+  add primary key (AQPB219IDL);
+

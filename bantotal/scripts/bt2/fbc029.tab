@@ -1,0 +1,25 @@
+create table FBC029
+(
+  bc29inf   CHAR(10) not null,
+  bc29emp   NUMBER(3) not null,
+  bc29suc   NUMBER(3) not null,
+  bc29rubr  NUMBER(16) not null,
+  bc29mda   NUMBER(4) not null,
+  bc29pap   NUMBER(4) not null,
+  bc29cta   NUMBER(9) not null,
+  bc29oper  NUMBER(9) not null,
+  bc29sbop  NUMBER(3) not null,
+  bc29top   NUMBER(3) not null,
+  bc29sdo   NUMBER(17,2),
+  bc29int   NUMBER(17,2),
+  bc29fvto  DATE,
+  bc29frep  DATE,
+  bc29fgrab DATE,
+  bc29pzo   NUMBER(9),
+  bc29dur   NUMBER(17,2)
+)
+;
+create index FBC02902 on FBC029 (BC29EMP, BC29SUC, BC29RUBR, BC29MDA, BC29PAP, BC29CTA, BC29OPER, BC29SBOP, BC29TOP, BC29INF);
+alter table FBC029
+  add primary key (BC29INF, BC29EMP, BC29SUC, BC29RUBR, BC29MDA, BC29PAP, BC29CTA, BC29OPER, BC29SBOP, BC29TOP);
+

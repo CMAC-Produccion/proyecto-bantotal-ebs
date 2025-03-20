@@ -1,0 +1,14 @@
+create table CNL405
+(
+  cnl305fun CHAR(60) not null,
+  cnl405cat CHAR(100) not null,
+  cnl405pro CHAR(100) not null,
+  cnl405val CHAR(100),
+  cnl405pgm CHAR(60),
+  cnl405cod NUMBER(9),
+  cnl405cor NUMBER(9)
+)
+;
+alter table CNL405
+  add primary key (CNL305FUN, CNL405CAT, CNL405PRO);
+

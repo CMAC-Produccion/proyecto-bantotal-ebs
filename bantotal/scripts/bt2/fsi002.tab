@@ -1,0 +1,11 @@
+create table FSI002
+(
+  pgcod  NUMBER(3) not null,
+  cicpo  CHAR(8) not null,
+  cifech DATE not null,
+  ciimp  NUMBER(17,2)
+)
+;
+alter table FSI002
+  add primary key (PGCOD, CICPO, CIFECH);
+

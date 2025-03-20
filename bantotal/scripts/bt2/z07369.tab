@@ -1,0 +1,14 @@
+create table Z07369
+(
+  z07369pg1 NUMBER(3) not null,
+  z07369ct1 NUMBER(9) not null,
+  z07369pg2 NUMBER(3) not null,
+  z07369ct2 NUMBER(9) not null,
+  z07369est CHAR(1),
+  z07369fal DATE
+)
+;
+create index Z0736902 on Z07369 (Z07369PG2, Z07369CT2, Z07369PG1, Z07369CT1);
+alter table Z07369
+  add primary key (Z07369PG1, Z07369CT1, Z07369PG2, Z07369CT2);
+

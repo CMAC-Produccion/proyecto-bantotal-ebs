@@ -1,0 +1,22 @@
+create table FSFIAU
+(
+  sfiauemp  NUMBER(3) not null,
+  sfiaucodc NUMBER(3) not null,
+  sfiaucus  NUMBER(9) not null,
+  sfiaudep  NUMBER(9) not null,
+  sfiauper  CHAR(10) not null,
+  sfiauhab  CHAR(1),
+  sfiauaux1 CHAR(1),
+  sfiauaux2 CHAR(1),
+  sfiauaux3 CHAR(1),
+  sfiauaux4 CHAR(10),
+  sfiauaux5 CHAR(10),
+  sfiauaux6 NUMBER(3),
+  sfiauaux7 NUMBER(3),
+  sfiauaux8 NUMBER(9),
+  sfiauaux9 NUMBER(9)
+)
+;
+alter table FSFIAU
+  add primary key (SFIAUEMP, SFIAUCODC, SFIAUCUS, SFIAUDEP, SFIAUPER);
+

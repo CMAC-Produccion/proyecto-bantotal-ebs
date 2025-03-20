@@ -1,0 +1,25 @@
+create table FSD323
+(
+  cv3id     NUMBER(2) not null,
+  cv3emp    NUMBER(3) not null,
+  cv3suc    NUMBER(3) not null,
+  cv3rub    NUMBER(16) not null,
+  cv3mda    NUMBER(4) not null,
+  cv3pap    NUMBER(4) not null,
+  cv3cta    NUMBER(9) not null,
+  cv3ope    NUMBER(9) not null,
+  cv3sbop   NUMBER(3) not null,
+  cv3tope   NUMBER(3) not null,
+  cv3fcon   DATE not null,
+  cv3codm   NUMBER(3) not null,
+  cv3sdodeb NUMBER(17,2),
+  cv3sdocre NUMBER(17,2),
+  cv3anudeb NUMBER(17,2),
+  cv3anucre NUMBER(17,2)
+)
+;
+create index FSD32302 on FSD323 (CV3ID, CV3FCON);
+create index FSD32303 on FSD323 (CV3ID, CV3EMP, CV3SUC, CV3MDA, CV3PAP, CV3CTA, CV3OPE, CV3SBOP, CV3TOPE, CV3FCON, CV3CODM);
+alter table FSD323
+  add primary key (CV3ID, CV3EMP, CV3SUC, CV3RUB, CV3MDA, CV3PAP, CV3CTA, CV3OPE, CV3SBOP, CV3TOPE, CV3FCON, CV3CODM);
+

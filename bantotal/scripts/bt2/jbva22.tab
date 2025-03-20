@@ -1,0 +1,28 @@
+create table JBVA22
+(
+  jbva22cod NUMBER(3) not null,
+  jbva22mod NUMBER(3) not null,
+  jbva22suc NUMBER(3) not null,
+  jbva22mda NUMBER(4) not null,
+  jbva22pap NUMBER(4) not null,
+  jbva22cta NUMBER(9) not null,
+  jbva22ope NUMBER(9) not null,
+  jbva22sbo NUMBER(3) not null,
+  jbva22top NUMBER(3) not null,
+  jbva22fec DATE not null,
+  jbva22au1 NUMBER(9),
+  jbva22au2 NUMBER(9),
+  jbva22au3 NUMBER(9),
+  jbva22au4 NUMBER(17,2),
+  jbva22au5 NUMBER(17,2),
+  jbva22au6 NUMBER(17,2),
+  jbva22au7 DATE,
+  jbva22au8 DATE,
+  jbva22au9 DATE,
+  jbva22a10 CHAR(30),
+  jbva22a11 CHAR(30),
+  jbva22a12 CHAR(30)
+)
+;
+create unique index JBVA2201 on JBVA22 (JBVA22COD, JBVA22MOD, JBVA22SUC, JBVA22MDA, JBVA22PAP, JBVA22CTA, JBVA22OPE, JBVA22SBO, JBVA22TOP, JBVA22FEC);
+

@@ -1,0 +1,91 @@
+create table AQPA145
+(
+  aqpa145cor NUMBER(15) not null,
+  aqpa145cod NUMBER(9),
+  aqpa145fer DATE,
+  aqpa145hre VARCHAR2(8),
+  aqpa145asu VARCHAR2(400),
+  aqpa145par VARCHAR2(400),
+  aqpa145pcc VARCHAR2(400),
+  aqpa145cco VARCHAR2(400),
+  aqpa145msg CLOB,
+  aqpa145rem VARCHAR2(400),
+  aqpa145dir VARCHAR2(4000),
+  aqpa145adj VARCHAR2(4000),
+  aqpa145est VARCHAR2(1),
+  aqpa145fev DATE,
+  aqpa145hev VARCHAR2(8),
+  aqpa145nro NUMBER(9),
+  aqpa145cer VARCHAR2(4000),
+  aqpa145mer VARCHAR2(4000),
+  aqpa145ax1 NUMBER(17,2),
+  aqpa145ax2 NUMBER(17,2),
+  aqpa145ax3 NUMBER(9),
+  aqpa145ax4 NUMBER(9),
+  aqpa145ax5 DATE,
+  aqpa145ax6 DATE,
+  aqpa145ax7 VARCHAR2(100),
+  aqpa145ax8 VARCHAR2(100),
+  aqpa145ax9 VARCHAR2(100)
+)
+;
+comment on table AQPA145
+  is 'TABLA LOG DE REPROCESO DE ENVIO DE MAILS';
+comment on column AQPA145.aqpa145cor
+  is 'CORRELATIVO';
+comment on column AQPA145.aqpa145cod
+  is 'CODIGO DE PROCESO';
+comment on column AQPA145.aqpa145fer
+  is 'FECHA DE REGISTRO';
+comment on column AQPA145.aqpa145hre
+  is 'HORA DE REGISTRO';
+comment on column AQPA145.aqpa145asu
+  is 'ASUNTO';
+comment on column AQPA145.aqpa145par
+  is 'DESTINATARIO';
+comment on column AQPA145.aqpa145pcc
+  is 'CON COPIA';
+comment on column AQPA145.aqpa145cco
+  is 'CON COPIA OCULTA';
+comment on column AQPA145.aqpa145msg
+  is 'MENSAJE';
+comment on column AQPA145.aqpa145rem
+  is 'REMITENTE';
+comment on column AQPA145.aqpa145dir
+  is 'DIRECTORIO';
+comment on column AQPA145.aqpa145adj
+  is 'LISTADO DE ADJUNTOS';
+comment on column AQPA145.aqpa145est
+  is 'ESTADO';
+comment on column AQPA145.aqpa145fev
+  is 'FECHA DE ENVIO';
+comment on column AQPA145.aqpa145hev
+  is 'HORA DE ENVIO';
+comment on column AQPA145.aqpa145nro
+  is 'NUMERO DE INTENTO';
+comment on column AQPA145.aqpa145cer
+  is 'CODIGO DE ERROR';
+comment on column AQPA145.aqpa145mer
+  is 'MENSAJE DE ERROR';
+comment on column AQPA145.aqpa145ax1
+  is 'AUXILIAR';
+comment on column AQPA145.aqpa145ax2
+  is 'AUXILIAR';
+comment on column AQPA145.aqpa145ax3
+  is 'AUXILIAR';
+comment on column AQPA145.aqpa145ax4
+  is 'AUXILIAR';
+comment on column AQPA145.aqpa145ax5
+  is 'AUXILIAR';
+comment on column AQPA145.aqpa145ax6
+  is 'AUXILIAR';
+comment on column AQPA145.aqpa145ax7
+  is 'AUXILIAR';
+comment on column AQPA145.aqpa145ax8
+  is 'AUXILIAR';
+comment on column AQPA145.aqpa145ax9
+  is 'AUXILIAR';
+create index AQPA145A2 on AQPA145 (AQPA145EST, AQPA145CER);
+alter table AQPA145
+  add primary key (AQPA145COR);
+

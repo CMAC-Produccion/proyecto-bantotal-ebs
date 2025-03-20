@@ -1,0 +1,102 @@
+create table JAQL357
+(
+  jaql357fecli DATE not null,
+  jaql357fecre CHAR(8) not null,
+  jaql357horec CHAR(8) not null,
+  jaql357tipme CHAR(4) not null,
+  jaql357cam02 CHAR(19) not null,
+  jaql357cam03 CHAR(6) not null,
+  jaql357corre NUMBER(4) not null,
+  jaql357cam42 CHAR(15) not null,
+  jaql357cam04 CHAR(12),
+  jaql357cam05 CHAR(12),
+  jaql357cam07 CHAR(10),
+  jaql357cam09 CHAR(8),
+  jaql357cam10 CHAR(8),
+  jaql357cam11 CHAR(6),
+  jaql357cam12 CHAR(6),
+  jaql357cam13 CHAR(4),
+  jaql357cam14 CHAR(4),
+  jaql357cam22 CHAR(3),
+  jaql357cam23 CHAR(3),
+  jaql357cam24 CHAR(3),
+  jaql357cam25 CHAR(2),
+  jaql357cam26 CHAR(2),
+  jaql357cam27 CHAR(1),
+  jaql357cam28 CHAR(9),
+  jaql357cam29 CHAR(9),
+  jaql357cam30 CHAR(9),
+  jaql357cam31 CHAR(9),
+  jaql357cal33 CHAR(2),
+  jaql357caf33 CHAR(11),
+  jaql357cam37 CHAR(12),
+  jaql357cam38 CHAR(6),
+  jaql357cam39 CHAR(2),
+  jaql357cam40 CHAR(3),
+  jaql357cam41 CHAR(8),
+  jaql357cam43 CHAR(40),
+  jaql357cal44 CHAR(2),
+  jaql357cad44 CHAR(25),
+  jaql357cal48 CHAR(3),
+  jaql357cad48 CHAR(100),
+  jaql357cam49 CHAR(3),
+  jaql357cam50 CHAR(3),
+  jaql357cal63 CHAR(3),
+  jaql357cad63 CHAR(12),
+  jaql357cam90 CHAR(42),
+  jaql357cl102 CHAR(2),
+  jaql357cd102 CHAR(28),
+  jaql357cl112 CHAR(3),
+  jaql357cd112 CHAR(49),
+  jaql357ca120 CHAR(100),
+  jaql357numlo CHAR(5),
+  jaql357fecen CHAR(8),
+  jaql357mtoen NUMBER(10,2),
+  jaql357codmo CHAR(3),
+  jaql357codes CHAR(1)
+)
+partition by range (JAQL357FECLI) interval (NUMTOYMINTERVAL (1, 'MONTH'))
+(
+  partition JAQL357_202310 values less than (TO_DATE(' 2023-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL357_202311 values less than (TO_DATE(' 2023-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL357_202312 values less than (TO_DATE(' 2024-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL357_202401 values less than (TO_DATE(' 2024-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL357_202402 values less than (TO_DATE(' 2024-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL357_202403 values less than (TO_DATE(' 2024-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL357_202404 values less than (TO_DATE(' 2024-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL357_202405 values less than (TO_DATE(' 2024-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P70229 values less than (TO_DATE(' 2024-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P71236 values less than (TO_DATE(' 2024-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P72172 values less than (TO_DATE(' 2024-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P73143 values less than (TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P74023 values less than (TO_DATE(' 2024-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P74729 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P680 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P861 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P1374 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition SYS_P1955 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC
+);
+create index JAQL357A2 on JAQL357 (JAQL357FECLI, JAQL357CAM11)
+  nologging  local;
+alter table JAQL357
+  add primary key (JAQL357FECLI, JAQL357FECRE, JAQL357HOREC, JAQL357TIPME, JAQL357CAM02, JAQL357CAM03, JAQL357CORRE, JAQL357CAM42);
+alter index SYS_C00977542 nologging;
+

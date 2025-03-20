@@ -1,0 +1,15 @@
+create table SNG230
+(
+  sng229corr NUMBER(10) not null,
+  sng230corr NUMBER(10) not null,
+  sng226cod  NUMBER(3),
+  sng230obs  VARCHAR2(400),
+  sng230fecp DATE,
+  sng230fape DATE,
+  sng230user CHAR(10),
+  sng230fecc DATE
+)
+;
+alter table SNG230
+  add primary key (SNG229CORR, SNG230CORR);
+

@@ -1,0 +1,44 @@
+create table JAQZ893_AUX
+(
+  jaqz893auxpgcod   NUMBER(3) not null,
+  jaqz893auxppmod   NUMBER(3) not null,
+  jaqz893auxppsuc   NUMBER(3) not null,
+  jaqz893auxppmda   NUMBER(4) not null,
+  jaqz893auxpppap   NUMBER(4) not null,
+  jaqz893auxppcta   NUMBER(9) not null,
+  jaqz893auxppoper  NUMBER(9) not null,
+  jaqz893auxppsbop  NUMBER(3) not null,
+  jaqz893auxpptope  NUMBER(3) not null,
+  jaqz893auxcuota   NUMBER(3) not null,
+  jaqz893auxfecuo   DATE,
+  jaqz893auxcapit   NUMBER(17,2),
+  jaqz893auxinter   NUMBER(17,2),
+  jaqz893auxsegur   NUMBER(17,2),
+  jaqz893auxicv     NUMBER(17,2),
+  jaqz893auxintmor  NUMBER(17,2),
+  jaqz893auxmonto   NUMBER(17,2),
+  jaqz893auxdiatr   NUMBER(5),
+  jaqz893auxcuot    NUMBER(5),
+  jaqz893auxfeult   DATE,
+  jaqz893auxfvto    DATE,
+  jaqz893auxpgct    NUMBER(3) not null,
+  jaqz893auxsuct    NUMBER(3) not null,
+  jaqz893auxmodt    NUMBER(3) not null,
+  jaqz893auxtrxt    NUMBER(3) not null,
+  jaqz893auxrelt    NUMBER(4) not null,
+  jaqz893auxfect    DATE not null,
+  jaqz893auxcapitd  NUMBER(17,2),
+  jaqz893auxinterd  NUMBER(17,2),
+  jaqz893auxsegurd  NUMBER(17,2),
+  jaqz893auxicvd    NUMBER(17,2),
+  jaqz893auxintmord NUMBER(17,2),
+  jaqz893auxpend    NUMBER(17,2),
+  jaqz893auxmontod  NUMBER(17,2),
+  jaqz893auxpen     NUMBER(17,2),
+  jaqz893auxest     CHAR(1)
+)
+;
+create index JAQZ893_AUX1 on JAQZ893_AUX (JAQZ893AUXPGCT, JAQZ893AUXSUCT, JAQZ893AUXMODT, JAQZ893AUXTRXT, JAQZ893AUXRELT, JAQZ893AUXFECT);
+alter table JAQZ893_AUX
+  add primary key (JAQZ893AUXPGCOD, JAQZ893AUXPPMOD, JAQZ893AUXPPSUC, JAQZ893AUXPPMDA, JAQZ893AUXPPPAP, JAQZ893AUXPPCTA, JAQZ893AUXPPOPER, JAQZ893AUXPPSBOP, JAQZ893AUXPPTOPE, JAQZ893AUXCUOTA, JAQZ893AUXPGCT, JAQZ893AUXSUCT, JAQZ893AUXMODT, JAQZ893AUXTRXT, JAQZ893AUXRELT, JAQZ893AUXFECT);
+

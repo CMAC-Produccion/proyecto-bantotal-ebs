@@ -1,0 +1,18 @@
+create table FTA335
+(
+  fta334fef DATE not null,
+  fta335for CHAR(8) not null,
+  fta335fac CHAR(8),
+  fta335tpo NUMBER(3),
+  fta335fec DATE,
+  fta335usu CHAR(10),
+  fta335wst CHAR(12),
+  fta335est CHAR(1)
+)
+;
+create index FTA33503 on FTA335 (FTA335FOR);
+create index FTA33504 on FTA335 (FTA334FEF, FTA335FAC);
+create index FTA33505 on FTA335 (FTA335FAC);
+alter table FTA335
+  add primary key (FTA334FEF, FTA335FOR);
+

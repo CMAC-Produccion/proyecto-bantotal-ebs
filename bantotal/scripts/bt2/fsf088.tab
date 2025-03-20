@@ -1,0 +1,20 @@
+create table FSF088
+(
+  lqjpgcod NUMBER(3) not null,
+  lqjfinro NUMBER(3) not null,
+  lqjficli NUMBER(9) not null,
+  lqjfiano NUMBER(4) not null,
+  lqjfimes NUMBER(2) not null,
+  lqjcam01 NUMBER(17,2),
+  lqjcam02 NUMBER(17,2),
+  lqjcam03 NUMBER(17,2),
+  lqjcam04 NUMBER(17,2),
+  lqjcam05 NUMBER(9),
+  lqjcam06 NUMBER(9),
+  lqjcam07 NUMBER(9),
+  lqjcam08 NUMBER(9)
+)
+;
+alter table FSF088
+  add primary key (LQJPGCOD, LQJFINRO, LQJFICLI, LQJFIANO, LQJFIMES);
+

@@ -1,0 +1,24 @@
+create table FSX018
+(
+  sicod      NUMBER(3) not null,
+  simod      NUMBER(3) not null,
+  sitran     NUMBER(3) not null,
+  sinimp     NUMBER(3) not null,
+  sicorr     NUMBER(5) not null,
+  siatrib    NUMBER(3),
+  siord      NUMBER(2),
+  sitipo     NUMBER(3),
+  siidioma   CHAR(1),
+  sicptonom  CHAR(70),
+  sicptodsc  CHAR(35),
+  sicptotipo CHAR(1),
+  sicptolarg NUMBER(3),
+  sicptoprec NUMBER(2),
+  sicptovdef CHAR(20),
+  sicptoayud CHAR(100),
+  sirenglon  NUMBER(3)
+)
+;
+alter table FSX018
+  add primary key (SICOD, SIMOD, SITRAN, SINIMP, SICORR);
+

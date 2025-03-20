@@ -1,0 +1,26 @@
+create table AQPA011
+(
+  aqpa011numcon NUMBER(10) not null,
+  aqpa011integr VARCHAR2(40) not null,
+  aqpa011fchsis DATE,
+  aqpa011tipers CHAR(2),
+  aqpa011tipcre NUMBER(3),
+  aqpa011mod    NUMBER(3),
+  aqpa011reg    NUMBER(3),
+  aqpa011loc    NUMBER(3),
+  aqpa011ticli  VARCHAR2(40),
+  aqpa011tdoc   NUMBER(3),
+  aqpa011ndoc   CHAR(12),
+  aqpa011ape    VARCHAR2(20),
+  aqpa011estciv VARCHAR2(40),
+  aqpa011aux2   VARCHAR2(40),
+  aqpa011aux3   VARCHAR2(40),
+  aqpa011aux4   VARCHAR2(40),
+  aqpa011aux5   VARCHAR2(40),
+  aqpa011sec    NUMBER(3)
+)
+;
+create index AQPA0112 on AQPA011 (AQPA011INTEGR, AQPA011FCHSIS, AQPA011TDOC, AQPA011NDOC);
+alter table AQPA011
+  add primary key (AQPA011NUMCON, AQPA011INTEGR);
+

@@ -1,0 +1,15 @@
+create table AUD002
+(
+  audgrpnam CHAR(20) not null,
+  audtblnam VARCHAR2(255) not null,
+  audtblena CHAR(1),
+  audtblins CHAR(1),
+  audtblupd CHAR(1),
+  audtbldlt CHAR(1),
+  audtbltbl VARCHAR2(255),
+  audtblsts CHAR(1)
+)
+;
+alter table AUD002
+  add primary key (AUDGRPNAM, AUDTBLNAM);
+

@@ -1,0 +1,32 @@
+create table AQPA652
+(
+  aqpa652pgco NUMBER(3) not null,
+  aqpa652mod  NUMBER(3) not null,
+  aqpa652sucu NUMBER(3) not null,
+  aqpa652mda  NUMBER(4) not null,
+  aqpa652pape NUMBER(4) not null,
+  aqpa652ncta NUMBER(9) not null,
+  aqpa652oper NUMBER(9) not null,
+  aqpa652sbop NUMBER(3) not null,
+  aqpa652tope NUMBER(3) not null,
+  aqpa652nca  NUMBER(9) not null,
+  aqpa652hab  CHAR(1),
+  aqpa652usd  CHAR(10),
+  aqpa652fed  DATE,
+  aqpa652hod  CHAR(8),
+  aqpa652fei  DATE,
+  aqpa652fef  DATE,
+  aqpa652fec  DATE,
+  aqpa652usc  CHAR(10),
+  aqpa652esta NUMBER(2),
+  aqpa652habi CHAR(1),
+  aqpa652fect DATE,
+  aqpa652usud CHAR(10),
+  aqpa652aux1 CHAR(200),
+  aqpa652aux2 NUMBER(16,2)
+)
+;
+create unique index AQPA6521 on AQPA652 (AQPA652PGCO, AQPA652MOD, AQPA652SUCU, AQPA652MDA, AQPA652PAPE, AQPA652NCTA, AQPA652OPER, AQPA652SBOP, AQPA652TOPE, AQPA652NCA);
+create index AQPA6522 on AQPA652 (AQPA652PGCO, AQPA652HAB, AQPA652FEC);
+create index AQPA6523 on AQPA652 (AQPA652PGCO, AQPA652NCA);
+

@@ -1,0 +1,58 @@
+create table JAQM101
+(
+  jaqm101pai NUMBER(3) not null,
+  jaqm101tdo NUMBER(2) not null,
+  jaqm101ndo CHAR(12) not null,
+  jaqm101tme CHAR(1) not null,
+  jaqm101cof NUMBER(9) not null,
+  jaqm101cor NUMBER(9) not null,
+  jaqm101fpr DATE not null,
+  jaqm101hpr CHAR(8) not null,
+  jaqm101hab CHAR(1),
+  jaqm101tac CHAR(1),
+  jaqm101tmo CHAR(3),
+  jaqm101tte NUMBER(3),
+  jaqm101nte CHAR(20),
+  jaqm101obs VARCHAR2(255),
+  jaqm101fei DATE,
+  jaqm101hoi CHAR(8),
+  jaqm101upr CHAR(10),
+  jaqm101spr NUMBER(3),
+  jaqm101emp NUMBER(3),
+  jaqm101suc NUMBER(3),
+  jaqm101mod NUMBER(3),
+  jaqm101tra NUMBER(3),
+  jaqm101rel NUMBER(4),
+  jaqm101fec DATE,
+  jaqm101ord NUMBER(2),
+  jaqm101sor NUMBER(3),
+  jaqm101con CHAR(1),
+  jaqm101im1 NUMBER(17,2),
+  jaqm101im2 NUMBER(17,2),
+  jaqm101im3 NUMBER(17,2),
+  jaqm101fe1 DATE,
+  jaqm101fe2 DATE,
+  jaqm101fe3 DATE,
+  jaqm101nu1 NUMBER(9),
+  jaqm101nu2 NUMBER(9),
+  jaqm101nu3 NUMBER(9),
+  jaqm101ch1 CHAR(255),
+  jaqm101ch2 CHAR(255),
+  jaqm101ch3 CHAR(255),
+  jaqm101co1 CHAR(1),
+  jaqm101so1 NUMBER(3),
+  jaqm101or1 NUMBER(2),
+  jaqm101fc1 DATE,
+  jaqm101re1 NUMBER(4),
+  jaqm101tr1 NUMBER(3),
+  jaqm101mo1 NUMBER(3),
+  jaqm101su1 NUMBER(3),
+  jaqm101em1 NUMBER(3)
+)
+;
+create index JAQM1012 on JAQM101 (JAQM101EMP, JAQM101SUC, JAQM101MOD, JAQM101TRA, JAQM101REL, JAQM101FEC, JAQM101ORD, JAQM101SOR);
+create index JAQM1013 on JAQM101 (JAQM101HAB);
+create index JAQM1014 on JAQM101 (JAQM101EM1, JAQM101SU1, JAQM101MO1, JAQM101TR1, JAQM101RE1, JAQM101FC1, JAQM101OR1, JAQM101SO1);
+alter table JAQM101
+  add primary key (JAQM101PAI, JAQM101TDO, JAQM101NDO, JAQM101TME, JAQM101COF, JAQM101COR, JAQM101FPR, JAQM101HPR);
+

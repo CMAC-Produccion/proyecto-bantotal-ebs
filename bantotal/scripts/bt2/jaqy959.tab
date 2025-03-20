@@ -1,0 +1,28 @@
+create table JAQY959
+(
+  jaqy959nip VARCHAR2(20) not null,
+  jaqy959usu VARCHAR2(12) not null,
+  jaqy959cor NUMBER(17) not null,
+  jaqy959reg CHAR(40),
+  jaqy959suc CHAR(30),
+  jaqy959cre CHAR(30),
+  jaqy959cli CHAR(30),
+  jaqy959tdo CHAR(20),
+  jaqy959ndo CHAR(12),
+  jaqy959fen DATE,
+  jaqy959ana VARCHAR2(400),
+  jaqy959tcr CHAR(60),
+  jaqy959mon CHAR(4),
+  jaqy959mtd NUMBER(16,2),
+  jaqy959sdo NUMBER(16,2),
+  jaqy959fed DATE,
+  jaqy959per NUMBER(5),
+  jaqy959tas NUMBER(9,6),
+  jaqy959mes CHAR(20),
+  jaqy959fpg DATE,
+  jaqy959ppr NUMBER(16,2)
+)
+;
+alter table JAQY959
+  add primary key (JAQY959NIP, JAQY959USU, JAQY959COR);
+

@@ -1,0 +1,12 @@
+create table JAQZ565
+(
+  jaqz565codemp VARCHAR2(5) not null,
+  jaqz565saldo  NUMBER(16,2) not null,
+  jaqz565fecha  DATE not null,
+  jaqz565user   VARCHAR2(10),
+  jaqz565num    NUMBER(5)
+)
+;
+create index IDX_JAQZ565_01 on JAQZ565 (JAQZ565CODEMP, JAQZ565SALDO, JAQZ565FECHA);
+create index JAQZ5653 on JAQZ565 (JAQZ565USER);
+

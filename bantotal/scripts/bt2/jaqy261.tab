@@ -1,0 +1,24 @@
+create table JAQY261
+(
+  jaqy261pgcod NUMBER(3) not null,
+  jaqy261coins NUMBER(10) not null,
+  jaqy261usrec CHAR(30),
+  jaqy261ferec DATE,
+  jaqy261nuweb NUMBER(30),
+  jaqy261fedad CHAR(2),
+  jaqy261apapo CHAR(50),
+  jaqy261noapo CHAR(30),
+  jaqy261diapo CHAR(50),
+  jaqy261teapo CHAR(30),
+  jaqy261coapo CHAR(255),
+  jaqy261telef CHAR(20),
+  jaqy261vcont CHAR(1),
+  jaqy261estad CHAR(20),
+  jaqy261nuapo CHAR(10),
+  jaqy261doapo CHAR(10),
+  jaqy261nucar VARCHAR2(15)
+)
+;
+alter table JAQY261
+  add primary key (JAQY261PGCOD, JAQY261COINS);
+

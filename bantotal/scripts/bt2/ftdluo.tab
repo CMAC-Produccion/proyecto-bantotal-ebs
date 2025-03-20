@@ -1,0 +1,13 @@
+create table FTDLUO
+(
+  tdluotar CHAR(19) not null,
+  tdluofne DATE not null,
+  tdluocli NUMBER(3) not null,
+  tdluotop CHAR(2) not null,
+  tdluolim NUMBER(3) not null,
+  tdluocnt NUMBER(4)
+)
+;
+alter table FTDLUO
+  add primary key (TDLUOTAR, TDLUOFNE, TDLUOCLI, TDLUOTOP, TDLUOLIM);
+

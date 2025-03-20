@@ -1,0 +1,44 @@
+create table JAQY785
+(
+  jaqy785cod    NUMBER(3) not null,
+  jaqy785mod    NUMBER(3) not null,
+  jaqy785suc    NUMBER(3) not null,
+  jaqy785mda    NUMBER(4) not null,
+  jaqy785pap    NUMBER(4) not null,
+  jaqy785cta    NUMBER(9) not null,
+  jaqy785oper   NUMBER(9) not null,
+  jaqy785sbop   NUMBER(3) not null,
+  jaqy785tope   NUMBER(3) not null,
+  jaqy785fpag   DATE not null,
+  jaqy785tipo   CHAR(1) not null,
+  jaqy785exte   NUMBER(3) not null,
+  jaqy785imp1   NUMBER(17,2),
+  jaqy785imp2   NUMBER(17,2),
+  jaqy785imp3   NUMBER(17,2),
+  jaqy785imp4   NUMBER(17,2),
+  jaqy785imp5   NUMBER(17,2),
+  jaqy785imp6   NUMBER(17,2),
+  jaqy785imp7   NUMBER(17,2),
+  jaqy785imp8   NUMBER(17,2),
+  jaqy785imp9   NUMBER(17,2),
+  jaqy785imp10  NUMBER(17,2),
+  jaqy785imp11  NUMBER(17,2),
+  jaqy785imp12  NUMBER(17,2),
+  jaqy785imp13  NUMBER(17,2),
+  jaqy785imp14  NUMBER(17,2),
+  jaqy785imp15  NUMBER(17,2),
+  jaqy785imp16  NUMBER(17,2),
+  jaqy785imp17  NUMBER(17,2),
+  jaqy785imp18  NUMBER(17,2),
+  jaqy785imp19  NUMBER(17,2),
+  jaqy785imp20  NUMBER(17,2),
+  jaqy785fsist  DATE not null,
+  jaqy785hrasis CHAR(8) not null,
+  jaqy785est611 CHAR(1),
+  jaqy785est612 CHAR(1)
+)
+;
+create index JAQY78503 on JAQY785 (JAQY785COD, JAQY785SUC, JAQY785MDA, JAQY785PAP, JAQY785CTA, JAQY785OPER, JAQY785SBOP, JAQY785TOPE);
+alter table JAQY785
+  add primary key (JAQY785COD, JAQY785MOD, JAQY785SUC, JAQY785MDA, JAQY785PAP, JAQY785CTA, JAQY785OPER, JAQY785SBOP, JAQY785TOPE, JAQY785FPAG, JAQY785TIPO, JAQY785EXTE, JAQY785FSIST, JAQY785HRASIS);
+

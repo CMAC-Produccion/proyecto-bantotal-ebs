@@ -1,0 +1,36 @@
+create table JBXA25
+(
+  jbxa25cod NUMBER(3) not null,
+  jbxa25pai NUMBER(3) not null,
+  jbxa25tdo NUMBER(2) not null,
+  jbxa25ndo CHAR(12) not null,
+  jbxa25fal DATE not null,
+  jbxa25fac DATE,
+  jbxa25fba DATE,
+  jbxa25nom CHAR(30),
+  jbxa25obs CHAR(70),
+  jbxa25cal CHAR(25),
+  jbxa25nro NUMBER(5),
+  jbxa25dep NUMBER(4),
+  jbxa25loc CHAR(20),
+  jbxa25pro NUMBER(2),
+  jbxa25mot NUMBER(1),
+  jbxa25deu NUMBER(17,2),
+  jbxa25lim NUMBER(17,2),
+  jbxa25au1 NUMBER(17,2),
+  jbxa25au2 NUMBER(17,2),
+  jbxa25au3 NUMBER(17,2),
+  jbxa25au4 NUMBER(9),
+  jbxa25au5 NUMBER(9),
+  jbxa25au6 CHAR(30),
+  jbxa25au7 CHAR(30),
+  jbxa25au8 DATE,
+  jbxa25au9 DATE
+)
+;
+create index JBXA2502 on JBXA25 (JBXA25PAI, JBXA25TDO, JBXA25NDO, JBXA25MOT);
+create index JBXA2503 on JBXA25 (JBXA25PAI, JBXA25TDO, JBXA25NDO, JBXA25LIM);
+create index JBXA2504 on JBXA25 (JBXA25PAI, JBXA25TDO, JBXA25NDO, JBXA25FAL, JBXA25DEU, JBXA25LIM);
+alter table JBXA25
+  add primary key (JBXA25COD, JBXA25PAI, JBXA25TDO, JBXA25NDO, JBXA25FAL);
+

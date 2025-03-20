@@ -1,0 +1,124 @@
+create table JAQM08
+(
+  jaqm08fech DATE not null,
+  jaqm08hor  CHAR(8) not null,
+  jaqm08cuen NUMBER(10) not null,
+  jaqm08nuop NUMBER(10) not null,
+  jaqm08anal CHAR(20),
+  jaqm08clie VARCHAR2(255),
+  jaqm08cal  VARCHAR2(255),
+  jaqm08calp NUMBER(4),
+  jaqm08mont NUMBER(17,2),
+  jaqm08prcj VARCHAR2(255),
+  jaqm08tise VARCHAR2(100),
+  jaqm08sald NUMBER(17,2),
+  jaqm08cupa NUMBER(4),
+  jaqm08cuto NUMBER(4),
+  jaqm08avcu VARCHAR2(10),
+  jaqm08prda NUMBER(17,2),
+  jaqm08ulfe DATE,
+  jaqm08garn VARCHAR2(100),
+  jaqm08case VARCHAR2(100),
+  jaqm08empr NUMBER(3),
+  jaqm08modu NUMBER(3),
+  jaqm08sucu NUMBER(3),
+  jaqm08mone NUMBER(4),
+  jaqm08pape NUMBER(4),
+  jaqm08sope NUMBER(3),
+  jaqm08tope NUMBER(3),
+  jaqm08nu1  NUMBER(9),
+  jaqm08nu2  NUMBER(9),
+  jaqm08nu3  NUMBER(9),
+  jaqm08m1   NUMBER(17,2),
+  jaqm08m2   NUMBER(17,2),
+  jaqm08m3   NUMBER(17,2),
+  jaqm08va1  VARCHAR2(255),
+  jaqm08va2  VARCHAR2(255),
+  jaqm08va3  VARCHAR2(255),
+  jaqm08fe1  DATE,
+  jaqm08fe2  DATE,
+  jaqm08fe3  DATE
+)
+;
+comment on table JAQM08
+  is 'Créditos Próximos a Vencer';
+comment on column JAQM08.jaqm08fech
+  is 'FECHA';
+comment on column JAQM08.jaqm08hor
+  is 'HORA';
+comment on column JAQM08.jaqm08cuen
+  is 'CUENTA CLIENTE';
+comment on column JAQM08.jaqm08nuop
+  is 'NÚMERO DE OPERACIÓN';
+comment on column JAQM08.jaqm08anal
+  is 'CÓDIGO DE ANALISTA';
+comment on column JAQM08.jaqm08clie
+  is 'NOMBRE DE CLIENTE';
+comment on column JAQM08.jaqm08cal
+  is 'CALIFICACIÓN';
+comment on column JAQM08.jaqm08calp
+  is 'CALIFICACIÓN PORCENTUAL';
+comment on column JAQM08.jaqm08mont
+  is 'MONTO SOLICITADO';
+comment on column JAQM08.jaqm08prcj
+  is 'PRODUCTO CAJA';
+comment on column JAQM08.jaqm08tise
+  is 'TIPO DE SEGMENTO';
+comment on column JAQM08.jaqm08sald
+  is 'SALDO DEL CRÉDITO';
+comment on column JAQM08.jaqm08cupa
+  is 'CUOTAS PAGADAS';
+comment on column JAQM08.jaqm08cuto
+  is 'CUOTAS TOTALES';
+comment on column JAQM08.jaqm08avcu
+  is 'AVANCE CUOTAS %';
+comment on column JAQM08.jaqm08prda
+  is 'PROMEDIO DÍAS DE ATRASO';
+comment on column JAQM08.jaqm08ulfe
+  is 'ÚLTIMA FECHA DE EVALUACIÓN';
+comment on column JAQM08.jaqm08garn
+  is 'GARANTÍA';
+comment on column JAQM08.jaqm08case
+  is 'CAMBIO SEGMENTACIÓN';
+comment on column JAQM08.jaqm08empr
+  is 'EMPRESA';
+comment on column JAQM08.jaqm08modu
+  is 'MODULO';
+comment on column JAQM08.jaqm08sucu
+  is 'SUCURSAL';
+comment on column JAQM08.jaqm08mone
+  is 'MONEDA';
+comment on column JAQM08.jaqm08pape
+  is 'PAPEL';
+comment on column JAQM08.jaqm08sope
+  is 'SUB OPERACIÓN';
+comment on column JAQM08.jaqm08tope
+  is 'TIPO OPERACIÓN';
+comment on column JAQM08.jaqm08nu1
+  is 'AUXILIAR NUMÉRICO 1';
+comment on column JAQM08.jaqm08nu2
+  is 'AUXILIAR NUMÉRICO 2';
+comment on column JAQM08.jaqm08nu3
+  is 'AUXILIAR NUMÉRICO 3';
+comment on column JAQM08.jaqm08m1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM08.jaqm08m2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM08.jaqm08m3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQM08.jaqm08va1
+  is 'AUXILIAR VARCHAR 1';
+comment on column JAQM08.jaqm08va2
+  is 'AUXILIAR VARCHAR 2';
+comment on column JAQM08.jaqm08va3
+  is 'AUXILIAR VARCHAR 3';
+comment on column JAQM08.jaqm08fe1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM08.jaqm08fe2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM08.jaqm08fe3
+  is 'AUXILIAR FECHA 3';
+create index JAQM08A2 on JAQM08 (JAQM08FECH, JAQM08ANAL);
+alter table JAQM08
+  add primary key (JAQM08FECH, JAQM08HOR, JAQM08CUEN, JAQM08NUOP);
+

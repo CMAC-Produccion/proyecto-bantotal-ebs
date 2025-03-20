@@ -1,0 +1,19 @@
+create table JAQL977A
+(
+  jaql977acor  NUMBER(12) not null,
+  jaql977acod  NUMBER(3) not null,
+  jaql977asuc  NUMBER(3) not null,
+  jaql977amod  NUMBER(3) not null,
+  jaql977atran NUMBER(3) not null,
+  jaql977anrel NUMBER(4) not null,
+  jaql977afcon DATE,
+  jaql977auing CHAR(10),
+  jaql977ahora CHAR(8),
+  jaql977acont CHAR(1),
+  jaql977acorr NUMBER(5)
+)
+;
+create index JAQL977A_2 on JAQL977A (JAQL977ACOD, JAQL977ASUC, JAQL977AMOD, JAQL977ATRAN, JAQL977ANREL, JAQL977AFCON);
+alter table JAQL977A
+  add primary key (JAQL977ACOR);
+

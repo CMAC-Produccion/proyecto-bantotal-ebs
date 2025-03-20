@@ -1,0 +1,13 @@
+create table JAQL168
+(
+  jaql168modg NUMBER(3) not null,
+  jaql168topg NUMBER(3) not null,
+  jaql168modd NUMBER(3) not null,
+  jaql168topd NUMBER(3) not null,
+  jaql168est  CHAR(1)
+)
+;
+create index JAQL168002 on JAQL168 (JAQL168MODD, JAQL168TOPD);
+alter table JAQL168
+  add primary key (JAQL168MODG, JAQL168TOPG, JAQL168MODD, JAQL168TOPD);
+

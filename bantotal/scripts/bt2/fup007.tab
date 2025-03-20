@@ -1,0 +1,13 @@
+create table FUP007
+(
+  fup006cod  NUMBER(10) not null,
+  fup007corr NUMBER(5) not null,
+  fup007nreg NUMBER(5),
+  fup008corr NUMBER(10),
+  fup007est  CHAR(1),
+  fup007msg  VARCHAR2(400)
+)
+;
+alter table FUP007
+  add primary key (FUP006COD, FUP007CORR);
+

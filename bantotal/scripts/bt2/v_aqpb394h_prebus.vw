@@ -1,0 +1,11 @@
+create or replace force view v_aqpb394h_prebus as
+select
+a.AQPB394HUSUR,
+a.AQPB394HNCTA,
+a.AQPB394HNOPE,
+a.AQPB394HSINS,
+a.AQPB394HCOBR,
+a.AQPB394HMHON,
+a.AQPB394HFPROC
+from AQPB394H a;
+

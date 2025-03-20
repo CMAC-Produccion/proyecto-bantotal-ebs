@@ -1,0 +1,24 @@
+create table LST001
+(
+  lst01cod   NUMBER(6) not null,
+  lst01dsc   CHAR(50),
+  lst01arch  CHAR(15),
+  lst01pgm   CHAR(8),
+  lst01gen   CHAR(1),
+  lst01lis   NUMBER(4),
+  lst01acc   CHAR(1),
+  lst01carga CHAR(2),
+  lst01usr   CHAR(10),
+  lst01fch   DATE,
+  lst01proc  CHAR(1),
+  lst01ax    NUMBER(5),
+  lst01ax1   DATE,
+  lst01ax3   CHAR(70),
+  lst01ax4   NUMBER(9),
+  lst01ax5   CHAR(1),
+  lst01ax6   CHAR(10)
+)
+;
+alter table LST001
+  add primary key (LST01COD);
+

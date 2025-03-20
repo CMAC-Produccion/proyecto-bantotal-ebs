@@ -1,0 +1,15 @@
+create table FSD127
+(
+  tashmn NUMBER(10,6) not null,
+  tasdmn NUMBER(10,6) not null,
+  tashme NUMBER(10,6) not null,
+  tasdme NUMBER(10,6) not null,
+  indrie NUMBER(10,6),
+  partmn CHAR(8),
+  partme CHAR(8)
+)
+;
+create index FSD12702 on FSD127 (INDRIE);
+alter table FSD127
+  add primary key (TASHMN, TASDMN, TASHME, TASDME);
+

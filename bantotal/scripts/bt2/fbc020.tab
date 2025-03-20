@@ -1,0 +1,14 @@
+create table FBC020
+(
+  vpais1 NUMBER(3) not null,
+  vtdoc  NUMBER(2) not null,
+  vndoc  CHAR(12) not null,
+  vpais2 NUMBER(3) not null,
+  vtdoc2 NUMBER(2) not null,
+  vndoc2 CHAR(12) not null,
+  vvinc  NUMBER(2)
+)
+;
+alter table FBC020
+  add primary key (VPAIS1, VTDOC, VNDOC, VPAIS2, VTDOC2, VNDOC2);
+

@@ -1,0 +1,56 @@
+create table PLS017
+(
+  pls017emp  NUMBER(3) not null,
+  pls017conv NUMBER(8) not null,
+  pls017serv NUMBER(3) not null,
+  pls017fpre DATE not null,
+  pls017nord NUMBER(3) not null,
+  pls017nlot NUMBER(3) not null,
+  pls017corr NUMBER(10) not null,
+  pls017code NUMBER(5),
+  pls017suc  NUMBER(3),
+  pls017mda  NUMBER(4),
+  pls017pap  NUMBER(4),
+  pls017cta  NUMBER(9),
+  pls017oper NUMBER(9),
+  pls017sbop NUMBER(3),
+  pls017tope NUMBER(3),
+  pls017rubp NUMBER(16),
+  pls017imp  NUMBER(17,2),
+  pls017est  CHAR(2),
+  pls017temp NUMBER(3),
+  pls017tsuc NUMBER(3),
+  pls017tmod NUMBER(3),
+  pls017ttrn NUMBER(3),
+  pls017tnre NUMBER(4),
+  pls017tord NUMBER(2),
+  pls017tsbo NUMBER(3),
+  pls017emod CHAR(1),
+  pls017erch CHAR(1),
+  pls017mod  NUMBER(3),
+  pls017part NUMBER(3),
+  pls017scor NUMBER(9),
+  pls017sco2 NUMBER(9),
+  pls017stdb CHAR(2),
+  pls017sndb NUMBER(11),
+  pls017sceo NUMBER(11),
+  pls017sneo CHAR(16),
+  pls017scb1 CHAR(8),
+  pls017scb2 CHAR(14),
+  pls017snre CHAR(22),
+  pls017facr DATE,
+  pls017spre CHAR(10),
+  pls017sspr CHAR(10),
+  pls017sref CHAR(15),
+  pls017corm NUMBER(10),
+  pls017err  CHAR(2)
+)
+;
+create index PLS01702 on PLS017 (PLS017EMP, PLS017SUC, PLS017RUBP, PLS017MDA, PLS017PAP, PLS017CTA, PLS017OPER, PLS017SBOP, PLS017TOPE);
+create index PLS01703 on PLS017 (PLS017TEMP, PLS017TSUC, PLS017TMOD, PLS017TTRN, PLS017TNRE);
+create index PLS01704 on PLS017 (PLS017EMP, PLS017FACR, PLS017CONV, PLS017NORD, PLS017NLOT);
+create index PLS01705 on PLS017 (PLS017EMP, PLS017CONV, PLS017SERV, PLS017FPRE, PLS017NORD, PLS017NLOT, PLS017CORM);
+create index PLS01706 on PLS017 (PLS017EMP, PLS017CONV, PLS017FACR, PLS017NORD);
+alter table PLS017
+  add primary key (PLS017EMP, PLS017CONV, PLS017SERV, PLS017FPRE, PLS017NORD, PLS017NLOT, PLS017CORR);
+

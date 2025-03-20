@@ -1,0 +1,15 @@
+create table FCPG04
+(
+  cpg04cod   NUMBER(3) not null,
+  cpg04desc  CHAR(40),
+  cpg04admpp CHAR(1),
+  cpg04orpri NUMBER(3),
+  cpg04blq   CHAR(1),
+  cpg04inst  NUMBER(10)
+)
+;
+create index FCPG0402 on FCPG04 (CPG04ORPRI);
+create index FCPG0403 on FCPG04 (CPG04INST);
+alter table FCPG04
+  add primary key (CPG04COD);
+

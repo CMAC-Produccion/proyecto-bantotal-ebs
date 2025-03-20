@@ -1,0 +1,11 @@
+create table CNL028
+(
+  cnl000cod NUMBER(4) not null,
+  cnl005cod NUMBER(6) not null,
+  cnl028mda NUMBER(4) not null
+)
+;
+create index CNL02802 on CNL028 (CNL005COD);
+alter table CNL028
+  add primary key (CNL000COD, CNL005COD, CNL028MDA);
+

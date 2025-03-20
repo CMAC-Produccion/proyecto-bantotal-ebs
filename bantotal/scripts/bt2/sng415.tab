@@ -1,0 +1,12 @@
+create table SNG415
+(
+  sng410corr NUMBER(10) not null,
+  sng402cr   NUMBER(4) not null,
+  sng406prg  CHAR(10) not null,
+  sng415cpo  CHAR(10) not null,
+  sng415val  CHAR(50)
+)
+;
+alter table SNG415
+  add primary key (SNG410CORR, SNG402CR, SNG406PRG, SNG415CPO);
+

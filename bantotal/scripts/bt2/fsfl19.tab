@@ -1,0 +1,19 @@
+create table FSFL19
+(
+  fsfl19emp NUMBER(3) not null,
+  fsfl19suc NUMBER(3) not null,
+  fsfl19mod NUMBER(3) not null,
+  fsfl19trn NUMBER(3) not null,
+  fsfl19rel NUMBER(4) not null,
+  fsfl19fec DATE not null,
+  fsfl19usu CHAR(10),
+  fsfl19mon NUMBER(17,2),
+  fsfl19cta NUMBER(9),
+  fsfl19exc CHAR(4),
+  fsfl19trd CHAR(10)
+)
+;
+create index FSFL1902 on FSFL19 (FSFL19CTA, FSFL19FEC, FSFL19REL);
+alter table FSFL19
+  add primary key (FSFL19EMP, FSFL19SUC, FSFL19MOD, FSFL19TRN, FSFL19REL, FSFL19FEC);
+

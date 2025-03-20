@@ -1,0 +1,325 @@
+create table AQPC360H
+(
+  aqpc360husur   CHAR(10),
+  aqpc360hrucc   VARCHAR2(15),
+  aqpc360hnsol   VARCHAR2(20),
+  aqpc360hncta   NUMBER(9),
+  aqpc360hnope   NUMBER(9),
+  aqpc360hnpre   VARCHAR2(30),
+  aqpc360hfdes   DATE,
+  aqpc360hscap   NUMBER(17,2),
+  aqpc360hsins   NUMBER(17,2),
+  aqpc360hmpre   NUMBER(17,2),
+  aqpc360hfclas  DATE,
+  aqpc360hcnor   NUMBER(5,2),
+  aqpc360hccpp   NUMBER(5,2),
+  aqpc360hcdef   NUMBER(5,2),
+  aqpc360hcdud   NUMBER(5,2),
+  aqpc360hcper   NUMBER(5,2),
+  aqpc360hscon   CHAR(3),
+  aqpc360hatru   NUMBER,
+  aqpc360hrgon   VARCHAR2(40),
+  aqpc360hzona   VARCHAR2(40),
+  aqpc360hagen   VARCHAR2(40),
+  aqpc360hanal   VARCHAR2(40),
+  aqpc360htdoc   CHAR(3),
+  aqpc360hndoc   VARCHAR2(15),
+  aqpc360hrsoc   VARCHAR2(70),
+  aqpc360hnomc   VARCHAR2(70),
+  aqpc360hestd   CHAR(30),
+  aqpc360hfest   DATE,
+  aqpc360hcdes   NUMBER(17,2),
+  aqpc360hncuod  NUMBER(5),
+  aqpc360hpgra   NUMBER(9),
+  aqpc360hcobr   NUMBER(5,2),
+  aqpc360hmcob   NUMBER(17,2),
+  aqpc360hchon   CHAR(1),
+  aqpc360hfhon   DATE,
+  aqpc360hmhon   NUMBER(17,2),
+  aqpc360hdatr   NUMBER(9),
+  aqpc360hfinc   DATE,
+  aqpc360hffnc   DATE,
+  aqpc360hcpen   NUMBER(5),
+  aqpc360hfvnui  DATE,
+  aqpc360hfvnup  DATE,
+  aqpc360hfpup   DATE,
+  aqpc360hcuop   NUMBER(5),
+  aqpc360hmcuop  NUMBER(17,2),
+  aqpc360hprcap  NUMBER(17,2),
+  aqpc360hpinc   NUMBER(17,2),
+  aqpc360hpinm   NUMBER(17,2),
+  aqpc360hprin   NUMBER(17,2),
+  aqpc360hprpn   NUMBER(17,2),
+  aqpc360hprseg  NUMBER(17,2),
+  aqpc360hfcsbs  DATE,
+  aqpc360hsnor   NUMBER(5,2),
+  aqpc360hscpp   NUMBER(5,2),
+  aqpc360hsdef   NUMBER(5,2),
+  aqpc360hsdud   NUMBER(5,2),
+  aqpc360hsper   NUMBER(5,2),
+  aqpc360htea    NUMBER(17,2),
+  aqpc360hteam   NUMBER(17,2),
+  aqpc360hciuu   VARCHAR2(5),
+  aqpc360haeco   VARCHAR2(60),
+  aqpc360htcre   VARCHAR2(50),
+  aqpc360htpre   VARCHAR2(50),
+  aqpc360hrepro  CHAR(1),
+  aqpc360hfrpro  DATE,
+  aqpc360hnrpro  NUMBER(5),
+  aqpc360hfprcr  DATE,
+  aqpc360hffnpr  DATE,
+  aqpc360hncuor  NUMBER(5),
+  aqpc360hgrac   NUMBER(5),
+  aqpc360hciuo   VARCHAR2(5),
+  aqpc360haecoo  VARCHAR2(60),
+  aqpc360hemp    NUMBER(3),
+  aqpc360hmod    NUMBER(3),
+  aqpc360hsuc    NUMBER(3),
+  aqpc360hmnda   NUMBER(4),
+  aqpc360hpapl   NUMBER(4),
+  aqpc360hsbop   NUMBER(3),
+  aqpc360htope   NUMBER(3),
+  aqpc360hmone   VARCHAR2(20),
+  aqpc360hsdocap NUMBER(17,2),
+  aqpc360hsdohon NUMBER(17,2),
+  aqpc360hcrehon NUMBER(17,2),
+  aqpc360hfcr    VARCHAR2(10),
+  aqpc360hhcr    VARCHAR2(10),
+  aqpc360hfproc  DATE,
+  aqpc360hncert  VARCHAR2(50),
+  aqpc360hcodgar VARCHAR2(50),
+  aqpc360hcodcob VARCHAR2(50),
+  aqpc360hsdocre NUMBER(17,2),
+  aqpc360hintcom NUMBER(17,2),
+  aqpc360hintmor NUMBER(17,2),
+  aqpc360hintcov NUMBER(17,2),
+  aqpc360hpen    NUMBER(17,2),
+  aqpc360hcertrn VARCHAR2(50),
+  aqpc360hcobren VARCHAR2(50),
+  aqpc360hsinsap NUMBER(17,2),
+  aqpc360hprpago NUMBER(17,2),
+  aqpc360hpagrea NUMBER(17,2),
+  aqpc360hpramrt NUMBER(17,2),
+  aqpc360hnrccor NUMBER(6),
+  aqpc360hnrccac NUMBER(6),
+  aqpc360hvulcpa NUMBER(17,2),
+  aqpc360hvcprve NUMBER(17,2),
+  aqpc360hfuclpr DATE
+)
+;
+comment on table AQPC360H
+  is 'REPORTE FONDO FAE TEXCO HISTORICA';
+comment on column AQPC360H.aqpc360husur
+  is 'USUARIO';
+comment on column AQPC360H.aqpc360hrucc
+  is 'Esf (ruc Caja Arequipa)';
+comment on column AQPC360H.aqpc360hnsol
+  is 'Código de solicitud (dato de Cofide)';
+comment on column AQPC360H.aqpc360hncta
+  is 'N° de cuenta ';
+comment on column AQPC360H.aqpc360hnope
+  is 'N° de operación ';
+comment on column AQPC360H.aqpc360hnpre
+  is 'Numero préstamo ';
+comment on column AQPC360H.aqpc360hfdes
+  is 'Fecha de desembolso  ';
+comment on column AQPC360H.aqpc360hscap
+  is 'Saldo capital (saldo bantotal al corte)';
+comment on column AQPC360H.aqpc360hsins
+  is 'Saldo insoluto (saldo insoluto al corte)';
+comment on column AQPC360H.aqpc360hmpre
+  is 'Monto prepago (monto amortizado de capital comparando al cierre del mes anterior)';
+comment on column AQPC360H.aqpc360hfclas
+  is 'Fecha clasificación caja ';
+comment on column AQPC360H.aqpc360hcnor
+  is 'Clasificación sbs normal % (en números sin decimales)';
+comment on column AQPC360H.aqpc360hccpp
+  is 'Clasificación sbs cpp % (en números sin decimales)';
+comment on column AQPC360H.aqpc360hcdef
+  is 'Clasificación sbs deficiente % (en números sin decimales)';
+comment on column AQPC360H.aqpc360hcdud
+  is 'Clasificación sbs dudoso % (en números sin decimales)';
+comment on column AQPC360H.aqpc360hcper
+  is 'Clasificación sbs pérdida % (en números sin decimales)';
+comment on column AQPC360H.aqpc360hscon
+  is 'Situación contable (vigente = vgt, vencido=vcd, refinanciado=rfn, judicial=jdc)';
+comment on column AQPC360H.aqpc360hatru
+  is 'Días de atraso de la última cuota pagada ';
+comment on column AQPC360H.aqpc360hrgon
+  is 'Región ';
+comment on column AQPC360H.aqpc360hzona
+  is 'Zona ';
+comment on column AQPC360H.aqpc360hagen
+  is 'Agencia ';
+comment on column AQPC360H.aqpc360hanal
+  is 'Analista ';
+comment on column AQPC360H.aqpc360htdoc
+  is 'Tipo de documento (dni, ruc)';
+comment on column AQPC360H.aqpc360hndoc
+  is 'Numero de documento ';
+comment on column AQPC360H.aqpc360hrsoc
+  is 'Razón social ';
+comment on column AQPC360H.aqpc360hnomc
+  is 'Apellidos y nombres del cliente ';
+comment on column AQPC360H.aqpc360hestd
+  is 'Estado de crédito (normal, cancelado, refinanciado, refinanciado pjm, prejudicial menor, enviado a rl, c. Judicial)';
+comment on column AQPC360H.aqpc360hfest
+  is 'Fecha de cuando se realizó el cambio de estado ';
+comment on column AQPC360H.aqpc360hcdes
+  is 'Monto desembolsado (Bantotal)';
+comment on column AQPC360H.aqpc360hncuod
+  is 'N° de cuotas el desembolso (en meses)';
+comment on column AQPC360H.aqpc360hpgra
+  is 'Periodo de gracia del desembolso (en meses)';
+comment on column AQPC360H.aqpc360hcobr
+  is '% de cobertura ';
+comment on column AQPC360H.aqpc360hmcob
+  is 'Monto de cobertura (saldo insoluto * % de cobertura)';
+comment on column AQPC360H.aqpc360hchon
+  is 'Crédito honrado (si=s, no=n)';
+comment on column AQPC360H.aqpc360hfhon
+  is 'Fecha de honramiento ';
+comment on column AQPC360H.aqpc360hmhon
+  is 'Monto honrado ';
+comment on column AQPC360H.aqpc360hdatr
+  is 'Días de atraso ';
+comment on column AQPC360H.aqpc360hfinc
+  is 'Fecha de inicio de crédito original - Cofide ';
+comment on column AQPC360H.aqpc360hffnc
+  is 'Fecha de fin de crédito original - Cofide ';
+comment on column AQPC360H.aqpc360hcpen
+  is 'N° de cuotas pendientes de pago ';
+comment on column AQPC360H.aqpc360hfvnui
+  is 'Fecha de vencimiento de la última cuota impaga ';
+comment on column AQPC360H.aqpc360hfvnup
+  is 'Fecha de vencimiento de última cuota pagada ';
+comment on column AQPC360H.aqpc360hfpup
+  is 'Fecha de pago de último pago ';
+comment on column AQPC360H.aqpc360hcuop
+  is 'Número de cuotas pagadas ';
+comment on column AQPC360H.aqpc360hmcuop
+  is 'Monto de cuotas pagadas ';
+comment on column AQPC360H.aqpc360hprcap
+  is 'Pago realizado - capital ';
+comment on column AQPC360H.aqpc360hpinc
+  is 'Pago realizado - interés compensatorio ';
+comment on column AQPC360H.aqpc360hpinm
+  is 'Pago realizado - interés moratorio ';
+comment on column AQPC360H.aqpc360hprin
+  is 'Pago realizado - intereses ';
+comment on column AQPC360H.aqpc360hprpn
+  is 'Pago realizado - penalidad ';
+comment on column AQPC360H.aqpc360hprseg
+  is 'Pago realizado - seguros ';
+comment on column AQPC360H.aqpc360hfcsbs
+  is 'Fecha de clasificación sbs ';
+comment on column AQPC360H.aqpc360hsnor
+  is 'Clasificación sbs normal % (en números con dos decimales)';
+comment on column AQPC360H.aqpc360hscpp
+  is 'Clasificación sbs cpp % (en números con dos decimales)';
+comment on column AQPC360H.aqpc360hsdef
+  is 'Clasificación sbs deficiente % (en números con dos decimales)';
+comment on column AQPC360H.aqpc360hsdud
+  is 'Clasificación sbs dudoso % (en números con dos decimales)';
+comment on column AQPC360H.aqpc360hsper
+  is 'Clasificación sbs pérdida % (en números con dos decimales)';
+comment on column AQPC360H.aqpc360htea
+  is 'Tea (en números con dos decimales)';
+comment on column AQPC360H.aqpc360hteam
+  is 'Tasa moratoria ';
+comment on column AQPC360H.aqpc360hciuu
+  is 'Ciuu ';
+comment on column AQPC360H.aqpc360haeco
+  is 'Actividad económica (de la última evaluación)';
+comment on column AQPC360H.aqpc360htcre
+  is 'Tipo de crédito sbs ';
+comment on column AQPC360H.aqpc360htpre
+  is 'Tipo de préstamo ';
+comment on column AQPC360H.aqpc360hrepro
+  is 'Flag de reprogramación (si=s, no=n)';
+comment on column AQPC360H.aqpc360hfrpro
+  is 'Fecha de reprogramación (de la última efectuada)';
+comment on column AQPC360H.aqpc360hnrpro
+  is 'N° de reprogramaciones ';
+comment on column AQPC360H.aqpc360hfprcr
+  is 'Fecha de primera cuota de reprogramación ';
+comment on column AQPC360H.aqpc360hffnpr
+  is 'Fecha de fin de crédito posterior a reprogramación ';
+comment on column AQPC360H.aqpc360hncuor
+  is 'N° de cuotas posterior a reprogramación ';
+comment on column AQPC360H.aqpc360hgrac
+  is 'Periodo de gracia posterior a reprogramación ';
+comment on column AQPC360H.aqpc360hciuo
+  is 'Ciiu origen (del desembolso inicial)';
+comment on column AQPC360H.aqpc360haecoo
+  is 'Actividad económica origen (del desembolso inicial)';
+comment on column AQPC360H.aqpc360hemp
+  is 'Empresa ';
+comment on column AQPC360H.aqpc360hmod
+  is 'Modulo ';
+comment on column AQPC360H.aqpc360hsuc
+  is 'Sucursal ';
+comment on column AQPC360H.aqpc360hmnda
+  is 'Moneda ';
+comment on column AQPC360H.aqpc360hpapl
+  is 'Papel ';
+comment on column AQPC360H.aqpc360hsbop
+  is 'Sub operación ';
+comment on column AQPC360H.aqpc360htope
+  is 'Tipo operación ';
+comment on column AQPC360H.aqpc360hmone
+  is 'MONEDA Descripcion ';
+comment on column AQPC360H.aqpc360hsdocap
+  is 'Saldo Capital ';
+comment on column AQPC360H.aqpc360hsdohon
+  is 'Saldo Honrado ';
+comment on column AQPC360H.aqpc360hcrehon
+  is 'Monto Credito honrado ';
+comment on column AQPC360H.aqpc360hfcr
+  is 'Fecha creacion ';
+comment on column AQPC360H.aqpc360hhcr
+  is 'Hora Creacion ';
+comment on column AQPC360H.aqpc360hfproc
+  is 'Fecha proceso';
+comment on column AQPC360H.aqpc360hncert
+  is 'Número de certificado';
+comment on column AQPC360H.aqpc360hcodgar
+  is 'Código de garantia';
+comment on column AQPC360H.aqpc360hcodcob
+  is 'Codigo de cobertura';
+comment on column AQPC360H.aqpc360hsdocre
+  is 'Saldo INSOLUTO credito honrado';
+comment on column AQPC360H.aqpc360hintcom
+  is 'Interes compesatorio';
+comment on column AQPC360H.aqpc360hintmor
+  is 'Interes moratorio';
+comment on column AQPC360H.aqpc360hintcov
+  is 'Interes compesatorio vencido';
+comment on column AQPC360H.aqpc360hpen
+  is 'Penalidad';
+comment on column AQPC360H.aqpc360hcertrn
+  is 'Certificado de renovación/reprogramación';
+comment on column AQPC360H.aqpc360hcobren
+  is 'Cobertura de renovación/reprogramación';
+comment on column AQPC360H.aqpc360hsinsap
+  is 'Saldo Insoluto antes del prepago';
+comment on column AQPC360H.aqpc360hprpago
+  is 'Prepago(Total/Parcial)(Total=cancelacion, Parcial=amortizacion)';
+comment on column AQPC360H.aqpc360hpagrea
+  is 'Pago realizado (Pago total)';
+comment on column AQPC360H.aqpc360hpramrt
+  is 'Principal amortizado';
+comment on column AQPC360H.aqpc360hnrccor
+  is 'Numero de cuotas del cronograma original enviado a COFIDE';
+comment on column AQPC360H.aqpc360hnrccac
+  is 'Numero de cuotas de cronograma actual';
+comment on column AQPC360H.aqpc360hvulcpa
+  is 'Valor de la ultima cuota pagada';
+comment on column AQPC360H.aqpc360hvcprve
+  is 'Valor de cuota proximo vencimiento';
+comment on column AQPC360H.aqpc360hfuclpr
+  is 'Nueva fecha de la ultima cuota luego del prepago';
+create index AQPC360HA2 on AQPC360H (AQPC360HEMP, AQPC360HMOD, AQPC360HSUC, AQPC360HMNDA, AQPC360HPAPL, AQPC360HNCTA, AQPC360HNOPE, AQPC360HSBOP, AQPC360HTOPE);
+create index AQPC360HA3 on AQPC360H (AQPC360HUSUR);
+create index AQPC360HA4 on AQPC360H (AQPC360HUSUR, AQPC360HFPROC);
+

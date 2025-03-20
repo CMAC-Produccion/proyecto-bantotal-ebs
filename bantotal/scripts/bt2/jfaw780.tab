@@ -1,0 +1,23 @@
+create table JFAW780
+(
+  jfaw780cor NUMBER(10) not null,
+  jfaw780tip CHAR(1),
+  jfaw780cta NUMBER(9),
+  jfaw780obj NUMBER(17,2),
+  jfaw780plu NUMBER(10,6),
+  jfaw780act NUMBER(17,2),
+  jfaw780est CHAR(1),
+  jfaw780emp NUMBER(3),
+  jfaw780evt NUMBER(10),
+  jfaw780ope NUMBER(9),
+  jfaw780fec DATE,
+  jfaw780hor CHAR(8),
+  jfaw780usu CHAR(10),
+  jfaw780mda NUMBER(4),
+  jfaw780pap NUMBER(4)
+)
+;
+create index JFAW7802 on JFAW780 (JFAW780FEC, JFAW780CTA, JFAW780TIP, JFAW780MDA, JFAW780PAP);
+alter table JFAW780
+  add primary key (JFAW780COR);
+

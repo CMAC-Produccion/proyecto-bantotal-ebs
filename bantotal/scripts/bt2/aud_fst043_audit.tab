@@ -1,0 +1,29 @@
+create table AUD_FST043_AUDIT
+(
+  aud_old_extcod     NUMBER(9),
+  aud_new_extcod     NUMBER(9),
+  aud_old_exteje     CHAR(1),
+  aud_new_exteje     CHAR(1),
+  aud_old_extmom     CHAR(1),
+  aud_new_extmom     CHAR(1),
+  aud_old_extnom     CHAR(30),
+  aud_new_extnom     CHAR(30),
+  aud_old_extprg     CHAR(10),
+  aud_new_extprg     CHAR(10),
+  aud_old_extprl     CHAR(10),
+  aud_new_extprl     CHAR(10),
+  aud_fst043_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst043_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst043_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst043_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst043_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst043_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst043_ubu     VARCHAR2(50) default USER not null,
+  aud_fst043_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst043_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst043_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst043_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst043_uas     CHAR(1) default 'I' not null
+)
+;
+

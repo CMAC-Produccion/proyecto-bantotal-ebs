@@ -1,0 +1,12 @@
+create table CACONKW
+(
+  caconid      NUMBER(10) not null,
+  caconlng     CHAR(3) not null,
+  caconvers    NUMBER(6) not null,
+  cackwkeyword CHAR(254) not null,
+  cackwcnt     NUMBER(4)
+)
+;
+alter table CACONKW
+  add primary key (CACONID, CACONLNG, CACONVERS, CACKWKEYWORD);
+

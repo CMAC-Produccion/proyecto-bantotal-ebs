@@ -1,0 +1,16 @@
+create table JMBM28
+(
+  sng021eval NUMBER(10) not null,
+  sng026cod  NUMBER(4) not null,
+  jmbm28lin  NUMBER(3) not null,
+  jmbm28mto5 NUMBER(17,2),
+  jmbm28mto6 NUMBER(17,2),
+  jmbm28mto7 NUMBER(17,2),
+  jmbm28dec1 NUMBER(10,6),
+  jmbm28dec2 NUMBER(14,8),
+  jmbm28dec3 NUMBER(14,8)
+)
+;
+alter table JMBM28
+  add primary key (SNG021EVAL, SNG026COD, JMBM28LIN);
+

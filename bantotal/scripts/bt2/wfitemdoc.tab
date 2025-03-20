@@ -1,0 +1,12 @@
+create table WFITEMDOC
+(
+  wfitemid    NUMBER(10) not null,
+  wfinsdocid  NUMBER(10) not null,
+  wfinsdoclng CHAR(3) not null,
+  wfinsdocver NUMBER(6) not null
+)
+;
+create index IWFITEMDOC1 on WFITEMDOC (WFINSDOCID, WFINSDOCLNG, WFINSDOCVER);
+alter table WFITEMDOC
+  add primary key (WFITEMID, WFINSDOCID, WFINSDOCLNG, WFINSDOCVER);
+

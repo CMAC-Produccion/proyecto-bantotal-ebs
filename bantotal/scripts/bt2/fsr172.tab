@@ -1,0 +1,10 @@
+create table FSR172
+(
+  st170tdcod NUMBER(5) not null,
+  st171cpcod NUMBER(5) not null
+)
+;
+create index FSR17202 on FSR172 (ST171CPCOD, ST170TDCOD);
+alter table FSR172
+  add primary key (ST170TDCOD, ST171CPCOD);
+

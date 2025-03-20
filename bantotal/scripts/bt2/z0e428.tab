@@ -1,0 +1,15 @@
+create table Z0E428
+(
+  z0e401cod NUMBER(2) not null,
+  z0e428cod CHAR(2) not null,
+  z0e428dsc CHAR(30),
+  z0e428mod NUMBER(3),
+  z0e428fmd DATE,
+  z0e428umd CHAR(10),
+  z0e428fau DATE,
+  z0e428uau CHAR(10),
+  z0e428est CHAR(2)
+)
+;
+create unique index Z0E42801 on Z0E428 (Z0E401COD, Z0E428COD);
+

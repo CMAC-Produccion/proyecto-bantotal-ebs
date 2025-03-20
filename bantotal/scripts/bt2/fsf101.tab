@@ -1,0 +1,14 @@
+create table FSF101
+(
+  lnpgcod   NUMBER(3) not null,
+  lntipoper NUMBER(2) not null,
+  lnempresa CHAR(1) not null,
+  lntrmod   NUMBER(3) not null,
+  lntrnro   NUMBER(3) not null
+)
+;
+create index FSF10102 on FSF101 (LNTIPOPER);
+create index FSF10103 on FSF101 (LNPGCOD, LNTRMOD, LNTRNRO);
+alter table FSF101
+  add primary key (LNPGCOD, LNTIPOPER, LNEMPRESA, LNTRMOD, LNTRNRO);
+

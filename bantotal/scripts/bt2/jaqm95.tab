@@ -1,0 +1,91 @@
+create table JAQM95
+(
+  jaqm95cop  CHAR(50) not null,
+  jaqm95pai  NUMBER(3),
+  jaqm95tdoc NUMBER(2),
+  jaqm95ndoc CHAR(12),
+  jaqm95coe  NUMBER(5),
+  jaqm95freg DATE,
+  jaqm95fvig DATE,
+  jaqm95estv CHAR(1),
+  jaqm95hor  CHAR(8),
+  jaqm95suc  NUMBER(3),
+  jaqm95usu  CHAR(10),
+  jaqm95flj  CHAR(50),
+  jaqm95sol  CHAR(50),
+  jaqm95obs  VARCHAR2(255),
+  jaqm95cor  NUMBER(9),
+  jaqm95an1  NUMBER(9),
+  jaqm95an2  NUMBER(9),
+  jaqm95an3  NUMBER(9),
+  jaqm95ac1  VARCHAR2(255),
+  jaqm95ac2  VARCHAR2(255),
+  jaqm95ac3  VARCHAR2(255),
+  jaqm95af1  DATE,
+  jaqm95af2  DATE,
+  jaqm95af3  DATE,
+  jaqm95ai1  NUMBER(17,2),
+  jaqm95ai2  NUMBER(17,2),
+  jaqm95ai3  NUMBER(17,2)
+)
+;
+comment on table JAQM95
+  is 'Módulo de Poderes Cabecera';
+comment on column JAQM95.jaqm95cop
+  is 'Código de Proceso';
+comment on column JAQM95.jaqm95pai
+  is 'País';
+comment on column JAQM95.jaqm95tdoc
+  is 'Tipo de documento';
+comment on column JAQM95.jaqm95ndoc
+  is 'Nro de documento';
+comment on column JAQM95.jaqm95coe
+  is 'Código de etapa';
+comment on column JAQM95.jaqm95freg
+  is 'Fecha de registro';
+comment on column JAQM95.jaqm95fvig
+  is 'Fecha de vigencia';
+comment on column JAQM95.jaqm95estv
+  is 'Estado vigencia';
+comment on column JAQM95.jaqm95hor
+  is 'Hora';
+comment on column JAQM95.jaqm95suc
+  is 'Sucural origen';
+comment on column JAQM95.jaqm95usu
+  is 'Usuario ejecución';
+comment on column JAQM95.jaqm95flj
+  is 'Flujo';
+comment on column JAQM95.jaqm95sol
+  is 'Código solicitud';
+comment on column JAQM95.jaqm95obs
+  is 'Observaciones';
+comment on column JAQM95.jaqm95cor
+  is 'Correlativo';
+comment on column JAQM95.jaqm95an1
+  is 'Auxiliar numérico 1';
+comment on column JAQM95.jaqm95an2
+  is 'Auxiliar numérico 2';
+comment on column JAQM95.jaqm95an3
+  is 'Auxiliar numérico 3';
+comment on column JAQM95.jaqm95ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM95.jaqm95ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM95.jaqm95ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM95.jaqm95af1
+  is 'Auxiliar fecha 1';
+comment on column JAQM95.jaqm95af2
+  is 'Auxiliar fecha 2';
+comment on column JAQM95.jaqm95af3
+  is 'Auxiliar fecha 3';
+comment on column JAQM95.jaqm95ai1
+  is 'Auxiliar importe 1';
+comment on column JAQM95.jaqm95ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM95.jaqm95ai3
+  is 'Auxiliar importe 3';
+create index JAQM95A2 on JAQM95 (JAQM95PAI, JAQM95TDOC, JAQM95NDOC);
+alter table JAQM95
+  add primary key (JAQM95COP);
+

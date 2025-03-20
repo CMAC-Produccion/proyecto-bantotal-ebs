@@ -1,0 +1,26 @@
+create table PLS030
+(
+  pls030cod  NUMBER(3) not null,
+  pls030conv NUMBER(8) not null,
+  pls030coem CHAR(1),
+  pls030pant NUMBER(7,4),
+  pls030cacr NUMBER(9),
+  pls030blq  CHAR(1),
+  pls030emin NUMBER(2),
+  pls030emax NUMBER(2),
+  pls030ccom NUMBER(3),
+  pls030aux1 CHAR(20),
+  pls030aux2 CHAR(1),
+  pls030aux3 CHAR(200),
+  pls030aux4 NUMBER(14,2),
+  pls030aux5 NUMBER(9),
+  pls030aux6 NUMBER(9),
+  pls030aux7 NUMBER(3),
+  pls030aux8 DATE,
+  pls030aux9 DATE,
+  pls030cant NUMBER(9)
+)
+;
+alter table PLS030
+  add primary key (PLS030COD, PLS030CONV);
+

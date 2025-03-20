@@ -1,0 +1,18 @@
+create table FSH915
+(
+  sh915pgcod NUMBER(3) not null,
+  sh915itfco DATE not null,
+  sh915itsuc NUMBER(3) not null,
+  sh915itmod NUMBER(3) not null,
+  sh915ittra NUMBER(3) not null,
+  sh915itnre NUMBER(4) not null,
+  sh915cmsg  NUMBER(5),
+  sh915dmsg  CHAR(100),
+  sh915omsg  NUMBER(3)
+)
+;
+create index FSH91502 on FSH915 (SH915PGCOD, SH915ITFCO, SH915ITMOD, SH915ITTRA);
+create index FSH91503 on FSH915 (SH915PGCOD, SH915ITMOD, SH915ITTRA);
+alter table FSH915
+  add primary key (SH915PGCOD, SH915ITFCO, SH915ITSUC, SH915ITMOD, SH915ITTRA, SH915ITNRE);
+

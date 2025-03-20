@@ -1,0 +1,25 @@
+create table FSFC16
+(
+  sfc16emp NUMBER(3) not null,
+  sfc16suc NUMBER(3) not null,
+  sfc16mod NUMBER(3) not null,
+  sfc16trn NUMBER(3) not null,
+  sfc16ord NUMBER(2) not null,
+  sfc16sub NUMBER(3) not null,
+  sfc16mda NUMBER(4) not null,
+  sfc16pap NUMBER(4) not null,
+  sfc16cta NUMBER(9) not null,
+  sfc16ope NUMBER(9) not null,
+  sfc16sct NUMBER(3) not null,
+  sfc16top NUMBER(3) not null,
+  sfc16a01 NUMBER(9),
+  sfc16a02 NUMBER(9),
+  sfc16a03 NUMBER(17,2),
+  sfc16a04 NUMBER(17,2),
+  sfc16a05 DATE,
+  sfc16a06 DATE
+)
+;
+alter table FSFC16
+  add primary key (SFC16EMP, SFC16SUC, SFC16MOD, SFC16TRN, SFC16ORD, SFC16SUB, SFC16MDA, SFC16PAP, SFC16CTA, SFC16OPE, SFC16SCT, SFC16TOP);
+

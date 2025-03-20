@@ -1,0 +1,24 @@
+create table JAQZ851
+(
+  jaqz851cnro NUMBER(10) not null,
+  jaqz851csec NUMBER(7) not null,
+  jaqz851cord NUMBER(9) not null,
+  jaqz851ccta NUMBER(9),
+  jaqz851csuc NUMBER(3),
+  jaqz851cubg CHAR(6),
+  jaqz851crub NUMBER(16),
+  jaqz851ctip CHAR(2),
+  jaqz851csal NUMBER(17,2),
+  jaqz851ccda CHAR(4),
+  jaqz851cces CHAR(2),
+  jaqz851ccdi CHAR(2),
+  jaqz851cfcc CHAR(2),
+  jaqz851cct1 NUMBER(9),
+  jaqz851cope NUMBER(9),
+  jaqz851cmda NUMBER(4),
+  jaqz851cmod NUMBER(3),
+  jaqz851cfec DATE not null
+)
+;
+create index JAQZ85101 on JAQZ851 (JAQZ851CNRO, JAQZ851CFEC, JAQZ851CCT1, JAQZ851COPE, JAQZ851CMOD);
+

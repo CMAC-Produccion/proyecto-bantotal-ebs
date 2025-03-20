@@ -1,0 +1,26 @@
+create table Z073B3
+(
+  z073b1emp  NUMBER(3) not null,
+  z073b1cod  NUMBER(9) not null,
+  z073b1lin  NUMBER(3) not null,
+  z073b3mod  NUMBER(3),
+  z073b3suc  NUMBER(3),
+  z073b3mda  NUMBER(4),
+  z073b3pap  NUMBER(4),
+  z073b3cta  NUMBER(9),
+  z073b3oper NUMBER(9),
+  z073b3sbop NUMBER(3),
+  z073b3tope NUMBER(3),
+  z073b3fpag DATE,
+  z073b3tipo CHAR(1),
+  z073b3rub  NUMBER(16),
+  z073b3stat CHAR(1),
+  z073b3fst  DATE,
+  z073b3eext NUMBER(3)
+)
+;
+create index Z073B306 on Z073B3 (Z073B1EMP, Z073B3MOD, Z073B3SUC, Z073B3MDA, Z073B3PAP, Z073B3CTA, Z073B3OPER, Z073B3SBOP, Z073B3TOPE, Z073B3FPAG, Z073B3TIPO);
+create index Z073B307 on Z073B3 (Z073B1EMP, Z073B3CTA, Z073B1COD, Z073B1LIN);
+alter table Z073B3
+  add primary key (Z073B1EMP, Z073B1COD, Z073B1LIN);
+

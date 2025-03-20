@@ -1,0 +1,44 @@
+create table JAQZ604
+(
+  regciacod     VARCHAR2(10) not null,
+  cuenro        VARCHAR2(40) not null,
+  regnrorec     VARCHAR2(10) not null,
+  cpagcod       VARCHAR2(10) not null,
+  regfchpag     DATE,
+  regidpagbt    VARCHAR2(10),
+  codigo        VARCHAR2(20),
+  prdocod       VARCHAR2(10) not null,
+  prdodes       VARCHAR2(10),
+  pagos         NUMBER,
+  mora          NUMBER,
+  comis_usuario NUMBER,
+  comis_cliente NUMBER
+)
+;
+comment on column JAQZ604.regciacod
+  is 'Código de Institución';
+comment on column JAQZ604.cuenro
+  is 'Cuenta de la Institución';
+comment on column JAQZ604.regnrorec
+  is 'Código de recibo del SR';
+comment on column JAQZ604.cpagcod
+  is 'Código del alumno del SR';
+comment on column JAQZ604.regfchpag
+  is 'Fecha de Cobro';
+comment on column JAQZ604.regidpagbt
+  is 'Código de transacción del SR - BT';
+comment on column JAQZ604.codigo
+  is 'Código de alumno - inst';
+comment on column JAQZ604.prdocod
+  is 'Código de Perido - SR';
+comment on column JAQZ604.prdodes
+  is 'Código de Pago - inst';
+comment on column JAQZ604.pagos
+  is 'Monto de Pago';
+comment on column JAQZ604.mora
+  is 'Monto de Mora';
+comment on column JAQZ604.comis_usuario
+  is 'Monto Comisión cliente';
+comment on column JAQZ604.comis_cliente
+  is 'Monto Comisión institución';
+

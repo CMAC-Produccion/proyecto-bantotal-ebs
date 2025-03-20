@@ -1,0 +1,97 @@
+create table AQPA729
+(
+  aqpa729id        NUMBER(9) not null,
+  aqpa729tipope    VARCHAR2(50),
+  aqpa729numtar    CHAR(19),
+  aqpa729fecreg    DATE,
+  aqpa729horreg    VARCHAR2(10),
+  aqpa729nomtar    VARCHAR2(50),
+  aqpa729reqid     VARCHAR2(64),
+  aqpa729inscod    VARCHAR2(32),
+  aqpa729vauide    VARCHAR2(32),
+  aqpa729wallid    VARCHAR2(64),
+  aqpa729tokreqid  VARCHAR2(64),
+  aqpa729tokrefid  VARCHAR2(64),
+  aqpa729panrefid  VARCHAR2(64),
+  aqpa729procid    VARCHAR2(64),
+  aqpa729uselan    VARCHAR2(3),
+  aqpa729source    VARCHAR2(10),
+  aqpa729toktyp    VARCHAR2(32),
+  aqpa729tokreqnam VARCHAR2(32),
+  aqpa729recdec    VARCHAR2(32),
+  aqpa729recdeccod VARCHAR2(4),
+  aqpa729returncod VARCHAR2(2),
+  aqpa729errdes    VARCHAR2(256),
+  aqpa729errint    VARCHAR2(255),
+  aqpa729train     VARCHAR2(2000),
+  aqpa729traout    VARCHAR2(2000),
+  aqpa729numaux2   NUMBER(16,2),
+  aqpa729numaux1   NUMBER(16,2),
+  aqpa729varaux2   VARCHAR2(100),
+  aqpa729varaux1   VARCHAR2(100)
+)
+;
+comment on table AQPA729
+  is 'Tokenizacion log principal';
+comment on column AQPA729.aqpa729id
+  is 'Identificador';
+comment on column AQPA729.aqpa729tipope
+  is 'Tipo de operación';
+comment on column AQPA729.aqpa729numtar
+  is 'Numero de tarjeta';
+comment on column AQPA729.aqpa729fecreg
+  is 'Fecha de registro';
+comment on column AQPA729.aqpa729horreg
+  is 'Hora de registro';
+comment on column AQPA729.aqpa729nomtar
+  is 'Nombre de tarjeta';
+comment on column AQPA729.aqpa729reqid
+  is 'Request ID';
+comment on column AQPA729.aqpa729inscod
+  is 'Institucion Code';
+comment on column AQPA729.aqpa729vauide
+  is 'Vault Verification';
+comment on column AQPA729.aqpa729wallid
+  is 'Wallet ID';
+comment on column AQPA729.aqpa729tokreqid
+  is 'Token Requestor ID';
+comment on column AQPA729.aqpa729tokrefid
+  is 'Token Ref ID';
+comment on column AQPA729.aqpa729panrefid
+  is 'PAN Ref ID';
+comment on column AQPA729.aqpa729procid
+  is 'Process ID';
+comment on column AQPA729.aqpa729uselan
+  is 'User language';
+comment on column AQPA729.aqpa729source
+  is 'Source';
+comment on column AQPA729.aqpa729toktyp
+  is 'Token Type';
+comment on column AQPA729.aqpa729tokreqnam
+  is 'Token Requestor Name';
+comment on column AQPA729.aqpa729recdec
+  is 'Recomended Decision';
+comment on column AQPA729.aqpa729recdeccod
+  is 'Recomended Decision Code';
+comment on column AQPA729.aqpa729returncod
+  is 'Return Code';
+comment on column AQPA729.aqpa729errdes
+  is 'Error Description';
+comment on column AQPA729.aqpa729errint
+  is 'Error Interno';
+comment on column AQPA729.aqpa729train
+  is 'Trama de entrada';
+comment on column AQPA729.aqpa729traout
+  is 'Trama de salida';
+comment on column AQPA729.aqpa729numaux2
+  is 'Numero Auxiliar 2';
+comment on column AQPA729.aqpa729numaux1
+  is 'Numero Auxiliar 1';
+comment on column AQPA729.aqpa729varaux2
+  is 'Variable auxiliar 2';
+comment on column AQPA729.aqpa729varaux1
+  is 'Variable auxiliar 1';
+create index AQPA72902 on AQPA729 (AQPA729TIPOPE, AQPA729NUMTAR, AQPA729FECREG);
+alter table AQPA729
+  add primary key (AQPA729ID);
+

@@ -1,0 +1,23 @@
+create table CDCMEP1
+(
+  cdcmepid   NUMBER(18) not null,
+  cdcmepinst NUMBER(18) not null,
+  cdcmepiuse CHAR(10),
+  cdcmepfech DATE,
+  cdcmepinti NUMBER(4),
+  cdcmeppgme CHAR(10),
+  cdcmeptpgm NUMBER(4),
+  cdcmepmodu NUMBER(3),
+  cdcmeptrn  NUMBER(4),
+  cdcesvali  CHAR(1),
+  cdcmeptbl  CHAR(10),
+  cdcmepfld  CHAR(30),
+  cdcmepfpri NUMBER(4),
+  cdcmepwtxt LONG,
+  cdcmepsref NUMBER(18),
+  cdcmeptxta CHAR(255)
+)
+;
+alter table CDCMEP1
+  add primary key (CDCMEPID, CDCMEPINST);
+

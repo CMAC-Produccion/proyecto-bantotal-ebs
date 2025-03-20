@@ -1,0 +1,89 @@
+create table JAQN09
+(
+  jaqn09mod NUMBER(3) not null,
+  jaqn09trs NUMBER(3) not null,
+  jaqn09ord NUMBER(2) not null,
+  jaqn09bbr CHAR(1),
+  jaqn09inm CHAR(1),
+  jaqn09asi CHAR(1),
+  jaqn09obs CHAR(255),
+  jaqn09usu CHAR(10),
+  jaqn09fec DATE,
+  jaqn09hor CHAR(8),
+  jaqn09est CHAR(1),
+  jaqn09nu1 NUMBER(9),
+  jaqn09nu2 NUMBER(9),
+  jaqn09nu3 NUMBER(9),
+  jaqn09va1 VARCHAR2(255),
+  jaqn09va2 VARCHAR2(255),
+  jaqn09va3 VARCHAR2(255),
+  jaqn09da1 DATE,
+  jaqn09da2 DATE,
+  jaqn09da3 DATE,
+  jaqn09im1 NUMBER(17,2),
+  jaqn09im2 NUMBER(17,2),
+  jaqn09im3 NUMBER(17,2),
+  jaqn09ch1 CHAR(255),
+  jaqn09ch2 CHAR(255),
+  jaqn09ch3 CHAR(255)
+)
+;
+comment on table JAQN09
+  is 'Transacciones identificadas';
+comment on column JAQN09.jaqn09mod
+  is 'Modulo';
+comment on column JAQN09.jaqn09trs
+  is 'Transaccion';
+comment on column JAQN09.jaqn09ord
+  is 'Ordinal';
+comment on column JAQN09.jaqn09bbr
+  is 'Busqueda Bruta (S o N)';
+comment on column JAQN09.jaqn09inm
+  is 'Inmutable(S o N)';
+comment on column JAQN09.jaqn09asi
+  is 'Asignar(S o N)';
+comment on column JAQN09.jaqn09obs
+  is 'Observacion';
+comment on column JAQN09.jaqn09usu
+  is 'Usuario';
+comment on column JAQN09.jaqn09fec
+  is 'Fecha';
+comment on column JAQN09.jaqn09hor
+  is 'Hora';
+comment on column JAQN09.jaqn09est
+  is 'Estado(A -> Activado, I -> Inactivado)';
+comment on column JAQN09.jaqn09nu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN09.jaqn09nu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN09.jaqn09nu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQN09.jaqn09va1
+  is 'Auxiliar Varchar 1';
+comment on column JAQN09.jaqn09va2
+  is 'Auxiliar Varchar 2';
+comment on column JAQN09.jaqn09va3
+  is 'Auxiliar Varchar 3';
+comment on column JAQN09.jaqn09da1
+  is 'Auxiliar Date 1';
+comment on column JAQN09.jaqn09da2
+  is 'Auxiliar Date 2';
+comment on column JAQN09.jaqn09da3
+  is 'Auxiliar Date 3';
+comment on column JAQN09.jaqn09im1
+  is 'Auxiliar Importe 1';
+comment on column JAQN09.jaqn09im2
+  is 'Auxiliar Importe 2';
+comment on column JAQN09.jaqn09im3
+  is 'Auxiliar Importe 3';
+comment on column JAQN09.jaqn09ch1
+  is 'Auxiliar Character 1';
+comment on column JAQN09.jaqn09ch2
+  is 'Auxiliar Character 2';
+comment on column JAQN09.jaqn09ch3
+  is 'Auxiliar Character 3';
+create index JAQN09A2 on JAQN09 (JAQN09EST);
+create index JAQN09A3 on JAQN09 (JAQN09NU1);
+alter table JAQN09
+  add primary key (JAQN09MOD, JAQN09TRS, JAQN09ORD);
+

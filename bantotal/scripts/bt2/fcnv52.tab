@@ -1,0 +1,20 @@
+create table FCNV52
+(
+  cnv50num   NUMBER(10) not null,
+  cnv52cor   NUMBER(6) not null,
+  cnv52msg   CHAR(100),
+  cnv52pgcod NUMBER(3),
+  cnv52mod   NUMBER(3),
+  cnv52suc   NUMBER(3),
+  cnv52mda   NUMBER(4),
+  cnv52pap   NUMBER(4),
+  cnv52cta   NUMBER(9),
+  cnv52ope   NUMBER(9),
+  cnv52sbop  NUMBER(3),
+  cnv52top   NUMBER(3)
+)
+;
+create index FCNV5203 on FCNV52 (CNV50NUM, CNV52PGCOD, CNV52MOD, CNV52SUC, CNV52MDA, CNV52PAP, CNV52CTA, CNV52OPE, CNV52SBOP, CNV52TOP);
+alter table FCNV52
+  add primary key (CNV50NUM, CNV52COR);
+

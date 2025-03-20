@@ -1,0 +1,117 @@
+create table JAQNS6
+(
+  jaqns6pais NUMBER(3) not null,
+  jaqns6tdoc NUMBER(2) not null,
+  jaqns6ndoc CHAR(12) not null,
+  jaqns6empr NUMBER(3) not null,
+  jaqns6modu NUMBER(3) not null,
+  jaqns6sucu NUMBER(3) not null,
+  jaqns6pape NUMBER(4) not null,
+  jaqns6mone NUMBER(4) not null,
+  jaqns6cuen NUMBER(9) not null,
+  jaqns6oper NUMBER(9) not null,
+  jaqns6sbop NUMBER(3) not null,
+  jaqns6tope NUMBER(3) not null,
+  jaqns6impo NUMBER(17,2),
+  jaqns6sdmn NUMBER(17,2),
+  jaqns6fval DATE,
+  jaqns6fvto DATE,
+  jaqns6tasa NUMBER(10,6),
+  jaqns6tact NUMBER(10,6),
+  jaqns6peri NUMBER(5),
+  jaqns6fpag DATE,
+  jaqns6espe NUMBER(3),
+  jaqns6gene NUMBER(3),
+  jaqns6lage VARCHAR2(325),
+  jaqns6num1 NUMBER(10),
+  jaqns6num2 NUMBER(10),
+  jaqns6num3 NUMBER(10),
+  jaqns6imp1 NUMBER(17,2),
+  jaqns6imp2 NUMBER(17,2),
+  jaqns6imp3 NUMBER(17,2),
+  jaqns6var1 VARCHAR2(255),
+  jaqns6var2 VARCHAR2(255),
+  jaqns6var3 VARCHAR2(255),
+  jaqns6fec1 DATE,
+  jaqns6fec2 DATE,
+  jaqns6fec3 DATE
+)
+;
+comment on table JAQNS6
+  is 'Estado reactiva ';
+comment on column JAQNS6.jaqns6pais
+  is 'Pais del documento';
+comment on column JAQNS6.jaqns6tdoc
+  is 'Tipo documento';
+comment on column JAQNS6.jaqns6ndoc
+  is 'Numero documento';
+comment on column JAQNS6.jaqns6empr
+  is 'Empresa';
+comment on column JAQNS6.jaqns6modu
+  is 'Modulo';
+comment on column JAQNS6.jaqns6sucu
+  is 'Sucursal';
+comment on column JAQNS6.jaqns6pape
+  is 'Papel';
+comment on column JAQNS6.jaqns6mone
+  is 'Moneda';
+comment on column JAQNS6.jaqns6cuen
+  is 'Cuenta';
+comment on column JAQNS6.jaqns6oper
+  is 'Operacion';
+comment on column JAQNS6.jaqns6sbop
+  is 'Suboperacion';
+comment on column JAQNS6.jaqns6tope
+  is 'Tipo de operacion';
+comment on column JAQNS6.jaqns6impo
+  is 'Importe';
+comment on column JAQNS6.jaqns6sdmn
+  is 'Saldo en M/N';
+comment on column JAQNS6.jaqns6fval
+  is 'Fecha de valor';
+comment on column JAQNS6.jaqns6fvto
+  is 'Fecha de vencimiento';
+comment on column JAQNS6.jaqns6tasa
+  is 'Tasa';
+comment on column JAQNS6.jaqns6tact
+  is 'Tasa actual';
+comment on column JAQNS6.jaqns6peri
+  is 'Periodo';
+comment on column JAQNS6.jaqns6fpag
+  is 'Fecha de pago prevista';
+comment on column JAQNS6.jaqns6espe
+  is 'Especifica';
+comment on column JAQNS6.jaqns6gene
+  is 'Generica';
+comment on column JAQNS6.jaqns6lage
+  is 'Localizacion agencia';
+comment on column JAQNS6.jaqns6num1
+  is 'Auxiliar numerico 1';
+comment on column JAQNS6.jaqns6num2
+  is 'Auxiliar numerico 2';
+comment on column JAQNS6.jaqns6num3
+  is 'Auxiliar numerico 3';
+comment on column JAQNS6.jaqns6imp1
+  is 'Auxiliar importe 1';
+comment on column JAQNS6.jaqns6imp2
+  is 'Auxiliar importe 2';
+comment on column JAQNS6.jaqns6imp3
+  is 'Auxiliar importe 3';
+comment on column JAQNS6.jaqns6var1
+  is 'Auxiliar varchar 1';
+comment on column JAQNS6.jaqns6var2
+  is 'Auxiliar varchar 2';
+comment on column JAQNS6.jaqns6var3
+  is 'Auxiliar varchar 3';
+comment on column JAQNS6.jaqns6fec1
+  is 'Auxiliar fecha 1';
+comment on column JAQNS6.jaqns6fec2
+  is 'Auxiliar fecha 2';
+comment on column JAQNS6.jaqns6fec3
+  is 'Auxiliar fecha 3';
+create index JAQNS6A3 on JAQNS6 (JAQNS6NDOC);
+create index JAQNS6A4 on JAQNS6 (JAQNS6EMPR, JAQNS6MODU, JAQNS6SUCU, JAQNS6PAPE, JAQNS6MONE, JAQNS6CUEN, JAQNS6OPER, JAQNS6SBOP, JAQNS6TOPE);
+create index JAQNS6A5 on JAQNS6 (JAQNS6MONE, JAQNS6CUEN, JAQNS6OPER);
+alter table JAQNS6
+  add primary key (JAQNS6PAIS, JAQNS6TDOC, JAQNS6NDOC, JAQNS6EMPR, JAQNS6MODU, JAQNS6SUCU, JAQNS6PAPE, JAQNS6MONE, JAQNS6CUEN, JAQNS6OPER, JAQNS6SBOP, JAQNS6TOPE);
+

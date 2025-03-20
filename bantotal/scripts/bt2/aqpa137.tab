@@ -1,0 +1,33 @@
+create table AQPA137
+(
+  aqpa137per DATE not null,
+  aqpa137num CHAR(12) not null,
+  aqpa137fec DATE not null,
+  aqpa137hor CHAR(8),
+  aqpa137bdy CLOB,
+  aqpa137cue VARCHAR2(400),
+  aqpa137est CHAR(1),
+  aqpa137msg VARCHAR2(400)
+)
+;
+comment on table AQPA137
+  is 'LOG ENVIO CORREO TRABAJADORES MAL CALIFICADOS SISTEMA FINANCIERO';
+comment on column AQPA137.aqpa137per
+  is 'PERIODO';
+comment on column AQPA137.aqpa137num
+  is 'NUMERO DOCUMENTO';
+comment on column AQPA137.aqpa137fec
+  is 'FECHA DE PROCESO';
+comment on column AQPA137.aqpa137hor
+  is 'HORAS DE PROCESO';
+comment on column AQPA137.aqpa137bdy
+  is 'CUERPO DEL CORREO';
+comment on column AQPA137.aqpa137cue
+  is 'CUENTAS DE CORREO';
+comment on column AQPA137.aqpa137est
+  is 'ESTADO';
+comment on column AQPA137.aqpa137msg
+  is 'MENSAJE RESPUESTA';
+alter table AQPA137
+  add primary key (AQPA137PER, AQPA137NUM, AQPA137FEC);
+

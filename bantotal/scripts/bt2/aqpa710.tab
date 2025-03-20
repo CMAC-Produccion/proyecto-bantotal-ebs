@@ -1,0 +1,29 @@
+create table AQPA710
+(
+  aqpa710id     NUMBER(9) not null,
+  aqpa710corr   NUMBER(4) not null,
+  aqpa710pepais NUMBER(3),
+  aqpa710petdoc NUMBER(2),
+  aqpa710pendoc CHAR(12),
+  aqpa710nomcli VARCHAR2(150),
+  aqpa710numins NUMBER(10),
+  aqpa710codusu VARCHAR2(20),
+  aqpa710nomage VARCHAR2(150),
+  aqpa710fecpag DATE,
+  aqpa710cancuo NUMBER(4),
+  aqpa710codmda NUMBER(4),
+  aqpa710codmod NUMBER(4),
+  aqpa710codtop NUMBER(4),
+  aqpa710ctacre NUMBER(9),
+  aqpa710opecre NUMBER(9),
+  aqpa710cuomen NUMBER(17,2),
+  aqpa710monapr NUMBER(17,2),
+  aqpa710period NUMBER(4),
+  aqpa710tasa   NUMBER(9,6),
+  aqpa710desmod VARCHAR2(150),
+  aqpa710telcli VARCHAR2(50)
+)
+;
+alter table AQPA710
+  add primary key (AQPA710ID, AQPA710CORR);
+

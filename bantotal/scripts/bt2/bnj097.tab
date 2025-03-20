@@ -1,0 +1,21 @@
+create table BNJ097
+(
+  bnj097sor CHAR(17) not null,
+  bnj097nop NUMBER(12) not null,
+  bnj097tal NUMBER(12),
+  bnj097est CHAR(1),
+  bnj097opa NUMBER(9),
+  bnj097suc NUMBER(3),
+  bnj097mda NUMBER(4),
+  bnj097pap NUMBER(4),
+  bnj097cta NUMBER(9),
+  bnj097ope NUMBER(9),
+  bnj097sbo NUMBER(3),
+  bnj097mod NUMBER(3),
+  bnj097top NUMBER(3)
+)
+;
+create index BNJ09702 on BNJ097 (BNJ097SOR, BNJ097TAL, BNJ097EST);
+alter table BNJ097
+  add primary key (BNJ097SOR, BNJ097NOP);
+

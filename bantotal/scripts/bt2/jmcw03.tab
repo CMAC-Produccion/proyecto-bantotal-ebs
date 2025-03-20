@@ -1,0 +1,16 @@
+create table JMCW03
+(
+  jmcw03cod  NUMBER(10) not null,
+  jmcw01cod  CHAR(15),
+  jmcw03tar  NUMBER(4),
+  jmcw03fein DATE,
+  jmcw03fefn DATE,
+  jmcw03usr  CHAR(20),
+  jmcw03ip   CHAR(20),
+  jmcw03pcid CHAR(20)
+)
+;
+create index JMCW0302 on JMCW03 (JMCW01COD);
+alter table JMCW03
+  add primary key (JMCW03COD);
+

@@ -1,0 +1,40 @@
+create table JAQN875
+(
+  jaqn875emp NUMBER(3) not null,
+  jaqn875mod NUMBER(3) not null,
+  jaqn875suc NUMBER(3) not null,
+  jaqn875mda NUMBER(4) not null,
+  jaqn875pap NUMBER(4) not null,
+  jaqn875cta NUMBER(9) not null,
+  jaqn875ope NUMBER(9) not null,
+  jaqn875sbo NUMBER(3) not null,
+  jaqn875top NUMBER(3) not null,
+  jaqn875fec DATE not null,
+  jaqn875com VARCHAR2(255),
+  jaqn875upe CHAR(10),
+  jaqn875fpe DATE,
+  jaqn875spe NUMBER(3),
+  jaqn875uau CHAR(10),
+  jaqn875fau DATE,
+  jaqn875res VARCHAR2(255),
+  jaqn875est CHAR(1),
+  jaqn875ai1 NUMBER(17,2),
+  jaqn875ai2 NUMBER(17,2),
+  jaqn875ai3 NUMBER(17,2),
+  jaqn875an1 NUMBER(9),
+  jaqn875an2 NUMBER(9),
+  jaqn875an3 NUMBER(9),
+  jaqn875ac1 VARCHAR2(255),
+  jaqn875ac2 VARCHAR2(255),
+  jaqn875ac3 VARCHAR2(255),
+  jaqn875af1 DATE,
+  jaqn875af2 DATE,
+  jaqn875af3 DATE
+)
+;
+create index JAQN8752 on JAQN875 (JAQN875FPE);
+create index JAQN8753 on JAQN875 (JAQN875SPE, JAQN875UPE);
+create index JAQN8754 on JAQN875 (JAQN875EST);
+alter table JAQN875
+  add primary key (JAQN875EMP, JAQN875MOD, JAQN875SUC, JAQN875MDA, JAQN875PAP, JAQN875CTA, JAQN875OPE, JAQN875SBO, JAQN875TOP, JAQN875FEC);
+

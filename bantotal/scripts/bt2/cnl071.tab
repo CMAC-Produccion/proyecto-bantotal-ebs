@@ -1,0 +1,37 @@
+create table CNL071
+(
+  cnl000cod  NUMBER(4) not null,
+  cnl001adm  CHAR(30) not null,
+  cnl001usu  CHAR(30) not null,
+  cnl999tin  NUMBER(3) not null,
+  cnl069num  NUMBER(9) not null,
+  cnl070tra  NUMBER(9) not null,
+  cnl071nli  NUMBER(5) not null,
+  cnl071lin  CHAR(128),
+  cnl071linv CLOB,
+  cnl071cta  CHAR(65),
+  cnl071treg NUMBER(1),
+  cnl071des  CHAR(60),
+  cnl071fac  NUMBER(10),
+  cnl071imp  NUMBER(17),
+  cnl071pgc  NUMBER(3),
+  cnl071suc  NUMBER(3),
+  cnl071mod  NUMBER(3),
+  cnl071mda  NUMBER(4),
+  cnl071pap  NUMBER(4),
+  cnl071cli  NUMBER(9),
+  cnl071op   NUMBER(9),
+  cnl071sbo  NUMBER(3),
+  cnl071top  NUMBER(3),
+  cnl071isu  NUMBER(3),
+  cnl071imo  NUMBER(3),
+  cnl071trn  NUMBER(4),
+  cnl071rel  NUMBER(4),
+  cnl071fco  TIMESTAMP(6),
+  cnl071mnc  NUMBER(5),
+  cnl071lit  NUMBER(9)
+)
+;
+alter table CNL071
+  add primary key (CNL000COD, CNL001ADM, CNL001USU, CNL999TIN, CNL069NUM, CNL070TRA, CNL071NLI);
+

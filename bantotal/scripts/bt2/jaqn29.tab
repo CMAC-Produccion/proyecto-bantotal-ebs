@@ -1,0 +1,33 @@
+create table JAQN29
+(
+  jaqn29emp NUMBER(3) not null,
+  jaqn29mod NUMBER(3) not null,
+  jaqn29suc NUMBER(3) not null,
+  jaqn29mon NUMBER(4) not null,
+  jaqn29pap NUMBER(4) not null,
+  jaqn29cnr NUMBER(9) not null,
+  jaqn29ope NUMBER(9) not null,
+  jaqn29sop NUMBER(3) not null,
+  jaqn29top NUMBER(3) not null,
+  jaqn29fpr DATE not null,
+  jaqn29mto NUMBER(17,2),
+  jaqn29nu1 NUMBER(9),
+  jaqn29nu2 NUMBER(9),
+  jaqn29nu3 NUMBER(9),
+  jaqn29im1 NUMBER(17,2),
+  jaqn29im2 NUMBER(17,2),
+  jaqn29im3 NUMBER(17,2),
+  jaqn29fe1 DATE,
+  jaqn29fe2 DATE,
+  jaqn29fe3 DATE,
+  jaqn29ch1 CHAR(1),
+  jaqn29ch2 CHAR(1),
+  jaqn29ch3 CHAR(1),
+  jaqn29va1 VARCHAR2(255),
+  jaqn29va2 VARCHAR2(255),
+  jaqn29va3 VARCHAR2(255)
+)
+compress;
+create unique index JAQN29001 on JAQN29 (JAQN29EMP, JAQN29MOD, JAQN29SUC, JAQN29MON, JAQN29PAP, JAQN29CNR, JAQN29OPE, JAQN29SOP, JAQN29TOP, JAQN29FPR)
+  compress 9;
+

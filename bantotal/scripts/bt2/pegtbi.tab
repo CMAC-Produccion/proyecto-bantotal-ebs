@@ -1,0 +1,10 @@
+create table PEGTBI
+(
+  peggrpid  CHAR(80) not null,
+  pegtbitpo CHAR(3) not null,
+  pegtbiid  VARCHAR2(512) not null
+)
+;
+alter table PEGTBI
+  add primary key (PEGGRPID, PEGTBITPO, PEGTBIID);
+

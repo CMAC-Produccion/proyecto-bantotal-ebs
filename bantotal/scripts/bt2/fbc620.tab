@@ -1,0 +1,42 @@
+create table FBC620
+(
+  bc620emp  NUMBER(3) not null,
+  bc620inf  CHAR(10) not null,
+  bc620fch  DATE not null,
+  bc620user CHAR(10) not null,
+  bc620cpo  CHAR(8) not null,
+  bc620suc  NUMBER(3) not null,
+  bc620rubr NUMBER(16) not null,
+  bc620mda  NUMBER(4) not null,
+  bc620pap  NUMBER(4) not null,
+  bc620cta  NUMBER(9) not null,
+  bc620oper NUMBER(9) not null,
+  bc620sbop NUMBER(3) not null,
+  bc620top  NUMBER(3) not null,
+  bc620fech DATE not null,
+  bc620nro1 NUMBER(16),
+  bc620nro2 NUMBER(16),
+  bc620nro3 NUMBER(16),
+  bc620nro4 NUMBER(16),
+  bc620nro5 NUMBER(16),
+  bc620imp1 NUMBER(17,2),
+  bc620imp2 NUMBER(17,2),
+  bc620imp3 NUMBER(17,2),
+  bc620imp4 NUMBER(17,2),
+  bc620imp5 NUMBER(17,2),
+  bc620chr1 CHAR(50),
+  bc620chr2 CHAR(50),
+  bc620fch1 DATE,
+  bc620fch2 DATE,
+  bc620chr3 CHAR(1),
+  bc620chr4 CHAR(1),
+  bc620chr5 CHAR(1),
+  bc620pais NUMBER(3),
+  bc620tdoc NUMBER(2),
+  bc620ndoc CHAR(12),
+  bc620tcbi NUMBER(14,8)
+)
+;
+alter table FBC620
+  add primary key (BC620EMP, BC620INF, BC620FCH, BC620USER, BC620CPO, BC620SUC, BC620RUBR, BC620MDA, BC620PAP, BC620CTA, BC620OPER, BC620SBOP, BC620TOP, BC620FECH);
+

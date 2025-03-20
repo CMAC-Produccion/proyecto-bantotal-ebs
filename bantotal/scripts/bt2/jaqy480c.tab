@@ -1,0 +1,30 @@
+create table JAQY480C
+(
+  jqy480cfec       DATE,
+  jqy480csec       NUMBER(7),
+  jqy480cpai       NUMBER(3),
+  jqy480ctdi       NUMBER(2),
+  jqy480cndi       VARCHAR2(12),
+  jqy480cciiu      VARCHAR2(4),
+  jqy480ccodreg    VARCHAR2(15),
+  jqy480ctipdoctri VARCHAR2(1),
+  jqy480ctipdocide VARCHAR2(1),
+  jqy480ctipper    VARCHAR2(1),
+  jqy480creside    VARCHAR2(1),
+  jqy480cmagnit    VARCHAR2(1),
+  jqy480cacc       VARCHAR2(1),
+  jqy480crellab    VARCHAR2(1),
+  jqy480cpaires    VARCHAR2(4),
+  jqy480cgen       VARCHAR2(1),
+  jqy480cestciv    VARCHAR2(1),
+  jqy480capepat    VARCHAR2(120),
+  jqy480capemat    VARCHAR2(40),
+  jqy480capecas    VARCHAR2(40),
+  jqy480cprinom    VARCHAR2(40),
+  jqy480csegnom    VARCHAR2(40),
+  jqy480cfecnac    VARCHAR2(8),
+  jqy480cporcen    VARCHAR2(5)
+)
+;
+create index INX_JAQY480C_01 on JAQY480C (JQY480CFEC, JQY480CSEC, JQY480CPAI, JQY480CTDI, JQY480CNDI);
+

@@ -1,0 +1,19 @@
+create table JAQZ255
+(
+  jaqz255nro    NUMBER(10) not null,
+  jaqz255sec    NUMBER(7) not null,
+  jaqz255fec    DATE,
+  jaqz255fev    DATE,
+  jaqz255cta    NUMBER(9),
+  jaqz255ide    CHAR(336),
+  jaqz255codper CHAR(6),
+  jaqz255ind    NUMBER(1),
+  jaqz255ndoc   VARCHAR2(12)
+)
+;
+create index JAQZ255_INX_01 on JAQZ255 (JAQZ255CODPER);
+create index JAQZ255_INX_02 on JAQZ255 (JAQZ255CODPER, JAQZ255NDOC);
+create index JAQZ255_INX_03 on JAQZ255 (JAQZ255NRO, JAQZ255SEC, JAQZ255IND);
+alter table JAQZ255
+  add constraint JAQZ255NRO unique (JAQZ255NRO, JAQZ255SEC);
+

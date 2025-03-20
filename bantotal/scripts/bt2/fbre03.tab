@@ -1,0 +1,14 @@
+create table FBRE03
+(
+  brd03cpemp NUMBER(3) not null,
+  brd03cpcod NUMBER(5) not null,
+  bre03cpcor NUMBER(4) not null,
+  bre03cpmod NUMBER(3),
+  bre03cptrn NUMBER(3),
+  bre03cpcpo CHAR(8),
+  bre03cptmo NUMBER(1)
+)
+;
+alter table FBRE03
+  add primary key (BRD03CPEMP, BRD03CPCOD, BRE03CPCOR);
+

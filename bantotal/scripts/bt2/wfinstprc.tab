@@ -1,0 +1,32 @@
+create table WFINSTPRC
+(
+  wfinsprcid       NUMBER(10) not null,
+  wfprcid          NUMBER(4),
+  wfinsprcsubject  CHAR(120),
+  wfinslstdoc      NUMBER(4),
+  wfinsprcend      DATE,
+  wfinsprcpty      NUMBER(1),
+  wfinsprcown      CHAR(30),
+  wfinsprcsta      CHAR(1),
+  wfinsprcinit     DATE,
+  wfinsprcosta     NUMBER(1),
+  wfinsprcsbp      CHAR(1),
+  wfinsprcparurn   NUMBER(10),
+  wfinsprctskurn   NUMBER(10),
+  wfinsprcnes      CHAR(1),
+  wfinsprcurl      VARCHAR2(254),
+  wfinsprcwarn     CHAR(1),
+  wfinsprcdeadline CHAR(1),
+  wfinsprcwrntime  DATE,
+  wfinsprcdlntime  DATE,
+  wfprcname        CHAR(50),
+  wfprcverid       NUMBER(4)
+)
+;
+create index IWFINST4 on WFINSTPRC (WFPRCID);
+create index UWFINST1 on WFINSTPRC (WFINSPRCOSTA);
+create index UWFINST2 on WFINSTPRC (WFINSPRCSUBJECT);
+create index UWFINST3 on WFINSTPRC (WFINSPRCPARURN);
+alter table WFINSTPRC
+  add primary key (WFINSPRCID);
+

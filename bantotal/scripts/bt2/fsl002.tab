@@ -1,0 +1,19 @@
+create table FSL002
+(
+  fsl002pgco NUMBER(3) not null,
+  fsl002grpc NUMBER(7) not null,
+  fsl002corr NUMBER(9) not null,
+  fsl002tpog NUMBER(2),
+  fsl002mda  NUMBER(4),
+  fsl002mont NUMBER(17,2),
+  fsl002usin CHAR(10),
+  fsl002uscn CHAR(10),
+  fsl002fcha DATE,
+  fsl002fvto DATE,
+  fsl002vig  CHAR(1)
+)
+;
+create index FSL00202 on FSL002 (FSL002FVTO, FSL002PGCO, FSL002GRPC, FSL002VIG);
+alter table FSL002
+  add primary key (FSL002PGCO, FSL002GRPC, FSL002CORR);
+

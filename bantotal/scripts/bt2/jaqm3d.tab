@@ -1,0 +1,69 @@
+create table JAQM3D
+(
+  jaqm3dcod CHAR(50) not null,
+  jaqm3dusu CHAR(10) not null,
+  jaqm3dnom CHAR(30),
+  jaqm3dcar CHAR(20),
+  jaqm3defi CHAR(1),
+  jaqm3dtiu CHAR(1),
+  jaqm3dobs VARCHAR2(1000),
+  jaqm3dai1 NUMBER(17,2),
+  jaqm3dai2 NUMBER(17,2),
+  jaqm3dai3 NUMBER(17,2),
+  jaqm3dad1 DATE,
+  jaqm3dad2 DATE,
+  jaqm3dad3 DATE,
+  jaqm3dan1 NUMBER(9),
+  jaqm3dan2 NUMBER(9),
+  jaqm3dan3 NUMBER(9),
+  jaqm3dac1 CHAR(250),
+  jaqm3dac2 CHAR(250),
+  jaqm3dac3 CHAR(250)
+)
+;
+comment on table JAQM3D
+  is 'Usuarios Acta de Credito';
+comment on column JAQM3D.jaqm3dcod
+  is 'Codigo Unico';
+comment on column JAQM3D.jaqm3dusu
+  is 'Usuario';
+comment on column JAQM3D.jaqm3dnom
+  is 'Nombre del Participante';
+comment on column JAQM3D.jaqm3dcar
+  is 'Cargo del Participante';
+comment on column JAQM3D.jaqm3defi
+  is 'Estado de Firmado ( F - Firmado, P - Pendiente)';
+comment on column JAQM3D.jaqm3dtiu
+  is 'Tipo de Usuario (N: Normal, S:Suplentente, I:Invitado)';
+comment on column JAQM3D.jaqm3dobs
+  is 'Observacion';
+comment on column JAQM3D.jaqm3dai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM3D.jaqm3dai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM3D.jaqm3dai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM3D.jaqm3dad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM3D.jaqm3dad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM3D.jaqm3dad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM3D.jaqm3dan1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM3D.jaqm3dan2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM3D.jaqm3dan3
+  is 'Auxiliar Numerico 3';
+comment on column JAQM3D.jaqm3dac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM3D.jaqm3dac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM3D.jaqm3dac3
+  is 'Auxiliar Caracter 3';
+create index JAQM3DA2 on JAQM3D (JAQM3DNOM);
+create index JAQM3DA3 on JAQM3D (JAQM3DCOD, JAQM3DUSU, JAQM3DTIU);
+create index JAQM3DA4 on JAQM3D (JAQM3DCOD, JAQM3DTIU);
+alter table JAQM3D
+  add primary key (JAQM3DCOD, JAQM3DUSU);
+

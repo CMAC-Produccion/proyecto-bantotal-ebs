@@ -1,0 +1,36 @@
+create table FSFFAF
+(
+  fsfinfcor  NUMBER(9) not null,
+  fsfinfxc   NUMBER(5) not null,
+  fsfinfxn1  NUMBER(3) not null,
+  fsfinfxn2  NUMBER(3) not null,
+  fsfinfxr   NUMBER(16) not null,
+  fsfinfxcta NUMBER(9) not null,
+  fsfinfxope NUMBER(9) not null,
+  fsfinfim1  NUMBER(17,2),
+  fsfinfim2  NUMBER(17,2),
+  fsfinfim3  NUMBER(17,2),
+  fsfinfim4  NUMBER(17,2),
+  fsfinfim5  NUMBER(17,2),
+  fsfinfim6  NUMBER(17,2),
+  fsfinfim7  NUMBER(17,2),
+  fsfinfim8  NUMBER(17,2),
+  fsfinfnu1  NUMBER(9),
+  fsfinfnu2  NUMBER(9),
+  fsfinftx1  CHAR(1),
+  fsfinftx2  CHAR(1),
+  fsfinftx3  CHAR(20),
+  fsfinftx4  CHAR(20),
+  fsfinfim11 NUMBER(17,2),
+  fsfinfim12 NUMBER(17,2),
+  fsfinfim13 NUMBER(17,2),
+  fsfinfim14 NUMBER(17,2),
+  fsfinfim15 NUMBER(17,2),
+  fsfinfim16 NUMBER(17,2),
+  fsfinfim17 NUMBER(17,2),
+  fsfinfim18 NUMBER(17,2)
+)
+;
+alter table FSFFAF
+  add primary key (FSFINFCOR, FSFINFXC, FSFINFXN1, FSFINFXN2, FSFINFXR, FSFINFXCTA, FSFINFXOPE);
+

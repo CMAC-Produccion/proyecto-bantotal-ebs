@@ -1,0 +1,30 @@
+create table JAQY760
+(
+  jaqy760id          NUMBER(15) not null,
+  jaqy760fch_con     DATE not null,
+  jaqy760hr_con      CHAR(4) not null,
+  jaqy760usu_exp     CHAR(8) not null,
+  jaqy760t_doc       NUMBER(3),
+  jaqy760num_doc     CHAR(12),
+  jaqy760nom_cli     CHAR(50),
+  jaqy760rsul_evol   CHAR(1),
+  jaqy760pro_sbs     CHAR(20),
+  jaqy760sald_dmicro NUMBER(18,2),
+  jaqy760c2          CHAR(50),
+  jaqy760c3          CHAR(50),
+  jaqy760d1          DATE,
+  jaqy760d2          DATE,
+  jaqy760d3          DATE,
+  jaqy760a2          NUMBER(10),
+  jaqy760a3          NUMBER(10),
+  jaqy760a1          NUMBER(10),
+  jaqy760fch_sistema DATE,
+  jaqy760reglas_act  CHAR(78),
+  jaqy760num_consul  CHAR(16),
+  jaqy760tip_integr  CHAR(6)
+)
+;
+create index JAQY7601 on JAQY760 (JAQY760NUM_DOC);
+alter table JAQY760
+  add primary key (JAQY760ID, JAQY760FCH_CON, JAQY760HR_CON, JAQY760USU_EXP);
+

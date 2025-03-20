@@ -1,0 +1,32 @@
+create table JAQL544
+(
+  jaql544seria NUMBER(9) not null,
+  jaql544comsj NUMBER(4),
+  jaql544coter NUMBER(3),
+  jaql544cotrx CHAR(6),
+  jaql544nutar VARCHAR2(20),
+  jaql544nucta VARCHAR2(30),
+  jaql544feini DATE,
+  jaql544fefin DATE,
+  jaql544hopro CHAR(8),
+  jaql544mtoop NUMBER(17,2),
+  jaql544cores VARCHAR2(2),
+  jaql544coemp NUMBER(3),
+  jaql544cosuc NUMBER(3),
+  jaql544nosuc VARCHAR2(50),
+  jaql544opera VARCHAR2(10),
+  jaql544en001 NUMBER(9),
+  jaql544en002 NUMBER(9),
+  jaql544en003 NUMBER(9),
+  jaql544ca001 VARCHAR2(100),
+  jaql544ca002 VARCHAR2(100),
+  jaql544ca003 VARCHAR2(100),
+  jaql544de001 NUMBER(17,2),
+  jaql544de002 NUMBER(17,2),
+  jaql544de003 NUMBER(17,2)
+)
+;
+create index JAQ544_02 on JAQL544 (JAQL544COMSJ, JAQL544COTER, JAQL544COTRX, JAQL544FEINI, JAQL544FEFIN);
+alter table JAQL544
+  add primary key (JAQL544SERIA);
+

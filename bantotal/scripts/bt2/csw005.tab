@@ -1,0 +1,13 @@
+create table CSW005
+(
+  csw005emp  NUMBER(3) not null,
+  csw005canc NUMBER(3) not null,
+  csw005mod  NUMBER(3) not null,
+  csw005tran NUMBER(3) not null,
+  csw005ord  NUMBER(2) not null
+)
+;
+create index CSW00502 on CSW005 (CSW005EMP, CSW005MOD, CSW005TRAN, CSW005ORD, CSW005CANC);
+alter table CSW005
+  add primary key (CSW005EMP, CSW005CANC, CSW005MOD, CSW005TRAN, CSW005ORD);
+

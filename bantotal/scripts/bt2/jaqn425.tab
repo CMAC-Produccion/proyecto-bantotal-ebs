@@ -1,0 +1,27 @@
+create table JAQN425
+(
+  jaqn425fpr DATE not null,
+  jaqn425nco VARCHAR2(10) not null,
+  jaqn425cod VARCHAR2(40) not null,
+  jaqn425lot VARCHAR2(150) not null,
+  jaqn425tip VARCHAR2(150) not null,
+  jaqn425p01 VARCHAR2(150),
+  jaqn425p02 VARCHAR2(150),
+  jaqn425p03 VARCHAR2(150),
+  jaqn425p04 VARCHAR2(150),
+  jaqn425p05 VARCHAR2(150),
+  jaqn425p06 VARCHAR2(150),
+  jaqn425p07 VARCHAR2(150),
+  jaqn425p08 VARCHAR2(150),
+  jaqn425p09 VARCHAR2(150),
+  jaqn425p10 VARCHAR2(150),
+  jaqn425p11 VARCHAR2(150),
+  jaqn425p12 VARCHAR2(150),
+  jaqn425p13 VARCHAR2(150),
+  jaqn425p14 VARCHAR2(150)
+)
+;
+create index JAQN4252 on JAQN425 (JAQN425FPR, JAQN425LOT);
+alter table JAQN425
+  add primary key (JAQN425FPR, JAQN425NCO, JAQN425COD, JAQN425LOT, JAQN425TIP);
+

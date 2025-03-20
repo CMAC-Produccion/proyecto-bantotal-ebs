@@ -1,0 +1,16 @@
+create table JHUN04
+(
+  jhuncod NUMBER(3) not null,
+  jhunsec NUMBER(3) not null,
+  jhunusr CHAR(10) not null,
+  jhunfal DATE,
+  jhunfbj DATE,
+  jhunest CHAR(1),
+  jhunual CHAR(10),
+  jhunubj CHAR(10)
+)
+;
+create index JHUN0403 on JHUN04 (JHUNEST);
+alter table JHUN04
+  add primary key (JHUNCOD, JHUNSEC, JHUNUSR);
+

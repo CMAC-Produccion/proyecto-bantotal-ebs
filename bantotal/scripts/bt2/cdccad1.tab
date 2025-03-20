@@ -1,0 +1,13 @@
+create table CDCCAD1
+(
+  cdccadid   NUMBER(18) not null,
+  cdccadinst NUMBER(18) not null,
+  cdccadiuse CHAR(10),
+  cdccadfech DATE,
+  cdccadinti NUMBER(4),
+  cdccadesva CHAR(1)
+)
+;
+alter table CDCCAD1
+  add primary key (CDCCADID, CDCCADINST);
+

@@ -1,0 +1,51 @@
+create table AQPC788
+(
+  aqpc788corr   NUMBER(17) not null,
+  aqpc788fhreg  DATE not null,
+  aqpc788hrreg  VARCHAR2(8) not null,
+  aqpc788fecha  DATE,
+  aqpc788empsis VARCHAR2(255),
+  aqpc788espent VARCHAR2(255),
+  aqpc788saldo  NUMBER(17,2),
+  aqpc788subsis VARCHAR2(255),
+  aqpc788tipcrd VARCHAR2(255),
+  aqpc788situac VARCHAR2(255),
+  aqpc788anio   NUMBER(17,2),
+  aqpc788mes    VARCHAR2(255),
+  aqpc788codmes NUMBER(17,2),
+  aqpc788dia    NUMBER(17,2)
+)
+;
+comment on table AQPC788
+  is 'Copia de la Tabla AQPC788A';
+comment on column AQPC788.aqpc788corr
+  is 'Correlativo';
+comment on column AQPC788.aqpc788fhreg
+  is 'Fecha de Registro';
+comment on column AQPC788.aqpc788hrreg
+  is 'Hora de Registro';
+comment on column AQPC788.aqpc788fecha
+  is 'Optional';
+comment on column AQPC788.aqpc788empsis
+  is 'Empresa';
+comment on column AQPC788.aqpc788espent
+  is 'Especialización de la Entidad';
+comment on column AQPC788.aqpc788saldo
+  is 'Optional';
+comment on column AQPC788.aqpc788subsis
+  is 'Subsistema';
+comment on column AQPC788.aqpc788tipcrd
+  is 'Tipo de Crédito';
+comment on column AQPC788.aqpc788situac
+  is 'Optional';
+comment on column AQPC788.aqpc788anio
+  is 'Optional';
+comment on column AQPC788.aqpc788mes
+  is 'Optional';
+comment on column AQPC788.aqpc788codmes
+  is 'Optional';
+comment on column AQPC788.aqpc788dia
+  is 'Optional';
+alter table AQPC788
+  add primary key (AQPC788CORR, AQPC788FHREG, AQPC788HRREG);
+

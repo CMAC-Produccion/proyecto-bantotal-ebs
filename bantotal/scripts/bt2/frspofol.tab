@@ -1,0 +1,11 @@
+create table FRSPOFOL
+(
+  frsfolid   NUMBER(6) not null,
+  frsfolnam  VARCHAR2(255),
+  frsfolfilc NUMBER(7)
+)
+;
+create index FRSPOF02 on FRSPOFOL (FRSFOLNAM);
+alter table FRSPOFOL
+  add primary key (FRSFOLID);
+

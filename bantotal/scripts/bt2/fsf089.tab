@@ -1,0 +1,19 @@
+create table FSF089
+(
+  lqkpgcod NUMBER(3) not null,
+  lqkfinro NUMBER(3) not null,
+  lqkfiano NUMBER(4) not null,
+  lqkfimes NUMBER(2) not null,
+  lqkcam01 NUMBER(17,2),
+  lqkcam02 NUMBER(17,2),
+  lqkcam03 NUMBER(17,2),
+  lqkcam04 NUMBER(17,2),
+  lqkcam05 NUMBER(9),
+  lqkcam06 NUMBER(9),
+  lqkcam07 NUMBER(9),
+  lqkcam08 NUMBER(9)
+)
+;
+alter table FSF089
+  add primary key (LQKPGCOD, LQKFINRO, LQKFIANO, LQKFIMES);
+

@@ -1,0 +1,16 @@
+create table AQPB613F
+(
+  aqpb613feval   NUMBER(10) not null,
+  aqpb613fcod    NUMBER(4) not null,
+  aqpb613fmto    NUMBER(17,2),
+  aqpb613ffeclog DATE not null,
+  aqpb613fhorlog VARCHAR2(15) not null
+)
+;
+comment on column AQPB613F.aqpb613ffeclog
+  is 'Fecha Log';
+comment on column AQPB613F.aqpb613fhorlog
+  is 'Hora log ';
+alter table AQPB613F
+  add primary key (AQPB613FEVAL, AQPB613FCOD, AQPB613FFECLOG, AQPB613FHORLOG);
+

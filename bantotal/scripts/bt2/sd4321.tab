@@ -1,0 +1,19 @@
+create table SD4321
+(
+  sd21coddis NUMBER(4) not null,
+  sd21codent NUMBER(5) not null,
+  sd21fchinf NUMBER(6) not null,
+  sd21tpidin NUMBER(2) not null,
+  sd21nridin NUMBER(11) not null,
+  sd21tpidct NUMBER(2) not null,
+  sd21nridct NUMBER(11) not null,
+  sd21denom  CHAR(55),
+  sd21actpri NUMBER(3),
+  sd21deudor NUMBER(1),
+  sd21porpar NUMBER(5),
+  sd21rectif CHAR(1)
+)
+;
+alter table SD4321
+  add primary key (SD21CODDIS, SD21CODENT, SD21FCHINF, SD21TPIDIN, SD21NRIDIN, SD21TPIDCT, SD21NRIDCT);
+

@@ -1,0 +1,16 @@
+create table SMOROSOS
+(
+  tipo_docum NUMBER(2) not null,
+  nro_docume CHAR(11) not null,
+  fecha_incl DATE not null,
+  id         NUMBER(18) not null,
+  apellido_n CHAR(50),
+  excluido   NUMBER(1),
+  bco_acreed CHAR(50),
+  fecha_excl DATE,
+  sistema    CHAR(1)
+)
+;
+alter table SMOROSOS
+  add primary key (TIPO_DOCUM, NRO_DOCUME, FECHA_INCL, ID);
+

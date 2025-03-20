@@ -1,0 +1,318 @@
+create table TDINVGAR
+(
+  n_codrpc  NUMBER,
+  n_asiini  NUMBER,
+  n_asifin  NUMBER,
+  n_codrpd  NUMBER,
+  c_obscma  VARCHAR2(200),
+  d_fectoc  DATE,
+  n_valasi  NUMBER,
+  c_codnot  VARCHAR2(10),
+  d_fecues  DATE,
+  c_usudes  VARCHAR2(50),
+  d_fobdes  DATE,
+  c_indgac  VARCHAR2(1),
+  d_fecmin  DATE,
+  n_moneda  NUMBER,
+  n_saldo   NUMBER,
+  n_codtsp  NUMBER,
+  n_codpat  NUMBER,
+  d_feccon  DATE,
+  n_codmon  NUMBER,
+  n_valcom  NUMBER,
+  c_observ  VARCHAR2(200),
+  c_anofab  VARCHAR2(10),
+  c_desref  VARCHAR2(100),
+  c_dircon  VARCHAR2(200),
+  c_indfab  VARCHAR2(1),
+  c_indprh  VARCHAR2(1),
+  c_indart  VARCHAR2(1),
+  c_indnue  VARCHAR2(1),
+  c_numero  VARCHAR2(10),
+  n_arecom  NUMBER,
+  n_arecon  NUMBER,
+  n_areexc  NUMBER,
+  n_aretec  NUMBER,
+  n_areter  NUMBER,
+  n_codubi  NUMBER,
+  c_numsta  VARCHAR2(10),
+  c_numsta1 VARCHAR2(10),
+  n_codper  NUMBER,
+  n_valter  NUMBER,
+  n_valrec  NUMBER,
+  n_codgne  NUMBER,
+  n_codtie  NUMBER,
+  n_numpis  NUMBER,
+  n_numsot  NUMBER,
+  n_codzon  NUMBER,
+  n_codsed  NUMBER,
+  n_valcon  NUMBER,
+  d_fectas  DATE,
+  d_fecrem  DATE,
+  d_fecesc  DATE,
+  d_fecrep  DATE,
+  d_fecins  DATE,
+  d_fecblo  DATE,
+  d_fecorp  DATE,
+  d_fecsub  DATE,
+  d_feccli  DATE,
+  n_codrrp  NUMBER,
+  n_codtco  NUMBER,
+  n_codtdo  NUMBER,
+  n_codnot  NUMBER,
+  n_codmot  NUMBER,
+  c_numasi  VARCHAR2(20),
+  c_razper  VARCHAR2(100),
+  d_fecasi  DATE,
+  n_obsrep  NUMBER,
+  c_numpar  VARCHAR2(20),
+  c_numpol  VARCHAR2(20),
+  d_fecinp  DATE,
+  d_fecfip  DATE,
+  n_codcia  NUMBER,
+  n_tipseg  NUMBER,
+  c_estreg  VARCHAR2(1),
+  c_dessin  DATE,
+  d_fecsin  DATE,
+  c_despat  VARCHAR2(200),
+  c_anocon  VARCHAR2(10),
+  n_codcla  NUMBER,
+  n_codmar  NUMBER,
+  n_codmod  NUMBER,
+  n_coduso  NUMBER,
+  c_color   VARCHAR2(50),
+  c_marca   VARCHAR2(50),
+  c_modelo  VARCHAR2(50),
+  c_numcha  VARCHAR2(50),
+  c_numcta  VARCHAR2(20),
+  c_numfac  VARCHAR2(20),
+  c_nummot  VARCHAR2(50),
+  c_numpla  VARCHAR2(20),
+  c_numser  VARCHAR2(50),
+  c_tarpro  VARCHAR2(50),
+  n_anofab  NUMBER,
+  n_codpro  NUMBER,
+  n_numasi  NUMBER,
+  n_tipveh  NUMBER,
+  n_valrep  NUMBER,
+  n_sucurs  NUMBER,
+  n_papel   NUMBER,
+  n_ctabtt  NUMBER,
+  n_operac  NUMBER,
+  n_subope  NUMBER,
+  n_modulo  NUMBER,
+  n_totope  NUMBER,
+  c_rubsal  VARCHAR2(20),
+  c_indpre  VARCHAR2(1),
+  c_codgar  VARCHAR2(12)
+)
+;
+comment on column TDINVGAR.n_codrpc
+  is 'NUMERO DE REGISTRO ASIENTO GRAVAMEN';
+comment on column TDINVGAR.n_asiini
+  is 'N¿ ASIENTO INICIAL';
+comment on column TDINVGAR.n_asifin
+  is 'N¿ ASIENO FINAL ';
+comment on column TDINVGAR.n_codrpd
+  is 'NUMERO DE REGISTRO ASIENTO GRAVAMEN';
+comment on column TDINVGAR.c_obscma
+  is 'OBSERVACIONES CMAC';
+comment on column TDINVGAR.n_valasi
+  is 'VALOR DE ASIENTO';
+comment on column TDINVGAR.c_codnot
+  is 'CODIGO NOTARIO';
+comment on column TDINVGAR.d_fecues
+  is 'FECHA DE ULTIMO ESTADO';
+comment on column TDINVGAR.c_usudes
+  is 'DESCARGO DE USURIO CMAC';
+comment on column TDINVGAR.d_fobdes
+  is 'FECHA OBSERVACION DESCARGO';
+comment on column TDINVGAR.c_indgac
+  is 'INDICADOR DE GARANTIA COMPARTIDA';
+comment on column TDINVGAR.d_fecmin
+  is 'FECHA MINUTA';
+comment on column TDINVGAR.n_moneda
+  is 'MONEDA';
+comment on column TDINVGAR.n_saldo
+  is 'VALOR DE LA GARANTIA - VALOR DE CONSTITUCION';
+comment on column TDINVGAR.n_codtsp
+  is 'TIPO DE INMUEBLE';
+comment on column TDINVGAR.n_codpat
+  is 'CODIGO DEL PATRIMONIO';
+comment on column TDINVGAR.d_feccon
+  is 'FECHA DE CONSTITUCION';
+comment on column TDINVGAR.n_codmon
+  is 'MONEDA ASIENTO';
+comment on column TDINVGAR.n_valcom
+  is 'VALOR COMERCIAL';
+comment on column TDINVGAR.c_observ
+  is 'OBSERVACIONES RRPP';
+comment on column TDINVGAR.c_anofab
+  is 'A¿O DE FABRICA';
+comment on column TDINVGAR.c_desref
+  is 'REFERENCIA DE DIRECCION';
+comment on column TDINVGAR.c_dircon
+  is 'DIRECCION';
+comment on column TDINVGAR.c_indfab
+  is 'INDICADOR DE FABRICA';
+comment on column TDINVGAR.c_indprh
+  is 'INDICADOR DE PROPIEDAD HORIZONTAL';
+comment on column TDINVGAR.c_indart
+  is 'INDICADOR DE ARTESANAL';
+comment on column TDINVGAR.c_indnue
+  is 'INDICADOR DE NUEVO';
+comment on column TDINVGAR.c_numero
+  is 'NUMERO';
+comment on column TDINVGAR.n_arecom
+  is 'AREA COMUN';
+comment on column TDINVGAR.n_arecon
+  is 'AREA CONTRUIDA';
+comment on column TDINVGAR.n_areexc
+  is 'AREA EXCLUSIVA';
+comment on column TDINVGAR.n_aretec
+  is 'AREA TECHADA';
+comment on column TDINVGAR.n_areter
+  is 'AREA DEL TERRENO';
+comment on column TDINVGAR.n_codubi
+  is 'UBIGUEO';
+comment on column TDINVGAR.c_numsta
+  is 'NUERO STAND';
+comment on column TDINVGAR.c_numsta1
+  is 'NUMERO STAND- ';
+comment on column TDINVGAR.n_codper
+  is 'CODIGO DEL PERITO';
+comment on column TDINVGAR.n_valter
+  is 'VALOR DEL TERRENO';
+comment on column TDINVGAR.n_valrec
+  is 'VALOR DE EDIFICACION';
+comment on column TDINVGAR.n_codgne
+  is 'USO DEL INMUEBLE';
+comment on column TDINVGAR.n_codtie
+  is 'TIPO DE ESTRUCTURA';
+comment on column TDINVGAR.n_numpis
+  is 'NUMERO DE PISOS';
+comment on column TDINVGAR.n_numsot
+  is 'NUMERO DE SOTANOS';
+comment on column TDINVGAR.n_codzon
+  is 'ZONA REGISTRAL';
+comment on column TDINVGAR.n_codsed
+  is 'SEDE REGISTRAL';
+comment on column TDINVGAR.n_valcon
+  is 'VALOR DE CONSTITUCION';
+comment on column TDINVGAR.d_fectas
+  is 'FECHA DE TASACION';
+comment on column TDINVGAR.d_fecrem
+  is 'FECHA REMISION NOTARIO';
+comment on column TDINVGAR.d_fecesc
+  is 'FECHA DE ESCRITURA';
+comment on column TDINVGAR.d_fecrep
+  is 'FECHA DE PRESENTACION RRPP';
+comment on column TDINVGAR.d_fecins
+  is 'FECHA DE INSCRIPCION RRPP';
+comment on column TDINVGAR.d_fecblo
+  is 'FECHA DE BLOQUEO';
+comment on column TDINVGAR.d_fecorp
+  is 'FECHA OBSERVACION RRPP';
+comment on column TDINVGAR.d_fecsub
+  is 'FECHA DE SUBSANACION';
+comment on column TDINVGAR.d_feccli
+  is 'FECHA ENTREGA AL CLIENTE';
+comment on column TDINVGAR.n_codrrp
+  is 'TIPO DE REGISTRO';
+comment on column TDINVGAR.n_codtco
+  is 'TIPO DE COBERTURA';
+comment on column TDINVGAR.n_codtdo
+  is 'TIPO DE ASIENTO';
+comment on column TDINVGAR.n_codnot
+  is 'CODIGO NOTARIO';
+comment on column TDINVGAR.n_codmot
+  is 'MOTIVO DE LEVANTAMIENTO DE GARANTIA';
+comment on column TDINVGAR.c_numasi
+  is 'NUMERO DE ASIENTO GRAVAMEN';
+comment on column TDINVGAR.c_razper
+  is 'RAZON DE RETAZACION';
+comment on column TDINVGAR.d_fecasi
+  is 'FECHA DE ASIENTO GRAVAMEN';
+comment on column TDINVGAR.n_obsrep
+  is 'OBSERVACIONES RRPP';
+comment on column TDINVGAR.c_numpar
+  is 'NUMERO DE PATRIDA O FICHA REGISTRAL';
+comment on column TDINVGAR.c_numpol
+  is 'NUMERO DE POLIZA';
+comment on column TDINVGAR.d_fecinp
+  is 'FECHA INICIO DE POLIZA';
+comment on column TDINVGAR.d_fecfip
+  is 'FECHA FIN DE POLIZA';
+comment on column TDINVGAR.n_codcia
+  is 'CODIGO DE COMPA¿IA DE SEGUROS';
+comment on column TDINVGAR.n_tipseg
+  is 'TIPO DE SEGURO';
+comment on column TDINVGAR.c_estreg
+  is 'ESTADO DEL SEGURO';
+comment on column TDINVGAR.c_dessin
+  is 'INDICADOR DE SINIESTRO';
+comment on column TDINVGAR.d_fecsin
+  is 'FECHA DE SINIESTRO';
+comment on column TDINVGAR.c_despat
+  is 'DESCRIPCION DEL MUEBLE';
+comment on column TDINVGAR.c_anocon
+  is 'A¿O DE CONSTRUCCION';
+comment on column TDINVGAR.n_codcla
+  is 'CODIGO CLASE VEHICULO';
+comment on column TDINVGAR.n_codmar
+  is 'CODIGO MARCA DEL VEHICULO';
+comment on column TDINVGAR.n_codmod
+  is 'CODIGO DEL MODELO DEL VEHICULO';
+comment on column TDINVGAR.n_coduso
+  is 'USO DEL VEHICULO';
+comment on column TDINVGAR.c_color
+  is 'COLOR DEL VEHICULO';
+comment on column TDINVGAR.c_marca
+  is 'DESCRIPCION DE MARCA DEL VEHICULO';
+comment on column TDINVGAR.c_modelo
+  is 'DESCRIPCION DEL MODELO DEL VEHICULO';
+comment on column TDINVGAR.c_numcha
+  is 'NUMERO DE CHASIS';
+comment on column TDINVGAR.c_numcta
+  is 'NUMERO DE CTA DE AHORROS';
+comment on column TDINVGAR.c_numfac
+  is 'NUMERO DE FACTURA DE COMPRA ';
+comment on column TDINVGAR.c_nummot
+  is 'NUMERO DE MOTOR';
+comment on column TDINVGAR.c_numpla
+  is 'NUMERO DE PLACA';
+comment on column TDINVGAR.c_numser
+  is 'NUMERO DE SERIE';
+comment on column TDINVGAR.c_tarpro
+  is 'TARJETA DE PROPIEDAD';
+comment on column TDINVGAR.n_anofab
+  is 'A¿O DE FABRICACION DEL VEHICULO';
+comment on column TDINVGAR.n_codpro
+  is 'CODIGO DEL PROVEEDOR';
+comment on column TDINVGAR.n_numasi
+  is 'NUMERO DE ASIENTOS';
+comment on column TDINVGAR.n_tipveh
+  is 'CODIGO TIPO DEL VEHICULO';
+comment on column TDINVGAR.n_valrep
+  is 'VALOR DE REPOSICION ';
+comment on column TDINVGAR.n_sucurs
+  is 'SUCURSAL';
+comment on column TDINVGAR.n_papel
+  is 'PAPEL';
+comment on column TDINVGAR.n_ctabtt
+  is 'CTA. CLIENTE BT';
+comment on column TDINVGAR.n_operac
+  is 'NUMERO OPERACION BT';
+comment on column TDINVGAR.n_subope
+  is 'NUMERO SUB OPERACION';
+comment on column TDINVGAR.n_modulo
+  is 'MODULO';
+comment on column TDINVGAR.n_totope
+  is 'TIPO DE OPERACION';
+comment on column TDINVGAR.c_rubsal
+  is 'RUBRO DE GARANTIA';
+comment on column TDINVGAR.c_indpre
+  is 'INDICADOR DE PREFERIDA';
+comment on column TDINVGAR.c_codgar
+  is 'CODIGO DE GARANTIA';
+

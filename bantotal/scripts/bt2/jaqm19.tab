@@ -1,0 +1,89 @@
+create table JAQM19
+(
+  jaqm19ins NUMBER(10) not null,
+  jaqm19fec DATE not null,
+  jaqm19emp NUMBER(3) not null,
+  jaqm19mod NUMBER(3) not null,
+  jaqm19suc NUMBER(3) not null,
+  jaqm19mda NUMBER(4) not null,
+  jaqm19pap NUMBER(4) not null,
+  jaqm19cta NUMBER(9) not null,
+  jaqm19ope NUMBER(9) not null,
+  jaqm19sbo NUMBER(3) not null,
+  jaqm19top NUMBER(3) not null,
+  jaqm19cid CHAR(20) not null,
+  jaqm19est CHAR(1),
+  jaqm19cat CHAR(1),
+  jaqm19an1 NUMBER(9),
+  jaqm19an2 NUMBER(9),
+  jaqm19an3 NUMBER(9),
+  jaqm19ad1 DATE,
+  jaqm19ad2 DATE,
+  jaqm19ad3 DATE,
+  jaqm19ai1 NUMBER(17,2),
+  jaqm19ai2 NUMBER(17,2),
+  jaqm19ai3 NUMBER(17,2),
+  jaqm19ac1 CHAR(255),
+  jaqm19ac2 CHAR(255),
+  jaqm19ac3 CHAR(255)
+)
+;
+comment on table JAQM19
+  is 'Nuevas cuentas de ahorro por contratacion digital ';
+comment on column JAQM19.jaqm19ins
+  is 'instancia';
+comment on column JAQM19.jaqm19fec
+  is 'Fecha';
+comment on column JAQM19.jaqm19emp
+  is 'Empresa';
+comment on column JAQM19.jaqm19mod
+  is 'Modulo';
+comment on column JAQM19.jaqm19suc
+  is 'Sucursal';
+comment on column JAQM19.jaqm19mda
+  is 'Moneda';
+comment on column JAQM19.jaqm19pap
+  is 'Papel';
+comment on column JAQM19.jaqm19cta
+  is 'Cuenta';
+comment on column JAQM19.jaqm19ope
+  is 'Operacion';
+comment on column JAQM19.jaqm19sbo
+  is 'Sub Operacion';
+comment on column JAQM19.jaqm19top
+  is 'Tipo Operacion';
+comment on column JAQM19.jaqm19cid
+  is 'Campo identificador';
+comment on column JAQM19.jaqm19est
+  is 'Estado contratacion digital generado S: si N: no';
+comment on column JAQM19.jaqm19cat
+  is 'Cuenta activada S: si N: no';
+comment on column JAQM19.jaqm19an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM19.jaqm19an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM19.jaqm19an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM19.jaqm19ad1
+  is 'Date Auxiliar 1';
+comment on column JAQM19.jaqm19ad2
+  is 'Date Auxiliar 2';
+comment on column JAQM19.jaqm19ad3
+  is 'Date Auxiliar 3';
+comment on column JAQM19.jaqm19ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM19.jaqm19ai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM19.jaqm19ai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM19.jaqm19ac1
+  is 'Character Auxiliar 1';
+comment on column JAQM19.jaqm19ac2
+  is 'Character Auxiliar 2';
+comment on column JAQM19.jaqm19ac3
+  is 'Character Auxiliar 3';
+create index JAQM19A2 on JAQM19 (JAQM19INS, JAQM19FEC, JAQM19EMP, JAQM19MOD, JAQM19SUC, JAQM19MDA, JAQM19PAP, JAQM19CTA, JAQM19OPE, JAQM19SBO, JAQM19TOP, JAQM19CID, JAQM19EST);
+create index JAQM19A3 on JAQM19 (JAQM19INS, JAQM19FEC, JAQM19EMP, JAQM19MOD, JAQM19SUC, JAQM19MDA, JAQM19PAP, JAQM19CTA, JAQM19OPE, JAQM19SBO, JAQM19TOP, JAQM19CID, JAQM19CAT);
+alter table JAQM19
+  add primary key (JAQM19INS, JAQM19FEC, JAQM19EMP, JAQM19MOD, JAQM19SUC, JAQM19MDA, JAQM19PAP, JAQM19CTA, JAQM19OPE, JAQM19SBO, JAQM19TOP, JAQM19CID);
+

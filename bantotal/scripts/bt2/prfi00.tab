@@ -1,0 +1,19 @@
+create table PRFI00
+(
+  pgcod      NUMBER(3) not null,
+  prfgcod    CHAR(10) not null,
+  modulo     NUMBER(3) not null,
+  instcod    NUMBER(2) not null,
+  prfinstupd CHAR(1),
+  prfinstqry CHAR(1),
+  prfinstaut CHAR(1),
+  prfinstimp CHAR(1),
+  prfinstfec DATE,
+  prfinstusu CHAR(10),
+  prfinstfea DATE
+)
+;
+create index PRFI0002 on PRFI00 (MODULO, INSTCOD);
+alter table PRFI00
+  add primary key (PGCOD, PRFGCOD, MODULO, INSTCOD);
+

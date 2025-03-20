@@ -1,0 +1,21 @@
+create table FSFIBD
+(
+  sfibcemp  NUMBER(3) not null,
+  sfibcpais NUMBER(3) not null,
+  sfibdcod  NUMBER(3) not null,
+  sfibddsc  CHAR(30),
+  sfibdhab  CHAR(1),
+  sfibdcar1 CHAR(1),
+  sfibdcar2 CHAR(1),
+  sfibdcar3 CHAR(1),
+  sfibdnum1 NUMBER(9),
+  sfibdnum2 NUMBER(9),
+  sfibdnum3 NUMBER(9),
+  sfibdtxt1 CHAR(20),
+  sfibdtxt2 CHAR(20),
+  sfibdtxt3 CHAR(20)
+)
+;
+alter table FSFIBD
+  add primary key (SFIBCEMP, SFIBCPAIS, SFIBDCOD);
+

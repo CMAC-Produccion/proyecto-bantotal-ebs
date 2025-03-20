@@ -1,0 +1,10 @@
+create global temporary table AQPB899
+(
+  aqpb899nro CHAR(19)
+)
+on commit preserve rows;
+comment on table AQPB899
+  is 'Tabla auxiliar (no almacena data permanente) para evidencia trimestral';
+comment on column AQPB899.aqpb899nro
+  is 'Auxiliar numérico';
+

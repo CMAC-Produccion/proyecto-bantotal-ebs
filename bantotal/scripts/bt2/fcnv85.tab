@@ -1,0 +1,19 @@
+create table FCNV85
+(
+  c85usuid CHAR(12) not null,
+  c85tipc  NUMBER(2) not null,
+  c85nomar CHAR(12) not null,
+  c85ft    DATE,
+  c85ht    CHAR(8),
+  c85fa    DATE,
+  c85rr    NUMBER(6),
+  c85ta    NUMBER(14,2),
+  c85cp    NUMBER(1),
+  c85ds    CHAR(10),
+  c85usul  CHAR(12),
+  c85es    CHAR(1)
+)
+;
+alter table FCNV85
+  add primary key (C85USUID, C85TIPC, C85NOMAR);
+

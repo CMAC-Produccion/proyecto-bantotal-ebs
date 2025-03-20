@@ -1,0 +1,33 @@
+create table JAQL634
+(
+  c_cabdet CHAR(1) not null,
+  c_import CHAR(1) not null,
+  n_indice NUMBER(4) not null,
+  n_codigo NUMBER(9),
+  c_noming VARCHAR2(500),
+  c_nomesp VARCHAR2(500),
+  c_format VARCHAR2(500),
+  c_tipdat CHAR(1),
+  n_longit NUMBER(4),
+  n_decima NUMBER(4),
+  n_posini NUMBER(4),
+  n_camiso NUMBER(4),
+  c_descri VARCHAR2(4000),
+  c_justxt CHAR(1),
+  c_jusnum CHAR(1),
+  c_versio VARCHAR2(10),
+  c_observ VARCHAR2(4000),
+  c_auxvc1 VARCHAR2(1000),
+  c_auxvc2 VARCHAR2(1000),
+  c_auxvc3 VARCHAR2(1000),
+  n_auxnu1 NUMBER(9),
+  n_auxnu2 NUMBER(9),
+  n_auxnu3 NUMBER(9),
+  d_auxda1 DATE,
+  d_auxda2 DATE,
+  d_auxda3 DATE
+)
+;
+alter table JAQL634
+  add primary key (C_CABDET, C_IMPORT, N_INDICE);
+

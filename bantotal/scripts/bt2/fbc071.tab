@@ -1,0 +1,16 @@
+create table FBC071
+(
+  finpais   NUMBER(3) not null,
+  fintdoc   NUMBER(2) not null,
+  findoc    CHAR(12) not null,
+  finid     CHAR(13),
+  finrazsoc CHAR(50),
+  finpresmn NUMBER(17,2),
+  finavalmn NUMBER(17,2),
+  finpresme NUMBER(17,2),
+  finavalme NUMBER(17,2)
+)
+;
+alter table FBC071
+  add primary key (FINPAIS, FINTDOC, FINDOC);
+

@@ -1,0 +1,18 @@
+create table FBC788
+(
+  bc788emp   NUMBER(3) not null,
+  bc788fch   DATE not null,
+  bc788tidbe CHAR(2) not null,
+  bc788pais  NUMBER(3) not null,
+  bc788idben CHAR(13) not null,
+  bc788tifid CHAR(2) not null,
+  bc788rucfi CHAR(13),
+  bc788bento NUMBER(17,2),
+  bc788benin NUMBER(17,2),
+  bc788porer NUMBER(5),
+  bc788retre NUMBER(17,2)
+)
+;
+alter table FBC788
+  add primary key (BC788EMP, BC788FCH, BC788TIDBE, BC788PAIS, BC788IDBEN, BC788TIFID);
+

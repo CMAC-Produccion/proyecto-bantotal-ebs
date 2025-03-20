@@ -1,0 +1,44 @@
+create table JBXILF
+(
+  jbxilfcdf NUMBER(2) not null,
+  jbxilfpai NUMBER(3) not null,
+  jbxilftdo NUMBER(2) not null,
+  jbxilfdoc CHAR(12) not null,
+  jbxilftpo CHAR(1),
+  jbxilfnom CHAR(30),
+  jbxilfdgi CHAR(14),
+  jbxilfpdg DATE,
+  jbxilfvdg DATE,
+  jbxilfbps CHAR(14),
+  jbxilfpbp DATE,
+  jbxilfvbp DATE,
+  jbxilfjui CHAR(1),
+  jbxilffju DATE,
+  jbxilfemb CHAR(1),
+  jbxilffem DATE,
+  jbxilffal DATE,
+  jbxilffba DATE,
+  jbxilfpre NUMBER(3),
+  jbxilfexe CHAR(1),
+  jbxilfrei CHAR(1),
+  jbxilfren CHAR(1),
+  jbxilfnor CHAR(1),
+  jbxilfcof CHAR(1),
+  jbxilfaji CHAR(1),
+  jbxilfinb CHAR(1),
+  jbxilfimi CHAR(1),
+  jbxilfnrb NUMBER(10),
+  jbxilfnri NUMBER(10),
+  jbxilfrg1 CHAR(1),
+  jbxilfrg2 CHAR(1),
+  jbxilfrg3 CHAR(1),
+  jbxilftie NUMBER(2),
+  jbxilfsn1 CHAR(1),
+  jbxilfifi CHAR(1),
+  jbxilfcat CHAR(1)
+)
+;
+create index JBXILF02 on JBXILF (JBXILFDOC);
+alter table JBXILF
+  add primary key (JBXILFCDF, JBXILFPAI, JBXILFTDO, JBXILFDOC);
+

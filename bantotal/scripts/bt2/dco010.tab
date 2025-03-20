@@ -1,0 +1,25 @@
+create table DCO010
+(
+  dco010pgco NUMBER(3) not null,
+  dco010cuen NUMBER(4) not null,
+  dco010modu NUMBER(3) not null,
+  dco010sucu NUMBER(4) not null,
+  dco010mone NUMBER(4) not null,
+  dco010pape NUMBER(4) not null,
+  dco010oper NUMBER(4) not null,
+  dco010subo NUMBER(4) not null,
+  dco010tipo NUMBER(4) not null,
+  dco010uped CHAR(10),
+  dco010ucon CHAR(10),
+  dco010cope NUMBER(10),
+  dco010itsu NUMBER(3),
+  dco010itmo NUMBER(3),
+  dco010ittr NUMBER(3),
+  dco010itfc DATE,
+  dco010itnr NUMBER(4),
+  dco010esta CHAR(1)
+)
+;
+alter table DCO010
+  add primary key (DCO010PGCO, DCO010CUEN, DCO010MODU, DCO010SUCU, DCO010MONE, DCO010PAPE, DCO010OPER, DCO010SUBO, DCO010TIPO);
+

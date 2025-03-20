@@ -1,0 +1,15 @@
+create table RPCBCO
+(
+  rpcbcopgc  NUMBER(3) not null,
+  rpcbcofch  DATE not null,
+  rpcbcoimp  NUMBER(17,2),
+  rpcbcocam  NUMBER(3),
+  rpcbcoaux  NUMBER(9),
+  rpcbcoaux1 DATE,
+  rpcbcoaux2 CHAR(30),
+  rpcbcoaux3 NUMBER(17,2)
+)
+;
+alter table RPCBCO
+  add primary key (RPCBCOPGC, RPCBCOFCH);
+

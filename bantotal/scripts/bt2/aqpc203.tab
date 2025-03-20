@@ -1,0 +1,63 @@
+create table AQPC203
+(
+  aqpc203cor NUMBER(17) not null,
+  aqpc203vre VARCHAR2(40) not null,
+  aqpc203dre VARCHAR2(250),
+  aqpc203est VARCHAR2(1),
+  aqpc203esx VARCHAR2(1),
+  aqpc203com VARCHAR2(40),
+  aqpc203fex DATE,
+  aqpc203hex VARCHAR2(8),
+  aqpc203uex VARCHAR2(10),
+  aqpc203ac1 VARCHAR2(250),
+  aqpc203ac2 VARCHAR2(250),
+  aqpc203an1 NUMBER(17,2),
+  aqpc203an2 NUMBER(17,2),
+  aqpc203ad1 DATE,
+  aqpc203ad2 DATE,
+  aqpc203fec DATE,
+  aqpc203hor VARCHAR2(8),
+  aqpc203usu VARCHAR2(10)
+)
+;
+comment on table AQPC203
+  is 'AQPC203';
+comment on column AQPC203.aqpc203cor
+  is 'Correlativo AQPC202';
+comment on column AQPC203.aqpc203vre
+  is 'Variable Regla';
+comment on column AQPC203.aqpc203dre
+  is 'Descripción Regla';
+comment on column AQPC203.aqpc203est
+  is 'Estado Regla N=No Procesado, P=Procesado';
+comment on column AQPC203.aqpc203esx
+  is 'Estado Excepción';
+comment on column AQPC203.aqpc203com
+  is 'Comentario';
+comment on column AQPC203.aqpc203fex
+  is 'Fecha Excepción';
+comment on column AQPC203.aqpc203hex
+  is 'Hora Excepción';
+comment on column AQPC203.aqpc203uex
+  is 'Usuario Excepción';
+comment on column AQPC203.aqpc203ac1
+  is 'Campo Auxiliar 1';
+comment on column AQPC203.aqpc203ac2
+  is 'Campo Auxiliar 2';
+comment on column AQPC203.aqpc203an1
+  is 'Campo Auxiliar 1';
+comment on column AQPC203.aqpc203an2
+  is 'Campo Auxiliar 2';
+comment on column AQPC203.aqpc203ad1
+  is 'Campo Auxiliar 1';
+comment on column AQPC203.aqpc203ad2
+  is 'Campo Auxiliar 2';
+comment on column AQPC203.aqpc203fec
+  is 'Fecha Registro';
+comment on column AQPC203.aqpc203hor
+  is 'Hora Registro';
+comment on column AQPC203.aqpc203usu
+  is 'Usuario Registro';
+alter table AQPC203
+  add primary key (AQPC203COR, AQPC203VRE);
+

@@ -1,0 +1,49 @@
+create table XCR001
+(
+  xcremp     NUMBER(3) not null,
+  xcrnumtran CHAR(16) not null,
+  xcrcta     NUMBER(9) not null,
+  xcrsbop    NUMBER(3) not null,
+  xcrmda     NUMBER(4) not null,
+  xcrstatnum NUMBER(5) not null,
+  xcrstatsec NUMBER(5) not null,
+  xcrorigen  CHAR(2) not null,
+  xcrapdc    CHAR(1),
+  xcrapfec   CHAR(6),
+  xcrapmda   CHAR(3),
+  xcrapimp   NUMBER(17,2),
+  xcrcldc    CHAR(1),
+  xcrclfec   CHAR(6),
+  xcrclmda   CHAR(3),
+  xcrclimp   NUMBER(17,2),
+  xcrnumtip  NUMBER(2),
+  xcrmsgnum  NUMBER(9),
+  xcrswtcod  NUMBER(5),
+  xcrswtrel  NUMBER(2),
+  xcrswtfech DATE,
+  xcrstat    CHAR(1),
+  xcrfecestc DATE,
+  xcrusring  CHAR(10),
+  xcrfching  DATE,
+  xcrhraing  CHAR(8),
+  xcrusraut  CHAR(10),
+  xcrfchaut  DATE,
+  xcrhraaut  CHAR(8),
+  xcrda1     DATE,
+  xcrca1     VARCHAR2(40),
+  xcrna2     NUMBER(9),
+  xcrna1     NUMBER(17,2),
+  xcrtoper   NUMBER(3)
+)
+;
+create index XCR00102 on XCR001 (XCREMP, XCRCTA, XCRSBOP, XCRMDA, XCRORIGEN);
+create index XCR00103 on XCR001 (XCREMP, XCRSTAT, XCRCTA, XCRSBOP, XCRMDA);
+create index XCR00104 on XCR001 (XCREMP, XCRORIGEN, XCRAPFEC, XCRCLFEC, XCRSTAT);
+create index XCR00105 on XCR001 (XCREMP, XCRCTA, XCRSBOP, XCRMDA, XCRSTAT, XCRFECESTC);
+create index XCR00106 on XCR001 (XCREMP, XCRNUMTRAN, XCRCTA, XCRSBOP, XCRMDA, XCRSTATNUM, XCRSTATSEC, XCRORIGEN, XCRFCHING);
+create index XCR00107 on XCR001 (XCREMP, XCRCTA, XCRSBOP, XCRMDA, XCRAPFEC);
+create index XCR00108 on XCR001 (XCREMP, XCRCTA, XCRSBOP, XCRMDA, XCRFCHAUT);
+create index XCR00110 on XCR001 (XCREMP, XCRCTA, XCRSBOP, XCRMDA, XCRTOPER, XCRORIGEN, XCRAPFEC, XCRSTAT);
+alter table XCR001
+  add primary key (XCREMP, XCRNUMTRAN, XCRCTA, XCRSBOP, XCRMDA, XCRSTATNUM, XCRSTATSEC, XCRORIGEN);
+

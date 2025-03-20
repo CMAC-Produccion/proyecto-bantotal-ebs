@@ -1,0 +1,15 @@
+create table IAR000
+(
+  iarmod     NUMBER(3) not null,
+  iartrn     NUMBER(3) not null,
+  iartipo    CHAR(1),
+  iarccpfcoe NUMBER(3),
+  iarccpjcoe NUMBER(3),
+  iarcapfcoe NUMBER(3),
+  iarcapjcoe NUMBER(3)
+)
+;
+create index IAR00002 on IAR000 (IARTIPO);
+alter table IAR000
+  add primary key (IARMOD, IARTRN);
+

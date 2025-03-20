@@ -1,0 +1,43 @@
+create table FMD030
+(
+  pgcod      NUMBER(3) not null,
+  coimmod    NUMBER(3) not null,
+  coimoper   NUMBER(9) not null,
+  coimintern CHAR(1),
+  coimsuc    NUMBER(3),
+  coimmda    NUMBER(4),
+  coimpap    NUMBER(4),
+  coimcta    NUMBER(9),
+  coimtipo   NUMBER(3),
+  coimfing   DATE,
+  coimfval   DATE,
+  coimface   DATE,
+  coimfvto   DATE,
+  coimcorrrm NUMBER(9),
+  coimrefcor CHAR(20),
+  coimbcree  NUMBER(9),
+  coimuser   CHAR(10),
+  coimws     CHAR(10),
+  coimaoimp  NUMBER(17,2),
+  coimgtocor NUMBER(17,2),
+  coimmdagto CHAR(3),
+  coimcomagt NUMBER(17,2),
+  coimmdacom CHAR(3),
+  coimintere NUMBER(17,2),
+  coimmdaint CHAR(3),
+  coimmocsw1 CHAR(3),
+  coimgaspor NUMBER(1),
+  coimsaldo  NUMBER(17,2),
+  coimautree NUMBER(15)
+)
+;
+create index FMD03002 on FMD030 (PGCOD, COIMCTA);
+create index FMD03004 on FMD030 (PGCOD, COIMBCREE);
+create index FMD03005 on FMD030 (COIMPAP);
+create index FMD03006 on FMD030 (COIMMDA);
+create index FMD03007 on FMD030 (PGCOD, COIMSUC);
+create index FMD03008 on FMD030 (COIMMOD);
+create index FMD03009 on FMD030 (PGCOD, COIMCORRRM);
+alter table FMD030
+  add primary key (PGCOD, COIMMOD, COIMOPER);
+

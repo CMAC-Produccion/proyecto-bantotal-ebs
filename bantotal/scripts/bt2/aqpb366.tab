@@ -1,0 +1,39 @@
+create table AQPB366
+(
+  aqpb366cod NUMBER(3) not null,
+  aqpb366fec DATE not null,
+  aqpb366cor NUMBER(10) not null,
+  aqpb366est VARCHAR2(1),
+  aqpb366usr VARCHAR2(10),
+  aqpb366fcr VARCHAR2(10),
+  aqpb366hcr VARCHAR2(10),
+  aqpb366usd VARCHAR2(10),
+  aqpb366fed VARCHAR2(10),
+  aqpb366hed VARCHAR2(10)
+)
+;
+comment on table AQPB366
+  is 'Tabla cabecera productividad temporal';
+comment on column AQPB366.aqpb366cod
+  is 'codigo';
+comment on column AQPB366.aqpb366fec
+  is 'fecha';
+comment on column AQPB366.aqpb366cor
+  is 'correlativo';
+comment on column AQPB366.aqpb366est
+  is 'estado';
+comment on column AQPB366.aqpb366usr
+  is 'usuario';
+comment on column AQPB366.aqpb366fcr
+  is 'fecha';
+comment on column AQPB366.aqpb366hcr
+  is 'hora';
+comment on column AQPB366.aqpb366usd
+  is 'usuario ';
+comment on column AQPB366.aqpb366fed
+  is 'fecha';
+comment on column AQPB366.aqpb366hed
+  is 'hora';
+alter table AQPB366
+  add primary key (AQPB366COD, AQPB366FEC, AQPB366COR);
+

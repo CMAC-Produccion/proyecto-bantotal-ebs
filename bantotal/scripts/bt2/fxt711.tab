@@ -1,0 +1,13 @@
+create table FXT711
+(
+  rulcpo     NUMBER(2) not null,
+  rulcpofmt  CHAR(1) not null,
+  rulcpocorr NUMBER(3) not null,
+  rulctcod   NUMBER(5),
+  rulcposts  CHAR(1)
+)
+;
+create index FXT71103 on FXT711 (RULCTCOD);
+alter table FXT711
+  add primary key (RULCPO, RULCPOFMT, RULCPOCORR);
+

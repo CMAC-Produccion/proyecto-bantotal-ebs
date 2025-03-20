@@ -1,0 +1,37 @@
+create table RNPE08
+(
+  rnpe08emp NUMBER(3) not null,
+  rnpe08suc NUMBER(5) not null,
+  rnpe08mod NUMBER(5) not null,
+  rnpe08mon NUMBER(4) not null,
+  rnpe08pap NUMBER(6) not null,
+  rnpe08cta NUMBER(9) not null,
+  rnpe08ope NUMBER(9) not null,
+  rnpe08sbo NUMBER(5) not null,
+  rnpe08top NUMBER(3) not null,
+  rnpe08fec DATE not null,
+  rnpe08cor NUMBER(4) not null,
+  rnpe08rub NUMBER(16),
+  rnpe08ori CHAR(10),
+  rnpe08eve CHAR(10),
+  rnpe08cap NUMBER(17,2),
+  rnpe80int NUMBER(17,2),
+  rnpe08ccu NUMBER(8),
+  rnpe08ccp NUMBER(8),
+  rnpe08fuc DATE,
+  rnpe08kpg NUMBER(17,2),
+  rnpe08ipg NUMBER(17,2),
+  rnpe08pcu NUMBER(17,2),
+  rnpe08fcv DATE,
+  rnpe08kcs NUMBER(17,2),
+  rnpe08ics NUMBER(17,2),
+  rnpe08atr NUMBER(8),
+  rnpe08kve NUMBER(17,2),
+  rnpe08pgr NUMBER(6),
+  rnpe08pln LONG
+)
+;
+create index RNPE08A2 on RNPE08 (RNPE08EMP, RNPE08FEC);
+alter table RNPE08
+  add primary key (RNPE08EMP, RNPE08SUC, RNPE08MOD, RNPE08MON, RNPE08PAP, RNPE08CTA, RNPE08OPE, RNPE08SBO, RNPE08TOP, RNPE08FEC, RNPE08COR);
+

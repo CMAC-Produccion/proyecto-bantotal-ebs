@@ -1,0 +1,35 @@
+create table FSFFZK
+(
+  fsffzecod NUMBER(3) not null,
+  fsffzesuc NUMBER(3) not null,
+  fsffzemod NUMBER(3) not null,
+  fsffzemda NUMBER(4) not null,
+  fsffzepap NUMBER(4) not null,
+  fsffzecta NUMBER(9) not null,
+  fsffzeope NUMBER(9) not null,
+  fsffzesbo NUMBER(3) not null,
+  fsffzetop NUMBER(3) not null,
+  fsffzkcor NUMBER(5) not null,
+  fsffzkfec DATE,
+  fsffzkmda NUMBER(4),
+  fsffzktip CHAR(1),
+  fsffzkipa NUMBER(9),
+  fsffzkise CHAR(30),
+  fsffzkidi CHAR(50),
+  fsffzkisu NUMBER(10,2),
+  fsffzkivc NUMBER(17,2),
+  fsffzkivr NUMBER(17,2),
+  fsffzkapa NUMBER(9),
+  fsffzkaaa NUMBER(4),
+  fsffzkama CHAR(15),
+  fsffzkamo CHAR(15),
+  fsffzkava NUMBER(17,2),
+  fsffzkdes LONG,
+  fsffzkfpa NUMBER(3),
+  fsffzkfti NUMBER(2),
+  fsffzkfnd CHAR(12)
+)
+;
+alter table FSFFZK
+  add primary key (FSFFZECOD, FSFFZESUC, FSFFZEMOD, FSFFZEMDA, FSFFZEPAP, FSFFZECTA, FSFFZEOPE, FSFFZESBO, FSFFZETOP, FSFFZKCOR);
+

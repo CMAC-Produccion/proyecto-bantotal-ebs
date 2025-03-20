@@ -1,0 +1,27 @@
+create table AQPC501
+(
+  aqpc501emp NUMBER not null,
+  aqpc501usr CHAR(10) not null,
+  aqpc501car NUMBER,
+  aqpc501del CHAR(10) not null,
+  aqpc501ini DATE,
+  aqpc501fin DATE
+)
+;
+comment on table AQPC501
+  is 'TABLA DELEGACION PARA NEGOCIACION DE TASA';
+comment on column AQPC501.aqpc501emp
+  is 'Codigo de Empresa';
+comment on column AQPC501.aqpc501usr
+  is 'Usuario';
+comment on column AQPC501.aqpc501car
+  is 'Cargo';
+comment on column AQPC501.aqpc501del
+  is 'Delegado';
+comment on column AQPC501.aqpc501ini
+  is 'Fecha Inicial';
+comment on column AQPC501.aqpc501fin
+  is 'Fecha Final';
+alter table AQPC501
+  add primary key (AQPC501EMP, AQPC501USR, AQPC501DEL);
+

@@ -1,0 +1,26 @@
+create table FSEC14
+(
+  sec13motiv NUMBER(3) not null,
+  sec14pgcod NUMBER(3) not null,
+  sec14ctapt NUMBER(9) not null,
+  sec14gtipo CHAR(1) not null,
+  sec14kord  NUMBER(9) not null,
+  sec14fec01 DATE,
+  sec14fec02 DATE,
+  sec14fec03 DATE,
+  sec14imp01 NUMBER(17,2),
+  sec14imp02 NUMBER(17,2),
+  sec14imp03 NUMBER(17,2),
+  sec14coef1 NUMBER(14,8),
+  sec14coef2 NUMBER(14,8),
+  sec14char1 CHAR(20),
+  sec14char2 CHAR(20),
+  sec14pzo1  NUMBER(5),
+  sec14pzo2  NUMBER(5),
+  sec14cdn1  NUMBER(9),
+  sec14cdn2  NUMBER(3)
+)
+;
+alter table FSEC14
+  add primary key (SEC13MOTIV, SEC14PGCOD, SEC14CTAPT, SEC14GTIPO, SEC14KORD);
+

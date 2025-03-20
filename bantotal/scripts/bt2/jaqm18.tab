@@ -1,0 +1,125 @@
+create table JAQM18
+(
+  jaqm18emp NUMBER(3) not null,
+  jaqm18mod NUMBER(3) not null,
+  jaqm18tra NUMBER(3) not null,
+  jaqm18suc NUMBER(3) not null,
+  jaqm18mda NUMBER(4) not null,
+  jaqm18pap NUMBER(4) not null,
+  jaqm18cta NUMBER(9) not null,
+  jaqm18ope NUMBER(9) not null,
+  jaqm18sbo NUMBER(3) not null,
+  jaqm18top NUMBER(3) not null,
+  jaqm18ord NUMBER(2) not null,
+  jaqm18sor NUMBER(3) not null,
+  jaqm18ins NUMBER(10) not null,
+  jaqm18ain CHAR(50) not null,
+  jaqm18tfl CHAR(20) not null,
+  jaqm18fch DATE not null,
+  jaqm18cor NUMBER(4) not null,
+  jaqm18pai NUMBER(3),
+  jaqm18tdo NUMBER(2),
+  jaqm18ndo CHAR(25),
+  jaqm18tid CHAR(255),
+  jaqm18idf CHAR(50),
+  jaqm18tok CHAR(250),
+  jaqm18err VARCHAR2(500),
+  jaqm18lin VARCHAR2(30),
+  jaqm18lou VARCHAR2(30),
+  jaqm18an1 NUMBER(9),
+  jaqm18an2 NUMBER(9),
+  jaqm18an3 NUMBER(9),
+  jaqm18ad1 DATE,
+  jaqm18ad2 DATE,
+  jaqm18ad3 DATE,
+  jaqm18ai1 NUMBER(17,2),
+  jaqm18ai2 NUMBER(17,2),
+  jaqm18ai3 NUMBER(17,2),
+  jaqm18ac1 CHAR(255),
+  jaqm18ac2 CHAR(255),
+  jaqm18ac3 CHAR(255)
+)
+;
+comment on table JAQM18
+  is 'Envio Correos Contratacion Digital Creditos';
+comment on column JAQM18.jaqm18emp
+  is 'Empresa';
+comment on column JAQM18.jaqm18mod
+  is 'Modulo ';
+comment on column JAQM18.jaqm18tra
+  is 'Transaccion';
+comment on column JAQM18.jaqm18suc
+  is 'Sucursal';
+comment on column JAQM18.jaqm18mda
+  is 'Moneda';
+comment on column JAQM18.jaqm18pap
+  is 'Papel ';
+comment on column JAQM18.jaqm18cta
+  is 'Cuenta';
+comment on column JAQM18.jaqm18ope
+  is 'Operacion';
+comment on column JAQM18.jaqm18sbo
+  is 'Sun Operacion';
+comment on column JAQM18.jaqm18top
+  is 'Tipo de Operacion';
+comment on column JAQM18.jaqm18ord
+  is 'Ordinal';
+comment on column JAQM18.jaqm18sor
+  is 'Subordinal';
+comment on column JAQM18.jaqm18ins
+  is 'Instancia';
+comment on column JAQM18.jaqm18ain
+  is 'Auxiliar para mayor informacion';
+comment on column JAQM18.jaqm18tfl
+  is 'Tipo de flujo';
+comment on column JAQM18.jaqm18fch
+  is 'Fecha';
+comment on column JAQM18.jaqm18cor
+  is 'Correlativo';
+comment on column JAQM18.jaqm18pai
+  is 'Pais';
+comment on column JAQM18.jaqm18tdo
+  is 'Tipo de documento';
+comment on column JAQM18.jaqm18ndo
+  is 'Numero documento';
+comment on column JAQM18.jaqm18tid
+  is 'Tipo de documento Enviado Digital';
+comment on column JAQM18.jaqm18idf
+  is 'Id Documento Firmado';
+comment on column JAQM18.jaqm18tok
+  is 'Token';
+comment on column JAQM18.jaqm18err
+  is 'Descripcion Error';
+comment on column JAQM18.jaqm18lin
+  is 'Log Entrada';
+comment on column JAQM18.jaqm18lou
+  is 'Log Respuesta';
+comment on column JAQM18.jaqm18an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM18.jaqm18an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM18.jaqm18an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM18.jaqm18ad1
+  is 'Date Auxiliar 1';
+comment on column JAQM18.jaqm18ad2
+  is 'Date Auxiliar 2';
+comment on column JAQM18.jaqm18ad3
+  is 'Date Auxiliar 3';
+comment on column JAQM18.jaqm18ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM18.jaqm18ai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM18.jaqm18ai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM18.jaqm18ac1
+  is 'Character Auxiliar 1';
+comment on column JAQM18.jaqm18ac2
+  is 'Character Auxiliar 2';
+comment on column JAQM18.jaqm18ac3
+  is 'Character Auxiliar 3';
+create index JAQM18A2 on JAQM18 (JAQM18PAI, JAQM18TDO, JAQM18NDO);
+create index JAQM18A3 on JAQM18 (JAQM18EMP, JAQM18INS, JAQM18FCH, JAQM18COR);
+alter table JAQM18
+  add primary key (JAQM18EMP, JAQM18MOD, JAQM18TRA, JAQM18SUC, JAQM18MDA, JAQM18PAP, JAQM18CTA, JAQM18OPE, JAQM18SBO, JAQM18TOP, JAQM18ORD, JAQM18SOR, JAQM18INS, JAQM18AIN, JAQM18TFL, JAQM18FCH, JAQM18COR);
+

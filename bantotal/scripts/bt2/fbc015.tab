@@ -1,0 +1,32 @@
+create table FBC015
+(
+  bcremp     NUMBER(3) not null,
+  bcrinf     CHAR(10) not null,
+  bcrfech    DATE not null,
+  bcrcpo     CHAR(8) not null,
+  bcrcodcpo  NUMBER(10) not null,
+  bcrpais    NUMBER(3) not null,
+  bcrtdoc    NUMBER(2) not null,
+  bcrndoc    CHAR(12) not null,
+  bcrsuc     NUMBER(3) not null,
+  bcrcta     NUMBER(9) not null,
+  bcrmda     NUMBER(4) not null,
+  bcrdesc    CHAR(40),
+  bcrsdmn    NUMBER(17,2),
+  bcrsdor    NUMBER(17,2),
+  bcrsdus    NUMBER(17,2),
+  bcrtipper  CHAR(1),
+  bcrcat     CHAR(15),
+  bcractiv   NUMBER(5),
+  bcrresi    CHAR(1),
+  bcrcodbarr CHAR(20)
+)
+;
+create index FBC01502 on FBC015 (BCREMP, BCRINF, BCRFECH, BCRSUC, BCRCTA, BCRMDA);
+create index FBC01503 on FBC015 (BCREMP, BCRINF, BCRFECH, BCRCPO, BCRCODCPO, BCRSUC, BCRCTA, BCRMDA);
+create index FBC01504 on FBC015 (BCREMP, BCRINF, BCRFECH, BCRPAIS, BCRTDOC, BCRNDOC, BCRSDMN);
+create index FBC01505 on FBC015 (BCREMP, BCRINF, BCRFECH, BCRCPO, BCRCTA, BCRPAIS, BCRTDOC, BCRNDOC, BCRCODCPO);
+create index FBC01506 on FBC015 (BCREMP, BCRINF, BCRCPO, BCRPAIS, BCRTDOC, BCRNDOC, BCRFECH);
+alter table FBC015
+  add primary key (BCREMP, BCRINF, BCRFECH, BCRCPO, BCRCODCPO, BCRPAIS, BCRTDOC, BCRNDOC, BCRSUC, BCRCTA, BCRMDA);
+

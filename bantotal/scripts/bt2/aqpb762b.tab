@@ -1,0 +1,124 @@
+create table AQPB762B
+(
+  aqpb762bcod    NUMBER(3) not null,
+  aqpb762bfec    DATE not null,
+  aqpb762bcor    NUMBER(8) not null,
+  aqpb762blin    NUMBER(8) not null,
+  aqpb762bfrep   DATE,
+  aqpb762btdoc   VARCHAR2(20),
+  aqpb762bndoc   VARCHAR2(20),
+  aqpb762bcsol   VARCHAR2(20),
+  aqpb762bcopa   VARCHAR2(20),
+  aqpb762bfdes   DATE,
+  aqpb762bffin   DATE,
+  aqpb762bcdes   NUMBER(17,2),
+  aqpb762bplzo   NUMBER(5),
+  aqpb762bgrci   NUMBER(5),
+  aqpb762bccta   NUMBER(9) not null,
+  aqpb762boper   NUMBER(9) not null,
+  aqpb762bsins   NUMBER(17,2),
+  aqpb762bscap   NUMBER(17,2),
+  aqpb762bpcob   NUMBER(5,2),
+  aqpb762bscob   NUMBER(17,2),
+  aqpb762bfeco   DATE,
+  aqpb762bmnco   NUMBER(17,2),
+  aqpb762bciuo   VARCHAR2(5),
+  aqpb762baeco   VARCHAR2(60),
+  aqpb762bfico   DATE,
+  aqpb762bffco   DATE,
+  aqpb762best    VARCHAR2(1),
+  aqpb762busu    VARCHAR2(10),
+  aqpb762bfedi   VARCHAR2(10),
+  aqpb762bhedi   VARCHAR2(10),
+  aqpb762bestp   VARCHAR2(1),
+  aqpb762bncer   VARCHAR2(50),
+  aqpb762bccob   VARCHAR2(50),
+  aqpb762bcren   VARCHAR2(50),
+  aqpb762bcobr   VARCHAR2(50),
+  aqpb762bchon   VARCHAR2(50),
+  aqpb762bcodi   VARCHAR2(50),
+  aqpb762bconsap VARCHAR2(50)
+)
+;
+comment on table AQPB762B
+  is 'Tabla Detalle FAE Turismo, importado de XLS';
+comment on column AQPB762B.aqpb762bcod
+  is 'Código de empresa';
+comment on column AQPB762B.aqpb762bfec
+  is 'Fecha de proceso';
+comment on column AQPB762B.aqpb762bcor
+  is 'Correlativo';
+comment on column AQPB762B.aqpb762blin
+  is 'Linea de Carga';
+comment on column AQPB762B.aqpb762bfrep
+  is 'Fecha de reporte';
+comment on column AQPB762B.aqpb762btdoc
+  is 'Tipo documento';
+comment on column AQPB762B.aqpb762bndoc
+  is 'Numero de documento';
+comment on column AQPB762B.aqpb762bcsol
+  is 'Codigo de solicitud';
+comment on column AQPB762B.aqpb762bcopa
+  is 'Esf/Coopac';
+comment on column AQPB762B.aqpb762bfdes
+  is 'Fecha Desembolso';
+comment on column AQPB762B.aqpb762bffin
+  is 'Fecha fin de crédito';
+comment on column AQPB762B.aqpb762bcdes
+  is 'Capital desembolsado';
+comment on column AQPB762B.aqpb762bplzo
+  is 'Plazo';
+comment on column AQPB762B.aqpb762bgrci
+  is 'Periodo de gracia';
+comment on column AQPB762B.aqpb762bccta
+  is 'Cuenta crédito';
+comment on column AQPB762B.aqpb762boper
+  is 'Operacion crédito';
+comment on column AQPB762B.aqpb762bsins
+  is 'Saldo insoluto';
+comment on column AQPB762B.aqpb762bscap
+  is 'Saldo capital';
+comment on column AQPB762B.aqpb762bpcob
+  is '% de Cobertura';
+comment on column AQPB762B.aqpb762bscob
+  is 'Saldo coberturado';
+comment on column AQPB762B.aqpb762bfeco
+  is 'Fecha de envio COFIDE';
+comment on column AQPB762B.aqpb762bmnco
+  is 'Monto enviado COFIDE';
+comment on column AQPB762B.aqpb762bciuo
+  is 'CIUU Origen';
+comment on column AQPB762B.aqpb762baeco
+  is 'Actiuvidad economica origen';
+comment on column AQPB762B.aqpb762bfico
+  is 'Fecha inicio certicado COFIDE';
+comment on column AQPB762B.aqpb762bffco
+  is 'Fecha fin certicado COFIDE';
+comment on column AQPB762B.aqpb762best
+  is 'Estado';
+comment on column AQPB762B.aqpb762busu
+  is 'Usuario';
+comment on column AQPB762B.aqpb762bfedi
+  is 'Fecha Edicion';
+comment on column AQPB762B.aqpb762bhedi
+  is 'Hora de edicion';
+comment on column AQPB762B.aqpb762bestp
+  is 'Estado de alta de garantía A=Cancelado C=Contabilizado y H=Honrado';
+comment on column AQPB762B.aqpb762bncer
+  is 'Numero de Certificado';
+comment on column AQPB762B.aqpb762bccob
+  is 'Codigo de Cobertura';
+comment on column AQPB762B.aqpb762bcren
+  is 'Certificado de Renovacion/Reprogramacion';
+comment on column AQPB762B.aqpb762bcobr
+  is 'Cobertura de Renovacion/Reprogramacion';
+comment on column AQPB762B.aqpb762bchon
+  is 'Certificado de Honra';
+comment on column AQPB762B.aqpb762bcodi
+  is 'Codigo de Solicitud COFIDE';
+comment on column AQPB762B.aqpb762bconsap
+  is 'Contrato SAP';
+create index AQPB762BA2 on AQPB762B (AQPB762BCCTA);
+alter table AQPB762B
+  add primary key (AQPB762BCOD, AQPB762BFEC, AQPB762BCOR, AQPB762BCCTA, AQPB762BOPER);
+

@@ -1,0 +1,22 @@
+create table JSEA12
+(
+  jsea11pgc NUMBER(3) not null,
+  jsea11ope NUMBER(9) not null,
+  jsea12lin NUMBER(4) not null,
+  jsea12mod NUMBER(3),
+  jsea12suc NUMBER(3),
+  jsea12mda NUMBER(4),
+  jsea12pap NUMBER(4),
+  jsea12cta NUMBER(9),
+  jsea12ope NUMBER(9),
+  jsea12sbo NUMBER(3),
+  jsea12top NUMBER(3),
+  jsea12cap NUMBER(17,2),
+  jsea12int NUMBER(17,2),
+  jsea12est CHAR(1)
+)
+;
+create index JSEA1204 on JSEA12 (JSEA12MOD, JSEA12SUC, JSEA12MDA, JSEA12PAP, JSEA12CTA, JSEA12OPE, JSEA12SBO, JSEA12TOP);
+alter table JSEA12
+  add primary key (JSEA11PGC, JSEA11OPE, JSEA12LIN);
+

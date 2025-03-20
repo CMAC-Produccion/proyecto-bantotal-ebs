@@ -1,0 +1,22 @@
+create table FSFL21
+(
+  fsfl21fde DATE not null,
+  fsfl21fig DATE not null,
+  fsfl21hig CHAR(8) not null,
+  fsfl21rok CHAR(1),
+  fsfl21trg CHAR(1),
+  fsfl21uig CHAR(10),
+  fsfl21wig CHAR(10),
+  fsfl21fcf DATE,
+  fsfl21hcf CHAR(8),
+  fsfl21ucf CHAR(10),
+  fsfl21wcf CHAR(10),
+  fsfl21rpc NUMBER(17,2),
+  fsfl21pc1 NUMBER(5,2),
+  fsfl21pc2 NUMBER(5,2),
+  fsfl21pc3 NUMBER(5,2)
+)
+;
+alter table FSFL21
+  add primary key (FSFL21FDE, FSFL21FIG, FSFL21HIG);
+

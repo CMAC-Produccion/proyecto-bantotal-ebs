@@ -1,0 +1,27 @@
+create table AQPC107
+(
+  aqpc107id     NUMBER(10) not null,
+  aqpc107thd    CHAR(12),
+  aqpc107nrocel VARCHAR2(20),
+  aqpc107fecreg DATE,
+  aqpc107horreg VARCHAR2(10),
+  aqpc107msgerr VARCHAR2(100)
+)
+;
+comment on table AQPC107
+  is 'Log de errores al insertar telefonos por Afiliacion Cajamovil';
+comment on column AQPC107.aqpc107id
+  is 'Id correlativo';
+comment on column AQPC107.aqpc107thd
+  is 'Numero de documento del cliente';
+comment on column AQPC107.aqpc107nrocel
+  is 'Numero de celular del cliente';
+comment on column AQPC107.aqpc107fecreg
+  is 'Fecha registro';
+comment on column AQPC107.aqpc107horreg
+  is 'Hora registro';
+comment on column AQPC107.aqpc107msgerr
+  is 'Mensaje detallado del error';
+alter table AQPC107
+  add primary key (AQPC107ID);
+

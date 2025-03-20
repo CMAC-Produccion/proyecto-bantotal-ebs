@@ -1,0 +1,38 @@
+create table FSD234
+(
+  sd234cod  NUMBER(3) not null,
+  sd234mod  NUMBER(3) not null,
+  sd234suc  NUMBER(3) not null,
+  sd234mda  NUMBER(4) not null,
+  sd234pap  NUMBER(4) not null,
+  sd234cta  NUMBER(9) not null,
+  sd234ope  NUMBER(9) not null,
+  sd234sbo  NUMBER(3) not null,
+  sd234top  NUMBER(3) not null,
+  sd234ndn  NUMBER(9) not null,
+  sd234fhdn DATE,
+  sd234pden CHAR(1),
+  sd234tden CHAR(1),
+  sd234esdn CHAR(1),
+  sd234mvdn CHAR(1),
+  sd234dnpl CHAR(1),
+  sd234fhpl DATE,
+  sd234dnju CHAR(1),
+  sd234fhju DATE,
+  sd234txju CHAR(50),
+  sd234sudn NUMBER(3),
+  sd234usin CHAR(10),
+  sd234hoin CHAR(8),
+  sd234chde NUMBER(9),
+  sd234chha NUMBER(9),
+  sd234txt1 CHAR(60),
+  sd234txt2 CHAR(60),
+  sd234aux1 NUMBER(9),
+  sd234aux2 NUMBER(17,2),
+  sd234aux3 DATE,
+  sd234aux4 CHAR(20)
+)
+;
+alter table FSD234
+  add primary key (SD234COD, SD234MOD, SD234SUC, SD234MDA, SD234PAP, SD234CTA, SD234OPE, SD234SBO, SD234TOP, SD234NDN);
+

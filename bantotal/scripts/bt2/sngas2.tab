@@ -1,0 +1,11 @@
+create table SNGAS2
+(
+  sngas2pgc NUMBER(3) not null,
+  sngas2cod NUMBER(5) not null,
+  sngas2usr CHAR(10),
+  sngas2inh CHAR(1)
+)
+;
+alter table SNGAS2
+  add primary key (SNGAS2PGC, SNGAS2COD);
+

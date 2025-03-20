@@ -1,0 +1,127 @@
+create table JAQY327
+(
+  jaqy327corr  NUMBER(10) not null,
+  jaqy327fech  DATE not null,
+  jaqy327hora  CHAR(8) not null,
+  jaqy327inst  NUMBER(10),
+  jaqy327neva  NUMBER(10),
+  jaqy327pais  NUMBER(3),
+  jaqy327tdoc  NUMBER(2),
+  jaqy327ndoc  CHAR(12),
+  jaqy327rubr  VARCHAR2(14),
+  jaqy327esta  CHAR(2),
+  jaqy327enti  CHAR(200),
+  jaqy327tcre  CHAR(30),
+  jaqy327sdeu  NUMBER(17,2),
+  jaqy327plaz  NUMBER(9,6),
+  jaqy327taza  NUMBER(9,6),
+  jaqy327ccalc NUMBER(17,2),
+  jaqy327gfin  NUMBER(17,2),
+  jaqy327frcc  DATE,
+  jaqy327dori  CHAR(1),
+  jaqy327chek  CHAR(1),
+  jaqy327pers  CHAR(30),
+  jaqy327rela  CHAR(20),
+  jaqy327line  CHAR(20),
+  jaqy327aux1  NUMBER(10),
+  jaqy327aux2  NUMBER(17,2),
+  jaqy327aux3  CHAR(1),
+  jaqy327aux4  VARCHAR2(1),
+  jaqy327aux5  VARCHAR2(50),
+  jaqy327aux6  DATE,
+  jaqy327aux7  NUMBER(10),
+  jaqy327aux8  NUMBER(17,2),
+  jaqy327aux9  VARCHAR2(40),
+  jaqy327mda   NUMBER(4),
+  jaqy327tlin  NUMBER(17,2),
+  jaqy327util  NUMBER(17,2),
+  jaqy327flin  VARCHAR2(1),
+  jaqy327cptn  NUMBER(17,2),
+  jaqy327fac1  NUMBER(10,6),
+  jaqy327fac2  NUMBER(10,6),
+  jaqy327fac3  NUMBER(10,6),
+  jaqy327cent  VARCHAR2(10)
+)
+;
+comment on column JAQY327.jaqy327corr
+  is 'Correlativo';
+comment on column JAQY327.jaqy327fech
+  is 'Fecha Proceso';
+comment on column JAQY327.jaqy327hora
+  is 'Hora Registro';
+comment on column JAQY327.jaqy327inst
+  is 'Instancia / Solicitud';
+comment on column JAQY327.jaqy327neva
+  is 'Evaluacion';
+comment on column JAQY327.jaqy327pais
+  is 'Pais';
+comment on column JAQY327.jaqy327tdoc
+  is 'Tipo Documento';
+comment on column JAQY327.jaqy327ndoc
+  is 'Num Documento';
+comment on column JAQY327.jaqy327rubr
+  is 'Rubro';
+comment on column JAQY327.jaqy327esta
+  is 'Estado S/N';
+comment on column JAQY327.jaqy327enti
+  is 'Entidad Finan';
+comment on column JAQY327.jaqy327tcre
+  is 'Tipo Credito';
+comment on column JAQY327.jaqy327sdeu
+  is 'Saldo Deudor';
+comment on column JAQY327.jaqy327plaz
+  is 'Plazo';
+comment on column JAQY327.jaqy327taza
+  is 'Taza';
+comment on column JAQY327.jaqy327ccalc
+  is 'Cuota Calculada';
+comment on column JAQY327.jaqy327gfin
+  is 'Gasto Financiero';
+comment on column JAQY327.jaqy327frcc
+  is 'Fecha RCC';
+comment on column JAQY327.jaqy327dori
+  is 'Datos Origen';
+comment on column JAQY327.jaqy327chek
+  is 'Vigente';
+comment on column JAQY327.jaqy327pers
+  is 'Nombre Per';
+comment on column JAQY327.jaqy327rela
+  is 'Relacion Per';
+comment on column JAQY327.jaqy327line
+  is 'Tipo de Deuda';
+comment on column JAQY327.jaqy327aux1
+  is 'Tarea de ejecucion';
+comment on column JAQY327.jaqy327aux3
+  is 'Flag Ratio R/ '' ''';
+comment on column JAQY327.jaqy327aux4
+  is 'Flag Compra de Deuda';
+comment on column JAQY327.jaqy327aux5
+  is 'Usuario de Registro';
+comment on column JAQY327.jaqy327aux8
+  is 'Monto de No Uso';
+comment on column JAQY327.jaqy327aux9
+  is 'Descripcion del Credito';
+comment on column JAQY327.jaqy327mda
+  is 'Moneda';
+comment on column JAQY327.jaqy327tlin
+  is 'Monto Total Linea';
+comment on column JAQY327.jaqy327util
+  is 'Monto Utilizacion';
+comment on column JAQY327.jaqy327flin
+  is 'Flag Tipo de deuda L/P';
+comment on column JAQY327.jaqy327cptn
+  is 'Monto Cuota Potencial';
+comment on column JAQY327.jaqy327fac1
+  is 'Factor Calculo Uso';
+comment on column JAQY327.jaqy327fac2
+  is 'Factor Calculo No Uso';
+comment on column JAQY327.jaqy327fac3
+  is 'Factor Calculo Prestamo';
+comment on column JAQY327.jaqy327cent
+  is 'Codigo Entidad';
+create index JAQY327_03 on JAQY327 (JAQY327INST);
+create index SYS_JAQY327_01 on JAQY327 (JAQY327INST, JAQY327NEVA, JAQY327PAIS, JAQY327TDOC, JAQY327NDOC);
+create index SYS_JAQY327_02 on JAQY327 (JAQY327INST, JAQY327NEVA, JAQY327PAIS, JAQY327TDOC, JAQY327NDOC, JAQY327ESTA, JAQY327SDEU, JAQY327PLAZ, JAQY327TAZA, JAQY327CCALC);
+alter table JAQY327
+  add primary key (JAQY327FECH, JAQY327CORR, JAQY327HORA);
+

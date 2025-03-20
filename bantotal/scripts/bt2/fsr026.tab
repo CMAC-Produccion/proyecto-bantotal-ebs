@@ -1,0 +1,21 @@
+create table FSR026
+(
+  pgcod  NUMBER(3) not null,
+  comod  NUMBER(3) not null,
+  cocod  NUMBER(3) not null,
+  cocta  NUMBER(9) not null,
+  copap  NUMBER(4) not null,
+  comda  NUMBER(4) not null,
+  cofech DATE not null,
+  cofein NUMBER(8),
+  covig  CHAR(1)
+)
+;
+create index FSR02603 on FSR026 (COCOD);
+create index FSR02604 on FSR026 (COMOD);
+create index FSR02605 on FSR026 (COPAP);
+create index FSR02606 on FSR026 (COMDA);
+create index FSR02607 on FSR026 (PGCOD, COMOD, COCOD, COCTA, COPAP, COMDA, COFEIN);
+alter table FSR026
+  add primary key (PGCOD, COMOD, COCOD, COCTA, COPAP, COMDA, COFECH);
+

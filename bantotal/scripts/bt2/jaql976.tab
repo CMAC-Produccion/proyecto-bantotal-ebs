@@ -1,0 +1,70 @@
+create table JAQL976
+(
+  jaql976cor   NUMBER(18) not null,
+  jaql976bytei CHAR(5),
+  jaql976cons  CHAR(1),
+  jaql976fdia  NUMBER(2),
+  jaql976fmes  NUMBER(2),
+  jaql976fani  NUMBER(4),
+  jaql976hora  NUMBER(2),
+  jaql976min   NUMBER(2),
+  jaql976cod   CHAR(5),
+  jaql976use   CHAR(10),
+  jaql97687584 CHAR(15),
+  jaql97687862 CHAR(128),
+  jaql97687550 NUMBER(6),
+  jaql97687506 NUMBER(6),
+  jaql97687507 NUMBER(8),
+  jaql97687516 CHAR(15),
+  jaql97687691 CHAR(150),
+  jaql97687692 CHAR(150),
+  jaql97687531 CHAR(15),
+  jaql976bytef CHAR(5),
+  jaql976corr2 NUMBER(18)
+)
+;
+comment on column JAQL976.jaql976cor
+  is 'Correlativo';
+comment on column JAQL976.jaql976bytei
+  is 'Inicio Trama';
+comment on column JAQL976.jaql976cons
+  is 'Constante "N"';
+comment on column JAQL976.jaql976fdia
+  is 'Dia/Envio';
+comment on column JAQL976.jaql976fmes
+  is 'Mes/Envio';
+comment on column JAQL976.jaql976fani
+  is 'Año/Envio';
+comment on column JAQL976.jaql976hora
+  is 'Hora/Envio';
+comment on column JAQL976.jaql976min
+  is 'Minuto/Envio';
+comment on column JAQL976.jaql976cod
+  is 'Constante "08630"';
+comment on column JAQL976.jaql976use
+  is 'Usuario';
+comment on column JAQL976.jaql97687584
+  is 'ID-Cliente';
+comment on column JAQL976.jaql97687862
+  is 'Nro-Tarjeta';
+comment on column JAQL976.jaql97687550
+  is 'Cod.Transaccion';
+comment on column JAQL976.jaql97687506
+  is 'HoraTRX';
+comment on column JAQL976.jaql97687507
+  is 'FechaTRX';
+comment on column JAQL976.jaql97687516
+  is 'ID-Terminal';
+comment on column JAQL976.jaql97687691
+  is 'Dato.Ant';
+comment on column JAQL976.jaql97687692
+  is 'Dato.Post';
+comment on column JAQL976.jaql97687531
+  is 'Cod. CIO/Agn/Of.ori';
+comment on column JAQL976.jaql976bytef
+  is 'Constante "ByteF"';
+comment on column JAQL976.jaql976corr2
+  is 'Correlativo 2 de tabla para Monitor Plus';
+alter table JAQL976
+  add primary key (JAQL976COR);
+

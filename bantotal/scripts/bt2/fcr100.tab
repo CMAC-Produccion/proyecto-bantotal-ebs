@@ -1,0 +1,16 @@
+create table FCR100
+(
+  pgcod    NUMBER(3) not null,
+  modulo   NUMBER(3) not null,
+  operac   NUMBER(9) not null,
+  subope   NUMBER(3) not null,
+  instcod  NUMBER(2) not null,
+  bpitem   NUMBER(3) not null,
+  opctlsts CHAR(1),
+  opctlusr CHAR(10)
+)
+;
+create index FCR10002 on FCR100 (MODULO, INSTCOD, BPITEM);
+alter table FCR100
+  add primary key (PGCOD, MODULO, OPERAC, SUBOPE, INSTCOD, BPITEM);
+

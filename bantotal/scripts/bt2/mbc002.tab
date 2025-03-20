@@ -1,0 +1,11 @@
+create table MBC002
+(
+  mbcemp NUMBER(3) not null,
+  mbcsuc NUMBER(3) not null,
+  mbccaj NUMBER(3) not null,
+  mbcfch DATE not null
+)
+;
+alter table MBC002
+  add primary key (MBCEMP, MBCSUC, MBCCAJ, MBCFCH);
+

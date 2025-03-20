@@ -1,0 +1,52 @@
+create table JAQA768
+(
+  jaqa768feg DATE not null,
+  jaqa768usr CHAR(10) not null,
+  jaqa786emp NUMBER(3) not null,
+  jaqa768mod NUMBER(3) not null,
+  jaqa768suc NUMBER(3) not null,
+  jaqa768mda NUMBER(4) not null,
+  jaqa768pap NUMBER(4) not null,
+  jaqa768cta NUMBER(9) not null,
+  jaqa768ope NUMBER(9) not null,
+  jaqa768sop NUMBER(3) not null,
+  jaqa768top NUMBER(3) not null,
+  jaqa768zna NUMBER(3),
+  jaqa768rgn NUMBER(3),
+  jaqa768emn NUMBER(3),
+  jaqa768sun NUMBER(3),
+  jaqa768mon NUMBER(3),
+  jaqa768trn NUMBER(3),
+  jaqa768nrn NUMBER(4),
+  jaqa768usn CHAR(10),
+  jaqa768fcn DATE,
+  jaqa768fvn DATE,
+  jaqa768mtn NUMBER(17,2),
+  jaqa768emt NUMBER(3),
+  jaqa768sut NUMBER(3),
+  jaqa768mot NUMBER(3),
+  jaqa768trt NUMBER(3),
+  jaqa768nrt NUMBER(4),
+  jaqa768ust CHAR(10),
+  jaqa768fct DATE,
+  jaqa768fvt DATE,
+  jaqa768mtt NUMBER(17,2),
+  jaqa768nu1 NUMBER(9),
+  jaqa768nu2 NUMBER(9),
+  jaqa768nu3 NUMBER(9),
+  jaqa768fe1 DATE,
+  jaqa768fe2 DATE,
+  jaqa768fe3 DATE,
+  jaqa768im1 NUMBER(17,2),
+  jaqa768im2 NUMBER(17,2),
+  jaqa768im3 NUMBER(17,2),
+  jaqa768ca1 VARCHAR2(255),
+  jaqa768ca2 VARCHAR2(255),
+  jaqa768ca3 VARCHAR2(255)
+)
+;
+create index JAQA7682 on JAQA768 (JAQA768EMN, JAQA768SUN, JAQA768MON, JAQA768TRN, JAQA768NRN, JAQA768FCN);
+create index JAQA7683 on JAQA768 (JAQA768EMT, JAQA768SUT, JAQA768MOT, JAQA768TRT, JAQA768NRT, JAQA768FCT);
+alter table JAQA768
+  add primary key (JAQA768FEG, JAQA768USR, JAQA786EMP, JAQA768MOD, JAQA768SUC, JAQA768MDA, JAQA768PAP, JAQA768CTA, JAQA768OPE, JAQA768SOP, JAQA768TOP);
+

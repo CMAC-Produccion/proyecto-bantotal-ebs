@@ -1,0 +1,20 @@
+create table JHSI20
+(
+  jhsi20apl  NUMBER(4) not null,
+  jhsi20ban  CHAR(5) not null,
+  jhsi20env  NUMBER(9) not null,
+  jhsi20cor  NUMBER(9) not null,
+  jhsi20tar  CHAR(19),
+  jhsi20fch  NUMBER(10),
+  jhsi20sys  NUMBER(6),
+  jhsi20icod CHAR(11),
+  jhsi20res  CHAR(2),
+  jhsi20481  CHAR(3),
+  jhsi20482  CHAR(4),
+  jhsi20483  CHAR(1),
+  jhsi20484  CHAR(4),
+  jhsi20tck  CHAR(1)
+)
+;
+create unique index JHSI2001 on JHSI20 (JHSI20APL, JHSI20BAN, JHSI20ENV, JHSI20COR);
+

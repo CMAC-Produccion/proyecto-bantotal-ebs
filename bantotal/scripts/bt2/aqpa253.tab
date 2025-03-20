@@ -1,0 +1,18 @@
+create table AQPA253
+(
+  aqpa253pai   NUMBER(3) not null,
+  aqpa253tdo   NUMBER(2) not null,
+  aqpa253ndo   CHAR(12) not null,
+  aqpa253contr NUMBER(12) not null,
+  aqpa253tmed  NUMBER(3) not null,
+  aqpa253docod NUMBER(2) not null,
+  aqpa253usur  CHAR(10) not null,
+  aqpa253fcn   DATE
+)
+;
+create index IDX_TAQPA253_01 on AQPA253 (AQPA253PAI, AQPA253TDO, AQPA253NDO);
+create index IDX_TAQPA253_02 on AQPA253 (AQPA253FCN);
+create index IDX_TAQPA253_03 on AQPA253 (AQPA253USUR);
+alter table AQPA253
+  add constraint AQPA253_PK primary key (AQPA253PAI, AQPA253TDO, AQPA253NDO, AQPA253CONTR, AQPA253TMED, AQPA253DOCOD, AQPA253USUR);
+

@@ -1,0 +1,38 @@
+create table FSFT65
+(
+  sft60emp   NUMBER(3) not null,
+  sft65suc   NUMBER(3) not null,
+  sft65rub   NUMBER(16) not null,
+  sft65mda   NUMBER(4) not null,
+  sft65pap   NUMBER(4) not null,
+  sft65cta   NUMBER(9) not null,
+  sft65oper  NUMBER(9) not null,
+  sft65subo  NUMBER(3) not null,
+  sft65tiop  NUMBER(3) not null,
+  sft60id    NUMBER(9) not null,
+  sft65vanom NUMBER(17,2),
+  sft65vares NUMBER(17,2),
+  sft65modtr NUMBER(3),
+  sft65suctr NUMBER(3),
+  sft65trn   NUMBER(3),
+  sft65nrel  NUMBER(4),
+  sft65fectr DATE,
+  sft65est   CHAR(1),
+  sft65fvc   DATE,
+  sft65ffin  DATE,
+  sft65auc1  CHAR(1),
+  sft65auc2  CHAR(1),
+  sft65aut1  CHAR(20),
+  sft65aut2  CHAR(20),
+  sft65aui1  NUMBER(17,2),
+  sft65aui2  NUMBER(17,2),
+  sft65auf1  DATE,
+  sft65auf2  DATE,
+  sft65aun1  NUMBER(9),
+  sft65aun2  NUMBER(9)
+)
+;
+create index FSFT6503 on FSFT65 (SFT60EMP, SFT60ID, SFT65CTA, SFT65PAP);
+alter table FSFT65
+  add primary key (SFT60EMP, SFT65SUC, SFT65RUB, SFT65MDA, SFT65PAP, SFT65CTA, SFT65OPER, SFT65SUBO, SFT65TIOP, SFT60ID);
+

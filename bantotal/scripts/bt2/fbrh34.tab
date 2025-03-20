@@ -1,0 +1,23 @@
+create table FBRH34
+(
+  brh34emp   NUMBER(3) not null,
+  brh34rgcod NUMBER(5) not null,
+  brh34cta   NUMBER(9) not null,
+  brh34mod   NUMBER(3) not null,
+  brh34trn   NUMBER(3) not null,
+  brh34fch   DATE not null,
+  brh34hra   CHAR(8) not null,
+  brh34eoi   CHAR(1),
+  brh34modo  CHAR(1),
+  brh34usu   CHAR(10),
+  brh34mot   CHAR(100),
+  brh34msg   CHAR(100),
+  brh34impop CHAR(1)
+)
+;
+create index FBRH3402 on FBRH34 (BRH34EMP, BRH34FCH, BRH34HRA);
+create index FBRH3403 on FBRH34 (BRH34MOD, BRH34TRN);
+create index FBRH3404 on FBRH34 (BRH34EMP, BRH34CTA, BRH34FCH, BRH34HRA);
+alter table FBRH34
+  add primary key (BRH34EMP, BRH34RGCOD, BRH34CTA, BRH34MOD, BRH34TRN, BRH34FCH, BRH34HRA);
+

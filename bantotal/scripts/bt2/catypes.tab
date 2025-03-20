@@ -1,0 +1,13 @@
+create table CATYPES
+(
+  catypappid NUMBER(2) not null,
+  catypid    NUMBER(6) not null,
+  catypname  CHAR(30),
+  catypext   CHAR(3),
+  catypmime  CHAR(60),
+  catypicon  CHAR(254)
+)
+;
+alter table CATYPES
+  add primary key (CATYPAPPID, CATYPID);
+

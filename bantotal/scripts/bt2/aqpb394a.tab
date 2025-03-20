@@ -1,0 +1,39 @@
+create table AQPB394A
+(
+  aqpb394acod NUMBER not null,
+  aqpb394afec DATE not null,
+  aqpb394acor NUMBER(8) not null,
+  aqpb394aest CHAR(1),
+  aqpb394ausr CHAR(10),
+  aqpb394afcr VARCHAR2(10),
+  aqpb394ahcr VARCHAR2(10),
+  aqpb394ausd CHAR(10),
+  aqpb394afed VARCHAR2(10),
+  aqpb394ahed VARCHAR2(10)
+)
+;
+comment on table AQPB394A
+  is 'Tabla CABECERA PAE MYPE';
+comment on column AQPB394A.aqpb394acod
+  is 'Código de empresa';
+comment on column AQPB394A.aqpb394afec
+  is 'Fecha de carga del archivo';
+comment on column AQPB394A.aqpb394acor
+  is 'Correlativo del archivo cargado';
+comment on column AQPB394A.aqpb394aest
+  is 'Estado del archivo';
+comment on column AQPB394A.aqpb394ausr
+  is 'Usuario de creación';
+comment on column AQPB394A.aqpb394afcr
+  is 'Fecha de creación';
+comment on column AQPB394A.aqpb394ahcr
+  is 'Hora de creación';
+comment on column AQPB394A.aqpb394ausd
+  is 'Usuario de edición';
+comment on column AQPB394A.aqpb394afed
+  is 'Fecha de edición';
+comment on column AQPB394A.aqpb394ahed
+  is 'Hora de edición';
+alter table AQPB394A
+  add primary key (AQPB394ACOD, AQPB394AFEC, AQPB394ACOR);
+

@@ -1,0 +1,12 @@
+create table SNG502
+(
+  sng501bien NUMBER(10) not null,
+  sng518tpov NUMBER(4) not null,
+  sng502fch  DATE not null,
+  sng502oge  NUMBER(5),
+  sng502val  NUMBER(17,2)
+)
+;
+alter table SNG502
+  add primary key (SNG501BIEN, SNG518TPOV, SNG502FCH);
+

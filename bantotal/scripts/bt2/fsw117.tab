@@ -1,0 +1,17 @@
+create table FSW117
+(
+  pgcod   NUMBER(3) not null,
+  impnro  NUMBER(9) not null,
+  wsborep NUMBER(3) not null,
+  wcampo  CHAR(50) not null,
+  wcorr   NUMBER(5) not null,
+  wcampon NUMBER(3),
+  wvalor  CHAR(130),
+  wlargo  NUMBER(3)
+)
+;
+create index FSW11703 on FSW117 (PGCOD, IMPNRO, WSBOREP, WCAMPON, WCORR);
+create index FSW11704 on FSW117 (PGCOD, WCAMPON, WVALOR);
+alter table FSW117
+  add primary key (PGCOD, IMPNRO, WSBOREP, WCAMPO, WCORR);
+

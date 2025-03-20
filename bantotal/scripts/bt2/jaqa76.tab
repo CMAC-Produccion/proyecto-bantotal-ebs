@@ -1,0 +1,47 @@
+create table JAQA76
+(
+  jaqa76pai NUMBER(3) not null,
+  jaqa76tdo NUMBER(2) not null,
+  jaqa76ndo CHAR(12) not null,
+  jaqa76emp NUMBER(3) not null,
+  jaqa76mod NUMBER(3) not null,
+  jaqa76suc NUMBER(3) not null,
+  jaqa76mon NUMBER(4) not null,
+  jaqa76pap NUMBER(4) not null,
+  jaqa76cta NUMBER(9) not null,
+  jaqa76ope NUMBER(9) not null,
+  jaqa76sop NUMBER(3) not null,
+  jaqa76top NUMBER(3) not null,
+  jaqa76cor NUMBER(5) not null,
+  jaqa76fch DATE,
+  jaqa76hor CHAR(8),
+  jaqa76usu CHAR(10),
+  jaqa76eva NUMBER(3),
+  jaqa76acc NUMBER(3),
+  jaqa76com VARCHAR2(255),
+  jaqa76rar VARCHAR2(255),
+  jaqa76est CHAR(1),
+  jaqa76an1 NUMBER(9),
+  jaqa76an2 NUMBER(9),
+  jaqa76an3 NUMBER(9),
+  jaqa76ad1 DATE,
+  jaqa76ad2 DATE,
+  jaqa76ad3 DATE,
+  jaqa76ai1 NUMBER(17,2),
+  jaqa76ai2 NUMBER(17,2),
+  jaqa76ai3 NUMBER(17,2),
+  jaqa76ac1 CHAR(255),
+  jaqa76ac2 CHAR(255),
+  jaqa76ac3 CHAR(255),
+  jaqa76nui NUMBER(10),
+  jaqa76cr1 CHAR(80),
+  jaqa76cr2 CHAR(80),
+  jaqa76cr3 CHAR(80),
+  jaqa76cr4 CHAR(80)
+)
+;
+create index JAQA76A2 on JAQA76 (JAQA76EMP, JAQA76MOD, JAQA76SUC, JAQA76MON, JAQA76PAP, JAQA76CTA, JAQA76OPE, JAQA76SOP, JAQA76TOP);
+create index JAQA76A3 on JAQA76 (JAQA76FCH, JAQA76SUC, JAQA76EST);
+alter table JAQA76
+  add primary key (JAQA76PAI, JAQA76TDO, JAQA76NDO, JAQA76EMP, JAQA76MOD, JAQA76SUC, JAQA76MON, JAQA76PAP, JAQA76CTA, JAQA76OPE, JAQA76SOP, JAQA76TOP, JAQA76COR);
+

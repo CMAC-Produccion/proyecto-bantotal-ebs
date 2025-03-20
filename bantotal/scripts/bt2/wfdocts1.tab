@@ -1,0 +1,16 @@
+create table WFDOCTS1
+(
+  wfprcid       NUMBER(4) not null,
+  wfdocappid    NUMBER(2) not null,
+  wfdocid       NUMBER(10) not null,
+  wfdocttaskcod NUMBER(4) not null,
+  wfdoctrolcod  NUMBER(4) not null,
+  wfdocacnid    NUMBER(4) not null,
+  wfacnreq      CHAR(1)
+)
+;
+create index IWFDOCTSKROL12 on WFDOCTS1 (WFDOCACNID);
+create index UWFDOCTSKROL1 on WFDOCTS1 (WFDOCTROLCOD, WFPRCID, WFDOCID, WFDOCTTASKCOD, WFDOCACNID);
+alter table WFDOCTS1
+  add primary key (WFPRCID, WFDOCAPPID, WFDOCID, WFDOCTTASKCOD, WFDOCTROLCOD, WFDOCACNID);
+

@@ -1,0 +1,38 @@
+create table JAQL986
+(
+  jaql986emp NUMBER(3) not null,
+  jaql986cia NUMBER(9) not null,
+  jaql986tse NUMBER(5) not null,
+  jaql986seg NUMBER(3) not null,
+  jaql986mod NUMBER(3) not null,
+  jaql986suc NUMBER(3) not null,
+  jaql986mda NUMBER(4) not null,
+  jaql986pap NUMBER(4) not null,
+  jaql986cta NUMBER(9) not null,
+  jaql986ope NUMBER(9) not null,
+  jaql986sbo NUMBER(3) not null,
+  jaql986top NUMBER(3) not null,
+  jaql986fpa DATE not null,
+  jaql986tip CHAR(1) not null,
+  jaql986fec DATE not null,
+  jaql986imp NUMBER(17,2),
+  jaql986au1 NUMBER(9),
+  jaql986au2 NUMBER(9),
+  jaql986au3 NUMBER(9),
+  jaql986au4 NUMBER(17,2),
+  jaql986au5 NUMBER(17,2),
+  jaql986au6 NUMBER(17,2),
+  jaql986au7 DATE,
+  jaql986au8 DATE,
+  jaql986au9 DATE,
+  jaql986a10 CHAR(30),
+  jaql986a12 CHAR(30),
+  jaql986a11 CHAR(30)
+)
+;
+create index JAQL98601 on JAQL986 (JAQL986EMP, JAQL986FEC, JAQL986CIA, JAQL986TSE, JAQL986SEG, JAQL986SUC);
+create index JAQL98602 on JAQL986 (JAQL986EMP, JAQL986FEC, JAQL986TSE, JAQL986SEG, JAQL986SUC, JAQL986MDA);
+create index JAQL98603 on JAQL986 (JAQL986EMP, JAQL986MOD, JAQL986SUC, JAQL986MDA, JAQL986PAP, JAQL986CTA, JAQL986OPE, JAQL986SBO, JAQL986TOP, JAQL986FEC);
+alter table JAQL986
+  add constraint JAQL986_PK primary key (JAQL986EMP, JAQL986CIA, JAQL986TSE, JAQL986SEG, JAQL986MOD, JAQL986SUC, JAQL986MDA, JAQL986PAP, JAQL986CTA, JAQL986OPE, JAQL986SBO, JAQL986TOP, JAQL986FPA, JAQL986TIP, JAQL986FEC);
+

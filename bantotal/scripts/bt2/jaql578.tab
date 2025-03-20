@@ -1,0 +1,16 @@
+create table JAQL578
+(
+  jaql578cor  NUMBER(4) not null,
+  jaql578tip  CHAR(3) not null,
+  jaql578tage CHAR(3),
+  jaql578tase CHAR(3),
+  jaql578sald NUMBER(17,2),
+  jaql578clie NUMBER(10),
+  jaql578mra  NUMBER(9,2),
+  jaql578est  CHAR(1),
+  jaql578pcod NUMBER(4)
+)
+;
+alter table JAQL578
+  add primary key (JAQL578COR, JAQL578TIP);
+

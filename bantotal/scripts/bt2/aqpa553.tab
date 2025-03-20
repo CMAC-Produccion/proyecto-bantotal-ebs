@@ -1,0 +1,34 @@
+create table AQPA553
+(
+  aqpa553cod  NUMBER(4) not null,
+  aqpa553mod  NUMBER(3) not null,
+  aqpa553suc  NUMBER(3) not null,
+  aqpa553mda  NUMBER(4) not null,
+  aqpa553pap  NUMBER(4) not null,
+  aqpa553cta  NUMBER(9) not null,
+  aqpa553ope  NUMBER(9) not null,
+  aqpa553sbo  NUMBER(3) not null,
+  aqpa553tip  NUMBER(3) not null,
+  aqpa553fec  DATE,
+  aqpa553pai  NUMBER(4),
+  aqpa553tdo  NUMBER(4),
+  aqpa553ndo  CHAR(12),
+  aqpa553tpro CHAR(1),
+  aqpa553est  CHAR(1),
+  aqpa553ftr  DATE,
+  aqpa553mtr  NUMBER(4),
+  aqpa553str  NUMBER(4),
+  aqpa553ttr  NUMBER(4),
+  aqpa553rtr  NUMBER(4),
+  aqpa553mto  NUMBER(11,2),
+  aqpa553a1   NUMBER(4),
+  aqpa553a2   NUMBER(4),
+  aqpa553a3   CHAR(20),
+  aqpa553a4   VARCHAR2(40),
+  aqpa553a5   DATE
+)
+;
+create index AQPA5532 on AQPA553 (AQPA553PAI, AQPA553TDO, AQPA553NDO);
+alter table AQPA553
+  add primary key (AQPA553COD, AQPA553MOD, AQPA553SUC, AQPA553MDA, AQPA553PAP, AQPA553CTA, AQPA553OPE, AQPA553SBO, AQPA553TIP);
+

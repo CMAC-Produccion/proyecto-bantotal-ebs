@@ -1,0 +1,88 @@
+create table AQPB164
+(
+  aqpb164corr  NUMBER(10) not null,
+  aqpb164inst  NUMBER(10) not null,
+  aqpb164pais  NUMBER(4),
+  aqpb164tdoc  NUMBER(4),
+  aqpb164ndoc  VARCHAR2(12),
+  aqpb164fec   DATE not null,
+  aqpb164hora  VARCHAR2(8) not null,
+  aqpb164pgcod VARCHAR2(3) not null,
+  aqpb164mod   NUMBER(4) not null,
+  aqpb164suc   NUMBER(4) not null,
+  aqpb164mda   NUMBER(4) not null,
+  aqpb164pap   NUMBER(4) not null,
+  aqpb164cta   NUMBER(9) not null,
+  aqpb164ope   NUMBER(9) not null,
+  aqpb164sbop  NUMBER(4) not null,
+  aqpb164tope  NUMBER(4) not null,
+  aqpb164pgtx  NUMBER(4) not null,
+  aqpb164suct  NUMBER(4) not null,
+  aqpb164modt  NUMBER(4) not null,
+  aqpb164ttran NUMBER(6) not null,
+  aqpb164relt  NUMBER(6) not null,
+  aqpb164ordt  NUMBER(4) not null,
+  aqpb164sbor  NUMBER(4) not null,
+  aqpb164ident VARCHAR2(50),
+  aqpb164est   VARCHAR2(5)
+)
+;
+comment on table AQPB164
+  is 'Log de Identificador de Lineas por Nro de Utilizaciones Nuevas o Recurrentes';
+comment on column AQPB164.aqpb164corr
+  is 'Correlativo';
+comment on column AQPB164.aqpb164inst
+  is 'Instancia Linea';
+comment on column AQPB164.aqpb164pais
+  is 'Pais';
+comment on column AQPB164.aqpb164tdoc
+  is 'Tipo de Documento';
+comment on column AQPB164.aqpb164ndoc
+  is 'Nro de Documento';
+comment on column AQPB164.aqpb164fec
+  is 'Fecha de Registro';
+comment on column AQPB164.aqpb164hora
+  is 'Hora de Registro';
+comment on column AQPB164.aqpb164pgcod
+  is 'Pgcod 116';
+comment on column AQPB164.aqpb164mod
+  is 'Modulo 116';
+comment on column AQPB164.aqpb164suc
+  is 'Sucursal 116';
+comment on column AQPB164.aqpb164mda
+  is 'Moneda 116';
+comment on column AQPB164.aqpb164pap
+  is 'Papel 116';
+comment on column AQPB164.aqpb164cta
+  is 'Cuenta 116';
+comment on column AQPB164.aqpb164ope
+  is ' Operacion 116';
+comment on column AQPB164.aqpb164sbop
+  is 'Sub Operacion 116';
+comment on column AQPB164.aqpb164tope
+  is 'Tipo de Operacion 116';
+comment on column AQPB164.aqpb164pgtx
+  is 'Pgcod TX';
+comment on column AQPB164.aqpb164suct
+  is 'Sucursal TX';
+comment on column AQPB164.aqpb164modt
+  is 'Modulo TX';
+comment on column AQPB164.aqpb164ttran
+  is 'Transaccion';
+comment on column AQPB164.aqpb164relt
+  is 'Relacion TX';
+comment on column AQPB164.aqpb164ordt
+  is 'Ordinal';
+comment on column AQPB164.aqpb164sbor
+  is 'SubOrdinal';
+comment on column AQPB164.aqpb164ident
+  is 'Identificador Nuevo/Recurrente';
+comment on column AQPB164.aqpb164est
+  is 'Estado S contabilizado, E extornado';
+create index AQPB164A2 on AQPB164 (AQPB164INST);
+create index AQPB164A3 on AQPB164 (AQPB164PAIS, AQPB164TDOC, AQPB164NDOC);
+create index AQPB164A4 on AQPB164 (AQPB164INST, AQPB164FEC);
+create index AQPB164A5 on AQPB164 (AQPB164PGCOD, AQPB164MOD, AQPB164SUC, AQPB164MDA, AQPB164PAP, AQPB164CTA, AQPB164OPE, AQPB164SBOP, AQPB164TOPE);
+alter table AQPB164
+  add primary key (AQPB164CORR, AQPB164INST, AQPB164FEC, AQPB164HORA, AQPB164PGCOD, AQPB164MOD, AQPB164SUC, AQPB164MDA, AQPB164PAP, AQPB164CTA, AQPB164OPE, AQPB164SBOP, AQPB164TOPE, AQPB164PGTX, AQPB164SUCT, AQPB164MODT, AQPB164TTRAN, AQPB164RELT, AQPB164ORDT, AQPB164SBOR);
+

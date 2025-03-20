@@ -1,0 +1,13 @@
+create table MSGA02
+(
+  msga00id  NUMBER(7) not null,
+  msga02cor NUMBER(4) not null,
+  msga02em  VARCHAR2(300),
+  msga02pf  CHAR(10),
+  msga02mv  VARCHAR2(40),
+  msga02us  CHAR(10)
+)
+;
+alter table MSGA02
+  add primary key (MSGA00ID, MSGA02COR);
+

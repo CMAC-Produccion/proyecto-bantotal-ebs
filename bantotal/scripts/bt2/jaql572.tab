@@ -1,0 +1,35 @@
+create table JAQL572
+(
+  jaql572usu   CHAR(20) not null,
+  jaql572fpro  DATE not null,
+  jaql572mant  NUMBER(9,1),
+  jaql572dant  NUMBER(9,1),
+  jaql572bsal  NUMBER(17,2),
+  jaql572bcli  NUMBER(17,2),
+  jaql572scre  NUMBER(17,2),
+  jaql572ncli  NUMBER(10),
+  jaql572cod   NUMBER(3),
+  jaql572agen  NUMBER(3),
+  jaql572ccli  CHAR(2),
+  jaql572csal  CHAR(2),
+  jaql572sant  NUMBER(17,2),
+  jaql572ncl   NUMBER(10),
+  jaql572cme   NUMBER(17,2),
+  jaql572tage  NUMBER(3),
+  jaql572soto  NUMBER(17,2),
+  jaql572srec  NUMBER(17,2),
+  jaql572coto  NUMBER(10),
+  jaql572crec  NUMBER(10),
+  jaql572cmcl  NUMBER(10),
+  jaql572est   CHAR(1),
+  jaql572btot  NUMBER(17,2),
+  jaql572fmo   DATE,
+  jaql572umo   CHAR(20),
+  jaql572mcas  NUMBER(17,2),
+  jaql572pjcas NUMBER(9,2),
+  jaql572inca  CHAR(1)
+)
+;
+alter table JAQL572
+  add primary key (JAQL572USU, JAQL572FPRO);
+

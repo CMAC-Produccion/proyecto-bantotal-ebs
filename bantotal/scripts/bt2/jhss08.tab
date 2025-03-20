@@ -1,0 +1,14 @@
+create table JHSS08
+(
+  jhss08atm  NUMBER(6) not null,
+  jhss08fini DATE not null,
+  jhss08hini CHAR(8) not null,
+  jhss08tari CHAR(20),
+  jhss08ffin DATE,
+  jhss08hfin CHAR(8),
+  jhss08tarf CHAR(20),
+  jhss08rep  CHAR(1)
+)
+;
+create unique index JHSS0801 on JHSS08 (JHSS08ATM, JHSS08FINI, JHSS08HINI);
+

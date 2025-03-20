@@ -1,0 +1,16 @@
+create table FSFI42
+(
+  sfi42cod NUMBER(3) not null,
+  sfi42dsc CHAR(30),
+  sfi42au1 CHAR(1),
+  sfi42au2 CHAR(1),
+  sfi42au3 NUMBER(9),
+  sfi42au4 NUMBER(9),
+  sfi42mod NUMBER(3),
+  sfi42trn NUMBER(3),
+  sfi42ord NUMBER(2)
+)
+;
+alter table FSFI42
+  add primary key (SFI42COD);
+

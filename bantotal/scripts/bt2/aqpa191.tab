@@ -1,0 +1,25 @@
+create table AQPA191
+(
+  aqpa191id      NUMBER(10) not null,
+  aqpa191tipope  CHAR(1),
+  aqpa191codpro  VARCHAR2(5),
+  aqpa191tipdoc  VARCHAR2(3),
+  aqpa191numdoc  CHAR(12),
+  aqpa191numcta  VARCHAR2(100),
+  aqpa191importe NUMBER(9,2),
+  aqpa191moneda  NUMBER(4),
+  aqpa191mod     NUMBER(3),
+  aqpa191tran    NUMBER(3),
+  aqpa191nrel    NUMBER(4),
+  aqpa191suc     NUMBER(3),
+  aqpa191fecreg  DATE,
+  aqpa191horreg  VARCHAR2(10),
+  aqpa191codres  CHAR(5),
+  aqpa191msjres  VARCHAR2(200),
+  aqpa191codusu  CHAR(10),
+  aqpa191canal   NUMBER(5)
+)
+;
+alter table AQPA191
+  add primary key (AQPA191ID);
+

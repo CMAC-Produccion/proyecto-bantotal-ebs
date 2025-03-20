@@ -1,0 +1,88 @@
+create table JAQN1A
+(
+  jaqn1aemp  NUMBER(3) not null,
+  jaqn1amod  NUMBER(3) not null,
+  jaqn1asuc  NUMBER(3) not null,
+  jaqn1amda  NUMBER(4) not null,
+  jaqn1apap  NUMBER(4) not null,
+  jaqn1acta  NUMBER(9) not null,
+  jaqn1aope  NUMBER(9) not null,
+  jaqn1asub  NUMBER(3) not null,
+  jaqn1atop  NUMBER(3) not null,
+  jaqn1afec  DATE not null,
+  jaqn1arel  NUMBER(5) not null,
+  jaqn1afeci DATE not null,
+  jaqn1ahor  CHAR(10) not null,
+  jaqn1ausu  CHAR(10) not null,
+  jaqn1aan1  NUMBER(9),
+  jaqn1aan2  NUMBER(9),
+  jaqn1aan3  NUMBER(9),
+  jaqn1aac1  VARCHAR2(255),
+  jaqn1aac2  VARCHAR2(255),
+  jaqn1aac3  VARCHAR2(255),
+  jaqn1aai1  NUMBER(17,2),
+  jaqn1aai2  NUMBER(17,2),
+  jaqn1aai3  NUMBER(17,2),
+  jaqn1aaf1  DATE,
+  jaqn1aaf2  DATE,
+  jaqn1aaf3  DATE
+)
+;
+comment on table JAQN1A
+  is 'Log de FSD450';
+comment on column JAQN1A.jaqn1aemp
+  is 'Cbieemp';
+comment on column JAQN1A.jaqn1amod
+  is 'Cbiemod';
+comment on column JAQN1A.jaqn1asuc
+  is 'Cbiesuc';
+comment on column JAQN1A.jaqn1amda
+  is 'Cbiemda';
+comment on column JAQN1A.jaqn1apap
+  is 'Cbiepap';
+comment on column JAQN1A.jaqn1acta
+  is 'Cbiecta';
+comment on column JAQN1A.jaqn1aope
+  is 'Cbieope';
+comment on column JAQN1A.jaqn1asub
+  is 'Cbiesub';
+comment on column JAQN1A.jaqn1atop
+  is 'Cbietop';
+comment on column JAQN1A.jaqn1afec
+  is 'Cbiefec';
+comment on column JAQN1A.jaqn1arel
+  is 'Cbierel';
+comment on column JAQN1A.jaqn1afeci
+  is 'Fecha ingreso';
+comment on column JAQN1A.jaqn1ahor
+  is 'Hora ingreso';
+comment on column JAQN1A.jaqn1ausu
+  is 'Usuario ingreso';
+comment on column JAQN1A.jaqn1aan1
+  is 'Auxiliar numerico 1';
+comment on column JAQN1A.jaqn1aan2
+  is 'Auxiliar numerico 2';
+comment on column JAQN1A.jaqn1aan3
+  is 'Auxiliar numerico 3';
+comment on column JAQN1A.jaqn1aac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN1A.jaqn1aac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN1A.jaqn1aac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN1A.jaqn1aai1
+  is 'Auxiliar importe 1';
+comment on column JAQN1A.jaqn1aai2
+  is 'Auxiliar importe 2';
+comment on column JAQN1A.jaqn1aai3
+  is 'Auxiliar importe 3';
+comment on column JAQN1A.jaqn1aaf1
+  is 'Auxiliar fecha 1';
+comment on column JAQN1A.jaqn1aaf2
+  is 'Auxiliar fecha 2';
+comment on column JAQN1A.jaqn1aaf3
+  is 'Auxiliar fecha 3';
+create index JAQN1A2 on JAQN1A (JAQN1AFECI, JAQN1AHOR, JAQN1AUSU);
+alter table JAQN1A
+  add primary key (JAQN1AEMP, JAQN1AMOD, JAQN1ASUC, JAQN1AMDA, JAQN1APAP, JAQN1ACTA, JAQN1AOPE, JAQN1ASUB, JAQN1ATOP, JAQN1AFEC, JAQN1AREL, JAQN1AFECI, JAQN1AHOR, JAQN1AUSU);
+

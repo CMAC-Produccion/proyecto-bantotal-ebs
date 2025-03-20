@@ -1,0 +1,37 @@
+create table JAQZ504
+(
+  jaqz504emp NUMBER(3) not null,
+  jaqz504mod NUMBER(3) not null,
+  jaqz504suc NUMBER(3) not null,
+  jaqz504mda NUMBER(4) not null,
+  jaqz504pap NUMBER(4) not null,
+  jaqz504cta NUMBER(9) not null,
+  jaqz504ope NUMBER(9) not null,
+  jaqz504sbo NUMBER(3) not null,
+  jaqz504top NUMBER(3) not null,
+  jaqz504usu CHAR(10),
+  jaqz504fec DATE,
+  jaqz504obs VARCHAR2(200),
+  jaqz504est NUMBER(2),
+  jaqz504ins NUMBER(10),
+  jaqz504fei DATE,
+  jaqz504fef DATE,
+  jaqz504mto NUMBER(18,2),
+  jaqz504ext NUMBER(2),
+  jaqz504sud NUMBER(3),
+  jaqz504fed DATE,
+  jaqz504mot NUMBER(3),
+  jaqz504trt NUMBER(3),
+  jaqz504nrt NUMBER(4),
+  jaqz504ust CHAR(10),
+  jaqz504frf DATE,
+  jaqz504urf CHAR(10)
+)
+;
+create index IDX_JAQZ504_01 on JAQZ504 (JAQZ504SUC, JAQZ504FEF, JAQZ504EST);
+create index IDX_JAQZ504_02 on JAQZ504 (JAQZ504INS);
+create index IDX_JAQZ504_03 on JAQZ504 (JAQZ504SUD, JAQZ504EST, JAQZ504EXT);
+create index IDX_JAQZ504_04 on JAQZ504 (JAQZ504SUC, JAQZ504EST, JAQZ504EXT);
+alter table JAQZ504
+  add constraint SYS_JAQZ504 primary key (JAQZ504EMP, JAQZ504MOD, JAQZ504SUC, JAQZ504MDA, JAQZ504PAP, JAQZ504CTA, JAQZ504OPE, JAQZ504SBO, JAQZ504TOP);
+

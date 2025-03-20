@@ -1,0 +1,17 @@
+create table CNL090
+(
+  cnl090pg  NUMBER(3) not null,
+  cnl090mlc NUMBER(3) not null,
+  cnl090op  NUMBER(9) not null,
+  cnl000cod NUMBER(4),
+  cnl001pad NUMBER(3),
+  cnl001tad NUMBER(2),
+  cnl001dad CHAR(64),
+  cnl090dat CLOB,
+  cnl032cod NUMBER(3),
+  cnl090eda CHAR(12)
+)
+;
+create unique index CNL09001 on CNL090 (CNL090PG, CNL090MLC, CNL090OP, CNL090EDA);
+create index CNL09002 on CNL090 (CNL000COD, CNL001PAD, CNL001TAD, CNL001DAD, CNL032COD);
+

@@ -1,0 +1,30 @@
+create table FBC793
+(
+  bc793emp  NUMBER(3) not null,
+  bc793fch  DATE not null,
+  bc793plaz NUMBER(6) not null,
+  bc793morg NUMBER(4) not null,
+  bc793nopr CHAR(20) not null,
+  bc793ntra CHAR(20) not null,
+  bc793ttrn NUMBER(5) not null,
+  bc793ftrn DATE,
+  bc793hora CHAR(8),
+  bc793impt NUMBER(13,2),
+  bc793cmon NUMBER(2),
+  bc793nofi NUMBER(5),
+  bc793agen NUMBER(5),
+  bc793porg NUMBER(5),
+  bc793pdes NUMBER(5),
+  bc793mfor CHAR(10),
+  bc793impc NUMBER(13,2),
+  bc793glos CHAR(90),
+  bc793imp1 NUMBER(17,2),
+  bc793imp2 NUMBER(17,2),
+  bc793chr1 CHAR(20),
+  bc793chr2 CHAR(20),
+  bc793fech DATE
+)
+;
+alter table FBC793
+  add primary key (BC793EMP, BC793FCH, BC793PLAZ, BC793MORG, BC793NOPR, BC793NTRA, BC793TTRN);
+

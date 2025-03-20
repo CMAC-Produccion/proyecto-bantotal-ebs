@@ -1,0 +1,43 @@
+create table JHSI28
+(
+  jhsi28apl  NUMBER(4) not null,
+  jhsi28band CHAR(5) not null,
+  jhsi28env  NUMBER(9) not null,
+  jhsi28cor  NUMBER(9) not null,
+  jhsi28reg  CHAR(1),
+  jhsi28prod NUMBER(3),
+  jhsi28idpr CHAR(20),
+  jhsi28tpro CHAR(4),
+  jhsi28fchv NUMBER(8),
+  jhsi28nroc CHAR(20),
+  jhsi28desc CHAR(50),
+  jhsi28cap  NUMBER(14,2),
+  jhsi28int  NUMBER(14,2),
+  jhsi28impu NUMBER(14,2),
+  jhsi28impo NUMBER(14,2),
+  jhsi28d1   CHAR(100),
+  jhsi28d2   CHAR(100),
+  jhsi28d3   CHAR(100),
+  jhsi28fill CHAR(7),
+  jhsi28pgco NUMBER(3),
+  jhsi28scmo NUMBER(3),
+  jhsi28scsu NUMBER(3),
+  jhsi28scmd NUMBER(4),
+  jhsi28scpa NUMBER(4),
+  jhsi28scct NUMBER(9),
+  jhsi28scop NUMBER(9),
+  jhsi28scsb NUMBER(3),
+  jhsi28scto NUMBER(3),
+  jhsi28seg  NUMBER(14,2),
+  jhsi28impc NUMBER(14,2),
+  jhsi28mora NUMBER(14,2),
+  jhsi28intd NUMBER(14,2),
+  jhsi28cuoc NUMBER(14,2),
+  jhsi28intc NUMBER(14,2)
+)
+;
+create unique index JHSI2801 on JHSI28 (JHSI28APL, JHSI28BAND, JHSI28ENV, JHSI28COR);
+create index JHSI2802 on JHSI28 (JHSI28PGCO, JHSI28SCMO, JHSI28SCMD, JHSI28SCPA, JHSI28SCCT, JHSI28SCSU, JHSI28SCOP, JHSI28SCSB, JHSI28SCTO, JHSI28APL, JHSI28BAND, JHSI28ENV);
+create index JHSI2803 on JHSI28 (JHSI28PROD, JHSI28IDPR, JHSI28TPRO, JHSI28APL, JHSI28BAND, JHSI28ENV);
+create index JHSI2804 on JHSI28 (JHSI28FCHV, JHSI28NROC, JHSI28DESC, JHSI28APL, JHSI28BAND, JHSI28ENV);
+

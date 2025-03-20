@@ -1,0 +1,15 @@
+create table BST114
+(
+  pgcod  NUMBER(3) not null,
+  bscusu CHAR(10) not null,
+  bsccla CHAR(10) not null,
+  bscfec DATE,
+  bscimp CHAR(5),
+  bsccou NUMBER(3),
+  bsctip NUMBER(2),
+  bscnum CHAR(12)
+)
+;
+alter table BST114
+  add primary key (PGCOD, BSCUSU, BSCCLA);
+

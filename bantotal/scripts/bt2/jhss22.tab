@@ -1,0 +1,25 @@
+create table JHSS22
+(
+  jhss22id   NUMBER(2) not null,
+  jhss22mq01 CHAR(48),
+  jhss22mq02 CHAR(48),
+  jhss22mq03 CHAR(48),
+  jhss22mq06 NUMBER(3),
+  jhss22gd01 CHAR(8),
+  jhss22gd03 CHAR(4),
+  jhss22gd04 CHAR(8),
+  jhss22gd05 CHAR(8),
+  jhss22gd06 CHAR(2),
+  jhss22gd07 CHAR(2),
+  jhss22gd08 CHAR(2),
+  jhss22gd09 CHAR(2),
+  jhss22gd10 CHAR(2),
+  jhss22gd14 NUMBER(2),
+  jhss22bc03 CHAR(8),
+  jhss22bc04 CHAR(8),
+  jhss22fh   DATE,
+  jhss22usr  CHAR(10)
+)
+;
+create unique index JHSS2201 on JHSS22 (JHSS22ID);
+

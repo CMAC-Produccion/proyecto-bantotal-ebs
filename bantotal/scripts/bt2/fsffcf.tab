@@ -1,0 +1,33 @@
+create table FSFFCF
+(
+  fsffcfnum NUMBER(9) not null,
+  fsffcffch DATE not null,
+  fsffcfemp NUMBER(3) not null,
+  fsffcfsuc NUMBER(3) not null,
+  fsffcfrub NUMBER(16) not null,
+  fsffcfmda NUMBER(4) not null,
+  fsffcfpap NUMBER(4) not null,
+  fsffcfcta NUMBER(9) not null,
+  fsffcfope NUMBER(9) not null,
+  fsffcfsbp NUMBER(3) not null,
+  fsffcftop NUMBER(3) not null,
+  fsffcfaa  NUMBER(4) not null,
+  fsffcfi01 NUMBER(17,2),
+  fsffcfi02 NUMBER(17,2),
+  fsffcfi03 NUMBER(17,2),
+  fsffcfi04 NUMBER(17,2),
+  fsffcfi05 NUMBER(17,2),
+  fsffcfi06 NUMBER(17,2),
+  fsffcfi07 NUMBER(17,2),
+  fsffcfi08 NUMBER(17,2),
+  fsffcfi09 NUMBER(17,2),
+  fsffcfi10 NUMBER(17,2),
+  fsffcfi11 NUMBER(17,2),
+  fsffcfi12 NUMBER(17,2),
+  fsffcfau1 NUMBER(9),
+  fsffcfau2 NUMBER(9)
+)
+;
+alter table FSFFCF
+  add primary key (FSFFCFNUM, FSFFCFFCH, FSFFCFEMP, FSFFCFSUC, FSFFCFRUB, FSFFCFMDA, FSFFCFPAP, FSFFCFCTA, FSFFCFOPE, FSFFCFSBP, FSFFCFTOP, FSFFCFAA);
+

@@ -1,0 +1,23 @@
+create table JBXI86
+(
+  jbxi86fin DATE not null,
+  jbxi86ncu CHAR(22) not null,
+  jbxi86mod NUMBER(3) not null,
+  jbxi86suc NUMBER(3) not null,
+  jbxi86top CHAR(3) not null,
+  jbxi86nop CHAR(22) not null,
+  jbxi86css CHAR(5) not null,
+  jbxi86crr NUMBER(9) not null,
+  jbxi86tid CHAR(2) not null,
+  jbxi86nid CHAR(16) not null,
+  jbxi86con CHAR(1),
+  jbxi86tcu CHAR(3),
+  jbxi86emp CHAR(4),
+  jbxi86tre CHAR(3),
+  jbxi86ore NUMBER(1),
+  jbxi86fal DATE,
+  jbxi86fba DATE
+)
+;
+create unique index JBXI8601 on JBXI86 (JBXI86FIN, JBXI86NCU, JBXI86MOD, JBXI86SUC, JBXI86TOP, JBXI86NOP, JBXI86CSS, JBXI86CRR, JBXI86TID, JBXI86NID);
+

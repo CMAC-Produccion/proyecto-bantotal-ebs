@@ -1,0 +1,32 @@
+create table FBCCRE
+(
+  bccreemp  NUMBER(3) not null,
+  bccrefec  DATE not null,
+  bccrecorr NUMBER(12) not null,
+  bccre04   CHAR(16) not null,
+  bccre05   NUMBER(3) not null,
+  bccre03   CHAR(4),
+  bccre06   CHAR(2),
+  bccre07   CHAR(16),
+  bccre08   CHAR(4),
+  bccre09   CHAR(2),
+  bccre10   CHAR(2),
+  bccre11   CHAR(16),
+  bccre12   CHAR(4),
+  bccre13   CHAR(2),
+  bccre14   CHAR(2),
+  bccre15   CHAR(3),
+  bccre16   CHAR(2),
+  bccre17   CHAR(3),
+  bccre18   CHAR(1),
+  bccre19   NUMBER(14,2),
+  bccre20   NUMBER(14,2),
+  bccre21   NUMBER(14,2),
+  bccre22   CHAR(50),
+  bccre23   CHAR(1),
+  bccre24   NUMBER(2)
+)
+;
+alter table FBCCRE
+  add primary key (BCCREEMP, BCCREFEC, BCCRECORR, BCCRE04, BCCRE05);
+

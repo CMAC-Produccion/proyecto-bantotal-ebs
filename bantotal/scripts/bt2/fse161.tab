@@ -1,0 +1,17 @@
+create table FSE161
+(
+  paqemp   NUMBER(3) not null,
+  paqcod   NUMBER(3) not null,
+  arprod   NUMBER(3) not null,
+  pqprcor  NUMBER(3) not null,
+  pqprmod  NUMBER(3),
+  pqprtrn  NUMBER(3),
+  pqprpgm1 CHAR(10),
+  pqprpgm2 CHAR(10),
+  pqprimp  NUMBER(10,2),
+  pqprimpt CHAR(1)
+)
+;
+alter table FSE161
+  add primary key (PAQEMP, PAQCOD, ARPROD, PQPRCOR);
+

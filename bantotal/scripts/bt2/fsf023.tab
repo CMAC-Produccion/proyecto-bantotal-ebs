@@ -1,0 +1,14 @@
+create table FSF023
+(
+  yhtoper NUMBER(3) not null,
+  yhcta   NUMBER(9) not null,
+  ycodmov NUMBER(2) not null,
+  yhmda   NUMBER(4) not null,
+  yhcimp1 NUMBER(17,2) not null,
+  yhfvco  DATE not null,
+  ycorr   NUMBER(3) not null
+)
+;
+alter table FSF023
+  add primary key (YHTOPER, YHCTA, YCODMOV, YHMDA, YHCIMP1, YHFVCO, YCORR);
+

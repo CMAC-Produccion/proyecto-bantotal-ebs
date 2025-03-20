@@ -1,0 +1,31 @@
+create table JAQY148
+(
+  jaqy148corr    NUMBER(10) not null,
+  jaqy148fec     DATE not null,
+  jaqy148hora    CHAR(10) not null,
+  jaqy148pais    NUMBER(9) not null,
+  jaqy148tdoc    NUMBER(9) not null,
+  jaqy148ndoc    VARCHAR2(12) not null,
+  jaqy148tcamb   NUMBER(14,8),
+  jaqy148inst    NUMBER(12) not null,
+  jaqy148pgcod   NUMBER(5),
+  jaqy148mod     NUMBER(5),
+  jaqy148suc     NUMBER(5),
+  jaqy148mda     NUMBER(5),
+  jaqy148pap     NUMBER(5),
+  jaqy148cta     NUMBER(10),
+  jaqy148ope     NUMBER(10),
+  jaqy148sbop    NUMBER(10),
+  jaqy148tope    NUMBER(10),
+  jaqy148saldcap NUMBER(17,2),
+  jaqy148indic   VARCHAR2(12),
+  jaqy148est     VARCHAR2(2)
+)
+;
+create index JAQY148A5 on JAQY148 (JAQY148FEC, JAQY148INST);
+create index JAQY148IDX002 on JAQY148 (JAQY148PGCOD, JAQY148MOD, JAQY148SUC, JAQY148MDA, JAQY148PAP, JAQY148CTA, JAQY148OPE, JAQY148SBOP, JAQY148TOPE);
+create index JAQY148IDX003 on JAQY148 (JAQY148FEC, JAQY148PAIS, JAQY148TDOC, JAQY148NDOC, JAQY148INST);
+create index JAQY148IDX004 on JAQY148 (JAQY148INST, JAQY148PGCOD, JAQY148MOD, JAQY148SUC, JAQY148MDA, JAQY148PAP, JAQY148CTA, JAQY148OPE, JAQY148SBOP, JAQY148TOPE);
+alter table JAQY148
+  add primary key (JAQY148CORR, JAQY148FEC, JAQY148PAIS, JAQY148TDOC, JAQY148NDOC, JAQY148INST, JAQY148HORA);
+

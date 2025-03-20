@@ -1,0 +1,31 @@
+create table XCR014
+(
+  xcrhemp    NUMBER(3) not null,
+  xcrhcta    NUMBER(9) not null,
+  xcrhsbop   NUMBER(3) not null,
+  xcrhmda    NUMBER(4) not null,
+  xcrhnumc   NUMBER(9) not null,
+  xcrhusing  CHAR(10),
+  xcrhfecing DATE,
+  xcrhhraing CHAR(8),
+  xcrhusaut  CHAR(10),
+  xcrhfecaut DATE,
+  xcrhhraaut CHAR(8),
+  xcrhtipo   CHAR(1),
+  xcrhfchmay DATE,
+  xcrhfecpas DATE,
+  xcrhfotopo CHAR(10),
+  xcrhrevusr CHAR(10),
+  xcrhrevfec DATE,
+  xcrhrevhor CHAR(8),
+  xcrhrevaut CHAR(10),
+  xcrhrevfch DATE,
+  xcrhrevhra CHAR(8),
+  xcrhrstat  CHAR(1)
+)
+;
+create index XCR01402 on XCR014 (XCRHEMP, XCRHFECPAS);
+create index XCR01403 on XCR014 (XCRHEMP, XCRHCTA, XCRHSBOP, XCRHMDA, XCRHRSTAT, XCRHREVFCH);
+alter table XCR014
+  add primary key (XCRHEMP, XCRHCTA, XCRHSBOP, XCRHMDA, XCRHNUMC);
+

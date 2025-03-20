@@ -1,0 +1,22 @@
+create table FSFSTL
+(
+  sfstlemp   NUMBER(3) not null,
+  sfstlcta   NUMBER(9) not null,
+  sfstldesc  CHAR(35),
+  sfstlliqcu CHAR(1),
+  sfstlcomcu CHAR(1),
+  sfstlcust  NUMBER(9),
+  sfstldep   NUMBER(9),
+  sfstlcomi  NUMBER(9),
+  sfstlcustb NUMBER(9),
+  sfstldepb  NUMBER(9),
+  sfstlcomib NUMBER(9),
+  sfstlliqmo CHAR(1),
+  sfstlcommo CHAR(20),
+  sfstlcale  NUMBER(3),
+  sfstlhabi  CHAR(1)
+)
+;
+alter table FSFSTL
+  add primary key (SFSTLEMP, SFSTLCTA);
+

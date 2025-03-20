@@ -1,0 +1,23 @@
+create table FSFT17
+(
+  ktapgcod  NUMBER(3) not null,
+  ktaanio   NUMBER(4) not null,
+  ktames    NUMBER(2) not null,
+  ktafondo  NUMBER(3) not null,
+  ktamda    NUMBER(4) not null,
+  ktadurat  NUMBER(14,8),
+  ktavolat  NUMBER(14,8),
+  ktaimp01  NUMBER(17,2),
+  ktaimp02  NUMBER(17,2),
+  ktaimp03  NUMBER(17,2),
+  ktacoef01 NUMBER(14,8),
+  ktacoef02 NUMBER(14,8),
+  ktacoef03 NUMBER(14,8),
+  ktafec01  DATE,
+  ktafec02  DATE,
+  ktafec03  DATE
+)
+;
+alter table FSFT17
+  add primary key (KTAPGCOD, KTAANIO, KTAMES, KTAFONDO, KTAMDA);
+

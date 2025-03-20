@@ -1,0 +1,25 @@
+create table AUD_FST946_AUDIT
+(
+  aud_old_sessfch    DATE,
+  aud_new_sessfch    DATE,
+  aud_old_sesshora   CHAR(8),
+  aud_new_sesshora   CHAR(8),
+  aud_old_sessusr    CHAR(10),
+  aud_new_sessusr    CHAR(10),
+  aud_old_sesswrk    CHAR(10),
+  aud_new_sesswrk    CHAR(10),
+  aud_fst946_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst946_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst946_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst946_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst946_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst946_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst946_ubu     VARCHAR2(50) default USER not null,
+  aud_fst946_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst946_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst946_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst946_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst946_uas     CHAR(1) default 'I' not null
+)
+compress;
+

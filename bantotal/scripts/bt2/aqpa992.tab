@@ -1,0 +1,66 @@
+create table AQPA992
+(
+  aqpa992usu    CHAR(10) not null,
+  aqpa992emp    NUMBER(3) not null,
+  aqpa992mod    NUMBER(4) not null,
+  aqpa992suc    NUMBER(3) not null,
+  aqpa992mda    NUMBER(4) not null,
+  aqpa992pap    NUMBER(4) not null,
+  aqpa992cta    NUMBER(9) not null,
+  aqpa992ope    NUMBER(9) not null,
+  aqpa992sbop   NUMBER(3) not null,
+  aqpa992tope   NUMBER(3) not null,
+  aqpa992pais   NUMBER(4) not null,
+  aqpa992tdoc   NUMBER(2) not null,
+  aqpa992ndoc   CHAR(12) not null,
+  aqpa992nomc   CHAR(70),
+  aqpa992fdese  DATE,
+  aqpa992mntod  NUMBER(16,2),
+  aqpa992sldoc  NUMBER(16,2),
+  aqpa992cuot   NUMBER(5),
+  aqpa992cuop   NUMBER(5),
+  aqpa992diasa  NUMBER(5),
+  aqpa992anlst  CHAR(10),
+  aqpa992age    CHAR(30),
+  aqpa992reg    CHAR(40),
+  aqpa992zon    CHAR(40),
+  aqpa992firm   NUMBER(5),
+  aqpa992fefirm DATE,
+  aqpa992estn   CHAR(30)
+)
+;
+comment on column AQPA992.aqpa992usu
+  is 'USUARIO';
+comment on column AQPA992.aqpa992ndoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPA992.aqpa992nomc
+  is 'NOMBRE CLIENTE';
+comment on column AQPA992.aqpa992fdese
+  is 'FECHA DESEMBOLSO';
+comment on column AQPA992.aqpa992mntod
+  is 'MONTO DESEMBOLSADO';
+comment on column AQPA992.aqpa992sldoc
+  is 'SALDO CAPITAL';
+comment on column AQPA992.aqpa992cuot
+  is 'CUOTAS TOTALES';
+comment on column AQPA992.aqpa992cuop
+  is 'CUOTAS PAGADAS';
+comment on column AQPA992.aqpa992diasa
+  is 'DIAS ATRASO';
+comment on column AQPA992.aqpa992anlst
+  is 'ANALISTA';
+comment on column AQPA992.aqpa992age
+  is 'AGENCIA';
+comment on column AQPA992.aqpa992reg
+  is 'REGION';
+comment on column AQPA992.aqpa992zon
+  is 'ZONA';
+comment on column AQPA992.aqpa992firm
+  is 'FIRMA RESPUESTA';
+comment on column AQPA992.aqpa992fefirm
+  is 'FECHA FIRMA';
+comment on column AQPA992.aqpa992estn
+  is 'ESTADO CREDITO';
+alter table AQPA992
+  add primary key (AQPA992USU, AQPA992EMP, AQPA992MOD, AQPA992SUC, AQPA992MDA, AQPA992PAP, AQPA992CTA, AQPA992OPE, AQPA992SBOP, AQPA992TOPE, AQPA992PAIS, AQPA992TDOC, AQPA992NDOC);
+

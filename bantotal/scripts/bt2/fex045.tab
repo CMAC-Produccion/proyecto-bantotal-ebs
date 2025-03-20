@@ -1,0 +1,12 @@
+create table FEX045
+(
+  expgcod  NUMBER(3) not null,
+  exinprg  CHAR(10) not null,
+  exinnom  CHAR(40),
+  excied   CHAR(1),
+  excifreq CHAR(1)
+)
+;
+alter table FEX045
+  add primary key (EXPGCOD, EXINPRG);
+

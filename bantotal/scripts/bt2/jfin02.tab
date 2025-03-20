@@ -1,0 +1,16 @@
+create table JFIN02
+(
+  jfin02pgc  NUMBER(3) not null,
+  jfin02cod  NUMBER(5) not null,
+  jfin02nom  CHAR(40),
+  jfin02usr  CHAR(10),
+  jfin02fchi DATE,
+  jfin02au1  CHAR(30),
+  jfin02au2  NUMBER(17,2),
+  jfin02au3  DATE,
+  jfin02au4  CHAR(40)
+)
+;
+alter table JFIN02
+  add primary key (JFIN02PGC, JFIN02COD);
+

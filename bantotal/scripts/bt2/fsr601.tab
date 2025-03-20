@@ -1,0 +1,29 @@
+create table FSR601
+(
+  pp3cod  NUMBER(3) not null,
+  pp3mod  NUMBER(3) not null,
+  pp3suc  NUMBER(3) not null,
+  pp3cta  NUMBER(9) not null,
+  pp3mda  NUMBER(4) not null,
+  pp3pap  NUMBER(4) not null,
+  pp3oper NUMBER(9) not null,
+  pp3sbop NUMBER(3) not null,
+  pp3tope NUMBER(3) not null,
+  pp3corr NUMBER(5) not null,
+  pp4cod  NUMBER(3),
+  pp4mod  NUMBER(3),
+  pp4suc  NUMBER(3),
+  pp4cta  NUMBER(9),
+  pp4mda  NUMBER(4),
+  pp4pap  NUMBER(4),
+  pp4oper NUMBER(9),
+  pp4sbop NUMBER(3),
+  pp4tope NUMBER(3),
+  pp4sobr CHAR(1),
+  pp4parc CHAR(1)
+)
+;
+create index FSR60102 on FSR601 (PP4COD, PP4MOD, PP4SUC, PP4CTA, PP4MDA, PP4PAP, PP4OPER, PP4SBOP, PP4TOPE);
+alter table FSR601
+  add primary key (PP3COD, PP3MOD, PP3SUC, PP3CTA, PP3MDA, PP3PAP, PP3OPER, PP3SBOP, PP3TOPE, PP3CORR);
+

@@ -1,0 +1,45 @@
+create table AQPC789
+(
+  aqpc789corr   NUMBER(17) not null,
+  aqpc789fhreg  DATE not null,
+  aqpc789hrreg  VARCHAR2(8) not null,
+  aqpc789fecha  DATE,
+  aqpc789nmindc VARCHAR2(255),
+  aqpc789code   NUMBER(17,2),
+  aqpc789empsis VARCHAR2(255),
+  aqpc789ratio  NUMBER(17,2),
+  aqpc789anio   NUMBER(17,2),
+  aqpc789mes    VARCHAR2(255),
+  aqpc789codmes NUMBER(17,2),
+  aqpc789dia    NUMBER(17,2)
+)
+;
+comment on table AQPC789
+  is 'Copia de la Tabla AQPC789A';
+comment on column AQPC789.aqpc789corr
+  is 'Correlativo';
+comment on column AQPC789.aqpc789fhreg
+  is 'Fecha de Registro';
+comment on column AQPC789.aqpc789hrreg
+  is 'Hora de Registro';
+comment on column AQPC789.aqpc789fecha
+  is 'Optional';
+comment on column AQPC789.aqpc789nmindc
+  is 'Nombre del Indicador';
+comment on column AQPC789.aqpc789code
+  is 'Optional';
+comment on column AQPC789.aqpc789empsis
+  is 'Empresa del Sistema';
+comment on column AQPC789.aqpc789ratio
+  is 'Indicador';
+comment on column AQPC789.aqpc789anio
+  is 'Optional';
+comment on column AQPC789.aqpc789mes
+  is 'Optional';
+comment on column AQPC789.aqpc789codmes
+  is 'Optional';
+comment on column AQPC789.aqpc789dia
+  is 'Optional';
+alter table AQPC789
+  add primary key (AQPC789CORR, AQPC789FHREG, AQPC789HRREG);
+

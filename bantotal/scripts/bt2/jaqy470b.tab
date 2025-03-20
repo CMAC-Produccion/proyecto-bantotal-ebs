@@ -1,0 +1,18 @@
+create table JAQY470B
+(
+  jqy470bnro NUMBER(10) not null,
+  jqy470bfev DATE not null,
+  jqy470bsec NUMBER(7) not null,
+  jqy470bcta NUMBER(9),
+  jqy470bide CHAR(478),
+  jqy470bfec DATE,
+  jqy470bnom CHAR(240)
+)
+;
+create index INX_JAQY470B_01 on JAQY470B (JQY470BFEV, JQY470BNRO, JQY470BSEC);
+create index INX_JAQY470B_02 on JAQY470B (JQY470BFEV, JQY470BCTA);
+create index INX_JAQY470B_03 on JAQY470B (JQY470BNOM);
+create index INX_JAQY470B_04 on JAQY470B (JQY470BNRO, JQY470BSEC);
+alter table JAQY470B
+  add primary key (JQY470BNRO, JQY470BFEV, JQY470BSEC);
+

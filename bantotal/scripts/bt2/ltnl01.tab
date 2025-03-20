@@ -1,0 +1,14 @@
+create table LTNL01
+(
+  ltnl01cor  NUMBER(10) not null,
+  ltnl01fec  DATE,
+  ltnl01hor  DATE,
+  ltnl01usr  CHAR(25),
+  ltnm01evto NUMBER(10),
+  ltn01res   NUMBER(1)
+)
+;
+create index LTNL0102 on LTNL01 (LTNM01EVTO);
+alter table LTNL01
+  add primary key (LTNL01COR);
+

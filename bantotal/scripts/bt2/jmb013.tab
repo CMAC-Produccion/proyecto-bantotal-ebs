@@ -1,0 +1,46 @@
+create table JMB013
+(
+  jmb013pais NUMBER(3) not null,
+  jmb013tdoc NUMBER(2) not null,
+  jmb013ndoc CHAR(12) not null,
+  docod      NUMBER(2) not null,
+  jmb013corr NUMBER(3) not null,
+  jmb013pdoc NUMBER(3),
+  jmb012vivc CHAR(1),
+  jmb001id   NUMBER(3),
+  jmb002id   NUMBER(3),
+  jmb003id   NUMBER(3),
+  jmb004id   NUMBER(3),
+  jmb005id   NUMBER(3),
+  jmb006id   NUMBER(3),
+  jmb013dsc2 CHAR(30),
+  jmb013dsc3 CHAR(30),
+  jmb013dsc1 CHAR(30),
+  jmb013dsc4 CHAR(30),
+  jmb013dsc5 CHAR(30),
+  jmb013dsc6 CHAR(30),
+  jmb013ubic CHAR(6),
+  jmb013dpto NUMBER(5),
+  jmb013prov NUMBER(5),
+  jmb013dist NUMBER(9),
+  jmb013casn CHAR(1),
+  jmb013ref  VARCHAR2(140),
+  jmb013ref1 VARCHAR2(200),
+  jmb013dir  CHAR(140),
+  jmb013resd DATE,
+  jmb013arr  CHAR(50),
+  jmb013arrt CHAR(50),
+  jmb013fchh DATE,
+  jmb013est  CHAR(1),
+  jmb013dest NUMBER(1),
+  jmb013fdir DATE,
+  jmb013user CHAR(10)
+)
+;
+create index JMB01302 on JMB013 (JMB001ID, JMB002ID, JMB003ID, JMB004ID, JMB005ID, JMB006ID);
+create index JMB01303 on JMB013 (JMB012VIVC);
+create index JMB01304 on JMB013 (DOCOD);
+create index JMB01305 on JMB013 (JMB013PDOC, JMB013TDOC, JMB013NDOC);
+alter table JMB013
+  add primary key (JMB013PAIS, JMB013TDOC, JMB013NDOC, DOCOD, JMB013CORR);
+

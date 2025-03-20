@@ -1,0 +1,15 @@
+create table FOC562
+(
+  foc551id   NUMBER(2) not null,
+  foc562ser  CHAR(10) not null,
+  foc562nro  NUMBER(12) not null,
+  foc562biav CHAR(11) not null,
+  foc562mda  NUMBER(4),
+  foc562deno NUMBER(17,2),
+  foc562fcom DATE,
+  foc562est  CHAR(1)
+)
+;
+alter table FOC562
+  add primary key (FOC551ID, FOC562SER, FOC562NRO, FOC562BIAV);
+

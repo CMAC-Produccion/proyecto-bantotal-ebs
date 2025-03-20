@@ -1,0 +1,23 @@
+create table CDCPRO1
+(
+  cdcproid   NUMBER(18) not null,
+  cdcproinst NUMBER(18) not null,
+  cdcprouser CHAR(10),
+  cdcprofec  DATE,
+  cdcproitip NUMBER(4),
+  cdcproambi NUMBER(4),
+  cdcproobli CHAR(1),
+  cdcprohere CHAR(1),
+  cdcprotipo NUMBER(4),
+  cdcprostip NUMBER(18),
+  cdcprovald CHAR(80),
+  cdcprovaln NUMBER(18),
+  cdcprodscp CHAR(30),
+  cdcpromode CHAR(1),
+  cdcproejam NUMBER(4),
+  cdcproordp NUMBER(4)
+)
+;
+alter table CDCPRO1
+  add primary key (CDCPROID, CDCPROINST);
+

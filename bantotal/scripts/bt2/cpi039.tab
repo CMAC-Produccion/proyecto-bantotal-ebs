@@ -1,0 +1,30 @@
+create table CPI039
+(
+  cpi039cod  NUMBER(3) not null,
+  cpi039ctnr NUMBER(9) not null,
+  cpi039rub1 NUMBER(16) not null,
+  cpi039mda  NUMBER(4) not null,
+  cpi039suc  NUMBER(3) not null,
+  cpi039ope  NUMBER(9) not null,
+  cpi039sbop NUMBER(3) not null,
+  cpi039pap  NUMBER(4) not null,
+  cpi039top  NUMBER(3) not null,
+  cpi039mod  NUMBER(3),
+  cpi039crel NUMBER(4),
+  cpi039rub2 NUMBER(16),
+  cpi039rub3 NUMBER(16),
+  cpi039trub CHAR(1),
+  cpi039seca NUMBER(3),
+  cpi039csec NUMBER(3),
+  cpi039cins NUMBER(2),
+  cpi039rubr NUMBER(16),
+  cpi039modr NUMBER(3),
+  cpi039topr NUMBER(3),
+  cpi039aux1 NUMBER(16),
+  cpi039aux2 CHAR(20),
+  cpi039aux3 DATE
+)
+;
+alter table CPI039
+  add primary key (CPI039COD, CPI039CTNR, CPI039RUB1, CPI039MDA, CPI039SUC, CPI039OPE, CPI039SBOP, CPI039PAP, CPI039TOP);
+

@@ -1,0 +1,14 @@
+create table FSFFAJ
+(
+  fsfmarinf NUMBER(5) not null,
+  fsfmarcod NUMBER(9) not null,
+  fsfmarrub NUMBER(16) not null,
+  fsfmarau5 CHAR(1),
+  fsfmarau6 CHAR(30),
+  fsfmarau7 NUMBER(9),
+  fsfmarau8 NUMBER(17,2)
+)
+;
+alter table FSFFAJ
+  add primary key (FSFMARINF, FSFMARCOD, FSFMARRUB);
+

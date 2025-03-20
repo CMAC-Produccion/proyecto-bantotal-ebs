@@ -1,0 +1,33 @@
+create table AQPA126
+(
+  aqpa126pgc NUMBER(3) not null,
+  aqpa126mod NUMBER(3) not null,
+  aqpa126suc NUMBER(3) not null,
+  aqpa126mda NUMBER(4) not null,
+  aqpa126pap NUMBER(3) not null,
+  aqpa126cta NUMBER(9) not null,
+  aqpa126ope NUMBER(9) not null,
+  aqpa126sbo NUMBER(3) not null,
+  aqpa126tpo NUMBER(3) not null,
+  aqpa126pai NUMBER(3),
+  aqpa126tip NUMBER(2),
+  aqpa126num CHAR(12),
+  aqpa126est CHAR(1),
+  aqpa126fec DATE,
+  aqpa126usr CHAR(10),
+  aqpa126age NUMBER(3),
+  aqpa126ax1 NUMBER(9),
+  aqpa126ax2 NUMBER(9),
+  aqpa126ax3 NUMBER(17,2),
+  aqpa126ax4 NUMBER(17,2),
+  aqpa126ax5 DATE,
+  aqpa126ax6 DATE,
+  aqpa126ax7 CHAR(100),
+  aqpa126ax8 CHAR(100),
+  aqpa126ax9 CHAR(100)
+)
+;
+create index AQPA1262 on AQPA126 (AQPA126PAI, AQPA126TIP, AQPA126NUM);
+alter table AQPA126
+  add primary key (AQPA126PGC, AQPA126MOD, AQPA126SUC, AQPA126MDA, AQPA126PAP, AQPA126CTA, AQPA126OPE, AQPA126SBO, AQPA126TPO);
+

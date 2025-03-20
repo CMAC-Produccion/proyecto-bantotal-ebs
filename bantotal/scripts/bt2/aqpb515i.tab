@@ -1,0 +1,36 @@
+create table AQPB515I
+(
+  aqpb515iserial NUMBER(10) not null,
+  aqpb515isecue  NUMBER(6) not null,
+  aqpb515iperio  VARCHAR2(100),
+  aqpb515iconce  VARCHAR2(100),
+  aqpb515ifenac  DATE,
+  aqpb515itidet  CHAR(2),
+  aqpb515iconcod VARCHAR2(16) not null,
+  aqpb515icreusr VARCHAR2(30) not null,
+  aqpb515icretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515I
+  is 'OMISOS - EQIFAX';
+comment on column AQPB515I.aqpb515iserial
+  is 'SERIAL';
+comment on column AQPB515I.aqpb515isecue
+  is 'SECUENCIA';
+comment on column AQPB515I.aqpb515iperio
+  is 'PERIODO';
+comment on column AQPB515I.aqpb515iconce
+  is 'CONCEPTO';
+comment on column AQPB515I.aqpb515ifenac
+  is 'FECHA NACIMIENTO';
+comment on column AQPB515I.aqpb515itidet
+  is 'TIPO DETALLE';
+comment on column AQPB515I.aqpb515iconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515I.aqpb515icreusr
+  is 'CONSULTA - USUARIO DE CREACION';
+comment on column AQPB515I.aqpb515icretim
+  is 'CONSULTA - FECHA HORA DE CREACION';
+alter table AQPB515I
+  add primary key (AQPB515ISERIAL, AQPB515ISECUE, AQPB515ICONCOD, AQPB515ICREUSR);
+

@@ -1,0 +1,21 @@
+create table JFAW158
+(
+  jfaw158ps  NUMBER(3) not null,
+  jfaw158td  NUMBER(2) not null,
+  jfaw158nd  CHAR(12) not null,
+  jfaw158cor NUMBER(5) not null,
+  jfaw158fi  DATE,
+  jfaw158us  CHAR(10),
+  jfaw158nm  CHAR(30),
+  jfaw158ap  CHAR(30),
+  jfaw158fv  DATE,
+  jfaw158mn  NUMBER(4),
+  jfaw158mt  NUMBER(17,2),
+  jfaw158mv  CHAR(200),
+  jfaw158et  CHAR(1)
+)
+;
+create index JFAW1582 on JFAW158 (JFAW158COR);
+alter table JFAW158
+  add primary key (JFAW158PS, JFAW158TD, JFAW158ND, JFAW158COR);
+

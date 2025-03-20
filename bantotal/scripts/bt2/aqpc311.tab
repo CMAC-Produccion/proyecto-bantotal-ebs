@@ -1,0 +1,97 @@
+create table AQPC311
+(
+  aqpc311id        NUMBER(10) not null,
+  aqpc311fecreg    DATE,
+  aqpc311horreg    VARCHAR2(10),
+  aqpc311numtar    VARCHAR2(19),
+  aqpc311pepais    NUMBER(3),
+  aqpc311petdoc    NUMBER(2),
+  aqpc311pendoc    CHAR(12),
+  aqpc311tipevt    NUMBER(4),
+  aqpc311descri    VARCHAR2(65),
+  aqpc311ddeviceid VARCHAR2(20),
+  aqpc311dmodelo   VARCHAR2(20),
+  aqpc311dso       VARCHAR2(15),
+  aqpc311dlat      VARCHAR2(20),
+  aqpc311dlong     VARCHAR2(20),
+  aqpc311valact    VARCHAR2(330),
+  aqpc311valnue    VARCHAR2(330),
+  aqpc311usobio    VARCHAR2(10),
+  aqpc311respro    VARCHAR2(10),
+  aqpc311detres    VARCHAR2(150),
+  aqpc311canal     NUMBER(5),
+  aqpc311usuage    CHAR(10),
+  aqpc311codage    NUMBER(3),
+  aqpc311auxn1     NUMBER(17,2),
+  aqpc311auxn2     NUMBER(17,2),
+  aqpc311auxn3     NUMBER(17,2),
+  aqpc311auxv1     VARCHAR2(200),
+  aqpc311auxv2     VARCHAR2(200),
+  aqpc311auxv3     VARCHAR2(200),
+  aqpc311fecrea    DATE
+)
+;
+comment on table AQPC311
+  is 'Log de eventos - App / Homebanking';
+comment on column AQPC311.aqpc311id
+  is 'Correlativo';
+comment on column AQPC311.aqpc311fecreg
+  is 'Fecha de Registro';
+comment on column AQPC311.aqpc311horreg
+  is 'Hora de Registro';
+comment on column AQPC311.aqpc311numtar
+  is 'Numero Tarjeta';
+comment on column AQPC311.aqpc311pepais
+  is 'Pais del Documento';
+comment on column AQPC311.aqpc311petdoc
+  is 'Tipo Documento';
+comment on column AQPC311.aqpc311pendoc
+  is 'Documento';
+comment on column AQPC311.aqpc311tipevt
+  is 'Tipo de Evento';
+comment on column AQPC311.aqpc311descri
+  is 'Descripcion de Evento';
+comment on column AQPC311.aqpc311ddeviceid
+  is 'Ddeviceid';
+comment on column AQPC311.aqpc311dmodelo
+  is 'Modelo';
+comment on column AQPC311.aqpc311dso
+  is 'Sistema Operativo';
+comment on column AQPC311.aqpc311dlat
+  is 'Latitud';
+comment on column AQPC311.aqpc311dlong
+  is 'Longitud';
+comment on column AQPC311.aqpc311valact
+  is 'Valor Actual';
+comment on column AQPC311.aqpc311valnue
+  is 'Valor Nuevo';
+comment on column AQPC311.aqpc311usobio
+  is '¿Uso de biometria?';
+comment on column AQPC311.aqpc311respro
+  is 'Respuesta Proceso';
+comment on column AQPC311.aqpc311detres
+  is 'Detalle Respuesta';
+comment on column AQPC311.aqpc311canal
+  is 'Canal';
+comment on column AQPC311.aqpc311usuage
+  is 'Usuario Agencia';
+comment on column AQPC311.aqpc311codage
+  is 'Codigo Agencia';
+comment on column AQPC311.aqpc311auxn1
+  is 'Auxiliar N1';
+comment on column AQPC311.aqpc311auxn2
+  is 'Auxiliar N2';
+comment on column AQPC311.aqpc311auxn3
+  is 'Auxiliar N3';
+comment on column AQPC311.aqpc311auxv1
+  is 'Auxiliar V1';
+comment on column AQPC311.aqpc311auxv2
+  is 'Auxiliar V2';
+comment on column AQPC311.aqpc311auxv3
+  is 'Auxiliar V3';
+comment on column AQPC311.aqpc311fecrea
+  is 'Fecha Real';
+create index AQPC311A2 on AQPC311 (AQPC311PEPAIS, AQPC311PETDOC, AQPC311PENDOC);
+alter table AQPC311
+  add primary key (AQPC311ID);
+

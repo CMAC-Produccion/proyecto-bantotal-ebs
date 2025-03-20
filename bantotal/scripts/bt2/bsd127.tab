@@ -1,0 +1,59 @@
+create table BSD127
+(
+  bscxcodl  NUMBER(4) not null,
+  bscxcodr  NUMBER(4) not null,
+  bscxpais  NUMBER(3) not null,
+  bscxtdoc  NUMBER(2) not null,
+  bscxndoc  CHAR(12) not null,
+  bscxnom1  CHAR(25),
+  bscxnom2  CHAR(25),
+  bscxape1  CHAR(30),
+  bscxape2  CHAR(30),
+  bscxdesc  CHAR(75),
+  bscxfalt  DATE,
+  bscxfcam  DATE,
+  bscxfec3  DATE,
+  bscxacc   NUMBER(4),
+  bscxest1  CHAR(1),
+  bscxref2  CHAR(1),
+  bscxnomt  CHAR(80),
+  bscxtipr  CHAR(1),
+  bscxnat   CHAR(1),
+  bscxraz   CHAR(75),
+  bscxdes1  CHAR(60),
+  bscxsuc   NUMBER(3),
+  bscxmod   NUMBER(3),
+  bscxmda   NUMBER(4),
+  bscxpap   NUMBER(4),
+  bscxcli   NUMBER(9),
+  bscxope   NUMBER(9),
+  bscxtope  NUMBER(3),
+  bscxfope  DATE,
+  bscxsucor NUMBER(3),
+  bscxmot   NUMBER(3),
+  bscxtrn   NUMBER(3),
+  bscxrel   NUMBER(4),
+  bscxftrn  DATE,
+  bscxprod  CHAR(30),
+  bscxsub   NUMBER(3),
+  bscxord   NUMBER(2),
+  bscxsord  NUMBER(3),
+  bscxnum1  NUMBER(15,2),
+  bscxnum2  NUMBER(15,2),
+  bscxnum3  NUMBER(16),
+  bscxstat  CHAR(1)
+)
+;
+create index BSD12702 on BSD127 (BSCXPAIS, BSCXTDOC, BSCXNDOC);
+create index BSD12703 on BSD127 (BSCXNOM1, BSCXNOM2, BSCXAPE1, BSCXAPE2);
+create index BSD12704 on BSD127 (BSCXNOM1, BSCXAPE2);
+create index BSD12705 on BSD127 (BSCXAPE1, BSCXAPE2);
+create index BSD12706 on BSD127 (BSCXNOMT);
+create index BSD12707 on BSD127 (BSCXRAZ);
+create index BSD12708 on BSD127 (BSCXSUC, BSCXMOD, BSCXMDA, BSCXPAP, BSCXCLI, BSCXOPE, BSCXSUB, BSCXTOPE);
+create index BSD12709 on BSD127 (BSCXSUCOR, BSCXMOT, BSCXTRN, BSCXREL, BSCXFTRN, BSCXORD, BSCXSORD);
+create index BSD12710 on BSD127 (BSCXCLI);
+create index BSD12711 on BSD127 (BSCXNDOC);
+alter table BSD127
+  add primary key (BSCXCODL, BSCXCODR, BSCXPAIS, BSCXTDOC, BSCXNDOC);
+

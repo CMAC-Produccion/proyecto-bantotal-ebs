@@ -1,0 +1,36 @@
+create table JAQN38
+(
+  jaqn38cod NUMBER(4) not null,
+  jaqn38coe NUMBER(4) not null,
+  jaqn38npr VARCHAR2(100),
+  jaqn38net VARCHAR2(100),
+  jaqn38npc CHAR(20),
+  jaqn38dpr VARCHAR2(100),
+  jaqn38pai NUMBER(3),
+  jaqn38tdo NUMBER(2),
+  jaqn38doc CHAR(12),
+  jaqn38lia NUMBER(9),
+  jaqn38pcf NUMBER(17,2),
+  jaqn38vtv NUMBER(17,2),
+  jaqn38mcf NUMBER(17,2)
+)
+;
+comment on table JAQN38
+  is 'Panel Mantenimiento de producto inmobiliario';
+comment on column JAQN38.jaqn38pai
+  is 'Pais';
+comment on column JAQN38.jaqn38tdo
+  is 'Tipo de Documento';
+comment on column JAQN38.jaqn38doc
+  is 'Documento';
+comment on column JAQN38.jaqn38lia
+  is 'Linea Inmobiliaria Asociada';
+comment on column JAQN38.jaqn38pcf
+  is 'Porcentaje Maximo Carta Fianza';
+comment on column JAQN38.jaqn38vtv
+  is 'Valor Total de la Venta';
+comment on column JAQN38.jaqn38mcf
+  is 'Monto Maximo Carta Fianza';
+alter table JAQN38
+  add primary key (JAQN38COD, JAQN38COE);
+

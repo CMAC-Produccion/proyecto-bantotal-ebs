@@ -1,0 +1,21 @@
+create table FCPG95
+(
+  cpg95empbt NUMBER(3) not null,
+  cpg95fto   CHAR(8) not null,
+  cpg95banj  CHAR(10) not null,
+  cpg95campo CHAR(10) not null,
+  cpg95corr  NUMBER(3) not null,
+  cpg95cont  CHAR(25),
+  cpg95valb  CHAR(20),
+  cpg95convr CHAR(2),
+  cpg95desc  CHAR(35),
+  cpg95valbt CHAR(20),
+  cpg95aux1  NUMBER(10),
+  cpg95aux2  CHAR(20),
+  cpg95aux3  CHAR(30)
+)
+;
+create index FCPG9502 on FCPG95 (CPG95EMPBT, CPG95FTO, CPG95BANJ, CPG95CAMPO, CPG95VALB);
+alter table FCPG95
+  add primary key (CPG95EMPBT, CPG95FTO, CPG95BANJ, CPG95CAMPO, CPG95CORR);
+

@@ -1,0 +1,44 @@
+create table AQPA367
+(
+  aqpa367corr  NUMBER(10) not null,
+  aqpa367fec   DATE not null,
+  aqpa367hora  CHAR(10) not null,
+  aqpa367user  VARCHAR2(10),
+  aqpa367inst  NUMBER(10) not null,
+  aqpa367pais  NUMBER(9) not null,
+  aqpa367tdoc  NUMBER(9) not null,
+  aqpa367ndoc  VARCHAR2(12) not null,
+  aqpa367pgcod NUMBER(5) not null,
+  aqpa367mod   NUMBER(5) not null,
+  aqpa367suc   NUMBER(5) not null,
+  aqpa367mda   NUMBER(5) not null,
+  aqpa367pap   NUMBER(5) not null,
+  aqpa367cta   NUMBER(10) not null,
+  aqpa367ope   NUMBER(10) not null,
+  aqpa367sbop  NUMBER(10) not null,
+  aqpa367tope  NUMBER(10) not null,
+  aqpa367fcal  DATE,
+  aqpa367dias  NUMBER(10),
+  aqpa367prom  NUMBER(10),
+  aqpa367naux1 NUMBER(17,2),
+  aqpa367naux2 NUMBER(17,2),
+  aqpa367naux3 NUMBER(17,2),
+  aqpa367naux4 NUMBER(17,2),
+  aqpa367naux5 NUMBER(17,2),
+  aqpa367vaux1 VARCHAR2(40),
+  aqpa367vaux2 VARCHAR2(40),
+  aqpa367vaux3 VARCHAR2(40),
+  aqpa367vaux4 VARCHAR2(40),
+  aqpa367vaux5 VARCHAR2(40),
+  aqpa367daux1 DATE,
+  aqpa367daux2 DATE,
+  aqpa367daux3 DATE
+)
+;
+create index AQPA3672 on AQPA367 (AQPA367PGCOD, AQPA367MOD, AQPA367SUC, AQPA367MDA, AQPA367PAP, AQPA367CTA, AQPA367OPE, AQPA367SBOP, AQPA367TOPE);
+create index AQPA3673 on AQPA367 (AQPA367FEC, AQPA367PAIS, AQPA367TDOC, AQPA367NDOC, AQPA367INST);
+create index AQPA3674 on AQPA367 (AQPA367FEC, AQPA367PAIS, AQPA367TDOC, AQPA367NDOC);
+create index AQPA3675 on AQPA367 (AQPA367INST);
+alter table AQPA367
+  add primary key (AQPA367CORR, AQPA367FEC, AQPA367PAIS, AQPA367TDOC, AQPA367NDOC, AQPA367INST, AQPA367HORA, AQPA367PGCOD, AQPA367MOD, AQPA367SUC, AQPA367MDA, AQPA367PAP, AQPA367CTA, AQPA367OPE, AQPA367SBOP, AQPA367TOPE);
+

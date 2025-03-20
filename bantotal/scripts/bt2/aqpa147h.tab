@@ -1,0 +1,85 @@
+create table AQPA147H
+(
+  aqpa147hcor NUMBER(15) not null,
+  aqpa147hfec DATE,
+  aqpa147hhor VARCHAR2(8),
+  aqpa147hmed VARCHAR2(10),
+  aqpa147hori VARCHAR2(100),
+  aqpa147hmsg CLOB,
+  aqpa147hdes VARCHAR2(300),
+  aqpa147hcta VARCHAR2(30),
+  aqpa147hpai NUMBER(3),
+  aqpa147htpo NUMBER(2),
+  aqpa147hnum CHAR(12),
+  aqpa147hmon NUMBER(17,2),
+  aqpa147htop VARCHAR2(50),
+  aqpa147hnop VARCHAR2(50),
+  aqpa147hest VARCHAR2(1),
+  aqpa147hfpr DATE,
+  aqpa147hhpr VARCHAR2(8),
+  aqpa147hrpt VARCHAR2(300)
+)
+partition by range (AQPA147HFEC) interval (NUMTOYMINTERVAL (1,'MONTH'))
+(
+  partition AQPA147H_P1 values less than (TO_DATE(' 2024-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition SYS_P71760 values less than (TO_DATE(' 2024-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P72177 values less than (TO_DATE(' 2024-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P73144 values less than (TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P74024 values less than (TO_DATE(' 2024-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P74730 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P681 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P862 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P1371 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P1952 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G
+);
+comment on table AQPA147H
+  is 'TABLA HISTORICA DE REGISTRO DE NOTIFICACIONES POR OPERACIONES REALIZADAS';
+comment on column AQPA147H.aqpa147hcor
+  is 'CORRELATIVO';
+comment on column AQPA147H.aqpa147hfec
+  is 'FECHA DE REGISTRO';
+comment on column AQPA147H.aqpa147hhor
+  is 'HORA DE REGISTRO';
+comment on column AQPA147H.aqpa147hmed
+  is 'MEDIO';
+comment on column AQPA147H.aqpa147hori
+  is 'ORIGEN';
+comment on column AQPA147H.aqpa147hmsg
+  is 'MENSAJE';
+comment on column AQPA147H.aqpa147hdes
+  is 'DESTINO';
+comment on column AQPA147H.aqpa147hcta
+  is 'CUENTA CONCATENADA';
+comment on column AQPA147H.aqpa147hpai
+  is 'PAIS';
+comment on column AQPA147H.aqpa147htpo
+  is 'TIPO DOCUMENTO';
+comment on column AQPA147H.aqpa147hnum
+  is 'DOCUMENTO';
+comment on column AQPA147H.aqpa147hmon
+  is 'MONTO';
+comment on column AQPA147H.aqpa147htop
+  is 'TIPO DE OPERACION';
+comment on column AQPA147H.aqpa147hnop
+  is 'NUMERO DE OPERACIÓN';
+comment on column AQPA147H.aqpa147hest
+  is 'ESTADO';
+comment on column AQPA147H.aqpa147hfpr
+  is 'FECHA DE ENVIO';
+comment on column AQPA147H.aqpa147hhpr
+  is 'HORA DE ENVIO';
+comment on column AQPA147H.aqpa147hrpt
+  is 'CODIGO DE RESPUESTA';
+alter table AQPA147H
+  add primary key (AQPA147HCOR);
+

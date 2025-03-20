@@ -1,0 +1,57 @@
+create table JAQZ714
+(
+  jaqz714inst NUMBER(10) not null,
+  jaqz714corr NUMBER(3) not null,
+  jaqz714pgc  NUMBER(3),
+  jaqz714mod  NUMBER(3),
+  jaqz714suc  NUMBER(3),
+  jaqz714mda  NUMBER(4),
+  jaqz714pap  NUMBER(4),
+  jaqz714cta  NUMBER(9),
+  jaqz714oper NUMBER(9),
+  jaqz714sbop NUMBER(3),
+  jaqz714tope NUMBER(3),
+  jaqz714pri  NUMBER(3),
+  jaqz714est  NUMBER(3),
+  jaqz714fech DATE,
+  jaqz714cod  NUMBER(18) not null,
+  jaqz714mont NUMBER(18,2)
+)
+;
+comment on column JAQZ714.jaqz714inst
+  is 'instancia';
+comment on column JAQZ714.jaqz714corr
+  is 'correlativo';
+comment on column JAQZ714.jaqz714pgc
+  is 'JAQZ714PGC';
+comment on column JAQZ714.jaqz714mod
+  is 'MODULO';
+comment on column JAQZ714.jaqz714suc
+  is 'SUCURSAL';
+comment on column JAQZ714.jaqz714mda
+  is 'MONEDA';
+comment on column JAQZ714.jaqz714pap
+  is 'PAPEL';
+comment on column JAQZ714.jaqz714cta
+  is 'CUENTA';
+comment on column JAQZ714.jaqz714oper
+  is 'OPERACION';
+comment on column JAQZ714.jaqz714sbop
+  is 'SUBOPERACION';
+comment on column JAQZ714.jaqz714tope
+  is 'TIPOOPERACION';
+comment on column JAQZ714.jaqz714pri
+  is 'JAQZ714PRI';
+comment on column JAQZ714.jaqz714est
+  is 'ESTADO DEL REGISTRO';
+comment on column JAQZ714.jaqz714fech
+  is 'FECHA';
+comment on column JAQZ714.jaqz714cod
+  is 'CODIGO DE LA JAQZ715';
+comment on column JAQZ714.jaqz714mont
+  is 'MONTO DE LA GARANTIA';
+create index JAQZ714IDX_001 on JAQZ714 (JAQZ714INST, JAQZ714CORR);
+create index JAQZ714IDX_002 on JAQZ714 (JAQZ714INST, JAQZ714PRI);
+alter table JAQZ714
+  add primary key (JAQZ714INST, JAQZ714CORR, JAQZ714COD);
+

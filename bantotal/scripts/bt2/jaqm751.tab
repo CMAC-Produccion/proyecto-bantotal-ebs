@@ -1,0 +1,13 @@
+create table JAQM751
+(
+  jaqm751emp NUMBER(3) not null,
+  jaqm751fch DATE not null,
+  jaqm751reg NUMBER(9) not null,
+  jaqm751att CHAR(20) not null,
+  jaqm751cor NUMBER(4) not null,
+  jaqm751val CHAR(30)
+)
+;
+alter table JAQM751
+  add primary key (JAQM751EMP, JAQM751FCH, JAQM751REG, JAQM751ATT, JAQM751COR);
+

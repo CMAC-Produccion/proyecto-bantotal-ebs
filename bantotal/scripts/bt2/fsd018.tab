@@ -1,0 +1,23 @@
+create table FSD018
+(
+  garcod  NUMBER(3) not null,
+  garsuc  NUMBER(3) not null,
+  garmod  NUMBER(3) not null,
+  garmda  NUMBER(4) not null,
+  garpap  NUMBER(4) not null,
+  garcta  NUMBER(9) not null,
+  garoper NUMBER(9) not null,
+  garsbop NUMBER(3) not null,
+  gartope NUMBER(3) not null,
+  gartipo CHAR(2),
+  garimp  NUMBER(17,2),
+  garsob  NUMBER(17,2),
+  garaux1 NUMBER(17,2),
+  garaux2 NUMBER(17,2)
+)
+;
+create index FSD01802 on FSD018 (GARCOD, GARCTA, GARTIPO, GARMDA);
+create index FSD01803 on FSD018 (GARCOD, GARCTA, GARMOD, GARMDA);
+alter table FSD018
+  add primary key (GARCOD, GARSUC, GARMOD, GARMDA, GARPAP, GARCTA, GAROPER, GARSBOP, GARTOPE);
+

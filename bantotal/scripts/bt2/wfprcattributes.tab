@@ -1,0 +1,10 @@
+create table WFPRCATTRIBUTES
+(
+  wfprcid       NUMBER(4) not null,
+  wfprcattname  CHAR(30) not null,
+  wfprcattvalue CHAR(254)
+)
+;
+alter table WFPRCATTRIBUTES
+  add primary key (WFPRCID, WFPRCATTNAME);
+

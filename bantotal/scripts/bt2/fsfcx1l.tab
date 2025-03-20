@@ -1,0 +1,22 @@
+create table FSFCX1L
+(
+  kgl8anio   NUMBER(4) not null,
+  kgl8mes    NUMBER(2) not null,
+  kgl8suc    NUMBER(3) not null,
+  kmlc08fing DATE not null,
+  kmlc08hing CHAR(8) not null,
+  kmlc08ok   CHAR(1),
+  kmlc08adu  CHAR(1),
+  kgl8comis  NUMBER(9,6),
+  kmlc08uing CHAR(10),
+  kmlc08wing CHAR(10),
+  kmlc08fcnf DATE,
+  kmlc08hcnf CHAR(8),
+  kmlc08ucnf CHAR(10),
+  kmlc08wcnf CHAR(10)
+)
+;
+create index FSFCX1L2 on FSFCX1L (KGL8ANIO, KGL8MES, KGL8SUC, KMLC08OK);
+alter table FSFCX1L
+  add primary key (KGL8ANIO, KGL8MES, KGL8SUC, KMLC08FING, KMLC08HING);
+

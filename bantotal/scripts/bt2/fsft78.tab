@@ -1,0 +1,17 @@
+create table FSFT78
+(
+  sft78emp NUMBER(3) not null,
+  sft78esp NUMBER(4) not null,
+  sft78cus NUMBER(9) not null,
+  sft78dep NUMBER(9) not null,
+  sft78com NUMBER(9) not null,
+  sft78ide NUMBER(2) not null,
+  sft78vno NUMBER(17,2),
+  sft78vre NUMBER(17,7),
+  sft78est CHAR(2)
+)
+;
+create index FSFT7802 on FSFT78 (SFT78EMP, SFT78CUS, SFT78DEP, SFT78COM, SFT78ESP, SFT78IDE);
+alter table FSFT78
+  add primary key (SFT78EMP, SFT78ESP, SFT78CUS, SFT78DEP, SFT78COM, SFT78IDE);
+

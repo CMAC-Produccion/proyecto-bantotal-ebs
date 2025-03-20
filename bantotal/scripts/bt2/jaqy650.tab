@@ -1,0 +1,18 @@
+create table JAQY650
+(
+  jaqy650fec DATE not null,
+  jaqy650suc NUMBER(3) not null,
+  jaqy650cor NUMBER(17) not null,
+  jaqy650suo NUMBER(3),
+  jaqy650sud NUMBER(3),
+  jaqy650top NUMBER(4),
+  jaqy650usu CHAR(10),
+  jaqy650cti NUMBER(9),
+  jaqy650ctf NUMBER(9),
+  jaqy650etd CHAR(1),
+  jaqy650tip CHAR(1)
+)
+;
+alter table JAQY650
+  add constraint PK_JAQY650 primary key (JAQY650FEC, JAQY650SUC, JAQY650COR);
+

@@ -1,0 +1,33 @@
+create table FBC820
+(
+  bc820inf CHAR(8) not null,
+  bc820fec DATE not null,
+  bc820per NUMBER(8) not null,
+  bc820via NUMBER(3) not null,
+  bc820tpe CHAR(1),
+  bc820tem CHAR(1),
+  bc820res CHAR(1),
+  bc820sex CHAR(1),
+  bc820vin CHAR(1),
+  bc820fal CHAR(1),
+  bc820men CHAR(1),
+  bc820dpl CHAR(2),
+  bc820pai CHAR(2),
+  bc820tdo CHAR(3),
+  bc820ndo CHAR(18),
+  bc820fna DATE,
+  bc820nom CHAR(80),
+  bc820dom CHAR(80),
+  bc820loc CHAR(40),
+  bc820pad CHAR(30),
+  bc820sig CHAR(40),
+  bc820pbt NUMBER(3),
+  bc820tbt NUMBER(2),
+  bc820nbt CHAR(12),
+  bc820tpd CHAR(1)
+)
+;
+create index FBC82002 on FBC820 (BC820INF, BC820FEC, BC820PBT, BC820TBT, BC820NBT);
+alter table FBC820
+  add primary key (BC820INF, BC820FEC, BC820PER, BC820VIA);
+

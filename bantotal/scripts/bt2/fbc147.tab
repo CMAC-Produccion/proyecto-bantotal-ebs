@@ -1,0 +1,36 @@
+create table FBC147
+(
+  bc147emp   NUMBER(3) not null,
+  bc147inf   CHAR(10) not null,
+  bc147finf  DATE not null,
+  bc147cod   CHAR(30) not null,
+  bc147tcod  CHAR(3),
+  bc147tval  CHAR(5),
+  bc147desc  CHAR(40),
+  bc147emi   NUMBER(3),
+  bc147tdoc  CHAR(3),
+  bc147ndoc  CHAR(12),
+  bc147mda   NUMBER(4),
+  bc147papel NUMBER(4),
+  bc147ttas  CHAR(3),
+  bc147opc   CHAR(1),
+  bc147fche  DATE,
+  bc147fchv  DATE,
+  bc147cupon NUMBER(8,4),
+  bc147frecu NUMBER(2),
+  bc147cupin CHAR(1),
+  bc147marca CHAR(1),
+  bc147disp  CHAR(1),
+  bc147gam   NUMBER(17,2),
+  bc147vega  NUMBER(17,2),
+  bc147frec  DATE,
+  bc147amort CHAR(1),
+  bc147calif CHAR(3),
+  bc147rccal CHAR(3),
+  bc147rcpre CHAR(1),
+  bc147fchca DATE
+)
+;
+alter table FBC147
+  add primary key (BC147EMP, BC147INF, BC147FINF, BC147COD);
+

@@ -1,0 +1,13 @@
+create table FST096
+(
+  pgcod  NUMBER(3) not null,
+  sucurs NUMBER(3) not null,
+  pqcpla NUMBER(3) not null,
+  pqcod  NUMBER(3) not null
+)
+;
+create index FST09603 on FST096 (PQCOD);
+create index FST09604 on FST096 (PGCOD, SUCURS, PQCOD, PQCPLA);
+alter table FST096
+  add primary key (PGCOD, SUCURS, PQCPLA, PQCOD);
+

@@ -1,0 +1,9 @@
+create table JHSS19
+(
+  jhss15agor NUMBER(2) not null,
+  jhss16ori  NUMBER(2) not null
+)
+;
+create unique index JHSS1901 on JHSS19 (JHSS15AGOR, JHSS16ORI);
+create index JHSS1902 on JHSS19 (JHSS16ORI);
+

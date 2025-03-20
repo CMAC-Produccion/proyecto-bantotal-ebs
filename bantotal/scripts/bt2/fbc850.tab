@@ -1,0 +1,20 @@
+create table FBC850
+(
+  bc850emp  NUMBER(3) not null,
+  bc850inf  CHAR(10) not null,
+  bc850fch  DATE not null,
+  bc850id1  NUMBER(16) not null,
+  bc850id2  NUMBER(16) not null,
+  bc850id3  NUMBER(16) not null,
+  bc850id4  CHAR(20) not null,
+  bc850nro1 NUMBER(16),
+  bc850nro2 NUMBER(16),
+  bc850nro3 NUMBER(16),
+  bc850chr1 CHAR(10),
+  bc850chr2 CHAR(80)
+)
+;
+create index FBC85002 on FBC850 (BC850EMP, BC850INF, BC850FCH, BC850ID4, BC850ID1, BC850ID2, BC850ID3);
+alter table FBC850
+  add primary key (BC850EMP, BC850INF, BC850FCH, BC850ID1, BC850ID2, BC850ID3, BC850ID4);
+

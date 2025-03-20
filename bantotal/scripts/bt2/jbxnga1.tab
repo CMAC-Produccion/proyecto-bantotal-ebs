@@ -1,0 +1,15 @@
+create table JBXNGA1
+(
+  jbxnga1usu CHAR(10) not null,
+  jbxnga1emp NUMBER(3) not null,
+  jbxnga1rub NUMBER(16) not null,
+  jbxnga1cnt NUMBER(4) not null,
+  jbxnga1sma NUMBER(17,2),
+  jbxnga1sal NUMBER(17,2),
+  jbxnga1sm2 NUMBER(17,2),
+  jbxnga1tot CHAR(1)
+)
+;
+alter table JBXNGA1
+  add primary key (JBXNGA1USU, JBXNGA1EMP, JBXNGA1RUB, JBXNGA1CNT);
+

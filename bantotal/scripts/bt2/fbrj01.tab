@@ -1,0 +1,12 @@
+create table FBRJ01
+(
+  brj01rgemp NUMBER(3) not null,
+  brj01rgcod NUMBER(5) not null,
+  brj01bccod NUMBER(3) not null,
+  brj01bcnom CHAR(30),
+  brj01imp   NUMBER(16)
+)
+;
+alter table FBRJ01
+  add primary key (BRJ01RGEMP, BRJ01RGCOD, BRJ01BCCOD);
+

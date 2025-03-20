@@ -1,0 +1,21 @@
+create table AUD_PPG014_AUDIT
+(
+  aud_old_ppg014ctd  NUMBER(3),
+  aud_new_ppg014ctd  NUMBER(3),
+  aud_old_ppg014desc CHAR(20),
+  aud_new_ppg014desc CHAR(20),
+  aud_ppg014_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_ppg014_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_ppg014_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_ppg014_ubr     VARCHAR2(50) default ' ' not null,
+  aud_ppg014_ubc     VARCHAR2(50) default ' ' not null,
+  aud_ppg014_ubt     VARCHAR2(50) default ' ' not null,
+  aud_ppg014_ubu     VARCHAR2(50) default USER not null,
+  aud_ppg014_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_ppg014_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_ppg014_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_ppg014_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_ppg014_uas     CHAR(1) default 'I' not null
+)
+;
+

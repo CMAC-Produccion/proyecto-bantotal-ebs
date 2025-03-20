@@ -1,0 +1,12 @@
+create table FSL006
+(
+  fsl002grpc NUMBER(7) not null,
+  fsl015cod  NUMBER(4) not null,
+  fsl006mda  NUMBER(4),
+  fsl006mont NUMBER(17,2)
+)
+;
+create index FSL00602 on FSL006 (FSL015COD);
+alter table FSL006
+  add primary key (FSL002GRPC, FSL015COD);
+

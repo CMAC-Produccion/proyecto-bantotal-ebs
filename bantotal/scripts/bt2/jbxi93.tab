@@ -1,0 +1,25 @@
+create table JBXI93
+(
+  jbxi93idn CHAR(11) not null,
+  jbxi93tdo CHAR(3) not null,
+  jbxi93ndo NUMBER(11) not null,
+  jbxi93sop NUMBER(4) not null,
+  jbxi93nop NUMBER(10) not null,
+  jbxi93noo NUMBER(2),
+  jbxi93sis CHAR(2),
+  jbxi93mon CHAR(3),
+  jbxi93fop NUMBER(8),
+  jbxi93mdo NUMBER(4),
+  jbxi93dga NUMBER(17,2),
+  jbxi93dgp NUMBER(17,2),
+  jbxi93dsg NUMBER(17,2),
+  jbxi93lpr CHAR(7),
+  jbxi93foo NUMBER(8),
+  jbxi93fvt NUMBER(8),
+  jbxi93fat NUMBER(8),
+  jbxi93tna NUMBER(10,6),
+  jbxi93tta CHAR(1)
+)
+;
+create unique index JBXI9301 on JBXI93 (JBXI93IDN, JBXI93TDO, JBXI93NDO, JBXI93SOP, JBXI93NOP);
+

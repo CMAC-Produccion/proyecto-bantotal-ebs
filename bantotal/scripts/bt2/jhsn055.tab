@@ -1,0 +1,18 @@
+create table JHSN055
+(
+  jhsn055pcg NUMBER(3) not null,
+  jhsn055cta NUMBER(9) not null,
+  jhsn055fch DATE not null,
+  jhsn055imp NUMBER(17,2),
+  jhsn055aux NUMBER(5),
+  jhsn055au1 CHAR(20),
+  jhsn055au2 DATE,
+  jhsn055au3 CHAR(70),
+  jhsn055au4 NUMBER(17,2)
+)
+;
+create unique index JHSN0551 on JHSN055 (JHSN055PCG, JHSN055CTA, JHSN055FCH);
+create index JHSN0552 on JHSN055 (JHSN055PCG, JHSN055FCH, JHSN055AUX, JHSN055AU1);
+create index JHSN0553 on JHSN055 (JHSN055PCG, JHSN055FCH, JHSN055AUX, JHSN055AU3);
+create index JHSN0554 on JHSN055 (JHSN055PCG, JHSN055FCH, JHSN055AUX, JHSN055AU4);
+

@@ -1,0 +1,22 @@
+create table FSFCX3L
+(
+  kgl8fecing  CHAR(10) not null,
+  kmlc09fing  DATE not null,
+  kmlc09hing  CHAR(8) not null,
+  kmlc09ok    CHAR(1),
+  kmlc09adu   CHAR(1),
+  kgl8tfondeo NUMBER(9,6),
+  kgl8whtax   NUMBER(9,6),
+  kgl8tmerc   NUMBER(6,4),
+  kmlc09uing  CHAR(10),
+  kmlc09wing  CHAR(10),
+  kmlc09fcnf  DATE,
+  kmlc09hcnf  CHAR(8),
+  kmlc09ucnf  CHAR(10),
+  kmlc09wcnf  CHAR(10)
+)
+;
+create index FSFCX3L2 on FSFCX3L (KGL8FECING, KMLC09OK);
+alter table FSFCX3L
+  add primary key (KGL8FECING, KMLC09FING, KMLC09HING);
+

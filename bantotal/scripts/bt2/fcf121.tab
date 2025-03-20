@@ -1,0 +1,14 @@
+create table FCF121
+(
+  pgcod     NUMBER(3) not null,
+  lcemod    NUMBER(3) not null,
+  lceoper   NUMBER(9) not null,
+  lcesbop   NUMBER(3) not null,
+  doctip    NUMBER(3) not null,
+  leucntdoc CHAR(6)
+)
+;
+create index FCF12102 on FCF121 (PGCOD, LCEMOD, DOCTIP);
+alter table FCF121
+  add primary key (PGCOD, LCEMOD, LCEOPER, LCESBOP, DOCTIP);
+

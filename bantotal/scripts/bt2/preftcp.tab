@@ -1,0 +1,11 @@
+create table PREFTCP
+(
+  prfcpotcod NUMBER(4) not null,
+  prfcpotip  CHAR(10),
+  prfcpotdes CHAR(50)
+)
+;
+create index PREFTCP2 on PREFTCP (PRFCPOTIP);
+alter table PREFTCP
+  add primary key (PRFCPOTCOD);
+

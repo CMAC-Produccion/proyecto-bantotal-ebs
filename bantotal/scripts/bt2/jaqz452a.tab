@@ -1,0 +1,105 @@
+create table JAQZ452A
+(
+  jaqz452afpro DATE not null,
+  jaqz452areg  VARCHAR2(50),
+  jaqz452azon  VARCHAR2(50),
+  jaqz452aage  VARCHAR2(50),
+  jaqz452apro  VARCHAR2(50),
+  jaqz452apca  VARCHAR2(50),
+  jaqz452acom  VARCHAR2(30),
+  jaqz452aana  VARCHAR2(12),
+  jaqz452adoc  CHAR(12),
+  jaqz452acli  VARCHAR2(50),
+  jaqz452amda  VARCHAR2(3),
+  jaqz452acta  NUMBER(9),
+  jaqz452aope  NUMBER(9),
+  jaqz452asdfm NUMBER(18,2),
+  jaqz452asdac NUMBER(18,2),
+  jaqz452adcap NUMBER(18,2),
+  jaqz452adint NUMBER(18,2),
+  jaqz452afvto DATE,
+  jaqz452adatm NUMBER(9),
+  jaqz452adata NUMBER(9),
+  jaqz452acond VARCHAR2(50),
+  jaqz452ancuo NUMBER(9),
+  jaqz452atcuo NUMBER(9),
+  jaqz452antel VARCHAR2(100),
+  jaqz452adire VARCHAR2(150),
+  jaqz452adref VARCHAR2(150),
+  jaqz452adist VARCHAR2(50),
+  jaqz452aprov VARCHAR2(50),
+  jaqz452adpto VARCHAR2(50),
+  jaqz452aesta VARCHAR2(50),
+  jaqz452anive VARCHAR2(50),
+  jaqz452asuc  NUMBER(3)
+)
+compress;
+comment on table JAQZ452A
+  is 'rep_det_cont_cart_final ';
+comment on column JAQZ452A.jaqz452afpro
+  is 'Fecha Proceso';
+comment on column JAQZ452A.jaqz452areg
+  is 'Region';
+comment on column JAQZ452A.jaqz452azon
+  is 'Zona';
+comment on column JAQZ452A.jaqz452aage
+  is 'Agencia';
+comment on column JAQZ452A.jaqz452apro
+  is 'Producto SBS';
+comment on column JAQZ452A.jaqz452apca
+  is 'Producto Caja';
+comment on column JAQZ452A.jaqz452acom
+  is 'Comite';
+comment on column JAQZ452A.jaqz452aana
+  is 'Analista';
+comment on column JAQZ452A.jaqz452adoc
+  is 'Numdoc';
+comment on column JAQZ452A.jaqz452acli
+  is 'Cliente';
+comment on column JAQZ452A.jaqz452amda
+  is 'Moneda';
+comment on column JAQZ452A.jaqz452acta
+  is 'Cuenta';
+comment on column JAQZ452A.jaqz452aope
+  is 'Operacion';
+comment on column JAQZ452A.jaqz452asdfm
+  is 'Saldo Fin Mes';
+comment on column JAQZ452A.jaqz452asdac
+  is 'Saldo Actual';
+comment on column JAQZ452A.jaqz452adcap
+  is 'Deuda Capital';
+comment on column JAQZ452A.jaqz452adint
+  is 'Deuda Interes';
+comment on column JAQZ452A.jaqz452afvto
+  is 'Fecha Vencimiento';
+comment on column JAQZ452A.jaqz452adatm
+  is 'Dias Atraso Mes Anterior';
+comment on column JAQZ452A.jaqz452adata
+  is 'Dias Atraso Actual ';
+comment on column JAQZ452A.jaqz452acond
+  is 'Condicion';
+comment on column JAQZ452A.jaqz452ancuo
+  is 'Cuota';
+comment on column JAQZ452A.jaqz452atcuo
+  is 'Total Cuotas';
+comment on column JAQZ452A.jaqz452antel
+  is 'Telefonos';
+comment on column JAQZ452A.jaqz452adire
+  is 'Direccion';
+comment on column JAQZ452A.jaqz452adref
+  is 'Referencia Direccion';
+comment on column JAQZ452A.jaqz452adist
+  is 'Distrito';
+comment on column JAQZ452A.jaqz452aprov
+  is 'Provincia';
+comment on column JAQZ452A.jaqz452adpto
+  is 'Departamento';
+comment on column JAQZ452A.jaqz452aesta
+  is 'Estado';
+comment on column JAQZ452A.jaqz452anive
+  is 'Nivel';
+comment on column JAQZ452A.jaqz452asuc
+  is 'Codigo Sucursal';
+create index JAQZ452A_1 on JAQZ452A (JAQZ452AFPRO, JAQZ452ASUC, JAQZ452AANA);
+create index JAQZ452A_2 on JAQZ452A (JAQZ452AFPRO, JAQZ452ACOND);
+

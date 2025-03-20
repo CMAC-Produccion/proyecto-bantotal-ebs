@@ -1,0 +1,28 @@
+create table AQPB869
+(
+  aqpb869a1 NUMBER(2) not null,
+  aqpb869a2 CHAR(60),
+  aqpb869a3 CHAR(200),
+  aqpb869a4 CHAR(250),
+  aqpb869a5 CHAR(1),
+  aqpb869a6 CHAR(250)
+)
+;
+comment on table AQPB869
+  is 'Anuncios CajaMovil';
+comment on column AQPB869.aqpb869a1
+  is 'Identificador único de un anuncio.';
+comment on column AQPB869.aqpb869a2
+  is 'Título del anuncio.';
+comment on column AQPB869.aqpb869a3
+  is 'Descripción del anuncio.';
+comment on column AQPB869.aqpb869a4
+  is 'URL de imagen del anuncio.';
+comment on column AQPB869.aqpb869a5
+  is 'Estado del anuncio.';
+comment on column AQPB869.aqpb869a6
+  is 'URL de pagina web.';
+create index AQPB869A2 on AQPB869 (AQPB869A1);
+alter table AQPB869
+  add primary key (AQPB869A1);
+

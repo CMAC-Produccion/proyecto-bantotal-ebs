@@ -1,0 +1,21 @@
+create table AQPA106
+(
+  aqpa106pai NUMBER(3) not null,
+  aqpa106tpo NUMBER(2) not null,
+  aqpa106num CHAR(12) not null,
+  aqpa106est CHAR(1),
+  aqpa106fue DATE,
+  aqpa106ax1 NUMBER(9),
+  aqpa106ax2 NUMBER(9),
+  aqpa106ax3 NUMBER(17,2),
+  aqpa106ax4 NUMBER(17,2),
+  aqpa106ax5 DATE,
+  aqpa106ax6 DATE,
+  aqpa106ax7 CHAR(100),
+  aqpa106ax8 CHAR(100),
+  aqpa106ax9 CHAR(100)
+)
+;
+alter table AQPA106
+  add primary key (AQPA106PAI, AQPA106TPO, AQPA106NUM);
+

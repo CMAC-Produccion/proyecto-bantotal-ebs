@@ -1,0 +1,55 @@
+create table JHSI23
+(
+  jhsi23apl  NUMBER(4) not null,
+  jhsi23ban  CHAR(5) not null,
+  jhsi23cor  NUMBER(9) not null,
+  jhsi23co2  NUMBER(9) not null,
+  jhsi23ide  CHAR(1),
+  jhsi23tmo  CHAR(1),
+  jhsi23fid  CHAR(4),
+  jhsi23ln   CHAR(4),
+  jhsi23ter  CHAR(16),
+  jhsi23fidc CHAR(4),
+  jhsi23lnp  CHAR(4),
+  jhsi23pan  CHAR(19),
+  jhsi23tcde NUMBER(2),
+  jhsi23trda DATE,
+  jhsi23trtm CHAR(8),
+  jhsi23snu  NUMBER(12),
+  jhsi23tfr  CHAR(2),
+  jhsi23tde  CHAR(1),
+  jhsi23fct  CHAR(19),
+  jhsi23sig  CHAR(1),
+  jhsi23orcd NUMBER(3),
+  jhsi23am1  NUMBER(17,2),
+  jhsi23aii  CHAR(11),
+  jhsi23rii  CHAR(11),
+  jhsi23air  NUMBER(6),
+  jhsi23ori  NUMBER(1),
+  jhsi23res  NUMBER(1),
+  jhsi23fil  CHAR(1),
+  jhsi23pfil CHAR(31),
+  jhsi23tto  NUMBER(2),
+  jhsi23tct  CHAR(19),
+  jhsi23dsrv CHAR(10),
+  jhsi23pfl2 CHAR(10),
+  jhsi23isrv CHAR(16),
+  jhsi23pfl3 CHAR(4),
+  jhsi23bsrv CHAR(4),
+  jhsi23tope CHAR(1),
+  jhsi23amt4 NUMBER(17,2),
+  jhsi23ttr  CHAR(1),
+  jhsi23cve  NUMBER(9,2),
+  jhsi23pda  DATE,
+  jhsi23typ  CHAR(4),
+  jhsi23tid  CHAR(16),
+  jhsi23tar  NUMBER(5,2),
+  jhsi23ff   CHAR(79),
+  jhsi23pff  CHAR(102)
+)
+;
+create unique index JHSI2301 on JHSI23 (JHSI23APL, JHSI23BAN, JHSI23COR, JHSI23CO2);
+create index JHSI2302 on JHSI23 (JHSI23PAN, JHSI23TRDA);
+create index JHSI2303 on JHSI23 (JHSI23APL, JHSI23BAN, JHSI23COR, JHSI23CO2, JHSI23PAN, JHSI23TRDA, JHSI23TOPE);
+create index JHSI2304 on JHSI23 (JHSI23FCT, JHSI23TOPE);
+

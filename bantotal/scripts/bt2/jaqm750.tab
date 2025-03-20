@@ -1,0 +1,32 @@
+create table JAQM750
+(
+  jaqm750emp NUMBER(3) not null,
+  jaqm750fch DATE not null,
+  jaqm750reg NUMBER(9) not null,
+  jaqm750pai NUMBER(3),
+  jaqm750tdo NUMBER(2),
+  jaqm750ndo CHAR(12),
+  jaqm750ins NUMBER(10),
+  jaqm750tso NUMBER(2),
+  jaqm750tct NUMBER(2),
+  jaqm750mod NUMBER(3),
+  jaqm750tip NUMBER(3),
+  jaqm750suc NUMBER(3),
+  jaqm750mda NUMBER(4),
+  jaqm750pap NUMBER(4),
+  jaqm750cta NUMBER(9),
+  jaqm750ase CHAR(10),
+  jaqm750cap NUMBER(4),
+  jaqm750dcr NUMBER(4),
+  jaqm750fpg DATE,
+  jaqm750imp NUMBER(17,2),
+  jaqm750cuo NUMBER(5),
+  jaqm750pdo NUMBER(5),
+  jaqm750est CHAR(1)
+)
+;
+create index JAQM7502 on JAQM750 (JAQM750PAI, JAQM750TDO, JAQM750NDO);
+create index JAQM7503 on JAQM750 (JAQM750EMP, JAQM750INS);
+alter table JAQM750
+  add primary key (JAQM750EMP, JAQM750FCH, JAQM750REG);
+

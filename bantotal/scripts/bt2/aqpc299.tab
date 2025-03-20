@@ -1,0 +1,155 @@
+create table AQPC299
+(
+  aqpc299correla NUMBER(9) not null,
+  aqpc299codregi NUMBER(3),
+  aqpc299nomregi VARCHAR2(40),
+  aqpc299codzona NUMBER(2),
+  aqpc299nomzona VARCHAR2(50),
+  aqpc299codsucu NUMBER(3),
+  aqpc299nomsucu VARCHAR2(30),
+  aqpc299codases VARCHAR2(10),
+  aqpc299nomases VARCHAR2(30),
+  aqpc299codconv NUMBER(4),
+  aqpc299nomconv VARCHAR2(50),
+  aqpc299mesregi VARCHAR2(50),
+  aqpc299diaenvl NUMBER(5),
+  aqpc299fhrenvl NUMBER(5),
+  aqpc299datrenv NUMBER(5),
+  aqpc299modlenv VARCHAR2(50),
+  aqpc299modlpre VARCHAR2(50),
+  aqpc299drelist NUMBER(5),
+  aqpc299fhrrlst NUMBER(5),
+  aqpc299datrlis NUMBER(5),
+  aqpc299regcrgr DATE,
+  aqpc299ususcls VARCHAR2(10),
+  aqpc299drchqtr NUMBER(5),
+  aqpc299fhrrchq NUMBER(5),
+  aqpc299datrchq NUMBER(5),
+  aqpc299modlrec VARCHAR2(50),
+  aqpc299regicrg DATE,
+  aqpc299ususcch VARCHAR2(10),
+  aqpc299medpago VARCHAR2(25),
+  aqpc299mtochtr NUMBER(17,2),
+  aqpc299descuoc NUMBER(9),
+  aqpc299descuop NUMBER(9),
+  aqpc299sindesc NUMBER(9),
+  aqpc299sinchtr VARCHAR2(250),
+  aqpc299crglist VARCHAR2(10),
+  aqpc299tipcrgl VARCHAR2(250),
+  aqpc299crgsisl VARCHAR2(2),
+  aqpc299diapago NUMBER(5),
+  aqpc299fhrdpag NUMBER(5),
+  aqpc299ejecpag VARCHAR2(2),
+  aqpc299pagcuoc NUMBER(5),
+  aqpc299pagcuop NUMBER(5),
+  aqpc299clispsd NUMBER(5),
+  aqpc299pagcasi VARCHAR2(2),
+  aqpc299pagcpub VARCHAR2(2),
+  aqpc299usuejec VARCHAR2(10) not null,
+  aqpc299fchejec DATE,
+  aqpc299horejec VARCHAR2(8)
+)
+;
+comment on table AQPC299
+  is 'Reporte de Seguimiento Detallado';
+comment on column AQPC299.aqpc299correla
+  is 'Correlativo';
+comment on column AQPC299.aqpc299codregi
+  is 'Código Region';
+comment on column AQPC299.aqpc299nomregi
+  is 'Nombre Region';
+comment on column AQPC299.aqpc299codzona
+  is 'Código Zona';
+comment on column AQPC299.aqpc299nomzona
+  is 'Nombre Zona';
+comment on column AQPC299.aqpc299codsucu
+  is 'Código Sucursal';
+comment on column AQPC299.aqpc299nomsucu
+  is 'Nombre Sucursal';
+comment on column AQPC299.aqpc299codases
+  is 'Código Asesor';
+comment on column AQPC299.aqpc299nomases
+  is 'Nombre Asesor';
+comment on column AQPC299.aqpc299codconv
+  is 'Código Convenio';
+comment on column AQPC299.aqpc299nomconv
+  is 'Nombre Convenio';
+comment on column AQPC299.aqpc299mesregi
+  is 'Mes Registro';
+comment on column AQPC299.aqpc299diaenvl
+  is 'Días Envió Listado';
+comment on column AQPC299.aqpc299fhrenvl
+  is 'Fecha Real Envio Listado';
+comment on column AQPC299.aqpc299datrenv
+  is 'Días Atraso Envió';
+comment on column AQPC299.aqpc299modlenv
+  is 'Modalidad Envió';
+comment on column AQPC299.aqpc299modlpre
+  is 'Modalidad Presentación';
+comment on column AQPC299.aqpc299drelist
+  is 'Día Recojo Listado';
+comment on column AQPC299.aqpc299fhrrlst
+  is 'Fecha Real Recojo Listado';
+comment on column AQPC299.aqpc299datrlis
+  is 'Día Atraso Recojo Listado';
+comment on column AQPC299.aqpc299regcrgr
+  is 'Registro Cargo Recepción';
+comment on column AQPC299.aqpc299ususcls
+  is 'Usuario Subio Cargo Listado';
+comment on column AQPC299.aqpc299drchqtr
+  is 'Día Recojo Cheque o Transferencia';
+comment on column AQPC299.aqpc299fhrrchq
+  is 'Fecha Real Recojo Cheque';
+comment on column AQPC299.aqpc299datrchq
+  is 'Día Atraso Recojo Cheque';
+comment on column AQPC299.aqpc299modlrec
+  is 'Modalidad Recepción';
+comment on column AQPC299.aqpc299regicrg
+  is 'Registro Cargo';
+comment on column AQPC299.aqpc299ususcch
+  is 'Usuario Subio Cargo Cheque';
+comment on column AQPC299.aqpc299medpago
+  is 'Medio Pago';
+comment on column AQPC299.aqpc299mtochtr
+  is 'Monto Cheque o Transferencia';
+comment on column AQPC299.aqpc299descuoc
+  is 'Descuento Cuota Completa';
+comment on column AQPC299.aqpc299descuop
+  is 'Descuento Cuota Parcial';
+comment on column AQPC299.aqpc299sindesc
+  is 'Sin Descuento';
+comment on column AQPC299.aqpc299sinchtr
+  is 'Sin Cheque o Transferencia';
+comment on column AQPC299.aqpc299crglist
+  is 'Cargo Listado';
+comment on column AQPC299.aqpc299tipcrgl
+  is 'Tipo Carga Listado';
+comment on column AQPC299.aqpc299crgsisl
+  is 'Cargar Sistema Listado';
+comment on column AQPC299.aqpc299diapago
+  is 'Día Pago';
+comment on column AQPC299.aqpc299fhrdpag
+  is 'Fecha Real Día Pago';
+comment on column AQPC299.aqpc299ejecpag
+  is 'Ejecución Pago';
+comment on column AQPC299.aqpc299pagcuoc
+  is 'Pago Cuota Completa';
+comment on column AQPC299.aqpc299pagcuop
+  is 'Pago Cuota Parcial';
+comment on column AQPC299.aqpc299clispsd
+  is 'Clientes Sin Pago Sin Descuento';
+comment on column AQPC299.aqpc299pagcasi
+  is 'Pago Casillero';
+comment on column AQPC299.aqpc299pagcpub
+  is 'Pago Canje Publicitario';
+comment on column AQPC299.aqpc299usuejec
+  is 'Usuario Ejecuto';
+comment on column AQPC299.aqpc299fchejec
+  is 'Fecha Ejecución';
+comment on column AQPC299.aqpc299horejec
+  is 'Hora Ejecución';
+create index AQPC299A2 on AQPC299 (AQPC299CODCONV);
+create index AQPC299A3 on AQPC299 (AQPC299USUEJEC, AQPC299CORRELA);
+alter table AQPC299
+  add primary key (AQPC299CORRELA, AQPC299USUEJEC);
+

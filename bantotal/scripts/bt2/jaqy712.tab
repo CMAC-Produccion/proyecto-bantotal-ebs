@@ -1,0 +1,23 @@
+create table JAQY712
+(
+  jaqy712cod   NUMBER(3) not null,
+  jaqy712suc   NUMBER(3) not null,
+  jaqy712mod   NUMBER(3) not null,
+  jaqy712mda   NUMBER(4) not null,
+  jaqy712pap   NUMBER(4) not null,
+  jaqy712cta   NUMBER(9) not null,
+  jaqy712ope   NUMBER(9) not null,
+  jaqy712sbo   NUMBER(3) not null,
+  jaqy712top   NUMBER(3) not null,
+  jaqy712fpro  DATE not null,
+  jaqy712pai   NUMBER(3),
+  jaqy712ndc   CHAR(12),
+  jaqy712tdc   NUMBER(2),
+  jaqy712sdmn  NUMBER(17,2),
+  jaqy712rubro NUMBER(16) not null
+)
+;
+create index JAQY712_01 on JAQY712 (JAQY712FPRO, JAQY712PAI, JAQY712TDC, JAQY712NDC);
+alter table JAQY712
+  add primary key (JAQY712COD, JAQY712SUC, JAQY712MOD, JAQY712MDA, JAQY712PAP, JAQY712CTA, JAQY712OPE, JAQY712SBO, JAQY712TOP, JAQY712FPRO, JAQY712RUBRO);
+

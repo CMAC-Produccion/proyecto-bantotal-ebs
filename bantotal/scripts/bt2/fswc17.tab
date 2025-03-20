@@ -1,0 +1,19 @@
+create table FSWC17
+(
+  wccodatr  NUMBER(9) not null,
+  wcnombre  CHAR(35),
+  wcnomlgo  CHAR(60),
+  wcclase   CHAR(5),
+  wcord     CHAR(1),
+  wctipo    CHAR(1),
+  wcidioma  CHAR(1),
+  wcexterno CHAR(1),
+  wcxprg    CHAR(10),
+  wcxcall   NUMBER(2)
+)
+;
+create index FSWC1702 on FSWC17 (WCNOMBRE);
+create index FSWC1703 on FSWC17 (WCNOMLGO);
+alter table FSWC17
+  add primary key (WCCODATR);
+

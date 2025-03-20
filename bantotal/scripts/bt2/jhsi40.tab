@@ -1,0 +1,24 @@
+create table JHSI40
+(
+  jhsi40tar  CHAR(19) not null,
+  jhsi40fch  DATE not null,
+  jhsi40hora CHAR(8) not null,
+  jhsi4013co NUMBER(5),
+  jhsi40moti CHAR(50),
+  jhsi40usr  CHAR(10),
+  jhsi40oper CHAR(50),
+  jhsi40acnc NUMBER(3),
+  jhsi40aux1 CHAR(100),
+  jhsi40aux2 CHAR(100),
+  jhsi40aux3 CHAR(100),
+  jhsi40dfec DATE,
+  jhsi40dhor CHAR(8),
+  jhsi40opco NUMBER(5),
+  jhsi40vart NUMBER(3)
+)
+;
+create unique index JHSI4001 on JHSI40 (JHSI40TAR, JHSI40FCH, JHSI40HORA);
+create index JHSI4002 on JHSI40 (JHSI40TAR, JHSI40FCH, JHSI40MOTI);
+create index JHSI4003 on JHSI40 (JHSI40FCH, JHSI40USR);
+create index JHSI4004 on JHSI40 (JHSI40ACNC, JHSI40OPCO, JHSI40VART, JHSI40DFEC, JHSI40DHOR);
+

@@ -1,0 +1,133 @@
+create table JAQM11
+(
+  jaqm11cui VARCHAR2(50) not null,
+  jaqm11coe CHAR(20),
+  jaqm11cat NUMBER(12),
+  jaqm11suc NUMBER(3),
+  jaqm11mod NUMBER(3),
+  jaqm11tra NUMBER(3),
+  jaqm11mon NUMBER(4),
+  jaqm11pap NUMBER(4),
+  jaqm11top NUMBER(3),
+  jaqm11cad CHAR(30),
+  jaqm11dei CHAR(50),
+  jaqm11dex CHAR(100),
+  jaqm11cod CHAR(20),
+  jaqm11luo CHAR(30),
+  jaqm11ori CHAR(1),
+  jaqm11pas CHAR(1),
+  jaqm11prg CHAR(20),
+  jaqm11peo CHAR(50),
+  jaqm11pep VARCHAR2(20),
+  jaqm11tio CHAR(30),
+  jaqm11ccp CHAR(30),
+  jaqm11cco CHAR(50),
+  jaqm11cto CHAR(50),
+  jaqm11dtd VARCHAR2(100),
+  jaqm11var VARCHAR2(20),
+  jaqm11an1 NUMBER(9),
+  jaqm11an2 NUMBER(9),
+  jaqm11an3 NUMBER(9),
+  jaqm11ai1 NUMBER(17,2),
+  jaqm11ai2 NUMBER(17,2),
+  jaqm11ai3 NUMBER(17,2),
+  jaqm11af1 DATE,
+  jaqm11af2 DATE,
+  jaqm11af3 DATE,
+  jaqm11ac1 CHAR(1),
+  jaqm11ac2 CHAR(1),
+  jaqm11ac3 CHAR(1),
+  jaqm11at1 VARCHAR2(250),
+  jaqm11at2 VARCHAR2(250),
+  jaqm11at3 VARCHAR2(250),
+  jaqm11prb CHAR(20),
+  jaqm11pfd CHAR(1)
+)
+;
+comment on table JAQM11
+  is 'Tipos Documentos Oracle';
+comment on column JAQM11.jaqm11cui
+  is 'Código Unico Interno';
+comment on column JAQM11.jaqm11coe
+  is 'Código Expediente Maestro';
+comment on column JAQM11.jaqm11cat
+  is 'Código de Categoria Interna Bantotal';
+comment on column JAQM11.jaqm11suc
+  is 'Sucursal';
+comment on column JAQM11.jaqm11mod
+  is 'Módulo';
+comment on column JAQM11.jaqm11tra
+  is 'Transacción';
+comment on column JAQM11.jaqm11mon
+  is 'Moneda';
+comment on column JAQM11.jaqm11pap
+  is 'Papel';
+comment on column JAQM11.jaqm11top
+  is 'Tipo Operacion';
+comment on column JAQM11.jaqm11cad
+  is 'Campo Diferenciador (Usado de acuerdo a conveniencia)';
+comment on column JAQM11.jaqm11dei
+  is 'Descripción Interna';
+comment on column JAQM11.jaqm11dex
+  is 'Descripción Externa';
+comment on column JAQM11.jaqm11cod
+  is 'Código Externo';
+comment on column JAQM11.jaqm11luo
+  is 'Lugar de Origen - Código Externo';
+comment on column JAQM11.jaqm11ori
+  is 'Modo de Creación Documento Auto = A Manual= M';
+comment on column JAQM11.jaqm11pas
+  is 'Tiene Programa Asociado S=Si N=No';
+comment on column JAQM11.jaqm11prg
+  is 'Programa Asociado';
+comment on column JAQM11.jaqm11peo
+  is 'Contenido Perfil Oracle';
+comment on column JAQM11.jaqm11pep
+  is 'Perfil Privacidad PUB=Publico PRI=Privado';
+comment on column JAQM11.jaqm11tio
+  is 'Código Tipo Documento Oracle';
+comment on column JAQM11.jaqm11ccp
+  is 'Código de Carpeta Oracle';
+comment on column JAQM11.jaqm11cco
+  is 'Contenido Cuenta Oracle';
+comment on column JAQM11.jaqm11cto
+  is 'Contenido Tipo Oracle';
+comment on column JAQM11.jaqm11dtd
+  is 'Descripción Tipo Documento Oracle';
+comment on column JAQM11.jaqm11var
+  is 'Variante';
+comment on column JAQM11.jaqm11an1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM11.jaqm11an2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM11.jaqm11an3
+  is 'Auxiliar Numerico 3';
+comment on column JAQM11.jaqm11ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM11.jaqm11ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM11.jaqm11ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM11.jaqm11af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM11.jaqm11af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM11.jaqm11af3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM11.jaqm11ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM11.jaqm11ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM11.jaqm11ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM11.jaqm11at1
+  is 'Auxiliar Texto 1';
+comment on column JAQM11.jaqm11at2
+  is 'Auxiliar Texto 2';
+comment on column JAQM11.jaqm11at3
+  is 'Auxiliar Texto 3';
+create index JAQM11A2 on JAQM11 (JAQM11MOD, JAQM11TRA);
+create index JAQM11A3 on JAQM11 (JAQM11SUC);
+alter table JAQM11
+  add primary key (JAQM11CUI);
+

@@ -1,0 +1,39 @@
+create table JAQM286
+(
+  jaqm286cod NUMBER(3) not null,
+  jaqm286usr CHAR(10) not null,
+  jaqm286aso NUMBER(5) not null,
+  jaqm286asd NUMBER(5) not null,
+  jaqm286ago NUMBER(4) not null,
+  jaqm286agd NUMBER(4) not null,
+  jaqm286fec DATE not null,
+  jaqm286cor NUMBER(9) not null,
+  jaqm286sta CHAR(1),
+  jaqm286au1 CHAR(1),
+  jaqm286au2 CHAR(1),
+  jaqm286aa1 CHAR(10),
+  jaqm286aa2 CHAR(10),
+  jaqm286ud1 CHAR(10),
+  jaqm286ud2 CHAR(10),
+  jaqm286fe1 DATE,
+  jaqm286fe2 DATE,
+  jaqm286ho1 CHAR(8),
+  jaqm286ho2 CHAR(8),
+  jaqm286an1 NUMBER(9),
+  jaqm286an2 NUMBER(9),
+  jaqm286an3 NUMBER(9),
+  jaqm286ai1 NUMBER(17,2),
+  jaqm286ai2 NUMBER(17,2),
+  jaqm286ai3 NUMBER(17,2),
+  jaqm286ac1 VARCHAR2(250),
+  jaqm286ac2 VARCHAR2(250),
+  jaqm286ac3 VARCHAR2(250),
+  jaqm286af1 DATE,
+  jaqm286af2 DATE,
+  jaqm286af3 DATE
+)
+;
+create index JAQM2862 on JAQM286 (JAQM286FEC, JAQM286STA);
+alter table JAQM286
+  add primary key (JAQM286COD, JAQM286USR, JAQM286ASO, JAQM286ASD, JAQM286AGO, JAQM286AGD, JAQM286FEC, JAQM286COR);
+

@@ -1,0 +1,95 @@
+create table AQPC270
+(
+  aqpc270tpcp VARCHAR2(15) not null,
+  aqpc270nrcp VARCHAR2(14) not null,
+  aqpc270femi TIMESTAMP(6) not null,
+  aqpc270fenv TIMESTAMP(6) not null,
+  aqpc270tdoc VARCHAR2(20),
+  aqpc270nrdc VARCHAR2(12),
+  aqpc270rzs  VARCHAR2(70),
+  aqpc270mdsc NUMBER(15,2),
+  aqpc270mtci NUMBER(15,2),
+  aqpc270mda  VARCHAR2(30),
+  aqpc270ndcr VARCHAR2(12),
+  aqpc270idcl VARCHAR2(10),
+  aqpc270idrs VARCHAR2(10),
+  aqpc270obs  VARCHAR2(30),
+  aqpc270etrm VARCHAR2(12),
+  aqpc270esun VARCHAR2(20),
+  aqpc270ecor VARCHAR2(8),
+  aqpc270epdf VARCHAR2(8),
+  aqpc270nrin NUMBER(9),
+  aqpc270tint VARCHAR2(12),
+  aqpc270semi VARCHAR2(20),
+  aqpc270suc  NUMBER(3),
+  aqpc270pemi VARCHAR2(20),
+  aqpc270grvd NUMBER(15,2),
+  aqpc270inft NUMBER(15,2),
+  aqpc270exnd NUMBER(15,2),
+  aqpc270grta NUMBER(15,2),
+  aqpc270expr NUMBER(15,2)
+)
+;
+comment on table AQPC270
+  is 'Comprobantes con Estado Dif.';
+comment on column AQPC270.aqpc270tpcp
+  is 'Tipo Comprobante';
+comment on column AQPC270.aqpc270nrcp
+  is 'Nro. Comprobante';
+comment on column AQPC270.aqpc270femi
+  is 'Fecha Emision';
+comment on column AQPC270.aqpc270fenv
+  is 'Fecha Envio';
+comment on column AQPC270.aqpc270tdoc
+  is 'Tipo Documento';
+comment on column AQPC270.aqpc270nrdc
+  is 'Nro. Documento';
+comment on column AQPC270.aqpc270rzs
+  is 'Razon Social';
+comment on column AQPC270.aqpc270mdsc
+  is 'Monto Descuento';
+comment on column AQPC270.aqpc270mtci
+  is 'Monto Total TCI';
+comment on column AQPC270.aqpc270mda
+  is 'Moneda';
+comment on column AQPC270.aqpc270ndcr
+  is 'Nro. Documento Ref.';
+comment on column AQPC270.aqpc270idcl
+  is 'Id Cliente';
+comment on column AQPC270.aqpc270idrs
+  is 'Id Resumen';
+comment on column AQPC270.aqpc270obs
+  is 'Observacion';
+comment on column AQPC270.aqpc270etrm
+  is 'Estado Transmision';
+comment on column AQPC270.aqpc270esun
+  is 'Estado Sunat';
+comment on column AQPC270.aqpc270ecor
+  is 'Estado Correo';
+comment on column AQPC270.aqpc270epdf
+  is 'Estado PDF';
+comment on column AQPC270.aqpc270nrin
+  is 'Nro. Interno';
+comment on column AQPC270.aqpc270tint
+  is 'Tipo Integracion';
+comment on column AQPC270.aqpc270semi
+  is 'Sistema Emision';
+comment on column AQPC270.aqpc270suc
+  is 'Sucursal';
+comment on column AQPC270.aqpc270pemi
+  is 'Punto Emision';
+comment on column AQPC270.aqpc270grvd
+  is 'Gravada(1001)';
+comment on column AQPC270.aqpc270inft
+  is 'Inafecta(1002)';
+comment on column AQPC270.aqpc270exnd
+  is 'Exonerada(1003)';
+comment on column AQPC270.aqpc270grta
+  is 'Gratuita(1004)';
+comment on column AQPC270.aqpc270expr
+  is 'Exportacion(1005)';
+create index AQPC270A2 on AQPC270 (AQPC270NRCP);
+create index AQPC270A3 on AQPC270 (AQPC270NRCP, AQPC270FEMI, AQPC270FENV);
+alter table AQPC270
+  add primary key (AQPC270TPCP, AQPC270NRCP, AQPC270FEMI, AQPC270FENV);
+

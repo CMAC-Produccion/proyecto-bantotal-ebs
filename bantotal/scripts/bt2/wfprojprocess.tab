@@ -1,0 +1,12 @@
+create table WFPROJPROCESS
+(
+  wfprjname         CHAR(50) not null,
+  wfprjprcname      CHAR(50) not null,
+  wfprjprcactver    NUMBER(4),
+  wfprjprclstver    NUMBER(4),
+  wfprjprcnumlstver NUMBER(4)
+)
+;
+alter table WFPROJPROCESS
+  add primary key (WFPRJNAME, WFPRJPRCNAME);
+

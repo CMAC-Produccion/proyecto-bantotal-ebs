@@ -1,0 +1,23 @@
+create table FSFIA9
+(
+  sfia9esp  NUMBER(4) not null,
+  sifia9mda NUMBER(4) not null,
+  sfia9hab  CHAR(1),
+  sfia9car1 CHAR(1),
+  sfia9car2 CHAR(1),
+  sfia9car3 CHAR(1),
+  sfia9car4 CHAR(20),
+  sfia9car5 CHAR(20),
+  sfia9num1 NUMBER(4),
+  sfia9num2 NUMBER(4),
+  sfia9num3 NUMBER(9),
+  sfia9num4 NUMBER(9),
+  sfia9num5 NUMBER(17,2),
+  sfia9num6 NUMBER(17,2),
+  sfia9num7 NUMBER(10,6),
+  sfia9num8 NUMBER(10,6)
+)
+;
+alter table FSFIA9
+  add primary key (SFIA9ESP, SIFIA9MDA);
+

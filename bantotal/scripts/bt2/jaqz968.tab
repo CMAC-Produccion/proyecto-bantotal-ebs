@@ -1,0 +1,25 @@
+create table JAQZ968
+(
+  jaqz968cdcam VARCHAR2(10) not null,
+  jaqz968cdpri VARCHAR2(200),
+  jaqz968casec VARCHAR2(200),
+  jaqz968fcini DATE,
+  jaqz968fcfin DATE,
+  jaqz968cdcap VARCHAR2(10),
+  jaqz968cdseg VARCHAR2(10),
+  jaqz968cmseg VARCHAR2(200),
+  jaqz968cdsec VARCHAR2(10)
+)
+;
+comment on column JAQZ968.jaqz968cdcam
+  is 'Codigo Subcampaña';
+comment on column JAQZ968.jaqz968cdcap
+  is 'Codigo Campaña principal';
+comment on column JAQZ968.jaqz968cdseg
+  is 'Codigo de segmento';
+comment on column JAQZ968.jaqz968cmseg
+  is 'Descripcion del segmento';
+create index IDX_PAMCAMP02 on JAQZ968 (JAQZ968CDCAM, JAQZ968FCINI, JAQZ968FCFIN);
+alter table JAQZ968
+  add primary key (JAQZ968CDCAM);
+

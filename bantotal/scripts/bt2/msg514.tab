@@ -1,0 +1,20 @@
+create table MSG514
+(
+  estmcod    NUMBER(5) not null,
+  msg513cod  NUMBER(5) not null,
+  msg514cor  NUMBER(4) not null,
+  msg510cod  NUMBER(10),
+  msg514prg  CHAR(10),
+  msg514exp  NUMBER(10),
+  msg514mod  CHAR(3),
+  msg514crg  CHAR(1),
+  rep001cod  NUMBER(10),
+  rep002cons NUMBER(10),
+  xwfv01grd  NUMBER(4)
+)
+;
+create index IMSG5141 on MSG514 (REP001COD, REP002CONS);
+create index MSG51402 on MSG514 (ESTMCOD, MSG510COD);
+alter table MSG514
+  add primary key (ESTMCOD, MSG513COD, MSG514COR);
+

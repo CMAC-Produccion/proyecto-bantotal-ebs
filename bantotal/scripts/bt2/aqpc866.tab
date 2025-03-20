@@ -1,0 +1,128 @@
+create table AQPC866
+(
+  aqpc866corr   NUMBER(10) not null,
+  aqpc866fec    DATE not null,
+  aqpc866hor    VARCHAR2(8) not null,
+  aqpc866cred   VARCHAR2(40) not null,
+  aqpc866ncamb  NUMBER(10),
+  aqpc866usr    VARCHAR2(10) not null,
+  aqpc866pgcod  NUMBER(3),
+  aqpc866mod    NUMBER(3),
+  aqpc866suc    NUMBER(3),
+  aqpc866mda    NUMBER(4),
+  aqpc866pap    NUMBER(4),
+  aqpc866cta    NUMBER(9),
+  aqpc866oper   NUMBER(9),
+  aqpc866sbop   NUMBER(3),
+  aqpc866tope   NUMBER(3),
+  aqpc866fini   DATE,
+  aqpc866ffin   DATE,
+  aqpc866fpag   DATE,
+  aqpc866cap    NUMBER(17,2),
+  aqpc866int    NUMBER(17,2),
+  aqpc866susepa NUMBER(17,2),
+  aqpc866fpag2  DATE,
+  aqpc866moncap NUMBER(17,2),
+  aqpc866pagcap NUMBER(17,2),
+  aqpc866pagint NUMBER(17,2),
+  aqpc866painca NUMBER(17,2),
+  aqpc866pagmor NUMBER(17,2),
+  aqpc866pagpen NUMBER(17,2),
+  aqpc866pagicv NUMBER(17,2),
+  aqpc866pagseg NUMBER(17,2),
+  aqpc866pagotr NUMBER(17,2),
+  aqpc866tcd    NUMBER(3),
+  aqpc866tmo    NUMBER(3),
+  aqpc866tsu    NUMBER(3),
+  aqpc866ttr    NUMBER(3),
+  aqpc866tre    NUMBER(4),
+  aqpc866tfc    DATE,
+  aqpc866est    VARCHAR2(3),
+  aqpc866intdeu NUMBER(17,2)
+)
+;
+comment on table AQPC866
+  is 'Tabla reporte historico de pagos';
+comment on column AQPC866.aqpc866corr
+  is 'correlativo';
+comment on column AQPC866.aqpc866fec
+  is 'fecha';
+comment on column AQPC866.aqpc866hor
+  is 'hora';
+comment on column AQPC866.aqpc866cred
+  is 'credito';
+comment on column AQPC866.aqpc866ncamb
+  is 'numero cambio';
+comment on column AQPC866.aqpc866usr
+  is 'usuario';
+comment on column AQPC866.aqpc866pgcod
+  is 'Empresa';
+comment on column AQPC866.aqpc866mod
+  is 'Modulo';
+comment on column AQPC866.aqpc866suc
+  is 'sucursal';
+comment on column AQPC866.aqpc866mda
+  is 'moneda';
+comment on column AQPC866.aqpc866pap
+  is 'papel ';
+comment on column AQPC866.aqpc866cta
+  is 'Cuenta';
+comment on column AQPC866.aqpc866oper
+  is 'Operacion';
+comment on column AQPC866.aqpc866sbop
+  is 'Sub Operacion';
+comment on column AQPC866.aqpc866tope
+  is 'Tipo de Operacion';
+comment on column AQPC866.aqpc866fini
+  is 'fecha de cambio de aqpc838fc';
+comment on column AQPC866.aqpc866ffin
+  is 'fecha fin de cambio';
+comment on column AQPC866.aqpc866fpag
+  is 'Fecha de Pago FSD601';
+comment on column AQPC866.aqpc866cap
+  is 'Capital pactado';
+comment on column AQPC866.aqpc866int
+  is 'Interes Pactado';
+comment on column AQPC866.aqpc866susepa
+  is 'suma seguro pactado';
+comment on column AQPC866.aqpc866fpag2
+  is 'fecha pago';
+comment on column AQPC866.aqpc866moncap
+  is 'monto capitalizado';
+comment on column AQPC866.aqpc866pagcap
+  is 'pagos capital';
+comment on column AQPC866.aqpc866pagint
+  is 'pagos intereses';
+comment on column AQPC866.aqpc866painca
+  is 'pagos intereses capitalizado';
+comment on column AQPC866.aqpc866pagmor
+  is 'pagos mora';
+comment on column AQPC866.aqpc866pagpen
+  is 'pagos penalidad';
+comment on column AQPC866.aqpc866pagicv
+  is 'pagos icv';
+comment on column AQPC866.aqpc866pagseg
+  is 'pagos seguro';
+comment on column AQPC866.aqpc866pagotr
+  is 'pagos otros';
+comment on column AQPC866.aqpc866tcd
+  is 'Empresa TX';
+comment on column AQPC866.aqpc866tmo
+  is 'Modulo TX';
+comment on column AQPC866.aqpc866tsu
+  is 'Sucursal TX';
+comment on column AQPC866.aqpc866ttr
+  is 'Transaccion';
+comment on column AQPC866.aqpc866tre
+  is 'Relacion TX';
+comment on column AQPC866.aqpc866tfc
+  is 'Fecha TX';
+comment on column AQPC866.aqpc866est
+  is 'estado';
+comment on column AQPC866.aqpc866intdeu
+  is 'Interes Deudor';
+create index AQPC866A2 on AQPC866 (AQPC866CRED, AQPC866USR);
+create index AQPC866A3 on AQPC866 (AQPC866PGCOD, AQPC866MOD, AQPC866SUC, AQPC866MDA, AQPC866PAP, AQPC866CTA, AQPC866OPER, AQPC866SBOP, AQPC866TOPE);
+alter table AQPC866
+  add primary key (AQPC866CORR, AQPC866CRED, AQPC866USR, AQPC866HOR, AQPC866FEC);
+

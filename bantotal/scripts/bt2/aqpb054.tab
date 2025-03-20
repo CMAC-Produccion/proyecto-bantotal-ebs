@@ -1,0 +1,45 @@
+create table AQPB054
+(
+  aqpb054pgcod NUMBER not null,
+  aqpb054fecha DATE not null,
+  aqpb054corr  NUMBER(8) not null,
+  aqpb054arche VARCHAR2(40),
+  aqpb054archr VARCHAR2(40),
+  aqpb054est   CHAR(1),
+  aqpb054usua  CHAR(10),
+  aqpb054fcr   VARCHAR2(10),
+  aqpb054hcr   VARCHAR2(10),
+  aqpb054usue  CHAR(10),
+  aqpb054fed   VARCHAR2(10),
+  aqpb054hed   VARCHAR2(10)
+)
+;
+comment on table AQPB054
+  is 'Tabla para registrar los arhivos cdr obtenidos a partir del SEE - Empresas Supervisadas';
+comment on column AQPB054.aqpb054pgcod
+  is 'Código de empresa';
+comment on column AQPB054.aqpb054fecha
+  is 'Fecha del archivo generado';
+comment on column AQPB054.aqpb054corr
+  is 'Correlativo del archivo generado';
+comment on column AQPB054.aqpb054arche
+  is 'Nombre del archivo generado';
+comment on column AQPB054.aqpb054archr
+  is 'Nombre del archivo de confirmación(CDR)';
+comment on column AQPB054.aqpb054est
+  is 'Estado del comprobante';
+comment on column AQPB054.aqpb054usua
+  is 'Usuario de creación';
+comment on column AQPB054.aqpb054fcr
+  is 'Fecha de creación';
+comment on column AQPB054.aqpb054hcr
+  is 'Hora de creación';
+comment on column AQPB054.aqpb054usue
+  is 'Usuario de edición';
+comment on column AQPB054.aqpb054fed
+  is 'Fecha de edición';
+comment on column AQPB054.aqpb054hed
+  is 'Hora de edición';
+alter table AQPB054
+  add primary key (AQPB054PGCOD, AQPB054FECHA, AQPB054CORR);
+

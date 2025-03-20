@@ -1,0 +1,123 @@
+create table JAQA10
+(
+  jaqa10fch DATE not null,
+  jaqa10emp NUMBER(3) not null,
+  jaqa10mod NUMBER(3) not null,
+  jaqa10suc NUMBER(3) not null,
+  jaqa10mda NUMBER(4) not null,
+  jaqa10pap NUMBER(4) not null,
+  jaqa10cta NUMBER(9) not null,
+  jaqa10ope NUMBER(9) not null,
+  jaqa10sbo NUMBER(3) not null,
+  jaqa10top NUMBER(3) not null,
+  jaqa10rub NUMBER(16) not null,
+  jaqa10cor NUMBER(16) not null,
+  jaqa10sab NUMBER(2),
+  jaqa10ran NUMBER(2),
+  jaqa10ipo DATE,
+  jaqa10fpo DATE,
+  jaqa10tas DATE,
+  jaqa10prf CHAR(1),
+  jaqa10ctb CHAR(1),
+  jaqa10eso NUMBER(2),
+  jaqa10dcd NUMBER(3),
+  jaqa10dmo NUMBER(3),
+  jaqa10dsu NUMBER(3),
+  jaqa10dtr NUMBER(3),
+  jaqa10dre NUMBER(4),
+  jaqa10dfc DATE,
+  jaqa10dor NUMBER(2),
+  jaqa10dsb NUMBER(3),
+  jaqa10an1 NUMBER(9),
+  jaqa10an2 NUMBER(9),
+  jaqa10ai1 NUMBER(17,2),
+  jaqa10ai2 NUMBER(17,2),
+  jaqa10ac1 CHAR(100),
+  jaqa10ac2 CHAR(100),
+  jaqa10at1 CHAR(250),
+  jaqa10at2 CHAR(250),
+  jaqa10af1 DATE,
+  jaqa10af2 DATE
+)
+;
+comment on table JAQA10
+  is 'Log de Contabilización de Garantías preferidas o no preferidas';
+comment on column JAQA10.jaqa10fch
+  is 'Fecha';
+comment on column JAQA10.jaqa10emp
+  is 'Empresa';
+comment on column JAQA10.jaqa10mod
+  is 'Modulo';
+comment on column JAQA10.jaqa10suc
+  is 'Sucursal';
+comment on column JAQA10.jaqa10mda
+  is 'Moneda';
+comment on column JAQA10.jaqa10pap
+  is 'Papel';
+comment on column JAQA10.jaqa10cta
+  is 'Cuenta';
+comment on column JAQA10.jaqa10ope
+  is 'Operacion';
+comment on column JAQA10.jaqa10sbo
+  is 'Suboperacion';
+comment on column JAQA10.jaqa10top
+  is 'Tipo de Operacion';
+comment on column JAQA10.jaqa10rub
+  is 'Rubro';
+comment on column JAQA10.jaqa10cor
+  is 'Correlativo';
+comment on column JAQA10.jaqa10sab
+  is '¿Tipo Cobertura Sabana?';
+comment on column JAQA10.jaqa10ran
+  is '¿Primer Rango de Incripcion?';
+comment on column JAQA10.jaqa10ipo
+  is 'Fecha Inicio Poliza';
+comment on column JAQA10.jaqa10fpo
+  is 'Fecha Fin Poliza';
+comment on column JAQA10.jaqa10tas
+  is 'Fecha de Tasacion';
+comment on column JAQA10.jaqa10prf
+  is '¿Garantía Preferida?';
+comment on column JAQA10.jaqa10ctb
+  is 'Contabilizacion';
+comment on column JAQA10.jaqa10eso
+  is 'Estado Original';
+comment on column JAQA10.jaqa10dcd
+  is 'Trailer Emp';
+comment on column JAQA10.jaqa10dmo
+  is 'Trailer Modulo';
+comment on column JAQA10.jaqa10dsu
+  is 'Trailer Sucursal';
+comment on column JAQA10.jaqa10dtr
+  is 'Trailer Transaccion';
+comment on column JAQA10.jaqa10dre
+  is 'Trailer Relacion';
+comment on column JAQA10.jaqa10dfc
+  is 'Trailer Fecha Conta';
+comment on column JAQA10.jaqa10dor
+  is 'Trailer Ordinal';
+comment on column JAQA10.jaqa10dsb
+  is 'Trailer Subordinal';
+comment on column JAQA10.jaqa10an1
+  is 'Auxiliar Numerico 1';
+comment on column JAQA10.jaqa10an2
+  is 'Auxiliar Numerico 2';
+comment on column JAQA10.jaqa10ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQA10.jaqa10ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQA10.jaqa10ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQA10.jaqa10ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQA10.jaqa10at1
+  is 'Auxiliar Texto 1';
+comment on column JAQA10.jaqa10at2
+  is 'Auxiliar Texto 2';
+comment on column JAQA10.jaqa10af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQA10.jaqa10af2
+  is 'Auxiliar Fecha 2';
+alter table JAQA10
+  add primary key (JAQA10FCH, JAQA10EMP, JAQA10MOD, JAQA10SUC, JAQA10MDA, JAQA10PAP, JAQA10CTA, JAQA10OPE, JAQA10SBO, JAQA10TOP, JAQA10RUB, JAQA10COR);
+

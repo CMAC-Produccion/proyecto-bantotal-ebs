@@ -1,0 +1,40 @@
+create table JAQL586
+(
+  jaql586codreg  NUMBER(3),
+  jaql586reg     VARCHAR2(50),
+  jaql586codzon  NUMBER(3),
+  jaql586zon     VARCHAR2(50),
+  jaql586codage  NUMBER(3),
+  jaql586age     VARCHAR2(50),
+  jaql586ctipmer NUMBER(3),
+  jaql586tipmer  VARCHAR2(50),
+  jaql586cantage NUMBER(3),
+  jaql586antage  VARCHAR2(50),
+  jaql586caja    CHAR(3)
+)
+;
+comment on column JAQL586.jaql586codreg
+  is 'Código de Región';
+comment on column JAQL586.jaql586reg
+  is 'Nombre de Región';
+comment on column JAQL586.jaql586codzon
+  is 'Código de Zona';
+comment on column JAQL586.jaql586zon
+  is 'Nombre de Zona';
+comment on column JAQL586.jaql586codage
+  is 'Código de Agencia';
+comment on column JAQL586.jaql586age
+  is 'Nombre de Agencia';
+comment on column JAQL586.jaql586ctipmer
+  is 'Código Tipo de Mercado: 1-Decremento, 2-SinCrecimiento, 3-ConCrecimiento';
+comment on column JAQL586.jaql586tipmer
+  is 'Tipo de Mercado: Decremento, SinCrecimiento, ConCrecimiento';
+comment on column JAQL586.jaql586cantage
+  is 'Código de Tipo de Agencia por Antigüedad: 1-Nueva, 2-EnCrecimiento, 3-Madura';
+comment on column JAQL586.jaql586antage
+  is 'Código de Tipo de Agencia por Antigüedad: Nueva, EnCrecimiento, Madura';
+comment on column JAQL586.jaql586caja
+  is 'Código de Caja A-Arequipa L1-CSL1, L2-CSL2';
+create index IDX_JAQL586_2 on JAQL586 (JAQL586CODAGE, JAQL586CTIPMER, JAQL586CANTAGE, JAQL586CODZON);
+create index JAQL586_1 on JAQL586 (JAQL586CODAGE);
+

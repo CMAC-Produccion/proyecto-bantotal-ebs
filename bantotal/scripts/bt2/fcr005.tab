@@ -1,0 +1,23 @@
+create table FCR005
+(
+  rc1pgcod NUMBER(3) not null,
+  rc1mod   NUMBER(3) not null,
+  rc1oper  NUMBER(9) not null,
+  rc1sbop  NUMBER(3) not null,
+  rc1cuota NUMBER(3) not null,
+  rc1tipo  NUMBER(3) not null,
+  rcrel    NUMBER(3) not null,
+  rc2pgcod NUMBER(3) not null,
+  rc2mod   NUMBER(3) not null,
+  rc2oper  NUMBER(9) not null,
+  rc2mda   NUMBER(4) not null,
+  rc2cta   NUMBER(9) not null,
+  rc2pap   NUMBER(4) not null,
+  rc2suc   NUMBER(3) not null,
+  rc2sbop  NUMBER(3) not null,
+  rc2tipo  NUMBER(3) not null
+)
+;
+alter table FCR005
+  add primary key (RC1PGCOD, RC1MOD, RC1OPER, RC1SBOP, RC1CUOTA, RC1TIPO, RCREL, RC2PGCOD, RC2MOD, RC2OPER, RC2MDA, RC2CTA, RC2PAP, RC2SUC, RC2SBOP, RC2TIPO);
+

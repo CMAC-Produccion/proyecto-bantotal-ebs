@@ -1,0 +1,33 @@
+create table FSE513
+(
+  se513cod NUMBER(3) not null,
+  se513suc NUMBER(3) not null,
+  se513mod NUMBER(3) not null,
+  se513mda NUMBER(4) not null,
+  se513pap NUMBER(4) not null,
+  se513cta NUMBER(9) not null,
+  se513ope NUMBER(9) not null,
+  se513sbo NUMBER(3) not null,
+  se513top NUMBER(3) not null,
+  se513fte NUMBER(3),
+  se513ofd CHAR(40),
+  se513adc CHAR(40),
+  se513prm NUMBER(17,2),
+  se513def NUMBER(17,2),
+  se513dcn NUMBER(10),
+  se513dch NUMBER(17,2),
+  se513ref NUMBER(17,2),
+  se513rcn NUMBER(10),
+  se513chg NUMBER(17,2),
+  se513chc NUMBER(5),
+  se513tx1 CHAR(20),
+  se513tx2 CHAR(50),
+  se513fc1 DATE,
+  se513fc2 DATE,
+  se513im1 NUMBER(17,2),
+  se513im2 NUMBER(17,2)
+)
+;
+alter table FSE513
+  add primary key (SE513COD, SE513SUC, SE513MOD, SE513MDA, SE513PAP, SE513CTA, SE513OPE, SE513SBO, SE513TOP);
+

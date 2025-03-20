@@ -1,0 +1,20 @@
+create table FSFC05
+(
+  kg05pgcod NUMBER(3) not null,
+  kg05mon   NUMBER(4) not null,
+  kg05diobi CHAR(1),
+  kg05mocpr NUMBER(14,8),
+  kg05movta NUMBER(14,8),
+  kg05moar  NUMBER(14,8),
+  kg05moarc NUMBER(14,8),
+  kg05motcp NUMBER(10,8),
+  kg05motvt NUMBER(10,8),
+  kg05motar NUMBER(10,8),
+  kg05femod DATE,
+  kg05homod CHAR(8),
+  kg05usmod CHAR(10)
+)
+;
+alter table FSFC05
+  add primary key (KG05PGCOD, KG05MON);
+

@@ -1,0 +1,48 @@
+create table FBC530
+(
+  bc530emp  NUMBER(3) not null,
+  bc530inf  CHAR(10) not null,
+  bc530fch  DATE not null,
+  bc530clv  CHAR(40) not null,
+  bc530cor  NUMBER(9) not null,
+  bc530n1   NUMBER(17,2),
+  bc530n2   NUMBER(17,2),
+  bc530n3   NUMBER(17,2),
+  bc530n4   NUMBER(17,2),
+  bc530n5   NUMBER(17,2),
+  bc530n6   NUMBER(17,2),
+  bc530n7   NUMBER(17,2),
+  bc530n8   NUMBER(17,2),
+  bc530n9   NUMBER(17,2),
+  bc530n10  NUMBER(17,2),
+  bc530n11  NUMBER(17,2),
+  bc530n12  NUMBER(17,2),
+  bc530n13  NUMBER(17,2),
+  bc530n14  NUMBER(17,2),
+  bc530n15  NUMBER(17,2),
+  bc530chr1 CHAR(30),
+  bc530chr2 CHAR(30),
+  bc530chr3 CHAR(30),
+  bc530chr4 CHAR(40),
+  bc530chr5 CHAR(40),
+  bc530chr6 CHAR(40),
+  bc530chr7 CHAR(40),
+  bc530chr8 CHAR(40),
+  bc530chr9 CHAR(40),
+  bc530ch10 CHAR(50),
+  bc530ch11 CHAR(50),
+  bc530ch12 CHAR(50),
+  bc530ch13 CHAR(100),
+  bc530ch14 CHAR(100),
+  bc530ch15 CHAR(100),
+  bc530fch1 DATE,
+  bc530fch2 DATE,
+  bc530fch3 DATE,
+  bc530fch4 DATE,
+  bc530fch5 DATE
+)
+;
+create index FBC53002_2 on FBC530 (BC530EMP, BC530INF, BC530FCH, BC530CH14, BC530CH13, BC530CHR1, BC530CHR4, BC530CHR2);
+alter table FBC530
+  add primary key (BC530EMP, BC530INF, BC530FCH, BC530CLV, BC530COR);
+

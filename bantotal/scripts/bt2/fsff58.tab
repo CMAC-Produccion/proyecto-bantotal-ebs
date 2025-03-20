@@ -1,0 +1,16 @@
+create table FSFF58
+(
+  dtppgcod  NUMBER(3) not null,
+  dtpitsuc  NUMBER(3) not null,
+  dtpitmod  NUMBER(3) not null,
+  dtpittran NUMBER(3) not null,
+  dtpitnrel NUMBER(4) not null,
+  dtpfch    DATE not null,
+  dtpfcon   DATE not null,
+  dtpcoderr NUMBER(5) not null,
+  dtpdscerr CHAR(65)
+)
+;
+alter table FSFF58
+  add primary key (DTPPGCOD, DTPITSUC, DTPITMOD, DTPITTRAN, DTPITNREL, DTPFCH, DTPFCON, DTPCODERR);
+

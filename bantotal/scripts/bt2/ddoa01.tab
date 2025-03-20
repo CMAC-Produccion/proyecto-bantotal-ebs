@@ -1,0 +1,13 @@
+create table DDOA01
+(
+  ddo01pgcod NUMBER(3) not null,
+  ddo01ctnro NUMBER(9) not null,
+  ddo01pais  NUMBER(3) not null,
+  ddo01tdoc  NUMBER(2) not null,
+  ddo01ndoc  CHAR(12) not null,
+  ddo01ctfir NUMBER(9)
+)
+;
+alter table DDOA01
+  add primary key (DDO01PGCOD, DDO01CTNRO, DDO01PAIS, DDO01TDOC, DDO01NDOC);
+

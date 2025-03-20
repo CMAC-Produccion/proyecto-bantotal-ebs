@@ -1,0 +1,16 @@
+create table FSFFA8
+(
+  fsffcod   NUMBER(5) not null,
+  fsffdsc   CHAR(40),
+  fsffnomp  CHAR(20),
+  fsffanarm CHAR(1),
+  fsffmasdo CHAR(1),
+  fsffhab1  CHAR(1),
+  fsffprog  CHAR(8)
+)
+;
+create index FSFFA802 on FSFFA8 (FSFFNOMP);
+create index FSFFA803 on FSFFA8 (FSFFDSC);
+alter table FSFFA8
+  add primary key (FSFFCOD);
+

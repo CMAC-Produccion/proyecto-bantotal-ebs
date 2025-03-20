@@ -1,0 +1,18 @@
+create table FIF021
+(
+  if021cod   NUMBER(3) not null,
+  if021pgm   CHAR(30) not null,
+  if021ban   CHAR(5) not null,
+  if021tip   NUMBER(3) not null,
+  if021arc   CHAR(30),
+  if021fis   CHAR(30),
+  if021mod   NUMBER(3),
+  if021mda   NUMBER(4),
+  if021tpfin CHAR(10),
+  if021desc  CHAR(50)
+)
+;
+create index FIF02102 on FIF021 (IF021COD, IF021FIS, IF021ARC);
+alter table FIF021
+  add primary key (IF021COD, IF021PGM, IF021BAN, IF021TIP);
+

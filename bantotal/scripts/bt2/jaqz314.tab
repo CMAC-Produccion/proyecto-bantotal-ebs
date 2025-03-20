@@ -1,0 +1,17 @@
+create table JAQZ314
+(
+  jaqz314idarc  NUMBER(18) not null,
+  jaqz314fearc  DATE not null,
+  jaqz314nusec  NUMBER(18) not null,
+  jaqz314idusu  NUMBER(18) not null,
+  jaqz314marca  VARCHAR2(50),
+  jaqz314msisdn VARCHAR2(50),
+  jaqz314usnam  VARCHAR2(100),
+  jaqz314cantid NUMBER(18),
+  jaqz314fgest  CHAR(1),
+  jaqz314fepro  DATE
+)
+;
+alter table JAQZ314
+  add primary key (JAQZ314IDARC, JAQZ314FEARC, JAQZ314NUSEC, JAQZ314IDUSU);
+

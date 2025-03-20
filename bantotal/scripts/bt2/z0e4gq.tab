@@ -1,0 +1,50 @@
+create table Z0E4GQ
+(
+  z0e4gqpgc NUMBER(3) not null,
+  z0e4gqsuc NUMBER(3) not null,
+  z0e4gqcta NUMBER(9) not null,
+  z0e4gqsct NUMBER(3) not null,
+  z0e4gqmod NUMBER(3) not null,
+  z0e4gqmon NUMBER(4) not null,
+  z0e4gqpap NUMBER(4) not null,
+  z0e4gqtop NUMBER(3) not null,
+  z0e4gqope NUMBER(9) not null,
+  z0e4gqtct NUMBER(2),
+  z0e4gqctb CHAR(19),
+  z0e4gqim1 NUMBER(11,2),
+  z0e4gqmo1 CHAR(10),
+  z0e4gqfe1 DATE,
+  z0e4gqim2 NUMBER(11,2),
+  z0e4gqmo2 CHAR(10),
+  z0e4gqfe2 DATE,
+  z0e4gqim3 NUMBER(11,2),
+  z0e4gqmo3 CHAR(10),
+  z0e4gqfe3 DATE,
+  z0e4gqim4 NUMBER(11,2),
+  z0e4gqmo4 CHAR(10),
+  z0e4gqfe4 DATE,
+  z0e4gqim5 NUMBER(11,2),
+  z0e4gqmo5 CHAR(10),
+  z0e4gqfe5 DATE,
+  z0e4gqim6 NUMBER(11,2),
+  z0e4gqmo6 CHAR(10),
+  z0e4gqfe6 DATE,
+  z0e4gqim7 NUMBER(11,2),
+  z0e4gqmo7 CHAR(10),
+  z0e4gqfe7 DATE,
+  z0e4gqim8 NUMBER(11,2),
+  z0e4gqmo8 CHAR(10),
+  z0e4gqfe8 DATE,
+  z0e4gqim9 NUMBER(11,2),
+  z0e4gqmo9 CHAR(10),
+  z0e4gqfe9 DATE,
+  z0e4gqi10 NUMBER(11,2),
+  z0e4gqm10 CHAR(10),
+  z0e4gqf10 DATE,
+  z0e4gqboo NUMBER(1)
+)
+;
+create index Z0E4GQ02 on Z0E4GQ (Z0E4GQBOO, Z0E4GQTCT, Z0E4GQCTB);
+alter table Z0E4GQ
+  add primary key (Z0E4GQPGC, Z0E4GQSUC, Z0E4GQCTA, Z0E4GQSCT, Z0E4GQMOD, Z0E4GQMON, Z0E4GQPAP, Z0E4GQTOP, Z0E4GQOPE);
+

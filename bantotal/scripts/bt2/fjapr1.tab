@@ -1,0 +1,24 @@
+create table FJAPR1
+(
+  japr1tdoc  NUMBER(2) not null,
+  japr1pdoc  NUMBER(3) not null,
+  japr1ndoc  CHAR(12) not null,
+  japr1cat1  NUMBER(4),
+  japr1cat2  NUMBER(4),
+  japr1cat3  NUMBER(4),
+  japr1cat4  NUMBER(4),
+  japr1cat5  NUMBER(4),
+  japr1cat6  NUMBER(4),
+  japr1catac NUMBER(4),
+  japr1fsfin DATE,
+  japr1finst DATE,
+  japr1finf  DATE,
+  japr1tinf  NUMBER(4),
+  japr1tsfin NUMBER(17,2),
+  japr1tinst NUMBER(17,2),
+  japr1tact  NUMBER(17,2)
+)
+;
+alter table FJAPR1
+  add primary key (JAPR1TDOC, JAPR1PDOC, JAPR1NDOC);
+

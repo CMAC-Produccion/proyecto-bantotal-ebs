@@ -1,0 +1,21 @@
+create table FSFC10L
+(
+  kgl10cod NUMBER(3) not null,
+  kgl10fch DATE not null,
+  kgl10pzo NUMBER(5) not null,
+  kgl10fig DATE not null,
+  kgl10hig CHAR(8) not null,
+  kgl10rok CHAR(1),
+  kgl10trg CHAR(1),
+  kgl10uig CHAR(10),
+  kgl10wig CHAR(10),
+  kgl10fcf DATE,
+  kgl10hcf CHAR(8),
+  kgl10ucf CHAR(10),
+  kgl10wcf CHAR(10),
+  kgl10val NUMBER(17,2)
+)
+;
+alter table FSFC10L
+  add primary key (KGL10COD, KGL10FCH, KGL10PZO, KGL10FIG, KGL10HIG);
+

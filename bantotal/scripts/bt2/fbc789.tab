@@ -1,0 +1,16 @@
+create table FBC789
+(
+  bc789tcoa  NUMBER(4) not null,
+  bc789emp   NUMBER(3) not null,
+  bc789fch   DATE not null,
+  bc789cores CHAR(3) not null,
+  bc789corem CHAR(3) not null,
+  bc789nscod CHAR(7) not null,
+  bc789nscoh CHAR(7) not null,
+  bc789autco CHAR(10) not null,
+  bc789feanc DATE
+)
+;
+alter table FBC789
+  add primary key (BC789TCOA, BC789EMP, BC789FCH, BC789CORES, BC789COREM, BC789NSCOD, BC789NSCOH, BC789AUTCO);
+

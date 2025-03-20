@@ -1,0 +1,12 @@
+create table FPAE09
+(
+  pae01cev NUMBER(3) not null,
+  pae04ite NUMBER(5) not null,
+  pae09iev CHAR(1),
+  pae09hab CHAR(1)
+)
+;
+create index FPAE0902 on FPAE09 (PAE04ITE);
+alter table FPAE09
+  add primary key (PAE01CEV, PAE04ITE);
+

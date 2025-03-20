@@ -1,0 +1,337 @@
+create table AQPB763H
+(
+  aqpb763husur   CHAR(10),
+  aqpb763hrucc   VARCHAR2(15),
+  aqpb763hnsol   VARCHAR2(20),
+  aqpb763hncta   NUMBER(9),
+  aqpb763hnope   NUMBER(9),
+  aqpb763hnpre   VARCHAR2(30),
+  aqpb763hfdes   DATE,
+  aqpb763hscap   NUMBER(17,2),
+  aqpb763hsins   NUMBER(17,2),
+  aqpb763hmpre   NUMBER(17,2),
+  aqpb763hfclas  DATE,
+  aqpb763hcnor   NUMBER(5,2),
+  aqpb763hccpp   NUMBER(5,2),
+  aqpb763hcdef   NUMBER(5,2),
+  aqpb763hcdud   NUMBER(5,2),
+  aqpb763hcper   NUMBER(5,2),
+  aqpb763hscon   CHAR(3),
+  aqpb763hatru   NUMBER,
+  aqpb763hrgon   VARCHAR2(40),
+  aqpb763hzona   VARCHAR2(40),
+  aqpb763hagen   VARCHAR2(40),
+  aqpb763hanal   VARCHAR2(40),
+  aqpb763htdoc   CHAR(3),
+  aqpb763hndoc   VARCHAR2(15),
+  aqpb763hrsoc   VARCHAR2(70),
+  aqpb763hnomc   VARCHAR2(70),
+  aqpb763hestd   CHAR(30),
+  aqpb763hfest   DATE,
+  aqpb763hcdes   NUMBER(17,2),
+  aqpb763hncuod  NUMBER(5),
+  aqpb763hpgra   NUMBER(9),
+  aqpb763hcobr   NUMBER(5,2),
+  aqpb763hmcob   NUMBER(17,2),
+  aqpb763hchon   CHAR(1),
+  aqpb763hfhon   DATE,
+  aqpb763hmhon   NUMBER(17,2),
+  aqpb763hdatr   NUMBER(9),
+  aqpb763hfinc   DATE,
+  aqpb763hffnc   DATE,
+  aqpb763hcpen   NUMBER(5),
+  aqpb763hfvnui  DATE,
+  aqpb763hfvnup  DATE,
+  aqpb763hfpup   DATE,
+  aqpb763hcuop   NUMBER(5),
+  aqpb763hmcuop  NUMBER(17,2),
+  aqpb763hprcap  NUMBER(17,2),
+  aqpb763hpinc   NUMBER(17,2),
+  aqpb763hpinm   NUMBER(17,2),
+  aqpb763hprin   NUMBER(17,2),
+  aqpb763hprpn   NUMBER(17,2),
+  aqpb763hprseg  NUMBER(17,2),
+  aqpb763hfcsbs  DATE,
+  aqpb763hsnor   NUMBER(5,2),
+  aqpb763hscpp   NUMBER(5,2),
+  aqpb763hsdef   NUMBER(5,2),
+  aqpb763hsdud   NUMBER(5,2),
+  aqpb763hsper   NUMBER(5,2),
+  aqpb763htea    NUMBER(17,2),
+  aqpb763hteam   NUMBER(17,2),
+  aqpb763hciuu   VARCHAR2(5),
+  aqpb763haeco   VARCHAR2(60),
+  aqpb763htcre   VARCHAR2(50),
+  aqpb763htpre   VARCHAR2(50),
+  aqpb763hrepro  CHAR(1),
+  aqpb763hfrpro  DATE,
+  aqpb763hnrpro  NUMBER(5),
+  aqpb763hfprcr  DATE,
+  aqpb763hffnpr  DATE,
+  aqpb763hncuor  NUMBER(5),
+  aqpb763hgrac   NUMBER(5),
+  aqpb763hciuo   VARCHAR2(5),
+  aqpb763haecoo  VARCHAR2(60),
+  aqpb763hemp    NUMBER(3),
+  aqpb763hmod    NUMBER(3),
+  aqpb763hsuc    NUMBER(3),
+  aqpb763hmnda   NUMBER(4),
+  aqpb763hpapl   NUMBER(4),
+  aqpb763hsbop   NUMBER(3),
+  aqpb763htope   NUMBER(3),
+  aqpb763hmone   VARCHAR2(20),
+  aqpb763hsdocap NUMBER(17,2),
+  aqpb763hsdohon NUMBER(17,2),
+  aqpb763hcrehon NUMBER(17,2),
+  aqpb763hfcr    VARCHAR2(10),
+  aqpb763hhcr    VARCHAR2(10),
+  aqpb763hfproc  DATE,
+  aqpb763hncer   VARCHAR2(50),
+  aqpb763hccob   VARCHAR2(50),
+  aqpb763hcren   VARCHAR2(50),
+  aqpb763hpcobr  VARCHAR2(50),
+  aqpb763hpchon  VARCHAR2(50),
+  aqpb763hcodi   VARCHAR2(50),
+  aqpb763hsinsap NUMBER(17,2),
+  aqpb763hprpago NUMBER(17,2),
+  aqpb763hpagrea NUMBER(17,2),
+  aqpb763hpramrt NUMBER(17,2),
+  aqpb763hnrccor NUMBER(6),
+  aqpb763hnrccac NUMBER(6),
+  aqpb763hvulcpa NUMBER(17,2),
+  aqpb763hvcprve NUMBER(17,2),
+  aqpb763hfuclpr DATE,
+  aqpb763hintcom NUMBER(17,2),
+  aqpb763hintcov NUMBER(17,2),
+  aqpb763hintmor NUMBER(17,2),
+  aqpb763hpenali NUMBER(17,2),
+  aqpb763hruccer VARCHAR2(20),
+  aqpb763hconsap VARCHAR2(50),
+  aqpb763hmonrep NUMBER(17,2),
+  aqpb763htintre NUMBER(10,4)
+)
+;
+comment on table AQPB763H
+  is 'REPORTE FONDO FAE TURISMO Historica';
+comment on column AQPB763H.aqpb763husur
+  is 'USUARIO';
+comment on column AQPB763H.aqpb763hrucc
+  is 'Esf (ruc Caja Arequipa)';
+comment on column AQPB763H.aqpb763hnsol
+  is 'Código de solicitud (dato de Cofide)';
+comment on column AQPB763H.aqpb763hncta
+  is 'N° de cuenta ';
+comment on column AQPB763H.aqpb763hnope
+  is 'N° de operación ';
+comment on column AQPB763H.aqpb763hnpre
+  is 'Numero préstamo ';
+comment on column AQPB763H.aqpb763hfdes
+  is 'Fecha de desembolso  ';
+comment on column AQPB763H.aqpb763hscap
+  is 'Saldo capital (saldo bantotal al corte)';
+comment on column AQPB763H.aqpb763hsins
+  is 'Saldo insoluto (saldo insoluto al corte)';
+comment on column AQPB763H.aqpb763hmpre
+  is 'Monto prepago (monto amortizado de capital comparando al cierre del mes anterior)';
+comment on column AQPB763H.aqpb763hfclas
+  is 'Fecha clasificación caja ';
+comment on column AQPB763H.aqpb763hcnor
+  is 'Clasificación sbs normal % (en números sin decimales)';
+comment on column AQPB763H.aqpb763hccpp
+  is 'Clasificación sbs cpp % (en números sin decimales)';
+comment on column AQPB763H.aqpb763hcdef
+  is 'Clasificación sbs deficiente % (en números sin decimales)';
+comment on column AQPB763H.aqpb763hcdud
+  is 'Clasificación sbs dudoso % (en números sin decimales)';
+comment on column AQPB763H.aqpb763hcper
+  is 'Clasificación sbs pérdida % (en números sin decimales)';
+comment on column AQPB763H.aqpb763hscon
+  is 'Situación contable (vigente = vgt, vencido=vcd, refinanciado=rfn, judicial=jdc)';
+comment on column AQPB763H.aqpb763hatru
+  is 'Días de atraso de la última cuota pagada ';
+comment on column AQPB763H.aqpb763hrgon
+  is 'Región ';
+comment on column AQPB763H.aqpb763hzona
+  is 'Zona ';
+comment on column AQPB763H.aqpb763hagen
+  is 'Agencia ';
+comment on column AQPB763H.aqpb763hanal
+  is 'Analista ';
+comment on column AQPB763H.aqpb763htdoc
+  is 'Tipo de documento (dni, ruc)';
+comment on column AQPB763H.aqpb763hndoc
+  is 'Numero de documento ';
+comment on column AQPB763H.aqpb763hrsoc
+  is 'Razón social ';
+comment on column AQPB763H.aqpb763hnomc
+  is 'Apellidos y nombres del cliente ';
+comment on column AQPB763H.aqpb763hestd
+  is 'Estado de crédito (normal, cancelado, refinanciado, refinanciado pjm, prejudicial menor, enviado a rl, c. Judicial)';
+comment on column AQPB763H.aqpb763hfest
+  is 'Fecha de cuando se realizó el cambio de estado ';
+comment on column AQPB763H.aqpb763hcdes
+  is 'Monto desembolsado (Bantotal)';
+comment on column AQPB763H.aqpb763hncuod
+  is 'N° de cuotas el desembolso (en meses)';
+comment on column AQPB763H.aqpb763hpgra
+  is 'Periodo de gracia del desembolso (en meses)';
+comment on column AQPB763H.aqpb763hcobr
+  is '% de cobertura ';
+comment on column AQPB763H.aqpb763hmcob
+  is 'Monto de cobertura (saldo insoluto * % de cobertura)';
+comment on column AQPB763H.aqpb763hchon
+  is 'Crédito honrado (si=s, no=n)';
+comment on column AQPB763H.aqpb763hfhon
+  is 'Fecha de honramiento ';
+comment on column AQPB763H.aqpb763hmhon
+  is 'Monto honrado ';
+comment on column AQPB763H.aqpb763hdatr
+  is 'Días de atraso ';
+comment on column AQPB763H.aqpb763hfinc
+  is 'Fecha de inicio de crédito original - Cofide ';
+comment on column AQPB763H.aqpb763hffnc
+  is 'Fecha de fin de crédito original - Cofide ';
+comment on column AQPB763H.aqpb763hcpen
+  is 'N° de cuotas pendientes de pago ';
+comment on column AQPB763H.aqpb763hfvnui
+  is 'Fecha de vencimiento de la última cuota impaga ';
+comment on column AQPB763H.aqpb763hfvnup
+  is 'Fecha de vencimiento de última cuota pagada ';
+comment on column AQPB763H.aqpb763hfpup
+  is 'Fecha de pago de último pago ';
+comment on column AQPB763H.aqpb763hcuop
+  is 'Número de cuotas pagadas ';
+comment on column AQPB763H.aqpb763hmcuop
+  is 'Monto de cuotas pagadas ';
+comment on column AQPB763H.aqpb763hprcap
+  is 'Pago realizado - capital ';
+comment on column AQPB763H.aqpb763hpinc
+  is 'Pago realizado - interés compensatorio ';
+comment on column AQPB763H.aqpb763hpinm
+  is 'Pago realizado - interés moratorio ';
+comment on column AQPB763H.aqpb763hprin
+  is 'Pago realizado - intereses ';
+comment on column AQPB763H.aqpb763hprpn
+  is 'Pago realizado - penalidad ';
+comment on column AQPB763H.aqpb763hprseg
+  is 'Pago realizado - seguros ';
+comment on column AQPB763H.aqpb763hfcsbs
+  is 'Fecha de clasificación sbs ';
+comment on column AQPB763H.aqpb763hsnor
+  is 'Clasificación sbs normal % (en números con dos decimales)';
+comment on column AQPB763H.aqpb763hscpp
+  is 'Clasificación sbs cpp % (en números con dos decimales)';
+comment on column AQPB763H.aqpb763hsdef
+  is 'Clasificación sbs deficiente % (en números con dos decimales)';
+comment on column AQPB763H.aqpb763hsdud
+  is 'Clasificación sbs dudoso % (en números con dos decimales)';
+comment on column AQPB763H.aqpb763hsper
+  is 'Clasificación sbs pérdida % (en números con dos decimales)';
+comment on column AQPB763H.aqpb763htea
+  is 'Tea (en números con dos decimales)';
+comment on column AQPB763H.aqpb763hteam
+  is 'Tasa moratoria ';
+comment on column AQPB763H.aqpb763hciuu
+  is 'Ciuu ';
+comment on column AQPB763H.aqpb763haeco
+  is 'Actividad económica (de la última evaluación)';
+comment on column AQPB763H.aqpb763htcre
+  is 'Tipo de crédito sbs ';
+comment on column AQPB763H.aqpb763htpre
+  is 'Tipo de préstamo ';
+comment on column AQPB763H.aqpb763hrepro
+  is 'Flag de reprogramación (si=s, no=n)';
+comment on column AQPB763H.aqpb763hfrpro
+  is 'Fecha de reprogramación (de la última efectuada)';
+comment on column AQPB763H.aqpb763hnrpro
+  is 'N° de reprogramaciones ';
+comment on column AQPB763H.aqpb763hfprcr
+  is 'Fecha de primera cuota de reprogramación ';
+comment on column AQPB763H.aqpb763hffnpr
+  is 'Fecha de fin de crédito posterior a reprogramación ';
+comment on column AQPB763H.aqpb763hncuor
+  is 'N° de cuotas posterior a reprogramación ';
+comment on column AQPB763H.aqpb763hgrac
+  is 'Periodo de gracia posterior a reprogramación ';
+comment on column AQPB763H.aqpb763hciuo
+  is 'Ciiu origen (del desembolso inicial)';
+comment on column AQPB763H.aqpb763haecoo
+  is 'Actividad económica origen (del desembolso inicial)';
+comment on column AQPB763H.aqpb763hemp
+  is 'Empresa ';
+comment on column AQPB763H.aqpb763hmod
+  is 'Modulo ';
+comment on column AQPB763H.aqpb763hsuc
+  is 'Sucursal ';
+comment on column AQPB763H.aqpb763hmnda
+  is 'Moneda ';
+comment on column AQPB763H.aqpb763hpapl
+  is 'Papel ';
+comment on column AQPB763H.aqpb763hsbop
+  is 'Sub operación ';
+comment on column AQPB763H.aqpb763htope
+  is 'Tipo operación ';
+comment on column AQPB763H.aqpb763hmone
+  is 'MONEDA Descripcion ';
+comment on column AQPB763H.aqpb763hsdocap
+  is 'Saldo Capital ';
+comment on column AQPB763H.aqpb763hsdohon
+  is 'Saldo Honrado ';
+comment on column AQPB763H.aqpb763hcrehon
+  is 'Monto Credito honrado ';
+comment on column AQPB763H.aqpb763hfcr
+  is 'Fecha creacion ';
+comment on column AQPB763H.aqpb763hhcr
+  is 'Hora Creacion ';
+comment on column AQPB763H.aqpb763hfproc
+  is 'Fecha proceso';
+comment on column AQPB763H.aqpb763hncer
+  is 'Numero de Certificado';
+comment on column AQPB763H.aqpb763hccob
+  is 'Codigo de Cobertura';
+comment on column AQPB763H.aqpb763hcren
+  is 'Certificado de Renovacion/Reprogramacion';
+comment on column AQPB763H.aqpb763hpcobr
+  is 'Cobertura de Renovacion/Reprogramacion';
+comment on column AQPB763H.aqpb763hpchon
+  is 'Certificado de Honra';
+comment on column AQPB763H.aqpb763hcodi
+  is 'Codigo de Solicitud COFIDE';
+comment on column AQPB763H.aqpb763hsinsap
+  is 'Saldo Insoluto antes del prepago';
+comment on column AQPB763H.aqpb763hprpago
+  is 'Prepago(Total/Parcial)(Total=cancelacion, Parcial=amortizacion)';
+comment on column AQPB763H.aqpb763hpagrea
+  is 'Pago realizado (Pago total)';
+comment on column AQPB763H.aqpb763hpramrt
+  is 'Principal amortizado';
+comment on column AQPB763H.aqpb763hnrccor
+  is 'Numero de cuotas del cronograma original enviado a COFIDE';
+comment on column AQPB763H.aqpb763hnrccac
+  is 'Numero de cuotas de cronograma actual';
+comment on column AQPB763H.aqpb763hvulcpa
+  is 'Valor de la ultima cuota pagada';
+comment on column AQPB763H.aqpb763hvcprve
+  is 'Valor de cuota proximo vencimiento';
+comment on column AQPB763H.aqpb763hfuclpr
+  is 'Nueva fecha de la ultima cuota luego del prepago';
+comment on column AQPB763H.aqpb763hintcom
+  is 'Interes compensatorios';
+comment on column AQPB763H.aqpb763hintcov
+  is 'Intereses compensatorios vencidos';
+comment on column AQPB763H.aqpb763hintmor
+  is 'Interes moratorio';
+comment on column AQPB763H.aqpb763hpenali
+  is 'Penalidad';
+comment on column AQPB763H.aqpb763hruccer
+  is 'Ruc de Certificacion';
+comment on column AQPB763H.aqpb763hconsap
+  is 'Contrato SAP';
+comment on column AQPB763H.aqpb763hmonrep
+  is 'Monto Reprogramado';
+comment on column AQPB763H.aqpb763htintre
+  is 'Tasa de interes de la reprogramacion';
+create index AQPB763HA2 on AQPB763H (AQPB763HEMP, AQPB763HMOD, AQPB763HSUC, AQPB763HMNDA, AQPB763HPAPL, AQPB763HNCTA, AQPB763HNOPE, AQPB763HSBOP, AQPB763HTOPE);
+create index AQPB763HA3 on AQPB763H (AQPB763HUSUR);
+create index AQPB763HA4 on AQPB763H (AQPB763HUSUR, AQPB763HFPROC);
+

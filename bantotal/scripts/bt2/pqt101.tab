@@ -1,0 +1,25 @@
+create table PQT101
+(
+  ptq101cod NUMBER(3) not null,
+  pqt101mod NUMBER(3) not null,
+  pqt101suc NUMBER(3) not null,
+  pqt101mda NUMBER(4) not null,
+  pqt101pap NUMBER(4) not null,
+  pqt101cta NUMBER(9) not null,
+  pqt101ope NUMBER(9) not null,
+  pqt101sbo NUMBER(3) not null,
+  pqt101top NUMBER(3) not null,
+  pqt101pco NUMBER(5) not null,
+  pqt101cco CHAR(1),
+  pqt101au1 DATE,
+  pqt101au2 DATE,
+  pqt101au3 NUMBER(17,2),
+  pqt101au4 NUMBER(17,2),
+  pqt101au5 CHAR(30),
+  pqt101au6 CHAR(30)
+)
+;
+create index PQT10102 on PQT101 (PTQ101COD, PQT101CTA, PQT101PCO);
+alter table PQT101
+  add primary key (PTQ101COD, PQT101MOD, PQT101SUC, PQT101MDA, PQT101PAP, PQT101CTA, PQT101OPE, PQT101SBO, PQT101TOP, PQT101PCO);
+

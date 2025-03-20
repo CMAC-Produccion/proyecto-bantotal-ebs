@@ -1,0 +1,12 @@
+create table CDCTPO2
+(
+  cdctpoid   NUMBER(18) not null,
+  cdctpoinst NUMBER(18) not null,
+  cdctpocorr NUMBER(18) not null,
+  cdctpovnum NUMBER(18),
+  cdctpovtxt CHAR(30)
+)
+;
+alter table CDCTPO2
+  add primary key (CDCTPOID, CDCTPOINST, CDCTPOCORR);
+

@@ -1,0 +1,18 @@
+create table FCNV50
+(
+  cnv50num  NUMBER(10) not null,
+  cnv50fec  DATE,
+  cnv50hor  CHAR(8),
+  cnv50usu  CHAR(10),
+  cnv50est  CHAR(1),
+  cnv50usua CHAR(10),
+  cnv50feca DATE,
+  cnv50hora CHAR(8),
+  cnv50arch CHAR(80)
+)
+;
+create index FCNV5002 on FCNV50 (CNV50FEC);
+create index FCNV5003 on FCNV50 (CNV50USU);
+alter table FCNV50
+  add primary key (CNV50NUM);
+

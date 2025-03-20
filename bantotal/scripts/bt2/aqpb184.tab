@@ -1,0 +1,119 @@
+create table AQPB184
+(
+  aqpb184cor    NUMBER(10) not null,
+  aqpb184fchcar DATE,
+  aqpb184hora   VARCHAR2(10),
+  aqpb184pais   NUMBER(5),
+  aqpb184tdoc   NUMBER(5),
+  aqpb184ndoc   VARCHAR2(12),
+  aqpb184nomb   VARCHAR2(200),
+  aqpb184ncred  VARCHAR2(27),
+  aqpb184pgcod  NUMBER(3) not null,
+  aqpb184mod    NUMBER(3) not null,
+  aqpb184suc    NUMBER(5) not null,
+  aqpb184mda    NUMBER(5) not null,
+  aqpb184pap    NUMBER(5) not null,
+  aqpb184cta    NUMBER(9) not null,
+  aqpb184ope    NUMBER(9) not null,
+  aqpb184sbo    NUMBER(5) not null,
+  aqpb184top    NUMBER(5) not null,
+  aqpb184ins    NUMBER(10) not null,
+  aqpb184asesr  VARCHAR2(15),
+  aqpb184fdes   DATE not null,
+  aqpb184fcalnd DATE not null,
+  aqpb184fpago  DATE not null,
+  aqpb184opcns  NUMBER,
+  aqpb184zona   NUMBER,
+  aqpb184reg    NUMBER,
+  aqpb184dpto   VARCHAR2(100),
+  aqpb184tcred  VARCHAR2(50),
+  aqpb184dir    VARCHAR2(200),
+  aqpb184pgtx   NUMBER(5),
+  aqpb184suctx  NUMBER(5),
+  aqpb184modtx  NUMBER(5),
+  aqpb184tx     NUMBER(5),
+  aqpb184reltx  NUMBER(5),
+  aqpb184ordtx  NUMBER(5),
+  aqpb184fchtx  DATE
+)
+;
+comment on table AQPB184
+  is 'Tabla Log de Data para Sorteos';
+comment on column AQPB184.aqpb184cor
+  is 'Correlativo';
+comment on column AQPB184.aqpb184fchcar
+  is 'Fecha de Carga';
+comment on column AQPB184.aqpb184hora
+  is 'Hora';
+comment on column AQPB184.aqpb184pais
+  is 'Pais';
+comment on column AQPB184.aqpb184tdoc
+  is 'Tipo de Documento';
+comment on column AQPB184.aqpb184ndoc
+  is 'Nro de Documento';
+comment on column AQPB184.aqpb184nomb
+  is 'Nombre Cliente';
+comment on column AQPB184.aqpb184ncred
+  is 'Nro Credito';
+comment on column AQPB184.aqpb184pgcod
+  is 'PgCod Cred';
+comment on column AQPB184.aqpb184mod
+  is 'Modulo Cred';
+comment on column AQPB184.aqpb184suc
+  is 'Sucursal Cred';
+comment on column AQPB184.aqpb184mda
+  is 'Moneda Cred';
+comment on column AQPB184.aqpb184pap
+  is 'Papel Cred';
+comment on column AQPB184.aqpb184cta
+  is 'Cuenta Cred';
+comment on column AQPB184.aqpb184ope
+  is 'Operacion Cred';
+comment on column AQPB184.aqpb184sbo
+  is 'SubOpe Cred';
+comment on column AQPB184.aqpb184top
+  is 'TipOpe Cred';
+comment on column AQPB184.aqpb184ins
+  is 'Instancia';
+comment on column AQPB184.aqpb184asesr
+  is 'Asesor';
+comment on column AQPB184.aqpb184fdes
+  is 'Fecha Desembolso';
+comment on column AQPB184.aqpb184fcalnd
+  is 'Fecha Pactada Cuota';
+comment on column AQPB184.aqpb184fpago
+  is 'Fecha Pago Cuota';
+comment on column AQPB184.aqpb184opcns
+  is 'Opciones ganadas en la operacion';
+comment on column AQPB184.aqpb184zona
+  is 'Zona';
+comment on column AQPB184.aqpb184reg
+  is 'Region';
+comment on column AQPB184.aqpb184dpto
+  is 'Departamento';
+comment on column AQPB184.aqpb184tcred
+  is 'Tipo de Credito';
+comment on column AQPB184.aqpb184dir
+  is 'Direccion';
+comment on column AQPB184.aqpb184pgtx
+  is 'PgCod TX';
+comment on column AQPB184.aqpb184suctx
+  is 'Sucursal TX';
+comment on column AQPB184.aqpb184modtx
+  is 'Modulo TX';
+comment on column AQPB184.aqpb184tx
+  is 'Transaccion';
+comment on column AQPB184.aqpb184reltx
+  is 'Nro relacion TX';
+comment on column AQPB184.aqpb184ordtx
+  is 'Ordinal TX';
+comment on column AQPB184.aqpb184fchtx
+  is 'Fecha TX';
+create index AQPB184A2 on AQPB184 (AQPB184INS);
+create index AQPB184A3 on AQPB184 (AQPB184PAIS, AQPB184TDOC, AQPB184NDOC);
+create index AQPB184A4 on AQPB184 (AQPB184COR);
+create index AQPB184A5 on AQPB184 (AQPB184PGCOD, AQPB184MOD, AQPB184SUC, AQPB184MDA, AQPB184PAP, AQPB184CTA, AQPB184OPE, AQPB184SBO, AQPB184TOP);
+create index AQPB184A6 on AQPB184 (AQPB184FCHCAR);
+alter table AQPB184
+  add primary key (AQPB184COR, AQPB184PGCOD, AQPB184MOD, AQPB184SUC, AQPB184MDA, AQPB184PAP, AQPB184CTA, AQPB184OPE, AQPB184SBO, AQPB184TOP, AQPB184INS, AQPB184FDES, AQPB184FCALND, AQPB184FPAGO);
+

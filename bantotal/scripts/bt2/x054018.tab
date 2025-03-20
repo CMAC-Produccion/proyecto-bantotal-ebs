@@ -1,0 +1,20 @@
+create table X054018
+(
+  pgcod      NUMBER(3) not null,
+  xlloaomod  NUMBER(3) not null,
+  xlloaosuc  NUMBER(3) not null,
+  xlloaomda  NUMBER(4) not null,
+  xlloaopap  NUMBER(4) not null,
+  xlloaocta  NUMBER(9) not null,
+  xlloaooper NUMBER(9) not null,
+  xlloaosbop NUMBER(3) not null,
+  xlloaotope NUMBER(3) not null,
+  xlloaocest NUMBER(9) not null,
+  xlloaocrch NUMBER(4),
+  xlloaomoti CHAR(60)
+)
+;
+create index X0540182 on X054018 (XLLOAOCEST, XLLOAOCRCH);
+alter table X054018
+  add primary key (PGCOD, XLLOAOMOD, XLLOAOSUC, XLLOAOMDA, XLLOAOPAP, XLLOAOCTA, XLLOAOOPER, XLLOAOSBOP, XLLOAOTOPE, XLLOAOCEST);
+

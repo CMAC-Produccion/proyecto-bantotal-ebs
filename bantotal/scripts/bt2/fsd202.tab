@@ -1,0 +1,24 @@
+create table FSD202
+(
+  exttlis    NUMBER(4) not null,
+  extlnfact  DATE not null,
+  extlnpais  NUMBER(3) not null,
+  extlntdoc  NUMBER(2) not null,
+  extlnndoc  CHAR(25) not null,
+  extlndeno8 CHAR(80),
+  extnaux5   NUMBER(10),
+  extnaux4   NUMBER(10),
+  extnaux3   NUMBER(10),
+  extnaux2   NUMBER(10),
+  extnaxu1   NUMBER(10),
+  exttaux5   CHAR(50),
+  exttaux4   CHAR(50),
+  exttaux3   CHAR(50),
+  exttaux2   CHAR(50),
+  exttaux1   CHAR(50),
+  extdsncod  NUMBER(10)
+)
+;
+alter table FSD202
+  add primary key (EXTTLIS, EXTLNFACT, EXTLNPAIS, EXTLNTDOC, EXTLNNDOC);
+

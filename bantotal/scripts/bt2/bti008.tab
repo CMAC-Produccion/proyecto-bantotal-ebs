@@ -1,0 +1,15 @@
+create table BTI008
+(
+  btinom     VARCHAR2(40) not null,
+  btisrvnom  VARCHAR2(40) not null,
+  btisrvver  VARCHAR2(40) not null,
+  btierrcod  NUMBER(10) not null,
+  btierrdsc  VARCHAR2(200),
+  btierrsev  CHAR(1),
+  btierrdef  CHAR(1),
+  btierrcodb NUMBER(10)
+)
+;
+alter table BTI008
+  add primary key (BTINOM, BTISRVNOM, BTISRVVER, BTIERRCOD);
+

@@ -1,0 +1,40 @@
+create table JAQY787
+(
+  jaqy787pais   NUMBER(3) not null,
+  jaqy787tdoc   NUMBER(2) not null,
+  jaqy787ndoc   CHAR(12) not null,
+  jaqy787nomb   VARCHAR2(30),
+  jaqy787tcli   VARCHAR2(30),
+  jaqy787mto    NUMBER(17,2),
+  jaqy787anals  CHAR(10),
+  jaqy787agenc  NUMBER(3),
+  jaqy787corr   NUMBER(9),
+  jaqy787nrodoc CHAR(12),
+  jaqy787descrr VARCHAR2(100)
+)
+;
+comment on column JAQY787.jaqy787pais
+  is 'Pais';
+comment on column JAQY787.jaqy787tdoc
+  is 'Tipo de documento';
+comment on column JAQY787.jaqy787ndoc
+  is 'Número de documento';
+comment on column JAQY787.jaqy787nomb
+  is 'Nombre del cliente';
+comment on column JAQY787.jaqy787tcli
+  is 'Tipo de cliente: nuevo, inactivo/recurrente';
+comment on column JAQY787.jaqy787mto
+  is 'Monto';
+comment on column JAQY787.jaqy787anals
+  is 'Analista';
+comment on column JAQY787.jaqy787agenc
+  is 'Agencia';
+comment on column JAQY787.jaqy787corr
+  is 'Correlativo de la asociacion';
+comment on column JAQY787.jaqy787nrodoc
+  is 'Número de documento de la asociacion';
+comment on column JAQY787.jaqy787descrr
+  is 'Nombre de la asociacion';
+alter table JAQY787
+  add primary key (JAQY787PAIS, JAQY787TDOC, JAQY787NDOC);
+

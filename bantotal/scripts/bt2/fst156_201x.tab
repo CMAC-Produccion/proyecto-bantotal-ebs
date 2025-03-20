@@ -1,0 +1,18 @@
+create table FST156_201X
+(
+  agtecod  NUMBER(7) not null,
+  agtenom  CHAR(30),
+  cargocod NUMBER(3),
+  agtetip  CHAR(1),
+  agtesuc  NUMBER(3),
+  agtests  CHAR(1),
+  agteusr  CHAR(10)
+)
+;
+comment on table FST156_201X
+  is 'log de analistas, usuario y sucursal al cierre de mes';
+create index FST15602_2 on FST156_201X (CARGOCOD);
+create index FST15603_2 on FST156_201X (AGTEUSR);
+alter table FST156_201X
+  add primary key (AGTECOD);
+

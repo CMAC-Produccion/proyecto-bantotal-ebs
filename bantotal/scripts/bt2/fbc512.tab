@@ -1,0 +1,34 @@
+create table FBC512
+(
+  bc512emp  NUMBER(3) not null,
+  bc512inf  CHAR(10) not null,
+  bc512fch  DATE not null,
+  bc512pais NUMBER(3) not null,
+  bc512tdoc NUMBER(2) not null,
+  bc512ndoc CHAR(12) not null,
+  bc512aux1 NUMBER(12) not null,
+  bc512aux2 CHAR(12) not null,
+  bc512imp1 NUMBER(17,2),
+  bc512imp2 NUMBER(17,2),
+  bc512imp3 NUMBER(17,2),
+  bc512imp4 NUMBER(17,2),
+  bc512imp5 NUMBER(17,2),
+  bc512imp6 NUMBER(17,2),
+  bc512nro1 NUMBER(10),
+  bc512nro2 NUMBER(10),
+  bc512nro3 NUMBER(10),
+  bc512nro4 NUMBER(10),
+  bc512nro5 NUMBER(10),
+  bc512fch1 DATE,
+  bc512fch2 DATE,
+  bc512fch3 DATE,
+  bc512chr1 CHAR(10),
+  bc512chr2 CHAR(20),
+  bc512chr3 CHAR(60),
+  bc512chr4 CHAR(1),
+  bc512chr5 CHAR(1)
+)
+;
+alter table FBC512
+  add primary key (BC512EMP, BC512INF, BC512FCH, BC512PAIS, BC512TDOC, BC512NDOC, BC512AUX1, BC512AUX2);
+

@@ -1,0 +1,22 @@
+create table FSFIBH
+(
+  sfibcemp  NUMBER(3) not null,
+  sfibgcar  NUMBER(3) not null,
+  sfibhmod  NUMBER(3) not null,
+  sfibhtop  NUMBER(3) not null,
+  sfibhdsc  CHAR(30),
+  sfibhhab  CHAR(1),
+  sfibhcar1 CHAR(1),
+  sfibhcar2 CHAR(1),
+  sfibhcar3 CHAR(1),
+  sfibhnum1 NUMBER(9),
+  sfibhnum2 NUMBER(9),
+  sfibhnum3 NUMBER(9),
+  sfibhtxt1 CHAR(20),
+  sfibhtxt2 CHAR(20),
+  sfibhtxt3 CHAR(20)
+)
+;
+alter table FSFIBH
+  add primary key (SFIBCEMP, SFIBGCAR, SFIBHMOD, SFIBHTOP);
+

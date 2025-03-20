@@ -1,0 +1,23 @@
+create table FS01LOG
+(
+  fsd01logpa NUMBER(3) not null,
+  fsd01logti NUMBER(2) not null,
+  fsd01lognd CHAR(25) not null,
+  fsd01logct NUMBER(9) not null,
+  fsd01logco NUMBER(5) not null,
+  fsd01logus CHAR(10),
+  fsd01logpg CHAR(10),
+  fsd01logac CHAR(1),
+  fsd01logfc DATE,
+  fsd01loghr CHAR(8),
+  fsd01loga1 NUMBER(9),
+  fsd01loga2 NUMBER(14,2),
+  fsd01loga3 DATE,
+  fsd01loga4 DATE,
+  fsd01loga5 CHAR(30),
+  fsd01loga6 CHAR(30)
+)
+;
+alter table FS01LOG
+  add primary key (FSD01LOGPA, FSD01LOGTI, FSD01LOGND, FSD01LOGCT, FSD01LOGCO);
+

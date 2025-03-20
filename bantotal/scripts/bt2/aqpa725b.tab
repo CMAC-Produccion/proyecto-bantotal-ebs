@@ -1,0 +1,42 @@
+create table AQPA725B
+(
+  aqpa725bid      NUMBER(10) not null,
+  aqpa725bpais    NUMBER(3),
+  aqpa725btipdoc  NUMBER(2),
+  aqpa725bnumdoc  CHAR(12),
+  aqpa725bmetodo  VARCHAR2(20),
+  aqpa725btrares  CLOB,
+  aqpa725bcoderr  CHAR(5),
+  aqpa725bmsgerr  VARCHAR2(200),
+  aqpa725bfecreg  DATE,
+  aqpa725bhorreg  VARCHAR2(10),
+  aqpa725busuario VARCHAR2(10)
+)
+;
+comment on table AQPA725B
+  is 'Log de consultas CRM';
+comment on column AQPA725B.aqpa725bid
+  is 'Id Correlativo';
+comment on column AQPA725B.aqpa725bpais
+  is 'Pais documento';
+comment on column AQPA725B.aqpa725btipdoc
+  is 'Tipo documento';
+comment on column AQPA725B.aqpa725bnumdoc
+  is 'Numero documento';
+comment on column AQPA725B.aqpa725bmetodo
+  is 'Metodo ejecutado';
+comment on column AQPA725B.aqpa725btrares
+  is 'Trama Respuesta';
+comment on column AQPA725B.aqpa725bcoderr
+  is 'Codigo de error';
+comment on column AQPA725B.aqpa725bmsgerr
+  is 'Mensaje de Error';
+comment on column AQPA725B.aqpa725bfecreg
+  is 'Fecha de Registro';
+comment on column AQPA725B.aqpa725bhorreg
+  is 'Hora de Registro';
+comment on column AQPA725B.aqpa725busuario
+  is 'Usuario de Registro';
+alter table AQPA725B
+  add primary key (AQPA725BID);
+

@@ -1,0 +1,17 @@
+create table FST072
+(
+  fst072pgc NUMBER(3) not null,
+  fst072co1 NUMBER(2) not null,
+  fst072co2 NUMBER(2) not null,
+  fst072co3 NUMBER(2) not null,
+  fst072co4 NUMBER(2) not null,
+  fst072tip CHAR(1) not null,
+  fst072ds1 CHAR(35),
+  fst072ds2 CHAR(35),
+  fst072ds3 CHAR(35),
+  fst072ds4 CHAR(35)
+)
+;
+alter table FST072
+  add primary key (FST072PGC, FST072CO1, FST072CO2, FST072CO3, FST072CO4, FST072TIP);
+

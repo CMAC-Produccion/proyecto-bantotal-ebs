@@ -1,0 +1,22 @@
+create table JBXIJ4
+(
+  jbxij4cod NUMBER(3) not null,
+  jbxij4lis NUMBER(5) not null,
+  jbxij4clv NUMBER(3) not null,
+  jbxij4fec DATE not null,
+  jbxij4tmo NUMBER(3) not null,
+  jbxij4trn NUMBER(3) not null,
+  jbxij4rub NUMBER(16) not null,
+  jbxij4mda NUMBER(4) not null,
+  jbxij4usu CHAR(10) not null,
+  jbxij4mov NUMBER(3) not null,
+  jbxij4snt NUMBER(1) not null,
+  jbxij4mdo NUMBER(3) not null,
+  jbxij4cbt NUMBER(9),
+  jbxij4ibt NUMBER(17,2)
+)
+;
+create index JBXIJ402 on JBXIJ4 (JBXIJ4COD, JBXIJ4LIS, JBXIJ4USU, JBXIJ4FEC);
+alter table JBXIJ4
+  add primary key (JBXIJ4COD, JBXIJ4LIS, JBXIJ4CLV, JBXIJ4FEC, JBXIJ4TMO, JBXIJ4TRN, JBXIJ4RUB, JBXIJ4MDA, JBXIJ4USU, JBXIJ4MOV, JBXIJ4SNT, JBXIJ4MDO);
+

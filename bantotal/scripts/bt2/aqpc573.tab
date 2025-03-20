@@ -1,0 +1,53 @@
+create table AQPC573
+(
+  aqpc573tidoc NUMBER(3) not null,
+  aqpc573nudoc VARCHAR2(12) not null,
+  aqpc573estad VARCHAR2(2),
+  aqpc573tipcl VARCHAR2(75),
+  aqpc573puntj NUMBER(17,2),
+  aqpc573tabla VARCHAR2(15),
+  aqpc573fepre DATE,
+  aqpc573riesg VARCHAR2(75),
+  aqpc573ticre VARCHAR2(75),
+  aqpc573prdef NUMBER(10,5),
+  aqpc573ussuc NUMBER(5),
+  aqpc573uscon VARCHAR2(10) not null,
+  aqpc573fecon DATE not null,
+  aqpc573hocon VARCHAR2(15),
+  aqpc573agrup VARCHAR2(50)
+)
+;
+comment on table AQPC573
+  is 'TABLA LOG DE SCORE DE CLIENTE';
+comment on column AQPC573.aqpc573tidoc
+  is 'TIPO DE DOCUMENTO';
+comment on column AQPC573.aqpc573nudoc
+  is 'NUMERO DE DOCUMENTO';
+comment on column AQPC573.aqpc573estad
+  is 'ESTADO';
+comment on column AQPC573.aqpc573tipcl
+  is 'TIPO DE CLIENTE';
+comment on column AQPC573.aqpc573puntj
+  is 'PUNTAJE';
+comment on column AQPC573.aqpc573tabla
+  is 'TABLA CONSULTA';
+comment on column AQPC573.aqpc573fepre
+  is 'FECHA DE PROCESO';
+comment on column AQPC573.aqpc573riesg
+  is 'RIESGO';
+comment on column AQPC573.aqpc573ticre
+  is 'TIPO DE CREDITO';
+comment on column AQPC573.aqpc573prdef
+  is 'PROBABILIDAD DEFICIENTE';
+comment on column AQPC573.aqpc573ussuc
+  is 'SUCURSAL USUARIO';
+comment on column AQPC573.aqpc573uscon
+  is 'USUARIO CONSULTA';
+comment on column AQPC573.aqpc573fecon
+  is 'FECHA CONSULTA';
+comment on column AQPC573.aqpc573hocon
+  is 'HORA CONSULTA';
+comment on column AQPC573.aqpc573agrup
+  is 'Agrupación de Riesgo';
+create index AQPC573A2 on AQPC573 (AQPC573TIDOC, AQPC573NUDOC, AQPC573USCON, AQPC573FECON, AQPC573HOCON);
+

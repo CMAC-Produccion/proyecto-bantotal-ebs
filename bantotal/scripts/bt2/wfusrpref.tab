@@ -1,0 +1,13 @@
+create table WFUSRPREF
+(
+  wfusrcod       CHAR(30) not null,
+  wfprefid       NUMBER(4) not null,
+  wfusrprefvalue CHAR(100),
+  wfprefscope    CHAR(20)
+)
+;
+create index IWFUSRPREF1 on WFUSRPREF (WFPREFID);
+create index UWFUSRPREF1 on WFUSRPREF (WFUSRCOD, WFPREFSCOPE);
+alter table WFUSRPREF
+  add primary key (WFUSRCOD, WFPREFID);
+

@@ -1,0 +1,100 @@
+create table JAQM89
+(
+  jaqm89fec DATE not null,
+  jaqm89ins NUMBER(10) not null,
+  jaqm89emp NUMBER(3) not null,
+  jaqm89mod NUMBER(3) not null,
+  jaqm89suc NUMBER(3) not null,
+  jaqm89mon NUMBER(4) not null,
+  jaqm89pap NUMBER(4) not null,
+  jaqm89cta NUMBER(9) not null,
+  jaqm89ope NUMBER(9) not null,
+  jaqm89sbo NUMBER(3) not null,
+  jaqm89top NUMBER(3) not null,
+  jaqm89cos NUMBER(9) not null,
+  jaqm89cor NUMBER(9) not null,
+  jaqm89cod VARCHAR2(255),
+  jaqm89nom VARCHAR2(255),
+  jaqm89ext VARCHAR2(20),
+  jaqm89est CHAR(1),
+  jaqm89an1 NUMBER(9),
+  jaqm89an2 NUMBER(9),
+  jaqm89an3 NUMBER(9),
+  jaqm89ai1 NUMBER(17,2),
+  jaqm89ai2 NUMBER(17,2),
+  jaqm89ai3 NUMBER(17,2),
+  jaqm89ac1 VARCHAR2(255),
+  jaqm89ac2 VARCHAR2(255),
+  jaqm89ac3 VARCHAR2(255),
+  jaqm89af1 DATE,
+  jaqm89af2 DATE,
+  jaqm89af3 DATE
+)
+;
+comment on table JAQM89
+  is 'Tabla Registro Correlativo Poliza VC';
+comment on column JAQM89.jaqm89fec
+  is 'Fecha';
+comment on column JAQM89.jaqm89ins
+  is 'Instancia';
+comment on column JAQM89.jaqm89emp
+  is 'Codigo Empresa';
+comment on column JAQM89.jaqm89mod
+  is 'Modulo';
+comment on column JAQM89.jaqm89suc
+  is 'Sucursal';
+comment on column JAQM89.jaqm89mon
+  is 'Moneda';
+comment on column JAQM89.jaqm89pap
+  is 'Papel';
+comment on column JAQM89.jaqm89cta
+  is 'Cuenta';
+comment on column JAQM89.jaqm89ope
+  is 'Operacion';
+comment on column JAQM89.jaqm89sbo
+  is 'Sub Operacion';
+comment on column JAQM89.jaqm89top
+  is 'Tipo operacion';
+comment on column JAQM89.jaqm89cos
+  is 'codigo Seguro';
+comment on column JAQM89.jaqm89cor
+  is 'Correlativo';
+comment on column JAQM89.jaqm89cod
+  is 'Descripcio nCodigo';
+comment on column JAQM89.jaqm89nom
+  is 'Nombre';
+comment on column JAQM89.jaqm89ext
+  is 'Extenion';
+comment on column JAQM89.jaqm89est
+  is 'Estado';
+comment on column JAQM89.jaqm89an1
+  is 'Auxiliar n1';
+comment on column JAQM89.jaqm89an2
+  is 'Auxiliar n2';
+comment on column JAQM89.jaqm89an3
+  is 'Auxiliar n3';
+comment on column JAQM89.jaqm89ai1
+  is 'Auxiliar 11';
+comment on column JAQM89.jaqm89ai2
+  is 'Auxiliar l2';
+comment on column JAQM89.jaqm89ai3
+  is 'Auxiliar l3';
+comment on column JAQM89.jaqm89ac1
+  is 'Auxiliar c1';
+comment on column JAQM89.jaqm89ac2
+  is 'Auxiliar c2';
+comment on column JAQM89.jaqm89ac3
+  is 'Auxiliar c3';
+comment on column JAQM89.jaqm89af1
+  is 'Auxiliar f1';
+comment on column JAQM89.jaqm89af2
+  is 'Auxiliar f2';
+comment on column JAQM89.jaqm89af3
+  is 'Auxiliar f3';
+create index JAQM892 on JAQM89 (JAQM89INS);
+create index JAQM893 on JAQM89 (JAQM89COD);
+create index JAQM894 on JAQM89 (JAQM89COR);
+alter table JAQM89
+  add primary key (JAQM89FEC, JAQM89INS, JAQM89EMP, JAQM89MOD, JAQM89SUC, JAQM89MON, JAQM89PAP, JAQM89CTA, JAQM89OPE, JAQM89SBO, JAQM89TOP, JAQM89COS, JAQM89COR)
+  novalidate;
+

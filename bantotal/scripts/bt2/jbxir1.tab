@@ -1,0 +1,17 @@
+create table JBXIR1
+(
+  jbxir1nro CHAR(30) not null,
+  jbxir1doc CHAR(30) not null,
+  jbxir1prj CHAR(2) not null,
+  jbxir1fch DATE not null,
+  jbxir1hor CHAR(8) not null,
+  jbxir1rsp LONG,
+  jbxir1col NUMBER(1),
+  jbxir1obs CHAR(200),
+  jbxir1usu CHAR(10)
+)
+;
+create index JBXIR102 on JBXIR1 (JBXIR1DOC, JBXIR1FCH, JBXIR1HOR);
+alter table JBXIR1
+  add primary key (JBXIR1NRO, JBXIR1DOC, JBXIR1PRJ, JBXIR1FCH, JBXIR1HOR);
+

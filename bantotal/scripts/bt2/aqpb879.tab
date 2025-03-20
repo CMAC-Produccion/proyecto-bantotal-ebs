@@ -1,0 +1,133 @@
+create table AQPB879
+(
+  pgcod    NUMBER(3) not null,
+  aomod    NUMBER(3) not null,
+  aosuc    NUMBER(3) not null,
+  aomda    NUMBER(4) not null,
+  aopap    NUMBER(4) not null,
+  aocta    NUMBER(9) not null,
+  aooper   NUMBER(9) not null,
+  aosbop   NUMBER(3) not null,
+  aotope   NUMBER(3) not null,
+  aofval   DATE,
+  aofvto   DATE,
+  aopzo    NUMBER(5),
+  aottas   NUMBER(1),
+  aotasa   NUMBER(10,6),
+  aotmor   NUMBER(10,6),
+  aottac   NUMBER(1),
+  aotasc   NUMBER(10,6),
+  aotdia   NUMBER(1),
+  aotvto   CHAR(1),
+  aotano   NUMBER(1),
+  aotint   CHAR(1),
+  aodrev   NUMBER(5),
+  aoimp    NUMBER(17,2),
+  aopre    NUMBER(14,8),
+  aopre1   NUMBER(14,8),
+  aotcbi   NUMBER(14,8),
+  aotcbi1  NUMBER(14,8),
+  aoarb    NUMBER(14,8),
+  aoarb1   NUMBER(14,8),
+  aomd     CHAR(1),
+  aomd1    CHAR(1),
+  aonume   NUMBER(17,2),
+  aofnum   DATE,
+  aoafiv   CHAR(1),
+  aocbcu   NUMBER(3),
+  aostat   NUMBER(2),
+  aoavis   NUMBER(1),
+  aoplus   NUMBER(10,6),
+  aoeven   NUMBER(9),
+  aofe99   DATE,
+  aocltcod NUMBER(2),
+  aoperiod NUMBER(5)
+)
+compress;
+comment on column AQPB879.pgcod
+  is 'Cod.';
+comment on column AQPB879.aomod
+  is 'Modulo';
+comment on column AQPB879.aosuc
+  is 'Sucursal';
+comment on column AQPB879.aomda
+  is 'Moneda';
+comment on column AQPB879.aopap
+  is 'Papel';
+comment on column AQPB879.aocta
+  is 'CTNRO';
+comment on column AQPB879.aooper
+  is 'Operación';
+comment on column AQPB879.aosbop
+  is 'Sub-operac.';
+comment on column AQPB879.aotope
+  is 'Tipo operac.';
+comment on column AQPB879.aofval
+  is 'Tasa Mora';
+comment on column AQPB879.aofvto
+  is 'Días p/revisión de Tasa';
+comment on column AQPB879.aopzo
+  is 'Fecha última revisación tasa';
+comment on column AQPB879.aottas
+  is 'Numerador de eventos';
+comment on column AQPB879.aotasa
+  is 'F/valor';
+comment on column AQPB879.aotmor
+  is 'F/vto';
+comment on column AQPB879.aottac
+  is 'Plazo';
+comment on column AQPB879.aotasc
+  is 'Tipo de Tasa';
+comment on column AQPB879.aotdia
+  is 'Tasa';
+comment on column AQPB879.aotvto
+  is 'Tipo Tasa de Corte';
+comment on column AQPB879.aotano
+  is 'Tasa de Corte';
+comment on column AQPB879.aotint
+  is 'Tipo de días';
+comment on column AQPB879.aodrev
+  is 'Tipo de ajuste en vencto.';
+comment on column AQPB879.aoimp
+  is 'Tipo de ano';
+comment on column AQPB879.aopre
+  is 'Tipo de cálculo de interés';
+comment on column AQPB879.aopre1
+  is 'Importe';
+comment on column AQPB879.aotcbi
+  is 'Precio';
+comment on column AQPB879.aotcbi1
+  is 'Precio';
+comment on column AQPB879.aoarb
+  is 'Aotcbi';
+comment on column AQPB879.aoarb1
+  is 'Aotcbi1';
+comment on column AQPB879.aomd
+  is 'Aoarb';
+comment on column AQPB879.aomd1
+  is 'Aoarb1';
+comment on column AQPB879.aonume
+  is 'Aomd';
+comment on column AQPB879.aofnum
+  is 'Aomd1';
+comment on column AQPB879.aoafiv
+  is 'Intereses al Vencimiento';
+comment on column AQPB879.aocbcu
+  is 'Afectada por IVA?';
+comment on column AQPB879.aostat
+  is 'Cod.actividad BCU';
+comment on column AQPB879.aoavis
+  is 'Status';
+comment on column AQPB879.aoplus
+  is 'Aviso (vto. etc..)';
+comment on column AQPB879.aoeven
+  is 'Tasa Plus';
+comment on column AQPB879.aofe99
+  is 'Fecha de baja';
+comment on column AQPB879.aocltcod
+  is 'Aocltcod';
+comment on column AQPB879.aoperiod
+  is 'Período (Itper)';
+create unique index AQPB8791 on AQPB879 (PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, AOCTA, AOOPER, AOSBOP, AOTOPE);
+create index AQPB8792 on AQPB879 (PGCOD, AOCTA, AOMOD);
+

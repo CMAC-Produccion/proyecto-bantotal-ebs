@@ -1,0 +1,14 @@
+create table JBXI89
+(
+  jbxi89fin DATE not null,
+  jbxi89emp CHAR(5) not null,
+  jbxi89fei DATE not null,
+  jbxi89mda CHAR(4) not null,
+  jbxi89cpr NUMBER(17,2) not null,
+  jbxi89cpc NUMBER(17,2) not null,
+  jbxi89spa NUMBER(17,2),
+  jbxi89sap NUMBER(17,2)
+)
+;
+create unique index JBXI8901 on JBXI89 (JBXI89FIN, JBXI89EMP, JBXI89FEI, JBXI89MDA, JBXI89CPR, JBXI89CPC);
+

@@ -1,0 +1,16 @@
+create table FXRH82
+(
+  pgcod   NUMBER(3) not null,
+  numhtip NUMBER(2) not null,
+  msghnum NUMBER(9) not null,
+  swthcod NUMBER(5) not null,
+  swthrel NUMBER(2) not null,
+  hmodulo NUMBER(3) not null,
+  hoperac NUMBER(9) not null,
+  hsubope NUMBER(3) not null,
+  hmodid  NUMBER(5) not null
+)
+;
+alter table FXRH82
+  add primary key (PGCOD, NUMHTIP, MSGHNUM, SWTHCOD, SWTHREL, HMODULO, HOPERAC, HSUBOPE, HMODID);
+

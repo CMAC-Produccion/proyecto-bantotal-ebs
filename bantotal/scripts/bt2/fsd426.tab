@@ -1,0 +1,15 @@
+create table FSD426
+(
+  vcpgcod  NUMBER(3) not null,
+  vcmod    NUMBER(3) not null,
+  vccod    NUMBER(3) not null,
+  vccta    NUMBER(9) not null,
+  vcpap    NUMBER(4) not null,
+  vcmda    NUMBER(4) not null,
+  vcfech   DATE not null,
+  vcfchvto DATE
+)
+;
+alter table FSD426
+  add primary key (VCPGCOD, VCMOD, VCCOD, VCCTA, VCPAP, VCMDA, VCFECH);
+

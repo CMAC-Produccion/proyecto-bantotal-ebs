@@ -1,0 +1,24 @@
+create table FSF095
+(
+  ltacod  NUMBER(3) not null,
+  ltasuc  NUMBER(3) not null,
+  ltamod  NUMBER(3) not null,
+  ltatran NUMBER(3) not null,
+  ltanrel NUMBER(4) not null,
+  ltafcon DATE not null,
+  ltacorr NUMBER(5),
+  ltauing CHAR(10),
+  ltawing CHAR(10),
+  ltaucnf CHAR(10),
+  ltawcnf CHAR(10),
+  ltahora CHAR(8),
+  ltacont CHAR(1),
+  ltacaja NUMBER(3),
+  ltaxcaj CHAR(1),
+  ltafvc  DATE
+)
+;
+create index FSF09502 on FSF095 (LTACOD, LTAFCON, LTASUC, LTAMOD, LTATRAN, LTANREL);
+alter table FSF095
+  add primary key (LTACOD, LTASUC, LTAMOD, LTATRAN, LTANREL, LTAFCON);
+

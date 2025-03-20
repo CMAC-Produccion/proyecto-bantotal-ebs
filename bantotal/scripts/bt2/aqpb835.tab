@@ -1,0 +1,87 @@
+create table AQPB835
+(
+  aqpb835fec   DATE not null,
+  aqpb835pai   NUMBER(3) not null,
+  aqpb835tdo   NUMBER(2) not null,
+  aqpb835ndo   CHAR(12) not null,
+  aqpb835est   CHAR(1),
+  aqpb835va1   NUMBER(5),
+  aqpb835va2   NUMBER(5),
+  aqpb835va3   NUMBER(5),
+  aqpb835va4   NUMBER(5),
+  aqpb835va5   NUMBER(5),
+  aqpb835va6   NUMBER(5),
+  aqpb835va7   NUMBER(5),
+  aqpb835va8   NUMBER(5),
+  aqpb835va9   NUMBER(5),
+  aqpb835va10  NUMBER(5),
+  aqpb835csbs  VARCHAR2(10),
+  aqpb835var1  VARCHAR2(40),
+  aqpb835var2  VARCHAR2(40),
+  aqpb835var3  VARCHAR2(40),
+  aqpb835var4  VARCHAR2(40),
+  aqpb835var5  VARCHAR2(40),
+  aqpb835var6  VARCHAR2(40),
+  aqpb835var7  VARCHAR2(40),
+  aqpb835var8  VARCHAR2(40),
+  aqpb835var9  VARCHAR2(40),
+  aqpb835var10 VARCHAR2(40)
+)
+;
+comment on table AQPB835
+  is 'Resultado proceso mensual potencialidad en linea';
+comment on column AQPB835.aqpb835fec
+  is 'Fecha de proceso';
+comment on column AQPB835.aqpb835pai
+  is 'pais cliente';
+comment on column AQPB835.aqpb835tdo
+  is 'tipo doc cliente';
+comment on column AQPB835.aqpb835ndo
+  is 'num doc cliente';
+comment on column AQPB835.aqpb835est
+  is 'estado';
+comment on column AQPB835.aqpb835va1
+  is 'valor 1';
+comment on column AQPB835.aqpb835va2
+  is 'valor 2';
+comment on column AQPB835.aqpb835va3
+  is 'valor 3';
+comment on column AQPB835.aqpb835va4
+  is 'valor 4';
+comment on column AQPB835.aqpb835va5
+  is 'valor 5';
+comment on column AQPB835.aqpb835va6
+  is 'valor 6';
+comment on column AQPB835.aqpb835va7
+  is 'valor 7';
+comment on column AQPB835.aqpb835va8
+  is 'valor 8';
+comment on column AQPB835.aqpb835va9
+  is 'valor 9';
+comment on column AQPB835.aqpb835va10
+  is 'valor 10';
+comment on column AQPB835.aqpb835csbs
+  is 'codigo sbs';
+comment on column AQPB835.aqpb835var1
+  is 'variable 1';
+comment on column AQPB835.aqpb835var2
+  is 'variable 2';
+comment on column AQPB835.aqpb835var3
+  is 'variable 3';
+comment on column AQPB835.aqpb835var4
+  is 'variable 4';
+comment on column AQPB835.aqpb835var5
+  is 'variable 5';
+comment on column AQPB835.aqpb835var6
+  is 'variable 6';
+comment on column AQPB835.aqpb835var7
+  is 'variable 7';
+comment on column AQPB835.aqpb835var8
+  is 'variable 8';
+comment on column AQPB835.aqpb835var9
+  is 'variable 9';
+comment on column AQPB835.aqpb835var10
+  is 'variable 10';
+alter table AQPB835
+  add primary key (AQPB835FEC, AQPB835PAI, AQPB835TDO, AQPB835NDO);
+

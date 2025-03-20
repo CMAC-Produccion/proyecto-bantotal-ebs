@@ -1,0 +1,11 @@
+create table JMBP00
+(
+  jmbp00pgc NUMBER(3) not null,
+  jmbp00cat NUMBER(3) not null,
+  jmbp00dca CHAR(40),
+  jmbp00hab CHAR(1)
+)
+;
+alter table JMBP00
+  add primary key (JMBP00PGC, JMBP00CAT);
+

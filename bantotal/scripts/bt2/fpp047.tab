@@ -1,0 +1,30 @@
+create table FPP047
+(
+  pp035cod  NUMBER(3) not null,
+  pp035mod  NUMBER(3) not null,
+  pp035suc  NUMBER(3) not null,
+  pp035mda  NUMBER(4) not null,
+  pp035pap  NUMBER(4) not null,
+  pp035cta  NUMBER(9) not null,
+  pp035oper NUMBER(9) not null,
+  pp035sbop NUMBER(3) not null,
+  pp035top  NUMBER(3) not null,
+  pp035md   NUMBER(3) not null,
+  pp035tp   NUMBER(3) not null,
+  cocod     NUMBER(3) not null,
+  pp047fdes DATE not null,
+  pp047mto  NUMBER(17,2) not null,
+  pp047tasa NUMBER(10,6),
+  pp047min  NUMBER(17,2),
+  pp047max  NUMBER(17,2),
+  pp047imp  NUMBER(17,2),
+  pp047aux1 CHAR(1),
+  pp047aux2 CHAR(1),
+  pp047aux3 NUMBER(10,6),
+  pp047aux4 DATE
+)
+;
+create index FPP04702 on FPP047 (COCOD);
+alter table FPP047
+  add primary key (PP035COD, PP035MOD, PP035SUC, PP035MDA, PP035PAP, PP035CTA, PP035OPER, PP035SBOP, PP035TOP, PP035MD, PP035TP, COCOD, PP047FDES, PP047MTO);
+

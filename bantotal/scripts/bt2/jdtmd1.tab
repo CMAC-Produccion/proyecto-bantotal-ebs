@@ -1,0 +1,38 @@
+create table JDTMD1
+(
+  jdtmd1ins  NUMBER(10) not null,
+  jdtmd1cor  NUMBER(3) not null,
+  jdtm01tpbn NUMBER(4),
+  jdtm02marc NUMBER(5),
+  jdtm03tmod NUMBER(3),
+  jdtm04mod  NUMBER(3),
+  jdtm12cod  NUMBER(5),
+  jdtmd1con  NUMBER(3),
+  jdtmd1uso  NUMBER(3),
+  jdtmd1use  NUMBER(3),
+  jdtmd1tip  NUMBER(3),
+  jdtmd1ano  NUMBER(4),
+  jdtmd1vbn  NUMBER(17,2),
+  jdtmd1abo  NUMBER(17,2),
+  jdtmd1poa  NUMBER(10,6),
+  jdtmd1vfi  NUMBER(17,2),
+  jdtmd1paa  NUMBER(1),
+  jdtmd1vas  NUMBER(17,2),
+  jdtmd1ase  NUMBER(9),
+  jdtmd1cpa  NUMBER(4),
+  jdtmd1ton  NUMBER(4),
+  jdtmd1cfi  NUMBER(4),
+  jdtmd1inm  CHAR(1),
+  jdtmd1fia  CHAR(1),
+  jdtmd1aac  CHAR(1),
+  jdtmd1dgar NUMBER(17,2),
+  jdtmd1vres NUMBER(17,2),
+  jdtmd1cage NUMBER(4),
+  jdtmd1csuc NUMBER(5)
+)
+;
+create index JDTMD102 on JDTMD1 (JDTM12COD);
+create index JDTMD103 on JDTMD1 (JDTM01TPBN, JDTM02MARC, JDTM03TMOD, JDTM04MOD);
+alter table JDTMD1
+  add primary key (JDTMD1INS, JDTMD1COR);
+

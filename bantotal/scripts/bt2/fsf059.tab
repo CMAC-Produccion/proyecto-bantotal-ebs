@@ -1,0 +1,12 @@
+create table FSF059
+(
+  ljpgcod NUMBER(3) not null,
+  ljctnro NUMBER(9) not null,
+  ljfinro NUMBER(3) not null,
+  ljfalta DATE,
+  ljdesc  CHAR(30)
+)
+;
+alter table FSF059
+  add primary key (LJPGCOD, LJCTNRO, LJFINRO);
+

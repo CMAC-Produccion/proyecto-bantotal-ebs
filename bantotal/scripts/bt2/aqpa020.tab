@@ -1,0 +1,37 @@
+create table AQPA020
+(
+  aqpa020pgc  NUMBER(3) not null,
+  aqpa020mod  NUMBER(3) not null,
+  aqpa020suc  NUMBER(3) not null,
+  aqpa020mda  NUMBER(4) not null,
+  aqpa020pap  NUMBER(4) not null,
+  aqpa020cta  NUMBER(9) not null,
+  aqpa020ope  NUMBER(9) not null,
+  aqpa020sbo  NUMBER(3) not null,
+  aqpa020top  NUMBER(3) not null,
+  aqpa020sgc  NUMBER(9) not null,
+  aqpa020fep  DATE not null,
+  aqpa020hor  CHAR(8) not null,
+  aqpa020usr  CHAR(10),
+  aqpa020vc   NUMBER(17,2),
+  aqpa020imp  NUMBER(17,2),
+  aqpa020porc NUMBER(10,6),
+  aqpa020plus NUMBER(10,6),
+  aqpa020part NUMBER(10,6),
+  aqpa020veh  NUMBER(4),
+  aqpa020inm  NUMBER(4),
+  aqpa020end  CHAR(1),
+  aqpa020stat CHAR(1),
+  aqpa020co   CHAR(1),
+  aqpa020aux1 NUMBER(17,2),
+  aqpa020aux2 NUMBER(10,6),
+  aqpa020aux3 DATE,
+  aqpa020aux4 NUMBER(17,2),
+  aqpa020aux5 CHAR(30),
+  aqpa020aux6 CHAR(1),
+  aqpa020aux7 CHAR(1)
+)
+;
+alter table AQPA020
+  add primary key (AQPA020PGC, AQPA020MOD, AQPA020SUC, AQPA020MDA, AQPA020PAP, AQPA020CTA, AQPA020OPE, AQPA020SBO, AQPA020TOP, AQPA020SGC, AQPA020FEP, AQPA020HOR);
+

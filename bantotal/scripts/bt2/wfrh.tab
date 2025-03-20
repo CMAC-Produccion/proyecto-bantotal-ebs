@@ -1,0 +1,10 @@
+create table WFRH
+(
+  wfparrolcod NUMBER(4) not null,
+  wfchirolcod NUMBER(4) not null
+)
+;
+create index IWFRH3 on WFRH (WFCHIROLCOD);
+alter table WFRH
+  add primary key (WFPARROLCOD, WFCHIROLCOD);
+

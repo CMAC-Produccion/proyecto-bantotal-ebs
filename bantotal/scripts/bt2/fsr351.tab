@@ -1,0 +1,60 @@
+create table FSR351
+(
+  sr351cod NUMBER(3) not null,
+  sr351mod NUMBER(3) not null,
+  sr351suc NUMBER(3) not null,
+  sr351mda NUMBER(4) not null,
+  sr351pap NUMBER(4) not null,
+  sr351cta NUMBER(9) not null,
+  sr351ope NUMBER(9) not null,
+  sr351sbp NUMBER(3) not null,
+  sr351top NUMBER(3) not null,
+  sr351ser CHAR(4) not null,
+  sr351nro NUMBER(9) not null,
+  sr351cor NUMBER(5) not null,
+  sr351rel NUMBER(3),
+  sr351num NUMBER(3),
+  sr351fec DATE,
+  sr351pai NUMBER(3),
+  sr351tdo NUMBER(2),
+  sr351ndo CHAR(12),
+  sr351ben CHAR(60),
+  sr351vin CHAR(1),
+  sr351por NUMBER(7,4),
+  sr351tem NUMBER(3),
+  sr351tsu NUMBER(3),
+  sr351tmo NUMBER(3),
+  sr351ttr NUMBER(3),
+  sr351tre NUMBER(4),
+  sr351tfc DATE,
+  sr351tor NUMBER(2),
+  sr351tso NUMBER(3),
+  sr351tco CHAR(1),
+  sr351ius CHAR(10),
+  sr351iws CHAR(10),
+  sr351ife DATE,
+  sr351aus CHAR(10),
+  sr351aws CHAR(10),
+  sr351afe DATE,
+  sr351cus CHAR(10),
+  sr351cws CHAR(10),
+  sr351cfe DATE,
+  sr351ax1 DATE,
+  sr351ax2 DATE,
+  sr351ax3 NUMBER(17,2),
+  sr351ax4 NUMBER(9),
+  sr351ax5 CHAR(200),
+  sr351ax6 CHAR(1),
+  sr351ax7 NUMBER(17,2)
+)
+;
+create index FSR35102 on FSR351 (SR351COD, SR351SUC, SR351CTA);
+create index FSR35104 on FSR351 (SR351COD, SR351MOD, SR351SUC, SR351MDA, SR351PAP, SR351CTA, SR351OPE, SR351SBP, SR351TOP, SR351NUM);
+create index FSR35105 on FSR351 (SR351COD, SR351CTA, SR351FEC);
+create index FSR35106 on FSR351 (SR351COD, SR351PAI, SR351TDO, SR351NDO);
+create index FSR35107 on FSR351 (SR351TEM, SR351TSU, SR351TMO, SR351TTR, SR351TRE, SR351TFC, SR351TOR, SR351TSO, SR351TCO);
+create index FSR35108 on FSR351 (SR351COD, SR351AX1);
+create index FSR35109 on FSR351 (SR351COD, SR351AX4);
+alter table FSR351
+  add primary key (SR351COD, SR351MOD, SR351SUC, SR351MDA, SR351PAP, SR351CTA, SR351OPE, SR351SBP, SR351TOP, SR351SER, SR351NRO, SR351COR);
+

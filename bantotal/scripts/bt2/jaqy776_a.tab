@@ -1,0 +1,28 @@
+create table JAQY776_A
+(
+  jaqy776_acod  NUMBER(3) not null,
+  jaqy776_amod  NUMBER(3) not null,
+  jaqy776_asuc  NUMBER(3) not null,
+  jaqy776_amda  NUMBER(4) not null,
+  jaqy776_apap  NUMBER(4) not null,
+  jaqy776_acta  NUMBER(9) not null,
+  jaqy776_aope  NUMBER(9) not null,
+  jaqy776_asbo  NUMBER(3) not null,
+  jaqy776_atop  NUMBER(3) not null,
+  jaqy776_acor  NUMBER(3) not null,
+  jaqy776_afrm  NUMBER(3) not null,
+  jaqy776_acdat NUMBER(5) not null,
+  jaqy776_adato CHAR(50),
+  jaqy776_aau1  NUMBER(9),
+  jaqy776_aau2  NUMBER(9),
+  jaqy776_aau3  NUMBER(17,2),
+  jaqy776_aau4  DATE,
+  jaqy776_aau5  DATE,
+  jaqy776_aau6  CHAR(30),
+  jaqy776_aau7  CHAR(30)
+)
+;
+create index JAQY776_A02 on JAQY776_A (JAQY776_ACDAT);
+create index JAQY776_A03 on JAQY776_A (JAQY776_ACOD, JAQY776_AMOD, JAQY776_ASUC, JAQY776_AMDA, JAQY776_APAP, JAQY776_ACTA, JAQY776_AOPE, JAQY776_ASBO, JAQY776_ATOP);
+create index JAQY776_A04 on JAQY776_A (JAQY776_ACOD, JAQY776_AMOD, JAQY776_ASUC, JAQY776_AMDA, JAQY776_APAP, JAQY776_ACTA, JAQY776_AOPE, JAQY776_ASBO, JAQY776_ATOP, JAQY776_ACOR, JAQY776_AFRM);
+

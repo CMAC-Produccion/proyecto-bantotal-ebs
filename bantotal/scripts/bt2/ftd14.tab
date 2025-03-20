@@ -1,0 +1,12 @@
+create table FTD14
+(
+  td14tar    CHAR(19) not null,
+  td14fchneg DATE not null,
+  td14codlim NUMBER(3) not null,
+  td14mda    NUMBER(4) not null,
+  td14imp    NUMBER(17,2)
+)
+;
+alter table FTD14
+  add primary key (TD14TAR, TD14FCHNEG, TD14CODLIM, TD14MDA);
+

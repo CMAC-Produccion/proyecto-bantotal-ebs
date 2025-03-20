@@ -1,0 +1,43 @@
+create table FSF080
+(
+  lqdpgcod  NUMBER(3) not null,
+  lqdhasuc  NUMBER(3) not null,
+  lqdharub  NUMBER(16) not null,
+  lqdhamda  NUMBER(4) not null,
+  lqdhapap  NUMBER(4) not null,
+  lqdhacta  NUMBER(9) not null,
+  lqdhaoper NUMBER(9) not null,
+  lqdhasbop NUMBER(3) not null,
+  lqdhatope NUMBER(3) not null,
+  lqdhaanio NUMBER(4) not null,
+  lqdhamod  NUMBER(3),
+  lqdhafval DATE,
+  lqdhafvto DATE,
+  lqdhapzo  NUMBER(5),
+  lqdhasegm NUMBER(2),
+  lqdhafunc NUMBER(2),
+  lqdhatit  NUMBER(2),
+  lqdhacap  NUMBER(1),
+  lqdhaplzo NUMBER(1),
+  lqdhagru  NUMBER(2),
+  lqdhasd01 NUMBER(17,2),
+  lqdhasd02 NUMBER(17,2),
+  lqdhasd03 NUMBER(17,2),
+  lqdhasd04 NUMBER(17,2),
+  lqdhasd05 NUMBER(17,2),
+  lqdhasd06 NUMBER(17,2),
+  lqdhasd07 NUMBER(17,2),
+  lqdhasd08 NUMBER(17,2),
+  lqdhasd09 NUMBER(17,2),
+  lqdhasd10 NUMBER(17,2),
+  lqdhasd11 NUMBER(17,2),
+  lqdhasd12 NUMBER(17,2),
+  lqdhasd13 NUMBER(17,2),
+  lqdhatot  CHAR(1)
+)
+;
+create index FSF08002 on FSF080 (LQDPGCOD, LQDHAANIO, LQDHATOPE, LQDHAMOD, LQDHAPAP, LQDHAMDA);
+create index FSF08003 on FSF080 (LQDPGCOD, LQDHAANIO, LQDHATIT, LQDHAPAP, LQDHARUB);
+alter table FSF080
+  add primary key (LQDPGCOD, LQDHASUC, LQDHARUB, LQDHAMDA, LQDHAPAP, LQDHACTA, LQDHAOPER, LQDHASBOP, LQDHATOPE, LQDHAANIO);
+

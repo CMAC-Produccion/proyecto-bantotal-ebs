@@ -1,0 +1,19 @@
+create table FOC991
+(
+  foc991pgco NUMBER(3) not null,
+  foc991suc  NUMBER(3) not null,
+  foc991mod  NUMBER(3) not null,
+  foc991trn  NUMBER(3) not null,
+  foc991rel  NUMBER(4) not null,
+  foc991fcon DATE not null,
+  foc991oper NUMBER(9) not null,
+  foc991cv   CHAR(1) not null,
+  foc991mda  NUMBER(4),
+  foc991imp  NUMBER(17,2),
+  foc991est  CHAR(1)
+)
+;
+create index FOC99102 on FOC991 (FOC991PGCO, FOC991SUC, FOC991MOD, FOC991TRN, FOC991REL, FOC991FCON, FOC991MDA);
+alter table FOC991
+  add primary key (FOC991PGCO, FOC991SUC, FOC991MOD, FOC991TRN, FOC991REL, FOC991FCON, FOC991OPER, FOC991CV);
+

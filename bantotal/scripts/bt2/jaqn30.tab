@@ -1,0 +1,41 @@
+create table JAQN30
+(
+  jaqn30cod NUMBER(3) not null,
+  jaqn30mod NUMBER(3) not null,
+  jaqn30tcu NUMBER(3) not null,
+  jaqn30top NUMBER(3) not null,
+  jaqn30mon NUMBER(4) not null,
+  jaqn30pap NUMBER(4) not null,
+  jaqn30fvi DATE not null,
+  jaqn30mot NUMBER(17,2) not null,
+  jaqn30fin NUMBER(8),
+  jaqn30ccv CHAR(1)
+)
+;
+comment on table JAQN30
+  is 'Cabecera Curvas por tipo op';
+comment on column JAQN30.jaqn30cod
+  is 'Codigo empresa';
+comment on column JAQN30.jaqn30mod
+  is 'Modulo';
+comment on column JAQN30.jaqn30tcu
+  is 'Tipo curva';
+comment on column JAQN30.jaqn30top
+  is 'tipo operación';
+comment on column JAQN30.jaqn30mon
+  is 'Moneda';
+comment on column JAQN30.jaqn30pap
+  is 'Papel';
+comment on column JAQN30.jaqn30fvi
+  is 'Vigencia';
+comment on column JAQN30.jaqn30mot
+  is 'Monto';
+comment on column JAQN30.jaqn30fin
+  is 'Fecha Inv';
+comment on column JAQN30.jaqn30ccv
+  is 'Estado';
+create index JAQN302 on JAQN30 (JAQN30COD, JAQN30MOD, JAQN30TCU, JAQN30TOP, JAQN30MON, JAQN30PAP, JAQN30FIN, JAQN30MOT);
+create index JAQN303 on JAQN30 (JAQN30COD, JAQN30MOD, JAQN30TCU, JAQN30TOP, JAQN30MON, JAQN30PAP, JAQN30MOT, JAQN30FIN);
+alter table JAQN30
+  add primary key (JAQN30COD, JAQN30MOD, JAQN30TCU, JAQN30TOP, JAQN30MON, JAQN30PAP, JAQN30FVI, JAQN30MOT);
+

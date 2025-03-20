@@ -1,0 +1,54 @@
+create table JAQNS5
+(
+  jaqns5sucu NUMBER(3) not null,
+  jaqns5suno VARCHAR2(30),
+  jaqns5dire VARCHAR2(325),
+  jaqns5num1 NUMBER(10),
+  jaqns5num2 NUMBER(10),
+  jaqns5num3 NUMBER(10),
+  jaqns5imp1 NUMBER(17,2),
+  jaqns5imp2 NUMBER(17,2),
+  jaqns5imp3 NUMBER(17,2),
+  jaqns5var1 VARCHAR2(255),
+  jaqns5var2 VARCHAR2(255),
+  jaqns5var3 VARCHAR2(255),
+  jaqns5fec1 DATE,
+  jaqns5fec2 DATE,
+  jaqns5fec3 DATE
+)
+;
+comment on table JAQNS5
+  is 'Localizacion de agencia ';
+comment on column JAQNS5.jaqns5sucu
+  is 'Sucursal';
+comment on column JAQNS5.jaqns5suno
+  is 'Sucursal nombre';
+comment on column JAQNS5.jaqns5dire
+  is 'Direccion';
+comment on column JAQNS5.jaqns5num1
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5num2
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5num3
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5imp1
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5imp2
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5imp3
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5var1
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5var2
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5var3
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5fec1
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5fec2
+  is 'Auxiliar ';
+comment on column JAQNS5.jaqns5fec3
+  is 'Auxiliar ';
+alter table JAQNS5
+  add primary key (JAQNS5SUCU);
+

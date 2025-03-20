@@ -1,0 +1,26 @@
+create table FSR100
+(
+  expnro  NUMBER(9) not null,
+  expcorr NUMBER(5) not null,
+  expcod  NUMBER(3),
+  expmod  NUMBER(3),
+  expsuc  NUMBER(3),
+  expmda  NUMBER(4),
+  exppap  NUMBER(4),
+  expcta  NUMBER(9),
+  expoper NUMBER(9),
+  expsbop NUMBER(3),
+  exptope NUMBER(3),
+  expcd01 CHAR(1),
+  expcd02 CHAR(1),
+  expcd03 CHAR(30),
+  expsn01 NUMBER(17,2),
+  expsn02 NUMBER(9),
+  expsn03 NUMBER(17,2)
+)
+;
+create index FSR10002 on FSR100 (EXPCOD, EXPMOD, EXPSUC, EXPMDA, EXPPAP, EXPCTA, EXPOPER, EXPSBOP, EXPTOPE, EXPNRO, EXPCORR);
+create index FSR10003 on FSR100 (EXPCOD, EXPCTA, EXPMOD, EXPMDA);
+alter table FSR100
+  add primary key (EXPNRO, EXPCORR);
+

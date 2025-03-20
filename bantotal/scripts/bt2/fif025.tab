@@ -1,0 +1,23 @@
+create table FIF025
+(
+  if024apl NUMBER(4) not null,
+  if024ban CHAR(5) not null,
+  if024env NUMBER(9) not null,
+  if024cor NUMBER(5) not null,
+  if025cmo NUMBER(3) not null,
+  if025fmo DATE,
+  if025tor NUMBER(17,2),
+  if025tac NUMBER(17,2),
+  if025fpr DATE,
+  if025eta CHAR(2),
+  if025ax1 NUMBER(17,2),
+  if025ax2 NUMBER(10,6),
+  if025ax3 CHAR(30),
+  if025ax4 CHAR(10),
+  if025ax5 CHAR(1),
+  if025ax6 DATE
+)
+;
+alter table FIF025
+  add primary key (IF024APL, IF024BAN, IF024ENV, IF024COR, IF025CMO);
+

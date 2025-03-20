@@ -1,0 +1,21 @@
+create table FSR163
+(
+  paqemp    NUMBER(3) not null,
+  paqctaemp NUMBER(9) not null,
+  paqcod    NUMBER(3) not null,
+  empcorct  NUMBER(2) not null,
+  modcemp   NUMBER(3),
+  mdacemp   NUMBER(4),
+  papcemp   NUMBER(4),
+  ctacemp   NUMBER(9),
+  succemp   NUMBER(3),
+  opecemp   NUMBER(9),
+  sbocemp   NUMBER(3),
+  tpocemp   NUMBER(3)
+)
+;
+create index FSR16303 on FSR163 (MODCEMP, MDACEMP, PAPCEMP, CTACEMP, SUCCEMP, OPECEMP, SBOCEMP, TPOCEMP);
+create index FSR16304 on FSR163 (PAQEMP, SUCCEMP, MODCEMP, MDACEMP, PAPCEMP, CTACEMP, OPECEMP, SBOCEMP, TPOCEMP, PAQCOD);
+alter table FSR163
+  add primary key (PAQEMP, PAQCTAEMP, PAQCOD, EMPCORCT);
+

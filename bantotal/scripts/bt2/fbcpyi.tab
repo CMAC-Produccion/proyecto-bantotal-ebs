@@ -1,0 +1,28 @@
+create table FBCPYI
+(
+  bcpyiemp   NUMBER(3) not null,
+  bcpyisuc   NUMBER(3) not null,
+  bcpyimod   NUMBER(3) not null,
+  bcpyitrn   NUMBER(3) not null,
+  bcpyinrel  NUMBER(4) not null,
+  bcpyifch   DATE not null,
+  bcpyiord   NUMBER(2) not null,
+  bcpyisord  NUMBER(3) not null,
+  bcpyiingeg CHAR(1),
+  bcpyipais  NUMBER(3),
+  bcpyipnom  CHAR(30),
+  bcpyimda   CHAR(4),
+  bcpyiimp   NUMBER(17,2),
+  bcpyiori   NUMBER(2),
+  bcpyimot   NUMBER(2),
+  bcpyifin   NUMBER(2),
+  bcpyinsf   CHAR(35),
+  bcpyorbe   CHAR(35),
+  bcpydir    CHAR(60),
+  bcpyctad   CHAR(20),
+  bcpyfval   DATE
+)
+;
+alter table FBCPYI
+  add primary key (BCPYIEMP, BCPYISUC, BCPYIMOD, BCPYITRN, BCPYINREL, BCPYIFCH, BCPYIORD, BCPYISORD);
+

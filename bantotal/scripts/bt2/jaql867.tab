@@ -1,0 +1,24 @@
+create table JAQL867
+(
+  jaql867cor NUMBER(6) not null,
+  jaql867usu CHAR(10) not null,
+  jaql867mov VARCHAR2(40),
+  jaql867fmv DATE,
+  jaql867cct CHAR(30),
+  jaql867fvl DATE,
+  jaql867dsc CHAR(30),
+  jaql867doc CHAR(30),
+  jaql867dep NUMBER(17,2),
+  jaql867ret NUMBER(17,2),
+  jaql867sdo NUMBER(17,2),
+  jaql867ope CHAR(10),
+  jaql867age CHAR(30),
+  jaql867hor CHAR(8),
+  jaql867ndp CHAR(65),
+  jaql867omd CHAR(1),
+  jaql867suc NUMBER(3)
+)
+;
+alter table JAQL867
+  add primary key (JAQL867COR, JAQL867USU);
+

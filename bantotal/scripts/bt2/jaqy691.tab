@@ -1,0 +1,36 @@
+create table JAQY691
+(
+  jaqy691pais   NUMBER(3) not null,
+  jaqy691tdoc   NUMBER(2) not null,
+  jaqy691nruc   VARCHAR2(12) not null,
+  jaqy691ndoc   VARCHAR2(26),
+  jaqy691fecc   DATE,
+  jaqy691nota   VARCHAR2(100),
+  jaqy691feca   DATE,
+  jaqy691orga   VARCHAR2(20),
+  jaqy691norg   NUMBER(4),
+  jaqy691resol  VARCHAR2(100),
+  jaqy691nresol NUMBER(10),
+  jaqy691fresol DATE,
+  jaqy691fepar  DATE,
+  jaqy691otro   VARCHAR2(100),
+  jaqy691obs    VARCHAR2(200),
+  jaqy691user   VARCHAR2(12),
+  jaqy691freg   DATE,
+  jaqy691hreg   VARCHAR2(8),
+  jaqy691aux1   NUMBER(4),
+  jaqy691aux2   NUMBER(10),
+  jaqy691aux4   VARCHAR2(50),
+  jaqy691aux5   VARCHAR2(100),
+  jaqy691aux6   VARCHAR2(100),
+  jaqy691aux7   VARCHAR2(200),
+  jaqy691aux8   VARCHAR2(200),
+  jaqy691aux9   DATE,
+  jaqy691aux10  DATE,
+  jaqy691fefin  DATE,
+  jaqy691feini  DATE
+)
+;
+alter table JAQY691
+  add primary key (JAQY691PAIS, JAQY691TDOC, JAQY691NRUC);
+

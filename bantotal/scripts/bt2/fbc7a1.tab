@@ -1,0 +1,17 @@
+create table FBC7A1
+(
+  bc7a1emp  NUMBER(3) not null,
+  bc7a1fch  DATE not null,
+  bc7a1ent  NUMBER(3) not null,
+  bc7a1sub  CHAR(4) not null,
+  bc7a1codc NUMBER(6) not null,
+  bc7a1dest CHAR(1) not null,
+  bc7a1codp NUMBER(3) not null,
+  bc7a1nroc NUMBER(9),
+  bc7a1sdo1 NUMBER(17,2),
+  bc7a1sdo2 NUMBER(17,2)
+)
+;
+alter table FBC7A1
+  add primary key (BC7A1EMP, BC7A1FCH, BC7A1ENT, BC7A1SUB, BC7A1CODC, BC7A1DEST, BC7A1CODP);
+

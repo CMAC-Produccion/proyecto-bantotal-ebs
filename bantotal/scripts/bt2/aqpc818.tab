@@ -1,0 +1,254 @@
+create table AQPC818
+(
+  aqpc818codopi  NUMBER(10) not null,
+  aqpc818fecpro  DATE not null,
+  aqpc818instan  NUMBER(10),
+  aqpc818a       VARCHAR2(200),
+  aqpc818de      VARCHAR2(200),
+  aqpc818asunt   VARCHAR2(200),
+  aqpc818texcom  VARCHAR2(200),
+  aqpc818clien   VARCHAR2(400),
+  aqpc818dni     VARCHAR2(400),
+  aqpc818analis  VARCHAR2(10),
+  aqpc818agenc   VARCHAR2(30),
+  aqpc818zona    VARCHAR2(30),
+  aqpc818regio   VARCHAR2(30),
+  aqpc818ratgana VARCHAR2(20),
+  aqpc818ratagen VARCHAR2(20),
+  aqpc818sldcana NUMBER(18,2),
+  aqpc818sldcage NUMBER(18,2),
+  aqpc818sldczon NUMBER(18,2),
+  aqpc818sldcreg NUMBER(18,2),
+  aqpc818ncliana NUMBER(10),
+  aqpc818ncliage NUMBER(10),
+  aqpc818nclizon NUMBER(10),
+  aqpc818nclireg NUMBER(10),
+  aqpc818nmorag  VARCHAR2(10),
+  aqpc818nmoran  VARCHAR2(10),
+  aqpc818nmorzo  VARCHAR2(10),
+  aqpc818nmoreg  VARCHAR2(10),
+  aqpc818nvriesg VARCHAR2(30),
+  aqpc818activid VARCHAR2(60),
+  aqpc818pdana   NUMBER(18,2),
+  aqpc818pdage   NUMBER(18,2),
+  aqpc818pdzon   NUMBER(18,2),
+  aqpc818pdreg   NUMBER(18,2),
+  aqpc818coh4ana NUMBER(18,2),
+  aqpc818coh4age NUMBER(18,2),
+  aqpc818coh4zon NUMBER(18,2),
+  aqpc818coh4reg NUMBER(18,2),
+  aqpc818coh6ana NUMBER(18,2),
+  aqpc818coh6age NUMBER(18,2),
+  aqpc818coh6zon NUMBER(18,2),
+  aqpc818coh6reg NUMBER(18,2),
+  aqpc818solic   NUMBER(10),
+  aqpc818ctnro   NUMBER(9),
+  aqpc818calif   VARCHAR2(30),
+  aqpc818prodsbs VARCHAR2(30),
+  aqpc818feceeff DATE,
+  aqpc818fecinfc DATE,
+  aqpc818codtpro NUMBER(8,2),
+  aqpc818tippro  VARCHAR2(30),
+  aqpc818resptot NUMBER(18,2),
+  aqpc818sldprop NUMBER(18,2),
+  aqpc818modprp  VARCHAR2(200),
+  aqpc818cuotas  NUMBER(17,2),
+  aqpc818cuoprp  VARCHAR2(20),
+  aqpc818tasprp  NUMBER(17,2),
+  aqpc818tipsol  NUMBER(3),
+  aqpc818detisol VARCHAR2(50),
+  aqpc818estop   CHAR(2),
+  aqpc818horrg   VARCHAR2(10) not null,
+  aqpc818usureg  VARCHAR2(10),
+  aqpc818grage   VARCHAR2(10),
+  aqpc818anserig VARCHAR2(10),
+  aqpc818usrder  VARCHAR2(10),
+  aqpc818fecdel  DATE,
+  aqpc818nivel   NUMBER(2),
+  aqpc818aux1    NUMBER(17,2),
+  aqpc818aux2    VARCHAR2(100),
+  aqpc818aux3    DATE,
+  aqpc818aux4    NUMBER(5),
+  aqpc818actcont VARCHAR2(1),
+  aqpc818supadmi VARCHAR2(10),
+  aqpc818jefadmi VARCHAR2(10),
+  aqpc818gerries VARCHAR2(10),
+  aqpc818nrecons NUMBER(16,2),
+  aqpc818esrecon VARCHAR2(1),
+  aqpc818estad   VARCHAR2(1),
+  aqpc818corr    NUMBER(10) not null,
+  aqpc818tcamb   NUMBER(10,6),
+  aqpc818mdaprop NUMBER(4)
+)
+;
+comment on table AQPC818
+  is 'Tabla temporal cabecera de repor. opinion de riesgos CRM';
+comment on column AQPC818.aqpc818codopi
+  is 'Cod. opinion';
+comment on column AQPC818.aqpc818fecpro
+  is 'Fec. Proceso';
+comment on column AQPC818.aqpc818instan
+  is 'Solicitud';
+comment on column AQPC818.aqpc818a
+  is 'A';
+comment on column AQPC818.aqpc818de
+  is 'De';
+comment on column AQPC818.aqpc818asunt
+  is 'Asunto';
+comment on column AQPC818.aqpc818texcom
+  is 'Text Comentario';
+comment on column AQPC818.aqpc818clien
+  is 'Cliente';
+comment on column AQPC818.aqpc818dni
+  is 'Dni titulares';
+comment on column AQPC818.aqpc818analis
+  is 'Anlaista';
+comment on column AQPC818.aqpc818agenc
+  is 'Agencia';
+comment on column AQPC818.aqpc818zona
+  is 'Zona';
+comment on column AQPC818.aqpc818regio
+  is 'Region';
+comment on column AQPC818.aqpc818ratgana
+  is 'Rating Analista';
+comment on column AQPC818.aqpc818ratagen
+  is 'Rating Agencia';
+comment on column AQPC818.aqpc818sldcana
+  is 'SaldAnalista';
+comment on column AQPC818.aqpc818sldcage
+  is 'SaldoAgencia';
+comment on column AQPC818.aqpc818sldczon
+  is 'SaldoZona';
+comment on column AQPC818.aqpc818sldcreg
+  is 'SaldoRegion';
+comment on column AQPC818.aqpc818ncliana
+  is 'Nro Cliente Analista';
+comment on column AQPC818.aqpc818ncliage
+  is 'Nro Cliente Agencia';
+comment on column AQPC818.aqpc818nclizon
+  is 'Nro Cliente Zona';
+comment on column AQPC818.aqpc818nclireg
+  is 'Nro Cliente Region';
+comment on column AQPC818.aqpc818nmorag
+  is 'Nivel Mora Agencia';
+comment on column AQPC818.aqpc818nmoran
+  is 'Nivel Mora Analista';
+comment on column AQPC818.aqpc818nmorzo
+  is 'Nivel Mora Zona';
+comment on column AQPC818.aqpc818nmoreg
+  is 'Nivel Mora Region';
+comment on column AQPC818.aqpc818nvriesg
+  is 'Nivel Riesgo';
+comment on column AQPC818.aqpc818activid
+  is 'Actividad';
+comment on column AQPC818.aqpc818pdana
+  is 'PD ANALISTA';
+comment on column AQPC818.aqpc818pdage
+  is 'PD agencia';
+comment on column AQPC818.aqpc818pdzon
+  is 'PD Zona';
+comment on column AQPC818.aqpc818pdreg
+  is 'PD Reg';
+comment on column AQPC818.aqpc818coh4ana
+  is 'COH4ANA';
+comment on column AQPC818.aqpc818coh4age
+  is 'COH4AGE';
+comment on column AQPC818.aqpc818coh4zon
+  is 'COH4ZON';
+comment on column AQPC818.aqpc818coh4reg
+  is 'COH4REG';
+comment on column AQPC818.aqpc818coh6ana
+  is 'COH6ANA';
+comment on column AQPC818.aqpc818coh6age
+  is 'COH6AGE';
+comment on column AQPC818.aqpc818coh6zon
+  is 'COH6ZON';
+comment on column AQPC818.aqpc818coh6reg
+  is 'COH6REG';
+comment on column AQPC818.aqpc818solic
+  is 'Solicitud';
+comment on column AQPC818.aqpc818ctnro
+  is 'Cuenta';
+comment on column AQPC818.aqpc818calif
+  is 'CALIF   ';
+comment on column AQPC818.aqpc818prodsbs
+  is 'PRODSBS ';
+comment on column AQPC818.aqpc818feceeff
+  is 'FECEEFF ';
+comment on column AQPC818.aqpc818fecinfc
+  is 'FECINFC ';
+comment on column AQPC818.aqpc818codtpro
+  is 'CODTPRO ';
+comment on column AQPC818.aqpc818tippro
+  is 'TIPPRO  ';
+comment on column AQPC818.aqpc818resptot
+  is 'RESPTOT ';
+comment on column AQPC818.aqpc818sldprop
+  is 'SLDPROP ';
+comment on column AQPC818.aqpc818modprp
+  is 'MODPRP  ';
+comment on column AQPC818.aqpc818cuotas
+  is 'CUOTAS  ';
+comment on column AQPC818.aqpc818cuoprp
+  is 'CUOPRP  ';
+comment on column AQPC818.aqpc818tasprp
+  is 'TASPRP  ';
+comment on column AQPC818.aqpc818tipsol
+  is 'TIP SOLicitud  ';
+comment on column AQPC818.aqpc818detisol
+  is 'DEscripción TISOLicitud ';
+comment on column AQPC818.aqpc818estop
+  is 'Estado de opinión P - Pendiente, V - viable, D- Devuelto, O -Observado, NV - No viable y T - Culminado';
+comment on column AQPC818.aqpc818horrg
+  is 'HORRG   ';
+comment on column AQPC818.aqpc818usureg
+  is 'USUREG  ';
+comment on column AQPC818.aqpc818grage
+  is 'GRAGE   ';
+comment on column AQPC818.aqpc818anserig
+  is 'ANSERIG ';
+comment on column AQPC818.aqpc818usrder
+  is 'USRDER  ';
+comment on column AQPC818.aqpc818fecdel
+  is 'Fecha de delegación';
+comment on column AQPC818.aqpc818nivel
+  is 'NIVEL   ';
+comment on column AQPC818.aqpc818aux1
+  is 'AUX1    ';
+comment on column AQPC818.aqpc818aux2
+  is 'AUX2    ';
+comment on column AQPC818.aqpc818aux3
+  is 'AUX3    ';
+comment on column AQPC818.aqpc818aux4
+  is 'AUX4    ';
+comment on column AQPC818.aqpc818actcont
+  is 'Flag Analisis de credito contador';
+comment on column AQPC818.aqpc818supadmi
+  is 'Usuario de Supervisor de Admision';
+comment on column AQPC818.aqpc818jefadmi
+  is 'Usuario de Jefe de admisión';
+comment on column AQPC818.aqpc818gerries
+  is 'Usuario de Gerente riesgo corporativo';
+comment on column AQPC818.aqpc818nrecons
+  is 'Nro de Reconsideración a iniciar';
+comment on column AQPC818.aqpc818esrecon
+  is 'Tiene reconsideración';
+comment on column AQPC818.aqpc818estad
+  is 'Estado del registro I - Inhabilitado;H - Habilitado';
+comment on column AQPC818.aqpc818corr
+  is 'Correlativo';
+comment on column AQPC818.aqpc818tcamb
+  is 'Tipo de Cambio';
+comment on column AQPC818.aqpc818mdaprop
+  is 'Moneda Cred. Propuesto';
+create index AQPC818A2 on AQPC818 (AQPC818CODOPI, AQPC818FECPRO);
+create index AQPC818A3 on AQPC818 (AQPC818INSTAN, AQPC818ESTOP);
+create index AQPC818A4 on AQPC818 (AQPC818CODOPI, AQPC818INSTAN);
+create index AQPC818A5 on AQPC818 (AQPC818CODOPI, AQPC818ESTAD);
+create index AQPC818A6 on AQPC818 (AQPC818CODOPI, AQPC818INSTAN, AQPC818ESTAD);
+create index AQPC818A7 on AQPC818 (AQPC818ESTOP, AQPC818ESTAD);
+create index AQPC818A8 on AQPC818 (AQPC818INSTAN, AQPC818ESTAD);
+create index AQPC818A9 on AQPC818 (AQPC818AUX3, AQPC818ESTAD, AQPC818ESTOP);
+alter table AQPC818
+  add primary key (AQPC818CODOPI, AQPC818CORR, AQPC818FECPRO, AQPC818HORRG);
+

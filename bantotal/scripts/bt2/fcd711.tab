@@ -1,0 +1,11 @@
+create table FCD711
+(
+  fcd711emp NUMBER(3) not null,
+  fcd711cta NUMBER(9) not null,
+  fcd711dir CHAR(65),
+  fcd711cd  CHAR(65)
+)
+;
+alter table FCD711
+  add primary key (FCD711EMP, FCD711CTA);
+

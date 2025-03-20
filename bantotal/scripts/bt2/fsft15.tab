@@ -1,0 +1,38 @@
+create table FSFT15
+(
+  kt8pgcod  NUMBER(3) not null,
+  kt8clasif NUMBER(2) not null,
+  kt8finro  NUMBER(3) not null,
+  kt8tmda   NUMBER(1) not null,
+  kt8hasta  NUMBER(4,2) not null,
+  kt8dsc    CHAR(30),
+  kt8poscom NUMBER(17,2),
+  kt8posvta NUMBER(17,2),
+  kt8varcom NUMBER(14,8),
+  kt8varvta NUMBER(14,8),
+  kt8min34  NUMBER(14,8),
+  kt8dif34  NUMBER(14,8),
+  kt8sum56  NUMBER(14,8),
+  kt8imp01  NUMBER(17,2),
+  kt8imp02  NUMBER(17,2),
+  kt8imp03  NUMBER(17,2),
+  kt8imp04  NUMBER(17,2),
+  kt8imp05  NUMBER(17,2),
+  kt8coef01 NUMBER(14,8),
+  kt8coef02 NUMBER(14,8),
+  kt8coef03 NUMBER(14,8),
+  kt8coef04 NUMBER(14,8),
+  kt8coef05 NUMBER(14,8),
+  kt8fec01  DATE,
+  kt8fec02  DATE,
+  kt8fec03  DATE,
+  kt8rie3   NUMBER(10),
+  kt8rie4   NUMBER(10),
+  kt8rie5c  NUMBER(10),
+  kt8rie5v  NUMBER(10)
+)
+;
+create index FSFT1503 on FSFT15 (KT8PGCOD, KT8FINRO, KT8CLASIF, KT8TMDA, KT8HASTA);
+alter table FSFT15
+  add primary key (KT8PGCOD, KT8CLASIF, KT8FINRO, KT8TMDA, KT8HASTA);
+

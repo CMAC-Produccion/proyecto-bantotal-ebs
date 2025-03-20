@@ -1,0 +1,17 @@
+create table TDW005
+(
+  tdw005tar CHAR(19) not null,
+  tdw005fec DATE not null,
+  tdw005hor CHAR(8) not null,
+  tdw005usr CHAR(10),
+  tdw005tip CHAR(3),
+  tdw005ori NUMBER(3),
+  tdw005des NUMBER(3),
+  tdw005sal DATE,
+  tdw005ent DATE
+)
+;
+create index TDW00502 on TDW005 (TDW005TIP, TDW005TAR);
+alter table TDW005
+  add primary key (TDW005TAR, TDW005FEC, TDW005HOR);
+

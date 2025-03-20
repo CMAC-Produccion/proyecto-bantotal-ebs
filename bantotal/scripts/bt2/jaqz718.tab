@@ -1,0 +1,24 @@
+create table JAQZ718
+(
+  jaqz718id   NUMBER(10) not null,
+  jaqz718cta  NUMBER(9),
+  jaqz718oper NUMBER(9),
+  jaqz718desc VARCHAR2(250),
+  jaqz718fec  TIMESTAMP(6),
+  jaqz718dest VARCHAR2(20)
+)
+;
+comment on column JAQZ718.jaqz718cta
+  is 'instancia';
+comment on column JAQZ718.jaqz718oper
+  is 'correlativo';
+comment on column JAQZ718.jaqz718desc
+  is 'descripcion';
+comment on column JAQZ718.jaqz718fec
+  is 'HORA Y FECHA';
+comment on column JAQZ718.jaqz718dest
+  is 'DESTINO';
+create index JAQZ718IDX_001 on JAQZ718 (JAQZ718ID, JAQZ718CTA, JAQZ718OPER);
+alter table JAQZ718
+  add primary key (JAQZ718ID);
+

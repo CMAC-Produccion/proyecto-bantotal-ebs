@@ -1,0 +1,29 @@
+create table ICT003
+(
+  pgcod      NUMBER(3) not null,
+  infid      NUMBER(5) not null,
+  infftrcorr NUMBER(2) not null,
+  ftrid      NUMBER(3),
+  infftrtpo  CHAR(1),
+  infftrfchd DATE,
+  infftrfchh DATE,
+  infftrstrd CHAR(20),
+  infftrvald NUMBER(15),
+  infftrvalh NUMBER(15),
+  infftrsdoo CHAR(1),
+  tifcod     NUMBER(2),
+  infftrtcta NUMBER(3),
+  ctnro      NUMBER(9),
+  fecwid     NUMBER(2),
+  pais       NUMBER(3),
+  infftropco CHAR(1)
+)
+;
+create index ICT00302 on ICT003 (PAIS);
+create index ICT00303 on ICT003 (FECWID);
+create index ICT00304 on ICT003 (PGCOD, CTNRO);
+create index ICT00305 on ICT003 (TIFCOD);
+create index ICT00306 on ICT003 (FTRID);
+alter table ICT003
+  add primary key (PGCOD, INFID, INFFTRCORR);
+

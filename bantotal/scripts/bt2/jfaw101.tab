@@ -1,0 +1,14 @@
+create table JFAW101
+(
+  jfaw101pgc NUMBER(3) not null,
+  jfaw101mod NUMBER(3) not null,
+  jfaw101top NUMBER(3) not null,
+  jfaw101mon NUMBER(4) not null,
+  jfaw101pap NUMBER(4) not null,
+  jfaw101cor NUMBER(4),
+  jfaw101txt VARCHAR2(1000)
+)
+;
+alter table JFAW101
+  add primary key (JFAW101PGC, JFAW101MOD, JFAW101TOP, JFAW101MON, JFAW101PAP);
+

@@ -1,0 +1,11 @@
+create table OPERAGE
+(
+  sucursal    NUMBER(3) not null,
+  agencia     VARCHAR2(30),
+  transaccion CHAR(30),
+  operaciones NUMBER
+)
+;
+comment on table OPERAGE
+  is 'Tabla de operaciones por agencia para reporte - SP_REPORTES_JUL';
+

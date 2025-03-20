@@ -1,0 +1,69 @@
+create table AQPC327
+(
+  aqpc327idl NUMBER(10) not null,
+  aqpc327fpr DATE,
+  aqpc327hpr CHAR(8),
+  aqpc327usr CHAR(10),
+  aqpc327tar CHAR(19),
+  aqpc327pai NUMBER(3),
+  aqpc327tdo NUMBER(2),
+  aqpc327ndo CHAR(10),
+  aqpc327tpa VARCHAR2(15),
+  aqpc327nra NUMBER(2),
+  aqpc327din NUMBER(3),
+  aqpc327cel VARCHAR2(10),
+  aqpc327sms VARCHAR2(200),
+  aqpc327ces CHAR(5),
+  aqpc327mes VARCHAR2(200),
+  aqpc327eml VARCHAR2(100),
+  aqpc327mai VARCHAR2(3000),
+  aqpc327cem CHAR(5),
+  aqpc327mem VARCHAR2(200)
+)
+;
+comment on table AQPC327
+  is 'Log Notificacion Tarjetas Platinum';
+comment on column AQPC327.aqpc327idl
+  is 'ID Log';
+comment on column AQPC327.aqpc327fpr
+  is 'Fecha de proceso';
+comment on column AQPC327.aqpc327hpr
+  is 'Hora de proceso';
+comment on column AQPC327.aqpc327usr
+  is 'Usuario que procesa';
+comment on column AQPC327.aqpc327tar
+  is 'Número de tarjeta';
+comment on column AQPC327.aqpc327pai
+  is 'Pais del documento';
+comment on column AQPC327.aqpc327tdo
+  is 'Tipo del documento';
+comment on column AQPC327.aqpc327ndo
+  is 'Número de documento';
+comment on column AQPC327.aqpc327tpa
+  is 'Tipo de alerta';
+comment on column AQPC327.aqpc327nra
+  is 'Número de alerta';
+comment on column AQPC327.aqpc327din
+  is 'Dias de inactividad';
+comment on column AQPC327.aqpc327cel
+  is 'Celular del cliente';
+comment on column AQPC327.aqpc327sms
+  is 'Mensaje sms';
+comment on column AQPC327.aqpc327ces
+  is 'Codigo error sms';
+comment on column AQPC327.aqpc327mes
+  is 'Mensaje error sms';
+comment on column AQPC327.aqpc327eml
+  is 'Correo del cliente';
+comment on column AQPC327.aqpc327mai
+  is 'Mensaje mail';
+comment on column AQPC327.aqpc327cem
+  is 'Codigo error mail';
+comment on column AQPC327.aqpc327mem
+  is 'Mensaje error mail';
+create index AQPC327A2 on AQPC327 (AQPC327NRA);
+create index AQPC327A3 on AQPC327 (AQPC327FPR);
+create index AQPC327A4 on AQPC327 (AQPC327FPR, AQPC327PAI, AQPC327TDO, AQPC327NDO);
+alter table AQPC327
+  add primary key (AQPC327IDL);
+

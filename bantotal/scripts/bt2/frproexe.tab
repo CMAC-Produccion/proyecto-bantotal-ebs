@@ -1,0 +1,11 @@
+create table FRPROEXE
+(
+  frproid    CHAR(6) not null,
+  frproexety NUMBER(2) not null,
+  frproexetv VARCHAR2(40) not null,
+  frproexeva VARCHAR2(40)
+)
+;
+alter table FRPROEXE
+  add primary key (FRPROID, FRPROEXETY, FRPROEXETV);
+

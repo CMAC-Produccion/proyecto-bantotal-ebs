@@ -1,0 +1,13 @@
+create table SNG435
+(
+  sng435cod NUMBER(3) not null,
+  sng430pgc NUMBER(3) not null,
+  sng430ase CHAR(10) not null,
+  sng435ord NUMBER(3)
+)
+;
+create index SNG43502 on SNG435 (SNG430PGC, SNG430ASE);
+create index SNG43503 on SNG435 (SNG435COD, SNG435ORD);
+alter table SNG435
+  add primary key (SNG435COD, SNG430PGC, SNG430ASE);
+

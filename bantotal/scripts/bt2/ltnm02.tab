@@ -1,0 +1,10 @@
+create table LTNM02
+(
+  ltnm01evto NUMBER(10) not null,
+  ltnm03bsor NUMBER(10) not null
+)
+;
+create index LTNM0203 on LTNM02 (LTNM03BSOR);
+alter table LTNM02
+  add primary key (LTNM01EVTO, LTNM03BSOR);
+

@@ -1,0 +1,17 @@
+create table JMBN023
+(
+  jmbn023pai NUMBER(3) not null,
+  jmbn023tdo NUMBER(2) not null,
+  jmbn023ndo CHAR(12) not null,
+  jmbn023pvi NUMBER(3) not null,
+  jmbn023tvi NUMBER(2) not null,
+  jmbn023nvi CHAR(12) not null,
+  jmbn023vin NUMBER(2),
+  jmbn023aux NUMBER(9),
+  jmbn023a2u NUMBER(4),
+  jmbn023a3u NUMBER(4)
+)
+;
+alter table JMBN023
+  add primary key (JMBN023PAI, JMBN023TDO, JMBN023NDO, JMBN023PVI, JMBN023TVI, JMBN023NVI);
+

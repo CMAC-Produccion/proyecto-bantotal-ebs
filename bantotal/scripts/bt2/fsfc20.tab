@@ -1,0 +1,38 @@
+create table FSFC20
+(
+  sfc20emp   NUMBER(3) not null,
+  sfc20mod   NUMBER(3) not null,
+  sfc20suc   NUMBER(3) not null,
+  sfc20mda   NUMBER(4) not null,
+  sfc20pap   NUMBER(4) not null,
+  sfc20cta   NUMBER(9) not null,
+  sfc20oper  NUMBER(9) not null,
+  sfc20sbop  NUMBER(3) not null,
+  sfc20tope  NUMBER(3) not null,
+  sfc20tgcod NUMBER(2),
+  sfc20grnr  NUMBER(7),
+  sfc20exp   NUMBER(10),
+  sfc20exp1  NUMBER(10),
+  sfc20exp2  NUMBER(10),
+  sfc20pmod  NUMBER(3),
+  sfc20ptop  NUMBER(3),
+  sfc20pzoa  NUMBER(3),
+  sfc20pzod  NUMBER(6),
+  sfc20temp  NUMBER(3),
+  sfc20tsuc  NUMBER(3),
+  sfc20tmod  NUMBER(3),
+  sfc20ttran NUMBER(3),
+  sfc20tnrel NUMBER(4),
+  sfc20tord  NUMBER(2),
+  sfc20tsbor NUMBER(3),
+  sfc20tcont CHAR(1),
+  sfc20imp1  NUMBER(17,2),
+  sfc20imp2  NUMBER(17,2),
+  sfc20imp3  NUMBER(17,2),
+  sfc20imp4  NUMBER(17,2)
+)
+;
+create index FSFC2002 on FSFC20 (SFC20EMP, SFC20TGCOD, SFC20GRNR, SFC20MOD);
+alter table FSFC20
+  add primary key (SFC20EMP, SFC20MOD, SFC20SUC, SFC20MDA, SFC20PAP, SFC20CTA, SFC20OPER, SFC20SBOP, SFC20TOPE);
+

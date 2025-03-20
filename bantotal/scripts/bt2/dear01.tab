@@ -1,0 +1,25 @@
+create table DEAR01
+(
+  dear01pgc  NUMBER(4) not null,
+  dear01usr  CHAR(10) not null,
+  dear01cta  NUMBER(9) not null,
+  dear01pap  NUMBER(4) not null,
+  dear01mda  NUMBER(4) not null,
+  dear01rub  NUMBER(16) not null,
+  dear01suc  NUMBER(3) not null,
+  dear01ope  NUMBER(9) not null,
+  dear01sub  NUMBER(3) not null,
+  dear01tope NUMBER(3) not null,
+  dear01pais NUMBER(3) not null,
+  dear01tdoc NUMBER(2) not null,
+  dear01ndoc CHAR(25) not null,
+  dear01mod  NUMBER(4),
+  dear01ttco NUMBER(2),
+  dear01aux  DATE,
+  dear01ax1  CHAR(70)
+)
+;
+create index DEAR0102 on DEAR01 (DEAR01PGC, DEAR01USR, DEAR01SUC, DEAR01PAIS, DEAR01TDOC, DEAR01NDOC, DEAR01CTA, DEAR01PAP, DEAR01MDA, DEAR01RUB, DEAR01OPE, DEAR01TOPE, DEAR01SUB, DEAR01MOD);
+alter table DEAR01
+  add primary key (DEAR01PGC, DEAR01USR, DEAR01CTA, DEAR01PAP, DEAR01MDA, DEAR01RUB, DEAR01SUC, DEAR01OPE, DEAR01SUB, DEAR01TOPE, DEAR01PAIS, DEAR01TDOC, DEAR01NDOC);
+

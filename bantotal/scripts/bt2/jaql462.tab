@@ -1,0 +1,32 @@
+create table JAQL462
+(
+  jaql462cor NUMBER(10) not null,
+  jaql462fch DATE,
+  jaql462hrg CHAR(8),
+  jaql462per DATE,
+  jaql462fre NUMBER(2),
+  jaql462med CHAR(1),
+  jaql462pgo NUMBER(3),
+  jaql462suc NUMBER(3),
+  jaql462mod NUMBER(3),
+  jaql462mda NUMBER(4),
+  jaql462pap NUMBER(4),
+  jaql462cta NUMBER(9),
+  jaql462ope NUMBER(9),
+  jaql462sub NUMBER(3),
+  jaql462top NUMBER(3),
+  jaql462mot CHAR(255),
+  jaql462mto NUMBER(16,2),
+  jaql462usu CHAR(10),
+  jaql462rel NUMBER(4),
+  jaql462trn NUMBER(3),
+  jaql462mdo NUMBER(3),
+  jaql462fva DATE,
+  jaql462ubs NUMBER(3)
+)
+;
+create index JAQL462IDX1 on JAQL462 (JAQL462PER);
+create index JAQL462IDX2 on JAQL462 (JAQL462FCH);
+alter table JAQL462
+  add primary key (JAQL462COR);
+

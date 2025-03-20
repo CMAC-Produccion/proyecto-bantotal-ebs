@@ -1,0 +1,11 @@
+create table FCNV82
+(
+  cnv80cod   NUMBER(3) not null,
+  cnv82corr  NUMBER(3) not null,
+  cnv82cpo   CHAR(40),
+  cnv82popup CHAR(10)
+)
+;
+alter table FCNV82
+  add primary key (CNV80COD, CNV82CORR);
+

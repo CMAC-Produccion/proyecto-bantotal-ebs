@@ -1,0 +1,35 @@
+create table JAQY474
+(
+  jaqy474pais NUMBER(3) not null,
+  jaqy474tdoc NUMBER(2) not null,
+  jaqy474ndoc VARCHAR2(12) not null,
+  jaqy474nreg NUMBER(4) not null,
+  jaqy474pmod NUMBER(3) not null,
+  jaqy474ptop NUMBER(3) not null,
+  jaqy474psuc NUMBER(3) not null,
+  jaqy474pmon NUMBER(4) not null,
+  jaqy474ppap NUMBER(4) not null,
+  jaqy474pcta NUMBER(9) not null,
+  jaqy474pope NUMBER(9) not null,
+  jaqy474psop NUMBER(4) not null,
+  jaqy474tfec DATE,
+  jaqy474hora CHAR(8),
+  jaqy474tsuc NUMBER(3),
+  jaqy474tmod NUMBER(3),
+  jaqy474ttrn NUMBER(3),
+  jaqy474trel NUMBER(4),
+  jaqy474tord NUMBER(2),
+  jaqy474tsor NUMBER(4),
+  jaqy474impo NUMBER(17,2),
+  jaqy474laft NUMBER(17,15),
+  jaqy474nivr NUMBER(2),
+  jaqy474esta CHAR(1),
+  jaqy474per  DATE,
+  jaqy474tpr  NUMBER(1)
+)
+;
+create index JAQY47401 on JAQY474 (JAQY474TSUC, JAQY474TMOD, JAQY474TTRN, JAQY474TREL, JAQY474TORD, JAQY474TSOR);
+create index JAQY4742 on JAQY474 (JAQY474PCTA);
+alter table JAQY474
+  add primary key (JAQY474PAIS, JAQY474TDOC, JAQY474NDOC, JAQY474NREG);
+

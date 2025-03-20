@@ -1,0 +1,32 @@
+create table FBC090
+(
+  bc090emp   NUMBER(3) not null,
+  bc090inf   CHAR(10) not null,
+  bc090fch   DATE not null,
+  bc090codre NUMBER(2) not null,
+  bc090corr  NUMBER(12) not null,
+  bc090ent   NUMBER(4),
+  bc090ciu   NUMBER(2),
+  bc090suc   NUMBER(2),
+  bc090codta CHAR(3),
+  bc090conc  NUMBER(2),
+  bc090rub   CHAR(6),
+  bc090oper  NUMBER(12),
+  bc090fope  DATE,
+  bc090tran  CHAR(3),
+  bc090mda   NUMBER(2),
+  bc090tasa  NUMBER(6,3),
+  bc090com   NUMBER(14,2),
+  bc090rec   NUMBER(14,2),
+  bc090pzo   NUMBER(5),
+  bc090per   NUMBER(5),
+  bc090deb   NUMBER(14,2),
+  bc090hab   NUMBER(14,2),
+  bc090exc   NUMBER(5),
+  bc090enf   CHAR(4),
+  bc090nro   NUMBER(8)
+)
+;
+alter table FBC090
+  add primary key (BC090EMP, BC090INF, BC090FCH, BC090CODRE, BC090CORR);
+

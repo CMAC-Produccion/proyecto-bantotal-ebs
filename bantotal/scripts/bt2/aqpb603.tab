@@ -1,0 +1,22 @@
+create table AQPB603
+(
+  aqpb603cor NUMBER(4) not null,
+  aqpb603pro VARCHAR2(50),
+  aqpb603pan VARCHAR2(50),
+  aqpb603usu VARCHAR2(10),
+  aqpb603fec TIMESTAMP(6)
+)
+;
+comment on column AQPB603.aqpb603cor
+  is 'CORRELATIVO';
+comment on column AQPB603.aqpb603pro
+  is 'PROGRAMA';
+comment on column AQPB603.aqpb603pan
+  is 'PANEL';
+comment on column AQPB603.aqpb603usu
+  is 'USUARIO';
+comment on column AQPB603.aqpb603fec
+  is 'FECHA REPORTE';
+alter table AQPB603
+  add primary key (AQPB603COR);
+

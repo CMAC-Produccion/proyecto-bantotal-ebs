@@ -1,0 +1,22 @@
+create table PRFT00
+(
+  pgcod      NUMBER(3) not null,
+  prfgcod    CHAR(10) not null,
+  modulo     NUMBER(3) not null,
+  trnro      NUMBER(3) not null,
+  prfmting   CHAR(1),
+  prfmtconf  CHAR(1),
+  prfmtsup   CHAR(1),
+  prfmtprod  CHAR(1),
+  prfmtsn1   CHAR(1),
+  prfmtsn2   CHAR(1),
+  prfmtsn3   CHAR(1),
+  prfmtfecal DATE,
+  prfmtuser  CHAR(10),
+  prfmtimpac CHAR(1),
+  prfmtfecim DATE
+)
+;
+alter table PRFT00
+  add primary key (PGCOD, PRFGCOD, MODULO, TRNRO);
+

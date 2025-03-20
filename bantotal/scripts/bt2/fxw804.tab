@@ -1,0 +1,22 @@
+create table FXW804
+(
+  wpgcod     NUMBER(3) not null,
+  wnumtip    NUMBER(2) not null,
+  wmsgnum    NUMBER(9) not null,
+  wswtcod    NUMBER(5) not null,
+  wswtrel    NUMBER(2) not null,
+  wswtcposec NUMBER(3) not null,
+  wswtcpo    NUMBER(2) not null,
+  wswtcpofmt CHAR(1) not null,
+  wmsgsubcpo NUMBER(2) not null,
+  wmsgcpolin NUMBER(3) not null,
+  wmsgidatt  NUMBER(5) not null,
+  wmsgnumval NUMBER(17,2),
+  wmsgcharva CHAR(65),
+  wmsgflagva CHAR(1),
+  wmsgdateva DATE
+)
+;
+alter table FXW804
+  add primary key (WPGCOD, WNUMTIP, WMSGNUM, WSWTCOD, WSWTREL, WSWTCPOSEC, WSWTCPO, WSWTCPOFMT, WMSGSUBCPO, WMSGCPOLIN, WMSGIDATT);
+

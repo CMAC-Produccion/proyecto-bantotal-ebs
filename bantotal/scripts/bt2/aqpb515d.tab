@@ -1,0 +1,63 @@
+create table AQPB515D
+(
+  aqpb515dserial NUMBER(10) not null,
+  aqpb515dnuobl  VARCHAR2(30) not null,
+  aqpb515dferep  DATE,
+  aqpb515dcoent  VARCHAR2(30),
+  aqpb515dnoent  VARCHAR2(50),
+  aqpb515dticta  VARCHAR2(10),
+  aqpb515dmoned  VARCHAR2(10),
+  aqpb515dcausa  VARCHAR2(10),
+  aqpb515dfeinis DATE,
+  aqpb515dtipla  VARCHAR2(10),
+  aqpb515dfefis  DATE,
+  aqpb515dfepub  DATE,
+  aqpb515dnupub  VARCHAR2(10),
+  aqpb515dfecre  DATE,
+  aqpb515dtidet  CHAR(2),
+  aqpb515dconcod VARCHAR2(16) not null,
+  aqpb515dcreusr VARCHAR2(30) not null,
+  aqpb515dcretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515D
+  is 'CTA CORRIENTE CERRADA Y TARJETA CREDITO CERRADA';
+comment on column AQPB515D.aqpb515dserial
+  is 'SERIAL';
+comment on column AQPB515D.aqpb515dnuobl
+  is 'NUMERO OBLIGACION';
+comment on column AQPB515D.aqpb515dferep
+  is 'FECHA DE REPORTE';
+comment on column AQPB515D.aqpb515dcoent
+  is 'CODIGO ENTIDAD';
+comment on column AQPB515D.aqpb515dnoent
+  is 'NOMBRE ENTIDAD';
+comment on column AQPB515D.aqpb515dticta
+  is 'TIPO DE CUENTA';
+comment on column AQPB515D.aqpb515dmoned
+  is 'MONEDA';
+comment on column AQPB515D.aqpb515dcausa
+  is 'CAUSA SANCION';
+comment on column AQPB515D.aqpb515dfeinis
+  is 'FECHA INICIO SANCION';
+comment on column AQPB515D.aqpb515dtipla
+  is 'TIPO DE PLAZO';
+comment on column AQPB515D.aqpb515dfefis
+  is 'FECHA FIN SANCION';
+comment on column AQPB515D.aqpb515dfepub
+  is 'FECHA DE PUBLICACION';
+comment on column AQPB515D.aqpb515dnupub
+  is 'NUMERO DE PUBLICACION';
+comment on column AQPB515D.aqpb515dfecre
+  is 'FECHA CREACION';
+comment on column AQPB515D.aqpb515dtidet
+  is 'TIPO DETALLE';
+comment on column AQPB515D.aqpb515dconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515D.aqpb515dcreusr
+  is 'CONSULTA - USUARIO';
+comment on column AQPB515D.aqpb515dcretim
+  is 'CONSULTA - TIMESTAMP';
+alter table AQPB515D
+  add primary key (AQPB515DSERIAL, AQPB515DNUOBL, AQPB515DCONCOD, AQPB515DCREUSR);
+

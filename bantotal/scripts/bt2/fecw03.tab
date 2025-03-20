@@ -1,0 +1,44 @@
+create table FECW03
+(
+  ecw03usu  CHAR(10) not null,
+  ecw03opcd NUMBER(3) not null,
+  ecw03opsu NUMBER(3) not null,
+  ecw03opmo NUMBER(3) not null,
+  ecw03opmd NUMBER(4) not null,
+  ecw03oppa NUMBER(4) not null,
+  ecw03opct NUMBER(9) not null,
+  ecw03opop NUMBER(9) not null,
+  ecw03opso NUMBER(3) not null,
+  ecw03opto NUMBER(3) not null,
+  ecw03ndet NUMBER(6) not null,
+  ecw03desc CHAR(10) not null,
+  ecw03trcd NUMBER(3),
+  ecw03trmo NUMBER(3),
+  ecw03trtr NUMBER(3),
+  ecw03trsu NUMBER(3),
+  ecw03trre NUMBER(4),
+  ecw03trfc DATE,
+  ecw03tror NUMBER(2),
+  ecw03trsb NUMBER(3),
+  ecw03mfvc DATE,
+  ecw03mfva DATE,
+  ecw03mdh  NUMBER(1),
+  ecw03mimp NUMBER(17,2),
+  ecw03mcod NUMBER(3),
+  ecw03schq CHAR(1),
+  ecw03nchq NUMBER(9),
+  ecw03ref  CHAR(20),
+  ecw03con  CHAR(70),
+  ecw03iax1 NUMBER(17,2),
+  ecw03iax2 NUMBER(17,2),
+  ecw03sax1 CHAR(20),
+  ecw03sax2 CHAR(20),
+  ecw03fax1 DATE,
+  ecw03fax2 DATE,
+  ecw03nax1 NUMBER(9),
+  ecw03nax2 NUMBER(15)
+)
+;
+alter table FECW03
+  add primary key (ECW03USU, ECW03OPCD, ECW03OPSU, ECW03OPMO, ECW03OPMD, ECW03OPPA, ECW03OPCT, ECW03OPOP, ECW03OPSO, ECW03OPTO, ECW03NDET, ECW03DESC);
+

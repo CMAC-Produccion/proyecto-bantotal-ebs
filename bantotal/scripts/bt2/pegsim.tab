@@ -1,0 +1,19 @@
+create table PEGSIM
+(
+  pegid    CHAR(20) not null,
+  pegsuid  VARCHAR2(36) not null,
+  pegspjid CHAR(80) not null,
+  pegsgpid CHAR(80) not null,
+  pegsrtip CHAR(10) not null,
+  pegsrid  NUMBER(10) not null,
+  pegsrins NUMBER(4) not null,
+  pegsritm DATE not null,
+  pegsrimi VARCHAR2(36) not null,
+  pegsritb VARCHAR2(255),
+  pegsriky VARCHAR2(1000),
+  pegsritp CHAR(1)
+)
+;
+alter table PEGSIM
+  add primary key (PEGID, PEGSUID, PEGSPJID, PEGSGPID, PEGSRTIP, PEGSRID, PEGSRINS, PEGSRITM, PEGSRIMI);
+

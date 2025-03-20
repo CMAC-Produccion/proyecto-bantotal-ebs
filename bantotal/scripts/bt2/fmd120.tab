@@ -1,0 +1,55 @@
+create table FMD120
+(
+  pgcod      NUMBER(3) not null,
+  lcemmod    NUMBER(3) not null,
+  lcemoper   NUMBER(9) not null,
+  lcemintern CHAR(1),
+  lcemsuc    NUMBER(3),
+  lcemmda    NUMBER(4),
+  lcempap    NUMBER(4),
+  lcemcta    NUMBER(9),
+  lcemtipo   NUMBER(3),
+  lcemfemi   DATE,
+  lcemfval   DATE,
+  lcemfing   DATE,
+  lcemfvto   DATE,
+  lcemfvtem  DATE,
+  lcembcemis NUMBER(9),
+  lcemrefemi CHAR(20),
+  lcembcree  NUMBER(9),
+  lcemciuneg CHAR(20),
+  lcemabomin NUMBER(5,2),
+  lcemabomax NUMBER(5,2),
+  lcemgaspor NUMBER(1),
+  lcemnatmon NUMBER(2),
+  lcemuser   CHAR(10),
+  lcemws     CHAR(10),
+  lcemaoimp  NUMBER(17,2),
+  lcemmocsw1 CHAR(3),
+  lcemfreeid NUMBER(2),
+  lcemimpvis NUMBER(17,2),
+  lcemimppla NUMBER(17,2),
+  lcemsaldo  NUMBER(17,2),
+  lcemsdovis NUMBER(17,2),
+  lcemsdopla NUMBER(17,2),
+  lcembctrns NUMBER(9),
+  lcemautree NUMBER(15),
+  lcembcpaga NUMBER(9),
+  lcembcavi  NUMBER(9),
+  lcembcdsg  NUMBER(9)
+)
+;
+create index FMD12002 on FMD120 (PGCOD, LCEMCTA);
+create index FMD12003 on FMD120 (PGCOD, LCEMBCEMIS);
+create index FMD12004 on FMD120 (PGCOD, LCEMBCREE);
+create index FMD12005 on FMD120 (LCEMPAP);
+create index FMD12006 on FMD120 (LCEMMDA);
+create index FMD12007 on FMD120 (PGCOD, LCEMSUC);
+create index FMD12008 on FMD120 (LCEMMOD);
+create index FMD12009 on FMD120 (PGCOD, LCEMBCDSG);
+create index FMD12010 on FMD120 (PGCOD, LCEMBCPAGA);
+create index FMD12011 on FMD120 (PGCOD, LCEMBCAVI);
+create index FMD12012 on FMD120 (PGCOD, LCEMBCTRNS);
+alter table FMD120
+  add primary key (PGCOD, LCEMMOD, LCEMOPER);
+

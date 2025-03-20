@@ -1,0 +1,14 @@
+create table SNGEG2
+(
+  sngeg1inst NUMBER(10) not null,
+  sngeg1pgc  NUMBER(3) not null,
+  sngeg1cta  NUMBER(9) not null,
+  sngeg2corr NUMBER(3) not null,
+  sngm10corr NUMBER(10),
+  sngeg2vara VARCHAR2(256)
+)
+;
+create index SNGEG202 on SNGEG2 (SNGM10CORR);
+alter table SNGEG2
+  add primary key (SNGEG1INST, SNGEG1PGC, SNGEG1CTA, SNGEG2CORR);
+

@@ -1,0 +1,27 @@
+create table JAQZ053
+(
+  jaqz053pai NUMBER(3) not null,
+  jaqz053tdo NUMBER(2) not null,
+  jaqz053ndo CHAR(12) not null,
+  jaqz053ins NUMBER(12) not null,
+  jaqz053cor NUMBER(18) not null,
+  jaqz053mot NUMBER(4),
+  jaqz053tso NUMBER(4),
+  jaqz053cmt VARCHAR2(500),
+  jaqz053fdr DATE,
+  jaqz053hrr CHAR(8),
+  jaqz053usr CHAR(10),
+  jaqz053fdm DATE,
+  jaqz053hrm CHAR(8),
+  jaqz053usm CHAR(10),
+  jaqz053fdi DATE,
+  jaqz053fdf DATE,
+  jaqz053est CHAR(1),
+  jaqz053nip VARCHAR2(20),
+  jaqz053mda NUMBER(4),
+  jaqz053mto NUMBER(16,2)
+)
+;
+alter table JAQZ053
+  add primary key (JAQZ053PAI, JAQZ053TDO, JAQZ053NDO, JAQZ053INS, JAQZ053COR);
+

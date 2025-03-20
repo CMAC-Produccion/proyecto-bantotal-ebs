@@ -1,0 +1,11 @@
+create table CAMTDTAV
+(
+  camtappid NUMBER(2) not null,
+  camtid    CHAR(30) not null,
+  camtvid   NUMBER(10) not null,
+  camtvdsc  CHAR(60)
+)
+;
+alter table CAMTDTAV
+  add primary key (CAMTAPPID, CAMTID, CAMTVID);
+

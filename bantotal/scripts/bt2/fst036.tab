@@ -1,0 +1,18 @@
+create table FST036
+(
+  pgcod  NUMBER(3) not null,
+  trmod  NUMBER(3) not null,
+  trnro  NUMBER(3) not null,
+  trord  NUMBER(2) not null,
+  trsbor NUMBER(3) not null,
+  trrubr NUMBER(16),
+  trmodu NUMBER(3),
+  trrcod NUMBER(3),
+  trcres CHAR(1),
+  trrord NUMBER(2)
+)
+;
+create index FST03603 on FST036 (TRRUBR);
+alter table FST036
+  add primary key (PGCOD, TRMOD, TRNRO, TRORD, TRSBOR);
+

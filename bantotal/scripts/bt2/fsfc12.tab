@@ -1,0 +1,38 @@
+create table FSFC12
+(
+  dtu2cod    NUMBER(16) not null,
+  dtu2fching DATE,
+  dtu2horing CHAR(8),
+  dtu2usuing CHAR(10),
+  dtu2wsting CHAR(10),
+  dtu2fchcnf DATE,
+  dtu2horcnf CHAR(8),
+  dtu2usucnf CHAR(10),
+  dtu2wstcnf CHAR(10),
+  dtu2est    CHAR(1),
+  dtu2acc    CHAR(1),
+  dtu2habori CHAR(1),
+  dtu2empori NUMBER(3),
+  dtu2pgmori CHAR(10),
+  dtu2btnori CHAR(20),
+  dtu2prfori CHAR(10),
+  dtu2usrori CHAR(10),
+  dtu2habfin CHAR(1),
+  dtu2empfin NUMBER(3),
+  dtu2pgmfin CHAR(10),
+  dtu2btnfin CHAR(20),
+  dtu2prffin CHAR(10),
+  dtu2usrfin CHAR(10),
+  dtu2aux001 NUMBER(9),
+  dtu2aux002 NUMBER(9),
+  dtu2aux003 DATE,
+  dtu2aux004 DATE,
+  dtu2aux005 CHAR(5),
+  dtu2aux006 CHAR(5)
+)
+;
+create index FSFC1202 on FSFC12 (DTU2EMPORI, DTU2PGMORI, DTU2BTNORI);
+create index FSFC1203 on FSFC12 (DTU2EST, DTU2FCHING, DTU2HORING);
+alter table FSFC12
+  add primary key (DTU2COD);
+

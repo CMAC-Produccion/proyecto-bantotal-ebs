@@ -1,0 +1,25 @@
+create table FSFX11
+(
+  sfx11num NUMBER(15) not null,
+  sfx11pap NUMBER(4) not null,
+  sfx11pr1 NUMBER(14,8),
+  sfx11pr2 NUMBER(14,8),
+  sfx11pr3 NUMBER(14,8),
+  sfx11pr4 NUMBER(14,8),
+  sfx11pr5 NUMBER(14,8),
+  sfx11pr6 NUMBER(14,8),
+  sfx11ax1 CHAR(70),
+  sfx11ax2 CHAR(70),
+  sfx11ax3 CHAR(70),
+  sfx11ax4 CHAR(70),
+  sfx11ax5 CHAR(70),
+  sfx11ax6 CHAR(70),
+  sfx11cnf CHAR(2),
+  sfx11cdt DATE,
+  sfx11ctm CHAR(8),
+  sfx11cus CHAR(10)
+)
+;
+alter table FSFX11
+  add primary key (SFX11NUM, SFX11PAP);
+

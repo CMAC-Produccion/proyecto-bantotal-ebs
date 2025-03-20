@@ -1,0 +1,18 @@
+create table JBXNG03
+(
+  jbxng3pgco NUMBER(3) not null,
+  jbxng3mod  NUMBER(3) not null,
+  jbxng3tpiz NUMBER(2) not null,
+  jbxng3mda  NUMBER(4) not null,
+  jbxng3pap  NUMBER(4) not null,
+  jbxng3fech DATE not null,
+  jbxng3mont NUMBER(17,2) not null,
+  jbxng3plaz NUMBER(5) not null,
+  jbxng3t1pu NUMBER(10,6),
+  jbxng3t2pu NUMBER(10,6),
+  jbxng3t4ta NUMBER(7,4),
+  jbxng3t3ta NUMBER(7,4)
+)
+;
+create unique index JBXNG030 on JBXNG03 (JBXNG3PGCO, JBXNG3MOD, JBXNG3TPIZ, JBXNG3MDA, JBXNG3PAP, JBXNG3FECH, JBXNG3MONT, JBXNG3PLAZ);
+

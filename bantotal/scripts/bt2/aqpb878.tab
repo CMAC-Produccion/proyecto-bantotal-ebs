@@ -1,0 +1,122 @@
+create table AQPB878
+(
+  pgcod      NUMBER(3) not null,
+  ppmod      NUMBER(3) not null,
+  ppsuc      NUMBER(3) not null,
+  ppmda      NUMBER(4) not null,
+  pppap      NUMBER(4) not null,
+  ppcta      NUMBER(9) not null,
+  ppoper     NUMBER(9) not null,
+  ppsbop     NUMBER(3) not null,
+  pptope     NUMBER(3) not null,
+  ppfpag     DATE not null,
+  pptipo     CHAR(1) not null,
+  pp1nump    NUMBER(9) not null,
+  pp1fech    DATE,
+  pp1cap     NUMBER(17,2),
+  pp1int     NUMBER(17,2),
+  pp1intmex  NUMBER(17,2),
+  pp1intm    NUMBER(17,2),
+  pp1intmmex NUMBER(17,2),
+  pp1icap    NUMBER(17,2),
+  pp1iint    NUMBER(17,2),
+  pp1iintm   NUMBER(17,2),
+  pp1salcap  NUMBER(17,2),
+  pp1salint  NUMBER(17,2),
+  pp1salade  NUMBER(17,2),
+  pp1salmor  NUMBER(17,2),
+  pp1stat    CHAR(1),
+  pp1salintm NUMBER(17,2),
+  pp1salmorm NUMBER(17,2),
+  pp1saladem NUMBER(17,2),
+  d602cd     NUMBER(3),
+  d602mo     NUMBER(3),
+  d602su     NUMBER(3),
+  d602tr     NUMBER(3),
+  d602re     NUMBER(4),
+  d602fc     DATE,
+  d602or     NUMBER(2),
+  d602sb     NUMBER(3),
+  d602co     CHAR(1)
+)
+compress;
+comment on table AQPB878
+  is 'Tabla espejo de FSD602 para BDC01 fin de mes';
+comment on column AQPB878.pgcod
+  is 'Cod.';
+comment on column AQPB878.ppmod
+  is 'Modulo';
+comment on column AQPB878.ppsuc
+  is 'Sucurs';
+comment on column AQPB878.ppmda
+  is 'Moneda';
+comment on column AQPB878.pppap
+  is 'Papel';
+comment on column AQPB878.ppcta
+  is 'CTNRO';
+comment on column AQPB878.ppoper
+  is 'Operación';
+comment on column AQPB878.ppsbop
+  is 'Suboperación';
+comment on column AQPB878.pptope
+  is 'Tipo de operación';
+comment on column AQPB878.ppfpag
+  is 'Fecha de pago prevista';
+comment on column AQPB878.pptipo
+  is 'Tipo de cuota';
+comment on column AQPB878.pp1nump
+  is 'Número de pago a la cuota';
+comment on column AQPB878.pp1fech
+  is 'Fecha de pago';
+comment on column AQPB878.pp1cap
+  is 'Cuotaparte de pago a capital';
+comment on column AQPB878.pp1int
+  is 'Cuotaparte de pago a interés';
+comment on column AQPB878.pp1intmex
+  is 'Cuotaparte interés México';
+comment on column AQPB878.pp1intm
+  is 'Cuotaparte de pago a int.mora';
+comment on column AQPB878.pp1intmmex
+  is 'Cuotaparte mora México';
+comment on column AQPB878.pp1icap
+  is 'Cuotparte a impuesto de capit.';
+comment on column AQPB878.pp1iint
+  is 'Cuotaparte a impuesto de int.';
+comment on column AQPB878.pp1iintm
+  is 'Cuotaparte a impu. de int.mora';
+comment on column AQPB878.pp1salcap
+  is 'Saldo de capital de cuota';
+comment on column AQPB878.pp1salint
+  is 'Saldo de interés de cuota';
+comment on column AQPB878.pp1salade
+  is 'Saldo de intereses adelantados';
+comment on column AQPB878.pp1salmor
+  is 'Saldo de int. de mora de cuota';
+comment on column AQPB878.pp1stat
+  is 'Estado de la cuota';
+comment on column AQPB878.pp1salintm
+  is 'Saldo interés p/impuesto Mex.';
+comment on column AQPB878.pp1salmorm
+  is 'Saldo mora p/impuesto Mex.';
+comment on column AQPB878.pp1saladem
+  is 'Sdo Int Adel p/impuesto Mex.';
+comment on column AQPB878.d602cd
+  is 'D602cd';
+comment on column AQPB878.d602mo
+  is 'D602mo';
+comment on column AQPB878.d602su
+  is 'D602su';
+comment on column AQPB878.d602tr
+  is 'D602tr';
+comment on column AQPB878.d602re
+  is 'D602re';
+comment on column AQPB878.d602fc
+  is 'D602fc';
+comment on column AQPB878.d602or
+  is 'D602or';
+comment on column AQPB878.d602sb
+  is 'D602sb';
+comment on column AQPB878.d602co
+  is 'D602co';
+create unique index AQPB8781 on AQPB878 (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPFPAG, PPTIPO, PP1NUMP);
+

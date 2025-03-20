@@ -1,0 +1,13 @@
+create table X999S1
+(
+  x99smod NUMBER(3) not null,
+  x99stop NUMBER(3) not null,
+  x99ssbp CHAR(1),
+  x99sdsc CHAR(35),
+  x99sa01 CHAR(3),
+  x99sa02 NUMBER(16)
+)
+;
+alter table X999S1
+  add primary key (X99SMOD, X99STOP);
+

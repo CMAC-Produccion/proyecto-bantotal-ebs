@@ -1,0 +1,13 @@
+create table FSE153
+(
+  pgcod       NUMBER(3) not null,
+  ejcodext    NUMBER(3) not null,
+  dscod       NUMBER(3) not null,
+  ejsismtoaut NUMBER(14,2),
+  ejsisporc   NUMBER(10,6)
+)
+;
+create index FSE15302 on FSE153 (DSCOD);
+alter table FSE153
+  add primary key (PGCOD, EJCODEXT, DSCOD);
+

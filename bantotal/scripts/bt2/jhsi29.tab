@@ -1,0 +1,36 @@
+create table JHSI29
+(
+  jhsi29apl  NUMBER(4) not null,
+  jhsi29band CHAR(5) not null,
+  jhsi29env  NUMBER(9) not null,
+  jhsi29cor  NUMBER(9) not null,
+  jhsi29reg  CHAR(1),
+  jhsi29prod NUMBER(3),
+  jhsi29idpr CHAR(20),
+  jhsi29tdoc NUMBER(3),
+  jhsi29ndoc CHAR(15),
+  jhsi29ape  CHAR(50),
+  jhsi29nom  CHAR(40),
+  jhsi29sex  CHAR(1),
+  jhsi29tipt CHAR(1),
+  jhsi29tel1 CHAR(20),
+  jhsi29tip_ CHAR(1),
+  jhsi29tel2 CHAR(20),
+  jhsi29tip3 CHAR(1),
+  jhsi29tel3 CHAR(20),
+  jhsi29emp  CHAR(30),
+  jhsi29tit  CHAR(1),
+  jhsi29pare CHAR(15),
+  jhsi29dato CHAR(100),
+  jhsi29idcl CHAR(20),
+  jhsi29fill CHAR(87),
+  jhsi29pepa NUMBER(3),
+  jhsi29tpro CHAR(4)
+)
+;
+create unique index JHSI2901 on JHSI29 (JHSI29APL, JHSI29BAND, JHSI29ENV, JHSI29COR);
+create index JHSI2902 on JHSI29 (JHSI29PEPA, JHSI29TDOC, JHSI29NDOC, JHSI29APL, JHSI29BAND, JHSI29ENV, JHSI29COR);
+create index JHSI2903 on JHSI29 (JHSI29PROD, JHSI29IDPR, JHSI29APL, JHSI29BAND, JHSI29ENV, JHSI29COR);
+create index JHSI2904 on JHSI29 (JHSI29IDCL, JHSI29APL, JHSI29BAND, JHSI29ENV, JHSI29COR);
+create index JHSI2905 on JHSI29 (JHSI29IDCL, JHSI29PROD, JHSI29IDPR, JHSI29APL, JHSI29BAND, JHSI29ENV, JHSI29COR);
+

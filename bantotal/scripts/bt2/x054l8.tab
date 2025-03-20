@@ -1,0 +1,38 @@
+create table X054L8
+(
+  x054l8fec DATE not null,
+  x054l8reg CHAR(8) not null,
+  x054l8cco NUMBER(2) not null,
+  x054l8nco NUMBER(12) not null,
+  x054l8crr NUMBER(9) not null,
+  x054l8fch DATE,
+  x054l8ico NUMBER(15,2),
+  x054l8cim NUMBER(3),
+  x054l8cre NUMBER(3),
+  x054l8cop NUMBER(1),
+  x054l8bas NUMBER(13,2),
+  x054l8fre DATE,
+  x054l8ccn NUMBER(2),
+  x054l8ire NUMBER(15,2),
+  x054l8por NUMBER(6),
+  x054l8fbo DATE,
+  x054l8tdo NUMBER(2),
+  x054l8ndo CHAR(20),
+  x054l8cer NUMBER(14),
+  x054l8den CHAR(30),
+  x054l8acr NUMBER(1),
+  x054l8cur CHAR(11),
+  x054l8cuo CHAR(11),
+  x054l8cta NUMBER(9),
+  x054l8dob NUMBER(1),
+  x054l8suc NUMBER(3),
+  x054l8rub NUMBER(16),
+  x054l8im6 NUMBER(14,2),
+  x054l8nom CHAR(30)
+)
+;
+create index X054L802 on X054L8 (X054L8CTA, X054L8RUB);
+create index X054L803 on X054L8 (X054L8SUC, X054L8CTA);
+alter table X054L8
+  add primary key (X054L8FEC, X054L8REG, X054L8CCO, X054L8NCO, X054L8CRR);
+

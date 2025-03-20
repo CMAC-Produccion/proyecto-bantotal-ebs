@@ -1,0 +1,12 @@
+create table FSF007
+(
+  pgcod   NUMBER(3) not null,
+  finro   NUMBER(3) not null,
+  fitocod NUMBER(3) not null,
+  fitopor NUMBER(7,4)
+)
+;
+create index FSF00703 on FSF007 (FITOCOD);
+alter table FSF007
+  add primary key (PGCOD, FINRO, FITOCOD);
+

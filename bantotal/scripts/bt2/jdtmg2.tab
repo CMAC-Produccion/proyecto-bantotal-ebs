@@ -1,0 +1,27 @@
+create table JDTMG2
+(
+  jdtmg2ins NUMBER(10) not null,
+  jdtmg2cor NUMBER(3) not null,
+  jdtmg2cer CHAR(20),
+  jdtmg2fem DATE,
+  jdtmg2tag NUMBER(10),
+  jdtmg2usu CHAR(50),
+  jdtmg2fre DATE,
+  jdtmg2ubi CHAR(150),
+  jdtmg2kil NUMBER(7),
+  jdtmg2fpa DATE,
+  jdtmg2ast NUMBER(4),
+  jdtmg2ala NUMBER(4),
+  jdtmg2pep DATE,
+  jdtmg2mun CHAR(30),
+  jdtmg2pup DATE,
+  jdtmg2ppp DATE,
+  jdtmg2tat NUMBER(5,2),
+  jdtmg2tar CHAR(10),
+  jdtmg2ffo DATE,
+  jdtmg2fir DATE
+)
+;
+alter table JDTMG2
+  add primary key (JDTMG2INS, JDTMG2COR);
+

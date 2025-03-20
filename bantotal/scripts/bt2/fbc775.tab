@@ -1,0 +1,13 @@
+create table FBC775
+(
+  bc775emp  NUMBER(3) not null,
+  bc775fch  DATE not null,
+  bc775codp NUMBER(2) not null,
+  bc775cta  NUMBER(8) not null,
+  bc775valp NUMBER(17,2),
+  bc775imp2 NUMBER(17,2)
+)
+;
+alter table FBC775
+  add primary key (BC775EMP, BC775FCH, BC775CODP, BC775CTA);
+

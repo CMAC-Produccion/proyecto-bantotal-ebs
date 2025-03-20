@@ -1,0 +1,28 @@
+create table FBC795
+(
+  bc795emp  NUMBER(3) not null,
+  bc795fch  DATE not null,
+  bc795plaz NUMBER(6) not null,
+  bc795morg NUMBER(4) not null,
+  bc795nopr CHAR(20) not null,
+  bc795fapt DATE,
+  bc795fumv DATE,
+  bc795cmon NUMBER(2),
+  bc795sald NUMBER(13,2),
+  bc795sant NUMBER(13,2),
+  bc795nofi NUMBER(6),
+  bc795agen CHAR(6),
+  bc795fcie DATE,
+  bc795fvto DATE,
+  bc795gea  NUMBER(5),
+  bc795topr NUMBER(6),
+  bc795chr1 CHAR(20),
+  bc795chr2 CHAR(20),
+  bc795imp1 NUMBER(17,2),
+  bc795imp2 NUMBER(17,2),
+  bc795fech DATE
+)
+;
+alter table FBC795
+  add primary key (BC795EMP, BC795FCH, BC795PLAZ, BC795MORG, BC795NOPR);
+

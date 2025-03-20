@@ -1,0 +1,13 @@
+create table FSFC03
+(
+  kg03pgcod NUMBER(3) not null,
+  kg03cod   NUMBER(2) not null,
+  kg03dsc   CHAR(50),
+  kg03femod DATE,
+  kg03homod CHAR(8),
+  kg03usmod CHAR(10)
+)
+;
+alter table FSFC03
+  add primary key (KG03PGCOD, KG03COD);
+

@@ -1,0 +1,16 @@
+create table FRDWNFIL
+(
+  frfilid    NUMBER(6) not null,
+  frfilsee   NUMBER(7),
+  frfiltyp   NUMBER(2),
+  frfildat   DATE,
+  frfilpat   VARCHAR2(2000),
+  frfilsavna VARCHAR2(255),
+  frfilusrna VARCHAR2(40),
+  frfilwrkst VARCHAR2(20)
+)
+;
+create index FRDWNF02 on FRDWNFIL (FRFILDAT);
+alter table FRDWNFIL
+  add primary key (FRFILID);
+

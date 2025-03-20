@@ -1,0 +1,33 @@
+create table FPP110
+(
+  pp110ncart NUMBER(4) not null,
+  pp110corr  NUMBER(4) not null,
+  pp110cod   NUMBER(3),
+  pp110mod   NUMBER(3),
+  pp110suc   NUMBER(3),
+  pp110mda   NUMBER(4),
+  pp110pap   NUMBER(4),
+  pp110cta   NUMBER(9),
+  pp110ope   NUMBER(9),
+  pp110sbo   NUMBER(3),
+  pp110top   NUMBER(3),
+  pp110sob   CHAR(1),
+  pp110parc  CHAR(1),
+  pp110aux1  NUMBER(9),
+  pp110aux2  NUMBER(9),
+  pp110aux3  CHAR(1),
+  pp110aux4  CHAR(1),
+  pp110aux5  CHAR(30),
+  pp110aux6  CHAR(30),
+  pp110aux7  DATE,
+  pp110aux8  DATE,
+  pp110aux9  DATE,
+  pp110aux10 NUMBER(17,2),
+  pp110aux11 NUMBER(17,2),
+  pp110aux12 NUMBER(17,2)
+)
+;
+create index FPP11002 on FPP110 (PP110COD, PP110MOD, PP110SUC, PP110MDA, PP110PAP, PP110CTA, PP110OPE, PP110SBO, PP110TOP);
+alter table FPP110
+  add primary key (PP110NCART, PP110CORR);
+

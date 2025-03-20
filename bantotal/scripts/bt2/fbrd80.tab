@@ -1,0 +1,12 @@
+create table FBRD80
+(
+  brd80ale NUMBER(10) not null,
+  brd80reg NUMBER(5) not null,
+  brd80fch DATE,
+  brd80cta NUMBER(9)
+)
+;
+create index FBRD8002 on FBRD80 (BRD80CTA, BRD80REG, BRD80FCH);
+alter table FBRD80
+  add primary key (BRD80ALE, BRD80REG);
+

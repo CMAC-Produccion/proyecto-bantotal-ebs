@@ -1,0 +1,138 @@
+create table AQPB624
+(
+  aqpb624cor   NUMBER not null,
+  aqpb624pgcod NUMBER(3) not null,
+  aqpb624mod   NUMBER(3) not null,
+  aqpb624suc   NUMBER(3) not null,
+  aqpb624mnd   NUMBER(4) not null,
+  aqpb624pap   NUMBER(4) not null,
+  aqpb624cta   NUMBER(9) not null,
+  aqpb624ope   NUMBER(9) not null,
+  aqpb624sope  NUMBER(3) not null,
+  aqpb624tope  NUMBER(3) not null,
+  aqpb624est   CHAR(1),
+  aqpb624pais  NUMBER(3),
+  aqpb624tdoc  NUMBER(2),
+  aqpb624ndoc  CHAR(12),
+  aqpb624nom   CHAR(30),
+  aqpb624anas  CHAR(10),
+  aqpb624ages  NUMBER(3),
+  aqpb624noms  CHAR(40),
+  aqpb624zon   NUMBER(3),
+  aqpb624nomz  CHAR(40),
+  aqpb624reg   NUMBER(9),
+  aqpb624nomr  CHAR(30),
+  aqpb624tipe  CHAR(20),
+  aqpb624code  CHAR(10),
+  aqpb624dese  CHAR(50),
+  aqpb624freg  DATE,
+  aqpb624hreg  VARCHAR2(15),
+  aqpb624fsup  DATE,
+  aqpb624hsup  VARCHAR2(15),
+  aqpb624obs   CHAR(200),
+  aqpb624usur  CHAR(10),
+  aqpb624resr  CHAR(10),
+  aqpb624fact  DATE,
+  aqpb624hact  VARCHAR2(15),
+  aqpb624usua  CHAR(10),
+  aqpb624aux1  CHAR(50),
+  aqpb624aux2  CHAR(50),
+  aqpb624aux3  NUMBER,
+  aqpb624aux4  NUMBER,
+  aqpb624aux5  DATE,
+  aqpb624aux6  DATE
+)
+;
+comment on table AQPB624
+  is 'Tabla Control Seguimiento de Riesgo';
+comment on column AQPB624.aqpb624cor
+  is 'correlativo';
+comment on column AQPB624.aqpb624pgcod
+  is 'empresa';
+comment on column AQPB624.aqpb624mod
+  is 'modulo';
+comment on column AQPB624.aqpb624suc
+  is 'sucursal';
+comment on column AQPB624.aqpb624mnd
+  is 'moneda';
+comment on column AQPB624.aqpb624pap
+  is 'papel';
+comment on column AQPB624.aqpb624cta
+  is 'cuenta';
+comment on column AQPB624.aqpb624ope
+  is 'operación';
+comment on column AQPB624.aqpb624sope
+  is 'suboperacion';
+comment on column AQPB624.aqpb624tope
+  is 'tipo de operación';
+comment on column AQPB624.aqpb624est
+  is 'estado';
+comment on column AQPB624.aqpb624pais
+  is 'pais';
+comment on column AQPB624.aqpb624tdoc
+  is 'tipo documento';
+comment on column AQPB624.aqpb624ndoc
+  is 'numero documento';
+comment on column AQPB624.aqpb624nom
+  is 'nombre cliente';
+comment on column AQPB624.aqpb624anas
+  is 'analista de creditos supervisado';
+comment on column AQPB624.aqpb624ages
+  is 'agencia de supervision';
+comment on column AQPB624.aqpb624noms
+  is 'nombre sucursal';
+comment on column AQPB624.aqpb624zon
+  is 'zona';
+comment on column AQPB624.aqpb624nomz
+  is 'nombre zona';
+comment on column AQPB624.aqpb624reg
+  is 'region';
+comment on column AQPB624.aqpb624nomr
+  is 'nombre region';
+comment on column AQPB624.aqpb624tipe
+  is 'Tipo de evento';
+comment on column AQPB624.aqpb624code
+  is 'codigo evento';
+comment on column AQPB624.aqpb624dese
+  is 'descripcion evento';
+comment on column AQPB624.aqpb624freg
+  is 'fecha registro';
+comment on column AQPB624.aqpb624hreg
+  is 'hora registro';
+comment on column AQPB624.aqpb624fsup
+  is 'fecha supervision';
+comment on column AQPB624.aqpb624hsup
+  is 'hora supervision';
+comment on column AQPB624.aqpb624obs
+  is 'texto obsercacion ';
+comment on column AQPB624.aqpb624usur
+  is 'usuario de registro';
+comment on column AQPB624.aqpb624resr
+  is 'responsable de supervicion';
+comment on column AQPB624.aqpb624fact
+  is 'fecha actualizacion del evento';
+comment on column AQPB624.aqpb624hact
+  is 'hora actualizacion del evento';
+comment on column AQPB624.aqpb624usua
+  is 'usuario de actualizacion';
+comment on column AQPB624.aqpb624aux1
+  is 'auxiliar 1 char';
+comment on column AQPB624.aqpb624aux2
+  is 'auxiliar 2 char';
+comment on column AQPB624.aqpb624aux3
+  is 'auxiliar 3 number';
+comment on column AQPB624.aqpb624aux4
+  is 'auxiliar 4 number';
+comment on column AQPB624.aqpb624aux5
+  is 'auxiliar 5 date';
+comment on column AQPB624.aqpb624aux6
+  is 'auxiliar 6 date';
+create index AQPB624A2 on AQPB624 (AQPB624PAIS, AQPB624TDOC, AQPB624NDOC);
+create index AQPB624A3 on AQPB624 (AQPB624FREG);
+create index AQPB624A4 on AQPB624 (AQPB624AGES);
+create index AQPB624A5 on AQPB624 (AQPB624ANAS);
+create index AQPB624A6 on AQPB624 (AQPB624TIPE, AQPB624CODE, AQPB624DESE);
+create index AQPB624A7 on AQPB624 (AQPB624RESR);
+alter table AQPB624
+  add primary key (AQPB624COR, AQPB624PGCOD, AQPB624MOD, AQPB624SUC, AQPB624MND, AQPB624PAP, AQPB624CTA, AQPB624OPE, AQPB624SOPE, AQPB624TOPE);
+

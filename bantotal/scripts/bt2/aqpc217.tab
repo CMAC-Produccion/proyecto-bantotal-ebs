@@ -1,0 +1,39 @@
+create table AQPC217
+(
+  aqpc217cod  NUMBER(10),
+  aqpc217ins  NUMBER(10),
+  aqpc217par  VARCHAR2(500),
+  aqpc217ccc  VARCHAR2(500),
+  aqpc217arc  VARCHAR2(200),
+  aqpc217fec  DATE not null,
+  aqpc217hor  VARCHAR2(8),
+  aqpc217cen  NUMBER(4),
+  aqpc217men  VARCHAR2(400),
+  aqpc217corr NUMBER(10) not null
+)
+;
+comment on table AQPC217
+  is 'Log Reporte Opinión de Riesgos';
+comment on column AQPC217.aqpc217cod
+  is 'Código Opinión de Riesgo';
+comment on column AQPC217.aqpc217ins
+  is 'Instancia';
+comment on column AQPC217.aqpc217par
+  is 'Para';
+comment on column AQPC217.aqpc217ccc
+  is 'CC';
+comment on column AQPC217.aqpc217arc
+  is 'Archivo';
+comment on column AQPC217.aqpc217fec
+  is 'Fecha de envio';
+comment on column AQPC217.aqpc217hor
+  is 'Hora de envio';
+comment on column AQPC217.aqpc217cen
+  is 'Código de Error';
+comment on column AQPC217.aqpc217men
+  is 'Mensaje de Error';
+comment on column AQPC217.aqpc217corr
+  is 'Correlativo';
+alter table AQPC217
+  add primary key (AQPC217CORR, AQPC217FEC);
+

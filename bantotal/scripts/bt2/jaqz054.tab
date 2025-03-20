@@ -1,0 +1,36 @@
+create table JAQZ054
+(
+  jaqz054ins NUMBER(12),
+  jaqz054usc CHAR(30),
+  jaqz054fdi DATE,
+  jaqz054est VARCHAR2(20),
+  jaqz054cre NUMBER(3),
+  jaqz054reg CHAR(40),
+  jaqz054csu NUMBER(3),
+  jaqz054suc CHAR(30),
+  jaqz054ana CHAR(10),
+  jaqz054mod NUMBER(3),
+  jaqz054mda VARCHAR2(4),
+  jaqz054cta NUMBER(9),
+  jaqz054ope NUMBER(9),
+  jaqz054sbo NUMBER(3),
+  jaqz054top NUMBER(3),
+  jaqz054mto NUMBER(17,2),
+  jaqz054pai NUMBER(3),
+  jaqz054tdc NUMBER(2),
+  jaqz054ndc CHAR(12),
+  jaqz054nom CHAR(30),
+  jaqz054tel VARCHAR2(50),
+  jaqz054tso CHAR(100),
+  jaqz054usr CHAR(10),
+  jaqz054zon NUMBER(3)
+)
+;
+create index IDX_JAQZ054A2 on JAQZ054 (JAQZ054USR);
+create index IDX_JAQZ054A3 on JAQZ054 (JAQZ054INS, JAQZ054USR);
+create index IDX$$_00160001 on JAQZ054 (JAQZ054INS, JAQZ054FDI);
+create index IDX$$_004D0001 on JAQZ054 (JAQZ054ANA);
+create index IDX$$_00570001 on JAQZ054 (JAQZ054MTO);
+create index JAQZ054_ID1 on JAQZ054 (JAQZ054EST, JAQZ054CRE, JAQZ054REG, JAQZ054USC, JAQZ054INS, JAQZ054FDI)
+  invisible;
+

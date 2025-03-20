@@ -1,0 +1,19 @@
+create table JAQZ212A
+(
+  jaqz212ainst   NUMBER(10) not null,
+  jaqz212afelo   DATE not null,
+  jaqz212aholo   CHAR(8) not null,
+  jaqz212aredoc  NUMBER(4),
+  jaqz212ainproc NUMBER(4),
+  jaqz212aentoc  NUMBER(4),
+  jaqz212aimcom  NUMBER(4),
+  jaqz212aprter  NUMBER(4),
+  jaqz212afecha  DATE,
+  jaqz212ahora   CHAR(8),
+  jaqz212auslo   CHAR(10),
+  jaqz212ausua   CHAR(10)
+)
+;
+alter table JAQZ212A
+  add primary key (JAQZ212AINST, JAQZ212AFELO, JAQZ212AHOLO);
+

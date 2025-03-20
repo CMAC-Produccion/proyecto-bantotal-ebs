@@ -1,0 +1,11 @@
+create table WFPRCRST
+(
+  wfinsprcid NUMBER(10) not null,
+  wfrstcod   CHAR(10) not null,
+  wfinsprcrs CHAR(30)
+)
+;
+create index IWFPRCR1 on WFPRCRST (WFRSTCOD);
+alter table WFPRCRST
+  add primary key (WFINSPRCID, WFRSTCOD);
+

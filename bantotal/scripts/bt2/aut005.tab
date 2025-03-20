@@ -1,0 +1,17 @@
+create table AUT005
+(
+  jautexcod  NUMBER(2) not null,
+  jautexppiz NUMBER(4) not null,
+  jautnivel  NUMBER(3) not null,
+  jautmda    NUMBER(4) not null,
+  jautdelmac NUMBER(10,6),
+  jautdelmiv NUMBER(10,6),
+  jautdelmav NUMBER(10,6),
+  jaut05aux1 NUMBER(17,2),
+  jaut05aux2 NUMBER(17,2),
+  jaut05aux3 CHAR(20)
+)
+;
+alter table AUT005
+  add primary key (JAUTEXCOD, JAUTEXPPIZ, JAUTNIVEL, JAUTMDA);
+

@@ -1,0 +1,12 @@
+create table CDCMEP2
+(
+  cdcmepid   NUMBER(18) not null,
+  cdcmepinst NUMBER(18) not null,
+  cdcmepcatr NUMBER(18) not null,
+  cdcmepvatr CHAR(80),
+  cdcmepvatn NUMBER(18)
+)
+;
+alter table CDCMEP2
+  add primary key (CDCMEPID, CDCMEPINST, CDCMEPCATR);
+

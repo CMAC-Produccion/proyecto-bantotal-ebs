@@ -1,0 +1,110 @@
+create table AQPB934
+(
+  aqpb934corr NUMBER(10) not null,
+  aqpb934fech DATE,
+  aqpb934horc VARCHAR2(15),
+  aqpb934usur VARCHAR2(10),
+  aqpb934pais NUMBER(5),
+  aqpb934tdoc NUMBER(2),
+  aqpb934ndoc VARCHAR2(12),
+  aqpb934cod  NUMBER(3),
+  aqpb934mod  NUMBER(5),
+  aqpb934suc  NUMBER(4),
+  aqpb934mda  NUMBER(4),
+  aqpb934pap  NUMBER(4),
+  aqpb934cta  NUMBER(9),
+  aqpb934oper NUMBER(9),
+  aqpb934sbop NUMBER(4),
+  aqpb934top  NUMBER(5),
+  aqpb934tasa NUMBER(10,6),
+  aqpb934sdo  NUMBER(17,2),
+  aqpb934est  VARCHAR2(2),
+  aqpb934prin VARCHAR2(2),
+  aqpb934vin  VARCHAR2(2),
+  aqpb934horv VARCHAR2(15),
+  aqpb934usuv VARCHAR2(10),
+  aqpb934tivi TIMESTAMP(6),
+  aqpb934tasp NUMBER(10,6),
+  aqpb934acep VARCHAR2(2),
+  aqpb934mora NUMBER(17,2),
+  aqpb934pena NUMBER(17,2),
+  aqpb934icv  NUMBER(17,2),
+  aqpb934hora VARCHAR2(15),
+  aqpb934usua VARCHAR2(10),
+  aqpb934tiac TIMESTAMP(6),
+  aqpb934aux1 NUMBER(2)
+)
+;
+comment on table AQPB934
+  is 'TABLA LOG DE VINCULACION PARA ALINEAMIENTO INTERNO';
+comment on column AQPB934.aqpb934corr
+  is 'CORRELATIVO';
+comment on column AQPB934.aqpb934fech
+  is 'FECHA CONSULTA';
+comment on column AQPB934.aqpb934horc
+  is 'HORA CONSULTA';
+comment on column AQPB934.aqpb934usur
+  is 'USUARIO CONSULTA';
+comment on column AQPB934.aqpb934pais
+  is 'PAIS';
+comment on column AQPB934.aqpb934tdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column AQPB934.aqpb934ndoc
+  is 'NRO DE DOCUMENTO';
+comment on column AQPB934.aqpb934cod
+  is 'CODIGO';
+comment on column AQPB934.aqpb934mod
+  is 'MODULO';
+comment on column AQPB934.aqpb934suc
+  is 'SUCURSAL';
+comment on column AQPB934.aqpb934mda
+  is 'MONEDA';
+comment on column AQPB934.aqpb934pap
+  is 'PAPEL';
+comment on column AQPB934.aqpb934cta
+  is 'CUENTA';
+comment on column AQPB934.aqpb934oper
+  is 'OPERACION';
+comment on column AQPB934.aqpb934sbop
+  is 'SUB OPERACION';
+comment on column AQPB934.aqpb934top
+  is 'TIPO DE OPERACION';
+comment on column AQPB934.aqpb934tasa
+  is 'TASA';
+comment on column AQPB934.aqpb934sdo
+  is 'SALDO';
+comment on column AQPB934.aqpb934est
+  is '(H/I) ESTADO HABILITADO';
+comment on column AQPB934.aqpb934prin
+  is '(S/N) ES PRINCIPAL';
+comment on column AQPB934.aqpb934vin
+  is '(V/N) ESTA VINCULADO';
+comment on column AQPB934.aqpb934horv
+  is 'HORA VINCULACION';
+comment on column AQPB934.aqpb934usuv
+  is 'USUARIO DE VINCULACION';
+comment on column AQPB934.aqpb934tivi
+  is 'TIEMPO DE VINCULACION';
+comment on column AQPB934.aqpb934tasp
+  is 'TASA PONDERADA';
+comment on column AQPB934.aqpb934acep
+  is '(G/C) ESTADO GESTIONADO';
+comment on column AQPB934.aqpb934mora
+  is 'MORA';
+comment on column AQPB934.aqpb934pena
+  is 'PENALIDAD';
+comment on column AQPB934.aqpb934icv
+  is 'ICV';
+comment on column AQPB934.aqpb934hora
+  is 'HORA DE REGISTRO';
+comment on column AQPB934.aqpb934usua
+  is 'USUARIO DE REGISTRO';
+comment on column AQPB934.aqpb934tiac
+  is 'TIEMPO DE REGISTRO';
+comment on column AQPB934.aqpb934aux1
+  is 'AUXILIAR NUMERICO';
+create index AQPB934A2 on AQPB934 (AQPB934PAIS, AQPB934TDOC, AQPB934NDOC, AQPB934EST, AQPB934AUX1);
+create index AQPB934A3 on AQPB934 (AQPB934COD, AQPB934MOD, AQPB934SUC, AQPB934MDA, AQPB934PAP, AQPB934CTA, AQPB934OPER, AQPB934SBOP, AQPB934TOP, AQPB934EST, AQPB934AUX1);
+alter table AQPB934
+  add primary key (AQPB934CORR);
+

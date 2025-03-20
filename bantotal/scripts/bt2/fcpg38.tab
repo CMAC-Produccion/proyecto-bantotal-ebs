@@ -1,0 +1,22 @@
+create table FCPG38
+(
+  cpg38empbt NUMBER(3) not null,
+  cpg38conv  NUMBER(8) not null,
+  cpg38serv  NUMBER(3) not null,
+  cpg38nenv  NUMBER(4) not null,
+  cpg38fenv  DATE not null,
+  cpg38bcod  NUMBER(3),
+  cpg38est   CHAR(3),
+  cpg38blq   CHAR(1),
+  cpg38inst  NUMBER(10),
+  cpg38sucd  NUMBER(4),
+  cpg38canal NUMBER(3),
+  cpg38creg  NUMBER(10),
+  cpg38ting  NUMBER(17,2),
+  cpg38mda   NUMBER(4),
+  cpg38fto   CHAR(8)
+)
+;
+alter table FCPG38
+  add primary key (CPG38EMPBT, CPG38CONV, CPG38SERV, CPG38NENV, CPG38FENV);
+

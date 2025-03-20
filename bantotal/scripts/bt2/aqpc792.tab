@@ -1,0 +1,86 @@
+create table AQPC792
+(
+  aqpc792corr  NUMBER(17) not null,
+  aqpc792ureg  VARCHAR2(10) not null,
+  aqpc792freg  DATE not null,
+  aqpc792hreg  VARCHAR2(8) not null,
+  aqpc792inst  NUMBER(10),
+  aqpc792emp   NUMBER(3),
+  aqpc792mod   NUMBER(3),
+  aqpc792suc   NUMBER(3),
+  aqpc792mda   NUMBER(4),
+  aqpc792pap   NUMBER(4),
+  aqpc792cta   NUMBER(9),
+  aqpc792oper  NUMBER(9),
+  aqpc792sbop  NUMBER(3),
+  aqpc792tope  NUMBER(3),
+  aqpc792empg  NUMBER(3),
+  aqpc792modg  NUMBER(3),
+  aqpc792sucg  NUMBER(3),
+  aqpc792mdag  NUMBER(4),
+  aqpc792papg  NUMBER(4),
+  aqpc792ctag  NUMBER(9),
+  aqpc792operg NUMBER(9),
+  aqpc792sbopg NUMBER(3),
+  aqpc792topeg NUMBER(3),
+  aqpc792fval  DATE,
+  aqpc792imp   NUMBER(17,2),
+  aqpc792stat  NUMBER(2)
+)
+;
+comment on table AQPC792
+  is 'Desembolsos con Garantía DPF';
+comment on column AQPC792.aqpc792corr
+  is 'Correlativo';
+comment on column AQPC792.aqpc792ureg
+  is 'Usuario Registro';
+comment on column AQPC792.aqpc792freg
+  is 'Fecha Registro';
+comment on column AQPC792.aqpc792hreg
+  is 'Hora Registro';
+comment on column AQPC792.aqpc792inst
+  is 'Instancia';
+comment on column AQPC792.aqpc792emp
+  is 'Empresa';
+comment on column AQPC792.aqpc792mod
+  is 'Módulo';
+comment on column AQPC792.aqpc792suc
+  is 'Sucursal';
+comment on column AQPC792.aqpc792mda
+  is 'Moneda';
+comment on column AQPC792.aqpc792pap
+  is 'Papel';
+comment on column AQPC792.aqpc792cta
+  is 'Cuenta';
+comment on column AQPC792.aqpc792oper
+  is 'Operación';
+comment on column AQPC792.aqpc792sbop
+  is 'Suboperación';
+comment on column AQPC792.aqpc792tope
+  is 'Tipo Operación';
+comment on column AQPC792.aqpc792empg
+  is 'Empresa Garantía';
+comment on column AQPC792.aqpc792modg
+  is 'Módulo Garantía';
+comment on column AQPC792.aqpc792sucg
+  is 'Sucursal Garantía';
+comment on column AQPC792.aqpc792mdag
+  is 'Moneda Garantía';
+comment on column AQPC792.aqpc792papg
+  is 'Papel Garantía';
+comment on column AQPC792.aqpc792ctag
+  is 'Cuenta Garantía';
+comment on column AQPC792.aqpc792operg
+  is 'Operación Garantía';
+comment on column AQPC792.aqpc792sbopg
+  is 'Suboperación Garantía';
+comment on column AQPC792.aqpc792topeg
+  is 'Tipo Operación Garantía';
+comment on column AQPC792.aqpc792fval
+  is 'Importe Desembolso';
+comment on column AQPC792.aqpc792stat
+  is 'Estado';
+create index AQPC792A2 on AQPC792 (AQPC792UREG);
+alter table AQPC792
+  add primary key (AQPC792CORR, AQPC792UREG, AQPC792FREG, AQPC792HREG);
+

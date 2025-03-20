@@ -1,0 +1,12 @@
+create table Z073B5
+(
+  z073b5emp NUMBER(3) not null,
+  z073b5mes DATE not null,
+  z073b5des CHAR(6) not null,
+  z073b5has CHAR(6) not null,
+  z073b5por NUMBER(7,4)
+)
+;
+alter table Z073B5
+  add primary key (Z073B5EMP, Z073B5MES, Z073B5DES, Z073B5HAS);
+

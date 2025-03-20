@@ -1,0 +1,15 @@
+create table JAQL111_20250311_BORRAR
+(
+  jaql111pgcod NUMBER(3) not null,
+  jaql109tipsu CHAR(3) not null,
+  jaql110tipus CHAR(3) not null,
+  jaql111tipcl NUMBER(4) not null,
+  sng224cod    NUMBER(3) not null,
+  jaql111tiemp NUMBER(5),
+  jaql111fecha DATE
+)
+;
+create index IJAQL1111 on JAQL111_20250311_BORRAR (SNG224COD);
+alter table JAQL111_20250311_BORRAR
+  add primary key (JAQL111PGCOD, JAQL109TIPSU, JAQL110TIPUS, JAQL111TIPCL, SNG224COD);
+

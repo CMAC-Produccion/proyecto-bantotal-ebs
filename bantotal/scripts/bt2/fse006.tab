@@ -1,0 +1,19 @@
+create table FSE006
+(
+  fse006pgc NUMBER(3) not null,
+  fse006cta NUMBER(9) not null,
+  fse006cod NUMBER(2) not null,
+  fse006pac NUMBER(3),
+  fse006rec NUMBER(3),
+  fse006dec NUMBER(5),
+  fse006loc NUMBER(5),
+  fse006col NUMBER(9),
+  fse006re1 CHAR(75),
+  fse006re2 CHAR(75),
+  fse006nap CHAR(6),
+  fse006ubp CHAR(30)
+)
+;
+alter table FSE006
+  add primary key (FSE006PGC, FSE006CTA, FSE006COD);
+

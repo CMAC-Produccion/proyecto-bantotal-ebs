@@ -1,0 +1,15 @@
+create table JHSP25
+(
+  sp25pgcod  NUMBER(3) not null,
+  sp25cnvcta NUMBER(9) not null,
+  sp25rcod   NUMBER(3) not null,
+  sp25cta    NUMBER(9) not null,
+  sp25cemp   CHAR(12),
+  sp25benef  CHAR(3),
+  sp25ind1   NUMBER(1),
+  sp25ind2   NUMBER(1),
+  sp25ind3   NUMBER(1)
+)
+;
+create unique index JHSP2501 on JHSP25 (SP25PGCOD, SP25CNVCTA, SP25RCOD, SP25CTA);
+

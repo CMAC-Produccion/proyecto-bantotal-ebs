@@ -1,0 +1,69 @@
+create table JAQN16
+(
+  jaqn16cod VARCHAR2(50) not null,
+  jaqn16emp NUMBER(3) not null,
+  jaqn16suc NUMBER(3) not null,
+  jaqn16mod NUMBER(3) not null,
+  jaqn16tra NUMBER(3) not null,
+  jaqn16nre NUMBER(4) not null,
+  jaqn16fec DATE not null,
+  jaqn16des CHAR(32),
+  jaqn16an1 NUMBER(9),
+  jaqn16an2 NUMBER(9),
+  jaqn16an3 NUMBER(9),
+  jaqn16ac1 VARCHAR2(255),
+  jaqn16ac2 VARCHAR2(255),
+  jaqn16ac3 VARCHAR2(255),
+  jaqn16ai1 NUMBER(17,2),
+  jaqn16ai2 NUMBER(17,2),
+  jaqn16ai3 NUMBER(17,2),
+  jaqn16af1 DATE,
+  jaqn16af2 DATE,
+  jaqn16af3 DATE
+)
+;
+comment on table JAQN16
+  is 'Trailer de Transacciones';
+comment on column JAQN16.jaqn16cod
+  is 'Codigo de entrega premio';
+comment on column JAQN16.jaqn16emp
+  is 'Empresa';
+comment on column JAQN16.jaqn16suc
+  is 'Sucursal';
+comment on column JAQN16.jaqn16mod
+  is 'Modulo';
+comment on column JAQN16.jaqn16tra
+  is 'Transaccion';
+comment on column JAQN16.jaqn16nre
+  is 'Numero de relacion';
+comment on column JAQN16.jaqn16fec
+  is 'Fecha';
+comment on column JAQN16.jaqn16des
+  is 'Descripcion';
+comment on column JAQN16.jaqn16an1
+  is 'Auxiliar numerico 1';
+comment on column JAQN16.jaqn16an2
+  is 'Auxiliar numerico 2';
+comment on column JAQN16.jaqn16an3
+  is 'Auxiliar numerico 3';
+comment on column JAQN16.jaqn16ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN16.jaqn16ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN16.jaqn16ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN16.jaqn16ai1
+  is 'Auxiliar importe 1';
+comment on column JAQN16.jaqn16ai2
+  is 'Auxiliar importe 2';
+comment on column JAQN16.jaqn16ai3
+  is 'Auxiliar importe 3';
+comment on column JAQN16.jaqn16af1
+  is 'Auxiliar fecha 1';
+comment on column JAQN16.jaqn16af2
+  is 'Auxiliar fecha 2';
+comment on column JAQN16.jaqn16af3
+  is 'Auxiliar fecha 3';
+alter table JAQN16
+  add primary key (JAQN16COD, JAQN16EMP, JAQN16SUC, JAQN16MOD, JAQN16TRA, JAQN16NRE, JAQN16FEC);
+

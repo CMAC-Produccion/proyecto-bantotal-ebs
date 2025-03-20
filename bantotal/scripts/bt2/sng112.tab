@@ -1,0 +1,14 @@
+create table SNG112
+(
+  sng112req  NUMBER(9) not null,
+  sng112corr NUMBER(5) not null,
+  sng112com  VARCHAR2(144),
+  sng112est  NUMBER(2),
+  sng112fec  DATE,
+  sng112hor  CHAR(8),
+  sng112usr  CHAR(10)
+)
+;
+alter table SNG112
+  add primary key (SNG112REQ, SNG112CORR);
+

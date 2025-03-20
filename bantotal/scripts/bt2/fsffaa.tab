@@ -1,0 +1,11 @@
+create table FSFFAA
+(
+  fsffemp NUMBER(3) not null,
+  fsffcod NUMBER(5) not null,
+  fsffopc NUMBER(2)
+)
+;
+create index FSFFAA02 on FSFFAA (FSFFCOD);
+alter table FSFFAA
+  add primary key (FSFFEMP, FSFFCOD);
+

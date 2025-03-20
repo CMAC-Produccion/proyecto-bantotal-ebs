@@ -1,0 +1,19 @@
+create table JAQL501
+(
+  jaql501cousu NUMBER(3) not null,
+  jaql501fepro DATE not null,
+  jaql501timon CHAR(1) not null,
+  jaql501denom NUMBER(10) not null,
+  jaql501comon NUMBER(3) not null,
+  jaql501pgcod NUMBER(3) not null,
+  jaql501sucur NUMBER(3) not null,
+  jaql501coofi NUMBER(3) not null,
+  jaql501canti NUMBER(10)
+)
+;
+create index JAQL5012 on JAQL501 (JAQL501PGCOD, JAQL501SUCUR, JAQL501COOFI);
+create index JAQL5014 on JAQL501 (JAQL501TIMON, JAQL501DENOM, JAQL501COMON);
+create index JAQL5015 on JAQL501 (JAQL501FEPRO);
+alter table JAQL501
+  add primary key (JAQL501COUSU, JAQL501FEPRO, JAQL501TIMON, JAQL501DENOM, JAQL501COMON, JAQL501PGCOD, JAQL501SUCUR, JAQL501COOFI);
+

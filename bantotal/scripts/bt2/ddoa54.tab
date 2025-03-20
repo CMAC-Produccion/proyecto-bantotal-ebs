@@ -1,0 +1,12 @@
+create table DDOA54
+(
+  ddo52pais NUMBER(3) not null,
+  ddo52tdoc NUMBER(2) not null,
+  ddo52ndoc CHAR(12) not null,
+  ddo54corr NUMBER(2) not null,
+  ddo54txt  CHAR(50)
+)
+;
+alter table DDOA54
+  add primary key (DDO52PAIS, DDO52TDOC, DDO52NDOC, DDO54CORR);
+

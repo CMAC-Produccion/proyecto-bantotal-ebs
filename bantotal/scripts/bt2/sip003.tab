@@ -1,0 +1,10 @@
+create table SIP003
+(
+  sip3oper NUMBER(9) not null,
+  sip3corr NUMBER(2) not null,
+  sip3txt  CLOB
+)
+;
+alter table SIP003
+  add primary key (SIP3OPER, SIP3CORR);
+

@@ -1,0 +1,16 @@
+create table SNW001
+(
+  snw001cod CHAR(10) not null,
+  x999j1cod CHAR(10) not null,
+  snw001dd1 CHAR(1),
+  snw001dc1 CHAR(1),
+  snw001tr1 CHAR(1),
+  snw001ax1 NUMBER(9),
+  snw001ax2 NUMBER(17,2),
+  snw001ax3 CHAR(30),
+  snw001ax4 DATE
+)
+;
+alter table SNW001
+  add primary key (SNW001COD, X999J1COD);
+

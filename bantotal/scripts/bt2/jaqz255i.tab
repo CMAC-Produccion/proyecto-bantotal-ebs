@@ -1,0 +1,37 @@
+create table JAQZ255I
+(
+  jaqz255inro     NUMBER(10) not null,
+  jaqz255icodper  CHAR(6) not null,
+  jaqz255ifev     DATE not null,
+  jaqz255icta     NUMBER(9) not null,
+  jaqz255isuc     NUMBER(4) not null,
+  jaqz255irub     NUMBER(14) not null,
+  jaqz255itip     CHAR(2) not null,
+  jaqz255iactsal  NUMBER(17,2),
+  jaqz255iactcda  CHAR(4),
+  jaqz255itdoca   CHAR(1),
+  jaqz255indoca   CHAR(12),
+  jaqz255idocta   NUMBER(11),
+  jaqz255itdocaa  CHAR(1),
+  jaqz255indocaa  CHAR(12),
+  jaqz255idoctaa  NUMBER(11),
+  jaqz255ifec     DATE,
+  jaqz255icodope  NUMBER(9) not null,
+  jaqz255ictacli  NUMBER(9),
+  jaqz255imon     NUMBER(4),
+  jaqz255imod     NUMBER(3) not null,
+  jaqz255iusr     CHAR(10),
+  jaqz255icodtra  NUMBER(5),
+  jaqz255icda     CHAR(4),
+  jaqz255iactsalm NUMBER(17,2)
+)
+;
+create index JAQZ255I_INX_01 on JAQZ255I (JAQZ255ICODPER, JAQZ255ICTACLI);
+create index JAQZ255I_INX_02 on JAQZ255I (JAQZ255ICTA, JAQZ255ISUC, JAQZ255IRUB);
+create index JAQZ255I_INX_03 on JAQZ255I (JAQZ255ICODPER, JAQZ255ICTACLI, JAQZ255ICODOPE);
+create index JAQZ255I_INX_04 on JAQZ255I (JAQZ255ICODPER, JAQZ255ICODTRA);
+create index JAQZ255I_INX_05 on JAQZ255I (JAQZ255ICODPER, JAQZ255ICODTRA, JAQZ255ICTA);
+create index JAQZ255I_INX_06 on JAQZ255I (JAQZ255ICODPER, JAQZ255ICTACLI, JAQZ255ISUC, JAQZ255IRUB, JAQZ255ITIP, JAQZ255ICDA);
+alter table JAQZ255I
+  add primary key (JAQZ255ICODPER, JAQZ255ICTA, JAQZ255ISUC, JAQZ255IRUB, JAQZ255ITIP, JAQZ255ICODOPE, JAQZ255IMOD);
+

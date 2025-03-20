@@ -1,0 +1,73 @@
+create table Z0E481
+(
+  z0e481nro CHAR(19) not null,
+  z0e481pgc NUMBER(3),
+  z0e481tip CHAR(1),
+  z0e481suc NUMBER(3),
+  z0e481cte NUMBER(9),
+  z0e481ctt NUMBER(9),
+  z0e481thp NUMBER(3),
+  z0e481tht NUMBER(2),
+  z0e481thd CHAR(12),
+  z0e481cdo NUMBER(2),
+  z0e468cod CHAR(1),
+  z0e469cod CHAR(3),
+  z0e462cod NUMBER(2),
+  z0e461cod CHAR(3),
+  z0e465cod NUMBER(2),
+  z0e481pes NUMBER(7,2),
+  z0e481nom CHAR(24),
+  z0e481lin CHAR(24),
+  z0e466cod NUMBER(3),
+  z0e477cod NUMBER(3),
+  z0e481tcd CHAR(1),
+  z0e481ctd CHAR(19),
+  z0e481dsu NUMBER(3),
+  z0e481dcd NUMBER(9),
+  z0e481dsc NUMBER(3),
+  z0e481dmo NUMBER(3),
+  z0e481dmn NUMBER(4),
+  z0e481dpa NUMBER(4),
+  z0e481dto NUMBER(3),
+  z0e481dop NUMBER(9),
+  z0e481nr1 NUMBER(9),
+  z0e481nr2 NUMBER(9),
+  z0e463cod NUMBER(1),
+  z0e481fmd DATE,
+  z0e481umd CHAR(10),
+  z0e481fau DATE,
+  z0e481uau CHAR(10),
+  z0e481est CHAR(2),
+  z0e481tnv CHAR(3),
+  z0e481csa NUMBER(3),
+  z0e481tti CHAR(19),
+  z0e481adi CHAR(1),
+  z0e481cli NUMBER(3),
+  z0e481fvt DATE,
+  z0e481can NUMBER(5),
+  z0e481lex NUMBER(3),
+  z0e481seg CHAR(1),
+  z0e481fas DATE,
+  z0e481fbs DATE,
+  z0e481sde NUMBER(3)
+)
+;
+create index Z0E48102 on Z0E481 (Z0E463COD);
+create index Z0E48103 on Z0E481 (Z0E477COD);
+create index Z0E48104 on Z0E481 (Z0E466COD);
+create index Z0E48105 on Z0E481 (Z0E465COD);
+create index Z0E48106 on Z0E481 (Z0E461COD);
+create index Z0E48107 on Z0E481 (Z0E462COD);
+create index Z0E48108 on Z0E481 (Z0E469COD);
+create index Z0E48109 on Z0E481 (Z0E468COD);
+create index Z0E48110 on Z0E481 (Z0E481NOM);
+create index Z0E48111 on Z0E481 (Z0E481TIP);
+create index Z0E48112 on Z0E481 (Z0E481THP, Z0E481THT, Z0E481THD);
+create index Z0E48113 on Z0E481 (Z0E481DSU, Z0E481DCD, Z0E481DMO, Z0E481DMN, Z0E481DSC, Z0E481DPA, Z0E481DOP, Z0E481DTO);
+create index Z0E48114 on Z0E481 (Z0E481EST, Z0E481NRO);
+create index Z0E48115 on Z0E481 (Z0E481CAN);
+create index Z0E48116 on Z0E481 (Z0E481DSU, Z0E468COD);
+create index Z0E48117 on Z0E481 (Z0E481SUC, Z0E468COD);
+alter table Z0E481
+  add primary key (Z0E481NRO);
+

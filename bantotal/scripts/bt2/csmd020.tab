@@ -1,0 +1,12 @@
+create table CSMD020
+(
+  csmd018cor NUMBER(10) not null,
+  csmd019cor NUMBER(9) not null,
+  csmd020cam NUMBER(3) not null,
+  csmd020val CHAR(255),
+  csmd020est CHAR(1)
+)
+;
+alter table CSMD020
+  add primary key (CSMD018COR, CSMD019COR, CSMD020CAM);
+

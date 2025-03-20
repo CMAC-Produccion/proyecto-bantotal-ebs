@@ -1,0 +1,75 @@
+create table JAQL600I
+(
+  jaql600ifpro DATE not null,
+  jaql600ic1i  DATE,
+  jaql600ic1f  DATE,
+  jaql600ic2i  DATE,
+  jaql600ic2f  DATE,
+  jaql600ic3i  DATE,
+  jaql600ic3f  DATE,
+  jaql600ic4i  DATE,
+  jaql600ic4f  DATE,
+  jaql600ic5i  DATE,
+  jaql600ic5f  DATE,
+  jaql600ic6i  DATE,
+  jaql600ic6f  DATE,
+  jaql600ic7i  DATE,
+  jaql600ic7f  DATE,
+  jaql600ic8i  DATE,
+  jaql600ic8f  DATE,
+  jaql600ic9i  DATE,
+  jaql600ic9f  DATE,
+  jaql600iau1  CHAR(20),
+  jaql600iau2  NUMBER,
+  jaql600iau3  DATE
+)
+;
+comment on table JAQL600I
+  is 'Log ejecucion productividad analistas';
+comment on column JAQL600I.jaql600ifpro
+  is ' Fecha Proceso';
+comment on column JAQL600I.jaql600ic1i
+  is ' Inicio carga 1';
+comment on column JAQL600I.jaql600ic1f
+  is ' Fin carga 1';
+comment on column JAQL600I.jaql600ic2i
+  is ' Inicio carga 2';
+comment on column JAQL600I.jaql600ic2f
+  is ' Fin carga 2';
+comment on column JAQL600I.jaql600ic3i
+  is ' Inicio carga 3';
+comment on column JAQL600I.jaql600ic3f
+  is ' Fin carga 3';
+comment on column JAQL600I.jaql600ic4i
+  is ' Inicio carga 4';
+comment on column JAQL600I.jaql600ic4f
+  is ' Fin carga 4';
+comment on column JAQL600I.jaql600ic5i
+  is ' Inicio carga 5';
+comment on column JAQL600I.jaql600ic5f
+  is ' Fin carga 5';
+comment on column JAQL600I.jaql600ic6i
+  is ' Inicio carga 6';
+comment on column JAQL600I.jaql600ic6f
+  is ' Fin carga 6';
+comment on column JAQL600I.jaql600ic7i
+  is ' Inicio carga 7';
+comment on column JAQL600I.jaql600ic7f
+  is ' Fin carga 7';
+comment on column JAQL600I.jaql600ic8i
+  is ' Inicio carga 8 aux';
+comment on column JAQL600I.jaql600ic8f
+  is ' Fin carga 8 aux ';
+comment on column JAQL600I.jaql600ic9i
+  is ' Inicio carga 9 aux';
+comment on column JAQL600I.jaql600ic9f
+  is ' Fin carga 9 aux ';
+comment on column JAQL600I.jaql600iau1
+  is ' aux char';
+comment on column JAQL600I.jaql600iau2
+  is ' aux number';
+comment on column JAQL600I.jaql600iau3
+  is ' aux date';
+alter table JAQL600I
+  add primary key (JAQL600IFPRO);
+

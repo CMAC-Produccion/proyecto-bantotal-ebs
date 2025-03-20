@@ -1,0 +1,176 @@
+create table JAQY490C
+(
+  jaqy490nre NUMBER(10),
+  jaqy490fec DATE not null,
+  jaqy490sbs VARCHAR2(10) not null,
+  jaqy490tdi VARCHAR2(1),
+  jaqy490ndi VARCHAR2(12),
+  jaqy490tdt VARCHAR2(1),
+  jaqy490ndt VARCHAR2(11),
+  jaqy490per VARCHAR2(1),
+  jaqy490cpo NUMBER(20,5),
+  jaqy490ltc NUMBER(20,5),
+  jaqy490vsd NUMBER(20,5),
+  jaqy490vsi NUMBER(20,5),
+  jaqy490vne NUMBER(20,5),
+  jaqy490ven NUMBER(10),
+  jaqy490dti NUMBER(20,5),
+  jaqy490dtc NUMBER(20,5),
+  jaqy490coc NUMBER(20,5),
+  jaqy490csf NUMBER(20,5),
+  jaqy490std NUMBER(12,2),
+  jaqy490lcn NUMBER(12,2),
+  jaqy490ltn NUMBER(12,2),
+  jaqy490dco NUMBER(12,2),
+  jaqy490sut NUMBER(12,2),
+  jaqy490sun NUMBER(12,2),
+  jaqy490msd NUMBER(12,2),
+  jaqy490nen NUMBER(10),
+  jaqy490neh NUMBER(10),
+  jaqy490cvh NUMBER(12,2),
+  jaqy490cnr NUMBER(12,2),
+  jaqy490cco NUMBER(12,2),
+  jaqy490con NUMBER(12,2),
+  jaqy490hip NUMBER(12,2),
+  jaqy490pym NUMBER(12,2),
+  jaqy490cav NUMBER(12,2),
+  jaqy490tac VARCHAR2(1),
+  jaqy490sd0 NUMBER(12,2),
+  jaqy490sd1 NUMBER(12,2),
+  jaqy490sd2 NUMBER(12,2),
+  jaqy490sd3 NUMBER(12,2),
+  jaqy490sd4 NUMBER(12,2),
+  jaqy490sd5 NUMBER(12,2),
+  jaqy490sd6 NUMBER(12,2),
+  jaqy490sd7 NUMBER(12,2),
+  jaqy490sd8 NUMBER(12,2),
+  jaqy490sd9 NUMBER(12,2),
+  jaqy490s10 NUMBER(12,2),
+  jaqy490s11 NUMBER(12,2),
+  jaqy490s12 NUMBER(12,2),
+  jaqy490s13 NUMBER(12,2),
+  jaqy490fst NUMBER(10,5),
+  jaqy490ftc NUMBER(10,5),
+  jaqy490fcv NUMBER(10,5),
+  jaqy490fcc NUMBER(10,5),
+  jaqy490fco NUMBER(10,5),
+  jaqy490fch NUMBER(10,5),
+  jaqy490fcp NUMBER(10,5),
+  jaqy490fca NUMBER(10,5)
+)
+;
+comment on table JAQY490C
+  is 'Variables del sistema financiero RCC';
+comment on column JAQY490C.jaqy490nre
+  is 'Número de registro';
+comment on column JAQY490C.jaqy490fec
+  is 'Fecha de RCC';
+comment on column JAQY490C.jaqy490sbs
+  is 'Código SBS del deudor';
+comment on column JAQY490C.jaqy490tdi
+  is 'Tipo de documento de identidad';
+comment on column JAQY490C.jaqy490ndi
+  is 'Nro. de documento de identidad';
+comment on column JAQY490C.jaqy490tdt
+  is 'Tipo de documento tributario';
+comment on column JAQY490C.jaqy490ndt
+  is 'Nro. de documento tributario';
+comment on column JAQY490C.jaqy490per
+  is 'Tipo de persona';
+comment on column JAQY490C.jaqy490cpo
+  is 'Valor cuota potencial';
+comment on column JAQY490C.jaqy490ltc
+  is 'Valor utilización línea de crédito de tarjetas';
+comment on column JAQY490C.jaqy490vsd
+  is 'Valor variación de saldo deudor dependientes';
+comment on column JAQY490C.jaqy490vsi
+  is 'Valor variación de saldo deudor independientes';
+comment on column JAQY490C.jaqy490vne
+  is 'Valor variación número de entidades';
+comment on column JAQY490C.jaqy490ven
+  is 'Valor número de entidades saldo mayor a S/.X';
+comment on column JAQY490C.jaqy490dti
+  is 'Valor de deuda total independiente';
+comment on column JAQY490C.jaqy490dtc
+  is 'Valor deuda total convenio';
+comment on column JAQY490C.jaqy490coc
+  is 'Valor cuota otros convenios';
+comment on column JAQY490C.jaqy490csf
+  is 'Valor cuota sistema financiero';
+comment on column JAQY490C.jaqy490std
+  is 'Importe saldo total de deuda vigente';
+comment on column JAQY490C.jaqy490lcn
+  is 'Importe de líneas de crédito no utilizada';
+comment on column JAQY490C.jaqy490ltn
+  is 'Importe de líneas de crédito no utilizada sin CajaAqp';
+comment on column JAQY490C.jaqy490dco
+  is 'Importe de deduda contingente';
+comment on column JAQY490C.jaqy490sut
+  is 'Importe de saldo utilizado en tarjetas';
+comment on column JAQY490C.jaqy490sun
+  is 'Importe de saldo utilizado en tarjetas sin CajaAqp';
+comment on column JAQY490C.jaqy490msd
+  is 'Importe de máximo saldo deudor';
+comment on column JAQY490C.jaqy490nen
+  is 'Cantidad de entidades';
+comment on column JAQY490C.jaqy490neh
+  is 'Cantidad de entidades rcc histórico (RCC-x meses)';
+comment on column JAQY490C.jaqy490cvh
+  is 'Importe saldo de consumo vehicular';
+comment on column JAQY490C.jaqy490cnr
+  is 'Importe saldo consumo no revolvente';
+comment on column JAQY490C.jaqy490cco
+  is 'Importe saldo consumo convenio';
+comment on column JAQY490C.jaqy490con
+  is 'Importe saldo consumo convenio sin CajaAqp';
+comment on column JAQY490C.jaqy490hip
+  is 'Importe saldo hipotecario';
+comment on column JAQY490C.jaqy490pym
+  is 'Importe saldo pyme';
+comment on column JAQY490C.jaqy490cav
+  is 'Importe contigentes avales';
+comment on column JAQY490C.jaqy490tac
+  is 'Tipo de actualización';
+comment on column JAQY490C.jaqy490sd0
+  is 'Importe saldo deudor mes de proceso';
+comment on column JAQY490C.jaqy490sd1
+  is 'Importe saldo deudor un mes anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490sd2
+  is 'Importe saldo deudor dos meses anteriores a fecha de proceso';
+comment on column JAQY490C.jaqy490sd3
+  is 'Importe saldo deudor tres meses anteriores a fecha de proceso';
+comment on column JAQY490C.jaqy490sd4
+  is 'Importe saldo deudor cuatro meses anteriores a fecha de proceso';
+comment on column JAQY490C.jaqy490sd5
+  is 'Importe saldo deudor cinco meses anteriores anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490sd6
+  is 'Importe saldo deudor seis meses anteriores anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490sd7
+  is 'Importe saldo deudor siete meses anteriores anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490sd8
+  is 'Importe saldo deudor ocho meses anteriores anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490sd9
+  is 'Importe saldo deudor nueve meses anteriores anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490s10
+  is 'Importe saldo deudor diez meses anteriores anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490s11
+  is 'Importe saldo deudor once meses anteriores anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490s12
+  is 'Importe saldo deudor doce meses anteriores anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490s13
+  is 'Importe saldo deudor trece meses anteriores anterior a fecha de proceso';
+comment on column JAQY490C.jaqy490fst
+  is 'Factor para saldo de tarjeta de crédito';
+comment on column JAQY490C.jaqy490ftc
+  is 'Factor para línea de crédito de tarjeta no utilizada';
+comment on column JAQY490C.jaqy490fcv
+  is 'Factor para crédito consumo vehicular';
+comment on column JAQY490C.jaqy490fcc
+  is 'Factor para crédito consumo consumo no revolvente';
+comment on column JAQY490C.jaqy490fcp
+  is 'Factor para crédito pyme';
+comment on column JAQY490C.jaqy490fca
+  is 'Factor para contingentes (avales)';
+alter table JAQY490C
+  add constraint PK_JAQY490C_1 primary key (JAQY490FEC, JAQY490SBS);
+

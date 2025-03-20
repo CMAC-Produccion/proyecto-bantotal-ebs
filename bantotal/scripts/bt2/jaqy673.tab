@@ -1,0 +1,44 @@
+create table JAQY673
+(
+  jaqy673dnit CHAR(12) not null,
+  jaqy673dnif CHAR(12) not null,
+  jaqy673nomt CHAR(70),
+  jaqy673crel NUMBER(2),
+  jaqy673dcod CHAR(30),
+  jaqy673tdoc CHAR(20),
+  jaqy673nomf CHAR(70),
+  jaqy673user VARCHAR2(12),
+  jaqy673nabu NUMBER(4),
+  jaqy673npad NUMBER(4),
+  jaqy673ncoy NUMBER(4),
+  jaqy673nhij NUMBER(4),
+  jaqy673nsue NUMBER(4),
+  jaqy673ncun NUMBER(4),
+  jaqy673nny  NUMBER(4),
+  jaqy673ntia NUMBER(4),
+  jaqy673ntio NUMBER(4),
+  jaqy673ntni NUMBER(4),
+  jaqy673ntab NUMBER(4),
+  jaqy673nsob NUMBER(4),
+  jaqy673nphr NUMBER(4),
+  jaqy673nnie NUMBER(4),
+  jaqy673nher NUMBER(4),
+  jaqy673nbni NUMBER(4),
+  jaqy673nbab NUMBER(4),
+  jaqy673npri NUMBER(4),
+  jaqy673aux1 DATE,
+  jaqy673aux2 CHAR(2),
+  jaqy673aux3 CHAR(255),
+  jaqy673aux4 DATE,
+  jaqy673aux5 NUMBER(4),
+  jaqy673aux6 NUMBER(4),
+  jaqy673aux7 CHAR(200),
+  jaqy673aux8 CHAR(100),
+  jaqy673aux9 CHAR(100),
+  jaqy673ord  NUMBER
+)
+;
+create index JAQY6732 on JAQY673 (JAQY673USER, JAQY673DNIT, JAQY673ORD);
+alter table JAQY673
+  add primary key (JAQY673DNIT, JAQY673DNIF);
+

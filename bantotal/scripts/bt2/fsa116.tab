@@ -1,0 +1,13 @@
+create table FSA116
+(
+  pdpgcod  NUMBER(3) not null,
+  pdpepais NUMBER(3) not null,
+  pdpetdoc NUMBER(2) not null,
+  pdpendoc CHAR(12) not null,
+  pdctnro  NUMBER(9) not null
+)
+;
+create index FSA11602 on FSA116 (PDCTNRO);
+alter table FSA116
+  add primary key (PDPGCOD, PDPEPAIS, PDPETDOC, PDPENDOC, PDCTNRO);
+

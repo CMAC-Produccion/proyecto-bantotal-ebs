@@ -1,0 +1,20 @@
+create table PQT001
+(
+  pgcod     NUMBER(3) not null,
+  pqtcod    NUMBER(5) not null,
+  pqtdsc    CHAR(50),
+  pqtvig    CHAR(1),
+  pqtfchvig DATE,
+  pqtdiavto NUMBER(5),
+  pqtordvto CHAR(1),
+  pqttrfvto NUMBER(5),
+  pqtemp    CHAR(1),
+  pqtcober  CHAR(1),
+  pqtcocod  NUMBER(3),
+  pqtporc   NUMBER(7,4),
+  pqtimpte  NUMBER(17,2)
+)
+;
+alter table PQT001
+  add primary key (PGCOD, PQTCOD);
+

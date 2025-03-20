@@ -1,0 +1,93 @@
+create table AQPC425
+(
+  aqpc425gupv   NUMBER(18) not null,
+  aqpc425coda   NUMBER(9),
+  aqpc425mtom   NUMBER(18,2),
+  aqpc425fecm   DATE,
+  aqpc425mdat   NUMBER(4),
+  aqpc425mtoas  NUMBER(18,2),
+  aqpc425mtoad  NUMBER(18,2),
+  aqpc425mtor   NUMBER(18,2),
+  aqpc425mtof   NUMBER(18,2),
+  aqpc425mtoc   NUMBER(18,2),
+  aqpc425tca    NUMBER(14,8),
+  aqpc425mtomn  NUMBER(18,2),
+  aqpc425itcod  NUMBER(3) not null,
+  aqpc425itmod  NUMBER(3) not null,
+  aqpc425itsuc  NUMBER(3) not null,
+  aqpc425ittran NUMBER(3) not null,
+  aqpc425itnrel NUMBER(4) not null,
+  aqpc425itfcon DATE not null,
+  aqpc425ithora CHAR(8),
+  aqpc425itucnf CHAR(10),
+  aqpc425usuact CHAR(10),
+  aqpc425fecact DATE,
+  aqpc425fectra DATE,
+  aqpc425fecext DATE,
+  aqpc425est    CHAR(1),
+  aqpc425code   NUMBER(5),
+  aqpc425msje   VARCHAR2(150)
+)
+;
+comment on table AQPC425
+  is 'Tabla de log de las transferencias a los tipos de venta FOCMA';
+comment on column AQPC425.aqpc425gupv
+  is 'Grupo de Venta';
+comment on column AQPC425.aqpc425coda
+  is 'Codigo de Adquiiente o tipo de operación';
+comment on column AQPC425.aqpc425mtom
+  is 'Monto Meta';
+comment on column AQPC425.aqpc425fecm
+  is 'Fecha de Meta';
+comment on column AQPC425.aqpc425mdat
+  is 'Moneda de la transferencia';
+comment on column AQPC425.aqpc425mtoas
+  is 'Monto Acumulado Mensual de Recaudaación antes de transferir Soles';
+comment on column AQPC425.aqpc425mtoad
+  is 'Monto Acumulado Mensual de Recaudaación antes de transferir Dólares';
+comment on column AQPC425.aqpc425mtor
+  is 'Monto Recaudado Transferido antes de esta transferencia';
+comment on column AQPC425.aqpc425mtof
+  is 'Monto a transferir a Focma segun moneda AQPC425MDAT';
+comment on column AQPC425.aqpc425mtoc
+  is 'Monto a transferir a Caja segun moneda AQPC425MDAT';
+comment on column AQPC425.aqpc425tca
+  is 'Tipo de Cambio';
+comment on column AQPC425.aqpc425mtomn
+  is 'Monto a transferir en moneda nacional';
+comment on column AQPC425.aqpc425itcod
+  is 'Empresa - Clave de la transacción';
+comment on column AQPC425.aqpc425itmod
+  is 'modulo de la transacción';
+comment on column AQPC425.aqpc425itsuc
+  is 'suc transacción';
+comment on column AQPC425.aqpc425ittran
+  is 'transacción';
+comment on column AQPC425.aqpc425itnrel
+  is 'rel transacción';
+comment on column AQPC425.aqpc425itfcon
+  is 'fecha transacción';
+comment on column AQPC425.aqpc425ithora
+  is 'hora transacción';
+comment on column AQPC425.aqpc425itucnf
+  is 'Usuario de Ingreso de la transacción';
+comment on column AQPC425.aqpc425usuact
+  is 'Usuario de Actualización';
+comment on column AQPC425.aqpc425fecact
+  is 'Fecha de Actualización';
+comment on column AQPC425.aqpc425fectra
+  is 'Fecha Ingresada para la transferencia';
+comment on column AQPC425.aqpc425fecext
+  is 'Fecha de Extorno';
+comment on column AQPC425.aqpc425est
+  is 'Estado: C-contabilizado, N: no contabilizado; E:Extornado';
+comment on column AQPC425.aqpc425code
+  is 'Código de Error';
+comment on column AQPC425.aqpc425msje
+  is 'Mensaje de error';
+create index AQPC425A2 on AQPC425 (AQPC425GUPV, AQPC425EST);
+create index AQPC425A3 on AQPC425 (AQPC425GUPV, AQPC425MTOF);
+create index AQPC425A4 on AQPC425 (AQPC425GUPV, AQPC425MTOC);
+alter table AQPC425
+  add primary key (AQPC425GUPV, AQPC425ITCOD, AQPC425ITMOD, AQPC425ITSUC, AQPC425ITTRAN, AQPC425ITNREL, AQPC425ITFCON);
+

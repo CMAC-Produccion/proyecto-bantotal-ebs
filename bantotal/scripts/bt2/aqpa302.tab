@@ -1,0 +1,44 @@
+create table AQPA302
+(
+  aqpa302corr   NUMBER(15) not null,
+  aqpa302pais   NUMBER(3),
+  aqpa302tdoc   NUMBER(2),
+  aqpa302ndoc   CHAR(12),
+  aqpa302carg   NUMBER(9),
+  aqpa302est    CHAR(1),
+  aqpa302fini   DATE,
+  aqpa302fces   DATE,
+  aqpa302npai   NUMBER(3),
+  aqpa302ntdo   NUMBER(2),
+  aqpa302nndo   CHAR(12),
+  aqpa302ncar   NUMBER(9),
+  aqpa302nest   CHAR(1),
+  aqpa302nfin   DATE,
+  aqpa302nfce   DATE,
+  aqpa302sucrea NUMBER(3),
+  aqpa302usurea CHAR(10),
+  aqpa302fecrea DATE,
+  aqpa302hrarea CHAR(8),
+  aqpa302sucrem NUMBER(3),
+  aqpa302usurem CHAR(10),
+  aqpa302fecrem DATE,
+  aqpa302hrarem CHAR(8),
+  aqpa302sucreg NUMBER(3),
+  aqpa302usureg CHAR(10),
+  aqpa302fecreg DATE,
+  aqpa302hrareg CHAR(8),
+  aqpa302acc    CHAR(3),
+  aqpa302ax1    NUMBER(9),
+  aqpa302ax2    NUMBER(9),
+  aqpa302ax3    NUMBER(17,2),
+  aqpa302ax4    NUMBER(17,2),
+  aqpa302ax5    DATE,
+  aqpa302ax6    DATE,
+  aqpa302ax7    CHAR(100),
+  aqpa302ax8    CHAR(100),
+  aqpa302ax9    CHAR(100)
+)
+;
+alter table AQPA302
+  add primary key (AQPA302CORR);
+

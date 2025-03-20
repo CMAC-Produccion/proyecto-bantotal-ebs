@@ -1,0 +1,149 @@
+create table JAQA41
+(
+  jaqa41emp NUMBER(3) not null,
+  jaqa41sus NUMBER(3) not null,
+  jaqa41naf CHAR(50) not null,
+  jaqa41mdc CHAR(1),
+  jaqa41num CHAR(50),
+  jaqa41fch DATE,
+  jaqa41fce DATE,
+  jaqa41tse NUMBER(9),
+  jaqa41cse NUMBER(9),
+  jaqa41cnc NUMBER(5),
+  jaqa41imp NUMBER(17,2),
+  jaqa41usu CHAR(10),
+  jaqa41fcm DATE,
+  jaqa41esm CHAR(1),
+  jaqa41est CHAR(1),
+  jaqa41nar CHAR(50),
+  jaqa41ven DATE,
+  jaqa41fer DATE,
+  jaqa41mco CHAR(1),
+  jaqa41ccb NUMBER(9),
+  jaqa41rea CHAR(1),
+  jaqa41fca DATE,
+  jaqa41mta VARCHAR2(255),
+  jaqa41pac NUMBER(3),
+  jaqa41tpc NUMBER(2),
+  jaqa41ndc CHAR(12),
+  jaqa41cec CHAR(1),
+  jaqa41im1 NUMBER(17,2),
+  jaqa41im2 NUMBER(17,2),
+  jaqa41im3 NUMBER(17,2),
+  jaqa41ad1 DATE,
+  jaqa41ad2 DATE,
+  jaqa41ad3 DATE,
+  jaqa41an1 NUMBER(9),
+  jaqa41an2 NUMBER(9),
+  jaqa41an3 NUMBER(9),
+  jaqa41ac1 CHAR(255),
+  jaqa41ac2 CHAR(255),
+  jaqa41ac3 CHAR(255),
+  jaqa41ae1 CHAR(1),
+  jaqa41ae2 CHAR(1),
+  jaqa41ae3 CHAR(1),
+  jaqa41cta NUMBER(9),
+  jaqa41hle CHAR(1),
+  jaqa41can NUMBER(3)
+)
+;
+comment on table JAQA41
+  is 'Cabecera seguro nuevo modulo seguro pasiva';
+comment on column JAQA41.jaqa41emp
+  is 'Empresa';
+comment on column JAQA41.jaqa41sus
+  is 'Sucursal';
+comment on column JAQA41.jaqa41naf
+  is 'NRO Afiliacion';
+comment on column JAQA41.jaqa41mdc
+  is 'Modo contratacion M: movil V: Vantanilla';
+comment on column JAQA41.jaqa41num
+  is 'NRO Poliza';
+comment on column JAQA41.jaqa41fch
+  is 'Fecha de afiliacion';
+comment on column JAQA41.jaqa41fce
+  is 'Fecha inicio de vigencia';
+comment on column JAQA41.jaqa41tse
+  is 'Tipo de seguro';
+comment on column JAQA41.jaqa41cse
+  is 'Codigo de seguro';
+comment on column JAQA41.jaqa41cnc
+  is 'Cantidad de cuotas';
+comment on column JAQA41.jaqa41imp
+  is 'Importe';
+comment on column JAQA41.jaqa41usu
+  is 'Usuario Vendedor';
+comment on column JAQA41.jaqa41fcm
+  is 'Fecha migracion';
+comment on column JAQA41.jaqa41esm
+  is 'Es Migracion S:si, N: no';
+comment on column JAQA41.jaqa41est
+  is 'Estado H: Habil, A: Anulado, D:deshabilitado, R:renovado';
+comment on column JAQA41.jaqa41nar
+  is 'Nro Afiliacion Original que origino la renovacion';
+comment on column JAQA41.jaqa41ven
+  is 'fecha de Vencimiento';
+comment on column JAQA41.jaqa41fer
+  is 'Fecha de Renovacion';
+comment on column JAQA41.jaqa41mco
+  is 'Modo Cobro F: fijo, R:regularizado';
+comment on column JAQA41.jaqa41ccb
+  is 'Codigo Cobro';
+comment on column JAQA41.jaqa41rea
+  is 'Renovacion Automatica S: si N: no';
+comment on column JAQA41.jaqa41fca
+  is 'Fecha de anulación';
+comment on column JAQA41.jaqa41mta
+  is 'Motivo de anulacion';
+comment on column JAQA41.jaqa41pac
+  is 'pais contratante';
+comment on column JAQA41.jaqa41tpc
+  is 'tipo de documento contratante';
+comment on column JAQA41.jaqa41ndc
+  is 'Numero de documento contratante';
+comment on column JAQA41.jaqa41cec
+  is 'Contratante titular S: si, N: no';
+comment on column JAQA41.jaqa41im1
+  is 'Auxiliar Importe 1';
+comment on column JAQA41.jaqa41im2
+  is 'Auxiliar Importe 2';
+comment on column JAQA41.jaqa41im3
+  is 'Auxiliar Importe 3';
+comment on column JAQA41.jaqa41ad1
+  is 'Auxiliar date 1';
+comment on column JAQA41.jaqa41ad2
+  is 'Auxiliar date 2';
+comment on column JAQA41.jaqa41ad3
+  is 'Auxiliar date 3';
+comment on column JAQA41.jaqa41an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA41.jaqa41an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA41.jaqa41an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA41.jaqa41ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA41.jaqa41ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA41.jaqa41ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQA41.jaqa41ae1
+  is 'Auxiliar Estado 1';
+comment on column JAQA41.jaqa41ae2
+  is 'Auxiliar Estado 2';
+comment on column JAQA41.jaqa41ae3
+  is 'Auxiliar Estado 3';
+comment on column JAQA41.jaqa41cta
+  is 'Cuenta cliente';
+comment on column JAQA41.jaqa41hle
+  is 'Herederos legales S: si , N: no';
+comment on column JAQA41.jaqa41can
+  is 'Canal';
+create index JAQA412 on JAQA41 (JAQA41EMP, JAQA41SUS, JAQA41NUM, JAQA41FCH);
+create index JAQA413 on JAQA41 (JAQA41EMP, JAQA41SUS, JAQA41CTA, JAQA41EST, JAQA41FCH);
+create index JAQA414 on JAQA41 (JAQA41EMP, JAQA41SUS, JAQA41CTA, JAQA41FER, JAQA41REA, JAQA41EST);
+create index JAQA415 on JAQA41 (JAQA41EMP, JAQA41SUS, JAQA41CTA, JAQA41VEN, JAQA41EST);
+create index JAQA416 on JAQA41 (JAQA41EMP, JAQA41PAC, JAQA41TPC, JAQA41NDC, JAQA41NAF, JAQA41EST);
+alter table JAQA41
+  add primary key (JAQA41EMP, JAQA41SUS, JAQA41NAF);
+

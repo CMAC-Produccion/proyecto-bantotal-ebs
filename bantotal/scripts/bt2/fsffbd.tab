@@ -1,0 +1,24 @@
+create table FSFFBD
+(
+  fsffbdemp NUMBER(3) not null,
+  fsffbdtct NUMBER(2) not null,
+  fsffbdtcc NUMBER(4) not null,
+  fsffbdent NUMBER(9) not null,
+  fsffbdcta NUMBER(9) not null,
+  fsffbdsop NUMBER(3) not null,
+  fsffbdctn CHAR(20) not null,
+  fsffbdaba CHAR(15),
+  fsffbdsco CHAR(15),
+  fsffbdciu CHAR(30),
+  fsffbdpai NUMBER(3),
+  fsffbda01 NUMBER(9),
+  fsffbda02 NUMBER(9),
+  fsffbda03 DATE,
+  fsffbda04 DATE,
+  fsffbda05 NUMBER(17,2),
+  fsffbda06 NUMBER(17,2)
+)
+;
+alter table FSFFBD
+  add primary key (FSFFBDEMP, FSFFBDTCT, FSFFBDTCC, FSFFBDENT, FSFFBDCTA, FSFFBDSOP, FSFFBDCTN);
+

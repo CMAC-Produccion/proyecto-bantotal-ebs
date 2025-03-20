@@ -1,0 +1,35 @@
+create table JAQZ194
+(
+  jaqz194cor NUMBER(15) not null,
+  jaqz194pgc NUMBER(3),
+  jaqz194mod NUMBER(3),
+  jaqz194suc NUMBER(3),
+  jaqz194mda NUMBER(4),
+  jaqz194pap NUMBER(4),
+  jaqz194cta NUMBER(9),
+  jaqz194ope NUMBER(9),
+  jaqz194sbo NUMBER(3),
+  jaqz194tpo NUMBER(3),
+  jaqz194tan NUMBER(10,6),
+  jaqz194tac NUMBER(10,6),
+  jaqz194fec DATE,
+  jaqz194hor CHAR(8),
+  jaqz194usr CHAR(10),
+  jaqz194age NUMBER(3),
+  jaqz194est CHAR(1),
+  jaqz194msg VARCHAR2(400),
+  jaqz194ax1 NUMBER(9),
+  jaqz194ax2 NUMBER(9),
+  jaqz194ax3 NUMBER(17,2),
+  jaqz194ax4 NUMBER(17,2),
+  jaqz194ax5 DATE,
+  jaqz194ax6 DATE,
+  jaqz194ax7 CHAR(100),
+  jaqz194ax8 CHAR(100),
+  jaqz194ax9 CHAR(100)
+)
+;
+create index JAQZ1942 on JAQZ194 (JAQZ194PGC, JAQZ194MOD, JAQZ194SUC, JAQZ194MDA, JAQZ194PAP, JAQZ194CTA, JAQZ194OPE, JAQZ194SBO, JAQZ194TPO);
+alter table JAQZ194
+  add primary key (JAQZ194COR);
+

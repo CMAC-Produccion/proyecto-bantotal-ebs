@@ -1,0 +1,35 @@
+create table FSH013
+(
+  pgcod  NUMBER(3) not null,
+  hrsuc  NUMBER(3) not null,
+  hrrub  NUMBER(16) not null,
+  hrmda  NUMBER(4) not null,
+  hrpap  NUMBER(4) not null,
+  hranio NUMBER(4) not null,
+  hrmod  NUMBER(3),
+  hrtit  NUMBER(2),
+  hrcap  NUMBER(1),
+  hrplzo NUMBER(1),
+  hrgru  NUMBER(2),
+  hrsd01 NUMBER(17,2),
+  hrsd02 NUMBER(17,2),
+  hrsd03 NUMBER(17,2),
+  hrsd04 NUMBER(17,2),
+  hrsd05 NUMBER(17,2),
+  hrsd06 NUMBER(17,2),
+  hrsd07 NUMBER(17,2),
+  hrsd08 NUMBER(17,2),
+  hrsd09 NUMBER(17,2),
+  hrsd10 NUMBER(17,2),
+  hrsd11 NUMBER(17,2),
+  hrsd12 NUMBER(17,2),
+  hrsd13 NUMBER(17,2)
+)
+;
+create index FSH01303 on FSH013 (HRRUB);
+create index FSH01304 on FSH013 (HRMDA);
+create index FSH01305 on FSH013 (HRPAP);
+create index FSH01306 on FSH013 (HRMOD);
+alter table FSH013
+  add primary key (PGCOD, HRSUC, HRRUB, HRMDA, HRPAP, HRANIO);
+

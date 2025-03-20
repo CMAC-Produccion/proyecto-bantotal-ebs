@@ -1,0 +1,33 @@
+create table FCNV22
+(
+  cnv10emp   NUMBER(3) not null,
+  cnv05teval NUMBER(3) not null,
+  cnv10mod   NUMBER(3) not null,
+  cnv10tope  NUMBER(3) not null,
+  cnv10mda   NUMBER(4) not null,
+  cnv10pap   NUMBER(4) not null,
+  cnv11segm  NUMBER(2) not null,
+  cnv12mod   NUMBER(3) not null,
+  cnv12suc   NUMBER(3) not null,
+  cnv12cta   NUMBER(9) not null,
+  cnv12oper  NUMBER(9) not null,
+  cnv12sbop  NUMBER(3) not null,
+  cnv12tope  NUMBER(3) not null,
+  cnv22cod   CHAR(15) not null,
+  cnv22pzo   NUMBER(5) not null,
+  cnv22mto   NUMBER(17,2) not null,
+  cnv22prcid NUMBER(5),
+  cnv22witem NUMBER(10),
+  cnv22stsup NUMBER(2),
+  cnv22stiup CHAR(1),
+  cnv22atpzo NUMBER(5),
+  cnv22atfec CHAR(1),
+  cnv22atprc NUMBER(5),
+  cnv22atwit NUMBER(10),
+  cnv22ifcon CHAR(1),
+  cnv22stcob NUMBER(2)
+)
+;
+alter table FCNV22
+  add primary key (CNV10EMP, CNV05TEVAL, CNV10MOD, CNV10TOPE, CNV10MDA, CNV10PAP, CNV11SEGM, CNV12MOD, CNV12SUC, CNV12CTA, CNV12OPER, CNV12SBOP, CNV12TOPE, CNV22COD, CNV22PZO, CNV22MTO);
+

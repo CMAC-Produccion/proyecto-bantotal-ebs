@@ -1,0 +1,11 @@
+create table MSGA53
+(
+  msga53us CHAR(10) not null,
+  msga50in NUMBER(11) not null,
+  msga53st CHAR(1)
+)
+;
+create index MSGA5302 on MSGA53 (MSGA50IN);
+alter table MSGA53
+  add primary key (MSGA53US, MSGA50IN);
+

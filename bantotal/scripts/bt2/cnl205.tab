@@ -1,0 +1,13 @@
+create table CNL205
+(
+  cnl000cod  NUMBER(4) not null,
+  cnl205cod  NUMBER(2) not null,
+  cnl005cod  NUMBER(6) not null,
+  cnl205fch  CHAR(8) not null,
+  x9996bopco NUMBER(5) not null,
+  x9996cvart NUMBER(3) not null,
+  cnl205dsc  CHAR(60) not null
+)
+;
+create unique index CNL20501 on CNL205 (CNL000COD, CNL205COD);
+

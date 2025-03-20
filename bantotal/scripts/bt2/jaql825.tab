@@ -1,0 +1,17 @@
+create table JAQL825
+(
+  jaql825cagen NUMBER(3) not null,
+  jaql825usuar VARCHAR2(25) not null,
+  jaql825fencu DATE not null,
+  jaql825hencu VARCHAR2(8) not null,
+  jaql825cmodu NUMBER(4),
+  jaql825ctran NUMBER(3),
+  jaql825nrela NUMBER(4),
+  jaql825vencu NUMBER(1),
+  jaql825nctac NUMBER(9),
+  jaql825cordi NUMBER(4)
+)
+;
+alter table JAQL825
+  add primary key (JAQL825CAGEN, JAQL825USUAR, JAQL825FENCU, JAQL825HENCU);
+

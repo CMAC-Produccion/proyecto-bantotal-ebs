@@ -1,0 +1,17 @@
+create table FBC714
+(
+  bc714inf  CHAR(10) not null,
+  bc714col  NUMBER(2) not null,
+  bc714uni  NUMBER(2) not null,
+  bc714rng  NUMBER(4) not null,
+  bc714ope  NUMBER(2),
+  bc714pcol NUMBER(2),
+  bc714pun  NUMBER(2),
+  bc714prn  NUMBER(4)
+)
+;
+create index FBC71402 on FBC714 (BC714INF, BC714UNI, BC714RNG, BC714COL);
+create index FBC71403 on FBC714 (BC714INF, BC714PUN, BC714PRN, BC714PCOL);
+alter table FBC714
+  add primary key (BC714INF, BC714COL, BC714UNI, BC714RNG);
+

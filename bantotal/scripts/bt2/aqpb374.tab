@@ -1,0 +1,35 @@
+create table AQPB374
+(
+  aqpb374usr      CHAR(10) not null,
+  aqpb374inst     NUMBER(10) not null,
+  aqpb374aut      NUMBER(10) not null,
+  aqpb374ord      NUMBER(3) not null,
+  aqpb374pqt      NUMBER(10) not null,
+  aqpb374suc      NUMBER(3),
+  aqpb374sucdes   CHAR(30),
+  aqpb374cta      NUMBER(9),
+  aqpb374tdoc     NUMBER(2),
+  aqpb374ndoc     CHAR(12),
+  aqpb374nomcli   CHAR(100),
+  aqpb374monto    NUMBER(18,2),
+  aqpb374codan    CHAR(10),
+  aqpb374descan   CHAR(100),
+  aqpb374codaut   CHAR(10),
+  aqpb374descaut  CHAR(100),
+  aqpb374etap     CHAR(100),
+  aqpb374poli     NUMBER(5),
+  aqpb374polinom  CHAR(100),
+  aqpb374obs      CHAR(400),
+  aqpb374fecaut   DATE,
+  aqpb374horaaut  CHAR(8),
+  aqpb374fecorig  DATE,
+  aqpb374horaorig CHAR(8),
+  aqpb374est      CHAR(20),
+  aqpb374tonom    CHAR(30),
+  aqpb374region   CHAR(30)
+)
+;
+create index AQPB3742 on AQPB374 (AQPB374USR);
+alter table AQPB374
+  add primary key (AQPB374USR, AQPB374INST, AQPB374AUT, AQPB374ORD, AQPB374PQT);
+

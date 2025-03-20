@@ -1,0 +1,14 @@
+create table JFAW30
+(
+  jfaw30pais NUMBER(3) not null,
+  jfaw30tdoc NUMBER(2) not null,
+  jfaw30ndoc CHAR(25) not null,
+  jfaw30corr NUMBER(4) not null,
+  jfaw30int  CHAR(10),
+  jfaw30tel  CHAR(30),
+  jfaw30dsc  VARCHAR2(255)
+)
+;
+alter table JFAW30
+  add primary key (JFAW30PAIS, JFAW30TDOC, JFAW30NDOC, JFAW30CORR);
+

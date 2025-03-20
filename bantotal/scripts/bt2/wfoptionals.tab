@@ -1,0 +1,9 @@
+create table WFOPTIONALS
+(
+  wfoptnetitemid NUMBER(10) not null,
+  wfoptnstaskcod NUMBER(4) not null
+)
+;
+alter table WFOPTIONALS
+  add primary key (WFOPTNETITEMID, WFOPTNSTASKCOD);
+

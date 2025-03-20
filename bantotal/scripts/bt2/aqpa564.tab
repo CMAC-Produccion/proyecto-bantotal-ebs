@@ -1,0 +1,112 @@
+create table AQPA564
+(
+  aqpa564cod   NUMBER(4) not null,
+  aqpa564suc   NUMBER(3) not null,
+  aqpa564mda   NUMBER(4) not null,
+  aqpa564pap   NUMBER(4) not null,
+  aqpa564cta   NUMBER(9) not null,
+  aqpa564oper  NUMBER(9) not null,
+  aqpa564sbop  NUMBER(3) not null,
+  aqpa564tope  NUMBER(3) not null,
+  aqpa564mod   NUMBER(3) not null,
+  aqpa564fech  DATE not null,
+  aqpa564fpro  DATE,
+  aqpa564mon   NUMBER(15,2),
+  aqpa564tsuc  NUMBER(3),
+  aqpa564tmod  NUMBER(3),
+  aqpa564ttran NUMBER(3),
+  aqpa564trel  NUMBER(4),
+  aqpa564rub   NUMBER(16),
+  aqpa564usu   VARCHAR2(12),
+  aqpa564psuc  NUMBER(3),
+  aqpa564pmod  NUMBER(3),
+  aqpa564ptran NUMBER(3),
+  aqpa564prel  NUMBER(4),
+  aqpa564pfec  DATE,
+  aqpa564hora  CHAR(8),
+  aqpa564fun   CHAR(10),
+  aqpa564age   CHAR(30),
+  aqpa564nom   CHAR(100),
+  aqpa564dni   CHAR(12),
+  aqpa564au1   NUMBER(4),
+  aqpa564au2   NUMBER(17),
+  aqpa564au3   NUMBER(17),
+  aqpa564au4   VARCHAR2(40),
+  aqpa564au5   VARCHAR2(40),
+  aqpa564au6   CHAR(20),
+  aqpa564au7   DATE
+)
+;
+comment on column AQPA564.aqpa564cod
+  is 'Codigo Empresa';
+comment on column AQPA564.aqpa564suc
+  is 'Sucursal';
+comment on column AQPA564.aqpa564mda
+  is 'Moneda';
+comment on column AQPA564.aqpa564pap
+  is 'Papel';
+comment on column AQPA564.aqpa564cta
+  is 'Cuenta';
+comment on column AQPA564.aqpa564oper
+  is 'Operacion';
+comment on column AQPA564.aqpa564sbop
+  is 'Suboperacion';
+comment on column AQPA564.aqpa564tope
+  is 'Tipo Operacion ';
+comment on column AQPA564.aqpa564mod
+  is 'Modulo';
+comment on column AQPA564.aqpa564fech
+  is 'Fecha ';
+comment on column AQPA564.aqpa564fpro
+  is 'Fecha Proceso';
+comment on column AQPA564.aqpa564mon
+  is 'Monto cobrado';
+comment on column AQPA564.aqpa564tsuc
+  is 'Sucursal Transaccion Pago';
+comment on column AQPA564.aqpa564tmod
+  is 'Modulo Transaccion Pago';
+comment on column AQPA564.aqpa564ttran
+  is 'Transaccion  Transaccion Pago';
+comment on column AQPA564.aqpa564trel
+  is 'Realcion  Transaccion Pago';
+comment on column AQPA564.aqpa564rub
+  is 'Rubro de Estraccion Monto';
+comment on column AQPA564.aqpa564usu
+  is 'Usuario';
+comment on column AQPA564.aqpa564psuc
+  is 'Sucursal  Transaccion Transfeerencia';
+comment on column AQPA564.aqpa564pmod
+  is 'Moduko Transaccion Transfeerencia';
+comment on column AQPA564.aqpa564ptran
+  is 'Transaccion Transaccion Transfeerencia';
+comment on column AQPA564.aqpa564prel
+  is 'Realacion Transaccion Transfeerencia';
+comment on column AQPA564.aqpa564pfec
+  is 'Fecha Transaccion Transfeerencia';
+comment on column AQPA564.aqpa564hora
+  is 'Hora';
+comment on column AQPA564.aqpa564fun
+  is 'Funcionaio';
+comment on column AQPA564.aqpa564age
+  is 'Agencia';
+comment on column AQPA564.aqpa564nom
+  is 'Nombre Cliente';
+comment on column AQPA564.aqpa564dni
+  is 'DNI cliente';
+comment on column AQPA564.aqpa564au1
+  is 'Auxiliar 1';
+comment on column AQPA564.aqpa564au2
+  is 'Auxiliar 2';
+comment on column AQPA564.aqpa564au3
+  is 'Auxiliar 3';
+comment on column AQPA564.aqpa564au4
+  is 'Auxiliar 4';
+comment on column AQPA564.aqpa564au5
+  is 'Auxiliar 5';
+comment on column AQPA564.aqpa564au6
+  is 'Auxiliar 6';
+comment on column AQPA564.aqpa564au7
+  is 'Auxiliar 7';
+alter table AQPA564
+  add primary key (AQPA564COD, AQPA564SUC, AQPA564MDA, AQPA564PAP, AQPA564CTA, AQPA564OPER, AQPA564SBOP, AQPA564TOPE, AQPA564MOD, AQPA564FECH);
+

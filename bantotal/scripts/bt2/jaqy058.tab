@@ -1,0 +1,26 @@
+create table JAQY058
+(
+  jaqy058pano NUMBER(4) not null,
+  jaqy058pmes NUMBER(2) not null,
+  jaqy058coau NUMBER(15) not null,
+  jaqy058copr NUMBER(9),
+  jaqy058core NUMBER(15),
+  jaqy058usua VARCHAR2(10),
+  jaqy058usej VARCHAR2(10),
+  jaqy058fini DATE,
+  jaqy058ffin DATE,
+  jaqy058fere DATE,
+  jaqy058esre VARCHAR2(1),
+  jaqy058esau VARCHAR2(1),
+  jaqy058dmot NUMBER(4),
+  jaqy058csuc NUMBER(3),
+  jaqy058fmot DATE,
+  jaqy058anre NUMBER(4),
+  jaqy058mere NUMBER(2)
+)
+;
+alter table JAQY058
+  add primary key (JAQY058PANO, JAQY058PMES, JAQY058COAU);
+alter table JAQY058
+  add constraint UK_JAQY058_01 unique (JAQY058CORE, JAQY058ANRE, JAQY058MERE);
+

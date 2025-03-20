@@ -1,0 +1,33 @@
+create table AQPB282
+(
+  aqpb282mod NUMBER(3) not null,
+  aqpb282top NUMBER(3) not null,
+  aqpb282sco VARCHAR2(5) not null,
+  aqpb282por NUMBER(10,6) not null,
+  aqpb282tip CHAR(1) not null,
+  aqpb282est CHAR(1) not null,
+  aqpb282fec DATE,
+  aqpb282mto NUMBER(17,2) not null
+)
+;
+comment on table AQPB282
+  is 'Tabla Tarifario Score';
+comment on column AQPB282.aqpb282mod
+  is 'Modulo';
+comment on column AQPB282.aqpb282top
+  is 'Tipo Operacion';
+comment on column AQPB282.aqpb282sco
+  is 'Score Riesgos';
+comment on column AQPB282.aqpb282por
+  is 'Porcentaje';
+comment on column AQPB282.aqpb282tip
+  is 'Tipo Ajuste S-Score';
+comment on column AQPB282.aqpb282est
+  is 'Estado S-Habilitado / N-Deshabilitado';
+comment on column AQPB282.aqpb282fec
+  is 'Fecha Carga';
+comment on column AQPB282.aqpb282mto
+  is 'Monto';
+alter table AQPB282
+  add primary key (AQPB282MOD, AQPB282TOP, AQPB282SCO, AQPB282POR, AQPB282TIP, AQPB282EST, AQPB282MTO);
+

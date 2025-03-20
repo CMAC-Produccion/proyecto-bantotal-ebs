@@ -1,0 +1,17 @@
+create table JAQY211
+(
+  jaqy211nim NUMBER(12) not null,
+  jaqy211cor NUMBER(4) not null,
+  jaqy211usu CHAR(10) not null,
+  jaqy211doc CHAR(12),
+  jaqy211ap1 CHAR(50),
+  jaqy211ap2 CHAR(50),
+  jaqy211no1 CHAR(50),
+  jaqy211no2 CHAR(50),
+  jaqy211fec DATE,
+  jaqy211hor CHAR(8)
+)
+;
+alter table JAQY211
+  add primary key (JAQY211NIM, JAQY211COR, JAQY211USU);
+

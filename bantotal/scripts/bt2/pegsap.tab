@@ -1,0 +1,24 @@
+create table PEGSAP
+(
+  pegid   CHAR(20) not null,
+  pegsuid VARCHAR2(36) not null,
+  pegsurl VARCHAR2(1024),
+  pegspas VARCHAR2(200),
+  pegsltu DATE,
+  pegsnam CHAR(160),
+  pegsdbt CHAR(20),
+  pegsdbv CHAR(20),
+  pegsnsd CHAR(50),
+  pegsmjr CHAR(1),
+  pegsjrn CHAR(50),
+  pegsnsc CHAR(50),
+  pegsdtm NUMBER(6),
+  pegsusu VARCHAR2(200),
+  pegsusp VARCHAR2(200),
+  pegsust CHAR(10),
+  pegssts CHAR(3)
+)
+;
+alter table PEGSAP
+  add primary key (PEGID, PEGSUID);
+

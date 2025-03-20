@@ -1,0 +1,33 @@
+create table JAQY345
+(
+  jaqy345pai NUMBER(3) not null,
+  jaqy345tdo NUMBER(3) not null,
+  jaqy345ndo VARCHAR2(12) not null,
+  jaqy345fec DATE not null,
+  jaqy345dba NUMBER(17,2),
+  jaqy345cur NUMBER(17,2),
+  jaqy345res NUMBER(17,2),
+  jaqy345pat NUMBER(17,2),
+  jaqy345ban NUMBER(17,2)
+)
+;
+comment on column JAQY345.jaqy345pai
+  is 'Pais';
+comment on column JAQY345.jaqy345tdo
+  is 'Tipo de documento';
+comment on column JAQY345.jaqy345ndo
+  is 'Numero de documento';
+comment on column JAQY345.jaqy345fec
+  is 'Fecha de proceso';
+comment on column JAQY345.jaqy345dba
+  is 'Saldo capital';
+comment on column JAQY345.jaqy345cur
+  is 'Cuota bantotal';
+comment on column JAQY345.jaqy345res
+  is 'Resultado Neto';
+comment on column JAQY345.jaqy345pat
+  is 'Patrimonio';
+comment on column JAQY345.jaqy345ban
+  is 'Deuda bantotal';
+create index IDX_JAQY345_01 on JAQY345 (JAQY345PAI, JAQY345TDO, JAQY345NDO);
+

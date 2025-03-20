@@ -1,0 +1,130 @@
+create table AQPA470
+(
+  aqpa470serie  CHAR(4) not null,
+  aqpa470nro    NUMBER(20),
+  aqpa470pgcod  NUMBER not null,
+  aqpa470mod    NUMBER not null,
+  aqpa470sucor  NUMBER not null,
+  aqpa470tran   NUMBER not null,
+  aqpa470rel    NUMBER not null,
+  aqpa470con    DATE not null,
+  aqpa470cord   NUMBER(2) not null,
+  aqpa470subo   NUMBER(3) not null,
+  aqpa470ind    CHAR(1),
+  aqpa470rubro  NUMBER(16),
+  aqpa470ccos   NUMBER(4),
+  aqpa470femi   DATE,
+  aqpa470tcomf  VARCHAR2(2),
+  aqpa470seri   VARCHAR2(4),
+  aqpa470num    NUMBER(8),
+  aqpa470tdocr  VARCHAR2(1),
+  aqpa470nruc   VARCHAR2(15),
+  aqpa470rasoc  VARCHAR2(1500),
+  aqpa470fdref  VARCHAR2(10),
+  aqpa470mtotal NUMBER(12,2),
+  aqpa470mtimp  NUMBER(12,2),
+  aqpa470mtinf  NUMBER(12,2),
+  aqpa470impt   NUMBER(12,2),
+  aqpa470mone   VARCHAR2(3),
+  aqpa470tcam   NUMBER(14,3),
+  aqpa470tcomp  VARCHAR2(2),
+  aqpa470sdref  VARCHAR2(50),
+  aqpa470ndref  NUMBER(20),
+  aqpa470lest   CHAR(1),
+  aqpa470csuna  VARCHAR2(8),
+  apaq470imdeb  NUMBER(12,2),
+  apaq470imhab  NUMBER(12,2),
+  aqpa470mbim   NUMBER(12,2),
+  aqpa470prvit  NUMBER(15,2),
+  aqpa470total  NUMBER(12,2),
+  aqpa470vvuig  NUMBER,
+  aqpa470vvun   NUMBER,
+  aqpa470item   NUMBER(5),
+  aqpa470desc   VARCHAR2(500),
+  aqpa470corr   NUMBER,
+  aqpa470flag   CHAR(1)
+)
+;
+comment on table AQPA470
+  is 'Tabla de Movimientos Facturacion para Libro de Ventas';
+comment on column AQPA470.aqpa470serie
+  is 'Serie del comprobante referenciado. Referencia a un comprobante';
+comment on column AQPA470.aqpa470nro
+  is 'N?mero del comprobante referenciado Referencia a un comprobante';
+comment on column AQPA470.aqpa470pgcod
+  is 'Pgcod';
+comment on column AQPA470.aqpa470mod
+  is 'Modulo Tx';
+comment on column AQPA470.aqpa470sucor
+  is 'Sucursal Tx';
+comment on column AQPA470.aqpa470tran
+  is 'Transaccion ';
+comment on column AQPA470.aqpa470rel
+  is 'Relacion Tx';
+comment on column AQPA470.aqpa470con
+  is 'Fecha Contabilizacion';
+comment on column AQPA470.aqpa470subo
+  is 'Subordinal de Asiento';
+comment on column AQPA470.aqpa470ind
+  is 'Indicador Debito/Credito';
+comment on column AQPA470.aqpa470ccos
+  is 'Centro de Costo';
+comment on column AQPA470.aqpa470femi
+  is 'Fecha de Emision del Comprobante Datos del Comprobante';
+comment on column AQPA470.aqpa470tcomf
+  is 'Codigo del Tipo de Comprobante Datos del Comprobante';
+comment on column AQPA470.aqpa470num
+  is 'Numero Correlativo del comprobante. Datos del Comprobante';
+comment on column AQPA470.aqpa470tdocr
+  is 'Codigo del tipo de documento de identificaci?n del Receptor Datos del Comprobante';
+comment on column AQPA470.aqpa470nruc
+  is 'N?mero de documento de identificaci?n Datos del Comprobante';
+comment on column AQPA470.aqpa470rasoc
+  is 'Apellidos y nombres o denominaci?n o raz?n social Datos del Comprobante';
+comment on column AQPA470.aqpa470fdref
+  is 'Fecha de emisi?n del comprobante referenciado. Referencia a un comprobante';
+comment on column AQPA470.aqpa470mtotal
+  is 'Monto total Gravado (Sin impuesto)  Informaci?n de gravada';
+comment on column AQPA470.aqpa470mtimp
+  is 'Monto total solo del impuesto   IGV del Gravado';
+comment on column AQPA470.aqpa470mtinf
+  is 'Monto total Inafecto  Informaci?n de inafecto';
+comment on column AQPA470.aqpa470impt
+  is 'Importe total  a pagar Datos del Comprobante';
+comment on column AQPA470.aqpa470mone
+  is 'Codigo del Tipo de Moneda Datos del Comprobante';
+comment on column AQPA470.aqpa470tcam
+  is 'Tipo Cambio';
+comment on column AQPA470.aqpa470tcomp
+  is 'C?digo del tipo de comprobante.  Referencia a un comprobante';
+comment on column AQPA470.aqpa470sdref
+  is 'Serie documento al que se aplica la nota. ENComprobanteMotivoDocumento';
+comment on column AQPA470.aqpa470ndref
+  is 'Numero  documento al que se aplica la nota.  ENComprobanteMotivoDocumento';
+comment on column AQPA470.aqpa470lest
+  is 'Estado Anulado/Vigente';
+comment on column AQPA470.aqpa470csuna
+  is 'C?digo producto establecido por Sunat   ENComprobanteDetalle ';
+comment on column AQPA470.aqpa470mbim
+  is 'Monto base del impuesto Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA470.aqpa470prvit
+  is 'Es el precio de venta ENComprobanteDetalle ';
+comment on column AQPA470.aqpa470total
+  is 'Importe monetario que es el total de la l?nea de detalle, incluyendo variaciones de precio (subvenciones, cargos o descuentos) pero sin impuestos.  ENComprobanteDetalle ';
+comment on column AQPA470.aqpa470vvuig
+  is 'Precio de Venta Unitario (Incluye impuestos)  ENComprobanteDetalle ';
+comment on column AQPA470.aqpa470vvun
+  is 'Valores de venta unitarios por item (VU) no incluye impuestos  ENComprobanteDetalle ';
+comment on column AQPA470.aqpa470item
+  is 'N?mero de orden del Item ENComprobanteDetalle ';
+comment on column AQPA470.aqpa470desc
+  is ' Descripcion del producto ENComprobanteDetalle ';
+comment on column AQPA470.aqpa470corr
+  is 'Correlativo';
+comment on column AQPA470.aqpa470flag
+  is 'Flag Regularizacion S - Regularizacion';
+create index AQPA470A4 on AQPA470 (AQPA470CON);
+create index AQPA470_1 on AQPA470 (AQPA470FEMI);
+create index AQPA470_2 on AQPA470 (AQPA470SERI, AQPA470NUM, AQPA470FEMI);
+create index AQPA4703 on AQPA470 (AQPA470SERIE, AQPA470NRO);
+

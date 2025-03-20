@@ -1,0 +1,33 @@
+create table FPP030
+(
+  pp010prd  NUMBER(3) not null,
+  pp017par  NUMBER(4) not null,
+  pp030emp  NUMBER(3) not null,
+  pp030mod  NUMBER(3) not null,
+  pp030top  NUMBER(3) not null,
+  pp030mda  NUMBER(4) not null,
+  pp030pap  NUMBER(4) not null,
+  pp016tipo CHAR(1) not null,
+  pp016cod  CHAR(10) not null,
+  pp030dsc  CHAR(30),
+  pp030modi CHAR(1),
+  pp030fec3 DATE,
+  pp030fec2 DATE,
+  pp030fec1 DATE,
+  pp030car3 CHAR(30),
+  pp030car2 CHAR(1),
+  pp030car1 CHAR(1),
+  pp030num3 NUMBER(9),
+  pp030num2 NUMBER(9),
+  pp030num1 NUMBER(9),
+  pp030imp3 NUMBER(17,2),
+  pp030imp2 NUMBER(17,2),
+  pp030imp1 NUMBER(17,2),
+  pp030ord  NUMBER(4)
+)
+;
+create index FPP03003 on FPP030 (PP030EMP, PP030MOD, PP030TOP, PP030MDA, PP030PAP);
+create index FPP03004 on FPP030 (PP010PRD, PP017PAR, PP030EMP, PP030MOD, PP030TOP, PP030MDA, PP030PAP, PP016TIPO, PP030ORD);
+alter table FPP030
+  add primary key (PP010PRD, PP017PAR, PP030EMP, PP030MOD, PP030TOP, PP030MDA, PP030PAP, PP016TIPO, PP016COD);
+

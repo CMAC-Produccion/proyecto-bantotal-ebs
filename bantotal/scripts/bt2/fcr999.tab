@@ -1,0 +1,14 @@
+create table FCR999
+(
+  cmxtcod    NUMBER(3) not null,
+  cmxtmod    NUMBER(3) not null,
+  cmxtoper   NUMBER(9) not null,
+  cmxtsbop   NUMBER(3) not null,
+  cmxtopctip NUMBER(2) not null,
+  cmxtopccod NUMBER(3) not null,
+  cmxtopcsts CHAR(1)
+)
+;
+alter table FCR999
+  add primary key (CMXTCOD, CMXTMOD, CMXTOPER, CMXTSBOP, CMXTOPCTIP, CMXTOPCCOD);
+

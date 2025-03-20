@@ -1,0 +1,171 @@
+create table AQPD219
+(
+  aqpd219emp    NUMBER(3) not null,
+  aqpd219mod    NUMBER(3) not null,
+  aqpd219suc    NUMBER(3) not null,
+  aqpd219mda    NUMBER(4) not null,
+  aqpd219pap    NUMBER(4) not null,
+  aqpd219cta    NUMBER(9) not null,
+  aqpd219ope    NUMBER(9) not null,
+  aqpd219top    NUMBER(3) not null,
+  aqpd219sbo    NUMBER(3) not null,
+  aqpd219narm   NUMBER(3),
+  aqpd219capd   NUMBER(18,2),
+  aqpd219segd   NUMBER(18,2),
+  aqpd219intcd  NUMBER(18,2),
+  aqpd219pend   NUMBER(18,2),
+  aqpd219intmd  NUMBER(18,2),
+  aqpd219icvd   NUMBER(18,2),
+  aqpd219otd    NUMBER(18,2),
+  aqpd219otc    NUMBER(18,2),
+  aqpd219capc   NUMBER(18,2),
+  aqpd219segc   NUMBER(18,2),
+  aqpd219intcc  NUMBER(18,2),
+  aqpd219penc   NUMBER(18,2),
+  aqpd219intmc  NUMBER(18,2),
+  aqpd219icvc   NUMBER(18,2),
+  aqpd219capitc NUMBER(18,2),
+  aqpd219ncuo   NUMBER(18),
+  aqpd219esta   NUMBER(4),
+  aqpd219tori   NUMBER(10,6),
+  aqpd219taju   NUMBER(10,6),
+  aqpd219tref   NUMBER(10,6),
+  aqpd219mtopag NUMBER(18,2),
+  aqpd219mtoref NUMBER(18,2),
+  aqpd219mtouc  NUMBER(18,2),
+  aqpd219usuexo CHAR(10),
+  aqpd219usurta CHAR(10),
+  aqpd219capp   NUMBER(4),
+  aqpd219intp   NUMBER(4),
+  aqpd219morp   NUMBER(4),
+  aqpd219icvp   NUMBER(4),
+  aqpd219penp   NUMBER(4),
+  aqpd219capitp NUMBER(4),
+  aqpd219itcod  NUMBER(3) not null,
+  aqpd219itmod  NUMBER(4) not null,
+  aqpd219itsuc  NUMBER(3) not null,
+  aqpd219ittran NUMBER(3) not null,
+  aqpd219itnrel NUMBER(4) not null,
+  aqpd219itfcon DATE not null,
+  aqpd219ithora CHAR(8) not null,
+  aqpd219itucnf CHAR(10) not null,
+  aqpd219usuact CHAR(10),
+  aqpd219fecact DATE,
+  aqpd219fecext DATE,
+  aqpd219est    CHAR(1)
+)
+;
+comment on table AQPD219
+  is 'Tabla de Contabilizacion con Exoneracion de Refinanciados PJM';
+comment on column AQPD219.aqpd219emp
+  is 'Empresa';
+comment on column AQPD219.aqpd219mod
+  is 'Módulo';
+comment on column AQPD219.aqpd219suc
+  is 'Sucursal';
+comment on column AQPD219.aqpd219mda
+  is 'Moneda';
+comment on column AQPD219.aqpd219pap
+  is 'Papel';
+comment on column AQPD219.aqpd219cta
+  is 'Cuenta';
+comment on column AQPD219.aqpd219ope
+  is 'Operación';
+comment on column AQPD219.aqpd219top
+  is 'Tipo de Operación';
+comment on column AQPD219.aqpd219sbo
+  is 'Suboperación';
+comment on column AQPD219.aqpd219narm
+  is 'Número de armadas';
+comment on column AQPD219.aqpd219capd
+  is 'Capital deuda saldo anterior';
+comment on column AQPD219.aqpd219segd
+  is 'Seguro deuda saldo anterior';
+comment on column AQPD219.aqpd219intcd
+  is 'Interes Compensatorio deuda saldo anterior';
+comment on column AQPD219.aqpd219pend
+  is 'Penalidad deuda saldo anterior';
+comment on column AQPD219.aqpd219intmd
+  is 'Int Moratorio deuda saldo anterior';
+comment on column AQPD219.aqpd219icvd
+  is 'ICV deuda saldo anterior';
+comment on column AQPD219.aqpd219otd
+  is 'Otros deuda saldo anterior';
+comment on column AQPD219.aqpd219otc
+  is 'Otros monto condonado';
+comment on column AQPD219.aqpd219capc
+  is 'Capital monto condonado';
+comment on column AQPD219.aqpd219segc
+  is 'Seguro monto condonado';
+comment on column AQPD219.aqpd219intcc
+  is 'Interes Compensatorio monto condonado';
+comment on column AQPD219.aqpd219penc
+  is 'Penalidad monto condonado';
+comment on column AQPD219.aqpd219intmc
+  is 'Interes Moratorio monto condonado';
+comment on column AQPD219.aqpd219icvc
+  is 'ICV monto condonado';
+comment on column AQPD219.aqpd219capitc
+  is 'Capitalizacion monto condonado';
+comment on column AQPD219.aqpd219ncuo
+  is 'Número de cuotas dlya';
+comment on column AQPD219.aqpd219esta
+  is 'Estado Anterior dlya';
+comment on column AQPD219.aqpd219tori
+  is 'tasa Original JAQN8BTAC';
+comment on column AQPD219.aqpd219taju
+  is 'tasa Ajustada JAQN8BTAA';
+comment on column AQPD219.aqpd219tref
+  is 'Tasa Refinanciada';
+comment on column AQPD219.aqpd219mtopag
+  is 'MOnto pagado refinanciación';
+comment on column AQPD219.aqpd219mtoref
+  is 'Monto refinanciado';
+comment on column AQPD219.aqpd219mtouc
+  is 'Monto de ultima cuota JAQN8ATEX';
+comment on column AQPD219.aqpd219usuexo
+  is 'Usuario actuliza exoneracion JAQN8AUSP';
+comment on column AQPD219.aqpd219usurta
+  is 'Usuario autoriza negociacion de tasa JAQN8BUSP';
+comment on column AQPD219.aqpd219capp
+  is 'Porcentaje reducciónde capital';
+comment on column AQPD219.aqpd219intp
+  is 'Porcentaje reducción de Interes Comp.';
+comment on column AQPD219.aqpd219morp
+  is 'Porcentaje reducción de Mora';
+comment on column AQPD219.aqpd219icvp
+  is 'Porcentaje reducción de ICV';
+comment on column AQPD219.aqpd219penp
+  is 'Porcentaje reducción de Penalidad';
+comment on column AQPD219.aqpd219capitp
+  is 'Porcentaje reducciónde Capitalización';
+comment on column AQPD219.aqpd219itcod
+  is 'Transacción de Refinanciación';
+comment on column AQPD219.aqpd219itmod
+  is 'Modulo transacción REF';
+comment on column AQPD219.aqpd219itsuc
+  is 'Sucursal transacción REF';
+comment on column AQPD219.aqpd219ittran
+  is 'Transacción transacción REF';
+comment on column AQPD219.aqpd219itnrel
+  is 'Relación transacción REF';
+comment on column AQPD219.aqpd219itfcon
+  is 'Fecha transacción REF';
+comment on column AQPD219.aqpd219ithora
+  is 'Hora transacción REF';
+comment on column AQPD219.aqpd219itucnf
+  is 'Usuario transacción REF';
+comment on column AQPD219.aqpd219usuact
+  is 'usuario de Actualización';
+comment on column AQPD219.aqpd219fecact
+  is 'Fecha de Actualización';
+comment on column AQPD219.aqpd219fecext
+  is 'Fecha de Extorno';
+comment on column AQPD219.aqpd219est
+  is 'Estado C=contabilizado, E=Extorno';
+create index AQPD219A2 on AQPD219 (AQPD219EMP, AQPD219MOD, AQPD219SUC, AQPD219MDA, AQPD219PAP, AQPD219CTA, AQPD219OPE, AQPD219TOP, AQPD219SBO);
+create index AQPD219A3 on AQPD219 (AQPD219ITCOD, AQPD219ITMOD, AQPD219ITSUC, AQPD219ITTRAN, AQPD219ITNREL, AQPD219ITFCON);
+create index AQPD219A4 on AQPD219 (AQPD219MDA, AQPD219PAP, AQPD219CTA, AQPD219OPE);
+alter table AQPD219
+  add primary key (AQPD219EMP, AQPD219MOD, AQPD219SUC, AQPD219MDA, AQPD219PAP, AQPD219CTA, AQPD219OPE, AQPD219TOP, AQPD219SBO, AQPD219ITCOD, AQPD219ITMOD, AQPD219ITSUC, AQPD219ITTRAN, AQPD219ITNREL, AQPD219ITFCON);
+

@@ -1,0 +1,18 @@
+create table FSFI02
+(
+  sfi01emp   NUMBER(3) not null,
+  sfi02pro   NUMBER(3) not null,
+  sfi02dsc   CHAR(25),
+  sfi02prdia CHAR(1),
+  sfi02dicor CHAR(1),
+  sfi02au1   CHAR(1),
+  sfi02au2   CHAR(1),
+  sfi02au3   NUMBER(9),
+  sfi02au4   NUMBER(9),
+  sfi02au5   CHAR(20),
+  sfi02au6   CHAR(20)
+)
+;
+alter table FSFI02
+  add primary key (SFI01EMP, SFI02PRO);
+

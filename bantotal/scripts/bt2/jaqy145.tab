@@ -1,0 +1,34 @@
+create table JAQY145
+(
+  jaqy145corr   NUMBER(10) not null,
+  jaqy145pgcod  NUMBER(5) not null,
+  jaqy145mod    NUMBER(4) not null,
+  jaqy145suc    NUMBER(10) not null,
+  jaqy145mda    NUMBER(4) not null,
+  jaqy145pap    NUMBER(4) not null,
+  jaqy145cta    NUMBER(10) not null,
+  jaqy145ope    NUMBER(10) not null,
+  jaqy145sbop   NUMBER(10) not null,
+  jaqy145top    NUMBER(10) not null,
+  jaqy145fchcuo DATE,
+  jaqy145fchpag DATE,
+  jaqy145impsg  NUMBER(10,2),
+  jaqy145imp1   NUMBER(10,2),
+  jaqy145imp2   NUMBER(10,2),
+  jaqy145imp3   NUMBER(10,2),
+  jaqy145imp4   NUMBER(10,2),
+  jaqy145imp5   NUMBER(10,2),
+  jaqy145nroc   VARCHAR2(22),
+  jaqy145tit    VARCHAR2(250),
+  jaqy145doc    VARCHAR2(12),
+  jaqy145fnac   DATE,
+  jaqy145fdes   DATE,
+  jaqy145fcan   DATE,
+  jaqy145est    VARCHAR2(50),
+  jaqy145ind    VARCHAR2(2)
+)
+;
+create index JAQY145_IDX2 on JAQY145 (JAQY145PGCOD, JAQY145MOD, JAQY145SUC, JAQY145MDA, JAQY145PAP, JAQY145CTA, JAQY145OPE, JAQY145SBOP, JAQY145TOP);
+alter table JAQY145
+  add constraint JAQY145_IDX1 primary key (JAQY145CORR, JAQY145PGCOD, JAQY145MOD, JAQY145SUC, JAQY145MDA, JAQY145PAP, JAQY145CTA, JAQY145OPE, JAQY145SBOP, JAQY145TOP);
+

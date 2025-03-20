@@ -1,0 +1,11 @@
+create table FBRD03
+(
+  brt01fuemp NUMBER(3) not null,
+  brd03cpcod NUMBER(5) not null,
+  brd03cpdsc CHAR(50),
+  brd03gene  CHAR(1)
+)
+;
+alter table FBRD03
+  add primary key (BRT01FUEMP, BRD03CPCOD);
+

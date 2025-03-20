@@ -1,0 +1,115 @@
+create table AQPB068
+(
+  aqpb068usur    CHAR(10) not null,
+  aqpb068pgcod   NUMBER(3) not null,
+  aqpb068aomod   NUMBER(3) not null,
+  aqpb068aosuc   NUMBER(3) not null,
+  aqpb068aomda   NUMBER(4) not null,
+  aqpb068aopap   NUMBER(4) not null,
+  aqpb068aocta   NUMBER(9) not null,
+  aqpb068aooper  NUMBER(9) not null,
+  aqpb068aosbop  NUMBER(3) not null,
+  aqpb068aotope  NUMBER(3) not null,
+  aqpb068csap    NUMBER(17),
+  aqpb068tdoc    NUMBER(4),
+  aqpb068ndoc    CHAR(12),
+  aqpb068razn    CHAR(50),
+  aqpb068mnto    NUMBER(17,2),
+  aqpb068sdoa    NUMBER(17,2),
+  aqpb068mda     CHAR(10),
+  aqpb068lcan    CHAR(2),
+  aqpb068fcan    DATE,
+  aqpb068sdoc    NUMBER(17,2),
+  aqpb068ldes    CHAR(2),
+  aqpb068fdes    DATE,
+  aqpb068reg     NUMBER(9),
+  aqpb068nreg    CHAR(30),
+  aqpb068zon     NUMBER(9),
+  aqpb068nzon    CHAR(40),
+  aqpb068nsuc    CHAR(30),
+  aqpb068ase     CHAR(10),
+  aqpb068fcr     VARCHAR2(10),
+  aqpb068hcr     VARCHAR2(10),
+  aqpb068stat    NUMBER(2),
+  aqpb068fe99    DATE,
+  aqpb068sdo     NUMBER(17,2),
+  aqpb068fproc   DATE,
+  aqpb068mhonr   NUMBER(17,2),
+  aqpb068fhonr   DATE,
+  aqpb068chonr   CHAR(1),
+  aqpb068sdocap  NUMBER(17,2),
+  aqpb068sdohon  NUMBER(17,2),
+  aqpb068crehon  NUMBER(17,2),
+  aqpb068tmor    NUMBER(5,2),
+  aqpb068tcrepro NUMBER(5,2),
+  aqpb068fcest   DATE
+)
+;
+comment on table AQPB068
+  is 'Tabla reporte FAE MYPE - 2.Reporte de Cancelaciones y Desistimientos';
+comment on column AQPB068.aqpb068usur
+  is 'Usuario que genera el reporte';
+comment on column AQPB068.aqpb068aosuc
+  is '14. Agencia, sucursal';
+comment on column AQPB068.aqpb068aocta
+  is '16. Nro. de cuenta';
+comment on column AQPB068.aqpb068aooper
+  is '17. Nro. de operación';
+comment on column AQPB068.aqpb068csap
+  is '1. Código SAP';
+comment on column AQPB068.aqpb068tdoc
+  is '2. Tipo de Documento';
+comment on column AQPB068.aqpb068ndoc
+  is '2.1. Nro de Documento';
+comment on column AQPB068.aqpb068razn
+  is '3. Apellidos y nombres del cliente (o Razón Social)';
+comment on column AQPB068.aqpb068mnto
+  is '4. Monto de capital reprogramado enviado a COFIDE';
+comment on column AQPB068.aqpb068sdoa
+  is '5. Saldo de capital actual';
+comment on column AQPB068.aqpb068mda
+  is '6. Moneda';
+comment on column AQPB068.aqpb068lcan
+  is '7. Flag de cancelación';
+comment on column AQPB068.aqpb068fcan
+  is '8. Fecha de cancelación ';
+comment on column AQPB068.aqpb068sdoc
+  is '9. Saldo capital cancelado';
+comment on column AQPB068.aqpb068ldes
+  is '10. Flag de desistimiento o extorno';
+comment on column AQPB068.aqpb068fdes
+  is '11. Fecha de desistimiento o extorno';
+comment on column AQPB068.aqpb068reg
+  is '12. Región';
+comment on column AQPB068.aqpb068nreg
+  is '12.1 Región - Nombre';
+comment on column AQPB068.aqpb068zon
+  is '13. Zona  ';
+comment on column AQPB068.aqpb068nzon
+  is '13.1 Zona - Nombre';
+comment on column AQPB068.aqpb068nsuc
+  is '14.1 Agencia(Sucursal) - Nombre';
+comment on column AQPB068.aqpb068ase
+  is '15. Analista';
+comment on column AQPB068.aqpb068mhonr
+  is 'monto honrado';
+comment on column AQPB068.aqpb068fhonr
+  is 'fecha honramiento';
+comment on column AQPB068.aqpb068chonr
+  is 'es credito honrado S/N';
+comment on column AQPB068.aqpb068sdocap
+  is 'saldo capital';
+comment on column AQPB068.aqpb068sdohon
+  is 'Saldo honrado';
+comment on column AQPB068.aqpb068crehon
+  is 'Saldo credito honrado';
+comment on column AQPB068.aqpb068tmor
+  is 'Tasa Interes Moratorio';
+comment on column AQPB068.aqpb068tcrepro
+  is 'Tasa Credito Reprogramado';
+comment on column AQPB068.aqpb068fcest
+  is 'Fecha Cambio de estado';
+create index AQPB0682 on AQPB068 (AQPB068USUR);
+alter table AQPB068
+  add primary key (AQPB068USUR, AQPB068PGCOD, AQPB068AOMOD, AQPB068AOSUC, AQPB068AOMDA, AQPB068AOPAP, AQPB068AOCTA, AQPB068AOOPER, AQPB068AOSBOP, AQPB068AOTOPE);
+

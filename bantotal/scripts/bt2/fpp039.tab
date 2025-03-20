@@ -1,0 +1,29 @@
+create table FPP039
+(
+  pp010prd  NUMBER(3) not null,
+  pp017par  NUMBER(4) not null,
+  pp028emp  NUMBER(3) not null,
+  pp028mod  NUMBER(3) not null,
+  pp028top  NUMBER(3) not null,
+  pp028mda  NUMBER(4) not null,
+  pp028pap  NUMBER(4) not null,
+  pp029suc  NUMBER(3) not null,
+  pp029cta  NUMBER(9) not null,
+  pp029oper NUMBER(9) not null,
+  pp029sop  NUMBER(3) not null,
+  pp033md   NUMBER(3) not null,
+  pp033tp   NUMBER(3) not null,
+  pp037cod  NUMBER(3) not null,
+  pp039vis  CHAR(1),
+  pp039mod  CHAR(1),
+  pp039aux1 NUMBER(17,2),
+  pp039aux2 CHAR(30),
+  pp039aux3 DATE,
+  pp039aux4 CHAR(1),
+  pp039aux5 CHAR(1)
+)
+;
+create index FPP03903 on FPP039 (PP010PRD, PP017PAR, PP028EMP, PP028MOD, PP028TOP, PP028MDA, PP028PAP, PP037COD);
+alter table FPP039
+  add primary key (PP010PRD, PP017PAR, PP028EMP, PP028MOD, PP028TOP, PP028MDA, PP028PAP, PP029SUC, PP029CTA, PP029OPER, PP029SOP, PP033MD, PP033TP, PP037COD);
+

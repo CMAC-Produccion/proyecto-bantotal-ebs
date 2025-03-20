@@ -1,0 +1,19 @@
+create table FSFC22
+(
+  sfc22emp NUMBER(3) not null,
+  sfc22ban NUMBER(3) not null,
+  sfc22dab CHAR(15),
+  sfc22des CHAR(65),
+  sfc22tip CHAR(1),
+  sfc22hab CHAR(1),
+  sfc22a01 NUMBER(9),
+  sfc22a02 NUMBER(9),
+  sfc22a03 DATE,
+  sfc22a04 DATE,
+  sfc22a05 CHAR(1),
+  sfc22a06 CHAR(1)
+)
+;
+alter table FSFC22
+  add primary key (SFC22EMP, SFC22BAN);
+

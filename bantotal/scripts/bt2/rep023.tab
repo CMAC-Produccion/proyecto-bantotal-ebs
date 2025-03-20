@@ -1,0 +1,12 @@
+create table REP023
+(
+  rep022cod  NUMBER(4) not null,
+  rep023cod  NUMBER(4) not null,
+  rep023nom  CHAR(20),
+  rep023prog CHAR(10),
+  rep023defa CHAR(1)
+)
+;
+alter table REP023
+  add primary key (REP022COD, REP023COD);
+

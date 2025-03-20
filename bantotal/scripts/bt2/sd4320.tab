@@ -1,0 +1,17 @@
+create table SD4320
+(
+  sd20coddis NUMBER(4) not null,
+  sd20codent NUMBER(5) not null,
+  sd20fchinf NUMBER(6) not null,
+  sd20tpidct NUMBER(2) not null,
+  sd20nridct NUMBER(11) not null,
+  sd20tpidin NUMBER(2) not null,
+  sd20nridin NUMBER(11) not null,
+  sd20denom  CHAR(55),
+  sd20sinuso CHAR(9),
+  sd20rectif CHAR(1)
+)
+;
+alter table SD4320
+  add primary key (SD20CODDIS, SD20CODENT, SD20FCHINF, SD20TPIDCT, SD20NRIDCT, SD20TPIDIN, SD20NRIDIN);
+

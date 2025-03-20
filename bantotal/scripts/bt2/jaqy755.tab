@@ -1,0 +1,27 @@
+create table JAQY755
+(
+  jaqy755id          NUMBER(15) not null,
+  jaqy755fch_dig     DATE,
+  jaqy755hr_dig      CHAR(8),
+  jaqy755usu_dig     CHAR(50),
+  jaqy755t_doc       NUMBER(2),
+  jaqy755num_doc     CHAR(12),
+  jaqy755nom_cli     CHAR(50),
+  jaqy755desicion    CHAR(2),
+  jaqy755pro_sbs     CHAR(30),
+  jaqy755sald_dmicro NUMBER(18,2),
+  jaqy755aux1        NUMBER(10),
+  jaqy755aux2        NUMBER(10),
+  jaqy755aux3        NUMBER(10),
+  jaqy755aux4        CHAR(50),
+  jaqy755aux5        CHAR(50),
+  jaqy755aux6        CHAR(50),
+  jaqy755aux7        DATE,
+  jaqy755aux8        DATE,
+  jaqy755aux9        DATE
+)
+;
+create index JAQY7551 on JAQY755 (JAQY755NUM_DOC, JAQY755USU_DIG, JAQY755FCH_DIG, JAQY755ID);
+alter table JAQY755
+  add primary key (JAQY755ID);
+

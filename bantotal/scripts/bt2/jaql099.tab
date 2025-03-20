@@ -1,0 +1,35 @@
+create table JAQL099
+(
+  jaql99fepr            DATE not null,
+  codproductocobro99    CHAR(4) not null,
+  numcertificadocobro99 CHAR(10) not null,
+  numcuotacobro99       CHAR(4) not null,
+  idtitularcta99        CHAR(11),
+  tipoid99              CHAR(3),
+  tipocta99             CHAR(3),
+  numcta99              CHAR(27),
+  numtarjeta99          CHAR(16),
+  montoprimacuota99     CHAR(5),
+  fecemisioncuota99     CHAR(8),
+  fecpagocuota99        CHAR(8),
+  docdeposito99         CHAR(30),
+  fecdeposito99         CHAR(8),
+  coderror99            CHAR(4),
+  descerror99           CHAR(80),
+  jaql99au01            CHAR(50),
+  jaql99itmo            NUMBER(3),
+  jaql99ittr            NUMBER(3),
+  jaql99itre            NUMBER(4)
+)
+;
+create index IJAQL99000100_2 on JAQL099 (NUMCTA99, CODERROR99)
+  compress;
+create index IJAQL99000101_2 on JAQL099 (JAQL99FEPR, JAQL99ITMO, JAQL99ITTR, JAQL99ITRE)
+  compress;
+create index IJAQL99000102_2 on JAQL099 (JAQL99FEPR, CODPRODUCTOCOBRO99, NUMCTA99, JAQL99ITMO, JAQL99ITTR, JAQL99ITRE)
+  compress;
+create index IJAQL99000103_2 on JAQL099 (NUMCTA99, JAQL99ITRE)
+  compress;
+create unique index JAQL099_02 on JAQL099 (JAQL99FEPR, CODPRODUCTOCOBRO99, NUMCERTIFICADOCOBRO99, NUMCUOTACOBRO99)
+  compress 3;
+

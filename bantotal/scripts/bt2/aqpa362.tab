@@ -1,0 +1,100 @@
+create table AQPA362
+(
+  aqpa362corr    NUMBER(4) not null,
+  aqpa362horar   CHAR(10),
+  aqpa362fec     DATE not null,
+  aqpa362hora    CHAR(10) not null,
+  aqpa362user    VARCHAR2(12),
+  aqpa362pais    NUMBER(4) not null,
+  aqpa362tdoc    NUMBER(4) not null,
+  aqpa362ndoc    VARCHAR2(12) not null,
+  aqpa362tcamb   NUMBER(14,8),
+  aqpa362inst    NUMBER(12) not null,
+  aqpa362feval   DATE,
+  aqpa362fical   DATE,
+  aqpa362pgcod   NUMBER(4),
+  aqpa362mod     NUMBER(4),
+  aqpa362suc     NUMBER(4),
+  aqpa362mda     NUMBER(4),
+  aqpa362pap     NUMBER(4),
+  aqpa362cta     NUMBER(10),
+  aqpa362ope     NUMBER(10),
+  aqpa362sbop    NUMBER(4),
+  aqpa362tope    NUMBER(4),
+  aqpa362ori     NUMBER(4),
+  aqpa362ncuo    NUMBER(4),
+  aqpa362est     VARCHAR2(2),
+  aqpa362tarea   VARCHAR2(4),
+  aqpa362indcred VARCHAR2(15),
+  aqpa362naux1   NUMBER(17,2),
+  aqpa362naux2   NUMBER(17,2),
+  aqpa362naux3   NUMBER(17,2),
+  aqpa362vaux1   VARCHAR2(25),
+  aqpa362vaux2   VARCHAR2(25),
+  aqpa362vaux3   VARCHAR2(25),
+  aqpa362daux1   DATE,
+  aqpa362daux2   DATE,
+  aqpa362daux3   DATE
+)
+;
+comment on column AQPA362.aqpa362corr
+  is 'Correlativo';
+comment on column AQPA362.aqpa362fec
+  is 'Fecha de Proceso';
+comment on column AQPA362.aqpa362hora
+  is 'Hora de Proceso';
+comment on column AQPA362.aqpa362user
+  is 'Usuario';
+comment on column AQPA362.aqpa362pais
+  is 'Pais de Documento';
+comment on column AQPA362.aqpa362tdoc
+  is 'Tipo de Documento';
+comment on column AQPA362.aqpa362ndoc
+  is 'Nro de Documento';
+comment on column AQPA362.aqpa362tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column AQPA362.aqpa362inst
+  is 'Nro de Instancia';
+comment on column AQPA362.aqpa362feval
+  is 'Fecha de Evaluacion';
+comment on column AQPA362.aqpa362fical
+  is 'Fecha de Inicio de Calendario para calculo de Ratio';
+comment on column AQPA362.aqpa362pgcod
+  is 'Pgcod del Credito';
+comment on column AQPA362.aqpa362mod
+  is 'Modulo del Credito';
+comment on column AQPA362.aqpa362suc
+  is 'Sucursal del Credito';
+comment on column AQPA362.aqpa362mda
+  is 'Moneda del Credito';
+comment on column AQPA362.aqpa362pap
+  is 'Papel del Credito';
+comment on column AQPA362.aqpa362cta
+  is 'Cuenta del Credito';
+comment on column AQPA362.aqpa362ope
+  is 'Operacion del Credito';
+comment on column AQPA362.aqpa362sbop
+  is 'Sub Operacion del Credito';
+comment on column AQPA362.aqpa362tope
+  is 'Tipo de Operacion del Credito';
+comment on column AQPA362.aqpa362ori
+  is 'Ori - Tipo de Solicitud';
+comment on column AQPA362.aqpa362ncuo
+  is 'Nro de Cuotas o Preseteo';
+comment on column AQPA362.aqpa362est
+  is 'Estado H(Habilitado) ultimo ejecutado, I (Inhabilitado) ejecutado anteriormente';
+comment on column AQPA362.aqpa362tarea
+  is 'De donde se saco la data, OT otorgamiento DP ultima disposicion AC actualizacion';
+comment on column AQPA362.aqpa362indcred
+  is 'Indicador del Credito';
+comment on column AQPA362.aqpa362naux1
+  is 'Monto Cuota Periodo Max Ratio';
+comment on column AQPA362.aqpa362naux3
+  is 'Monto Cuota Adicional para Lineas';
+create index AQPA3622 on AQPA362 (AQPA362PGCOD, AQPA362MOD, AQPA362SUC, AQPA362MDA, AQPA362PAP, AQPA362CTA, AQPA362OPE, AQPA362SBOP, AQPA362TOPE);
+create index AQPA3623 on AQPA362 (AQPA362FEC, AQPA362PAIS, AQPA362TDOC, AQPA362NDOC, AQPA362INST);
+create index AQPA3624 on AQPA362 (AQPA362INST, AQPA362PGCOD, AQPA362MOD, AQPA362SUC, AQPA362MDA, AQPA362PAP, AQPA362CTA, AQPA362OPE, AQPA362SBOP, AQPA362TOPE);
+create index AQPA3625 on AQPA362 (AQPA362PAIS, AQPA362TDOC, AQPA362NDOC, AQPA362INDCRED);
+alter table AQPA362
+  add primary key (AQPA362CORR, AQPA362FEC, AQPA362PAIS, AQPA362TDOC, AQPA362NDOC, AQPA362INST, AQPA362HORA);
+

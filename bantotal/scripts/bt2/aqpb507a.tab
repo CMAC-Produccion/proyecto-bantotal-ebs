@@ -1,0 +1,33 @@
+create table AQPB507A
+(
+  aqpb507acodcar VARCHAR2(16) not null,
+  aqpb507aclndoc CHAR(12) not null,
+  aqpb507avindoc CHAR(12) not null,
+  aqpb507aviges  CHAR(1) not null,
+  aqpb507aanio   NUMBER(4) not null,
+  aqpb507ames    NUMBER(2) not null,
+  aqpb507acorr   NUMBER(12) not null,
+  aqpb507aclsbs  VARCHAR2(10),
+  aqpb507aclpais NUMBER(3),
+  aqpb507acltdoc VARCHAR2(30),
+  aqpb507aclnom  VARCHAR2(160),
+  aqpb507acltper VARCHAR2(3),
+  aqpb507acldir  VARCHAR2(260),
+  aqpb507aclrleg VARCHAR2(160),
+  aqpb507acldeu  NUMBER(18,2),
+  aqpb507avisbs  VARCHAR2(10),
+  aqpb507avipais NUMBER(3),
+  aqpb507avitdoc VARCHAR2(30),
+  aqpb507avinom  VARCHAR2(160),
+  aqpb507avitper VARCHAR2(3),
+  aqpb507avidir  VARCHAR2(260),
+  aqpb507aviacc  NUMBER(9,5),
+  aqpb507acargo  NUMBER(3),
+  aqpb507aocarg  NUMBER(3),
+  aqpb507avideu  NUMBER(18,2),
+  aqpb507avirnk  NUMBER(4) not null
+)
+;
+alter table AQPB507A
+  add primary key (AQPB507ACODCAR, AQPB507ACLNDOC, AQPB507AVINDOC, AQPB507AVIGES);
+

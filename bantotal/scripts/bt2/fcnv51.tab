@@ -1,0 +1,36 @@
+create table FCNV51
+(
+  cnv50num   NUMBER(10) not null,
+  cnv51pgcod NUMBER(3) not null,
+  cnv51mod   NUMBER(3) not null,
+  cnv51suc   NUMBER(3) not null,
+  cnv51mda   NUMBER(4) not null,
+  cnv51pap   NUMBER(4) not null,
+  cnv51cta   NUMBER(9) not null,
+  cnv51ope   NUMBER(9) not null,
+  cnv51sbop  NUMBER(3) not null,
+  cnv51tope  NUMBER(3) not null,
+  cnv51prvto DATE,
+  cnv51acc   CHAR(1),
+  cnv51est   CHAR(1),
+  cnv51tasa  NUMBER(10,6),
+  cnv51vcuo  NUMBER(17,2),
+  cnv51ccuo  NUMBER(5),
+  cnv51fvto  DATE,
+  cnv51cuob  NUMBER(17,2),
+  cnv51cmod  NUMBER(3),
+  cnv51ctrn  NUMBER(3),
+  cnv51crel  NUMBER(4),
+  cnv51csuc  NUMBER(3),
+  cnv51cfec  DATE,
+  cnv51cap   NUMBER(17,2),
+  cnv51nsbop NUMBER(3),
+  cnv51fval  DATE,
+  cnv51cor   NUMBER(5),
+  cnv51obs   CHAR(1)
+)
+;
+create index FCNV5103 on FCNV51 (CNV50NUM, CNV51COR);
+alter table FCNV51
+  add primary key (CNV50NUM, CNV51PGCOD, CNV51MOD, CNV51SUC, CNV51MDA, CNV51PAP, CNV51CTA, CNV51OPE, CNV51SBOP, CNV51TOPE);
+

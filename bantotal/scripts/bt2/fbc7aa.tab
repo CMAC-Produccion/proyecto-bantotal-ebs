@@ -1,0 +1,44 @@
+create table FBC7AA
+(
+  bc7aaemp  NUMBER(3) not null,
+  bc7aamod  NUMBER(3) not null,
+  bc7aasuc  NUMBER(3) not null,
+  bc7aamda  NUMBER(4) not null,
+  bc7aapap  NUMBER(4) not null,
+  bc7aacta  NUMBER(9) not null,
+  bc7aaoper NUMBER(9) not null,
+  bc7aasbop NUMBER(3) not null,
+  bc7aatope NUMBER(3) not null,
+  bc7aarub  NUMBER(16),
+  bc7aaori  CHAR(1),
+  bc7aatemp CHAR(3),
+  bc7aatact NUMBER(5),
+  bc7aacata CHAR(2),
+  bc7aacodt NUMBER(2),
+  bc7aacodd CHAR(1),
+  bc7aacods CHAR(1),
+  bc7aacodp NUMBER(3),
+  bc7aaclar CHAR(2),
+  bc7aafevc DATE,
+  bc7aacati CHAR(2),
+  bc7aacupf CHAR(30),
+  bc7aacupc NUMBER(17,2),
+  bc7aaporp NUMBER(14,2),
+  bc7aavaln NUMBER(14,2),
+  bc7aavala NUMBER(14,2),
+  bc7aavalm NUMBER(14,2),
+  bc7aaamoa NUMBER(14,2),
+  bc7aaprov NUMBER(14,2),
+  bc7aavalv NUMBER(14,2),
+  bc7aafche DATE,
+  bc7aafcha DATE,
+  bc7aabang CHAR(50),
+  bc7aatick CHAR(40),
+  bc7aacup  CHAR(10),
+  bc7aapais NUMBER(3)
+)
+;
+create index FBC7AA02 on FBC7AA (BC7AAEMP, BC7AACTA, BC7AAMOD, BC7AAMDA, BC7AAOPER, BC7AASBOP, BC7AASUC, BC7AAPAP, BC7AATOPE);
+alter table FBC7AA
+  add primary key (BC7AAEMP, BC7AAMOD, BC7AASUC, BC7AAMDA, BC7AAPAP, BC7AACTA, BC7AAOPER, BC7AASBOP, BC7AATOPE);
+

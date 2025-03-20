@@ -1,0 +1,94 @@
+create table JAQL052
+(
+  jaql52fepr            DATE not null,
+  jaql52hora            VARCHAR2(8) not null,
+  ftin                  VARCHAR2(50),
+  fcountrytin           VARCHAR2(2),
+  ffirstname            VARCHAR2(50),
+  flastname             VARCHAR2(50),
+  fcountrycode          VARCHAR2(2),
+  faddressfree          VARCHAR2(150),
+  fcity                 VARCHAR2(20),
+  fbirthdate            VARCHAR2(10),
+  jtin                  VARCHAR2(50),
+  jname                 VARCHAR2(70),
+  reportingfi           VARCHAR2(50),
+  reportinggroup        VARCHAR2(50),
+  docspec               VARCHAR2(10),
+  docrefid              VARCHAR2(10),
+  accountnumber         VARCHAR2(30),
+  accountholder         VARCHAR2(2),
+  acctholdertype        VARCHAR2(10),
+  substantialowner      VARCHAR2(100),
+  accountbalance        VARCHAR2(20),
+  currcode_ab           VARCHAR2(3),
+  type                  VARCHAR2(10),
+  paymentamnt           VARCHAR2(20),
+  currcode_paymentamnt  VARCHAR2(3),
+  gdocspec              VARCHAR2(10),
+  accountcount          VARCHAR2(5),
+  accountpoolreporttype VARCHAR2(10),
+  poolbalance           VARCHAR2(20),
+  currcode_poolbalance  VARCHAR2(3)
+)
+;
+comment on table JAQL052
+  is 'FATCA';
+comment on column JAQL052.jaql52fepr
+  is 'Fecha de Proceso';
+comment on column JAQL052.jaql52hora
+  is 'Hora de Proceso';
+comment on column JAQL052.ftin
+  is 'Persona F?sica Tax Identification Number';
+comment on column JAQL052.fcountrytin
+  is 'Persona F?sica Country code associated with TIN';
+comment on column JAQL052.ffirstname
+  is 'Persona F?sica first name for an Individual Account Holder';
+comment on column JAQL052.flastname
+  is 'Persona F?sica Individual Account Holder?s last name';
+comment on column JAQL052.fcountrycode
+  is 'Persona F?sica Country code associated with the account holder?s address';
+comment on column JAQL052.faddressfree
+  is 'Persona F?sica This data element allows input of address information in free text';
+comment on column JAQL052.fcity
+  is 'Persona F?sica Postal Code';
+comment on column JAQL052.fbirthdate
+  is 'Persona F?sica AAAA-MM-DD';
+comment on column JAQL052.jtin
+  is 'Persona Juridica Tax Identification Number';
+comment on column JAQL052.jname
+  is 'Persona Juridica Legal name of the entity that is reporting or being reported on.';
+comment on column JAQL052.docspec
+  is 'Identifies the particular report within the FATCA message being transmitted';
+comment on column JAQL052.docrefid
+  is 'Unique identifier of the specific report';
+comment on column JAQL052.accountnumber
+  is 'Provide the account number used by the financial institution to identify the account holder or payee';
+comment on column JAQL052.accountholder
+  is 'This data element identifies an entity account holder or payee';
+comment on column JAQL052.acctholdertype
+  is 'This data element identifies an entity account holder or payee';
+comment on column JAQL052.substantialowner
+  is 'Provide the name of any specified U.S. owners of an owner documented FI, substantial US
+owners or controlling U.S. persons of a passive NFFE';
+comment on column JAQL052.accountbalance
+  is 'Provide the account balance or value of the reported financial account';
+comment on column JAQL052.currcode_ab
+  is '3 digit currency code';
+comment on column JAQL052.type
+  is 'Identify the payment type';
+comment on column JAQL052.paymentamnt
+  is 'Payment Amounts are entered with 2-digit fractional amounts of the currency in question';
+comment on column JAQL052.currcode_paymentamnt
+  is '3 digit currency code';
+comment on column JAQL052.gdocspec
+  is 'Identifies the particular report within the FATCA message being transmitted';
+comment on column JAQL052.accountcount
+  is 'Provides the number of accounts that are associated with the pool';
+comment on column JAQL052.accountpoolreporttype
+  is 'Describes the type of status of the account holders or payees that are described within the pooled report';
+comment on column JAQL052.poolbalance
+  is 'The pool balance is the amount of the aggregate balance or value of all accounts within the reported pool';
+comment on column JAQL052.currcode_poolbalance
+  is '3 digit currency code';
+

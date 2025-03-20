@@ -1,0 +1,15 @@
+create table JMBT145
+(
+  jmb144emp  NUMBER(3) not null,
+  jmb144regc NUMBER(3) not null,
+  jmbt145ofi NUMBER(3) not null,
+  jmb145suc  CHAR(1),
+  jmb145usu  CHAR(10),
+  jmb145fch  DATE,
+  jmb145hor  CHAR(8),
+  jmb145hab  CHAR(1)
+)
+;
+alter table JMBT145
+  add primary key (JMB144EMP, JMB144REGC, JMBT145OFI);
+

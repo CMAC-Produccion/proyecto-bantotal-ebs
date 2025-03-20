@@ -1,0 +1,14 @@
+create table IBSTACK
+(
+  cnl000cod  NUMBER(4) not null,
+  cnl001usu  CHAR(30) not null,
+  ibusrsess  CHAR(100) not null,
+  ibstacknum NUMBER(2) not null,
+  ibstackprc CHAR(60) not null,
+  ibstacktsk CHAR(60) not null,
+  ibstackctx VARCHAR2(4000) not null
+)
+;
+create unique index IBSTACK01 on IBSTACK (CNL000COD, CNL001USU, IBUSRSESS, IBSTACKNUM);
+create index IBSTACK02 on IBSTACK (CNL000COD);
+

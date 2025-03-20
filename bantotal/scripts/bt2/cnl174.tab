@@ -1,0 +1,21 @@
+create table CNL174
+(
+  cnl001pad NUMBER(3) not null,
+  cnl001tad NUMBER(2) not null,
+  cnl001dad CHAR(64) not null,
+  cnl032cod NUMBER(3) not null,
+  cnl172grp CHAR(20) not null,
+  cnl170lfu CHAR(20) not null,
+  cnl005cod NUMBER(6) not null,
+  cnl177tar NUMBER(4) not null,
+  cnl174ldt CHAR(1) not null,
+  cnl174hab CHAR(1) not null,
+  cnl174wfe CHAR(5) not null,
+  cnl174wfp NUMBER(4) not null,
+  cnl174wfn NUMBER(10) not null,
+  cnl174wfi NUMBER(10) not null
+)
+;
+create unique index CNL17401 on CNL174 (CNL001PAD, CNL001TAD, CNL001DAD, CNL032COD, CNL172GRP, CNL170LFU, CNL005COD, CNL177TAR);
+create index CNL17402 on CNL174 (CNL170LFU, CNL005COD, CNL177TAR);
+

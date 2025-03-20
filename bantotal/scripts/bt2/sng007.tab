@@ -1,0 +1,30 @@
+create table SNG007
+(
+  sng007inst NUMBER(10) not null,
+  sng007movi NUMBER(4),
+  sng007vvta NUMBER(17,2),
+  sng007cuoi NUMBER(17,2),
+  sng007mvta NUMBER(2),
+  sng007acon NUMBER(8,2),
+  sng007atot NUMBER(8,2),
+  sng007vedf NUMBER(17,2),
+  sng007vter NUMBER(17,2),
+  sng007ocom NUMBER(17,2),
+  sng007vtas NUMBER(17,2),
+  sng007vrea NUMBER(17,2),
+  sng007dcvi NUMBER(4),
+  sng016cod  NUMBER(4),
+  sng007vlte NUMBER(17,2),
+  sng007grpe NUMBER(7),
+  sng007auxn NUMBER(9),
+  sng007auxi NUMBER(17,2),
+  sng007auxc CHAR(30),
+  sng007emig NUMBER(9),
+  sng007regp CHAR(1),
+  sng007dirc NUMBER(10)
+)
+;
+create index SNG00702 on SNG007 (SNG016COD);
+alter table SNG007
+  add primary key (SNG007INST);
+

@@ -1,0 +1,29 @@
+create table JAQL704
+(
+  jaql704tita CHAR(4) not null,
+  jaql704titr NUMBER(3) not null,
+  jaql704plaz CHAR(1) not null,
+  jaql704tipe NUMBER(1) not null,
+  jaql704cana NUMBER(2) not null,
+  jaql704prod NUMBER(3) not null,
+  jaql704conc NUMBER(3) not null,
+  jaql704fevi DATE,
+  jaql704como NUMBER(3),
+  jaql704coco NUMBER(3),
+  jaql704au01 CHAR(50),
+  jaql704au02 CHAR(50),
+  jaql704au03 CHAR(50),
+  jaql704au04 NUMBER(9),
+  jaql704au05 NUMBER(9),
+  jaql704au06 NUMBER(9),
+  jaql704au07 NUMBER(17,2),
+  jaql704au08 NUMBER(17,2),
+  jaql704au09 NUMBER(17,2),
+  jaql704au10 DATE,
+  jaql704au11 DATE,
+  jaql704au12 DATE
+)
+;
+alter table JAQL704
+  add primary key (JAQL704TITA, JAQL704TITR, JAQL704PLAZ, JAQL704TIPE, JAQL704CANA, JAQL704PROD, JAQL704CONC);
+

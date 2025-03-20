@@ -1,0 +1,27 @@
+create table DEPE300
+(
+  depe300tip NUMBER(1) not null,
+  depe300for NUMBER(1) not null,
+  depe300fec DATE not null,
+  depe300hor CHAR(8) not null,
+  depe300mda NUMBER(4) not null,
+  depe300usr CHAR(10),
+  depe300hab CHAR(1),
+  depe300nu1 NUMBER(9),
+  depe300nu2 NUMBER(9),
+  depe300nu3 NUMBER(9),
+  depe300ch1 VARCHAR2(150),
+  depe300ch2 VARCHAR2(150),
+  depe300ch3 VARCHAR2(150),
+  depe300dt1 DATE,
+  depe300dt2 DATE,
+  depe300dt3 DATE,
+  depe300im1 NUMBER(17,2),
+  depe300im2 NUMBER(17,2),
+  depe300im3 NUMBER(17,2)
+)
+;
+create index DEPE3002 on DEPE300 (DEPE300TIP, DEPE300FOR, DEPE300MDA);
+alter table DEPE300
+  add primary key (DEPE300TIP, DEPE300FOR, DEPE300FEC, DEPE300HOR, DEPE300MDA);
+

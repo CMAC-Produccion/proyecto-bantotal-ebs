@@ -1,0 +1,29 @@
+create table FBC600
+(
+  bc600pais NUMBER(3) not null,
+  bc600tip  NUMBER(2) not null,
+  bc600ndoc CHAR(12) not null,
+  bc600nom  CHAR(30),
+  bc600exc  CHAR(1),
+  bc600usr  CHAR(10),
+  bc600usr2 CHAR(10),
+  bc600fch  DATE,
+  bc600fch2 DATE,
+  bc600fch3 DATE,
+  bc600aut  CHAR(1),
+  bc600sit  CHAR(1),
+  bc600chr1 CHAR(60),
+  bc600chr2 CHAR(60),
+  bc600chr3 CHAR(60),
+  bc600chr4 CHAR(60),
+  bc600chr5 CHAR(80),
+  bc600nr1  NUMBER(17,2),
+  bc600nr2  NUMBER(17,2),
+  bc600fch4 DATE,
+  bc600apb  CHAR(1),
+  bc600usr3 CHAR(10)
+)
+;
+alter table FBC600
+  add primary key (BC600PAIS, BC600TIP, BC600NDOC);
+

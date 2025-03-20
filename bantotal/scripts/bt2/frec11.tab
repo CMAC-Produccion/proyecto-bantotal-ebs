@@ -1,0 +1,16 @@
+create table FREC11
+(
+  rec02cod NUMBER(9) not null,
+  rec03cod NUMBER(3) not null,
+  rec11pnd CHAR(25) not null,
+  rec11ppa NUMBER(3),
+  rec11ptd NUMBER(2),
+  rec11cta NUMBER(9),
+  rec11ref CHAR(20),
+  rec11nom CHAR(30),
+  rec11rso CHAR(70)
+)
+;
+alter table FREC11
+  add primary key (REC02COD, REC03COD, REC11PND);
+

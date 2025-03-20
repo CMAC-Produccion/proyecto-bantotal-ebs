@@ -1,0 +1,38 @@
+create table FBRE05
+(
+  brt01fuemp NUMBER(3) not null,
+  brd05rqcor NUMBER(10) not null,
+  bre05excor NUMBER(5) not null,
+  bre05extbl CHAR(10),
+  bre05exdsc CHAR(50),
+  bre05nro01 NUMBER(5),
+  bre05nro02 NUMBER(5),
+  bre05nro03 NUMBER(5),
+  bre05nro04 NUMBER(5),
+  bre05nro05 NUMBER(5),
+  bre05nro06 NUMBER(10),
+  bre05nro07 NUMBER(10),
+  bre05nro08 NUMBER(10),
+  bre05nro09 NUMBER(16),
+  bre05nro10 NUMBER(16),
+  bre05imp01 NUMBER(17,2),
+  bre05imp02 NUMBER(17,2),
+  bre05imp03 NUMBER(17,2),
+  bre05imp04 NUMBER(17,2),
+  bre05imp05 NUMBER(17,2),
+  bre05chr01 CHAR(50),
+  bre05chr02 CHAR(140),
+  bre05chr03 CHAR(50),
+  bre05chr04 CHAR(50),
+  bre05chr05 CHAR(50),
+  bre05fch01 DATE,
+  bre05fch02 DATE,
+  bre05fch03 DATE,
+  bre05fch04 DATE,
+  bre05fch05 DATE
+)
+;
+create index FBRE0503 on FBRE05 (BRT01FUEMP, BRE05EXCOR, BRE05NRO01, BRE05NRO02, BRE05NRO03, BRE05NRO04, BRE05NRO05, BRE05NRO06, BRE05NRO07, BRE05NRO08, BRE05NRO09, BRE05NRO10);
+alter table FBRE05
+  add primary key (BRT01FUEMP, BRD05RQCOR, BRE05EXCOR);
+

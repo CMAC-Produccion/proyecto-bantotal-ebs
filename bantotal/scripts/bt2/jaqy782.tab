@@ -1,0 +1,27 @@
+create table JAQY782
+(
+  jaqy782pgc    INTEGER not null,
+  jaqy782mod    INTEGER not null,
+  jaqy782suc    INTEGER not null,
+  jaqy782mda    INTEGER not null,
+  jaqy782pap    INTEGER not null,
+  jaqy782cta    INTEGER not null,
+  jaqy782ope    INTEGER not null,
+  jaqy782sbo    INTEGER not null,
+  jaqy782top    INTEGER not null,
+  jaqy782sgc    INTEGER not null,
+  jaqy782fchdes DATE,
+  jaqy782fchsis DATE not null,
+  jaqy782hrasis CHAR(8) not null,
+  jaqy782upr    CHAR(10),
+  jaqy782est    CHAR(1) not null,
+  jaqy782uca    CHAR(10),
+  jaqy782ctrl   VARCHAR2(1)
+)
+;
+create index JAQY78201 on JAQY782 (JAQY782PGC, JAQY782MOD, JAQY782SUC, JAQY782MDA, JAQY782PAP, JAQY782CTA, JAQY782OPE, JAQY782SBO, JAQY782TOP);
+create index JAQY78202 on JAQY782 (JAQY782FCHSIS);
+create index JAQY78203 on JAQY782 (JAQY782PGC, JAQY782MOD, JAQY782SUC, JAQY782MDA, JAQY782PAP, JAQY782CTA, JAQY782OPE, JAQY782SBO, JAQY782TOP, JAQY782FCHSIS, JAQY782EST);
+alter table JAQY782
+  add constraint JAQY782_PK primary key (JAQY782PGC, JAQY782MOD, JAQY782SUC, JAQY782MDA, JAQY782PAP, JAQY782CTA, JAQY782OPE, JAQY782SBO, JAQY782TOP, JAQY782SGC, JAQY782FCHSIS, JAQY782HRASIS, JAQY782EST);
+

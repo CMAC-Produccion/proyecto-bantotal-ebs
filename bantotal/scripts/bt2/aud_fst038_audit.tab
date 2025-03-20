@@ -1,0 +1,21 @@
+create table AUD_FST038_AUDIT
+(
+  aud_old_relcod     NUMBER(3),
+  aud_new_relcod     NUMBER(3),
+  aud_old_relnom     CHAR(30),
+  aud_new_relnom     CHAR(30),
+  aud_fst038_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst038_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst038_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst038_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst038_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst038_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst038_ubu     VARCHAR2(50) default USER not null,
+  aud_fst038_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst038_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst038_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst038_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst038_uas     CHAR(1) default 'I' not null
+)
+;
+

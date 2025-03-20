@@ -1,0 +1,76 @@
+create table AQPA135
+(
+  aqpa135seq NUMBER(9) not null,
+  aqpa135pai NUMBER(3),
+  aqpa135tpo NUMBER(2),
+  aqpa135num CHAR(12),
+  aqpa135pah NUMBER(3),
+  aqpa135tph NUMBER(2),
+  aqpa135nuh CHAR(12),
+  aqpa135dig CHAR(1),
+  aqpa135est CHAR(1),
+  aqpa135fec DATE,
+  aqpa135hor CHAR(8),
+  aqpa135age NUMBER(3),
+  aqpa135usu CHAR(10),
+  aqpa135ax1 NUMBER(9),
+  aqpa135ax2 NUMBER(9),
+  aqpa135ax3 NUMBER(17,2),
+  aqpa135ax4 NUMBER(17,2),
+  aqpa135ax5 DATE,
+  aqpa135ax6 DATE,
+  aqpa135ax7 CHAR(100),
+  aqpa135ax8 CHAR(100),
+  aqpa135ax9 CHAR(100)
+)
+;
+comment on table AQPA135
+  is 'LOG DE VALIDACION DIGITO DNI DE TRABAJADORES';
+comment on column AQPA135.aqpa135seq
+  is 'SECUENCIAL';
+comment on column AQPA135.aqpa135pai
+  is 'PAIS TRABAJADOR';
+comment on column AQPA135.aqpa135tpo
+  is 'TIPO DOCUMENTO TRABAJADOR';
+comment on column AQPA135.aqpa135num
+  is 'DOCUMENTO TRABAJADOR';
+comment on column AQPA135.aqpa135pah
+  is 'PAIS HIJO';
+comment on column AQPA135.aqpa135tph
+  is 'TIDPO DOCUMENTO DEL HIJO';
+comment on column AQPA135.aqpa135nuh
+  is 'DOCUEMNTO DELHIJO';
+comment on column AQPA135.aqpa135dig
+  is 'DIGITO DE CONTROL';
+comment on column AQPA135.aqpa135est
+  is 'ESTADO';
+comment on column AQPA135.aqpa135fec
+  is 'FECHA DE REGISTRO';
+comment on column AQPA135.aqpa135hor
+  is 'HORA DE REGISTRO';
+comment on column AQPA135.aqpa135age
+  is 'AGENCIA';
+comment on column AQPA135.aqpa135usu
+  is 'USUARIO';
+comment on column AQPA135.aqpa135ax1
+  is 'AUXILIAR';
+comment on column AQPA135.aqpa135ax2
+  is 'AUXILIAR';
+comment on column AQPA135.aqpa135ax3
+  is 'AUXILIAR';
+comment on column AQPA135.aqpa135ax4
+  is 'AUXILIAR';
+comment on column AQPA135.aqpa135ax5
+  is 'AUXILIAR';
+comment on column AQPA135.aqpa135ax6
+  is 'AUXILIAR';
+comment on column AQPA135.aqpa135ax7
+  is 'AUXILIAR';
+comment on column AQPA135.aqpa135ax8
+  is 'AUXILIAR';
+comment on column AQPA135.aqpa135ax9
+  is 'AUXILIAR';
+create index AQPA135A2 on AQPA135 (AQPA135PAI, AQPA135TPO, AQPA135NUM, AQPA135PAH, AQPA135TPH, AQPA135NUH);
+alter table AQPA135
+  add primary key (AQPA135SEQ);
+

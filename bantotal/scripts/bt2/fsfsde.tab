@@ -1,0 +1,27 @@
+create table FSFSDE
+(
+  sfsdeemp  NUMBER(3) not null,
+  sfsdesuc  NUMBER(3) not null,
+  sfsdemod  NUMBER(3) not null,
+  sfsdetrn  NUMBER(3) not null,
+  sfsderel  NUMBER(4) not null,
+  sfsdefcon DATE not null,
+  sfsdeord  NUMBER(2) not null,
+  sfsdesubo NUMBER(3) not null,
+  sfsdetmer NUMBER(3) not null,
+  sfsdemsje NUMBER(4) not null,
+  sfsdefluj CHAR(1) not null,
+  sfsdelong NUMBER(4),
+  sfsdeage  NUMBER(3),
+  sfsdeoper NUMBER(2),
+  sfsdefech DATE,
+  sfsdehora CHAR(6),
+  sfsdesec  NUMBER(5),
+  sfsdeest  CHAR(3),
+  sfsdeobs  CHAR(30),
+  sfsdedato CHAR(250)
+)
+;
+alter table FSFSDE
+  add primary key (SFSDEEMP, SFSDESUC, SFSDEMOD, SFSDETRN, SFSDEREL, SFSDEFCON, SFSDEORD, SFSDESUBO, SFSDETMER, SFSDEMSJE, SFSDEFLUJ);
+

@@ -1,0 +1,27 @@
+create table AQPC328
+(
+  aqpc328fcg DATE not null,
+  aqpc328ndo CHAR(12) not null,
+  aqpc328ap1 CHAR(30),
+  aqpc328ap2 CHAR(30),
+  aqpc328no1 CHAR(25),
+  aqpc328no2 CHAR(25)
+)
+;
+comment on table AQPC328
+  is 'Relación de clientes tarjeta platinum';
+comment on column AQPC328.aqpc328fcg
+  is 'Fecha de carga';
+comment on column AQPC328.aqpc328ndo
+  is 'Número de documento';
+comment on column AQPC328.aqpc328ap1
+  is '1er. apellido';
+comment on column AQPC328.aqpc328ap2
+  is '2do. apellido';
+comment on column AQPC328.aqpc328no1
+  is '1er. nombre';
+comment on column AQPC328.aqpc328no2
+  is '2do. nombre';
+alter table AQPC328
+  add primary key (AQPC328FCG, AQPC328NDO);
+

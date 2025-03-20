@@ -1,0 +1,13 @@
+create table CATPL
+(
+  catplappid  NUMBER(2) not null,
+  catplid     NUMBER(10) not null,
+  catpldsc    CHAR(60),
+  catplblob   BLOB,
+  catpllvch   LONG,
+  catplflenme CHAR(254)
+)
+;
+alter table CATPL
+  add primary key (CATPLAPPID, CATPLID);
+

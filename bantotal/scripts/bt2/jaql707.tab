@@ -1,0 +1,95 @@
+create table JAQL707
+(
+  jaql707fech DATE not null,
+  jaql707hora CHAR(8) not null,
+  jaql707idop CHAR(6) not null,
+  jaql707pgco NUMBER(3),
+  jaql707scsu NUMBER(3),
+  jaql707scmo NUMBER(3),
+  jaql707scmd NUMBER(4),
+  jaql707scpa NUMBER(4),
+  jaql707scct NUMBER(9),
+  jaql707scop NUMBER(9),
+  jaql707scsb NUMBER(3),
+  jaql707scto NUMBER(3),
+  jaql707titr NUMBER(3),
+  jaql707bcor NUMBER(3),
+  jaql707suor NUMBER(12),
+  jaql707bcde NUMBER(3),
+  jaql707sude NUMBER(12),
+  jaql707ccio CHAR(20),
+  jaql707ccid CHAR(20),
+  jaql707tacr CHAR(20),
+  jaql707tita CHAR(1),
+  jaql707plaz CHAR(1),
+  jaql707impo NUMBER(17,2),
+  jaql707mcob NUMBER(4),
+  jaql707icob NUMBER(17,2),
+  jaql707mcoc NUMBER(4),
+  jaql707icoc NUMBER(17,2),
+  jaql707paor NUMBER(3),
+  jaql707tdor NUMBER(2),
+  jaql707ndor CHAR(12),
+  jaql707noor CHAR(140),
+  jaql707dior CHAR(70),
+  jaql707pabe NUMBER(3),
+  jaql707tdbe NUMBER(2),
+  jaql707ndbe CHAR(12),
+  jaql707nobe CHAR(140),
+  jaql707dibe CHAR(70),
+  jaql707tebe NUMBER(10),
+  jaql707refe CHAR(25),
+  jaql707clas CHAR(1),
+  jaql707cana NUMBER(2),
+  jaql707conc NUMBER(3),
+  jaql707itcd NUMBER(3),
+  jaql707itsu NUMBER(3),
+  jaql707itmo NUMBER(3),
+  jaql707ittr NUMBER(3),
+  jaql707itre NUMBER(4),
+  jaql707itfc DATE,
+  jaql707itor NUMBER(2),
+  jaql707itso NUMBER(3),
+  jaql707itco CHAR(1),
+  jaql707au01 CHAR(50),
+  jaql707au02 CHAR(50),
+  jaql707au03 CHAR(50),
+  jaql707au04 NUMBER(9),
+  jaql707au05 NUMBER(9),
+  jaql707au06 NUMBER(9),
+  jaql707au07 NUMBER(17,2),
+  jaql707au08 NUMBER(17,2),
+  jaql707au09 NUMBER(17,2),
+  jaql707au10 DATE,
+  jaql707au11 DATE,
+  jaql707au12 DATE,
+  jaql707ctme NUMBER(2),
+  jaql707ctan NUMBER(4),
+  jaql707ctsu NUMBER(18),
+  jaql707reca NUMBER(1),
+  jaql707fliq VARCHAR2(8),
+  jaql707mliq NUMBER(12,2),
+  jaql707atra VARCHAR2(4),
+  jaql707pxvl CHAR(70),
+  jaql707pxtp CHAR(35)
+)
+;
+comment on column JAQL707.jaql707fliq
+  is 'FECHA LIQUIDACION';
+comment on column JAQL707.jaql707mliq
+  is 'MONTO LIQUIDACION';
+comment on column JAQL707.jaql707atra
+  is 'ANIO TRANSACCION';
+comment on column JAQL707.jaql707pxvl
+  is 'PROXY VALUE';
+comment on column JAQL707.jaql707pxtp
+  is 'PROXY TYPE';
+create index IDXJAQL707001 on JAQL707 (JAQL707ITCD, JAQL707ITSU, JAQL707ITMO, JAQL707ITTR, JAQL707ITRE);
+create index IDXJAQL707002 on JAQL707 (JAQL707PGCO, JAQL707SCSU, JAQL707SCMO, JAQL707SCMD, JAQL707SCPA, JAQL707SCCT, JAQL707SCOP, JAQL707SCSB, JAQL707SCTO);
+create index IDXJAQL707003 on JAQL707 (JAQL707ITFC);
+create index JAQL707A2 on JAQL707 (JAQL707AU10, JAQL707IDOP, JAQL707BCOR, JAQL707BCDE, JAQL707AU04);
+create index JAQL707A3 on JAQL707 (JAQL707AU10, JAQL707IDOP, JAQL707BCOR, JAQL707BCDE, JAQL707CCIO, JAQL707CCID, JAQL707AU04);
+create unique index JAQL707A4 on JAQL707 (JAQL707FECH, JAQL707IDOP, JAQL707CCIO, JAQL707CCID);
+alter table JAQL707
+  add primary key (JAQL707FECH, JAQL707HORA, JAQL707IDOP);
+

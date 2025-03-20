@@ -1,0 +1,54 @@
+create table JAQN92
+(
+  jaqn92idr NUMBER(4) not null,
+  jaqn92nom CHAR(60),
+  jaqn92sup CHAR(10),
+  jaqn92ai1 NUMBER(17,2),
+  jaqn92ai2 NUMBER(17,2),
+  jaqn92ai3 NUMBER(17,2),
+  jaqn92ad1 DATE,
+  jaqn92ad2 DATE,
+  jaqn92ad3 DATE,
+  jaqn92an1 NUMBER(9),
+  jaqn92an2 NUMBER(9),
+  jaqn92an3 NUMBER(9),
+  jaqn92ac1 CHAR(255),
+  jaqn92ac2 CHAR(255),
+  jaqn92ac3 CHAR(255)
+)
+;
+comment on table JAQN92
+  is 'Regiones';
+comment on column JAQN92.jaqn92idr
+  is 'ID de Region';
+comment on column JAQN92.jaqn92nom
+  is 'Nombre de Region';
+comment on column JAQN92.jaqn92sup
+  is 'Supervisor';
+comment on column JAQN92.jaqn92ai1
+  is 'Auxiliar Imp1';
+comment on column JAQN92.jaqn92ai2
+  is 'Auxiliar Imp2';
+comment on column JAQN92.jaqn92ai3
+  is 'Auxiliar Imp3';
+comment on column JAQN92.jaqn92ad1
+  is 'Auxiliar Fecha1';
+comment on column JAQN92.jaqn92ad2
+  is 'Auxiliar Fecha2';
+comment on column JAQN92.jaqn92ad3
+  is 'Auxiliar Fecha3';
+comment on column JAQN92.jaqn92an1
+  is 'Auxiliar Num1';
+comment on column JAQN92.jaqn92an2
+  is 'Auxiliar Num2';
+comment on column JAQN92.jaqn92an3
+  is 'Auxiliar Num3';
+comment on column JAQN92.jaqn92ac1
+  is 'Auxiliar Char1';
+comment on column JAQN92.jaqn92ac2
+  is 'Auxiliar Char2';
+comment on column JAQN92.jaqn92ac3
+  is 'Auxiliar Char3';
+alter table JAQN92
+  add primary key (JAQN92IDR);
+

@@ -1,0 +1,22 @@
+create table JHSP22
+(
+  jhsp22cod NUMBER(3) not null,
+  jhsp22mod NUMBER(3) not null,
+  jhsp22suc NUMBER(3) not null,
+  jhsp22mda NUMBER(4) not null,
+  jhsp22pap NUMBER(4) not null,
+  jhsp22cta NUMBER(9) not null,
+  jhsp22ope NUMBER(9) not null,
+  jhsp22sop NUMBER(3) not null,
+  jhsp22top NUMBER(3) not null,
+  jhsp22ejc NUMBER(3),
+  jhsp22fvt DATE,
+  jhsp22imp NUMBER(17,2),
+  jhsp22ax1 DATE,
+  jhsp22ax2 CHAR(50),
+  jhsp22ax3 NUMBER(17,2)
+)
+;
+create unique index JHSP2201 on JHSP22 (JHSP22COD, JHSP22MOD, JHSP22SUC, JHSP22MDA, JHSP22PAP, JHSP22CTA, JHSP22OPE, JHSP22SOP, JHSP22TOP);
+create index JHSP2202 on JHSP22 (JHSP22EJC, JHSP22FVT, JHSP22CTA, JHSP22OPE);
+

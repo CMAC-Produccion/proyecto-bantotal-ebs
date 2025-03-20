@@ -1,0 +1,15 @@
+create table FSD327
+(
+  vt1pgcod  NUMBER(3) not null,
+  vt1mod    NUMBER(3) not null,
+  vt1tpiz   NUMBER(3) not null,
+  vt1ctnr   NUMBER(9) not null,
+  vt1mon    NUMBER(4) not null,
+  vt1pap    NUMBER(4) not null,
+  vt1tpfd   DATE not null,
+  vt1fchven DATE
+)
+;
+alter table FSD327
+  add primary key (VT1PGCOD, VT1MOD, VT1TPIZ, VT1CTNR, VT1MON, VT1PAP, VT1TPFD);
+

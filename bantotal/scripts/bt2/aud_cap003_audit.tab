@@ -1,0 +1,37 @@
+create table AUD_CAP003_AUDIT
+(
+  aud_old_cap003camp NUMBER(4),
+  aud_new_cap003camp NUMBER(4),
+  aud_old_cap003max1 NUMBER(18),
+  aud_new_cap003max1 NUMBER(18),
+  aud_old_cap003max2 NUMBER(18),
+  aud_new_cap003max2 NUMBER(18),
+  aud_old_cap003max3 NUMBER(18),
+  aud_new_cap003max3 NUMBER(18),
+  aud_old_cap003max4 NUMBER(18),
+  aud_new_cap003max4 NUMBER(18),
+  aud_old_cap003max5 NUMBER(18),
+  aud_new_cap003max5 NUMBER(18),
+  aud_old_cap003max6 NUMBER(18),
+  aud_new_cap003max6 NUMBER(18),
+  aud_old_cap003pgco NUMBER(3),
+  aud_new_cap003pgco NUMBER(3),
+  aud_old_cap003sec  NUMBER(5),
+  aud_new_cap003sec  NUMBER(5),
+  aud_old_cap003sql  CHAR(255),
+  aud_new_cap003sql  CHAR(255),
+  aud_cap003_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_cap003_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_cap003_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_cap003_ubr     VARCHAR2(50) default ' ' not null,
+  aud_cap003_ubc     VARCHAR2(50) default ' ' not null,
+  aud_cap003_ubt     VARCHAR2(50) default ' ' not null,
+  aud_cap003_ubu     VARCHAR2(50) default USER not null,
+  aud_cap003_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_cap003_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_cap003_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_cap003_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_cap003_uas     CHAR(1) default 'I' not null
+)
+;
+

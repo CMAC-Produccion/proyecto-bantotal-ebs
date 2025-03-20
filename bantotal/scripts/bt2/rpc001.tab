@@ -1,0 +1,16 @@
+create table RPC001
+(
+  rpc001pgco NUMBER(3) not null,
+  rpc001cta  NUMBER(9) not null,
+  rpc001imp  NUMBER(17,2),
+  rpc001fch  DATE,
+  rpc001aux  NUMBER(3),
+  rpc001aux1 NUMBER(9),
+  rpc001aux2 CHAR(40),
+  rpc001aux3 CHAR(70),
+  rpc001aux4 NUMBER(17,2)
+)
+;
+alter table RPC001
+  add primary key (RPC001PGCO, RPC001CTA);
+

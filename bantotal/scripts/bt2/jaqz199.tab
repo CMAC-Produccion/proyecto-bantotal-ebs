@@ -1,0 +1,65 @@
+create table JAQZ199
+(
+  jaqz199nuim NUMBER(9) not null,
+  jaqz199suim NUMBER(4),
+  jaqz199feim DATE,
+  jaqz199hoim CHAR(8),
+  jaqz199usim CHAR(10),
+  jaqz199tiab CHAR(1),
+  jaqz199fopa CHAR(1),
+  jaqz199ctem NUMBER(9),
+  jaqz199pgco NUMBER(3),
+  jaqz199scsu NUMBER(3),
+  jaqz199scmo NUMBER(3),
+  jaqz199scmd NUMBER(4),
+  jaqz199scpa NUMBER(4),
+  jaqz199scct NUMBER(9),
+  jaqz199scop NUMBER(9),
+  jaqz199scsb NUMBER(3),
+  jaqz199scto NUMBER(3),
+  jaqz199cheq NUMBER(9),
+  jaqz199mone NUMBER(4),
+  jaqz199impo NUMBER(17,2),
+  jaqz199fepr DATE,
+  jaqz199hopr CHAR(8),
+  jaqz199uspr CHAR(10),
+  jaqz199esta CHAR(1),
+  jaqz199itcd NUMBER(3),
+  jaqz199itsu NUMBER(3),
+  jaqz199itmo NUMBER(3),
+  jaqz199ittr NUMBER(3),
+  jaqz199itre NUMBER(4),
+  jaqz199itor NUMBER(2),
+  jaqz199itsb NUMBER(3),
+  jaqz199itfc DATE,
+  jaqz199au01 CHAR(50),
+  jaqz199au02 CHAR(50),
+  jaqz199au03 CHAR(50),
+  jaqz199au04 NUMBER(9),
+  jaqz199au05 NUMBER(9),
+  jaqz199au06 NUMBER(9),
+  jaqz199au07 NUMBER(17,2),
+  jaqz199au08 NUMBER(17,2),
+  jaqz199au09 NUMBER(17,2),
+  jaqz199au10 DATE,
+  jaqz199au11 DATE,
+  jaqz199au12 DATE,
+  jaqz199idim NUMBER(15),
+  jaqz199ax01 NUMBER(9),
+  jaqz199ax02 NUMBER(9),
+  jaqz199ax03 NUMBER(17,2),
+  jaqz199ax04 NUMBER(17,2),
+  jaqz199ax05 DATE,
+  jaqz199ax06 DATE,
+  jaqz199ax07 CHAR(50),
+  jaqz199ax08 CHAR(50),
+  jaqz199ax09 CHAR(50)
+)
+;
+create index JAQZ1992 on JAQZ199 (JAQZ199CTEM, JAQZ199ESTA);
+create index JAQZ1993 on JAQZ199 (JAQZ199ITCD, JAQZ199ITSU, JAQZ199ITMO, JAQZ199ITTR, JAQZ199ITRE, JAQZ199ITOR, JAQZ199ITSB, JAQZ199ITFC);
+create index JAQZ1994 on JAQZ199 (JAQZ199PGCO, JAQZ199SCSU, JAQZ199SCMO, JAQZ199SCMD, JAQZ199SCPA, JAQZ199SCCT, JAQZ199SCOP, JAQZ199SCSB, JAQZ199SCTO);
+create index JAQZ1995 on JAQZ199 (JAQZ199FEPR, JAQZ199FOPA, JAQZ199ESTA, JAQZ199AU01);
+alter table JAQZ199
+  add primary key (JAQZ199NUIM);
+

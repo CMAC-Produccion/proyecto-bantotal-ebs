@@ -1,0 +1,13 @@
+create table JAQZ325
+(
+  pendoc CHAR(19) not null,
+  numcel CHAR(12) not null,
+  token  CHAR(24) not null,
+  idtra  CHAR(44) not null,
+  estok  NUMBER(1) not null,
+  dattk  DATE default sysdate
+)
+;
+alter table JAQZ325
+  add constraint IDTRAR_PK primary key (IDTRA);
+

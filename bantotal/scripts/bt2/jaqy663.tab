@@ -1,0 +1,27 @@
+create table JAQY663
+(
+  jaqy663cod  NUMBER(17) not null,
+  jaqy663mod  NUMBER(3),
+  jaqy663tran NUMBER(3),
+  jaqy663rel  NUMBER(4),
+  jaqy663des  CHAR(30),
+  jaqy663clio CHAR(30),
+  jaqy663clid CHAR(30),
+  jaqy663cta  NUMBER(9),
+  jaqy663ope  NUMBER(9),
+  jaqy663tasa NUMBER(7,6),
+  jaqy663fvto DATE,
+  jaqy663mda  CHAR(20),
+  jaqy663imp  NUMBER(16,2),
+  jaqy663age  NUMBER(3),
+  jaqy663fech DATE,
+  jaqy663hora CHAR(8),
+  jaqy663oing CHAR(12),
+  jaqy663ocnf CHAR(12),
+  jaqy663est  CHAR(1)
+)
+;
+create index INDXJAQY663 on JAQY663 (JAQY663FECH, JAQY663HORA);
+alter table JAQY663
+  add primary key (JAQY663COD);
+

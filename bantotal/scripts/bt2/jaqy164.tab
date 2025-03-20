@@ -1,0 +1,15 @@
+create table JAQY164
+(
+  jaqy164pais NUMBER(3) not null,
+  jaqy164tdoc NUMBER(2) not null,
+  jaqy164ndoc CHAR(12) not null,
+  jaqy164tipo CHAR(1)
+)
+;
+comment on table JAQY164
+  is 'TABLA DE CLIENTES JUDICIALES, CASTIGADOS, TRANSADOS NO MIGRADOS';
+comment on column JAQY164.jaqy164tipo
+  is 'TIPO J=JUDICIALES, C=CASTIGADOS, T=TRANSADOS JUD';
+alter table JAQY164
+  add primary key (JAQY164PAIS, JAQY164TDOC, JAQY164NDOC);
+

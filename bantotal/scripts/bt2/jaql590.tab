@@ -1,0 +1,33 @@
+create table JAQL590
+(
+  jaql590codana CHAR(20),
+  jaql590mes    NUMBER(2),
+  jaql590metsdo NUMBER(17,2),
+  jaql590metcli NUMBER(10),
+  jaql590anio   NUMBER(5),
+  jaql590age    NUMBER(3),
+  jaql590fec    DATE,
+  jaql590zon    NUMBER(3),
+  jaql590est    CHAR(1)
+)
+;
+comment on column JAQL590.jaql590codana
+  is 'Código de Analista o Usuario';
+comment on column JAQL590.jaql590mes
+  is 'Mes de Proceso de Productividad';
+comment on column JAQL590.jaql590metsdo
+  is 'Meta Saldo del analista luego de aplicarle los Factores';
+comment on column JAQL590.jaql590metcli
+  is 'Meta Cliente del analista luego de aplicarle los Factores';
+comment on column JAQL590.jaql590anio
+  is 'Año de Productividad (2016)';
+comment on column JAQL590.jaql590age
+  is 'Codigo de Agencia';
+comment on column JAQL590.jaql590fec
+  is 'Fecha de Proceso';
+comment on column JAQL590.jaql590zon
+  is 'Codigo de Zona';
+comment on column JAQL590.jaql590est
+  is 'Estado S-Vigente / N-No Vigente';
+create index JAQL590_1 on JAQL590 (JAQL590CODANA, JAQL590AGE, JAQL590MES, JAQL590ANIO);
+

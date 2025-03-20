@@ -1,0 +1,39 @@
+create table AQPA726
+(
+  aqpa726id      NUMBER(9) not null,
+  aqpa726numtar  CHAR(19),
+  aqpa726canal   VARCHAR2(30),
+  aqpa726correo  VARCHAR2(100),
+  aqpa726celular VARCHAR2(10),
+  aqpa726texto   VARCHAR2(200),
+  aqpa726fecreg  DATE,
+  aqpa726horreg  VARCHAR2(10),
+  aqpa726errcel  VARCHAR2(150),
+  aqpa726errcor  VARCHAR2(150)
+)
+;
+comment on table AQPA726
+  is 'Log de envío de alertas';
+comment on column AQPA726.aqpa726id
+  is 'Id Correlativo';
+comment on column AQPA726.aqpa726numtar
+  is 'Número de tarjeta';
+comment on column AQPA726.aqpa726canal
+  is 'Canal origen';
+comment on column AQPA726.aqpa726correo
+  is 'Correo Afiliado';
+comment on column AQPA726.aqpa726celular
+  is 'Celular Afiliado';
+comment on column AQPA726.aqpa726texto
+  is 'Texto enviado';
+comment on column AQPA726.aqpa726fecreg
+  is 'Fecha de registro';
+comment on column AQPA726.aqpa726horreg
+  is 'Hora de registro';
+comment on column AQPA726.aqpa726errcel
+  is 'Respuesta al enviar  SMS';
+comment on column AQPA726.aqpa726errcor
+  is 'Respuesta al enviar Correo';
+alter table AQPA726
+  add primary key (AQPA726ID);
+

@@ -1,0 +1,47 @@
+create table FHD121
+(
+  pgcod      NUMBER(3) not null,
+  leuhmod    NUMBER(3) not null,
+  leuhoper   NUMBER(9) not null,
+  leuhsbop   NUMBER(3) not null,
+  leuhmodid  NUMBER(5) not null,
+  leuhintern CHAR(1),
+  leuhsuc    NUMBER(3),
+  leuhfvalor DATE,
+  leuiatipo  NUMBER(3),
+  leuiptipo  NUMBER(3),
+  leuiafemb  DATE,
+  leuipfemb  DATE,
+  leuiafvpag DATE,
+  leuipfvpag DATE,
+  leuiafrem  DATE,
+  leuipfrem  DATE,
+  leuiafvto  DATE,
+  leuipfvto  DATE,
+  leuiabcneg NUMBER(9),
+  leuipbcneg NUMBER(9),
+  leuiarefne CHAR(20),
+  leuiprefne CHAR(20),
+  leuiabcree NUMBER(9),
+  leuipbcree NUMBER(9),
+  leuiaaoimp NUMBER(17,2),
+  leuipaoimp NUMBER(17,2),
+  leuiamocsw CHAR(3),
+  leuipmocsw CHAR(3),
+  leuhuser   CHAR(10),
+  leuhws     CHAR(10),
+  leuiaimpvi NUMBER(17,2),
+  leuipimpvi NUMBER(17,2),
+  leuiaimppl NUMBER(17,2),
+  leuipimppl NUMBER(17,2),
+  leuiasaldo NUMBER(17,2),
+  leuipsaldo NUMBER(17,2),
+  leuiasdovi NUMBER(17,2),
+  leuipsdovi NUMBER(17,2),
+  leuiasdopl NUMBER(17,2),
+  leuipsdopl NUMBER(17,2)
+)
+;
+alter table FHD121
+  add primary key (PGCOD, LEUHMOD, LEUHOPER, LEUHSBOP, LEUHMODID);
+

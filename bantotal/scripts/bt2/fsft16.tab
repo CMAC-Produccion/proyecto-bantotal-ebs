@@ -1,0 +1,39 @@
+create table FSFT16
+(
+  kt9pgcod  NUMBER(3) not null,
+  kt9clasif NUMBER(2) not null,
+  kt9finro  NUMBER(3) not null,
+  kt9tmda   NUMBER(1) not null,
+  kt9hasta  NUMBER(4,2) not null,
+  kt9mda    NUMBER(4) not null,
+  kt9papel  NUMBER(4) not null,
+  kt9inf    CHAR(20),
+  kt9fvto   DATE,
+  kt9desv   NUMBER(14,8),
+  kt9coef   NUMBER(14,8),
+  kt9zona   NUMBER(4,2),
+  kt9posext NUMBER(17,2),
+  kt9arb    NUMBER(14,8),
+  kt9poscom NUMBER(17,2),
+  kt9posvta NUMBER(17,2),
+  kt9varcom NUMBER(17,2),
+  kt9varvta NUMBER(17,2),
+  kt9imp01  NUMBER(17,2),
+  kt9imp02  NUMBER(17,2),
+  kt9imp03  NUMBER(17,2),
+  kt9imp04  NUMBER(17,2),
+  kt9imp05  NUMBER(17,2),
+  kt9coef01 NUMBER(14,8),
+  kt9coef02 NUMBER(14,8),
+  kt9coef03 NUMBER(14,8),
+  kt9coef04 NUMBER(14,8),
+  kt9coef05 NUMBER(14,8),
+  kt9fec01  DATE,
+  kt9fec02  DATE,
+  kt9fec03  DATE
+)
+;
+create index FSFT1602 on FSFT16 (KT9PGCOD, KT9FINRO, KT9CLASIF, KT9TMDA, KT9HASTA, KT9MDA, KT9PAPEL);
+alter table FSFT16
+  add primary key (KT9PGCOD, KT9CLASIF, KT9FINRO, KT9TMDA, KT9HASTA, KT9MDA, KT9PAPEL);
+

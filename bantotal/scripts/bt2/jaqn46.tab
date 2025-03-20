@@ -1,0 +1,110 @@
+create table JAQN46
+(
+  jaqn46usu CHAR(10) not null,
+  jaqn46fec DATE not null,
+  jaqn46cor NUMBER(18) not null,
+  jaqn46hor CHAR(8) not null,
+  jaqn46fei DATE,
+  jaqn46fef DATE,
+  jaqn46reg NUMBER(9),
+  jaqn46zon NUMBER(3),
+  jaqn46suc NUMBER(3),
+  jaqn46usr CHAR(10),
+  jaqn46usa CHAR(10),
+  jaqn46tip CHAR(1),
+  jaqn46fea DATE,
+  jaqn46hoa CHAR(8),
+  jaqn46msa NUMBER(17,2),
+  jaqn46mfs NUMBER(17,2),
+  jaqn46mos NUMBER(17,2),
+  jaqn46msd NUMBER(17,2),
+  jaqn46mfd NUMBER(17,2),
+  jaqn46mod NUMBER(17,2),
+  jaqn46com CHAR(255),
+  jaqn46ai1 NUMBER(17,2),
+  jaqn46ai2 NUMBER(17,2),
+  jaqn46ai3 NUMBER(17,2),
+  jaqn46an1 NUMBER(9),
+  jaqn46an2 NUMBER(9),
+  jaqn46an3 NUMBER(9),
+  jaqn46ac1 CHAR(255),
+  jaqn46ac2 CHAR(255),
+  jaqn46ac3 CHAR(255),
+  jaqn46ad1 DATE,
+  jaqn46ad2 DATE,
+  jaqn46ad3 DATE
+)
+;
+comment on table JAQN46
+  is 'Arqueos de Bóveda y ATMs';
+comment on column JAQN46.jaqn46usu
+  is 'Usuario';
+comment on column JAQN46.jaqn46fec
+  is 'Fecha Generación';
+comment on column JAQN46.jaqn46cor
+  is 'Correlativo';
+comment on column JAQN46.jaqn46hor
+  is 'Hora Generación';
+comment on column JAQN46.jaqn46fei
+  is 'Fecha Inicio Reporte';
+comment on column JAQN46.jaqn46fef
+  is 'Fecha Fin Reporte';
+comment on column JAQN46.jaqn46reg
+  is 'Región';
+comment on column JAQN46.jaqn46zon
+  is 'Zona';
+comment on column JAQN46.jaqn46suc
+  is 'Sucursal';
+comment on column JAQN46.jaqn46usr
+  is 'Usuario Responsable Arqueo';
+comment on column JAQN46.jaqn46usa
+  is 'Usuario objeto del Arqueo';
+comment on column JAQN46.jaqn46tip
+  is 'Tipo de Arqueo A:ATM B: Boveda C: Ambos';
+comment on column JAQN46.jaqn46fea
+  is 'Fecha Arqueo';
+comment on column JAQN46.jaqn46hoa
+  is 'Hora Arqueo';
+comment on column JAQN46.jaqn46msa
+  is 'Monto en soles ATM/Boveda';
+comment on column JAQN46.jaqn46mfs
+  is 'Monto en soles Arqueado';
+comment on column JAQN46.jaqn46mos
+  is 'Monto faltante o sobrante en soles';
+comment on column JAQN46.jaqn46msd
+  is 'Monto en dolares ATM/Boveda';
+comment on column JAQN46.jaqn46mfd
+  is 'Monto en dolares Arqueado';
+comment on column JAQN46.jaqn46mod
+  is 'Monto faltante o sobrante en dolares';
+comment on column JAQN46.jaqn46com
+  is 'Comentario';
+comment on column JAQN46.jaqn46ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN46.jaqn46ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN46.jaqn46ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN46.jaqn46an1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN46.jaqn46an2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN46.jaqn46an3
+  is 'Auxiliar Numerico 3';
+comment on column JAQN46.jaqn46ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQN46.jaqn46ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQN46.jaqn46ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQN46.jaqn46ad1
+  is 'Auxiliar Date 1';
+comment on column JAQN46.jaqn46ad2
+  is 'Auxiliar Date 2';
+comment on column JAQN46.jaqn46ad3
+  is 'Auxiliar Date 3';
+create index JAQN46A2 on JAQN46 (JAQN46FEC, JAQN46HOR);
+create index JAQN46A3 on JAQN46 (JAQN46COR);
+alter table JAQN46
+  add primary key (JAQN46USU, JAQN46FEC, JAQN46COR, JAQN46HOR);
+

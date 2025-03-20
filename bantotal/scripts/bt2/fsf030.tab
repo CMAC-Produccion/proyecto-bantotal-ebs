@@ -1,0 +1,13 @@
+create table FSF030
+(
+  lfcod     NUMBER(3) not null,
+  lfcateg   CHAR(1) not null,
+  lfrpejcod NUMBER(3) not null,
+  lfnivcod  NUMBER(2)
+)
+;
+create index FSF03002 on FSF030 (LFNIVCOD);
+create index FSF03003 on FSF030 (LFCOD, LFNIVCOD, LFCATEG, LFRPEJCOD);
+alter table FSF030
+  add primary key (LFCOD, LFCATEG, LFRPEJCOD);
+

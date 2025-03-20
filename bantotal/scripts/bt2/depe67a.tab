@@ -1,0 +1,25 @@
+create table DEPE67A
+(
+  depe67aemp  NUMBER(3) not null,
+  depe67amod  NUMBER(3) not null,
+  depe67asuc  NUMBER(3) not null,
+  depe67amda  NUMBER(4) not null,
+  depe67apap  NUMBER(4) not null,
+  depe67acta  NUMBER(9) not null,
+  depe67aoper NUMBER(9) not null,
+  depe67asbop NUMBER(3) not null,
+  depe67atope NUMBER(3) not null,
+  depe67atsk  CHAR(20) not null,
+  depe67au1   NUMBER(15),
+  depe67au2   NUMBER(15),
+  depe67au3   NUMBER(15),
+  depe67au4   NUMBER(17,2),
+  depe67au5   NUMBER(17,2),
+  depe67au7   CHAR(15),
+  depe67au8   CHAR(15),
+  depe67au9   VARCHAR2(250)
+)
+;
+alter table DEPE67A
+  add primary key (DEPE67AEMP, DEPE67AMOD, DEPE67ASUC, DEPE67AMDA, DEPE67APAP, DEPE67ACTA, DEPE67AOPER, DEPE67ASBOP, DEPE67ATOPE, DEPE67ATSK);
+

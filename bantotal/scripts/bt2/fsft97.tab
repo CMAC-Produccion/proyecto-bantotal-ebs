@@ -1,0 +1,27 @@
+create table FSFT97
+(
+  sft97emp   NUMBER(3) not null,
+  sft97cta   NUMBER(9) not null,
+  sft97mon   NUMBER(4) not null,
+  sft97corr  NUMBER(2) not null,
+  sft97rubro NUMBER(16),
+  sft97mod   NUMBER(3),
+  sft97ctapa NUMBER(9),
+  sft97scta  NUMBER(3),
+  sft97suc   NUMBER(3),
+  sft97top   NUMBER(3),
+  sft97habil CHAR(1),
+  sft97aux1m NUMBER(4),
+  sft97aux2c NUMBER(9),
+  sft97aux3s NUMBER(3),
+  sft97au4su NUMBER(3),
+  sft97au5to NUMBER(3),
+  sft97aues1 CHAR(1),
+  stft97aues CHAR(1),
+  sft97aues3 CHAR(1),
+  sft97aues4 CHAR(1)
+)
+;
+alter table FSFT97
+  add primary key (SFT97EMP, SFT97CTA, SFT97MON, SFT97CORR);
+

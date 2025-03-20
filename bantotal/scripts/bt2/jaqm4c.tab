@@ -1,0 +1,72 @@
+create table JAQM4C
+(
+  jaqm4cins  NUMBER(10) not null,
+  jaqm4ccor  NUMBER(9) not null,
+  jaqm4cesta CHAR(1),
+  jaqm4cest  CHAR(1),
+  jaqm4cfec  DATE,
+  jaqm4chor  CHAR(10),
+  jaqm4csuc  NUMBER(3),
+  jaqm4cusu  CHAR(10),
+  jaqm4cwie  CHAR(40),
+  jaqm4can1  NUMBER(9),
+  jaqm4can2  NUMBER(9),
+  jaqm4can3  NUMBER(9),
+  jaqm4cac1  VARCHAR2(255),
+  jaqm4cac2  VARCHAR2(255),
+  jaqm4cac3  VARCHAR2(255),
+  jaqm4cai1  NUMBER(17,2),
+  jaqm4cai2  NUMBER(17,2),
+  jaqm4cai3  NUMBER(17,2),
+  jaqm4caf1  DATE,
+  jaqm4caf2  DATE,
+  jaqm4caf3  DATE
+)
+;
+comment on table JAQM4C
+  is 'LOG DE GESTION DE SOLICITUD DE CAMBIO DE SEGMENTACION';
+comment on column JAQM4C.jaqm4cins
+  is 'INSTANCIA';
+comment on column JAQM4C.jaqm4ccor
+  is 'CORRELATIVO';
+comment on column JAQM4C.jaqm4cesta
+  is 'ESTADO ANTERIOR';
+comment on column JAQM4C.jaqm4cest
+  is 'ESTADO';
+comment on column JAQM4C.jaqm4cfec
+  is 'FECHA';
+comment on column JAQM4C.jaqm4chor
+  is 'HORA';
+comment on column JAQM4C.jaqm4csuc
+  is 'SUCURSAL';
+comment on column JAQM4C.jaqm4cusu
+  is 'USUARIO';
+comment on column JAQM4C.jaqm4cwie
+  is 'WIE';
+comment on column JAQM4C.jaqm4can1
+  is 'AUXILIAR ENTERO 1';
+comment on column JAQM4C.jaqm4can2
+  is 'AUXILIAR ENTERO 2';
+comment on column JAQM4C.jaqm4can3
+  is 'AUXILIAR ENTERO 3';
+comment on column JAQM4C.jaqm4cac1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM4C.jaqm4cac2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM4C.jaqm4cac3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM4C.jaqm4cai1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQM4C.jaqm4cai2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQM4C.jaqm4cai3
+  is 'AUXILIAR NUMERICO 3';
+comment on column JAQM4C.jaqm4caf1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM4C.jaqm4caf2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM4C.jaqm4caf3
+  is 'AUXILIAR FECHA 3';
+alter table JAQM4C
+  add primary key (JAQM4CINS, JAQM4CCOR);
+

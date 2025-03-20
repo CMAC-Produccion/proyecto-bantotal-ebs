@@ -1,0 +1,142 @@
+create table AQPC565
+(
+  aqpc565corr   NUMBER(12) not null,
+  aqpc565corr2  NUMBER(12) not null,
+  aqpc565para   VARCHAR2(150),
+  aqpc565de     VARCHAR2(150),
+  aqpc565cc     VARCHAR2(500),
+  aqpc565asnt   VARCHAR2(350),
+  aqpc565crpo   VARCHAR2(3000),
+  aqpc565direc  VARCHAR2(100),
+  aqpc565arch   VARCHAR2(3000),
+  aqpc565asbot  VARCHAR2(350),
+  aqpc565cbot1  VARCHAR2(300),
+  aqpc565up_f   DATE,
+  aqpc565cbot2  VARCHAR2(3000),
+  aqpc565var    VARCHAR2(3000),
+  aqpc565gstn   NUMBER(3),
+  aqpc565idcpe  NUMBER(9) not null,
+  aqpc565idcpi  NUMBER(12),
+  aqpc565inst   NUMBER(9) not null,
+  aqpc565f_reg  DATE not null,
+  aqpc565h_reg  VARCHAR2(18) not null,
+  aqpc565u_reg  VARCHAR2(10) not null,
+  aqpc565f_env  DATE,
+  aqpc565h_env  VARCHAR2(18),
+  aqpc565u_env  VARCHAR2(10),
+  aqpc565c_err  NUMBER(5),
+  aqpc565msjerr VARCHAR2(350),
+  aqpc565est    CHAR(1),
+  aqpc565aux_v  VARCHAR2(350),
+  aqpc565aux_n  NUMBER(16,2),
+  aqpc565aux_d  DATE,
+  aqpc565aux_c  VARCHAR2(3000),
+  aqpc565up_u   VARCHAR2(10),
+  aqpc565emp    NUMBER(3) not null,
+  aqpc565suc    NUMBER(3) not null,
+  aqpc565mod    NUMBER(3) not null,
+  aqpc565mnd    NUMBER(4) not null,
+  aqpc565pap    NUMBER(4) not null,
+  aqpc565cta    NUMBER(9) not null,
+  aqpc565ope    NUMBER(9) not null,
+  aqpc565sope   NUMBER(3) not null,
+  aqpc565tope   NUMBER(3) not null,
+  aqpc565parau  CHAR(10),
+  aqpc565deu    CHAR(10)
+)
+;
+comment on table AQPC565
+  is 'TABLA LOG DE APROVACIONES DE CORREO BOT';
+comment on column AQPC565.aqpc565corr
+  is 'NRO. CORRELATIVO';
+comment on column AQPC565.aqpc565corr2
+  is 'NRO CORRELATIVO DE PROCESO';
+comment on column AQPC565.aqpc565para
+  is 'A quien se debe enviar el correo para que apruebe o desapruebe';
+comment on column AQPC565.aqpc565de
+  is 'De quien viene la petición para aprobar o rechazar';
+comment on column AQPC565.aqpc565cc
+  is 'En caso que haya copias';
+comment on column AQPC565.aqpc565asnt
+  is 'El Asunto del Correo que se le enviara al Usuario que aprueba o rechace la solicitud';
+comment on column AQPC565.aqpc565crpo
+  is 'Cuerpo del Correo que se le enviara al Usuario que aprueba o rechace la solicitud en Formato <html>';
+comment on column AQPC565.aqpc565direc
+  is 'En caso de contener adjuntos, colocar el directorio (nombre de la carpeta creada en bantotal) de donde extraerá el documento.';
+comment on column AQPC565.aqpc565arch
+  is 'Listado de archivos que se adjuntan (nombre de archivos con extensión separadas por ;';
+comment on column AQPC565.aqpc565asbot
+  is 'Asunto del Bot que se le enviara al correo del Bot (autorizacionesBT)';
+comment on column AQPC565.aqpc565cbot1
+  is 'Cuerpo Inicial del Bot (Estimad@, ¿.)';
+comment on column AQPC565.aqpc565up_f
+  is 'fecha que se realizo el update';
+comment on column AQPC565.aqpc565cbot2
+  is 'Texto que sigue después de la respuesta "Se autoriza/rechaza la gestión de"';
+comment on column AQPC565.aqpc565var
+  is 'Definir las variables con su valor respectivo que se le enviaran al proceso para que se ejecute debe tener el siguiente formato "Variable|Valor;Variable|Valor;¿"';
+comment on column AQPC565.aqpc565gstn
+  is 'Si Requiere Gestón de Usuario o si debe enviarse directamente al Bot';
+comment on column AQPC565.aqpc565idcpe
+  is 'Código del Proceso que debe ejecutar el Bot, desde la BD';
+comment on column AQPC565.aqpc565idcpi
+  is 'Código interno de la tabla auxiliar que contiene el detalle de los datos necesarios para ejecutar el proceso';
+comment on column AQPC565.aqpc565inst
+  is 'Instancia del Crédito que se va a procesar';
+comment on column AQPC565.aqpc565f_reg
+  is 'Fecha de registro en el sistema';
+comment on column AQPC565.aqpc565h_reg
+  is 'Hora de registro en el sistema';
+comment on column AQPC565.aqpc565u_reg
+  is 'Usuario que registra en el sistema';
+comment on column AQPC565.aqpc565f_env
+  is 'Fecha de envio del correo';
+comment on column AQPC565.aqpc565h_env
+  is 'Hora de envio de correo';
+comment on column AQPC565.aqpc565u_env
+  is 'Usuario que realiza el envio del correo';
+comment on column AQPC565.aqpc565c_err
+  is 'Codigo error que se pueda generar';
+comment on column AQPC565.aqpc565msjerr
+  is 'Mensaje error';
+comment on column AQPC565.aqpc565est
+  is 'Estado del correo';
+comment on column AQPC565.aqpc565aux_v
+  is 'Auxiliar Varchar';
+comment on column AQPC565.aqpc565aux_n
+  is 'Auxiliar Numerico';
+comment on column AQPC565.aqpc565aux_d
+  is 'Auxiliar Fecha';
+comment on column AQPC565.aqpc565aux_c
+  is 'Auxiliar Clob';
+comment on column AQPC565.aqpc565up_u
+  is 'usuario que realiza UPDATE';
+comment on column AQPC565.aqpc565emp
+  is 'EMPRESA';
+comment on column AQPC565.aqpc565suc
+  is 'SUCURSAL';
+comment on column AQPC565.aqpc565mod
+  is 'MODULO';
+comment on column AQPC565.aqpc565mnd
+  is 'MONEDA';
+comment on column AQPC565.aqpc565pap
+  is 'PAPEL';
+comment on column AQPC565.aqpc565cta
+  is 'CUENTA';
+comment on column AQPC565.aqpc565ope
+  is 'OPERACION';
+comment on column AQPC565.aqpc565sope
+  is 'SUB OPERACION';
+comment on column AQPC565.aqpc565tope
+  is 'TIPO DE OPERACION';
+comment on column AQPC565.aqpc565parau
+  is 'USUARIO QUE AUTORIZA';
+comment on column AQPC565.aqpc565deu
+  is 'USUARIO QUE ENVIA EL CORREO';
+create index AQPC565A2 on AQPC565 (AQPC565INST);
+create index AQPC565A3 on AQPC565 (AQPC565F_REG, AQPC565INST, AQPC565U_REG);
+create index AQPC565A4 on AQPC565 (AQPC565F_REG, AQPC565EST, AQPC565IDCPE);
+create index AQPC565A5 on AQPC565 (AQPC565UP_F, AQPC565UP_U, AQPC565INST);
+alter table AQPC565
+  add primary key (AQPC565CORR, AQPC565CORR2, AQPC565IDCPE, AQPC565INST, AQPC565F_REG, AQPC565H_REG, AQPC565U_REG, AQPC565EMP, AQPC565SUC, AQPC565MOD, AQPC565MND, AQPC565PAP, AQPC565CTA, AQPC565OPE, AQPC565SOPE, AQPC565TOPE);
+

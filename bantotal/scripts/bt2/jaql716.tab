@@ -1,0 +1,28 @@
+create table JAQL716
+(
+  jaql716idre CHAR(26) not null,
+  jaql716inst NUMBER(10) not null,
+  jaql716fech DATE,
+  jaql716hora CHAR(8),
+  jaql716user CHAR(10),
+  jaql716sucu NUMBER(3),
+  jaql716esta CHAR(1),
+  jaql716au01 CHAR(100),
+  jaql716au02 CHAR(100),
+  jaql716au03 CHAR(100),
+  jaql716au04 NUMBER(15),
+  jaql716au05 NUMBER(15),
+  jaql716au06 NUMBER(15),
+  jaql716au07 NUMBER(17,2),
+  jaql716au08 NUMBER(17,2),
+  jaql716au09 NUMBER(17,2),
+  jaql716au10 DATE,
+  jaql716au11 DATE,
+  jaql716au12 DATE
+)
+;
+create index JAQL71601 on JAQL716 (JAQL716INST);
+create index JAQL71602 on JAQL716 (JAQL716FECH);
+alter table JAQL716
+  add primary key (JAQL716IDRE, JAQL716INST);
+

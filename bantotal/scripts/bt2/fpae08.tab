@@ -1,0 +1,11 @@
+create table FPAE08
+(
+  pae02cco NUMBER(5) not null,
+  pae08cor NUMBER(5) not null,
+  pae04ite NUMBER(5)
+)
+;
+create index FPAE0802 on FPAE08 (PAE04ITE);
+alter table FPAE08
+  add primary key (PAE02CCO, PAE08COR);
+

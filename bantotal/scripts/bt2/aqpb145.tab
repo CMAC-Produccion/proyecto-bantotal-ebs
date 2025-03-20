@@ -1,0 +1,36 @@
+create table AQPB145
+(
+  aqpb145fepro  DATE not null,
+  aqpb145hopro  VARCHAR2(10) not null,
+  aqpb145cant   NUMBER(9),
+  aqpb145pro    VARCHAR2(500),
+  aqpb145coderr CHAR(5),
+  aqpb145desc   VARCHAR2(500),
+  aqpb145aux1   DATE,
+  aqpb145aux2   VARCHAR2(1000),
+  aqpb145aux3   NUMBER(11,2)
+)
+;
+comment on table AQPB145
+  is 'Log Actualizaciones ITXN';
+comment on column AQPB145.aqpb145fepro
+  is 'Fecha de Proceso';
+comment on column AQPB145.aqpb145hopro
+  is 'Hora de Proceso';
+comment on column AQPB145.aqpb145cant
+  is 'Cantidad de Actualizaciones';
+comment on column AQPB145.aqpb145pro
+  is 'Proceso';
+comment on column AQPB145.aqpb145coderr
+  is 'Codigo de error';
+comment on column AQPB145.aqpb145desc
+  is 'Descripcion error';
+comment on column AQPB145.aqpb145aux1
+  is 'Auxiliar de fecha';
+comment on column AQPB145.aqpb145aux2
+  is 'Auxiliar de texto';
+comment on column AQPB145.aqpb145aux3
+  is 'Auxiliar de numero';
+alter table AQPB145
+  add primary key (AQPB145FEPRO, AQPB145HOPRO);
+

@@ -1,0 +1,65 @@
+create table JAQL071
+(
+  jaql71nuim NUMBER(9) not null,
+  jaql71suim NUMBER(4),
+  jaql71feim DATE,
+  jaql71hoim CHAR(8),
+  jaql71usim CHAR(10),
+  jaql71tiab CHAR(1),
+  jaql71fopa CHAR(1),
+  jaql71ctem NUMBER(9),
+  jaql71pgco NUMBER(3),
+  jaql71scsu NUMBER(3),
+  jaql71scmo NUMBER(3),
+  jaql71scmd NUMBER(4),
+  jaql71scpa NUMBER(4),
+  jaql71scct NUMBER(9),
+  jaql71scop NUMBER(9),
+  jaql71scsb NUMBER(3),
+  jaql71scto NUMBER(3),
+  jaql71cheq NUMBER(9),
+  jaql71mone NUMBER(4),
+  jaql71impo NUMBER(17,2),
+  jaql71fepr DATE,
+  jaql71hopr CHAR(8),
+  jaql71uspr CHAR(10),
+  jaql71esta CHAR(1),
+  jaql71itcd NUMBER(3),
+  jaql71itsu NUMBER(3),
+  jaql71itmo NUMBER(3),
+  jaql71ittr NUMBER(3),
+  jaql71itre NUMBER(4),
+  jaql71itor NUMBER(2),
+  jaql71itsb NUMBER(3),
+  jaql71itfc DATE,
+  jaql71au01 CHAR(50),
+  jaql71au02 CHAR(50),
+  jaql71au03 CHAR(50),
+  jaql71au04 NUMBER(9),
+  jaql71au05 NUMBER(9),
+  jaql71au06 NUMBER(9),
+  jaql71au07 NUMBER(17,2),
+  jaql71au08 NUMBER(17,2),
+  jaql71au09 NUMBER(17,2),
+  jaql71au10 DATE,
+  jaql71au11 DATE,
+  jaql71au12 DATE,
+  jaql71idim NUMBER(15),
+  jaql71ax01 NUMBER(9),
+  jaql71ax02 NUMBER(9),
+  jaql71ax03 NUMBER(17,2),
+  jaql71ax04 NUMBER(17,2),
+  jaql71ax05 DATE,
+  jaql71ax06 DATE,
+  jaql71ax07 CHAR(50),
+  jaql71ax08 CHAR(50),
+  jaql71ax09 CHAR(50)
+)
+;
+create index JAQL07110001 on JAQL071 (JAQL71CTEM, JAQL71ESTA);
+create index JAQL07110002 on JAQL071 (JAQL71ITCD, JAQL71ITSU, JAQL71ITMO, JAQL71ITTR, JAQL71ITRE, JAQL71ITOR, JAQL71ITSB, JAQL71ITFC);
+create index JAQL07110003 on JAQL071 (JAQL71PGCO, JAQL71SCSU, JAQL71SCMO, JAQL71SCMD, JAQL71SCPA, JAQL71SCCT, JAQL71SCOP, JAQL71SCSB, JAQL71SCTO);
+create index JAQL07110004 on JAQL071 (JAQL71FEPR, JAQL71FOPA, JAQL71ESTA, JAQL71AU01);
+alter table JAQL071
+  add primary key (JAQL71NUIM);
+

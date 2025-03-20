@@ -1,0 +1,19 @@
+create table Z0E4PY
+(
+  z0e4pyca NUMBER(2) not null,
+  z0e4pycr NUMBER(9) not null,
+  z0e4pysu NUMBER(3) not null,
+  z0e4pycl NUMBER(9) not null,
+  z0e4pymd NUMBER(4) not null,
+  z0e4pyfc DATE not null,
+  z0e4pyen NUMBER(3) not null,
+  z0e4pyct NUMBER(5),
+  z0e4pyim NUMBER(14,2),
+  z0e4pydf NUMBER(14,2),
+  z0e4pyes CHAR(1)
+)
+;
+create index Z0E4PY02 on Z0E4PY (Z0E4PYES);
+alter table Z0E4PY
+  add primary key (Z0E4PYCA, Z0E4PYCR, Z0E4PYSU, Z0E4PYCL, Z0E4PYMD, Z0E4PYFC, Z0E4PYEN);
+

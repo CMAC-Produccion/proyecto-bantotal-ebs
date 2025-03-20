@@ -1,0 +1,17 @@
+create table BEC079
+(
+  becprdid  NUMBER(10) not null,
+  beccliid  NUMBER(10) not null,
+  becctoid  NUMBER(10) not null,
+  becinstid NUMBER(10) not null,
+  becmodid  NUMBER(10) not null,
+  becsrvid  NUMBER(10) not null,
+  becnumid  NUMBER(10) not null,
+  becnumfec DATE not null,
+  becnumval NUMBER(10)
+)
+;
+create index BEC07902 on BEC079 (BECPRDID, BECMODID, BECSRVID);
+alter table BEC079
+  add primary key (BECPRDID, BECCLIID, BECCTOID, BECINSTID, BECMODID, BECSRVID, BECNUMID, BECNUMFEC);
+

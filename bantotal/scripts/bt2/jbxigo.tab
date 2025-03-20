@@ -1,0 +1,13 @@
+create table JBXIGO
+(
+  jbxigofec DATE not null,
+  jbxigoccb NUMBER(16) not null,
+  jbxigomda NUMBER(4) not null,
+  jbxigofsd DATE not null,
+  jbxigosuc NUMBER(3),
+  jbxigosdo NUMBER(17,2),
+  jbxigomdc CHAR(1)
+)
+;
+create unique index JBXIGO01 on JBXIGO (JBXIGOFEC, JBXIGOCCB, JBXIGOMDA, JBXIGOFSD);
+

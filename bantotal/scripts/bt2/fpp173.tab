@@ -1,0 +1,24 @@
+create table FPP173
+(
+  pp173cod  NUMBER(4) not null,
+  pp173mod  NUMBER(3),
+  pp173mda  NUMBER(4),
+  pp173pap  NUMBER(4),
+  pp173top  NUMBER(3),
+  pp173desc CHAR(50),
+  pp173fec  DATE,
+  pp173pgm  CHAR(10),
+  pp173au1  NUMBER(9),
+  pp173au2  NUMBER(9),
+  pp173au3  DATE,
+  pp173au4  DATE,
+  pp173au5  NUMBER(17,2),
+  pp173au6  NUMBER(17,2),
+  pp173au7  CHAR(30),
+  pp173au8  CHAR(30)
+)
+;
+create index FPP17302 on FPP173 (PP173MOD, PP173TOP, PP173MDA, PP173PAP);
+alter table FPP173
+  add primary key (PP173COD);
+

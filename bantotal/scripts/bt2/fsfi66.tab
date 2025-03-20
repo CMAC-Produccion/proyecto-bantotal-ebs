@@ -1,0 +1,17 @@
+create table FSFI66
+(
+  sfi66emp   NUMBER(3) not null,
+  sfi66suc   NUMBER(3) not null,
+  sfi66mod   NUMBER(3) not null,
+  sfi66tran  NUMBER(3) not null,
+  sfi66rel   NUMBER(4) not null,
+  sfi66fcont DATE not null,
+  sfi66tipim CHAR(1) not null,
+  sfi62impid NUMBER(4)
+)
+;
+create index FSFI6602 on FSFI66 (SFI62IMPID);
+create index FSFI6603 on FSFI66 (SFI66EMP, SFI66FCONT, SFI66MOD, SFI66TRAN);
+alter table FSFI66
+  add primary key (SFI66EMP, SFI66SUC, SFI66MOD, SFI66TRAN, SFI66REL, SFI66FCONT, SFI66TIPIM);
+

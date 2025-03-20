@@ -1,0 +1,26 @@
+create table AQPA045
+(
+  aqpa045pgcod NUMBER(3) not null,
+  aqpa045modu  NUMBER(3) not null,
+  aqpa045tope  NUMBER(3) not null,
+  aqpa045sucd  NUMBER(3) not null,
+  aqpa045mon   NUMBER(4) not null,
+  aqpa045pap   NUMBER(4) not null,
+  aqpa045ctnro NUMBER(9) not null,
+  aqpa045oper  NUMBER(9) not null,
+  aqpa045sbop  NUMBER(3) not null,
+  aqpa045fec   DATE not null,
+  aqpa045hor   VARCHAR2(8) not null,
+  aqpa045dias  NUMBER(5),
+  aqpa045trx   NUMBER(4),
+  aqpa045rpt   VARCHAR2(1),
+  aqpa045msg   VARCHAR2(200),
+  aqpa045aux1  VARCHAR2(100),
+  aqpa045aux2  VARCHAR2(100),
+  aqpa045aux3  NUMBER(17,2),
+  aqpa045aux4  NUMBER(17,2)
+)
+;
+alter table AQPA045
+  add primary key (AQPA045PGCOD, AQPA045MODU, AQPA045TOPE, AQPA045SUCD, AQPA045MON, AQPA045PAP, AQPA045CTNRO, AQPA045OPER, AQPA045SBOP, AQPA045FEC, AQPA045HOR);
+

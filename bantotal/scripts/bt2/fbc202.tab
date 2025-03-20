@@ -1,0 +1,14 @@
+create table FBC202
+(
+  bc201emp  NUMBER(3) not null,
+  bc201ecid NUMBER(3) not null,
+  bc202caid CHAR(5) not null,
+  bc202cads CHAR(35),
+  bc202capo NUMBER(4),
+  bc202caau CHAR(5)
+)
+;
+create index FBC20203 on FBC202 (BC201EMP, BC201ECID, BC202CAPO);
+alter table FBC202
+  add primary key (BC201EMP, BC201ECID, BC202CAID);
+

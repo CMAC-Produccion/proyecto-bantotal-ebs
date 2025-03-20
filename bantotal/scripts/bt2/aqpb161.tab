@@ -1,0 +1,58 @@
+create table AQPB161
+(
+  aqpb161pais   NUMBER not null,
+  aqpb161tdoc   NUMBER not null,
+  aqpb161ndoc   VARCHAR2(12) not null,
+  aqpb161fch    DATE not null,
+  aqpb161hora   CHAR(8) not null,
+  aqpb161sald   NUMBER(17,2),
+  aqpb161mncond NUMBER(17,2),
+  aqpb161mntadi NUMBER(17,2),
+  aqpb161minmnt NUMBER(17,2),
+  aqpb161maxmnt NUMBER(17,2),
+  aqpb161est    VARCHAR2(5) not null,
+  aqpb161corr   NUMBER(10) not null,
+  aqpb161mtcalc NUMBER(17,2),
+  aqpb161mcertf NUMBER(17,2),
+  aqpb161mcond  NUMBER(17,2),
+  aqpb161mtcan  NUMBER(17,2)
+)
+;
+comment on table AQPB161
+  is 'Tabla Log para monto min y max por cliente para impulso peru';
+comment on column AQPB161.aqpb161pais
+  is 'Pais';
+comment on column AQPB161.aqpb161tdoc
+  is 'Tipo de Documento';
+comment on column AQPB161.aqpb161ndoc
+  is 'Documento';
+comment on column AQPB161.aqpb161fch
+  is 'Fecha';
+comment on column AQPB161.aqpb161hora
+  is 'Hora';
+comment on column AQPB161.aqpb161sald
+  is 'Saldo';
+comment on column AQPB161.aqpb161mncond
+  is 'Monto No Condonado';
+comment on column AQPB161.aqpb161mntadi
+  is 'Monto Adicional';
+comment on column AQPB161.aqpb161minmnt
+  is 'Monto Minimo Propuesto (Monto total a cancelar - Monto condonado)';
+comment on column AQPB161.aqpb161maxmnt
+  is 'Monto Maximo Propuestp';
+comment on column AQPB161.aqpb161est
+  is 'Estado';
+comment on column AQPB161.aqpb161corr
+  is 'Correlativo';
+comment on column AQPB161.aqpb161mtcalc
+  is 'Maximo monto calculado';
+comment on column AQPB161.aqpb161mcertf
+  is 'Monto Certificado AQPC363';
+comment on column AQPB161.aqpb161mcond
+  is 'Monto Condonado';
+comment on column AQPB161.aqpb161mtcan
+  is 'Monto Total a Cancelar sin monto condonado';
+create index AQPB161A2 on AQPB161 (AQPB161PAIS, AQPB161TDOC, AQPB161NDOC);
+alter table AQPB161
+  add primary key (AQPB161CORR, AQPB161PAIS, AQPB161TDOC, AQPB161NDOC, AQPB161FCH, AQPB161HORA, AQPB161EST);
+

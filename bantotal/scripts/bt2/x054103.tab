@@ -1,0 +1,13 @@
+create table X054103
+(
+  x054modcom    NUMBER(3) not null,
+  x054inscod    NUMBER(3) not null,
+  x054tipodo    NUMBER(3) not null,
+  x054comexcont CHAR(1)
+)
+;
+create index X0541032 on X054103 (X054INSCOD);
+create index X0541033 on X054103 (X054TIPODO);
+alter table X054103
+  add primary key (X054MODCOM, X054INSCOD, X054TIPODO);
+

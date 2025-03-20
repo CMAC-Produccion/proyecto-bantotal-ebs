@@ -1,0 +1,38 @@
+create table JSBA40
+(
+  jsba40pgc  NUMBER(3) not null,
+  jsba40rub  NUMBER(16) not null,
+  jsba40suc  NUMBER(3) not null,
+  jsba40mda  NUMBER(4) not null,
+  jsba40pap  NUMBER(4) not null,
+  jsba40cta  NUMBER(9) not null,
+  jsba40oper NUMBER(9) not null,
+  jsba40sbop NUMBER(3) not null,
+  jsba40top  NUMBER(3) not null,
+  jsba40mdl  NUMBER(3),
+  jsba40reg  NUMBER(3),
+  jsba40ase  CHAR(10),
+  jsba40flca CHAR(1),
+  jsba40sdo  NUMBER(17,2),
+  jsba40dmo  NUMBER(5),
+  jsba40cat  CHAR(15),
+  jsba40sts  NUMBER(2),
+  jsba40fca  DATE,
+  jsba40csol NUMBER(7),
+  jsba40mga  NUMBER(3),
+  jsba40tga  NUMBER(3),
+  jsba40fven DATE,
+  jsba40ulcu DATE,
+  jsba40mon  NUMBER(17,2),
+  jsba40inco NUMBER(17,2),
+  jsba40inpe NUMBER(17,2),
+  jsba40incu NUMBER(17,2),
+  jsba40vag  NUMBER(17,2)
+)
+;
+create index JSBA4002 on JSBA40 (JSBA40SUC, JSBA40FLCA);
+create index JSBA4003 on JSBA40 (JSBA40CTA, JSBA40OPER, JSBA40SUC);
+create index JSBA4004 on JSBA40 (JSBA40FLCA);
+alter table JSBA40
+  add primary key (JSBA40PGC, JSBA40RUB, JSBA40SUC, JSBA40MDA, JSBA40PAP, JSBA40CTA, JSBA40OPER, JSBA40SBOP, JSBA40TOP);
+

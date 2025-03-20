@@ -1,0 +1,17 @@
+create table FST01E
+(
+  fst01epgc NUMBER(3) not null,
+  fst01eid  NUMBER(3) not null,
+  fst01ests CHAR(1),
+  fst01euci CHAR(10),
+  fst01efch DATE,
+  fst01eau  NUMBER(5),
+  fst01eau2 CHAR(70),
+  fst01eau3 NUMBER(17,2),
+  fst01eau4 DATE,
+  fst01eau5 NUMBER(5)
+)
+;
+alter table FST01E
+  add primary key (FST01EPGC, FST01EID);
+

@@ -1,0 +1,17 @@
+create table CJS007
+(
+  cjs007cod NUMBER(3) not null,
+  cjs007suc NUMBER(3) not null,
+  cjs007ccs NUMBER(9) not null,
+  cjs007alf CHAR(20),
+  cjs005cod NUMBER(3),
+  cjs005mdl NUMBER(3),
+  cjs007est NUMBER(3),
+  cjs007au1 DATE,
+  cjs007au2 CHAR(30)
+)
+;
+create index CJS00702 on CJS007 (CJS005COD, CJS005MDL);
+alter table CJS007
+  add primary key (CJS007COD, CJS007SUC, CJS007CCS);
+

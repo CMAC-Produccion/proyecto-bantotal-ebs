@@ -1,0 +1,83 @@
+create table AQPD157
+(
+  aqpd157fecapro DATE not null,
+  aqpd157codrep  NUMBER(10) not null,
+  aqpd157inst    NUMBER(10) not null,
+  aqpd157tiprep  NUMBER(4) not null,
+  aqpd157codcar  NUMBER(3) not null,
+  aqpd157perus   CHAR(10) not null,
+  aqpd157uapro   CHAR(10),
+  aqpd157est     VARCHAR2(3) not null,
+  aqpd157ureg    CHAR(10) not null,
+  aqpd157uup     CHAR(10),
+  aqpd157fecreg  DATE not null,
+  aqpd157horreg  CHAR(8) not null,
+  aqpd157feact   DATE,
+  aqpd157horact  CHAR(8),
+  aqpd157mcorr   VARCHAR2(300),
+  aqpd157niap    NUMBER(3),
+  aqpd157nidp    NUMBER(3),
+  aqpd157cmta    VARCHAR2(150),
+  aqpd157req     CHAR(1),
+  aqpd157uaprr   CHAR(10),
+  aqpd157mpcorr  VARCHAR2(300),
+  aqpd157logpapr VARCHAR2(250),
+  aqpd157logapr  VARCHAR2(250)
+)
+;
+comment on table AQPD157
+  is 'TABLA DE APROBADORES';
+comment on column AQPD157.aqpd157fecapro
+  is 'fecha de reprogramacion AQPB556';
+comment on column AQPD157.aqpd157codrep
+  is 'codigo de reprogramacion AQPB556';
+comment on column AQPD157.aqpd157inst
+  is 'instancia';
+comment on column AQPD157.aqpd157tiprep
+  is 'tipo de reprogramacion';
+comment on column AQPD157.aqpd157codcar
+  is 'codigo  de cargo';
+comment on column AQPD157.aqpd157perus
+  is 'perfil de usuario';
+comment on column AQPD157.aqpd157uapro
+  is 'usuario aprobador';
+comment on column AQPD157.aqpd157est
+  is 'estado';
+comment on column AQPD157.aqpd157ureg
+  is 'usuario registro';
+comment on column AQPD157.aqpd157uup
+  is 'usuario update';
+comment on column AQPD157.aqpd157fecreg
+  is 'fecha de registro';
+comment on column AQPD157.aqpd157horreg
+  is 'hora de registro';
+comment on column AQPD157.aqpd157feact
+  is 'fecha de actualizacion';
+comment on column AQPD157.aqpd157horact
+  is 'hora de actualizacion';
+comment on column AQPD157.aqpd157mcorr
+  is 'mensaje del correo enviado de aprobacion';
+comment on column AQPD157.aqpd157niap
+  is 'Nivel Aprobador';
+comment on column AQPD157.aqpd157nidp
+  is 'Nivel Dependencia';
+comment on column AQPD157.aqpd157cmta
+  is 'Comentarios del aprobador';
+comment on column AQPD157.aqpd157req
+  is 'Perfil requerido';
+comment on column AQPD157.aqpd157uaprr
+  is 'Usuario Aprobador Real';
+comment on column AQPD157.aqpd157mpcorr
+  is 'Mensaje enviado de correo pendiente de aprobacion';
+comment on column AQPD157.aqpd157logpapr
+  is 'Log para saber a quien se envio y para quien correo pendiente de aprobacion';
+comment on column AQPD157.aqpd157logapr
+  is 'Log para saber a quien se envio y para quien correo aprobado';
+create index AQPD157A2 on AQPD157 (AQPD157CODREP);
+create index AQPD157A3 on AQPD157 (AQPD157FECAPRO, AQPD157CODREP);
+create index AQPD157A4 on AQPD157 (AQPD157INST);
+create index AQPD157A5 on AQPD157 (AQPD157UREG, AQPD157FECREG);
+create index AQPD157A6 on AQPD157 (AQPD157UUP, AQPD157FEACT);
+alter table AQPD157
+  add constraint DESA231016 primary key (AQPD157FECAPRO, AQPD157CODREP, AQPD157INST, AQPD157TIPREP, AQPD157CODCAR, AQPD157PERUS, AQPD157EST, AQPD157FECREG, AQPD157HORREG, AQPD157UREG);
+

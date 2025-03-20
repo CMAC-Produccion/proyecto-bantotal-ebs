@@ -1,0 +1,11 @@
+create table FOC580
+(
+  foc580caja NUMBER(3) not null,
+  foc580desc CHAR(65),
+  foc580rec  CHAR(1)
+)
+;
+create index FOC58002 on FOC580 (FOC580DESC);
+alter table FOC580
+  add primary key (FOC580CAJA);
+

@@ -1,0 +1,38 @@
+create table JAQL068
+(
+  jaql68taco CHAR(12) not null,
+  jaql68pgco NUMBER(3),
+  jaql68sucu NUMBER(3),
+  jaql68feem DATE,
+  jaql68hoem CHAR(8),
+  jaql68esta NUMBER(1),
+  jaql68user CHAR(10),
+  jaql68fees DATE,
+  jaql68hoes CHAR(8),
+  jaql68moti NUMBER(4),
+  jaql68feex DATE,
+  jaql68erco NUMBER(4),
+  jaql68au01 CHAR(50),
+  jaql68au02 CHAR(50),
+  jaql68au03 CHAR(50),
+  jaql68au04 CHAR(50),
+  jaql68au05 NUMBER(9),
+  jaql68au06 NUMBER(9),
+  jaql68au07 NUMBER(9),
+  jaql68au08 NUMBER(9),
+  jaql68au09 NUMBER(17,2),
+  jaql68au10 NUMBER(17,2),
+  jaql68au11 NUMBER(17,2),
+  jaql68au12 NUMBER(17,2),
+  jaql68au13 DATE,
+  jaql68au14 DATE,
+  jaql68au15 DATE,
+  jaql68au16 DATE
+)
+;
+create index JAQL06810002 on JAQL068 (JAQL68ESTA, JAQL68FEES);
+create index JAQL06810003 on JAQL068 (JAQL68FEEX, JAQL68ESTA);
+create index JAQL06810004 on JAQL068 (JAQL68SUCU, JAQL68ESTA, JAQL68TACO);
+alter table JAQL068
+  add primary key (JAQL68TACO);
+

@@ -1,0 +1,30 @@
+create table JAQZ456B
+(
+  jaqz456bfec    DATE not null,
+  jaqz456bins    NUMBER(10) not null,
+  jaqz456bprcid  NUMBER(4),
+  jaqz456bsubjec CHAR(120),
+  jaqz456blstdoc NUMBER(4),
+  jaqz456bend    DATE,
+  jaqz456bpty    NUMBER(1),
+  jaqz456bown    CHAR(30),
+  jaqz456bsta    CHAR(1),
+  jaqz456binit   DATE,
+  jaqz456bosta   NUMBER(1),
+  jaqz456bsbp    CHAR(1),
+  jaqz456bparurn NUMBER(10),
+  jaqz456btskurn NUMBER(10),
+  jaqz456bnes    CHAR(1),
+  jaqz456burl    VARCHAR2(254),
+  jaqz456bwarn   CHAR(1),
+  jaqz456bdeadli CHAR(1),
+  jaqz456brntime DATE,
+  jaqz456blntime DATE,
+  jaqz456bname   CHAR(50),
+  jaqz456bverid  NUMBER(4)
+)
+;
+comment on table JAQZ456B
+  is 'Backup de tabla wfinstprc';
+create index IDX_JAQZ456B1 on JAQZ456B (JAQZ456BFEC, JAQZ456BINS);
+

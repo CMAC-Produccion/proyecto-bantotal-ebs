@@ -1,0 +1,67 @@
+create table AQPB712
+(
+  aqpb712tdoc  VARCHAR2(3) not null,
+  aqpb712ndoc  VARCHAR2(12) not null,
+  aqpb712ncer  VARCHAR2(50) not null,
+  aqpb712v19   NUMBER(17,2),
+  aqpb712v20   NUMBER(17,2),
+  aqpb712tori  NUMBER(18,2),
+  aqpb712fire  DATE,
+  aqpb712ffre  DATE,
+  aqpb712mtotd NUMBER(18,2),
+  aqpb712mtod  NUMBER(18,2),
+  aqpb712perg  NUMBER(3),
+  aqpb712pert  NUMBER(3),
+  aqpb712trep  NUMBER(18,2) not null,
+  aqpb712mtob  NUMBER(18,2) not null,
+  aqpb712codc  VARCHAR2(20) not null,
+  aqpb712numc  VARCHAR2(50) not null,
+  aqpb712mtor  NUMBER(18,2) not null,
+  aqpb712fecic DATE,
+  aqpb712fecfc DATE,
+  aqpb712csol  NUMBER(1)
+)
+;
+comment on table AQPB712
+  is 'Tabla espejo BS_REACTIVA_REGULAR';
+comment on column AQPB712.aqpb712tdoc
+  is 'TIP_DOC';
+comment on column AQPB712.aqpb712ndoc
+  is 'NUM_DOC';
+comment on column AQPB712.aqpb712ncer
+  is 'NRO_CERT_GAR';
+comment on column AQPB712.aqpb712v19
+  is 'VENT_IV_19';
+comment on column AQPB712.aqpb712v20
+  is 'VENT_IV_20';
+comment on column AQPB712.aqpb712tori
+  is 'TEA_ORI';
+comment on column AQPB712.aqpb712fire
+  is 'FEC_INI_REPRO';
+comment on column AQPB712.aqpb712ffre
+  is 'FEC_FIN_REPRO';
+comment on column AQPB712.aqpb712mtotd
+  is 'MTO_TOT_DESEMB';
+comment on column AQPB712.aqpb712mtod
+  is 'MTO_DESEMB_ORI';
+comment on column AQPB712.aqpb712perg
+  is 'PER_GRACIA_REP';
+comment on column AQPB712.aqpb712pert
+  is 'PER_TOT_REPRO';
+comment on column AQPB712.aqpb712trep
+  is 'TEA_REPRO NUMB';
+comment on column AQPB712.aqpb712mtob
+  is 'MTO_DESEMB_BCR';
+comment on column AQPB712.aqpb712codc
+  is 'COD_COBERTURA';
+comment on column AQPB712.aqpb712numc
+  is 'NUM_CERTIFICA';
+comment on column AQPB712.aqpb712mtor
+  is 'MTO_REPRO NUMB';
+comment on column AQPB712.aqpb712fecic
+  is 'FEC_INI_CERT';
+comment on column AQPB712.aqpb712fecfc
+  is 'FEC_FIN_CERT';
+alter table AQPB712
+  add primary key (AQPB712TDOC, AQPB712NDOC, AQPB712NCER);
+

@@ -1,0 +1,13 @@
+create table JFAW302
+(
+  jfaw302pa  NUMBER(3) not null,
+  jfaw302td  NUMBER(2) not null,
+  jfaw302nd  CHAR(12) not null,
+  jfaw302fm  DATE not null,
+  jfaw302co  CHAR(1),
+  jfaw302rnd NUMBER(3)
+)
+;
+alter table JFAW302
+  add primary key (JFAW302PA, JFAW302TD, JFAW302ND, JFAW302FM);
+

@@ -1,0 +1,15 @@
+create table FBC052
+(
+  bcaemp NUMBER(3) not null,
+  bcasuc NUMBER(3) not null,
+  bcacta NUMBER(9) not null,
+  bcimp1 NUMBER(17,2),
+  bcimp2 NUMBER(17,2),
+  bcimp3 NUMBER(17,2)
+)
+;
+create index FBC05202 on FBC052 (BCAEMP, BCASUC, BCIMP1);
+create index FBC05203 on FBC052 (BCACTA, BCAEMP, BCASUC);
+alter table FBC052
+  add primary key (BCAEMP, BCASUC, BCACTA);
+

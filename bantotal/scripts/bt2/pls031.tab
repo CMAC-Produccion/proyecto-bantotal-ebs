@@ -1,0 +1,13 @@
+create table PLS031
+(
+  pls031cod  NUMBER(3) not null,
+  pls031conv NUMBER(8) not null,
+  pls031hrm  CHAR(8) not null,
+  pls031fchm DATE not null,
+  pls031desc CHAR(120),
+  pls031usr  CHAR(10)
+)
+;
+alter table PLS031
+  add primary key (PLS031COD, PLS031CONV, PLS031HRM, PLS031FCHM);
+

@@ -1,0 +1,16 @@
+create table FCPG15
+(
+  cpg15cod   NUMBER(3) not null,
+  cpg15desc  CHAR(40),
+  cpg15compc CHAR(1),
+  cpg15compp CHAR(1),
+  cpg15ps    CHAR(1),
+  cpg15est   CHAR(3),
+  cpg15blq   CHAR(1),
+  cpg15inst  NUMBER(10)
+)
+;
+create index FCPG1502 on FCPG15 (CPG15INST);
+alter table FCPG15
+  add primary key (CPG15COD);
+

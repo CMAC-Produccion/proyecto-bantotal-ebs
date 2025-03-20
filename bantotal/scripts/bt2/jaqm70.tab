@@ -1,0 +1,79 @@
+create table JAQM70
+(
+  jaqm70ins NUMBER(10) not null,
+  jaqm70cui VARCHAR2(50) not null,
+  jaqm70cue VARCHAR2(50) not null,
+  jaqm70usr CHAR(10) not null,
+  jaqm70cor NUMBER(4) not null,
+  jaqm70fec DATE,
+  jaqm70hor CHAR(8),
+  jaqm70com CHAR(255),
+  jaqm70est CHAR(1),
+  jaqm70hab CHAR(1),
+  jaqm70mod CHAR(1),
+  jaqm70ai1 NUMBER(17,2),
+  jaqm70ai2 NUMBER(17,2),
+  jaqm70ai3 NUMBER(17,2),
+  jaqm70ad1 DATE,
+  jaqm70ad2 DATE,
+  jaqm70ad3 DATE,
+  jaqm70an1 NUMBER(9),
+  jaqm70an2 NUMBER(9),
+  jaqm70an3 NUMBER(9),
+  jaqm70ac1 CHAR(255),
+  jaqm70ac2 CHAR(255),
+  jaqm70ac3 CHAR(255)
+)
+;
+comment on table JAQM70
+  is 'Validaciones Expedientes Digitales';
+comment on column JAQM70.jaqm70ins
+  is 'Instancia';
+comment on column JAQM70.jaqm70cui
+  is 'Código Unico Documento';
+comment on column JAQM70.jaqm70cue
+  is 'Código Unico Tipo Documento JAQM11';
+comment on column JAQM70.jaqm70usr
+  is 'Usuario';
+comment on column JAQM70.jaqm70cor
+  is 'Correlativo';
+comment on column JAQM70.jaqm70fec
+  is 'Fecha';
+comment on column JAQM70.jaqm70hor
+  is 'Hora';
+comment on column JAQM70.jaqm70com
+  is 'Comentario';
+comment on column JAQM70.jaqm70est
+  is 'Estado (A - Aprobado, R - Rechazado)';
+comment on column JAQM70.jaqm70hab
+  is 'Habilitado';
+comment on column JAQM70.jaqm70mod
+  is 'Modo de Validación (A - Automática, M - Manual)';
+comment on column JAQM70.jaqm70ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM70.jaqm70ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM70.jaqm70ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM70.jaqm70ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM70.jaqm70ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM70.jaqm70ad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM70.jaqm70an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM70.jaqm70an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM70.jaqm70an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM70.jaqm70ac1
+  is 'Auxiliar Carácter 1';
+comment on column JAQM70.jaqm70ac2
+  is 'Auxiliar Carácter 2';
+comment on column JAQM70.jaqm70ac3
+  is 'Auxiliar Carácter 3';
+create index JAQM70A2 on JAQM70 (JAQM70COR);
+alter table JAQM70
+  add primary key (JAQM70INS, JAQM70CUI, JAQM70CUE, JAQM70USR, JAQM70COR);
+

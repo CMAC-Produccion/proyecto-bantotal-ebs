@@ -1,0 +1,19 @@
+create table BSD010
+(
+  b010cod  NUMBER(3) not null,
+  b010mod  NUMBER(3) not null,
+  b010suc  NUMBER(3) not null,
+  b010mda  NUMBER(4) not null,
+  b010pap  NUMBER(4) not null,
+  b010cta  NUMBER(9) not null,
+  b010oper NUMBER(9) not null,
+  b010sbop NUMBER(3) not null,
+  b010tope NUMBER(3) not null,
+  b010ago  CHAR(1),
+  b010nr   NUMBER(4),
+  b010fur  DATE
+)
+;
+alter table BSD010
+  add primary key (B010COD, B010MOD, B010SUC, B010MDA, B010PAP, B010CTA, B010OPER, B010SBOP, B010TOPE);
+

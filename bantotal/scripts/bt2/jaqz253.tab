@@ -1,0 +1,17 @@
+create table JAQZ253
+(
+  jaqz253sol   NUMBER(10) not null,
+  jaqz253cod   NUMBER(2) not null,
+  jaqz253inf   VARCHAR2(30) not null,
+  jaqz253opi   CHAR(1) not null,
+  jaqz253com   VARCHAR2(300) not null,
+  jaqz253est   CHAR(1) not null,
+  jaqz253fec   DATE not null,
+  jaqz253usu   CHAR(10) not null,
+  jaqz253esrep CHAR(1)
+)
+;
+create index JAQZ2532 on JAQZ253 (JAQZ253ESREP);
+alter table JAQZ253
+  add primary key (JAQZ253SOL, JAQZ253COD);
+

@@ -1,0 +1,12 @@
+create table JMB015
+(
+  jmb015pais NUMBER(3) not null,
+  jmb015tdoc NUMBER(2) not null,
+  jmb015ndoc CHAR(12) not null,
+  jmb015docd NUMBER(2) not null,
+  jmb015domx LONG
+)
+;
+alter table JMB015
+  add primary key (JMB015PAIS, JMB015TDOC, JMB015NDOC, JMB015DOCD);
+

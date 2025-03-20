@@ -1,0 +1,33 @@
+create table JAQZ504H
+(
+  jaqz504hemp NUMBER(3) not null,
+  jaqz504hmod NUMBER(3) not null,
+  jaqz504hsuc NUMBER(3) not null,
+  jaqz504hmda NUMBER(4) not null,
+  jaqz504hpap NUMBER(4) not null,
+  jaqz504hcta NUMBER(9) not null,
+  jaqz504hope NUMBER(9) not null,
+  jaqz504hsbo NUMBER(3) not null,
+  jaqz504htop NUMBER(3) not null,
+  jaqz504hfec DATE,
+  jaqz504husu CHAR(10),
+  jaqz504hobs VARCHAR2(200),
+  jaqz504hest NUMBER(2),
+  jaqz504hins NUMBER(10),
+  jaqz504hfei DATE,
+  jaqz504hfef DATE,
+  jaqz504hmto NUMBER(18,2),
+  jaqz504hext NUMBER(2),
+  jaqz504hsud NUMBER(3),
+  jaqz504hfed DATE,
+  jaqz504hmot NUMBER(3),
+  jaqz504htrt NUMBER(3),
+  jaqz504hnrt NUMBER(4),
+  jaqz504hust CHAR(10)
+)
+;
+create index IDX_JAQZ504H_01 on JAQZ504H (JAQZ504HSUC, JAQZ504HFEF, JAQZ504HEST);
+create index IDX_JAQZ504H_02 on JAQZ504H (JAQZ504HINS);
+alter table JAQZ504H
+  add constraint SYS_JAQZ504H primary key (JAQZ504HEMP, JAQZ504HMOD, JAQZ504HSUC, JAQZ504HMDA, JAQZ504HPAP, JAQZ504HCTA, JAQZ504HOPE, JAQZ504HSBO, JAQZ504HTOP);
+

@@ -1,0 +1,48 @@
+create table JBVA12
+(
+  jbva12pgc NUMBER(3) not null,
+  jbva12mod NUMBER(3) not null,
+  jbva12suc NUMBER(3) not null,
+  jbva12mda NUMBER(4) not null,
+  jbva12pap NUMBER(4) not null,
+  jbva12cta NUMBER(9) not null,
+  jbva12ope NUMBER(9) not null,
+  jbva12sbo NUMBER(3) not null,
+  jbva12top NUMBER(3) not null,
+  jbva12tpp CHAR(40),
+  jbva12tga NUMBER(5),
+  jbva12npg CHAR(40),
+  jbva12nug VARCHAR2(16),
+  jbva12eed CHAR(40),
+  jvba12ecd CHAR(40),
+  jvba12fco DATE,
+  jvba12fvn DATE,
+  jvba12tpg NUMBER(5),
+  jvba12obs VARCHAR2(200),
+  jbva12tpg NUMBER(3),
+  jbva12tsc NUMBER(3),
+  jbva12tmd NUMBER(3),
+  jbva12ttr NUMBER(3),
+  jbva12trl NUMBER(4),
+  jbva12fcn DATE,
+  jbva12tor NUMBER(2),
+  jbva12tso NUMBER(3),
+  jbva12con CHAR(1),
+  jbva12a1  NUMBER(9),
+  jbva12a2  NUMBER(9),
+  jbva12a3  NUMBER(9),
+  jbva12a4  NUMBER(17,2),
+  jbva12a5  NUMBER(17,2),
+  jbva12a6  NUMBER(17,2),
+  jbva12a7  CHAR(30),
+  jbva12a8  CHAR(30),
+  jbva12a9  CHAR(30),
+  jbva12a10 DATE,
+  jbva12a11 DATE,
+  jbva12a12 DATE
+)
+;
+create unique index JBVA1201 on JBVA12 (JBVA12PGC, JBVA12MOD, JBVA12SUC, JBVA12MDA, JBVA12PAP, JBVA12CTA, JBVA12OPE, JBVA12SBO, JBVA12TOP);
+create index JBVA1202 on JBVA12 (JBVA12TPG, JBVA12TMD, JBVA12TSC, JBVA12TTR, JBVA12TRL, JBVA12FCN, JBVA12TOR, JBVA12TSO);
+create index JBVA1203 on JBVA12 (JBVA12PGC, JBVA12TGA);
+

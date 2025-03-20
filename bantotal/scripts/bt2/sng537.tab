@@ -1,0 +1,23 @@
+create table SNG537
+(
+  sng537ins  NUMBER(10) not null,
+  sng537codr NUMBER(5) not null,
+  sng537corr NUMBER(5) not null,
+  sng537insg NUMBER(10) not null,
+  sng537ord  NUMBER(4),
+  sng537wi   NUMBER(10),
+  sng537sald NUMBER(17,2),
+  sng537pgc  NUMBER(3),
+  sng537suc  NUMBER(3),
+  sng537mda  NUMBER(4),
+  sng537pap  NUMBER(4),
+  sng537cta  NUMBER(9),
+  sng537sop  NUMBER(3),
+  sng537mdo  NUMBER(3),
+  sng537top  NUMBER(3),
+  sng537tip  CHAR(1)
+)
+;
+alter table SNG537
+  add primary key (SNG537INS, SNG537CODR, SNG537CORR, SNG537INSG);
+

@@ -1,0 +1,184 @@
+create table JAQM1D
+(
+  jaqm1dusu CHAR(10) not null,
+  jaqm1demp NUMBER(3) not null,
+  jaqm1dmod NUMBER(3) not null,
+  jaqm1dsuc NUMBER(3) not null,
+  jaqm1dmda NUMBER(4) not null,
+  jaqm1dpap NUMBER(4) not null,
+  jaqm1dcta NUMBER(9) not null,
+  jaqm1dope NUMBER(9) not null,
+  jaqm1dsbo NUMBER(3) not null,
+  jaqm1dtop NUMBER(3) not null,
+  jaqm1dtsu NUMBER(3) not null,
+  jaqm1dtmd NUMBER(3) not null,
+  jaqm1dttr NUMBER(3) not null,
+  jaqm1drel NUMBER(4) not null,
+  jaqm1dfch DATE,
+  jaqm1dhor CHAR(8),
+  jaqm1dhca NUMBER(7),
+  jaqm1dage CHAR(30),
+  jaqm1dcre VARCHAR2(30),
+  jaqm1dcli CHAR(30),
+  jaqm1dfhp DATE,
+  jaqm1dfde DATE,
+  jaqm1dfal DATE,
+  jaqm1dcde CHAR(30),
+  jaqm1dmap NUMBER(17,2),
+  jaqm1dmde NUMBER(17,2),
+  jaqm1ditf NUMBER(17,2),
+  jaqm1dtas CHAR(20),
+  jaqm1dcuo NUMBER(17,2),
+  jaqm1dscp NUMBER(17,2),
+  jaqm1duin CHAR(10),
+  jaqm1duco CHAR(10),
+  jaqm1desc VARCHAR2(20),
+  jaqm1dptc NUMBER(10,6),
+  jaqm1dana CHAR(10),
+  jaqm1dtcr CHAR(30),
+  jaqm1dtde VARCHAR2(30),
+  jaqm1dtso VARCHAR2(80),
+  jaqm1dtda CHAR(2),
+  jaqm1drsu NUMBER(3),
+  jaqm1drus CHAR(10),
+  jaqm1drfi DATE,
+  jaqm1drff DATE,
+  jaqm1drdl CHAR(1),
+  jaqm1drec VARCHAR2(250),
+  jaqm1drtd CHAR(1),
+  jaqm1dan1 NUMBER(9),
+  jaqm1dan2 NUMBER(9),
+  jaqm1dan3 NUMBER(9),
+  jaqm1dad1 DATE,
+  jaqm1dad2 DATE,
+  jaqm1dad3 DATE,
+  jaqm1dai1 NUMBER(17,2),
+  jaqm1dai2 NUMBER(17,2),
+  jaqm1dai3 NUMBER(17,2),
+  jaqm1dac1 VARCHAR2(255),
+  jaqm1dac2 VARCHAR2(255),
+  jaqm1dac3 VARCHAR2(255)
+)
+;
+comment on table JAQM1D
+  is 'Log Desembolsos';
+comment on column JAQM1D.jaqm1dusu
+  is 'Usuario';
+comment on column JAQM1D.jaqm1demp
+  is 'Empresa';
+comment on column JAQM1D.jaqm1dmod
+  is 'Modulo';
+comment on column JAQM1D.jaqm1dsuc
+  is 'Sucursal';
+comment on column JAQM1D.jaqm1dmda
+  is 'Moneda';
+comment on column JAQM1D.jaqm1dpap
+  is 'Papel';
+comment on column JAQM1D.jaqm1dcta
+  is 'Cuenta';
+comment on column JAQM1D.jaqm1dope
+  is 'Operacion';
+comment on column JAQM1D.jaqm1dsbo
+  is 'Suboperacion';
+comment on column JAQM1D.jaqm1dtop
+  is 'TipoOperacion';
+comment on column JAQM1D.jaqm1dtsu
+  is 'JAQM1DTSU';
+comment on column JAQM1D.jaqm1dtmd
+  is 'JAQM1DTMD';
+comment on column JAQM1D.jaqm1dttr
+  is 'JAQM1DTTR';
+comment on column JAQM1D.jaqm1drel
+  is 'JAQM1DREL';
+comment on column JAQM1D.jaqm1dfch
+  is 'JAQM1DFCH';
+comment on column JAQM1D.jaqm1dhor
+  is 'JAQM1DHOR';
+comment on column JAQM1D.jaqm1dhca
+  is 'JAQM1DHCA';
+comment on column JAQM1D.jaqm1dage
+  is 'JAQM1DAGE';
+comment on column JAQM1D.jaqm1dcre
+  is 'JAQM1DCRE';
+comment on column JAQM1D.jaqm1dcli
+  is 'JAQM1DCLI';
+comment on column JAQM1D.jaqm1dfhp
+  is 'JAQM1DFHP';
+comment on column JAQM1D.jaqm1dfde
+  is 'JAQM1DFDE';
+comment on column JAQM1D.jaqm1dfal
+  is 'JAQM1DFAL';
+comment on column JAQM1D.jaqm1dcde
+  is 'JAQM1DCDE';
+comment on column JAQM1D.jaqm1dmap
+  is 'JAQM1DMAP';
+comment on column JAQM1D.jaqm1dmde
+  is 'JAQM1DMDE';
+comment on column JAQM1D.jaqm1ditf
+  is 'JAQM1DITF';
+comment on column JAQM1D.jaqm1dtas
+  is 'JAQM1DTAS';
+comment on column JAQM1D.jaqm1dcuo
+  is 'JAQM1DCUO';
+comment on column JAQM1D.jaqm1dscp
+  is 'JAQM1DSCP';
+comment on column JAQM1D.jaqm1duin
+  is 'JAQM1DUIN';
+comment on column JAQM1D.jaqm1duco
+  is 'JAQM1DUCO';
+comment on column JAQM1D.jaqm1desc
+  is 'JAQM1DESC';
+comment on column JAQM1D.jaqm1dptc
+  is 'JAQM1DPTC';
+comment on column JAQM1D.jaqm1dana
+  is 'JAQM1DANA';
+comment on column JAQM1D.jaqm1dtcr
+  is 'JAQM1DTCR';
+comment on column JAQM1D.jaqm1dtde
+  is 'JAQM1DTDE';
+comment on column JAQM1D.jaqm1dtso
+  is 'JAQM1DTSO';
+comment on column JAQM1D.jaqm1dtda
+  is 'JAQM1DTDA';
+comment on column JAQM1D.jaqm1drsu
+  is 'JAQM1DRSU';
+comment on column JAQM1D.jaqm1drus
+  is 'JAQM1DRUS';
+comment on column JAQM1D.jaqm1drfi
+  is 'JAQM1DRFI';
+comment on column JAQM1D.jaqm1drff
+  is 'JAQM1DRFF';
+comment on column JAQM1D.jaqm1drdl
+  is 'JAQM1DRDL';
+comment on column JAQM1D.jaqm1drec
+  is 'JAQM1DREC';
+comment on column JAQM1D.jaqm1drtd
+  is 'JAQM1DRTD';
+comment on column JAQM1D.jaqm1dan1
+  is 'JAQM1DAN1';
+comment on column JAQM1D.jaqm1dan2
+  is 'JAQM1DAN2';
+comment on column JAQM1D.jaqm1dan3
+  is 'JAQM1DAN3';
+comment on column JAQM1D.jaqm1dad1
+  is 'JAQM1DAD1';
+comment on column JAQM1D.jaqm1dad2
+  is 'JAQM1DAD2';
+comment on column JAQM1D.jaqm1dad3
+  is 'JAQM1DAD3';
+comment on column JAQM1D.jaqm1dai1
+  is 'JAQM1DAI1';
+comment on column JAQM1D.jaqm1dai2
+  is 'JAQM1DAI2';
+comment on column JAQM1D.jaqm1dai3
+  is 'JAQM1DAI3';
+comment on column JAQM1D.jaqm1dac1
+  is 'JAQM1DAC1';
+comment on column JAQM1D.jaqm1dac2
+  is 'JAQM1DAC2';
+comment on column JAQM1D.jaqm1dac3
+  is 'JAQM1DAC3';
+create index JAQM1DA2 on JAQM1D (JAQM1DUSU, JAQM1DMDA, JAQM1DFCH, JAQM1DHCA);
+alter table JAQM1D
+  add primary key (JAQM1DUSU, JAQM1DEMP, JAQM1DMOD, JAQM1DSUC, JAQM1DMDA, JAQM1DPAP, JAQM1DCTA, JAQM1DOPE, JAQM1DSBO, JAQM1DTOP, JAQM1DTSU, JAQM1DTMD, JAQM1DTTR, JAQM1DREL);
+

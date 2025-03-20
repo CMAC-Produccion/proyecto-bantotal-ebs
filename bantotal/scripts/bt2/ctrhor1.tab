@@ -1,0 +1,18 @@
+create table CTRHOR1
+(
+  ctrhor1pgc NUMBER(3) not null,
+  ctrhor1mod NUMBER(3) not null,
+  ctrhor1trn NUMBER(3) not null,
+  ctrhor1mda NUMBER(4) not null,
+  ctrhor1suc NUMBER(4) not null,
+  ctrhor1cor NUMBER(4) not null,
+  ctrhor1hde DATE,
+  ctrhor1hha DATE,
+  ctrhor1est CHAR(1),
+  ctrhor1hab CHAR(1),
+  ctrhor1ext CHAR(1)
+)
+;
+alter table CTRHOR1
+  add primary key (CTRHOR1PGC, CTRHOR1MOD, CTRHOR1TRN, CTRHOR1MDA, CTRHOR1SUC, CTRHOR1COR);
+

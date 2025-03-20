@@ -1,0 +1,23 @@
+create table AUD_FST028_AUDIT
+(
+  aud_old_calcod     NUMBER(3),
+  aud_new_calcod     NUMBER(3),
+  aud_old_ffecha     DATE,
+  aud_new_ffecha     DATE,
+  aud_old_fhabil     CHAR(1),
+  aud_new_fhabil     CHAR(1),
+  aud_fst028_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst028_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst028_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst028_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst028_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst028_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst028_ubu     VARCHAR2(50) default USER not null,
+  aud_fst028_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst028_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst028_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst028_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst028_uas     CHAR(1) default 'I' not null
+)
+;
+

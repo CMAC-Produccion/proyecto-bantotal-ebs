@@ -1,0 +1,14 @@
+create table FST201
+(
+  pgcod  NUMBER(3) not null,
+  modulo NUMBER(3) not null,
+  opmcod NUMBER(5) not null,
+  opmtxt CHAR(30),
+  opmval CHAR(1)
+)
+;
+create index FST20103 on FST201 (MODULO);
+create index FST20104 on FST201 (PGCOD, OPMCOD, MODULO);
+alter table FST201
+  add primary key (PGCOD, MODULO, OPMCOD);
+

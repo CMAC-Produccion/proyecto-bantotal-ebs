@@ -1,0 +1,22 @@
+create table BTSBT1
+(
+  bticannom  VARCHAR2(40) not null,
+  btinom     VARCHAR2(40) not null,
+  btisrvnom  VARCHAR2(40) not null,
+  btimtdnom  VARCHAR2(40) not null,
+  btsbt1mod  NUMBER(3) not null,
+  btsbt1trn  NUMBER(3) not null,
+  btsbt1hab  CHAR(1),
+  btsbt1tsuc CHAR(1),
+  btsbt1suc  NUMBER(3),
+  btsbt1user CHAR(10),
+  btsbt1ordo NUMBER(2),
+  btsbt1ordd NUMBER(2),
+  btsbt1aux1 NUMBER(9),
+  btsbt1aux2 CHAR(50),
+  btsbt1aux3 DATE
+)
+;
+alter table BTSBT1
+  add primary key (BTICANNOM, BTINOM, BTISRVNOM, BTIMTDNOM, BTSBT1MOD, BTSBT1TRN);
+

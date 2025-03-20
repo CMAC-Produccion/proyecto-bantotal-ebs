@@ -1,0 +1,46 @@
+create table SCH003
+(
+  sch003emp NUMBER(3) not null,
+  sch003ped NUMBER(10) not null,
+  sch003csu NUMBER(3),
+  sch003tdo NUMBER(3),
+  sch003est NUMBER(3),
+  sch003id1 CHAR(30),
+  sch003id2 CHAR(30),
+  sch003id3 CHAR(30),
+  sch003no1 CHAR(30),
+  sch003no2 CHAR(30),
+  sch003no3 CHAR(30),
+  sch003dom CHAR(55),
+  sch003sur NUMBER(3),
+  sch003cnt NUMBER(5),
+  sch003fep DATE,
+  sch003fer DATE,
+  sch003usi CHAR(10),
+  sch003usc CHAR(10),
+  sch003pgc NUMBER(3),
+  sch003suc NUMBER(3),
+  sch003mod NUMBER(3),
+  sch003mda NUMBER(4),
+  sch003pap NUMBER(4),
+  sch003cta NUMBER(9),
+  sch003ope NUMBER(9),
+  sch003sbo NUMBER(3),
+  sch003top NUMBER(3),
+  sch003cin NUMBER(9),
+  sch003pg  NUMBER(3),
+  sch003mo  NUMBER(3),
+  sch003su  NUMBER(3),
+  sch003tr  NUMBER(3),
+  sch003re  NUMBER(4),
+  sch003fc  DATE,
+  sch003or  NUMBER(2),
+  sch003sb  NUMBER(3),
+  sch003co  CHAR(1)
+)
+;
+create index SCH00302 on SCH003 (SCH003PGC, SCH003MOD, SCH003MDA, SCH003PAP, SCH003CTA, SCH003SUC, SCH003OPE, SCH003SBO, SCH003TOP);
+create index SCH00303 on SCH003 (SCH003EMP, SCH003CSU);
+alter table SCH003
+  add primary key (SCH003EMP, SCH003PED);
+

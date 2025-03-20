@@ -1,0 +1,116 @@
+create table AQPB736
+(
+  aqpb736emp    NUMBER(3) not null,
+  aqpb736suc    NUMBER(3) not null,
+  aqpb736mod    NUMBER(3) not null,
+  aqpb736mda    NUMBER(4) not null,
+  aqpb736pap    NUMBER(4) not null,
+  aqpb736cta    NUMBER(9) not null,
+  aqpb736ope    NUMBER(9) not null,
+  aqpb736sbo    NUMBER(3) not null,
+  aqpb736top    NUMBER(3) not null,
+  aqpb736ins    NUMBER(10),
+  aqpb736sdo    NUMBER(18,2),
+  aqpb736mtoa   NUMBER(18,2),
+  aqpb736pcj    NUMBER(5,2),
+  aqpb736tip    NUMBER(2),
+  aqpb736empg   NUMBER(3),
+  aqpb736sucg   NUMBER(3),
+  aqpb736modg   NUMBER(3),
+  aqpb736mdag   NUMBER(4),
+  aqpb736papg   NUMBER(4),
+  aqpb736ctag   NUMBER(9),
+  aqpb736opeg   NUMBER(9),
+  aqpb736sbog   NUMBER(3),
+  aqpb736topg   NUMBER(3),
+  aqpb736est    CHAR(1),
+  aqpb736itcod  NUMBER(3) not null,
+  aqpb736itmod  NUMBER(3) not null,
+  aqpb736itsuc  NUMBER(3) not null,
+  aqpb736ittran NUMBER(3) not null,
+  aqpb736itnrel NUMBER(4) not null,
+  aqpb736itfcon DATE not null,
+  aqpb736ithor  CHAR(8),
+  aqpb736itucnf CHAR(10),
+  aqpb736usuact CHAR(10),
+  aqpb736fecact DATE
+)
+;
+comment on table AQPB736
+  is 'Lista de los créditos y garantías que se han dado de alta de los créditos de crecer';
+comment on column AQPB736.aqpb736emp
+  is 'Empresa del crédito';
+comment on column AQPB736.aqpb736suc
+  is 'sucursal del credito';
+comment on column AQPB736.aqpb736mod
+  is 'modulo del credito';
+comment on column AQPB736.aqpb736mda
+  is 'Monedo del crdito';
+comment on column AQPB736.aqpb736pap
+  is 'papel del credito';
+comment on column AQPB736.aqpb736cta
+  is 'cuenta del credito';
+comment on column AQPB736.aqpb736ope
+  is 'operacion del credito';
+comment on column AQPB736.aqpb736sbo
+  is 'suboperacion del credito';
+comment on column AQPB736.aqpb736top
+  is 'tipo operacion del credito';
+comment on column AQPB736.aqpb736ins
+  is 'Instancia';
+comment on column AQPB736.aqpb736sdo
+  is 'Saldo del capital del credito';
+comment on column AQPB736.aqpb736mtoa
+  is 'Monto de alta de la garantía';
+comment on column AQPB736.aqpb736pcj
+  is 'Porcentaje para el caluclo de alta del monto de garantía';
+comment on column AQPB736.aqpb736tip
+  is 'Tipo de Credito 1=consumo 2=mypes/vehiculares 3=hipotecario';
+comment on column AQPB736.aqpb736empg
+  is 'Empresa de la garantia';
+comment on column AQPB736.aqpb736sucg
+  is 'Sucursal de la Garantía';
+comment on column AQPB736.aqpb736modg
+  is 'Modúlo de la garantía';
+comment on column AQPB736.aqpb736mdag
+  is 'Moneda de la Garantía';
+comment on column AQPB736.aqpb736papg
+  is 'Papel de la Garantía';
+comment on column AQPB736.aqpb736ctag
+  is 'Cuenta de la Garantía';
+comment on column AQPB736.aqpb736opeg
+  is 'Operación de la Garnatía';
+comment on column AQPB736.aqpb736sbog
+  is 'Suboperación de la garantía';
+comment on column AQPB736.aqpb736topg
+  is 'Tipo de Operacion de la Garantía';
+comment on column AQPB736.aqpb736est
+  is 'Estado del registro C=Contabilizado, E=Extornado, N=No se contabilizó, I=CargaInicial';
+comment on column AQPB736.aqpb736itcod
+  is 'codigo empresa transacción';
+comment on column AQPB736.aqpb736itmod
+  is 'modulo transaccion';
+comment on column AQPB736.aqpb736itsuc
+  is 'sucursal transaccion';
+comment on column AQPB736.aqpb736ittran
+  is 'transacción';
+comment on column AQPB736.aqpb736itnrel
+  is 'numero de relacion transaccion';
+comment on column AQPB736.aqpb736itfcon
+  is 'fecha transacción';
+comment on column AQPB736.aqpb736ithor
+  is 'hora transacción';
+comment on column AQPB736.aqpb736itucnf
+  is 'usuario transaccion';
+comment on column AQPB736.aqpb736usuact
+  is 'usuario de acualizacion';
+comment on column AQPB736.aqpb736fecact
+  is 'fecha de actualización';
+create index AQPB736A2 on AQPB736 (AQPB736ITCOD, AQPB736ITMOD, AQPB736ITSUC, AQPB736ITTRAN, AQPB736ITNREL, AQPB736ITFCON);
+create index AQPB736A3 on AQPB736 (AQPB736CTA, AQPB736EST);
+create index AQPB736A4 on AQPB736 (AQPB736EMP, AQPB736SUC, AQPB736MOD, AQPB736MDA, AQPB736PAP, AQPB736CTA, AQPB736OPE, AQPB736SBO, AQPB736TOP);
+create index AQPB736A5 on AQPB736 (AQPB736EMPG, AQPB736SUCG, AQPB736MODG, AQPB736MDAG, AQPB736PAPG, AQPB736CTAG, AQPB736OPEG, AQPB736SBOG, AQPB736TOPG);
+create index AQPB736A6 on AQPB736 (AQPB736CTAG, AQPB736EST);
+alter table AQPB736
+  add primary key (AQPB736EMP, AQPB736SUC, AQPB736MOD, AQPB736MDA, AQPB736PAP, AQPB736CTA, AQPB736OPE, AQPB736SBO, AQPB736TOP, AQPB736ITCOD, AQPB736ITMOD, AQPB736ITSUC, AQPB736ITTRAN, AQPB736ITNREL, AQPB736ITFCON);
+

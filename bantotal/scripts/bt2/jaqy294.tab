@@ -1,0 +1,15 @@
+create table JAQY294
+(
+  jaqy294cod  NUMBER(3) not null,
+  jaqy294des  VARCHAR2(500),
+  jaqy294est  VARCHAR2(2),
+  jaqy294tip  VARCHAR2(2),
+  jaqy294fini DATE,
+  jaqy294ffin DATE
+)
+;
+create index JAQY29401 on JAQY294 (JAQY294EST);
+create index JAQY29402 on JAQY294 (JAQY294FINI, JAQY294FFIN);
+alter table JAQY294
+  add primary key (JAQY294COD);
+

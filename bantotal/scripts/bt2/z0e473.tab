@@ -1,0 +1,14 @@
+create table Z0E473
+(
+  z0e466cod NUMBER(3) not null,
+  z0e476cod CHAR(2) not null,
+  z0e467cod NUMBER(4) not null,
+  z0e464cod NUMBER(3)
+)
+;
+create index Z0E47302 on Z0E473 (Z0E464COD);
+create index Z0E47303 on Z0E473 (Z0E467COD);
+create index Z0E47304 on Z0E473 (Z0E476COD);
+alter table Z0E473
+  add primary key (Z0E466COD, Z0E476COD, Z0E467COD);
+

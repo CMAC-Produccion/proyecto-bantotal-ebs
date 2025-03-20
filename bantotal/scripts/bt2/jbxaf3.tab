@@ -1,0 +1,22 @@
+create table JBXAF3
+(
+  jbxaf3nfem NUMBER(3) not null,
+  jbxaf3nfid NUMBER(9) not null,
+  jbxaf3fpro DATE not null,
+  jbxaf3mora NUMBER(4) not null,
+  jbxaf3scap NUMBER(17,2),
+  jbxaf3cpre NUMBER(6),
+  jbxaf3poto NUMBER(10,6),
+  jbxaf3cacu NUMBER(17,2),
+  jbxaf3pacu NUMBER(10,6),
+  jbxaf3au1  NUMBER(17,2),
+  jbxaf3au2  NUMBER(17,2),
+  jbxaf3au3  DATE,
+  jbxaf3au4  DATE,
+  jbxaf3au5  NUMBER(9),
+  jbxaf3au6  NUMBER(9),
+  jbxaf3au7  NUMBER(10,6)
+)
+;
+create unique index JBXAF301 on JBXAF3 (JBXAF3NFEM, JBXAF3NFID, JBXAF3FPRO, JBXAF3MORA);
+

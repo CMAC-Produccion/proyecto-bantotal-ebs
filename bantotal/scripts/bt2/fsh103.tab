@@ -1,0 +1,11 @@
+create table FSH103
+(
+  pbcod     NUMBER(3) not null,
+  pbnsec    NUMBER(5) not null,
+  pbethread NUMBER(4) not null,
+  pbethid   CHAR(26)
+)
+;
+alter table FSH103
+  add primary key (PBCOD, PBNSEC, PBETHREAD);
+

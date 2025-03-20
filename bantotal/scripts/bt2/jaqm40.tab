@@ -1,0 +1,89 @@
+create table JAQM40
+(
+  jaqm40fec DATE not null,
+  jaqm40ins NUMBER(10) not null,
+  jaqm40emp NUMBER(3) not null,
+  jaqm40mod NUMBER(3) not null,
+  jaqm40suc NUMBER(3) not null,
+  jaqm40mon NUMBER(4) not null,
+  jaqm40pap NUMBER(4) not null,
+  jaqm40cta NUMBER(9) not null,
+  jaqm40ope NUMBER(9) not null,
+  jaqm40sbo NUMBER(3) not null,
+  jaqm40top NUMBER(3) not null,
+  jaqm40cor NUMBER(9) not null,
+  jaqm40nom VARCHAR2(255),
+  jaqm40est CHAR(1),
+  jaqm40an1 NUMBER(9),
+  jaqm40an2 NUMBER(9),
+  jaqm40an3 NUMBER(9),
+  jaqm40ai1 NUMBER(17,2),
+  jaqm40ai2 NUMBER(17,2),
+  jaqm40ai3 NUMBER(17,2),
+  jaqm40ac1 VARCHAR2(255),
+  jaqm40ac2 VARCHAR2(255),
+  jaqm40ac3 VARCHAR2(255),
+  jaqm40af1 DATE,
+  jaqm40af2 DATE,
+  jaqm40af3 DATE
+)
+;
+comment on table JAQM40
+  is 'Númerador Seguro Desgravamen Grupal';
+comment on column JAQM40.jaqm40fec
+  is 'Fecha Alta Seguro';
+comment on column JAQM40.jaqm40ins
+  is 'Instancia';
+comment on column JAQM40.jaqm40emp
+  is 'Empresa';
+comment on column JAQM40.jaqm40mod
+  is 'Módulo';
+comment on column JAQM40.jaqm40suc
+  is 'Sucursal';
+comment on column JAQM40.jaqm40mon
+  is 'Moneda';
+comment on column JAQM40.jaqm40pap
+  is 'Papel';
+comment on column JAQM40.jaqm40cta
+  is 'Cuenta';
+comment on column JAQM40.jaqm40ope
+  is 'Operación';
+comment on column JAQM40.jaqm40sbo
+  is 'Sub Operación';
+comment on column JAQM40.jaqm40top
+  is 'Tipo Operación';
+comment on column JAQM40.jaqm40cor
+  is 'Correlativo Seguro';
+comment on column JAQM40.jaqm40nom
+  is 'Nombre Archivo';
+comment on column JAQM40.jaqm40est
+  is 'Estado';
+comment on column JAQM40.jaqm40an1
+  is 'Auxiliar Númerico 1';
+comment on column JAQM40.jaqm40an2
+  is 'Auxiliar Númerico 2';
+comment on column JAQM40.jaqm40an3
+  is 'Auxiliar Númerico 3';
+comment on column JAQM40.jaqm40ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM40.jaqm40ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM40.jaqm40ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM40.jaqm40ac1
+  is 'Auxiliar Cha 1';
+comment on column JAQM40.jaqm40ac2
+  is 'Auxiliar Cha 2';
+comment on column JAQM40.jaqm40ac3
+  is 'Auxiliar Cha 3';
+comment on column JAQM40.jaqm40af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM40.jaqm40af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM40.jaqm40af3
+  is 'Auxiliar Fecha 3';
+create index JAQM40A2 on JAQM40 (JAQM40INS);
+create index JAQM40A4 on JAQM40 (JAQM40COR);
+alter table JAQM40
+  add primary key (JAQM40FEC, JAQM40INS, JAQM40EMP, JAQM40MOD, JAQM40SUC, JAQM40MON, JAQM40PAP, JAQM40CTA, JAQM40OPE, JAQM40SBO, JAQM40TOP, JAQM40COR);
+

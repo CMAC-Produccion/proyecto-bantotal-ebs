@@ -1,0 +1,32 @@
+create table JAQL558
+(
+  jaql558cod  NUMBER(3) not null,
+  jaql558mod  NUMBER(3) not null,
+  jaql558cta  NUMBER(9) not null,
+  jaql558cor  NUMBER(3) not null,
+  jaql558ope  NUMBER(9) not null,
+  jaql558rub  NUMBER(16) not null,
+  jaql558mda  NUMBER(4),
+  jaql558fval DATE,
+  jaql558fvto DATE,
+  jaql558f99  DATE,
+  jaql558imp  NUMBER(17,2),
+  jaql558mtc  NUMBER(17,2),
+  jaql558nom  CHAR(30),
+  jaql558pas  NUMBER(3),
+  jaql558tdo  NUMBER(2),
+  jaql558ndo  CHAR(12),
+  jaql558nr1  NUMBER(4),
+  jaql558nr2  NUMBER(4),
+  jaql558nr3  NUMBER(4),
+  jaql558ch1  CHAR(20),
+  jaql558ch2  CHAR(40),
+  jaql558ch3  CHAR(60),
+  jaql558fh1  DATE,
+  jaql558fh2  DATE,
+  jaql558fh3  DATE
+)
+;
+alter table JAQL558
+  add primary key (JAQL558COD, JAQL558MOD, JAQL558CTA, JAQL558COR, JAQL558OPE, JAQL558RUB);
+

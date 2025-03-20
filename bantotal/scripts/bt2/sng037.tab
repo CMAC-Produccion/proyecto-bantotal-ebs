@@ -1,0 +1,12 @@
+create table SNG037
+(
+  sng037corc NUMBER(5) not null,
+  sng037cpto CHAR(20),
+  sng037desc CHAR(30),
+  sng036ltco NUMBER(5)
+)
+;
+create unique index SNG03702 on SNG037 (SNG037CPTO);
+alter table SNG037
+  add primary key (SNG037CORC);
+

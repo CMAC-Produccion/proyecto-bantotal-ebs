@@ -1,0 +1,25 @@
+create table FSD121
+(
+  fsd121tccod    NUMBER(3) not null,
+  fsd121tcmda    NUMBER(4) not null,
+  fsd121tcimp    NUMBER(14,2) not null,
+  fsd121tcfch    DATE not null,
+  fsd121tchor    CHAR(8) not null,
+  fsd121est      CHAR(1),
+  fsd121tccpa    NUMBER(14,8),
+  fsd121tcvta    NUMBER(14,8),
+  fsd121tctolc   NUMBER(10,8),
+  fsd121tctlv    NUMBER(10,8),
+  fsd121tcarbcpa NUMBER(14,8),
+  fsd121tarbvta  NUMBER(14,8),
+  fsd121tcabtol  NUMBER(10,8),
+  fsd121tcacnt   NUMBER(14,8),
+  fsd121tcfhinv  NUMBER(14),
+  fsd121using    CHAR(10)
+)
+;
+create index FSD12103 on FSD121 (FSD121TCCOD, FSD121TCMDA, FSD121TCIMP, FSD121TCFHINV);
+create index FSD12104 on FSD121 (FSD121EST, FSD121TCCOD, FSD121TCMDA, FSD121TCFHINV, FSD121TCIMP);
+alter table FSD121
+  add primary key (FSD121TCCOD, FSD121TCMDA, FSD121TCIMP, FSD121TCFCH, FSD121TCHOR);
+

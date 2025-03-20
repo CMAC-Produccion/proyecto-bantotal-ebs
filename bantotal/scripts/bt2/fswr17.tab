@@ -1,0 +1,16 @@
+create table FSWR17
+(
+  impresora CHAR(40) not null,
+  colnroreq NUMBER(9) not null,
+  pgcod     NUMBER(3),
+  trmod     NUMBER(3),
+  trnro     NUMBER(3),
+  colnumimp NUMBER(3),
+  colnomatr CHAR(255),
+  colvalatr CHAR(255)
+)
+;
+create index FSWR1703 on FSWR17 (PGCOD, TRMOD, TRNRO);
+alter table FSWR17
+  add primary key (IMPRESORA, COLNROREQ);
+

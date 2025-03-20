@@ -1,0 +1,32 @@
+create table SD4385
+(
+  sd85coddis NUMBER(4) not null,
+  sd85codent NUMBER(5) not null,
+  sd85fchinf NUMBER(6) not null,
+  sd85tpoid  NUMBER(2) not null,
+  sd85nroid  NUMBER(11) not null,
+  sd85entext CHAR(55),
+  sd85tpotfi NUMBER(1),
+  sd85pais   NUMBER(3),
+  sd85tpoasi NUMBER(1),
+  sd85pacoob NUMBER(3),
+  sd85derext NUMBER(1),
+  sd85valnoc NUMBER(10),
+  sd85codmda NUMBER(1),
+  sd85sdofm  NUMBER(10),
+  sd85has3mc NUMBER(10),
+  sd85has3mi NUMBER(10),
+  sd85mas3mc NUMBER(10),
+  sd85mas3mi NUMBER(10),
+  sd85mas6mc NUMBER(10),
+  sd85mas6mi NUMBER(10),
+  sd85mas1ac NUMBER(10),
+  sd85mas1ai NUMBER(10),
+  sd85mas2ac NUMBER(10),
+  sd85mas2ai NUMBER(10),
+  sd85rectif CHAR(1)
+)
+;
+alter table SD4385
+  add primary key (SD85CODDIS, SD85CODENT, SD85FCHINF, SD85TPOID, SD85NROID);
+

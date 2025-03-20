@@ -1,0 +1,31 @@
+create table AQPB607D
+(
+  aqpb607dcorp NUMBER(4) not null,
+  aqpb607dcorf NUMBER(4) not null,
+  aqpb607dfecc DATE not null,
+  aqpb607dhorc VARCHAR2(15) not null,
+  aqpb607dmont NUMBER(17,2),
+  aqpb607dncto NUMBER(4),
+  aqpb607dmntc NUMBER(17,2)
+)
+;
+comment on column AQPB607D.aqpb607dcorp
+  is 'CORRELATIVO';
+comment on column AQPB607D.aqpb607dcorf
+  is 'CORRELATIVO AQPB607';
+comment on column AQPB607D.aqpb607dfecc
+  is 'FECHA DE CARGA';
+comment on column AQPB607D.aqpb607dhorc
+  is 'HORA DE CARGA';
+comment on column AQPB607D.aqpb607dmont
+  is 'MONTO';
+comment on column AQPB607D.aqpb607dncto
+  is 'NRO CUOTAS';
+comment on column AQPB607D.aqpb607dmntc
+  is 'MONTO DE CUOTA';
+create index AQPB607D02 on AQPB607D (AQPB607DCORP, AQPB607DCORF);
+create index AQPB607D03 on AQPB607D (AQPB607DCORP, AQPB607DCORF, AQPB607DFECC, AQPB607DHORC);
+create index AQPB607D04 on AQPB607D (AQPB607DCORF, AQPB607DFECC, AQPB607DHORC);
+alter table AQPB607D
+  add primary key (AQPB607DCORP, AQPB607DCORF, AQPB607DFECC, AQPB607DHORC);
+

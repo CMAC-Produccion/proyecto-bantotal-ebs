@@ -1,0 +1,14 @@
+create table FXMQ01
+(
+  fxmq01id   NUMBER(14) not null,
+  fxmq01type NUMBER(1) not null,
+  fxmq01data CHAR(40),
+  fxmq01user CHAR(10),
+  fxmq01fh   DATE,
+  fxmq01sts  CHAR(1)
+)
+;
+create index FXMQ0102 on FXMQ01 (FXMQ01DATA);
+alter table FXMQ01
+  add primary key (FXMQ01ID, FXMQ01TYPE);
+

@@ -1,0 +1,16 @@
+create table BTI025
+(
+  btisdtnom       VARCHAR2(40) not null,
+  btisdtversion   VARCHAR2(40) not null,
+  btisdtnomint    VARCHAR2(40),
+  btisdtestado    CHAR(20),
+  btisdttipo      NUMBER(2),
+  btisdtnamespace VARCHAR2(70),
+  btisdtfecha     DATE,
+  btisdtdescrip   VARCHAR2(200),
+  btisdtnativo    CHAR(1)
+)
+;
+alter table BTI025
+  add primary key (BTISDTNOM, BTISDTVERSION);
+

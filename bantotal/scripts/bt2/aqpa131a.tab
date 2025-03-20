@@ -1,0 +1,26 @@
+create table AQPA131A
+(
+  aqpa131aano NUMBER(4) not null,
+  aqpa131acod NUMBER(10) not null,
+  aqpa131apgc NUMBER(3),
+  aqpa131amod NUMBER(3),
+  aqpa131asuc NUMBER(3),
+  aqpa131amda NUMBER(4),
+  aqpa131apap NUMBER(4),
+  aqpa131acta NUMBER(9),
+  aqpa131aope NUMBER(9),
+  aqpa131asub NUMBER(3),
+  aqpa131atpo NUMBER(3),
+  aqpa131afec DATE,
+  aqpa131ahor CHAR(8),
+  aqpa131ausu CHAR(10),
+  aqpa131amto NUMBER(17,2),
+  aqpa131amai VARCHAR2(65),
+  aqpa131acue CLOB,
+  aqpa131aest CHAR(1),
+  aqpa131amsg VARCHAR2(400)
+)
+;
+alter table AQPA131A
+  add primary key (AQPA131AANO, AQPA131ACOD);
+

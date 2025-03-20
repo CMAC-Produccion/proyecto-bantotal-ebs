@@ -1,0 +1,37 @@
+create table JAQY709
+(
+  jaqy709cor  NUMBER(18) not null,
+  jaqy709cod  NUMBER(3) not null,
+  jaqy709mod  NUMBER(4) not null,
+  jaqy709suc  NUMBER(4) not null,
+  jaqy709mda  NUMBER(3) not null,
+  jaqy709pap  NUMBER(4) not null,
+  jaqy709cta  NUMBER(9) not null,
+  jaqy709ope  NUMBER(9) not null,
+  jaqy709sbo  NUMBER(3) not null,
+  jaqy709top  NUMBER(3) not null,
+  jaqy709fpro DATE not null,
+  jaqy709pro  CHAR(30),
+  jaqy709tco  CHAR(30),
+  jaqy709stat NUMBER(2),
+  jaqy709cim  NUMBER(16,2),
+  jaqy709fup  DATE,
+  jaqy709dmo  NUMBER(16,2),
+  jaqy709cpa  NUMBER(5),
+  jaqy709duc  NUMBER(5),
+  jaqy709dac  NUMBER(5),
+  jaqy709ufp  DATE,
+  jaqy709amc  NUMBER(5),
+  jaqy709scc  NUMBER(16,2),
+  jaqy709fca  DATE,
+  jaqy709ndc  CHAR(12),
+  jaqy709tdc  NUMBER(2),
+  jaqy709pai  NUMBER(3),
+  jaqy709tca  NUMBER(14,8)
+)
+;
+create index JAQY709_01_2 on JAQY709 (JAQY709PAI, JAQY709TDC, JAQY709NDC, JAQY709SUC, JAQY709FPRO);
+create index JAQY709_02_2 on JAQY709 (JAQY709CTA, JAQY709OPE);
+alter table JAQY709
+  add constraint JAQY709_PK_2 primary key (JAQY709COR, JAQY709COD, JAQY709MOD, JAQY709SUC, JAQY709MDA, JAQY709PAP, JAQY709CTA, JAQY709OPE, JAQY709SBO, JAQY709TOP, JAQY709FPRO);
+

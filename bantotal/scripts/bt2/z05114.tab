@@ -1,0 +1,38 @@
+create table Z05114
+(
+  z05112apl NUMBER(4) not null,
+  z05112bnd CHAR(5) not null,
+  z05112cor NUMBER(9) not null,
+  z05112co2 NUMBER(9) not null,
+  z05113cor NUMBER(9) not null,
+  z05114cor NUMBER(9) not null,
+  z05114tpr CHAR(1),
+  z05114tpd CHAR(2),
+  z05114ndo NUMBER(11),
+  z05114nlo NUMBER(4),
+  z05114crb NUMBER(3),
+  z05114crs NUMBER(4),
+  z05114dvb NUMBER(1),
+  z05114crc NUMBER(3),
+  z05114ctc NUMBER(2),
+  z05114crn NUMBER(10),
+  z05114crd NUMBER(1),
+  z05114ccd NUMBER(1),
+  z05114cld CHAR(30),
+  z05114clt CHAR(2),
+  z05114cln NUMBER(11),
+  z05114ref CHAR(15),
+  z05114imp NUMBER(14,2),
+  z05114mot CHAR(3),
+  z05114cbc NUMBER(2),
+  z05114dbo NUMBER(3),
+  z05114dbn NUMBER(6),
+  z05114dbd NUMBER(1),
+  z05114tit CHAR(1),
+  z05114fil CHAR(18),
+  z05114est CHAR(2)
+)
+;
+alter table Z05114
+  add primary key (Z05112APL, Z05112BND, Z05112COR, Z05112CO2, Z05113COR, Z05114COR);
+

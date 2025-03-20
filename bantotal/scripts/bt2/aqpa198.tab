@@ -1,0 +1,52 @@
+create table AQPA198
+(
+  aqpa198nutar    CHAR(19) not null,
+  aqpa198imei     VARCHAR2(100) not null,
+  aqpa198modelo   VARCHAR2(100) not null,
+  aqpa198fecreg   DATE not null,
+  aqpa198horreg   VARCHAR2(100) not null,
+  aqpa198paidoc   NUMBER(3),
+  aqpa198tipdoc   NUMBER(3),
+  aqpa198numdoc   CHAR(12),
+  aqpa198deviceid VARCHAR2(100),
+  aqpa198dso      VARCHAR2(50),
+  aqpa198dlat     VARCHAR2(50),
+  aqpa198dlong    VARCHAR2(50),
+  aqpa198estado   VARCHAR2(20),
+  aqpa198canal    NUMBER(3),
+  aqpa198fecact   DATE,
+  aqpa198horact   VARCHAR2(10),
+  aqpa198usuario  VARCHAR2(10)
+)
+;
+comment on table AQPA198
+  is 'Equipos Registrados desde canales digitales';
+comment on column AQPA198.aqpa198paidoc
+  is 'Pais Documento del cliente';
+comment on column AQPA198.aqpa198tipdoc
+  is 'Tipo Documento del cliente';
+comment on column AQPA198.aqpa198numdoc
+  is 'Numero Documento del cliente';
+comment on column AQPA198.aqpa198deviceid
+  is 'Device ID';
+comment on column AQPA198.aqpa198dso
+  is 'Sistema Operativo';
+comment on column AQPA198.aqpa198dlat
+  is 'Latitud';
+comment on column AQPA198.aqpa198dlong
+  is 'Longitud';
+comment on column AQPA198.aqpa198estado
+  is 'Estado';
+comment on column AQPA198.aqpa198canal
+  is 'Canal';
+comment on column AQPA198.aqpa198fecact
+  is 'Fecha Actualizacion';
+comment on column AQPA198.aqpa198horact
+  is 'Hora Actualizacion';
+comment on column AQPA198.aqpa198usuario
+  is 'Usuario Actualizacion';
+create index AQPA1982 on AQPA198 (AQPA198NUTAR);
+create index AQPA1983 on AQPA198 (AQPA198NUTAR, AQPA198MODELO);
+alter table AQPA198
+  add primary key (AQPA198NUTAR, AQPA198IMEI, AQPA198MODELO, AQPA198FECREG, AQPA198HORREG);
+

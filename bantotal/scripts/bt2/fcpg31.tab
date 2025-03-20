@@ -1,0 +1,37 @@
+create table FCPG31
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg31paisb NUMBER(3) not null,
+  cpg31tdocb NUMBER(2) not null,
+  cpg31ndocb CHAR(25) not null,
+  cpg31rango NUMBER(3),
+  cpg31depen NUMBER(5),
+  cpg31fing  DATE,
+  cpg31ingr  NUMBER(17,2),
+  cpg31fulta DATE,
+  cpg31fval  DATE,
+  cpg31fvto  DATE,
+  cpg31depmt CHAR(1),
+  cpg31pais1 NUMBER(3),
+  cpg31tdoc1 NUMBER(2),
+  cpg31ndoc1 CHAR(25),
+  cpg31clte  CHAR(17),
+  cpg31habn  NUMBER(17,2),
+  cpg31fhabn DATE,
+  cpg31fech  DATE,
+  cpg31leg   CHAR(20),
+  cpg31prov  NUMBER(2),
+  cpg31est   CHAR(3),
+  cpg31blq   CHAR(1),
+  cpg31inst  NUMBER(10)
+)
+;
+create index FCPG3103 on FCPG31 (CPG26EMPBT, CPG31PAISB, CPG31TDOCB, CPG31NDOCB, CPG26CONV);
+create index FCPG3104 on FCPG31 (CPG26EMPBT, CPG26CONV, CPG15COD, CPG31PAIS1, CPG31TDOC1, CPG31NDOC1);
+create index FCPG3105 on FCPG31 (CPG26EMPBT, CPG31EST, CPG31FECH);
+create index FCPG3106 on FCPG31 (CPG26EMPBT, CPG31FVAL);
+alter table FCPG31
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG31PAISB, CPG31TDOCB, CPG31NDOCB);
+

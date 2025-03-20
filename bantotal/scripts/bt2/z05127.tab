@@ -1,0 +1,23 @@
+create table Z05127
+(
+  z05127emp NUMBER(4) not null,
+  z05127cui NUMBER(11) not null,
+  z05127mda NUMBER(4) not null,
+  z05127fpr DATE not null,
+  z05127fpe DATE not null,
+  z05127fcm DATE not null,
+  z05127cor NUMBER(9) not null,
+  z05127den CHAR(30),
+  z05127tip NUMBER(2),
+  z05127nro NUMBER(11),
+  z05127ref CHAR(15),
+  z05127cb1 CHAR(8),
+  z05127cb2 CHAR(14),
+  z05127imp NUMBER(10,2),
+  z05127obs CHAR(25),
+  z05127nem CHAR(30)
+)
+;
+alter table Z05127
+  add primary key (Z05127EMP, Z05127CUI, Z05127MDA, Z05127FPR, Z05127FPE, Z05127FCM, Z05127COR);
+

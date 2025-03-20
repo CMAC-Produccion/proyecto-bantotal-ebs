@@ -1,0 +1,22 @@
+create table FCPG90
+(
+  cpg90cod   NUMBER(4) not null,
+  cpg90adm   CHAR(30) not null,
+  cpg90usu   CHAR(30) not null,
+  cpg90tin   NUMBER(3) not null,
+  cpg90num   NUMBER(9) not null,
+  cpg90nlin  NUMBER(10) not null,
+  cpg90char1 CHAR(250),
+  cpg90char2 CHAR(250),
+  cpg90char3 CHAR(250),
+  cpg90char4 CHAR(250),
+  cpg90char5 CHAR(250),
+  cpg90char6 CHAR(250),
+  cpg90char7 CHAR(250),
+  cpg90char8 CHAR(250),
+  cpg90est   CHAR(3)
+)
+;
+alter table FCPG90
+  add primary key (CPG90COD, CPG90ADM, CPG90USU, CPG90TIN, CPG90NUM, CPG90NLIN);
+

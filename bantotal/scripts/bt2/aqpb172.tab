@@ -1,0 +1,45 @@
+create table AQPB172
+(
+  aqpb172fecha  DATE,
+  aqpb172zona   VARCHAR2(50),
+  aqpb172region VARCHAR2(50),
+  aqpb172sucur  VARCHAR2(50),
+  aqpb172codsuc NUMBER(5),
+  aqpb172anals  VARCHAR2(10),
+  aqpb172var1   NUMBER,
+  aqpb172var2   NUMBER,
+  aqpb172ind    VARCHAR2(10),
+  aqpb172fecc   DATE,
+  aqpb172horac  VARCHAR2(8)
+)
+;
+comment on table AQPB172
+  is 'Copia esanchezr_anx.DATOS_OPINION_RIESGOS';
+comment on column AQPB172.aqpb172fecha
+  is 'Fecha';
+comment on column AQPB172.aqpb172zona
+  is 'Zona';
+comment on column AQPB172.aqpb172region
+  is 'Region';
+comment on column AQPB172.aqpb172sucur
+  is 'Sucursal';
+comment on column AQPB172.aqpb172codsuc
+  is 'Codigo de Sucursal';
+comment on column AQPB172.aqpb172anals
+  is 'Analista';
+comment on column AQPB172.aqpb172var1
+  is 'Variable1';
+comment on column AQPB172.aqpb172var2
+  is 'Variable2';
+comment on column AQPB172.aqpb172ind
+  is 'Indicador';
+comment on column AQPB172.aqpb172fecc
+  is 'Fecha de Carga';
+comment on column AQPB172.aqpb172horac
+  is 'Hora de Carga';
+create index AQPB172A2 on AQPB172 (AQPB172FECHA, AQPB172ZONA, AQPB172REGION, AQPB172SUCUR, AQPB172CODSUC, AQPB172ANALS, AQPB172VAR1, AQPB172VAR2, AQPB172IND, AQPB172FECC, AQPB172HORAC);
+create index AQPB172A3 on AQPB172 (AQPB172FECC, AQPB172HORAC, AQPB172CODSUC);
+create index AQPB172A4 on AQPB172 (AQPB172FECC, AQPB172HORAC, AQPB172ZONA);
+create index AQPB172A5 on AQPB172 (AQPB172FECC, AQPB172HORAC, AQPB172REGION);
+create index AQPB172A6 on AQPB172 (AQPB172FECC, AQPB172HORAC, AQPB172ANALS);
+

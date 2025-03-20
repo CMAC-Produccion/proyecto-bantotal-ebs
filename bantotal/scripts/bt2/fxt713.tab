@@ -1,0 +1,11 @@
+create table FXT713
+(
+  rulerrcod NUMBER(5) not null,
+  rulerrlin NUMBER(3) not null,
+  rulerrtxt CHAR(65),
+  rulerrsts CHAR(1)
+)
+;
+alter table FXT713
+  add primary key (RULERRCOD, RULERRLIN);
+

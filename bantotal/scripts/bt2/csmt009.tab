@@ -1,0 +1,17 @@
+create table CSMT009
+(
+  csmt002cod NUMBER(4) not null,
+  csmt009tre CHAR(1) not null,
+  csmt009tab CHAR(1) not null,
+  csmt009cam NUMBER(3) not null,
+  csmt009nro NUMBER(4),
+  csmt009des CHAR(30),
+  csmt009pin NUMBER(4),
+  csmt009lon NUMBER(4),
+  csmt009tip CHAR(1),
+  csmt009val CHAR(1)
+)
+;
+alter table CSMT009
+  add primary key (CSMT002COD, CSMT009TRE, CSMT009TAB, CSMT009CAM);
+

@@ -1,0 +1,21 @@
+create table FSA112
+(
+  a112cod  NUMBER(3) not null,
+  a112suc  NUMBER(3) not null,
+  a112mod  NUMBER(3) not null,
+  a112trn  NUMBER(3) not null,
+  a112rel  NUMBER(4) not null,
+  a112ord  NUMBER(2) not null,
+  a112sor  NUMBER(3) not null,
+  a112che  NUMBER(9),
+  a112bco  NUMBER(3),
+  a112sbc  NUMBER(12),
+  a112imp  NUMBER(17,2),
+  a112cpos CHAR(12),
+  a112cta  CHAR(25)
+)
+;
+create index FSA11203 on FSA112 (A112BCO, A112SBC);
+alter table FSA112
+  add primary key (A112COD, A112SUC, A112MOD, A112TRN, A112REL, A112ORD, A112SOR);
+

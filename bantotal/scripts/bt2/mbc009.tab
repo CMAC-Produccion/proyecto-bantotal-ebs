@@ -1,0 +1,18 @@
+create table MBC009
+(
+  mbc9emp  NUMBER(3) not null,
+  mbc9usu  CHAR(10) not null,
+  mbc9suc  NUMBER(3),
+  mbc9ncaj NUMBER(3),
+  mbc9cajh CHAR(1),
+  mbc9caj  CHAR(1),
+  mbc9tes  CHAR(1),
+  mbc9aux1 NUMBER(9),
+  mbc9aux2 DATE,
+  mbc9aux3 CHAR(1),
+  mbc9aux4 CHAR(30)
+)
+;
+alter table MBC009
+  add primary key (MBC9EMP, MBC9USU);
+

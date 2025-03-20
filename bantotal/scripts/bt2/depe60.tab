@@ -1,0 +1,19 @@
+create table DEPE60
+(
+  depe60apl NUMBER(3) not null,
+  depe60ban CHAR(4) not null,
+  depe60env NUMBER(9) not null,
+  depe60fco DATE,
+  depe60fen DATE,
+  depe60far DATE,
+  depe60for CHAR(100),
+  depe60fds CHAR(100),
+  depe60hsh CHAR(32),
+  depe60uin CHAR(10),
+  depe60uco CHAR(10),
+  depe60est CHAR(3)
+)
+;
+alter table DEPE60
+  add primary key (DEPE60APL, DEPE60BAN, DEPE60ENV);
+

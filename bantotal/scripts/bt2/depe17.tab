@@ -1,0 +1,28 @@
+create table DEPE17
+(
+  rdeucod  NUMBER(3) not null,
+  rdeusuc  NUMBER(3) not null,
+  rdeumod  NUMBER(3) not null,
+  rdeurub  NUMBER(16) not null,
+  rdeumda  NUMBER(4) not null,
+  rdeupap  NUMBER(4) not null,
+  rdeucta  NUMBER(9) not null,
+  rdeuoper NUMBER(9) not null,
+  rdeusbop NUMBER(3) not null,
+  rdeutope NUMBER(3) not null,
+  rprior   NUMBER(4) not null,
+  rdeuimp  NUMBER(17,2),
+  rdeutpo  CHAR(1),
+  depaux1  NUMBER(17,2),
+  depaux2  NUMBER(17,2),
+  depaux3  NUMBER(17,2),
+  depaux4  NUMBER(17,2),
+  depaux5  DATE,
+  depaux6  CHAR(50),
+  depaux7  DATE
+)
+;
+create index DEPE1702 on DEPE17 (RDEUCOD, RDEUCTA);
+alter table DEPE17
+  add primary key (RDEUCOD, RDEUSUC, RDEUMOD, RDEURUB, RDEUMDA, RDEUPAP, RDEUCTA, RDEUOPER, RDEUSBOP, RDEUTOPE, RPRIOR);
+

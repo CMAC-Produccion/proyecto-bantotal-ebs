@@ -1,0 +1,21 @@
+create table SNG096
+(
+  sng096req  NUMBER(9) not null,
+  sng096emp  NUMBER(3),
+  sng096age  NUMBER(3),
+  sng096cta  NUMBER(9),
+  sng096ope  NUMBER(9),
+  sng096tire NUMBER(1),
+  sng096fere DATE,
+  sng096mod  NUMBER(3),
+  sng096mda  NUMBER(4),
+  sng096pap  NUMBER(4),
+  sng096sub  NUMBER(3),
+  sng096top  NUMBER(3),
+  ang096agus NUMBER(3)
+)
+;
+create index SNG09602 on SNG096 (SNG096CTA, SNG096OPE);
+alter table SNG096
+  add primary key (SNG096REQ);
+

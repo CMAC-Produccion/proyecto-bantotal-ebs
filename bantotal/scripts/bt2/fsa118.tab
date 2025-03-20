@@ -1,0 +1,14 @@
+create table FSA118
+(
+  codtar NUMBER(4) not null,
+  cuenta NUMBER(6) not null,
+  codent NUMBER(5),
+  fecaju NUMBER(6),
+  signo  CHAR(1),
+  import NUMBER(11),
+  rectif CHAR(1)
+)
+;
+alter table FSA118
+  add primary key (CODTAR, CUENTA);
+

@@ -1,0 +1,16 @@
+create table FCPG56
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg56fdes  DATE not null,
+  cpg56mrot  NUMBER(10,6),
+  cpg56est   CHAR(3),
+  cpg56blq   CHAR(1),
+  cpg56inst  NUMBER(10)
+)
+;
+create index FCPG5603 on FCPG56 (CPG56INST);
+alter table FCPG56
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG56FDES);
+

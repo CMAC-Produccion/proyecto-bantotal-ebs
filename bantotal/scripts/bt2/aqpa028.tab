@@ -1,0 +1,23 @@
+create table AQPA028
+(
+  aqpa028inst  NUMBER(10) not null,
+  aqpa028moda  CHAR(1),
+  aqpa028tipo  CHAR(2),
+  aqpa028user  VARCHAR2(20),
+  aqpa028csbs  VARCHAR2(30),
+  aqpa028frcc  DATE,
+  aqpa028fpro  DATE,
+  aqpa028rubro VARCHAR2(20),
+  aqpa028enti  VARCHAR2(200),
+  aqpa028cent  VARCHAR2(50),
+  aqpa028util  NUMBER(17,2),
+  aqpa028nout  NUMBER(17,2),
+  aqpa028tipc  VARCHAR2(2),
+  aqpa028ndoc  CHAR(12) not null,
+  aqpa028corr  NUMBER(10) not null,
+  aqpa028rub72 VARCHAR2(20)
+)
+;
+alter table AQPA028
+  add primary key (AQPA028INST, AQPA028NDOC, AQPA028CORR);
+

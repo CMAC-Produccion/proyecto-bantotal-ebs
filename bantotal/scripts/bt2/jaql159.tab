@@ -1,0 +1,13 @@
+create table JAQL159
+(
+  jaql159ruban  NUMBER(16) not null,
+  jaql159rubfin CHAR(20) not null,
+  jaql159indsuc CHAR(1),
+  jaql159possuc NUMBER(4),
+  jaql159digsuc NUMBER(2)
+)
+;
+create index JAQL159003 on JAQL159 (JAQL159RUBFIN);
+alter table JAQL159
+  add primary key (JAQL159RUBAN, JAQL159RUBFIN);
+

@@ -1,0 +1,72 @@
+create table JAQL472
+(
+  id                        NUMBER(15) not null,
+  checkrun_id               NUMBER(15),
+  checkrun_name             VARCHAR2(255),
+  check_number              NUMBER(15),
+  currency_code             VARCHAR2(15),
+  amount                    NUMBER(9,2),
+  last_update_by            NUMBER(15),
+  last_update_date          DATE,
+  created_by                NUMBER(15),
+  created_date              DATE,
+  vendor_id                 NUMBER(15),
+  vendor_site_id            NUMBER(15),
+  vendor_num                VARCHAR2(30),
+  vendor_name               VARCHAR2(240),
+  bank_account_num          VARCHAR2(30),
+  bank_account_type         VARCHAR2(25),
+  payment_method_code       VARCHAR2(30),
+  payment_bank_account_name VARCHAR2(100),
+  invoice_id                NUMBER(15),
+  invoice_num               VARCHAR2(50),
+  doc_type                  VARCHAR2(25),
+  numero_registro           NUMBER(10),
+  invoice_description       VARCHAR2(240),
+  status_process            VARCHAR2(240),
+  date_process              DATE,
+  status_payment            VARCHAR2(240),
+  date_payment              DATE,
+  org_id                    NUMBER(15),
+  hold_reason_code          NUMBER(15),
+  hold_output               VARCHAR2(240),
+  payment_document_code     VARCHAR2(100),
+  payment_document_name     VARCHAR2(100),
+  status_lookup_code        VARCHAR2(25),
+  tipo_gasto                VARCHAR2(240),
+  estado_rgj                VARCHAR2(2),
+  fecha_carga               DATE,
+  horario_carga             VARCHAR2(30),
+  codigo                    NUMBER(3),
+  sucursal                  NUMBER(3),
+  transaccion               NUMBER(3),
+  relacion                  NUMBER(4),
+  cod_mod                   NUMBER(4),
+  hora_carga                CHAR(8),
+  moterror                  CHAR(100),
+  hora_pago                 CHAR(8),
+  idprocess                 NUMBER(10),
+  horario_pago              VARCHAR2(30),
+  jaql472ax9                DATE,
+  jaql472ax8                DATE,
+  jaql472ax7                DATE,
+  jaql472ax6                NUMBER(16,2),
+  jaql472ax5                NUMBER(16,2),
+  jaql472ax4                NUMBER(16,2),
+  jaql472ax3                CHAR(100),
+  jaql472ax2                CHAR(100),
+  jaql472ax1                CHAR(100),
+  jaql472ext                CHAR(1)
+)
+;
+create index IDXJAQL472001 on JAQL472 (DATE_PAYMENT, SUCURSAL, PAYMENT_DOCUMENT_CODE);
+create index IDXJAQL472002 on JAQL472 (PAYMENT_DOCUMENT_CODE, CHECKRUN_NAME);
+create index IDXJAQL472003 on JAQL472 (PAYMENT_DOCUMENT_CODE, INVOICE_NUM);
+create index IDXJAQL472004 on JAQL472 (PAYMENT_DOCUMENT_CODE, VENDOR_NUM, INVOICE_NUM);
+create index IDXJAQL472005 on JAQL472 (PAYMENT_DOCUMENT_CODE, VENDOR_NUM, CHECKRUN_NAME);
+create index IDXJAQL472006 on JAQL472 (DATE_PAYMENT, PAYMENT_DOCUMENT_CODE, HORARIO_PAGO);
+create index IDXJAQL472007 on JAQL472 (PAYMENT_DOCUMENT_CODE, STATUS_PROCESS);
+create index IDXJAQL472008 on JAQL472 (CODIGO, SUCURSAL, COD_MOD, TRANSACCION, RELACION, DATE_PAYMENT);
+alter table JAQL472
+  add primary key (ID);
+

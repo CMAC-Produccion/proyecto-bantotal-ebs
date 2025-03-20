@@ -1,0 +1,34 @@
+create table AQPB556L
+(
+  aqpb556lcod  NUMBER(10),
+  aqpb556linst NUMBER(10),
+  aqpb556lpais NUMBER(3),
+  aqpb556lptdc NUMBER(2),
+  aqpb556ldni  VARCHAR2(12),
+  aqpb556lemp  NUMBER(3),
+  aqpb556lmod  NUMBER(3),
+  aqpb556lsuc  NUMBER(3),
+  aqpb556lmda  NUMBER(4),
+  aqpb556lpap  NUMBER(4),
+  aqpb556lcta  NUMBER(9),
+  aqpb556loper NUMBER(9),
+  aqpb556lsbop NUMBER(3),
+  aqpb556ltop  NUMBER(3),
+  aqpb556lest  VARCHAR2(1),
+  aqpb556lcons NUMBER(17,2),
+  aqpb556ltcov VARCHAR2(1),
+  aqpb556ltprg NUMBER(4),
+  aqpb556lusr  VARCHAR2(10),
+  aqpb556lpfec DATE,
+  aqpb556lback VARCHAR2(1),
+  aqpb556lflag VARCHAR2(1),
+  aqpb556lfg8  VARCHAR2(1),
+  aqpb556lbfec DATE,
+  aqpb556lbcor NUMBER(9),
+  aqpb556ltime TIMESTAMP(6)
+)
+;
+create index AQPB556L2 on AQPB556L (AQPB556LCOD);
+create index AQPB556L3 on AQPB556L (AQPB556LTIME, AQPB556LUSR);
+create index AQPB556L4 on AQPB556L (AQPB556LEMP, AQPB556LMOD, AQPB556LSUC, AQPB556LMDA, AQPB556LPAP, AQPB556LCTA, AQPB556LOPER, AQPB556LSBOP, AQPB556LTOP, AQPB556LEST, AQPB556LBFEC);
+

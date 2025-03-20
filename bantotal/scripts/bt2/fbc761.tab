@@ -1,0 +1,24 @@
+create table FBC761
+(
+  bc761nde CHAR(16) not null,
+  bc761cui CHAR(12),
+  bc761raz CHAR(20),
+  bc761dir CHAR(30),
+  bc761cta NUMBER(9),
+  bc761fcu DATE,
+  bc761ncu NUMBER(10),
+  bc761nic NUMBER(10),
+  bc761est CHAR(2),
+  bc761inf CHAR(2),
+  bc761bco NUMBER(5),
+  bc761fof DATE,
+  bc761apc NUMBER(4),
+  bc761apb CHAR(8),
+  bc761ape NUMBER(9),
+  bc761mon NUMBER(4)
+)
+;
+create index FBC76102 on FBC761 (BC761EST, BC761INF);
+alter table FBC761
+  add primary key (BC761NDE);
+

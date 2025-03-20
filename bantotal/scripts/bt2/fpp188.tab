@@ -1,0 +1,18 @@
+create table FPP188
+(
+  pp188crep NUMBER(4) not null,
+  pp188desc CHAR(50),
+  pp188prgm CHAR(10),
+  pp188au1  NUMBER(9),
+  pp188au2  NUMBER(9),
+  pp188au3  CHAR(30),
+  pp188au4  CHAR(30),
+  pp188au5  DATE,
+  pp188au6  DATE,
+  pp188au7  NUMBER(17,2),
+  pp188au8  NUMBER(17,2)
+)
+;
+alter table FPP188
+  add primary key (PP188CREP);
+

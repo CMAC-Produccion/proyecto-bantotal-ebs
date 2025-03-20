@@ -1,0 +1,10 @@
+create table FRWRKSRV
+(
+  frwrksrvse VARCHAR2(40) not null,
+  frwrksrvpr NUMBER(5) not null,
+  frprcid    NUMBER(6) not null
+)
+;
+alter table FRWRKSRV
+  add primary key (FRWRKSRVSE, FRWRKSRVPR, FRPRCID);
+

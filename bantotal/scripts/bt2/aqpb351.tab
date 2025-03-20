@@ -1,0 +1,28 @@
+create table AQPB351
+(
+  aqpb351corr  NUMBER(10) not null,
+  aqpb351inst  NUMBER(10) not null,
+  aqpb351pais  NUMBER(9) not null,
+  aqpb351tdoc  NUMBER(9) not null,
+  aqpb351ndoc  VARCHAR2(12) not null,
+  aqpb351fec   DATE not null,
+  aqpb351hora  CHAR(8) not null,
+  aqpb351cta   NUMBER(10),
+  aqpb351aeco  NUMBER(10),
+  aqpb351est   VARCHAR2(2),
+  aqpb351user  VARCHAR2(10),
+  aqpb351tarea NUMBER(10),
+  aqpb351naux1 NUMBER(16,2),
+  aqpb351vaux1 VARCHAR2(50),
+  aqpb351daux1 DATE,
+  aqpb351naux2 NUMBER(16,2),
+  aqpb351vaux2 VARCHAR2(50),
+  aqpb351daux2 DATE,
+  aqpb351naux3 NUMBER(16,2),
+  aqpb351vaux3 VARCHAR2(50),
+  aqpb351daux3 DATE
+)
+;
+alter table AQPB351
+  add primary key (AQPB351CORR, AQPB351INST, AQPB351PAIS, AQPB351TDOC, AQPB351NDOC, AQPB351FEC, AQPB351HORA);
+

@@ -1,0 +1,17 @@
+create table SNGC41
+(
+  sngc41pgc  NUMBER(3) not null,
+  sngc41pais NUMBER(4) not null,
+  sngc41dcod NUMBER(2) not null,
+  sngc41cdom CHAR(1),
+  sngc41domp CHAR(1),
+  sngc41tviv CHAR(1),
+  sngc41rdes CHAR(1),
+  sngc41ugeo CHAR(1),
+  sngc41dir  CHAR(1),
+  sngc41ref  CHAR(1)
+)
+;
+alter table SNGC41
+  add primary key (SNGC41PGC, SNGC41PAIS, SNGC41DCOD);
+

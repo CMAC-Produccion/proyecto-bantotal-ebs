@@ -1,0 +1,13 @@
+create table FVAC15
+(
+  vac14emp NUMBER(3) not null,
+  vac13pai NUMBER(3) not null,
+  vac13loc NUMBER(6) not null,
+  vac14cor NUMBER(3) not null,
+  vac15bal NUMBER(3) not null,
+  vac15aux NUMBER(4)
+)
+;
+alter table FVAC15
+  add primary key (VAC14EMP, VAC13PAI, VAC13LOC, VAC14COR, VAC15BAL);
+

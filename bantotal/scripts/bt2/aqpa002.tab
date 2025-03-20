@@ -1,0 +1,18 @@
+create table AQPA002
+(
+  aqpa002instan   NUMBER(10) not null,
+  aqpa002tarea    NUMBER(5) not null,
+  aqpa002politica NUMBER(5) not null,
+  aqpa002comen    VARCHAR2(2000),
+  aqpa002adjun    VARCHAR2(100),
+  aqpa002fechi    DATE,
+  aqpa002horai    CHAR(8),
+  aqpa002usuai    CHAR(10),
+  aqpa002fechm    DATE,
+  aqpa002horam    CHAR(8),
+  aqpa002usuam    CHAR(10)
+)
+;
+alter table AQPA002
+  add primary key (AQPA002INSTAN, AQPA002TAREA, AQPA002POLITICA);
+

@@ -1,0 +1,72 @@
+create table Z0E440
+(
+  z0e401cod NUMBER(2) not null,
+  z0e440nro NUMBER(10) not null,
+  z0e440tca CHAR(1),
+  z0e440pgc NUMBER(3),
+  z0e440cta NUMBER(9),
+  z0e440sua NUMBER(3),
+  z0e402cod CHAR(1),
+  z0e440sol CHAR(6),
+  z0e440dom NUMBER(2),
+  z0e440nom CHAR(40),
+  z0e440fap DATE,
+  z0e440fvn DATE,
+  z0e440cco CHAR(3),
+  z0e414cod NUMBER(2),
+  z0e408cod CHAR(2),
+  z0e440sue NUMBER(3),
+  z0e403cod NUMBER(5),
+  z0e404cod CHAR(5),
+  z0e404sc1 CHAR(1),
+  z0e404sc2 CHAR(1),
+  z0e404sc3 CHAR(1),
+  z0e409cod CHAR(6),
+  z0e440atm CHAR(1),
+  z0e428cod CHAR(2),
+  z0e440sud NUMBER(3),
+  z0e440mnd NUMBER(4),
+  z0e440scd NUMBER(3),
+  z0e440tcd CHAR(2),
+  z0e440ctd CHAR(14),
+  z0e440opd NUMBER(9),
+  z0e440tod NUMBER(3),
+  z0e440pad NUMBER(4),
+  z0e440mod NUMBER(3),
+  z0e440cud NUMBER(9),
+  z0e440pgt CHAR(1),
+  z0e410cod CHAR(2),
+  z0e411cod NUMBER(3),
+  z0e412cod NUMBER(1),
+  z0e440bem CHAR(1),
+  z0e440pbe CHAR(2),
+  z0e440cbe CHAR(2),
+  z0e440dpr CHAR(1),
+  z0e440agr CHAR(2),
+  z0e417cod CHAR(2),
+  z0e413cod CHAR(2),
+  z0e440fmd DATE,
+  z0e440umd CHAR(10),
+  z0e440fau DATE,
+  z0e440uau CHAR(10),
+  z0e440est CHAR(2)
+)
+;
+create unique index Z0E44001 on Z0E440 (Z0E401COD, Z0E440NRO);
+create index Z0E44002 on Z0E440 (Z0E401COD, Z0E413COD);
+create index Z0E44003 on Z0E440 (Z0E417COD);
+create index Z0E44004 on Z0E440 (Z0E401COD, Z0E402COD);
+create index Z0E44005 on Z0E440 (Z0E401COD, Z0E412COD);
+create index Z0E44006 on Z0E440 (Z0E401COD, Z0E411COD);
+create index Z0E44007 on Z0E440 (Z0E401COD, Z0E410COD);
+create index Z0E44009 on Z0E440 (Z0E409COD);
+create index Z0E44010 on Z0E440 (Z0E401COD, Z0E403COD, Z0E404COD, Z0E404SC1, Z0E404SC2, Z0E404SC3);
+create index Z0E44011 on Z0E440 (Z0E408COD);
+create index Z0E44012 on Z0E440 (Z0E401COD, Z0E414COD);
+create index Z0E44013 on Z0E440 (Z0E440PGC, Z0E440CTA);
+create index Z0E44014 on Z0E440 (Z0E440SOL);
+create index Z0E44015 on Z0E440 (Z0E414COD, Z0E428COD);
+create index Z0E44016 on Z0E440 (Z0E440NOM);
+create index Z0E44017 on Z0E440 (Z0E401COD, Z0E428COD, Z0E440SUA);
+create index Z0E44018 on Z0E440 (Z0E440PGC, Z0E440SUD, Z0E440CUD, Z0E440MOD, Z0E440MND, Z0E440SCD, Z0E440PAD, Z0E440OPD, Z0E440TOD);
+

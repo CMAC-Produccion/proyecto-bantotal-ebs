@@ -1,0 +1,11 @@
+create table JMBNG91
+(
+  jmbng90pgc NUMBER(3) not null,
+  jmbng91ctn NUMBER(9) not null,
+  jmbng90ejc NUMBER(5)
+)
+;
+create index JMBNG912 on JMBNG91 (JMBNG90PGC, JMBNG90EJC);
+alter table JMBNG91
+  add primary key (JMBNG90PGC, JMBNG91CTN);
+

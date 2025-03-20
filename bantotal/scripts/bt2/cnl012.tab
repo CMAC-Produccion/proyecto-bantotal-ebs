@@ -1,0 +1,28 @@
+create table CNL012
+(
+  cnl012apli NUMBER(4) not null,
+  cnl012ban  CHAR(5) not null,
+  cnl012ref  NUMBER(8) not null,
+  cnl012can  NUMBER(3) not null,
+  cnl012corr NUMBER(4) not null,
+  cnl012fec  DATE not null,
+  cnl012us1  CHAR(64),
+  cnl012ac1  CHAR(10),
+  cnl012us2  CHAR(64),
+  cnl012ac2  CHAR(10),
+  cnl012apl  CHAR(64),
+  cnl012est  CHAR(1),
+  cnl012pla  NUMBER(1),
+  cnl012cta  CHAR(65),
+  cnl012treg NUMBER(1),
+  cnl012imp  NUMBER(17,2),
+  cnl012tra  NUMBER(4),
+  cnl012uno  NUMBER(1),
+  cnl012fac  NUMBER(10),
+  cnl012des  CHAR(60),
+  cnl012mda  NUMBER(4)
+)
+;
+alter table CNL012
+  add primary key (CNL012APLI, CNL012BAN, CNL012REF, CNL012CAN, CNL012CORR, CNL012FEC);
+

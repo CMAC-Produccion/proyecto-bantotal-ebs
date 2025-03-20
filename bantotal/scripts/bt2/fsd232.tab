@@ -1,0 +1,41 @@
+create table FSD232
+(
+  checod   NUMBER(3) not null,
+  chemod   NUMBER(3) not null,
+  chesuc   NUMBER(3) not null,
+  chemda   NUMBER(4) not null,
+  chepap   NUMBER(4) not null,
+  checta   NUMBER(9) not null,
+  cheope   NUMBER(9) not null,
+  chesbo   NUMBER(3) not null,
+  chetop   NUMBER(3) not null,
+  chendn   NUMBER(9) not null,
+  chefhdn  DATE,
+  chetpdn  CHAR(1),
+  chetpde  CHAR(1),
+  cheesdn  CHAR(1),
+  chemvdn  CHAR(1),
+  chednpl  CHAR(1),
+  chefhpl  DATE,
+  chednju  CHAR(1),
+  chefhju  DATE,
+  chetxju  CHAR(50),
+  chesucdn NUMBER(3),
+  chefhbj  DATE,
+  cheusrin CHAR(10),
+  chewrkin CHAR(10),
+  chehorin CHAR(8),
+  cheusrcf CHAR(10),
+  chewrkcf CHAR(10),
+  chehorcf CHAR(8),
+  cheaux1  CHAR(1),
+  cheaux2  DATE,
+  cheaux3  NUMBER(9),
+  cheaux4  NUMBER(3)
+)
+;
+create index FSD23202 on FSD232 (CHECOD, CHESUCDN, CHEFHDN, CHENDN);
+create index FSD23203 on FSD232 (CHECOD, CHECTA, CHENDN);
+alter table FSD232
+  add primary key (CHECOD, CHEMOD, CHESUC, CHEMDA, CHEPAP, CHECTA, CHEOPE, CHESBO, CHETOP, CHENDN);
+

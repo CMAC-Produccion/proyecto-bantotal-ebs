@@ -1,0 +1,37 @@
+create table JBVX51
+(
+  jbvx51emp NUMBER(3) not null,
+  jbvx51mod NUMBER(3) not null,
+  jbvx51suc NUMBER(3) not null,
+  jbvx51mda NUMBER(4) not null,
+  jbvx51pap NUMBER(4) not null,
+  jbvx51cta NUMBER(9) not null,
+  jbvx51ope NUMBER(9) not null,
+  jbvx51sbo NUMBER(3) not null,
+  jbvx51top NUMBER(3) not null,
+  jbvx51tdo NUMBER(2),
+  jbvx51ndo CHAR(25),
+  jbvx51nom CHAR(255),
+  jbvx51ax1 CHAR(1),
+  jbvx51ax2 CHAR(1),
+  jbvx51ax3 DATE,
+  jbvx51ax4 DATE,
+  jbvx51ax5 NUMBER(9),
+  jbvx51ax6 NUMBER(9),
+  jbvx51ax7 CHAR(50),
+  jbvx51ax8 CHAR(50),
+  jbvx51tem NUMBER(3),
+  jbvx51tmo NUMBER(3),
+  jbvx51tsu NUMBER(3),
+  jbvx51tra NUMBER(3),
+  jbvx51nre NUMBER(4),
+  jbvx51fch DATE,
+  jbvx51ord NUMBER(2),
+  jbvx51sor NUMBER(3),
+  jbvx51sta CHAR(1)
+)
+;
+create index JBVX5102 on JBVX51 (JBVX51TEM, JBVX51TMO, JBVX51TSU, JBVX51TRA, JBVX51NRE, JBVX51FCH, JBVX51ORD, JBVX51SOR);
+alter table JBVX51
+  add primary key (JBVX51EMP, JBVX51MOD, JBVX51SUC, JBVX51MDA, JBVX51PAP, JBVX51CTA, JBVX51OPE, JBVX51SBO, JBVX51TOP);
+

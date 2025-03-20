@@ -1,0 +1,12 @@
+create table FSL007
+(
+  fsl001ctnr NUMBER(9) not null,
+  fsl015cod  NUMBER(4) not null,
+  fsl007mda  NUMBER(4),
+  fsl007mont NUMBER(17,2)
+)
+;
+create index FSL00702 on FSL007 (FSL015COD);
+alter table FSL007
+  add primary key (FSL001CTNR, FSL015COD);
+

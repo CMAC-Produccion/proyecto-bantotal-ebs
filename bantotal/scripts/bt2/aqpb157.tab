@@ -1,0 +1,42 @@
+create table AQPB157
+(
+  aqpb157corr   NUMBER(10) not null,
+  aqpb157pais   NUMBER(3) not null,
+  aqpb157tdoc   NUMBER(3) not null,
+  aqpb157ndoc   VARCHAR2(12) not null,
+  aqpb157fecha  DATE not null,
+  aqpb157hora   CHAR(8) not null,
+  aqpb157cta    NUMBER(9),
+  aqpb157mnttot NUMBER(17,2),
+  aqpb157mtpont NUMBER(17,2),
+  aqpb157tasapo NUMBER(10,6),
+  aqpb157est    VARCHAR2(5)
+)
+;
+comment on table AQPB157
+  is 'Log Cabecera Tasa Ponderada';
+comment on column AQPB157.aqpb157corr
+  is 'Correlativo';
+comment on column AQPB157.aqpb157pais
+  is 'Pais';
+comment on column AQPB157.aqpb157tdoc
+  is 'Tipo de docuemnto';
+comment on column AQPB157.aqpb157ndoc
+  is 'Nro de Documento';
+comment on column AQPB157.aqpb157fecha
+  is 'Fecha de registro';
+comment on column AQPB157.aqpb157hora
+  is 'Hora de registro';
+comment on column AQPB157.aqpb157cta
+  is 'Cuenta Principal';
+comment on column AQPB157.aqpb157mnttot
+  is 'Monto Desembolsado total';
+comment on column AQPB157.aqpb157mtpont
+  is 'Monto Ponderado Total';
+comment on column AQPB157.aqpb157tasapo
+  is 'Tasa Ponderada';
+comment on column AQPB157.aqpb157est
+  is 'Estado';
+alter table AQPB157
+  add primary key (AQPB157CORR, AQPB157PAIS, AQPB157TDOC, AQPB157NDOC, AQPB157FECHA, AQPB157HORA);
+

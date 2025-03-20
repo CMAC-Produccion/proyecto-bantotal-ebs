@@ -1,0 +1,18 @@
+create table JAQY597
+(
+  jaqy597inst NUMBER(10) not null,
+  jaqy597etap NUMBER(4) not null,
+  jaqy597poli NUMBER(5) not null,
+  jaqy597corr NUMBER(5) not null,
+  jaqy597esta CHAR(1),
+  jaqy597usuc CHAR(10),
+  jaqy597fecc DATE,
+  jaqy597horc CHAR(8),
+  jaqy597menp VARCHAR2(100),
+  jaqy597obse VARCHAR2(100),
+  jaqy597can  NUMBER(5)
+)
+;
+alter table JAQY597
+  add primary key (JAQY597INST, JAQY597ETAP, JAQY597POLI, JAQY597CORR);
+

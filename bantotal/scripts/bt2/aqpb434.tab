@@ -1,0 +1,35 @@
+create table AQPB434
+(
+  aqpb434cod    NUMBER(3) not null,
+  aqpb434mod    NUMBER(3) not null,
+  aqpb434suc    NUMBER(3) not null,
+  aqpb434mda    NUMBER(4) not null,
+  aqpb434pap    NUMBER(4) not null,
+  aqpb434cta    NUMBER(9) not null,
+  aqpb434ope    NUMBER(9) not null,
+  aqpb434sbo    NUMBER(3) not null,
+  aqpb434top    NUMBER(3) not null,
+  aqpb434fecr   DATE,
+  aqpb434mto    NUMBER(18,2),
+  aqpb434mtoc   NUMBER(18,2),
+  aqpb434rub    NUMBER(16),
+  aqpb434tip    VARCHAR2(2),
+  aqpb434est    CHAR(1),
+  aqpb434itcod  NUMBER(3) not null,
+  aqpb434itmod  NUMBER(3) not null,
+  aqpb434itsuc  NUMBER(3) not null,
+  aqpb434ittran NUMBER(3) not null,
+  aqpb434itnrel NUMBER(4) not null,
+  aqpb434itfcon DATE not null,
+  aqpb434ithor  CHAR(8),
+  aqpb434itucnf CHAR(10),
+  aqpb434fecext DATE
+)
+;
+create index AQPB4342 on AQPB434 (AQPB434CTA, AQPB434EST);
+create index AQPB4343 on AQPB434 (AQPB434COD, AQPB434MOD, AQPB434SUC, AQPB434MDA, AQPB434PAP, AQPB434CTA, AQPB434OPE, AQPB434SBO, AQPB434TOP);
+create index AQPB4344 on AQPB434 (AQPB434ITCOD, AQPB434ITMOD, AQPB434ITSUC, AQPB434ITTRAN, AQPB434ITNREL, AQPB434ITFCON);
+create index AQPB4345 on AQPB434 (AQPB434COD, AQPB434CTA, AQPB434OPE, AQPB434MDA, AQPB434EST);
+alter table AQPB434
+  add primary key (AQPB434COD, AQPB434MOD, AQPB434SUC, AQPB434MDA, AQPB434PAP, AQPB434CTA, AQPB434OPE, AQPB434SBO, AQPB434TOP, AQPB434ITCOD, AQPB434ITMOD, AQPB434ITSUC, AQPB434ITTRAN, AQPB434ITNREL, AQPB434ITFCON);
+

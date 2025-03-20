@@ -1,0 +1,30 @@
+create table FBC710
+(
+  bc710emp  NUMBER(3) not null,
+  bc710suc  NUMBER(3) not null,
+  bc710mod  NUMBER(3) not null,
+  bc710trn  NUMBER(3) not null,
+  bc710rel  NUMBER(4) not null,
+  bc710ord  NUMBER(2) not null,
+  bc710sor  NUMBER(3) not null,
+  bc710fch  DATE not null,
+  bc710tcta CHAR(9),
+  bc710tope CHAR(1),
+  bc710trub NUMBER(4),
+  bc710nubi NUMBER(17),
+  bc710impo NUMBER(17,2),
+  bc710epai NUMBER(3),
+  bc710etdo NUMBER(2),
+  bc710endo CHAR(25),
+  bc710cpai NUMBER(3),
+  bc710ctdo NUMBER(2),
+  bc710cndo CHAR(25),
+  bc710usrn CHAR(10),
+  bc710usrc CHAR(1)
+)
+;
+create index FBC71002 on FBC710 (BC710EMP, BC710FCH);
+create index FBC71003 on FBC710 (BC710EMP, BC710CPAI, BC710CTDO, BC710CNDO, BC710FCH);
+alter table FBC710
+  add primary key (BC710EMP, BC710SUC, BC710MOD, BC710TRN, BC710REL, BC710ORD, BC710SOR, BC710FCH);
+

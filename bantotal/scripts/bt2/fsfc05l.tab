@@ -1,0 +1,28 @@
+create table FSFC05L
+(
+  kgl05pgcod NUMBER(3) not null,
+  kgl05mon   NUMBER(4) not null,
+  kmlc05fing DATE not null,
+  kmlc05hing CHAR(8) not null,
+  kmlc05ok   CHAR(1),
+  kmlc05adu  CHAR(1),
+  kgl05diobi CHAR(1),
+  kgl05mocpr NUMBER(14,8),
+  kgl05movta NUMBER(14,8),
+  kgl05moar  NUMBER(14,8),
+  kgl05moarc NUMBER(14,8),
+  kgl05motcp NUMBER(10,8),
+  kgl05motvt NUMBER(10,8),
+  kgl05motar NUMBER(10,8),
+  kmlc05uing CHAR(10),
+  kmlc05wing CHAR(10),
+  kmlc05fcnf DATE,
+  kmlc05hcnf CHAR(8),
+  kmlc05ucnf CHAR(10),
+  kmlc05wcnf CHAR(10)
+)
+;
+create index FSFC05L2 on FSFC05L (KGL05PGCOD, KGL05MON, KMLC05OK);
+alter table FSFC05L
+  add primary key (KGL05PGCOD, KGL05MON, KMLC05FING, KMLC05HING);
+

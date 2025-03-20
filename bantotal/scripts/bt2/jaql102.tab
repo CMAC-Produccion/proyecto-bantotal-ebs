@@ -1,0 +1,23 @@
+create table JAQL102
+(
+  jaql102pgc NUMBER(3) not null,
+  jaql102cod NUMBER(4) not null,
+  jaql102idc CHAR(20),
+  jaql102tpc NUMBER(4),
+  jaql102des VARCHAR2(50),
+  jaql102fch DATE,
+  jaql102fvt DATE,
+  jaql102a01 NUMBER(9),
+  jaql102a02 NUMBER(9),
+  jaql102a03 NUMBER(16,2),
+  jaql102a04 NUMBER(16,2),
+  jaql102a05 CHAR(50),
+  jaql102a06 CHAR(50),
+  jaql102a07 DATE,
+  jaql102a08 DATE
+)
+;
+create index JAQL1022 on JAQL102 (JAQL102PGC, JAQL102IDC);
+alter table JAQL102
+  add primary key (JAQL102PGC, JAQL102COD);
+

@@ -1,0 +1,23 @@
+create table JAQL058
+(
+  jaql58fevi DATE not null,
+  jaql58timo NUMBER(4) not null,
+  jaql58vami NUMBER(10,6) not null,
+  jaql58vama NUMBER(10,6) not null,
+  jaql58pofa NUMBER(5,2),
+  jaql58esta CHAR(1),
+  jaql58au08 DATE,
+  jaql58au07 DATE,
+  jaql58au06 NUMBER(9),
+  jaql58au05 NUMBER(9),
+  jaql58au04 NUMBER(17,6),
+  jaql58au03 NUMBER(17,6),
+  jaql58au02 CHAR(50),
+  jaql58au01 CHAR(50),
+  jaql58tipe NUMBER(1) not null
+)
+;
+create index IDXJAQL581001 on JAQL058 (JAQL58TIMO, JAQL58TIPE, JAQL58ESTA);
+alter table JAQL058
+  add primary key (JAQL58FEVI, JAQL58TIMO, JAQL58VAMI, JAQL58VAMA, JAQL58TIPE);
+

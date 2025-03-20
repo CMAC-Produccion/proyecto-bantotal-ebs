@@ -1,0 +1,40 @@
+create table JAQZ428
+(
+  jaqz428itm  NUMBER(4),
+  jaqz428pat  VARCHAR2(50),
+  jaqz428mat  VARCHAR2(50),
+  jaqz428nme  VARCHAR2(80),
+  jaqz428idc  VARCHAR2(12),
+  jaqz428tidc CHAR(3),
+  jaqz428mai  VARCHAR2(100),
+  jaqz428stc  VARCHAR2(20),
+  jaqz428sex  CHAR(1),
+  jaqz428fnc  CHAR(10),
+  jaqz428tel  VARCHAR2(50),
+  jaqz428ocu  VARCHAR2(50),
+  jaqz428ucl  VARCHAR2(8),
+  jaqz428dir  VARCHAR2(100),
+  jaqz428prd  CHAR(4),
+  jaqz428suc  CHAR(3),
+  jaqz428fun  VARCHAR2(20),
+  jaqz428etc  CHAR(1),
+  jaqz428ncr  VARCHAR2(30),
+  jaqz428mnd  CHAR(3),
+  jaqz428fca  CHAR(10) not null,
+  jaqz428fde  CHAR(10),
+  jaqz428psg  NUMBER(4),
+  jaqz428csg  NUMBER(4),
+  jaqz428cfl  CHAR(1),
+  jaqz428icr  VARCHAR2(16),
+  jaqz428pms  VARCHAR2(7),
+  jaqz428nca  VARCHAR2(30),
+  jaqz428hds  VARCHAR2(6),
+  jaqz428tsa  VARCHAR2(12),
+  jaqz428stsa NUMBER(3),
+  jaqz428faf  CHAR(10) not null
+)
+;
+create index JAQZ428_1 on JAQZ428 (JAQZ428IDC);
+create index JAQZ428_2 on JAQZ428 (JAQZ428FCA);
+create index JAQZ428_3 on JAQZ428 (JAQZ428FDE);
+

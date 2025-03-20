@@ -1,0 +1,12 @@
+create table AUM005
+(
+  aum005mod  NUMBER(3) not null,
+  aum005trn  NUMBER(3) not null,
+  aum005exce NUMBER(2) not null,
+  aum000cod  NUMBER(4) not null
+)
+;
+create index AUM0052 on AUM005 (AUM000COD);
+alter table AUM005
+  add primary key (AUM005MOD, AUM005TRN, AUM005EXCE, AUM000COD);
+

@@ -1,0 +1,13 @@
+create table FMA020
+(
+  pgcod      NUMBER(3) not null,
+  lcimmod    NUMBER(3) not null,
+  lcimoper   NUMBER(9) not null,
+  fecwid     NUMBER(2) not null,
+  lcimfecwfc DATE
+)
+;
+create index FMA02002 on FMA020 (FECWID);
+alter table FMA020
+  add primary key (PGCOD, LCIMMOD, LCIMOPER, FECWID);
+

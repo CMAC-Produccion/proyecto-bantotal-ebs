@@ -1,0 +1,59 @@
+create table JAQM65
+(
+  jaqm65ins NUMBER(9) not null,
+  jaqm65tad NUMBER(9) not null,
+  jaqm65cod NUMBER(9) not null,
+  jaqm65an1 NUMBER(9),
+  jaqm65an2 NUMBER(9),
+  jaqm65an3 NUMBER(9),
+  jaqm65ad1 DATE,
+  jaqm65ad2 DATE,
+  jaqm65ad3 DATE,
+  jaqm65ai1 NUMBER(17,2),
+  jaqm65ai2 NUMBER(17,2),
+  jaqm65ai3 NUMBER(17,2),
+  jaqm65ac1 CHAR(255),
+  jaqm65ac2 CHAR(255),
+  jaqm65ac3 CHAR(255),
+  jaqm65tim NUMBER(17,2),
+  jaqm65per NUMBER(5)
+)
+;
+comment on table JAQM65
+  is 'Relacion cobro extra adicional y credito';
+comment on column JAQM65.jaqm65ins
+  is 'Instancia';
+comment on column JAQM65.jaqm65tad
+  is 'Tipo adicional';
+comment on column JAQM65.jaqm65cod
+  is 'Codigo adicional';
+comment on column JAQM65.jaqm65an1
+  is 'Importe Total';
+comment on column JAQM65.jaqm65an2
+  is 'Período Cuotas';
+comment on column JAQM65.jaqm65an3
+  is 'Numeric Auxiliar 1';
+comment on column JAQM65.jaqm65ad1
+  is 'Numeric Auxiliar 2';
+comment on column JAQM65.jaqm65ad2
+  is 'Numeric Auxiliar 3';
+comment on column JAQM65.jaqm65ad3
+  is 'Date Auxiliar 1';
+comment on column JAQM65.jaqm65ai1
+  is 'Date Auxiliar 2';
+comment on column JAQM65.jaqm65ai2
+  is 'Date Auxiliar 3';
+comment on column JAQM65.jaqm65ai3
+  is 'Importe Auxiliar 1';
+comment on column JAQM65.jaqm65ac1
+  is 'Importe Auxiliar 2';
+comment on column JAQM65.jaqm65ac2
+  is 'Importe Auxiliar 3';
+comment on column JAQM65.jaqm65ac3
+  is 'Character Auxiliar 1';
+comment on column JAQM65.jaqm65tim
+  is 'Character Auxiliar 2';
+comment on column JAQM65.jaqm65per
+  is 'Character Auxiliar 3';
+create unique index JAQM65A1 on JAQM65 (JAQM65INS, JAQM65TAD, JAQM65COD);
+

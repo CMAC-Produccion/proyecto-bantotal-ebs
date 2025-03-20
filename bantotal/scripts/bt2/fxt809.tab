@@ -1,0 +1,14 @@
+create table FXT809
+(
+  swtcod    NUMBER(5) not null,
+  swtcpo    NUMBER(2) not null,
+  swtcpofmt CHAR(1) not null,
+  swtcposec NUMBER(3),
+  swtcpoobl CHAR(1)
+)
+;
+create index FXT80902 on FXT809 (SWTCPO, SWTCPOFMT);
+create index FXT80920 on FXT809 (SWTCOD, SWTCPOSEC);
+alter table FXT809
+  add primary key (SWTCOD, SWTCPO, SWTCPOFMT);
+

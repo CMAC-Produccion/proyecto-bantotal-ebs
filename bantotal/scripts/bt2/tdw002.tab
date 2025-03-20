@@ -1,0 +1,10 @@
+create table TDW002
+(
+  tdw002niv NUMBER(2) not null,
+  tdw002agr NUMBER(3) not null
+)
+;
+create index TDW00202 on TDW002 (TDW002AGR);
+alter table TDW002
+  add primary key (TDW002NIV, TDW002AGR);
+

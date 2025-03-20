@@ -1,0 +1,22 @@
+create table FSF067
+(
+  lmppcod   NUMBER(3) not null,
+  lmnrolvo  NUMBER(6) not null,
+  lmcorrlvo NUMBER(6) not null,
+  lmfecing  DATE,
+  lmnom1    CHAR(25),
+  lmnom2    CHAR(25),
+  lmape1    CHAR(30),
+  lmape2    CHAR(30),
+  lmrazs    CHAR(70),
+  lmfisjur  CHAR(1)
+)
+;
+create index FSF06702 on FSF067 (LMPPCOD, LMAPE1, LMAPE2, LMNOM1, LMNOM2);
+create index FSF06703 on FSF067 (LMPPCOD, LMNROLVO, LMAPE1, LMAPE2, LMNOM1, LMNOM2);
+create index FSF06704 on FSF067 (LMPPCOD, LMFECING, LMAPE1, LMAPE2, LMNOM1, LMNOM2);
+create index FSF06706 on FSF067 (LMPPCOD, LMRAZS);
+create index FSF06707 on FSF067 (LMPPCOD, LMAPE2, LMAPE1, LMNOM1, LMNOM2);
+alter table FSF067
+  add primary key (LMPPCOD, LMNROLVO, LMCORRLVO);
+

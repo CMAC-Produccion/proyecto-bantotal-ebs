@@ -1,0 +1,16 @@
+create table CSML005
+(
+  csml005tip CHAR(1) not null,
+  csml005cod NUMBER(10) not null,
+  csml005nli NUMBER(9) not null,
+  csml005cor NUMBER(2) not null,
+  csml005msj CHAR(100),
+  csml005dat LONG,
+  csml005fec DATE,
+  csml005hor CHAR(8),
+  csml005usu CHAR(10)
+)
+;
+alter table CSML005
+  add primary key (CSML005TIP, CSML005COD, CSML005NLI, CSML005COR);
+

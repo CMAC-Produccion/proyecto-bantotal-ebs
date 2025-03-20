@@ -1,0 +1,134 @@
+create table AQPC551
+(
+  aqpc551corr  NUMBER(10) not null,
+  aqpc551ins   NUMBER(10),
+  aqpc551cod   NUMBER(3),
+  aqpc551mod   NUMBER(3),
+  aqpc551suc   NUMBER(3),
+  aqpc551mda   NUMBER(4),
+  aqpc551pap   NUMBER(4),
+  aqpc551cta   NUMBER(9),
+  aqpc551oper  NUMBER(9),
+  aqpc551sbop  NUMBER(3),
+  aqpc551tope  NUMBER(3),
+  aqpc551pais  NUMBER(3),
+  aqpc551tdoc  NUMBER(2),
+  aqpc551docu  VARCHAR2(12),
+  aqpc551nomb  VARCHAR2(50),
+  aqpc551situ  VARCHAR2(100),
+  aqpc551esta  VARCHAR2(1),
+  aqpc551ehab  VARCHAR2(1),
+  aqpc551prap  NUMBER(10,6),
+  aqpc551tori  NUMBER(10,6),
+  aqpc551tred  NUMBER(10,6),
+  aqpc551mntd  NUMBER(17,6),
+  aqpc551cfaci NUMBER(4),
+  aqpc551faci  VARCHAR2(100),
+  aqpc551imp   NUMBER(17,2),
+  aqpc551mcap  NUMBER(17,2),
+  aqpc551deut  NUMBER(17,2),
+  aqpc551scapt NUMBER(17,2),
+  aqpc551carg  NUMBER(4),
+  aqpc551usur  VARCHAR2(10),
+  aqpc551fecr  DATE,
+  aqpc551hora  VARCHAR2(15),
+  aqpc551grup  NUMBER(4),
+  aqpc551deutf NUMBER(17,2),
+  aqpc551fecm  DATE default SYSDATE,
+  aqpc551ase   VARCHAR2(10),
+  aqpc551pzo   NUMBER(5),
+  aqpc551cuo   NUMBER(10),
+  aqpc551cor2  NUMBER(10),
+  aqpc551fecd  TIMESTAMP(6),
+  aqpc551fecc  DATE
+)
+;
+comment on table AQPC551
+  is 'TABLA DE PANEL DE REDUCCION DE TASA';
+comment on column AQPC551.aqpc551corr
+  is 'CORRELATIVO';
+comment on column AQPC551.aqpc551ins
+  is 'INSTANCIA';
+comment on column AQPC551.aqpc551cod
+  is 'CODIGO EMPRESA';
+comment on column AQPC551.aqpc551mod
+  is 'MODULO';
+comment on column AQPC551.aqpc551suc
+  is 'SUCURSAL';
+comment on column AQPC551.aqpc551mda
+  is 'MONEDA';
+comment on column AQPC551.aqpc551pap
+  is 'PAPEL';
+comment on column AQPC551.aqpc551cta
+  is 'CUENTA';
+comment on column AQPC551.aqpc551oper
+  is 'OPERACION';
+comment on column AQPC551.aqpc551sbop
+  is 'SUB OPERACION';
+comment on column AQPC551.aqpc551tope
+  is 'TIPO OPERACION';
+comment on column AQPC551.aqpc551pais
+  is 'PAIS';
+comment on column AQPC551.aqpc551tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPC551.aqpc551docu
+  is 'NRO DOCUMENTO';
+comment on column AQPC551.aqpc551nomb
+  is 'NOMBRE CLIENTE';
+comment on column AQPC551.aqpc551situ
+  is 'SITUACIÓN DEL CLIENTE';
+comment on column AQPC551.aqpc551esta
+  is 'ESTADO G=GESTIONADO/P=PENDIENTE';
+comment on column AQPC551.aqpc551ehab
+  is 'H=HABILITADO/I=INHABILITADO';
+comment on column AQPC551.aqpc551prap
+  is 'PORCENTAJE DE REDUCCION APROBADA';
+comment on column AQPC551.aqpc551tori
+  is 'TASA ORIGINAL';
+comment on column AQPC551.aqpc551tred
+  is 'TASA REDUCIDA';
+comment on column AQPC551.aqpc551mntd
+  is 'MONTO DE REDUCCION';
+comment on column AQPC551.aqpc551cfaci
+  is 'CODIGO DE FACILIDAD';
+comment on column AQPC551.aqpc551faci
+  is 'FACILIDAD';
+comment on column AQPC551.aqpc551imp
+  is 'SALDO CAPITAL';
+comment on column AQPC551.aqpc551mcap
+  is 'MONTO DE CAPITALIZACION';
+comment on column AQPC551.aqpc551deut
+  is 'DEUDA TOTAL';
+comment on column AQPC551.aqpc551scapt
+  is 'SALDO CAPITAL TOTAL';
+comment on column AQPC551.aqpc551carg
+  is 'CODIGO DE CARGO';
+comment on column AQPC551.aqpc551usur
+  is 'USUARIO DE REGISTRO';
+comment on column AQPC551.aqpc551fecr
+  is 'FECHA DE REGISTRO';
+comment on column AQPC551.aqpc551hora
+  is 'HORA DE REGISTRO';
+comment on column AQPC551.aqpc551grup
+  is 'GRUPO ';
+comment on column AQPC551.aqpc551deutf
+  is 'DEUDA TOTAL A LA FECHA';
+comment on column AQPC551.aqpc551fecm
+  is 'FECHA DE ULTIMA MODIFICACION';
+comment on column AQPC551.aqpc551ase
+  is 'ASESOR';
+comment on column AQPC551.aqpc551pzo
+  is 'PLAZO';
+comment on column AQPC551.aqpc551cuo
+  is 'CUOTA';
+comment on column AQPC551.aqpc551cor2
+  is 'CORRELATIVO JAQZ697';
+comment on column AQPC551.aqpc551fecd
+  is 'FECHA DE RECHAZO';
+comment on column AQPC551.aqpc551fecc
+  is 'FECHA DE CARGA';
+create index AQPC551A2 on AQPC551 (AQPC551COD, AQPC551MOD, AQPC551SUC, AQPC551MDA, AQPC551PAP, AQPC551CTA, AQPC551OPER, AQPC551SBOP, AQPC551TOPE);
+create index AQPC551A3 on AQPC551 (AQPC551FECC, AQPC551CTA, AQPC551MOD, AQPC551TOPE);
+alter table AQPC551
+  add primary key (AQPC551CORR);
+

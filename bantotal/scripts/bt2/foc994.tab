@@ -1,0 +1,21 @@
+create table FOC994
+(
+  foc994usr  CHAR(10) not null,
+  foc994emp  NUMBER(3) not null,
+  foc994oper NUMBER(9) not null,
+  foc994id   NUMBER(2) not null,
+  foc994ser  CHAR(10) not null,
+  foc994nro  NUMBER(12) not null,
+  foc994biab CHAR(11) not null,
+  foc994deno NUMBER(17,2),
+  foc994est  CHAR(1),
+  foc994au1  NUMBER(9),
+  foc994au2  CHAR(50),
+  foc994au3  DATE,
+  foc994au4  NUMBER(17,2),
+  foc994au5  CHAR(1)
+)
+;
+alter table FOC994
+  add primary key (FOC994USR, FOC994EMP, FOC994OPER, FOC994ID, FOC994SER, FOC994NRO, FOC994BIAB);
+

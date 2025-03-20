@@ -1,0 +1,295 @@
+create table JAQL420
+(
+  jaql420emp    NUMBER(3) not null,
+  jaql420cod    VARCHAR2(20) not null,
+  jaql420age    NUMBER(3),
+  jaql420ani    NUMBER(4),
+  jaql420tri    NUMBER(1),
+  jaql420cor    NUMBER(9),
+  jaql420pac    NUMBER(3),
+  jaql420tdc    NUMBER(2),
+  jaql420ndc    CHAR(12),
+  jaql420usr    CHAR(10),
+  jaql420fcr    DATE,
+  jaql420usp    CHAR(10),
+  jaql420fcp    DATE,
+  jaql420usc    CHAR(10),
+  jaql420fcc    DATE,
+  jaql420ops    VARCHAR2(10),
+  jaql420mot    NUMBER(3),
+  jaql420esr    NUMBER(3),
+  jaql420flc    CHAR(1),
+  jaql420fld    CHAR(1),
+  jaql420cmr    VARCHAR2(4000),
+  jaql420cms    VARCHAR2(500),
+  jaql420est    CHAR(1),
+  jaql420vir    NUMBER(3),
+  jaql420epr    NUMBER(3),
+  jaql420num    VARCHAR2(27),
+  jaql420doc    VARCHAR2(500),
+  jaql420prc    NUMBER(3),
+  jaql420men    CHAR(1),
+  jaql420vrp    NUMBER(3),
+  jaql420tap    NUMBER(3),
+  jaql420paa    NUMBER(3),
+  jaql420tda    NUMBER(4),
+  jaql420nda    CHAR(12),
+  jaql420trc    NUMBER(3),
+  jaql420dir    VARCHAR2(200),
+  jaql420ref    VARCHAR2(50),
+  jaql420ubg    VARCHAR2(8),
+  jaql420web    VARCHAR2(50),
+  jaql420edt    CHAR(1),
+  jaql420eml    VARCHAR2(60),
+  jaql420tlf    VARCHAR2(20),
+  jaql420act    NUMBER(3),
+  jaql420car    VARCHAR2(30),
+  jaql420cel    VARCHAR2(20),
+  jaql420mps    VARCHAR2(2000),
+  jaql420pcc    VARCHAR2(2000),
+  jaql420chr    VARCHAR2(20),
+  jaql420hrc    CHAR(8) default TO_CHAR(sysdate, 'HH24:MI:SS'),
+  jaql420pat    NUMBER(3),
+  jaql420tdt    NUMBER(2),
+  jaql420ndt    CHAR(12),
+  jaql420tlt    VARCHAR2(20),
+  jaql420clt    VARCHAR2(20),
+  jaql420emt    VARCHAR2(60),
+  jaql420dit    VARCHAR2(200),
+  jaql420ubt    VARCHAR2(8),
+  jaql420not    VARCHAR2(100),
+  jaql420fmi    VARCHAR2(1),
+  jaql420ect    VARCHAR2(1),
+  jaql420fdt    VARCHAR2(1),
+  jaql420app    CHAR(50),
+  jaql420apm    CHAR(50),
+  jaql420nom    CHAR(50),
+  jaql420noj    CHAR(50),
+  jaql420hor    CHAR(8),
+  jaql420can    NUMBER(3),
+  jaql420dor    VARCHAR2(2),
+  jaql420por    VARCHAR2(2),
+  jaql420seg    NUMBER(2),
+  jaql420obs    CHAR(1),
+  jaql420rev    CHAR(1),
+  jaql420cvc    NUMBER(3),
+  jaql420cretim TIMESTAMP(6),
+  jaql420gesasi VARCHAR2(40),
+  jaql420fecasi DATE,
+  jaql420ncaras VARCHAR2(40),
+  jaql420feemco DATE,
+  jaql420fecaco DATE,
+  jaql420fenocc DATE,
+  jaql420mtvamp VARCHAR2(100),
+  jaql420regope VARCHAR2(40),
+  jaql420regneg VARCHAR2(40),
+  jaql420respon VARCHAR2(40),
+  jaql420rscarg VARCHAR2(40),
+  jaql420agerec VARCHAR2(40),
+  jaql420prodet VARCHAR2(40),
+  jaql420agrupa VARCHAR2(40),
+  jaql420impdev NUMBER(6,2),
+  jaql420mondev VARCHAR2(3),
+  jaql420segaho VARCHAR2(60),
+  jaql420segneg VARCHAR2(60),
+  jaql420fda    VARCHAR2(1),
+  jaql420tipsbs VARCHAR2(1),
+  jaql420diahab DATE,
+  jaql420faprox DATE,
+  jaql420dabsol NUMBER(3),
+  jaql420susest VARCHAR2(1),
+  jaql420susfec DATE,
+  jaql420susflm DATE,
+  jaql420susdia NUMBER(3),
+  jaql420sususu CHAR(10),
+  jaql420reafec DATE,
+  jaql420reausu CHAR(10),
+  jaql420estanu VARCHAR2(1),
+  jaql420gesanu CHAR(10),
+  jaql420gesfec DATE,
+  jaql420supanu CHAR(10),
+  jaql420supfec DATE,
+  jaql420msganu VARCHAR2(200),
+  jaql420fcccli DATE,
+  jaql420proser VARCHAR2(1),
+  jaql420tippro VARCHAR2(1),
+  jaql420recres CLOB,
+  jaql420caning NUMBER(9),
+  jaql420canind VARCHAR2(30),
+  jaql420ugprdp NUMBER(9),
+  jaql420ugprpr NUMBER(9),
+  jaql420flamp  DATE,
+  jaql420trjpos VARCHAR2(1),
+  jaql420recmnt VARCHAR2(1),
+  jaql420robper VARCHAR2(1),
+  jaql420tjdig4 NUMBER(4),
+  jaql420nrorev NUMBER(9),
+  jaql420rptenv VARCHAR2(100),
+  jaql420fecenv DATE,
+  jaql420horenv VARCHAR2(10),
+  jaql420nomarc VARCHAR2(50),
+  jaql420nomapo VARCHAR2(100),
+  jaql420cliatg NUMBER(3),
+  jaql420quere1 VARCHAR2(1),
+  jaql420quere2 VARCHAR2(1),
+  jaql420quere3 VARCHAR2(1),
+  jaql420opsesp VARCHAR2(150),
+  jaql420motesp VARCHAR2(150),
+  jaql420adotra VARCHAR2(1),
+  jaql420fecanu DATE,
+  jaql420modusr CHAR(10),
+  jaql420modtim TIMESTAMP(6),
+  jaql420sinope VARCHAR2(1),
+  jaql420tjdiv4 VARCHAR2(4)
+)
+;
+comment on column JAQL420.jaql420cretim
+  is 'AUDITORIA';
+comment on column JAQL420.jaql420gesasi
+  is 'GESTOR_ASIGNADO';
+comment on column JAQL420.jaql420fecasi
+  is 'FEC_ASIGNACION';
+comment on column JAQL420.jaql420ncaras
+  is 'NRO_CARTA_ASIGNADO';
+comment on column JAQL420.jaql420feemco
+  is 'FEC_EMISION_CORTE';
+comment on column JAQL420.jaql420fecaco
+  is 'FEC_CARTA_CORTE';
+comment on column JAQL420.jaql420fenocc
+  is 'FEC_NOTIFICACION_CARTA_CORTE';
+comment on column JAQL420.jaql420mtvamp
+  is 'MOTIVO_AMPLIACION';
+comment on column JAQL420.jaql420regope
+  is 'REGION_OPERACIONES';
+comment on column JAQL420.jaql420regneg
+  is 'REGION_NEGOCIOS';
+comment on column JAQL420.jaql420respon
+  is 'RESPONSABLE(S)';
+comment on column JAQL420.jaql420rscarg
+  is 'RESPONSABLE(S)_CARGO';
+comment on column JAQL420.jaql420agerec
+  is 'AGENCIA_RECLAMO';
+comment on column JAQL420.jaql420prodet
+  is 'PROBLEMA_DETECTADO';
+comment on column JAQL420.jaql420agrupa
+  is 'AGRUPACION';
+comment on column JAQL420.jaql420impdev
+  is 'IMPORTE_DEVUELTO';
+comment on column JAQL420.jaql420mondev
+  is 'MONEDA DE DEVOLUCIÓN';
+comment on column JAQL420.jaql420segaho
+  is 'SEGMENTO AHORROS';
+comment on column JAQL420.jaql420segneg
+  is 'SEGMENTO NEGOCIOS';
+comment on column JAQL420.jaql420fda
+  is 'FLAG DATO PERSONAL';
+comment on column JAQL420.jaql420tipsbs
+  is 'V: Varios (No de Seguros), S: Seguros';
+comment on column JAQL420.jaql420diahab
+  is 'Primer Dia Habil luego de Recepcion';
+comment on column JAQL420.jaql420faprox
+  is 'Fecha de Respuesta Aprox';
+comment on column JAQL420.jaql420dabsol
+  is 'Dias de Absolucion';
+comment on column JAQL420.jaql420susest
+  is 'Suspensión Estado (I: Inicial, S: Suspendido, R: Reanudado)';
+comment on column JAQL420.jaql420susfec
+  is 'Suspensión Fecha';
+comment on column JAQL420.jaql420susflm
+  is 'Suspensión Fecha Limite';
+comment on column JAQL420.jaql420susdia
+  is 'Suspensión Dias';
+comment on column JAQL420.jaql420sususu
+  is 'Suspensión Usuario';
+comment on column JAQL420.jaql420reafec
+  is 'Reanudado Fecha';
+comment on column JAQL420.jaql420reausu
+  is 'Reanudado Usuario';
+comment on column JAQL420.jaql420estanu
+  is 'Estado de Anulación (I: Inicial, S: Solicitud, C: Condirmado, R: Rechazado)';
+comment on column JAQL420.jaql420gesanu
+  is 'Gestor que Anula';
+comment on column JAQL420.jaql420gesfec
+  is 'Fecha en que Anula el Gestor';
+comment on column JAQL420.jaql420supanu
+  is 'Supervisor que Anula';
+comment on column JAQL420.jaql420supfec
+  is 'Fecha en que Anula el Supervisor';
+comment on column JAQL420.jaql420msganu
+  is 'Mensaje de Anulación';
+comment on column JAQL420.jaql420fcccli
+  is 'Fecha de Respuesta desde la perspectiva del Cliente';
+comment on column JAQL420.jaql420proser
+  is 'Reclamo - Producto/Servicio';
+comment on column JAQL420.jaql420tippro
+  is 'Reclamo - Tipo de Producto (Ahorros/Creditos/Seguros)';
+comment on column JAQL420.jaql420recres
+  is 'Reclamo - Carta de Respuesta';
+comment on column JAQL420.jaql420caning
+  is 'Reclamo - Canal de Ingreso SBS';
+comment on column JAQL420.jaql420canind
+  is 'Reclamo - Canal de Ingreso SBS Descripcion ';
+comment on column JAQL420.jaql420ugprdp
+  is 'Ubicacion Geografica Presentacion Reclamo - DEPARTAMENTO';
+comment on column JAQL420.jaql420ugprpr
+  is 'Ubicacion Geografica Presentacion Reclamo - PROVINCIA';
+comment on column JAQL420.jaql420flamp
+  is 'Fecha Limite con Ampliacion';
+comment on column JAQL420.jaql420trjpos
+  is 'Tarjeta en Posesión S:SI N:NO';
+comment on column JAQL420.jaql420recmnt
+  is 'Monto Reclamado - NO Aplica (V:Verdadero, F:Falso)';
+comment on column JAQL420.jaql420robper
+  is 'Robo o Perdida S:SI N:NO';
+comment on column JAQL420.jaql420tjdig4
+  is 'Check 4 Ult Digitos';
+comment on column JAQL420.jaql420nrorev
+  is 'Nro. de Revision';
+comment on column JAQL420.jaql420rptenv
+  is 'Respuesta del envío del correo de constancia';
+comment on column JAQL420.jaql420fecenv
+  is 'Fecha de Envío';
+comment on column JAQL420.jaql420horenv
+  is 'Hora de Envío';
+comment on column JAQL420.jaql420nomarc
+  is 'Nombre de archivo de la constancia';
+comment on column JAQL420.jaql420nomapo
+  is 'Nombre de apoderado';
+comment on column JAQL420.jaql420cliatg
+  is 'Antiguedad del Cliente en Años';
+comment on column JAQL420.jaql420quere1
+  is 'Reclamo/Queja - Respuesta 1';
+comment on column JAQL420.jaql420quere2
+  is 'Reclamo/Queja - Respuesta 2';
+comment on column JAQL420.jaql420quere3
+  is 'Reclamo/Queja - Respuesta 3';
+comment on column JAQL420.jaql420opsesp
+  is 'Reclamo OPS Especial';
+comment on column JAQL420.jaql420motesp
+  is 'Reclamo MOT Especial';
+comment on column JAQL420.jaql420adotra
+  is 'Adolescente Trabajador: V(Verdadero) - F(Falso)';
+comment on column JAQL420.jaql420fecanu
+  is 'Fecha de Anulación';
+comment on column JAQL420.jaql420modusr
+  is 'Usuario de Modificación';
+comment on column JAQL420.jaql420modtim
+  is 'Time de Modificación';
+comment on column JAQL420.jaql420sinope
+  is 'ONR - SIN OPERACIONES';
+comment on column JAQL420.jaql420tjdiv4
+  is '4 Dijitos Tarj.';
+create index JAQL42001 on JAQL420 (JAQL420EMP, JAQL420USR, JAQL420COD);
+create index JAQL42002 on JAQL420 (JAQL420EMP, JAQL420AGE, JAQL420COD);
+create index JAQL42003 on JAQL420 (JAQL420OPS, JAQL420MOT, JAQL420ESR);
+create index JAQL42004 on JAQL420 (JAQL420AGE, JAQL420USR, JAQL420EPR);
+create index JAQL42005 on JAQL420 (JAQL420EMP, JAQL420ANI, JAQL420TRI, JAQL420COR);
+create index JAQL42006 on JAQL420 (JAQL420PAC, JAQL420TDC, JAQL420NDC);
+create index JAQL42007 on JAQL420 (JAQL420EMP, JAQL420ANI, JAQL420COR);
+create index JAQL42008 on JAQL420 (JAQL420OPS, JAQL420MOT, JAQL420POR, JAQL420DOR, JAQL420ESR);
+create index JAQL42009 on JAQL420 (JAQL420OPS, JAQL420MOT, JAQL420DOR, JAQL420POR, JAQL420CAN, JAQL420REV, JAQL420ESR);
+create index JAQL42010 on JAQL420 (JAQL420FCR);
+create index JAQL42011 on JAQL420 (JAQL420ESR);
+alter table JAQL420
+  add primary key (JAQL420EMP, JAQL420COD);
+

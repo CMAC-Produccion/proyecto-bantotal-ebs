@@ -1,0 +1,54 @@
+create table FCD130
+(
+  pgcod      NUMBER(3) not null,
+  coemod     NUMBER(3) not null,
+  coeoper    NUMBER(9) not null,
+  coesuc     NUMBER(3),
+  coemda     NUMBER(4),
+  coepap     NUMBER(4),
+  coecta     NUMBER(9),
+  coetipo    NUMBER(3),
+  coefing    DATE,
+  coefval    DATE,
+  coeface    DATE,
+  coefvto    DATE,
+  coefvtant  DATE,
+  coebccorr  NUMBER(9),
+  coerefcorr CHAR(20),
+  coebcree   NUMBER(9),
+  coeversio  NUMBER(2),
+  coeuser    CHAR(10),
+  coews      CHAR(10),
+  idioma     NUMBER(2),
+  coeaoimp   NUMBER(17,2),
+  coegtocorr NUMBER(17,2),
+  coemdagtoc CHAR(3),
+  coecomagte NUMBER(17,2),
+  coemdacoma CHAR(3),
+  coeinteres NUMBER(17,2),
+  coemdaint  CHAR(3),
+  coemocsw1  CHAR(3),
+  frmreeid   NUMBER(2),
+  coegaspor  NUMBER(1),
+  coeautree  NUMBER(15),
+  c130cd     NUMBER(3),
+  c130mo     NUMBER(3),
+  c130su     NUMBER(3),
+  c130tr     NUMBER(3),
+  c130re     NUMBER(4),
+  c130fc     DATE,
+  c130co     CHAR(1)
+)
+;
+create index FCD13002 on FCD130 (PGCOD, COECTA);
+create index FCD13003 on FCD130 (PGCOD, COEBCCORR);
+create index FCD13004 on FCD130 (PGCOD, COEBCREE);
+create index FCD13005 on FCD130 (COEPAP);
+create index FCD13006 on FCD130 (COEMDA);
+create index FCD13007 on FCD130 (PGCOD, COESUC);
+create index FCD13008 on FCD130 (IDIOMA);
+create index FCD13009 on FCD130 (PGCOD, COEMOD, FRMREEID);
+create index FCD13080 on FCD130 (COEAUTREE);
+alter table FCD130
+  add primary key (PGCOD, COEMOD, COEOPER);
+

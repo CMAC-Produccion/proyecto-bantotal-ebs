@@ -1,0 +1,31 @@
+create global temporary table JAQY668
+(
+  pfpais NUMBER(3) not null,
+  pftdoc NUMBER(2) not null,
+  pfndoc CHAR(12) not null,
+  pfape1 CHAR(30),
+  pfape2 CHAR(30),
+  pfnom1 CHAR(25),
+  pfnom2 CHAR(25),
+  pfebco CHAR(1),
+  pffibc DATE,
+  pfcant CHAR(1),
+  pffnac DATE,
+  pfeciv CHAR(1),
+  pfpnac NUMBER(3),
+  pflnac CHAR(20),
+  pfcleg CHAR(1),
+  pffleg DATE,
+  pffal  CHAR(1),
+  pfffal DATE,
+  pfcapl NUMBER(2),
+  pffant DATE,
+  pfepat CHAR(1),
+  pffpep DATE
+)
+on commit preserve rows;
+comment on table JAQY668
+  is 'TEMPORAL PARA EMPLEADOS DE LA CAJA';
+alter table JAQY668
+  add primary key (PFPAIS, PFTDOC, PFNDOC);
+

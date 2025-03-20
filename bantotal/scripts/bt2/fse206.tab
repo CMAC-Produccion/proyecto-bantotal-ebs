@@ -1,0 +1,40 @@
+create table FSE206
+(
+  se206pap   NUMBER(4) not null,
+  se206cup   NUMBER(3) not null,
+  se206dtipo CHAR(1),
+  se206dcot  NUMBER(14,8),
+  se206dmda  NUMBER(4),
+  se206darb  NUMBER(14,8),
+  se206damo  NUMBER(7,4),
+  se206cus   NUMBER(9),
+  se206dep   NUMBER(9),
+  se206com   NUMBER(9),
+  se206mer   NUMBER(3),
+  se206coef  NUMBER(14,9),
+  se206porc1 NUMBER(7,4),
+  se206porc2 NUMBER(7,4),
+  se206porc3 NUMBER(7,4),
+  se206fec1  DATE,
+  se206fec2  DATE,
+  se206fec3  DATE,
+  se206imp1  NUMBER(17,2),
+  se206imp2  NUMBER(17,2),
+  se206imp3  NUMBER(17,2),
+  se206estad CHAR(1),
+  se206apzo1 NUMBER(5),
+  se206apzo2 NUMBER(5),
+  se206apzo3 NUMBER(5),
+  se206acoe1 NUMBER(14,9),
+  se206acoe2 NUMBER(14,9),
+  se206acoe3 NUMBER(14,9),
+  se206acar1 CHAR(1),
+  se206acar2 CHAR(1),
+  se206acar3 CHAR(1),
+  se206atxt1 CHAR(15),
+  se206dpap  NUMBER(4)
+)
+;
+alter table FSE206
+  add primary key (SE206PAP, SE206CUP);
+

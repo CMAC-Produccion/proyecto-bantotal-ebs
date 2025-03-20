@@ -1,0 +1,48 @@
+create table AQPB521
+(
+  aqpb521creusr VARCHAR2(10) not null,
+  aqpb521cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb521reptip VARCHAR2(1) not null,
+  aqpb521codigo NUMBER(9) not null,
+  aqpb521descri VARCHAR2(500),
+  aqpb521cajden NUMBER(9),
+  aqpb521cajfue NUMBER(9),
+  aqpb521cajsub NUMBER(9),
+  aqpb521cliden NUMBER(9),
+  aqpb521clifue NUMBER(9),
+  aqpb521clisub NUMBER(9),
+  aqpb521codtot NUMBER(9),
+  aqpb521codpor NUMBER(6,2)
+)
+;
+comment on table AQPB521
+  is 'Reporte Reclamos (Operaciones, Motivos, Canales)';
+comment on column AQPB521.aqpb521creusr
+  is 'Usuario de Creacion';
+comment on column AQPB521.aqpb521cretim
+  is 'Tiempo Creacion';
+comment on column AQPB521.aqpb521reptip
+  is 'Tipo de Reporte';
+comment on column AQPB521.aqpb521codigo
+  is 'Codigo de Tipo';
+comment on column AQPB521.aqpb521descri
+  is 'Descripcion de Tipo';
+comment on column AQPB521.aqpb521cajden
+  is 'Favor Caja - Dentro de Plazo ';
+comment on column AQPB521.aqpb521cajfue
+  is 'Favor Caja - Fuera de Plazo';
+comment on column AQPB521.aqpb521cajsub
+  is 'Favor Caja - SubTotal';
+comment on column AQPB521.aqpb521cliden
+  is 'Favor Cliente - Dentro de Plazo';
+comment on column AQPB521.aqpb521clifue
+  is 'Favor Cliente - Fuera de Plazo';
+comment on column AQPB521.aqpb521clisub
+  is 'Favor Cliente - SubTotal';
+comment on column AQPB521.aqpb521codtot
+  is 'Total del Codigo';
+comment on column AQPB521.aqpb521codpor
+  is '% del Codigo';
+alter table AQPB521
+  add primary key (AQPB521CREUSR, AQPB521REPTIP, AQPB521CODIGO);
+

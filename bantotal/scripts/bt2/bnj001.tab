@@ -1,0 +1,15 @@
+create table BNJ001
+(
+  bnjemp    NUMBER(3) not null,
+  bnjcod    NUMBER(4) not null,
+  bnjnom    CHAR(35),
+  bnjmod    NUMBER(3),
+  bnjtrndsd NUMBER(3),
+  bnjtrnhst NUMBER(3),
+  bnjulttrn NUMBER(3),
+  bnjultrel NUMBER(4),
+  bnjparsuc CHAR(1)
+)
+;
+create unique index UK_BNJ001 on BNJ001 (BNJEMP, BNJCOD);
+

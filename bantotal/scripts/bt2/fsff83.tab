@@ -1,0 +1,28 @@
+create table FSFF83
+(
+  dtvcod    NUMBER(3) not null,
+  dtvsuc    NUMBER(3) not null,
+  dtvmod    NUMBER(3) not null,
+  dtvtrn    NUMBER(3) not null,
+  dtvrel    NUMBER(4) not null,
+  dtvfch    DATE not null,
+  dtvcrr    NUMBER(9) not null,
+  dtvcont   CHAR(1),
+  dtvoper   NUMBER(9),
+  dtvcomiva NUMBER(17,2),
+  dtvinter  NUMBER(17,2),
+  dtvtim    NUMBER(17,2),
+  dtvocon   NUMBER(17,2),
+  dtvaux01  DATE,
+  dtvaux02  DATE,
+  dtvaux03  NUMBER(17,2),
+  dtvaux04  NUMBER(17,2),
+  dtvaux05  NUMBER(16),
+  dtvaux06  NUMBER(16),
+  dtvaux07  CHAR(30),
+  dtvaux08  CHAR(30)
+)
+;
+alter table FSFF83
+  add primary key (DTVCOD, DTVSUC, DTVMOD, DTVTRN, DTVREL, DTVFCH, DTVCRR);
+

@@ -1,0 +1,15 @@
+create table FBC058
+(
+  bcbemp  NUMBER(3) not null,
+  bcbsuc  NUMBER(3) not null,
+  bcbrub  NUMBER(16) not null,
+  bcbmda  NUMBER(4) not null,
+  bcbmdas NUMBER(4),
+  bcbsdo1 NUMBER(17,2),
+  bcbsdo2 NUMBER(17,2),
+  bcbsdo3 NUMBER(17,2)
+)
+;
+alter table FBC058
+  add primary key (BCBEMP, BCBSUC, BCBRUB, BCBMDA);
+

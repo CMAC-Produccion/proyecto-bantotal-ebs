@@ -1,0 +1,19 @@
+create table SNG237
+(
+  sng229corr NUMBER(10) not null,
+  sng237corr NUMBER(2) not null,
+  sng237pgc  NUMBER(3),
+  sng237mod  NUMBER(3),
+  sng237suc  NUMBER(3),
+  sng237mda  NUMBER(4),
+  sng237pap  NUMBER(4),
+  sng237cta  NUMBER(9),
+  sng237oper NUMBER(9),
+  sng237sbop NUMBER(3),
+  sng237tope NUMBER(3)
+)
+;
+create index SNG23703 on SNG237 (SNG237PGC, SNG237MOD, SNG237SUC, SNG237MDA, SNG237PAP, SNG237CTA, SNG237OPER, SNG237SBOP, SNG237TOPE);
+alter table SNG237
+  add primary key (SNG229CORR, SNG237CORR);
+

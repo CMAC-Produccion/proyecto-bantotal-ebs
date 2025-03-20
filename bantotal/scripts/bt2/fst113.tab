@@ -1,0 +1,11 @@
+create table FST113
+(
+  pgcod NUMBER(3) not null,
+  prog  CHAR(10) not null,
+  arch  CHAR(10),
+  descr CHAR(30)
+)
+;
+alter table FST113
+  add primary key (PGCOD, PROG);
+

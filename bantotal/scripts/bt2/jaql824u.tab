@@ -1,0 +1,22 @@
+create table JAQL824U
+(
+  jaql824apl  NUMBER(3) not null,
+  jaql824ban  CHAR(4) not null,
+  jaql824env  NUMBER(9) not null,
+  jaql824utre VARCHAR2(2),
+  jaql824ucta NUMBER(3),
+  jaql824ucmo NUMBER(1),
+  jaql824uncu NUMBER(7),
+  jaql824utva VARCHAR2(1),
+  jaql824ufpr NUMBER(8),
+  jaql824unre NUMBER(9),
+  jaql824umto NUMBER(15,2),
+  jaql824ucin NUMBER(4),
+  jaql824ucas VARCHAR2(6),
+  jaql824uhco NUMBER(6),
+  jaql824ucse VARCHAR2(6)
+)
+;
+alter table JAQL824U
+  add primary key (JAQL824APL, JAQL824BAN, JAQL824ENV);
+

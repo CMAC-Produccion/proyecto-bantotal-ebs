@@ -1,0 +1,14 @@
+create table FSFSDB
+(
+  sfsdbemp  NUMBER(3) not null,
+  sfsdbmod  NUMBER(3) not null,
+  sfsdbtrn  NUMBER(3) not null,
+  sfsdbtime NUMBER(3) not null,
+  sfsdbmsje NUMBER(4) not null,
+  sfsdbfluj CHAR(1) not null,
+  sfsdbobs  CHAR(40)
+)
+;
+alter table FSFSDB
+  add primary key (SFSDBEMP, SFSDBMOD, SFSDBTRN, SFSDBTIME, SFSDBMSJE, SFSDBFLUJ);
+

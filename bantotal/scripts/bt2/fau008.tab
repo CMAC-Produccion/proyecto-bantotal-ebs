@@ -1,0 +1,10 @@
+create table FAU008
+(
+  auxpgcod NUMBER(3) not null,
+  auxctnro NUMBER(9) not null,
+  auxctnom CHAR(35)
+)
+;
+alter table FAU008
+  add primary key (AUXPGCOD, AUXCTNRO);
+

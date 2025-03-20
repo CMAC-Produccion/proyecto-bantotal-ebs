@@ -1,0 +1,18 @@
+create table FSFX05
+(
+  sfx05cod NUMBER(4) not null,
+  sfx05mne CHAR(30),
+  sfx05dsc CHAR(70),
+  sfx05fva CHAR(100),
+  sfx05prg CHAR(10),
+  sfx05ax1 CHAR(50),
+  sfx05ax2 CHAR(50),
+  sfx05ax3 NUMBER(9),
+  sfx05ax4 NUMBER(9),
+  sfx05ax5 DATE,
+  sfx05ax6 DATE
+)
+;
+alter table FSFX05
+  add primary key (SFX05COD);
+

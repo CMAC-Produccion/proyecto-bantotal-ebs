@@ -1,0 +1,10 @@
+create table FXE700
+(
+  rulnum    NUMBER(3) not null,
+  ruldeslin NUMBER(3) not null,
+  ruldesamp CHAR(50)
+)
+;
+alter table FXE700
+  add primary key (RULNUM, RULDESLIN);
+

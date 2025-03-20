@@ -1,0 +1,42 @@
+create table JAQY759
+(
+  jaqy759cod    NUMBER(3) not null,
+  jaqy759mod    NUMBER(3) not null,
+  jaqy759suc    NUMBER(3) not null,
+  jaqy759mda    NUMBER(4) not null,
+  jaqy759pap    NUMBER(4) not null,
+  jaqy759cta    NUMBER(9) not null,
+  jaqy759oper   NUMBER(9) not null,
+  jaqy759sbop   NUMBER(3) not null,
+  jaqy759tope   NUMBER(3) not null,
+  jaqy759fpag   DATE not null,
+  jaqy759tipo   CHAR(1) not null,
+  jaqy759exte   NUMBER(3) not null,
+  jaqy759imp1   NUMBER(17,2),
+  jaqy759imp2   NUMBER(17,2),
+  jaqy759imp3   NUMBER(17,2),
+  jaqy759imp4   NUMBER(17,2),
+  jaqy759imp5   NUMBER(17,2),
+  jaqy759imp6   NUMBER(17,2),
+  jaqy759imp7   NUMBER(17,2),
+  jaqy759imp8   NUMBER(17,2),
+  jaqy759imp9   NUMBER(17,2),
+  jaqy759imp10  NUMBER(17,2),
+  jaqy759imp11  NUMBER(17,2),
+  jaqy759imp12  NUMBER(17,2),
+  jaqy759imp13  NUMBER(17,2),
+  jaqy759imp14  NUMBER(17,2),
+  jaqy759imp15  NUMBER(17,2),
+  jaqy759imp16  NUMBER(17,2),
+  jaqy759imp17  NUMBER(17,2),
+  jaqy759imp18  NUMBER(17,2),
+  jaqy759imp19  NUMBER(17,2),
+  jaqy759imp20  NUMBER(17,2),
+  jaqy759fsist  DATE,
+  jaqy759hrasis CHAR(8)
+)
+;
+create index JAQY75901 on JAQY759 (JAQY759COD, JAQY759SUC, JAQY759MDA, JAQY759PAP, JAQY759CTA, JAQY759OPER, JAQY759SBOP, JAQY759TOPE, JAQY759FSIST);
+alter table JAQY759
+  add primary key (JAQY759COD, JAQY759MOD, JAQY759SUC, JAQY759MDA, JAQY759PAP, JAQY759CTA, JAQY759OPER, JAQY759SBOP, JAQY759TOPE, JAQY759FPAG, JAQY759TIPO, JAQY759EXTE);
+

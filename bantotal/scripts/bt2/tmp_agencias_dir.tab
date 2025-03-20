@@ -1,0 +1,9 @@
+create table TMP_AGENCIAS_DIR
+(
+  sucurs NUMBER(3) not null,
+  scnom  VARCHAR2(30),
+  dir    VARCHAR2(328)
+)
+compress;
+create index TMP_AGENCIAS_DIR_IX_1 on TMP_AGENCIAS_DIR (SUCURS);
+

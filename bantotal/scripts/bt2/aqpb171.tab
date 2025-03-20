@@ -1,0 +1,98 @@
+create table AQPB171
+(
+  aqpb171corr  NUMBER(10) not null,
+  aqpb171inst  NUMBER(10) not null,
+  aqpb171fch   DATE not null,
+  aqpb171fini  DATE,
+  aqpb171ffin  DATE,
+  aqpb171hora  VARCHAR2(8) not null,
+  aqpb171pais  NUMBER(3),
+  aqpb171tdoc  NUMBER(3),
+  aqpb171ndoc  VARCHAR2(12),
+  aqpb171pgcod NUMBER,
+  aqpb171mod   NUMBER,
+  aqpb171suc   NUMBER,
+  aqpb171mda   NUMBER,
+  aqpb171pap   NUMBER,
+  aqpb171cta   NUMBER,
+  aqpb171ope   NUMBER,
+  aqpb171sbop  NUMBER,
+  aqpb171tope  NUMBER,
+  aqpb171fc    VARCHAR2(8),
+  aqpb171est   VARCHAR2(5),
+  aqpb171auxn1 NUMBER,
+  aqpb171auxn2 NUMBER,
+  aqpb171auxn3 NUMBER,
+  aqpb171auxv1 VARCHAR2(25),
+  aqpb171auxv2 VARCHAR2(25),
+  aqpb171auxv3 VARCHAR2(25),
+  aqpb171auxd1 DATE,
+  aqpb171auxd2 DATE,
+  aqpb171auxd3 DATE
+)
+;
+comment on table AQPB171
+  is 'Tabla Log Creditos con calendario con flujo de Caja';
+comment on column AQPB171.aqpb171corr
+  is 'Correlativo';
+comment on column AQPB171.aqpb171inst
+  is 'Instancia';
+comment on column AQPB171.aqpb171fch
+  is 'Fecha de registro';
+comment on column AQPB171.aqpb171fini
+  is 'Fecha Inicio';
+comment on column AQPB171.aqpb171ffin
+  is 'Fecha Fin';
+comment on column AQPB171.aqpb171hora
+  is 'Hora';
+comment on column AQPB171.aqpb171pais
+  is 'Pais';
+comment on column AQPB171.aqpb171tdoc
+  is 'Tipo de Documento';
+comment on column AQPB171.aqpb171ndoc
+  is 'Nro de Documento';
+comment on column AQPB171.aqpb171pgcod
+  is 'Pgcod';
+comment on column AQPB171.aqpb171mod
+  is 'Modulo';
+comment on column AQPB171.aqpb171suc
+  is 'Sucursal';
+comment on column AQPB171.aqpb171mda
+  is 'Moneda';
+comment on column AQPB171.aqpb171pap
+  is 'Papel';
+comment on column AQPB171.aqpb171cta
+  is 'Cuenta';
+comment on column AQPB171.aqpb171ope
+  is 'Operacion';
+comment on column AQPB171.aqpb171sbop
+  is 'SubOperacion';
+comment on column AQPB171.aqpb171tope
+  is 'Tipo de Operacion';
+comment on column AQPB171.aqpb171fc
+  is 'Indicador Flujo de Caja';
+comment on column AQPB171.aqpb171est
+  is 'Estado';
+comment on column AQPB171.aqpb171auxn1
+  is 'Auxiliar Numerico 1';
+comment on column AQPB171.aqpb171auxn2
+  is 'Auxiliar Numerico 2';
+comment on column AQPB171.aqpb171auxn3
+  is 'Auxiliar Numerico 3';
+comment on column AQPB171.aqpb171auxv1
+  is 'Auxiliar Caracter 1';
+comment on column AQPB171.aqpb171auxv2
+  is 'Auxiliar Caracter 2';
+comment on column AQPB171.aqpb171auxv3
+  is 'Auxiliar Caracter 3';
+comment on column AQPB171.aqpb171auxd1
+  is 'Auxiliar Fecha 1';
+comment on column AQPB171.aqpb171auxd2
+  is 'Auxiliar Fecha 2';
+comment on column AQPB171.aqpb171auxd3
+  is 'Auxiliar Fecha 3';
+create index AQPB171A2 on AQPB171 (AQPB171INST, AQPB171CORR);
+create index AQPB171A3 on AQPB171 (AQPB171PAIS, AQPB171TDOC, AQPB171NDOC);
+alter table AQPB171
+  add primary key (AQPB171CORR, AQPB171INST, AQPB171FCH, AQPB171HORA);
+

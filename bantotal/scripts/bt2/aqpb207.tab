@@ -1,0 +1,19 @@
+create table AQPB207
+(
+  aqpb207idl NUMBER(12) not null,
+  aqpb207cor NUMBER(7) not null,
+  aqpb207tfo VARCHAR2(100),
+  aqpb207fot BLOB,
+  aqpb207vfo VARCHAR2(4000),
+  aqpb207cre VARCHAR2(5),
+  aqpb207dre VARCHAR2(100),
+  aqpb207an1 NUMBER(9),
+  aqpb207ac1 CHAR(1),
+  aqpb207af1 DATE,
+  aqpb207at1 VARCHAR2(100),
+  aqpb207cfo CLOB
+)
+;
+alter table AQPB207
+  add primary key (AQPB207IDL, AQPB207COR);
+

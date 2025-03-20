@@ -1,0 +1,24 @@
+create table SNGC90
+(
+  sngc90pais NUMBER(3) not null,
+  sngc90tdoc NUMBER(2) not null,
+  sngc90ndoc CHAR(25) not null,
+  sngc90pain NUMBER(3),
+  sngc90tdon NUMBER(2),
+  sngc90ndon CHAR(25),
+  sngc90usr  CHAR(10),
+  sngc90fch  DATE,
+  sngc90hr   CHAR(8),
+  sngc90ax1  NUMBER(9),
+  sngc90ax2  CHAR(50),
+  sngc90ax3  VARCHAR2(80),
+  sngc90ax4  NUMBER(3),
+  sngc90ax5  NUMBER(2),
+  sngc90ax6  CHAR(25)
+)
+;
+create index SNGC9002 on SNGC90 (SNGC90PAIN, SNGC90TDON, SNGC90NDON);
+create index SNGC9003 on SNGC90 (SNGC90USR, SNGC90FCH);
+alter table SNGC90
+  add primary key (SNGC90PAIS, SNGC90TDOC, SNGC90NDOC);
+

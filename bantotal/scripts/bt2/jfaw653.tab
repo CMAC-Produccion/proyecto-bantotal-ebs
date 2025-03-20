@@ -1,0 +1,28 @@
+create table JFAW653
+(
+  jfaw653ins NUMBER(10) not null,
+  jfaw653emp NUMBER(3) not null,
+  jfaw653suc NUMBER(3) not null,
+  jfaw653mod NUMBER(3) not null,
+  jfaw653mda NUMBER(4) not null,
+  jfaw653pap NUMBER(4) not null,
+  jfaw653cta NUMBER(9) not null,
+  jfaw653ope NUMBER(9) not null,
+  jfaw653sub NUMBER(3) not null,
+  jfaw653top NUMBER(3) not null,
+  jfaw653fva DATE,
+  jfaw653fvt DATE,
+  jfaw653est CHAR(1),
+  jfaw653mto NUMBER(17,2),
+  jfaw653ac1 CHAR(50),
+  jfaw653ac2 CHAR(50),
+  jfaw653ac3 CHAR(50),
+  jfaw653an1 NUMBER(9),
+  jfaw653an2 NUMBER(9),
+  jfaw653an3 NUMBER(9)
+)
+;
+create index JFAW65302 on JFAW653 (JFAW653EMP, JFAW653SUC, JFAW653MOD, JFAW653MDA, JFAW653PAP, JFAW653CTA, JFAW653OPE, JFAW653SUB, JFAW653TOP);
+alter table JFAW653
+  add primary key (JFAW653INS, JFAW653EMP, JFAW653SUC, JFAW653MOD, JFAW653MDA, JFAW653PAP, JFAW653CTA, JFAW653OPE, JFAW653SUB, JFAW653TOP);
+

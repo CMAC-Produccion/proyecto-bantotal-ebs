@@ -1,0 +1,25 @@
+create table AQPA663
+(
+  aqpa663nro   NUMBER(10) not null,
+  aqpa663pgcod NUMBER(3) not null,
+  aqpa663scsuc NUMBER(3) not null,
+  aqpa663scmod NUMBER(3) not null,
+  aqpa663scmda NUMBER(4) not null,
+  aqpa663scpap NUMBER(4) not null,
+  aqpa663sccta NUMBER(9) not null,
+  aqpa663scope NUMBER(9) not null,
+  aqpa663scsbo NUMBER(3) not null,
+  aqpa663sctop NUMBER(3) not null,
+  aqpa663fecha DATE not null,
+  aqpa663corr  NUMBER(15) not null,
+  aqpa663cap   NUMBER(18,2),
+  aqpa663int   NUMBER(18,2),
+  aqpa663mor   NUMBER(18,2),
+  aqpa663gas   NUMBER(18,2),
+  aqpa663con   CHAR(20),
+  aqpa663err   VARCHAR2(150)
+)
+;
+alter table AQPA663
+  add primary key (AQPA663NRO, AQPA663PGCOD, AQPA663SCSUC, AQPA663SCMOD, AQPA663SCMDA, AQPA663SCPAP, AQPA663SCCTA, AQPA663SCOPE, AQPA663SCSBO, AQPA663SCTOP, AQPA663FECHA, AQPA663CORR);
+

@@ -1,0 +1,38 @@
+create table FSFI31
+(
+  sfi31emp   NUMBER(3) not null,
+  sfi31mer   NUMBER(3) not null,
+  sfi31pro   NUMBER(3) not null,
+  sfi31codv  NUMBER(3) not null,
+  sfi31des   CHAR(15),
+  sfi31hab   CHAR(1),
+  sfi31tip   CHAR(1),
+  sfi31pla   NUMBER(5),
+  sfi31mes   CHAR(1),
+  sfi31mom   CHAR(1),
+  sfi31mose  CHAR(1),
+  sfi31reca  NUMBER(2),
+  sfi31perf  CHAR(1),
+  sfi31feca  DATE,
+  sfi31cal   CHAR(1),
+  sfi31calc  NUMBER(3),
+  sfi31aju   CHAR(1),
+  sfi31aux1  NUMBER(4),
+  sfi31aux2  NUMBER(3),
+  sfi31aux4  NUMBER(3),
+  sfi31aux5  NUMBER(17,2),
+  sfi31aux6  CHAR(10),
+  sfi31aux7  CHAR(10),
+  sfi31aux8  NUMBER(9),
+  sfi31aux9  NUMBER(9),
+  sfi31aux10 NUMBER(9),
+  sfi31aux11 CHAR(1),
+  sfi31aux12 CHAR(1),
+  sfi31aux13 CHAR(1),
+  sfi31aux14 DATE,
+  sfi31aux15 DATE
+)
+;
+alter table FSFI31
+  add primary key (SFI31EMP, SFI31MER, SFI31PRO, SFI31CODV);
+

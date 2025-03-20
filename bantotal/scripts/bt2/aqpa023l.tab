@@ -1,0 +1,21 @@
+create table AQPA023L
+(
+  aqpa023lfech  DATE not null,
+  aqpa023leva   NUMBER(4) not null,
+  aqpa023lejec  NUMBER(10) not null,
+  aqpa023lcorre NUMBER(9) not null,
+  aqpa023linst  NUMBER(10),
+  aqpa023linst2 NUMBER(10),
+  aqpa023lejec2 NUMBER(10),
+  aqpa023lcta   NUMBER(9),
+  aqpa023lresn  NUMBER(17,2),
+  aqpa023lpatr  NUMBER(17,2),
+  aqpa023lexcm  NUMBER(17,2),
+  aqpa023lcont  NUMBER(5),
+  aqpa023lflag  CHAR(1)
+)
+;
+create index AQPA023L2 on AQPA023L (AQPA023LINST);
+alter table AQPA023L
+  add primary key (AQPA023LFECH, AQPA023LEVA, AQPA023LEJEC, AQPA023LCORRE);
+

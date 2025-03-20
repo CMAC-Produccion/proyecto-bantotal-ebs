@@ -1,0 +1,21 @@
+create table FSD024
+(
+  pgcod  NUMBER(3) not null,
+  cltcod NUMBER(2) not null,
+  tgmda  NUMBER(4) not null,
+  tgpap  NUMBER(4) not null,
+  tgfdes DATE not null,
+  tgpzo  NUMBER(4) not null,
+  tgttas NUMBER(1),
+  tgtasa NUMBER(10,6),
+  tgfinv NUMBER(8)
+)
+;
+create index FSD02403 on FSD024 (CLTCOD);
+create index FSD02404 on FSD024 (TGMDA);
+create index FSD02405 on FSD024 (TGPAP);
+create index FSD02406 on FSD024 (TGTTAS);
+create index FSD02407 on FSD024 (PGCOD, CLTCOD, TGMDA, TGPAP, TGFINV, TGPZO);
+alter table FSD024
+  add primary key (PGCOD, CLTCOD, TGMDA, TGPAP, TGFDES, TGPZO);
+

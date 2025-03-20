@@ -1,0 +1,23 @@
+create table FSH101
+(
+  hpbcod   NUMBER(3) not null,
+  hpbfbt   DATE not null,
+  hpbnsec  NUMBER(9) not null,
+  hpbproc  CHAR(10),
+  hpbfini  DATE,
+  hpbhini  CHAR(8),
+  hpbffin  DATE,
+  hpbhfin  CHAR(8),
+  hpbret   CHAR(1),
+  hpbusu   CHAR(10),
+  hpbwst   CHAR(10),
+  hpbnsecc NUMBER(5)
+)
+;
+create index FSH10102 on FSH101 (HPBCOD, HPBPROC, HPBFBT, HPBFINI, HPBHINI);
+create index FSH10103 on FSH101 (HPBCOD, HPBFBT, HPBFINI, HPBHINI);
+create index FSH10104 on FSH101 (HPBCOD, HPBFBT, HPBRET, HPBFINI, HPBHINI);
+create index FSH10105 on FSH101 (HPBCOD, HPBNSECC, HPBFBT);
+alter table FSH101
+  add primary key (HPBCOD, HPBFBT, HPBNSEC);
+

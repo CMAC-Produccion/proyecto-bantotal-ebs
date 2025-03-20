@@ -1,0 +1,15 @@
+create table FCPG83
+(
+  cpg83cod  NUMBER(5) not null,
+  cpg83desc CHAR(50),
+  cpg83tpo  NUMBER(2),
+  cpg83pcrg CHAR(1),
+  cpg83est  CHAR(3),
+  cpg83blq  CHAR(1),
+  cpg83inst NUMBER(10)
+)
+;
+create index FCPG8302 on FCPG83 (CPG83INST);
+alter table FCPG83
+  add primary key (CPG83COD);
+

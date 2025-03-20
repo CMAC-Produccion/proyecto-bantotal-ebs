@@ -1,0 +1,16 @@
+create table FXH801
+(
+  pgcod      NUMBER(3) not null,
+  numhtip    NUMBER(2) not null,
+  msghnum    NUMBER(9) not null,
+  swthcod    NUMBER(5) not null,
+  swthrel    NUMBER(2) not null,
+  swthrelnom CHAR(40),
+  msghusring CHAR(10),
+  msghusraut CHAR(10),
+  msghfec    DATE
+)
+;
+alter table FXH801
+  add primary key (PGCOD, NUMHTIP, MSGHNUM, SWTHCOD, SWTHREL);
+

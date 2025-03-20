@@ -1,0 +1,21 @@
+create table Z0E4GZ
+(
+  z0e4gztar CHAR(19) not null,
+  z0e4gzfec DATE not null,
+  z0e4gzhor CHAR(6) not null,
+  z0e4gzemp NUMBER(3),
+  z0e4gzven NUMBER(6),
+  z0e4gzcta NUMBER(10),
+  z0e4gzimp NUMBER(10,2),
+  z0e4gzcli NUMBER(8),
+  z0e4gzsuc NUMBER(2),
+  z0e4gzapl NUMBER(2),
+  z0e4gzint CHAR(1),
+  z0e4gzfil CHAR(35),
+  z0e4gzest CHAR(2)
+)
+;
+create index Z0E4GZ02 on Z0E4GZ (Z0E4GZEST);
+alter table Z0E4GZ
+  add primary key (Z0E4GZTAR, Z0E4GZFEC, Z0E4GZHOR);
+

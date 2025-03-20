@@ -1,0 +1,13 @@
+create table FCW300
+(
+  cmxpgmv    CHAR(10) not null,
+  cmxpgmw    CHAR(10),
+  cmxpgmctrl CHAR(10),
+  cmxpgmal   NUMBER(4),
+  cmxpgman   NUMBER(4)
+)
+;
+create index FCW30002 on FCW300 (CMXPGMW);
+alter table FCW300
+  add primary key (CMXPGMV);
+

@@ -1,0 +1,64 @@
+create table JAQM63
+(
+  jaqm63tad NUMBER(9) not null,
+  jaqm63dsc CHAR(200),
+  jaqm63mod NUMBER(3),
+  jaqm63tra NUMBER(3),
+  jaqm63rub NUMBER(16),
+  jaqm63per CHAR(1),
+  jaqm63an1 NUMBER(9),
+  jaqm63an2 NUMBER(9),
+  jaqm63an3 NUMBER(9),
+  jaqm63ad1 DATE,
+  jaqm63ad2 DATE,
+  jaqm63ad3 DATE,
+  jaqm63ai1 NUMBER(17,2),
+  jaqm63ai2 NUMBER(17,2),
+  jaqm63ai3 NUMBER(17,2),
+  jaqm63ac1 CHAR(255),
+  jaqm63ac2 CHAR(255),
+  jaqm63ac3 CHAR(255)
+)
+;
+comment on table JAQM63
+  is 'Tipo de Adicionales en cobro de credito';
+comment on column JAQM63.jaqm63tad
+  is 'Tipo de adicional';
+comment on column JAQM63.jaqm63dsc
+  is 'Descripción adicional';
+comment on column JAQM63.jaqm63mod
+  is 'Modulo transaccion';
+comment on column JAQM63.jaqm63tra
+  is 'Transaccion';
+comment on column JAQM63.jaqm63rub
+  is 'Rubro';
+comment on column JAQM63.jaqm63per
+  is 'Acepta periodo(S/N)';
+comment on column JAQM63.jaqm63an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM63.jaqm63an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM63.jaqm63an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM63.jaqm63ad1
+  is 'Date Auxiliar 1';
+comment on column JAQM63.jaqm63ad2
+  is 'Date Auxiliar 2';
+comment on column JAQM63.jaqm63ad3
+  is 'Date Auxiliar 3';
+comment on column JAQM63.jaqm63ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM63.jaqm63ai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM63.jaqm63ai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM63.jaqm63ac1
+  is 'Character Auxiliar 1';
+comment on column JAQM63.jaqm63ac2
+  is 'Character Auxiliar 2';
+comment on column JAQM63.jaqm63ac3
+  is 'Character Auxiliar 3';
+create index JAQM63A2 on JAQM63 (JAQM63TAD, JAQM63MOD, JAQM63TRA);
+alter table JAQM63
+  add primary key (JAQM63TAD);
+

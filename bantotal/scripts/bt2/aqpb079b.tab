@@ -1,0 +1,69 @@
+create table AQPB079B
+(
+  aqpb079bserie CHAR(4) not null,
+  aqpb079bcorr  NUMBER not null,
+  aqpb079bpgcod NUMBER,
+  aqpb079bmod   NUMBER,
+  aqpb079bsucor NUMBER,
+  aqpb079btran  NUMBER,
+  aqpb079brel   NUMBER,
+  aqpb079bcon   DATE,
+  aqpb079bhash  VARCHAR2(250),
+  aqpb079bmsgs  VARCHAR2(3000),
+  aqpb079bmsgt  VARCHAR2(3000),
+  aqpb079busu   CHAR(12),
+  aqpb079bfec   DATE,
+  aqpb079bhor   CHAR(8),
+  aqpb079best   CHAR(1),
+  aqpb079bord   NUMBER,
+  aqpb079bursud CHAR(12),
+  aqpb079bfecd  DATE,
+  aqpb079bhord  CHAR(8)
+)
+;
+comment on table AQPB079B
+  is 'Referencia AQPA465';
+comment on column AQPB079B.aqpb079bserie
+  is 'Numero de Serie';
+comment on column AQPB079B.aqpb079bcorr
+  is 'Correlativo';
+comment on column AQPB079B.aqpb079bpgcod
+  is 'Codigo Empresa interno';
+comment on column AQPB079B.aqpb079bmod
+  is 'Codigo Modulo interno';
+comment on column AQPB079B.aqpb079bsucor
+  is 'Codigo Sucursal interno';
+comment on column AQPB079B.aqpb079btran
+  is 'Codigo Transaccion interno';
+comment on column AQPB079B.aqpb079brel
+  is 'Codigo Relacion interno';
+comment on column AQPB079B.aqpb079bcon
+  is 'Fecha interno';
+comment on column AQPB079B.aqpb079bhash
+  is 'Codigo Hash';
+comment on column AQPB079B.aqpb079bmsgs
+  is 'Mensaje SUNAT';
+comment on column AQPB079B.aqpb079bmsgt
+  is 'Mensaje TCI';
+comment on column AQPB079B.aqpb079busu
+  is 'Usuario registro Interno';
+comment on column AQPB079B.aqpb079bfec
+  is 'Fecha registro Interno';
+comment on column AQPB079B.aqpb079bhor
+  is 'Hora registro Interno';
+comment on column AQPB079B.aqpb079best
+  is 'Estado';
+comment on column AQPB079B.aqpb079bord
+  is 'Ordinal de Comision';
+comment on column AQPB079B.aqpb079bursud
+  is 'Usuario que descargo PDF';
+comment on column AQPB079B.aqpb079bfecd
+  is 'Fecha de descarga PDF';
+comment on column AQPB079B.aqpb079bhord
+  is 'Hora de descarga PDF';
+create index AQPB079B2 on AQPB079B (AQPB079BSERIE, AQPB079BCORR, AQPB079BPGCOD, AQPB079BMOD, AQPB079BSUCOR, AQPB079BTRAN, AQPB079BREL, AQPB079BCON, AQPB079BHASH);
+create index AQPB079B3 on AQPB079B (AQPB079BPGCOD, AQPB079BMOD, AQPB079BSUCOR, AQPB079BTRAN, AQPB079BREL, AQPB079BCON, AQPB079BEST);
+create index AQPB079B4 on AQPB079B (AQPB079BSERIE, AQPB079BCORR);
+alter table AQPB079B
+  add primary key (AQPB079BSERIE, AQPB079BCORR);
+

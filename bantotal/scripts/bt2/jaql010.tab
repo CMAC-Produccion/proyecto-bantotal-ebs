@@ -1,0 +1,11 @@
+create table JAQL010
+(
+  jaql10sehos NUMBER(12) not null,
+  jaql10nucam NUMBER(3) not null,
+  jaql10timen CHAR(1),
+  jaql10vacam LONG
+)
+;
+alter table JAQL010
+  add primary key (JAQL10SEHOS, JAQL10NUCAM);
+

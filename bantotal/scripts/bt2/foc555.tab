@@ -1,0 +1,22 @@
+create table FOC555
+(
+  foc550emp  NUMBER(3) not null,
+  foc550id   NUMBER(2) not null,
+  foc551id   NUMBER(2) not null,
+  foc555seri CHAR(10) not null,
+  foc555nro  NUMBER(12) not null,
+  foc553mda  NUMBER(4),
+  foc555suc  NUMBER(3),
+  foc555deno NUMBER(17,2),
+  foc555feca DATE,
+  foc555est  CHAR(1),
+  foc555fecv DATE,
+  foc555aord CHAR(50),
+  foc555motv CHAR(35)
+)
+;
+create index FOC55503 on FOC555 (FOC550EMP, FOC550ID, FOC551ID, FOC553MDA, FOC555SUC, FOC555FECA);
+create index FOC55504 on FOC555 (FOC550EMP, FOC550ID, FOC551ID, FOC553MDA, FOC555EST, FOC555SUC, FOC555DENO, FOC555FECV);
+alter table FOC555
+  add primary key (FOC550EMP, FOC550ID, FOC551ID, FOC555SERI, FOC555NRO);
+

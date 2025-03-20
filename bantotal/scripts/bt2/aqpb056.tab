@@ -1,0 +1,69 @@
+create table AQPB056
+(
+  aqpb056tco VARCHAR2(2) not null,
+  aqpb056ser VARCHAR2(4) not null,
+  aqpb056num NUMBER(8) not null,
+  aqpb056fem DATE not null,
+  aqpb056pgc NUMBER(3) not null,
+  aqpb056mod NUMBER(3) not null,
+  aqpb056suc NUMBER(3) not null,
+  aqpb056trx NUMBER(3) not null,
+  aqpb056rel NUMBER(4) not null,
+  aqpb056fco DATE not null,
+  aqpb056tce CHAR(2),
+  aqpb056see VARCHAR2(50),
+  aqpb056nro NUMBER(20),
+  aqpb056pge NUMBER(3),
+  aqpb056moe NUMBER(3),
+  aqpb056sue NUMBER(3),
+  aqpb056tre NUMBER(3),
+  aqpb056ree NUMBER(4),
+  aqpb056fce DATE
+)
+;
+comment on table AQPB056
+  is 'Tabla para almacenamiento del comprobante luego de la impresión';
+comment on column AQPB056.aqpb056tco
+  is 'Tipo de documento';
+comment on column AQPB056.aqpb056ser
+  is 'Serie del documento';
+comment on column AQPB056.aqpb056num
+  is 'Número del documento';
+comment on column AQPB056.aqpb056fem
+  is 'Fecha del documento';
+comment on column AQPB056.aqpb056pgc
+  is 'Código Empresa';
+comment on column AQPB056.aqpb056mod
+  is 'Módulo';
+comment on column AQPB056.aqpb056suc
+  is 'Sucursal';
+comment on column AQPB056.aqpb056trx
+  is 'Transacción';
+comment on column AQPB056.aqpb056rel
+  is 'Relación';
+comment on column AQPB056.aqpb056fco
+  is 'Fecha';
+comment on column AQPB056.aqpb056tce
+  is 'Tipo de documento referenciado';
+comment on column AQPB056.aqpb056see
+  is 'Serie del documento referenciado';
+comment on column AQPB056.aqpb056nro
+  is 'Número del documento referenciado';
+comment on column AQPB056.aqpb056pge
+  is 'Código empresa referenciado';
+comment on column AQPB056.aqpb056moe
+  is 'Módulo referenciado';
+comment on column AQPB056.aqpb056sue
+  is 'Sucursal referenciado';
+comment on column AQPB056.aqpb056tre
+  is 'Transacción referenciado';
+comment on column AQPB056.aqpb056ree
+  is 'Relación referenciado';
+comment on column AQPB056.aqpb056fce
+  is 'Fecha referenciada';
+create index AQPB0562 on AQPB056 (AQPB056PGC, AQPB056MOD, AQPB056SUC, AQPB056TRX, AQPB056REL, AQPB056FCO);
+create index AQPB0563 on AQPB056 (AQPB056PGE, AQPB056MOE, AQPB056SUE, AQPB056TRE, AQPB056REE, AQPB056FCE);
+create index AQPB0564 on AQPB056 (AQPB056FEM);
+alter table AQPB056
+  add primary key (AQPB056TCO, AQPB056SER, AQPB056NUM);
+

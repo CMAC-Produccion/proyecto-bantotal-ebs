@@ -1,0 +1,10 @@
+create table JHSS26
+(
+  jhss25file CHAR(10) not null,
+  jhss25path CHAR(100) not null,
+  jhss26flag CHAR(1),
+  jhss26name CHAR(20)
+)
+;
+create unique index JHSS2601 on JHSS26 (JHSS25FILE, JHSS25PATH);
+

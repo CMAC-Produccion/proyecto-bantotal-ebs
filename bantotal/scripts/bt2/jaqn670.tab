@@ -1,0 +1,30 @@
+create table JAQN670
+(
+  jaqn670emp NUMBER(3) not null,
+  jaqn670mod NUMBER(3) not null,
+  jaqn670tip NUMBER(2) not null,
+  jaqn670mda NUMBER(4) not null,
+  jaqn670pap NUMBER(4) not null,
+  jaqn670fei DATE not null,
+  jaqn670mto NUMBER(17,2) not null,
+  jaqn670tta NUMBER(4),
+  jaqn670an1 NUMBER(9),
+  jaqn670an2 NUMBER(9),
+  jaqn670an3 NUMBER(9),
+  jaqn670ai1 NUMBER(17,2),
+  jaqn670ai2 NUMBER(17,2),
+  jaqn670ai3 NUMBER(17,2),
+  jaqn670ac1 VARCHAR2(255),
+  jaqn670ac2 VARCHAR2(255),
+  jaqn670ac3 VARCHAR2(255),
+  jaqn670af1 DATE,
+  jaqn670af2 DATE,
+  jaqn670af3 DATE
+)
+;
+create index JAQN6702 on JAQN670 (JAQN670EMP, JAQN670MOD, JAQN670TIP, JAQN670MDA, JAQN670PAP, JAQN670FEI, JAQN670TTA);
+create index JAQN6703 on JAQN670 (JAQN670TTA);
+create index JAQN6704 on JAQN670 (JAQN670MOD);
+alter table JAQN670
+  add primary key (JAQN670EMP, JAQN670MOD, JAQN670TIP, JAQN670MDA, JAQN670PAP, JAQN670FEI, JAQN670MTO);
+

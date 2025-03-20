@@ -1,0 +1,20 @@
+create table REPUCSM2
+(
+  regciacod     VARCHAR2(10) not null,
+  cuenro        VARCHAR2(40) not null,
+  regnrorec     VARCHAR2(10) not null,
+  cpagcod       VARCHAR2(10) not null,
+  regfchpag     DATE,
+  regidpagbt    VARCHAR2(10),
+  codigo        VARCHAR2(20),
+  prdocod       VARCHAR2(10) not null,
+  prdodes       VARCHAR2(300),
+  pagos         NUMBER,
+  mora          NUMBER,
+  comis_usuario NUMBER,
+  comis_cliente NUMBER
+)
+;
+comment on table REPUCSM2
+  is 'Tabla para reporte de pago de UCSM';
+

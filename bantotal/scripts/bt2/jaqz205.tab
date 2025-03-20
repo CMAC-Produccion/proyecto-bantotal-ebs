@@ -1,0 +1,43 @@
+create table JAQZ205
+(
+  jaqz205nutar  CHAR(19) not null,
+  jaqz205habil  CHAR(1),
+  jaqz205usafi  CHAR(10),
+  jaqz205feafi  DATE,
+  jaqz205hoafi  CHAR(8),
+  jaqz205usdes  CHAR(10),
+  jaqz205fedes  DATE,
+  jaqz205hodes  CHAR(8),
+  jaqz205titar  CHAR(1),
+  jaqz205feult  DATE,
+  jaqz205hoult  CHAR(8),
+  jaqz205email  VARCHAR2(320),
+  jaqz205celul  VARCHAR2(10),
+  jaqz205estok  NUMBER(1) default 0,
+  jaqz205seseg  NUMBER(3) default 0,
+  jaqz205esurl  NUMBER(1) default 0,
+  jaqz205urlpu  VARCHAR2(1000) default 0,
+  jaqz205tipafi CHAR(1),
+  jaqz205imei   VARCHAR2(50),
+  jaqz205aux1   VARCHAR2(100),
+  jaqz205aux2   VARCHAR2(200),
+  jaqz205aux3   VARCHAR2(100),
+  jaqz205aux4   NUMBER,
+  jaqz205aux5   DATE,
+  jaqz205alias  VARCHAR2(50),
+  jaqz205auxv1  VARCHAR2(200),
+  jaqz205auxv2  VARCHAR2(200),
+  jaqz205auxv3  VARCHAR2(200)
+)
+;
+comment on column JAQZ205.jaqz205alias
+  is 'Alias';
+comment on column JAQZ205.jaqz205auxv1
+  is 'Auxiliar 1';
+comment on column JAQZ205.jaqz205auxv2
+  is 'Auxiliar 2';
+comment on column JAQZ205.jaqz205auxv3
+  is 'Auxiliar 3';
+alter table JAQZ205
+  add primary key (JAQZ205NUTAR);
+

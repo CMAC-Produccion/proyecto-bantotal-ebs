@@ -1,0 +1,26 @@
+create table PQT007
+(
+  pqt7emp  NUMBER(3) not null,
+  pqt7cta  NUMBER(9) not null,
+  pqt7pqt  NUMBER(5) not null,
+  pqt7nro  CHAR(19) not null,
+  pqt7modt NUMBER(3),
+  pqt7modp NUMBER(3),
+  pqt7suc  NUMBER(3),
+  pqt7mda  NUMBER(4),
+  pqt7pap  NUMBER(4),
+  pqt7ope  NUMBER(9),
+  pqt7sbo  NUMBER(3),
+  pqt7top  NUMBER(3),
+  pqt7tip  CHAR(1),
+  pqt7fec  DATE,
+  pqt7aux1 CHAR(1),
+  pqt7aux2 CHAR(30),
+  pqt7aux3 NUMBER(17,2),
+  pqt7aux4 DATE
+)
+;
+create index PQT00702 on PQT007 (PQT7EMP, PQT7NRO);
+alter table PQT007
+  add primary key (PQT7EMP, PQT7CTA, PQT7PQT, PQT7NRO);
+

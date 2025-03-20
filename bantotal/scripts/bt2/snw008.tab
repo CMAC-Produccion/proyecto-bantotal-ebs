@@ -1,0 +1,24 @@
+create table SNW008
+(
+  x999j0cod CHAR(10) not null,
+  snw008prs CHAR(10) not null,
+  snw008pcb NUMBER(10,6),
+  snw008icb NUMBER(17,2),
+  snw008pca NUMBER(10,6),
+  snw008ica NUMBER(17,2),
+  snw008imb NUMBER(17,2),
+  snw008imc NUMBER(17,2),
+  snw008lot NUMBER(17,2),
+  snw008fuc DATE,
+  snw008uuc CHAR(20),
+  snw008pa1 NUMBER(10,6),
+  snw008pa2 NUMBER(10,6),
+  snw008pa3 NUMBER(10,6),
+  snw008ia1 NUMBER(17,2),
+  snw008ia2 NUMBER(17,2),
+  snw008ia3 NUMBER(17,2)
+)
+;
+alter table SNW008
+  add primary key (X999J0COD, SNW008PRS);
+

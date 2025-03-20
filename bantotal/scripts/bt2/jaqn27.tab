@@ -1,0 +1,47 @@
+create table JAQN27
+(
+  jaqn27cod NUMBER(3) not null,
+  jaqn27mod NUMBER(3) not null,
+  jaqn27tcu NUMBER(3) not null,
+  jaqn27cta NUMBER(9) not null,
+  jaqn27ope NUMBER(9) not null,
+  jaqn27sop NUMBER(3) not null,
+  jaqn27mda NUMBER(4) not null,
+  jaqn27pap NUMBER(4) not null,
+  jaqn27fvi DATE not null,
+  jaqn27mto NUMBER(17,2) not null,
+  jaqn27pzo NUMBER(5) not null,
+  jaqn27mdo CHAR(1) not null,
+  jaqn27cur NUMBER(10,6)
+)
+;
+comment on table JAQN27
+  is 'Detalle curvas por subcuenta';
+comment on column JAQN27.jaqn27cod
+  is 'Codigo empresa';
+comment on column JAQN27.jaqn27mod
+  is 'Modulo';
+comment on column JAQN27.jaqn27tcu
+  is 'Tipo curva';
+comment on column JAQN27.jaqn27cta
+  is 'Cuenta';
+comment on column JAQN27.jaqn27ope
+  is 'Operación';
+comment on column JAQN27.jaqn27sop
+  is 'Suboperación';
+comment on column JAQN27.jaqn27mda
+  is 'Moneda';
+comment on column JAQN27.jaqn27pap
+  is 'Papel';
+comment on column JAQN27.jaqn27fvi
+  is 'Vigencia';
+comment on column JAQN27.jaqn27mto
+  is 'Monto';
+comment on column JAQN27.jaqn27pzo
+  is 'Plazo';
+comment on column JAQN27.jaqn27cur
+  is 'Curva';
+create index JAQN27A2 on JAQN27 (JAQN27COD, JAQN27MOD, JAQN27CUR, JAQN27CTA, JAQN27OPE, JAQN27SOP, JAQN27MDA, JAQN27PAP, JAQN27FVI, JAQN27MTO, JAQN27MDO);
+alter table JAQN27
+  add primary key (JAQN27COD, JAQN27MOD, JAQN27TCU, JAQN27CTA, JAQN27OPE, JAQN27SOP, JAQN27MDA, JAQN27PAP, JAQN27FVI, JAQN27MTO, JAQN27PZO, JAQN27MDO);
+

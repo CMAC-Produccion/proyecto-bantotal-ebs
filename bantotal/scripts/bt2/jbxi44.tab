@@ -1,0 +1,11 @@
+create table JBXI44
+(
+  jx44sercod NUMBER(4) not null,
+  jx44ctaaso CHAR(1),
+  jx44serdes CHAR(50),
+  jx44sertpo CHAR(1)
+)
+;
+create unique index JBXI4401 on JBXI44 (JX44SERCOD);
+create index JBXI4402 on JBXI44 (JX44SERTPO, JX44SERCOD);
+

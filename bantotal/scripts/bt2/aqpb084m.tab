@@ -1,0 +1,19 @@
+create table AQPB084M
+(
+  aqpb084mfech1 DATE not null,
+  aqpb084mhora1 CHAR(8) not null,
+  aqpb084minst  NUMBER(10) not null,
+  aqpb084mcsbs  VARCHAR2(10) not null,
+  aqpb084mcemp  CHAR(5) not null,
+  aqpb084mcuen  CHAR(14) not null,
+  aqpb084msald  NUMBER(17,2),
+  aqpb084msalc  NUMBER(17,2),
+  aqpb084msaln  NUMBER(17,2),
+  aqpb084mbfpre DATE,
+  aqpb084mfech  DATE,
+  aqpb084mhora  CHAR(8)
+)
+;
+alter table AQPB084M
+  add primary key (AQPB084MFECH1, AQPB084MHORA1, AQPB084MINST, AQPB084MCSBS, AQPB084MCEMP, AQPB084MCUEN);
+

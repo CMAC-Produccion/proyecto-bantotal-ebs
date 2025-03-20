@@ -1,0 +1,18 @@
+create table JAQL330
+(
+  jaql330pgco NUMBER(3) not null,
+  jaql330ubus CHAR(10) not null,
+  jaql330pgap DATE not null,
+  jaql330corr NUMBER(18) not null,
+  jaql330modu NUMBER(3),
+  jaql330itop NUMBER(3),
+  jaql330desc CHAR(30),
+  jaql330auxc CHAR(60),
+  jaql330auxd DATE,
+  jaql330auxn NUMBER(16),
+  jaql330auc2 CHAR(60)
+)
+;
+alter table JAQL330
+  add primary key (JAQL330PGCO, JAQL330UBUS, JAQL330PGAP, JAQL330CORR);
+

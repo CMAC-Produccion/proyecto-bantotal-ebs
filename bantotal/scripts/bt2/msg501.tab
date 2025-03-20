@@ -1,0 +1,12 @@
+create table MSG501
+(
+  estmcod  NUMBER(5) not null,
+  ltrcod   NUMBER(3) not null,
+  ltrcampo CHAR(4) not null,
+  atrnom   CHAR(10)
+)
+;
+create index IMSG5011 on MSG501 (ESTMCOD, ATRNOM);
+alter table MSG501
+  add primary key (ESTMCOD, LTRCOD, LTRCAMPO);
+

@@ -1,0 +1,13 @@
+create table AQPB506D
+(
+  aqpb506did     NUMBER(4) not null,
+  aqpb506dcreusr VARCHAR2(30) not null,
+  aqpb506dcretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb506dtipsbs VARCHAR2(30) not null,
+  aqpb506dmoneda NUMBER(4) not null,
+  aqpb506dsaltot NUMBER(18,2) not null
+)
+;
+alter table AQPB506D
+  add primary key (AQPB506DID, AQPB506DCREUSR);
+

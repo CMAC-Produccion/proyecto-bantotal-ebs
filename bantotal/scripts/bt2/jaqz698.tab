@@ -1,0 +1,135 @@
+create table JAQZ698
+(
+  jaqz698fep    DATE not null,
+  jaqz698cor    NUMBER(9) not null,
+  jaqz698emp    NUMBER(3) not null,
+  jaqz698mod    NUMBER(3) not null,
+  jaqz698suc    NUMBER(3) not null,
+  jaqz698mda    NUMBER(4) not null,
+  jaqz698pap    NUMBER(4) not null,
+  jaqz698cta    NUMBER(9) not null,
+  jaqz698ope    NUMBER(9) not null,
+  jaqz698sbo    NUMBER(3) not null,
+  jaqz698top    NUMBER(3) not null,
+  jaqz698fev    DATE,
+  jaqz698fem    DATE,
+  jaqz698per    NUMBER(4),
+  jaqz698ind    CHAR(1),
+  jaqz698ica    CHAR(1),
+  jaqz698est    CHAR(1),
+  jaqz698fex    DATE,
+  jaqz698hor    CHAR(8),
+  jaqz698fa1    DATE,
+  jaqz698fa2    DATE,
+  jaqz698ca1    CHAR(50),
+  jaqz698ca2    CHAR(30),
+  jaqz698nu1    NUMBER(17,2),
+  jaqz698nu2    NUMBER(17,2),
+  jaqz698mail   VARCHAR2(150),
+  jaqz698fa3    DATE,
+  jaqz698fa4    DATE,
+  jaqz698ca3    CHAR(50),
+  jaqz698ca4    CHAR(30),
+  jaqz698nu3    NUMBER(17,2),
+  jaqz698nu4    NUMBER(17,2),
+  jaqz698mora   CHAR(1),
+  jaqz698fcap   CHAR(1),
+  jaqz698nomarc VARCHAR2(150),
+  jaqz698inst   NUMBER(10),
+  jaqz698fmail  CHAR(1),
+  jaqz698tlfn   VARCHAR2(20),
+  jaqz698fext   DATE,
+  jaqz698hext   CHAR(8),
+  jaqz698usext  CHAR(10),
+  jaqz698usrpt  CHAR(10),
+  jaqz698suext  NUMBER(3)
+)
+;
+comment on column JAQZ698.jaqz698fep
+  is 'Fecha carga BI';
+comment on column JAQZ698.jaqz698cor
+  is 'Correlativo';
+comment on column JAQZ698.jaqz698emp
+  is 'Empresa';
+comment on column JAQZ698.jaqz698mod
+  is 'Modulo';
+comment on column JAQZ698.jaqz698suc
+  is 'Sucursal';
+comment on column JAQZ698.jaqz698mda
+  is 'Moneda';
+comment on column JAQZ698.jaqz698pap
+  is 'Papel';
+comment on column JAQZ698.jaqz698cta
+  is 'Cuenta';
+comment on column JAQZ698.jaqz698ope
+  is 'Operacion';
+comment on column JAQZ698.jaqz698sbo
+  is 'Suboperacion';
+comment on column JAQZ698.jaqz698top
+  is 'Tipo de operacion';
+comment on column JAQZ698.jaqz698fev
+  is 'Fecha de vencimiento';
+comment on column JAQZ698.jaqz698fem
+  is 'Fecha de pago propuesta';
+comment on column JAQZ698.jaqz698per
+  is 'Periodo de reprogramacion ';
+comment on column JAQZ698.jaqz698ind
+  is 'Indicador Parcial';
+comment on column JAQZ698.jaqz698ica
+  is 'Indicador Parcial capital';
+comment on column JAQZ698.jaqz698est
+  is 'Estado';
+comment on column JAQZ698.jaqz698fex
+  is 'Fecha proceso';
+comment on column JAQZ698.jaqz698hor
+  is 'Hora proceso ';
+comment on column JAQZ698.jaqz698fa1
+  is 'fecha aux1';
+comment on column JAQZ698.jaqz698fa2
+  is 'fecha aux2';
+comment on column JAQZ698.jaqz698ca1
+  is 'caracter aux1';
+comment on column JAQZ698.jaqz698ca2
+  is 'caracter aux2';
+comment on column JAQZ698.jaqz698nu1
+  is 'number aux1';
+comment on column JAQZ698.jaqz698nu2
+  is 'number aux2';
+comment on column JAQZ698.jaqz698mail
+  is 'Mail';
+comment on column JAQZ698.jaqz698fa3
+  is 'fecha aux3';
+comment on column JAQZ698.jaqz698fa4
+  is 'fecha aux4';
+comment on column JAQZ698.jaqz698ca3
+  is 'caracter aux3';
+comment on column JAQZ698.jaqz698ca4
+  is 'caracter aux4';
+comment on column JAQZ698.jaqz698nu3
+  is 'number aux3';
+comment on column JAQZ698.jaqz698nu4
+  is 'number aux4';
+comment on column JAQZ698.jaqz698mora
+  is 'Indicador Mora';
+comment on column JAQZ698.jaqz698fcap
+  is 'Flag Suma capital';
+comment on column JAQZ698.jaqz698nomarc
+  is 'Archivo';
+comment on column JAQZ698.jaqz698inst
+  is 'Instancia';
+comment on column JAQZ698.jaqz698fmail
+  is 'Flag Mail';
+comment on column JAQZ698.jaqz698fext
+  is 'Fecha de Extorno';
+comment on column JAQZ698.jaqz698hext
+  is 'Hora de Extorno';
+comment on column JAQZ698.jaqz698usext
+  is 'USUARIO QUE REALIZO LA REVERSION';
+comment on column JAQZ698.jaqz698usrpt
+  is 'USUARIO PARA REPORTE';
+comment on column JAQZ698.jaqz698suext
+  is 'SUCURSAL AL MOMENTO DE REVERTIR';
+create index JAQZ6982 on JAQZ698 (JAQZ698CTA, JAQZ698EST);
+alter table JAQZ698
+  add primary key (JAQZ698FEP, JAQZ698COR, JAQZ698EMP, JAQZ698MOD, JAQZ698SUC, JAQZ698MDA, JAQZ698PAP, JAQZ698CTA, JAQZ698OPE, JAQZ698SBO, JAQZ698TOP);
+

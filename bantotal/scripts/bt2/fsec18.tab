@@ -1,0 +1,18 @@
+create table FSEC18
+(
+  sec01pgcod NUMBER(3) not null,
+  sec15lgid  CHAR(10) not null,
+  sec15lgfec DATE not null,
+  sec15lgnro NUMBER(9) not null,
+  sec18mda   NUMBER(4) not null,
+  sec18pap   NUMBER(4) not null,
+  sec18pcmin NUMBER(14,8),
+  sec18cpmin NUMBER(17,2),
+  sec18cpsel NUMBER(17,2),
+  sec18stres NUMBER(1),
+  sec18txt   CHAR(60)
+)
+;
+alter table FSEC18
+  add primary key (SEC01PGCOD, SEC15LGID, SEC15LGFEC, SEC15LGNRO, SEC18MDA, SEC18PAP);
+

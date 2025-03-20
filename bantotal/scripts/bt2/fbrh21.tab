@@ -1,0 +1,13 @@
+create table FBRH21
+(
+  brh21licod CHAR(1) not null,
+  brh21licta NUMBER(9) not null,
+  brh21lifin DATE not null,
+  brh21lirgo CHAR(1),
+  brh21liest CHAR(1)
+)
+;
+create index FBRH2102 on FBRH21 (BRH21LICTA, BRH21LIFIN);
+alter table FBRH21
+  add primary key (BRH21LICOD, BRH21LICTA, BRH21LIFIN);
+

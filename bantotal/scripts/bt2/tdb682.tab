@@ -1,0 +1,22 @@
+create table TDB682
+(
+  tdb682nro CHAR(19) not null,
+  tdb682suc NUMBER(3) not null,
+  tdb682cta NUMBER(9) not null,
+  tdb682sct NUMBER(3) not null,
+  tdb682mod NUMBER(3) not null,
+  tdb682mon NUMBER(4) not null,
+  tdb682pap NUMBER(4) not null,
+  tdb682top NUMBER(3) not null,
+  tdb682ope NUMBER(9) not null,
+  tdb682cns CHAR(1),
+  tdb682ret CHAR(1),
+  tdb682dep CHAR(1),
+  tdb682rtr CHAR(1),
+  tdb682etr CHAR(1),
+  tdb682vnc CHAR(1)
+)
+;
+alter table TDB682
+  add primary key (TDB682NRO, TDB682SUC, TDB682CTA, TDB682SCT, TDB682MOD, TDB682MON, TDB682PAP, TDB682TOP, TDB682OPE);
+

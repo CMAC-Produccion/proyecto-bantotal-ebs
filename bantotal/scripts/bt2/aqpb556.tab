@@ -1,0 +1,158 @@
+create table AQPB556
+(
+  aqpb556cod    NUMBER(10),
+  aqpb556inst   NUMBER(10),
+  aqpb556pais   NUMBER(3) not null,
+  aqpb556ptdc   NUMBER(2) not null,
+  aqpb556dni    VARCHAR2(12) not null,
+  aqpb556emp    NUMBER(3) not null,
+  aqpb556mod    NUMBER(3) not null,
+  aqpb556suc    NUMBER(3) not null,
+  aqpb556mda    NUMBER(4) not null,
+  aqpb556pap    NUMBER(4) not null,
+  aqpb556cta    NUMBER(9) not null,
+  aqpb556oper   NUMBER(9) not null,
+  aqpb556sbop   NUMBER(3) not null,
+  aqpb556top    NUMBER(3) not null,
+  aqpb556est    VARCHAR2(1) not null,
+  aqpb556fecr   TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb556usrr   VARCHAR2(10),
+  aqpb556fecm   TIMESTAMP(6),
+  aqpb556usrm   VARCHAR2(10),
+  aqpb556scap   NUMBER(17,2),
+  aqpb556fecc   TIMESTAMP(6),
+  aqpb556ehab   VARCHAR2(1),
+  aqpb556tsaa   NUMBER(10,6),
+  aqpb556temp   NUMBER(3),
+  aqpb556tsuc   NUMBER(3),
+  aqpb556tmod   NUMBER(3),
+  aqpb556ttran  NUMBER(3),
+  aqpb556tnrel  NUMBER(4),
+  aqpb556tfvc   DATE,
+  aqpb556tfcon  DATE,
+  aqpb556scons  NUMBER(17,2),
+  aqpb556tprg   NUMBER(4),
+  aqpb556tcov   CHAR(1),
+  aqpb556pusrr  VARCHAR2(10),
+  aqpb556feccp  TIMESTAMP(6),
+  aqpb556cara   NUMBER(4),
+  aqpb556mail   VARCHAR2(400),
+  aqpb556rcap   NUMBER(10,6),
+  aqpb556rcpa   NUMBER(10,6),
+  aqpb556usra   VARCHAR2(10),
+  aqpb556tsap   NUMBER(10,6),
+  aqpb556bfec   DATE,
+  aqpb556bcor   NUMBER(9),
+  aqpb556aux1   VARCHAR2(250),
+  aqpb556aux2   DATE,
+  aqpb556aux3   NUMBER(17,2),
+  aqpb556maila  VARCHAR2(300),
+  aqpb556mailc  VARCHAR2(300),
+  aqpb556arch   VARCHAR2(300),
+  aqpb556fecrpg DATE,
+  aqpb556fecuat DATE,
+  aqpb556horuat CHAR(8),
+  aqpb556estaut CHAR(1),
+  aqpb556uspapr CHAR(10),
+  aqpb556fecapr DATE,
+  aqpb556horapr CHAR(8)
+)
+;
+comment on column AQPB556.aqpb556cod
+  is 'Correlativo';
+comment on column AQPB556.aqpb556inst
+  is 'Instancia';
+comment on column AQPB556.aqpb556pais
+  is 'Pais del documento';
+comment on column AQPB556.aqpb556ptdc
+  is 'Tipo de documento';
+comment on column AQPB556.aqpb556dni
+  is 'Documento de indentidad';
+comment on column AQPB556.aqpb556emp
+  is 'Clv. credito Empresa';
+comment on column AQPB556.aqpb556mod
+  is 'Clv. credito Modulo';
+comment on column AQPB556.aqpb556suc
+  is 'Clv. credito Sucursal';
+comment on column AQPB556.aqpb556mda
+  is 'Clv. credito Moneda';
+comment on column AQPB556.aqpb556pap
+  is 'Clv. credito Papel';
+comment on column AQPB556.aqpb556cta
+  is 'Clv. credito Cuenta';
+comment on column AQPB556.aqpb556oper
+  is 'Clv. credito Operacion';
+comment on column AQPB556.aqpb556sbop
+  is 'Clv. credito Suboperacion';
+comment on column AQPB556.aqpb556top
+  is 'Clv. credito Tipo de Operacion';
+comment on column AQPB556.aqpb556est
+  is 'Estado de la reprogramacion';
+comment on column AQPB556.aqpb556fecr
+  is 'Fecha de registro ';
+comment on column AQPB556.aqpb556usrr
+  is 'Usuario que registro';
+comment on column AQPB556.aqpb556fecm
+  is 'Fecha de modificaci{on';
+comment on column AQPB556.aqpb556usrm
+  is 'Usuario que modifico';
+comment on column AQPB556.aqpb556scap
+  is 'Saldo Capital';
+comment on column AQPB556.aqpb556fecc
+  is 'Fecha de aprobacion/rechazo';
+comment on column AQPB556.aqpb556ehab
+  is 'Estado Habilitado';
+comment on column AQPB556.aqpb556tsaa
+  is 'Tasas Anterior de la Reprogramación Gobierno';
+comment on column AQPB556.aqpb556temp
+  is 'clv de trans empresa - solo Rprog. Gobierno';
+comment on column AQPB556.aqpb556tsuc
+  is 'clv de trans sucursal';
+comment on column AQPB556.aqpb556tmod
+  is 'clv de trans modulo';
+comment on column AQPB556.aqpb556ttran
+  is 'clv de trans transaccion';
+comment on column AQPB556.aqpb556tnrel
+  is 'clv de trans num relacion';
+comment on column AQPB556.aqpb556tfvc
+  is 'clv de trans fec. vencimiento';
+comment on column AQPB556.aqpb556tfcon
+  is 'clv de trans fec. contable';
+comment on column AQPB556.aqpb556tprg
+  is 'Tipo de Reprogramacion';
+comment on column AQPB556.aqpb556tcov
+  is 'Tipo de Reprogramacion COVIT';
+comment on column AQPB556.aqpb556pusrr
+  is 'Plataforma Usuario que realizo el cambio de la reprogrmación COVIT';
+comment on column AQPB556.aqpb556feccp
+  is 'Fecha de Cambio por Usuario de Plataforma en Reprogrmacion COVIT';
+comment on column AQPB556.aqpb556bfec
+  is 'Fecha de Backup';
+comment on column AQPB556.aqpb556bcor
+  is 'Correlativo de Backup';
+comment on column AQPB556.aqpb556maila
+  is 'Correo enviado del Aprobador al Analista';
+comment on column AQPB556.aqpb556mailc
+  is 'Correo enviado del Aprobador de cambio a Consensuado';
+comment on column AQPB556.aqpb556arch
+  is 'Documentos del Credito Reprogramado';
+comment on column AQPB556.aqpb556fecrpg
+  is 'Fecha sin Hora de la registro de la Reprogramacion';
+comment on column AQPB556.aqpb556fecuat
+  is 'Fecha de ultima autorizacion';
+comment on column AQPB556.aqpb556horuat
+  is 'Hora de ultima autorizacion';
+comment on column AQPB556.aqpb556estaut
+  is 'Estado de la ultima autorizacion';
+comment on column AQPB556.aqpb556uspapr
+  is 'Usuario Aprobador de JF de Plataforma, para la Reprogramación';
+comment on column AQPB556.aqpb556fecapr
+  is 'Fecha de Reprogramacion por JF de Plataforma';
+comment on column AQPB556.aqpb556horapr
+  is 'Hora de Reprogramacion por JF de Plataforma';
+create index AQPB556A2 on AQPB556 (AQPB556INST, AQPB556EHAB, AQPB556EST);
+create index AQPB5562 on AQPB556 (AQPB556COD);
+create index AQPB5563 on AQPB556 (AQPB556COD, AQPB556EST, AQPB556EHAB);
+create index AQPB5564 on AQPB556 (AQPB556EMP, AQPB556MOD, AQPB556SUC, AQPB556MDA, AQPB556PAP, AQPB556CTA, AQPB556OPER, AQPB556SBOP, AQPB556TOP, AQPB556EST, AQPB556FECR);
+create index AQPB5565 on AQPB556 (AQPB556EST, AQPB556EHAB, AQPB556CTA, AQPB556PAIS, AQPB556PTDC, AQPB556DNI, AQPB556SUC);
+

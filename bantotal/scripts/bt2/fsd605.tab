@@ -1,0 +1,21 @@
+create table FSD605
+(
+  rdcod    NUMBER(3) not null,
+  rdmod    NUMBER(3) not null,
+  rdsuc    NUMBER(3) not null,
+  rdmda    NUMBER(4) not null,
+  rdpap    NUMBER(4) not null,
+  rdcta    NUMBER(9) not null,
+  rdoper   NUMBER(9) not null,
+  rdsbop   NUMBER(3) not null,
+  rdtope   NUMBER(3) not null,
+  rdttas   NUMBER(1),
+  rdtasa   NUMBER(10,6),
+  rdpzo    NUMBER(5),
+  rdcltcod NUMBER(2),
+  rdplus   NUMBER(10,6)
+)
+;
+alter table FSD605
+  add primary key (RDCOD, RDMOD, RDSUC, RDMDA, RDPAP, RDCTA, RDOPER, RDSBOP, RDTOPE);
+

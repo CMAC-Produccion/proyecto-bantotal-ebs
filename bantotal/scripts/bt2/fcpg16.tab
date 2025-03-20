@@ -1,0 +1,13 @@
+create table FCPG16
+(
+  cpg15cod  NUMBER(3) not null,
+  cpg16prod NUMBER(3) not null,
+  cpg16est  CHAR(3),
+  cpg16blq  CHAR(1),
+  cpg16inst NUMBER(10)
+)
+;
+create index FCPG1603 on FCPG16 (CPG16INST);
+alter table FCPG16
+  add primary key (CPG15COD, CPG16PROD);
+

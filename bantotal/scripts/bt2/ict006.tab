@@ -1,0 +1,14 @@
+create table ICT006
+(
+  pgcod      NUMBER(3) not null,
+  infid      NUMBER(5) not null,
+  infftrcorr NUMBER(2) not null,
+  opccorry   NUMBER(2) not null,
+  mopctipo   NUMBER(2),
+  mopccod    NUMBER(3),
+  opcvalor   CHAR(1)
+)
+;
+alter table ICT006
+  add primary key (PGCOD, INFID, INFFTRCORR, OPCCORRY);
+

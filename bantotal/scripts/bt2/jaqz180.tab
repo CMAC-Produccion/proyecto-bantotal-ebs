@@ -1,0 +1,24 @@
+create table JAQZ180
+(
+  jaqz180ide NUMBER(10) not null,
+  jaqz180cor NUMBER(9) not null,
+  jaqz180tva NUMBER(9),
+  jaqz180mon NUMBER(9),
+  jaqz180val NUMBER(9),
+  jaqz180ser CHAR(9),
+  jaqz180tre NUMBER(9),
+  jaqz180tot NUMBER(9),
+  jaqz180ax1 NUMBER(9),
+  jaqz180ax2 NUMBER(9),
+  jaqz180ax3 NUMBER(17,2),
+  jaqz180ax4 NUMBER(17,2),
+  jaqz180ax5 DATE,
+  jaqz180ax6 DATE,
+  jaqz180ax7 CHAR(100),
+  jaqz180ax8 CHAR(100),
+  jaqz180ax9 CHAR(100)
+)
+;
+alter table JAQZ180
+  add primary key (JAQZ180IDE, JAQZ180COR);
+

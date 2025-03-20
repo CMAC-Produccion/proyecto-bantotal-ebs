@@ -1,0 +1,25 @@
+create table Z0E4PQ
+(
+  z0e4pqcar NUMBER(2) not null,
+  z0e4pqcor NUMBER(9) not null,
+  z0e4pqemp NUMBER(3) not null,
+  z0e4pqsuc NUMBER(3) not null,
+  z0e4pqmod NUMBER(3) not null,
+  z0e4pqtra NUMBER(3) not null,
+  z0e4pqrel NUMBER(4) not null,
+  z0e4pqord NUMBER(2) not null,
+  z0e4pqsor NUMBER(3) not null,
+  z0e4pqfco DATE not null,
+  z0e4pqcja NUMBER(3),
+  z0e4pqcta NUMBER(9),
+  z0e4pqmda NUMBER(4),
+  z0e4pqope NUMBER(9),
+  z0e4pqimp NUMBER(14,2)
+)
+;
+create index Z0E4PQ02 on Z0E4PQ (Z0E4PQCAR, Z0E4PQCOR, Z0E4PQEMP, Z0E4PQSUC, Z0E4PQMOD, Z0E4PQTRA, Z0E4PQFCO);
+create index Z0E4PQ03 on Z0E4PQ (Z0E4PQCAR, Z0E4PQCOR, Z0E4PQEMP, Z0E4PQFCO, Z0E4PQSUC, Z0E4PQCJA, Z0E4PQCTA, Z0E4PQMDA);
+create index Z0E4PQ04 on Z0E4PQ (Z0E4PQCAR, Z0E4PQCOR, Z0E4PQEMP, Z0E4PQMDA);
+alter table Z0E4PQ
+  add primary key (Z0E4PQCAR, Z0E4PQCOR, Z0E4PQEMP, Z0E4PQSUC, Z0E4PQMOD, Z0E4PQTRA, Z0E4PQREL, Z0E4PQORD, Z0E4PQSOR, Z0E4PQFCO);
+

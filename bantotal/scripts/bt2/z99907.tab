@@ -1,0 +1,18 @@
+create table Z99907
+(
+  z99904cod NUMBER(4) not null,
+  z99905cod CHAR(8) not null,
+  z99906cod CHAR(3) not null,
+  z99907cod NUMBER(4) not null,
+  z99907dsc CHAR(30),
+  z99907prl NUMBER(4),
+  z99907len NUMBER(4),
+  z99902cod CHAR(1),
+  z99903cod NUMBER(3)
+)
+;
+create index Z9990702 on Z99907 (Z99902COD, Z99903COD);
+create index Z9990704 on Z99907 (Z99904COD, Z99905COD, Z99906COD, Z99907PRL);
+alter table Z99907
+  add primary key (Z99904COD, Z99905COD, Z99906COD, Z99907COD);
+

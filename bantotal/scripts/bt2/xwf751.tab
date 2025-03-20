@@ -1,0 +1,28 @@
+create table XWF751
+(
+  xwf751emp  NUMBER(3) not null,
+  xwf751mod  NUMBER(3) not null,
+  xwf751top  NUMBER(3) not null,
+  xwf751mda  NUMBER(4) not null,
+  xwf751pap  NUMBER(4) not null,
+  xwf751suc  NUMBER(3) not null,
+  xwf751cta  NUMBER(9) not null,
+  xwf751ope  NUMBER(9) not null,
+  xwf751sop  NUMBER(3) not null,
+  xwf751mdp  NUMBER(4) not null,
+  xwf751topp NUMBER(3) not null,
+  xwf750var  CHAR(10) not null,
+  xwf751cor  NUMBER(3) not null,
+  xwf751den  NUMBER(17,2),
+  xwf751han  NUMBER(17,2),
+  xwf751dec  CHAR(30),
+  xwf751hac  CHAR(30),
+  xwf751tip  CHAR(1),
+  xwf751hae  NUMBER(15),
+  xwf751dee  NUMBER(15)
+)
+;
+create index XWF75102 on XWF751 (XWF750VAR);
+alter table XWF751
+  add primary key (XWF751EMP, XWF751MOD, XWF751TOP, XWF751MDA, XWF751PAP, XWF751SUC, XWF751CTA, XWF751OPE, XWF751SOP, XWF751MDP, XWF751TOPP, XWF750VAR, XWF751COR);
+

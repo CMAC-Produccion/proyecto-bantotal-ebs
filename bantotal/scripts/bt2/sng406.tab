@@ -1,0 +1,14 @@
+create table SNG406
+(
+  sng400cod  NUMBER(3) not null,
+  sng400evto NUMBER(10) not null,
+  sng402cr   NUMBER(4) not null,
+  sng406prg  CHAR(10) not null,
+  sng406ord  NUMBER(4),
+  sng406mod  CHAR(1)
+)
+;
+create index SNG40610 on SNG406 (SNG400COD, SNG400EVTO, SNG402CR, SNG406ORD, SNG406PRG);
+alter table SNG406
+  add primary key (SNG400COD, SNG400EVTO, SNG402CR, SNG406PRG);
+

@@ -1,0 +1,28 @@
+create table FBC7B6
+(
+  bc7b6emp   NUMBER(3) not null,
+  bc7b6fch   DATE not null,
+  bc7b6ent   NUMBER(3) not null,
+  bc7b6codc  NUMBER(6) not null,
+  bc7b6dest  CHAR(1) not null,
+  bc7b6codp  NUMBER(3) not null,
+  bc7b6codo  NUMBER(2) not null,
+  bc7b6codf  NUMBER(2) not null,
+  bc7b6corr  NUMBER(10) not null,
+  bc7b6sdo1  NUMBER(17,2),
+  bc7b6sdpv  NUMBER(17,2),
+  bc7b6sdv1  NUMBER(17,2),
+  bc7b6sdv2  NUMBER(17,2),
+  bc7b6sdv3  NUMBER(17,2),
+  bc7b6sdv4  NUMBER(17,2),
+  bc7b6sdv5  NUMBER(17,2),
+  bc7b6sdv6  NUMBER(17,2),
+  bc7b6clid  CHAR(30),
+  bc7b6clnom CHAR(60),
+  bc7b6grid  CHAR(30),
+  bc7b6grnom CHAR(60)
+)
+;
+alter table FBC7B6
+  add primary key (BC7B6EMP, BC7B6FCH, BC7B6ENT, BC7B6CODC, BC7B6DEST, BC7B6CODP, BC7B6CODO, BC7B6CODF, BC7B6CORR);
+

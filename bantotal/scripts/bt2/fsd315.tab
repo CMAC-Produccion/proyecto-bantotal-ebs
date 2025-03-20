@@ -1,0 +1,38 @@
+create table FSD315
+(
+  camcod   NUMBER(3) not null,
+  camsuc   NUMBER(3) not null,
+  cammod   NUMBER(3) not null,
+  camtran  NUMBER(3) not null,
+  camnrel  NUMBER(4) not null,
+  camfcon  DATE not null,
+  camord   NUMBER(3) not null,
+  camcodm  NUMBER(3),
+  camcta1  NUMBER(9),
+  camcta2  NUMBER(9),
+  camimp   NUMBER(17,2),
+  camimp1  NUMBER(17,2),
+  camimp2  NUMBER(17,2),
+  cammda1  NUMBER(4),
+  cammda2  NUMBER(4),
+  camcodc1 NUMBER(3),
+  camcodc2 NUMBER(3),
+  camtpoop CHAR(1),
+  camimp3  NUMBER(17,2),
+  camimp4  NUMBER(17,2),
+  camimp5  NUMBER(17,2),
+  camimp6  NUMBER(17,2),
+  camimp7  NUMBER(17,2),
+  camimp8  NUMBER(17,2),
+  camimp9  NUMBER(17,2)
+)
+;
+create index FSD31502 on FSD315 (CAMTPOOP, CAMCODC1, CAMMDA1, CAMCTA1);
+create index FSD31503 on FSD315 (CAMMDA1);
+create index FSD31504 on FSD315 (CAMMDA2);
+create index FSD31505 on FSD315 (CAMCODM);
+create index FSD31506 on FSD315 (CAMCTA1);
+create index FSD31507 on FSD315 (CAMCTA2);
+alter table FSD315
+  add primary key (CAMCOD, CAMSUC, CAMMOD, CAMTRAN, CAMNREL, CAMFCON, CAMORD);
+

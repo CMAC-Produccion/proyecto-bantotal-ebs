@@ -1,0 +1,29 @@
+create table AUD_SNG052_AUDIT
+(
+  aud_old_sng052dis  CHAR(1),
+  aud_new_sng052dis  CHAR(1),
+  aud_old_sng052dsc  CHAR(30),
+  aud_new_sng052dsc  CHAR(30),
+  aud_old_sng052exp  NUMBER(10),
+  aud_new_sng052exp  NUMBER(10),
+  aud_old_sng052mod  CHAR(1),
+  aud_new_sng052mod  CHAR(1),
+  aud_old_sng052prg  CHAR(10),
+  aud_new_sng052prg  CHAR(10),
+  aud_old_sng052tem  NUMBER(10),
+  aud_new_sng052tem  NUMBER(10),
+  aud_sng052_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_sng052_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng052_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng052_ubr     VARCHAR2(50) default ' ' not null,
+  aud_sng052_ubc     VARCHAR2(50) default ' ' not null,
+  aud_sng052_ubt     VARCHAR2(50) default ' ' not null,
+  aud_sng052_ubu     VARCHAR2(50) default USER not null,
+  aud_sng052_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng052_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng052_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng052_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng052_uas     CHAR(1) default 'I' not null
+)
+;
+

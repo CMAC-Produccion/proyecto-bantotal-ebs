@@ -1,0 +1,21 @@
+create table AQPB365L
+(
+  aqpb365lfech1 DATE not null,
+  aqpb365lhora1 CHAR(8) not null,
+  aqpb365linst  NUMBER(10) not null,
+  aqpb365lcsbs  VARCHAR2(10) not null,
+  aqpb365lcuen  CHAR(14) not null,
+  aqpb365lgrup  NUMBER(4),
+  aqpb365ltipo  NUMBER(4),
+  aqpb365lsald  NUMBER(17,2),
+  aqpb365lcont  NUMBER(5),
+  aqpb365lfpre  DATE,
+  aqpb365ltdoc  NUMBER(3),
+  aqpb365lndoc  CHAR(12),
+  aqpb365lfech  DATE,
+  aqpb365lhora  CHAR(8)
+)
+;
+alter table AQPB365L
+  add primary key (AQPB365LFECH1, AQPB365LHORA1, AQPB365LINST, AQPB365LCSBS, AQPB365LCUEN);
+

@@ -1,0 +1,31 @@
+create table AQPA184
+(
+  aqpa184id      NUMBER(10) not null,
+  aqpa184paidoc  NUMBER(3),
+  aqpa184tipdoc  NUMBER(4),
+  aqpa184numdoc  CHAR(12),
+  aqpa184respta  VARCHAR2(100),
+  aqpa184moncuo  NUMBER(17,2),
+  aqpa184tea     NUMBER(9,6),
+  aqpa184tcea    NUMBER(9,6),
+  aqpa184ratio   NUMBER(17,6),
+  aqpa184monsol  NUMBER(17,2),
+  aqpa184plasol  NUMBER(10),
+  aqpa184tiping  CHAR(1),
+  aqpa184tippro  NUMBER(4),
+  aqpa184ingdec  NUMBER(17,2),
+  aqpa184monapr  NUMBER(17,2),
+  aqpa184plaapro NUMBER(10),
+  aqpa184fecreg  DATE,
+  aqpa184horreg  VARCHAR2(10),
+  aqpa184acnco   NUMBER(4),
+  aqpa184drqsv   NUMBER(10),
+  aqpa184codres  CHAR(5),
+  aqpa184msjres  VARCHAR2(200),
+  aqpa184usureg  CHAR(10)
+)
+;
+create index AQPA1842 on AQPA184 (AQPA184PAIDOC, AQPA184TIPDOC, AQPA184NUMDOC);
+alter table AQPA184
+  add primary key (AQPA184ID);
+

@@ -1,0 +1,19 @@
+create table FBC725
+(
+  bc725emp  NUMBER(3) not null,
+  bc725cpo  CHAR(8) not null,
+  bc725pais NUMBER(3) not null,
+  bc725tdoc NUMBER(2) not null,
+  bc725ndoc CHAR(12) not null,
+  bc725anio NUMBER(4) not null,
+  bc725mes  NUMBER(2) not null,
+  bc725imp1 NUMBER(17,2),
+  bc725imp2 NUMBER(17,2),
+  bc725imp3 NUMBER(17,2),
+  bc725imp4 NUMBER(17,2)
+)
+;
+create index FBC72502 on FBC725 (BC725EMP, BC725ANIO, BC725CPO, BC725PAIS, BC725TDOC, BC725NDOC);
+alter table FBC725
+  add primary key (BC725EMP, BC725CPO, BC725PAIS, BC725TDOC, BC725NDOC, BC725ANIO, BC725MES);
+

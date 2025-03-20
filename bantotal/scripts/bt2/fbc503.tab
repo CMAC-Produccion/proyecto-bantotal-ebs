@@ -1,0 +1,18 @@
+create table FBC503
+(
+  bc503emp NUMBER(3) not null,
+  bc503fch DATE not null,
+  bc503ent NUMBER(5) not null,
+  bc503dis NUMBER(4) not null,
+  bc503par NUMBER(6) not null,
+  bc503mda NUMBER(5) not null,
+  bc503cor NUMBER(6) not null,
+  bc503imp NUMBER(11),
+  bc503dia NUMBER(2),
+  bc503def NUMBER(1)
+)
+;
+create index FBC50302 on FBC503 (BC503EMP, BC503FCH, BC503ENT, BC503DIS, BC503MDA, BC503PAR);
+alter table FBC503
+  add primary key (BC503EMP, BC503FCH, BC503ENT, BC503DIS, BC503PAR, BC503MDA, BC503COR);
+

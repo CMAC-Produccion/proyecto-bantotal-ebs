@@ -1,0 +1,28 @@
+create table FSFX17
+(
+  sfx17cod  NUMBER(3) not null,
+  sfx17num  NUMBER(9) not null,
+  sfx17pap  NUMBER(4) not null,
+  sfx17ide  CHAR(50),
+  sfx17pre  NUMBER(14,8),
+  sfx17fec  DATE,
+  sfx17hor  CHAR(8),
+  sfx17ax1  DATE,
+  sfx17ax2  DATE,
+  sfx17ax3  CHAR(50),
+  sfx17ax4  CHAR(50),
+  sfx17ax5  NUMBER(14,8),
+  sfx17ax6  NUMBER(14,8),
+  sfx17sts  CHAR(1),
+  sfx17usr  CHAR(10),
+  sfx17asuc NUMBER(3),
+  sfx17amod NUMBER(3),
+  sfx17atrn NUMBER(3),
+  sfx17arl  NUMBER(4),
+  sfx17afc  DATE,
+  sfx17msg  CHAR(65)
+)
+;
+alter table FSFX17
+  add primary key (SFX17COD, SFX17NUM, SFX17PAP);
+

@@ -1,0 +1,27 @@
+create table FSD004
+(
+  ifpais NUMBER(3) not null,
+  iftdoc NUMBER(2) not null,
+  ifndoc CHAR(12) not null,
+  ifnom  CHAR(60),
+  tifcod NUMBER(2),
+  ifplin CHAR(1),
+  ifpbal CHAR(1),
+  iffpba DATE,
+  iffbal DATE,
+  ifcant CHAR(1),
+  iffcan DATE,
+  ifctlx CHAR(1),
+  ifcswf CHAR(1),
+  iffaut CHAR(1),
+  iflcrc CHAR(1),
+  iflcro CHAR(1),
+  ifcext CHAR(1),
+  ifswif CHAR(16)
+)
+;
+create index FSD00402 on FSD004 (TIFCOD);
+create index FSD00405 on FSD004 (IFNOM);
+alter table FSD004
+  add primary key (IFPAIS, IFTDOC, IFNDOC);
+

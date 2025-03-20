@@ -1,0 +1,65 @@
+create table AQPA380
+(
+  aqpa380corre NUMBER(10) not null,
+  aqpa380fech  DATE not null,
+  aqpa380hora  CHAR(8) not null,
+  aqpa380ncor  NUMBER(9),
+  aqpa380nfval DATE,
+  aqpa380ntas  NUMBER(10,6),
+  aqpa380f257  DATE,
+  aqpa380cod   NUMBER(3),
+  aqpa380mod   NUMBER(3) not null,
+  aqpa380suc   NUMBER(3),
+  aqpa380mda   NUMBER(4),
+  aqpa380pap   NUMBER(4),
+  aqpa380cta   NUMBER(9) not null,
+  aqpa380oper  NUMBER(9) not null,
+  aqpa380sbop  NUMBER(3),
+  aqpa380tope  NUMBER(3),
+  aqpa380corr  NUMBER(9),
+  aqpa380tipo  NUMBER(2),
+  aqpa380fval  DATE,
+  aqpa380fvto  DATE,
+  aqpa380imp   NUMBER(17,2),
+  aqpa380ttas  NUMBER(1),
+  aqpa380tasa  NUMBER(10,6),
+  aqpa380cap   NUMBER(17,2),
+  aqpa380int   NUMBER(17,2),
+  aqpa380mor   NUMBER(17,2),
+  aqpa380scap  NUMBER(17,2),
+  aqpa380sint  NUMBER(17,2),
+  aqpa380smor  NUMBER(17,2),
+  aqpa380intc  NUMBER(17,2),
+  aqpa380morc  NUMBER(17,2),
+  aqpa380cd01  NUMBER(2),
+  aqpa380cd02  CHAR(1),
+  aqpa380inv   NUMBER(9),
+  aqpa380per   NUMBER(3),
+  aqpa380tcbi  NUMBER(14,8),
+  aqpa380tcbi1 NUMBER(14,8),
+  aqpa380arb   NUMBER(14,8),
+  aqpa380arb1  NUMBER(14,8),
+  aqpa380md    CHAR(1),
+  aqpa380md1   CHAR(1),
+  aqpa380pre   NUMBER(14,8),
+  aqpa380pre1  NUMBER(14,8),
+  aqpa38012cd  NUMBER(3),
+  aqpa38012mo  NUMBER(3),
+  aqpa38012su  NUMBER(3),
+  aqpa38012tr  NUMBER(3),
+  aqpa38012re  NUMBER(4),
+  aqpa38012fc  DATE,
+  aqpa38012or  NUMBER(2),
+  aqpa38012sb  NUMBER(3),
+  aqpa38012co  CHAR(1),
+  aqpa380camb  VARCHAR2(5),
+  aqpa380est   VARCHAR2(5)
+)
+;
+create index AQPA3802 on AQPA380 (AQPA380FECH);
+create index AQPA3803 on AQPA380 (AQPA380COD, AQPA380MOD, AQPA380SUC, AQPA380MDA, AQPA380PAP, AQPA380CTA, AQPA380OPER, AQPA380SBOP, AQPA380TOPE);
+create index AQPA3804 on AQPA380 (AQPA380FECH, AQPA380COD, AQPA380MOD, AQPA380SUC, AQPA380MDA, AQPA380PAP, AQPA380CTA, AQPA380OPER, AQPA380SBOP, AQPA380TOPE);
+create index AQPA3805 on AQPA380 (AQPA380FECH, AQPA380CTA, AQPA380OPER);
+alter table AQPA380
+  add primary key (AQPA380CORRE, AQPA380FECH, AQPA380HORA, AQPA380MOD, AQPA380CTA, AQPA380OPER);
+

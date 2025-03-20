@@ -1,0 +1,18 @@
+create table AQPC273
+(
+  aqpc273fpro DATE not null,
+  aqpc273con1 NUMBER(9),
+  aqpc273con2 NUMBER(9)
+)
+;
+comment on table AQPC273
+  is 'Contadores - Comprobantes con Estado Dif.';
+comment on column AQPC273.aqpc273fpro
+  is 'Fecha Proceso';
+comment on column AQPC273.aqpc273con1
+  is 'Contador 1: Aceptado / Aceptado Obs.';
+comment on column AQPC273.aqpc273con2
+  is 'Contador 2: Exception';
+alter table AQPC273
+  add primary key (AQPC273FPRO);
+

@@ -1,0 +1,23 @@
+create table FSD502
+(
+  ncfecha    DATE not null,
+  pgcod      NUMBER(3) not null,
+  ncsuc      NUMBER(3) not null,
+  ncmod      NUMBER(3) not null,
+  nctrn      NUMBER(3) not null,
+  ncrel      NUMBER(4) not null,
+  ncpais     NUMBER(3) not null,
+  nctipdoc   NUMBER(2) not null,
+  ncnrodoc   CHAR(12) not null,
+  ncmandante CHAR(1),
+  ncaux1     CHAR(10),
+  ncaux2     NUMBER(17,2),
+  ncaux3     DATE,
+  ncaux4     CHAR(1)
+)
+;
+create index FSD50202 on FSD502 (NCPAIS, NCTIPDOC, NCNRODOC);
+create index FSD50203 on FSD502 (PGCOD);
+alter table FSD502
+  add primary key (NCFECHA, PGCOD, NCSUC, NCMOD, NCTRN, NCREL, NCPAIS, NCTIPDOC, NCNRODOC);
+

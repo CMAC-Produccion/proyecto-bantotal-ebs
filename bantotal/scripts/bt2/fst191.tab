@@ -1,0 +1,18 @@
+create table FST191
+(
+  rmemp     NUMBER(3) not null,
+  rmsist    NUMBER(3) not null,
+  rmcnum    NUMBER(3),
+  rmctacorr NUMBER(9),
+  rmax1     CHAR(1),
+  rmax2     CHAR(30),
+  rmax3     DATE,
+  rmax4     NUMBER(9),
+  rmax5     NUMBER(17,2)
+)
+;
+create index FST19102 on FST191 (RMEMP, RMSIST, RMCTACORR);
+create index FST19103 on FST191 (RMEMP, RMCTACORR, RMAX4, RMSIST);
+alter table FST191
+  add primary key (RMEMP, RMSIST);
+

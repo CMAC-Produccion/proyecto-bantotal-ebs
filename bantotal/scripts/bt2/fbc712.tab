@@ -1,0 +1,15 @@
+create table FBC712
+(
+  bc712rub  NUMBER(16) not null,
+  bc712ratc NUMBER(10),
+  bc712ratl NUMBER(10),
+  bc712rate NUMBER(10),
+  bc712aux1 NUMBER(16),
+  bc712aux2 NUMBER(16),
+  bc712dest CHAR(1)
+)
+;
+create index FBC71202 on FBC712 (BC712RATC);
+alter table FBC712
+  add primary key (BC712RUB);
+

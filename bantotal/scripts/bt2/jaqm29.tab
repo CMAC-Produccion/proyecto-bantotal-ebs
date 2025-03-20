@@ -1,0 +1,156 @@
+create table JAQM29
+(
+  jaqm29cou VARCHAR2(50) not null,
+  jaqm29ins NUMBER(10),
+  jaqm29emp NUMBER(3),
+  jaqm29mod NUMBER(3),
+  jaqm29mda NUMBER(4),
+  jaqm29pap NUMBER(4),
+  jaqm29ctr NUMBER(9),
+  jaqm29suc NUMBER(3),
+  jaqm29ope NUMBER(9),
+  jaqm29sbo NUMBER(3),
+  jaqm29top NUMBER(3),
+  jaqm29fap DATE,
+  jaqm29usu CHAR(10),
+  jaqm29usa CHAR(10),
+  jaqm29sua NUMBER(3),
+  jaqm29fec DATE,
+  jaqm29hor CHAR(8),
+  jaqm29flu CHAR(50),
+  jaqm29nta CHAR(19),
+  jaqm29not CHAR(24),
+  jaqm29tit CHAR(1),
+  jaqm29ett CHAR(2),
+  jaqm29tra NUMBER(3),
+  jaqm29rel NUMBER(4),
+  jaqm29fev DATE,
+  jaqm29fco DATE,
+  jaqm29ord NUMBER(2),
+  jaqm29sub NUMBER(3),
+  jaqm29niv NUMBER(3),
+  jaqm29rep NUMBER(2),
+  jaqm29com NUMBER(5),
+  jaqm29pai NUMBER(3),
+  jaqm29tip NUMBER(2),
+  jaqm29doc CHAR(12),
+  jaqm29aut CHAR(50),
+  jaqm29est CHAR(30),
+  jaqm29an1 NUMBER(9),
+  jaqm29an2 NUMBER(9),
+  jaqm29an3 NUMBER(9),
+  jaqm29ai1 NUMBER(17,2),
+  jaqm29ai2 NUMBER(17,2),
+  jaqm29ai3 NUMBER(17,2),
+  jaqm29af1 DATE,
+  jaqm29af2 DATE,
+  jaqm29af3 DATE,
+  jaqm29ac1 CHAR(255),
+  jaqm29ac2 CHAR(255),
+  jaqm29ac3 CHAR(255)
+)
+;
+comment on table JAQM29
+  is 'Log de Autorizaciones';
+comment on column JAQM29.jaqm29cou
+  is 'Código Unico';
+comment on column JAQM29.jaqm29ins
+  is 'Instancia';
+comment on column JAQM29.jaqm29emp
+  is 'Empresa';
+comment on column JAQM29.jaqm29mod
+  is 'Módulo';
+comment on column JAQM29.jaqm29mda
+  is 'Moneda';
+comment on column JAQM29.jaqm29pap
+  is 'Papel';
+comment on column JAQM29.jaqm29ctr
+  is 'Cuenta';
+comment on column JAQM29.jaqm29suc
+  is 'Sucursal';
+comment on column JAQM29.jaqm29ope
+  is 'Operacion';
+comment on column JAQM29.jaqm29sbo
+  is 'Sub Operación';
+comment on column JAQM29.jaqm29top
+  is 'Tipo Operacion';
+comment on column JAQM29.jaqm29fap
+  is 'Fecha';
+comment on column JAQM29.jaqm29usu
+  is 'Usuario Solicita';
+comment on column JAQM29.jaqm29usa
+  is 'Usuario Aprueba';
+comment on column JAQM29.jaqm29sua
+  is 'Sucursal Aprueba';
+comment on column JAQM29.jaqm29fec
+  is 'Fecha Aprueba';
+comment on column JAQM29.jaqm29hor
+  is 'Hora Aprueba';
+comment on column JAQM29.jaqm29flu
+  is 'Flujo Ejecuta';
+comment on column JAQM29.jaqm29nta
+  is 'Numero Tarjeta';
+comment on column JAQM29.jaqm29not
+  is 'Nombre de la Tarjeta';
+comment on column JAQM29.jaqm29tit
+  is 'Tipo de Tarjeta';
+comment on column JAQM29.jaqm29ett
+  is 'Estado';
+comment on column JAQM29.jaqm29tra
+  is 'Transaccion';
+comment on column JAQM29.jaqm29rel
+  is 'Relacion';
+comment on column JAQM29.jaqm29fev
+  is 'Fecha Valor';
+comment on column JAQM29.jaqm29fco
+  is 'Fecha Contable';
+comment on column JAQM29.jaqm29ord
+  is 'Ordinal';
+comment on column JAQM29.jaqm29sub
+  is 'SubOrdinal';
+comment on column JAQM29.jaqm29niv
+  is 'Nivel';
+comment on column JAQM29.jaqm29rep
+  is 'Rtepos';
+comment on column JAQM29.jaqm29com
+  is 'Codigo de mensaje';
+comment on column JAQM29.jaqm29pai
+  is 'Pais';
+comment on column JAQM29.jaqm29tip
+  is 'Tipo Documento';
+comment on column JAQM29.jaqm29doc
+  is 'Numero Documento';
+comment on column JAQM29.jaqm29aut
+  is 'Autorización Tarjeta';
+comment on column JAQM29.jaqm29est
+  is 'Estado Anterior Tarjeta';
+comment on column JAQM29.jaqm29an1
+  is 'Auxiliar Númerico 1';
+comment on column JAQM29.jaqm29an2
+  is 'Auxiliar Númerico 2';
+comment on column JAQM29.jaqm29an3
+  is 'Auxiliar Númerico 3';
+comment on column JAQM29.jaqm29ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM29.jaqm29ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM29.jaqm29ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM29.jaqm29af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM29.jaqm29af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM29.jaqm29af3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM29.jaqm29ac1
+  is 'Auxiliar Texto 1';
+comment on column JAQM29.jaqm29ac2
+  is 'Auxiliar Texto 2';
+comment on column JAQM29.jaqm29ac3
+  is 'Auxiliar Texto 3';
+create index JAQM29A2 on JAQM29 (JAQM29EMP, JAQM29SUC, JAQM29MOD, JAQM29MDA, JAQM29PAP, JAQM29CTR, JAQM29OPE, JAQM29SBO, JAQM29TOP, JAQM29FAP);
+create index JAQM29A3 on JAQM29 (JAQM29INS);
+create index JAQM29A4 on JAQM29 (JAQM29PAI, JAQM29TIP, JAQM29DOC);
+alter table JAQM29
+  add primary key (JAQM29COU);
+

@@ -1,0 +1,36 @@
+create table FSF056
+(
+  lapgcod   NUMBER(3) not null,
+  laanio    NUMBER(4) not null,
+  lames     NUMBER(2) not null,
+  laacod    CHAR(15) not null,
+  laamodrub NUMBER(16) not null,
+  lamda     NUMBER(4) not null,
+  lapap     NUMBER(4) not null,
+  lacta     NUMBER(9) not null,
+  laoper    NUMBER(9) not null,
+  lafdo     NUMBER(3) not null,
+  larub     NUMBER(16) not null,
+  lapais    NUMBER(4),
+  lasuc     NUMBER(3),
+  lamod     NUMBER(3),
+  lafvto    DATE,
+  lafcon    DATE,
+  lafval    DATE,
+  latit     NUMBER(2),
+  lacap     NUMBER(1),
+  laplzo    NUMBER(1),
+  lagru     NUMBER(2),
+  lacc      NUMBER(3)
+)
+;
+create index FSF05602 on FSF056 (LAPGCOD, LAANIO, LAMES, LARUB, LAMDA, LAPAP, LACTA, LAOPER, LAFDO);
+create index FSF05603 on FSF056 (LAPGCOD, LAANIO, LAMES, LAACOD, LAAMODRUB, LAFDO, LACTA, LAOPER);
+create index FSF05604 on FSF056 (LAPGCOD, LAANIO, LAMES, LAACOD, LAAMODRUB, LAFDO, LAPAP, LAOPER);
+create index FSF05605 on FSF056 (LAPGCOD, LAANIO, LAMES, LAACOD, LAAMODRUB, LAFDO, LAPAIS, LAPAP, LAOPER);
+create index FSF05606 on FSF056 (LAPGCOD, LAANIO, LAMES, LAACOD, LAAMODRUB, LAFDO, LAMDA, LAOPER);
+create index FSF05607 on FSF056 (LAACOD, LAAMODRUB);
+create index FSF05608 on FSF056 (LAPGCOD, LAANIO, LAMES, LAACOD, LAAMODRUB, LAFDO, LAFVTO, LAOPER);
+alter table FSF056
+  add primary key (LAPGCOD, LAANIO, LAMES, LAACOD, LAAMODRUB, LAMDA, LAPAP, LACTA, LAOPER, LAFDO, LARUB);
+

@@ -1,0 +1,24 @@
+create table AQPC310
+(
+  aqpc310fecpro  DATE not null,
+  aqpc310horini  VARCHAR2(10),
+  aqpc310horfin  VARCHAR2(10),
+  aqpc310fecrea  DATE,
+  aqpc310usuario CHAR(10)
+)
+;
+comment on table AQPC310
+  is 'Log de Fechas Procesadas Cashback';
+comment on column AQPC310.aqpc310fecpro
+  is 'Fecha Proceso';
+comment on column AQPC310.aqpc310horini
+  is 'Hora Inicio Proceso';
+comment on column AQPC310.aqpc310horfin
+  is 'Fecha Fin Proceso';
+comment on column AQPC310.aqpc310fecrea
+  is 'Fecha Sistema';
+comment on column AQPC310.aqpc310usuario
+  is 'Usuario Proceso';
+alter table AQPC310
+  add primary key (AQPC310FECPRO);
+

@@ -1,0 +1,12 @@
+create table FST068
+(
+  pais   NUMBER(3) not null,
+  depcod NUMBER(5) not null,
+  depnom CHAR(20),
+  zoncod NUMBER(3)
+)
+;
+create index FST06802 on FST068 (PAIS, ZONCOD);
+alter table FST068
+  add primary key (PAIS, DEPCOD);
+

@@ -1,0 +1,13 @@
+create table FTD17
+(
+  td17tar  CHAR(19) not null,
+  td17ter  CHAR(20) not null,
+  td17cheq CHAR(1),
+  td17fch  DATE,
+  td17num  NUMBER(10),
+  td17char CHAR(35)
+)
+;
+alter table FTD17
+  add primary key (TD17TAR, TD17TER);
+

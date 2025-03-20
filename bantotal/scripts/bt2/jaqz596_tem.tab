@@ -1,0 +1,27 @@
+create table JAQZ596_TEM
+(
+  v1scsuc        NUMBER(3),
+  v1sccta        NUMBER(9),
+  v1scoper       NUMBER(9),
+  v1scmda        NUMBER(4),
+  v1scpap        NUMBER(4),
+  v1scmod        NUMBER(3),
+  v1scsbop       NUMBER(3),
+  v1sctope       NUMBER(3),
+  v1scfval       DATE,
+  v1scstat       NUMBER(2),
+  v1scsdo        NUMBER,
+  fecha_contable VARCHAR2(10),
+  fecha_inicial  DATE,
+  estado         CHAR(30),
+  producto       CHAR(30),
+  cliente        CHAR(35),
+  moneda         CHAR(4),
+  sucursal       CHAR(30),
+  transac        NUMBER(3),
+  usuariot       CHAR(12),
+  flag           CHAR(1)
+)
+;
+create index JAQZ596_TEM2 on JAQZ596_TEM (USUARIOT);
+

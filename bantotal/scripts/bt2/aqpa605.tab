@@ -1,0 +1,29 @@
+create table AQPA605
+(
+  aqpa605pgc  NUMBER(3) not null,
+  aqpa605mod  NUMBER(3) not null,
+  aqpa605suc  NUMBER(3) not null,
+  aqpa605mda  NUMBER(4) not null,
+  aqpa605pap  NUMBER(4) not null,
+  aqpa605cta  NUMBER(9) not null,
+  aqpa605ope  NUMBER(9) not null,
+  aqpa605sbo  NUMBER(3) not null,
+  aqpa605top  NUMBER(3) not null,
+  aqpa605nca  NUMBER(9) not null,
+  aqpa605hab  CHAR(1),
+  aqpa605ude  CHAR(10),
+  aqpa605fed  DATE,
+  aqpa605hod  CHAR(8),
+  aqpa605fei  DATE,
+  aqpa605fef  DATE,
+  aqpa605fec  DATE,
+  aqpa605usc  CHAR(10),
+  aqpa605est  NUMBER(2),
+  aqpa605aux1 CHAR(200),
+  aqpa605aux2 NUMBER(16,2)
+)
+;
+create unique index AQPA6051 on AQPA605 (AQPA605PGC, AQPA605MOD, AQPA605SUC, AQPA605MDA, AQPA605PAP, AQPA605CTA, AQPA605OPE, AQPA605SBO, AQPA605TOP, AQPA605NCA);
+create index AQPA6052 on AQPA605 (AQPA605PGC, AQPA605HAB, AQPA605FEC);
+create index AQPA6053 on AQPA605 (AQPA605PGC, AQPA605NCA);
+

@@ -1,0 +1,14 @@
+create table FSE101
+(
+  pepais   NUMBER(3) not null,
+  petdoc   NUMBER(2) not null,
+  pendoc   CHAR(12) not null,
+  pexfecha DATE not null,
+  pexpzo   NUMBER(5),
+  pexing   NUMBER(17,2),
+  pexegr   NUMBER(17,2)
+)
+;
+alter table FSE101
+  add primary key (PEPAIS, PETDOC, PENDOC, PEXFECHA);
+

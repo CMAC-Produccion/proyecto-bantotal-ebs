@@ -1,0 +1,10 @@
+create table WFTSKINS
+(
+  wfiprcid   NUMBER(4) not null,
+  wfitaskcod NUMBER(4) not null,
+  wfiinsprci NUMBER(10) not null
+)
+;
+alter table WFTSKINS
+  add primary key (WFIPRCID, WFITASKCOD, WFIINSPRCI);
+

@@ -1,0 +1,18 @@
+create table FCR011
+(
+  rc1cod  NUMBER(3) not null,
+  rc1mod  NUMBER(3) not null,
+  rc1oper NUMBER(9) not null,
+  rc1sbop NUMBER(3) not null,
+  relcod  NUMBER(3) not null,
+  rc2cod  NUMBER(3) not null,
+  rc2mod  NUMBER(3) not null,
+  rc2oper NUMBER(9) not null,
+  rc2sbop NUMBER(3) not null
+)
+;
+create index FCR01102 on FCR011 (RELCOD);
+create index FCR01104 on FCR011 (RC2COD, RC2MOD, RC2OPER, RC2SBOP, RELCOD);
+alter table FCR011
+  add primary key (RC1COD, RC1MOD, RC1OPER, RC1SBOP, RELCOD, RC2COD, RC2MOD, RC2OPER, RC2SBOP);
+

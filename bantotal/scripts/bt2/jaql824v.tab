@@ -1,0 +1,40 @@
+create table JAQL824V
+(
+  jaql824apl  NUMBER(3) not null,
+  jaql824ban  CHAR(4) not null,
+  jaql824env  NUMBER(9) not null,
+  jaql824vreg NUMBER(9) not null,
+  jaql824vtre VARCHAR2(2),
+  jaql824vcta NUMBER(3),
+  jaql824vcmo NUMBER(1),
+  jaql824vncu NUMBER(7),
+  jaql824vcid VARCHAR2(14),
+  jaql824vdad VARCHAR2(30),
+  jaql824vfpa NUMBER(8),
+  jaql824vfve NUMBER(8),
+  jaql824vmpa NUMBER(15,2),
+  jaql824vmmp NUMBER(15,2),
+  jaql824vmtp NUMBER(15,2),
+  jaql824vcsu NUMBER(6),
+  jaql824vnop NUMBER(6),
+  jaql824vref VARCHAR2(22),
+  jaql824vite VARCHAR2(4),
+  jaql824vmat VARCHAR2(12),
+  jaql824vhat NUMBER(6),
+  jaql824vnch NUMBER(10),
+  jaql824vcba NUMBER(2),
+  jaql824vcfp NUMBER(10,2),
+  jaql824vext VARCHAR2(1),
+  jaql824vndp VARCHAR2(20),
+  jaql824vnob NUMBER(8),
+  jaql824vfla NUMBER(1),
+  jaql824vmod NUMBER(3),
+  jaql824vtrn NUMBER(3),
+  jaql824vsuc NUMBER(3),
+  jaql824vrel NUMBER(4),
+  jaql824vdpr VARCHAR2(200)
+)
+;
+alter table JAQL824V
+  add primary key (JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824VREG);
+

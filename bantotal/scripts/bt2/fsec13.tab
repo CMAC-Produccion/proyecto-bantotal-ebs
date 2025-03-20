@@ -1,0 +1,21 @@
+create table FSEC13
+(
+  sec13motiv NUMBER(3) not null,
+  sec13motds CHAR(60),
+  sec13stsvg CHAR(1),
+  sec13tipo  CHAR(1),
+  sec13revis CHAR(1),
+  sec13pgmdf CHAR(10),
+  sec13pgmev CHAR(10),
+  sec13gaudi CHAR(1),
+  sec13fecha DATE,
+  sec13user  CHAR(10),
+  sec13fecup DATE,
+  sec13fecfv DATE,
+  sec13cpoan NUMBER(5),
+  sec13cpoac CHAR(20)
+)
+;
+alter table FSEC13
+  add primary key (SEC13MOTIV);
+

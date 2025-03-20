@@ -1,0 +1,97 @@
+create table AQPC202
+(
+  aqpc202emp NUMBER(3) not null,
+  aqpc202mod NUMBER(3) not null,
+  aqpc202suc NUMBER(3) not null,
+  aqpc202mda NUMBER(4) not null,
+  aqpc202pap NUMBER(4) not null,
+  aqpc202cta NUMBER(9) not null,
+  aqpc202ope NUMBER(9) not null,
+  aqpc202sbo NUMBER(3) not null,
+  aqpc202top NUMBER(3) not null,
+  aqpc202ins NUMBER(10) not null,
+  aqpc202cor NUMBER(17) not null,
+  aqpc202aut VARCHAR2(10),
+  aqpc202cli VARCHAR2(250),
+  aqpc202pro VARCHAR2(30),
+  aqpc202sal NUMBER(17,2),
+  aqpc202est VARCHAR2(1),
+  aqpc202msg VARCHAR2(100),
+  aqpc202fea DATE,
+  aqpc202hoa VARCHAR2(8),
+  aqpc202usa VARCHAR2(10),
+  aqpc202ac1 VARCHAR2(250),
+  aqpc202ac2 VARCHAR2(250),
+  aqpc202an1 NUMBER(17,2),
+  aqpc202an2 NUMBER(17,2),
+  aqpc202ad1 DATE,
+  aqpc202ad2 DATE,
+  aqpc202fec DATE,
+  aqpc202hor VARCHAR2(8),
+  aqpc202usu VARCHAR2(10)
+)
+;
+comment on table AQPC202
+  is 'AQPC202';
+comment on column AQPC202.aqpc202emp
+  is 'Empresa';
+comment on column AQPC202.aqpc202mod
+  is 'Módulo';
+comment on column AQPC202.aqpc202suc
+  is 'Sucursal';
+comment on column AQPC202.aqpc202mda
+  is 'Moneda';
+comment on column AQPC202.aqpc202pap
+  is 'Papel';
+comment on column AQPC202.aqpc202cta
+  is 'Cuenta';
+comment on column AQPC202.aqpc202ope
+  is 'Operación';
+comment on column AQPC202.aqpc202sbo
+  is 'SubOperación';
+comment on column AQPC202.aqpc202top
+  is 'Tipo Operación';
+comment on column AQPC202.aqpc202ins
+  is 'Instancia';
+comment on column AQPC202.aqpc202cor
+  is 'Correlativo AQPC202';
+comment on column AQPC202.aqpc202aut
+  is 'Autorizante Propuesto';
+comment on column AQPC202.aqpc202cli
+  is 'Cliente del Crédito';
+comment on column AQPC202.aqpc202pro
+  is 'Producto';
+comment on column AQPC202.aqpc202sal
+  is 'Saldo Capital';
+comment on column AQPC202.aqpc202est
+  is 'Estado N=No Enviado, S=Enviado, P=Pendiente';
+comment on column AQPC202.aqpc202msg
+  is 'Mensaje de Estado de Registro';
+comment on column AQPC202.aqpc202fea
+  is 'Fecha JAQA400';
+comment on column AQPC202.aqpc202hoa
+  is 'Hora JAQA400';
+comment on column AQPC202.aqpc202usa
+  is 'Usuario JAQA400';
+comment on column AQPC202.aqpc202ac1
+  is 'Campo Auxiliar 1';
+comment on column AQPC202.aqpc202ac2
+  is 'Campo Auxiliar 2';
+comment on column AQPC202.aqpc202an1
+  is 'Campo Auxiliar 1';
+comment on column AQPC202.aqpc202an2
+  is 'Campo Auxiliar 2';
+comment on column AQPC202.aqpc202ad1
+  is 'Campo Auxiliar 1';
+comment on column AQPC202.aqpc202ad2
+  is 'Campo Auxiliar 2';
+comment on column AQPC202.aqpc202fec
+  is 'Fecha Registro';
+comment on column AQPC202.aqpc202hor
+  is 'Hora Registro';
+comment on column AQPC202.aqpc202usu
+  is 'Usuario Registro';
+create index AQPC202A2 on AQPC202 (AQPC202INS, AQPC202FEA, AQPC202HOA, AQPC202USA);
+alter table AQPC202
+  add primary key (AQPC202EMP, AQPC202MOD, AQPC202SUC, AQPC202MDA, AQPC202PAP, AQPC202CTA, AQPC202OPE, AQPC202SBO, AQPC202TOP, AQPC202INS, AQPC202COR);
+

@@ -1,0 +1,23 @@
+create table FCPG14
+(
+  cpg10embt  NUMBER(3) not null,
+  cpg10pais  NUMBER(3) not null,
+  cpg10tdoc  NUMBER(2) not null,
+  cpg10doc   CHAR(25) not null,
+  cpg10sube  NUMBER(3) not null,
+  cpg14cod   NUMBER(3) not null,
+  cpg01cod   CHAR(5),
+  cpg14desc  CHAR(40),
+  cpg14descr CHAR(15),
+  cpg14jerar CHAR(1),
+  cpg14pring CHAR(1),
+  cpg14est   CHAR(3),
+  cpg14blq   CHAR(1),
+  cpg14inst  NUMBER(10)
+)
+;
+create index FCPG1402 on FCPG14 (CPG01COD);
+create index FCPG1404 on FCPG14 (CPG14INST);
+alter table FCPG14
+  add primary key (CPG10EMBT, CPG10PAIS, CPG10TDOC, CPG10DOC, CPG10SUBE, CPG14COD);
+

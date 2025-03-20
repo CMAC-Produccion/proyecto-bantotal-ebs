@@ -1,0 +1,35 @@
+create table FBC7B3
+(
+  bc7b3em   NUMBER(3) not null,
+  bc7b3fe   DATE not null,
+  bc7b3bco  NUMBER(3) not null,
+  bc7b3sub  CHAR(4) not null,
+  bc7b3gpe  CHAR(4) not null,
+  bc7b3sgp  CHAR(4) not null,
+  bc7b3fac  NUMBER(2) not null,
+  bc7b3cor  NUMBER(6) not null,
+  bc7b3nog  CHAR(60),
+  bc7b3rucg CHAR(30),
+  bc7b3nos  CHAR(60),
+  bc7b3rucs CHAR(30),
+  bc7b3tir  CHAR(4),
+  bc7b3pre  NUMBER(17,2),
+  bc7b3cat  CHAR(2),
+  bc7b3val  NUMBER(17,2),
+  bc7b3tga1 NUMBER(4),
+  bc7b3gar1 NUMBER(17,2),
+  bc7b3tga2 NUMBER(4),
+  bc7b3gar2 NUMBER(17,2),
+  bc7b3tga3 NUMBER(4),
+  bc7b3gar3 NUMBER(17,2),
+  bc7b3tga4 NUMBER(4),
+  bc7b3gar4 NUMBER(17,2),
+  bc7b3tga5 NUMBER(4),
+  bc7b3gar5 NUMBER(17,2),
+  bc7b3cont CHAR(6),
+  bc7b3des  NUMBER(17,2)
+)
+;
+alter table FBC7B3
+  add primary key (BC7B3EM, BC7B3FE, BC7B3BCO, BC7B3SUB, BC7B3GPE, BC7B3SGP, BC7B3FAC, BC7B3COR);
+

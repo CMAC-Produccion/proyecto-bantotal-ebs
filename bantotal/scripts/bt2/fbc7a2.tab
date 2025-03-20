@@ -1,0 +1,36 @@
+create table FBC7A2
+(
+  bc7a2emp  NUMBER(3) not null,
+  bc7a2fch  DATE not null,
+  bc7a2ent  NUMBER(3) not null,
+  bc7a2suc  NUMBER(4) not null,
+  bc7a2sub  CHAR(4) not null,
+  bc7a2tpod NUMBER(2) not null,
+  bc7a2tpoc CHAR(2) not null,
+  bc7a2dest CHAR(1) not null,
+  bc7a2codp NUMBER(3) not null,
+  bc7a2corr NUMBER(10) not null,
+  bc7a2tasa NUMBER(8,2),
+  bc7a2fchi DATE,
+  bc7a2fchv DATE,
+  bc7a2sdo1 NUMBER(17,2),
+  bc7a2sdo2 NUMBER(17,2),
+  bc7a2nroc NUMBER(10),
+  bc7a2mod  NUMBER(3),
+  bc7a2rub  NUMBER(16),
+  bc7a2sucb NUMBER(3),
+  bc7a2mda  NUMBER(4),
+  bc7a2pap  NUMBER(4),
+  bc7a2cta  NUMBER(9),
+  bc7a2oper NUMBER(9),
+  bc7a2sbop NUMBER(3),
+  bc7a2tope NUMBER(3),
+  bc7a2fren DATE,
+  bc7a2int  NUMBER(14,2),
+  bc7a2per  CHAR(2)
+)
+;
+create index FBC7A202 on FBC7A2 (BC7A2EMP, BC7A2FCH, BC7A2CTA, BC7A2OPER, BC7A2SBOP, BC7A2MOD, BC7A2MDA, BC7A2SUCB, BC7A2PAP, BC7A2TOPE);
+alter table FBC7A2
+  add primary key (BC7A2EMP, BC7A2FCH, BC7A2ENT, BC7A2SUC, BC7A2SUB, BC7A2TPOD, BC7A2TPOC, BC7A2DEST, BC7A2CODP, BC7A2CORR);
+

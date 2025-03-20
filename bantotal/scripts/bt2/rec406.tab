@@ -1,0 +1,12 @@
+create table REC406
+(
+  rec4061   CHAR(64) not null,
+  rec406rec NUMBER(9) not null,
+  rec406suc NUMBER(3) not null
+)
+;
+create index REC40602 on REC406 (REC406REC, REC406SUC);
+create index REC40603 on REC406 (REC406SUC);
+alter table REC406
+  add primary key (REC4061, REC406REC, REC406SUC);
+

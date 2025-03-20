@@ -1,0 +1,19 @@
+create table FRNG51
+(
+  rng49cod NUMBER(10) not null,
+  rng50grp NUMBER(3) not null,
+  rng51cod NUMBER(3) not null,
+  rng51ord NUMBER(3),
+  rng68cod NUMBER(3),
+  rng51tev CHAR(1),
+  rng51ope CHAR(2),
+  rng51val CHAR(30),
+  rng51atr NUMBER(3),
+  rng51cor NUMBER(3)
+)
+;
+create index FRNG5103 on FRNG51 (RNG49COD, RNG68COD);
+create index FRNG5110 on FRNG51 (RNG49COD, RNG50GRP, RNG51ORD);
+alter table FRNG51
+  add primary key (RNG49COD, RNG50GRP, RNG51COD);
+

@@ -1,0 +1,37 @@
+create table FSE137
+(
+  dvenro     NUMBER(3) not null,
+  dvemotcod  NUMBER(3) not null,
+  dvetipo    CHAR(1),
+  dvegastos  CHAR(1),
+  dveinforma CHAR(1),
+  dvetope    NUMBER(4),
+  dveplazo   NUMBER(9),
+  dvecod     CHAR(5),
+  dvecodbc   CHAR(5),
+  dvevigente CHAR(1),
+  dvesigla   CHAR(15),
+  dvepzocast NUMBER(5),
+  dvecodco   NUMBER(3),
+  dvecobra   CHAR(1),
+  dvemulta   NUMBER(3),
+  dvemod     NUMBER(3),
+  dvetrn     NUMBER(3),
+  dveexterna CHAR(3),
+  dveagp     NUMBER(3),
+  dvegrav    CHAR(20),
+  dveax1     DATE,
+  dveax2     NUMBER(9),
+  dveax3     NUMBER(17,2),
+  dveax4     CHAR(50),
+  dveax5     CHAR(200),
+  dveax6     CHAR(1),
+  dveax7     NUMBER(5),
+  dveax8     DATE,
+  dveax9     NUMBER(2)
+)
+;
+create index FSE13702 on FSE137 (DVEAGP);
+alter table FSE137
+  add primary key (DVENRO, DVEMOTCOD);
+

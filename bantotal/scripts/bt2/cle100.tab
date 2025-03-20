@@ -1,0 +1,11 @@
+create table CLE100
+(
+  cle100prd NUMBER(3) not null,
+  cle100tpo NUMBER(2) not null,
+  cle100fch DATE,
+  cle100hra CHAR(8)
+)
+;
+alter table CLE100
+  add primary key (CLE100PRD, CLE100TPO);
+

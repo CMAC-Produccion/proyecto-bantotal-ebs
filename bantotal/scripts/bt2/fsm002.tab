@@ -1,0 +1,10 @@
+create table FSM002
+(
+  prgnom    CHAR(8) not null,
+  prgcmppos NUMBER(5) not null,
+  prgcmpnom CHAR(8)
+)
+;
+alter table FSM002
+  add primary key (PRGNOM, PRGCMPPOS);
+

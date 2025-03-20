@@ -1,0 +1,24 @@
+create table JHSP09
+(
+  jhsp09fprc DATE not null,
+  jhsp09fila NUMBER(6) not null,
+  jhsp09filr CHAR(6) not null,
+  jhsp09ofic CHAR(3),
+  jhsp09ubig CHAR(6),
+  jhsp09trep CHAR(2),
+  jhsp09tcta CHAR(1),
+  jhsp09ncta CHAR(30),
+  jhsp09ttar CHAR(1),
+  jhsp09ntar CHAR(30),
+  jhsp09mda  CHAR(1),
+  jhsp09fape DATE,
+  jhsp09mcie CHAR(1),
+  jhsp09fcie DATE,
+  jhsp09fpub DATE,
+  jhsp09nrel NUMBER(4),
+  jhsp09fsor DATE,
+  jhsp09ffr  DATE
+)
+;
+create unique index JHSP0901 on JHSP09 (JHSP09FPRC, JHSP09FILA, JHSP09FILR);
+

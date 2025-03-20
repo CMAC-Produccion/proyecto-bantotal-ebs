@@ -1,0 +1,41 @@
+create table AQPB154
+(
+  aqpb154codsbs VARCHAR2(12),
+  aqpb154nrodoc VARCHAR2(12),
+  aqpb154client VARCHAR2(80),
+  aqpb154cta    VARCHAR2(12),
+  aqpb154fecha  DATE,
+  aqpb154ope    VARCHAR2(12),
+  aqpb154excep  VARCHAR2(200),
+  aqpb154poltca NUMBER,
+  aqpb154mntsol FLOAT,
+  aqpb154nvlapr CHAR(30),
+  aqpb154aprbdr CHAR(10)
+)
+;
+comment on table AQPB154
+  is 'Copia CROJAS_anx.POL';
+comment on column AQPB154.aqpb154codsbs
+  is 'CODIGOSBS';
+comment on column AQPB154.aqpb154nrodoc
+  is 'NRO_DOC';
+comment on column AQPB154.aqpb154client
+  is 'CLIENTE';
+comment on column AQPB154.aqpb154cta
+  is 'CTA';
+comment on column AQPB154.aqpb154fecha
+  is 'FECHA';
+comment on column AQPB154.aqpb154ope
+  is 'OPERACION';
+comment on column AQPB154.aqpb154excep
+  is 'EXCEPCION';
+comment on column AQPB154.aqpb154poltca
+  is 'POLITICA';
+comment on column AQPB154.aqpb154mntsol
+  is 'MONTO_SOL';
+comment on column AQPB154.aqpb154nvlapr
+  is 'NIVEL_APROBADOR';
+comment on column AQPB154.aqpb154aprbdr
+  is 'APROBADOR';
+create index AQPB154A on AQPB154 (AQPB154CTA, AQPB154OPE);
+

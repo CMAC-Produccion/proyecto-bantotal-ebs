@@ -1,0 +1,21 @@
+create table PLS032
+(
+  pls032cod  NUMBER(3) not null,
+  pls032conv NUMBER(8) not null,
+  pls032pben NUMBER(3) not null,
+  pls032tdbf NUMBER(2) not null,
+  pls032ndbf CHAR(25) not null,
+  pls032falt DATE,
+  pls032fbaj DATE,
+  pls032est  CHAR(3),
+  pls032blq  CHAR(1),
+  pls032aux1 NUMBER(9),
+  pls032aux2 NUMBER(14,2),
+  pls032aux3 CHAR(100)
+)
+;
+create index PLS03202 on PLS032 (PLS032COD, PLS032PBEN, PLS032TDBF, PLS032NDBF);
+create index PLS03203 on PLS032 (PLS032COD, PLS032FBAJ);
+alter table PLS032
+  add primary key (PLS032COD, PLS032CONV, PLS032PBEN, PLS032TDBF, PLS032NDBF);
+

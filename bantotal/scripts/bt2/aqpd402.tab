@@ -1,0 +1,73 @@
+create table AQPD402
+(
+  aqpd402freg DATE not null,
+  aqpd402ureg VARCHAR2(10) not null,
+  aqpd402hreg VARCHAR2(8) not null,
+  aqpd402pais NUMBER(3),
+  aqpd402tdoc NUMBER(2),
+  aqpd402ndoc VARCHAR2(12),
+  aqpd402ncli VARCHAR2(35),
+  aqpd402inst NUMBER(10),
+  aqpd402emp  NUMBER(3),
+  aqpd402suc  NUMBER(3),
+  aqpd402mod  NUMBER(3),
+  aqpd402mda  NUMBER(4),
+  aqpd402pap  NUMBER(4),
+  aqpd402cta  NUMBER(9),
+  aqpd402oper NUMBER(9),
+  aqpd402sbop NUMBER(3),
+  aqpd402tpop NUMBER(3),
+  aqpd402msol NUMBER(17,2),
+  aqpd402anls VARCHAR2(10),
+  aqpd402etcr NUMBER(4),
+  aqpd402est  VARCHAR2(1)
+)
+;
+comment on table AQPD402
+  is 'Créditos Bantotal';
+comment on column AQPD402.aqpd402freg
+  is 'Fecha Registró';
+comment on column AQPD402.aqpd402ureg
+  is 'Usuario Registró';
+comment on column AQPD402.aqpd402hreg
+  is 'Hora Registró';
+comment on column AQPD402.aqpd402pais
+  is 'País Documento';
+comment on column AQPD402.aqpd402tdoc
+  is 'Tipo Documento';
+comment on column AQPD402.aqpd402ndoc
+  is 'Nro. Documento';
+comment on column AQPD402.aqpd402ncli
+  is 'Nombre Cliente';
+comment on column AQPD402.aqpd402inst
+  is 'Instancia';
+comment on column AQPD402.aqpd402emp
+  is 'Empresa';
+comment on column AQPD402.aqpd402suc
+  is 'Sucursal';
+comment on column AQPD402.aqpd402mod
+  is 'Módulo';
+comment on column AQPD402.aqpd402mda
+  is 'Moneda';
+comment on column AQPD402.aqpd402pap
+  is 'Papel';
+comment on column AQPD402.aqpd402cta
+  is 'Cuenta';
+comment on column AQPD402.aqpd402oper
+  is 'Operación';
+comment on column AQPD402.aqpd402sbop
+  is 'Suboperación';
+comment on column AQPD402.aqpd402tpop
+  is 'Tipo Operación';
+comment on column AQPD402.aqpd402msol
+  is 'Monto Solicitado';
+comment on column AQPD402.aqpd402anls
+  is 'Analista';
+comment on column AQPD402.aqpd402etcr
+  is 'Etapa Crédito';
+comment on column AQPD402.aqpd402est
+  is 'Estado';
+create index AQPD402A2 on AQPD402 (AQPD402INST);
+alter table AQPD402
+  add primary key (AQPD402FREG, AQPD402UREG, AQPD402HREG);
+

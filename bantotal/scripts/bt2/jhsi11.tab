@@ -1,0 +1,12 @@
+create table JHSI11
+(
+  jhsi11ctbn CHAR(10) not null,
+  jhsi11cod  NUMBER(3),
+  jhsi11ctbt NUMBER(9),
+  jhsi11mobt NUMBER(3),
+  jhsi11sobt NUMBER(3)
+)
+;
+create unique index JHSI1101 on JHSI11 (JHSI11CTBN);
+create index JHSI1102 on JHSI11 (JHSI11COD, JHSI11CTBT, JHSI11MOBT, JHSI11SOBT);
+

@@ -1,0 +1,13 @@
+create table JBXI88
+(
+  jbxi88fin DATE not null,
+  jbxi88mda CHAR(4) not null,
+  jbxi88fei DATE not null,
+  jbxi88cbc NUMBER(6) not null,
+  jbxi88cen NUMBER(11),
+  jbxi88sam NUMBER(17,2),
+  jbxi88spm NUMBER(17,2)
+)
+;
+create unique index JBXI8801 on JBXI88 (JBXI88FIN, JBXI88MDA, JBXI88FEI, JBXI88CBC);
+

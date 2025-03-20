@@ -1,0 +1,52 @@
+create table JAQY147
+(
+  jaqy147corr     NUMBER(10) not null,
+  jaqy147pais     NUMBER(9) not null,
+  jaqy147tdoc     NUMBER(9) not null,
+  jaqy147ndoc     VARCHAR2(12) not null,
+  jaqy147tcamb    NUMBER(14,8),
+  jaqy147inst     NUMBER(12) not null,
+  jaqy147fec      DATE not null,
+  jaqy147hora     CHAR(8) not null,
+  jaqy147saldpyme NUMBER(17,2),
+  jaqy147patrim   NUMBER(17,2),
+  jaqy147sldext   NUMBER(17,2),
+  jaqy147ratio    NUMBER(17,6),
+  jaqy147ind      VARCHAR2(2),
+  jaqy147est      VARCHAR2(2)
+)
+;
+comment on column JAQY147.jaqy147corr
+  is 'Correlativo';
+comment on column JAQY147.jaqy147pais
+  is 'Pais';
+comment on column JAQY147.jaqy147tdoc
+  is 'Tipo de Documento';
+comment on column JAQY147.jaqy147ndoc
+  is 'Numero de Documento';
+comment on column JAQY147.jaqy147tcamb
+  is 'Tipo de Cambio';
+comment on column JAQY147.jaqy147inst
+  is 'Instancia';
+comment on column JAQY147.jaqy147fec
+  is 'Fecha de Proceso';
+comment on column JAQY147.jaqy147hora
+  is 'Hora de Insercion';
+comment on column JAQY147.jaqy147saldpyme
+  is 'Saldo Pyme Caja';
+comment on column JAQY147.jaqy147patrim
+  is 'Patrimonio';
+comment on column JAQY147.jaqy147sldext
+  is 'Saldo Externo';
+comment on column JAQY147.jaqy147ratio
+  is 'Ratio Endeudamiento Patrimonio';
+comment on column JAQY147.jaqy147ind
+  is 'Indicador';
+comment on column JAQY147.jaqy147est
+  is 'Estado';
+create index JAQY147IDX002 on JAQY147 (JAQY147CORR, JAQY147FEC, JAQY147HORA);
+create index JAQY147IDX003 on JAQY147 (JAQY147INST);
+create index JAQY1474 on JAQY147 (JAQY147FEC);
+alter table JAQY147
+  add primary key (JAQY147CORR, JAQY147FEC, JAQY147PAIS, JAQY147TDOC, JAQY147NDOC, JAQY147INST, JAQY147HORA);
+

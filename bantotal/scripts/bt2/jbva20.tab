@@ -1,0 +1,15 @@
+create table JBVA20
+(
+  jbva20cod  NUMBER(5) not null,
+  jbva20dsc  CHAR(30),
+  jbva20aux1 NUMBER(5),
+  jbva20aux2 CHAR(30),
+  jbva20aux3 DATE,
+  jbva20aux4 NUMBER(17,2),
+  jbva20aux5 CHAR(1)
+)
+;
+create unique index JBVA2001 on JBVA20 (JBVA20COD);
+create index JBVA2002 on JBVA20 (JBVA20AUX3);
+create index JBVA2003 on JBVA20 (JBVA20AUX5);
+

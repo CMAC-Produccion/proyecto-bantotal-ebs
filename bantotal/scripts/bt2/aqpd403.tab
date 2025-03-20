@@ -1,0 +1,69 @@
+create table AQPD403
+(
+  aqpd403ncrd  VARCHAR2(60) not null,
+  aqpd403freg  DATE not null,
+  aqpd403ureg  VARCHAR2(10) not null,
+  aqpd403hreg  VARCHAR2(8) not null,
+  aqpd403pais  NUMBER(3),
+  aqpd403tdoc  NUMBER(2),
+  aqpd403ndoc  VARCHAR2(12),
+  aqpd403ncli  VARCHAR2(35),
+  aqpd403inst  NUMBER(10),
+  aqpd403nsuc  VARCHAR2(30),
+  aqpd403tasa  NUMBER(10,6),
+  aqpd403mcrg  NUMBER(17,2),
+  aqpd403mcan  NUMBER(17,2),
+  aqpd403anls  VARCHAR2(10),
+  aqpd403list  VARCHAR2(20),
+  aqpd403comt  VARCHAR2(255),
+  aqpd403code  VARCHAR2(5),
+  aqpd403msge  VARCHAR2(255),
+  aqpd403fecrg DATE,
+  aqpd403csbs  VARCHAR2(60)
+)
+;
+comment on table AQPD403
+  is 'Créditos Otras Entidades Financieras';
+comment on column AQPD403.aqpd403ncrd
+  is 'Nro. Crédito';
+comment on column AQPD403.aqpd403freg
+  is 'Fecha Registró';
+comment on column AQPD403.aqpd403ureg
+  is 'Usuario Registró';
+comment on column AQPD403.aqpd403hreg
+  is 'Hora Registró';
+comment on column AQPD403.aqpd403pais
+  is 'País Documento';
+comment on column AQPD403.aqpd403tdoc
+  is 'Tipo Documento';
+comment on column AQPD403.aqpd403ndoc
+  is 'Nro. Documento';
+comment on column AQPD403.aqpd403ncli
+  is 'Nombre Cliente';
+comment on column AQPD403.aqpd403inst
+  is 'Instancia';
+comment on column AQPD403.aqpd403nsuc
+  is 'Nombre Sucursal';
+comment on column AQPD403.aqpd403tasa
+  is 'Tasa';
+comment on column AQPD403.aqpd403mcrg
+  is 'Monto Cargado';
+comment on column AQPD403.aqpd403mcan
+  is 'Monto Cancelado';
+comment on column AQPD403.aqpd403anls
+  is 'Analista';
+comment on column AQPD403.aqpd403list
+  is 'Listado';
+comment on column AQPD403.aqpd403comt
+  is 'Comentario';
+comment on column AQPD403.aqpd403code
+  is 'Código Error';
+comment on column AQPD403.aqpd403msge
+  is 'Mensaje Error';
+comment on column AQPD403.aqpd403fecrg
+  is 'Fecha de Carga';
+comment on column AQPD403.aqpd403csbs
+  is 'Código SBS';
+alter table AQPD403
+  add primary key (AQPD403NCRD, AQPD403FREG, AQPD403UREG, AQPD403HREG);
+

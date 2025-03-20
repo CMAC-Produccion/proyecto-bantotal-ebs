@@ -1,0 +1,50 @@
+create table JAQM951
+(
+  jaqm951fec DATE not null,
+  jaqm951hor CHAR(8) not null,
+  jaqm951anl CHAR(10) not null,
+  jaqm951suc NUMBER(3) not null,
+  jaqm951reg NUMBER(3),
+  jaqm951zon NUMBER(3),
+  jaqm951com CHAR(10),
+  jaqm951scd NUMBER(16,3),
+  jaqm951sca NUMBER(16,3),
+  jaqm951rpd NUMBER(16,3),
+  jaqm951ams NUMBER(10,2),
+  jaqm951msc NUMBER(10,2),
+  jaqm951ncc NUMBER(5),
+  jaqm951nci NUMBER(5),
+  jaqm951dcc NUMBER(5),
+  jaqm951aac NUMBER(5),
+  jaqm951vct NUMBER(5),
+  jaqm951amc NUMBER(10,2),
+  jaqm951mtc NUMBER(10,2),
+  jaqm951mim NUMBER(16,3),
+  jaqm951vvm NUMBER(16,3),
+  jaqm951pvm NUMBER(10,4),
+  jaqm951msa NUMBER(16,3),
+  jaqm951mcd NUMBER(16,3),
+  jaqm951acd NUMBER(16,3),
+  jaqm951pvc NUMBER(10,4),
+  jaqm951pca NUMBER(10,4),
+  jaqm951nu1 NUMBER(9),
+  jaqm951nu2 NUMBER(9),
+  jaqm951nu3 NUMBER(9),
+  jaqm951im1 NUMBER(17,2),
+  jaqm951im2 NUMBER(17,2),
+  jaqm951im3 NUMBER(17,2),
+  jaqm951ch1 CHAR(1),
+  jaqm951ch2 CHAR(1),
+  jaqm951ch3 CHAR(1),
+  jaqm951va1 VARCHAR2(255),
+  jaqm951va2 VARCHAR2(255),
+  jaqm951va3 VARCHAR2(255),
+  jaqm951fe1 DATE,
+  jaqm951fe2 DATE,
+  jaqm951fe3 DATE
+)
+;
+create index JAQM9512 on JAQM951 (JAQM951ANL, JAQM951FEC, JAQM951HOR);
+alter table JAQM951
+  add primary key (JAQM951FEC, JAQM951HOR, JAQM951ANL, JAQM951SUC);
+

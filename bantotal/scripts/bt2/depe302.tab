@@ -1,0 +1,33 @@
+create table DEPE302
+(
+  depe302ins NUMBER(10) not null,
+  depe302suc NUMBER(3),
+  depe302mod NUMBER(3),
+  depe302mda NUMBER(4),
+  depe302pap NUMBER(4),
+  depe302cta NUMBER(9),
+  depe302ope NUMBER(9),
+  depe302sbo NUMBER(3),
+  depe302tip NUMBER(3),
+  depe302val NUMBER(17,2),
+  depe302cuo NUMBER(17,2),
+  depe302bbp NUMBER(17,2),
+  depe302pbp NUMBER(17,2),
+  depe302an1 NUMBER(9),
+  depe302an2 NUMBER(9),
+  depe302an3 NUMBER(9),
+  depe302ai1 NUMBER(17,2),
+  depe302ai2 NUMBER(17,2),
+  depe302ai3 NUMBER(17,2),
+  depe302ad1 DATE,
+  depe302ad2 DATE,
+  depe302ad3 DATE,
+  depe302ac1 VARCHAR2(200),
+  depe302ac2 VARCHAR2(200),
+  depe302ac3 VARCHAR2(200)
+)
+;
+create index DEPE3022 on DEPE302 (DEPE302SUC, DEPE302MOD, DEPE302MDA, DEPE302PAP, DEPE302CTA, DEPE302OPE, DEPE302SBO, DEPE302TIP);
+alter table DEPE302
+  add primary key (DEPE302INS);
+

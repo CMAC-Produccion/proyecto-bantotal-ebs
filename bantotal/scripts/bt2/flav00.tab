@@ -1,0 +1,14 @@
+create table FLAV00
+(
+  lav00tlist NUMBER(4) not null,
+  lav00curl  NUMBER(3) not null,
+  lav00url   CHAR(255),
+  lav00dsc   CHAR(100),
+  lav00pgmi  CHAR(8),
+  lav00pgmp  CHAR(8),
+  lav00hab   CHAR(1)
+)
+;
+alter table FLAV00
+  add primary key (LAV00TLIST, LAV00CURL);
+

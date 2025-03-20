@@ -1,0 +1,12 @@
+create table JAQM264
+(
+  jaqm264ins NUMBER(10) not null,
+  jaqm264mev NUMBER(3) not null,
+  jaqm264act NUMBER(3),
+  jaqm264sba NUMBER(3),
+  jaqm264des CHAR(65)
+)
+;
+alter table JAQM264
+  add primary key (JAQM264INS, JAQM264MEV);
+

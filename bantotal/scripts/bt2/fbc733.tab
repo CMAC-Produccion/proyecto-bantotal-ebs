@@ -1,0 +1,29 @@
+create table FBC733
+(
+  bc733emp  NUMBER(3) not null,
+  bc733fch  DATE not null,
+  bc733rutd CHAR(10) not null,
+  bc733corr NUMBER(10) not null,
+  bc733nomd CHAR(40),
+  bc733cald CHAR(1),
+  bc733tipd CHAR(1),
+  bc733estd CHAR(1),
+  bc733ccob CHAR(1),
+  bc733ccom CHAR(10),
+  bc733fini DATE,
+  bc733finc DATE,
+  bc733nmes NUMBER(3),
+  bc733deun NUMBER(17,2),
+  bc733rint NUMBER(17,2),
+  bc733raju NUMBER(17,2),
+  bc733rmul NUMBER(17,2),
+  bc733rotr NUMBER(17,2),
+  bc733mona NUMBER(17,2),
+  bc733aux1 DATE,
+  bc733aux2 CHAR(30),
+  bc733aux3 NUMBER(17,2)
+)
+;
+alter table FBC733
+  add primary key (BC733EMP, BC733FCH, BC733RUTD, BC733CORR);
+

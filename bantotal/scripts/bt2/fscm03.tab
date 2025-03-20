@@ -1,0 +1,16 @@
+create table FSCM03
+(
+  cm3emp     NUMBER(3) not null,
+  cm3fecha   DATE not null,
+  cm3tporub  CHAR(1) not null,
+  cm3rubro   NUMBER(16) not null,
+  cm3pondera NUMBER(10,6) not null,
+  cm3indrie  NUMBER(10,6) not null,
+  cm3promed  NUMBER(17,2),
+  cm3sdohist NUMBER(17,2)
+)
+;
+create index FSCM0302 on FSCM03 (CM3EMP, CM3FECHA, CM3RUBRO, CM3PONDERA);
+alter table FSCM03
+  add primary key (CM3EMP, CM3FECHA, CM3TPORUB, CM3RUBRO, CM3PONDERA, CM3INDRIE);
+

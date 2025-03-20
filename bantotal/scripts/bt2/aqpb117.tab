@@ -1,0 +1,48 @@
+create table AQPB117
+(
+  aqpb117fecha  DATE not null,
+  aqpb117hor    CHAR(8) not null,
+  aqpb117nutar  CHAR(19) not null,
+  aqpb117thd    CHAR(12),
+  aqpb117pto    VARCHAR2(40),
+  aqpb117ppc    VARCHAR2(40),
+  aqpb117pbcc   VARCHAR2(40),
+  aqpb117text   CLOB,
+  aqpb117pfrom  VARCHAR2(40),
+  aqpb117asun   VARCHAR2(100),
+  aqpb117coderr NUMBER(5),
+  aqpb117msjerr VARCHAR2(200),
+  aqpb117canal  VARCHAR2(20)
+)
+;
+comment on table AQPB117
+  is 'Tabla Log de Correos de CajaMovil';
+comment on column AQPB117.aqpb117fecha
+  is 'Fecha Operacion';
+comment on column AQPB117.aqpb117hor
+  is 'Hora Operacion';
+comment on column AQPB117.aqpb117nutar
+  is 'Numero de tarjeta';
+comment on column AQPB117.aqpb117thd
+  is 'Numero de Documento';
+comment on column AQPB117.aqpb117pto
+  is 'Destinatario';
+comment on column AQPB117.aqpb117ppc
+  is 'Con copia a';
+comment on column AQPB117.aqpb117pbcc
+  is 'Con copia oculta a';
+comment on column AQPB117.aqpb117text
+  is 'Cuerpo del correo';
+comment on column AQPB117.aqpb117pfrom
+  is 'Remitente';
+comment on column AQPB117.aqpb117asun
+  is 'Asunto';
+comment on column AQPB117.aqpb117coderr
+  is 'Codigo de error';
+comment on column AQPB117.aqpb117msjerr
+  is 'Mensaje de error';
+comment on column AQPB117.aqpb117canal
+  is 'Canal';
+alter table AQPB117
+  add primary key (AQPB117FECHA, AQPB117HOR, AQPB117NUTAR);
+

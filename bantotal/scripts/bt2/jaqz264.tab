@@ -1,0 +1,15 @@
+create table JAQZ264
+(
+  jaqz264per  CHAR(6) not null,
+  jaqz264tdoc NUMBER(2) not null,
+  jaqz264ndoc CHAR(12) not null,
+  jaqz264cal  VARCHAR2(30),
+  jaqz264ptj  NUMBER(16,4),
+  jaqz264usu  CHAR(10),
+  jaqz264fec  DATE
+)
+;
+create index JAQZ2641 on JAQZ264 (JAQZ264TDOC, JAQZ264NDOC, JAQZ264PER);
+alter table JAQZ264
+  add primary key (JAQZ264PER, JAQZ264TDOC, JAQZ264NDOC);
+

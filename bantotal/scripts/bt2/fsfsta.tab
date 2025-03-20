@@ -1,0 +1,10 @@
+create table FSFSTA
+(
+  sfst1merc NUMBER(3) not null,
+  sfstacod  CHAR(2) not null,
+  sfstadesc CHAR(60)
+)
+;
+alter table FSFSTA
+  add primary key (SFST1MERC, SFSTACOD);
+

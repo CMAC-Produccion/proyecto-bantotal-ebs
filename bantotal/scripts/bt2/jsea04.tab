@@ -1,0 +1,45 @@
+create table JSEA04
+(
+  jsea04emp  NUMBER(3) not null,
+  jsea04suc  NUMBER(3) not null,
+  jsea04mod  NUMBER(3) not null,
+  jsea04mda  NUMBER(4) not null,
+  jsea04pap  NUMBER(4) not null,
+  jsea04cta  NUMBER(9) not null,
+  jsea04oper NUMBER(9) not null,
+  jsea04sbop NUMBER(3) not null,
+  jsea04tope NUMBER(3) not null,
+  jsea04bcod CHAR(9),
+  jsea04bdsc CHAR(80),
+  jsea04pais NUMBER(4),
+  jsea04cant NUMBER(4),
+  jsea04prov NUMBER(4),
+  jsea04bdir CHAR(60),
+  jsea04bcha CHAR(20),
+  jsea04bpla CHAR(20),
+  jsea04bmot CHAR(20),
+  jsea04nper NUMBER(4),
+  jsea04vav  NUMBER(17,2),
+  jsea04fav  DATE,
+  jsea04best CHAR(1),
+  jsea04fins DATE,
+  jsea04fch1 DATE,
+  jsea04fch2 DATE,
+  jsea04fch3 DATE,
+  jsea04cod1 NUMBER(5),
+  jsea04cod2 NUMBER(5),
+  jsea04cod3 NUMBER(5),
+  jsea04dsc1 CHAR(30),
+  jsea04dsc2 CHAR(30),
+  jsea04dsc3 CHAR(30),
+  jsea04est1 CHAR(1),
+  jsea04est2 CHAR(1),
+  jsea04est3 CHAR(1),
+  jsea04imp1 NUMBER(17,2),
+  jsea04imp2 NUMBER(17,2),
+  jsea04imp3 NUMBER(17,2)
+)
+;
+alter table JSEA04
+  add primary key (JSEA04EMP, JSEA04SUC, JSEA04MOD, JSEA04MDA, JSEA04PAP, JSEA04CTA, JSEA04OPER, JSEA04SBOP, JSEA04TOPE);
+

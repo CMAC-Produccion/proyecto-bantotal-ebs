@@ -1,0 +1,20 @@
+create table FSFI20
+(
+  sfi20emp NUMBER(3) not null,
+  sfi20eco NUMBER(3) not null,
+  sfi20mai CHAR(70),
+  sfi20cel NUMBER(9),
+  sfi20inb NUMBER(4),
+  sfi20au1 NUMBER(9),
+  sfi20au2 NUMBER(9),
+  sfi20au3 NUMBER(9),
+  sfi20ch1 CHAR(50),
+  sfi20ch2 CHAR(50),
+  sfi20ch3 CHAR(50),
+  sfi20fe1 DATE,
+  sfi20fe2 DATE
+)
+;
+alter table FSFI20
+  add primary key (SFI20EMP, SFI20ECO);
+

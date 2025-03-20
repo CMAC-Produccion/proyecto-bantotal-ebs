@@ -1,0 +1,14 @@
+create table SNG091
+(
+  sng001inst NUMBER(10) not null,
+  sng091aut  NUMBER(10) not null,
+  sng090pqt  NUMBER(10),
+  sng091tpo  CHAR(1),
+  sng091num  NUMBER(5),
+  sng091res  CHAR(1)
+)
+;
+create index SNG09102 on SNG091 (SNG001INST, SNG090PQT);
+alter table SNG091
+  add primary key (SNG001INST, SNG091AUT);
+

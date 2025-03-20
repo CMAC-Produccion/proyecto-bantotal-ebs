@@ -1,0 +1,24 @@
+create table JFAW180
+(
+  jfaw180fc DATE not null,
+  jfaw180em NUMBER(3) not null,
+  jfaw180sc NUMBER(3) not null,
+  jfaw180md NUMBER(3) not null,
+  jfaw180mn NUMBER(4) not null,
+  jfaw180pa NUMBER(4) not null,
+  jfaw180cu NUMBER(9) not null,
+  jfaw180op NUMBER(9) not null,
+  jfaw180sb NUMBER(3) not null,
+  jfaw180tp NUMBER(3) not null,
+  jfaw180cr NUMBER(5) not null,
+  jfaw180tc NUMBER(1),
+  jfaw180ps NUMBER(3),
+  jfaw180td NUMBER(2),
+  jfaw180nd CHAR(12),
+  jfaw180us CHAR(10),
+  jfaw180tm NUMBER(1)
+)
+;
+alter table JFAW180
+  add primary key (JFAW180FC, JFAW180EM, JFAW180SC, JFAW180MD, JFAW180MN, JFAW180PA, JFAW180CU, JFAW180OP, JFAW180SB, JFAW180TP, JFAW180CR);
+

@@ -1,0 +1,14 @@
+create table FSF074
+(
+  lqcpgcod NUMBER(3) not null,
+  lqcfinro NUMBER(3) not null,
+  lqcanio  NUMBER(4) not null,
+  lqcmes   NUMBER(2) not null,
+  lqcusd   NUMBER(17,2),
+  lqcmnac  NUMBER(17,2),
+  lqcotras NUMBER(17,2)
+)
+;
+alter table FSF074
+  add primary key (LQCPGCOD, LQCFINRO, LQCANIO, LQCMES);
+

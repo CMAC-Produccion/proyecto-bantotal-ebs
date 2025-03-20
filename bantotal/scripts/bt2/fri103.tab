@@ -1,0 +1,19 @@
+create table FRI103
+(
+  ri103emp  NUMBER(3) not null,
+  ri103tipo NUMBER(1) not null,
+  ri103cod  NUMBER(4) not null,
+  ri103desc CHAR(40),
+  ri103aux1 NUMBER(15),
+  ri103aux2 NUMBER(15),
+  ri103aux3 NUMBER(17,2),
+  ri103aux4 NUMBER(17,2),
+  ri103aux5 DATE,
+  ri103aux6 DATE,
+  ri103aux7 CHAR(30),
+  ri103aux8 CHAR(30)
+)
+;
+alter table FRI103
+  add primary key (RI103EMP, RI103TIPO, RI103COD);
+

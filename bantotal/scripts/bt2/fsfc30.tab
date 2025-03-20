@@ -1,0 +1,20 @@
+create table FSFC30
+(
+  sfc30mda  NUMBER(4) not null,
+  sfc30fdes DATE not null,
+  sfc30pres NUMBER(5) not null,
+  sfc30tpzo NUMBER(1) not null,
+  sfc30finv NUMBER(8),
+  sfc30tcc  NUMBER(14,8),
+  sfc30tcv  NUMBER(14,8),
+  sfc30arbc NUMBER(14,8),
+  sfc30arbv NUMBER(14,8),
+  sfc30tasp NUMBER(14,8),
+  sfc30tasu NUMBER(14,8)
+)
+;
+create index FSFC3002 on FSFC30 (SFC30FDES, SFC30MDA, SFC30PRES);
+create index FSFC3003 on FSFC30 (SFC30MDA, SFC30PRES, SFC30FINV);
+alter table FSFC30
+  add primary key (SFC30MDA, SFC30FDES, SFC30PRES, SFC30TPZO);
+

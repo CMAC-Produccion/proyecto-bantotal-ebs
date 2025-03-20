@@ -1,0 +1,13 @@
+create table PTD003
+(
+  ptd003emp  NUMBER(3) not null,
+  ptd003mod  NUMBER(3) not null,
+  ptd003tran NUMBER(3) not null,
+  ptd003ord  NUMBER(2) not null,
+  ptd003cpo  CHAR(30) not null,
+  ptd003val  CHAR(254)
+)
+;
+alter table PTD003
+  add primary key (PTD003EMP, PTD003MOD, PTD003TRAN, PTD003ORD, PTD003CPO);
+

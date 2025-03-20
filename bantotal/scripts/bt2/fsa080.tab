@@ -1,0 +1,68 @@
+create table FSA080
+(
+  ecusu   CHAR(10) not null,
+  ecwst   CHAR(10) not null,
+  eccor   NUMBER(9) not null,
+  ecopcd  NUMBER(3),
+  ecopsu  NUMBER(3),
+  ecopmo  NUMBER(3),
+  ecopru  NUMBER(16),
+  ecopmd  NUMBER(4),
+  ecoppa  NUMBER(4),
+  ecopct  NUMBER(9),
+  ecopop  NUMBER(9),
+  ecopso  NUMBER(3),
+  ecopto  NUMBER(3),
+  ectrcd  NUMBER(3),
+  ectrmo  NUMBER(3),
+  ectrtr  NUMBER(3),
+  ectrsu  NUMBER(3),
+  ectrre  NUMBER(4),
+  ectrfc  DATE,
+  ectror  NUMBER(2),
+  ectrsb  NUMBER(3),
+  ecmvfvc DATE,
+  ecmvfva DATE,
+  ecmvfvt DATE,
+  ecmvdh  NUMBER(1),
+  ecmvimp NUMBER(17,2),
+  ecvtasa NUMBER(10,6),
+  ecttasa NUMBER(1),
+  eccmov  NUMBER(3),
+  ecschq  CHAR(1),
+  ecnchq  NUMBER(9),
+  ecvta1  NUMBER(10,6),
+  ectta1  NUMBER(1),
+  ecvta2  NUMBER(10,6),
+  ectta2  NUMBER(1),
+  eccot1  NUMBER(14,8),
+  eccot2  NUMBER(14,8),
+  ecpre1  NUMBER(14,8),
+  ecpre2  NUMBER(14,8),
+  ecfec1  DATE,
+  ecfec2  DATE,
+  ecfec3  DATE,
+  ecnum1  NUMBER(9),
+  ecnum2  NUMBER(9),
+  ecnum3  NUMBER(9),
+  ecstr1  CHAR(18),
+  ecstr2  CHAR(18),
+  ecstr3  CHAR(18),
+  ecimp1  NUMBER(17,2),
+  ecimp2  NUMBER(17,2),
+  ecimp3  NUMBER(17,2),
+  ecimp4  NUMBER(17,2)
+)
+;
+create index FSA08002 on FSA080 (ECUSU, ECWST, ECOPCD, ECOPSU, ECOPMO, ECOPMD, ECOPPA, ECOPCT, ECOPOP, ECOPSO, ECOPTO, ECMVFVC, ECCOR);
+create index FSA08003 on FSA080 (ECUSU, ECWST, ECOPCD, ECOPSU, ECOPMO, ECOPCT, ECOPOP, ECOPSO, ECOPTO, ECOPMD, ECOPPA, ECMVFVC, ECCOR);
+create index FSA08004 on FSA080 (ECUSU, ECWST, ECOPCT, ECOPCD, ECOPSU, ECOPMO, ECOPMD, ECOPPA, ECOPOP, ECOPSO, ECOPTO);
+create index FSA08005 on FSA080 (ECUSU, ECWST, ECOPCD, ECNUM2, ECOPCT, ECNUM3, ECTTA1);
+create index FSA08006 on FSA080 (ECUSU, ECWST, ECOPCD, ECOPCT, ECNUM3, ECTTA1);
+create index FSA08007 on FSA080 (ECUSU, ECWST, ECOPCD, ECOPRU);
+create index FSA08008 on FSA080 (ECUSU, ECWST, ECOPCD, ECOPSU, ECOPRU, ECOPMD, ECOPPA, ECOPCT, ECOPOP, ECOPSO, ECOPTO);
+create index FSA08009 on FSA080 (ECUSU, ECWST, ECOPCD, ECNUM1, ECOPCT);
+create index FSA08010 on FSA080 (ECUSU, ECWST, ECOPCD, ECNUM2, ECSTR2, ECOPCT, ECNUM3, ECTTA1);
+alter table FSA080
+  add primary key (ECUSU, ECWST, ECCOR);
+

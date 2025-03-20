@@ -1,0 +1,34 @@
+create table E05513
+(
+  e5513usu   CHAR(10) not null,
+  e5513wst   CHAR(10) not null,
+  e5513corr  NUMBER(9) not null,
+  e5513tdocd NUMBER(2),
+  e5513bcod  CHAR(10),
+  e55130dsc  CHAR(16),
+  e55131bcs  CHAR(8),
+  e5513bidc  CHAR(22),
+  e5513crfd  CHAR(15),
+  e5513copd  NUMBER(5),
+  e5513cfvn  DATE,
+  e5513dimp  NUMBER(10,2),
+  e5513tdoct NUMBER(2),
+  e5513ueor  CHAR(10),
+  e5513uenm  CHAR(16),
+  e5513ucb3  CHAR(8),
+  e5513nleg  NUMBER(5),
+  e5513urfc  CHAR(15),
+  e5513ufac  DATE,
+  e5513uimp  NUMBER(10,2),
+  e5513copt  NUMBER(5),
+  e5513qrfd  CHAR(15),
+  e5513qfcp  DATE,
+  e5513qimp  NUMBER(10,2),
+  e5513trfc  CHAR(15),
+  e5513tfcp  DATE,
+  e5513timp  NUMBER(10,2)
+)
+;
+alter table E05513
+  add primary key (E5513USU, E5513WST, E5513CORR);
+

@@ -1,0 +1,122 @@
+create table JAQN19
+(
+  jaqn19emp NUMBER(3) not null,
+  jaqn19mod NUMBER(3) not null,
+  jaqn19suc NUMBER(3) not null,
+  jaqn19mda NUMBER(4) not null,
+  jaqn19pap NUMBER(4) not null,
+  jaqn19cta NUMBER(9) not null,
+  jaqn19ope NUMBER(9) not null,
+  jaqn19sbo NUMBER(3) not null,
+  jaqn19top NUMBER(3) not null,
+  jaqn19cem NUMBER(9) not null,
+  jaqn19cor NUMBER(5) not null,
+  jaqn19fch DATE,
+  jaqn19hra CHAR(8),
+  jaqn19esa CHAR(1),
+  jaqn19sal NUMBER(3),
+  jaqn19tcr CHAR(30),
+  jaqn19pre NUMBER(3),
+  jaqn19fpe DATE,
+  jaqn19fre DATE,
+  jaqn19est CHAR(1),
+  jaqn19ena CHAR(20),
+  jaqn19tex CHAR(20),
+  jaqn19tre NUMBER(9,5),
+  jaqn19crr VARCHAR2(300),
+  jaqn19obs VARCHAR2(300),
+  jaqn19ai1 NUMBER(17,2),
+  jaqn19ai2 NUMBER(17,2),
+  jaqn19ai3 NUMBER(17,2),
+  jaqn19ad1 DATE,
+  jaqn19ad2 DATE,
+  jaqn19ad3 DATE,
+  jaqn19an1 NUMBER(9),
+  jaqn19an2 NUMBER(9),
+  jaqn19an3 NUMBER(9),
+  jaqn19ac1 CHAR(255),
+  jaqn19ac2 CHAR(255),
+  jaqn19ac3 CHAR(255)
+)
+;
+comment on table JAQN19
+  is 'Histórico Examen Médico';
+comment on column JAQN19.jaqn19emp
+  is 'Empresa';
+comment on column JAQN19.jaqn19mod
+  is 'Módulo';
+comment on column JAQN19.jaqn19suc
+  is 'Sucursal';
+comment on column JAQN19.jaqn19mda
+  is 'Moneda';
+comment on column JAQN19.jaqn19pap
+  is 'Papel';
+comment on column JAQN19.jaqn19cta
+  is 'Cuenta';
+comment on column JAQN19.jaqn19ope
+  is 'Operación';
+comment on column JAQN19.jaqn19sbo
+  is 'SubOperación';
+comment on column JAQN19.jaqn19top
+  is 'Tipo de Operación';
+comment on column JAQN19.jaqn19cem
+  is 'Código Examen Médico';
+comment on column JAQN19.jaqn19cor
+  is 'Correlativo';
+comment on column JAQN19.jaqn19fch
+  is 'Fecha de Alta';
+comment on column JAQN19.jaqn19hra
+  is 'Hora de Alta';
+comment on column JAQN19.jaqn19esa
+  is 'Estado de Alta';
+comment on column JAQN19.jaqn19sal
+  is 'Sucursal de Alta';
+comment on column JAQN19.jaqn19tcr
+  is 'Tipo de Crédito';
+comment on column JAQN19.jaqn19pre
+  is 'Porcentaje de Recargo';
+comment on column JAQN19.jaqn19fpe
+  is 'Fecha Programación Examen';
+comment on column JAQN19.jaqn19fre
+  is 'Fecha Resultados';
+comment on column JAQN19.jaqn19est
+  is 'Estado';
+comment on column JAQN19.jaqn19ena
+  is 'Examen Normal o Adicional';
+comment on column JAQN19.jaqn19tex
+  is 'Tipo de Examen';
+comment on column JAQN19.jaqn19tre
+  is 'Tasa de Recargo';
+comment on column JAQN19.jaqn19crr
+  is 'Causa de Rechazo o Recargo';
+comment on column JAQN19.jaqn19obs
+  is 'Observaciones';
+comment on column JAQN19.jaqn19ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN19.jaqn19ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN19.jaqn19ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN19.jaqn19ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN19.jaqn19ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN19.jaqn19ad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQN19.jaqn19an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQN19.jaqn19an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQN19.jaqn19an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQN19.jaqn19ac1
+  is 'Auxiliar Carácter 1';
+comment on column JAQN19.jaqn19ac2
+  is 'Auxiliar Carácter 2';
+comment on column JAQN19.jaqn19ac3
+  is 'Auxiliar Carácter 3';
+create index JAQN192 on JAQN19 (JAQN19CEM);
+create index JAQN193 on JAQN19 (JAQN19COR);
+alter table JAQN19
+  add primary key (JAQN19EMP, JAQN19MOD, JAQN19SUC, JAQN19MDA, JAQN19PAP, JAQN19CTA, JAQN19OPE, JAQN19SBO, JAQN19TOP, JAQN19CEM, JAQN19COR);
+

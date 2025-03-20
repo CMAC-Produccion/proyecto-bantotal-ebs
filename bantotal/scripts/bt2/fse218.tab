@@ -1,0 +1,35 @@
+create table FSE218
+(
+  tre218emp NUMBER(3) not null,
+  tre218suc NUMBER(3) not null,
+  tre218mod NUMBER(3) not null,
+  tre218rub NUMBER(16) not null,
+  tre218mda NUMBER(4) not null,
+  tre218pap NUMBER(4) not null,
+  tre218cta NUMBER(9) not null,
+  tre218ope NUMBER(9) not null,
+  tre218sbo NUMBER(3) not null,
+  tre218top NUMBER(3) not null,
+  tre218cod NUMBER(5) not null,
+  tre218fch DATE not null,
+  tre218tip NUMBER(2),
+  tre218num NUMBER(16),
+  tre218cat CHAR(30),
+  tre218au1 DATE,
+  tre218au2 DATE,
+  tre218au3 CHAR(40),
+  tre218au4 CHAR(40),
+  tre218au5 NUMBER(10),
+  tre218au6 NUMBER(10),
+  tre218au7 NUMBER(14,2),
+  tre218au8 NUMBER(14,2),
+  tre218au9 NUMBER(14,2)
+)
+;
+create index FSE21802 on FSE218 (TRE218EMP, TRE218CTA, TRE218FCH, TRE218RUB, TRE218OPE, TRE218NUM);
+create index FSE21803 on FSE218 (TRE218EMP, TRE218FCH, TRE218CTA, TRE218NUM);
+create index FSE21804 on FSE218 (TRE218EMP, TRE218COD, TRE218FCH, TRE218TIP, TRE218NUM);
+create index FSE21805 on FSE218 (TRE218EMP, TRE218TIP, TRE218FCH);
+alter table FSE218
+  add primary key (TRE218EMP, TRE218SUC, TRE218MOD, TRE218RUB, TRE218MDA, TRE218PAP, TRE218CTA, TRE218OPE, TRE218SBO, TRE218TOP, TRE218COD, TRE218FCH);
+

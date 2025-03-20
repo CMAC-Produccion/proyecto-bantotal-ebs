@@ -1,0 +1,22 @@
+create table JAQL603
+(
+  jaql546serial NUMBER(10) not null,
+  jaql603secue  NUMBER(6) not null,
+  jaql603fenov  DATE,
+  jaql603cosus  VARCHAR2(10),
+  jaql603cocta  VARCHAR2(10),
+  jaql603nucta  VARCHAR2(25),
+  jaql603norep  VARCHAR2(10),
+  jaql603vaini  NUMBER(17,2),
+  jaql603vasde  NUMBER(17,2),
+  jaql603moros  VARCHAR2(10),
+  jaql603inend  VARCHAR2(10),
+  jaql603feact  DATE,
+  jaql603nosus  VARCHAR2(50),
+  jaql603tidet  CHAR(2)
+)
+;
+create unique index JAQL60300 on JAQL603 (JAQL546SERIAL, JAQL603SECUE);
+alter table JAQL603
+  add constraint JAQL603_PK primary key (JAQL546SERIAL, JAQL603SECUE);
+

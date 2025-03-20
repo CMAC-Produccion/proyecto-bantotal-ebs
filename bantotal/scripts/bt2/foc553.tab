@@ -1,0 +1,12 @@
+create table FOC553
+(
+  foc550emp  NUMBER(3) not null,
+  foc550id   NUMBER(2) not null,
+  foc551id   NUMBER(2) not null,
+  foc553mda  NUMBER(4) not null,
+  foc553deno NUMBER(9) not null
+)
+;
+alter table FOC553
+  add primary key (FOC550EMP, FOC550ID, FOC551ID, FOC553MDA, FOC553DENO);
+

@@ -1,0 +1,14 @@
+create table FSFI10
+(
+  ktpgcod2 NUMBER(3) not null,
+  sfi10pap NUMBER(4) not null,
+  ktctnro  NUMBER(9) not null,
+  sfi09id  NUMBER(2) not null,
+  sfi10cod CHAR(12)
+)
+;
+create index FSFI1002 on FSFI10 (KTPGCOD2, SFI09ID);
+create index FSFI1003 on FSFI10 (KTPGCOD2, KTCTNRO);
+alter table FSFI10
+  add primary key (KTPGCOD2, SFI10PAP, KTCTNRO, SFI09ID);
+

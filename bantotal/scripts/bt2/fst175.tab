@@ -1,0 +1,14 @@
+create table FST175
+(
+  st175nucod NUMBER(5) not null,
+  st175nudsc CHAR(30),
+  st175nuans CHAR(1),
+  st175nuanc CHAR(1),
+  st175nuser CHAR(1),
+  st175nudig NUMBER(2)
+)
+;
+create index FST17502 on FST175 (ST175NUDSC);
+alter table FST175
+  add primary key (ST175NUCOD);
+

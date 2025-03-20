@@ -1,0 +1,12 @@
+create table CDCSQL12
+(
+  cdcsqlid   NUMBER(18) not null,
+  cdcsqlinid NUMBER(18) not null,
+  cdcsqltrid CHAR(10) not null,
+  cdcsqlcrid CHAR(30) not null,
+  cdcsqlcfun NUMBER(4)
+)
+;
+alter table CDCSQL12
+  add primary key (CDCSQLID, CDCSQLINID, CDCSQLTRID, CDCSQLCRID);
+

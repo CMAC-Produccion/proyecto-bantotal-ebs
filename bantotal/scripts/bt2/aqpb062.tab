@@ -1,0 +1,50 @@
+create table AQPB062
+(
+  aqpb062pgcod   NUMBER(3) not null,
+  aqpb062mod     NUMBER(3) not null,
+  aqpb062suc     NUMBER(3) not null,
+  aqpb062mda     NUMBER(4) not null,
+  aqpb062pap     NUMBER(4) not null,
+  aqpb062cta     NUMBER(9) not null,
+  aqpb062oper    NUMBER(9) not null,
+  aqpb062sbop    NUMBER(3) not null,
+  aqpb062tope    NUMBER(3) not null,
+  aqpb062obop    NUMBER(3) not null,
+  aqpb062fpag    DATE not null,
+  aqpb062tipo    CHAR(1) not null,
+  aqpb062nump    NUMBER(9) not null,
+  aqpb062fech    DATE,
+  aqpb062cap     NUMBER(17,2),
+  aqpb062int     NUMBER(17,2),
+  aqpb062intmex  NUMBER(17,2),
+  aqpb062intm    NUMBER(17,2),
+  aqpb062intmmex NUMBER(17,2),
+  aqpb062icap    NUMBER(17,2),
+  aqpb062iint    NUMBER(17,2),
+  aqpb062iintm   NUMBER(17,2),
+  aqpb062salcap  NUMBER(17,2),
+  aqpb062salint  NUMBER(17,2),
+  aqpb062salade  NUMBER(17,2),
+  aqpb062salmor  NUMBER(17,2),
+  aqpb062stat    CHAR(1),
+  aqpb062salintm NUMBER(17,2),
+  aqpb062salmorm NUMBER(17,2),
+  aqpb062saladem NUMBER(17,2),
+  aqpb062cd      NUMBER(3),
+  aqpb062mo      NUMBER(3),
+  aqpb062su      NUMBER(3),
+  aqpb062tr      NUMBER(3),
+  aqpb062re      NUMBER(4),
+  aqpb062fc      DATE,
+  aqpb062or      NUMBER(2),
+  aqpb062sb      NUMBER(3),
+  aqpb062co      CHAR(1)
+)
+;
+create index AQPB0622 on AQPB062 (AQPB062CD, AQPB062MO, AQPB062SU, AQPB062TR, AQPB062RE, AQPB062FC, AQPB062OR, AQPB062SB);
+create index AQPB0623 on AQPB062 (AQPB062CD, AQPB062CO);
+create index AQPB0624 on AQPB062 (AQPB062PGCOD, AQPB062MOD, AQPB062SUC, AQPB062MDA, AQPB062PAP, AQPB062CTA, AQPB062OPER, AQPB062SBOP, AQPB062TOPE, AQPB062FPAG, AQPB062TIPO, AQPB062NUMP);
+create index AQPB0625 on AQPB062 (AQPB062PGCOD, AQPB062MOD, AQPB062SUC, AQPB062MDA, AQPB062PAP, AQPB062CTA, AQPB062OPER, AQPB062OBOP, AQPB062TOPE, AQPB062FPAG, AQPB062TIPO, AQPB062NUMP);
+alter table AQPB062
+  add primary key (AQPB062PGCOD, AQPB062MOD, AQPB062SUC, AQPB062MDA, AQPB062PAP, AQPB062CTA, AQPB062OPER, AQPB062SBOP, AQPB062TOPE, AQPB062OBOP, AQPB062FPAG, AQPB062TIPO, AQPB062NUMP);
+

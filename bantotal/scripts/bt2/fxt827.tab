@@ -1,0 +1,20 @@
+create table FXT827
+(
+  swtcod     NUMBER(5) not null,
+  swtrel     NUMBER(2) not null,
+  swtcpo     NUMBER(2) not null,
+  swtcpofmt  CHAR(1) not null,
+  fmtout     NUMBER(1) not null,
+  swtsubcpo  NUMBER(2) not null,
+  submdtcorr NUMBER(3) not null,
+  mdtexicorr NUMBER(2) not null,
+  mdtexioper CHAR(2),
+  mdtexichar CHAR(65),
+  mdtexinumv NUMBER(17,2),
+  mdtexidate DATE,
+  mdtexiflag CHAR(1)
+)
+;
+alter table FXT827
+  add primary key (SWTCOD, SWTREL, SWTCPO, SWTCPOFMT, FMTOUT, SWTSUBCPO, SUBMDTCORR, MDTEXICORR);
+

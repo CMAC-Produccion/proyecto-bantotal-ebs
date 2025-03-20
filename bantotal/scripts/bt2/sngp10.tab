@@ -1,0 +1,24 @@
+create table SNGP10
+(
+  sngp10pgc  NUMBER(3) not null,
+  sngp10mod  NUMBER(3) not null,
+  sngp10tope NUMBER(3) not null,
+  sngp09cod  NUMBER(3) not null,
+  sngp10chr1 CHAR(1),
+  sngp10chr2 CHAR(1),
+  sngp10chr3 CHAR(1),
+  sngp10ltco NUMBER(5),
+  sngp10sint NUMBER(4),
+  sngp10int9 NUMBER(9),
+  sngp10pgm1 CHAR(10),
+  sngp10pgm2 CHAR(10),
+  sngp10proc NUMBER(10,6),
+  sngp10rng  NUMBER(10),
+  sngp14cod  NUMBER(4)
+)
+;
+create index SNGP1003 on SNGP10 (SNGP14COD);
+create index SNGP1004 on SNGP10 (SNGP09COD);
+alter table SNGP10
+  add primary key (SNGP10PGC, SNGP10MOD, SNGP10TOPE, SNGP09COD);
+

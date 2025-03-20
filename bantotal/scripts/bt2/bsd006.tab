@@ -1,0 +1,13 @@
+create table BSD006
+(
+  pgcod   NUMBER(3) not null,
+  bscctad NUMBER(9) not null,
+  bsccodd NUMBER(2) not null,
+  bscdomc CHAR(80),
+  bscciu  NUMBER(8)
+)
+;
+create index BSD00603 on BSD006 (BSCCIU);
+alter table BSD006
+  add primary key (PGCOD, BSCCTAD, BSCCODD);
+

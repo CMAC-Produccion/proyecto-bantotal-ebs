@@ -1,0 +1,25 @@
+create table JAQZ749
+(
+  jaqz749usr  CHAR(10) not null,
+  jaqz749ins  NUMBER(10) not null,
+  jaqz749pgc  NUMBER(3),
+  jaqz749mod  NUMBER(3),
+  jaqz749suc  NUMBER(3),
+  jaqz749mda  NUMBER(4),
+  jaqz749pap  NUMBER(4),
+  jaqz749cta  NUMBER(9),
+  jaqz749ope  NUMBER(9),
+  jaqz749sbo  NUMBER(3),
+  jaqz749top  NUMBER(3),
+  jaqz749est  CHAR(1),
+  jaqz749eva2 TIMESTAMP(6),
+  jaqz749eva3 TIMESTAMP(6),
+  jaqz749age  NUMBER(3),
+  jaqz749ana  CHAR(10),
+  jaqz749zon  NUMBER(3)
+)
+;
+create index IDX_TJAQZ749_01 on JAQZ749 (JAQZ749USR);
+alter table JAQZ749
+  add constraint JAQZ749_PK primary key (JAQZ749USR, JAQZ749INS);
+

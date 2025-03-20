@@ -1,0 +1,14 @@
+create table FSF014
+(
+  fitocod    NUMBER(3) not null,
+  sfitocod   NUMBER(9) not null,
+  ofitorng   NUMBER(9) not null,
+  otopecod   NUMBER(9),
+  otopeope   CHAR(2),
+  otopevalor NUMBER(9)
+)
+;
+create index FSF01402 on FSF014 (OTOPECOD);
+alter table FSF014
+  add primary key (FITOCOD, SFITOCOD, OFITORNG);
+

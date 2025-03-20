@@ -1,0 +1,21 @@
+create table JFIA011
+(
+  jfia011pgc NUMBER(3) not null,
+  jfia011mod NUMBER(3) not null,
+  jfia011suc NUMBER(3) not null,
+  jfia011mda NUMBER(4) not null,
+  jfia011pap NUMBER(4) not null,
+  jfia011cta NUMBER(9) not null,
+  jfia011op  NUMBER(9) not null,
+  jfia011sb  NUMBER(3) not null,
+  jfia011tp  NUMBER(3) not null,
+  jfia010ps  NUMBER(3) not null,
+  jfia010tp  NUMBER(2) not null,
+  jfia010nd  CHAR(12) not null,
+  jfia011est CHAR(1)
+)
+;
+create index JFIA0112 on JFIA011 (JFIA010PS, JFIA010TP, JFIA010ND);
+alter table JFIA011
+  add primary key (JFIA011PGC, JFIA011MOD, JFIA011SUC, JFIA011MDA, JFIA011PAP, JFIA011CTA, JFIA011OP, JFIA011SB, JFIA011TP, JFIA010PS, JFIA010TP, JFIA010ND);
+

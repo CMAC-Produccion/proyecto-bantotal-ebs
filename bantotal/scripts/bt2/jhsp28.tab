@@ -1,0 +1,20 @@
+create table JHSP28
+(
+  jhsp27fprc DATE not null,
+  jhsp27emp  NUMBER(3) not null,
+  jhsp27sec  NUMBER(3) not null,
+  jhsp28suc  NUMBER(3) not null,
+  jhsp28mod  NUMBER(3) not null,
+  jhsp28mda  NUMBER(4) not null,
+  jhsp28pap  NUMBER(4) not null,
+  jhsp28cta  NUMBER(9) not null,
+  jhsp28oper NUMBER(9) not null,
+  jhsp28sbop NUMBER(3) not null,
+  jhsp28tope NUMBER(3) not null,
+  jhsp28imp  NUMBER(17,2),
+  jhsp28cc   NUMBER(3),
+  jhsp28cont CHAR(1)
+)
+;
+create unique index JHSP2801 on JHSP28 (JHSP27FPRC, JHSP27EMP, JHSP27SEC, JHSP28SUC, JHSP28MOD, JHSP28MDA, JHSP28PAP, JHSP28CTA, JHSP28OPER, JHSP28SBOP, JHSP28TOPE);
+

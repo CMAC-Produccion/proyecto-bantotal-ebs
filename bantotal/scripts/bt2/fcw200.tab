@@ -1,0 +1,12 @@
+create table FCW200
+(
+  cmxwmod  NUMBER(3) not null,
+  cmxwinst NUMBER(2) not null,
+  bpwitem  NUMBER(3) not null,
+  bpiword  NUMBER(3) not null,
+  bpitemv  NUMBER(3) not null
+)
+;
+alter table FCW200
+  add primary key (CMXWMOD, CMXWINST, BPWITEM, BPIWORD, BPITEMV);
+

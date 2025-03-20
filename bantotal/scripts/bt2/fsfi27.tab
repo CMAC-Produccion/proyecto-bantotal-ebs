@@ -1,0 +1,23 @@
+create table FSFI27
+(
+  sfi01emp  NUMBER(3) not null,
+  sfi01mer  NUMBER(3) not null,
+  sfi02pro  NUMBER(3) not null,
+  sfi27agr  NUMBER(3) not null,
+  sfi27dsc  CHAR(25),
+  sfi27auc1 CHAR(1),
+  sfi27auc2 CHAR(1),
+  sfi27auc3 CHAR(1),
+  sfi27auc4 CHAR(1),
+  sfi27aut1 CHAR(20),
+  sfi27aut2 CHAR(20),
+  sfi27aun1 NUMBER(9),
+  sfi27aun2 NUMBER(9),
+  sfi27aun3 NUMBER(9),
+  sfi27aun4 NUMBER(9)
+)
+;
+create index FSFI2704 on FSFI27 (SFI01EMP, SFI02PRO, SFI01MER, SFI27AGR);
+alter table FSFI27
+  add primary key (SFI01EMP, SFI01MER, SFI02PRO, SFI27AGR);
+

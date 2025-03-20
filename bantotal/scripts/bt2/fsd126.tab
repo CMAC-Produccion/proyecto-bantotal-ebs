@@ -1,0 +1,18 @@
+create table FSD126
+(
+  pondrub    NUMBER(16) not null,
+  pvalhasta  NUMBER(10,6) not null,
+  destecocod NUMBER(3) not null,
+  totope     NUMBER(3) not null,
+  ponderacio NUMBER(10,6),
+  nroimp6    NUMBER(2),
+  rvalmertas CHAR(1),
+  raux1      NUMBER(10),
+  raux2      CHAR(20),
+  raux3      NUMBER(17,2)
+)
+;
+create index FSD12602 on FSD126 (DESTECOCOD);
+alter table FSD126
+  add primary key (PONDRUB, PVALHASTA, DESTECOCOD, TOTOPE);
+

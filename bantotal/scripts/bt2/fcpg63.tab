@@ -1,0 +1,22 @@
+create table FCPG63
+(
+  cpg60cod   NUMBER(10) not null,
+  cpg62serv  NUMBER(3) not null,
+  cpg63mpag  NUMBER(3) not null,
+  cpg63tcta  NUMBER(3) not null,
+  cpg63fmac  NUMBER(2) not null,
+  cpg63mda   NUMBER(4) not null,
+  cpg63fdes  DATE not null,
+  cpg63perio CHAR(1),
+  cpg63cntd  NUMBER(3),
+  cpg63cyol  CHAR(1),
+  cpg63codmv NUMBER(3),
+  cpg63est   CHAR(3),
+  cpg63blq   CHAR(1),
+  cpg63inst  NUMBER(10)
+)
+;
+create index FCPG6303 on FCPG63 (CPG63INST);
+alter table FCPG63
+  add primary key (CPG60COD, CPG62SERV, CPG63MPAG, CPG63TCTA, CPG63FMAC, CPG63MDA, CPG63FDES);
+

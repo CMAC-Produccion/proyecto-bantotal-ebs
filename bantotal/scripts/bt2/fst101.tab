@@ -1,0 +1,22 @@
+create table FST101
+(
+  pbcod  NUMBER(3) not null,
+  pbnsec NUMBER(5) not null,
+  pbproc CHAR(10),
+  pbdesc CHAR(30),
+  pbest  CHAR(1),
+  pbexcp CHAR(1),
+  pbejec CHAR(1),
+  pbper  CHAR(1),
+  pbret  CHAR(1),
+  pbfini DATE,
+  pbhini CHAR(8),
+  pbffin DATE,
+  pbhfin CHAR(8),
+  pbparm CHAR(1),
+  pbcpar NUMBER(1)
+)
+;
+alter table FST101
+  add primary key (PBCOD, PBNSEC);
+

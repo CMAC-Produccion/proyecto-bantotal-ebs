@@ -1,0 +1,20 @@
+create table JCTN002
+(
+  jctn002rub NUMBER(16) not null,
+  jctn002suc NUMBER(3) not null,
+  jctn002mda NUMBER(4) not null,
+  jctn002am  CHAR(6) not null,
+  jctn002fvc DATE not null,
+  jctn002fcn DATE not null,
+  jctn002cdm NUMBER(1) not null,
+  jctn002imp NUMBER(17,2),
+  jctn002imd NUMBER(17,2),
+  jctn002au1 NUMBER(17,2),
+  jctn002au2 CHAR(20),
+  jctn002au3 DATE
+)
+;
+create index JCTN0022 on JCTN002 (JCTN002AM, JCTN002RUB);
+alter table JCTN002
+  add primary key (JCTN002RUB, JCTN002SUC, JCTN002MDA, JCTN002AM, JCTN002FVC, JCTN002FCN, JCTN002CDM);
+

@@ -1,0 +1,25 @@
+create table FSFIAS
+(
+  sfi44cod  NUMBER(3) not null,
+  sfiargru  NUMBER(2) not null,
+  sfiaspais NUMBER(3) not null,
+  sfiasdesc CHAR(35),
+  sfiascom  NUMBER(3),
+  sfiasmod  NUMBER(3),
+  sfiashab  CHAR(1),
+  sfiascar1 CHAR(1),
+  sfiascar2 CHAR(1),
+  sfiascar3 CHAR(1),
+  sfiasnum1 NUMBER(9),
+  sfiasnum2 NUMBER(9),
+  sfiasnum3 NUMBER(9),
+  sfiasnum4 NUMBER(9),
+  sfiasnum5 NUMBER(9),
+  sfiastxt1 CHAR(20),
+  sfiastxt2 CHAR(20),
+  sfiastxt3 CHAR(20)
+)
+;
+alter table FSFIAS
+  add primary key (SFI44COD, SFIARGRU, SFIASPAIS);
+

@@ -1,0 +1,15 @@
+create table FBRD39
+(
+  brd39emp   NUMBER(3) not null,
+  brd39rgcod NUMBER(5) not null,
+  brd39cta   NUMBER(9) not null,
+  brd39mod   NUMBER(3) not null,
+  brd39trn   NUMBER(3) not null,
+  brd39eoi   CHAR(1) not null,
+  brd39msg   CHAR(100),
+  brd39impop CHAR(1)
+)
+;
+alter table FBRD39
+  add primary key (BRD39EMP, BRD39RGCOD, BRD39CTA, BRD39MOD, BRD39TRN, BRD39EOI);
+

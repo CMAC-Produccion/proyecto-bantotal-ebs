@@ -1,0 +1,317 @@
+create table AQPB095
+(
+  aqpb095usur    CHAR(10) not null,
+  aqpb095pgcod   NUMBER(3) not null,
+  aqpb095mod     NUMBER(3) not null,
+  aqpb095suc     NUMBER(3) not null,
+  aqpb095mda     NUMBER(4) not null,
+  aqpb095pap     NUMBER(4) not null,
+  aqpb095cta     NUMBER(9) not null,
+  aqpb095ope     NUMBER(9) not null,
+  aqpb095sbop    NUMBER(3) not null,
+  aqpb095tope    NUMBER(3) not null,
+  aqpb095ncer    VARCHAR2(20),
+  aqpb095ndoc    CHAR(12),
+  aqpb095csbs    CHAR(11),
+  aqpb095razn    CHAR(100),
+  aqpb095tcrep   CHAR(3),
+  aqpb095pres    CHAR(20),
+  aqpb095mpre    NUMBER(17,2),
+  aqpb095sdoi    NUMBER(17,2),
+  aqpb095peri    NUMBER(5),
+  aqpb095ncuo    NUMBER(10),
+  aqpb095tea     NUMBER(10,6),
+  aqpb095pgra    NUMBER(5),
+  aqpb095fini    DATE,
+  aqpb095ffin    DATE,
+  aqpb095tcre    CHAR(3),
+  aqpb095ncre    CHAR(20),
+  aqpb095fcla    DATE,
+  aqpb095cnom    NUMBER(5,2),
+  aqpb095ccpp    NUMBER(5,2),
+  aqpb095cdef    NUMBER(5,2),
+  aqpb095cdud    NUMBER(5,2),
+  aqpb095cper    NUMBER(5,2),
+  aqpb095rest    NUMBER(5,2),
+  aqpb095teac    NUMBER(10,6),
+  aqpb095pgrac   NUMBER(10),
+  aqpb095finic   DATE,
+  aqpb095ffinc   DATE,
+  aqpb095fproc   DATE,
+  aqpb095stat    NUMBER(2),
+  aqpb095fe99    DATE,
+  aqpb095fcr     VARCHAR2(10),
+  aqpb095hcr     VARCHAR2(10),
+  aqpb095tdoc    NUMBER(4),
+  aqpb095fvenui  DATE,
+  aqpb095fvenup  DATE,
+  aqpb095mor     NUMBER(17,2),
+  aqpb095ndmor   NUMBER(10),
+  aqpb095tprest  CHAR(30),
+  aqpb095int     NUMBER(17,2),
+  aqpb095frepr   CHAR(1),
+  aqpb095mhonr   NUMBER(17,2),
+  aqpb095fhonr   DATE,
+  aqpb095chonr   CHAR(1),
+  aqpb095sdocap  NUMBER(17,2),
+  aqpb095sdohon  NUMBER(17,2),
+  aqpb095crehon  NUMBER(17,2),
+  aqpb095reg     NUMBER(9),
+  aqpb095nreg    CHAR(30),
+  aqpb095nsuc    CHAR(30),
+  aqpb095ase     CHAR(10),
+  aqpb095ccong   VARCHAR2(40),
+  aqpb095esf     CHAR(11),
+  aqpb095fcober  NUMBER(17,2),
+  aqpb095statd   VARCHAR2(30),
+  aqpb095fstat   DATE,
+  aqpb095tmora   NUMBER(12,4),
+  aqpb095ciuu    VARCHAR2(5),
+  aqpb095acteco  VARCHAR2(60),
+  aqpb095fpag    DATE,
+  aqpb095gas     NUMBER(16,2),
+  aqpb095cuo     NUMBER(16,2),
+  aqpb095icv     NUMBER(16,2),
+  aqpb095pen     NUMBER(16,2),
+  aqpb095fclas   DATE,
+  aqpb095cnoms   NUMBER(5,2),
+  aqpb095ccpps   NUMBER(5,2),
+  aqpb095cdefs   NUMBER(5,2),
+  aqpb095cduds   NUMBER(5,2),
+  aqpb095cpers   NUMBER(5,2),
+  aqpb095lrep    CHAR(2),
+  aqpb095nrep    NUMBER(10),
+  aqpb095frep    DATE,
+  aqpb095pfec    DATE,
+  aqpb095ncuop   NUMBER(10),
+  aqpb095pgrap   NUMBER(10),
+  aqpb095pfinp   DATE,
+  aqpb095lrefin  CHAR(2),
+  aqpb095frefin  DATE,
+  aqpb095dcon    CHAR(4),
+  aqpb095ncon    CHAR(30),
+  aqpb095mprep   NUMBER(17,2),
+  aqpb095fprep   DATE,
+  aqpb095fvenmor DATE,
+  aqpb095ccob    VARCHAR2(50),
+  aqpb095cren    VARCHAR2(50),
+  aqpb095cobr    VARCHAR2(50),
+  aqpb095chon    VARCHAR2(50),
+  aqpb095tercio  VARCHAR2(50),
+  aqpb095sinsap  NUMBER(17,2),
+  aqpb095prpago  NUMBER(17,2),
+  aqpb095pagrea  NUMBER(17,2),
+  aqpb095pramrt  NUMBER(17,2),
+  aqpb095nrccor  NUMBER(6),
+  aqpb095nrccac  NUMBER(6),
+  aqpb095vulcpa  NUMBER(17,2),
+  aqpb095vcprve  NUMBER(17,2),
+  aqpb095fuclpr  DATE,
+  aqpb095intcom  NUMBER(17,2),
+  aqpb095intcov  NUMBER(17,2),
+  aqpb095intmor  NUMBER(17,2),
+  aqpb095penali  NUMBER(17,2)
+)
+;
+comment on table AQPB095
+  is 'Reporte Programa COVID';
+comment on column AQPB095.aqpb095usur
+  is 'Usuario que genera el reporte';
+comment on column AQPB095.aqpb095ncer
+  is '1. N° Certificado';
+comment on column AQPB095.aqpb095ndoc
+  is '2. Numero Documento';
+comment on column AQPB095.aqpb095csbs
+  is '3. Codigo de Cliente SBS';
+comment on column AQPB095.aqpb095razn
+  is '4. Razon Social';
+comment on column AQPB095.aqpb095tcrep
+  is '5. Tipo credito Programa Garantias-COVID19';
+comment on column AQPB095.aqpb095pres
+  is '6. N° préstamo';
+comment on column AQPB095.aqpb095mpre
+  is '7. Monto Prestamo reprogramado';
+comment on column AQPB095.aqpb095sdoi
+  is '8. Saldo insoluto del prestamo reprogramado';
+comment on column AQPB095.aqpb095peri
+  is '9. Periodo Total del Crédito Reprogramado (Nro Cuotas + nro Periodo de Gracia)';
+comment on column AQPB095.aqpb095ncuo
+  is '10. Numero cuotas pagadas credito reprogramado';
+comment on column AQPB095.aqpb095tea
+  is '11. TEA reprogramado %';
+comment on column AQPB095.aqpb095pgra
+  is '12. Periodo de Gracia del Crédito Reprogramado (Nro de Periodos) ';
+comment on column AQPB095.aqpb095fini
+  is '13. Fecha Inicio de crédito reprogramado';
+comment on column AQPB095.aqpb095ffin
+  is '14. Fecha fin de crédito reprogramado';
+comment on column AQPB095.aqpb095tcre
+  is '15. Tipo de Creditos SBS';
+comment on column AQPB095.aqpb095ncre
+  is '15.1 Tipo de Creditos SBS - Concepto';
+comment on column AQPB095.aqpb095fcla
+  is '16. Fecha de Calificación Actualizada';
+comment on column AQPB095.aqpb095cnom
+  is '17. Calificacion Crediticia Normal (%)';
+comment on column AQPB095.aqpb095ccpp
+  is '18. Calificacion Crediticia CPP (%)';
+comment on column AQPB095.aqpb095cdef
+  is '19. Calificación Deficiente (%)';
+comment on column AQPB095.aqpb095cdud
+  is '20. Calificación Dudoso (%)';
+comment on column AQPB095.aqpb095cper
+  is '21. Calificación Perdida (%)';
+comment on column AQPB095.aqpb095rest
+  is '22. % de Reducción Estimado';
+comment on column AQPB095.aqpb095teac
+  is '23. Tea Reprogramada Enviada a COFIDE';
+comment on column AQPB095.aqpb095pgrac
+  is '24. Período de Gracia Enviado a COFIDE';
+comment on column AQPB095.aqpb095finic
+  is '25. Fecha de Inicio Según COFIDE';
+comment on column AQPB095.aqpb095ffinc
+  is '26. Fecha de Fin Según COFIDE';
+comment on column AQPB095.aqpb095fproc
+  is 'Fecha de procesamiento';
+comment on column AQPB095.aqpb095tdoc
+  is 'Tipo documento';
+comment on column AQPB095.aqpb095fvenui
+  is 'FECHA DE VENCIMIENTO DE LA ÚLTIMA CUOTA IMPAGA';
+comment on column AQPB095.aqpb095fvenup
+  is 'FECHA DE VENCIMIENTO DE LA ÚLTIMA CUOTA PAGADA';
+comment on column AQPB095.aqpb095mor
+  is 'Interes moratorio';
+comment on column AQPB095.aqpb095ndmor
+  is 'Numero dias de mora';
+comment on column AQPB095.aqpb095tprest
+  is 'Tipo de prestamo';
+comment on column AQPB095.aqpb095int
+  is 'Interes pendiente de pago';
+comment on column AQPB095.aqpb095frepr
+  is 'Flag reprogramado';
+comment on column AQPB095.aqpb095mhonr
+  is 'monto honrado';
+comment on column AQPB095.aqpb095fhonr
+  is 'fecha honramiento';
+comment on column AQPB095.aqpb095chonr
+  is 'es credito honrado S/N';
+comment on column AQPB095.aqpb095sdocap
+  is 'saldo capital';
+comment on column AQPB095.aqpb095sdohon
+  is 'Saldo honrado';
+comment on column AQPB095.aqpb095crehon
+  is 'Saldo credito honrado';
+comment on column AQPB095.aqpb095reg
+  is 'Region';
+comment on column AQPB095.aqpb095nreg
+  is 'Nombre Region';
+comment on column AQPB095.aqpb095nsuc
+  is 'Nombre sucursal';
+comment on column AQPB095.aqpb095ase
+  is 'Analista';
+comment on column AQPB095.aqpb095ccong
+  is 'Codigo Congelamiento COFIDE';
+comment on column AQPB095.aqpb095esf
+  is 'Numero de credito ESF';
+comment on column AQPB095.aqpb095fcober
+  is 'Factor de Cobetura';
+comment on column AQPB095.aqpb095statd
+  is 'Estado del Credito';
+comment on column AQPB095.aqpb095fstat
+  is 'Fecha de cambio de estado';
+comment on column AQPB095.aqpb095tmora
+  is 'Tasa Moratoria';
+comment on column AQPB095.aqpb095ciuu
+  is 'CIUU';
+comment on column AQPB095.aqpb095acteco
+  is 'Actividad Economica';
+comment on column AQPB095.aqpb095fpag
+  is 'Fecha de pago de ultimo pago';
+comment on column AQPB095.aqpb095gas
+  is 'PR - Seguros';
+comment on column AQPB095.aqpb095cuo
+  is 'PR - Capital';
+comment on column AQPB095.aqpb095icv
+  is 'PR - Interese Compensatorio';
+comment on column AQPB095.aqpb095pen
+  is 'PR - Penalidad';
+comment on column AQPB095.aqpb095fclas
+  is 'Fecha Clasifiacion SBS';
+comment on column AQPB095.aqpb095cnoms
+  is 'Calificacion Normal SBS';
+comment on column AQPB095.aqpb095ccpps
+  is 'Calificacion CPP SBS';
+comment on column AQPB095.aqpb095cdefs
+  is 'Califiacion Deficiente SBS';
+comment on column AQPB095.aqpb095cduds
+  is 'Califiacion Dudosa SBS';
+comment on column AQPB095.aqpb095cpers
+  is 'Califiacion Perdida SBS';
+comment on column AQPB095.aqpb095lrep
+  is 'Flag reprogramacion';
+comment on column AQPB095.aqpb095nrep
+  is 'N reprogrmacion';
+comment on column AQPB095.aqpb095frep
+  is 'Fecha Reprogramacion';
+comment on column AQPB095.aqpb095pfec
+  is 'Fecha de primera cuota de la reprogramacion';
+comment on column AQPB095.aqpb095ncuop
+  is 'Nro de cuotas posterior a la reprogramacion';
+comment on column AQPB095.aqpb095pgrap
+  is 'Periodo de Gracia posterior a reprogramacion';
+comment on column AQPB095.aqpb095pfinp
+  is 'Fecha fin de credito posterior a reprogramacion';
+comment on column AQPB095.aqpb095lrefin
+  is 'Flag refinanciamiento';
+comment on column AQPB095.aqpb095frefin
+  is 'Fecha de Refinanciamiento';
+comment on column AQPB095.aqpb095dcon
+  is 'Situacion contable';
+comment on column AQPB095.aqpb095ncon
+  is 'Situacion contable Concepto';
+comment on column AQPB095.aqpb095mprep
+  is 'Monto Prepago';
+comment on column AQPB095.aqpb095fprep
+  is 'Fecha Prepago';
+comment on column AQPB095.aqpb095fvenmor
+  is 'Fecha Vencimiento del credito en Mora';
+comment on column AQPB095.aqpb095ccob
+  is 'Codigo de Cobertura';
+comment on column AQPB095.aqpb095cren
+  is 'Certificado de Renovacion';
+comment on column AQPB095.aqpb095cobr
+  is 'Cobertura de Renovacion';
+comment on column AQPB095.aqpb095chon
+  is 'Certificado de Honra';
+comment on column AQPB095.aqpb095tercio
+  is 'Tercio';
+comment on column AQPB095.aqpb095sinsap
+  is 'Saldo Insoluto antes del prepago';
+comment on column AQPB095.aqpb095prpago
+  is 'Prepago(Total/Parcial)(Total=cancelacion, Parcial=amortizacion)';
+comment on column AQPB095.aqpb095pagrea
+  is 'Pago realizado (Pago total)';
+comment on column AQPB095.aqpb095pramrt
+  is 'Principal amortizado';
+comment on column AQPB095.aqpb095nrccor
+  is 'Numero de cuotas del cronograma original enviado a COFIDE';
+comment on column AQPB095.aqpb095nrccac
+  is 'Numero de cuotas de cronograma actual';
+comment on column AQPB095.aqpb095vulcpa
+  is 'Valor de la ultima cuota pagada';
+comment on column AQPB095.aqpb095vcprve
+  is 'Valor de cuota proximo vencimiento';
+comment on column AQPB095.aqpb095fuclpr
+  is 'Nueva fecha de la ultima cuota luego del prepago';
+comment on column AQPB095.aqpb095intcom
+  is 'Interes compensatorios';
+comment on column AQPB095.aqpb095intcov
+  is 'Intereses compensatorios vencidos';
+comment on column AQPB095.aqpb095intmor
+  is 'Interes moratorio';
+comment on column AQPB095.aqpb095penali
+  is 'Penalidad';
+create index AQPB0952 on AQPB095 (AQPB095USUR);
+alter table AQPB095
+  add primary key (AQPB095USUR, AQPB095PGCOD, AQPB095MOD, AQPB095SUC, AQPB095MDA, AQPB095PAP, AQPB095CTA, AQPB095OPE, AQPB095SBOP, AQPB095TOPE);
+

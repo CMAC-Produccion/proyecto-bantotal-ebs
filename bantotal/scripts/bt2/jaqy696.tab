@@ -1,0 +1,27 @@
+create table JAQY696
+(
+  jaqy696cod  NUMBER(17) not null,
+  jaqy696cta  VARCHAR2(35),
+  jaqy696fec  DATE,
+  jaqy696cli  VARCHAR2(60),
+  jaqy696dni  VARCHAR2(12),
+  jaqy696suc  VARCHAR2(40),
+  jaqy696tcta VARCHAR2(40),
+  jaqy696com  NUMBER(16,2),
+  jaqy696mop  NUMBER(16,2),
+  jaqy696tcan VARCHAR2(20),
+  jaqy696scie NUMBER(16,2),
+  jaqy696spro NUMBER(16,2),
+  jaqy696aux1 NUMBER(4),
+  jaqy696aux2 NUMBER(17),
+  jaqy696aux3 NUMBER(16,2),
+  jaqy696aux4 VARCHAR2(40),
+  jaqy696aux5 VARCHAR2(100),
+  jaqy696aux6 VARCHAR2(200),
+  jaqy696aux7 DATE
+)
+;
+create index IJAQY696001 on JAQY696 (JAQY696FEC, JAQY696AUX5, JAQY696SUC);
+alter table JAQY696
+  add primary key (JAQY696COD);
+

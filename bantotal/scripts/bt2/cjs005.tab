@@ -1,0 +1,16 @@
+create table CJS005
+(
+  cjs005cod NUMBER(3) not null,
+  cjs005mdl NUMBER(3) not null,
+  cjs005uns NUMBER(9),
+  cjs005dsc CHAR(30),
+  cjs005lrg NUMBER(4),
+  cjs005ach NUMBER(4),
+  cjs005alt NUMBER(4),
+  cjs005ax1 NUMBER(9),
+  cjs005ax2 CHAR(15)
+)
+;
+alter table CJS005
+  add primary key (CJS005COD, CJS005MDL);
+

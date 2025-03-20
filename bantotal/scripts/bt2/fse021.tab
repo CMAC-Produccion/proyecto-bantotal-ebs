@@ -1,0 +1,45 @@
+create table FSE021
+(
+  se021cod   NUMBER(3) not null,
+  se021mod   NUMBER(3) not null,
+  se021suc   NUMBER(3) not null,
+  se021mda   NUMBER(4) not null,
+  se021pap   NUMBER(4) not null,
+  se021cta   NUMBER(9) not null,
+  se021oper  NUMBER(9) not null,
+  se021sbop  NUMBER(9) not null,
+  se021tope  NUMBER(3) not null,
+  se021fech  DATE not null,
+  se021debch NUMBER(17,2),
+  se021debre NUMBER(17,2),
+  se021diasc NUMBER(6),
+  se021fecay DATE,
+  se021sbgay NUMBER(17,2),
+  se021fecin DATE,
+  se021diasi NUMBER(6),
+  se021sbgin NUMBER(17,2),
+  se021imp1  NUMBER(17,2),
+  se021imp2  NUMBER(17,2),
+  se021imp3  NUMBER(17,2),
+  se021imp4  NUMBER(17,2),
+  se021imp5  NUMBER(17,2),
+  se021imp6  NUMBER(17,2),
+  se021imp7  NUMBER(17,2),
+  se021imp8  NUMBER(17,2),
+  se021imp9  NUMBER(17,2),
+  se021imp10 NUMBER(17,2),
+  se021imp11 NUMBER(3),
+  se021imp12 NUMBER(3),
+  se021imp13 NUMBER(4),
+  se021imp14 NUMBER(4),
+  se021imp15 NUMBER(9),
+  se021imp16 NUMBER(8),
+  se021chr1  CHAR(30),
+  se021chr2  CHAR(100),
+  se021fec1  DATE,
+  se021fec2  DATE
+)
+;
+alter table FSE021
+  add primary key (SE021COD, SE021MOD, SE021SUC, SE021MDA, SE021PAP, SE021CTA, SE021OPER, SE021SBOP, SE021TOPE, SE021FECH);
+

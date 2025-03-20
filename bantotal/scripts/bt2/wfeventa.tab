@@ -1,0 +1,14 @@
+create table WFEVENTA
+(
+  wfevncod   NUMBER(12) not null,
+  wfevntype  NUMBER(4),
+  wfevntime  DATE,
+  wfevnactid NUMBER(4),
+  wfevnactna CHAR(40),
+  wfevnpdid  NUMBER(4),
+  wfevnpdnam CHAR(40)
+)
+;
+alter table WFEVENTA
+  add primary key (WFEVNCOD);
+

@@ -1,0 +1,22 @@
+create table FBC7A4
+(
+  bc7a4emp  NUMBER(3) not null,
+  bc7a4fch  DATE not null,
+  bc7a4ent  NUMBER(3) not null,
+  bc7a4sub  CHAR(4) not null,
+  bc7a4codb CHAR(2) not null,
+  bc7a4nfin CHAR(10) not null,
+  bc7a4corr NUMBER(12) not null,
+  bc7a4orbi CHAR(2),
+  bc7a4feci DATE,
+  bc7a4valm NUMBER(17,2),
+  bc7a4act  CHAR(4),
+  bc7a4vall NUMBER(17,2),
+  bc7a4prob NUMBER(17,2),
+  bc7a4fecv DATE,
+  bc7a4tipe CHAR(3)
+)
+;
+alter table FBC7A4
+  add primary key (BC7A4EMP, BC7A4FCH, BC7A4ENT, BC7A4SUB, BC7A4CODB, BC7A4NFIN, BC7A4CORR);
+

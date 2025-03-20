@@ -1,0 +1,20 @@
+create table JSBC08
+(
+  jsbc08pg   NUMBER(3) not null,
+  jsbc08ope  NUMBER(9) not null,
+  jsbc08nro  NUMBER(2) not null,
+  jsbc08doan CHAR(20),
+  jsbc08dopo CHAR(20),
+  jsbc08noan CHAR(65),
+  jsbc08nopo CHAR(65),
+  jsbc08tean CHAR(20),
+  jsbc08tepo CHAR(20),
+  jsbc08usri CHAR(10),
+  jsbc08usra CHAR(10),
+  jsbc08feci DATE,
+  jsbc08feca DATE
+)
+;
+alter table JSBC08
+  add primary key (JSBC08PG, JSBC08OPE, JSBC08NRO);
+

@@ -1,0 +1,133 @@
+create table JAQN76
+(
+  jaqn76fee DATE not null,
+  jaqn76emp NUMBER(3) not null,
+  jaqn76sue NUMBER(3) not null,
+  jaqn76moe NUMBER(3) not null,
+  jaqn76tre NUMBER(3) not null,
+  jaqn76ree NUMBER(4) not null,
+  jaqn76fev DATE,
+  jaqn76fec DATE,
+  jaqn76fex DATE,
+  jaqn76for DATE,
+  jaqn76tip CHAR(30),
+  jaqn76esc CHAR(1),
+  jaqn76ncp NUMBER(9),
+  jaqn76nct NUMBER(9),
+  jaqn76suc NUMBER(3),
+  jaqn76nsu CHAR(30),
+  jaqn76mod NUMBER(3),
+  jaqn76nom CHAR(30),
+  jaqn76tra NUMBER(3),
+  jaqn76ntr CHAR(30),
+  jaqn76ctc NUMBER(9),
+  jaqn76nrc NUMBER(4),
+  jaqn76nco CHAR(50),
+  jaqn76ope NUMBER(9),
+  jaqn76doc CHAR(12),
+  jaqn76cta NUMBER(9),
+  jaqn76noc CHAR(30),
+  jaqn76fve DATE,
+  jaqn76dia NUMBER(9),
+  jaqn76moc NUMBER(17,2),
+  jaqn76mon NUMBER(17,2),
+  jaqn76par NUMBER(17,2),
+  jaqn76sap NUMBER(17,2),
+  jaqn76usu CHAR(10),
+  jaqn76mop CHAR(30),
+  jaqn76ana CHAR(10),
+  jaqn76sua NUMBER(3),
+  jaqn76age CHAR(30),
+  jaqn76fer DATE,
+  jaqn76hor CHAR(8),
+  jaqn76ust CHAR(10)
+)
+;
+comment on table JAQN76
+  is 'Log Pago Credito Convenio';
+comment on column JAQN76.jaqn76fee
+  is 'Fecha Contabilizada';
+comment on column JAQN76.jaqn76emp
+  is 'Empresa';
+comment on column JAQN76.jaqn76sue
+  is 'Sucursal';
+comment on column JAQN76.jaqn76moe
+  is 'Modulo';
+comment on column JAQN76.jaqn76tre
+  is 'Transacción';
+comment on column JAQN76.jaqn76ree
+  is 'Relación';
+comment on column JAQN76.jaqn76fev
+  is 'Fecha Pago Valor';
+comment on column JAQN76.jaqn76fec
+  is 'Fecha Contable Pago';
+comment on column JAQN76.jaqn76fex
+  is 'Fecha Extorno';
+comment on column JAQN76.jaqn76for
+  is 'Forma de Pago';
+comment on column JAQN76.jaqn76tip
+  is 'Tipo de Pago';
+comment on column JAQN76.jaqn76esc
+  is 'Estado de Pago (E: Extorno  P:Pago';
+comment on column JAQN76.jaqn76ncp
+  is 'Numero de Cuotas Pagadas';
+comment on column JAQN76.jaqn76nct
+  is 'Numero de Cuotas Totales';
+comment on column JAQN76.jaqn76suc
+  is 'Sucursal';
+comment on column JAQN76.jaqn76nsu
+  is 'Nombre Sucursal';
+comment on column JAQN76.jaqn76mod
+  is 'Modulo';
+comment on column JAQN76.jaqn76nom
+  is 'Nombre Modulo';
+comment on column JAQN76.jaqn76tra
+  is 'Transacción';
+comment on column JAQN76.jaqn76ntr
+  is 'Nombre Transacción';
+comment on column JAQN76.jaqn76ctc
+  is 'Cuenta Convenio';
+comment on column JAQN76.jaqn76nrc
+  is 'Numero Cartera';
+comment on column JAQN76.jaqn76nco
+  is 'Nombre Convenio';
+comment on column JAQN76.jaqn76ope
+  is 'Operacion';
+comment on column JAQN76.jaqn76doc
+  is 'Documento';
+comment on column JAQN76.jaqn76cta
+  is 'Cuenta';
+comment on column JAQN76.jaqn76noc
+  is 'Nombre Cliente';
+comment on column JAQN76.jaqn76fve
+  is 'Fecha Vencimiento Cuota';
+comment on column JAQN76.jaqn76dia
+  is 'Dias Atraso';
+comment on column JAQN76.jaqn76moc
+  is 'Monto Cuota Crédito';
+comment on column JAQN76.jaqn76mon
+  is 'Monto Cuota Mora';
+comment on column JAQN76.jaqn76par
+  is 'Pago Realizado';
+comment on column JAQN76.jaqn76sap
+  is 'Saldo Pendiente';
+comment on column JAQN76.jaqn76usu
+  is 'Usuario';
+comment on column JAQN76.jaqn76mop
+  is 'Modalidad de Pago';
+comment on column JAQN76.jaqn76ana
+  is 'Analista';
+comment on column JAQN76.jaqn76sua
+  is 'Cod. Agencia';
+comment on column JAQN76.jaqn76age
+  is 'Nombre Agencia';
+comment on column JAQN76.jaqn76fer
+  is 'Fecha Registro';
+comment on column JAQN76.jaqn76hor
+  is 'Hora';
+comment on column JAQN76.jaqn76ust
+  is 'Usuario Realizo Transacción';
+create index JAQN76A2 on JAQN76 (JAQN76FEE, JAQN76NRC, JAQN76SUE);
+alter table JAQN76
+  add primary key (JAQN76FEE, JAQN76EMP, JAQN76SUE, JAQN76MOE, JAQN76TRE, JAQN76REE);
+

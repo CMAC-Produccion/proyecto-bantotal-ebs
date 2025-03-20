@@ -1,0 +1,16 @@
+create table FSH217
+(
+  sh217cod  NUMBER(3) not null,
+  sh217fec  DATE not null,
+  sh217pais NUMBER(3) not null,
+  sh217tdoc NUMBER(2) not null,
+  sh217ndoc CHAR(12) not null,
+  sh217sit  NUMBER(2) not null,
+  sh217cant NUMBER(4),
+  sh217deu  NUMBER(17,2),
+  sh217porc NUMBER(5,2)
+)
+;
+alter table FSH217
+  add primary key (SH217COD, SH217FEC, SH217PAIS, SH217TDOC, SH217NDOC, SH217SIT);
+

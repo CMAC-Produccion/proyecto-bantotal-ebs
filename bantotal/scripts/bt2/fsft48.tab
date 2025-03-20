@@ -1,0 +1,24 @@
+create table FSFT48
+(
+  sft48emp NUMBER(3) not null,
+  sft48cta NUMBER(9) not null,
+  sft48crr NUMBER(3) not null,
+  sft48suc NUMBER(3),
+  sft48rub NUMBER(16),
+  sft48mda NUMBER(4),
+  sft48pap NUMBER(4),
+  sft48ope NUMBER(9),
+  sft48sbo NUMBER(3),
+  sft48mod NUMBER(3),
+  sft48top NUMBER(3),
+  sft48mct CHAR(1),
+  sft48cmi NUMBER(9),
+  sft48cax CHAR(1),
+  sft48cbx CHAR(1),
+  sft48iax NUMBER(17,2),
+  sft48ibx NUMBER(17,2)
+)
+;
+alter table FSFT48
+  add primary key (SFT48EMP, SFT48CTA, SFT48CRR);
+

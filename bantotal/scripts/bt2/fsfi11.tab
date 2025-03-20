@@ -1,0 +1,14 @@
+create table FSFI11
+(
+  sfi01emp  NUMBER(3) not null,
+  sfi01mer  NUMBER(3) not null,
+  sfi11mda  NUMBER(4) not null,
+  sfi11car1 CHAR(1),
+  sfi11car2 CHAR(1),
+  sfi11num1 NUMBER(9),
+  sfi11num2 NUMBER(9)
+)
+;
+alter table FSFI11
+  add primary key (SFI01EMP, SFI01MER, SFI11MDA);
+

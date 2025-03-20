@@ -1,0 +1,16 @@
+create table BTI030
+(
+  btifileid   NUMBER(10) not null,
+  btifileseed NUMBER(10),
+  btifiletim  TIMESTAMP(6),
+  btifileuser VARCHAR2(40),
+  btifilename VARCHAR2(200),
+  btifiledesc VARCHAR2(200),
+  btifilees   CHAR(1),
+  btifileext  VARCHAR2(40)
+)
+;
+create unique index BTI03002 on BTI030 (BTIFILESEED);
+alter table BTI030
+  add primary key (BTIFILEID);
+

@@ -1,0 +1,38 @@
+create table FAU011
+(
+  auxpgcod  NUMBER(3) not null,
+  auxscsuc  NUMBER(3) not null,
+  auxscrub  NUMBER(16) not null,
+  auxscmda  NUMBER(4) not null,
+  auxscpap  NUMBER(4) not null,
+  auxsccta  NUMBER(9) not null,
+  auxscoper NUMBER(9) not null,
+  auxscsbop NUMBER(3) not null,
+  auxsctope NUMBER(3) not null,
+  auxscmod  NUMBER(3),
+  auxscfcon DATE,
+  auxscfval DATE,
+  auxscfvto DATE,
+  auxscfulm DATE,
+  auxscpzo  NUMBER(5),
+  auxscsdo  NUMBER(17,2),
+  auxscsdoh NUMBER(17,2),
+  auxscsegm NUMBER(2),
+  auxscfunc NUMBER(2),
+  auxscstat NUMBER(2),
+  auxsccc   NUMBER(3),
+  auxsctit  NUMBER(2),
+  auxsccap  NUMBER(1),
+  auxscplzo NUMBER(1),
+  auxscgru  NUMBER(2)
+)
+;
+create unique index FAU01100 on FAU011 (AUXPGCOD, AUXSCSUC, AUXSCRUB, AUXSCMDA, AUXSCPAP, AUXSCCTA, AUXSCOPER, AUXSCSBOP, AUXSCTOPE);
+create index FAU01104 on FAU011 (AUXSCRUB);
+create index FAU01110 on FAU011 (AUXPGCOD, AUXSCCTA, AUXSCRUB, AUXSCMDA, AUXSCPAP, AUXSCOPER, AUXSCSBOP);
+create index FAU01113 on FAU011 (AUXPGCOD, AUXSCMOD, AUXSCMDA, AUXSCPAP, AUXSCCTA, AUXSCSUC, AUXSCOPER, AUXSCSBOP, AUXSCTOPE);
+create index FAU01117 on FAU011 (AUXPGCOD, AUXSCCTA, AUXSCMOD, AUXSCMDA, AUXSCPAP);
+create index FAU01119 on FAU011 (AUXPGCOD, AUXSCRUB, AUXSCMDA, AUXSCPAP, AUXSCCTA, AUXSCOPER, AUXSCSBOP, AUXSCTOPE);
+alter table FAU011
+  add constraint FAU011_PK primary key (AUXPGCOD, AUXSCSUC, AUXSCRUB, AUXSCMDA, AUXSCPAP, AUXSCCTA, AUXSCOPER, AUXSCSBOP, AUXSCTOPE);
+

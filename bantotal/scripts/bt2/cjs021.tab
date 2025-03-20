@@ -1,0 +1,33 @@
+create table CJS021
+(
+  cjs020cod NUMBER(3) not null,
+  cjs020suc NUMBER(3) not null,
+  cjs020cjs NUMBER(9) not null,
+  cjs021cta NUMBER(9) not null,
+  cjs021cor NUMBER(9) not null,
+  cjs003fre NUMBER(3),
+  cjs021dom NUMBER(2),
+  cjs021fat DATE,
+  cjs021fbj DATE,
+  cjs021tnv CHAR(3),
+  cjs021est CHAR(2),
+  cjs021uin CHAR(10),
+  cjs021fin DATE,
+  cjs021hin CHAR(8),
+  cjs021tin CHAR(10),
+  cjs021uau CHAR(10),
+  cjs021fau DATE,
+  cjs021hau CHAR(8),
+  cjs021tau CHAR(10),
+  cjs021per NUMBER(3),
+  cjs021fpe DATE,
+  cjs021ax1 NUMBER(9),
+  cjs021ax2 CHAR(15),
+  cjs021nct NUMBER(18),
+  cjs021sec NUMBER(3)
+)
+;
+create index CJS02103 on CJS021 (CJS003FRE);
+alter table CJS021
+  add primary key (CJS020COD, CJS020SUC, CJS020CJS, CJS021CTA, CJS021COR);
+

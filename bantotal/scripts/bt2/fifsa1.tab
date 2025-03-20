@@ -1,0 +1,16 @@
+create table FIFSA1
+(
+  ifsa01nro NUMBER(18) not null,
+  ifsa01pgc NUMBER(3),
+  ifsa01ctn NUMBER(9),
+  ifsa01tra CHAR(5),
+  ifsa01lot NUMBER(9),
+  ifsa01ctr NUMBER(2),
+  ifsa01inf NUMBER(2),
+  ifsa01cor NUMBER(9)
+)
+;
+create index FIFSA102 on FIFSA1 (IFSA01NRO, IFSA01PGC, IFSA01CTN, IFSA01TRA, IFSA01LOT, IFSA01CTR, IFSA01INF, IFSA01COR);
+alter table FIFSA1
+  add primary key (IFSA01NRO);
+

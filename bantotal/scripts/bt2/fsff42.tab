@@ -1,0 +1,11 @@
+create table FSFF42
+(
+  kefneg NUMBER(9) not null,
+  kefmda NUMBER(4) not null,
+  kefrub NUMBER(16) not null,
+  kefval NUMBER(17,2)
+)
+;
+alter table FSFF42
+  add primary key (KEFNEG, KEFMDA, KEFRUB);
+

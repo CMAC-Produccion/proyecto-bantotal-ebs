@@ -1,0 +1,28 @@
+create table AQPB504A
+(
+  aqpb504apepais NUMBER(3) not null,
+  aqpb504apetdoc NUMBER(2) not null,
+  aqpb504apendoc CHAR(12) not null,
+  aqpb504afaseqc NUMBER(15) not null,
+  aqpb504afapais NUMBER(3),
+  aqpb504afatdoc NUMBER(2),
+  aqpb504afandoc CHAR(12),
+  aqpb504afaape1 VARCHAR2(30) not null,
+  aqpb504afaape2 VARCHAR2(30) not null,
+  aqpb504afanom  VARCHAR2(55) not null,
+  aqpb504afarel  NUMBER(2) not null,
+  aqpb504afaorg  CHAR(1) not null,
+  aqpb504afaest  CHAR(1) not null,
+  aqpb504acrefec DATE not null,
+  aqpb504acrehor CHAR(8) not null,
+  aqpb504acreusr VARCHAR2(30) not null,
+  aqpb504acresuc NUMBER(3) not null,
+  aqpb504amodfec DATE not null,
+  aqpb504amodhor CHAR(8) not null,
+  aqpb504amodusr VARCHAR2(30) not null,
+  aqpb504amodsuc NUMBER(3) not null
+)
+;
+alter table AQPB504A
+  add primary key (AQPB504APEPAIS, AQPB504APETDOC, AQPB504APENDOC, AQPB504AFASEQC);
+

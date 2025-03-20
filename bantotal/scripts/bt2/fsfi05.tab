@@ -1,0 +1,13 @@
+create table FSFI05
+(
+  sfi01emp  NUMBER(3) not null,
+  sfi01mer  NUMBER(3) not null,
+  sfi05pag  NUMBER(3) not null,
+  sfi05dsc  CHAR(25),
+  sfi05mr   NUMBER(16),
+  sfi05tope NUMBER(3)
+)
+;
+alter table FSFI05
+  add primary key (SFI01EMP, SFI01MER, SFI05PAG);
+

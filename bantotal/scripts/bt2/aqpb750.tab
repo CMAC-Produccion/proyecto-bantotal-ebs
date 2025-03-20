@@ -1,0 +1,117 @@
+create table AQPB750
+(
+  aqpb750nro         NUMBER(10) not null,
+  aqpb750pgc         NUMBER(3) not null,
+  aqpb750mod         NUMBER(3) not null,
+  aqpb750suc         NUMBER(3) not null,
+  aqpb750mda         NUMBER(4) not null,
+  aqpb750pap         NUMBER(4) not null,
+  aqpb750cta         NUMBER(9) not null,
+  aqpb750ope         NUMBER(9) not null,
+  aqpb750sbo         NUMBER(3) not null,
+  aqpb750top         NUMBER(3) not null,
+  aqpb750sta         NUMBER(2),
+  aqpb750est         VARCHAR2(20),
+  aqpb750escancelado NUMBER(2),
+  aqpb750esfondo     NUMBER(2),
+  aqpb750tienesaldo  NUMBER(2),
+  aqpb750eslineam    NUMBER(2),
+  aqpb750esjlineam   NUMBER(2),
+  aqpb750eslineblq   NUMBER(2),
+  aqpb750ubuser      CHAR(10),
+  aqpb750tieneacu    NUMBER(2),
+  aqpb750prov        NUMBER(18,2),
+  aqpb750calif       NUMBER(2),
+  aqpb750gareal      NUMBER(2),
+  aqpb750rubnp       NUMBER(2),
+  aqpb750salc        NUMBER(2),
+  aqpb750crond       NUMBER(2),
+  aqpb750creexo      NUMBER(2),
+  aqpb750crecas      NUMBER(2),
+  aqpb750rubl        NUMBER(2),
+  aqpb750rublpjm     NUMBER(2),
+  aqpb750rubljud     NUMBER(2),
+  aqpb750fecact      DATE,
+  aqpb750calift      VARCHAR2(15),
+  aqpb750esvnda      NUMBER(2),
+  aqpb750cons        NUMBER(2),
+  aqpb750feccons     DATE
+)
+;
+comment on table AQPB750
+  is 'tabla temporal de Venta de cartera';
+comment on column AQPB750.aqpb750pgc
+  is 'Codigo Empresa';
+comment on column AQPB750.aqpb750mod
+  is 'Sucursal del Credito';
+comment on column AQPB750.aqpb750suc
+  is 'Modulo del Credito';
+comment on column AQPB750.aqpb750mda
+  is 'Moneda del Credito';
+comment on column AQPB750.aqpb750pap
+  is 'Papel del Credito';
+comment on column AQPB750.aqpb750cta
+  is 'Cuenta del Credito';
+comment on column AQPB750.aqpb750ope
+  is 'Operacion del Credito';
+comment on column AQPB750.aqpb750sbo
+  is 'Suboperacion del Credito';
+comment on column AQPB750.aqpb750top
+  is 'Tipo operacion del Credito';
+comment on column AQPB750.aqpb750sta
+  is 'Estado en código';
+comment on column AQPB750.aqpb750est
+  is 'Estado en texto';
+comment on column AQPB750.aqpb750escancelado
+  is 'Es 1 si está cancelado';
+comment on column AQPB750.aqpb750esfondo
+  is 'Es crédito Fondo =1 si es 0 no es de fondo';
+comment on column AQPB750.aqpb750tienesaldo
+  is 'Es 1 si tiene saldos pendientes';
+comment on column AQPB750.aqpb750eslineam
+  is 'Es 1 si la linea 117 es mayor al saldo línea 116';
+comment on column AQPB750.aqpb750esjlineam
+  is 'Es 1 si Créditos que pertenecen a líneas cuya 442 + 443 es diferente del 117 ';
+comment on column AQPB750.aqpb750eslineblq
+  is 'Es línea bloqueada';
+comment on column AQPB750.aqpb750ubuser
+  is 'Usuario de carga';
+comment on column AQPB750.aqpb750tieneacu
+  is 'Es 1 si tiene acuerdo de pago y 0 si no tiene';
+comment on column AQPB750.aqpb750prov
+  is 'provisión si está en 100 o menos de 100';
+comment on column AQPB750.aqpb750calif
+  is 'Es 1 si es un crédito con calificación diferente de pérdida al último cierre';
+comment on column AQPB750.aqpb750gareal
+  is 'Es 1 si es un crédito con garantías reales ';
+comment on column AQPB750.aqpb750rubnp
+  is 'Es 1 si no está en los rubros permitidos para la venta 14X5XXXXX, 14X6XXXXX, 81X3XXXXX,82X9XXXX';
+comment on column AQPB750.aqpb750salc
+  is 'Es 1 si tiene saldo cero ';
+comment on column AQPB750.aqpb750crond
+  is 'Es 1 si tiene cronograma diferente de la FSD011';
+comment on column AQPB750.aqpb750creexo
+  is 'Es 1 si es un crédito con econeración de última cuota y ese mismo día esta en el proceso bach';
+comment on column AQPB750.aqpb750crecas
+  is 'Es 1 si el crédito está en propuesta de castigo';
+comment on column AQPB750.aqpb750rubl
+  is 'Es 1 cuando hay  inconsistencia en rubros de líneas';
+comment on column AQPB750.aqpb750rublpjm
+  is 'Es 1 cuando cuyos módulos 442,443 y 117 en el caso de pjm y estado 23 no están en el rubro 7';
+comment on column AQPB750.aqpb750rubljud
+  is 'Es 1 cuando cuyos módulos 442,443 y 117 en el caso de pjm y estado 23 no están en el rubro 9';
+comment on column AQPB750.aqpb750fecact
+  is 'Fecha de actualización del registro';
+comment on column AQPB750.aqpb750calift
+  is 'Tipo de Calificación';
+comment on column AQPB750.aqpb750esvnda
+  is 'Es crédito mi vivienda si es 1 si lo es y no se puede vender';
+comment on column AQPB750.aqpb750cons
+  is 'Es 1 si tiene constancia o cna impreso y 0 si no tiene impreso';
+comment on column AQPB750.aqpb750feccons
+  is 'Fecha de la impresión de constancia';
+create index AQPB750A2 on AQPB750 (AQPB750CTA, AQPB750OPE);
+create index AQPB750A3 on AQPB750 (AQPB750CTA);
+alter table AQPB750
+  add primary key (AQPB750NRO, AQPB750PGC, AQPB750MOD, AQPB750SUC, AQPB750MDA, AQPB750PAP, AQPB750CTA, AQPB750OPE, AQPB750SBO, AQPB750TOP);
+

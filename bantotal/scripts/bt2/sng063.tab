@@ -1,0 +1,11 @@
+create table SNG063
+(
+  sng062aut NUMBER(10) not null,
+  sng063nom CHAR(20) not null,
+  sng063tip CHAR(1) not null,
+  sng063val VARCHAR2(40)
+)
+;
+alter table SNG063
+  add primary key (SNG062AUT, SNG063NOM, SNG063TIP);
+

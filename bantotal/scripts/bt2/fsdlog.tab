@@ -1,0 +1,12 @@
+create table FSDLOG
+(
+  logusu CHAR(10) not null,
+  logrnd NUMBER(10,9) not null,
+  logwst CHAR(10),
+  logpgm CHAR(10),
+  logfch DATE
+)
+;
+alter table FSDLOG
+  add primary key (LOGUSU, LOGRND);
+

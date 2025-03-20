@@ -1,0 +1,45 @@
+create table JBXI5A
+(
+  jbxi5apro NUMBER(3) not null,
+  jbxi5atar NUMBER(10) not null,
+  jbxi5afph DATE not null,
+  jbxi5atip CHAR(30),
+  jbxi5alic NUMBER(14,2),
+  jbxi5alif NUMBER(14,2),
+  jbxi5alcc NUMBER(14,2),
+  jbxi5apam NUMBER(14,2),
+  jbxi5apmi NUMBER(14,2),
+  jbxi5aadd NUMBER(14,2),
+  jbxi5aadp NUMBER(14,2),
+  jbxi5acod NUMBER(14,2),
+  jbxi5acop NUMBER(14,2),
+  jbxi5aajd NUMBER(14,2),
+  jbxi5aajp NUMBER(14,2),
+  jbxi5apad NUMBER(14,2),
+  jbxi5apap NUMBER(14,2),
+  jbxi5appp NUMBER(14,2),
+  jbxi5apdp NUMBER(14,2),
+  jbxi5atic CHAR(30),
+  jbxi5aest CHAR(30),
+  jbxi5afci NUMBER(8),
+  jbxi5afvt NUMBER(8),
+  jbxi5afac NUMBER(8),
+  jbxi5afup NUMBER(8),
+  jbxi5aulp NUMBER(14,2),
+  jbxi5auld NUMBER(14,2),
+  jbxi5accp NUMBER(14,2),
+  jbxi5accd NUMBER(14,2),
+  jbxi5asuc NUMBER(3),
+  jbxi5atcu CHAR(2),
+  jbxi5aim1 NUMBER(17,2),
+  jbxi5aim2 NUMBER(17,2),
+  jbxi5aim3 NUMBER(17,2),
+  jbxi5afc1 DATE,
+  jbxi5afc2 DATE,
+  jbxi5afc3 DATE
+)
+;
+create index JBXI5A03 on JBXI5A (JBXI5AFPH);
+alter table JBXI5A
+  add primary key (JBXI5APRO, JBXI5ATAR, JBXI5AFPH);
+

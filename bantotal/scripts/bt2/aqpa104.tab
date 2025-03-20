@@ -1,0 +1,30 @@
+create table AQPA104
+(
+  aqpa104sec NUMBER(15) not null,
+  aqpa104tgo NUMBER(2),
+  aqpa104grn NUMBER(7),
+  aqpa104pgo NUMBER(3),
+  aqpa104cta NUMBER(9),
+  aqpa104fec DATE,
+  aqpa104mod NUMBER(3),
+  aqpa104suc NUMBER(3),
+  aqpa104trx NUMBER(3),
+  aqpa104rel NUMBER(4),
+  aqpa104ord NUMBER(2),
+  aqpa104sub NUMBER(3),
+  aqpa104usr CHAR(10),
+  aqpa104ax1 NUMBER(9),
+  aqpa104ax2 NUMBER(9),
+  aqpa104ax3 NUMBER(17,2),
+  aqpa104ax4 NUMBER(17,2),
+  aqpa104ax5 DATE,
+  aqpa104ax6 DATE,
+  aqpa104ax7 CHAR(100),
+  aqpa104ax8 CHAR(100),
+  aqpa104ax9 CHAR(100)
+)
+;
+create index AQPA1042 on AQPA104 (AQPA104PGO, AQPA104SUC, AQPA104MOD, AQPA104TRX, AQPA104REL, AQPA104ORD, AQPA104SUB, AQPA104FEC);
+alter table AQPA104
+  add primary key (AQPA104SEC);
+

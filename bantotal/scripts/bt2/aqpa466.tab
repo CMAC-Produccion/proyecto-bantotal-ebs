@@ -1,0 +1,63 @@
+create table AQPA466
+(
+  aqpa466serie CHAR(4) not null,
+  aqpa466corr  NUMBER not null,
+  aqpa466pgcod NUMBER,
+  aqpa466mod   NUMBER,
+  aqpa466sucor NUMBER,
+  aqpa466tran  NUMBER,
+  aqpa466rel   NUMBER,
+  aqpa466con   DATE,
+  aqpa466msgs  VARCHAR2(3000),
+  aqpa466msgt  VARCHAR2(3000),
+  aqpa466usu   CHAR(12),
+  aqpa466hor   CHAR(8),
+  aqpa466hash  VARCHAR2(250),
+  aqpa466fec   DATE,
+  aqpa466est   CHAR(1),
+  aqpa466usud  CHAR(12),
+  aqpa466fecd  DATE,
+  aqpa466hord  CHAR(8)
+)
+;
+comment on column AQPA466.aqpa466serie
+  is 'Numero de Serie';
+comment on column AQPA466.aqpa466corr
+  is 'Correlativo';
+comment on column AQPA466.aqpa466pgcod
+  is 'Codigo Empresa interno';
+comment on column AQPA466.aqpa466mod
+  is 'Codigo Modulo interno';
+comment on column AQPA466.aqpa466sucor
+  is 'Codigo Sucursal interno';
+comment on column AQPA466.aqpa466tran
+  is 'Codigo Transaccion interno';
+comment on column AQPA466.aqpa466rel
+  is 'Codigo Relacion interno';
+comment on column AQPA466.aqpa466con
+  is 'Fecha interno';
+comment on column AQPA466.aqpa466msgs
+  is 'Mensaje SUNAT';
+comment on column AQPA466.aqpa466msgt
+  is 'Mensaje TCI';
+comment on column AQPA466.aqpa466usu
+  is 'Usuario registro Interno';
+comment on column AQPA466.aqpa466hor
+  is 'Hora registro Interno';
+comment on column AQPA466.aqpa466hash
+  is 'Codigo Hash';
+comment on column AQPA466.aqpa466fec
+  is 'Fecha registro Interno';
+comment on column AQPA466.aqpa466est
+  is 'Estado';
+comment on column AQPA466.aqpa466usud
+  is 'Usuario que descargo PDF';
+comment on column AQPA466.aqpa466fecd
+  is 'Fecha de descarga PDF';
+comment on column AQPA466.aqpa466hord
+  is 'Hora de descarga PDF';
+create index AQPA466_01 on AQPA466 (AQPA466SERIE, AQPA466CORR, AQPA466PGCOD, AQPA466MOD, AQPA466SUCOR, AQPA466TRAN, AQPA466REL, AQPA466CON, AQPA466HASH);
+create index AQPA4663 on AQPA466 (AQPA466SERIE, AQPA466CORR);
+alter table AQPA466
+  add primary key (AQPA466SERIE, AQPA466CORR);
+

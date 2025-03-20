@@ -1,0 +1,12 @@
+create table SNG097
+(
+  sng097req  NUMBER(9) not null,
+  sng097tido NUMBER(1) not null,
+  sng097codo NUMBER(10) not null,
+  sng097dedo CHAR(60),
+  sng097pose CHAR(60)
+)
+;
+alter table SNG097
+  add primary key (SNG097REQ, SNG097TIDO, SNG097CODO);
+

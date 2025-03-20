@@ -1,0 +1,22 @@
+create table AQPB613E
+(
+  aqpb613eeval   NUMBER(10),
+  aqpb613epdoc   NUMBER(3),
+  aqpb613etdoc   NUMBER(2),
+  aqpb613endoc   CHAR(12),
+  aqpb613efec    DATE,
+  aqpb613eusu    CHAR(10),
+  aqpb613esol    NUMBER(10) not null,
+  aqpb613etmod   NUMBER(4),
+  aqpb613eeeff   DATE,
+  aqpb613efeclog DATE not null,
+  aqpb613ehorlog VARCHAR2(15) not null
+)
+;
+comment on column AQPB613E.aqpb613efeclog
+  is 'Fecha Log';
+comment on column AQPB613E.aqpb613ehorlog
+  is 'Hora log ';
+alter table AQPB613E
+  add primary key (AQPB613ESOL, AQPB613EFECLOG, AQPB613EHORLOG);
+

@@ -1,0 +1,36 @@
+create table JAQL824R
+(
+  jaql824apl  NUMBER(3) not null,
+  jaql824ban  CHAR(4) not null,
+  jaql824env  NUMBER(9) not null,
+  jaql824rreg NUMBER(9) not null,
+  jaql824rcru CHAR(2),
+  jaql824rcem CHAR(3),
+  jaql824rcse CHAR(2),
+  jaql824rmon CHAR(2),
+  jaql824rcde CHAR(20),
+  jaql824rccu CHAR(8),
+  jaql824rndo CHAR(15),
+  jaql824rfpa DATE,
+  jaql824rhpa CHAR(6),
+  jaql824ripa NUMBER(12,2),
+  jaql824rimo NUMBER(6,2),
+  jaql824ride NUMBER(6,2),
+  jaql824rfem DATE,
+  jaql824rfve DATE,
+  jaql824rnop CHAR(8),
+  jaql824rnch CHAR(10),
+  jaql824rich CHAR(1),
+  jaql824rbla CHAR(2),
+  jaql824rdpr CHAR(200),
+  jaql824rfla NUMBER(1),
+  jaql824rmod NUMBER(3),
+  jaql824rtrn NUMBER(3),
+  jaql824rsuc NUMBER(3),
+  jaql824rrel NUMBER(4),
+  jaql824rnde CHAR(30)
+)
+;
+alter table JAQL824R
+  add primary key (JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824RREG);
+

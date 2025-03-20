@@ -1,0 +1,188 @@
+create table AQPD501H
+(
+  owner                     VARCHAR2(30) not null,
+  table_name                VARCHAR2(30) not null,
+  tablespace_name           VARCHAR2(30),
+  num_rows                  NUMBER,
+  last_analyzed             DATE,
+  fecha                     DATE,
+  aplicado                  CHAR(1),
+  fecini                    DATE,
+  fecfin                    DATE,
+  grupo                     NUMBER,
+  cluster_name              VARCHAR2(30),
+  iot_name                  VARCHAR2(2000),
+  status                    VARCHAR2(8),
+  pct_free                  NUMBER,
+  pct_used                  NUMBER,
+  ini_trans                 NUMBER,
+  max_trans                 NUMBER,
+  initial_extent            NUMBER,
+  next_extent               NUMBER,
+  min_extents               NUMBER,
+  max_extents               NUMBER,
+  pct_increase              NUMBER,
+  freelists                 NUMBER,
+  freelist_groups           NUMBER,
+  logging                   VARCHAR2(3),
+  backed_up                 VARCHAR2(1),
+  blocks                    NUMBER,
+  empty_blocks              NUMBER,
+  avg_space                 NUMBER,
+  chain_cnt                 NUMBER,
+  avg_row_len               NUMBER,
+  avg_space_freelist_blocks NUMBER,
+  num_freelist_blocks       NUMBER,
+  degree                    VARCHAR2(10),
+  instances                 VARCHAR2(10),
+  cache                     VARCHAR2(5),
+  table_lock                VARCHAR2(8),
+  sample_size               NUMBER,
+  partitioned               VARCHAR2(3),
+  iot_type                  VARCHAR2(12),
+  temporary                 VARCHAR2(1),
+  secondary                 VARCHAR2(1),
+  nested                    VARCHAR2(3),
+  buffer_pool               VARCHAR2(7),
+  flash_cache               VARCHAR2(7),
+  cell_flash_cache          VARCHAR2(7),
+  row_movement              VARCHAR2(8),
+  global_stats              VARCHAR2(3),
+  user_stats                VARCHAR2(3),
+  duration                  VARCHAR2(15),
+  skip_corrupt              VARCHAR2(8),
+  monitoring                VARCHAR2(3),
+  cluster_owner             VARCHAR2(30),
+  dependencies              VARCHAR2(8),
+  compression               VARCHAR2(8),
+  compress_for              VARCHAR2(12),
+  dropped                   VARCHAR2(3),
+  read_only                 VARCHAR2(3),
+  segment_created           VARCHAR2(3),
+  result_cache              VARCHAR2(7)
+)
+;
+comment on table AQPD501H
+  is 'Tabla Registro Estadísticas Tablas Bantotal Histórico';
+comment on column AQPD501H.owner
+  is 'DBA_TABLES.OWNER';
+comment on column AQPD501H.table_name
+  is 'DBA_TABLES.TABLE_NAME';
+comment on column AQPD501H.tablespace_name
+  is 'DBA_TABLES.TABLESPACE_NAME';
+comment on column AQPD501H.num_rows
+  is 'DBA_TABLES.NUM_ROWS';
+comment on column AQPD501H.last_analyzed
+  is 'DBA_TABLES.LAST_ANALYZED';
+comment on column AQPD501H.fecha
+  is 'DBA_TABLES.FECHA';
+comment on column AQPD501H.aplicado
+  is 'DBA_TABLES.APLICADO';
+comment on column AQPD501H.fecini
+  is 'DBA_TABLES.FECINI';
+comment on column AQPD501H.fecfin
+  is 'DBA_TABLES.FECFIN';
+comment on column AQPD501H.grupo
+  is 'DBA_TABLES.GRUPO';
+comment on column AQPD501H.cluster_name
+  is 'DBA_TABLES.CLUSTER_NAME';
+comment on column AQPD501H.iot_name
+  is 'DBA_TABLES.IOT_NAME';
+comment on column AQPD501H.status
+  is 'DBA_TABLES.STATUS';
+comment on column AQPD501H.pct_free
+  is 'DBA_TABLES.PCT_FREE';
+comment on column AQPD501H.pct_used
+  is 'DBA_TABLES.PCT_USED';
+comment on column AQPD501H.ini_trans
+  is 'DBA_TABLES.INI_TRANS';
+comment on column AQPD501H.max_trans
+  is 'DBA_TABLES.MAX_TRANS';
+comment on column AQPD501H.initial_extent
+  is 'DBA_TABLES.INITIAL_EXTENT';
+comment on column AQPD501H.next_extent
+  is 'DBA_TABLES.NEXT_EXTENT';
+comment on column AQPD501H.min_extents
+  is 'DBA_TABLES.MIN_EXTENTS';
+comment on column AQPD501H.max_extents
+  is 'DBA_TABLES.MAX_EXTENTS';
+comment on column AQPD501H.pct_increase
+  is 'DBA_TABLES.PCT_INCREASE';
+comment on column AQPD501H.freelists
+  is 'DBA_TABLES.FREELISTS';
+comment on column AQPD501H.freelist_groups
+  is 'DBA_TABLES.FREELIST_GROUPS';
+comment on column AQPD501H.logging
+  is 'DBA_TABLES.LOGGING';
+comment on column AQPD501H.backed_up
+  is 'DBA_TABLES.BACKED_UP';
+comment on column AQPD501H.blocks
+  is 'DBA_TABLES.BLOCKS';
+comment on column AQPD501H.empty_blocks
+  is 'DBA_TABLES.EMPTY_BLOCKS';
+comment on column AQPD501H.avg_space
+  is 'DBA_TABLES.AVG_SPACE';
+comment on column AQPD501H.chain_cnt
+  is 'DBA_TABLES.CHAIN_CNT';
+comment on column AQPD501H.avg_row_len
+  is 'DBA_TABLES.AVG_ROW_LEN';
+comment on column AQPD501H.avg_space_freelist_blocks
+  is 'DBA_TABLES.AVG_SPACE_FREELIST_BLOCKS';
+comment on column AQPD501H.num_freelist_blocks
+  is 'DBA_TABLES.NUM_FREELIST_BLOCKS';
+comment on column AQPD501H.degree
+  is 'DBA_TABLES.DEGREE';
+comment on column AQPD501H.instances
+  is 'DBA_TABLES.INSTANCES';
+comment on column AQPD501H.cache
+  is 'DBA_TABLES.CACHE';
+comment on column AQPD501H.table_lock
+  is 'DBA_TABLES.TABLE_LOCK';
+comment on column AQPD501H.sample_size
+  is 'DBA_TABLES.SAMPLE_SIZE';
+comment on column AQPD501H.partitioned
+  is 'DBA_TABLES.PARTITIONED';
+comment on column AQPD501H.iot_type
+  is 'DBA_TABLES.IOT_TYPE';
+comment on column AQPD501H.temporary
+  is 'DBA_TABLES.TEMPORARY';
+comment on column AQPD501H.secondary
+  is 'DBA_TABLES.SECONDARY';
+comment on column AQPD501H.nested
+  is 'DBA_TABLES.NESTED';
+comment on column AQPD501H.buffer_pool
+  is 'DBA_TABLES.BUFFER_POOL';
+comment on column AQPD501H.flash_cache
+  is 'DBA_TABLES.FLASH_CACHE';
+comment on column AQPD501H.cell_flash_cache
+  is 'DBA_TABLES.CELL_FLASH_CACHE';
+comment on column AQPD501H.row_movement
+  is 'DBA_TABLES.ROW_MOVEMENT';
+comment on column AQPD501H.global_stats
+  is 'DBA_TABLES.GLOBAL_STATS';
+comment on column AQPD501H.user_stats
+  is 'DBA_TABLES.USER_STATS';
+comment on column AQPD501H.duration
+  is 'DBA_TABLES.DURATION';
+comment on column AQPD501H.skip_corrupt
+  is 'DBA_TABLES.SKIP_CORRUPT';
+comment on column AQPD501H.monitoring
+  is 'DBA_TABLES.MONITORING';
+comment on column AQPD501H.cluster_owner
+  is 'DBA_TABLES.CLUSTER_OWNER';
+comment on column AQPD501H.dependencies
+  is 'DBA_TABLES.DEPENDENCIES';
+comment on column AQPD501H.compression
+  is 'DBA_TABLES.COMPRESSION';
+comment on column AQPD501H.compress_for
+  is 'DBA_TABLES.COMPRESS_FOR';
+comment on column AQPD501H.dropped
+  is 'DBA_TABLES.DROPPED';
+comment on column AQPD501H.read_only
+  is 'DBA_TABLES.READ_ONLY';
+comment on column AQPD501H.segment_created
+  is 'DBA_TABLES.SEGMENT_CREATED';
+comment on column AQPD501H.result_cache
+  is 'DBA_TABLES.RESULT_CACHE';
+create index AQPD501HA2 on AQPD501H (TABLE_NAME, FECHA);
+

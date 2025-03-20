@@ -1,0 +1,17 @@
+create table FBC901
+(
+  fbc901pais NUMBER(3) not null,
+  fbc901tdoc NUMBER(2) not null,
+  fbc901ndoc CHAR(12) not null,
+  fbc901tipt CHAR(1) not null,
+  fbc901resi CHAR(1) not null,
+  fbc901mda  CHAR(1) not null,
+  fbc901disp CHAR(1) not null,
+  fbc901tcta CHAR(1) not null,
+  fbc901mto  NUMBER(17,2),
+  fbc901cnt  NUMBER(11)
+)
+;
+alter table FBC901
+  add primary key (FBC901PAIS, FBC901TDOC, FBC901NDOC, FBC901TIPT, FBC901RESI, FBC901MDA, FBC901DISP, FBC901TCTA);
+

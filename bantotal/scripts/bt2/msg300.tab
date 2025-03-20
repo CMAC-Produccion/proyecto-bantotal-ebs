@@ -1,0 +1,13 @@
+create table MSG300
+(
+  estmcod     NUMBER(5) not null,
+  astcod      NUMBER(3) not null,
+  astnom      CHAR(40),
+  astcmt      VARCHAR2(255),
+  astcntpag   NUMBER(3),
+  astultpagid NUMBER(3)
+)
+;
+alter table MSG300
+  add primary key (ESTMCOD, ASTCOD);
+

@@ -1,0 +1,38 @@
+create table JAQZ885
+(
+  jaqz885cor  NUMBER(10) not null,
+  jaqz885fep  DATE not null,
+  jaqz885usu  VARCHAR2(20) not null,
+  jaqz885fed  DATE,
+  jaqz885aux1 NUMBER(3),
+  jaqz885aux2 NUMBER(16,2),
+  jaqz885aux3 CHAR(1),
+  jaqz885aux4 VARCHAR2(50),
+  jaqz885aux5 DATE,
+  jaqz885aux6 VARCHAR2(50)
+)
+;
+comment on column JAQZ885.jaqz885cor
+  is 'CORRELATIVO';
+comment on column JAQZ885.jaqz885fep
+  is 'FECHA PROCESO';
+comment on column JAQZ885.jaqz885usu
+  is 'USUARIO PROCESO';
+comment on column JAQZ885.jaqz885fed
+  is 'FECHA DE DEPURACION';
+comment on column JAQZ885.jaqz885aux1
+  is 'AUXILIAR NUMERICO';
+comment on column JAQZ885.jaqz885aux2
+  is 'AUXILIAR IMPORTE';
+comment on column JAQZ885.jaqz885aux3
+  is 'AUXILIAR DATO';
+comment on column JAQZ885.jaqz885aux4
+  is 'TABLA BACKUP';
+comment on column JAQZ885.jaqz885aux5
+  is 'AUXILIAR FECHA';
+comment on column JAQZ885.jaqz885aux6
+  is 'AUXILIAR DATO';
+create index JAQZ88501 on JAQZ885 (JAQZ885FED);
+alter table JAQZ885
+  add primary key (JAQZ885COR, JAQZ885FEP, JAQZ885USU);
+

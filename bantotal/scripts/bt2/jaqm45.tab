@@ -1,0 +1,64 @@
+create table JAQM45
+(
+  jaqm45cod NUMBER(5) not null,
+  jaqm45flj CHAR(50) not null,
+  jaqm45nom VARCHAR2(255),
+  jaqm45des VARCHAR2(255),
+  jaqm45pro CHAR(20),
+  jaqm45est CHAR(1),
+  jaqm45an1 NUMBER(9),
+  jaqm45an2 NUMBER(9),
+  jaqm45an3 NUMBER(9),
+  jaqm45ac1 VARCHAR2(255),
+  jaqm45ac2 VARCHAR2(255),
+  jaqm45ac3 VARCHAR2(255),
+  jaqm45af1 DATE,
+  jaqm45af2 DATE,
+  jaqm45af3 DATE,
+  jaqm45ai1 NUMBER(17,2),
+  jaqm45ai2 NUMBER(17,2),
+  jaqm45ai3 NUMBER(17,2)
+)
+;
+comment on table JAQM45
+  is 'Módulo de Poderes Etapas Maestros';
+comment on column JAQM45.jaqm45cod
+  is 'Código de etapa';
+comment on column JAQM45.jaqm45flj
+  is 'Flujo';
+comment on column JAQM45.jaqm45nom
+  is 'Nombre';
+comment on column JAQM45.jaqm45des
+  is 'Descripción';
+comment on column JAQM45.jaqm45pro
+  is 'Programa que resuelve';
+comment on column JAQM45.jaqm45est
+  is 'Estado';
+comment on column JAQM45.jaqm45an1
+  is 'Auxiliar numérico 1';
+comment on column JAQM45.jaqm45an2
+  is 'Auxiliar numérico 2';
+comment on column JAQM45.jaqm45an3
+  is 'Auxiliar numérico 3';
+comment on column JAQM45.jaqm45ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM45.jaqm45ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM45.jaqm45ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM45.jaqm45af1
+  is 'Auxiliar fecha 1';
+comment on column JAQM45.jaqm45af2
+  is 'Auxiliar fecha 2';
+comment on column JAQM45.jaqm45af3
+  is 'Auxiliar fecha 3';
+comment on column JAQM45.jaqm45ai1
+  is 'Auxiliar importe 1';
+comment on column JAQM45.jaqm45ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM45.jaqm45ai3
+  is 'Auxiliar importe 3';
+create index JAQM45A2 on JAQM45 (JAQM45FLJ, JAQM45COD);
+alter table JAQM45
+  add primary key (JAQM45COD, JAQM45FLJ);
+

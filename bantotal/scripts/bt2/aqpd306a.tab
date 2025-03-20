@@ -1,0 +1,45 @@
+create table AQPD306A
+(
+  aqpd306acreusr VARCHAR2(10) not null,
+  aqpd306acreseq NUMBER(9) not null,
+  aqpd306acretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpd306afecini DATE,
+  aqpd306afecfin DATE,
+  aqpd306acanops NUMBER(3),
+  aqpd306aopstip VARCHAR2(10),
+  aqpd306aopsotr VARCHAR2(150),
+  aqpd306acanmot NUMBER(3),
+  aqpd306amottip NUMBER(3),
+  aqpd306amototr VARCHAR2(150),
+  aqpd306alinqty NUMBER(9)
+)
+;
+comment on table AQPD306A
+  is 'RR2 - Reporte';
+comment on column AQPD306A.aqpd306acreusr
+  is 'Usuario';
+comment on column AQPD306A.aqpd306acreseq
+  is 'Código';
+comment on column AQPD306A.aqpd306acretim
+  is 'Time';
+comment on column AQPD306A.aqpd306afecini
+  is 'Fecha Inicio';
+comment on column AQPD306A.aqpd306afecfin
+  is 'Fecha Fin';
+comment on column AQPD306A.aqpd306acanops
+  is 'OPS - Canal Operación';
+comment on column AQPD306A.aqpd306aopstip
+  is 'OPS - Tipificado';
+comment on column AQPD306A.aqpd306aopsotr
+  is 'OPS - Otros';
+comment on column AQPD306A.aqpd306acanmot
+  is 'Motivo - Canal Operación';
+comment on column AQPD306A.aqpd306amottip
+  is 'Motivo - Tipificado';
+comment on column AQPD306A.aqpd306amototr
+  is 'Motivo - Otros';
+comment on column AQPD306A.aqpd306alinqty
+  is 'Cantidad';
+alter table AQPD306A
+  add primary key (AQPD306ACREUSR, AQPD306ACRESEQ);
+

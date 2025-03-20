@@ -1,0 +1,41 @@
+create table FSF092
+(
+  lgpgcod    NUMBER(3) not null,
+  lgfinro    NUMBER(3) not null,
+  lgfecha    DATE not null,
+  lgctnro    NUMBER(9) not null,
+  lgnroprog  NUMBER(2) not null,
+  lghecho    CHAR(1),
+  lgretimp   NUMBER(17,2),
+  lgtiporet  NUMBER(1),
+  lgtitular  CHAR(50),
+  lgtitci    CHAR(12),
+  lgttcod    NUMBER(2),
+  lgdirec    CHAR(65),
+  lglocalid  CHAR(20),
+  lgtelef    CHAR(20),
+  lgdepto    NUMBER(5),
+  lgautoriz  CHAR(50),
+  lgautci    CHAR(12),
+  lgobserv   CHAR(30),
+  lgnoorden  CHAR(1),
+  lgbanco    CHAR(20),
+  lgbcolocal CHAR(1),
+  lgsucur    CHAR(20),
+  lgnrocta   CHAR(20),
+  lgtitbco   CHAR(35),
+  lgcoment   CHAR(65),
+  lgimpcom   NUMBER(17,2),
+  lgimpimp   NUMBER(17,2),
+  lgimpiva   NUMBER(17,2),
+  lghcmod    NUMBER(3),
+  lghsucor   NUMBER(3),
+  lghtran    NUMBER(3),
+  lghnrel    NUMBER(4)
+)
+;
+create index FSF09202 on FSF092 (LGPGCOD, LGFINRO, LGCTNRO, LGFECHA);
+create index FSF09203 on FSF092 (LGPGCOD, LGFINRO, LGHECHO, LGFECHA, LGCTNRO);
+alter table FSF092
+  add primary key (LGPGCOD, LGFINRO, LGFECHA, LGCTNRO, LGNROPROG);
+

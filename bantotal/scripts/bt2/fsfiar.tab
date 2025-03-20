@@ -1,0 +1,24 @@
+create table FSFIAR
+(
+  sfi44cod  NUMBER(3) not null,
+  sfiargru  NUMBER(2) not null,
+  sfiardesc CHAR(35),
+  sfiarcom  NUMBER(3),
+  sfiarmod  NUMBER(3),
+  sfiarhab  CHAR(1),
+  sfiarcar1 CHAR(1),
+  sfiarcar2 CHAR(1),
+  sfiarcar3 CHAR(1),
+  sfiarnum1 NUMBER(9),
+  sfiarnum2 NUMBER(9),
+  sfiarnum3 NUMBER(9),
+  sfiarnum4 NUMBER(9),
+  sfiarnum5 NUMBER(9),
+  sfiartxt1 CHAR(20),
+  sfiartxt2 CHAR(20),
+  sfiartxt3 CHAR(20)
+)
+;
+alter table FSFIAR
+  add primary key (SFI44COD, SFIARGRU);
+

@@ -1,0 +1,40 @@
+create table JAQL623
+(
+  jaql623trxid  NUMBER(18) not null,
+  jaql623ftrid  NUMBER(18) not null,
+  jaql623etrid  VARCHAR2(256),
+  jaql623datim  DATE,
+  jaql623iuser  VARCHAR2(64),
+  jaql623ruser  VARCHAR2(64),
+  jaql623froid  VARCHAR2(64),
+  jaql623fmsdn  VARCHAR2(20),
+  jaql623fusna  VARCHAR2(64),
+  jaql623fprfi  VARCHAR2(64),
+  jaql623facid  VARCHAR2(64),
+  jaql623facty  VARCHAR2(20),
+  jaql623frfee  NUMBER(17,2),
+  jaql623flrew  VARCHAR2(20),
+  jaql623flfee  VARCHAR2(20),
+  jaql623toid   VARCHAR2(64),
+  jaql623tisdn  VARCHAR2(20),
+  jaql623tusna  VARCHAR2(64),
+  jaql623tprof  VARCHAR2(64),
+  jaql623taccid VARCHAR2(64),
+  jaql623tccty  VARCHAR2(20),
+  jaql623tofee  NUMBER(17,2),
+  jaql623tlrew  VARCHAR2(20),
+  jaql623tlfee  VARCHAR2(20),
+  jaql623trxty  VARCHAR2(64),
+  jaql623amoun  NUMBER(17,2),
+  jaql623curren VARCHAR2(3),
+  jaql623trxst  VARCHAR2(20),
+  jaql623contx  VARCHAR2(64),
+  jaql623comme  VARCHAR2(512),
+  jaql623fearc  DATE,
+  jaql623idarc  NUMBER(18),
+  jaql623tirep  CHAR(1)
+)
+;
+alter table JAQL623
+  add primary key (JAQL623TRXID, JAQL623FTRID);
+

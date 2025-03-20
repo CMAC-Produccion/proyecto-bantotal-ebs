@@ -1,0 +1,51 @@
+create table FVAC25
+(
+  vac24int  NUMBER(3) not null,
+  vac24tpo  NUMBER(3) not null,
+  vac24nro  NUMBER(9) not null,
+  vac24bol  NUMBER(9) not null,
+  vac25cor  NUMBER(5) not null,
+  vac25nch  NUMBER(15),
+  vac25imc  NUMBER(17,2),
+  vac25loc  NUMBER(6),
+  vac25ctg  NUMBER(15),
+  vac25bcol NUMBER(3),
+  vac25sucl NUMBER(4),
+  vac25cps  CHAR(12),
+  vac25emc  NUMBER(3),
+  vac25bcoc NUMBER(3),
+  vac25succ NUMBER(3),
+  vac25pzo  NUMBER(3),
+  vac25est  CHAR(2),
+  vac25trun CHAR(1),
+  vac25tpch NUMBER(2),
+  vac25paid NUMBER(3),
+  vac25znad NUMBER(3),
+  vac25paic NUMBER(3),
+  vac25znac NUMBER(3),
+  vac25pgc  NUMBER(3),
+  vac25mod  NUMBER(3),
+  vac25suc  NUMBER(3),
+  vac25tra  NUMBER(3),
+  vac25rel  NUMBER(4),
+  vac25fco  DATE,
+  vac25ord  NUMBER(2),
+  vac25sbo  NUMBER(3),
+  vac25con  CHAR(1),
+  vac25anu  CHAR(1),
+  vac25std  CHAR(1),
+  vac25fcd  DATE,
+  vac25fcr  DATE,
+  vac25ax1  CHAR(5),
+  vac25ax2  NUMBER(5),
+  vac25ax3  DATE
+)
+;
+create index FVAC2503 on FVAC25 (VAC24INT, VAC24TPO, VAC24BOL, VAC25COR);
+create index FVAC2504 on FVAC25 (VAC24BOL, VAC25NCH);
+create index FVAC2505 on FVAC25 (VAC25PGC, VAC25MOD, VAC25SUC, VAC25TRA, VAC25REL, VAC25FCO, VAC25ORD, VAC25SBO);
+create index FVAC2506 on FVAC25 (VAC25PGC, VAC25FCD, VAC25STD);
+create index FVAC2507 on FVAC25 (VAC25PGC, VAC25FCR, VAC25ANU);
+alter table FVAC25
+  add primary key (VAC24INT, VAC24TPO, VAC24NRO, VAC24BOL, VAC25COR);
+

@@ -1,0 +1,10 @@
+create table SCR002
+(
+  scrx1 CHAR(64) not null,
+  scrg1 CHAR(64) not null
+)
+;
+create index SCR00203 on SCR002 (SCRG1);
+alter table SCR002
+  add primary key (SCRX1, SCRG1);
+

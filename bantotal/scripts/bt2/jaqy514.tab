@@ -1,0 +1,22 @@
+create table JAQY514
+(
+  jaqy514pgc NUMBER(3) not null,
+  jaqy514mod NUMBER(3) not null,
+  jaqy514suc NUMBER(3) not null,
+  jaqy514mda NUMBER(4) not null,
+  jaqy514pap NUMBER(4) not null,
+  jaqy514cta NUMBER(9) not null,
+  jaqy514ope NUMBER(9) not null,
+  jaqy514sbo NUMBER(3) not null,
+  jaqy514top NUMBER(3) not null,
+  jaqy514cor NUMBER(10),
+  jaqy514fec DATE,
+  jaqy514its NUMBER(3),
+  jaqy514sdo NUMBER(17,2),
+  jaqy514evt NUMBER(10)
+)
+;
+create index INX_JAQY514_01 on JAQY514 (JAQY514PGC, JAQY514CTA, JAQY514OPE, JAQY514PAP, JAQY514MDA);
+alter table JAQY514
+  add primary key (JAQY514PGC, JAQY514MOD, JAQY514SUC, JAQY514MDA, JAQY514PAP, JAQY514CTA, JAQY514OPE, JAQY514SBO, JAQY514TOP);
+

@@ -1,0 +1,22 @@
+create table SNG102
+(
+  sng102gnro NUMBER(9) not null,
+  sng102gnom CHAR(30),
+  sng102gnex CHAR(60),
+  sng102sts  CHAR(1),
+  sng100tgcd NUMBER(3),
+  sng102fec1 DATE,
+  sng102fec2 DATE,
+  sng102falt DATE,
+  sng102user CHAR(10),
+  sng102mda  NUMBER(4),
+  sng102bloq CHAR(1),
+  sng102nsec NUMBER(7),
+  sng102age  NUMBER(3),
+  sng102ase  CHAR(10)
+)
+;
+create index SNG10203 on SNG102 (SNG100TGCD, SNG102GNRO);
+alter table SNG102
+  add primary key (SNG102GNRO);
+

@@ -1,0 +1,23 @@
+create table FSD525
+(
+  pgcod  NUMBER(3) not null,
+  tamod  NUMBER(3) not null,
+  tpizar NUMBER(2) not null,
+  tapap  NUMBER(4) not null,
+  tamda  NUMBER(4) not null,
+  tvsegc NUMBER(9) not null,
+  tvsuc  NUMBER(3) not null,
+  tvfdes DATE not null,
+  tvfinv NUMBER(8),
+  tvporc NUMBER(7,4),
+  tvfhas DATE
+)
+;
+create index FSD52502 on FSD525 (TAMDA);
+create index FSD52503 on FSD525 (TAPAP);
+create index FSD52504 on FSD525 (TAMOD);
+create index FSD52505 on FSD525 (TPIZAR);
+create index FSD52507 on FSD525 (PGCOD, TAMOD, TPIZAR, TAPAP, TAMDA, TVSEGC, TVSUC, TVFINV);
+alter table FSD525
+  add primary key (PGCOD, TAMOD, TPIZAR, TAPAP, TAMDA, TVSEGC, TVSUC, TVFDES);
+

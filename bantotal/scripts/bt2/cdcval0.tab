@@ -1,0 +1,14 @@
+create table CDCVAL0
+(
+  cdcvalid   NUMBER(17) not null,
+  cdcvaldsp  CHAR(20),
+  cdcvaldsc  CHAR(80),
+  cdcvaliedi NUMBER(18),
+  cdcvalieju NUMBER(18),
+  cdcvaliult NUMBER(18),
+  cdcvaldels CHAR(1)
+)
+;
+alter table CDCVAL0
+  add primary key (CDCVALID);
+

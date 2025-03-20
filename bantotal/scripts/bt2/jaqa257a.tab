@@ -1,0 +1,128 @@
+create table JAQA257A
+(
+  jaqa257emp NUMBER(3),
+  jaqa257mod NUMBER(3),
+  jaqa257suc NUMBER(3),
+  jaqa257mda NUMBER(4),
+  jaqa257pap NUMBER(4),
+  jaqa257cta NUMBER(9),
+  jaqa257ope NUMBER(9),
+  jaqa257sbo NUMBER(3),
+  jaqa257tpo NUMBER(3),
+  jaqa257fec DATE,
+  jaqa257fre DATE,
+  jaqa257fpg DATE,
+  jaqa257est CHAR(1),
+  jaqa257tas NUMBER(10,6),
+  jaqa257nu1 NUMBER(9),
+  jaqa257nu2 NUMBER(9),
+  jaqa257nu3 NUMBER(9),
+  jaqa257im1 NUMBER(18,2),
+  jaqa257im2 NUMBER(18,2),
+  jaqa257im3 NUMBER(18,2),
+  jaqa257ch1 CHAR(1),
+  jaqa257ch2 CHAR(1),
+  jaqa257ch3 CHAR(1),
+  jaqa257va1 VARCHAR2(255),
+  jaqa257va2 VARCHAR2(255),
+  jaqa257va3 VARCHAR2(255),
+  jaqa257fe1 DATE,
+  jaqa257fe2 DATE,
+  jaqa257fe3 DATE,
+  jaqa257tea NUMBER(10,6),
+  jaqa257ta1 NUMBER(10,6),
+  jaqa257ta2 NUMBER(10,6),
+  jaqa257ta3 NUMBER(10,6),
+  jaqa257ta4 NUMBER(10,6),
+  jaqa257ta5 NUMBER(10,6),
+  jaqa257ta6 NUMBER(10,6),
+  jaqa257ccu NUMBER(5),
+  jaqa257pcu NUMBER(5),
+  jaqa257scr NUMBER(18,2),
+  jaqa257vcu NUMBER(18,2)
+)
+;
+comment on table JAQA257A
+  is 'Tabla para recalculo de cronogramas - PJAQA269';
+comment on column JAQA257A.jaqa257emp
+  is 'empresa';
+comment on column JAQA257A.jaqa257mod
+  is 'modulo';
+comment on column JAQA257A.jaqa257suc
+  is 'sucursal';
+comment on column JAQA257A.jaqa257mda
+  is 'moneda';
+comment on column JAQA257A.jaqa257pap
+  is 'papel';
+comment on column JAQA257A.jaqa257cta
+  is 'cuenta';
+comment on column JAQA257A.jaqa257ope
+  is 'operacion';
+comment on column JAQA257A.jaqa257sbo
+  is 'sub operacion';
+comment on column JAQA257A.jaqa257tpo
+  is 'tipo operacion';
+comment on column JAQA257A.jaqa257fec
+  is 'fecha';
+comment on column JAQA257A.jaqa257fre
+  is 'fecha reg';
+comment on column JAQA257A.jaqa257fpg
+  is 'fecha primer pago';
+comment on column JAQA257A.jaqa257est
+  is 'estado';
+comment on column JAQA257A.jaqa257tas
+  is 'tasa';
+comment on column JAQA257A.jaqa257nu1
+  is 'numero 1';
+comment on column JAQA257A.jaqa257nu2
+  is 'numero 2';
+comment on column JAQA257A.jaqa257nu3
+  is 'numero 3';
+comment on column JAQA257A.jaqa257im1
+  is 'importe 1';
+comment on column JAQA257A.jaqa257im2
+  is 'importe 2';
+comment on column JAQA257A.jaqa257im3
+  is 'importe 3';
+comment on column JAQA257A.jaqa257ch1
+  is 'indicador 1';
+comment on column JAQA257A.jaqa257ch2
+  is 'indicador 2';
+comment on column JAQA257A.jaqa257ch3
+  is 'indicador 3';
+comment on column JAQA257A.jaqa257va1
+  is 'texto 1';
+comment on column JAQA257A.jaqa257va2
+  is 'texto 2';
+comment on column JAQA257A.jaqa257va3
+  is 'texto 3';
+comment on column JAQA257A.jaqa257fe1
+  is 'fecha 1';
+comment on column JAQA257A.jaqa257fe2
+  is 'fecha 2';
+comment on column JAQA257A.jaqa257fe3
+  is 'fecha 3';
+comment on column JAQA257A.jaqa257tea
+  is 'tea';
+comment on column JAQA257A.jaqa257ta1
+  is 'tasa 1';
+comment on column JAQA257A.jaqa257ta2
+  is 'tasa 2';
+comment on column JAQA257A.jaqa257ta3
+  is 'tasa 3';
+comment on column JAQA257A.jaqa257ta4
+  is 'tasa 4';
+comment on column JAQA257A.jaqa257ta5
+  is 'tasa 5';
+comment on column JAQA257A.jaqa257ta6
+  is 'tasa 6';
+comment on column JAQA257A.jaqa257ccu
+  is 'cantidad cuotas';
+comment on column JAQA257A.jaqa257pcu
+  is 'cuotas pagadas';
+comment on column JAQA257A.jaqa257scr
+  is 'auxiliar';
+comment on column JAQA257A.jaqa257vcu
+  is 'valor';
+create index JAQZ257AA2 on JAQA257A (JAQA257CTA, JAQA257OPE);
+

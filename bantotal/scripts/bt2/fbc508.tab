@@ -1,0 +1,29 @@
+create table FBC508
+(
+  bc508emp  NUMBER(3) not null,
+  bc508inf  CHAR(10) not null,
+  bc508fch  DATE not null,
+  bc508cpo  CHAR(10) not null,
+  bc508id1  NUMBER(15) not null,
+  bc508id2  NUMBER(15) not null,
+  bc508id3  NUMBER(15) not null,
+  bc508id4  NUMBER(15) not null,
+  bc508id5  NUMBER(15) not null,
+  bc508fch1 DATE,
+  bc508fch2 DATE,
+  bc508fch3 DATE,
+  bc508imp1 NUMBER(17,2),
+  bc508imp2 NUMBER(17,2),
+  bc508imp3 NUMBER(17,2),
+  bc508nro1 NUMBER(10),
+  bc508nro2 NUMBER(10),
+  bc508nro3 NUMBER(10),
+  bc508chr1 CHAR(30),
+  bc508chr2 CHAR(30),
+  bc508chr3 CHAR(30)
+)
+;
+create index FBC50802 on FBC508 (BC508EMP, BC508INF, BC508FCH, BC508ID1, BC508ID2, BC508ID3, BC508ID4, BC508ID5, BC508CPO);
+alter table FBC508
+  add primary key (BC508EMP, BC508INF, BC508FCH, BC508CPO, BC508ID1, BC508ID2, BC508ID3, BC508ID4, BC508ID5);
+

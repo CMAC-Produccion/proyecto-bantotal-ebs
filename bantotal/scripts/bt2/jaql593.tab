@@ -1,0 +1,18 @@
+create table JAQL593
+(
+  jaql593emp NUMBER(3) not null,
+  jaql593usr CHAR(10) not null,
+  jaql593car NUMBER(3),
+  jaql593aut CHAR(1),
+  jaql593sup CHAR(10),
+  jaql593ini DATE,
+  jaql593fin DATE,
+  jaql593jef CHAR(10),
+  jaql593wkf CHAR(1),
+  jaql593prc NUMBER(10),
+  jaql593tsk NUMBER(10)
+)
+;
+alter table JAQL593
+  add constraint PK_JAQL593 primary key (JAQL593USR);
+

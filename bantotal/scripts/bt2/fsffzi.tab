@@ -1,0 +1,13 @@
+create table FSFFZI
+(
+  fsffzfcod NUMBER(3) not null,
+  fsffzgcod NUMBER(3) not null,
+  fsffzhcod NUMBER(3) not null,
+  fsffzicod NUMBER(3) not null,
+  fsffzidsc CHAR(35),
+  fsffzidia NUMBER(5)
+)
+;
+alter table FSFFZI
+  add primary key (FSFFZFCOD, FSFFZGCOD, FSFFZHCOD, FSFFZICOD);
+

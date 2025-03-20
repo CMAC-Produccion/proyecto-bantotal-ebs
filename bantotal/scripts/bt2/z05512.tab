@@ -1,0 +1,31 @@
+create table Z05512
+(
+  z05512cap NUMBER(4) not null,
+  z05512cba CHAR(5) not null,
+  z05512cor NUMBER(9) not null,
+  z05512co2 NUMBER(9) not null,
+  z05512ire CHAR(2),
+  z05512eds CHAR(4),
+  z05512mon CHAR(1),
+  z05512cas NUMBER(4),
+  z05512reg NUMBER(4),
+  z05512ep1 NUMBER(10),
+  z05512ep2 NUMBER(12,2),
+  z05512eps CHAR(1),
+  z05512rp1 NUMBER(10),
+  z05512rp2 NUMBER(12,2),
+  z05512rps CHAR(1),
+  z05512er1 NUMBER(10),
+  z05512er2 NUMBER(12,2),
+  z05512ers CHAR(1),
+  z05512rr1 NUMBER(10),
+  z05512rr2 NUMBER(12,2),
+  z05512rrs CHAR(1),
+  z05512sd2 NUMBER(12,2),
+  z05512sds CHAR(1),
+  z05512fi1 CHAR(30)
+)
+;
+alter table Z05512
+  add primary key (Z05512CAP, Z05512CBA, Z05512COR, Z05512CO2);
+

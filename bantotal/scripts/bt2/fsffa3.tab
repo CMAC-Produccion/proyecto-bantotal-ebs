@@ -1,0 +1,13 @@
+create table FSFFA3
+(
+  kgatrnemp NUMBER(3) not null,
+  kgatrnaa  NUMBER(4) not null,
+  kgatrnmm  NUMBER(2) not null,
+  kgaprocod NUMBER(5) not null,
+  kgatrncan NUMBER(9)
+)
+;
+create index FSFFA302 on FSFFA3 (KGAPROCOD);
+alter table FSFFA3
+  add primary key (KGATRNEMP, KGATRNAA, KGATRNMM, KGAPROCOD);
+

@@ -1,0 +1,26 @@
+create table HJAQL060
+(
+  jaql60fein  DATE not null,
+  jaql60hoin  CHAR(8) not null,
+  hjaql60pgco NUMBER(3) not null,
+  hjaql60pais NUMBER(3) not null,
+  hjaql60tdoc NUMBER(2) not null,
+  hjaql60ndoc CHAR(12) not null,
+  hjaql60sucu NUMBER(3),
+  hjaql60sapf NUMBER(17,2),
+  hjaql60sact NUMBER(17,2),
+  hjaql60saah NUMBER(17,2),
+  hjaql60sato NUMBER(17,2),
+  hjaql60fata NUMBER(17,2),
+  hjaql60faan NUMBER(17,2),
+  hjaql60cali CHAR(1),
+  hjaql60fech DATE,
+  hjaql60hora CHAR(8),
+  hjaql60moti CHAR(50),
+  hjaql60tipe NUMBER(1)
+)
+;
+create index IDX_JAQL60002 on HJAQL060 (HJAQL60PGCO, HJAQL60PAIS, HJAQL60TDOC, HJAQL60NDOC);
+alter table HJAQL060
+  add primary key (JAQL60FEIN, JAQL60HOIN, HJAQL60PGCO, HJAQL60PAIS, HJAQL60TDOC, HJAQL60NDOC);
+

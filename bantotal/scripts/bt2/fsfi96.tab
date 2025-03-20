@@ -1,0 +1,25 @@
+create table FSFI96
+(
+  sfi96emp  NUMBER(3) not null,
+  sfi96piz  NUMBER(3) not null,
+  sfi96esp  NUMBER(4) not null,
+  sfi96hab  CHAR(1),
+  sfi96val  CHAR(1),
+  sfi96aux1 CHAR(1),
+  sfi96aux2 CHAR(1),
+  sfi96aux3 CHAR(1),
+  sfi96imp1 NUMBER(17,2),
+  sfi96imp2 NUMBER(17,2),
+  sfi96mda1 NUMBER(4),
+  sfi96mda2 NUMBER(4),
+  sfi96tol1 NUMBER(8,6),
+  sfi96tol2 NUMBER(8,6),
+  sfi96aux4 CHAR(12),
+  sfi96aux5 CHAR(12),
+  sfi96aux6 NUMBER(9),
+  sfi96aux7 NUMBER(2)
+)
+;
+alter table FSFI96
+  add primary key (SFI96EMP, SFI96PIZ, SFI96ESP);
+

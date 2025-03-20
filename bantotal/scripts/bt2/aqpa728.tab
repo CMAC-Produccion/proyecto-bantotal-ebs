@@ -1,0 +1,24 @@
+create table AQPA728
+(
+  aqpa728id     NUMBER(9) not null,
+  aqpa728nomdoc VARCHAR2(150),
+  aqpa728urldoc VARCHAR2(200),
+  aqpa728nivel  VARCHAR2(20),
+  aqpa728orden  NUMBER(8,2)
+)
+;
+comment on table AQPA728
+  is 'Documentos Material de informacion al usuario';
+comment on column AQPA728.aqpa728id
+  is 'Id Correlativo';
+comment on column AQPA728.aqpa728nomdoc
+  is 'Nombre documento';
+comment on column AQPA728.aqpa728urldoc
+  is 'URL documento';
+comment on column AQPA728.aqpa728nivel
+  is 'Nivel documento';
+comment on column AQPA728.aqpa728orden
+  is 'Orden documento';
+alter table AQPA728
+  add primary key (AQPA728ID);
+

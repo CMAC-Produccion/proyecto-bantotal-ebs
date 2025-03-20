@@ -1,0 +1,28 @@
+create table SD4306
+(
+  sd06coddis NUMBER(4) not null,
+  sd06codent NUMBER(5) not null,
+  sd06fchinf NUMBER(6) not null,
+  sd06tpoid  NUMBER(2) not null,
+  sd06nroid  CHAR(11) not null,
+  sd06tpoasc NUMBER(2) not null,
+  sd06gtapa1 NUMBER(10),
+  sd06gtapa2 NUMBER(10),
+  sd06gtapb1 NUMBER(10),
+  sd06gtapb2 NUMBER(10),
+  sd06gtapb3 NUMBER(10),
+  sd06gtapb4 NUMBER(10),
+  sd06nogta1 NUMBER(10),
+  sd06nogta2 NUMBER(10),
+  sd06nogta3 NUMBER(10),
+  sd06nogta4 NUMBER(10),
+  sd06tasapp NUMBER(5),
+  sd06pzovpp NUMBER(3),
+  sd06premin NUMBER(10),
+  sd06sinuso CHAR(21),
+  sd06rectif CHAR(1)
+)
+;
+alter table SD4306
+  add primary key (SD06CODDIS, SD06CODENT, SD06FCHINF, SD06TPOID, SD06NROID, SD06TPOASC);
+

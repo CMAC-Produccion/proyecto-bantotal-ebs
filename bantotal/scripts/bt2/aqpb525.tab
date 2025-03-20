@@ -1,0 +1,45 @@
+create table AQPB525
+(
+  aqpb525codigo VARCHAR2(16) not null,
+  aqpb525docpai NUMBER(3) not null,
+  aqpb525doctip NUMBER(2) not null,
+  aqpb525docnum CHAR(12) not null,
+  aqpb525fecreg DATE,
+  aqpb525autini DATE,
+  aqpb525autfin DATE,
+  aqpb525autmot VARCHAR2(100),
+  aqpb525estado VARCHAR2(1),
+  aqpb525creusu VARCHAR2(10),
+  aqpb525cresuc NUMBER(3),
+  aqpb525cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB525
+  is 'Documentos Bloqueantes - DOI Autorizados';
+comment on column AQPB525.aqpb525codigo
+  is 'Codigo';
+comment on column AQPB525.aqpb525docpai
+  is 'Pais';
+comment on column AQPB525.aqpb525doctip
+  is 'Tipo Documento';
+comment on column AQPB525.aqpb525docnum
+  is 'Nro Documento';
+comment on column AQPB525.aqpb525fecreg
+  is 'Fecha Registro';
+comment on column AQPB525.aqpb525autini
+  is 'Autorizacion Inicio';
+comment on column AQPB525.aqpb525autfin
+  is 'Autorizacion Fin';
+comment on column AQPB525.aqpb525autmot
+  is 'Autorizacion Motivo';
+comment on column AQPB525.aqpb525estado
+  is 'Estado';
+comment on column AQPB525.aqpb525creusu
+  is 'Creacion Usuario';
+comment on column AQPB525.aqpb525cresuc
+  is 'Creacion Sucursal';
+comment on column AQPB525.aqpb525cretim
+  is 'Creacion TimeStamp';
+alter table AQPB525
+  add primary key (AQPB525CODIGO, AQPB525DOCPAI, AQPB525DOCTIP, AQPB525DOCNUM);
+

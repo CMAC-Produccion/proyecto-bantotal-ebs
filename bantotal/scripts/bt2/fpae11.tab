@@ -1,0 +1,14 @@
+create table FPAE11
+(
+  pae10nro NUMBER(18) not null,
+  pae11rol NUMBER(2) not null,
+  pae11rut CHAR(12) not null,
+  pae11pfj CHAR(1),
+  pae11tpm CHAR(1),
+  pae11rie NUMBER(9)
+)
+;
+create index FPAE1103 on FPAE11 (PAE11RUT, PAE10NRO);
+alter table FPAE11
+  add primary key (PAE10NRO, PAE11ROL, PAE11RUT);
+

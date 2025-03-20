@@ -1,0 +1,27 @@
+create table FSA101
+(
+  chicodco  NUMBER(10) not null,
+  chic01    CHAR(3),
+  chic02    CHAR(3),
+  chic03    CHAR(3),
+  chiinfd   CHAR(3),
+  chiinfe   CHAR(3),
+  chiinff   CHAR(3),
+  chiopera  CHAR(1),
+  chigsa    CHAR(200),
+  chicodmon CHAR(1),
+  chicodrub CHAR(1),
+  chivigini DATE,
+  chivigfin DATE,
+  chiopbco  CHAR(1),
+  chirelenc CHAR(1),
+  chibcomn  CHAR(1),
+  chibcorej CHAR(1),
+  chibcome  CHAR(1),
+  chictaesp CHAR(1),
+  bcpro     NUMBER(3)
+)
+;
+alter table FSA101
+  add primary key (CHICODCO);
+

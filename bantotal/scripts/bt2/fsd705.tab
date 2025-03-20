@@ -1,0 +1,16 @@
+create table FSD705
+(
+  nmnpaisda NUMBER(3) not null,
+  nmntdocda NUMBER(2) not null,
+  nmnndocda CHAR(12) not null,
+  nmntpo    NUMBER(2) not null,
+  nmnpaisin NUMBER(3) not null,
+  nmntdocin NUMBER(2) not null,
+  nmnndocin CHAR(12) not null,
+  nmndenin  CHAR(55),
+  nmnporpar NUMBER(5)
+)
+;
+alter table FSD705
+  add primary key (NMNPAISDA, NMNTDOCDA, NMNNDOCDA, NMNTPO, NMNPAISIN, NMNTDOCIN, NMNNDOCIN);
+

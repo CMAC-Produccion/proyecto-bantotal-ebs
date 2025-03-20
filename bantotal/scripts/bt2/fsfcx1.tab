@@ -1,0 +1,13 @@
+create table FSFCX1
+(
+  kg8anio   NUMBER(4) not null,
+  kg8mes    NUMBER(2) not null,
+  kg8suc    NUMBER(3) not null,
+  kg8comis  NUMBER(9,6),
+  kg8usuing CHAR(8),
+  kg8usucnf CHAR(8)
+)
+;
+alter table FSFCX1
+  add primary key (KG8ANIO, KG8MES, KG8SUC);
+

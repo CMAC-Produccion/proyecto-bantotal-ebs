@@ -1,0 +1,10 @@
+create table JMCW04
+(
+  jmcw04cota CHAR(3) not null,
+  jmcw04tipo CHAR(5) not null,
+  jmcw04dsc  CHAR(30)
+)
+;
+alter table JMCW04
+  add primary key (JMCW04COTA, JMCW04TIPO);
+

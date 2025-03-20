@@ -1,0 +1,98 @@
+create table JAQY844
+(
+  jaqy844corr    NUMBER,
+  jaqy844pais    NUMBER(3),
+  jaqy844pgcod   NUMBER(3),
+  jaqy844suc     NUMBER(3),
+  jaqy844ctacble NUMBER(16),
+  jaqy844desccta CHAR(40),
+  jaqy844ftotdet CHAR(1),
+  jaqy844tipsdo  CHAR(1),
+  jaqy844tipcta  NUMBER(1),
+  jaqy844subtcta NUMBER(2),
+  jaqy844faux    NUMBER(1),
+  jaqy844fccost  NUMBER(1),
+  jaqy844fpresup NUMBER(1),
+  jaqy844fecccta NUMBER(8),
+  jaqy844horccta NUMBER(6),
+  jaqy844usuccta VARCHAR2(50),
+  jaqy844sdodia  NUMBER(17,2),
+  jaqy844sdoidia NUMBER(17,2),
+  jaqy844sdoimes NUMBER(17,2),
+  jaqy844sdoiano NUMBER(17,2),
+  jaqy844stscta  CHAR(1),
+  jaqy844mdacont NUMBER(4),
+  jaqy844amlreg  NUMBER(6),
+  jaqy844feclreg NUMBER(8),
+  jaqy844regds   NUMBER(17,2),
+  jaqy844fecrant NUMBER(8),
+  jaqy844nivcta  NUMBER(2),
+  jaqy844inderr  CHAR(1),
+  jaqy844idpc    VARCHAR2(50),
+  jaqy844fecpro  DATE,
+  jaqy844corr2   NUMBER(18)
+)
+;
+comment on column JAQY844.jaqy844corr
+  is 'Correlativo';
+comment on column JAQY844.jaqy844pais
+  is 'Cod. Pais';
+comment on column JAQY844.jaqy844pgcod
+  is 'Cod. Empresa';
+comment on column JAQY844.jaqy844suc
+  is 'Cod. Sucursal';
+comment on column JAQY844.jaqy844ctacble
+  is 'Nro. de Rubro Contable';
+comment on column JAQY844.jaqy844desccta
+  is 'Descripción del Rubro Contable';
+comment on column JAQY844.jaqy844ftotdet
+  is 'Flag Total/Detalle';
+comment on column JAQY844.jaqy844tipsdo
+  is 'Flag de Tipo de Saldo: D-Deudor / A-Acreedor';
+comment on column JAQY844.jaqy844tipcta
+  is 'Tpo de Rubro Contable: 1- Balance y Resultados 2-Orden y Registro';
+comment on column JAQY844.jaqy844subtcta
+  is 'Tipo de Subcuenta del Rubro Contable: 1-Activo 2-Pasivo 3-Capital 4-Egresos 5-Ingresos';
+comment on column JAQY844.jaqy844faux
+  is 'Flag Maneja Auxiliares 1-Si 2-No';
+comment on column JAQY844.jaqy844fccost
+  is 'Flag Maneja Centro de Costos 1-Si 2-No';
+comment on column JAQY844.jaqy844fpresup
+  is 'Flag Maneja Presupuesto 1-Si 2-No';
+comment on column JAQY844.jaqy844fecccta
+  is 'Fecha de Creación del Rubro Contable AAAAMMDD';
+comment on column JAQY844.jaqy844horccta
+  is 'Hora de Creación del Rubro Contable HHMMSS';
+comment on column JAQY844.jaqy844usuccta
+  is 'Usuario que crea el Rubro Contable';
+comment on column JAQY844.jaqy844sdodia
+  is 'Saldo Actual del Rubro Contable, después de la afectación del cargo o abono.';
+comment on column JAQY844.jaqy844sdoidia
+  is 'Saldo de Inicio de Dia del Rubro Contable';
+comment on column JAQY844.jaqy844sdoimes
+  is 'Saldo de Inicio de Mes del Rubro Contable';
+comment on column JAQY844.jaqy844sdoiano
+  is 'Saldo de Inicio de Año del Rubro Contable';
+comment on column JAQY844.jaqy844stscta
+  is 'Estado del Rubro Contable: Inactiva/Activa, etc';
+comment on column JAQY844.jaqy844mdacont
+  is 'Moneda Base de Contabilización';
+comment on column JAQY844.jaqy844amlreg
+  is 'Año y mes de lectura de registro Formato AAAAMM';
+comment on column JAQY844.jaqy844feclreg
+  is 'Fecha de lectura de registro AAAAMMDD';
+comment on column JAQY844.jaqy844regds
+  is 'Valor calculado en el Registro 635. Se tomará el saldo de fin de dia y se dividirá/10000 y se elevará al cuadrado.';
+comment on column JAQY844.jaqy844fecrant
+  is 'Fecha de lectura del registro AAAAMMDD';
+comment on column JAQY844.jaqy844nivcta
+  is 'Nro. de Nivel del Rubro Contable';
+comment on column JAQY844.jaqy844inderr
+  is 'Marca la transacción como Fraude o Error. ';
+comment on column JAQY844.jaqy844idpc
+  is 'Código de Terminal, Dirección IP o Nombre de la PC donde se realizó la transacción.';
+comment on column JAQY844.jaqy844fecpro
+  is 'Fecha de Proceso';
+comment on column JAQY844.jaqy844corr2
+  is 'Correlativo 2 de tabla para Monitor Plus';
+

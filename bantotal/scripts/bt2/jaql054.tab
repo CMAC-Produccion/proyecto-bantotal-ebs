@@ -1,0 +1,35 @@
+create table JAQL054
+(
+  jaql54pgco NUMBER(3) not null,
+  jaql54scsu NUMBER(3) not null,
+  jaql54scmd NUMBER(4) not null,
+  jaql54scpa NUMBER(4) not null,
+  jaql54scct NUMBER(9) not null,
+  jaql54scop NUMBER(9) not null,
+  jaql54scsb NUMBER(3) not null,
+  jaql54scto NUMBER(3) not null,
+  jaql54scmo NUMBER(3) not null,
+  jaql54timi CHAR(1),
+  jaql54enti NUMBER(5),
+  jaql54fech DATE not null,
+  jaql54hora CHAR(8) not null,
+  jaql54saca NUMBER(17,2),
+  jaql54sain NUMBER(17,2),
+  jaql54au01 CHAR(50),
+  jaql54au02 CHAR(50),
+  jaql54au03 CHAR(50),
+  jaql54au04 NUMBER(17,2),
+  jaql54au05 NUMBER(17,2),
+  jaql54au06 NUMBER(17,2),
+  jaql54au07 NUMBER(18),
+  jaql54au08 NUMBER(18),
+  jaql54au09 NUMBER(18),
+  jaql54au10 DATE,
+  jaql54au11 DATE,
+  jaql54au12 DATE
+)
+;
+create index IDX_JAQL054_02 on JAQL054 (JAQL54PGCO, JAQL54SCPA, JAQL54SCCT);
+alter table JAQL054
+  add primary key (JAQL54PGCO, JAQL54SCSU, JAQL54SCMD, JAQL54SCPA, JAQL54SCCT, JAQL54SCOP, JAQL54SCSB, JAQL54SCTO, JAQL54SCMO, JAQL54FECH, JAQL54HORA);
+

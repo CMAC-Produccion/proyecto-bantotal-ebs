@@ -1,0 +1,33 @@
+create table FBC723
+(
+  bc723emp   NUMBER(3) not null,
+  bc723cpo   CHAR(8) not null,
+  bc723cod   NUMBER(2),
+  bc723sbcod NUMBER(2),
+  bc723ient  CHAR(1),
+  bc723dian  CHAR(1),
+  bc723atop  CHAR(1),
+  bc723cpot  CHAR(8),
+  bc723nore  CHAR(1),
+  bc723gcum  CHAR(1),
+  bc723cocm  NUMBER(2),
+  bc723sbcm  NUMBER(2),
+  bc723txcm  CHAR(60),
+  bc723oinf  CHAR(1),
+  bc723deha  CHAR(1),
+  bc723mtex  CHAR(10),
+  bc723anca  CHAR(1),
+  bc723guia  NUMBER(5),
+  bc723sbco  CHAR(1),
+  bc723coor  CHAR(1),
+  bc723inf   CHAR(1),
+  bc723aux1  CHAR(1),
+  bc723aux2  CHAR(1),
+  bc723aux3  CHAR(1),
+  bc723aux4  NUMBER(17,2),
+  bc723aux5  CHAR(30)
+)
+;
+alter table FBC723
+  add primary key (BC723EMP, BC723CPO);
+

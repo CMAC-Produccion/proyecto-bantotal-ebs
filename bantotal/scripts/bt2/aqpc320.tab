@@ -1,0 +1,65 @@
+create table AQPC320
+(
+  aqpc320idl NUMBER(10) not null,
+  aqpc320fei DATE,
+  aqpc320hoi CHAR(8),
+  aqpc320tar CHAR(19),
+  aqpc320pai NUMBER(3),
+  aqpc320tdo NUMBER(2),
+  aqpc320doc CHAR(12),
+  aqpc320cel VARCHAR2(10),
+  aqpc320ope VARCHAR2(20),
+  aqpc320sms VARCHAR2(200),
+  aqpc320did VARCHAR2(20),
+  aqpc320mdl VARCHAR2(20),
+  aqpc320dso VARCHAR2(15),
+  aqpc320lat VARCHAR2(20),
+  aqpc320lon VARCHAR2(20),
+  aqpc320can NUMBER(5),
+  aqpc320cer CHAR(5),
+  aqpc320mer VARCHAR2(200)
+)
+;
+comment on table AQPC320
+  is 'Log Envio Notificacion SMS - Canales Digitales';
+comment on column AQPC320.aqpc320idl
+  is 'Id / Correlativo';
+comment on column AQPC320.aqpc320fei
+  is 'Fecha de Registro';
+comment on column AQPC320.aqpc320hoi
+  is 'Hora de Registro';
+comment on column AQPC320.aqpc320tar
+  is 'Numero de Tarjeta';
+comment on column AQPC320.aqpc320pai
+  is 'Pais del documento';
+comment on column AQPC320.aqpc320tdo
+  is 'Tipo del documento';
+comment on column AQPC320.aqpc320doc
+  is 'Numero del documento';
+comment on column AQPC320.aqpc320cel
+  is 'Celular del cliente';
+comment on column AQPC320.aqpc320ope
+  is 'Operacion';
+comment on column AQPC320.aqpc320sms
+  is 'Mensaje SMS';
+comment on column AQPC320.aqpc320did
+  is 'DeviceId del dispositivo';
+comment on column AQPC320.aqpc320mdl
+  is 'Modelo del dispositivo';
+comment on column AQPC320.aqpc320dso
+  is 'Sistema operativo del dispositivo';
+comment on column AQPC320.aqpc320lat
+  is 'Latitud del dispositivo';
+comment on column AQPC320.aqpc320lon
+  is 'Longitud del dispositivo';
+comment on column AQPC320.aqpc320can
+  is 'Canal';
+comment on column AQPC320.aqpc320cer
+  is 'Codigo error';
+comment on column AQPC320.aqpc320mer
+  is 'Mensaje error';
+create index AQPC320A2 on AQPC320 (AQPC320FEI);
+create index AQPC320A3 on AQPC320 (AQPC320PAI, AQPC320TDO, AQPC320DOC, AQPC320FEI);
+alter table AQPC320
+  add primary key (AQPC320IDL);
+

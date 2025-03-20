@@ -1,0 +1,19 @@
+create table FSF087
+(
+  lqipgcod NUMBER(3) not null,
+  lqifinro NUMBER(3) not null,
+  lqificli NUMBER(9) not null,
+  lqifecha DATE not null,
+  lqicam01 NUMBER(17,2),
+  lqicam02 NUMBER(17,2),
+  lqicam03 NUMBER(17,2),
+  lqicam04 NUMBER(17,2),
+  lqicam05 NUMBER(9),
+  lqicam06 NUMBER(9),
+  lqicam07 NUMBER(9),
+  lqicam08 NUMBER(9)
+)
+;
+alter table FSF087
+  add primary key (LQIPGCOD, LQIFINRO, LQIFICLI, LQIFECHA);
+

@@ -1,0 +1,19 @@
+create table CLE115
+(
+  cle115cod NUMBER(3) not null,
+  cle115reg NUMBER(3) not null,
+  cle115suc NUMBER(3) not null,
+  cle115dia NUMBER(1) not null,
+  cle115env NUMBER(1),
+  cle115afc NUMBER(1),
+  cle115acr NUMBER(1),
+  cle115ax1 NUMBER(1),
+  cle115ax2 NUMBER(1),
+  cle115ax3 NUMBER(1),
+  cle115tx1 CHAR(30),
+  cle115no1 NUMBER(9)
+)
+;
+alter table CLE115
+  add primary key (CLE115COD, CLE115REG, CLE115SUC, CLE115DIA);
+

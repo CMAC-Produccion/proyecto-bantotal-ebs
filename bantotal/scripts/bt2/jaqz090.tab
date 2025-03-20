@@ -1,0 +1,28 @@
+create table JAQZ090
+(
+  jaqz090pai NUMBER(3),
+  jaqz090tdo NUMBER(2),
+  jaqz090ndo CHAR(12),
+  jaqz090cva NUMBER(3),
+  jaqz090var CHAR(20),
+  jaqz090fei DATE,
+  jaqz090fef DATE,
+  jaqz090cmo NUMBER(2),
+  jaqz090mot VARCHAR2(50),
+  jaqz090con NUMBER(5),
+  jaqz090van NUMBER(10,2),
+  jaqz090vac CHAR(2),
+  jaqz090emp NUMBER(3),
+  jaqz090mod NUMBER(3),
+  jaqz090suc NUMBER(3),
+  jaqz090mda NUMBER(4),
+  jaqz090pap NUMBER(4),
+  jaqz090cta NUMBER(9),
+  jaqz090ope NUMBER(9),
+  jaqz090sbo NUMBER(3),
+  jaqz090top NUMBER(3)
+)
+;
+create index IDX_JAQZ090_01 on JAQZ090 (JAQZ090PAI, JAQZ090TDO, JAQZ090NDO, JAQZ090CVA);
+create index IDX_JAQZ090_02 on JAQZ090 (JAQZ090PAI, JAQZ090TDO, JAQZ090NDO, JAQZ090CTA, JAQZ090OPE);
+

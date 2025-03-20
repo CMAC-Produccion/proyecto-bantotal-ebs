@@ -1,0 +1,49 @@
+create table FCHR02
+(
+  chr02cod NUMBER(3) not null,
+  chr02mod NUMBER(3) not null,
+  chr02suc NUMBER(3) not null,
+  chr02mda NUMBER(4) not null,
+  chr02pap NUMBER(4) not null,
+  chr02cta NUMBER(9) not null,
+  chr02ope NUMBER(9) not null,
+  chr02sbo NUMBER(3) not null,
+  chr02top NUMBER(3) not null,
+  chr02nro NUMBER(9) not null,
+  chr02fec DATE not null,
+  chr02hor CHAR(8) not null,
+  chr02fre DATE,
+  chr02imp NUMBER(17,2),
+  chr02fem DATE,
+  chr02fno DATE,
+  chr02frg DATE,
+  chr02fpa DATE,
+  chr02fpm DATE,
+  chr02acu CHAR(1),
+  chr02nav NUMBER(9),
+  chr02mde NUMBER(4),
+  chr02mdc NUMBER(4),
+  chr02con CHAR(1),
+  chr02ein CHAR(1),
+  chr02bco NUMBER(3),
+  chr02pla NUMBER(3),
+  chr02pzo NUMBER(5),
+  chr02inf CHAR(1),
+  chr02mba NUMBER(3),
+  chr02ico NUMBER(17,2),
+  chr02imu NUMBER(17,2),
+  chr02amo NUMBER(3),
+  chr02asu NUMBER(3),
+  chr02atr NUMBER(3),
+  chr02anr NUMBER(4),
+  chr02fin DATE,
+  chr02fim DATE,
+  chr02idm NUMBER(17,2),
+  chr02fic DATE
+)
+;
+create index FCHR0202 on FCHR02 (CHR02EIN, CHR02FEC);
+create index FCHR0203 on FCHR02 (CHR02FRE, CHR02MDE, CHR02COD, CHR02MOD, CHR02SUC, CHR02MDA, CHR02PAP, CHR02CTA, CHR02OPE, CHR02SBO, CHR02TOP, CHR02NRO);
+alter table FCHR02
+  add primary key (CHR02COD, CHR02MOD, CHR02SUC, CHR02MDA, CHR02PAP, CHR02CTA, CHR02OPE, CHR02SBO, CHR02TOP, CHR02NRO, CHR02FEC, CHR02HOR);
+

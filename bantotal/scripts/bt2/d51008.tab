@@ -1,0 +1,20 @@
+create table D51008
+(
+  d518cod  NUMBER(3) not null,
+  d518cta  NUMBER(9) not null,
+  d518actc NUMBER(9),
+  d518actd CHAR(60),
+  d518bcra NUMBER(4),
+  nimpbafi NUMBER(10),
+  cntffmal NUMBER(3),
+  fchultff DATE,
+  cntsfdo  NUMBER(3),
+  fchultsf DATE,
+  d518naux NUMBER(3),
+  d518faux DATE
+)
+;
+create index D5100811 on D51008 (D518BCRA);
+alter table D51008
+  add primary key (D518COD, D518CTA);
+

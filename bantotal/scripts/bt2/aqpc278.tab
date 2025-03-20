@@ -1,0 +1,72 @@
+create table AQPC278
+(
+  aqpc278inst   NUMBER(10) not null,
+  aqpc278cod    NUMBER(3) not null,
+  aqpc278suc    NUMBER(3) not null,
+  aqpc278mod    NUMBER(3) not null,
+  aqpc278mda    NUMBER(4) not null,
+  aqpc278pap    NUMBER(4) not null,
+  aqpc278cta    NUMBER(9) not null,
+  aqpc278oper   NUMBER(9) not null,
+  aqpc278sbop   NUMBER(3) not null,
+  aqpc278tope   NUMBER(3) not null,
+  aqpc278ndoc   VARCHAR2(12) not null,
+  aqpc278nomcrg VARCHAR2(30),
+  aqpc278nomcli VARCHAR2(35),
+  aqpc278fval   DATE,
+  aqpc278mntd   NUMBER(17,2),
+  aqpc278sdo    NUMBER(17,2),
+  aqpc278cuodes NUMBER(17,2),
+  aqpc278fpag   DATE,
+  aqpc278cuotas NUMBER(5),
+  aqpc278estado VARCHAR2(15)
+)
+;
+comment on table AQPC278
+  is 'Reporte Credito Motos';
+comment on column AQPC278.aqpc278inst
+  is 'Instancia';
+comment on column AQPC278.aqpc278cod
+  is 'Codigo';
+comment on column AQPC278.aqpc278suc
+  is 'Sucursal';
+comment on column AQPC278.aqpc278mod
+  is 'Modulo';
+comment on column AQPC278.aqpc278mda
+  is 'Moneda';
+comment on column AQPC278.aqpc278pap
+  is 'Papel';
+comment on column AQPC278.aqpc278cta
+  is 'Cuenta';
+comment on column AQPC278.aqpc278oper
+  is 'Operacion';
+comment on column AQPC278.aqpc278sbop
+  is 'Suboperacion';
+comment on column AQPC278.aqpc278tope
+  is 'Tipo Operacion';
+comment on column AQPC278.aqpc278ndoc
+  is 'Nro. Documento';
+comment on column AQPC278.aqpc278nomcrg
+  is 'Nombre Cargo';
+comment on column AQPC278.aqpc278nomcli
+  is 'Nombre Cliente';
+comment on column AQPC278.aqpc278fval
+  is 'Fecha Desembolso';
+comment on column AQPC278.aqpc278mntd
+  is 'Monto Desembolso';
+comment on column AQPC278.aqpc278sdo
+  is 'Saldo Deudor';
+comment on column AQPC278.aqpc278cuodes
+  is 'Cuota Descontar';
+comment on column AQPC278.aqpc278fpag
+  is 'Fecha Pago';
+comment on column AQPC278.aqpc278cuotas
+  is 'Cuotas';
+comment on column AQPC278.aqpc278estado
+  is 'Estado Pago';
+create index AQPC278A2 on AQPC278 (AQPC278COD, AQPC278SUC, AQPC278MOD, AQPC278MDA, AQPC278PAP, AQPC278CTA, AQPC278OPER, AQPC278SBOP, AQPC278TOPE);
+create index AQPC278A3 on AQPC278 (AQPC278COD, AQPC278CTA, AQPC278OPER);
+create index AQPC278A4 on AQPC278 (AQPC278NDOC);
+alter table AQPC278
+  add primary key (AQPC278INST, AQPC278COD, AQPC278SUC, AQPC278MOD, AQPC278MDA, AQPC278PAP, AQPC278CTA, AQPC278OPER, AQPC278SBOP, AQPC278TOPE);
+

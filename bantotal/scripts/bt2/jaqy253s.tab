@@ -1,0 +1,19 @@
+create table JAQY253S
+(
+  jaqy253scodusu VARCHAR2(10) not null,
+  jaqy253scodsuc NUMBER(3) not null,
+  jaqy253stiptar VARCHAR2(30) not null,
+  jaqy253snomage VARCHAR2(200),
+  jaqy253snumtar NUMBER(14),
+  jaqy253scodbin NUMBER(6),
+  jaqy253ssubbin NUMBER(2)
+)
+;
+comment on column JAQY253S.jaqy253scodbin
+  is 'CODIGO DE BIN';
+comment on column JAQY253S.jaqy253ssubbin
+  is 'CODIGO DE SUBBIN';
+alter table JAQY253S
+  add primary key (JAQY253SCODUSU, JAQY253SCODSUC, JAQY253SCODBIN, JAQY253SSUBBIN, JAQY253STIPTAR)
+  novalidate;
+

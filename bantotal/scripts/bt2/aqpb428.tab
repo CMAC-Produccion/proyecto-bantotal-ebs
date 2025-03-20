@@ -1,0 +1,29 @@
+create table AQPB428
+(
+  aqpb428emp    NUMBER(3) not null,
+  aqpb428mod    NUMBER(3) not null,
+  aqpb428suc    NUMBER(3) not null,
+  aqpb428mda    NUMBER(4) not null,
+  aqpb428pap    NUMBER(4) not null,
+  aqpb428cta    NUMBER(9) not null,
+  aqpb428ope    NUMBER(9) not null,
+  aqpb428sbo    NUMBER(3) not null,
+  aqpb428top    NUMBER(3) not null,
+  aqpb428imp    NUMBER(18,2),
+  aqpb428tasa   NUMBER(14,8),
+  aqpb428destip VARCHAR2(50),
+  aqpb428nomt   VARCHAR2(150),
+  aqpb428pdoc   NUMBER(3),
+  aqpb428tdoc   NUMBER(2),
+  aqpb428ndoc   CHAR(12),
+  aqpb428pcob   NUMBER(3),
+  aqpb428est    VARCHAR2(1),
+  aqpb428garrea NUMBER(1),
+  aqpb428usuact VARCHAR2(10),
+  aqpb428fecact DATE
+)
+;
+create index AQPB4282 on AQPB428 (AQPB428CTA, AQPB428EST);
+alter table AQPB428
+  add primary key (AQPB428EMP, AQPB428MOD, AQPB428SUC, AQPB428MDA, AQPB428PAP, AQPB428CTA, AQPB428OPE, AQPB428SBO, AQPB428TOP);
+

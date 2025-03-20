@@ -1,0 +1,18 @@
+create table FSR009
+(
+  moneda NUMBER(4) not null,
+  moncod NUMBER(2) not null,
+  montt  NUMBER(4),
+  monpcc CHAR(1),
+  moncco NUMBER(3),
+  moncd1 NUMBER(2),
+  moncd2 NUMBER(2),
+  monsn3 CHAR(1),
+  monsn4 CHAR(1)
+)
+;
+create index FSR00903 on FSR009 (MONCCO);
+create index FSR00904 on FSR009 (MONTT, MONCOD);
+alter table FSR009
+  add primary key (MONEDA, MONCOD);
+

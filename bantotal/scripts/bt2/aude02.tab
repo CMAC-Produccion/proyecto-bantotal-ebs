@@ -1,0 +1,11 @@
+create table AUDE02
+(
+  aude01modu NUMBER(3) not null,
+  aude01trn  NUMBER(3) not null,
+  aude00codp CHAR(10) not null
+)
+;
+create index AUDE022 on AUDE02 (AUDE00CODP);
+alter table AUDE02
+  add primary key (AUDE01MODU, AUDE01TRN, AUDE00CODP);
+

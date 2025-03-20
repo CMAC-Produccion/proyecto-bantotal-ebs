@@ -1,0 +1,33 @@
+create table AQPC448D
+(
+  aqpc448dcod  NUMBER(4) not null,
+  aqpc448dcor  NUMBER(4) not null,
+  aqpc448dmtod NUMBER(18,2),
+  aqpc448dmtoh NUMBER(18,2),
+  aqpc448dpcom NUMBER(5,2),
+  aqpc448dfec  DATE,
+  aqpc448dhor  CHAR(8),
+  aqpc448dusu  CHAR(10)
+)
+;
+comment on table AQPC448D
+  is 'Detalle de Rangos Tipo de Reacudo';
+comment on column AQPC448D.aqpc448dcod
+  is 'Código de Recaudo';
+comment on column AQPC448D.aqpc448dcor
+  is 'Correlativo';
+comment on column AQPC448D.aqpc448dmtod
+  is 'Monto Desde';
+comment on column AQPC448D.aqpc448dmtoh
+  is 'Monto Hasta';
+comment on column AQPC448D.aqpc448dpcom
+  is 'Porcentaje de Comision';
+comment on column AQPC448D.aqpc448dfec
+  is 'Fecha de ingreso de registro';
+comment on column AQPC448D.aqpc448dhor
+  is 'Hora Registro';
+comment on column AQPC448D.aqpc448dusu
+  is 'Usuario registro';
+alter table AQPC448D
+  add primary key (AQPC448DCOD, AQPC448DCOR);
+

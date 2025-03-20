@@ -1,0 +1,103 @@
+create table AQPC3151
+(
+  aqpc3151fecpro VARCHAR2(100),
+  aqpc3151cta    VARCHAR2(100),
+  aqpc3151oper   VARCHAR2(100),
+  aqpc3151ase    VARCHAR2(100),
+  aqpc3151tippeq VARCHAR2(100),
+  aqpc3151nomreg VARCHAR2(100),
+  aqpc3151deszon VARCHAR2(100),
+  aqpc3151scnom  VARCHAR2(100),
+  aqpc3151depart VARCHAR2(100),
+  aqpc3151provin VARCHAR2(100),
+  aqpc3151distri VARCHAR2(100),
+  aqpc3151segmen VARCHAR2(100),
+  aqpc3151ciiu   VARCHAR2(100),
+  aqpc3151descii VARCHAR2(100),
+  aqpc3151modulo VARCHAR2(100),
+  aqpc3151estado VARCHAR2(100),
+  aqpc3151es_mod VARCHAR2(100),
+  aqpc3151fechac VARCHAR2(100),
+  aqpc3151tipsbs VARCHAR2(100),
+  aqpc3151tasa   VARCHAR2(100),
+  aqpc3151desem  VARCHAR2(100),
+  aqpc3151venci  VARCHAR2(100),
+  aqpc3151codsbs VARCHAR2(100),
+  aqpc3151mtdsso VARCHAR2(100),
+  aqpc3151estdo2 VARCHAR2(100),
+  aqpc3151saldo0 VARCHAR2(100),
+  aqpc3151saldo1 VARCHAR2(100),
+  aqpc3151saldo2 VARCHAR2(100),
+  aqpc3151saldo3 VARCHAR2(100),
+  aqpc3151saldo4 VARCHAR2(100),
+  aqpc3151saldo5 VARCHAR2(100),
+  aqpc3151saldo6 VARCHAR2(100),
+  aqpc3151saldo7 VARCHAR2(100),
+  aqpc3151saldo8 VARCHAR2(100),
+  aqpc3151saldo9 VARCHAR2(100),
+  aqpc3151sald10 VARCHAR2(100),
+  aqpc3151sald11 VARCHAR2(100),
+  aqpc3151sald12 VARCHAR2(100),
+  aqpc3151ndia0  VARCHAR2(100),
+  aqpc3151ndia1  VARCHAR2(100),
+  aqpc3151ndia2  VARCHAR2(100),
+  aqpc3151ndia3  VARCHAR2(100),
+  aqpc3151ndia4  VARCHAR2(100),
+  aqpc3151ndia5  VARCHAR2(100),
+  aqpc3151ndia6  VARCHAR2(100),
+  aqpc3151ndia7  VARCHAR2(100),
+  aqpc3151ndia8  VARCHAR2(100),
+  aqpc3151ndia9  VARCHAR2(100),
+  aqpc3151ndia10 VARCHAR2(100),
+  aqpc3151ndia11 VARCHAR2(100),
+  aqpc3151ndia12 VARCHAR2(100),
+  aqpc3151cal0   VARCHAR2(100),
+  aqpc3151cal1   VARCHAR2(100),
+  aqpc3151cal2   VARCHAR2(100),
+  aqpc3151cal3   VARCHAR2(100),
+  aqpc3151cal4   VARCHAR2(100),
+  aqpc3151cal5   VARCHAR2(100),
+  aqpc3151cal6   VARCHAR2(100),
+  aqpc3151cal7   VARCHAR2(100),
+  aqpc3151cal8   VARCHAR2(100),
+  aqpc3151cal9   VARCHAR2(100),
+  aqpc3151cal10  VARCHAR2(100),
+  aqpc3151cal11  VARCHAR2(100),
+  aqpc3151cal12  VARCHAR2(100),
+  aqpc3151fecha  VARCHAR2(100),
+  aqpc3151cod1   VARCHAR2(100),
+  aqpc3151rangmo VARCHAR2(100),
+  aqpc3151tipcr2 VARCHAR2(100),
+  aqpc3151caso12 VARCHAR2(100),
+  aqpc3151atrafi VARCHAR2(100),
+  aqpc3151sldfn  VARCHAR2(100),
+  aqpc3151column VARCHAR2(100),
+  aqpc3151catfin VARCHAR2(100),
+  aqpc3151v2     VARCHAR2(100),
+  aqpc3151sldfin VARCHAR2(100),
+  aqpc3151sldini VARCHAR2(100),
+  aqpc3151catbas VARCHAR2(100),
+  aqpc3151prini  VARCHAR2(100),
+  aqpc3151prvfin VARCHAR2(100),
+  aqpc3151prvin1 VARCHAR2(100),
+  aqpc3151prvfi1 VARCHAR2(100),
+  aqpc3151flgrep VARCHAR2(200)
+)
+organization external
+(
+  type ORACLE_LOADER
+  default directory DIR_SCORE
+  access parameters 
+  (
+    records delimited by newline
+    skip 1
+    nobadfile
+    nodiscardfile
+    load when (aqpc3151flgrep != '""')
+    fields terminated by ","
+    optionally enclosed by '"'
+  )
+  location (DIR_SCORE:'TMA.csv')
+)
+reject limit UNLIMITED;
+

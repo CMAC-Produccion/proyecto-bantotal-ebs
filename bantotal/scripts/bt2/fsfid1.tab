@@ -1,0 +1,23 @@
+create table FSFID1
+(
+  sfi43emp   NUMBER(3) not null,
+  sfi43cus   NUMBER(9) not null,
+  sfi43dep   NUMBER(9) not null,
+  sfi42cod   NUMBER(3) not null,
+  sfi43com   NUMBER(3) not null,
+  sfid1clase NUMBER(2) not null,
+  sfid1com   NUMBER(3),
+  sfid1mod   NUMBER(3),
+  sfid1dsc   CHAR(30),
+  sfid1iva   CHAR(1),
+  sfid1luglm NUMBER(3),
+  sfid1au1   CHAR(1),
+  sfid1au2   CHAR(1),
+  sfid1au4   NUMBER(9),
+  sfid1hab   CHAR(1),
+  sfid1au3   NUMBER(9)
+)
+;
+alter table FSFID1
+  add primary key (SFI43EMP, SFI43CUS, SFI43DEP, SFI42COD, SFI43COM, SFID1CLASE);
+

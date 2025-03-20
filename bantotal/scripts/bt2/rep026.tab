@@ -1,0 +1,16 @@
+create table REP026
+(
+  rep026cor NUMBER(10) not null,
+  rep001cod NUMBER(10),
+  rep026fge DATE,
+  rep026fpr DATE,
+  rep026usu CHAR(10),
+  rep026pat VARCHAR2(1000),
+  rep026des CHAR(1),
+  rep026spo VARCHAR2(255)
+)
+;
+create index REP02602 on REP026 (REP001COD);
+alter table REP026
+  add primary key (REP026COR);
+

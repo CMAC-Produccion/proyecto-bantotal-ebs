@@ -1,0 +1,12 @@
+create table FCPG45
+(
+  cpg45cod  NUMBER(3) not null,
+  cpg45desc CHAR(40),
+  cpg45blq  CHAR(1),
+  cpg45inst NUMBER(10)
+)
+;
+create index FCPG4502 on FCPG45 (CPG45INST);
+alter table FCPG45
+  add primary key (CPG45COD);
+

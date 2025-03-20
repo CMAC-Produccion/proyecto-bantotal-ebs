@@ -1,0 +1,17 @@
+create table FSFT40
+(
+  kdlcod    NUMBER(3) not null,
+  kdltmda   NUMBER(4) not null,
+  kdlresi   CHAR(1) not null,
+  kdlifin   CHAR(1) not null,
+  kdltemi   NUMBER(4) not null,
+  kdlcdoter CHAR(1) not null,
+  kdlrubpc  NUMBER(16),
+  kdlrubpv  NUMBER(16),
+  kdlrubcc  NUMBER(16),
+  kdlrubcv  NUMBER(16)
+)
+;
+alter table FSFT40
+  add primary key (KDLCOD, KDLTMDA, KDLRESI, KDLIFIN, KDLTEMI, KDLCDOTER);
+

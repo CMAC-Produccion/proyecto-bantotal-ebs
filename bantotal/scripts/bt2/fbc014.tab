@@ -1,0 +1,16 @@
+create table FBC014
+(
+  bcaemp NUMBER(3) not null,
+  bcaus  CHAR(20) not null,
+  bcainf CHAR(10) not null,
+  bcafil NUMBER(9) not null,
+  bcacol NUMBER(9) not null,
+  bcafch DATE not null,
+  bcaimp NUMBER(17,2),
+  cicpo  CHAR(8)
+)
+;
+create index FBC01402 on FBC014 (BCAEMP, BCAUS, BCAINF, BCAFCH, BCAFIL);
+alter table FBC014
+  add primary key (BCAEMP, BCAUS, BCAINF, BCAFIL, BCACOL, BCAFCH);
+

@@ -1,0 +1,51 @@
+create table AQPA484
+(
+  aqpa484nreq    NUMBER(17) not null,
+  aqpa484dni     CHAR(12) not null,
+  aqpa484reg     NUMBER(4),
+  aqpa484zon     NUMBER(4),
+  aqpa484suc     NUMBER(4),
+  aqpa484freq    DATE,
+  aqpa484nomc    CHAR(70),
+  aqpa484dirc    CHAR(500),
+  aqpa484dreg    CHAR(120),
+  aqpa484afp     CHAR(120),
+  aqpa484motv    CHAR(120),
+  aqpa484amort   CHAR(120),
+  aqpa484moncu   NUMBER(17,2),
+  aqpa484numcu   NUMBER(17),
+  aqpa484slcic   NUMBER(17,2),
+  aqpa484porut   NUMBER(17,2),
+  aqpa484monut   NUMBER(17,2),
+  aqpa484mon     NUMBER(4),
+  aqpa484cuent   NUMBER(17),
+  aqpa484oper    NUMBER(17),
+  aqpa484fefnd   DATE,
+  aqpa484fecar   DATE,
+  aqpa484fepro   DATE,
+  aqpa484estad   CHAR(1),
+  aqpa484user    CHAR(20),
+  aqpa484uaprb   CHAR(20),
+  aqpa484fuapr   DATE,
+  aqpa484urech   CHAR(20),
+  aqpa484frech   DATE,
+  aqpa484mtrec   CHAR(1000),
+  aqpa484gbprc   CHAR(1),
+  aqpa484uapcf   CHAR(20),
+  aqpa484fpcf    DATE,
+  aqpa484uacf    CHAR(20),
+  aqpa484fcf     DATE,
+  aqpa484uapc    CHAR(20),
+  aqpa484fpc     DATE,
+  aqpa484impest  NUMBER(1),
+  aqpa484usuimp  CHAR(20),
+  aqpa484fecimp  DATE,
+  aqpa484impestr NUMBER(1),
+  aqpa484usuimpr CHAR(20),
+  aqpa484fecimpr DATE
+)
+;
+create index AQPA4842 on AQPA484 (AQPA484DNI);
+alter table AQPA484
+  add primary key (AQPA484NREQ);
+

@@ -1,0 +1,80 @@
+create table AQPC319
+(
+  aqpc319idl NUMBER(10) not null,
+  aqpc319tar CHAR(19),
+  aqpc319pai NUMBER(3),
+  aqpc319tdo NUMBER(2),
+  aqpc319doc CHAR(12),
+  aqpc319met VARCHAR2(20),
+  aqpc319fei DATE,
+  aqpc319hoi CHAR(8),
+  aqpc319est CHAR(3),
+  aqpc319tex VARCHAR2(10),
+  aqpc319cer CHAR(5),
+  aqpc319mer VARCHAR2(200),
+  aqpc319req VARCHAR2(3000),
+  aqpc319res VARCHAR2(3000),
+  aqpc319ced CHAR(5),
+  aqpc319med VARCHAR2(200),
+  aqpc319did VARCHAR2(20),
+  aqpc319mdl VARCHAR2(20),
+  aqpc319dso VARCHAR2(15),
+  aqpc319lat VARCHAR2(20),
+  aqpc319lon VARCHAR2(20),
+  aqpc319can NUMBER(5),
+  aqpc319pgm CHAR(10)
+)
+;
+comment on table AQPC319
+  is 'Log generacion de dCVV2';
+comment on column AQPC319.aqpc319idl
+  is 'Id / Correlativo';
+comment on column AQPC319.aqpc319tar
+  is 'Numero de tarjeta';
+comment on column AQPC319.aqpc319pai
+  is 'Pais del documento';
+comment on column AQPC319.aqpc319tdo
+  is 'Tipo del documento';
+comment on column AQPC319.aqpc319doc
+  is 'Numero del documento';
+comment on column AQPC319.aqpc319met
+  is 'Metodo';
+comment on column AQPC319.aqpc319fei
+  is 'Fecha de Ingreso';
+comment on column AQPC319.aqpc319hoi
+  is 'Hora de Ingreso';
+comment on column AQPC319.aqpc319est
+  is 'Estado';
+comment on column AQPC319.aqpc319tex
+  is 'Tiempo de ejecucion';
+comment on column AQPC319.aqpc319cer
+  is 'Codigo error';
+comment on column AQPC319.aqpc319mer
+  is 'Mensaje error';
+comment on column AQPC319.aqpc319req
+  is 'Trama request';
+comment on column AQPC319.aqpc319res
+  is 'Trama response';
+comment on column AQPC319.aqpc319ced
+  is 'Codigo devuelto';
+comment on column AQPC319.aqpc319med
+  is 'Mensaje devuelto';
+comment on column AQPC319.aqpc319did
+  is 'DeviceId del dispositivo';
+comment on column AQPC319.aqpc319mdl
+  is 'Modelo del dispositivo';
+comment on column AQPC319.aqpc319dso
+  is 'Sistema operativo del dispositivo';
+comment on column AQPC319.aqpc319lat
+  is 'Latitud del dispositivo';
+comment on column AQPC319.aqpc319lon
+  is 'Longitud del dispositivo';
+comment on column AQPC319.aqpc319can
+  is 'Canal';
+comment on column AQPC319.aqpc319pgm
+  is 'Programa';
+create index AQPC319A2 on AQPC319 (AQPC319FEI);
+create index AQPC319A3 on AQPC319 (AQPC319PAI, AQPC319TDO, AQPC319DOC, AQPC319FEI);
+alter table AQPC319
+  add primary key (AQPC319IDL);
+

@@ -1,0 +1,15 @@
+create table FCT511
+(
+  fct511pgco NUMBER(3) not null,
+  fct511mod  NUMBER(3) not null,
+  fct511trn  NUMBER(3) not null,
+  fct511ord  NUMBER(2) not null,
+  fct511sbor NUMBER(3),
+  fct511atif CHAR(1),
+  fct511tcta NUMBER(2),
+  fct511hab  CHAR(1)
+)
+;
+alter table FCT511
+  add primary key (FCT511PGCO, FCT511MOD, FCT511TRN, FCT511ORD);
+

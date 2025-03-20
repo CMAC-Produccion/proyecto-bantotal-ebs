@@ -1,0 +1,111 @@
+create table AQPC787
+(
+  aqpc787corr   NUMBER(17) not null,
+  aqpc787fhreg  DATE not null,
+  aqpc787hrreg  VARCHAR2(8) not null,
+  aqpc787fecha  DATE,
+  aqpc787anio   NUMBER(17,2),
+  aqpc787mes    VARCHAR2(255),
+  aqpc787codmes NUMBER(17,2),
+  aqpc787dia    NUMBER(17,2),
+  aqpc787subsis VARCHAR2(255),
+  aqpc787espent VARCHAR2(255),
+  aqpc787code   NUMBER(17,2),
+  aqpc787empsis VARCHAR2(255),
+  aqpc787sdovcp NUMBER(17,2),
+  aqpc787sdovlp NUMBER(17,2),
+  aqpc787refin  NUMBER(17,2),
+  aqpc787venc   NUMBER(17,2),
+  aqpc787judic  NUMBER(17,2),
+  aqpc787cartr  NUMBER(17,2),
+  aqpc787fljcm  NUMBER(17,2),
+  aqpc787prvtot NUMBER(17,2),
+  aqpc787gstprv NUMBER(17,2),
+  aqpc787normal NUMBER(17,2),
+  aqpc787cpp    NUMBER(17,2),
+  aqpc787deficn NUMBER(17,2),
+  aqpc787dudoso NUMBER(17,2),
+  aqpc787perdid NUMBER(17,2),
+  aqpc787par30  NUMBER(17,2),
+  aqpc787par60  NUMBER(17,2),
+  aqpc787par90  NUMBER(17,2),
+  aqpc787par120 NUMBER(17,2),
+  aqpc787ptreac NUMBER(17,2),
+  aqpc787ptren1 NUMBER(17,2),
+  aqpc787ptren2 NUMBER(17,2),
+  aqpc787ptrcon NUMBER(17,2)
+)
+;
+comment on table AQPC787
+  is 'Copia de la tabla AQPC787A';
+comment on column AQPC787.aqpc787corr
+  is 'Correlativo';
+comment on column AQPC787.aqpc787fhreg
+  is 'Fecha de Registro';
+comment on column AQPC787.aqpc787hrreg
+  is 'Hora de Registro';
+comment on column AQPC787.aqpc787fecha
+  is 'Optional';
+comment on column AQPC787.aqpc787anio
+  is 'Optional';
+comment on column AQPC787.aqpc787mes
+  is 'Optional';
+comment on column AQPC787.aqpc787codmes
+  is 'Optional';
+comment on column AQPC787.aqpc787dia
+  is 'Optional';
+comment on column AQPC787.aqpc787subsis
+  is 'Subsistema';
+comment on column AQPC787.aqpc787espent
+  is 'Especialización de la Entidad';
+comment on column AQPC787.aqpc787code
+  is 'Optional';
+comment on column AQPC787.aqpc787empsis
+  is 'Empresa del Sistema';
+comment on column AQPC787.aqpc787sdovcp
+  is 'Saldo Vigente Corto Plazo';
+comment on column AQPC787.aqpc787sdovlp
+  is 'Saldo Vigente Largo Plazo';
+comment on column AQPC787.aqpc787refin
+  is 'Refinanciados';
+comment on column AQPC787.aqpc787venc
+  is 'Vencidos';
+comment on column AQPC787.aqpc787judic
+  is 'Judicial';
+comment on column AQPC787.aqpc787cartr
+  is 'Optional';
+comment on column AQPC787.aqpc787fljcm
+  is 'Flujo de Castigos Mensual';
+comment on column AQPC787.aqpc787prvtot
+  is 'Provisión Total';
+comment on column AQPC787.aqpc787gstprv
+  is 'Gasto de Provisión';
+comment on column AQPC787.aqpc787normal
+  is 'Optional';
+comment on column AQPC787.aqpc787cpp
+  is 'Optional';
+comment on column AQPC787.aqpc787deficn
+  is 'Optional';
+comment on column AQPC787.aqpc787dudoso
+  is 'Optional';
+comment on column AQPC787.aqpc787perdid
+  is 'Optional';
+comment on column AQPC787.aqpc787par30
+  is 'Optional';
+comment on column AQPC787.aqpc787par60
+  is 'Optional';
+comment on column AQPC787.aqpc787par90
+  is 'Optional';
+comment on column AQPC787.aqpc787par120
+  is 'Optional';
+comment on column AQPC787.aqpc787ptreac
+  is 'Patrimonio Efectivo Actual';
+comment on column AQPC787.aqpc787ptren1
+  is 'Patrimonio Efectivo Nivel 1';
+comment on column AQPC787.aqpc787ptren2
+  is 'Patrimonio Efectivo Nivel 2';
+comment on column AQPC787.aqpc787ptrcon
+  is 'Patrimonio Contable';
+alter table AQPC787
+  add primary key (AQPC787CORR, AQPC787FHREG, AQPC787HRREG);
+

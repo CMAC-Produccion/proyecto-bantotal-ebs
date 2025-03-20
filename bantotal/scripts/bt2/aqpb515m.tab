@@ -1,0 +1,84 @@
+create table AQPB515M
+(
+  aqpb515mserial NUMBER(10) not null,
+  aqpb515msecue  NUMBER(6) not null,
+  aqpb515mferpt  DATE,
+  aqpb515mfeven  DATE not null,
+  aqpb515mmtimp  NUMBER(13,2),
+  aqpb515mcoent  VARCHAR2(100) not null,
+  aqpb515mcrgmo  VARCHAR2(100),
+  aqpb515mtippe  VARCHAR2(100),
+  aqpb515mtideu  VARCHAR2(100),
+  aqpb515mnocom  VARCHAR2(100),
+  aqpb515mdirec  VARCHAR2(100),
+  aqpb515mcodis  VARCHAR2(100),
+  aqpb515mnodis  VARCHAR2(100),
+  aqpb515mcodep  VARCHAR2(100),
+  aqpb515mnodep  VARCHAR2(100),
+  aqpb515mtidoc  VARCHAR2(100),
+  aqpb515mcodeu  VARCHAR2(100),
+  aqpb515mfecre  DATE,
+  aqpb515mfeact  DATE,
+  aqpb515mfacts  DATE,
+  aqpb515mtidet  CHAR(2),
+  aqpb515mtimon  VARCHAR2(40),
+  aqpb515mconcod VARCHAR2(16) not null,
+  aqpb515mcreusr VARCHAR2(30) not null,
+  aqpb515mcretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515M
+  is 'SAT - EQUIFAX';
+comment on column AQPB515M.aqpb515mserial
+  is 'SERIAL';
+comment on column AQPB515M.aqpb515msecue
+  is 'SECUENCIA';
+comment on column AQPB515M.aqpb515mferpt
+  is 'FECHA DE REPORTE';
+comment on column AQPB515M.aqpb515mfeven
+  is 'FECHA DE VENCIMIENTO';
+comment on column AQPB515M.aqpb515mmtimp
+  is 'MONTO TOTAL IMPORTE';
+comment on column AQPB515M.aqpb515mcoent
+  is 'CODIGO ENTIDAD';
+comment on column AQPB515M.aqpb515mcrgmo
+  is 'CODIGO REGISTRO MOROSO';
+comment on column AQPB515M.aqpb515mtippe
+  is 'TIPO DE PERSONA';
+comment on column AQPB515M.aqpb515mtideu
+  is 'TIPO DE DEUDA';
+comment on column AQPB515M.aqpb515mnocom
+  is 'NOMBRE COMPLETO';
+comment on column AQPB515M.aqpb515mdirec
+  is 'DIRECCION';
+comment on column AQPB515M.aqpb515mcodis
+  is 'CODIGO DISTRITO';
+comment on column AQPB515M.aqpb515mnodis
+  is 'NOMBRE DISTRITO';
+comment on column AQPB515M.aqpb515mcodep
+  is 'CODIGO DEPARTAMENTO';
+comment on column AQPB515M.aqpb515mnodep
+  is 'NOMBRE DEPARTAMENTO';
+comment on column AQPB515M.aqpb515mtidoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB515M.aqpb515mcodeu
+  is 'CONDICION DEUDA';
+comment on column AQPB515M.aqpb515mfecre
+  is 'FECHA DE CREACION';
+comment on column AQPB515M.aqpb515mfeact
+  is 'FECHA DE ACTUALIZACION';
+comment on column AQPB515M.aqpb515mfacts
+  is 'FECHA DE SUSCRIPTOR';
+comment on column AQPB515M.aqpb515mtidet
+  is 'TIPO DETALLE';
+comment on column AQPB515M.aqpb515mtimon
+  is 'TIPO MONEDA';
+comment on column AQPB515M.aqpb515mconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515M.aqpb515mcreusr
+  is 'CONSULTA - USUARIO CREACION';
+comment on column AQPB515M.aqpb515mcretim
+  is 'CONSULTA - FECHA Y HORA DE CREACION';
+alter table AQPB515M
+  add primary key (AQPB515MSERIAL, AQPB515MSECUE, AQPB515MFEVEN, AQPB515MCOENT, AQPB515MCONCOD, AQPB515MCREUSR);
+

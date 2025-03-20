@@ -1,0 +1,16 @@
+create table FSF084
+(
+  lqfpdoc   NUMBER(3) not null,
+  lqftdoc   NUMBER(2) not null,
+  lqfndoc   CHAR(12) not null,
+  lqfdocod  NUMBER(2) not null,
+  pais      NUMBER(3),
+  depcod    NUMBER(5),
+  lqfcodciu NUMBER(3),
+  lqfbarcod NUMBER(3)
+)
+;
+create index FSF08402 on FSF084 (PAIS, DEPCOD, LQFCODCIU, LQFBARCOD);
+alter table FSF084
+  add primary key (LQFPDOC, LQFTDOC, LQFNDOC, LQFDOCOD);
+

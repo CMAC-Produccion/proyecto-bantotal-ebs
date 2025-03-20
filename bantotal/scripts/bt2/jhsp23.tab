@@ -1,0 +1,21 @@
+create table JHSP23
+(
+  jhsp23proc CHAR(3) not null,
+  jhsp23pais NUMBER(3) not null,
+  jhsp23tdoc NUMBER(2) not null,
+  jhsp23ndoc CHAR(12) not null,
+  jhsp23per  NUMBER(6) not null,
+  jhsp23seqd NUMBER(2) not null,
+  jhsp23treg NUMBER(1) not null,
+  jhsp23mda  NUMBER(4) not null,
+  jhsp23cta  NUMBER(9) not null,
+  jhsp23scta NUMBER(4) not null,
+  jhsp23cpto CHAR(6),
+  jhsp23imp  NUMBER(17,2),
+  jhsp23stat NUMBER(2),
+  jhsp23imp2 NUMBER(17,2)
+)
+;
+create unique index JHSP2301 on JHSP23 (JHSP23PROC, JHSP23PAIS, JHSP23TDOC, JHSP23NDOC, JHSP23PER, JHSP23SEQD, JHSP23TREG, JHSP23MDA, JHSP23CTA, JHSP23SCTA);
+create index JHSP2302 on JHSP23 (JHSP23PROC, JHSP23PAIS, JHSP23TDOC, JHSP23NDOC, JHSP23TREG, JHSP23MDA, JHSP23STAT, JHSP23PER, JHSP23SEQD, JHSP23CPTO, JHSP23CTA, JHSP23IMP, JHSP23SCTA);
+

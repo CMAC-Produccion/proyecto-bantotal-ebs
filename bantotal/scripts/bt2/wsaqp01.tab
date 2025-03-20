@@ -1,0 +1,15 @@
+create table WSAQP01
+(
+  wsaqp01fec DATE not null,
+  wsaqp01hor CHAR(8) not null,
+  wsaqp01ori NUMBER(3) not null,
+  wsaqp01usr CHAR(10) not null,
+  wsaqp01tar CHAR(19) not null,
+  wsaqp01est CHAR(30),
+  wsaqp01ide NUMBER(10),
+  wsaqp01ok  CHAR(1)
+)
+;
+alter table WSAQP01
+  add primary key (WSAQP01FEC, WSAQP01HOR, WSAQP01ORI, WSAQP01USR, WSAQP01TAR);
+

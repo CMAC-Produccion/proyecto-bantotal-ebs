@@ -1,0 +1,19 @@
+create table FSH105
+(
+  sh105cod  NUMBER(3) not null,
+  sh105fbt  DATE not null,
+  sh105sec  NUMBER(9) not null,
+  sh105thr  NUMBER(3) not null,
+  sh105cor  NUMBER(9) not null,
+  sh105tim  DATE,
+  sh105typ  CHAR(3),
+  sh105txt  CHAR(200),
+  sh105prc  CHAR(10),
+  sh105csec NUMBER(9),
+  sh105alc  CHAR(3)
+)
+;
+create index FSH10502 on FSH105 (SH105PRC, SH105TIM);
+alter table FSH105
+  add primary key (SH105COD, SH105FBT, SH105SEC, SH105THR, SH105COR);
+

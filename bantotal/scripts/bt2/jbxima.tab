@@ -1,0 +1,11 @@
+create table JBXIMA
+(
+  jbximapai NUMBER(3) not null,
+  jbximatdc NUMBER(2) not null,
+  jbximandc CHAR(12) not null,
+  jbximaacc CHAR(1),
+  jbximausu CHAR(10)
+)
+;
+create unique index JBXIMA01 on JBXIMA (JBXIMAPAI, JBXIMATDC, JBXIMANDC);
+

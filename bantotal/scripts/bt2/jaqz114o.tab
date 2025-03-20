@@ -1,0 +1,12 @@
+create table JAQZ114O
+(
+  jaqz114codpre NUMBER(2) not null,
+  jaqz114codcon NUMBER(2) not null,
+  jaqz114ordafe NUMBER(2)
+)
+;
+create index IJAQZ114O1 on JAQZ114O (JAQZ114CODCON);
+create index JAQZ114O_2 on JAQZ114O (JAQZ114CODPRE, JAQZ114ORDAFE);
+alter table JAQZ114O
+  add primary key (JAQZ114CODPRE, JAQZ114CODCON);
+

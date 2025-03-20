@@ -1,0 +1,46 @@
+create table AQPA391
+(
+  aqpa391inst   NUMBER(10) not null,
+  aqpa391fec    DATE,
+  aqpa391hora   CHAR(8),
+  aqpa391ican   NUMBER(10),
+  aqpa391acan   VARCHAR2(10),
+  aqpa391fcan   DATE,
+  aqpa391dcan   NUMBER,
+  aqpa391sucan  NUMBER,
+  aqpa391casec  NUMBER,
+  aqpa391dpfca  VARCHAR2(10),
+  aqpa391inhase VARCHAR2(10),
+  aqpa391asesor VARCHAR2(10),
+  aqpa391sucase NUMBER
+)
+;
+comment on column AQPA391.aqpa391inst
+  is 'Instancia';
+comment on column AQPA391.aqpa391fec
+  is 'Fecha';
+comment on column AQPA391.aqpa391hora
+  is 'Hora';
+comment on column AQPA391.aqpa391ican
+  is 'Instancia cancelada';
+comment on column AQPA391.aqpa391acan
+  is 'Asesor de instancia cancelada';
+comment on column AQPA391.aqpa391fcan
+  is 'Fecha de Cancelacion';
+comment on column AQPA391.aqpa391dcan
+  is 'Dias de Cancelacion';
+comment on column AQPA391.aqpa391sucan
+  is 'Sucursal de cred cancelado';
+comment on column AQPA391.aqpa391casec
+  is 'Cargo Asesor de Cred Cancelado';
+comment on column AQPA391.aqpa391dpfca
+  is 'Era DPF Cred Cancelado';
+comment on column AQPA391.aqpa391inhase
+  is 'Inhabilitado o cesado asesor de cred cancelado';
+comment on column AQPA391.aqpa391asesor
+  is 'Asesor de la instancia';
+comment on column AQPA391.aqpa391sucase
+  is 'Sucursal del nuevo asesor';
+alter table AQPA391
+  add primary key (AQPA391INST);
+

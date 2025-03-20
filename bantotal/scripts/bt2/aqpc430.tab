@@ -1,0 +1,94 @@
+create table AQPC430
+(
+  aqpc430inst   NUMBER(10) not null,
+  aqpc430corr   NUMBER(3) not null,
+  aqpc430pgc    NUMBER(3),
+  aqpc430mod    NUMBER(3),
+  aqpc430suc    NUMBER(3),
+  aqpc430mda    NUMBER(4),
+  aqpc430pap    NUMBER(4),
+  aqpc430cta    NUMBER(9),
+  aqpc430oper   NUMBER(9),
+  aqpc430sbop   NUMBER(3),
+  aqpc430tope   NUMBER(3),
+  aqpc430pri    NUMBER(3),
+  aqpc430tipo   CHAR(3),
+  aqpc430sdog   NUMBER(17,2),
+  aqpc430mtou   NUMBER(17,2),
+  aqpc430fape   DATE,
+  aqpc430mtod   NUMBER(17,2),
+  aqpc430poco   NUMBER(10,6),
+  aqpc430tcbi   NUMBER(14,8),
+  aqpc430auxc   CHAR(3),
+  aqpc430pgcod  NUMBER(3) not null,
+  aqpc430itsuc  NUMBER(3) not null,
+  aqpc430itmod  NUMBER(3) not null,
+  aqpc430ittran NUMBER(3) not null,
+  aqpc430itnrel NUMBER(4) not null,
+  aqpc430itfcon DATE not null,
+  aqpc430est    CHAR(1),
+  aqpc430fecext DATE
+)
+;
+comment on table AQPC430
+  is 'Tabla BK de la SNG122 en la baja de garantías';
+comment on column AQPC430.aqpc430inst
+  is 'sng122inst';
+comment on column AQPC430.aqpc430corr
+  is 'sng122corr';
+comment on column AQPC430.aqpc430pgc
+  is 'sng122pgc';
+comment on column AQPC430.aqpc430mod
+  is 'sng122mod';
+comment on column AQPC430.aqpc430suc
+  is 'sng122suc';
+comment on column AQPC430.aqpc430mda
+  is 'sng122mda';
+comment on column AQPC430.aqpc430pap
+  is 'sng122pap';
+comment on column AQPC430.aqpc430cta
+  is 'sng122cta';
+comment on column AQPC430.aqpc430oper
+  is 'sng122oper';
+comment on column AQPC430.aqpc430sbop
+  is 'sng122sbop';
+comment on column AQPC430.aqpc430tope
+  is 'sng122tope';
+comment on column AQPC430.aqpc430pri
+  is 'sng122pri';
+comment on column AQPC430.aqpc430tipo
+  is 'sng122tipo';
+comment on column AQPC430.aqpc430sdog
+  is 'sng122sdog';
+comment on column AQPC430.aqpc430mtou
+  is 'sng122mtou';
+comment on column AQPC430.aqpc430fape
+  is 'sng122fape';
+comment on column AQPC430.aqpc430mtod
+  is 'sng122mtod';
+comment on column AQPC430.aqpc430poco
+  is 'sng122poco';
+comment on column AQPC430.aqpc430tcbi
+  is 'sng122tcbi';
+comment on column AQPC430.aqpc430auxc
+  is 'sng122auxc';
+comment on column AQPC430.aqpc430pgcod
+  is 'Empresa - Clave de la transacción';
+comment on column AQPC430.aqpc430itsuc
+  is 'suc transacción';
+comment on column AQPC430.aqpc430itmod
+  is 'modulo de la transacción';
+comment on column AQPC430.aqpc430ittran
+  is 'transacción';
+comment on column AQPC430.aqpc430itnrel
+  is 'rel transacción';
+comment on column AQPC430.aqpc430itfcon
+  is 'fecha transacción';
+comment on column AQPC430.aqpc430est
+  is 'Estado: C-contabilizado,E:Extornado';
+comment on column AQPC430.aqpc430fecext
+  is 'Fecha de Extorno';
+create index AQPC430A2 on AQPC430 (AQPC430PGCOD, AQPC430ITSUC, AQPC430ITMOD, AQPC430ITTRAN, AQPC430ITNREL, AQPC430ITFCON);
+alter table AQPC430
+  add primary key (AQPC430INST, AQPC430CORR, AQPC430PGCOD, AQPC430ITSUC, AQPC430ITMOD, AQPC430ITTRAN, AQPC430ITNREL, AQPC430ITFCON);
+

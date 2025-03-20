@@ -1,0 +1,17 @@
+create table FSFL22
+(
+  fsfl22fig DATE not null,
+  fsfl22hig CHAR(8) not null,
+  fsfl22rok CHAR(1),
+  fsfl22uig CHAR(10),
+  fsfl22wig CHAR(10),
+  fsfl22fcf DATE,
+  fsfl22hcf CHAR(8),
+  fsfl22ucf CHAR(10),
+  fsfl22wcf CHAR(10),
+  fsfl22dat CHAR(255)
+)
+;
+alter table FSFL22
+  add primary key (FSFL22FIG, FSFL22HIG);
+

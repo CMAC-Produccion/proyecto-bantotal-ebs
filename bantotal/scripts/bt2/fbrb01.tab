@@ -1,0 +1,16 @@
+create table FBRB01
+(
+  brb01emp  NUMBER(3) not null,
+  brb01cmsj NUMBER(3) not null,
+  brb01desc CHAR(50),
+  brb01int  CHAR(1),
+  brb01seg  CHAR(1),
+  brb01tdep CHAR(1),
+  brb01ddep NUMBER(5),
+  brb01fdep DATE
+)
+;
+create index FBRB0102 on FBRB01 (BRB01EMP, BRB01DESC);
+alter table FBRB01
+  add primary key (BRB01EMP, BRB01CMSJ);
+

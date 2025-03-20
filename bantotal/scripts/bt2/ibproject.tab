@@ -1,0 +1,11 @@
+create table IBPROJECT
+(
+  ibproject CHAR(60) not null,
+  ibmode    CHAR(10) not null,
+  ibprojhab CHAR(1) not null,
+  cnl000cod NUMBER(4) not null
+)
+;
+create unique index IBPROJECT01 on IBPROJECT (IBPROJECT);
+create index IBPROJECT02 on IBPROJECT (CNL000COD);
+

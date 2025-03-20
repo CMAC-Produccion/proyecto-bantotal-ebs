@@ -1,0 +1,17 @@
+create table Z05125
+(
+  z05125ofv CHAR(3) not null,
+  z05125cov CHAR(2) not null,
+  z05125fiv CHAR(2) not null,
+  z05125nuv CHAR(6) not null,
+  z05125div CHAR(1) not null,
+  z05125ofn CHAR(3) not null,
+  z05125con CHAR(2) not null,
+  z05125fin CHAR(2) not null,
+  z05125nun CHAR(6) not null,
+  z05125din CHAR(1) not null
+)
+;
+alter table Z05125
+  add primary key (Z05125OFV, Z05125COV, Z05125FIV, Z05125NUV, Z05125DIV, Z05125OFN, Z05125CON, Z05125FIN, Z05125NUN, Z05125DIN);
+

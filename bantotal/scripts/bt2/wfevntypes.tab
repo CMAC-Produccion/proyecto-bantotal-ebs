@@ -1,0 +1,10 @@
+create table WFEVNTYPES
+(
+  wfevntype    NUMBER(2) not null,
+  wfevntypedsc CHAR(40)
+)
+;
+create index UWFEVNTYPE1 on WFEVNTYPES (WFEVNTYPEDSC);
+alter table WFEVNTYPES
+  add primary key (WFEVNTYPE);
+

@@ -1,0 +1,13 @@
+create table FSA111
+(
+  pgcod  NUMBER(3) not null,
+  sucurs NUMBER(3) not null,
+  pqcpla NUMBER(3) not null,
+  pqbco  NUMBER(3) not null,
+  pqhab  CHAR(1)
+)
+;
+create index FSA11103 on FSA111 (PQBCO);
+alter table FSA111
+  add primary key (PGCOD, SUCURS, PQCPLA, PQBCO);
+

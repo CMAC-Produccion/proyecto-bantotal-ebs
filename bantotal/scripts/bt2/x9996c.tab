@@ -1,0 +1,34 @@
+create table X9996C
+(
+  x9996acnco NUMBER(3) not null,
+  x9996bopco NUMBER(5) not null,
+  x9996cvart NUMBER(3) not null,
+  x9996cdesc CHAR(65),
+  x9996chabi CHAR(1),
+  x9996csinc CHAR(1),
+  x9996cgrab CHAR(1),
+  x9996crmec CHAR(1),
+  x9996crmen CHAR(1),
+  x9996ctpmv CHAR(2),
+  x9996cvasd CHAR(1),
+  x9996csdcn CHAR(1),
+  x9996cvasg CHAR(1),
+  x9996crsdo CHAR(1),
+  x9996csddv CHAR(1),
+  x9996fmpco NUMBER(3),
+  x9996ctmod NUMBER(3),
+  x9996cttrn NUMBER(3),
+  x9996cttra NUMBER(3),
+  x9996ctdeb NUMBER(2),
+  x9996ctsbd CHAR(5),
+  x9996ctsbs CHAR(5),
+  x9996ctcrd NUMBER(2),
+  x9996ctsbc CHAR(5),
+  x9996ctsba CHAR(5)
+)
+;
+create index X9996C02 on X9996C (X9996FMPCO);
+create index X9996C03 on X9996C (X9996BOPCO);
+alter table X9996C
+  add primary key (X9996ACNCO, X9996BOPCO, X9996CVART);
+

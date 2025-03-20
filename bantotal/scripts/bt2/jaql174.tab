@@ -1,0 +1,19 @@
+create table JAQL174
+(
+  jaql174nro NUMBER(10) not null,
+  jaql174fec DATE,
+  jaql174est NUMBER(1),
+  jaql174esd CHAR(10),
+  jaql174aut VARCHAR2(150),
+  jaql174cnt NUMBER(5),
+  jaql174usr CHAR(10),
+  jaql174hor CHAR(8),
+  jaql174eso NUMBER(2),
+  jaql174sdo NUMBER(17,2),
+  jaql174atr NUMBER(10)
+)
+;
+create index JAQL174001 on JAQL174 (JAQL174FEC, JAQL174EST);
+alter table JAQL174
+  add primary key (JAQL174NRO);
+

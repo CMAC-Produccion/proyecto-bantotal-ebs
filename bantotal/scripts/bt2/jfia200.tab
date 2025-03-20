@@ -1,0 +1,25 @@
+create table JFIA200
+(
+  jfia200cod NUMBER(3) not null,
+  jfia200tgt NUMBER(4) not null,
+  jfia200mde NUMBER(4) not null,
+  jfia200mgt NUMBER(4) not null,
+  jfia200ngt CHAR(30),
+  jfia200por NUMBER(5,2),
+  auxiliar1  NUMBER(15),
+  auxiliar2  NUMBER(15),
+  auxiliar3  NUMBER(15),
+  auxiliar4  NUMBER(17,2),
+  auxiliar5  NUMBER(17,2),
+  auxiliar6  NUMBER(17,2),
+  auxiliar7  DATE,
+  auxiliar8  DATE,
+  auxiliar9  DATE,
+  auxiliar10 CHAR(30),
+  auxiliar11 CHAR(30),
+  auxiliar12 CHAR(30)
+)
+;
+alter table JFIA200
+  add primary key (JFIA200COD, JFIA200TGT, JFIA200MDE, JFIA200MGT);
+

@@ -1,0 +1,15 @@
+create table FCW999
+(
+  cmxtrcod  NUMBER(3) not null,
+  cmxtrmod  NUMBER(3) not null,
+  cmxtroper NUMBER(9) not null,
+  cmxtruser CHAR(10),
+  cmxtrdia  DATE,
+  cmxtrhora CHAR(8),
+  cmxtrmerr CHAR(1)
+)
+;
+create index FCW99902 on FCW999 (CMXTRUSER, CMXTRDIA, CMXTRHORA);
+alter table FCW999
+  add primary key (CMXTRCOD, CMXTRMOD, CMXTROPER);
+

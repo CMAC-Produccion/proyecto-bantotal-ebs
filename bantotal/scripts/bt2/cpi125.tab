@@ -1,0 +1,17 @@
+create table CPI125
+(
+  tjtapais NUMBER(3) not null,
+  tjtatd   NUMBER(2) not null,
+  tjtand   CHAR(25) not null,
+  tjtat    CHAR(30) not null,
+  tjtanu   CHAR(20) not null,
+  tjtal    NUMBER(17,2),
+  tjtab    CHAR(30),
+  tjtacob  CHAR(1),
+  tjtaser  VARCHAR2(200),
+  tjtamda  NUMBER(4)
+)
+;
+alter table CPI125
+  add primary key (TJTAPAIS, TJTATD, TJTAND, TJTAT, TJTANU);
+

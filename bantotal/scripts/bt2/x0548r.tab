@@ -1,0 +1,21 @@
+create table X0548R
+(
+  x0548rfch CHAR(6) not null,
+  x0548rhra NUMBER(4) not null,
+  x0548ridr NUMBER(1) not null,
+  x0548rpri NUMBER(2),
+  x0548rdei NUMBER(10),
+  x0548rori NUMBER(10),
+  x0548rida CHAR(1),
+  x0548rtam NUMBER(3),
+  x0548rfac NUMBER(10),
+  x0548rfrm NUMBER(1),
+  x0548rnde CHAR(23),
+  x0548rnor CHAR(23),
+  x0548rref CHAR(8)
+)
+;
+create index X0548R02 on X0548R (X0548RFCH, X0548RNDE, X0548RHRA);
+alter table X0548R
+  add primary key (X0548RFCH, X0548RHRA, X0548RIDR);
+

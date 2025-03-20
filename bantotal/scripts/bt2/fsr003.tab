@@ -1,0 +1,17 @@
+create table FSR003
+(
+  pjpais NUMBER(3) not null,
+  pjtdoc NUMBER(2) not null,
+  pjndoc CHAR(12) not null,
+  pfpai1 NUMBER(3) not null,
+  pftdo1 NUMBER(2) not null,
+  pfndo1 CHAR(12) not null,
+  vicod  NUMBER(2) not null,
+  pfpart NUMBER(7,4)
+)
+;
+create index FSR00303 on FSR003 (VICOD);
+create index FSR00304 on FSR003 (PFPAI1, PFTDO1, PFNDO1, VICOD);
+alter table FSR003
+  add primary key (PJPAIS, PJTDOC, PJNDOC, PFPAI1, PFTDO1, PFNDO1, VICOD);
+

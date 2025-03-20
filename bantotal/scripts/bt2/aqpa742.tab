@@ -1,0 +1,90 @@
+create table AQPA742
+(
+  aqpa742numtar    CHAR(19) not null,
+  aqpa742fecreg    DATE,
+  aqpa742horreg    VARCHAR2(10),
+  aqpa742fecult    DATE,
+  aqpa742horult    VARCHAR2(10),
+  aqpa742correo    VARCHAR2(100),
+  aqpa742celular   VARCHAR2(15),
+  aqpa742imei      VARCHAR2(100),
+  aqpa742modelo    VARCHAR2(50),
+  aqpa742ddeviceid VARCHAR2(50),
+  aqpa742dmodelo   VARCHAR2(50),
+  aqpa742dso       VARCHAR2(50),
+  aqpa742dlat      VARCHAR2(50),
+  aqpa742dlong     VARCHAR2(50),
+  aqpa742pushmo    VARCHAR2(100),
+  aqpa742pushtk    VARCHAR2(300),
+  aqpa742usureg    VARCHAR2(10),
+  aqpa742varaux1   VARCHAR2(200),
+  aqpa742varaux2   VARCHAR2(200),
+  aqpa742varaux3   VARCHAR2(200),
+  aqpa742numaux1   NUMBER(16,2),
+  aqpa742numaux2   NUMBER(16,2),
+  aqpa742numaux3   NUMBER(16,2),
+  aqpa742estado    CHAR(1),
+  aqpa742horbaj    VARCHAR2(10),
+  aqpa742fecbaj    DATE,
+  aqpa742codter    CHAR(20)
+)
+;
+comment on table AQPA742
+  is 'Registros al APP Agentes';
+comment on column AQPA742.aqpa742numtar
+  is 'Numero de tarjeta';
+comment on column AQPA742.aqpa742fecreg
+  is 'Fecha de registro';
+comment on column AQPA742.aqpa742horreg
+  is 'Hora de registro';
+comment on column AQPA742.aqpa742fecult
+  is 'Fecha de Ultimo acceso';
+comment on column AQPA742.aqpa742horult
+  is 'Hora de Ultimo acceso';
+comment on column AQPA742.aqpa742correo
+  is 'Correo';
+comment on column AQPA742.aqpa742celular
+  is 'Celular';
+comment on column AQPA742.aqpa742imei
+  is 'Imei';
+comment on column AQPA742.aqpa742modelo
+  is 'Modelo';
+comment on column AQPA742.aqpa742ddeviceid
+  is 'Devide ID';
+comment on column AQPA742.aqpa742dmodelo
+  is 'DModelo';
+comment on column AQPA742.aqpa742dso
+  is 'DSistema Operativo';
+comment on column AQPA742.aqpa742dlat
+  is 'Latitud';
+comment on column AQPA742.aqpa742dlong
+  is 'Longitud';
+comment on column AQPA742.aqpa742pushmo
+  is 'Push Modelo de Equipo';
+comment on column AQPA742.aqpa742pushtk
+  is 'Push Token';
+comment on column AQPA742.aqpa742usureg
+  is 'Usuario registro';
+comment on column AQPA742.aqpa742varaux1
+  is 'Variable Auxiliar 1';
+comment on column AQPA742.aqpa742varaux2
+  is 'Variable Auxiliar 2';
+comment on column AQPA742.aqpa742varaux3
+  is 'Variable Auxiliar 3';
+comment on column AQPA742.aqpa742numaux1
+  is 'Numero Auxiliar 1';
+comment on column AQPA742.aqpa742numaux2
+  is 'Numero Auxiliar 2';
+comment on column AQPA742.aqpa742numaux3
+  is 'Numero Auxiliar 3';
+comment on column AQPA742.aqpa742estado
+  is 'Estado A: Activo; I:Inactivo';
+comment on column AQPA742.aqpa742horbaj
+  is 'Hora de baja';
+comment on column AQPA742.aqpa742fecbaj
+  is 'Fecha de baja';
+comment on column AQPA742.aqpa742codter
+  is 'Codigo de terminal';
+alter table AQPA742
+  add primary key (AQPA742NUMTAR);
+

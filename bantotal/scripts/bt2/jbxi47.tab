@@ -1,0 +1,34 @@
+create table JBXI47
+(
+  jx47evenro NUMBER(9) not null,
+  jx47emp    NUMBER(3),
+  jx47mod    NUMBER(3),
+  jx47suc    NUMBER(3),
+  jx47ope    NUMBER(9),
+  jx47subope NUMBER(3),
+  jx47tipope NUMBER(3),
+  jx47cta    NUMBER(9),
+  jx47mda    NUMBER(4),
+  jx47pap    NUMBER(4),
+  jx47hor    NUMBER(2),
+  jx47fec    DATE,
+  jx47imp1   NUMBER(17,2),
+  jx47imp2   NUMBER(17,2),
+  jx47imp3   NUMBER(17,2),
+  jx47imp4   NUMBER(17,2),
+  jx47fec1   DATE,
+  jx47fec2   DATE,
+  jx47fec3   DATE,
+  jx47fec4   DATE,
+  jx47est    CHAR(1),
+  jx47txt    CHAR(50),
+  jx47fecest DATE,
+  jx44sercod NUMBER(4),
+  jx47paicod NUMBER(3),
+  jx47doctip NUMBER(2),
+  jx47docnro CHAR(12)
+)
+;
+create index IJBXI47 on JBXI47 (JX44SERCOD);
+create unique index JBXI4701 on JBXI47 (JX47EVENRO);
+

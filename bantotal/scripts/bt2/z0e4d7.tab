@@ -1,0 +1,24 @@
+create table Z0E4D7
+(
+  z0e4d7nro CHAR(19) not null,
+  z0e4d7fin DATE not null,
+  z0e4d7hin CHAR(8) not null,
+  z0e4d7uin CHAR(10) not null,
+  z0e4d7tno CHAR(3),
+  z0e4d7est CHAR(3),
+  z0e4d7uau CHAR(10),
+  z0e4d7fau DATE,
+  z0e4d7pla CHAR(15),
+  z0e4d7spl NUMBER(3),
+  z0e4d7ter CHAR(20),
+  z0e4d7sor NUMBER(3)
+)
+;
+create index Z0E4D702 on Z0E4D7 (Z0E4D7EST, Z0E4D7TNO);
+create index Z0E4D703 on Z0E4D7 (Z0E4D7NRO, Z0E4D7TNO, Z0E4D7SOR, Z0E4D7FIN, Z0E4D7HIN);
+create index Z0E4D704 on Z0E4D7 (Z0E4D7NRO, Z0E4D7TNO, Z0E4D7SPL, Z0E4D7FIN, Z0E4D7HIN);
+create index Z0E4D705 on Z0E4D7 (Z0E4D7EST, Z0E4D7NRO);
+create index Z0E4D706 on Z0E4D7 (Z0E4D7SPL, Z0E4D7FIN, Z0E4D7NRO);
+alter table Z0E4D7
+  add primary key (Z0E4D7NRO, Z0E4D7FIN, Z0E4D7HIN, Z0E4D7UIN);
+

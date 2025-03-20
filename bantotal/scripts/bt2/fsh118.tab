@@ -1,0 +1,23 @@
+create table FSH118
+(
+  sh118cod  NUMBER(3) not null,
+  sh118fec  DATE not null,
+  sh118suc  NUMBER(3) not null,
+  sh118mod  NUMBER(3) not null,
+  sh118mda  NUMBER(4) not null,
+  sh118pap  NUMBER(4) not null,
+  sh118cta  NUMBER(9) not null,
+  sh118oper NUMBER(9) not null,
+  sh118sbop NUMBER(3) not null,
+  sh118tope NUMBER(3) not null,
+  sh118tipo CHAR(2),
+  sh118imp  NUMBER(17,2),
+  sh118sob  NUMBER(17,2),
+  sh118aux1 NUMBER(17,2),
+  sh118aux2 NUMBER(17,2)
+)
+;
+create index FSH11802 on FSH118 (SH118COD, SH118FEC, SH118CTA, SH118MDA, SH118PAP);
+alter table FSH118
+  add primary key (SH118COD, SH118FEC, SH118SUC, SH118MOD, SH118MDA, SH118PAP, SH118CTA, SH118OPER, SH118SBOP, SH118TOPE);
+

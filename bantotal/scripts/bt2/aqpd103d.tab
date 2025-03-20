@@ -1,0 +1,32 @@
+create table AQPD103D
+(
+  aqpd103dtip VARCHAR2(10) not null,
+  aqpd103dcal VARCHAR2(10) not null,
+  aqpd103dmon VARCHAR2(10) not null,
+  aqpd103dfec DATE not null,
+  aqpd103dnod NUMBER(18) not null,
+  aqpd103dval NUMBER(18,12),
+  aqpd103dusu CHAR(10) not null
+)
+;
+comment on table AQPD103D
+  is 'TABLA TEMPORAL DE CURVAS';
+comment on column AQPD103D.aqpd103dtip
+  is 'TIPO DE CURVA';
+comment on column AQPD103D.aqpd103dcal
+  is 'CALIFCACION DE CURVA';
+comment on column AQPD103D.aqpd103dmon
+  is 'MONEDA DE CURVA';
+comment on column AQPD103D.aqpd103dfec
+  is 'FECHA DE CURVA';
+comment on column AQPD103D.aqpd103dnod
+  is 'NODO DE CURVA';
+comment on column AQPD103D.aqpd103dval
+  is 'VALOR DE LA CURVA';
+comment on column AQPD103D.aqpd103dusu
+  is 'USUARIO DE SOLICITUD';
+create index AQPD103DA2 on AQPD103D (AQPD103DTIP);
+create index AQPD103DA3 on AQPD103D (AQPD103DTIP, AQPD103DFEC);
+alter table AQPD103D
+  add primary key (AQPD103DTIP, AQPD103DCAL, AQPD103DMON, AQPD103DFEC, AQPD103DNOD, AQPD103DUSU);
+

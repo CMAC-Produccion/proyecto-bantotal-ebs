@@ -1,0 +1,20 @@
+create table FSFT53
+(
+  sft53pap NUMBER(4) not null,
+  sft53fch DATE not null,
+  sft53ape NUMBER(14,8),
+  sft53max NUMBER(14,8),
+  sft53min NUMBER(14,8),
+  sft53cie NUMBER(14,8),
+  sft53vol NUMBER(14,2),
+  sft53a01 NUMBER(9),
+  sft53a02 NUMBER(9),
+  sft53a03 DATE,
+  sft53a04 DATE,
+  sft53a05 CHAR(20),
+  sft53a06 CHAR(20)
+)
+;
+alter table FSFT53
+  add primary key (SFT53PAP, SFT53FCH);
+

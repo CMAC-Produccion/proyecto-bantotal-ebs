@@ -1,0 +1,20 @@
+create table PQT100
+(
+  pgcod   NUMBER(3) not null,
+  pqcmod  NUMBER(3) not null,
+  pqcsuc  NUMBER(3) not null,
+  pqcmda  NUMBER(4) not null,
+  pqcpap  NUMBER(4) not null,
+  pqccta  NUMBER(9) not null,
+  pqcoper NUMBER(9) not null,
+  pqcsbop NUMBER(3) not null,
+  pqctope NUMBER(3) not null,
+  pqtcod  NUMBER(5),
+  pqcfch  DATE
+)
+;
+create index PQT10003 on PQT100 (PGCOD, PQCCTA, PQTCOD);
+create index PQT10004 on PQT100 (PGCOD, PQTCOD, PQCCTA);
+alter table PQT100
+  add primary key (PGCOD, PQCMOD, PQCSUC, PQCMDA, PQCPAP, PQCCTA, PQCOPER, PQCSBOP, PQCTOPE);
+

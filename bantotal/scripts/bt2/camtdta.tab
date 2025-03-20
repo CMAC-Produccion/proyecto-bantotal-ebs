@@ -1,0 +1,12 @@
+create table CAMTDTA
+(
+  camtappid NUMBER(2) not null,
+  camtid    CHAR(30) not null,
+  camtdsc   CHAR(60),
+  camtcla   NUMBER(1),
+  camtmul   NUMBER(1)
+)
+;
+alter table CAMTDTA
+  add primary key (CAMTAPPID, CAMTID);
+

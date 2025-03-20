@@ -1,0 +1,38 @@
+create table FPP066
+(
+  pgcod      NUMBER(3) not null,
+  xpremod    NUMBER(3) not null,
+  xpretope   NUMBER(3) not null,
+  xpremoneda NUMBER(4) not null,
+  xprepapel  NUMBER(4) not null,
+  prfgcod    CHAR(10) not null,
+  cocod      NUMBER(3) not null,
+  pp066imp   NUMBER(17,2),
+  pp066sobre CHAR(1),
+  pp066modif CHAR(1),
+  pp066oblig CHAR(1),
+  pp066mom   NUMBER(2),
+  pp066tipo  CHAR(1),
+  pp066porc1 NUMBER(10,6),
+  pp066porc2 NUMBER(10,6),
+  pp066prg1  CHAR(10),
+  pp066prg2  CHAR(10),
+  pp066impu  CHAR(1),
+  pp066pers  CHAR(1),
+  pp066aux1  CHAR(1),
+  pp066aux2  CHAR(1),
+  pp066aux3  CHAR(1),
+  pp066aux4  NUMBER(17,2),
+  pp066aux5  NUMBER(17,2),
+  pp066aux6  DATE,
+  pp066aux7  NUMBER(16),
+  pp066aux8  CHAR(100),
+  pp066orden NUMBER(3)
+)
+;
+create index FPP06602 on FPP066 (PGCOD, XPREMOD, XPRETOPE, XPREMONEDA, XPREPAPEL, COCOD);
+create index FPP06603 on FPP066 (PGCOD, PRFGCOD);
+create index FPP06610 on FPP066 (PGCOD, XPREMOD, XPRETOPE, XPREMONEDA, XPREPAPEL, PRFGCOD, PP066ORDEN);
+alter table FPP066
+  add primary key (PGCOD, XPREMOD, XPRETOPE, XPREMONEDA, XPREPAPEL, PRFGCOD, COCOD);
+

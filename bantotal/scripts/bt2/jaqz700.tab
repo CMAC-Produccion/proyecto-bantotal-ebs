@@ -1,0 +1,20 @@
+create table JAQZ700
+(
+  jaqz700fecha DATE,
+  jaqz700feini CHAR(8),
+  jaqz700feact CHAR(8),
+  jaqz700usua  CHAR(10)
+)
+;
+comment on table JAQZ700
+  is 'Tabla RCC Cargado';
+comment on column JAQZ700.jaqz700fecha
+  is 'Fecha de Carga';
+comment on column JAQZ700.jaqz700feini
+  is 'RCC Anterior';
+comment on column JAQZ700.jaqz700feact
+  is 'RCC Final - RCC Cargado';
+comment on column JAQZ700.jaqz700usua
+  is 'Usuario';
+create index JAQZ470_1 on JAQZ700 (JAQZ700FECHA);
+

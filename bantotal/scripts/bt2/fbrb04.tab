@@ -1,0 +1,17 @@
+create table FBRB04
+(
+  brb04emp   NUMBER(3) not null,
+  brb04cta   NUMBER(9) not null,
+  brb04cmsj  NUMBER(3) not null,
+  brb04fecge DATE not null,
+  brb04corms NUMBER(4) not null,
+  brb04fechi DATE not null,
+  brb04corhi NUMBER(4) not null,
+  brb04lin   NUMBER(3) not null,
+  brb04txt   CHAR(65),
+  brb04user  CHAR(10)
+)
+;
+alter table FBRB04
+  add primary key (BRB04EMP, BRB04CTA, BRB04CMSJ, BRB04FECGE, BRB04CORMS, BRB04FECHI, BRB04CORHI, BRB04LIN);
+

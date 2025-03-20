@@ -1,0 +1,12 @@
+create table FCT007
+(
+  modulo     NUMBER(3) not null,
+  mopctipo   NUMBER(2) not null,
+  mopctdes   CHAR(20),
+  mopctsts   CHAR(1),
+  mopcanzsbo CHAR(1)
+)
+;
+alter table FCT007
+  add primary key (MODULO, MOPCTIPO);
+

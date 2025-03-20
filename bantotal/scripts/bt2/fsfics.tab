@@ -1,0 +1,24 @@
+create table FSFICS
+(
+  sficsemp NUMBER(3) not null,
+  sficsemi NUMBER(3) not null,
+  sficscar NUMBER(3) not null,
+  sficstip CHAR(2),
+  sficsmda NUMBER(4),
+  sficslim NUMBER(17,2),
+  sficsdsc CHAR(50),
+  sficshab CHAR(1),
+  sficsax1 CHAR(70),
+  sficsax2 CHAR(70),
+  sficsax3 CHAR(70),
+  sficsax4 NUMBER(17,2),
+  sficsax5 NUMBER(17,2),
+  sficsax6 NUMBER(17,2),
+  sficsax7 DATE,
+  sficsax8 DATE,
+  sficsax9 DATE
+)
+;
+alter table FSFICS
+  add primary key (SFICSEMP, SFICSEMI, SFICSCAR);
+

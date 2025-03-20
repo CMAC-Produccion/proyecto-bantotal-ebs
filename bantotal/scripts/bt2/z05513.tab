@@ -1,0 +1,21 @@
+create table Z05513
+(
+  z05513cap NUMBER(4) not null,
+  z05513cba CHAR(5) not null,
+  z05513cor NUMBER(9) not null,
+  z05513ire CHAR(2),
+  z05513clo NUMBER(1),
+  z05513cre NUMBER(4),
+  z05513t11 NUMBER(12,2),
+  z05513t1s CHAR(1),
+  z05513t21 NUMBER(12,2),
+  z05513t2s CHAR(1),
+  z05513t31 NUMBER(12,2),
+  z05513t3s CHAR(1),
+  z05513prd CHAR(10),
+  z05513fi1 CHAR(94)
+)
+;
+alter table Z05513
+  add primary key (Z05513CAP, Z05513CBA, Z05513COR);
+

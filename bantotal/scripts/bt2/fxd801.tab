@@ -1,0 +1,22 @@
+create table FXD801
+(
+  pgcod     NUMBER(3) not null,
+  numtip    NUMBER(2) not null,
+  msgnum    NUMBER(9) not null,
+  swtcod    NUMBER(5) not null,
+  swtrel    NUMBER(2) not null,
+  msgusring CHAR(10),
+  msgusraut CHAR(10),
+  msgfec    DATE,
+  msgenv    CHAR(1),
+  msgfecenv DATE,
+  msgfmt    NUMBER(1),
+  msghorenv CHAR(8)
+)
+;
+create index FXD80103 on FXD801 (SWTCOD, SWTREL);
+create index FXD80104 on FXD801 (PGCOD, MSGENV, SWTCOD, SWTREL);
+create index FXD80105 on FXD801 (PGCOD, NUMTIP, SWTCOD, MSGFEC, MSGNUM);
+alter table FXD801
+  add primary key (PGCOD, NUMTIP, MSGNUM, SWTCOD, SWTREL);
+

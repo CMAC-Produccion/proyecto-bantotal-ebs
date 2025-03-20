@@ -1,0 +1,30 @@
+create table JAQY800
+(
+  jaqy800pgcd NUMBER(3) not null,
+  jaqy800ins  NUMBER(10) not null,
+  jaqy800mod  NUMBER(3) not null,
+  jaqy800suc  NUMBER(3) not null,
+  jaqy800mda  NUMBER(4) not null,
+  jaqy800pap  NUMBER(4) not null,
+  jaqy800cta  NUMBER(9) not null,
+  jaqy800ope  NUMBER(9) not null,
+  jaqy800sbop NUMBER(3) not null,
+  jaqy800tope NUMBER(3) not null,
+  jaqy800mto  NUMBER(18,2),
+  jaqy800usr  VARCHAR2(20),
+  jaqy800ufec TIMESTAMP(6),
+  jaqy800nip  VARCHAR2(16),
+  jaqy800vinc CHAR(1),
+  jaqy800usrm CHAR(20),
+  jaqy800fecm TIMESTAMP(6),
+  jaqy800nipm VARCHAR2(20),
+  jaqy800tpc  NCHAR(1),
+  jaqy800ins2 NUMBER(10)
+)
+;
+create index JAQY800_1 on JAQY800 (JAQY800PGCD, JAQY800INS);
+create index JAQY800_2 on JAQY800 (JAQY800PGCD, JAQY800USR);
+create index JAQY800_3 on JAQY800 (JAQY800PGCD, JAQY800MOD, JAQY800SUC, JAQY800MDA, JAQY800PAP, JAQY800CTA, JAQY800OPE, JAQY800SBOP, JAQY800TOPE);
+alter table JAQY800
+  add constraint IJAQY800 primary key (JAQY800PGCD, JAQY800INS, JAQY800MOD, JAQY800SUC, JAQY800MDA, JAQY800PAP, JAQY800CTA, JAQY800OPE, JAQY800SBOP, JAQY800TOPE);
+

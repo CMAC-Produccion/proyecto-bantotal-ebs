@@ -1,0 +1,20 @@
+create table OPERTIEM
+(
+  pgcod  NUMBER(3) not null,
+  hsucor NUMBER(3) not null,
+  hcmod  NUMBER(3) not null,
+  htran  NUMBER(3) not null,
+  hnrel  NUMBER(4) not null,
+  trnom  CHAR(30),
+  hfcon  DATE not null,
+  ubuser CHAR(10) not null,
+  hhing  CHAR(8),
+  hhret  CHAR(8),
+  hhconf CHAR(8),
+  huconf CHAR(10),
+  hmanu  CHAR(1)
+)
+;
+comment on table OPERTIEM
+  is 'Tabla de operaciones por día para reporte - SP_REPORTES_JUL';
+

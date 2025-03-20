@@ -1,0 +1,16 @@
+create table JAQL813A
+(
+  jaql813anusec NUMBER(10) not null,
+  jaql813atireg CHAR(1),
+  jaql813atiinf CHAR(2),
+  jaql813acoban CHAR(2),
+  jaql813afearc DATE not null,
+  jaql813anureg NUMBER(7),
+  jaql813areser VARCHAR2(100),
+  jaql813acoest CHAR(1)
+)
+;
+create unique index IDX_JAQL813A on JAQL813A (JAQL813AFEARC);
+alter table JAQL813A
+  add primary key (JAQL813ANUSEC, JAQL813AFEARC);
+

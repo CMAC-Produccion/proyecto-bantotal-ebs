@@ -1,0 +1,17 @@
+create table SNG225
+(
+  sng224cod  NUMBER(3) not null,
+  sng225cod  NUMBER(3) not null,
+  sng225dsc  CHAR(40),
+  sng225para CHAR(1),
+  sng225parb CHAR(1),
+  sng225prog CHAR(10),
+  sng225dc   CHAR(1),
+  sng225dds  CHAR(20),
+  sng225ddir VARCHAR2(400),
+  sng225rep  NUMBER(10)
+)
+;
+alter table SNG225
+  add primary key (SNG224COD, SNG225COD);
+

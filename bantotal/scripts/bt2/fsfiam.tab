@@ -1,0 +1,35 @@
+create table FSFIAM
+(
+  sfiamemp  NUMBER(3) not null,
+  sfiamcod  NUMBER(3) not null,
+  sfiamdsc  CHAR(50),
+  sfiamnum1 NUMBER(17,2),
+  sfiamnum2 NUMBER(18),
+  sfiamnum3 NUMBER(10,6),
+  sfiamnum4 NUMBER(10,6),
+  sfiamnum5 NUMBER(5),
+  sfiamnum6 NUMBER(5),
+  sfiamch1  CHAR(50),
+  sfiamch2  CHAR(50),
+  sfiamch3  CHAR(20),
+  sfiamch4  CHAR(20),
+  sfiamch5  CHAR(5),
+  sfiamch6  CHAR(5),
+  sfiamch7  CHAR(1),
+  sfiamch8  CHAR(1),
+  sfiamdt1  DATE,
+  sfiamdt2  DATE,
+  sfiamdt3  DATE,
+  sfiamdt4  DATE,
+  sfiamnum7 NUMBER(4),
+  sfiamnum8 NUMBER(4),
+  sfiamch9  CHAR(1),
+  sfiamch10 CHAR(1),
+  sfiamch11 CHAR(1),
+  sfiamch12 CHAR(1),
+  sfiamch13 CHAR(1)
+)
+;
+alter table FSFIAM
+  add primary key (SFIAMEMP, SFIAMCOD);
+

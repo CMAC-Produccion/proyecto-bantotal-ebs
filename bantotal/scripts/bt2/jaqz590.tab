@@ -1,0 +1,29 @@
+create table JAQZ590
+(
+  jaqz590pai NUMBER(3) not null,
+  jaqz590tdo NUMBER(2) not null,
+  jaqz590ndo CHAR(12) not null,
+  jaqz590ins NUMBER(12) not null,
+  jaqz590cor NUMBER(18) not null,
+  jaqz590mot NUMBER(4),
+  jaqz590tso NUMBER(4),
+  jaqz590cmt VARCHAR2(500),
+  jaqz590fdr DATE,
+  jaqz590hrr CHAR(8),
+  jaqz590usr CHAR(10),
+  jaqz590fdm DATE,
+  jaqz590hrm CHAR(8),
+  jaqz590usm CHAR(10),
+  jaqz590fdi DATE,
+  jaqz590fdf DATE,
+  jaqz590est CHAR(1),
+  jaqz590nip VARCHAR2(20),
+  jaqz590mda NUMBER(4),
+  jaqz590mto NUMBER(16,2),
+  jaqz590au1 NUMBER(4)
+)
+;
+create index JAQZ5903 on JAQZ590 (JAQZ590INS);
+alter table JAQZ590
+  add primary key (JAQZ590PAI, JAQZ590TDO, JAQZ590NDO, JAQZ590INS, JAQZ590COR);
+

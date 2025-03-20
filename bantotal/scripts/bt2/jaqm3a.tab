@@ -1,0 +1,76 @@
+create table JAQM3A
+(
+  jaqm3acop  CHAR(50) not null,
+  jaqm3acmp  NUMBER(9) not null,
+  jaqm3apai  NUMBER(3) not null,
+  jaqm3atdoc NUMBER(2) not null,
+  jaqm3andoc CHAR(12) not null,
+  jaqm3acoe  NUMBER(5) not null,
+  jaqm3afec  DATE,
+  jaqm3ahor  CHAR(10),
+  jaqm3ausu  CHAR(10),
+  jaqm3aval  VARCHAR2(255),
+  jaqm3aan1  NUMBER(9),
+  jaqm3aan2  NUMBER(9),
+  jaqm3aan3  NUMBER(9),
+  jaqm3aac1  VARCHAR2(255),
+  jaqm3aac2  VARCHAR2(255),
+  jaqm3aac3  VARCHAR2(255),
+  jaqm3aaf1  DATE,
+  jaqm3aaf2  DATE,
+  jaqm3aaf3  DATE,
+  jaqm3aai1  NUMBER(17,2),
+  jaqm3aai2  NUMBER(17,2),
+  jaqm3aai3  NUMBER(17,2)
+)
+;
+comment on table JAQM3A
+  is 'Módulo de Poderes Tabla de Respuesta de Campos ';
+comment on column JAQM3A.jaqm3acop
+  is 'Código de proceso';
+comment on column JAQM3A.jaqm3acmp
+  is 'Código de campo';
+comment on column JAQM3A.jaqm3apai
+  is 'Pais';
+comment on column JAQM3A.jaqm3atdoc
+  is 'Tipo de documento';
+comment on column JAQM3A.jaqm3andoc
+  is 'Nro de documento';
+comment on column JAQM3A.jaqm3acoe
+  is 'Codigo de etapa';
+comment on column JAQM3A.jaqm3afec
+  is 'fecha';
+comment on column JAQM3A.jaqm3ahor
+  is 'hora';
+comment on column JAQM3A.jaqm3ausu
+  is 'usuario';
+comment on column JAQM3A.jaqm3aval
+  is 'valor';
+comment on column JAQM3A.jaqm3aan1
+  is 'Auxiliar numérico 1';
+comment on column JAQM3A.jaqm3aan2
+  is 'Auxiliar numérico 2';
+comment on column JAQM3A.jaqm3aan3
+  is 'Auxiliar numérico 3';
+comment on column JAQM3A.jaqm3aac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM3A.jaqm3aac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM3A.jaqm3aac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM3A.jaqm3aaf1
+  is 'Auxiliar fecha 1';
+comment on column JAQM3A.jaqm3aaf2
+  is 'Auxiliar fecha 2';
+comment on column JAQM3A.jaqm3aaf3
+  is 'Auxiliar fecha 3';
+comment on column JAQM3A.jaqm3aai1
+  is 'Auxiliar importe 1';
+comment on column JAQM3A.jaqm3aai2
+  is 'Auxiliar importe 2';
+comment on column JAQM3A.jaqm3aai3
+  is 'Auxiliar importe 3';
+create index JAQM3AA2 on JAQM3A (JAQM3APAI, JAQM3ATDOC, JAQM3ANDOC);
+alter table JAQM3A
+  add primary key (JAQM3ACOP, JAQM3ACMP, JAQM3APAI, JAQM3ATDOC, JAQM3ANDOC, JAQM3ACOE);
+

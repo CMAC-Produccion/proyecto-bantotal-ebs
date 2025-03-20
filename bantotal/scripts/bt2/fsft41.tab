@@ -1,0 +1,20 @@
+create table FSFT41
+(
+  kdmcod    NUMBER(3) not null,
+  kdmtmda   NUMBER(4) not null,
+  kdmresi   CHAR(1) not null,
+  kdmifin   CHAR(1) not null,
+  kdmtemi   NUMBER(4) not null,
+  kdmrubtra NUMBER(16),
+  kdmrubinv NUMBER(16),
+  kdmrub1   NUMBER(16),
+  kdmrub2   NUMBER(16),
+  kdmcar1   CHAR(1),
+  kdmcar2   CHAR(1),
+  kdmnum1   NUMBER(9),
+  kdmnum2   NUMBER(9)
+)
+;
+alter table FSFT41
+  add primary key (KDMCOD, KDMTMDA, KDMRESI, KDMIFIN, KDMTEMI);
+

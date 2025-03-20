@@ -1,0 +1,27 @@
+create table FBC774
+(
+  bc774ri    NUMBER(5) not null,
+  bc774fche  DATE not null,
+  bc774dscri CHAR(30),
+  bc774rect  CHAR(1),
+  bc774nror  NUMBER(3),
+  bc774nop   CHAR(1),
+  bc774nrov  NUMBER(12),
+  bc774val   CHAR(1),
+  bc774fchv  DATE,
+  bc774cup   VARCHAR2(22),
+  bc774fch1  DATE,
+  bc774chr2  CHAR(20),
+  bc774chr1  CHAR(20),
+  bc774nro2  NUMBER(10),
+  bc774nro1  NUMBER(10),
+  bc774imp2  NUMBER(17,2),
+  bc774imp1  NUMBER(17,2),
+  bc774band1 CHAR(1),
+  bc774band2 CHAR(1)
+)
+;
+create index FBC77402 on FBC774 (BC774RI, BC774CUP);
+alter table FBC774
+  add primary key (BC774RI, BC774FCHE);
+

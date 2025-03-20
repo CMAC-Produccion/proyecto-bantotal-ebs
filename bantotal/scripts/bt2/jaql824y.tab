@@ -1,0 +1,28 @@
+create table JAQL824Y
+(
+  jaql824apl  NUMBER(3) not null,
+  jaql824ban  CHAR(4) not null,
+  jaql824env  NUMBER(9) not null,
+  jaql824yreg NUMBER(9) not null,
+  jaql824ytre CHAR(2),
+  jaql824yncl CHAR(30),
+  jaql824yref CHAR(48),
+  jaql824yior NUMBER(15,2),
+  jaql824yide NUMBER(15,2),
+  jaql824yimo NUMBER(15,2),
+  jaql824yopa NUMBER(4),
+  jaql824ynmo NUMBER(6),
+  jaql824yfpa DATE,
+  jaql824ytva CHAR(2),
+  jaql824ycen CHAR(2),
+  jaql824yfla NUMBER(1),
+  jaql824ymod NUMBER(3),
+  jaql824ytrn NUMBER(3),
+  jaql824ysuc NUMBER(3),
+  jaql824yrel NUMBER(4),
+  jaql824ydpr VARCHAR2(200)
+)
+;
+alter table JAQL824Y
+  add primary key (JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824YREG);
+

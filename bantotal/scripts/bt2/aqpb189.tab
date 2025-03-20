@@ -1,0 +1,41 @@
+create table AQPB189
+(
+  aqpb189cor     NUMBER(10) not null,
+  aqpb189fch     DATE not null,
+  aqpb189pgcod   NUMBER(3) not null,
+  aqpb189suctx   NUMBER(4) not null,
+  aqpb189modtx   NUMBER(4) not null,
+  aqpb189tx      NUMBER(4) not null,
+  aqpb189reltx   VARCHAR2(5) not null,
+  aqpb189ordtx   NUMBER(3) not null,
+  aqpb189sbordtx NUMBER(4) not null,
+  aqpb189est     VARCHAR2(5)
+)
+;
+comment on table AQPB189
+  is 'Tabla Log de Clientes que se mostro RTE de BBP';
+comment on column AQPB189.aqpb189cor
+  is 'Correaltivo';
+comment on column AQPB189.aqpb189fch
+  is 'Fecha de Registro';
+comment on column AQPB189.aqpb189pgcod
+  is 'Pgcod';
+comment on column AQPB189.aqpb189suctx
+  is 'Sucursal TX';
+comment on column AQPB189.aqpb189modtx
+  is 'Modulo TX';
+comment on column AQPB189.aqpb189tx
+  is 'Transaccion';
+comment on column AQPB189.aqpb189reltx
+  is 'Relacion de TX';
+comment on column AQPB189.aqpb189ordtx
+  is 'Ordinal de TX';
+comment on column AQPB189.aqpb189sbordtx
+  is 'SubOrdinal de TX';
+comment on column AQPB189.aqpb189est
+  is 'Estado';
+create index AQPB1892 on AQPB189 (AQPB189PGCOD, AQPB189SUCTX, AQPB189MODTX, AQPB189TX, AQPB189RELTX, AQPB189ORDTX, AQPB189SBORDTX);
+create index AQPB1893 on AQPB189 (AQPB189FCH);
+alter table AQPB189
+  add primary key (AQPB189COR, AQPB189FCH, AQPB189PGCOD, AQPB189SUCTX, AQPB189MODTX, AQPB189TX, AQPB189RELTX, AQPB189ORDTX, AQPB189SBORDTX);
+

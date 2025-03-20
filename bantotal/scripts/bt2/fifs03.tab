@@ -1,0 +1,39 @@
+create table FIFS03
+(
+  ifs03cap  NUMBER(4) not null,
+  ifs03cba  CHAR(5) not null,
+  ifs03num  NUMBER(9) not null,
+  ifs03corr NUMBER(9) not null,
+  ifs03fec  DATE,
+  ifs03emp  NUMBER(3),
+  ifs03suc  NUMBER(3),
+  ifs03mod  NUMBER(3),
+  ifs03mda  NUMBER(4),
+  ifs03pap  NUMBER(4),
+  ifs03nct  NUMBER(9),
+  ifs03ope  NUMBER(9),
+  ifs03sct  NUMBER(3),
+  ifs03top  NUMBER(3),
+  ifs03tit  NUMBER(11),
+  ifs03tct  NUMBER(2),
+  ifs03reg  NUMBER(1),
+  ifs03tpe  NUMBER(1),
+  ifs03cdo  NUMBER(2),
+  ifs03nom  CHAR(25),
+  ifs03cal  CHAR(20),
+  ifs03nro  CHAR(5),
+  ifs03pis  CHAR(2),
+  ifs03dep  CHAR(4),
+  ifs03loc  CHAR(20),
+  ifs03dom  NUMBER(1),
+  ifs03cpr  NUMBER(2),
+  ifs03cpo  CHAR(8),
+  ifs03can  NUMBER(2),
+  ifs03cbu  CHAR(22),
+  ifs03res  NUMBER(1)
+)
+;
+create index FIFS0302 on FIFS03 (IFS03CAP, IFS03CBA, IFS03NUM, IFS03EMP, IFS03SUC, IFS03MOD, IFS03MDA, IFS03PAP, IFS03NCT, IFS03OPE, IFS03SCT, IFS03TOP, IFS03TIT);
+alter table FIFS03
+  add primary key (IFS03CAP, IFS03CBA, IFS03NUM, IFS03CORR);
+

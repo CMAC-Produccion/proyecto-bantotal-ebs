@@ -1,0 +1,31 @@
+create table JAQY784
+(
+  jaqy784cod     NUMBER(3) not null,
+  jaqy784mod     NUMBER(3) not null,
+  jaqy784suc     NUMBER(3) not null,
+  jaqy784mda     NUMBER(4) not null,
+  jaqy784pap     NUMBER(4) not null,
+  jaqy784cta     NUMBER(9) not null,
+  jaqy784oper    NUMBER(9) not null,
+  jaqy784sbop    NUMBER(3) not null,
+  jaqy784tope    NUMBER(3) not null,
+  jaqy784fchmax  DATE,
+  jaqy784imp11   NUMBER(17,2),
+  jaqy784imp12   NUMBER(17,2),
+  jaqy784imp13   NUMBER(17,2),
+  jaqy784imp14   NUMBER(17,2),
+  jaqy784imp15   NUMBER(17,2),
+  jaqy784numcuot NUMBER(5),
+  jaqy784fchpag  DATE,
+  jaqy784est     CHAR(1),
+  jaqy784descp   VARCHAR2(8),
+  jaqy784anios   NUMBER(5),
+  jaqy784fchnc   DATE,
+  jaqy784ident   CHAR(1),
+  jaqy784fchsis  DATE not null,
+  jaqy784hrasis  CHAR(8) not null
+)
+;
+alter table JAQY784
+  add primary key (JAQY784COD, JAQY784MOD, JAQY784SUC, JAQY784MDA, JAQY784PAP, JAQY784CTA, JAQY784OPER, JAQY784SBOP, JAQY784TOPE, JAQY784FCHSIS, JAQY784HRASIS);
+

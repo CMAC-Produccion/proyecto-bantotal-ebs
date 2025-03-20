@@ -1,0 +1,15 @@
+create table JBXIHO
+(
+  jbxihofec DATE not null,
+  jbxihoctn NUMBER(8) not null,
+  jbxihocba CHAR(15),
+  jbxihocac CHAR(15),
+  jbxihopca NUMBER(16,2),
+  jbxihopdi NUMBER(16,2),
+  jbxihoput NUMBER(16,2),
+  jbxihogec CHAR(15),
+  jbxihooct CHAR(15)
+)
+;
+create unique index JBXIHO01 on JBXIHO (JBXIHOFEC, JBXIHOCTN);
+

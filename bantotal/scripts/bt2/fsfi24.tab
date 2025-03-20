@@ -1,0 +1,31 @@
+create table FSFI24
+(
+  sfi24emp NUMBER(3) not null,
+  sfi24suc NUMBER(3) not null,
+  sfi24rub NUMBER(16) not null,
+  sfi24mda NUMBER(4) not null,
+  sfi24pap NUMBER(4) not null,
+  sfi24cta NUMBER(9) not null,
+  sfi24ope NUMBER(9) not null,
+  sfi24sbo NUMBER(3) not null,
+  sfi24top NUMBER(3) not null,
+  sfi24div NUMBER(4) not null,
+  sfi24est CHAR(1) not null,
+  sfi24cus NUMBER(9) not null,
+  sfi24dep NUMBER(9) not null,
+  sfi24com NUMBER(9) not null,
+  sfi24ide NUMBER(2) not null,
+  sfi24vc  NUMBER(17,2),
+  sfi24ve  NUMBER(17,2),
+  sfi24vp  NUMBER(17,2),
+  sfi24a01 DATE,
+  sfi24a02 DATE,
+  sfi24a03 NUMBER(17,2),
+  sfi24a04 NUMBER(17,2),
+  sfi24a05 NUMBER(9),
+  sfi24a06 NUMBER(9)
+)
+;
+alter table FSFI24
+  add primary key (SFI24EMP, SFI24SUC, SFI24RUB, SFI24MDA, SFI24PAP, SFI24CTA, SFI24OPE, SFI24SBO, SFI24TOP, SFI24DIV, SFI24EST, SFI24CUS, SFI24DEP, SFI24COM, SFI24IDE);
+

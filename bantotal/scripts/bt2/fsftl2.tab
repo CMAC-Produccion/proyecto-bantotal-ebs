@@ -1,0 +1,15 @@
+create table FSFTL2
+(
+  sftl1nro  NUMBER(6) not null,
+  sftl6tipo NUMBER(2) not null,
+  sftl2ord  NUMBER(3) not null,
+  sftl2rumo NUMBER(16),
+  sftl2tito CHAR(1),
+  sftl2tope NUMBER(3),
+  sftl2desc CHAR(35),
+  sftl2tiim NUMBER(2)
+)
+;
+alter table FSFTL2
+  add primary key (SFTL1NRO, SFTL6TIPO, SFTL2ORD);
+

@@ -1,0 +1,27 @@
+create table JAQZ803
+(
+  jaqz803corr    NUMBER(10) not null,
+  jaqz803fchprc  DATE not null,
+  jaqz803nidebas NUMBER(10),
+  jaqz803nidepro NUMBER(4),
+  jaqz803ncoding NUMBER(2),
+  jaqz803ncodact NUMBER(2),
+  jaqz803ncodbas NUMBER(2),
+  jaqz803cestado CHAR(1),
+  jaqz803cusuing VARCHAR2(10),
+  jaqz803ncodpri NUMBER(10),
+  jaqz803pais    NUMBER(3),
+  jaqz803petdoc  NUMBER(3),
+  jaqz803ndoc    VARCHAR2(12),
+  jaqz803inst    NUMBER(10),
+  jaqz803capcaja NUMBER,
+  jaqz803sldext  NUMBER,
+  jaqz803resneto NUMBER(17,2),
+  jaqz803ratio   NUMBER(17,6)
+)
+;
+create index JAQZ803IDX001 on JAQZ803 (JAQZ803PAIS, JAQZ803PETDOC, JAQZ803NDOC);
+create index JAQZ803IDX003 on JAQZ803 (JAQZ803INST);
+alter table JAQZ803
+  add primary key (JAQZ803CORR, JAQZ803FCHPRC);
+

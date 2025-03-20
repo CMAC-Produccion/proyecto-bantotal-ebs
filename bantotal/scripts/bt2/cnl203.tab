@@ -1,0 +1,18 @@
+create table CNL203
+(
+  cnl000cod NUMBER(4) not null,
+  cnl205cod NUMBER(2) not null,
+  cnl203crr NUMBER(2) not null,
+  cnl203val CHAR(20) not null,
+  cnl038lit NUMBER(9) not null,
+  cnl203mdv CHAR(1) not null,
+  cnl203itc CHAR(1) not null,
+  cnl203mom CHAR(20) not null,
+  cnl203ord NUMBER(2) not null,
+  cnl203pgm CHAR(20) not null,
+  cnl203gua CHAR(1) not null
+)
+;
+create unique index CNL20301 on CNL203 (CNL000COD, CNL205COD, CNL203CRR, CNL203VAL);
+create index CNL20302 on CNL203 (CNL000COD, CNL205COD);
+

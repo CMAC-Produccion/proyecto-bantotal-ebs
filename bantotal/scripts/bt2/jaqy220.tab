@@ -1,0 +1,44 @@
+create table JAQY220
+(
+  jaqy220cor NUMBER(4) not null,
+  jaqy220usu CHAR(10) not null,
+  jaqy220mov VARCHAR2(40),
+  jaqy220fmv DATE,
+  jaqy220cct CHAR(30),
+  jaqy220fvl DATE,
+  jaqy220dsc CHAR(30),
+  jaqy220doc CHAR(30),
+  jaqy220dep NUMBER(17,2),
+  jaqy220ret NUMBER(17,2),
+  jaqy220sdo NUMBER(17,2),
+  jaqy220ope CHAR(10),
+  jaqy220age CHAR(30),
+  jaqy220hor CHAR(8),
+  jaqy220ndp CHAR(65),
+  jaqy220omd CHAR(1),
+  jaqy220mt1 NUMBER(17,2),
+  jaqy220mt2 NUMBER(17,2),
+  jaqy220mt3 NUMBER(17,2),
+  jaqy220ch1 CHAR(50),
+  jaqy220ch2 CHAR(50),
+  jaqy220ch3 CHAR(50),
+  jaqy220da1 DATE,
+  jaqy220da2 DATE,
+  jaqy220da3 DATE,
+  jaqy220nu1 NUMBER(9),
+  jaqy220nu2 NUMBER(9),
+  jaqy220nu3 NUMBER(9),
+  jaqy220tsu NUMBER(3),
+  jaqy220tmo NUMBER(3),
+  jaqy220ttr NUMBER(3),
+  jaqy220tre NUMBER(4),
+  jaqy220tor NUMBER(2),
+  jaqy220tsb NUMBER(4)
+)
+;
+create index IJAQY220003 on JAQY220 (JAQY220FMV, JAQY220HOR, JAQY220OMD, JAQY220COR);
+create index IJAQY22001 on JAQY220 (JAQY220FMV, JAQY220OMD, JAQY220HOR);
+create index IJAQY22002 on JAQY220 (JAQY220USU);
+alter table JAQY220
+  add primary key (JAQY220COR, JAQY220USU);
+

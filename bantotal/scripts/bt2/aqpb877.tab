@@ -1,0 +1,102 @@
+create table AQPB877
+(
+  pgcod    NUMBER(3) not null,
+  ppmod    NUMBER(3) not null,
+  ppsuc    NUMBER(3) not null,
+  ppmda    NUMBER(4) not null,
+  pppap    NUMBER(4) not null,
+  ppcta    NUMBER(9) not null,
+  ppoper   NUMBER(9) not null,
+  ppsbop   NUMBER(3) not null,
+  pptope   NUMBER(3) not null,
+  ppfpag   DATE not null,
+  pptipo   CHAR(1) not null,
+  ppfval   DATE,
+  ppfvto   DATE,
+  pppzo    NUMBER(5),
+  ppcap    NUMBER(17,2),
+  ppint    NUMBER(17,2),
+  ppintmex NUMBER(17,2),
+  ppicap   NUMBER(17,2),
+  ppiint   NUMBER(17,2),
+  ppstat   CHAR(1),
+  ppnume   NUMBER(9),
+  ppfinv   NUMBER(8),
+  d601cd   NUMBER(3),
+  d601mo   NUMBER(3),
+  d601su   NUMBER(3),
+  d601tr   NUMBER(3),
+  d601re   NUMBER(4),
+  d601fc   DATE,
+  d601or   NUMBER(2),
+  d601sb   NUMBER(3),
+  d601co   CHAR(1)
+)
+compress;
+comment on table AQPB877
+  is 'Tabla espejo de FSD601 para BDC01 fin de mes';
+comment on column AQPB877.pgcod
+  is 'Cod.';
+comment on column AQPB877.ppmod
+  is 'Modulo';
+comment on column AQPB877.ppsuc
+  is 'Sucurs';
+comment on column AQPB877.ppmda
+  is 'Moneda';
+comment on column AQPB877.pppap
+  is 'Papel';
+comment on column AQPB877.ppcta
+  is 'Ctnro';
+comment on column AQPB877.ppoper
+  is 'Operación';
+comment on column AQPB877.ppsbop
+  is 'Suboperación';
+comment on column AQPB877.pptope
+  is 'Tipo de operación';
+comment on column AQPB877.ppfpag
+  is 'Fecha de pago prevista';
+comment on column AQPB877.pptipo
+  is 'Tipo de cuota';
+comment on column AQPB877.ppfval
+  is 'Desde fecha';
+comment on column AQPB877.ppfvto
+  is 'Hasta fecha';
+comment on column AQPB877.pppzo
+  is 'Plazo de la cuota';
+comment on column AQPB877.ppcap
+  is 'Capital de la cuota';
+comment on column AQPB877.ppint
+  is 'Interés de la cuota';
+comment on column AQPB877.ppintmex
+  is 'Interés p/impuesto Mex.';
+comment on column AQPB877.ppicap
+  is 'Impuesto sobre capital';
+comment on column AQPB877.ppiint
+  is 'Impuesto sobre interés';
+comment on column AQPB877.ppstat
+  is 'Estado de la cuota';
+comment on column AQPB877.ppnume
+  is 'Numerador de pagos a la cuota';
+comment on column AQPB877.ppfinv
+  is 'Fecha de pago inversa';
+comment on column AQPB877.d601cd
+  is 'D601cd';
+comment on column AQPB877.d601mo
+  is 'D601mo';
+comment on column AQPB877.d601su
+  is 'D601su';
+comment on column AQPB877.d601tr
+  is 'D601tr';
+comment on column AQPB877.d601re
+  is 'D601re';
+comment on column AQPB877.d601fc
+  is 'D601fc';
+comment on column AQPB877.d601or
+  is 'D601or';
+comment on column AQPB877.d601sb
+  is 'D601sb';
+comment on column AQPB877.d601co
+  is 'D601co';
+create unique index AQPB8771 on AQPB877 (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPFPAG, PPTIPO);
+create index AQPB8772 on AQPB877 (PGCOD, PPCTA);
+

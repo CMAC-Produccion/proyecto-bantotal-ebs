@@ -1,0 +1,112 @@
+create table JAQM7C
+(
+  jaqm7ccod CHAR(50) not null,
+  jaqm7ccac NUMBER(9),
+  jaqm7cclt NUMBER(9),
+  jaqm7creg NUMBER(3),
+  jaqm7czon NUMBER(3),
+  jaqm7cage NUMBER(3),
+  jaqm7ccom CHAR(50),
+  jaqm7cfec DATE,
+  jaqm7cuap CHAR(10),
+  jaqm7csap NUMBER(3),
+  jaqm7cfap DATE,
+  jaqm7chap CHAR(8),
+  jaqm7cuci CHAR(10),
+  jaqm7csci NUMBER(3),
+  jaqm7cfci DATE,
+  jaqm7chci CHAR(8),
+  jaqm7cest CHAR(1),
+  jaqm7cact VARCHAR2(250),
+  jaqm7cai1 NUMBER(17,2),
+  jaqm7cai2 NUMBER(17,2),
+  jaqm7cai3 NUMBER(17,2),
+  jaqm7cad1 DATE,
+  jaqm7cad2 DATE,
+  jaqm7cad3 DATE,
+  jaqm7can1 NUMBER(9),
+  jaqm7can2 NUMBER(9),
+  jaqm7can3 NUMBER(9),
+  jaqm7cac1 CHAR(250),
+  jaqm7cac2 CHAR(250),
+  jaqm7cac3 CHAR(250),
+  jaqm7ctcr NUMBER(2),
+  jaqm7cdc  CHAR(30),
+  jaqm7cnat CHAR(50)
+)
+;
+comment on table JAQM7C
+  is 'Cabecera Acta de Credito';
+comment on column JAQM7C.jaqm7ccod
+  is 'Codigo Unico';
+comment on column JAQM7C.jaqm7ccac
+  is 'Codigo de Acta';
+comment on column JAQM7C.jaqm7cclt
+  is 'Codigo de Lote';
+comment on column JAQM7C.jaqm7creg
+  is 'Región';
+comment on column JAQM7C.jaqm7czon
+  is 'Zona';
+comment on column JAQM7C.jaqm7cage
+  is 'Agencia';
+comment on column JAQM7C.jaqm7ccom
+  is 'Codigo Comite';
+comment on column JAQM7C.jaqm7cfec
+  is 'Fecha Consulta';
+comment on column JAQM7C.jaqm7cuap
+  is 'Usuario de Apertura';
+comment on column JAQM7C.jaqm7csap
+  is 'Sucursal de Apertura';
+comment on column JAQM7C.jaqm7cfap
+  is 'Fecha de Apertura';
+comment on column JAQM7C.jaqm7chap
+  is 'Hora de Apertura';
+comment on column JAQM7C.jaqm7cuci
+  is 'Usuario de Cierre';
+comment on column JAQM7C.jaqm7csci
+  is 'Sucursal de Cierre';
+comment on column JAQM7C.jaqm7cfci
+  is 'Fecha de Cierre';
+comment on column JAQM7C.jaqm7chci
+  is 'Hora de Cierre';
+comment on column JAQM7C.jaqm7cest
+  is 'Pendiente - P, Cerrado - C';
+comment on column JAQM7C.jaqm7cact
+  is 'Acta Consolidada';
+comment on column JAQM7C.jaqm7cai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM7C.jaqm7cai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM7C.jaqm7cai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM7C.jaqm7cad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM7C.jaqm7cad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM7C.jaqm7cad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM7C.jaqm7can1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM7C.jaqm7can2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM7C.jaqm7can3
+  is 'Auxiliar Numerico 3';
+comment on column JAQM7C.jaqm7cac1
+  is 'Auxiliar Carácter 1';
+comment on column JAQM7C.jaqm7cac2
+  is 'Auxiliar Carácter 2';
+comment on column JAQM7C.jaqm7cac3
+  is 'Auxiliar Carácter 3';
+comment on column JAQM7C.jaqm7ctcr
+  is 'Tipo de comite';
+comment on column JAQM7C.jaqm7cdc
+  is 'Descripcion Tipo de comite';
+comment on column JAQM7C.jaqm7cnat
+  is 'Nuevo Numero de Acta con tipo comite';
+create index JAQM7CA2 on JAQM7C (JAQM7CFEC, JAQM7CCAC, JAQM7CCLT, JAQM7CCOM, JAQM7CREG, JAQM7CZON, JAQM7CAGE);
+create index JAQM7CA4 on JAQM7C (JAQM7CREG, JAQM7CZON, JAQM7CAGE, JAQM7CCOM, JAQM7CFEC, JAQM7CEST);
+create index JAQM7CA5 on JAQM7C (JAQM7CCOD, JAQM7CEST);
+create index JAQM7CA6 on JAQM7C (JAQM7CCOM);
+alter table JAQM7C
+  add primary key (JAQM7CCOD);
+

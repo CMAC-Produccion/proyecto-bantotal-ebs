@@ -1,0 +1,223 @@
+create table CREDTMP
+(
+  tdnom           CHAR(20),
+  petdoc          NUMBER(2),
+  pendoc          CHAR(12),
+  penom           CHAR(30),
+  num_cta         VARCHAR2(27),
+  scnom           VARCHAR2(30),
+  tipsbs          VARCHAR2(30),
+  pascma          NUMBER(7),
+  c_descon        VARCHAR2(30),
+  c_escon         VARCHAR2(30),
+  sng001ori       NUMBER(7),
+  sng001tpcr      NUMBER(5),
+  tip_credito     VARCHAR2(30),
+  saldo_capital   NUMBER(18,2),
+  pgcod           NUMBER(3),
+  scmod           NUMBER(3),
+  scsuc           NUMBER(3),
+  scmda           NUMBER(4),
+  scpap           NUMBER(4),
+  sccta           NUMBER(9),
+  scoper          NUMBER(9),
+  scsbop          NUMBER(3),
+  sctope          NUMBER(3),
+  scstat          NUMBER(2),
+  scgru           NUMBER(2),
+  scrub           NUMBER(16),
+  scsdo           NUMBER(18,2),
+  dias_atraso     NUMBER(18,2),
+  sector          NUMBER(18,2),
+  xwfprcins       NUMBER(18,2),
+  cant_cuentas    NUMBER(18,2),
+  cant_cuentas_v  NUMBER(18,2),
+  dias_max_atraso NUMBER(18,2),
+  monapr          NUMBER(18,2),
+  mongars         NUMBER(18,2),
+  mongard         NUMBER(18,2),
+  desgar          VARCHAR2(2000),
+  prodcmac        VARCHAR2(30),
+  aoperiod        NUMBER(18,2),
+  n_canent        NUMBER(18,2),
+  saldocci        NUMBER(18,2),
+  sng001ase       CHAR(10),
+  sng001usc       CHAR(10),
+  cuotasp         NUMBER(18,2),
+  cuotast         NUMBER(18,2),
+  desalerta       VARCHAR2(45),
+  actnom1         VARCHAR2(60),
+  c_desaval       VARCHAR2(40),
+  n_deudir        NUMBER(18,2),
+  n_deupot        NUMBER(18,2),
+  n_patrim        NUMBER(18,2),
+  n_ratdpa        NUMBER(18,2),
+  c_codsbs        NUMBER(18,2),
+  petipo          CHAR(1),
+  n_c1pequ        NUMBER(18,2),
+  n_c1micr        NUMBER(18,2),
+  n_c1revo        NUMBER(18,2),
+  n_c1nrev        NUMBER(18,2),
+  n_c1hipo        NUMBER(18,2),
+  n_c2pequ        NUMBER(18,2),
+  n_c2micr        NUMBER(18,2),
+  n_c2revo        NUMBER(18,2),
+  n_c2nrev        NUMBER(18,2),
+  n_c2hipo        NUMBER(18,2),
+  n_c3pequ        NUMBER(18,2),
+  n_c3micr        NUMBER(18,2),
+  n_c3revo        NUMBER(18,2),
+  n_c3nrev        NUMBER(18,2),
+  n_c3hipo        NUMBER(18,2),
+  n_ratcrn        NUMBER(18,2),
+  n_aoimp         NUMBER(18,2),
+  c_mdnom         VARCHAR2(30)
+)
+;
+comment on table CREDTMP
+  is 'Destino del Crédito';
+comment on column CREDTMP.tdnom
+  is 'TDNOM    ';
+comment on column CREDTMP.petdoc
+  is 'PETDOC   ';
+comment on column CREDTMP.pendoc
+  is 'PENDOC   ';
+comment on column CREDTMP.penom
+  is 'PENOM    ';
+comment on column CREDTMP.num_cta
+  is 'NUM_CTA  ';
+comment on column CREDTMP.scnom
+  is 'SCNOM    ';
+comment on column CREDTMP.tipsbs
+  is 'TIPSBS   ';
+comment on column CREDTMP.pascma
+  is 'PASCMA   ';
+comment on column CREDTMP.c_descon
+  is 'C_DESCON ';
+comment on column CREDTMP.c_escon
+  is 'C_ESCON  ';
+comment on column CREDTMP.sng001ori
+  is 'SNG001ORI';
+comment on column CREDTMP.sng001tpcr
+  is 'SNG001TPCR     ';
+comment on column CREDTMP.tip_credito
+  is 'TIP_CREDITO    ';
+comment on column CREDTMP.saldo_capital
+  is 'SALDO_CAPITAL  ';
+comment on column CREDTMP.pgcod
+  is 'PGCOD ';
+comment on column CREDTMP.scmod
+  is 'SCMOD ';
+comment on column CREDTMP.scsuc
+  is 'SCSUC ';
+comment on column CREDTMP.scmda
+  is 'SCMDA ';
+comment on column CREDTMP.scpap
+  is 'SCPAP ';
+comment on column CREDTMP.sccta
+  is 'SCCTA ';
+comment on column CREDTMP.scoper
+  is 'SCOPER';
+comment on column CREDTMP.scsbop
+  is 'SCSBOP';
+comment on column CREDTMP.sctope
+  is 'SCTOPE';
+comment on column CREDTMP.scstat
+  is 'SCSTAT';
+comment on column CREDTMP.scgru
+  is 'SCGRU ';
+comment on column CREDTMP.scrub
+  is 'SCRUB ';
+comment on column CREDTMP.scsdo
+  is 'SCSDO ';
+comment on column CREDTMP.dias_atraso
+  is 'DIAS_ATRASO    ';
+comment on column CREDTMP.sector
+  is 'SECTOR         ';
+comment on column CREDTMP.xwfprcins
+  is 'XWFPRCINS      ';
+comment on column CREDTMP.cant_cuentas
+  is 'CANT_CUENTAS   ';
+comment on column CREDTMP.cant_cuentas_v
+  is 'CANT_CUENTAS_V ';
+comment on column CREDTMP.dias_max_atraso
+  is 'DIAS_MAX_ATRASO';
+comment on column CREDTMP.monapr
+  is 'MONAPR  ';
+comment on column CREDTMP.mongars
+  is 'MONGARS ';
+comment on column CREDTMP.mongard
+  is 'MONGARD ';
+comment on column CREDTMP.desgar
+  is 'DESGAR  ';
+comment on column CREDTMP.prodcmac
+  is 'PRODCMAC';
+comment on column CREDTMP.aoperiod
+  is 'AOPERIOD';
+comment on column CREDTMP.n_canent
+  is 'N_CANENT';
+comment on column CREDTMP.saldocci
+  is 'SALDOCCI';
+comment on column CREDTMP.sng001ase
+  is 'SNG001ASE';
+comment on column CREDTMP.sng001usc
+  is 'SNG001USC';
+comment on column CREDTMP.cuotasp
+  is 'CUOTASP  ';
+comment on column CREDTMP.cuotast
+  is 'CUOTAST  ';
+comment on column CREDTMP.desalerta
+  is 'DESALERTA';
+comment on column CREDTMP.actnom1
+  is 'ACTNOM1  ';
+comment on column CREDTMP.c_desaval
+  is 'C_DESAVAL';
+comment on column CREDTMP.n_deudir
+  is 'N_DEUDIR ';
+comment on column CREDTMP.n_deupot
+  is 'N_DEUPOT ';
+comment on column CREDTMP.n_patrim
+  is 'N_PATRIM ';
+comment on column CREDTMP.n_ratdpa
+  is 'N_RATDPA ';
+comment on column CREDTMP.c_codsbs
+  is 'C_CODSBS ';
+comment on column CREDTMP.petipo
+  is 'PETIPO   ';
+comment on column CREDTMP.n_c1pequ
+  is 'N_C1PEQU ';
+comment on column CREDTMP.n_c1micr
+  is 'N_C1MICR ';
+comment on column CREDTMP.n_c1revo
+  is 'N_C1REVO ';
+comment on column CREDTMP.n_c1nrev
+  is 'N_C1NREV ';
+comment on column CREDTMP.n_c1hipo
+  is 'N_C1HIPO ';
+comment on column CREDTMP.n_c2pequ
+  is 'N_C2PEQU ';
+comment on column CREDTMP.n_c2micr
+  is 'N_C2MICR ';
+comment on column CREDTMP.n_c2revo
+  is 'N_C2REVO ';
+comment on column CREDTMP.n_c2nrev
+  is 'N_C2NREV ';
+comment on column CREDTMP.n_c2hipo
+  is 'N_C2HIPO ';
+comment on column CREDTMP.n_c3pequ
+  is 'N_C3PEQU ';
+comment on column CREDTMP.n_c3micr
+  is 'N_C3MICR ';
+comment on column CREDTMP.n_c3revo
+  is 'N_C3REVO ';
+comment on column CREDTMP.n_c3nrev
+  is 'N_C3NREV ';
+comment on column CREDTMP.n_c3hipo
+  is 'N_C3HIPO ';
+comment on column CREDTMP.n_ratcrn
+  is 'N_RATCRN ';
+comment on column CREDTMP.n_aoimp
+  is 'N_AOIMP  ';
+comment on column CREDTMP.c_mdnom
+  is 'C_MDNOM  ';
+

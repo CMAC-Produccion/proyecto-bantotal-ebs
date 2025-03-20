@@ -1,0 +1,56 @@
+create table JAQA400
+(
+  jaqa400emp NUMBER(3) not null,
+  jaqa400mod NUMBER(3) not null,
+  jaqa400suc NUMBER(3) not null,
+  jaqa400mda NUMBER(4) not null,
+  jaqa400pap NUMBER(4) not null,
+  jaqa400cta NUMBER(9) not null,
+  jaqa400ope NUMBER(9) not null,
+  jaqa400sbo NUMBER(3) not null,
+  jaqa400top NUMBER(3) not null,
+  jaqa400fec DATE not null,
+  jaqa400est CHAR(1),
+  jaqa400usa CHAR(10),
+  jaqa400uss CHAR(10),
+  jaqa400fev DATE,
+  jaqa400fve DATE,
+  jaqa400fpp DATE,
+  jaqa400cap NUMBER(17,2),
+  jaqa400vac NUMBER(17,2),
+  jaqa400cac NUMBER(5),
+  jaqa400pee NUMBER(5),
+  jaqa400tpa NUMBER(1),
+  jaqa400tpd NUMBER(1),
+  jaqa400pla NUMBER(5),
+  jaqa400tts NUMBER(1),
+  jaqa400tsa NUMBER(10,6),
+  jaqa400tsm NUMBER(10,6),
+  jaqa400an1 NUMBER(9),
+  jaqa400an2 NUMBER(9),
+  jaqa400an3 NUMBER(9),
+  jaqa400ai1 NUMBER(17,2),
+  jaqa400ai2 NUMBER(17,2),
+  jaqa400ai3 NUMBER(17,2),
+  jaqa400ac1 VARCHAR2(250),
+  jaqa400ac2 VARCHAR2(250),
+  jaqa400ac3 VARCHAR2(250),
+  jaqa400af1 DATE,
+  jaqa400af2 DATE,
+  jaqa400af3 DATE,
+  jaqa400aec VARCHAR2(250),
+  jaqa400dcr VARCHAR2(250),
+  jaqa400vpg VARCHAR2(250)
+)
+;
+comment on column JAQA400.jaqa400aec
+  is 'Act.Econó. y Análisis de Indicadores';
+comment on column JAQA400.jaqa400dcr
+  is 'Destino y Recomendación del Crédito';
+comment on column JAQA400.jaqa400vpg
+  is 'Voluntad de Pago';
+create index JAQA400A3 on JAQA400 (JAQA400EMP, JAQA400MOD, JAQA400SUC, JAQA400MDA, JAQA400PAP, JAQA400CTA, JAQA400OPE, JAQA400TOP);
+create index JAQA4002 on JAQA400 (JAQA400EMP, JAQA400FEC, JAQA400CTA, JAQA400EST);
+alter table JAQA400
+  add primary key (JAQA400EMP, JAQA400MOD, JAQA400SUC, JAQA400MDA, JAQA400PAP, JAQA400CTA, JAQA400OPE, JAQA400SBO, JAQA400TOP, JAQA400FEC);
+

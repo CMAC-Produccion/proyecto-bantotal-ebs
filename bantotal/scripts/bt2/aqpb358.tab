@@ -1,0 +1,21 @@
+create table AQPB358
+(
+  aqpb358user CHAR(10) not null,
+  aqpb358inst NUMBER(10) not null,
+  aqpb358neva NUMBER(10) not null,
+  aqpb358tdoc NUMBER(2),
+  aqpb358ndoc CHAR(12),
+  aqpb358pers CHAR(30),
+  aqpb358rela VARCHAR2(40),
+  aqpb358enti VARCHAR2(200),
+  aqpb358mda  NUMBER(4),
+  aqpb358sdeu NUMBER(18,2),
+  aqpb358chek CHAR(1),
+  aqpb358corr NUMBER(10) not null,
+  aqpb358flag CHAR(1)
+)
+;
+create index AQPB3582 on AQPB358 (AQPB358USER, AQPB358INST, AQPB358NEVA);
+alter table AQPB358
+  add primary key (AQPB358USER, AQPB358CORR, AQPB358INST, AQPB358NEVA);
+

@@ -1,0 +1,12 @@
+create table FSFF67
+(
+  xifpaisr4 NUMBER(3) not null,
+  xiftdocr4 NUMBER(2) not null,
+  xifndocr4 CHAR(12) not null,
+  xifcnro   CHAR(34) not null,
+  xifcmda   NUMBER(4) not null
+)
+;
+alter table FSFF67
+  add primary key (XIFPAISR4, XIFTDOCR4, XIFNDOCR4, XIFCNRO, XIFCMDA);
+

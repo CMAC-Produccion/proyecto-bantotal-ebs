@@ -1,0 +1,17 @@
+create table FSFICM
+(
+  sficmcod NUMBER(3) not null,
+  sfickper NUMBER(3) not null,
+  sfiancod NUMBER(9) not null,
+  sficmax1 CHAR(50),
+  sficmax2 CHAR(50),
+  sficmax3 DATE,
+  sficmax4 DATE,
+  sficmax5 NUMBER(9),
+  sficmax6 NUMBER(9),
+  sficmax7 CHAR(1)
+)
+;
+alter table FSFICM
+  add primary key (SFICMCOD, SFICKPER, SFIANCOD);
+

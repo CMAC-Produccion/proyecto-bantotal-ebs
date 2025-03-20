@@ -1,0 +1,29 @@
+create table JAQZ249
+(
+  jaqz249serial NUMBER(10) not null,
+  jaqz249secue  NUMBER(6) not null,
+  jaqz249ferpt  DATE,
+  jaqz249feven  DATE,
+  jaqz249mtimp  NUMBER(13,2),
+  jaqz249coent  VARCHAR2(100),
+  jaqz249crgmo  VARCHAR2(100),
+  jaqz249tippe  VARCHAR2(100),
+  jaqz249tideu  VARCHAR2(100),
+  jaqz249nocom  VARCHAR2(100),
+  jaqz249direc  VARCHAR2(100),
+  jaqz249codis  VARCHAR2(100),
+  jaqz249nodis  VARCHAR2(100),
+  jaqz249codep  VARCHAR2(100),
+  jaqz249nodep  VARCHAR2(100),
+  jaqz249tidoc  VARCHAR2(100),
+  jaqz249codeu  VARCHAR2(100),
+  jaqz249fecre  DATE,
+  jaqz249feact  DATE,
+  jaqz249facts  DATE,
+  jaqz249tidet  CHAR(2),
+  jaqz249timon  VARCHAR2(40)
+)
+;
+alter table JAQZ249
+  add primary key (JAQZ249SERIAL, JAQZ249SECUE);
+

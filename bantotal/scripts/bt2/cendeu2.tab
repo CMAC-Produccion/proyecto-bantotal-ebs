@@ -1,0 +1,27 @@
+create table CENDEU2
+(
+  tipo2      CHAR(2) not null,
+  iden2      CHAR(11) not null,
+  codigo_en2 CHAR(5) not null,
+  fec_inf2   CHAR(6) not null,
+  actividad2 CHAR(3),
+  situacion2 CHAR(2),
+  prestamos2 NUMBER(17,4),
+  particip2  NUMBER(17,4),
+  garotor2   NUMBER(17,4),
+  o_cptos2   NUMBER(17,4),
+  garprefa2  NUMBER(17,4),
+  garprefb2  NUMBER(17,4),
+  cgarprefa2 NUMBER(17,4),
+  cgarprefb2 NUMBER(17,4),
+  singarpre2 NUMBER(17,4),
+  sincgarpr2 NUMBER(17,4),
+  previ2     NUMBER(17,4),
+  deuda_cub2 NUMBER(4),
+  proc_jud2  NUMBER(4)
+)
+;
+create index ACENDE02 on CENDEU2 (IDEN2, TIPO2, CODIGO_EN2, FEC_INF2);
+alter table CENDEU2
+  add primary key (TIPO2, IDEN2, CODIGO_EN2, FEC_INF2);
+

@@ -1,0 +1,62 @@
+create table AQPC422
+(
+  aqpc422corr   NUMBER(4) not null,
+  aqpc422emp    NUMBER(4) not null,
+  aqpc422mod    NUMBER(3) not null,
+  aqpc422suc    NUMBER(4) not null,
+  aqpc422mda    NUMBER(4) not null,
+  aqpc422pap    NUMBER(4) not null,
+  aqpc422cta    NUMBER(9) not null,
+  aqpc422ope    NUMBER(9) not null,
+  aqpc422sbo    NUMBER(3) not null,
+  aqpc422top    NUMBER(3) not null,
+  aqpc422fec    DATE,
+  aqpc422codpre NUMBER(2),
+  aqpc422usr    CHAR(10),
+  aqpc422hor    CHAR(8),
+  aqpc422sta    NUMBER(2),
+  aqpc422aux01  NUMBER(10,2),
+  aqpc422aux02  VARCHAR2(50)
+)
+;
+comment on table AQPC422
+  is 'Tabla del tipo de prelación para los pagos de los creditos de venta FOCMA';
+comment on column AQPC422.aqpc422corr
+  is 'Correlativo';
+comment on column AQPC422.aqpc422emp
+  is 'Codigo Empresa';
+comment on column AQPC422.aqpc422mod
+  is 'Sucursal del Credito';
+comment on column AQPC422.aqpc422suc
+  is 'Modulo del Credito';
+comment on column AQPC422.aqpc422mda
+  is 'Moneda del Credito';
+comment on column AQPC422.aqpc422pap
+  is 'Papel del Credito';
+comment on column AQPC422.aqpc422cta
+  is 'Cuenta del Credito';
+comment on column AQPC422.aqpc422ope
+  is 'Operacion del Credito';
+comment on column AQPC422.aqpc422sbo
+  is 'Suboperacion del Credito';
+comment on column AQPC422.aqpc422top
+  is 'Tipo operacion del Credito';
+comment on column AQPC422.aqpc422fec
+  is 'Fecha de Generación';
+comment on column AQPC422.aqpc422codpre
+  is 'Código de Prelación';
+comment on column AQPC422.aqpc422usr
+  is 'Usuario Actualización';
+comment on column AQPC422.aqpc422hor
+  is 'Hora';
+comment on column AQPC422.aqpc422sta
+  is 'Estado del crédito';
+comment on column AQPC422.aqpc422aux01
+  is 'Auxiliar';
+comment on column AQPC422.aqpc422aux02
+  is 'Auxiliar2';
+create index AQPC422A2 on AQPC422 (AQPC422CORR);
+create index AQPC422A3 on AQPC422 (AQPC422FEC, AQPC422HOR);
+alter table AQPC422
+  add primary key (AQPC422CORR, AQPC422EMP, AQPC422MOD, AQPC422SUC, AQPC422MDA, AQPC422PAP, AQPC422CTA, AQPC422OPE, AQPC422SBO, AQPC422TOP);
+

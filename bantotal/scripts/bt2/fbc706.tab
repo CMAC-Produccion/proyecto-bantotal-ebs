@@ -1,0 +1,14 @@
+create table FBC706
+(
+  bc706emp  NUMBER(3) not null,
+  bc706cta  NUMBER(9) not null,
+  bc706raz  CHAR(200),
+  bc706usu  CHAR(10),
+  bc706fcha DATE,
+  bc706fchb DATE
+)
+;
+create index FBC70602 on FBC706 (BC706EMP, BC706USU, BC706CTA);
+alter table FBC706
+  add primary key (BC706EMP, BC706CTA);
+

@@ -1,0 +1,25 @@
+create table JAQN01
+(
+  jaqn01emp NUMBER(3) not null,
+  jaqn01tbl CHAR(10) not null,
+  jaqn01uor CHAR(10) not null,
+  jaqn01ude CHAR(10) not null,
+  jaqn01mod NUMBER(3) not null,
+  jaqn01trn NUMBER(3) not null,
+  jaqn01ing CHAR(1),
+  jaqn01con CHAR(1),
+  jaqn01sup CHAR(1),
+  jaqn01pro CHAR(1),
+  jaqn01us1 CHAR(1),
+  jaqn01us2 CHAR(1),
+  jaqn01us3 CHAR(1),
+  jaqn01ax1 CHAR(10),
+  jaqn01ax2 CHAR(10),
+  jaqn01ax3 CHAR(20),
+  jaqn01ax4 NUMBER(9),
+  jaqn01ax5 DATE
+)
+;
+alter table JAQN01
+  add primary key (JAQN01EMP, JAQN01TBL, JAQN01UOR, JAQN01UDE, JAQN01MOD, JAQN01TRN);
+

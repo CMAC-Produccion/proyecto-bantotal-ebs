@@ -1,0 +1,17 @@
+create table FBRT02
+(
+  brt01fuemp NUMBER(3) not null,
+  brt01fucod NUMBER(5) not null,
+  brt02sfcod NUMBER(5) not null,
+  brt02sfdsc CHAR(50),
+  brt02pgres CHAR(10),
+  brt02pgcon CHAR(10),
+  brt02sfmod NUMBER(3),
+  brt02sftrn NUMBER(3),
+  brt02sftpr CHAR(1),
+  brt02sfhis CHAR(1)
+)
+;
+alter table FBRT02
+  add primary key (BRT01FUEMP, BRT01FUCOD, BRT02SFCOD);
+

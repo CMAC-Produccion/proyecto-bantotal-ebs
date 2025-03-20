@@ -1,0 +1,15 @@
+create table AQPB501
+(
+  aqpb501pepais NUMBER(3) not null,
+  aqpb501petdoc NUMBER(2) not null,
+  aqpb501pendoc CHAR(12) not null,
+  aqpb501est    CHAR(1) not null,
+  aqpb501crefec DATE not null,
+  aqpb501creusr VARCHAR2(30) not null,
+  aqpb501modfec DATE not null,
+  aqpb501modusr VARCHAR2(30) not null
+)
+;
+alter table AQPB501
+  add primary key (AQPB501PEPAIS, AQPB501PETDOC, AQPB501PENDOC);
+

@@ -1,0 +1,18 @@
+create table JBXI87
+(
+  jbxi87emp CHAR(4) not null,
+  jbxi87fin DATE not null,
+  jbxi87tcu CHAR(3) not null,
+  jbxi87ncu CHAR(22) not null,
+  jbxi87mod NUMBER(3) not null,
+  jbxi87suc NUMBER(3) not null,
+  jbxi87css CHAR(5) not null,
+  jbxi87sus CHAR(3),
+  jbxi87fap DATE,
+  jbxi87lim NUMBER(17,2),
+  jbxi87fba DATE,
+  jbxi87mpr NUMBER(17,2)
+)
+;
+create unique index JBXI8701 on JBXI87 (JBXI87EMP, JBXI87FIN, JBXI87TCU, JBXI87NCU, JBXI87MOD, JBXI87SUC, JBXI87CSS);
+

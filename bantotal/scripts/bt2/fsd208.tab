@@ -1,0 +1,12 @@
+create table FSD208
+(
+  antpgcod  NUMBER(3) not null,
+  antctnro  NUMBER(9) not null,
+  antcorr   NUMBER(3) not null,
+  antcuenta CHAR(20)
+)
+;
+create index FSD20802 on FSD208 (ANTCUENTA);
+alter table FSD208
+  add primary key (ANTPGCOD, ANTCTNRO, ANTCORR);
+

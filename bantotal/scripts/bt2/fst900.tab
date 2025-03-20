@@ -1,0 +1,13 @@
+create table FST900
+(
+  pgcod   NUMBER(3) not null,
+  pgmnom  CHAR(10) not null,
+  pgmdes  CHAR(50),
+  pgmcall CHAR(10),
+  pgmcd1  NUMBER(9),
+  pgmcd2  CHAR(10)
+)
+;
+alter table FST900
+  add primary key (PGCOD, PGMNOM);
+

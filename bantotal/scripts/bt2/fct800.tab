@@ -1,0 +1,12 @@
+create table FCT800
+(
+  blkpgcod  NUMBER(3) not null,
+  blkmod    NUMBER(3) not null,
+  blkoper   NUMBER(9) not null,
+  blkusr    CHAR(10),
+  blkwrkstn CHAR(10)
+)
+;
+alter table FCT800
+  add primary key (BLKPGCOD, BLKMOD, BLKOPER);
+

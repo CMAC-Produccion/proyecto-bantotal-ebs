@@ -1,0 +1,91 @@
+create table AQPB922
+(
+  aqpb922fee DATE not null,
+  aqpb922emp NUMBER(3) not null,
+  aqpb922sue NUMBER(3) not null,
+  aqpb922moe NUMBER(3) not null,
+  aqpb922tre NUMBER(3) not null,
+  aqpb922ree NUMBER(4) not null,
+  aqpb922fev DATE,
+  aqpb922suc NUMBER(3),
+  aqpb922ctc NUMBER(9),
+  aqpb922ope NUMBER(9),
+  aqpb922doc CHAR(12),
+  aqpb922cta NUMBER(9),
+  aqpb922noc CHAR(30),
+  aqpb922ntr CHAR(30),
+  aqpb922nrc NUMBER(4),
+  aqpb922nco CHAR(50),
+  aqpb922fve DATE,
+  aqpb922moc NUMBER(17,2),
+  aqpb922mon NUMBER(17,2),
+  aqpb922par NUMBER(17,2),
+  aqpb922sap NUMBER(17,2),
+  aqpb922usu CHAR(10),
+  aqpb922ana CHAR(10),
+  aqpb922sua NUMBER(3),
+  aqpb922fer DATE,
+  aqpb922hor CHAR(8),
+  aqpb922ust CHAR(10)
+)
+;
+comment on table AQPB922
+  is 'TABLA LOG DUPLICADO DE LA TABLA JAQN76';
+comment on column AQPB922.aqpb922fee
+  is 'Fecha Contabilizada';
+comment on column AQPB922.aqpb922emp
+  is 'Empresa';
+comment on column AQPB922.aqpb922sue
+  is 'Sucursal';
+comment on column AQPB922.aqpb922moe
+  is 'Modulo';
+comment on column AQPB922.aqpb922tre
+  is 'Transacción';
+comment on column AQPB922.aqpb922ree
+  is 'Relación';
+comment on column AQPB922.aqpb922fev
+  is 'Fecha Pago Valor';
+comment on column AQPB922.aqpb922suc
+  is 'Sucursal';
+comment on column AQPB922.aqpb922ctc
+  is 'Cuenta Convenio';
+comment on column AQPB922.aqpb922ope
+  is 'Operacion';
+comment on column AQPB922.aqpb922doc
+  is 'Documento';
+comment on column AQPB922.aqpb922cta
+  is 'Cuenta';
+comment on column AQPB922.aqpb922noc
+  is 'Nombre Cliente';
+comment on column AQPB922.aqpb922ntr
+  is 'Nombre Transacción';
+comment on column AQPB922.aqpb922nrc
+  is 'Numero de Cartera';
+comment on column AQPB922.aqpb922nco
+  is 'Nombre Convenio';
+comment on column AQPB922.aqpb922fve
+  is 'Fecha Vencimiento Cuota';
+comment on column AQPB922.aqpb922moc
+  is 'Monto Cuota Crédito';
+comment on column AQPB922.aqpb922mon
+  is 'Monto Cuota Mora';
+comment on column AQPB922.aqpb922par
+  is 'Pago Realizado';
+comment on column AQPB922.aqpb922sap
+  is 'Saldo Pendiente';
+comment on column AQPB922.aqpb922usu
+  is 'Usuario';
+comment on column AQPB922.aqpb922ana
+  is 'Analista';
+comment on column AQPB922.aqpb922sua
+  is 'Cod. Agencia';
+comment on column AQPB922.aqpb922fer
+  is 'Fecha Registro';
+comment on column AQPB922.aqpb922hor
+  is 'Hora';
+comment on column AQPB922.aqpb922ust
+  is 'Usuario Realizo Transacción';
+create index AQPB922A2 on AQPB922 (AQPB922CTA, AQPB922OPE, AQPB922DOC, AQPB922FVE);
+alter table AQPB922
+  add primary key (AQPB922FEE, AQPB922EMP, AQPB922SUE, AQPB922MOE, AQPB922TRE, AQPB922REE);
+

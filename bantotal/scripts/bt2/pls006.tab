@@ -1,0 +1,28 @@
+create table PLS006
+(
+  pls006emp  NUMBER(3) not null,
+  pls006conv NUMBER(8) not null,
+  pls006tcob CHAR(3) not null,
+  pls006sec  NUMBER(5) not null,
+  pls006corr NUMBER(5) not null,
+  pls006rub  NUMBER(16),
+  pls006mod  NUMBER(3),
+  pls006suc  NUMBER(3),
+  pls006pap  NUMBER(4),
+  pls006mda  NUMBER(4),
+  pls006cta  NUMBER(9),
+  pls006oper NUMBER(9),
+  pls006sbop NUMBER(3),
+  pls006tope NUMBER(3),
+  pls006est  CHAR(1),
+  pls006aux1 CHAR(1),
+  pls006aux2 NUMBER(10),
+  pls006aux3 CHAR(30),
+  pls006aux4 DATE,
+  pls006aux5 NUMBER(17,2)
+)
+;
+create index PLS00602 on PLS006 (PLS006EMP, PLS006CTA);
+alter table PLS006
+  add primary key (PLS006EMP, PLS006CONV, PLS006TCOB, PLS006SEC, PLS006CORR);
+

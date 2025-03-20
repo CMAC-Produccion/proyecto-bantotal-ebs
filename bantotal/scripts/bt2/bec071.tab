@@ -1,0 +1,30 @@
+create table BEC071
+(
+  becprdid   NUMBER(10) not null,
+  beccliid   NUMBER(10) not null,
+  becctoid   NUMBER(10) not null,
+  becusuid   CHAR(10) not null,
+  becmodid   NUMBER(10) not null,
+  becsrvid   NUMBER(10) not null,
+  becbtempid NUMBER(4) not null,
+  becbtsucid NUMBER(4) not null,
+  becbtrubid NUMBER(16) not null,
+  becbtmdaid NUMBER(4) not null,
+  becbtpapid NUMBER(4) not null,
+  becbtctaid NUMBER(16) not null,
+  becbtopeid NUMBER(4) not null,
+  becbtsopid NUMBER(4) not null,
+  becbttopid NUMBER(4) not null,
+  becbtsdocn CHAR(1),
+  becbtsdocg CHAR(1),
+  becbtsdoma NUMBER(17,2),
+  becbtsdoab CHAR(1),
+  becbtsdoti CHAR(1),
+  becbtsdost CHAR(1),
+  becbtsdosn DATE
+)
+;
+create index BEC07102 on BEC071 (BECPRDID, BECCLIID, BECCTOID, BECUSUID, BECMODID, BECSRVID, BECBTEMPID, BECBTCTAID);
+alter table BEC071
+  add primary key (BECPRDID, BECCLIID, BECCTOID, BECUSUID, BECMODID, BECSRVID, BECBTEMPID, BECBTSUCID, BECBTRUBID, BECBTMDAID, BECBTPAPID, BECBTCTAID, BECBTOPEID, BECBTSOPID, BECBTTOPID);
+

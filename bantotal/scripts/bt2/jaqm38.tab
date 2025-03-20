@@ -1,0 +1,72 @@
+create table JAQM38
+(
+  jaqm38cui VARCHAR2(50) not null,
+  jaqm38cue VARCHAR2(50),
+  jaqm38cua VARCHAR2(50),
+  jaqm38cor CHAR(20),
+  jaqm38cba CHAR(20),
+  jaqm38luo CHAR(30),
+  jaqm38an1 NUMBER(9),
+  jaqm38an2 NUMBER(9),
+  jaqm38an3 NUMBER(9),
+  jaqm38ai1 NUMBER(17,2),
+  jaqm38ai2 NUMBER(17,2),
+  jaqm38ai3 NUMBER(17,2),
+  jaqm38ac1 CHAR(1),
+  jaqm38ac2 CHAR(1),
+  jaqm38ac3 CHAR(1),
+  jaqm38at1 VARCHAR2(255),
+  jaqm38at2 VARCHAR2(255),
+  jaqm38at3 VARCHAR2(255),
+  jaqm38ad1 DATE,
+  jaqm38ad2 DATE,
+  jaqm38ad3 DATE
+)
+;
+comment on table JAQM38
+  is 'Configuración Documentos Control Documentario';
+comment on column JAQM38.jaqm38cui
+  is 'Código Unico Identificador';
+comment on column JAQM38.jaqm38cue
+  is 'Código JAQM37';
+comment on column JAQM38.jaqm38cua
+  is 'Código Unico Interno JAQM11';
+comment on column JAQM38.jaqm38cor
+  is 'Código Oracle';
+comment on column JAQM38.jaqm38cba
+  is 'Código Bantotal';
+comment on column JAQM38.jaqm38luo
+  is 'Lugar de Origen';
+comment on column JAQM38.jaqm38an1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM38.jaqm38an2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM38.jaqm38an3
+  is 'Auxiliar Numerico 3';
+comment on column JAQM38.jaqm38ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM38.jaqm38ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM38.jaqm38ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM38.jaqm38ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM38.jaqm38ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM38.jaqm38ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM38.jaqm38at1
+  is 'Auxiliar Texto 1';
+comment on column JAQM38.jaqm38at2
+  is 'Auxiliar Texto 2';
+comment on column JAQM38.jaqm38at3
+  is 'Auxiliar Texto 3';
+comment on column JAQM38.jaqm38ad1
+  is 'Auxiliar Date 1';
+comment on column JAQM38.jaqm38ad2
+  is 'Auxiliar Date 2';
+comment on column JAQM38.jaqm38ad3
+  is 'Auxiliar Date 3';
+alter table JAQM38
+  add primary key (JAQM38CUI);
+

@@ -1,0 +1,44 @@
+create table JBXILA
+(
+  jbxilx01 NUMBER(18) not null,
+  jbxila01 NUMBER(3) not null,
+  jbxila02 NUMBER(3) not null,
+  jbxila03 NUMBER(3),
+  jbxila04 NUMBER(3),
+  jbxila05 NUMBER(4),
+  jbxila06 NUMBER(4),
+  jbxila07 NUMBER(9),
+  jbxila08 NUMBER(9),
+  jbxila09 NUMBER(3),
+  jbxila10 NUMBER(3),
+  jbxila11 NUMBER(5),
+  jbxila12 CHAR(60),
+  jbxila13 CHAR(60),
+  jbxila14 DATE,
+  jbxila15 DATE,
+  jbxila16 NUMBER(17,2),
+  jbxila17 NUMBER(17,2),
+  jbxila18 NUMBER(17,2),
+  jbxila19 NUMBER(7,4),
+  jbxila20 NUMBER(17,2),
+  jbxila21 NUMBER(17,2),
+  jbxila22 NUMBER(16),
+  jbxila23 NUMBER(16),
+  jbxila24 CHAR(1),
+  jbxila25 CHAR(1),
+  jbxila26 CHAR(60),
+  jbxila27 CHAR(60),
+  jbxila28 NUMBER(3),
+  jbxila29 NUMBER(3),
+  jbxila30 NUMBER(3),
+  jbxila31 NUMBER(3),
+  jbxila32 NUMBER(4),
+  jbxila33 DATE,
+  jbxila34 NUMBER(2),
+  jbxila35 NUMBER(3)
+)
+;
+create index JBXILA02 on JBXILA (JBXILA28, JBXILA29, JBXILA30, JBXILA31, JBXILA32, JBXILA33, JBXILA34, JBXILA35);
+alter table JBXILA
+  add primary key (JBXILX01, JBXILA01, JBXILA02);
+

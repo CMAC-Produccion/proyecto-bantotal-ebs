@@ -1,0 +1,23 @@
+create table JAQN366
+(
+  jaqn366piz NUMBER(3) not null,
+  jaqn366cor NUMBER(9) not null,
+  jaqn366cot NUMBER(9) not null,
+  jaqn366mda NUMBER(4),
+  jaqn366imp NUMBER(17,2),
+  jaqn366fch DATE,
+  jaqn366hor CHAR(8),
+  jaqn366cpa NUMBER(14,8),
+  jaqn366vta NUMBER(14,8),
+  jaqn366toc NUMBER(10,8),
+  jaqn366tov NUMBER(10,8),
+  jaqn366arc NUMBER(14,8),
+  jaqn366arv NUMBER(14,8),
+  jaqn366art NUMBER(10,8),
+  jaqn366arn NUMBER(14,8),
+  jaqn366ari NUMBER(14)
+)
+;
+alter table JAQN366
+  add primary key (JAQN366PIZ, JAQN366COR, JAQN366COT);
+

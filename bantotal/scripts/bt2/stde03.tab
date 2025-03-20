@@ -1,0 +1,20 @@
+create table STDE03
+(
+  pjepais  NUMBER(3) not null,
+  pjetdoc  NUMBER(2) not null,
+  pjendoc  CHAR(12) not null,
+  pjerzsoc CHAR(120),
+  pjefaux1 NUMBER(4),
+  pjefaux2 NUMBER(4),
+  pjefaux3 NUMBER(4),
+  pjecaux1 NUMBER(4),
+  pjecaux2 NUMBER(4),
+  pjecaux3 NUMBER(17,2),
+  pjenaux1 NUMBER(17,2),
+  pjenaux2 NUMBER(17,2),
+  pjenaux3 NUMBER(17,2)
+)
+;
+alter table STDE03
+  add primary key (PJEPAIS, PJETDOC, PJENDOC);
+

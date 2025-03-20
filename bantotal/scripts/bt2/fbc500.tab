@@ -1,0 +1,30 @@
+create table FBC500
+(
+  bc500emp  NUMBER(3) not null,
+  bc500inf  CHAR(10) not null,
+  bc500fch  DATE not null,
+  bc500id1  CHAR(10) not null,
+  bc500id2  NUMBER(12) not null,
+  bc500id3  NUMBER(12) not null,
+  bc500id4  NUMBER(12) not null,
+  bc500desc CHAR(50),
+  bc500fch1 DATE,
+  bc500fch2 DATE,
+  bc500imp1 NUMBER(17,2),
+  bc500imp2 NUMBER(17,2),
+  bc500imp3 NUMBER(17,2),
+  bc500nro1 NUMBER(10),
+  bc500nro2 NUMBER(10),
+  bc500nro3 NUMBER(10),
+  bc500chr1 CHAR(10),
+  bc500chr2 CHAR(10),
+  bc500chr3 CHAR(10),
+  bc500cbar CHAR(20)
+)
+;
+create index FBC50002 on FBC500 (BC500EMP, BC500INF, BC500FCH, BC500ID1, BC500ID3);
+create index FBC50003 on FBC500 (BC500EMP, BC500INF, BC500FCH, BC500ID1, BC500ID4);
+create index FBC50004 on FBC500 (BC500EMP, BC500INF, BC500FCH, BC500ID2, BC500ID3, BC500ID4, BC500ID1);
+alter table FBC500
+  add primary key (BC500EMP, BC500INF, BC500FCH, BC500ID1, BC500ID2, BC500ID3, BC500ID4);
+

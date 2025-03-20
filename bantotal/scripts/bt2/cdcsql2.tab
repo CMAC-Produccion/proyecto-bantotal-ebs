@@ -1,0 +1,29 @@
+create table CDCSQL2
+(
+  cdcsqlid   NUMBER(18) not null,
+  cdcsqlinid NUMBER(18) not null,
+  cdcsqlwid  NUMBER(18) not null,
+  cdcsqlwtbl CHAR(30),
+  cdcsqlwfld CHAR(30),
+  cdcsqlwop  NUMBER(4),
+  cdcsqlwpiz NUMBER(2),
+  cdcsqlwpde NUMBER(2),
+  cdcsqlwval NUMBER(18),
+  cdcvalid   NUMBER(17),
+  cdcsqlwdtb CHAR(30),
+  cdcsqlwdfl CHAR(30),
+  cdcsqlando NUMBER(4),
+  cdcsqlcons CHAR(50),
+  cdcsqlsofo NUMBER(4),
+  cdcsql2ofu NUMBER(4),
+  cdcsql1ofu NUMBER(4),
+  cdcsqlpofo NUMBER(4),
+  cdcsqlconi CHAR(50),
+  cdcsqlt1op NUMBER(4),
+  cdcsqlt2op NUMBER(4)
+)
+;
+create index CDCSQL22 on CDCSQL2 (CDCVALID);
+alter table CDCSQL2
+  add primary key (CDCSQLID, CDCSQLINID, CDCSQLWID);
+

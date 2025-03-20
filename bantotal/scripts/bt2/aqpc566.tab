@@ -1,0 +1,44 @@
+create table AQPC566
+(
+  aqpc566cod   NUMBER(9) not null,
+  aqpc566f_reg DATE not null,
+  aqpc566h_reg CHAR(8) not null,
+  aqpc566u_reg VARCHAR2(10) not null,
+  aqpc566nom_p VARCHAR2(250),
+  aqpc566pqt   VARCHAR2(100),
+  aqpc566pcdm  VARCHAR2(100),
+  aqpc566prog  VARCHAR2(10),
+  aqpc566up_u  VARCHAR2(10),
+  aqpc566up_f  DATE,
+  aqpc566up_h  CHAR(8)
+)
+;
+comment on table AQPC566
+  is 'TABLA MATRIZ DE PROCESOS DE EJECUCION DE BOT';
+comment on column AQPC566.aqpc566cod
+  is 'Codigo unico';
+comment on column AQPC566.aqpc566f_reg
+  is 'Fecha de Registro';
+comment on column AQPC566.aqpc566h_reg
+  is 'Hora de Registro';
+comment on column AQPC566.aqpc566u_reg
+  is 'Usuario que Registra';
+comment on column AQPC566.aqpc566nom_p
+  is 'Nombre de Proceso';
+comment on column AQPC566.aqpc566pqt
+  is 'Paquete';
+comment on column AQPC566.aqpc566pcdm
+  is 'Procedimiento Almacenado';
+comment on column AQPC566.aqpc566prog
+  is 'Programa';
+comment on column AQPC566.aqpc566up_u
+  is 'Usuario que procesa';
+comment on column AQPC566.aqpc566up_f
+  is 'Fecha en que se procesa';
+comment on column AQPC566.aqpc566up_h
+  is 'Hora en que se procesa';
+create index AQPC566A2 on AQPC566 (AQPC566F_REG, AQPC566U_REG);
+create index AQPC566A3 on AQPC566 (AQPC566UP_F, AQPC566UP_U);
+alter table AQPC566
+  add primary key (AQPC566COD, AQPC566F_REG, AQPC566H_REG, AQPC566U_REG);
+

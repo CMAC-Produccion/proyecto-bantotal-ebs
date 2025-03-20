@@ -1,0 +1,14 @@
+create table FSFF10
+(
+  kdoempir NUMBER(3) not null,
+  kdousrir CHAR(10) not null,
+  kdocorir NUMBER(9) not null,
+  kdonegir NUMBER(9),
+  kdomdair NUMBER(4),
+  kdosdoir NUMBER(17,2),
+  kdonneir CHAR(50)
+)
+;
+alter table FSFF10
+  add primary key (KDOEMPIR, KDOUSRIR, KDOCORIR);
+

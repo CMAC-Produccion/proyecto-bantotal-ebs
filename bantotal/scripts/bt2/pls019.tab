@@ -1,0 +1,29 @@
+create table PLS019
+(
+  pls019emp  NUMBER(3) not null,
+  pls019conv NUMBER(8) not null,
+  pls019sect NUMBER(3) not null,
+  pls019fpre DATE not null,
+  pls019nord NUMBER(3) not null,
+  pls019nlot NUMBER(3) not null,
+  pls019part NUMBER(3) not null,
+  pls019oper NUMBER(9) not null,
+  pls019cta  NUMBER(9),
+  pls019sbct NUMBER(3),
+  pls019mda  NUMBER(4),
+  pls019cimp NUMBER(17,2),
+  pls019tcal CHAR(3),
+  pls019aux1 NUMBER(9),
+  pls019aux2 CHAR(1),
+  pls019aux3 DATE,
+  pls019aux4 NUMBER(17,2),
+  pls019aux5 NUMBER(17,2),
+  pls019aux6 CHAR(50),
+  pls019aux7 CHAR(50),
+  pls019pago CHAR(1)
+)
+;
+create index PLS01902 on PLS019 (PLS019EMP, PLS019CTA, PLS019SBCT, PLS019OPER);
+alter table PLS019
+  add primary key (PLS019EMP, PLS019CONV, PLS019SECT, PLS019FPRE, PLS019NORD, PLS019NLOT, PLS019PART, PLS019OPER);
+

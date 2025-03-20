@@ -1,0 +1,34 @@
+create table FSFC08
+(
+  kg9pgcod  NUMBER(3) not null,
+  kg9tipoop CHAR(1) not null,
+  kg9suc    NUMBER(3) not null,
+  kg9cta    NUMBER(9) not null,
+  kg9pap    NUMBER(4) not null,
+  kg9mod1   NUMBER(3) not null,
+  kg9oper1  NUMBER(9) not null,
+  kg9fvto1  DATE,
+  kg9mda1   NUMBER(4),
+  kg9fvto2  DATE,
+  kg9mda2   NUMBER(4),
+  kg9mod2   NUMBER(3),
+  kg9oper2  NUMBER(9),
+  kg9aux1   NUMBER(17,2),
+  kg9aux2   NUMBER(17,2),
+  kg9aux3   NUMBER(9),
+  kg9aux4   NUMBER(9),
+  kg9aux5   CHAR(1),
+  kg9aux6   CHAR(30),
+  kg9itsuc  NUMBER(3),
+  kg9itmod  NUMBER(3),
+  kg9ittran NUMBER(3),
+  kg9itnrel NUMBER(4),
+  kg9itfcon DATE
+)
+;
+create index FSFC0802 on FSFC08 (KG9PGCOD, KG9TIPOOP, KG9SUC, KG9CTA, KG9PAP, KG9MOD2, KG9OPER2);
+create index FSFC0803 on FSFC08 (KG9PGCOD, KG9TIPOOP, KG9SUC, KG9CTA, KG9PAP, KG9FVTO1, KG9MDA1, KG9FVTO2, KG9MDA2, KG9MOD1, KG9OPER1);
+create index FSFC0804 on FSFC08 (KG9PGCOD, KG9ITSUC, KG9ITMOD, KG9ITTRAN, KG9ITNREL, KG9ITFCON);
+alter table FSFC08
+  add primary key (KG9PGCOD, KG9TIPOOP, KG9SUC, KG9CTA, KG9PAP, KG9MOD1, KG9OPER1);
+

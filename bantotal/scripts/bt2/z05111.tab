@@ -1,0 +1,32 @@
+create table Z05111
+(
+  z05111usr CHAR(10) not null,
+  z05111wst CHAR(10) not null,
+  z05111pgm CHAR(8) not null,
+  z05111cor NUMBER(9) not null,
+  z05111tmo CHAR(3),
+  z05111fcp DATE,
+  z05111fal DATE,
+  z05111pgc NUMBER(3),
+  z05111ctn NUMBER(9),
+  z05111ttr CHAR(2),
+  z05111prs CHAR(10),
+  z05111ctr NUMBER(2),
+  z05111inf NUMBER(2),
+  z05111idc CHAR(22),
+  z05111cb1 CHAR(8),
+  z05111cb2 CHAR(14),
+  z05111rfd CHAR(15),
+  z05111ope CHAR(30),
+  z05111rch CHAR(3),
+  z05111dre CHAR(30),
+  z05111vto DATE,
+  z05111imp NUMBER(10,2),
+  z05111est CHAR(2),
+  z05111con CHAR(80)
+)
+;
+create index Z0511102 on Z05111 (Z05111PGC, Z05111CTN, Z05111PRS, Z05111TMO, Z05111IDC);
+alter table Z05111
+  add primary key (Z05111USR, Z05111WST, Z05111PGM, Z05111COR);
+

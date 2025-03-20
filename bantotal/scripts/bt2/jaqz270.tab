@@ -1,0 +1,39 @@
+create table JAQZ270
+(
+  jaqz270inst   NUMBER(10) not null,
+  jaqz270con    CHAR(1),
+  jaqz270cta    NUMBER(9),
+  jaqz270ope    NUMBER(9),
+  jaqz270fgen   DATE,
+  jaqz270hgen   CHAR(8),
+  jaqz270suc    NUMBER(3),
+  jaqz270pais   NUMBER(3),
+  jaqz270tdoc   NUMBER(2),
+  jaqz270ndoc   CHAR(12),
+  jaqz270ana    CHAR(10),
+  jaqz270usuban CHAR(10),
+  jaqz270opi    CHAR(2),
+  jaqz270fapro  DATE,
+  jaqz270com    CHAR(300),
+  jaqz270mda    NUMBER(4),
+  jaqz270mto    NUMBER(12,2),
+  jaqz270cuo    NUMBER(5),
+  jaqz270fre    NUMBER(5),
+  jaqz270var1   VARCHAR2(80),
+  jaqz270var2   VARCHAR2(80),
+  jaqz270var3   VARCHAR2(80),
+  jaqz270var4   VARCHAR2(80),
+  jaqz270var5   VARCHAR2(80),
+  jaqz270fecupd DATE,
+  jaqz270usuupd CHAR(10),
+  jaqz270ususel CHAR(10),
+  jaqz270mtoi   NUMBER(17,2),
+  jaqz270pzoi   NUMBER(5)
+)
+;
+create index JAQZ270_INX01 on JAQZ270 (JAQZ270INST);
+create index JAQZ270_INX02 on JAQZ270 (JAQZ270INST, JAQZ270CON);
+create index JAQZ270_INX03 on JAQZ270 (JAQZ270SUC, JAQZ270CON);
+alter table JAQZ270
+  add primary key (JAQZ270INST);
+

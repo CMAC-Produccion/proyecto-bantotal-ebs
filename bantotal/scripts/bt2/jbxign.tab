@@ -1,0 +1,36 @@
+create table JBXIGN
+(
+  jbxignfec DATE not null,
+  jbxignemp NUMBER(3) not null,
+  jbxignsuc NUMBER(3) not null,
+  jbxignmod NUMBER(3) not null,
+  jbxigntrn NUMBER(3) not null,
+  jbxignnra NUMBER(4) not null,
+  jbxignora NUMBER(2) not null,
+  jbxignsoa NUMBER(3) not null,
+  jbxignmdl NUMBER(3),
+  jbxignmda NUMBER(4),
+  jbxigncsu NUMBER(3),
+  jbxignptr NUMBER(3),
+  jbxigntdt NUMBER(2),
+  jbxignndt CHAR(12),
+  jbxignnct NUMBER(9),
+  jbxignope NUMBER(9),
+  jbxignsbo NUMBER(3),
+  jbxigntop NUMBER(3),
+  jbxigntcm CHAR(5),
+  jbxignicm NUMBER(17,2),
+  jbxignicp NUMBER(17,2),
+  jbxignccc NUMBER(16),
+  jbxignmdc NUMBER(1),
+  jbxignccm CHAR(15),
+  jbxignmcb NUMBER(1),
+  jbxignmbf NUMBER(17,2),
+  jbxigncim NUMBER(17,2),
+  jbxigncia NUMBER(17,2),
+  jbxignmce NUMBER(1),
+  jbxignpcn NUMBER(10,6)
+)
+;
+create unique index JBXIGN01 on JBXIGN (JBXIGNFEC, JBXIGNEMP, JBXIGNSUC, JBXIGNMOD, JBXIGNTRN, JBXIGNNRA, JBXIGNORA, JBXIGNSOA);
+

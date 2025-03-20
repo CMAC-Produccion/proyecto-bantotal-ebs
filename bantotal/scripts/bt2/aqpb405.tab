@@ -1,0 +1,26 @@
+create table AQPB405
+(
+  aqpb405cod    NUMBER(3) not null,
+  aqpb405mod    NUMBER(3) not null,
+  aqpb405suc    NUMBER(3) not null,
+  aqpb405mda    NUMBER(4) not null,
+  aqpb405pap    NUMBER(4) not null,
+  aqpb405cta    NUMBER(9) not null,
+  aqpb405ope    NUMBER(9) not null,
+  aqpb405sbo    NUMBER(3) not null,
+  aqpb405tpo    NUMBER(3) not null,
+  aqpb405est    CHAR(1),
+  aqpb405fecact DATE not null,
+  aqpb405usu    CHAR(10),
+  aqpb405tipe   NUMBER(4),
+  aqpb405desce  VARCHAR2(30)
+)
+;
+comment on column AQPB405.aqpb405tipe
+  is 'Tipo de Exoneración';
+comment on column AQPB405.aqpb405desce
+  is 'Descripción de tipo de Exoneración';
+create index AQPB4052 on AQPB405 (AQPB405COD, AQPB405MOD, AQPB405SUC, AQPB405MDA, AQPB405PAP, AQPB405CTA, AQPB405OPE, AQPB405SBO, AQPB405TPO, AQPB405EST);
+alter table AQPB405
+  add primary key (AQPB405COD, AQPB405MOD, AQPB405SUC, AQPB405MDA, AQPB405PAP, AQPB405CTA, AQPB405OPE, AQPB405SBO, AQPB405TPO, AQPB405FECACT);
+

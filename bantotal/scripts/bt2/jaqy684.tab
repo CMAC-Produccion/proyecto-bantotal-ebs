@@ -1,0 +1,29 @@
+create table JAQY684
+(
+  jaqy684pais NUMBER(3) not null,
+  jaqy684tdoc NUMBER(2) not null,
+  jaqy684ndoc CHAR(12) not null,
+  jaqy684inst NUMBER(10) not null,
+  jaqy684tipc NUMBER(4),
+  jaqy684motc NUMBER(4),
+  jaqy684com  VARCHAR2(400),
+  jaqy684user CHAR(10),
+  jaqy684suc  CHAR(30),
+  jaqy684cta  NUMBER(9),
+  jaqy684ope  NUMBER(9),
+  jaqy684desc VARCHAR2(160),
+  jaqy684fec  DATE,
+  jaqy684aux1 NUMBER(4),
+  jaqy684aux2 NUMBER(4),
+  jaqy684aux3 NUMBER(18),
+  jaqy684aux4 CHAR(50),
+  jaqy684aux5 CHAR(50),
+  jaqy684aux6 VARCHAR2(100),
+  jaqy684aux7 VARCHAR2(200),
+  jaqy684aux8 DATE
+)
+;
+create index JAQY684001 on JAQY684 (JAQY684PAIS, JAQY684TDOC, JAQY684NDOC);
+alter table JAQY684
+  add primary key (JAQY684PAIS, JAQY684TDOC, JAQY684NDOC, JAQY684INST);
+

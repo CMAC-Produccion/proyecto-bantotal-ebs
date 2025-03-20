@@ -1,0 +1,36 @@
+create table X95P65
+(
+  inftpais  NUMBER(3) not null,
+  inftdoc   NUMBER(2) not null,
+  inftndoc  CHAR(12) not null,
+  infsujre  CHAR(1),
+  infcont   CHAR(1),
+  infgcont  CHAR(1),
+  infautor  CHAR(1),
+  infconaut CHAR(30),
+  infresdi  NUMBER(14),
+  infrdaut  NUMBER(14),
+  infregco  CHAR(1),
+  infreges  CHAR(1),
+  infexedpm CHAR(1),
+  infresdo  CHAR(1),
+  infvigil  CHAR(1),
+  infpris   CHAR(1),
+  infestcr  CHAR(1),
+  infcomer  CHAR(1),
+  infing    NUMBER(14,2),
+  infpat    NUMBER(14,2),
+  inffidu   CHAR(1),
+  infest    CHAR(1),
+  infemb    CHAR(1),
+  inf001    CHAR(1),
+  inf002    CHAR(30),
+  inf003    NUMBER(1),
+  inf004    NUMBER(9),
+  inf005    NUMBER(14,2),
+  inf006    DATE
+)
+;
+alter table X95P65
+  add primary key (INFTPAIS, INFTDOC, INFTNDOC);
+

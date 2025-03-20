@@ -1,0 +1,16 @@
+create table JMBP04
+(
+  jmbp03pgc  NUMBER(3) not null,
+  jmbp03suc  NUMBER(3) not null,
+  jmbp03fch  DATE not null,
+  jmbp04mon  NUMBER(4) not null,
+  jmbp04val  NUMBER(17,2) not null,
+  jmbp04cnt  NUMBER(9),
+  jmbp04cnti NUMBER(9),
+  jmbp04imp  NUMBER(17,2)
+)
+;
+create index JMBP0403 on JMBP04 (JMBP03PGC, JMBP03FCH, JMBP03SUC, JMBP04MON, JMBP04VAL);
+alter table JMBP04
+  add primary key (JMBP03PGC, JMBP03SUC, JMBP03FCH, JMBP04MON, JMBP04VAL);
+

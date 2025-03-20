@@ -1,0 +1,57 @@
+create table AQPA138
+(
+  aqpa138seq NUMBER(9) not null,
+  aqpa138fec DATE,
+  aqpa138hor CHAR(8),
+  aqpa138usr CHAR(10),
+  aqpa138age NUMBER(3),
+  aqpa138est CHAR(1),
+  aqpa138msg VARCHAR2(400),
+  aqpa138ax1 NUMBER(9),
+  aqpa138ax2 NUMBER(9),
+  aqpa138ax3 NUMBER(17,2),
+  aqpa138ax4 NUMBER(17,2),
+  aqpa138ax5 DATE,
+  aqpa138ax6 DATE,
+  aqpa138ax7 CHAR(100),
+  aqpa138ax8 CHAR(100),
+  aqpa138ax9 CHAR(100)
+)
+;
+comment on table AQPA138
+  is 'CABECERA IMPORTACION DNIS TRABAJADORES';
+comment on column AQPA138.aqpa138seq
+  is 'IMPORTACION';
+comment on column AQPA138.aqpa138fec
+  is 'FECHA PROCESO';
+comment on column AQPA138.aqpa138hor
+  is 'HORA PROCESO';
+comment on column AQPA138.aqpa138usr
+  is 'USUARIO';
+comment on column AQPA138.aqpa138age
+  is 'AGENCIA';
+comment on column AQPA138.aqpa138est
+  is 'ESTADO';
+comment on column AQPA138.aqpa138msg
+  is 'MENSAJE';
+comment on column AQPA138.aqpa138ax1
+  is 'AUXILIAR';
+comment on column AQPA138.aqpa138ax2
+  is 'AUXILIAR';
+comment on column AQPA138.aqpa138ax3
+  is 'AUXILIAR';
+comment on column AQPA138.aqpa138ax4
+  is 'AUXILIAR';
+comment on column AQPA138.aqpa138ax5
+  is 'AUXILIAR';
+comment on column AQPA138.aqpa138ax6
+  is 'AUXILIAR';
+comment on column AQPA138.aqpa138ax7
+  is 'AUXILIAR';
+comment on column AQPA138.aqpa138ax8
+  is 'AUXILIAR';
+comment on column AQPA138.aqpa138ax9
+  is 'AUXILIAR';
+alter table AQPA138
+  add primary key (AQPA138SEQ);
+

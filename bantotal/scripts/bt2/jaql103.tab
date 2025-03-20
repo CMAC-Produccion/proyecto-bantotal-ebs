@@ -1,0 +1,20 @@
+create table JAQL103
+(
+  jaql103pgc NUMBER(3) not null,
+  jaql103cod NUMBER(4) not null,
+  jaql103mod NUMBER(3) not null,
+  jaql103top NUMBER(3) not null,
+  jaql103a01 NUMBER(9),
+  jaql103a02 NUMBER(9),
+  jaql103a03 NUMBER(16,2),
+  jaql103a04 NUMBER(16,2),
+  jaql103a05 CHAR(50),
+  jaql103a06 CHAR(50),
+  jaql103a07 DATE,
+  jaql103a08 DATE,
+  jaql103fch DATE
+)
+;
+alter table JAQL103
+  add primary key (JAQL103PGC, JAQL103COD, JAQL103MOD, JAQL103TOP);
+

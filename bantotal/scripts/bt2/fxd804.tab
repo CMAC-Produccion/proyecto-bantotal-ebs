@@ -1,0 +1,21 @@
+create table FXD804
+(
+  pgcod      NUMBER(3) not null,
+  numtip     NUMBER(2) not null,
+  msgnum     NUMBER(9) not null,
+  swtcod     NUMBER(5) not null,
+  swtrel     NUMBER(2) not null,
+  msgcposec  NUMBER(3) not null,
+  swtcpo     NUMBER(2) not null,
+  swtcpofmt  CHAR(1) not null,
+  msgsubcpo  NUMBER(2) not null,
+  msgidatt   NUMBER(5) not null,
+  msgnumvala NUMBER(17,2),
+  msgcharval CHAR(65),
+  msgdateval DATE,
+  msgflagval CHAR(1)
+)
+;
+alter table FXD804
+  add primary key (PGCOD, NUMTIP, MSGNUM, SWTCOD, SWTREL, MSGCPOSEC, SWTCPO, SWTCPOFMT, MSGSUBCPO, MSGIDATT);
+

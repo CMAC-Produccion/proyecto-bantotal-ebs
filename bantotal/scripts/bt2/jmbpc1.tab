@@ -1,0 +1,33 @@
+create table JMBPC1
+(
+  mbpc1tipre NUMBER(1) not null,
+  mbpc1codcl NUMBER(10) not null,
+  mbpc1fec   NUMBER(8) not null,
+  mbpc1tipdo CHAR(1),
+  mbpc1ruc   CHAR(11),
+  mbpc1tipd2 CHAR(1),
+  mbpc1docnr CHAR(12),
+  mbpc1tippe CHAR(1),
+  mbpc1tipem CHAR(1),
+  mbpc1canem NUMBER(3),
+  mbpc1deuc0 NUMBER(5,2),
+  mbpc1deuc1 NUMBER(5,2),
+  mbpc1deuc2 NUMBER(5,2),
+  mbpc1deuc3 NUMBER(5,2),
+  mbpc1deuc4 NUMBER(5,2),
+  mbpc1nomco CHAR(120),
+  mbpc1nomma CHAR(40),
+  mbpc1nomca CHAR(40),
+  mbpc1nompr CHAR(40),
+  mbpc1nomse CHAR(40),
+  mbpc1del   CHAR(2),
+  mbpc1sdo   NUMBER(17,2),
+  mbpc1cat   CHAR(15)
+)
+;
+create index JMBPC102 on JMBPC1 (MBPC1TIPRE, MBPC1FEC, MBPC1RUC);
+create index JMBPC103 on JMBPC1 (MBPC1TIPRE, MBPC1FEC, MBPC1DOCNR);
+create index JMBPC105 on JMBPC1 (MBPC1FEC, MBPC1TIPD2, MBPC1DOCNR);
+alter table JMBPC1
+  add primary key (MBPC1TIPRE, MBPC1CODCL, MBPC1FEC);
+

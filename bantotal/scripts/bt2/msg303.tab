@@ -1,0 +1,13 @@
+create table MSG303
+(
+  astcod   NUMBER(3) not null,
+  estmcod  NUMBER(5) not null,
+  astpagid NUMBER(3) not null,
+  msg303nm CHAR(20) not null,
+  msg303va CHAR(255)
+)
+;
+create index MSG3031 on MSG303 (ESTMCOD, ASTCOD, ASTPAGID);
+alter table MSG303
+  add primary key (ASTCOD, ESTMCOD, ASTPAGID, MSG303NM);
+

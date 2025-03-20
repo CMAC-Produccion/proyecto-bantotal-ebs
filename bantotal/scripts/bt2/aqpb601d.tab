@@ -1,0 +1,51 @@
+create table AQPB601D
+(
+  aqpb601dcodp NUMBER(10),
+  aqpb601dncuo NUMBER(17,2),
+  aqpb601dfecv DATE,
+  aqpb601ddatr NUMBER(5),
+  aqpb601dcapi NUMBER(17,2),
+  aqpb601dic   NUMBER(17,2),
+  aqpb601dicv  NUMBER(17,2),
+  aqpb601dmora NUMBER(17,2),
+  aqpb601dpena NUMBER(17,2),
+  aqpb601dsegu NUMBER(17,2),
+  aqpb601dotro NUMBER(17,2),
+  aqpb601dtotc NUMBER(17,2),
+  aqpb601dusrr VARCHAR2(10),
+  aqpb601dfecr TIMESTAMP(6),
+  aqpb601ditf  NUMBER(17,2)
+)
+;
+comment on column AQPB601D.aqpb601dcodp
+  is 'Codigo';
+comment on column AQPB601D.aqpb601dncuo
+  is 'Nro de Cuota';
+comment on column AQPB601D.aqpb601dfecv
+  is 'Fecha Vencimiento';
+comment on column AQPB601D.aqpb601ddatr
+  is 'Diasd de Atraso';
+comment on column AQPB601D.aqpb601dcapi
+  is 'Capital';
+comment on column AQPB601D.aqpb601dic
+  is 'Interes Compensatorio';
+comment on column AQPB601D.aqpb601dicv
+  is 'Interes Compensatorio Vencido';
+comment on column AQPB601D.aqpb601dmora
+  is 'Mora';
+comment on column AQPB601D.aqpb601dpena
+  is 'Penalidad';
+comment on column AQPB601D.aqpb601dsegu
+  is 'Seguro';
+comment on column AQPB601D.aqpb601dotro
+  is 'Otros';
+comment on column AQPB601D.aqpb601dtotc
+  is 'Total Cuota';
+comment on column AQPB601D.aqpb601dusrr
+  is 'Usuario';
+comment on column AQPB601D.aqpb601dfecr
+  is 'Fecha de Registro';
+comment on column AQPB601D.aqpb601ditf
+  is 'Valor ITF';
+create index AQPB601DA2 on AQPB601D (AQPB601DCODP);
+

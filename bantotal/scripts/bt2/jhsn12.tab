@@ -1,0 +1,11 @@
+create table JHSN12
+(
+  jhsn12cta  NUMBER(9) not null,
+  jhsn10cod  NUMBER(4) not null,
+  jhsn12fpre DATE,
+  jhsn12fven DATE
+)
+;
+create unique index JHSN1201 on JHSN12 (JHSN12CTA, JHSN10COD);
+create index JHSN1202 on JHSN12 (JHSN10COD);
+

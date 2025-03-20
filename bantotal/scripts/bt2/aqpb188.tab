@@ -1,0 +1,82 @@
+create table AQPB188
+(
+  aqpb188cor     NUMBER(10) not null,
+  aqpb188fch     DATE not null,
+  aqpb188ins     NUMBER(10) not null,
+  aqpb188pais    NUMBER(3),
+  aqpb188tdoc    NUMBER(3),
+  aqpb188ndoc    VARCHAR2(12),
+  aqpb188pgcod   NUMBER(5) not null,
+  aqpb188mod     NUMBER(5) not null,
+  aqpb188suc     NUMBER(5) not null,
+  aqpb188mda     NUMBER(5) not null,
+  aqpb188pap     NUMBER(5) not null,
+  aqpb188cta     NUMBER(9) not null,
+  aqpb188ope     NUMBER(9) not null,
+  aqpb188sbop    NUMBER(5) not null,
+  aqpb188tope    NUMBER(5) not null,
+  aqpb188idcof   VARCHAR2(20),
+  aqpb188ncuot   NUMBER(5),
+  aqpb188tcea    NUMBER(10,6),
+  aqpb188tea     NUMBER(10,6),
+  aqpb188fcron   DATE not null,
+  aqpb188fpagbn  DATE,
+  aqpb188datraso NUMBER(5),
+  aqpb188salcap  NUMBER(17,2)
+)
+;
+comment on table AQPB188
+  is 'Tabla Log PLANTILLA DEL CRONOGRAMA DEL BBP';
+comment on column AQPB188.aqpb188cor
+  is 'Correlativo';
+comment on column AQPB188.aqpb188fch
+  is 'Fecha de Registro';
+comment on column AQPB188.aqpb188ins
+  is 'Instancia';
+comment on column AQPB188.aqpb188pais
+  is 'Pais';
+comment on column AQPB188.aqpb188tdoc
+  is 'Tipo de Documento';
+comment on column AQPB188.aqpb188ndoc
+  is 'Nro de Documento';
+comment on column AQPB188.aqpb188pgcod
+  is 'Pgcod';
+comment on column AQPB188.aqpb188mod
+  is 'Modulo';
+comment on column AQPB188.aqpb188suc
+  is 'Sucursal';
+comment on column AQPB188.aqpb188mda
+  is 'Moneda';
+comment on column AQPB188.aqpb188pap
+  is 'Papel';
+comment on column AQPB188.aqpb188cta
+  is 'Cuenta';
+comment on column AQPB188.aqpb188ope
+  is 'Operacion';
+comment on column AQPB188.aqpb188sbop
+  is 'SubOperacion';
+comment on column AQPB188.aqpb188tope
+  is 'Tipo de Operacion';
+comment on column AQPB188.aqpb188idcof
+  is 'ID Cofide';
+comment on column AQPB188.aqpb188ncuot
+  is 'Correlativo nro de cuota';
+comment on column AQPB188.aqpb188tcea
+  is 'TCEA';
+comment on column AQPB188.aqpb188tea
+  is 'TEA';
+comment on column AQPB188.aqpb188fcron
+  is 'Fecha de Cuota';
+comment on column AQPB188.aqpb188fpagbn
+  is 'Fecha de Pago de Beneficio';
+comment on column AQPB188.aqpb188datraso
+  is 'Dias de Atraso de Cuota';
+comment on column AQPB188.aqpb188salcap
+  is 'Saldo Capital';
+create index AQPB1882 on AQPB188 (AQPB188FCH);
+create index AQPB1883 on AQPB188 (AQPB188PAIS, AQPB188TDOC, AQPB188NDOC);
+create index AQPB1884 on AQPB188 (AQPB188INS);
+create index AQPB1885 on AQPB188 (AQPB188PGCOD, AQPB188MOD, AQPB188SUC, AQPB188MDA, AQPB188PAP, AQPB188CTA, AQPB188OPE, AQPB188SBOP, AQPB188TOPE);
+alter table AQPB188
+  add primary key (AQPB188COR, AQPB188FCH, AQPB188INS, AQPB188PGCOD, AQPB188MOD, AQPB188SUC, AQPB188MDA, AQPB188PAP, AQPB188CTA, AQPB188OPE, AQPB188SBOP, AQPB188TOPE, AQPB188FCRON);
+

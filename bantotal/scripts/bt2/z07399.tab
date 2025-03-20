@@ -1,0 +1,28 @@
+create table Z07399
+(
+  z07399cod NUMBER(3) not null,
+  z07399mod NUMBER(3) not null,
+  z07399suc NUMBER(3) not null,
+  z07399mda NUMBER(3) not null,
+  z07399pap NUMBER(4) not null,
+  z07399cta NUMBER(9) not null,
+  z07399opr NUMBER(9) not null,
+  z07399sbp NUMBER(3) not null,
+  z07399top NUMBER(3) not null,
+  z07399tfc NUMBER(3) not null,
+  z073991cd NUMBER(3) not null,
+  z073991su NUMBER(3) not null,
+  z073991md NUMBER(3) not null,
+  z073991tr NUMBER(3) not null,
+  z073991rl NUMBER(4) not null,
+  z073991fc DATE not null,
+  z073991ct CHAR(1),
+  z07399rea NUMBER(17,2),
+  z07399mor NUMBER(17,2),
+  z07399hon NUMBER(17,2),
+  z07399fva DATE
+)
+;
+alter table Z07399
+  add primary key (Z07399COD, Z07399MOD, Z07399SUC, Z07399MDA, Z07399PAP, Z07399CTA, Z07399OPR, Z07399SBP, Z07399TOP, Z07399TFC, Z073991CD, Z073991SU, Z073991MD, Z073991TR, Z073991RL, Z073991FC);
+

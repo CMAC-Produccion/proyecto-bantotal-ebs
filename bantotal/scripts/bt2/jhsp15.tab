@@ -1,0 +1,15 @@
+create table JHSP15
+(
+  jhsp15fec  DATE not null,
+  jhsp15hor  CHAR(8) not null,
+  jhsp15treg CHAR(1) not null,
+  jhsp15bre  NUMBER(2) not null,
+  jhsp15mon  NUMBER(1) not null,
+  jhsp15pro  NUMBER(1) not null,
+  jhsp15fse  NUMBER(8),
+  jhsp15cch  NUMBER(6),
+  jhsp15sim  NUMBER(18)
+)
+;
+create unique index JHSP1501 on JHSP15 (JHSP15FEC, JHSP15HOR, JHSP15TREG, JHSP15BRE, JHSP15MON, JHSP15PRO);
+

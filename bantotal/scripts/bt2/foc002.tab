@@ -1,0 +1,12 @@
+create table FOC002
+(
+  foc001cat  CHAR(1) not null,
+  foc001opco NUMBER(3) not null,
+  foc002pas  NUMBER(2) not null,
+  foc002pgm  CHAR(10),
+  foc002tip  NUMBER(2)
+)
+;
+alter table FOC002
+  add primary key (FOC001CAT, FOC001OPCO, FOC002PAS);
+

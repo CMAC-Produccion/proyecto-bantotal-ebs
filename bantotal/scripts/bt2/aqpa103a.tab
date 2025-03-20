@@ -1,0 +1,34 @@
+create table AQPA103A
+(
+  aqpa103anuim NUMBER(15) not null,
+  aqpa103acorr NUMBER(9) not null,
+  aqpa103apais NUMBER(3),
+  aqpa103atipo NUMBER(2),
+  aqpa103anume CHAR(12),
+  aqpa103anu01 NUMBER(9),
+  aqpa103anu02 NUMBER(9),
+  aqpa103anu03 NUMBER(9),
+  aqpa103anu04 NUMBER(9),
+  aqpa103anu05 NUMBER(9),
+  aqpa103ado01 NUMBER(17,2),
+  aqpa103ado02 NUMBER(17,2),
+  aqpa103ado03 NUMBER(17,2),
+  aqpa103ado04 NUMBER(17,2),
+  aqpa103ado05 NUMBER(17,2),
+  aqpa103ach01 CHAR(100),
+  aqpa103ach02 CHAR(100),
+  aqpa103ach03 CHAR(100),
+  aqpa103ach04 CHAR(100),
+  aqpa103ach05 CHAR(100),
+  aqpa103ada01 DATE,
+  aqpa103ada02 DATE,
+  aqpa103ada03 DATE,
+  aqpa103ada04 DATE,
+  aqpa103ada05 DATE,
+  aqpa103acod  NUMBER(9),
+  aqpa103amsg  VARCHAR2(400)
+)
+;
+alter table AQPA103A
+  add primary key (AQPA103ANUIM, AQPA103ACORR);
+

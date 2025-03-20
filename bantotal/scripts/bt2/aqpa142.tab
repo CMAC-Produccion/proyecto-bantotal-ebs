@@ -1,0 +1,43 @@
+create table AQPA142
+(
+  aqpa142tim NUMBER(9) not null,
+  aqpa142fec DATE not null,
+  aqpa142pai NUMBER(3) not null,
+  aqpa142tip NUMBER(2) not null,
+  aqpa142doc CHAR(12) not null,
+  aqpa142cel NUMBER(9) not null,
+  aqpa142hor CHAR(8),
+  aqpa142msg VARCHAR2(160),
+  aqpa142prd CHAR(1),
+  aqpa142des CHAR(30),
+  aqpa142uso CHAR(10)
+)
+;
+comment on table AQPA142
+  is 'TABLA DE ALERTAS DE MENSAJES EXPERIENCIA AL CLIENTE Y CUMPLEAÑOS CLIENTES';
+comment on column AQPA142.aqpa142tim
+  is 'TIPO DE ALERTA';
+comment on column AQPA142.aqpa142fec
+  is 'FECHA DE PROCESO';
+comment on column AQPA142.aqpa142pai
+  is 'PAIS';
+comment on column AQPA142.aqpa142tip
+  is 'TIPO DOCUMENTO';
+comment on column AQPA142.aqpa142doc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPA142.aqpa142cel
+  is 'CELULAR';
+comment on column AQPA142.aqpa142hor
+  is 'HORA DE REGISTRO';
+comment on column AQPA142.aqpa142msg
+  is 'MENSAJE';
+comment on column AQPA142.aqpa142prd
+  is 'TIPO DE PRODUCTO AHORRO O CREDITOS';
+comment on column AQPA142.aqpa142des
+  is 'DESCRIPCION DEL CANAL';
+comment on column AQPA142.aqpa142uso
+  is 'USUARIO REGISTRO';
+create index AQPA1422 on AQPA142 (AQPA142FEC);
+alter table AQPA142
+  add primary key (AQPA142TIM, AQPA142FEC, AQPA142PAI, AQPA142TIP, AQPA142DOC, AQPA142CEL);
+

@@ -1,0 +1,39 @@
+create table CJS027
+(
+  cjs027cod NUMBER(3) not null,
+  cjs027suc NUMBER(3) not null,
+  cjs027cjs NUMBER(9) not null,
+  cjs027cta NUMBER(9) not null,
+  cjs027cor NUMBER(9) not null,
+  cjs027fch DATE not null,
+  cjs027hor CHAR(8) not null,
+  cjs027fat DATE,
+  cjs027fbj DATE,
+  cjs027fre NUMBER(3),
+  cjs027emd NUMBER(3),
+  cjs027sud NUMBER(3),
+  cjs027mod NUMBER(3),
+  cjs027ctd NUMBER(9),
+  cjs027sbd NUMBER(3),
+  cjs027opd NUMBER(9),
+  cjs027tod NUMBER(3),
+  cjs027pad NUMBER(4),
+  cjs027mdd NUMBER(4),
+  cjs027dom NUMBER(2),
+  cjs027uin CHAR(10),
+  cjs027fin DATE,
+  cjs027hin CHAR(8),
+  cjs027tin CHAR(10),
+  cjs027uau CHAR(10),
+  cjs027fau DATE,
+  cjs027hau CHAR(8),
+  cjs027tau CHAR(10),
+  cjs027per NUMBER(9),
+  cjs027fpe DATE,
+  cjs027ax1 NUMBER(9),
+  cjs027ax2 CHAR(15)
+)
+;
+alter table CJS027
+  add primary key (CJS027COD, CJS027SUC, CJS027CJS, CJS027CTA, CJS027COR, CJS027FCH, CJS027HOR);
+

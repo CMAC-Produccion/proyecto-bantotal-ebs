@@ -1,0 +1,13 @@
+create table Z05211
+(
+  z05211tarj CHAR(19) not null,
+  z05211fech DATE not null,
+  z05211hora CHAR(8) not null,
+  z05211usu  CHAR(10),
+  z05211ter  CHAR(10),
+  z05211desc CHAR(30)
+)
+;
+alter table Z05211
+  add primary key (Z05211TARJ, Z05211FECH, Z05211HORA);
+

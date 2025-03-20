@@ -1,0 +1,16 @@
+create table FBRD31
+(
+  brd31pais  NUMBER(3) not null,
+  brd31tdoc  NUMBER(2) not null,
+  brd31ndoc  CHAR(12) not null,
+  brd31mail  CHAR(70),
+  brd31cel   CHAR(20),
+  brd31comp  CHAR(4),
+  brd31ecel  CHAR(1),
+  brd31email CHAR(1),
+  brd31ecli  CHAR(1)
+)
+;
+alter table FBRD31
+  add primary key (BRD31PAIS, BRD31TDOC, BRD31NDOC);
+

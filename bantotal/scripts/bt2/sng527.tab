@@ -1,0 +1,24 @@
+create table SNG527
+(
+  sng501bien NUMBER(10) not null,
+  sng527cor  NUMBER(3) not null,
+  sng527ha   CHAR(15),
+  sng527hac  NUMBER(16,2),
+  sng527hat  NUMBER(16,2),
+  sng527hcav CHAR(1),
+  sng527hf   CHAR(15),
+  sng527hfch DATE,
+  sng527hfmt CHAR(25),
+  sng527hfo  CHAR(15),
+  sng527hfr  DATE,
+  sng527hgg  NUMBER(1),
+  sng527hnr  NUMBER(15),
+  sng527hnrg NUMBER(15),
+  sng527hod  VARCHAR2(400),
+  sng527hp   CHAR(15),
+  sng527ht   CHAR(15)
+)
+;
+alter table SNG527
+  add primary key (SNG501BIEN, SNG527COR);
+

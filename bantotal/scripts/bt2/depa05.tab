@@ -1,0 +1,14 @@
+create table DEPA05
+(
+  depa05emp NUMBER(3) not null,
+  depa05ped NUMBER(10) not null,
+  depa05no1 CHAR(70),
+  depa05no2 CHAR(70),
+  depa05no3 CHAR(70),
+  depa05ax1 NUMBER(9),
+  depa05ax2 DATE,
+  depa05ax3 CHAR(40)
+)
+;
+create unique index DEPA0501 on DEPA05 (DEPA05EMP, DEPA05PED);
+

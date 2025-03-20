@@ -1,0 +1,13 @@
+create table FBC525
+(
+  bc525emp NUMBER(3) not null,
+  bc525inf CHAR(10) not null,
+  bc525cod NUMBER(5) not null,
+  bc525dsc CHAR(30),
+  bc525txt CHAR(80),
+  bc525tx2 VARCHAR2(1500)
+)
+;
+alter table FBC525
+  add primary key (BC525EMP, BC525INF, BC525COD);
+

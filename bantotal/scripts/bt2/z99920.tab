@@ -1,0 +1,17 @@
+create table Z99920
+(
+  z99919cod CHAR(6) not null,
+  z99920cla CHAR(250) not null,
+  z99920dsc CHAR(30),
+  z99920uin CHAR(10),
+  z99920fin DATE,
+  z99920uau CHAR(10),
+  z99920fau DATE,
+  z99920reg CHAR(250),
+  z99920est CHAR(2),
+  z99920tno CHAR(3)
+)
+;
+alter table Z99920
+  add primary key (Z99919COD, Z99920CLA);
+

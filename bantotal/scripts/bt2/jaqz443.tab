@@ -1,0 +1,78 @@
+create table JAQZ443
+(
+  qz440codre NUMBER(4) not null,
+  pp173cod   NUMBER(4) not null,
+  pp174cod   NUMBER(9) not null,
+  pp177codd  NUMBER(4) not null,
+  qz443dnum  NUMBER(9),
+  qz443dsal  NUMBER(17,2),
+  qz443dcoef NUMBER(10,3),
+  qz443dfec  DATE,
+  qz443dtext CHAR(50),
+  qz443dcom  VARCHAR2(250),
+  qz443aux1  NUMBER(9),
+  qz443aux2  NUMBER(9),
+  qz443aux3  NUMBER(17,2),
+  qz443aux4  NUMBER(17,2),
+  qz443aux5  NUMBER(14,3),
+  qz443aux6  NUMBER(14,3),
+  qz443aux7  CHAR(50),
+  qz443aux8  CHAR(50),
+  qz443aux9  DATE,
+  qz443aux10 DATE,
+  qz443usr   CHAR(20),
+  qz443ufec  TIMESTAMP(6),
+  qz443nip   VARCHAR2(16)
+)
+;
+comment on column JAQZ443.qz440codre
+  is 'Codigo de Remate';
+comment on column JAQZ443.pp173cod
+  is 'Moneda';
+comment on column JAQZ443.pp174cod
+  is 'Codigo del Lote';
+comment on column JAQZ443.pp177codd
+  is 'Codigo de datos genericos del Lote';
+comment on column JAQZ443.qz443dnum
+  is 'Repositorio para Valores Numericos de datos generico del Lote';
+comment on column JAQZ443.qz443dsal
+  is 'Repositorio para  Saldos de datos genericos del Lote';
+comment on column JAQZ443.qz443dcoef
+  is 'Repositorio para Coeficiente de datos genericos del Lote';
+comment on column JAQZ443.qz443dfec
+  is 'Repositorio para Fechas de datos genericos del Lote';
+comment on column JAQZ443.qz443dtext
+  is 'Repositorio para texto de datos genericos del Lote';
+comment on column JAQZ443.qz443dcom
+  is 'Comentario';
+comment on column JAQZ443.qz443aux1
+  is 'Dato Auxiliar 1';
+comment on column JAQZ443.qz443aux2
+  is 'Dato Auxiliar 2';
+comment on column JAQZ443.qz443aux3
+  is 'Dato Auxiliar 3';
+comment on column JAQZ443.qz443aux4
+  is 'Dato Auxiliar 4';
+comment on column JAQZ443.qz443aux5
+  is 'Dato Auxiliar 5';
+comment on column JAQZ443.qz443aux6
+  is 'Dato Auxiliar 6';
+comment on column JAQZ443.qz443aux7
+  is 'Dato Auxiliar 7';
+comment on column JAQZ443.qz443aux8
+  is 'Dato Auxiliar 8';
+comment on column JAQZ443.qz443aux9
+  is 'Dato Auxiliar 9';
+comment on column JAQZ443.qz443aux10
+  is 'Dato Auxiliar 10';
+comment on column JAQZ443.qz443usr
+  is 'Usuario que registra';
+comment on column JAQZ443.qz443ufec
+  is 'Fecha y hora de Registro';
+comment on column JAQZ443.qz443nip
+  is 'Numero de Ip';
+create index JAQZ4431 on JAQZ443 (PP174COD, PP177CODD);
+create index JAQZ4432 on JAQZ443 (QZ440CODRE, PP177CODD);
+alter table JAQZ443
+  add primary key (QZ440CODRE, PP173COD, PP174COD, PP177CODD);
+

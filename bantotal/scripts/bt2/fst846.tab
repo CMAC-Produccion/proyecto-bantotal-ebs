@@ -1,0 +1,20 @@
+create table FST846
+(
+  usuario  CHAR(10) not null,
+  uspgm01  CHAR(10),
+  uspgm02  CHAR(10),
+  uspgm03  CHAR(10),
+  uspgm04  CHAR(10),
+  uspgm05  CHAR(10),
+  uspgm06  CHAR(10),
+  uspgm07  CHAR(10),
+  uspgm08  CHAR(10),
+  uspgm09  CHAR(10),
+  ushndle  NUMBER(18),
+  uspastrn CHAR(30)
+)
+;
+create index FST84602 on FST846 (USHNDLE);
+alter table FST846
+  add primary key (USUARIO);
+

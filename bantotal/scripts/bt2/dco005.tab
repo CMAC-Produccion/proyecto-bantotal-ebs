@@ -1,0 +1,11 @@
+create table DCO005
+(
+  dco001id   NUMBER(10) not null,
+  dco004grpi NUMBER(10) not null,
+  dco005expr NUMBER(10)
+)
+;
+create index DCO00503 on DCO005 (DCO004GRPI);
+alter table DCO005
+  add primary key (DCO001ID, DCO004GRPI);
+

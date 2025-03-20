@@ -1,0 +1,317 @@
+create table JAQY842
+(
+  jaqy842corr    NUMBER,
+  jaqy842tndoc   VARCHAR2(18),
+  jaqy842tdoc    VARCHAR2(3),
+  jaqy842ndoc    VARCHAR2(15),
+  jaqy842tpers   VARCHAR2(1),
+  jaqy842tsoli   VARCHAR2(4),
+  jaqy842ins     NUMBER(10),
+  jaqy842ncred   VARCHAR2(21),
+  jaqy842mntsol  NUMBER(17,2),
+  jaqy842fching  NUMBER(8),
+  jaqy842horing  NUMBER(6),
+  jaqy842suc     NUMBER(5),
+  jaqy842ase     VARCHAR2(20),
+  jaqy842usu     VARCHAR2(20),
+  jaqy842pnomb   VARCHAR2(30),
+  jaqy842snomb   VARCHAR2(30),
+  jaqy842pape    VARCHAR2(30),
+  jaqy842sape    VARCHAR2(30),
+  jaqy842csdape  VARCHAR2(30),
+  jaqy842nombc   VARCHAR2(150),
+  jaqy842pais    VARCHAR2(3),
+  jaqy842essalud VARCHAR2(15),
+  jaqy842idtrib  VARCHAR2(15),
+  jaqy842fechdoc NUMBER(8),
+  jaqy842ciudoc  VARCHAR2(20),
+  jaqy842direc   VARCHAR2(100),
+  jaqy842ddir    VARCHAR2(100),
+  jaqy842codposd NUMBER(10),
+  jaqy842ntrab   VARCHAR2(100),
+  jaqy842dirtrab VARCHAR2(100),
+  jaqy842cargo   VARCHAR2(100),
+  jaqy842ddirtra VARCHAR2(100),
+  jaqy842codpost NUMBER(10),
+  jaqy842fonod   VARCHAR2(20),
+  jaqy842fonot   VARCHAR2(20),
+  jaqy842celul   VARCHAR2(20),
+  jaqy842fchrllb NUMBER(8),
+  jaqy842profe   NUMBER(3),
+  jaqy842estciv  VARCHAR2(1),
+  jaqy842fnaci   NUMBER(8),
+  jaqy842sexo    VARCHAR2(1),
+  jaqy842ncony   VARCHAR2(150),
+  jaqy842fncony  NUMBER(8),
+  jaqy842celcony VARCHAR2(20),
+  jaqy842boctar1 VARCHAR2(25),
+  jaqy842boctar2 VARCHAR2(25),
+  jaqy842boctar3 VARCHAR2(25),
+  jaqy842refper1 VARCHAR2(25),
+  jaqy842tlfrp1  VARCHAR2(20),
+  jaqy842refper2 VARCHAR2(25),
+  jaqy842tlfrp2  VARCHAR2(20),
+  jaqy842refper3 VARCHAR2(25),
+  jaqy842tlfrp3  VARCHAR2(20),
+  jaqy842reffam1 VARCHAR2(25),
+  jaqy842tlfrf1  VARCHAR2(20),
+  jaqy842reffam2 VARCHAR2(25),
+  jaqy842tlfrf2  VARCHAR2(20),
+  jaqy842reffam3 VARCHAR2(25),
+  jaqy842tlfrf3  VARCHAR2(20),
+  jaqy842codprod VARCHAR2(6),
+  jaqy842tipcta  NUMBER(4),
+  jaqy842nctaref VARCHAR2(25),
+  jaqy842calburo NUMBER(5),
+  jaqy842scorein NUMBER(5),
+  jaqy842stasoli NUMBER(4),
+  jaqy842indaler VARCHAR2(3),
+  jaqy842orgaler NUMBER(3),
+  jaqy842mtoaprb NUMBER(17,2),
+  jaqy842mdacta  NUMBER(4),
+  jaqy842tipsoli VARCHAR2(1),
+  jaqy842tipbca  VARCHAR2(2),
+  jaqy842usuaprb VARCHAR2(20),
+  jaqy842codrpta VARCHAR2(1),
+  jaqy842desrpta VARCHAR2(20),
+  jaqy842ingmens NUMBER(17,2),
+  jaqy842otroing NUMBER(17,2),
+  jaqy842fnomina VARCHAR2(1),
+  jaqy842dslinea VARCHAR2(150),
+  jaqy842codacte NUMBER(11),
+  jaqy842canalso VARCHAR2(10),
+  jaqy842codsiso VARCHAR2(4),
+  jaqy842codenti NUMBER(3),
+  jaqy842ftrabcj VARCHAR2(1),
+  jaqy842ususoli VARCHAR2(15),
+  jaqy842nivacad VARCHAR2(20),
+  jaqy842codburo NUMBER(3),
+  jaqy842ip      VARCHAR2(15),
+  jaqy842trannet VARCHAR2(1),
+  jaqy842cltevip VARCHAR2(1),
+  jaqy842clteext VARCHAR2(1),
+  jaqy842nsolapr NUMBER(4),
+  jaqy842ctnro   NUMBER(9),
+  jaqy842auxv1   VARCHAR2(40),
+  jaqy842auxv2   VARCHAR2(40),
+  jaqy842auxv3   VARCHAR2(40),
+  jaqy842auxv4   VARCHAR2(40),
+  jaqy842auxv5   VARCHAR2(40),
+  jaqy842auxn1   NUMBER(17,2),
+  jaqy842auxn2   NUMBER(17,2),
+  jaqy842auxn3   NUMBER(17,2),
+  jaqy842auxn4   NUMBER(17,2),
+  jaqy842auxn5   NUMBER(17,2),
+  jaqy842fecpro  DATE,
+  jaqy842corr2   NUMBER(18)
+)
+;
+comment on column JAQY842.jaqy842corr
+  is 'Correlativo';
+comment on column JAQY842.jaqy842tndoc
+  is 'ConcatenadoTipDoc con Nro.Doc.';
+comment on column JAQY842.jaqy842tdoc
+  is 'Tipo de Documento';
+comment on column JAQY842.jaqy842ndoc
+  is 'Nro. de Documento';
+comment on column JAQY842.jaqy842tpers
+  is 'Tipo de Persona';
+comment on column JAQY842.jaqy842tsoli
+  is 'Tipo de Solicitud';
+comment on column JAQY842.jaqy842ins
+  is 'Nro. de Solicitud o Instancia';
+comment on column JAQY842.jaqy842ncred
+  is 'Nro. de Crédito';
+comment on column JAQY842.jaqy842mntsol
+  is 'Monto Solicitado';
+comment on column JAQY842.jaqy842fching
+  is 'Fecha de Ingreso';
+comment on column JAQY842.jaqy842horing
+  is 'Hora de Ingreso';
+comment on column JAQY842.jaqy842suc
+  is 'Sucursal';
+comment on column JAQY842.jaqy842ase
+  is 'Asesor que ingresa la Solicitud';
+comment on column JAQY842.jaqy842usu
+  is 'Usuario con el  que ingresaron la Solicitud';
+comment on column JAQY842.jaqy842pnomb
+  is 'Primer Nombre del Cliente';
+comment on column JAQY842.jaqy842snomb
+  is 'Segundo Nombre del Cliente';
+comment on column JAQY842.jaqy842pape
+  is 'Primer Apellido';
+comment on column JAQY842.jaqy842sape
+  is 'Segundo Apellido';
+comment on column JAQY842.jaqy842csdape
+  is 'Apellido de Casada';
+comment on column JAQY842.jaqy842nombc
+  is 'Nombre Completo del Cliente';
+comment on column JAQY842.jaqy842pais
+  is 'Nacionalidad';
+comment on column JAQY842.jaqy842essalud
+  is 'Nro. de Seguro Social';
+comment on column JAQY842.jaqy842idtrib
+  is 'Identificación Tributaria';
+comment on column JAQY842.jaqy842fechdoc
+  is 'Fecha de Emisión del Doc. Identidad';
+comment on column JAQY842.jaqy842ciudoc
+  is 'Ciudad de Emisión del Doc.Identidad';
+comment on column JAQY842.jaqy842direc
+  is 'Dirección del Cliente';
+comment on column JAQY842.jaqy842ddir
+  is 'Distrito Provincia Departamento de la Dirección Residencial del Cliente';
+comment on column JAQY842.jaqy842codposd
+  is 'Código Postal del Domicilio del Cliente';
+comment on column JAQY842.jaqy842ntrab
+  is 'Nombre de la Entidad Laboral del Cliente';
+comment on column JAQY842.jaqy842dirtrab
+  is 'Dirección del Centro Laboral del Cliente';
+comment on column JAQY842.jaqy842cargo
+  is 'Cargo que desempeña dentro de su Centro Laboral';
+comment on column JAQY842.jaqy842ddirtra
+  is 'Distrito-Provincia-Dpto de la Dirección del trabajo del Cliente';
+comment on column JAQY842.jaqy842codpost
+  is 'Código Postal del lugar del Centro Laboral del Cliente';
+comment on column JAQY842.jaqy842fonod
+  is 'Teléfono del Domicilio del Cliente';
+comment on column JAQY842.jaqy842fonot
+  is 'Teléfono del Trabajo del Cliente';
+comment on column JAQY842.jaqy842celul
+  is 'Celular del Cliente';
+comment on column JAQY842.jaqy842fchrllb
+  is 'Fecha de Inicio de Relación Laboral ';
+comment on column JAQY842.jaqy842profe
+  is 'Cod. de la Profesión del Cliente';
+comment on column JAQY842.jaqy842estciv
+  is 'Estado Civil del Cliente';
+comment on column JAQY842.jaqy842fnaci
+  is 'Fecha de Nacimiento del Cliente';
+comment on column JAQY842.jaqy842sexo
+  is 'Sexo del Cliente';
+comment on column JAQY842.jaqy842ncony
+  is 'Nombre del Cónyuge';
+comment on column JAQY842.jaqy842fncony
+  is 'Fecha de Nacimiento del Cónyuge';
+comment on column JAQY842.jaqy842celcony
+  is 'Nro del Celular del Cónyuge';
+comment on column JAQY842.jaqy842boctar1
+  is 'Nombre del Banco o Nro. Cta de Referencia 1';
+comment on column JAQY842.jaqy842boctar2
+  is 'Nombre del Banco o Nro. Cta de Referencia 2';
+comment on column JAQY842.jaqy842boctar3
+  is 'Nombre del Banco o Nro. Cta de Referencia 3';
+comment on column JAQY842.jaqy842refper1
+  is 'Nombre de Referencia Personal N°1';
+comment on column JAQY842.jaqy842tlfrp1
+  is 'Teléfono de Referencia Personal N°1';
+comment on column JAQY842.jaqy842refper2
+  is 'Nombre de Referencia Personal N°2';
+comment on column JAQY842.jaqy842tlfrp2
+  is 'Teléfono de Referencia Personal N°2';
+comment on column JAQY842.jaqy842refper3
+  is 'Nombre de Referencia Personal N°3';
+comment on column JAQY842.jaqy842tlfrp3
+  is 'Teléfono de Referencia Personal N°3';
+comment on column JAQY842.jaqy842reffam1
+  is 'Nombre de Referencia Familiar 1';
+comment on column JAQY842.jaqy842tlfrf1
+  is 'Telefono de Referencia Familiar 1';
+comment on column JAQY842.jaqy842reffam2
+  is 'Nombre de Referencia Familiar 2';
+comment on column JAQY842.jaqy842tlfrf2
+  is 'Telefono de Referencia Familiar 2';
+comment on column JAQY842.jaqy842reffam3
+  is 'Nombre de Referencia Familiar 3';
+comment on column JAQY842.jaqy842tlfrf3
+  is 'Telefono de Referencia Familiar 3';
+comment on column JAQY842.jaqy842codprod
+  is 'Código de Tipo de Producto: Concatenado Modulo-TipoOperacion';
+comment on column JAQY842.jaqy842tipcta
+  is 'Tipo de Cuenta';
+comment on column JAQY842.jaqy842nctaref
+  is 'Nro. de Cta. de Referencia';
+comment on column JAQY842.jaqy842calburo
+  is 'Calificación Buro';
+comment on column JAQY842.jaqy842scorein
+  is 'Score Calificación Interno de la Institución';
+comment on column JAQY842.jaqy842stasoli
+  is 'Código de Status de la Solicitud';
+comment on column JAQY842.jaqy842indaler
+  is 'Indicador de la Alerta';
+comment on column JAQY842.jaqy842orgaler
+  is 'Origen de la Alerta';
+comment on column JAQY842.jaqy842mtoaprb
+  is 'Monto Aprobado para la Solicitud';
+comment on column JAQY842.jaqy842mdacta
+  is 'Código de la Moneda del Monto Aprobado';
+comment on column JAQY842.jaqy842tipsoli
+  is 'Flag de Tipo de Solicitante 1-Indiv. 2-Empresarial, etc';
+comment on column JAQY842.jaqy842tipbca
+  is 'Código de Tipo de Banca a la que pertence la Solicitud';
+comment on column JAQY842.jaqy842usuaprb
+  is 'Usuario que aprobó la Solicitud.';
+comment on column JAQY842.jaqy842codrpta
+  is 'Código de Respuesta de la Solicitud';
+comment on column JAQY842.jaqy842desrpta
+  is 'Descripción de la Respuesta de la Solicitud.';
+comment on column JAQY842.jaqy842ingmens
+  is 'Monto de Ingresos Mensuales de la Solicitud.';
+comment on column JAQY842.jaqy842otroing
+  is 'Monto de otros Ingresos del Solicitante';
+comment on column JAQY842.jaqy842fnomina
+  is 'Flag que indica si corresponde por Nómina o Domicialización';
+comment on column JAQY842.jaqy842dslinea
+  is 'Descripción de la Línea de Crédito de la Solicitud.';
+comment on column JAQY842.jaqy842codacte
+  is 'Código de la Actividad Econnómica del Solicitante';
+comment on column JAQY842.jaqy842canalso
+  is 'Medio o Canal por donde ingresó la Solicitud';
+comment on column JAQY842.jaqy842codsiso
+  is 'Código del Sistema Origen de donde se ingresó la solicitud';
+comment on column JAQY842.jaqy842codenti
+  is 'Código que identifica la Entidad u Organización';
+comment on column JAQY842.jaqy842ftrabcj
+  is 'Flag que identifica si es un empleado de la Caja Arequipa';
+comment on column JAQY842.jaqy842ususoli
+  is 'Código del Trabajador, si es el Solicitante';
+comment on column JAQY842.jaqy842nivacad
+  is 'Nivel Académico o Educacional del Solicitante';
+comment on column JAQY842.jaqy842codburo
+  is 'Código de Identificación del Buró de Créidito';
+comment on column JAQY842.jaqy842ip
+  is 'Dirección IP donde se realizo la consulta del solicitante.';
+comment on column JAQY842.jaqy842trannet
+  is 'Flag que indica si la transaccion se hizo por Internet.';
+comment on column JAQY842.jaqy842cltevip
+  is 'Flag que indica si un cliente es VIP para la empresa.';
+comment on column JAQY842.jaqy842clteext
+  is 'Flag que indica si un ciente es externo.';
+comment on column JAQY842.jaqy842nsolapr
+  is 'Nro. Solicitudes aprobadas para el solicitante anteriormente';
+comment on column JAQY842.jaqy842ctnro
+  is 'Código de Trabajador Cliente de la Caja - Cuenta Cliente del Trabajador.';
+comment on column JAQY842.jaqy842auxv1
+  is 'Campo Auxiliar reservado para dato caracter 1';
+comment on column JAQY842.jaqy842auxv2
+  is 'Campo Auxiliar reservado para dato caracter 2';
+comment on column JAQY842.jaqy842auxv3
+  is 'Campo Auxiliar reservado para dato caracter 3';
+comment on column JAQY842.jaqy842auxv4
+  is 'Campo Auxiliar reservado para dato caracter 4';
+comment on column JAQY842.jaqy842auxv5
+  is 'Campo Auxiliar reservado para dato caracter 5';
+comment on column JAQY842.jaqy842auxn1
+  is 'Campo Auxiliar reservado para dato numérico 1';
+comment on column JAQY842.jaqy842auxn2
+  is 'Campo Auxiliar reservado para dato numérico 2';
+comment on column JAQY842.jaqy842auxn3
+  is 'Campo Auxiliar reservado para dato numérico 3';
+comment on column JAQY842.jaqy842auxn4
+  is 'Campo Auxiliar reservado para dato numérico 4';
+comment on column JAQY842.jaqy842auxn5
+  is 'Campo Auxiliar reservado para dato numérico 5';
+comment on column JAQY842.jaqy842fecpro
+  is 'Fecha de Proceso';
+comment on column JAQY842.jaqy842corr2
+  is 'Correlativo 2 de tabla para Monitor Plus';
+

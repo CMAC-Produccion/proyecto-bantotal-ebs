@@ -1,0 +1,11 @@
+create table FEX000
+(
+  bcpaqnro  NUMBER(10) not null,
+  bcpaqcorr NUMBER(10) not null,
+  bcpaqelem CHAR(10),
+  bcpaqtipo CHAR(1)
+)
+;
+alter table FEX000
+  add primary key (BCPAQNRO, BCPAQCORR);
+

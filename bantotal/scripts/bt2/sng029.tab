@@ -1,0 +1,24 @@
+create table SNG029
+(
+  sng021eval NUMBER(10) not null,
+  sng026cod  NUMBER(4) not null,
+  sng028lin  NUMBER(3) not null,
+  sng029lin  NUMBER(2) not null,
+  sng029mto1 NUMBER(17,2),
+  sng029mto2 NUMBER(17,2),
+  sng029mto3 NUMBER(17,2),
+  sng029cod1 NUMBER(5),
+  sng029cod2 NUMBER(5),
+  sng029cod3 NUMBER(5),
+  sng029txt1 CHAR(25),
+  sng029txt2 CHAR(25),
+  sng029con1 CHAR(10),
+  sng029con2 CHAR(10),
+  sng029can1 NUMBER(10,3),
+  sng029can2 NUMBER(10,3),
+  sng029can3 NUMBER(10,3)
+)
+;
+alter table SNG029
+  add primary key (SNG021EVAL, SNG026COD, SNG028LIN, SNG029LIN);
+

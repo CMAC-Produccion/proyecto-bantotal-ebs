@@ -1,0 +1,37 @@
+create table AQPC578
+(
+  aqpc578cod    NUMBER(9) not null,
+  aqpc578proaso VARCHAR2(12) not null,
+  aqpc578paqaso VARCHAR2(30) not null,
+  aqpc578head   CLOB,
+  aqpc578css    CLOB,
+  aqpc578js     CLOB,
+  aqpc578body   CLOB,
+  aqpc578fecreg DATE,
+  aqpc578usreg  VARCHAR2(12)
+)
+;
+comment on table AQPC578
+  is 'Tabla Plantilla HTML de correo del Bot ';
+comment on column AQPC578.aqpc578cod
+  is 'Codigo de Proceso';
+comment on column AQPC578.aqpc578proaso
+  is 'Programa Asociado';
+comment on column AQPC578.aqpc578paqaso
+  is 'Paquete Asociado';
+comment on column AQPC578.aqpc578head
+  is 'Cabecera HTML';
+comment on column AQPC578.aqpc578css
+  is 'CSS';
+comment on column AQPC578.aqpc578js
+  is 'JavaScript';
+comment on column AQPC578.aqpc578body
+  is 'Body HTML';
+comment on column AQPC578.aqpc578fecreg
+  is 'Fecha de Registro';
+comment on column AQPC578.aqpc578usreg
+  is 'Usuario que registra';
+create index AQPC578A2 on AQPC578 (AQPC578FECREG, AQPC578USREG);
+alter table AQPC578
+  add primary key (AQPC578COD, AQPC578PROASO, AQPC578PAQASO);
+

@@ -1,0 +1,31 @@
+create table JAQM27
+(
+  jaqm27pgc  NUMBER(3) not null,
+  jaqm27mod  NUMBER(3) not null,
+  jaqm27suc  NUMBER(3) not null,
+  jaqm27mda  NUMBER(4) not null,
+  jaqm27pap  NUMBER(4) not null,
+  jaqm27cta  NUMBER(9) not null,
+  jaqm27oper NUMBER(9) not null,
+  jaqm27sbop NUMBER(3) not null,
+  jaqm27tope NUMBER(3) not null,
+  jaqm33cor  NUMBER(10) not null,
+  jaqm27nrel NUMBER(4),
+  jaqm27int1 NUMBER(9),
+  jaqm27int2 NUMBER(9),
+  jaqm27int3 NUMBER(9),
+  jaqm27imp1 NUMBER(17,2),
+  jaqm27imp2 NUMBER(17,2),
+  jaqm27imp3 NUMBER(17,2),
+  jaqm27fec1 DATE,
+  jaqm27fec2 DATE,
+  jaqm27fec3 DATE,
+  jaqm27chr1 CHAR(30),
+  jaqm27chr2 CHAR(30),
+  jaqm27chr3 CHAR(30)
+)
+;
+create index IJAQM27 on JAQM27 (JAQM33COR);
+alter table JAQM27
+  add primary key (JAQM27PGC, JAQM27MOD, JAQM27SUC, JAQM27MDA, JAQM27PAP, JAQM27CTA, JAQM27OPER, JAQM27SBOP, JAQM27TOPE, JAQM33COR);
+

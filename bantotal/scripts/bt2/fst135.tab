@@ -1,0 +1,20 @@
+create table FST135
+(
+  pgcod  NUMBER(3) not null,
+  trmod  NUMBER(3) not null,
+  trnro  NUMBER(3) not null,
+  trord  NUMBER(2) not null,
+  cmsbor NUMBER(3) not null,
+  cocod  NUMBER(3),
+  cmobs  CHAR(20),
+  cmtop  NUMBER(3),
+  cmord  NUMBER(2),
+  cmtimp NUMBER(1),
+  cmsn1  CHAR(1),
+  cmsn2  CHAR(1)
+)
+;
+create index FST13503 on FST135 (COCOD);
+alter table FST135
+  add primary key (PGCOD, TRMOD, TRNRO, TRORD, CMSBOR);
+

@@ -1,0 +1,25 @@
+create table BCINTA3
+(
+  bcitmod    CHAR(6) not null,
+  bcitmon    NUMBER(4) not null,
+  bcitres    CHAR(1) not null,
+  bcitsect   NUMBER(5) not null,
+  bcittasa   NUMBER(10,6) not null,
+  bcitplaz   NUMBER(5) not null,
+  bcit3cta   NUMBER(9) not null,
+  bcit3mod   NUMBER(3) not null,
+  bcit3tope  NUMBER(3) not null,
+  bcit3oper  NUMBER(9) not null,
+  bcit3sbop  NUMBER(3) not null,
+  bcit3suc   NUMBER(3) not null,
+  bcin3rev   CHAR(1) not null,
+  bctit3op   CHAR(1) not null,
+  bcit3cap   NUMBER(16,2),
+  bcit3sis   NUMBER(3),
+  bct3opac   CHAR(1),
+  bctit3opac CHAR(1)
+)
+;
+alter table BCINTA3
+  add primary key (BCITMOD, BCITMON, BCITRES, BCITSECT, BCITTASA, BCITPLAZ, BCIT3CTA, BCIT3MOD, BCIT3TOPE, BCIT3OPER, BCIT3SBOP, BCIT3SUC, BCIN3REV, BCTIT3OP);
+

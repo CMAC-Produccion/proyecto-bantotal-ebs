@@ -1,0 +1,20 @@
+create table FSFI67
+(
+  sfi67emp   NUMBER(3) not null,
+  sfi67mer   NUMBER(3) not null,
+  sfi67mod   NUMBER(3) not null,
+  sfi67trn   NUMBER(3) not null,
+  sfi67timer CHAR(1) not null,
+  sfi67poc   CHAR(1) not null,
+  sfi67tipre CHAR(1) not null,
+  sfi67rubde NUMBER(16) not null,
+  sfi67rubcr NUMBER(16) not null,
+  sfi67geic  CHAR(1),
+  sfi67geip  CHAR(1),
+  sfi67impco NUMBER(4),
+  sfi67imppa NUMBER(4)
+)
+;
+alter table FSFI67
+  add primary key (SFI67EMP, SFI67MER, SFI67MOD, SFI67TRN, SFI67TIMER, SFI67POC, SFI67TIPRE, SFI67RUBDE, SFI67RUBCR);
+

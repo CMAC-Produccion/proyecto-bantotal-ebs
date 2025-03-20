@@ -1,0 +1,30 @@
+create table AQPB378
+(
+  aqpb378pgcod  NUMBER(10) not null,
+  aqpb378analst VARCHAR2(10) not null,
+  aqpb378mod    NUMBER(3) not null,
+  aqpb378user   VARCHAR2(10),
+  aqpb378fch    DATE,
+  aqpb378hora   CHAR(8),
+  aqpb378est    CHAR(1)
+)
+;
+comment on table AQPB378
+  is 'TBL ANALISTA - MODULOS';
+comment on column AQPB378.aqpb378pgcod
+  is 'pgcod';
+comment on column AQPB378.aqpb378analst
+  is 'analista';
+comment on column AQPB378.aqpb378mod
+  is 'modulo';
+comment on column AQPB378.aqpb378user
+  is 'usuario registro';
+comment on column AQPB378.aqpb378fch
+  is 'fecha registro';
+comment on column AQPB378.aqpb378hora
+  is 'hora registro';
+comment on column AQPB378.aqpb378est
+  is 'estado';
+alter table AQPB378
+  add primary key (AQPB378PGCOD, AQPB378ANALST, AQPB378MOD);
+

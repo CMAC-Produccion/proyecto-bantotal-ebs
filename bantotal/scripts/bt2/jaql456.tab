@@ -1,0 +1,41 @@
+create table JAQL456
+(
+  jaql456cor NUMBER(9) not null,
+  jaql456usu CHAR(10) not null,
+  jaql456nem CHAR(70),
+  jaql456die CHAR(170),
+  jaql456cta CHAR(20),
+  jaql456fde DATE,
+  jaql456smn CHAR(5),
+  jaql456sdo NUMBER(17,2),
+  jaql456dic CHAR(170),
+  jaql456dde CHAR(30),
+  jaql456dee CHAR(30),
+  jaql456ddc CHAR(30),
+  jaql456dec CHAR(30),
+  jaql456tas NUMBER(9,6),
+  jaql456nec CHAR(170),
+  jaql456prc CHAR(30),
+  jaql456pre CHAR(30),
+  jaql456tec CHAR(20),
+  jaql456tee CHAR(20),
+  jaql456ax1 NUMBER(9),
+  jaql456ax2 NUMBER(9),
+  jaql456ax3 NUMBER(17,2),
+  jaql456ax4 NUMBER(17,2),
+  jaql456ax5 DATE,
+  jaql456ax6 DATE,
+  jaql456ax7 VARCHAR2(100),
+  jaql456ax8 VARCHAR2(100),
+  jaql456ax9 VARCHAR2(100)
+)
+;
+create index JAQL456IX2 on JAQL456 (JAQL456USU, JAQL456NEM);
+create index JAQL456IX3 on JAQL456 (JAQL456USU, JAQL456DDE);
+create index JAQL456IX4 on JAQL456 (JAQL456USU, JAQL456DDC);
+create index JAQL456IX5 on JAQL456 (JAQL456USU, JAQL456NEC);
+create index JAQL4562 on JAQL456 (JAQL456USU, JAQL456DEC, JAQL456PRC, JAQL456DDC);
+create index JAQL4563 on JAQL456 (JAQL456USU, JAQL456DEE, JAQL456PRE, JAQL456DDE);
+alter table JAQL456
+  add primary key (JAQL456COR, JAQL456USU);
+

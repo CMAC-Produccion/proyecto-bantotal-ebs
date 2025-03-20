@@ -1,0 +1,72 @@
+create table AQPC223
+(
+  aqpc223fec DATE not null,
+  aqpc223hor VARCHAR2(8) not null,
+  aqpc223usu VARCHAR2(10) not null,
+  aqpc223cor NUMBER(17) not null,
+  aqpc223mes VARCHAR2(50),
+  aqpc223reg VARCHAR2(50),
+  aqpc223age VARCHAR2(50),
+  aqpc223con VARCHAR2(50),
+  aqpc223car VARCHAR2(50),
+  aqpc223ana VARCHAR2(50),
+  aqpc223pag VARCHAR2(50),
+  aqpc223tip VARCHAR2(50),
+  aqpc223mct VARCHAR2(50),
+  aqpc223mpc VARCHAR2(50),
+  aqpc223mca VARCHAR2(50),
+  aqpc223an1 VARCHAR2(50),
+  aqpc223fer VARCHAR2(50),
+  aqpc223mpa VARCHAR2(50),
+  aqpc223mnp VARCHAR2(50),
+  aqpc223aab VARCHAR2(50),
+  aqpc223frc VARCHAR2(50)
+)
+;
+comment on table AQPC223
+  is 'Reporte de Pago Casillero';
+comment on column AQPC223.aqpc223fec
+  is 'FECHA REGISTRO';
+comment on column AQPC223.aqpc223hor
+  is 'HORA REGISTRO';
+comment on column AQPC223.aqpc223usu
+  is 'USUARIO REGISTRO';
+comment on column AQPC223.aqpc223cor
+  is 'CORRELATIVO';
+comment on column AQPC223.aqpc223mes
+  is 'MES';
+comment on column AQPC223.aqpc223reg
+  is 'REGION';
+comment on column AQPC223.aqpc223age
+  is 'AGENCIA';
+comment on column AQPC223.aqpc223con
+  is 'CONVENIO';
+comment on column AQPC223.aqpc223car
+  is 'CARTERA';
+comment on column AQPC223.aqpc223ana
+  is 'ANALISTA';
+comment on column AQPC223.aqpc223pag
+  is 'PAGO CASILLERO';
+comment on column AQPC223.aqpc223tip
+  is 'TIPO';
+comment on column AQPC223.aqpc223mct
+  is 'MONTO DEL CHEQUE O TRANSFERENCIA';
+comment on column AQPC223.aqpc223mpc
+  is 'MODALIDAD DE PAGO O CASILLERO';
+comment on column AQPC223.aqpc223mca
+  is 'MODALIDAD DE CALCULO';
+comment on column AQPC223.aqpc223an1
+  is 'ANALISTA';
+comment on column AQPC223.aqpc223fer
+  is 'FECHA REGISTRO';
+comment on column AQPC223.aqpc223mpa
+  is 'MONTO PAGO CASILLERO';
+comment on column AQPC223.aqpc223mnp
+  is 'MEDIO PAGO';
+comment on column AQPC223.aqpc223aab
+  is 'AREA QUE ABONO';
+comment on column AQPC223.aqpc223frc
+  is 'FECHA DE REGISTRO CARGO';
+alter table AQPC223
+  add primary key (AQPC223FEC, AQPC223HOR, AQPC223USU, AQPC223COR);
+

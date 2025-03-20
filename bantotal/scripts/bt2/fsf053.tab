@@ -1,0 +1,27 @@
+create table FSF053
+(
+  lvcod    NUMBER(3) not null,
+  lvcont   NUMBER(9) not null,
+  lvmodulo NUMBER(3),
+  lvfinro  NUMBER(3),
+  lvmda    NUMBER(4),
+  lvfvto   DATE,
+  lvctnro  NUMBER(9),
+  lvoper   NUMBER(9),
+  lvsbop   NUMBER(3),
+  lvfvalor DATE,
+  lvtidia  NUMBER(1),
+  lvtivto  CHAR(1),
+  lvsdonom NUMBER(17,2),
+  lvtitasa NUMBER(1),
+  lvtasa   NUMBER(10,6),
+  lvdias   NUMBER(5),
+  lvefehoy NUMBER(17,2),
+  lvefeant NUMBER(17,2),
+  lvimpdev NUMBER(17,2)
+)
+;
+create index FSF05302 on FSF053 (LVCOD, LVFINRO, LVMODULO, LVMDA, LVFVTO, LVCONT);
+alter table FSF053
+  add primary key (LVCOD, LVCONT);
+

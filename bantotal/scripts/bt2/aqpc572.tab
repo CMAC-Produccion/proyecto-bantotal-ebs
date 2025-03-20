@@ -1,0 +1,89 @@
+create table AQPC572
+(
+  aqpc572serial NUMBER(10) not null,
+  aqpc572buro   NUMBER(2),
+  aqpc572feenv  DATE not null,
+  aqpc572hoenv  VARCHAR2(8) not null,
+  aqpc572ussuc  NUMBER(3) not null,
+  aqpc572uscod  VARCHAR2(10) not null,
+  aqpc572tidoe  NUMBER(4),
+  aqpc572tidob  NUMBER(4),
+  aqpc572nudoc  VARCHAR2(12),
+  aqpc572nombr  VARCHAR2(100),
+  aqpc572rasoc  VARCHAR2(100),
+  aqpc572nucon  NUMBER(10),
+  aqpc572tires  NUMBER(11,4),
+  aqpc572escon  VARCHAR2(30),
+  aqpc572fealt  DATE,
+  aqpc572nroope VARCHAR2(16),
+  aqpc572horini VARCHAR2(20),
+  aqpc572horfin VARCHAR2(20),
+  aqpc572hordif VARCHAR2(20),
+  aqpc572rescod VARCHAR2(5),
+  aqpc572resmsg VARCHAR2(2000),
+  aqpc572fcari  DATE,
+  aqpc572hcari  VARCHAR2(15),
+  aqpc572fcarf  DATE,
+  aqpc572hcarf  VARCHAR2(15),
+  aqpc572uscar  VARCHAR2(10)
+)
+;
+comment on table AQPC572
+  is 'TABLA LOG DE REGISTRO DE DATA POR BURO';
+comment on column AQPC572.aqpc572serial
+  is 'SERIAL';
+comment on column AQPC572.aqpc572buro
+  is '1 Experian 2 Sentinel 3 Equifax';
+comment on column AQPC572.aqpc572feenv
+  is 'FECHA';
+comment on column AQPC572.aqpc572hoenv
+  is 'HORA ENVIO';
+comment on column AQPC572.aqpc572ussuc
+  is 'SUCURSAL';
+comment on column AQPC572.aqpc572uscod
+  is 'CODIGO';
+comment on column AQPC572.aqpc572tidoe
+  is 'TIPO DE DOCUMENTO ';
+comment on column AQPC572.aqpc572tidob
+  is 'TIPO';
+comment on column AQPC572.aqpc572nudoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPC572.aqpc572nombr
+  is 'NOMBRE CLIENTE';
+comment on column AQPC572.aqpc572rasoc
+  is 'RAZON SOCIAL';
+comment on column AQPC572.aqpc572nucon
+  is 'NUMERO DE CONSULTA';
+comment on column AQPC572.aqpc572tires
+  is 'TIEMPO DE RESPUESTA';
+comment on column AQPC572.aqpc572escon
+  is 'ESTADO DE CONTABILIZACION';
+comment on column AQPC572.aqpc572fealt
+  is 'FECHA DE ALTA';
+comment on column AQPC572.aqpc572nroope
+  is 'NUMERO DE OPERACION';
+comment on column AQPC572.aqpc572horini
+  is 'HORA INICIO SOLO EQUIFAX';
+comment on column AQPC572.aqpc572horfin
+  is 'HORA FIN SOLO EQUIFAX';
+comment on column AQPC572.aqpc572hordif
+  is 'HORA DE DIFERENCIA SOLO EQUIFAX';
+comment on column AQPC572.aqpc572rescod
+  is 'equivale al campo jaqz546coerr en experian y AQPC572coerr en sentinel';
+comment on column AQPC572.aqpc572resmsg
+  is 'equivale al campo jaqz546mserr en experian y AQPC572mserr en sentinel';
+comment on column AQPC572.aqpc572fcari
+  is 'fecha inicio carg';
+comment on column AQPC572.aqpc572hcari
+  is 'hora inicio carga';
+comment on column AQPC572.aqpc572fcarf
+  is 'fecha fin carga';
+comment on column AQPC572.aqpc572hcarf
+  is 'hora fin carga ';
+comment on column AQPC572.aqpc572uscar
+  is 'usuario de carga';
+create index AQPC572A2 on AQPC572 (AQPC572TIDOB, AQPC572NUDOC);
+create index AQPC572A3 on AQPC572 (AQPC572BURO, AQPC572FEENV, AQPC572USSUC);
+alter table AQPC572
+  add primary key (AQPC572SERIAL, AQPC572FEENV, AQPC572HOENV, AQPC572USSUC, AQPC572USCOD);
+

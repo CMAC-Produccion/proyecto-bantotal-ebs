@@ -1,0 +1,24 @@
+create table FSFIAQ
+(
+  sfi44cod   NUMBER(3) not null,
+  sfiaqesp   NUMBER(4) not null,
+  sfiaqcobra CHAR(1),
+  sfiaqcom   NUMBER(3),
+  sfiaqmod   NUMBER(3),
+  sfiaqhab   CHAR(1),
+  sfiaqcar1  CHAR(1),
+  sfiaqcar2  CHAR(1),
+  sfiaqcar3  CHAR(1),
+  sfiaqnum1  NUMBER(9),
+  sfiaqnum2  NUMBER(9),
+  sfiaqnum3  NUMBER(9),
+  sfiaqnum4  NUMBER(9),
+  sfiaqnum5  NUMBER(9),
+  sfiaqtxt1  CHAR(20),
+  sfiaqtxt2  CHAR(20),
+  sfiaqtxt3  CHAR(20)
+)
+;
+alter table FSFIAQ
+  add primary key (SFI44COD, SFIAQESP);
+

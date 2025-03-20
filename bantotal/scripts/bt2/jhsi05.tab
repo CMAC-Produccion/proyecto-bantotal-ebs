@@ -1,0 +1,47 @@
+create table JHSI05
+(
+  jhsi05apl  NUMBER(4) not null,
+  jhsi05ban  CHAR(5) not null,
+  jhsi05env  NUMBER(9) not null,
+  jhsi05corr NUMBER(9) not null,
+  jhsi05fenv DATE,
+  jhsi05creg NUMBER(10),
+  jhsi05cta  NUMBER(9),
+  jhsi05oper NUMBER(9),
+  jhsi05sbop NUMBER(3),
+  jhsi05mda  NUMBER(4),
+  jhsi05imp  NUMBER(17,2),
+  jhsi05cap  NUMBER(17,2),
+  jhsi05int  NUMBER(17,2),
+  jhsi05igv  NUMBER(17,2),
+  jhsi05imor NUMBER(17,2),
+  jhsi05icom NUMBER(17,2),
+  jhsi05igas NUMBER(17,2),
+  jhsi05igvm NUMBER(17,2),
+  jhsi05igvc NUMBER(17,2),
+  jhsi05igvg NUMBER(17,2),
+  jhsi05det  CHAR(65),
+  jhsi05mod  NUMBER(3),
+  jhsi05scta CHAR(20),
+  jhsi05fvto DATE,
+  jhsi05ori  NUMBER(6),
+  jhsi05tori NUMBER(2),
+  jhsi05stor NUMBER(2),
+  jhsi05emp  NUMBER(3),
+  jhsi05suc  NUMBER(3),
+  jhsi05modu NUMBER(3),
+  jhsi05tran NUMBER(3),
+  jhsi05nrel NUMBER(4),
+  jhsi05fcon DATE,
+  jhsi05stat CHAR(1),
+  jhsi05rctb NUMBER(5),
+  jhsi05tope NUMBER(3),
+  jhsi05hora CHAR(8),
+  jhsi05banw CHAR(5),
+  jhsi05envw NUMBER(9),
+  jhsi05fecw DATE
+)
+;
+create unique index JHSI0501 on JHSI05 (JHSI05APL, JHSI05BAN, JHSI05ENV, JHSI05CORR);
+create index JHSI0503 on JHSI05 (JHSI05CTA, JHSI05OPER, JHSI05SBOP, JHSI05ENV);
+

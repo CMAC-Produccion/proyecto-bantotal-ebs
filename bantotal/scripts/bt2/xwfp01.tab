@@ -1,0 +1,15 @@
+create table XWFP01
+(
+  xwfp01wite NUMBER(10) not null,
+  xwfp01pais NUMBER(3) not null,
+  xwfp01tdoc NUMBER(2) not null,
+  xwfp01ndoc CHAR(12) not null,
+  xwfp01meva NUMBER(3) not null,
+  xwfp01nroe NUMBER(10) not null,
+  xwfp01pqta NUMBER(10),
+  xwfp01resp CHAR(1)
+)
+;
+alter table XWFP01
+  add primary key (XWFP01WITE, XWFP01PAIS, XWFP01TDOC, XWFP01NDOC, XWFP01MEVA, XWFP01NROE);
+

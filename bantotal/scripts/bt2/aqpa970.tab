@@ -1,0 +1,40 @@
+create table AQPA970
+(
+  aqpa970fep  DATE not null,
+  aqpa970emp  NUMBER(3) not null,
+  aqpa970mod  NUMBER(3) not null,
+  aqpa970suc  NUMBER(3) not null,
+  aqpa970mda  NUMBER(4) not null,
+  aqpa970pap  NUMBER(4) not null,
+  aqpa970cta  NUMBER(9) not null,
+  aqpa970ope  NUMBER(9) not null,
+  aqpa970sbo  NUMBER(3) not null,
+  aqpa970top  NUMBER(3) not null,
+  aqpa970tasa NUMBER(10,6)
+)
+;
+comment on column AQPA970.aqpa970fep
+  is 'FECHA PROCESO';
+comment on column AQPA970.aqpa970emp
+  is 'EMPRESA';
+comment on column AQPA970.aqpa970mod
+  is 'MODULO';
+comment on column AQPA970.aqpa970suc
+  is 'SUCURSAL';
+comment on column AQPA970.aqpa970mda
+  is 'MONEDA';
+comment on column AQPA970.aqpa970pap
+  is 'PAPEL';
+comment on column AQPA970.aqpa970cta
+  is 'CUENTA';
+comment on column AQPA970.aqpa970ope
+  is 'OPERACION';
+comment on column AQPA970.aqpa970sbo
+  is 'SUB OPERACION';
+comment on column AQPA970.aqpa970top
+  is 'TIPO OPERACION';
+comment on column AQPA970.aqpa970tasa
+  is 'TASA';
+alter table AQPA970
+  add primary key (AQPA970FEP, AQPA970EMP, AQPA970MOD, AQPA970SUC, AQPA970MDA, AQPA970PAP, AQPA970CTA, AQPA970OPE, AQPA970SBO, AQPA970TOP);
+

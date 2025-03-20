@@ -1,0 +1,99 @@
+create table JAQAR1
+(
+  jaqar1fcon DATE not null,
+  jaqar1empt NUMBER(3) not null,
+  jaqar1modt NUMBER(3) not null,
+  jaqar1suct NUMBER(3) not null,
+  jaqar1tran NUMBER(3) not null,
+  jaqar1rela NUMBER(4) not null,
+  jaqar1ordi NUMBER(2),
+  jaqar1empo NUMBER(3),
+  jaqar1suco NUMBER(3),
+  jaqar1rubr NUMBER(16),
+  jaqar1mnda NUMBER(4),
+  jaqar1pape NUMBER(4),
+  jaqar1cnta NUMBER(9),
+  jaqar1oper NUMBER(9),
+  jaqar1sbop NUMBER(3),
+  jaqar1tope NUMBER(3),
+  jaqar1modo NUMBER(3),
+  jaqar1cana NUMBER(3),
+  jaqar1opsa NUMBER(3),
+  jaqar1tper NUMBER(3),
+  jaqar1fhin DATE,
+  jaqar1imp1 NUMBER(17,2),
+  jaqar1imp2 NUMBER(17,2),
+  jaqar1num1 NUMBER(10),
+  jaqar1num2 NUMBER(10),
+  jaqar1var1 VARCHAR2(255),
+  jaqar1var2 VARCHAR2(255),
+  jaqar1fec1 DATE,
+  jaqar1fec2 DATE
+)
+;
+comment on table JAQAR1
+  is 'Bandeja de Transacciones RR3';
+comment on column JAQAR1.jaqar1fcon
+  is 'Fecha de Contabilización';
+comment on column JAQAR1.jaqar1empt
+  is 'Empresa Transacción';
+comment on column JAQAR1.jaqar1modt
+  is 'Módulo Transacción';
+comment on column JAQAR1.jaqar1suct
+  is 'Sucursal Transacción';
+comment on column JAQAR1.jaqar1tran
+  is 'Transacción';
+comment on column JAQAR1.jaqar1rela
+  is 'Relación';
+comment on column JAQAR1.jaqar1ordi
+  is 'Ordinal';
+comment on column JAQAR1.jaqar1empo
+  is 'Empresa Operación';
+comment on column JAQAR1.jaqar1suco
+  is 'Sucursal Operación';
+comment on column JAQAR1.jaqar1rubr
+  is 'Rubro';
+comment on column JAQAR1.jaqar1mnda
+  is 'Moneda';
+comment on column JAQAR1.jaqar1pape
+  is 'Papel';
+comment on column JAQAR1.jaqar1cnta
+  is 'Cuenta';
+comment on column JAQAR1.jaqar1oper
+  is 'Operación';
+comment on column JAQAR1.jaqar1sbop
+  is 'Sub Operación';
+comment on column JAQAR1.jaqar1tope
+  is 'Tipo Operación';
+comment on column JAQAR1.jaqar1modo
+  is 'Módulo Operación';
+comment on column JAQAR1.jaqar1cana
+  is 'Canal Asociado';
+comment on column JAQAR1.jaqar1opsa
+  is 'OPS Asociada';
+comment on column JAQAR1.jaqar1tper
+  is 'Tipo de Persona (1:Fisica, 2:Jurídica)';
+comment on column JAQAR1.jaqar1fhin
+  is 'Fecha de Inserción';
+comment on column JAQAR1.jaqar1imp1
+  is 'Auxiliar Importe 1';
+comment on column JAQAR1.jaqar1imp2
+  is 'Auxiliar Importe 2';
+comment on column JAQAR1.jaqar1num1
+  is 'Auxiliar Numérico 1';
+comment on column JAQAR1.jaqar1num2
+  is 'Auxiliar Numérico 2';
+comment on column JAQAR1.jaqar1var1
+  is 'Auxiliar Texto 1';
+comment on column JAQAR1.jaqar1var2
+  is 'Auxiliar Texto 2';
+comment on column JAQAR1.jaqar1fec1
+  is 'Auxiliar Fecha 1';
+comment on column JAQAR1.jaqar1fec2
+  is 'Auxiliar Fecha 2';
+create index JAQAR101 on JAQAR1 (JAQAR1OPSA, JAQAR1CANA);
+create index JAQAR102 on JAQAR1 (JAQAR1FCON, JAQAR1EMPT, JAQAR1MODT, JAQAR1TRAN);
+create index JAQAR103 on JAQAR1 (JAQAR1FCON, JAQAR1OPSA, JAQAR1CANA);
+alter table JAQAR1
+  add primary key (JAQAR1FCON, JAQAR1EMPT, JAQAR1MODT, JAQAR1SUCT, JAQAR1TRAN, JAQAR1RELA);
+

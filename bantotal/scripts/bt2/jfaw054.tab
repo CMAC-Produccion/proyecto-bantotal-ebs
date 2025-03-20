@@ -1,0 +1,23 @@
+create table JFAW054
+(
+  jfaw054emp NUMBER(4) not null,
+  jfaw054suc NUMBER(3) not null,
+  jfaw054mod NUMBER(3) not null,
+  jfaw054tra NUMBER(3) not null,
+  jfaw054rel NUMBER(4) not null,
+  jfaw054fec DATE not null,
+  jfaw054ord NUMBER(2),
+  jfaw054age NUMBER(3),
+  jfaw054sub NUMBER(3),
+  jfaw054tab NUMBER(6),
+  jfaw054par NUMBER(3),
+  jfaw054fab DATE,
+  jfaw054ter NUMBER(2),
+  jfaw054con CHAR(1),
+  jfaw054tmo NUMBER(1)
+)
+;
+create index JFAW0542 on JFAW054 (JFAW054AGE, JFAW054SUB, JFAW054TAB, JFAW054PAR, JFAW054FAB, JFAW054TER);
+alter table JFAW054
+  add primary key (JFAW054EMP, JFAW054SUC, JFAW054MOD, JFAW054TRA, JFAW054REL, JFAW054FEC);
+

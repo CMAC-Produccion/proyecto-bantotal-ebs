@@ -1,0 +1,32 @@
+create table FSFFCI
+(
+  fsffcifcu DATE not null,
+  fsffcicod NUMBER(3) not null,
+  fsffcisuc NUMBER(3) not null,
+  fsffcimod NUMBER(3) not null,
+  fsffcitrn NUMBER(3) not null,
+  fsffcirel NUMBER(4) not null,
+  fsffcifco DATE not null,
+  fsffcifvc DATE,
+  fsffcicor NUMBER(5),
+  fsffciuin CHAR(10),
+  fsffciwin CHAR(10),
+  fsffciucf CHAR(10),
+  fsffciwcf CHAR(10),
+  fsffcihor CHAR(8),
+  fsffcicon CHAR(1),
+  fsffcicaj NUMBER(3),
+  fsffcixca CHAR(1),
+  fsffcia01 DATE,
+  fsffcia02 DATE,
+  fsffcia03 NUMBER(9),
+  fsffcia04 NUMBER(9),
+  fsffcia05 NUMBER(17,2),
+  fsffcia06 NUMBER(17,2),
+  fsffcia07 CHAR(40),
+  fsffcia08 CHAR(40)
+)
+;
+alter table FSFFCI
+  add primary key (FSFFCIFCU, FSFFCICOD, FSFFCISUC, FSFFCIMOD, FSFFCITRN, FSFFCIREL, FSFFCIFCO);
+

@@ -1,0 +1,28 @@
+create table JAQM702
+(
+  jaqm702cac NUMBER(9) not null,
+  jaqm702fac DATE not null,
+  jaqm702suc NUMBER(3) not null,
+  jaqm702cpr CHAR(10) not null,
+  jaqm702npr CHAR(30),
+  jaqm702hpr CHAR(20),
+  jaqm702par CHAR(1),
+  jaqm702obs VARCHAR2(255),
+  jaqm702ca3 VARCHAR2(255),
+  jaqm702ca2 VARCHAR2(255),
+  jaqm702ca1 VARCHAR2(255),
+  jaqm702fe3 DATE,
+  jaqm702fe2 DATE,
+  jaqm702fe1 DATE,
+  jaqm702im3 NUMBER(17,2),
+  jaqm702im2 NUMBER(17,2),
+  jaqm702im1 NUMBER(17,2),
+  jaqm702nu3 NUMBER(9),
+  jaqm702nu2 NUMBER(9),
+  jaqm702nu1 NUMBER(9)
+)
+;
+create index JAQM7022 on JAQM702 (JAQM702FAC);
+alter table JAQM702
+  add primary key (JAQM702CAC, JAQM702FAC, JAQM702SUC, JAQM702CPR);
+

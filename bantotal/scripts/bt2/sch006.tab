@@ -1,0 +1,25 @@
+create table SCH006
+(
+  sch006cod NUMBER(3) not null,
+  sch006mod NUMBER(3) not null,
+  sch006suc NUMBER(3) not null,
+  sch006mda NUMBER(4) not null,
+  sch006pap NUMBER(4) not null,
+  sch006cta NUMBER(9) not null,
+  sch006ope NUMBER(9) not null,
+  sch006sbo NUMBER(3) not null,
+  sch006top NUMBER(3) not null,
+  sch006nch NUMBER(9) not null,
+  sch006tch NUMBER(3) not null,
+  sch006nob CHAR(255),
+  sch006ax1 DATE,
+  sch006ax2 DATE,
+  sch006ax3 NUMBER(17,2),
+  sch006ax4 NUMBER(17,2),
+  sch006ax5 CHAR(30),
+  sch006ax6 CHAR(30)
+)
+;
+alter table SCH006
+  add primary key (SCH006COD, SCH006MOD, SCH006SUC, SCH006MDA, SCH006PAP, SCH006CTA, SCH006OPE, SCH006SBO, SCH006TOP, SCH006NCH, SCH006TCH);
+

@@ -1,0 +1,13 @@
+create table AQPA011A
+(
+  aqpa011anumcon NUMBER(10) not null,
+  aqpa011acorrel NUMBER(4) not null,
+  aqpa011aintegr VARCHAR2(40),
+  aqpa011atdoc   NUMBER(3),
+  aqpa011anumdoc CHAR(12),
+  aqpa011aestciv VARCHAR2(20)
+)
+;
+alter table AQPA011A
+  add primary key (AQPA011ANUMCON, AQPA011ACORREL);
+

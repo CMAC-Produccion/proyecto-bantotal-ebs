@@ -1,0 +1,31 @@
+create table JAQY680
+(
+  jaqy680cod  NUMBER(4) not null,
+  jaqy680cta  NUMBER(10) not null,
+  jaqy680ope  NUMBER(9) not null,
+  jaqy680fe1  DATE not null,
+  jaqy680fe2  DATE,
+  jaqy680suc  VARCHAR2(30),
+  jaqy680cli  VARCHAR2(50),
+  jaqy680pro  VARCHAR2(60),
+  jaqy680est  VARCHAR2(30),
+  jaqy680res  VARCHAR2(20),
+  jaqy680mda  VARCHAR2(5),
+  jaqy680mto  NUMBER(15,2),
+  jaqy680sdo  NUMBER(15,2),
+  jaqy680au1  NUMBER(10),
+  jaqy680au2  NUMBER(4),
+  jaqy680au3  VARCHAR2(100),
+  jaqy680au4  VARCHAR2(20) not null,
+  jaqy680au5  DATE,
+  jaqy680au8  NUMBER(17),
+  jaqy680au7  VARCHAR2(200),
+  jaqy680au6  VARCHAR2(40),
+  jaqy680feju DATE
+)
+;
+create index JAQY6801 on JAQY680 (JAQY680FE1);
+create index JAQY6802 on JAQY680 (JAQY680AU4);
+alter table JAQY680
+  add primary key (JAQY680COD, JAQY680CTA, JAQY680OPE, JAQY680FE1, JAQY680AU4);
+

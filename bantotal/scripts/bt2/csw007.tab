@@ -1,0 +1,13 @@
+create table CSW007
+(
+  csw007emp NUMBER(3) not null,
+  csw007fch DATE not null,
+  csw007usu CHAR(16) not null,
+  csw007cor NUMBER(3) not null,
+  csw007hor CHAR(4) not null,
+  csw007pen CHAR(1)
+)
+;
+alter table CSW007
+  add primary key (CSW007EMP, CSW007FCH, CSW007USU, CSW007COR, CSW007HOR);
+

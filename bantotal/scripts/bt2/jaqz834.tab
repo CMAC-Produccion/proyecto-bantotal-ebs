@@ -1,0 +1,63 @@
+create table JAQZ834
+(
+  jaqz834corr    NUMBER(10) not null,
+  jaqz834pais    NUMBER(9) not null,
+  jaqz834tdoc    NUMBER(9) not null,
+  jaqz834ndoc    VARCHAR2(12) not null,
+  jaqz834tcamb   NUMBER(14,8),
+  jaqz834inst    NUMBER(12) not null,
+  jaqz834fec     DATE not null,
+  jaqz834capcaja NUMBER(17,2),
+  jaqz834nroeval NUMBER(10),
+  jaqz834ingnet  NUMBER(17,2),
+  jaqz834ratio   NUMBER(10,6),
+  jaqz834ind     VARCHAR2(5),
+  jaqz834est     VARCHAR2(2),
+  jaqz834hora    CHAR(8) not null,
+  jaqz834user    VARCHAR2(10),
+  jaqz834cpont   NUMBER(17,2),
+  jaqz834ccont   NUMBER(17,2),
+  jaqz834difis   NUMBER(17,2)
+)
+;
+comment on column JAQZ834.jaqz834corr
+  is 'Correlativo';
+comment on column JAQZ834.jaqz834pais
+  is 'Pais de Documento';
+comment on column JAQZ834.jaqz834tdoc
+  is 'Tipo de Documento';
+comment on column JAQZ834.jaqz834ndoc
+  is 'Nro de Documento';
+comment on column JAQZ834.jaqz834tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column JAQZ834.jaqz834inst
+  is 'Instancia';
+comment on column JAQZ834.jaqz834fec
+  is 'Fecha de Proceso';
+comment on column JAQZ834.jaqz834capcaja
+  is 'Capacidad en la Caja';
+comment on column JAQZ834.jaqz834nroeval
+  is 'Nro de Evaluacion';
+comment on column JAQZ834.jaqz834ingnet
+  is 'Ingreso Neto';
+comment on column JAQZ834.jaqz834ratio
+  is 'Ratio Consumo Ingreso Neto';
+comment on column JAQZ834.jaqz834ind
+  is 'H Hipotecario, CC Convenio Consumo';
+comment on column JAQZ834.jaqz834est
+  is 'Estado Registro';
+comment on column JAQZ834.jaqz834hora
+  is 'Hora';
+comment on column JAQZ834.jaqz834user
+  is 'Usuario';
+comment on column JAQZ834.jaqz834cpont
+  is 'Cuota Potencial';
+comment on column JAQZ834.jaqz834ccont
+  is 'Cuota Contingente';
+comment on column JAQZ834.jaqz834difis
+  is 'Deuda IFIS';
+create index JAQZ834IDX002 on JAQZ834 (JAQZ834CORR, JAQZ834FEC, JAQZ834HORA);
+create index JAQZ834IDX003 on JAQZ834 (JAQZ834INST);
+alter table JAQZ834
+  add primary key (JAQZ834CORR, JAQZ834PAIS, JAQZ834TDOC, JAQZ834NDOC, JAQZ834INST, JAQZ834FEC, JAQZ834HORA);
+

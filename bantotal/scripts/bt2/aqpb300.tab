@@ -1,0 +1,119 @@
+create table AQPB300
+(
+  aqpb300reg   NUMBER(3),
+  aqpb300ren   CHAR(40),
+  aqpb300cod   NUMBER(3) not null,
+  aqpb300suc   NUMBER(3) not null,
+  aqpb300mod   NUMBER(3) not null,
+  aqpb300mda   NUMBER(4) not null,
+  aqpb300pap   NUMBER(4) not null,
+  aqpb300cta   NUMBER(9) not null,
+  aqpb300ope   NUMBER(9) not null,
+  aqpb300sbop  NUMBER(3) not null,
+  aqpb300tope  NUMBER(3) not null,
+  aqpb300fvto  DATE,
+  aqpb300gru   NUMBER(2),
+  aqpb300rub   NUMBER(2),
+  aqpb300sbs   VARCHAR2(30),
+  aqpb300tasa  NUMBER(10,6),
+  aqpb300corr  NUMBER(9),
+  aqpb300fval  DATE,
+  aqpb300scap  NUMBER(18,2),
+  aqpb300codi  NUMBER(3),
+  aqpb300suci  NUMBER(3),
+  aqpb300modi  NUMBER(3),
+  aqpb300mdai  NUMBER(4),
+  aqpb300papi  NUMBER(4),
+  aqpb300ctai  NUMBER(9),
+  aqpb300opei  NUMBER(9),
+  aqpb300sbopi NUMBER(3),
+  aqpb300topei NUMBER(3),
+  aqpb300tasai NUMBER(10,6),
+  aqpb300corri NUMBER(9),
+  aqpb300grui  NUMBER(2),
+  aqpb300fec   DATE not null,
+  aqpb300est   CHAR(1),
+  aqpb300tcr   NUMBER(3),
+  aqpb300fcon  DATE,
+  aqpb300fvtoi DATE,
+  aqpb300f12   CHAR(1),
+  aqpb300fdes  DATE,
+  aqpb300ins   NUMBER(9),
+  aqpb300aux1  NUMBER(9),
+  aqpb300daux1 DATE,
+  aqpb300caux1 VARCHAR2(50)
+)
+;
+comment on table AQPB300
+  is 'Cartera Creditos - Penalidad - Tasa Moratoria';
+comment on column AQPB300.aqpb300reg
+  is 'Codigo Region';
+comment on column AQPB300.aqpb300ren
+  is 'Region';
+comment on column AQPB300.aqpb300cod
+  is 'Pgcod';
+comment on column AQPB300.aqpb300suc
+  is 'Sucursal';
+comment on column AQPB300.aqpb300mod
+  is 'Modulo';
+comment on column AQPB300.aqpb300mda
+  is 'Moneda';
+comment on column AQPB300.aqpb300pap
+  is 'Papel';
+comment on column AQPB300.aqpb300cta
+  is 'Cuenta';
+comment on column AQPB300.aqpb300ope
+  is 'Operacion';
+comment on column AQPB300.aqpb300sbop
+  is 'SubOperacion';
+comment on column AQPB300.aqpb300tope
+  is 'Tipo Operacion';
+comment on column AQPB300.aqpb300fvto
+  is 'Fecha Vcto';
+comment on column AQPB300.aqpb300gru
+  is 'Producto SBS';
+comment on column AQPB300.aqpb300rub
+  is 'Codigo Rubro para Producto SBS';
+comment on column AQPB300.aqpb300sbs
+  is 'Descripcion Producto SBS ';
+comment on column AQPB300.aqpb300scap
+  is 'Saldo Capital ';
+comment on column AQPB300.aqpb300codi
+  is 'Pgcod Inicial';
+comment on column AQPB300.aqpb300suci
+  is 'Sucursal Inicial';
+comment on column AQPB300.aqpb300modi
+  is 'Modulo Inicial';
+comment on column AQPB300.aqpb300mdai
+  is 'Moneda Inicial';
+comment on column AQPB300.aqpb300papi
+  is 'Papel Inicial';
+comment on column AQPB300.aqpb300ctai
+  is 'Cuenta Inicial';
+comment on column AQPB300.aqpb300opei
+  is 'Operacion Inicial';
+comment on column AQPB300.aqpb300sbopi
+  is 'SubOperacion Inicial';
+comment on column AQPB300.aqpb300topei
+  is 'Tipo Operacion Inicial';
+comment on column AQPB300.aqpb300grui
+  is 'Producto SBS Inicial';
+comment on column AQPB300.aqpb300fec
+  is 'Fecha Proceso';
+comment on column AQPB300.aqpb300tcr
+  is 'tipo credito';
+comment on column AQPB300.aqpb300fcon
+  is 'Fecha de Validacion';
+comment on column AQPB300.aqpb300fvtoi
+  is 'Fecha Vencimiento de FSD012 -fecha vmto minima cuota impaga';
+comment on column AQPB300.aqpb300f12
+  is 'S- eliminar tasa';
+comment on column AQPB300.aqpb300fdes
+  is 'Fecha Desembolso';
+comment on column AQPB300.aqpb300ins
+  is 'Instancia Credito';
+create index AQPB3001 on AQPB300 (AQPB300REG, AQPB300FEC, AQPB300GRUI);
+create index AQPB3002 on AQPB300 (AQPB300CTA, AQPB300OPE);
+alter table AQPB300
+  add constraint PK_AQPB300 primary key (AQPB300COD, AQPB300SUC, AQPB300MOD, AQPB300MDA, AQPB300PAP, AQPB300CTA, AQPB300OPE, AQPB300SBOP, AQPB300TOPE, AQPB300FEC);
+

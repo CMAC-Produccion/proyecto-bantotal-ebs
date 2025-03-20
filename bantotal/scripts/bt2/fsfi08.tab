@@ -1,0 +1,13 @@
+create table FSFI08
+(
+  sfi08emp  NUMBER(3) not null,
+  sfi08cta  NUMBER(9) not null,
+  sfi08car1 CHAR(1),
+  sfi08car2 CHAR(1),
+  sfi08txt1 CHAR(35),
+  sfi08num1 NUMBER(9)
+)
+;
+alter table FSFI08
+  add primary key (SFI08EMP, SFI08CTA);
+

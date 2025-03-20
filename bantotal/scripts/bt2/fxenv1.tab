@@ -1,0 +1,22 @@
+create table FXENV1
+(
+  swipgcod  NUMBER(3) not null,
+  swinumtip NUMBER(2) not null,
+  swimsgnum NUMBER(9) not null,
+  swiswtcod NUMBER(5) not null,
+  swiswtrel NUMBER(2) not null,
+  swiitsuc  NUMBER(3),
+  swiitmod  NUMBER(3),
+  swiittran NUMBER(3),
+  swiitnrel NUMBER(4),
+  swioperac NUMBER(9),
+  swisubope NUMBER(3),
+  swiinstc  NUMBER(2),
+  swifecha  DATE
+)
+;
+create index FXENV102 on FXENV1 (SWIITSUC, SWIITMOD, SWIITTRAN, SWIITNREL);
+create index FXENV103 on FXENV1 (SWIITMOD, SWIOPERAC, SWISUBOPE, SWIINSTC);
+alter table FXENV1
+  add primary key (SWIPGCOD, SWINUMTIP, SWIMSGNUM, SWISWTCOD, SWISWTREL);
+

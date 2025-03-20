@@ -1,0 +1,59 @@
+create table JAQL002
+(
+  jaql2coter CHAR(20) not null,
+  jaql2deter CHAR(150),
+  jaql7cotit NUMBER(10),
+  jaql8cofut NUMBER(10),
+  jaql2pais  NUMBER(3),
+  jaql2depar NUMBER(5),
+  jaql2provi NUMBER(5),
+  jaql2distr NUMBER(9),
+  jaql2ubige CHAR(6),
+  jaql2direc CHAR(150),
+  jaql2crcod NUMBER(3),
+  jaql2crsuc NUMBER(3),
+  jaql2crmod NUMBER(3),
+  jaql2crmda NUMBER(4),
+  jaql2crpap NUMBER(4),
+  jaql2crcta NUMBER(9),
+  jaql2crope NUMBER(9),
+  jaql2crsbo NUMBER(3),
+  jaql2crtop NUMBER(3),
+  jaql2cicod NUMBER(3),
+  jaql2cisuc NUMBER(3),
+  jaql2cimod NUMBER(3),
+  jaql2cimda NUMBER(4),
+  jaql2cipap NUMBER(4),
+  jaql2cicta NUMBER(9),
+  jaql2ciope NUMBER(9),
+  jaql2cisbo NUMBER(3),
+  jaql2citop NUMBER(3),
+  jaql2adsuc NUMBER(3),
+  jaql2diref CHAR(150),
+  jaql2conta CHAR(150),
+  jaql2cotli NUMBER(10),
+  jaql2cotis CHAR(20),
+  jaql2nuter NUMBER(10),
+  jaql2estad NUMBER(1),
+  jaql2meper CHAR(200),
+  jaql2aux1  CHAR(50),
+  jaql2aux2  CHAR(50),
+  jaql2aux3  CHAR(50),
+  jaql2aux4  NUMBER(9),
+  jaql2aux5  NUMBER(9),
+  jaql2aux6  NUMBER(9),
+  jaql2aux7  NUMBER(10,2),
+  jaql2aux8  NUMBER(10,2),
+  jaql2aux9  NUMBER(10,2),
+  jaql2aux10 DATE,
+  jaql2aux11 DATE,
+  jaql2aux12 DATE
+)
+;
+create index JAQL0022 on JAQL002 (JAQL7COTIT);
+create index JAQL0023 on JAQL002 (JAQL8COFUT);
+create index JAQL0024 on JAQL002 (JAQL2NUTER);
+create index JAQL0025 on JAQL002 (JAQL2CRSUC, JAQL2CRMOD, JAQL2CRMDA, JAQL2CRPAP, JAQL2CRCTA, JAQL2CROPE, JAQL2CRSBO, JAQL2CRTOP);
+alter table JAQL002
+  add primary key (JAQL2COTER);
+

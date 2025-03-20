@@ -1,0 +1,19 @@
+create table FST206
+(
+  papel    NUMBER(4) not null,
+  pacup    NUMBER(3) not null,
+  pafch1   DATE,
+  pafch2   DATE,
+  patasa   NUMBER(10,6),
+  pavres   NUMBER(7,4),
+  pacapi   NUMBER(7,4),
+  papint   CHAR(1),
+  pacltcod NUMBER(2),
+  paplus   NUMBER(10,6),
+  pamort   NUMBER(7,4),
+  pacoef   NUMBER(14,9)
+)
+;
+alter table FST206
+  add primary key (PAPEL, PACUP);
+

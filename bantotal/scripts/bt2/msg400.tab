@@ -1,0 +1,10 @@
+create table MSG400
+(
+  estmcod    NUMBER(5) not null,
+  frmcodgrid NUMBER(3) not null,
+  frmdesgrid CHAR(50)
+)
+;
+alter table MSG400
+  add primary key (ESTMCOD, FRMCODGRID);
+

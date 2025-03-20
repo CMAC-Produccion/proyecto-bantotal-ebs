@@ -1,0 +1,14 @@
+create table FMA021
+(
+  pgcod      NUMBER(3) not null,
+  liummod    NUMBER(3) not null,
+  liumoper   NUMBER(9) not null,
+  liumsbop   NUMBER(3) not null,
+  fecwid     NUMBER(2) not null,
+  liumfecwfc DATE
+)
+;
+create index FMA02102 on FMA021 (FECWID);
+alter table FMA021
+  add primary key (PGCOD, LIUMMOD, LIUMOPER, LIUMSBOP, FECWID);
+

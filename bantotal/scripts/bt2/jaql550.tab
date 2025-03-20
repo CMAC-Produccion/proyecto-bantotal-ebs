@@ -1,0 +1,22 @@
+create table JAQL550
+(
+  jaql546serial NUMBER(10) not null,
+  jaql550nuobl  VARCHAR2(30) not null,
+  jaql550ferep  DATE,
+  jaql550coent  VARCHAR2(30),
+  jaql550noent  VARCHAR2(50),
+  jaql550ticta  VARCHAR2(10),
+  jaql550moned  VARCHAR2(10),
+  jaql550causa  VARCHAR2(10),
+  jaql550feinis DATE,
+  jaql550tipla  VARCHAR2(10),
+  jaql550fefis  DATE,
+  jaql550fepub  DATE,
+  jaql550nupub  VARCHAR2(10),
+  jaql550fecre  DATE,
+  jaql550tidet  CHAR(2)
+)
+;
+alter table JAQL550
+  add primary key (JAQL546SERIAL, JAQL550NUOBL);
+

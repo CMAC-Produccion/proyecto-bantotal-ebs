@@ -1,0 +1,107 @@
+create table JAQL600S
+(
+  jaql600sfpro DATE not null,
+  jaql600susu  CHAR(20) not null,
+  jaql600stsa  NUMBER(17,2),
+  jaql600stcl  NUMBER(17,2),
+  jaql600stmi  NUMBER(17,2),
+  jaql600stmf  NUMBER(17,2),
+  jaql600smsa  NUMBER(17,2),
+  jaql600smcl  NUMBER(17,2),
+  jaql600svmo  NUMBER(9,2),
+  jaql600smmo  NUMBER(17,2),
+  jaql600spsa  NUMBER(17,2),
+  jaql600spcl  NUMBER(17,2),
+  jaql600sposa NUMBER(9,2),
+  jaql600spocl NUMBER(9,2),
+  jaql600sest  CHAR(1),
+  jaql600sdoi  NUMBER(17,2),
+  jaql600sdof  NUMBER(17,2),
+  jaql600spmi  NUMBER(17,2),
+  jaql600spmf  NUMBER(17,2),
+  jaql600sbsal NUMBER(17,2),
+  jaql600sbcli NUMBER(17,2),
+  jaql600sbmra NUMBER(17,2),
+  jaql600sbtri NUMBER(17,2),
+  jaql600spasa NUMBER(17,2),
+  jaql600spacl NUMBER(17,2),
+  jaql600spamo NUMBER(17,2),
+  jaql600spvar NUMBER(17,2),
+  jaql600ssuel NUMBER(17,2),
+  jaql600stot  NUMBER(17,2),
+  jaql600sproc NUMBER(17,2),
+  jaql600sbaco NUMBER(17,2),
+  jaql600smtco NUMBER(17,2)
+)
+;
+comment on table JAQL600S
+  is 'Productividad Analistas SENIOR 2016';
+comment on column JAQL600S.jaql600sfpro
+  is ' Fecha Proceso';
+comment on column JAQL600S.jaql600susu
+  is 'Comite - Nombre Analista Senior a Cargo';
+comment on column JAQL600S.jaql600stsa
+  is 'Total Saldo Comite';
+comment on column JAQL600S.jaql600stcl
+  is 'Total Clientes Comite';
+comment on column JAQL600S.jaql600stmi
+  is 'Total Mora Inicial Comite';
+comment on column JAQL600S.jaql600stmf
+  is 'Total Mora Final Comite';
+comment on column JAQL600S.jaql600smsa
+  is 'Total Meta Saldo Comite';
+comment on column JAQL600S.jaql600smcl
+  is 'Total Meta Clientes Comite';
+comment on column JAQL600S.jaql600svmo
+  is 'Variacion Mora Comite';
+comment on column JAQL600S.jaql600smmo
+  is 'Monto Mora Comite';
+comment on column JAQL600S.jaql600spsa
+  is 'Promedio Saldo Comite';
+comment on column JAQL600S.jaql600spcl
+  is 'Promedio Clientes Comite';
+comment on column JAQL600S.jaql600sposa
+  is 'Porcentaje Saldo Comite';
+comment on column JAQL600S.jaql600spocl
+  is 'Porcentaje Clientes Comite';
+comment on column JAQL600S.jaql600sest
+  is 'Estado';
+comment on column JAQL600S.jaql600sdoi
+  is 'Saldo Total Inicial Comite';
+comment on column JAQL600S.jaql600sdof
+  is 'Saldo Total Final Comite';
+comment on column JAQL600S.jaql600spmi
+  is 'Porcentaje Mora Inicial';
+comment on column JAQL600S.jaql600spmf
+  is 'Porcentaje Mora Final';
+comment on column JAQL600S.jaql600sbsal
+  is 'Bono Trimestral Saldo';
+comment on column JAQL600S.jaql600sbcli
+  is 'Bono Trimestral Clientes';
+comment on column JAQL600S.jaql600sbmra
+  is 'Bono Trimestral Mora';
+comment on column JAQL600S.jaql600sbtri
+  is 'Bono Trimestral Total';
+comment on column JAQL600S.jaql600spasa
+  is 'Pago Saldo';
+comment on column JAQL600S.jaql600spacl
+  is 'Pago Cliente';
+comment on column JAQL600S.jaql600spamo
+  is 'Pago Mora';
+comment on column JAQL600S.jaql600spvar
+  is 'Pago Variable';
+comment on column JAQL600S.jaql600ssuel
+  is 'Monto Sueldo';
+comment on column JAQL600S.jaql600stot
+  is 'Total Pago';
+comment on column JAQL600S.jaql600sproc
+  is 'Promedio Contencion comite 0-30';
+comment on column JAQL600S.jaql600sbaco
+  is 'Base Contencion comite 0-30';
+comment on column JAQL600S.jaql600smtco
+  is 'Monto Contencion comite 0-30';
+create index IDX_JAQL600S_1 on JAQL600S (JAQL600SUSU, JAQL600SFPRO);
+create index IDX_JAQL600S_2 on JAQL600S (JAQL600SFPRO, JAQL600SEST);
+alter table JAQL600S
+  add primary key (JAQL600SFPRO, JAQL600SUSU);
+

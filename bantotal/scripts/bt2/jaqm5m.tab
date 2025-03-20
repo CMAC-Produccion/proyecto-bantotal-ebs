@@ -1,0 +1,108 @@
+create table JAQM5M
+(
+  jaqm5mcev NUMBER(10) not null,
+  jaqm5mins NUMBER(10) not null,
+  jaqm5mfec DATE not null,
+  jaqm5msuc NUMBER(3),
+  jaqm5mmod NUMBER(3),
+  jaqm5mmnd NUMBER(4),
+  jaqm5mpap NUMBER(4),
+  jaqm5mcta NUMBER(9),
+  jaqm5mope NUMBER(9),
+  jaqm5mtop NUMBER(3),
+  jaqm5msbo NUMBER(3),
+  jaqm5mndo CHAR(12),
+  jaqm5mnto CHAR(30),
+  jaqm5mmnt NUMBER(17,2),
+  jaqm5mprd NUMBER(5),
+  jaqm5mccu NUMBER(5),
+  jaqm5mscn CHAR(30),
+  jaqm5mnu1 NUMBER(9),
+  jaqm5mnu2 NUMBER(9),
+  jaqm5mnu3 NUMBER(9),
+  jaqm5mim1 NUMBER(17,2),
+  jaqm5mim2 NUMBER(17,2),
+  jaqm5mim3 NUMBER(17,2),
+  jaqm5mfe1 DATE,
+  jaqm5mfe2 DATE,
+  jaqm5mfe3 DATE,
+  jaqm5mch1 CHAR(250),
+  jaqm5mch2 CHAR(250),
+  jaqm5mch3 CHAR(250),
+  jaqm5mva1 VARCHAR2(250),
+  jaqm5mva2 VARCHAR2(250),
+  jaqm5mva3 VARCHAR2(250)
+)
+;
+comment on table JAQM5M
+  is 'Tabla de Volcado - Reporte MYPE';
+comment on column JAQM5M.jaqm5mcev
+  is 'Codigo de Evaluación';
+comment on column JAQM5M.jaqm5mins
+  is 'Instancia';
+comment on column JAQM5M.jaqm5mfec
+  is 'Fecha';
+comment on column JAQM5M.jaqm5msuc
+  is 'Sucursal';
+comment on column JAQM5M.jaqm5mmod
+  is 'Modulo';
+comment on column JAQM5M.jaqm5mmnd
+  is 'Moneda';
+comment on column JAQM5M.jaqm5mpap
+  is 'Papel';
+comment on column JAQM5M.jaqm5mcta
+  is 'Cuenta';
+comment on column JAQM5M.jaqm5mope
+  is 'Operacion';
+comment on column JAQM5M.jaqm5mtop
+  is 'Tipo de Operacion';
+comment on column JAQM5M.jaqm5msbo
+  is 'Sub Operacion';
+comment on column JAQM5M.jaqm5mndo
+  is 'Numero de Documento';
+comment on column JAQM5M.jaqm5mnto
+  is 'Nombre de T.Operacion';
+comment on column JAQM5M.jaqm5mmnt
+  is 'Monto';
+comment on column JAQM5M.jaqm5mprd
+  is 'Periodo entre cuotas';
+comment on column JAQM5M.jaqm5mccu
+  is 'Numero de cuotas';
+comment on column JAQM5M.jaqm5mscn
+  is 'Nombre de Sucursal';
+comment on column JAQM5M.jaqm5mnu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM5M.jaqm5mnu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM5M.jaqm5mnu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQM5M.jaqm5mim1
+  is 'Auxiliar Importe 1';
+comment on column JAQM5M.jaqm5mim2
+  is 'Auxiliar Importe 2';
+comment on column JAQM5M.jaqm5mim3
+  is 'Auxiliar Importe 3';
+comment on column JAQM5M.jaqm5mfe1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM5M.jaqm5mfe2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM5M.jaqm5mfe3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM5M.jaqm5mch1
+  is 'Auxiliar Character 1';
+comment on column JAQM5M.jaqm5mch2
+  is 'Auxiliar Character 2';
+comment on column JAQM5M.jaqm5mch3
+  is 'Auxiliar Character 3';
+comment on column JAQM5M.jaqm5mva1
+  is 'Auxiliar Varchar 1';
+comment on column JAQM5M.jaqm5mva2
+  is 'Auxiliar Varchar 2';
+comment on column JAQM5M.jaqm5mva3
+  is 'Auxiliar Varchar 3';
+create index JAQM5MA2 on JAQM5M (JAQM5MINS, JAQM5MFEC);
+create index JAQM5MA3 on JAQM5M (JAQM5MFEC);
+create index JAQM5MA4 on JAQM5M (JAQM5MSUC, JAQM5MMOD, JAQM5MMND, JAQM5MPAP, JAQM5MCTA, JAQM5MOPE, JAQM5MTOP, JAQM5MSBO);
+alter table JAQM5M
+  add primary key (JAQM5MCEV, JAQM5MINS, JAQM5MFEC);
+

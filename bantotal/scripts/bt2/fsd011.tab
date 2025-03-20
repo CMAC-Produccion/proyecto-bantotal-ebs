@@ -1,0 +1,48 @@
+create table FSD011
+(
+  pgcod  NUMBER(3) not null,
+  scsuc  NUMBER(3) not null,
+  scrub  NUMBER(16) not null,
+  scmda  NUMBER(4) not null,
+  scpap  NUMBER(4) not null,
+  sccta  NUMBER(9) not null,
+  scoper NUMBER(9) not null,
+  scsbop NUMBER(3) not null,
+  sctope NUMBER(3) not null,
+  scmod  NUMBER(3),
+  scfcon DATE,
+  scfval DATE,
+  scfvto DATE,
+  scfulm DATE,
+  scpzo  NUMBER(5),
+  scsdo  NUMBER(17,2),
+  scsdoh NUMBER(17,2),
+  scsegm NUMBER(2),
+  scfunc NUMBER(2),
+  scstat NUMBER(2),
+  sccc   NUMBER(3),
+  sctit  NUMBER(2),
+  sccap  NUMBER(1),
+  scplzo NUMBER(1),
+  scgru  NUMBER(2)
+)
+;
+create index FSD01103 on FSD011 (SCRUB);
+create index FSD01104 on FSD011 (SCMDA);
+create index FSD01105 on FSD011 (SCPAP);
+create index FSD01107 on FSD011 (SCMOD);
+create index FSD01110 on FSD011 (PGCOD, SCCTA, SCRUB, SCMDA, SCPAP, SCOPER, SCSBOP);
+create index FSD01112 on FSD011 (PGCOD, SCMOD, SCTOPE, SCMDA, SCPAP, SCCTA, SCOPER, SCSBOP);
+create index FSD01113 on FSD011 (PGCOD, SCMOD, SCMDA, SCPAP, SCCTA, SCSUC, SCOPER, SCSBOP, SCTOPE);
+create index FSD01114 on FSD011 (PGCOD, SCSUC, SCTIT, SCCAP, SCPLZO, SCGRU, SCRUB);
+create index FSD01115 on FSD011 (PGCOD, SCSUC, SCRUB, SCMDA, SCPAP, SCFVTO, SCCTA, SCOPER, SCSBOP, SCTOPE);
+create index FSD01116 on FSD011 (PGCOD, SCTIT, SCPAP, SCRUB);
+create index FSD01117 on FSD011 (PGCOD, SCCTA, SCMOD, SCMDA, SCPAP);
+create index FSD01118 on FSD011 (PGCOD, SCMOD, SCOPER, SCMDA, SCPAP, SCSUC, SCSBOP, SCTOPE);
+create index FSD01119 on FSD011 (PGCOD, SCRUB, SCMDA, SCPAP, SCCTA, SCOPER, SCSBOP, SCTOPE);
+create index FSD01120 on FSD011 (PGCOD, SCRUB, SCMDA, SCPAP, SCFVTO, SCCTA, SCOPER, SCSBOP, SCTOPE);
+create index FSD01121 on FSD011 (PGCOD, SCRUB, SCCTA);
+create index FSD01199 on FSD011 (PGCOD, SCSUC, SCRUB, SCSDO);
+alter table FSD011
+  add primary key (PGCOD, SCSUC, SCRUB, SCMDA, SCPAP, SCCTA, SCOPER, SCSBOP, SCTOPE);
+

@@ -1,0 +1,78 @@
+create table JAQZ451C
+(
+  jaqz451cfpro DATE not null,
+  jaqz451cccli VARCHAR2(20) not null,
+  jaqz451cpai  NUMBER(3),
+  jaqz451ctdo  NUMBER(2),
+  jaqz451cpen  CHAR(12) not null,
+  jaqz451ccre  VARCHAR2(50),
+  jaqz451cemp  NUMBER(3),
+  jaqz451csuc  NUMBER(3),
+  jaqz451cmda  NUMBER(4),
+  jaqz451cpap  NUMBER(4),
+  jaqz451ccta  NUMBER(9),
+  jaqz451cope  NUMBER(9),
+  jaqz451csbo  NUMBER(3),
+  jaqz451ctop  NUMBER(3),
+  jaqz451crub  NUMBER(16),
+  jaqz451cmod  NUMBER(3),
+  jaqz451cfvto DATE,
+  jaqz451cfval DATE,
+  jaqz451csdmn NUMBER(18,2),
+  jaqz451csdor NUMBER(18,2),
+  jaqz451cdatr NUMBER(9),
+  jaqz451cana  VARCHAR2(12),
+  jaqz451cfcan DATE
+)
+;
+comment on table JAQZ451C
+  is 'rep_ret_c';
+comment on column JAQZ451C.jaqz451cfpro
+  is 'Fecha Proceso';
+comment on column JAQZ451C.jaqz451cccli
+  is 'Codigo Cliente';
+comment on column JAQZ451C.jaqz451cpai
+  is 'Pais';
+comment on column JAQZ451C.jaqz451ctdo
+  is 'Tipo Doc';
+comment on column JAQZ451C.jaqz451cpen
+  is 'Numdoc';
+comment on column JAQZ451C.jaqz451ccre
+  is 'Credito';
+comment on column JAQZ451C.jaqz451cemp
+  is 'Empresa';
+comment on column JAQZ451C.jaqz451csuc
+  is 'Sucursal';
+comment on column JAQZ451C.jaqz451cmda
+  is 'Moneda';
+comment on column JAQZ451C.jaqz451cpap
+  is 'Papel';
+comment on column JAQZ451C.jaqz451ccta
+  is 'Cuenta';
+comment on column JAQZ451C.jaqz451cope
+  is 'Operacion';
+comment on column JAQZ451C.jaqz451csbo
+  is 'Suboperacion';
+comment on column JAQZ451C.jaqz451ctop
+  is 'Tipo operacion';
+comment on column JAQZ451C.jaqz451crub
+  is 'Rubro';
+comment on column JAQZ451C.jaqz451cmod
+  is 'Modulo';
+comment on column JAQZ451C.jaqz451cfvto
+  is 'Fecha Vencimiento';
+comment on column JAQZ451C.jaqz451cfval
+  is 'Fecha Desembolso';
+comment on column JAQZ451C.jaqz451csdmn
+  is 'Saldo Moneda Nacional';
+comment on column JAQZ451C.jaqz451csdor
+  is 'Saldo Moneda Origen';
+comment on column JAQZ451C.jaqz451cdatr
+  is 'Dias Atraso';
+comment on column JAQZ451C.jaqz451cana
+  is 'Analista';
+comment on column JAQZ451C.jaqz451cfcan
+  is 'Fecha Cancelacion';
+create index JAQZ451C_1 on JAQZ451C (JAQZ451CFPRO, JAQZ451CCCLI);
+create index JAQZ451C_2 on JAQZ451C (JAQZ451CFPRO, JAQZ451CANA, JAQZ451CSUC);
+

@@ -1,0 +1,13 @@
+create table FST100
+(
+  modpgcod NUMBER(3) not null,
+  modtpo   NUMBER(3) not null,
+  modcod   NUMBER(9) not null,
+  modtcli  NUMBER(9) not null,
+  modsuc   NUMBER(3) not null,
+  modcodn  NUMBER(9)
+)
+;
+alter table FST100
+  add primary key (MODPGCOD, MODTPO, MODCOD, MODTCLI, MODSUC);
+

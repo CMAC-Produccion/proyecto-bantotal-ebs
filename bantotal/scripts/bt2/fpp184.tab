@@ -1,0 +1,20 @@
+create table FPP184
+(
+  pp176cod  NUMBER(4) not null,
+  pp184umed NUMBER(4) not null,
+  pp184fac  NUMBER(14,3),
+  pp184div  CHAR(1),
+  pp184aux1 NUMBER(9),
+  pp184aux2 NUMBER(9),
+  pp184aux3 NUMBER(14,3),
+  pp184aux4 NUMBER(14,3),
+  pp184aux9 NUMBER(14,3),
+  pp184aux5 CHAR(50),
+  pp184aux6 CHAR(50),
+  pp184aux7 DATE,
+  pp184aux8 DATE
+)
+;
+alter table FPP184
+  add primary key (PP176COD, PP184UMED);
+

@@ -1,0 +1,10 @@
+create table ARPROD
+(
+  tpoaltac NUMBER(3) not null,
+  prodcod  NUMBER(1) not null,
+  proddsc  CHAR(25)
+)
+;
+alter table ARPROD
+  add primary key (TPOALTAC, PRODCOD);
+

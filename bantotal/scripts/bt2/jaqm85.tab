@@ -1,0 +1,144 @@
+create table JAQM85
+(
+  jaqm85fech DATE not null,
+  jaqm85hor  CHAR(8) not null,
+  jaqm85cuen NUMBER(10) not null,
+  jaqm85nuop NUMBER(10) not null,
+  jaqm85anal CHAR(20),
+  jaqm85clie VARCHAR2(255),
+  jaqm85prcj VARCHAR2(255),
+  jaqm85datr NUMBER(10),
+  jaqm85nivi VARCHAR2(50),
+  jaqm85psbs VARCHAR2(255),
+  jaqm85sald NUMBER(17,2),
+  jaqm85deca NUMBER(17,2),
+  jaqm85dein NUMBER(17,2),
+  jaqm85feve DATE,
+  jaqm85cuot VARCHAR2(20),
+  jaqm85tirp VARCHAR2(100),
+  jaqm85nu1  NUMBER(9),
+  jaqm85nu2  NUMBER(9),
+  jaqm85nu3  NUMBER(9),
+  jaqm85m1   NUMBER(17,2),
+  jaqm85m2   NUMBER(17,2),
+  jaqm85m3   NUMBER(17,2),
+  jaqm85va1  VARCHAR2(255),
+  jaqm85va2  VARCHAR2(255),
+  jaqm85va3  VARCHAR2(255),
+  jaqm85fe1  DATE,
+  jaqm85fe2  DATE,
+  jaqm85fe3  DATE,
+  jaqm85agen VARCHAR2(30),
+  jaqm85comi VARCHAR2(30),
+  jaqm85ugeo CHAR(6),
+  jaqm85dire VARCHAR2(200),
+  jaqm85fven DATE,
+  jaqm85tcuo VARCHAR2(10),
+  jaqm85cpag VARCHAR2(10),
+  jaqm85fupa DATE,
+  jaqm85scon NUMBER(17,2),
+  jaqm85tope NUMBER(3),
+  jaqm85sope NUMBER(3),
+  jaqm85pape NUMBER(4),
+  jaqm85mone NUMBER(4),
+  jaqm85sucu NUMBER(3),
+  jaqm85modu NUMBER(3),
+  jaqm85empr NUMBER(3)
+)
+;
+comment on table JAQM85
+  is 'Mora';
+comment on column JAQM85.jaqm85fech
+  is 'Fecha';
+comment on column JAQM85.jaqm85hor
+  is 'Hora';
+comment on column JAQM85.jaqm85cuen
+  is 'Cuenta Cliente';
+comment on column JAQM85.jaqm85nuop
+  is 'Numero de operacion';
+comment on column JAQM85.jaqm85anal
+  is 'Codigo de Analista';
+comment on column JAQM85.jaqm85clie
+  is 'Nombre Cliente';
+comment on column JAQM85.jaqm85prcj
+  is 'Producto Caja';
+comment on column JAQM85.jaqm85datr
+  is 'Dias de atraso';
+comment on column JAQM85.jaqm85nivi
+  is 'Nivel de riesgo';
+comment on column JAQM85.jaqm85psbs
+  is 'Producto SBS';
+comment on column JAQM85.jaqm85sald
+  is 'Saldo';
+comment on column JAQM85.jaqm85deca
+  is 'Deuda Capital';
+comment on column JAQM85.jaqm85dein
+  is 'Deuda Interes';
+comment on column JAQM85.jaqm85feve
+  is 'Fecha de Vencimiento';
+comment on column JAQM85.jaqm85cuot
+  is 'Cuotas';
+comment on column JAQM85.jaqm85tirp
+  is 'Tipo de Reprogramacion';
+comment on column JAQM85.jaqm85nu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM85.jaqm85nu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM85.jaqm85nu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQM85.jaqm85m1
+  is 'Auxiliar Importe 1';
+comment on column JAQM85.jaqm85m2
+  is 'Auxiliar Importe 2';
+comment on column JAQM85.jaqm85m3
+  is 'Auxiliar Importe 3';
+comment on column JAQM85.jaqm85va1
+  is 'Auxiliar Varchar 1';
+comment on column JAQM85.jaqm85va2
+  is 'Auxiliar Varchar 2';
+comment on column JAQM85.jaqm85va3
+  is 'Auxiliar Varchar 3';
+comment on column JAQM85.jaqm85fe1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM85.jaqm85fe2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM85.jaqm85fe3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM85.jaqm85agen
+  is 'Agencia';
+comment on column JAQM85.jaqm85comi
+  is 'Comite';
+comment on column JAQM85.jaqm85ugeo
+  is 'Ubigeo';
+comment on column JAQM85.jaqm85dire
+  is 'Direccion';
+comment on column JAQM85.jaqm85fven
+  is 'Fecha vencimiento del credito';
+comment on column JAQM85.jaqm85tcuo
+  is 'Total de cuotas';
+comment on column JAQM85.jaqm85cpag
+  is 'Cuotas pagadas';
+comment on column JAQM85.jaqm85fupa
+  is 'Fecha ultimo pago';
+comment on column JAQM85.jaqm85scon
+  is 'Saldo Consolidado';
+comment on column JAQM85.jaqm85tope
+  is 'Tipo Operacion';
+comment on column JAQM85.jaqm85sope
+  is 'Sub Operacion';
+comment on column JAQM85.jaqm85pape
+  is 'Papel';
+comment on column JAQM85.jaqm85mone
+  is 'Moneda';
+comment on column JAQM85.jaqm85sucu
+  is 'Sucursal';
+comment on column JAQM85.jaqm85modu
+  is 'Modulo';
+comment on column JAQM85.jaqm85empr
+  is 'Empresa';
+create index JAQM85A2 on JAQM85 (JAQM85FECH, JAQM85ANAL);
+create index JAQM85A3 on JAQM85 (JAQM85FECH, JAQM85COMI);
+create index JAQM85A4 on JAQM85 (JAQM85FECH, JAQM85AGEN);
+alter table JAQM85
+  add primary key (JAQM85FECH, JAQM85HOR, JAQM85CUEN, JAQM85NUOP);
+

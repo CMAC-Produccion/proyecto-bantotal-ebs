@@ -1,0 +1,25 @@
+create table FSFST2
+(
+  sfst1merc NUMBER(3) not null,
+  sfst2cod  CHAR(1) not null,
+  sfst2desc CHAR(35),
+  sfst2tins CHAR(1),
+  sfst2hab  CHAR(1),
+  sfst2car1 CHAR(1),
+  sfst2car2 CHAR(1),
+  sfst2car3 CHAR(1),
+  sfst2car4 CHAR(1),
+  sfst2car5 CHAR(1),
+  sfst2num1 NUMBER(9),
+  sfst2num2 NUMBER(9),
+  sfst2num3 NUMBER(9),
+  sfst2fec1 DATE,
+  sfst2fec2 DATE,
+  sfst2fec3 DATE,
+  sfst2txt1 CHAR(20),
+  sfst2txt2 CHAR(20)
+)
+;
+alter table FSFST2
+  add primary key (SFST1MERC, SFST2COD);
+

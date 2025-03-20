@@ -1,0 +1,13 @@
+create table FSN999
+(
+  pgcod  NUMBER(3) not null,
+  ngsuc  NUMBER(3) not null,
+  ngtipo NUMBER(3) not null,
+  ngser  CHAR(1),
+  ngnum  NUMBER(9)
+)
+;
+create index FSN99903 on FSN999 (NGTIPO);
+alter table FSN999
+  add primary key (PGCOD, NGSUC, NGTIPO);
+

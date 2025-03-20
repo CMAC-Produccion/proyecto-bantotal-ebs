@@ -1,0 +1,23 @@
+create table AQPA103
+(
+  aqpa103nuim NUMBER(15) not null,
+  aqpa103tipo CHAR(1),
+  aqpa103fech DATE,
+  aqpa103hora CHAR(8),
+  aqpa103user CHAR(10),
+  aqpa103sucu NUMBER(3),
+  aqpa103esta CHAR(1),
+  aqpa103ax01 NUMBER(9),
+  aqpa103ax02 NUMBER(9),
+  aqpa103ax03 NUMBER(17,2),
+  aqpa103ax04 NUMBER(17,2),
+  aqpa103ax05 DATE,
+  aqpa103ax06 DATE,
+  aqpa103ax07 CHAR(100),
+  aqpa103ax08 CHAR(100),
+  aqpa103ax09 CHAR(100)
+)
+;
+alter table AQPA103
+  add primary key (AQPA103NUIM);
+

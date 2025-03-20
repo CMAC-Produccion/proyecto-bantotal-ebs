@@ -1,0 +1,34 @@
+create table FPP725
+(
+  fpp725emp NUMBER(3) not null,
+  fpp725mod NUMBER(3) not null,
+  fpp725suc NUMBER(3) not null,
+  fpp725mda NUMBER(4) not null,
+  fpp725pap NUMBER(4) not null,
+  fpp725cta NUMBER(9) not null,
+  fpp725ope NUMBER(9) not null,
+  fpp725sop NUMBER(3) not null,
+  fpp725top NUMBER(3) not null,
+  fpp725fep DATE not null,
+  fpp725ext CHAR(1),
+  fpp725ncu NUMBER(17,2),
+  fpp725pro CHAR(1),
+  fpp725msg VARCHAR2(255),
+  fpp725nu1 NUMBER(9),
+  fpp725nu2 NUMBER(9),
+  fpp725nu3 NUMBER(9),
+  fpp725im1 NUMBER(17,2),
+  fpp725im2 NUMBER(17,2),
+  fpp725im3 NUMBER(17,2),
+  fpp725ch1 VARCHAR2(255),
+  fpp725ch2 VARCHAR2(255),
+  fpp725ch3 VARCHAR2(255),
+  fpp725fe1 DATE,
+  fpp725fe2 DATE,
+  fpp725fe3 DATE
+)
+;
+create index FPP72502 on FPP725 (FPP725EMP, FPP725CTA, FPP725FEP, FPP725PRO);
+alter table FPP725
+  add primary key (FPP725EMP, FPP725MOD, FPP725SUC, FPP725MDA, FPP725PAP, FPP725CTA, FPP725OPE, FPP725SOP, FPP725TOP, FPP725FEP);
+

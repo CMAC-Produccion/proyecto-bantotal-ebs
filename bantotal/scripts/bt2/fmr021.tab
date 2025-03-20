@@ -1,0 +1,15 @@
+create table FMR021
+(
+  pgcod      NUMBER(3) not null,
+  liummod    NUMBER(3) not null,
+  liumoper   NUMBER(9) not null,
+  liumsbop   NUMBER(3) not null,
+  mopctipo   NUMBER(2) not null,
+  mopccod    NUMBER(3) not null,
+  liumopcsts CHAR(1)
+)
+;
+create index FMR02102 on FMR021 (LIUMMOD, MOPCTIPO, MOPCCOD);
+alter table FMR021
+  add primary key (PGCOD, LIUMMOD, LIUMOPER, LIUMSBOP, MOPCTIPO, MOPCCOD);
+

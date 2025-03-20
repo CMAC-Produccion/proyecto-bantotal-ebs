@@ -1,0 +1,15 @@
+create table MBC022
+(
+  mbc22emp  NUMBER(4) not null,
+  mbc22usu  CHAR(10) not null,
+  mbc22suc  NUMBER(3),
+  mbc22ush  CHAR(1),
+  mbc22aux1 NUMBER(9),
+  mbc22aux2 DATE,
+  mbc22aux3 CHAR(1),
+  mbc22aux4 CHAR(30)
+)
+;
+alter table MBC022
+  add primary key (MBC22EMP, MBC22USU);
+

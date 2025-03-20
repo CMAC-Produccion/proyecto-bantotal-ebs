@@ -1,0 +1,19 @@
+create table FSFT37
+(
+  kdicod    NUMBER(3) not null,
+  kditmda   NUMBER(4) not null,
+  kdiresi   CHAR(1) not null,
+  kditemi   NUMBER(4) not null,
+  kdirubtra NUMBER(16),
+  kdirubinv NUMBER(16),
+  kdirub1   NUMBER(16),
+  kdirub2   NUMBER(16),
+  kdicar1   CHAR(20),
+  kdicar2   CHAR(20),
+  kdinum1   NUMBER(9),
+  kdinum2   NUMBER(9)
+)
+;
+alter table FSFT37
+  add primary key (KDICOD, KDITMDA, KDIRESI, KDITEMI);
+

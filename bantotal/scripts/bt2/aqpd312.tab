@@ -1,0 +1,87 @@
+create table AQPD312
+(
+  aqpd312empcod NUMBER(3) not null,
+  aqpd312reccod VARCHAR2(20) not null,
+  aqpd312codigo NUMBER(9) not null,
+  aqpd312creusr VARCHAR2(10) not null,
+  aqpd312cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpd312estado VARCHAR2(1),
+  aqpd312recfec DATE,
+  aqpd312recfed VARCHAR2(10),
+  aqpd312rechor VARCHAR2(8),
+  aqpd312codres VARCHAR2(20),
+  aqpd312msgres VARCHAR2(600),
+  aqpd312errsql VARCHAR2(600),
+  aqpd312pepais NUMBER(3),
+  aqpd312tipdoc NUMBER(2),
+  aqpd312tipdos VARCHAR2(20),
+  aqpd312numdoc VARCHAR2(12),
+  aqpd312tipper VARCHAR2(1),
+  aqpd312numcel VARCHAR2(20),
+  aqpd312cemail VARCHAR2(100),
+  aqpd312apepat VARCHAR2(30),
+  aqpd312apemat VARCHAR2(30),
+  aqpd312nombre VARCHAR2(70),
+  aqpd312envfex DATE,
+  aqpd312envfec VARCHAR2(10),
+  aqpd312envhor VARCHAR2(8),
+  aqpd312envres VARCHAR2(2)
+)
+;
+comment on table AQPD312
+  is 'Reclamos - Notificaciones Electronicas a Demanda';
+comment on column AQPD312.aqpd312empcod
+  is 'Empresa - Codigo';
+comment on column AQPD312.aqpd312reccod
+  is 'Reclamo - Codigo';
+comment on column AQPD312.aqpd312codigo
+  is 'Codigo';
+comment on column AQPD312.aqpd312creusr
+  is 'Usuario';
+comment on column AQPD312.aqpd312cretim
+  is 'Fecha Time';
+comment on column AQPD312.aqpd312estado
+  is 'Estado';
+comment on column AQPD312.aqpd312recfec
+  is 'Fecha Reclamo';
+comment on column AQPD312.aqpd312recfed
+  is 'Fecha Reclamo STR';
+comment on column AQPD312.aqpd312rechor
+  is 'Hora Reclamo';
+comment on column AQPD312.aqpd312codres
+  is 'Codigo Respuesta';
+comment on column AQPD312.aqpd312msgres
+  is 'Mensaje Respuesta';
+comment on column AQPD312.aqpd312errsql
+  is 'Error SQL';
+comment on column AQPD312.aqpd312pepais
+  is 'Reclamo - PAIS';
+comment on column AQPD312.aqpd312tipdoc
+  is 'Reclamo - Tipo Documento';
+comment on column AQPD312.aqpd312tipdos
+  is 'Reclamo - Tipo Documento (DESC)';
+comment on column AQPD312.aqpd312numdoc
+  is 'Reclamo - NRO. Documento';
+comment on column AQPD312.aqpd312tipper
+  is 'Tipo Persona';
+comment on column AQPD312.aqpd312numcel
+  is 'Celular';
+comment on column AQPD312.aqpd312cemail
+  is 'email';
+comment on column AQPD312.aqpd312apepat
+  is 'Apellido Paterno';
+comment on column AQPD312.aqpd312apemat
+  is 'Apellido Materno';
+comment on column AQPD312.aqpd312nombre
+  is 'Nombre';
+comment on column AQPD312.aqpd312envfex
+  is 'Envio Fecha (DATE)';
+comment on column AQPD312.aqpd312envfec
+  is 'Envio Fecha (STR)';
+comment on column AQPD312.aqpd312envhor
+  is 'Envio Hora';
+comment on column AQPD312.aqpd312envres
+  is 'Envio Respuesta';
+alter table AQPD312
+  add primary key (AQPD312EMPCOD, AQPD312RECCOD, AQPD312CODIGO);
+

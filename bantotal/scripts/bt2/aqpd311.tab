@@ -1,0 +1,33 @@
+create table AQPD311
+(
+  aqpd311emp NUMBER(3) not null,
+  aqpd311cod VARCHAR2(20) not null,
+  aqpd311nro NUMBER(3) not null,
+  aqpd311des VARCHAR2(50),
+  aqpd311nom VARCHAR2(30),
+  aqpd311arc BLOB,
+  aqpd311usr VARCHAR2(10),
+  aqpd311tim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPD311
+  is 'Reclamos - Archivos Adjuntos';
+comment on column AQPD311.aqpd311emp
+  is 'Empresa';
+comment on column AQPD311.aqpd311cod
+  is 'Código';
+comment on column AQPD311.aqpd311nro
+  is 'Número';
+comment on column AQPD311.aqpd311des
+  is 'Descripción';
+comment on column AQPD311.aqpd311nom
+  is 'Nombre';
+comment on column AQPD311.aqpd311arc
+  is 'Archivo';
+comment on column AQPD311.aqpd311usr
+  is 'Usuario';
+comment on column AQPD311.aqpd311tim
+  is 'Fecha';
+alter table AQPD311
+  add primary key (AQPD311EMP, AQPD311COD, AQPD311NRO);
+

@@ -1,0 +1,10 @@
+create table CSMS01
+(
+  csms00cpo  CHAR(20) not null,
+  csmt002cod NUMBER(4) not null,
+  csms01val  VARCHAR2(40)
+)
+;
+alter table CSMS01
+  add primary key (CSMS00CPO, CSMT002COD);
+

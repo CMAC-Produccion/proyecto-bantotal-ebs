@@ -1,0 +1,11 @@
+create table WFROLOBJ
+(
+  wfrolcod NUMBER(4) not null,
+  wfprcid  NUMBER(4) not null,
+  wfobjid  NUMBER(4) not null
+)
+;
+create index IWFROLO1 on WFROLOBJ (WFPRCID, WFOBJID);
+alter table WFROLOBJ
+  add primary key (WFROLCOD, WFPRCID, WFOBJID);
+

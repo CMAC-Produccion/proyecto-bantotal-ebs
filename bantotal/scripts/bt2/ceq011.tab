@@ -1,0 +1,27 @@
+create table CEQ011
+(
+  ceq11cpt   CHAR(5) not null,
+  ceq11suc   NUMBER(5) not null,
+  ceq11id1   NUMBER(18) not null,
+  ceq11id2   NUMBER(18) not null,
+  ceq11id3   CHAR(25) not null,
+  ceq11bemp  NUMBER(3),
+  ceq11bmod  NUMBER(3),
+  ceq11bsuc  NUMBER(3),
+  ceq11bmda  NUMBER(4),
+  ceq11bpap  NUMBER(4),
+  ceq11bcta  NUMBER(9),
+  ceq11bope  NUMBER(9),
+  ceq11bsop  NUMBER(3),
+  ceq11btop  NUMBER(3),
+  ceq011cbuv CHAR(22),
+  ceq011cbun CHAR(22)
+)
+;
+create index CEQ01102 on CEQ011 (CEQ11BEMP, CEQ11BMOD, CEQ11BSUC, CEQ11BMDA, CEQ11BPAP, CEQ11BCTA, CEQ11BOPE, CEQ11BSOP, CEQ11BTOP);
+create index CEQ01103 on CEQ011 (CEQ11BEMP, CEQ11BMOD, CEQ11BCTA, CEQ11BOPE, CEQ11BSOP);
+create index CEQ01104 on CEQ011 (CEQ11SUC, CEQ11ID1, CEQ11ID2, CEQ11ID3);
+create index CEQ01105 on CEQ011 (CEQ11ID1, CEQ11ID2, CEQ11ID3);
+alter table CEQ011
+  add primary key (CEQ11CPT, CEQ11SUC, CEQ11ID1, CEQ11ID2, CEQ11ID3);
+

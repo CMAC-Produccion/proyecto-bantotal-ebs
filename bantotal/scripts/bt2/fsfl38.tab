@@ -1,0 +1,31 @@
+create table FSFL38
+(
+  fsfl38mod NUMBER(3) not null,
+  fsfl38top NUMBER(3) not null,
+  fsfl38fec DATE not null,
+  fsfl38hor CHAR(8) not null,
+  fsfl38rok CHAR(1),
+  fsfl38tip CHAR(1),
+  fsfl38uig CHAR(10),
+  fsfl38wig CHAR(10),
+  fsfl38fcf DATE,
+  fsfl38hcf CHAR(8),
+  fsfl38ucf CHAR(10),
+  fsfl38wcf CHAR(10),
+  fsfl38lim CHAR(4),
+  fsfl38trd CHAR(1),
+  fsfl38cal CHAR(1),
+  fsfl38pgm CHAR(10),
+  fsfl38bdj CHAR(1),
+  fsfl38ch1 CHAR(25),
+  fsfl38ch2 CHAR(25),
+  fsfl38im1 NUMBER(17,2),
+  fsfl38im2 NUMBER(17,2),
+  fsfl38nr1 NUMBER(9),
+  fsfl38nr2 NUMBER(9)
+)
+;
+create index FSFL3802 on FSFL38 (FSFL38ROK);
+alter table FSFL38
+  add primary key (FSFL38MOD, FSFL38TOP, FSFL38FEC, FSFL38HOR);
+

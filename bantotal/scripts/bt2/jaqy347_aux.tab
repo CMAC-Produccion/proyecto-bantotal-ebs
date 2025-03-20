@@ -1,0 +1,11 @@
+create table JAQY347_AUX
+(
+  jaqy347pai NUMBER(3),
+  jaqy347tdo NUMBER(2),
+  jaqy347ndo VARCHAR2(12),
+  jaqy347dig VARCHAR2(2)
+)
+;
+create index IDX_JAQY347_AUX_01 on JAQY347_AUX (JAQY347PAI, JAQY347TDO, JAQY347NDO);
+create index IDX_JAQY347_AUX_02 on JAQY347_AUX (JAQY347DIG);
+

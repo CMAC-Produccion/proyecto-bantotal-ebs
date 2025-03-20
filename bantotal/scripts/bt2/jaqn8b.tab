@@ -1,0 +1,156 @@
+create table JAQN8B
+(
+  jaqn8bemp NUMBER(3) not null,
+  jaqn8bmod NUMBER(3) not null,
+  jaqn8bsuc NUMBER(3) not null,
+  jaqn8bmda NUMBER(4) not null,
+  jaqn8bpap NUMBER(4) not null,
+  jaqn8bcta NUMBER(9) not null,
+  jaqn8bope NUMBER(9) not null,
+  jaqn8bsbo NUMBER(3) not null,
+  jaqn8btop NUMBER(3) not null,
+  jaqn8bfec DATE not null,
+  jaqn8bcor NUMBER(9) not null,
+  jaqn8busc CHAR(10),
+  jaqn8bwka CHAR(12),
+  jaqn8bins NUMBER(10),
+  jaqn8best CHAR(1),
+  jaqn8bces NUMBER(4),
+  jaqn8bncu NUMBER(9),
+  jaqn8bdac NUMBER(5),
+  jaqn8bsit VARCHAR2(255),
+  jaqn8btip NUMBER(2),
+  jaqn8bpta NUMBER(10,6),
+  jaqn8btac NUMBER(10,6),
+  jaqn8btaa NUMBER(10,6),
+  jaqn8bfep DATE,
+  jaqn8busp CHAR(10),
+  jaqn8bwkp CHAR(12),
+  jaqn8bccd NUMBER(3),
+  jaqn8bcmd NUMBER(3),
+  jaqn8bcsu NUMBER(3),
+  jaqn8bctr NUMBER(4),
+  jaqn8bcre NUMBER(4),
+  jaqn8bcfe DATE,
+  jaqn8bcod NUMBER(2),
+  jaqn8bcsb NUMBER(3),
+  jaqn8bcco CHAR(1),
+  jaqn8bcer NUMBER(5),
+  jaqn8bder VARCHAR2(255),
+  jaqn8bai1 NUMBER(10,6),
+  jaqn8bai2 NUMBER(17,2),
+  jaqn8ban1 NUMBER(9),
+  jaqn8ban2 NUMBER(9),
+  jaqn8bat1 VARCHAR2(255),
+  jaqn8bat2 VARCHAR2(255),
+  jaqn8baf1 DATE,
+  jaqn8baf2 DATE,
+  jaqn8bhum CHAR(8),
+  jaqn8bfum DATE,
+  jaqn8bfie DATE,
+  jaqn8btrp CHAR(100)
+)
+;
+comment on table JAQN8B
+  is 'Bandeja Tasas PJM';
+comment on column JAQN8B.jaqn8bemp
+  is 'Empresa';
+comment on column JAQN8B.jaqn8bmod
+  is 'Modulo';
+comment on column JAQN8B.jaqn8bsuc
+  is 'Sucursal';
+comment on column JAQN8B.jaqn8bmda
+  is 'Moneda';
+comment on column JAQN8B.jaqn8bpap
+  is 'Papel';
+comment on column JAQN8B.jaqn8bcta
+  is 'Cuenta';
+comment on column JAQN8B.jaqn8bope
+  is 'Operacion';
+comment on column JAQN8B.jaqn8bsbo
+  is 'SubOperacion';
+comment on column JAQN8B.jaqn8btop
+  is 'Tipo de Operacion';
+comment on column JAQN8B.jaqn8bfec
+  is 'Fecha de Carga';
+comment on column JAQN8B.jaqn8bcor
+  is 'Correlativo';
+comment on column JAQN8B.jaqn8busc
+  is 'Usuario de Carga';
+comment on column JAQN8B.jaqn8bwka
+  is 'Workstation de Carga';
+comment on column JAQN8B.jaqn8bins
+  is 'Instancia';
+comment on column JAQN8B.jaqn8best
+  is 'Estado Ingresado, Grabado, Contabilizado';
+comment on column JAQN8B.jaqn8bces
+  is 'Estado de Credito';
+comment on column JAQN8B.jaqn8bncu
+  is 'Numero de Cuotas';
+comment on column JAQN8B.jaqn8bdac
+  is 'Dias Atraso Congelados';
+comment on column JAQN8B.jaqn8bsit
+  is 'Situacion';
+comment on column JAQN8B.jaqn8btip
+  is 'Tipo Exoneracion';
+comment on column JAQN8B.jaqn8bpta
+  is 'Porcentaje Tasa';
+comment on column JAQN8B.jaqn8btac
+  is 'Tasa Actual';
+comment on column JAQN8B.jaqn8btaa
+  is 'Tasa Ajustado';
+comment on column JAQN8B.jaqn8bfep
+  is 'Fecha de Autorizacion';
+comment on column JAQN8B.jaqn8busp
+  is 'Usuario de Autorizacion';
+comment on column JAQN8B.jaqn8bwkp
+  is 'Workstation Autorizacion';
+comment on column JAQN8B.jaqn8bccd
+  is 'Empresa Contabilizacion';
+comment on column JAQN8B.jaqn8bcmd
+  is 'Modulo Contabilizacion';
+comment on column JAQN8B.jaqn8bcsu
+  is 'Sucursal Contabilizacion';
+comment on column JAQN8B.jaqn8bctr
+  is 'Transaccion Contabilizacion';
+comment on column JAQN8B.jaqn8bcre
+  is 'Relacion Contabilizacion';
+comment on column JAQN8B.jaqn8bcfe
+  is 'Fecha Contabilizacion';
+comment on column JAQN8B.jaqn8bcod
+  is 'Ordinal Contabilizacion';
+comment on column JAQN8B.jaqn8bcsb
+  is 'SubOrdinal Contabilizacion';
+comment on column JAQN8B.jaqn8bcco
+  is 'Estado Contabilizacion';
+comment on column JAQN8B.jaqn8bcer
+  is 'Codigo Error';
+comment on column JAQN8B.jaqn8bder
+  is 'Descriopcion de Error';
+comment on column JAQN8B.jaqn8bai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN8B.jaqn8bai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN8B.jaqn8ban1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN8B.jaqn8ban2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN8B.jaqn8bat1
+  is 'Auxiliar Texto 1';
+comment on column JAQN8B.jaqn8bat2
+  is 'Auxiliar Texto 2';
+comment on column JAQN8B.jaqn8baf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN8B.jaqn8baf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN8B.jaqn8bhum
+  is 'Hora Ultimo Movimiento';
+comment on column JAQN8B.jaqn8bfum
+  is 'Fecha Ultimo Movimiento';
+comment on column JAQN8B.jaqn8bfie
+  is 'Fecha de Ingreso de Exoneracion';
+comment on column JAQN8B.jaqn8btrp
+  is 'Tipo de Reprogramacion';
+alter table JAQN8B
+  add primary key (JAQN8BEMP, JAQN8BMOD, JAQN8BSUC, JAQN8BMDA, JAQN8BPAP, JAQN8BCTA, JAQN8BOPE, JAQN8BSBO, JAQN8BTOP, JAQN8BFEC, JAQN8BCOR);
+

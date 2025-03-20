@@ -1,0 +1,69 @@
+create table AQPC153
+(
+  aqpc153pgc  NUMBER(3) not null,
+  aqpc153mod  NUMBER(3) not null,
+  aqpc153suc  NUMBER(3) not null,
+  aqpc153mda  NUMBER(4) not null,
+  aqpc153pap  NUMBER(4) not null,
+  aqpc153cta  NUMBER(9) not null,
+  aqpc153ope  NUMBER(9) not null,
+  aqpc153sbp  NUMBER(3) not null,
+  aqpc153top  NUMBER(3) not null,
+  aqpc153usr  VARCHAR2(10) not null,
+  aqpc153fec  DATE not null,
+  aqpc153hor  VARCHAR2(8) not null,
+  aqpc153wrk  VARCHAR2(10) not null,
+  aqpc153imp  NUMBER(17,2),
+  aqpc153flg1 CHAR(1),
+  aqpc153flg2 CHAR(1),
+  aqpc153act  VARCHAR2(10),
+  aqpc153aux1 VARCHAR2(30),
+  aqpc153aux2 NUMBER(17,2),
+  aqpc153aux3 NUMBER(9)
+)
+;
+comment on table AQPC153
+  is 'Tabla de Log de Verificación de Saldos Pendientes de Pago';
+comment on column AQPC153.aqpc153pgc
+  is 'Código de empresa';
+comment on column AQPC153.aqpc153mod
+  is 'Módulo';
+comment on column AQPC153.aqpc153suc
+  is 'Sucursal';
+comment on column AQPC153.aqpc153mda
+  is 'Moneda';
+comment on column AQPC153.aqpc153pap
+  is 'Papel';
+comment on column AQPC153.aqpc153cta
+  is 'Cuenta';
+comment on column AQPC153.aqpc153ope
+  is 'Operación';
+comment on column AQPC153.aqpc153sbp
+  is 'Suboperación';
+comment on column AQPC153.aqpc153top
+  is 'Tipo de operación';
+comment on column AQPC153.aqpc153usr
+  is 'Usuario';
+comment on column AQPC153.aqpc153fec
+  is 'Fecha de proceso';
+comment on column AQPC153.aqpc153hor
+  is 'Hora de proceso';
+comment on column AQPC153.aqpc153wrk
+  is 'Estación de Trabajo';
+comment on column AQPC153.aqpc153imp
+  is 'Importe';
+comment on column AQPC153.aqpc153flg1
+  is 'Estado Anterior (S/N)';
+comment on column AQPC153.aqpc153flg2
+  is 'Estado Actual (S/N)';
+comment on column AQPC153.aqpc153act
+  is 'Descripción Actualizado (Activo/Inactivo)';
+comment on column AQPC153.aqpc153aux1
+  is 'Auxiliar 1';
+comment on column AQPC153.aqpc153aux2
+  is 'Auxiliar 2';
+comment on column AQPC153.aqpc153aux3
+  is 'Auxiliar 3';
+alter table AQPC153
+  add primary key (AQPC153PGC, AQPC153MOD, AQPC153SUC, AQPC153MDA, AQPC153PAP, AQPC153CTA, AQPC153OPE, AQPC153SBP, AQPC153TOP, AQPC153USR, AQPC153FEC, AQPC153HOR, AQPC153WRK);
+

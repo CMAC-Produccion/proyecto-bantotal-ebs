@@ -1,0 +1,16 @@
+create table SNG430
+(
+  sng430pgc NUMBER(3) not null,
+  sng430ase CHAR(10) not null,
+  sng430dsc CHAR(40),
+  sng430ubt CHAR(1),
+  sng430cta NUMBER(9),
+  sng431cod NUMBER(3),
+  sng430inh CHAR(1),
+  sng430fin DATE
+)
+;
+create index SNG43002 on SNG430 (SNG431COD);
+alter table SNG430
+  add primary key (SNG430PGC, SNG430ASE);
+

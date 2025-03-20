@@ -1,0 +1,37 @@
+create table JSEA07
+(
+  jsea07emp  NUMBER(3) not null,
+  jsea07suc  NUMBER(3) not null,
+  jsea07mod  NUMBER(3) not null,
+  jsea07mda  NUMBER(4) not null,
+  jsea07pap  NUMBER(4) not null,
+  jsea07cta  NUMBER(9) not null,
+  jsea07oper NUMBER(9) not null,
+  jsea07sbop NUMBER(3) not null,
+  jsea07tope NUMBER(3) not null,
+  jsea07cnom CHAR(30),
+  jsea07vvta NUMBER(17,2),
+  jsea07fvta DATE,
+  jsea07vbie NUMBER(17,2),
+  jsea07res  CHAR(1),
+  jsea07iva  NUMBER(14,2),
+  jsea07fch1 DATE,
+  jsea07fch2 DATE,
+  jsea07fch3 DATE,
+  jsea07cod1 NUMBER(5),
+  jsea07cod2 NUMBER(5),
+  jsea07cod3 NUMBER(5),
+  jsea07dsc1 CHAR(30),
+  jsea07dsc2 CHAR(30),
+  jsea07dsc3 CHAR(30),
+  jsea07est1 CHAR(1),
+  jsea07est2 CHAR(1),
+  jsea07est3 CHAR(1),
+  jsea07imp1 NUMBER(17,2),
+  jsea07imp2 NUMBER(17,2),
+  jsea07imp3 NUMBER(17,2)
+)
+;
+alter table JSEA07
+  add primary key (JSEA07EMP, JSEA07SUC, JSEA07MOD, JSEA07MDA, JSEA07PAP, JSEA07CTA, JSEA07OPER, JSEA07SBOP, JSEA07TOPE);
+

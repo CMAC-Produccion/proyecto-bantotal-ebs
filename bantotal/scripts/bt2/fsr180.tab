@@ -1,0 +1,21 @@
+create table FSR180
+(
+  t180pgcod  NUMBER(3) not null,
+  r180itsuc  NUMBER(3) not null,
+  r180itmod  NUMBER(3) not null,
+  r180ittran NUMBER(3) not null,
+  r180rubro  NUMBER(16) not null,
+  r180kext   NUMBER(9) not null,
+  t180canal  NUMBER(5),
+  r180auxc1  CHAR(20),
+  r180auxn1  NUMBER(3),
+  r180auxn2  NUMBER(3),
+  r180auxn3  NUMBER(9)
+)
+;
+create index FSR18002 on FSR180 (T180PGCOD, T180CANAL);
+create index FSR18010 on FSR180 (T180PGCOD, R180RUBRO, R180ITMOD, R180ITTRAN);
+create index FSR18011 on FSR180 (T180PGCOD, R180ITMOD, R180ITTRAN, R180ITSUC, R180RUBRO, R180KEXT);
+alter table FSR180
+  add primary key (T180PGCOD, R180ITSUC, R180ITMOD, R180ITTRAN, R180RUBRO, R180KEXT);
+

@@ -1,0 +1,19 @@
+create table FBC748
+(
+  bc747pgc NUMBER(3) not null,
+  bc747mod NUMBER(3) not null,
+  bc747trn NUMBER(3) not null,
+  bc747com CHAR(1) not null,
+  bc747inf CHAR(1) not null,
+  bc747res CHAR(1) not null,
+  bc747top CHAR(1) not null,
+  bc747dob CHAR(1) not null,
+  bc748tva CHAR(2) not null,
+  bc748val CHAR(5) not null,
+  bc748dsc CHAR(30)
+)
+;
+create index FBC74802 on FBC748 (BC747PGC, BC747TRN, BC747MOD, BC747COM, BC747INF, BC747RES, BC747TOP, BC747DOB);
+alter table FBC748
+  add primary key (BC747PGC, BC747MOD, BC747TRN, BC747COM, BC747INF, BC747RES, BC747TOP, BC747DOB, BC748TVA, BC748VAL);
+

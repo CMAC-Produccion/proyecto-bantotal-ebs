@@ -1,0 +1,41 @@
+create table FSF091
+(
+  lbpgcod    NUMBER(3) not null,
+  lbfinro    NUMBER(3) not null,
+  lbctnro    NUMBER(9) not null,
+  lbnroprog  NUMBER(2) not null,
+  lbhabilit  CHAR(1),
+  lbdiames   NUMBER(2),
+  lbultmes   NUMBER(2),
+  lbultanio  NUMBER(4),
+  lbcantmes  NUMBER(2),
+  lbquedasdo NUMBER(17,2),
+  lbretimp   NUMBER(17,2),
+  lbtiporet  NUMBER(1),
+  lbtitular  CHAR(50),
+  lbtitci    CHAR(12),
+  lbttcod    NUMBER(2),
+  lbdirec    CHAR(65),
+  lblocalid  CHAR(20),
+  lbtelef    CHAR(20),
+  lbdepto    NUMBER(5),
+  lbautoriz  CHAR(50),
+  lbautci    CHAR(12),
+  lbobserv   CHAR(30),
+  lbnoorden  CHAR(1),
+  lbbanco    CHAR(20),
+  lbbcolocal CHAR(1),
+  lbsucur    CHAR(20),
+  lbnrocta   CHAR(20),
+  lbtitbco   CHAR(35),
+  lbnroaux1  NUMBER(9),
+  lbnroaux2  NUMBER(9),
+  lbimpaux1  NUMBER(17,2),
+  lbimpaux2  NUMBER(17,2)
+)
+;
+create index FSF09102 on FSF091 (LBPGCOD, LBCTNRO, LBFINRO, LBNROPROG);
+create index FSF09103 on FSF091 (LBPGCOD, LBFINRO, LBTIPORET, LBCTNRO);
+alter table FSF091
+  add primary key (LBPGCOD, LBFINRO, LBCTNRO, LBNROPROG);
+

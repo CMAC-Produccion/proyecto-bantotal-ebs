@@ -1,0 +1,21 @@
+create table JAQY688
+(
+  jaqy688cod NUMBER(9) not null,
+  jaqy688usu VARCHAR2(10) not null,
+  jaqy688cel VARCHAR2(20),
+  jaqy688doc VARCHAR2(20),
+  jaqy688fec DATE,
+  jaqy688hor VARCHAR2(8),
+  jaqy688sal NUMBER(16,2),
+  jaqy688per VARCHAR2(64),
+  jaqy688a1  NUMBER(4),
+  jaqy688a2  NUMBER(16,2),
+  jaqy688a3  VARCHAR2(40),
+  jaqy688a4  DATE,
+  jaqy688a5  NUMBER(9)
+)
+;
+create index IJAQY688001 on JAQY688 (JAQY688FEC, JAQY688HOR, JAQY688PER);
+alter table JAQY688
+  add primary key (JAQY688COD, JAQY688USU);
+

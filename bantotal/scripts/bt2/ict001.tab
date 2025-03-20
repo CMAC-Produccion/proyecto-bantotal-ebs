@@ -1,0 +1,18 @@
+create table ICT001
+(
+  pgcod      NUMBER(3) not null,
+  infid      NUMBER(5) not null,
+  infnom     CHAR(50),
+  modulo     NUMBER(3),
+  infnegoc   CHAR(1),
+  infhabil   CHAR(1),
+  infpantall CHAR(1),
+  infsubmit  CHAR(1),
+  infultatic NUMBER(2),
+  infultftrc NUMBER(2)
+)
+;
+create index ICT00103 on ICT001 (MODULO);
+alter table ICT001
+  add primary key (PGCOD, INFID);
+

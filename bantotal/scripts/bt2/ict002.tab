@@ -1,0 +1,20 @@
+create table ICT002
+(
+  pgcod      NUMBER(3) not null,
+  infid      NUMBER(5) not null,
+  infaticorr NUMBER(2) not null,
+  atiid      NUMBER(3),
+  infatiorde NUMBER(2),
+  infatititc CHAR(20),
+  mopctipo   NUMBER(2),
+  mopccod    NUMBER(3),
+  infatitcta NUMBER(3),
+  fecwid     NUMBER(2)
+)
+;
+create index ICT00202 on ICT002 (FECWID);
+create index ICT00203 on ICT002 (ATIID);
+create index ICT00205 on ICT002 (PGCOD, INFID, INFATIORDE);
+alter table ICT002
+  add primary key (PGCOD, INFID, INFATICORR);
+

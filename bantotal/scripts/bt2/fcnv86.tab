@@ -1,0 +1,54 @@
+create table FCNV86
+(
+  c86emp    NUMBER(4) not null,
+  c86mod    NUMBER(3) not null,
+  c86suc    NUMBER(3) not null,
+  c86mda    NUMBER(4) not null,
+  c86pap    NUMBER(4) not null,
+  c86cta    NUMBER(9) not null,
+  c86oper   NUMBER(9) not null,
+  c86sbop   NUMBER(3) not null,
+  c86tope   NUMBER(3) not null,
+  c86secu   NUMBER(4) not null,
+  c85usuid  CHAR(12),
+  c85tipc   NUMBER(2),
+  c85nomar  CHAR(12),
+  c86indic  NUMBER(15),
+  c86bcori  NUMBER(6),
+  c86ctori  NUMBER(16),
+  c86tpori  NUMBER(3),
+  c86iddes  CHAR(12),
+  c86nodes  CHAR(22),
+  c86bcdes  NUMBER(6),
+  c86ctdes  CHAR(16),
+  c86tpdes  NUMBER(3),
+  c86vlr    NUMBER(14,2),
+  c86descr  CHAR(80),
+  c86ema    CHAR(60),
+  c86inst   NUMBER(10),
+  c86writem NUMBER(10),
+  c86tcod   NUMBER(3),
+  c86tsuc   NUMBER(3),
+  c86tmod   NUMBER(3),
+  c86ttran  NUMBER(3),
+  c86nrel   NUMBER(4),
+  c86ord    NUMBER(2),
+  c86sbor   NUMBER(3),
+  c86tfcon  DATE,
+  c86tfvc   DATE,
+  c86tcont  CHAR(1),
+  c86est    CHAR(1),
+  c86estt   CHAR(1),
+  c86proc   NUMBER(4)
+)
+;
+create index FCNV8602 on FCNV86 (C85USUID, C85TIPC, C85NOMAR);
+create index FCNV8603 on FCNV86 (C86TCOD, C86TSUC, C86TMOD, C86TTRAN, C86NREL);
+create index FCNV8604 on FCNV86 (C86INST);
+create index FCNV8605 on FCNV86 (C86WRITEM);
+create index FCNV8606 on FCNV86 (C86PROC);
+create index FCNV8607 on FCNV86 (C86CTA, C86IDDES, C86CTDES);
+create index FCNV8608 on FCNV86 (C85NOMAR, C86EMP, C86MOD, C86SUC, C86MDA, C86CTA, C86OPER, C86SBOP, C86TOPE, C86SECU);
+alter table FCNV86
+  add primary key (C86EMP, C86MOD, C86SUC, C86MDA, C86PAP, C86CTA, C86OPER, C86SBOP, C86TOPE, C86SECU);
+

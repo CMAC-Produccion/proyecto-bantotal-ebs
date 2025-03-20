@@ -1,0 +1,23 @@
+create table FPP157
+(
+  pp157emp  NUMBER(3) not null,
+  pp157mod  NUMBER(3) not null,
+  pp157top  NUMBER(3) not null,
+  pp157mda  NUMBER(4) not null,
+  pp157pap  NUMBER(4) not null,
+  pp157est  NUMBER(4) not null,
+  pp157corr NUMBER(5) not null,
+  pp157car  CHAR(20) not null,
+  pp157num  NUMBER(3) not null,
+  pp157mo   NUMBER(3),
+  pp157trn  NUMBER(3),
+  pp157aux1 NUMBER(5),
+  pp157aux2 CHAR(1),
+  pp157aux3 DATE,
+  pp157aux4 CHAR(30)
+)
+;
+create index FPP15702 on FPP157 (PP157EMP, PP157MOD, PP157TOP, PP157CORR);
+alter table FPP157
+  add primary key (PP157EMP, PP157MOD, PP157TOP, PP157MDA, PP157PAP, PP157EST, PP157CORR, PP157CAR, PP157NUM);
+

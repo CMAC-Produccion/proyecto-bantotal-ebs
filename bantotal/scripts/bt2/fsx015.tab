@@ -1,0 +1,17 @@
+create table FSX015
+(
+  pgcod  NUMBER(3) not null,
+  hcmod  NUMBER(3) not null,
+  hsucor NUMBER(3) not null,
+  htran  NUMBER(3) not null,
+  hnrel  NUMBER(4) not null,
+  hfcon  DATE not null,
+  txcod  NUMBER(3) not null,
+  txreng NUMBER(3) not null,
+  txtext CHAR(65)
+)
+;
+create unique index FSX01501_UK on FSX015 (PGCOD, HCMOD, HSUCOR, HTRAN, HNREL, HFCON, TXCOD, TXRENG);
+create index FSX01503 on FSX015 (TXCOD);
+create index FSX01504 on FSX015 (PGCOD, TXCOD, HFCON, HCMOD, HSUCOR, HTRAN, HNREL, TXRENG);
+

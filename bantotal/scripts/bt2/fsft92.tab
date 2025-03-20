@@ -1,0 +1,16 @@
+create table FSFT92
+(
+  sft92emp   NUMBER(3) not null,
+  sft92codco NUMBER(3) not null,
+  sft92comi  NUMBER(3) not null,
+  sft92cust  NUMBER(9) not null,
+  sft92idcus NUMBER(2) not null,
+  sft92espe  NUMBER(4) not null,
+  sft92nucom NUMBER(3),
+  sft92numod NUMBER(3),
+  sft92habi  CHAR(1)
+)
+;
+alter table FSFT92
+  add primary key (SFT92EMP, SFT92CODCO, SFT92COMI, SFT92CUST, SFT92IDCUS, SFT92ESPE);
+

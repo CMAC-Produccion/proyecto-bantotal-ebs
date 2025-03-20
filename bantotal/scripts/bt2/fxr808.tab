@@ -1,0 +1,11 @@
+create table FXR808
+(
+  swtdto CHAR(4) not null,
+  dtotip NUMBER(3) not null,
+  dtolon NUMBER(2)
+)
+;
+create index FXR80803 on FXR808 (DTOTIP);
+alter table FXR808
+  add primary key (SWTDTO, DTOTIP);
+

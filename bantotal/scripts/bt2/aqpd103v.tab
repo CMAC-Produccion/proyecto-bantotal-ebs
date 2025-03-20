@@ -1,0 +1,83 @@
+create table AQPD103V
+(
+  aqpd103vfecha    DATE not null,
+  aqpd103vcodfwd   NUMBER(18) not null,
+  aqpd103vnfwd     VARCHAR2(15) not null,
+  aqpd103vfecini   DATE,
+  aqpd103vfecvto   DATE,
+  aqpd103vdiares   NUMBER(18),
+  aqpd103vmntusd   NUMBER(18,8),
+  aqpd103vvanmn    NUMBER(18,2),
+  aqpd103vtcsposbs NUMBER(18,3),
+  aqpd103vtcfwdpip NUMBER(18,14),
+  aqpd103vtcfwc    NUMBER(18,5),
+  aqpd103vtsintc   NUMBER(18,14),
+  aqpd103vfac      NUMBER(18,16),
+  aqpd103vvalope   NUMBER(18,10),
+  aqpd103vent      VARCHAR2(50),
+  aqpd103vfecr     DATE,
+  aqpd103vuser     VARCHAR2(10),
+  aqpd103vcodent   VARCHAR2(10),
+  aqpd103vcomp1    NUMBER(18,2),
+  aqpd103vpor      NUMBER(18,4),
+  aqpd103vresul1   NUMBER(18,2),
+  aqpd103vcomp2    NUMBER(18,2),
+  aqpd103vtotal    NUMBER(18,2),
+  aqpd103vfacpon   NUMBER(18,2)
+)
+;
+comment on table AQPD103V
+  is 'TABLA DE VALORIZACIÓN';
+comment on column AQPD103V.aqpd103vfecha
+  is 'FECHA';
+comment on column AQPD103V.aqpd103vcodfwd
+  is 'CODIGO FORWARD';
+comment on column AQPD103V.aqpd103vnfwd
+  is 'NOMBRE FORWARD';
+comment on column AQPD103V.aqpd103vfecini
+  is 'FECHA INICIO';
+comment on column AQPD103V.aqpd103vfecvto
+  is 'FECHA VENCIMIENTO';
+comment on column AQPD103V.aqpd103vdiares
+  is 'DIAS RESTANTES';
+comment on column AQPD103V.aqpd103vmntusd
+  is 'NOMINAL USD';
+comment on column AQPD103V.aqpd103vvanmn
+  is 'VALOR ACTUAL NOMINAL PEN';
+comment on column AQPD103V.aqpd103vtcsposbs
+  is 'TC SPOT SBS';
+comment on column AQPD103V.aqpd103vtcfwdpip
+  is 'TC Fw PIP(Ajustado a TC  Spot SBS)';
+comment on column AQPD103V.aqpd103vtcfwc
+  is 'TC Fw Contrato (Strike Price)';
+comment on column AQPD103V.aqpd103vtsintc
+  is 'Tasa Interés Contraparte (PIP)';
+comment on column AQPD103V.aqpd103vfac
+  is 'FACTOR';
+comment on column AQPD103V.aqpd103vvalope
+  is 'VALOR DE LA OPERACION';
+comment on column AQPD103V.aqpd103vent
+  is 'ENTIDAD';
+comment on column AQPD103V.aqpd103vfecr
+  is 'FECHA DE GENERACION';
+comment on column AQPD103V.aqpd103vuser
+  is 'USUARIO';
+comment on column AQPD103V.aqpd103vcodent
+  is 'CODIGO DE ENTIDAD';
+comment on column AQPD103V.aqpd103vcomp1
+  is 'COMPONENTE 1';
+comment on column AQPD103V.aqpd103vpor
+  is 'PORCENTAJE';
+comment on column AQPD103V.aqpd103vresul1
+  is 'RESULTADO 1';
+comment on column AQPD103V.aqpd103vcomp2
+  is 'COMPONENTE 2';
+comment on column AQPD103V.aqpd103vtotal
+  is 'TOTAL';
+comment on column AQPD103V.aqpd103vfacpon
+  is 'FACTOR DE PONDERACION';
+create index AQPD103VA2 on AQPD103V (AQPD103VFECHA, AQPD103VCODFWD);
+create index AQPD103VA3 on AQPD103V (AQPD103VFECHA);
+alter table AQPD103V
+  add primary key (AQPD103VFECHA, AQPD103VCODFWD, AQPD103VNFWD);
+

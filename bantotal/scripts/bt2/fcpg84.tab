@@ -1,0 +1,39 @@
+create table FCPG84
+(
+  cpg84empbt NUMBER(3) not null,
+  cpg84fpres DATE not null,
+  cpg84codac NUMBER(3) not null,
+  cpg84conv  NUMBER(8) not null,
+  cpg84serv  NUMBER(3) not null,
+  cpg84nenv  NUMBER(4) not null,
+  cpg84nivel NUMBER(2) not null,
+  cpg84corr  NUMBER(10) not null,
+  cpg84coder NUMBER(5) not null,
+  cpg84idnv2 NUMBER(10),
+  cpg84idnv3 NUMBER(10),
+  cpg84idnv4 NUMBER(10),
+  cpg84idnv5 NUMBER(10),
+  cpg84idnv6 NUMBER(10),
+  cpg84idnv7 NUMBER(10),
+  cpg84idnv8 NUMBER(10),
+  cpg84comt  CHAR(75),
+  cpg84cgdo  CHAR(1),
+  cpg84fing  DATE,
+  cpg84hing  CHAR(8),
+  cpg84usui  CHAR(10),
+  cpg84feri  DATE,
+  cpg84hrai  CHAR(8),
+  cpg84usua  CHAR(10),
+  cpg84fera  DATE,
+  cpg84hraa  CHAR(8),
+  cpg84est   CHAR(3),
+  cpg84blq   CHAR(1),
+  cpg84inst  NUMBER(10)
+)
+;
+create index FCPG8402 on FCPG84 (CPG84INST);
+create index FCPG8403 on FCPG84 (CPG84EMPBT, CPG84FPRES, CPG84CODAC, CPG84CONV, CPG84SERV, CPG84NENV, CPG84NIVEL, CPG84IDNV2, CPG84CODER);
+create index FCPG8404 on FCPG84 (CPG84EMPBT, CPG84FPRES, CPG84CODAC, CPG84CONV, CPG84SERV, CPG84NENV, CPG84NIVEL, CPG84CODER);
+alter table FCPG84
+  add primary key (CPG84EMPBT, CPG84FPRES, CPG84CODAC, CPG84CONV, CPG84SERV, CPG84NENV, CPG84NIVEL, CPG84CORR, CPG84CODER);
+

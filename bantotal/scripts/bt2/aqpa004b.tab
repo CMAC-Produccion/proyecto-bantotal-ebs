@@ -1,0 +1,33 @@
+create table AQPA004B
+(
+  aqpa4bemp   NUMBER(3) not null,
+  aqpa4bmod   NUMBER(3) not null,
+  aqpa4bsuc   NUMBER(3) not null,
+  aqpa4bmda   NUMBER(4) not null,
+  aqpa4bpap   NUMBER(4) not null,
+  aqpa4bcta   NUMBER(9) not null,
+  aqpa4bope   NUMBER(9) not null,
+  aqpa4bsbo   NUMBER(3) not null,
+  aqpa4btop   NUMBER(3) not null,
+  aqpa4bcor   NUMBER(3) not null,
+  aqpa4bpzo   NUMBER(4),
+  aqpa4best   NUMBER(2),
+  aqpa4bind   VARCHAR2(2),
+  aqpa4bgrp   NUMBER(4),
+  aqpa4brub   NUMBER(16),
+  aqpa4bsdo   NUMBER(16,2),
+  aqpa4bpdi   NUMBER(4),
+  aqpa4bfep   DATE,
+  aqpa4bmodt  NUMBER(4),
+  aqpa4bsuct  NUMBER(4),
+  aqpa4btrat  NUMBER(4),
+  aqpa4brelt  NUMBER(4),
+  aqpa4bcont  CHAR(1),
+  aqpa4bfect  DATE,
+  aqpa4bsdo11 NUMBER(16,2),
+  aqpa4brev   CHAR(1)
+)
+;
+alter table AQPA004B
+  add primary key (AQPA4BEMP, AQPA4BMOD, AQPA4BSUC, AQPA4BMDA, AQPA4BPAP, AQPA4BCTA, AQPA4BOPE, AQPA4BSBO, AQPA4BTOP, AQPA4BCOR);
+

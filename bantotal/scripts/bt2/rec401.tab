@@ -1,0 +1,10 @@
+create table REC401
+(
+  rec401ent NUMBER(3) not null,
+  rec401tpg CHAR(1) not null,
+  rec401dtp CHAR(30)
+)
+;
+alter table REC401
+  add primary key (REC401ENT, REC401TPG);
+

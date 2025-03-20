@@ -1,0 +1,12 @@
+create table CLE103
+(
+  cle103prd  NUMBER(3) not null,
+  cle103tpo  NUMBER(2) not null,
+  cle103fch  DATE not null,
+  cle103hra  CHAR(8) not null,
+  cle103lote NUMBER(9)
+)
+;
+alter table CLE103
+  add primary key (CLE103PRD, CLE103TPO, CLE103FCH, CLE103HRA);
+

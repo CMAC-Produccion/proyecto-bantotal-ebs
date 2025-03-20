@@ -1,0 +1,33 @@
+create table JSEN017
+(
+  jsen017pgc NUMBER(3) not null,
+  jsen017its NUMBER(3) not null,
+  jsen017itm NUMBER(3) not null,
+  jsen017itt NUMBER(3) not null,
+  jsen017nre NUMBER(4) not null,
+  jsen017ord NUMBER(2) not null,
+  jsen017sbo NUMBER(3) not null,
+  jsen017fco DATE not null,
+  jsen0171nr NUMBER(7),
+  jsen017sta CHAR(3),
+  jsen017imp CHAR(1),
+  jsen017csr CHAR(9),
+  jsen017ruc CHAR(25),
+  jsen017nro CHAR(25),
+  jsen017suc NUMBER(3),
+  jsen017fch DATE,
+  jsen017nom CHAR(40),
+  jsen017doc CHAR(25),
+  jsen017mon NUMBER(17,2),
+  jsen017iva NUMBER(17,2),
+  jsen017ret NUMBER(17,2),
+  jsen017riv NUMBER(17,2),
+  jsen017con CHAR(65),
+  jsen017pet CHAR(1),
+  jsen017val NUMBER(17,2),
+  jsen017ctn NUMBER(9)
+)
+;
+alter table JSEN017
+  add primary key (JSEN017PGC, JSEN017ITS, JSEN017ITM, JSEN017ITT, JSEN017NRE, JSEN017ORD, JSEN017SBO, JSEN017FCO);
+

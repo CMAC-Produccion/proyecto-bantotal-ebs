@@ -1,0 +1,23 @@
+create table FSD005
+(
+  pepais    NUMBER(3) not null,
+  petdoc    NUMBER(2) not null,
+  pendoc    CHAR(12) not null,
+  docod     NUMBER(2) not null,
+  docallp   CHAR(35),
+  donrop    NUMBER(5),
+  doaparp   CHAR(6),
+  dociudp   CHAR(20),
+  dodeptp   CHAR(15),
+  dopaisp   NUMBER(3),
+  docposp   CHAR(8),
+  doccorp   NUMBER(5),
+  dodepcodp NUMBER(5)
+)
+;
+create index FSD00503 on FSD005 (DOCOD);
+create index FSD00504 on FSD005 (PEPAIS, DODEPCODP);
+create index FSD00505 on FSD005 (DOPAISP, DODEPCODP);
+alter table FSD005
+  add primary key (PEPAIS, PETDOC, PENDOC, DOCOD);
+

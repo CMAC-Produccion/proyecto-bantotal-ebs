@@ -1,0 +1,28 @@
+create table FBC153
+(
+  bc153emp  NUMBER(3) not null,
+  bc153pais NUMBER(4) not null,
+  bc153tdoc NUMBER(2) not null,
+  bc153ndoc CHAR(12) not null,
+  bc153cta  NUMBER(9) not null,
+  bc153fch  DATE not null,
+  bc153tipo CHAR(1) not null,
+  bc153imp1 NUMBER(17,2),
+  bc153imp2 NUMBER(17,2),
+  bc153imp3 NUMBER(17,2),
+  bc153imp4 NUMBER(17,2),
+  bc153imp5 NUMBER(17,2),
+  bc153imp6 NUMBER(17,2),
+  bc153imp7 NUMBER(17,2),
+  bc153imp8 NUMBER(17,2),
+  bc153deu  NUMBER(17,2),
+  bc153sdo  NUMBER(17,2),
+  bc153catn NUMBER(5),
+  bc153cate CHAR(15),
+  bc153pzo  NUMBER(5)
+)
+;
+create index FBC15302 on FBC153 (BC153EMP, BC153FCH, BC153PAIS, BC153TDOC, BC153NDOC);
+alter table FBC153
+  add primary key (BC153EMP, BC153PAIS, BC153TDOC, BC153NDOC, BC153CTA, BC153FCH, BC153TIPO);
+

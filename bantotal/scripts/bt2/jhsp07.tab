@@ -1,0 +1,36 @@
+create table JHSP07
+(
+  jhsp07fprc DATE not null,
+  jhsp07sec  NUMBER(6) not null,
+  jhsp07trep CHAR(2),
+  jhsp07frep DATE,
+  jhsp07emp  NUMBER(5),
+  jhsp07tper CHAR(1),
+  jhsp07pais NUMBER(3),
+  jhsp07tdoc CHAR(1),
+  jhsp07ndoc CHAR(12),
+  jhsp07csbs CHAR(11),
+  jhsp07clie NUMBER(9),
+  jhsp07dcli CHAR(120),
+  jhsp07dir  CHAR(80),
+  jhsp07ubig CHAR(6),
+  jhsp07tcta CHAR(1),
+  jhsp07ncta CHAR(30),
+  jhsp07tmda CHAR(1),
+  jhsp07mda  NUMBER(4),
+  jhsp07fisa DATE,
+  jhsp07tsan CHAR(5),
+  jhsp07tplz CHAR(1),
+  jhsp07ffsa DATE,
+  jhsp07fpub DATE,
+  jhsp07npub NUMBER(4),
+  jhsp07frec DATE,
+  jhsp07hsbc CHAR(1),
+  jhsp07proc CHAR(1)
+)
+;
+create unique index JHSP0701 on JHSP07 (JHSP07FPRC, JHSP07SEC);
+create index JHSP0702 on JHSP07 (JHSP07FPRC, JHSP07TREP, JHSP07TPER, JHSP07TDOC, JHSP07NDOC, JHSP07NCTA);
+create index JHSP0703 on JHSP07 (JHSP07PROC);
+create index JHSP0704 on JHSP07 (JHSP07TREP, JHSP07TPER, JHSP07TDOC, JHSP07NDOC, JHSP07TCTA, JHSP07NCTA);
+

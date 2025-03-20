@@ -1,0 +1,28 @@
+create table JAQZ255D
+(
+  jaqz255dnro    NUMBER(4) not null,
+  jaqz255dsec    NUMBER(7) not null,
+  jaqz255dord    NUMBER(9) not null,
+  jaqz255dfec    DATE not null,
+  jaqz255dfev    DATE,
+  jaqz255dcta    NUMBER(9),
+  jaqz255dsuc    NUMBER(4),
+  jaqz255dtip    CHAR(2),
+  jaqz255dsal    NUMBER(17,2),
+  jaqz255dcda    CHAR(4),
+  jaqz255dactsal NUMBER(17,2),
+  jaqz255dactcda CHAR(4),
+  jaqz255dtdoca  CHAR(1),
+  jaqz255dndoca  CHAR(12),
+  jaqz255ddocta  NUMBER(11),
+  jaqz255dtdocaa CHAR(1),
+  jaqz255dndocaa CHAR(12),
+  jaqz255ddoctaa NUMBER(11),
+  jaqz255dcodper CHAR(6) not null,
+  jaqz255drub    NUMBER(14)
+)
+;
+create index DESAPERIODO on JAQZ255D (JAQZ255DCODPER);
+alter table JAQZ255D
+  add constraint CLAVES primary key (JAQZ255DNRO, JAQZ255DSEC, JAQZ255DORD, JAQZ255DFEC);
+

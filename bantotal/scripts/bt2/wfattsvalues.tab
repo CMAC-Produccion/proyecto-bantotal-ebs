@@ -1,0 +1,11 @@
+create table WFATTSVALUES
+(
+  wfinsprcid NUMBER(10) not null,
+  wfattsid   CHAR(50) not null,
+  wfattsval  CHAR(30)
+)
+;
+create index WFATT00301 on WFATTSVALUES (WFATTSID, WFATTSVAL);
+alter table WFATTSVALUES
+  add primary key (WFINSPRCID, WFATTSID);
+

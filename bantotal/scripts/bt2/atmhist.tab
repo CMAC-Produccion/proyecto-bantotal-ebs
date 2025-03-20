@@ -1,0 +1,16 @@
+create table ATMHIST
+(
+  hsubop      NUMBER(3),
+  atm         CHAR(30),
+  operaciones NUMBER
+)
+;
+comment on table ATMHIST
+  is 'Histórico operaciones ATMS';
+comment on column ATMHIST.hsubop
+  is 'Suboperacion';
+comment on column ATMHIST.atm
+  is 'ATM';
+comment on column ATMHIST.operaciones
+  is 'Nro Operaciones';
+

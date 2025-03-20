@@ -1,0 +1,26 @@
+create table FSD427
+(
+  tasemp  NUMBER(3) not null,
+  tasmod  NUMBER(3) not null,
+  taspiz  NUMBER(2) not null,
+  tascta  NUMBER(9) not null,
+  tassop  NUMBER(3) not null,
+  tasmda  NUMBER(4) not null,
+  taspap  NUMBER(4) not null,
+  tasfdes DATE not null,
+  tasmto  NUMBER(17,2) not null,
+  tasttas NUMBER(1),
+  tasfinv NUMBER(8),
+  tasvig  CHAR(1)
+)
+;
+create index FSD42703 on FSD427 (TASEMP, TASMOD, TASPIZ, TASCTA, TASSOP, TASMDA, TASPAP, TASFINV, TASMTO);
+create index FSD42704 on FSD427 (TASMOD);
+create index FSD42705 on FSD427 (TASPIZ);
+create index FSD42706 on FSD427 (TASMDA);
+create index FSD42807 on FSD427 (TASPAP);
+create index FSD42808 on FSD427 (TASTTAS);
+create index FSD42809 on FSD427 (TASEMP, TASCTA);
+alter table FSD427
+  add primary key (TASEMP, TASMOD, TASPIZ, TASCTA, TASSOP, TASMDA, TASPAP, TASFDES, TASMTO);
+

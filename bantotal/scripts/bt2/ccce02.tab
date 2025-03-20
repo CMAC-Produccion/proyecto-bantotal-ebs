@@ -1,0 +1,14 @@
+create table CCCE02
+(
+  ccce02fch  CHAR(6) not null,
+  ccce02hra  NUMBER(4) not null,
+  ccce02idr  NUMBER(2) not null,
+  ccce02tpor CHAR(1),
+  ccce02cntr NUMBER(6),
+  ccce02fcha NUMBER(8),
+  ccce02res  CHAR(117)
+)
+;
+alter table CCCE02
+  add primary key (CCCE02FCH, CCCE02HRA, CCCE02IDR);
+

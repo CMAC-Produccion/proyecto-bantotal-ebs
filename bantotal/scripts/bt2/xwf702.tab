@@ -1,0 +1,24 @@
+create table XWF702
+(
+  xwf702ins NUMBER(10) not null,
+  xwf702pgc NUMBER(3) not null,
+  xwf702req NUMBER(10) not null,
+  xwf702drq CHAR(50),
+  xwf702cta NUMBER(9),
+  xwf702suc NUMBER(3),
+  xwf702mod NUMBER(3),
+  xwf702trn NUMBER(3),
+  xwf702rel NUMBER(4),
+  xwf702fco DATE,
+  xwf702ord NUMBER(2),
+  xwf702sor NUMBER(3),
+  xwf702crg NUMBER(5)
+)
+;
+create index XWF70202 on XWF702 (XWF702PGC, XWF702SUC, XWF702MOD, XWF702TRN, XWF702REL, XWF702FCO, XWF702ORD, XWF702SOR);
+create index XWF70203 on XWF702 (XWF702PGC, XWF702CTA, XWF702INS);
+create index XWF70204 on XWF702 (XWF702PGC, XWF702INS, XWF702CRG);
+create index XWF70205 on XWF702 (XWF702PGC, XWF702CRG);
+alter table XWF702
+  add primary key (XWF702INS, XWF702PGC, XWF702REQ);
+

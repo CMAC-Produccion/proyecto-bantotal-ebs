@@ -1,0 +1,51 @@
+create table JHSP34
+(
+  sp34pgcod  NUMBER(3) not null,
+  sp34ctnro  NUMBER(9) not null,
+  sp34sbop   NUMBER(3) not null,
+  sp34user   CHAR(10),
+  sp34fecha  DATE,
+  sp34hora   CHAR(8),
+  sp34banco  NUMBER(3),
+  sp34mda    NUMBER(4),
+  sp34mod    NUMBER(3),
+  sp34emppai NUMBER(3),
+  sp34tope   NUMBER(3),
+  sp34suc    NUMBER(3),
+  sp34pap    NUMBER(4),
+  sp34emptdo NUMBER(2),
+  sp34empndo CHAR(12),
+  sp34abono  NUMBER(17,2),
+  sp34retiro NUMBER(17,2),
+  sp34intang NUMBER(17,2),
+  sp34disp   NUMBER(17,2),
+  sp34dl650  NUMBER(17,2),
+  sp34dl127  NUMBER(17,2),
+  sp34retjud NUMBER(17,2),
+  sp34fecviv DATE,
+  sp34pdtmod NUMBER(3),
+  sp34pdtsuc NUMBER(3),
+  sp34pdtmda NUMBER(4),
+  sp34pdtpap NUMBER(4),
+  sp34pdtcta NUMBER(9),
+  sp34pdtope NUMBER(9),
+  sp34pdtsbo NUMBER(3),
+  sp34pdttop NUMBER(3),
+  sp34cgmod  NUMBER(3),
+  sp34cgnro  NUMBER(9),
+  sp34estado NUMBER(1),
+  sp34observ CHAR(80),
+  sp34itsuc  NUMBER(3),
+  sp34itmod  NUMBER(3),
+  sp34ittran NUMBER(3),
+  sp34itnrel NUMBER(4),
+  sp34itfvc  DATE,
+  sp34intcie NUMBER(17,2),
+  sp34imppdt NUMBER(17,2)
+)
+;
+create unique index JHSP3401 on JHSP34 (SP34PGCOD, SP34CTNRO, SP34SBOP);
+create index JHSP3402 on JHSP34 (SP34USER, SP34FECHA, SP34HORA, SP34BANCO, SP34MDA, SP34EMPNDO, SP34EMPPAI, SP34EMPTDO, SP34CTNRO, SP34SBOP);
+create index JHSP3403 on JHSP34 (SP34PDTMOD, SP34PDTSUC, SP34PDTMDA, SP34PDTPAP, SP34PDTCTA, SP34PDTOPE, SP34PDTSBO, SP34PDTTOP);
+create index JHSP3404 on JHSP34 (SP34CGMOD, SP34CGNRO);
+

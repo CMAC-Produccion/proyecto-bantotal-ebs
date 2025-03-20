@@ -1,0 +1,12 @@
+create table FSE502
+(
+  fse502pai NUMBER(3) not null,
+  fse502tdo NUMBER(2) not null,
+  fse502ndo CHAR(25) not null,
+  fse502tli NUMBER(4) not null,
+  fse502fua DATE
+)
+;
+alter table FSE502
+  add primary key (FSE502PAI, FSE502TDO, FSE502NDO, FSE502TLI);
+

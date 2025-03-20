@@ -1,0 +1,14 @@
+create table FIFS23
+(
+  ifs21int NUMBER(3) not null,
+  ifs22tpo NUMBER(3) not null,
+  ifs23tdc NUMBER(3) not null,
+  ifs23dsc CHAR(30),
+  ifs23ax1 CHAR(30),
+  ifs23ax2 NUMBER(4),
+  ifs23ax3 CHAR(1)
+)
+;
+alter table FIFS23
+  add primary key (IFS21INT, IFS22TPO, IFS23TDC);
+

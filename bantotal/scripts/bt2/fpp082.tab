@@ -1,0 +1,34 @@
+create table FPP082
+(
+  fpp082emp NUMBER(3) not null,
+  fpp082mod NUMBER(3) not null,
+  fpp082suc NUMBER(3) not null,
+  fpp082mda NUMBER(4) not null,
+  fpp082pap NUMBER(4) not null,
+  fpp082cta NUMBER(9) not null,
+  fpp082ope NUMBER(9) not null,
+  fpp082sbo NUMBER(3) not null,
+  fpp082top NUMBER(3) not null,
+  fpp082fpa DATE not null,
+  fpp082tip CHAR(1) not null,
+  fpp082tse NUMBER(5),
+  fpp082imp NUMBER(17,2),
+  fpp082au1 NUMBER(9),
+  fpp082au2 NUMBER(9),
+  fpp082au3 NUMBER(9),
+  fpp082au4 NUMBER(17,2),
+  fpp082au5 NUMBER(17,2),
+  fpp082au6 NUMBER(17,2),
+  fpp082au7 DATE,
+  fpp082au8 DATE,
+  fpp082au9 DATE,
+  fpp082a10 CHAR(30),
+  fpp082a11 CHAR(30),
+  fpp082a12 CHAR(30)
+)
+;
+create index FPP08202 on FPP082 (FPP082EMP, FPP082MOD, FPP082CTA, FPP082OPE, FPP082FPA, FPP082TSE, FPP082IMP);
+create index FPP08203 on FPP082 (FPP082EMP, FPP082CTA, FPP082TSE);
+alter table FPP082
+  add primary key (FPP082EMP, FPP082MOD, FPP082SUC, FPP082MDA, FPP082PAP, FPP082CTA, FPP082OPE, FPP082SBO, FPP082TOP, FPP082FPA, FPP082TIP);
+

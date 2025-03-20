@@ -1,0 +1,11 @@
+create table TDW041
+(
+  tdw040pro CHAR(10) not null,
+  tdw041tar CHAR(19) not null,
+  tdw041aux CHAR(20)
+)
+;
+create index TDW04103 on TDW041 (TDW041TAR);
+alter table TDW041
+  add primary key (TDW040PRO, TDW041TAR);
+

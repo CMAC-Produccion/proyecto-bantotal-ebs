@@ -1,0 +1,17 @@
+create table JBXP04
+(
+  jbxp04cod NUMBER(3) not null,
+  jbxp04suc NUMBER(3) not null,
+  jbxp04cab CHAR(140),
+  jbxp04tx1 CHAR(100),
+  jbxp04tx2 CHAR(100),
+  jbxp04tx3 CHAR(100),
+  jbxp04tx4 CHAR(100),
+  jbxp04ax1 CHAR(50),
+  jbxp04ax2 NUMBER(9),
+  jbxp04ax3 DATE,
+  jbxp04ax4 NUMBER(5)
+)
+;
+create unique index JBXP0401 on JBXP04 (JBXP04COD, JBXP04SUC);
+

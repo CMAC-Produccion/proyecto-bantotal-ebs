@@ -1,0 +1,30 @@
+create table FBC300
+(
+  bc300emp   NUMBER(3) not null,
+  bc300fch   NUMBER(6) not null,
+  bc300pais  NUMBER(3) not null,
+  bc300tdoc  NUMBER(2) not null,
+  bc300ndoc  CHAR(20) not null,
+  bc300proc  CHAR(1),
+  bc300tipp  CHAR(1),
+  bc300resi  CHAR(1),
+  bc300acti  NUMBER(4),
+  bc300tipe  NUMBER(4),
+  bc300pare  NUMBER(4),
+  bc300fnac  NUMBER(4),
+  bc300priap NUMBER(4),
+  bc300segap NUMBER(4),
+  bc300noms  NUMBER(4),
+  bc300sigl  NUMBER(4),
+  bc300razso NUMBER(4),
+  bc300dom   NUMBER(4),
+  bc300auxn1 NUMBER(16),
+  bc300auxn2 NUMBER(16),
+  bc300auxc1 CHAR(30),
+  bc300auxc2 CHAR(50),
+  bc300auxc3 CHAR(75)
+)
+;
+alter table FBC300
+  add primary key (BC300EMP, BC300FCH, BC300PAIS, BC300TDOC, BC300NDOC);
+

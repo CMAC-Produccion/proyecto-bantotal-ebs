@@ -1,0 +1,17 @@
+create table FSFFAH
+(
+  fsfrenemp NUMBER(3) not null,
+  fsfrenaa  NUMBER(4) not null,
+  fsfrenmm  NUMBER(2) not null,
+  fsfrennro NUMBER(6),
+  fsfrenfpr DATE,
+  fsfrena1  CHAR(1),
+  fsfrena2  CHAR(1),
+  fsfrena3  NUMBER(9),
+  fsfrena4  NUMBER(9),
+  fsfrena5  CHAR(35)
+)
+;
+alter table FSFFAH
+  add primary key (FSFRENEMP, FSFRENAA, FSFRENMM);
+

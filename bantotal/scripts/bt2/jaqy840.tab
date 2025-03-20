@@ -1,0 +1,50 @@
+create table JAQY840
+(
+  jaqy840corr    NUMBER,
+  jaqy840entidad VARCHAR2(4),
+  jaqy840tndoc   VARCHAR2(18),
+  jaqy840idclien VARCHAR2(15),
+  jaqy840codprod VARCHAR2(5),
+  jaqy840codtran VARCHAR2(5),
+  jaqy840usu     VARCHAR2(20),
+  jaqy840cargusu NUMBER(5),
+  jaqy840ip      VARCHAR2(15),
+  jaqy840dantnov NUMBER(10),
+  jaqy840dposnov NUMBER(10),
+  jaqy840fecnov  NUMBER(8),
+  jaqy840horanov NUMBER(6),
+  jaqy840fecproc DATE,
+  jaqy840corr2   NUMBER(18)
+)
+;
+comment on column JAQY840.jaqy840corr
+  is 'Correlativo';
+comment on column JAQY840.jaqy840entidad
+  is 'Código de Entidad';
+comment on column JAQY840.jaqy840tndoc
+  is 'Tipo de Documento más Nro. de Identificación';
+comment on column JAQY840.jaqy840idclien
+  is 'Código de Cliente asignado por la Institución';
+comment on column JAQY840.jaqy840codprod
+  is 'Código de Producto de la Novedad';
+comment on column JAQY840.jaqy840codtran
+  is 'Código de la Transacción';
+comment on column JAQY840.jaqy840usu
+  is 'Usuario que aprobó la Novedad';
+comment on column JAQY840.jaqy840cargusu
+  is 'Puesto o Cargo del Usuario que aprobó la Novedad';
+comment on column JAQY840.jaqy840ip
+  is 'IP del Terminal que realizó la Novedad';
+comment on column JAQY840.jaqy840dantnov
+  is 'Dato Anterior a la Novedad';
+comment on column JAQY840.jaqy840dposnov
+  is 'Dato Posterior a la Novedad';
+comment on column JAQY840.jaqy840fecnov
+  is 'Fecha de la Novedad';
+comment on column JAQY840.jaqy840horanov
+  is 'Hora de la Novedad';
+comment on column JAQY840.jaqy840fecproc
+  is 'Fecha de Proceso';
+comment on column JAQY840.jaqy840corr2
+  is 'Correlativo 2 de tabla para Monitor Plus';
+

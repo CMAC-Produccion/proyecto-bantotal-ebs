@@ -1,0 +1,11 @@
+create table CNL609
+(
+  cnl600ver CHAR(20) not null,
+  cnl600pch CHAR(50) not null,
+  cnl609cod NUMBER(9) not null,
+  cnl609cor NUMBER(9) not null
+)
+;
+alter table CNL609
+  add primary key (CNL600VER, CNL600PCH, CNL609COD, CNL609COR);
+

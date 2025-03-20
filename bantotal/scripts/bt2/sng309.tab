@@ -1,0 +1,12 @@
+create table SNG309
+(
+  sng308inst NUMBER(10) not null,
+  sng308cod  NUMBER(3) not null,
+  sng308corr NUMBER(3) not null,
+  sng309impu NUMBER(3) not null,
+  sng309mto  NUMBER(17,2)
+)
+;
+alter table SNG309
+  add primary key (SNG308INST, SNG308COD, SNG308CORR, SNG309IMPU);
+

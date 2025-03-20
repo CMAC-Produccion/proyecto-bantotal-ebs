@@ -1,0 +1,17 @@
+create table FSR212
+(
+  catcod  NUMBER(5) not null,
+  catcate CHAR(15) not null,
+  coecod  NUMBER(3),
+  catcd1  CHAR(1),
+  catcd2  CHAR(1),
+  catcd3  CHAR(1),
+  catnm1  NUMBER(17,2),
+  catnm2  NUMBER(17,2),
+  catnm3  NUMBER(16)
+)
+;
+create index FSR21202 on FSR212 (COECOD);
+alter table FSR212
+  add primary key (CATCOD, CATCATE);
+

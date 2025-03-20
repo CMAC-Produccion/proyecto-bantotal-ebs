@@ -1,0 +1,17 @@
+create table JAQL831
+(
+  jaql831cpro NUMBER(9) not null,
+  jaql831fpro DATE not null,
+  jaql831tpro CHAR(1) not null,
+  jaql831hini CHAR(8),
+  jaql831hfin CHAR(8),
+  jaql831nreg NUMBER(9),
+  jaql831obse VARCHAR2(100),
+  jaql831fsis DATE,
+  jaql831frcc DATE,
+  jaql831ffin DATE
+)
+;
+alter table JAQL831
+  add primary key (JAQL831CPRO, JAQL831FPRO, JAQL831TPRO);
+

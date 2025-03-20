@@ -1,0 +1,74 @@
+create table AQPA364
+(
+  aqpa364corr    NUMBER(4) not null,
+  aqpa364horar   CHAR(10),
+  aqpa364pais    NUMBER(4) not null,
+  aqpa364tdoc    NUMBER(4) not null,
+  aqpa364ndoc    VARCHAR2(12) not null,
+  aqpa364tcamb   NUMBER(14,8),
+  aqpa364inst    NUMBER(12) not null,
+  aqpa364fec     DATE not null,
+  aqpa364hora    CHAR(8) not null,
+  aqpa364user    VARCHAR2(12),
+  aqpa364mesanio VARCHAR2(8),
+  aqpa364capcaja NUMBER(17,2),
+  aqpa364ifis    NUMBER(17,2),
+  aqpa364resneto NUMBER(17,2),
+  aqpa364ccontg  NUMBER(17,2),
+  aqpa364cpoten  NUMBER(17,2),
+  aqpa364ratio   NUMBER(10,6),
+  aqpa364est     VARCHAR2(2),
+  aqpa364tarea   VARCHAR2(4),
+  aqpa364naux1   NUMBER(17,2),
+  aqpa364naux2   NUMBER(17,2),
+  aqpa364naux3   NUMBER(17,2),
+  aqpa364vaux1   VARCHAR2(25),
+  aqpa364vaux2   VARCHAR2(25),
+  aqpa364vaux3   VARCHAR2(25),
+  aqpa364daux1   DATE,
+  aqpa364daux2   DATE,
+  aqpa364daux3   DATE
+)
+;
+comment on column AQPA364.aqpa364corr
+  is 'Correlativo';
+comment on column AQPA364.aqpa364pais
+  is 'Pais de Documento';
+comment on column AQPA364.aqpa364tdoc
+  is 'Tipo de Documento';
+comment on column AQPA364.aqpa364ndoc
+  is 'Nro de Documento';
+comment on column AQPA364.aqpa364tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column AQPA364.aqpa364inst
+  is 'Nro de Solicitud ';
+comment on column AQPA364.aqpa364fec
+  is 'Fecha de Proceso';
+comment on column AQPA364.aqpa364hora
+  is 'Hora de Proceso';
+comment on column AQPA364.aqpa364user
+  is 'Usuario';
+comment on column AQPA364.aqpa364mesanio
+  is 'Mes y Año de Maximo Ratio calculado en AQPA363';
+comment on column AQPA364.aqpa364capcaja
+  is 'Capacidad CMAC de Maximo Ratio calculado en AQPA363';
+comment on column AQPA364.aqpa364ifis
+  is 'Deuda IFIS mensual de Maximo Ratio calculado en AQPA363';
+comment on column AQPA364.aqpa364resneto
+  is 'Resultado Neto de Maximo Ratio calculado en AQPA363';
+comment on column AQPA364.aqpa364ccontg
+  is 'Cuota Contingente de Maximo Ratio calculado en AQPA363';
+comment on column AQPA364.aqpa364cpoten
+  is 'Cuota Potencial de Maximo Ratio calculado en AQPA363';
+comment on column AQPA364.aqpa364ratio
+  is 'Maximo Ratio calculado en AQPA363';
+comment on column AQPA364.aqpa364est
+  is 'Estado H(Habilitado) ultimo ejecutado, I (Inhabilitado) ejecutado anteriormente';
+comment on column AQPA364.aqpa364tarea
+  is 'De donde se saco la data, OT otorgamiento DP ultima disposicion AC actualizacion';
+create index AQPA3642 on AQPA364 (AQPA364CORR, AQPA364FEC, AQPA364HORA);
+create index AQPA3643 on AQPA364 (AQPA364INST);
+create index AQPA3644 on AQPA364 (AQPA364PAIS, AQPA364TDOC, AQPA364NDOC);
+alter table AQPA364
+  add primary key (AQPA364CORR, AQPA364PAIS, AQPA364TDOC, AQPA364NDOC, AQPA364INST, AQPA364FEC, AQPA364HORA);
+

@@ -1,0 +1,19 @@
+create table FSFI45
+(
+  sfi45emp  NUMBER(3) not null,
+  sfi44cod  NUMBER(3) not null,
+  sfi45com  NUMBER(3) not null,
+  sfi45mod  NUMBER(3),
+  sfi45dsc  CHAR(30),
+  sfi45hab  CHAR(1),
+  sfi45au1  CHAR(1),
+  sfi45au2  CHAR(1),
+  sfi45au3  NUMBER(9),
+  sfi45au4  NUMBER(9),
+  sfi45timp NUMBER(2)
+)
+;
+create index FSFI4502 on FSFI45 (SFI44COD);
+alter table FSFI45
+  add primary key (SFI45EMP, SFI44COD, SFI45COM);
+

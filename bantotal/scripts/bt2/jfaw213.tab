@@ -1,0 +1,28 @@
+create table JFAW213
+(
+  jfaw213emp NUMBER(3) not null,
+  jfaw213age NUMBER(3) not null,
+  jfaw213sba NUMBER(3) not null,
+  jfaw213pai NUMBER(3),
+  jfaw213tip NUMBER(2),
+  jfaw213nro CHAR(12),
+  jfaw213nom CHAR(50),
+  jfaw213nag CHAR(30),
+  jfaw213nsb CHAR(30),
+  jfaw213nu1 NUMBER(9),
+  jfaw213nu2 NUMBER(9),
+  jfaw213nu3 NUMBER(9),
+  jfaw213im1 NUMBER(17,2),
+  jfaw213im2 NUMBER(17,2),
+  jfaw213im3 NUMBER(17,2),
+  jfaw213ca1 CHAR(30),
+  jfaw213ca2 CHAR(30),
+  jfaw213ca3 CHAR(30),
+  jfaw213fe1 DATE,
+  jfaw213fe2 DATE,
+  jfaw213fe3 DATE
+)
+;
+alter table JFAW213
+  add primary key (JFAW213EMP, JFAW213AGE, JFAW213SBA);
+

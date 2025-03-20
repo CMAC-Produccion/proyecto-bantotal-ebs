@@ -1,0 +1,52 @@
+create table AQPB709
+(
+  aqpb709fecc DATE not null,
+  aqpb709code VARCHAR2(10) not null,
+  aqpb709nop  VARCHAR2(10) not null,
+  aqpb709tneg NUMBER(18,2) not null,
+  aqpb709ntra VARCHAR2(10) not null,
+  aqpb709ncer VARCHAR2(50) not null,
+  aqpb709tdoc VARCHAR2(10),
+  aqpb709ndoc VARCHAR2(12),
+  aqpb709nemp VARCHAR2(300),
+  aqpb709temp NUMBER,
+  aqpb709mda  VARCHAR2(10),
+  aqpb709mon  NUMBER(18,5),
+  aqpb709pcob NUMBER(18,2),
+  aqpb709csol NUMBER(1)
+)
+;
+comment on table AQPB709
+  is 'Tabla  espejo USRREPBI.NB_BCR_REACTIVA_II_REGULAR';
+comment on column AQPB709.aqpb709fecc
+  is 'fec_carga';
+comment on column AQPB709.aqpb709code
+  is 'cod_entidad_participante ';
+comment on column AQPB709.aqpb709nop
+  is 'num_operacion_reporte';
+comment on column AQPB709.aqpb709tneg
+  is 'tasa_adjudicada_negoc';
+comment on column AQPB709.aqpb709ntra
+  is 'num_tramo';
+comment on column AQPB709.aqpb709ncer
+  is 'num_certificado_cofide';
+comment on column AQPB709.aqpb709tdoc
+  is 'tip_documento_deudor';
+comment on column AQPB709.aqpb709ndoc
+  is 'num_documento_deudor';
+comment on column AQPB709.aqpb709nemp
+  is 'razon_social';
+comment on column AQPB709.aqpb709temp
+  is 'tamaño_empresa';
+comment on column AQPB709.aqpb709mda
+  is 'moneda';
+comment on column AQPB709.aqpb709mon
+  is 'monto_desembolsado_cred';
+comment on column AQPB709.aqpb709pcob
+  is 'porcent_cobertura_gob';
+comment on column AQPB709.aqpb709csol
+  is 'COD_SOLICITUD';
+create index AQPB7092 on AQPB709 (AQPB709NDOC);
+alter table AQPB709
+  add primary key (AQPB709FECC, AQPB709CODE, AQPB709NOP, AQPB709NTRA, AQPB709TNEG, AQPB709NCER);
+

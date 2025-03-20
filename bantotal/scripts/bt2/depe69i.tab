@@ -1,0 +1,22 @@
+create table DEPE69I
+(
+  depe69gcod CHAR(1) not null,
+  depe69hser CHAR(1) not null,
+  depe69bago NUMBER(2) not null,
+  depe69ecls NUMBER(2) not null,
+  depe69ftrn NUMBER(2) not null,
+  depe69iemi CHAR(1) not null,
+  depe69irec CHAR(1) not null,
+  depe69igir NUMBER(4) not null,
+  depe69iimi CHAR(1) not null,
+  depe69icon NUMBER(2) not null,
+  depe69itre CHAR(1) not null,
+  depe69imod NUMBER(3),
+  depe69itrn NUMBER(3)
+)
+;
+create index DEPE69I2 on DEPE69I (DEPE69ECLS, DEPE69FTRN);
+create index DEPE69I3 on DEPE69I (DEPE69BAGO);
+alter table DEPE69I
+  add primary key (DEPE69GCOD, DEPE69HSER, DEPE69BAGO, DEPE69ECLS, DEPE69FTRN, DEPE69IEMI, DEPE69IREC, DEPE69IGIR, DEPE69IIMI, DEPE69ICON, DEPE69ITRE);
+

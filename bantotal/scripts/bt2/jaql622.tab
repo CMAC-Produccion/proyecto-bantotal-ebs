@@ -1,0 +1,26 @@
+create table JAQL622
+(
+  jaql622nusec NUMBER(18) not null,
+  jaql622fepro DATE not null,
+  jaql622idarc NUMBER(18),
+  jaql622ageid VARCHAR2(64),
+  jaql622ageno VARCHAR2(256),
+  jaql622aisdn VARCHAR2(20),
+  jaql622amail VARCHAR2(64),
+  jaql622auser VARCHAR2(64),
+  jaql622atext VARCHAR2(64),
+  jaql622aclea VARCHAR2(20),
+  jaql622aacco VARCHAR2(64),
+  jaql622aopty VARCHAR2(64),
+  jaql622traam VARCHAR2(32),
+  jaql622comma VARCHAR2(32),
+  jaql622trada VARCHAR2(64),
+  jaql622srvis VARCHAR2(20),
+  jaql622comty VARCHAR2(10),
+  jaql622fintr VARCHAR2(20),
+  jaql622fearc DATE
+)
+;
+alter table JAQL622
+  add primary key (JAQL622NUSEC, JAQL622FEPRO);
+

@@ -1,0 +1,26 @@
+create table JAQY685
+(
+  jaqy685pgc NUMBER(3) not null,
+  jaqy685suc NUMBER(3) not null,
+  jaqy685mda NUMBER(4) not null,
+  jaqy685pap NUMBER(4) not null,
+  jaqy685sct NUMBER(9) not null,
+  jaqy685ope NUMBER(9) not null,
+  jaqy685sob NUMBER(3) not null,
+  jaqy685top NUMBER(3) not null,
+  jaqy685mod NUMBER(3) not null,
+  jaqy685fec DATE not null,
+  jaqy685hra VARCHAR2(8) not null,
+  jaqy685cta VARCHAR2(30),
+  jaqy685usu VARCHAR2(10),
+  jaqy685agu NUMBER(3),
+  jaqy685de  DATE,
+  jaqy685al  DATE,
+  jaqy685au1 NUMBER(4),
+  jaqy685au2 VARCHAR2(50),
+  jaqy685au3 DATE
+)
+;
+alter table JAQY685
+  add primary key (JAQY685PGC, JAQY685SUC, JAQY685MDA, JAQY685PAP, JAQY685SCT, JAQY685OPE, JAQY685SOB, JAQY685TOP, JAQY685MOD, JAQY685FEC, JAQY685HRA);
+

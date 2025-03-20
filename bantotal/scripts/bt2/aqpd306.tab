@@ -1,0 +1,42 @@
+create table AQPD306
+(
+  aqpd306creusr VARCHAR2(10) not null,
+  aqpd306creseq NUMBER(9) not null,
+  aqpd306cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpd306fecini DATE,
+  aqpd306fecfin DATE,
+  aqpd306reccod VARCHAR2(20),
+  aqpd306canope NUMBER(3),
+  aqpd306opstip VARCHAR2(10),
+  aqpd306opsotr VARCHAR2(150),
+  aqpd306mottip NUMBER(3),
+  aqpd306mototr VARCHAR2(150)
+)
+;
+comment on table AQPD306
+  is 'RR2 - Base';
+comment on column AQPD306.aqpd306creusr
+  is 'Usuario';
+comment on column AQPD306.aqpd306creseq
+  is 'Código';
+comment on column AQPD306.aqpd306cretim
+  is 'Time';
+comment on column AQPD306.aqpd306fecini
+  is 'Fecha Inicio';
+comment on column AQPD306.aqpd306fecfin
+  is 'Fecha Fin';
+comment on column AQPD306.aqpd306reccod
+  is 'Código de Reclamo';
+comment on column AQPD306.aqpd306canope
+  is 'Canal Operación';
+comment on column AQPD306.aqpd306opstip
+  is 'OPS';
+comment on column AQPD306.aqpd306opsotr
+  is 'OPS - Otros';
+comment on column AQPD306.aqpd306mottip
+  is 'Motivo';
+comment on column AQPD306.aqpd306mototr
+  is 'Motivo - Otros';
+alter table AQPD306
+  add primary key (AQPD306CREUSR, AQPD306CRESEQ);
+

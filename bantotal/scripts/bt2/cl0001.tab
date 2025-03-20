@@ -1,0 +1,12 @@
+create table CL0001
+(
+  cl01pais NUMBER(3) not null,
+  cl01tdoc NUMBER(2) not null,
+  cl01ndoc CHAR(12) not null,
+  cl01exp  CHAR(2),
+  cl01fch  DATE
+)
+;
+create unique index CL000101 on CL0001 (CL01PAIS, CL01TDOC, CL01NDOC);
+create index CL000102 on CL0001 (CL01EXP, CL01NDOC);
+

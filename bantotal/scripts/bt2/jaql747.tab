@@ -1,0 +1,33 @@
+create table JAQL747
+(
+  jaql747pgco NUMBER(3) not null,
+  jaql747scsu NUMBER(3) not null,
+  jaql747scmo NUMBER(3) not null,
+  jaql747scmd NUMBER(4) not null,
+  jaql747scpa NUMBER(4) not null,
+  jaql747scct NUMBER(9) not null,
+  jaql747scop NUMBER(9) not null,
+  jaql747scsb NUMBER(3) not null,
+  jaql747scto NUMBER(3) not null,
+  jaql747pais NUMBER(3) not null,
+  jaql747tdoc NUMBER(2) not null,
+  jaql747ndoc CHAR(12) not null,
+  jaql747fere DATE,
+  jaql747tipo CHAR(1),
+  jaql747impo NUMBER(12,2),
+  jaql747esta CHAR(1),
+  jaql747obse VARCHAR2(100),
+  jal747au01  VARCHAR2(50),
+  jal747au02  VARCHAR2(50),
+  jal747au03  NUMBER(12),
+  jal747au04  NUMBER(12),
+  jal747au05  DATE,
+  jal747au06  DATE
+)
+;
+comment on table JAQL747
+  is 'Aperturas por campania cliente de mi cliente';
+create index JAQL7472 on JAQL747 (JAQL747PAIS, JAQL747TDOC, JAQL747NDOC);
+alter table JAQL747
+  add primary key (JAQL747PGCO, JAQL747SCSU, JAQL747SCMO, JAQL747SCMD, JAQL747SCPA, JAQL747SCCT, JAQL747SCOP, JAQL747SCSB, JAQL747SCTO);
+

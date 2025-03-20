@@ -1,0 +1,84 @@
+create table AQPC574
+(
+  aqpc574pgcod    NUMBER(3) not null,
+  aqpc574ppmod    NUMBER(3) not null,
+  aqpc574ppsuc    NUMBER(3) not null,
+  aqpc574ppmda    NUMBER(4) not null,
+  aqpc574pppap    NUMBER(4) not null,
+  aqpc574ppcta    NUMBER(9) not null,
+  aqpc574ppoper   NUMBER(9) not null,
+  aqpc574ppsbop   NUMBER(3) not null,
+  aqpc574pptope   NUMBER(3) not null,
+  aqpc574ppfpag   DATE not null,
+  aqpc574pptipo   CHAR(1) not null,
+  aqpc574ppfval   DATE,
+  aqpc574ppfvto   DATE,
+  aqpc574pppzo    NUMBER(5),
+  aqpc574ppcap    NUMBER(17,2),
+  aqpc574ppint    NUMBER(17,2),
+  aqpc574ppintmex NUMBER(17,2),
+  aqpc574ppicap   NUMBER(17,2),
+  aqpc574ppiint   NUMBER(17,2),
+  aqpc574ppstat   CHAR(1),
+  aqpc574ppnume   NUMBER(9),
+  aqpc574ppfinv   NUMBER(8),
+  aqpc574d601cd   NUMBER(3),
+  aqpc574d601mo   NUMBER(3),
+  aqpc574d601su   NUMBER(3),
+  aqpc574d601tr   NUMBER(3),
+  aqpc574d601re   NUMBER(4),
+  aqpc574d601fc   DATE,
+  aqpc574d601or   NUMBER(2),
+  aqpc574d601sb   NUMBER(3),
+  aqpc574d601co   CHAR(1),
+  aqpc574fec      DATE not null,
+  aqpc574cor      NUMBER(9) not null,
+  aqpc574usu      NVARCHAR2(10)
+)
+;
+comment on table AQPC574
+  is 'TABLA TEMPORAL DE LA AQPB088_601C';
+comment on column AQPC574.aqpc574pgcod
+  is 'Codigo ';
+comment on column AQPC574.aqpc574ppmod
+  is 'Modulo';
+comment on column AQPC574.aqpc574ppsuc
+  is 'Sucursal';
+comment on column AQPC574.aqpc574ppmda
+  is 'moneda';
+comment on column AQPC574.aqpc574pppap
+  is 'papel';
+comment on column AQPC574.aqpc574ppcta
+  is 'cuenta ';
+comment on column AQPC574.aqpc574ppoper
+  is 'operacion';
+comment on column AQPC574.aqpc574ppsbop
+  is 'sub operacion';
+comment on column AQPC574.aqpc574pptope
+  is 'tipo de operacion';
+comment on column AQPC574.aqpc574ppfpag
+  is 'fecha de sistema';
+comment on column AQPC574.aqpc574pptipo
+  is 'tipo';
+comment on column AQPC574.aqpc574ppfval
+  is 'fecha valor';
+comment on column AQPC574.aqpc574ppfvto
+  is 'fecha de vencimiento';
+comment on column AQPC574.aqpc574pppzo
+  is 'plazo';
+comment on column AQPC574.aqpc574ppcap
+  is 'capital';
+comment on column AQPC574.aqpc574ppint
+  is 'interes';
+comment on column AQPC574.aqpc574ppstat
+  is 'estado';
+comment on column AQPC574.aqpc574fec
+  is 'fecha de registro';
+comment on column AQPC574.aqpc574cor
+  is 'correlativo';
+comment on column AQPC574.aqpc574usu
+  is 'usuario registro';
+create index AQPC574A2 on AQPC574 (AQPC574FEC, AQPC574COR);
+alter table AQPC574
+  add primary key (AQPC574PGCOD, AQPC574PPMOD, AQPC574PPSUC, AQPC574PPMDA, AQPC574PPPAP, AQPC574PPCTA, AQPC574PPOPER, AQPC574PPSBOP, AQPC574PPTOPE, AQPC574PPFPAG, AQPC574PPTIPO, AQPC574FEC, AQPC574COR);
+

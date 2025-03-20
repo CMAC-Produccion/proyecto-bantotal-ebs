@@ -1,0 +1,46 @@
+create table JAQL473
+(
+  hid                        NUMBER(15) not null,
+  hcheckrun_id               NUMBER(15),
+  hcheckrun_name             VARCHAR2(255),
+  hcheck_number              NUMBER(15),
+  hcurrency_code             VARCHAR2(15),
+  hamount                    NUMBER(9,2),
+  hlast_update_by            NUMBER(15),
+  hlast_update_date          DATE,
+  hcreated_by                NUMBER(15),
+  hcreated_date              DATE,
+  hvendor_id                 NUMBER(15),
+  hvendor_site_id            NUMBER(15),
+  hvendor_num                VARCHAR2(30),
+  hvendor_name               VARCHAR2(240),
+  hbank_account_num          VARCHAR2(30),
+  hbank_account_type         VARCHAR2(25),
+  hpayment_method_code       VARCHAR2(30),
+  hpayment_bank_account_name VARCHAR2(100),
+  hinvoice_id                NUMBER(15),
+  hinvoice_num               VARCHAR2(50),
+  hdoc_type                  VARCHAR2(25),
+  hnumero_registro           NUMBER(10),
+  hinvoice_description       VARCHAR2(240),
+  hstatus_process            VARCHAR2(240),
+  hdate_process              DATE,
+  hstatus_payment            VARCHAR2(240),
+  hdate_payment              DATE,
+  horg_id                    NUMBER(15),
+  hhold_reason_code          NUMBER(15),
+  hhold_output               VARCHAR2(240),
+  hpayment_document_code     VARCHAR2(100),
+  hpayment_document_name     VARCHAR2(100),
+  hstatus_lookup_code        VARCHAR2(25),
+  htipo_gasto                VARCHAR2(240),
+  hestado_rgj                VARCHAR2(2),
+  hfecha_carga               DATE,
+  hhorario_carga             VARCHAR2(30),
+  hhora_carga                VARCHAR2(8)
+)
+;
+create index IDX_JAQL473001 on JAQL473 (HFECHA_CARGA, HPAYMENT_DOCUMENT_CODE);
+alter table JAQL473
+  add primary key (HID);
+

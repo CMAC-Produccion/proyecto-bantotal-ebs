@@ -1,0 +1,32 @@
+create table FSFT03
+(
+  ktpgcod2   NUMBER(3) not null,
+  ktctnro    NUMBER(9) not null,
+  ktctnom    CHAR(35),
+  ktabrev    CHAR(5),
+  ktextern   CHAR(1),
+  ktcusctnro NUMBER(9),
+  ktfisoel   CHAR(1),
+  ktcale     NUMBER(3),
+  ktpais     NUMBER(3),
+  ktmdaco    NUMBER(4),
+  ktnumde    NUMBER(9),
+  ktnumsuc   NUMBER(3),
+  ktopedep   CHAR(1),
+  kttipcomu  CHAR(2),
+  ktcocomi   CHAR(1),
+  ktmocomi   NUMBER(3),
+  kttrcomi   NUMBER(3),
+  kthabi     CHAR(1),
+  ktisin     CHAR(1),
+  ktaux1     CHAR(1),
+  ktaux2     CHAR(1),
+  ktaux3     CHAR(1),
+  ktaux4     CHAR(1),
+  ktaux11    CHAR(30)
+)
+;
+create index FSFT0302 on FSFT03 (KTPGCOD2, KTCTNOM);
+alter table FSFT03
+  add primary key (KTPGCOD2, KTCTNRO);
+

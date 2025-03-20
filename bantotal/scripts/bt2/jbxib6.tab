@@ -1,0 +1,18 @@
+create table JBXIB6
+(
+  jbxib6emp NUMBER(3) not null,
+  jbxib6suc NUMBER(3) not null,
+  jbxib6mod NUMBER(3) not null,
+  jbxib6mda NUMBER(4) not null,
+  jbxib6pap NUMBER(4) not null,
+  jbxib6cta NUMBER(9) not null,
+  jbxib6ope NUMBER(9) not null,
+  jbxib6sbo NUMBER(3) not null,
+  jbxib6top NUMBER(3) not null,
+  jbxib6chq NUMBER(9) not null,
+  jbxib6imp NUMBER(17,2),
+  jbxib6est CHAR(1)
+)
+;
+create unique index JBXIB601 on JBXIB6 (JBXIB6EMP, JBXIB6SUC, JBXIB6MOD, JBXIB6MDA, JBXIB6PAP, JBXIB6CTA, JBXIB6OPE, JBXIB6SBO, JBXIB6TOP, JBXIB6CHQ);
+

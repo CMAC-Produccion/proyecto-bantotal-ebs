@@ -1,0 +1,15 @@
+create table AQPC292
+(
+  aqpc292codreg NUMBER(3) not null,
+  aqpc292nomreg VARCHAR2(60)
+)
+;
+comment on table AQPC292
+  is 'Lista de Regiones';
+comment on column AQPC292.aqpc292codreg
+  is 'Codigo Region';
+comment on column AQPC292.aqpc292nomreg
+  is 'Nombre Region';
+alter table AQPC292
+  add primary key (AQPC292CODREG);
+

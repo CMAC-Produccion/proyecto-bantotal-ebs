@@ -1,0 +1,20 @@
+create table JMBN42
+(
+  jmbn41pgco NUMBER(3) not null,
+  jmbn42usr  CHAR(10) not null,
+  jmbn42ctbt NUMBER(9),
+  jmbn42obs  CHAR(65),
+  jmbn41codc CHAR(10),
+  jmbn42code CHAR(15),
+  jmbn42ad1  DATE,
+  jmbn42ad2  DATE,
+  jmbn42an1  NUMBER(17,2),
+  jmbn43an2  NUMBER(17,2),
+  jmbn43ac1  CHAR(65),
+  jmbn43ac2  CHAR(65)
+)
+;
+create index JMBN4202 on JMBN42 (JMBN41PGCO, JMBN41CODC);
+alter table JMBN42
+  add primary key (JMBN41PGCO, JMBN42USR);
+

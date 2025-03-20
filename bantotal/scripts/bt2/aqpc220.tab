@@ -1,0 +1,78 @@
+create table AQPC220
+(
+  aqpc220doc VARCHAR2(12) not null,
+  aqpc220usu VARCHAR2(10) not null,
+  aqpc220fec DATE not null,
+  aqpc220hor VARCHAR2(8) not null,
+  aqpc220cor NUMBER(17) not null,
+  aqpc220cre VARCHAR2(30),
+  aqpc220sal NUMBER(17,2),
+  aqpc220may NUMBER(17,2),
+  aqpc220die NUMBER(17,2),
+  aqpc220num NUMBER(17),
+  aqpc220fea DATE,
+  aqpc220nui NUMBER(17,2),
+  aqpc220seg VARCHAR2(30),
+  aqpc220fso VARCHAR2(50),
+  aqpc220uso VARCHAR2(30),
+  aqpc220co1 VARCHAR2(30),
+  aqpc220co2 VARCHAR2(30),
+  aqpc220nue NUMBER(10),
+  aqpc220ult VARCHAR2(30),
+  aqpc220sob VARCHAR2(2),
+  aqpc220lis VARCHAR2(2),
+  aqpc220inc VARCHAR2(2),
+  aqpc220cvg VARCHAR2(2)
+)
+;
+comment on table AQPC220
+  is 'Log Segmentacion';
+comment on column AQPC220.aqpc220doc
+  is 'Documento';
+comment on column AQPC220.aqpc220usu
+  is 'Usuario Consulta';
+comment on column AQPC220.aqpc220fec
+  is 'Fecha';
+comment on column AQPC220.aqpc220hor
+  is 'Hora';
+comment on column AQPC220.aqpc220cor
+  is 'Correlativo';
+comment on column AQPC220.aqpc220cre
+  is 'Credito';
+comment on column AQPC220.aqpc220sal
+  is 'Saldo Credito';
+comment on column AQPC220.aqpc220may
+  is 'MAY_SAL';
+comment on column AQPC220.aqpc220die
+  is 'DIA_ATRASO_E';
+comment on column AQPC220.aqpc220num
+  is 'NUM_CAM_SEG';
+comment on column AQPC220.aqpc220fea
+  is 'FECH_CAM';
+comment on column AQPC220.aqpc220nui
+  is 'NUM_INST_CAM';
+comment on column AQPC220.aqpc220seg
+  is 'SEG_ORIG';
+comment on column AQPC220.aqpc220fso
+  is 'FECH_ SOLIC_NO CONF';
+comment on column AQPC220.aqpc220uso
+  is 'USU_SOLIC';
+comment on column AQPC220.aqpc220co1
+  is 'CONSID_1';
+comment on column AQPC220.aqpc220co2
+  is 'CONSID_2';
+comment on column AQPC220.aqpc220nue
+  is 'NUM_EXC_GC';
+comment on column AQPC220.aqpc220ult
+  is 'ULT_SEG';
+comment on column AQPC220.aqpc220sob
+  is 'Sobre Endeudado';
+comment on column AQPC220.aqpc220lis
+  is 'Listas Negras';
+comment on column AQPC220.aqpc220inc
+  is 'INST_C/CAMP';
+comment on column AQPC220.aqpc220cvg
+  is 'CRED_VIG_ATR';
+alter table AQPC220
+  add primary key (AQPC220DOC, AQPC220USU, AQPC220FEC, AQPC220HOR, AQPC220COR);
+

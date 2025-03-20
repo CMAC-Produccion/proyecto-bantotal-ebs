@@ -1,0 +1,32 @@
+create table FSD170H
+(
+  sd170hfecha DATE not null,
+  sd170hdoemp NUMBER(3) not null,
+  sd170hdoid  NUMBER(15) not null,
+  st170htdcod NUMBER(5),
+  sd170htiser CHAR(1),
+  sd170htinro NUMBER(15),
+  sd170hdoser CHAR(1),
+  sd170hdonro NUMBER(15),
+  sd170htrsuc NUMBER(3),
+  sd170htrmod NUMBER(3),
+  sd170htrtrn NUMBER(3),
+  sd170htrrel NUMBER(4),
+  sd170htrfch TIMESTAMP(6),
+  sd170hdoest CHAR(1)
+)
+partition by range (SD170HFECHA) interval (NUMTOYMINTERVAL(1, 'MONTH'))
+(
+  partition FSD170H_062018 values less than (TO_DATE(' 2018-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E
+);
+comment on table FSD170H
+  is 'Tabla log de proceso pq_cr_Carga_Data_Hist170';
+create index FSD170H02 on FSD170H (SD170HFECHA, ST170HTDCOD)
+  nologging  local;
+create index FSD170H03 on FSD170H (SD170HFECHA, SD170HDOEMP, SD170HTRMOD, SD170HTRSUC, SD170HTRTRN, SD170HTRREL, SD170HTRFCH)
+  nologging  local;
+alter table FSD170H
+  add primary key (SD170HFECHA, SD170HDOEMP, SD170HDOID);
+alter index SYS_C00977685 nologging;
+

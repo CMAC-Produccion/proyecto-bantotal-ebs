@@ -1,0 +1,21 @@
+create table JHSS17
+(
+  jhss11cod  CHAR(1) not null,
+  jhss12serv CHAR(1) not null,
+  jhss15agor NUMBER(2) not null,
+  jhss13cls  NUMBER(2) not null,
+  jhss14trn  NUMBER(2) not null,
+  jhss17emi  CHAR(1) not null,
+  jhss17rec  CHAR(1) not null,
+  jhss17gir  NUMBER(4) not null,
+  jhss17imi  CHAR(1) not null,
+  jhss17conc NUMBER(2) not null,
+  jhss17treg CHAR(1) not null,
+  jhss17mod  NUMBER(3),
+  jhss17trn  NUMBER(3)
+)
+;
+create unique index JHSS1701 on JHSS17 (JHSS11COD, JHSS12SERV, JHSS15AGOR, JHSS13CLS, JHSS14TRN, JHSS17EMI, JHSS17REC, JHSS17GIR, JHSS17IMI, JHSS17CONC, JHSS17TREG);
+create index JHSS1702 on JHSS17 (JHSS13CLS, JHSS14TRN);
+create index JHSS1703 on JHSS17 (JHSS15AGOR);
+

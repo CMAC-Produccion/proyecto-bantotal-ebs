@@ -1,0 +1,19 @@
+create table AQPB302
+(
+  aqpb302pais      NUMBER(3) not null,
+  aqpb302tdoc      NUMBER(2) not null,
+  aqpb302ndoc      CHAR(12) not null,
+  aqpb302fecha     DATE not null,
+  aqpb302hora      CHAR(8) not null,
+  aqpb302estado    VARCHAR2(1),
+  aqpb302respta    NUMBER(5),
+  aqpb302modo      VARCHAR2(1),
+  aqpb302userreg   CHAR(10),
+  aqpb302observ    VARCHAR2(200),
+  aqpb302cuenta    NUMBER(9),
+  aqpb302instancia NUMBER(10)
+)
+;
+alter table AQPB302
+  add primary key (AQPB302PAIS, AQPB302TDOC, AQPB302NDOC, AQPB302FECHA, AQPB302HORA);
+

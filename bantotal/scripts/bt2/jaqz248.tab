@@ -1,0 +1,24 @@
+create table JAQZ248
+(
+  jaqz248serial NUMBER(10) not null,
+  jaqz248secue  NUMBER(6) not null,
+  jaqz248coafp  VARCHAR2(100),
+  jaqz248pedev  DATE,
+  jaqz248rasoc  VARCHAR2(100),
+  jaqz248tipde  VARCHAR2(100),
+  jaqz248mtoda  NUMBER(16,2),
+  jaqz248indde  VARCHAR2(100),
+  jaqz248accio  VARCHAR2(100),
+  jaqz248conre  VARCHAR2(100),
+  jaqz248fecre  DATE,
+  jaqz248feact  DATE,
+  jaqz248feccn  DATE,
+  jaqz248cosus  VARCHAR2(100),
+  jaqz248facsu  DATE,
+  jaqz248tidet  CHAR(2),
+  jaqz248mtodf  NUMBER(16,2)
+)
+;
+alter table JAQZ248
+  add primary key (JAQZ248SERIAL, JAQZ248SECUE);
+

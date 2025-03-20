@@ -1,0 +1,25 @@
+create table AQPC289
+(
+  aqpc289actcod4 VARCHAR2(5) not null,
+  aqpc289actcod3 NUMBER(12) not null,
+  aqpc289actcod2 NUMBER(12) not null,
+  aqpc289actcod1 NUMBER(9) not null,
+  aqpc289actnom1 VARCHAR2(250)
+)
+;
+comment on table AQPC289
+  is 'Actividad Economica - Clase';
+comment on column AQPC289.aqpc289actcod4
+  is 'Actividad Codigo 4 - Seccion';
+comment on column AQPC289.aqpc289actcod3
+  is 'Actividad Codigo 3 - Division';
+comment on column AQPC289.aqpc289actcod2
+  is 'Actividad Codigo 2 - Grupo';
+comment on column AQPC289.aqpc289actcod1
+  is 'Actividad Codigo 1 - Clase';
+comment on column AQPC289.aqpc289actnom1
+  is 'Actividad Nombre 1 - Clase';
+create index AQPC289A2 on AQPC289 (AQPC289ACTCOD1);
+alter table AQPC289
+  add primary key (AQPC289ACTCOD4, AQPC289ACTCOD3, AQPC289ACTCOD2, AQPC289ACTCOD1);
+

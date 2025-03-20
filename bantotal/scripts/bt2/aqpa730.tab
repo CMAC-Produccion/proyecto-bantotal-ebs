@@ -1,0 +1,89 @@
+create table AQPA730
+(
+  aqpa730id        NUMBER(9) not null,
+  aqpa730tokrefid  VARCHAR2(64),
+  aqpa730numtar    CHAR(19),
+  aqpa730evento    VARCHAR2(64),
+  aqpa730action    VARCHAR2(32),
+  aqpa730actionbt  VARCHAR2(32),
+  aqpa730fecreg    DATE,
+  aqpa730horreg    VARCHAR2(10),
+  aqpa730fecact    DATE,
+  aqpa730horact    VARCHAR2(10),
+  aqpa730ulteve    VARCHAR2(50),
+  aqpa730paidoc    NUMBER(3),
+  aqpa730tipdoc    NUMBER(3),
+  aqpa730numdoc    CHAR(12),
+  aqpa730tarori    CHAR(19),
+  aqpa730tokreqnam VARCHAR2(32),
+  aqpa730toktyp    VARCHAR2(32),
+  aqpa730tokreqid  VARCHAR2(64),
+  aqpa730tokexp    VARCHAR2(20),
+  aqpa730token     VARCHAR2(100),
+  aqpa730horbt     VARCHAR2(10),
+  aqpa730fecbt     DATE,
+  aqpa730horcar    VARCHAR2(10),
+  aqpa730feccar    DATE,
+  aqpa730chncar    VARCHAR2(40),
+  aqpa730eventobt  VARCHAR2(64)
+)
+;
+comment on table AQPA730
+  is 'Tokenizacion Registro de Token Reference ID';
+comment on column AQPA730.aqpa730id
+  is 'Correlativo';
+comment on column AQPA730.aqpa730tokrefid
+  is 'tokenRefID';
+comment on column AQPA730.aqpa730numtar
+  is 'Numero Tarjeta';
+comment on column AQPA730.aqpa730evento
+  is 'Evento';
+comment on column AQPA730.aqpa730action
+  is 'Action Result - Resultado del proceso de digitalización';
+comment on column AQPA730.aqpa730actionbt
+  is 'Action Result - Enviado desde BT por Cambio de estado';
+comment on column AQPA730.aqpa730fecreg
+  is 'Fecha Registro';
+comment on column AQPA730.aqpa730horreg
+  is 'Hora Registro';
+comment on column AQPA730.aqpa730fecact
+  is 'Fecha Actualizacion';
+comment on column AQPA730.aqpa730horact
+  is 'Hora Actualizacion';
+comment on column AQPA730.aqpa730ulteve
+  is 'Ultimo Evento';
+comment on column AQPA730.aqpa730paidoc
+  is 'Pais Documento';
+comment on column AQPA730.aqpa730tipdoc
+  is 'Tipo Documento';
+comment on column AQPA730.aqpa730numdoc
+  is 'Numero Documento';
+comment on column AQPA730.aqpa730tarori
+  is 'Tarjeta Original';
+comment on column AQPA730.aqpa730tokreqnam
+  is 'tokenRequestorName';
+comment on column AQPA730.aqpa730toktyp
+  is 'tokenType';
+comment on column AQPA730.aqpa730tokreqid
+  is 'tokenRequestorID';
+comment on column AQPA730.aqpa730tokexp
+  is 'Expiracion Token';
+comment on column AQPA730.aqpa730token
+  is 'token';
+comment on column AQPA730.aqpa730horbt
+  is 'Hora Proceso BANTOTAL (ciclo de vida)';
+comment on column AQPA730.aqpa730fecbt
+  is 'Fecha Proceso BANTOTAL (ciclo de vida)';
+comment on column AQPA730.aqpa730horcar
+  is 'Hora Change Card Info';
+comment on column AQPA730.aqpa730feccar
+  is 'Fecha Change Card Info';
+comment on column AQPA730.aqpa730chncar
+  is 'Tipo de ChangeCardInfo Aplicado';
+comment on column AQPA730.aqpa730eventobt
+  is 'Evento - Enviado desde BT';
+create index AQPA73002 on AQPA730 (AQPA730TOKREFID);
+create index AQPA73003 on AQPA730 (AQPA730EVENTO);
+alter table AQPA730
+  add primary key (AQPA730ID);
+

@@ -1,0 +1,17 @@
+create table SNG021
+(
+  sng021eval NUMBER(10) not null,
+  sng021pdoc NUMBER(3),
+  sng021tdoc NUMBER(2),
+  sng021ndoc CHAR(12),
+  sng021fec  DATE,
+  sng021usu  CHAR(10),
+  sng021sol  NUMBER(10),
+  sng021tmod NUMBER(4)
+)
+;
+create index SNG02102 on SNG021 (SNG021PDOC, SNG021TDOC, SNG021NDOC, SNG021EVAL);
+create index SNG02103 on SNG021 (SNG021SOL);
+alter table SNG021
+  add primary key (SNG021EVAL);
+

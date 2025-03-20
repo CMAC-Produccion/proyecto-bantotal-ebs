@@ -1,0 +1,37 @@
+create table FBC784
+(
+  bc784emp   NUMBER(3) not null,
+  bc784fch   DATE not null,
+  bc784pais  NUMBER(3) not null,
+  bc784tidcl NUMBER(4) not null,
+  bc784ndoc  CHAR(13) not null,
+  bc784ccomp CHAR(2) not null,
+  bc784suc   NUMBER(3) not null,
+  bc784tdoc  NUMBER(2),
+  bc784cfchr DATE,
+  bc784nro   CHAR(12),
+  bc784cfche DATE,
+  bc784ivab0 NUMBER(17,2),
+  bc784presu NUMBER(17,2),
+  bc784ivabg NUMBER(17,2),
+  bc784ivapr NUMBER(1),
+  bc784iva   NUMBER(17,2),
+  bc784icebi NUMBER(17,2),
+  bc784icepr NUMBER(1),
+  bc784ice   NUMBER(17,2),
+  bc784ivabi NUMBER(17,2),
+  bc784retbp NUMBER(1),
+  bc784retbi NUMBER(17,2),
+  bc784ivase NUMBER(17,2),
+  bc784retsp NUMBER(1),
+  bc784retsi NUMBER(17,2),
+  bc784repre CHAR(1),
+  bc784cncre CHAR(5),
+  bc784rntab NUMBER(17,2),
+  bc784rntap NUMBER(5),
+  bc784renta NUMBER(17,2)
+)
+;
+alter table FBC784
+  add primary key (BC784EMP, BC784FCH, BC784PAIS, BC784TIDCL, BC784NDOC, BC784CCOMP, BC784SUC);
+

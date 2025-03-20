@@ -1,0 +1,11 @@
+create table FSFF02
+(
+  kdocodtip NUMBER(2) not null,
+  kdocodsub NUMBER(3) not null,
+  kdodscsub CHAR(40),
+  kdonumsub NUMBER(4)
+)
+;
+alter table FSFF02
+  add primary key (KDOCODTIP, KDOCODSUB);
+

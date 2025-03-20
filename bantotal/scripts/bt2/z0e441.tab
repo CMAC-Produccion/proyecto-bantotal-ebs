@@ -1,0 +1,20 @@
+create table Z0E441
+(
+  z0e401cod NUMBER(2) not null,
+  z0e440nro NUMBER(10) not null,
+  z0e441pdc NUMBER(3) not null,
+  z0e441tdc NUMBER(2) not null,
+  z0e441ndc CHAR(12) not null,
+  z0e441tpe CHAR(1),
+  z0e424cod CHAR(6),
+  z0e441fmd DATE,
+  z0e441umd CHAR(10),
+  z0e441fau DATE,
+  z0e441uau CHAR(10),
+  z0e441est CHAR(2)
+)
+;
+create unique index Z0E44101 on Z0E441 (Z0E401COD, Z0E440NRO, Z0E441PDC, Z0E441TDC, Z0E441NDC);
+create index Z0E44103 on Z0E441 (Z0E401COD, Z0E424COD);
+create index Z0E44104 on Z0E441 (Z0E441PDC, Z0E441TDC, Z0E441NDC);
+

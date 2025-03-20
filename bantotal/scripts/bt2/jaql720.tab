@@ -1,0 +1,134 @@
+create table JAQL720
+(
+  jaql720idco VARCHAR2(20) not null,
+  jaql720mone NUMBER(4) not null,
+  jaql720corr NUMBER(9) not null,
+  jaql720modu NUMBER(3) not null,
+  jaql720tope NUMBER(3) not null,
+  jaql720capi NUMBER(18,2),
+  jaql720tasa NUMBER(10,6),
+  jaql720pz01 NUMBER(5),
+  jaql720cu01 NUMBER(12,2),
+  jaql720pz02 NUMBER(5),
+  jaql720cu02 NUMBER(12,2),
+  jaql720pz03 NUMBER(5),
+  jaql720cu03 NUMBER(12,2),
+  jaql720pz04 NUMBER(5),
+  jaql720cu04 NUMBER(12,2),
+  jaql720pz05 NUMBER(5),
+  jaql720cu05 NUMBER(12,2),
+  jaql720pz06 NUMBER(5),
+  jaql720cu06 NUMBER(12,2),
+  jaql720pz07 NUMBER(5),
+  jaql720cu07 NUMBER(12,2),
+  jaql720pz08 NUMBER(5),
+  jaql720cu08 NUMBER(12,2),
+  jaql720pz09 NUMBER(5),
+  jaql720cu09 NUMBER(12,2),
+  jaql720pz10 NUMBER(5),
+  jaql720cu10 NUMBER(12,2),
+  jaql720tido NUMBER(2),
+  jaql720nudo VARCHAR2(12),
+  jaql720user VARCHAR2(10),
+  jaql720fech DATE,
+  jaql720hora CHAR(8),
+  jaql720segm NUMBER(1) not null,
+  jaql720cond NUMBER(1),
+  jaql720cali NUMBER(5),
+  jaql720cpso NUMBER(18,2),
+  jaql720cpdo NUMBER(18,2),
+  jaql720adso NUMBER(18,2),
+  jaql720addo NUMBER(18,2),
+  jaql720enso NUMBER(18,2),
+  jaql720endo NUMBER(18,2)
+)
+;
+comment on table JAQL720
+  is 'Oferta comercial - Tarifario producto';
+comment on column JAQL720.jaql720idco
+  is 'Identificador de consulta';
+comment on column JAQL720.jaql720mone
+  is 'Moneda';
+comment on column JAQL720.jaql720corr
+  is 'Correlativo tarifario';
+comment on column JAQL720.jaql720modu
+  is 'Modulo producto';
+comment on column JAQL720.jaql720tope
+  is 'Tipo de producto';
+comment on column JAQL720.jaql720capi
+  is 'Capital';
+comment on column JAQL720.jaql720tasa
+  is 'Tasa';
+comment on column JAQL720.jaql720pz01
+  is 'Plazo1';
+comment on column JAQL720.jaql720cu01
+  is 'Cuota1';
+comment on column JAQL720.jaql720pz02
+  is 'Plazo2';
+comment on column JAQL720.jaql720cu02
+  is 'Cuota2';
+comment on column JAQL720.jaql720pz03
+  is 'Plazo3';
+comment on column JAQL720.jaql720cu03
+  is 'Cuota3';
+comment on column JAQL720.jaql720pz04
+  is 'Plazo4';
+comment on column JAQL720.jaql720cu04
+  is 'Cuota4';
+comment on column JAQL720.jaql720pz05
+  is 'Plazo5';
+comment on column JAQL720.jaql720cu05
+  is 'Cuota5';
+comment on column JAQL720.jaql720pz06
+  is 'Plazo6';
+comment on column JAQL720.jaql720cu06
+  is 'Cuota6';
+comment on column JAQL720.jaql720pz07
+  is 'Plazo7';
+comment on column JAQL720.jaql720cu07
+  is 'Cuota7';
+comment on column JAQL720.jaql720pz08
+  is 'Plazo8';
+comment on column JAQL720.jaql720cu08
+  is 'Cuota8';
+comment on column JAQL720.jaql720pz09
+  is 'Plazo9';
+comment on column JAQL720.jaql720cu09
+  is 'Cuota9';
+comment on column JAQL720.jaql720pz10
+  is 'Plazo10';
+comment on column JAQL720.jaql720cu10
+  is 'Cuota10';
+comment on column JAQL720.jaql720tido
+  is 'Tipo Documento';
+comment on column JAQL720.jaql720nudo
+  is 'Numero Documento';
+comment on column JAQL720.jaql720user
+  is 'Usuario';
+comment on column JAQL720.jaql720fech
+  is 'Fecha';
+comment on column JAQL720.jaql720hora
+  is 'Hora';
+comment on column JAQL720.jaql720segm
+  is 'Segmento';
+comment on column JAQL720.jaql720cond
+  is 'Condicion';
+comment on column JAQL720.jaql720cali
+  is 'Tipo segmentacion';
+comment on column JAQL720.jaql720cpso
+  is 'Capacidad de Pago Soles';
+comment on column JAQL720.jaql720cpdo
+  is 'Capacidad de Pago Dolares';
+comment on column JAQL720.jaql720adso
+  is 'Adicional Soles';
+comment on column JAQL720.jaql720addo
+  is 'Adicional Dolares';
+comment on column JAQL720.jaql720enso
+  is 'Nivel enedeudamiento soles';
+comment on column JAQL720.jaql720endo
+  is 'Nivel enedeudamiento dolares';
+create index IDX_JAQL720_001 on JAQL720 (JAQL720TIDO, JAQL720NUDO);
+create index IDX_JAQL720_002 on JAQL720 (JAQL720USER, JAQL720FECH, JAQL720IDCO);
+alter table JAQL720
+  add constraint PK_JAQL720 primary key (JAQL720IDCO, JAQL720MONE, JAQL720CORR, JAQL720MODU, JAQL720TOPE, JAQL720SEGM);
+

@@ -1,0 +1,68 @@
+create table AQPD751
+(
+  aqpd751inst   NUMBER(10) not null,
+  aqpd751fec    DATE,
+  aqpd751hor    TIMESTAMP(6),
+  aqpd751pais   NUMBER(3),
+  aqpd751tdoc   NUMBER(2),
+  aqpd751ndoc   CHAR(12),
+  aqpd751cod    NUMBER(3),
+  aqpd751aomod  NUMBER(3),
+  aqpd751aocta  NUMBER(9),
+  aqpd751omda   NUMBER(4),
+  aqpd751opap   NUMBER(4),
+  aqpd751aosuc  NUMBER(3),
+  aqpd751aooper NUMBER(9),
+  aqpd751aosbop NUMBER(3),
+  aqpd751aotope NUMBER(3),
+  aqpd751anno   VARCHAR2(4),
+  aqpd751mes    VARCHAR2(2),
+  aqpd751monto  NUMBER(17,2)
+)
+;
+comment on table AQPD751
+  is 'Tabla de almancena los creditos que estan involucrados con el monto maximo ';
+comment on column AQPD751.aqpd751inst
+  is 'Instancia';
+comment on column AQPD751.aqpd751fec
+  is 'Fecha';
+comment on column AQPD751.aqpd751hor
+  is 'Hora';
+comment on column AQPD751.aqpd751pais
+  is 'Pais';
+comment on column AQPD751.aqpd751tdoc
+  is 'Tipo de documento';
+comment on column AQPD751.aqpd751ndoc
+  is 'Numero de documento';
+comment on column AQPD751.aqpd751cod
+  is 'Codigo';
+comment on column AQPD751.aqpd751aomod
+  is 'Modulo';
+comment on column AQPD751.aqpd751aocta
+  is 'Cuenta';
+comment on column AQPD751.aqpd751omda
+  is 'Moneda';
+comment on column AQPD751.aqpd751opap
+  is 'Papel';
+comment on column AQPD751.aqpd751aosuc
+  is 'Sucursal';
+comment on column AQPD751.aqpd751aooper
+  is 'Operacion';
+comment on column AQPD751.aqpd751aosbop
+  is 'Suboperacion';
+comment on column AQPD751.aqpd751aotope
+  is 'Tipo de operacion';
+comment on column AQPD751.aqpd751anno
+  is 'Año';
+comment on column AQPD751.aqpd751mes
+  is 'Mes';
+comment on column AQPD751.aqpd751monto
+  is 'Monto máximo';
+create index AQPD751 on AQPD751 (AQPD751COD, AQPD751AOMOD, AQPD751AOCTA, AQPD751OMDA, AQPD751OPAP, AQPD751AOSUC, AQPD751AOOPER, AQPD751AOSBOP, AQPD751AOTOPE);
+create index AQPD751CNT on AQPD751 (AQPD751AOCTA, AQPD751AOOPER);
+create index AQPD751INDOC on AQPD751 (AQPD751INST, AQPD751PAIS, AQPD751TDOC, AQPD751NDOC);
+create index AQPD751INFED on AQPD751 (AQPD751INST, AQPD751FEC, AQPD751HOR, AQPD751PAIS, AQPD751TDOC, AQPD751NDOC);
+create index AQPD751INS on AQPD751 (AQPD751INST);
+alter table AQPD751
+  add primary key (AQPD751INST);
+

@@ -1,0 +1,31 @@
+create table FSE013
+(
+  pgcod   NUMBER(3) not null,
+  cvmod   NUMBER(3) not null,
+  cvmda   NUMBER(4) not null,
+  cvpap   NUMBER(4) not null,
+  cvcta   NUMBER(9) not null,
+  cvsuc   NUMBER(3) not null,
+  cvoper  NUMBER(9) not null,
+  cvsbop  NUMBER(3) not null,
+  cvtope  NUMBER(3) not null,
+  cvcspr  CHAR(1),
+  cvcsmo  CHAR(1),
+  cvcchq  CHAR(1),
+  cvpint  CHAR(1),
+  cvcint  CHAR(1),
+  cvsbga  CHAR(1),
+  cvcaut  CHAR(1),
+  cvestc  NUMBER(1),
+  cvpmi   CHAR(1),
+  cvnom   CHAR(15),
+  cvfcbj  DATE,
+  cvusbj  CHAR(10),
+  cvwsbj  CHAR(10),
+  cvtces  CHAR(1),
+  cvfolio NUMBER(9)
+)
+;
+alter table FSE013
+  add primary key (PGCOD, CVMOD, CVMDA, CVPAP, CVCTA, CVSUC, CVOPER, CVSBOP, CVTOPE);
+

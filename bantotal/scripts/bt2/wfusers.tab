@@ -1,0 +1,30 @@
+create table WFUSERS
+(
+  wfusrcod      CHAR(30) not null,
+  wfusrname     CHAR(30),
+  wfusremail    CHAR(40),
+  wfusrencpwd   CHAR(30),
+  wfcalid       NUMBER(4),
+  wfusrprccal   CHAR(1),
+  wfusracclev   NUMBER(1),
+  wfusrusub     CHAR(30),
+  wfusrrsub     NUMBER(4),
+  wfusrout      NUMBER(1),
+  wfusrautbck   NUMBER(1),
+  wfusrsh       CHAR(100),
+  wfusrexptime  DATE,
+  wfusrlstcon   DATE,
+  wfusrbloc     NUMBER(1),
+  wflngid       CHAR(3),
+  wfusrrblreq   NUMBER(1),
+  wfusrinternal NUMBER(1)
+)
+;
+create index IWFUSER5 on WFUSERS (WFLNGID);
+create index IWFUSR2 on WFUSERS (WFCALID);
+create index UWFUSR1 on WFUSERS (WFUSRACCLEV, WFUSRCOD);
+create index UWFUSR2 on WFUSERS (WFUSREMAIL);
+create index UWFUSR3 on WFUSERS (WFUSRNAME);
+alter table WFUSERS
+  add primary key (WFUSRCOD);
+

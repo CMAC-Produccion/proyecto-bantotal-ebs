@@ -1,0 +1,13 @@
+create table FSR121
+(
+  opmod   NUMBER(3) not null,
+  optope  NUMBER(3) not null,
+  opcod   NUMBER(3),
+  opmodtr NUMBER(3),
+  optrn   NUMBER(3)
+)
+;
+create index FSR12102 on FSR121 (OPCOD);
+alter table FSR121
+  add primary key (OPMOD, OPTOPE);
+

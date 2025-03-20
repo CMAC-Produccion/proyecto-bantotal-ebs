@@ -1,0 +1,25 @@
+create table FBRH24
+(
+  brh22rgemp NUMBER(3) not null,
+  brh22rgcod NUMBER(5) not null,
+  brh24fch   DATE not null,
+  brh24hra   CHAR(8) not null,
+  brh24prnom CHAR(10) not null,
+  brh24pacod NUMBER(3) not null,
+  brh24rgdsc CHAR(50),
+  brh24usu   CHAR(10),
+  brh24prdsc CHAR(50),
+  brh24padsc CHAR(50),
+  brh24patpo CHAR(1),
+  brh24paran CHAR(1),
+  brh24padnr NUMBER(16),
+  brh24pahnr NUMBER(16),
+  brh24padch CHAR(30),
+  brh24pahch CHAR(30),
+  brh24padfc DATE,
+  brh24pahfc DATE
+)
+;
+alter table FBRH24
+  add primary key (BRH22RGEMP, BRH22RGCOD, BRH24FCH, BRH24HRA, BRH24PRNOM, BRH24PACOD);
+

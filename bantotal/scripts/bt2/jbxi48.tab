@@ -1,0 +1,10 @@
+create table JBXI48
+(
+  jx48paicod NUMBER(3) not null,
+  jx48doctip NUMBER(2) not null,
+  jx48docnum CHAR(12) not null,
+  jx48origen CHAR(1)
+)
+;
+create unique index JBXI4801 on JBXI48 (JX48PAICOD, JX48DOCTIP, JX48DOCNUM);
+

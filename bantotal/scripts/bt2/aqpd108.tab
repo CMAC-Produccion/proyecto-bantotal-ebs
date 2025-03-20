@@ -1,0 +1,35 @@
+create table AQPD108
+(
+  aqpd108id  NUMBER(5) not null,
+  aqpd108cod VARCHAR2(20),
+  aqpd108des VARCHAR2(200),
+  aqpd108est NUMBER(1),
+  aqpd108fmd DATE default sysdate,
+  aqpd108pro NUMBER(1),
+  aqpd108rep NUMBER(1),
+  aqpd108cpn VARCHAR2(10)
+)
+;
+comment on table AQPD108
+  is 'Lista de reportes y anexos normativos';
+comment on column AQPD108.aqpd108id
+  is 'ID de tabla';
+comment on column AQPD108.aqpd108cod
+  is 'Codigo de reporte/anexo';
+comment on column AQPD108.aqpd108des
+  is 'Descripción de reporte/anexo';
+comment on column AQPD108.aqpd108est
+  is 'Estado 1=activo / 0=inactivo';
+comment on column AQPD108.aqpd108fmd
+  is 'Fecha de modificación/creación';
+comment on column AQPD108.aqpd108pro
+  is 'Visualizar en procesos 1=Si / 0=No';
+comment on column AQPD108.aqpd108rep
+  is 'Visualizar en reportes 1=Si / 0=No';
+comment on column AQPD108.aqpd108cpn
+  is 'Codigo de panel web';
+create index AQPD1082 on AQPD108 (AQPD108EST, AQPD108PRO);
+create index AQPD1083 on AQPD108 (AQPD108EST, AQPD108REP);
+alter table AQPD108
+  add primary key (AQPD108ID);
+

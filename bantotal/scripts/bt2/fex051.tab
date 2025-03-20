@@ -1,0 +1,12 @@
+create table FEX051
+(
+  expgcod    NUMBER(3) not null,
+  excicpo    CHAR(8) not null,
+  exparrelco NUMBER(5) not null,
+  exparrel   CHAR(16),
+  exparrelds CHAR(50)
+)
+;
+alter table FEX051
+  add primary key (EXPGCOD, EXCICPO, EXPARRELCO);
+

@@ -1,0 +1,35 @@
+create table JAQL166
+(
+  jaql166pgcod  NUMBER(3) not null,
+  jaql166scmod  NUMBER(3) not null,
+  jaql166scsuc  NUMBER(3) not null,
+  jaql166scmda  NUMBER(4) not null,
+  jaql166scpap  NUMBER(4) not null,
+  jaql166sccta  NUMBER(9) not null,
+  jaql166scope  NUMBER(9) not null,
+  jaql166scsbo  NUMBER(3) not null,
+  jaql166sctop  NUMBER(3) not null,
+  jaql166scfvl  DATE not null,
+  jaql166nrpag  NUMBER(10) not null,
+  jaql166est    NUMBER(2) not null,
+  jaql166fpga   DATE,
+  jaql166impcap NUMBER(17,2),
+  jaql166impint NUMBER(17,2),
+  jaql166impmor NUMBER(17,2),
+  jaql166impgas NUMBER(17,2),
+  jaql166imp1   NUMBER(17,2),
+  jaql166imp2   NUMBER(17,2),
+  d166cd        NUMBER(3),
+  d166su        NUMBER(3),
+  d166mo        NUMBER(3),
+  d166tr        NUMBER(3),
+  d166re        NUMBER(4),
+  jaql166impseg NUMBER(17,2),
+  d166co        CHAR(1)
+)
+;
+create index JAQL166001 on JAQL166 (D166CD, D166SU, D166MO, D166TR, D166RE, D166CO);
+create index JAQL166002 on JAQL166 (JAQL166SCOPE, JAQL166SCCTA);
+alter table JAQL166
+  add primary key (JAQL166PGCOD, JAQL166SCMOD, JAQL166SCSUC, JAQL166SCMDA, JAQL166SCPAP, JAQL166SCCTA, JAQL166SCOPE, JAQL166SCSBO, JAQL166SCTOP, JAQL166SCFVL, JAQL166NRPAG, JAQL166EST);
+

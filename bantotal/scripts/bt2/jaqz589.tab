@@ -1,0 +1,28 @@
+create table JAQZ589
+(
+  jaqz589cod    NUMBER(17) not null,
+  jaqz589mod    NUMBER(4) not null,
+  jaqz589suc    NUMBER(4) not null,
+  jaqz589mda    NUMBER(4) not null,
+  jaqz589pap    NUMBER(4) not null,
+  jaqz589cta    NUMBER(9) not null,
+  jaqz589oper   NUMBER(9) not null,
+  jaqz589sbo    NUMBER(4) not null,
+  jaqz589top    NUMBER(4) not null,
+  jaqz589seg    NUMBER(4) not null,
+  jaqz589fec    DATE not null,
+  jaqz589hora   CHAR(8),
+  jaqz589motivo CHAR(20),
+  jaqz589usr    CHAR(10),
+  jaqz589au1    NUMBER(4),
+  jaqz589au2    CHAR(20),
+  jaqz589au3    CHAR(200),
+  jaqz589au4    VARCHAR2(40),
+  jaqz589au5    DATE,
+  jaqz589au6    NUMBER(16,2),
+  jaqz589au7    VARCHAR2(200)
+)
+;
+alter table JAQZ589
+  add primary key (JAQZ589COD, JAQZ589MOD, JAQZ589SUC, JAQZ589MDA, JAQZ589PAP, JAQZ589CTA, JAQZ589OPER, JAQZ589SBO, JAQZ589TOP, JAQZ589SEG, JAQZ589FEC);
+

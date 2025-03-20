@@ -1,0 +1,43 @@
+create table JAQL658
+(
+  jaql658pgcod NUMBER(3) not null,
+  jaql658corre NUMBER(18) not null,
+  jaql658femov DATE not null,
+  jaql658numas NUMBER(18) not null,
+  jaql658ordin NUMBER(2) not null,
+  jaql658subor NUMBER(2) not null,
+  jaql658orige NUMBER(3) not null,
+  jaql658modul NUMBER(3),
+  jaql658trans NUMBER(3),
+  jaql658ctamo NUMBER(9),
+  jaql658monto NUMBER(17,2),
+  jaql658moned NUMBER(4),
+  jaql658vouch CHAR(10),
+  jaql658sucde NUMBER(3),
+  jaql658cenco NUMBER(3),
+  jaql658sucub NUMBER(3),
+  jaql658mvite NUMBER(10),
+  jaql658rbant NUMBER(16),
+  jaql658faper DATE,
+  jaql658buser CHAR(10),
+  jaql658tipdo CHAR(4),
+  jaql658serdo CHAR(6),
+  jaql658numdo CHAR(10),
+  jaql658prove NUMBER(10),
+  jaql658tippa VARCHAR2(3),
+  jaql658auxc1 CHAR(60),
+  jaql658auxc2 CHAR(60),
+  jaql658auxc3 CHAR(60),
+  jaql658auxc4 CHAR(60),
+  jaql658auxn1 NUMBER(17,2),
+  jaql658auxn2 NUMBER(17,2),
+  jaql658auxn3 NUMBER(17,2),
+  jaql658auxd1 DATE,
+  jaql658auxd2 DATE,
+  jaql658auxd3 DATE,
+  jaql658movou NUMBER(17,2)
+)
+;
+alter table JAQL658
+  add primary key (JAQL658PGCOD, JAQL658CORRE, JAQL658FEMOV, JAQL658NUMAS, JAQL658ORDIN, JAQL658SUBOR, JAQL658ORIGE);
+

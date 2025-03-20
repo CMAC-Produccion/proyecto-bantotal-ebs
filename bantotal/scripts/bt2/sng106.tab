@@ -1,0 +1,24 @@
+create table SNG106
+(
+  sng106inst NUMBER(10) not null,
+  sng106emp  NUMBER(3) not null,
+  sng106cta  NUMBER(9) not null,
+  sng106sts  CHAR(1),
+  sng106ncic NUMBER(3),
+  sng106verf CHAR(1),
+  sng106mto  NUMBER(17),
+  sng106caho NUMBER(17),
+  sng106cod  NUMBER(4),
+  sng106desp VARCHAR2(144),
+  sng106meva NUMBER(3),
+  sng106mpae NUMBER(3),
+  sng106pre  NUMBER(17),
+  sng106scor NUMBER(17),
+  sng106com1 VARCHAR2(800),
+  sng106com2 VARCHAR2(800),
+  sng106com3 VARCHAR2(800)
+)
+;
+alter table SNG106
+  add primary key (SNG106INST, SNG106EMP, SNG106CTA);
+

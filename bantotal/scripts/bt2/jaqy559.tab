@@ -1,0 +1,17 @@
+create table JAQY559
+(
+  jaqy559cod   CHAR(8) not null,
+  jaqy559cor   NUMBER(4) not null,
+  jaqy559fdv   DATE,
+  jaqy559mdv   NUMBER(16,2),
+  jaqy559dev   CHAR(1),
+  jaqy559rel   NUMBER(4),
+  jaqy559tra   NUMBER(3),
+  jaqy559mod   NUMBER(3),
+  jaqy559suc   NUMBER(3),
+  jaqy559pgcod NUMBER(3)
+)
+;
+alter table JAQY559
+  add primary key (JAQY559COD, JAQY559COR);
+

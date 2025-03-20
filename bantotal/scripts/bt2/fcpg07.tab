@@ -1,0 +1,12 @@
+create table FCPG07
+(
+  cpg07cod  NUMBER(3) not null,
+  cpg07desc CHAR(40),
+  cpg07blq  CHAR(1),
+  cpg07inst NUMBER(10)
+)
+;
+create index FCPG0702 on FCPG07 (CPG07INST);
+alter table FCPG07
+  add primary key (CPG07COD);
+

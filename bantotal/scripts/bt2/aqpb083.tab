@@ -1,0 +1,76 @@
+create table AQPB083
+(
+  aqpb083corr    NUMBER(10) not null,
+  aqpb083fec     DATE not null,
+  aqpb083hora    CHAR(10) not null,
+  aqpb083pais    NUMBER(9),
+  aqpb083tdoc    NUMBER(9),
+  aqpb083ndoc    VARCHAR2(12),
+  aqpb083tcamb   NUMBER(14,8),
+  aqpb083inst    NUMBER(12),
+  aqpb083pgcod   NUMBER(5),
+  aqpb083mod     NUMBER(5),
+  aqpb083suc     NUMBER(5),
+  aqpb083mda     NUMBER(5),
+  aqpb083pap     NUMBER(5),
+  aqpb083cta     NUMBER(10),
+  aqpb083ope     NUMBER(10),
+  aqpb083sbop    NUMBER(10),
+  aqpb083tope    NUMBER(10),
+  aqpb083fchvnc  DATE,
+  aqpb083saldcap NUMBER(10,2),
+  aqpb083indic   VARCHAR2(12),
+  aqpb083indpasv VARCHAR2(25),
+  aqpb083est     VARCHAR2(2)
+)
+;
+comment on column AQPB083.aqpb083corr
+  is 'Correlativo por Instancia y Fecha';
+comment on column AQPB083.aqpb083fec
+  is 'Fecha de Bantotal';
+comment on column AQPB083.aqpb083hora
+  is 'Hora de Ejecucion';
+comment on column AQPB083.aqpb083pais
+  is 'Pais de Documento Titular';
+comment on column AQPB083.aqpb083tdoc
+  is 'Tipo de Documento';
+comment on column AQPB083.aqpb083ndoc
+  is 'Nro de Documento';
+comment on column AQPB083.aqpb083tcamb
+  is 'Tipo de Cambio 0.0';
+comment on column AQPB083.aqpb083inst
+  is 'Nro de Instancia';
+comment on column AQPB083.aqpb083pgcod
+  is 'PgCod del Credito';
+comment on column AQPB083.aqpb083mod
+  is 'Modulo del Credito';
+comment on column AQPB083.aqpb083suc
+  is 'Sucursal del Credito';
+comment on column AQPB083.aqpb083mda
+  is 'Moneda del Credito';
+comment on column AQPB083.aqpb083pap
+  is 'Papel del Credito';
+comment on column AQPB083.aqpb083cta
+  is 'Cuenta del Credito';
+comment on column AQPB083.aqpb083ope
+  is 'Operacion del Credito';
+comment on column AQPB083.aqpb083sbop
+  is 'SubOperacion del Credito';
+comment on column AQPB083.aqpb083tope
+  is 'Tipo de Operacion del Credito';
+comment on column AQPB083.aqpb083fchvnc
+  is 'Fecha de Vencimiento del Credito';
+comment on column AQPB083.aqpb083saldcap
+  is 'Saldo Capital del Credito';
+comment on column AQPB083.aqpb083indic
+  is 'Indicador del Credito';
+comment on column AQPB083.aqpb083indpasv
+  is 'Ind de Pasivo Corriente y No Corriente';
+comment on column AQPB083.aqpb083est
+  is 'Estado H habilitado I inhabilitado';
+create index AQPB0832 on AQPB083 (AQPB083PGCOD, AQPB083MOD, AQPB083SUC, AQPB083MDA, AQPB083PAP, AQPB083CTA, AQPB083OPE, AQPB083SBOP, AQPB083TOPE);
+create index AQPB0833 on AQPB083 (AQPB083FEC, AQPB083PAIS, AQPB083TDOC, AQPB083NDOC, AQPB083INST);
+create index AQPB0834 on AQPB083 (AQPB083INST, AQPB083PGCOD, AQPB083MOD, AQPB083SUC, AQPB083MDA, AQPB083PAP, AQPB083CTA, AQPB083OPE, AQPB083SBOP, AQPB083TOPE);
+alter table AQPB083
+  add primary key (AQPB083CORR, AQPB083FEC, AQPB083HORA);
+

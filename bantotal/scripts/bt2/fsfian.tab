@@ -1,0 +1,17 @@
+create table FSFIAN
+(
+  sfianemp  NUMBER(3) not null,
+  sfiancod  NUMBER(9) not null,
+  sfiandsc  CHAR(50),
+  sfianch1  CHAR(1),
+  sfianch2  CHAR(1),
+  sfianch3  CHAR(1),
+  sfianch4  CHAR(1),
+  sfianch5  CHAR(1),
+  sfiannum1 NUMBER(4),
+  sfiannum2 NUMBER(4)
+)
+;
+alter table FSFIAN
+  add primary key (SFIANEMP, SFIANCOD);
+

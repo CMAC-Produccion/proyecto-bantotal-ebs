@@ -1,0 +1,83 @@
+create table AQPA353
+(
+  aqpa353corr    NUMBER(10) not null,
+  aqpa353fec     DATE not null,
+  aqpa353hora    CHAR(10) not null,
+  aqpa353user    VARCHAR2(10),
+  aqpa353pais    NUMBER(9) not null,
+  aqpa353tdoc    NUMBER(9) not null,
+  aqpa353ndoc    VARCHAR2(12) not null,
+  aqpa353tcamb   NUMBER(14,8),
+  aqpa353inst    NUMBER(12) not null,
+  aqpa353feval   DATE,
+  aqpa353fecal   DATE,
+  aqpa353mesanio VARCHAR2(8),
+  aqpa353capcaja NUMBER(17,2),
+  aqpa353ifis    NUMBER(17,2),
+  aqpa353resneto NUMBER(17,2),
+  aqpa353ccontg  NUMBER(17,2),
+  aqpa353cpoten  NUMBER(17,2),
+  aqpa353ratio   NUMBER(17,6),
+  aqpa353est     VARCHAR2(2),
+  aqpa353tarea   NUMBER(10),
+  aqpa353naux1   NUMBER(17,2),
+  aqpa353naux2   NUMBER(17,2),
+  aqpa353naux3   NUMBER(17,2),
+  aqpa353naux4   NUMBER(17,2),
+  aqpa353naux5   NUMBER(17,2),
+  aqpa353vaux1   VARCHAR2(25),
+  aqpa353vaux2   VARCHAR2(25),
+  aqpa353vaux3   VARCHAR2(25),
+  aqpa353vaux4   VARCHAR2(25),
+  aqpa353vaux5   VARCHAR2(25),
+  aqpa353daux1   DATE,
+  aqpa353daux2   DATE,
+  aqpa353daux3   DATE
+)
+;
+comment on column AQPA353.aqpa353corr
+  is 'Correlativo';
+comment on column AQPA353.aqpa353fec
+  is 'Fecha de Proceso';
+comment on column AQPA353.aqpa353hora
+  is 'Hora de Proceso';
+comment on column AQPA353.aqpa353user
+  is 'Usuario';
+comment on column AQPA353.aqpa353pais
+  is 'Pais de Documento';
+comment on column AQPA353.aqpa353tdoc
+  is 'Tipo de Documento';
+comment on column AQPA353.aqpa353ndoc
+  is 'Nro de Documento';
+comment on column AQPA353.aqpa353tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column AQPA353.aqpa353inst
+  is 'Nro de Instancia';
+comment on column AQPA353.aqpa353feval
+  is 'Fecha de Evaluacion';
+comment on column AQPA353.aqpa353fecal
+  is 'Mes a considerar para el calculo';
+comment on column AQPA353.aqpa353mesanio
+  is 'Año y Mes a considerar para el calculo';
+comment on column AQPA353.aqpa353capcaja
+  is 'Cuota Caja en el Mes';
+comment on column AQPA353.aqpa353ifis
+  is 'Deuda IFIS del mes ingresado en el Panel de Eval Flujo';
+comment on column AQPA353.aqpa353resneto
+  is 'Resultado Neto del Mes ingresado en el Panel de Eval Flujo';
+comment on column AQPA353.aqpa353ccontg
+  is 'Cuota Contingente';
+comment on column AQPA353.aqpa353cpoten
+  is 'Cuota Potencial';
+comment on column AQPA353.aqpa353ratio
+  is 'Ratio Mensual';
+comment on column AQPA353.aqpa353est
+  is 'Estado H(Habilitado) ultimo ejecutado, I (Inhabilitado) ejecutado anteriormente';
+comment on column AQPA353.aqpa353tarea
+  is 'Tarea de Proceso';
+create index AQPA353A4 on AQPA353 (AQPA353INST, AQPA353EST, AQPA353TAREA);
+create index AQPA3532 on AQPA353 (AQPA353FEC, AQPA353PAIS, AQPA353TDOC, AQPA353NDOC, AQPA353INST);
+create index AQPA3533 on AQPA353 (AQPA353INST, AQPA353MESANIO, AQPA353EST);
+alter table AQPA353
+  add primary key (AQPA353CORR, AQPA353FEC, AQPA353PAIS, AQPA353TDOC, AQPA353NDOC, AQPA353INST, AQPA353HORA);
+

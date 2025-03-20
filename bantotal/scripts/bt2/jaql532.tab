@@ -1,0 +1,14 @@
+create table JAQL532
+(
+  jaql532cored NUMBER(10) not null,
+  jaql532nucta CHAR(30) not null,
+  jaql532coope CHAR(20) not null,
+  jaql532feope DATE not null,
+  jaql532nuint NUMBER(6)
+)
+;
+create index JAQL532_02 on JAQL532 (JAQL532FEOPE);
+create index JAQL532_03 on JAQL532 (JAQL532NUCTA);
+alter table JAQL532
+  add primary key (JAQL532CORED, JAQL532NUCTA, JAQL532COOPE, JAQL532FEOPE);
+

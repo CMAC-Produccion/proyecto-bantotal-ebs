@@ -1,0 +1,34 @@
+create table JAQA750
+(
+  jaqa750emp NUMBER(3) not null,
+  jaqa750mod NUMBER(3) not null,
+  jaqa750suc NUMBER(3) not null,
+  jaqa750mda NUMBER(4) not null,
+  jaqa750pap NUMBER(4) not null,
+  jaqa750cta NUMBER(9) not null,
+  jaqa750ope NUMBER(9) not null,
+  jaqa750sbo NUMBER(3) not null,
+  jaqa750top NUMBER(3) not null,
+  jaqa750seg NUMBER(9) not null,
+  jaqa750fec DATE,
+  jaqa750ubu CHAR(10),
+  jaqa750wrk CHAR(60),
+  jaqa750ai1 NUMBER(17,2),
+  jaqa750ai2 NUMBER(17,2),
+  jaqa750ai3 NUMBER(17,2),
+  jaqa750fa1 DATE,
+  jaqa750fa2 DATE,
+  jaqa750fa3 DATE,
+  jaqa750na1 NUMBER(9),
+  jaqa750na2 NUMBER(9),
+  jaqa750na3 NUMBER(9),
+  jaqa750ca1 VARCHAR2(255),
+  jaqa750ca2 VARCHAR2(255),
+  jaqa750ca3 VARCHAR2(255)
+)
+;
+create index JAQA7502 on JAQA750 (JAQA750EMP, JAQA750MOD, JAQA750SUC, JAQA750MDA, JAQA750PAP, JAQA750CTA, JAQA750OPE, JAQA750SBO, JAQA750TOP, JAQA750FEC);
+create index JAQA7503 on JAQA750 (JAQA750SEG);
+alter table JAQA750
+  add primary key (JAQA750EMP, JAQA750MOD, JAQA750SUC, JAQA750MDA, JAQA750PAP, JAQA750CTA, JAQA750OPE, JAQA750SBO, JAQA750TOP, JAQA750SEG);
+

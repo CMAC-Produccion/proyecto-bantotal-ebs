@@ -1,0 +1,18 @@
+create table JAQY740
+(
+  jaqy740pai   NUMBER(3) not null,
+  jaqy740tdoc  NUMBER(2) not null,
+  jaqy740ndoc  CHAR(12) not null,
+  jaqy740docod NUMBER(2) not null,
+  jaqy740corr  NUMBER(3) not null,
+  jaqy740usu   CHAR(30) not null,
+  jaqy740maq   CHAR(20) not null,
+  jaqy740dir   CHAR(140),
+  jaqy740nom   CHAR(30)
+)
+;
+create index IJAQY7400001 on JAQY740 (JAQY740USU, JAQY740MAQ);
+create index JAQY740A2 on JAQY740 (JAQY740USU, JAQY740MAQ, JAQY740DOCOD);
+alter table JAQY740
+  add primary key (JAQY740PAI, JAQY740TDOC, JAQY740NDOC, JAQY740DOCOD, JAQY740CORR, JAQY740USU, JAQY740MAQ);
+

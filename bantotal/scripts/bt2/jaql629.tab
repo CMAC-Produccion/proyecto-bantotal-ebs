@@ -1,0 +1,78 @@
+create table JAQL629
+(
+  jaql629nutar CHAR(19) not null,
+  jaql629habil CHAR(1),
+  jaql629can00 CHAR(1),
+  jaql629can01 CHAR(1),
+  jaql629can02 CHAR(1),
+  jaql629can03 CHAR(1),
+  jaql629can04 CHAR(1),
+  jaql629can05 CHAR(1),
+  jaql629can06 CHAR(1),
+  jaql629can07 CHAR(1),
+  jaql629can08 CHAR(1),
+  jaql629can09 CHAR(1),
+  jaql629can10 CHAR(1),
+  jaql629can11 CHAR(1),
+  jaql629can12 CHAR(1),
+  jaql629obser VARCHAR2(1000),
+  jaql629uscre CHAR(19),
+  jaql629fecre DATE,
+  jaql629hocre CHAR(8),
+  jaqy629usmod CHAR(19),
+  jaql629femod DATE,
+  jaql629homod CHAR(8),
+  jaql629auxc1 VARCHAR2(200),
+  jaql629auxc2 VARCHAR2(200),
+  jaql629auxc3 VARCHAR2(200),
+  jaql629can13 CHAR(1)
+)
+;
+comment on table JAQL629
+  is 'TABLA DE CONFIGURACIONES DE SERVICIOS DE TARJETAS';
+comment on column JAQL629.jaql629nutar
+  is 'NUMERO DE TARJETA';
+comment on column JAQL629.jaql629habil
+  is 'TARJETA HABILITADA';
+comment on column JAQL629.jaql629can00
+  is 'BLOQUEO TEMPORAL';
+comment on column JAQL629.jaql629can01
+  is 'VENTANILLA';
+comment on column JAQL629.jaql629can02
+  is 'CAJEROS AUTOMATICOS';
+comment on column JAQL629.jaql629can03
+  is 'HOME BANKING';
+comment on column JAQL629.jaql629can04
+  is 'BANCA MOVIL';
+comment on column JAQL629.jaql629can05
+  is 'DEBITO AUTOMATICO';
+comment on column JAQL629.jaql629can06
+  is 'COMPRAS INTERNET';
+comment on column JAQL629.jaql629can07
+  is 'COMPRAS EXTERIOR';
+comment on column JAQL629.jaql629can08
+  is 'PAGA RAPIDO';
+comment on column JAQL629.jaql629can11
+  is 'COMPRAS POS';
+comment on column JAQL629.jaql629can12
+  is 'RETIROS ATM';
+comment on column JAQL629.jaql629obser
+  is 'OBSERVACIONES';
+comment on column JAQL629.jaql629uscre
+  is 'AUDITORIA USUARIO CREACION';
+comment on column JAQL629.jaql629fecre
+  is 'AUDITORIA FECHA CREACION';
+comment on column JAQL629.jaql629hocre
+  is 'AUDITORIA HORA CREACION';
+comment on column JAQL629.jaqy629usmod
+  is 'AUDITORIA USUARIO MODIFICACION';
+comment on column JAQL629.jaql629femod
+  is 'AUDITORIA FECHA MODIFICACION';
+comment on column JAQL629.jaql629homod
+  is 'AUDITORIA HORA MODIFICACION';
+comment on column JAQL629.jaql629can13
+  is 'RETIROS AGENTES';
+create index JAQL629_02 on JAQL629 (JAQL629FEMOD);
+alter table JAQL629
+  add primary key (JAQL629NUTAR);
+

@@ -1,0 +1,36 @@
+create table JAQN22
+(
+  jaqn22temp NUMBER(3) not null,
+  jaqn22tmod NUMBER(3) not null,
+  jaqn22tcur NUMBER(3) not null,
+  jaqn22tmda NUMBER(4) not null,
+  jaqn22tpap NUMBER(4) not null,
+  jaqn22fdes DATE not null,
+  jaqn22tmto NUMBER(17,2) not null,
+  jaqn22tpzo NUMBER(5) not null,
+  jaqn22vcur NUMBER(10,6)
+)
+;
+comment on table JAQN22
+  is 'Detalle curvas para TTI';
+comment on column JAQN22.jaqn22temp
+  is 'Codigo empresa';
+comment on column JAQN22.jaqn22tmod
+  is 'Modulo';
+comment on column JAQN22.jaqn22tcur
+  is 'Tipo curva';
+comment on column JAQN22.jaqn22tmda
+  is 'Moneda';
+comment on column JAQN22.jaqn22tpap
+  is 'Papel';
+comment on column JAQN22.jaqn22fdes
+  is 'Vigencia';
+comment on column JAQN22.jaqn22tmto
+  is 'Monto';
+comment on column JAQN22.jaqn22tpzo
+  is 'Plazo';
+comment on column JAQN22.jaqn22vcur
+  is 'Curva';
+alter table JAQN22
+  add primary key (JAQN22TEMP, JAQN22TMOD, JAQN22TCUR, JAQN22TMDA, JAQN22TPAP, JAQN22FDES, JAQN22TMTO, JAQN22TPZO);
+

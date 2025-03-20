@@ -1,0 +1,20 @@
+create table AQPA661
+(
+  aqpa661nro NUMBER(10) not null,
+  aqpa661fec DATE,
+  aqpa661est NUMBER(1),
+  aqpa661esd CHAR(10),
+  aqpa661aut VARCHAR2(150),
+  aqpa661cnt NUMBER(5),
+  aqpa661usr CHAR(10),
+  aqpa661hor CHAR(8),
+  aqpa661eso NUMBER(2),
+  aqpa661sdo NUMBER(17,2),
+  aqpa661atr NUMBER(10)
+)
+;
+create index AQPA6612 on AQPA661 (AQPA661FEC, AQPA661EST);
+create index AQPA6613 on AQPA661 (AQPA661EST);
+alter table AQPA661
+  add primary key (AQPA661NRO);
+

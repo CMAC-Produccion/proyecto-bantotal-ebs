@@ -1,0 +1,26 @@
+create table FBC707
+(
+  bc707fing NUMBER(1) not null,
+  bc707cuit NUMBER(11) not null,
+  bc707nope NUMBER(11) not null,
+  bc707nins CHAR(20),
+  bc707dexp CHAR(55),
+  bc707find DATE,
+  bc707efor NUMBER(5),
+  bc707nbol CHAR(20),
+  bc707cmdn CHAR(3),
+  bc707ming NUMBER(11),
+  bc707dacr CHAR(55),
+  bc707tacr NUMBER(1),
+  bc707pacr CHAR(2),
+  bc707tope NUMBER(1),
+  bc707tint NUMBER(8),
+  bc707mpen NUMBER(11),
+  bc707mtot NUMBER(11),
+  bc707fest DATE,
+  bc707stat CHAR(1)
+)
+;
+alter table FBC707
+  add primary key (BC707FING, BC707CUIT, BC707NOPE);
+

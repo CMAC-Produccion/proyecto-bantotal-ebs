@@ -1,0 +1,14 @@
+create table BCXML2
+(
+  bcxmlemp NUMBER(3) not null,
+  bcxmlarc CHAR(10) not null,
+  bcxmlnar NUMBER(10) not null,
+  bcxmlcor NUMBER(8) not null,
+  bcxmlsig NUMBER(8) not null,
+  bcxmltxt CHAR(30),
+  bcxmlval CHAR(40)
+)
+;
+alter table BCXML2
+  add primary key (BCXMLEMP, BCXMLARC, BCXMLNAR, BCXMLCOR, BCXMLSIG);
+

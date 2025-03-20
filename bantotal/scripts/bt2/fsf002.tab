@@ -1,0 +1,15 @@
+create table FSF002
+(
+  pgcod     NUMBER(3) not null,
+  finro     NUMBER(3) not null,
+  fivfecha  DATE not null,
+  fivvaltot NUMBER(17,2),
+  fivvalcuo NUMBER(14,6),
+  fivcntcuo NUMBER(14,6),
+  fivrndbru NUMBER(14,6),
+  fivrndnet NUMBER(14,6)
+)
+;
+alter table FSF002
+  add primary key (PGCOD, FINRO, FIVFECHA);
+

@@ -1,0 +1,27 @@
+create table FSFSD6
+(
+  sfst1merc  NUMBER(3) not null,
+  sfsd6id    CHAR(10) not null,
+  sfsd6desc  CHAR(30),
+  sfsd6tipo  CHAR(1),
+  sfsd6qcar  NUMBER(3),
+  sfsd6nsep  CHAR(1),
+  sfsd6nent  NUMBER(2),
+  sfsd6ndec  NUMBER(2),
+  sfsd6nsgno CHAR(1),
+  sfsd6nnega CHAR(1),
+  sfsd6faaci NUMBER(2),
+  sfsd6faaqd NUMBER(1),
+  sfsd6fmmci NUMBER(2),
+  sfsd6fddci NUMBER(2),
+  sfsd6hhhci NUMBER(2),
+  sfsd6hmmci NUMBER(2),
+  sfsd6hssci NUMBER(2),
+  sfsd6ite   CHAR(1),
+  sfsd6inte  CHAR(10),
+  sfsd6atpr  CHAR(10)
+)
+;
+alter table FSFSD6
+  add primary key (SFST1MERC, SFSD6ID);
+

@@ -1,0 +1,102 @@
+create table AQPC364
+(
+  aqpc364fcar   DATE not null,
+  aqpc364pais   NUMBER(3) not null,
+  aqpc364tdoc   NUMBER(2) not null,
+  aqpc364ndoc   CHAR(12) not null,
+  aqpc364cta1   NUMBER(9),
+  aqpc364ncli   VARCHAR2(150),
+  aqpc364empcc  NUMBER(3),
+  aqpc364modcc  NUMBER(3),
+  aqpc364succc  NUMBER(3),
+  aqpc364mdacc  NUMBER(4),
+  aqpc364papcc  NUMBER(4),
+  aqpc364ctacc  NUMBER(9),
+  aqpc364opecc  NUMBER(9),
+  aqpc364sbocc  NUMBER(3),
+  aqpc364topecc NUMBER(3),
+  aqpc364sdocc  NUMBER(17,2),
+  aqpc364reg    VARCHAR2(30),
+  aqpc364zona   VARCHAR2(40),
+  aqpc364age    VARCHAR2(40),
+  aqpc364anlst  VARCHAR2(40),
+  aqpc364ncel   VARCHAR2(20),
+  aqpc364grepr  NUMBER(5),
+  aqpc364est    CHAR(1),
+  aqpc364ucre   VARCHAR2(10),
+  aqpc364fcre   VARCHAR2(10),
+  aqpc364hcre   VARCHAR2(10),
+  aqpc364uedi   VARCHAR2(10),
+  aqpc364fedi   VARCHAR2(10),
+  aqpc364hedi   VARCHAR2(10),
+  aqpc364descu  VARCHAR2(12),
+  aqpc364covid  VARCHAR2(10)
+)
+;
+comment on table AQPC364
+  is 'Tabla 1 Impulso Peru';
+comment on column AQPC364.aqpc364fcar
+  is 'Fecha de carga';
+comment on column AQPC364.aqpc364pais
+  is 'Pais';
+comment on column AQPC364.aqpc364tdoc
+  is 'Tipo Documento';
+comment on column AQPC364.aqpc364ndoc
+  is 'Nro Documento';
+comment on column AQPC364.aqpc364cta1
+  is 'Cuenta';
+comment on column AQPC364.aqpc364ncli
+  is 'Nombre Cliente';
+comment on column AQPC364.aqpc364empcc
+  is 'Empresa credito a consolidar';
+comment on column AQPC364.aqpc364modcc
+  is 'Modulo credito a consolidar';
+comment on column AQPC364.aqpc364succc
+  is 'Sucursal credito a consolidar';
+comment on column AQPC364.aqpc364mdacc
+  is 'Moneda credito a consolidar';
+comment on column AQPC364.aqpc364papcc
+  is 'Papel credito a consolidar';
+comment on column AQPC364.aqpc364ctacc
+  is 'Cuenta credito a consolidar';
+comment on column AQPC364.aqpc364opecc
+  is 'Operacion credito a consolidar';
+comment on column AQPC364.aqpc364sbocc
+  is 'Suboperacion credito a consolidar';
+comment on column AQPC364.aqpc364topecc
+  is 'Tipo operacion credito a consolidar';
+comment on column AQPC364.aqpc364sdocc
+  is 'Saldo credito a consolidar';
+comment on column AQPC364.aqpc364reg
+  is 'Region';
+comment on column AQPC364.aqpc364zona
+  is 'Zona';
+comment on column AQPC364.aqpc364age
+  is 'Agencia';
+comment on column AQPC364.aqpc364anlst
+  is 'Analista';
+comment on column AQPC364.aqpc364ncel
+  is 'Numero de celular cliente registrado';
+comment on column AQPC364.aqpc364grepr
+  is 'Grupo Reprogramacion';
+comment on column AQPC364.aqpc364est
+  is 'Estado';
+comment on column AQPC364.aqpc364ucre
+  is 'Usuario Creacion';
+comment on column AQPC364.aqpc364fcre
+  is 'Fecha Creacion';
+comment on column AQPC364.aqpc364hcre
+  is 'Hora Creacion';
+comment on column AQPC364.aqpc364uedi
+  is 'Usuario Edicion';
+comment on column AQPC364.aqpc364fedi
+  is 'Fecha Edicion';
+comment on column AQPC364.aqpc364hedi
+  is 'Hora Edicion';
+comment on column AQPC364.aqpc364descu
+  is 'Descuento: APLICA/NO APLICA';
+comment on column AQPC364.aqpc364covid
+  is 'Es covid: SI/NO';
+create index AQPC364A2 on AQPC364 (AQPC364FCAR);
+create index AQPC364A3 on AQPC364 (AQPC364PAIS, AQPC364TDOC, AQPC364NDOC);
+

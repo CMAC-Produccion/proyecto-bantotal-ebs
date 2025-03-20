@@ -1,0 +1,10 @@
+create table MSG003
+(
+  estmcod      NUMBER(5) not null,
+  atrnom       CHAR(10) not null,
+  atrdetnombre CHAR(10) not null
+)
+;
+alter table MSG003
+  add primary key (ESTMCOD, ATRNOM, ATRDETNOMBRE);
+

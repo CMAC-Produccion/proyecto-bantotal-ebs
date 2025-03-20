@@ -1,0 +1,14 @@
+create table FSFP09
+(
+  sfp09empr CHAR(20) not null,
+  sfp09paem NUMBER(3) not null,
+  sfp09tdem NUMBER(2) not null,
+  sfp09ndem CHAR(12) not null,
+  sfp09fch  DATE,
+  sfp09ibc  NUMBER(17,2),
+  sfp09sint CHAR(1)
+)
+;
+alter table FSFP09
+  add primary key (SFP09EMPR, SFP09PAEM, SFP09TDEM, SFP09NDEM);
+

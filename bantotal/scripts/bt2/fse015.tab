@@ -1,0 +1,24 @@
+create table FSE015
+(
+  hpgcod  NUMBER(3) not null,
+  hitsuc  NUMBER(3) not null,
+  hitmod  NUMBER(3) not null,
+  hittran NUMBER(3) not null,
+  hitnrel NUMBER(4) not null,
+  hitfcon DATE not null,
+  hfchsys DATE,
+  hhrasys CHAR(8),
+  hituing CHAR(10),
+  hitucnf CHAR(10),
+  hitcaja NUMBER(3),
+  hmodanu NUMBER(3),
+  htrnanu NUMBER(3),
+  hrelanu NUMBER(4),
+  hfchanu DATE
+)
+;
+create index FSE01502 on FSE015 (HPGCOD, HITFCON, HITUCNF, HFCHSYS, HHRASYS);
+create index FSE01504 on FSE015 (HPGCOD, HITSUC, HMODANU, HTRNANU, HRELANU, HFCHANU);
+alter table FSE015
+  add primary key (HPGCOD, HITSUC, HITMOD, HITTRAN, HITNREL, HITFCON);
+

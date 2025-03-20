@@ -1,0 +1,15 @@
+create table JFAW301
+(
+  jfaw301pa  NUMBER(9) not null,
+  jfaw301td  NUMBER(9) not null,
+  jfaw301nd  CHAR(12) not null,
+  jfaw301dcd NUMBER(2) not null,
+  jfaw301do  CHAR(35),
+  jfaw301mdf CHAR(1),
+  jfaw301rnd NUMBER(3)
+)
+;
+create index JFAW30102 on JFAW301 (JFAW301MDF, JFAW301RND);
+alter table JFAW301
+  add primary key (JFAW301PA, JFAW301TD, JFAW301ND, JFAW301DCD);
+

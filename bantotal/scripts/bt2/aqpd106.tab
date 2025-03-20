@@ -1,0 +1,105 @@
+create table AQPD106
+(
+  aqpd106fec    DATE,
+  aqpd106nro    NUMBER(10) not null,
+  aqpd106nomadq VARCHAR2(70),
+  aqpd106tipdoc VARCHAR2(2),
+  aqpd106nrodoc CHAR(12),
+  aqpd106modtra VARCHAR2(10),
+  aqpd106clasi  CHAR(35),
+  aqpd106reladq VARCHAR2(10),
+  aqpd106fectra DATE,
+  aqpd106coosbs VARCHAR2(2),
+  aqpd106ressbs VARCHAR2(10),
+  aqpd106tiprep VARCHAR2(10),
+  aqpd106corgep NUMBER(18,2),
+  aqpd106medemp NUMBER(18,2),
+  aqpd106peqemp NUMBER(18,2),
+  aqpd106micemp NUMBER(18,2),
+  aqpd106consu  NUMBER(18,2),
+  aqpd106hipo   NUMBER(18,2),
+  aqpd106imp1   NUMBER(18,2),
+  aqpd106vig    NUMBER(18,2),
+  aqpd106ref    NUMBER(18,2),
+  aqpd106venci  NUMBER(18,2),
+  aqpd106jud    NUMBER(18,2),
+  aqpd106cas    NUMBER(18,2),
+  aqpd106imp2   NUMBER(18,2),
+  aqpd106carind NUMBER(18,2),
+  aqpd106dev    NUMBER(18,2),
+  aqpd106sus    NUMBER(18,2),
+  aqpd106pro    NUMBER(18,2),
+  aqpd106venta  NUMBER(18,2),
+  aqpd106deudo  NUMBER(18),
+  aqpd106fec1   DATE not null,
+  aqpd106fec2   DATE not null
+)
+;
+comment on table AQPD106
+  is 'TABLA REPORTE 25A';
+comment on column AQPD106.aqpd106fec
+  is 'FECHA';
+comment on column AQPD106.aqpd106nro
+  is 'NRO TRANSACCION';
+comment on column AQPD106.aqpd106nomadq
+  is 'NOMBRE ADQUIRENTE';
+comment on column AQPD106.aqpd106tipdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPD106.aqpd106nrodoc
+  is 'NRO DOCUMENTO';
+comment on column AQPD106.aqpd106modtra
+  is 'MODALIDAD TRANSACCION';
+comment on column AQPD106.aqpd106clasi
+  is 'CLASIFICACION ADQUIRENTE';
+comment on column AQPD106.aqpd106reladq
+  is 'RELACION ADQUIRENTE';
+comment on column AQPD106.aqpd106fectra
+  is 'FECHA TRANSFERENCIA';
+comment on column AQPD106.aqpd106coosbs
+  is 'COORDINACION CON SBS';
+comment on column AQPD106.aqpd106ressbs
+  is 'NRO RELACAION SBS ';
+comment on column AQPD106.aqpd106tiprep
+  is 'TIPO DE REPORTE';
+comment on column AQPD106.aqpd106corgep
+  is 'CORPORATIVOS Y GRANDES EMPRESAS';
+comment on column AQPD106.aqpd106medemp
+  is 'MEDIANA EMPRESA';
+comment on column AQPD106.aqpd106peqemp
+  is 'PEQUEÑA EMPRESA';
+comment on column AQPD106.aqpd106micemp
+  is 'MICRO EMPRESA';
+comment on column AQPD106.aqpd106consu
+  is 'CONSUMO';
+comment on column AQPD106.aqpd106hipo
+  is 'HIPOTECARIO';
+comment on column AQPD106.aqpd106imp1
+  is 'IMPORTE TOTAL 1';
+comment on column AQPD106.aqpd106vig
+  is 'VIGENTE';
+comment on column AQPD106.aqpd106ref
+  is 'Refinanciada y reestructurada';
+comment on column AQPD106.aqpd106venci
+  is 'VENCIDAD';
+comment on column AQPD106.aqpd106jud
+  is 'JUDICIAL';
+comment on column AQPD106.aqpd106cas
+  is 'CASTIGADA';
+comment on column AQPD106.aqpd106imp2
+  is 'IMPORTE TOTAL 2';
+comment on column AQPD106.aqpd106carind
+  is 'IMPORTE DE CARTERA INDIRECTA TRANSFERIDA';
+comment on column AQPD106.aqpd106dev
+  is 'RENDIMIENTOS - DEVENADOS';
+comment on column AQPD106.aqpd106sus
+  is 'RENDIMIENTOS - EN SUSPENSO';
+comment on column AQPD106.aqpd106pro
+  is 'MONTO TOTAL DE PROVISIONES';
+comment on column AQPD106.aqpd106venta
+  is 'PRECIO VENTA';
+comment on column AQPD106.aqpd106deudo
+  is 'NRO DEUDORES';
+create index AQPD1062 on AQPD106 (AQPD106FEC1, AQPD106FEC2);
+alter table AQPD106
+  add primary key (AQPD106FEC1, AQPD106FEC2, AQPD106NRO);
+

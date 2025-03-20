@@ -1,0 +1,44 @@
+create table JBXIGB
+(
+  jbxigbfec DATE not null,
+  jbxigbemp NUMBER(3) not null,
+  jbxigbmod NUMBER(3) not null,
+  jbxigbsuc NUMBER(3) not null,
+  jbxigbmda NUMBER(4) not null,
+  jbxigbpap NUMBER(4) not null,
+  jbxigbcta NUMBER(9) not null,
+  jbxigbope NUMBER(9) not null,
+  jbxigbsbo NUMBER(3) not null,
+  jbxigbtop NUMBER(3) not null,
+  jbxigbncu NUMBER(9) not null,
+  jbxigbtct CHAR(1) not null,
+  jbxigbfvt DATE not null,
+  jbxigbpzo NUMBER(5),
+  jbxigbmto NUMBER(17,2),
+  jbxigbcct NUMBER(17,2),
+  jbxigbict NUMBER(17,2),
+  jbxigbinc NUMBER(17,2),
+  jbxigbisc NUMBER(17,2),
+  jbxigbisi NUMBER(17,2),
+  jbxigbsin NUMBER(17,2),
+  jbxigbecu CHAR(1),
+  jbxigbdat NUMBER(5),
+  jbxigbmpc NUMBER(17,2),
+  jbxigbmac NUMBER(17,2),
+  jbxigbgst NUMBER(17,2),
+  jbxigbsgr NUMBER(17,2),
+  jbxigbinp NUMBER(17,2),
+  jbxigbicm NUMBER(17,2),
+  jbxigbiva NUMBER(17,2),
+  jbxigbccc NUMBER(16),
+  jbxigbcci NUMBER(16),
+  jbxigbccm NUMBER(16),
+  jbxigbccp NUMBER(16),
+  jbxigbccg NUMBER(16),
+  jbxigbccs NUMBER(16),
+  jbxigbccv NUMBER(16)
+)
+;
+create unique index JBXIGB01 on JBXIGB (JBXIGBFEC, JBXIGBEMP, JBXIGBMOD, JBXIGBSUC, JBXIGBMDA, JBXIGBPAP, JBXIGBCTA, JBXIGBOPE, JBXIGBSBO, JBXIGBTOP, JBXIGBNCU, JBXIGBTCT, JBXIGBFVT);
+create index JBXIGB02 on JBXIGB (JBXIGBFEC, JBXIGBSUC);
+

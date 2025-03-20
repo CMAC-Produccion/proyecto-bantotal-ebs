@@ -1,0 +1,13 @@
+create table FSA108
+(
+  bccltas    NUMBER(2) not null,
+  bcmd       NUMBER(4) not null,
+  platasdes  NUMBER(5) not null,
+  platashast NUMBER(5) not null,
+  bccodtas   NUMBER(3)
+)
+;
+create index FSA10802 on FSA108 (BCMD);
+alter table FSA108
+  add primary key (BCCLTAS, BCMD, PLATASDES, PLATASHAST);
+

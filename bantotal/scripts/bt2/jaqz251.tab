@@ -1,0 +1,18 @@
+create table JAQZ251
+(
+  jaqz251sbsemp   VARCHAR2(4) not null,
+  jaqz251sbsinfo  VARCHAR2(30) not null,
+  jaqz251sbsfech  DATE not null,
+  jaqz251sbsubic  VARCHAR2(4) not null,
+  jaqz251sbsvalor VARCHAR2(30) not null,
+  jaqz251sbs001   VARCHAR2(30),
+  jaqz251sbs002   VARCHAR2(30),
+  jaqz251sbs003   VARCHAR2(30),
+  jaqz251sbs004   VARCHAR2(30),
+  jaqz251sbs005   VARCHAR2(30)
+)
+;
+create index INX_JAQZ251_01 on JAQZ251 (JAQZ251SBSEMP, JAQZ251SBSINFO, JAQZ251SBSFECH);
+alter table JAQZ251
+  add constraint CLAVE unique (JAQZ251SBSEMP, JAQZ251SBSFECH, JAQZ251SBSUBIC);
+

@@ -1,0 +1,14 @@
+create table RGAP02
+(
+  rgap01apl NUMBER(4) not null,
+  rgap01prc CHAR(10) not null,
+  rgap02dsc CHAR(30),
+  rgap02cam CHAR(100),
+  rgap02spo CHAR(100),
+  rgap02nar CHAR(20),
+  rgap02nsp CHAR(20)
+)
+;
+alter table RGAP02
+  add primary key (RGAP01APL, RGAP01PRC);
+

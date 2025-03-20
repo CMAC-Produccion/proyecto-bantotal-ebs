@@ -1,0 +1,42 @@
+create table FBC7C1
+(
+  bc7c1emp   NUMBER(3) not null,
+  bc7c1inf   CHAR(10) not null,
+  bc7c1fch   DATE not null,
+  bc7c1corr  NUMBER(12) not null,
+  bc7c1tipcl CHAR(1),
+  bc7c1codgr CHAR(2),
+  bc7c1tipas CHAR(2),
+  bc7c1idas  CHAR(6),
+  bc7c1cta   CHAR(25),
+  bc7c1user  CHAR(8),
+  bc7c1tippa CHAR(3),
+  bc7c1tipre CHAR(3),
+  bc7c1fecin DATE,
+  bc7c1fecfi DATE,
+  bc7c1mtoor NUMBER(17,2),
+  bc7c1sdoac NUMBER(17,2),
+  bc7c1numpa NUMBER(3),
+  bc7c1imppa NUMBER(17,2),
+  bc7c1fecul DATE,
+  bc7c1mtoul NUMBER(17,2),
+  bc7c1fecli DATE,
+  bc7c1tpoco CHAR(1),
+  bc7c1estre CHAR(1),
+  bc7c1diaat NUMBER(5),
+  bc7c1mtoco CHAR(2),
+  bc7c1tipci CHAR(1),
+  bc7c1obs   CHAR(80),
+  bc7c1fecco DATE,
+  bc7c1nomfi CHAR(50),
+  bc7c1cedfi CHAR(21),
+  bc7c1id1   CHAR(7),
+  bc7c1id2   CHAR(7),
+  bc7c1id3   CHAR(7),
+  bc7c1id4   CHAR(21)
+)
+;
+create index FBC7C102 on FBC7C1 (BC7C1EMP, BC7C1INF, BC7C1FCH, BC7C1CTA);
+alter table FBC7C1
+  add primary key (BC7C1EMP, BC7C1INF, BC7C1FCH, BC7C1CORR);
+

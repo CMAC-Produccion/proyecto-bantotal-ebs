@@ -1,0 +1,27 @@
+create table AQPC448
+(
+  aqpc448cod NUMBER(4) not null,
+  aqpc448fec DATE not null,
+  aqpc448est VARCHAR2(1),
+  aqpc448mda NUMBER(4),
+  aqpc448hor CHAR(8),
+  aqpc448usu CHAR(10)
+)
+;
+comment on table AQPC448
+  is 'Cabecera Rangos Tipo de Reacudo';
+comment on column AQPC448.aqpc448cod
+  is 'Código de Recaudo';
+comment on column AQPC448.aqpc448fec
+  is 'Fecha de ingreso de registro';
+comment on column AQPC448.aqpc448est
+  is 'Estado';
+comment on column AQPC448.aqpc448mda
+  is 'Moneda';
+comment on column AQPC448.aqpc448hor
+  is 'Hora';
+comment on column AQPC448.aqpc448usu
+  is 'Usuario';
+alter table AQPC448
+  add primary key (AQPC448COD);
+

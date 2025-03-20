@@ -1,0 +1,29 @@
+create table FTDVDF
+(
+  tdvdeftbt CHAR(1) not null,
+  tdvdeftbc CHAR(1) not null,
+  tdvdefdsc CHAR(30),
+  tdvdefcib NUMBER(5),
+  tdvdefcar CHAR(3),
+  tdvdeflim NUMBER(3),
+  tdvdefvig NUMBER(2),
+  tdvdefsrv CHAR(3),
+  tdvdeftcm NUMBER(3),
+  tdvdefcos NUMBER(3),
+  tdvdefpes NUMBER(7,2),
+  tdvdefnom CHAR(24),
+  tdvdefcln CHAR(24),
+  tdvdefcal CHAR(25),
+  tdvdefnro CHAR(5),
+  tdvdefpis CHAR(2),
+  tdvdefdpt CHAR(3),
+  tdvdefloc CHAR(25),
+  tdvdefcpo CHAR(8),
+  tdvdeftel CHAR(11),
+  tdvdefcpv CHAR(2),
+  tdvdeftpl CHAR(1)
+)
+;
+alter table FTDVDF
+  add primary key (TDVDEFTBT, TDVDEFTBC);
+

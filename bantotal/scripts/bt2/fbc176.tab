@@ -1,0 +1,12 @@
+create table FBC176
+(
+  bcdepcod   NUMBER(2) not null,
+  bcciucod   NUMBER(3) not null,
+  bczoncod   NUMBER(2) not null,
+  bczondesc  CHAR(40),
+  bccantofic NUMBER(3)
+)
+;
+alter table FBC176
+  add primary key (BCDEPCOD, BCCIUCOD, BCZONCOD);
+

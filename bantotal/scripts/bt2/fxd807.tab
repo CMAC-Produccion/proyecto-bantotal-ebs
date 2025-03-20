@@ -1,0 +1,17 @@
+create table FXD807
+(
+  fxd807pgco NUMBER(3) not null,
+  fxd807nt10 NUMBER(2) not null,
+  fxd807mn10 NUMBER(9) not null,
+  fxd807sc10 NUMBER(5) not null,
+  fxd807sr10 NUMBER(2) not null,
+  fxd807nt91 NUMBER(2) not null,
+  fxd807mn91 NUMBER(9) not null,
+  fxd807sc91 NUMBER(5) not null,
+  fxd807sr91 NUMBER(2) not null
+)
+;
+create index FXD80702 on FXD807 (FXD807PGCO, FXD807NT91, FXD807MN91, FXD807SC91, FXD807SR91);
+alter table FXD807
+  add primary key (FXD807PGCO, FXD807NT10, FXD807MN10, FXD807SC10, FXD807SR10, FXD807NT91, FXD807MN91, FXD807SC91, FXD807SR91);
+

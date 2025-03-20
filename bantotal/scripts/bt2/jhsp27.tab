@@ -1,0 +1,13 @@
+create table JHSP27
+(
+  jhsp27fprc DATE not null,
+  jhsp27emp  NUMBER(3) not null,
+  jhsp27sec  NUMBER(3) not null,
+  jhsp27uprc CHAR(10),
+  jhsp27uaut CHAR(10),
+  jhsp27hora CHAR(8),
+  jhsp27est  CHAR(1)
+)
+;
+create unique index JHSP2701 on JHSP27 (JHSP27FPRC, JHSP27EMP, JHSP27SEC);
+

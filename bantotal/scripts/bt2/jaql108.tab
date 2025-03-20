@@ -1,0 +1,29 @@
+create table JAQL108
+(
+  jaql108pai NUMBER(3) not null,
+  jaql108ptd NUMBER(2) not null,
+  jaql108doc CHAR(12) not null,
+  jaql108fch DATE not null,
+  jaql108usu CHAR(10) not null,
+  jaql108mod NUMBER(3),
+  jaql108top NUMBER(3),
+  jaql108res NUMBER(9),
+  jaql108a01 NUMBER(9),
+  jaql108a02 NUMBER(9),
+  jaql108a03 NUMBER(9),
+  jaql108a04 CHAR(50),
+  jaql108a05 CHAR(50),
+  jaql108a06 CHAR(50),
+  jaql108a07 DATE,
+  jaql108a08 DATE,
+  jaql108a09 DATE,
+  jaql108a10 NUMBER(17,2),
+  jaql108a11 NUMBER(17,2),
+  jaql108a12 NUMBER(17,2),
+  jaql108hra CHAR(8)
+)
+;
+create index JAQL1082 on JAQL108 (JAQL108PAI, JAQL108PTD, JAQL108DOC, JAQL108FCH, JAQL108HRA);
+alter table JAQL108
+  add primary key (JAQL108PAI, JAQL108PTD, JAQL108DOC, JAQL108FCH, JAQL108USU);
+

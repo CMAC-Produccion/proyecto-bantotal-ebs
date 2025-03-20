@@ -1,0 +1,14 @@
+create table FSFD01
+(
+  kdbpgcod NUMBER(3) not null,
+  kdbbono  NUMBER(4) not null,
+  kdbacc   NUMBER(4) not null,
+  kdbnum1  NUMBER(9),
+  kdbnum2  NUMBER(9),
+  kdbcar1  CHAR(15),
+  kdbcar2  CHAR(15)
+)
+;
+alter table FSFD01
+  add primary key (KDBPGCOD, KDBBONO, KDBACC);
+

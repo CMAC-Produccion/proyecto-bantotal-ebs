@@ -1,0 +1,16 @@
+create table FST601
+(
+  pgcod     NUMBER(3) not null,
+  fst601suc NUMBER(3) not null,
+  sccpos    CHAR(8),
+  scmail    CHAR(50),
+  scax1     CHAR(1),
+  scax2     DATE,
+  scax3     NUMBER(17,2),
+  scax4     NUMBER(10),
+  scax5     CHAR(50)
+)
+;
+alter table FST601
+  add primary key (PGCOD, FST601SUC);
+

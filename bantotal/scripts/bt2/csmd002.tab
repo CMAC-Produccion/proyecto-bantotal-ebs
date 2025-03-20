@@ -1,0 +1,29 @@
+create table CSMD002
+(
+  csmd001cod NUMBER(9) not null,
+  csmt002cod NUMBER(4) not null,
+  csmd002tca CHAR(1),
+  csmd002fin DATE,
+  csmd002ffn DATE,
+  csmd002est CHAR(1),
+  csmd002tct CHAR(1),
+  csmd002mmd CHAR(1),
+  csmd002pgm CHAR(10),
+  csmd002new CHAR(1),
+  csmd002rec CHAR(1),
+  csmd002vct CHAR(1),
+  csmd002dia NUMBER(3),
+  csmd002can NUMBER(3),
+  csmd002chq CHAR(1),
+  csmd002per CHAR(1),
+  csmd002blq CHAR(1),
+  csmd002anu CHAR(1),
+  csmd002ctl CHAR(1),
+  csmd002ins CHAR(1),
+  csmd002del CHAR(1)
+)
+;
+create index CSMD0024 on CSMD002 (CSMT002COD);
+alter table CSMD002
+  add primary key (CSMD001COD, CSMT002COD);
+

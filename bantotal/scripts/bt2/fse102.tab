@@ -1,0 +1,18 @@
+create table FSE102
+(
+  pfxpais  NUMBER(3) not null,
+  pfxtdoc  NUMBER(2) not null,
+  pfxndoc  CHAR(12) not null,
+  pfxcorr  NUMBER(3) not null,
+  pfxnom   CHAR(50),
+  pfxdom1  CHAR(50),
+  pfxdom2  CHAR(50),
+  pfxdom3  CHAR(50),
+  pfxtel   CHAR(50),
+  pfxtipo  CHAR(1),
+  pfxvicod NUMBER(2)
+)
+;
+alter table FSE102
+  add primary key (PFXPAIS, PFXTDOC, PFXNDOC, PFXCORR);
+

@@ -1,0 +1,122 @@
+create table JAQL706
+(
+  jaql706pgco   NUMBER(3) not null,
+  jaql706scsu   NUMBER(3) not null,
+  jaql706scmo   NUMBER(3) not null,
+  jaql706scmd   NUMBER(4) not null,
+  jaql706scpa   NUMBER(4) not null,
+  jaql706scct   NUMBER(9) not null,
+  jaql706scop   NUMBER(9) not null,
+  jaql706scsb   NUMBER(3) not null,
+  jaql706scto   NUMBER(3) not null,
+  jaql706trco   NUMBER(6) not null,
+  jaql706titr   NUMBER(3),
+  jaql706bcor   NUMBER(3),
+  jaql706suor   NUMBER(12),
+  jaql706bcde   NUMBER(3),
+  jaql706sude   NUMBER(12),
+  jaql706ccio   CHAR(20),
+  jaql706ccid   CHAR(20),
+  jaql706tacr   CHAR(20),
+  jaql706tita   CHAR(1),
+  jaql706plaz   CHAR(1),
+  jaql706impo   NUMBER(17,2),
+  jaql706mcob   NUMBER(4),
+  jaql706icob   NUMBER(17,2),
+  jaql706mcoc   NUMBER(4),
+  jaql706icoc   NUMBER(17,2),
+  jaql706paor   NUMBER(3),
+  jaql706tdor   NUMBER(2),
+  jaql706ndor   CHAR(12),
+  jaql706noor   CHAR(140),
+  jaql706dior   CHAR(70),
+  jaql706pabe   NUMBER(3),
+  jaql706tdbe   NUMBER(2),
+  jaql706ndbe   CHAR(12),
+  jaql706nobe   CHAR(140),
+  jaql706dibe   CHAR(70),
+  jaql706tebe   NUMBER(10),
+  jaql706refe   CHAR(25),
+  jaql706clas   CHAR(1),
+  jaql706cana   NUMBER(2),
+  jaql706conc   NUMBER(3),
+  jaql706itcd   NUMBER(3),
+  jaql706itsu   NUMBER(3),
+  jaql706itmo   NUMBER(3),
+  jaql706ittr   NUMBER(3),
+  jaql706itre   NUMBER(4),
+  jaql706itfc   DATE,
+  jaql706itor   NUMBER(2),
+  jaql706itso   NUMBER(3),
+  jaql706itco   CHAR(1),
+  jaql706au01   CHAR(50),
+  jaql706au02   CHAR(50),
+  jaql706au03   CHAR(50),
+  jaql706au04   NUMBER(9),
+  jaql706au05   NUMBER(9),
+  jaql706au06   NUMBER(9),
+  jaql706au07   NUMBER(17,2),
+  jaql706au08   NUMBER(17,2),
+  jaql706au09   NUMBER(17,2),
+  jaql706au10   DATE,
+  jaql706au11   DATE,
+  jaql706au12   DATE,
+  jaql706trac   CHAR(6),
+  jaql706hora   CHAR(6),
+  jaql706fech   CHAR(4),
+  jaql706term   CHAR(8),
+  jaql706user   CHAR(10),
+  jaql706esta   CHAR(1),
+  jaql706ctme   NUMBER(2),
+  jaql706ctan   NUMBER(4),
+  jaql706ctsu   NUMBER(17,2),
+  jaql706reca   NUMBER(1),
+  jaql706regf   DATE,
+  jaql706regh   CHAR(8),
+  jaql706regr   CHAR(50),
+  jaql706fliq   VARCHAR2(8),
+  jaql706mliq   NUMBER(12,2),
+  jaql706atra   VARCHAR2(4),
+  jaql706hfin   CHAR(6),
+  jaql706mtrx   CHAR(3),
+  jaql706dir    NUMBER(3),
+  jaql706pxvl   CHAR(70),
+  jaql706pxtp   CHAR(35),
+  jaql706trama  VARCHAR2(3000),
+  jaql706fecap  DATE,
+  jaql706fecre  DATE,
+  jaql706itfcre DATE
+)
+;
+comment on column JAQL706.jaql706fliq
+  is 'FECHA LIQUIDACION';
+comment on column JAQL706.jaql706mliq
+  is 'MONTO LIQUIDACION';
+comment on column JAQL706.jaql706atra
+  is 'ANIO TRANSACCION';
+comment on column JAQL706.jaql706hfin
+  is 'HORA FIN';
+comment on column JAQL706.jaql706mtrx
+  is 'MODO TRANSACCION';
+comment on column JAQL706.jaql706dir
+  is 'DIRECTORIO TRANSACCION';
+comment on column JAQL706.jaql706pxvl
+  is 'PROXY VALUE';
+comment on column JAQL706.jaql706pxtp
+  is 'PROXY TYPE';
+comment on column JAQL706.jaql706trama
+  is 'Trama';
+comment on column JAQL706.jaql706fecap
+  is 'Fecha Apertura';
+comment on column JAQL706.jaql706fecre
+  is 'Fecha Real Transacción';
+comment on column JAQL706.jaql706itfcre
+  is 'Fecha Real Contabilización';
+create index IJAQL70600100 on JAQL706 (JAQL706ITCD, JAQL706ITSU, JAQL706ITMO, JAQL706ITTR, JAQL706ITRE, JAQL706ITFC);
+create index IJAQL70600200 on JAQL706 (JAQL706TRAC, JAQL706HORA, JAQL706FECH, JAQL706CANA, JAQL706BCOR, JAQL706TERM);
+create index IJAQL70600300 on JAQL706 (JAQL706PGCO, JAQL706SCCT, JAQL706SCMD, JAQL706SCPA, JAQL706ESTA);
+create index IJAQL70600400 on JAQL706 (JAQL706ITFC);
+create index JAQL706A2 on JAQL706 (JAQL706ITFCRE, JAQL706TRAC, JAQL706BCOR, JAQL706BCDE);
+alter table JAQL706
+  add primary key (JAQL706PGCO, JAQL706SCSU, JAQL706SCMO, JAQL706SCMD, JAQL706SCPA, JAQL706SCCT, JAQL706SCOP, JAQL706SCSB, JAQL706SCTO, JAQL706TRCO);
+

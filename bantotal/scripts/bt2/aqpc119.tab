@@ -1,0 +1,77 @@
+create table AQPC119
+(
+  aqpc119tar CHAR(19) not null,
+  aqpc119pce VARCHAR2(5),
+  aqpc119nce VARCHAR2(20),
+  aqpc119fal DATE,
+  aqpc119hal CHAR(8),
+  aqpc119est CHAR(5),
+  aqpc119idr VARCHAR2(26),
+  aqpc119pai NUMBER(3),
+  aqpc119tdo NUMBER(2),
+  aqpc119ndo CHAR(12),
+  aqpc119pgc NUMBER(3),
+  aqpc119mod NUMBER(3),
+  aqpc119suc NUMBER(3),
+  aqpc119mda NUMBER(4),
+  aqpc119pap NUMBER(4),
+  aqpc119cta NUMBER(9),
+  aqpc119ope NUMBER(9),
+  aqpc119sbo NUMBER(3),
+  aqpc119top NUMBER(3),
+  aqpc119usr CHAR(10),
+  aqpc119fup DATE,
+  aqpc119hup CHAR(8)
+)
+;
+comment on table AQPC119
+  is 'Clientes registrados Directorio CCE';
+comment on column AQPC119.aqpc119tar
+  is 'Número de tarjeta';
+comment on column AQPC119.aqpc119pce
+  is 'Pais del celular';
+comment on column AQPC119.aqpc119nce
+  is 'Celular cliente';
+comment on column AQPC119.aqpc119fal
+  is 'Fecha de alta';
+comment on column AQPC119.aqpc119hal
+  is 'Hora de alta';
+comment on column AQPC119.aqpc119est
+  is 'Estado';
+comment on column AQPC119.aqpc119idr
+  is 'ID de registro';
+comment on column AQPC119.aqpc119pai
+  is 'País del documento';
+comment on column AQPC119.aqpc119tdo
+  is 'Tipo de documento';
+comment on column AQPC119.aqpc119ndo
+  is 'Npumero de documento';
+comment on column AQPC119.aqpc119pgc
+  is 'Empresa';
+comment on column AQPC119.aqpc119mod
+  is 'Módulo';
+comment on column AQPC119.aqpc119suc
+  is 'Sucursal';
+comment on column AQPC119.aqpc119mda
+  is 'Moneda';
+comment on column AQPC119.aqpc119pap
+  is 'Papel';
+comment on column AQPC119.aqpc119cta
+  is 'Cuenta';
+comment on column AQPC119.aqpc119ope
+  is 'Operación';
+comment on column AQPC119.aqpc119sbo
+  is 'Sub operación';
+comment on column AQPC119.aqpc119top
+  is 'Tipo operación';
+comment on column AQPC119.aqpc119usr
+  is 'Usuario Modificación';
+comment on column AQPC119.aqpc119fup
+  is 'Fecha Modificación';
+comment on column AQPC119.aqpc119hup
+  is 'Hora Modificación';
+create index AQPC119A2 on AQPC119 (AQPC119PAI, AQPC119TDO, AQPC119NDO);
+create index AQPC119A3 on AQPC119 (AQPC119PCE, AQPC119NCE, AQPC119EST);
+alter table AQPC119
+  add primary key (AQPC119TAR);
+

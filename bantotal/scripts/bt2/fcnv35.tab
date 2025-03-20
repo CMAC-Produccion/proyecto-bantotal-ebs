@@ -1,0 +1,16 @@
+create table FCNV35
+(
+  cnv34stcob NUMBER(2) not null,
+  cnv35req   NUMBER(3) not null,
+  cnv35reqca CHAR(5),
+  cnv35reqds CHAR(60),
+  cnv35tcli  CHAR(1),
+  cnv35oblig CHAR(1),
+  cnv35obser VARCHAR2(255),
+  cnv35sts   CHAR(1),
+  cnv35pgchk CHAR(10)
+)
+;
+alter table FCNV35
+  add primary key (CNV34STCOB, CNV35REQ);
+

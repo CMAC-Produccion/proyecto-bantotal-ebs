@@ -1,0 +1,41 @@
+create table FIFS01
+(
+  ifs01cap NUMBER(4) not null,
+  ifs01cba CHAR(5) not null,
+  ifs01num NUMBER(9) not null,
+  ifs01crr NUMBER(9) not null,
+  ifs01fec DATE,
+  ifs01reg CHAR(8),
+  ifs01cco NUMBER(2),
+  ifs01nco NUMBER(12),
+  ifs01fch DATE,
+  ifs01ico NUMBER(15,2),
+  ifs01cim NUMBER(3),
+  ifs01cre NUMBER(3),
+  ifs01cop NUMBER(1),
+  ifs01bas NUMBER(13,2),
+  ifs01fre DATE,
+  ifs01ccn NUMBER(2),
+  ifs01ire NUMBER(15,2),
+  ifs01por NUMBER(6),
+  ifs01fbo DATE,
+  ifs01tdo NUMBER(2),
+  ifs01ndo CHAR(20),
+  ifs01cer NUMBER(14),
+  ifs01den CHAR(30),
+  ifs01acr NUMBER(1),
+  ifs01cur CHAR(11),
+  ifs01cuo CHAR(11),
+  ifs01cta NUMBER(9),
+  ifs01suc NUMBER(3),
+  ifs01rub NUMBER(16),
+  ifs01im6 NUMBER(14,2),
+  ifs01nom CHAR(30),
+  ifs01dob NUMBER(1)
+)
+;
+create index FIFS0102 on FIFS01 (IFS01CTA, IFS01RUB);
+create index FIFS0103 on FIFS01 (IFS01SUC, IFS01CTA);
+alter table FIFS01
+  add primary key (IFS01CAP, IFS01CBA, IFS01NUM, IFS01CRR);
+

@@ -1,0 +1,29 @@
+create table JAQZ460
+(
+  jaqz460cor NUMBER,
+  jaqz460cod VARCHAR2(10),
+  jaqz460num VARCHAR2(10),
+  jaqz460des VARCHAR2(100),
+  jaqz460fin DATE,
+  jaqz460ffi DATE,
+  jaqz460da1 VARCHAR2(100)
+)
+;
+comment on table JAQZ460
+  is 'JOBs Grupos Economicos';
+comment on column JAQZ460.jaqz460cor
+  is 'Correlativo';
+comment on column JAQZ460.jaqz460cod
+  is 'Codigo de JOB';
+comment on column JAQZ460.jaqz460num
+  is 'Numero de JOB-Regcod ';
+comment on column JAQZ460.jaqz460des
+  is 'Descripcion';
+comment on column JAQZ460.jaqz460fin
+  is 'Fecha Inicio';
+comment on column JAQZ460.jaqz460ffi
+  is 'Fecha Fin';
+comment on column JAQZ460.jaqz460da1
+  is 'Datos Adicionales';
+create index JAQZ460_ID1 on JAQZ460 (JAQZ460COR, JAQZ460COD, JAQZ460NUM);
+

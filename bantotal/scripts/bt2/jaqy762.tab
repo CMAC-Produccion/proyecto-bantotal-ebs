@@ -1,0 +1,40 @@
+create table JAQY762
+(
+  jaqy762pgcod  NUMBER(3) not null,
+  jaqy762mod    NUMBER(3) not null,
+  jaqy762suc    NUMBER(3) not null,
+  jaqy762mda    NUMBER(4) not null,
+  jaqy762pap    NUMBER(4) not null,
+  jaqy762cta    NUMBER(9) not null,
+  jaqy762oper   NUMBER(9) not null,
+  jaqy762sbop   NUMBER(3) not null,
+  jaqy762tope   NUMBER(3) not null,
+  jaqy762sgcod  NUMBER(9) not null,
+  jaqy762fchsis DATE not null,
+  jaqy762hora   CHAR(8) not null,
+  jaqy762est    CHAR(1) not null,
+  jaqy762vc     NUMBER(16,2),
+  jaqy762imp    NUMBER(16,2),
+  jaqy762porc   NUMBER(9,6),
+  jaqy762plus   NUMBER(9,6),
+  jaqy762part   NUMBER(9,6),
+  jaqy762veh    NUMBER(4),
+  jaqy762inm    NUMBER(4),
+  jaqy762end    CHAR(1),
+  jaqy762stat   CHAR(1),
+  jaqy762co     CHAR(1),
+  jaqy762user   CHAR(10),
+  jaqy762aux1   NUMBER(16,2),
+  jaqy762aux2   NUMBER(9,6),
+  jaqy762aux3   DATE,
+  jaqy762aux4   NUMBER(16,2),
+  jaqy762aux5   CHAR(30),
+  jaqy762aux6   CHAR(10),
+  jaqy762aux7   CHAR(100)
+)
+;
+create index JAQY76201 on JAQY762 (JAQY762SGCOD);
+create index JAQY76202 on JAQY762 (JAQY762PGCOD, JAQY762MOD, JAQY762SUC, JAQY762MDA, JAQY762PAP, JAQY762CTA, JAQY762OPER, JAQY762SBOP, JAQY762TOPE, JAQY762FCHSIS);
+alter table JAQY762
+  add primary key (JAQY762PGCOD, JAQY762MOD, JAQY762SUC, JAQY762MDA, JAQY762PAP, JAQY762CTA, JAQY762OPER, JAQY762SBOP, JAQY762TOPE, JAQY762SGCOD, JAQY762FCHSIS, JAQY762HORA, JAQY762EST);
+

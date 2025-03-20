@@ -1,0 +1,22 @@
+create table FCNV06
+(
+  cnv06cobcd NUMBER(3) not null,
+  cnv06cobnm CHAR(30),
+  cnv06direc CHAR(40),
+  cnv06telef CHAR(30),
+  cnv06imail CHAR(40),
+  cnv06tcob  CHAR(1),
+  cnv06seg   NUMBER(2),
+  cnv06pgcod NUMBER(3),
+  cnv06reg   NUMBER(3),
+  cnv06tarj  CHAR(20),
+  cnv06cta   NUMBER(9),
+  cnv06ctmod NUMBER(3),
+  cnv06ctsbo NUMBER(3),
+  cnv06ctsuc NUMBER(3),
+  cnv06ctmda NUMBER(4)
+)
+;
+alter table FCNV06
+  add primary key (CNV06COBCD);
+

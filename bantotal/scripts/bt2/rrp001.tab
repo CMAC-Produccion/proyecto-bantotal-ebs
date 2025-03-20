@@ -1,0 +1,81 @@
+create table RRP001
+(
+  rrp001emp  NUMBER(3) not null,
+  rrp001pai  NUMBER(3) not null,
+  rrp001cli  NUMBER(5) not null,
+  rrp001cod  NUMBER(5) not null,
+  rrp001dsc  CHAR(50),
+  rrp001id1  CHAR(1),
+  rrp001id1d CHAR(30),
+  rrp001id2  CHAR(1),
+  rrp001id2d CHAR(30),
+  rrp001id3  CHAR(1),
+  rrp001id3d CHAR(30),
+  rrp001id4  CHAR(1),
+  rrp001id4d CHAR(30),
+  rrp001nr1d CHAR(30),
+  rrp001nr2d CHAR(30),
+  rrp001nr3d CHAR(30),
+  rrp001fe1d CHAR(30),
+  rrp001fe2d CHAR(30),
+  rrp001ta1d CHAR(30),
+  rrp001ta2d CHAR(30),
+  rrp001ch1d CHAR(30),
+  rrp001ch2d CHAR(30),
+  rrp001ch3d CHAR(30),
+  rrp001ch4d CHAR(30)
+)
+;
+comment on table RRP001
+  is 'Maestro de tabla normativo';
+comment on column RRP001.rrp001emp
+  is 'Empresa';
+comment on column RRP001.rrp001pai
+  is 'País';
+comment on column RRP001.rrp001cli
+  is 'Cliente';
+comment on column RRP001.rrp001cod
+  is 'Codigo';
+comment on column RRP001.rrp001dsc
+  is 'Descripción tabla';
+comment on column RRP001.rrp001id1
+  is 'Identificador 1';
+comment on column RRP001.rrp001id1d
+  is 'Descripción id1';
+comment on column RRP001.rrp001id2
+  is 'Identificador 2';
+comment on column RRP001.rrp001id2d
+  is 'Descripción Id2';
+comment on column RRP001.rrp001id3
+  is 'Identificador 3';
+comment on column RRP001.rrp001id3d
+  is 'Descripción Id3';
+comment on column RRP001.rrp001id4
+  is 'Identificador 4';
+comment on column RRP001.rrp001id4d
+  is 'Descripción Id4';
+comment on column RRP001.rrp001nr1d
+  is 'Descripción Número 1';
+comment on column RRP001.rrp001nr2d
+  is 'Descripción Número 2';
+comment on column RRP001.rrp001nr3d
+  is 'Descripción Número 3';
+comment on column RRP001.rrp001fe1d
+  is 'Descripción Fecha 1';
+comment on column RRP001.rrp001fe2d
+  is 'Descripción Fecha 2';
+comment on column RRP001.rrp001ta1d
+  is 'Descripción Tasa 1';
+comment on column RRP001.rrp001ta2d
+  is 'Descripción Tasa 2';
+comment on column RRP001.rrp001ch1d
+  is 'Descripción Character 1';
+comment on column RRP001.rrp001ch2d
+  is 'Descripción Character 2';
+comment on column RRP001.rrp001ch3d
+  is 'Descripción Character 3';
+comment on column RRP001.rrp001ch4d
+  is 'Descripción Character 4';
+alter table RRP001
+  add primary key (RRP001EMP, RRP001PAI, RRP001CLI, RRP001COD);
+

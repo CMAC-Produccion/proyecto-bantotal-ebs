@@ -1,0 +1,14 @@
+create table WFPREFGRP
+(
+  wfprefgrpid       NUMBER(4) not null,
+  wfprefgrpname     CHAR(20),
+  wfprefgrpdsc      CHAR(20),
+  wfprefgrptype     CHAR(1),
+  wfprefgrporder    NUMBER(4),
+  wfprefgrppargrpid NUMBER(4)
+)
+;
+create index UWFPREFGRP1 on WFPREFGRP (WFPREFGRPTYPE, WFPREFGRPORDER);
+alter table WFPREFGRP
+  add primary key (WFPREFGRPID);
+

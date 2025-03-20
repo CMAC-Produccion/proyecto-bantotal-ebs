@@ -1,0 +1,10 @@
+create table WFATTVAL
+(
+  wfinsprcid NUMBER(10) not null,
+  wfattid    CHAR(10) not null,
+  wfattval   CHAR(30)
+)
+;
+alter table WFATTVAL
+  add primary key (WFINSPRCID, WFATTID);
+

@@ -1,0 +1,37 @@
+create table JBXP03
+(
+  jbxp03emp  NUMBER(3) not null,
+  jbxp03cem  NUMBER(3) not null,
+  jbxp03cv   NUMBER(8) not null,
+  jbxp03sc   NUMBER(5) not null,
+  jbxp03pq   NUMBER(5) not null,
+  jbxp03cta  NUMBER(9) not null,
+  jbxp03fch  DATE not null,
+  jbxp03suc  NUMBER(3),
+  jbxp03cuil CHAR(12),
+  jbxp03tdoc NUMBER(3),
+  jbxp03ndoc CHAR(25),
+  jbxp03nom  CHAR(25),
+  jbxp03ape  CHAR(30),
+  jbxp03call CHAR(25),
+  jbxp03nro  CHAR(5),
+  jbxp03dpto CHAR(3),
+  jbxp03cpo  NUMBER(5),
+  jbxp03loc  CHAR(20),
+  jbxp03pro  NUMBER(3),
+  jbxp03tel  CHAR(12),
+  jbxp03sex  CHAR(1),
+  jbxp03nac  NUMBER(3),
+  jbxp03eci  NUMBER(3),
+  jbxp03fna  DATE,
+  jbxp03coc  NUMBER(5),
+  jbxp03tiva NUMBER(2),
+  jbxp03mar  NUMBER(1),
+  jbxp03spr  CHAR(10),
+  jbxp03lc   NUMBER(15),
+  jbxp03lp   NUMBER(15),
+  jbxp03sec  NUMBER(3)
+)
+;
+create unique index JBXP0301 on JBXP03 (JBXP03EMP, JBXP03CEM, JBXP03CV, JBXP03SC, JBXP03PQ, JBXP03CTA, JBXP03FCH);
+

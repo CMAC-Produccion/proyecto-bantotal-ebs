@@ -1,0 +1,17 @@
+create table Z000AN
+(
+  z000an09 NUMBER(9) not null,
+  z000an00 NUMBER(4) not null,
+  z000an01 CHAR(250),
+  z000an02 CHAR(250),
+  z000an03 CHAR(250),
+  z000an04 CHAR(250),
+  z000an05 CHAR(250),
+  z000an06 CHAR(250),
+  z000an07 CHAR(250),
+  z000an08 CHAR(250)
+)
+;
+alter table Z000AN
+  add primary key (Z000AN09, Z000AN00);
+

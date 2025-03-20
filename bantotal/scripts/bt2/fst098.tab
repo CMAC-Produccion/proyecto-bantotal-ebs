@@ -1,0 +1,13 @@
+create table FST098
+(
+  pgcod  NUMBER(3) not null,
+  tpcod  NUMBER(5) not null,
+  tpcorr NUMBER(3) not null,
+  tpnro  NUMBER(9),
+  tpdesc CHAR(30),
+  tpimp  NUMBER(17,2)
+)
+;
+alter table FST098
+  add primary key (PGCOD, TPCOD, TPCORR);
+

@@ -1,0 +1,14 @@
+create table FSD217
+(
+  pgcod      NUMBER(3) not null,
+  catcta     NUMBER(9) not null,
+  catcod     NUMBER(5) not null,
+  catfchdes  DATE not null,
+  tipdeucod  NUMBER(2) not null,
+  tipdeucatc CHAR(15)
+)
+;
+create index FSD21702 on FSD217 (TIPDEUCOD);
+alter table FSD217
+  add primary key (PGCOD, CATCTA, CATCOD, CATFCHDES, TIPDEUCOD);
+

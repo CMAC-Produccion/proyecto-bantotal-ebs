@@ -1,0 +1,18 @@
+create table IARM01
+(
+  iarm01cbu CHAR(22) not null,
+  iarm01cui NUMBER(11) not null,
+  iarm01ano NUMBER(4),
+  iarm01mes NUMBER(2),
+  iarm01tcr NUMBER(14,2),
+  iarm01tre NUMBER(14,2),
+  iarm01tct NUMBER(1),
+  iarm01tmd NUMBER(2),
+  iarm01cnt NUMBER(9),
+  iarm01per NUMBER(1),
+  iarm01crc NUMBER(2)
+)
+;
+alter table IARM01
+  add primary key (IARM01CBU, IARM01CUI);
+

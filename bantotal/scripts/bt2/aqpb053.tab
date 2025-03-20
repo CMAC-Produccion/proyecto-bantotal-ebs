@@ -1,0 +1,40 @@
+create table AQPB053
+(
+  aqpb053fecha    DATE not null,
+  aqpb053cod      NUMBER(8) not null,
+  aqpb053tcomf    VARCHAR2(2) not null,
+  aqpb053seri     VARCHAR2(4) not null,
+  aqpb053num      NUMBER(8) not null,
+  aqpb053est      CHAR(1),
+  aqpb053coderror NUMBER(4),
+  aqpb053desc     VARCHAR2(150),
+  aqpb053pgcod    NUMBER not null
+)
+;
+comment on table AQPB053
+  is 'Tabla para la vincular el documento de venta con el correlativo correspondiente';
+comment on column AQPB053.aqpb053fecha
+  is 'C1: Fecha de Proceso';
+comment on column AQPB053.aqpb053cod
+  is 'C2: Correlativo';
+comment on column AQPB053.aqpb053tcomf
+  is 'C3: Codigo del Tipo de Comprobante Datos del Comprobante';
+comment on column AQPB053.aqpb053seri
+  is 'C4: Serie del comprobante.  Datos del Comprobante';
+comment on column AQPB053.aqpb053num
+  is 'C5: Numero Correlativo del comprobante. Datos del Comprobante';
+comment on column AQPB053.aqpb053est
+  is 'C6: Estado';
+comment on column AQPB053.aqpb053coderror
+  is 'C8: Código de error';
+comment on column AQPB053.aqpb053desc
+  is 'C7: Descripción del motivo';
+comment on column AQPB053.aqpb053pgcod
+  is 'C9: Empresa';
+create index AQPB0532 on AQPB053 (AQPB053FECHA, AQPB053TCOMF, AQPB053EST);
+create index AQPB0533 on AQPB053 (AQPB053TCOMF, AQPB053SERI, AQPB053NUM);
+create index AQPB0534 on AQPB053 (AQPB053FECHA, AQPB053COD, AQPB053TCOMF, AQPB053EST);
+create index AQPB0535 on AQPB053 (AQPB053FECHA, AQPB053COD, AQPB053EST);
+alter table AQPB053
+  add primary key (AQPB053FECHA, AQPB053COD, AQPB053TCOMF, AQPB053SERI, AQPB053NUM);
+

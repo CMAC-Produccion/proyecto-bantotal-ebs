@@ -1,0 +1,11 @@
+create table FBRD20
+(
+  brd20tgcod NUMBER(2) not null,
+  brd20grnro NUMBER(7) not null,
+  brd20grnom CHAR(30),
+  brd20imp   NUMBER(17,2)
+)
+;
+alter table FBRD20
+  add primary key (BRD20TGCOD, BRD20GRNRO);
+

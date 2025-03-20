@@ -1,0 +1,15 @@
+create table X054006
+(
+  pgcod      NUMBER(3) not null,
+  xlloprccod NUMBER(9) not null,
+  xlloevmodu NUMBER(3) not null,
+  xlloevtope NUMBER(3) not null,
+  xlloevest  NUMBER(9) not null,
+  xllonewsts NUMBER(9) not null,
+  xllopgmnom CHAR(10) not null,
+  xllopgmdes CHAR(40)
+)
+;
+alter table X054006
+  add primary key (PGCOD, XLLOPRCCOD, XLLOEVMODU, XLLOEVTOPE, XLLOEVEST, XLLONEWSTS, XLLOPGMNOM);
+

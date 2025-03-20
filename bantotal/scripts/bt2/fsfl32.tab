@@ -1,0 +1,20 @@
+create table FSFL32
+(
+  fsfl32emp NUMBER(3) not null,
+  fsfl32cod NUMBER(3) not null,
+  fsfl32mda NUMBER(4) not null,
+  fsfl32fec DATE not null,
+  fsfl32hor CHAR(8) not null,
+  fsfl32reg CHAR(1),
+  fsfl32tip CHAR(1),
+  fsfl32uig CHAR(10),
+  fsfl32wig CHAR(10),
+  fsfl32fcf DATE,
+  fsfl32hcf CHAR(8),
+  fsfl32ucf CHAR(10),
+  fsfl32wcf CHAR(10)
+)
+;
+alter table FSFL32
+  add primary key (FSFL32EMP, FSFL32COD, FSFL32MDA, FSFL32FEC, FSFL32HOR);
+

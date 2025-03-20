@@ -1,0 +1,21 @@
+create table SNG072
+(
+  sng070meva NUMBER(3) not null,
+  sng070prg  CHAR(8) not null,
+  sng072obj  CHAR(20) not null,
+  sng072dsc  CHAR(60),
+  sng072tip  CHAR(1),
+  sng072asp  CHAR(1),
+  sng072cod  NUMBER(4),
+  sng072prog CHAR(10),
+  sng072prov CHAR(10),
+  sng072grd  CHAR(20),
+  sng072ord  NUMBER(3),
+  sng072obl  CHAR(1)
+)
+;
+create index SNG07203 on SNG072 (SNG070MEVA, SNG070PRG, SNG072GRD, SNG072ORD);
+create index SNG07204 on SNG072 (SNG070MEVA, SNG070PRG, SNG072TIP);
+alter table SNG072
+  add primary key (SNG070MEVA, SNG070PRG, SNG072OBJ);
+

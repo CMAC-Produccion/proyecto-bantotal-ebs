@@ -1,0 +1,21 @@
+create table JAQZ462
+(
+  jaqz462imp  VARCHAR2(30),
+  jaqz462tcr  VARCHAR2(30),
+  jaqz462tcr1 VARCHAR2(30),
+  jaqz462dia  NUMBER(5),
+  jaqz462des  VARCHAR2(30)
+)
+;
+comment on column JAQZ462.jaqz462imp
+  is 'IMPACTO';
+comment on column JAQZ462.jaqz462tcr
+  is 'TIPO CREDITO';
+comment on column JAQZ462.jaqz462tcr1
+  is 'TIPO CREDITO';
+comment on column JAQZ462.jaqz462dia
+  is 'DIAS';
+comment on column JAQZ462.jaqz462des
+  is 'DESCRIPCION';
+create index JAQZ4622 on JAQZ462 (JAQZ462IMP, JAQZ462TCR, JAQZ462DIA);
+

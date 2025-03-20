@@ -1,0 +1,44 @@
+create table DEPEM50
+(
+  depem50emp NUMBER(3) not null,
+  depem50mod NUMBER(3) not null,
+  depem50suc NUMBER(3) not null,
+  depem50mon NUMBER(4) not null,
+  depem50pap NUMBER(4) not null,
+  depem50cta NUMBER(9) not null,
+  depem50ope NUMBER(9) not null,
+  depem50sbp NUMBER(3) not null,
+  depem50top NUMBER(3) not null,
+  depem50ins NUMBER(10) not null,
+  depem50fec DATE not null,
+  depem50cr1 NUMBER(3) not null,
+  depem50cr2 NUMBER(4) not null,
+  depem50ctr CHAR(20),
+  depem50sec NUMBER(2),
+  depem50cuo NUMBER(3),
+  depem50fvn DATE,
+  depem50nds NUMBER(3),
+  depem50mda CHAR(10),
+  depem50pri NUMBER(17,2),
+  depem50int NUMBER(17,2),
+  depem50com NUMBER(17,2),
+  depem50mac NUMBER(17,2),
+  depem50ppv NUMBER(17,2),
+  depem50cpi NUMBER(17,2),
+  depem50ai1 NUMBER(17,2),
+  depem50ai2 NUMBER(17,2),
+  depem50ai3 NUMBER(17,2),
+  depem50ac1 VARCHAR2(100),
+  depem50ac2 VARCHAR2(100),
+  depem50ac3 VARCHAR2(100),
+  depem50ad1 DATE,
+  depem50ad2 DATE,
+  depem50ad3 DATE,
+  depem50an1 NUMBER(9),
+  depem50an2 NUMBER(9),
+  depem50an3 NUMBER(9)
+)
+;
+alter table DEPEM50
+  add primary key (DEPEM50EMP, DEPEM50MOD, DEPEM50SUC, DEPEM50MON, DEPEM50PAP, DEPEM50CTA, DEPEM50OPE, DEPEM50SBP, DEPEM50TOP, DEPEM50INS, DEPEM50FEC, DEPEM50CR1, DEPEM50CR2);
+

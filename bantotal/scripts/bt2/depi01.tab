@@ -1,0 +1,23 @@
+create table DEPI01
+(
+  depi01apl  NUMBER(4) not null,
+  depi01ban  CHAR(5) not null,
+  depi01env  NUMBER(9) not null,
+  depi01cor  NUMBER(9) not null,
+  depi01bco  NUMBER(3),
+  depi01pgc  NUMBER(3),
+  depi01mod  NUMBER(3),
+  depi01suc  NUMBER(3),
+  depi01mda  NUMBER(4),
+  depi01pap  NUMBER(4),
+  depi01cta  NUMBER(9),
+  depi01ope  NUMBER(9),
+  depi01sbop NUMBER(3),
+  depi01tope NUMBER(3),
+  depi01stat NUMBER(2),
+  depi01tipo NUMBER(1)
+)
+;
+alter table DEPI01
+  add primary key (DEPI01APL, DEPI01BAN, DEPI01ENV, DEPI01COR);
+

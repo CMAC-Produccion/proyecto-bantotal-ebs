@@ -1,0 +1,17 @@
+create table FTDW01
+(
+  tdw01pqt NUMBER(4) not null,
+  tdw01tip CHAR(1) not null,
+  tdw01cam CHAR(14) not null,
+  tdw01edt CHAR(1),
+  tdw01vxd CHAR(50),
+  tdw01ax1 DATE,
+  tdw01ax2 NUMBER(17,2),
+  tdw01ax3 CHAR(50),
+  tdw01ax4 CHAR(1),
+  tdw01ax5 NUMBER(17,2)
+)
+;
+alter table FTDW01
+  add primary key (TDW01PQT, TDW01TIP, TDW01CAM);
+

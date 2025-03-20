@@ -1,0 +1,27 @@
+create table AUD_SNGP05_AUDIT
+(
+  aud_old_sngp05chr1 CHAR(1),
+  aud_new_sngp05chr1 CHAR(1),
+  aud_old_sngp05int9 NUMBER(9),
+  aud_new_sngp05int9 NUMBER(9),
+  aud_old_sngp05pgc  NUMBER(4),
+  aud_new_sngp05pgc  NUMBER(4),
+  aud_old_sngp05pgm1 CHAR(10),
+  aud_new_sngp05pgm1 CHAR(10),
+  aud_old_sngp09cod  NUMBER(3),
+  aud_new_sngp09cod  NUMBER(3),
+  aud_sngp05_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_sngp05_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sngp05_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sngp05_ubr     VARCHAR2(50) default ' ' not null,
+  aud_sngp05_ubc     VARCHAR2(50) default ' ' not null,
+  aud_sngp05_ubt     VARCHAR2(50) default ' ' not null,
+  aud_sngp05_ubu     VARCHAR2(50) default USER not null,
+  aud_sngp05_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sngp05_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sngp05_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sngp05_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sngp05_uas     CHAR(1) default 'I' not null
+)
+;
+

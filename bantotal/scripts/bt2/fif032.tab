@@ -1,0 +1,26 @@
+create table FIF032
+(
+  if032apl  NUMBER(4) not null,
+  if032ban  CHAR(5) not null,
+  if032env  NUMBER(9) not null,
+  if032crr  NUMBER(5) not null,
+  if032bco  NUMBER(3),
+  if032cta  CHAR(17),
+  if032codm CHAR(3),
+  if032numc NUMBER(9),
+  if032nume CHAR(23),
+  if032imp  NUMBER(14,2),
+  if032fece CHAR(6),
+  if032fvto CHAR(6),
+  if032femb CHAR(6),
+  if032insp CHAR(30),
+  if032numi NUMBER(15),
+  if032numd NUMBER(9),
+  if032fecd CHAR(6),
+  if032fill CHAR(28),
+  if032arc  CHAR(6)
+)
+;
+alter table FIF032
+  add primary key (IF032APL, IF032BAN, IF032ENV, IF032CRR);
+

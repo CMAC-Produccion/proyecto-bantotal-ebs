@@ -1,0 +1,21 @@
+create table JAQZ410
+(
+  jaqz410dat  NUMBER,
+  jaqz410cta  VARCHAR2(11),
+  jaqz410ope  VARCHAR2(20),
+  jaqz410lte  VARCHAR2(100),
+  jaqz410csuc NUMBER,
+  jaqz410suc  VARCHAR2(100),
+  jaqz410cli  VARCHAR2(100),
+  jaqz410dir  VARCHAR2(100),
+  jaqz410dis  VARCHAR2(100),
+  jaqz410fto  DATE not null,
+  jaqz410fat  DATE not null,
+  jaqz410frmt DATE,
+  jaqz410crmt NUMBER,
+  jaqz410sbr  NUMBER(18,2),
+  jaqz410cod  NUMBER
+)
+;
+create index JAQZ410_ID01 on JAQZ410 (JAQZ410CSUC, JAQZ410FAT);
+

@@ -1,0 +1,24 @@
+create table FSL120
+(
+  fsl120pgco NUMBER(3) not null,
+  fsl120mod  NUMBER(3) not null,
+  fsl120tpoo NUMBER(3) not null,
+  fsl120ries NUMBER(3),
+  fsl120gen  CHAR(1),
+  fsl120rev  CHAR(1),
+  fsl120fch  DATE,
+  fsl120aux  NUMBER(4),
+  fsl120aux1 CHAR(30),
+  fsl120aux2 NUMBER(17,2),
+  fsl120relr NUMBER(3),
+  fsl120relo NUMBER(3),
+  fsl120exgt CHAR(1),
+  fsl120esp1 CHAR(1),
+  fsl120esp2 CHAR(1),
+  fsl120otmd CHAR(1)
+)
+;
+create index FSL12002 on FSL120 (FSL120PGCO, FSL120MOD, FSL120TPOO, FSL120RIES);
+alter table FSL120
+  add primary key (FSL120PGCO, FSL120MOD, FSL120TPOO);
+

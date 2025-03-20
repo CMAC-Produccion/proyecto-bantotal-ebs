@@ -1,0 +1,22 @@
+create table AQPB504
+(
+  aqpb504pepais NUMBER(3) not null,
+  aqpb504petdoc NUMBER(2) not null,
+  aqpb504pendoc CHAR(12) not null,
+  aqpb504est    CHAR(1) not null,
+  aqpb504inganu NUMBER(15,2) not null,
+  aqpb504carpub VARCHAR2(3) not null,
+  aqpb504organi VARCHAR2(150) not null,
+  aqpb504crefec DATE not null,
+  aqpb504crehor CHAR(8) not null,
+  aqpb504creusr VARCHAR2(30) not null,
+  aqpb504cresuc NUMBER(3) not null,
+  aqpb504modfec DATE not null,
+  aqpb504modhor CHAR(8) not null,
+  aqpb504modusr VARCHAR2(30) not null,
+  aqpb504modsuc NUMBER(3) not null
+)
+;
+alter table AQPB504
+  add primary key (AQPB504PEPAIS, AQPB504PETDOC, AQPB504PENDOC);
+

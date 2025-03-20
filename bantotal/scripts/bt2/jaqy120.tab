@@ -1,0 +1,33 @@
+create table JAQY120
+(
+  jaqy120pgcod  NUMBER(3) not null,
+  jaqy120mod    NUMBER(3) not null,
+  jaqy120suc    NUMBER(3) not null,
+  jaqy120mda    NUMBER(4) not null,
+  jaqy120pap    NUMBER(4) not null,
+  jaqy120cta    NUMBER(9) not null,
+  jaqy120ope    NUMBER(9) not null,
+  jaqy120sbo    NUMBER(3) not null,
+  jaqy120top    NUMBER(3) not null,
+  jaqy120fvl    DATE not null,
+  jaqy120nrpag  NUMBER(10) not null,
+  jaqy120est    NUMBER(2) not null,
+  jaqy120fpga   DATE,
+  jaqy120impcap NUMBER(17,2),
+  jaqy120impint NUMBER(17,2),
+  jaqy120impmor NUMBER(17,2),
+  jaqy120impgas NUMBER(17,2),
+  jaqy120imp1   NUMBER(17,2),
+  jaqy120imp2   NUMBER(17,2),
+  jaqy120d166cd NUMBER(3),
+  jaqy120d166mo NUMBER(3),
+  jaqy120d166tr NUMBER(3),
+  jaqy120d166re NUMBER(4),
+  jaqy120impseg NUMBER(17,2),
+  jaqy120d166co CHAR(1),
+  jaqy120d166su NUMBER(4)
+)
+;
+alter table JAQY120
+  add constraint PK_JAQY120 primary key (JAQY120PGCOD, JAQY120MOD, JAQY120SUC, JAQY120MDA, JAQY120PAP, JAQY120CTA, JAQY120OPE, JAQY120SBO, JAQY120TOP, JAQY120FVL, JAQY120NRPAG, JAQY120EST);
+

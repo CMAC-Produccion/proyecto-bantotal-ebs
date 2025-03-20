@@ -1,0 +1,73 @@
+create table CLE800
+(
+  cle800fch DATE not null,
+  cle800hra CHAR(8) not null,
+  cle800prd NUMBER(3) not null,
+  cle800tpo NUMBER(2) not null,
+  cle800lot NUMBER(9) not null,
+  cle800bol NUMBER(15) not null,
+  cle800chq NUMBER(9) not null,
+  cle800bco NUMBER(3) not null,
+  cle800bsu NUMBER(12) not null,
+  cle800bct CHAR(25) not null,
+  cle800imp NUMBER(17,2),
+  cle800est NUMBER(1),
+  cle800emp NUMBER(3),
+  cle800suc NUMBER(3),
+  cle800mod NUMBER(3),
+  cle800mda NUMBER(4),
+  cle800pap NUMBER(4),
+  cle800cta NUMBER(9),
+  cle800ope NUMBER(9),
+  cle800sbo NUMBER(3),
+  cle800top NUMBER(3),
+  cle800emr NUMBER(3),
+  cle800sur NUMBER(3),
+  cle800mor NUMBER(3),
+  cle800mdr NUMBER(4),
+  cle800par NUMBER(4),
+  cle800ctr NUMBER(9),
+  cle800opr NUMBER(9),
+  cle800sbr NUMBER(3),
+  cle800tor NUMBER(3),
+  cle800ema NUMBER(3),
+  cle800sua NUMBER(3),
+  cle800moa NUMBER(3),
+  cle800tra NUMBER(3),
+  cle800rea NUMBER(4),
+  cle800fco DATE,
+  cle800coa CHAR(1),
+  cle800ref CHAR(16),
+  cle800mot NUMBER(3),
+  cle800cod NUMBER(3),
+  cle800fre DATE,
+  cle800ure CHAR(10),
+  cle800ax1 DATE,
+  cle800ax2 NUMBER(9),
+  cle800ax3 NUMBER(17,2),
+  cle800ax4 CHAR(50),
+  cle800ax5 CHAR(200),
+  cle800ax6 CHAR(1),
+  cle800ax7 NUMBER(5),
+  cle800ax8 DATE,
+  cle800ax9 NUMBER(2),
+  cle800etr NUMBER(3),
+  cle800str NUMBER(3),
+  cle800mtr NUMBER(3),
+  cle800ttr NUMBER(3),
+  cle800rtr NUMBER(4),
+  cle800ftr DATE,
+  cle800xtr CHAR(1)
+)
+;
+create index CLE80002 on CLE800 (CLE800FCH, CLE800HRA, CLE800PRD, CLE800TPO, CLE800LOT, CLE800SUC);
+create index CLE80003 on CLE800 (CLE800EMA, CLE800SUA, CLE800MOA, CLE800TRA, CLE800REA, CLE800FCO);
+create index CLE80004 on CLE800 (CLE800PRD, CLE800TPO, CLE800BOL, CLE800CHQ, CLE800BCO, CLE800BSU, CLE800BCT);
+create index CLE80005 on CLE800 (CLE800FCH, CLE800PRD, CLE800TPO, CLE800EST, CLE800LOT, CLE800BCO, CLE800BSU, CLE800BCT);
+create index CLE80006 on CLE800 (CLE800PRD, CLE800TPO, CLE800BCO, CLE800CHQ);
+create index CLE80007 on CLE800 (CLE800PRD, CLE800TPO, CLE800FRE, CLE800EST, CLE800CHQ);
+create index CLE80008 on CLE800 (CLE800BCO, CLE800BSU, CLE800BCT);
+create index CLE80009 on CLE800 (CLE800PRD, CLE800TPO, CLE800CHQ, CLE800BCO, CLE800BSU, CLE800BCT);
+alter table CLE800
+  add primary key (CLE800FCH, CLE800HRA, CLE800PRD, CLE800TPO, CLE800LOT, CLE800BOL, CLE800CHQ, CLE800BCO, CLE800BSU, CLE800BCT);
+

@@ -1,0 +1,17 @@
+create table AQPA016G
+(
+  aqpa016gcor  NUMBER(9) not null,
+  aqpa016gcod  NUMBER(9),
+  aqpa016gnom  VARCHAR2(150),
+  aqpa016gfec  DATE,
+  aqpa016gdni  CHAR(12),
+  aqpa016gcrel NUMBER(2),
+  aqpa016grel  CHAR(30),
+  aqpa016gnomf VARCHAR2(150),
+  aqpa016gdnif CHAR(12),
+  aqpa016gnreg NUMBER(6)
+)
+;
+alter table AQPA016G
+  add primary key (AQPA016GCOR);
+

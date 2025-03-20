@@ -1,0 +1,13 @@
+create table JAQZ280
+(
+  jaqz280cod    CHAR(6) not null,
+  jaqz280des    VARCHAR2(150) not null,
+  jaqz280est    CHAR(1),
+  jaqz280usuact CHAR(10),
+  jaqz280fecact DATE
+)
+;
+create index IDX01_JAQZ280 on JAQZ280 (JAQZ280COD);
+alter table JAQZ280
+  add primary key (JAQZ280COD);
+

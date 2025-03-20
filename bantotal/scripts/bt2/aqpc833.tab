@@ -1,0 +1,59 @@
+create table AQPC833
+(
+  aqpc833codopi  NUMBER(10) not null,
+  aqpc833fecpro  DATE not null,
+  aqpc833instan  NUMBER(10),
+  aqpc833sldprop NUMBER(18,2),
+  aqpc833modprp  VARCHAR2(200),
+  aqpc833cuotas  NUMBER(17,2),
+  aqpc833cuoprp  VARCHAR2(20),
+  aqpc833tasprp  NUMBER(17,2),
+  aqpc833mdaprop NUMBER(4),
+  aqpc833estad   VARCHAR2(1),
+  aqpc833corr    NUMBER(10) not null,
+  aqpc833horrg   VARCHAR2(10) not null,
+  aqpc833aux1    NUMBER(17,2),
+  aqpc833aux2    VARCHAR2(100),
+  aqpc833aux3    DATE,
+  aqpc833aux4    NUMBER(5)
+)
+;
+comment on table AQPC833
+  is 'Tabla temporal cabecera de repor. opinion de riesgos CRM';
+comment on column AQPC833.aqpc833codopi
+  is 'Cod. opinion';
+comment on column AQPC833.aqpc833fecpro
+  is 'Fec. Proceso';
+comment on column AQPC833.aqpc833instan
+  is 'Solicitud';
+comment on column AQPC833.aqpc833sldprop
+  is 'saldo propuesto';
+comment on column AQPC833.aqpc833modprp
+  is 'AQPC833modprp';
+comment on column AQPC833.aqpc833cuotas
+  is 'cuotas';
+comment on column AQPC833.aqpc833cuoprp
+  is 'cuota propuesta';
+comment on column AQPC833.aqpc833tasprp
+  is 'tasa propuesta';
+comment on column AQPC833.aqpc833mdaprop
+  is 'moneda propuesta';
+comment on column AQPC833.aqpc833estad
+  is 'estado';
+comment on column AQPC833.aqpc833corr
+  is 'correlativo';
+comment on column AQPC833.aqpc833horrg
+  is 'hora registro';
+comment on column AQPC833.aqpc833aux1
+  is 'Aux1';
+comment on column AQPC833.aqpc833aux2
+  is 'Aux2';
+comment on column AQPC833.aqpc833aux3
+  is 'Aux3';
+comment on column AQPC833.aqpc833aux4
+  is 'Aux4';
+create index AQPC833A2 on AQPC833 (AQPC833CODOPI, AQPC833FECPRO);
+create index AQPC833A4 on AQPC833 (AQPC833CODOPI, AQPC833INSTAN);
+alter table AQPC833
+  add primary key (AQPC833CODOPI, AQPC833CORR, AQPC833FECPRO);
+

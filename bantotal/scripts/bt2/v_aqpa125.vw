@@ -1,0 +1,27 @@
+create or replace force view v_aqpa125 as
+select KEY_COMAPF       AQPA125COR,
+       FEC_PROCESO      AQPA125FEC,
+       COD_EMPCTA       AQPA125PGC,
+       COD_MODCTA       AQPA125MOD,
+       COD_SUCCTA       AQPA125SUC,
+       COD_MDACTA       AQPA125MDA,
+       COD_PAPCTA       AQPA125PAP,
+       COD_NUMCTA       AQPA125CTA,
+       COD_OPECTA       AQPA125OPE,
+       COD_SBOCTA       AQPA125SBO,
+       COD_TOPCTA       AQPA125TOP,
+       IMP_COMISION     AQPA125MTO,
+       COD_RUBCOM       AQPA125RUB,
+       FEC_COMTRX       AQPA125FEO,
+       COD_EMPTRX       AQPA125PGO,
+       COD_SUCTRX       AQPA125SUO,
+       COD_MODTRX       AQPA125MOO,
+       COD_CODTRX       AQPA125TRO,
+       COD_RELTRX       AQPA125REO,
+       COD_ORDTRX       AQPA125ORO,
+       COD_SBOTRX       AQPA125SOO,
+       AQPA125COD       AQPA125COD,
+       AQPA125MSG       AQPA125MSG,
+       AQPA125FEP       AQPA125FEP
+from DWEXTRA.EXT_COMAFP@datawhope;
+

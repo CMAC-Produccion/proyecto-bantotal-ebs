@@ -1,0 +1,17 @@
+create table FBCM01
+(
+  bcm01emp NUMBER(3) not null,
+  bcm01mod NUMBER(3) not null,
+  bcm01suc NUMBER(3) not null,
+  bcm01mda NUMBER(4) not null,
+  bcm01pap NUMBER(4) not null,
+  bcm01cta NUMBER(9) not null,
+  bcm01ope NUMBER(9) not null,
+  bcm01sbo NUMBER(3) not null,
+  bcm01top NUMBER(3) not null,
+  bcm01cin NUMBER(9)
+)
+;
+alter table FBCM01
+  add primary key (BCM01EMP, BCM01MOD, BCM01SUC, BCM01MDA, BCM01PAP, BCM01CTA, BCM01OPE, BCM01SBO, BCM01TOP);
+

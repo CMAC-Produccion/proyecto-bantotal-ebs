@@ -1,0 +1,32 @@
+create table JBXI83
+(
+  jbxi83cfi CHAR(5) not null,
+  jbxi83nor NUMBER(3) not null,
+  jbxi83cen CHAR(5) not null,
+  jbxi83nse NUMBER(2) not null,
+  jbxi83fin DATE not null,
+  jbxi83tid CHAR(2) not null,
+  jbxi83nid NUMBER(11) not null,
+  jbxi83den CHAR(55),
+  jbxi83cat CHAR(1),
+  jbxi83res CHAR(1),
+  jbxi83gob CHAR(1),
+  jbxi83pro CHAR(2),
+  jbxi83sit CHAR(2),
+  jbxi83tas CHAR(2),
+  jbxi83bco CHAR(2),
+  jbxi83dva NUMBER(17,2),
+  jbxi83dta NUMBER(17,2),
+  jbxi83dvb NUMBER(17,2),
+  jbxi83dtb NUMBER(17,2),
+  jbxi83dvp NUMBER(17,2),
+  jbxi83dtp NUMBER(17,2),
+  jbxi83dvs NUMBER(17,2),
+  jbxi83dts NUMBER(17,2),
+  jbxi83dvr NUMBER(17,2),
+  jbxi83dtr NUMBER(17,2),
+  jbxi83cas CHAR(1)
+)
+;
+create unique index JBXI8301 on JBXI83 (JBXI83CFI, JBXI83NOR, JBXI83CEN, JBXI83NSE, JBXI83FIN, JBXI83TID, JBXI83NID);
+

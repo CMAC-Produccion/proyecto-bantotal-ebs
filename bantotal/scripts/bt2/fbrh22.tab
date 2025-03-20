@@ -1,0 +1,25 @@
+create table FBRH22
+(
+  brh22rgemp NUMBER(3) not null,
+  brh22rgcod NUMBER(5) not null,
+  brh22hra   CHAR(8) not null,
+  brh22fch   DATE not null,
+  brh22usu   CHAR(10),
+  brh22rgdsc CHAR(50),
+  brh22rgsec NUMBER(5),
+  brh22fucod NUMBER(5),
+  brh22sfcod NUMBER(5),
+  brh22cpcod NUMBER(5),
+  brh22rgper CHAR(1),
+  brh22prnom CHAR(10),
+  brh22prdsc CHAR(50),
+  brh22rgtpr CHAR(1),
+  brh22prrsv CHAR(1),
+  brh22rgsvd CHAR(1),
+  brh22rghis CHAR(1),
+  brh22rgest CHAR(1)
+)
+;
+alter table FBRH22
+  add primary key (BRH22RGEMP, BRH22RGCOD, BRH22HRA, BRH22FCH);
+

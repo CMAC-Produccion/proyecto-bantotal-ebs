@@ -1,0 +1,24 @@
+create table FPP074
+(
+  pp074emp   NUMBER(3) not null,
+  pp074mod   NUMBER(3) not null,
+  pp074suc   NUMBER(3) not null,
+  pp074mda   NUMBER(4) not null,
+  pp074pap   NUMBER(4) not null,
+  pp074cta   NUMBER(9) not null,
+  pp074ope   NUMBER(9) not null,
+  pp074sbo   NUMBER(3) not null,
+  pp074top   NUMBER(3) not null,
+  pp073rcod  NUMBER(3) not null,
+  pp074sts   NUMBER(2),
+  pp074fec   DATE,
+  pp074usr   CHAR(20),
+  pp074obs   CHAR(25),
+  pp074wrkst CHAR(20)
+)
+;
+create index FPP07402 on FPP074 (PP073RCOD);
+create index FPP07403 on FPP074 (PP074OPE, PP074CTA, PP073RCOD);
+alter table FPP074
+  add primary key (PP074EMP, PP074MOD, PP074SUC, PP074MDA, PP074PAP, PP074CTA, PP074OPE, PP074SBO, PP074TOP, PP073RCOD);
+

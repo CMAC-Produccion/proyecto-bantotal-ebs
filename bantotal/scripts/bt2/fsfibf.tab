@@ -1,0 +1,26 @@
+create table FSFIBF
+(
+  sfibcemp  NUMBER(3) not null,
+  sfibcpais NUMBER(3) not null,
+  sfibdcod  NUMBER(3) not null,
+  sfibgcar  NUMBER(3) not null,
+  sfibfpla  NUMBER(3) not null,
+  sfibfmda  NUMBER(4),
+  sfibflim  NUMBER(17,2),
+  sfibfdsc  CHAR(30),
+  sfibfhab  CHAR(1),
+  sfibfcar1 CHAR(1),
+  sfibfcar2 CHAR(1),
+  sfibfcar3 CHAR(1),
+  sfibfnum1 NUMBER(9),
+  sfibfnum2 NUMBER(9),
+  sfibfnum3 NUMBER(9),
+  sfibftxt1 CHAR(20),
+  sfibftxt2 CHAR(20),
+  sfibftxt3 CHAR(20)
+)
+;
+create index FSFIBF02 on FSFIBF (SFIBCEMP, SFIBGCAR);
+alter table FSFIBF
+  add primary key (SFIBCEMP, SFIBCPAIS, SFIBDCOD, SFIBGCAR, SFIBFPLA);
+

@@ -1,0 +1,45 @@
+create table FSFT22
+(
+  ktbpgcod  NUMBER(3) not null,
+  ktbfecha  DATE not null,
+  ktbscsuc  NUMBER(3) not null,
+  ktbscrub  NUMBER(16) not null,
+  ktbscmda  NUMBER(4) not null,
+  ktbscpap  NUMBER(4) not null,
+  ktbsccta  NUMBER(9) not null,
+  ktbscoper NUMBER(9) not null,
+  ktbscsbop NUMBER(3) not null,
+  ktbsctope NUMBER(3) not null,
+  ktbscmod  NUMBER(3),
+  ktbscfcon DATE,
+  ktbscfval DATE,
+  ktbscfvto DATE,
+  ktbscfulm DATE,
+  ktbscpzo  NUMBER(5),
+  ktbscsdo  NUMBER(17,2),
+  ktbscsdoh NUMBER(17,2),
+  ktbscsegm NUMBER(2),
+  ktbscfunc NUMBER(2),
+  ktbscstat NUMBER(2),
+  ktbsccc   NUMBER(3),
+  ktbsctit  NUMBER(2),
+  ktbsccap  NUMBER(1),
+  ktbscplzo NUMBER(1),
+  ktbscgru  NUMBER(2),
+  ktbaux01  NUMBER(3),
+  ktbaux02  NUMBER(3),
+  ktbaux03  NUMBER(9),
+  ktbaux04  NUMBER(9),
+  ktbaux05  NUMBER(17,2),
+  ktbaux06  NUMBER(17,2),
+  ktbaux07  DATE,
+  ktbaux08  DATE,
+  ktbaux09  CHAR(40),
+  ktbaux10  CHAR(40)
+)
+;
+create index FSFT2202 on FSFT22 (KTBPGCOD, KTBSCSUC, KTBSCRUB, KTBSCMDA, KTBSCPAP, KTBSCCTA, KTBSCOPER, KTBSCSBOP, KTBSCTOPE, KTBFECHA);
+create index FSFT2203 on FSFT22 (KTBPGCOD, KTBSCCTA);
+alter table FSFT22
+  add primary key (KTBPGCOD, KTBFECHA, KTBSCSUC, KTBSCRUB, KTBSCMDA, KTBSCPAP, KTBSCCTA, KTBSCOPER, KTBSCSBOP, KTBSCTOPE);
+

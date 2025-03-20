@@ -1,0 +1,3 @@
+create or replace force view tmp_sisdatacertificados as
+select "Producto","Nro Afiliación","Nro Poliza","Fecha de afiliación","Tipo de seguro","Codigo de seguro","Cantidad de cuotas","Importe","Usuario Vendedor","Estado","Nro Afiliacion Original que origino la renovacion","Fecha de Vencimiento","Fecha de Renovacion","Modo Cobro","Codigo Cobro","Renovacion Automatica","Fecha de inicio de vigencia","Fecha de anulación","Motivo de Anulación","Modo de contratacion","Pais contratante","Tipo de documento contratante","Numero de documento contratante","Contratante es titular","Descripcion Plan","Codigo Plan","Descripcion Costo","Codigo Costo" from "TMP_SisDataCertificados"@SISRETAIL;
+

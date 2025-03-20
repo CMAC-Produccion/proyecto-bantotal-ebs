@@ -1,0 +1,16 @@
+create table AQPA189
+(
+  aqpa189id     NUMBER(10) not null,
+  aqpa189corr   NUMBER(5) not null,
+  aqpa189tipdoc CHAR(1),
+  aqpa189tiparc CHAR(1),
+  aqpa189urlarc VARCHAR2(200),
+  aqpa189nomarc VARCHAR2(100),
+  aqpa189flgval CHAR(1),
+  aqpa189msjval VARCHAR2(100)
+)
+;
+create index AQPA1892 on AQPA189 (AQPA189ID);
+alter table AQPA189
+  add primary key (AQPA189ID, AQPA189CORR);
+

@@ -1,0 +1,13 @@
+create table FOC013
+(
+  foc013aba  NUMBER(9) not null,
+  foc013nomr CHAR(18),
+  foc013nomc CHAR(36),
+  foc013ciu  CHAR(25),
+  foc013est  CHAR(2)
+)
+;
+create index FOC01302 on FOC013 (FOC013NOMC);
+alter table FOC013
+  add primary key (FOC013ABA);
+

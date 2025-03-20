@@ -1,0 +1,23 @@
+create table CACTYP
+(
+  cactypappid   NUMBER(2) not null,
+  cactypid      NUMBER(10) not null,
+  catplappid    NUMBER(2),
+  catplid       NUMBER(10),
+  cactypdsc     CHAR(60),
+  cactypsto     NUMBER(1),
+  cactyprssreq  NUMBER(1),
+  cactypaudreq  NUMBER(1),
+  cactypverreq  NUMBER(1),
+  cactyptmeout  NUMBER(6),
+  cactyppathfdr CHAR(254),
+  catypappid    NUMBER(2),
+  catypid       NUMBER(6)
+)
+;
+create index ICACTYP2 on CACTYP (CATYPAPPID, CATYPID);
+create index ICACTYP4 on CACTYP (CATPLAPPID, CATPLID);
+create index UCACTYP1 on CACTYP (CACTYPAPPID, CACTYPDSC);
+alter table CACTYP
+  add primary key (CACTYPAPPID, CACTYPID);
+

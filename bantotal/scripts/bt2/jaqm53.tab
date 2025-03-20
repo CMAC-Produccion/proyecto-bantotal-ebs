@@ -1,0 +1,63 @@
+create table JAQM53
+(
+  jaqm53cof NUMBER(3) not null,
+  jaqm53cat CHAR(30),
+  jaqm53nom VARCHAR2(255),
+  jaqm53des VARCHAR2(255),
+  jaqm53tpe CHAR(1),
+  jaqm53est CHAR(1),
+  jaqm53an1 NUMBER(9),
+  jaqm53an2 NUMBER(9),
+  jaqm53an3 NUMBER(9),
+  jaqm53ac1 VARCHAR2(255),
+  jaqm53ac2 VARCHAR2(255),
+  jaqm53ac3 VARCHAR2(255),
+  jaqm53af1 DATE,
+  jaqm53af2 DATE,
+  jaqm53af3 DATE,
+  jaqm53ai1 NUMBER(17,2),
+  jaqm53ai2 NUMBER(17,2),
+  jaqm53ai3 NUMBER(17,2)
+)
+;
+comment on table JAQM53
+  is 'Módulo de Poderes Mantenimiento de Facultades';
+comment on column JAQM53.jaqm53cof
+  is 'Código de facultad';
+comment on column JAQM53.jaqm53cat
+  is 'Categoria';
+comment on column JAQM53.jaqm53nom
+  is 'Nombre de facultad';
+comment on column JAQM53.jaqm53des
+  is 'Descripción de facultad';
+comment on column JAQM53.jaqm53tpe
+  is 'Tipo de Persona';
+comment on column JAQM53.jaqm53est
+  is 'Estado';
+comment on column JAQM53.jaqm53an1
+  is 'Auxiliar numérico 1';
+comment on column JAQM53.jaqm53an2
+  is 'Auxiliar numérico 2';
+comment on column JAQM53.jaqm53an3
+  is 'Auxiliar numérico 3';
+comment on column JAQM53.jaqm53ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM53.jaqm53ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM53.jaqm53ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM53.jaqm53af1
+  is 'Auxiliar fecha 1';
+comment on column JAQM53.jaqm53af2
+  is 'Auxiliar fecha 2';
+comment on column JAQM53.jaqm53af3
+  is 'Auxiliar fecha 3';
+comment on column JAQM53.jaqm53ai1
+  is 'Auxiliar importe 1';
+comment on column JAQM53.jaqm53ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM53.jaqm53ai3
+  is 'Auxiliar importe 3';
+alter table JAQM53
+  add primary key (JAQM53COF);
+

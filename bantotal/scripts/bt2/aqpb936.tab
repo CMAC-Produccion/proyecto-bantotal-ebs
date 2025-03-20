@@ -1,0 +1,121 @@
+create table AQPB936
+(
+  aqpb936fcar  DATE not null,
+  aqpb936cod   NUMBER(3) not null,
+  aqpb936mod   NUMBER(5) not null,
+  aqpb936suc   NUMBER(4) not null,
+  aqpb936mda   NUMBER(4) not null,
+  aqpb936pap   NUMBER(4) not null,
+  aqpb936cta   NUMBER(9) not null,
+  aqpb936oper  NUMBER(9) not null,
+  aqpb936sbop  NUMBER(4) not null,
+  aqpb936top   NUMBER(5) not null,
+  aqpb936ndoc  VARCHAR2(12),
+  aqpb936nomb  VARCHAR2(50),
+  aqpb936anlt  VARCHAR2(10),
+  aqpb936regi  VARCHAR2(50),
+  aqpb936zona  VARCHAR2(50),
+  aqpb936agen  VARCHAR2(50),
+  aqpb936tcre  VARCHAR2(50),
+  aqpb936fvto  DATE,
+  aqpb936fval  DATE,
+  aqpb936sdo   NUMBER(17,2),
+  aqpb936fpag  DATE,
+  aqpb936est   VARCHAR2(2),
+  aqpb936naux1 NUMBER(10),
+  aqpb936naux2 NUMBER(10),
+  aqpb936naux3 NUMBER(10),
+  aqpb936naux4 NUMBER(10),
+  aqpb936naux5 NUMBER(10),
+  aqpb936vaux1 VARCHAR2(30),
+  aqpb936vaux2 VARCHAR2(30),
+  aqpb936vaux3 VARCHAR2(30),
+  aqpb936vaux4 VARCHAR2(30),
+  aqpb936vaux5 VARCHAR2(30),
+  aqpb936faux1 DATE,
+  aqpb936faux2 DATE,
+  aqpb936faux3 DATE,
+  aqpb936faux4 DATE,
+  aqpb936faux5 DATE
+)
+;
+comment on table AQPB936
+  is 'TABLA BASE DE SINCERAMIENTO PARA REPROGRAMADOS';
+comment on column AQPB936.aqpb936fcar
+  is 'FECHA DE CARGA';
+comment on column AQPB936.aqpb936cod
+  is 'CODIGO';
+comment on column AQPB936.aqpb936mod
+  is 'MODULO';
+comment on column AQPB936.aqpb936suc
+  is 'SUCURSAL';
+comment on column AQPB936.aqpb936mda
+  is 'MONEDA';
+comment on column AQPB936.aqpb936pap
+  is 'PAPEL';
+comment on column AQPB936.aqpb936cta
+  is 'CUENTA';
+comment on column AQPB936.aqpb936oper
+  is 'OPERACION';
+comment on column AQPB936.aqpb936sbop
+  is 'SUB OPERACION';
+comment on column AQPB936.aqpb936top
+  is 'TIPO DE OPERACION';
+comment on column AQPB936.aqpb936ndoc
+  is 'NRO DE DOCUMENTO';
+comment on column AQPB936.aqpb936nomb
+  is 'NOMBRE DE CLIENTE';
+comment on column AQPB936.aqpb936anlt
+  is 'ANALISTA';
+comment on column AQPB936.aqpb936regi
+  is 'REGION';
+comment on column AQPB936.aqpb936zona
+  is 'ZONA';
+comment on column AQPB936.aqpb936agen
+  is 'AGENCIA';
+comment on column AQPB936.aqpb936tcre
+  is 'TIPO DE CREDITO';
+comment on column AQPB936.aqpb936fvto
+  is 'FECHA DE VENCIMIENTO';
+comment on column AQPB936.aqpb936fval
+  is 'FECHA VALOR';
+comment on column AQPB936.aqpb936sdo
+  is 'SALDO';
+comment on column AQPB936.aqpb936fpag
+  is 'FECHA DE PROXIMO PAGO';
+comment on column AQPB936.aqpb936est
+  is '(S/N) ESTADO HABILITADO';
+comment on column AQPB936.aqpb936naux1
+  is 'AUXILIAR NUMERICO 1';
+comment on column AQPB936.aqpb936naux2
+  is 'AUXILIAR NUMERICO 2';
+comment on column AQPB936.aqpb936naux3
+  is 'AUXILIAR NUMERICO 3';
+comment on column AQPB936.aqpb936naux4
+  is 'AUXILIAR NUMERICO 4';
+comment on column AQPB936.aqpb936naux5
+  is 'AUXILIAR NUMERICO 5';
+comment on column AQPB936.aqpb936vaux1
+  is 'AUXILIAR VARCHAR 1';
+comment on column AQPB936.aqpb936vaux2
+  is 'AUXILIAR VARCHAR 2';
+comment on column AQPB936.aqpb936vaux3
+  is 'AUXILIAR VARCHAR 3';
+comment on column AQPB936.aqpb936vaux4
+  is 'AUXILIAR VARCHAR 4';
+comment on column AQPB936.aqpb936vaux5
+  is 'AUXILIAR VARCHAR 5';
+comment on column AQPB936.aqpb936faux1
+  is 'AUXILIAR FECHA 1';
+comment on column AQPB936.aqpb936faux2
+  is 'AUXILIAR FECHA 2';
+comment on column AQPB936.aqpb936faux3
+  is 'AUXILIAR FECHA 3';
+comment on column AQPB936.aqpb936faux4
+  is 'AUXILIAR FECHA 4';
+comment on column AQPB936.aqpb936faux5
+  is 'AUXILIAR FECHA 5';
+create index AQPB936A2 on AQPB936 (AQPB936NDOC, AQPB936EST);
+alter table AQPB936
+  add primary key (AQPB936COD, AQPB936MOD, AQPB936SUC, AQPB936MDA, AQPB936PAP, AQPB936CTA, AQPB936OPER, AQPB936SBOP, AQPB936TOP, AQPB936FCAR);
+

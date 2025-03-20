@@ -1,0 +1,21 @@
+create table AQPA033
+(
+  aqpa033user CHAR(10) not null,
+  aqpa033inst NUMBER(10) not null,
+  aqpa033neva NUMBER(10) not null,
+  aqpa033tdoc NUMBER(2),
+  aqpa033ndoc CHAR(12),
+  aqpa033pers CHAR(30),
+  aqpa033rela VARCHAR2(40),
+  aqpa033enti VARCHAR2(200),
+  aqpa033mda  NUMBER(4),
+  aqpa033sdeu NUMBER(18,2),
+  aqpa033chek CHAR(1),
+  aqpa033corr NUMBER(10) not null,
+  aqpa033flag CHAR(1)
+)
+;
+create index AQPA0332 on AQPA033 (AQPA033USER, AQPA033INST, AQPA033NEVA);
+alter table AQPA033
+  add primary key (AQPA033USER, AQPA033CORR, AQPA033INST, AQPA033NEVA);
+

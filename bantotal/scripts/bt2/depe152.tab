@@ -1,0 +1,28 @@
+create table DEPE152
+(
+  depe152fec DATE not null,
+  depe152hor CHAR(8) not null,
+  depe152cdg NUMBER(3) not null,
+  depe152mda NUMBER(4) not null,
+  depe152cor NUMBER(4) not null,
+  depe152imd NUMBER(17,2),
+  depe152imh NUMBER(17,2),
+  depe152fa1 NUMBER(10,6),
+  depe152fa2 NUMBER(10,6),
+  depe152nu1 NUMBER(9),
+  depe152nu2 NUMBER(9),
+  depe152nu3 NUMBER(9),
+  depe152ch1 VARCHAR2(255),
+  depe152ch2 VARCHAR2(255),
+  depe152ch3 VARCHAR2(255),
+  depe152dt1 DATE,
+  depe152dt2 DATE,
+  depe152dt3 DATE,
+  depe152im1 NUMBER(17,2),
+  depe152im2 NUMBER(17,2),
+  depe152im3 NUMBER(17,2)
+)
+;
+alter table DEPE152
+  add primary key (DEPE152FEC, DEPE152HOR, DEPE152CDG, DEPE152MDA, DEPE152COR);
+

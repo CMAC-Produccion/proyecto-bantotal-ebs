@@ -1,0 +1,27 @@
+create table FBC703
+(
+  bc703emp  NUMBER(3) not null,
+  bc703suc  NUMBER(3) not null,
+  bc703mod  NUMBER(3) not null,
+  bc703trn  NUMBER(3) not null,
+  bc703rel  NUMBER(4) not null,
+  bc703ord  NUMBER(2) not null,
+  bc703sbo  NUMBER(3) not null,
+  bc703fch  DATE not null,
+  bc703nroo NUMBER(7),
+  bc703ncta NUMBER(9),
+  bc703omda NUMBER(4),
+  bc703oimp NUMBER(17,2),
+  bc703deno CHAR(60),
+  bc703pais CHAR(2),
+  bc703banc CHAR(12),
+  bc703cpto NUMBER(9),
+  bc703perm CHAR(16),
+  bc703tipo CHAR(1),
+  bc703desc CHAR(100)
+)
+;
+create index FBC70302 on FBC703 (BC703EMP, BC703FCH);
+alter table FBC703
+  add primary key (BC703EMP, BC703SUC, BC703MOD, BC703TRN, BC703REL, BC703ORD, BC703SBO, BC703FCH);
+

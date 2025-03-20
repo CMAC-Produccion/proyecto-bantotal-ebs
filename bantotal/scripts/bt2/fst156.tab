@@ -1,0 +1,16 @@
+create table FST156
+(
+  agtecod  NUMBER(7) not null,
+  agtenom  CHAR(30),
+  cargocod NUMBER(3),
+  agtetip  CHAR(1),
+  agtesuc  NUMBER(3),
+  agtests  CHAR(1),
+  agteusr  CHAR(10)
+)
+;
+create index FST15602 on FST156 (CARGOCOD);
+create index FST15603 on FST156 (AGTEUSR);
+alter table FST156
+  add primary key (AGTECOD);
+

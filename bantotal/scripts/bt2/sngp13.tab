@@ -1,0 +1,20 @@
+create table SNGP13
+(
+  sngp10pgc  NUMBER(3) not null,
+  sngp10mod  NUMBER(3) not null,
+  sngp10tope NUMBER(3) not null,
+  sngp13cod  NUMBER(3) not null,
+  sngp13excl NUMBER(4) not null,
+  sngp13chr1 CHAR(1),
+  sngp13wpn1 CHAR(10),
+  sngp13wpn2 CHAR(10),
+  sngp13pgm1 CHAR(10),
+  sngp13pgm2 CHAR(10),
+  sngp13ltc1 NUMBER(5),
+  sngp13ltc2 NUMBER(5),
+  sngp13rngc NUMBER(10)
+)
+;
+alter table SNGP13
+  add primary key (SNGP10PGC, SNGP10MOD, SNGP10TOPE, SNGP13COD, SNGP13EXCL);
+

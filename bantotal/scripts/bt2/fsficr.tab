@@ -1,0 +1,41 @@
+create table FSFICR
+(
+  sficremp   NUMBER(3) not null,
+  sficrcod   NUMBER(9) not null,
+  sficrfcie  DATE,
+  sficrbco   NUMBER(9),
+  sficrimin  NUMBER(17,2),
+  sficrimul  NUMBER(17,2),
+  sficrtpzo  NUMBER(1),
+  sficrtanio NUMBER(1),
+  sficrttasa NUMBER(1),
+  sficrpitas CHAR(1),
+  sficrtasa  NUMBER(10,6),
+  sficrmod   NUMBER(3),
+  sficrtop   NUMBER(3),
+  sficrhab   CHAR(1),
+  sficrauca1 CHAR(1),
+  sficrauca2 CHAR(1),
+  sficrauca3 CHAR(1),
+  sficrauca4 CHAR(1),
+  sficrauca5 CHAR(1),
+  sficrautx1 CHAR(20),
+  sficrautx2 CHAR(20),
+  sficraunu1 NUMBER(9),
+  sficraunu2 NUMBER(9),
+  sficraunu3 NUMBER(9),
+  sficrauta1 NUMBER(10,6),
+  sficrauta2 NUMBER(10,6),
+  sficrauta3 NUMBER(10,6),
+  sficrauim1 NUMBER(17,2),
+  sficrauim2 NUMBER(17,2),
+  sficrauim3 NUMBER(17,2),
+  sficrdesc  CHAR(50),
+  sficrmda   NUMBER(4),
+  sficrplazo NUMBER(5),
+  sficrpro   NUMBER(3)
+)
+;
+alter table FSFICR
+  add primary key (SFICREMP, SFICRCOD);
+

@@ -1,0 +1,17 @@
+create table JAQL812A
+(
+  jaql812anusec NUMBER(10) not null,
+  jaql812atireg CHAR(1),
+  jaql812acobin CHAR(11),
+  jaql812acam01 CHAR(4),
+  jaql812afearc DATE not null,
+  jaql812acam02 CHAR(2),
+  jaql812areser VARCHAR2(528),
+  jaql812acoest CHAR(1),
+  jaql812anureg NUMBER(8)
+)
+;
+create unique index IDX_JAQL812A on JAQL812A (JAQL812AFEARC);
+alter table JAQL812A
+  add primary key (JAQL812ANUSEC, JAQL812AFEARC);
+

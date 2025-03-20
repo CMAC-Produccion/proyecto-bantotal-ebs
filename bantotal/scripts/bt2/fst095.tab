@@ -1,0 +1,18 @@
+create table FST095
+(
+  pgcod  NUMBER(3) not null,
+  sucurs NUMBER(3) not null,
+  pqcpla NUMBER(3) not null,
+  pqnpla CHAR(20),
+  pqdias NUMBER(3),
+  pqmn   CHAR(1),
+  pqme   CHAR(1),
+  pqccom NUMBER(3),
+  rubro  NUMBER(16)
+)
+;
+create index FST09503 on FST095 (RUBRO);
+create index FST09504 on FST095 (PQCCOM);
+alter table FST095
+  add primary key (PGCOD, SUCURS, PQCPLA);
+

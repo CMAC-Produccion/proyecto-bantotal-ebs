@@ -1,0 +1,24 @@
+create table MBC010
+(
+  mbc10emp  NUMBER(3) not null,
+  mbc10suc  NUMBER(3) not null,
+  mbc10usr  CHAR(10) not null,
+  mbc10caj  NUMBER(3) not null,
+  mbc10fech TIMESTAMP(6) not null,
+  mbc10hra  CHAR(8) not null,
+  mbc10spr  CHAR(10),
+  mbc10tpa  CHAR(1),
+  mbc10ax1  TIMESTAMP(6),
+  mbc10ax2  TIMESTAMP(6),
+  mbc10ax3  NUMBER(17),
+  mbc10ax4  NUMBER(9),
+  mbc10ax5  CHAR(200),
+  mbc10ax6  CHAR(1),
+  mbc10ax7  NUMBER(17),
+  mbc10ax8  NUMBER(3),
+  mbc10ax9  CHAR(20)
+)
+;
+alter table MBC010
+  add primary key (MBC10EMP, MBC10SUC, MBC10USR, MBC10CAJ, MBC10FECH, MBC10HRA);
+

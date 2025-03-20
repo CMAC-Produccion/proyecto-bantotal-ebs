@@ -1,0 +1,12 @@
+create table FBRD25
+(
+  fbrd25emp  NUMBER(3) not null,
+  fbrd25cta  NUMBER(9) not null,
+  fbrd25cpto NUMBER(5) not null,
+  fbrd25imp  NUMBER(16),
+  fbrd25fchi DATE
+)
+;
+alter table FBRD25
+  add primary key (FBRD25EMP, FBRD25CTA, FBRD25CPTO);
+

@@ -1,0 +1,22 @@
+create table JAQZ740
+(
+  jaqz740pgcod  NUMBER(3) not null,
+  jaqz740aomod  NUMBER(3) not null,
+  jaqz740aosuc  NUMBER(3) not null,
+  jaqz740aomda  NUMBER(4) not null,
+  jaqz740aopap  NUMBER(4) not null,
+  jaqz740aocta  NUMBER(9) not null,
+  jaqz740aooper NUMBER(9) not null,
+  jaqz740aosbop NUMBER(3) not null,
+  jaqz740aotope NUMBER(3) not null,
+  jaqz740aofval DATE,
+  jaqz740aofvto DATE,
+  jaqz740aofe99 DATE,
+  jaqz740aostat NUMBER(2),
+  jaqz740pepais NUMBER(3) not null,
+  jaqz740petdoc NUMBER(2) not null,
+  jaqz740pendoc CHAR(12) not null
+)
+;
+create index IDX_JAQZ740_01 on JAQZ740 (JAQZ740PEPAIS, JAQZ740PETDOC, JAQZ740PENDOC);
+

@@ -1,0 +1,11 @@
+create table FSI016
+(
+  ciemp6 NUMBER(3) not null,
+  cicmd  CHAR(8) not null,
+  mon    NUMBER(4)
+)
+;
+create index FSI01602 on FSI016 (MON);
+alter table FSI016
+  add primary key (CIEMP6, CICMD);
+

@@ -1,0 +1,19 @@
+create table FPCG002
+(
+  pcg002emp NUMBER(3) not null,
+  pcg002cta NUMBER(9) not null,
+  pcg002rel NUMBER(4) not null,
+  pcg002ase CHAR(10),
+  pcg002age NUMBER(5),
+  pcg002acp CHAR(1),
+  pcg002seg CHAR(1),
+  pcg002fea DATE,
+  pcg002usa CHAR(10),
+  pcg002au1 CHAR(10),
+  pcg002au2 DATE,
+  pcg002au3 NUMBER(4)
+)
+;
+alter table FPCG002
+  add primary key (PCG002EMP, PCG002CTA, PCG002REL);
+

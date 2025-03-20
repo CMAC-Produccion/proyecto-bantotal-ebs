@@ -1,0 +1,29 @@
+create table JAQZ311
+(
+  jaqz311numdoc VARCHAR2(11) not null,
+  jaqz311apepat VARCHAR2(50),
+  jaqz311apemat VARCHAR2(50),
+  jaqz311estciv CHAR(1),
+  jaqz311fecnac DATE,
+  jaqz311sexo   CHAR(1),
+  jaqz311nacdep VARCHAR2(50),
+  jaqz311dirdep NUMBER(5),
+  jaqz311dirpro CHAR(20),
+  jaqz311dirdis NUMBER(9),
+  jaqz311dirdes VARCHAR2(200),
+  jaqz311prinom VARCHAR2(100),
+  jaqz311segnom VARCHAR2(100),
+  jaqz311horreg VARCHAR2(10),
+  jaqz311fecreg DATE,
+  jaqz311fgcta  NUMBER(1),
+  jaqz311fgcli  NUMBER(1),
+  jaqz311tfir   CHAR(1),
+  jaqz311nro    NUMBER(10),
+  jaqz311ubidep NUMBER(5),
+  jaqz311ubipro NUMBER(5),
+  jaqz311ubidis NUMBER(9)
+)
+;
+alter table JAQZ311
+  add primary key (JAQZ311NUMDOC);
+

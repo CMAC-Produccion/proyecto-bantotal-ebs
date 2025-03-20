@@ -1,0 +1,22 @@
+create table SD4302
+(
+  sd02coddis NUMBER(4) not null,
+  sd02codent NUMBER(5) not null,
+  sd02fchinf NUMBER(6) not null,
+  sd02concep NUMBER(1) not null,
+  sd02situac NUMBER(2) not null,
+  sd02catego NUMBER(1) not null,
+  sd02gpacin NUMBER(10),
+  sd02gpbcin NUMBER(10),
+  sd02gpbinp NUMBER(10),
+  sd02sgpinp NUMBER(10),
+  sd02sgpipr NUMBER(10),
+  sd02candeu NUMBER(6),
+  sd02deualc NUMBER(1),
+  sd02sinuso CHAR(9),
+  sd02rectif CHAR(1)
+)
+;
+alter table SD4302
+  add primary key (SD02CODDIS, SD02CODENT, SD02FCHINF, SD02CONCEP, SD02SITUAC, SD02CATEGO);
+

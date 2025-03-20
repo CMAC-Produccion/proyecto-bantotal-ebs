@@ -1,0 +1,153 @@
+create table AQPB605
+(
+  aqpb605corr   NUMBER(10) not null,
+  aqpb605reg    VARCHAR2(40),
+  aqpb605age    VARCHAR2(30),
+  aqpb605tdoc   NUMBER(2),
+  aqpb605ndoc   VARCHAR2(12),
+  aqpb605fecn   DATE,
+  aqpb605sex    VARCHAR2(1),
+  aqpb605ingm   NUMBER(17,2),
+  aqpb605ncli   VARCHAR2(50),
+  aqpb605dpt    VARCHAR2(30),
+  aqpb605pro    VARCHAR2(30),
+  aqpb605dis    VARCHAR2(30),
+  aqpb605dir    VARCHAR2(250),
+  aqpb605tel    VARCHAR2(250),
+  aqpb605cor    VARCHAR2(500),
+  aqpb605cel    VARCHAR2(250),
+  aqpb605anad   VARCHAR2(20),
+  aqpb605fecd   DATE,
+  aqpb605mntd   NUMBER(17,2),
+  aqpb605vtas   NUMBER(17,2),
+  aqpb605nror   NUMBER(10),
+  aqpb605sldc   NUMBER(17,2),
+  aqpb605deut   NUMBER(17,2),
+  aqpb605sldj   NUMBER(17,2),
+  aqpb605diaa   NUMBER(10),
+  aqpb605sjud   NUMBER(17,2),
+  aqpb605sven   NUMBER(17,2),
+  aqpb605mod    VARCHAR2(250),
+  aqpb605desm   VARCHAR2(250),
+  aqpb605tope   VARCHAR2(250),
+  aqpb605deso   VARCHAR2(250),
+  aqpb605dess   VARCHAR2(250),
+  aqpb605mnd    NUMBER(5),
+  aqpb605pap    NUMBER(5),
+  aqpb605cta    NUMBER(10),
+  aqpb605ope    NUMBER(10),
+  aqpb605sope   NUMBER(3),
+  aqpb605lote   NUMBER(10),
+  aqpb605desl   VARCHAR2(250),
+  aqpb60514k    NUMBER(17,6),
+  aqpb60518k    NUMBER(17,6),
+  aqpb60521k    NUMBER(17,6),
+  aqpb605sorf   VARCHAR2(20),
+  aqpb605fecv   DATE,
+  aqpb605pgcodc NUMBER(3),
+  aqpb605modc   NUMBER(3),
+  aqpb605succ   NUMBER(3),
+  aqpb605mdac   NUMBER(4),
+  aqpb605papc   NUMBER(4),
+  aqpb605ctac   NUMBER(9),
+  aqpb605operc  NUMBER(9),
+  aqpb605sbopc  NUMBER(3),
+  aqpb605topec  NUMBER(3),
+  aqpb605usur   VARCHAR2(10),
+  aqpb605fecr   DATE
+)
+;
+comment on column AQPB605.aqpb605reg
+  is 'REGION';
+comment on column AQPB605.aqpb605age
+  is 'AGENCIA';
+comment on column AQPB605.aqpb605tdoc
+  is 'TIP DOC';
+comment on column AQPB605.aqpb605ndoc
+  is 'NRO DOC';
+comment on column AQPB605.aqpb605fecn
+  is 'FEC NAC';
+comment on column AQPB605.aqpb605sex
+  is 'SEXO';
+comment on column AQPB605.aqpb605ingm
+  is 'INGESO MENSUAL';
+comment on column AQPB605.aqpb605ncli
+  is 'NOM CLIENTE';
+comment on column AQPB605.aqpb605dpt
+  is 'DEPARTAMENTO';
+comment on column AQPB605.aqpb605pro
+  is 'PROVINCIA';
+comment on column AQPB605.aqpb605dis
+  is 'DISTRITO';
+comment on column AQPB605.aqpb605dir
+  is 'DIRECCION ';
+comment on column AQPB605.aqpb605tel
+  is 'TELEFONO';
+comment on column AQPB605.aqpb605cor
+  is 'CORREOS ';
+comment on column AQPB605.aqpb605cel
+  is 'CCELULAR';
+comment on column AQPB605.aqpb605anad
+  is 'ANALISTA DESEMBOLSO';
+comment on column AQPB605.aqpb605fecd
+  is 'FEC DESEMBOLSO';
+comment on column AQPB605.aqpb605mntd
+  is 'MONTO DESEMBOLSO';
+comment on column AQPB605.aqpb605vtas
+  is 'VALOR TASACION';
+comment on column AQPB605.aqpb605nror
+  is 'NRO RENOVACIONES';
+comment on column AQPB605.aqpb605sldc
+  is 'SALDO CAPITA';
+comment on column AQPB605.aqpb605deut
+  is 'DEUDA TOTAL';
+comment on column AQPB605.aqpb605sldj
+  is 'SALDO CAPITAL + JUDIAL';
+comment on column AQPB605.aqpb605diaa
+  is 'DIAS DE ATRASO';
+comment on column AQPB605.aqpb605sjud
+  is 'SALDO SOLO JUDIAL';
+comment on column AQPB605.aqpb605sven
+  is 'SALDO SOLO VENCIDO';
+comment on column AQPB605.aqpb605mod
+  is 'MODULO';
+comment on column AQPB605.aqpb605desm
+  is 'DESCRIPCIO MODULO';
+comment on column AQPB605.aqpb605tope
+  is 'DESCRIPCION TIPO DE OPERACION';
+comment on column AQPB605.aqpb605deso
+  is 'OPERACION';
+comment on column AQPB605.aqpb605dess
+  is 'SUCURSAL';
+comment on column AQPB605.aqpb605mnd
+  is 'MONEDA';
+comment on column AQPB605.aqpb605pap
+  is 'PAPEL';
+comment on column AQPB605.aqpb605cta
+  is 'CUENTA';
+comment on column AQPB605.aqpb605ope
+  is 'OPERACION';
+comment on column AQPB605.aqpb605sope
+  is 'SUBOPERACION';
+comment on column AQPB605.aqpb605lote
+  is 'LOTE';
+comment on column AQPB605.aqpb605desl
+  is 'DESCRIPCION LOTE';
+comment on column AQPB605.aqpb60514k
+  is '14K';
+comment on column AQPB605.aqpb60518k
+  is '18K';
+comment on column AQPB605.aqpb60521k
+  is '21K';
+comment on column AQPB605.aqpb605sorf
+  is 'NRO SORFY';
+comment on column AQPB605.aqpb605fecv
+  is 'FEC VENCIMIENTO';
+comment on column AQPB605.aqpb605usur
+  is 'USUARIO REPORTE';
+comment on column AQPB605.aqpb605fecr
+  is 'FEC DEL REPORTE';
+create index AQPB6052 on AQPB605 (AQPB605FECD, AQPB605USUR);
+alter table AQPB605
+  add primary key (AQPB605CORR);
+

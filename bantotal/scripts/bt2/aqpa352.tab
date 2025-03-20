@@ -1,0 +1,104 @@
+create table AQPA352
+(
+  aqpa352corr    NUMBER(10) not null,
+  aqpa352fec     DATE not null,
+  aqpa352hora    CHAR(10) not null,
+  aqpa352user    VARCHAR2(10),
+  aqpa352pais    NUMBER(9) not null,
+  aqpa352tdoc    NUMBER(9) not null,
+  aqpa352ndoc    VARCHAR2(12) not null,
+  aqpa352tcamb   NUMBER(14,8),
+  aqpa352inst    NUMBER(12) not null,
+  aqpa352feval   DATE,
+  aqpa352fical   DATE,
+  aqpa352pgcod   NUMBER(5),
+  aqpa352mod     NUMBER(5),
+  aqpa352suc     NUMBER(5),
+  aqpa352mda     NUMBER(5),
+  aqpa352pap     NUMBER(5),
+  aqpa352cta     NUMBER(10),
+  aqpa352ope     NUMBER(10),
+  aqpa352sbop    NUMBER(10),
+  aqpa352tope    NUMBER(10),
+  aqpa352ori     NUMBER(10),
+  aqpa352ncuo    NUMBER(10),
+  aqpa352est     VARCHAR2(2),
+  aqpa352tarea   NUMBER(10),
+  aqpa352indcred VARCHAR2(15),
+  aqpa352naux1   NUMBER(17,2),
+  aqpa352naux2   NUMBER(17,2),
+  aqpa352naux3   NUMBER(17,2),
+  aqpa352naux4   NUMBER(17,2),
+  aqpa352naux5   NUMBER(17,2),
+  aqpa352vaux1   VARCHAR2(25),
+  aqpa352vaux2   VARCHAR2(25),
+  aqpa352vaux3   VARCHAR2(25),
+  aqpa352vaux4   VARCHAR2(25),
+  aqpa352vaux5   VARCHAR2(25),
+  aqpa352daux1   DATE,
+  aqpa352daux2   DATE,
+  aqpa352daux3   DATE
+)
+;
+comment on column AQPA352.aqpa352corr
+  is 'Correlativo';
+comment on column AQPA352.aqpa352fec
+  is 'Fecha de Proceso';
+comment on column AQPA352.aqpa352hora
+  is 'Hora de Proceso';
+comment on column AQPA352.aqpa352user
+  is 'Usuario';
+comment on column AQPA352.aqpa352pais
+  is 'Pais de Documento';
+comment on column AQPA352.aqpa352tdoc
+  is 'Tipo de Documento';
+comment on column AQPA352.aqpa352ndoc
+  is 'Nro de Documento';
+comment on column AQPA352.aqpa352tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column AQPA352.aqpa352inst
+  is 'Nro de Instancia';
+comment on column AQPA352.aqpa352feval
+  is 'Fecha de Evaluacion';
+comment on column AQPA352.aqpa352fical
+  is 'Fecha de Inicio de Calendario para calculo de Ratio';
+comment on column AQPA352.aqpa352pgcod
+  is 'Pgcod del Credito';
+comment on column AQPA352.aqpa352mod
+  is 'Modulo del Credito';
+comment on column AQPA352.aqpa352suc
+  is 'Sucursal del Credito';
+comment on column AQPA352.aqpa352mda
+  is 'Moneda del Credito';
+comment on column AQPA352.aqpa352pap
+  is 'Papel del Credito';
+comment on column AQPA352.aqpa352cta
+  is 'Cuenta del Credito';
+comment on column AQPA352.aqpa352ope
+  is 'Operacion del Credito';
+comment on column AQPA352.aqpa352sbop
+  is 'Sub Operacion del Credito';
+comment on column AQPA352.aqpa352tope
+  is 'Tipo de Operacion del Credito';
+comment on column AQPA352.aqpa352ori
+  is 'Ori - Tipo de Solicitud';
+comment on column AQPA352.aqpa352ncuo
+  is 'Nro de Cuotas o Preseteo';
+comment on column AQPA352.aqpa352est
+  is 'Estado H(Habilitado) ultimo ejecutado, I (Inhabilitado) ejecutado anteriormente';
+comment on column AQPA352.aqpa352tarea
+  is 'Tarea del credito en donde se ejcuto el Ratio';
+comment on column AQPA352.aqpa352indcred
+  is 'Indicador del Credito';
+comment on column AQPA352.aqpa352naux1
+  is 'Monto Cuota Periodo Max Ratio';
+comment on column AQPA352.aqpa352naux3
+  is 'Monto Cuota Adicional para Lineas';
+create index AQPA352A5 on AQPA352 (AQPA352INST, AQPA352EST, AQPA352TAREA, AQPA352INDCRED);
+create index AQPA352A6 on AQPA352 (AQPA352INST, AQPA352EST, AQPA352TAREA);
+create index AQPA3522 on AQPA352 (AQPA352PGCOD, AQPA352MOD, AQPA352SUC, AQPA352MDA, AQPA352PAP, AQPA352CTA, AQPA352OPE, AQPA352SBOP, AQPA352TOPE);
+create index AQPA3523 on AQPA352 (AQPA352FEC, AQPA352PAIS, AQPA352TDOC, AQPA352NDOC, AQPA352INST);
+create index AQPA3524 on AQPA352 (AQPA352INST, AQPA352PGCOD, AQPA352MOD, AQPA352SUC, AQPA352MDA, AQPA352PAP, AQPA352CTA, AQPA352OPE, AQPA352SBOP, AQPA352TOPE);
+alter table AQPA352
+  add primary key (AQPA352CORR, AQPA352FEC, AQPA352PAIS, AQPA352TDOC, AQPA352NDOC, AQPA352INST, AQPA352HORA);
+

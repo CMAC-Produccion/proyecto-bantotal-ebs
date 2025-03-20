@@ -1,0 +1,12 @@
+create table SNGE02
+(
+  snge01inst NUMBER(10) not null,
+  snge02corr NUMBER(4) not null,
+  sngm10corr NUMBER(10),
+  snge02stra CHAR(20)
+)
+;
+create index SNGE0203 on SNGE02 (SNGM10CORR);
+alter table SNGE02
+  add primary key (SNGE01INST, SNGE02CORR);
+

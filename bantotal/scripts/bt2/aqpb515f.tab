@@ -1,0 +1,81 @@
+create table AQPB515F
+(
+  aqpb515fserial NUMBER(10) not null,
+  aqpb515fsecue  NUMBER(6) not null,
+  aqpb515fcorre  VARCHAR2(10),
+  aqpb515ffenua  DATE,
+  aqpb515fnombr  VARCHAR2(50),
+  aqpb515ftipid  VARCHAR2(50),
+  aqpb515fnumid  VARCHAR2(20),
+  aqpb515fcargo  VARCHAR2(30),
+  aqpb515ffecvi  DATE,
+  aqpb515fdepen  VARCHAR2(10),
+  aqpb515fproce  VARCHAR2(10),
+  aqpb515frelac  VARCHAR2(30),
+  aqpb515fempre  VARCHAR2(50),
+  aqpb515fcarre  VARCHAR2(30),
+  aqpb515ftiide  VARCHAR2(10),
+  aqpb515fident  VARCHAR2(20),
+  aqpb515fesvil  VARCHAR2(10),
+  aqpb515fescon  VARCHAR2(2),
+  aqpb515ffeinr  DATE,
+  aqpb515frucco  VARCHAR2(20),
+  aqpb515ftidet  CHAR(2) not null,
+  aqpb515fconcod VARCHAR2(16) not null,
+  aqpb515fcreusr VARCHAR2(30) not null,
+  aqpb515fcretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515F
+  is 'REL COMERCIALES - REP LEGALES - EQUIFAX';
+comment on column AQPB515F.aqpb515fserial
+  is 'SERIAL';
+comment on column AQPB515F.aqpb515fsecue
+  is 'SECUENCIA';
+comment on column AQPB515F.aqpb515fcorre
+  is 'CORRELATIVO';
+comment on column AQPB515F.aqpb515ffenua
+  is 'FECHA NUEVA ACTUALIZACION';
+comment on column AQPB515F.aqpb515fnombr
+  is 'NOMBRE CLIENTE';
+comment on column AQPB515F.aqpb515ftipid
+  is 'TIPO DOCUMENTO';
+comment on column AQPB515F.aqpb515fnumid
+  is 'NUMERO DOCUMENTO';
+comment on column AQPB515F.aqpb515fcargo
+  is 'CARGO';
+comment on column AQPB515F.aqpb515ffecvi
+  is 'FECHA VIGENCIA';
+comment on column AQPB515F.aqpb515fdepen
+  is 'DEPENDENCIA';
+comment on column AQPB515F.aqpb515fproce
+  is 'PROCEDENCIA';
+comment on column AQPB515F.aqpb515frelac
+  is 'RELACION';
+comment on column AQPB515F.aqpb515fempre
+  is 'EMPRESA';
+comment on column AQPB515F.aqpb515fcarre
+  is 'CARGO RELACIONADA';
+comment on column AQPB515F.aqpb515ftiide
+  is 'TIPO DOCUMENTO';
+comment on column AQPB515F.aqpb515fident
+  is 'ID ENTIDAD';
+comment on column AQPB515F.aqpb515fesvil
+  is 'VINCULO LABORAL';
+comment on column AQPB515F.aqpb515fescon
+  is 'ESTADO CONTRIBUYENTE';
+comment on column AQPB515F.aqpb515ffeinr
+  is 'FECHA INICIO RELACION';
+comment on column AQPB515F.aqpb515frucco
+  is 'RUC CONTRIBUYENTE';
+comment on column AQPB515F.aqpb515ftidet
+  is 'TIPO DETALLE';
+comment on column AQPB515F.aqpb515fconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515F.aqpb515fcreusr
+  is 'CONSULTA - USUARIO';
+comment on column AQPB515F.aqpb515fcretim
+  is 'CONSULTA - TIMESTAMP';
+alter table AQPB515F
+  add primary key (AQPB515FSERIAL, AQPB515FSECUE, AQPB515FTIDET, AQPB515FCONCOD, AQPB515FCREUSR);
+

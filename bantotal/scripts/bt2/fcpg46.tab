@@ -1,0 +1,19 @@
+create table FCPG46
+(
+  cpg46empbt NUMBER(3) not null,
+  cpg46paise NUMBER(3) not null,
+  cpg46tdoce NUMBER(2) not null,
+  cpg46ndoce CHAR(25) not null,
+  cpg46sube  NUMBER(3) not null,
+  cpg46tdoc1 CHAR(3) not null,
+  cpg46tddes CHAR(30),
+  cpg46tdoc2 NUMBER(2),
+  cpg46blq   CHAR(1),
+  cpg46inst  NUMBER(10)
+)
+;
+create index FCPG4602 on FCPG46 (CPG46INST);
+create index FCPG4603 on FCPG46 (CPG46EMPBT, CPG46PAISE, CPG46TDOCE, CPG46NDOCE, CPG46SUBE, CPG46TDOC2);
+alter table FCPG46
+  add primary key (CPG46EMPBT, CPG46PAISE, CPG46TDOCE, CPG46NDOCE, CPG46SUBE, CPG46TDOC1);
+

@@ -1,0 +1,40 @@
+create table AQPB812
+(
+  pgcod  NUMBER(3) not null,
+  hasuc  NUMBER(3) not null,
+  harub  NUMBER(16) not null,
+  hamda  NUMBER(4) not null,
+  hapap  NUMBER(4) not null,
+  hacta  NUMBER(9) not null,
+  haoper NUMBER(9) not null,
+  hasbop NUMBER(3) not null,
+  hatope NUMBER(3) not null,
+  haanio NUMBER(4) not null,
+  hatot  CHAR(1),
+  hamod  NUMBER(3),
+  hafval DATE,
+  hafvto DATE,
+  hapzo  NUMBER(5),
+  hasegm NUMBER(2),
+  hafunc NUMBER(2),
+  hatit  NUMBER(2),
+  hacap  NUMBER(1),
+  haplzo NUMBER(1),
+  hagru  NUMBER(2),
+  hasd01 NUMBER(17,2),
+  hasd02 NUMBER(17,2),
+  hasd03 NUMBER(17,2),
+  hasd04 NUMBER(17,2),
+  hasd05 NUMBER(17,2),
+  hasd06 NUMBER(17,2),
+  hasd07 NUMBER(17,2),
+  hasd08 NUMBER(17,2),
+  hasd09 NUMBER(17,2),
+  hasd10 NUMBER(17,2),
+  hasd11 NUMBER(17,2),
+  hasd12 NUMBER(17,2),
+  hasd13 NUMBER(17,2)
+)
+;
+create index AQPB8122 on AQPB812 (HACTA, HAOPER);
+

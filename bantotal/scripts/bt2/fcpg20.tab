@@ -1,0 +1,15 @@
+create table FCPG20
+(
+  cpg18empbt NUMBER(3) not null,
+  cpg18cod   NUMBER(3) not null,
+  cpg20sucep NUMBER(4) not null,
+  cpg20des   CHAR(40),
+  cpg20est   CHAR(3),
+  cpg20blq   CHAR(1),
+  cpg20inst  NUMBER(10)
+)
+;
+create index FCPG2003 on FCPG20 (CPG20INST);
+alter table FCPG20
+  add primary key (CPG18EMPBT, CPG18COD, CPG20SUCEP);
+

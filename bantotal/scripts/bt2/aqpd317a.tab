@@ -1,0 +1,52 @@
+create table AQPD317A
+(
+  aqpd317acreusr VARCHAR2(10) not null,
+  aqpd317anroreg NUMBER(9) not null,
+  aqpd317acretim TIMESTAMP(6),
+  aqpd317aopefec DATE,
+  aqpd317aopereg VARCHAR2(40),
+  aqpd317aagecod NUMBER(3),
+  aqpd317aagedes VARCHAR2(30),
+  aqpd317aopehor VARCHAR2(8),
+  aqpd317aopetip VARCHAR2(30),
+  aqpd317actacli NUMBER(9),
+  aqpd317aopemon NUMBER(17,2),
+  aqpd317abovhor VARCHAR2(8),
+  aqpd317ausuing VARCHAR2(10),
+  aqpd317aprintu VARCHAR2(10)
+)
+;
+comment on table AQPD317A
+  is 'Reporte de Operaciones en Horarios Inusuales - Reporte';
+comment on column AQPD317A.aqpd317acreusr
+  is 'Usuario de creación';
+comment on column AQPD317A.aqpd317anroreg
+  is 'Nro. de Registro';
+comment on column AQPD317A.aqpd317acretim
+  is 'Creación - Timestamp';
+comment on column AQPD317A.aqpd317aopefec
+  is 'Operación - Fecha';
+comment on column AQPD317A.aqpd317aopereg
+  is 'Operación - Región';
+comment on column AQPD317A.aqpd317aagecod
+  is 'Agencia - Código';
+comment on column AQPD317A.aqpd317aagedes
+  is 'Agencia - Descripción';
+comment on column AQPD317A.aqpd317aopehor
+  is 'Operación - Hora';
+comment on column AQPD317A.aqpd317aopetip
+  is 'Operación - Tipo';
+comment on column AQPD317A.aqpd317actacli
+  is 'Cuenta Cliente';
+comment on column AQPD317A.aqpd317aopemon
+  is 'Operación - Monto';
+comment on column AQPD317A.aqpd317abovhor
+  is 'Hora Cierre Bóveda';
+comment on column AQPD317A.aqpd317ausuing
+  is 'Usuario Ingreso';
+comment on column AQPD317A.aqpd317aprintu
+  is 'Usuario Confirmo';
+create index AQPD317A01 on AQPD317A (AQPD317AAGECOD, AQPD317AOPEHOR);
+alter table AQPD317A
+  add primary key (AQPD317ACREUSR, AQPD317ANROREG);
+

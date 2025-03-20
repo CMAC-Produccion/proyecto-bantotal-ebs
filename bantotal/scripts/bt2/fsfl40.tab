@@ -1,0 +1,18 @@
+create table FSFL40
+(
+  fsfl40emp  NUMBER(3) not null,
+  fsfl40suc  NUMBER(3) not null,
+  fsfl40mod  NUMBER(3) not null,
+  fsfl40trn  NUMBER(3) not null,
+  fsfl40nrel NUMBER(4) not null,
+  fsfl40fcon DATE not null,
+  fsfl40fch  DATE not null,
+  fsfl40hora CHAR(8) not null,
+  fsfl40wkst CHAR(10),
+  fsfl40usr  CHAR(10),
+  fsfl40dsc  CHAR(10)
+)
+;
+alter table FSFL40
+  add primary key (FSFL40EMP, FSFL40SUC, FSFL40MOD, FSFL40TRN, FSFL40NREL, FSFL40FCON, FSFL40FCH, FSFL40HORA);
+

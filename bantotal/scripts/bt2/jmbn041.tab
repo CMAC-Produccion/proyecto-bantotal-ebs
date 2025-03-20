@@ -1,0 +1,17 @@
+create table JMBN041
+(
+  jmbn041pgc NUMBER(3) not null,
+  jmbn041pai NUMBER(4) not null,
+  jmbn041doc NUMBER(2) not null,
+  jmbn041cod CHAR(1),
+  jmbn041dom CHAR(1),
+  jmbn041tpo CHAR(1),
+  jmbn041res CHAR(1),
+  jmbn041ubi CHAR(1),
+  jmbn041dir CHAR(1),
+  jmbn041ref CHAR(1)
+)
+;
+alter table JMBN041
+  add primary key (JMBN041PGC, JMBN041PAI, JMBN041DOC);
+

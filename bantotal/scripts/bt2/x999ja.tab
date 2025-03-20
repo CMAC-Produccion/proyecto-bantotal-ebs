@@ -1,0 +1,11 @@
+create table X999JA
+(
+  x999japgc NUMBER(3) not null,
+  x999jacta NUMBER(9) not null,
+  x999j0cod CHAR(10) not null
+)
+;
+create index X999JA02 on X999JA (X999J0COD);
+alter table X999JA
+  add primary key (X999JAPGC, X999JACTA, X999J0COD);
+

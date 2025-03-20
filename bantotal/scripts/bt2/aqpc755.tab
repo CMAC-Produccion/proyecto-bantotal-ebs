@@ -1,0 +1,145 @@
+create table AQPC755
+(
+  aqpc755corr   NUMBER(17) not null,
+  aqpc755usuprc VARCHAR2(10) not null,
+  aqpc755inst   NUMBER(10),
+  aqpc755empc   NUMBER(3),
+  aqpc755succ   NUMBER(3),
+  aqpc755modc   NUMBER(3),
+  aqpc755mdac   NUMBER(4),
+  aqpc755papc   NUMBER(4),
+  aqpc755ctac   NUMBER(9),
+  aqpc755opec   NUMBER(9),
+  aqpc755sboc   NUMBER(3),
+  aqpc755topc   NUMBER(3),
+  aqpc755nsucc  VARCHAR2(30),
+  aqpc755sdoc   NUMBER(17,2),
+  aqpc755estc   NUMBER(2),
+  aqpc755nestc  VARCHAR2(30),
+  aqpc755empg   NUMBER(3),
+  aqpc755sucg   NUMBER(3),
+  aqpc755modg   NUMBER(3),
+  aqpc755mdag   NUMBER(4),
+  aqpc755papg   NUMBER(4),
+  aqpc755ctag   NUMBER(9),
+  aqpc755opeg   NUMBER(9),
+  aqpc755sbog   NUMBER(3),
+  aqpc755topg   NUMBER(3),
+  aqpc755nsucg  VARCHAR2(30),
+  aqpc755sdog   NUMBER(17,2),
+  aqpc755mtoag  NUMBER(17,2),
+  aqpc755estg   NUMBER(2),
+  aqpc755nestg  VARCHAR2(30),
+  aqpc755est    VARCHAR2(1),
+  aqpc755pcj    NUMBER(5,2),
+  aqpc755tip    NUMBER(2),
+  aqpc755itemp  NUMBER(3),
+  aqpc755itmod  NUMBER(3),
+  aqpc755itsuc  NUMBER(3),
+  aqpc755ittran NUMBER(3),
+  aqpc755itnrel NUMBER(4),
+  aqpc755itfcon DATE,
+  aqpc755ithor  VARCHAR2(8),
+  aqpc755itucnf VARCHAR2(10),
+  aqpc755usuact VARCHAR2(10),
+  aqpc755fecact DATE,
+  aqpc755fchprc DATE,
+  aqpc755horprc VARCHAR2(8)
+)
+;
+comment on table AQPC755
+  is 'Reporte de Actualización de Saldos de las Garantías IMPULSO MYPERU';
+comment on column AQPC755.aqpc755corr
+  is 'Correlativo';
+comment on column AQPC755.aqpc755usuprc
+  is 'Usuario del Proceso';
+comment on column AQPC755.aqpc755inst
+  is 'Instancia';
+comment on column AQPC755.aqpc755empc
+  is 'Código del Crédito';
+comment on column AQPC755.aqpc755succ
+  is 'Sucursal del Crédito';
+comment on column AQPC755.aqpc755modc
+  is 'Módulo del Crédito';
+comment on column AQPC755.aqpc755mdac
+  is 'Moneda del Crédito';
+comment on column AQPC755.aqpc755papc
+  is 'Papel del Crédito';
+comment on column AQPC755.aqpc755ctac
+  is 'Cuenta del Crédito';
+comment on column AQPC755.aqpc755opec
+  is 'Operación del Crédito';
+comment on column AQPC755.aqpc755sboc
+  is 'Suboperacion del Crédito';
+comment on column AQPC755.aqpc755topc
+  is 'Tipo operación del Crédito';
+comment on column AQPC755.aqpc755nsucc
+  is 'Nombre de Sucursal del Crédito';
+comment on column AQPC755.aqpc755sdoc
+  is 'Saldo del Crédito';
+comment on column AQPC755.aqpc755estc
+  is 'Estado del Crédito';
+comment on column AQPC755.aqpc755nestc
+  is 'Nombre de Estado del Crédito';
+comment on column AQPC755.aqpc755empg
+  is 'Empresa de la Garantía';
+comment on column AQPC755.aqpc755sucg
+  is 'Sucursal de la Garantía';
+comment on column AQPC755.aqpc755modg
+  is 'Módulo de la Garantía';
+comment on column AQPC755.aqpc755mdag
+  is 'Moneda de la Garantía';
+comment on column AQPC755.aqpc755papg
+  is 'Papel de la Garantía';
+comment on column AQPC755.aqpc755ctag
+  is 'Cuenta de la Garantía';
+comment on column AQPC755.aqpc755opeg
+  is 'Operación de la Garantía';
+comment on column AQPC755.aqpc755sbog
+  is 'Suboperacion de la Garantía';
+comment on column AQPC755.aqpc755topg
+  is 'Tipo Operacion de la Garantía';
+comment on column AQPC755.aqpc755nsucg
+  is 'Nombre de Sucursal de la Garantía';
+comment on column AQPC755.aqpc755sdog
+  is 'Saldo de la Garantía';
+comment on column AQPC755.aqpc755mtoag
+  is 'Monto de Alta de la Garantía';
+comment on column AQPC755.aqpc755estg
+  is 'Estado de la Garantía';
+comment on column AQPC755.aqpc755nestg
+  is 'Nombre de Estado de la Garantía';
+comment on column AQPC755.aqpc755est
+  is 'Estado del Registro C:Contabilizado, E:Extornado, N:No se Contabilizó y C:Carga Inicial';
+comment on column AQPC755.aqpc755pcj
+  is 'Porcentaje para el Cálculo de Alta del Monto de Garantía';
+comment on column AQPC755.aqpc755tip
+  is 'Tipo de Crédito 1:Consumo, 2:Mypes/Vehiculares, 3:Hipotecario';
+comment on column AQPC755.aqpc755itemp
+  is 'Código de Transacción';
+comment on column AQPC755.aqpc755itmod
+  is 'Módulo de Transacción';
+comment on column AQPC755.aqpc755itsuc
+  is 'Sucursal de Transacción';
+comment on column AQPC755.aqpc755ittran
+  is 'Nro. de Transacción';
+comment on column AQPC755.aqpc755itnrel
+  is 'Nro. de Relación';
+comment on column AQPC755.aqpc755itfcon
+  is 'Fecha de Contablización';
+comment on column AQPC755.aqpc755ithor
+  is 'Hora de Contablización';
+comment on column AQPC755.aqpc755itucnf
+  is 'Usuario de Contabilización';
+comment on column AQPC755.aqpc755usuact
+  is 'Usuario de Actualización';
+comment on column AQPC755.aqpc755fecact
+  is 'Fecha de Actualización';
+comment on column AQPC755.aqpc755fchprc
+  is 'Fecha del Proceso';
+comment on column AQPC755.aqpc755horprc
+  is 'Hora del Proceso';
+create index AQPC755A2 on AQPC755 (AQPC755USUPRC, AQPC755CORR);
+alter table AQPC755
+  add primary key (AQPC755CORR, AQPC755USUPRC);
+

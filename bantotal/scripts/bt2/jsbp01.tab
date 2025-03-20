@@ -1,0 +1,53 @@
+create table JSBP01
+(
+  jsbp01emp  NUMBER(3) not null,
+  jsbp01suc  NUMBER(3) not null,
+  jsbp01mod  NUMBER(3) not null,
+  jsbp01mda  NUMBER(4) not null,
+  jsbp01pap  NUMBER(4) not null,
+  jsbp01cta  NUMBER(9) not null,
+  jsbp01oper NUMBER(9) not null,
+  jsbp01sbop NUMBER(3) not null,
+  jsbp01tope NUMBER(3) not null,
+  jsbp01nval NUMBER(12) not null,
+  jsbp01fimp DATE,
+  jsbp01est  CHAR(1),
+  jsbp01pgco NUMBER(3),
+  jsbp01modu NUMBER(3),
+  jsbp01suco NUMBER(3),
+  jsbp01tran NUMBER(3),
+  jsbp01rel  NUMBER(4),
+  jsbp01fcon DATE,
+  jsbp01ord  NUMBER(2),
+  jsbp01sord NUMBER(4),
+  jsbp01esco CHAR(1),
+  jsbp01fval DATE,
+  jsbp01fvto DATE,
+  jsbp01pzo  NUMBER(5),
+  jsbp01usu  CHAR(10),
+  jsbp01ttas NUMBER(1),
+  jsbp01tasa NUMBER(10,6),
+  jsbp01tdia NUMBER(1),
+  jsbp01tano NUMBER(1),
+  jsbp01diar NUMBER(4),
+  jsbp01imp  NUMBER(17,2),
+  jsbp01vtoi NUMBER(17,2),
+  jsbp01per  NUMBER(5),
+  jsbp01obs  CHAR(30),
+  jsbp01aux1 CHAR(20),
+  jsbp01aux2 CHAR(20),
+  jsbp01aux3 NUMBER(17,2),
+  jsbp01aux4 NUMBER(17,2),
+  jsbp01aux5 DATE,
+  jsbp01aux6 DATE,
+  jsbp01fpag NUMBER(3),
+  jsbp01aux7 NUMBER(17,2),
+  jsbp01aux8 NUMBER(17,2),
+  jsbp01aux9 DATE,
+  jsbp01ax10 CHAR(30)
+)
+;
+create index JSBP0102 on JSBP01 (JSBP01OPER);
+alter table JSBP01
+  add primary key (JSBP01EMP, JSBP01SUC, JSBP01MOD, JSBP01MDA, JSBP01PAP, JSBP01CTA, JSBP01OPER, JSBP01SBOP, JSBP01TOPE, JSBP01NVAL);
+

@@ -1,0 +1,25 @@
+create table TI000F
+(
+  ti000fpgc NUMBER(3) not null,
+  ti000fctn NUMBER(9) not null,
+  ti000ffch DATE not null,
+  ti000fcor NUMBER(6) not null,
+  ti000fpga NUMBER(3),
+  ti000fsua NUMBER(3),
+  ti000fmda NUMBER(3),
+  ti000ftra NUMBER(3),
+  ti000frea NUMBER(4),
+  ti000fora NUMBER(2),
+  ti000fsba NUMBER(3),
+  ti000fmni NUMBER(17,2),
+  ti000fmnc NUMBER(17,2),
+  ti000fest CHAR(1),
+  ti000fau1 NUMBER(17,2),
+  ti000fau2 CHAR(35),
+  ti000fau3 DATE
+)
+;
+create index TI000F02 on TI000F (TI000FPGA, TI000FSUA, TI000FMDA, TI000FTRA, TI000FREA, TI000FORA, TI000FSBA);
+alter table TI000F
+  add primary key (TI000FPGC, TI000FCTN, TI000FFCH, TI000FCOR);
+

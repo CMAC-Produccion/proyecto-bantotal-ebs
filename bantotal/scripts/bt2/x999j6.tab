@@ -1,0 +1,20 @@
+create table X999J6
+(
+  x999j6tpg NUMBER(3) not null,
+  x999j6trc NUMBER(2) not null,
+  x999j6tri NUMBER(2) not null,
+  x999j6tpl NUMBER(3) not null,
+  x999j6tct NUMBER(9) not null,
+  x999j6tmm NUMBER(1) not null,
+  x999j6tor CHAR(1) not null,
+  x999j6tds CHAR(1) not null,
+  x999j6mod NUMBER(3),
+  x999j6com NUMBER(3),
+  x999j6cta NUMBER(9),
+  x999j6pap NUMBER(4),
+  x999j6mda NUMBER(4)
+)
+;
+alter table X999J6
+  add primary key (X999J6TPG, X999J6TRC, X999J6TRI, X999J6TPL, X999J6TCT, X999J6TMM, X999J6TOR, X999J6TDS);
+

@@ -1,0 +1,23 @@
+create table FCR500
+(
+  pgcod     NUMBER(3) not null,
+  trmod     NUMBER(3) not null,
+  trnro     NUMBER(3) not null,
+  trord     NUMBER(2) not null,
+  drubsec   NUMBER(3) not null,
+  druvtinsf NUMBER(2) not null,
+  druvtope  NUMBER(2) not null,
+  druvmda   NUMBER(4) not null,
+  druvemp   NUMBER(3) not null,
+  druvcta   NUMBER(9) not null,
+  druvvopc  CHAR(1) not null,
+  druvpgm   CHAR(1) not null,
+  druvsbor  NUMBER(3)
+)
+;
+create index FCR50002 on FCR500 (PGCOD, TRMOD, TRNRO, TRORD, DRUVSBOR);
+create index FCR50003 on FCR500 (PGCOD, DRUVCTA);
+create index FCR50004 on FCR500 (DRUVMDA);
+alter table FCR500
+  add primary key (PGCOD, TRMOD, TRNRO, TRORD, DRUBSEC, DRUVTINSF, DRUVTOPE, DRUVMDA, DRUVEMP, DRUVCTA, DRUVVOPC, DRUVPGM);
+

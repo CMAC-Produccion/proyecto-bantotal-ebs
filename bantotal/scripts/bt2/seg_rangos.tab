@@ -1,0 +1,31 @@
+create table SEG_RANGOS
+(
+  estado      VARCHAR2(12),
+  bcrubr      NUMBER(16) not null,
+  pcnomr      CHAR(40),
+  cta_cliente NUMBER(9) not null,
+  titular     CHAR(30),
+  operacion   NUMBER(9) not null,
+  tip_per     VARCHAR2(7),
+  tip_doc     CHAR(3),
+  pendoc      CHAR(12) not null,
+  fec_nac     DATE,
+  fec_des     DATE,
+  mto_apr     NUMBER,
+  saldo       NUMBER,
+  cobert      NUMBER,
+  sal_cli     NUMBER,
+  apr_cli     NUMBER,
+  pepais      NUMBER,
+  petdoc      NUMBER(2),
+  bcmda       NUMBER,
+  bcsdmo      NUMBER(17,2),
+  agencia     CHAR(30),
+  petipo      CHAR(1),
+  bcplaz      NUMBER(5),
+  nro_cred    VARCHAR2(100)
+)
+;
+comment on table SEG_RANGOS
+  is 'Tabla que almacena los rangos de los seguros de desgravamen';
+

@@ -1,0 +1,52 @@
+create table JAQZ659
+(
+  jaqz659fecpr   DATE not null,
+  jaqz659pgcod   NUMBER(3) not null,
+  jaqz659itsuc   NUMBER(3) not null,
+  jaqz659itmod   NUMBER(3) not null,
+  jaqz659ittran  NUMBER(3) not null,
+  jaqz659itnrel  NUMBER(4) not null,
+  jaqz659itord   NUMBER(2) not null,
+  jaqz659itsbor  NUMBER(3) not null,
+  jaqz659modulo  NUMBER(3),
+  jaqz659ittope  NUMBER(3),
+  jaqz659itsucd  NUMBER(3),
+  jaqz659rubro   NUMBER(16),
+  jaqz659moneda  NUMBER(4),
+  jaqz659papel   NUMBER(4),
+  jaqz659ctnro   NUMBER(9),
+  jaqz659itoper  NUMBER(9),
+  jaqz659itsubo  NUMBER(3),
+  jaqz659itfval  DATE,
+  jaqz659itfvto  DATE,
+  jaqz659itafiv  CHAR(1),
+  jaqz659itafgt  CHAR(1),
+  jaqz659itimp1  NUMBER(17,2),
+  jaqz659itimp2  NUMBER(17,2),
+  jaqz659itimp3  NUMBER(17,2),
+  jaqz659itimp4  NUMBER(17,2),
+  jaqz659itimp5  NUMBER(17,2),
+  jaqz659itimp6  NUMBER(17,2),
+  jaqz659itimp7  NUMBER(17,2),
+  jaqz659itimp8  NUMBER(17,2),
+  jaqz659itimp9  NUMBER(17,2),
+  jaqz659itimp10 NUMBER(17,2),
+  jaqz659itimp11 NUMBER(17,2),
+  jaqz659itimp12 NUMBER(17,2),
+  jaqz659itimp13 NUMBER(17,2),
+  jaqz659itimp14 NUMBER(17,2),
+  jaqz659itimp15 NUMBER(17,2),
+  jaqz659itimp16 NUMBER(17,2),
+  jaqz659itimp17 NUMBER(17,2),
+  jaqz659itimp18 NUMBER(17,2),
+  jaqz659itimp19 NUMBER(17,2),
+  jaqz659itimp20 NUMBER(17,2),
+  jaqz659itdbha  NUMBER(1)
+)
+;
+create index JAQZ659_01 on JAQZ659 (JAQZ659PGCOD, JAQZ659ITMOD, JAQZ659ITSUC, JAQZ659ITTRAN, JAQZ659ITNREL, JAQZ659FECPR, JAQZ659ITORD);
+create index JAQZ659_02 on JAQZ659 (JAQZ659PGCOD, JAQZ659ITMOD, JAQZ659ITSUC, JAQZ659ITTRAN, JAQZ659ITNREL, JAQZ659FECPR, JAQZ659MODULO);
+create index JAQZ659_03 on JAQZ659 (JAQZ659PGCOD, JAQZ659ITMOD, JAQZ659ITSUC, JAQZ659ITTRAN, JAQZ659ITNREL, JAQZ659FECPR, JAQZ659RUBRO);
+alter table JAQZ659
+  add primary key (JAQZ659FECPR, JAQZ659PGCOD, JAQZ659ITSUC, JAQZ659ITMOD, JAQZ659ITTRAN, JAQZ659ITNREL, JAQZ659ITORD, JAQZ659ITSBOR);
+

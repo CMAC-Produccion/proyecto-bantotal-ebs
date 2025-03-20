@@ -1,0 +1,13 @@
+create table SNG409
+(
+  sng400cod  NUMBER(3) not null,
+  sng400evto NUMBER(10) not null,
+  sng409relc NUMBER(3) not null,
+  sng409iev  CHAR(1),
+  sng409izdr CHAR(1),
+  sng400edia NUMBER(2)
+)
+;
+alter table SNG409
+  add primary key (SNG400COD, SNG400EVTO, SNG409RELC);
+

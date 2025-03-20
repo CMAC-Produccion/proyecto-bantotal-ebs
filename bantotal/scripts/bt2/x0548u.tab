@@ -1,0 +1,28 @@
+create table X0548U
+(
+  x0548rfch CHAR(6) not null,
+  x0548rhra NUMBER(4) not null,
+  x0548uidr NUMBER(1) not null,
+  x0548ucre NUMBER(15) not null,
+  x0548ucon NUMBER(15) not null,
+  x0548ucod NUMBER(2),
+  x0548umot CHAR(3),
+  x0548ucom CHAR(6),
+  x0548uent NUMBER(8),
+  x0548uotr CHAR(44),
+  x0548uemp NUMBER(3),
+  x0548umod NUMBER(3),
+  x0548usuc NUMBER(3),
+  x0548umda NUMBER(4),
+  x0548upap NUMBER(4),
+  x0548ucta NUMBER(9),
+  x0548uope NUMBER(9),
+  x0548usbo NUMBER(3),
+  x0548utop NUMBER(3),
+  x0548ufco DATE
+)
+;
+create index X0548U03 on X0548U (X0548UEMP, X0548UMOD, X0548USUC, X0548UMDA, X0548UCTA, X0548USBO, X0548UFCO);
+alter table X0548U
+  add primary key (X0548RFCH, X0548RHRA, X0548UIDR, X0548UCRE, X0548UCON);
+

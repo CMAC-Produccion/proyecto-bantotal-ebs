@@ -1,0 +1,15 @@
+create table LTND01
+(
+  ltnm03bsor NUMBER(10) not null,
+  ltnd01corr NUMBER(10) not null,
+  ltnd01id   VARCHAR2(100),
+  ltnd01xml  VARCHAR2(2000),
+  ltnd01hab  CHAR(1),
+  ltnd01fecb DATE,
+  ltnd01feca DATE
+)
+;
+create index LTND0103 on LTND01 (LTND01CORR);
+alter table LTND01
+  add primary key (LTNM03BSOR, LTND01CORR);
+

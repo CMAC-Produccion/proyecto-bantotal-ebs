@@ -1,0 +1,39 @@
+create table FSE117
+(
+  se117cod   NUMBER(3) not null,
+  se117mod   NUMBER(3) not null,
+  se117suc   NUMBER(3) not null,
+  se117mda   NUMBER(4) not null,
+  se117pap   NUMBER(4) not null,
+  se117cta   NUMBER(9) not null,
+  se117oper  NUMBER(9) not null,
+  se117sbop  NUMBER(3) not null,
+  se117tope  NUMBER(3) not null,
+  se117bcod  NUMBER(3),
+  se117dgv   NUMBER(1),
+  se117bsuds NUMBER(12),
+  se117paben NUMBER(3),
+  se117tdben NUMBER(2),
+  se117ndben CHAR(25),
+  se117ccids CHAR(25),
+  se117nombe CHAR(50),
+  se117ax1   NUMBER(9),
+  se117ax2   NUMBER(9),
+  se117fc1   DATE,
+  se117fc2   DATE,
+  se117tx1   CHAR(25),
+  se117tx2   CHAR(50),
+  se117cd    NUMBER(3),
+  se117su    NUMBER(3),
+  se117mo    NUMBER(3),
+  se117tr    NUMBER(3),
+  se117re    NUMBER(4),
+  se117or    NUMBER(2),
+  se117sb    NUMBER(3),
+  se117fc    DATE,
+  se117co    CHAR(1)
+)
+;
+alter table FSE117
+  add primary key (SE117COD, SE117MOD, SE117SUC, SE117MDA, SE117PAP, SE117CTA, SE117OPER, SE117SBOP, SE117TOPE);
+

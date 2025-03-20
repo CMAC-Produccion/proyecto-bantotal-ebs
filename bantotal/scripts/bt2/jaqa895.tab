@@ -1,0 +1,22 @@
+create table JAQA895
+(
+  jaqa895fdt DATE not null,
+  jaqa895cco NUMBER(4) not null,
+  jaqa895ccd NUMBER(4) not null,
+  jaqa895cor NUMBER(9) not null,
+  jaqa895pgc NUMBER(3),
+  jaqa895mod NUMBER(3),
+  jaqa895suc NUMBER(3),
+  jaqa895mda NUMBER(4),
+  jaqa895pap NUMBER(4),
+  jaqa895cta NUMBER(9),
+  jaqa895ope NUMBER(9),
+  jaqa895sbo NUMBER(3),
+  jaqa895top NUMBER(3),
+  jaqa895est CHAR(1)
+)
+;
+create index JAQA8951 on JAQA895 (JAQA895PGC, JAQA895MOD, JAQA895SUC, JAQA895MDA, JAQA895PAP, JAQA895CTA, JAQA895OPE, JAQA895SBO, JAQA895TOP);
+alter table JAQA895
+  add primary key (JAQA895FDT, JAQA895CCO, JAQA895CCD, JAQA895COR);
+

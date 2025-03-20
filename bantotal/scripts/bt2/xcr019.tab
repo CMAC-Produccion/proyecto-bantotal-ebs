@@ -1,0 +1,32 @@
+create table XCR019
+(
+  xcrlemp    NUMBER(3) not null,
+  xcrlcta    NUMBER(9) not null,
+  xcrlnumtra CHAR(16) not null,
+  xcrlsbop   NUMBER(3) not null,
+  xcrlmda    NUMBER(4) not null,
+  xcrlstatnu NUMBER(5) not null,
+  xcrlstatse NUMBER(5) not null,
+  xcrlorigen CHAR(2) not null,
+  xcrllinea  NUMBER(5) not null,
+  xcrlfecval DATE,
+  xcrlfeccon DATE,
+  xcrlref1   CHAR(20),
+  xcrlref2   CHAR(20),
+  xcrldebcre CHAR(2),
+  xcrlmonto  NUMBER(17,2),
+  xcrlresori CHAR(2),
+  xcrlfchrev DATE,
+  xcrlaux1   DATE,
+  xcrlaux2   DATE,
+  xcrlaux3   NUMBER(17,2),
+  xcrlaux4   NUMBER(17,2),
+  xcrlaux5   NUMBER(17,2),
+  xcrlaux6   CHAR(20)
+)
+;
+create index XCR01902 on XCR019 (XCRLEMP, XCRLCTA, XCRLSBOP, XCRLMDA, XCRLDEBCRE, XCRLMONTO);
+create index XCR01903 on XCR019 (XCRLEMP, XCRLCTA, XCRLSBOP, XCRLMDA, XCRLRESORI, XCRLDEBCRE, XCRLFECCON);
+alter table XCR019
+  add primary key (XCRLEMP, XCRLCTA, XCRLNUMTRA, XCRLSBOP, XCRLMDA, XCRLSTATNU, XCRLSTATSE, XCRLORIGEN, XCRLLINEA);
+

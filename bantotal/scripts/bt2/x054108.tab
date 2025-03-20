@@ -1,0 +1,21 @@
+create table X054108
+(
+  pgcod      NUMBER(3) not null,
+  xllodomod  NUMBER(3) not null,
+  xllodosuc  NUMBER(3) not null,
+  xllodomda  NUMBER(4) not null,
+  xllodopap  NUMBER(4) not null,
+  xllodocta  NUMBER(9) not null,
+  xllodooper NUMBER(9) not null,
+  xllodosbop NUMBER(3) not null,
+  xllodotope NUMBER(3) not null,
+  xllodouest NUMBER(9) not null,
+  xllodotdoc NUMBER(3) not null,
+  xllodoucor NUMBER(5),
+  xllodofval DATE
+)
+;
+create index X0541083 on X054108 (XLLODOTDOC);
+alter table X054108
+  add primary key (PGCOD, XLLODOMOD, XLLODOSUC, XLLODOMDA, XLLODOPAP, XLLODOCTA, XLLODOOPER, XLLODOSBOP, XLLODOTOPE, XLLODOUEST, XLLODOTDOC);
+

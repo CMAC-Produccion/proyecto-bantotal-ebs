@@ -1,0 +1,24 @@
+create table PAS002
+(
+  benfchpas  NUMBER(6) not null,
+  bentpodoc  NUMBER(2) not null,
+  bennrodoc  NUMBER(9) not null,
+  benagepas  NUMBER(4),
+  bencajapas NUMBER(1),
+  benimppas  NUMBER(8,2),
+  benfchcar  DATE,
+  benmod     NUMBER(3),
+  bentran    NUMBER(3),
+  bennrel    NUMBER(4),
+  benapopais NUMBER(3),
+  benapotdoc NUMBER(2),
+  benapondoc CHAR(12),
+  benbenef   CHAR(1),
+  benfchpf   DATE
+)
+;
+create index PAS00202 on PAS002 (BENTPODOC, BENNRODOC);
+create index PAS00203 on PAS002 (BENMOD, BENTRAN, BENNREL);
+alter table PAS002
+  add primary key (BENFCHPAS, BENTPODOC, BENNRODOC);
+

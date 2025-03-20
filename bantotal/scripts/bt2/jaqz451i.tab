@@ -1,0 +1,27 @@
+create table JAQZ451I
+(
+  jaqz451ifpro DATE not null,
+  jaqz451iage  NUMBER(9) not null,
+  jaqz451iana  VARCHAR2(10) not null,
+  jaqz451iind  NUMBER(1) not null,
+  jaqz451ibase NUMBER(5),
+  jaqz451iret  NUMBER(5)
+)
+;
+comment on table JAQZ451I
+  is 'Tabla Datos Retencion - BI';
+comment on column JAQZ451I.jaqz451ifpro
+  is 'Fecha Proceso';
+comment on column JAQZ451I.jaqz451iage
+  is 'Agencia';
+comment on column JAQZ451I.jaqz451iana
+  is 'Analista';
+comment on column JAQZ451I.jaqz451iind
+  is 'Indicador 1-Retencion Total / 2-Clientes alto valor';
+comment on column JAQZ451I.jaqz451ibase
+  is 'Base Retencion';
+comment on column JAQZ451I.jaqz451iret
+  is 'Retenidos';
+alter table JAQZ451I
+  add primary key (JAQZ451IFPRO, JAQZ451IAGE, JAQZ451IANA, JAQZ451IIND);
+

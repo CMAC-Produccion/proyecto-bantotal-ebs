@@ -1,0 +1,29 @@
+create table JBXIGX
+(
+  jbxigxfec DATE not null,
+  jbxigxcem NUMBER(3) not null,
+  jbxigxmod NUMBER(3) not null,
+  jbxigxsuc NUMBER(3) not null,
+  jbxigxmda NUMBER(4) not null,
+  jbxigxpap NUMBER(4) not null,
+  jbxigxcta NUMBER(9) not null,
+  jbxigxope NUMBER(9) not null,
+  jbxigxsop NUMBER(3) not null,
+  jbxigxtop NUMBER(3) not null,
+  jbxigxncq NUMBER(9) not null,
+  jbxigxnse NUMBER(8),
+  jbxigxecq DATE,
+  jbxigxmcq NUMBER(17,2),
+  jbxigxcec CHAR(15),
+  jbxigxfrc DATE,
+  jbxigxmrc CHAR(15),
+  jbxigxpai NUMBER(3),
+  jbxigxtdc NUMBER(2),
+  jbxigxndc CHAR(12),
+  jbxigxcpf NUMBER(3),
+  jbxigxtdf NUMBER(2),
+  jbxigxndf CHAR(12)
+)
+;
+create unique index JBXIGX01 on JBXIGX (JBXIGXFEC, JBXIGXCEM, JBXIGXMOD, JBXIGXSUC, JBXIGXMDA, JBXIGXPAP, JBXIGXCTA, JBXIGXOPE, JBXIGXSOP, JBXIGXTOP, JBXIGXNCQ);
+

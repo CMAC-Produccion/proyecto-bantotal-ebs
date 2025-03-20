@@ -1,0 +1,39 @@
+create table JAQY124
+(
+  jaqy124pgcod NUMBER(3) not null,
+  jaqy124mod   NUMBER(3) not null,
+  jaqy124suc   NUMBER(3) not null,
+  jaqy124mda   NUMBER(4) not null,
+  jaqy124pap   NUMBER(4) not null,
+  jaqy124cta   NUMBER(9) not null,
+  jaqy124oper  NUMBER(9) not null,
+  jaqy124sbop  NUMBER(3) not null,
+  jaqy124tope  NUMBER(3) not null,
+  jaqy124corr  NUMBER(4) not null,
+  jaqy124cod   NUMBER(5),
+  jaqy124tpg   NUMBER(3),
+  jaqy124tsuc  NUMBER(3),
+  jaqy124tmod  NUMBER(3),
+  jaqy124ttra  NUMBER(3),
+  jaqy124trel  NUMBER(4),
+  jaqy124tfec  DATE,
+  jaqy124tord  NUMBER(2),
+  jaqy124tsbo  NUMBER(3),
+  jaqy124tcon  CHAR(1),
+  jaqy124au1   DATE,
+  jaqy124au2   DATE,
+  jaqy124au3   DATE,
+  jaqy124au4   NUMBER(9),
+  jaqy124au5   NUMBER(9),
+  jaqy124au6   NUMBER(9),
+  jaqy124au7   NUMBER(17,2),
+  jaqy124au8   NUMBER(17,2),
+  jaqy124aux9  NUMBER(17,2),
+  jaqy124au10  CHAR(100),
+  jaqy124au11  CHAR(100),
+  jaqy124au12  CHAR(100)
+)
+;
+alter table JAQY124
+  add constraint PK_JAQY124 primary key (JAQY124PGCOD, JAQY124MOD, JAQY124SUC, JAQY124MDA, JAQY124PAP, JAQY124CTA, JAQY124OPER, JAQY124SBOP, JAQY124TOPE, JAQY124CORR);
+

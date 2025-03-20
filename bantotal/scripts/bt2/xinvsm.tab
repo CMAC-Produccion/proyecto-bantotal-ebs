@@ -1,0 +1,36 @@
+create table XINVSM
+(
+  imsuser    CHAR(10) not null,
+  imswrkst   CHAR(10) not null,
+  imssuc     NUMBER(3) not null,
+  imsmda     NUMBER(4) not null,
+  imspap     NUMBER(4) not null,
+  imssis     NUMBER(3) not null,
+  imsmod     NUMBER(3) not null,
+  imscta     NUMBER(9) not null,
+  imsrub     NUMBER(16) not null,
+  imsfchvto  DATE not null,
+  imsoper    NUMBER(9) not null,
+  imssbop    NUMBER(3) not null,
+  imstpoop   NUMBER(3) not null,
+  imsfchcon  DATE,
+  imsfchval  DATE,
+  imsplazo   NUMBER(5),
+  imstpotas  NUMBER(1),
+  imstasvig  NUMBER(10,6),
+  imstasmo   NUMBER(10,6),
+  imstpotcor NUMBER(1),
+  imstascor  NUMBER(10,6),
+  imstpoano  NUMBER(1),
+  imscodact  NUMBER(9),
+  imstasplus NUMBER(10,6),
+  imssdo     NUMBER(17,2),
+  imssdoarb  NUMBER(17,2),
+  imsvalpap  NUMBER(10)
+)
+;
+create index XINVSM02 on XINVSM (IMSSUC, IMSSIS, IMSMOD, IMSFCHVTO, IMSMDA, IMSCTA, IMSRUB);
+create index XINVSM03 on XINVSM (IMSUSER, IMSWRKST, IMSOPER, IMSCTA, IMSSBOP, IMSTPOTAS, IMSTASVIG, IMSFCHVTO, IMSSDO);
+alter table XINVSM
+  add primary key (IMSUSER, IMSWRKST, IMSSUC, IMSMDA, IMSPAP, IMSSIS, IMSMOD, IMSCTA, IMSRUB, IMSFCHVTO, IMSOPER, IMSSBOP, IMSTPOOP);
+

@@ -1,0 +1,23 @@
+create table FCPG50
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg47coddp NUMBER(5) not null,
+  cpg50cod   NUMBER(2) not null,
+  cpg50desc  CHAR(40),
+  cpg50pais  NUMBER(3),
+  cpg50tdoc  NUMBER(2),
+  cpg50doc   CHAR(25),
+  cpg50rgemp NUMBER(4),
+  cpg50tel   CHAR(25),
+  cpg50email CHAR(45),
+  cpg50est   CHAR(3),
+  cpg50blq   CHAR(1),
+  cpg50inst  NUMBER(10)
+)
+;
+create index FCPG5003 on FCPG50 (CPG50INST);
+alter table FCPG50
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG47CODDP, CPG50COD);
+

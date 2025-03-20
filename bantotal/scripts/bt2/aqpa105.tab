@@ -1,0 +1,33 @@
+create table AQPA105
+(
+  aqpa105ide NUMBER(15) not null,
+  aqpa105pai NUMBER(3),
+  aqpa105tip NUMBER(2),
+  aqpa105num CHAR(12),
+  aqpa105tpo NUMBER(9),
+  aqpa105ant CHAR(65),
+  aqpa105new CHAR(65),
+  aqpa105fec DATE,
+  aqpa105hor CHAR(8),
+  aqpa105usr CHAR(12),
+  aqpa105suc NUMBER(3),
+  aqpa105mod NUMBER(3),
+  aqpa105trx NUMBER(3),
+  aqpa105rel NUMBER(4),
+  aqpa105ax1 NUMBER(9),
+  aqpa105ax2 NUMBER(9),
+  aqpa105ax3 NUMBER(17,2),
+  aqpa105ax4 NUMBER(17,2),
+  aqpa105ax5 DATE,
+  aqpa105ax6 DATE,
+  aqpa105ax7 CHAR(100),
+  aqpa105ax8 CHAR(100),
+  aqpa105ax9 CHAR(100),
+  aqpa105tit CHAR(1)
+)
+;
+create index AQPA1052 on AQPA105 (AQPA105PAI, AQPA105TIP, AQPA105NUM, AQPA105FEC);
+create index AQPA1053 on AQPA105 (AQPA105SUC, AQPA105MOD, AQPA105TRX, AQPA105REL, AQPA105FEC);
+alter table AQPA105
+  add primary key (AQPA105IDE);
+

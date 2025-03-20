@@ -1,0 +1,16 @@
+create table CNL134
+(
+  cnl000cod NUMBER(4) not null,
+  cnl001adm CHAR(30) not null,
+  cnl001usu CHAR(30) not null,
+  cnl034cod NUMBER(4) not null,
+  cnl134mda NUMBER(4) not null,
+  cnl134dsc CHAR(65),
+  cnl134sig CHAR(4),
+  cnl134sdo NUMBER(17,2),
+  cnl134est CHAR(1)
+)
+;
+alter table CNL134
+  add primary key (CNL000COD, CNL001ADM, CNL001USU, CNL034COD, CNL134MDA);
+

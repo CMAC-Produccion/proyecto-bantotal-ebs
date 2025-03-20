@@ -1,0 +1,13 @@
+create table FSF025
+(
+  ysctope    NUMBER(3) not null,
+  ysccta     NUMBER(9) not null,
+  yscmda     NUMBER(4),
+  yscsdo     NUMBER(17,2),
+  yficvaltot NUMBER(17,2),
+  yficfecha  DATE
+)
+;
+alter table FSF025
+  add primary key (YSCTOPE, YSCCTA);
+

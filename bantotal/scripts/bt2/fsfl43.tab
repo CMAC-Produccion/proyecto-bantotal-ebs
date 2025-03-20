@@ -1,0 +1,25 @@
+create table FSFL43
+(
+  fsfl43emp NUMBER(3) not null,
+  fsfl43cod NUMBER(5) not null,
+  fsfl43pde NUMBER(9) not null,
+  fsfl43fec DATE not null,
+  fsfl43hor CHAR(8) not null,
+  fsfl43rok CHAR(1),
+  fsfl43tip CHAR(1),
+  fsfl43uig CHAR(10),
+  fsfl43wig CHAR(10),
+  fsfl43fcf DATE,
+  fsfl43hcf CHAR(8),
+  fsfl43ucf CHAR(10),
+  fsfl43wcf CHAR(10),
+  fsfl43pct NUMBER(5,2),
+  fsfl43pc2 NUMBER(5,2),
+  fsfl43for CHAR(1)
+)
+;
+create index FSFL4302 on FSFL43 (FSFL43EMP, FSFL43ROK);
+create index FSFL4303 on FSFL43 (FSFL43EMP, FSFL43COD, FSFL43PDE, FSFL43ROK);
+alter table FSFL43
+  add primary key (FSFL43EMP, FSFL43COD, FSFL43PDE, FSFL43FEC, FSFL43HOR);
+

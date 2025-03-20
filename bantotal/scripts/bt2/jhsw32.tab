@@ -1,0 +1,13 @@
+create table JHSW32
+(
+  jhsw32prc CHAR(30) not null,
+  jhsw32key NUMBER(12) not null,
+  jhsw32pid NUMBER(6),
+  jhsw32tid NUMBER(6),
+  jhsw32msg VARCHAR2(255),
+  jhsw32fh  DATE
+)
+;
+alter table JHSW32
+  add primary key (JHSW32PRC, JHSW32KEY);
+

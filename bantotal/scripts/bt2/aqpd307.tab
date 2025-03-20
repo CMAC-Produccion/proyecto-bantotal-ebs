@@ -1,0 +1,30 @@
+create table AQPD307
+(
+  aqpd307creusr VARCHAR2(10),
+  aqpd307cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpd307recemp NUMBER(3) not null,
+  aqpd307reccod VARCHAR2(20) not null,
+  aqpd307recfec DATE,
+  aqpd307errcod VARCHAR2(10),
+  aqpd307errmsg VARCHAR2(600)
+)
+;
+comment on table AQPD307
+  is 'Notificacion a PyC al Crear Reclamo ONR';
+comment on column AQPD307.aqpd307creusr
+  is 'Usuario';
+comment on column AQPD307.aqpd307cretim
+  is 'Creacion';
+comment on column AQPD307.aqpd307recemp
+  is 'Empresa';
+comment on column AQPD307.aqpd307reccod
+  is 'Reclamo - Codigo';
+comment on column AQPD307.aqpd307recfec
+  is 'Reclamo - Fecha';
+comment on column AQPD307.aqpd307errcod
+  is 'Error - Codigo';
+comment on column AQPD307.aqpd307errmsg
+  is 'Error - Mensaje';
+alter table AQPD307
+  add primary key (AQPD307RECEMP, AQPD307RECCOD);
+

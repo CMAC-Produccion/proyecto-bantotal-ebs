@@ -1,0 +1,38 @@
+create table FSL110
+(
+  fsl110id   NUMBER(9) not null,
+  fsl110pgco NUMBER(3) not null,
+  fsl110itsu NUMBER(3) not null,
+  fsl110mod  NUMBER(3) not null,
+  fsl110trn  NUMBER(3) not null,
+  fsl110rel  NUMBER(4) not null,
+  fsl110fch  DATE not null,
+  fsl110cta  NUMBER(9),
+  fsl110lin  NUMBER(4),
+  fsl110grp  NUMBER(9),
+  fsl110pais NUMBER(3),
+  fsl110tdoc NUMBER(2),
+  fsl110ndoc CHAR(25),
+  fsl110txt  CHAR(90),
+  fsl110otor NUMBER(17,2),
+  fsl110util NUMBER(17,2),
+  fsl110disp NUMBER(17,2),
+  fsl110aux  NUMBER(9),
+  fsl110aux2 CHAR(40),
+  fsl110aux3 NUMBER(17,2),
+  fsl110aux4 CHAR(70),
+  fsl110aux5 NUMBER(17,2),
+  fsl110lmod NUMBER(4),
+  fsl110lsuc NUMBER(3),
+  fsl110lmda NUMBER(4),
+  fsl110lpap NUMBER(4),
+  fsl110lcta NUMBER(9),
+  fsl110lope NUMBER(9),
+  fsl110lsub NUMBER(3),
+  fsl110ltop NUMBER(9),
+  fsl110laux NUMBER(9)
+)
+;
+alter table FSL110
+  add primary key (FSL110ID, FSL110PGCO, FSL110ITSU, FSL110MOD, FSL110TRN, FSL110REL, FSL110FCH);
+

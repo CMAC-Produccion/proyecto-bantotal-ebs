@@ -1,0 +1,27 @@
+create table FCNV21
+(
+  cnv10emp   NUMBER(3) not null,
+  cnv05teval NUMBER(3) not null,
+  cnv10mod   NUMBER(3) not null,
+  cnv10tope  NUMBER(3) not null,
+  cnv10mda   NUMBER(4) not null,
+  cnv10pap   NUMBER(4) not null,
+  cnv11segm  NUMBER(2) not null,
+  cnv21cod   CHAR(15) not null,
+  cnv21pzo   NUMBER(5) not null,
+  cnv21mto   NUMBER(17,2) not null,
+  cnv21prcid NUMBER(5),
+  cnv21witem NUMBER(10),
+  cnv21stsup NUMBER(2),
+  cnv21stiup CHAR(1),
+  cnv21atpzo NUMBER(5),
+  cnv21atfec CHAR(1),
+  cnv21atprc NUMBER(5),
+  cnv21atwit NUMBER(10),
+  cnv21ifcon CHAR(1),
+  cnv21stcob NUMBER(2)
+)
+;
+alter table FCNV21
+  add primary key (CNV10EMP, CNV05TEVAL, CNV10MOD, CNV10TOPE, CNV10MDA, CNV10PAP, CNV11SEGM, CNV21COD, CNV21PZO, CNV21MTO);
+

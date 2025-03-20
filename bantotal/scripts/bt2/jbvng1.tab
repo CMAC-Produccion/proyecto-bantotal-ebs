@@ -1,0 +1,17 @@
+create table JBVNG1
+(
+  jbvng1rubr NUMBER(16) not null,
+  jbvng1sbop NUMBER(3) not null,
+  jbvng1suc  NUMBER(3) not null,
+  jbvng1fvc  DATE not null,
+  jbvng1mda  NUMBER(4) not null,
+  jbvng1pap  NUMBER(4) not null,
+  jbvng1codm NUMBER(1) not null,
+  jbvng1imp  NUMBER(17,2),
+  jbvng1anme CHAR(6),
+  jbvng1impd NUMBER(17,2)
+)
+;
+create unique index JBVNG11 on JBVNG1 (JBVNG1RUBR, JBVNG1SBOP, JBVNG1SUC, JBVNG1FVC, JBVNG1MDA, JBVNG1PAP, JBVNG1CODM);
+create index JBVNG12 on JBVNG1 (JBVNG1RUBR, JBVNG1SBOP, JBVNG1SUC, JBVNG1ANME, JBVNG1FVC, JBVNG1MDA, JBVNG1PAP);
+

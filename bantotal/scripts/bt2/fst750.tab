@@ -1,0 +1,21 @@
+create table FST750
+(
+  actcod1 NUMBER(9) not null,
+  actnom1 CHAR(60),
+  actcod2 NUMBER(12),
+  actcod3 NUMBER(12),
+  actcod4 CHAR(5),
+  act0707 NUMBER(5),
+  act0705 NUMBER(2),
+  act0706 NUMBER(3)
+)
+;
+create index FST75002 on FST750 (ACTCOD4);
+create index FST75003 on FST750 (ACTCOD3);
+create index FST75004 on FST750 (ACTCOD2);
+create index FST75005 on FST750 (ACT0707);
+create index FST75006 on FST750 (ACT0706);
+create index FST75007 on FST750 (ACT0705);
+alter table FST750
+  add primary key (ACTCOD1);
+

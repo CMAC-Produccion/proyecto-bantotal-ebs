@@ -1,0 +1,17 @@
+create table FSA102
+(
+  bcempr    NUMBER(3) not null,
+  bcusuar   CHAR(20) not null,
+  bcinfor   CHAR(10) not null,
+  bcfila    NUMBER(4) not null,
+  bcolum    NUMBER(4) not null,
+  bcfinf    DATE not null,
+  cicpo     CHAR(8),
+  bctipasoc NUMBER(3),
+  bcimpor   NUMBER(14,2)
+)
+;
+create index FSA10203 on FSA102 (BCEMPR, BCFINF, CICPO);
+alter table FSA102
+  add primary key (BCEMPR, BCUSUAR, BCINFOR, BCFILA, BCOLUM, BCFINF);
+

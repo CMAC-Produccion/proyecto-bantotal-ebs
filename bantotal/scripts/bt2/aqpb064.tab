@@ -1,0 +1,62 @@
+create table AQPB064
+(
+  aqpb064frepro    DATE not null,
+  aqpb064ncorre    NUMBER not null,
+  aqpb064pgcod     NUMBER(3) not null,
+  aqpb064aomod     NUMBER(3) not null,
+  aqpb064aosuc     NUMBER(3) not null,
+  aqpb064aomda     NUMBER(4) not null,
+  aqpb064aopap     NUMBER(4) not null,
+  aqpb064aocta     NUMBER(9) not null,
+  aqpb064aooper    NUMBER(9) not null,
+  aqpb064aosbop    NUMBER(3) not null,
+  aqpb064aotope    NUMBER(3) not null,
+  aqpb064aofval    DATE,
+  aqpb064aofvto    DATE,
+  aqpb064aopzo     NUMBER(5),
+  aqpb064aotasa    NUMBER(10,6),
+  aqpb064aoimp     NUMBER(17,2),
+  aqpb064aomd      CHAR(1),
+  aqpb064aostat    NUMBER(2),
+  aqpb064aofe99    DATE,
+  aqpb064aoperiod  NUMBER(5),
+  aqpb064proceso   VARCHAR2(100) not null,
+  aqpb064fcierre   DATE not null,
+  aqpb064instanc   NUMBER,
+  aqpb064estado    VARCHAR2(100),
+  aqpb064fecest    DATE,
+  aqpb064diaatr    NUMBER,
+  aqpb064diagra    NUMBER,
+  aqpb064fepvep    DATE,
+  aqpb064scsdo     NUMBER(17,2),
+  aqpb064freproref DATE,
+  aqpb064ncorreref NUMBER,
+  aqpb064tablaref  CHAR(10),
+  aqpb064orden     NUMBER
+)
+;
+comment on column AQPB064.aqpb064frepro
+  is 'FECHA DE PROCESO DE REPROGRAMACION O AFECTACION DE DATOS';
+comment on column AQPB064.aqpb064ncorre
+  is 'NRO CORRELATIVO';
+comment on column AQPB064.aqpb064proceso
+  is 'TIPO DE PROCESO C= CAPITALIZACION , R = REPROGRAMACION , T=AJUSTE TASA';
+comment on column AQPB064.aqpb064fcierre
+  is 'CIERE MENSUAL AL QUE AFECTA';
+comment on column AQPB064.aqpb064instanc
+  is 'NRO INSTANCIA';
+comment on column AQPB064.aqpb064estado
+  is 'ESTADO X=REVERSADO S= VIGENTE R=REPROGRAMADO';
+comment on column AQPB064.aqpb064fecest
+  is 'FECHA CAMBIO ESTADO';
+comment on column AQPB064.aqpb064diaatr
+  is 'DIAS DE ATRASO';
+comment on column AQPB064.aqpb064diagra
+  is 'DIAS GRACIA';
+comment on column AQPB064.aqpb064fepvep
+  is 'FECHA PROXIMO PAGO';
+comment on column AQPB064.aqpb064scsdo
+  is 'SALDO CAPITAL ';
+create index AQPB0642 on AQPB064 (AQPB064FREPRO, AQPB064NCORRE);
+create index AQPB0643 on AQPB064 (AQPB064PGCOD, AQPB064AOMOD, AQPB064AOSUC, AQPB064AOMDA, AQPB064AOPAP, AQPB064AOCTA, AQPB064AOOPER, AQPB064AOSBOP, AQPB064AOTOPE);
+

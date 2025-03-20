@@ -1,0 +1,33 @@
+create table AQPB005
+(
+  aqpb005fep   DATE not null,
+  aqpb005cor   NUMBER(9) not null,
+  aqpb005est   VARCHAR2(1) not null,
+  aqpb005emp   NUMBER(3) not null,
+  aqpb005mod   NUMBER(3) not null,
+  aqpb005suc   NUMBER(3) not null,
+  aqpb005mda   NUMBER(4) not null,
+  aqpb005pap   NUMBER(4) not null,
+  aqpb005cta   NUMBER(9) not null,
+  aqpb005ope   NUMBER(9) not null,
+  aqpb005sbo   NUMBER(3) not null,
+  aqpb005top   NUMBER(3) not null,
+  aqpb005ruo   NUMBER(16) not null,
+  aqpb005rud   NUMBER(16) not null,
+  aqpb005mto   NUMBER(16,2) not null,
+  aqpb005bha   NUMBER(1) not null,
+  aqpb005tip   VARCHAR2(2) not null,
+  aqpb005pgcod NUMBER(3),
+  aqpb005itsuc NUMBER(3),
+  aqpb005itmod NUMBER(3),
+  aqpb005ittra NUMBER(3),
+  aqpb005itrel NUMBER(4),
+  aqpb005merr  VARCHAR2(100),
+  aqpb005cerr  NUMBER(5)
+)
+;
+create index AQPB0052 on AQPB005 (AQPB005FEP, AQPB005CTA, AQPB005EST);
+create index AQPB0053 on AQPB005 (AQPB005EST, AQPB005CTA);
+alter table AQPB005
+  add primary key (AQPB005FEP, AQPB005COR);
+

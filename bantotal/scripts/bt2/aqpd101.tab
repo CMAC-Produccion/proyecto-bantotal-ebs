@@ -1,0 +1,113 @@
+create table AQPD101
+(
+  aqpd101ord  NUMBER(10) not null,
+  aqpd101fec  DATE not null,
+  aqpd101cod  VARCHAR2(50),
+  aqpd101tex  VARCHAR2(135),
+  aqpd101pri  VARCHAR2(200),
+  aqpd101pon  NUMBER(12,2),
+  aqpd101c01  NUMBER(18,4),
+  aqpd101c02  NUMBER(18,4),
+  aqpd101c03  NUMBER(18,4),
+  aqpd101c04  NUMBER(18,4),
+  aqpd101c05  NUMBER(18,4),
+  aqpd101c06  NUMBER(18,4),
+  aqpd101c07  NUMBER(18,4),
+  aqpd101c08  NUMBER(18,4),
+  aqpd101c09  NUMBER(18,4),
+  aqpd101c10  NUMBER(18,4),
+  aqpd101c11  NUMBER(18,4),
+  aqpd101c12  NUMBER(18,4),
+  aqpd101c13  NUMBER(18,4),
+  aqpd101c14  NUMBER(18,4),
+  aqpd101c141 NUMBER(18,4),
+  aqpd101c15  NUMBER(18,4),
+  aqpd101c16  NUMBER(18,4),
+  aqpd101c17  NUMBER(18,4),
+  aqpd101c18  NUMBER(18,4),
+  aqpd101c19  NUMBER(18,4),
+  aqpd101c20  NUMBER(18,4),
+  aqpd101nfe  NUMBER(20),
+  aqpd101cpo  NUMBER(3),
+  aqpd101cte  NUMBER(5),
+  aqpd101usr  VARCHAR2(10) not null,
+  aqpd101fecc DATE,
+  aqpd101horc VARCHAR2(8),
+  aqpd101det  NUMBER(5) not null
+)
+;
+comment on table AQPD101
+  is 'TABLA PARA REPORTE FINAL 2-A1';
+comment on column AQPD101.aqpd101ord
+  is 'ORDEN DE POSICION';
+comment on column AQPD101.aqpd101fec
+  is 'FECHA DE DATOS DEL REPORTE';
+comment on column AQPD101.aqpd101cod
+  is 'CODIGO ITEM REPORTE';
+comment on column AQPD101.aqpd101tex
+  is 'TIPO DE EXPOSICION';
+comment on column AQPD101.aqpd101pri
+  is 'DESCRIPCCION DEL PONDERADOR DE RIESGO';
+comment on column AQPD101.aqpd101pon
+  is 'VALOR FACTOR PONDERADOR DE RIESGO';
+comment on column AQPD101.aqpd101c01
+  is 'VALOR COLUMNA 1';
+comment on column AQPD101.aqpd101c02
+  is 'VALOR COLUMNA 2';
+comment on column AQPD101.aqpd101c03
+  is 'VALOR COLUMNA 3';
+comment on column AQPD101.aqpd101c04
+  is 'VALOR COLUMNA 4';
+comment on column AQPD101.aqpd101c05
+  is 'VALOR COLUMNA 5';
+comment on column AQPD101.aqpd101c06
+  is 'VALOR COLUMNA 6';
+comment on column AQPD101.aqpd101c07
+  is 'VALOR COLUMNA 7';
+comment on column AQPD101.aqpd101c08
+  is 'VALOR COLUMNA 8';
+comment on column AQPD101.aqpd101c09
+  is 'VALOR COLUMNA 9';
+comment on column AQPD101.aqpd101c10
+  is 'VALOR COLUMNA 10';
+comment on column AQPD101.aqpd101c11
+  is 'VALOR COLUMNA 11';
+comment on column AQPD101.aqpd101c12
+  is 'VALOR COLUMNA 12';
+comment on column AQPD101.aqpd101c13
+  is 'VALOR COLUMNA 13';
+comment on column AQPD101.aqpd101c14
+  is 'VALOR COLUMNA 14';
+comment on column AQPD101.aqpd101c141
+  is 'VALOR COLUMNA 14_1';
+comment on column AQPD101.aqpd101c15
+  is 'VALOR COLUMNA 15';
+comment on column AQPD101.aqpd101c16
+  is 'VALOR COLUMNA 16';
+comment on column AQPD101.aqpd101c17
+  is 'VALOR COLUMNA 17';
+comment on column AQPD101.aqpd101c18
+  is 'VALOR COLUMNA 18';
+comment on column AQPD101.aqpd101c19
+  is 'VALOR COLUMNA 19';
+comment on column AQPD101.aqpd101c20
+  is 'VALOR COLUMNA 20';
+comment on column AQPD101.aqpd101nfe
+  is 'FECHA NUMERICO';
+comment on column AQPD101.aqpd101cpo
+  is 'CODIGO DE CONSOLIDACION POR PONDERADOR DE RIESGO';
+comment on column AQPD101.aqpd101cte
+  is 'CODIGO DE CONSOLIDACION POR TIPO DE EXPOSICION';
+comment on column AQPD101.aqpd101usr
+  is 'CODIGO DE USUARIO QUE GENERA EL REPORTE';
+comment on column AQPD101.aqpd101fecc
+  is 'FECHA DE CARGA';
+comment on column AQPD101.aqpd101horc
+  is 'HORA DE CARGA';
+comment on column AQPD101.aqpd101det
+  is 'TIPO DE DETALLE';
+create index AQPD1012 on AQPD101 (AQPD101FEC, AQPD101USR, AQPD101DET, AQPD101ORD);
+create index AQPD1013 on AQPD101 (AQPD101ORD);
+alter table AQPD101
+  add primary key (AQPD101FEC, AQPD101ORD, AQPD101USR, AQPD101DET);
+

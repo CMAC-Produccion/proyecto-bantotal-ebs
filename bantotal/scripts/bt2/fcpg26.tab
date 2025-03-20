@@ -1,0 +1,33 @@
+create table FCPG26
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg10pais  NUMBER(3),
+  cpg10tdoc  NUMBER(2),
+  cpg10doc   CHAR(25),
+  cpg10sube  NUMBER(3),
+  cpg26desc  CHAR(40),
+  cpg26fval  DATE,
+  cpg26fvto  DATE,
+  cpg26ref   CHAR(40),
+  cpg26est   CHAR(3),
+  cpg26calrg CHAR(1),
+  cpg26cnve  NUMBER(8),
+  cpg26bcoo  NUMBER(4),
+  cpg26cntbj NUMBER(3),
+  cpg49cod   NUMBER(3),
+  cpg49sucad NUMBER(3),
+  cpg26adfds CHAR(1),
+  cpg26ref1  NUMBER(8),
+  cpg26blq   CHAR(1),
+  cpg26inst  NUMBER(10)
+)
+;
+create index FCPG2602 on FCPG26 (CPG49COD);
+create index FCPG2603 on FCPG26 (CPG26EMPBT, CPG26CNVE);
+create index FCPG2604 on FCPG26 (CPG26INST);
+create index FCPG2605 on FCPG26 (CPG26EMPBT, CPG26CONV, CPG10PAIS, CPG10TDOC, CPG10DOC, CPG26EST);
+create index FCPG2606 on FCPG26 (CPG26EMPBT, CPG10PAIS, CPG10TDOC, CPG10DOC, CPG26CONV, CPG26EST);
+alter table FCPG26
+  add primary key (CPG26EMPBT, CPG26CONV);
+

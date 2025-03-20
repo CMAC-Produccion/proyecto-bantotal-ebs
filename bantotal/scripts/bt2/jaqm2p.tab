@@ -1,0 +1,63 @@
+create table JAQM2P
+(
+  jaqm2pagen VARCHAR2(30) not null,
+  jaqm2pcomi VARCHAR2(58) not null,
+  jaqm2pfein DATE,
+  jaqm2pgpdd NUMBER(16,5),
+  jaqm2ppedd NUMBER(16,5),
+  jaqm2pigdp NUMBER(16,5),
+  jaqm2pnum1 NUMBER(9),
+  jaqm2pnum2 NUMBER(9),
+  jaqm2pnum3 NUMBER(9),
+  jaqm2pimp1 NUMBER(17,2),
+  jaqm2pimp2 NUMBER(17,2),
+  jaqm2pimp3 NUMBER(17,2),
+  jaqm2pcha1 VARCHAR2(255),
+  jaqm2pcha2 VARCHAR2(255),
+  jaqm2pcha3 VARCHAR2(255),
+  jaqm2pfec1 DATE,
+  jaqm2pfec2 DATE,
+  jaqm2pfec3 DATE
+)
+;
+comment on table JAQM2P
+  is 'Tabla de Gasto de Provisión - Comité';
+comment on column JAQM2P.jaqm2pagen
+  is 'AGENCIA';
+comment on column JAQM2P.jaqm2pcomi
+  is 'COMITÉ';
+comment on column JAQM2P.jaqm2pfein
+  is 'FECHA INGRESO DE DATA';
+comment on column JAQM2P.jaqm2pgpdd
+  is 'GASTO PROVISIÓN DEL DÍA';
+comment on column JAQM2P.jaqm2ppedd
+  is 'PROVISIÓN ESPERADA DEL DÍA';
+comment on column JAQM2P.jaqm2pigdp
+  is 'INCREMENTO GASTO DE PROVISIÓN';
+comment on column JAQM2P.jaqm2pnum1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQM2P.jaqm2pnum2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQM2P.jaqm2pnum3
+  is 'AUXILIAR NUMERICO 3';
+comment on column JAQM2P.jaqm2pimp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM2P.jaqm2pimp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM2P.jaqm2pimp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQM2P.jaqm2pcha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM2P.jaqm2pcha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM2P.jaqm2pcha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM2P.jaqm2pfec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM2P.jaqm2pfec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM2P.jaqm2pfec3
+  is 'AUXILIAR FECHA 3';
+alter table JAQM2P
+  add primary key (JAQM2PAGEN, JAQM2PCOMI);
+

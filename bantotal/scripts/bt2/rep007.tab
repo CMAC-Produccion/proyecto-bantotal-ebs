@@ -1,0 +1,19 @@
+create table REP007
+(
+  rep001cod  NUMBER(10) not null,
+  rep002cons NUMBER(10) not null,
+  rep006niv  NUMBER(4) not null,
+  rep003col  NUMBER(4) not null,
+  rep007cnt  CHAR(1),
+  rep007max  CHAR(1),
+  rep007min  CHAR(1),
+  rep007sum  CHAR(1),
+  rep007cnom CHAR(20),
+  rep007cdsc CHAR(35),
+  rep007cayu CHAR(100)
+)
+;
+create index REP00702 on REP007 (REP001COD, REP002CONS, REP003COL);
+alter table REP007
+  add primary key (REP001COD, REP002CONS, REP006NIV, REP003COL);
+

@@ -1,0 +1,99 @@
+create table JAQN82
+(
+  jaqn82fec DATE not null,
+  jaqn82hor CHAR(8) not null,
+  jaqn82pai NUMBER(3) not null,
+  jaqn82tdo NUMBER(2) not null,
+  jaqn82ndo CHAR(12) not null,
+  jaqn82tbl CHAR(12) not null,
+  jaqn82acc CHAR(15),
+  jaqn82val VARCHAR2(2000),
+  jaqn82cel CHAR(20),
+  jaqn82tel CHAR(20),
+  jaqn82crr CHAR(65),
+  jaqn82dir CHAR(140),
+  jaqn82usu CHAR(10),
+  jaqn82can CHAR(50),
+  jaqn82upa CHAR(30),
+  jaqn82ude CHAR(20),
+  jaqn82upr CHAR(30),
+  jaqn82udi CHAR(30),
+  jaqn82ai1 NUMBER(17,2),
+  jaqn82ai2 NUMBER(17,2),
+  jaqn82ai3 NUMBER(17,2),
+  jaqn82ad1 DATE,
+  jaqn82ad2 DATE,
+  jaqn82ad3 DATE,
+  jaqn82an1 NUMBER(9),
+  jaqn82an2 NUMBER(9),
+  jaqn82an3 NUMBER(9),
+  jaqn82ac1 CHAR(255),
+  jaqn82ac2 CHAR(255),
+  jaqn82ac3 CHAR(255)
+)
+;
+comment on table JAQN82
+  is 'LOG Historico - Personas';
+comment on column JAQN82.jaqn82fec
+  is 'JAQN82FEC Fecha de Modificación';
+comment on column JAQN82.jaqn82hor
+  is 'Hora de Modificación';
+comment on column JAQN82.jaqn82pai
+  is 'País';
+comment on column JAQN82.jaqn82tdo
+  is 'Tipo de Documento';
+comment on column JAQN82.jaqn82ndo
+  is 'Número de Documento';
+comment on column JAQN82.jaqn82tbl
+  is 'Tabla Afectada';
+comment on column JAQN82.jaqn82acc
+  is 'Acción';
+comment on column JAQN82.jaqn82val
+  is 'Valor Anterior';
+comment on column JAQN82.jaqn82cel
+  is 'Celular';
+comment on column JAQN82.jaqn82tel
+  is 'Teléfono';
+comment on column JAQN82.jaqn82crr
+  is 'Correo';
+comment on column JAQN82.jaqn82dir
+  is 'Dirección';
+comment on column JAQN82.jaqn82usu
+  is 'Usuario de Modificación';
+comment on column JAQN82.jaqn82can
+  is 'Canal';
+comment on column JAQN82.jaqn82upa
+  is 'Ubigeo País';
+comment on column JAQN82.jaqn82ude
+  is 'Ubigeo Deparamento';
+comment on column JAQN82.jaqn82upr
+  is 'Ubigeo Provincia';
+comment on column JAQN82.jaqn82udi
+  is 'Ubigeo Distrito';
+comment on column JAQN82.jaqn82ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN82.jaqn82ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN82.jaqn82ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN82.jaqn82ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN82.jaqn82ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN82.jaqn82ad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQN82.jaqn82an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQN82.jaqn82an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQN82.jaqn82an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQN82.jaqn82ac1
+  is 'Auxiliar Carácter 1';
+comment on column JAQN82.jaqn82ac2
+  is 'Auxiliar Carácter 2';
+comment on column JAQN82.jaqn82ac3
+  is 'Auxiliar Carácter 3';
+alter table JAQN82
+  add primary key (JAQN82FEC, JAQN82HOR, JAQN82PAI, JAQN82TDO, JAQN82NDO, JAQN82TBL);
+

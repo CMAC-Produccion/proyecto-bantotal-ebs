@@ -1,0 +1,70 @@
+create table AQPC162
+(
+  aqpc162codopi  NUMBER(10) not null,
+  aqpc162corr    NUMBER(10) not null,
+  aqpc162fecpro  DATE,
+  aqpc162tipgar  VARCHAR2(100),
+  aqpc162desgar  VARCHAR2(200),
+  aqpc162prop    VARCHAR2(100),
+  aqpc162ftasa   DATE,
+  aqpc162tasd    VARCHAR2(100),
+  aqpc162vgcom   VARCHAR2(20),
+  aqpc162vreagar VARCHAR2(20),
+  aqpc162vgrav   VARCHAR2(20),
+  aqpc162vgobert VARCHAR2(20),
+  aqpc162tipbide VARCHAR2(100),
+  aqpc162fecdecl DATE,
+  aqpc162valgarn VARCHAR2(30),
+  aqpc162modu    NUMBER(3),
+  aqpc162tope    NUMBER(3),
+  aqpc162aux1    NUMBER(17,2),
+  aqpc162horareg VARCHAR2(8),
+  aqpc162estad   VARCHAR2(1)
+)
+;
+comment on table AQPC162
+  is 'Tabla temporal de garantías de rep. opinion de riesgos';
+comment on column AQPC162.aqpc162codopi
+  is 'Cod. Opinion riesgo';
+comment on column AQPC162.aqpc162corr
+  is 'Correlativo';
+comment on column AQPC162.aqpc162fecpro
+  is 'fecha de carga';
+comment on column AQPC162.aqpc162tipgar
+  is 'tipo de garantia';
+comment on column AQPC162.aqpc162desgar
+  is 'descp. garantia';
+comment on column AQPC162.aqpc162prop
+  is 'propietario';
+comment on column AQPC162.aqpc162ftasa
+  is 'fecha tasación';
+comment on column AQPC162.aqpc162tasd
+  is 'tasador';
+comment on column AQPC162.aqpc162vgcom
+  is 'valor comercial';
+comment on column AQPC162.aqpc162vreagar
+  is 'valor realización';
+comment on column AQPC162.aqpc162vgrav
+  is 'valor gravamen';
+comment on column AQPC162.aqpc162vgobert
+  is 'valor cobertura';
+comment on column AQPC162.aqpc162tipbide
+  is 'Tipo de bien declarado';
+comment on column AQPC162.aqpc162fecdecl
+  is 'Fecha de declaración';
+comment on column AQPC162.aqpc162valgarn
+  is 'Valor de Garantia';
+comment on column AQPC162.aqpc162modu
+  is 'Modulo';
+comment on column AQPC162.aqpc162tope
+  is 'Tipo Operación';
+comment on column AQPC162.aqpc162aux1
+  is 'Auxiliar 1';
+comment on column AQPC162.aqpc162horareg
+  is 'Hora Registro';
+comment on column AQPC162.aqpc162estad
+  is 'Estado de registro I - Inhabilitado; H - Habilitado';
+create index AQPC162A2 on AQPC162 (AQPC162CODOPI, AQPC162ESTAD);
+alter table AQPC162
+  add primary key (AQPC162CODOPI, AQPC162CORR);
+

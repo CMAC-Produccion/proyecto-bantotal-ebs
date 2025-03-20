@@ -1,0 +1,78 @@
+create table AQPA662
+(
+  aqpa662nro   NUMBER(10) not null,
+  aqpa662emp   NUMBER(3) not null,
+  aqpa662suc   NUMBER(3) not null,
+  aqpa662cta   NUMBER(9) not null,
+  aqpa662pap   NUMBER(4) not null,
+  aqpa662ope   NUMBER(9) not null,
+  aqpa662sbo   NUMBER(3) not null,
+  aqpa662mda   NUMBER(4) not null,
+  aqpa662mod   NUMBER(3) not null,
+  aqpa662top   NUMBER(3) not null,
+  aqpa662sta   NUMBER(2),
+  aqpa662atr   NUMBER(10),
+  aqpa662cap   NUMBER(17,2),
+  aqpa662int   NUMBER(17,2),
+  aqpa662mor   NUMBER(17,2),
+  aqpa662otr   NUMBER(17,2),
+  aqpa662pen   NUMBER(17,2),
+  aqpa662gas   NUMBER(17,2),
+  aqpa662seg   NUMBER(17,2),
+  aqpa662icv   NUMBER(17,2),
+  aqpa662bon   NUMBER(17,2),
+  aqpa662pre   NUMBER(17,2),
+  aqpa662ibon  NUMBER(17,2),
+  aqpa662ipre  NUMBER(17,2),
+  aqpa662bms   NUMBER(17,2),
+  aqpa662ibms  NUMBER(17,2),
+  aqpa662smn   NUMBER(17,2),
+  aqpa662fpr   DATE,
+  aqpa662usr   CHAR(10),
+  aqpa662hor   CHAR(8),
+  aqpa662pais  NUMBER(3),
+  aqpa662ndoc  CHAR(12),
+  aqpa662tdoc  NUMBER(2),
+  aqpa662tpro  CHAR(1),
+  aqpa662itc   CHAR(1),
+  aqpa662its   NUMBER(3),
+  aqpa662itm   NUMBER(3),
+  aqpa662itt   NUMBER(3),
+  aqpa662itr   NUMBER(4),
+  aqpa662fca   DATE,
+  aqpa662hrc   CHAR(8),
+  aqpa662usc   CHAR(10),
+  aqpa662tca   NUMBER(14,8),
+  aqpa662dto   NUMBER(17,2),
+  aqpa662dtn   NUMBER(17,2),
+  aqpa662cac   NUMBER(17,2),
+  aqpa662inc   NUMBER(17,2),
+  aqpa662moc   NUMBER(17,2),
+  aqpa662otc   NUMBER(17,2),
+  aqpa662penc  NUMBER(17,2),
+  aqpa662gasc  NUMBER(17,2),
+  aqpa662segc  NUMBER(17,2),
+  aqpa662icvc  NUMBER(17,2),
+  aqpa662bonc  NUMBER(17,2),
+  aqpa662prec  NUMBER(17,2),
+  aqpa662ibonc NUMBER(17,2),
+  aqpa662iprec NUMBER(17,2),
+  aqpa662bmsc  NUMBER(17,2),
+  aqpa662ibmsc NUMBER(17,2),
+  aqpa662mnc   NUMBER(17,2),
+  aqpa662toc   NUMBER(17,2),
+  aqpa662bfh   NUMBER(17,2),
+  aqpa662ibfh  NUMBER(17,2),
+  aqpa662bfhc  NUMBER(17,2),
+  aqpa662ibfhc NUMBER(17,2)
+)
+;
+create index AQPA6622 on AQPA662 (AQPA662FCA);
+create index AQPA6623 on AQPA662 (AQPA662PAIS, AQPA662TDOC, AQPA662NDOC);
+create index AQPA6624 on AQPA662 (AQPA662NRO);
+create index AQPA6625 on AQPA662 (AQPA662EMP, AQPA662CTA, AQPA662PAP, AQPA662OPE, AQPA662MDA);
+create index AQPA6626 on AQPA662 (AQPA662EMP, AQPA662SUC, AQPA662CTA, AQPA662PAP, AQPA662OPE, AQPA662SBO, AQPA662MDA, AQPA662MOD, AQPA662TOP);
+create index AQPA6627 on AQPA662 (AQPA662ITS, AQPA662ITM, AQPA662ITT, AQPA662ITR, AQPA662FCA);
+alter table AQPA662
+  add primary key (AQPA662NRO, AQPA662EMP, AQPA662SUC, AQPA662CTA, AQPA662PAP, AQPA662OPE, AQPA662SBO, AQPA662MDA, AQPA662MOD, AQPA662TOP);
+

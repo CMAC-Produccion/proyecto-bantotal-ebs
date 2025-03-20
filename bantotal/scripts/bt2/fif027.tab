@@ -1,0 +1,25 @@
+create table FIF027
+(
+  if027apl   NUMBER(4) not null,
+  if027ban   CHAR(5) not null,
+  if027env   NUMBER(9) not null,
+  if027crr   NUMBER(5) not null,
+  if027bco   NUMBER(3),
+  if027cta   CHAR(17),
+  if027impe  CHAR(1),
+  if027codm  CHAR(3),
+  if027numv  CHAR(10),
+  if027nume  CHAR(23),
+  if027emib  CHAR(29),
+  if027fecv  CHAR(6),
+  if027salut NUMBER(14,2),
+  if027salli NUMBER(14,2),
+  if027monto NUMBER(14,2),
+  if027ordbe CHAR(29),
+  if027fille CHAR(12),
+  if027arc   CHAR(6)
+)
+;
+alter table FIF027
+  add primary key (IF027APL, IF027BAN, IF027ENV, IF027CRR);
+

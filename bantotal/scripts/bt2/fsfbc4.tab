@@ -1,0 +1,41 @@
+create table FSFBC4
+(
+  xe206pap   NUMBER(4) not null,
+  xe206cup   NUMBER(3) not null,
+  xe206dtipo CHAR(1),
+  xe206dpap  NUMBER(4),
+  xe206dcot  NUMBER(14,8),
+  xe206dmda  NUMBER(4),
+  xe206darb  NUMBER(14,8),
+  xe206damo  NUMBER(7,4),
+  xe206cus   NUMBER(9),
+  xe206dep   NUMBER(9),
+  xe206com   NUMBER(9),
+  xe206mer   NUMBER(3),
+  xe206coef  NUMBER(14,9),
+  xe206porc1 NUMBER(7,4),
+  xe206porc2 NUMBER(7,4),
+  xe206porc3 NUMBER(7,4),
+  xe206fec1  DATE,
+  xe206fec2  DATE,
+  xe206fec3  DATE,
+  xe206imp1  NUMBER(17,2),
+  xe206imp2  NUMBER(17,2),
+  xe206imp3  NUMBER(17,2),
+  xe206estad CHAR(1),
+  xe206apzo1 NUMBER(5),
+  xe206apzo2 NUMBER(5),
+  xe206apzo3 NUMBER(5),
+  xe206acoe1 NUMBER(14,9),
+  xe206acoe2 NUMBER(14,9),
+  xe206acoe3 NUMBER(14,9),
+  xe206acar1 CHAR(1),
+  xe206acar2 CHAR(1),
+  xe206acar3 CHAR(1),
+  xe206atxt1 CHAR(15),
+  sfbc4est   CHAR(1)
+)
+;
+alter table FSFBC4
+  add primary key (XE206PAP, XE206CUP);
+

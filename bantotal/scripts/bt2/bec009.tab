@@ -1,0 +1,19 @@
+create table BEC009
+(
+  becprdid   NUMBER(10) not null,
+  becmodid   NUMBER(10) not null,
+  becmodnom  CHAR(30),
+  becmodtip  CHAR(1),
+  becmodcls  CHAR(1),
+  becmodtrn  CHAR(1),
+  becmodprg  CHAR(1),
+  becmodlog  CHAR(1),
+  becmodcto  CHAR(1),
+  becmodsts  CHAR(1),
+  becmodsncf DATE
+)
+;
+create index BEC00903 on BEC009 (BECPRDID, BECMODNOM);
+alter table BEC009
+  add primary key (BECPRDID, BECMODID);
+

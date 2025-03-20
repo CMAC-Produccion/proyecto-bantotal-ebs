@@ -1,0 +1,16 @@
+create table CDCSQL4
+(
+  cdcsqlid   NUMBER(18) not null,
+  cdcsqlinid NUMBER(18) not null,
+  cdcsqlwid  NUMBER(18) not null,
+  cdcsqlwnc  NUMBER(18) not null,
+  cdcsqlwntb CHAR(30),
+  cdcsqlwnfl CHAR(30),
+  cdcsqlwnfo NUMBER(4),
+  cdcsqlwnop CHAR(40),
+  cdcsqlwnon NUMBER(18)
+)
+;
+alter table CDCSQL4
+  add primary key (CDCSQLID, CDCSQLINID, CDCSQLWID, CDCSQLWNC);
+

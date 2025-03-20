@@ -1,0 +1,59 @@
+create table FSH020
+(
+  h20emp     NUMBER(3) not null,
+  h20cta     NUMBER(9) not null,
+  h20oper    NUMBER(9) not null,
+  h20sbop    NUMBER(3) not null,
+  h20mod     NUMBER(3) not null,
+  h20tope    NUMBER(3) not null,
+  h20mda     NUMBER(4) not null,
+  h20pap     NUMBER(4) not null,
+  h20suc     NUMBER(3) not null,
+  h20evttipo NUMBER(2) not null,
+  h20evtfec  DATE not null,
+  h20evthor  CHAR(8) not null,
+  h20cednro  NUMBER(9),
+  h20cedref  CHAR(50),
+  h20pepais  NUMBER(4),
+  h20petdoc  NUMBER(2),
+  h20pendoc  CHAR(12),
+  h20bco     NUMBER(3),
+  h20bcoag   NUMBER(12),
+  h20docnum  NUMBER(15),
+  h20monto   NUMBER(17,2),
+  h20fvto    DATE,
+  h20fvto1   DATE,
+  h20refext  CHAR(35),
+  h20clrnro  NUMBER(5),
+  h20motivo  NUMBER(3),
+  h20estado  NUMBER(2),
+  h20sucguia NUMBER(3),
+  h20ptje    NUMBER(7,4),
+  h20ttasa   NUMBER(1),
+  h20tasa    NUMBER(10,6),
+  h20pzo     NUMBER(5),
+  h20cont    NUMBER(5),
+  h20cd      NUMBER(3),
+  h20su      NUMBER(3),
+  h20mo      NUMBER(3),
+  h20tr      NUMBER(3),
+  h20re      NUMBER(4),
+  h20fc      DATE,
+  h20or      NUMBER(2),
+  h20sb      NUMBER(3),
+  h20co      CHAR(1),
+  h20mto1    NUMBER(17,2),
+  h20mto2    NUMBER(17,2),
+  h20fec1    DATE,
+  h20fec2    DATE,
+  h20str1    CHAR(50),
+  h20str2    CHAR(50)
+)
+;
+create index FSH02002 on FSH020 (H20EMP, H20MOD, H20TOPE, H20EVTTIPO, H20SUCGUIA, H20ESTADO);
+create index FSH02003 on FSH020 (H20EMP, H20CEDREF, H20MOD, H20TOPE, H20EVTTIPO, H20PEPAIS, H20PETDOC, H20PENDOC, H20ESTADO);
+create index FSH02004 on FSH020 (H20EMP, H20PENDOC, H20PETDOC, H20PEPAIS, H20MOD, H20TOPE, H20EVTTIPO, H20CEDREF, H20ESTADO);
+create index FSH02005 on FSH020 (H20BCO, H20BCOAG, H20DOCNUM, H20EVTTIPO, H20EVTFEC, H20EVTHOR);
+alter table FSH020
+  add primary key (H20EMP, H20CTA, H20OPER, H20SBOP, H20MOD, H20TOPE, H20MDA, H20PAP, H20SUC, H20EVTTIPO, H20EVTFEC, H20EVTHOR);
+

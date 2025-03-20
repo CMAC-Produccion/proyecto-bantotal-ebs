@@ -1,0 +1,33 @@
+create table AQPA384
+(
+  aqpa384corr  NUMBER(10) not null,
+  aqpa384fec   DATE not null,
+  aqpa384hora  CHAR(10) not null,
+  aqpa384pais  NUMBER(9) not null,
+  aqpa384tdoc  NUMBER(9) not null,
+  aqpa384ndoc  VARCHAR2(12) not null,
+  aqpa384tcamb NUMBER(14,8),
+  aqpa384inst  NUMBER(12) not null,
+  aqpa384pgcod NUMBER(5),
+  aqpa384mod   NUMBER(5),
+  aqpa384suc   NUMBER(5),
+  aqpa384mda   NUMBER(5),
+  aqpa384pap   NUMBER(5),
+  aqpa384cta   NUMBER(10),
+  aqpa384ope   NUMBER(10),
+  aqpa384sbop  NUMBER(10),
+  aqpa384tope  NUMBER(10),
+  aqpa384nrcuo NUMBER(5),
+  aqpa384saldo NUMBER(17,2),
+  aqpa384indic VARCHAR2(10),
+  aqpa384est   VARCHAR2(2),
+  aqpa384user  VARCHAR2(10),
+  aqpa384tarea NUMBER(10)
+)
+;
+create index AQPA3842 on AQPA384 (AQPA384PGCOD, AQPA384MOD, AQPA384SUC, AQPA384MDA, AQPA384PAP, AQPA384CTA, AQPA384OPE, AQPA384SBOP, AQPA384TOPE);
+create index AQPA3843 on AQPA384 (AQPA384FEC, AQPA384PAIS, AQPA384TDOC, AQPA384NDOC, AQPA384INST);
+create index AQPA3844 on AQPA384 (AQPA384INST);
+alter table AQPA384
+  add primary key (AQPA384CORR, AQPA384FEC, AQPA384PAIS, AQPA384TDOC, AQPA384NDOC, AQPA384INST, AQPA384HORA);
+

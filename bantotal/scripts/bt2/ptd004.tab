@@ -1,0 +1,14 @@
+create table PTD004
+(
+  ptd004nro  NUMBER(10) not null,
+  ptd004fch  DATE not null,
+  ptd004tpot NUMBER(3) not null,
+  ptd004deb  NUMBER(17,2),
+  ptd004cred NUMBER(17,2),
+  ptd004cntd NUMBER(5),
+  ptd004cntc NUMBER(5)
+)
+;
+alter table PTD004
+  add primary key (PTD004NRO, PTD004FCH, PTD004TPOT);
+

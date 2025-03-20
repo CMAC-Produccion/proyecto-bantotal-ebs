@@ -1,0 +1,29 @@
+create table AQPB088_003C
+(
+  aqpa4dpgcod NUMBER(3) not null,
+  aqpa4dmod   NUMBER(3) not null,
+  aqpa4dsuc   NUMBER(3) not null,
+  aqpa4dmda   NUMBER(4) not null,
+  aqpa4dpap   NUMBER(4) not null,
+  aqpa4dcta   NUMBER(9) not null,
+  aqpa4doper  NUMBER(9) not null,
+  aqpa4dsbop  NUMBER(3) not null,
+  aqpa4dtope  NUMBER(3) not null,
+  aqpa4dfpag  DATE not null,
+  aqpa4dtipo  CHAR(1) not null,
+  aqpa4dnump  NUMBER(9) not null,
+  aqpa4dprcnc NUMBER(3) not null,
+  aqpa4dfepro DATE not null,
+  aqpa4dimp   NUMBER(17,2),
+  aqpa4dstat  CHAR(1),
+  aqpa4daux1  NUMBER(17,2),
+  aqpa4daux2  NUMBER(17,2),
+  aqpa4daux3  NUMBER(17,2),
+  aqpa4dfep   DATE not null,
+  aqpa4dcor   NUMBER(9) not null
+)
+;
+create index AQPB088_003C2 on AQPB088_003C (AQPA4DFEP, AQPA4DCOR);
+alter table AQPB088_003C
+  add primary key (AQPA4DPGCOD, AQPA4DMOD, AQPA4DSUC, AQPA4DMDA, AQPA4DPAP, AQPA4DCTA, AQPA4DOPER, AQPA4DSBOP, AQPA4DTOPE, AQPA4DFPAG, AQPA4DTIPO, AQPA4DNUMP, AQPA4DPRCNC, AQPA4DFEP, AQPA4DCOR);
+

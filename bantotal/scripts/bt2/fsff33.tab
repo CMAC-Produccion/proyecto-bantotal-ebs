@@ -1,0 +1,18 @@
+create table FSFF33
+(
+  kdohxcorr  NUMBER(9) not null,
+  kdohxcod   NUMBER(3) not null,
+  kdohxniv1  NUMBER(2) not null,
+  kdohxniv2  NUMBER(2) not null,
+  kdohxcc    NUMBER(3) not null,
+  kdohxgcod  NUMBER(2) not null,
+  kdohxg2cod NUMBER(2) not null,
+  kdohxcc2   NUMBER(3) not null,
+  kdohximp1  NUMBER(17,2),
+  kdohximp2  NUMBER(17,2),
+  kdohximp3  NUMBER(17,2)
+)
+;
+alter table FSFF33
+  add primary key (KDOHXCORR, KDOHXCOD, KDOHXNIV1, KDOHXNIV2, KDOHXCC, KDOHXGCOD, KDOHXG2COD, KDOHXCC2);
+

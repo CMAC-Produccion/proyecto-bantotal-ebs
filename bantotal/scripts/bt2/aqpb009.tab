@@ -1,0 +1,49 @@
+create table AQPB009
+(
+  aqpb009fep    DATE not null,
+  aqpb009cor    NUMBER(9) not null,
+  aqpb009emp    NUMBER(3) not null,
+  aqpb009mod    NUMBER(3) not null,
+  aqpb009suc    NUMBER(3) not null,
+  aqpb009mda    NUMBER(4) not null,
+  aqpb009pap    NUMBER(4) not null,
+  aqpb009cta    NUMBER(9) not null,
+  aqpb009ope    NUMBER(9) not null,
+  aqpb009sbo    NUMBER(3) not null,
+  aqpb009top    NUMBER(3) not null,
+  aqpb009est    CHAR(1),
+  aqpb009sdo    NUMBER(17,2),
+  aqpb009tea1   NUMBER(10,6),
+  aqpb009tea2   NUMBER(10,6),
+  aqpb009tcea1  NUMBER(10,6),
+  aqpb009tcea2  NUMBER(10,6),
+  aqpb009usr    CHAR(10),
+  aqpb009hoi    CHAR(8),
+  aqpb009hof    CHAR(8),
+  aqpb009narc   VARCHAR2(150),
+  aqpb009ins    NUMBER(10),
+  aqpb009fmail  CHAR(1),
+  aqpb009mail   VARCHAR2(150),
+  aqpb009ase    CHAR(10),
+  aqpb009tpo    VARCHAR2(10),
+  aqpb009estcr  NUMBER(2),
+  aqpb009rub    NUMBER(16),
+  aqpb009tref   CHAR(10),
+  aqpb009tcea3  NUMBER(10,6),
+  aqpb009mtodes NUMBER(17,2),
+  aqpb009cuot   NUMBER(17,2),
+  aqpb009fecd   DATE,
+  aqpb009pzo    NUMBER(5),
+  aqpb009fopag  NUMBER(5),
+  aqpb009mtore  NUMBER(17,2),
+  aqpb009pzoac  NUMBER(5),
+  aqpb009cuotac NUMBER(17,2),
+  aqpb009frepac DATE
+)
+;
+create index AQPB0092 on AQPB009 (AQPB009EMP, AQPB009MOD, AQPB009SUC, AQPB009MDA, AQPB009PAP, AQPB009CTA, AQPB009OPE, AQPB009SBO, AQPB009TOP);
+create index AQPB0093 on AQPB009 (AQPB009CTA, AQPB009OPE, AQPB009SBO);
+create index AQPB0094 on AQPB009 (AQPB009EMP, AQPB009MOD, AQPB009MDA, AQPB009PAP, AQPB009CTA, AQPB009OPE, AQPB009TOP);
+alter table AQPB009
+  add primary key (AQPB009FEP, AQPB009COR, AQPB009EMP, AQPB009MOD, AQPB009SUC, AQPB009MDA, AQPB009PAP, AQPB009CTA, AQPB009OPE, AQPB009SBO, AQPB009TOP);
+

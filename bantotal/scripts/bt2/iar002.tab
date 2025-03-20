@@ -1,0 +1,21 @@
+create table IAR002
+(
+  iarspgcod  NUMBER(3) not null,
+  iarsmod    NUMBER(3) not null,
+  iarssuc    NUMBER(3) not null,
+  iarscta    NUMBER(9) not null,
+  iarsscta   NUMBER(3) not null,
+  iarssope   NUMBER(9) not null,
+  iarstope   NUMBER(3) not null,
+  iarspap    NUMBER(4) not null,
+  iarsmda    NUMBER(4) not null,
+  iarmes     NUMBER(6) not null,
+  iar002sdos NUMBER(17,2),
+  iar002sdo1 NUMBER(17,2),
+  iar002sdo2 NUMBER(17,2),
+  iar002sdo3 NUMBER(17,2)
+)
+;
+alter table IAR002
+  add primary key (IARSPGCOD, IARSMOD, IARSSUC, IARSCTA, IARSSCTA, IARSSOPE, IARSTOPE, IARSPAP, IARSMDA, IARMES);
+

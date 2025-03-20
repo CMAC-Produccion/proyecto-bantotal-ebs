@@ -1,0 +1,82 @@
+create table AQPB366D
+(
+  aqpb366dcod     NUMBER(3) not null,
+  aqpb366dfec     DATE not null,
+  aqpb366dcor     NUMBER(10) not null,
+  aqpb366dlin     NUMBER(8) not null,
+  aqpb366ddescuni CHAR(50),
+  aqpb366dantage  CHAR(20),
+  aqpb366dcodtrab CHAR(12),
+  aqpb366dnomtrab CHAR(100),
+  aqpb366dndoc    CHAR(12),
+  aqpb366dfingr   DATE,
+  aqpb366dcargo   CHAR(60),
+  aqpb366dcodbt   CHAR(25),
+  aqpb366dfcese   DATE,
+  aqpb366dtipana  CHAR(100),
+  aqpb366dobs     CHAR(100),
+  aqpb366ddias    NUMBER(4),
+  aqpb366ddiaslg  NUMBER(4),
+  aqpb366dcorreo  CHAR(100),
+  aqpb366ddiasrv  NUMBER(4),
+  aqpb366ddiasrdm NUMBER(4),
+  aqpb366dest     VARCHAR2(1),
+  aqpb366dusu     VARCHAR2(10),
+  aqpb366dfee     VARCHAR2(10),
+  aqpb366dhoe     VARCHAR2(10),
+  aqpb366ddsus    NUMBER(10)
+)
+;
+comment on table AQPB366D
+  is 'Tabla analista cargada plantilla';
+comment on column AQPB366D.aqpb366dcod
+  is 'codigo';
+comment on column AQPB366D.aqpb366dfec
+  is 'fecha';
+comment on column AQPB366D.aqpb366dcor
+  is 'correlativo';
+comment on column AQPB366D.aqpb366ddescuni
+  is 'descripcion agencia';
+comment on column AQPB366D.aqpb366dantage
+  is 'tipo agencia';
+comment on column AQPB366D.aqpb366dcodtrab
+  is 'codigo trabajador';
+comment on column AQPB366D.aqpb366dnomtrab
+  is 'nombre trabajador';
+comment on column AQPB366D.aqpb366dndoc
+  is 'documento';
+comment on column AQPB366D.aqpb366dfingr
+  is 'fecha ingreso';
+comment on column AQPB366D.aqpb366dcargo
+  is 'cargo';
+comment on column AQPB366D.aqpb366dcodbt
+  is 'codigo bantotal';
+comment on column AQPB366D.aqpb366dfcese
+  is 'fecha cese';
+comment on column AQPB366D.aqpb366dtipana
+  is 'tip ana';
+comment on column AQPB366D.aqpb366dobs
+  is 'dobs';
+comment on column AQPB366D.aqpb366ddias
+  is 'dias ';
+comment on column AQPB366D.aqpb366ddiaslg
+  is 'dias licencia con gose';
+comment on column AQPB366D.aqpb366dcorreo
+  is 'correo';
+comment on column AQPB366D.aqpb366ddiasrv
+  is 'DIAS DE REEMPLAZO DE VACACIONES';
+comment on column AQPB366D.aqpb366ddiasrdm
+  is 'DIAS DE REEMPLAZO POR DM Y SUB';
+comment on column AQPB366D.aqpb366dest
+  is 'estado';
+comment on column AQPB366D.aqpb366dusu
+  is 'usuario registro';
+comment on column AQPB366D.aqpb366dfee
+  is 'fecha registro';
+comment on column AQPB366D.aqpb366dhoe
+  is 'hora registro';
+comment on column AQPB366D.aqpb366ddsus
+  is 'dias de suspension';
+alter table AQPB366D
+  add primary key (AQPB366DCOD, AQPB366DFEC, AQPB366DCOR, AQPB366DLIN);
+

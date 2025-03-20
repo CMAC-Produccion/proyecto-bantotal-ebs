@@ -1,0 +1,51 @@
+create table AQPD316A
+(
+  aqpd316acreusr VARCHAR2(10) not null,
+  aqpd316anroreg NUMBER(9) not null,
+  aqpd316acretim TIMESTAMP(6),
+  aqpd316afecape DATE,
+  aqpd316aclicta NUMBER(9),
+  aqpd316aclinom VARCHAR2(90),
+  aqpd316amoncod NUMBER(4),
+  aqpd316amondes VARCHAR2(10),
+  aqpd316aasaldo NUMBER(18,2),
+  aqpd316aaptasa NUMBER(10,6),
+  aqpd316aoficod NUMBER(3),
+  aqpd316aarecod NUMBER(3),
+  aqpd316aaredes VARCHAR2(30),
+  aqpd316acesifi VARCHAR2(1)
+)
+;
+comment on table AQPD316A
+  is 'Reporte de Tesoreria - Tasa ponderada Ahorros';
+comment on column AQPD316A.aqpd316acreusr
+  is 'Usuario de creación';
+comment on column AQPD316A.aqpd316anroreg
+  is 'Nro. de Registro';
+comment on column AQPD316A.aqpd316acretim
+  is 'Creación - Timestamp';
+comment on column AQPD316A.aqpd316afecape
+  is 'Fecha de Apertura';
+comment on column AQPD316A.aqpd316aclicta
+  is 'Cuenta Cliente';
+comment on column AQPD316A.aqpd316aclinom
+  is 'Nombre del Cliente';
+comment on column AQPD316A.aqpd316amoncod
+  is 'Moneda - Código';
+comment on column AQPD316A.aqpd316amondes
+  is 'Moneda - Símbolo';
+comment on column AQPD316A.aqpd316aasaldo
+  is 'Cuenta - Saldo';
+comment on column AQPD316A.aqpd316aaptasa
+  is 'Cuenta - Tasa';
+comment on column AQPD316A.aqpd316aoficod
+  is 'Agencia';
+comment on column AQPD316A.aqpd316aarecod
+  is 'Región - Código';
+comment on column AQPD316A.aqpd316aaredes
+  is 'Región - Descripción';
+comment on column AQPD316A.aqpd316acesifi
+  is 'FLAG - Entidad Financiera';
+alter table AQPD316A
+  add primary key (AQPD316ACREUSR, AQPD316ANROREG);
+

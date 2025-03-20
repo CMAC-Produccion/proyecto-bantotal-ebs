@@ -1,0 +1,23 @@
+create table JAQS334
+(
+  jaqs334cor NUMBER(10) not null,
+  jaqs334fec DATE,
+  jaqs334hop CHAR(8),
+  jaqs334usr CHAR(10),
+  jaqs334fer DATE,
+  jaqs334hor CHAR(8),
+  jaqs334ins NUMBER(10),
+  jaqs334err NUMBER(5),
+  jaqs334dsc CHAR(70),
+  jaqs334na1 NUMBER(10),
+  jaqs334na2 NUMBER(10),
+  jaqs334fa1 DATE,
+  jaqs334fa2 DATE,
+  jaqs334ca1 CHAR(50),
+  jaqs334ca2 CHAR(50)
+)
+;
+create index JAQS3342 on JAQS334 (JAQS334FEC, JAQS334HOP, JAQS334COR);
+alter table JAQS334
+  add primary key (JAQS334COR);
+

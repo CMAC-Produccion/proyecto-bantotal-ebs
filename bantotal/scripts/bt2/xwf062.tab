@@ -1,0 +1,19 @@
+create table XWF062
+(
+  xwfprcid   NUMBER(4) not null,
+  xwfgrpdid  NUMBER(4) not null,
+  xwfdocid   NUMBER(10) not null,
+  xwfgdocobl CHAR(1),
+  xwfgdocpga CHAR(10),
+  xwfgdocexp NUMBER(10),
+  xwfgdocpge CHAR(10),
+  xwfgdocret VARCHAR2(40),
+  xwfgdocexo NUMBER(10),
+  xwfgdocpgo CHAR(10),
+  xwfgdocpao CHAR(10)
+)
+;
+create index XWF06202 on XWF062 (XWFDOCID);
+alter table XWF062
+  add primary key (XWFPRCID, XWFGRPDID, XWFDOCID);
+

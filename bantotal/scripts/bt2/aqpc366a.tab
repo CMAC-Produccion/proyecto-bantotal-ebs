@@ -1,0 +1,39 @@
+create table AQPC366A
+(
+  aqpc366acod NUMBER not null,
+  aqpc366afec DATE not null,
+  aqpc366acor NUMBER(8) not null,
+  aqpc366aest CHAR(1),
+  aqpc366ausr CHAR(10),
+  aqpc366afcr VARCHAR2(10),
+  aqpc366ahcr VARCHAR2(10),
+  aqpc366ausd CHAR(10),
+  aqpc366afed VARCHAR2(10),
+  aqpc366ahed VARCHAR2(10)
+)
+;
+comment on table AQPC366A
+  is 'Tabla CABECERA IMPULSO PERU';
+comment on column AQPC366A.aqpc366acod
+  is 'Código de empresa';
+comment on column AQPC366A.aqpc366afec
+  is 'Fecha de carga del archivo';
+comment on column AQPC366A.aqpc366acor
+  is 'Correlativo del archivo cargado';
+comment on column AQPC366A.aqpc366aest
+  is 'Estado del archivo';
+comment on column AQPC366A.aqpc366ausr
+  is 'Usuario de creación';
+comment on column AQPC366A.aqpc366afcr
+  is 'Fecha de creación';
+comment on column AQPC366A.aqpc366ahcr
+  is 'Hora de creación';
+comment on column AQPC366A.aqpc366ausd
+  is 'Usuario de edición';
+comment on column AQPC366A.aqpc366afed
+  is 'Fecha de edición';
+comment on column AQPC366A.aqpc366ahed
+  is 'Hora de edición';
+alter table AQPC366A
+  add primary key (AQPC366ACOD, AQPC366AFEC, AQPC366ACOR);
+

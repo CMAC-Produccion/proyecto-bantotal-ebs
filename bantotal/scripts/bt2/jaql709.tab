@@ -1,0 +1,58 @@
+create table JAQL709
+(
+  jaql709fetr DATE not null,
+  jaql709tran CHAR(12) not null,
+  jaql709sucu NUMBER(3) not null,
+  jaql709nosu CHAR(30),
+  jaql709user CHAR(10),
+  jaql709cuen NUMBER(9),
+  jaql709nomb CHAR(30),
+  jaql709tido NUMBER(2),
+  jaql709nudo CHAR(12),
+  jaql709swif CHAR(8),
+  jaql709csbs CHAR(10),
+  jaql709tipo CHAR(6),
+  jaql709fval DATE,
+  jaql709fvto DATE,
+  jaql709mone NUMBER(4),
+  jaql709impo NUMBER(18,2),
+  jaql709tica NUMBER(5,3)
+)
+;
+comment on column JAQL709.jaql709fetr
+  is 'Fecha transaccion';
+comment on column JAQL709.jaql709tran
+  is 'Transaccion';
+comment on column JAQL709.jaql709sucu
+  is 'Codigo Sucursal';
+comment on column JAQL709.jaql709nosu
+  is 'Nombre Sucursal';
+comment on column JAQL709.jaql709user
+  is 'Usuario';
+comment on column JAQL709.jaql709cuen
+  is 'Cuenta Cliente';
+comment on column JAQL709.jaql709nomb
+  is 'Nombre Cliente';
+comment on column JAQL709.jaql709tido
+  is 'Tipo Documento';
+comment on column JAQL709.jaql709nudo
+  is 'N¿mero Documento';
+comment on column JAQL709.jaql709swif
+  is 'Codigo SWIFT';
+comment on column JAQL709.jaql709csbs
+  is 'Codigo SBS';
+comment on column JAQL709.jaql709tipo
+  is 'Tipo Transaccion';
+comment on column JAQL709.jaql709fval
+  is 'Fecha Valor';
+comment on column JAQL709.jaql709fvto
+  is 'Fecha Vencimiento';
+comment on column JAQL709.jaql709mone
+  is 'Moneda';
+comment on column JAQL709.jaql709impo
+  is 'Importe';
+comment on column JAQL709.jaql709tica
+  is 'Tipo cambio';
+alter table JAQL709
+  add constraint PK_JAQL709 primary key (JAQL709FETR, JAQL709TRAN, JAQL709SUCU);
+

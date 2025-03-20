@@ -1,0 +1,15 @@
+create table FRCL
+(
+  frclid    NUMBER(9) not null,
+  frclpgcod NUMBER(3),
+  frclurs   CHAR(30),
+  frcldate  DATE,
+  frcltim   CHAR(8),
+  frcloper  VARCHAR2(1024),
+  frclresu  VARCHAR2(1024)
+)
+;
+create index FRCL02 on FRCL (FRCLPGCOD, FRCLURS, FRCLDATE, FRCLTIM);
+alter table FRCL
+  add primary key (FRCLID);
+

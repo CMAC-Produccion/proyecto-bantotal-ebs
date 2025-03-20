@@ -1,0 +1,256 @@
+create table JAQL971H
+(
+  jaql964hfeh     DATE not null,
+  jaql964hcor     NUMBER(10) not null,
+  jaql971hcor     NUMBER(10) not null,
+  jaql971hcta1    NUMBER(9),
+  jaql971hnom1    VARCHAR2(30),
+  jaql971htdoc1   NUMBER(3),
+  jaql971hdoc1    VARCHAR2(12),
+  jaql971hdir1    VARCHAR2(150),
+  jaql971hred1    VARCHAR2(200),
+  jaql971hdis1    VARCHAR2(50),
+  jaql971htel1    VARCHAR2(200),
+  jaql971hneg1    VARCHAR2(200),
+  jaql971hcta2    NUMBER(9),
+  jaql971hnom2    VARCHAR2(30),
+  jaql971htdoc2   NUMBER(3),
+  jaql971hdoc2    VARCHAR2(12),
+  jaql971hdir2    VARCHAR2(150),
+  jaql971hred2    VARCHAR2(200),
+  jaql971hdis2    VARCHAR2(50),
+  jaql971htel2    VARCHAR2(200),
+  jaql971hneg2    VARCHAR2(200),
+  jaql971hcta3    NUMBER(9),
+  jaql971hnom3    VARCHAR2(30),
+  jaql971htdoc3   NUMBER(3),
+  jaql971hdoc3    VARCHAR2(12),
+  jaql971hdir3    VARCHAR2(150),
+  jaql971hred3    VARCHAR2(200),
+  jaql971hdis3    VARCHAR2(50),
+  jaql971htel3    VARCHAR2(200),
+  jaql971hneg3    VARCHAR2(200),
+  jaql971hcta4    NUMBER(9),
+  jaql971hnom4    VARCHAR2(30),
+  jaql971htdoc4   NUMBER(3),
+  jaql971hdoc4    VARCHAR2(12),
+  jaql971hdir4    VARCHAR2(150),
+  jaql971hred4    VARCHAR2(200),
+  jaql971hdis4    VARCHAR2(50),
+  jaql971htel4    VARCHAR2(200),
+  jaql971hneg4    VARCHAR2(200),
+  jaql971hcta5    NUMBER(9),
+  jaql971hnom5    VARCHAR2(30),
+  jaql971htdoc5   NUMBER(3),
+  jaql971hdoc5    VARCHAR2(12),
+  jaql971hdir5    VARCHAR2(150),
+  jaql971hred5    VARCHAR2(200),
+  jaql971hdis5    VARCHAR2(50),
+  jaql971htel5    VARCHAR2(200),
+  jaql971hneg5    VARCHAR2(200),
+  jaql971hcta6    NUMBER(9),
+  jaql971hnom6    VARCHAR2(30),
+  jaql971htdoc6   NUMBER(3),
+  jaql971hdoc6    VARCHAR2(12),
+  jaql971hdir6    VARCHAR2(150),
+  jaql971hred6    VARCHAR2(200),
+  jaql971hdis6    VARCHAR2(50),
+  jaql971htel6    VARCHAR2(200),
+  jaql971hneg6    VARCHAR2(200),
+  jaql971hpepais1 NUMBER(3),
+  jaql971hpepais2 NUMBER(3),
+  jaql971hpepais3 NUMBER(3),
+  jaql971hpepais4 NUMBER(3),
+  jaql971hpepais5 NUMBER(3),
+  jaql971hpepais6 NUMBER(3),
+  jaql971hugeo1   CHAR(6),
+  jaql971hugeo2   CHAR(6),
+  jaql971hugeo3   CHAR(6),
+  jaql971hugeo4   CHAR(6),
+  jaql971hugeo5   CHAR(6),
+  jaql971hugeo6   CHAR(6),
+  jaql971hdpto1   VARCHAR2(50),
+  jaql971hdpto2   VARCHAR2(50),
+  jaql971hdpto3   VARCHAR2(50),
+  jaql971hdpto4   VARCHAR2(50),
+  jaql971hdpto5   VARCHAR2(50),
+  jaql971hdpto6   VARCHAR2(50),
+  jaql971hprov1   VARCHAR2(50),
+  jaql971hprov2   VARCHAR2(50),
+  jaql971hprov3   VARCHAR2(50),
+  jaql971hprov4   VARCHAR2(50),
+  jaql971hprov5   VARCHAR2(50),
+  jaql971hprov6   VARCHAR2(50),
+  jaql971hfcr     VARCHAR2(10),
+  jaql971hhcr     VARCHAR2(10)
+)
+partition by range (JAQL964HFEH)
+(
+  partition JAQL971H_201901 values less than (TO_DATE(' 2019-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202003 values less than (TO_DATE(' 2020-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202004 values less than (TO_DATE(' 2020-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202005 values less than (TO_DATE(' 2020-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202006 values less than (TO_DATE(' 2020-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202007 values less than (TO_DATE(' 2020-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202008 values less than (TO_DATE(' 2020-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202009 values less than (TO_DATE(' 2020-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202010 values less than (TO_DATE(' 2020-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202011 values less than (TO_DATE(' 2020-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202012 values less than (TO_DATE(' 2021-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202101 values less than (TO_DATE(' 2021-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202102 values less than (TO_DATE(' 2021-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202103 values less than (TO_DATE(' 2021-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202104 values less than (TO_DATE(' 2021-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202105 values less than (TO_DATE(' 2021-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202106 values less than (TO_DATE(' 2021-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202107 values less than (TO_DATE(' 2021-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202108 values less than (TO_DATE(' 2021-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202109 values less than (TO_DATE(' 2021-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202110 values less than (TO_DATE(' 2021-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202111 values less than (TO_DATE(' 2021-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202112 values less than (TO_DATE(' 2022-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202201 values less than (TO_DATE(' 2022-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202202 values less than (TO_DATE(' 2022-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202203 values less than (TO_DATE(' 2022-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202204 values less than (TO_DATE(' 2022-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202205 values less than (TO_DATE(' 2022-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202206 values less than (TO_DATE(' 2022-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202207 values less than (TO_DATE(' 2022-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202208 values less than (TO_DATE(' 2022-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202209 values less than (TO_DATE(' 2022-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202210 values less than (TO_DATE(' 2022-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202211 values less than (TO_DATE(' 2022-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202212 values less than (TO_DATE(' 2023-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202301 values less than (TO_DATE(' 2023-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202302 values less than (TO_DATE(' 2023-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202303 values less than (TO_DATE(' 2023-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202304 values less than (TO_DATE(' 2023-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202305 values less than (TO_DATE(' 2023-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202306 values less than (TO_DATE(' 2023-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202307 values less than (TO_DATE(' 2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202308 values less than (TO_DATE(' 2023-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202309 values less than (TO_DATE(' 2023-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202310 values less than (TO_DATE(' 2023-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202311 values less than (TO_DATE(' 2023-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL971H_202312 values less than (TO_DATE(' 2024-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202401 values less than (TO_DATE(' 2024-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202402 values less than (TO_DATE(' 2024-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202403 values less than (TO_DATE(' 2024-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202404 values less than (TO_DATE(' 2024-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202405 values less than (TO_DATE(' 2024-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202406 values less than (TO_DATE(' 2024-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202407 values less than (TO_DATE(' 2024-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202408 values less than (TO_DATE(' 2024-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202409 values less than (TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202410 values less than (TO_DATE(' 2024-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202411 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202412 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202501 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202502 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL971H_202503 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G
+);
+comment on column JAQL971H.jaql971hugeo1
+  is 'ubigeo 1';
+comment on column JAQL971H.jaql971hugeo2
+  is 'ubigeo 2';
+comment on column JAQL971H.jaql971hugeo3
+  is 'ubigeo 3';
+comment on column JAQL971H.jaql971hugeo4
+  is 'ubigeo 4';
+comment on column JAQL971H.jaql971hugeo5
+  is 'ubigeo 5';
+comment on column JAQL971H.jaql971hugeo6
+  is 'ubigeo 6';
+comment on column JAQL971H.jaql971hdpto1
+  is 'Dpto1';
+comment on column JAQL971H.jaql971hdpto2
+  is 'Dpto2';
+comment on column JAQL971H.jaql971hdpto3
+  is 'Dpto3';
+comment on column JAQL971H.jaql971hdpto4
+  is 'Dpto4';
+comment on column JAQL971H.jaql971hdpto5
+  is 'Dpto5';
+comment on column JAQL971H.jaql971hdpto6
+  is 'Dpto6';
+comment on column JAQL971H.jaql971hprov1
+  is 'Prov1';
+comment on column JAQL971H.jaql971hprov2
+  is 'Prov2';
+comment on column JAQL971H.jaql971hprov3
+  is 'Prov3';
+comment on column JAQL971H.jaql971hprov4
+  is 'Prov4';
+comment on column JAQL971H.jaql971hprov5
+  is 'Prov5';
+comment on column JAQL971H.jaql971hprov6
+  is 'Prov6';
+create index JAQL971H2 on JAQL971H (JAQL964HFEH, JAQL964HCOR, JAQL971HCOR, JAQL971HCTA1, JAQL971HDOC1)
+  nologging  local;
+create index JAQL971H3 on JAQL971H (JAQL971HCTA1, JAQL971HTDOC1, JAQL971HDOC1)
+  nologging  local;
+alter table JAQL971H
+  add primary key (JAQL964HFEH, JAQL964HCOR, JAQL971HCOR);
+

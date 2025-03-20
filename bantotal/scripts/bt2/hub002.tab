@@ -1,0 +1,18 @@
+create table HUB002
+(
+  hub001pg1 CHAR(20) not null,
+  hub002prf CHAR(10) not null,
+  hub002emp NUMBER(3) not null,
+  hub002fha DATE,
+  hub002hab CHAR(1),
+  hub002ax1 NUMBER(9),
+  hub002ax2 NUMBER(9),
+  hub002ax3 CHAR(50),
+  hub002ax4 CHAR(50),
+  hub002ax5 DATE,
+  hub002ax6 DATE
+)
+;
+alter table HUB002
+  add primary key (HUB001PG1, HUB002PRF, HUB002EMP);
+

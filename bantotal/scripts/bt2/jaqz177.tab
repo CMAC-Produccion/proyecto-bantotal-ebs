@@ -1,0 +1,55 @@
+create table JAQZ177
+(
+  jaqz177seq NUMBER(15) not null,
+  jaqz177fca DATE,
+  jaqz177hrc CHAR(8),
+  jaqz177usc CHAR(10),
+  jaqz177agc NUMBER(3),
+  jaqz177fde DATE,
+  jaqz177hrd CHAR(8),
+  jaqz177usd CHAR(10),
+  jaqz177agd NUMBER(3),
+  jaqz177fpr DATE,
+  jaqz177hrp CHAR(8),
+  jaqz177usp CHAR(10),
+  jaqz177agp NUMBER(3),
+  jaqz177pai NUMBER(3),
+  jaqz177tpo NUMBER(2),
+  jaqz177num CHAR(12),
+  jaqz177cta NUMBER(9),
+  jaqz177nom CHAR(30),
+  jaqz177arc BLOB,
+  jaqz177tfo CHAR(1),
+  jaqz177tip CHAR(1),
+  jaqz177ban NUMBER(3),
+  jaqz177cod NUMBER(9),
+  jaqz177cue CHAR(27),
+  jaqz177obs VARCHAR2(400),
+  jaqz177mes CHAR(2),
+  jaqz177ano NUMBER(4),
+  jaqz177est CHAR(1),
+  jaqz177fer DATE,
+  jaqz177hor CHAR(8),
+  jaqz177usr CHAR(10),
+  jaqz177agr NUMBER(3),
+  jaqz177fem DATE,
+  jaqz177hom CHAR(8),
+  jaqz177usm CHAR(10),
+  jaqz177agm NUMBER(3),
+  jaqz177ax1 NUMBER(9),
+  jaqz177ax2 NUMBER(9),
+  jaqz177ax3 NUMBER(17,2),
+  jaqz177ax4 NUMBER(17,2),
+  jaqz177ax5 DATE,
+  jaqz177ax6 DATE,
+  jaqz177ax7 CHAR(100),
+  jaqz177ax8 CHAR(100),
+  jaqz177ax9 CHAR(100)
+)
+;
+create index JAQZ177_IDX001 on JAQZ177 (JAQZ177FCA, JAQZ177HRC, JAQZ177USC);
+create index JAQZ177_IDX002 on JAQZ177 (JAQZ177FDE, JAQZ177HRD, JAQZ177USD);
+create index JAQZ177_IDX003 on JAQZ177 (JAQZ177FPR, JAQZ177HRP, JAQZ177USP);
+alter table JAQZ177
+  add primary key (JAQZ177SEQ);
+

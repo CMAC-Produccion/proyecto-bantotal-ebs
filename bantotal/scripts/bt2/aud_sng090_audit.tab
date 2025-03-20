@@ -1,0 +1,31 @@
+create table AUD_SNG090_AUDIT
+(
+  aud_old_sng001inst NUMBER(10),
+  aud_new_sng001inst NUMBER(10),
+  aud_old_sng090eva  NUMBER(3),
+  aud_new_sng090eva  NUMBER(3),
+  aud_old_sng090hst  NUMBER(10),
+  aud_new_sng090hst  NUMBER(10),
+  aud_old_sng090ite  NUMBER(10),
+  aud_new_sng090ite  NUMBER(10),
+  aud_old_sng090pqt  NUMBER(10),
+  aud_new_sng090pqt  NUMBER(10),
+  aud_old_sng090res  CHAR(1),
+  aud_new_sng090res  CHAR(1),
+  aud_old_sng090tpo  CHAR(1),
+  aud_new_sng090tpo  CHAR(1),
+  aud_sng090_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_sng090_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng090_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng090_ubr     VARCHAR2(50) default ' ' not null,
+  aud_sng090_ubc     VARCHAR2(50) default ' ' not null,
+  aud_sng090_ubt     VARCHAR2(50) default ' ' not null,
+  aud_sng090_ubu     VARCHAR2(50) default USER not null,
+  aud_sng090_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng090_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng090_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng090_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng090_uas     CHAR(1) default 'I' not null
+)
+;
+

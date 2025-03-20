@@ -1,0 +1,13 @@
+create table FSFF32
+(
+  kapcod NUMBER(4) not null,
+  kapcls CHAR(1) not null,
+  kapgrp CHAR(1) not null,
+  kapcta CHAR(2) not null,
+  kapsub CHAR(2) not null,
+  kapsdo NUMBER(16,2) not null
+)
+;
+alter table FSFF32
+  add primary key (KAPCOD, KAPCLS, KAPGRP, KAPCTA, KAPSUB, KAPSDO);
+

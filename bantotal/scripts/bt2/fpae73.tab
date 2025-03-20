@@ -1,0 +1,16 @@
+create table FPAE73
+(
+  pae51eva NUMBER(3) not null,
+  pae70nro NUMBER(10) not null,
+  pae73cor NUMBER(5) not null,
+  pae73sco NUMBER(17),
+  pae73pol NUMBER(5),
+  pae73tip CHAR(1),
+  pae73mns CLOB,
+  pae73cnd CLOB,
+  pae73grp NUMBER(3)
+)
+;
+alter table FPAE73
+  add primary key (PAE51EVA, PAE70NRO, PAE73COR);
+

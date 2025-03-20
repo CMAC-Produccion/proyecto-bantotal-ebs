@@ -1,0 +1,20 @@
+create table PLS002
+(
+  pls002tcom NUMBER(3) not null,
+  pls002ccom NUMBER(3) not null,
+  pls002desc CHAR(30),
+  pls002cmov NUMBER(3),
+  pls002tcal CHAR(3),
+  pls002comm CHAR(1),
+  pls002mtom NUMBER(17,2),
+  pls002est  CHAR(1),
+  pls002au1  CHAR(1),
+  pls002au2  NUMBER(9),
+  pls002au3  CHAR(30),
+  pls002au4  DATE,
+  pls002au5  NUMBER(17,2)
+)
+;
+alter table PLS002
+  add primary key (PLS002TCOM, PLS002CCOM);
+

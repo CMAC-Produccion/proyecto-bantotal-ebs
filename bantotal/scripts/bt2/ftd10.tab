@@ -1,0 +1,37 @@
+create table FTD10
+(
+  td10tar    CHAR(19) not null,
+  td10suc    NUMBER(3),
+  td10tiptar CHAR(1),
+  td10fchvto DATE,
+  td10estenv CHAR(2),
+  td10est    CHAR(15),
+  td10fchsol DATE,
+  td10fchrec DATE,
+  td10fchent DATE,
+  td10lote   NUMBER(9),
+  td10ususol CHAR(10),
+  td10usucon CHAR(10),
+  td10usuent CHAR(10),
+  td10car    CHAR(3),
+  td10sucdst NUMBER(3),
+  td10canfch DATE,
+  td10canusu CHAR(10),
+  td10canmot NUMBER(5),
+  td10cancod NUMBER(10)
+)
+;
+create index FTD1002 on FTD10 (TD10SUC, TD10TAR);
+create index FTD1003 on FTD10 (TD10EST, TD10SUC, TD10TAR);
+create index FTD1004 on FTD10 (TD10SUCDST, TD10EST, TD10TAR);
+create index FTD1005 on FTD10 (TD10EST, TD10SUCDST, TD10TAR);
+create index FTD1006 on FTD10 (TD10ESTENV, TD10SUC, TD10TAR);
+create index FTD1007 on FTD10 (TD10ESTENV, TD10SUC, TD10EST, TD10TAR);
+create index FTD1008 on FTD10 (TD10EST, TD10SUC, TD10CAR, TD10TIPTAR, TD10TAR);
+create index FTD1009 on FTD10 (TD10SUC, TD10TIPTAR, TD10TAR);
+create index FTD1010 on FTD10 (TD10EST, TD10SUCDST, TD10CAR, TD10TIPTAR, TD10TAR);
+create index FTD1011 on FTD10 (TD10EST, TD10SUC, TD10TIPTAR, TD10TAR);
+create index FTD1012 on FTD10 (TD10EST, TD10SUCDST, TD10TIPTAR, TD10TAR);
+alter table FTD10
+  add primary key (TD10TAR);
+

@@ -1,0 +1,23 @@
+create table FBC790
+(
+  bc790emp   NUMBER(3) not null,
+  bc790fch   DATE not null,
+  bc790pais  NUMBER(3) not null,
+  bc790tidre CHAR(2) not null,
+  bc790idret CHAR(13) not null,
+  bc790tcotr CHAR(2) not null,
+  bc790cores CHAR(3) not null,
+  bc790corem CHAR(3) not null,
+  bc790nscor CHAR(7) not null,
+  bc790aucor CHAR(10) not null,
+  bc790fecor DATE not null,
+  bc790reimr CHAR(5),
+  bc790todep NUMBER(17,2),
+  bc790basre NUMBER(17,2),
+  bc790porre NUMBER(5),
+  bc790morer NUMBER(17,2)
+)
+;
+alter table FBC790
+  add primary key (BC790EMP, BC790FCH, BC790PAIS, BC790TIDRE, BC790IDRET, BC790TCOTR, BC790CORES, BC790COREM, BC790NSCOR, BC790AUCOR, BC790FECOR);
+

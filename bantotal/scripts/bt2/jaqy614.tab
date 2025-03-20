@@ -1,0 +1,15 @@
+create table JAQY614
+(
+  jaqy614pais NUMBER(3) not null,
+  jaqy614tdoc NUMBER(2) not null,
+  jaqy614ndoc CHAR(12) not null,
+  jaqy614sta  NUMBER(2),
+  jaqy614nro  NUMBER(18),
+  jaqy614codt NUMBER(18)
+)
+;
+create index JAQY614_INX1 on JAQY614 (JAQY614STA, JAQY614CODT);
+create index JAQY614_INX2 on JAQY614 (JAQY614CODT);
+alter table JAQY614
+  add primary key (JAQY614PAIS, JAQY614TDOC, JAQY614NDOC);
+

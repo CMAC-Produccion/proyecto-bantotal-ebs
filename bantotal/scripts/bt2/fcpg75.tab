@@ -1,0 +1,30 @@
+create table FCPG75
+(
+  cpg74empbt NUMBER(3) not null,
+  cpg74conv  NUMBER(8) not null,
+  cpg74serv  NUMBER(3) not null,
+  cpg74fpres DATE not null,
+  cpg74nenv  NUMBER(3) not null,
+  cpg75corr  NUMBER(5) not null,
+  cpg75depen CHAR(15),
+  cpg75denom CHAR(40),
+  cpg75calle CHAR(19),
+  cpg75nrop  NUMBER(5),
+  cpg75piso  CHAR(2),
+  cpg75unid  CHAR(6),
+  cpg75loc   CHAR(30),
+  cpg75cp    CHAR(8),
+  cpg75contc CHAR(40),
+  cpg75tel   CHAR(16),
+  cpg75fax   CHAR(16),
+  cpg75cntag NUMBER(6),
+  cpg75est   CHAR(3),
+  cpg75blq   CHAR(1),
+  cpg75inst  NUMBER(10),
+  cpg75pend  NUMBER(1)
+)
+;
+create index FCPG7503 on FCPG75 (CPG75INST);
+alter table FCPG75
+  add primary key (CPG74EMPBT, CPG74CONV, CPG74SERV, CPG74FPRES, CPG74NENV, CPG75CORR);
+

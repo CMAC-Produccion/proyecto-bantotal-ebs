@@ -1,0 +1,29 @@
+create table AQPB801
+(
+  aqpb801cod NUMBER(3) not null,
+  aqpb801mod NUMBER(3) not null,
+  aqpb801suc NUMBER(3) not null,
+  aqpb801mda NUMBER(4) not null,
+  aqpb801pap NUMBER(4) not null,
+  aqpb801cta NUMBER(9) not null,
+  aqpb801ope NUMBER(9) not null,
+  aqpb801sop NUMBER(3) not null,
+  aqpb801top NUMBER(3) not null,
+  aqpb801fec DATE not null,
+  aqpb801est CHAR(1),
+  aqpb801fpr DATE,
+  aqpb801mot NUMBER(3),
+  aqpb801trt NUMBER(3),
+  aqpb801sut NUMBER(4),
+  aqpb801ret NUMBER(4),
+  aqpb801nte VARCHAR2(100),
+  aqpb801nt1 VARCHAR2(12),
+  aqpb801nt2 VARCHAR2(12),
+  aqpb801nt3 VARCHAR2(12)
+)
+;
+create index AQPB8012 on AQPB801 (AQPB801CTA, AQPB801MDA, AQPB801OPE);
+create index AQPB8013 on AQPB801 (AQPB801CTA, AQPB801EST);
+alter table AQPB801
+  add primary key (AQPB801COD, AQPB801MOD, AQPB801SUC, AQPB801MDA, AQPB801PAP, AQPB801CTA, AQPB801OPE, AQPB801SOP, AQPB801TOP, AQPB801FEC);
+

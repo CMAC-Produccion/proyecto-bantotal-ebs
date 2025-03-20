@@ -1,0 +1,57 @@
+create table AQPC105
+(
+  aqpc105id      NUMBER(10) not null,
+  aqpc105thd     CHAR(12),
+  aqpc105canal   NUMBER(5),
+  aqpc105tipope  VARCHAR2(40),
+  aqpc105telcli  VARCHAR2(20),
+  aqpc105corcli  VARCHAR2(100),
+  aqpc105cci     VARCHAR2(50),
+  aqpc105numdoc  VARCHAR2(17),
+  aqpc105tarcre  VARCHAR2(30),
+  aqpc105varaux1 VARCHAR2(50),
+  aqpc105varaux2 VARCHAR2(50),
+  aqpc105codres  VARCHAR2(5),
+  aqpc105msgerr  VARCHAR2(100),
+  aqpc105fecreg  DATE,
+  aqpc105horreg  VARCHAR2(10),
+  aqpc105user    VARCHAR2(20)
+)
+;
+comment on table AQPC105
+  is 'Log de coincidencias en Base Negativa';
+comment on column AQPC105.aqpc105id
+  is 'Id correlativo';
+comment on column AQPC105.aqpc105thd
+  is 'Numero de documento del cliente';
+comment on column AQPC105.aqpc105canal
+  is 'Canal';
+comment on column AQPC105.aqpc105tipope
+  is 'Tipo de operacion';
+comment on column AQPC105.aqpc105telcli
+  is 'Telefono a validar';
+comment on column AQPC105.aqpc105corcli
+  is 'Correo a validar';
+comment on column AQPC105.aqpc105cci
+  is 'CCI a validar';
+comment on column AQPC105.aqpc105numdoc
+  is 'Numero de documento a validar';
+comment on column AQPC105.aqpc105tarcre
+  is 'Tarjeta de credito a validar';
+comment on column AQPC105.aqpc105varaux1
+  is 'Variable auxiliar 1';
+comment on column AQPC105.aqpc105varaux2
+  is 'Variable auxiliar 2';
+comment on column AQPC105.aqpc105codres
+  is 'Codigo de respuesta';
+comment on column AQPC105.aqpc105msgerr
+  is 'Mensaje detallado del error';
+comment on column AQPC105.aqpc105fecreg
+  is 'Fecha registro';
+comment on column AQPC105.aqpc105horreg
+  is 'Hora registro';
+comment on column AQPC105.aqpc105user
+  is 'Usuario';
+alter table AQPC105
+  add primary key (AQPC105ID);
+

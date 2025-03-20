@@ -1,0 +1,17 @@
+create table REC409
+(
+  recmltemp  NUMBER(3) not null,
+  recmltape  DATE not null,
+  recmltid   NUMBER(10) not null,
+  recmltcor  NUMBER(10) not null,
+  recmltiac  NUMBER(13),
+  recmltref1 CHAR(25),
+  recmltref2 CHAR(25),
+  recmltimp  NUMBER(17,2),
+  recmltfec  DATE,
+  recmltpag  NUMBER(1)
+)
+;
+alter table REC409
+  add primary key (RECMLTEMP, RECMLTAPE, RECMLTID, RECMLTCOR);
+

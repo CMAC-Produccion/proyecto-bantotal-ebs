@@ -1,0 +1,15 @@
+create table CDEINS4
+(
+  cdeinsid   NUMBER(18) not null,
+  cdeinsvcod NUMBER(18) not null,
+  cdeinsvode NUMBER(18) not null,
+  cdeinsvcor NUMBER(18) not null,
+  cdeinsvfch DATE,
+  cdeinsvcar CHAR(80),
+  cdeinsvnum NUMBER(17,2),
+  cdeinsvesx CHAR(1)
+)
+;
+alter table CDEINS4
+  add primary key (CDEINSID, CDEINSVCOD, CDEINSVODE, CDEINSVCOR);
+

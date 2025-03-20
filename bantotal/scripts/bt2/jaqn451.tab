@@ -1,0 +1,39 @@
+create table JAQN451
+(
+  jaqn451cod NUMBER(9) not null,
+  jaqn451fge DATE not null,
+  jaqn451pai NUMBER(3) not null,
+  jaqn451tdo NUMBER(2) not null,
+  jaqn451ndo CHAR(12) not null,
+  jaqn451ape CHAR(70),
+  jaqn451ce1 CHAR(20),
+  jaqn451ce2 CHAR(20),
+  jaqn451ce3 CHAR(20),
+  jaqn451co1 CHAR(65),
+  jaqn451co2 CHAR(65),
+  jaqn451co3 CHAR(65),
+  jaqn451dir CHAR(140),
+  jaqn451fco DATE,
+  jaqn451mco CHAR(1),
+  jaqn451res VARCHAR2(400),
+  jaqn451fap DATE,
+  jaqn451an1 NUMBER(9),
+  jaqn451an2 NUMBER(9),
+  jaqn451an3 NUMBER(9),
+  jaqn451ai1 NUMBER(17,2),
+  jaqn451ai2 NUMBER(17,2),
+  jaqn451ai3 NUMBER(17,2),
+  jaqn451af1 DATE,
+  jaqn451af2 DATE,
+  jaqn451af3 DATE,
+  jaqn451ac1 VARCHAR2(250),
+  jaqn451ac2 VARCHAR2(250),
+  jaqn451ac3 VARCHAR2(250)
+)
+;
+create index JAQN4512 on JAQN451 (JAQN451FCO, JAQN451MCO);
+create index JAQN4513 on JAQN451 (JAQN451FAP);
+create index JAQN4514 on JAQN451 (JAQN451PAI, JAQN451TDO, JAQN451NDO, JAQN451COD);
+alter table JAQN451
+  add primary key (JAQN451COD, JAQN451FGE, JAQN451PAI, JAQN451TDO, JAQN451NDO);
+

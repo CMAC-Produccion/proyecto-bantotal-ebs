@@ -1,0 +1,32 @@
+create table AQPB867
+(
+  aqpb867ins NUMBER(10) not null,
+  aqpb867pai NUMBER(3),
+  aqpb867tdo NUMBER(2),
+  aqpb867ndo CHAR(12),
+  aqpb867idb NUMBER(10),
+  aqpb867cor CHAR(64),
+  aqpb867cel CHAR(16),
+  aqpb867est CHAR(1)
+)
+;
+comment on table AQPB867
+  is 'Registro validación conyuge o garante CajaMovil';
+comment on column AQPB867.aqpb867ins
+  is 'Instancia de desembolso.';
+comment on column AQPB867.aqpb867pai
+  is 'Pais del adicional.';
+comment on column AQPB867.aqpb867tdo
+  is 'Tipo de documento de adicional.';
+comment on column AQPB867.aqpb867ndo
+  is 'Numero de documento de adicional.';
+comment on column AQPB867.aqpb867idb
+  is 'ID de la validacion de biometría del adicional.';
+comment on column AQPB867.aqpb867cor
+  is 'Correo del adicional.';
+comment on column AQPB867.aqpb867cel
+  is 'Celular del adicional.';
+comment on column AQPB867.aqpb867est
+  is 'Estado de la validacion de biometria.';
+create index AQPB867A1 on AQPB867 (AQPB867INS);
+

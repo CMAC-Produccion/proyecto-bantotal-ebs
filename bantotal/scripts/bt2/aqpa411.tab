@@ -1,0 +1,22 @@
+create table AQPA411
+(
+  aqpa411corr NUMBER(10) not null,
+  aqpa411inst NUMBER(10) not null,
+  aqpa411nump NUMBER(10),
+  aqpa411fece DATE,
+  aqpa411feca DATE,
+  aqpa411anio NUMBER(4),
+  aqpa411mesa VARCHAR2(20),
+  aqpa411user VARCHAR2(20),
+  aqpa411aux1 CHAR(1),
+  aqpa411aux2 NUMBER(10),
+  aqpa411aux3 DATE,
+  aqpa411aux4 CHAR(20),
+  aqpa411aux0 VARCHAR2(6)
+)
+;
+create index AQPA4112 on AQPA411 (AQPA411INST);
+create index AQPA4113 on AQPA411 (AQPA411INST, AQPA411CORR);
+alter table AQPA411
+  add primary key (AQPA411CORR, AQPA411INST);
+

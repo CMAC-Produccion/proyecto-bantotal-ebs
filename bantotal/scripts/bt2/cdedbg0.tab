@@ -1,0 +1,14 @@
+create table CDEDBG0
+(
+  cdedbgcorr NUMBER(18) not null,
+  cdedbgcode NUMBER(18),
+  cdedbgcobj NUMBER(18),
+  cdedbgtobj NUMBER(18),
+  cdedbgfch  DATE,
+  cdedbgvalo CHAR(80),
+  cdedbgdbg  LONG
+)
+;
+alter table CDEDBG0
+  add primary key (CDEDBGCORR);
+

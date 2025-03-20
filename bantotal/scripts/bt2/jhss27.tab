@@ -1,0 +1,11 @@
+create table JHSS27
+(
+  jhss27appl CHAR(10) not null,
+  jhss27id   CHAR(20) not null,
+  jhss27io   CHAR(3) not null,
+  jhss27data CHAR(255),
+  jhss27time DATE
+)
+;
+create unique index JHSS2701 on JHSS27 (JHSS27APPL, JHSS27ID, JHSS27IO);
+

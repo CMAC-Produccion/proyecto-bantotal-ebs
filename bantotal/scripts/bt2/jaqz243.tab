@@ -1,0 +1,21 @@
+create table JAQZ243
+(
+  jaqz243serial NUMBER(10) not null,
+  jaqz243secue  NUMBER(6) not null,
+  jaqz243fenov  DATE,
+  jaqz243cosus  VARCHAR2(10),
+  jaqz243cocta  VARCHAR2(10),
+  jaqz243nucta  VARCHAR2(25),
+  jaqz243norep  VARCHAR2(10),
+  jaqz243vaini  NUMBER(17,2),
+  jaqz243vasde  NUMBER(17,2),
+  jaqz243moros  VARCHAR2(10),
+  jaqz243inend  VARCHAR2(10),
+  jaqz243feact  DATE,
+  jaqz243nosus  VARCHAR2(50),
+  jaqz243tidet  CHAR(2)
+)
+;
+alter table JAQZ243
+  add primary key (JAQZ243SERIAL, JAQZ243SECUE);
+

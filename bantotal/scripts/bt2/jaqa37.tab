@@ -1,0 +1,54 @@
+create table JAQA37
+(
+  jaqa37cod NUMBER(9) not null,
+  jaqa37cat NUMBER(4),
+  jaqa37nom VARCHAR2(250),
+  jaqa37dsc CHAR(100),
+  jaqa37nin CHAR(100),
+  jaqa37ai1 NUMBER(17,2),
+  jaqa37ai2 NUMBER(17,2),
+  jaqa37ac1 CHAR(50),
+  jaqa37ac2 CHAR(50),
+  jaqa37ad1 DATE,
+  jaqa37ad2 DATE,
+  jaqa37an1 NUMBER(4),
+  jaqa37an2 NUMBER(4),
+  jaqa37at1 CHAR(200),
+  jaqa37at2 CHAR(200)
+)
+;
+comment on table JAQA37
+  is 'Datos de Archivos Base';
+comment on column JAQA37.jaqa37cod
+  is 'Codigo Plantilla Base';
+comment on column JAQA37.jaqa37cat
+  is 'Categoría';
+comment on column JAQA37.jaqa37nom
+  is 'Nombre Plantilla';
+comment on column JAQA37.jaqa37dsc
+  is 'Descripción Plantilla';
+comment on column JAQA37.jaqa37nin
+  is 'Nombre Interno';
+comment on column JAQA37.jaqa37ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQA37.jaqa37ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQA37.jaqa37ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQA37.jaqa37ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQA37.jaqa37ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQA37.jaqa37ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQA37.jaqa37an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQA37.jaqa37an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQA37.jaqa37at1
+  is 'Auxiliar Texto 1';
+comment on column JAQA37.jaqa37at2
+  is 'Auxiliar Texto 2';
+alter table JAQA37
+  add primary key (JAQA37COD);
+

@@ -1,0 +1,48 @@
+create table JAQM9Z
+(
+  jaqm9zcnta NUMBER(9) not null,
+  jaqm9zoper NUMBER(9) not null,
+  jaqm9zregi VARCHAR2(30),
+  jaqm9zzona VARCHAR2(40),
+  jaqm9zagen VARCHAR2(30),
+  jaqm9zcomi VARCHAR2(2000),
+  jaqm9zanal CHAR(10),
+  jaqm9zpais NUMBER(3),
+  jaqm9ztdoc NUMBER(3),
+  jaqm9zndoc VARCHAR2(12),
+  jaqm9zpcim NUMBER(16,5),
+  jaqm9zpsim NUMBER(16,5)
+)
+;
+comment on table JAQM9Z
+  is 'Tablas Mora - Provisionamiento';
+comment on column JAQM9Z.jaqm9zcnta
+  is 'CUENTA';
+comment on column JAQM9Z.jaqm9zoper
+  is 'OPERACIÓN';
+comment on column JAQM9Z.jaqm9zregi
+  is 'REGIÓN';
+comment on column JAQM9Z.jaqm9zzona
+  is 'ZONA';
+comment on column JAQM9Z.jaqm9zagen
+  is 'AGENCIA';
+comment on column JAQM9Z.jaqm9zcomi
+  is 'COMITÉ';
+comment on column JAQM9Z.jaqm9zanal
+  is 'ANALISTA';
+comment on column JAQM9Z.jaqm9zpais
+  is 'PAÍS';
+comment on column JAQM9Z.jaqm9ztdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column JAQM9Z.jaqm9zndoc
+  is 'NÚMERO DE DOCUMENTO';
+comment on column JAQM9Z.jaqm9zpcim
+  is 'PROVISIÓN CON IMPULSA';
+comment on column JAQM9Z.jaqm9zpsim
+  is 'PROVISIÓN SIN IMPULSA';
+create index JAQM9ZA2 on JAQM9Z (JAQM9ZREGI, JAQM9ZZONA, JAQM9ZAGEN);
+create index JAQM9ZA3 on JAQM9Z (JAQM9ZZONA, JAQM9ZAGEN);
+create index JAQM9ZA4 on JAQM9Z (JAQM9ZAGEN);
+alter table JAQM9Z
+  add primary key (JAQM9ZCNTA, JAQM9ZOPER);
+

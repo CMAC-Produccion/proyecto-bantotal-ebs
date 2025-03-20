@@ -1,0 +1,17 @@
+create table Z0E471
+(
+  z0e478nro CHAR(19) not null,
+  z0e471tpo CHAR(1) not null,
+  z0e476cod CHAR(2) not null,
+  z0e467cod NUMBER(4) not null,
+  z0e471fec DATE not null,
+  z0e471cnt NUMBER(15)
+)
+;
+create index Z0E47102 on Z0E471 (Z0E467COD);
+create index Z0E47103 on Z0E471 (Z0E476COD);
+create index Z0E47105 on Z0E471 (Z0E471FEC, Z0E471TPO, Z0E478NRO, Z0E476COD, Z0E467COD);
+create index Z0E47106 on Z0E471 (Z0E478NRO, Z0E471TPO, Z0E471FEC);
+alter table Z0E471
+  add primary key (Z0E478NRO, Z0E471TPO, Z0E476COD, Z0E467COD, Z0E471FEC);
+

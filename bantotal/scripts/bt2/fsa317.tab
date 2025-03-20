@@ -1,0 +1,38 @@
+create table FSA317
+(
+  fsa317emp  NUMBER(3) not null,
+  fsa317suc  NUMBER(3) not null,
+  fsa317mod  NUMBER(3) not null,
+  fsa317rub  NUMBER(16) not null,
+  fsa317mda  NUMBER(4) not null,
+  fsa317pap  NUMBER(4) not null,
+  fsa317cta  NUMBER(9) not null,
+  fsa317oper NUMBER(9) not null,
+  fsa317sbop NUMBER(3) not null,
+  fsa317tope NUMBER(3) not null,
+  fsa317deu  NUMBER(17,2),
+  fsa317sg   NUMBER(17,2),
+  fsa317a1   NUMBER(17,2),
+  fsa317a2   NUMBER(17,2),
+  fsa317cat  CHAR(15),
+  fsa317psg  NUMBER(14,8),
+  fsa317pa1  NUMBER(14,8),
+  fsa317pa2  NUMBER(14,8),
+  fsa317calc NUMBER(17,2),
+  fsa317prev NUMBER(17,2),
+  fsa317plaz NUMBER(8),
+  fsa317aux1 NUMBER(17,2),
+  fsa317aux2 NUMBER(17,2),
+  fsa317aux3 CHAR(30),
+  fsa317aux4 CHAR(30),
+  fsa317aux5 DATE,
+  fsa317aux6 DATE,
+  fsa317aux7 NUMBER(10),
+  fsa317aux8 NUMBER(10)
+)
+;
+create index FSA31702 on FSA317 (FSA317EMP, FSA317CAT, FSA317MDA);
+create index FSA31704 on FSA317 (FSA317EMP, FSA317CAT, FSA317CTA);
+alter table FSA317
+  add primary key (FSA317EMP, FSA317SUC, FSA317MOD, FSA317RUB, FSA317MDA, FSA317PAP, FSA317CTA, FSA317OPER, FSA317SBOP, FSA317TOPE);
+

@@ -1,0 +1,16 @@
+create table AQPA190A_BDJ
+(
+  aqpa190aeval NUMBER(10) not null,
+  aqpa190apdoc NUMBER(3),
+  aqpa190atdoc NUMBER(2),
+  aqpa190andoc CHAR(12),
+  aqpa190afec  DATE,
+  aqpa190ausu  CHAR(10),
+  aqpa190asol  NUMBER(10),
+  aqpa190atmod NUMBER(4)
+)
+;
+create index AQPA190A_BDJ1 on AQPA190A_BDJ (AQPA190ANDOC);
+alter table AQPA190A_BDJ
+  add primary key (AQPA190AEVAL);
+

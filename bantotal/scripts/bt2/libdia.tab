@@ -1,0 +1,27 @@
+create table LIBDIA
+(
+  libdiapgc  NUMBER(3) not null,
+  libdiausr  CHAR(10) not null,
+  libdiafvco DATE not null,
+  libdiamod  NUMBER(3) not null,
+  libdiasuc  NUMBER(3) not null,
+  libdiatrn  NUMBER(3) not null,
+  libdiarel  NUMBER(4) not null,
+  libdiafcon DATE not null,
+  libdiaord  NUMBER(2) not null,
+  libdiasbor NUMBER(3) not null,
+  libdiahmod NUMBER(3),
+  libdiarub  NUMBER(16),
+  libdiamda  NUMBER(4),
+  libdiapap  NUMBER(4),
+  libdiacta  NUMBER(9),
+  libdiaope  NUMBER(9),
+  libdiasub  NUMBER(3),
+  libdiaimp1 NUMBER(17,2),
+  libdiadbha NUMBER(1)
+)
+;
+create index LIBDIA02 on LIBDIA (LIBDIAPGC, LIBDIAUSR, LIBDIAFVCO, LIBDIASUC, LIBDIARUB, LIBDIAMDA, LIBDIAPAP);
+alter table LIBDIA
+  add primary key (LIBDIAPGC, LIBDIAUSR, LIBDIAFVCO, LIBDIAMOD, LIBDIASUC, LIBDIATRN, LIBDIAREL, LIBDIAFCON, LIBDIAORD, LIBDIASBOR);
+

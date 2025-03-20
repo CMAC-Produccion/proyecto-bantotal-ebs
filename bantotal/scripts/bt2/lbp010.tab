@@ -1,0 +1,12 @@
+create table LBP010
+(
+  lbp010codp CHAR(3) not null,
+  lbp010modp NUMBER(3) not null,
+  lbp010topp NUMBER(3) not null,
+  lbp010tutp CHAR(1)
+)
+;
+create index LBP01002 on LBP010 (LBP010TOPP, LBP010MODP);
+alter table LBP010
+  add primary key (LBP010CODP, LBP010MODP, LBP010TOPP);
+

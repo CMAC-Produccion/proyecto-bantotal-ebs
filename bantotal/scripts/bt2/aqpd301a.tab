@@ -1,0 +1,42 @@
+create table AQPD301A
+(
+  aqpd301arecemp NUMBER(3) not null,
+  aqpd301areccod VARCHAR2(20) not null,
+  aqpd301aaccion NUMBER(3),
+  aqpd301atipo   NUMBER(3),
+  aqpd301aseguro VARCHAR2(2),
+  aqpd301aconclu NUMBER(3),
+  aqpd301aanalis VARCHAR2(1000),
+  aqpd301arespon CHAR(10),
+  aqpd301afecres DATE,
+  aqpd301acreusu CHAR(10),
+  aqpd301acretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPD301A
+  is 'Datos del Reclamo - PyC';
+comment on column AQPD301A.aqpd301arecemp
+  is 'Reclamo - Empresa';
+comment on column AQPD301A.aqpd301areccod
+  is 'Reclamo - Codigo';
+comment on column AQPD301A.aqpd301aaccion
+  is 'PyC - Accion';
+comment on column AQPD301A.aqpd301atipo
+  is 'PyC - Tipo';
+comment on column AQPD301A.aqpd301aseguro
+  is 'PyC - Tiene Seguro?';
+comment on column AQPD301A.aqpd301aconclu
+  is 'PyC - Conclusion';
+comment on column AQPD301A.aqpd301aanalis
+  is 'PyC - Analisis';
+comment on column AQPD301A.aqpd301arespon
+  is 'PyC - Responsable';
+comment on column AQPD301A.aqpd301afecres
+  is 'PyC - Fecha Respuesta';
+comment on column AQPD301A.aqpd301acreusu
+  is 'PyC - Creacion Usuario';
+comment on column AQPD301A.aqpd301acretim
+  is 'PyC - Creacion Fecha';
+alter table AQPD301A
+  add primary key (AQPD301ARECEMP, AQPD301ARECCOD);
+

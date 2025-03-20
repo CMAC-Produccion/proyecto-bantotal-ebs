@@ -1,0 +1,21 @@
+create table JAQY321
+(
+  jaqy321fec DATE not null,
+  jaqy321suc NUMBER(3) not null,
+  jaqy321cor NUMBER(17) not null,
+  jaqy321reo NUMBER(3),
+  jaqy321red NUMBER(3),
+  jaqy321suo NUMBER(3),
+  jaqy321sud NUMBER(3),
+  jaqy321cta NUMBER(9),
+  jaqy321ope NUMBER(9),
+  jaqy321as1 CHAR(10),
+  jaqy321as2 CHAR(10),
+  jaqy321usu CHAR(10),
+  jaqy321etd CHAR(1),
+  jaqy321tip CHAR(1)
+)
+;
+alter table JAQY321
+  add primary key (JAQY321FEC, JAQY321SUC, JAQY321COR);
+

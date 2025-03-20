@@ -1,0 +1,27 @@
+create table AQPC262
+(
+  aqpc262ruc VARCHAR2(12) not null,
+  aqpc262rzs VARCHAR2(70) not null,
+  aqpc262est VARCHAR2(1),
+  aqpc262uig VARCHAR2(10),
+  aqpc262fig DATE,
+  aqpc262hig VARCHAR2(8)
+)
+;
+comment on table AQPC262
+  is 'Empresas Recaudadoras';
+comment on column AQPC262.aqpc262ruc
+  is 'Ruc';
+comment on column AQPC262.aqpc262rzs
+  is 'Razon Social';
+comment on column AQPC262.aqpc262est
+  is 'Estado S/N';
+comment on column AQPC262.aqpc262uig
+  is 'Usuario Ingreso';
+comment on column AQPC262.aqpc262fig
+  is 'Fecha Ingreso';
+comment on column AQPC262.aqpc262hig
+  is 'Hora Ingreso';
+alter table AQPC262
+  add primary key (AQPC262RUC, AQPC262RZS);
+

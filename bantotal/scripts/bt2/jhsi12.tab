@@ -1,0 +1,27 @@
+create table JHSI12
+(
+  jhsi12usr  CHAR(10) not null,
+  jhsi12fch  DATE not null,
+  jhsi12prd  NUMBER(3) not null,
+  jhsi12tpo  NUMBER(3) not null,
+  jhsi12mda  NUMBER(4) not null,
+  jhsi12bco  NUMBER(3) not null,
+  jhsi12suc  NUMBER(4) not null,
+  jhsi12chq  NUMBER(8) not null,
+  jhsi12sec  NUMBER(9) not null,
+  jhsi12bsuc NUMBER(4),
+  jhsi12cta  NUMBER(9),
+  jhsi12scta NUMBER(3),
+  jhsi12bcta NUMBER(12),
+  jhsi12caj  NUMBER(3),
+  jhsi12imp  NUMBER(17,2),
+  jhsi12mtvo NUMBER(3),
+  jhsi12uing CHAR(10),
+  jhsi12itf  CHAR(1)
+)
+;
+create unique index JHSI1201 on JHSI12 (JHSI12USR, JHSI12FCH, JHSI12PRD, JHSI12TPO, JHSI12MDA, JHSI12BCO, JHSI12SUC, JHSI12CHQ, JHSI12SEC);
+create index JHSI1202 on JHSI12 (JHSI12USR, JHSI12FCH, JHSI12PRD, JHSI12TPO, JHSI12MDA, JHSI12SUC, JHSI12CHQ);
+create index JHSI1203 on JHSI12 (JHSI12USR, JHSI12FCH, JHSI12PRD, JHSI12TPO, JHSI12BCO, JHSI12MDA, JHSI12BSUC, JHSI12CHQ);
+create index JHSI1204 on JHSI12 (JHSI12USR, JHSI12FCH, JHSI12TPO, JHSI12MDA, JHSI12SUC, JHSI12CHQ);
+

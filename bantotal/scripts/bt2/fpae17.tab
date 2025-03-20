@@ -1,0 +1,12 @@
+create table FPAE17
+(
+  pae17rol NUMBER(2) not null,
+  pae17rut CHAR(12) not null,
+  pae17pfj CHAR(1),
+  pae17tpm CHAR(1),
+  pae17rie NUMBER(9)
+)
+;
+alter table FPAE17
+  add primary key (PAE17ROL, PAE17RUT);
+

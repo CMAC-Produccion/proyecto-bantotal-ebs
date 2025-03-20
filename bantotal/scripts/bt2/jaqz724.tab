@@ -1,0 +1,47 @@
+create table JAQZ724
+(
+  jaqz724cod  NUMBER(18) not null,
+  jaqz724ins  NUMBER(10) not null,
+  jaqz724tdoc NUMBER(2),
+  jaqz724doc  CHAR(12),
+  jaqz724mod  NUMBER(3),
+  jaqz724cta  NUMBER(9),
+  jaqz724mda  NUMBER(4),
+  jaqz724feci DATE,
+  jaqz724monh NUMBER(17,2),
+  jaqz724fecc DATE,
+  jaqz724tass NUMBER(10,6),
+  jaqz724ind  CHAR(1),
+  jaqz724user VARCHAR2(10)
+)
+;
+comment on column JAQZ724.jaqz724cod
+  is 'codigo de la jaqz724';
+comment on column JAQZ724.jaqz724ins
+  is 'instancia';
+comment on column JAQZ724.jaqz724tdoc
+  is 'tipo de documento';
+comment on column JAQZ724.jaqz724doc
+  is 'numero documento';
+comment on column JAQZ724.jaqz724mod
+  is 'modulo';
+comment on column JAQZ724.jaqz724cta
+  is 'cuenta ';
+comment on column JAQZ724.jaqz724mda
+  is 'moneda';
+comment on column JAQZ724.jaqz724feci
+  is 'fecha inicio de vigencia';
+comment on column JAQZ724.jaqz724monh
+  is 'monto hasta';
+comment on column JAQZ724.jaqz724fecc
+  is 'fecha de caducidad de inicio de vigencia';
+comment on column JAQZ724.jaqz724tass
+  is 'tasa de sobreprima';
+comment on column JAQZ724.jaqz724ind
+  is 'indicador';
+comment on column JAQZ724.jaqz724user
+  is 'user';
+create index JAQZ724_001 on JAQZ724 (JAQZ724INS, JAQZ724TDOC, JAQZ724DOC);
+alter table JAQZ724
+  add primary key (JAQZ724COD, JAQZ724INS);
+

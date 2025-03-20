@@ -1,0 +1,21 @@
+create table SNGC40
+(
+  sngc40pais NUMBER(3) not null,
+  sngc40tdoc NUMBER(2) not null,
+  sngc40ndoc CHAR(25) not null,
+  sngc40codo NUMBER(4) not null,
+  sngc40hdes DATE,
+  sngc40hhas DATE,
+  sngc40lun  CHAR(1),
+  sngc40mar  CHAR(1),
+  sngc40mier CHAR(1),
+  sngc40jue  CHAR(1),
+  sngc40vie  CHAR(1),
+  sngc40sab  CHAR(1),
+  sngc40dom  CHAR(1),
+  sngc40com  VARCHAR2(144)
+)
+;
+alter table SNGC40
+  add primary key (SNGC40PAIS, SNGC40TDOC, SNGC40NDOC, SNGC40CODO);
+

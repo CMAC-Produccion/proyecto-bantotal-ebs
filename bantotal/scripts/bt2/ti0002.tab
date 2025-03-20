@@ -1,0 +1,28 @@
+create table TI0002
+(
+  tiimpucod  NUMBER(3) not null,
+  tidimcorr  NUMBER(3) not null,
+  ticd_ant_i NUMBER(3) not null,
+  tidimsuc   NUMBER(3) not null,
+  tidimpzo   NUMBER(5) not null,
+  tidimmod   NUMBER(3) not null,
+  tidimtope  NUMBER(3) not null,
+  tidimact   NUMBER(9) not null,
+  tiopecod   NUMBER(4),
+  tidimcoef  NUMBER(3),
+  tidimrub   NUMBER(16),
+  tidimmnto  NUMBER(17,2),
+  tidimmin   NUMBER(17,2),
+  tidimminfo NUMBER(17,2),
+  tidimminba NUMBER(17,2),
+  tidimimpma NUMBER(17,2),
+  tidimaux   CHAR(1),
+  tidimrrpen NUMBER(3),
+  tidimexc   CHAR(1)
+)
+;
+create index TI000202 on TI0002 (TIOPECOD);
+create index TI000203 on TI0002 (TIIMPUCOD, TICD_ANT_I);
+alter table TI0002
+  add primary key (TIIMPUCOD, TIDIMCORR, TICD_ANT_I, TIDIMSUC, TIDIMPZO, TIDIMMOD, TIDIMTOPE, TIDIMACT);
+

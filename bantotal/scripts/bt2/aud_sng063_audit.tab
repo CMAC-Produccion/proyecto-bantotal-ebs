@@ -1,0 +1,25 @@
+create table AUD_SNG063_AUDIT
+(
+  aud_old_sng062aut  NUMBER(10),
+  aud_new_sng062aut  NUMBER(10),
+  aud_old_sng063nom  CHAR(20),
+  aud_new_sng063nom  CHAR(20),
+  aud_old_sng063tip  CHAR(1),
+  aud_new_sng063tip  CHAR(1),
+  aud_old_sng063val  VARCHAR2(40),
+  aud_new_sng063val  VARCHAR2(40),
+  aud_sng063_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_sng063_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng063_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng063_ubr     VARCHAR2(50) default ' ' not null,
+  aud_sng063_ubc     VARCHAR2(50) default ' ' not null,
+  aud_sng063_ubt     VARCHAR2(50) default ' ' not null,
+  aud_sng063_ubu     VARCHAR2(50) default USER not null,
+  aud_sng063_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng063_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng063_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng063_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng063_uas     CHAR(1) default 'I' not null
+)
+;
+

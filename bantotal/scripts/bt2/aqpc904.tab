@@ -1,0 +1,60 @@
+create table AQPC904
+(
+  aqpc904id       NUMBER(9) not null,
+  aqpc904paidoc   NUMBER(3),
+  aqpc904tipdoc   NUMBER(3),
+  aqpc904numdoc   CHAR(12),
+  aqpc904fecreg   DATE,
+  aqpc904horreg   VARCHAR2(8),
+  aqpc904tipbio   VARCHAR2(20),
+  aqpc904idbio    VARCHAR2(100),
+  aqpc904tipdat   VARCHAR2(20),
+  aqpc904valdat   VARCHAR2(200),
+  aqpc904usureg   VARCHAR2(10),
+  aqpc904canal    VARCHAR2(20),
+  aqpc904deviceid VARCHAR2(20),
+  aqpc904modelo   VARCHAR2(20),
+  aqpc904so       VARCHAR2(15),
+  aqpc904lat      VARCHAR2(20),
+  aqpc904long     VARCHAR2(20)
+)
+;
+comment on table AQPC904
+  is 'Log Actualizacion de Datos';
+comment on column AQPC904.aqpc904id
+  is 'ID de Log';
+comment on column AQPC904.aqpc904paidoc
+  is 'Pais de Documento';
+comment on column AQPC904.aqpc904tipdoc
+  is 'Tipo de Documento';
+comment on column AQPC904.aqpc904numdoc
+  is 'Numero de Documento';
+comment on column AQPC904.aqpc904fecreg
+  is 'Fecha de Registro';
+comment on column AQPC904.aqpc904horreg
+  is 'Hora de Registro';
+comment on column AQPC904.aqpc904tipbio
+  is 'Tipo de Biometria';
+comment on column AQPC904.aqpc904idbio
+  is 'ID Biometria';
+comment on column AQPC904.aqpc904tipdat
+  is 'Tipo de Dato Actualizado';
+comment on column AQPC904.aqpc904valdat
+  is 'Valor del Dato Actualizado';
+comment on column AQPC904.aqpc904usureg
+  is 'Usuario Registrado';
+comment on column AQPC904.aqpc904canal
+  is 'Canal';
+comment on column AQPC904.aqpc904deviceid
+  is 'ID de Dispositivo';
+comment on column AQPC904.aqpc904modelo
+  is 'Modelo del Dispositivo';
+comment on column AQPC904.aqpc904so
+  is 'SO del Dispositivo';
+comment on column AQPC904.aqpc904lat
+  is 'Latitud';
+comment on column AQPC904.aqpc904long
+  is 'Longitud';
+alter table AQPC904
+  add primary key (AQPC904ID);
+

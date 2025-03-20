@@ -1,0 +1,17 @@
+create table AQPC422P
+(
+  aqpc422pcodpre NUMBER(2) not null,
+  aqpc422pcodcon NUMBER(2) not null,
+  aqpc422pordafe NUMBER(2) not null
+)
+;
+comment on table AQPC422P
+  is 'Tabla del tipo de prelación para los pagos de los creditos de venta FOCMA';
+comment on column AQPC422P.aqpc422pcodpre
+  is 'Código de Prelación';
+comment on column AQPC422P.aqpc422pcodcon
+  is 'Codigo de concepto';
+comment on column AQPC422P.aqpc422pordafe
+  is 'Orden de Afecto';
+create index AQPC422PA2 on AQPC422P (AQPC422PCODPRE, AQPC422PORDAFE);
+

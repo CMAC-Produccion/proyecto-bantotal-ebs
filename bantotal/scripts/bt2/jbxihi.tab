@@ -1,0 +1,26 @@
+create table JBXIHI
+(
+  jbxihifec DATE not null,
+  jbxihisuc NUMBER(3) not null,
+  jbxihimod NUMBER(4) not null,
+  jbxihitrs NUMBER(3) not null,
+  jbxihiasi NUMBER(5) not null,
+  jbxihifco DATE not null,
+  jbxihiord NUMBER(5) not null,
+  jbxihicct NUMBER(16) not null,
+  jbxihiscd NUMBER(3),
+  jbxihicco NUMBER(6),
+  jbxihimdc CHAR(1),
+  jbxihiimp NUMBER(17,2),
+  jbxihiimo NUMBER(17,2),
+  jbxihides CHAR(30),
+  jbxihitas CHAR(5),
+  jbxihifim DATE,
+  jbxihimon NUMBER(4),
+  jbxihiusu CHAR(15),
+  jbxihifpr DATE,
+  jbxihihpr NUMBER(8)
+)
+;
+create unique index JBXIHI01 on JBXIHI (JBXIHIFEC, JBXIHISUC, JBXIHIMOD, JBXIHITRS, JBXIHIASI, JBXIHIFCO, JBXIHIORD, JBXIHICCT);
+

@@ -1,0 +1,46 @@
+create table FBC831
+(
+  bc831emp   NUMBER(3) not null,
+  bc831pais  NUMBER(3) not null,
+  bc831doctp NUMBER(2) not null,
+  bc831docno CHAR(12) not null,
+  bc831fech  DATE,
+  bc831doct  NUMBER(2),
+  bc831docn  NUMBER(11),
+  bc831paisp CHAR(2),
+  bc831rgtpo NUMBER(2),
+  bc831denom CHAR(30),
+  bc831calle CHAR(30),
+  bc831prtan CHAR(6),
+  bc831dep   CHAR(5),
+  bc831sec   CHAR(5),
+  bc831torre CHAR(5),
+  bc831mzna  CHAR(5),
+  bc831piso  CHAR(5),
+  bc831cp    CHAR(8),
+  bc831loc   NUMBER(8),
+  bc831encod NUMBER(2),
+  bc831prov  NUMBER(2),
+  bc831callc CHAR(30),
+  bc831prtac CHAR(6),
+  bc831depc  CHAR(5),
+  bc831secc  CHAR(5),
+  bc831torrc CHAR(5),
+  bc831mznac CHAR(5),
+  bc831pisoc CHAR(5),
+  bc831cpc   CHAR(8),
+  bc831locc  NUMBER(8),
+  bc831ecodc NUMBER(2),
+  bc831provc NUMBER(2),
+  bc831paisc CHAR(2),
+  bc831resid NUMBER(1),
+  bc831chr1  CHAR(20),
+  bc831chr2  CHAR(1),
+  bc831fch1  DATE,
+  bc831imp1  NUMBER(17,2),
+  bc831imp2  NUMBER(17,2)
+)
+;
+alter table FBC831
+  add primary key (BC831EMP, BC831PAIS, BC831DOCTP, BC831DOCNO);
+

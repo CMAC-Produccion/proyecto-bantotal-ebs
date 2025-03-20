@@ -1,0 +1,56 @@
+create table FCNV31
+(
+  cnv30pgcod NUMBER(3) not null,
+  cnv30ctnro NUMBER(9) not null,
+  cnv30exfec DATE not null,
+  cnv05teval NUMBER(3) not null,
+  cnv31kcorr NUMBER(9) not null,
+  cnv31wfins NUMBER(10),
+  cnv31wfprc NUMBER(5),
+  cnv31wfitm NUMBER(10),
+  cnv31fecha DATE,
+  cnv31hora  CHAR(8),
+  cnv31user  CHAR(10),
+  cnv31sts   CHAR(1),
+  cnv31stsac CHAR(1),
+  cnv31mod   NUMBER(3),
+  cnv31tope  NUMBER(3),
+  cnv31mda   NUMBER(4),
+  cnv31pap   NUMBER(4),
+  cnv31suc   NUMBER(3),
+  cnv31oper  NUMBER(9),
+  cnv31sbop  NUMBER(3),
+  cnv31pzo   NUMBER(5),
+  cnv31fpag  DATE,
+  cnv31sdo   NUMBER(17,2),
+  cnv31deuda NUMBER(17,2),
+  cnv31urfec DATE,
+  cnv31urpzo NUMBER(5),
+  cnv31ursdo NUMBER(17,2),
+  cnv31urdeu NUMBER(17,2),
+  cnv31urfpg DATE,
+  cnv31cod   CHAR(15),
+  cnv31nivor CHAR(1),
+  cnv31stsa  CHAR(1),
+  cnv31stsb  CHAR(1),
+  cnv31cdsts NUMBER(2),
+  cnv31cdsta NUMBER(2),
+  cnv31cdn01 NUMBER(5),
+  cnv31cdn02 NUMBER(9),
+  cnv31cdc01 CHAR(15),
+  cnv31cdc02 CHAR(20),
+  cnv31fec01 DATE,
+  cnv31fec02 DATE,
+  cnv31imp01 NUMBER(17,2),
+  cnv31imp02 NUMBER(17,2),
+  cnv31mda01 NUMBER(4),
+  cnv31mda02 NUMBER(4),
+  cnv31stcob NUMBER(2)
+)
+;
+create index FCNV3110 on FCNV31 (CNV30PGCOD, CNV05TEVAL, CNV31STS, CNV30CTNRO, CNV31PZO);
+create index FCNV3111 on FCNV31 (CNV30PGCOD, CNV30CTNRO, CNV05TEVAL, CNV30EXFEC, CNV31MOD, CNV31TOPE, CNV31MDA, CNV31PAP, CNV31OPER, CNV31SBOP, CNV31SUC, CNV31KCORR);
+create index FCNV3112 on FCNV31 (CNV30PGCOD, CNV30CTNRO, CNV30EXFEC, CNV31FECHA, CNV31HORA);
+alter table FCNV31
+  add primary key (CNV30PGCOD, CNV30CTNRO, CNV30EXFEC, CNV05TEVAL, CNV31KCORR);
+

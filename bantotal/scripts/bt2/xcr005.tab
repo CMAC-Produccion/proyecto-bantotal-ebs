@@ -1,0 +1,28 @@
+create table XCR005
+(
+  xcrremp    NUMBER(3) not null,
+  xcrrcta    NUMBER(9) not null,
+  xcrrsbop   NUMBER(3) not null,
+  xcrrmda    NUMBER(4) not null,
+  xcrrnumc   NUMBER(9) not null,
+  xcrrstat   CHAR(1),
+  xcrrusing  CHAR(10),
+  xcrrfecing DATE,
+  xcrrhorain CHAR(8),
+  xcrhoraaut CHAR(8),
+  xcrrusaut  CHAR(10),
+  xcrrfecaut DATE,
+  xcrtipo    CHAR(1),
+  xcrrfchmay DATE,
+  xcrfotopol CHAR(10),
+  xcrrevusri CHAR(10),
+  xcrrevfeci DATE,
+  xcrrevhori CHAR(8),
+  xcrrevusra CHAR(10),
+  xcrrevfeca DATE,
+  xcrrevhora CHAR(8)
+)
+;
+alter table XCR005
+  add primary key (XCRREMP, XCRRCTA, XCRRSBOP, XCRRMDA, XCRRNUMC);
+

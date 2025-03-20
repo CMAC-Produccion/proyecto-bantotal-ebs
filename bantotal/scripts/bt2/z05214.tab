@@ -1,0 +1,12 @@
+create table Z05214
+(
+  z05214tarj CHAR(19) not null,
+  z05214nenv NUMBER(12) not null,
+  z05214desc CHAR(40),
+  z05214codi NUMBER(3),
+  z05214esta CHAR(1)
+)
+;
+alter table Z05214
+  add primary key (Z05214TARJ, Z05214NENV);
+

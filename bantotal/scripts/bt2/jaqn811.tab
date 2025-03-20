@@ -1,0 +1,55 @@
+create table JAQN811
+(
+  jaqn811emp NUMBER(3) not null,
+  jaqn811nta CHAR(19) not null,
+  jaqn811tta CHAR(1) not null,
+  jaqn811suc NUMBER(3) not null,
+  jaqn811pai NUMBER(3) not null,
+  jaqn811tdo NUMBER(2) not null,
+  jaqn811nro CHAR(12) not null,
+  jaqn811fec DATE not null,
+  jaqn811cor NUMBER(4) not null,
+  jaqn811ori CHAR(1),
+  jaqn811tdi CHAR(10),
+  jaqn811ido CHAR(25),
+  jaqn811tok CHAR(250),
+  jaqn811lin VARCHAR2(2000),
+  jaqn811lou VARCHAR2(2000)
+)
+;
+comment on table JAQN811
+  is 'DATOS CONTRATACION DIGITAL EMISION DE TARJETAS TDV';
+comment on column JAQN811.jaqn811emp
+  is 'Empresa';
+comment on column JAQN811.jaqn811nta
+  is 'Numero Tarjeta';
+comment on column JAQN811.jaqn811tta
+  is 'Tipo Tarjeta';
+comment on column JAQN811.jaqn811suc
+  is 'Sucursal';
+comment on column JAQN811.jaqn811pai
+  is 'Pais';
+comment on column JAQN811.jaqn811tdo
+  is 'Tipo Documento';
+comment on column JAQN811.jaqn811nro
+  is 'Numero Documento';
+comment on column JAQN811.jaqn811fec
+  is 'Fecha';
+comment on column JAQN811.jaqn811cor
+  is 'Correlativo';
+comment on column JAQN811.jaqn811ori
+  is 'Estado Original';
+comment on column JAQN811.jaqn811tdi
+  is 'Tipo Documento Digital';
+comment on column JAQN811.jaqn811ido
+  is 'ID Documento';
+comment on column JAQN811.jaqn811tok
+  is 'Token';
+comment on column JAQN811.jaqn811lin
+  is 'XML Request';
+comment on column JAQN811.jaqn811lou
+  is 'XML Response';
+create index JAQN8112 on JAQN811 (JAQN811EMP, JAQN811NTA, JAQN811SUC, JAQN811PAI, JAQN811TDO, JAQN811NRO, JAQN811FEC);
+alter table JAQN811
+  add primary key (JAQN811EMP, JAQN811NTA, JAQN811TTA, JAQN811SUC, JAQN811PAI, JAQN811TDO, JAQN811NRO, JAQN811FEC, JAQN811COR);
+

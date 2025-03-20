@@ -1,0 +1,24 @@
+create table FBC220
+(
+  bc220emp   NUMBER(3) not null,
+  bc220inf   CHAR(10) not null,
+  bc220finf  DATE not null,
+  bc220reg   NUMBER(3) not null,
+  bc220col   NUMBER(4) not null,
+  bc220reng  NUMBER(4) not null,
+  bc220cor   NUMBER(16) not null,
+  bc220fch   DATE,
+  bc220desc1 CHAR(35),
+  bc220desc2 CHAR(45),
+  bc220desc3 CHAR(60),
+  bc220sdo1  NUMBER(17,2),
+  bc220sdo2  NUMBER(17,2),
+  bc220sdo3  NUMBER(17,2),
+  bc220sdo4  NUMBER(17,2),
+  bc220sdo5  NUMBER(17,2),
+  bc220nro1  NUMBER(9)
+)
+;
+alter table FBC220
+  add primary key (BC220EMP, BC220INF, BC220FINF, BC220REG, BC220COL, BC220RENG, BC220COR);
+

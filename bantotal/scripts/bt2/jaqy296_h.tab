@@ -1,0 +1,33 @@
+create table JAQY296_H
+(
+  jaqy296emp       NUMBER(3) not null,
+  jaqy296mod       NUMBER(3) not null,
+  jaqy296suc       NUMBER(3) not null,
+  jaqy296trn       NUMBER(3) not null,
+  jaqy296nrel      NUMBER(4) not null,
+  jaqy296fch       DATE not null,
+  jaqy296numtra    VARCHAR2(20),
+  jaqy296nomope    CHAR(30),
+  jaqy296succta    CHAR(30),
+  jaqy296scnom     CHAR(30),
+  jaqy296numcta    VARCHAR2(40),
+  jaqy296hcta      NUMBER(9),
+  jaqy296titular   CHAR(140),
+  jaqy296desmda    VARCHAR2(3),
+  jaqy296monto     NUMBER(17,2),
+  jaqy296origenfon CHAR(70),
+  jaqy296tram      CHAR(30),
+  jaqy296tramnocli CHAR(140),
+  jaqy296tdoctram  CHAR(20),
+  jaqy296ndoctram  CHAR(12),
+  jaqy296usu       CHAR(10),
+  jaqy296listn     VARCHAR2(100),
+  jaqy296eje       CHAR(10),
+  jaqy296ana       CHAR(10),
+  jaqy296usuario   CHAR(10),
+  jaqy296hsucur    NUMBER(3),
+  jaqy296sucred    NUMBER(3)
+)
+;
+create index XN_JAQY296_H_01 on JAQY296_H (JAQY296USUARIO);
+

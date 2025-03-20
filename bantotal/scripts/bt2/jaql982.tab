@@ -1,0 +1,136 @@
+create table JAQL982
+(
+  jaql982reg  NUMBER(3),
+  jaql982ren  CHAR(40),
+  jaql982suc  NUMBER(3),
+  jaql982age  CHAR(30),
+  jaql982mda  NUMBER(4),
+  jaql982ana  VARCHAR2(10),
+  jaql982cta  NUMBER(9),
+  jaql982ope  NUMBER(9),
+  jaql982dia  NUMBER(9),
+  jaql982scap NUMBER(17,2),
+  jaql982scan NUMBER(17,2),
+  jaql982scar NUMBER(17,2),
+  jaql982scav NUMBER(17,2),
+  jaql982scvp NUMBER(17,2),
+  jaql982scvn NUMBER(17,2),
+  jaql982scvr NUMBER(17,2),
+  jaql982scaj NUMBER(17,2),
+  jaql982cod  NUMBER(9) not null,
+  jaql982scac NUMBER(17,2),
+  jaql982pcod NUMBER(3),
+  jaql982sbop NUMBER(3),
+  jaql982pap  NUMBER(4),
+  jaql982mod  NUMBER(3),
+  jaql982tope NUMBER(3),
+  jaql982fvto DATE,
+  jaql982tit  VARCHAR2(100),
+  jaql982tcr  NUMBER(1),
+  jaql982s15  NUMBER(17,2),
+  jaql982s30  NUMBER(17,2),
+  jaql982doc  CHAR(12),
+  jaql982tid  NUMBER(2),
+  jaql982gru  NUMBER(2),
+  jaql982rub  NUMBER(2),
+  jaql982sbs  VARCHAR2(30),
+  jaql982coz  NUMBER(3),
+  jaql982noz  VARCHAR2(50),
+  jaql982flg  CHAR(2),
+  jaql982rubr NUMBER(16),
+  jaql982scpv NUMBER(17,2),
+  jaql982scp1 NUMBER(17,2),
+  jaql982fval DATE,
+  jaql982pais NUMBER(3)
+)
+;
+comment on table JAQL982
+  is 'Cartera Creditos - Saldos Linea';
+comment on column JAQL982.jaql982reg
+  is 'Codigo Region';
+comment on column JAQL982.jaql982ren
+  is 'Region';
+comment on column JAQL982.jaql982suc
+  is 'Sucursal';
+comment on column JAQL982.jaql982age
+  is 'Agencia';
+comment on column JAQL982.jaql982mda
+  is 'Moneda';
+comment on column JAQL982.jaql982ana
+  is 'Codigo Analista';
+comment on column JAQL982.jaql982cta
+  is 'Cuenta';
+comment on column JAQL982.jaql982ope
+  is 'Operacion';
+comment on column JAQL982.jaql982dia
+  is 'Dias Atraso';
+comment on column JAQL982.jaql982scap
+  is 'Saldo Capital ';
+comment on column JAQL982.jaql982scan
+  is 'Saldo Capital Normal';
+comment on column JAQL982.jaql982scar
+  is 'Saldo Capital Refinanciado';
+comment on column JAQL982.jaql982scav
+  is 'Saldo Capital Vencido ';
+comment on column JAQL982.jaql982scvp
+  is 'Saldo Capital Vencido Prendario';
+comment on column JAQL982.jaql982scvn
+  is 'Saldo Capital Vencido Normal';
+comment on column JAQL982.jaql982scvr
+  is 'Saldo Capital Vencido Refinanciado';
+comment on column JAQL982.jaql982scaj
+  is 'Saldo Capital Judicial';
+comment on column JAQL982.jaql982cod
+  is 'Correlativo';
+comment on column JAQL982.jaql982scac
+  is 'Saldo Capital Castigado';
+comment on column JAQL982.jaql982pcod
+  is 'Pgcod';
+comment on column JAQL982.jaql982sbop
+  is 'SubOperacion';
+comment on column JAQL982.jaql982pap
+  is 'Papel';
+comment on column JAQL982.jaql982mod
+  is 'Modulo';
+comment on column JAQL982.jaql982tope
+  is 'Tipo Operacion';
+comment on column JAQL982.jaql982fvto
+  is 'Fecha Vcto';
+comment on column JAQL982.jaql982tit
+  is 'Titular';
+comment on column JAQL982.jaql982tcr
+  is 'Tipo de Credito';
+comment on column JAQL982.jaql982s15
+  is 'Saldo Mayor a 15 dias';
+comment on column JAQL982.jaql982s30
+  is 'Saldo Mayor a 30 dias';
+comment on column JAQL982.jaql982doc
+  is 'Documento Identidad';
+comment on column JAQL982.jaql982tid
+  is 'Tipo Documento';
+comment on column JAQL982.jaql982gru
+  is 'Producto SBS';
+comment on column JAQL982.jaql982rub
+  is 'Codigo Rubro para Producto SBS';
+comment on column JAQL982.jaql982sbs
+  is 'Descripcion Producto SBS ';
+comment on column JAQL982.jaql982noz
+  is 'Region CMAC-Zona  ';
+comment on column JAQL982.jaql982scpv
+  is 'Saldo Vencido Proyeccion ';
+comment on column JAQL982.jaql982scp1
+  is 'Saldo Vencido Proyeccion un dia';
+comment on column JAQL982.jaql982fval
+  is 'Fecha Desembolso';
+comment on column JAQL982.jaql982pais
+  is 'Pais';
+create index IX_JAQL982_ID4 on JAQL982 (JAQL982REG, JAQL982REN, JAQL982SUC, JAQL982FVTO, JAQL982AGE, JAQL982ANA, JAQL982SCAR, JAQL982SCVN, JAQL982SCAV, JAQL982SCAC, JAQL982COD, JAQL982SCAN, JAQL982SCAP, JAQL982CTA, JAQL982OPE);
+create index IX_JAQL982_ID5 on JAQL982 (JAQL982SBS, JAQL982COZ, JAQL982REG, JAQL982SUC, JAQL982ANA, JAQL982REN, JAQL982FVTO, JAQL982AGE, JAQL982SCAR, JAQL982SCVN, JAQL982SCAV, JAQL982SCAC, JAQL982COD, JAQL982SCAN, JAQL982SCAP, JAQL982CTA, JAQL982OPE);
+create index IX_JAQL9821 on JAQL982 (JAQL982ANA);
+create index JAQL982_ID1 on JAQL982 (JAQL982CTA, JAQL982OPE);
+create index JAQL982_ID2 on JAQL982 (JAQL982REG, JAQL982SUC, JAQL982ANA);
+create index JAQL982_ID3 on JAQL982 (JAQL982COZ, JAQL982REG, JAQL982SUC, JAQL982ANA);
+create index JAQL982_ID4 on JAQL982 (JAQL982SBS, JAQL982COZ, JAQL982REG, JAQL982SUC, JAQL982ANA);
+create index JAQL982_ID5 on JAQL982 (JAQL982SUC, JAQL982MDA, JAQL982CTA, JAQL982OPE, JAQL982PCOD, JAQL982SBOP, JAQL982PAP, JAQL982MOD, JAQL982TOPE);
+create index JAQL982_ID6 on JAQL982 (JAQL982PAIS, JAQL982TID, JAQL982DOC, JAQL982FVAL);
+

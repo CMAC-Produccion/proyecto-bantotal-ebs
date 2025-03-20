@@ -1,0 +1,10 @@
+create table JHSP05
+(
+  jhsp05emp NUMBER(3) not null,
+  jhsp05ped NUMBER(10) not null,
+  jhsp05mot VARCHAR2(100),
+  jhsp05fec DATE
+)
+;
+create unique index JHSP0501 on JHSP05 (JHSP05EMP, JHSP05PED);
+

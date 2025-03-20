@@ -1,0 +1,49 @@
+create table BEC030
+(
+  becprdid   NUMBER(10) not null,
+  beccliid   NUMBER(10) not null,
+  becctoid   NUMBER(10) not null,
+  becinstid  NUMBER(10) not null,
+  becmodid   NUMBER(10) not null,
+  becsrvid   NUMBER(10) not null,
+  beclogfec  DATE not null,
+  beclogid   NUMBER(10) not null,
+  beclogtip  NUMBER(3),
+  becloghor  CHAR(8),
+  beclogusu1 CHAR(10),
+  beclogmod1 NUMBER(10),
+  beclogsrv1 NUMBER(10),
+  beclogemp1 NUMBER(3),
+  beclogsuc1 NUMBER(3),
+  beclogrub1 NUMBER(16),
+  beclogmda1 NUMBER(4),
+  beclogpap1 NUMBER(4),
+  beclogcta1 NUMBER(8),
+  beclogope1 NUMBER(4),
+  beclogsop1 NUMBER(3),
+  beclogtop1 NUMBER(3),
+  beclogemp2 NUMBER(3),
+  beclogsuc2 NUMBER(3),
+  beclogrub2 NUMBER(16),
+  beclogmda2 NUMBER(4),
+  beclogpap2 NUMBER(4),
+  beclogcta2 NUMBER(8),
+  beclogope2 NUMBER(4),
+  beclogsop2 NUMBER(3),
+  beclogtop2 NUMBER(3),
+  beclogimp  NUMBER(17,2),
+  beclogfol  NUMBER(10),
+  beclogdsc  CHAR(35),
+  beclogusu  CHAR(10),
+  beclogwst  CHAR(20),
+  beclogsesf DATE,
+  beclogsesi CHAR(30),
+  beclogprg  CHAR(10),
+  beclogsncf DATE
+)
+;
+create index BEC03002 on BEC030 (BECPRDID, BECMODID, BECSRVID);
+create index BEC03005 on BEC030 (BECPRDID, BECCLIID, BECCTOID, BECLOGUSU, BECLOGFEC, BECMODID, BECSRVID);
+alter table BEC030
+  add primary key (BECPRDID, BECCLIID, BECCTOID, BECINSTID, BECMODID, BECSRVID, BECLOGFEC, BECLOGID);
+

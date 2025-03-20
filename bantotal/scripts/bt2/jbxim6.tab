@@ -1,0 +1,19 @@
+create table JBXIM6
+(
+  jbxim6fin DATE not null,
+  jbxim6fei DATE not null,
+  jbxim6cbc NUMBER(6) not null,
+  jbxim6cen NUMBER(11) not null,
+  jbxim6mda CHAR(4) not null,
+  jbxim6cca NUMBER(1),
+  jbxim6bib CHAR(2),
+  jbxim6sab NUMBER(17,2),
+  jbxim6sam NUMBER(17,2),
+  jbxim6spr NUMBER(17,2),
+  jbxim6spm NUMBER(17,2),
+  jbxim6mbt NUMBER(4)
+)
+;
+create unique index JBXIM601 on JBXIM6 (JBXIM6FIN, JBXIM6FEI, JBXIM6CBC, JBXIM6CEN, JBXIM6MDA);
+create index JBXIM602 on JBXIM6 (JBXIM6FIN, JBXIM6CEN, JBXIM6MDA, JBXIM6FEI);
+

@@ -1,0 +1,87 @@
+create table AQPB397
+(
+  aqpb397fec     DATE not null,
+  aqpb397pais    NUMBER(3) not null,
+  aqpb397tdoc    NUMBER(2) not null,
+  aqpb397ndoc    CHAR(12) not null,
+  aqpb397fecsis  DATE,
+  aqpb397mod     NUMBER(3),
+  aqpb397cta     NUMBER(9),
+  aqpb397oper    NUMBER(9),
+  aqpb397tope    NUMBER(3),
+  aqpb397aofval  DATE,
+  aqpb397stat    NUMBER(2),
+  aqpb397ori     NUMBER(2),
+  aqpb397estrab  VARCHAR2(1),
+  aqpb397tcred   VARCHAR2(4),
+  aqpb397eval    VARCHAR2(1),
+  aqpb397inst    NUMBER(10),
+  aqpb397succred NUMBER(3),
+  aqpb397sucdes  NUMBER(3),
+  aqpb397ape1    VARCHAR2(30),
+  aqpb397ape2    VARCHAR2(30),
+  aqpb397nom1    VARCHAR2(30),
+  aqpb397nom2    VARCHAR2(30),
+  aqpb397razs    VARCHAR2(70),
+  aqpb397usr     VARCHAR2(10),
+  aqpb397fcr     VARCHAR2(10),
+  aqpb397hcr     VARCHAR2(10)
+)
+;
+comment on table AQPB397
+  is 'Tabla log campaña escolar';
+comment on column AQPB397.aqpb397fec
+  is 'fecha';
+comment on column AQPB397.aqpb397pais
+  is 'pais';
+comment on column AQPB397.aqpb397tdoc
+  is 'tipo documento';
+comment on column AQPB397.aqpb397ndoc
+  is 'numero documento';
+comment on column AQPB397.aqpb397fecsis
+  is 'fecha sistema';
+comment on column AQPB397.aqpb397mod
+  is 'modulo del credito';
+comment on column AQPB397.aqpb397cta
+  is 'cuenta';
+comment on column AQPB397.aqpb397oper
+  is 'operacion';
+comment on column AQPB397.aqpb397tope
+  is 'tipo operacion';
+comment on column AQPB397.aqpb397aofval
+  is 'fecha desembolso fsd010';
+comment on column AQPB397.aqpb397stat
+  is 'estado fsd010';
+comment on column AQPB397.aqpb397ori
+  is 'ori sng001';
+comment on column AQPB397.aqpb397estrab
+  is 'flag es trabajador';
+comment on column AQPB397.aqpb397tcred
+  is 'tipo de credito';
+comment on column AQPB397.aqpb397eval
+  is 'evaluacion procedimiento';
+comment on column AQPB397.aqpb397inst
+  is 'Instancia';
+comment on column AQPB397.aqpb397succred
+  is 'sucursal del credito';
+comment on column AQPB397.aqpb397sucdes
+  is 'sucursal del desembolos';
+comment on column AQPB397.aqpb397ape1
+  is '1er apellido cliente';
+comment on column AQPB397.aqpb397ape2
+  is '2do apellido cliente';
+comment on column AQPB397.aqpb397nom1
+  is '1er nombre cliente';
+comment on column AQPB397.aqpb397nom2
+  is '2do nombre cliente';
+comment on column AQPB397.aqpb397razs
+  is 'razon social';
+comment on column AQPB397.aqpb397usr
+  is 'usuario creacion';
+comment on column AQPB397.aqpb397fcr
+  is 'fecha creacion';
+comment on column AQPB397.aqpb397hcr
+  is 'hora creacion';
+alter table AQPB397
+  add primary key (AQPB397FEC, AQPB397PAIS, AQPB397TDOC, AQPB397NDOC);
+

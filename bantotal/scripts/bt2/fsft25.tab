@@ -1,0 +1,11 @@
+create table FSFT25
+(
+  pgcod  NUMBER(3) not null,
+  kwzcod NUMBER(5) not null,
+  kwzfch DATE not null,
+  kwzpag NUMBER(6)
+)
+;
+alter table FSFT25
+  add primary key (PGCOD, KWZCOD, KWZFCH);
+

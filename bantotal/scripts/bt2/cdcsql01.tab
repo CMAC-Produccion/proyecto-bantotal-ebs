@@ -1,0 +1,15 @@
+create table CDCSQL01
+(
+  cdcsqlid   NUMBER(18) not null,
+  cdcsqlinid NUMBER(18) not null,
+  cdcsqlinfm DATE,
+  cdcsqlinus CHAR(10),
+  cdcsqlinti NUMBER(4),
+  cdcsqlsqlt LONG,
+  cdcsqlvali CHAR(1),
+  cdcsqltipr NUMBER(4)
+)
+;
+alter table CDCSQL01
+  add primary key (CDCSQLID, CDCSQLINID);
+

@@ -1,0 +1,30 @@
+create table FSH021
+(
+  sbcod    NUMBER(3) not null,
+  sbmod    NUMBER(3) not null,
+  sbsuc    NUMBER(3) not null,
+  sbmda    NUMBER(4) not null,
+  sbpap    NUMBER(4) not null,
+  sbcta    NUMBER(9) not null,
+  sboper   NUMBER(9) not null,
+  sbsbop   NUMBER(3) not null,
+  sbtope   NUMBER(3) not null,
+  sbfech   DATE not null,
+  sbsdo    NUMBER(17,2),
+  sbgira   NUMBER(17,2),
+  sbchqdev NUMBER(17,2),
+  sbsdo1   NUMBER(17,2),
+  sbsdo2   NUMBER(17,2),
+  sbcdeb   NUMBER(5),
+  sbccre   NUMBER(5),
+  sbtdeb   NUMBER(17,2),
+  sbtcre   NUMBER(17,2),
+  sbcmov   NUMBER(6,2),
+  sbtmin   NUMBER(10,6),
+  sbtmax   NUMBER(10,6),
+  sbtpro   NUMBER(10,6)
+)
+;
+alter table FSH021
+  add primary key (SBCOD, SBMOD, SBSUC, SBMDA, SBPAP, SBCTA, SBOPER, SBSBOP, SBTOPE, SBFECH);
+

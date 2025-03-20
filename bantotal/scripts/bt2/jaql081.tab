@@ -1,0 +1,41 @@
+create table JAQL081
+(
+  jaql81fepr DATE not null,
+  jaql81user CHAR(10) not null,
+  jaql81pgco NUMBER(3) not null,
+  jaql81scsu NUMBER(3) not null,
+  jaql81scmd NUMBER(3) not null,
+  jaql81scmo NUMBER(4) not null,
+  jaql81scpa NUMBER(4) not null,
+  jaql81scct NUMBER(9) not null,
+  jaql81scop NUMBER(9) not null,
+  jaql81scsb NUMBER(3) not null,
+  jaql81scto NUMBER(3) not null,
+  jaql81feva DATE,
+  jaql81feca DATE,
+  jaql81tipo CHAR(2),
+  jaql81mtap NUMBER(17,2),
+  jaql81mtsp NUMBER(17,2),
+  jaql81mtre NUMBER(17,2),
+  jaql81mtca NUMBER(17,2),
+  jaql81clnu CHAR(1),
+  jaql81au01 CHAR(50),
+  jaql81au02 CHAR(50),
+  jaql81au03 CHAR(50),
+  jaql81au04 NUMBER(9),
+  jaql81au05 NUMBER(9),
+  jaql81au06 NUMBER(9),
+  jaql81au07 NUMBER(17,2),
+  jaql81au08 NUMBER(17,2),
+  jaql81au09 NUMBER(17,2),
+  jaql81au10 DATE,
+  jaql81au11 DATE,
+  jaql81au12 DATE,
+  jaql81tipe NUMBER(1)
+)
+;
+create index JAQL8110002 on JAQL081 (JAQL81FEPR, JAQL81USER, JAQL81SCMD, JAQL81SCTO);
+create index JAQL8110003 on JAQL081 (JAQL81FEPR, JAQL81USER, JAQL81TIPO);
+alter table JAQL081
+  add primary key (JAQL81FEPR, JAQL81USER, JAQL81PGCO, JAQL81SCSU, JAQL81SCMD, JAQL81SCMO, JAQL81SCPA, JAQL81SCCT, JAQL81SCOP, JAQL81SCSB, JAQL81SCTO);
+

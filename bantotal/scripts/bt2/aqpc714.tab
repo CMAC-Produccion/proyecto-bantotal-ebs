@@ -1,0 +1,39 @@
+create table AQPC714
+(
+  aqpc714emp  NUMBER(9) not null,
+  aqpc714cmsg NUMBER(9) not null,
+  aqpc714dmsg VARCHAR2(250),
+  aqpc714ehab CHAR(1),
+  aqpc714freg TIMESTAMP(6),
+  aqpc714ureg CHAR(10),
+  aqpc714fupd TIMESTAMP(6),
+  aqpc714uupd CHAR(10),
+  aqpc714pqt  VARCHAR2(50),
+  aqpc714prd  VARCHAR2(50)
+)
+;
+comment on table AQPC714
+  is 'TABLA MAESTRA DE MENSAJES RTE';
+comment on column AQPC714.aqpc714emp
+  is 'EMPRESA';
+comment on column AQPC714.aqpc714cmsg
+  is 'CODIGO DE MENSAJE';
+comment on column AQPC714.aqpc714dmsg
+  is 'MENSAJE';
+comment on column AQPC714.aqpc714ehab
+  is 'ESTADO';
+comment on column AQPC714.aqpc714freg
+  is 'FECHA DE REGISTRO';
+comment on column AQPC714.aqpc714ureg
+  is 'USUARIO DE REGISTRO';
+comment on column AQPC714.aqpc714fupd
+  is 'FECHA DE ACTUALIZACION';
+comment on column AQPC714.aqpc714uupd
+  is 'USUARIO QUE ACTUALIZO';
+comment on column AQPC714.aqpc714pqt
+  is 'PAQUETE';
+comment on column AQPC714.aqpc714prd
+  is 'PROCEDIMIENTO';
+alter table AQPC714
+  add primary key (AQPC714EMP, AQPC714CMSG);
+

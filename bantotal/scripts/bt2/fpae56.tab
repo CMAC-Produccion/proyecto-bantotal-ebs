@@ -1,0 +1,12 @@
+create table FPAE56
+(
+  pae51eva  NUMBER(3) not null,
+  pae56mom  CHAR(1) not null,
+  pae56corr NUMBER(3) not null,
+  pae54cod  NUMBER(5)
+)
+;
+create index FPAE5602 on FPAE56 (PAE54COD);
+alter table FPAE56
+  add primary key (PAE51EVA, PAE56MOM, PAE56CORR);
+

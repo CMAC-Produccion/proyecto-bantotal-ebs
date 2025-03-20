@@ -1,0 +1,17 @@
+create table FSFI92
+(
+  sfi92emp  NUMBER(3) not null,
+  sfi92mer  NUMBER(3) not null,
+  sfi92pro  NUMBER(3) not null,
+  sfi92mliq NUMBER(3) not null,
+  sfi92hab  CHAR(1),
+  sfi92aux1 CHAR(1),
+  sfi92aux2 CHAR(1),
+  sfi92aux3 CHAR(1),
+  sfi92aux4 CHAR(1),
+  sfi92aux5 CHAR(1)
+)
+;
+alter table FSFI92
+  add primary key (SFI92EMP, SFI92MER, SFI92PRO, SFI92MLIQ);
+

@@ -1,0 +1,27 @@
+create table SD4307
+(
+  sd07coddis NUMBER(4) not null,
+  sd07codent NUMBER(5) not null,
+  sd07fchinf NUMBER(6) not null,
+  sd07tpoid  NUMBER(2) not null,
+  sd07nroid  CHAR(11) not null,
+  sd07pdrpc  NUMBER(10),
+  sd07pndrpc NUMBER(10),
+  sd07adcc1  NUMBER(10),
+  sd07adcc2  NUMBER(10),
+  sd07adcc3  NUMBER(10),
+  sd07resev1 NUMBER(10),
+  sd07resev2 NUMBER(10),
+  sd07resev3 NUMBER(10),
+  sd07gtacca NUMBER(10),
+  sd07gtaccb NUMBER(10),
+  sd07gtasc  NUMBER(10),
+  sd07sdoirr NUMBER(10),
+  sd07sdofin NUMBER(10),
+  sd07rectif CHAR(1),
+  sd07sinuso CHAR(11)
+)
+;
+alter table SD4307
+  add primary key (SD07CODDIS, SD07CODENT, SD07FCHINF, SD07TPOID, SD07NROID);
+

@@ -1,0 +1,71 @@
+create table JAQN71
+(
+  jaqn71cpr VARCHAR2(50) not null,
+  jaqn71cao VARCHAR2(50) not null,
+  jaqn71can VARCHAR2(50) not null,
+  jaqn71suc NUMBER(3),
+  jaqn71fec DATE,
+  jaqn71usu CHAR(10),
+  jaqn71hor VARCHAR2(8),
+  jaqn71mtv VARCHAR2(250),
+  jaqn71nu1 NUMBER(9),
+  jaqn71nu2 NUMBER(9),
+  jaqn71nu3 NUMBER(9),
+  jaqn71va1 VARCHAR2(250),
+  jaqn71va2 VARCHAR2(250),
+  jaqn71va3 VARCHAR2(250),
+  jaqn71da1 DATE,
+  jaqn71da2 DATE,
+  jaqn71da3 DATE,
+  jaqn71im1 NUMBER(17,2),
+  jaqn71im2 NUMBER(17,2),
+  jaqn71im3 NUMBER(17,2)
+)
+;
+comment on table JAQN71
+  is 'Tabla de intercambios articulos - Campaña de ahorros';
+comment on column JAQN71.jaqn71cpr
+  is 'Codigo de Premio';
+comment on column JAQN71.jaqn71cao
+  is 'Codigo de Articulo Original';
+comment on column JAQN71.jaqn71can
+  is 'Codigo de Articulo Nuevo';
+comment on column JAQN71.jaqn71suc
+  is 'Sucursal';
+comment on column JAQN71.jaqn71fec
+  is 'Fecha';
+comment on column JAQN71.jaqn71usu
+  is 'Usuario';
+comment on column JAQN71.jaqn71hor
+  is 'Hora';
+comment on column JAQN71.jaqn71mtv
+  is 'Motivo';
+comment on column JAQN71.jaqn71nu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN71.jaqn71nu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN71.jaqn71nu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQN71.jaqn71va1
+  is 'Auxiliar Varchar 1';
+comment on column JAQN71.jaqn71va2
+  is 'Auxiliar Varchar 2';
+comment on column JAQN71.jaqn71va3
+  is 'Auxiliar Varchar 3';
+comment on column JAQN71.jaqn71da1
+  is 'Auxiliar Date 1';
+comment on column JAQN71.jaqn71da2
+  is 'Auxiliar Date 2';
+comment on column JAQN71.jaqn71da3
+  is 'Auxiliar Date 3';
+comment on column JAQN71.jaqn71im1
+  is 'Auxiliar Importe 1';
+comment on column JAQN71.jaqn71im2
+  is 'Auxiliar Importe 2';
+comment on column JAQN71.jaqn71im3
+  is 'Auxiliar Importe 3';
+create index JAQN71A2 on JAQN71 (JAQN71CPR, JAQN71CAO, JAQN71CAN, JAQN71SUC, JAQN71USU);
+create index JAQN71A3 on JAQN71 (JAQN71CPR, JAQN71FEC);
+alter table JAQN71
+  add primary key (JAQN71CPR, JAQN71CAO, JAQN71CAN);
+

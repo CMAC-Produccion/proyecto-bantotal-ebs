@@ -1,0 +1,17 @@
+create table HBK001
+(
+  hbk001ppf NUMBER(3) not null,
+  hbk001tpf NUMBER(2) not null,
+  hbk001npf CHAR(12) not null,
+  hbk001ppj NUMBER(3) not null,
+  hbk001tpj NUMBER(2) not null,
+  hbk001npj CHAR(12) not null,
+  hbk001tpe CHAR(1),
+  hbk001nom CHAR(30),
+  hbk001hab CHAR(1)
+)
+;
+create index HBK00102 on HBK001 (HBK001PPJ, HBK001TPJ, HBK001NPJ, HBK001PPF, HBK001TPF, HBK001NPF);
+alter table HBK001
+  add primary key (HBK001PPF, HBK001TPF, HBK001NPF, HBK001PPJ, HBK001TPJ, HBK001NPJ);
+

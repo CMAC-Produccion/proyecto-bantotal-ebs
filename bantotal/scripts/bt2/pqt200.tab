@@ -1,0 +1,36 @@
+create table PQT200
+(
+  pqt200usr  CHAR(10) not null,
+  pqt200tip  CHAR(1) not null,
+  pqt200pqt  NUMBER(5) not null,
+  pqt200cta  NUMBER(9) not null,
+  pqt200mod  NUMBER(3) not null,
+  pqt200tpe  NUMBER(3) not null,
+  pqt200mda  NUMBER(4) not null,
+  pqt200pap  NUMBER(4) not null,
+  pqt200suc  NUMBER(3) not null,
+  pqt200sbop NUMBER(3) not null,
+  pqt200oper NUMBER(9) not null,
+  pqt200sel  CHAR(1),
+  pqt200cnt  NUMBER(3),
+  pqt200opc  CHAR(1),
+  pqt200pcom CHAR(1),
+  pqt200acu  CHAR(1),
+  pqt200ctd  CHAR(1),
+  pqt200ptd  CHAR(1),
+  pqt200mac  NUMBER(3),
+  pqt200tac  NUMBER(3),
+  pqt200pac  NUMBER(5),
+  pqt200rat  CHAR(1),
+  pqt200cts  NUMBER(2),
+  pqt200ta   NUMBER(10,6),
+  pqt200tpl  NUMBER(10,6),
+  pqt200dre  NUMBER(5),
+  pqt200mdac NUMBER(4),
+  pqt200mtac NUMBER(17,2),
+  pqt200nac  CHAR(1)
+)
+;
+alter table PQT200
+  add primary key (PQT200USR, PQT200TIP, PQT200PQT, PQT200CTA, PQT200MOD, PQT200TPE, PQT200MDA, PQT200PAP, PQT200SUC, PQT200SBOP, PQT200OPER);
+

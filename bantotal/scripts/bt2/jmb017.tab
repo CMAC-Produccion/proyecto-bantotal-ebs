@@ -1,0 +1,14 @@
+create table JMB017
+(
+  jmb017pais NUMBER(3) not null,
+  jmb017ndoc CHAR(12) not null,
+  jmb017tdoc NUMBER(2) not null,
+  jmb017doco NUMBER(2) not null,
+  jmb017corr NUMBER(2) not null,
+  jmb016tpot NUMBER(3)
+)
+;
+create index JMB01702 on JMB017 (JMB016TPOT);
+alter table JMB017
+  add primary key (JMB017PAIS, JMB017NDOC, JMB017TDOC, JMB017DOCO, JMB017CORR);
+

@@ -1,0 +1,45 @@
+create table Z073B1
+(
+  z073b1emp NUMBER(3) not null,
+  z073b1cod NUMBER(9) not null,
+  z073b1usu CHAR(10),
+  z073b1fch DATE,
+  z073b1cie DATE,
+  z073b1cob DATE,
+  z073b1est CHAR(15),
+  z073b1eju NUMBER(3),
+  z073b1mon NUMBER(17,2),
+  z073b1otr NUMBER(17,2),
+  z073b1oju CHAR(100),
+  z073ascod NUMBER(3),
+  z073b1sol NUMBER(9),
+  z073b1cor NUMBER(3),
+  z073arcod NUMBER(5),
+  z073aqcod NUMBER(5),
+  z073b1rol CHAR(30),
+  z073apcod NUMBER(3),
+  z073b1cua NUMBER(17,2),
+  z073b1gar CHAR(100),
+  z073b1dem DATE,
+  z073b1tg  NUMBER(3),
+  z073b1rep CHAR(30),
+  z073b1cta NUMBER(9),
+  z073b1ege NUMBER(3),
+  z073b1fes DATE,
+  z073b1res CHAR(15),
+  z073b1vto DATE,
+  z073b1mo  CHAR(2),
+  z073b1obs CHAR(50),
+  z073b1rej NUMBER(9),
+  z073b1fre DATE,
+  z073b1cju CHAR(30)
+)
+;
+create index Z073B102 on Z073B1 (Z073B1EMP, Z073B1COD, Z073B1USU, Z073B1FCH, Z073B1CIE);
+create index Z073B103 on Z073B1 (Z073B1EMP, Z073B1CTA, Z073B1FCH);
+create index Z073B104 on Z073B1 (Z073B1EMP, Z073ASCOD, Z073B1MO);
+create index Z073B105 on Z073B1 (Z073ASCOD);
+create index Z073B109 on Z073B1 (Z073B1EMP, Z073B1SOL);
+alter table Z073B1
+  add primary key (Z073B1EMP, Z073B1COD);
+

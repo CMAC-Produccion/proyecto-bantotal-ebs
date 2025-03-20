@@ -1,0 +1,13 @@
+create table FST217
+(
+  catcod     NUMBER(5) not null,
+  tipdeucod  NUMBER(2) not null,
+  catcate    CHAR(15) not null,
+  tipcatpzoh NUMBER(16)
+)
+;
+create index FST21203 on FST217 (TIPDEUCOD);
+create index FST21702 on FST217 (CATCOD, CATCATE);
+alter table FST217
+  add primary key (CATCOD, TIPDEUCOD, CATCATE);
+

@@ -1,0 +1,113 @@
+create table JAQM8B
+(
+  jaqm8bins  NUMBER(10) not null,
+  jaqm8bfso  DATE not null,
+  jaqm8bhor  CHAR(10) not null,
+  jaqm8bcta  NUMBER(9),
+  jaqm8bpai  NUMBER(3),
+  jaqm8btdoc NUMBER(2),
+  jaqm8bndoc CHAR(12),
+  jaqm8bmnt  NUMBER(17,2),
+  jaqm8bseg  CHAR(50),
+  jaqm8bsre  CHAR(50),
+  jaqm8btips CHAR(30),
+  jaqm8bsus  LONG,
+  jaqm8bopc  CHAR(30),
+  jaqm8binst CHAR(50),
+  jaqm8barc  VARCHAR2(200),
+  jaqm8blug  VARCHAR2(255),
+  jaqm8best  CHAR(1),
+  jaqm8busui CHAR(10),
+  jaqm8bsuci NUMBER(3),
+  jaqm8busue CHAR(10),
+  jaqm8bsuce NUMBER(3),
+  jaqm8bfej  DATE,
+  jaqm8ban1  NUMBER(9),
+  jaqm8ban2  NUMBER(9),
+  jaqm8ban3  NUMBER(9),
+  jaqm8bac1  VARCHAR2(255),
+  jaqm8bac2  VARCHAR2(255),
+  jaqm8bac3  VARCHAR2(255),
+  jaqm8bai1  NUMBER(17,2),
+  jaqm8bai2  NUMBER(17,2),
+  jaqm8bai3  NUMBER(17,2),
+  jaqm8baf1  DATE,
+  jaqm8baf2  DATE,
+  jaqm8baf3  DATE
+)
+;
+comment on table JAQM8B
+  is 'LOG DE SOLICITUD DE CAMBIO DE SEGMENTACION';
+comment on column JAQM8B.jaqm8bins
+  is 'INSTANCIA';
+comment on column JAQM8B.jaqm8bfso
+  is 'FECHA DE SOLICITUD';
+comment on column JAQM8B.jaqm8bhor
+  is 'HORA DE REGISTRO';
+comment on column JAQM8B.jaqm8bcta
+  is 'CUENTA';
+comment on column JAQM8B.jaqm8bpai
+  is 'PAIS';
+comment on column JAQM8B.jaqm8btdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column JAQM8B.jaqm8bndoc
+  is 'NRO DE DOCUMENTO';
+comment on column JAQM8B.jaqm8bmnt
+  is 'MONTO SOLICITUD';
+comment on column JAQM8B.jaqm8bseg
+  is 'SEGMENTACION';
+comment on column JAQM8B.jaqm8bsre
+  is 'CALIFICACION DE SEGMENTACION';
+comment on column JAQM8B.jaqm8btips
+  is 'TIPO';
+comment on column JAQM8B.jaqm8bsus
+  is 'SUSTENTO';
+comment on column JAQM8B.jaqm8bopc
+  is 'OPCION';
+comment on column JAQM8B.jaqm8binst
+  is 'INSTITUCION';
+comment on column JAQM8B.jaqm8barc
+  is 'ARCHIVO';
+comment on column JAQM8B.jaqm8blug
+  is 'LUGAR';
+comment on column JAQM8B.jaqm8best
+  is 'ESTADO';
+comment on column JAQM8B.jaqm8busui
+  is 'USUARIO INGRESO';
+comment on column JAQM8B.jaqm8bsuci
+  is 'SUCURSAL INGRESO';
+comment on column JAQM8B.jaqm8busue
+  is 'USUARIO EJECUCION';
+comment on column JAQM8B.jaqm8bsuce
+  is 'SUCURSAL EJECUCION';
+comment on column JAQM8B.jaqm8bfej
+  is 'FECHA DE EJECUCION';
+comment on column JAQM8B.jaqm8ban1
+  is 'AUXILIAR ENTERO 1';
+comment on column JAQM8B.jaqm8ban2
+  is 'AUXILIAR ENTERO 2';
+comment on column JAQM8B.jaqm8ban3
+  is 'AUXILIAR ENTERO 3';
+comment on column JAQM8B.jaqm8bac1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM8B.jaqm8bac2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM8B.jaqm8bac3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM8B.jaqm8bai1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQM8B.jaqm8bai2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQM8B.jaqm8bai3
+  is 'AUXILIAR NUMERICO 3';
+comment on column JAQM8B.jaqm8baf1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM8B.jaqm8baf2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM8B.jaqm8baf3
+  is 'AUXILIAR FECHA 3';
+create index JAQM8BA2 on JAQM8B (JAQM8BINS, JAQM8BFSO, JAQM8BEST, JAQM8BUSUE);
+create index JAQM8BA3 on JAQM8B (JAQM8BFSO);
+alter table JAQM8B
+  add primary key (JAQM8BINS, JAQM8BFSO, JAQM8BHOR);
+

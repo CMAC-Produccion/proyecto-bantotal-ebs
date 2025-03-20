@@ -1,0 +1,91 @@
+create table AQPC594
+(
+  aqpc594idcajmov NUMBER,
+  aqpc594mes      DATE,
+  aqpc594codpe    VARCHAR2(20),
+  aqpc594nompe    VARCHAR2(100),
+  aqpc594prosbs   VARCHAR2(50),
+  aqpc594secli    VARCHAR2(50),
+  aqpc594gecli    VARCHAR2(50),
+  aqpc594fenac    DATE,
+  aqpc594edad     NUMBER(3),
+  aqpc594telpe    VARCHAR2(20),
+  aqpc594telp2    VARCHAR2(20),
+  aqpc594telp3    VARCHAR2(20),
+  aqpc594codag    VARCHAR2(15),
+  aqpc594desag    VARCHAR2(30),
+  aqpc594depag    VARCHAR2(30),
+  aqpc594proag    VARCHAR2(30),
+  aqpc594dereg    VARCHAR2(30),
+  aqpc594dezon    VARCHAR2(40),
+  aqpc594depro    VARCHAR2(50),
+  aqpc594dnius    VARCHAR2(20),
+  aqpc594codan    VARCHAR2(20),
+  aqpc594noman    VARCHAR2(50),
+  aqpc594tipca    VARCHAR2(50),
+  aqpc594cargo    VARCHAR2(50),
+  aqpc594codrs    VARCHAR2(15),
+  aqpc594nomrs    VARCHAR2(100),
+  aqpc594nom1     VARCHAR2(50),
+  aqpc594corr     VARCHAR2(100),
+  aqpc594fechor   TIMESTAMP(6),
+  aqpc594user     VARCHAR2(12),
+  aqpc594mot      VARCHAR2(200)
+)
+;
+comment on table AQPC594
+  is 'TABLA FINAL REPORTE DESEMBOLSO';
+comment on column AQPC594.aqpc594mes
+  is 'FECHA DE OPERACION EN NUMERO DE MES';
+comment on column AQPC594.aqpc594codpe
+  is 'DNI CLIENTE QUE APERTURO LA CUENTA';
+comment on column AQPC594.aqpc594nompe
+  is 'NOMBRE DE CLIENTE QUE APERTURO LA CUENTA';
+comment on column AQPC594.aqpc594prosbs
+  is 'TIPO DE CLIENTE SEGUN SBS QUE APERTURO LA CUENTA';
+comment on column AQPC594.aqpc594secli
+  is 'SEGMENTO DE CREDITO QUIEN APERTURO LA CUENTA';
+comment on column AQPC594.aqpc594gecli
+  is 'GENERO DEL CLIENTE QUIEN APERTURO LA CUENTA';
+comment on column AQPC594.aqpc594fenac
+  is 'FECHA EN QUE NACIO EL CLIENTE EN FORMATO DD/MM//YYYY';
+comment on column AQPC594.aqpc594edad
+  is 'EDAD';
+comment on column AQPC594.aqpc594telpe
+  is 'CELULAR 1';
+comment on column AQPC594.aqpc594telp2
+  is 'CELULAR 2';
+comment on column AQPC594.aqpc594telp3
+  is 'CELULAR 3';
+comment on column AQPC594.aqpc594codag
+  is 'CODIGO AGENCIA';
+comment on column AQPC594.aqpc594desag
+  is 'AGENCIA DONDE EL CLIENTE REALIZO EL DESEMBOLSO';
+comment on column AQPC594.aqpc594proag
+  is 'PROVINCIA DE LA AGENCIA DONDE SE REALIZO EL DESEMBOLSO';
+comment on column AQPC594.aqpc594dereg
+  is 'REGION DE CREDITOS DE LA AGENCIA DONDE SE REALIZO EL DESEMBOLSO';
+comment on column AQPC594.aqpc594dezon
+  is 'ZONA DE CREDITOS DE LA AGENCIA DONDE SE REALIZO EL DESEMBOLSO';
+comment on column AQPC594.aqpc594depro
+  is 'PRODUCTO';
+comment on column AQPC594.aqpc594dnius
+  is 'DNI ANALISTA QUE GENERO EL CREDITO';
+comment on column AQPC594.aqpc594codan
+  is 'EL CODIGO DEL ANALISTA DE CREDITO';
+comment on column AQPC594.aqpc594noman
+  is 'NOMBRE COMPLETO DEL ANALISTA';
+comment on column AQPC594.aqpc594tipca
+  is 'CARTERA';
+comment on column AQPC594.aqpc594cargo
+  is 'CARGO QUE INDICA EL REPORTE DE DATA UBICACION DEL ANALISTA';
+comment on column AQPC594.aqpc594codrs
+  is 'CODIGO DEL REPRESENTANTE DE SERVICIO QUE ATENDIO EL DESEMBOLSO';
+comment on column AQPC594.aqpc594nomrs
+  is 'NOMBRE COMPLETO DEL REPRESENTANTE DE SERVICIO';
+comment on column AQPC594.aqpc594nom1
+  is 'PRIMER NOMBRE DEL CLIENTE';
+comment on column AQPC594.aqpc594corr
+  is 'CORREO DEL CLIENTE QUE ACTUALIZO';
+create index AQPC594A2 on AQPC594 (AQPC594DNIUS);
+

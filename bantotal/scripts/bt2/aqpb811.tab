@@ -1,0 +1,94 @@
+create table AQPB811
+(
+  aqpb811fec  DATE,
+  aqpb811csu  NUMBER(4),
+  aqpb811suc  CHAR(30),
+  aqpb811mda  NUMBER(4),
+  aqpb811tdoc NUMBER(2) not null,
+  aqpb811ndoc CHAR(12) not null,
+  aqpb811titu CHAR(30),
+  aqpb811cta  NUMBER(9),
+  aqpb811ope  NUMBER(9),
+  aqpb811sub  NUMBER(3),
+  aqpb811imp  NUMBER(17,2),
+  aqpb811modt NUMBER(3) not null,
+  aqpb811suct NUMBER(3) not null,
+  aqpb811trat NUMBER(3) not null,
+  aqpb811tran CHAR(30),
+  aqpb811relt NUMBER(4) not null,
+  aqpb811fet  DATE not null,
+  aqpb811fev  DATE,
+  aqpb811hor  CHAR(8),
+  aqpb811esc  NUMBER(5),
+  aqpb811ust  CHAR(10),
+  aqpb811tis  NUMBER,
+  aqpb811sbn  CHAR(20),
+  aqpb811gru  CHAR(30),
+  aqpb811mmn  NUMBER(17,2),
+  aqpb811estc VARCHAR2(35),
+  aqpb811fval DATE,
+  aqpb811hord NUMBER(2),
+  aqpb811modu NUMBER(3)
+)
+;
+comment on table AQPB811
+  is 'saldos detallado para reporte 25';
+comment on column AQPB811.aqpb811fec
+  is 'fecha de proceso';
+comment on column AQPB811.aqpb811csu
+  is 'codigo sucursal';
+comment on column AQPB811.aqpb811suc
+  is 'sucursal';
+comment on column AQPB811.aqpb811mda
+  is 'moneda';
+comment on column AQPB811.aqpb811tdoc
+  is 'tipo de documento';
+comment on column AQPB811.aqpb811ndoc
+  is 'numero de documento';
+comment on column AQPB811.aqpb811titu
+  is 'titular';
+comment on column AQPB811.aqpb811cta
+  is 'cuenta cliente';
+comment on column AQPB811.aqpb811ope
+  is 'operacion';
+comment on column AQPB811.aqpb811sub
+  is 'suboperacion';
+comment on column AQPB811.aqpb811imp
+  is 'importe';
+comment on column AQPB811.aqpb811modt
+  is 'modulo transaccion';
+comment on column AQPB811.aqpb811suct
+  is 'sucursal transaccion';
+comment on column AQPB811.aqpb811trat
+  is 'transaccion';
+comment on column AQPB811.aqpb811tran
+  is 'transaccion nombre';
+comment on column AQPB811.aqpb811relt
+  is 'relacion';
+comment on column AQPB811.aqpb811fet
+  is 'fecha de transaccion';
+comment on column AQPB811.aqpb811fev
+  is 'fecha vencimiento';
+comment on column AQPB811.aqpb811hor
+  is 'hora';
+comment on column AQPB811.aqpb811esc
+  is 'estado ';
+comment on column AQPB811.aqpb811ust
+  is 'usuario';
+comment on column AQPB811.aqpb811tis
+  is 'tipo SBS';
+comment on column AQPB811.aqpb811sbn
+  is 'produccion SBS';
+comment on column AQPB811.aqpb811gru
+  is 'grupo';
+comment on column AQPB811.aqpb811mmn
+  is 'importe moneda nacional';
+comment on column AQPB811.aqpb811estc
+  is 'estado contable';
+comment on column AQPB811.aqpb811fval
+  is 'fecha valor';
+comment on column AQPB811.aqpb811hord
+  is 'ordinal';
+comment on column AQPB811.aqpb811modu
+  is 'modulo';
+

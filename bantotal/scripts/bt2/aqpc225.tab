@@ -1,0 +1,48 @@
+create table AQPC225
+(
+  aqpc225fec DATE not null,
+  aqpc225hor VARCHAR2(8) not null,
+  aqpc225usu VARCHAR2(10) not null,
+  aqpc225cor NUMBER(17) not null,
+  aqpc225reg VARCHAR2(30),
+  aqpc225zon VARCHAR2(30),
+  aqpc225suc VARCHAR2(30),
+  aqpc225cta NUMBER(9),
+  aqpc225ins NUMBER(10),
+  aqpc225ope NUMBER(9),
+  aqpc225ane VARCHAR2(10),
+  aqpc225usa VARCHAR2(10),
+  aqpc225com VARCHAR2(400)
+)
+;
+comment on table AQPC225
+  is 'Carga Temporal';
+comment on column AQPC225.aqpc225fec
+  is 'Fecha de Registro';
+comment on column AQPC225.aqpc225hor
+  is 'Hora de Registro';
+comment on column AQPC225.aqpc225usu
+  is 'Usuario de Registro';
+comment on column AQPC225.aqpc225cor
+  is 'Correlativo';
+comment on column AQPC225.aqpc225reg
+  is 'Region';
+comment on column AQPC225.aqpc225zon
+  is 'Zona';
+comment on column AQPC225.aqpc225suc
+  is 'Sucursal';
+comment on column AQPC225.aqpc225cta
+  is 'Cuenta';
+comment on column AQPC225.aqpc225ins
+  is 'Instancia';
+comment on column AQPC225.aqpc225ope
+  is 'Operacion';
+comment on column AQPC225.aqpc225ane
+  is 'Analista Evaluador';
+comment on column AQPC225.aqpc225usa
+  is 'Usuario Autorizante';
+comment on column AQPC225.aqpc225com
+  is 'Comentario';
+alter table AQPC225
+  add primary key (AQPC225FEC, AQPC225HOR, AQPC225USU, AQPC225COR);
+

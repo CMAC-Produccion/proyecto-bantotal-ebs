@@ -1,0 +1,47 @@
+create table FBC7AF
+(
+  bc7afemp  NUMBER(3) not null,
+  bc7afanio NUMBER(4) not null,
+  bc7afcpo  CHAR(8) not null,
+  bc7afsuc  NUMBER(3) not null,
+  bc7afcta  NUMBER(9) not null,
+  bc7afmod  NUMBER(3) not null,
+  bc7afoper NUMBER(9) not null,
+  bc7afsbop NUMBER(3) not null,
+  bc7afsdo1 NUMBER(17,2),
+  bc7afsdo2 NUMBER(17,2),
+  bc7afsdo3 NUMBER(17,2),
+  bc7afsdo4 NUMBER(17,2),
+  bc7afsdo5 NUMBER(17,2),
+  bc7afsdo6 NUMBER(17,2),
+  bc7afnum1 NUMBER(16),
+  bc7afnum2 NUMBER(16),
+  bc7afnum3 NUMBER(16),
+  bc7afnum4 NUMBER(16),
+  bc7afnum5 NUMBER(16),
+  bc7affch1 DATE,
+  bc7affch2 DATE,
+  bc7aftas1 NUMBER(10,6),
+  bc7aftas2 NUMBER(10,6),
+  bc7afchr1 CHAR(45),
+  bc7afchr2 CHAR(45),
+  bc7afchr3 CHAR(50),
+  bc7afc02  NUMBER(1),
+  bc7afc10  NUMBER(1),
+  bc7afc12  NUMBER(2),
+  bc7afc14  NUMBER(1),
+  bc7afc15  NUMBER(1),
+  bc7afc18  CHAR(20),
+  bc7afc19  CHAR(10),
+  bc7afc21  NUMBER(8),
+  bc7afc22  NUMBER(1),
+  bc7afc23  CHAR(100),
+  bc7afc24  NUMBER(1),
+  bc7afc25  NUMBER(8),
+  bc7afc29  NUMBER(1),
+  bc7afc30  NUMBER(8)
+)
+;
+alter table FBC7AF
+  add primary key (BC7AFEMP, BC7AFANIO, BC7AFCPO, BC7AFSUC, BC7AFCTA, BC7AFMOD, BC7AFOPER, BC7AFSBOP);
+

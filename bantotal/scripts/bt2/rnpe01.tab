@@ -1,0 +1,24 @@
+create table RNPE01
+(
+  rnpe01emp  NUMBER(3) not null,
+  rnpe01fech DATE not null,
+  rnpe01inf  CHAR(10) not null,
+  rnpe01cod  CHAR(10) not null,
+  rnpe01desc CHAR(100),
+  rnpe01sdo1 NUMBER(17,2),
+  rnpe01sdo2 NUMBER(17,2),
+  rnpe01sdo3 NUMBER(17,2),
+  rnpe01num1 NUMBER(16),
+  rnpe01num2 NUMBER(16),
+  rnpe01num3 NUMBER(16),
+  rnpe01fec1 DATE,
+  rnpe01fec2 DATE,
+  rnpe01fec3 DATE,
+  rnpe01car1 CHAR(50),
+  rnpe01car2 CHAR(50),
+  rnpe01car3 CHAR(50)
+)
+;
+alter table RNPE01
+  add primary key (RNPE01EMP, RNPE01FECH, RNPE01INF, RNPE01COD);
+

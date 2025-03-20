@@ -1,0 +1,14 @@
+create table DEUY01
+(
+  deuy01pa NUMBER(3) not null,
+  deuy01td NUMBER(2) not null,
+  deuy01nd CHAR(12) not null,
+  deuy01fv DATE,
+  deuy01a1 NUMBER(16),
+  deuy01a2 CHAR(20),
+  deuy01a3 DATE
+)
+;
+alter table DEUY01
+  add primary key (DEUY01PA, DEUY01TD, DEUY01ND);
+

@@ -1,0 +1,13 @@
+create table CJS001
+(
+  cjs001cod NUMBER(3) not null,
+  cjs001cta NUMBER(9) not null,
+  cjs001ccs NUMBER(9) not null,
+  cjs001suc NUMBER(3) not null,
+  cjs001tip CHAR(3) not null,
+  cjs001num NUMBER(9)
+)
+;
+alter table CJS001
+  add primary key (CJS001COD, CJS001CTA, CJS001CCS, CJS001SUC, CJS001TIP);
+

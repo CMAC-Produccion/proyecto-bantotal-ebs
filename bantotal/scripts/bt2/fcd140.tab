@@ -1,0 +1,34 @@
+create table FCD140
+(
+  pgcod    NUMBER(3) not null,
+  remod    NUMBER(3) not null,
+  reoper   NUMBER(9) not null,
+  resuc    NUMBER(3),
+  remda    NUMBER(4),
+  remocsw1 CHAR(3),
+  retipo   NUMBER(3),
+  repap    NUMBER(4),
+  recta    NUMBER(9),
+  refing   DATE,
+  refvto   DATE,
+  refval   DATE,
+  reuser   CHAR(10),
+  rews     CHAR(10),
+  idioma   NUMBER(2),
+  reaoimp  NUMBER(17,2),
+  c014cd   NUMBER(3),
+  c014mo   NUMBER(3),
+  c014su   NUMBER(3),
+  c014tr   NUMBER(3),
+  c014re   NUMBER(4),
+  c014fc   DATE,
+  c014co   CHAR(1)
+)
+;
+create index FCD14002 on FCD140 (IDIOMA);
+create index FCD14003 on FCD140 (PGCOD, RECTA);
+create index FCD14004 on FCD140 (REMDA);
+create index FCD14005 on FCD140 (REMOD);
+alter table FCD140
+  add primary key (PGCOD, REMOD, REOPER);
+

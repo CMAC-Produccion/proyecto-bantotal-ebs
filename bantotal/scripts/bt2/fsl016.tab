@@ -1,0 +1,16 @@
+create table FSL016
+(
+  fsl015cod  NUMBER(4) not null,
+  fsl015mod  NUMBER(3) not null,
+  fsl015tope NUMBER(3) not null,
+  fsl015nnri NUMBER(3),
+  fsl015gen  CHAR(1),
+  fsl015rev  CHAR(1),
+  fsl015aux  NUMBER(17,2),
+  fsl015aux1 CHAR(30),
+  fsl015aux2 DATE
+)
+;
+alter table FSL016
+  add primary key (FSL015COD, FSL015MOD, FSL015TOPE);
+

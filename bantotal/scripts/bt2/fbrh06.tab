@@ -1,0 +1,15 @@
+create table FBRH06
+(
+  brh06maemp NUMBER(3) not null,
+  brh06mafch DATE not null,
+  brh06macod NUMBER(2) not null,
+  brh06macta NUMBER(9) not null,
+  brh06mapon NUMBER(5,3),
+  brh06margo CHAR(1)
+)
+;
+create index FBRH0602 on FBRH06 (BRH06MAEMP, BRH06MAFCH, BRH06MACTA);
+create index FBRH0603 on FBRH06 (BRH06MAEMP, BRH06MACTA, BRH06MACOD, BRH06MAFCH);
+alter table FBRH06
+  add primary key (BRH06MAEMP, BRH06MAFCH, BRH06MACOD, BRH06MACTA);
+

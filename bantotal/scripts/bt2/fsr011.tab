@@ -1,0 +1,41 @@
+create table FSR011
+(
+  r1cod  NUMBER(3) not null,
+  r1mod  NUMBER(3) not null,
+  r1suc  NUMBER(3) not null,
+  r1mda  NUMBER(4) not null,
+  r1pap  NUMBER(4) not null,
+  r1cta  NUMBER(9) not null,
+  r1oper NUMBER(9) not null,
+  r1sbop NUMBER(3) not null,
+  r1tope NUMBER(3) not null,
+  relcod NUMBER(3) not null,
+  r2mod  NUMBER(3) not null,
+  r2cta  NUMBER(9) not null,
+  r2oper NUMBER(9) not null,
+  r2sbop NUMBER(3) not null,
+  r1rub  NUMBER(16),
+  r2cod  NUMBER(3),
+  r2suc  NUMBER(3),
+  r2mda  NUMBER(4),
+  r2pap  NUMBER(4),
+  r2tope NUMBER(3),
+  r2rub  NUMBER(16),
+  r011cd NUMBER(3),
+  r011mo NUMBER(3),
+  r011su NUMBER(3),
+  r011tr NUMBER(3),
+  r011re NUMBER(4),
+  r011fc DATE,
+  r011or NUMBER(2),
+  r011sb NUMBER(3),
+  r011co CHAR(1)
+)
+;
+create index FSR011_IDX_20 on FSR011 (RELCOD, R2CTA, R2SBOP, R1CTA);
+create index FSR01102 on FSR011 (RELCOD);
+create index FSR01103 on FSR011 (R2COD, R2MOD, R2SUC, R2MDA, R2PAP, R2CTA, R2OPER, R2SBOP, R2TOPE, RELCOD);
+create index FSR01104 on FSR011 (R011CD, R011MO, R011SU, R011TR, R011RE, R011FC, R011OR, R011SB);
+alter table FSR011
+  add primary key (R1COD, R1MOD, R1SUC, R1MDA, R1PAP, R1CTA, R1OPER, R1SBOP, R1TOPE, RELCOD, R2MOD, R2CTA, R2OPER, R2SBOP);
+

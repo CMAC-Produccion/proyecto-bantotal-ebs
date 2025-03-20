@@ -1,0 +1,48 @@
+create table AQPB538
+(
+  aqpb538action VARCHAR2(20) not null,
+  aqpb538cretim TIMESTAMP(6) default CURRENT_TIMESTAMP not null,
+  aqpb538creusu VARCHAR2(20) not null,
+  aqpb538paiori NUMBER(3) not null,
+  aqpb538tdoori NUMBER(2) not null,
+  aqpb538ndoori VARCHAR2(12) not null,
+  aqpb538atrori VARCHAR2(20),
+  aqpb538valori VARCHAR2(40),
+  aqpb538painew NUMBER(3),
+  aqpb538tdonew NUMBER(2),
+  aqpb538ndonew VARCHAR2(12),
+  aqpb538atrnew VARCHAR2(20),
+  aqpb538valnew VARCHAR2(40)
+)
+;
+comment on table AQPB538
+  is 'LOG de tabla SNGC70';
+comment on column AQPB538.aqpb538action
+  is 'Accion - Insert/Update/Delete';
+comment on column AQPB538.aqpb538cretim
+  is 'TIMESTAMP';
+comment on column AQPB538.aqpb538creusu
+  is 'Usuario de Contexto';
+comment on column AQPB538.aqpb538paiori
+  is 'PAIS Original';
+comment on column AQPB538.aqpb538tdoori
+  is 'TDOC Original';
+comment on column AQPB538.aqpb538ndoori
+  is 'NDOC Original';
+comment on column AQPB538.aqpb538atrori
+  is 'ATR Original';
+comment on column AQPB538.aqpb538valori
+  is 'VAL Original';
+comment on column AQPB538.aqpb538painew
+  is 'PAIS Nuevo';
+comment on column AQPB538.aqpb538tdonew
+  is 'TDOC Nuevo';
+comment on column AQPB538.aqpb538ndonew
+  is 'NDOC Nuevo';
+comment on column AQPB538.aqpb538atrnew
+  is 'ATR Nuevo';
+comment on column AQPB538.aqpb538valnew
+  is 'VAL Nuevo';
+alter table AQPB538
+  add primary key (AQPB538ACTION, AQPB538CRETIM, AQPB538CREUSU, AQPB538PAIORI, AQPB538TDOORI, AQPB538NDOORI);
+

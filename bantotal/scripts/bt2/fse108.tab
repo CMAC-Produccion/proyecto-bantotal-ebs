@@ -1,0 +1,14 @@
+create table FSE108
+(
+  ctxcod   NUMBER(3) not null,
+  ctxnro   NUMBER(9) not null,
+  ctxfecha DATE not null,
+  ctxhora  CHAR(8) not null,
+  ctxuser  CHAR(10),
+  ctxwrk   CHAR(10),
+  ctxhab   CHAR(1)
+)
+;
+alter table FSE108
+  add primary key (CTXCOD, CTXNRO, CTXFECHA, CTXHORA);
+

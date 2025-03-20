@@ -1,0 +1,89 @@
+create table JAQL718
+(
+  jaql718idgr NUMBER(9) not null,
+  jaql718mone NUMBER(4) not null,
+  jaql718corr NUMBER(9) not null,
+  jaql718capi NUMBER(18,2),
+  jaql718tasa NUMBER(10,6),
+  jaql718pz01 NUMBER(5),
+  jaql718cu01 NUMBER(12,2),
+  jaql718pz02 NUMBER(5),
+  jaql718cu02 NUMBER(12,2),
+  jaql718pz03 NUMBER(5),
+  jaql718cu03 NUMBER(12,2),
+  jaql718pz04 NUMBER(5),
+  jaql718cu04 NUMBER(12,2),
+  jaql718pz05 NUMBER(5),
+  jaql718cu05 NUMBER(12,2),
+  jaql718pz06 NUMBER(5),
+  jaql718cu06 NUMBER(12,2),
+  jaql718pz07 NUMBER(5),
+  jaql718cu07 NUMBER(12,2),
+  jaql718pz08 NUMBER(5),
+  jaql718cu08 NUMBER(12,2),
+  jaql718pz09 NUMBER(5),
+  jaql718cu09 NUMBER(12,2),
+  jaql718pz10 NUMBER(5),
+  jaql718cu10 NUMBER(12,2)
+)
+;
+comment on table JAQL718
+  is 'Oferta Comercial - Tarifario';
+comment on column JAQL718.jaql718idgr
+  is 'Identificador de grupo';
+comment on column JAQL718.jaql718mone
+  is 'Moneda';
+comment on column JAQL718.jaql718corr
+  is 'Correlativo tarifario';
+comment on column JAQL718.jaql718capi
+  is 'Capital';
+comment on column JAQL718.jaql718tasa
+  is 'Tasa';
+comment on column JAQL718.jaql718pz01
+  is 'Plazo1';
+comment on column JAQL718.jaql718cu01
+  is 'Cuota1';
+comment on column JAQL718.jaql718pz02
+  is 'Plazo2';
+comment on column JAQL718.jaql718cu02
+  is 'Cuota2';
+comment on column JAQL718.jaql718pz03
+  is 'Plazo3';
+comment on column JAQL718.jaql718cu03
+  is 'Cuota3';
+comment on column JAQL718.jaql718pz04
+  is 'Plazo4';
+comment on column JAQL718.jaql718cu04
+  is 'Cuota4';
+comment on column JAQL718.jaql718pz05
+  is 'Plazo5';
+comment on column JAQL718.jaql718cu05
+  is 'Cuota5';
+comment on column JAQL718.jaql718pz06
+  is 'Plazo6';
+comment on column JAQL718.jaql718cu06
+  is 'Cuota6';
+comment on column JAQL718.jaql718pz07
+  is 'Plazo7';
+comment on column JAQL718.jaql718cu07
+  is 'Cuota7';
+comment on column JAQL718.jaql718pz08
+  is 'Plazo8';
+comment on column JAQL718.jaql718cu08
+  is 'Cuota8';
+comment on column JAQL718.jaql718pz09
+  is 'Plazo9';
+comment on column JAQL718.jaql718cu09
+  is 'Cuota9';
+comment on column JAQL718.jaql718pz10
+  is 'Plazo10';
+comment on column JAQL718.jaql718cu10
+  is 'Cuota10';
+alter table JAQL718
+  add constraint PK_JAQL718 primary key (JAQL718IDGR, JAQL718MONE, JAQL718CORR);
+alter table JAQL718
+  add constraint FK_JAQL718_001 foreign key (JAQL718IDGR)
+  references JAQL717 (JAQL717IDGR)
+  disable
+  novalidate;
+

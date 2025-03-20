@@ -1,0 +1,18 @@
+create table FPP081
+(
+  ppgcod   NUMBER(3) not null,
+  pp081cod NUMBER(5) not null,
+  pp081des CHAR(60),
+  pp081cie CHAR(1),
+  pp081au1 NUMBER(9),
+  pp081au2 NUMBER(9),
+  pp081au3 NUMBER(17,2),
+  pp081au4 NUMBER(17,2),
+  pp081au5 DATE,
+  pp081au6 DATE,
+  pp081au7 CHAR(30),
+  pp081au8 CHAR(30)
+)
+;
+create unique index FPP08101 on FPP081 (PPGCOD, PP081COD);
+

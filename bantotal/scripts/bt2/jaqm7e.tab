@@ -1,0 +1,66 @@
+create table JAQM7E
+(
+  jaqm7eid  NUMBER(4) not null,
+  jaqm7eid7 VARCHAR2(20) not null,
+  jaqm7emod NUMBER(3) not null,
+  jaqm7etra NUMBER(3) not null,
+  jaqm7epef CHAR(10),
+  jaqm7esuc NUMBER(3),
+  jaqm7ehab CHAR(1),
+  jaqm7ean1 NUMBER(9),
+  jaqm7ean2 NUMBER(9),
+  jaqm7ean3 NUMBER(9),
+  jaqm7eai1 NUMBER(17,2),
+  jaqm7eai2 NUMBER(17,2),
+  jaqm7eai3 NUMBER(17,2),
+  jaqm7eac1 CHAR(255),
+  jaqm7eac2 CHAR(255),
+  jaqm7eac3 CHAR(255),
+  jaqm7eaf1 DATE,
+  jaqm7eaf2 DATE,
+  jaqm7eaf3 DATE
+)
+;
+comment on table JAQM7E
+  is 'Tabla de perfiles sucursales habilitadas por modulo transacción';
+comment on column JAQM7E.jaqm7eid
+  is 'Identificador';
+comment on column JAQM7E.jaqm7eid7
+  is 'Identificador JAQM77ID';
+comment on column JAQM7E.jaqm7emod
+  is 'Módulo';
+comment on column JAQM7E.jaqm7etra
+  is 'Transacción';
+comment on column JAQM7E.jaqm7epef
+  is 'Pefiles';
+comment on column JAQM7E.jaqm7esuc
+  is 'Sucursal';
+comment on column JAQM7E.jaqm7ehab
+  is 'Habilitado';
+comment on column JAQM7E.jaqm7ean1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM7E.jaqm7ean2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM7E.jaqm7ean3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM7E.jaqm7eai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM7E.jaqm7eai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM7E.jaqm7eai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM7E.jaqm7eac1
+  is 'Auxiliar Character 1';
+comment on column JAQM7E.jaqm7eac2
+  is 'Auxiliar Character 2';
+comment on column JAQM7E.jaqm7eac3
+  is 'Auxiliar Character 3';
+comment on column JAQM7E.jaqm7eaf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM7E.jaqm7eaf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM7E.jaqm7eaf3
+  is 'Auxiliar Fecha 3';
+alter table JAQM7E
+  add primary key (JAQM7EID, JAQM7EID7, JAQM7EMOD, JAQM7ETRA);
+

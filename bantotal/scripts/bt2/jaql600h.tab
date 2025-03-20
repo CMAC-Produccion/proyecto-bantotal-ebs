@@ -1,0 +1,243 @@
+create table JAQL600H
+(
+  jaql600hfech   DATE not null,
+  jaql600hhora   CHAR(8) not null,
+  jaql600hfpro   DATE not null,
+  jaql600husu    CHAR(20) not null,
+  jaql600hage    NUMBER(3),
+  jaql600hmant   NUMBER(10),
+  jaql600hcodcat NUMBER(3),
+  jaql600htase   CHAR(1),
+  jaql600hsdo    NUMBER(17,2),
+  jaql600hncl    NUMBER(10),
+  jaql600hsdm    NUMBER(17,2),
+  jaql600hpmra   NUMBER(9,2),
+  jaql600hsoto   NUMBER(17,2),
+  jaql600hsrec   NUMBER(17,2),
+  jaql600hcoto   NUMBER(10),
+  jaql600hcrec   NUMBER(10),
+  jaql600hsrl    NUMBER(17,2),
+  jaql600hnrl    NUMBER(10),
+  jaql600hsant   NUMBER(17,2),
+  jaql600hcant   NUMBER(10),
+  jaql600hsdca   NUMBER(17,2),
+  jaql600hsdju   NUMBER(17,2),
+  jaql600hcrsa   NUMBER(17,2),
+  jaql600hcrcl   NUMBER(10),
+  jaql600hides   NUMBER(17,2),
+  jaql600hpdes   NUMBER(17,2),
+  jaql600hmtsa   NUMBER(17,2),
+  jaql600hmtcl   NUMBER(10),
+  jaql600hmtre   NUMBER(17,2),
+  jaql600hmtmr   NUMBER(9,2),
+  jaql600hpsal   NUMBER(17,2),
+  jaql600hpcli   NUMBER(17,2),
+  jaql600hpret   NUMBER(17,2),
+  jaql600hpmor   NUMBER(17,2),
+  jaql600hpvar   NUMBER(17,2),
+  jaql600hpjca   NUMBER(17,2),
+  jaql600hpjcas  NUMBER(9,2),
+  jaql600hcmra   NUMBER(17,2),
+  jaql600hcltot  NUMBER(10),
+  jaql600hsdtot  NUMBER(17,2),
+  jaql600hbsal   NUMBER(17,2),
+  jaql600hbcli   NUMBER(17,2),
+  jaql600hbmra   NUMBER(17,2),
+  jaql600hbtri   NUMBER(17,2),
+  jaql600htotpa  NUMBER(17,2),
+  jaql600hccam   NUMBER(2),
+  jaql600hvcam   NUMBER(17,2),
+  jaql600htcam   NUMBER(17,2),
+  jaql600haux1   NUMBER(17,2),
+  jaql600haux2   NUMBER(17,2),
+  jaql600haux3   NUMBER(17,2),
+  jaql600haux4   NUMBER(17,2),
+  jaql600haux5   NUMBER(17,2),
+  jaql600haux6   NUMBER(17,2),
+  jaql600hest    CHAR(1),
+  jaql600hneo    CHAR(1),
+  jaql600hpcam   NUMBER(17,2),
+  jaql600hpord   NUMBER(17,2),
+  jaql600hmtod   NUMBER(17,2),
+  jaql600hvmor   NUMBER(9,2),
+  jaql600hcsal   NUMBER(17,2),
+  jaql600hesal   NUMBER(17,2),
+  jaql600hccli   NUMBER(10),
+  jaql600hecli   NUMBER(10),
+  jaql600hcret   NUMBER(17,2),
+  jaql600heret   NUMBER(17,2),
+  jaql600hposa   NUMBER(9,2),
+  jaql600hpocl   NUMBER(9,2),
+  jaql600hexsa   NUMBER(17,2),
+  jaql600hexcl   NUMBER(10),
+  jaql600hexre   NUMBER(10),
+  jaql600hpore   NUMBER(9,2),
+  jaql600hbare   NUMBER(17,2),
+  jaql600hmore   NUMBER(17,2),
+  jaql600hpmoa   NUMBER(9,2),
+  jaql600hcave   NUMBER(17,2),
+  jaql600hclve   NUMBER(10),
+  jaql600hcomi   CHAR(20)
+)
+;
+comment on table JAQL600H
+  is 'Productividad Analistas 2016 -HISTORICO';
+comment on column JAQL600H.jaql600hfech
+  is 'Fecha Ultima Ejecucion';
+comment on column JAQL600H.jaql600hhora
+  is 'Hora Ultima Ejecucion';
+comment on column JAQL600H.jaql600hfpro
+  is 'Fecha Proceso';
+comment on column JAQL600H.jaql600husu
+  is 'Asesor / Analista';
+comment on column JAQL600H.jaql600hage
+  is 'Agencia';
+comment on column JAQL600H.jaql600hmant
+  is 'Meses Antiguedad Agencia';
+comment on column JAQL600H.jaql600hcodcat
+  is 'Código de Categoría de Analista: Junior - Avanzado';
+comment on column JAQL600H.jaql600htase
+  is 'Tipo Asesor P-PYMES/C-CONSUMO';
+comment on column JAQL600H.jaql600hsdo
+  is 'Saldo Cartera';
+comment on column JAQL600H.jaql600hncl
+  is 'Numero Clientes';
+comment on column JAQL600H.jaql600hsdm
+  is 'Saldo Mora > 15';
+comment on column JAQL600H.jaql600hpmra
+  is 'Porcentaje Mora';
+comment on column JAQL600H.jaql600hsoto
+  is 'Saldo Otorgado';
+comment on column JAQL600H.jaql600hsrec
+  is 'Saldo Recibido';
+comment on column JAQL600H.jaql600hcoto
+  is 'Clientes Otorgados';
+comment on column JAQL600H.jaql600hcrec
+  is 'Clientes Recibidos';
+comment on column JAQL600H.jaql600hsrl
+  is 'Saldo Recuperacion Legal';
+comment on column JAQL600H.jaql600hnrl
+  is 'Clientes Recuperacion Legal';
+comment on column JAQL600H.jaql600hsant
+  is 'Saldo Mes Anterior';
+comment on column JAQL600H.jaql600hcant
+  is 'Slientes Mes Anterior';
+comment on column JAQL600H.jaql600hsdca
+  is 'Saldo Castigado';
+comment on column JAQL600H.jaql600hsdju
+  is 'Saldo Judicial';
+comment on column JAQL600H.jaql600hcrsa
+  is 'Crecimiento Saldo';
+comment on column JAQL600H.jaql600hcrcl
+  is 'Crecimiento Clientes';
+comment on column JAQL600H.jaql600hides
+  is 'Indicador Desembolsos Micro-Pequeña';
+comment on column JAQL600H.jaql600hpdes
+  is 'Porcentaje Pago Desembolsos Micro-Pequeña';
+comment on column JAQL600H.jaql600hmtsa
+  is 'Meta Saldo';
+comment on column JAQL600H.jaql600hmtcl
+  is 'Meta Clientes';
+comment on column JAQL600H.jaql600hmtre
+  is 'Meta Retencion';
+comment on column JAQL600H.jaql600hmtmr
+  is 'Meta Mora';
+comment on column JAQL600H.jaql600hpsal
+  is 'Pago Cumplimiento Saldo Cartera';
+comment on column JAQL600H.jaql600hpcli
+  is 'Pago Cumplimiento Clientes';
+comment on column JAQL600H.jaql600hpret
+  is 'Pago Cumplimiento Retencion';
+comment on column JAQL600H.jaql600hpmor
+  is 'Pago Cumplimiento Mora';
+comment on column JAQL600H.jaql600hpvar
+  is 'Total Pago Incentivo Variable';
+comment on column JAQL600H.jaql600hpjca
+  is 'Porcentaje Castigo';
+comment on column JAQL600H.jaql600hcmra
+  is 'Castigo Mora';
+comment on column JAQL600H.jaql600hcltot
+  is 'Clientes Totales incluye transferencia';
+comment on column JAQL600H.jaql600hsdtot
+  is 'Saldo Total incluye transferencia';
+comment on column JAQL600H.jaql600hbsal
+  is 'Bono Saldo Trimestral';
+comment on column JAQL600H.jaql600hbcli
+  is 'Bono Clientes Trimestral';
+comment on column JAQL600H.jaql600hbmra
+  is 'Bono Mora Trimestral';
+comment on column JAQL600H.jaql600hbtri
+  is 'Total Bono Trimestral';
+comment on column JAQL600H.jaql600htotpa
+  is 'TOTAL PAGAR Incentivo Variable+Bono Trimestral';
+comment on column JAQL600H.jaql600hccam
+  is 'Codigo Campaña';
+comment on column JAQL600H.jaql600hvcam
+  is 'Valor Campaña';
+comment on column JAQL600H.jaql600htcam
+  is 'Total x Campaña';
+comment on column JAQL600H.jaql600haux1
+  is 'Auxiliar 1';
+comment on column JAQL600H.jaql600haux2
+  is 'Auxiliar 2';
+comment on column JAQL600H.jaql600haux3
+  is 'Auxiliar 3';
+comment on column JAQL600H.jaql600haux4
+  is 'Auxiliar 4';
+comment on column JAQL600H.jaql600haux5
+  is 'Auxiliar 5';
+comment on column JAQL600H.jaql600haux6
+  is 'Auxiliar 6';
+comment on column JAQL600H.jaql600hest
+  is 'Estado';
+comment on column JAQL600H.jaql600hneo
+  is 'Agencia N-Nueva/';
+comment on column JAQL600H.jaql600hpcam
+  is 'Porcentaje Campaña';
+comment on column JAQL600H.jaql600hpord
+  is '% Desembolso MI-PE';
+comment on column JAQL600H.jaql600hmtod
+  is 'Total Desembolso MI-PE';
+comment on column JAQL600H.jaql600hvmor
+  is 'Variacion Mora';
+comment on column JAQL600H.jaql600hcsal
+  is 'Pago Cumplimiento Saldo';
+comment on column JAQL600H.jaql600hesal
+  is 'Pago Excedente Saldo';
+comment on column JAQL600H.jaql600hccli
+  is 'Pago Cumplimiento Clientes';
+comment on column JAQL600H.jaql600hecli
+  is 'Pago Excedente Clientes';
+comment on column JAQL600H.jaql600hcret
+  is 'Pago Cumplimiento Retencion';
+comment on column JAQL600H.jaql600heret
+  is 'Pago Excedente Retencion';
+comment on column JAQL600H.jaql600hposa
+  is '% Cumplimiento Saldo';
+comment on column JAQL600H.jaql600hpocl
+  is '% Cumplimiento Clientes';
+comment on column JAQL600H.jaql600hexsa
+  is 'Excedente Saldo';
+comment on column JAQL600H.jaql600hexcl
+  is 'Excedente Clientes';
+comment on column JAQL600H.jaql600hexre
+  is 'Excedente Retencion';
+comment on column JAQL600H.jaql600hpore
+  is 'Porcentaje de Retencion';
+comment on column JAQL600H.jaql600hbare
+  is 'Base Retencion';
+comment on column JAQL600H.jaql600hmore
+  is 'Monto Retenidos';
+comment on column JAQL600H.jaql600hpmoa
+  is 'Porcentaje Mora Mes Anterior';
+comment on column JAQL600H.jaql600hcave
+  is 'Saldo Cartera Vencida';
+comment on column JAQL600H.jaql600hclve
+  is 'Clientes Cartera Vencida';
+comment on column JAQL600H.jaql600hcomi
+  is 'Comite - Nombre Analista Senior a Cargo';
+create index IDX_JAQL600H_1 on JAQL600H (JAQL600HUSU, JAQL600HFPRO);
+create index IDX_JAQL600H_2 on JAQL600H (JAQL600HFPRO, JAQL600HEST);
+alter table JAQL600H
+  add primary key (JAQL600HFPRO, JAQL600HUSU);
+

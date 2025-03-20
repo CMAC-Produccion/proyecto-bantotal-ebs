@@ -1,0 +1,38 @@
+create table JAQL824T
+(
+  jaql824apl  NUMBER(3) not null,
+  jaql824ban  CHAR(4) not null,
+  jaql824env  NUMBER(9) not null,
+  jaql824treg NUMBER(9) not null,
+  jaql824ttre VARCHAR2(2),
+  jaql824tcsu NUMBER(3),
+  jaql824tcmo NUMBER(1),
+  jaql824tncu NUMBER(7),
+  jaql824tcid VARCHAR2(14),
+  jaql824tnom VARCHAR2(40),
+  jaql824tcir VARCHAR2(30),
+  jaql824tfec NUMBER(8),
+  jaql824tfvc NUMBER(8),
+  jaql824tmcu NUMBER(15,2),
+  jaql824tmmo NUMBER(15,2),
+  jaql824tmmi NUMBER(9,2),
+  jaql824ttra VARCHAR2(1),
+  jaql824tndp VARCHAR2(20) not null,
+  jaql824tndo VARCHAR2(16) not null,
+  jaql824tmre NUMBER(15,2),
+  jaql824tfpr DATE not null
+)
+partition by range (JAQL824TFPR) interval (NUMTOYMINTERVAL (1, 'MONTH'))
+(
+  partition JAQL824T_20201031 values less than (TO_DATE(' 2020-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G_IDX,
+  partition JAQL824T_20200930 values less than (TO_DATE(' 2020-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G_IDX,
+  partition SYS_P1891 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G
+);
+create unique index JAQL824T2 on JAQL824T (JAQL824TFPR, JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824TNDP)
+  nologging  local;
+alter table JAQL824T
+  add constraint JAQL824T_PK primary key (JAQL824TFPR, JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824TNDP);
+

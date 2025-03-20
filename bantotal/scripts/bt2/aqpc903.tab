@@ -1,0 +1,46 @@
+create table AQPC903
+(
+  aqpc903id     NUMBER(9) not null,
+  aqpc903fecreg DATE,
+  aqpc903horreg VARCHAR2(8),
+  aqpc903usureg VARCHAR2(10),
+  aqpc903paidoc NUMBER(3),
+  aqpc903tipdoc NUMBER(3),
+  aqpc903numdoc CHAR(12),
+  aqpc903nrotar CHAR(19),
+  aqpc903motivo CHAR(40),
+  aqpc903tipblo CHAR(40),
+  aqpc903codres CHAR(5),
+  aqpc903desres CHAR(100)
+)
+;
+comment on table AQPC903
+  is 'Log histórico de Bloq Tarjetas Automatico';
+comment on column AQPC903.aqpc903id
+  is 'ID de Log';
+comment on column AQPC903.aqpc903fecreg
+  is 'Fecha de Bloqueo';
+comment on column AQPC903.aqpc903horreg
+  is 'Hora de Bloqueo';
+comment on column AQPC903.aqpc903usureg
+  is 'Usuario Bloqueo';
+comment on column AQPC903.aqpc903paidoc
+  is 'Pais del documento';
+comment on column AQPC903.aqpc903tipdoc
+  is 'Tipo del documento';
+comment on column AQPC903.aqpc903numdoc
+  is 'Numero del documento';
+comment on column AQPC903.aqpc903nrotar
+  is 'Nro Tarjeta';
+comment on column AQPC903.aqpc903motivo
+  is 'Motivo Bloqueo';
+comment on column AQPC903.aqpc903tipblo
+  is 'Tipo de Bloqueo';
+comment on column AQPC903.aqpc903codres
+  is 'Codigo Respuesta';
+comment on column AQPC903.aqpc903desres
+  is 'Descipcion Respuesta';
+create index AQPC903A2 on AQPC903 (AQPC903PAIDOC, AQPC903TIPDOC, AQPC903NUMDOC);
+alter table AQPC903
+  add primary key (AQPC903ID);
+

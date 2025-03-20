@@ -1,0 +1,32 @@
+create table FSD563
+(
+  chcod      NUMBER(3) not null,
+  chsuc      NUMBER(3) not null,
+  chmod      NUMBER(3) not null,
+  chmda      NUMBER(4) not null,
+  chpap      NUMBER(4) not null,
+  chcta      NUMBER(9) not null,
+  choper     NUMBER(9) not null,
+  chsbop     NUMBER(3) not null,
+  chtope     NUMBER(3) not null,
+  vfrcodlis  NUMBER(9) not null,
+  vfrcod     NUMBER(9) not null,
+  vfrmtotot  NUMBER(14,2),
+  vfrmtoing  NUMBER(14,2),
+  vfrfing    DATE,
+  vfrtcesion CHAR(1),
+  vfrnotif   CHAR(1),
+  vfrafect   CHAR(1),
+  vfrrec     CHAR(1),
+  vfrfvto    DATE,
+  vfrimp     NUMBER(14,2),
+  vfresp     CHAR(1),
+  vfrcamara  NUMBER(3),
+  vfrvalnom  NUMBER(14,2),
+  vfrstatus  CHAR(8),
+  vfrdeppren CHAR(1)
+)
+;
+alter table FSD563
+  add primary key (CHCOD, CHSUC, CHMOD, CHMDA, CHPAP, CHCTA, CHOPER, CHSBOP, CHTOPE, VFRCODLIS, VFRCOD);
+

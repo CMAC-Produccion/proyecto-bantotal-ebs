@@ -1,0 +1,45 @@
+create table AQPC757
+(
+  aqpc757pgcod NUMBER(3) not null,
+  aqpc757guia  NUMBER(9) not null,
+  aqpc757corr1 NUMBER(9) not null,
+  aqpc757corr2 NUMBER(9) not null,
+  aqpc757corr3 NUMBER(9) not null,
+  aqpc757nro1  NUMBER(9),
+  aqpc757nro2  NUMBER(9),
+  aqpc757nro3  NUMBER(9),
+  aqpc757clob  CLOB,
+  aqpc757imp1  NUMBER(17,2),
+  aqpc757imp2  NUMBER(17,2),
+  aqpc757imp3  NUMBER(17,2)
+)
+;
+comment on table AQPC757
+  is 'Guía Especial de Imágenes';
+comment on column AQPC757.aqpc757pgcod
+  is 'Empresa';
+comment on column AQPC757.aqpc757guia
+  is 'Guía';
+comment on column AQPC757.aqpc757corr1
+  is 'Correlativo 1';
+comment on column AQPC757.aqpc757corr2
+  is 'Correlativo 2';
+comment on column AQPC757.aqpc757corr3
+  is 'Correlativo 3';
+comment on column AQPC757.aqpc757nro1
+  is 'Número 1';
+comment on column AQPC757.aqpc757nro2
+  is 'Número 2';
+comment on column AQPC757.aqpc757nro3
+  is 'Número 3';
+comment on column AQPC757.aqpc757clob
+  is 'Imagen Clob';
+comment on column AQPC757.aqpc757imp1
+  is 'Importe 1';
+comment on column AQPC757.aqpc757imp2
+  is 'Importe 2';
+comment on column AQPC757.aqpc757imp3
+  is 'Importe 3';
+alter table AQPC757
+  add primary key (AQPC757GUIA, AQPC757CORR1, AQPC757CORR2, AQPC757CORR3);
+

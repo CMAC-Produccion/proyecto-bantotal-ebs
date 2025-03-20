@@ -1,0 +1,127 @@
+create table AQPB081
+(
+  aqpb081corr  NUMBER(10) not null,
+  aqpb081fech  DATE not null,
+  aqpb081hora  CHAR(8) not null,
+  aqpb081inst  NUMBER(10),
+  aqpb081neva  NUMBER(10),
+  aqpb081pais  NUMBER(3),
+  aqpb081tdoc  NUMBER(2),
+  aqpb081ndoc  CHAR(12),
+  aqpb081rubr  VARCHAR2(14),
+  aqpb081esta  CHAR(2),
+  aqpb081enti  CHAR(200),
+  aqpb081tcre  CHAR(30),
+  aqpb081sdeu  NUMBER(17,2),
+  aqpb081plaz  NUMBER(9,6),
+  aqpb081taza  NUMBER(9,6),
+  aqpb081ccalc NUMBER(17,2),
+  aqpb081gfin  NUMBER(17,2),
+  aqpb081frcc  DATE,
+  aqpb081dori  CHAR(1),
+  aqpb081chek  CHAR(1),
+  aqpb081pers  CHAR(30),
+  aqpb081rela  CHAR(20),
+  aqpb081line  CHAR(20),
+  aqpb081aux1  NUMBER(10),
+  aqpb081aux2  NUMBER(17,2),
+  aqpb081aux3  CHAR(1),
+  aqpb081aux4  VARCHAR2(1),
+  aqpb081aux5  VARCHAR2(50),
+  aqpb081aux6  DATE,
+  aqpb081aux7  NUMBER(10),
+  aqpb081aux8  NUMBER(17,2),
+  aqpb081aux9  VARCHAR2(40),
+  aqpb081mda   NUMBER(4),
+  aqpb081tlin  NUMBER(17,2),
+  aqpb081util  NUMBER(17,2),
+  aqpb081flin  VARCHAR2(1),
+  aqpb081cptn  NUMBER(17,2),
+  aqpb081fac1  NUMBER(10,6),
+  aqpb081fac2  NUMBER(10,6),
+  aqpb081fac3  NUMBER(10,6),
+  aqpb081cent  VARCHAR2(10)
+)
+;
+comment on column AQPB081.aqpb081corr
+  is 'Correlativo';
+comment on column AQPB081.aqpb081fech
+  is 'Fecha Proceso';
+comment on column AQPB081.aqpb081hora
+  is 'Hora Registro';
+comment on column AQPB081.aqpb081inst
+  is 'Instancia / Solicitud';
+comment on column AQPB081.aqpb081neva
+  is 'Evaluacion';
+comment on column AQPB081.aqpb081pais
+  is 'Pais';
+comment on column AQPB081.aqpb081tdoc
+  is 'Tipo Documento';
+comment on column AQPB081.aqpb081ndoc
+  is 'Num Documento';
+comment on column AQPB081.aqpb081rubr
+  is 'Rubro';
+comment on column AQPB081.aqpb081esta
+  is 'Estado S/N';
+comment on column AQPB081.aqpb081enti
+  is 'Entidad Finan';
+comment on column AQPB081.aqpb081tcre
+  is 'Tipo Credito';
+comment on column AQPB081.aqpb081sdeu
+  is 'Saldo Deudor';
+comment on column AQPB081.aqpb081plaz
+  is 'Plazo';
+comment on column AQPB081.aqpb081taza
+  is 'Taza';
+comment on column AQPB081.aqpb081ccalc
+  is 'Cuota Calculada';
+comment on column AQPB081.aqpb081gfin
+  is 'Gasto Financiero';
+comment on column AQPB081.aqpb081frcc
+  is 'Fecha RCC';
+comment on column AQPB081.aqpb081dori
+  is 'Datos Origen';
+comment on column AQPB081.aqpb081chek
+  is 'Vigente';
+comment on column AQPB081.aqpb081pers
+  is 'Nombre Per';
+comment on column AQPB081.aqpb081rela
+  is 'Relacion Per';
+comment on column AQPB081.aqpb081line
+  is 'Tipo de Deuda';
+comment on column AQPB081.aqpb081aux1
+  is 'Tarea de ejecucion';
+comment on column AQPB081.aqpb081aux3
+  is 'Flag Ratio R/ '' ''';
+comment on column AQPB081.aqpb081aux4
+  is 'Flag Compra de Deuda';
+comment on column AQPB081.aqpb081aux5
+  is 'Usuario de Registro';
+comment on column AQPB081.aqpb081aux8
+  is 'Monto de No Uso';
+comment on column AQPB081.aqpb081aux9
+  is 'Descripcion del Credito';
+comment on column AQPB081.aqpb081mda
+  is 'Moneda';
+comment on column AQPB081.aqpb081tlin
+  is 'Monto Total Linea';
+comment on column AQPB081.aqpb081util
+  is 'Monto Utilizacion';
+comment on column AQPB081.aqpb081flin
+  is 'Flag Tipo de deuda L/P';
+comment on column AQPB081.aqpb081cptn
+  is 'Monto Cuota Potencial';
+comment on column AQPB081.aqpb081fac1
+  is 'Factor Calculo Uso';
+comment on column AQPB081.aqpb081fac2
+  is 'Factor Calculo No Uso';
+comment on column AQPB081.aqpb081fac3
+  is 'Factor Calculo Prestamo';
+comment on column AQPB081.aqpb081cent
+  is 'Codigo Entidad';
+create index AQPB0812 on AQPB081 (AQPB081INST);
+create index AQPB0813 on AQPB081 (AQPB081INST, AQPB081NEVA, AQPB081PAIS, AQPB081TDOC, AQPB081NDOC);
+create index AQPB0814 on AQPB081 (AQPB081INST, AQPB081NEVA, AQPB081PAIS, AQPB081TDOC, AQPB081NDOC, AQPB081ESTA, AQPB081SDEU, AQPB081PLAZ, AQPB081TAZA, AQPB081CCALC);
+alter table AQPB081
+  add primary key (AQPB081FECH, AQPB081CORR, AQPB081HORA);
+

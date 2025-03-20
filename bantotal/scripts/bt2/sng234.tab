@@ -1,0 +1,11 @@
+create table SNG234
+(
+  sng229corr NUMBER(10) not null,
+  sng230corr NUMBER(10) not null,
+  sng234dsc  CHAR(25) not null,
+  sng234val  CHAR(60)
+)
+;
+alter table SNG234
+  add primary key (SNG229CORR, SNG230CORR, SNG234DSC);
+

@@ -1,0 +1,29 @@
+create table AQPB260B
+(
+  aqpb260bsdi NUMBER(18,2) not null,
+  aqpb260bsdf NUMBER(18,2) not null,
+  aqpb260bcui NUMBER(4) not null,
+  aqpb260bcuf NUMBER(4) not null,
+  aqpb260bpla NUMBER(4) not null,
+  aqpb260bfec DATE not null,
+  aqpb260best VARCHAR2(1) not null
+)
+;
+comment on table AQPB260B
+  is 'Tabla Plazo Maximo- Reprogramados Nueva Campaña';
+comment on column AQPB260B.aqpb260bsdi
+  is 'SALDO INICIAL';
+comment on column AQPB260B.aqpb260bsdf
+  is 'SALDO FINAL';
+comment on column AQPB260B.aqpb260bcui
+  is 'CUOTA INICIAL';
+comment on column AQPB260B.aqpb260bcuf
+  is 'CUOTA FINAL';
+comment on column AQPB260B.aqpb260bpla
+  is 'PLAZO';
+comment on column AQPB260B.aqpb260bfec
+  is 'FECHA';
+comment on column AQPB260B.aqpb260best
+  is 'ESTADO';
+create index AQPB260B2 on AQPB260B (AQPB260BSDI, AQPB260BSDF, AQPB260BCUI, AQPB260BCUF, AQPB260BEST);
+

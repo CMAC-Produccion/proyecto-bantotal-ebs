@@ -1,0 +1,27 @@
+create table JAQA305
+(
+  jaqa305nca NUMBER(4) not null,
+  jaqa305cta NUMBER(9) not null,
+  jaqa305cod VARCHAR2(30),
+  jaqa305ndo CHAR(12),
+  jaqa305im1 NUMBER(17,2),
+  jaqa305im2 NUMBER(17,2),
+  jaqa305im3 NUMBER(17,2),
+  jaqa305nu1 NUMBER(9),
+  jaqa305nu2 NUMBER(9),
+  jaqa305nu3 NUMBER(9),
+  jaqa305da1 DATE,
+  jaqa305da2 DATE,
+  jaqa305da3 DATE,
+  jaqa305va1 VARCHAR2(255),
+  jaqa305va2 VARCHAR2(255),
+  jaqa305va3 VARCHAR2(255),
+  jaqa305va4 VARCHAR2(255),
+  jaqa305ces VARCHAR2(10),
+  jaqa305fve DATE,
+  jaqa305cco NUMBER(4)
+)
+;
+alter table JAQA305
+  add primary key (JAQA305NCA, JAQA305CTA);
+

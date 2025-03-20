@@ -1,0 +1,75 @@
+create table AQPB539
+(
+  aqpb539cretim TIMESTAMP(6) not null,
+  aqpb539creusu VARCHAR2(20) not null,
+  aqpb539pgcod  NUMBER(3) not null,
+  aqpb539itsuc  NUMBER(3) not null,
+  aqpb539itmod  NUMBER(3) not null,
+  aqpb539ittran NUMBER(3) not null,
+  aqpb539itnrel NUMBER(4) not null,
+  aqpb539itord  NUMBER(2) not null,
+  aqpb539itsbor NUMBER(3) not null,
+  aqpb539modulo NUMBER(3),
+  aqpb539ittope NUMBER(3),
+  aqpb539itsucd NUMBER(3),
+  aqpb539rubro  NUMBER(16),
+  aqpb539moneda NUMBER(4),
+  aqpb539papel  NUMBER(4),
+  aqpb539ctnro  NUMBER(9),
+  aqpb539itoper NUMBER(9),
+  aqpb539itsubo NUMBER(3),
+  aqpb539itfval DATE,
+  aqpb539itimp1 NUMBER(17,2),
+  aqpb539proest VARCHAR2(1),
+  aqpb539proerr VARCHAR2(600)
+)
+;
+comment on table AQPB539
+  is 'LOG de Transferencias - FSD016';
+comment on column AQPB539.aqpb539cretim
+  is 'TG - Campo de Auditoria';
+comment on column AQPB539.aqpb539creusu
+  is 'TG - Usuario';
+comment on column AQPB539.aqpb539pgcod
+  is 'Empresa';
+comment on column AQPB539.aqpb539itsuc
+  is 'TRX - Sucursal';
+comment on column AQPB539.aqpb539itmod
+  is 'TRX - Modulo';
+comment on column AQPB539.aqpb539ittran
+  is 'TRX - Transaccion';
+comment on column AQPB539.aqpb539itnrel
+  is 'TRX - Relacion';
+comment on column AQPB539.aqpb539itord
+  is 'TRX - Ordinal';
+comment on column AQPB539.aqpb539itsbor
+  is 'TRX - Sub Ordinal';
+comment on column AQPB539.aqpb539modulo
+  is 'CTA - Modulo';
+comment on column AQPB539.aqpb539ittope
+  is 'CTA - Tipo de Operacion';
+comment on column AQPB539.aqpb539itsucd
+  is 'CTA - Sucursal';
+comment on column AQPB539.aqpb539rubro
+  is 'CTA - Rubro';
+comment on column AQPB539.aqpb539moneda
+  is 'CTA - Moneda';
+comment on column AQPB539.aqpb539papel
+  is 'CTA - Papel';
+comment on column AQPB539.aqpb539ctnro
+  is 'CTA Cliente';
+comment on column AQPB539.aqpb539itoper
+  is 'CTA - Operacion';
+comment on column AQPB539.aqpb539itsubo
+  is 'CTA - Sub Operacion';
+comment on column AQPB539.aqpb539itfval
+  is 'CTA - FVAL';
+comment on column AQPB539.aqpb539itimp1
+  is 'TRX - Monto';
+comment on column AQPB539.aqpb539proest
+  is 'Proceso - Estado';
+comment on column AQPB539.aqpb539proerr
+  is 'Proceso - MSG';
+alter table AQPB539
+  add primary key (AQPB539CRETIM, AQPB539CREUSU, AQPB539PGCOD, AQPB539ITSUC, AQPB539ITMOD, AQPB539ITTRAN, AQPB539ITNREL, AQPB539ITORD, AQPB539ITSBOR);
+

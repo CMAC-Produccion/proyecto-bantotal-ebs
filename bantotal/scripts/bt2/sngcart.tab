@@ -1,0 +1,51 @@
+create table SNGCART
+(
+  sngcartcorr    NUMBER(10) not null,
+  sngcartemp     NUMBER(3),
+  sngcartsuc     NUMBER(3),
+  sngcartmda     NUMBER(4),
+  sngcartpel     NUMBER(4),
+  sngcartcta     NUMBER(9),
+  sngcartop      NUMBER(9),
+  sngcartsope    NUMBER(3),
+  sngcarttope    NUMBER(3),
+  sngcartmod     NUMBER(3),
+  sngcartase     NUMBER(3),
+  sngcartnase    CHAR(30),
+  sngcartncta    CHAR(35),
+  sngcartdoc     CHAR(12),
+  sngcartgpo     NUMBER(9),
+  sngcartngpo    CHAR(30),
+  sngcartfdes    DATE,
+  sngcartfvto    DATE,
+  sngcartdmora   NUMBER(5),
+  sngcartcobj    NUMBER(16),
+  sngcartcres    NUMBER(16),
+  sngcartpreq    NUMBER(17,2),
+  sngcartprev    NUMBER(17,2),
+  sngcartcap     NUMBER(17,2),
+  sngcartsdocap  NUMBER(17,2),
+  sngcartnmod    CHAR(30),
+  sngcartctap    NUMBER(4),
+  sngcarttasa    NUMBER(10,6),
+  sngcarttotctas NUMBER(4),
+  sngcartpdo     CHAR(20),
+  sngcartsib     NUMBER(2),
+  sngcartnsib    CHAR(70),
+  sngcartfdo     NUMBER(2),
+  sngcartnfdo    CHAR(50),
+  sngcartrprog   CHAR(1),
+  sngcartrope    NUMBER(9),
+  sngcartreg     NUMBER(3),
+  sngcartnreg    CHAR(40),
+  sngcartedo     NUMBER(2),
+  sngcartopesup  NUMBER(9),
+  sngcartcrep    NUMBER(2),
+  sngcartnrocat  CHAR(15),
+  sngcartcatope  CHAR(15)
+)
+;
+create index SNGCART02 on SNGCART (SNGCARTREG, SNGCARTSUC);
+alter table SNGCART
+  add primary key (SNGCARTCORR);
+

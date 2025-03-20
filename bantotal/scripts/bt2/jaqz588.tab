@@ -1,0 +1,43 @@
+create table JAQZ588
+(
+  jaqz588cod   NUMBER(4) not null,
+  jaqz588suc   NUMBER(3) not null,
+  jaqz588mda   NUMBER(4) not null,
+  jaqz588pap   NUMBER(4) not null,
+  jaqz588cta   NUMBER(9) not null,
+  jaqz588oper  NUMBER(9) not null,
+  jaqz588sbop  NUMBER(3) not null,
+  jaqz588tope  NUMBER(3) not null,
+  jaqz588mod   NUMBER(3) not null,
+  jaqz588fech  DATE not null,
+  jaqz588fpro  DATE,
+  jaqz588mon   NUMBER(16,2),
+  jaqz588tsuc  NUMBER(3),
+  jaqz588tmod  NUMBER(3),
+  jaqz588ttran NUMBER(3),
+  jaqz588trel  NUMBER(4),
+  jaqz588rub   NUMBER(16),
+  jaqz588usu   VARCHAR2(12),
+  jaqz588psuc  NUMBER(4),
+  jaqz588pmod  NUMBER(4),
+  jaqz588ptran NUMBER(4),
+  jaqz588prel  NUMBER(4),
+  jaqz588pfec  DATE,
+  jaqz588au1   NUMBER(4),
+  jaqz588au2   NUMBER(17),
+  jaqz588au3   NUMBER(16,2),
+  jaqz588au4   VARCHAR2(40),
+  jaqz588au5   VARCHAR2(50),
+  jaqz588au6   CHAR(20),
+  jaqz588au7   DATE,
+  jaqz588hora  CHAR(8),
+  jaqz588fun   CHAR(10),
+  jaqz588age   CHAR(30),
+  jaqz588nom   CHAR(100),
+  jaqz588dni   CHAR(12)
+)
+;
+create index JAQZ5882 on JAQZ588 (JAQZ588COD, JAQZ588CTA);
+alter table JAQZ588
+  add primary key (JAQZ588COD, JAQZ588SUC, JAQZ588MDA, JAQZ588PAP, JAQZ588CTA, JAQZ588OPER, JAQZ588SBOP, JAQZ588TOPE, JAQZ588MOD, JAQZ588FECH);
+

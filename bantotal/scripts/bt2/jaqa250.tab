@@ -1,0 +1,39 @@
+create table JAQA250
+(
+  jaqa250emp NUMBER(3) not null,
+  jaqa250mod NUMBER(3) not null,
+  jaqa250suc NUMBER(3) not null,
+  jaqa250mda NUMBER(4) not null,
+  jaqa250pap NUMBER(4) not null,
+  jaqa250cta NUMBER(9) not null,
+  jaqa250ope NUMBER(9) not null,
+  jaqa250sbo NUMBER(3) not null,
+  jaqa250tpo NUMBER(3) not null,
+  jaqa250fre DATE,
+  jaqa250fpg DATE,
+  jaqa250est CHAR(1),
+  jaqa250ccu NUMBER(5),
+  jaqa250pcu NUMBER(5),
+  jaqa250scr NUMBER(17,2),
+  jaqa250vcu NUMBER(17,2),
+  jaqa250nu1 NUMBER(9),
+  jaqa250nu2 NUMBER(9),
+  jaqa250nu3 NUMBER(9),
+  jaqa250im1 NUMBER(17,2),
+  jaqa250im2 NUMBER(17,2),
+  jaqa250im3 NUMBER(17,2),
+  jaqa250ch1 CHAR(1),
+  jaqa250ch2 CHAR(1),
+  jaqa250ch3 CHAR(1),
+  jaqa250va1 VARCHAR2(255),
+  jaqa250va2 VARCHAR2(255),
+  jaqa250va3 VARCHAR2(255),
+  jaqa250fe1 DATE,
+  jaqa250fe2 DATE,
+  jaqa250fe3 DATE
+)
+;
+create unique index JAQA2501 on JAQA250 (JAQA250EMP, JAQA250MOD, JAQA250SUC, JAQA250MDA, JAQA250PAP, JAQA250CTA, JAQA250OPE, JAQA250SBO, JAQA250TPO);
+create index JAQA2502 on JAQA250 (JAQA250EST);
+create index JAQA2503 on JAQA250 (JAQA250CTA, JAQA250EST);
+

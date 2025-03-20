@@ -1,0 +1,32 @@
+create table FSFF87
+(
+  dtzfpaemp NUMBER(3) not null,
+  dtzfpamod NUMBER(3) not null,
+  dtzfpasuc NUMBER(3) not null,
+  dtzfpatrn NUMBER(3) not null,
+  dtzfparel NUMBER(4) not null,
+  dtzfpafch DATE not null,
+  dtzfparen NUMBER(5) not null,
+  dtzfpafpa NUMBER(3),
+  dtzfpafpn CHAR(30),
+  dtzfpaope NUMBER(9),
+  dtzfpaent NUMBER(9),
+  dtzfpaenn CHAR(35),
+  dtzfpacta NUMBER(4),
+  dtzfpactn CHAR(35),
+  dtzfpafon NUMBER(9),
+  dtzfpactf NUMBER(9),
+  dtzfpasub NUMBER(3),
+  dtzfpaa01 NUMBER(9),
+  dtzfpaa02 NUMBER(9),
+  dtzfpaa03 DATE,
+  dtzfpaa04 DATE,
+  dtzfpaa05 NUMBER(17,2),
+  dtzfpaa06 NUMBER(17,2),
+  dtzfpaa07 CHAR(35),
+  dtzfpaa08 CHAR(35)
+)
+;
+alter table FSFF87
+  add primary key (DTZFPAEMP, DTZFPAMOD, DTZFPASUC, DTZFPATRN, DTZFPAREL, DTZFPAFCH, DTZFPAREN);
+

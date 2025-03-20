@@ -1,0 +1,28 @@
+create table JAQZ168
+(
+  jaqz168pgc NUMBER(3) not null,
+  jaqz168suc NUMBER(3) not null,
+  jaqz168mod NUMBER(3),
+  jaqz168mda NUMBER(4) not null,
+  jaqz168pap NUMBER(4) not null,
+  jaqz168cta NUMBER(9) not null,
+  jaqz168ope NUMBER(9) not null,
+  jaqz168sbo NUMBER(3) not null,
+  jaqz168tpo NUMBER(3) not null,
+  jaqz168sdo NUMBER(17,2),
+  jaqz168fec DATE,
+  jaqz168ax1 NUMBER(9),
+  jaqz168ax2 NUMBER(9),
+  jaqz168ax3 NUMBER(17,2),
+  jaqz168ax4 NUMBER(17,2),
+  jaqz168ax5 DATE,
+  jaqz168ax6 DATE,
+  jaqz168ax7 CHAR(100),
+  jaqz168ax8 CHAR(100),
+  jaqz168ax9 CHAR(100),
+  jaqz168cam NUMBER(9) not null
+)
+;
+alter table JAQZ168
+  add primary key (JAQZ168CAM, JAQZ168PGC, JAQZ168SUC, JAQZ168MDA, JAQZ168PAP, JAQZ168CTA, JAQZ168OPE, JAQZ168SBO, JAQZ168TPO);
+

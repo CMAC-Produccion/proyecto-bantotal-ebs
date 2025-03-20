@@ -1,0 +1,23 @@
+create table FSFFCH
+(
+  fsffchusr  CHAR(10) not null,
+  fsffchcorr NUMBER(9) not null,
+  fsffchope  NUMBER(9) not null,
+  fsffchsop  NUMBER(3) not null,
+  fsffchcom  NUMBER(17,2),
+  fsffchtim  NUMBER(17,2),
+  fsffchint  NUMBER(17,2),
+  fsffchiva  NUMBER(17,2),
+  fsffcha01  NUMBER(9),
+  fsffcha02  NUMBER(9),
+  fsffcha03  NUMBER(17,2),
+  fsffcha04  NUMBER(17,2),
+  fsffcha05  DATE,
+  fsffcha06  DATE,
+  fsffcha07  CHAR(1),
+  fsffcha08  CHAR(1)
+)
+;
+alter table FSFFCH
+  add primary key (FSFFCHUSR, FSFFCHCORR, FSFFCHOPE, FSFFCHSOP);
+

@@ -1,0 +1,13 @@
+create table X054102
+(
+  x054pgcod     NUMBER(3) not null,
+  x054modulo    NUMBER(3) not null,
+  x054trnro     NUMBER(3) not null,
+  x054tipodo    NUMBER(3) not null,
+  x054transcont CHAR(1)
+)
+;
+create index X0541024 on X054102 (X054TIPODO);
+alter table X054102
+  add primary key (X054PGCOD, X054MODULO, X054TRNRO, X054TIPODO);
+

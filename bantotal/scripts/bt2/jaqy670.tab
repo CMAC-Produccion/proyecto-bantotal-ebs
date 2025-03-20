@@ -1,0 +1,18 @@
+create table JAQY670
+(
+  jaqy670pgc NUMBER(3) not null,
+  jaqy670suc NUMBER(3) not null,
+  jaqy670mod NUMBER(3) not null,
+  jaqy670trx NUMBER(3) not null,
+  jaqy670rel NUMBER(4) not null,
+  jaqy670fec DATE not null,
+  jaqy670ini DATE,
+  jaqy670fin DATE,
+  jaqy670mco NUMBER(17,2),
+  jaqy670nmo NUMBER(9),
+  jaqy670mto NUMBER(17,2)
+)
+;
+alter table JAQY670
+  add constraint PK_JAQY670 primary key (JAQY670PGC, JAQY670SUC, JAQY670MOD, JAQY670TRX, JAQY670REL, JAQY670FEC);
+

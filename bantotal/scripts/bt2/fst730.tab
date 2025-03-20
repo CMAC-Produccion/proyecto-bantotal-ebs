@@ -1,0 +1,25 @@
+create table FST730
+(
+  fst730cod NUMBER(3) not null,
+  fst730tgt NUMBER(3) not null,
+  fst730mde NUMBER(4) not null,
+  fst730mgt NUMBER(4) not null,
+  fst730ngt CHAR(30),
+  fst730por NUMBER(5,2),
+  fst730a1  NUMBER(15),
+  fst730a2  NUMBER(15),
+  fst730a3  NUMBER(15),
+  fst730a4  NUMBER(17,2),
+  fst730a5  NUMBER(17,2),
+  fst730a6  NUMBER(17,2),
+  fst730a7  DATE,
+  fst730a8  DATE,
+  fst730a9  DATE,
+  fst730a10 CHAR(30),
+  fst730a11 CHAR(30),
+  fst730a12 CHAR(30)
+)
+;
+alter table FST730
+  add primary key (FST730COD, FST730TGT, FST730MDE, FST730MGT);
+

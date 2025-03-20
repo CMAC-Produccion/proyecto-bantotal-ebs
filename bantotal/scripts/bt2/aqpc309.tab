@@ -1,0 +1,128 @@
+create table AQPC309
+(
+  aqpc309id      NUMBER(9) not null,
+  aqpc309fecreg  DATE,
+  aqpc309horreg  VARCHAR2(10),
+  aqpc309scmod   NUMBER(3),
+  aqpc309sctope  NUMBER(3),
+  aqpc309scsuc   NUMBER(3),
+  aqpc309scmda   NUMBER(4),
+  aqpc309scpap   NUMBER(4),
+  aqpc309sccta   NUMBER(9),
+  aqpc309scoper  NUMBER(9),
+  aqpc309scsbop  NUMBER(3),
+  aqpc309itsuc   NUMBER(3),
+  aqpc309itmod   NUMBER(3),
+  aqpc309ittran  NUMBER(3),
+  aqpc309itnrel  NUMBER(4),
+  aqpc309fecpro  DATE,
+  aqpc309pgcod   NUMBER(3),
+  aqpc309hcmod   NUMBER(3),
+  aqpc309hsucor  NUMBER(3),
+  aqpc309htran   NUMBER(3),
+  aqpc309hnrel   NUMBER(4),
+  aqpc309hfcon   DATE,
+  aqpc309moncom  NUMBER(17,2),
+  aqpc309pordev  NUMBER(17,2),
+  aqpc309monto   NUMBER(17,2),
+  aqpc309codcam  NUMBER(4),
+  aqpc309numtar  CHAR(19),
+  aqpc309pepais  NUMBER(3),
+  aqpc309petdoc  NUMBER(2),
+  aqpc309pendoc  CHAR(12),
+  aqpc309codcon  NUMBER(5),
+  aqpc309msgcon  VARCHAR2(200),
+  aqpc309usuario CHAR(10),
+  aqpc309auxv1   VARCHAR2(200),
+  aqpc309auxv2   VARCHAR2(200),
+  aqpc309auxv3   VARCHAR2(200),
+  aqpc309auxn1   NUMBER(17,2),
+  aqpc309auxn2   NUMBER(17,2),
+  aqpc309auxn3   NUMBER(17,2)
+)
+;
+comment on table AQPC309
+  is 'Log de Devoluciones Cashback';
+comment on column AQPC309.aqpc309id
+  is 'Correlativo';
+comment on column AQPC309.aqpc309fecreg
+  is 'Fecha de Registro';
+comment on column AQPC309.aqpc309horreg
+  is 'Hora de Registro';
+comment on column AQPC309.aqpc309scmod
+  is 'Cuenta Origen Scmod';
+comment on column AQPC309.aqpc309sctope
+  is 'Cuenta Origen Sctope';
+comment on column AQPC309.aqpc309scsuc
+  is 'Cuenta Origen Scsuc';
+comment on column AQPC309.aqpc309scmda
+  is 'Cuenta Origen Scmda';
+comment on column AQPC309.aqpc309scpap
+  is 'Cuenta Origen Scpap';
+comment on column AQPC309.aqpc309sccta
+  is 'Cuenta Origen Sccta';
+comment on column AQPC309.aqpc309scoper
+  is 'Cuenta Origen Scoper';
+comment on column AQPC309.aqpc309scsbop
+  is 'Cuenta Origen Scsbop';
+comment on column AQPC309.aqpc309itsuc
+  is 'Itsuc';
+comment on column AQPC309.aqpc309itmod
+  is 'Itmod';
+comment on column AQPC309.aqpc309ittran
+  is 'Ittran';
+comment on column AQPC309.aqpc309itnrel
+  is 'Itnrel';
+comment on column AQPC309.aqpc309fecpro
+  is 'Fecha de Proceso';
+comment on column AQPC309.aqpc309pgcod
+  is 'Pgcod';
+comment on column AQPC309.aqpc309hcmod
+  is 'Hcmod';
+comment on column AQPC309.aqpc309hsucor
+  is 'Hsucor';
+comment on column AQPC309.aqpc309htran
+  is 'Htran';
+comment on column AQPC309.aqpc309hnrel
+  is 'Hnrel';
+comment on column AQPC309.aqpc309hfcon
+  is 'Fecha de Compra';
+comment on column AQPC309.aqpc309moncom
+  is 'Monto de Compra';
+comment on column AQPC309.aqpc309pordev
+  is 'Porcentaje de Devolución';
+comment on column AQPC309.aqpc309monto
+  is 'Monto Devuelto';
+comment on column AQPC309.aqpc309codcam
+  is 'Correlativo Campaña';
+comment on column AQPC309.aqpc309numtar
+  is 'Número Tarjeta';
+comment on column AQPC309.aqpc309pepais
+  is 'Pais del Documento';
+comment on column AQPC309.aqpc309petdoc
+  is 'Tipo documento';
+comment on column AQPC309.aqpc309pendoc
+  is 'Documento';
+comment on column AQPC309.aqpc309codcon
+  is 'Código de error Contabilización';
+comment on column AQPC309.aqpc309msgcon
+  is 'Mensaje de error Contabilización';
+comment on column AQPC309.aqpc309usuario
+  is 'Usuario de Registro';
+comment on column AQPC309.aqpc309auxv1
+  is 'Auxiliar V1';
+comment on column AQPC309.aqpc309auxv2
+  is 'Auxiliar V2';
+comment on column AQPC309.aqpc309auxv3
+  is 'Auxiliar V3';
+comment on column AQPC309.aqpc309auxn1
+  is 'Auxiliar N1';
+comment on column AQPC309.aqpc309auxn2
+  is 'Auxiliar N2';
+comment on column AQPC309.aqpc309auxn3
+  is 'Auxiliar N3';
+create index AQPC3092 on AQPC309 (AQPC309FECPRO);
+create index AQPC3093 on AQPC309 (AQPC309PEPAIS, AQPC309PETDOC, AQPC309PENDOC, AQPC309FECPRO);
+alter table AQPC309
+  add primary key (AQPC309ID);
+

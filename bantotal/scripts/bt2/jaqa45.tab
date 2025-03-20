@@ -1,0 +1,106 @@
+create table JAQA45
+(
+  jaqa45emp NUMBER(3) not null,
+  jaqa45suc NUMBER(3) not null,
+  jaqa45naf CHAR(50) not null,
+  jaqa45cor NUMBER(3) not null,
+  jaqa45tnr CHAR(19),
+  jaqa45cem NUMBER(3),
+  jaqa45cmo NUMBER(3),
+  jaqa45csu NUMBER(3),
+  jaqa45cmd NUMBER(4),
+  jaqa45cpa NUMBER(4),
+  jaqa45cct NUMBER(9),
+  jaqa45cop NUMBER(9),
+  jaqa45csb NUMBER(3),
+  jaqa45cto NUMBER(3),
+  jaqa45fch DATE,
+  jaqa45usu CHAR(10),
+  jaqa45est CHAR(1),
+  jaqa45an1 NUMBER(9),
+  jaqa45an2 NUMBER(9),
+  jaqa45an3 NUMBER(9),
+  jaqa45ai1 NUMBER(17,2),
+  jaqa45ai2 NUMBER(17,2),
+  jaqa45ai3 NUMBER(17,2),
+  jaqa45af1 DATE,
+  jaqa45af2 DATE,
+  jaqa45af3 DATE,
+  jaqa45ac1 CHAR(1),
+  jaqa45ac2 CHAR(1),
+  jaqa45ac3 CHAR(1),
+  jaqa45at1 VARCHAR2(250),
+  jaqa45at2 VARCHAR2(250),
+  jaqa45at3 VARCHAR2(250)
+)
+;
+comment on table JAQA45
+  is 'Tarjeta nuevo modulo seguro pasiva';
+comment on column JAQA45.jaqa45emp
+  is 'Empresa';
+comment on column JAQA45.jaqa45suc
+  is 'Sucursal';
+comment on column JAQA45.jaqa45naf
+  is 'Nro Afiliación';
+comment on column JAQA45.jaqa45cor
+  is 'Correlativo';
+comment on column JAQA45.jaqa45tnr
+  is 'Numero de Tarjeta';
+comment on column JAQA45.jaqa45cem
+  is 'Empresa Cuenta Ahorro';
+comment on column JAQA45.jaqa45cmo
+  is 'Modulo Cuenta Ahorro';
+comment on column JAQA45.jaqa45csu
+  is 'Sucursal Cuenta Ahorro';
+comment on column JAQA45.jaqa45cmd
+  is 'Moneda Cuenta Ahorro';
+comment on column JAQA45.jaqa45cpa
+  is 'Papel cuenta Ahorro';
+comment on column JAQA45.jaqa45cct
+  is 'Cuenta Cuenta de Ahorro';
+comment on column JAQA45.jaqa45cop
+  is 'Operacion cuenta Ahorro';
+comment on column JAQA45.jaqa45csb
+  is 'Subcuenta  Cuenta Ahorro';
+comment on column JAQA45.jaqa45cto
+  is 'Tipo de Operacion Cuenta Ahorro';
+comment on column JAQA45.jaqa45fch
+  is 'Fecha de asociacion';
+comment on column JAQA45.jaqa45usu
+  is 'Usuario asociacion';
+comment on column JAQA45.jaqa45est
+  is 'Estado H: Habilitado D: deshabilitado';
+comment on column JAQA45.jaqa45an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA45.jaqa45an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA45.jaqa45an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA45.jaqa45ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA45.jaqa45ai2
+  is 'Auxiliar importe 2';
+comment on column JAQA45.jaqa45ai3
+  is 'Auxiliar importe 3';
+comment on column JAQA45.jaqa45af1
+  is 'Auxiliar fecha 1';
+comment on column JAQA45.jaqa45af2
+  is 'Auxiliar fecha 2';
+comment on column JAQA45.jaqa45af3
+  is 'Auxiliar fecha 3';
+comment on column JAQA45.jaqa45ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA45.jaqa45ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA45.jaqa45ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQA45.jaqa45at1
+  is 'Auxiliar texto 1';
+comment on column JAQA45.jaqa45at2
+  is 'Auxiliar texto 2';
+comment on column JAQA45.jaqa45at3
+  is 'Auxiliar texto 3';
+create index JAQA452 on JAQA45 (JAQA45CEM, JAQA45CMO, JAQA45CSU, JAQA45CMD, JAQA45CPA, JAQA45CCT, JAQA45COP, JAQA45CSB, JAQA45CTO, JAQA45TNR);
+alter table JAQA45
+  add primary key (JAQA45EMP, JAQA45SUC, JAQA45NAF, JAQA45COR);
+

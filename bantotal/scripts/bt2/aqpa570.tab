@@ -1,0 +1,42 @@
+create table AQPA570
+(
+  aqpa570cod  NUMBER(4) not null,
+  aqpa570cta  NUMBER(9) not null,
+  aqpa570dni  CHAR(12) not null,
+  aqpa570fec  DATE not null,
+  aqpa570emp  CHAR(6),
+  aqpa570pro  CHAR(10),
+  aqpa570cert CHAR(15),
+  aqpa570cua  CHAR(20),
+  aqpa570fbaj CHAR(8),
+  aqpa570mot  CHAR(2),
+  aqpa570a1   CHAR(40)
+)
+;
+comment on table AQPA570
+  is 'Tabla Temporal Bajas ONCOSALUD';
+comment on column AQPA570.aqpa570cod
+  is 'Codigo';
+comment on column AQPA570.aqpa570cta
+  is 'cuenta';
+comment on column AQPA570.aqpa570dni
+  is 'Dni';
+comment on column AQPA570.aqpa570fec
+  is 'fecha proceso';
+comment on column AQPA570.aqpa570emp
+  is 'Empresa o entidad';
+comment on column AQPA570.aqpa570pro
+  is 'Producto';
+comment on column AQPA570.aqpa570cert
+  is 'Certificado';
+comment on column AQPA570.aqpa570cua
+  is 'Codigo unico de afiliado (CUA)';
+comment on column AQPA570.aqpa570fbaj
+  is 'Fecha de baja';
+comment on column AQPA570.aqpa570mot
+  is 'Codigo de Baja';
+comment on column AQPA570.aqpa570a1
+  is 'aux1';
+alter table AQPA570
+  add primary key (AQPA570COD, AQPA570CTA, AQPA570DNI, AQPA570FEC);
+

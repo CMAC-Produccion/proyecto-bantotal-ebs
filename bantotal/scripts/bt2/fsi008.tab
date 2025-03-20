@@ -1,0 +1,14 @@
+create table FSI008
+(
+  pgcod   NUMBER(3) not null,
+  cicpo   CHAR(8) not null,
+  ciagru  CHAR(16) not null,
+  citpoa  CHAR(2) not null,
+  ciapzod NUMBER(5),
+  ciapzoh NUMBER(5),
+  ciapzot CHAR(1)
+)
+;
+alter table FSI008
+  add primary key (PGCOD, CICPO, CIAGRU, CITPOA);
+

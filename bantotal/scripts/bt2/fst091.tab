@@ -1,0 +1,14 @@
+create table FST091
+(
+  pgcod  NUMBER(3) not null,
+  sucurs NUMBER(3) not null,
+  pqcpla NUMBER(3) not null,
+  banco  NUMBER(3) not null,
+  sucbco NUMBER(12) not null
+)
+;
+create index FST09103 on FST091 (BANCO, SUCBCO);
+create index FST09104 on FST091 (PGCOD, SUCURS, BANCO, SUCBCO);
+alter table FST091
+  add primary key (PGCOD, SUCURS, PQCPLA, BANCO, SUCBCO);
+

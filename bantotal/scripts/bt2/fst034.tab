@@ -1,0 +1,46 @@
+create table FST034
+(
+  pgcod  NUMBER(3) not null,
+  trmod  NUMBER(3) not null,
+  trnro  NUMBER(3) not null,
+  trnom  CHAR(30),
+  trtdef CHAR(20),
+  trtext CHAR(1),
+  trmn   CHAR(1),
+  trme   CHAR(1),
+  tralba CHAR(1),
+  trreco CHAR(1),
+  trporc NUMBER(2),
+  trsorc NUMBER(2),
+  tropau CHAR(1),
+  tropep CHAR(1),
+  trcors CHAR(1),
+  tromlm CHAR(1),
+  trimpr CHAR(1),
+  trcej  CHAR(1),
+  trincr CHAR(1),
+  trbjpa CHAR(1),
+  trbjan CHAR(1),
+  trtafe CHAR(1),
+  tranhi CHAR(1),
+  trcbcu CHAR(1),
+  trccla CHAR(1),
+  trnetp CHAR(1),
+  trcomi NUMBER(3),
+  trgts  CHAR(1),
+  triva  CHAR(1),
+  trivme CHAR(1),
+  trswif NUMBER(3),
+  trccos CHAR(1),
+  tridoc CHAR(1),
+  trhabt CHAR(1),
+  trdtpo CHAR(1),
+  pftcod NUMBER(5),
+  trconf CHAR(1)
+)
+;
+create index FST03403 on FST034 (TRMOD);
+create index FST03404 on FST034 (PFTCOD);
+alter table FST034
+  add primary key (PGCOD, TRMOD, TRNRO);
+

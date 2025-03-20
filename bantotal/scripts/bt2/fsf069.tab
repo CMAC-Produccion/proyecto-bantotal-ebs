@@ -1,0 +1,11 @@
+create table FSF069
+(
+  hjpgcod NUMBER(3) not null,
+  hjctnro NUMBER(9) not null,
+  hjfinro NUMBER(3) not null,
+  hjobs   CHAR(20)
+)
+;
+alter table FSF069
+  add primary key (HJPGCOD, HJCTNRO, HJFINRO);
+

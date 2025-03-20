@@ -1,0 +1,15 @@
+create table FSF003
+(
+  pgcod     NUMBER(3) not null,
+  finro     NUMBER(3) not null,
+  ficli     NUMBER(9) not null,
+  ficfecha  DATE not null,
+  ficvaltot NUMBER(17,2),
+  ficvalcuo NUMBER(14,6),
+  ficcntcuo NUMBER(14,6)
+)
+;
+create index FSF00303 on FSF003 (PGCOD, FINRO, FICFECHA, FICLI);
+alter table FSF003
+  add primary key (PGCOD, FINRO, FICLI, FICFECHA);
+

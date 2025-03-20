@@ -1,0 +1,28 @@
+create table UBT70
+(
+  ummuser CHAR(10) not null,
+  uminst  NUMBER(10) not null,
+  umfec   DATE not null,
+  umhora  CHAR(8) not null,
+  umpgcod NUMBER(3) not null,
+  ummnom  CHAR(30),
+  ummpgc  NUMBER(3),
+  umsuc   NUMBER(3),
+  umsuser CHAR(10),
+  umuser  CHAR(10),
+  umtipo  CHAR(3),
+  ummot   VARCHAR2(250),
+  umdoc   CHAR(1),
+  umdocex CHAR(5),
+  umcfec  DATE,
+  umchora CHAR(8),
+  umcuser CHAR(10)
+)
+;
+create index UBT7003 on UBT70 (UMFEC);
+create index UBT7004 on UBT70 (UMUSER);
+create index UBT7005 on UBT70 (UMCFEC);
+create index UBT7006 on UBT70 (UMCUSER);
+alter table UBT70
+  add primary key (UMMUSER, UMINST, UMFEC, UMHORA, UMPGCOD);
+

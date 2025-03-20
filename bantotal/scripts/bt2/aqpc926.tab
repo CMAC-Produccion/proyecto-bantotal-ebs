@@ -1,0 +1,59 @@
+create table AQPC926
+(
+  aqpc926id    NUMBER(12) not null,
+  aqpc926fech  DATE not null,
+  aqpc926hora  CHAR(8) not null,
+  aqpc926trace CHAR(6) not null,
+  aqpc926idcce CHAR(50),
+  aqpc926scct  NUMBER(9),
+  aqpc926bcor  NUMBER(3),
+  aqpc926suor  NUMBER(12),
+  aqpc926bcde  NUMBER(3),
+  aqpc926sude  NUMBER(12),
+  aqpc926ccio  CHAR(20),
+  aqpc926ccid  CHAR(20),
+  aqpc926tipo  CHAR(30),
+  aqpc926tram  VARCHAR2(3000),
+  aqpc926au01  VARCHAR2(1000),
+  aqpc926au02  VARCHAR2(1000)
+)
+;
+comment on table AQPC926
+  is 'Log Tramas Transferencias CCE de entrada';
+comment on column AQPC926.aqpc926id
+  is 'ID de Log';
+comment on column AQPC926.aqpc926fech
+  is 'Fecha de Registro';
+comment on column AQPC926.aqpc926hora
+  is 'Hora de Registro';
+comment on column AQPC926.aqpc926trace
+  is 'Trace';
+comment on column AQPC926.aqpc926idcce
+  is 'ID CCE';
+comment on column AQPC926.aqpc926scct
+  is 'Cuenta';
+comment on column AQPC926.aqpc926bcor
+  is 'Banco Origen';
+comment on column AQPC926.aqpc926suor
+  is 'Sucursal Origen';
+comment on column AQPC926.aqpc926bcde
+  is 'Banco Destino';
+comment on column AQPC926.aqpc926sude
+  is 'Sucursal Destino';
+comment on column AQPC926.aqpc926ccio
+  is 'CCI Origen';
+comment on column AQPC926.aqpc926ccid
+  is 'CCI Destino';
+comment on column AQPC926.aqpc926tipo
+  is 'Tipo Operación';
+comment on column AQPC926.aqpc926tram
+  is 'Trama';
+comment on column AQPC926.aqpc926au01
+  is 'Auxiliar 01 (Error)';
+comment on column AQPC926.aqpc926au02
+  is 'Auxiliar 02';
+create index AQPC926A2 on AQPC926 (AQPC926ID, AQPC926FECH, AQPC926TIPO);
+create index AQPC926A3 on AQPC926 (AQPC926FECH, AQPC926TRACE, AQPC926BCOR);
+alter table AQPC926
+  add primary key (AQPC926ID);
+

@@ -1,0 +1,21 @@
+create table Z0E4PN
+(
+  z0e4pnusr CHAR(10) not null,
+  z0e4pnter CHAR(10) not null,
+  z0e4pncod NUMBER(3) not null,
+  z0e4pnsuc NUMBER(3) not null,
+  z0e4pncja NUMBER(3) not null,
+  z0e4pncta NUMBER(9) not null,
+  z0e4pnope NUMBER(9) not null,
+  z0e4pnmda NUMBER(4),
+  z0e4pncds CHAR(35),
+  z0e4pnimp NUMBER(14,2),
+  z0e4pnucj CHAR(10),
+  z0e4pnfpg CHAR(1)
+)
+;
+create index Z0E4PN02 on Z0E4PN (Z0E4PNUSR, Z0E4PNTER, Z0E4PNCOD, Z0E4PNSUC, Z0E4PNCJA, Z0E4PNMDA, Z0E4PNCTA);
+create index Z0E4PN03 on Z0E4PN (Z0E4PNUSR, Z0E4PNTER, Z0E4PNCOD, Z0E4PNSUC, Z0E4PNCJA, Z0E4PNFPG, Z0E4PNMDA, Z0E4PNCTA);
+alter table Z0E4PN
+  add primary key (Z0E4PNUSR, Z0E4PNTER, Z0E4PNCOD, Z0E4PNSUC, Z0E4PNCJA, Z0E4PNCTA, Z0E4PNOPE);
+

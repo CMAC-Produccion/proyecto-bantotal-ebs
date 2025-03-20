@@ -1,0 +1,27 @@
+create table JAQM48
+(
+  jaqm48cpr NUMBER(12) not null,
+  jaqm48cre NUMBER(12) not null,
+  jaqm48cor NUMBER(3) not null,
+  jaqm48cab VARCHAR2(30),
+  jaqm48des VARCHAR2(255),
+  jaqm48nu1 NUMBER(9),
+  jaqm48nu2 NUMBER(9),
+  jaqm48nu3 NUMBER(9),
+  jaqm48im1 NUMBER(17,2),
+  jaqm48im2 NUMBER(17,2),
+  jaqm48im3 NUMBER(17,2),
+  jaqm48fe1 DATE,
+  jaqm48fe2 DATE,
+  jaqm48fe3 DATE,
+  jaqm48ch1 CHAR(1),
+  jaqm48ch2 CHAR(1),
+  jaqm48ch3 CHAR(1),
+  jaqm48va1 VARCHAR2(255),
+  jaqm48va2 VARCHAR2(255),
+  jaqm48va3 VARCHAR2(255)
+)
+;
+alter table JAQM48
+  add primary key (JAQM48CPR, JAQM48CRE, JAQM48COR);
+

@@ -1,0 +1,20 @@
+create table FSFP07
+(
+  sfp07iden CHAR(20) not null,
+  sfp07razs CHAR(40),
+  sfp07dire CHAR(45),
+  sfp07pais NUMBER(3),
+  sfp07dept NUMBER(5),
+  sfp07ciud NUMBER(5),
+  sfp07tel1 CHAR(20),
+  sfp07tel2 CHAR(20),
+  sfp07fax  CHAR(20),
+  sfp07mail CHAR(40),
+  sfp07stat NUMBER(4),
+  sfp07ciiu CHAR(10)
+)
+;
+create index FSFP0702 on FSFP07 (SFP07RAZS);
+alter table FSFP07
+  add primary key (SFP07IDEN);
+

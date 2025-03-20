@@ -1,0 +1,18 @@
+create table FSD565
+(
+  pgcod  NUMBER(3) not null,
+  dcmod  NUMBER(3) not null,
+  dcsuc  NUMBER(3) not null,
+  dcmda  NUMBER(4) not null,
+  dcpap  NUMBER(4) not null,
+  dccta  NUMBER(9) not null,
+  dcoper NUMBER(9) not null,
+  dcsbop NUMBER(3) not null,
+  dctope NUMBER(3) not null,
+  dcndoc CHAR(12) not null,
+  dccat  NUMBER(5)
+)
+;
+alter table FSD565
+  add primary key (PGCOD, DCMOD, DCSUC, DCMDA, DCPAP, DCCTA, DCOPER, DCSBOP, DCTOPE, DCNDOC);
+

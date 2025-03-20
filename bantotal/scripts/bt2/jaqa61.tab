@@ -1,0 +1,81 @@
+create table JAQA61
+(
+  jaqa61pro VARCHAR2(200) not null,
+  jaqa61nra CHAR(50) not null,
+  jaqa61cor NUMBER(10) not null,
+  jaqa61tip CHAR(2) not null,
+  jaqa61nrd CHAR(12) not null,
+  jaqa61pai CHAR(3) not null,
+  jaqa61fec CHAR(20) not null,
+  jaqa61nya CHAR(30),
+  jaqa61nac CHAR(20),
+  jaqa61sex CHAR(1),
+  jaqa61tel CHAR(20),
+  jaqa61par CHAR(20),
+  jaqa61enf CHAR(1),
+  jaqa61des VARCHAR2(250),
+  jaqa61por NUMBER(5,2),
+  jaqa61usi CHAR(10),
+  jaqa61fei CHAR(20),
+  jaqa61tib CHAR(3),
+  jaqa61cre CHAR(250),
+  jaqa61fee DATE,
+  jaqa61hoe CHAR(10),
+  jaqa61fem DATE,
+  jaqa61esm CHAR(1),
+  jaqa61erd VARCHAR2(255)
+)
+;
+comment on table JAQA61
+  is 'Tabla puente de la tabla TMP_SisDataBeneficiarios"@SISRETAIL';
+comment on column JAQA61.jaqa61pro
+  is 'Producto';
+comment on column JAQA61.jaqa61nra
+  is 'Numero de Afiliación';
+comment on column JAQA61.jaqa61cor
+  is 'Correlativo';
+comment on column JAQA61.jaqa61tip
+  is 'Tipo de Documento';
+comment on column JAQA61.jaqa61nrd
+  is 'Numero de Documento';
+comment on column JAQA61.jaqa61pai
+  is 'Pais';
+comment on column JAQA61.jaqa61fec
+  is 'Fecha de Nacimiento';
+comment on column JAQA61.jaqa61nya
+  is 'Nombres y Apellidos';
+comment on column JAQA61.jaqa61nac
+  is 'Nacionalidad';
+comment on column JAQA61.jaqa61sex
+  is 'Sexo';
+comment on column JAQA61.jaqa61tel
+  is 'Telefono';
+comment on column JAQA61.jaqa61par
+  is 'Parentesco';
+comment on column JAQA61.jaqa61enf
+  is 'Enfermedad';
+comment on column JAQA61.jaqa61des
+  is 'Descripcion Enfermedad';
+comment on column JAQA61.jaqa61por
+  is 'Porcentaje Asignado';
+comment on column JAQA61.jaqa61usi
+  is 'Usuario Ingreso';
+comment on column JAQA61.jaqa61fei
+  is 'Fecha de Ingreso';
+comment on column JAQA61.jaqa61tib
+  is 'Tipo de Beneficiario';
+comment on column JAQA61.jaqa61cre
+  is 'Correo';
+comment on column JAQA61.jaqa61fee
+  is 'Fecha de Ejecucion';
+comment on column JAQA61.jaqa61hoe
+  is 'Hora de Ejecucion';
+comment on column JAQA61.jaqa61fem
+  is 'Fecha de Migracion';
+comment on column JAQA61.jaqa61esm
+  is 'Estado de Migracion';
+comment on column JAQA61.jaqa61erd
+  is 'Descripcion del error';
+alter table JAQA61
+  add primary key (JAQA61PRO, JAQA61NRA, JAQA61COR, JAQA61TIP, JAQA61NRD, JAQA61PAI, JAQA61FEC);
+

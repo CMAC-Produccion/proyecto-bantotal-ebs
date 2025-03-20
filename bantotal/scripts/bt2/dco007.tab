@@ -1,0 +1,14 @@
+create table DCO007
+(
+  dco007cuen NUMBER(9) not null,
+  dco000id   NUMBER(10) not null,
+  dco007pres CHAR(1),
+  dco007fpre DATE,
+  dco007fven DATE,
+  dco007ctxt CHAR(30)
+)
+;
+create index DCO00702 on DCO007 (DCO000ID);
+alter table DCO007
+  add primary key (DCO007CUEN, DCO000ID);
+

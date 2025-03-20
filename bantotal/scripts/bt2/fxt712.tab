@@ -1,0 +1,14 @@
+create table FXT712
+(
+  rulswtcod  NUMBER(5) not null,
+  rulcpo     NUMBER(2) not null,
+  rulcpofmt  CHAR(1) not null,
+  rulswtcorr NUMBER(3) not null,
+  rulctcod   NUMBER(5),
+  rulswtsts  CHAR(1)
+)
+;
+create index FXT71203 on FXT712 (RULCTCOD);
+alter table FXT712
+  add primary key (RULSWTCOD, RULCPO, RULCPOFMT, RULSWTCORR);
+

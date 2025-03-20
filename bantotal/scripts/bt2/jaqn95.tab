@@ -1,0 +1,82 @@
+create table JAQN95
+(
+  jaqn95mod NUMBER(3) not null,
+  jaqn95trs NUMBER(3) not null,
+  jaqn95ord NUMBER(2) not null,
+  jaqn95tca NUMBER(4) not null,
+  jaqn95suc NUMBER(3),
+  jaqn95dfp CHAR(15),
+  jaqn95dca CHAR(15),
+  jaqn95nmt CHAR(15),
+  jaqn95des CHAR(255),
+  jaqn95nu1 NUMBER(9),
+  jaqn95nu2 NUMBER(9),
+  jaqn95nu3 NUMBER(9),
+  jaqn95va1 VARCHAR2(255),
+  jaqn95va2 VARCHAR2(255),
+  jaqn95va3 VARCHAR2(255),
+  jaqn95da1 DATE,
+  jaqn95da2 DATE,
+  jaqn95da3 DATE,
+  jaqn95im1 NUMBER(17,2),
+  jaqn95im2 NUMBER(17,2),
+  jaqn95im3 NUMBER(17,2),
+  jaqn95ch1 CHAR(255),
+  jaqn95ch2 CHAR(255),
+  jaqn95ch3 CHAR(255)
+)
+;
+comment on table JAQN95
+  is 'Transacciones asignadas';
+comment on column JAQN95.jaqn95mod
+  is 'Modulo';
+comment on column JAQN95.jaqn95trs
+  is 'Transaccion';
+comment on column JAQN95.jaqn95ord
+  is 'Ordinal';
+comment on column JAQN95.jaqn95tca
+  is 'Tipo Canal de Atencion';
+comment on column JAQN95.jaqn95suc
+  is 'Sucursal';
+comment on column JAQN95.jaqn95dfp
+  is 'Dentro o Fuera del Pais';
+comment on column JAQN95.jaqn95dca
+  is 'Analisis de Debito o Credito o Ambos';
+comment on column JAQN95.jaqn95nmt
+  is 'Analisis por Modulo o transaccion';
+comment on column JAQN95.jaqn95des
+  is 'Descripcion';
+comment on column JAQN95.jaqn95nu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN95.jaqn95nu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN95.jaqn95nu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQN95.jaqn95va1
+  is 'Auxiliar Varchar 1';
+comment on column JAQN95.jaqn95va2
+  is 'Auxiliar Varchar 2';
+comment on column JAQN95.jaqn95va3
+  is 'Auxiliar Varchar 3';
+comment on column JAQN95.jaqn95da1
+  is 'Auxiliar Date 1';
+comment on column JAQN95.jaqn95da2
+  is 'Auxiliar Date 2';
+comment on column JAQN95.jaqn95da3
+  is 'Auxiliar Date 3';
+comment on column JAQN95.jaqn95im1
+  is 'Auxiliar Importe 1';
+comment on column JAQN95.jaqn95im2
+  is 'Auxiliar Importe 2';
+comment on column JAQN95.jaqn95im3
+  is 'Auxiliar Importe 3';
+comment on column JAQN95.jaqn95ch1
+  is 'Auxiliar Character 1';
+comment on column JAQN95.jaqn95ch2
+  is 'Auxiliar Character 2';
+comment on column JAQN95.jaqn95ch3
+  is 'Auxiliar Character 3';
+create index JAQN95A2 on JAQN95 (JAQN95TCA, JAQN95MOD, JAQN95TRS, JAQN95ORD);
+alter table JAQN95
+  add primary key (JAQN95MOD, JAQN95TRS, JAQN95ORD, JAQN95TCA);
+

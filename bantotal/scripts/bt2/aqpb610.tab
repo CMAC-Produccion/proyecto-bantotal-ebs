@@ -1,0 +1,84 @@
+create table AQPB610
+(
+  aqpb610corr    NUMBER(10) not null,
+  aqpb610pai     NUMBER(5) not null,
+  aqpb610tdoc    NUMBER(5) not null,
+  aqpb610ndoc    VARCHAR2(30) not null,
+  aqpb610pgcod   NUMBER(5) not null,
+  aqpb610mod     NUMBER(10) not null,
+  aqpb610suc     NUMBER(10) not null,
+  aqpb610mda     NUMBER(10) not null,
+  aqpb610pap     NUMBER(10) not null,
+  aqpb610cta     NUMBER(10) not null,
+  aqpb610ope     NUMBER(10) not null,
+  aqpb610sope    NUMBER(10) not null,
+  aqpb610tope    NUMBER(10) not null,
+  aqpb610tcam    NUMBER(10,8),
+  aqpb610fproc   DATE,
+  aqpb610hproc   VARCHAR2(15),
+  aqpb610user    VARCHAR2(10),
+  aqpb610mntca   NUMBER(17,2),
+  aqpb610mntifis NUMBER(17,2),
+  aqpb610cuopot  NUMBER(17,2),
+  aqpb610cupcon  NUMBER(17,2),
+  aqpb610ingnet  NUMBER(17,2),
+  aqpb610ratio   NUMBER(10,6),
+  aqpb610est     VARCHAR2(10),
+  aqpb610tcarg   VARCHAR2(10)
+)
+;
+comment on column AQPB610.aqpb610corr
+  is 'CORRELATIVO';
+comment on column AQPB610.aqpb610pai
+  is 'PAIS';
+comment on column AQPB610.aqpb610tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB610.aqpb610ndoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPB610.aqpb610pgcod
+  is 'PGCOD';
+comment on column AQPB610.aqpb610mod
+  is 'MODULO';
+comment on column AQPB610.aqpb610suc
+  is 'SUCURSAL';
+comment on column AQPB610.aqpb610mda
+  is 'MONEDA';
+comment on column AQPB610.aqpb610pap
+  is 'PAPEL';
+comment on column AQPB610.aqpb610cta
+  is 'CUENTA';
+comment on column AQPB610.aqpb610ope
+  is 'OPERACIÓN';
+comment on column AQPB610.aqpb610sope
+  is 'SUBOPERACION';
+comment on column AQPB610.aqpb610tope
+  is 'TIPO OPERACIÓN';
+comment on column AQPB610.aqpb610tcam
+  is 'TIPO DE CAMBIO';
+comment on column AQPB610.aqpb610fproc
+  is 'FECHA PROCESO';
+comment on column AQPB610.aqpb610hproc
+  is 'HORA DE PROCESO ';
+comment on column AQPB610.aqpb610user
+  is 'USUARIO REGISTRO';
+comment on column AQPB610.aqpb610mntca
+  is 'MONTO CAJA';
+comment on column AQPB610.aqpb610mntifis
+  is 'MONTO INSTITUCIONES FINANCIERAS';
+comment on column AQPB610.aqpb610cuopot
+  is 'CUOTA POTENCIAL';
+comment on column AQPB610.aqpb610cupcon
+  is 'CUOTA CONTINGENTE';
+comment on column AQPB610.aqpb610ingnet
+  is 'INGRESO NETO';
+comment on column AQPB610.aqpb610ratio
+  is 'RATIO';
+comment on column AQPB610.aqpb610est
+  is 'ESTADO';
+comment on column AQPB610.aqpb610tcarg
+  is 'TIPOS DE CARGA MASIVO CAJA MOVIL';
+create index AQPB610A2 on AQPB610 (AQPB610PGCOD, AQPB610MOD, AQPB610SUC, AQPB610MDA, AQPB610PAP, AQPB610CTA, AQPB610OPE, AQPB610SOPE, AQPB610TOPE, AQPB610TCARG);
+create index AQPB61002 on AQPB610 (AQPB610CORR, AQPB610PAI, AQPB610TDOC, AQPB610NDOC, AQPB610PGCOD, AQPB610MOD, AQPB610SUC, AQPB610MDA, AQPB610PAP, AQPB610CTA, AQPB610OPE, AQPB610SOPE, AQPB610TOPE);
+alter table AQPB610
+  add primary key (AQPB610CORR, AQPB610PAI, AQPB610TDOC, AQPB610NDOC, AQPB610PGCOD, AQPB610MOD, AQPB610SUC, AQPB610MDA, AQPB610PAP, AQPB610CTA, AQPB610OPE, AQPB610SOPE, AQPB610TOPE);
+

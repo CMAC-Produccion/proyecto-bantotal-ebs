@@ -1,0 +1,30 @@
+create table AQPC916
+(
+  aqpc916id     NUMBER(10) not null,
+  aqpc916codpre NUMBER(5),
+  aqpc916fecreg DATE,
+  aqpc916horreg VARCHAR2(8),
+  aqpc916paidoc NUMBER(3),
+  aqpc916tipdoc NUMBER(3),
+  aqpc916numdoc CHAR(12)
+)
+;
+comment on table AQPC916
+  is 'Registros de Consulta Centro de Ayuda';
+comment on column AQPC916.aqpc916id
+  is 'ID de Log';
+comment on column AQPC916.aqpc916codpre
+  is 'Codigo de Pregunta';
+comment on column AQPC916.aqpc916fecreg
+  is 'Fecha de Registro';
+comment on column AQPC916.aqpc916horreg
+  is 'Hora de Registro';
+comment on column AQPC916.aqpc916paidoc
+  is 'Pais de Documento';
+comment on column AQPC916.aqpc916tipdoc
+  is 'Tipo de Documento';
+comment on column AQPC916.aqpc916numdoc
+  is 'Numero de Documento';
+alter table AQPC916
+  add primary key (AQPC916ID);
+

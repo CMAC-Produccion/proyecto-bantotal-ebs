@@ -1,0 +1,24 @@
+create table FSFI30
+(
+  sfi30emp   NUMBER(3) not null,
+  sfi30mda   NUMBER(4) not null,
+  sfi30pro   NUMBER(3) not null,
+  sfi30taz   NUMBER(1),
+  sfi30pla   NUMBER(1),
+  sfi30an    NUMBER(1),
+  sfi30aux1  NUMBER(4),
+  sfi30aux2  NUMBER(4),
+  sfi30aux3  NUMBER(3),
+  sfi30aux4  NUMBER(3),
+  sfi30aux5  NUMBER(1),
+  sfi30aux6  NUMBER(1),
+  sfi30aux7  CHAR(20),
+  sfi30aux8  NUMBER(9),
+  sfi30aux9  CHAR(1),
+  sfi30aux10 CHAR(1),
+  sfi30aux11 CHAR(1)
+)
+;
+alter table FSFI30
+  add primary key (SFI30EMP, SFI30MDA, SFI30PRO);
+

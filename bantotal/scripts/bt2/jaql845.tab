@@ -1,0 +1,56 @@
+create table JAQL845
+(
+  jaql845fepro  DATE not null,
+  jaql845copai  NUMBER(3) not null,
+  jaql845tidoc  NUMBER(3) not null,
+  jaql845nudoc  CHAR(12) not null,
+  jaql845pgcod  NUMBER(3),
+  jaql845suc    NUMBER(3),
+  jaql845mda    NUMBER(4),
+  jaql845pap    NUMBER(4),
+  jaql845cta    NUMBER(9),
+  jaql845mod    NUMBER(3),
+  jaql845ope    NUMBER(9),
+  jaql845sop    NUMBER(3),
+  jaql845top    NUMBER(3),
+  jaql845demai  VARCHAR2(100),
+  jaql845noarc  VARCHAR2(100),
+  jaql845coerr  VARCHAR2(5),
+  jaql845itsuc  NUMBER(3),
+  jaql845itmod  NUMBER(3),
+  jaql845ittra  NUMBER(3),
+  jaql845itrel  NUMBER(4),
+  jaql845itord  NUMBER(3),
+  jaql845itsor  NUMBER(3),
+  jaql845teleg  VARCHAR2(20),
+  jaql845tecor  VARCHAR2(20),
+  jaql845teneg  VARCHAR2(20),
+  jaql845fecan  DATE,
+  jaql845enmas  DATE,
+  jaql845fedes  DATE,
+  jaql845hodes  CHAR(8),
+  jaql845numer  NUMBER(10),
+  jaql845codcre VARCHAR2(27),
+  jaql845nomcli VARCHAR2(200),
+  jaql845fecenv DATE,
+  jaql845flcenv NUMBER(1),
+  jaql845numenv NUMBER(2),
+  jaql845flcdes NUMBER(1),
+  jaql845codsms NUMBER(18),
+  jaql845desurl VARCHAR2(300),
+  jaql845fenema DATE,
+  jaql845flcema NUMBER(1),
+  jaql845desema VARCHAR2(300)
+)
+;
+comment on column JAQL845.jaql845fenema
+  is 'FECHA ENVIO EMAIL';
+comment on column JAQL845.jaql845flcema
+  is 'FLAG ENVIO EMAIL';
+comment on column JAQL845.jaql845desema
+  is 'ERROR ENVIO MAIL';
+create index JAQL845A5 on JAQL845 (JAQL845CTA, JAQL845OPE);
+create index JAQL8452 on JAQL845 (JAQL845FEPRO, JAQL845COPAI, JAQL845TIDOC, JAQL845NUDOC, JAQL845CTA, JAQL845MOD, JAQL845OPE, JAQL845FECAN);
+create index JAQL8453 on JAQL845 (JAQL845FEPRO, JAQL845NUMER, JAQL845CODCRE);
+create index JAQL8454 on JAQL845 (JAQL845COPAI, JAQL845TIDOC, JAQL845NUDOC, JAQL845CTA, JAQL845MOD, JAQL845OPE, JAQL845FECAN);
+

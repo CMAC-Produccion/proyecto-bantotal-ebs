@@ -1,0 +1,18 @@
+create table AQPA121
+(
+  aqpa121fec DATE not null,
+  aqpa121pgc NUMBER(3) not null,
+  aqpa121mod NUMBER(3) not null,
+  aqpa121suc NUMBER(3) not null,
+  aqpa121mda NUMBER(4) not null,
+  aqpa121pap NUMBER(4) not null,
+  aqpa121cta NUMBER(9) not null,
+  aqpa121ope NUMBER(9) not null,
+  aqpa121sub NUMBER(3) not null,
+  aqpa121top NUMBER(3) not null,
+  aqpa121tot NUMBER(17,2)
+)
+;
+alter table AQPA121
+  add primary key (AQPA121FEC, AQPA121PGC, AQPA121MOD, AQPA121SUC, AQPA121MDA, AQPA121PAP, AQPA121CTA, AQPA121OPE, AQPA121SUB, AQPA121TOP);
+

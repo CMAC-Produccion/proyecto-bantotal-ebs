@@ -1,0 +1,45 @@
+create table AQPB253
+(
+  aqpb253codsuc NUMBER(3),
+  aqpb253sucur  VARCHAR2(50),
+  aqpb253dist   VARCHAR2(50),
+  aqpb253prov   VARCHAR2(50),
+  aqpb253dpto   VARCHAR2(50),
+  aqpb253cob1   CHAR(1),
+  aqpb253bur1   VARCHAR2(50),
+  aqpb253cob2   CHAR(1),
+  aqpb253bur2   VARCHAR2(50),
+  aqpb253cob3   CHAR(1),
+  aqpb253bur3   VARCHAR2(50),
+  aqpb253fep    DATE,
+  aqpb253est    CHAR(1)
+)
+;
+comment on column AQPB253.aqpb253codsuc
+  is 'codigo sucursal';
+comment on column AQPB253.aqpb253sucur
+  is 'sucursal';
+comment on column AQPB253.aqpb253dist
+  is 'distrito';
+comment on column AQPB253.aqpb253prov
+  is 'provincia';
+comment on column AQPB253.aqpb253dpto
+  is 'departamento';
+comment on column AQPB253.aqpb253cob1
+  is 'codigo buro 1';
+comment on column AQPB253.aqpb253bur1
+  is 'buro 1';
+comment on column AQPB253.aqpb253cob2
+  is 'codigo buro 2';
+comment on column AQPB253.aqpb253bur2
+  is 'buro 2';
+comment on column AQPB253.aqpb253cob3
+  is 'codigo buro 3';
+comment on column AQPB253.aqpb253bur3
+  is 'buro 3';
+comment on column AQPB253.aqpb253fep
+  is 'fecha carga';
+comment on column AQPB253.aqpb253est
+  is 'estado';
+create index AQPB253A2 on AQPB253 (AQPB253CODSUC);
+

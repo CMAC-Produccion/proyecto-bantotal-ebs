@@ -1,0 +1,27 @@
+create table CNL005
+(
+  cnl005cod  NUMBER(6) not null,
+  cnl005dsc  CHAR(30),
+  cnl005lit  NUMBER(9),
+  cnl005lnk  CHAR(1),
+  cnl005pgm  CHAR(10),
+  cnl005url  CHAR(200),
+  cnl005hab  CHAR(1),
+  cnl005hin  CHAR(8),
+  cnl005hfi  CHAR(8),
+  cnl005ctr  CHAR(1),
+  cnl005tnv  CHAR(3),
+  cnl005ins  CHAR(1),
+  cnl005max  NUMBER(17,2),
+  cnl005fex  CHAR(1),
+  cnl005pco  CHAR(10),
+  cnl005amm  CHAR(1),
+  cnl005prc  CHAR(60),
+  cnl005tfun CHAR(1)
+)
+;
+create index CNL00502 on CNL005 (CNL005DSC);
+create index CNL00503 on CNL005 (CNL005PRC);
+alter table CNL005
+  add primary key (CNL005COD);
+

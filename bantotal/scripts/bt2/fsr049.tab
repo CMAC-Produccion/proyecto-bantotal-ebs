@@ -1,0 +1,26 @@
+create table FSR049
+(
+  tre049usr  CHAR(10) not null,
+  tre049pais NUMBER(3) not null,
+  tre049tpo  NUMBER(2) not null,
+  tre049ndoc CHAR(12) not null,
+  tre049tipo CHAR(1),
+  tre049fil  CHAR(20),
+  tre049ap1  CHAR(35),
+  tre049ap2  CHAR(35),
+  tre049nm1  CHAR(25),
+  tre049nm2  CHAR(25),
+  tre049rzs  CHAR(120),
+  tre049ctn  NUMBER(9),
+  tre049ctnm CHAR(35),
+  tre049imp1 NUMBER(17,2),
+  tre049imp2 NUMBER(17,2),
+  tre049ch1  CHAR(100),
+  tre049ch2  CHAR(100),
+  tre049fc1  DATE,
+  tre049fc2  DATE
+)
+;
+alter table FSR049
+  add primary key (TRE049USR, TRE049PAIS, TRE049TPO, TRE049NDOC);
+

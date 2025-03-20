@@ -1,0 +1,40 @@
+create table SYTAATM
+(
+  c_codatr VARCHAR2(3) not null,
+  c_tipatr VARCHAR2(1) not null,
+  n_ordele NUMBER(10) not null,
+  c_codele VARCHAR2(6),
+  c_desele VARCHAR2(60),
+  c_abrele VARCHAR2(10),
+  c_estele VARCHAR2(1),
+  aufecins DATE default SYSDATE,
+  auusuins VARCHAR2(30) default USER,
+  auterins VARCHAR2(64) default SUBSTR(SYS_CONTEXT('USERENV', 'host'),1,20),
+  auipinse VARCHAR2(15) default SUBSTR(SYS_CONTEXT('USERENV','IP_ADDRESS'),1,20),
+  auusoins VARCHAR2(30) default SUBSTR(SYS_CONTEXT('USERENV','OS_USER'),1,20),
+  aufecmod DATE default SYSDATE,
+  auusumod VARCHAR2(30) default USER,
+  autermod VARCHAR2(64) default SUBSTR(SYS_CONTEXT('USERENV', 'host'),1,20),
+  auipmodi VARCHAR2(15) default SUBSTR(SYS_CONTEXT('USERENV','IP_ADDRESS'),1,20),
+  auusomod VARCHAR2(30) default SUBSTR(SYS_CONTEXT('USERENV','OS_USER'),1,20)
+)
+;
+comment on table SYTAATM
+  is 'TABLA DE ATRIBUTOS MENSAJES ISO';
+comment on column SYTAATM.c_codatr
+  is 'CODIGO DEL ATRIBUTO';
+comment on column SYTAATM.c_tipatr
+  is 'TIPO DE ATRIBUTO';
+comment on column SYTAATM.n_ordele
+  is 'ORDEN DEL ELEMENTO';
+comment on column SYTAATM.c_codele
+  is 'CODIGO DEL ELEMENTO';
+comment on column SYTAATM.c_desele
+  is 'DESCRIBCION DEL ELEMENTO';
+comment on column SYTAATM.c_abrele
+  is 'ABREVIADO DEL ELEMENTO';
+comment on column SYTAATM.c_estele
+  is 'ESTADO DEL ELEMENTO';
+alter table SYTAATM
+  add constraint PK_SYTAATM primary key (C_CODATR, C_TIPATR, N_ORDELE);
+

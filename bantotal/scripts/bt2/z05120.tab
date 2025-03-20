@@ -1,0 +1,24 @@
+create table Z05120
+(
+  z05120ano NUMBER(4) not null,
+  z05120mes NUMBER(2) not null,
+  z05120cte NUMBER(9) not null,
+  z05120prs CHAR(10) not null,
+  z05120ori NUMBER(1) not null,
+  z05120suc NUMBER(3) not null,
+  z05120tip NUMBER(1) not null,
+  z05120deb NUMBER(10),
+  z05120ide NUMBER(12,2),
+  z05120ace NUMBER(10),
+  z05120iac NUMBER(12,2),
+  z05120rec NUMBER(10),
+  z05120ire NUMBER(12,2),
+  z05120com NUMBER(8,2),
+  z05120pco NUMBER(4,2),
+  z05120pfi NUMBER(4,2),
+  z05120cbu CHAR(8)
+)
+;
+alter table Z05120
+  add primary key (Z05120ANO, Z05120MES, Z05120CTE, Z05120PRS, Z05120ORI, Z05120SUC, Z05120TIP);
+

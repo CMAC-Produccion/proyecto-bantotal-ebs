@@ -1,0 +1,57 @@
+create table JAQA52
+(
+  jaqa52nco NUMBER(4) not null,
+  jaqa52fch DATE not null,
+  jaqa52eje CHAR(1),
+  jaqa52pcm NUMBER(6),
+  jaqa52ppr NUMBER(6),
+  jaqa52psp NUMBER(6),
+  jaqa52ai1 NUMBER(17,2),
+  jaqa52ai2 NUMBER(17,2),
+  jaqa52at1 CHAR(200),
+  jaqa52at2 CHAR(200),
+  jaqa52ac1 CHAR(50),
+  jaqa52ac2 CHAR(50),
+  jaqa52an1 NUMBER(4),
+  jaqa52an2 NUMBER(4),
+  jaqa52ad1 DATE,
+  jaqa52ad2 DATE
+)
+;
+comment on table JAQA52
+  is 'Resumen Dia de Pago';
+comment on column JAQA52.jaqa52nco
+  is 'Numero de Convenio';
+comment on column JAQA52.jaqa52fch
+  is 'Fecha de Reporte';
+comment on column JAQA52.jaqa52eje
+  is '¿Ejecuto Pago?';
+comment on column JAQA52.jaqa52pcm
+  is 'Pagos Completos';
+comment on column JAQA52.jaqa52ppr
+  is 'Pagos Parciales';
+comment on column JAQA52.jaqa52psp
+  is 'Sin Pagos';
+comment on column JAQA52.jaqa52ai1
+  is 'JAQA52 AI1';
+comment on column JAQA52.jaqa52ai2
+  is 'JAQA52 AI2';
+comment on column JAQA52.jaqa52at1
+  is 'JAQA52 AT1';
+comment on column JAQA52.jaqa52at2
+  is 'JAQA52 AT2';
+comment on column JAQA52.jaqa52ac1
+  is 'JAQA52 AC1';
+comment on column JAQA52.jaqa52ac2
+  is 'JAQA52 AC2';
+comment on column JAQA52.jaqa52an1
+  is 'JAQA52 AN1';
+comment on column JAQA52.jaqa52an2
+  is 'JAQA52 AN2';
+comment on column JAQA52.jaqa52ad1
+  is 'JAQA52 AD1';
+comment on column JAQA52.jaqa52ad2
+  is 'JAQA52 AD2';
+alter table JAQA52
+  add primary key (JAQA52NCO, JAQA52FCH);
+

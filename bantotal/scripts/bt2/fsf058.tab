@@ -1,0 +1,16 @@
+create table FSF058
+(
+  hepgcod  NUMBER(3) not null,
+  hefinro  NUMBER(3) not null,
+  hefecha  DATE not null,
+  hecodact CHAR(15) not null,
+  heimp    NUMBER(17,2),
+  heporc   NUMBER(17,2),
+  heusd    NUMBER(17,2),
+  hemnac   NUMBER(17,2),
+  heotras  NUMBER(17,2)
+)
+;
+alter table FSF058
+  add primary key (HEPGCOD, HEFINRO, HEFECHA, HECODACT);
+

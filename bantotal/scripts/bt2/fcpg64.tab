@@ -1,0 +1,25 @@
+create table FCPG64
+(
+  cpg60cod  NUMBER(10) not null,
+  cpg62serv NUMBER(3) not null,
+  cpg63mpag NUMBER(3) not null,
+  cpg63tcta NUMBER(3) not null,
+  cpg63fmac NUMBER(2) not null,
+  cpg63fdes DATE not null,
+  cpg63mda  NUMBER(4) not null,
+  cpg64comp NUMBER(2) not null,
+  cpg64mto  NUMBER(17,2) not null,
+  cpg64impf NUMBER(17,2),
+  cpg64porc NUMBER(10,6),
+  cpg64imin NUMBER(17,2),
+  cpg64imax NUMBER(17,2),
+  cpg64est  CHAR(3),
+  cpg64blq  CHAR(1),
+  cpg64inst NUMBER(10)
+)
+;
+create index FCPG6402 on FCPG64 (CPG60COD, CPG62SERV, CPG63MPAG, CPG63TCTA, CPG63FMAC, CPG63MDA, CPG63FDES);
+create index FCPG6403 on FCPG64 (CPG64INST);
+alter table FCPG64
+  add primary key (CPG60COD, CPG62SERV, CPG63MPAG, CPG63TCTA, CPG63FMAC, CPG63FDES, CPG63MDA, CPG64COMP, CPG64MTO);
+

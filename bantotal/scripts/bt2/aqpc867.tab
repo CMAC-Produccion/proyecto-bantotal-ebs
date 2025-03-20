@@ -1,0 +1,109 @@
+create table AQPC867
+(
+  aqpc867fec    DATE,
+  aqpc867hor    VARCHAR2(8),
+  aqpc867usr    VARCHAR2(10),
+  aqpc867pgcod  NUMBER(3),
+  aqpc867mod    NUMBER(3),
+  aqpc867suc    NUMBER(3),
+  aqpc867mda    NUMBER(4),
+  aqpc867pap    NUMBER(4),
+  aqpc867cta    NUMBER(9),
+  aqpc867oper   NUMBER(9),
+  aqpc867sbop   NUMBER(3),
+  aqpc867tope   NUMBER(3),
+  aqpc867sumoca NUMBER(17,2),
+  aqpc867sacacr NUMBER(17,2),
+  aqpc867cappag NUMBER(17,2),
+  aqpc867cap    NUMBER(17,2),
+  aqpc867int    NUMBER(17,2),
+  aqpc867mora   NUMBER(17,2),
+  aqpc867segs   NUMBER(17,2),
+  aqpc867icv    NUMBER(17,2),
+  aqpc867pena   NUMBER(17,2),
+  aqpc867otro   NUMBER(17,2),
+  aqpc867dtot   NUMBER(17,2),
+  aqpc867dif    NUMBER(17,2),
+  aqpc867aux1   VARCHAR2(50),
+  aqpc867aux2   VARCHAR2(50),
+  aqpc867aux3   VARCHAR2(50),
+  aqpc867auxn1  NUMBER(10),
+  aqpc867auxn2  NUMBER(10),
+  aqpc867auxn3  NUMBER(10),
+  aqpc867auxd1  DATE,
+  aqpc867auxd2  DATE,
+  aqpc867auxd3  DATE
+)
+;
+comment on table AQPC867
+  is 'Tabla Proceso Masivo Monto capitalizado';
+comment on column AQPC867.aqpc867fec
+  is 'FECHA';
+comment on column AQPC867.aqpc867hor
+  is 'HORA';
+comment on column AQPC867.aqpc867usr
+  is 'USUARIO';
+comment on column AQPC867.aqpc867pgcod
+  is 'EMPRESA';
+comment on column AQPC867.aqpc867mod
+  is 'MODULO';
+comment on column AQPC867.aqpc867suc
+  is 'SUCURSAL';
+comment on column AQPC867.aqpc867mda
+  is 'MONEDA';
+comment on column AQPC867.aqpc867pap
+  is 'PAPEL ';
+comment on column AQPC867.aqpc867cta
+  is 'CUENTA';
+comment on column AQPC867.aqpc867oper
+  is 'OPERACION';
+comment on column AQPC867.aqpc867sbop
+  is 'SUB OPERACION';
+comment on column AQPC867.aqpc867tope
+  is 'TIPO DE OPERACION';
+comment on column AQPC867.aqpc867sumoca
+  is 'SUMA MONTO CAPITALIZADO ';
+comment on column AQPC867.aqpc867sacacr
+  is 'SALDO CAPITAL ACTUAL DE CRÉDITO';
+comment on column AQPC867.aqpc867cappag
+  is 'CAPITAL PAGADO';
+comment on column AQPC867.aqpc867cap
+  is 'CAPITAL';
+comment on column AQPC867.aqpc867int
+  is 'INTERES';
+comment on column AQPC867.aqpc867mora
+  is 'MORA';
+comment on column AQPC867.aqpc867segs
+  is 'SEGUROS';
+comment on column AQPC867.aqpc867icv
+  is 'ICV';
+comment on column AQPC867.aqpc867pena
+  is 'PENALIDAD';
+comment on column AQPC867.aqpc867otro
+  is 'OTROS';
+comment on column AQPC867.aqpc867dtot
+  is 'DEUDA TOTAL';
+comment on column AQPC867.aqpc867dif
+  is 'DIFERENCIA SALDO CAPITAL Y MONTO CAPITALIZADO';
+comment on column AQPC867.aqpc867aux1
+  is 'AUXILIAR VAR 1';
+comment on column AQPC867.aqpc867aux2
+  is 'AUXILIAR VAR 2';
+comment on column AQPC867.aqpc867aux3
+  is 'AUXILIAR VAR 3';
+comment on column AQPC867.aqpc867auxn1
+  is 'AUXILIAR NUM 1';
+comment on column AQPC867.aqpc867auxn2
+  is 'AUXILIAR NUM 2';
+comment on column AQPC867.aqpc867auxn3
+  is 'AUXILIAR NUM 3';
+comment on column AQPC867.aqpc867auxd1
+  is 'AUXILIAR DATE 1';
+comment on column AQPC867.aqpc867auxd2
+  is 'AUXILIAR DATE 2';
+comment on column AQPC867.aqpc867auxd3
+  is 'AUXILIAR DATE 3';
+create index AQPC867A2 on AQPC867 (AQPC867CTA);
+create index AQPC867A3 on AQPC867 (AQPC867CTA, AQPC867OPER);
+create index AQPC867A4 on AQPC867 (AQPC867PGCOD, AQPC867MOD, AQPC867SUC, AQPC867MDA, AQPC867PAP, AQPC867CTA, AQPC867OPER, AQPC867SBOP, AQPC867TOPE);
+

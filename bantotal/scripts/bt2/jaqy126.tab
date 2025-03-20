@@ -1,0 +1,28 @@
+create table JAQY126
+(
+  jaqy126inst NUMBER(10) not null,
+  jaqy126corr NUMBER(3) not null,
+  jaqy126cor1 NUMBER(10) not null,
+  jaqy126pgc  NUMBER(3),
+  jaqy126mod  NUMBER(3),
+  jaqy126suc  NUMBER(3),
+  jaqy126mda  NUMBER(4),
+  jaqy126pap  NUMBER(4),
+  jaqy126cta  NUMBER(9),
+  jaqy126oper NUMBER(9),
+  jaqy126sbop NUMBER(3),
+  jaqy126tope NUMBER(3),
+  jaqy126pri  NUMBER(3),
+  jaqy126tipo CHAR(3),
+  jaqy126sdog NUMBER(16,2),
+  jaqy126mtou NUMBER(16,2),
+  jaqy126fape DATE,
+  jaqy126mtod NUMBER(16,2),
+  jaqy126poco NUMBER(9,6),
+  jaqy126tcbi NUMBER(13,8),
+  jaqy126auxc CHAR(3)
+)
+;
+alter table JAQY126
+  add constraint PK_JAQY126 primary key (JAQY126INST, JAQY126CORR, JAQY126COR1);
+

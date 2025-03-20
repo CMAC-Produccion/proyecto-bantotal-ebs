@@ -1,0 +1,24 @@
+create table FBC732
+(
+  bc732emp  NUMBER(3) not null,
+  bc732fch  DATE not null,
+  bc732rute CHAR(10) not null,
+  bc732cods CHAR(10) not null,
+  bc732esta CHAR(1),
+  bc732tips CHAR(1),
+  bc732noms CHAR(40),
+  bc732dir  CHAR(60),
+  bc732codc CHAR(10),
+  bc732tel  CHAR(20),
+  bc732fax  CHAR(20),
+  bc732numt NUMBER(6),
+  bc732rutr CHAR(10),
+  bc732nomr CHAR(60),
+  bc732aux1 NUMBER(17,2),
+  bc732aux2 CHAR(30),
+  bc732aux3 DATE
+)
+;
+alter table FBC732
+  add primary key (BC732EMP, BC732FCH, BC732RUTE, BC732CODS);
+

@@ -1,0 +1,139 @@
+create table JAQA03
+(
+  jaqa03agen VARCHAR2(30) not null,
+  jaqa03comi VARCHAR2(2000) not null,
+  jaqa03cbrt NUMBER(17,2) not null,
+  jaqa03fein DATE,
+  jaqa03msal NUMBER(17,2),
+  jaqa03ncto NUMBER(9),
+  jaqa03ncli NUMBER(9),
+  jaqa03mcli NUMBER(9),
+  jaqa03pjat NUMBER(10,6),
+  jaqa03catr NUMBER(17,2),
+  jaqa03pjmt NUMBER(10,6),
+  jaqa03scmt NUMBER(17,2),
+  jaqa03sjud NUMBER(17,2),
+  jaqa03vmcb NUMBER(17,2),
+  jaqa03vmcl NUMBER(9),
+  jaqa03vmpa NUMBER(10,6),
+  jaqa03vmat NUMBER(17,2),
+  jaqa03mmor NUMBER(17,2),
+  jaqa03vdcb NUMBER(17,2),
+  jaqa03vdcl NUMBER(4),
+  jaqa03vdpa NUMBER(10,6),
+  jaqa03vdat NUMBER(9),
+  jaqa03vmju NUMBER(17,2),
+  jaqa03mcju NUMBER(17,2),
+  jaqa03num1 NUMBER(9),
+  jaqa03num2 NUMBER(9),
+  jaqa03num3 NUMBER(9),
+  jaqa03imp1 NUMBER(17,2),
+  jaqa03imp2 NUMBER(17,2),
+  jaqa03imp3 NUMBER(17,2),
+  jaqa03cha1 VARCHAR2(255),
+  jaqa03cha2 VARCHAR2(255),
+  jaqa03cha3 VARCHAR2(255),
+  jaqa03fec1 DATE,
+  jaqa03fec2 DATE,
+  jaqa03fec3 DATE,
+  jaqa03imp8 NUMBER(17,2),
+  jaqa03imp7 NUMBER(17,2),
+  jaqa03imp6 NUMBER(17,2),
+  jaqa03imp5 NUMBER(17,2),
+  jaqa03imp4 NUMBER(17,2),
+  jaqa03cmnc NUMBER(10),
+  jaqa03cmcb NUMBER(17,2)
+)
+;
+comment on table JAQA03
+  is 'Comité - Posicionamiento de Negocio';
+comment on column JAQA03.jaqa03agen
+  is 'AGENCIA';
+comment on column JAQA03.jaqa03comi
+  is 'COMITE';
+comment on column JAQA03.jaqa03cbrt
+  is 'CARTERA BRUTA';
+comment on column JAQA03.jaqa03fein
+  is 'FECHA INGRESO DE DATA';
+comment on column JAQA03.jaqa03msal
+  is 'META SALDO';
+comment on column JAQA03.jaqa03ncto
+  is 'NÚMERO CRÉDITO TOTAL';
+comment on column JAQA03.jaqa03ncli
+  is 'NÚMERO DE CLIENTES';
+comment on column JAQA03.jaqa03mcli
+  is 'META CLIENTE';
+comment on column JAQA03.jaqa03pjat
+  is 'PORCENTAJE ATRASADO';
+comment on column JAQA03.jaqa03catr
+  is 'CARTERA ATRASADA';
+comment on column JAQA03.jaqa03pjmt
+  is 'PORCENTAJE MAYOR A 30';
+comment on column JAQA03.jaqa03scmt
+  is 'SALDO CAPITAL MAYOR A 30';
+comment on column JAQA03.jaqa03sjud
+  is 'SALDO JUDICIAL';
+comment on column JAQA03.jaqa03vmcb
+  is 'VARIACIÓN MES CARTERA BRUTA';
+comment on column JAQA03.jaqa03vmcl
+  is 'VARIACIÓN MES CLIENTE';
+comment on column JAQA03.jaqa03vmpa
+  is 'VARIACIÓN MES PORCENTAJE ATRASADO';
+comment on column JAQA03.jaqa03vmat
+  is 'VARIACIÓN MES ATRASADA';
+comment on column JAQA03.jaqa03mmor
+  is 'META MORA';
+comment on column JAQA03.jaqa03vdcb
+  is 'VARIACIÓN DÍA CARTERA BRUTA';
+comment on column JAQA03.jaqa03vdcl
+  is 'VARIACIÓN DÍA CLIENTE';
+comment on column JAQA03.jaqa03vdpa
+  is 'VARIACIÓN DÍA PORCENTAJE ATRASADO';
+comment on column JAQA03.jaqa03vdat
+  is 'VARIACIÓN DÍA ATRASADO';
+comment on column JAQA03.jaqa03vmju
+  is 'VARIACIÓN META JUDICIAL';
+comment on column JAQA03.jaqa03mcju
+  is 'META CARTERA JUDICIAL';
+comment on column JAQA03.jaqa03num1
+  is 'NUMERO CLIENTES CIERRE MES ANTERIOR';
+comment on column JAQA03.jaqa03num2
+  is 'AUXILIAR NUMÉRICO 2';
+comment on column JAQA03.jaqa03num3
+  is 'AUXILIAR NUMÉRICO 3';
+comment on column JAQA03.jaqa03imp1
+  is 'POTENCIAL CARTERA SALDO INICIAL DIA';
+comment on column JAQA03.jaqa03imp2
+  is 'POTENCIAL CARTERA SALDO ACTUAL';
+comment on column JAQA03.jaqa03imp3
+  is 'CARTERA BRUTA CIERRE MES ANTERIOR';
+comment on column JAQA03.jaqa03cha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQA03.jaqa03cha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQA03.jaqa03cha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQA03.jaqa03fec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQA03.jaqa03fec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQA03.jaqa03fec3
+  is 'AUXILIAR FECHA 3';
+comment on column JAQA03.jaqa03imp8
+  is 'AUXILIAR IMPORTE 8';
+comment on column JAQA03.jaqa03imp7
+  is 'AUXILIAR IMPORTE 7';
+comment on column JAQA03.jaqa03imp6
+  is 'AUXILIAR IMPORTE 6';
+comment on column JAQA03.jaqa03imp5
+  is 'AUXILIAR IMPORTE 5';
+comment on column JAQA03.jaqa03imp4
+  is 'AUXILIAR IMPORTE 4';
+comment on column JAQA03.jaqa03cmnc
+  is 'CRECIMIENTO MES NUMERO CLIENTES';
+comment on column JAQA03.jaqa03cmcb
+  is 'CRECIMIENTO MES CARTERA BRUTA';
+create index JAQA03A2 on JAQA03 (JAQA03COMI, JAQA03CBRT);
+alter table JAQA03
+  add primary key (JAQA03AGEN, JAQA03COMI, JAQA03CBRT);
+

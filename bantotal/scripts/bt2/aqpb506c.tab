@@ -1,0 +1,16 @@
+create table AQPB506C
+(
+  aqpb506cid     NUMBER(4) not null,
+  aqpb506ccreusr VARCHAR2(30) not null,
+  aqpb506ccretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb506cfecvig DATE not null,
+  aqpb506cnroope NUMBER(3) not null,
+  aqpb506csaltot NUMBER(18,2) not null,
+  aqpb506cqtycre NUMBER(10) not null,
+  aqpb506cfecmar DATE not null,
+  aqpb506cmoneda NUMBER(4) not null
+)
+;
+alter table AQPB506C
+  add primary key (AQPB506CID, AQPB506CCREUSR);
+

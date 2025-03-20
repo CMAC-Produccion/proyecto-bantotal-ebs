@@ -1,0 +1,17 @@
+create table FSFF18
+(
+  kdoccod  NUMBER(3) not null,
+  kdocsuc  NUMBER(3) not null,
+  kdocmod  NUMBER(3) not null,
+  kdoctrn  NUMBER(3) not null,
+  kdoctope NUMBER(9),
+  kdoctcor NUMBER(5),
+  kdoctcoi NUMBER(5),
+  kdoctrel NUMBER(4),
+  kdocfcie DATE,
+  kdocfape DATE
+)
+;
+alter table FSFF18
+  add primary key (KDOCCOD, KDOCSUC, KDOCMOD, KDOCTRN);
+

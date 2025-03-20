@@ -1,0 +1,26 @@
+create table AQPB012
+(
+  aqpb012pgcod NUMBER(3) not null,
+  aqpb012mod   NUMBER(3) not null,
+  aqpb012suc   NUMBER(3) not null,
+  aqpb012mda   NUMBER(4) not null,
+  aqpb012pap   NUMBER(4) not null,
+  aqpb012cta   NUMBER(9) not null,
+  aqpb012oper  NUMBER(9) not null,
+  aqpb012sbop  NUMBER(3) not null,
+  aqpb012tope  NUMBER(3) not null,
+  aqpb012fec   DATE not null,
+  aqpb012cor   NUMBER(9) not null,
+  aqpb012hor   CHAR(8) not null,
+  aqpb012usu   CHAR(10),
+  aqpb012fecm  DATE,
+  aqpb012horm  CHAR(8),
+  aqpb012usum  CHAR(10),
+  aqpb012tipo  VARCHAR2(10),
+  aqpb012est   VARCHAR2(2)
+)
+;
+create index AQPB0122 on AQPB012 (AQPB012FEC, AQPB012COR);
+alter table AQPB012
+  add primary key (AQPB012PGCOD, AQPB012MOD, AQPB012SUC, AQPB012MDA, AQPB012PAP, AQPB012CTA, AQPB012OPER, AQPB012SBOP, AQPB012TOPE, AQPB012FEC, AQPB012COR);
+

@@ -1,0 +1,11 @@
+create table XWFV03
+(
+  xwfv01insprcid NUMBER(9) not null,
+  frmcodgrid     NUMBER(3) not null,
+  atrdetnom      CHAR(10) not null,
+  xwfv03valmc    VARCHAR2(200)
+)
+;
+alter table XWFV03
+  add primary key (XWFV01INSPRCID, FRMCODGRID, ATRDETNOM);
+

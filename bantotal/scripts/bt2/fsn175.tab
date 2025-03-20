@@ -1,0 +1,13 @@
+create table FSN175
+(
+  st175nucod NUMBER(5) not null,
+  sn175nuemp NUMBER(3) not null,
+  sn175nusuc NUMBER(3) not null,
+  sn175nucaj NUMBER(3) not null,
+  sn175nuser CHAR(1),
+  sn175nunro NUMBER(15)
+)
+;
+alter table FSN175
+  add primary key (ST175NUCOD, SN175NUEMP, SN175NUSUC, SN175NUCAJ);
+

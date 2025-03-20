@@ -1,0 +1,12 @@
+create table JAQL156
+(
+  jaql156anio   NUMBER(4) not null,
+  jaql156mes    NUMBER(2) not null,
+  jaql158codigo NUMBER(5) not null,
+  jaql156parame NUMBER(11,5)
+)
+;
+create index IJAQL1561 on JAQL156 (JAQL158CODIGO);
+alter table JAQL156
+  add primary key (JAQL156ANIO, JAQL156MES, JAQL158CODIGO);
+

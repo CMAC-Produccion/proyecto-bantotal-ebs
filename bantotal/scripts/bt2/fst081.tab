@@ -1,0 +1,12 @@
+create table FST081
+(
+  cnvemp    NUMBER(3) not null,
+  cnvcta    NUMBER(9) not null,
+  cnvscta   NUMBER(3) not null,
+  cnvsucori NUMBER(3) not null,
+  cnvsucpzo NUMBER(5)
+)
+;
+alter table FST081
+  add primary key (CNVEMP, CNVCTA, CNVSCTA, CNVSUCORI);
+

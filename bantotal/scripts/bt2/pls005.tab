@@ -1,0 +1,23 @@
+create table PLS005
+(
+  pls005emp  NUMBER(3) not null,
+  pls005conv NUMBER(8) not null,
+  pls005sec  NUMBER(3) not null,
+  pls005cpqt NUMBER(5) not null,
+  pls005mod  NUMBER(3) not null,
+  pls005tope NUMBER(3) not null,
+  pls005mda  NUMBER(4) not null,
+  pls005pap  NUMBER(4) not null,
+  pls005comi NUMBER(3) not null,
+  pls005porc NUMBER(7,4),
+  pls005imp  NUMBER(17,2),
+  pls005blq  CHAR(1),
+  pls005coem NUMBER(17,2),
+  pls005poem NUMBER(7,4),
+  pls005cobe NUMBER(17,2),
+  pls005pobe NUMBER(7,4)
+)
+;
+alter table PLS005
+  add primary key (PLS005EMP, PLS005CONV, PLS005SEC, PLS005CPQT, PLS005MOD, PLS005TOPE, PLS005MDA, PLS005PAP, PLS005COMI);
+

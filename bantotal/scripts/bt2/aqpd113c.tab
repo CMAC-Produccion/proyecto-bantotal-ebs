@@ -1,0 +1,48 @@
+create table AQPD113C
+(
+  aqpd113ccod   NUMBER(10) not null,
+  aqpd113cgru   VARCHAR2(300),
+  aqpd113cdocge VARCHAR2(30) not null,
+  aqpd113ctdoci NUMBER(5),
+  aqpd113cdoci  VARCHAR2(30) not null,
+  aqpd113cint   VARCHAR2(300),
+  aqpd113ccglo  VARCHAR2(100),
+  aqpd113cper   NUMBER(8),
+  aqpd113cfpro  DATE,
+  aqpd113ctreg  VARCHAR2(1),
+  aqpd113cindm  NUMBER(1),
+  aqpd113cgrua  NUMBER(5),
+  aqpd113cest   NUMBER(1)
+)
+;
+comment on table AQPD113C
+  is 'TABLA REPORTE 29 - GRUPOS ECONOMICOS';
+comment on column AQPD113C.aqpd113ccod
+  is 'CODIGO GRUPO';
+comment on column AQPD113C.aqpd113cgru
+  is 'GRUPO ECONOMICO';
+comment on column AQPD113C.aqpd113cdocge
+  is 'DOC. GRUP. ECON.';
+comment on column AQPD113C.aqpd113ctdoci
+  is 'TIPO DOC INTEGR.';
+comment on column AQPD113C.aqpd113cdoci
+  is 'DOC. INTEG.';
+comment on column AQPD113C.aqpd113cint
+  is 'INTEGRANTE';
+comment on column AQPD113C.aqpd113ccglo
+  is 'COD. GLOBAL';
+comment on column AQPD113C.aqpd113cper
+  is 'PERIODO';
+comment on column AQPD113C.aqpd113cfpro
+  is 'FECHA DE PROCESO';
+comment on column AQPD113C.aqpd113ctreg
+  is 'TIPO REGISTRO';
+comment on column AQPD113C.aqpd113cindm
+  is 'IND. MODALIDAD';
+comment on column AQPD113C.aqpd113cgrua
+  is 'GRUPO. ANT.';
+comment on column AQPD113C.aqpd113cest
+  is 'ESTADO';
+alter table AQPD113C
+  add primary key (AQPD113CCOD, AQPD113CDOCGE, AQPD113CDOCI);
+

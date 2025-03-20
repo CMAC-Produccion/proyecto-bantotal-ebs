@@ -1,0 +1,106 @@
+create table JAQM10
+(
+  jaqm10fec DATE not null,
+  jaqm10cod VARCHAR2(10) not null,
+  jaqm10nop VARCHAR2(10) not null,
+  jaqm10tne NUMBER(17,2) not null,
+  jaqm10ntr VARCHAR2(10) not null,
+  jaqm10nce VARCHAR2(50) not null,
+  jaqm10fem DATE not null,
+  jaqm10cor NUMBER(5) not null,
+  jaqm10tdo VARCHAR2(10),
+  jaqm10ndo VARCHAR2(12),
+  jaqm10nem VARCHAR2(300),
+  jaqm10tem NUMBER(4),
+  jaqm10mda VARCHAR2(10),
+  jaqm10mon NUMBER(17,5),
+  jaqm10pco NUMBER(17,2),
+  jaqm10cso NUMBER(1),
+  jaqm10mod CHAR(3),
+  jaqm10hor CHAR(10),
+  jaqm10usu CHAR(10),
+  jaqm10wks CHAR(12),
+  jaqm10ai1 NUMBER(17,2),
+  jaqm10ai2 NUMBER(17,2),
+  jaqm10ai3 NUMBER(17,2),
+  jaqm10an1 NUMBER(9),
+  jaqm10an2 NUMBER(9),
+  jaqm10an3 NUMBER(9),
+  jaqm10ac1 VARCHAR2(255),
+  jaqm10ac2 VARCHAR2(255),
+  jaqm10ac3 VARCHAR2(255),
+  jaqm10af1 DATE,
+  jaqm10af2 DATE,
+  jaqm10af3 DATE
+)
+;
+comment on table JAQM10
+  is 'Log y Temporal de AQPB710';
+comment on column JAQM10.jaqm10fec
+  is 'Fecha de Carga';
+comment on column JAQM10.jaqm10cod
+  is 'Código de entidad participante';
+comment on column JAQM10.jaqm10nop
+  is 'Número de Operación Reporte';
+comment on column JAQM10.jaqm10tne
+  is 'Tasa Adjudicada Negocio';
+comment on column JAQM10.jaqm10ntr
+  is 'Número de Tramo';
+comment on column JAQM10.jaqm10nce
+  is 'Número de Certificado COFIDE';
+comment on column JAQM10.jaqm10fem
+  is 'Fecha de inserción modificación';
+comment on column JAQM10.jaqm10cor
+  is 'Correlativo';
+comment on column JAQM10.jaqm10tdo
+  is 'Tipo de Documento Deudor';
+comment on column JAQM10.jaqm10ndo
+  is 'Número de Documento Deudor';
+comment on column JAQM10.jaqm10nem
+  is 'Razón Social';
+comment on column JAQM10.jaqm10tem
+  is 'Tamaño de Empresa';
+comment on column JAQM10.jaqm10mda
+  is 'Nombre Moneda';
+comment on column JAQM10.jaqm10mon
+  is 'Monto desembolsado Crédito';
+comment on column JAQM10.jaqm10pco
+  is 'Porcentaje de Cobertura Gob';
+comment on column JAQM10.jaqm10cso
+  is 'Saldo';
+comment on column JAQM10.jaqm10mod
+  is 'Tipo de alteración en registro';
+comment on column JAQM10.jaqm10hor
+  is 'Hora';
+comment on column JAQM10.jaqm10usu
+  is 'Usuario';
+comment on column JAQM10.jaqm10wks
+  is 'WorkStation';
+comment on column JAQM10.jaqm10ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM10.jaqm10ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM10.jaqm10ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM10.jaqm10an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM10.jaqm10an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM10.jaqm10an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM10.jaqm10ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM10.jaqm10ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM10.jaqm10ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM10.jaqm10af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM10.jaqm10af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM10.jaqm10af3
+  is 'Auxiliar Fecha 3';
+create index JAQM10A2 on JAQM10 (JAQM10FEM, JAQM10COR);
+alter table JAQM10
+  add primary key (JAQM10FEC, JAQM10COD, JAQM10NOP, JAQM10TNE, JAQM10NTR, JAQM10NCE, JAQM10FEM, JAQM10COR);
+

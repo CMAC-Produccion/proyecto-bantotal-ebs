@@ -1,0 +1,114 @@
+create table AQPA372
+(
+  aqpa372id     NUMBER(10) not null,
+  aqpa372fc     DATE not null,
+  aqpa372pa     NUMBER(3),
+  aqpa372td     NUMBER(2),
+  aqpa372nd     CHAR(12),
+  aqpa372ct     NUMBER(9),
+  aqpa372su     NUMBER(3),
+  aqpa372mo     NUMBER(3),
+  aqpa372tp     NUMBER(3),
+  aqpa372mn     NUMBER(4),
+  aqpa372pp     NUMBER(4),
+  aqpa372pe     NUMBER(4),
+  aqpa372im     NUMBER(17,2),
+  aqpa372ta     NUMBER(10,6),
+  aqpa372as     CHAR(10),
+  aqpa372es     CHAR(1),
+  aqpa372so     NUMBER(10),
+  aqpa372ds     VARCHAR2(50),
+  aqpa372pgcod  NUMBER(3),
+  aqpa372mod    NUMBER(9),
+  aqpa372suc    NUMBER(9),
+  aqpa372mda    NUMBER(9),
+  aqpa372pap    NUMBER(9),
+  aqpa372cta    NUMBER(9),
+  aqpa372ope    NUMBER(9),
+  aqpa372sbop   NUMBER(9),
+  aqpa372tope   NUMBER(9),
+  aqpa372ind    VARCHAR2(25),
+  aqpa372plz    NUMBER,
+  aqpa372elim   VARCHAR2(5),
+  aqpa372stc    VARCHAR2(5),
+  aqpa372cor697 NUMBER(9),
+  aqpa372fec697 DATE,
+  aqpa372moe    NUMBER(4)
+)
+;
+comment on column AQPA372.aqpa372id
+  is 'Nro de Correlativo';
+comment on column AQPA372.aqpa372fc
+  is 'Fecha de registro';
+comment on column AQPA372.aqpa372pa
+  is 'Pais de documento';
+comment on column AQPA372.aqpa372td
+  is 'Tipo de documento';
+comment on column AQPA372.aqpa372nd
+  is 'Nro de documento';
+comment on column AQPA372.aqpa372ct
+  is 'Cuenta';
+comment on column AQPA372.aqpa372su
+  is 'Sucursal';
+comment on column AQPA372.aqpa372mo
+  is 'Modulo';
+comment on column AQPA372.aqpa372tp
+  is 'Tipo de Operacion';
+comment on column AQPA372.aqpa372mn
+  is 'Moneda';
+comment on column AQPA372.aqpa372pp
+  is 'Papel';
+comment on column AQPA372.aqpa372pe
+  is 'Periodo';
+comment on column AQPA372.aqpa372im
+  is 'Importe';
+comment on column AQPA372.aqpa372ta
+  is 'Tasa';
+comment on column AQPA372.aqpa372as
+  is 'Asesor';
+comment on column AQPA372.aqpa372es
+  is 'Estado';
+comment on column AQPA372.aqpa372so
+  is 'Nro de Solicitud';
+comment on column AQPA372.aqpa372ds
+  is 'RENOVACION, AMPLIACION y ADICIONAL';
+comment on column AQPA372.aqpa372pgcod
+  is 'Pgcod';
+comment on column AQPA372.aqpa372mod
+  is 'Modulo';
+comment on column AQPA372.aqpa372suc
+  is 'Sucursal';
+comment on column AQPA372.aqpa372mda
+  is 'Moneda';
+comment on column AQPA372.aqpa372pap
+  is 'Papel';
+comment on column AQPA372.aqpa372cta
+  is 'Cuenta';
+comment on column AQPA372.aqpa372ope
+  is 'Operacion';
+comment on column AQPA372.aqpa372sbop
+  is 'SubOperacion';
+comment on column AQPA372.aqpa372tope
+  is 'Tipo de Operacion';
+comment on column AQPA372.aqpa372ind
+  is 'P - PreAprobados , A - Aprobados';
+comment on column AQPA372.aqpa372plz
+  is 'Plazo de la nueva tasa';
+comment on column AQPA372.aqpa372elim
+  is 'Indicador de creditos a cambiar la vigencia de tasas';
+comment on column AQPA372.aqpa372stc
+  is 'Estado de Carga N Flujo Express, F JAQM80';
+comment on column AQPA372.aqpa372cor697
+  is 'Correlativo JAQZ697';
+comment on column AQPA372.aqpa372fec697
+  is 'Fecha JAQZ697';
+comment on column AQPA372.aqpa372moe
+  is 'Modelo de evalacion 13 Pyme, 14 Consumo';
+create index AQPA372A6 on AQPA372 (AQPA372CT, AQPA372MO, AQPA372TP, AQPA372MN, AQPA372FC, AQPA372IM);
+create index AQPA3722 on AQPA372 (AQPA372PA, AQPA372TD, AQPA372ND);
+create index AQPA3723 on AQPA372 (AQPA372PGCOD, AQPA372MOD, AQPA372SUC, AQPA372MDA, AQPA372PAP, AQPA372CTA, AQPA372OPE, AQPA372SBOP, AQPA372TOPE);
+create index AQPA3724 on AQPA372 (AQPA372COR697, AQPA372FEC697);
+create index AQPA3725 on AQPA372 (AQPA372FC, AQPA372STC);
+alter table AQPA372
+  add primary key (AQPA372ID, AQPA372FC);
+

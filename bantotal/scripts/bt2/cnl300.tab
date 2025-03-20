@@ -1,0 +1,17 @@
+create table CNL300
+(
+  cnl300fun  NUMBER(5) not null,
+  cnl300fch  CHAR(8) not null,
+  cnl300hor  CHAR(8) not null,
+  cnl300pad  NUMBER(3) not null,
+  cnl300tad  NUMBER(2) not null,
+  cnl300dad  CHAR(64) not null,
+  cnl300usu  CHAR(30) not null,
+  cnl300ip   CHAR(30) not null,
+  cnl0300cbu CHAR(22) not null,
+  cnl300imp  NUMBER(18,2) not null,
+  cnl300cta  NUMBER(9) not null
+)
+;
+create unique index CNL30001 on CNL300 (CNL300FUN, CNL300FCH, CNL300HOR);
+

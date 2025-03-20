@@ -1,0 +1,14 @@
+create table CHEQUEDIA
+(
+  scnom  CHAR(30),
+  chcheq NUMBER(9),
+  banom  CHAR(30),
+  sccta  NUMBER(9) not null,
+  scmda  NUMBER(4) not null,
+  scsdo  NUMBER(17,2),
+  scfcon DATE
+)
+;
+comment on table CHEQUEDIA
+  is 'Datos del cheque del día para reporte - SP_REPORTES_JUL';
+

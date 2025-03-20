@@ -1,0 +1,14 @@
+create table JAQL552
+(
+  jaql552ncon CHAR(18) not null,
+  jaql552pais NUMBER(3) not null,
+  jaql552tdoc NUMBER(2) not null,
+  jaql552capo CHAR(10) not null,
+  jaql552ent  NUMBER(4),
+  jaql552ndoc CHAR(12),
+  jaql552apo  CHAR(30)
+)
+;
+alter table JAQL552
+  add primary key (JAQL552NCON, JAQL552PAIS, JAQL552TDOC, JAQL552CAPO);
+

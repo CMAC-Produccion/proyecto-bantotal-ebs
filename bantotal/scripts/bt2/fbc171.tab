@@ -1,0 +1,13 @@
+create table FBC171
+(
+  colpgcod   NUMBER(3) not null,
+  colctnro   NUMBER(9) not null,
+  colctcoden NUMBER(10),
+  colnivdesc CHAR(25),
+  colap1desp CHAR(40),
+  colap2desc CHAR(40)
+)
+;
+alter table FBC171
+  add primary key (COLPGCOD, COLCTNRO);
+

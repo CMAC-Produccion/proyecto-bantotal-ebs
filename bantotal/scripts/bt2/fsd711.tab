@@ -1,0 +1,14 @@
+create table FSD711
+(
+  dcp2pais   NUMBER(3) not null,
+  dcp2tdoc   NUMBER(2) not null,
+  dcp2ndoc   CHAR(12) not null,
+  dcp2fchcon NUMBER(8),
+  dcp2fchina NUMBER(8),
+  dcp2fchins NUMBER(8),
+  dcp2nroreg CHAR(11)
+)
+;
+alter table FSD711
+  add primary key (DCP2PAIS, DCP2TDOC, DCP2NDOC);
+

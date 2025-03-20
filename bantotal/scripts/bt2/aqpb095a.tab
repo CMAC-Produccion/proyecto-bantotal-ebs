@@ -1,0 +1,39 @@
+create table AQPB095A
+(
+  aqpb095acod NUMBER not null,
+  aqpb095afec DATE not null,
+  aqpb095acor NUMBER(8) not null,
+  aqpb095aest CHAR(1),
+  aqpb095ausr CHAR(10),
+  aqpb095afcr VARCHAR2(10),
+  aqpb095ahcr VARCHAR2(10),
+  aqpb095ausd CHAR(10),
+  aqpb095afed VARCHAR2(10),
+  aqpb095ahed VARCHAR2(10)
+)
+;
+comment on table AQPB095A
+  is 'Tabla para registrar la cabecera de archivos cargados';
+comment on column AQPB095A.aqpb095acod
+  is 'Código de empresa';
+comment on column AQPB095A.aqpb095afec
+  is 'Fecha de carga del archivo';
+comment on column AQPB095A.aqpb095acor
+  is 'Correlativo del archivo cargado';
+comment on column AQPB095A.aqpb095aest
+  is 'Estado del archivo';
+comment on column AQPB095A.aqpb095ausr
+  is 'Usuario de creación';
+comment on column AQPB095A.aqpb095afcr
+  is 'Fecha de creación';
+comment on column AQPB095A.aqpb095ahcr
+  is 'Hora de creación';
+comment on column AQPB095A.aqpb095ausd
+  is 'Usuario de edición';
+comment on column AQPB095A.aqpb095afed
+  is 'Fecha de edición';
+comment on column AQPB095A.aqpb095ahed
+  is 'Hora de edición';
+alter table AQPB095A
+  add primary key (AQPB095ACOD, AQPB095AFEC, AQPB095ACOR);
+

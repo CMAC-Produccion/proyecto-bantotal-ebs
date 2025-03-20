@@ -1,0 +1,11 @@
+create table NUMEROS
+(
+  codnumero         NUMBER not null,
+  descripcionnumero VARCHAR2(40)
+)
+;
+comment on table NUMEROS
+  is 'Tabla de números para cálculos - PQ_CR_AVISOS';
+alter table NUMEROS
+  add constraint PK_NUMEROS primary key (CODNUMERO);
+

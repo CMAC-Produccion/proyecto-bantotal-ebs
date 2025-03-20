@@ -1,0 +1,115 @@
+create table JAQL978
+(
+  jaql978cor   NUMBER(18) not null,
+  jaql978bytei CHAR(5),
+  jaql978cons  CHAR(1),
+  jaql978fdia  NUMBER(2),
+  jaql978fmes  NUMBER(2),
+  jaql978fani  NUMBER(4),
+  jaql978hora  NUMBER(2),
+  jaql978min   NUMBER(2),
+  jaql978cod   CHAR(5),
+  jaql978use   CHAR(10),
+  jaql97887871 CHAR(20),
+  jaql97887872 CHAR(10),
+  jaql97887873 CHAR(12),
+  jaql97887874 NUMBER(5),
+  jaql97887875 NUMBER(8),
+  jaql97887876 NUMBER(6),
+  jaql97887877 CHAR(200),
+  jaql97887878 CHAR(3),
+  jaql97887879 NUMBER(2),
+  jaql97887880 NUMBER(5),
+  jaql97887881 NUMBER(5),
+  jaql97887882 CHAR(15),
+  jaql97887883 CHAR(128),
+  jaql97887884 NUMBER(8),
+  jaql97887885 NUMBER(6),
+  jaql97887886 NUMBER(14,2),
+  jaql97887887 CHAR(10),
+  jaql97887888 CHAR(3),
+  jaql97887889 CHAR(1),
+  jaql97887890 NUMBER(3),
+  jaql97887891 CHAR(200),
+  jaql97887892 CHAR(12),
+  jaql97887893 CHAR(3),
+  jaql97887894 NUMBER(8),
+  jaql97887895 NUMBER(6),
+  jaql978bytef CHAR(5)
+)
+;
+comment on column JAQL978.jaql978cor
+  is 'Correlativo';
+comment on column JAQL978.jaql978bytei
+  is 'Constante "ByteI"';
+comment on column JAQL978.jaql978cons
+  is 'Constante "N"';
+comment on column JAQL978.jaql978fdia
+  is 'Día/Trx';
+comment on column JAQL978.jaql978fmes
+  is 'Mes/Trx';
+comment on column JAQL978.jaql978fani
+  is 'Año/Trx';
+comment on column JAQL978.jaql978hora
+  is 'Hora/Trx';
+comment on column JAQL978.jaql978min
+  is 'Minuto/Trx';
+comment on column JAQL978.jaql978cod
+  is 'Constante "08765"';
+comment on column JAQL978.jaql978use
+  is 'Usuario';
+comment on column JAQL978.jaql97887871
+  is 'PLUS-Cód. Reclamo';
+comment on column JAQL978.jaql97887872
+  is 'PLUS-Nro Reclamo';
+comment on column JAQL978.jaql97887873
+  is 'PLUS-Usuario Reclamo';
+comment on column JAQL978.jaql97887874
+  is 'PLUS-Sucursal Reclamo';
+comment on column JAQL978.jaql97887875
+  is 'PLUS-Fec Reclamo';
+comment on column JAQL978.jaql97887876
+  is 'PLUS-Hora Reclamo';
+comment on column JAQL978.jaql97887877
+  is 'PLUS-Detalle Reclamo';
+comment on column JAQL978.jaql97887878
+  is 'PLUS-Medio o Canal Reclamo';
+comment on column JAQL978.jaql97887879
+  is 'PLUS-Fuente Reclamo';
+comment on column JAQL978.jaql97887880
+  is 'PLUS-Departamento/División/Area';
+comment on column JAQL978.jaql97887881
+  is 'PLUS-Cód Evento ';
+comment on column JAQL978.jaql97887882
+  is 'PLUS-ID Cliente';
+comment on column JAQL978.jaql97887883
+  is 'PLUS-Cta/Tarjeta/No. Producto';
+comment on column JAQL978.jaql97887884
+  is 'PLUS-Fec Trx';
+comment on column JAQL978.jaql97887885
+  is 'PLUS-Hora Trx';
+comment on column JAQL978.jaql97887886
+  is 'PLUS-Monto Trx';
+comment on column JAQL978.jaql97887887
+  is 'PLUS-Identificación Trx./No. Autorización';
+comment on column JAQL978.jaql97887888
+  is 'PLUS-Cód Respuesta';
+comment on column JAQL978.jaql97887889
+  is 'PLUS-Resultado Reclamo';
+comment on column JAQL978.jaql97887890
+  is 'PLUS-Código Resultado';
+comment on column JAQL978.jaql97887891
+  is 'PLUS-Detalle Investigación Reclamo';
+comment on column JAQL978.jaql97887892
+  is 'PLUS-Usuario Investiga Reclamo';
+comment on column JAQL978.jaql97887893
+  is 'PLUS-Cód Institución';
+comment on column JAQL978.jaql97887894
+  is 'PLUS-Fec Investigación Reclamo';
+comment on column JAQL978.jaql97887895
+  is 'PLUS-Hora Investigación Reclamo';
+comment on column JAQL978.jaql978bytef
+  is 'Constante "ByteF"';
+alter table JAQL978
+  add primary key (JAQL978COR);
+

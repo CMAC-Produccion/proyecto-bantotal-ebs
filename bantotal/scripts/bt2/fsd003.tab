@@ -1,0 +1,38 @@
+create table FSD003
+(
+  pjpais     NUMBER(3) not null,
+  pjtdoc     NUMBER(2) not null,
+  pjndoc     CHAR(12) not null,
+  pjrazs     CHAR(70),
+  njcod      NUMBER(2),
+  pjfcon     DATE,
+  pjfexp     DATE,
+  pjfpba     DATE,
+  entecod    NUMBER(3),
+  pjnror     NUMBER(10),
+  pjfreg     DATE,
+  pjfina     DATE,
+  pjpbal     CHAR(1),
+  pjfbal     DATE,
+  pjcant     CHAR(1),
+  pjfcan     DATE,
+  pjfluc     CHAR(1),
+  sececocod  CHAR(5),
+  socconcod  NUMBER(3),
+  pjsegmento NUMBER(3),
+  pjcd01     CHAR(1),
+  pjcd02     CHAR(1),
+  pjcd03     NUMBER(3),
+  pjcd04     NUMBER(9),
+  pjcd05     NUMBER(3),
+  pjcd06     NUMBER(3)
+)
+;
+create index FSD00302 on FSD003 (NJCOD);
+create index FSD00304 on FSD003 (SOCCONCOD);
+create index FSD00305 on FSD003 (SECECOCOD);
+create index FSD00306 on FSD003 (ENTECOD);
+create index FSD00310 on FSD003 (PJRAZS);
+alter table FSD003
+  add primary key (PJPAIS, PJTDOC, PJNDOC);
+

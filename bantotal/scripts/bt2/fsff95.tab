@@ -1,0 +1,14 @@
+create table FSFF95
+(
+  pgcod   NUMBER(3) not null,
+  eg98ctn NUMBER(9) not null,
+  egtctip NUMBER(2) not null,
+  egtccod NUMBER(4) not null,
+  eg98ope NUMBER(9) not null,
+  eg98cta NUMBER(9) not null
+)
+;
+create index IFSFF951 on FSFF95 (EGTCTIP, EGTCCOD);
+alter table FSFF95
+  add primary key (PGCOD, EG98CTN, EGTCTIP, EGTCCOD, EG98OPE, EG98CTA);
+

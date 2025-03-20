@@ -1,0 +1,22 @@
+create table FPAE13
+(
+  pae13ite NUMBER(5) not null,
+  pae13pfj CHAR(1) not null,
+  pae13tpm CHAR(1) not null,
+  pae13soa CHAR(1) not null,
+  pae13rie NUMBER(9) not null,
+  pae13fec DATE not null,
+  pae13hor NUMBER(8) not null,
+  pae13num NUMBER(18) not null,
+  pae13chr CHAR(30) not null,
+  pae13dat DATE not null,
+  pae13usr CHAR(10),
+  pae13rgo NUMBER(3),
+  pae13mod CHAR(3)
+)
+;
+create index FPAE1302 on FPAE13 (PAE13ITE, PAE13PFJ, PAE13TPM, PAE13SOA, PAE13RIE, PAE13NUM, PAE13CHR, PAE13DAT, PAE13FEC, PAE13HOR);
+create index FPAE1303 on FPAE13 (PAE13ITE, PAE13PFJ, PAE13TPM, PAE13SOA, PAE13RIE, PAE13RGO, PAE13FEC, PAE13HOR);
+alter table FPAE13
+  add primary key (PAE13ITE, PAE13PFJ, PAE13TPM, PAE13SOA, PAE13RIE, PAE13FEC, PAE13HOR, PAE13NUM, PAE13CHR, PAE13DAT);
+

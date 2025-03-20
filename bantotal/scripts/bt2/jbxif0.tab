@@ -1,0 +1,20 @@
+create table JBXIF0
+(
+  jbxif0dia NUMBER(8) not null,
+  jbxif0fal NUMBER(8) not null,
+  jbxif0tip NUMBER(2) not null,
+  jbxif0suc NUMBER(4) not null,
+  jbxif0pro NUMBER(5) not null,
+  jbxif0ane NUMBER(1) not null,
+  jbxif0ope CHAR(7) not null,
+  jbxif0emp NUMBER(4) not null,
+  jbxif0com NUMBER(3) not null,
+  jbxif0cap NUMBER(14,2),
+  jbxif0int NUMBER(14,2),
+  jbxif0imp NUMBER(14,2),
+  jbxif0ord NUMBER(1),
+  jbxif0cor CHAR(20)
+)
+;
+create unique index JBXIF001 on JBXIF0 (JBXIF0DIA, JBXIF0FAL, JBXIF0TIP, JBXIF0SUC, JBXIF0PRO, JBXIF0ANE, JBXIF0OPE, JBXIF0EMP, JBXIF0COM);
+

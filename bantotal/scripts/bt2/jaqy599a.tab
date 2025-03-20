@@ -1,0 +1,13 @@
+create table JAQY599A
+(
+  jaqy599afec   DATE not null,
+  jaqy599ahor   CHAR(8) not null,
+  jaqy599ainst  NUMBER(9) not null,
+  jaqy599anuope NUMBER(10)
+)
+;
+create index IDX_JAQY599_01 on JAQY599A (JAQY599ANUOPE);
+create index JAQY599A3 on JAQY599A (JAQY599AINST);
+alter table JAQY599A
+  add primary key (JAQY599AFEC, JAQY599AHOR, JAQY599AINST);
+

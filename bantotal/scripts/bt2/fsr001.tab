@@ -1,0 +1,20 @@
+create table FSR001
+(
+  docpais   NUMBER(3) not null,
+  doctdoc   NUMBER(2) not null,
+  docndoc   CHAR(12) not null,
+  tdocum    NUMBER(2) not null,
+  docpais1  NUMBER(3),
+  docndoc1  CHAR(12),
+  docfchemi DATE,
+  docfchvto DATE,
+  depcod    NUMBER(5),
+  loccod    NUMBER(5)
+)
+;
+create index FSR00102 on FSR001 (DOCPAIS1, DEPCOD, LOCCOD);
+create index FSR00103 on FSR001 (TDOCUM);
+create index FSR00104 on FSR001 (DOCPAIS1, TDOCUM, DOCNDOC1);
+alter table FSR001
+  add primary key (DOCPAIS, DOCTDOC, DOCNDOC, TDOCUM);
+

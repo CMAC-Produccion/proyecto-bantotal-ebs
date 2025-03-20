@@ -1,0 +1,16 @@
+create table MSGA50
+(
+  msga50in NUMBER(11) not null,
+  msga50ss DATE,
+  msga50sd DATE,
+  msga50st CHAR(1),
+  msga50fr VARCHAR2(40),
+  msga00id NUMBER(7),
+  msga50sb VARCHAR2(200),
+  msga50rl NUMBER(1)
+)
+;
+create index MSGA5002 on MSGA50 (MSGA00ID);
+alter table MSGA50
+  add primary key (MSGA50IN);
+

@@ -1,0 +1,16 @@
+create table JAQM32
+(
+  jaqm30co CHAR(4) not null,
+  jaqm31co CHAR(4) not null,
+  jaqm32n1 NUMBER(18),
+  jaqm32n2 NUMBER(18),
+  jaqm32c1 CHAR(255),
+  jaqm32c2 CHAR(255),
+  jaqm32d1 DATE,
+  jaqm32d2 DATE
+)
+;
+create index JAQM3202 on JAQM32 (JAQM31CO);
+alter table JAQM32
+  add primary key (JAQM30CO, JAQM31CO);
+

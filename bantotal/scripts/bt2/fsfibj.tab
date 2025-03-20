@@ -1,0 +1,27 @@
+create table FSFIBJ
+(
+  sfibjemp  NUMBER(3) not null,
+  sfibjpais NUMBER(3) not null,
+  sfibjcar  NUMBER(3) not null,
+  sfibjpla  NUMBER(4,2) not null,
+  sfibjmda  NUMBER(4) not null,
+  sfibjemi  NUMBER(4) not null,
+  sfibjtip  NUMBER(4) not null,
+  sfibjcla  NUMBER(4) not null,
+  sfibjgru  NUMBER(4) not null,
+  sfibjlim  NUMBER(17,2),
+  sfibjdsc  CHAR(30),
+  sfibjcar1 CHAR(1),
+  sfibjcar2 CHAR(1),
+  sfibjcar3 CHAR(1),
+  sfibjnum1 NUMBER(9),
+  sfibjnum2 NUMBER(9),
+  sfibjnum3 NUMBER(9),
+  sfibjtxt1 CHAR(20),
+  sfibjtxt2 CHAR(20),
+  sfibjtxt3 CHAR(20)
+)
+;
+alter table FSFIBJ
+  add primary key (SFIBJEMP, SFIBJPAIS, SFIBJCAR, SFIBJPLA, SFIBJMDA, SFIBJEMI, SFIBJTIP, SFIBJCLA, SFIBJGRU);
+

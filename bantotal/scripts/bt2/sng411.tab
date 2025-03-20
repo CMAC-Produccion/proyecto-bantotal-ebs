@@ -1,0 +1,13 @@
+create table SNG411
+(
+  sng410corr NUMBER(10) not null,
+  sng402cr   NUMBER(4) not null,
+  sng406prg  CHAR(10) not null,
+  sng411st   NUMBER(3),
+  sng412cor  NUMBER(10)
+)
+;
+create index SNG41102 on SNG411 (SNG412COR);
+alter table SNG411
+  add primary key (SNG410CORR, SNG402CR, SNG406PRG);
+

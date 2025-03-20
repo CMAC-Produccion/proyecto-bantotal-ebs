@@ -1,0 +1,43 @@
+create table CLE101
+(
+  cle101fch  DATE not null,
+  cle101hra  CHAR(8) not null,
+  cle101prd  NUMBER(3) not null,
+  cle101bol  NUMBER(15) not null,
+  cle101chq  NUMBER(15) not null,
+  cle101bco  NUMBER(3),
+  cle101bsuc NUMBER(12),
+  cle101cp   CHAR(12),
+  cle101ctal NUMBER(15),
+  cle101pza  NUMBER(3),
+  cle101pzo  NUMBER(3),
+  cle101tchq NUMBER(2),
+  cle101imp  NUMBER(17,2),
+  cle101est  NUMBER(1),
+  cle101mda  NUMBER(4),
+  cle101mtvo NUMBER(3),
+  cle101cta  NUMBER(9),
+  cle101suc  NUMBER(3),
+  cle101sbop NUMBER(3),
+  cle101tope NUMBER(3),
+  cle101ax1  CHAR(1),
+  cle101ax2  CHAR(5),
+  cle101ax3  NUMBER(5),
+  cle101ax4  DATE,
+  cle101mod  NUMBER(3),
+  cle101ctao NUMBER(9),
+  cle101ax5  NUMBER(15),
+  cle101ax6  NUMBER(18),
+  cle101ax7  DATE,
+  cle101ax8  CHAR(15),
+  cle101emp  NUMBER(3),
+  cle101pap  NUMBER(4)
+)
+;
+create index CLE10102 on CLE101 (CLE101PRD, CLE101CHQ);
+create index CLE10103 on CLE101 (CLE101FCH, CLE101HRA, CLE101PRD, CLE101BCO, CLE101MDA, CLE101BSUC, CLE101CHQ, CLE101CTAL);
+create index CLE10104 on CLE101 (CLE101FCH, CLE101HRA, CLE101PRD, CLE101AX5, CLE101MDA, CLE101AX6, CLE101CHQ, CLE101CTAL);
+create index CLE10105 on CLE101 (CLE101FCH, CLE101PRD, CLE101SUC, CLE101BOL, CLE101IMP);
+alter table CLE101
+  add primary key (CLE101FCH, CLE101HRA, CLE101PRD, CLE101BOL, CLE101CHQ);
+

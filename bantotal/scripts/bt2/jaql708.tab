@@ -1,0 +1,20 @@
+create table JAQL708
+(
+  jaql708usr  CHAR(10) not null,
+  jaql708doi  CHAR(12),
+  jaql708nom  VARCHAR2(60),
+  jaql708tlf  NUMBER(9),
+  jaql708mail VARCHAR2(30),
+  jaql708cod  NUMBER(12),
+  jaql708hin  CHAR(8),
+  jaql708hfn  CHAR(8)
+)
+;
+comment on column JAQL708.jaql708hin
+  is 'Hora Inicio';
+comment on column JAQL708.jaql708hfn
+  is 'Hora Fin';
+create index IDJAQL708_001 on JAQL708 (JAQL708DOI);
+alter table JAQL708
+  add constraint PK_JAQL708 primary key (JAQL708USR);
+

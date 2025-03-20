@@ -1,0 +1,13 @@
+create table CNL031
+(
+  cnl000cod NUMBER(4) not null,
+  cnl030fch TIMESTAMP(6) not null,
+  cnl030hor CHAR(8) not null,
+  cnl030req NUMBER(10) not null,
+  cnl031dat CHAR(15) not null,
+  cnl031val CLOB
+)
+;
+alter table CNL031
+  add primary key (CNL000COD, CNL030FCH, CNL030HOR, CNL030REQ, CNL031DAT);
+

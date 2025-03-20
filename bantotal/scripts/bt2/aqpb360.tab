@@ -1,0 +1,31 @@
+create table AQPB360
+(
+  aqpb360eval NUMBER(10) not null,
+  aqpb360cod  NUMBER(4) not null,
+  aqpb360lin  NUMBER(3) not null,
+  aqpb360mto1 NUMBER(17,2),
+  aqpb360mto2 NUMBER(17,2),
+  aqpb360mto3 NUMBER(17,2),
+  aqpb360mto4 NUMBER(17,2),
+  aqpb360mda1 NUMBER(4),
+  aqpb360mda2 NUMBER(4),
+  aqpb360mda3 NUMBER(4),
+  aqpb360mda4 NUMBER(4),
+  aqpb360txt1 CHAR(40),
+  aqpb360txt2 CHAR(40),
+  aqpb360txt3 CHAR(40),
+  aqpb360con1 CHAR(10),
+  aqpb360con2 CHAR(12),
+  aqpb360con3 CHAR(10),
+  aqpb360can1 NUMBER(10,3),
+  aqpb360can2 NUMBER(10,3),
+  aqpb360can3 NUMBER(10,3),
+  aqpb360can4 NUMBER(10,3),
+  aqpb360txl1 CHAR(50),
+  aqpb360txl2 CHAR(50),
+  aqpb360txl3 CHAR(50)
+)
+;
+alter table AQPB360
+  add primary key (AQPB360EVAL, AQPB360COD, AQPB360LIN);
+

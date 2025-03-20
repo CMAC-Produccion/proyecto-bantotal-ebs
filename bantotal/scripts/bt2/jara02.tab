@@ -1,0 +1,30 @@
+create table JARA02
+(
+  ar2cod NUMBER(3) not null,
+  ar2mod NUMBER(3) not null,
+  ar2suc NUMBER(3) not null,
+  ar2mda NUMBER(4) not null,
+  ar2pap NUMBER(4) not null,
+  ar2cta NUMBER(9) not null,
+  ar2ope NUMBER(3) not null,
+  ar2sbo NUMBER(3) not null,
+  ar2top NUMBER(3) not null,
+  ar2fch DATE not null,
+  ar2au1 NUMBER(9),
+  ar2au2 NUMBER(9),
+  ar2au3 NUMBER(9),
+  ar2au4 CHAR(30),
+  ar2au5 CHAR(30),
+  ar2au6 CHAR(30),
+  ar2au7 DATE,
+  ar2au8 DATE,
+  ar2au9 DATE,
+  ar2a10 NUMBER(17,2),
+  ar2a11 NUMBER(17,2),
+  ar2a12 NUMBER(17,2)
+)
+;
+create index JARA0202 on JARA02 (AR2COD, AR2CTA, AR2FCH);
+alter table JARA02
+  add primary key (AR2COD, AR2MOD, AR2SUC, AR2MDA, AR2PAP, AR2CTA, AR2OPE, AR2SBO, AR2TOP, AR2FCH);
+

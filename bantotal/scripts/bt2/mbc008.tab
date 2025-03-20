@@ -1,0 +1,16 @@
+create table MBC008
+(
+  mbc008emp NUMBER(3) not null,
+  mbc008suc NUMBER(3) not null,
+  mbc008mda NUMBER(4) not null,
+  mbc008tpo CHAR(1) not null,
+  mbc008nro NUMBER(12),
+  mbc008cnt NUMBER(4),
+  mbc008fec DATE,
+  mbc008ax1 NUMBER(17,2),
+  mbc008ax2 CHAR(20)
+)
+;
+alter table MBC008
+  add primary key (MBC008EMP, MBC008SUC, MBC008MDA, MBC008TPO);
+

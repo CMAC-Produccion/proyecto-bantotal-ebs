@@ -1,0 +1,15 @@
+create table JBVX90
+(
+  jbvx90tpo  NUMBER(2) not null,
+  jbvx90cod  NUMBER(3) not null,
+  jbvx90dsc  CHAR(50),
+  jbvx90vini NUMBER(3),
+  jbvx90st1  NUMBER(3),
+  jbvx90st2  NUMBER(3),
+  jbvx90std  NUMBER(4),
+  jbvx90hab  CHAR(1)
+)
+;
+alter table JBVX90
+  add primary key (JBVX90TPO, JBVX90COD);
+

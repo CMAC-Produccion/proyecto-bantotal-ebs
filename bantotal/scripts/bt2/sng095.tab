@@ -1,0 +1,15 @@
+create table SNG095
+(
+  sng095inst NUMBER(10) not null,
+  sng095fec  DATE not null,
+  sng095hor  CHAR(8) not null,
+  sng095usr  CHAR(10),
+  sng095asan NUMBER(5),
+  sng095asnu NUMBER(5),
+  sng095agan NUMBER(3),
+  sng095agnu NUMBER(3)
+)
+;
+alter table SNG095
+  add primary key (SNG095INST, SNG095FEC, SNG095HOR);
+

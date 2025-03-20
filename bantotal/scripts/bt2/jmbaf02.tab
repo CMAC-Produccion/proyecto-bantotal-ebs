@@ -1,0 +1,16 @@
+create table JMBAF02
+(
+  jmbaf02ifi CHAR(7) not null,
+  jmbaf02ope CHAR(14) not null,
+  jmbaf02tga CHAR(2),
+  jmbaf02nga CHAR(30),
+  jmbaf02fin CHAR(10),
+  jmbaf02mco CHAR(12),
+  jmbaf02vbi CHAR(12),
+  jmbaf02tmo CHAR(2),
+  jmbaf02fta CHAR(10)
+)
+;
+alter table JMBAF02
+  add primary key (JMBAF02IFI, JMBAF02OPE);
+

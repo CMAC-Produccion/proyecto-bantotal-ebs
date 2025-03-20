@@ -1,0 +1,14 @@
+create table JAQL055
+(
+  codrep  VARCHAR2(10) not null,
+  correl  NUMBER(4) not null,
+  descri1 VARCHAR2(500),
+  descri2 VARCHAR2(500),
+  fecha1  DATE,
+  linea   CHAR(1),
+  descri3 VARCHAR2(500)
+)
+;
+alter table JAQL055
+  add primary key (CODREP, CORREL);
+

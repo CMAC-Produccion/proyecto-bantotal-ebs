@@ -1,0 +1,21 @@
+create table PQT006
+(
+  pqt6pgc  NUMBER(3) not null,
+  pqt6cod  NUMBER(5) not null,
+  pqt6mod  NUMBER(3) not null,
+  pqt6top  NUMBER(3) not null,
+  pqt6mda  NUMBER(4) not null,
+  pqt6pap  NUMBER(4) not null,
+  pqt6pzoa NUMBER(5),
+  pqt6rena CHAR(1),
+  pqt6moda NUMBER(4),
+  pqt6trna NUMBER(4),
+  pqt6aux1 NUMBER(9),
+  pqt6aux2 NUMBER(17,2),
+  pqt6aux3 CHAR(30),
+  pqt6aux4 DATE
+)
+;
+alter table PQT006
+  add primary key (PQT6PGC, PQT6COD, PQT6MOD, PQT6TOP, PQT6MDA, PQT6PAP);
+

@@ -1,0 +1,17 @@
+create table XWFCNV
+(
+  xwfentnam CHAR(20) not null,
+  xwfenttyp CHAR(1) not null,
+  xwfenttbl CHAR(20) not null,
+  xwfentdts CHAR(20),
+  xwfentcnf CHAR(1),
+  xwfentcnv CHAR(20),
+  xwfentds1 CHAR(20),
+  xwfentds2 CHAR(20),
+  xwfentgpm CHAR(1),
+  xwfentkey CHAR(1)
+)
+;
+alter table XWFCNV
+  add primary key (XWFENTNAM, XWFENTTYP, XWFENTTBL);
+

@@ -1,0 +1,15 @@
+create table JAQY772
+(
+  jaqy772inst  NUMBER(9) not null,
+  jaqy772fecha DATE,
+  jaqy772hora  CHAR(8),
+  jaqy772nuope NUMBER(10)
+)
+;
+create index JAQY77201 on JAQY772 (JAQY772INST, JAQY772FECHA, JAQY772HORA, JAQY772NUOPE);
+create index JAQY77202 on JAQY772 (JAQY772INST, JAQY772HORA);
+create index JAQY77203 on JAQY772 (JAQY772FECHA);
+create index JAQY77204 on JAQY772 (JAQY772NUOPE);
+alter table JAQY772
+  add primary key (JAQY772INST);
+

@@ -1,0 +1,358 @@
+create table AQPC315
+(
+  aqpc315fecpro DATE,
+  aqpc315cta    NUMBER,
+  aqpc315oper   NUMBER,
+  aqpc315ase    VARCHAR2(50),
+  aqpc315tippeq VARCHAR2(5),
+  aqpc315nomreg VARCHAR2(20),
+  aqpc315deszon VARCHAR2(30),
+  aqpc315scnom  VARCHAR2(50),
+  aqpc315depart VARCHAR2(50),
+  aqpc315provin VARCHAR2(50),
+  aqpc315distri VARCHAR2(50),
+  aqpc315segmen VARCHAR2(50),
+  aqpc315ciiu   NUMBER,
+  aqpc315descii VARCHAR2(70),
+  aqpc315modulo VARCHAR2(50),
+  aqpc315estado VARCHAR2(20),
+  aqpc315es_mod VARCHAR2(20),
+  aqpc315fechac DATE,
+  aqpc315tipsbs VARCHAR2(20),
+  aqpc315tasa   NUMBER,
+  aqpc315desem  DATE,
+  aqpc315venci  DATE,
+  aqpc315codsbs NUMBER,
+  aqpc315mtdsso NUMBER,
+  aqpc315estdo2 VARCHAR2(50),
+  aqpc315saldo0 NUMBER,
+  aqpc315saldo1 NUMBER,
+  aqpc315saldo2 NUMBER,
+  aqpc315saldo3 NUMBER,
+  aqpc315saldo4 NUMBER,
+  aqpc315saldo5 NUMBER,
+  aqpc315saldo6 NUMBER,
+  aqpc315saldo7 NUMBER,
+  aqpc315saldo8 NUMBER,
+  aqpc315saldo9 NUMBER,
+  aqpc315sald10 NUMBER,
+  aqpc315sald11 NUMBER,
+  aqpc315sald12 NUMBER,
+  aqpc315ndia0  NUMBER,
+  aqpc315ndia1  NUMBER,
+  aqpc315ndia2  NUMBER,
+  aqpc315ndia3  NUMBER,
+  aqpc315ndia4  NUMBER,
+  aqpc315ndia5  NUMBER,
+  aqpc315ndia6  NUMBER,
+  aqpc315ndia7  NUMBER,
+  aqpc315ndia8  NUMBER,
+  aqpc315ndia9  NUMBER,
+  aqpc315ndia10 NUMBER,
+  aqpc315ndia11 NUMBER,
+  aqpc315ndia12 NUMBER,
+  aqpc315cal0   NUMBER,
+  aqpc315cal1   NUMBER,
+  aqpc315cal2   NUMBER,
+  aqpc315cal3   NUMBER,
+  aqpc315cal4   NUMBER,
+  aqpc315cal5   NUMBER,
+  aqpc315cal6   NUMBER,
+  aqpc315cal7   NUMBER,
+  aqpc315cal8   NUMBER,
+  aqpc315cal9   NUMBER,
+  aqpc315cal10  NUMBER,
+  aqpc315cal11  NUMBER,
+  aqpc315cal12  NUMBER,
+  aqpc315fecha  DATE,
+  aqpc315cod1   VARCHAR2(70),
+  aqpc315rangmo VARCHAR2(30),
+  aqpc315tipcr2 VARCHAR2(30),
+  aqpc315caso12 NUMBER,
+  aqpc315atrafi NUMBER,
+  aqpc315sldfn  NUMBER,
+  aqpc315column NUMBER,
+  aqpc315catfin NUMBER,
+  aqpc315v2     NUMBER,
+  aqpc315sldfin NUMBER,
+  aqpc315sldini NUMBER,
+  aqpc315catbas NUMBER,
+  aqpc315prini  NUMBER,
+  aqpc315prvfin NUMBER,
+  aqpc315prvin1 NUMBER,
+  aqpc315prvfi1 NUMBER,
+  aqpc315flgrep VARCHAR2(15)
+)
+partition by range (AQPC315FECPRO)
+(
+  partition AQPC315_122019 values less than (TO_DATE(' 2020-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_012021 values less than (TO_DATE(' 2021-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_022021 values less than (TO_DATE(' 2021-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_032021 values less than (TO_DATE(' 2021-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_042021 values less than (TO_DATE(' 2021-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_052021 values less than (TO_DATE(' 2021-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_062021 values less than (TO_DATE(' 2021-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_072021 values less than (TO_DATE(' 2021-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_082021 values less than (TO_DATE(' 2021-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_092021 values less than (TO_DATE(' 2021-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_102021 values less than (TO_DATE(' 2021-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_112021 values less than (TO_DATE(' 2021-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_122021 values less than (TO_DATE(' 2022-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_012022 values less than (TO_DATE(' 2022-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_022022 values less than (TO_DATE(' 2022-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_032022 values less than (TO_DATE(' 2022-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_042022 values less than (TO_DATE(' 2022-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_052022 values less than (TO_DATE(' 2022-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_062022 values less than (TO_DATE(' 2022-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_072022 values less than (TO_DATE(' 2022-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_082022 values less than (TO_DATE(' 2022-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_092022 values less than (TO_DATE(' 2022-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_102022 values less than (TO_DATE(' 2022-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_112022 values less than (TO_DATE(' 2022-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_122022 values less than (TO_DATE(' 2023-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_012023 values less than (TO_DATE(' 2023-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_022023 values less than (TO_DATE(' 2023-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_032023 values less than (TO_DATE(' 2023-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_042023 values less than (TO_DATE(' 2023-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_052023 values less than (TO_DATE(' 2023-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_062023 values less than (TO_DATE(' 2023-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_072023 values less than (TO_DATE(' 2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_082023 values less than (TO_DATE(' 2023-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_092023 values less than (TO_DATE(' 2023-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_102023 values less than (TO_DATE(' 2023-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_112023 values less than (TO_DATE(' 2023-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_122023 values less than (TO_DATE(' 2024-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_012024 values less than (TO_DATE(' 2024-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_022024 values less than (TO_DATE(' 2024-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_032024 values less than (TO_DATE(' 2024-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_042024 values less than (TO_DATE(' 2024-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_052024 values less than (TO_DATE(' 2024-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_062024 values less than (TO_DATE(' 2024-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_072024 values less than (TO_DATE(' 2024-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_082024 values less than (TO_DATE(' 2024-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_092024 values less than (TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_102024 values less than (TO_DATE(' 2024-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_112024 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_122024 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_012025 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B,
+  partition AQPC315_022025 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B
+);
+comment on table AQPC315
+  is 'TMA';
+comment on column AQPC315.aqpc315fecpro
+  is 'Fecha de proceso';
+comment on column AQPC315.aqpc315cta
+  is 'Cuenta del crédito';
+comment on column AQPC315.aqpc315oper
+  is 'Operación del crédito';
+comment on column AQPC315.aqpc315ase
+  is 'Analista ';
+comment on column AQPC315.aqpc315tippeq
+  is 'Tipo de pequeña';
+comment on column AQPC315.aqpc315nomreg
+  is 'Región de gestión';
+comment on column AQPC315.aqpc315deszon
+  is 'Zona';
+comment on column AQPC315.aqpc315scnom
+  is 'Sucursal';
+comment on column AQPC315.aqpc315depart
+  is 'Departamento de direccion';
+comment on column AQPC315.aqpc315provin
+  is 'Provincia- direccion ';
+comment on column AQPC315.aqpc315distri
+  is 'Distrito direccion';
+comment on column AQPC315.aqpc315segmen
+  is 'Segmento myoe /consumo';
+comment on column AQPC315.aqpc315ciiu
+  is 'codigo CIIU';
+comment on column AQPC315.aqpc315descii
+  is 'Descripción CIIU';
+comment on column AQPC315.aqpc315modulo
+  is 'Modulo del credito';
+comment on column AQPC315.aqpc315estado
+  is 'Codigo de estado: cancelado, vigente, castigado';
+comment on column AQPC315.aqpc315es_mod
+  is 'Codigo castigo';
+comment on column AQPC315.aqpc315fechac
+  is 'Fecha de Cancelación del crédito';
+comment on column AQPC315.aqpc315tipsbs
+  is 'Tipo de crédito SBS';
+comment on column AQPC315.aqpc315tasa
+  is 'Tasa del crédito';
+comment on column AQPC315.aqpc315desem
+  is 'Fecha de desembolsos de crédito';
+comment on column AQPC315.aqpc315venci
+  is 'Vencimiento de crédito';
+comment on column AQPC315.aqpc315codsbs
+  is 'código SBS del cliente';
+comment on column AQPC315.aqpc315mtdsso
+  is 'Monto desembolsado';
+comment on column AQPC315.aqpc315estdo2
+  is 'Estado decriptivo';
+comment on column AQPC315.aqpc315saldo0
+  is 'Saldo en t-12';
+comment on column AQPC315.aqpc315saldo1
+  is 'Saldo en t-11';
+comment on column AQPC315.aqpc315saldo2
+  is 'Saldo en t-10';
+comment on column AQPC315.aqpc315saldo3
+  is 'Saldo en t-9';
+comment on column AQPC315.aqpc315saldo4
+  is 'Saldo en t-8';
+comment on column AQPC315.aqpc315saldo5
+  is 'Saldo en t-7';
+comment on column AQPC315.aqpc315saldo6
+  is 'Saldo en t-6';
+comment on column AQPC315.aqpc315saldo7
+  is 'Saldo en t-5';
+comment on column AQPC315.aqpc315saldo8
+  is 'Saldo en t-4';
+comment on column AQPC315.aqpc315saldo9
+  is 'Saldo en t-3';
+comment on column AQPC315.aqpc315sald10
+  is 'Saldo en t-2';
+comment on column AQPC315.aqpc315sald11
+  is 'Saldo en t-1';
+comment on column AQPC315.aqpc315sald12
+  is 'Saldo en t';
+comment on column AQPC315.aqpc315ndia0
+  is 'Dias de Atraso en T-12';
+comment on column AQPC315.aqpc315ndia1
+  is 'Dias de Atraso en T-11';
+comment on column AQPC315.aqpc315ndia2
+  is 'Dias de Atraso en T-10';
+comment on column AQPC315.aqpc315ndia3
+  is 'Dias de Atraso en T-9';
+comment on column AQPC315.aqpc315ndia4
+  is 'Dias de Atraso en T-8';
+comment on column AQPC315.aqpc315ndia5
+  is 'Dias de Atraso en T-7';
+comment on column AQPC315.aqpc315ndia6
+  is 'Dias de Atraso en T-6';
+comment on column AQPC315.aqpc315ndia7
+  is 'Dias de Atraso en T-5';
+comment on column AQPC315.aqpc315ndia8
+  is 'Dias de Atraso en T-4';
+comment on column AQPC315.aqpc315ndia9
+  is 'Dias de Atraso en T-3';
+comment on column AQPC315.aqpc315ndia10
+  is 'Dias de Atraso en T-2';
+comment on column AQPC315.aqpc315ndia11
+  is 'Dias de Atraso en T-1';
+comment on column AQPC315.aqpc315ndia12
+  is 'Dias de Atraso en T-0';
+comment on column AQPC315.aqpc315cal0
+  is 'Calificación en T-12';
+comment on column AQPC315.aqpc315cal1
+  is 'Calificación en T-11';
+comment on column AQPC315.aqpc315cal2
+  is 'Calificación en T-10';
+comment on column AQPC315.aqpc315cal3
+  is 'Calificación en T-9';
+comment on column AQPC315.aqpc315cal4
+  is 'Calificación en T-8';
+comment on column AQPC315.aqpc315cal5
+  is 'Calificación en T-7';
+comment on column AQPC315.aqpc315cal6
+  is 'Calificación en T-6';
+comment on column AQPC315.aqpc315cal7
+  is 'Calificación en T-5';
+comment on column AQPC315.aqpc315cal8
+  is 'Calificación en T-4';
+comment on column AQPC315.aqpc315cal9
+  is 'Calificación en T-3';
+comment on column AQPC315.aqpc315cal10
+  is 'Calificación en T-2';
+comment on column AQPC315.aqpc315cal11
+  is 'Calificación en T-1';
+comment on column AQPC315.aqpc315cal12
+  is 'Calificación en T-0';
+comment on column AQPC315.aqpc315fecha
+  is 'Fecha de inicio de Análisis, 12 meses antes de proceso (t-12)';
+comment on column AQPC315.aqpc315cod1
+  is 'Codigo de Cuenta-Operación';
+comment on column AQPC315.aqpc315rangmo
+  is 'Rango de Monto de desembolso';
+comment on column AQPC315.aqpc315tipcr2
+  is 'Tipo de credito';
+comment on column AQPC315.aqpc315caso12
+  is 'Casos en la ventana de analsiis';
+comment on column AQPC315.aqpc315atrafi
+  is 'Atraso final del crédito durante su vigencia ne cartera';
+comment on column AQPC315.aqpc315sldfn
+  is 'Saldo final del crédito durante su vigencia en cartera';
+comment on column AQPC315.aqpc315column
+  is 'Columna del último registro del crédito';
+comment on column AQPC315.aqpc315catfin
+  is 'Calificación del último registo de vgencia del crédito';
+comment on column AQPC315.aqpc315v2
+  is 'Flag';
+comment on column AQPC315.aqpc315sldfin
+  is 'Numerador de TMA, Saldo si ARA.final>60 días';
+comment on column AQPC315.aqpc315sldini
+  is 'Denominador TMA y RGPE Saldo en T-12';
+comment on column AQPC315.aqpc315catbas
+  is 'Calificación';
+comment on column AQPC315.aqpc315prini
+  is 'Provisión calculada en t-12';
+comment on column AQPC315.aqpc315prvfin
+  is 'Provisión calculada en t';
+comment on column AQPC315.aqpc315prvin1
+  is 'Numerador de RGPE, provisión si Atraso inicial <60';
+comment on column AQPC315.aqpc315prvfi1
+  is 'Numerador de RGPE, provisión si Atraso final >60';
+comment on column AQPC315.aqpc315flgrep
+  is 'Flag es reprogramado o no en t-12';
+create index AQPC315A2 on AQPC315 (AQPC315CTA, AQPC315OPER);
+

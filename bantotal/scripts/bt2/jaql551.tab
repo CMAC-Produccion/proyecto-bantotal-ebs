@@ -1,0 +1,17 @@
+create table JAQL551
+(
+  jaql551pais  NUMBER(3) not null,
+  jaql551cod   NUMBER(2) not null,
+  jaql551ndoc  CHAR(12) not null,
+  jaql551ncon  CHAR(18) not null,
+  jaql551dir   CHAR(80),
+  jaql551fec   DATE,
+  jaql551est   CHAR(1),
+  jaql551fecon DATE,
+  jaql551nsoli CHAR(80),
+  jaql551ent   CHAR(50)
+)
+;
+alter table JAQL551
+  add primary key (JAQL551PAIS, JAQL551COD, JAQL551NDOC, JAQL551NCON);
+

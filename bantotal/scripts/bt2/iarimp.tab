@@ -1,0 +1,21 @@
+create table IARIMP
+(
+  iarpmes  NUMBER(2) not null,
+  iarpanio NUMBER(4) not null,
+  iarpdoc  CHAR(12) not null,
+  iarpn1   NUMBER(3),
+  iarpn2   NUMBER(6),
+  iarpn3   NUMBER(2),
+  iarpn4   NUMBER(10),
+  iarpi1   NUMBER(17,2),
+  iarpi2   NUMBER(17,2),
+  iarpc1   CHAR(45),
+  iarpc2   CHAR(1),
+  iarpc3   CHAR(65),
+  iarpc4   CHAR(1),
+  iarpf1   DATE
+)
+;
+alter table IARIMP
+  add primary key (IARPMES, IARPANIO, IARPDOC);
+

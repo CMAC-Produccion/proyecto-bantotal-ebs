@@ -1,0 +1,12 @@
+create table FSE008
+(
+  ctxcod    NUMBER(3) not null,
+  ctxnro    NUMBER(9) not null,
+  ctxsuc    NUMBER(3),
+  ctxfvtclf DATE
+)
+;
+create index FSE00802 on FSE008 (CTXCOD, CTXSUC, CTXNRO);
+alter table FSE008
+  add primary key (CTXCOD, CTXNRO);
+

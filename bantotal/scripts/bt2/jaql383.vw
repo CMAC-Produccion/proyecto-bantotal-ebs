@@ -1,0 +1,6 @@
+create or replace force view jaql383 as
+select
+"COD_RPTA" "JAQLCDRTA",
+"DESCRIPCION" "JAQLDESCR"
+FROM TRANSFINTBANPR.TRF_COD_RESPUESTA;
+

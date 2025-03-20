@@ -1,0 +1,17 @@
+create table HUB006
+(
+  hub005cod NUMBER(5) not null,
+  hub006prf CHAR(10) not null,
+  hub006emp NUMBER(3) not null,
+  hub006hab CHAR(1),
+  hub006ax1 NUMBER(9),
+  hub006ax2 NUMBER(9),
+  hub006ax3 CHAR(50),
+  hub006ax4 CHAR(50),
+  hub006ax5 DATE,
+  hub006ax6 DATE
+)
+;
+alter table HUB006
+  add primary key (HUB005COD, HUB006PRF, HUB006EMP);
+

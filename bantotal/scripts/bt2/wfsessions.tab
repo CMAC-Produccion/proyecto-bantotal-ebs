@@ -1,0 +1,12 @@
+create table WFSESSIONS
+(
+  wfsh        VARCHAR2(100) not null,
+  wfusrcod    CHAR(30),
+  wfshcontime DATE,
+  wfshval     NUMBER(1)
+)
+;
+create index UWFSH1 on WFSESSIONS (WFUSRCOD, WFSHVAL);
+alter table WFSESSIONS
+  add primary key (WFSH);
+

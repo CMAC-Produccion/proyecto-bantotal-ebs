@@ -1,0 +1,51 @@
+create table AQPC291
+(
+  aqpc291corr   NUMBER(9) not null,
+  aqpc291user   VARCHAR2(10) not null,
+  aqpc291reg    NUMBER(3) not null,
+  aqpc291zon    NUMBER(3) not null,
+  aqpc291suc    NUMBER(3) not null,
+  aqpc291anls   VARCHAR2(10) not null,
+  aqpc291dni    VARCHAR2(12) not null,
+  aqpc291nomcl  VARCHAR2(150),
+  aqpc291inda   VARCHAR2(1),
+  aqpc291fact   DATE,
+  aqpc291ciiua  NUMBER(11),
+  aqpc291ciiuad VARCHAR2(60),
+  aqpc291ciiun  NUMBER(11),
+  aqpc291ciiund VARCHAR2(60)
+)
+;
+comment on table AQPC291
+  is 'Reporte de Avanze de Actualizaciones de CIIU';
+comment on column AQPC291.aqpc291corr
+  is 'Correlativo';
+comment on column AQPC291.aqpc291user
+  is 'Usuario';
+comment on column AQPC291.aqpc291reg
+  is 'Codigo Region';
+comment on column AQPC291.aqpc291zon
+  is 'Codigo Zona';
+comment on column AQPC291.aqpc291suc
+  is 'Codigo Sucursal';
+comment on column AQPC291.aqpc291anls
+  is 'Codigo Analista';
+comment on column AQPC291.aqpc291dni
+  is 'DNI';
+comment on column AQPC291.aqpc291nomcl
+  is 'Nombre Cliente';
+comment on column AQPC291.aqpc291inda
+  is 'Indicador Actualizacion';
+comment on column AQPC291.aqpc291fact
+  is 'Fecha Actualizacion';
+comment on column AQPC291.aqpc291ciiua
+  is 'CIIU Antiguo';
+comment on column AQPC291.aqpc291ciiuad
+  is 'Descripcion CIIU Antiguo';
+comment on column AQPC291.aqpc291ciiun
+  is 'CIIU Nuevo';
+comment on column AQPC291.aqpc291ciiund
+  is 'Descripcion CIIU Nuevo';
+alter table AQPC291
+  add primary key (AQPC291CORR, AQPC291USER, AQPC291REG, AQPC291ZON, AQPC291SUC, AQPC291ANLS, AQPC291DNI);
+

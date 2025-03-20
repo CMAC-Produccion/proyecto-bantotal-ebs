@@ -1,0 +1,33 @@
+create table FPP071
+(
+  pp070emp  NUMBER(3) not null,
+  pp070codi NUMBER(3) not null,
+  pp070fec  DATE not null,
+  pp070lin  NUMBER(9) not null,
+  pp070tipo NUMBER(2) not null,
+  pp071corr NUMBER(4) not null,
+  pp071tipo CHAR(1),
+  pp071fec  DATE,
+  pp071fval DATE,
+  pp071fvto DATE,
+  pp071pzo  NUMBER(5),
+  pp071cap  NUMBER(17,2),
+  pp071int  NUMBER(17,2),
+  pp071seg1 NUMBER(17,2),
+  pp071seg2 NUMBER(17,2),
+  pp071com1 NUMBER(17,2),
+  pp071com2 NUMBER(17,2),
+  pp071tcuo NUMBER(17,2),
+  pp071sdo  NUMBER(17,2),
+  pp071stat NUMBER(2),
+  pp071aux1 NUMBER(17,2),
+  pp071aux2 NUMBER(17,2),
+  pp071aux3 NUMBER(17,2),
+  pp071aux4 CHAR(1),
+  pp071aux5 CHAR(1),
+  pp071aux6 CHAR(100)
+)
+;
+alter table FPP071
+  add primary key (PP070EMP, PP070CODI, PP070FEC, PP070LIN, PP070TIPO, PP071CORR);
+

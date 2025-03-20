@@ -1,0 +1,25 @@
+create table AQPA118B
+(
+  aqpa118bpgc NUMBER(3) not null,
+  aqpa118bmod NUMBER(3) not null,
+  aqpa118bsuc NUMBER(3) not null,
+  aqpa118bmda NUMBER(4) not null,
+  aqpa118bpap NUMBER(4) not null,
+  aqpa118bcta NUMBER(9) not null,
+  aqpa118bope NUMBER(9) not null,
+  aqpa118bsbo NUMBER(3) not null,
+  aqpa118btop NUMBER(3) not null,
+  aqpa118bcon BLOB,
+  aqpa118bcar BLOB,
+  aqpa118bcue CLOB,
+  aqpa118best CHAR(1),
+  aqpa118bmai CHAR(65),
+  aqpa118busr CHAR(10),
+  aqpa118bfec DATE,
+  aqpa118bhor CHAR(8),
+  aqpa118bmot VARCHAR2(400)
+)
+;
+alter table AQPA118B
+  add primary key (AQPA118BPGC, AQPA118BMOD, AQPA118BSUC, AQPA118BMDA, AQPA118BPAP, AQPA118BCTA, AQPA118BOPE, AQPA118BSBO, AQPA118BTOP);
+

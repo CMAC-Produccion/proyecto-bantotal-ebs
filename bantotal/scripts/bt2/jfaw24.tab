@@ -1,0 +1,13 @@
+create table JFAW24
+(
+  jfaw20nro NUMBER(10) not null,
+  jfaw22cor NUMBER(4) not null,
+  jfaw24cor NUMBER(2) not null,
+  jfaw24cnt NUMBER(2),
+  jfaw24mda NUMBER(4),
+  jfaw24imp NUMBER(17,2)
+)
+;
+alter table JFAW24
+  add primary key (JFAW20NRO, JFAW22COR, JFAW24COR);
+

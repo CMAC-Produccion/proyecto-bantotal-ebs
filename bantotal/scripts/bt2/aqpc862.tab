@@ -1,0 +1,81 @@
+create table AQPC862
+(
+  aqpc862fecaud   DATE not null,
+  aqpc862horaud   CHAR(8) not null,
+  aqpc862codaud   CHAR(3) not null,
+  aqpc862fecpro   DATE not null,
+  aqpc862pgcod    NUMBER not null,
+  aqpc862aomod    NUMBER not null,
+  aqpc862aosuc    NUMBER not null,
+  aqpc862aomda    NUMBER not null,
+  aqpc862aopap    NUMBER not null,
+  aqpc862aocta    NUMBER not null,
+  aqpc862aooper   NUMBER not null,
+  aqpc862aosbop   NUMBER not null,
+  aqpc862aotope   NUMBER not null,
+  aqpc862desaud   VARCHAR2(500) not null,
+  aqpc862rev      CHAR(2) not null,
+  aqpc862fecrev   DATE,
+  aqpc862usrrev   CHAR(10),
+  aqpc862corre    CHAR(2) not null,
+  aqpc862feccor   DATE,
+  aqpc862usrcor   CHAR(10),
+  aqpc862obsaud   VARCHAR2(700),
+  aqpc862fecvencu DATE,
+  aqpc862dife     NUMBER
+)
+;
+comment on table AQPC862
+  is 'cuotas pendiente de pago por canales alternativos';
+comment on column AQPC862.aqpc862fecaud
+  is 'fecha auditoria';
+comment on column AQPC862.aqpc862horaud
+  is 'hora auditoria';
+comment on column AQPC862.aqpc862codaud
+  is 'codigo auditoria';
+comment on column AQPC862.aqpc862fecpro
+  is 'fecha proceso';
+comment on column AQPC862.aqpc862pgcod
+  is 'empresa';
+comment on column AQPC862.aqpc862aomod
+  is 'modulo';
+comment on column AQPC862.aqpc862aosuc
+  is 'sucursal';
+comment on column AQPC862.aqpc862aomda
+  is 'moneda';
+comment on column AQPC862.aqpc862aopap
+  is 'papel';
+comment on column AQPC862.aqpc862aocta
+  is 'cuenta';
+comment on column AQPC862.aqpc862aooper
+  is 'operacion';
+comment on column AQPC862.aqpc862aosbop
+  is 'suboperacion';
+comment on column AQPC862.aqpc862aotope
+  is 'tipo operacion';
+comment on column AQPC862.aqpc862desaud
+  is 'descripcion auditoria';
+comment on column AQPC862.aqpc862rev
+  is 'revision';
+comment on column AQPC862.aqpc862fecrev
+  is 'fecha revision';
+comment on column AQPC862.aqpc862usrrev
+  is 'usuario revision';
+comment on column AQPC862.aqpc862corre
+  is 'correccion';
+comment on column AQPC862.aqpc862feccor
+  is 'fecha correccion';
+comment on column AQPC862.aqpc862usrcor
+  is 'usuario correccion';
+comment on column AQPC862.aqpc862obsaud
+  is 'observacion auditoria';
+comment on column AQPC862.aqpc862fecvencu
+  is 'fecha vencimiento cuota';
+comment on column AQPC862.aqpc862dife
+  is 'diferencia';
+create index AQPC862A2 on AQPC862 (AQPC862FECAUD, AQPC862CODAUD);
+create index AQPC862A3 on AQPC862 (AQPC862PGCOD, AQPC862AOMOD, AQPC862AOSUC, AQPC862AOMDA, AQPC862AOPAP, AQPC862AOCTA, AQPC862AOOPER, AQPC862AOSBOP, AQPC862AOTOPE);
+create index AQPC862A4 on AQPC862 (AQPC862FECAUD, AQPC862CODAUD, AQPC862PGCOD, AQPC862AOMOD, AQPC862AOSUC, AQPC862AOMDA, AQPC862AOPAP, AQPC862AOCTA, AQPC862AOOPER, AQPC862AOSBOP, AQPC862AOTOPE);
+alter table AQPC862
+  add primary key (AQPC862FECAUD, AQPC862HORAUD, AQPC862CODAUD, AQPC862FECPRO, AQPC862PGCOD, AQPC862AOMOD, AQPC862AOSUC, AQPC862AOMDA, AQPC862AOPAP, AQPC862AOCTA, AQPC862AOOPER, AQPC862AOSBOP, AQPC862AOTOPE);
+

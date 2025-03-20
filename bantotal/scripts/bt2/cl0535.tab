@@ -1,0 +1,19 @@
+create table CL0535
+(
+  cl0535pgc NUMBER(3) not null,
+  cl0535usu CHAR(10) not null,
+  cl0535fch DATE not null,
+  cl0535gru NUMBER(5) not null,
+  cl0535cor NUMBER(5) not null,
+  cl0535niv NUMBER(5),
+  cl0535pep NUMBER(3),
+  cl0535pet NUMBER(2),
+  cl0535pen CHAR(12),
+  cl0535au1 CHAR(35),
+  cl0535au2 NUMBER(17,2),
+  cl0535au3 NUMBER(9)
+)
+;
+alter table CL0535
+  add primary key (CL0535PGC, CL0535USU, CL0535FCH, CL0535GRU, CL0535COR);
+

@@ -1,0 +1,11 @@
+create table FBC999
+(
+  bcprog  CHAR(10) not null,
+  bccont  CHAR(1) not null,
+  bcdesde NUMBER(16),
+  bchasta NUMBER(16)
+)
+;
+alter table FBC999
+  add primary key (BCPROG, BCCONT);
+

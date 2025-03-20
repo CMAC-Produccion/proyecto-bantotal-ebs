@@ -1,0 +1,35 @@
+create table FBC7A9A
+(
+  bc7a9emp  NUMBER(3) not null,
+  bc7a9fch  DATE not null,
+  bc7a9ent  NUMBER(3) not null,
+  bc7a9sub  CHAR(4) not null,
+  bc7a9ttas CHAR(1) not null,
+  bc7a9rubt NUMBER(2) not null,
+  bc7a9tper NUMBER(2) not null,
+  bc7a9asuc NUMBER(3) not null,
+  bc7a9arub NUMBER(16) not null,
+  bc7a9amda NUMBER(4) not null,
+  bc7a9apap NUMBER(4) not null,
+  bc7a9acta NUMBER(9) not null,
+  bc7a9aope NUMBER(9) not null,
+  bc7a9asbo NUMBER(3) not null,
+  bc7a9atop NUMBER(3) not null,
+  bc7a9amod NUMBER(3),
+  bc7a9afva DATE,
+  bc7a9aftv DATE,
+  bc7a9arem NUMBER(5),
+  bc7a9atas NUMBER(10,6),
+  bc7a9atta NUMBER(1),
+  bc7a9asdo NUMBER(14,2),
+  bc7a9aau1 NUMBER(9),
+  bc7a9aau2 NUMBER(9),
+  bc7a9aau3 NUMBER(9),
+  bc7a9aau4 NUMBER(14,2),
+  bc7a9aau5 NUMBER(14,2),
+  bc7a9aau6 NUMBER(10,6)
+)
+;
+alter table FBC7A9A
+  add primary key (BC7A9EMP, BC7A9FCH, BC7A9ENT, BC7A9SUB, BC7A9TTAS, BC7A9RUBT, BC7A9TPER, BC7A9ASUC, BC7A9ARUB, BC7A9AMDA, BC7A9APAP, BC7A9ACTA, BC7A9AOPE, BC7A9ASBO, BC7A9ATOP);
+

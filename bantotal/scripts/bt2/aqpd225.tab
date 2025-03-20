@@ -1,0 +1,84 @@
+create table AQPD225
+(
+  aqpd225cod    NUMBER(3) not null,
+  aqpd225mod    NUMBER(3) not null,
+  aqpd225suc    NUMBER(3) not null,
+  aqpd225mda    NUMBER(4) not null,
+  aqpd225pap    NUMBER(4) not null,
+  aqpd225cta    NUMBER(9) not null,
+  aqpd225ope    NUMBER(9) not null,
+  aqpd225sbo    NUMBER(3) not null,
+  aqpd225tpo    NUMBER(3) not null,
+  aqpd225est    CHAR(1),
+  aqpd225usuact CHAR(10),
+  aqpd225fecact DATE not null,
+  aqpd225horact VARCHAR2(10) not null,
+  aqpd225tip    VARCHAR2(50),
+  aqpd225itcod  NUMBER(3),
+  aqpd225itmod  NUMBER(3),
+  aqpd225itsuc  NUMBER(3),
+  aqpd225ittran NUMBER(3),
+  aqpd225itnrel NUMBER(4),
+  aqpd225itfcon DATE,
+  aqpd225fecext DATE,
+  aqpd225obs    VARCHAR2(300),
+  aqpd225aux01  NUMBER(18,2),
+  aqpd225aux02  VARCHAR2(30)
+)
+;
+comment on table AQPD225
+  is 'Tabla de Refinanciado con exoneración de última cuota PJM';
+comment on column AQPD225.aqpd225cod
+  is 'empresa';
+comment on column AQPD225.aqpd225mod
+  is 'módulo';
+comment on column AQPD225.aqpd225suc
+  is 'sucursal';
+comment on column AQPD225.aqpd225mda
+  is 'moneda';
+comment on column AQPD225.aqpd225pap
+  is 'papel';
+comment on column AQPD225.aqpd225cta
+  is 'cuenta';
+comment on column AQPD225.aqpd225ope
+  is 'operación';
+comment on column AQPD225.aqpd225sbo
+  is 'suboperación';
+comment on column AQPD225.aqpd225tpo
+  is 'tipodeoperación';
+comment on column AQPD225.aqpd225est
+  is 'estado A=Anulado, C=contabilizado o procesado';
+comment on column AQPD225.aqpd225usuact
+  is 'usuario de actualización';
+comment on column AQPD225.aqpd225fecact
+  is 'hora de actualización';
+comment on column AQPD225.aqpd225tip
+  is 'tipo';
+comment on column AQPD225.aqpd225itcod
+  is 'código de transacción';
+comment on column AQPD225.aqpd225itmod
+  is 'módulo de transacción';
+comment on column AQPD225.aqpd225itsuc
+  is 'sucursal de transacción';
+comment on column AQPD225.aqpd225ittran
+  is 'transacción';
+comment on column AQPD225.aqpd225itnrel
+  is 'nro relación';
+comment on column AQPD225.aqpd225itfcon
+  is 'fcha de contabilización';
+comment on column AQPD225.aqpd225fecext
+  is 'fehca de extorno o inhabilitacion';
+comment on column AQPD225.aqpd225obs
+  is 'Se graba si se contabilizó o no la transacción de Condonación';
+comment on column AQPD225.aqpd225aux01
+  is 'Auxiliar númerico 1';
+comment on column AQPD225.aqpd225aux02
+  is 'Auxiliar caracter 1';
+create index AQPD225A2 on AQPD225 (AQPD225ITCOD, AQPD225ITMOD, AQPD225ITSUC, AQPD225ITTRAN, AQPD225ITNREL, AQPD225ITFCON);
+create index AQPD225A3 on AQPD225 (AQPD225EST);
+create index AQPD225A4 on AQPD225 (AQPD225CTA);
+create index AQPD225A5 on AQPD225 (AQPD225COD, AQPD225MDA, AQPD225PAP, AQPD225CTA, AQPD225OPE);
+create index AQPD225A6 on AQPD225 (AQPD225COD, AQPD225MOD, AQPD225SUC, AQPD225MDA, AQPD225PAP, AQPD225CTA, AQPD225OPE, AQPD225SBO, AQPD225TPO, AQPD225EST);
+alter table AQPD225
+  add primary key (AQPD225COD, AQPD225MOD, AQPD225SUC, AQPD225MDA, AQPD225PAP, AQPD225CTA, AQPD225OPE, AQPD225SBO, AQPD225TPO, AQPD225FECACT, AQPD225HORACT);
+

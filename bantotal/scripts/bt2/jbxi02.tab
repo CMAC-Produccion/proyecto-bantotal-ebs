@@ -1,0 +1,14 @@
+create table JBXI02
+(
+  jbxi02pais NUMBER(3) not null,
+  jbxi02tdoc NUMBER(2) not null,
+  jbxi02ndoc CHAR(12) not null,
+  jbxi02deno CHAR(100),
+  jbxi02tipo NUMBER(1),
+  jbxi02opai NUMBER(3),
+  jbxi02otdo NUMBER(2),
+  jbxi02ondo CHAR(12)
+)
+;
+create unique index JBXI0201 on JBXI02 (JBXI02PAIS, JBXI02TDOC, JBXI02NDOC);
+

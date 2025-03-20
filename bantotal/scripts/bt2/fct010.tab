@@ -1,0 +1,19 @@
+create table FCT010
+(
+  pgcod      NUMBER(3) not null,
+  modulo     NUMBER(3) not null,
+  frmreeid   NUMBER(2) not null,
+  frmreedsc  CHAR(65),
+  frmreepgdr CHAR(1),
+  frmreecnv  CHAR(1),
+  frmreedid1 CHAR(65),
+  frmreedid2 CHAR(65),
+  frmreedid3 CHAR(65),
+  frmreedid4 CHAR(65),
+  frmreedid5 CHAR(65)
+)
+;
+create index FCT01002 on FCT010 (MODULO);
+alter table FCT010
+  add primary key (PGCOD, MODULO, FRMREEID);
+

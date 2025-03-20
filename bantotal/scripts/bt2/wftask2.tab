@@ -1,0 +1,10 @@
+create table WFTASK2
+(
+  wfprcid         NUMBER(4) not null,
+  wftaskcod       NUMBER(4) not null,
+  wftaskvisrolcod NUMBER(4) not null
+)
+;
+alter table WFTASK2
+  add primary key (WFPRCID, WFTASKCOD, WFTASKVISROLCOD);
+

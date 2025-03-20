@@ -1,0 +1,12 @@
+create table FSFI21
+(
+  sfi21usr CHAR(10) not null,
+  sfi21fch DATE not null,
+  sfi21inf CHAR(10) not null,
+  sfi21lin CHAR(150) not null,
+  sfi21res CHAR(100)
+)
+;
+alter table FSFI21
+  add primary key (SFI21USR, SFI21FCH, SFI21INF, SFI21LIN);
+

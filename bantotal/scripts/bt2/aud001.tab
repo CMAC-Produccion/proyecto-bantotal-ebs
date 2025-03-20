@@ -1,0 +1,25 @@
+create table AUD001
+(
+  audgrpnam CHAR(20) not null,
+  audgrpdbt CHAR(20),
+  audgrpdbv CHAR(20),
+  audgrpprf CHAR(5),
+  audgrpnsd CHAR(50),
+  audgrpnsm CHAR(50),
+  audgrpnsc CHAR(50),
+  audgrpena CHAR(1),
+  audgrpsts CHAR(1),
+  audgrptyp CHAR(1),
+  audgrpcdf CHAR(1),
+  audgrpcdt NUMBER(6),
+  audgrpcdm NUMBER(6),
+  audgrpdtm NUMBER(6),
+  audgrpmjr CHAR(1),
+  audgrpjrn CHAR(50),
+  audgrpcte DATE,
+  audgrpdte DATE
+)
+;
+alter table AUD001
+  add primary key (AUDGRPNAM);
+

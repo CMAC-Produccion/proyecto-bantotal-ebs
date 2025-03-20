@@ -1,0 +1,16 @@
+create table PPG020
+(
+  ppg020ctb NUMBER(3) not null,
+  ppg020cit NUMBER(3) not null,
+  ppg020dit CHAR(30),
+  ppg020iha CHAR(1),
+  ppg020au1 NUMBER(9),
+  ppg020au2 CHAR(30),
+  ppg020au3 DATE,
+  ppg020au4 NUMBER(17,2),
+  ppg020au5 NUMBER(9)
+)
+;
+alter table PPG020
+  add primary key (PPG020CTB, PPG020CIT);
+

@@ -1,0 +1,25 @@
+create table JAQL087
+(
+  jaql87ubus CHAR(10) not null,
+  jaql87fech DATE not null,
+  jaql87hora CHAR(8) not null,
+  jaql87perf CHAR(10),
+  jaql87sapo NUMBER(17,2),
+  jaql87user CHAR(10),
+  jaql87au01 CHAR(50),
+  jaql87au02 CHAR(50),
+  jaql87au03 CHAR(50),
+  jaql87au04 NUMBER(9),
+  jaql87au05 NUMBER(9),
+  jaql87au06 NUMBER(9),
+  jaql87au07 NUMBER(17,2),
+  jaql87au08 NUMBER(17,2),
+  jaql87au09 NUMBER(17,2),
+  jaql87au10 DATE,
+  jaql87au11 DATE,
+  jaql87au12 DATE
+)
+;
+alter table JAQL087
+  add primary key (JAQL87UBUS, JAQL87FECH, JAQL87HORA);
+

@@ -1,0 +1,14 @@
+create table FSFT24
+(
+  kt1cte CHAR(4) not null,
+  kt1ent CHAR(5) not null,
+  kt1fec CHAR(6) not null,
+  kt1con CHAR(1) not null,
+  kt1par CHAR(8) not null,
+  kt1fac NUMBER(3),
+  kt1imp NUMBER(11)
+)
+;
+alter table FSFT24
+  add primary key (KT1CTE, KT1ENT, KT1FEC, KT1CON, KT1PAR);
+

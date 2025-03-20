@@ -1,0 +1,25 @@
+create table JBXIMN
+(
+  jbximnapl  CHAR(10) not null,
+  jbximnsol  NUMBER(9) not null,
+  jbximnpas  NUMBER(3) not null,
+  jbximntdo  NUMBER(2) not null,
+  jbximnndo  CHAR(12) not null,
+  jbximndom  NUMBER(2) not null,
+  jbximncall CHAR(35),
+  jbximnnum  NUMBER(5),
+  jbximnapt  CHAR(15),
+  jbximnpis  CHAR(6),
+  jbximnpai  NUMBER(3),
+  jbximnloc  NUMBER(5),
+  jbximnprv  NUMBER(5),
+  jbximncpo  CHAR(8),
+  jbximncp2  CHAR(8),
+  jbximntel  CHAR(20),
+  jbximnte2  CHAR(20),
+  jbximncrr  CHAR(50)
+)
+;
+alter table JBXIMN
+  add primary key (JBXIMNAPL, JBXIMNSOL, JBXIMNPAS, JBXIMNTDO, JBXIMNNDO, JBXIMNDOM);
+

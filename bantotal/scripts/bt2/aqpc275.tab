@@ -1,0 +1,100 @@
+create table AQPC275
+(
+  aqpc275pais   NUMBER(3) not null,
+  aqpc275tdoc   NUMBER(2) not null,
+  aqpc275ndoc   VARCHAR2(12) not null,
+  aqpc275suc    NUMBER(3),
+  aqpc275pclf   VARCHAR2(1),
+  aqpc275srcn   NUMBER(10),
+  aqpc275srbr   NUMBER(10),
+  aqpc275buro   NUMBER(3),
+  aqpc275cpcf   NUMBER(10),
+  aqpc275cerr   VARCHAR2(5),
+  aqpc275msge   VARCHAR2(255),
+  aqpc275fprc   DATE not null,
+  aqpc275hprc   VARCHAR2(8) not null,
+  aqpc275usu    VARCHAR2(10) not null,
+  aqpc275segmi  VARCHAR2(30),
+  aqpc275segmy  VARCHAR2(30),
+  aqpc275segcs  VARCHAR2(30),
+  aqpc275prclf  NUMBER(5,2),
+  aqpc275ulclf  VARCHAR2(30),
+  aqpc275segrg  VARCHAR2(30),
+  aqpc275fhact  DATE,
+  aqpc275tpscr  VARCHAR2(50),
+  aqpc275puntj  NUMBER(9,2),
+  aqpc275rsscr  VARCHAR2(50),
+  aqpc275fhscu  DATE,
+  aqpc275orig   NUMBER(5),
+  aqpc275nomcli VARCHAR2(100),
+  aqpc275edadcl NUMBER(3),
+  aqpc275cantls NUMBER(2),
+  aqpc275nroent NUMBER(10)
+)
+;
+comment on table AQPC275
+  is 'Informacion de la Precalificacion';
+comment on column AQPC275.aqpc275pais
+  is 'Codigo del Pais';
+comment on column AQPC275.aqpc275tdoc
+  is 'Tipo de Documento';
+comment on column AQPC275.aqpc275ndoc
+  is 'Nro. de Documento';
+comment on column AQPC275.aqpc275suc
+  is 'Sucursal del Usuario';
+comment on column AQPC275.aqpc275pclf
+  is 'Precalificacion';
+comment on column AQPC275.aqpc275srcn
+  is 'Serial de Conexion';
+comment on column AQPC275.aqpc275srbr
+  is 'Serial Buro';
+comment on column AQPC275.aqpc275buro
+  is 'Buro';
+comment on column AQPC275.aqpc275cpcf
+  is 'Correlativo de la Precalificacion';
+comment on column AQPC275.aqpc275cerr
+  is 'Codigo de Error';
+comment on column AQPC275.aqpc275msge
+  is 'Mensaje de Error';
+comment on column AQPC275.aqpc275fprc
+  is 'Fecha';
+comment on column AQPC275.aqpc275hprc
+  is 'Hora';
+comment on column AQPC275.aqpc275usu
+  is 'Usuario';
+comment on column AQPC275.aqpc275segmi
+  is 'SEGMENTO MICRO';
+comment on column AQPC275.aqpc275segmy
+  is 'SEGMENTO MYPE';
+comment on column AQPC275.aqpc275segcs
+  is 'SEGMENTO CONSUMO';
+comment on column AQPC275.aqpc275prclf
+  is 'PORCENTAJE CALIFICACIÓN';
+comment on column AQPC275.aqpc275ulclf
+  is 'ULTIMA CALIFICACIÓN';
+comment on column AQPC275.aqpc275segrg
+  is 'SEGMENTO RIESGO';
+comment on column AQPC275.aqpc275fhact
+  is 'FECHA ACTUALIZACIÓN';
+comment on column AQPC275.aqpc275tpscr
+  is 'TIPO SCORE';
+comment on column AQPC275.aqpc275puntj
+  is 'PUNTAJE';
+comment on column AQPC275.aqpc275rsscr
+  is 'RIESGO SCORE';
+comment on column AQPC275.aqpc275fhscu
+  is 'FECHA SCORE ULTIMA';
+comment on column AQPC275.aqpc275orig
+  is 'Origen';
+comment on column AQPC275.aqpc275nomcli
+  is 'NOMBRE CLIENTE';
+comment on column AQPC275.aqpc275edadcl
+  is 'EDAD CLIENTE';
+comment on column AQPC275.aqpc275cantls
+  is 'CANTIDAD TIPO LISTAS';
+comment on column AQPC275.aqpc275nroent
+  is 'NRO. ENTIDADES';
+create index AQPC275A2 on AQPC275 (AQPC275NDOC, AQPC275FPRC, AQPC275HPRC);
+alter table AQPC275
+  add primary key (AQPC275PAIS, AQPC275TDOC, AQPC275NDOC, AQPC275FPRC, AQPC275HPRC, AQPC275USU);
+

@@ -1,0 +1,29 @@
+create table CNL120
+(
+  ibproject  CHAR(60),
+  cnl001tad  NUMBER(2),
+  cnl001pad  NUMBER(3),
+  cnl001dad  CHAR(64),
+  cnl120id   CHAR(65),
+  cnl120num  NUMBER(10),
+  cnl001usu  CHAR(30),
+  cnl120dsc  CHAR(65),
+  cnl120hab  CHAR(1),
+  cnl120tnv  CHAR(3),
+  cnl120fin  DATE,
+  cnl120hin  CHAR(8),
+  cnl120fmo  DATE,
+  cnl120hmo  CHAR(8),
+  cnl120bnom CHAR(65),
+  cnl120btd  NUMBER(2),
+  cnl120bdo  CHAR(65),
+  cnl120mai  CHAR(65),
+  cnl120cbu  CHAR(65),
+  cnl120mod  NUMBER(4),
+  cnl120di1  CHAR(65),
+  cnl120di2  CHAR(65),
+  cnl120di3  CHAR(65)
+)
+;
+create unique index CNL12001 on CNL120 (IBPROJECT, CNL001TAD, CNL001PAD, CNL001DAD, CNL120ID);
+

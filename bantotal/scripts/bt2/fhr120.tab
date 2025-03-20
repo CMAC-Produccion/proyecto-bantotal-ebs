@@ -1,0 +1,17 @@
+create table FHR120
+(
+  pgcod      NUMBER(3) not null,
+  lcehmod    NUMBER(3) not null,
+  lcehoper   NUMBER(9) not null,
+  lcehmodid  NUMBER(5) not null,
+  lcehtopc   NUMBER(2) not null,
+  lcehcopc   NUMBER(3) not null,
+  lcehtopcds CHAR(20),
+  lcehcopcds CHAR(25),
+  lceiaopcst CHAR(1),
+  lceipopcst CHAR(1)
+)
+;
+alter table FHR120
+  add primary key (PGCOD, LCEHMOD, LCEHOPER, LCEHMODID, LCEHTOPC, LCEHCOPC);
+

@@ -1,0 +1,26 @@
+create table CNL002
+(
+  cnl000cod NUMBER(4) not null,
+  cnl001adm CHAR(30) not null,
+  cnl001usu CHAR(30) not null,
+  cnl002pgc NUMBER(3) not null,
+  cnl002mod NUMBER(3) not null,
+  cnl002suc NUMBER(3) not null,
+  cnl002mda NUMBER(4) not null,
+  cnl002pap NUMBER(4) not null,
+  cnl002ope NUMBER(9) not null,
+  cnl002top NUMBER(3) not null,
+  cnl002cta NUMBER(9) not null,
+  cnl002sbo NUMBER(3) not null,
+  cnl008cod NUMBER(6) not null,
+  cnl002hab CHAR(1),
+  cnl002ima NUMBER(17,2),
+  cnl002nct CHAR(65)
+)
+;
+create index CNL00202 on CNL002 (CNL008COD);
+create index CNL00204 on CNL002 (CNL000COD, CNL001ADM, CNL001USU, CNL002PGC, CNL002CTA, CNL002MDA, CNL002MOD);
+create index CNL00211 on CNL002 (CNL000COD, CNL001USU, CNL002PGC, CNL002MOD, CNL002MDA, CNL002PAP, CNL002CTA, CNL002SUC, CNL002OPE, CNL002SBO, CNL002TOP, CNL008COD);
+alter table CNL002
+  add primary key (CNL000COD, CNL001ADM, CNL001USU, CNL002PGC, CNL002MOD, CNL002SUC, CNL002MDA, CNL002PAP, CNL002OPE, CNL002TOP, CNL002CTA, CNL002SBO, CNL008COD);
+

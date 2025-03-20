@@ -1,0 +1,183 @@
+create table AQPD103
+(
+  aqpd103tipo     VARCHAR2(10),
+  aqpd103nfwd     VARCHAR2(15),
+  aqpd103codfwd   NUMBER(20),
+  aqpd103mntusd   NUMBER(18,2),
+  aqpd103fecini   DATE,
+  aqpd103fecvto   DATE,
+  aqpd103ent      VARCHAR2(50),
+  aqpd103codent   VARCHAR2(50),
+  aqpd103tcspot   NUMBER(18,14),
+  aqpd103tspen    NUMBER(18,14),
+  aqpd103tsusd    NUMBER(18,14),
+  aqpd103tcfwds   NUMBER(18,8),
+  aqpd103tcfwdr   NUMBER(20,5),
+  aqpd103fpago    VARCHAR2(20),
+  aqpd103parcub   VARCHAR2(30),
+  aqpd103porcob   NUMBER(20,5),
+  aqpd103eficob   NUMBER(18,12),
+  aqpd103eficobp  NUMBER(20,5),
+  aqpd103eficobr  NUMBER(20,5),
+  aqpd103rieequ   NUMBER(20),
+  aqpd103parcubd  VARCHAR2(30),
+  aqpd103pcmntd   NUMBER(18,2),
+  aqpd103pcfini   DATE,
+  aqpd103pcffin   DATE,
+  aqpd103pctea    NUMBER(18,14),
+  aqpd103diares   NUMBER(20),
+  aqpd103estado   VARCHAR2(15),
+  aqpd103plzorg   NUMBER(20),
+  aqpd103vanmn    NUMBER(18,2),
+  aqpd103tcsbs    NUMBER(20,8),
+  aqpd103tcfwdpip NUMBER(20,8),
+  aqpd103tcfwc    NUMBER(20,8),
+  aqpd103tsintc   NUMBER(20,11),
+  aqpd103fac      NUMBER(20,9),
+  aqpd103valope   NUMBER(20,2),
+  aqpd103plfwd1   NUMBER(20,2),
+  aqpd103pcfwd1   NUMBER(20,2),
+  aqpd103plfwd2   NUMBER(20,2),
+  aqpd103pcfwd2   NUMBER(20,2),
+  aqpd103plfwdc   NUMBER(20,2),
+  aqpd103pcfwdc   NUMBER(20,2),
+  aqpd103efectc   NUMBER(20,2),
+  aqpd103efecti   NUMBER(20,2),
+  aqpd103tssol    NUMBER(20,6),
+  aqpd103et       NUMBER(20,2),
+  aqpd103plpc     NUMBER(20,2),
+  aqpd103porre    NUMBER(20,4),
+  aqpd103nomusd   NUMBER(20),
+  aqpd103tipcur   VARCHAR2(20),
+  aqpd103nomsol   NUMBER(20),
+  aqpd103delpos   NUMBER(20),
+  aqpd103moneda   VARCHAR2(10),
+  aqpd103tsusd2   NUMBER(18,6),
+  aqpd103corre    NUMBER(18) not null,
+  aqpd103estreg   NUMBER(1) default 1,
+  aqpd103usureg   VARCHAR2(10),
+  aqpd103fecreg   DATE,
+  aqpd103modif    VARCHAR2(1),
+  aqpd103fecpro   DATE,
+  aqpd103fecrep   DATE,
+  aqpd103deal     NUMBER(18) not null
+)
+;
+comment on table AQPD103
+  is 'TABLA ANEXO8 - MAESTRO FWD';
+comment on column AQPD103.aqpd103tipo
+  is 'TIPO (COMPRA - VENTA)';
+comment on column AQPD103.aqpd103nfwd
+  is 'NOMBRE DEL FWD';
+comment on column AQPD103.aqpd103codfwd
+  is 'CODIGO FORWARD';
+comment on column AQPD103.aqpd103mntusd
+  is 'MONTO USD';
+comment on column AQPD103.aqpd103fecini
+  is 'FECHA COMPRA (INICIO)';
+comment on column AQPD103.aqpd103fecvto
+  is 'FECHA RECOMPRA (VENCIMIENTO)';
+comment on column AQPD103.aqpd103ent
+  is 'ENTIDAD';
+comment on column AQPD103.aqpd103codent
+  is 'CODIGO ENTIDAD';
+comment on column AQPD103.aqpd103tcspot
+  is 'TIPO DE CAMBIO COMPRA SPOT';
+comment on column AQPD103.aqpd103tspen
+  is 'TASA PEN (AL FIJAR EL PRECIO)';
+comment on column AQPD103.aqpd103tsusd
+  is 'TASA USD (AL FIJAR EL PRECIO)';
+comment on column AQPD103.aqpd103tcfwds
+  is 'TC STRIKE = TC FWD';
+comment on column AQPD103.aqpd103tcfwdr
+  is 'TC FWD RIESGO';
+comment on column AQPD103.aqpd103fpago
+  is 'FORMA DE PAGO';
+comment on column AQPD103.aqpd103parcub
+  is 'PARTIDA CUBIERTA';
+comment on column AQPD103.aqpd103porcob
+  is 'PORCENTAJE DE COBERTURA';
+comment on column AQPD103.aqpd103eficob
+  is 'EFICACIA DE COBERTURA';
+comment on column AQPD103.aqpd103eficobp
+  is 'EFICACIA DE COBERTURA PROSPECTIVA';
+comment on column AQPD103.aqpd103eficobr
+  is 'EFICACIA DE COBERTURA RETROSPECTIVA';
+comment on column AQPD103.aqpd103rieequ
+  is 'RIESGO EQUIVALENTE';
+comment on column AQPD103.aqpd103parcubd
+  is 'PARTIDA CUBIERTA DEPOSITADA EN';
+comment on column AQPD103.aqpd103pcmntd
+  is 'PARTIDA CUBIERTA MONTO EN DOLARES';
+comment on column AQPD103.aqpd103pcfini
+  is 'PARTIDA CUBIERTA FECHA INICIO';
+comment on column AQPD103.aqpd103pcffin
+  is 'PARTIDA CUBIERTA FECHA FIN';
+comment on column AQPD103.aqpd103pctea
+  is 'PARTIDA CUBIERTA TEA';
+comment on column AQPD103.aqpd103diares
+  is 'DIAS RESTANTES';
+comment on column AQPD103.aqpd103estado
+  is 'ESTADO';
+comment on column AQPD103.aqpd103plzorg
+  is 'PLAZO ORIGINAL';
+comment on column AQPD103.aqpd103vanmn
+  is 'VALOR ACTUAL DE NOMINAL (EN MN)';
+comment on column AQPD103.aqpd103tcsbs
+  is 'TC SPOT SBS';
+comment on column AQPD103.aqpd103tcfwdpip
+  is 'TC Fw PIP (Ajustado a  TC  Spot SBS)';
+comment on column AQPD103.aqpd103tcfwc
+  is 'TC Fw Contrato (Strike Price)';
+comment on column AQPD103.aqpd103tsintc
+  is 'Tasa Interés Contraparte (soles)';
+comment on column AQPD103.aqpd103fac
+  is 'FACTOR';
+comment on column AQPD103.aqpd103valope
+  is 'VALOR OPERACIÓN';
+comment on column AQPD103.aqpd103plfwd1
+  is 'Pos. Larga FWDC - Anexo 15A (Valor Presente Nominal)';
+comment on column AQPD103.aqpd103pcfwd1
+  is 'Pos. Corta FWDC - Anexo 15A (Valor Presente Nominal)';
+comment on column AQPD103.aqpd103plfwd2
+  is 'Pos. Larga FWDC - Anexo 15B (Nominal)';
+comment on column AQPD103.aqpd103pcfwd2
+  is 'Pos. Corta FWDC - Anexo 15B (Nominal)';
+comment on column AQPD103.aqpd103plfwdc
+  is 'Pos. Larga FWDC';
+comment on column AQPD103.aqpd103pcfwdc
+  is 'Pos. Corta FWDC';
+comment on column AQPD103.aqpd103efectc
+  is 'EFECTO TIPO DE CAMBIO';
+comment on column AQPD103.aqpd103efecti
+  is 'EFECTO TASA DE INTERES';
+comment on column AQPD103.aqpd103tssol
+  is 'TASA SOLES';
+comment on column AQPD103.aqpd103et
+  is 'ET=ETI+ETC';
+comment on column AQPD103.aqpd103plpc
+  is 'POS. Lar-POS. Cor';
+comment on column AQPD103.aqpd103porre
+  is 'PORCENTAJE DE RIESGO EQUIVALENTE';
+comment on column AQPD103.aqpd103nomusd
+  is 'NOMINAL USD';
+comment on column AQPD103.aqpd103tipcur
+  is 'TIPO CURVA';
+comment on column AQPD103.aqpd103nomsol
+  is 'NOMINAL SOLES';
+comment on column AQPD103.aqpd103delpos
+  is 'DELTA POSICION COMPRADA';
+comment on column AQPD103.aqpd103moneda
+  is 'MONEDA';
+comment on column AQPD103.aqpd103tsusd2
+  is 'Tasa USD';
+comment on column AQPD103.aqpd103modif
+  is 'MODIFICADO';
+comment on column AQPD103.aqpd103deal
+  is 'CODIGO SBS';
+create index AQPD1032 on AQPD103 (AQPD103CODFWD, AQPD103TIPO, AQPD103CODENT);
+create index AQPD1033 on AQPD103 (AQPD103CODFWD, AQPD103TIPO, AQPD103CODENT, AQPD103CORRE);
+create index AQPD1034 on AQPD103 (AQPD103ESTREG, AQPD103FECINI, AQPD103FECVTO);
+alter table AQPD103
+  add primary key (AQPD103DEAL, AQPD103CORRE);
+

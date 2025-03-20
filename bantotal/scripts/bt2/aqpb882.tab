@@ -1,0 +1,38 @@
+create table AQPB882
+(
+  aqpb882fec DATE,
+  aqpb882age VARCHAR2(30),
+  aqpb882tma NUMBER(10,5),
+  aqpb882rgp NUMBER(10,5),
+  aqpb882co4 NUMBER(10,5),
+  aqpb882co6 NUMBER(10,5),
+  aqpb882adm VARCHAR2(21),
+  aqpb882seg VARCHAR2(21),
+  aqpb882ram VARCHAR2(21),
+  aqpb882rat VARCHAR2(10)
+)
+;
+comment on table AQPB882
+  is 'Rating de Agencias';
+comment on column AQPB882.aqpb882fec
+  is 'Fecha Proceso';
+comment on column AQPB882.aqpb882age
+  is 'Agencia/Sucursal';
+comment on column AQPB882.aqpb882tma
+  is 'Tasa de Mora Ajustada';
+comment on column AQPB882.aqpb882rgp
+  is 'Ratio Gasto de Provision Especifica';
+comment on column AQPB882.aqpb882co4
+  is 'Cosecha Madurez 4M';
+comment on column AQPB882.aqpb882co6
+  is 'Cosecha Madurez 6M';
+comment on column AQPB882.aqpb882adm
+  is 'Indicador de Admision';
+comment on column AQPB882.aqpb882seg
+  is 'Indicador de Seguimiento';
+comment on column AQPB882.aqpb882ram
+  is 'Rating Mensual';
+comment on column AQPB882.aqpb882rat
+  is 'Rating Trimestral';
+create index AQPB8822 on AQPB882 (AQPB882FEC, AQPB882AGE);
+

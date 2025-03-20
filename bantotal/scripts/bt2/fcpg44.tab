@@ -1,0 +1,40 @@
+create table FCPG44
+(
+  cpg41empbt NUMBER(3) not null,
+  cpg41conv  NUMBER(8) not null,
+  cpg41serv  NUMBER(3) not null,
+  cpg41fpres DATE not null,
+  cpg41nenv  NUMBER(3) not null,
+  cpg42nlote NUMBER(3) not null,
+  cpg45cod   NUMBER(3) not null,
+  cpg44corrm NUMBER(10) not null,
+  cpg44tpcta NUMBER(3),
+  cpg44bco   NUMBER(3),
+  cpg44sucb  NUMBER(4),
+  cpg44cta   NUMBER(11),
+  cpg44cbu1  NUMBER(8),
+  cpg44cbu2  NUMBER(14),
+  cpg44impm  NUMBER(17,2),
+  cpg44paisb NUMBER(3),
+  cpg44tdocb NUMBER(3),
+  cpg44ndocb CHAR(25),
+  cpg44depb  CHAR(15),
+  cpg44tpolq NUMBER(3),
+  cpg44tporg NUMBER(2),
+  cpg44estc  CHAR(1),
+  cpg44ncrf  NUMBER(7),
+  cpg44apnmb CHAR(20),
+  cpg44provb NUMBER(2),
+  cpg44pend  NUMBER(1),
+  cpg44est   CHAR(3),
+  cpg44blq   CHAR(1),
+  cpg44inst  NUMBER(10)
+)
+;
+create index FCPG4403 on FCPG44 (CPG44INST);
+create index FCPG4404 on FCPG44 (CPG41EMPBT, CPG41CONV, CPG41SERV, CPG41FPRES, CPG41NENV, CPG42NLOTE, CPG45COD, CPG44PAISB, CPG44TDOCB, CPG44NDOCB);
+create index FCPG4405 on FCPG44 (CPG41EMPBT, CPG41CONV, CPG44CBU1, CPG44CBU2);
+create index FCPG4406 on FCPG44 (CPG44PAISB, CPG44TDOCB, CPG44NDOCB);
+alter table FCPG44
+  add primary key (CPG41EMPBT, CPG41CONV, CPG41SERV, CPG41FPRES, CPG41NENV, CPG42NLOTE, CPG45COD, CPG44CORRM);
+

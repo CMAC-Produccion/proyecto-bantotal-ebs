@@ -1,0 +1,20 @@
+create table FSFL37
+(
+  fsfl37mod NUMBER(3) not null,
+  fsfl37top NUMBER(3) not null,
+  fsfl37lim CHAR(4),
+  fsfl37trd CHAR(1),
+  fsfl37cal CHAR(1),
+  fsfl37pgm CHAR(10),
+  fsfl37bdj CHAR(1),
+  fsfl37ch1 CHAR(25),
+  fsfl37ch2 CHAR(25),
+  fsfl37im1 NUMBER(17,2),
+  fsfl37im2 NUMBER(17,2),
+  fsfl37nr1 NUMBER(9),
+  fsfl37nr2 NUMBER(9)
+)
+;
+alter table FSFL37
+  add primary key (FSFL37MOD, FSFL37TOP);
+

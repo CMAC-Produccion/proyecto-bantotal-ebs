@@ -1,0 +1,56 @@
+create table JHSI27
+(
+  jhsi27apl  NUMBER(4) not null,
+  jhsi27band CHAR(5) not null,
+  jhsi27env  NUMBER(9) not null,
+  jhsi27cor  NUMBER(9) not null,
+  jhsi27reg  CHAR(1),
+  jhsi27tdoc NUMBER(2),
+  jhsi27ndoc CHAR(15),
+  jhsi27prod NUMBER(3),
+  jhsi27idpr CHAR(20),
+  jhsi27tpro CHAR(4),
+  jhsi27psuc NUMBER(4),
+  jhsi27fcha NUMBER(8),
+  jhsi27fchm NUMBER(8),
+  jhsi27mda  NUMBER(4),
+  jhi27capit NUMBER(14,2),
+  jhsi27int  NUMBER(14,2),
+  jhsi27impu NUMBER(14,2),
+  jhsi27sdo  NUMBER(14,2),
+  jhsi27est  CHAR(2),
+  jhsi27fche NUMBER(8),
+  jhsi27d1   CHAR(100),
+  jhsi27d2   CHAR(100),
+  jhsi27d3   CHAR(100),
+  jhsi27rec  CHAR(8),
+  jhsi27obs1 CHAR(255),
+  jhsi27obs2 CHAR(255),
+  jhsi27idcl CHAR(20),
+  jhsi27fill CHAR(1),
+  jhsi27pepa NUMBER(3),
+  jhsi27pgco NUMBER(3),
+  jhsi27scsu NUMBER(3),
+  jhsi27scru NUMBER(16),
+  jhsi27scmd NUMBER(4),
+  jhsi27scpa NUMBER(4),
+  jhsi27scct NUMBER(9),
+  jhsi27scop NUMBER(9),
+  jhsi27scsb NUMBER(3),
+  jhsi27scto NUMBER(3),
+  jhsi27scmo NUMBER(3),
+  jhsi27seg  NUMBER(14,2),
+  jhsi27intd NUMBER(14,2),
+  jhsi27cuoc NUMBER(14,2),
+  jhsi27impc NUMBER(14,2),
+  jhsi27mora NUMBER(14,2),
+  jhsi27intc NUMBER(14,2)
+)
+;
+create unique index JHSI2701 on JHSI27 (JHSI27APL, JHSI27BAND, JHSI27ENV, JHSI27COR);
+create index JHSI2702 on JHSI27 (JHSI27IDPR, JHSI27PROD, JHSI27APL, JHSI27BAND, JHSI27ENV);
+create index JHSI2703 on JHSI27 (JHSI27IDCL, JHSI27PROD, JHSI27IDPR);
+create index JHSI2704 on JHSI27 (JHSI27PEPA, JHSI27TDOC, JHSI27NDOC, JHSI27APL, JHSI27BAND, JHSI27ENV, JHSI27COR);
+create index JHSI2705 on JHSI27 (JHSI27PGCO, JHSI27SCSU, JHSI27SCRU, JHSI27SCMD, JHSI27SCPA, JHSI27SCCT, JHSI27SCOP, JHSI27SCSB, JHSI27SCTO, JHSI27APL, JHSI27BAND, JHSI27ENV);
+create index JHSI2706 on JHSI27 (JHSI27PGCO, JHSI27SCMO, JHSI27SCMD, JHSI27SCPA, JHSI27SCCT, JHSI27SCSU, JHSI27SCOP, JHSI27SCSB, JHSI27SCTO, JHSI27APL, JHSI27BAND, JHSI27ENV);
+

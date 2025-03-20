@@ -1,0 +1,64 @@
+create table AQPA356
+(
+  aqpa356corr    NUMBER(10) not null,
+  aqpa356fec     DATE not null,
+  aqpa356hora    CHAR(10) not null,
+  aqpa356user    VARCHAR2(10),
+  aqpa356pais    NUMBER(9) not null,
+  aqpa356tdoc    NUMBER(9) not null,
+  aqpa356ndoc    VARCHAR2(12) not null,
+  aqpa356tcamb   NUMBER(14,8),
+  aqpa356inst    NUMBER(12) not null,
+  aqpa356feval   DATE,
+  aqpa356fecal   DATE,
+  aqpa356mesanio VARCHAR2(8),
+  aqpa356capcaja NUMBER(17,2),
+  aqpa356est     VARCHAR2(2),
+  aqpa356naux1   NUMBER(17,2),
+  aqpa356naux2   NUMBER(17,2),
+  aqpa356naux3   NUMBER(17,2),
+  aqpa356naux4   NUMBER(17,2),
+  aqpa356naux5   NUMBER(17,2),
+  aqpa356vaux1   VARCHAR2(25),
+  aqpa356vaux2   VARCHAR2(25),
+  aqpa356vaux3   VARCHAR2(25),
+  aqpa356vaux4   VARCHAR2(25),
+  aqpa356vaux5   VARCHAR2(25),
+  aqpa356daux1   DATE,
+  aqpa356daux2   DATE,
+  aqpa356daux3   DATE
+)
+;
+comment on column AQPA356.aqpa356corr
+  is 'Correlativo';
+comment on column AQPA356.aqpa356fec
+  is 'Fecha de Proceso';
+comment on column AQPA356.aqpa356hora
+  is 'Hora de Proceso';
+comment on column AQPA356.aqpa356user
+  is 'Usuario';
+comment on column AQPA356.aqpa356pais
+  is 'Pais de Documento';
+comment on column AQPA356.aqpa356tdoc
+  is 'Tipo de Documento';
+comment on column AQPA356.aqpa356ndoc
+  is 'Nro de Documento';
+comment on column AQPA356.aqpa356tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column AQPA356.aqpa356inst
+  is 'Nro de Instancia';
+comment on column AQPA356.aqpa356feval
+  is 'Fecha de Evaluacion';
+comment on column AQPA356.aqpa356fecal
+  is 'Mes a considerar para el calculo';
+comment on column AQPA356.aqpa356mesanio
+  is 'Año y Mes a considerar para el calculo';
+comment on column AQPA356.aqpa356capcaja
+  is 'Cuota Caja en el Mes';
+comment on column AQPA356.aqpa356est
+  is 'Estado H(Habilitado) ultimo ejecutado, I (Inhabilitado) ejecutado anteriormente';
+create index AQPA3562 on AQPA356 (AQPA356FEC, AQPA356PAIS, AQPA356TDOC, AQPA356NDOC, AQPA356INST);
+create index AQPA3563 on AQPA356 (AQPA356INST, AQPA356MESANIO, AQPA356EST);
+alter table AQPA356
+  add primary key (AQPA356CORR, AQPA356FEC, AQPA356PAIS, AQPA356TDOC, AQPA356NDOC, AQPA356INST, AQPA356HORA);
+

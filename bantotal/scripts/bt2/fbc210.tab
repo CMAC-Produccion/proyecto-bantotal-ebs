@@ -1,0 +1,28 @@
+create table FBC210
+(
+  bc210pgcod NUMBER(3) not null,
+  bc210papel NUMBER(4) not null,
+  bc210rubro NUMBER(16) not null,
+  bc210fch   DATE not null,
+  bc210durat NUMBER(14,8),
+  bc210volat NUMBER(14,8),
+  bc210zona  NUMBER(1),
+  bc210tiem  NUMBER(5),
+  bc210fci   CHAR(1),
+  bc210porc  NUMBER(10,6),
+  bc210imp1  NUMBER(17,2),
+  bc210imp2  NUMBER(17,2),
+  bc210imp3  NUMBER(17,2),
+  bc210gamma NUMBER(14,8),
+  bc210vega  NUMBER(14,8),
+  bc210delta NUMBER(14,8),
+  bc210fch1  DATE,
+  bc210fch2  DATE,
+  bc210fch3  DATE,
+  bc210finv  NUMBER(8)
+)
+;
+create index FBC21002 on FBC210 (BC210PGCOD, BC210PAPEL, BC210RUBRO, BC210FINV);
+alter table FBC210
+  add primary key (BC210PGCOD, BC210PAPEL, BC210RUBRO, BC210FCH);
+

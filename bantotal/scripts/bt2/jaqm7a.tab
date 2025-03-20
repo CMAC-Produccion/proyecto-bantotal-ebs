@@ -1,0 +1,75 @@
+create table JAQM7A
+(
+  jaqm7atmo NUMBER(3) not null,
+  jaqm7attr NUMBER(3) not null,
+  jaqm7atre NUMBER(4) not null,
+  jaqm7atsu NUMBER(3) not null,
+  jaqm7atfe DATE not null,
+  jaqm7ains NUMBER(10) not null,
+  jaqm7aidf CHAR(25) not null,
+  jaqm7aint NUMBER(4) not null,
+  jaqm7acod CHAR(5),
+  jaqm7ades VARCHAR2(255),
+  jaqm7aan1 NUMBER(9),
+  jaqm7aan2 NUMBER(9),
+  jaqm7aan3 NUMBER(9),
+  jaqm7aad1 DATE,
+  jaqm7aad2 DATE,
+  jaqm7aad3 DATE,
+  jaqm7aai1 NUMBER(17,2),
+  jaqm7aai2 NUMBER(17,2),
+  jaqm7aai3 NUMBER(17,2),
+  jaqm7aac1 CHAR(255),
+  jaqm7aac2 CHAR(255),
+  jaqm7aac3 CHAR(255)
+)
+;
+comment on table JAQM7A
+  is 'Prevalidación Contratación Digital';
+comment on column JAQM7A.jaqm7atmo
+  is 'Trailer Modulo';
+comment on column JAQM7A.jaqm7attr
+  is 'Trailer Transaccion';
+comment on column JAQM7A.jaqm7atre
+  is 'Trailer relacion';
+comment on column JAQM7A.jaqm7atsu
+  is 'Trailer sucursal';
+comment on column JAQM7A.jaqm7atfe
+  is 'Trailer fecha';
+comment on column JAQM7A.jaqm7ains
+  is 'Instancia';
+comment on column JAQM7A.jaqm7aidf
+  is 'Id documento firmado JAQM16IDF';
+comment on column JAQM7A.jaqm7aint
+  is 'Intento';
+comment on column JAQM7A.jaqm7acod
+  is 'Error de intento';
+comment on column JAQM7A.jaqm7ades
+  is 'Descripcion de error';
+comment on column JAQM7A.jaqm7aan1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM7A.jaqm7aan2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM7A.jaqm7aan3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM7A.jaqm7aad1
+  is 'Date auxiliar 1';
+comment on column JAQM7A.jaqm7aad2
+  is 'Date auxiliar 2';
+comment on column JAQM7A.jaqm7aad3
+  is 'Date auxiliar 3';
+comment on column JAQM7A.jaqm7aai1
+  is 'Importe auxiliar 1';
+comment on column JAQM7A.jaqm7aai2
+  is 'Importe auxiliar 2';
+comment on column JAQM7A.jaqm7aai3
+  is 'Importe auxiliar 3';
+comment on column JAQM7A.jaqm7aac1
+  is 'Character auxiliar 1';
+comment on column JAQM7A.jaqm7aac2
+  is 'Character auxiliar 2';
+comment on column JAQM7A.jaqm7aac3
+  is 'Character auxiliar 3';
+alter table JAQM7A
+  add primary key (JAQM7ATMO, JAQM7ATTR, JAQM7ATRE, JAQM7ATSU, JAQM7ATFE, JAQM7AINS, JAQM7AIDF, JAQM7AINT);
+

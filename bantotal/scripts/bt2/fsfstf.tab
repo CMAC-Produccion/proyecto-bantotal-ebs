@@ -1,0 +1,11 @@
+create table FSFSTF
+(
+  sfst1merc NUMBER(3) not null,
+  sfstfope  CHAR(2) not null,
+  sfstfusu  CHAR(10)
+)
+;
+create index FSFSTF03 on FSFSTF (SFST1MERC, SFSTFUSU);
+alter table FSFSTF
+  add primary key (SFST1MERC, SFSTFOPE);
+

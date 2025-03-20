@@ -1,0 +1,33 @@
+create table FSA023
+(
+  agarcod   NUMBER(3) not null,
+  agarsuc   NUMBER(3) not null,
+  agarmod   NUMBER(3) not null,
+  agarrub   NUMBER(16) not null,
+  agarmda   NUMBER(4) not null,
+  agarpap   NUMBER(4) not null,
+  agarcta   NUMBER(9) not null,
+  agaroper  NUMBER(9) not null,
+  agarsbop  NUMBER(3) not null,
+  agartope  NUMBER(3) not null,
+  agararb   NUMBER(14,8),
+  agarred   NUMBER(1),
+  agarimp   NUMBER(17,2),
+  agarimpus NUMBER(17,2),
+  agarcant  NUMBER(9),
+  agarng    NUMBER(17,2),
+  agare     NUMBER(17,2),
+  agareg    NUMBER(17,2),
+  agarg     NUMBER(17,2),
+  agarpr    NUMBER(17,2),
+  agaral    NUMBER(17,2),
+  agaraux1  NUMBER(17,2),
+  agaraux2  NUMBER(17,2),
+  agaraux3  NUMBER(17,2)
+)
+;
+create index FSA02302 on FSA023 (AGARCOD, AGARCTA, AGARMDA, AGARPAP, AGARRUB);
+create index FSA02303 on FSA023 (AGARCOD, AGARCTA, AGARIMPUS);
+alter table FSA023
+  add primary key (AGARCOD, AGARSUC, AGARMOD, AGARRUB, AGARMDA, AGARPAP, AGARCTA, AGAROPER, AGARSBOP, AGARTOPE);
+

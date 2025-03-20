@@ -1,0 +1,22 @@
+create table FBC818
+(
+  bc818emp   NUMBER(1) not null,
+  bc818inf   CHAR(10) not null,
+  bc818fch   DATE not null,
+  bc818suc   NUMBER(3) not null,
+  bc818cta   CHAR(18) not null,
+  bc818paist CHAR(2) not null,
+  bc818tdoct CHAR(3) not null,
+  bc818ndoct CHAR(18) not null,
+  bc818natj  CHAR(1),
+  bc818num1  NUMBER(16,2),
+  bc818num2  NUMBER(16,2),
+  bc818fch1  DATE,
+  bc818chr1  CHAR(30),
+  bc818chr2  CHAR(1),
+  bc818chr3  CHAR(1)
+)
+;
+alter table FBC818
+  add primary key (BC818EMP, BC818INF, BC818FCH, BC818SUC, BC818CTA, BC818PAIST, BC818TDOCT, BC818NDOCT);
+

@@ -1,0 +1,38 @@
+create table FRTASKS
+(
+  frprcid    NUMBER(6) not null,
+  frtskid    NUMBER(6) not null,
+  frtskusrna VARCHAR2(40),
+  frtskwrkst VARCHAR2(40),
+  frtskdsc   VARCHAR2(120),
+  frtsksta   NUMBER(1),
+  frtsktimcr DATE,
+  frtsktimst DATE,
+  frtsktimen DATE,
+  frtskper   NUMBER(3),
+  frtskperda DATE,
+  frtskcap   VARCHAR2(80),
+  frtskpgmna VARCHAR2(40),
+  frtskpgmar VARCHAR2(255),
+  frwrksrvse VARCHAR2(40),
+  frwrksrvpr NUMBER(5),
+  frtskinfti NUMBER(6),
+  frtskerrti NUMBER(6),
+  frtskfilcn NUMBER(4),
+  frtsksenal NUMBER(1),
+  frtskhasev NUMBER(1),
+  frtskhassu NUMBER(1),
+  frtskoutfi NUMBER(1),
+  frtskstecn NUMBER(7,2),
+  frtskisrep NUMBER(1)
+)
+;
+create index FRTASKS2 on FRTASKS (FRTSKINFTI);
+create index FRTASKS3 on FRTASKS (FRTSKERRTI);
+create index FRTASKS4 on FRTASKS (FRWRKSRVSE, FRWRKSRVPR);
+create index FRTASKS6 on FRTASKS (FRTSKTIMST, FRTSKUSRNA);
+create index FRTASKS7 on FRTASKS (FRTSKTIMCR, FRTSKUSRNA);
+create index IFRTASK4 on FRTASKS (FRWRKSRVSE, FRWRKSRVPR, FRPRCID);
+alter table FRTASKS
+  add primary key (FRPRCID, FRTSKID);
+

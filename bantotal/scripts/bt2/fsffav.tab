@@ -1,0 +1,33 @@
+create table FSFFAV
+(
+  dtzaaemp NUMBER(3) not null,
+  dtzaasuc NUMBER(3) not null,
+  dtzaamod NUMBER(3) not null,
+  dtzaatrn NUMBER(3) not null,
+  dtzaarel NUMBER(4) not null,
+  dtzaafch DATE not null,
+  dtzaaren NUMBER(5) not null,
+  dtzaapai NUMBER(3),
+  dtzaatdo NUMBER(2),
+  dtzaando CHAR(12),
+  dtzaafdg NUMBER(3),
+  dtzaatct NUMBER(2),
+  dtzaatcc NUMBER(4),
+  dtzaaent NUMBER(9),
+  dtzaacta NUMBER(9),
+  dtzaaope NUMBER(9),
+  dtzaasbo NUMBER(3),
+  dtzaaimp NUMBER(17,2),
+  dtzaaa01 NUMBER(17,2),
+  dtzaaa02 NUMBER(17,2),
+  dtzaaa03 DATE,
+  dtzaaa04 DATE,
+  dtzaaa05 NUMBER(9),
+  dtzaaa06 NUMBER(9),
+  dtzaaa07 CHAR(30),
+  dtzaaa08 CHAR(30)
+)
+;
+alter table FSFFAV
+  add primary key (DTZAAEMP, DTZAASUC, DTZAAMOD, DTZAATRN, DTZAAREL, DTZAAFCH, DTZAAREN);
+

@@ -1,0 +1,12 @@
+create table FST129
+(
+  modulo NUMBER(3) not null,
+  mtresi CHAR(1) not null,
+  mtifin CHAR(1) not null,
+  cltcod NUMBER(2)
+)
+;
+create index FST12903 on FST129 (CLTCOD);
+alter table FST129
+  add primary key (MODULO, MTRESI, MTIFIN);
+

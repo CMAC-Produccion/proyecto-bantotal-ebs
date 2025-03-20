@@ -1,0 +1,14 @@
+create table FCN140
+(
+  pgcod    NUMBER(3) not null,
+  remod    NUMBER(3) not null,
+  reoper   NUMBER(9) not null,
+  semod    NUMBER(3) not null,
+  seoper   NUMBER(9) not null,
+  redaoimp NUMBER(17,2)
+)
+;
+create index FCN14002 on FCN140 (PGCOD, SEMOD, SEOPER);
+alter table FCN140
+  add primary key (PGCOD, REMOD, REOPER, SEMOD, SEOPER);
+

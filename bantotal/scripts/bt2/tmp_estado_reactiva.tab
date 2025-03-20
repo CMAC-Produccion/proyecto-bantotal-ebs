@@ -1,0 +1,29 @@
+create table TMP_ESTADO_REACTIVA
+(
+  pepais         NUMBER(3),
+  petdoc         NUMBER(2),
+  pendoc         CHAR(12),
+  pgcod          NUMBER(3) not null,
+  aomod          NUMBER(3) not null,
+  aosuc          NUMBER(3) not null,
+  aopap          NUMBER(4) not null,
+  aomda          NUMBER(4) not null,
+  aocta          NUMBER(9) not null,
+  aooper         NUMBER(9) not null,
+  aosbop         NUMBER(3) not null,
+  aotope         NUMBER(3) not null,
+  aoimp          NUMBER(17,2),
+  salcapmn       NUMBER,
+  fecdes         DATE,
+  fecvto         DATE,
+  tasaori        NUMBER(10,6),
+  tasaact        NUMBER,
+  frecuencia     NUMBER(5),
+  fec_pri_cuocal DATE,
+  especifica     NUMBER,
+  generica       NUMBER,
+  loc_agencia    VARCHAR2(328)
+)
+compress;
+create index TMP_ESTADO_REACTIVA_IX_1 on TMP_ESTADO_REACTIVA (TRIM(PENDOC));
+

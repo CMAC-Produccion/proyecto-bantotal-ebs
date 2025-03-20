@@ -1,0 +1,28 @@
+create table JAQL815B
+(
+  jaql815bnusec NUMBER(10) not null,
+  jaql815btireg CHAR(1) not null,
+  jaql815btiinf CHAR(2) not null,
+  jaql815bortrx CHAR(2) not null,
+  jaql815bfetrx CHAR(4) not null,
+  jaql815bnutra CHAR(6) not null,
+  jaql815bnuref VARCHAR2(12) not null,
+  jaql815bmolib CHAR(1),
+  jaql815btimen CHAR(4),
+  jaql815bnutar CHAR(19),
+  jaql815bcopro CHAR(6),
+  jaql815bmonto NUMBER(11,2),
+  jaql815bhotrx CHAR(6),
+  jaql815bfelog CHAR(4),
+  jaql815btiter CHAR(2),
+  jaql815bcores CHAR(3),
+  jaql815bcomon CHAR(3),
+  jaql815bcta01 VARCHAR2(29),
+  jaql815bcta02 VARCHAR2(29),
+  jaql815bdares VARCHAR2(35),
+  jaql815bcoest CHAR(1)
+)
+;
+alter table JAQL815B
+  add primary key (JAQL815BNUSEC, JAQL815BTIREG, JAQL815BTIINF, JAQL815BORTRX, JAQL815BFETRX, JAQL815BNUTRA, JAQL815BNUREF);
+

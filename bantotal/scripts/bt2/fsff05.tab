@@ -1,0 +1,10 @@
+create table FSFF05
+(
+  kdocodgru NUMBER(3) not null,
+  kdocodint NUMBER(9) not null
+)
+;
+create index FSFF0502 on FSFF05 (KDOCODINT);
+alter table FSFF05
+  add primary key (KDOCODGRU, KDOCODINT);
+

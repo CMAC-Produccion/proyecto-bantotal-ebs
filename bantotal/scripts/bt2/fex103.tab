@@ -1,0 +1,13 @@
+create table FEX103
+(
+  exbcinfor  CHAR(10) not null,
+  exbccodigo NUMBER(5) not null,
+  exbcrubr   NUMBER(16) not null,
+  exbccifsig NUMBER(2),
+  exbcarch   CHAR(10),
+  exbcsuma   CHAR(1)
+)
+;
+alter table FEX103
+  add primary key (EXBCINFOR, EXBCCODIGO, EXBCRUBR);
+

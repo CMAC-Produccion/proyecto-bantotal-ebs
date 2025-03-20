@@ -1,0 +1,17 @@
+create table JAQZ259
+(
+  jaqz259fecp   DATE not null,
+  jaqz259codc   CHAR(6) not null,
+  jaqz259suc    NUMBER(4) not null,
+  jaqz259sal    NUMBER(17,4),
+  jaqz259codper CHAR(6),
+  jaqz259codg   CHAR(5),
+  jaqz259usu    CHAR(10),
+  jaqz259fupd   DATE,
+  jaqz259salant NUMBER(17,4)
+)
+;
+create index JAQZ259IDX_02 on JAQZ259 (JAQZ259FECP);
+alter table JAQZ259
+  add primary key (JAQZ259FECP, JAQZ259CODC, JAQZ259SUC);
+

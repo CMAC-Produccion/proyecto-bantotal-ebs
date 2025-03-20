@@ -1,0 +1,18 @@
+create table FBC709
+(
+  bc709fing NUMBER(1) not null,
+  bc709cuit NUMBER(11) not null,
+  bc709nope NUMBER(11) not null,
+  bc709efor NUMBER(5),
+  bc709nbol CHAR(20),
+  bc709cmda CHAR(3),
+  bc709tope NUMBER(1),
+  bc709ming NUMBER(11),
+  bc709mpen NUMBER(11),
+  bc709mtot NUMBER(11),
+  bc709fest DATE
+)
+;
+alter table FBC709
+  add primary key (BC709FING, BC709CUIT, BC709NOPE);
+

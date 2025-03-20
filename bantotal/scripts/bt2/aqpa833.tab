@@ -1,0 +1,24 @@
+create table AQPA833
+(
+  fecha_reprogramacion DATE,
+  bccta                NUMBER(9),
+  bcoper               NUMBER(9),
+  bcsbop               NUMBER,
+  petdoc               NUMBER,
+  pendoc               CHAR(12),
+  monto                NUMBER,
+  tipo                 VARCHAR2(10),
+  pdi                  NUMBER,
+  solicito             VARCHAR2(2),
+  rere                 VARCHAR2(10),
+  extorno              VARCHAR2(10),
+  con_cptlzcn          VARCHAR2(10),
+  fec_extorno          DATE,
+  tabla_origen         VARCHAR2(50)
+)
+;
+create index AQPA8332 on AQPA833 (BCCTA, BCOPER);
+create index AQPA8333 on AQPA833 (BCCTA, BCOPER, BCSBOP, FECHA_REPROGRAMACION);
+create index AQPA8334 on AQPA833 (TABLA_ORIGEN, EXTORNO);
+create index AQPA8335 on AQPA833 (FECHA_REPROGRAMACION, BCCTA, BCOPER, BCSBOP, TABLA_ORIGEN);
+

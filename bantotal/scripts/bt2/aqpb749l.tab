@@ -1,0 +1,44 @@
+create table AQPB749L
+(
+  aqpb749lpgc    NUMBER(3),
+  aqpb749lmod    NUMBER(3),
+  aqpb749lsuc    NUMBER(3),
+  aqpb749lmda    NUMBER(4),
+  aqpb749lpap    NUMBER(4),
+  aqpb749lcta    NUMBER(9),
+  aqpb749lope    NUMBER(9),
+  aqpb749lsbo    NUMBER(3),
+  aqpb749ltop    NUMBER(3),
+  aqpb749lmsg    VARCHAR2(250),
+  aqpb749lfecact DATE,
+  aqpb749lusuact CHAR(10)
+)
+;
+comment on table AQPB749L
+  is 'tabla Log de Carga Propuesta de Venta de cartera';
+comment on column AQPB749L.aqpb749lpgc
+  is 'Codigo Empresa';
+comment on column AQPB749L.aqpb749lmod
+  is 'Sucursal del Credito';
+comment on column AQPB749L.aqpb749lsuc
+  is 'Modulo del Credito';
+comment on column AQPB749L.aqpb749lmda
+  is 'Moneda del Credito';
+comment on column AQPB749L.aqpb749lpap
+  is 'Papel del Credito';
+comment on column AQPB749L.aqpb749lcta
+  is 'Cuenta del Credito';
+comment on column AQPB749L.aqpb749lope
+  is 'Operacion del Credito';
+comment on column AQPB749L.aqpb749lsbo
+  is 'Suboperacion del Credito';
+comment on column AQPB749L.aqpb749ltop
+  is 'Tipo operacion del Credito';
+comment on column AQPB749L.aqpb749lmsg
+  is 'Mensaje de error';
+comment on column AQPB749L.aqpb749lfecact
+  is 'Fecha de Generación';
+comment on column AQPB749L.aqpb749lusuact
+  is 'Usuario Actualización';
+create index AQPB749LA2 on AQPB749L (AQPB749LCTA, AQPB749LOPE);
+

@@ -1,0 +1,13 @@
+create table FSFF82
+(
+  xkapcod NUMBER(4) not null,
+  xkapcls CHAR(1) not null,
+  xkapgrp CHAR(1) not null,
+  xkapcta CHAR(2) not null,
+  xkapsub CHAR(2) not null,
+  xkapsdo NUMBER(16,2) not null
+)
+;
+alter table FSFF82
+  add primary key (XKAPCOD, XKAPCLS, XKAPGRP, XKAPCTA, XKAPSUB, XKAPSDO);
+

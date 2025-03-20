@@ -1,0 +1,23 @@
+create table AQPB362
+(
+  aqpb362inst  NUMBER(10) not null,
+  aqpb362moda  CHAR(1),
+  aqpb362tipo  CHAR(2),
+  aqpb362user  VARCHAR2(20),
+  aqpb362csbs  VARCHAR2(30),
+  aqpb362frcc  DATE,
+  aqpb362fpro  DATE,
+  aqpb362rubro VARCHAR2(20),
+  aqpb362enti  VARCHAR2(200),
+  aqpb362cent  VARCHAR2(50),
+  aqpb362util  NUMBER(17,2),
+  aqpb362nout  NUMBER(17,2),
+  aqpb362tipc  VARCHAR2(2),
+  aqpb362ndoc  CHAR(12) not null,
+  aqpb362corr  NUMBER(10) not null,
+  aqpb362rub72 VARCHAR2(20)
+)
+;
+alter table AQPB362
+  add primary key (AQPB362INST, AQPB362NDOC, AQPB362CORR);
+

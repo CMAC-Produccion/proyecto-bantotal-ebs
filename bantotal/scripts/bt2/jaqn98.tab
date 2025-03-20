@@ -1,0 +1,43 @@
+create table JAQN98
+(
+  jaqn98idio CHAR(2) not null,
+  jaqn98corr NUMBER(5) not null,
+  jaqn98mnsg LONG,
+  jaqn98imp1 NUMBER(17,2),
+  jaqn98imp2 NUMBER(17,2),
+  jaqn98fec1 DATE,
+  jaqn98fec2 DATE,
+  jaqn98num1 NUMBER(9),
+  jaqn98num2 NUMBER(9),
+  jaqn98cha1 VARCHAR2(255),
+  jaqn98cha2 VARCHAR2(255)
+)
+;
+comment on table JAQN98
+  is 'Tabla de Contabilizacion con Exoneracion de Refinanciados PJM';
+comment on column JAQN98.jaqn98idio
+  is 'Idioma';
+comment on column JAQN98.jaqn98corr
+  is 'Correlativo';
+comment on column JAQN98.jaqn98mnsg
+  is 'Mensaje';
+comment on column JAQN98.jaqn98imp1
+  is 'Importe1';
+comment on column JAQN98.jaqn98imp2
+  is 'Importe2';
+comment on column JAQN98.jaqn98fec1
+  is 'Fecha1';
+comment on column JAQN98.jaqn98fec2
+  is 'Fecha2';
+comment on column JAQN98.jaqn98num1
+  is 'Número 1';
+comment on column JAQN98.jaqn98num2
+  is 'Número 2';
+comment on column JAQN98.jaqn98cha1
+  is 'Caracter 1';
+comment on column JAQN98.jaqn98cha2
+  is 'Caracter 2';
+create index JAQN98A2 on JAQN98 (JAQN98CORR);
+alter table JAQN98
+  add primary key (JAQN98IDIO, JAQN98CORR);
+

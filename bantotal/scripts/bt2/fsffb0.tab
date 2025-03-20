@@ -1,0 +1,11 @@
+create table FSFFB0
+(
+  fsfe3anio NUMBER(4) not null,
+  fsfe3nota NUMBER(4) not null,
+  fsfe3hab  CHAR(1),
+  fsfe3dsc  CHAR(255)
+)
+;
+alter table FSFFB0
+  add primary key (FSFE3ANIO, FSFE3NOTA);
+

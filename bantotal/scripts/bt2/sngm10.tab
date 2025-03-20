@@ -1,0 +1,26 @@
+create table SNGM10
+(
+  sngm10corr NUMBER(10) not null,
+  sngm10pgmd CHAR(10),
+  sngm10inst NUMBER(10),
+  sngm10cod  NUMBER(10),
+  sngm10idau NUMBER(10),
+  sngm10user CHAR(10),
+  sngm10role NUMBER(5),
+  sngm10wkst CHAR(10),
+  sngm10date DATE,
+  sngm01tipm NUMBER(4),
+  sngm02motc NUMBER(4),
+  sngm10aut  NUMBER(10),
+  sngm10stat CHAR(1),
+  sngm10inta NUMBER(9),
+  sngm10feca DATE,
+  sngm10stra CHAR(20),
+  sngm10come VARCHAR2(400)
+)
+;
+create index SNGM1002 on SNGM10 (SNGM01TIPM, SNGM02MOTC);
+create index SNGM1003 on SNGM10 (SNGM10PGMD, SNGM10INST);
+alter table SNGM10
+  add primary key (SNGM10CORR);
+

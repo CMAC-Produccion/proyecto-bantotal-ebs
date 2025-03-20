@@ -1,0 +1,25 @@
+create table FSFI95
+(
+  sfi95emp  NUMBER(3) not null,
+  sfi95piz  NUMBER(3) not null,
+  sfi95des  CHAR(20),
+  sfi95lies CHAR(1),
+  sfi95mer  NUMBER(3),
+  sfi95car  CHAR(1),
+  sfi95val  CHAR(1),
+  sfi95hab  CHAR(1),
+  sfi95aux1 CHAR(1),
+  sfi95aux2 CHAR(1),
+  sfi95aux3 CHAR(1),
+  sfi95aux4 CHAR(1),
+  sfi95imp1 NUMBER(17,2),
+  sfi95imp2 NUMBER(17,2),
+  sfi95mda1 NUMBER(4),
+  sfi95mda2 NUMBER(4),
+  sfi95tol1 NUMBER(8,6),
+  sfi95tol2 NUMBER(8,6)
+)
+;
+alter table FSFI95
+  add primary key (SFI95EMP, SFI95PIZ);
+

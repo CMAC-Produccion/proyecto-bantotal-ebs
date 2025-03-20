@@ -1,0 +1,87 @@
+create table AQPB163
+(
+  aqpb163corr   NUMBER(10) not null,
+  aqpb163inst   NUMBER(10) not null,
+  aqpb163pais   NUMBER(4),
+  aqpb163tdoc   NUMBER(4),
+  aqpb163ndoc   VARCHAR2(12),
+  aqpb163fec    DATE not null,
+  aqpb163hora   VARCHAR2(8) not null,
+  aqpb163pgcod  VARCHAR2(3) not null,
+  aqpb163mod    NUMBER(4) not null,
+  aqpb163suc    NUMBER(4) not null,
+  aqpb163mda    NUMBER(4) not null,
+  aqpb163pap    NUMBER(4) not null,
+  aqpb163cta    NUMBER(9) not null,
+  aqpb163ope    NUMBER(9) not null,
+  aqpb163sbop   NUMBER(4) not null,
+  aqpb163tope   NUMBER(4) not null,
+  aqpb163cap    NUMBER(17,2),
+  aqpb163int    NUMBER(17,2),
+  aqpb163mora   NUMBER(17,2),
+  aqpb163gasot  NUMBER(17,2),
+  aqpb163icv    NUMBER(17,2),
+  aqpb163pnalid NUMBER(17,2),
+  aqpb163cseg   NUMBER(17,2),
+  aqpb163mcanc  NUMBER(17,2),
+  aqpb163est    VARCHAR2(5) not null
+)
+;
+comment on table AQPB163
+  is 'Tabla Log para saldo de cred vinculados impulso';
+comment on column AQPB163.aqpb163corr
+  is 'Correlativo';
+comment on column AQPB163.aqpb163inst
+  is 'Instancia';
+comment on column AQPB163.aqpb163pais
+  is 'Pais';
+comment on column AQPB163.aqpb163tdoc
+  is 'Tipo de Documento';
+comment on column AQPB163.aqpb163ndoc
+  is 'Nro de Documento';
+comment on column AQPB163.aqpb163fec
+  is 'Fecha de Registro';
+comment on column AQPB163.aqpb163hora
+  is 'Hora de Registro';
+comment on column AQPB163.aqpb163pgcod
+  is 'Pgcod ';
+comment on column AQPB163.aqpb163mod
+  is 'Modulo';
+comment on column AQPB163.aqpb163suc
+  is 'Sucursal';
+comment on column AQPB163.aqpb163mda
+  is 'Moneda';
+comment on column AQPB163.aqpb163pap
+  is 'Papel';
+comment on column AQPB163.aqpb163cta
+  is 'Cuenta';
+comment on column AQPB163.aqpb163ope
+  is 'Operacion';
+comment on column AQPB163.aqpb163sbop
+  is 'SubOperacion';
+comment on column AQPB163.aqpb163tope
+  is 'Tipo de Operacion';
+comment on column AQPB163.aqpb163cap
+  is 'Capital PJAQL969C';
+comment on column AQPB163.aqpb163int
+  is 'Interes PJAQL969C';
+comment on column AQPB163.aqpb163mora
+  is 'Mora PJAQL969C';
+comment on column AQPB163.aqpb163gasot
+  is 'Otros Gastos PJAQL969C';
+comment on column AQPB163.aqpb163icv
+  is 'ICV PJAQL969C';
+comment on column AQPB163.aqpb163pnalid
+  is 'Penalidad PJAQL969C';
+comment on column AQPB163.aqpb163cseg
+  is 'Cuota Seg PJAQL969C';
+comment on column AQPB163.aqpb163mcanc
+  is 'Monto de Cancelacion';
+comment on column AQPB163.aqpb163est
+  is 'Estado';
+create index AQPB163A2 on AQPB163 (AQPB163INST, AQPB163EST);
+create index AQPB163A3 on AQPB163 (AQPB163PAIS, AQPB163TDOC, AQPB163NDOC);
+create index AQPB163A4 on AQPB163 (AQPB163INST, AQPB163FEC);
+alter table AQPB163
+  add primary key (AQPB163CORR, AQPB163INST, AQPB163PGCOD, AQPB163MOD, AQPB163SUC, AQPB163MDA, AQPB163PAP, AQPB163CTA, AQPB163OPE, AQPB163SBOP, AQPB163TOPE, AQPB163FEC, AQPB163HORA, AQPB163EST);
+

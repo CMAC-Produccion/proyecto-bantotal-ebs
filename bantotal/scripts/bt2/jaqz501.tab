@@ -1,0 +1,23 @@
+create table JAQZ501
+(
+  jaqz501pgc NUMBER(3),
+  jaqz501mod NUMBER(3),
+  jaqz501suc NUMBER(3),
+  jaqz501mda NUMBER(4),
+  jaqz501pap NUMBER(4),
+  jaqz501cta NUMBER(9),
+  jaqz501ope NUMBER(9),
+  jaqz501sbo NUMBER(3),
+  jaqz501top NUMBER(3),
+  jaqz501pgt NUMBER(3),
+  jaqz501mot NUMBER(3),
+  jaqz501sut NUMBER(3),
+  jaqz501trt NUMBER(3),
+  jaqz501ret NUMBER(5),
+  jaqz501fet DATE,
+  jaqz501fec NUMBER(5),
+  jaqz501ext NUMBER(1)
+)
+;
+create index IDX_JAQZ501_01 on JAQZ501 (JAQZ501PGT, JAQZ501MOT, JAQZ501SUT, JAQZ501TRT, JAQZ501RET, JAQZ501FET);
+

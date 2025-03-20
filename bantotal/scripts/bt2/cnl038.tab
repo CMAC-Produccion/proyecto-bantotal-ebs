@@ -1,0 +1,20 @@
+create table CNL038
+(
+  cnl000cod NUMBER(4) not null,
+  cnl038idi CHAR(2) not null,
+  cnl038lit NUMBER(9) not null,
+  cnl038crr NUMBER(4) not null,
+  cnl038txt CHAR(65),
+  cnl038wfe CHAR(5),
+  cnl038wfp NUMBER(4),
+  cnl038wfn NUMBER(10),
+  cnl038wfi NUMBER(10),
+  ibproject CHAR(60)
+)
+;
+create index CNL03803 on CNL038 (CNL038WFP, CNL038WFN, CNL038WFI);
+alter table CNL038
+  add primary key (CNL000COD, CNL038IDI, CNL038LIT, CNL038CRR);
+alter table CNL038
+  add constraint CNL03805 unique (CNL000COD, CNL038IDI, CNL038LIT, CNL038CRR, IBPROJECT);
+

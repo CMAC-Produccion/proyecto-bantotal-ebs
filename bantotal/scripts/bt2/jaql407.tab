@@ -1,0 +1,36 @@
+create table JAQL407
+(
+  jaq407fch    DATE not null,
+  jaq407emp    NUMBER(3) not null,
+  jaq407mod    NUMBER(3) not null,
+  jaq407suc    NUMBER(3) not null,
+  jaq407mda    NUMBER(4) not null,
+  jaq407pap    NUMBER(4) not null,
+  jaq407cta    NUMBER(9) not null,
+  jaq407ope    NUMBER(9) not null,
+  jaq407sbo    NUMBER(3) not null,
+  jaq407top    NUMBER(3) not null,
+  jaq407numcre CHAR(27),
+  jaq407fva    DATE,
+  jaq407fvt    DATE,
+  jaq407pai    NUMBER(3),
+  jaq407tpo    NUMBER(2),
+  jaq407ndo    CHAR(12),
+  jaq407destdo CHAR(20),
+  jaq407clinom CHAR(30),
+  jaq407imp    NUMBER(17,2),
+  jaq407smo    NUMBER(17,2),
+  jaq407smn    NUMBER(17,2),
+  jaq407period NUMBER(5),
+  jaq407sta    NUMBER(2),
+  jaq407nomsuc CHAR(30),
+  jaq407cuopag NUMBER(4),
+  jaq407diaatr NUMBER(5),
+  jaq407tipsbs CHAR(25),
+  jaq407regnom CHAR(40)
+)
+;
+create index JAQL40701 on JAQL407 (JAQ407FCH);
+alter table JAQL407
+  add constraint JAQL407_PK primary key (JAQ407FCH, JAQ407EMP, JAQ407MOD, JAQ407SUC, JAQ407MDA, JAQ407PAP, JAQ407CTA, JAQ407OPE, JAQ407SBO, JAQ407TOP);
+

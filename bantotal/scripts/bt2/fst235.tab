@@ -1,0 +1,14 @@
+create table FST235
+(
+  pgcod  NUMBER(3) not null,
+  trmod  NUMBER(3) not null,
+  trnro  NUMBER(3) not null,
+  trord  NUMBER(2) not null,
+  txcod  NUMBER(3) not null,
+  txecta CHAR(1)
+)
+;
+create index FST23503 on FST235 (TXCOD);
+alter table FST235
+  add primary key (PGCOD, TRMOD, TRNRO, TRORD, TXCOD);
+

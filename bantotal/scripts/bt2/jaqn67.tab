@@ -1,0 +1,95 @@
+create table JAQN67
+(
+  jaqn67cod  CHAR(50) not null,
+  jaqn67ent  DATE not null,
+  jaqn67hor  VARCHAR2(8) not null,
+  jaqn67cta  NUMBER(9) not null,
+  jaqn67coa  CHAR(50) not null,
+  jaqn67idc  NUMBER(9) not null,
+  jaqn67suc  NUMBER(3),
+  jaqn67dbl  NUMBER(9),
+  jaqn67pai  NUMBER(3),
+  jaqn67tdoc NUMBER(2),
+  jaqn67ndoc CHAR(12),
+  jaqn67flib DATE,
+  jaqn67cor  CHAR(100),
+  jaqn67fpet DATE,
+  jaqn67est  VARCHAR2(50),
+  jaqn67usu  CHAR(10),
+  jaqn67an1  NUMBER(9),
+  jaqn67an2  NUMBER(9),
+  jaqn67an3  NUMBER(9),
+  jaqn67ac1  VARCHAR2(255),
+  jaqn67ac2  VARCHAR2(255),
+  jaqn67ac3  VARCHAR2(255),
+  jaqn67ai1  NUMBER(17,2),
+  jaqn67ai2  NUMBER(17,2),
+  jaqn67ai3  NUMBER(17,2),
+  jaqn67af1  DATE,
+  jaqn67af2  DATE,
+  jaqn67af3  DATE
+)
+;
+comment on table JAQN67
+  is 'Entrega de premio';
+comment on column JAQN67.jaqn67cod
+  is 'Codigo de entrega Premio';
+comment on column JAQN67.jaqn67ent
+  is 'fecha Entrega';
+comment on column JAQN67.jaqn67hor
+  is 'hora';
+comment on column JAQN67.jaqn67cta
+  is 'cuenta';
+comment on column JAQN67.jaqn67coa
+  is 'codigo Articulo';
+comment on column JAQN67.jaqn67idc
+  is 'Id campaña';
+comment on column JAQN67.jaqn67suc
+  is 'sucursal entrega premio';
+comment on column JAQN67.jaqn67dbl
+  is 'dias bloqueo';
+comment on column JAQN67.jaqn67pai
+  is 'pais';
+comment on column JAQN67.jaqn67tdoc
+  is 'tipo de documento';
+comment on column JAQN67.jaqn67ndoc
+  is 'numero documento cliente';
+comment on column JAQN67.jaqn67flib
+  is 'fecha liberacion';
+comment on column JAQN67.jaqn67cor
+  is 'correo electronico';
+comment on column JAQN67.jaqn67fpet
+  is 'fecha peticion liberacion';
+comment on column JAQN67.jaqn67est
+  is 'estado premio';
+comment on column JAQN67.jaqn67usu
+  is 'usuario operador';
+comment on column JAQN67.jaqn67an1
+  is 'Auxiliar numerico 1';
+comment on column JAQN67.jaqn67an2
+  is 'Auxiliar numerico 2';
+comment on column JAQN67.jaqn67an3
+  is 'Auxiliar numerico 3';
+comment on column JAQN67.jaqn67ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN67.jaqn67ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN67.jaqn67ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN67.jaqn67ai1
+  is 'Auxiliar importe 1';
+comment on column JAQN67.jaqn67ai2
+  is 'Auxiliar importe 2';
+comment on column JAQN67.jaqn67ai3
+  is 'Auxiliar importe 3';
+comment on column JAQN67.jaqn67af1
+  is 'Auxiliar fecha 1';
+comment on column JAQN67.jaqn67af2
+  is 'Auxiliar fecha 2';
+comment on column JAQN67.jaqn67af3
+  is 'Auxiliar fecha 3';
+create index JAQN67A2 on JAQN67 (JAQN67PAI, JAQN67TDOC, JAQN67NDOC);
+create index JAQN67A3 on JAQN67 (JAQN67FLIB, JAQN67CTA, JAQN67EST);
+alter table JAQN67
+  add primary key (JAQN67COD, JAQN67ENT, JAQN67HOR, JAQN67CTA, JAQN67COA, JAQN67IDC);
+

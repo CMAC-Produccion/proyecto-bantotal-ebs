@@ -1,0 +1,30 @@
+create table JHSS31
+(
+  jhss31emp NUMBER(3) not null,
+  jhss31suc NUMBER(3) not null,
+  jhss31cta NUMBER(9) not null,
+  jhss31sct NUMBER(3) not null,
+  jhss31mod NUMBER(3) not null,
+  jhss31mon NUMBER(4) not null,
+  jhss31pap NUMBER(4) not null,
+  jhss31top NUMBER(3) not null,
+  jhss31ope NUMBER(9) not null,
+  jhss31cor NUMBER(9) not null,
+  jhss31com CHAR(2),
+  jhss31swi CHAR(50),
+  jhss31dsc CHAR(30),
+  jhss31txt CHAR(30),
+  jhss31fal DATE,
+  jhss31ual CHAR(10),
+  jhss31vig CHAR(1),
+  jhss31ax1 NUMBER(9),
+  jhss31ax2 NUMBER(9),
+  jhss31ax3 CHAR(20),
+  jhss31ax4 CHAR(20),
+  jhss31ax5 NUMBER(17,2),
+  jhss31ax6 DATE
+)
+;
+create unique index JHSS3101 on JHSS31 (JHSS31EMP, JHSS31SUC, JHSS31CTA, JHSS31SCT, JHSS31MOD, JHSS31MON, JHSS31PAP, JHSS31TOP, JHSS31OPE, JHSS31COR);
+create index JHSS3102 on JHSS31 (JHSS31COR);
+

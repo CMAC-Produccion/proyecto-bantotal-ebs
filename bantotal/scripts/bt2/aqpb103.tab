@@ -1,0 +1,22 @@
+create table AQPB103
+(
+  aqpb103cotra  NUMBER(10) not null,
+  aqpb103nrvta  NUMBER(3) not null,
+  aqpb103trareq CLOB,
+  aqpb103trares CLOB,
+  aqpb103fecreg DATE,
+  aqpb103horreg VARCHAR2(10),
+  aqpb103nrocon VARCHAR2(40),
+  aqpb103coope  VARCHAR2(10),
+  aqpb103timexe VARCHAR2(10),
+  aqpb103codres CHAR(5),
+  aqpb103msjres VARCHAR2(500),
+  aqpb103codent CHAR(10),
+  aqpb103idgrp  CHAR(6),
+  aqpb103idcaj  NUMBER(6),
+  aqpb103codser CHAR(6)
+)
+;
+alter table AQPB103
+  add primary key (AQPB103COTRA, AQPB103NRVTA);
+

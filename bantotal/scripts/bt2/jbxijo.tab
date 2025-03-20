@@ -1,0 +1,16 @@
+create table JBXIJO
+(
+  jbxijoapl CHAR(10) not null,
+  jbxijofar DATE not null,
+  jbxijohor CHAR(6) not null,
+  jbxijosol NUMBER(9) not null,
+  jbxijopas NUMBER(3) not null,
+  jbxijotdo NUMBER(2) not null,
+  jbxijondo CHAR(12) not null,
+  jbxijoimp NUMBER(3) not null,
+  jbxijocon NUMBER(3)
+)
+;
+alter table JBXIJO
+  add primary key (JBXIJOAPL, JBXIJOFAR, JBXIJOHOR, JBXIJOSOL, JBXIJOPAS, JBXIJOTDO, JBXIJONDO, JBXIJOIMP);
+

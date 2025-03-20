@@ -1,0 +1,17 @@
+create table SNG525
+(
+  sng501bien NUMBER(10) not null,
+  sng525spc  NUMBER(3) not null,
+  sng525cant NUMBER(3),
+  sng525cat  CHAR(30),
+  sng525raza CHAR(25),
+  sng525ng   NUMBER(9),
+  sng525peso NUMBER(4),
+  sng525desc CHAR(30),
+  sng525val  NUMBER(17,2),
+  sng525na   NUMBER(9)
+)
+;
+alter table SNG525
+  add primary key (SNG501BIEN, SNG525SPC);
+

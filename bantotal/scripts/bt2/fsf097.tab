@@ -1,0 +1,14 @@
+create table FSF097
+(
+  ltcpgcod  NUMBER(3) not null,
+  ltcpos    NUMBER(5) not null,
+  ltcprgnom CHAR(8),
+  ltcprgtxt CHAR(40),
+  ltcexe    CHAR(1),
+  ltchab    CHAR(1),
+  ltcniv    NUMBER(1)
+)
+;
+alter table FSF097
+  add primary key (LTCPGCOD, LTCPOS);
+

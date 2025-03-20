@@ -1,0 +1,25 @@
+create table FSF018
+(
+  wrpgcod  NUMBER(3) not null,
+  wrsucur  NUMBER(3) not null,
+  wrpcta   NUMBER(9) not null,
+  wrpfdo   NUMBER(3) not null,
+  wrpfec   DATE not null,
+  wrtcom   CHAR(1) not null,
+  wrnum    NUMBER(9) not null,
+  wrrent   NUMBER(17,2),
+  wrimpcom NUMBER(17,2),
+  wrivacom NUMBER(17,2),
+  wrtotal  NUMBER(17,2),
+  wrmodulo NUMBER(3),
+  wrtrans  NUMBER(3),
+  wrnrel   NUMBER(4),
+  wrord    NUMBER(2),
+  wrsbor   NUMBER(3)
+)
+;
+create index FSF01802 on FSF018 (WRPGCOD, WRSUCUR, WRPCTA, WRPFDO, WRTCOM, WRPFEC);
+create index FSF01804 on FSF018 (WRPGCOD, WRSUCUR, WRMODULO, WRTRANS, WRNREL, WRPFEC);
+alter table FSF018
+  add primary key (WRPGCOD, WRSUCUR, WRPCTA, WRPFDO, WRPFEC, WRTCOM, WRNUM);
+

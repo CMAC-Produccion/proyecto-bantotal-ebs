@@ -1,0 +1,95 @@
+create table AQPC360B
+(
+  aqpc360bcod    NUMBER(3) not null,
+  aqpc360bfec    DATE not null,
+  aqpc360bcor    NUMBER(8) not null,
+  aqpc360blin    NUMBER(8) not null,
+  aqpc360bcta    NUMBER(9) not null,
+  aqpc360bope    NUMBER(9) not null,
+  aqpc360bmoncof NUMBER(17,2),
+  aqpc360bprccof NUMBER(6,2),
+  aqpc360bmoncob NUMBER(17,2),
+  aqpc360btdocc  VARCHAR2(10),
+  aqpc360bndocc  VARCHAR2(20),
+  aqpc360bncer   VARCHAR2(50),
+  aqpc360bnsol   VARCHAR2(50),
+  aqpc360bcodgar VARCHAR2(50),
+  aqpc360bcodcob VARCHAR2(50),
+  aqpc360bncerch VARCHAR2(50),
+  aqpc360bfinc   DATE,
+  aqpc360bffnc   DATE,
+  aqpc360bcertrn VARCHAR2(50),
+  aqpc360bcobren VARCHAR2(50),
+  aqpc360best    CHAR(1),
+  aqpc360busu    VARCHAR2(10),
+  aqpc360bfedi   VARCHAR2(10),
+  aqpc360bhedi   VARCHAR2(10),
+  aqpc360bciuuo  VARCHAR2(10),
+  aqpc360bacteco VARCHAR2(40),
+  aqpc360bestp   VARCHAR2(1)
+)
+;
+comment on table AQPC360B
+  is 'Tabla detalle FAE TEXCO';
+comment on column AQPC360B.aqpc360bcod
+  is 'Código de empresa';
+comment on column AQPC360B.aqpc360bfec
+  is 'Fecha de proceso';
+comment on column AQPC360B.aqpc360bcor
+  is 'Correlativo';
+comment on column AQPC360B.aqpc360blin
+  is 'Linea de Carga';
+comment on column AQPC360B.aqpc360bcta
+  is 'Cuenta ';
+comment on column AQPC360B.aqpc360bope
+  is 'Operacion';
+comment on column AQPC360B.aqpc360bmoncof
+  is 'Monto cofide';
+comment on column AQPC360B.aqpc360bprccof
+  is 'Porcentaje Cobertura COFIDE';
+comment on column AQPC360B.aqpc360bmoncob
+  is 'Monto maximo de cobertura';
+comment on column AQPC360B.aqpc360btdocc
+  is 'Tipo documento COFIDE';
+comment on column AQPC360B.aqpc360bndocc
+  is 'Numero documento COFIDE';
+comment on column AQPC360B.aqpc360bncer
+  is 'N° de certificado';
+comment on column AQPC360B.aqpc360bnsol
+  is 'Código solicitud - Cofide';
+comment on column AQPC360B.aqpc360bcodgar
+  is 'Código de garantia';
+comment on column AQPC360B.aqpc360bcodcob
+  is 'Código de cobertura';
+comment on column AQPC360B.aqpc360bncerch
+  is 'N° de certificado de credito honrado';
+comment on column AQPC360B.aqpc360bfinc
+  is 'Fecha de inicio de crédito original - Cofide ';
+comment on column AQPC360B.aqpc360bffnc
+  is 'Fecha de fin de crédito original - Cofide ';
+comment on column AQPC360B.aqpc360bcertrn
+  is 'Certificado de renovación/reprogramación';
+comment on column AQPC360B.aqpc360bcobren
+  is 'Cobertura de renovación/reprogramación';
+comment on column AQPC360B.aqpc360best
+  is 'Estado';
+comment on column AQPC360B.aqpc360busu
+  is 'Usuario';
+comment on column AQPC360B.aqpc360bfedi
+  is 'Fecha Edicion';
+comment on column AQPC360B.aqpc360bhedi
+  is 'Hora Edicion';
+comment on column AQPC360B.aqpc360bciuuo
+  is 'Ciuu Origen';
+comment on column AQPC360B.aqpc360bacteco
+  is 'Actividad Economica Origen';
+comment on column AQPC360B.aqpc360bestp
+  is 'Estado de alta de garantía A=Cancelado C=Contabilizado y H=Honrado';
+create index AQPC360BA2 on AQPC360B (AQPC360BCOD, AQPC360BCTA);
+create index AQPC360BA3 on AQPC360B (AQPC360BFEC, AQPC360BCOR, AQPC360BCOD, AQPC360BCTA);
+create index AQPC360BA4 on AQPC360B (AQPC360BCOD, AQPC360BCTA, AQPC360BFEC, AQPC360BEST);
+create index AQPC360BA5 on AQPC360B (AQPC360BCTA, AQPC360BEST);
+create index AQPC360BA6 on AQPC360B (AQPC360BCTA);
+alter table AQPC360B
+  add primary key (AQPC360BCOD, AQPC360BFEC, AQPC360BCOR, AQPC360BCTA, AQPC360BOPE);
+

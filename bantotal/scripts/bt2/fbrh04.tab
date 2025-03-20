@@ -1,0 +1,13 @@
+create table FBRH04
+(
+  brh01rqemp NUMBER(3) not null,
+  brh01rqcor NUMBER(10) not null,
+  brh04rqcpo NUMBER(2) not null,
+  brh04rqfmt CHAR(1) not null,
+  brh04rqlin NUMBER(3) not null,
+  brh04rqtxt CHAR(65)
+)
+;
+alter table FBRH04
+  add primary key (BRH01RQEMP, BRH01RQCOR, BRH04RQCPO, BRH04RQFMT, BRH04RQLIN);
+

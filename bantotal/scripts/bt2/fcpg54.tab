@@ -1,0 +1,26 @@
+create table FCPG54
+(
+  cpg10embt  NUMBER(3) not null,
+  cpg10pais  NUMBER(3) not null,
+  cpg10tdoc  NUMBER(2) not null,
+  cpg10doc   CHAR(25) not null,
+  cpg10sube  NUMBER(3) not null,
+  cpg12cod   NUMBER(5) not null,
+  cpg54fechc DATE not null,
+  cpg54sucat NUMBER(3),
+  cpg18cod   NUMBER(3),
+  cpg20sucep NUMBER(4),
+  cpg02cod   NUMBER(3),
+  cpg54fvpre DATE,
+  cpg54est   CHAR(3),
+  cpg54blq   CHAR(1),
+  cpg54inst  NUMBER(10)
+)
+;
+create index FCPG5403 on FCPG54 (CPG02COD);
+create index FCPG5404 on FCPG54 (CPG54INST);
+create index FCPG5405 on FCPG54 (CPG10EMBT, CPG18COD, CPG20SUCEP);
+create index FCPG5406 on FCPG54 (CPG10EMBT, CPG54FECHC);
+alter table FCPG54
+  add primary key (CPG10EMBT, CPG10PAIS, CPG10TDOC, CPG10DOC, CPG10SUBE, CPG12COD, CPG54FECHC);
+

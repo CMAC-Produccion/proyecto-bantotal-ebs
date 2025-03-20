@@ -1,0 +1,18 @@
+create table FSFI48
+(
+  sfi47emp   NUMBER(3) not null,
+  sfi47esp   NUMBER(4) not null,
+  sfi47incod NUMBER(9) not null,
+  sfi48fdes  DATE not null,
+  sfi48prima NUMBER(14,8),
+  sfi48aux1  NUMBER(9),
+  sfi48aux2  NUMBER(9),
+  sfi48aux3  NUMBER(14,8),
+  sfi48aux4  NUMBER(14,8),
+  sfi48aux5  CHAR(1),
+  sfi48aux6  CHAR(1)
+)
+;
+alter table FSFI48
+  add primary key (SFI47EMP, SFI47ESP, SFI47INCOD, SFI48FDES);
+

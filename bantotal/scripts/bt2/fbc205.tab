@@ -1,0 +1,24 @@
+create table FBC205
+(
+  bc205emp   NUMBER(3) not null,
+  bc205cod   NUMBER(5) not null,
+  bc205dsc   CHAR(50),
+  bc205id1   CHAR(1),
+  bc205id1d  CHAR(30),
+  bc205id2   CHAR(1),
+  bc205id2d  CHAR(30),
+  bc205id3   CHAR(1),
+  bc205id3d  CHAR(30),
+  bc205id4   CHAR(1),
+  bc205id4d  CHAR(30),
+  bc205nro1d CHAR(30),
+  bc205nro2d CHAR(30),
+  bc205nro3d CHAR(30),
+  bc205chr1d CHAR(30),
+  bc205chr2d CHAR(30),
+  bc205chr3d CHAR(30)
+)
+;
+alter table FBC205
+  add primary key (BC205EMP, BC205COD);
+

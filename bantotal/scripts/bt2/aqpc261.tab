@@ -1,0 +1,139 @@
+create table AQPC261
+(
+  aqpc261usr     CHAR(10) not null,
+  aqpc261emp     NUMBER(3) not null,
+  aqpc261suc     NUMBER(3) not null,
+  aqpc261mod     NUMBER(3) not null,
+  aqpc261mda     NUMBER(4) not null,
+  aqpc261pap     NUMBER(4) not null,
+  aqpc261cta     NUMBER(9) not null,
+  aqpc261ope     NUMBER(9) not null,
+  aqpc261sbo     NUMBER(3) not null,
+  aqpc261top     NUMBER(3) not null,
+  aqpc261ins     NUMBER(10),
+  aqpc261sdo     NUMBER(18,2),
+  aqpc261mtoa    NUMBER(18,2),
+  aqpc261pcj     NUMBER(5,2),
+  aqpc261tip     NUMBER(2),
+  aqpc261empg    NUMBER(3),
+  aqpc261sucg    NUMBER(3),
+  aqpc261modg    NUMBER(3),
+  aqpc261mdag    NUMBER(4),
+  aqpc261papg    NUMBER(4),
+  aqpc261ctag    NUMBER(9),
+  aqpc261opeg    NUMBER(9),
+  aqpc261sbog    NUMBER(3),
+  aqpc261topg    NUMBER(3),
+  aqpc261estg    NUMBER(2),
+  aqpc261estgde  CHAR(30),
+  aqpc261mtoog   NUMBER(18,2),
+  aqpc261mtoag   NUMBER(18,2),
+  aqpc261est     CHAR(1),
+  aqpc261estc    NUMBER(2),
+  aqpc261estcde  CHAR(30),
+  aqpc261itcod   NUMBER(3) not null,
+  aqpc261itmod   NUMBER(3) not null,
+  aqpc261itsuc   NUMBER(3) not null,
+  aqpc261ittran  NUMBER(3) not null,
+  aqpc261itnrel  NUMBER(4) not null,
+  aqpc261itfcon  DATE not null,
+  aqpc261ithor   CHAR(8),
+  aqpc261itucnf  CHAR(10),
+  aqpc261usuact  CHAR(10),
+  aqpc261fecact  DATE,
+  aqpc261sucdes  CHAR(30),
+  aqpc261sucgdes CHAR(30)
+)
+;
+comment on table AQPC261
+  is 'Reporte Garantias FAE Turismo';
+comment on column AQPC261.aqpc261usr
+  is 'Usuario';
+comment on column AQPC261.aqpc261emp
+  is 'Codigo Empresa';
+comment on column AQPC261.aqpc261suc
+  is 'Sucursal del Credito';
+comment on column AQPC261.aqpc261mod
+  is 'Modulo del Credito';
+comment on column AQPC261.aqpc261mda
+  is 'Moneda del Credito';
+comment on column AQPC261.aqpc261pap
+  is 'Papel del Credito';
+comment on column AQPC261.aqpc261cta
+  is 'Cuenta del Credito';
+comment on column AQPC261.aqpc261ope
+  is 'Operacion del Credito';
+comment on column AQPC261.aqpc261sbo
+  is 'Suboperacion del Credito';
+comment on column AQPC261.aqpc261top
+  is 'Tipo operacion del Credito';
+comment on column AQPC261.aqpc261ins
+  is 'Codigo de solicitud o instancia';
+comment on column AQPC261.aqpc261sdo
+  is 'Saldo';
+comment on column AQPC261.aqpc261mtoa
+  is 'Monto Actual del Credito';
+comment on column AQPC261.aqpc261pcj
+  is 'Porcentaje';
+comment on column AQPC261.aqpc261tip
+  is 'Tipo';
+comment on column AQPC261.aqpc261empg
+  is 'Codigo empresa garantia';
+comment on column AQPC261.aqpc261sucg
+  is 'Sucursal Garantia';
+comment on column AQPC261.aqpc261modg
+  is 'Modulo Garantia';
+comment on column AQPC261.aqpc261mdag
+  is 'Moneda Garantia';
+comment on column AQPC261.aqpc261papg
+  is 'Papel Garantia';
+comment on column AQPC261.aqpc261ctag
+  is 'Cuenta Garantia';
+comment on column AQPC261.aqpc261opeg
+  is 'Operacion Garantia';
+comment on column AQPC261.aqpc261sbog
+  is 'Suboperacion Garantia';
+comment on column AQPC261.aqpc261topg
+  is 'Tipo Operacion Garantia';
+comment on column AQPC261.aqpc261estg
+  is 'Estado garantia';
+comment on column AQPC261.aqpc261estgde
+  is 'Descripcion Estado Garantia';
+comment on column AQPC261.aqpc261mtoog
+  is 'Monto Original Garantia';
+comment on column AQPC261.aqpc261mtoag
+  is 'Monto Actual Garantia';
+comment on column AQPC261.aqpc261est
+  is 'Estado';
+comment on column AQPC261.aqpc261estc
+  is 'Estado del Credito';
+comment on column AQPC261.aqpc261estcde
+  is 'Descripcion estado del credito';
+comment on column AQPC261.aqpc261itcod
+  is 'Codigo empresa de la transaccion';
+comment on column AQPC261.aqpc261itmod
+  is 'Modulo de la transaccion';
+comment on column AQPC261.aqpc261itsuc
+  is 'Sucursal de la transaccion';
+comment on column AQPC261.aqpc261ittran
+  is 'Transaccion';
+comment on column AQPC261.aqpc261itnrel
+  is 'Nro Relacion de la transaccion';
+comment on column AQPC261.aqpc261itfcon
+  is 'Fecha Contabilizacion';
+comment on column AQPC261.aqpc261ithor
+  is 'Hora Contabilizacion';
+comment on column AQPC261.aqpc261itucnf
+  is 'Usuario transaccion';
+comment on column AQPC261.aqpc261usuact
+  is 'Usuario Actualizacion';
+comment on column AQPC261.aqpc261fecact
+  is 'Fecha Actualizacion';
+comment on column AQPC261.aqpc261sucdes
+  is 'Sucursal Descripcion';
+comment on column AQPC261.aqpc261sucgdes
+  is 'Sucursal Garantia descripcion';
+create index AQPC261A2 on AQPC261 (AQPC261USR);
+alter table AQPC261
+  add primary key (AQPC261USR, AQPC261EMP, AQPC261SUC, AQPC261MOD, AQPC261MDA, AQPC261PAP, AQPC261CTA, AQPC261OPE, AQPC261SBO, AQPC261TOP, AQPC261ITCOD, AQPC261ITMOD, AQPC261ITSUC, AQPC261ITTRAN, AQPC261ITNREL, AQPC261ITFCON);
+

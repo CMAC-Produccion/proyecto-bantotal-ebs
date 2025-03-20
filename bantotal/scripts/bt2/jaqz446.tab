@@ -1,0 +1,62 @@
+create table JAQZ446
+(
+  qz446codr NUMBER(9) not null,
+  qz446codi NUMBER(3) not null,
+  pp174cod  NUMBER(9) not null,
+  qz446sts  CHAR(1) not null,
+  qz446desc VARCHAR2(250),
+  qz446au1  NUMBER(9),
+  qz446au2  NUMBER(9),
+  qz446au3  NUMBER(16,2),
+  qz446au4  NUMBER(16,2),
+  qz446au5  DATE,
+  qz446au6  DATE,
+  qz446au7  CHAR(30),
+  qz446au8  CHAR(30),
+  qz446usr  CHAR(20),
+  qz446rfec TIMESTAMP(6),
+  qz446nip  VARCHAR2(16),
+  qz446usru CHAR(20),
+  qz446afec TIMESTAMP(6)
+)
+;
+comment on column JAQZ446.qz446codr
+  is 'Codigo de Registro';
+comment on column JAQZ446.qz446codi
+  is 'Codigo de Imagen';
+comment on column JAQZ446.pp174cod
+  is 'Codigo de Lote';
+comment on column JAQZ446.qz446sts
+  is 'Estado del registro';
+comment on column JAQZ446.qz446desc
+  is 'Descripcion de la imagen del lote';
+comment on column JAQZ446.qz446au1
+  is 'Campo Auxiliar 1 de tipo numerico';
+comment on column JAQZ446.qz446au2
+  is 'Campo Auxiliar 2 de tipo numerico';
+comment on column JAQZ446.qz446au3
+  is 'Campo Auxiliar 3 de tipo numerico';
+comment on column JAQZ446.qz446au4
+  is 'Campo Auxiliar 4 de tipo numerico';
+comment on column JAQZ446.qz446au5
+  is 'Campo Auxiliar 5 de tipo fecha';
+comment on column JAQZ446.qz446au6
+  is 'Campo Auxiliar 6 de tipo fecha';
+comment on column JAQZ446.qz446au7
+  is 'Campo Auxiliar 7 de tipo caracter';
+comment on column JAQZ446.qz446au8
+  is 'Campo Auxiliar 8 de tipo caracter';
+comment on column JAQZ446.qz446usr
+  is 'Usuario que realizo el registro';
+comment on column JAQZ446.qz446rfec
+  is 'Fecha en que se realizo el registro';
+comment on column JAQZ446.qz446nip
+  is 'Numero de ip del usuario que realizo el registro';
+comment on column JAQZ446.qz446usru
+  is 'Usuario que realizo el ultimo cambio';
+comment on column JAQZ446.qz446afec
+  is 'Fecha en que se realizo el ultimo cambio del registro.';
+create unique index JAQZ4461 on JAQZ446 (PP174COD, QZ446STS, QZ446CODI);
+alter table JAQZ446
+  add primary key (QZ446CODR, QZ446CODI, PP174COD, QZ446STS);
+

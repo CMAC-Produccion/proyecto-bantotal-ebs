@@ -1,0 +1,27 @@
+create table DEPE05
+(
+  depe05fech DATE not null,
+  depe05pgco NUMBER(3) not null,
+  depe05suc  NUMBER(4) not null,
+  depe05mda  NUMBER(4) not null,
+  depe05pap  NUMBER(4) not null,
+  depe05tit  NUMBER(2) not null,
+  depe05cap  NUMBER(1) not null,
+  depe05pzo  NUMBER(1) not null,
+  depe05grp  NUMBER(2) not null,
+  depe05rubr NUMBER(16) not null,
+  depe05mes  NUMBER(2) not null,
+  depe05user CHAR(10),
+  depe05deb  NUMBER(17,2),
+  depe05cred NUMBER(17,2),
+  depe05mn   NUMBER(17,2),
+  depe05do   NUMBER(17,2),
+  depe05aux1 NUMBER(17,2),
+  depe05aux2 CHAR(60)
+)
+;
+create index DEPE0502 on DEPE05 (DEPE05TIT, DEPE05CAP, DEPE05RUBR, DEPE05GRP, DEPE05FECH, DEPE05SUC);
+create index DEPE0503 on DEPE05 (DEPE05TIT, DEPE05RUBR, DEPE05GRP, DEPE05FECH, DEPE05SUC);
+alter table DEPE05
+  add primary key (DEPE05FECH, DEPE05PGCO, DEPE05SUC, DEPE05MDA, DEPE05PAP, DEPE05TIT, DEPE05CAP, DEPE05PZO, DEPE05GRP, DEPE05RUBR, DEPE05MES);
+

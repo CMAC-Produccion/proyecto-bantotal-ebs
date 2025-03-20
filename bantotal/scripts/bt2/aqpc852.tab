@@ -1,0 +1,38 @@
+create table AQPC852
+(
+  aqpc852cor   NUMBER(30),
+  aqpc852rem   VARCHAR2(60),
+  aqpc852des   VARCHAR2(60),
+  aqpc852cc    VARCHAR2(1000),
+  aqpc852cco   VARCHAR2(1000),
+  aqpc852asu   VARCHAR2(1000),
+  aqpc852men   VARCHAR2(4000),
+  aqpc852fec   TIMESTAMP(6),
+  aqpc852usr   VARCHAR2(60),
+  aqpc852error VARCHAR2(600)
+)
+;
+comment on table AQPC852
+  is 'LOG ENVIO DE CORREOS';
+comment on column AQPC852.aqpc852cor
+  is 'Correlativo';
+comment on column AQPC852.aqpc852rem
+  is 'Remitente';
+comment on column AQPC852.aqpc852des
+  is 'Destinatario';
+comment on column AQPC852.aqpc852cc
+  is 'Copia';
+comment on column AQPC852.aqpc852cco
+  is 'Copia oculta';
+comment on column AQPC852.aqpc852asu
+  is 'Asunto';
+comment on column AQPC852.aqpc852men
+  is 'Mensaje';
+comment on column AQPC852.aqpc852fec
+  is 'Fecha';
+comment on column AQPC852.aqpc852usr
+  is 'Usuario';
+comment on column AQPC852.aqpc852error
+  is 'ERROR EN LOS CORREOS';
+create index AQPC852A2 on AQPC852 (AQPC852COR);
+

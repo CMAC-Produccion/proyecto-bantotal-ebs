@@ -1,0 +1,22 @@
+create table FSFC17L
+(
+  sfc17lcod  NUMBER(3) not null,
+  sfc17lcodp NUMBER(3) not null,
+  sfc17lfing DATE not null,
+  sfc17lhing CHAR(8) not null,
+  sfc17lok   CHAR(1),
+  sfc17ladu  CHAR(1),
+  sfc17ldsc  CHAR(30),
+  sfc17ldiex NUMBER(5),
+  sfc17ldilo NUMBER(5),
+  sfc17luing CHAR(10),
+  sfc17lwing CHAR(10),
+  sfc17lfcnf DATE,
+  sfc17lhcnf CHAR(8),
+  sfc17lucnf CHAR(10),
+  sfc17lwcnf CHAR(10)
+)
+;
+alter table FSFC17L
+  add primary key (SFC17LCOD, SFC17LCODP, SFC17LFING, SFC17LHING);
+

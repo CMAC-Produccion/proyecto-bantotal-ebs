@@ -1,0 +1,33 @@
+create table AUD_FSR005_AUDIT
+(
+  aud_old_docod      NUMBER(2),
+  aud_new_docod      NUMBER(2),
+  aud_old_dofaxp     CHAR(20),
+  aud_new_dofaxp     CHAR(20),
+  aud_old_doordp     NUMBER(2),
+  aud_new_doordp     NUMBER(2),
+  aud_old_dotelfp    CHAR(20),
+  aud_new_dotelfp    CHAR(20),
+  aud_old_dotlexp    CHAR(25),
+  aud_new_dotlexp    CHAR(25),
+  aud_old_pendoc     CHAR(12),
+  aud_new_pendoc     CHAR(12),
+  aud_old_pepais     NUMBER(3),
+  aud_new_pepais     NUMBER(3),
+  aud_old_petdoc     NUMBER(2),
+  aud_new_petdoc     NUMBER(2),
+  aud_fsr005_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fsr005_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsr005_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsr005_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fsr005_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fsr005_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fsr005_ubu     VARCHAR2(50) default USER not null,
+  aud_fsr005_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsr005_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsr005_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsr005_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsr005_uas     CHAR(1) default 'I' not null
+)
+;
+

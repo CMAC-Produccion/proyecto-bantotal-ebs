@@ -1,0 +1,14 @@
+create table AQPB303
+(
+  aqpb303inst  NUMBER(9) not null,
+  aqpb303fecha DATE not null,
+  aqpb303tdoc  NUMBER(2) not null,
+  aqpb303ndoc  VARCHAR2(12) not null,
+  aqpb303nomb  VARCHAR2(50),
+  aqpb303rpta  NUMBER(5),
+  aqpb303pais  NUMBER(5)
+)
+;
+alter table AQPB303
+  add primary key (AQPB303INST, AQPB303FECHA, AQPB303TDOC, AQPB303NDOC);
+

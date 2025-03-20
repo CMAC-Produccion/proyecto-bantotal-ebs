@@ -1,0 +1,11 @@
+create table FBC819
+(
+  bc819fch  NUMBER(6) not null,
+  bc819ndoc CHAR(11) not null,
+  bc819nom  CHAR(44),
+  bc819cod  CHAR(7)
+)
+;
+alter table FBC819
+  add primary key (BC819FCH, BC819NDOC);
+

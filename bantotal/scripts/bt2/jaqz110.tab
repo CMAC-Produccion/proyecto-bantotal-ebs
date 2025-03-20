@@ -1,0 +1,23 @@
+create table JAQZ110
+(
+  jaqz110ins    NUMBER(10) not null,
+  jaqz110emp    NUMBER(3) not null,
+  jaqz110suc    NUMBER(3) not null,
+  jaqz110mod    NUMBER(3) not null,
+  jaqz110mnd    NUMBER(4) not null,
+  jaqz110pap    NUMBER(4) not null,
+  jaqz110cta    NUMBER(9) not null,
+  jaqz110ope    NUMBER(9) not null,
+  jaqz110sbo    NUMBER(3) not null,
+  jaqz110top    NUMBER(3) not null,
+  jaqz110tip    NUMBER(2) not null,
+  jaqz110aprnue CHAR(1),
+  jaqz110aprref CHAR(1),
+  jaqz110aprrep CHAR(1),
+  jaqz110fecapr DATE,
+  jaqz110usuapr VARCHAR2(10)
+)
+;
+alter table JAQZ110
+  add primary key (JAQZ110INS, JAQZ110EMP, JAQZ110SUC, JAQZ110MOD, JAQZ110MND, JAQZ110PAP, JAQZ110CTA, JAQZ110OPE, JAQZ110SBO, JAQZ110TOP, JAQZ110TIP);
+

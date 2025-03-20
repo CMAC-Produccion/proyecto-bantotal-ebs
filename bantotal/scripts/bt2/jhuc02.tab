@@ -1,0 +1,20 @@
+create table JHUC02
+(
+  jhuc02pg   NUMBER(3) not null,
+  jhuc02eor  CHAR(1) not null,
+  jhuc02ope  NUMBER(9) not null,
+  jhuc02fope DATE,
+  jhuc02fval DATE,
+  jhuc02tope CHAR(5),
+  jhuc01id   CHAR(3),
+  jhuc02mda  NUMBER(4),
+  jhuc02imp  NUMBER(17,2),
+  jhuc02impd NUMBER(17,2),
+  jhuc02com  NUMBER(17,2),
+  jhuc02corr NUMBER(9),
+  jhuc02ref  CHAR(65)
+)
+;
+create unique index JHUC0201 on JHUC02 (JHUC02PG, JHUC02EOR, JHUC02OPE);
+create index JHUC0203 on JHUC02 (JHUC01ID, JHUC02EOR, JHUC02OPE);
+

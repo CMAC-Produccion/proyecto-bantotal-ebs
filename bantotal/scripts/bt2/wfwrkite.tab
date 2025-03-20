@@ -1,0 +1,31 @@
+create table WFWRKITE
+(
+  wfitemid   NUMBER(10) not null,
+  wfinsprcid NUMBER(10),
+  wfitemusrc CHAR(30),
+  wfitemrolc NUMBER(4),
+  wftaskcod  NUMBER(4),
+  wfiteminit DATE,
+  wfitemend  DATE,
+  wfstscod   CHAR(1),
+  wfitemstsa NUMBER(1),
+  wfitemwarn CHAR(1),
+  wfitemwrnt DATE,
+  wfitemdlnt DATE,
+  wfitemprcu NUMBER(10),
+  wfitemcndc NUMBER(3),
+  xwfitemace CHAR(1),
+  wfprcid    NUMBER(4)
+)
+;
+create index IWFWRKI2 on WFWRKITE (WFSTSCOD);
+create index UWFWRK10 on WFWRKITE (WFPRCID, WFTASKCOD, WFSTSCOD);
+create index UWFWRK3 on WFWRKITE (WFINSPRCID, WFTASKCOD);
+create index UWFWRK4 on WFWRKITE (WFPRCID, WFINSPRCID);
+create index UWFWRK5 on WFWRKITE (WFPRCID, WFTASKCOD, WFITEMSTSA);
+create index UWFWRK7 on WFWRKITE (WFPRCID, WFTASKCOD, WFINSPRCID, WFITEMID);
+create index UWFWRK8 on WFWRKITE (WFITEMSTSA, WFITEMUSRC);
+create index UWFWRK9 on WFWRKITE (WFITEMROLC, WFITEMSTSA);
+alter table WFWRKITE
+  add primary key (WFITEMID);
+

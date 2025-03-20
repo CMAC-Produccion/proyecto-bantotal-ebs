@@ -1,0 +1,23 @@
+create table AQPA809
+(
+  aqpa806cod    NUMBER(17) not null,
+  aqpa809pdoc   NUMBER(4) not null,
+  aqpa809tdoc   NUMBER(2) not null,
+  aqpa809ndoc   CHAR(12) not null,
+  aqpa809nom    VARCHAR2(50),
+  aqpa809dir    VARCHAR2(140),
+  aqpa809ubigeo CHAR(6),
+  aqpa809usu    CHAR(10),
+  aqpa809fec    DATE,
+  aqpa809ref1   VARCHAR2(50),
+  aqpa809tel1   VARCHAR2(15),
+  aqpa809ref2   VARCHAR2(50),
+  aqpa809tel2   VARCHAR2(15),
+  aqpa809ref3   VARCHAR2(50),
+  aqpa809tel3   VARCHAR2(15)
+)
+;
+create index AQPA8092 on AQPA809 (AQPA806COD);
+alter table AQPA809
+  add primary key (AQPA806COD, AQPA809PDOC, AQPA809TDOC, AQPA809NDOC);
+

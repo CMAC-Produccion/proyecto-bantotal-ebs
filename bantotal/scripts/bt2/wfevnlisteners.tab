@@ -1,0 +1,11 @@
+create table WFEVNLISTENERS
+(
+  wfevntype     NUMBER(2) not null,
+  wfevnlisscope NUMBER(2) not null,
+  wfevnlisarg   CHAR(30) not null,
+  wfevnlisapp   CHAR(30) not null
+)
+;
+alter table WFEVNLISTENERS
+  add primary key (WFEVNTYPE, WFEVNLISSCOPE, WFEVNLISARG, WFEVNLISAPP);
+

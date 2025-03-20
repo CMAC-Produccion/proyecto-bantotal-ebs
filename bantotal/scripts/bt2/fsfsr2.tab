@@ -1,0 +1,23 @@
+create table FSFSR2
+(
+  sfst1merc  NUMBER(3) not null,
+  sfsd7msje  NUMBER(4) not null,
+  sfsd7flujo CHAR(1) not null,
+  sfsr1nro   NUMBER(4) not null,
+  sfsr2nro   NUMBER(2) not null,
+  sfsr2desc  CHAR(35),
+  sfsr2tp    CHAR(1),
+  sfsr2reto  CHAR(1),
+  sfsr2mult  CHAR(1),
+  sfsr2inte  CHAR(1),
+  sfsr2tmod  NUMBER(3),
+  sfsr2ttrn  NUMBER(3),
+  sfsr2mer   NUMBER(3),
+  sfsr2pro   NUMBER(3),
+  sfsr2pprog CHAR(8),
+  sfsr2stat  CHAR(1)
+)
+;
+alter table FSFSR2
+  add primary key (SFST1MERC, SFSD7MSJE, SFSD7FLUJO, SFSR1NRO, SFSR2NRO);
+

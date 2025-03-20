@@ -1,0 +1,21 @@
+create table AQPA184D
+(
+  aqpa184did     NUMBER(10) not null,
+  aqpa184dcorr   NUMBER(5) not null,
+  aqpa184dsalcap NUMBER(17,2),
+  aqpa184dgasfin NUMBER(17,4),
+  aqpa184dnomemp VARCHAR2(200),
+  aqpa184dfactor NUMBER(9,4),
+  aqpa184drubro  VARCHAR2(20),
+  aqpa184dcodemp VARCHAR2(5),
+  aqpa184dnumdoc CHAR(12),
+  aqpa184dcodsbs VARCHAR2(10),
+  aqpa184dfecrcc DATE,
+  aqpa184dtipcre VARCHAR2(50),
+  aqpa184dtipcod VARCHAR2(2)
+)
+;
+create index AQPA184D2 on AQPA184D (AQPA184DNUMDOC);
+alter table AQPA184D
+  add primary key (AQPA184DID, AQPA184DCORR);
+

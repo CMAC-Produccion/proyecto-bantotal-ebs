@@ -1,0 +1,10 @@
+create table PEGCSV
+(
+  pegid   CHAR(20) not null,
+  pegcuid VARCHAR2(36) not null,
+  pegcnam CHAR(160)
+)
+;
+alter table PEGCSV
+  add primary key (PEGID, PEGCUID);
+

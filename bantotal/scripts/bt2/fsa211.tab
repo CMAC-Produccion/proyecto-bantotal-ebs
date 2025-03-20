@@ -1,0 +1,25 @@
+create table FSA211
+(
+  axuser  CHAR(10) not null,
+  pgcod   NUMBER(3) not null,
+  axsuc   NUMBER(3) not null,
+  axmda   NUMBER(4) not null,
+  axpap   NUMBER(4) not null,
+  axtit   NUMBER(2) not null,
+  axcap   NUMBER(1) not null,
+  axppzo  NUMBER(1) not null,
+  axgru   NUMBER(2) not null,
+  axrubro NUMBER(16) not null,
+  axsdxmo NUMBER(17,2),
+  axsdxus NUMBER(17,2),
+  axsdxmn NUMBER(17,2),
+  axsdxdh NUMBER(17,2)
+)
+;
+create index FSA21102 on FSA211 (PGCOD, AXSUC);
+create index FSA21103 on FSA211 (AXUSER, PGCOD, AXMDA, AXRUBRO, AXSUC);
+create index FSA21104 on FSA211 (AXUSER, PGCOD, AXTIT, AXCAP, AXGRU, AXRUBRO, AXMDA);
+create index FSA21105 on FSA211 (AXUSER, PGCOD, AXSUC, AXTIT, AXCAP, AXGRU, AXRUBRO);
+alter table FSA211
+  add primary key (AXUSER, PGCOD, AXSUC, AXMDA, AXPAP, AXTIT, AXCAP, AXPPZO, AXGRU, AXRUBRO);
+

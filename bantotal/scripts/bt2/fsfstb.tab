@@ -1,0 +1,10 @@
+create table FSFSTB
+(
+  sfst1merc NUMBER(3) not null,
+  sfstbcod  CHAR(4) not null,
+  sfstbdesc CHAR(40)
+)
+;
+alter table FSFSTB
+  add primary key (SFST1MERC, SFSTBCOD);
+

@@ -1,0 +1,16 @@
+create table FIFM02
+(
+  ifm02cod NUMBER(3) not null,
+  ifm02fch DATE not null,
+  ifm02ori NUMBER(3) not null,
+  ifm02nro NUMBER(9) not null,
+  ifm02asi NUMBER(9) not null,
+  ifm02ord NUMBER(2) not null,
+  ifm02sbo NUMBER(3) not null,
+  ifm02err NUMBER(5),
+  ifm02dsc CHAR(70)
+)
+;
+alter table FIFM02
+  add primary key (IFM02COD, IFM02FCH, IFM02ORI, IFM02NRO, IFM02ASI, IFM02ORD, IFM02SBO);
+

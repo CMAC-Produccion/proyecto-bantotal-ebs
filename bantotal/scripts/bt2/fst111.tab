@@ -1,0 +1,10 @@
+create table FST111
+(
+  dscod  NUMBER(3) not null,
+  modulo NUMBER(3) not null
+)
+;
+create index FST11103 on FST111 (MODULO);
+alter table FST111
+  add primary key (DSCOD, MODULO);
+

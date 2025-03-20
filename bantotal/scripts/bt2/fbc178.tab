@@ -1,0 +1,20 @@
+create table FBC178
+(
+  bcempr    NUMBER(3) not null,
+  bcinfor   CHAR(10) not null,
+  bcfinf    DATE not null,
+  bcsuc     NUMBER(3) not null,
+  bcmda     NUMBER(4) not null,
+  bcdep     NUMBER(2) not null,
+  bcciu     NUMBER(3) not null,
+  bczon     NUMBER(2) not null,
+  bcpuc     NUMBER(16) not null,
+  bccampo   CHAR(8),
+  bcsdocpm1 NUMBER(17,2),
+  bcsdocpm2 NUMBER(17,2)
+)
+;
+create index FBC17802 on FBC178 (BCEMPR, BCINFOR, BCFINF, BCDEP, BCCIU, BCZON, BCMDA, BCPUC);
+alter table FBC178
+  add primary key (BCEMPR, BCINFOR, BCFINF, BCSUC, BCMDA, BCDEP, BCCIU, BCZON, BCPUC);
+

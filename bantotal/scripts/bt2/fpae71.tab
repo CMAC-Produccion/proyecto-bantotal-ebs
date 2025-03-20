@@ -1,0 +1,14 @@
+create table FPAE71
+(
+  pae51eva NUMBER(3) not null,
+  pae70nro NUMBER(10) not null,
+  pae71ite NUMBER(5) not null,
+  pae71scv NUMBER(17,9),
+  pae71pol CHAR(1),
+  pae71msg CHAR(80),
+  pae71val CHAR(30)
+)
+;
+alter table FPAE71
+  add primary key (PAE51EVA, PAE70NRO, PAE71ITE);
+

@@ -1,0 +1,27 @@
+create table AQPC164
+(
+  aqpc164fn_cii VARCHAR2(40),
+  aqpc164fn_des VARCHAR2(60),
+  aqpc164rieact VARCHAR2(15),
+  aqpc164segcaq VARCHAR2(10),
+  aqpc164secaq2 VARCHAR2(13),
+  aqpc164etapa  VARCHAR2(10),
+  aqpc164micac  VARCHAR2(27)
+)
+;
+comment on table AQPC164
+  is 'Tabla temporal clon aojeda_anx.microactividadx';
+comment on column AQPC164.aqpc164fn_cii
+  is 'FN_CII';
+comment on column AQPC164.aqpc164fn_des
+  is 'FN_DESCRIPCION';
+comment on column AQPC164.aqpc164rieact
+  is 'RIEACT';
+comment on column AQPC164.aqpc164segcaq
+  is 'SEGCAQ ';
+comment on column AQPC164.aqpc164etapa
+  is 'ETAPA';
+comment on column AQPC164.aqpc164micac
+  is 'MICAC';
+create index AQPC164A2 on AQPC164 (AQPC164FN_CII, AQPC164ETAPA);
+

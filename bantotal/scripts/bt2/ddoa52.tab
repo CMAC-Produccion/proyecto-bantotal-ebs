@@ -1,0 +1,37 @@
+create table DDOA52
+(
+  ddo52pais  NUMBER(3) not null,
+  ddo52tdoc  NUMBER(2) not null,
+  ddo52ndoc  CHAR(12) not null,
+  ddo52sts   CHAR(1),
+  ddo52pgcod NUMBER(3),
+  ddo52ctnro NUMBER(9),
+  ddo52nom   CHAR(100),
+  ddo52sect  NUMBER(2),
+  ddo52dir   CHAR(100),
+  ddo52telp  CHAR(15),
+  ddo52tell  CHAR(15),
+  ddo52telc  CHAR(15),
+  ddo52telo  CHAR(15),
+  ddo52telf  CHAR(15),
+  ddo52mail  CHAR(50),
+  ddo52rnom  CHAR(50),
+  ddo52rape  CHAR(60),
+  ddo52rced  CHAR(25),
+  ddo52rnac  CHAR(20),
+  ddo52rsex  CHAR(1),
+  ddo52rcarg CHAR(40),
+  ddo52rdir  CHAR(100),
+  ddo52rtelp CHAR(15),
+  ddo52rtelc CHAR(15),
+  ddo52rtelo CHAR(15),
+  ddo52rmail CHAR(50),
+  ddo52ausr  CHAR(20),
+  ddo52afech DATE,
+  ddo52musr  CHAR(20),
+  ddo52mfech DATE
+)
+;
+alter table DDOA52
+  add primary key (DDO52PAIS, DDO52TDOC, DDO52NDOC);
+

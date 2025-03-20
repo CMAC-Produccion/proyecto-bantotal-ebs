@@ -1,0 +1,31 @@
+create table FSFIAG
+(
+  sfiagemp NUMBER(3) not null,
+  sfiagsuc NUMBER(3) not null,
+  sfiagmod NUMBER(3) not null,
+  sfiagope NUMBER(9) not null,
+  sfiagtop NUMBER(3) not null,
+  sfiagren NUMBER(3) not null,
+  sfiagfin DATE not null,
+  sfiaghin CHAR(8) not null,
+  sfiagcod NUMBER(9),
+  sfiaguin CHAR(10),
+  sfiagwin CHAR(10),
+  sfiagucf CHAR(10),
+  sfiagwcf CHAR(10),
+  sfiagfcf DATE,
+  sfiaghcf CHAR(8),
+  sfiaga01 NUMBER(9),
+  sfiaga02 NUMBER(9),
+  sfiaga03 DATE,
+  sfiaga04 DATE,
+  sfiaga05 CHAR(1),
+  sfiaga06 CHAR(1),
+  sfiaga07 CHAR(35),
+  sfiaga08 CHAR(35)
+)
+;
+create index FSFIAG02 on FSFIAG (SFIAGEMP, SFIAGFIN, SFIAGHIN);
+alter table FSFIAG
+  add primary key (SFIAGEMP, SFIAGSUC, SFIAGMOD, SFIAGOPE, SFIAGTOP, SFIAGREN, SFIAGFIN, SFIAGHIN);
+

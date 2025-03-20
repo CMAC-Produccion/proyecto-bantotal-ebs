@@ -1,0 +1,69 @@
+create table AQPB515L
+(
+  aqpb515lserial NUMBER(10) not null,
+  aqpb515lsecue  NUMBER(6) not null,
+  aqpb515lcoafp  VARCHAR2(100),
+  aqpb515lpedev  DATE not null,
+  aqpb515lrasoc  VARCHAR2(100),
+  aqpb515ltipde  VARCHAR2(100),
+  aqpb515lmtoda  NUMBER(16,2),
+  aqpb515lindde  VARCHAR2(100),
+  aqpb515laccio  VARCHAR2(100),
+  aqpb515lconre  VARCHAR2(100),
+  aqpb515lfecre  DATE,
+  aqpb515lfeact  DATE,
+  aqpb515lfeccn  DATE,
+  aqpb515lcosus  VARCHAR2(100),
+  aqpb515lfacsu  DATE,
+  aqpb515ltidet  CHAR(2),
+  aqpb515lmtodf  NUMBER(16,2),
+  aqpb515lconcod VARCHAR2(16) not null,
+  aqpb515lcreusr VARCHAR2(30) not null,
+  aqpb515lcretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515L
+  is 'AFP - EQUIFAX';
+comment on column AQPB515L.aqpb515lserial
+  is 'SERIAL';
+comment on column AQPB515L.aqpb515lsecue
+  is 'SECUENCIA';
+comment on column AQPB515L.aqpb515lcoafp
+  is 'CODIGO AFP';
+comment on column AQPB515L.aqpb515lpedev
+  is 'PERIODO DEVENGUE';
+comment on column AQPB515L.aqpb515lrasoc
+  is 'RAZON SOCIAL';
+comment on column AQPB515L.aqpb515ltipde
+  is 'TIPO DEUDA';
+comment on column AQPB515L.aqpb515lmtoda
+  is 'MONTO DEUDA FONDO';
+comment on column AQPB515L.aqpb515lindde
+  is 'INDICADOR DE DEUDA';
+comment on column AQPB515L.aqpb515laccio
+  is 'ACCION';
+comment on column AQPB515L.aqpb515lconre
+  is 'CONDICION DE REGISTRO';
+comment on column AQPB515L.aqpb515lfecre
+  is 'FECHA CREACION';
+comment on column AQPB515L.aqpb515lfeact
+  is 'FECHA ACTUALIZACION';
+comment on column AQPB515L.aqpb515lfeccn
+  is 'FECHA CAMBIO CONDICION';
+comment on column AQPB515L.aqpb515lcosus
+  is 'CODIGO SUSBCRIPTOR';
+comment on column AQPB515L.aqpb515lfacsu
+  is 'FECHA ACTUALIZACION SUSCRIPTOR';
+comment on column AQPB515L.aqpb515ltidet
+  is 'FECHA Y HORA DE CREACION';
+comment on column AQPB515L.aqpb515lmtodf
+  is 'MONTO DEUDA AFP';
+comment on column AQPB515L.aqpb515lconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515L.aqpb515lcreusr
+  is 'CONSULTA - USUARIO CREACION';
+comment on column AQPB515L.aqpb515lcretim
+  is 'CONSULTA - FECHA Y HORA DE CREACION';
+alter table AQPB515L
+  add primary key (AQPB515LSERIAL, AQPB515LSECUE, AQPB515LPEDEV, AQPB515LCONCOD, AQPB515LCREUSR);
+

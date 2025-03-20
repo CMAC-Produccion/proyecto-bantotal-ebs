@@ -1,0 +1,35 @@
+create table SNG419
+(
+  sng410corr NUMBER(10) not null,
+  sng419fect DATE not null,
+  sng419acc  NUMBER(1),
+  sng419wrks CHAR(10),
+  sng419user CHAR(10),
+  sng419usro CHAR(10),
+  sng419caro NUMBER(5),
+  sng419usrd CHAR(10),
+  sng419card NUMBER(5),
+  sng419au9  NUMBER(4),
+  sng419au8  NUMBER(4),
+  sng419au7  NUMBER(4),
+  sng419au6  NUMBER(4),
+  sng419au5  NUMBER(4),
+  sng419au4  NUMBER(4),
+  sng419au3  NUMBER(4),
+  sng419au2  NUMBER(4),
+  sng419au1  NUMBER(4),
+  sng419top  NUMBER(3),
+  sng419sbo  NUMBER(3),
+  sng419ope  NUMBER(9),
+  sng419cta  NUMBER(9),
+  sng419pap  NUMBER(4),
+  sng419mda  NUMBER(4),
+  sng419suc  NUMBER(3),
+  sng419mod  NUMBER(3),
+  sng419pgc  NUMBER(3)
+)
+;
+create index SNG41903 on SNG419 (SNG419PGC, SNG419MOD, SNG419SUC, SNG419MDA, SNG419PAP, SNG419CTA, SNG419OPE, SNG419SBO, SNG419TOP, SNG419FECT);
+alter table SNG419
+  add primary key (SNG410CORR, SNG419FECT);
+

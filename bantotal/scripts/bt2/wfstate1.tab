@@ -1,0 +1,11 @@
+create table WFSTATE1
+(
+  wfstscod CHAR(1) not null,
+  wflngid  CHAR(3) not null,
+  wfstsdsc CHAR(20)
+)
+;
+create index IWFSTA11 on WFSTATE1 (WFLNGID);
+alter table WFSTATE1
+  add primary key (WFSTSCOD, WFLNGID);
+

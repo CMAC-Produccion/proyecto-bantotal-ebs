@@ -1,0 +1,29 @@
+create table JAQL483
+(
+  jaql483pgo NUMBER(3) not null,
+  jaql483suc NUMBER(3) not null,
+  jaql483mod NUMBER(3) not null,
+  jaql483mda NUMBER(4) not null,
+  jaql483pap NUMBER(4) not null,
+  jaql483cta NUMBER(9) not null,
+  jaql483ope NUMBER(9) not null,
+  jaql483sbo NUMBER(3) not null,
+  jaql483tpo NUMBER(3) not null,
+  jaql483bcr NUMBER(16) not null,
+  jaql483fch DATE not null,
+  jaql483tot NUMBER(16,2),
+  jaql483dia NUMBER(9),
+  jaql483ax1 CHAR(100),
+  jaql483ax2 CHAR(100),
+  jaql483ax3 NUMBER(9),
+  jaql483ax4 NUMBER(9),
+  jaql483ax5 NUMBER(16,2),
+  jaql483ax6 NUMBER(16,2),
+  jaql483ax7 NUMBER(16,2),
+  jaql483ax8 DATE,
+  jaql483ax9 DATE
+)
+;
+alter table JAQL483
+  add primary key (JAQL483PGO, JAQL483SUC, JAQL483MOD, JAQL483MDA, JAQL483PAP, JAQL483CTA, JAQL483OPE, JAQL483SBO, JAQL483TPO, JAQL483BCR, JAQL483FCH);
+

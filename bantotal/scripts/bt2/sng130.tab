@@ -1,0 +1,23 @@
+create table SNG130
+(
+  sng130cor  NUMBER(10) not null,
+  sng130pgc  NUMBER(3),
+  sng130user CHAR(10),
+  sng130wkst CHAR(10),
+  sng130fape DATE,
+  sng130now  CHAR(8),
+  sng130suor NUMBER(3),
+  sng130suds NUMBER(3),
+  sng130asor CHAR(10),
+  sng130asds CHAR(10),
+  sng130inta NUMBER(9),
+  sng130impa NUMBER(17,2),
+  sng130feca DATE,
+  sng130chra CHAR(30)
+)
+;
+create index SNG13002 on SNG130 (SNG130USER, SNG130FAPE);
+create index SNG13003 on SNG130 (SNG130ASOR);
+alter table SNG130
+  add primary key (SNG130COR);
+

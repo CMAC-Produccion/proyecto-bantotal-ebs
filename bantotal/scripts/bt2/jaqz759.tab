@@ -1,0 +1,50 @@
+create table JAQZ759
+(
+  jaqz759ntar   CHAR(19) not null,
+  jaqz759pai    NUMBER(3) not null,
+  jaqz759tdc    NUMBER(2) not null,
+  jaqz759ndc    CHAR(12) not null,
+  jaqz759cmod   NUMBER(3) not null,
+  jaqz759sucor  NUMBER(3) not null,
+  jaqz759tran   NUMBER(3) not null,
+  jaqz759nrel   NUMBER(4) not null,
+  jaqz759cord   NUMBER(2) not null,
+  jaqz759fcon   DATE not null,
+  jaqz759crec   VARCHAR2(20),
+  jaqz759cimp1  NUMBER(16,2),
+  jaqz759modul  NUMBER(3),
+  jaqz759oper   NUMBER(9),
+  jaqz759sct    NUMBER(3),
+  jaqz759cta    NUMBER(9),
+  jaqz759pap    NUMBER(4),
+  jaqz759mda    NUMBER(4),
+  jaqz759sucur  NUMBER(3),
+  jaqz759toper  NUMBER(3),
+  jaqz759mod    NUMBER(3),
+  jaqz759imp    NUMBER(16,2),
+  jaqz759est    NUMBER(3),
+  jaqz759can    NUMBER(3),
+  jaqz759ext    NUMBER(1),
+  jaqz759hrc    CHAR(8),
+  jaqz759tipolo NUMBER(3),
+  jaqz759codaut VARCHAR2(20),
+  jaqz759establ VARCHAR2(90),
+  jaqz759pagora NUMBER(1),
+  jaqz759devolu NUMBER(3)
+)
+;
+comment on column JAQZ759.jaqz759tipolo
+  is 'Tipologia';
+comment on column JAQZ759.jaqz759codaut
+  is 'Cod Auth';
+comment on column JAQZ759.jaqz759establ
+  is 'Establecimiento';
+comment on column JAQZ759.jaqz759pagora
+  is 'Pago Rapido';
+comment on column JAQZ759.jaqz759devolu
+  is 'Devolucion';
+create index JAQ7591 on JAQZ759 (JAQZ759FCON);
+create index JAQ7592 on JAQZ759 (JAQZ759PAI, JAQZ759TDC, JAQZ759NDC, JAQZ759CREC, JAQZ759FCON, JAQZ759HRC);
+alter table JAQZ759
+  add primary key (JAQZ759NTAR, JAQZ759PAI, JAQZ759TDC, JAQZ759NDC, JAQZ759CMOD, JAQZ759SUCOR, JAQZ759TRAN, JAQZ759NREL, JAQZ759CORD, JAQZ759FCON);
+

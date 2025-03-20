@@ -1,0 +1,10 @@
+create table WFITEMDO
+(
+  wfitemid   NUMBER(10) not null,
+  wfinsdocid NUMBER(10) not null,
+  wfinsdocln CHAR(3) not null,
+  wfinsdocve NUMBER(6) not null
+)
+;
+create unique index IWFITEMD on WFITEMDO (WFITEMID, WFINSDOCID, WFINSDOCLN, WFINSDOCVE);
+

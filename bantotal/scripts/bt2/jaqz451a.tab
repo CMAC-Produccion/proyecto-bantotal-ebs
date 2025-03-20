@@ -1,0 +1,27 @@
+create table JAQZ451A
+(
+  jaqz451afpro DATE not null,
+  jaqz451accli VARCHAR2(20) not null,
+  jaqz451apai  NUMBER(3),
+  jaqz451atdo  NUMBER(2),
+  jaqz451apen  CHAR(12) not null,
+  jaqz451aest  VARCHAR2(20) not null
+)
+;
+comment on table JAQZ451A
+  is 'Tabla Cabecera Retencion';
+comment on column JAQZ451A.jaqz451afpro
+  is 'Fecha proceso';
+comment on column JAQZ451A.jaqz451accli
+  is 'Codigo cliente';
+comment on column JAQZ451A.jaqz451apai
+  is 'Pais';
+comment on column JAQZ451A.jaqz451atdo
+  is 'Tipo documento';
+comment on column JAQZ451A.jaqz451apen
+  is 'Numdoc';
+comment on column JAQZ451A.jaqz451aest
+  is 'Estado';
+create index JAQZ451A1 on JAQZ451A (JAQZ451AFPRO, JAQZ451ACCLI);
+create index JAQZ451A2 on JAQZ451A (JAQZ451AFPRO, JAQZ451APAI, JAQZ451ATDO, JAQZ451APEN);
+

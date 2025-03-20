@@ -1,0 +1,18 @@
+create table JAQZ664
+(
+  jaqz664fec  DATE,
+  jaqz664pai  NUMBER(3),
+  jaqz664tdo  NUMBER(2),
+  jaqz664ndo  CHAR(12),
+  jaqz664seg  NUMBER(5),
+  jaqz664tic  CHAR(30),
+  jaqz664sec  NUMBER(5),
+  jaqz664aux1 CHAR(5),
+  jaqz664aux2 NUMBER(10),
+  jaqz664aux3 NUMBER(17,2)
+)
+;
+create index JAQZ6642 on JAQZ664 (JAQZ664PAI, JAQZ664TDO, JAQZ664NDO);
+create index JAQZ6643 on JAQZ664 (JAQZ664FEC);
+create index JAQZ6644 on JAQZ664 (JAQZ664FEC, JAQZ664PAI, JAQZ664TDO, JAQZ664NDO);
+

@@ -1,0 +1,146 @@
+create table AQPB612
+(
+  aqpb612correl NUMBER(10),
+  aqpb612cuenta NUMBER(9),
+  aqpb612operac NUMBER(9),
+  aqpb612instan NUMBER(10) not null,
+  aqpb612numeva NUMBER(10),
+  aqpb612feceva DATE,
+  aqpb612tipcam NUMBER(14,8),
+  aqpb612cunudo NUMBER(17,2),
+  aqpb612cunuso NUMBER(17,2),
+  aqpb612cuviso NUMBER(17,2),
+  aqpb612cuvido NUMBER(17,2),
+  aqpb612reneso NUMBER(17,2),
+  aqpb612renedo NUMBER(17,2),
+  aqpb612exneso NUMBER(17,2),
+  aqpb612exnedo NUMBER(17,2),
+  aqpb612torene NUMBER(17,2),
+  aqpb612toexne NUMBER(17,2),
+  aqpb612plreso NUMBER(17,2),
+  aqpb612plrecv NUMBER(17,2),
+  aqpb612shoapl NUMBER(17,6),
+  aqpb612indcad CHAR(1),
+  aqpb612estado CHAR(1),
+  aqpb612usugen VARCHAR2(10),
+  aqpb612fecgen DATE,
+  aqpb612horgen VARCHAR2(15),
+  aqpb612tipper CHAR(1),
+  aqpb612despar NUMBER,
+  aqpb612saldol NUMBER(17,2),
+  aqpb612salsol NUMBER(17,2),
+  aqpb612monsol CHAR(1),
+  aqpb612deudol CHAR(1),
+  aqpb612deusol CHAR(1),
+  aqpb612vendol NUMBER(17,2),
+  aqpb612vensol NUMBER(17,2),
+  aqpb612resdol NUMBER(17,2),
+  aqpb612ressol NUMBER(17,2),
+  aqpb612excdol NUMBER(17,2),
+  aqpb612excsol NUMBER(17,2),
+  aqpb612plavig NUMBER(17,2),
+  aqpb612plavue NUMBER(17,2),
+  aqpb612plaven NUMBER(17,2),
+  aqpb612rg5921 VARCHAR2(5),
+  aqpb612rg5922 NUMBER(17,6),
+  aqpb612usureg VARCHAR2(10) not null,
+  aqpb612fecreg DATE not null,
+  aqpb612horreg VARCHAR2(15) not null
+)
+;
+comment on column AQPB612.aqpb612correl
+  is 'Correlativo';
+comment on column AQPB612.aqpb612cuenta
+  is 'Cuenta';
+comment on column AQPB612.aqpb612operac
+  is 'Operación';
+comment on column AQPB612.aqpb612instan
+  is 'Instancia';
+comment on column AQPB612.aqpb612numeva
+  is 'Número de evaluación';
+comment on column AQPB612.aqpb612feceva
+  is 'Fecha en que se realizó la evaluación de riesgo cambiario en Bantotal(admisión).';
+comment on column AQPB612.aqpb612tipcam
+  is 'Tipo de cambio utilizado al momento de la evaluación del shock de riesgo cambiario en Bantotal (admisión).';
+comment on column AQPB612.aqpb612cunudo
+  is 'Cuota nueva en dólares (de ser el nuevo crédito en dólares)';
+comment on column AQPB612.aqpb612cunuso
+  is 'Cuota nueva en soles (de ser el nuevo crédito en soles)';
+comment on column AQPB612.aqpb612cuviso
+  is 'Cuotas vigentes en soles';
+comment on column AQPB612.aqpb612cuvido
+  is 'Cuotas vigentes en dólares';
+comment on column AQPB612.aqpb612reneso
+  is 'Resultado Neto en soles (datos obtenidos de la evaluación asociada al crédito solicitado - admisión)';
+comment on column AQPB612.aqpb612renedo
+  is 'Resultado Neto en dólares (datos obtenidos de la evaluación asociada al crédito solicitado - admisión)';
+comment on column AQPB612.aqpb612exneso
+  is 'Excedente Neto en soles (datos obtenidos de la evaluación asociada al crédito solicitado - admisión)';
+comment on column AQPB612.aqpb612exnedo
+  is 'Excedente Neto en dólares (datos obtenidos de la evaluación asociada al crédito solicitado - admisión)';
+comment on column AQPB612.aqpb612torene
+  is 'Total Resultado Neto (datos obtenidos de la evaluación asociada al crédito solicitado - admisión)';
+comment on column AQPB612.aqpb612toexne
+  is 'Total Excedente Neto (datos obtenidos de la evaluación asociada al crédito solicitado - admisión)';
+comment on column AQPB612.aqpb612plreso
+  is 'Plazo residual de la operación asociada al crédito solicitado (nuevo)';
+comment on column AQPB612.aqpb612plrecv
+  is 'Plazo residual de la operación asociada a los créditos vigentes';
+comment on column AQPB612.aqpb612shoapl
+  is 'Shock aplicado en la determinación del ratio (10% ó 20%)';
+comment on column AQPB612.aqpb612indcad
+  is 'Indicador de la exposición a riesgo cambiario del cliente';
+comment on column AQPB612.aqpb612estado
+  is 'Estado del registro G - utlimo consultado y S anterior';
+comment on column AQPB612.aqpb612usugen
+  is 'Usuario en que se genera el registros';
+comment on column AQPB612.aqpb612fecgen
+  is 'Fecha en que se genera el registros';
+comment on column AQPB612.aqpb612horgen
+  is 'Fecha en que se genera el registros';
+comment on column AQPB612.aqpb612tipper
+  is 'Variable  1: TIPO_PERSONA';
+comment on column AQPB612.aqpb612despar
+  is 'Variable  2: DES_PARCIAL';
+comment on column AQPB612.aqpb612saldol
+  is 'Variable  3: SALARIO_DOL';
+comment on column AQPB612.aqpb612salsol
+  is 'Variable  4: SALARIO_SOL';
+comment on column AQPB612.aqpb612monsol
+  is 'Variable  5: MONEDA_SOLICITUD_SOL';
+comment on column AQPB612.aqpb612deudol
+  is 'Variable  6: DEUDA_EN_DOLAR';
+comment on column AQPB612.aqpb612deusol
+  is 'Variable  7: DEUDA_EN_SOLES';
+comment on column AQPB612.aqpb612vendol
+  is 'Variable  8: VENTAS_DOL';
+comment on column AQPB612.aqpb612vensol
+  is 'Variable  9: VENTAS_SOL';
+comment on column AQPB612.aqpb612resdol
+  is 'Variable 10: RESULTADO_DOL';
+comment on column AQPB612.aqpb612ressol
+  is 'Variable 11: RESULTADO_SOL';
+comment on column AQPB612.aqpb612excdol
+  is 'Variable 12: EXCEDENTE_DOL';
+comment on column AQPB612.aqpb612excsol
+  is 'Variable 13: EXCEDENTE_SOL';
+comment on column AQPB612.aqpb612plavig
+  is 'MAXIMO PLAZO RESIDUAL VIGENTE';
+comment on column AQPB612.aqpb612plavue
+  is 'MAXIMO PLAZO RESIDUAL VUELA';
+comment on column AQPB612.aqpb612plaven
+  is 'MAXIMO PLAZO RESIDUAL VENCIDO';
+comment on column AQPB612.aqpb612rg5921
+  is 'Regla 5921';
+comment on column AQPB612.aqpb612rg5922
+  is 'Regla 5922';
+comment on column AQPB612.aqpb612usureg
+  is 'Usuario de la Regla';
+comment on column AQPB612.aqpb612fecreg
+  is 'Fecha de la Regla';
+comment on column AQPB612.aqpb612horreg
+  is 'Hora de la Regla';
+create index AQPB612A2 on AQPB612 (AQPB612INSTAN);
+alter table AQPB612
+  add primary key (AQPB612USUREG, AQPB612FECREG, AQPB612HORREG, AQPB612INSTAN);
+

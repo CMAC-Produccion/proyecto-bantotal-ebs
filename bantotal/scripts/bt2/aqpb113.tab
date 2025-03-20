@@ -1,0 +1,32 @@
+create table AQPB113
+(
+  aqpb113corr   NUMBER(6) not null,
+  aqpb113fec    DATE not null,
+  aqpb113idgrp  CHAR(6),
+  aqpb113idemp  CHAR(10),
+  aqpb113idser  CHAR(6),
+  aqpb113nomemp VARCHAR2(40),
+  aqpb113nomser VARCHAR2(40),
+  aqpb113nrocon VARCHAR2(16),
+  aqpb113tracon CHAR(6),
+  aqpb113trapag CHAR(6),
+  aqpb113fecpag CHAR(8),
+  aqpb113horpag CHAR(6),
+  aqpb113impdeu NUMBER(11,2),
+  aqpb113comser NUMBER(11,2),
+  aqpb113comcan NUMBER(11,2),
+  aqpb113comemp NUMBER(11,2),
+  aqpb113conadc NUMBER(11,2),
+  aqpb113montot NUMBER(11,2),
+  aqpb113numgbk VARCHAR2(20),
+  aqpb113nrofac VARCHAR2(20),
+  aqpb113agen   VARCHAR2(20),
+  aqpb113codcan VARCHAR2(10),
+  aqpb113term   VARCHAR2(20),
+  aqpb113cat    VARCHAR2(40),
+  aqpb113est    VARCHAR2(20)
+)
+;
+alter table AQPB113
+  add primary key (AQPB113CORR, AQPB113FEC);
+

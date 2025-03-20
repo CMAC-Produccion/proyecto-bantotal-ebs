@@ -1,0 +1,39 @@
+create table AQPB764A
+(
+  aqpb764acod NUMBER not null,
+  aqpb764afec DATE not null,
+  aqpb764acor NUMBER(8) not null,
+  aqpb764aest CHAR(1),
+  aqpb764ausr CHAR(10),
+  aqpb764afcr VARCHAR2(10),
+  aqpb764ahcr VARCHAR2(10),
+  aqpb764ausd CHAR(10),
+  aqpb764afed VARCHAR2(10),
+  aqpb764ahed VARCHAR2(10)
+)
+;
+comment on table AQPB764A
+  is 'cabecera de creditos reprogramados observados Reactiva y FAE Mype';
+comment on column AQPB764A.aqpb764acod
+  is 'Código de empresa';
+comment on column AQPB764A.aqpb764afec
+  is 'Fecha de carga del archivo';
+comment on column AQPB764A.aqpb764acor
+  is 'Correlativo del archivo cargado';
+comment on column AQPB764A.aqpb764aest
+  is 'Estado del archivo';
+comment on column AQPB764A.aqpb764ausr
+  is 'Usuario de creación';
+comment on column AQPB764A.aqpb764afcr
+  is 'Fecha de creación';
+comment on column AQPB764A.aqpb764ahcr
+  is 'Hora de creación';
+comment on column AQPB764A.aqpb764ausd
+  is 'Usuario de edición';
+comment on column AQPB764A.aqpb764afed
+  is 'Fecha de edición';
+comment on column AQPB764A.aqpb764ahed
+  is 'Hora de edición';
+alter table AQPB764A
+  add primary key (AQPB764ACOD, AQPB764AFEC, AQPB764ACOR);
+

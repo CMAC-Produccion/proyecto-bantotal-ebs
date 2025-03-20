@@ -1,0 +1,17 @@
+create table FSFT66
+(
+  sft60emp   NUMBER(3) not null,
+  sft66mer   NUMBER(3) not null,
+  sft66prod  NUMBER(3) not null,
+  sft66comi  NUMBER(3) not null,
+  sft60id    NUMBER(9) not null,
+  sft66ncom  NUMBER(3),
+  sft66nmod  NUMBER(3),
+  sft66hab   CHAR(1),
+  sft66selec CHAR(1)
+)
+;
+create index FSFT6602 on FSFT66 (SFT60EMP, SFT60ID);
+alter table FSFT66
+  add primary key (SFT60EMP, SFT66MER, SFT66PROD, SFT66COMI, SFT60ID);
+

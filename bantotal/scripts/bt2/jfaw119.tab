@@ -1,0 +1,23 @@
+create table JFAW119
+(
+  jfaw119ins NUMBER(10) not null,
+  jfaw119fde DATE,
+  jfaw119emp NUMBER(3),
+  jfaw119suc NUMBER(3),
+  jfaw119mod NUMBER(3),
+  jfaw119mda NUMBER(4),
+  jfaw119pap NUMBER(4),
+  jfaw119cta NUMBER(9),
+  jfaw119ope NUMBER(9),
+  jfaw119sbo NUMBER(3),
+  jfaw119top NUMBER(3),
+  jfaw119est NUMBER(1),
+  jfaw119fre DATE,
+  jfaw119ure CHAR(10),
+  jfaw119lot NUMBER(10)
+)
+;
+create index JFAW1192 on JFAW119 (JFAW119FDE);
+alter table JFAW119
+  add primary key (JFAW119INS);
+

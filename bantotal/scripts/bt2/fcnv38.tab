@@ -1,0 +1,16 @@
+create table FCNV38
+(
+  cnv38cdjuz CHAR(10) not null,
+  cnv38nom   CHAR(60),
+  cnv38direc CHAR(40),
+  cnv38telef CHAR(30),
+  cnv38fax   CHAR(20),
+  cnv38imail CHAR(40),
+  cnv38pgcod NUMBER(3),
+  cnv38reg   NUMBER(3),
+  cnv38stvig CHAR(1)
+)
+;
+alter table FCNV38
+  add primary key (CNV38CDJUZ);
+

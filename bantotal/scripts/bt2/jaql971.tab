@@ -1,0 +1,125 @@
+create table JAQL971
+(
+  jaql964cor     NUMBER(10) not null,
+  jaql971cor     NUMBER(10) not null,
+  jaql971cta1    NUMBER(9),
+  jaql971nom1    VARCHAR2(30),
+  jaql971tdoc1   NUMBER(3),
+  jaql971doc1    VARCHAR2(12),
+  jaql971dir1    VARCHAR2(150),
+  jaql971red1    VARCHAR2(200),
+  jaql971dis1    VARCHAR2(50),
+  jaql971tel1    VARCHAR2(200),
+  jaql971neg1    VARCHAR2(200),
+  jaql971cta2    NUMBER(9),
+  jaql971nom2    VARCHAR2(30),
+  jaql971tdoc2   NUMBER(3),
+  jaql971doc2    VARCHAR2(12),
+  jaql971dir2    VARCHAR2(150),
+  jaql971red2    VARCHAR2(200),
+  jaql971dis2    VARCHAR2(50),
+  jaql971tel2    VARCHAR2(200),
+  jaql971neg2    VARCHAR2(200),
+  jaql971cta3    NUMBER(9),
+  jaql971nom3    VARCHAR2(30),
+  jaql971tdoc3   NUMBER(3),
+  jaql971doc3    VARCHAR2(12),
+  jaql971dir3    VARCHAR2(150),
+  jaql971red3    VARCHAR2(200),
+  jaql971dis3    VARCHAR2(50),
+  jaql971tel3    VARCHAR2(200),
+  jaql971neg3    VARCHAR2(200),
+  jaql971cta4    NUMBER(9),
+  jaql971nom4    VARCHAR2(30),
+  jaql971tdoc4   NUMBER(3),
+  jaql971doc4    VARCHAR2(12),
+  jaql971dir4    VARCHAR2(150),
+  jaql971red4    VARCHAR2(200),
+  jaql971dis4    VARCHAR2(50),
+  jaql971tel4    VARCHAR2(200),
+  jaql971neg4    VARCHAR2(200),
+  jaql971cta5    NUMBER(9),
+  jaql971nom5    VARCHAR2(30),
+  jaql971tdoc5   NUMBER(3),
+  jaql971doc5    VARCHAR2(12),
+  jaql971dir5    VARCHAR2(150),
+  jaql971red5    VARCHAR2(200),
+  jaql971dis5    VARCHAR2(50),
+  jaql971tel5    VARCHAR2(200),
+  jaql971neg5    VARCHAR2(200),
+  jaql971cta6    NUMBER(9),
+  jaql971nom6    VARCHAR2(30),
+  jaql971tdoc6   NUMBER(3),
+  jaql971doc6    VARCHAR2(12),
+  jaql971dir6    VARCHAR2(150),
+  jaql971red6    VARCHAR2(200),
+  jaql971dis6    VARCHAR2(50),
+  jaql971tel6    VARCHAR2(200),
+  jaql971neg6    VARCHAR2(200),
+  jaql971pepais1 NUMBER(3),
+  jaql971pepais2 NUMBER(3),
+  jaql971pepais3 NUMBER(3),
+  jaql971pepais4 NUMBER(3),
+  jaql971pepais5 NUMBER(3),
+  jaql971pepais6 NUMBER(3),
+  jaql971ugeo1   CHAR(6),
+  jaql971ugeo2   CHAR(6),
+  jaql971ugeo3   CHAR(6),
+  jaql971ugeo4   CHAR(6),
+  jaql971ugeo5   CHAR(6),
+  jaql971ugeo6   CHAR(6),
+  jaql971dpto1   VARCHAR2(50),
+  jaql971dpto2   VARCHAR2(50),
+  jaql971dpto3   VARCHAR2(50),
+  jaql971dpto4   VARCHAR2(50),
+  jaql971dpto5   VARCHAR2(50),
+  jaql971dpto6   VARCHAR2(50),
+  jaql971prov1   VARCHAR2(50),
+  jaql971prov2   VARCHAR2(50),
+  jaql971prov3   VARCHAR2(50),
+  jaql971prov4   VARCHAR2(50),
+  jaql971prov5   VARCHAR2(50),
+  jaql971prov6   VARCHAR2(50)
+)
+;
+comment on column JAQL971.jaql971ugeo1
+  is 'ubigeo 1';
+comment on column JAQL971.jaql971ugeo2
+  is 'ubigeo 2';
+comment on column JAQL971.jaql971ugeo3
+  is 'ubigeo 3';
+comment on column JAQL971.jaql971ugeo4
+  is 'ubigeo 4';
+comment on column JAQL971.jaql971ugeo5
+  is 'ubigeo 5';
+comment on column JAQL971.jaql971ugeo6
+  is 'ubigeo 6';
+comment on column JAQL971.jaql971dpto1
+  is 'Dpto1';
+comment on column JAQL971.jaql971dpto2
+  is 'Dpto2';
+comment on column JAQL971.jaql971dpto3
+  is 'Dpto3';
+comment on column JAQL971.jaql971dpto4
+  is 'Dpto4';
+comment on column JAQL971.jaql971dpto5
+  is 'Dpto5';
+comment on column JAQL971.jaql971dpto6
+  is 'Dpto6';
+comment on column JAQL971.jaql971prov1
+  is 'Prov1';
+comment on column JAQL971.jaql971prov2
+  is 'Prov2';
+comment on column JAQL971.jaql971prov3
+  is 'Prov3';
+comment on column JAQL971.jaql971prov4
+  is 'Prov4';
+comment on column JAQL971.jaql971prov5
+  is 'Prov5';
+comment on column JAQL971.jaql971prov6
+  is 'Prov6';
+create index IJALQL971_2 on JAQL971 (JAQL971CTA1, JAQL971TDOC1, JAQL971DOC1);
+create index IJALQ971_1 on JAQL971 (JAQL964COR, JAQL971COR, JAQL971CTA1, JAQL971DOC1);
+alter table JAQL971
+  add primary key (JAQL964COR, JAQL971COR);
+

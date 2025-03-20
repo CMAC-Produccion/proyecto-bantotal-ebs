@@ -1,0 +1,26 @@
+create table PAS001
+(
+  bentpodoc  NUMBER(2) not null,
+  bennrodoc  NUMBER(9) not null,
+  bennropas  NUMBER(7),
+  bencedula  NUMBER(8),
+  bendigito  NUMBER(1),
+  benclasepa NUMBER(2),
+  bencobro   CHAR(2),
+  bennombre  CHAR(35),
+  bendir1    CHAR(35),
+  bendir2    CHAR(35),
+  bendir3    CHAR(35),
+  benpais    CHAR(8),
+  benmodulo  NUMBER(3),
+  benmon     NUMBER(4),
+  bencta     NUMBER(9),
+  bensubcta  NUMBER(9),
+  bencertsup CHAR(1),
+  bencertven DATE,
+  benestado  CHAR(1)
+)
+;
+alter table PAS001
+  add primary key (BENTPODOC, BENNRODOC);
+

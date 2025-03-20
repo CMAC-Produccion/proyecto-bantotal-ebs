@@ -1,0 +1,12 @@
+create table FST145
+(
+  pgcod    NUMBER(3) not null,
+  rpcod    NUMBER(3) not null,
+  rpnom    CHAR(30),
+  rpci     CHAR(20),
+  rpfching DATE
+)
+;
+alter table FST145
+  add primary key (PGCOD, RPCOD);
+

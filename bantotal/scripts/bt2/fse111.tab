@@ -1,0 +1,43 @@
+create table FSE111
+(
+  chcod    NUMBER(3) not null,
+  chsuc    NUMBER(3) not null,
+  chmod    NUMBER(3) not null,
+  chmda    NUMBER(4) not null,
+  chpap    NUMBER(4) not null,
+  chcta    NUMBER(9) not null,
+  choper   NUMBER(9) not null,
+  chsbop   NUMBER(3) not null,
+  chtope   NUMBER(3) not null,
+  chpza    NUMBER(3),
+  chdcom   NUMBER(2),
+  chcheq   NUMBER(9),
+  chbco    NUMBER(3),
+  chsbco   NUMBER(12),
+  chcomi   NUMBER(17,2),
+  chsucu   NUMBER(3),
+  chcaja   NUMBER(3),
+  chrub    NUMBER(16),
+  chfcon   DATE,
+  chctache CHAR(25),
+  e111cd   NUMBER(3),
+  e111mo   NUMBER(3),
+  e111su   NUMBER(3),
+  e111tr   NUMBER(3),
+  e111re   NUMBER(4),
+  e111fc   DATE,
+  e111or   NUMBER(2),
+  e111sb   NUMBER(3),
+  e111co   CHAR(1)
+)
+;
+create index FSE11102 on FSE111 (CHDCOM);
+create index FSE11103 on FSE111 (E111CD, E111MO, E111SU, E111TR, E111RE, E111FC, E111OR, E111SB);
+create index FSE11104 on FSE111 (CHCOD, CHPZA, CHBCO, CHSBCO, CHCHEQ);
+create index FSE11105 on FSE111 (CHCOD, CHSUC, CHPZA, CHBCO, CHSBCO, CHCHEQ);
+create index FSE11106 on FSE111 (CHCOD, CHSUC, CHPZA, CHBCO, CHSBCO, CHFCON, CHCHEQ);
+create index FSE11107 on FSE111 (CHCOD, CHBCO, CHCHEQ);
+create index FSE11108 on FSE111 (CHCOD, E111FC, E111CO, CHMOD, CHTOPE);
+alter table FSE111
+  add primary key (CHCOD, CHSUC, CHMOD, CHMDA, CHPAP, CHCTA, CHOPER, CHSBOP, CHTOPE);
+

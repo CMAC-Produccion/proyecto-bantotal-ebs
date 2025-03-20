@@ -1,0 +1,44 @@
+create table JBXIH2
+(
+  jbxih2fec DATE not null,
+  jbxih2emp NUMBER(3) not null,
+  jbxih2mod NUMBER(3) not null,
+  jbxih2suc NUMBER(3) not null,
+  jbxih2mda NUMBER(4) not null,
+  jbxih2pap NUMBER(4) not null,
+  jbxih2cta NUMBER(9) not null,
+  jbxih2ope NUMBER(9) not null,
+  jbxih2sbo NUMBER(3) not null,
+  jbxih2top NUMBER(3) not null,
+  jbxih2fvt DATE not null,
+  jbxih2ncu NUMBER(9) not null,
+  jbxih2tct CHAR(1) not null,
+  jbxih2pzo NUMBER(5),
+  jbxih2mto NUMBER(17,2),
+  jbxih2cct NUMBER(17,2),
+  jbxih2ict NUMBER(17,2),
+  jbxih2inc NUMBER(17,2),
+  jbxih2isc NUMBER(17,2),
+  jbxih2isi NUMBER(17,2),
+  jbxih2sin NUMBER(17,2),
+  jbxih2ecu CHAR(1),
+  jbxih2dat NUMBER(5),
+  jbxih2mpc NUMBER(17,2),
+  jbxih2mac NUMBER(17,2),
+  jbxih2gst NUMBER(17,2),
+  jbxih2sgr NUMBER(17,2),
+  jbxih2inp NUMBER(17,2),
+  jbxih2icm NUMBER(17,2),
+  jbxih2iva NUMBER(17,2),
+  jbxih2ccc NUMBER(16),
+  jbxih2cci NUMBER(16),
+  jbxih2ccm NUMBER(16),
+  jbxih2ccp NUMBER(16),
+  jbxih2ccg NUMBER(16),
+  jbxih2ccs NUMBER(16),
+  jbxih2ccv NUMBER(16)
+)
+;
+create unique index JBXIH201 on JBXIH2 (JBXIH2FEC, JBXIH2EMP, JBXIH2MOD, JBXIH2SUC, JBXIH2MDA, JBXIH2PAP, JBXIH2CTA, JBXIH2OPE, JBXIH2SBO, JBXIH2TOP, JBXIH2FVT, JBXIH2NCU, JBXIH2TCT);
+create index JBXIH202 on JBXIH2 (JBXIH2SUC);
+

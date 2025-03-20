@@ -1,0 +1,11 @@
+create table JAQL514
+(
+  jaql514cotsv NUMBER(3) not null,
+  jaql514detsv VARCHAR2(60),
+  jaql514esreg CHAR(1)
+)
+;
+create index JAQL51402 on JAQL514 (JAQL514DETSV);
+alter table JAQL514
+  add primary key (JAQL514COTSV);
+

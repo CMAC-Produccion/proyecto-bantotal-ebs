@@ -1,0 +1,58 @@
+create table AQPD601L
+(
+  aqpd601linst NUMBER(10) not null,
+  aqpd601ltprg NUMBER(4),
+  aqpd601lest  VARCHAR2(1),
+  aqpd601lfl1  VARCHAR2(1),
+  aqpd601lfl2  VARCHAR2(1),
+  aqpd601lfl3  VARCHAR2(1),
+  aqpd601lfl4  VARCHAR2(1),
+  aqpd601lfl5  VARCHAR2(1),
+  aqpd601lfl6  NUMBER(10),
+  aqpd601lfl7  VARCHAR2(1),
+  aqpd601lfl8  VARCHAR2(1),
+  aqpd601pcod  VARCHAR2(1),
+  aqpd601lmsg  VARCHAR2(70),
+  aqpd601lusr  VARCHAR2(10),
+  aqpd601ltime VARCHAR2(8) not null,
+  aqpd601lfec  DATE not null
+)
+;
+comment on table AQPD601L
+  is 'Log proceso de reprogramación';
+comment on column AQPD601L.aqpd601linst
+  is 'Instancia';
+comment on column AQPD601L.aqpd601ltprg
+  is 'Tipo de reprogramación';
+comment on column AQPD601L.aqpd601lest
+  is 'Estado reprogramación';
+comment on column AQPD601L.aqpd601lfl1
+  is 'flag_permiso_trn';
+comment on column AQPD601L.aqpd601lfl2
+  is 'flag_backup';
+comment on column AQPD601L.aqpd601lfl3
+  is 'lbflag';
+comment on column AQPD601L.aqpd601lfl4
+  is 'flag_ok';
+comment on column AQPD601L.aqpd601lfl5
+  is 'flag_tfondos';
+comment on column AQPD601L.aqpd601lfl6
+  is 'flag_vtipo';
+comment on column AQPD601L.aqpd601lfl7
+  is 'flag088';
+comment on column AQPD601L.aqpd601lfl8
+  is 'flag_logsac';
+comment on column AQPD601L.aqpd601pcod
+  is 'Código de salida';
+comment on column AQPD601L.aqpd601lmsg
+  is 'Mensaje de salida';
+comment on column AQPD601L.aqpd601lusr
+  is 'Usuario';
+comment on column AQPD601L.aqpd601ltime
+  is 'Hora';
+comment on column AQPD601L.aqpd601lfec
+  is 'Fecha';
+create index AQPD601LA2 on AQPD601L (AQPD601LINST);
+alter table AQPD601L
+  add primary key (AQPD601LINST, AQPD601LTIME, AQPD601LFEC);
+

@@ -1,0 +1,11 @@
+create table XWFD06
+(
+  xwfddocins NUMBER(10) not null,
+  xwfdpepais NUMBER(3) not null,
+  xwfdpetdoc NUMBER(2) not null,
+  xwfdpendoc CHAR(12) not null
+)
+;
+alter table XWFD06
+  add primary key (XWFDDOCINS, XWFDPEPAIS, XWFDPETDOC, XWFDPENDOC);
+

@@ -1,0 +1,135 @@
+create table JAQM41
+(
+  jaqm41cod NUMBER(3) not null,
+  jaqm41suc NUMBER(3) not null,
+  jaqm41sig CHAR(5) not null,
+  jaqm41fec DATE not null,
+  jaqm41uso CHAR(10) not null,
+  jaqm41usd CHAR(10) not null,
+  jaqm41cor NUMBER(5) not null,
+  jaqm41cso NUMBER(1),
+  jaqm41nio NUMBER(1),
+  jaqm41ceo NUMBER(9),
+  jaqm41cao NUMBER(3),
+  jaqm41csd NUMBER(1),
+  jaqm41nid NUMBER(1),
+  jaqm41ced NUMBER(9),
+  jaqm41cad NUMBER(3),
+  jaqm41fei DATE,
+  jaqm41fef DATE,
+  jaqm41hoi CHAR(8),
+  jaqm41hof CHAR(8),
+  jaqm41hod CHAR(8),
+  jaqm41est CHAR(1),
+  jaqm41usi CHAR(10),
+  jaqm41fan DATE,
+  jaqm41hor CHAR(10),
+  jaqm41wks CHAR(12),
+  jaqm41ai1 NUMBER(17,2),
+  jaqm41ai2 NUMBER(17,2),
+  jaqm41ai3 NUMBER(17,2),
+  jaqm41an1 NUMBER(9),
+  jaqm41an2 NUMBER(9),
+  jaqm41an3 NUMBER(9),
+  jaqm41ac1 VARCHAR2(255),
+  jaqm41ac2 VARCHAR2(255),
+  jaqm41ac3 VARCHAR2(255),
+  jaqm41af1 DATE,
+  jaqm41af2 DATE,
+  jaqm41af3 DATE,
+  jaqm41hin CHAR(10),
+  jaqm41fin DATE,
+  jaqm41jed CHAR(10),
+  jaqm41jeo CHAR(10)
+)
+;
+comment on table JAQM41
+  is 'Suplencia de Usuarios';
+comment on column JAQM41.jaqm41cod
+  is 'Empresa';
+comment on column JAQM41.jaqm41suc
+  is 'Sucursal';
+comment on column JAQM41.jaqm41sig
+  is 'Sigla';
+comment on column JAQM41.jaqm41fec
+  is 'Fecha';
+comment on column JAQM41.jaqm41uso
+  is 'Usuario Origen';
+comment on column JAQM41.jaqm41usd
+  is 'Usuario Destino';
+comment on column JAQM41.jaqm41cor
+  is 'Correlativo';
+comment on column JAQM41.jaqm41cso
+  is 'Cantidad de Sesiones Origen';
+comment on column JAQM41.jaqm41nio
+  is 'Nivel de Usuario Origen';
+comment on column JAQM41.jaqm41ceo
+  is 'Cantidad de Espacio Origen';
+comment on column JAQM41.jaqm41cao
+  is 'Cargo Origen';
+comment on column JAQM41.jaqm41csd
+  is 'Cantidad de Sesiones Destino';
+comment on column JAQM41.jaqm41nid
+  is 'Nivel de Usuario Destino';
+comment on column JAQM41.jaqm41ced
+  is 'Cantidad de Espacio Destino';
+comment on column JAQM41.jaqm41cad
+  is 'Cargo Destino';
+comment on column JAQM41.jaqm41fei
+  is 'Fecha Inicio';
+comment on column JAQM41.jaqm41fef
+  is 'Fecha Fin';
+comment on column JAQM41.jaqm41hoi
+  is 'Hora Inicio';
+comment on column JAQM41.jaqm41hof
+  is 'Hora Fin';
+comment on column JAQM41.jaqm41hod
+  is 'Hora devolución';
+comment on column JAQM41.jaqm41est
+  is 'Estado';
+comment on column JAQM41.jaqm41usi
+  is 'Usuario Modificación';
+comment on column JAQM41.jaqm41fan
+  is 'Fecha de Modificación';
+comment on column JAQM41.jaqm41hor
+  is 'Hora Modificación';
+comment on column JAQM41.jaqm41wks
+  is 'WorkStation';
+comment on column JAQM41.jaqm41ai1
+  is 'Auxiliar de Importe 1';
+comment on column JAQM41.jaqm41ai2
+  is 'Auxiliar de Importe 2';
+comment on column JAQM41.jaqm41ai3
+  is 'Auxiliar de Importe 3';
+comment on column JAQM41.jaqm41an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM41.jaqm41an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM41.jaqm41an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM41.jaqm41ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM41.jaqm41ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM41.jaqm41ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM41.jaqm41af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM41.jaqm41af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM41.jaqm41af3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM41.jaqm41hin
+  is 'Hora Ingreso';
+comment on column JAQM41.jaqm41fin
+  is 'Fecha de Ingreso';
+comment on column JAQM41.jaqm41jed
+  is 'Fecha de Ingreso';
+comment on column JAQM41.jaqm41jeo
+  is 'Hora Ingreso';
+create index JAQM31A4 on JAQM41 (JAQM41USD, JAQM41FEC);
+create index JAQM41A2 on JAQM41 (JAQM41FEC, JAQM41COR);
+create index JAQM41A3 on JAQM41 (JAQM41USO, JAQM41FEC);
+alter table JAQM41
+  add primary key (JAQM41COD, JAQM41SUC, JAQM41SIG, JAQM41FEC, JAQM41USO, JAQM41USD, JAQM41COR);
+

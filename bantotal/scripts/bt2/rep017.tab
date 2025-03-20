@@ -1,0 +1,12 @@
+create table REP017
+(
+  rep015impc NUMBER(10) not null,
+  rep016prci NUMBER(4) not null,
+  rep017tskc NUMBER(4) not null,
+  rep017expc NUMBER(10),
+  rep017stat CHAR(1)
+)
+;
+alter table REP017
+  add primary key (REP015IMPC, REP016PRCI, REP017TSKC);
+

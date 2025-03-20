@@ -1,0 +1,12 @@
+create table FST092
+(
+  banco     NUMBER(3) not null,
+  sucbco    NUMBER(12) not null,
+  sucbconom CHAR(30),
+  succodpos CHAR(12)
+)
+;
+create index FST09203 on FST092 (SUCCODPOS);
+alter table FST092
+  add primary key (BANCO, SUCBCO);
+

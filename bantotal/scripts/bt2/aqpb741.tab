@@ -1,0 +1,116 @@
+create table AQPB741
+(
+  aqpb741emp    NUMBER(3) not null,
+  aqpb741suc    NUMBER(3) not null,
+  aqpb741mod    NUMBER(3) not null,
+  aqpb741mda    NUMBER(4) not null,
+  aqpb741pap    NUMBER(4) not null,
+  aqpb741cta    NUMBER(9) not null,
+  aqpb741ope    NUMBER(9) not null,
+  aqpb741sbo    NUMBER(3) not null,
+  aqpb741top    NUMBER(3) not null,
+  aqpb741ins    NUMBER(10),
+  aqpb741sdo    NUMBER(18,2),
+  aqpb741mtoa   NUMBER(18,2),
+  aqpb741pcj    NUMBER(5,2),
+  aqpb741tip    NUMBER(2),
+  aqpb741empg   NUMBER(3),
+  aqpb741sucg   NUMBER(3),
+  aqpb741modg   NUMBER(3),
+  aqpb741mdag   NUMBER(4),
+  aqpb741papg   NUMBER(4),
+  aqpb741ctag   NUMBER(9),
+  aqpb741opeg   NUMBER(9),
+  aqpb741sbog   NUMBER(3),
+  aqpb741topg   NUMBER(3),
+  aqpb741est    CHAR(1),
+  aqpb741itcod  NUMBER(3) not null,
+  aqpb741itmod  NUMBER(3) not null,
+  aqpb741itsuc  NUMBER(3) not null,
+  aqpb741ittran NUMBER(3) not null,
+  aqpb741itnrel NUMBER(4) not null,
+  aqpb741itfcon DATE not null,
+  aqpb741ithor  CHAR(8),
+  aqpb741itucnf CHAR(10),
+  aqpb741usuact CHAR(10),
+  aqpb741fecact DATE
+)
+;
+comment on table AQPB741
+  is 'Lista de los créditos y garantías que se han dado de alta de los créditos de FAE Turismo';
+comment on column AQPB741.aqpb741emp
+  is 'Empresa del crédito';
+comment on column AQPB741.aqpb741suc
+  is 'sucursal del credito';
+comment on column AQPB741.aqpb741mod
+  is 'modulo del credito';
+comment on column AQPB741.aqpb741mda
+  is 'Monedo del crdito';
+comment on column AQPB741.aqpb741pap
+  is 'papel del credito';
+comment on column AQPB741.aqpb741cta
+  is 'cuenta del credito';
+comment on column AQPB741.aqpb741ope
+  is 'operacion del credito';
+comment on column AQPB741.aqpb741sbo
+  is 'suboperacion del credito';
+comment on column AQPB741.aqpb741top
+  is 'tipo operacion del credito';
+comment on column AQPB741.aqpb741ins
+  is 'Instancia';
+comment on column AQPB741.aqpb741sdo
+  is 'Saldo del capital del credito';
+comment on column AQPB741.aqpb741mtoa
+  is 'Monto de alta de la garantía';
+comment on column AQPB741.aqpb741pcj
+  is 'Porcentaje para el caluclo de alta del monto de garantía';
+comment on column AQPB741.aqpb741tip
+  is 'Tipo de Credito 1=consumo 2=mypes/vehiculares 3=hipotecario';
+comment on column AQPB741.aqpb741empg
+  is 'Empresa de la garantia';
+comment on column AQPB741.aqpb741sucg
+  is 'Sucursal de la Garantía';
+comment on column AQPB741.aqpb741modg
+  is 'Modúlo de la garantía';
+comment on column AQPB741.aqpb741mdag
+  is 'Moneda de la Garantía';
+comment on column AQPB741.aqpb741papg
+  is 'Papel de la Garantía';
+comment on column AQPB741.aqpb741ctag
+  is 'Cuenta de la Garantía';
+comment on column AQPB741.aqpb741opeg
+  is 'Operación de la Garnatía';
+comment on column AQPB741.aqpb741sbog
+  is 'Suboperación de la garantía';
+comment on column AQPB741.aqpb741topg
+  is 'Tipo de Operacion de la Garantía';
+comment on column AQPB741.aqpb741est
+  is 'Estado del registro C=Contabilizado, E=Extornado, N=No se contabilizó, I=CargaInicial';
+comment on column AQPB741.aqpb741itcod
+  is 'codigo empresa transacción';
+comment on column AQPB741.aqpb741itmod
+  is 'modulo transaccion';
+comment on column AQPB741.aqpb741itsuc
+  is 'sucursal transaccion';
+comment on column AQPB741.aqpb741ittran
+  is 'transacción';
+comment on column AQPB741.aqpb741itnrel
+  is 'numero de relacion transaccion';
+comment on column AQPB741.aqpb741itfcon
+  is 'fecha transacción';
+comment on column AQPB741.aqpb741ithor
+  is 'hora transacción';
+comment on column AQPB741.aqpb741itucnf
+  is 'usuario transaccion';
+comment on column AQPB741.aqpb741usuact
+  is 'usuario de acualizacion';
+comment on column AQPB741.aqpb741fecact
+  is 'fecha de actualización';
+create index AQPB741A2 on AQPB741 (AQPB741ITCOD, AQPB741ITMOD, AQPB741ITSUC, AQPB741ITTRAN, AQPB741ITNREL, AQPB741ITFCON);
+create index AQPB741A3 on AQPB741 (AQPB741CTA, AQPB741EST);
+create index AQPB741A4 on AQPB741 (AQPB741EMP, AQPB741SUC, AQPB741MOD, AQPB741MDA, AQPB741PAP, AQPB741CTA, AQPB741OPE, AQPB741SBO, AQPB741TOP);
+create index AQPB741A5 on AQPB741 (AQPB741EMPG, AQPB741SUCG, AQPB741MODG, AQPB741MDAG, AQPB741PAPG, AQPB741CTAG, AQPB741OPEG, AQPB741SBOG, AQPB741TOPG);
+create index AQPB741A6 on AQPB741 (AQPB741CTAG, AQPB741EST);
+alter table AQPB741
+  add primary key (AQPB741EMP, AQPB741SUC, AQPB741MOD, AQPB741MDA, AQPB741PAP, AQPB741CTA, AQPB741OPE, AQPB741SBO, AQPB741TOP, AQPB741ITCOD, AQPB741ITMOD, AQPB741ITSUC, AQPB741ITTRAN, AQPB741ITNREL, AQPB741ITFCON);
+

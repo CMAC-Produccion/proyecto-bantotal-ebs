@@ -1,0 +1,12 @@
+create table SNG054
+(
+  sng052tem NUMBER(10) not null,
+  sng064cod NUMBER(4) not null,
+  sng053cmb NUMBER(10) not null,
+  sng054ord NUMBER(4)
+)
+;
+create index SNG05404 on SNG054 (SNG052TEM, SNG064COD, SNG054ORD);
+alter table SNG054
+  add primary key (SNG052TEM, SNG064COD, SNG053CMB);
+

@@ -1,0 +1,14 @@
+create table JAQL635A
+(
+  c_canenv CHAR(10) not null,
+  d_fecenv DATE not null,
+  c_horenv CHAR(8) not null,
+  c_trmenv VARCHAR2(4000),
+  c_obsenv VARCHAR2(4000),
+  c_coderr CHAR(5),
+  c_mgserr VARCHAR2(4000)
+)
+;
+alter table JAQL635A
+  add primary key (C_CANENV, D_FECENV, C_HORENV);
+

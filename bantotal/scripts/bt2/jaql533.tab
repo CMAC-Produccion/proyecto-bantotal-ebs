@@ -1,0 +1,25 @@
+create table JAQL533
+(
+  jaql533nuope NUMBER(9) not null,
+  jaql533nucor NUMBER(9) not null,
+  jaql533fepro DATE,
+  jaql533coope CHAR(2),
+  jaql533copai NUMBER(3),
+  jaql533tidoc NUMBER(2),
+  jaql533nudoc CHAR(12),
+  jaql533annac NUMBER(4),
+  jaql533titar CHAR(1),
+  jaql533nutar CHAR(19),
+  jaql533cores CHAR(5),
+  jaql533uniid VARCHAR2(100),
+  jaql533coblo NUMBER(9)
+)
+;
+create index JAQL533_02 on JAQL533 (JAQL533FEPRO);
+create index JAQL533_03 on JAQL533 (JAQL533COPAI, JAQL533TIDOC, JAQL533NUDOC);
+create index JAQL533_04 on JAQL533 (JAQL533NUTAR);
+create index JAQL533_05 on JAQL533 (JAQL533FEPRO, JAQL533UNIID);
+create index JAQL533_06 on JAQL533 (JAQL533COOPE, JAQL533UNIID);
+alter table JAQL533
+  add primary key (JAQL533NUOPE, JAQL533NUCOR);
+

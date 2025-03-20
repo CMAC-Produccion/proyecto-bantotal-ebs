@@ -1,0 +1,48 @@
+create table AQPA026L
+(
+  aqpa026lvlta  NUMBER(5) not null,
+  aqpa026lcorr  NUMBER(9) not null,
+  aqpa026lpais  NUMBER(3),
+  aqpa026ltdoc  NUMBER(2),
+  aqpa026lndoc  CHAR(12),
+  aqpa026lfecha DATE,
+  aqpa026lhora  CHAR(8),
+  aqpa026ltipo  CHAR(1),
+  aqpa026lusua  CHAR(10),
+  aqpa026lcana  NUMBER(5),
+  aqpa026ltcon  VARCHAR2(50),
+  aqpa026lesta  CHAR(1),
+  aqpa026lagen  NUMBER(5)
+)
+;
+comment on column AQPA026L.aqpa026lvlta
+  is 'nro vuelta';
+comment on column AQPA026L.aqpa026lcorr
+  is 'correlativo';
+comment on column AQPA026L.aqpa026lpais
+  is 'pais';
+comment on column AQPA026L.aqpa026ltdoc
+  is 'tipo documento';
+comment on column AQPA026L.aqpa026lndoc
+  is 'numero documento';
+comment on column AQPA026L.aqpa026lfecha
+  is 'fecha';
+comment on column AQPA026L.aqpa026lhora
+  is 'hora';
+comment on column AQPA026L.aqpa026ltipo
+  is 'T titular C conyuge';
+comment on column AQPA026L.aqpa026lusua
+  is 'usuario que consultó';
+comment on column AQPA026L.aqpa026lcana
+  is 'canal';
+comment on column AQPA026L.aqpa026ltcon
+  is 'tipo consulta';
+comment on column AQPA026L.aqpa026lesta
+  is 'estado';
+comment on column AQPA026L.aqpa026lagen
+  is 'agencia';
+create index AQPA026L2 on AQPA026L (AQPA026LPAIS, AQPA026LTDOC, AQPA026LNDOC);
+create index AQPA026L3 on AQPA026L (AQPA026LPAIS, AQPA026LTDOC, AQPA026LNDOC, AQPA026LFECHA, AQPA026LHORA);
+alter table AQPA026L
+  add primary key (AQPA026LVLTA, AQPA026LCORR);
+

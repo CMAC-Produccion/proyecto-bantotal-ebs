@@ -1,0 +1,18 @@
+create table FXT824
+(
+  swtcod     NUMBER(5) not null,
+  swtrel     NUMBER(2) not null,
+  swtcpo     NUMBER(2) not null,
+  swtcpofmt  CHAR(1) not null,
+  fmtout     NUMBER(1) not null,
+  swtsubcpo  NUMBER(2) not null,
+  submdtcorr NUMBER(3) not null,
+  attmdtid   NUMBER(5),
+  submdtexis CHAR(1)
+)
+;
+create index FXT82402 on FXT824 (ATTMDTID);
+create index FXT82403 on FXT824 (FMTOUT);
+alter table FXT824
+  add primary key (SWTCOD, SWTREL, SWTCPO, SWTCPOFMT, FMTOUT, SWTSUBCPO, SUBMDTCORR);
+

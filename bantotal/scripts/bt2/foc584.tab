@@ -1,0 +1,14 @@
+create table FOC584
+(
+  foc581pcod NUMBER(3) not null,
+  foc580caja NUMBER(3) not null,
+  foc584cori NUMBER(9) not null,
+  foc584cadi NUMBER(9) not null,
+  foc584impa NUMBER(17,2)
+)
+;
+create index FOC58402 on FOC584 (FOC580CAJA);
+create index FOC58403 on FOC584 (FOC581PCOD, FOC580CAJA, FOC584CADI);
+alter table FOC584
+  add primary key (FOC581PCOD, FOC580CAJA, FOC584CORI, FOC584CADI);
+

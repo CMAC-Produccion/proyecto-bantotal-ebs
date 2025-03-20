@@ -1,0 +1,139 @@
+create table AQPA360
+(
+  aqpa360corr   NUMBER(10) not null,
+  aqpa360fec    DATE not null,
+  aqpa360hora   CHAR(10) not null,
+  aqpa360user   VARCHAR2(10),
+  aqpa360pais   NUMBER(9) not null,
+  aqpa360tdoc   NUMBER(9) not null,
+  aqpa360ndoc   VARCHAR2(12) not null,
+  aqpa360tcamb  NUMBER(14,8),
+  aqpa360instl  NUMBER(12) not null,
+  aqpa360inste  NUMBER(12),
+  aqpa360pgcod  NUMBER(9) not null,
+  aqpa360itsuc  NUMBER(9) not null,
+  aqpa360itmod  NUMBER(9) not null,
+  aqpa360ittran NUMBER(9) not null,
+  aqpa360itnrel NUMBER(9) not null,
+  aqpa360itord  NUMBER(9) not null,
+  aqpa360itsbor NUMBER(9) not null,
+  aqpa360estatr VARCHAR2(5),
+  aqpa360neva   NUMBER(10),
+  aqpa360ases   VARCHAR2(20),
+  aqpa360numc   NUMBER(10),
+  aqpa360feval  DATE,
+  aqpa360fini   DATE,
+  aqpa360finf   DATE,
+  aqpa360fcon   DATE,
+  aqpa360mesc   VARCHAR2(20),
+  aqpa360anio   NUMBER(4),
+  aqpa360resn   NUMBER(17,2),
+  aqpa360ifis   NUMBER(17,2),
+  aqpa360esta   CHAR(1),
+  aqpa360flag   CHAR(1),
+  aqpa360cuoc   NUMBER(17,2),
+  aqpa360flujo  NUMBER(17,2),
+  aqpa360ratio  NUMBER(17,6),
+  aqpa360aux0   NUMBER(17,2),
+  aqpa360aux1   NUMBER(10),
+  aqpa360aux2   CHAR(5),
+  aqpa360aux3   CHAR(30),
+  aqpa360aux4   VARCHAR2(100),
+  aqpa360aux5   NUMBER(17,2),
+  aqpa360mso    NUMBER(17,2),
+  aqpa360efe    NUMBER(17,2),
+  aqpa360cpo    NUMBER(17,2),
+  aqpa360cco    NUMBER(17,2)
+)
+;
+comment on column AQPA360.aqpa360corr
+  is 'Correlativo';
+comment on column AQPA360.aqpa360fec
+  is 'Fecha Proceso';
+comment on column AQPA360.aqpa360hora
+  is 'Hora de Proceso';
+comment on column AQPA360.aqpa360user
+  is 'Usuario de la Transaccion';
+comment on column AQPA360.aqpa360pais
+  is 'Pais';
+comment on column AQPA360.aqpa360tdoc
+  is 'Tipo Documento';
+comment on column AQPA360.aqpa360ndoc
+  is 'Numero Documento';
+comment on column AQPA360.aqpa360tcamb
+  is 'Tipo de Cambio';
+comment on column AQPA360.aqpa360instl
+  is 'Instancia de la Linea';
+comment on column AQPA360.aqpa360inste
+  is 'Instancia de la Evaluacion';
+comment on column AQPA360.aqpa360pgcod
+  is 'Pgcod de la Transaccion';
+comment on column AQPA360.aqpa360itsuc
+  is 'Sucursal de la Transaccion';
+comment on column AQPA360.aqpa360itmod
+  is 'Modulo de la Transaccion';
+comment on column AQPA360.aqpa360ittran
+  is 'Transaccion';
+comment on column AQPA360.aqpa360itnrel
+  is 'Nro de Relacion de Transaccion';
+comment on column AQPA360.aqpa360itord
+  is 'Ordinal de la Transaccion';
+comment on column AQPA360.aqpa360itsbor
+  is 'SubOrdinal de la Transaccion';
+comment on column AQPA360.aqpa360estatr
+  is 'Estado de la Transaccion';
+comment on column AQPA360.aqpa360neva
+  is 'Numero Evaluacion';
+comment on column AQPA360.aqpa360ases
+  is 'Analista Solicitud';
+comment on column AQPA360.aqpa360numc
+  is 'Numero Meses';
+comment on column AQPA360.aqpa360feval
+  is 'Fecha Evaluacion';
+comment on column AQPA360.aqpa360fini
+  is 'Fecha Primera Cuota Calendario';
+comment on column AQPA360.aqpa360finf
+  is 'Fecha Ultima Cuota calendario';
+comment on column AQPA360.aqpa360fcon
+  is 'Fecha Cosulta';
+comment on column AQPA360.aqpa360mesc
+  is 'Mes Consulta';
+comment on column AQPA360.aqpa360anio
+  is 'Anio Consulta';
+comment on column AQPA360.aqpa360resn
+  is 'Flujo Acumulado RN';
+comment on column AQPA360.aqpa360ifis
+  is 'Deuda IFIS';
+comment on column AQPA360.aqpa360esta
+  is 'Estado';
+comment on column AQPA360.aqpa360flag
+  is 'Flag Cuota';
+comment on column AQPA360.aqpa360cuoc
+  is 'Cuota Caja';
+comment on column AQPA360.aqpa360flujo
+  is 'Flujo sin credito';
+comment on column AQPA360.aqpa360ratio
+  is 'Ratio capacidad pago';
+comment on column AQPA360.aqpa360aux0
+  is 'Auxiliar 0';
+comment on column AQPA360.aqpa360aux1
+  is 'Auxiliar 1';
+comment on column AQPA360.aqpa360aux2
+  is 'Auxiliar 2';
+comment on column AQPA360.aqpa360aux3
+  is 'Auxiliar 3';
+comment on column AQPA360.aqpa360aux4
+  is 'Auxiliar 4';
+comment on column AQPA360.aqpa360aux5
+  is 'Auxiliar 5';
+comment on column AQPA360.aqpa360mso
+  is 'Monto solicitado';
+comment on column AQPA360.aqpa360efe
+  is 'Efectivo';
+comment on column AQPA360.aqpa360cpo
+  is 'Cuota potencial';
+comment on column AQPA360.aqpa360cco
+  is 'Cuota contingente';
+alter table AQPA360
+  add primary key (AQPA360CORR, AQPA360FEC, AQPA360PAIS, AQPA360TDOC, AQPA360NDOC, AQPA360INSTL, AQPA360HORA, AQPA360PGCOD, AQPA360ITSUC, AQPA360ITMOD, AQPA360ITTRAN, AQPA360ITNREL, AQPA360ITORD, AQPA360ITSBOR);
+

@@ -1,0 +1,18 @@
+create table AQPB862
+(
+  aqpb862id NUMBER(4) not null,
+  aqpb862pr CHAR(200),
+  aqpb862es CHAR(1)
+)
+;
+comment on table AQPB862
+  is 'Preguntas secretas CajaMovil';
+comment on column AQPB862.aqpb862id
+  is 'Identificador unico de una pregunta.';
+comment on column AQPB862.aqpb862pr
+  is 'Pregunta.';
+comment on column AQPB862.aqpb862es
+  is 'Estado de la pregunta.';
+alter table AQPB862
+  add primary key (AQPB862ID);
+

@@ -1,0 +1,38 @@
+create table AQPB408
+(
+  aqpb408cod     NUMBER(3) not null,
+  aqpb408mod     NUMBER(3) not null,
+  aqpb408suc     NUMBER(3) not null,
+  aqpb408mda     NUMBER(4) not null,
+  aqpb408pap     NUMBER(4) not null,
+  aqpb408cta     NUMBER(9) not null,
+  aqpb408ope     NUMBER(9) not null,
+  aqpb408sbo     NUMBER(3) not null,
+  aqpb408tpo     NUMBER(3) not null,
+  aqpb408est     CHAR(1),
+  aqpb408itcod   NUMBER(3) not null,
+  aqpb408itmod   NUMBER(3) not null,
+  aqpb408itsuc   NUMBER(3) not null,
+  aqpb408ittran  NUMBER(3) not null,
+  aqpb408itnrel  NUMBER(4) not null,
+  aqpb408itfcon  DATE not null,
+  aqpb408fecext  DATE,
+  aqpb408usuact  CHAR(10),
+  aqpb408fecact  DATE,
+  aqpb408aux01   NUMBER(18,2),
+  aqpb408aux02   NUMBER(18,2),
+  aqpb408fecamor DATE,
+  aqpb408com     VARCHAR2(100),
+  aqpb408tip     VARCHAR2(50)
+)
+;
+comment on column AQPB408.aqpb408tip
+  is 'Tipo de Refinanciación';
+create index AQPB4082 on AQPB408 (AQPB408ITCOD, AQPB408ITMOD, AQPB408ITSUC, AQPB408ITTRAN, AQPB408ITNREL, AQPB408ITFCON);
+create index AQPB4083 on AQPB408 (AQPB408EST);
+create index AQPB4084 on AQPB408 (AQPB408COD, AQPB408SUC, AQPB408MOD, AQPB408MDA, AQPB408PAP, AQPB408CTA, AQPB408OPE, AQPB408SBO, AQPB408TPO);
+create index AQPB4085 on AQPB408 (AQPB408CTA, AQPB408EST);
+create index AQPB4086 on AQPB408 (AQPB408CTA);
+alter table AQPB408
+  add primary key (AQPB408COD, AQPB408MOD, AQPB408SUC, AQPB408MDA, AQPB408PAP, AQPB408CTA, AQPB408OPE, AQPB408SBO, AQPB408TPO, AQPB408ITCOD, AQPB408ITMOD, AQPB408ITSUC, AQPB408ITTRAN, AQPB408ITNREL, AQPB408ITFCON);
+

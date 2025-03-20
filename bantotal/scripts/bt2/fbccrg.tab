@@ -1,0 +1,18 @@
+create table FBCCRG
+(
+  bccrgemp  NUMBER(3) not null,
+  bccrgfec  DATE not null,
+  bccrgcorr NUMBER(12) not null,
+  bccrg04   CHAR(16) not null,
+  bccrg03   CHAR(4),
+  bccrg05   NUMBER(5),
+  bccrg06   CHAR(4),
+  bccrg07   CHAR(2),
+  bccrg08   CHAR(2),
+  bccrg09   NUMBER(14,2),
+  bccrg10   NUMBER(1)
+)
+;
+alter table FBCCRG
+  add primary key (BCCRGEMP, BCCRGFEC, BCCRGCORR, BCCRG04);
+

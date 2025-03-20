@@ -1,0 +1,57 @@
+create table AQPC307
+(
+  aqpc307fecreg  DATE not null,
+  aqpc307horreg  VARCHAR2(10) not null,
+  aqpc307numdoc  CHAR(8) not null,
+  aqpc307nomusu  VARCHAR2(60),
+  aqpc307apepri  VARCHAR2(40),
+  aqpc307apeseg  VARCHAR2(40),
+  aqpc307fenace  VARCHAR2(8),
+  aqpc307tippro  VARCHAR2(2),
+  aqpc307codres  CHAR(4),
+  aqpc307msgres  VARCHAR2(200),
+  aqpc307detres  VARCHAR2(1000),
+  aqpc307usuario CHAR(10),
+  aqpc307auxv1   VARCHAR2(200),
+  aqpc307auxv2   VARCHAR2(200),
+  aqpc307auxn1   NUMBER(17,2),
+  aqpc307auxn2   NUMBER(17,2)
+)
+;
+comment on table AQPC307
+  is 'Log de Peticiones RegistroReniec';
+comment on column AQPC307.aqpc307fecreg
+  is 'Fecha de Registro';
+comment on column AQPC307.aqpc307horreg
+  is 'Hora de Registro';
+comment on column AQPC307.aqpc307numdoc
+  is 'Documento';
+comment on column AQPC307.aqpc307nomusu
+  is 'Nombres';
+comment on column AQPC307.aqpc307apepri
+  is 'Apellido Paterno';
+comment on column AQPC307.aqpc307apeseg
+  is 'Apellido Materno';
+comment on column AQPC307.aqpc307fenace
+  is 'Fecha de Nacimiento';
+comment on column AQPC307.aqpc307tippro
+  is 'Tipo de Proceso';
+comment on column AQPC307.aqpc307codres
+  is 'Código Error';
+comment on column AQPC307.aqpc307msgres
+  is 'Mensaje Error';
+comment on column AQPC307.aqpc307detres
+  is 'Detalle Error';
+comment on column AQPC307.aqpc307usuario
+  is 'Usuario de Registro';
+comment on column AQPC307.aqpc307auxv1
+  is 'Auxiliar V1';
+comment on column AQPC307.aqpc307auxv2
+  is 'Auxiliar V2';
+comment on column AQPC307.aqpc307auxn1
+  is 'Auxiliar N1';
+comment on column AQPC307.aqpc307auxn2
+  is 'Auxiliar N2';
+alter table AQPC307
+  add primary key (AQPC307FECREG, AQPC307HORREG, AQPC307NUMDOC);
+

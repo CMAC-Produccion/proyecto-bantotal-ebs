@@ -1,0 +1,62 @@
+create table AQPB549A
+(
+  aqpb549acreusu VARCHAR2(10) not null,
+  aqpb549acretim TIMESTAMP(6),
+  aqpb549aopst   VARCHAR2(1) not null,
+  aqpb549aopsc   NUMBER(9) not null,
+  aqpb549aopsd   VARCHAR2(500),
+  aqpb549aopsq   NUMBER(9),
+  aqpb549amotc   NUMBER(3) not null,
+  aqpb549amotd   VARCHAR2(500),
+  aqpb549amotq   NUMBER(9),
+  aqpb549asmoc   NUMBER(9) not null,
+  aqpb549asmod   VARCHAR2(500),
+  aqpb549aqtyl   NUMBER(9),
+  aqpb549atabl   NUMBER(9),
+  aqpb549arafe   NUMBER(9),
+  aqpb549arafu   NUMBER(9),
+  aqpb549atpav   NUMBER(9,2),
+  aqpb549atpar   NUMBER(9)
+)
+;
+comment on table AQPB549A
+  is 'Reclamos - REP Estadistica';
+comment on column AQPB549A.aqpb549acreusu
+  is 'Usuario de Creacion';
+comment on column AQPB549A.aqpb549acretim
+  is 'Creacion';
+comment on column AQPB549A.aqpb549aopst
+  is 'OPS Tipo - V: Normal, S: Banca de Seguros';
+comment on column AQPB549A.aqpb549aopsc
+  is 'Operacion/Producto/Servicio - Codigo';
+comment on column AQPB549A.aqpb549aopsd
+  is 'Operacion/Producto/Servicio - Descripcion';
+comment on column AQPB549A.aqpb549aopsq
+  is 'Operacion/Producto/Servicio - Cantidad';
+comment on column AQPB549A.aqpb549amotc
+  is 'Motivo - Codigo';
+comment on column AQPB549A.aqpb549amotd
+  is 'Motivo - Descripcion';
+comment on column AQPB549A.aqpb549amotq
+  is 'Motivo - Cantidad';
+comment on column AQPB549A.aqpb549asmoc
+  is 'Sub Motivo - Codigo';
+comment on column AQPB549A.aqpb549asmod
+  is 'Sub Motivo - Descripcion';
+comment on column AQPB549A.aqpb549aqtyl
+  is 'Cantidad de Reclamos x Linea';
+comment on column AQPB549A.aqpb549atabl
+  is 'Dias de Absolucion x Linea';
+comment on column AQPB549A.aqpb549arafe
+  is 'REC Absueltos - Favor de la Empresa x Linea';
+comment on column AQPB549A.aqpb549arafu
+  is 'REC Absueltos - Favor del Usuario x Linea';
+comment on column AQPB549A.aqpb549atpav
+  is 'Tiempo Promedio de Absolucion x Linea (Con 2 decimales)';
+comment on column AQPB549A.aqpb549atpar
+  is 'Tiempo Promedio de Absolucion x Linea (Redondeado)';
+create index AQPB549A01 on AQPB549A (AQPB549AOPSQ);
+create index AQPB549A02 on AQPB549A (AQPB549AQTYL);
+alter table AQPB549A
+  add primary key (AQPB549ACREUSU, AQPB549AOPST, AQPB549AOPSC, AQPB549AMOTC, AQPB549ASMOC);
+

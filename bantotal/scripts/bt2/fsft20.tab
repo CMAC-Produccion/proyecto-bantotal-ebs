@@ -1,0 +1,43 @@
+create table FSFT20
+(
+  kkngnum  NUMBER(9) not null,
+  kkpgcod  NUMBER(3) not null,
+  kkitsuc  NUMBER(3) not null,
+  kkitmod  NUMBER(3) not null,
+  kkittran NUMBER(3) not null,
+  kkitnrel NUMBER(4) not null,
+  kkfcont  DATE not null,
+  kkord    NUMBER(2) not null,
+  kksbor   NUMBER(3) not null,
+  kkmodulo NUMBER(3),
+  kktope   NUMBER(3),
+  kksucd   NUMBER(3),
+  kkrubro  NUMBER(16),
+  kkmda    NUMBER(4),
+  kkpapel  NUMBER(4),
+  kkctnro  NUMBER(9),
+  kkoper   NUMBER(9),
+  kksbop   NUMBER(3),
+  kkitimp1 NUMBER(17,2),
+  kkpre1   NUMBER(14,8),
+  kkpre2   NUMBER(14,8),
+  kkdbha   NUMBER(1),
+  kkimp1   NUMBER(17,2),
+  kkimp2   NUMBER(17,2),
+  kkimp3   NUMBER(17,2),
+  kkcoef1  NUMBER(14,8),
+  kkcoef2  NUMBER(14,8),
+  kkcoef3  NUMBER(14,8),
+  kknum1   NUMBER(9),
+  kknum2   NUMBER(9),
+  kknum3   NUMBER(9),
+  kkfec1   DATE,
+  kkfec2   DATE,
+  kkfec3   DATE
+)
+;
+create index FSFT2002 on FSFT20 (KKNGNUM, KKPGCOD, KKITSUC, KKPAPEL, KKPRE1);
+create index FSFT2003 on FSFT20 (KKNGNUM, KKPGCOD, KKITSUC, KKSUCD, KKTOPE, KKPAPEL, KKCTNRO, KKOPER, KKSBOP, KKMDA, KKRUBRO, KKFEC1);
+alter table FSFT20
+  add primary key (KKNGNUM, KKPGCOD, KKITSUC, KKITMOD, KKITTRAN, KKITNREL, KKFCONT, KKORD, KKSBOR);
+

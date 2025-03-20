@@ -1,0 +1,91 @@
+create table AQPC806
+(
+  aqpc806itpgcod NUMBER(3) not null,
+  aqpc806itsuc   NUMBER(3) not null,
+  aqpc806itmod   NUMBER(3) not null,
+  aqpc806ittran  NUMBER(3) not null,
+  aqpc806itnrel  NUMBER(4) not null,
+  aqpc806itfcon  DATE not null,
+  aqpc806horat   VARCHAR2(10),
+  aqpc806agencit VARCHAR2(50),
+  aqpc806operadt VARCHAR2(20),
+  aqpc806product VARCHAR2(30),
+  aqpc806emp     NUMBER(3),
+  aqpc806modu    NUMBER(3),
+  aqpc806suc     NUMBER(3),
+  aqpc806mda     NUMBER(4),
+  aqpc806pap     NUMBER(4),
+  aqpc806cta     NUMBER(9),
+  aqpc806oper    NUMBER(9),
+  aqpc806sbop    NUMBER(3),
+  aqpc806tope    NUMBER(3),
+  aqpc806fecsis  DATE,
+  aqpc806horsis  CHAR(10),
+  aqpc806fechor  DATE,
+  aqpc806codcli  VARCHAR2(30),
+  aqpc806c1      VARCHAR2(30),
+  aqpc806c2      VARCHAR2(30),
+  aqpc806c3      VARCHAR2(30),
+  aqpc806c4      VARCHAR2(30)
+)
+;
+comment on table AQPC806
+  is 'Tabla para envio de SMS al desembolsar créditos';
+comment on column AQPC806.aqpc806itpgcod
+  is 'itpgcod';
+comment on column AQPC806.aqpc806itsuc
+  is 'Sucursal transac.';
+comment on column AQPC806.aqpc806itmod
+  is 'Modulo transac..';
+comment on column AQPC806.aqpc806ittran
+  is 'Transación';
+comment on column AQPC806.aqpc806itnrel
+  is 'Nro. relación';
+comment on column AQPC806.aqpc806itfcon
+  is 'Fecha Contab.';
+comment on column AQPC806.aqpc806horat
+  is 'Hora';
+comment on column AQPC806.aqpc806agencit
+  is 'Agencia';
+comment on column AQPC806.aqpc806operadt
+  is 'Operador';
+comment on column AQPC806.aqpc806product
+  is 'Producto';
+comment on column AQPC806.aqpc806emp
+  is 'Empresa cred.';
+comment on column AQPC806.aqpc806modu
+  is 'Modulo cred.';
+comment on column AQPC806.aqpc806suc
+  is 'Sucursal cred.';
+comment on column AQPC806.aqpc806mda
+  is 'Moneda cred.';
+comment on column AQPC806.aqpc806pap
+  is 'Papel cred.';
+comment on column AQPC806.aqpc806cta
+  is 'Cuenta cred.';
+comment on column AQPC806.aqpc806oper
+  is 'Operacion cred.';
+comment on column AQPC806.aqpc806sbop
+  is 'Suboperacion cred.';
+comment on column AQPC806.aqpc806tope
+  is 'Tipooperacion cred.';
+comment on column AQPC806.aqpc806fecsis
+  is 'Fecha Sistema';
+comment on column AQPC806.aqpc806horsis
+  is 'Hora Sistema';
+comment on column AQPC806.aqpc806fechor
+  is 'Fecha y hora';
+comment on column AQPC806.aqpc806codcli
+  is 'Cod. cliente';
+comment on column AQPC806.aqpc806c1
+  is 'C1';
+comment on column AQPC806.aqpc806c2
+  is 'C2';
+comment on column AQPC806.aqpc806c3
+  is 'C3';
+comment on column AQPC806.aqpc806c4
+  is 'C4';
+create index AQPC806A2 on AQPC806 (AQPC806FECSIS);
+alter table AQPC806
+  add primary key (AQPC806ITPGCOD, AQPC806ITSUC, AQPC806ITMOD, AQPC806ITTRAN, AQPC806ITNREL, AQPC806ITFCON);
+

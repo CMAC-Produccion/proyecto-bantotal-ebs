@@ -1,0 +1,48 @@
+create table FPP108
+(
+  pp108ncart NUMBER(4) not null,
+  pp108fecd  DATE not null,
+  pp108cod   NUMBER(3) not null,
+  pp108mod   NUMBER(3) not null,
+  pp108suc   NUMBER(3) not null,
+  pp108mda   NUMBER(4) not null,
+  pp108pap   NUMBER(4) not null,
+  pp108cta   NUMBER(9) not null,
+  pp108ope   NUMBER(9) not null,
+  pp108sbo   NUMBER(3) not null,
+  pp108top   NUMBER(3) not null,
+  pp108cor   NUMBER(10) not null,
+  pp108mto   NUMBER(17,2),
+  pp108cerr  NUMBER(4),
+  pp108tcd   NUMBER(3),
+  pp108tsu   NUMBER(3),
+  pp108tmo   NUMBER(3),
+  pp108ttr   NUMBER(3),
+  pp108tnr   NUMBER(4),
+  pp108tfc   DATE,
+  pp108tor   NUMBER(2),
+  pp108tsb   NUMBER(3),
+  pp108tco   CHAR(1),
+  pp108aux1  NUMBER(9),
+  pp108aux2  NUMBER(9),
+  pp108aux3  NUMBER(9),
+  pp108aux4  NUMBER(17,2),
+  pp108aux5  NUMBER(17,2),
+  pp108aux6  NUMBER(17,2),
+  pp108aux7  NUMBER(17,2),
+  pp108aux8  NUMBER(17,2),
+  pp108aux9  NUMBER(17,2),
+  pp108aux10 NUMBER(17,2),
+  pp108aux11 NUMBER(17,2),
+  pp108aux12 NUMBER(17,2),
+  pp108aux13 DATE,
+  pp108aux14 DATE,
+  pp108aux15 DATE,
+  pp108aux16 DATE,
+  pp108aux17 CHAR(50),
+  pp108aux18 CHAR(50)
+)
+;
+alter table FPP108
+  add primary key (PP108NCART, PP108FECD, PP108COD, PP108MOD, PP108SUC, PP108MDA, PP108PAP, PP108CTA, PP108OPE, PP108SBO, PP108TOP, PP108COR);
+

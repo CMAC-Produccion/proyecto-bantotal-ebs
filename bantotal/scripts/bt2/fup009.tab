@@ -1,0 +1,15 @@
+create table FUP009
+(
+  fup009id CHAR(30) not null,
+  fup009pg CHAR(10) not null,
+  fup009og CHAR(10) not null,
+  fup009hr CHAR(8) not null,
+  fup009cr NUMBER(5) not null,
+  fup009es CHAR(1),
+  fup009dt VARCHAR2(2000),
+  fup009sm CHAR(1)
+)
+;
+alter table FUP009
+  add primary key (FUP009ID, FUP009PG, FUP009OG, FUP009HR, FUP009CR);
+

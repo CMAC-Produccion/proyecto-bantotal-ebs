@@ -1,0 +1,33 @@
+create table FBC509
+(
+  bc509emp  NUMBER(3) not null,
+  bc509inf  CHAR(10) not null,
+  bc509fch  DATE not null,
+  bc509mod  NUMBER(3) not null,
+  bc509suc  NUMBER(3) not null,
+  bc509mda  NUMBER(4) not null,
+  bc509pap  NUMBER(4) not null,
+  bc509cta  NUMBER(9) not null,
+  bc509oper NUMBER(9) not null,
+  bc509sbop NUMBER(3) not null,
+  bc509tope NUMBER(3) not null,
+  bc509imp1 NUMBER(17,2),
+  bc509imp2 NUMBER(17,2),
+  bc509imp3 NUMBER(17,2),
+  bc509imp4 NUMBER(17,2),
+  bc509imp5 NUMBER(17,2),
+  bc509nro1 NUMBER(10),
+  bc509nro2 NUMBER(10),
+  bc509nro3 NUMBER(10),
+  bc509nro4 NUMBER(10),
+  bc509chr1 CHAR(1),
+  bc509chr2 CHAR(1),
+  bc509chr3 CHAR(30),
+  bc509fch1 DATE,
+  bc509fch2 DATE,
+  bc509fch3 DATE
+)
+;
+alter table FBC509
+  add primary key (BC509EMP, BC509INF, BC509FCH, BC509MOD, BC509SUC, BC509MDA, BC509PAP, BC509CTA, BC509OPER, BC509SBOP, BC509TOPE);
+

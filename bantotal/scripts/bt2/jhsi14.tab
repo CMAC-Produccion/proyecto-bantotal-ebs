@@ -1,0 +1,10 @@
+create table JHSI14
+(
+  jhsi14id   CHAR(20) not null,
+  jhsi14tipo CHAR(10) not null,
+  jhsi14data CHAR(255),
+  jhsi14time DATE
+)
+;
+create unique index JHSI1401 on JHSI14 (JHSI14ID, JHSI14TIPO);
+

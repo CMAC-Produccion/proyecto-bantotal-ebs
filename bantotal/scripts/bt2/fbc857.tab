@@ -1,0 +1,51 @@
+create table FBC857
+(
+  fbc857emp  NUMBER(3) not null,
+  fbc857fec  DATE not null,
+  fbc857suc  NUMBER(3) not null,
+  fbc857rub  NUMBER(16) not null,
+  fbc857mda  NUMBER(4) not null,
+  fbc857pap  NUMBER(4) not null,
+  fbc857cta  NUMBER(9) not null,
+  fbc857oper NUMBER(9) not null,
+  fbc857sbop NUMBER(3) not null,
+  fbc857tope NUMBER(3) not null,
+  fbc857cgar CHAR(50) not null,
+  fbc857cisi CHAR(2),
+  fbc857temi CHAR(2),
+  fbc857tbie CHAR(2),
+  fbc857tiem CHAR(2),
+  fbc857idvi CHAR(1),
+  fbc857tcob CHAR(2),
+  fbc857tide CHAR(2),
+  fbc857cide NUMBER(18),
+  fbc857isga NUMBER(2),
+  fbc857igac NUMBER(2),
+  fbc857feve DATE,
+  fbc857ctac NUMBER(14),
+  fbc857valg NUMBER(17,2),
+  fbc857plli NUMBER(4),
+  fbc857vale NUMBER(17,2),
+  fbc857valm NUMBER(17,2),
+  fbc857feva DATE,
+  fbc857mdag CHAR(3),
+  fbc857mdai CHAR(3),
+  fbc857plca CHAR(1),
+  fbc857emcl CHAR(2),
+  fbc857crex CHAR(10),
+  fbc857feca DATE,
+  fbc857cdeu NUMBER(18),
+  fbc857num1 NUMBER(17,2),
+  fbc857num2 NUMBER(17,2),
+  fbc857txt1 CHAR(50),
+  fbc857txt2 CHAR(50),
+  fbc857fec1 DATE,
+  fbc857fec2 DATE,
+  fbc857log1 CHAR(1),
+  fbc857log2 CHAR(1)
+)
+;
+create index FBC85702 on FBC857 (FBC857EMP, FBC857FEC, FBC857CTA);
+alter table FBC857
+  add primary key (FBC857EMP, FBC857FEC, FBC857SUC, FBC857RUB, FBC857MDA, FBC857PAP, FBC857CTA, FBC857OPER, FBC857SBOP, FBC857TOPE, FBC857CGAR);
+

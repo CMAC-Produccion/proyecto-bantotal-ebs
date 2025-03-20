@@ -1,0 +1,31 @@
+create table FPP109
+(
+  pp109ncart NUMBER(4) not null,
+  pp109tact  NUMBER(4) not null,
+  pp109fact  TIMESTAMP(6) not null,
+  pp109corr  NUMBER(9) not null,
+  pp109pgc   NUMBER(3),
+  pp109mod   NUMBER(3),
+  pp109suc   NUMBER(3),
+  pp109mda   NUMBER(4),
+  pp109pap   NUMBER(4),
+  pp109cta   NUMBER(9),
+  pp109ope   NUMBER(9),
+  pp109sbo   NUMBER(3),
+  pp109top   NUMBER(3),
+  pp109code  NUMBER(4),
+  pp109dese  CHAR(100),
+  pp109aux1  NUMBER(9),
+  pp109aux2  NUMBER(9),
+  pp109aux3  NUMBER(17,2),
+  pp109aux4  NUMBER(17,2),
+  pp109aux5  TIMESTAMP(6),
+  pp109aux6  TIMESTAMP(6),
+  pp109aux7  CHAR(50),
+  pp109aux8  CHAR(50),
+  pp109aux9  CHAR(50)
+)
+;
+alter table FPP109
+  add primary key (PP109NCART, PP109TACT, PP109FACT, PP109CORR);
+

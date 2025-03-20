@@ -1,0 +1,42 @@
+create table AQPA464
+(
+  aqpa464txtrub  NUMBER(16),
+  aqpa464pgcod   NUMBER(3) not null,
+  aqpa464hcmod   NUMBER(3) not null,
+  aqpa464hsucor  NUMBER(3) not null,
+  aqpa464htran   NUMBER(3) not null,
+  aqpa464hnrel   NUMBER(4) not null,
+  aqpa464hfcon   DATE not null,
+  aqpa464doid    NUMBER(15),
+  aqpa464cpcod   NUMBER(5) not null,
+  aqpa464vnro    NUMBER(10),
+  aqpa464vchr    CHAR(50),
+  aqpa464vfch    TIMESTAMP(6),
+  aqpa464vimp    NUMBER(17) not null,
+  aqpa464vtas    NUMBER(10),
+  aqpa464serie   CHAR(4) not null,
+  aqpa464nro     NUMBER not null,
+  aqpa464emp     NUMBER(3),
+  aqpa464mod     NUMBER(3),
+  aqpa464suc     NUMBER(3),
+  aqpa464mda     NUMBER(4),
+  aqpa464pap     NUMBER(4),
+  aqpa464cta     NUMBER(9),
+  aqpa464ope     NUMBER(9),
+  aqpa464sbo     NUMBER(3),
+  aqpa464top     NUMBER(3),
+  aqpa464hip     CHAR(2),
+  aqpa464txtord  CHAR(65),
+  aqpa464txoren  NUMBER(3),
+  aqpa464pgcode  NUMBER(3),
+  aqpa464hcmode  NUMBER(3),
+  aqpa464hsucore NUMBER(3),
+  aqpa464htrane  NUMBER(3),
+  aqpa464hnrele  NUMBER(4),
+  aqpa464hfcone  DATE
+)
+;
+create index AQPA464_01 on AQPA464 (AQPA464PGCOD, AQPA464HCMOD, AQPA464HSUCOR, AQPA464HTRAN, AQPA464HNREL, AQPA464HFCON, AQPA464DOID);
+alter table AQPA464
+  add primary key (AQPA464PGCOD, AQPA464HCMOD, AQPA464HSUCOR, AQPA464HTRAN, AQPA464HNREL, AQPA464HFCON, AQPA464SERIE, AQPA464NRO, AQPA464CPCOD, AQPA464VIMP);
+

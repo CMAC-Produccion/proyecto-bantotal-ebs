@@ -1,0 +1,15 @@
+create table SD4310
+(
+  sd10coddis NUMBER(4) not null,
+  sd10codent NUMBER(5) not null,
+  sd10fchinf NUMBER(6) not null,
+  sd10tpoid  NUMBER(2) not null,
+  sd10nroid  NUMBER(11) not null,
+  sd10denom  CHAR(55),
+  sd10sdodeu NUMBER(10),
+  sd10rectif CHAR(1)
+)
+;
+alter table SD4310
+  add primary key (SD10CODDIS, SD10CODENT, SD10FCHINF, SD10TPOID, SD10NROID);
+

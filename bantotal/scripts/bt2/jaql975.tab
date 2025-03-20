@@ -1,0 +1,27 @@
+create table JAQL975
+(
+  jaql975cor NUMBER(9) not null,
+  jaql975nom VARCHAR2(20),
+  jaql975usr CHAR(10),
+  jaql975fec DATE not null,
+  jaql975hin CHAR(8),
+  jaql975hfi CHAR(8)
+)
+;
+comment on column JAQL975.jaql975cor
+  is 'Correltativo reporte';
+comment on column JAQL975.jaql975nom
+  is 'Nombre de WebPanel,Procedimiento, Reporte';
+comment on column JAQL975.jaql975usr
+  is 'Usuario que genero reporte';
+comment on column JAQL975.jaql975fec
+  is 'Fecha de proceso';
+comment on column JAQL975.jaql975hin
+  is 'Hora Inicio';
+comment on column JAQL975.jaql975hfi
+  is 'Hora Fin';
+create index JAQL975 on JAQL975 (JAQL975COR);
+create index JAQL975_1 on JAQL975 (JAQL975NOM, JAQL975FEC, JAQL975USR);
+alter table JAQL975
+  add primary key (JAQL975FEC, JAQL975COR);
+

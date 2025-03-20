@@ -1,0 +1,14 @@
+create table FSD322
+(
+  ctrcod  NUMBER(16) not null,
+  ctrcmov NUMBER(3) not null,
+  ctrtpo  NUMBER(1) not null,
+  ctrmda  NUMBER(4) not null,
+  ctrpap  NUMBER(4) not null,
+  ctrmod  NUMBER(3) not null,
+  ctrtrn  NUMBER(3) not null
+)
+;
+alter table FSD322
+  add primary key (CTRCOD, CTRCMOV, CTRTPO, CTRMDA, CTRPAP, CTRMOD, CTRTRN);
+

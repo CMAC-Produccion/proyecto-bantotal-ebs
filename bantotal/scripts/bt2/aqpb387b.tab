@@ -1,0 +1,42 @@
+create table AQPB387B
+(
+  aqpb387bcod   NUMBER(3) not null,
+  aqpb387bfec   DATE not null,
+  aqpb387bcor   NUMBER(10) not null,
+  aqpb387bsdotf NUMBER(17,2),
+  aqpb387best   VARCHAR2(1),
+  aqpb387busr   VARCHAR2(10),
+  aqpb387bfcr   VARCHAR2(10),
+  aqpb387bhcr   VARCHAR2(10),
+  aqpb387busd   VARCHAR2(10),
+  aqpb387bfed   VARCHAR2(10),
+  aqpb387bhed   VARCHAR2(10)
+)
+;
+comment on table AQPB387B
+  is 'Tabla control limite global montos creditos';
+comment on column AQPB387B.aqpb387bcod
+  is 'Empresa';
+comment on column AQPB387B.aqpb387bfec
+  is 'Fecha';
+comment on column AQPB387B.aqpb387bcor
+  is 'Correlativo';
+comment on column AQPB387B.aqpb387bsdotf
+  is 'Saldo Trabajadores y Familiares';
+comment on column AQPB387B.aqpb387best
+  is 'Estado';
+comment on column AQPB387B.aqpb387busr
+  is 'Usuario Creacion';
+comment on column AQPB387B.aqpb387bfcr
+  is 'Fecha Creacion';
+comment on column AQPB387B.aqpb387bhcr
+  is 'Hora Creacion';
+comment on column AQPB387B.aqpb387busd
+  is 'Usuario Modificacion';
+comment on column AQPB387B.aqpb387bfed
+  is 'Fecha Modificacion';
+comment on column AQPB387B.aqpb387bhed
+  is 'Hora Modificacion';
+alter table AQPB387B
+  add primary key (AQPB387BCOD, AQPB387BFEC, AQPB387BCOR);
+

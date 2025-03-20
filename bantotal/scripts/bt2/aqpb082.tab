@@ -1,0 +1,51 @@
+create table AQPB082
+(
+  aqpb082corr     NUMBER(4) not null,
+  aqpb082pais     NUMBER(9) not null,
+  aqpb082tdoc     NUMBER(9) not null,
+  aqpb082ndoc     VARCHAR2(12) not null,
+  aqpb082tcamb    NUMBER(14,8),
+  aqpb082inst     NUMBER(12) not null,
+  aqpb082fec      DATE not null,
+  aqpb082hora     CHAR(8) not null,
+  aqpb082psvncsol NUMBER(10,2),
+  aqpb082psvncdol NUMBER(10,2),
+  aqpb082psvcsol  NUMBER(10,2),
+  aqpb082psvcdol  NUMBER(10,2),
+  aqpb082ind      VARCHAR2(5),
+  aqpb082est      VARCHAR2(2)
+)
+;
+comment on column AQPB082.aqpb082corr
+  is 'Correlativo por Instancia y Fecha';
+comment on column AQPB082.aqpb082pais
+  is 'Pais de Documento';
+comment on column AQPB082.aqpb082tdoc
+  is 'Tipo de Documento';
+comment on column AQPB082.aqpb082ndoc
+  is 'Nro de Documento';
+comment on column AQPB082.aqpb082tcamb
+  is 'Tipo de Cambio 0.0';
+comment on column AQPB082.aqpb082inst
+  is 'Nro de Instancia';
+comment on column AQPB082.aqpb082fec
+  is 'Fecha de Bantotal';
+comment on column AQPB082.aqpb082hora
+  is 'Hora de Ejecucion';
+comment on column AQPB082.aqpb082psvncsol
+  is 'Monto Pasivo No Corriente Soles';
+comment on column AQPB082.aqpb082psvncdol
+  is 'Monto Pasivo No Corriente Dolares';
+comment on column AQPB082.aqpb082psvcsol
+  is 'Monto Pasivo Corriente Soles';
+comment on column AQPB082.aqpb082psvcdol
+  is 'Monto Pasivo Corriente Dolares';
+comment on column AQPB082.aqpb082ind
+  is 'Indicador PSV Pasivo';
+comment on column AQPB082.aqpb082est
+  is 'Estado H habilitado I Inhabilitado';
+create index AQPB0822 on AQPB082 (AQPB082CORR, AQPB082FEC, AQPB082HORA);
+create index AQPB0823 on AQPB082 (AQPB082INST);
+alter table AQPB082
+  add primary key (AQPB082PAIS, AQPB082TDOC, AQPB082NDOC, AQPB082INST, AQPB082FEC, AQPB082HORA);
+

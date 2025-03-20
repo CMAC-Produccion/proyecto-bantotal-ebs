@@ -1,0 +1,14 @@
+create table FSD212
+(
+  pgcod     NUMBER(3) not null,
+  catcta    NUMBER(9) not null,
+  catcod    NUMBER(5) not null,
+  catfchdes DATE not null,
+  catcateg  CHAR(15)
+)
+;
+create unique index FSD21200 on FSD212 (PGCOD, CATCTA, CATCOD, CATFCHDES);
+create index FSD21204 on FSD212 (CATCOD, CATCTA, CATFCHDES);
+alter table FSD212
+  add constraint FSD212_PK primary key (PGCOD, CATCTA, CATCOD, CATFCHDES);
+

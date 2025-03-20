@@ -1,0 +1,98 @@
+create table AQPB156
+(
+  aqpb156fecrcc  DATE,
+  aqpb156regnom  CHAR(40),
+  aqpb156sucurs  CHAR(30),
+  aqpb156tsbscj  VARCHAR2(15),
+  aqpb156tsbstm  VARCHAR2(15),
+  aqpb156ccodemp VARCHAR2(5),
+  aqpb156bancos  VARCHAR2(200),
+  aqpb156clnts   NUMBER,
+  aqpb156sdcjmc  NUMBER,
+  aqpb156mrcjmc  NUMBER,
+  aqpb156slcjpq  NUMBER,
+  aqpb156mrcjpq  NUMBER,
+  aqpb156slcjcn  NUMBER,
+  aqpb156mrcjcn  NUMBER,
+  aqpb156slcjme  NUMBER,
+  aqpb156mrcjme  NUMBER,
+  aqpb156slcjhi  NUMBER,
+  aqpb156mrcjhi  NUMBER,
+  aqpb156sldsfmi NUMBER,
+  aqpb156slsfpq  NUMBER,
+  aqpb156sldsfcn NUMBER,
+  aqpb156slsfme  NUMBER,
+  aqpb156slsfhi  NUMBER,
+  aqpb156sldosf  NUMBER,
+  aqpb156mrsfmi  NUMBER,
+  aqpb156mrsfpq  NUMBER,
+  aqpb156mrsfcn  NUMBER,
+  aqpb156mrsfme  NUMBER,
+  aqpb156mrsfhi  NUMBER,
+  aqpb156morasf  NUMBER
+)
+;
+comment on table AQPB156
+  is 'Copia CROJAS_anx.Comp';
+comment on column AQPB156.aqpb156fecrcc
+  is 'FECHA_RCC';
+comment on column AQPB156.aqpb156regnom
+  is 'REGNOM';
+comment on column AQPB156.aqpb156sucurs
+  is 'SUCURS';
+comment on column AQPB156.aqpb156tsbscj
+  is 'TIPSBS_CAJA';
+comment on column AQPB156.aqpb156tsbstm
+  is 'TIPSBS_SISTEMA';
+comment on column AQPB156.aqpb156ccodemp
+  is 'C_CODEMP';
+comment on column AQPB156.aqpb156bancos
+  is 'BANCOS';
+comment on column AQPB156.aqpb156clnts
+  is 'CLIENTES';
+comment on column AQPB156.aqpb156sdcjmc
+  is 'SALDO_CAJA_MICRO';
+comment on column AQPB156.aqpb156mrcjmc
+  is 'MORA_CAJA_MICRO';
+comment on column AQPB156.aqpb156slcjpq
+  is 'SALDO_CAJA_PEQUEÑA';
+comment on column AQPB156.aqpb156mrcjpq
+  is 'MORA_CAJA_PEQUEÑA';
+comment on column AQPB156.aqpb156slcjcn
+  is 'SALDO_CAJA_CNR';
+comment on column AQPB156.aqpb156mrcjcn
+  is 'MORA_CAJA_CNR';
+comment on column AQPB156.aqpb156slcjme
+  is 'SALDO_CAJA_MEDIANA';
+comment on column AQPB156.aqpb156mrcjme
+  is 'MORA_CAJA_MEDIANA';
+comment on column AQPB156.aqpb156slcjhi
+  is 'SALDO_CAJA_HIPOTECARIO';
+comment on column AQPB156.aqpb156mrcjhi
+  is 'MORA_CAJA_HIPOTECARIO';
+comment on column AQPB156.aqpb156sldsfmi
+  is 'SALDO_SF_MICRO';
+comment on column AQPB156.aqpb156slsfpq
+  is 'SALDO_SF_PEQUEÑA';
+comment on column AQPB156.aqpb156sldsfcn
+  is 'SALDO_SF_CONSUMO';
+comment on column AQPB156.aqpb156slsfme
+  is 'SALDO_SF_MEDIANA';
+comment on column AQPB156.aqpb156slsfhi
+  is 'SALDO_SF_HIPOTECARIO';
+comment on column AQPB156.aqpb156sldosf
+  is 'SALDO_SF';
+comment on column AQPB156.aqpb156mrsfmi
+  is 'MORA_SF_MICRO';
+comment on column AQPB156.aqpb156mrsfpq
+  is 'MORA_SF_PEQUEÑA';
+comment on column AQPB156.aqpb156mrsfcn
+  is 'MORA_SF_CONSUMO';
+comment on column AQPB156.aqpb156mrsfme
+  is 'MORA_SF_MEDIANA';
+comment on column AQPB156.aqpb156mrsfhi
+  is 'MORA_SF_HIPOTECARIO';
+comment on column AQPB156.aqpb156morasf
+  is 'MORA_SF';
+create index AQPB156A2 on AQPB156 (AQPB156FECRCC);
+

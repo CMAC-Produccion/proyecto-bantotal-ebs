@@ -1,0 +1,116 @@
+create table AQPC441
+(
+  aqpc441emp    NUMBER(3) not null,
+  aqpc441suc    NUMBER(3) not null,
+  aqpc441mod    NUMBER(3) not null,
+  aqpc441mda    NUMBER(4) not null,
+  aqpc441pap    NUMBER(4) not null,
+  aqpc441cta    NUMBER(9) not null,
+  aqpc441ope    NUMBER(9) not null,
+  aqpc441sbo    NUMBER(3) not null,
+  aqpc441top    NUMBER(3) not null,
+  aqpc441ins    NUMBER(10),
+  aqpc441sdo    NUMBER(18,2),
+  aqpc441mtoa   NUMBER(18,2),
+  aqpc441pcj    NUMBER(5,2),
+  aqpc441tip    NUMBER(2),
+  aqpc441empg   NUMBER(3),
+  aqpc441sucg   NUMBER(3),
+  aqpc441modg   NUMBER(3),
+  aqpc441mdag   NUMBER(4),
+  aqpc441papg   NUMBER(4),
+  aqpc441ctag   NUMBER(9),
+  aqpc441opeg   NUMBER(9),
+  aqpc441sbog   NUMBER(3),
+  aqpc441topg   NUMBER(3),
+  aqpc441est    CHAR(1),
+  aqpc441itcod  NUMBER(3) not null,
+  aqpc441itmod  NUMBER(3) not null,
+  aqpc441itsuc  NUMBER(3) not null,
+  aqpc441ittran NUMBER(3) not null,
+  aqpc441itnrel NUMBER(4) not null,
+  aqpc441itfcon DATE not null,
+  aqpc441ithor  CHAR(8),
+  aqpc441itucnf CHAR(10),
+  aqpc441usuact CHAR(10),
+  aqpc441fecact DATE
+)
+;
+comment on table AQPC441
+  is 'Lista de los créditos y garantías que se han dado de alta de los créditos de Fae Texco';
+comment on column AQPC441.aqpc441emp
+  is 'Empresa del crédito';
+comment on column AQPC441.aqpc441suc
+  is 'sucursal del credito';
+comment on column AQPC441.aqpc441mod
+  is 'modulo del credito';
+comment on column AQPC441.aqpc441mda
+  is 'Monedo del crdito';
+comment on column AQPC441.aqpc441pap
+  is 'papel del credito';
+comment on column AQPC441.aqpc441cta
+  is 'cuenta del credito';
+comment on column AQPC441.aqpc441ope
+  is 'operacion del credito';
+comment on column AQPC441.aqpc441sbo
+  is 'suboperacion del credito';
+comment on column AQPC441.aqpc441top
+  is 'tipo operacion del credito';
+comment on column AQPC441.aqpc441ins
+  is 'Instancia';
+comment on column AQPC441.aqpc441sdo
+  is 'Saldo del capital del credito';
+comment on column AQPC441.aqpc441mtoa
+  is 'Monto de alta de la garantía';
+comment on column AQPC441.aqpc441pcj
+  is 'Porcentaje para el caluclo de alta del monto de garantía';
+comment on column AQPC441.aqpc441tip
+  is 'Tipo de Credito 1=consumo 2=mypes/vehiculares 3=hipotecario';
+comment on column AQPC441.aqpc441empg
+  is 'Empresa de la garantia';
+comment on column AQPC441.aqpc441sucg
+  is 'Sucursal de la Garantía';
+comment on column AQPC441.aqpc441modg
+  is 'Modúlo de la garantía';
+comment on column AQPC441.aqpc441mdag
+  is 'Moneda de la Garantía';
+comment on column AQPC441.aqpc441papg
+  is 'Papel de la Garantía';
+comment on column AQPC441.aqpc441ctag
+  is 'Cuenta de la Garantía';
+comment on column AQPC441.aqpc441opeg
+  is 'Operación de la Garnatía';
+comment on column AQPC441.aqpc441sbog
+  is 'Suboperación de la garantía';
+comment on column AQPC441.aqpc441topg
+  is 'Tipo de Operacion de la Garantía';
+comment on column AQPC441.aqpc441est
+  is 'Estado del registro C=Contabilizado, E=Extornado, N=No se contabilizó, I=CargaInicial';
+comment on column AQPC441.aqpc441itcod
+  is 'codigo empresa transacción';
+comment on column AQPC441.aqpc441itmod
+  is 'modulo transaccion';
+comment on column AQPC441.aqpc441itsuc
+  is 'sucursal transaccion';
+comment on column AQPC441.aqpc441ittran
+  is 'transacción';
+comment on column AQPC441.aqpc441itnrel
+  is 'numero de relacion transaccion';
+comment on column AQPC441.aqpc441itfcon
+  is 'fecha transacción';
+comment on column AQPC441.aqpc441ithor
+  is 'hora transacción';
+comment on column AQPC441.aqpc441itucnf
+  is 'usuario transaccion';
+comment on column AQPC441.aqpc441usuact
+  is 'usuario de acualizacion';
+comment on column AQPC441.aqpc441fecact
+  is 'fecha de actualización';
+create index AQPC441A2 on AQPC441 (AQPC441ITCOD, AQPC441ITMOD, AQPC441ITSUC, AQPC441ITTRAN, AQPC441ITNREL, AQPC441ITFCON);
+create index AQPC441A3 on AQPC441 (AQPC441CTA, AQPC441EST);
+create index AQPC441A4 on AQPC441 (AQPC441EMP, AQPC441SUC, AQPC441MOD, AQPC441MDA, AQPC441PAP, AQPC441CTA, AQPC441OPE, AQPC441SBO, AQPC441TOP);
+create index AQPC441A5 on AQPC441 (AQPC441EMPG, AQPC441SUCG, AQPC441MODG, AQPC441MDAG, AQPC441PAPG, AQPC441CTAG, AQPC441OPEG, AQPC441SBOG, AQPC441TOPG);
+create index AQPC441A6 on AQPC441 (AQPC441CTAG, AQPC441EST);
+alter table AQPC441
+  add primary key (AQPC441EMP, AQPC441SUC, AQPC441MOD, AQPC441MDA, AQPC441PAP, AQPC441CTA, AQPC441OPE, AQPC441SBO, AQPC441TOP, AQPC441ITCOD, AQPC441ITMOD, AQPC441ITSUC, AQPC441ITTRAN, AQPC441ITNREL, AQPC441ITFCON);
+

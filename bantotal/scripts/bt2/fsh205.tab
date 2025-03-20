@@ -1,0 +1,14 @@
+create table FSH205
+(
+  papel  NUMBER(4) not null,
+  prfdes DATE not null,
+  precom NUMBER(14,8),
+  prevta NUMBER(14,8),
+  precie NUMBER(14,8),
+  prfinv NUMBER(8)
+)
+;
+create index FSH20503 on FSH205 (PAPEL, PRFINV);
+alter table FSH205
+  add primary key (PAPEL, PRFDES);
+

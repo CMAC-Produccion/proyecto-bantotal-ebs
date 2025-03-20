@@ -1,0 +1,353 @@
+create table AQPA460_2018
+(
+  aqpa460tdoc   VARCHAR2(1),
+  aqpa460rucc   VARCHAR2(11),
+  aqpa460rsoc   VARCHAR2(1500),
+  aqpa460cdis   VARCHAR2(6),
+  aqpa460ncom   VARCHAR2(1500),
+  aqpa460calle  VARCHAR2(200),
+  aqpa460urba   VARCHAR2(25),
+  aqpa460depa   VARCHAR2(100),
+  aqpa460prov   VARCHAR2(30),
+  aqpa460dist   VARCHAR2(30),
+  aqpa460telf   VARCHAR2(20),
+  aqpa460web    VARCHAR2(100),
+  aqpa460cpais  VARCHAR2(2),
+  aqpa460cesun  VARCHAR2(4),
+  aqpa460seri   VARCHAR2(4),
+  aqpa460num    NUMBER(8),
+  aqpa460femi   DATE,
+  aqpa460tcomf  VARCHAR2(2),
+  aqpa460mone   VARCHAR2(3),
+  aqpa460corrr  VARCHAR2(100),
+  aqpa460mglo   VARCHAR2(100),
+  aqpa460coma   VARCHAR2(20),
+  aqpa460tpla   VARCHAR2(3),
+  aqpa460tope   VARCHAR2(4),
+  aqpa460tplco  VARCHAR2(3),
+  aqpa460clog   VARCHAR2(3),
+  aqpa460tdocr  VARCHAR2(1),
+  aqpa460nruc   VARCHAR2(15),
+  aqpa460rasoc  VARCHAR2(1500),
+  aqpa460impt   NUMBER(12,2),
+  aqpa460hemi   VARCHAR2(12),
+  aqpa460simc   NUMBER(12,2),
+  aqpa460svitm  NUMBER(12,2),
+  aqpa460spvi   NUMBER(12,2),
+  aqpa460txml   VARCHAR2(3),
+  aqpa460sdref  VARCHAR2(50),
+  aqpa460ndref  NUMBER(20),
+  aqpa460cmem   VARCHAR2(2),
+  aqpa460sust   VARCHAR2(250),
+  aqpa460serie  VARCHAR2(50),
+  aqpa460nro    NUMBER(20),
+  aqpa460tcomp  VARCHAR2(2),
+  aqpa460fdref  VARCHAR2(10),
+  aqpa460cdist  VARCHAR2(6),
+  aqpa460call   VARCHAR2(500),
+  aqpa460urb    VARCHAR2(100),
+  aqpa460dep    VARCHAR2(500),
+  aqpa460prv    VARCHAR2(500),
+  aqpa460dst    VARCHAR2(500),
+  aqpa460cpai   VARCHAR2(2),
+  aqpa460item   NUMBER(5),
+  aqpa460pnetu  VARCHAR2(3),
+  aqpa460cantf  NUMBER(12,10),
+  aqpa460total  NUMBER(12,2),
+  aqpa460dete   VARCHAR2(1),
+  aqpa460ctpr   VARCHAR2(2),
+  aqpa460vvun   NUMBER,
+  aqpa460vvuig  NUMBER,
+  aqpa460desc   VARCHAR2(500),
+  aqpa460mfun   VARCHAR2(500),
+  aqpa460prvit  NUMBER(15,2),
+  aqpa460medem  VARCHAR2(50),
+  aqpa460csuna  VARCHAR2(8),
+  aqpa460cpgs1  VARCHAR2(14),
+  aqpa460ititm  NUMBER(12,2),
+  aqpa460imptb  NUMBER(12,2),
+  aqpa460impex  NUMBER(12,2),
+  aqpa460afigv  VARCHAR2(2),
+  aqpa460sisc   VARCHAR2(2),
+  aqpa460codtb  VARCHAR2(4),
+  aqpa460dstrb  VARCHAR2(6),
+  aqpa460codun  VARCHAR2(3),
+  aqpa460mbim   NUMBER(12,2),
+  aqpa460taimp  NUMBER(3,5),
+  aqpa460cdley  NUMBER(4),
+  aqpa460teley  VARCHAR2(200),
+  aqpa460text1  VARCHAR2(1000),
+  aqpa460text2  VARCHAR2(1000),
+  aqpa460trecv  VARCHAR2(1000),
+  aqpa460templ  VARCHAR2(3),
+  aqpa460subje  VARCHAR2(100),
+  aqpa460vpcva  VARCHAR2(15),
+  aqpa460nexp   VARCHAR2(10),
+  aqpa460cind   VARCHAR2(1),
+  aqpa460npart  VARCHAR2(50),
+  aqpa460ncont  VARCHAR2(50),
+  aqpa460fotrc  DATE,
+  aqpa460cdisn  VARCHAR2(6),
+  aqpa460direh  VARCHAR2(200),
+  aqpa460urbh   VARCHAR2(25),
+  aqpa460prvh   VARCHAR2(30),
+  aqpa460dsth   VARCHAR2(30),
+  aqpa460depth  VARCHAR2(30),
+  aqpa460mtotal NUMBER(12,2),
+  aqpa460baimp  NUMBER(12,2),
+  aqpa460mtimp  NUMBER(12,2),
+  aqpa460pcima  NUMBER(9,2),
+  aqpa460bsimp  NUMBER(12,2),
+  aqpa460vaimp  NUMBER(12,2),
+  aqpa460mtinf  NUMBER(12,2),
+  aqpa460mtgrt  NUMBER(12,2),
+  aqpa460bsimps NUMBER(12,2),
+  aqpa460mtoti  NUMBER(12,2),
+  aqpa460pgc    NUMBER(3),
+  aqpa460mod    NUMBER(3),
+  aqpa460suc    NUMBER(3),
+  aqpa460trx    NUMBER(3),
+  aqpa460rel    NUMBER(4),
+  aqpa460ore    NUMBER(3),
+  aqpa460pgce   NUMBER(3),
+  aqpa460mode   NUMBER(3),
+  aqpa460suce   NUMBER(3),
+  aqpa460trxe   NUMBER(3),
+  aqpa460rele   NUMBER(4),
+  aqpa460fcone  DATE,
+  aqpa460glos   VARCHAR2(1000),
+  aqpa460tipag  VARCHAR2(1),
+  aqpa460text3  VARCHAR2(1000),
+  aqpa460text4  VARCHAR2(1000),
+  aqpa460conce  VARCHAR2(1)
+)
+compress;
+comment on table AQPA460_2018
+  is 'tabla de empresa';
+comment on column AQPA460_2018.aqpa460tdoc
+  is 'Codigo del Tipo de Documento de Identidad oENEmpresa';
+comment on column AQPA460_2018.aqpa460rucc
+  is 'N?mero de documento de identidad del emisor oENEmpresa';
+comment on column AQPA460_2018.aqpa460rsoc
+  is 'Apellidos y nombres o denominaci?n o raz?n social oENEmpresa';
+comment on column AQPA460_2018.aqpa460cdis
+  is 'Codigo de UBIGEO oENEmpresa';
+comment on column AQPA460_2018.aqpa460ncom
+  is 'Nombre Comercial oENEmpresa';
+comment on column AQPA460_2018.aqpa460calle
+  is 'Direcci?n completa y detallada oENEmpresa';
+comment on column AQPA460_2018.aqpa460urba
+  is 'Urbanizacion o Zona  oENEmpresa';
+comment on column AQPA460_2018.aqpa460depa
+  is 'Departamento, expresado textualmente  oENEmpresa';
+comment on column AQPA460_2018.aqpa460prov
+  is 'Provincia, expresarlo textualmente   oENEmpresa';
+comment on column AQPA460_2018.aqpa460dist
+  is 'Distrito, expresarlo textualmente oENEmpres';
+comment on column AQPA460_2018.aqpa460telf
+  is 'Telefono de la Empresa Emisora oENEmpres';
+comment on column AQPA460_2018.aqpa460web
+  is 'Pagina Web del Emisor oENEmpres';
+comment on column AQPA460_2018.aqpa460cpais
+  is 'Codigo del Pais del Emisor oENEmpres';
+comment on column AQPA460_2018.aqpa460cesun
+  is 'C?digo del establecimiento de Sunat  oENEmpres';
+comment on column AQPA460_2018.aqpa460seri
+  is 'Serie del comprobante.  Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460num
+  is 'Numero Correlativo del comprobante. Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460femi
+  is 'Fecha de Emision del Comprobante Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460tcomf
+  is 'Codigo del Tipo de Comprobante Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460mone
+  is 'Codigo del Tipo de Moneda Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460corrr
+  is 'El correo electr?nico del Receptor  Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460mglo
+  is 'Multiples Informaci?n adicional u observacion del comprobante.  Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460coma
+  is 'Numero Interno del Comprobante Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460tpla
+  is 'Tiplo de Plantilla  Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460tope
+  is 'C?digo de Tipo de operaciones Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460tplco
+  is 'C?digo de plantilla de correo  Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460clog
+  is 'C?digo del tipo de Logo Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460tdocr
+  is 'Codigo del tipo de documento de identificaci?n del Receptor Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460nruc
+  is 'N?mero de documento de identificaci?n Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460rasoc
+  is 'Apellidos y nombres o denominaci?n o raz?n social Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460impt
+  is 'Importe total  a pagar Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460hemi
+  is 'Hora de Emisi?n  Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460simc
+  is 'Suma de todos los impuestos del comprobante.  Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460svitm
+  is 'Suma del valor de venta total de todos los items   Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460spvi
+  is 'Suma de los precios de venta total de todos los items  Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460txml
+  is ' Indica el tipo de XML que se generar? Datos del Comprobante';
+comment on column AQPA460_2018.aqpa460sdref
+  is 'Serie documento al que se aplica la nota. ENComprobanteMotivoDocumento';
+comment on column AQPA460_2018.aqpa460ndref
+  is 'Numero  documento al que se aplica la nota.  ENComprobanteMotivoDocumento';
+comment on column AQPA460_2018.aqpa460cmem
+  is 'C?digo por el cual se emite la nota.  ENComprobanteMotivoDocumento';
+comment on column AQPA460_2018.aqpa460sust
+  is 'Sustento ENComprobanteMotivoDocumentoSustento';
+comment on column AQPA460_2018.aqpa460serie
+  is 'Serie del comprobante referenciado. Referencia a un comprobante';
+comment on column AQPA460_2018.aqpa460nro
+  is 'N?mero del comprobante referenciado Referencia a un comprobante';
+comment on column AQPA460_2018.aqpa460tcomp
+  is 'C?digo del tipo de comprobante.  Referencia a un comprobante';
+comment on column AQPA460_2018.aqpa460fdref
+  is 'Fecha de emisi?n del comprobante referenciado. Referencia a un comprobante';
+comment on column AQPA460_2018.aqpa460cdist
+  is 'C?digo de UBIGEO Datos adicionales del Receptor';
+comment on column AQPA460_2018.aqpa460call
+  is 'Direcci?n completa y detallada Datos adicionales del Receptor';
+comment on column AQPA460_2018.aqpa460urb
+  is 'Urbanizacion o Zona   Datos adicionales del Receptor';
+comment on column AQPA460_2018.aqpa460dep
+  is 'Departamento Datos adicionales del Receptor';
+comment on column AQPA460_2018.aqpa460prv
+  is 'Provincia   Datos adicionales del Receptor';
+comment on column AQPA460_2018.aqpa460dst
+  is 'Distrito Datos adicionales del Receptor';
+comment on column AQPA460_2018.aqpa460cpai
+  is 'C?digo del Pa?s  Datos adicionales del Receptor';
+comment on column AQPA460_2018.aqpa460item
+  is 'N?mero de orden del Item ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460pnetu
+  is 'Unidad de medida de los bienes vendidos
+ por item (UN/ECE rec 20) ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460cantf
+  is 'Cantidad de unidades vendidas pot item (Q)  ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460total
+  is 'Importe monetario que es el total de la l?nea de detalle, incluyendo variaciones de precio (subvenciones, cargos o descuentos) pero sin impuestos.  ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460dete
+  is 'Codigo de identificaci?n de Onerosidad del Item ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460ctpr
+  is 'Codigo de tipo de importe de afectacion ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460vvun
+  is 'Valores de venta unitarios por item (VU) no incluye impuestos  ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460vvuig
+  is 'Precio de Venta Unitario (Incluye impuestos)  ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460desc
+  is ' Descripcion del producto ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460mfun
+  is 'Multi Descripcion,  puede tener varias desccripciones ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460prvit
+  is 'Es el precio de venta ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460medem
+  is 'Unidad medida del emisor ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460csuna
+  is 'C?digo producto establecido por Sunat   ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460cpgs1
+  is 'C?digo de producto GS1  ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460ititm
+  is 'Impuesto total del item ENComprobanteDetalle ';
+comment on column AQPA460_2018.aqpa460imptb
+  is 'Importe total de un tributo para este item Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA460_2018.aqpa460impex
+  is 'Importe expl?cito a tributar ( = Tasa Porcentaje * Base Imponible)   Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA460_2018.aqpa460afigv
+  is 'Afectaci?n del IGV  Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA460_2018.aqpa460sisc
+  is 'Sistema de ISC  (01=Especifico; 02= al valor; 03=PV al p?blico)  Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA460_2018.aqpa460codtb
+  is 'Identificaci?n del tributo seg?n cat?logo SUNAT Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA460_2018.aqpa460dstrb
+  is 'Nombre del Tributo (IGV, IVAP, ISC)  Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA460_2018.aqpa460codun
+  is 'C?digo del Tipo de Tributo (UN/ECE 5153) Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA460_2018.aqpa460mbim
+  is 'Monto base del impuesto Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA460_2018.aqpa460taimp
+  is 'Tasa aplicada del impuesto  Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPA460_2018.aqpa460cdley
+  is 'Codigo de la Leyenda Utilizado para Leyendas';
+comment on column AQPA460_2018.aqpa460teley
+  is 'Texto de la leyenda  Utilizado para Leyendas';
+comment on column AQPA460_2018.aqpa460text1
+  is 'Texto libre 1 : Producto  Informaci?n adicional para la visualizacion
+ de representaciones impresas, antes definido por el integrador.';
+comment on column AQPA460_2018.aqpa460text2
+  is 'Texto libre 2 : N?mero de Cr?dito Informaci?n adicional para la visualizacion
+ de representaciones impresas, antes definido por el integrador.';
+comment on column AQPA460_2018.aqpa460trecv
+  is 'Correo del receptor Utilizado para enviar correos adicionales con
+copia al Correo del Receptor, ingresado en ENComprobante.Correo';
+comment on column AQPA460_2018.aqpa460templ
+  is 'C?digo de Tipo de Plantilla  Utilizado para enviar correos adicionales con
+copia al Correo del Receptor, ingresado en ENComprobante.Correo';
+comment on column AQPA460_2018.aqpa460subje
+  is 'Asunto del correo Utilizado para enviar correos adicionales con
+copia al Correo del Receptor, ingresado en ENComprobante.Correo';
+comment on column AQPA460_2018.aqpa460vpcva
+  is 'Placa del vehiculo Informaci?n adicional del item';
+comment on column AQPA460_2018.aqpa460nexp
+  is 'N?mero de Expediente Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460cind
+  is 'C?digo de indicador  Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460npart
+  is 'N?mero de Partida Registral  Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460ncont
+  is 'N?mero de contrato  Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460fotrc
+  is 'Fecha de Otorgo de cr?dito   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460cdisn
+  is 'C?digo de Ubigeo   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460direh
+  is 'Direcci?n   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460urbh
+  is 'Urbanizaci?n Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460prvh
+  is 'Provincia   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460dsth
+  is 'Distrito   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460depth
+  is 'Departamento Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPA460_2018.aqpa460mtotal
+  is 'Monto total Gravado (Sin impuesto)  Informaci?n de gravada';
+comment on column AQPA460_2018.aqpa460baimp
+  is 'Base del impuesto  IGV del Gravado';
+comment on column AQPA460_2018.aqpa460mtimp
+  is 'Monto total solo del impuesto   IGV del Gravado';
+comment on column AQPA460_2018.aqpa460pcima
+  is 'Porcentaje del impuesto aplicado  IGV del Gravado';
+comment on column AQPA460_2018.aqpa460bsimp
+  is 'Base del impuesto Otros impuestos del Gravado';
+comment on column AQPA460_2018.aqpa460vaimp
+  is 'Monto total solo del impuesto  Otros impuestos del Gravado';
+comment on column AQPA460_2018.aqpa460mtinf
+  is 'Monto total Inafecto  Informaci?n de inafecto';
+comment on column AQPA460_2018.aqpa460mtgrt
+  is 'Monto total Gratuito  Informaci?n de gratuito';
+comment on column AQPA460_2018.aqpa460bsimps
+  is 'Base del impuesto Impuestos del Gratuito';
+comment on column AQPA460_2018.aqpa460mtoti
+  is 'Monto total de impuestos Impuestos del Gratuito';
+comment on column AQPA460_2018.aqpa460glos
+  is 'Glosa';
+comment on column AQPA460_2018.aqpa460tipag
+  is 'Tipo Pago';
+comment on column AQPA460_2018.aqpa460text3
+  is 'Texto 3 Numero de Transaccion';
+comment on column AQPA460_2018.aqpa460text4
+  is 'Texto 4 Concepto';
+comment on column AQPA460_2018.aqpa460conce
+  is 'Concepto ahorro, creditos,servicios';
+create index AQPA460_20181 on AQPA460_2018 (AQPA460TDOC, AQPA460RUCC, AQPA460RSOC, AQPA460CDIS);
+create index AQPA460__20182 on AQPA460_2018 (AQPA460SERI, AQPA460NUM, AQPA460FEMI);
+create index AQPA460_20183 on AQPA460_2018 (AQPA460SERI, AQPA460NUM, AQPA460ORE);
+create index AQPA460__20184 on AQPA460_2018 (AQPA460PGC, AQPA460MOD, AQPA460SUC, AQPA460TRX, AQPA460REL, AQPA460FEMI);
+

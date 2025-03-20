@@ -1,0 +1,16 @@
+create table JBVS09
+(
+  jbvs09sol  NUMBER(4) not null,
+  jbvs09fapl DATE not null,
+  jbvs09cor  NUMBER(5) not null,
+  jbvs09emp  NUMBER(3),
+  jbvs09suc  NUMBER(3),
+  jbvs09mod  NUMBER(3),
+  jbvs09trn  NUMBER(3),
+  jbvs09rel  NUMBER(4),
+  jbvs09fcon DATE,
+  jbvs09mnco NUMBER(4)
+)
+;
+create unique index JBVS0901 on JBVS09 (JBVS09SOL, JBVS09FAPL, JBVS09COR);
+

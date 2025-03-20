@@ -1,0 +1,401 @@
+create table JAQL964
+(
+  jaql964cor   NUMBER(10) not null,
+  jaql964suc   NUMBER(4),
+  jaql964nom   VARCHAR2(30),
+  jaql964usu   VARCHAR2(30),
+  jaql964num   NUMBER(10),
+  jaql964sal   NUMBER(16,2),
+  jaql964cli   NUMBER(4),
+  jaql964nor   NUMBER(10),
+  jaql964ref   NUMBER(10),
+  jaql964jud   NUMBER(10),
+  jaql964nr1   NUMBER(10),
+  jaql964sa1   NUMBER(16,2),
+  jaql964po1   NUMBER(6,2),
+  jaql964nr2   NUMBER(10),
+  jaql964sa2   NUMBER(16,2),
+  jaql964po2   NUMBER(6,2),
+  jaql964nr3   NUMBER(10),
+  jaql964sa3   NUMBER(16,2),
+  jaql964po3   NUMBER(6,2),
+  jaql964nr4   NUMBER(10),
+  jaql964sa4   NUMBER(16,2),
+  jaql964po4   NUMBER(6,2),
+  jaql964nr5   NUMBER(10),
+  jaql964sa5   NUMBER(16,2),
+  jaql964po5   NUMBER(6,2),
+  jaql964nr6   NUMBER(10),
+  jaql964sa6   NUMBER(16,2),
+  jaql964po6   NUMBER(10),
+  jaql964cre   VARCHAR2(17),
+  jaql964tit   VARCHAR2(100),
+  jaql964doc   CHAR(12),
+  jaql964cta   NUMBER(9),
+  jaql964mod   NUMBER(4),
+  jaql964mda   NUMBER(3),
+  jaql964ope   NUMBER(9),
+  jaql964dia   NUMBER(9),
+  jaql964sao   NUMBER(16,2),
+  jaql964sac   NUMBER(16,2),
+  jaql964pro   VARCHAR2(30),
+  jaql964nr7   NUMBER(10),
+  jaql964sa7   NUMBER(16,2),
+  jaql964po7   NUMBER(6,2),
+  jaql964reg   NUMBER(3),
+  jaql964ren   CHAR(40),
+  jaql964sob   NUMBER(3),
+  jaql964top   NUMBER(3),
+  jaql964pai   NUMBER(3),
+  jaql964tid   NUMBER(2),
+  jaql964tel   VARCHAR2(25),
+  jaql964dis   VARCHAR2(50),
+  jaql964dir   VARCHAR2(150),
+  jaql964tco   VARCHAR2(30),
+  jaql964gar   VARCHAR2(300),
+  jaql964pre   NUMBER(16,2),
+  jaql964cal   VARCHAR2(40),
+  jaql964cca   NUMBER(4),
+  jaql964abo   VARCHAR2(50),
+  jaql964mtd   NUMBER(16,2),
+  jaql964mta   NUMBER(16,2),
+  jaql964csb   NUMBER(4),
+  jaql964fep   DATE,
+  jaql964fec   DATE,
+  jaql964est   NUMBER(3),
+  jaql964tcc   VARCHAR2(30),
+  jaql964red   VARCHAR2(200),
+  jaql964gas   NUMBER(16,2),
+  jaql964mor   NUMBER(16,2),
+  jaql964int   NUMBER(16,2),
+  jaql964cuo   NUMBER(16,2),
+  jaql964sec   NUMBER(4),
+  jaql964ins   NUMBER(10),
+  jaql964ctav  NUMBER(9),
+  jaql964noav  VARCHAR2(100),
+  jaql964diav  VARCHAR2(180),
+  jaql964teav  VARCHAR2(25),
+  jaql964icex  NUMBER(18,2),
+  jaql964orub  NUMBER(18,2),
+  jaql964mapr  NUMBER(18,2),
+  jaql964prov  NUMBER(18,2),
+  jaql964calf  NUMBER(18,2),
+  jaql964dcalf VARCHAR2(50),
+  jaql964fcan  VARCHAR2(10),
+  jaq964fref   VARCHAR2(10),
+  jaql964fcas  VARCHAR2(10),
+  jaql964fdem  VARCHAR2(10),
+  jaql964ftab  VARCHAR2(10),
+  jaql964pgcod NUMBER(3),
+  jaql964pap   NUMBER(4),
+  jaql964fint  VARCHAR2(10),
+  jaql964fadem VARCHAR2(10),
+  jaql964apago VARCHAR2(2),
+  jaql964dpago VARCHAR2(100),
+  jaql964firl  VARCHAR2(10),
+  jaql964cesp  VARCHAR2(200),
+  jaql964nexp  VARCHAR2(20),
+  jaql964sdve  NUMBER(18,2),
+  jaql964sdre  NUMBER(18,2),
+  jaql964faabo VARCHAR2(10),
+  jaql964fejud VARCHAR2(10),
+  jaql964fdes  VARCHAR2(10),
+  jaql964sdo   NUMBER(16,2),
+  jaql964tcr   NUMBER(2),
+  jaql964icv   NUMBER(18,2),
+  jaql964tcap  NUMBER(18,2),
+  jaql964tint  NUMBER(18,2),
+  jaql964tmor  NUMBER(18,2),
+  jaql964tgas  NUMBER(18,2),
+  jaql964ticv  NUMBER(18,2),
+  jaql964seg   NUMBER(18,2),
+  jaql964tseg  NUMBER(18,2),
+  jaql964com   NUMBER(18,2),
+  jaql964tcom  NUMBER(18,2),
+  jaql964pzo   NUMBER(5),
+  jaql964soben VARCHAR2(2),
+  jaql964dpto  VARCHAR2(50),
+  jaql964provi VARCHAR2(50),
+  jaql964pen   NUMBER(18,2),
+  jaql964tpen  NUMBER(18,2),
+  jaql964sbbp  NUMBER(18,2),
+  jaql964ibbp  NUMBER(18,2),
+  jaql964spbp  NUMBER(18,2),
+  jaql964ipbp  NUMBER(18,2),
+  jaql964sbms  NUMBER(18,2),
+  jaql964ibms  NUMBER(18,2),
+  jaql964sbfh  NUMBER(18,2),
+  jaql964ibfh  NUMBER(18,2),
+  jaql964ciiu  NUMBER(11),
+  jaql964au1v  VARCHAR2(50),
+  jaql964au2v  VARCHAR2(50),
+  jaql964au3v  VARCHAR2(50),
+  jaql964au1d  DATE,
+  jaql964au2d  DATE,
+  jaql964au3d  DATE,
+  jaql964au1n  NUMBER(17,2),
+  jaql964au2n  NUMBER(17,2),
+  jaql964au3n  NUMBER(17,2)
+)
+;
+comment on table JAQL964
+  is 'Consolidados Saldos x Region/Zona/Agencia/Analista';
+comment on column JAQL964.jaql964cor
+  is 'Correlativo';
+comment on column JAQL964.jaql964suc
+  is 'Codigo Sucursal';
+comment on column JAQL964.jaql964nom
+  is 'Nombre Sucursal';
+comment on column JAQL964.jaql964usu
+  is 'Codigo Usuario/Analista';
+comment on column JAQL964.jaql964num
+  is 'Numero Aux';
+comment on column JAQL964.jaql964sal
+  is 'Saldo';
+comment on column JAQL964.jaql964cli
+  is 'Clientes';
+comment on column JAQL964.jaql964nor
+  is 'Normal';
+comment on column JAQL964.jaql964ref
+  is 'Refinanciado';
+comment on column JAQL964.jaql964jud
+  is 'Judicial';
+comment on column JAQL964.jaql964nr1
+  is 'Nro1';
+comment on column JAQL964.jaql964sa1
+  is 'Saldo1';
+comment on column JAQL964.jaql964po1
+  is 'Por1';
+comment on column JAQL964.jaql964nr2
+  is 'Nro2';
+comment on column JAQL964.jaql964sa2
+  is 'Saldo2';
+comment on column JAQL964.jaql964po2
+  is 'Por2';
+comment on column JAQL964.jaql964nr3
+  is 'Nro3';
+comment on column JAQL964.jaql964sa3
+  is 'Saldo3';
+comment on column JAQL964.jaql964po3
+  is 'Por3';
+comment on column JAQL964.jaql964nr4
+  is 'Nro4';
+comment on column JAQL964.jaql964sa4
+  is 'Saldo4';
+comment on column JAQL964.jaql964po4
+  is 'Por4';
+comment on column JAQL964.jaql964nr5
+  is 'Nro5';
+comment on column JAQL964.jaql964sa5
+  is 'Saldo5';
+comment on column JAQL964.jaql964po5
+  is 'Por5';
+comment on column JAQL964.jaql964nr6
+  is 'Nro6';
+comment on column JAQL964.jaql964sa6
+  is 'Saldo6';
+comment on column JAQL964.jaql964po6
+  is 'Por6';
+comment on column JAQL964.jaql964cre
+  is 'Credito Sorfy';
+comment on column JAQL964.jaql964tit
+  is 'Nombre Titular';
+comment on column JAQL964.jaql964doc
+  is 'NumDoc';
+comment on column JAQL964.jaql964cta
+  is 'Cuenta';
+comment on column JAQL964.jaql964mod
+  is 'Modulo';
+comment on column JAQL964.jaql964mda
+  is 'Moneda';
+comment on column JAQL964.jaql964ope
+  is 'Operacion';
+comment on column JAQL964.jaql964dia
+  is 'Dias Atraso';
+comment on column JAQL964.jaql964sao
+  is 'Saldo Moneda Origen';
+comment on column JAQL964.jaql964sac
+  is 'Saldo Moneda Consolidada';
+comment on column JAQL964.jaql964pro
+  is 'Producto SBS';
+comment on column JAQL964.jaql964nr7
+  is 'Nro7';
+comment on column JAQL964.jaql964sa7
+  is 'Saldo7';
+comment on column JAQL964.jaql964po7
+  is 'Por7';
+comment on column JAQL964.jaql964reg
+  is 'Codigo Region';
+comment on column JAQL964.jaql964ren
+  is 'Nombre Region';
+comment on column JAQL964.jaql964sob
+  is 'Suboperacion';
+comment on column JAQL964.jaql964top
+  is 'TipoOperacion';
+comment on column JAQL964.jaql964pai
+  is 'Pais';
+comment on column JAQL964.jaql964tid
+  is 'Tipo Doc';
+comment on column JAQL964.jaql964tel
+  is 'Telefono';
+comment on column JAQL964.jaql964dis
+  is 'Distrito';
+comment on column JAQL964.jaql964dir
+  is 'Direccion';
+comment on column JAQL964.jaql964gar
+  is 'Garantia';
+comment on column JAQL964.jaql964cal
+  is 'Calificacion';
+comment on column JAQL964.jaql964abo
+  is 'Abogado';
+comment on column JAQL964.jaql964mtd
+  is 'Monto Deuda';
+comment on column JAQL964.jaql964csb
+  is 'Codigo Producto SBS';
+comment on column JAQL964.jaql964fec
+  is 'Fecha Proceso';
+comment on column JAQL964.jaql964est
+  is 'Codigo Estado';
+comment on column JAQL964.jaql964tcc
+  is 'Descripcion Estado';
+comment on column JAQL964.jaql964red
+  is 'Referencia Direccion';
+comment on column JAQL964.jaql964gas
+  is 'Deuda Gasto ';
+comment on column JAQL964.jaql964mor
+  is 'Deuda Mora';
+comment on column JAQL964.jaql964int
+  is 'Deuda Interes';
+comment on column JAQL964.jaql964cuo
+  is 'Deuda Capital';
+comment on column JAQL964.jaql964sec
+  is 'Sector Pequeña Empresa';
+comment on column JAQL964.jaql964ins
+  is 'Instancia';
+comment on column JAQL964.jaql964ctav
+  is 'Cuenta Aval';
+comment on column JAQL964.jaql964noav
+  is 'Nombre Aval';
+comment on column JAQL964.jaql964diav
+  is 'Direccion Aval';
+comment on column JAQL964.jaql964teav
+  is 'Telefono Aval';
+comment on column JAQL964.jaql964mapr
+  is 'Monto Aprobado';
+comment on column JAQL964.jaql964prov
+  is 'Provision';
+comment on column JAQL964.jaql964calf
+  is 'Codigo Calificacion';
+comment on column JAQL964.jaql964dcalf
+  is 'Descripcion Calificacion';
+comment on column JAQL964.jaql964fcan
+  is 'Fecha Cancelacion';
+comment on column JAQL964.jaql964fcas
+  is 'Fecha Castigo';
+comment on column JAQL964.jaql964fdem
+  is 'Fecha Demanda';
+comment on column JAQL964.jaql964pgcod
+  is 'Pgcod';
+comment on column JAQL964.jaql964pap
+  is 'Papel';
+comment on column JAQL964.jaql964fadem
+  is 'Fecha Asignacion Demanda';
+comment on column JAQL964.jaql964firl
+  is 'Fecha Ingreso RL';
+comment on column JAQL964.jaql964sdve
+  is 'Saldo Vencido';
+comment on column JAQL964.jaql964sdre
+  is 'Saldo Refinanciado';
+comment on column JAQL964.jaql964faabo
+  is 'Fecha Asiganacion de Abogado';
+comment on column JAQL964.jaql964fejud
+  is 'Fecha Envio a Judicial';
+comment on column JAQL964.jaql964fdes
+  is 'Fecha de Desembolso';
+comment on column JAQL964.jaql964sdo
+  is 'Saldo original';
+comment on column JAQL964.jaql964tcr
+  is 'Tipo de Credito';
+comment on column JAQL964.jaql964icv
+  is 'ICV';
+comment on column JAQL964.jaql964tcap
+  is 'Total Deuda Capital';
+comment on column JAQL964.jaql964tint
+  is 'Total Deuda Interes';
+comment on column JAQL964.jaql964tmor
+  is 'Total Deuda Mora';
+comment on column JAQL964.jaql964tgas
+  is 'Total Deuda Gastos';
+comment on column JAQL964.jaql964ticv
+  is 'Total Deuda ICV';
+comment on column JAQL964.jaql964seg
+  is 'Deuda Seguros';
+comment on column JAQL964.jaql964tseg
+  is 'Total Deuda Seguros';
+comment on column JAQL964.jaql964com
+  is 'Deuda Comision';
+comment on column JAQL964.jaql964tcom
+  is 'Total Deuda Comision';
+comment on column JAQL964.jaql964pzo
+  is 'Plazo';
+comment on column JAQL964.jaql964soben
+  is 'Sobreendeudamiento';
+comment on column JAQL964.jaql964dpto
+  is 'Dpto titular';
+comment on column JAQL964.jaql964provi
+  is 'Provincia titular';
+comment on column JAQL964.jaql964pen
+  is 'Penalidad';
+comment on column JAQL964.jaql964tpen
+  is 'Total Penalidad';
+comment on column JAQL964.jaql964sbbp
+  is 'Saldo Bono Buen Pagador';
+comment on column JAQL964.jaql964ibbp
+  is 'Interes Bono Buen Pagador';
+comment on column JAQL964.jaql964spbp
+  is 'Saldo Premio Buen Pagador';
+comment on column JAQL964.jaql964ipbp
+  is 'Interes Premio Buen Pagador';
+comment on column JAQL964.jaql964sbms
+  is 'Saldo Bono Mi Vivienda Sostenible - SBMS';
+comment on column JAQL964.jaql964ibms
+  is 'Interes Bono Mi Vivienda Sostenible - IBMS';
+comment on column JAQL964.jaql964sbfh
+  is 'Saldo Bono Mi Vivienda Techo Propio - SBFH';
+comment on column JAQL964.jaql964ibfh
+  is 'Interes Bono Mi Vivienda Techo Propio - IBFH';
+comment on column JAQL964.jaql964ciiu
+  is 'CIIU del Cliente';
+comment on column JAQL964.jaql964au1v
+  is 'Auxiliar 1 Varchar';
+comment on column JAQL964.jaql964au2v
+  is 'Auxiliar 2 Varchar';
+comment on column JAQL964.jaql964au3v
+  is 'Auxiliar 3 Varchar';
+comment on column JAQL964.jaql964au1d
+  is 'Auxiliar 1 Fecha';
+comment on column JAQL964.jaql964au2d
+  is 'Auxiliar 2 Fecha';
+comment on column JAQL964.jaql964au3d
+  is 'Auxiliar 3 Fecha';
+comment on column JAQL964.jaql964au1n
+  is 'Auxiliar 1 Numerico';
+comment on column JAQL964.jaql964au2n
+  is 'Auxiliar 2 Numerico';
+comment on column JAQL964.jaql964au3n
+  is 'Auxiliar 3 Numerico';
+create index IDX_JAQL964 on JAQL964 (JAQL964REG, JAQL964SUC, JAQL964EST);
+create index IJAQL964_1 on JAQL964 (JAQL964CTA, JAQL964OPE);
+create index IJAQL964_10 on JAQL964 (JAQL964USU, JAQL964PAI, JAQL964TID, JAQL964DOC, JAQL964MOD, JAQL964TOP, JAQL964EST, JAQL964DIA, JAQL964SAO, JAQL964PGCOD, JAQL964SUC, JAQL964MDA, JAQL964PAP, JAQL964CTA, JAQL964OPE, JAQL964SOB);
+create index IJAQL964_2 on JAQL964 (JAQL964PAI, JAQL964TID, JAQL964DOC);
+create index IJAQL964_3 on JAQL964 (JAQL964REG, JAQL964SUC, JAQL964USU, JAQL964MDA, JAQL964MOD, JAQL964CTA, JAQL964OPE);
+create index IJAQL964_4 on JAQL964 (JAQL964CSB, JAQL964REG, JAQL964SUC, JAQL964USU, JAQL964MDA, JAQL964MOD, JAQL964CTA, JAQL964OPE);
+create index IJAQL964_5 on JAQL964 (JAQL964SUC, JAQL964USU);
+create index IJAQL964_6 on JAQL964 (JAQL964FEC, JAQL964MOD);
+create index IJAQL964_7 on JAQL964 (JAQL964REG, JAQL964SUC, JAQL964PRO, JAQL964USU);
+create index IJAQL964_8 on JAQL964 (JAQL964PGCOD, JAQL964SUC, JAQL964CTA, JAQL964PAP, JAQL964OPE, JAQL964SOB, JAQL964MDA, JAQL964MOD, JAQL964TOP);
+create index IJAQL964_9 on JAQL964 (JAQL964INS, JAQL964PGCOD, JAQL964SUC, JAQL964CTA, JAQL964PAP, JAQL964OPE, JAQL964SOB, JAQL964MDA, JAQL964MOD, JAQL964TOP);
+create index JAQL964A10 on JAQL964 (JAQL964CIIU);
+alter table JAQL964
+  add primary key (JAQL964COR);
+

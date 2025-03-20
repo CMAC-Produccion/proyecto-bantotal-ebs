@@ -1,0 +1,22 @@
+create table CSML001
+(
+  csml001fap DATE not null,
+  csml001con NUMBER(9) not null,
+  csml001ser NUMBER(4) not null,
+  csml001can NUMBER(4) not null,
+  csml001fej DATE,
+  csml001com NUMBER(3),
+  csml001mto NUMBER(17,2),
+  csml001emp NUMBER(3),
+  csml001suc NUMBER(3),
+  csml001mod NUMBER(3),
+  csml001trn NUMBER(3),
+  csml001rel NUMBER(4),
+  csml001fco DATE,
+  csml001est CHAR(1)
+)
+;
+create index CSML0012 on CSML001 (CSML001CON, CSML001SER, CSML001CAN, CSML001COM, CSML001FAP);
+alter table CSML001
+  add primary key (CSML001FAP, CSML001CON, CSML001SER, CSML001CAN);
+

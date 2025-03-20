@@ -1,0 +1,14 @@
+create table REP011
+(
+  rep010cod  NUMBER(4) not null,
+  rep012cod  NUMBER(5) not null,
+  rep002cons NUMBER(10),
+  rep011exp  NUMBER(10),
+  rep011txa  VARCHAR2(1000),
+  rep011txp  VARCHAR2(1000)
+)
+;
+create index IREP011 on REP011 (REP012COD);
+alter table REP011
+  add primary key (REP010COD, REP012COD);
+

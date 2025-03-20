@@ -1,0 +1,46 @@
+create table JAQL615
+(
+  jaql615nusec  NUMBER(18) not null,
+  jaql615titrx  VARCHAR2(50) not null,
+  jaql615trxid  NUMBER(18) not null,
+  jaql615ticta  VARCHAR2(40),
+  jaql615tidoc  VARCHAR2(20),
+  jaql615nudoc  VARCHAR2(20),
+  jaql615misdn  VARCHAR2(100),
+  jaql615bnkdo  VARCHAR2(50),
+  jaql615nombr  VARCHAR2(350),
+  jaql615apell  VARCHAR2(350),
+  jaql615prfac  VARCHAR2(100),
+  jaql615prfan  VARCHAR2(100),
+  jaql615idioa  VARCHAR2(10),
+  jaql615idiob  VARCHAR2(10),
+  jaql615teacu  VARCHAR2(20),
+  jaql615teanu  VARCHAR2(20),
+  jaql615razon  VARCHAR2(120),
+  jaql615inusu  VARCHAR2(64),
+  jaql615isdnb  VARCHAR2(64),
+  jaql615nunom  VARCHAR2(350),
+  jaql615nuape  VARCHAR2(350),
+  jaql615idusu  VARCHAR2(64),
+  jaql615idcta  VARCHAR2(64),
+  jaql615fetrx  DATE,
+  jaql615fgcli  NUMBER(1),
+  jaql615fgcta  NUMBER(1),
+  jaql615fglis  NUMBER(1),
+  jaql615idarc  NUMBER(18),
+  jaql615fearc  DATE,
+  jaql615pfcta  VARCHAR2(300),
+  jaql615pfctaa VARCHAR2(300),
+  jaql615pfctab VARCHAR2(300),
+  jaql615tidoca VARCHAR2(10),
+  jaql615tidocb VARCHAR2(10),
+  jaql615nudoca VARCHAR2(64),
+  jaql615nudocb VARCHAR2(64)
+)
+;
+create index IJAQL615IDX_001 on JAQL615 (JAQL615FETRX);
+create index JAQL6153 on JAQL615 (JAQL615IDUSU, JAQL615TITRX);
+create index JAQL6154 on JAQL615 (JAQL615NUDOC, JAQL615TITRX, JAQL615TIDOC);
+alter table JAQL615
+  add primary key (JAQL615NUSEC, JAQL615TITRX, JAQL615TRXID);
+

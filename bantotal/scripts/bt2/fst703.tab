@@ -1,0 +1,11 @@
+create table FST703
+(
+  ltidiom CHAR(2) not null,
+  ltcod   NUMBER(5) not null,
+  lttxt   CHAR(40),
+  ltlrg   NUMBER(3)
+)
+;
+alter table FST703
+  add primary key (LTIDIOM, LTCOD);
+

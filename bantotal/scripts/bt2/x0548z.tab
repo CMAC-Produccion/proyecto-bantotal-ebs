@@ -1,0 +1,22 @@
+create table X0548Z
+(
+  x0548rfch CHAR(6) not null,
+  x0548rhra NUMBER(4) not null,
+  x0548zidr NUMBER(1) not null,
+  x0548zcre NUMBER(15) not null,
+  x0548zdoc NUMBER(15) not null,
+  x0548zcod NUMBER(2),
+  x0548zape CHAR(30),
+  x0548znom CHAR(30),
+  x0548zpai NUMBER(3),
+  x0548ztdo NUMBER(2),
+  x0548znro CHAR(12),
+  x0548zcal CHAR(30),
+  x0548znum NUMBER(5),
+  x0548zloc NUMBER(5),
+  x0548zcop CHAR(8)
+)
+;
+alter table X0548Z
+  add primary key (X0548RFCH, X0548RHRA, X0548ZIDR, X0548ZCRE, X0548ZDOC);
+

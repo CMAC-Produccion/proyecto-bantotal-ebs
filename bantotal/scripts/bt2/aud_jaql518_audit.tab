@@ -1,0 +1,31 @@
+create table AUD_JAQL518_AUDIT
+(
+  aud_old_jaql518cobra CHAR(1),
+  aud_new_jaql518cobra CHAR(1),
+  aud_old_jaql518coent NUMBER(3),
+  aud_new_jaql518coent NUMBER(3),
+  aud_old_jaql518cotsv NUMBER(3),
+  aud_new_jaql518cotsv NUMBER(3),
+  aud_old_jaql518esreg CHAR(1),
+  aud_new_jaql518esreg CHAR(1),
+  aud_old_jaql518exone CHAR(1),
+  aud_new_jaql518exone CHAR(1),
+  aud_old_jaql518pgcod NUMBER(3),
+  aud_new_jaql518pgcod NUMBER(3),
+  aud_old_jaql518pgsuc NUMBER(3),
+  aud_new_jaql518pgsuc NUMBER(3),
+  aud_jaql518_guidkey  VARCHAR2(40) default SYS_GUID() not null,
+  aud_jaql518_uon      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_jaql518_ut       TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_jaql518_ubr      VARCHAR2(50) default ' ' not null,
+  aud_jaql518_ubc      VARCHAR2(50) default ' ' not null,
+  aud_jaql518_ubt      VARCHAR2(50) default ' ' not null,
+  aud_jaql518_ubu      VARCHAR2(50) default USER not null,
+  aud_jaql518_uba      VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_jaql518_ubs      VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_jaql518_ubp      VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_jaql518_ubm      VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_jaql518_uas      CHAR(1) default 'I' not null
+)
+;
+

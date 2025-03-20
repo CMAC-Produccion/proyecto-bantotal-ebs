@@ -1,0 +1,150 @@
+create table JAQN571
+(
+  jaqn571fec DATE not null,
+  jaqn571emp NUMBER(3) not null,
+  jaqn571mod NUMBER(3) not null,
+  jaqn571suc NUMBER(3) not null,
+  jaqn571mon NUMBER(4) not null,
+  jaqn571pap NUMBER(4) not null,
+  jaqn571cta NUMBER(9) not null,
+  jaqn571ope NUMBER(9) not null,
+  jaqn571sbo NUMBER(3) not null,
+  jaqn571top NUMBER(3) not null,
+  jaqn571cod NUMBER(4),
+  jaqn571nro NUMBER(4),
+  jaqn571tas NUMBER(10,6),
+  jaqn571tra NUMBER(4),
+  jaqn571sec NUMBER(4),
+  jaqn571con VARCHAR2(20),
+  jaqn571tva VARCHAR2(21),
+  jaqn571tti VARCHAR2(20),
+  jaqn571cof VARCHAR2(18),
+  jaqn571fed DATE,
+  jaqn571fev DATE,
+  jaqn571ppa NUMBER(3),
+  jaqn571ptd NUMBER(2),
+  jaqn571pnd CHAR(12),
+  jaqn571prz VARCHAR2(70),
+  jaqn571tem NUMBER(4),
+  jaqn571nmo VARCHAR2(20),
+  jaqn571mde NUMBER(17,2),
+  jaqn571mpe NUMBER(17,2),
+  janq571por NUMBER(10,6),
+  jaqn571per NUMBER(5),
+  jaqn571ggl NUMBER(3),
+  jaqn571ggn NUMBER(3),
+  jaqn571loc VARCHAR2(200),
+  jaqn571ai1 NUMBER(17,2),
+  jaqn571ai2 NUMBER(17,2),
+  jaqn571ai3 NUMBER(17,2),
+  jaqn571an1 NUMBER(9),
+  jaqn571an2 NUMBER(9),
+  jaqn571an3 NUMBER(9),
+  jaqn571ac1 VARCHAR2(255),
+  jaqn571ac2 VARCHAR2(255),
+  jaqn571ac3 VARCHAR2(255),
+  jaqn571af1 DATE,
+  jaqn571af2 DATE,
+  jaqn571af3 DATE
+)
+;
+comment on table JAQN571
+  is 'Tabla Detalle Reactiva';
+comment on column JAQN571.jaqn571fec
+  is 'Fecha de Carga';
+comment on column JAQN571.jaqn571emp
+  is 'Empresa';
+comment on column JAQN571.jaqn571mod
+  is 'Módulo';
+comment on column JAQN571.jaqn571suc
+  is 'Sucursal';
+comment on column JAQN571.jaqn571mon
+  is 'Moneda';
+comment on column JAQN571.jaqn571pap
+  is 'Papel';
+comment on column JAQN571.jaqn571cta
+  is 'Cuenta ';
+comment on column JAQN571.jaqn571ope
+  is 'Operación';
+comment on column JAQN571.jaqn571sbo
+  is 'Suboperación ';
+comment on column JAQN571.jaqn571top
+  is 'Tipo de Operación';
+comment on column JAQN571.jaqn571cod
+  is 'Código de Entidad';
+comment on column JAQN571.jaqn571nro
+  is 'Número de Operación';
+comment on column JAQN571.jaqn571tas
+  is 'Tasa Adjudicada';
+comment on column JAQN571.jaqn571tra
+  is 'Número de tramo';
+comment on column JAQN571.jaqn571sec
+  is 'Número de Secuencia';
+comment on column JAQN571.jaqn571con
+  is 'Contrato';
+comment on column JAQN571.jaqn571tva
+  is 'Título de Valor';
+comment on column JAQN571.jaqn571tti
+  is 'Tipo de título';
+comment on column JAQN571.jaqn571cof
+  is 'Certificado Cofide';
+comment on column JAQN571.jaqn571fed
+  is 'Fecha de Desembolso';
+comment on column JAQN571.jaqn571fev
+  is 'Fecha Vencimiento';
+comment on column JAQN571.jaqn571ppa
+  is 'País Documento';
+comment on column JAQN571.jaqn571ptd
+  is 'Tipo Documento';
+comment on column JAQN571.jaqn571pnd
+  is 'Número Documento';
+comment on column JAQN571.jaqn571prz
+  is 'Razón Social';
+comment on column JAQN571.jaqn571tem
+  is 'Tamaño de EMpresa';
+comment on column JAQN571.jaqn571nmo
+  is 'Nombre de moneda';
+comment on column JAQN571.jaqn571mde
+  is 'Monto desembolsado';
+comment on column JAQN571.jaqn571mpe
+  is 'Saldo Pendiente';
+comment on column JAQN571.janq571por
+  is 'Porcentaje de Cobertura';
+comment on column JAQN571.jaqn571per
+  is 'Periodo de Gracia';
+comment on column JAQN571.jaqn571ggl
+  is 'Garantía Específica';
+comment on column JAQN571.jaqn571ggn
+  is 'Garantía Genérica';
+comment on column JAQN571.jaqn571loc
+  is 'Localización de Documentos';
+comment on column JAQN571.jaqn571ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN571.jaqn571ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN571.jaqn571ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN571.jaqn571an1
+  is 'Auxiliar Númerica 1';
+comment on column JAQN571.jaqn571an2
+  is 'Auxiliar Númerica 2';
+comment on column JAQN571.jaqn571an3
+  is 'Auxiliar Númerica 3';
+comment on column JAQN571.jaqn571ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQN571.jaqn571ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQN571.jaqn571ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQN571.jaqn571af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN571.jaqn571af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN571.jaqn571af3
+  is 'Auxiliar Fecha 3';
+create index JAQN571A2 on JAQN571 (JAQN571COD, JAQN571NRO, JAQN571TAS, JAQN571TRA, JAQN571SEC, JAQN571FEC);
+create index JAQN571A3 on JAQN571 (JAQN571PND, JAQN571PTD, JAQN571PPA);
+create index JAQN571A4 on JAQN571 (JAQN571CTA, JAQN571MON, JAQN571OPE);
+alter table JAQN571
+  add primary key (JAQN571FEC, JAQN571EMP, JAQN571MOD, JAQN571SUC, JAQN571MON, JAQN571PAP, JAQN571CTA, JAQN571OPE, JAQN571SBO, JAQN571TOP);
+

@@ -1,0 +1,16 @@
+create table FSE170
+(
+  sd170doemp NUMBER(3) not null,
+  sd170doid  NUMBER(15) not null,
+  st171cpcod NUMBER(5) not null,
+  se170vnro  NUMBER(10),
+  se170vchr  CHAR(50),
+  se170vfch  TIMESTAMP(6),
+  se170vimp  NUMBER(17),
+  se170vtas  NUMBER(10)
+)
+;
+create index FSE17002 on FSE170 (ST171CPCOD);
+alter table FSE170
+  add primary key (SD170DOEMP, SD170DOID, ST171CPCOD);
+

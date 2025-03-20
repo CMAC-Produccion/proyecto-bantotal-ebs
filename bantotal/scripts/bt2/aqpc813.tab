@@ -1,0 +1,46 @@
+create table AQPC813
+(
+  aqpc813instan  NUMBER(10) not null,
+  aqpc813corr    NUMBER(5) not null,
+  aqpc813pais    NUMBER(3),
+  aqpc813petdoc  NUMBER(2),
+  aqpc813pendoc  VARCHAR2(12),
+  aqpc813destdoc VARCHAR2(30),
+  aqpc813nomcli  VARCHAR2(300),
+  aqpc813relac   VARCHAR2(30),
+  aqpc813aux1    VARCHAR2(100),
+  aqpc813aux2    NUMBER(17,2) not null,
+  aqpc813fechreg DATE,
+  aqpc813horareg VARCHAR2(8)
+)
+;
+comment on table AQPC813
+  is 'Tabla de titulares y avales de la solicitud opinión de riesgos';
+comment on column AQPC813.aqpc813instan
+  is 'Solicitud';
+comment on column AQPC813.aqpc813corr
+  is 'Correlativo';
+comment on column AQPC813.aqpc813pais
+  is 'Pais';
+comment on column AQPC813.aqpc813petdoc
+  is 'Tipo documento';
+comment on column AQPC813.aqpc813pendoc
+  is 'Nro documento';
+comment on column AQPC813.aqpc813destdoc
+  is 'Descripción de tipo documento';
+comment on column AQPC813.aqpc813nomcli
+  is 'Nombre de cliente';
+comment on column AQPC813.aqpc813relac
+  is 'relación';
+comment on column AQPC813.aqpc813aux1
+  is 'Auxiliar 1';
+comment on column AQPC813.aqpc813aux2
+  is 'Auxiliar 2';
+comment on column AQPC813.aqpc813fechreg
+  is 'Fecha Registro';
+comment on column AQPC813.aqpc813horareg
+  is 'Hora Registro';
+create index AQPC813A3 on AQPC813 (AQPC813PAIS, AQPC813PETDOC, AQPC813PENDOC);
+alter table AQPC813
+  add primary key (AQPC813INSTAN, AQPC813CORR, AQPC813AUX2);
+

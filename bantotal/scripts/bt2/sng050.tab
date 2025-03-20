@@ -1,0 +1,13 @@
+create table SNG050
+(
+  sng049cod NUMBER(10) not null,
+  sng050grp NUMBER(3) not null,
+  sng050ord NUMBER(3),
+  sng050ret VARCHAR2(40),
+  sng050ult NUMBER(3)
+)
+;
+create index SNG05010 on SNG050 (SNG049COD, SNG050ORD);
+alter table SNG050
+  add primary key (SNG049COD, SNG050GRP);
+

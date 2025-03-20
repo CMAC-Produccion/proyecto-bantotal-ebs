@@ -1,0 +1,14 @@
+create table FCPG57
+(
+  cpg57empbt NUMBER(3) not null,
+  cpg57sucbt NUMBER(3) not null,
+  cpg57codp  CHAR(8) not null,
+  cpg57blq   CHAR(1),
+  cpg57inst  NUMBER(10)
+)
+;
+create index FCPG5702 on FCPG57 (CPG57EMPBT, CPG57CODP);
+create index FCPG5703 on FCPG57 (CPG57INST);
+alter table FCPG57
+  add primary key (CPG57EMPBT, CPG57SUCBT, CPG57CODP);
+

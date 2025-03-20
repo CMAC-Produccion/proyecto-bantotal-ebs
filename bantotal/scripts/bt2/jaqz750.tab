@@ -1,0 +1,25 @@
+create table JAQZ750
+(
+  jaqz750cod   NUMBER(10) not null,
+  jaqz750pai   NUMBER(3) not null,
+  jaqz750tdo   NUMBER(2) not null,
+  jaqz750ndo   CHAR(12) not null,
+  jaqz750docod NUMBER(2) not null,
+  jaqz750corr  NUMBER(3) not null,
+  jaqz750medid NUMBER(12),
+  jaqz750contr NUMBER(12),
+  jaqz750usur  CHAR(10),
+  jaqz750fcn   DATE not null,
+  jaqz750est   NUMBER(1),
+  jaqz750tmed  NUMBER(2),
+  jaqz750ind   CHAR(1),
+  jaqz750hor   CHAR(8)
+)
+;
+create index IDX_TJAQZ750_01 on JAQZ750 (JAQZ750PAI, JAQZ750TDO, JAQZ750NDO);
+create index IDX_TJAQZ750_02 on JAQZ750 (JAQZ750PAI, JAQZ750TDO, JAQZ750NDO, JAQZ750DOCOD, JAQZ750CORR);
+create index JAQZ750A4 on JAQZ750 (JAQZ750FCN);
+create index JAQZ7503 on JAQZ750 (JAQZ750CONTR, JAQZ750TMED);
+alter table JAQZ750
+  add constraint JAQZ750_PK primary key (JAQZ750COD, JAQZ750PAI, JAQZ750TDO, JAQZ750NDO, JAQZ750DOCOD, JAQZ750CORR, JAQZ750FCN);
+

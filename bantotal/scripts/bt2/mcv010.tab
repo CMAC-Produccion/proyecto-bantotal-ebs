@@ -1,0 +1,11 @@
+create table MCV010
+(
+  pgcod     NUMBER(3) not null,
+  sucurs    NUMBER(3) not null,
+  mcvprod   NUMBER(3) not null,
+  mcvprfvig DATE
+)
+;
+alter table MCV010
+  add primary key (PGCOD, SUCURS, MCVPROD);
+

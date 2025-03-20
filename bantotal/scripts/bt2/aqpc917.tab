@@ -1,0 +1,36 @@
+create table AQPC917
+(
+  aqpc917id     NUMBER(10) not null,
+  aqpc917util   CHAR(1),
+  aqpc917coment VARCHAR2(300),
+  aqpc917fecreg DATE,
+  aqpc917horreg VARCHAR2(8),
+  aqpc917paidoc NUMBER(3),
+  aqpc917tipdoc NUMBER(3),
+  aqpc917numdoc CHAR(12),
+  aqpc917canal  VARCHAR2(20)
+)
+;
+comment on table AQPC917
+  is 'Comentarios Centro de Ayuda';
+comment on column AQPC917.aqpc917id
+  is 'ID de Log';
+comment on column AQPC917.aqpc917util
+  is 'Util';
+comment on column AQPC917.aqpc917coment
+  is 'Comentario';
+comment on column AQPC917.aqpc917fecreg
+  is 'Fecha de Registro';
+comment on column AQPC917.aqpc917horreg
+  is 'Hora de Registro';
+comment on column AQPC917.aqpc917paidoc
+  is 'Pais de Documento';
+comment on column AQPC917.aqpc917tipdoc
+  is 'Tipo de Documento';
+comment on column AQPC917.aqpc917numdoc
+  is 'Numero de Documento';
+comment on column AQPC917.aqpc917canal
+  is 'Canal';
+alter table AQPC917
+  add primary key (AQPC917ID);
+

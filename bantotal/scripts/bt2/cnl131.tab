@@ -1,0 +1,12 @@
+create table CNL131
+(
+  cnl130grp CHAR(60) not null,
+  cnl000cod NUMBER(4) not null,
+  cnl005cod NUMBER(6) not null
+)
+;
+create index CNL13102 on CNL131 (CNL005COD);
+create index CNL13103 on CNL131 (CNL000COD);
+alter table CNL131
+  add primary key (CNL130GRP, CNL000COD, CNL005COD);
+

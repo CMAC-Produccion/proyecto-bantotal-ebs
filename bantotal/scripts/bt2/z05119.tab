@@ -1,0 +1,15 @@
+create table Z05119
+(
+  z05119tip NUMBER(1) not null,
+  z05119suc NUMBER(3) not null,
+  z05119mes NUMBER(2) not null,
+  z05119ano NUMBER(4) not null,
+  z05119cnt NUMBER(9),
+  z05119adh NUMBER(9),
+  z05119alt NUMBER(9),
+  z05119baj NUMBER(9)
+)
+;
+alter table Z05119
+  add primary key (Z05119TIP, Z05119SUC, Z05119MES, Z05119ANO);
+

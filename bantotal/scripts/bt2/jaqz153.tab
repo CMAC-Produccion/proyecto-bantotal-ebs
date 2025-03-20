@@ -1,0 +1,30 @@
+create table JAQZ153
+(
+  jaqz153fec DATE not null,
+  jaqz153hor CHAR(8) not null,
+  jaqz153usr CHAR(10) not null,
+  jaqz153pai NUMBER(3) not null,
+  jaqz153tdo NUMBER(3) not null,
+  jaqz153ndo CHAR(12) not null,
+  jaqz153pa2 NUMBER(3),
+  jaqz153tp2 NUMBER(3),
+  jaqz153no2 CHAR(12),
+  jaqz153suc NUMBER(3),
+  jaqz153vic NUMBER(2),
+  jaqz153par NUMBER(7,4),
+  jaqz153mod CHAR(1) not null,
+  jaqz153ax1 NUMBER(9) not null,
+  jaqz153ax2 NUMBER(9),
+  jaqz153ax3 NUMBER(17,2),
+  jaqz153ax4 NUMBER(17,2),
+  jaqz153ax5 CHAR(100),
+  jaqz153ax6 CHAR(100),
+  jaqz153ax7 DATE,
+  jaqz153ax8 DATE
+)
+;
+create index JAQZ153IDX_001 on JAQZ153 (JAQZ153FEC, JAQZ153USR);
+create index JAQZ153IDX_002 on JAQZ153 (JAQZ153USR);
+alter table JAQZ153
+  add primary key (JAQZ153FEC, JAQZ153HOR, JAQZ153USR, JAQZ153PAI, JAQZ153TDO, JAQZ153NDO, JAQZ153MOD, JAQZ153AX1);
+

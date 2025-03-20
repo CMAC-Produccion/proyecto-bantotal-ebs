@@ -1,0 +1,109 @@
+create table JAQN28
+(
+  jaqn28emp NUMBER(3) not null,
+  jaqn28mod NUMBER(3) not null,
+  jaqn28suc NUMBER(3) not null,
+  jaqn28mon NUMBER(4) not null,
+  jaqn28pap NUMBER(4) not null,
+  jaqn28cnr NUMBER(9) not null,
+  jaqn28ope NUMBER(9) not null,
+  jaqn28sop NUMBER(3) not null,
+  jaqn28top NUMBER(3) not null,
+  jaqn28fea DATE,
+  jaqn28tat NUMBER(10,6),
+  jaqn28nu1 NUMBER(9),
+  jaqn28nu2 NUMBER(9),
+  jaqn28nu3 NUMBER(9),
+  jaqn28im1 NUMBER(17,2),
+  jaqn28im2 NUMBER(17,2),
+  jaqn28im3 NUMBER(17,2),
+  jaqn28fe1 DATE,
+  jaqn28fe2 DATE,
+  jaqn28fe3 DATE,
+  jaqn28ch1 CHAR(1),
+  jaqn28ch2 CHAR(1),
+  jaqn28ch3 CHAR(1),
+  jaqn28va1 VARCHAR2(255),
+  jaqn28va2 VARCHAR2(255),
+  jaqn28va3 VARCHAR2(255),
+  jaqn28asu NUMBER(3),
+  jaqn28amo NUMBER(3),
+  jaqn28atr NUMBER(3),
+  jaqn28aor NUMBER(2),
+  jaqn28aso NUMBER(3),
+  jaqn28anr NUMBER(4),
+  jaqn28men VARCHAR2(255)
+)
+;
+comment on table JAQN28
+  is 'TTI calculado';
+comment on column JAQN28.jaqn28emp
+  is 'empresa';
+comment on column JAQN28.jaqn28mod
+  is 'modulo';
+comment on column JAQN28.jaqn28suc
+  is 'sucursal';
+comment on column JAQN28.jaqn28mon
+  is 'moneda';
+comment on column JAQN28.jaqn28pap
+  is 'Papel';
+comment on column JAQN28.jaqn28cnr
+  is 'cuenta';
+comment on column JAQN28.jaqn28ope
+  is 'operación';
+comment on column JAQN28.jaqn28sop
+  is 'Suboperación';
+comment on column JAQN28.jaqn28top
+  is 'tipo operación';
+comment on column JAQN28.jaqn28fea
+  is 'Fecha';
+comment on column JAQN28.jaqn28tat
+  is 'tasa';
+comment on column JAQN28.jaqn28nu1
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28nu2
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28nu3
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28im1
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28im2
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28im3
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28fe1
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28fe2
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28fe3
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28ch1
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28ch2
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28ch3
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28va1
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28va2
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28va3
+  is 'Auxiliar';
+comment on column JAQN28.jaqn28asu
+  is 'sucursal cont';
+comment on column JAQN28.jaqn28amo
+  is 'modulo cont';
+comment on column JAQN28.jaqn28atr
+  is 'transacc cont';
+comment on column JAQN28.jaqn28aor
+  is 'ordinal';
+comment on column JAQN28.jaqn28aso
+  is 'subordinal';
+comment on column JAQN28.jaqn28anr
+  is 'relación';
+comment on column JAQN28.jaqn28men
+  is 'mensaje';
+create index JAQN282 on JAQN28 (JAQN28EMP, JAQN28MOD, JAQN28SUC, JAQN28MON, JAQN28PAP, JAQN28CNR, JAQN28OPE, JAQN28SOP, JAQN28TOP, JAQN28FEA);
+alter table JAQN28
+  add primary key (JAQN28EMP, JAQN28MOD, JAQN28SUC, JAQN28MON, JAQN28PAP, JAQN28CNR, JAQN28OPE, JAQN28SOP, JAQN28TOP);
+

@@ -1,0 +1,39 @@
+create table FBC891
+(
+  fbc891emp  NUMBER(3) not null,
+  fbc891fec  DATE not null,
+  fbc891suc  NUMBER(3) not null,
+  fbc891rub  NUMBER(16) not null,
+  fbc891mda  NUMBER(4) not null,
+  fbc891pap  NUMBER(4) not null,
+  fbc891cta  NUMBER(9) not null,
+  fbc891ope  NUMBER(9) not null,
+  fbc891sbop NUMBER(3) not null,
+  fbc891tope NUMBER(3) not null,
+  fbc891pais NUMBER(3) not null,
+  fbc891tdoc NUMBER(2) not null,
+  fbc891ndoc CHAR(12) not null,
+  fbc891tpai NUMBER(3),
+  fbc891ttdo NUMBER(2),
+  fbc891tndo CHAR(12),
+  fbc891ent  CHAR(20),
+  fbc891tocu CHAR(1),
+  fbc891codg CHAR(40),
+  fbc891tpog CHAR(1),
+  fbc891mdac NUMBER(4),
+  fbc891mont NUMBER(17,2),
+  fbc891crub CHAR(14),
+  fbc891coga CHAR(20),
+  fbc891mod  CHAR(1),
+  fbc891aux1 NUMBER(17,2),
+  fbc891aux2 NUMBER(17,2),
+  fbc891aux3 CHAR(100),
+  fbc891aux4 CHAR(100),
+  fbc891aux5 NUMBER(17,2),
+  fbc891aux6 CHAR(20)
+)
+;
+create index FBC89102 on FBC891 (FBC891EMP, FBC891FEC, FBC891PAIS, FBC891TDOC, FBC891NDOC);
+alter table FBC891
+  add primary key (FBC891EMP, FBC891FEC, FBC891SUC, FBC891RUB, FBC891MDA, FBC891PAP, FBC891CTA, FBC891OPE, FBC891SBOP, FBC891TOPE, FBC891PAIS, FBC891TDOC, FBC891NDOC);
+

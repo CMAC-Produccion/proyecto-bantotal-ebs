@@ -1,0 +1,21 @@
+create table JAQA167
+(
+  jaqa167ins NUMBER(10) not null,
+  jaqa167coc NUMBER(9) not null,
+  jaqa167cor NUMBER(9) not null,
+  jaqa167nom CHAR(30),
+  jaqa167tdo NUMBER(2),
+  jaqa167ndo CHAR(12),
+  jaqa167nac CHAR(20),
+  jaqa167pai NUMBER(3),
+  jaqa167fen DATE,
+  jaqa167sex CHAR(1),
+  jaqa167tlf CHAR(20),
+  jaqa167par CHAR(20),
+  jaqa167pas NUMBER(5,2),
+  jaqa167ac1 CHAR(1)
+)
+;
+alter table JAQA167
+  add primary key (JAQA167INS, JAQA167COC, JAQA167COR);
+

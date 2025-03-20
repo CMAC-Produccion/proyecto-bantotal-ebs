@@ -1,0 +1,112 @@
+create table JAQZ461A
+(
+  jaqz461apano  NUMBER(4) not null,
+  jaqz461apmes  NUMBER(2) not null,
+  jaqz461agru   NUMBER(15) not null,
+  jaqz461acor   NUMBER(15) not null,
+  jaqz461apais  NUMBER(4) not null,
+  jaqz461atdoc  VARCHAR2(3) not null,
+  jaqz461andoc  CHAR(12) not null,
+  jaqz461arela  CHAR(12),
+  jaqz461asdeu  NUMBER(18,2),
+  jaqz461aciu1  CHAR(6),
+  jaqz461apsbs  VARCHAR2(30),
+  jaqz461aciu2  CHAR(6),
+  jaqz461asbs2  VARCHAR2(30),
+  jaqz461acsbs  CHAR(12),
+  jaqz461atipd  VARCHAR2(30),
+  jaqz461anomb  VARCHAR2(100),
+  jaqz461aciu4  CHAR(4),
+  jaqz461acsb3  CHAR(12),
+  jaqz461afdes  DATE,
+  jaqz461acta   NUMBER(9),
+  jaqz461aope   NUMBER(9),
+  jaqz461aux1   VARCHAR2(30),
+  jaqz461aux2   VARCHAR2(100),
+  jaqz461aim1   NUMBER(18,2),
+  jaqz461aim2   NUMBER(18,2),
+  jaqz461afe1   DATE,
+  jaqz461anum   NUMBER(9) not null,
+  jaqz461amag   NUMBER(5),
+  jaqz461adscr  VARCHAR2(30),
+  jaqz461avnt   NUMBER(17,2),
+  jaqz461avnuit NUMBER(17,2),
+  jaqz461auit   NUMBER(17,2),
+  jaqz461ainst  NUMBER(10),
+  jaqz461aeval  NUMBER(17,2),
+  jaqz461afeval DATE
+)
+;
+comment on table JAQZ461A
+  is 'reporte Grupos Economicos';
+comment on column JAQZ461A.jaqz461apano
+  is 'Año';
+comment on column JAQZ461A.jaqz461apmes
+  is 'Mes';
+comment on column JAQZ461A.jaqz461acor
+  is 'Correlativo ';
+comment on column JAQZ461A.jaqz461apais
+  is 'Pais';
+comment on column JAQZ461A.jaqz461atdoc
+  is 'Tipo Documento';
+comment on column JAQZ461A.jaqz461andoc
+  is 'Numero Documento Cliente';
+comment on column JAQZ461A.jaqz461arela
+  is 'Relacion';
+comment on column JAQZ461A.jaqz461asdeu
+  is 'Deuda Cliente';
+comment on column JAQZ461A.jaqz461aciu1
+  is 'CIUU 1';
+comment on column JAQZ461A.jaqz461apsbs
+  is 'Producto SBS';
+comment on column JAQZ461A.jaqz461aciu2
+  is 'CIUU 2';
+comment on column JAQZ461A.jaqz461asbs2
+  is 'Codigo SBS';
+comment on column JAQZ461A.jaqz461atipd
+  is 'Descripcion Tipo Documento';
+comment on column JAQZ461A.jaqz461anomb
+  is 'Nombres';
+comment on column JAQZ461A.jaqz461aciu4
+  is 'CIUU 4 caracteres';
+comment on column JAQZ461A.jaqz461acsb3
+  is 'Codigo SBS';
+comment on column JAQZ461A.jaqz461afdes
+  is 'Fecha Ultimo Desembolso';
+comment on column JAQZ461A.jaqz461acta
+  is 'Cuenta';
+comment on column JAQZ461A.jaqz461aope
+  is 'Operacion';
+comment on column JAQZ461A.jaqz461aux1
+  is 'Auxiliar 1';
+comment on column JAQZ461A.jaqz461aux2
+  is 'Auxiliar 2';
+comment on column JAQZ461A.jaqz461aim1
+  is 'Importe 1';
+comment on column JAQZ461A.jaqz461aim2
+  is 'Importe 2';
+comment on column JAQZ461A.jaqz461afe1
+  is 'Fecha 1';
+comment on column JAQZ461A.jaqz461anum
+  is 'correlativo';
+comment on column JAQZ461A.jaqz461amag
+  is 'Magnitud';
+comment on column JAQZ461A.jaqz461adscr
+  is 'Descripcion';
+comment on column JAQZ461A.jaqz461avnt
+  is 'Venta';
+comment on column JAQZ461A.jaqz461avnuit
+  is 'Valor Venta UIT';
+comment on column JAQZ461A.jaqz461auit
+  is 'UIT';
+comment on column JAQZ461A.jaqz461ainst
+  is 'Instancia';
+comment on column JAQZ461A.jaqz461aeval
+  is 'Evaluacion';
+comment on column JAQZ461A.jaqz461afeval
+  is 'Fecha Evaluacion';
+create index JAQZ461AA2 on JAQZ461A (JAQZ461APANO, JAQZ461APMES, JAQZ461ATDOC);
+create index JAQZ461AA3 on JAQZ461A (JAQZ461APANO, JAQZ461APMES, JAQZ461APAIS, JAQZ461ATDOC, JAQZ461ANDOC);
+alter table JAQZ461A
+  add primary key (JAQZ461APANO, JAQZ461APMES, JAQZ461AGRU, JAQZ461ACOR, JAQZ461APAIS, JAQZ461ATDOC, JAQZ461ANDOC, JAQZ461ANUM);
+

@@ -1,0 +1,26 @@
+create table JAQL555
+(
+  jaql555cue NUMBER(9) not null,
+  jaql555mda NUMBER(4) not null,
+  jaql555mod NUMBER(3) not null,
+  jaql555tra NUMBER(3) not null,
+  jaql555mop NUMBER(3) not null,
+  jaql555ope NUMBER(9) not null,
+  jaql555sop NUMBER(3) not null,
+  jaql555crr NUMBER(4) not null,
+  jaql555top NUMBER(3),
+  jaql555mto NUMBER(17,2),
+  jaql555ch1 CHAR(10),
+  jaql555ch2 CHAR(30),
+  jaql555ch3 CHAR(50),
+  jaql555nr1 NUMBER(4),
+  jaql555nr2 NUMBER(4),
+  jaql555nr3 NUMBER(4),
+  jaql555fc1 DATE,
+  jaql555fc2 DATE,
+  jaql555fc3 DATE
+)
+;
+alter table JAQL555
+  add primary key (JAQL555CUE, JAQL555MDA, JAQL555MOD, JAQL555TRA, JAQL555MOP, JAQL555OPE, JAQL555SOP, JAQL555CRR);
+

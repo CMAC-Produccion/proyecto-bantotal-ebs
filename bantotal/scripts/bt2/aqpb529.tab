@@ -1,0 +1,24 @@
+create table AQPB529
+(
+  aqpb529reccod VARCHAR2(20) not null,
+  aqpb529reccta VARCHAR2(30) not null,
+  aqpb529creusr VARCHAR2(10),
+  aqpb529cresuc NUMBER(3),
+  aqpb529cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB529
+  is 'Reclamos - Cuentas';
+comment on column AQPB529.aqpb529reccod
+  is 'Reclamo Codigo';
+comment on column AQPB529.aqpb529reccta
+  is 'Reclamo Cuenta';
+comment on column AQPB529.aqpb529creusr
+  is 'Usuario';
+comment on column AQPB529.aqpb529cresuc
+  is 'Sucursual';
+comment on column AQPB529.aqpb529cretim
+  is 'Campo de Auditoria';
+alter table AQPB529
+  add primary key (AQPB529RECCOD, AQPB529RECCTA);
+

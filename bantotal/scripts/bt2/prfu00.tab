@@ -1,0 +1,15 @@
+create table PRFU00
+(
+  pgcod      NUMBER(3) not null,
+  prfgcod    CHAR(10) not null,
+  ubuser     CHAR(10) not null,
+  prfufecalt DATE,
+  prfufecvto DATE,
+  prfuuser   CHAR(10),
+  prfutpo    NUMBER(1)
+)
+;
+create index PRFU0002 on PRFU00 (PGCOD, UBUSER);
+alter table PRFU00
+  add primary key (PGCOD, PRFGCOD, UBUSER);
+

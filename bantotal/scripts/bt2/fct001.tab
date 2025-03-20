@@ -1,0 +1,23 @@
+create table FCT001
+(
+  pgcod     NUMBER(3) not null,
+  cxcod     NUMBER(1) not null,
+  cxctabco  NUMBER(9),
+  cxctacen  NUMBER(9),
+  cxctamat  NUMBER(9),
+  cxmdacar  NUMBER(4),
+  cxddprdoc NUMBER(2),
+  cxmaxabt  NUMBER(2),
+  cxminabt  NUMBER(2),
+  cxfecdep  DATE,
+  cxlciref  CHAR(5),
+  cxliuref  CHAR(5),
+  cxcoiref  CHAR(5),
+  cxlceref  CHAR(5),
+  cxleuref  CHAR(5),
+  cxcoeref  CHAR(5)
+)
+;
+alter table FCT001
+  add primary key (PGCOD, CXCOD);
+

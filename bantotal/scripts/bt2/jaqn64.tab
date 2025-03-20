@@ -1,0 +1,60 @@
+create table JAQN64
+(
+  jaqn64usr CHAR(10) not null,
+  jaqn64fch DATE,
+  jaqn64hra CHAR(8),
+  jaqn64cor NUMBER(9),
+  jaqn64est CHAR(1),
+  jaqn64ai1 NUMBER(17,2),
+  jaqn64ai2 NUMBER(17,2),
+  jaqn64ai3 NUMBER(17,2),
+  jaqn64ad1 DATE,
+  jaqn64ad2 DATE,
+  jaqn64ad3 DATE,
+  jaqn64an1 NUMBER(9),
+  jaqn64an2 NUMBER(9),
+  jaqn64an3 NUMBER(9),
+  jaqn64ac1 CHAR(255),
+  jaqn64ac2 CHAR(255),
+  jaqn64ac3 CHAR(255)
+)
+;
+comment on table JAQN64
+  is 'Cabecera usuarios bloqueados por exceso en caja';
+comment on column JAQN64.jaqn64usr
+  is 'Character';
+comment on column JAQN64.jaqn64fch
+  is 'Date';
+comment on column JAQN64.jaqn64hra
+  is 'Character';
+comment on column JAQN64.jaqn64cor
+  is 'Numeric';
+comment on column JAQN64.jaqn64est
+  is 'Character';
+comment on column JAQN64.jaqn64ai1
+  is 'Numeric';
+comment on column JAQN64.jaqn64ai2
+  is 'Numeric';
+comment on column JAQN64.jaqn64ai3
+  is 'Numeric';
+comment on column JAQN64.jaqn64ad1
+  is 'Date';
+comment on column JAQN64.jaqn64ad2
+  is 'Date';
+comment on column JAQN64.jaqn64ad3
+  is 'Date';
+comment on column JAQN64.jaqn64an1
+  is 'Numeric';
+comment on column JAQN64.jaqn64an2
+  is 'Numeric';
+comment on column JAQN64.jaqn64an3
+  is 'Numeric';
+comment on column JAQN64.jaqn64ac1
+  is 'Character';
+comment on column JAQN64.jaqn64ac2
+  is 'Character';
+comment on column JAQN64.jaqn64ac3
+  is 'Character';
+alter table JAQN64
+  add primary key (JAQN64USR);
+

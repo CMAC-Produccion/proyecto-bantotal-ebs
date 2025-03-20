@@ -1,0 +1,12 @@
+create table GXA2266
+(
+  cnl000cod NUMBER(4) not null,
+  cnl001pad NUMBER(3) not null,
+  cnl001tad NUMBER(2) not null,
+  cnl001dad CHAR(64) not null,
+  cnl032cod NUMBER(3) not null,
+  cnl032nom CHAR(60)
+)
+;
+create unique index GXI2266 on GXA2266 (CNL000COD, CNL001PAD, CNL001TAD, CNL001DAD, CNL032COD);
+

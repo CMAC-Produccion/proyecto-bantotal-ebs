@@ -1,0 +1,22 @@
+create table SNG536
+(
+  sng501bien NUMBER(10) not null,
+  sng536cor  NUMBER(4) not null,
+  sng536num  CHAR(16),
+  sng536fchi DATE,
+  sng536fche DATE,
+  sng536fchv DATE,
+  sng536plzo NUMBER(4),
+  sng536per1 CHAR(30),
+  sng536per2 CHAR(30),
+  sng536per3 CHAR(30),
+  sng536per4 CHAR(30),
+  sng536per5 CHAR(30),
+  sng536obds CHAR(30),
+  sng536tint NUMBER(9,6),
+  sng536val  NUMBER(17,2)
+)
+;
+alter table SNG536
+  add primary key (SNG501BIEN, SNG536COR);
+

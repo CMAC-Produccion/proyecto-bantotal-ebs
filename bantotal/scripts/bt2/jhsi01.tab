@@ -1,0 +1,22 @@
+create table JHSI01
+(
+  jhsi01apl  NUMBER(4) not null,
+  jhsi01ban  CHAR(5) not null,
+  jhsi01env  NUMBER(9) not null,
+  jhsi01cor  NUMBER(9) not null,
+  jhsi01fec  DATE,
+  jhsi01fecp DATE,
+  jhsi01hora CHAR(8),
+  jhsi01depo CHAR(14),
+  jhsi01nom  CHAR(30),
+  jhsi01numf NUMBER(12),
+  jhsi01ctac NUMBER(11),
+  jhsi01impo NUMBER(12,2),
+  jhsi01depe CHAR(4),
+  jhsi01emp  NUMBER(3),
+  jhsi01cta  NUMBER(9)
+)
+;
+alter table JHSI01
+  add primary key (JHSI01APL, JHSI01BAN, JHSI01ENV, JHSI01COR);
+

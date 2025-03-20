@@ -1,0 +1,45 @@
+create table FSFBC1
+(
+  xpapel   NUMBER(4) not null,
+  xpapnom  CHAR(30),
+  xpasign  CHAR(5),
+  xpamda   NUMBER(4),
+  xpatcpr  NUMBER(8,6),
+  xpatvta  NUMBER(8,6),
+  xpais    NUMBER(3),
+  xpanom   CHAR(30),
+  xemicod  NUMBER(2),
+  xeminom  CHAR(20),
+  xemscod  NUMBER(5),
+  xemsnom  CHAR(30),
+  xpatemi  NUMBER(15),
+  xgpacod  NUMBER(2),
+  xgpanom  CHAR(20),
+  xclpcod  NUMBER(2),
+  xclpnom  CHAR(20),
+  xpatano  NUMBER(1),
+  xpatint  CHAR(1),
+  xpatdia  NUMBER(1),
+  xpatvto  CHAR(1),
+  xpattas  NUMBER(1),
+  xpadvga  CHAR(1),
+  xpainco  CHAR(1),
+  xpared   NUMBER(1),
+  xpastr   CHAR(20),
+  xpacd01  CHAR(1),
+  xpacd02  CHAR(1),
+  xpacd03  CHAR(1),
+  xpacd04  CHAR(1),
+  xpacd05  CHAR(1),
+  xpasn01  NUMBER(5),
+  xpasn02  NUMBER(5),
+  xpasn03  NUMBER(5),
+  xpasn04  NUMBER(5),
+  xpasn05  NUMBER(5),
+  sfbc1est CHAR(1)
+)
+;
+create index FSFBC108 on FSFBC1 (XPAPNOM);
+alter table FSFBC1
+  add primary key (XPAPEL);
+

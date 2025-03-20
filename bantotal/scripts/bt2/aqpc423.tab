@@ -1,0 +1,154 @@
+create table AQPC423
+(
+  aqpc423cod    NUMBER(3) not null,
+  aqpc423mod    NUMBER(3) not null,
+  aqpc423tope   NUMBER(3) not null,
+  aqpc423suc    NUMBER(3) not null,
+  aqpc423mda    NUMBER(4) not null,
+  aqpc423pap    NUMBER(4) not null,
+  aqpc423cta    NUMBER(9) not null,
+  aqpc423ope    NUMBER(9) not null,
+  aqpc423sbo    NUMBER(3) not null,
+  aqpc423capd   NUMBER(17,2),
+  aqpc423intd   NUMBER(17,2),
+  aqpc423icvd   NUMBER(17,2),
+  aqpc423mord   NUMBER(17,2),
+  aqpc423pend   NUMBER(17,2),
+  aqpc423orod   NUMBER(17,2),
+  aqpc423segd   NUMBER(17,2),
+  aqpc423totd   NUMBER(17,2),
+  aqpc423capc   NUMBER(17,2),
+  aqpc423intc   NUMBER(17,2),
+  aqpc423icvc   NUMBER(17,2),
+  aqpc423morc   NUMBER(17,2),
+  aqpc423penc   NUMBER(17,2),
+  aqpc423oroc   NUMBER(17,2),
+  aqpc423segc   NUMBER(17,2),
+  aqpc423totc   NUMBER(17,2),
+  aqpc423capp   NUMBER(17,2),
+  aqpc423intp   NUMBER(17,2),
+  aqpc423icvp   NUMBER(17,2),
+  aqpc423morp   NUMBER(17,2),
+  aqpc423penp   NUMBER(17,2),
+  aqpc423orop   NUMBER(17,2),
+  aqpc423segp   NUMBER(17,2),
+  aqpc423totp   NUMBER(17,2),
+  aqpc423itcod  NUMBER(3) not null,
+  aqpc423itmod  NUMBER(3) not null,
+  aqpc423itsuc  NUMBER(3) not null,
+  aqpc423ittran NUMBER(3) not null,
+  aqpc423itnrel NUMBER(4) not null,
+  aqpc423itfcon DATE not null,
+  aqpc423ithora CHAR(8),
+  aqpc423itucnf CHAR(10),
+  aqpc423usuact CHAR(10),
+  aqpc423fecact DATE,
+  aqpc423fecext DATE,
+  aqpc423est    CHAR(1),
+  aqpc423codgru NUMBER(10),
+  aqpc423ftra   CHAR(1)
+)
+;
+comment on table AQPC423
+  is 'Tabla de las transacciones de pagos y condonaciones de Venta FOCMA';
+comment on column AQPC423.aqpc423cod
+  is 'Codigo Empresa';
+comment on column AQPC423.aqpc423mod
+  is 'Modulo del Credito';
+comment on column AQPC423.aqpc423tope
+  is 'Tipo operacion del Credito';
+comment on column AQPC423.aqpc423suc
+  is 'Sucursal del Credito';
+comment on column AQPC423.aqpc423mda
+  is 'Moneda del Credito';
+comment on column AQPC423.aqpc423pap
+  is 'Papel del Credito';
+comment on column AQPC423.aqpc423cta
+  is 'Cuenta del Credito';
+comment on column AQPC423.aqpc423ope
+  is 'Operacion del Credito';
+comment on column AQPC423.aqpc423sbo
+  is 'Suboperacion del Credito';
+comment on column AQPC423.aqpc423capd
+  is 'Capital Deuda';
+comment on column AQPC423.aqpc423intd
+  is 'Interes Deuda';
+comment on column AQPC423.aqpc423icvd
+  is 'ICV Deuda';
+comment on column AQPC423.aqpc423mord
+  is 'Mora Deuda';
+comment on column AQPC423.aqpc423pend
+  is 'Penalidad Deuda';
+comment on column AQPC423.aqpc423orod
+  is 'Otros Rubros Deuda';
+comment on column AQPC423.aqpc423segd
+  is 'Seguros Deuda';
+comment on column AQPC423.aqpc423totd
+  is 'Total Deuda';
+comment on column AQPC423.aqpc423capc
+  is 'Capital Condonado';
+comment on column AQPC423.aqpc423intc
+  is 'Interes Condonado';
+comment on column AQPC423.aqpc423icvc
+  is 'ICV Condonado';
+comment on column AQPC423.aqpc423morc
+  is 'Mora Condonado';
+comment on column AQPC423.aqpc423penc
+  is 'Penalidad Condonado';
+comment on column AQPC423.aqpc423oroc
+  is 'Otros Rubros Condonado';
+comment on column AQPC423.aqpc423segc
+  is 'Seguros Condonado';
+comment on column AQPC423.aqpc423totc
+  is 'Total Condonado';
+comment on column AQPC423.aqpc423capp
+  is 'Capital Pagado';
+comment on column AQPC423.aqpc423intp
+  is 'Interes Pagado';
+comment on column AQPC423.aqpc423icvp
+  is 'ICV Pagado';
+comment on column AQPC423.aqpc423morp
+  is 'Mora Pagado';
+comment on column AQPC423.aqpc423penp
+  is 'Penalidad Pagado';
+comment on column AQPC423.aqpc423orop
+  is 'Otros Rubros Pagado';
+comment on column AQPC423.aqpc423segp
+  is 'Seguros Pagado';
+comment on column AQPC423.aqpc423totp
+  is 'Total Pagado';
+comment on column AQPC423.aqpc423itcod
+  is 'Cod Transacción';
+comment on column AQPC423.aqpc423itmod
+  is 'Mod Transacción';
+comment on column AQPC423.aqpc423itsuc
+  is 'SUC Transacción';
+comment on column AQPC423.aqpc423ittran
+  is 'Tran Transacción';
+comment on column AQPC423.aqpc423itnrel
+  is 'REl  Transacción';
+comment on column AQPC423.aqpc423itfcon
+  is 'Fecha Transacción';
+comment on column AQPC423.aqpc423ithora
+  is 'hora Transacción';
+comment on column AQPC423.aqpc423itucnf
+  is 'Usuario Transacción';
+comment on column AQPC423.aqpc423usuact
+  is 'Usuario Actualizacion';
+comment on column AQPC423.aqpc423fecact
+  is 'Fecha Actualizacion';
+comment on column AQPC423.aqpc423fecext
+  is 'Fecha Extorno';
+comment on column AQPC423.aqpc423est
+  is 'Estado C:Contabilizado, E:Extornado';
+comment on column AQPC423.aqpc423codgru
+  is 'Codigo Grupo';
+comment on column AQPC423.aqpc423ftra
+  is 'Flag Transferencia T:Transferido';
+create index AQPC423A2 on AQPC423 (AQPC423CODGRU, AQPC423EST, AQPC423FTRA);
+create index AQPC423A3 on AQPC423 (AQPC423COD, AQPC423MOD, AQPC423TOPE, AQPC423SUC, AQPC423MDA, AQPC423PAP, AQPC423CTA, AQPC423OPE, AQPC423SBO, AQPC423EST);
+create index AQPC423A4 on AQPC423 (AQPC423ITMOD, AQPC423ITTRAN, AQPC423EST);
+create index AQPC423A5 on AQPC423 (AQPC423ITCOD, AQPC423ITMOD, AQPC423ITSUC, AQPC423ITTRAN, AQPC423ITNREL, AQPC423ITFCON);
+alter table AQPC423
+  add primary key (AQPC423COD, AQPC423MOD, AQPC423TOPE, AQPC423SUC, AQPC423MDA, AQPC423PAP, AQPC423CTA, AQPC423OPE, AQPC423SBO, AQPC423ITCOD, AQPC423ITMOD, AQPC423ITSUC, AQPC423ITTRAN, AQPC423ITNREL, AQPC423ITFCON);
+

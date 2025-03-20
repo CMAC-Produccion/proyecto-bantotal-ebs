@@ -1,0 +1,13 @@
+create table WFURRST
+(
+  wfrolcod   NUMBER(4) not null,
+  wfusrcod   CHAR(30) not null,
+  wfurrstcod CHAR(20) not null,
+  wfurrstval CHAR(30) not null
+)
+;
+create index UWFURR1 on WFURRST (WFUSRCOD, WFROLCOD, WFURRSTCOD, WFURRSTVAL);
+create index UWFURR2 on WFURRST (WFURRSTCOD, WFURRSTVAL);
+alter table WFURRST
+  add primary key (WFROLCOD, WFUSRCOD, WFURRSTCOD, WFURRSTVAL);
+

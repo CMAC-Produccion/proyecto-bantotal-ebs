@@ -1,0 +1,64 @@
+create table JAQN15
+(
+  jaqn15cod NUMBER(4) not null,
+  jaqn15des CHAR(255),
+  jaqn15est CHAR(1),
+  jaqn15nu1 NUMBER(9),
+  jaqn15nu2 NUMBER(9),
+  jaqn15nu3 NUMBER(9),
+  jaqn15va1 VARCHAR2(255),
+  jaqn15va2 VARCHAR2(255),
+  jaqn15va3 VARCHAR2(255),
+  jaqn15da1 DATE,
+  jaqn15da2 DATE,
+  jaqn15da3 DATE,
+  jaqn15im1 NUMBER(17,2),
+  jaqn15im2 NUMBER(17,2),
+  jaqn15im3 NUMBER(17,2),
+  jaqn15ch1 CHAR(255),
+  jaqn15ch2 CHAR(255),
+  jaqn15ch3 CHAR(255)
+)
+;
+comment on table JAQN15
+  is 'Tipos Canal de atencion ';
+comment on column JAQN15.jaqn15cod
+  is 'Codigo';
+comment on column JAQN15.jaqn15des
+  is 'Descripcion';
+comment on column JAQN15.jaqn15est
+  is 'Estado(A->Activado, I-> Inactivado)';
+comment on column JAQN15.jaqn15nu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN15.jaqn15nu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN15.jaqn15nu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQN15.jaqn15va1
+  is 'Auxiliar Varchar 1';
+comment on column JAQN15.jaqn15va2
+  is 'Auxiliar Varchar 2';
+comment on column JAQN15.jaqn15va3
+  is 'Auxiliar Varchar 3';
+comment on column JAQN15.jaqn15da1
+  is 'Auxiliar Date 1';
+comment on column JAQN15.jaqn15da2
+  is 'Auxiliar Date 2';
+comment on column JAQN15.jaqn15da3
+  is 'Auxiliar Date 3';
+comment on column JAQN15.jaqn15im1
+  is 'Auxiliar Importe 1';
+comment on column JAQN15.jaqn15im2
+  is 'Auxiliar Importe 2';
+comment on column JAQN15.jaqn15im3
+  is 'Auxiliar Importe 3';
+comment on column JAQN15.jaqn15ch1
+  is 'Auxiliar Character 1';
+comment on column JAQN15.jaqn15ch2
+  is 'Auxiliar Character 2';
+comment on column JAQN15.jaqn15ch3
+  is 'Auxiliar Character 3';
+create index JAQN15A2 on JAQN15 (JAQN15EST, JAQN15COD);
+alter table JAQN15
+  add primary key (JAQN15COD);
+

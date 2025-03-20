@@ -1,0 +1,13 @@
+create table FBC754
+(
+  bc754idbol CHAR(20) not null,
+  bc754corr  NUMBER(3) not null,
+  bc754nbol  CHAR(20),
+  bc754cpto  NUMBER(3),
+  bc754impmo NUMBER(11),
+  bc754impmn NUMBER(11)
+)
+;
+alter table FBC754
+  add primary key (BC754IDBOL, BC754CORR);
+

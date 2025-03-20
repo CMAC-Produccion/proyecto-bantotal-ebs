@@ -1,0 +1,16 @@
+create table JAQZ651
+(
+  jaqz651fecc DATE not null,
+  jaqz651pai  NUMBER(3) not null,
+  jaqz651tdoc NUMBER(2) not null,
+  jaqz651ndoc VARCHAR2(12) not null,
+  jaqz651nomt CHAR(60) not null
+)
+;
+create index JAQZ65102 on JAQZ651 (JAQZ651FECC);
+create index JAQZ65103 on JAQZ651 (JAQZ651TDOC);
+create index JAQZ65104 on JAQZ651 (JAQZ651NOMT);
+create index JAQZ65105 on JAQZ651 (JAQZ651PAI, JAQZ651TDOC, JAQZ651NDOC);
+alter table JAQZ651
+  add constraint JAQZ65101 primary key (JAQZ651NDOC);
+

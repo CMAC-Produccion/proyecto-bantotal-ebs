@@ -1,0 +1,45 @@
+create table AQPB123
+(
+  aqpb123corr   NUMBER(4) not null,
+  aqpb123pepai  NUMBER(4) not null,
+  aqpb123tipdoc NUMBER(4) not null,
+  aqpb123numdoc CHAR(20) not null,
+  aqpb123est    VARCHAR2(40),
+  aqpb123inst   NUMBER(10),
+  aqpb123agen   CHAR(40),
+  aqpb123cta    NUMBER(9),
+  aqpb123mod    NUMBER(3),
+  aqpb123tipope NUMBER(3),
+  aqpb123ope    NUMBER(9),
+  aqpb123subope NUMBER(3)
+)
+;
+comment on table AQPB123
+  is 'Tabla Log busqueda creditos Dataentry Expediente Digital';
+comment on column AQPB123.aqpb123corr
+  is 'Correlativo credito';
+comment on column AQPB123.aqpb123pepai
+  is 'Pais';
+comment on column AQPB123.aqpb123tipdoc
+  is 'Tipo de Documento';
+comment on column AQPB123.aqpb123numdoc
+  is 'Numero de Documento';
+comment on column AQPB123.aqpb123est
+  is 'Estado';
+comment on column AQPB123.aqpb123inst
+  is 'Instancia';
+comment on column AQPB123.aqpb123agen
+  is 'Agencia';
+comment on column AQPB123.aqpb123cta
+  is 'Cuenta';
+comment on column AQPB123.aqpb123mod
+  is 'Modo';
+comment on column AQPB123.aqpb123tipope
+  is 'Tipo de Operacion';
+comment on column AQPB123.aqpb123ope
+  is 'Operacion';
+comment on column AQPB123.aqpb123subope
+  is 'SubOperacion';
+alter table AQPB123
+  add primary key (AQPB123CORR, AQPB123PEPAI, AQPB123TIPDOC, AQPB123NUMDOC);
+

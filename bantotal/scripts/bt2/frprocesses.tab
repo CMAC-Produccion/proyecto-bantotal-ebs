@@ -1,0 +1,21 @@
+create table FRPROCESSES
+(
+  frprcid        NUMBER(6) not null,
+  frprcusrnam    VARCHAR2(40),
+  frprcdsc       VARCHAR2(120),
+  frprctimsta    DATE,
+  frprctimend    DATE,
+  frprctskcnt    NUMBER(5),
+  frprcpentskcnt NUMBER(5),
+  frprctimcre    DATE,
+  frprcfilcnt    NUMBER(4),
+  frprcsenale    NUMBER(1),
+  frprchasevn    NUMBER(1),
+  frprcenddef    NUMBER(1),
+  frprcparprcid  NUMBER(6),
+  frprcpartskid  NUMBER(6)
+)
+;
+alter table FRPROCESSES
+  add primary key (FRPRCID);
+

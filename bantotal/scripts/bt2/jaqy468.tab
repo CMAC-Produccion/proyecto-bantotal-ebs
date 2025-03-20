@@ -1,0 +1,17 @@
+create table JAQY468
+(
+  jaqy468pai NUMBER(3) not null,
+  jaqy468tdo NUMBER(2) not null,
+  jaqy468ndo CHAR(12) not null,
+  jaqy468fch DATE not null,
+  jaqy468rol NUMBER(3) not null,
+  jaqy468con NUMBER(3),
+  jaqy468com VARCHAR2(200),
+  jaqy468usu VARCHAR2(10),
+  jaqy468fca DATE,
+  jaqy468cal CHAR(1)
+)
+;
+alter table JAQY468
+  add primary key (JAQY468PAI, JAQY468TDO, JAQY468NDO, JAQY468FCH, JAQY468ROL);
+

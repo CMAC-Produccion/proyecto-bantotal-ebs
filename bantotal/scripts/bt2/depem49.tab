@@ -1,0 +1,36 @@
+create table DEPEM49
+(
+  depem49emp NUMBER(3) not null,
+  depem49mod NUMBER(3) not null,
+  depem49suc NUMBER(3) not null,
+  depem49mon NUMBER(4) not null,
+  depem49pap NUMBER(4) not null,
+  depem49cta NUMBER(9) not null,
+  depem49ope NUMBER(9) not null,
+  depem49sbp NUMBER(3) not null,
+  depem49top NUMBER(3) not null,
+  depem49ins NUMBER(10) not null,
+  depem49fec DATE not null,
+  depem49cor NUMBER(3) not null,
+  depem49usr CHAR(10),
+  depem49hab CHAR(1),
+  depem49con CHAR(1),
+  depem49anu CHAR(1),
+  depem49aoj CHAR(1),
+  depem49ai1 NUMBER(17,2),
+  depem49ai2 NUMBER(17,2),
+  depem49ai3 NUMBER(17,2),
+  depem49ac1 VARCHAR2(100),
+  depem49ac2 VARCHAR2(100),
+  depem49ac3 VARCHAR2(100),
+  depem49ad1 DATE,
+  depem49ad2 DATE,
+  depem49ad3 DATE,
+  depem49an1 NUMBER(9),
+  depem49an2 NUMBER(9),
+  depem49an3 NUMBER(9)
+)
+;
+alter table DEPEM49
+  add primary key (DEPEM49EMP, DEPEM49MOD, DEPEM49SUC, DEPEM49MON, DEPEM49PAP, DEPEM49CTA, DEPEM49OPE, DEPEM49SBP, DEPEM49TOP, DEPEM49INS, DEPEM49FEC, DEPEM49COR);
+

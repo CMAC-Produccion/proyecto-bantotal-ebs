@@ -1,0 +1,22 @@
+create table FIF005
+(
+  if005cod   NUMBER(3) not null,
+  if005abo   CHAR(7) not null,
+  if005tcu   NUMBER(2) not null,
+  if005ctadn NUMBER(2) not null,
+  if005ctabc CHAR(17) not null,
+  if005mod   NUMBER(3),
+  if005suc   NUMBER(3),
+  if005mda   NUMBER(4),
+  if005pap   NUMBER(4),
+  if005cta   NUMBER(9),
+  if005ope   NUMBER(9),
+  if005sbop  NUMBER(3),
+  if005tope  NUMBER(3)
+)
+;
+create index FIF00502 on FIF005 (IF005COD, IF005MOD, IF005SUC, IF005MDA, IF005PAP, IF005CTA, IF005OPE, IF005SBOP, IF005TOPE);
+create index FIF00503 on FIF005 (IF005COD, IF005TCU);
+alter table FIF005
+  add primary key (IF005COD, IF005ABO, IF005TCU, IF005CTADN, IF005CTABC);
+

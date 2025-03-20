@@ -1,0 +1,33 @@
+create table Z05506
+(
+  z05505apl NUMBER(4) not null,
+  z05505bnd CHAR(5) not null,
+  z05505cor NUMBER(9) not null,
+  z05505co2 NUMBER(9) not null,
+  z05506co2 NUMBER(9) not null,
+  z05506tpn NUMBER(1),
+  z05506tpt CHAR(1),
+  z05506tpd CHAR(2),
+  z05506ndo NUMBER(11),
+  z05506cui NUMBER(11),
+  z05506ori CHAR(16),
+  z05506cb1 CHAR(8),
+  z05506cb2 CHAR(14),
+  z05506nre CHAR(22),
+  z05506fca DATE,
+  z05506prs CHAR(10),
+  z05506spr CHAR(10),
+  z05506con NUMBER(3),
+  z05506fi1 CHAR(2),
+  z05506ref CHAR(15),
+  z05506imp NUMBER(10,2),
+  z05506mon CHAR(1),
+  z05506fi2 CHAR(36),
+  z05506cre CHAR(3),
+  z05506crd CHAR(3),
+  z05506est CHAR(2)
+)
+;
+alter table Z05506
+  add primary key (Z05505APL, Z05505BND, Z05505COR, Z05505CO2, Z05506CO2);
+

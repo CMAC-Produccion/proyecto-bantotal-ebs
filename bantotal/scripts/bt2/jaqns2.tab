@@ -1,0 +1,160 @@
+create table JAQNS2
+(
+  jaqns2empr NUMBER(3) not null,
+  jaqns2sucu NUMBER(3) not null,
+  jaqns2rubr NUMBER(16) not null,
+  jaqns2mone NUMBER(4) not null,
+  jaqns2pape NUMBER(4) not null,
+  jaqns2cuen NUMBER(9) not null,
+  jaqns2oper NUMBER(9) not null,
+  jaqns2sbop NUMBER(3) not null,
+  jaqns2tope NUMBER(3) not null,
+  jaqns2fech DATE not null,
+  jaqns2titu NUMBER(2),
+  jaqns2capi NUMBER(2),
+  jaqns2plzo NUMBER(2),
+  jaqns2sist NUMBER(3),
+  jaqns2modu NUMBER(3),
+  jaqns2fvto DATE,
+  jaqns2fval DATE,
+  jaqns2plaz NUMBER(5),
+  jaqns2ttas NUMBER(2),
+  jaqns2tasa NUMBER(10,6),
+  jaqns2clta NUMBER(2),
+  jaqns2tdia NUMBER(2),
+  jaqns2tano NUMBER(2),
+  jaqns2resi CHAR(1),
+  jaqns2cate CHAR(15),
+  jaqns2acti NUMBER(12),
+  jaqns2prod NUMBER(3),
+  jaqns2ticu CHAR(1),
+  jaqns2tipp CHAR(1),
+  jaqns2fatr DATE,
+  jaqns2sdor NUMBER(17,2),
+  jaqns2sdmn NUMBER(17,2),
+  jaqns2sdus NUMBER(17,2),
+  jaqns2sdmo NUMBER(17,2),
+  jaqns2inte NUMBER(17,2),
+  jaqns2prev NUMBER(17,2),
+  jaqns2gcue NUMBER(2),
+  jaqns2roid VARCHAR2(20),
+  jaqns2num1 NUMBER(10),
+  jaqns2num2 NUMBER(10),
+  jaqns2num3 NUMBER(10),
+  jaqns2imp1 NUMBER(17,2),
+  jaqns2imp2 NUMBER(17,2),
+  jaqns2imp3 NUMBER(17,2),
+  jaqns2var1 VARCHAR2(255),
+  jaqns2var2 VARCHAR2(255),
+  jaqns2var3 VARCHAR2(255),
+  jaqns2fec1 DATE,
+  jaqns2fec2 DATE,
+  jaqns2fec3 DATE
+)
+;
+comment on table JAQNS2
+  is 'Tabla de historicos para el día anterior ';
+comment on column JAQNS2.jaqns2empr
+  is 'Empresa ';
+comment on column JAQNS2.jaqns2sucu
+  is 'Sucursal ';
+comment on column JAQNS2.jaqns2rubr
+  is 'Codigo contable ';
+comment on column JAQNS2.jaqns2mone
+  is 'Moneda ';
+comment on column JAQNS2.jaqns2pape
+  is 'Papel ';
+comment on column JAQNS2.jaqns2cuen
+  is 'Cuenta ';
+comment on column JAQNS2.jaqns2oper
+  is 'Operacion ';
+comment on column JAQNS2.jaqns2sbop
+  is 'Suboperacion ';
+comment on column JAQNS2.jaqns2tope
+  is 'Tipo de operacion ';
+comment on column JAQNS2.jaqns2fech
+  is 'Fecha del dia ';
+comment on column JAQNS2.jaqns2titu
+  is 'Titulo ';
+comment on column JAQNS2.jaqns2capi
+  is 'Capitulo ';
+comment on column JAQNS2.jaqns2plzo
+  is 'Plazo 1er modulo ';
+comment on column JAQNS2.jaqns2sist
+  is 'Sistema ';
+comment on column JAQNS2.jaqns2modu
+  is 'Modulo ';
+comment on column JAQNS2.jaqns2fvto
+  is 'Fecha de vencimiento ';
+comment on column JAQNS2.jaqns2fval
+  is 'Fecha de valor ';
+comment on column JAQNS2.jaqns2plaz
+  is 'Plazo operacion ';
+comment on column JAQNS2.jaqns2ttas
+  is 'Tipo tasa ';
+comment on column JAQNS2.jaqns2tasa
+  is 'Tasa ';
+comment on column JAQNS2.jaqns2clta
+  is 'Clase de tasa ';
+comment on column JAQNS2.jaqns2tdia
+  is 'Tipo de dia ';
+comment on column JAQNS2.jaqns2tano
+  is 'Tipo de año ';
+comment on column JAQNS2.jaqns2resi
+  is 'Cuenta residente ';
+comment on column JAQNS2.jaqns2cate
+  is 'Categoria de riesgo ';
+comment on column JAQNS2.jaqns2acti
+  is 'Cod. de actividad s/B. Central ';
+comment on column JAQNS2.jaqns2prod
+  is 'Producto ';
+comment on column JAQNS2.jaqns2ticu
+  is 'Tipo de cuenta (IF.,PJ.,PF.) ';
+comment on column JAQNS2.jaqns2tipp
+  is 'Tipo de persona (Publica?) ';
+comment on column JAQNS2.jaqns2fatr
+  is 'Fecha contabilizacion ';
+comment on column JAQNS2.jaqns2sdor
+  is 'Saldo origen ';
+comment on column JAQNS2.jaqns2sdmn
+  is 'Saldo en M/N ';
+comment on column JAQNS2.jaqns2sdus
+  is 'Saldo en U$S ';
+comment on column JAQNS2.jaqns2sdmo
+  is 'Saldo moneda origen ';
+comment on column JAQNS2.jaqns2inte
+  is 'Intereses ';
+comment on column JAQNS2.jaqns2prev
+  is 'Provisiones ';
+comment on column JAQNS2.jaqns2gcue
+  is 'Grupo Cuenta ';
+comment on column JAQNS2.jaqns2roid
+  is 'Columna  ';
+comment on column JAQNS2.jaqns2num1
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2num2
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2num3
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2imp1
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2imp2
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2imp3
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2var1
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2var2
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2var3
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2fec1
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2fec2
+  is 'Auxiliar ';
+comment on column JAQNS2.jaqns2fec3
+  is 'Auxiliar ';
+create index JAQNS2A2 on JAQNS2 (JAQNS2EMPR, JAQNS2CUEN, JAQNS2OPER, JAQNS2SBOP, JAQNS2MODU);
+alter table JAQNS2
+  add primary key (JAQNS2EMPR, JAQNS2SUCU, JAQNS2RUBR, JAQNS2MONE, JAQNS2PAPE, JAQNS2CUEN, JAQNS2OPER, JAQNS2SBOP, JAQNS2TOPE, JAQNS2FECH);
+

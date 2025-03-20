@@ -1,0 +1,20 @@
+create table FCPG78
+(
+  cpg78empbt NUMBER(3) not null,
+  cpg78bco   NUMBER(3) not null,
+  cpg78fgen  DATE not null,
+  cpg78nenv  NUMBER(3) not null,
+  cpg78creg  NUMBER(8),
+  cpg78timp  NUMBER(17,2),
+  cpg78canal NUMBER(3),
+  cpg78mda   NUMBER(4),
+  cpg78hora  CHAR(8),
+  cpg78est   CHAR(3),
+  cpg78blq   CHAR(1),
+  cpg78inst  NUMBER(10)
+)
+;
+create index FCPG7802 on FCPG78 (CPG78INST);
+alter table FCPG78
+  add primary key (CPG78EMPBT, CPG78BCO, CPG78FGEN, CPG78NENV);
+

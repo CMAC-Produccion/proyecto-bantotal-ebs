@@ -1,0 +1,25 @@
+create table JFAW505
+(
+  jfaw505em NUMBER(3) not null,
+  jfaw505sc NUMBER(3) not null,
+  jfaw505md NUMBER(3) not null,
+  jfaw505ma NUMBER(4) not null,
+  jfaw505pa NUMBER(4) not null,
+  jfaw505ct NUMBER(9) not null,
+  jfaw505op NUMBER(9) not null,
+  jfaw505sp NUMBER(3) not null,
+  jfaw505tp NUMBER(3) not null,
+  jfaw505mp NUMBER(3) not null,
+  jfaw505to NUMBER(3) not null,
+  jfaw505cr NUMBER(9) not null,
+  jfaw505as NUMBER(4),
+  jfaw505pg NUMBER(4),
+  jfaw505or NUMBER(4),
+  jfaw505id NUMBER(10),
+  jfaw505dc CHAR(50),
+  jfaw505ob NUMBER(4)
+)
+;
+alter table JFAW505
+  add primary key (JFAW505EM, JFAW505SC, JFAW505MD, JFAW505MA, JFAW505PA, JFAW505CT, JFAW505OP, JFAW505SP, JFAW505TP, JFAW505MP, JFAW505TO, JFAW505CR);
+

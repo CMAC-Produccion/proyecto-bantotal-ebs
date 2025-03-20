@@ -1,0 +1,23 @@
+create table JHSA12
+(
+  jhsa12cod  NUMBER(4) not null,
+  jhsa12mod  NUMBER(3) not null,
+  jhsa12tope NUMBER(3) not null,
+  jhsa12cond CHAR(3),
+  jhsa12valo NUMBER(17,2),
+  jhsa12au1  NUMBER(9),
+  jhsa12aux2 NUMBER(9),
+  jhsa12aux3 NUMBER(9),
+  jhsa12aux4 CHAR(30),
+  jhsa12aux5 CHAR(30),
+  jhsa12aux6 CHAR(30),
+  jhsa12aux7 DATE,
+  jhsa12aux8 DATE,
+  jhsa12aux9 DATE,
+  jhsa12a10  NUMBER(17,2),
+  jhsa12a11  NUMBER(17,2),
+  jhsa12a12  NUMBER(17,2)
+)
+;
+create unique index JHSA1201 on JHSA12 (JHSA12COD, JHSA12MOD, JHSA12TOPE);
+

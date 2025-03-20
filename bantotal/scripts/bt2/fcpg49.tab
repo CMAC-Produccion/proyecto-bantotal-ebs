@@ -1,0 +1,14 @@
+create table FCPG49
+(
+  cpg49cod   NUMBER(3) not null,
+  cpg49desc  CHAR(45),
+  cpg49cntbj NUMBER(3),
+  cpg49est   CHAR(3),
+  cpg49blq   CHAR(1),
+  cpg49inst  NUMBER(10)
+)
+;
+create index FCPG4902 on FCPG49 (CPG49INST);
+alter table FCPG49
+  add primary key (CPG49COD);
+

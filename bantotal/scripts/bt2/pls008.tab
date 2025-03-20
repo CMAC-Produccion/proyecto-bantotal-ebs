@@ -1,0 +1,28 @@
+create table PLS008
+(
+  pls008fch  DATE not null,
+  pls008hra  CHAR(8) not null,
+  pls008usu  CHAR(10) not null,
+  pls008cor  NUMBER(9) not null,
+  pls008desc VARCHAR2(400),
+  pls008usua CHAR(10),
+  pls008acci CHAR(3),
+  pls008mome CHAR(1),
+  pls008wrks CHAR(10),
+  pls008prog CHAR(10),
+  pls008tabl CHAR(10),
+  cpg10pais  NUMBER(3),
+  cpg10tdoc  NUMBER(2),
+  cpg10doc   CHAR(25),
+  cpg31paisb NUMBER(3),
+  cpg31tdocb NUMBER(2),
+  cpg31ndocb CHAR(25),
+  pls008cbu1 CHAR(8),
+  pls008cbu2 CHAR(14),
+  pls008fchv DATE,
+  pls008sol  CHAR(17)
+)
+;
+alter table PLS008
+  add primary key (PLS008FCH, PLS008HRA, PLS008USU, PLS008COR);
+

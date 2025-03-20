@@ -1,0 +1,26 @@
+create table DEPE151
+(
+  depe151fec DATE not null,
+  depe151hor CHAR(8) not null,
+  depe151cdg NUMBER(3) not null,
+  depe151mda NUMBER(4) not null,
+  depe151usr CHAR(10),
+  depe151hab CHAR(1),
+  depe151nu1 NUMBER(9),
+  depe151nu2 NUMBER(9),
+  depe151nu3 NUMBER(9),
+  depe151ch1 VARCHAR2(255),
+  depe151ch2 VARCHAR2(255),
+  depe151ch3 VARCHAR2(255),
+  depe151dt1 DATE,
+  depe151dt2 DATE,
+  depe151dt3 DATE,
+  depe151im1 NUMBER(17,2),
+  depe151im2 NUMBER(17,2),
+  depe151im3 NUMBER(17,2)
+)
+;
+create index DEPE1512 on DEPE151 (DEPE151CDG, DEPE151MDA, DEPE151FEC);
+alter table DEPE151
+  add primary key (DEPE151FEC, DEPE151HOR, DEPE151CDG, DEPE151MDA);
+

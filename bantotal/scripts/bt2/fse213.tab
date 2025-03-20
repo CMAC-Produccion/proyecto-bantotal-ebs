@@ -1,0 +1,18 @@
+create table FSE213
+(
+  pgcod   NUMBER(3) not null,
+  cv1mod  NUMBER(3) not null,
+  cv1mda  NUMBER(4) not null,
+  cv1pap  NUMBER(4) not null,
+  cv1cta  NUMBER(9) not null,
+  cv1suc  NUMBER(3) not null,
+  cv1oper NUMBER(9) not null,
+  cv1sbop NUMBER(3) not null,
+  cv1tope NUMBER(3) not null,
+  cv1lin  NUMBER(3) not null,
+  cv1txt  CHAR(65)
+)
+;
+alter table FSE213
+  add primary key (PGCOD, CV1MOD, CV1MDA, CV1PAP, CV1CTA, CV1SUC, CV1OPER, CV1SBOP, CV1TOPE, CV1LIN);
+

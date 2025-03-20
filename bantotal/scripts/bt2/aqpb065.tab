@@ -1,0 +1,335 @@
+create table AQPB065
+(
+  aqpb065usur      CHAR(10) not null,
+  aqpb065pgcod     NUMBER(3) not null,
+  aqpb065aomod     NUMBER(3) not null,
+  aqpb065aosuc     NUMBER(3) not null,
+  aqpb065aomda     NUMBER(4) not null,
+  aqpb065aopap     NUMBER(4) not null,
+  aqpb065aocta     NUMBER(9) not null,
+  aqpb065aooper    NUMBER(9) not null,
+  aqpb065aosbop    NUMBER(3) not null,
+  aqpb065aotope    NUMBER(3) not null,
+  aqpb065fsub      DATE,
+  aqpb065nsub      VARCHAR2(13),
+  aqpb065ncer      VARCHAR2(20),
+  aqpb065ncob      VARCHAR2(13),
+  aqpb065nact      VARCHAR2(22),
+  aqpb065tdoc      NUMBER(4),
+  aqpb065ndoc      CHAR(12),
+  aqpb065tdocc     NUMBER(4),
+  aqpb065ndocc     CHAR(12),
+  aqpb065csbs      CHAR(11),
+  aqpb065razn      CHAR(100),
+  aqpb065ciuu      VARCHAR2(5),
+  aqpb065pres      CHAR(21),
+  aqpb065mda       CHAR(10),
+  aqpb065mnto      NUMBER(17,2),
+  aqpb065pcob      NUMBER(5,2),
+  aqpb065mtoc      NUMBER(17,2),
+  aqpb065sdoi      NUMBER(17,2),
+  aqpb065tea       NUMBER(10,6),
+  aqpb065pzo       NUMBER(5),
+  aqpb065pgra      NUMBER(5),
+  aqpb065fini      DATE,
+  aqpb065ffin      DATE,
+  aqpb065tcre      NUMBER(5),
+  aqpb065ncre      CHAR(20),
+  aqpb065fcla      DATE,
+  aqpb065cnom      NUMBER(5,2),
+  aqpb065ccpp      NUMBER(5,2),
+  aqpb065cdef      NUMBER(5,2),
+  aqpb065cdud      NUMBER(5,2),
+  aqpb065cper      NUMBER(5,2),
+  aqpb065vpro      NUMBER(17,2),
+  aqpb065cent      CHAR(5),
+  aqpb065nope      VARCHAR2(20),
+  aqpb065tadj      NUMBER(10,6),
+  aqpb065ntra      CHAR(5),
+  aqpb065ttit      CHAR(10),
+  aqpb065temp      NUMBER(4),
+  aqpb065gesp      NUMBER(2),
+  aqpb065ggen      NUMBER(2),
+  aqpb065locd      CHAR(100),
+  aqpb065actn      CHAR(60),
+  aqpb065csdo      NUMBER(17,2),
+  aqpb065fope      DATE,
+  aqpb065ppzo      NUMBER(5),
+  aqpb065ecre      CHAR(30),
+  aqpb065fest      DATE,
+  aqpb065fcan      DATE,
+  aqpb065scap      NUMBER(17,2),
+  aqpb065lamr      CHAR(2),
+  aqpb065fult      DATE,
+  aqpb065datr      NUMBER(10),
+  aqpb065lrep      CHAR(2),
+  aqpb065frep      DATE,
+  aqpb065frini     DATE,
+  aqpb065frfin     DATE,
+  aqpb065reg       NUMBER(9),
+  aqpb065nreg      CHAR(30),
+  aqpb065zon       NUMBER(9),
+  aqpb065nzon      CHAR(40),
+  aqpb065nsuc      CHAR(30),
+  aqpb065ase       CHAR(10),
+  aqpb065ncuo      NUMBER(10),
+  aqpb065fvenui    DATE,
+  aqpb065fvenup    DATE,
+  aqpb065fpag      DATE,
+  aqpb065ncuop     NUMBER(10),
+  aqpb065mcuop     NUMBER(17,2),
+  aqpb065dpag      NUMBER(17,2),
+  aqpb065gas       NUMBER(16,2),
+  aqpb065mor       NUMBER(16,2),
+  aqpb065int       NUMBER(16,2),
+  aqpb065cuo       NUMBER(16,2),
+  aqpb065icv       NUMBER(16,2),
+  aqpb065pen       NUMBER(16,2),
+  aqpb065ins       NUMBER(10),
+  aqpb065fcr       VARCHAR2(10),
+  aqpb065hcr       VARCHAR2(10),
+  aqpb065stat      NUMBER(2),
+  aqpb065fe99      DATE,
+  aqpb065fproc     DATE,
+  aqpb065sdoins    NUMBER(17,2),
+  aqpb065pgrac     NUMBER(5),
+  aqpb065ciiuori   VARCHAR2(5),
+  aqpb065actnomori VARCHAR2(60),
+  aqpb065mhonr     NUMBER(17,2),
+  aqpb065fhonr     DATE,
+  aqpb065chonr     CHAR(1),
+  aqpb065sdocap    NUMBER(17,2),
+  aqpb065sdohon    NUMBER(17,2),
+  aqpb065crehon    NUMBER(17,2),
+  aqpb065fclaa     DATE,
+  aqpb065cnoma     NUMBER(5,2),
+  aqpb065ccppa     NUMBER(5,2),
+  aqpb065cdefa     NUMBER(5,2),
+  aqpb065cduda     NUMBER(5,2),
+  aqpb065cpera     NUMBER(5,2),
+  aqpb065tmor      NUMBER(16,2),
+  aqpb065tasa      NUMBER(16,2),
+  aqpb065tintrep   NUMBER(16,2),
+  aqpb065codhon    CHAR(2),
+  aqpb065vint      NUMBER(17,2),
+  aqpb065vmor      NUMBER(17,2),
+  aqpb065vicv      NUMBER(17,2),
+  aqpb065cren      VARCHAR2(50),
+  aqpb065cobr      VARCHAR2(50),
+  aqpb065chon      VARCHAR2(50)
+)
+;
+comment on table AQPB065
+  is 'Tabla para guardar la información del reporte REACTIVA PERU';
+comment on column AQPB065.aqpb065usur
+  is 'Usuario que genera el reporte';
+comment on column AQPB065.aqpb065aosuc
+  is '56. AGENCIA';
+comment on column AQPB065.aqpb065aocta
+  is '58. NRO. CUENTA';
+comment on column AQPB065.aqpb065aooper
+  is '59. NRO. OPERACIÓN';
+comment on column AQPB065.aqpb065fsub
+  is '1. Fecha de subasta';
+comment on column AQPB065.aqpb065nsub
+  is '2. Nº de Subasta';
+comment on column AQPB065.aqpb065ncer
+  is '3. Nº Certificado';
+comment on column AQPB065.aqpb065ncob
+  is '4. Código de cobertura';
+comment on column AQPB065.aqpb065nact
+  is '5. Nº de acto de aporte';
+comment on column AQPB065.aqpb065tdoc
+  is '6. TIP_DOCUMENTO_DEUDOR';
+comment on column AQPB065.aqpb065ndoc
+  is '7. Número de documento';
+comment on column AQPB065.aqpb065tdocc
+  is '6.1 Tipo de documento deudor (RUC o DNI)';
+comment on column AQPB065.aqpb065ndocc
+  is '7.1 Nro. de documento deudor (Nro. RUC o DNI)';
+comment on column AQPB065.aqpb065csbs
+  is '8. Código de cliente SBS';
+comment on column AQPB065.aqpb065razn
+  is '9. Razón social-Denominación';
+comment on column AQPB065.aqpb065ciuu
+  is '10. CIUU';
+comment on column AQPB065.aqpb065pres
+  is '11. Nº préstamo';
+comment on column AQPB065.aqpb065mda
+  is '12. Moneda';
+comment on column AQPB065.aqpb065mnto
+  is '13. Monto Préstamo';
+comment on column AQPB065.aqpb065pcob
+  is '14.  % de la cobertura';
+comment on column AQPB065.aqpb065mtoc
+  is '15. Monto de la cobertura';
+comment on column AQPB065.aqpb065sdoi
+  is '16. Saldo insoluto del préstamo';
+comment on column AQPB065.aqpb065tea
+  is '17. TEA';
+comment on column AQPB065.aqpb065pzo
+  is '18. Plazo del préstamo';
+comment on column AQPB065.aqpb065pgra
+  is '19. Periodo de Gracia';
+comment on column AQPB065.aqpb065fini
+  is '20. Fecha inicio de crédito';
+comment on column AQPB065.aqpb065ffin
+  is '21. Fecha fin de crédito';
+comment on column AQPB065.aqpb065tcre
+  is '22. Tipo de Crédito SBS';
+comment on column AQPB065.aqpb065ncre
+  is '22.1 Tipo de Crédito SBS - Concepto';
+comment on column AQPB065.aqpb065fcla
+  is '23. Fecha clasificación SBS';
+comment on column AQPB065.aqpb065cnom
+  is '24. CLASIFICACIÓN SBS NORMAL %';
+comment on column AQPB065.aqpb065ccpp
+  is '25. CLASIFICACIÓN SBS CPP %';
+comment on column AQPB065.aqpb065cdef
+  is '26. CLASIFICACIÓN SBS DEFICIENTE %';
+comment on column AQPB065.aqpb065cdud
+  is '27. CLASIFICACIÓN SBS DUDOSO %';
+comment on column AQPB065.aqpb065cper
+  is '28. CLASIFICACIÓN SBS PÉRDIDA %';
+comment on column AQPB065.aqpb065vpro
+  is '29. Venta promedio mensual 2019';
+comment on column AQPB065.aqpb065cent
+  is '30. CODIGO ENTIDAD PARTICIPANTE';
+comment on column AQPB065.aqpb065nope
+  is '31. N° OPERACIÓN DE REPORTE';
+comment on column AQPB065.aqpb065tadj
+  is '32. TASA ADJUDICADA EN NEGOCIACION';
+comment on column AQPB065.aqpb065ntra
+  is '33. N° DE TRAMO';
+comment on column AQPB065.aqpb065ttit
+  is '34. TIPO DE TITULO VALOR';
+comment on column AQPB065.aqpb065temp
+  is '35. TAMAÑO DE EMPRESA';
+comment on column AQPB065.aqpb065gesp
+  is '36. GARANTIA ESPECIFICA';
+comment on column AQPB065.aqpb065ggen
+  is '37. GARANTIA GENERICA';
+comment on column AQPB065.aqpb065locd
+  is '38. LOCALIZACION DE DOCUMENTACION';
+comment on column AQPB065.aqpb065actn
+  is '39. ACTIVIDAD ECONOMICA';
+comment on column AQPB065.aqpb065csdo
+  is '40. SALDO APROBADO POR COFIDE';
+comment on column AQPB065.aqpb065fope
+  is '41. FECHA DE OPERACIÓN REPORTE BCRP';
+comment on column AQPB065.aqpb065ppzo
+  is '42. PLAZO DEL PRESTAMO REPORTADO A COFIDE';
+comment on column AQPB065.aqpb065ecre
+  is '43. ESTADO DEL CREDITO';
+comment on column AQPB065.aqpb065fest
+  is '44. FECHA DE CAMBIO DE ESTADO DE CREDITO';
+comment on column AQPB065.aqpb065fcan
+  is '45. Fecha de cancelación';
+comment on column AQPB065.aqpb065scap
+  is '46. Saldo de capital cancelado';
+comment on column AQPB065.aqpb065lamr
+  is '47. FLAG DE AMORTIZACION';
+comment on column AQPB065.aqpb065fult
+  is '48. FECHA DE ULTIMO PAGO';
+comment on column AQPB065.aqpb065datr
+  is '49. DIAS DE ATRASO DEL CREDITO';
+comment on column AQPB065.aqpb065lrep
+  is '50. FLAG DE REPROGRAMACION';
+comment on column AQPB065.aqpb065frep
+  is '51. FECHA DE REPROGRAMACION';
+comment on column AQPB065.aqpb065frini
+  is '52. FECHA DE INICIO DE CREDITO REPROGRAMADO';
+comment on column AQPB065.aqpb065frfin
+  is '53. FECHA DE FIN DE CREDITO REPROGRAMADO';
+comment on column AQPB065.aqpb065reg
+  is '54. REGION';
+comment on column AQPB065.aqpb065nreg
+  is '54.1 Región - Nombre';
+comment on column AQPB065.aqpb065zon
+  is '55. ZONA';
+comment on column AQPB065.aqpb065nzon
+  is '55.1 Zona - Nombre';
+comment on column AQPB065.aqpb065nsuc
+  is '56.1 Agencia(Sucursal) - Nombre';
+comment on column AQPB065.aqpb065ase
+  is '57. Analista';
+comment on column AQPB065.aqpb065ncuo
+  is '60.  NRO. CUOTAS PENDIENTES DE PAGO';
+comment on column AQPB065.aqpb065fvenui
+  is '61. FECHA DE VENCIMIENTO DE LA ÚLTIMA CUOTA IMPAGA';
+comment on column AQPB065.aqpb065fvenup
+  is '62. FECHA DE VENCIMIENTO DE LA ÚLTIMA CUOTA PAGADA';
+comment on column AQPB065.aqpb065fpag
+  is '63. FECHA DE PAGO DE LA ÚLTIMA CUOTA PAGADA';
+comment on column AQPB065.aqpb065ncuop
+  is '64. NÚMERO DE CUOTAS PAGADAS';
+comment on column AQPB065.aqpb065mcuop
+  is '65. MONTO DE CUOTAS PAGADAS';
+comment on column AQPB065.aqpb065dpag
+  is '66. DISTRIBUCIÓN DE PAGO REALIZADO';
+comment on column AQPB065.aqpb065gas
+  is '66.a Seguros';
+comment on column AQPB065.aqpb065mor
+  is '66.b Interés Moratorio';
+comment on column AQPB065.aqpb065int
+  is '66.c Intereses';
+comment on column AQPB065.aqpb065cuo
+  is '66.d Capital';
+comment on column AQPB065.aqpb065icv
+  is '66.e Interés compensatorio';
+comment on column AQPB065.aqpb065pen
+  is '65.f Penalidad';
+comment on column AQPB065.aqpb065pgrac
+  is 'Período de Gracia COFIDE';
+comment on column AQPB065.aqpb065ciiuori
+  is 'CIIU Origen';
+comment on column AQPB065.aqpb065actnomori
+  is 'Actividad Económica Origen';
+comment on column AQPB065.aqpb065mhonr
+  is 'monto honrado';
+comment on column AQPB065.aqpb065fhonr
+  is 'fecha honramiento';
+comment on column AQPB065.aqpb065chonr
+  is 'es credito honrado S/N';
+comment on column AQPB065.aqpb065sdocap
+  is 'saldo capital';
+comment on column AQPB065.aqpb065sdohon
+  is 'Saldo honrado';
+comment on column AQPB065.aqpb065crehon
+  is 'Saldo credito honrado';
+comment on column AQPB065.aqpb065fclaa
+  is 'Fecha clasificacion caja';
+comment on column AQPB065.aqpb065cnoma
+  is 'Calificacion Normal';
+comment on column AQPB065.aqpb065ccppa
+  is 'Calificacion CPP';
+comment on column AQPB065.aqpb065cdefa
+  is 'Calificacion deficiente';
+comment on column AQPB065.aqpb065cduda
+  is 'Calificacion Dudosa';
+comment on column AQPB065.aqpb065cpera
+  is 'Califiacion Perdida';
+comment on column AQPB065.aqpb065tmor
+  is 'Tasa Moratoria';
+comment on column AQPB065.aqpb065tasa
+  is 'Tasa de interes original';
+comment on column AQPB065.aqpb065tintrep
+  is 'Tasa de interes de credito reprogramado';
+comment on column AQPB065.aqpb065codhon
+  is 'Codigo de Honra';
+comment on column AQPB065.aqpb065vint
+  is 'Interes Compensatorio Vencido';
+comment on column AQPB065.aqpb065vmor
+  is 'Interese Moratorio Vencido';
+comment on column AQPB065.aqpb065vicv
+  is 'ICV Vencido';
+comment on column AQPB065.aqpb065cren
+  is 'Certificado de Renovacion';
+comment on column AQPB065.aqpb065cobr
+  is 'Cobertura de Renovacion';
+comment on column AQPB065.aqpb065chon
+  is 'Certificado de Honra';
+create index AQPB0652 on AQPB065 (AQPB065USUR);
+alter table AQPB065
+  add primary key (AQPB065USUR, AQPB065PGCOD, AQPB065AOMOD, AQPB065AOSUC, AQPB065AOMDA, AQPB065AOPAP, AQPB065AOCTA, AQPB065AOOPER, AQPB065AOSBOP, AQPB065AOTOPE);
+

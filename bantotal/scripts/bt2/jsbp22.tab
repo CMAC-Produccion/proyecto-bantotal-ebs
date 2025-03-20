@@ -1,0 +1,32 @@
+create table JSBP22
+(
+  jsbp22pgco NUMBER(3) not null,
+  jsbp22mod  NUMBER(3) not null,
+  jsbp22suc  NUMBER(3) not null,
+  jsbp22mda  NUMBER(4) not null,
+  jsbp22pap  NUMBER(4) not null,
+  jsbp22cta  NUMBER(9) not null,
+  jsbp22op   NUMBER(9) not null,
+  jsbp22sbop NUMBER(3) not null,
+  jsbp22top  NUMBER(3) not null,
+  jsbp22corr NUMBER(3) not null,
+  jsbp22tipo CHAR(1),
+  jsbp22omod NUMBER(3),
+  jsbp22osuc NUMBER(3),
+  jsbp22omda NUMBER(4),
+  jsbp22opap NUMBER(4),
+  jsbp22octa NUMBER(9),
+  jsbp22oop  NUMBER(9),
+  jsbp22osbo NUMBER(3),
+  jsbp22otop NUMBER(3),
+  jsbp22frac CHAR(4),
+  jsbp22cax1 CHAR(5),
+  jsbp22cax2 CHAR(1),
+  jsbp22nax1 NUMBER(9),
+  jsbp22nax2 NUMBER(9),
+  jsbp22fax1 DATE
+)
+;
+alter table JSBP22
+  add primary key (JSBP22PGCO, JSBP22MOD, JSBP22SUC, JSBP22MDA, JSBP22PAP, JSBP22CTA, JSBP22OP, JSBP22SBOP, JSBP22TOP, JSBP22CORR);
+

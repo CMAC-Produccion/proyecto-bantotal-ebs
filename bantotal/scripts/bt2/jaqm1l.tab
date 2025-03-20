@@ -1,0 +1,85 @@
+create table JAQM1L
+(
+  jaqm1lfec DATE not null,
+  jaqm1lcod VARCHAR2(10) not null,
+  jaqm1lnop VARCHAR2(10) not null,
+  jaqm1ltne NUMBER(17,2) not null,
+  jaqm1lntr VARCHAR2(10) not null,
+  jaqm1lnce VARCHAR2(50) not null,
+  jaqm1lndo VARCHAR2(12) not null,
+  jaqm1lfem DATE not null,
+  jaqm1lcor NUMBER(5) not null,
+  jaqm1lmod CHAR(3),
+  jaqm1lhor CHAR(10),
+  jaqm1lusu CHAR(10),
+  jaqm1lwks CHAR(12),
+  jaqm1lai1 NUMBER(17,2),
+  jaqm1lai2 NUMBER(17,2),
+  jaqm1lai3 NUMBER(17,2),
+  jaqm1lan1 NUMBER(9),
+  jaqm1lan2 NUMBER(9),
+  jaqm1lan3 NUMBER(9),
+  jaqm1lac1 VARCHAR2(255),
+  jaqm1lac2 VARCHAR2(255),
+  jaqm1lac3 VARCHAR2(255),
+  jaqm1laf1 DATE,
+  jaqm1laf2 DATE,
+  jaqm1laf3 DATE
+)
+;
+comment on table JAQM1L
+  is 'Log y Temporal de AQPB711';
+comment on column JAQM1L.jaqm1lfec
+  is 'Fecha de Carga';
+comment on column JAQM1L.jaqm1lcod
+  is 'Código de Entidad de Participante';
+comment on column JAQM1L.jaqm1lnop
+  is 'Número de Operación Reporte';
+comment on column JAQM1L.jaqm1ltne
+  is 'Tasa Adjudicada Negocio';
+comment on column JAQM1L.jaqm1lntr
+  is 'Número de Tramo';
+comment on column JAQM1L.jaqm1lnce
+  is 'Número de Certificado COFIDE';
+comment on column JAQM1L.jaqm1lndo
+  is 'Número de Documento Deudor';
+comment on column JAQM1L.jaqm1lfem
+  is 'Fecha de Inserción Modificación';
+comment on column JAQM1L.jaqm1lcor
+  is 'Correlativo';
+comment on column JAQM1L.jaqm1lmod
+  is 'Tipo de Alteración en registro';
+comment on column JAQM1L.jaqm1lhor
+  is 'Hora';
+comment on column JAQM1L.jaqm1lusu
+  is 'Usuario';
+comment on column JAQM1L.jaqm1lwks
+  is 'WorkStation';
+comment on column JAQM1L.jaqm1lai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM1L.jaqm1lai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM1L.jaqm1lai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM1L.jaqm1lan1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM1L.jaqm1lan2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM1L.jaqm1lan3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM1L.jaqm1lac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM1L.jaqm1lac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM1L.jaqm1lac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM1L.jaqm1laf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM1L.jaqm1laf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM1L.jaqm1laf3
+  is 'Auxiliar Fecha 3';
+create index JAQM1LA2 on JAQM1L (JAQM1LFEM, JAQM1LCOR);
+alter table JAQM1L
+  add primary key (JAQM1LFEC, JAQM1LCOD, JAQM1LNOP, JAQM1LTNE, JAQM1LNTR, JAQM1LNCE, JAQM1LNDO, JAQM1LFEM, JAQM1LCOR);
+

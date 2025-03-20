@@ -1,0 +1,33 @@
+create table CONLINE
+(
+  codtra   NUMBER(10),
+  scsuc1   NUMBER(3),
+  scmda1   NUMBER(4),
+  scpap1   NUMBER(4),
+  sccta1   NUMBER(9),
+  scope1   NUMBER(9),
+  scsub1   NUMBER(3),
+  scmod1   NUMBER(3),
+  sctop1   NUMBER(3),
+  mdamov   NUMBER(3),
+  mtomov   NUMBER(18,2),
+  scsuc2   NUMBER(3),
+  scmda2   NUMBER(4),
+  scpap2   NUMBER(4),
+  sccta2   NUMBER(9),
+  scope2   NUMBER(9),
+  scsub2   NUMBER(3),
+  scmod2   NUMBER(3),
+  sctop2   NUMBER(3),
+  succan   NUMBER(3),
+  nroter   NUMBER(3),
+  c_numcta VARCHAR2(17),
+  canal    NUMBER(1),
+  comcon   NUMBER(17,2),
+  comcom   NUMBER(17,2),
+  comret   NUMBER(17,2)
+)
+;
+create index IX_CONLINE_1 on CONLINE (CODTRA, SCSUC1, CANAL);
+create index IX_CONLINE_2 on CONLINE (CODTRA, SUCCAN, CANAL);
+

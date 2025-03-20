@@ -1,0 +1,35 @@
+create table FBC785
+(
+  bc785emp   NUMBER(3) not null,
+  bc785fch   DATE not null,
+  bc785refdi CHAR(3) not null,
+  bc785ccomp CHAR(2) not null,
+  bc785refa  CHAR(4) not null,
+  bc785refre CHAR(2) not null,
+  bc785refco CHAR(6) not null,
+  bc785refve CHAR(1) not null,
+  bc785idsut CHAR(2),
+  bc785impor CHAR(1),
+  bc785felip DATE,
+  bc785pais  NUMBER(3),
+  bc785tdoc  NUMBER(2),
+  bc785idfip CHAR(13),
+  bc785tprov CHAR(1),
+  bc785rasop CHAR(60),
+  bc785vacif NUMBER(17,2),
+  bc785basta NUMBER(17,2),
+  bc785basiv NUMBER(17,2),
+  bc785poriv NUMBER(1),
+  bc785moniv NUMBER(17,2),
+  bc785basic NUMBER(17,2),
+  bc785poric NUMBER(2),
+  bc785monic NUMBER(17,2),
+  bc785reimr CHAR(5),
+  bc785basre NUMBER(17,2),
+  bc785porer NUMBER(5),
+  bc785morer NUMBER(17,2)
+)
+;
+alter table FBC785
+  add primary key (BC785EMP, BC785FCH, BC785REFDI, BC785CCOMP, BC785REFA, BC785REFRE, BC785REFCO, BC785REFVE);
+

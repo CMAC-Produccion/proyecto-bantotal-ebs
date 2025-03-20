@@ -1,0 +1,15 @@
+create table BSD008
+(
+  pgcod   NUMBER(3) not null,
+  bscctax NUMBER(9) not null,
+  bsctipx CHAR(1),
+  bscselx NUMBER(1),
+  bscestx CHAR(1),
+  bscagex NUMBER(3),
+  bscusua CHAR(10)
+)
+;
+create index BSD00805 on BSD008 (PGCOD, BSCAGEX);
+alter table BSD008
+  add primary key (PGCOD, BSCCTAX);
+

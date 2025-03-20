@@ -1,0 +1,14 @@
+create table JSBC07
+(
+  jsbc07pg  NUMBER(3) not null,
+  jsbc07ope NUMBER(9) not null,
+  jsbc07doc CHAR(20),
+  jsbc07nom CHAR(65),
+  jsbc07tel CHAR(20),
+  jsbc07usr CHAR(10),
+  jsbc07fec DATE
+)
+;
+alter table JSBC07
+  add primary key (JSBC07PG, JSBC07OPE);
+

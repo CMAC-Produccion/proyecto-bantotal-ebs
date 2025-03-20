@@ -1,0 +1,18 @@
+create table FST170
+(
+  st170tdcod NUMBER(5) not null,
+  st170tddsc CHAR(30),
+  st170tddnu NUMBER(5),
+  st170tddpr CHAR(10),
+  st170tddmo CHAR(1),
+  st170tdtnu NUMBER(5),
+  st170tdtpr CHAR(10),
+  st170tdtmo CHAR(1),
+  st170tdipr CHAR(10),
+  st170tditp CHAR(1)
+)
+;
+create index FST17002 on FST170 (ST170TDDSC);
+alter table FST170
+  add primary key (ST170TDCOD);
+

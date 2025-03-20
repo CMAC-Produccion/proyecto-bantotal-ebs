@@ -1,0 +1,111 @@
+create table JAQA56
+(
+  jaqa56emp NUMBER(3) not null,
+  jaqa56suc NUMBER(3) not null,
+  jaqa56mod NUMBER(3) not null,
+  jaqa56mda NUMBER(4) not null,
+  jaqa56pap NUMBER(4) not null,
+  jaqa56cta NUMBER(9) not null,
+  jaqa56ope NUMBER(9) not null,
+  jaqa56sbo NUMBER(3) not null,
+  jaqa56top NUMBER(3) not null,
+  jaqa56cor NUMBER(9) not null,
+  jaqa56fec DATE not null,
+  jaqa56hor CHAR(8),
+  jaqa56usu CHAR(10),
+  jaqa56sua NUMBER(3),
+  jaqa56wkt CHAR(40),
+  jaqa56acc CHAR(20),
+  jaqa56tev NUMBER(2),
+  jaqa56tta NUMBER(2),
+  jaqa56tas NUMBER(10,6),
+  jaqa56cmo NUMBER(9),
+  jaqa56dmo VARCHAR2(255),
+  jaqa56com VARCHAR2(255),
+  jaqa56ai1 NUMBER(17,2),
+  jaqa56ai2 NUMBER(17,2),
+  jaqa56ai3 NUMBER(17,2),
+  jaqa56an1 NUMBER(9),
+  jaqa56an2 NUMBER(9),
+  jaqa56an3 NUMBER(9),
+  jaqa56af1 DATE,
+  jaqa56af2 DATE,
+  jaqa56af3 DATE,
+  jaqa56ac1 VARCHAR2(255),
+  jaqa56ac2 VARCHAR2(255),
+  jaqa56ac3 VARCHAR2(255)
+)
+;
+comment on table JAQA56
+  is 'Log Tasas';
+comment on column JAQA56.jaqa56emp
+  is 'JAQA56EMP';
+comment on column JAQA56.jaqa56suc
+  is 'JAQA56SUC';
+comment on column JAQA56.jaqa56mod
+  is 'JAQA56MOD';
+comment on column JAQA56.jaqa56mda
+  is 'JAQA56MDA';
+comment on column JAQA56.jaqa56pap
+  is 'JAQA56PAP';
+comment on column JAQA56.jaqa56cta
+  is 'JAQA56CTA';
+comment on column JAQA56.jaqa56ope
+  is 'JAQA56OPE';
+comment on column JAQA56.jaqa56sbo
+  is 'JAQA56SBO';
+comment on column JAQA56.jaqa56top
+  is 'JAQA56TOP';
+comment on column JAQA56.jaqa56cor
+  is 'JAQA56COR';
+comment on column JAQA56.jaqa56fec
+  is 'JAQA56FEC';
+comment on column JAQA56.jaqa56hor
+  is 'JAQA56HOR';
+comment on column JAQA56.jaqa56usu
+  is 'JAQA56USU';
+comment on column JAQA56.jaqa56sua
+  is 'JAQA56SUA';
+comment on column JAQA56.jaqa56wkt
+  is 'JAQA56WKT';
+comment on column JAQA56.jaqa56acc
+  is 'JAQA56ACC';
+comment on column JAQA56.jaqa56tev
+  is 'JAQA56TEV';
+comment on column JAQA56.jaqa56tta
+  is 'JAQA56TTA';
+comment on column JAQA56.jaqa56tas
+  is 'JAQA56TAS';
+comment on column JAQA56.jaqa56cmo
+  is 'JAQA56CMO';
+comment on column JAQA56.jaqa56dmo
+  is 'JAQA56DMO';
+comment on column JAQA56.jaqa56com
+  is 'JAQA56COM';
+comment on column JAQA56.jaqa56ai1
+  is 'JAQA56AI1';
+comment on column JAQA56.jaqa56ai2
+  is 'JAQA56AI2';
+comment on column JAQA56.jaqa56ai3
+  is 'JAQA56AI3';
+comment on column JAQA56.jaqa56an1
+  is 'JAQA56AN1';
+comment on column JAQA56.jaqa56an2
+  is 'JAQA56AN2';
+comment on column JAQA56.jaqa56an3
+  is 'JAQA56AN3';
+comment on column JAQA56.jaqa56af1
+  is 'JAQA56AF1';
+comment on column JAQA56.jaqa56af2
+  is 'JAQA56AF2';
+comment on column JAQA56.jaqa56af3
+  is 'JAQA56AF3';
+comment on column JAQA56.jaqa56ac1
+  is 'JAQA56AC1';
+comment on column JAQA56.jaqa56ac2
+  is 'JAQA56AC2';
+comment on column JAQA56.jaqa56ac3
+  is 'JAQA56AC3';
+alter table JAQA56
+  add primary key (JAQA56EMP, JAQA56SUC, JAQA56MOD, JAQA56MDA, JAQA56PAP, JAQA56CTA, JAQA56OPE, JAQA56SBO, JAQA56TOP, JAQA56COR, JAQA56FEC);
+

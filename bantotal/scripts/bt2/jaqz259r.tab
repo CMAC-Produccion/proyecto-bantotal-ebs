@@ -1,0 +1,16 @@
+create table JAQZ259R
+(
+  jaqz259rfecp   DATE not null,
+  jaqz259rcodrub NUMBER(13) not null,
+  jaqz259rcodc   CHAR(6) not null,
+  jaqz259rsuc    NUMBER(3) not null,
+  jaqz259rcodg   CHAR(5),
+  jaqz259rsal    NUMBER(17,2),
+  jaqz259rcodper CHAR(6),
+  jaqz259rusu    CHAR(10),
+  jaqz259rfupd   DATE
+)
+;
+alter table JAQZ259R
+  add primary key (JAQZ259RFECP, JAQZ259RCODRUB, JAQZ259RCODC, JAQZ259RSUC);
+

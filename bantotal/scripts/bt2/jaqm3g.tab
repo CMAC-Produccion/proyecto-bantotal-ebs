@@ -1,0 +1,60 @@
+create table JAQM3G
+(
+  jaqm3gcod NUMBER(3) not null,
+  jaqm3gfec DATE not null,
+  jaqm3gsuc NUMBER(3) not null,
+  jaqm3gcor NUMBER(3) not null,
+  jaqm3gusu CHAR(10) not null,
+  jaqm3gai1 NUMBER(17,2),
+  jaqm3gai2 NUMBER(17,2),
+  jaqm3gai3 NUMBER(17,2),
+  jaqm3gan1 NUMBER(9),
+  jaqm3gan2 NUMBER(9),
+  jaqm3gan3 NUMBER(9),
+  jaqm3gac1 VARCHAR2(255),
+  jaqm3gac2 VARCHAR2(255),
+  jaqm3gac3 VARCHAR2(255),
+  jaqm3gaf1 DATE,
+  jaqm3gaf2 DATE,
+  jaqm3gaf3 DATE
+)
+;
+comment on table JAQM3G
+  is 'Detalle preaprobación comités';
+comment on column JAQM3G.jaqm3gcod
+  is 'Empresa';
+comment on column JAQM3G.jaqm3gfec
+  is 'Fecha';
+comment on column JAQM3G.jaqm3gsuc
+  is 'Sucursal';
+comment on column JAQM3G.jaqm3gcor
+  is 'Correlativo';
+comment on column JAQM3G.jaqm3gusu
+  is 'Usuario';
+comment on column JAQM3G.jaqm3gai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM3G.jaqm3gai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM3G.jaqm3gai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM3G.jaqm3gan1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM3G.jaqm3gan2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM3G.jaqm3gan3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM3G.jaqm3gac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM3G.jaqm3gac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM3G.jaqm3gac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM3G.jaqm3gaf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM3G.jaqm3gaf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM3G.jaqm3gaf3
+  is 'Auxiliar Fecha 3';
+alter table JAQM3G
+  add primary key (JAQM3GCOD, JAQM3GFEC, JAQM3GSUC, JAQM3GCOR, JAQM3GUSU);
+

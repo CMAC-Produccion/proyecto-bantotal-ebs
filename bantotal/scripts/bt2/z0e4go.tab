@@ -1,0 +1,22 @@
+create table Z0E4GO
+(
+  z0e4gocod NUMBER(4) not null,
+  z0e4gotip CHAR(5) not null,
+  z0e4gonev NUMBER(9) not null,
+  z0e4gocor NUMBER(9) not null,
+  z0e4goco2 NUMBER(9) not null,
+  z0e4gofec DATE,
+  z0e4gohor CHAR(8),
+  z0e4gosuc NUMBER(3),
+  z0e4gocon CHAR(20),
+  z0e4goref CHAR(30),
+  z0e4gochq NUMBER(15),
+  z0e4godh  CHAR(2),
+  z0e4goimp NUMBER(17,2),
+  z0e4gosdo NUMBER(17,2)
+)
+;
+create index Z0E4GO02 on Z0E4GO (Z0E4GOCOD, Z0E4GOTIP, Z0E4GONEV, Z0E4GOCOR, Z0E4GOCO2, Z0E4GOFEC, Z0E4GOHOR);
+alter table Z0E4GO
+  add primary key (Z0E4GOCOD, Z0E4GOTIP, Z0E4GONEV, Z0E4GOCOR, Z0E4GOCO2);
+

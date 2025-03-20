@@ -1,0 +1,68 @@
+create table BDC02
+(
+  ccl    VARCHAR2(20),
+  ccr    VARCHAR2(17),
+  ncuo   NUMBER,
+  mon    VARCHAR2(3),
+  mcuo   NUMBER(17,2),
+  sic    NUMBER(17,2),
+  scom   NUMBER(17,2),
+  sim    NUMBER(17,2),
+  fvep   DATE,
+  fcan   DATE,
+  cracl  VARCHAR2(1),
+  hora   VARCHAR2(10),
+  segs   NUMBER(17,2),
+  ncro   NUMBER(10),
+  mcpa   NUMBER(17,2),
+  marca  VARCHAR2(1),
+  sicp   NUMBER(17,2),
+  ncuo_a NUMBER,
+  hcan   VARCHAR2(10),
+  mcuo_r NUMBER(17,2),
+  sic_r  NUMBER(17,2),
+  sim_r  NUMBER(17,2),
+  scs_r  NUMBER(17,2),
+  focan  NUMBER,
+  mocc   VARCHAR2(100)
+)
+;
+comment on table BDC02
+  is 'Cronograma completo de los créditos';
+comment on column BDC02.ccl
+  is 'codigo unico de deudor ';
+comment on column BDC02.ccr
+  is 'Nro de operación de credito';
+comment on column BDC02.ncuo
+  is 'nro de cuota';
+comment on column BDC02.mon
+  is 'moneda';
+comment on column BDC02.mcuo
+  is 'monto de cuota';
+comment on column BDC02.sic
+  is 'Monto interes de la cuota';
+comment on column BDC02.scom
+  is 'comision portrtes y otros cobros de cuota';
+comment on column BDC02.sim
+  is 'Monto interes moratorio';
+comment on column BDC02.fvep
+  is 'fecha de vencimiento de pago';
+comment on column BDC02.fcan
+  is 'fecha de cancelacion de cuota';
+comment on column BDC02.hora
+  is 'auxiliar';
+comment on column BDC02.segs
+  is 'seguros';
+comment on column BDC02.ncro
+  is 'nro de cronograma';
+comment on column BDC02.marca
+  is 'auxiliar';
+comment on column BDC02.ncuo_a
+  is 'auxiliar';
+comment on column BDC02.hcan
+  is 'hora de cancelacion';
+comment on column BDC02.focan
+  is 'factor de conbersion';
+comment on column BDC02.mocc
+  is 'modalidad de credito';
+

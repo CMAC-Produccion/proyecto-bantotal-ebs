@@ -1,0 +1,183 @@
+create table AQPB056H
+(
+  aqpb056htcomf VARCHAR2(2) not null,
+  aqpb056hseri  VARCHAR2(4) not null,
+  aqpb056hnum   NUMBER(8) not null,
+  aqpb056hfemi  DATE not null,
+  aqpb056hpgc   NUMBER(3) not null,
+  aqpb056hmod   NUMBER(3) not null,
+  aqpb056hsuc   NUMBER(3) not null,
+  aqpb056htrx   NUMBER(3) not null,
+  aqpb056hrel   NUMBER(4) not null,
+  aqpb056hfcon  DATE not null,
+  aqpb056htcomp CHAR(2),
+  aqpb056hserie VARCHAR2(50),
+  aqpb056hnro   NUMBER(20),
+  aqpb056hpgce  NUMBER(3),
+  aqpb056hmode  NUMBER(3),
+  aqpb056hsuce  NUMBER(3),
+  aqpb056htrxe  NUMBER(3),
+  aqpb056hrele  NUMBER(4),
+  aqpb056hfcone DATE,
+  aqpb056hfcr   VARCHAR2(10),
+  aqpb056hhcr   VARCHAR2(10)
+)
+partition by range (AQPB056HFEMI)
+(
+  partition AQPB056H_202010 values less than (TO_DATE(' 2020-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202011 values less than (TO_DATE(' 2020-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202012 values less than (TO_DATE(' 2021-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202101 values less than (TO_DATE(' 2021-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202102 values less than (TO_DATE(' 2021-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202103 values less than (TO_DATE(' 2021-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202104 values less than (TO_DATE(' 2021-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202105 values less than (TO_DATE(' 2021-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202106 values less than (TO_DATE(' 2021-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202107 values less than (TO_DATE(' 2021-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202108 values less than (TO_DATE(' 2021-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202109 values less than (TO_DATE(' 2021-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202110 values less than (TO_DATE(' 2021-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202111 values less than (TO_DATE(' 2021-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202112 values less than (TO_DATE(' 2022-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202201 values less than (TO_DATE(' 2022-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202202 values less than (TO_DATE(' 2022-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202203 values less than (TO_DATE(' 2022-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202204 values less than (TO_DATE(' 2022-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202205 values less than (TO_DATE(' 2022-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202206 values less than (TO_DATE(' 2022-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202207 values less than (TO_DATE(' 2022-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202208 values less than (TO_DATE(' 2022-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202209 values less than (TO_DATE(' 2022-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202210 values less than (TO_DATE(' 2022-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202211 values less than (TO_DATE(' 2022-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202212 values less than (TO_DATE(' 2023-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202301 values less than (TO_DATE(' 2023-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202302 values less than (TO_DATE(' 2023-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202303 values less than (TO_DATE(' 2023-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202304 values less than (TO_DATE(' 2023-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202305 values less than (TO_DATE(' 2023-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202306 values less than (TO_DATE(' 2023-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202307 values less than (TO_DATE(' 2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202308 values less than (TO_DATE(' 2023-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202309 values less than (TO_DATE(' 2023-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202310 values less than (TO_DATE(' 2023-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202311 values less than (TO_DATE(' 2023-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202312 values less than (TO_DATE(' 2024-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202401 values less than (TO_DATE(' 2024-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202402 values less than (TO_DATE(' 2024-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202403 values less than (TO_DATE(' 2024-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202404 values less than (TO_DATE(' 2024-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202405 values less than (TO_DATE(' 2024-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202406 values less than (TO_DATE(' 2024-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202407 values less than (TO_DATE(' 2024-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202408 values less than (TO_DATE(' 2024-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202409 values less than (TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202410 values less than (TO_DATE(' 2024-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202411 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202412 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition AQPB056H_202501 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202502 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E,
+  partition AQPB056H_202503 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_E
+);
+comment on table AQPB056H
+  is 'Tabla histórica del comprobante';
+comment on column AQPB056H.aqpb056htcomf
+  is 'Tipo de documento';
+comment on column AQPB056H.aqpb056hseri
+  is 'Serie del documento';
+comment on column AQPB056H.aqpb056hnum
+  is 'Número del documento';
+comment on column AQPB056H.aqpb056hfemi
+  is 'Fecha del documento';
+comment on column AQPB056H.aqpb056hpgc
+  is 'Código Empresa';
+comment on column AQPB056H.aqpb056hmod
+  is 'Módulo';
+comment on column AQPB056H.aqpb056hsuc
+  is 'Sucursal';
+comment on column AQPB056H.aqpb056htrx
+  is 'Transacción';
+comment on column AQPB056H.aqpb056hrel
+  is 'Relación';
+comment on column AQPB056H.aqpb056hfcon
+  is 'Fecha';
+comment on column AQPB056H.aqpb056htcomp
+  is 'Tipo de documento referenciado';
+comment on column AQPB056H.aqpb056hserie
+  is 'Serie del documento referenciado';
+comment on column AQPB056H.aqpb056hnro
+  is 'Número del documento referenciado';
+comment on column AQPB056H.aqpb056hpgce
+  is 'Código empresa referenciado';
+comment on column AQPB056H.aqpb056hmode
+  is 'Módulo referenciado';
+comment on column AQPB056H.aqpb056hsuce
+  is 'Sucursal referenciado';
+comment on column AQPB056H.aqpb056htrxe
+  is 'Transacción referenciado';
+comment on column AQPB056H.aqpb056hrele
+  is 'Relación referenciado';
+comment on column AQPB056H.aqpb056hfcone
+  is 'Fecha referenciada';
+create index AQPB056H2 on AQPB056H (AQPB056HPGC, AQPB056HMOD, AQPB056HSUC, AQPB056HTRX, AQPB056HREL, AQPB056HFCON)
+  nologging  local;
+create index AQPB056H3 on AQPB056H (AQPB056HFEMI)
+  nologging  local;
+alter table AQPB056H
+  add primary key (AQPB056HTCOMF, AQPB056HSERI, AQPB056HNUM, AQPB056HFEMI);
+alter index SYS_C00978181 nologging;
+

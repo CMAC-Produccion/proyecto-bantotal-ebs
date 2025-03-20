@@ -1,0 +1,42 @@
+create table AQPB387H
+(
+  aqpb387hfec     DATE not null,
+  aqpb387hinst    NUMBER(10) not null,
+  aqpb387hprc     NUMBER(4,2),
+  aqpb387hpatef   NUMBER(17,2),
+  aqpb387hprcpat  NUMBER(17,2),
+  aqpb387hcred    NUMBER(17,2),
+  aqpb387hcredvue NUMBER(17,2),
+  aqpb387hcredtot NUMBER(17,2),
+  aqpb387husr     VARCHAR2(10),
+  aqpb387hfcr     VARCHAR2(10),
+  aqpb387hhcr     VARCHAR2(10)
+)
+;
+comment on table AQPB387H
+  is 'Tabla control limite global historica';
+comment on column AQPB387H.aqpb387hfec
+  is 'Fecha';
+comment on column AQPB387H.aqpb387hinst
+  is 'Instancia';
+comment on column AQPB387H.aqpb387hprc
+  is 'Porcentaje';
+comment on column AQPB387H.aqpb387hpatef
+  is 'Patrimonio Efectivo';
+comment on column AQPB387H.aqpb387hprcpat
+  is 'Porcentaje Patrimonio';
+comment on column AQPB387H.aqpb387hcred
+  is 'Saldo Credito Trabjadores';
+comment on column AQPB387H.aqpb387hcredvue
+  is 'Creditos en Vuelo';
+comment on column AQPB387H.aqpb387hcredtot
+  is 'Monto Total';
+comment on column AQPB387H.aqpb387husr
+  is 'Usuario Creacion';
+comment on column AQPB387H.aqpb387hfcr
+  is 'Fecha Creacion';
+comment on column AQPB387H.aqpb387hhcr
+  is 'Hora Creacion';
+alter table AQPB387H
+  add primary key (AQPB387HFEC, AQPB387HINST);
+

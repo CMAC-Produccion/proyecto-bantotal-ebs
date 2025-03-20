@@ -1,0 +1,24 @@
+create table TI002A
+(
+  ti002acod NUMBER(3) not null,
+  ti002acor NUMBER(3) not null,
+  ti002acai NUMBER(3) not null,
+  ti002asuc NUMBER(3) not null,
+  ti002apzo NUMBER(5) not null,
+  ti002amod NUMBER(3) not null,
+  ti002atop NUMBER(3) not null,
+  ti002aact NUMBER(9) not null,
+  ti002amnd NUMBER(17,2) not null,
+  ti002amnh NUMBER(17,2) not null,
+  ti002aimf NUMBER(17,2),
+  ti002amnr NUMBER(17,2),
+  ti002acoe NUMBER(3),
+  ti002aau1 CHAR(35),
+  ti002aau2 NUMBER(17,2),
+  ti002aau3 NUMBER(9),
+  ti002aau4 DATE
+)
+;
+alter table TI002A
+  add primary key (TI002ACOD, TI002ACOR, TI002ACAI, TI002ASUC, TI002APZO, TI002AMOD, TI002ATOP, TI002AACT, TI002AMND, TI002AMNH);
+

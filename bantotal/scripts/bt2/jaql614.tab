@@ -1,0 +1,40 @@
+create table JAQL614
+(
+  jaql614trxid  NUMBER(18) not null,
+  jaql614ftrid  NUMBER(18) not null,
+  jaql614etrid  VARCHAR2(256),
+  jaql614datim  DATE,
+  jaql614iuser  VARCHAR2(64),
+  jaql614ruser  VARCHAR2(64),
+  jaql614froid  VARCHAR2(64),
+  jaql614fmsdn  VARCHAR2(20),
+  jaql614fusna  VARCHAR2(64),
+  jaql614fprfi  VARCHAR2(64),
+  jaql614facid  VARCHAR2(64),
+  jaql614facty  VARCHAR2(20),
+  jaql614frfee  NUMBER(17,2),
+  jaql614flrew  VARCHAR2(20),
+  jaql614flfee  VARCHAR2(20),
+  jaql614toid   VARCHAR2(64),
+  jaql614tisdn  VARCHAR2(20),
+  jaql614tusna  VARCHAR2(64),
+  jaql614tprof  VARCHAR2(64),
+  jaql614taccid VARCHAR2(64),
+  jaql614tccty  VARCHAR2(20),
+  jaql614tofee  NUMBER(17,2),
+  jaql614tlrew  VARCHAR2(20),
+  jaql614tlfee  VARCHAR2(20),
+  jaql614trxty  VARCHAR2(64),
+  jaql614amoun  NUMBER(17,2),
+  jaql614curren VARCHAR2(3),
+  jaql614trxst  VARCHAR2(20),
+  jaql614contx  VARCHAR2(64),
+  jaql614comme  VARCHAR2(512),
+  jaql614fearc  DATE,
+  jaql614idarc  NUMBER(18)
+)
+;
+create index JAQL6142 on JAQL614 (JAQL614FROID);
+alter table JAQL614
+  add primary key (JAQL614TRXID, JAQL614FTRID);
+

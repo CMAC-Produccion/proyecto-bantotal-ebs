@@ -1,0 +1,17 @@
+create table PPG010
+(
+  ppg010cdat NUMBER(5) not null,
+  ppg010desc CHAR(20),
+  ppg010tdat NUMBER(3),
+  ppg010hab  CHAR(1),
+  ppg010au1  NUMBER(9),
+  ppg010au2  NUMBER(9),
+  ppg010au3  DATE,
+  ppg010au4  DATE,
+  ppg010aui5 NUMBER(17,2),
+  ppg010au6  CHAR(30)
+)
+;
+alter table PPG010
+  add primary key (PPG010CDAT);
+

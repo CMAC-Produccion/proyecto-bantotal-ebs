@@ -1,0 +1,45 @@
+create table FBC602
+(
+  bc602pais  NUMBER(3) not null,
+  bc602tdoc  NUMBER(2) not null,
+  bc602ndoc  CHAR(12) not null,
+  bc602nom   CHAR(50),
+  bc602ape   CHAR(50),
+  bc602apem  CHAR(40),
+  bc602sexo  CHAR(1),
+  bc602fchn  DATE,
+  bc602naci  NUMBER(3),
+  bc602prof  CHAR(15),
+  bc602dpto  NUMBER(5),
+  bc602prov  NUMBER(5),
+  bc602dire  CHAR(150),
+  bc602ruc   NUMBER(11),
+  bc602telr  CHAR(15),
+  bc602empn  CHAR(50),
+  bc602empt  CHAR(15),
+  bc602acte  CHAR(20),
+  bc602dist  NUMBER(9),
+  bc600aux1  CHAR(80),
+  bc600aux2  CHAR(80),
+  bc600aux3  CHAR(80),
+  bc600aux4  NUMBER(17,2),
+  bc600aux5  NUMBER(17,2),
+  bc600aux6  NUMBER(17,2),
+  bc600aux7  NUMBER(18),
+  bc600aux8  DATE,
+  bc600aux9  DATE,
+  bc602res   CHAR(1),
+  bc602tper  CHAR(1),
+  bc602ciiu  CHAR(4),
+  bc602profe CHAR(20),
+  bc602carg  CHAR(2),
+  bc602udep  CHAR(2),
+  bc602upro  CHAR(2),
+  bc602udis  CHAR(2),
+  bc602obso  CHAR(90)
+)
+;
+create index FBC6022 on FBC602 (BC602NDOC);
+alter table FBC602
+  add primary key (BC602PAIS, BC602TDOC, BC602NDOC);
+

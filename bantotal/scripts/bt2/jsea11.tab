@@ -1,0 +1,14 @@
+create table JSEA11
+(
+  jsea11pgc NUMBER(3) not null,
+  jsea11ope NUMBER(9) not null,
+  jsea11mdl NUMBER(2),
+  jsea11cta NUMBER(9),
+  jsea11fec DATE,
+  jsea11est CHAR(1),
+  jsea11fre DATE
+)
+;
+alter table JSEA11
+  add primary key (JSEA11PGC, JSEA11OPE);
+

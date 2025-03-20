@@ -1,0 +1,12 @@
+create table FSD220
+(
+  fpais  NUMBER(3) not null,
+  ftdoc  NUMBER(2) not null,
+  fandoc CHAR(12) not null,
+  fhdrf  CHAR(62),
+  fsign  CHAR(200)
+)
+;
+alter table FSD220
+  add primary key (FPAIS, FTDOC, FANDOC);
+

@@ -1,0 +1,171 @@
+create table AQPD240
+(
+  aqpd240emp    NUMBER(3) not null,
+  aqpd240mod    NUMBER(3) not null,
+  aqpd240suc    NUMBER(3) not null,
+  aqpd240mda    NUMBER(4) not null,
+  aqpd240pap    NUMBER(4) not null,
+  aqpd240cta    NUMBER(9) not null,
+  aqpd240ope    NUMBER(9) not null,
+  aqpd240top    NUMBER(3) not null,
+  aqpd240sbo    NUMBER(3) not null,
+  aqpd240narm   NUMBER(3),
+  aqpd240capd   NUMBER(18,2),
+  aqpd240segd   NUMBER(18,2),
+  aqpd240intcd  NUMBER(18,2),
+  aqpd240pend   NUMBER(18,2),
+  aqpd240intmd  NUMBER(18,2),
+  aqpd240icvd   NUMBER(18,2),
+  aqpd240otd    NUMBER(18,2),
+  aqpd240otc    NUMBER(18,2),
+  aqpd240capc   NUMBER(18,2),
+  aqpd240segc   NUMBER(18,2),
+  aqpd240intcc  NUMBER(18,2),
+  aqpd240penc   NUMBER(18,2),
+  aqpd240intmc  NUMBER(18,2),
+  aqpd240icvc   NUMBER(18,2),
+  aqpd240capitc NUMBER(18,2),
+  aqpd240ncuo   NUMBER(18),
+  aqpd240esta   NUMBER(4),
+  aqpd240tori   NUMBER(10,6),
+  aqpd240taju   NUMBER(10,6),
+  aqpd240tref   NUMBER(10,6),
+  aqpd240mtopag NUMBER(18,2),
+  aqpd240mtoref NUMBER(18,2),
+  aqpd240mtouc  NUMBER(18,2),
+  aqpd240usuexo CHAR(10),
+  aqpd240usurta CHAR(10),
+  aqpd240capp   NUMBER(4),
+  aqpd240intp   NUMBER(4),
+  aqpd240morp   NUMBER(4),
+  aqpd240icvp   NUMBER(4),
+  aqpd240penp   NUMBER(4),
+  aqpd240capitp NUMBER(4),
+  aqpd240itcod  NUMBER(3) not null,
+  aqpd240itmod  NUMBER(4) not null,
+  aqpd240itsuc  NUMBER(3) not null,
+  aqpd240ittran NUMBER(3) not null,
+  aqpd240itnrel NUMBER(4) not null,
+  aqpd240itfcon DATE not null,
+  aqpd240ithora CHAR(8) not null,
+  aqpd240itucnf CHAR(10) not null,
+  aqpd240usuact CHAR(10),
+  aqpd240fecact DATE,
+  aqpd240fecext DATE,
+  aqpd240est    CHAR(1)
+)
+;
+comment on table AQPD240
+  is 'Tabla de Contabilizacion con Exoneracion de Refinanciados PJM';
+comment on column AQPD240.aqpd240emp
+  is 'Empresa';
+comment on column AQPD240.aqpd240mod
+  is 'Módulo';
+comment on column AQPD240.aqpd240suc
+  is 'Sucursal';
+comment on column AQPD240.aqpd240mda
+  is 'Moneda';
+comment on column AQPD240.aqpd240pap
+  is 'Papel';
+comment on column AQPD240.aqpd240cta
+  is 'Cuenta';
+comment on column AQPD240.aqpd240ope
+  is 'Operación';
+comment on column AQPD240.aqpd240top
+  is 'Tipo de Operación';
+comment on column AQPD240.aqpd240sbo
+  is 'Suboperación';
+comment on column AQPD240.aqpd240narm
+  is 'Número de armadas';
+comment on column AQPD240.aqpd240capd
+  is 'Capital deuda saldo anterior';
+comment on column AQPD240.aqpd240segd
+  is 'Seguro deuda saldo anterior';
+comment on column AQPD240.aqpd240intcd
+  is 'Interes Compensatorio deuda saldo anterior';
+comment on column AQPD240.aqpd240pend
+  is 'Penalidad deuda saldo anterior';
+comment on column AQPD240.aqpd240intmd
+  is 'Int Moratorio deuda saldo anterior';
+comment on column AQPD240.aqpd240icvd
+  is 'ICV deuda saldo anterior';
+comment on column AQPD240.aqpd240otd
+  is 'Otros deuda saldo anterior';
+comment on column AQPD240.aqpd240otc
+  is 'Otros monto condonado';
+comment on column AQPD240.aqpd240capc
+  is 'Capital monto condonado';
+comment on column AQPD240.aqpd240segc
+  is 'Seguro monto condonado';
+comment on column AQPD240.aqpd240intcc
+  is 'Interes Compensatorio monto condonado';
+comment on column AQPD240.aqpd240penc
+  is 'Penalidad monto condonado';
+comment on column AQPD240.aqpd240intmc
+  is 'Interes Moratorio monto condonado';
+comment on column AQPD240.aqpd240icvc
+  is 'ICV monto condonado';
+comment on column AQPD240.aqpd240capitc
+  is 'Capitalizacion monto condonado';
+comment on column AQPD240.aqpd240ncuo
+  is 'Número de cuotas dlya';
+comment on column AQPD240.aqpd240esta
+  is 'Estado Anterior dlya';
+comment on column AQPD240.aqpd240tori
+  is 'tasa Original JAQN8BTAC';
+comment on column AQPD240.aqpd240taju
+  is 'tasa Ajustada JAQN8BTAA';
+comment on column AQPD240.aqpd240tref
+  is 'Tasa Refinanciada';
+comment on column AQPD240.aqpd240mtopag
+  is 'MOnto pagado refinanciación';
+comment on column AQPD240.aqpd240mtoref
+  is 'Monto refinanciado';
+comment on column AQPD240.aqpd240mtouc
+  is 'Monto de ultima cuota JAQN8ATEX';
+comment on column AQPD240.aqpd240usuexo
+  is 'Usuario actuliza exoneracion JAQN8AUSP';
+comment on column AQPD240.aqpd240usurta
+  is 'Usuario autoriza negociacion de tasa JAQN8BUSP';
+comment on column AQPD240.aqpd240capp
+  is 'Porcentaje reducciónde capital';
+comment on column AQPD240.aqpd240intp
+  is 'Porcentaje reducción de Interes Comp.';
+comment on column AQPD240.aqpd240morp
+  is 'Porcentaje reducción de Mora';
+comment on column AQPD240.aqpd240icvp
+  is 'Porcentaje reducción de ICV';
+comment on column AQPD240.aqpd240penp
+  is 'Porcentaje reducción de Penalidad';
+comment on column AQPD240.aqpd240capitp
+  is 'Porcentaje reducciónde Capitalización';
+comment on column AQPD240.aqpd240itcod
+  is 'Transacción de Refinanciación';
+comment on column AQPD240.aqpd240itmod
+  is 'Modulo transacción REF';
+comment on column AQPD240.aqpd240itsuc
+  is 'Sucursal transacción REF';
+comment on column AQPD240.aqpd240ittran
+  is 'Transacción transacción REF';
+comment on column AQPD240.aqpd240itnrel
+  is 'Relación transacción REF';
+comment on column AQPD240.aqpd240itfcon
+  is 'Fecha transacción REF';
+comment on column AQPD240.aqpd240ithora
+  is 'Hora transacción REF';
+comment on column AQPD240.aqpd240itucnf
+  is 'Usuario transacción REF';
+comment on column AQPD240.aqpd240usuact
+  is 'usuario de Actualización';
+comment on column AQPD240.aqpd240fecact
+  is 'Fecha de Actualización';
+comment on column AQPD240.aqpd240fecext
+  is 'Fecha de Extorno';
+comment on column AQPD240.aqpd240est
+  is 'Estado C=contabilizado, E=Extorno';
+create index AQPD240A2 on AQPD240 (AQPD240EMP, AQPD240MOD, AQPD240SUC, AQPD240MDA, AQPD240PAP, AQPD240CTA, AQPD240OPE, AQPD240TOP, AQPD240SBO);
+create index AQPD240A3 on AQPD240 (AQPD240ITCOD, AQPD240ITMOD, AQPD240ITSUC, AQPD240ITTRAN, AQPD240ITNREL, AQPD240ITFCON);
+create index AQPD240A4 on AQPD240 (AQPD240MDA, AQPD240PAP, AQPD240CTA, AQPD240OPE);
+alter table AQPD240
+  add primary key (AQPD240EMP, AQPD240MOD, AQPD240SUC, AQPD240MDA, AQPD240PAP, AQPD240CTA, AQPD240OPE, AQPD240TOP, AQPD240SBO, AQPD240ITCOD, AQPD240ITMOD, AQPD240ITSUC, AQPD240ITTRAN, AQPD240ITNREL, AQPD240ITFCON);
+

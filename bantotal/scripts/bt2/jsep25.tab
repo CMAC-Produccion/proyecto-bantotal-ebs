@@ -1,0 +1,15 @@
+create table JSEP25
+(
+  jsep20pgc NUMBER(3) not null,
+  jsep20mod NUMBER(3) not null,
+  jsep20top NUMBER(3) not null,
+  jsep20mda NUMBER(4) not null,
+  jsep20pap NUMBER(4) not null,
+  jsep25pzd NUMBER(2) not null,
+  jsep25tpo CHAR(1),
+  jsep25zds CHAR(20)
+)
+;
+alter table JSEP25
+  add primary key (JSEP20PGC, JSEP20MOD, JSEP20TOP, JSEP20MDA, JSEP20PAP, JSEP25PZD);
+

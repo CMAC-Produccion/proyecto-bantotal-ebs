@@ -1,0 +1,31 @@
+create table JAQZ463
+(
+  jaqz463fech DATE not null,
+  jaqz463emp  NUMBER(3) not null,
+  jaqz463suc  NUMBER(3) not null,
+  jaqz463mda  NUMBER(4) not null,
+  jaqz463pap  NUMBER(4) not null,
+  jaqz463cta  NUMBER(9) not null,
+  jaqz463oper NUMBER(9) not null,
+  jaqz463ndoc VARCHAR2(4000),
+  jaqz463tdoc VARCHAR2(4000),
+  jaqz463pais VARCHAR2(4000),
+  jaqz463sbop NUMBER(3) not null,
+  jaqz463top  NUMBER(3) not null,
+  jaqz463sdmn NUMBER,
+  jaqz463trep VARCHAR2(10),
+  jaqz463fcar VARCHAR2(15),
+  jaqz463tcre VARCHAR2(23),
+  jaqz463actr VARCHAR2(15),
+  jaqz463nivr VARCHAR2(10),
+  jaqz463segr VARCHAR2(14),
+  jaqz463age  CHAR(30),
+  jaqz463reg  VARCHAR2(30),
+  jaqz463zon  VARCHAR2(40),
+  jaqz463ana  CHAR(10)
+)
+;
+create index JAQZ4632 on JAQZ463 (JAQZ463TCRE, JAQZ463SEGR);
+alter table JAQZ463
+  add primary key (JAQZ463EMP, JAQZ463MDA, JAQZ463CTA, JAQZ463OPER);
+

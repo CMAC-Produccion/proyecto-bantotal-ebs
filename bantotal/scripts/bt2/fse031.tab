@@ -1,0 +1,13 @@
+create table FSE031
+(
+  fse031tbl  CHAR(10) not null,
+  fse031atr  CHAR(10) not null,
+  fse031key1 NUMBER(16) not null,
+  fse031key2 NUMBER(16) not null,
+  fse031key3 CHAR(25) not null,
+  fse031dsce CHAR(200)
+)
+;
+alter table FSE031
+  add primary key (FSE031TBL, FSE031ATR, FSE031KEY1, FSE031KEY2, FSE031KEY3);
+

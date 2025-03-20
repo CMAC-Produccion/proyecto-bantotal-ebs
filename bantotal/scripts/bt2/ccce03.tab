@@ -1,0 +1,43 @@
+create table CCCE03
+(
+  ccce03fch  CHAR(6) not null,
+  ccce03hra  NUMBER(4) not null,
+  ccce03idr  NUMBER(3) not null,
+  ccce03tcon NUMBER(15) not null,
+  ccce03tdoc NUMBER(15) not null,
+  ccce03tpo  NUMBER(3) not null,
+  ccce03cnt  NUMBER(3),
+  ccce03est  NUMBER(3),
+  ccce03rch  NUMBER(4),
+  ccce03su1  NUMBER(3),
+  ccce03fe1  DATE,
+  ccce03iof  CHAR(1),
+  ccce03n01  NUMBER(9),
+  ccce03n02  NUMBER(9),
+  ccce03n03  NUMBER(9),
+  ccce03n04  NUMBER(9),
+  ccce03n05  NUMBER(9),
+  ccce03i01  NUMBER(17,2),
+  ccce03i02  NUMBER(17,2),
+  ccce03i03  NUMBER(17,2),
+  ccce03i04  NUMBER(17,2),
+  ccce03i05  NUMBER(17,2),
+  ccce03c01  CHAR(35),
+  ccce03c02  CHAR(35),
+  ccce03c03  CHAR(35),
+  ccce03f01  DATE,
+  ccce03f02  DATE,
+  ccce03em   NUMBER(3),
+  ccce03su   NUMBER(3),
+  ccce03mo   NUMBER(3),
+  ccce03tr   NUMBER(3),
+  ccce03re   NUMBER(4),
+  ccce03or   NUMBER(2),
+  ccce03so   NUMBER(3),
+  ccce03fc   DATE,
+  ccce03co   CHAR(1)
+)
+;
+alter table CCCE03
+  add primary key (CCCE03FCH, CCCE03HRA, CCCE03IDR, CCCE03TCON, CCCE03TDOC, CCCE03TPO);
+

@@ -1,0 +1,41 @@
+create table JAQL118
+(
+  producto               NUMBER(3),
+  des_producto           VARCHAR2(100),
+  sub_producto           NUMBER(3),
+  des_sub_prod           VARCHAR2(100),
+  nro_tarjeta_debito     VARCHAR2(30),
+  descricion_tarjeta     VARCHAR2(100),
+  nro_cuenta             VARCHAR2(30),
+  cod_cuenta_cliente     NUMBER(9),
+  dni_ruc                VARCHAR2(20),
+  nombre                 VARCHAR2(200),
+  segmento               VARCHAR2(10),
+  cod_sucursal           NUMBER(3),
+  sucursal               VARCHAR2(50),
+  cod_plaza_prod         NUMBER(3),
+  plaza_prod             VARCHAR2(100),
+  moneda_cuenta          NUMBER(4),
+  des_moneda             VARCHAR2(20),
+  fecha_movimiento       DATE,
+  cod_movimiento         VARCHAR2(10),
+  des_movimiento         VARCHAR2(100),
+  nro_movimiento         VARCHAR2(50),
+  cod_concepto           NUMBER(3),
+  concepto               VARCHAR2(70),
+  cod_moneda_transaccion NUMBER(3),
+  moneda_transaccion     VARCHAR2(20),
+  monto_mov              NUMBER(17,2),
+  cod_age_mov            NUMBER(3),
+  cod_plaza_mov          NUMBER(3),
+  plaza_mov              VARCHAR2(50),
+  distrito               VARCHAR2(300),
+  atm                    VARCHAR2(100),
+  operacion              NUMBER(9),
+  sub_operacion          NUMBER(3),
+  tipo_persona           VARCHAR2(50)
+)
+;
+comment on table JAQL118
+  is 'KIOSKOS MULTIMEDIA REPORTE';
+

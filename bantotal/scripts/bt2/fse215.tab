@@ -1,0 +1,13 @@
+create table FSE215
+(
+  impucod  NUMBER(3) not null,
+  rimptcli NUMBER(3) not null,
+  tclinom  CHAR(30),
+  tclinomr CHAR(10),
+  tclimto  NUMBER(17,2),
+  tcli001  CHAR(1)
+)
+;
+alter table FSE215
+  add primary key (IMPUCOD, RIMPTCLI);
+

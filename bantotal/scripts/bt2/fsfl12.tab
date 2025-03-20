@@ -1,0 +1,23 @@
+create table FSFL12
+(
+  fsfl12pgc NUMBER(3) not null,
+  fsfl12leg NUMBER(3) not null,
+  fsfl12fec DATE not null,
+  fsfl12hor CHAR(8) not null,
+  fsfl12nom CHAR(20),
+  fsfl12usu CHAR(10),
+  fsfl12lim NUMBER(17,2),
+  fsfl12est CHAR(1),
+  fsfl12reg CHAR(1),
+  fsfl12tip CHAR(1),
+  fsfl12uig CHAR(10),
+  fsfl12wig CHAR(10),
+  fsfl12fcf DATE,
+  fsfl12hcf CHAR(8),
+  fsfc12ucf CHAR(10),
+  fsfc12wcf CHAR(10)
+)
+;
+alter table FSFL12
+  add primary key (FSFL12PGC, FSFL12LEG, FSFL12FEC, FSFL12HOR);
+

@@ -1,0 +1,16 @@
+create table FSH102
+(
+  hpbcod   NUMBER(3) not null,
+  hpbfbt   DATE not null,
+  hpbnsec  NUMBER(9) not null,
+  hpbthr   NUMBER(3) not null,
+  hpbftini DATE,
+  hpbhtini CHAR(8),
+  hpbftfin DATE,
+  hpbhtfin CHAR(8),
+  hpbtret  CHAR(1)
+)
+;
+alter table FSH102
+  add primary key (HPBCOD, HPBFBT, HPBNSEC, HPBTHR);
+

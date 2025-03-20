@@ -1,0 +1,10 @@
+create table CNLPRCCP
+(
+  cnlprocess CHAR(60) not null,
+  cnltask    CHAR(60) not null,
+  cnlcptid   CHAR(20) not null
+)
+;
+alter table CNLPRCCP
+  add primary key (CNLPROCESS, CNLTASK, CNLCPTID);
+

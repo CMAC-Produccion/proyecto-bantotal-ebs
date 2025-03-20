@@ -1,0 +1,161 @@
+create table AQPC177
+(
+  aqpc177emp     NUMBER(3) not null,
+  aqpc177mod     NUMBER(3) not null,
+  aqpc177suc     NUMBER(3) not null,
+  aqpc177mda     NUMBER(4) not null,
+  aqpc177pap     NUMBER(4) not null,
+  aqpc177cta     NUMBER(9) not null,
+  aqpc177ope     NUMBER(9) not null,
+  aqpc177sbp     NUMBER(3) not null,
+  aqpc177top     NUMBER(3) not null,
+  aqpc177dni     VARCHAR2(12),
+  aqpc177titurep VARCHAR2(300),
+  aqpc177titu    VARCHAR2(300),
+  aqpc177aval    VARCHAR2(2),
+  aqpc177scmo    NUMBER(18,2),
+  aqpc177intmo   NUMBER(18,2),
+  aqpc177moramo  NUMBER(18,2),
+  aqpc177icvmo   NUMBER(18,2),
+  aqpc177penalid NUMBER(18,2),
+  aqpc177otrrubr NUMBER(18,2),
+  aqpc177segur   NUMBER(18,2),
+  aqpc177bonbpag NUMBER(18,2),
+  aqpc177intbnpa NUMBER(18,2),
+  aqpc177prmbnpa NUMBER(18,2),
+  aqpc177intprbn NUMBER(18,2),
+  aqpc177bonsost NUMBER(18,2),
+  aqpc177intbnso NUMBER(18,2),
+  aqpc177bonfmha NUMBER(17,2),
+  aqpc177intbnfm NUMBER(17,2),
+  aqpc177otrgast NUMBER(18,2),
+  aqpc177deutom  NUMBER(18,2),
+  aqpc177salcapm NUMBER(18,2),
+  aqpc177deutotm NUMBER(18,2),
+  aqpc177prcprov NUMBER(18,8),
+  aqpc177calific VARCHAR2(100),
+  aqpc177diasmor NUMBER(9),
+  aqpc177estcont VARCHAR2(50),
+  aqpc177tipcred VARCHAR2(50),
+  aqpc177analist VARCHAR2(50),
+  aqpc177abogasi VARCHAR2(100),
+  aqpc177fecdemn DATE,
+  aqpc177tiengar VARCHAR2(2),
+  aqpc177grtinsc VARCHAR2(700),
+  aqpc177fecemi  DATE,
+  aqpc177feultpa DATE,
+  aqpc177nroprop NUMBER(10),
+  aqpc177usuejec VARCHAR2(10) default 'BANTOTAL' not null,
+  aqpc177nrogrp  NUMBER(10) default 0 not null,
+  aqpc177aux1    NUMBER(10),
+  aqpc177aux2    VARCHAR2(100),
+  aqpc177aux3    DATE
+)
+;
+comment on table AQPC177
+  is 'TABLA SALDOS ACTUALIZADOS';
+comment on column AQPC177.aqpc177emp
+  is 'Empresa';
+comment on column AQPC177.aqpc177mod
+  is 'Modulo';
+comment on column AQPC177.aqpc177suc
+  is 'Sucursal';
+comment on column AQPC177.aqpc177mda
+  is 'Moneda';
+comment on column AQPC177.aqpc177pap
+  is 'Papel';
+comment on column AQPC177.aqpc177cta
+  is 'Cuenta';
+comment on column AQPC177.aqpc177ope
+  is 'Operacion';
+comment on column AQPC177.aqpc177sbp
+  is 'Suboperación';
+comment on column AQPC177.aqpc177top
+  is 'TipoOperacion';
+comment on column AQPC177.aqpc177dni
+  is 'Nro. DNI';
+comment on column AQPC177.aqpc177titurep
+  is 'Tit. represent.';
+comment on column AQPC177.aqpc177titu
+  is 'Titulares.';
+comment on column AQPC177.aqpc177aval
+  is 'tiene Aval';
+comment on column AQPC177.aqpc177scmo
+  is 'Saldo Capital MO';
+comment on column AQPC177.aqpc177intmo
+  is 'Intéres MO';
+comment on column AQPC177.aqpc177moramo
+  is 'Mora MO';
+comment on column AQPC177.aqpc177icvmo
+  is 'ICV MO';
+comment on column AQPC177.aqpc177penalid
+  is 'Penalidad';
+comment on column AQPC177.aqpc177otrrubr
+  is 'Otros rubros';
+comment on column AQPC177.aqpc177segur
+  is 'Seguro MO';
+comment on column AQPC177.aqpc177bonbpag
+  is 'Bono buen Pagador MO';
+comment on column AQPC177.aqpc177intbnpa
+  is 'INTERES BONO BUEN PAGADOR MO';
+comment on column AQPC177.aqpc177prmbnpa
+  is 'PREMIO BUEN PAGADOR MO';
+comment on column AQPC177.aqpc177intprbn
+  is 'INTERES PREMIO BUEN PAGADOR MO';
+comment on column AQPC177.aqpc177bonsost
+  is 'BONO SOSTENIBLE MO';
+comment on column AQPC177.aqpc177intbnso
+  is 'INTERES BONO SOSTENIBLE MO';
+comment on column AQPC177.aqpc177bonfmha
+  is 'BONO FAMILIAR HABITACIONAL MO';
+comment on column AQPC177.aqpc177intbnfm
+  is 'INTERES BONO FAMILIAR HABITACIONAL MO';
+comment on column AQPC177.aqpc177otrgast
+  is 'OTROS GASTOS/COMISIONES MO';
+comment on column AQPC177.aqpc177deutom
+  is 'DEUDA TOTAL MO';
+comment on column AQPC177.aqpc177salcapm
+  is 'SALDO CAPITAL MN';
+comment on column AQPC177.aqpc177deutotm
+  is 'DEUDA TOTAL MN';
+comment on column AQPC177.aqpc177prcprov
+  is 'PORCENTAJE PROVISION';
+comment on column AQPC177.aqpc177calific
+  is 'CALIFICACION';
+comment on column AQPC177.aqpc177diasmor
+  is 'DIAS_MORA';
+comment on column AQPC177.aqpc177estcont
+  is 'ESTADO CONTABLE ';
+comment on column AQPC177.aqpc177tipcred
+  is 'TIPO DE CRÉDITO ';
+comment on column AQPC177.aqpc177analist
+  is 'ANALISTA';
+comment on column AQPC177.aqpc177abogasi
+  is 'ABOGADO ASIGNADO';
+comment on column AQPC177.aqpc177fecdemn
+  is 'FECHA DEMANDA';
+comment on column AQPC177.aqpc177tiengar
+  is 'TIENE GARANTIAS INSCRITAS CONSOLIDADAS';
+comment on column AQPC177.aqpc177grtinsc
+  is 'GARANTIAS INSCRITAS CONSOLIDADAS';
+comment on column AQPC177.aqpc177fecemi
+  is 'FECHA DE EMISION DEL REPORTE ';
+comment on column AQPC177.aqpc177feultpa
+  is 'FECHA DE ULTIMO PAGO ';
+comment on column AQPC177.aqpc177nroprop
+  is 'Número de propuesta';
+comment on column AQPC177.aqpc177usuejec
+  is 'Usuario de ejecución';
+comment on column AQPC177.aqpc177nrogrp
+  is 'Nro. Grupo';
+comment on column AQPC177.aqpc177aux1
+  is 'Auxiliar 1';
+comment on column AQPC177.aqpc177aux2
+  is 'Auxiliar 2';
+comment on column AQPC177.aqpc177aux3
+  is 'Auxiliar 3';
+create index AQPC177A2 on AQPC177 (AQPC177NROPROP);
+create index AQPC177A3 on AQPC177 (AQPC177NROPROP, AQPC177USUEJEC, AQPC177NROGRP);
+alter table AQPC177
+  add primary key (AQPC177EMP, AQPC177MOD, AQPC177SUC, AQPC177MDA, AQPC177PAP, AQPC177CTA, AQPC177OPE, AQPC177SBP, AQPC177TOP, AQPC177USUEJEC, AQPC177NROGRP);
+

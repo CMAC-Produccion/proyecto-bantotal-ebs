@@ -1,0 +1,21 @@
+create table FCPG70
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg70prod  NUMBER(3) not null,
+  cpg70marc  NUMBER(3) not null,
+  cpg70atr   NUMBER(3) not null,
+  cpg70camp1 NUMBER(17,2),
+  cpg70camp2 CHAR(25),
+  cpg70est   CHAR(3),
+  cpg70blq   CHAR(1),
+  cpg70inst  NUMBER(10),
+  cpg70def   NUMBER(1),
+  cpg70camp3 NUMBER(10,6)
+)
+;
+create index FCPG7003 on FCPG70 (CPG70INST);
+create index FCPG7004 on FCPG70 (CPG70PROD, CPG70MARC, CPG70ATR);
+alter table FCPG70
+  add primary key (CPG26EMPBT, CPG26CONV, CPG70PROD, CPG70MARC, CPG70ATR);
+

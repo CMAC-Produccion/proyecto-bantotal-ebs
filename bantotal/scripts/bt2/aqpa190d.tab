@@ -1,0 +1,51 @@
+create table AQPA190D
+(
+  aqpa190dcorr   NUMBER(10) not null,
+  aqpa190dfech   DATE not null,
+  aqpa190dhora   CHAR(8) not null,
+  aqpa190dinst   NUMBER(10),
+  aqpa190dneva   NUMBER(10),
+  aqpa190dpais   NUMBER(3),
+  aqpa190dtdoc   NUMBER(2),
+  aqpa190dndoc   CHAR(12),
+  aqpa190drubr   VARCHAR2(14),
+  aqpa190desta   CHAR(2),
+  aqpa190denti   VARCHAR2(200),
+  aqpa190dtcre   CHAR(30),
+  aqpa190dsdeu   NUMBER(17,2),
+  aqpa190dplaz   NUMBER(9,6),
+  aqpa190dtaza   NUMBER(9,6),
+  aqpa190dccalc  NUMBER(17,2),
+  aqpa190dgfin   NUMBER(17,2),
+  aqpa190dfrcc   DATE,
+  aqpa190ddori   CHAR(1),
+  aqpa190dchek   CHAR(1),
+  aqpa190dpers   CHAR(30),
+  aqpa190drela   CHAR(20),
+  aqpa190dline   CHAR(20),
+  aqpa190daux1   NUMBER(10),
+  aqpa190daux2   NUMBER(17,2),
+  aqpa190daux3   CHAR(1),
+  aqpa190daux4   VARCHAR2(1),
+  aqpa190daux5   VARCHAR2(50),
+  aqpa190daux6   DATE,
+  aqpa190daux7   NUMBER(10),
+  aqpa190daux8   NUMBER(17,2),
+  aqpa190daux9   VARCHAR2(40),
+  aqpa190dmda    NUMBER(4),
+  aqpa190dtlin   NUMBER(17,2),
+  aqpa190dutil   NUMBER(17,2),
+  aqpa190dflin   VARCHAR2(1),
+  aqpa190dflguso CHAR(1),
+  aqpa190dcptn   NUMBER(17,2),
+  aqpa190dfac1   NUMBER(10,6),
+  aqpa190dfac2   NUMBER(10,6),
+  aqpa190dfac3   NUMBER(10,6),
+  aqpa190dcent   VARCHAR2(10)
+)
+;
+create index AQPA190D2 on AQPA190D (AQPA190DPAIS, AQPA190DTDOC, AQPA190DNDOC);
+create index AQPA190D3 on AQPA190D (AQPA190DINST, AQPA190DFECH);
+alter table AQPA190D
+  add primary key (AQPA190DCORR, AQPA190DFECH, AQPA190DHORA);
+

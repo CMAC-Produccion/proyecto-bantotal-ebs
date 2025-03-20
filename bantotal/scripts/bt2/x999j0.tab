@@ -1,0 +1,18 @@
+create table X999J0
+(
+  x999j0cod CHAR(10) not null,
+  x999j0dvr CHAR(1),
+  x999j0dsc CHAR(16),
+  x999j0odd CHAR(1),
+  x999j0odc CHAR(1),
+  x999j0otr CHAR(1),
+  x999j0pgc NUMBER(3),
+  x999j0ctn NUMBER(9),
+  x999j0imm NUMBER(17,2),
+  x999j0iml NUMBER(17,2)
+)
+;
+create index X999J002 on X999J0 (X999J0PGC, X999J0CTN);
+alter table X999J0
+  add primary key (X999J0COD);
+

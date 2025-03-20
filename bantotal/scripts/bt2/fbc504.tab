@@ -1,0 +1,20 @@
+create table FBC504
+(
+  bcemp     NUMBER(3) not null,
+  bcinfor   CHAR(10) not null,
+  bcfinf    DATE not null,
+  bcpais    NUMBER(3) not null,
+  bctdoc    NUMBER(2) not null,
+  bcndoc    CHAR(12) not null,
+  bcform    NUMBER(3) not null,
+  bccolu    NUMBER(2) not null,
+  bcunid    NUMBER(2) not null,
+  bcreng    NUMBER(4) not null,
+  bcsdo5041 NUMBER(17,2),
+  bcsdo5042 NUMBER(17,2)
+)
+;
+create unique index FBC50400_2 on FBC504 (BCEMP, BCINFOR, BCFINF, BCPAIS, BCTDOC, BCNDOC, BCFORM, BCCOLU, BCUNID, BCRENG);
+create index FBC50402_2 on FBC504 (BCEMP, BCINFOR, BCFINF, BCFORM, BCTDOC, BCNDOC, BCCOLU, BCUNID, BCRENG);
+create index FBC50403_2 on FBC504 (BCEMP, BCINFOR, BCFINF, BCFORM, BCSDO5041);
+

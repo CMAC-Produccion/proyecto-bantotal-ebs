@@ -1,0 +1,24 @@
+create table Z0E4F4
+(
+  z0e4f2apl NUMBER(4) not null,
+  z0e4f2bnd CHAR(5) not null,
+  z0e4f2cor NUMBER(9) not null,
+  z0e4f3co2 NUMBER(9) not null,
+  z0e4f4cor NUMBER(9) not null,
+  z0e4f4reg CHAR(2),
+  z0e4f4dat CHAR(2),
+  z0e4f4emp CHAR(12),
+  z0e4f4ref CHAR(12),
+  z0e4f4noc CHAR(40),
+  z0e4f4bco CHAR(4),
+  z0e4f4cta CHAR(2),
+  z0e4f4suc CHAR(2),
+  z0e4f4nrc CHAR(8),
+  z0e4f4ope CHAR(1),
+  z0e4f4fi1 CHAR(77),
+  z0e4f4est CHAR(2)
+)
+;
+alter table Z0E4F4
+  add primary key (Z0E4F2APL, Z0E4F2BND, Z0E4F2COR, Z0E4F3CO2, Z0E4F4COR);
+

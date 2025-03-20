@@ -1,0 +1,33 @@
+create table AQPA210A
+(
+  aqpa210apjpais NUMBER(3) not null,
+  aqpa210apjtdoc NUMBER(2) not null,
+  aqpa210apjndoc CHAR(12) not null,
+  aqpa210apfpais NUMBER(3) not null,
+  aqpa210apftdoc NUMBER(2) not null,
+  aqpa210apfndoc CHAR(12) not null,
+  aqpa210aape1   CHAR(30),
+  aqpa210aape2   CHAR(30),
+  aqpa210anom1   CHAR(25),
+  aqpa210anom2   CHAR(25),
+  aqpa210aema    CHAR(65),
+  aqpa210atel    CHAR(20),
+  aqpa210attel   NUMBER(3),
+  aqpa210aanexo  NUMBER(5),
+  aqpa210ausu    CHAR(10),
+  aqpa210ahor    CHAR(8),
+  aqpa210afec    DATE,
+  aqpa210aux1    NUMBER(9),
+  aqpa210aux2    NUMBER(9),
+  aqpa210aux3    NUMBER(16,2),
+  aqpa210aux4    NUMBER(16,2),
+  aqpa210aux5    DATE,
+  aqpa210aux6    DATE,
+  aqpa210aux7    CHAR(100),
+  aqpa210aux8    CHAR(100),
+  aqpa210aux9    CHAR(100)
+)
+;
+alter table AQPA210A
+  add primary key (AQPA210APJPAIS, AQPA210APJTDOC, AQPA210APJNDOC, AQPA210APFPAIS, AQPA210APFTDOC, AQPA210APFNDOC);
+

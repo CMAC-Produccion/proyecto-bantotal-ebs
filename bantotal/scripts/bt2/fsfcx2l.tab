@@ -1,0 +1,20 @@
+create table FSFCX2L
+(
+  kmlc07reg  NUMBER(3) not null,
+  kmlc07fing DATE not null,
+  kmlc07hing CHAR(8) not null,
+  kmlc07ok   CHAR(1),
+  kmlc07adu  CHAR(1),
+  kmlc07uing CHAR(10),
+  kmlc07wing CHAR(10),
+  kmlc07fcnf DATE,
+  kmlc07hcnf CHAR(8),
+  kmlc07ucnf CHAR(10),
+  kmlc07wcnf CHAR(10),
+  kgl8porc   NUMBER(4,2)
+)
+;
+create index FSFCX2L2 on FSFCX2L (KMLC07REG, KMLC07OK);
+alter table FSFCX2L
+  add primary key (KMLC07REG, KMLC07FING, KMLC07HING);
+

@@ -1,0 +1,27 @@
+create table FSFI68
+(
+  sfi68emp NUMBER(3) not null,
+  sfi68mod NUMBER(3) not null,
+  sfi68trn NUMBER(3) not null,
+  sfi68mer NUMBER(3) not null,
+  sfi68cus NUMBER(9) not null,
+  sfi68mld NUMBER(3) not null,
+  sfi68sai NUMBER(4),
+  sfi68sac NUMBER(4),
+  sfi68ccp NUMBER(9),
+  sfi68txt CHAR(20),
+  sfi68gic CHAR(1),
+  sfi68gip CHAR(1),
+  sfi68cpr CHAR(1),
+  sfi68ax1 NUMBER(9),
+  sfi68ax2 NUMBER(9),
+  sfi68ax3 NUMBER(9),
+  sfi68ax4 DATE,
+  sfi68ax5 DATE,
+  sfi68ax6 CHAR(20),
+  sfi68ax7 CHAR(20)
+)
+;
+alter table FSFI68
+  add primary key (SFI68EMP, SFI68MOD, SFI68TRN, SFI68MER, SFI68CUS, SFI68MLD);
+

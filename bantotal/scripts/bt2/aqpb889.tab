@@ -1,0 +1,24 @@
+create table AQPB889
+(
+  nid         CHAR(40),
+  producto    VARCHAR2(50),
+  certificado VARCHAR2(30),
+  cuenta      VARCHAR2(30),
+  documento   CHAR(12)
+)
+;
+comment on table AQPB889
+  is 'TABLA PUENTE VISTA SIGSRETAIL V_CERTSEGUROS';
+comment on column AQPB889.nid
+  is 'Correlativo';
+comment on column AQPB889.producto
+  is 'Producto';
+comment on column AQPB889.certificado
+  is 'Certificado';
+comment on column AQPB889.cuenta
+  is 'Cuenta';
+comment on column AQPB889.documento
+  is 'Documento';
+create index AQPB889A_OGG on AQPB889 (NID, PRODUCTO, CERTIFICADO, CUENTA, DOCUMENTO);
+create unique index AQPB889A2 on AQPB889 (NID);
+

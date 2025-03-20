@@ -1,0 +1,16 @@
+create table FSF094
+(
+  lspgcod NUMBER(3) not null,
+  lstipo  NUMBER(2) not null,
+  lsdsc   CHAR(30),
+  lsimp01 NUMBER(17,2),
+  lsimp02 NUMBER(17,2),
+  lsval01 NUMBER(9),
+  lsval02 NUMBER(9),
+  lsdsc01 CHAR(30),
+  lsdsc02 CHAR(30)
+)
+;
+alter table FSF094
+  add primary key (LSPGCOD, LSTIPO);
+

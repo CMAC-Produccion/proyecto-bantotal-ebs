@@ -1,0 +1,32 @@
+create table JAQZ707
+(
+  jaqz707cod  NUMBER(18) not null,
+  jaqz707pais NUMBER(3) not null,
+  jaqz707tdoc NUMBER(2) not null,
+  jaqz707ndoc CHAR(12) not null,
+  jaqz707eeff DATE,
+  jaqz707usur VARCHAR2(30),
+  jaqz707fsis DATE,
+  jaqz707est  CHAR(12)
+)
+;
+comment on column JAQZ707.jaqz707cod
+  is 'codigo de la jaqz713';
+comment on column JAQZ707.jaqz707pais
+  is 'codigo de pais';
+comment on column JAQZ707.jaqz707tdoc
+  is 'tipo de documento';
+comment on column JAQZ707.jaqz707ndoc
+  is 'numero de documento';
+comment on column JAQZ707.jaqz707eeff
+  is 'fecah de estado financiero';
+comment on column JAQZ707.jaqz707usur
+  is 'usuario';
+comment on column JAQZ707.jaqz707fsis
+  is 'fecha del registro en el sistema';
+comment on column JAQZ707.jaqz707est
+  is 'estado de registro';
+create index JAQZ707IDX_001 on JAQZ707 (JAQZ707PAIS, JAQZ707TDOC, JAQZ707NDOC);
+alter table JAQZ707
+  add primary key (JAQZ707COD, JAQZ707PAIS, JAQZ707TDOC, JAQZ707NDOC);
+

@@ -1,0 +1,26 @@
+create table FBC727
+(
+  bc727emp   NUMBER(3) not null,
+  bc727lin   NUMBER(9) not null,
+  bc727treg  CHAR(1),
+  bc727cod   CHAR(2),
+  bc727sbcod CHAR(2),
+  bc727doc1  CHAR(14),
+  bc727dver  CHAR(1),
+  bc727clas  CHAR(1),
+  bc727nmrz  CHAR(60),
+  bc727val1  NUMBER(17,2),
+  bc727val2  NUMBER(17,2),
+  bc727doc2  CHAR(14),
+  bc727txt1  CHAR(20),
+  bc727txt2  CHAR(40),
+  bc727txt3  CHAR(5),
+  bc727aux1  CHAR(1),
+  bc727aux2  CHAR(20),
+  bc727aux3  NUMBER(17,2)
+)
+;
+create index FBC72702 on FBC727 (BC727EMP, BC727COD, BC727SBCOD, BC727DOC1);
+alter table FBC727
+  add primary key (BC727EMP, BC727LIN);
+

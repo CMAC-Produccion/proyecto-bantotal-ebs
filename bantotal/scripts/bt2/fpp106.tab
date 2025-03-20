@@ -1,0 +1,33 @@
+create table FPP106
+(
+  pp106ncart NUMBER(4) not null,
+  pp106fecd  DATE not null,
+  pp106cod   NUMBER(3) not null,
+  pp106mod   NUMBER(3) not null,
+  pp106suc   NUMBER(3) not null,
+  pp106mda   NUMBER(4) not null,
+  pp106pap   NUMBER(4) not null,
+  pp106cta   NUMBER(9) not null,
+  pp106ope   NUMBER(9) not null,
+  pp106sbo   NUMBER(3) not null,
+  pp106top   NUMBER(3) not null,
+  pp106fpag  DATE not null,
+  pp106tipo  CHAR(1) not null,
+  pp106deu   NUMBER(17,2),
+  pp106au1   NUMBER(17,2),
+  pp106au2   NUMBER(17,2),
+  pp106au3   NUMBER(17,2),
+  pp106au4   NUMBER(17,2),
+  pp106au5   NUMBER(17,2),
+  pp106au6   NUMBER(17,2),
+  pp106au7   DATE,
+  pp106au8   DATE,
+  pp106au9   DATE,
+  pp106au10  CHAR(20),
+  pp106au11  CHAR(20),
+  pp106au12  NUMBER(9)
+)
+;
+alter table FPP106
+  add primary key (PP106NCART, PP106FECD, PP106COD, PP106MOD, PP106SUC, PP106MDA, PP106PAP, PP106CTA, PP106OPE, PP106SBO, PP106TOP, PP106FPAG, PP106TIPO);
+

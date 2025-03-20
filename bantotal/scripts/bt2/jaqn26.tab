@@ -1,0 +1,55 @@
+create table JAQN26
+(
+  jaqn26emp NUMBER(3) not null,
+  jaqn26mod NUMBER(3) not null,
+  jaqn26cur NUMBER(3) not null,
+  jaqn26cta NUMBER(9) not null,
+  jaqn26ope NUMBER(9) not null,
+  jaqn26sop NUMBER(3) not null,
+  jaqn26mda NUMBER(4) not null,
+  jaqn26pap NUMBER(4) not null,
+  jaqn26fvi DATE not null,
+  jaqn26mto NUMBER(17,2) not null,
+  jaqn26mdo CHAR(1) not null,
+  jaqn26fin NUMBER(8),
+  jaqn26cvi CHAR(1)
+)
+;
+comment on table JAQN26
+  is 'Cabecera Curvas por subcuenta';
+comment on column JAQN26.jaqn26emp
+  is 'Codigo empresa';
+comment on column JAQN26.jaqn26mod
+  is 'Modulo';
+comment on column JAQN26.jaqn26cur
+  is 'Tipo curva';
+comment on column JAQN26.jaqn26cta
+  is 'Cuenta';
+comment on column JAQN26.jaqn26ope
+  is 'Operación';
+comment on column JAQN26.jaqn26sop
+  is 'Suboperación';
+comment on column JAQN26.jaqn26mda
+  is 'Moneda';
+comment on column JAQN26.jaqn26pap
+  is 'Papel';
+comment on column JAQN26.jaqn26fvi
+  is 'Vigencia';
+comment on column JAQN26.jaqn26mto
+  is 'Monto';
+comment on column JAQN26.jaqn26mdo
+  is 'Modo';
+comment on column JAQN26.jaqn26fin
+  is 'Fecha Inv';
+comment on column JAQN26.jaqn26cvi
+  is 'Estado';
+create index JAQN26A2 on JAQN26 (JAQN26EMP, JAQN26MOD, JAQN26CUR, JAQN26CTA, JAQN26OPE, JAQN26SOP, JAQN26MDA, JAQN26PAP, JAQN26FIN, JAQN26MTO);
+create index JAQN26A3 on JAQN26 (JAQN26MOD);
+create index JAQN26A4 on JAQN26 (JAQN26CUR);
+create index JAQN26A5 on JAQN26 (JAQN26MDA);
+create index JAQN26A6 on JAQN26 (JAQN26PAP);
+create index JAQN26A7 on JAQN26 (JAQN26EMP, JAQN26CTA);
+create index JAQN26A8 on JAQN26 (JAQN26EMP, JAQN26MOD, JAQN26CUR, JAQN26CTA, JAQN26OPE, JAQN26SOP, JAQN26MDA, JAQN26PAP, JAQN26MDO, JAQN26MTO, JAQN26FIN);
+alter table JAQN26
+  add primary key (JAQN26EMP, JAQN26MOD, JAQN26CUR, JAQN26CTA, JAQN26OPE, JAQN26SOP, JAQN26MDA, JAQN26PAP, JAQN26MDO, JAQN26FVI, JAQN26MTO);
+

@@ -1,0 +1,19 @@
+create table FBC902
+(
+  fbc902codd CHAR(4) not null,
+  fbc902code CHAR(5) not null,
+  fbc902feci CHAR(8) not null,
+  fbc902tipt CHAR(1) not null,
+  fbc902resi CHAR(1) not null,
+  fbc902mda  CHAR(1) not null,
+  fbc902disp CHAR(1) not null,
+  fbc902tcta CHAR(1) not null,
+  fbc902tram CHAR(2) not null,
+  fbc902mto  NUMBER(17,2),
+  fbc902cnt  NUMBER(11),
+  fbc902rect CHAR(1)
+)
+;
+alter table FBC902
+  add primary key (FBC902CODD, FBC902CODE, FBC902FECI, FBC902TIPT, FBC902RESI, FBC902MDA, FBC902DISP, FBC902TCTA, FBC902TRAM);
+

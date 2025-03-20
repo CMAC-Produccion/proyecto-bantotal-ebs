@@ -1,0 +1,15 @@
+create table FSFF66
+(
+  xpjpaisr3 NUMBER(3) not null,
+  xpjtdocr3 NUMBER(2) not null,
+  xpjndocr3 CHAR(12) not null,
+  xpfpai1   NUMBER(3) not null,
+  xpftdo1   NUMBER(2) not null,
+  xpfndo1   CHAR(12) not null,
+  xvicod    NUMBER(2),
+  xpfpart   NUMBER(7,4)
+)
+;
+alter table FSFF66
+  add primary key (XPJPAISR3, XPJTDOCR3, XPJNDOCR3, XPFPAI1, XPFTDO1, XPFNDO1);
+

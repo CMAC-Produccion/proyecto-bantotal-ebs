@@ -1,0 +1,21 @@
+create table FXENV2
+(
+  swpgcodt  NUMBER(3) not null,
+  swnumtipt NUMBER(2) not null,
+  swmsgnumt NUMBER(9) not null,
+  swswtcodt NUMBER(5) not null,
+  swswtrelt NUMBER(2) not null,
+  switsuct  NUMBER(3),
+  switmodt  NUMBER(3),
+  swittrant NUMBER(3),
+  switnrelt NUMBER(4),
+  swoperact NUMBER(9),
+  swsubopet NUMBER(3),
+  swinstct  NUMBER(2),
+  swfechat  DATE,
+  swenviar  CHAR(1)
+)
+;
+alter table FXENV2
+  add primary key (SWPGCODT, SWNUMTIPT, SWMSGNUMT, SWSWTCODT, SWSWTRELT);
+

@@ -1,0 +1,102 @@
+create table JAQL493
+(
+  jaql493corr  NUMBER(18) not null,
+  jaql4933507  VARCHAR2(14),
+  jaql4933533  NUMBER(8),
+  jaql4933510  NUMBER(6),
+  jaql4933532  VARCHAR2(1),
+  jaql4933540  VARCHAR2(27),
+  jaql4933502  VARCHAR2(2),
+  jaql4933566  VARCHAR2(3),
+  jaql4933505  NUMBER(5),
+  jaql4933519  VARCHAR2(10),
+  jaql4933518  VARCHAR2(20),
+  jaql4933554  VARCHAR2(2),
+  jaql4933523  VARCHAR2(40),
+  jaql4933557  VARCHAR2(35),
+  jaql4933558  VARCHAR2(12),
+  jaql4933559  VARCHAR2(12),
+  jaql4933560  VARCHAR2(12),
+  jaql4933561  VARCHAR2(40),
+  jaql4933620  NUMBER(4),
+  jaql4933626  NUMBER(8),
+  jaql4933627  VARCHAR2(30),
+  jaql4933628  VARCHAR2(1),
+  jaql4933629  VARCHAR2(1),
+  jaql4933630  VARCHAR2(5),
+  jaql4933536  VARCHAR2(12),
+  jaql4933522  VARCHAR2(12),
+  jaql4933506  VARCHAR2(30),
+  jaql4933750  VARCHAR2(30),
+  jaql4933752  NUMBER(14,2),
+  jaql4933753  NUMBER(14,2),
+  jaql493corr2 NUMBER(18)
+)
+;
+comment on table JAQL493
+  is 'IFM REGISTRO 310 - APERTURA DE CUENTAS MONETARIAS Y/O AHORROS';
+comment on column JAQL493.jaql493corr
+  is 'Correlativo de tabla PK';
+comment on column JAQL493.jaql4933507
+  is 'Número de Identificación Personal del Cliente (Cédula, Pasaporte, NIT, RUT,etc.) ';
+comment on column JAQL493.jaql4933533
+  is 'Fecha cuando se Aperturo la Cuenta ';
+comment on column JAQL493.jaql4933510
+  is 'Hora de la Realización de la Transacción en formato HHMMSS';
+comment on column JAQL493.jaql4933532
+  is 'Identifica el Tipo de Persona del Cliente (J = Jurídico, N = Natural)';
+comment on column JAQL493.jaql4933540
+  is 'Numero de la Cuenta que Origino la Transacción.';
+comment on column JAQL493.jaql4933502
+  is 'Código que identifica cual es el producto asociado a la Cuenta de la Transacción';
+comment on column JAQL493.jaql4933566
+  is 'Código que identifica una sub agrupación del Producto.';
+comment on column JAQL493.jaql4933505
+  is 'Número de Agencia, Oficina o Sucursal donde se esta realizando la Transacción';
+comment on column JAQL493.jaql4933519
+  is 'Identificación de la Terminal donde se origino la Transacción';
+comment on column JAQL493.jaql4933518
+  is 'Código de Usuario que realiza la Transacción.';
+comment on column JAQL493.jaql4933554
+  is 'Flag que Identifica si la Cuenta es una Cuenta Calificada como VIP.';
+comment on column JAQL493.jaql4933523
+  is 'Nombre Completo del Cliente Titular de la Cuenta ';
+comment on column JAQL493.jaql4933557
+  is 'Dirección Completa del domicilio del Cliente';
+comment on column JAQL493.jaql4933558
+  is 'Número de Teléfono de la Residencia del Cliente ';
+comment on column JAQL493.jaql4933559
+  is 'Número de Teléfono de la Oficina o lugar de Trabajo del Cliente ';
+comment on column JAQL493.jaql4933560
+  is 'Número de Teléfono del Celular u Otro del Cliente ';
+comment on column JAQL493.jaql4933561
+  is 'Correo Electrónico o Email del Cliente ';
+comment on column JAQL493.jaql4933620
+  is 'Código de Segmentación Institucional de los Clientes.';
+comment on column JAQL493.jaql4933626
+  is 'Fecha de Nacimiento del Cliente o Fecha de Constitución de la Empresa ';
+comment on column JAQL493.jaql4933627
+  is 'Lugar de Nacimiento del Cliente o Lugar de Constitución de la Empresa';
+comment on column JAQL493.jaql4933628
+  is 'Sexo del Cliente de la Cuenta.   F=Femenino, M=Masculino';
+comment on column JAQL493.jaql4933629
+  is 'Estado Civil del Cliente de la Cuenta  C=Casado, S=Soltero, D=Divorciado, V=Viudo, U=Unido';
+comment on column JAQL493.jaql4933630
+  is 'Código de la Actividad Económica a la cual se dedica el Cliente.';
+comment on column JAQL493.jaql4933536
+  is 'Código de Funcionario o Empleado que Autoriza la Transacción.';
+comment on column JAQL493.jaql4933522
+  is 'Código interno Origen que identifica al Cliente en la Institución';
+comment on column JAQL493.jaql4933506
+  is 'Campo Alfanumérico para Uso Futuro';
+comment on column JAQL493.jaql4933750
+  is 'Campo Alfanumérico para Uso Futuro';
+comment on column JAQL493.jaql4933752
+  is 'Campo Numérico para Uso Futuro';
+comment on column JAQL493.jaql4933753
+  is 'Campo Numérico para Uso Futuro';
+comment on column JAQL493.jaql493corr2
+  is 'Correlativo 2 de tabla para Monitor Plus';
+alter table JAQL493
+  add primary key (JAQL493CORR);
+

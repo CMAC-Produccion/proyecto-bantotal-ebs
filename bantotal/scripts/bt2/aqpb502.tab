@@ -1,0 +1,22 @@
+create table AQPB502
+(
+  aqpb502pepais NUMBER(3) not null,
+  aqpb502petdoc NUMBER(2) not null,
+  aqpb502pendoc CHAR(12) not null,
+  aqpb502pgcod  NUMBER(3) not null,
+  aqpb502scsuc  NUMBER(3) not null,
+  aqpb502scrub  NUMBER(16) not null,
+  aqpb502scmda  NUMBER(4) not null,
+  aqpb502scpap  NUMBER(4) not null,
+  aqpb502sccta  NUMBER(9) not null,
+  aqpb502scoper NUMBER(9) not null,
+  aqpb502scsbop NUMBER(3) not null,
+  aqpb502sctope NUMBER(3) not null,
+  aqpb502scmod  NUMBER(3) not null,
+  aqpb502crefec DATE not null,
+  aqpb502creusr VARCHAR2(30) not null
+)
+;
+alter table AQPB502
+  add primary key (AQPB502PGCOD, AQPB502SCSUC, AQPB502SCRUB, AQPB502SCMDA, AQPB502SCPAP, AQPB502SCCTA, AQPB502SCOPER, AQPB502SCSBOP, AQPB502SCTOPE);
+

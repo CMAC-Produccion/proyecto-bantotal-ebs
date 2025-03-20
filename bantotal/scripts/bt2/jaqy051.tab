@@ -1,0 +1,16 @@
+create table JAQY051
+(
+  jaqy051pano NUMBER(4) not null,
+  jaqy051pmes NUMBER(2) not null,
+  jaqy051corr NUMBER(15) not null,
+  jaqy051pais NUMBER(3),
+  jaqy051tdoc NUMBER(2),
+  jaqy051ndoc CHAR(12),
+  jaqy051fecp DATE
+)
+;
+create index IJAQY0511 on JAQY051 (JAQY051CORR);
+create index JAQY051_001 on JAQY051 (JAQY051PAIS, JAQY051TDOC, JAQY051NDOC);
+alter table JAQY051
+  add primary key (JAQY051PANO, JAQY051PMES, JAQY051CORR);
+

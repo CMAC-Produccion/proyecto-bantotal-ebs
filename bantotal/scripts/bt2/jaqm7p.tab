@@ -1,0 +1,64 @@
+create table JAQM7P
+(
+  jaqm7pcub VARCHAR2(25) not null,
+  jaqm7pcim CHAR(20) not null,
+  jaqm7pimp NUMBER(17,2),
+  jaqm7pnu1 NUMBER(9),
+  jaqm7pnu2 NUMBER(9),
+  jaqm7pnu3 NUMBER(9),
+  jaqm7pim1 NUMBER(17,2),
+  jaqm7pim2 NUMBER(17,2),
+  jaqm7pim3 NUMBER(17,2),
+  jaqm7pfe1 DATE,
+  jaqm7pfe2 DATE,
+  jaqm7pfe3 DATE,
+  jaqm7pch1 CHAR(250),
+  jaqm7pch2 CHAR(250),
+  jaqm7pch3 CHAR(250),
+  jaqm7pva1 VARCHAR2(250),
+  jaqm7pva2 VARCHAR2(250),
+  jaqm7pva3 VARCHAR2(250)
+)
+;
+comment on table JAQM7P
+  is 'Tabla detalle de validador de boleta de pago consumo';
+comment on column JAQM7P.jaqm7pcub
+  is 'Codigo Unico de Boleta';
+comment on column JAQM7P.jaqm7pcim
+  is 'Codigo del Importe Parametria';
+comment on column JAQM7P.jaqm7pimp
+  is 'Importe';
+comment on column JAQM7P.jaqm7pnu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM7P.jaqm7pnu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM7P.jaqm7pnu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQM7P.jaqm7pim1
+  is 'Auxiliar Importe 1';
+comment on column JAQM7P.jaqm7pim2
+  is 'Auxiliar Importe 2';
+comment on column JAQM7P.jaqm7pim3
+  is 'Auxiliar Importe 3';
+comment on column JAQM7P.jaqm7pfe1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM7P.jaqm7pfe2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM7P.jaqm7pfe3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM7P.jaqm7pch1
+  is 'Auxiliar Character 1';
+comment on column JAQM7P.jaqm7pch2
+  is 'Auxiliar Character 2';
+comment on column JAQM7P.jaqm7pch3
+  is 'Auxiliar Character 3';
+comment on column JAQM7P.jaqm7pva1
+  is 'Auxiliar Varchar 1';
+comment on column JAQM7P.jaqm7pva2
+  is 'Auxiliar Varchar 2';
+comment on column JAQM7P.jaqm7pva3
+  is 'Auxiliar Varchar 3';
+create index JAQM7PA2 on JAQM7P (JAQM7PCIM);
+alter table JAQM7P
+  add primary key (JAQM7PCUB, JAQM7PCIM);
+

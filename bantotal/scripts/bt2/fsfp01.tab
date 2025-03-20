@@ -1,0 +1,11 @@
+create table FSFP01
+(
+  sfp01emp  NUMBER(3) not null,
+  sfp01cod  NUMBER(4) not null,
+  sfp01nom  CHAR(40),
+  sfp01ctin NUMBER(9)
+)
+;
+alter table FSFP01
+  add primary key (SFP01EMP, SFP01COD);
+

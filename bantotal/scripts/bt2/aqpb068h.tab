@@ -1,0 +1,122 @@
+create table AQPB068H
+(
+  aqpb068husur    CHAR(10) not null,
+  aqpb068hpgcod   NUMBER(3) not null,
+  aqpb068haomod   NUMBER(3) not null,
+  aqpb068haosuc   NUMBER(3) not null,
+  aqpb068haomda   NUMBER(4) not null,
+  aqpb068haopap   NUMBER(4) not null,
+  aqpb068haocta   NUMBER(9) not null,
+  aqpb068haooper  NUMBER(9) not null,
+  aqpb068haosbop  NUMBER(3) not null,
+  aqpb068haotope  NUMBER(3) not null,
+  aqpb068hfcarga  DATE not null,
+  aqpb068hcsap    NUMBER(17),
+  aqpb068htdoc    NUMBER(4),
+  aqpb068hndoc    CHAR(12),
+  aqpb068hrazn    CHAR(50),
+  aqpb068hmnto    NUMBER(17,2),
+  aqpb068hsdoa    NUMBER(17,2),
+  aqpb068hmda     CHAR(10),
+  aqpb068hlcan    CHAR(2),
+  aqpb068hfcan    DATE,
+  aqpb068hsdoc    NUMBER(17,2),
+  aqpb068hldes    CHAR(2),
+  aqpb068hfdes    DATE,
+  aqpb068hreg     NUMBER(9),
+  aqpb068hnreg    CHAR(30),
+  aqpb068hzon     NUMBER(9),
+  aqpb068hnzon    CHAR(40),
+  aqpb068hnsuc    CHAR(30),
+  aqpb068hase     CHAR(10),
+  aqpb068hfcorte  DATE,
+  aqpb068hfcr     VARCHAR2(10),
+  aqpb068hhcr     VARCHAR2(10),
+  aqpb068hstat    NUMBER(2),
+  aqpb068hfe99    DATE,
+  aqpb068hsdo     NUMBER(17,2),
+  aqpb068hfproc   DATE,
+  aqpb068hmhonr   NUMBER(17,2),
+  aqpb068hfhonr   DATE,
+  aqpb068hchonr   CHAR(1),
+  aqpb068hsdocap  NUMBER(17,2),
+  aqpb068hsdohon  NUMBER(17,2),
+  aqpb068hcrehon  NUMBER(17,2),
+  aqpb068htmor    NUMBER(5,2),
+  aqpb068htcrepro NUMBER(5,2),
+  aqpb068hfcest   DATE
+)
+compress;
+comment on table AQPB068H
+  is 'Tabla reporte FAE MYPE - 2.Reporte de Cancelaciones y Desistimientos';
+comment on column AQPB068H.aqpb068husur
+  is 'Usuario que genera el reporte';
+comment on column AQPB068H.aqpb068haosuc
+  is '14. Agencia, sucursal';
+comment on column AQPB068H.aqpb068haocta
+  is '16. Nro. de cuenta';
+comment on column AQPB068H.aqpb068haooper
+  is '17. Nro. de operación';
+comment on column AQPB068H.aqpb068hcsap
+  is '1. Código SAP';
+comment on column AQPB068H.aqpb068htdoc
+  is '2. Tipo de Documento';
+comment on column AQPB068H.aqpb068hndoc
+  is '2.1. Nro de Documento';
+comment on column AQPB068H.aqpb068hrazn
+  is '3. Apellidos y nombres del cliente (o Razón Social)';
+comment on column AQPB068H.aqpb068hmnto
+  is '4. Monto de capital reprogramado enviado a COFIDE';
+comment on column AQPB068H.aqpb068hsdoa
+  is '5. Saldo de capital actual';
+comment on column AQPB068H.aqpb068hmda
+  is '6. Moneda';
+comment on column AQPB068H.aqpb068hlcan
+  is '7. Flag de cancelación';
+comment on column AQPB068H.aqpb068hfcan
+  is '8. Fecha de cancelación ';
+comment on column AQPB068H.aqpb068hsdoc
+  is '9. Saldo capital cancelado';
+comment on column AQPB068H.aqpb068hldes
+  is '10. Flag de desistimiento o extorno';
+comment on column AQPB068H.aqpb068hfdes
+  is '11. Fecha de desistimiento o extorno';
+comment on column AQPB068H.aqpb068hreg
+  is '12. Región';
+comment on column AQPB068H.aqpb068hnreg
+  is '12.1 Región - Nombre';
+comment on column AQPB068H.aqpb068hzon
+  is '13. Zona  ';
+comment on column AQPB068H.aqpb068hnzon
+  is '13.1 Zona - Nombre';
+comment on column AQPB068H.aqpb068hnsuc
+  is '14.1 Agencia(Sucursal) - Nombre';
+comment on column AQPB068H.aqpb068hase
+  is '15. Analista';
+comment on column AQPB068H.aqpb068hfcorte
+  is 'Fecha de corte';
+comment on column AQPB068H.aqpb068hmhonr
+  is 'monto honrado';
+comment on column AQPB068H.aqpb068hfhonr
+  is 'fecha honramiento';
+comment on column AQPB068H.aqpb068hchonr
+  is 'es credito honrado S/N';
+comment on column AQPB068H.aqpb068hsdocap
+  is 'saldo capital';
+comment on column AQPB068H.aqpb068hsdohon
+  is 'Saldo honrado';
+comment on column AQPB068H.aqpb068hcrehon
+  is 'Saldo credito honrado';
+comment on column AQPB068H.aqpb068htmor
+  is 'Tasa Interes Moratorio';
+comment on column AQPB068H.aqpb068htcrepro
+  is 'Tasa Credito Reprogramado';
+comment on column AQPB068H.aqpb068hfcest
+  is 'Fecha Cambio de estado';
+create index AQPB068HA4 on AQPB068H (AQPB068HUSUR, AQPB068HFPROC)
+  compress;
+create index AQPB068H2 on AQPB068H (AQPB068HUSUR, AQPB068HFCORTE)
+  compress;
+create index AQPB068H3 on AQPB068H (AQPB068HUSUR, AQPB068HFCARGA)
+  compress;
+

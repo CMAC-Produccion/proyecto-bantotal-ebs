@@ -1,0 +1,60 @@
+create table JAQZ187B
+(
+  jaqz187bfep DATE not null,
+  jaqz187bsuc NUMBER(9) not null,
+  jaqz187bhop CHAR(8),
+  jaqz187busp CHAR(10) not null,
+  jaqz187best CHAR(1),
+  jaqz187bmot VARCHAR2(400),
+  jaqz187bcue CLOB,
+  jaqz187bmai VARCHAR2(800),
+  jaqz187bax1 NUMBER(9),
+  jaqz187bax2 NUMBER(9),
+  jaqz187bax3 NUMBER(17,2),
+  jaqz187bax4 NUMBER(17,2),
+  jaqz187bax5 DATE,
+  jaqz187bax6 DATE,
+  jaqz187bax7 CHAR(100) not null,
+  jaqz187bax8 CHAR(100),
+  jaqz187bax9 CHAR(100)
+)
+;
+comment on table JAQZ187B
+  is 'TABLA LOG DE ENVIO DE CORREOS DE ARQUEO A GERENTES REGIONALES Y ZONALES';
+comment on column JAQZ187B.jaqz187bfep
+  is 'FECHA';
+comment on column JAQZ187B.jaqz187bsuc
+  is 'SUCURSAL';
+comment on column JAQZ187B.jaqz187bhop
+  is 'HORA';
+comment on column JAQZ187B.jaqz187busp
+  is 'USUARIO';
+comment on column JAQZ187B.jaqz187best
+  is 'ESTADO';
+comment on column JAQZ187B.jaqz187bmot
+  is 'MOTIVO';
+comment on column JAQZ187B.jaqz187bcue
+  is 'ARCHIVO';
+comment on column JAQZ187B.jaqz187bmai
+  is 'MAIL';
+comment on column JAQZ187B.jaqz187bax1
+  is 'AUXILIAR';
+comment on column JAQZ187B.jaqz187bax2
+  is 'AUXILIAR';
+comment on column JAQZ187B.jaqz187bax3
+  is 'AUXILIAR';
+comment on column JAQZ187B.jaqz187bax4
+  is 'AUXILIAR';
+comment on column JAQZ187B.jaqz187bax5
+  is 'AUXILIAR';
+comment on column JAQZ187B.jaqz187bax6
+  is 'AUXILIAR';
+comment on column JAQZ187B.jaqz187bax7
+  is 'AUXILIAR';
+comment on column JAQZ187B.jaqz187bax8
+  is 'AUXILIAR';
+comment on column JAQZ187B.jaqz187bax9
+  is 'AUXILIAR';
+alter table JAQZ187B
+  add primary key (JAQZ187BFEP, JAQZ187BSUC, JAQZ187BUSP, JAQZ187BAX7);
+

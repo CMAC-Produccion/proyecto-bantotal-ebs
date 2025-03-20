@@ -1,0 +1,32 @@
+create table FPP025
+(
+  pp010prd   NUMBER(3) not null,
+  pp017par   NUMBER(4) not null,
+  pp025emp   NUMBER(3) not null,
+  pp025clav  CHAR(1) not null,
+  pp025defn  NUMBER(17,2),
+  pp025minn  NUMBER(17,2),
+  pp025maxn  NUMBER(17,2),
+  pp025defc  CHAR(100),
+  pp025defd  DATE,
+  pp025tipos CHAR(1),
+  pp025defv  VARCHAR2(2000),
+  pp025car1  CHAR(1),
+  pp025car2  CHAR(1),
+  pp025car3  CHAR(1),
+  pp025aux5  CHAR(100),
+  pp025aux4  CHAR(1),
+  pp025aux3  DATE,
+  pp025aux2  CHAR(1),
+  pp025aux1  NUMBER(17,2),
+  pp025mod3  CHAR(1),
+  pp025mod2  CHAR(1),
+  pp025mod1  CHAR(1),
+  pp025vis3  CHAR(1),
+  pp025vis2  CHAR(1),
+  pp025vis1  CHAR(1)
+)
+;
+alter table FPP025
+  add primary key (PP010PRD, PP017PAR, PP025EMP, PP025CLAV);
+

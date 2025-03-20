@@ -1,0 +1,19 @@
+create table CNL075
+(
+  cnl075ser  CHAR(15) not null,
+  cnl000cod  NUMBER(4),
+  cnl001usu  CHAR(30),
+  cnl075wfp  NUMBER(4),
+  cnl075wfn  NUMBER(10),
+  cnl075wfi  NUMBER(10),
+  x9996dfesv DATE,
+  x9996dhosv CHAR(8),
+  x9996drqsv NUMBER(10)
+)
+;
+create index CNL07503 on CNL075 (CNL075WFP, CNL075WFN, CNL075WFI);
+create index CNL07504 on CNL075 (CNL000COD, X9996DFESV, X9996DHOSV, X9996DRQSV);
+create index CNL07505 on CNL075 (CNL000COD, CNL001USU);
+alter table CNL075
+  add primary key (CNL075SER);
+

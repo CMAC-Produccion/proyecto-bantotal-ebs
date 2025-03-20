@@ -1,0 +1,65 @@
+create table AQPB865
+(
+  aqpb865cor      NUMBER(9) not null,
+  aqpb865tar      CHAR(19),
+  aqpb865fec      DATE,
+  aqpb865hor      VARCHAR2(10),
+  aqpb865tif      VARCHAR2(20),
+  aqpb865can      NUMBER(5),
+  aqpb865dmodelo  VARCHAR2(100),
+  aqpb865deviceid VARCHAR2(100),
+  aqpb865dso      VARCHAR2(50),
+  aqpb865dlat     VARCHAR2(50),
+  aqpb865dlong    VARCHAR2(50),
+  aqpb865codres   VARCHAR2(5),
+  aqpb865msjres   VARCHAR2(200),
+  aqpb865idepre   VARCHAR2(40),
+  aqpb865idebio   VARCHAR2(20),
+  aqpb865au1      VARCHAR2(255),
+  aqpb865au2      VARCHAR2(255),
+  aqpb865au3      VARCHAR2(255)
+)
+;
+comment on table AQPB865
+  is 'Log doble Factor de Autenticacion';
+comment on column AQPB865.aqpb865cor
+  is 'Correlativo.';
+comment on column AQPB865.aqpb865tar
+  is 'Tarjeta del usuario.';
+comment on column AQPB865.aqpb865fec
+  is 'Fecha de registro.';
+comment on column AQPB865.aqpb865hor
+  is 'Hora de registro.';
+comment on column AQPB865.aqpb865tif
+  is 'Tipo de doble factor de autenticacion.';
+comment on column AQPB865.aqpb865can
+  is 'Canal de registro.';
+comment on column AQPB865.aqpb865dmodelo
+  is 'Modelo del equipo del cliente.';
+comment on column AQPB865.aqpb865deviceid
+  is 'Device Id del equipo del cliente.';
+comment on column AQPB865.aqpb865dso
+  is 'Sistema operativo del equipo del cliente';
+comment on column AQPB865.aqpb865dlat
+  is 'Latitud de la ubicacion del acceso';
+comment on column AQPB865.aqpb865dlong
+  is 'Longitud de la ubicacion del acceso';
+comment on column AQPB865.aqpb865codres
+  is 'Codigo respuesta';
+comment on column AQPB865.aqpb865msjres
+  is 'Mensaje respuesta';
+comment on column AQPB865.aqpb865idepre
+  is 'Id. pregunta';
+comment on column AQPB865.aqpb865idebio
+  is 'Id. Biometría';
+comment on column AQPB865.aqpb865au1
+  is 'Auxiliar 1.';
+comment on column AQPB865.aqpb865au2
+  is 'Auxiliar 2.';
+comment on column AQPB865.aqpb865au3
+  is 'Auxiliar 3.';
+create index AQPB8652 on AQPB865 (AQPB865TAR, AQPB865FEC);
+create index AQPB8653 on AQPB865 (AQPB865TAR);
+alter table AQPB865
+  add primary key (AQPB865COR);
+

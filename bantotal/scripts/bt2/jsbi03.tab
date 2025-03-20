@@ -1,0 +1,14 @@
+create table JSBI03
+(
+  jsbi03apl  NUMBER(4) not null,
+  jsbi03ban  CHAR(5) not null,
+  jsbi03env  NUMBER(9) not null,
+  jsbi03cor  NUMBER(9) not null,
+  jsbi03ope  CHAR(23),
+  jsbi03imp  NUMBER(17,2),
+  jsbi03desc CHAR(200)
+)
+;
+alter table JSBI03
+  add primary key (JSBI03APL, JSBI03BAN, JSBI03ENV, JSBI03COR);
+

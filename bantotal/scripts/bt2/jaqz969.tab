@@ -1,0 +1,14 @@
+create table JAQZ969
+(
+  jaqz969cdcam VARCHAR2(10) not null,
+  jaqz969tpcal VARCHAR2(2) not null,
+  jaqz969modul NUMBER(3) not null,
+  jaqz969cdope VARCHAR2(200),
+  jaqz969varib VARCHAR2(50),
+  jaqz969valor VARCHAR2(50)
+)
+;
+create index IDX_PADCAMP02 on JAQZ969 (JAQZ969CDCAM, JAQZ969VARIB);
+alter table JAQZ969
+  add primary key (JAQZ969CDCAM, JAQZ969TPCAL, JAQZ969MODUL);
+

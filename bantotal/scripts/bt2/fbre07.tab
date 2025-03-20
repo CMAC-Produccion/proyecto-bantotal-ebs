@@ -1,0 +1,13 @@
+create table FBRE07
+(
+  brt01fuemp NUMBER(3) not null,
+  brd05rqcor NUMBER(10) not null,
+  bre07rqcpo NUMBER(2) not null,
+  bre07rqfmt CHAR(1) not null,
+  bre07rqlin NUMBER(3) not null,
+  bre07rqtxt CHAR(65)
+)
+;
+alter table FBRE07
+  add primary key (BRT01FUEMP, BRD05RQCOR, BRE07RQCPO, BRE07RQFMT, BRE07RQLIN);
+

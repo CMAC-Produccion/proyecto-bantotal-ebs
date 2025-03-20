@@ -1,0 +1,10 @@
+create table FSFF29
+(
+  kdorneg NUMBER(9) not null,
+  kdorcli NUMBER(9)
+)
+;
+create index FSFF2902 on FSFF29 (KDORCLI, KDORNEG);
+alter table FSFF29
+  add primary key (KDORNEG);
+

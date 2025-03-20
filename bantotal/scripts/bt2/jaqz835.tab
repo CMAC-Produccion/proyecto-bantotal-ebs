@@ -1,0 +1,53 @@
+create table JAQZ835
+(
+  jaqz835corr    NUMBER(4) not null,
+  jaqz835pais    NUMBER(9) not null,
+  jaqz835tdoc    NUMBER(9) not null,
+  jaqz835ndoc    VARCHAR2(12) not null,
+  jaqz835tcamb   NUMBER(14,8),
+  jaqz835inst    NUMBER(12) not null,
+  jaqz835fec     DATE not null,
+  jaqz835hora    CHAR(8) not null,
+  jaqz835user    VARCHAR2(10),
+  jaqz835capcaja NUMBER(17,2),
+  jaqz835sldext  NUMBER(17,2),
+  jaqz835ingnet  NUMBER(17,2),
+  jaqz835ratio   NUMBER(17,6),
+  jaqz835ind     VARCHAR2(2),
+  jaqz835est     VARCHAR2(2)
+)
+;
+comment on column JAQZ835.jaqz835corr
+  is 'Correlativo';
+comment on column JAQZ835.jaqz835pais
+  is 'Pais de Documento';
+comment on column JAQZ835.jaqz835tdoc
+  is 'Tipo de Documento';
+comment on column JAQZ835.jaqz835ndoc
+  is 'Nro de Documento';
+comment on column JAQZ835.jaqz835tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column JAQZ835.jaqz835inst
+  is 'Instancia';
+comment on column JAQZ835.jaqz835fec
+  is 'Fecha de Proceso';
+comment on column JAQZ835.jaqz835hora
+  is 'Hora de Insercion en la Tabla';
+comment on column JAQZ835.jaqz835user
+  is 'Usuario de Ejecucion';
+comment on column JAQZ835.jaqz835capcaja
+  is 'Capacidad en la Caja';
+comment on column JAQZ835.jaqz835sldext
+  is 'Saldo Externo - Sistema Financiero';
+comment on column JAQZ835.jaqz835ingnet
+  is 'Ingreso Neto';
+comment on column JAQZ835.jaqz835ratio
+  is 'Ratio Cuota Convenio Ingreso Neto';
+comment on column JAQZ835.jaqz835ind
+  is 'Indicador C consumo';
+comment on column JAQZ835.jaqz835est
+  is 'H habilitado, I inhabilitado';
+create index JAQZ8352 on JAQZ835 (JAQZ835INST, JAQZ835EST);
+alter table JAQZ835
+  add primary key (JAQZ835CORR, JAQZ835PAIS, JAQZ835TDOC, JAQZ835NDOC, JAQZ835INST, JAQZ835FEC, JAQZ835HORA);
+

@@ -1,0 +1,41 @@
+create table JAQL540_20220521_2226
+(
+  jaql540comsj NUMBER(4) not null,
+  jaql540cotra NUMBER(10) not null,
+  jaql540coing CHAR(2),
+  jaql540cores CHAR(2),
+  jaql540feini DATE,
+  jaql540hoini CHAR(8),
+  jaql540fefin DATE,
+  jaql540hofin CHAR(8),
+  jaql540coter VARCHAR2(20),
+  jaql540cotrx CHAR(6),
+  jaql540nutra VARCHAR2(12),
+  jaql540tmout NUMBER(1),
+  jaql540relac NUMBER(4),
+  jaql540trans NUMBER(4),
+  jaql540modul NUMBER(4),
+  jaql540paist CHAR(2),
+  jaql540nutar VARCHAR2(20),
+  jaql540userc VARCHAR2(20),
+  jaql540coref NUMBER(10),
+  jaql540auxd2 DATE,
+  jaql540auxv2 VARCHAR2(1000),
+  jaql540auxv1 VARCHAR2(1000),
+  jaql540auxn2 NUMBER(9),
+  jaql540auxn1 NUMBER(9),
+  jaql540auxc2 CHAR(100),
+  jaql540auxc1 CHAR(100),
+  jaql540trama LONG,
+  jaql540fetra DATE
+)
+;
+create index JAQL540_03_20220521_2226 on JAQL540_20220521_2226 (JAQL540COTRA);
+create index JAQL540_04_20220521_2226 on JAQL540_20220521_2226 (JAQL540FEINI, JAQL540COTER);
+create index JAQL540_05_20220521_2226 on JAQL540_20220521_2226 (JAQL540COTER);
+create index JAQL540_06_20220521_2226 on JAQL540_20220521_2226 (JAQL540NUTAR, JAQL540FEINI);
+create index JAQL540_07_20220521_2226 on JAQL540_20220521_2226 (JAQL540NUTAR, JAQL540MODUL, JAQL540TRANS);
+create index JAQL540_08_20220521_2226 on JAQL540_20220521_2226 (JAQL540FEINI, JAQL540COTRX, JAQL540PAIST);
+alter table JAQL540_20220521_2226
+  add primary key (JAQL540COMSJ, JAQL540COTRA);
+

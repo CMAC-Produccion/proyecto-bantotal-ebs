@@ -1,0 +1,28 @@
+create table FSFT13
+(
+  kt7pgcod  NUMBER(3) not null,
+  kt7fondo  NUMBER(3) not null,
+  kt7papel  NUMBER(4) not null,
+  kt7fch    DATE not null,
+  kt7durant NUMBER(14,8),
+  kt7volat  NUMBER(14,8),
+  kt7zona   NUMBER(1),
+  kt7ti     NUMBER(5),
+  kt7fci    CHAR(1),
+  kt7porc   NUMBER(10,6),
+  kt7imp04  NUMBER(17,2),
+  kt7imp05  NUMBER(17,2),
+  kt7imp06  NUMBER(17,2),
+  kt7coef04 NUMBER(14,8),
+  kt7coef05 NUMBER(14,8),
+  kt7coef06 NUMBER(14,8),
+  kt7fec04  DATE,
+  kt7fec05  DATE,
+  kt7fec06  DATE,
+  kt7fchinv NUMBER(8)
+)
+;
+create index FSFT1302 on FSFT13 (KT7PGCOD, KT7FONDO, KT7PAPEL, KT7FCHINV);
+alter table FSFT13
+  add primary key (KT7PGCOD, KT7FONDO, KT7PAPEL, KT7FCH);
+

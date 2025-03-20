@@ -1,0 +1,13 @@
+create table AQPA015
+(
+  aqpa015coduni NUMBER(10) not null,
+  aqpa015codext NUMBER(10) not null,
+  aqpa015aux1   NUMBER(10),
+  aqpa015aux2   NUMBER(10),
+  aqpa015aux3   VARCHAR2(100),
+  aqpa015aux4   VARCHAR2(100)
+)
+;
+alter table AQPA015
+  add primary key (AQPA015CODUNI, AQPA015CODEXT);
+

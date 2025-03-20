@@ -1,0 +1,117 @@
+create table AQPB548A
+(
+  aqpb548acreusr VARCHAR2(10) not null,
+  aqpb548acretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb548afecini DATE,
+  aqpb548afecfin DATE,
+  aqpb548acanope NUMBER(9) not null,
+  aqpb548arecops NUMBER(9) not null,
+  aqpb548acaning NUMBER(9) not null,
+  aqpb548augprre VARCHAR2(20) not null,
+  aqpb548arecmtv NUMBER(9) not null,
+  aqpb548arecsmt NUMBER(9) not null,
+  aqpb548arecper NUMBER(9) not null,
+  aqpb548areiter NUMBER(1) not null,
+  aqpb548abanseg NUMBER(1) not null,
+  aqpb548atr1a15 NUMBER(9),
+  aqpb548atrm15c NUMBER(9),
+  aqpb548atrm15s NUMBER(9),
+  aqpb548atrtota NUMBER(9),
+  aqpb548acanres NUMBER(9) not null,
+  aqpb548aemp001 NUMBER(9),
+  aqpb548aemp002 NUMBER(9),
+  aqpb548aemp003 NUMBER(9),
+  aqpb548aemp004 NUMBER(9),
+  aqpb548aemp005 NUMBER(9),
+  aqpb548aemp006 NUMBER(9),
+  aqpb548aemp007 NUMBER(9),
+  aqpb548aemp008 NUMBER(9),
+  aqpb548ausu001 NUMBER(9),
+  aqpb548ausu002 NUMBER(9),
+  aqpb548ausu003 NUMBER(9),
+  aqpb548ausu004 NUMBER(9),
+  aqpb548ausu005 NUMBER(9),
+  aqpb548ausu006 NUMBER(9),
+  aqpb548ausu007 NUMBER(9),
+  aqpb548ausu008 NUMBER(9),
+  aqpb548artotal NUMBER(9),
+  aqpb548atimpro NUMBER(9,2)
+)
+;
+comment on table AQPB548A
+  is 'RR1 - Reporte';
+comment on column AQPB548A.aqpb548acreusr
+  is 'Creacion - Usuario';
+comment on column AQPB548A.aqpb548acretim
+  is 'Creacion - Time';
+comment on column AQPB548A.aqpb548afecini
+  is 'Periodo Ini';
+comment on column AQPB548A.aqpb548afecfin
+  is 'Periodo Fin';
+comment on column AQPB548A.aqpb548acanope
+  is 'Canal de Operacion';
+comment on column AQPB548A.aqpb548arecops
+  is 'Operacion/Producto/Servicio';
+comment on column AQPB548A.aqpb548acaning
+  is 'Canal de Ingreso';
+comment on column AQPB548A.aqpb548augprre
+  is 'Ubigeo';
+comment on column AQPB548A.aqpb548arecmtv
+  is 'Motivo';
+comment on column AQPB548A.aqpb548arecsmt
+  is 'Sub Motivo';
+comment on column AQPB548A.aqpb548arecper
+  is 'Reclamos del Periodo';
+comment on column AQPB548A.aqpb548areiter
+  is 'Reiteracion';
+comment on column AQPB548A.aqpb548abanseg
+  is 'Banca de Seguros';
+comment on column AQPB548A.aqpb548atr1a15
+  is 'En Tramite de 1 a 15';
+comment on column AQPB548A.aqpb548atrm15c
+  is 'En Tramite mas de 15 con Prorroga';
+comment on column AQPB548A.aqpb548atrm15s
+  is 'En Tramite mas de 15 sin Prorroga';
+comment on column AQPB548A.aqpb548atrtota
+  is 'En Tramite Total';
+comment on column AQPB548A.aqpb548acanres
+  is 'Canal de Respuesta';
+comment on column AQPB548A.aqpb548aemp001
+  is 'A Favor Empresa - 1 a 2';
+comment on column AQPB548A.aqpb548aemp002
+  is 'A Favor Empresa - 3 a 7';
+comment on column AQPB548A.aqpb548aemp003
+  is 'A Favor Empresa - 8 a 15';
+comment on column AQPB548A.aqpb548aemp004
+  is 'A Favor Empresa con Prorroga - 16 a 30';
+comment on column AQPB548A.aqpb548aemp005
+  is 'A Favor Empresa con Prorroga - Mas de 30';
+comment on column AQPB548A.aqpb548aemp006
+  is 'A Favor Empresa sin Prorroga - 16 a 30';
+comment on column AQPB548A.aqpb548aemp007
+  is 'A Favor Empresa sin Prorroga - Mas de 30';
+comment on column AQPB548A.aqpb548aemp008
+  is 'A Favor Empresa - Sub Total';
+comment on column AQPB548A.aqpb548ausu001
+  is 'A Favor Usuario - 1 a 2';
+comment on column AQPB548A.aqpb548ausu002
+  is 'A Favor Usuario - 3 a 7';
+comment on column AQPB548A.aqpb548ausu003
+  is 'A Favor Usuario - 8 a 15';
+comment on column AQPB548A.aqpb548ausu004
+  is 'A Favor Usuario con Prorroga - 16 a 30';
+comment on column AQPB548A.aqpb548ausu005
+  is 'A Favor Usuario con Prorroga - Mas de 30';
+comment on column AQPB548A.aqpb548ausu006
+  is 'A Favor Usuario sin Prorroga - 16 a 30';
+comment on column AQPB548A.aqpb548ausu007
+  is 'A Favor Usuario sin Prorroga - Mas de 30';
+comment on column AQPB548A.aqpb548ausu008
+  is 'A Favor Usuario - Sub Total';
+comment on column AQPB548A.aqpb548artotal
+  is 'Total';
+comment on column AQPB548A.aqpb548atimpro
+  is 'Tiempo Promedio de Absolucion';
+alter table AQPB548A
+  add primary key (AQPB548ACREUSR, AQPB548ACANOPE, AQPB548ARECOPS, AQPB548ACANING, AQPB548AUGPRRE, AQPB548ARECMTV, AQPB548ARECSMT, AQPB548ARECPER, AQPB548AREITER, AQPB548ABANSEG, AQPB548ACANRES);
+

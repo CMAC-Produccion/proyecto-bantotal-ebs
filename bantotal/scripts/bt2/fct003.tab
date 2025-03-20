@@ -1,0 +1,13 @@
+create table FCT003
+(
+  modulo     NUMBER(3) not null,
+  instcod    NUMBER(2) not null,
+  instdes    CHAR(30),
+  insttrn    NUMBER(3),
+  institera  CHAR(1),
+  instanzsbo CHAR(1)
+)
+;
+alter table FCT003
+  add primary key (MODULO, INSTCOD);
+

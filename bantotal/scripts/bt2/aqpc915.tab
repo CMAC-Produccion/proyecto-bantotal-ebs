@@ -1,0 +1,48 @@
+create table AQPC915
+(
+  aqpc915id     NUMBER(10) not null,
+  aqpc915codgru NUMBER(5),
+  aqpc915preg   VARCHAR2(150),
+  aqpc915resp   VARCHAR2(4000),
+  aqpc915vige   CHAR(1),
+  aqpc915fecreg DATE,
+  aqpc915horreg VARCHAR2(8),
+  aqpc915usrreg VARCHAR2(10),
+  aqpc915fecmod DATE,
+  aqpc915hormod VARCHAR2(8),
+  aqpc915usrmod VARCHAR2(10),
+  aqpc915url    VARCHAR2(1000),
+  aqpc915chkimg CHAR(1)
+)
+;
+comment on table AQPC915
+  is 'Preguntas Centro de Ayuda';
+comment on column AQPC915.aqpc915id
+  is 'ID de Log';
+comment on column AQPC915.aqpc915codgru
+  is 'Codigo de Agrupacion';
+comment on column AQPC915.aqpc915preg
+  is 'Pregunta';
+comment on column AQPC915.aqpc915resp
+  is 'Respuesta';
+comment on column AQPC915.aqpc915vige
+  is 'Vigente';
+comment on column AQPC915.aqpc915fecreg
+  is 'Fecha de Registro';
+comment on column AQPC915.aqpc915horreg
+  is 'Hora de Registro';
+comment on column AQPC915.aqpc915usrreg
+  is 'Usuario de Registro';
+comment on column AQPC915.aqpc915fecmod
+  is 'Hora de Modificación';
+comment on column AQPC915.aqpc915hormod
+  is 'Fecha de Modificación';
+comment on column AQPC915.aqpc915usrmod
+  is 'Usuario de Modificación';
+comment on column AQPC915.aqpc915url
+  is 'Url';
+comment on column AQPC915.aqpc915chkimg
+  is 'Check Imagen';
+alter table AQPC915
+  add primary key (AQPC915ID);
+

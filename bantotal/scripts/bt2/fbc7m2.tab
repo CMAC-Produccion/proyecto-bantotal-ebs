@@ -1,0 +1,27 @@
+create table FBC7M2
+(
+  bc7m2emp   NUMBER(3) not null,
+  bc7m2suc   NUMBER(3) not null,
+  bc7m2rub   NUMBER(16) not null,
+  bc7m2mda   NUMBER(4) not null,
+  bc7m2pap   NUMBER(4) not null,
+  bc7m2cta   NUMBER(9) not null,
+  bc7m2oper  NUMBER(9) not null,
+  bc7m2sbop  NUMBER(3) not null,
+  bc7m2top   NUMBER(3) not null,
+  bc7m2fec   DATE not null,
+  bc7m2corr  NUMBER(4) not null,
+  bc7m2imp   NUMBER(17,2),
+  bc7m2nom   CHAR(30),
+  bc7m2mod   NUMBER(3),
+  bc7m2sut   NUMBER(3),
+  bc7m2tran  NUMBER(3),
+  bc7m2nrel  NUMBER(4),
+  bc7m2ntra  CHAR(30),
+  bc7m2sdo   NUMBER(17,2),
+  bc2m2opmod NUMBER(4)
+)
+;
+alter table FBC7M2
+  add primary key (BC7M2EMP, BC7M2SUC, BC7M2RUB, BC7M2MDA, BC7M2PAP, BC7M2CTA, BC7M2OPER, BC7M2SBOP, BC7M2TOP, BC7M2FEC, BC7M2CORR);
+

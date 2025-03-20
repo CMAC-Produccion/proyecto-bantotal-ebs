@@ -1,0 +1,47 @@
+create table AQPA270
+(
+  aqpa270corr    NUMBER(18) not null,
+  aqpa270pais    NUMBER(9) not null,
+  aqpa270tdoc    NUMBER(9) not null,
+  aqpa270ndoc    VARCHAR2(12) not null,
+  aqpa270tcamb   NUMBER(14,8),
+  aqpa270inst    NUMBER(12) not null,
+  aqpa270fec     DATE not null,
+  aqpa270capcaja NUMBER(17,2),
+  aqpa270sldext  NUMBER(17,2),
+  aqpa270resnet  NUMBER(17,2),
+  aqpa270ratio   NUMBER(17,6),
+  aqpa270ind     VARCHAR2(2),
+  aqpa270est     VARCHAR2(2),
+  aqpa270hora    CHAR(8) not null,
+  aqpa270user    VARCHAR2(10),
+  aqpa270pgcod   NUMBER(3) not null,
+  aqpa270itsuc   NUMBER(3) not null,
+  aqpa270itmod   NUMBER(3) not null,
+  aqpa270ittran  NUMBER(3) not null,
+  aqpa270itnrel  NUMBER(4) not null,
+  aqpa270itord   NUMBER(2) not null,
+  aqpa270itsbor  NUMBER(3) not null,
+  aqpa270garant  VARCHAR2(2),
+  aqpa270segmen  NUMBER(3),
+  aqpa270ccontg  NUMBER(17,2),
+  aqpa270cpoten  NUMBER(17,2),
+  aqpa270mod     NUMBER(3),
+  aqpa270suc     NUMBER(3),
+  aqpa270mda     NUMBER(4),
+  aqpa270pap     NUMBER(4),
+  aqpa270cta     NUMBER(10),
+  aqpa27ope      NUMBER(10),
+  aqpa270sbop    NUMBER(3),
+  aqpa270top     NUMBER(3),
+  aqpa270rnmcp   NUMBER(17,2)
+)
+;
+comment on column AQPA270.aqpa270rnmcp
+  is 'Calculo Resultado Neto - Cuota Potencial';
+create index AQPA270IDX002 on AQPA270 (AQPA270CORR, AQPA270FEC, AQPA270HORA);
+create index AQPA270IDX003 on AQPA270 (AQPA270INST);
+create index AQPA270IDX004 on AQPA270 (AQPA270PGCOD, AQPA270ITSUC, AQPA270ITMOD, AQPA270ITTRAN, AQPA270ITNREL, AQPA270ITORD, AQPA270ITSBOR);
+alter table AQPA270
+  add primary key (AQPA270CORR, AQPA270PAIS, AQPA270TDOC, AQPA270NDOC, AQPA270INST, AQPA270FEC, AQPA270HORA, AQPA270PGCOD, AQPA270ITSUC, AQPA270ITMOD, AQPA270ITTRAN, AQPA270ITNREL, AQPA270ITORD, AQPA270ITSBOR);
+

@@ -1,0 +1,13 @@
+create table JAQL831T
+(
+  jaql831tcpro NUMBER(9) not null,
+  jaql831tncta NUMBER(9) not null,
+  jaql831tnope NUMBER(9) not null,
+  jaql831tfpro DATE not null,
+  jaql831tccal VARCHAR2(10),
+  jaql831tcest VARCHAR2(1)
+)
+;
+alter table JAQL831T
+  add primary key (JAQL831TCPRO, JAQL831TNCTA, JAQL831TNOPE, JAQL831TFPRO);
+

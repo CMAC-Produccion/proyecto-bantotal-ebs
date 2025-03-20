@@ -1,0 +1,42 @@
+create table AQPB114H
+(
+  aqpb114hidgrp  CHAR(10) not null,
+  aqpb114hidemp  CHAR(6) not null,
+  aqpb114hcotsv  CHAR(6) not null,
+  aqpb114hcocan  NUMBER(3) not null,
+  aqpb114htipcom NUMBER(4) not null,
+  aqpb114hmtocm  NUMBER(8,2),
+  aqpb114hporcm  NUMBER(8,2),
+  aqpb114hmtomin NUMBER(8,2),
+  aqpb114hmtomax NUMBER(8,2),
+  aqpb114hestreg CHAR(1),
+  aqpb114htipval NUMBER(4)
+)
+;
+comment on table AQPB114H
+  is 'Tabla Backup Comisiones Cliente/Empresa Kasnet';
+comment on column AQPB114H.aqpb114hidgrp
+  is 'Id Grupo';
+comment on column AQPB114H.aqpb114hidemp
+  is 'Id Empresa';
+comment on column AQPB114H.aqpb114hcotsv
+  is 'Codigo de servicio';
+comment on column AQPB114H.aqpb114hcocan
+  is 'Codigo de Canal';
+comment on column AQPB114H.aqpb114htipcom
+  is 'Tipo de Comision 1=Empresa, 2=Cliente';
+comment on column AQPB114H.aqpb114hmtocm
+  is 'Monto de Comision';
+comment on column AQPB114H.aqpb114hporcm
+  is 'Porcentaje de Comision';
+comment on column AQPB114H.aqpb114hmtomin
+  is 'Monto Minimo de Comision';
+comment on column AQPB114H.aqpb114hmtomax
+  is 'Monto Maximo de Comision';
+comment on column AQPB114H.aqpb114hestreg
+  is 'Estado de Comision';
+comment on column AQPB114H.aqpb114htipval
+  is 'Valor Comision 0=Monto Fijo, 1=Porcentual';
+alter table AQPB114H
+  add primary key (AQPB114HIDGRP, AQPB114HIDEMP, AQPB114HCOTSV, AQPB114HCOCAN, AQPB114HTIPCOM);
+

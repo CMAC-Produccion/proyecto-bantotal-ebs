@@ -1,0 +1,13 @@
+create table FBC032
+(
+  bc032emp  NUMBER(3) not null,
+  bc032fch  DATE not null,
+  bc032par  NUMBER(8) not null,
+  bc032cod  NUMBER(1) not null,
+  bc032prim NUMBER(6),
+  bc032ultm NUMBER(6)
+)
+;
+alter table FBC032
+  add primary key (BC032EMP, BC032FCH, BC032PAR, BC032COD);
+

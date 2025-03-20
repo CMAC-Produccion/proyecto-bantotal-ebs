@@ -1,0 +1,32 @@
+create table FBC745
+(
+  bc745emp  NUMBER(3) not null,
+  bc745nbol CHAR(20) not null,
+  bc745ofch DATE,
+  bc745otpo CHAR(3),
+  bc745ocpt CHAR(4),
+  bc745omda CHAR(3),
+  bc745oimo NUMBER(17,2),
+  bc745otcb NUMBER(14,8),
+  bc745oarb NUMBER(14,8),
+  bc745ins1 NUMBER(2),
+  bc745ins2 NUMBER(2),
+  bc745pais NUMBER(3),
+  bc745tdoc NUMBER(2),
+  bc745ndoc CHAR(12),
+  bc745nent NUMBER(5),
+  bc745bden CHAR(50),
+  bc745bcta CHAR(15),
+  bc745bdom CHAR(50),
+  bc745bpai CHAR(2),
+  bc745bbcs CHAR(12),
+  bc745bbcd CHAR(50),
+  bc745nofi CHAR(16),
+  bc745fche DATE,
+  bc745obs  LONG
+)
+;
+create index FBC74502 on FBC745 (BC745EMP, BC745PAIS, BC745TDOC, BC745NDOC, BC745OFCH);
+alter table FBC745
+  add primary key (BC745EMP, BC745NBOL);
+

@@ -1,0 +1,17 @@
+create table FSFP08
+(
+  sfp08paem  NUMBER(3) not null,
+  sfp08tdem  NUMBER(2) not null,
+  sfp08ndem  CHAR(12) not null,
+  sfp08pabe  NUMBER(3) not null,
+  sfp08tdbe  NUMBER(2) not null,
+  sfp08ndbe  CHAR(12) not null,
+  sfp08apell CHAR(40),
+  sfp08nobr  CHAR(40),
+  sfp08copa  NUMBER(2),
+  sfp08sexo  CHAR(1)
+)
+;
+alter table FSFP08
+  add primary key (SFP08PAEM, SFP08TDEM, SFP08NDEM, SFP08PABE, SFP08TDBE, SFP08NDBE);
+

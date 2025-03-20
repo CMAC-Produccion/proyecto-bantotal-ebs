@@ -1,0 +1,46 @@
+create table AQPC321
+(
+  aqpc321numtar CHAR(19) not null,
+  aqpc321pepais NUMBER(3) not null,
+  aqpc321petdoc NUMBER(2) not null,
+  aqpc321pendoc CHAR(12) not null,
+  aqpc321codref CHAR(10) not null,
+  aqpc321usrafi CHAR(10),
+  aqpc321fecafi DATE,
+  aqpc321horafi CHAR(8),
+  aqpc321estado CHAR(1),
+  aqpc321usrmod CHAR(10),
+  aqpc321fecmod DATE,
+  aqpc321hormod CHAR(8)
+)
+;
+comment on table AQPC321
+  is 'Usuarios Cashback de Referidos';
+comment on column AQPC321.aqpc321numtar
+  is 'Número de tarjeta';
+comment on column AQPC321.aqpc321pepais
+  is 'Pais del documento';
+comment on column AQPC321.aqpc321petdoc
+  is 'Tipo del documento';
+comment on column AQPC321.aqpc321pendoc
+  is 'Número de documento';
+comment on column AQPC321.aqpc321codref
+  is 'Código de referido';
+comment on column AQPC321.aqpc321usrafi
+  is 'Usuario que afilia';
+comment on column AQPC321.aqpc321fecafi
+  is 'Fecha de afiliacion';
+comment on column AQPC321.aqpc321horafi
+  is 'Hora de afiliacion';
+comment on column AQPC321.aqpc321estado
+  is 'Habilitado / Deshabilitado (S/N)';
+comment on column AQPC321.aqpc321usrmod
+  is 'Usuario que modifica';
+comment on column AQPC321.aqpc321fecmod
+  is 'Fecha de modificación';
+comment on column AQPC321.aqpc321hormod
+  is 'Hora de modificación';
+create index AQPC321A2 on AQPC321 (AQPC321CODREF);
+alter table AQPC321
+  add primary key (AQPC321PEPAIS, AQPC321PETDOC, AQPC321PENDOC);
+

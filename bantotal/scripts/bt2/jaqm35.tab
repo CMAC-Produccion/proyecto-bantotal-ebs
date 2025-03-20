@@ -1,0 +1,41 @@
+create table JAQM35
+(
+  jaqm35pgco NUMBER(3) not null,
+  jaqm35mod  NUMBER(3) not null,
+  jaqm35suc  NUMBER(3) not null,
+  jaqm35mda  NUMBER(4) not null,
+  jaqm35pap  NUMBER(4) not null,
+  jaqm35cta  NUMBER(9) not null,
+  jaqm35oper NUMBER(9) not null,
+  jaqm35sbop NUMBER(3) not null,
+  jaqm35tope NUMBER(3) not null,
+  jaqm35corr NUMBER(4) not null,
+  jaqm34cod  NUMBER(5),
+  jaqm35tpg  NUMBER(3),
+  jaqm35tsuc NUMBER(3),
+  jaqm35tmod NUMBER(3),
+  jaqm35ttra NUMBER(3),
+  jaqm35trel NUMBER(4),
+  jaqm35tfec DATE,
+  jaqm35tord NUMBER(2),
+  jaqm35tsbo NUMBER(3),
+  jaqm35tcon CHAR(1),
+  jaqm35au1  DATE,
+  jaqm35au2  DATE,
+  jaqm35au3  DATE,
+  jaqm35au4  NUMBER(9),
+  jaqm35au5  NUMBER(9),
+  jaqm35au6  NUMBER(9),
+  jaqm35au7  NUMBER(17,2),
+  jaqm35au8  NUMBER(17,2),
+  jaqm35aux9 NUMBER(17,2),
+  jaqm35au10 CHAR(100),
+  jaqm35au11 CHAR(100),
+  jaqm35au12 CHAR(100)
+)
+;
+create index IDX_JAQM3503 on JAQM35 (JAQM35OPER, JAQM35CTA);
+create index JAQM3502 on JAQM35 (JAQM34COD);
+alter table JAQM35
+  add primary key (JAQM35PGCO, JAQM35MOD, JAQM35SUC, JAQM35MDA, JAQM35PAP, JAQM35CTA, JAQM35OPER, JAQM35SBOP, JAQM35TOPE, JAQM35CORR);
+

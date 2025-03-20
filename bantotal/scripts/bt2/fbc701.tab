@@ -1,0 +1,15 @@
+create table FBC701
+(
+  bc701emp  NUMBER(3) not null,
+  bc701suc  NUMBER(3) not null,
+  bc701fch  DATE not null,
+  bc701cta  NUMBER(9) not null,
+  bc701tpo  NUMBER(3) not null,
+  bc701sdod NUMBER(17,2),
+  bc701sdoc NUMBER(17,2)
+)
+;
+create index FBC70102 on FBC701 (BC701EMP, BC701SUC, BC701CTA, BC701TPO, BC701FCH);
+alter table FBC701
+  add primary key (BC701EMP, BC701SUC, BC701FCH, BC701CTA, BC701TPO);
+

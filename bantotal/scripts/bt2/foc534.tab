@@ -1,0 +1,16 @@
+create table FOC534
+(
+  foc534pg   NUMBER(3) not null,
+  foc534eor  CHAR(1) not null,
+  foc534ope  NUMBER(9) not null,
+  foc534tip  CHAR(1),
+  foc534usri CHAR(10),
+  foc534esta CHAR(1),
+  foc534cta  NUMBER(9),
+  foc534com  CHAR(65)
+)
+;
+create index FOC53402 on FOC534 (FOC534EOR, FOC534PG, FOC534OPE, FOC534CTA);
+alter table FOC534
+  add primary key (FOC534PG, FOC534EOR, FOC534OPE);
+

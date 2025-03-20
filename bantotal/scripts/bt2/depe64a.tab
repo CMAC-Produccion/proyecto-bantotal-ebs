@@ -1,0 +1,33 @@
+create table DEPE64A
+(
+  depe64aapl NUMBER(9) not null,
+  depe64aban CHAR(5) not null,
+  depe64aenv NUMBER(9) not null,
+  depe64ahsh CHAR(36),
+  depe64aest CHAR(3),
+  depe64afno CHAR(100),
+  depe64atmo CHAR(1),
+  depe64amda NUMBER(4),
+  depe64afen DATE,
+  depe64afer DATE,
+  depe64acor NUMBER(4),
+  depe64afop DATE,
+  depe64amnt NUMBER(17,2),
+  depe64anic CHAR(20),
+  depe64anu1 NUMBER(9),
+  depe64anu2 NUMBER(9),
+  depe64anu3 NUMBER(9),
+  depe64atx1 CHAR(30),
+  depe64atx2 CHAR(30),
+  depe64atx3 CHAR(30),
+  depe64aim1 NUMBER(17,2),
+  depe64aim2 NUMBER(17,2),
+  depe64aim3 NUMBER(17,2),
+  depe64ada1 DATE,
+  depe64ada2 DATE,
+  depe64ada3 DATE
+)
+;
+alter table DEPE64A
+  add primary key (DEPE64AAPL, DEPE64ABAN, DEPE64AENV);
+

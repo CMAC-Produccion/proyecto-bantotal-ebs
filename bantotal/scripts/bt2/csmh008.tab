@@ -1,0 +1,12 @@
+create table CSMH008
+(
+  csmh005fpr DATE not null,
+  csmh005cor NUMBER(10) not null,
+  csmh006cor NUMBER(9) not null,
+  csmh008cor NUMBER(3) not null,
+  csmh008val CHAR(255)
+)
+;
+alter table CSMH008
+  add primary key (CSMH005FPR, CSMH005COR, CSMH006COR, CSMH008COR);
+

@@ -1,0 +1,11 @@
+create table FSFP04
+(
+  sfp02cod  CHAR(5) not null,
+  sfp03cod  CHAR(5) not null,
+  sfp04cod  CHAR(10) not null,
+  sfp04desc CHAR(60)
+)
+;
+alter table FSFP04
+  add primary key (SFP02COD, SFP03COD, SFP04COD);
+

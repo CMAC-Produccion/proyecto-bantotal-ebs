@@ -1,0 +1,26 @@
+create table AQPA865
+(
+  aqpa865emp NUMBER(3) not null,
+  aqpa865mod NUMBER(3) not null,
+  aqpa865suc NUMBER(3) not null,
+  aqpa865mda NUMBER(4) not null,
+  aqpa865pap NUMBER(4) not null,
+  aqpa865cta NUMBER(9) not null,
+  aqpa865ope NUMBER(9) not null,
+  aqpa865sbo NUMBER(3) not null,
+  aqpa865tpo NUMBER(3) not null,
+  aqpa865fre DATE,
+  aqpa865fpg DATE,
+  aqpa865est CHAR(1),
+  aqpa865ccu NUMBER(5),
+  aqpa865pcu NUMBER(5),
+  aqpa865scr NUMBER(17,2),
+  aqpa865vcu NUMBER(17,2),
+  aqpa865ind CHAR(1),
+  aqpa865in1 CHAR(1)
+)
+;
+create unique index AQPA8651 on AQPA865 (AQPA865EMP, AQPA865MOD, AQPA865SUC, AQPA865MDA, AQPA865PAP, AQPA865CTA, AQPA865OPE, AQPA865SBO, AQPA865TPO);
+create index AQPA8652 on AQPA865 (AQPA865EST);
+create index AQPA8653 on AQPA865 (AQPA865IND);
+

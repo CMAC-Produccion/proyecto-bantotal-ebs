@@ -1,0 +1,41 @@
+create table JDTS06
+(
+  jdts06apl NUMBER(4) not null,
+  jdts06bnd CHAR(5) not null,
+  jdts06env NUMBER(9) not null,
+  jdts06cor NUMBER(9) not null,
+  jdts06emp NUMBER(3),
+  jdts06suc NUMBER(3),
+  jdts06cta NUMBER(9),
+  jdts06mod NUMBER(3),
+  jdts06tpo CHAR(1),
+  jdts06imp NUMBER(17,2),
+  jdts06mda NUMBER(4),
+  jdts06dsc CHAR(50),
+  jdts06fec DATE,
+  jdts06fee DATE,
+  jdts06fet DATE,
+  jdts06rub NUMBER(16),
+  jdts06mar CHAR(20),
+  jdts06mlo CHAR(15),
+  jdts06pzo NUMBER(2),
+  jdts06ope NUMBER(9),
+  jdts06cco NUMBER(3),
+  jdts06pgc NUMBER(3),
+  jdts06hor CHAR(8),
+  jdts06itm NUMBER(4),
+  jdts06trn NUMBER(3),
+  jdts06nre NUMBER(4),
+  jdts06ax1 NUMBER(9),
+  jdts06ax2 NUMBER(9),
+  jdts06ax3 NUMBER(17,2),
+  jdts06ax4 NUMBER(17,2),
+  jdts06ax5 CHAR(30),
+  jdts06ax6 DATE,
+  jdts06ax7 DATE
+)
+;
+create index JDTS0602 on JDTS06 (JDTS06PGC, JDTS06FET, JDTS06SUC, JDTS06ITM, JDTS06TRN, JDTS06NRE);
+alter table JDTS06
+  add primary key (JDTS06APL, JDTS06BND, JDTS06ENV, JDTS06COR);
+

@@ -1,0 +1,18 @@
+create table SNGCXW1
+(
+  sngcxw1prc NUMBER(4) not null,
+  sngcxw1ins NUMBER(10) not null,
+  sngcxw1itm NUMBER(10) not null,
+  sngcxwest  CHAR(1),
+  sngcxwempr NUMBER(3),
+  sngcxwctnr NUMBER(9),
+  sngcxwpais NUMBER(3),
+  sngcxwtdoc NUMBER(4),
+  sngcxwndoc CHAR(12)
+)
+;
+create unique index SNGCXW12 on SNGCXW1 (SNGCXWPAIS, SNGCXWTDOC, SNGCXWNDOC);
+create unique index SNGCXW13 on SNGCXW1 (SNGCXWEMPR, SNGCXWCTNR);
+alter table SNGCXW1
+  add primary key (SNGCXW1PRC, SNGCXW1INS, SNGCXW1ITM);
+

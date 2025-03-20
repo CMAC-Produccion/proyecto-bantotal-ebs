@@ -1,0 +1,20 @@
+create table FSR226
+(
+  cosemp  NUMBER(3) not null,
+  cosmod  NUMBER(3) not null,
+  coscod  NUMBER(3) not null,
+  coscta  NUMBER(9) not null,
+  cossop  NUMBER(3) not null,
+  cosmda  NUMBER(4) not null,
+  cospap  NUMBER(4) not null,
+  cosfech DATE not null,
+  cosmto  NUMBER(17,2) not null,
+  costasa NUMBER(10,6),
+  cosmin  NUMBER(17,2),
+  cosmax  NUMBER(17,2),
+  cosimp  NUMBER(17,2)
+)
+;
+alter table FSR226
+  add primary key (COSEMP, COSMOD, COSCOD, COSCTA, COSSOP, COSMDA, COSPAP, COSFECH, COSMTO);
+

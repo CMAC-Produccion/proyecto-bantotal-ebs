@@ -1,0 +1,14 @@
+create table FSFF34
+(
+  kdohcc    NUMBER(3) not null,
+  kdohgcod  NUMBER(2) not null,
+  kdohg2cod NUMBER(2) not null,
+  kdohmet   NUMBER(2)
+)
+;
+create index FSFF3402 on FSFF34 (KDOHMET);
+create index FSFF3403 on FSFF34 (KDOHG2COD);
+create index FSFF3404 on FSFF34 (KDOHGCOD);
+alter table FSFF34
+  add primary key (KDOHCC, KDOHGCOD, KDOHG2COD);
+

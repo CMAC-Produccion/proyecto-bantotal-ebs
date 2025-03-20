@@ -1,0 +1,63 @@
+create table JAQZ508
+(
+  jaqz508idc  VARCHAR2(20),
+  jaqz508usr  VARCHAR2(10),
+  jaqz508pai  NUMBER(3),
+  jaqz508tdo  NUMBER,
+  jaqz508ndo  VARCHAR2(12),
+  jaqz508nom  VARCHAR2(110),
+  jaqz508fec  DATE,
+  jaqz508hor  CHAR(8),
+  jaqz508pro  VARCHAR2(30),
+  jaqz508mda  VARCHAR2(3),
+  jaqz508mot  NUMBER(18,2),
+  jaqz508pzo  NUMBER(3),
+  jaqz508modp NUMBER(18,2),
+  jaqz508moda NUMBER(18,2),
+  jaqz508moup NUMBER(18,2),
+  jaqz508moua NUMBER(18,2),
+  jaqz508fvt  DATE,
+  jaqz508est  VARCHAR2(3),
+  jaqz508vac  VARCHAR2(50)
+)
+;
+comment on column JAQZ508.jaqz508idc
+  is 'Id de consulta';
+comment on column JAQZ508.jaqz508usr
+  is 'Usuario de consulta';
+comment on column JAQZ508.jaqz508pai
+  is 'Pais';
+comment on column JAQZ508.jaqz508tdo
+  is 'Tipo de documento';
+comment on column JAQZ508.jaqz508ndo
+  is 'Numero de documento';
+comment on column JAQZ508.jaqz508nom
+  is 'Nombre del cliente';
+comment on column JAQZ508.jaqz508fec
+  is 'Fecha de consulta';
+comment on column JAQZ508.jaqz508hor
+  is 'Hora de consulta';
+comment on column JAQZ508.jaqz508pro
+  is 'Producto de la linea';
+comment on column JAQZ508.jaqz508mda
+  is 'Moneda de la linea';
+comment on column JAQZ508.jaqz508mot
+  is 'Monto total de la linea';
+comment on column JAQZ508.jaqz508pzo
+  is 'Plazo de la linea';
+comment on column JAQZ508.jaqz508modp
+  is 'Monto Disponible principal';
+comment on column JAQZ508.jaqz508moda
+  is 'Monto Disponible adicional';
+comment on column JAQZ508.jaqz508moup
+  is 'Monto Utilizado principal';
+comment on column JAQZ508.jaqz508moua
+  is 'Monto Utilizado adicional';
+comment on column JAQZ508.jaqz508fvt
+  is 'Fecha de vencimiento de la linea';
+comment on column JAQZ508.jaqz508est
+  is 'Estado de la linea';
+comment on column JAQZ508.jaqz508vac
+  is 'Valor en caracter';
+create index IDX_JAQZ508_01 on JAQZ508 (JAQZ508IDC, JAQZ508USR);
+

@@ -1,0 +1,21 @@
+create table JAQL824S
+(
+  jaql824apl  NUMBER(3) not null,
+  jaql824ban  CHAR(4) not null,
+  jaql824env  NUMBER(9) not null,
+  jaql824stre VARCHAR2(2),
+  jaql824scsu NUMBER(3),
+  jaql824scmo NUMBER(1) not null,
+  jaql824sncu NUMBER(7),
+  jaql824stva VARCHAR2(1),
+  jaql824snem VARCHAR2(40),
+  jaql824sftr NUMBER(8) not null,
+  jaql824snre NUMBER(9) not null,
+  jaql824smto NUMBER(15,2),
+  jaql824star VARCHAR2(1),
+  jaql824scse VARCHAR2(6)
+)
+;
+alter table JAQL824S
+  add primary key (JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824SCMO, JAQL824SFTR, JAQL824SNRE);
+

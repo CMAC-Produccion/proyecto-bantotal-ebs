@@ -1,0 +1,25 @@
+create table BEC001
+(
+  becprdid   NUMBER(10) not null,
+  beccliid   NUMBER(10) not null,
+  becctoid   NUMBER(10) not null,
+  becusuid   CHAR(10) not null,
+  becclinom  CHAR(30),
+  becctonom  CHAR(30),
+  becusunom  CHAR(30),
+  becusutip  CHAR(1),
+  becusupwd  CHAR(100),
+  becusupwds CHAR(1),
+  becususts  CHAR(1),
+  becususncf DATE,
+  becpertip  CHAR(1),
+  becpernaci NUMBER(3),
+  becperdoct NUMBER(2),
+  becperdoci CHAR(12)
+)
+;
+create index BEC00103 on BEC001 (BECPRDID, BECCLIID, BECCTOID, BECUSUNOM);
+create index BEC00104 on BEC001 (BECPRDID, BECPERNACI, BECPERDOCT, BECPERDOCI);
+alter table BEC001
+  add primary key (BECPRDID, BECCLIID, BECCTOID, BECUSUID);
+

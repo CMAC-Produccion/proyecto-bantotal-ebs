@@ -1,0 +1,30 @@
+create table AQPB711
+(
+  aqpb711fecc DATE not null,
+  aqpb711code VARCHAR2(10) not null,
+  aqpb711nop  VARCHAR2(10) not null,
+  aqpb711tneg NUMBER(18,2) not null,
+  aqpb711ntra VARCHAR2(10) not null,
+  aqpb711ncer VARCHAR2(50) not null,
+  aqpb711ndoc VARCHAR2(12) not null
+)
+;
+comment on table AQPB711
+  is 'Tabla  espejo USRREPBI.NB_BCR_REACTIVA_ESPECIAL';
+comment on column AQPB711.aqpb711fecc
+  is 'fec_carga';
+comment on column AQPB711.aqpb711code
+  is 'cod_entidad_participante ';
+comment on column AQPB711.aqpb711nop
+  is 'num_operacion_reporte';
+comment on column AQPB711.aqpb711tneg
+  is 'tasa_adjudicada_negoc';
+comment on column AQPB711.aqpb711ntra
+  is 'num_tramo';
+comment on column AQPB711.aqpb711ncer
+  is 'num_certificado_cofide';
+comment on column AQPB711.aqpb711ndoc
+  is 'num_documento_deudor';
+alter table AQPB711
+  add primary key (AQPB711FECC, AQPB711CODE, AQPB711NOP, AQPB711TNEG, AQPB711NTRA, AQPB711NCER, AQPB711NDOC);
+

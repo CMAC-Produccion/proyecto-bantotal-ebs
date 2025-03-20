@@ -1,0 +1,14 @@
+create table FCR140
+(
+  pgcod    NUMBER(3) not null,
+  remod    NUMBER(3) not null,
+  reoper   NUMBER(9) not null,
+  mopctipo NUMBER(2) not null,
+  mopccod  NUMBER(3) not null,
+  reopcsts CHAR(1)
+)
+;
+create index FCR14003 on FCR140 (REMOD, MOPCTIPO, MOPCCOD);
+alter table FCR140
+  add primary key (PGCOD, REMOD, REOPER, MOPCTIPO, MOPCCOD);
+

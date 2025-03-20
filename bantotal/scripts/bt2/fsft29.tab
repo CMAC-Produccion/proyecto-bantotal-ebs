@@ -1,0 +1,30 @@
+create table FSFT29
+(
+  dtdcod    NUMBER(3) not null,
+  dtdpap    NUMBER(4) not null,
+  dtdcta    NUMBER(9) not null,
+  dtdcus    NUMBER(9) not null,
+  dtdidt    CHAR(15) not null,
+  dtdidn    NUMBER(15) not null,
+  dtddis    CHAR(1),
+  dtdval    NUMBER(17,2),
+  dtdsucing NUMBER(3),
+  dtdmoding NUMBER(3),
+  dtdtrning NUMBER(3),
+  dtdreling NUMBER(4),
+  dtdfching DATE,
+  dtdsucsal NUMBER(3),
+  dtdmodsal NUMBER(3),
+  dtdtrnsal NUMBER(3),
+  dtdrelsal NUMBER(4),
+  dtdfchsal DATE
+)
+;
+create index FSFT2902 on FSFT29 (DTDCOD, DTDCTA, DTDPAP, DTDCUS);
+create index FSFT2903 on FSFT29 (DTDCOD, DTDCUS, DTDPAP, DTDCTA);
+create index FSFT2904 on FSFT29 (DTDCOD, DTDCUS, DTDCTA, DTDPAP);
+create index FSFT2905 on FSFT29 (DTDCOD, DTDPAP, DTDDIS, DTDCTA, DTDCUS);
+create index FSFT2906 on FSFT29 (DTDCOD, DTDPAP, DTDCTA, DTDDIS, DTDVAL, DTDFCHING);
+alter table FSFT29
+  add primary key (DTDCOD, DTDPAP, DTDCTA, DTDCUS, DTDIDT, DTDIDN);
+

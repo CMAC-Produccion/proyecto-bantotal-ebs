@@ -1,0 +1,10 @@
+create table WFDATATYPESACCCTRL
+(
+  wfdtatype       CHAR(60) not null,
+  wfdtatypemethod CHAR(60) not null,
+  wfdtatypeacclev NUMBER(1)
+)
+;
+alter table WFDATATYPESACCCTRL
+  add primary key (WFDTATYPE, WFDTATYPEMETHOD);
+

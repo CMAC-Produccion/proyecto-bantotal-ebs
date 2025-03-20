@@ -1,0 +1,35 @@
+create or replace force view v_sng131_ffloresv_anx as
+select
+sng130cor,
+sng131pgc,
+sng131mod,
+sng131suc,
+sng131mda,
+sng131pap,
+sng131cta,
+sng131ope,
+sng131sbo,
+sng131top,
+sng131inst,
+sng131tpgc,
+sng131tmod,
+sng131tsuc,
+sng131trn,
+sng131rel,
+sng131fec,
+sng131con,
+sng131cerr,
+sng131ord,
+sng131sbor,
+sng131mora,
+sng131seg,
+sng131dep,
+sng131mun,
+sng131barr,
+sng131inta,
+sng131impa,
+sng131feca,
+sng131chra
+from SNG131
+ /* GOLDENGATE_DDL_REPLICATION */;
+

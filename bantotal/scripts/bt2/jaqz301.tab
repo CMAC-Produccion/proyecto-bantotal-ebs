@@ -1,0 +1,18 @@
+create table JAQZ301
+(
+  jaqz301coent  NUMBER(4) not null,
+  jaqz301cotsv  NUMBER(4) not null,
+  jaqz301cotca  NUMBER(4) not null,
+  jaqz301mtocm  NUMBER(9,2),
+  jaqz301porcm  NUMBER(9,2),
+  jaqz301mtomin NUMBER(9,2),
+  jaqz301mtomax NUMBER(9,2),
+  jaqz301estcom CHAR(1),
+  jaqz301auxc1  CHAR(50),
+  jaqz301auxc2  CHAR(50),
+  jaqz301auxc3  CHAR(50)
+)
+;
+alter table JAQZ301
+  add primary key (JAQZ301COENT, JAQZ301COTSV, JAQZ301COTCA);
+

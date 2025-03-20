@@ -1,0 +1,12 @@
+create table JAQL625
+(
+  jaql625domain VARCHAR2(50) not null,
+  jaql625name   VARCHAR2(50) not null,
+  jaql625ctacod VARCHAR2(20),
+  jaql625ctanum VARCHAR2(50),
+  jaql625moneda VARCHAR2(10)
+)
+;
+alter table JAQL625
+  add primary key (JAQL625DOMAIN, JAQL625NAME);
+

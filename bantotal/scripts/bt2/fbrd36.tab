@@ -1,0 +1,11 @@
+create table FBRD36
+(
+  brd36reg NUMBER(5) not null,
+  brd36tpo CHAR(1) not null,
+  brd36msj CHAR(255),
+  brd36asu CHAR(100)
+)
+;
+alter table FBRD36
+  add primary key (BRD36REG, BRD36TPO);
+

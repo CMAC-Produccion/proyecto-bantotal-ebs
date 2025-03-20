@@ -1,0 +1,94 @@
+create table RRT001
+(
+  rrt001emp NUMBER(3) not null,
+  rrt001inf CHAR(10) not null,
+  rrt001fec DATE not null,
+  rrt001thr NUMBER(3) not null,
+  rrt001suc NUMBER(5) not null,
+  rrt001mda NUMBER(4) not null,
+  rrt001col NUMBER(10) not null,
+  rrt001uni NUMBER(10) not null,
+  rrt001ren NUMBER(10) not null,
+  rrt001rub NUMBER(16),
+  rrt001cpo CHAR(8),
+  rrt001s01 NUMBER(17,2),
+  rrt001s02 NUMBER(17,2),
+  rrt001s03 NUMBER(17,2),
+  rrt001s04 NUMBER(17,2),
+  rrt001s05 NUMBER(17,2),
+  rrt001s06 NUMBER(17,2),
+  rrt001s07 NUMBER(17,2),
+  rrt001s08 NUMBER(17,2),
+  rrt001s09 NUMBER(17,2),
+  rrt001s10 NUMBER(17,2),
+  rrt001f01 DATE,
+  rrt001c01 CHAR(100),
+  rrt001c02 CHAR(50),
+  rrt001c03 CHAR(50),
+  rrt001ori CHAR(10),
+  rrt001t01 NUMBER(10,6),
+  rrt001t02 NUMBER(10,6)
+)
+;
+comment on table RRT001
+  is 'Tabla Auxiliar Normativo';
+comment on column RRT001.rrt001emp
+  is 'Empresa';
+comment on column RRT001.rrt001inf
+  is 'Informe';
+comment on column RRT001.rrt001fec
+  is 'Fecha de Informe';
+comment on column RRT001.rrt001thr
+  is 'Thread';
+comment on column RRT001.rrt001suc
+  is 'Sucursal';
+comment on column RRT001.rrt001mda
+  is 'Moneda';
+comment on column RRT001.rrt001col
+  is 'Columna';
+comment on column RRT001.rrt001uni
+  is 'Unidad';
+comment on column RRT001.rrt001ren
+  is 'Renglón';
+comment on column RRT001.rrt001rub
+  is 'Rubro';
+comment on column RRT001.rrt001cpo
+  is 'Campo de información';
+comment on column RRT001.rrt001s01
+  is 'Saldo 1';
+comment on column RRT001.rrt001s02
+  is 'Saldo 2';
+comment on column RRT001.rrt001s03
+  is 'Saldo 3';
+comment on column RRT001.rrt001s04
+  is 'Saldo 4';
+comment on column RRT001.rrt001s05
+  is 'Saldo 5';
+comment on column RRT001.rrt001s06
+  is 'Saldo 6';
+comment on column RRT001.rrt001s07
+  is 'Saldo 7';
+comment on column RRT001.rrt001s08
+  is 'Saldo 8';
+comment on column RRT001.rrt001s09
+  is 'Saldo 9';
+comment on column RRT001.rrt001s10
+  is 'Saldo 10';
+comment on column RRT001.rrt001f01
+  is 'Fecha 1';
+comment on column RRT001.rrt001c01
+  is 'Character 1';
+comment on column RRT001.rrt001c02
+  is 'Character 2';
+comment on column RRT001.rrt001c03
+  is 'Character 3';
+comment on column RRT001.rrt001ori
+  is 'Origen';
+comment on column RRT001.rrt001t01
+  is 'Tasa 1';
+comment on column RRT001.rrt001t02
+  is 'Tasa 2';
+create index RRT0012 on RRT001 (RRT001EMP, RRT001INF, RRT001FEC, RRT001THR, RRT001UNI, RRT001REN, RRT001COL);
+alter table RRT001
+  add primary key (RRT001EMP, RRT001INF, RRT001FEC, RRT001THR, RRT001SUC, RRT001MDA, RRT001COL, RRT001UNI, RRT001REN);
+

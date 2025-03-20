@@ -1,0 +1,27 @@
+create table JDTN01
+(
+  jdt01pgc   NUMBER(3) not null,
+  jdt01fch   DATE not null,
+  jdt01suc   NUMBER(3) not null,
+  jdt01mod   NUMBER(3) not null,
+  jdt01trn   NUMBER(3) not null,
+  jdt01nrel  NUMBER(4) not null,
+  jdt01ord   NUMBER(2) not null,
+  jdt01subor NUMBER(3) not null,
+  jdt01nroch NUMBER(9),
+  jdt01benef CHAR(40),
+  jdt01mda   NUMBER(4),
+  jdt01imp   NUMBER(17,2),
+  jdt01impre CHAR(1),
+  jdt01conta CHAR(1),
+  jdt01reimp CHAR(1),
+  jdt01au1   NUMBER(9),
+  jdt01au2   CHAR(70),
+  jdt01au3   CHAR(20),
+  jdt01au4   NUMBER(18)
+)
+;
+create index JDTN0102 on JDTN01 (JDT01PGC, JDT01BENEF);
+alter table JDTN01
+  add primary key (JDT01PGC, JDT01FCH, JDT01SUC, JDT01MOD, JDT01TRN, JDT01NREL, JDT01ORD, JDT01SUBOR);
+

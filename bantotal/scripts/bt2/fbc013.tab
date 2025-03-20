@@ -1,0 +1,12 @@
+create table FBC013
+(
+  bcemp    NUMBER(3) not null,
+  bcprog   CHAR(10) not null,
+  bcfchej  DATE not null,
+  bchora   CHAR(8),
+  bcfchver DATE
+)
+;
+alter table FBC013
+  add primary key (BCEMP, BCPROG, BCFCHEJ);
+

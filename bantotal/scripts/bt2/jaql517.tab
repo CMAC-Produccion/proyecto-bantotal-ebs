@@ -1,0 +1,37 @@
+create table JAQL517
+(
+  jaql517cotra NUMBER(10) not null,
+  jaql517nrvta NUMBER(3) not null,
+  jaql517comsg VARCHAR2(3),
+  jaql517cores VARCHAR2(2),
+  jaql517corst VARCHAR2(4),
+  jaql517feope DATE,
+  jaql517hoope VARCHAR2(10),
+  jaql517cocan NUMBER(3),
+  jaql517cousu VARCHAR2(20),
+  jaql517coent NUMBER(3),
+  jaql517cotsv NUMBER(3),
+  jaql517nrcon VARCHAR2(20),
+  jaql517coope VARCHAR2(10),
+  jaql517nuope NUMBER(10),
+  jaql517confi CHAR(1),
+  jaql517nutra VARCHAR2(12),
+  jaql517mocob NUMBER(11,2),
+  jaql517coanu VARCHAR2(25),
+  jaql517tmout NUMBER(1),
+  jaql517trreq VARCHAR2(1500),
+  jaql517trres VARCHAR2(1500),
+  jaql517itsuc NUMBER(3),
+  jaql517ttran NUMBER(3),
+  jaql517itmod NUMBER(3),
+  jaql517feres DATE,
+  jaql517hores VARCHAR2(10)
+)
+;
+create index JAQL51702 on JAQL517 (JAQL517CORST);
+create index JAQL51703 on JAQL517 (JAQL517COENT, JAQL517COTSV, JAQL517NRCON);
+create index JAQL51704 on JAQL517 (JAQL517FEOPE, JAQL517COUSU);
+create index JAQL51705 on JAQL517 (JAQL517NUOPE);
+alter table JAQL517
+  add primary key (JAQL517COTRA, JAQL517NRVTA);
+

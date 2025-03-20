@@ -1,0 +1,19 @@
+create table FSFI13
+(
+  sfi13emp   NUMBER(3) not null,
+  sfi13mr    NUMBER(16) not null,
+  sfi13dsc   CHAR(25),
+  sfi13ctare CHAR(1),
+  sfi13opcli CHAR(1),
+  sfi13hab   CHAR(1),
+  sfi13aux1  CHAR(1),
+  sfi13aux2  CHAR(1),
+  sfi13aux3  NUMBER(9),
+  sfi13aux4  NUMBER(9),
+  sfi13bloq  CHAR(1),
+  sfi13exsdo CHAR(1)
+)
+;
+alter table FSFI13
+  add primary key (SFI13EMP, SFI13MR);
+

@@ -1,0 +1,14 @@
+create table FSFC13
+(
+  sfc13emp   NUMBER(3) not null,
+  sfc13id    NUMBER(5) not null,
+  sfc13nom   CHAR(40),
+  sfc13mooru CHAR(1),
+  sfc13rub   NUMBER(16),
+  sfc13mod   NUMBER(3),
+  sfc13hab   CHAR(1)
+)
+;
+alter table FSFC13
+  add primary key (SFC13EMP, SFC13ID);
+

@@ -1,0 +1,22 @@
+create table FCT500
+(
+  pgcod     NUMBER(3) not null,
+  trmod     NUMBER(3) not null,
+  trnro     NUMBER(3) not null,
+  trord     NUMBER(2) not null,
+  drubsec   NUMBER(3) not null,
+  drubtinsf CHAR(1),
+  drubtope  CHAR(1),
+  drubmda   CHAR(1),
+  drubemp   CHAR(1),
+  drubcta   CHAR(1),
+  drubtopc  CHAR(1),
+  druftcta  NUMBER(2),
+  drubdsc   CHAR(35),
+  drubpgm   CHAR(1),
+  drufpgm   CHAR(10)
+)
+;
+alter table FCT500
+  add primary key (PGCOD, TRMOD, TRNRO, TRORD, DRUBSEC);
+

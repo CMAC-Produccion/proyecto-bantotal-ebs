@@ -1,0 +1,36 @@
+create table JAQZ193
+(
+  jaqz193pgc NUMBER(3) not null,
+  jaqz193mod NUMBER(3) not null,
+  jaqz193suc NUMBER(3) not null,
+  jaqz193mda NUMBER(4) not null,
+  jaqz193pap NUMBER(4) not null,
+  jaqz193cta NUMBER(9) not null,
+  jaqz193ope NUMBER(9) not null,
+  jaqz193sbo NUMBER(3) not null,
+  jaqz193tpo NUMBER(3) not null,
+  jaqz193fec DATE,
+  jaqz193mto NUMBER(17,2),
+  jaqz193sal NUMBER(17,2),
+  jaqz193fmv DATE,
+  jaqz193emc NUMBER(3),
+  jaqz193agc NUMBER(3),
+  jaqz193mdc NUMBER(3),
+  jaqz193trc NUMBER(3),
+  jaqz193rel NUMBER(4),
+  jaqz193ord NUMBER(2),
+  jaqz193ax1 NUMBER(9),
+  jaqz193ax2 NUMBER(9),
+  jaqz193ax3 NUMBER(17,2),
+  jaqz193ax4 NUMBER(17,2),
+  jaqz193ax5 DATE,
+  jaqz193ax6 DATE,
+  jaqz193ax7 CHAR(100),
+  jaqz193ax8 CHAR(100),
+  jaqz193ax9 CHAR(100)
+)
+;
+create index JAQZ1932 on JAQZ193 (JAQZ193EMC, JAQZ193AGC, JAQZ193MDC, JAQZ193TRC, JAQZ193REL, JAQZ193ORD, JAQZ193FMV);
+alter table JAQZ193
+  add primary key (JAQZ193PGC, JAQZ193MOD, JAQZ193SUC, JAQZ193MDA, JAQZ193PAP, JAQZ193CTA, JAQZ193OPE, JAQZ193SBO, JAQZ193TPO);
+

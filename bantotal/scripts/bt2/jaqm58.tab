@@ -1,0 +1,66 @@
+create table JAQM58
+(
+  jaqm58cop CHAR(50) not null,
+  jaqm58cmp NUMBER(9) not null,
+  jaqm58coe NUMBER(5) not null,
+  jaqm58fec DATE,
+  jaqm58hor CHAR(10),
+  jaqm58usu CHAR(10),
+  jaqm58val VARCHAR2(255),
+  jaqm58an1 NUMBER(9),
+  jaqm58an2 NUMBER(9),
+  jaqm58an3 NUMBER(9),
+  jaqm58ac1 VARCHAR2(255),
+  jaqm58ac2 VARCHAR2(255),
+  jaqm58ac3 VARCHAR2(255),
+  jaqm58af1 DATE,
+  jaqm58af2 DATE,
+  jaqm58af3 DATE,
+  jaqm58ai1 NUMBER(17,2),
+  jaqm58ai2 NUMBER(17,2),
+  jaqm58ai3 NUMBER(17,2)
+)
+;
+comment on table JAQM58
+  is 'Módulo de Poderes Respuesta de Campos';
+comment on column JAQM58.jaqm58cop
+  is 'Código de proceso';
+comment on column JAQM58.jaqm58cmp
+  is 'Código de campo';
+comment on column JAQM58.jaqm58coe
+  is 'Código de Etapa';
+comment on column JAQM58.jaqm58fec
+  is 'fecha';
+comment on column JAQM58.jaqm58hor
+  is 'hora';
+comment on column JAQM58.jaqm58usu
+  is 'usuario';
+comment on column JAQM58.jaqm58val
+  is 'valor';
+comment on column JAQM58.jaqm58an1
+  is 'Auxiliar numérico 1';
+comment on column JAQM58.jaqm58an2
+  is 'Auxiliar numérico 2';
+comment on column JAQM58.jaqm58an3
+  is 'Auxiliar numérico 3';
+comment on column JAQM58.jaqm58ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM58.jaqm58ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM58.jaqm58ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM58.jaqm58af1
+  is 'Auxiliar fecha 1';
+comment on column JAQM58.jaqm58af2
+  is 'Auxiliar fecha 2';
+comment on column JAQM58.jaqm58af3
+  is 'Auxiliar fecha 3';
+comment on column JAQM58.jaqm58ai1
+  is 'Auxiliar importe 1';
+comment on column JAQM58.jaqm58ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM58.jaqm58ai3
+  is 'Auxiliar importe 3';
+alter table JAQM58
+  add primary key (JAQM58COP, JAQM58CMP, JAQM58COE);
+

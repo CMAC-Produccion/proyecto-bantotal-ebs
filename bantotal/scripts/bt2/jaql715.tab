@@ -1,0 +1,28 @@
+create table JAQL715
+(
+  jaql715pais NUMBER(3) not null,
+  jaql715tdoc NUMBER(2) not null,
+  jaql715ndoc CHAR(12) not null,
+  jaql715idre CHAR(26) not null,
+  jaql715fech DATE,
+  jaql715hora CHAR(8),
+  jaql715user CHAR(10),
+  jaql715sucu NUMBER(3),
+  jaql715fevi DATE,
+  jaql715au01 CHAR(100),
+  jaql715au02 CHAR(100),
+  jaql715au03 CHAR(100),
+  jaql715au04 NUMBER(15),
+  jaql715au05 NUMBER(15),
+  jaql715au06 NUMBER(15),
+  jaql715au07 NUMBER(17,2),
+  jaql715au08 NUMBER(17,2),
+  jaql715au09 NUMBER(17,2),
+  jaql715au10 DATE,
+  jaql715au11 DATE,
+  jaql715au12 DATE
+)
+;
+alter table JAQL715
+  add primary key (JAQL715PAIS, JAQL715TDOC, JAQL715NDOC, JAQL715IDRE);
+

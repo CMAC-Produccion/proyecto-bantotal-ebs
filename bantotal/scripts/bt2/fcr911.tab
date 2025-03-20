@@ -1,0 +1,17 @@
+create table FCR911
+(
+  cr911cod1 NUMBER(3) not null,
+  cr911mod1 NUMBER(3) not null,
+  cr911ope1 NUMBER(9) not null,
+  cr911sbo1 NUMBER(3) not null,
+  cr911relc NUMBER(3) not null,
+  cr911cod2 NUMBER(3) not null,
+  cr911mod2 NUMBER(3) not null,
+  cr911ope2 NUMBER(9) not null,
+  cr911sbo2 NUMBER(3) not null
+)
+;
+create index FCR91102 on FCR911 (CR911COD2, CR911MOD2, CR911OPE2, CR911SBO2, CR911RELC);
+alter table FCR911
+  add primary key (CR911COD1, CR911MOD1, CR911OPE1, CR911SBO1, CR911RELC, CR911COD2, CR911MOD2, CR911OPE2, CR911SBO2);
+

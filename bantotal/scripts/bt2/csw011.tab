@@ -1,0 +1,15 @@
+create table CSW011
+(
+  csw011pai NUMBER(3) not null,
+  csw011tdo NUMBER(2) not null,
+  csw011ndo CHAR(12) not null,
+  csw011eje NUMBER(3),
+  csw011usu CHAR(10),
+  csw011fec DATE,
+  csw011hor NUMBER(4),
+  csw011cli CHAR(1)
+)
+;
+alter table CSW011
+  add primary key (CSW011PAI, CSW011TDO, CSW011NDO);
+

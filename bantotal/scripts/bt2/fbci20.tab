@@ -1,0 +1,35 @@
+create table FBCI20
+(
+  bci20emp   NUMBER(3) not null,
+  bci20inf   CHAR(10) not null,
+  bci20fec   DATE not null,
+  bci20numj  NUMBER(10) not null,
+  bci20tipo  NUMBER(2) not null,
+  bci20vinc  NUMBER(15) not null,
+  bci20nom   CHAR(100),
+  bci20sbs   NUMBER(15),
+  bci20tippe CHAR(3),
+  bci20tipdo CHAR(3),
+  bci20numdo CHAR(20),
+  bci20ruc   CHAR(20),
+  bci20dir   CHAR(250),
+  bci20prdir NUMBER(9,2),
+  bci20cargo NUMBER(2),
+  bci20otcar NUMBER(2),
+  bci20sbscl NUMBER(15),
+  bci20ciiu  NUMBER(9),
+  bci20prind CHAR(100),
+  bci20gest  CHAR(10),
+  bci20auxc1 CHAR(100),
+  bci20auxc2 CHAR(100),
+  bci20credi NUMBER(17,2),
+  bci20inver NUMBER(17,2),
+  bci20conti NUMBER(17,2),
+  bci20arren NUMBER(17,2),
+  bci20total NUMBER(17,2),
+  bci20auxn1 NUMBER(17,2)
+)
+;
+alter table FBCI20
+  add primary key (BCI20EMP, BCI20INF, BCI20FEC, BCI20NUMJ, BCI20TIPO, BCI20VINC);
+

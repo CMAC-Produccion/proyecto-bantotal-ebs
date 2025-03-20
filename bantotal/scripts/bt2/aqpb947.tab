@@ -1,0 +1,375 @@
+create table AQPB947
+(
+  aqpb947corr1 NUMBER(10) not null,
+  aqpb947inst1 NUMBER(10) not null,
+  aqpb947fecp1 DATE not null,
+  aqpb947horp1 VARCHAR2(8) not null,
+  aqpb947corr2 NUMBER(10),
+  aqpb947inst2 NUMBER(10),
+  aqpb947fecp2 DATE,
+  aqpb947horp2 VARCHAR2(8),
+  aqpb947pais  NUMBER(3),
+  aqpb947tdoc  NUMBER(2),
+  aqpb947ndoc  VARCHAR2(12),
+  aqpb947cta   NUMBER(10),
+  aqpb947usrp  VARCHAR2(10),
+  aqpb947esta  VARCHAR2(1),
+  aqpb947codre NUMBER(3),
+  aqpb947resul VARCHAR2(50),
+  aqpb947codsl NUMBER(3),
+  aqpb947solic VARCHAR2(50),
+  aqpb947codop NUMBER(3),
+  aqpb947opcio VARCHAR2(50),
+  aqpb947codde NUMBER(3),
+  aqpb947deuda VARCHAR2(50),
+  aqpb947glosa VARCHAR2(150),
+  aqpb947codc1 NUMBER(3),
+  aqpb947cond1 VARCHAR2(150),
+  aqpb947codc2 NUMBER(3),
+  aqpb947cond2 VARCHAR2(150),
+  aqpb947monto NUMBER(17,2),
+  aqpb947estcf VARCHAR2(2),
+  aqpb947fconf DATE,
+  aqpb947usrcf VARCHAR2(10),
+  aqpb947aseso VARCHAR2(10),
+  aqpb947cargo NUMBER(3),
+  aqpb947nexcp NUMBER(10),
+  aqpb947desti VARCHAR2(250),
+  aqpb947mensj VARCHAR2(3000),
+  aqpb947error VARCHAR2(500),
+  aqpb947var1  VARCHAR2(100),
+  aqpb947var2  VARCHAR2(100),
+  aqpb947var3  VARCHAR2(100),
+  aqpb947var4  VARCHAR2(100),
+  aqpb947var5  VARCHAR2(100),
+  aqpb947var6  VARCHAR2(100),
+  aqpb947var7  VARCHAR2(100),
+  aqpb947var8  VARCHAR2(100),
+  aqpb947var9  VARCHAR2(100),
+  aqpb947var10 VARCHAR2(100),
+  aqpb947var11 VARCHAR2(100),
+  aqpb947var12 VARCHAR2(100),
+  aqpb947var13 VARCHAR2(100),
+  aqpb947var14 VARCHAR2(100),
+  aqpb947var15 VARCHAR2(100),
+  aqpb947var16 VARCHAR2(100),
+  aqpb947var17 VARCHAR2(100),
+  aqpb947var18 VARCHAR2(100),
+  aqpb947var19 VARCHAR2(100),
+  aqpb947var20 VARCHAR2(100),
+  aqpb947var21 VARCHAR2(100),
+  aqpb947var22 VARCHAR2(100),
+  aqpb947var23 VARCHAR2(100),
+  aqpb947var24 VARCHAR2(100),
+  aqpb947var25 VARCHAR2(100),
+  aqpb947var26 VARCHAR2(100),
+  aqpb947var27 VARCHAR2(100),
+  aqpb947var28 VARCHAR2(100),
+  aqpb947var29 VARCHAR2(100),
+  aqpb947var30 VARCHAR2(100),
+  aqpb947var31 VARCHAR2(100),
+  aqpb947var32 VARCHAR2(100),
+  aqpb947var33 VARCHAR2(100),
+  aqpb947var34 VARCHAR2(100),
+  aqpb947var35 VARCHAR2(100),
+  aqpb947var36 VARCHAR2(100),
+  aqpb947var37 VARCHAR2(100),
+  aqpb947var38 VARCHAR2(100),
+  aqpb947var39 VARCHAR2(100),
+  aqpb947var40 VARCHAR2(100),
+  aqpb947var41 VARCHAR2(100),
+  aqpb947var42 VARCHAR2(100),
+  aqpb947var43 VARCHAR2(100),
+  aqpb947var44 VARCHAR2(100),
+  aqpb947var45 VARCHAR2(100),
+  aqpb947var46 VARCHAR2(100),
+  aqpb947var47 VARCHAR2(100),
+  aqpb947var48 VARCHAR2(100),
+  aqpb947var49 VARCHAR2(100),
+  aqpb947var50 VARCHAR2(100),
+  aqpb947var51 VARCHAR2(100),
+  aqpb947var52 VARCHAR2(100),
+  aqpb947var53 VARCHAR2(100),
+  aqpb947var54 VARCHAR2(100),
+  aqpb947var55 VARCHAR2(100),
+  aqpb947var56 VARCHAR2(100),
+  aqpb947var57 VARCHAR2(100),
+  aqpb947var58 VARCHAR2(100),
+  aqpb947var59 VARCHAR2(100),
+  aqpb947var60 VARCHAR2(100),
+  aqpb947mysal VARCHAR2(100),
+  aqpb947datre VARCHAR2(100),
+  aqpb947ncams VARCHAR2(100),
+  aqpb947fhcam VARCHAR2(100),
+  aqpb947ninsc VARCHAR2(100),
+  aqpb947segor VARCHAR2(100),
+  aqpb947fslnc VARCHAR2(100),
+  aqpb947nexgc VARCHAR2(100),
+  aqpb947ulseg VARCHAR2(100),
+  aqpb947sbred VARCHAR2(100),
+  aqpb947lstng VARCHAR2(100),
+  aqpb947inscp VARCHAR2(100),
+  aqpb947cviga VARCHAR2(100),
+  aqpb947naux1 NUMBER(10),
+  aqpb947naux2 NUMBER(10),
+  aqpb947naux3 NUMBER(10),
+  aqpb947vaux1 VARCHAR2(45),
+  aqpb947vaux2 VARCHAR2(45),
+  aqpb947vaux3 VARCHAR2(45),
+  aqpb947daux1 DATE,
+  aqpb947daux2 DATE,
+  aqpb947daux3 DATE,
+  aqpb947commt VARCHAR2(250)
+)
+;
+comment on table AQPB947
+  is 'Tabla Log de Registro de Conformidad - Cambio de Segmentacion';
+comment on column AQPB947.aqpb947corr1
+  is 'Correlativo';
+comment on column AQPB947.aqpb947inst1
+  is 'Instancia';
+comment on column AQPB947.aqpb947fecp1
+  is 'Fecha Proceso';
+comment on column AQPB947.aqpb947horp1
+  is 'Hora Proceso';
+comment on column AQPB947.aqpb947corr2
+  is 'Correlativo JAQZ870';
+comment on column AQPB947.aqpb947inst2
+  is 'Instancia JAQZ870';
+comment on column AQPB947.aqpb947fecp2
+  is 'Fecha Proceso JAQZ870';
+comment on column AQPB947.aqpb947horp2
+  is 'Hora Proceso JAQZ870';
+comment on column AQPB947.aqpb947pais
+  is 'Pais';
+comment on column AQPB947.aqpb947tdoc
+  is 'Tipo de Documento';
+comment on column AQPB947.aqpb947ndoc
+  is 'Numero de Documento';
+comment on column AQPB947.aqpb947cta
+  is 'Cuenta BT';
+comment on column AQPB947.aqpb947usrp
+  is 'Usuario Proceso';
+comment on column AQPB947.aqpb947esta
+  is 'Estado H/I';
+comment on column AQPB947.aqpb947codre
+  is 'Codigo Resultado';
+comment on column AQPB947.aqpb947resul
+  is 'Nombre Resultado';
+comment on column AQPB947.aqpb947codsl
+  is 'Codigo Solicitud';
+comment on column AQPB947.aqpb947solic
+  is 'Nombre Solicitud';
+comment on column AQPB947.aqpb947codop
+  is 'Codigo Opcion';
+comment on column AQPB947.aqpb947opcio
+  is 'Nombre Opcion';
+comment on column AQPB947.aqpb947codde
+  is 'Codigo Deuda';
+comment on column AQPB947.aqpb947deuda
+  is 'Nombre Deuda';
+comment on column AQPB947.aqpb947glosa
+  is 'Glosa';
+comment on column AQPB947.aqpb947codc1
+  is 'Codigo Condicion 1';
+comment on column AQPB947.aqpb947cond1
+  is 'Nombre Condicion 1';
+comment on column AQPB947.aqpb947codc2
+  is 'Codigo Condicion 2';
+comment on column AQPB947.aqpb947cond2
+  is 'Nombre Condicion 2';
+comment on column AQPB947.aqpb947monto
+  is 'Monto';
+comment on column AQPB947.aqpb947estcf
+  is 'Estado Conformidad C/N';
+comment on column AQPB947.aqpb947fconf
+  is 'Fecha de Conformidad';
+comment on column AQPB947.aqpb947usrcf
+  is 'Usuario Solicitante';
+comment on column AQPB947.aqpb947aseso
+  is 'Asesor Solicitante';
+comment on column AQPB947.aqpb947cargo
+  is 'Cargo Solicitante';
+comment on column AQPB947.aqpb947nexcp
+  is 'Excepciones por Gerencia de Creditos';
+comment on column AQPB947.aqpb947desti
+  is 'Destinatarios';
+comment on column AQPB947.aqpb947mensj
+  is 'Mensaje';
+comment on column AQPB947.aqpb947error
+  is 'Error';
+comment on column AQPB947.aqpb947var1
+  is 'Variable 1';
+comment on column AQPB947.aqpb947var2
+  is 'Variable 2';
+comment on column AQPB947.aqpb947var3
+  is 'Variable 3';
+comment on column AQPB947.aqpb947var4
+  is 'Variable 4';
+comment on column AQPB947.aqpb947var5
+  is 'Variable 5';
+comment on column AQPB947.aqpb947var6
+  is 'Variable 6';
+comment on column AQPB947.aqpb947var7
+  is 'Variable 7';
+comment on column AQPB947.aqpb947var8
+  is 'Variable 8';
+comment on column AQPB947.aqpb947var9
+  is 'Variable 9';
+comment on column AQPB947.aqpb947var10
+  is 'Variable 10';
+comment on column AQPB947.aqpb947var11
+  is 'Variable 11';
+comment on column AQPB947.aqpb947var12
+  is 'Variable 12';
+comment on column AQPB947.aqpb947var13
+  is 'Variable 13';
+comment on column AQPB947.aqpb947var14
+  is 'Variable 14';
+comment on column AQPB947.aqpb947var15
+  is 'Variable 15';
+comment on column AQPB947.aqpb947var16
+  is 'Variable 16';
+comment on column AQPB947.aqpb947var17
+  is 'Variable 17';
+comment on column AQPB947.aqpb947var18
+  is 'Variable 18';
+comment on column AQPB947.aqpb947var19
+  is 'Variable 19';
+comment on column AQPB947.aqpb947var20
+  is 'Variable 20';
+comment on column AQPB947.aqpb947var21
+  is 'Variable 21';
+comment on column AQPB947.aqpb947var22
+  is 'Variable 22';
+comment on column AQPB947.aqpb947var23
+  is 'Variable 23';
+comment on column AQPB947.aqpb947var24
+  is 'Variable 24';
+comment on column AQPB947.aqpb947var25
+  is 'Variable 25';
+comment on column AQPB947.aqpb947var26
+  is 'Variable 26';
+comment on column AQPB947.aqpb947var27
+  is 'Variable 27';
+comment on column AQPB947.aqpb947var28
+  is 'Variable 28';
+comment on column AQPB947.aqpb947var29
+  is 'Variable 29';
+comment on column AQPB947.aqpb947var30
+  is 'Variable 30';
+comment on column AQPB947.aqpb947var31
+  is 'Variable 31';
+comment on column AQPB947.aqpb947var32
+  is 'Variable 32';
+comment on column AQPB947.aqpb947var33
+  is 'Variable 33';
+comment on column AQPB947.aqpb947var34
+  is 'Variable 34';
+comment on column AQPB947.aqpb947var35
+  is 'Variable 35';
+comment on column AQPB947.aqpb947var36
+  is 'Variable 36';
+comment on column AQPB947.aqpb947var37
+  is 'Variable 37';
+comment on column AQPB947.aqpb947var38
+  is 'Variable 38';
+comment on column AQPB947.aqpb947var39
+  is 'Variable 39';
+comment on column AQPB947.aqpb947var40
+  is 'Variable 40';
+comment on column AQPB947.aqpb947var41
+  is 'Variable 41';
+comment on column AQPB947.aqpb947var42
+  is 'Variable 42';
+comment on column AQPB947.aqpb947var43
+  is 'Variable 43';
+comment on column AQPB947.aqpb947var44
+  is 'Variable 44';
+comment on column AQPB947.aqpb947var45
+  is 'Variable 45';
+comment on column AQPB947.aqpb947var46
+  is 'Variable 46';
+comment on column AQPB947.aqpb947var47
+  is 'Variable 47';
+comment on column AQPB947.aqpb947var48
+  is 'Variable 48';
+comment on column AQPB947.aqpb947var49
+  is 'Variable 49';
+comment on column AQPB947.aqpb947var50
+  is 'Variable 50';
+comment on column AQPB947.aqpb947var51
+  is 'Variable 51';
+comment on column AQPB947.aqpb947var52
+  is 'Variable 52';
+comment on column AQPB947.aqpb947var53
+  is 'Variable 53';
+comment on column AQPB947.aqpb947var54
+  is 'Variable 54';
+comment on column AQPB947.aqpb947var55
+  is 'Variable 55';
+comment on column AQPB947.aqpb947var56
+  is 'Variable 56';
+comment on column AQPB947.aqpb947var57
+  is 'Variable 57';
+comment on column AQPB947.aqpb947var58
+  is 'Variable 58';
+comment on column AQPB947.aqpb947var59
+  is 'Variable 59';
+comment on column AQPB947.aqpb947var60
+  is 'Variable 60';
+comment on column AQPB947.aqpb947mysal
+  is 'May Sal';
+comment on column AQPB947.aqpb947datre
+  is 'Día Atraso E';
+comment on column AQPB947.aqpb947ncams
+  is 'Num Cam Seg';
+comment on column AQPB947.aqpb947fhcam
+  is 'Fech Cam';
+comment on column AQPB947.aqpb947ninsc
+  is 'Num Inst Cam';
+comment on column AQPB947.aqpb947segor
+  is 'Seg Orig';
+comment on column AQPB947.aqpb947fslnc
+  is 'Fech Solic No Conf';
+comment on column AQPB947.aqpb947nexgc
+  is 'Num Exc Gc';
+comment on column AQPB947.aqpb947ulseg
+  is 'Ult Seg';
+comment on column AQPB947.aqpb947sbred
+  is 'Sobre Endeudado';
+comment on column AQPB947.aqpb947lstng
+  is 'Listas Negras';
+comment on column AQPB947.aqpb947inscp
+  is 'Inst C/Camp';
+comment on column AQPB947.aqpb947cviga
+  is 'Cred Vig Atr';
+comment on column AQPB947.aqpb947naux1
+  is 'Auxiliar Numerico 1';
+comment on column AQPB947.aqpb947naux2
+  is 'Auxiliar Numerico 2';
+comment on column AQPB947.aqpb947naux3
+  is 'Auxiliar Numerico 3';
+comment on column AQPB947.aqpb947vaux1
+  is 'Auxiliar Texto 1';
+comment on column AQPB947.aqpb947vaux2
+  is 'Auxiliar Texto 2';
+comment on column AQPB947.aqpb947vaux3
+  is 'Auxiliar Texto 3';
+comment on column AQPB947.aqpb947daux1
+  is 'Auxiliar Fecha 1';
+comment on column AQPB947.aqpb947daux2
+  is 'Auxiliar Fecha 2';
+comment on column AQPB947.aqpb947daux3
+  is 'Auxiliar Fecha 3';
+comment on column AQPB947.aqpb947commt
+  is 'Comentario';
+create index AQPB947A2 on AQPB947 (AQPB947INST1);
+create index AQPB947A3 on AQPB947 (AQPB947INST1, AQPB947CORR1, AQPB947ESTA);
+create index AQPB947A4 on AQPB947 (AQPB947PAIS, AQPB947TDOC, AQPB947NDOC);
+create index AQPB947A5 on AQPB947 (AQPB947CORR2, AQPB947INST2, AQPB947FECP2, AQPB947HORP2);
+create index AQPB947A6 on AQPB947 (AQPB947INST2, AQPB947CORR2, AQPB947ESTA);
+create index AQPB947A7 on AQPB947 (AQPB947INST2);
+alter table AQPB947
+  add primary key (AQPB947CORR1, AQPB947INST1, AQPB947FECP1, AQPB947HORP1);
+

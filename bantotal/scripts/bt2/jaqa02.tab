@@ -1,0 +1,127 @@
+create table JAQA02
+(
+  jaqa02ccan VARCHAR2(10) not null,
+  jaqa02cana VARCHAR2(2000) not null,
+  jaqa02ordn VARCHAR2(2000),
+  jaqa02fein DATE,
+  jaqa02cbrt NUMBER(17,2),
+  jaqa02msal NUMBER(17,2),
+  jaqa02ncto NUMBER(9),
+  jaqa02ncli NUMBER(9),
+  jaqa02mcli NUMBER(9),
+  jaqa02pjat NUMBER(10,6),
+  jaqa02catr NUMBER(17,2),
+  jaqa02mmor NUMBER(17,2),
+  jaqa02pjmt NUMBER(10,6),
+  jaqa02scmt NUMBER(17,2),
+  jaqa02sjud NUMBER(17,2),
+  jaqa02vmcb NUMBER(17,2),
+  jaqa02vmcl NUMBER(9),
+  jaqa02vmpa NUMBER(10,6),
+  jaqa02vmat NUMBER(17,2),
+  jaqa02vdcb NUMBER(17,2),
+  jaqa02vdcl NUMBER(4),
+  jaqa02vdpa NUMBER(10,6),
+  jaqa02vdat NUMBER(9),
+  jaqa02vsbr NUMBER(17,2),
+  jaqa02vcbr NUMBER(10),
+  jaqa02vmju NUMBER(17,2),
+  jaqa02mcju NUMBER(17,2),
+  jaqa02num1 NUMBER(9),
+  jaqa02num2 NUMBER(9),
+  jaqa02num3 NUMBER(9),
+  jaqa02imp1 NUMBER(17,2),
+  jaqa02imp2 NUMBER(17,2),
+  jaqa02imp3 NUMBER(17,2),
+  jaqa02cha1 VARCHAR2(255),
+  jaqa02cha2 VARCHAR2(255),
+  jaqa02cha3 VARCHAR2(255),
+  jaqa02fec1 DATE,
+  jaqa02fec2 DATE,
+  jaqa02fec3 DATE
+)
+;
+comment on table JAQA02
+  is 'Analista - Posicionamiento de Negocio';
+comment on column JAQA02.jaqa02ccan
+  is 'CÓDIGO COMITÉ DEL ANALISTA';
+comment on column JAQA02.jaqa02cana
+  is 'CÓDIGO ANALISTA';
+comment on column JAQA02.jaqa02ordn
+  is 'ORDEN';
+comment on column JAQA02.jaqa02fein
+  is 'FECHA INGRESO DE DATA';
+comment on column JAQA02.jaqa02cbrt
+  is 'CARTERA BRUTA';
+comment on column JAQA02.jaqa02msal
+  is 'META SALDO';
+comment on column JAQA02.jaqa02ncto
+  is 'NÚMERO CRÉDITO TOTAL';
+comment on column JAQA02.jaqa02ncli
+  is 'NÚMERO DE CLIENTES';
+comment on column JAQA02.jaqa02mcli
+  is 'META CLIENTE';
+comment on column JAQA02.jaqa02pjat
+  is 'PORCENTAJE ATRASADO';
+comment on column JAQA02.jaqa02catr
+  is 'CARTERA ATRASADA';
+comment on column JAQA02.jaqa02mmor
+  is 'META MORA';
+comment on column JAQA02.jaqa02pjmt
+  is 'PORCENTAJE MAYOR A 30';
+comment on column JAQA02.jaqa02scmt
+  is 'SALDO CAPITAL MAYOR A 30';
+comment on column JAQA02.jaqa02sjud
+  is 'SALDO CAPITAL JUDICIAL';
+comment on column JAQA02.jaqa02vmcb
+  is 'VARIACIÓN MES CARTERA BRUTA';
+comment on column JAQA02.jaqa02vmcl
+  is 'VARIACIÓN MES CLIENTE';
+comment on column JAQA02.jaqa02vmpa
+  is 'VARIACIÓN MES PORCENTAJE ATRASADO';
+comment on column JAQA02.jaqa02vmat
+  is 'VARACIÓN MES ATRASADO';
+comment on column JAQA02.jaqa02vdcb
+  is 'VARIACIÓN DÍA CARTERA BRUTA';
+comment on column JAQA02.jaqa02vdcl
+  is 'VARIACIÓN DÍA CLIENTE';
+comment on column JAQA02.jaqa02vdpa
+  is 'VARIACIÓN DIA PORCENTAJE ATRASADO';
+comment on column JAQA02.jaqa02vdat
+  is 'VARIACIÓN DÍA ATRASADO';
+comment on column JAQA02.jaqa02vsbr
+  is 'VARIACIÓN SALDO BRUTO';
+comment on column JAQA02.jaqa02vcbr
+  is 'VARIACIÓN CLIENTE BRUTO';
+comment on column JAQA02.jaqa02vmju
+  is 'VARIACIÓN META JUDICIAL';
+comment on column JAQA02.jaqa02mcju
+  is 'META CARTERA JUDICIAL';
+comment on column JAQA02.jaqa02num1
+  is 'AUXILIAR NUMÉRICO 1';
+comment on column JAQA02.jaqa02num2
+  is 'AUXILIAR NUMÉRICO 2';
+comment on column JAQA02.jaqa02num3
+  is 'AUXILIAR NUMÉRICO 3';
+comment on column JAQA02.jaqa02imp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQA02.jaqa02imp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQA02.jaqa02imp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQA02.jaqa02cha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQA02.jaqa02cha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQA02.jaqa02cha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQA02.jaqa02fec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQA02.jaqa02fec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQA02.jaqa02fec3
+  is 'AUXILIAR FECHA 3';
+create index JAQA02A2 on JAQA02 (JAQA02CANA);
+alter table JAQA02
+  add primary key (JAQA02CCAN, JAQA02CANA);
+

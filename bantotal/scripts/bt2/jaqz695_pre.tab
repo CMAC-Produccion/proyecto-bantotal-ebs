@@ -1,0 +1,35 @@
+create table JAQZ695_PRE
+(
+  jaqz695fep DATE not null,
+  jaqz695cor NUMBER(9) not null,
+  jaqz695pai NUMBER(3) not null,
+  jaqz695tdo NUMBER(2) not null,
+  jaqz695ndo CHAR(12) not null,
+  jaqz695suc NUMBER(3),
+  jaqz695mda NUMBER(4),
+  jaqz695cta NUMBER(9),
+  jaqz695mod NUMBER(3),
+  jaqz695top NUMBER(3),
+  jaqz695ase CHAR(10),
+  jaqz695mto NUMBER(17,2),
+  jaqz695pzo NUMBER(5),
+  jaqz695cuo NUMBER(10),
+  jaqz695moe NUMBER(4),
+  jaqz695chk CHAR(1),
+  jaqz695usr CHAR(10),
+  jaqz695au1 DATE,
+  jaqz695au2 NUMBER(10),
+  jaqz695au3 NUMBER(17,2),
+  jaqz695au4 CHAR(30),
+  jaqz695au5 CHAR(1),
+  jaqz695ind CHAR(1),
+  jaqz695eva NUMBER(10),
+  jaqz695sbs NUMBER(5),
+  jaqz695flg CHAR(1)
+)
+;
+create index JAQZ695_PRE2 on JAQZ695_PRE (JAQZ695PAI, JAQZ695TDO, JAQZ695NDO, JAQZ695CHK);
+create index JAQZ695_PRE3 on JAQZ695_PRE (JAQZ695ASE);
+alter table JAQZ695_PRE
+  add primary key (JAQZ695FEP, JAQZ695COR, JAQZ695PAI, JAQZ695TDO, JAQZ695NDO);
+

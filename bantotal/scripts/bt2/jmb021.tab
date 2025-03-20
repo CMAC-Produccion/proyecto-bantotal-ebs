@@ -1,0 +1,11 @@
+create table JMB021
+(
+  jmb020tvic NUMBER(2) not null,
+  jmb021cvic NUMBER(2) not null,
+  jmb021cvid CHAR(60),
+  jmb021cvih CHAR(1)
+)
+;
+alter table JMB021
+  add primary key (JMB020TVIC, JMB021CVIC);
+

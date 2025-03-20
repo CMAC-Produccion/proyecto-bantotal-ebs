@@ -1,0 +1,69 @@
+create table AQPC580
+(
+  aqpc580emp    NUMBER(3) not null,
+  aqpc580mod    NUMBER(3) not null,
+  aqpc580suc    NUMBER(3) not null,
+  aqpc580mda    NUMBER(4) not null,
+  aqpc580pap    NUMBER(4) not null,
+  aqpc580cta    NUMBER(9) not null,
+  aqpc580oper   NUMBER(9) not null,
+  aqpc580sbop   NUMBER(3) not null,
+  aqpc580top    NUMBER(3) not null,
+  aqpc580fec    DATE not null,
+  aqpc580tip    VARCHAR2(300),
+  aqpc580sbtip  VARCHAR2(300),
+  aqpc580sdmo   NUMBER(17,2),
+  aqpc580aplext CHAR(1),
+  aqpc580fecbi  DATE not null,
+  aqpc580feccar DATE not null,
+  aqpc580horcar CHAR(45) not null,
+  aqpc580accion CHAR(1) not null
+)
+;
+comment on table AQPC580
+  is 'tabla histórica de extorno de devengado';
+comment on column AQPC580.aqpc580emp
+  is 'Empresa ';
+comment on column AQPC580.aqpc580mod
+  is 'Modulo';
+comment on column AQPC580.aqpc580suc
+  is 'Sucursal';
+comment on column AQPC580.aqpc580mda
+  is 'Moneda';
+comment on column AQPC580.aqpc580pap
+  is 'Papel';
+comment on column AQPC580.aqpc580cta
+  is 'Cuenta';
+comment on column AQPC580.aqpc580oper
+  is 'Operacion';
+comment on column AQPC580.aqpc580sbop
+  is 'Sub operacion';
+comment on column AQPC580.aqpc580top
+  is 'tipo de operacion';
+comment on column AQPC580.aqpc580fec
+  is 'Fecha de reprogramacion';
+comment on column AQPC580.aqpc580tip
+  is 'tipo';
+comment on column AQPC580.aqpc580sbtip
+  is 'sub tip';
+comment on column AQPC580.aqpc580sdmo
+  is 'Saldo capital de credito';
+comment on column AQPC580.aqpc580aplext
+  is 'EXTORNO S ó N';
+comment on column AQPC580.aqpc580fecbi
+  is 'Fecha Carga BI';
+comment on column AQPC580.aqpc580feccar
+  is 'Fecha de Carga en Historico';
+comment on column AQPC580.aqpc580horcar
+  is 'Hora de Carga';
+comment on column AQPC580.aqpc580accion
+  is 'Accion I U D';
+create index AQPC580A2 on AQPC580 (AQPC580EMP, AQPC580CTA, AQPC580OPER);
+create index AQPC580A3 on AQPC580 (AQPC580EMP, AQPC580CTA, AQPC580OPER, AQPC580FEC);
+create index AQPC580A4 on AQPC580 (AQPC580EMP, AQPC580SUC, AQPC580MOD, AQPC580MDA, AQPC580PAP, AQPC580CTA, AQPC580OPER, AQPC580SBOP, AQPC580TOP);
+create index AQPC580A5 on AQPC580 (AQPC580EMP, AQPC580SUC, AQPC580MOD, AQPC580MDA, AQPC580PAP, AQPC580CTA, AQPC580OPER, AQPC580SBOP, AQPC580TOP, AQPC580FEC);
+create index AQPC580A6 on AQPC580 (AQPC580FECCAR, AQPC580HORCAR, AQPC580ACCION);
+create index AQPC580A7 on AQPC580 (AQPC580ACCION);
+alter table AQPC580
+  add primary key (AQPC580FECCAR, AQPC580HORCAR, AQPC580EMP, AQPC580MOD, AQPC580SUC, AQPC580MDA, AQPC580PAP, AQPC580CTA, AQPC580OPER, AQPC580SBOP, AQPC580TOP, AQPC580FEC, AQPC580FECBI, AQPC580ACCION);
+

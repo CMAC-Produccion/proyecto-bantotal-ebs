@@ -1,0 +1,14 @@
+create table FBC117
+(
+  fbccod   NUMBER(3) not null,
+  fbcpais  NUMBER(3) not null,
+  fbctdoc  NUMBER(2) not null,
+  fbcndoc  CHAR(12) not null,
+  fbcctnro NUMBER(9) not null,
+  fbcsaldo NUMBER(17,2)
+)
+;
+create index FBC11702 on FBC117 (FBCCOD, FBCCTNRO);
+alter table FBC117
+  add primary key (FBCCOD, FBCPAIS, FBCTDOC, FBCNDOC, FBCCTNRO);
+

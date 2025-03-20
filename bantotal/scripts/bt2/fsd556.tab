@@ -1,0 +1,27 @@
+create table FSD556
+(
+  pgcod       NUMBER(3) not null,
+  tpmod       NUMBER(3) not null,
+  tpsuc       NUMBER(3) not null,
+  tpmda       NUMBER(4) not null,
+  tppap       NUMBER(4) not null,
+  tpcta       NUMBER(9) not null,
+  tpoper      NUMBER(9) not null,
+  tpsbop      NUMBER(3) not null,
+  tptope      NUMBER(3) not null,
+  tprcod      NUMBER(18) not null,
+  tprfolcod   NUMBER(18) not null,
+  tprregcod   NUMBER(18) not null,
+  tprfesc     DATE,
+  tppais      NUMBER(3),
+  tpdepto     NUMBER(5),
+  tpciucod    NUMBER(4),
+  zoncod      NUMBER(3),
+  tpranextipr CHAR(50),
+  tpranexti   CHAR(50),
+  tpranexint  CHAR(50)
+)
+;
+alter table FSD556
+  add primary key (PGCOD, TPMOD, TPSUC, TPMDA, TPPAP, TPCTA, TPOPER, TPSBOP, TPTOPE, TPRCOD, TPRFOLCOD, TPRREGCOD);
+

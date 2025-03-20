@@ -1,0 +1,64 @@
+create table AQPB613G
+(
+  aqpb613gcorr    NUMBER(4) not null,
+  aqpb613gpais    NUMBER(9),
+  aqpb613gtdoc    NUMBER(9),
+  aqpb613gndoc    VARCHAR2(12),
+  aqpb613gtcamb   NUMBER(14,8),
+  aqpb613ginst    NUMBER(12) not null,
+  aqpb613gfec     DATE not null,
+  aqpb613ghora    CHAR(8) not null,
+  aqpb613gcapcaja NUMBER(17,2),
+  aqpb613gsldext  NUMBER(17,2),
+  aqpb613gexdmens NUMBER(17,2),
+  aqpb613gccontg  NUMBER(17,2),
+  aqpb613gcpoten  NUMBER(17,2),
+  aqpb613gratio   NUMBER(17,6),
+  aqpb613gind     VARCHAR2(2),
+  aqpb613gest     VARCHAR2(2),
+  aqpb613guser    VARCHAR2(10),
+  aqpb613gfeclog  DATE,
+  aqpb613ghorlog  VARCHAR2(15)
+)
+;
+comment on column AQPB613G.aqpb613gcorr
+  is 'CORR';
+comment on column AQPB613G.aqpb613gpais
+  is 'PAIS';
+comment on column AQPB613G.aqpb613gtdoc
+  is 'TDOC';
+comment on column AQPB613G.aqpb613gndoc
+  is 'NDOC';
+comment on column AQPB613G.aqpb613gtcamb
+  is 'TCAMB';
+comment on column AQPB613G.aqpb613ginst
+  is 'INST';
+comment on column AQPB613G.aqpb613gfec
+  is 'FEC';
+comment on column AQPB613G.aqpb613ghora
+  is 'HORA';
+comment on column AQPB613G.aqpb613gcapcaja
+  is 'CAPCAJA';
+comment on column AQPB613G.aqpb613gsldext
+  is 'SLDEXT';
+comment on column AQPB613G.aqpb613gexdmens
+  is 'EXDMENS';
+comment on column AQPB613G.aqpb613gccontg
+  is 'CCONTG';
+comment on column AQPB613G.aqpb613gcpoten
+  is 'CPOTEN';
+comment on column AQPB613G.aqpb613gratio
+  is 'RATIO';
+comment on column AQPB613G.aqpb613gind
+  is 'IND';
+comment on column AQPB613G.aqpb613gest
+  is 'EST';
+comment on column AQPB613G.aqpb613guser
+  is 'USER';
+comment on column AQPB613G.aqpb613gfeclog
+  is 'Fecha Log';
+comment on column AQPB613G.aqpb613ghorlog
+  is 'Hora log ';
+alter table AQPB613G
+  add primary key (AQPB613GINST, AQPB613GFEC, AQPB613GHORA, AQPB613GCORR);
+

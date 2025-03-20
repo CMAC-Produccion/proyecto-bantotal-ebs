@@ -1,0 +1,44 @@
+create table FMD130
+(
+  pgcod      NUMBER(3) not null,
+  coemmod    NUMBER(3) not null,
+  coemoper   NUMBER(9) not null,
+  coemintern CHAR(1),
+  coemsuc    NUMBER(3),
+  coemmda    NUMBER(4),
+  coempap    NUMBER(4),
+  coemcta    NUMBER(9),
+  coemtipo   NUMBER(3),
+  coemfing   DATE,
+  coemfval   DATE,
+  coemface   DATE,
+  coemfvto   DATE,
+  coembccorr NUMBER(9),
+  coemrefcor CHAR(20),
+  coembcree  NUMBER(9),
+  coemuser   CHAR(10),
+  coemws     CHAR(10),
+  coemaoimp  NUMBER(17,2),
+  coemgtocor NUMBER(17,2),
+  coemmdagto CHAR(3),
+  coemcomagt NUMBER(17,2),
+  coemmdacom CHAR(3),
+  coemintere NUMBER(17,2),
+  coemmdaint CHAR(3),
+  coemmocsw1 CHAR(3),
+  coemfreeid NUMBER(2),
+  coemgaspor NUMBER(1),
+  coemsaldo  NUMBER(17,2),
+  coemautree NUMBER(15)
+)
+;
+create index FMD13002 on FMD130 (PGCOD, COEMCTA);
+create index FMD13003 on FMD130 (PGCOD, COEMBCCORR);
+create index FMD13004 on FMD130 (PGCOD, COEMBCREE);
+create index FMD13005 on FMD130 (COEMPAP);
+create index FMD13007 on FMD130 (PGCOD, COEMSUC);
+create index FMD13008 on FMD130 (COEMMOD);
+create index FMD13009 on FMD130 (COEMMDA);
+alter table FMD130
+  add primary key (PGCOD, COEMMOD, COEMOPER);
+

@@ -1,0 +1,66 @@
+create table AQPA149
+(
+  aqpa149pacl NUMBER(3) not null,
+  aqpa149tpcl NUMBER(2) not null,
+  aqpa149docl CHAR(12) not null,
+  aqpa149paem NUMBER(3) not null,
+  aqpa149tpem NUMBER(2) not null,
+  aqpa149doem CHAR(12) not null,
+  aqpa149mone NUMBER(4) not null,
+  aqpa149sald NUMBER(17,2),
+  aqpa149fech DATE,
+  aqpa149hora CHAR(8),
+  aqpa149ax01 NUMBER(9),
+  aqpa149ax02 NUMBER(9),
+  aqpa149ax03 NUMBER(17,2),
+  aqpa149ax04 NUMBER(17,2),
+  aqpa149ax05 DATE,
+  aqpa149ax06 DATE,
+  aqpa149ax07 CHAR(100),
+  aqpa149ax08 CHAR(100),
+  aqpa149ax09 CHAR(100)
+)
+;
+comment on table AQPA149
+  is 'TABLA TEMPORAL DE SALDOS CTS CUENTAS CREDINKA';
+comment on column AQPA149.aqpa149pacl
+  is 'PAIS DEL DOCUMENTO DEL CLIENTE';
+comment on column AQPA149.aqpa149tpcl
+  is 'TIPO DE DOCUMENTO DEL CLIENTE';
+comment on column AQPA149.aqpa149docl
+  is 'DOCUMENTO DEL CLIENTE';
+comment on column AQPA149.aqpa149paem
+  is 'PAIS DEL DOCUMENTO DEL EMPLEADOR';
+comment on column AQPA149.aqpa149tpem
+  is 'TIPO DE DOCUMENTO DEL EMPLEADOR';
+comment on column AQPA149.aqpa149doem
+  is 'DOCUMENTO DEL EMPLEADOR';
+comment on column AQPA149.aqpa149mone
+  is 'MONEDA DE LA CUENTA';
+comment on column AQPA149.aqpa149sald
+  is 'SALDO';
+comment on column AQPA149.aqpa149fech
+  is 'FECHA DE CARGA';
+comment on column AQPA149.aqpa149hora
+  is 'HORA DE CARGA';
+comment on column AQPA149.aqpa149ax01
+  is 'AUXILIAR';
+comment on column AQPA149.aqpa149ax02
+  is 'AUXILIAR';
+comment on column AQPA149.aqpa149ax03
+  is 'AUXILIAR';
+comment on column AQPA149.aqpa149ax04
+  is 'AUXILIAR';
+comment on column AQPA149.aqpa149ax05
+  is 'AUXILIAR';
+comment on column AQPA149.aqpa149ax06
+  is 'AUXILIAR';
+comment on column AQPA149.aqpa149ax07
+  is 'AUXILIAR';
+comment on column AQPA149.aqpa149ax08
+  is 'AUXILIAR';
+comment on column AQPA149.aqpa149ax09
+  is 'AUXILIAR';
+alter table AQPA149
+  add primary key (AQPA149PACL, AQPA149TPCL, AQPA149DOCL, AQPA149PAEM, AQPA149TPEM, AQPA149DOEM, AQPA149MONE);
+

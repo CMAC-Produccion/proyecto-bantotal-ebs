@@ -1,0 +1,14 @@
+create table JAQL661
+(
+  jaql661pgcod  NUMBER(4) not null,
+  jaql661fecasi DATE not null,
+  jaql661origen NUMBER(4) not null,
+  jaql661numimp NUMBER(4) not null,
+  jaql661estado CHAR(1),
+  jaql661fecval DATE
+)
+;
+create index JAQL6612 on JAQL661 (JAQL661NUMIMP);
+alter table JAQL661
+  add primary key (JAQL661PGCOD, JAQL661FECASI, JAQL661ORIGEN, JAQL661NUMIMP);
+

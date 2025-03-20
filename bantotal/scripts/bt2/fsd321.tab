@@ -1,0 +1,16 @@
+create table FSD321
+(
+  ctrcod  NUMBER(16) not null,
+  ctrcmov NUMBER(3) not null,
+  ctrtpo  NUMBER(1) not null,
+  ctrmda  NUMBER(4) not null,
+  ctrpap  NUMBER(4) not null,
+  ctrmax  NUMBER(17,2),
+  ctracum NUMBER(17,2),
+  ctrcnt  NUMBER(9),
+  ctrtrat CHAR(1)
+)
+;
+alter table FSD321
+  add primary key (CTRCOD, CTRCMOV, CTRTPO, CTRMDA, CTRPAP);
+

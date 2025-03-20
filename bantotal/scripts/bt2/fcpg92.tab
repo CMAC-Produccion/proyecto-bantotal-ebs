@@ -1,0 +1,26 @@
+create table FCPG92
+(
+  cpg92cod   NUMBER(4) not null,
+  cpg92adm   CHAR(30) not null,
+  cpg92usu   CHAR(30) not null,
+  cpg92tin   NUMBER(3) not null,
+  cpg92num   NUMBER(9) not null,
+  cpg92noma  CHAR(20),
+  cpg92conv  NUMBER(8),
+  cpg92est   CHAR(3),
+  cpg92serv  NUMBER(3),
+  cpg92nenve NUMBER(2),
+  cpg92nomsv CHAR(20),
+  cpg92tam   NUMBER(8,2),
+  cpg92md5   CHAR(32),
+  cpg92ip    CHAR(15),
+  cpg92accp  NUMBER(3),
+  cpg92fneps DATE,
+  cpg92nevps NUMBER(3),
+  cpg92fto   CHAR(10)
+)
+;
+create index FCPG9202 on FCPG92 (CPG92FNEPS);
+alter table FCPG92
+  add primary key (CPG92COD, CPG92ADM, CPG92USU, CPG92TIN, CPG92NUM);
+

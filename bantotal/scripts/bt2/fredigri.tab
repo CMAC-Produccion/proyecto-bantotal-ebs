@@ -1,0 +1,18 @@
+create table FREDIGRI
+(
+  frgrises   CHAR(30) not null,
+  frgriprc   NUMBER(5) not null,
+  frgriste   NUMBER(5) not null,
+  frgrinam   CHAR(20) not null,
+  frgrirecke CHAR(60) not null,
+  frgrirecty NUMBER(1) not null,
+  frgrirecne NUMBER(4) not null,
+  frgrirecde NUMBER(1),
+  frgrirec   VARCHAR2(2000),
+  frgritimst DATE
+)
+;
+create index FREDIG02 on FREDIGRI (FRGRITIMST);
+alter table FREDIGRI
+  add primary key (FRGRISES, FRGRIPRC, FRGRISTE, FRGRINAM, FRGRIRECKE, FRGRIRECTY, FRGRIRECNE);
+

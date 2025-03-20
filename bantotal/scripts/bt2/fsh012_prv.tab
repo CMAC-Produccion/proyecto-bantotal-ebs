@@ -1,0 +1,45 @@
+create table FSH012_PRV
+(
+  bcemp   NUMBER(3) not null,
+  bcsuc   NUMBER(3) not null,
+  bcrubr  NUMBER(16) not null,
+  bcmda   NUMBER(4) not null,
+  bcpap   NUMBER(4) not null,
+  bccta   NUMBER(9) not null,
+  bcoper  NUMBER(9) not null,
+  bcsbop  NUMBER(3) not null,
+  bctop   NUMBER(3) not null,
+  bcfech  DATE not null,
+  bctit   NUMBER(2),
+  bccap   NUMBER(1),
+  bcpzo   NUMBER(1),
+  bcsist  NUMBER(3),
+  bcmod   NUMBER(3),
+  bcfvto  DATE,
+  bcfval  DATE,
+  bcplaz  NUMBER(5),
+  bcttasa NUMBER(1),
+  bctasa  NUMBER(10,6),
+  bcclta  NUMBER(2),
+  bctdia  NUMBER(1),
+  bctano  NUMBER(1),
+  bcresi  CHAR(1),
+  bccate  CHAR(15),
+  bcacti  NUMBER(12),
+  bcprod  NUMBER(3),
+  bcticu  CHAR(1),
+  bctipp  CHAR(1),
+  bcfatr  DATE,
+  bcsdor  NUMBER(17,2),
+  bcsdmn  NUMBER(17,2),
+  bcsdus  NUMBER(17,2),
+  bcsdmo  NUMBER(17,2),
+  bcint   NUMBER(17,2),
+  bcprev  NUMBER(17,2),
+  bcgpo   NUMBER(2)
+)
+;
+comment on table FSH012_PRV
+  is 'Detalle de FSH012 para FN_IMPORTE_REL_MN';
+create index IX_FSH012_PRV on FSH012_PRV (BCEMP, BCSUC, BCMDA, BCPAP, BCCTA, BCOPER, BCSBOP, BCTOP, BCMOD);
+

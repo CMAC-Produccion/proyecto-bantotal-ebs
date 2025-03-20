@@ -1,0 +1,10 @@
+create table FTD13
+(
+  td13cod NUMBER(5) not null,
+  td13dsc CHAR(40)
+)
+;
+create index FTD1302 on FTD13 (TD13DSC);
+alter table FTD13
+  add primary key (TD13COD);
+

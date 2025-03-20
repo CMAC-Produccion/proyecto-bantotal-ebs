@@ -1,0 +1,13 @@
+create table FCPG08
+(
+  cpg08codes CHAR(3) not null,
+  cpg08descr CHAR(40),
+  cpg08blq   CHAR(1),
+  cpg08inst  NUMBER(10)
+)
+;
+create index FCPG0802 on FCPG08 (CPG08INST);
+create index FCPG0803 on FCPG08 (CPG08DESCR);
+alter table FCPG08
+  add primary key (CPG08CODES);
+

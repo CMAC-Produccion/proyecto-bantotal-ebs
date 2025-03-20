@@ -1,0 +1,17 @@
+create table AQPA350
+(
+  aqpa35010prd  NUMBER not null,
+  aqpa35017par  NUMBER not null,
+  aqpa35028emp  NUMBER not null,
+  aqpa35028mod  NUMBER not null,
+  aqpa35028top  NUMBER not null,
+  aqpa35028mda  NUMBER not null,
+  aqpa35028pap  NUMBER not null,
+  aqpa35028defn NUMBER,
+  aqpa35028minn NUMBER,
+  aqpa35028maxn NUMBER
+)
+;
+alter table AQPA350
+  add primary key (AQPA35010PRD, AQPA35017PAR, AQPA35028EMP, AQPA35028MOD, AQPA35028TOP, AQPA35028MDA, AQPA35028PAP);
+

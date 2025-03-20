@@ -1,0 +1,25 @@
+create table FBC018
+(
+  bcptipo    NUMBER(2) not null,
+  bcpcorrel  NUMBER(10) not null,
+  bcprefban  CHAR(12),
+  bcpnomacr  CHAR(30),
+  bcppaisacr CHAR(15),
+  bcpnomdeu  CHAR(30),
+  bcptipcred CHAR(15),
+  bcpmosign  CHAR(4),
+  bcpmtocont NUMBER(17,2),
+  bcpfecval  DATE,
+  bcpfecvto  DATE,
+  bcptasint  NUMBER(10,6),
+  bcprefban2 CHAR(12),
+  bcpfecpag  DATE,
+  bcpmosign2 CHAR(4),
+  bcpamort   NUMBER(17,2),
+  bcptasint2 NUMBER(10,6)
+)
+;
+create index FBC01802 on FBC018 (BCPTIPO, BCPCORREL, BCPREFBAN);
+alter table FBC018
+  add primary key (BCPTIPO, BCPCORREL);
+

@@ -1,0 +1,15 @@
+create table JBXI08
+(
+  jbxi08neg CHAR(2) not null,
+  jbxi08mod NUMBER(3) not null,
+  jbxi08top NUMBER(3) not null,
+  jbxi08cas NUMBER(2) not null,
+  jbxi08dgr NUMBER(3),
+  jbxi08psu NUMBER(4,2),
+  jbxi08pua NUMBER(4,2),
+  jbxi08sde NUMBER(14,2),
+  jbxi08cml CHAR(1)
+)
+;
+create unique index JBXI0801 on JBXI08 (JBXI08NEG, JBXI08MOD, JBXI08TOP, JBXI08CAS);
+

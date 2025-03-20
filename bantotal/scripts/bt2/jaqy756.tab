@@ -1,0 +1,42 @@
+create table JAQY756
+(
+  jaqy756cod    NUMBER(3) not null,
+  jaqy756mod    NUMBER(3) not null,
+  jaqy756suc    NUMBER(3) not null,
+  jaqy756mda    NUMBER(4) not null,
+  jaqy756pap    NUMBER(4) not null,
+  jaqy756cta    NUMBER(9) not null,
+  jaqy756oper   NUMBER(9) not null,
+  jaqy756sbop   NUMBER(3) not null,
+  jaqy756tope   NUMBER(3) not null,
+  jaqy756fpag   DATE not null,
+  jaqy756tipo   CHAR(1) not null,
+  jaqy756exte   NUMBER(3) not null,
+  jaqy756imp1   NUMBER(17,2),
+  jaqy756imp2   NUMBER(17,2),
+  jaqy756imp3   NUMBER(17,2),
+  jaqy756imp4   NUMBER(17,2),
+  jaqy756imp5   NUMBER(17,2),
+  jaqy756imp6   NUMBER(17,2),
+  jaqy756imp7   NUMBER(17,2),
+  jaqy756imp8   NUMBER(17,2),
+  jaqy756imp9   NUMBER(17,2),
+  jaqy756imp10  NUMBER(17,2),
+  jaqy756imp11  NUMBER(17,2),
+  jaqy756imp12  NUMBER(17,2),
+  jaqy756imp13  NUMBER(17,2),
+  jaqy756imp14  NUMBER(17,2),
+  jaqy756imp15  NUMBER(17,2),
+  jaqy756imp16  NUMBER(17,2),
+  jaqy756imp17  NUMBER(17,2),
+  jaqy756imp18  NUMBER(17,2),
+  jaqy756imp19  NUMBER(17,2),
+  jaqy756imp20  NUMBER(17,2),
+  jaqy756fsist  DATE,
+  jaqy756hrasis CHAR(8)
+)
+;
+create index JAQY75601 on JAQY756 (JAQY756COD, JAQY756SUC, JAQY756MDA, JAQY756PAP, JAQY756CTA, JAQY756OPER, JAQY756SBOP, JAQY756TOPE, JAQY756FSIST);
+alter table JAQY756
+  add primary key (JAQY756COD, JAQY756MOD, JAQY756SUC, JAQY756MDA, JAQY756PAP, JAQY756CTA, JAQY756OPER, JAQY756SBOP, JAQY756TOPE, JAQY756FPAG, JAQY756TIPO, JAQY756EXTE);
+

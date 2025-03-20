@@ -1,0 +1,11 @@
+create table X054104
+(
+  x054rubro     NUMBER(16) not null,
+  x054tipodo    NUMBER(3) not null,
+  x054rubrocont CHAR(1)
+)
+;
+create index X0541042 on X054104 (X054TIPODO);
+alter table X054104
+  add primary key (X054RUBRO, X054TIPODO);
+

@@ -1,0 +1,24 @@
+create table AQPC229
+(
+  aqpc229fec DATE not null,
+  aqpc229hor CHAR(8) not null,
+  aqpc229usu CHAR(10) not null,
+  aqpc229ins NUMBER(10) not null,
+  aqpc229pai NUMBER(3),
+  aqpc229tip NUMBER(4),
+  aqpc229doc CHAR(12),
+  aqpc229uss CHAR(10),
+  aqpc229nom CHAR(100),
+  aqpc229car CHAR(50),
+  aqpc229fee DATE,
+  aqpc229des CHAR(400),
+  aqpc229au1 CHAR(100),
+  aqpc229au2 CHAR(100),
+  aqpc229au3 CHAR(100)
+)
+;
+create index AQPC229A2 on AQPC229 (AQPC229PAI, AQPC229TIP, AQPC229DOC);
+create index IDX$$_00B30001 on AQPC229 (AQPC229INS, AQPC229DES);
+alter table AQPC229
+  add primary key (AQPC229FEC, AQPC229HOR, AQPC229USU, AQPC229INS);
+

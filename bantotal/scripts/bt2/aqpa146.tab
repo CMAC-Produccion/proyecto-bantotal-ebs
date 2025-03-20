@@ -1,0 +1,40 @@
+create table AQPA146
+(
+  aqpa146usu CHAR(10) not null,
+  aqpa146ide NUMBER(10) not null,
+  aqpa146can NUMBER(10),
+  aqpa146est VARCHAR2(2),
+  aqpa146env VARCHAR2(20),
+  aqpa146des VARCHAR2(320),
+  aqpa146msg VARCHAR2(4000),
+  aqpa146fin VARCHAR2(50),
+  aqpa156fmd VARCHAR2(50),
+  aqpa146err VARCHAR2(4000)
+)
+;
+comment on table AQPA146
+  is 'TABLA TEMPORAL PARA REPORTE DE EXPERIENCIA AL CLIENTE';
+comment on column AQPA146.aqpa146usu
+  is 'USUARIO';
+comment on column AQPA146.aqpa146ide
+  is 'CORRELATIVO';
+comment on column AQPA146.aqpa146can
+  is 'CANAL';
+comment on column AQPA146.aqpa146est
+  is 'ESTADO';
+comment on column AQPA146.aqpa146env
+  is 'TIPO DE ENVIO';
+comment on column AQPA146.aqpa146des
+  is 'CELULAR DESTINO';
+comment on column AQPA146.aqpa146msg
+  is 'MENSAJE';
+comment on column AQPA146.aqpa146fin
+  is 'FECHA DE REGISTRO';
+comment on column AQPA146.aqpa156fmd
+  is 'FECHA DE ENVIO';
+comment on column AQPA146.aqpa146err
+  is 'ERROR DE ENVIO';
+create index AQPA1462 on AQPA146 (AQPA146USU, AQPA146FIN, AQPA146CAN, AQPA146DES);
+alter table AQPA146
+  add primary key (AQPA146USU, AQPA146IDE);
+

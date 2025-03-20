@@ -1,0 +1,30 @@
+create table AUD004
+(
+  audmsttim DATE not null,
+  audmstid  VARCHAR2(36) not null,
+  audmsttbl VARCHAR2(128),
+  audmstkey VARCHAR2(1000),
+  audmstgrp VARCHAR2(50),
+  audmstlog VARCHAR2(50),
+  audmstcon VARCHAR2(50),
+  audmsttrn VARCHAR2(50),
+  audmstusr VARCHAR2(50),
+  audmstwst VARCHAR2(50),
+  audmstsrv VARCHAR2(50),
+  audmstapp VARCHAR2(50),
+  audmstses VARCHAR2(50),
+  audmstpgm VARCHAR2(50),
+  audmstcur VARCHAR2(50),
+  audmstsnt VARCHAR2(500),
+  audmstreq VARCHAR2(50),
+  audmsttyp CHAR(1),
+  audmsttic DATE
+)
+;
+create index AUD00402 on AUD004 (AUDMSTTBL, AUDMSTTIM);
+create index AUD00403 on AUD004 (AUDMSTUSR, AUDMSTTIM);
+create index AUD00404 on AUD004 (AUDMSTPGM, AUDMSTTIM);
+create index AUD00405 on AUD004 (AUDMSTTBL, AUDMSTKEY, AUDMSTTIM);
+alter table AUD004
+  add primary key (AUDMSTTIM, AUDMSTID);
+

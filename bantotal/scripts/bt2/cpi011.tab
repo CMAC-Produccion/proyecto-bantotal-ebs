@@ -1,0 +1,17 @@
+create table CPI011
+(
+  cpimod  NUMBER(3) not null,
+  cpitope NUMBER(4) not null,
+  cpimda  NUMBER(4) not null,
+  cpipap  NUMBER(4) not null,
+  cpifchv DATE,
+  cpitxt1 CHAR(35),
+  cpitxt2 CHAR(35),
+  cpiimp1 NUMBER(17,2),
+  cpiimp2 NUMBER(17,2),
+  cpidate DATE
+)
+;
+alter table CPI011
+  add primary key (CPIMOD, CPITOPE, CPIMDA, CPIPAP);
+

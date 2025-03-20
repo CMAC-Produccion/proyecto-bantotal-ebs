@@ -1,0 +1,68 @@
+create table JAQN801
+(
+  jaqn801id  NUMBER(18) not null,
+  jaqn801emp NUMBER(3) not null,
+  jaqn801mod NUMBER(3) not null,
+  jaqn801suc NUMBER(3) not null,
+  jaqn801mda NUMBER(4) not null,
+  jaqn801pap NUMBER(4) not null,
+  jaqn801cta NUMBER(9) not null,
+  jaqn801ope NUMBER(9) not null,
+  jaqn801sbp NUMBER(3) not null,
+  jaqn801top NUMBER(3) not null,
+  jaqn801crr NUMBER(3) not null,
+  jaqn801hab CHAR(1),
+  jaqn801urg CHAR(10),
+  jaqn801frg DATE,
+  jaqn801hrg CHAR(8),
+  jaqn801sua NUMBER(3),
+  jaqn801fab NUMBER(5),
+  jaqn801tab NUMBER(1),
+  jaqn801iab NUMBER(17,2)
+)
+;
+comment on table JAQN801
+  is 'Relación entre DPF y cuenta vista';
+comment on column JAQN801.jaqn801id
+  is 'Autonumerico ID';
+comment on column JAQN801.jaqn801emp
+  is 'Empresa cuenta vista';
+comment on column JAQN801.jaqn801mod
+  is 'Modulo cuenta vista';
+comment on column JAQN801.jaqn801suc
+  is 'Sucursal cuenta vista';
+comment on column JAQN801.jaqn801mda
+  is 'Moneda cuenta vista';
+comment on column JAQN801.jaqn801pap
+  is 'Papel cuenta vista';
+comment on column JAQN801.jaqn801cta
+  is 'Nro cuenta vista';
+comment on column JAQN801.jaqn801ope
+  is 'Operación cuenta vista';
+comment on column JAQN801.jaqn801sbp
+  is 'Sub Operacion cuenta vista';
+comment on column JAQN801.jaqn801top
+  is 'Tipo de Operacion cuenta vista';
+comment on column JAQN801.jaqn801crr
+  is 'Correlativo';
+comment on column JAQN801.jaqn801hab
+  is 'Habilitado';
+comment on column JAQN801.jaqn801urg
+  is 'Usuario de Registro';
+comment on column JAQN801.jaqn801frg
+  is 'Fecha de Registro';
+comment on column JAQN801.jaqn801hrg
+  is 'Hora de Registro';
+comment on column JAQN801.jaqn801sua
+  is 'Sucursal de afiliación';
+comment on column JAQN801.jaqn801fab
+  is 'Frecuencia de Abono';
+comment on column JAQN801.jaqn801tab
+  is 'Tipo de Abono';
+comment on column JAQN801.jaqn801iab
+  is 'Importe de Abono';
+create index JAQN801A2 on JAQN801 (JAQN801EMP, JAQN801MOD, JAQN801SUC, JAQN801MDA, JAQN801PAP, JAQN801CTA, JAQN801OPE, JAQN801SBP, JAQN801TOP);
+create index JAQN801A3 on JAQN801 (JAQN801HAB);
+alter table JAQN801
+  add primary key (JAQN801ID, JAQN801EMP, JAQN801MOD, JAQN801SUC, JAQN801MDA, JAQN801PAP, JAQN801CTA, JAQN801OPE, JAQN801SBP, JAQN801TOP, JAQN801CRR);
+

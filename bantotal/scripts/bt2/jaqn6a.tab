@@ -1,0 +1,90 @@
+create table JAQN6A
+(
+  jaqn6apai NUMBER(3) not null,
+  jaqn6atdo NUMBER(2) not null,
+  jaqn6ando CHAR(12) not null,
+  jaqn6afec DATE not null,
+  jaqn6ahor CHAR(8) not null,
+  jaqn6ausr CHAR(10) not null,
+  jaqn6atdt CHAR(3),
+  jaqn6avan VARCHAR2(255),
+  jaqn6avnu VARCHAR2(255),
+  jaqn6arus CHAR(1),
+  jaqn6aacc CHAR(3),
+  jaqn6aerd VARCHAR2(500),
+  jaqn6aan1 NUMBER(9),
+  jaqn6aan2 NUMBER(9),
+  jaqn6aan3 NUMBER(9),
+  jaqn6aai1 NUMBER(17,2),
+  jaqn6aai2 NUMBER(17,2),
+  jaqn6aai3 NUMBER(17,2),
+  jaqn6aac1 CHAR(255),
+  jaqn6aac2 CHAR(255),
+  jaqn6aac3 CHAR(255),
+  jaqn6aav1 VARCHAR2(255),
+  jaqn6aav2 VARCHAR2(255),
+  jaqn6aav3 VARCHAR2(255),
+  jaqn6aaf1 DATE,
+  jaqn6aaf2 DATE,
+  jaqn6aaf3 DATE
+)
+;
+comment on table JAQN6A
+  is 'Mantenimiento de correo y telefonos (ingreso, modificacion y eliminación) ';
+comment on column JAQN6A.jaqn6apai
+  is 'Pais';
+comment on column JAQN6A.jaqn6atdo
+  is 'Tipo Documento';
+comment on column JAQN6A.jaqn6ando
+  is 'Numero Documento';
+comment on column JAQN6A.jaqn6afec
+  is 'Fecha';
+comment on column JAQN6A.jaqn6ahor
+  is 'Hora';
+comment on column JAQN6A.jaqn6ausr
+  is 'Usuario';
+comment on column JAQN6A.jaqn6atdt
+  is 'Tipo de Dato';
+comment on column JAQN6A.jaqn6avan
+  is 'Valor Anterior';
+comment on column JAQN6A.jaqn6avnu
+  is 'Valor Nuevo';
+comment on column JAQN6A.jaqn6arus
+  is 'Respuesta Usuario (S: si -N: no - D:default)';
+comment on column JAQN6A.jaqn6aacc
+  is 'Accion usuario( INS: insert - UPD: update - DEL: eliminar';
+comment on column JAQN6A.jaqn6aerd
+  is 'Descripcion Error';
+comment on column JAQN6A.jaqn6aan1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN6A.jaqn6aan2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN6A.jaqn6aan3
+  is 'Auxiliar Numerico 3';
+comment on column JAQN6A.jaqn6aai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN6A.jaqn6aai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN6A.jaqn6aai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN6A.jaqn6aac1
+  is 'Auxiliar Character 1';
+comment on column JAQN6A.jaqn6aac2
+  is 'Auxiliar Character 2';
+comment on column JAQN6A.jaqn6aac3
+  is 'Auxiliar Character 3';
+comment on column JAQN6A.jaqn6aav1
+  is 'Auxiliar Varchar 1';
+comment on column JAQN6A.jaqn6aav2
+  is 'Auxiliar Varchar 2';
+comment on column JAQN6A.jaqn6aav3
+  is 'Auxiliar Varchar 3';
+comment on column JAQN6A.jaqn6aaf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN6A.jaqn6aaf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN6A.jaqn6aaf3
+  is 'Auxiliar Fecha 3';
+alter table JAQN6A
+  add primary key (JAQN6APAI, JAQN6ATDO, JAQN6ANDO, JAQN6AFEC, JAQN6AHOR, JAQN6AUSR);
+

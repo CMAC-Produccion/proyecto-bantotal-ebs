@@ -1,0 +1,10 @@
+create table FSR216
+(
+  pendcob   NUMBER(3) not null,
+  tiimpucod NUMBER(3) not null
+)
+;
+create index FSR21602 on FSR216 (TIIMPUCOD);
+alter table FSR216
+  add primary key (PENDCOB, TIIMPUCOD);
+

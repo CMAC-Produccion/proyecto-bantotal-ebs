@@ -1,0 +1,97 @@
+create table JAQN63
+(
+  jaqn63usr CHAR(10) not null,
+  jaqn63fch DATE not null,
+  jaqn63cor NUMBER(9) not null,
+  jaqn63hra CHAR(8),
+  jaqn63mod NUMBER(3),
+  jaqn63trn NUMBER(3),
+  jaqn63suc NUMBER(3),
+  jaqn63nre NUMBER(4),
+  jaqn63tmt CHAR(1),
+  jaqn63mto NUMBER(17,2),
+  jaqn63mdl NUMBER(4),
+  jaqn63mti NUMBER(17,2),
+  jaqn63mdi NUMBER(4),
+  jaqn63sdo NUMBER(17,2),
+  jaqn63est CHAR(1),
+  jaqn63mot CHAR(255),
+  jaqn63uev CHAR(255),
+  jaqn63ai1 NUMBER(17,2),
+  jaqn63ai2 NUMBER(17,2),
+  jaqn63ai3 NUMBER(17,2),
+  jaqn63ad1 DATE,
+  jaqn63ad2 DATE,
+  jaqn63ad3 DATE,
+  jaqn63an1 NUMBER(9),
+  jaqn63an2 NUMBER(9),
+  jaqn63an3 NUMBER(9),
+  jaqn63ac1 CHAR(255),
+  jaqn63ac2 CHAR(255),
+  jaqn63ac3 CHAR(255)
+)
+;
+comment on table JAQN63
+  is 'Detalle usuarios bloqueados por exceso en caja';
+comment on column JAQN63.jaqn63usr
+  is 'Usuario bloqueado';
+comment on column JAQN63.jaqn63fch
+  is 'Fecha';
+comment on column JAQN63.jaqn63cor
+  is 'Correlativo a Fecha';
+comment on column JAQN63.jaqn63hra
+  is 'Hora';
+comment on column JAQN63.jaqn63mod
+  is 'Módulo';
+comment on column JAQN63.jaqn63trn
+  is 'Transacción';
+comment on column JAQN63.jaqn63suc
+  is 'Sucursal';
+comment on column JAQN63.jaqn63nre
+  is 'Numero de relacion';
+comment on column JAQN63.jaqn63tmt
+  is 'Tipo Monto Limite (C - Cajero, S - Sucursal, G - General)';
+comment on column JAQN63.jaqn63mto
+  is 'Monto Limite';
+comment on column JAQN63.jaqn63mdl
+  is 'Moneda Monto Limite';
+comment on column JAQN63.jaqn63mti
+  is 'Monto Ingresado';
+comment on column JAQN63.jaqn63mdi
+  is 'Moneda Monto Ingresado';
+comment on column JAQN63.jaqn63sdo
+  is 'Saldo total de cajero';
+comment on column JAQN63.jaqn63est
+  is 'Estado (N - Normal, P - Pendiente, B - Bloqueado, H - Habilitado)';
+comment on column JAQN63.jaqn63mot
+  is 'Motivo';
+comment on column JAQN63.jaqn63uev
+  is 'Usuarios envio de correo (Separados por coma)';
+comment on column JAQN63.jaqn63ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN63.jaqn63ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN63.jaqn63ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN63.jaqn63ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN63.jaqn63ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN63.jaqn63ad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQN63.jaqn63an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQN63.jaqn63an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQN63.jaqn63an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQN63.jaqn63ac1
+  is 'Auxiliar Carácter 1';
+comment on column JAQN63.jaqn63ac2
+  is 'Auxiliar Carácter 2';
+comment on column JAQN63.jaqn63ac3
+  is 'Auxiliar Carácter 3';
+create index JAQN63A2 on JAQN63 (JAQN63SUC, JAQN63MOD, JAQN63TRN, JAQN63NRE, JAQN63FCH);
+alter table JAQN63
+  add primary key (JAQN63USR, JAQN63FCH, JAQN63COR);
+

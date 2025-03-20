@@ -1,0 +1,60 @@
+create table JAQZ165
+(
+  jaqz165imp NUMBER(9) not null,
+  jaqz165tip CHAR(1) not null,
+  jaqz165cor NUMBER(9) not null,
+  jaqz165pgc NUMBER(3),
+  jaqz165suc NUMBER(3),
+  jaqz165mod NUMBER(3),
+  jaqz165mda NUMBER(4),
+  jaqz165pap NUMBER(4),
+  jaqz165cta NUMBER(9),
+  jaqz165ope NUMBER(9),
+  jaqz165sub NUMBER(3),
+  jaqz165top NUMBER(3),
+  jaqz165fec DATE,
+  jaqz165hor CHAR(8),
+  jaqz165usr CHAR(10),
+  jaqz165age NUMBER(3),
+  jaqz165cue NUMBER(9),
+  jaqz165doc CHAR(12),
+  jaqz165mon NUMBER(4),
+  jaqz165mto NUMBER(17,2),
+  jaqz165est CHAR(1),
+  jaqz165mot CHAR(100),
+  jaqz165ipg NUMBER(3),
+  jaqz165isu NUMBER(3),
+  jaqz165imo NUMBER(3),
+  jaqz165itr NUMBER(3),
+  jaqz165ire NUMBER(4),
+  jaqz165ior NUMBER(2),
+  jaqz165isb NUMBER(3),
+  jaqz165ifc DATE,
+  jaqz165ax1 NUMBER(9),
+  jaqz165ax2 NUMBER(9),
+  jaqz165ax3 NUMBER(9),
+  jaqz165ax4 NUMBER(9),
+  jaqz165ax5 NUMBER(17,2),
+  jaqz165ax6 NUMBER(17,2),
+  jaqz165ax7 NUMBER(17,2),
+  jaqz165ax8 NUMBER(17,2),
+  jaqz165ax9 DATE,
+  jaqz165a10 DATE,
+  jaqz165a11 DATE,
+  jaqz165a12 DATE,
+  jaqz165a13 CHAR(100),
+  jaqz165a14 CHAR(100),
+  jaqz165a15 CHAR(100),
+  jaqz165a16 CHAR(100)
+)
+;
+create index JAQZ165_IDX001 on JAQZ165 (JAQZ165FEC, JAQZ165CUE);
+create index JAQZ165_IDX002 on JAQZ165 (JAQZ165AX9, JAQZ165IMP, JAQZ165TIP, JAQZ165COR);
+create index JAQZ165_IDX003 on JAQZ165 (JAQZ165IPG, JAQZ165ISU, JAQZ165IMO, JAQZ165ITR, JAQZ165IRE, JAQZ165IOR, JAQZ165ISB, JAQZ165IFC);
+create index JAQZ165_IDX004 on JAQZ165 (JAQZ165TIP, JAQZ165DOC, JAQZ165EST);
+create index JAQZ165_IDX005 on JAQZ165 (JAQZ165TIP, JAQZ165EST, JAQZ165FEC, JAQZ165CTA);
+create index JAQZ165_IDX006 on JAQZ165 (JAQZ165TIP, JAQZ165FEC, JAQZ165EST);
+create index JAQZ165_IDX007 on JAQZ165 (JAQZ165TIP, JAQZ165IFC, JAQZ165EST);
+alter table JAQZ165
+  add primary key (JAQZ165IMP, JAQZ165TIP, JAQZ165COR);
+

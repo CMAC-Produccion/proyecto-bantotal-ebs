@@ -1,0 +1,80 @@
+create table JAQN02
+(
+  jaqn02usu CHAR(10) not null,
+  jaqn02fec DATE not null,
+  jaqn02hor CHAR(8) not null,
+  jaqn02ipm CHAR(40) not null,
+  jaqn02pai NUMBER(3),
+  jaqn02tdo NUMBER(2),
+  jaqn02dni CHAR(12),
+  jaqn02ncl CHAR(30),
+  jaqn02cus NUMBER(3),
+  jaqn02are NUMBER(3),
+  jaqn02mod NUMBER(9),
+  jaqn02nu1 NUMBER(9),
+  jaqn02nu2 NUMBER(9),
+  jaqn02nu3 NUMBER(9),
+  jaqn02va1 VARCHAR2(255),
+  jaqn02va2 VARCHAR2(255),
+  jaqn02va3 VARCHAR2(255),
+  jaqn02da1 DATE,
+  jaqn02da2 DATE,
+  jaqn02da3 DATE,
+  jaqn02im1 NUMBER(17,2),
+  jaqn02im2 NUMBER(17,2),
+  jaqn02im3 NUMBER(17,2)
+)
+;
+comment on table JAQN02
+  is 'LOG de Consulta - Situacion del Cliente';
+comment on column JAQN02.jaqn02usu
+  is 'Usuario';
+comment on column JAQN02.jaqn02fec
+  is 'Fecha de Consulta';
+comment on column JAQN02.jaqn02hor
+  is 'Hora de Consulta';
+comment on column JAQN02.jaqn02ipm
+  is 'IP de la Maquina';
+comment on column JAQN02.jaqn02pai
+  is 'DOI - PAI - Cliente Consultado';
+comment on column JAQN02.jaqn02tdo
+  is 'DOI - TDO - Cliente Consultado';
+comment on column JAQN02.jaqn02dni
+  is 'DOI - NDO - Cliente Consultado';
+comment on column JAQN02.jaqn02ncl
+  is 'Nombre del Cliente Consultado';
+comment on column JAQN02.jaqn02cus
+  is 'Cargo del Usuario';
+comment on column JAQN02.jaqn02are
+  is 'Sucursal';
+comment on column JAQN02.jaqn02mod
+  is 'Opcion Utilizada (Modulo)';
+comment on column JAQN02.jaqn02nu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN02.jaqn02nu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN02.jaqn02nu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQN02.jaqn02va1
+  is 'Auxiliar Varchar 1';
+comment on column JAQN02.jaqn02va2
+  is 'Auxiliar Varchar 2';
+comment on column JAQN02.jaqn02va3
+  is 'Auxiliar Varchar 3';
+comment on column JAQN02.jaqn02da1
+  is 'Auxiliar Date 1';
+comment on column JAQN02.jaqn02da2
+  is 'Auxiliar Date 2';
+comment on column JAQN02.jaqn02da3
+  is 'Auxiliar Date 3';
+comment on column JAQN02.jaqn02im1
+  is 'Auxiliar Importe 1';
+comment on column JAQN02.jaqn02im2
+  is 'Auxiliar Importe 2';
+comment on column JAQN02.jaqn02im3
+  is 'Auxiliar Importe 3';
+create index JAQN02A3 on JAQN02 (JAQN02FEC);
+create index JAQN02A6 on JAQN02 (JAQN02DNI, JAQN02PAI, JAQN02TDO);
+alter table JAQN02
+  add primary key (JAQN02USU, JAQN02FEC, JAQN02HOR, JAQN02IPM);
+

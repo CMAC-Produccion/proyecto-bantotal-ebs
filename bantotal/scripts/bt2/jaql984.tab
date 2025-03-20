@@ -1,0 +1,32 @@
+create table JAQL984
+(
+  jaql984pais NUMBER(3) not null,
+  jaql984tdoc NUMBER(2) not null,
+  jaql984ndoc CHAR(12) not null,
+  jaql984tipe NUMBER(2) not null,
+  jaql984num  NUMBER(18) not null,
+  jaql984fiex DATE,
+  jaql984fing DATE,
+  jaql984fcex DATE,
+  jaql984peri NUMBER(4),
+  jaql984esta CHAR(1),
+  jaql984usri CHAR(20),
+  jaql984maqi CHAR(20),
+  jaql984hori CHAR(8),
+  jaql984usrm CHAR(20),
+  jaql984maqm CHAR(20),
+  jaql984fmod DATE,
+  jaql984horm CHAR(8),
+  jaql984resu NUMBER(2),
+  jaql984inst NUMBER(12),
+  jaql984est  CHAR(1),
+  jaql984obs  VARCHAR2(500),
+  jaql984feso DATE,
+  jaql984fein DATE,
+  jaql984fefi DATE,
+  jaql984coel VARCHAR2(500)
+)
+;
+alter table JAQL984
+  add primary key (JAQL984PAIS, JAQL984TDOC, JAQL984NDOC, JAQL984TIPE, JAQL984NUM);
+

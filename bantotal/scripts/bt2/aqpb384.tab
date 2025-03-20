@@ -1,0 +1,16 @@
+create table AQPB384
+(
+  aqpb384eval    NUMBER(10) not null,
+  aqpb384cod     NUMBER(4) not null,
+  aqpb384taskcod NUMBER(4) not null,
+  aqpb384mto     NUMBER(17,2),
+  aqpb384fecg    DATE,
+  aqpb384horg    CHAR(8),
+  aqpb384user    CHAR(10)
+)
+;
+create index AQPB38402 on AQPB384 (AQPB384COD);
+create unique index AQPB38403 on AQPB384 (AQPB384EVAL, AQPB384COD);
+alter table AQPB384
+  add primary key (AQPB384EVAL, AQPB384COD, AQPB384TASKCOD);
+

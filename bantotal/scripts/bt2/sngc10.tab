@@ -1,0 +1,11 @@
+create table SNGC10
+(
+  sngc10pais NUMBER(3) not null,
+  sngc10tdoc NUMBER(2) not null,
+  sngc10ndoc CHAR(12) not null,
+  sngc10sdt  LONG
+)
+;
+alter table SNGC10
+  add primary key (SNGC10PAIS, SNGC10TDOC, SNGC10NDOC);
+

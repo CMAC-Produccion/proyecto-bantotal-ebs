@@ -1,0 +1,44 @@
+create table JAQM720
+(
+  jaqm720fec DATE not null,
+  jaqm720usu CHAR(15) not null,
+  jaqm720emp NUMBER(3) not null,
+  jaqm720mod NUMBER(3) not null,
+  jaqm720suc NUMBER(3) not null,
+  jaqm720mda NUMBER(4) not null,
+  jaqm720pap NUMBER(4) not null,
+  jaqm720cta NUMBER(9) not null,
+  jaqm720ope NUMBER(9) not null,
+  jaqm720sbo NUMBER(3) not null,
+  jaqm720top NUMBER(3) not null,
+  jaqm720ins NUMBER(10) not null,
+  jaqm720pep NUMBER(3),
+  jaqm720pet NUMBER(2),
+  jaqm720pen CHAR(12),
+  jaqm720ase CHAR(10),
+  jaqm720tip NUMBER(2),
+  jaqm720fde DATE,
+  jaqm720fvo DATE,
+  jaqm720f99 DATE,
+  jaqm720imp NUMBER(17,2),
+  jaqm720tas NUMBER(10,6),
+  jaqm720est NUMBER(2),
+  jaqm720ai1 NUMBER(17,2),
+  jaqm720ai2 NUMBER(17,2),
+  jaqm720ai3 NUMBER(17,2),
+  jaqm720an1 NUMBER(9),
+  jaqm720an2 NUMBER(9),
+  jaqm720an3 NUMBER(9),
+  jaqm720ac1 VARCHAR2(255),
+  jaqm720ac2 VARCHAR2(255),
+  jaqm720ac3 VARCHAR2(255),
+  jaqm720af1 DATE,
+  jaqm720af2 DATE,
+  jaqm720af3 DATE
+)
+;
+create index JAQM7202 on JAQM720 (JAQM720EMP, JAQM720MOD, JAQM720SUC, JAQM720MDA, JAQM720PAP, JAQM720CTA, JAQM720OPE, JAQM720SBO, JAQM720TOP);
+create index JAQM7203 on JAQM720 (JAQM720INS);
+alter table JAQM720
+  add primary key (JAQM720FEC, JAQM720USU, JAQM720EMP, JAQM720MOD, JAQM720SUC, JAQM720MDA, JAQM720PAP, JAQM720CTA, JAQM720OPE, JAQM720SBO, JAQM720TOP, JAQM720INS);
+

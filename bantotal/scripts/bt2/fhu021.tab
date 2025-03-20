@@ -1,0 +1,23 @@
+create table FHU021
+(
+  pgcod      NUMBER(3) not null,
+  liuhmod    NUMBER(3) not null,
+  liuhoper   NUMBER(9) not null,
+  liuhsbop   NUMBER(3) not null,
+  liuhmodid  NUMBER(5) not null,
+  liuhcuonro NUMBER(2) not null,
+  liuiacuovt DATE,
+  liuipcuovt DATE,
+  liuiacuoim NUMBER(17,2),
+  liuipcuoim NUMBER(17,2),
+  liuiacuoin NUMBER(17,2),
+  liuipcuoin NUMBER(17,2),
+  liuiacuoob CHAR(40),
+  liuipcuoob CHAR(40),
+  liuiacuosd NUMBER(17,2),
+  liuipcuosd NUMBER(17,2)
+)
+;
+alter table FHU021
+  add primary key (PGCOD, LIUHMOD, LIUHOPER, LIUHSBOP, LIUHMODID, LIUHCUONRO);
+

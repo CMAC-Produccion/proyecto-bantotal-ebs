@@ -1,0 +1,17 @@
+create table DEPE65
+(
+  depe65apl NUMBER(3) not null,
+  depe65ban CHAR(4) not null,
+  depe65env NUMBER(9) not null,
+  depe65fco DATE,
+  depe65hsh CHAR(32),
+  depe65fen DATE,
+  depe65uin CHAR(10),
+  depe65fds CHAR(100),
+  depe65for CHAR(100),
+  depe65est CHAR(3)
+)
+;
+alter table DEPE65
+  add primary key (DEPE65APL, DEPE65BAN, DEPE65ENV);
+

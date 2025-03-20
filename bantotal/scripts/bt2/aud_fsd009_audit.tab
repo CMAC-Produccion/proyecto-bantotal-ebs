@@ -1,0 +1,29 @@
+create table AUD_FSD009_AUDIT
+(
+  aud_old_ctnro      NUMBER(9),
+  aud_new_ctnro      NUMBER(9),
+  aud_old_grincod    NUMBER(3),
+  aud_new_grincod    NUMBER(3),
+  aud_old_grnro      NUMBER(7),
+  aud_new_grnro      NUMBER(7),
+  aud_old_grporc     NUMBER(7,4),
+  aud_new_grporc     NUMBER(7,4),
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_old_tgcod      NUMBER(2),
+  aud_new_tgcod      NUMBER(2),
+  aud_fsd009_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fsd009_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsd009_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsd009_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fsd009_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fsd009_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fsd009_ubu     VARCHAR2(50) default USER not null,
+  aud_fsd009_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsd009_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsd009_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsd009_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsd009_uas     CHAR(1) default 'I' not null
+)
+;
+

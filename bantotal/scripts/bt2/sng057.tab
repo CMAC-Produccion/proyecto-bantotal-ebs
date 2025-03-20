@@ -1,0 +1,19 @@
+create table SNG057
+(
+  sng055emp NUMBER(3) not null,
+  sng057usr CHAR(10) not null,
+  sng055car NUMBER(3),
+  sng057aut CHAR(1),
+  sng057sup CHAR(10),
+  sng057ini DATE,
+  sng057fin DATE,
+  sng057jef CHAR(10),
+  sng057wkf CHAR(1),
+  sng057prc NUMBER(10),
+  sng057tsk NUMBER(10)
+)
+;
+create index SNG05702 on SNG057 (SNG055EMP, SNG055CAR);
+alter table SNG057
+  add primary key (SNG055EMP, SNG057USR);
+

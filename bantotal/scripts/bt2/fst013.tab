@@ -1,0 +1,14 @@
+create table FST013
+(
+  pais   NUMBER(3) not null,
+  panom  CHAR(30),
+  pazona NUMBER(2),
+  pacod1 CHAR(1),
+  pacod2 CHAR(1),
+  pacod3 CHAR(1)
+)
+;
+create index FST01302 on FST013 (PANOM);
+alter table FST013
+  add primary key (PAIS);
+

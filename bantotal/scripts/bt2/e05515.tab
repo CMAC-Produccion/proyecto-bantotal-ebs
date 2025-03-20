@@ -1,0 +1,41 @@
+create table E05515
+(
+  e5515usu   CHAR(10) not null,
+  e5515wrkst CHAR(10) not null,
+  e5515prg   CHAR(10) not null,
+  e5515pgcod NUMBER(3) not null,
+  e5515mod   NUMBER(3) not null,
+  e5515sucor NUMBER(3) not null,
+  e5515tran  NUMBER(3) not null,
+  e5515nrel  NUMBER(4) not null,
+  e5515fcon  DATE not null,
+  e5515ord   NUMBER(2) not null,
+  e5515subo  NUMBER(3) not null,
+  e5515suc   NUMBER(3),
+  e5515rubro NUMBER(16),
+  e5515mda   NUMBER(4),
+  e5515pap   NUMBER(4),
+  e5515cta   NUMBER(9),
+  e5515oper  NUMBER(9),
+  e5515sbop  NUMBER(3),
+  e5515tope  NUMBER(3),
+  e5515imp1  NUMBER(17,2),
+  e5515imp2  NUMBER(17,2),
+  e5515imp3  NUMBER(17,2),
+  e5515imp4  NUMBER(17,2),
+  e5515imp5  NUMBER(17,2),
+  e5515imp6  NUMBER(17,2),
+  e5515imp7  NUMBER(17,2),
+  e5515imp8  NUMBER(17,2),
+  e5515imp9  NUMBER(17,2),
+  e5515cta1  NUMBER(9),
+  e5515cta2  NUMBER(9),
+  e5515op1   NUMBER(9),
+  e5515op2   NUMBER(9),
+  e5515tex   CHAR(35)
+)
+;
+create index E0551502 on E05515 (E5515PGCOD, E5515SUC, E5515RUBRO, E5515MDA, E5515PAP, E5515CTA, E5515OPER, E5515SBOP, E5515TOPE);
+alter table E05515
+  add primary key (E5515USU, E5515WRKST, E5515PRG, E5515PGCOD, E5515MOD, E5515SUCOR, E5515TRAN, E5515NREL, E5515FCON, E5515ORD, E5515SUBO);
+

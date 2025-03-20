@@ -1,0 +1,13 @@
+create table FPAE15
+(
+  pae15cod NUMBER(3) not null,
+  pae15des CHAR(35),
+  pae15ch1 CHAR(40),
+  pae15nu1 NUMBER(17,2),
+  pae15da1 DATE
+)
+;
+create index FPAE1502 on FPAE15 (PAE15DES);
+alter table FPAE15
+  add primary key (PAE15COD);
+

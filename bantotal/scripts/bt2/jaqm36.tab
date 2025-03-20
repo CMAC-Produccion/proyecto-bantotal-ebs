@@ -1,0 +1,28 @@
+create table JAQM36
+(
+  jaqm36user CHAR(10) not null,
+  jaqm36tipo NUMBER(1) not null,
+  jaqm36corr NUMBER(10) not null,
+  jaqm36ubig CHAR(6),
+  jaqm36pais NUMBER(3),
+  jaqm36tdoc NUMBER(2),
+  jaqm36ndoc CHAR(12),
+  jaqm36int1 NUMBER(9),
+  jaqm36int2 NUMBER(9),
+  jaqm36int3 NUMBER(9),
+  jaqm36imp1 NUMBER(17,2),
+  jaqm36imp2 NUMBER(17,2),
+  jaqm36imp3 NUMBER(17,2),
+  jaqm36fec1 DATE,
+  jaqm36fec2 DATE,
+  jaqm36fec3 DATE,
+  jaqm36chr1 CHAR(30),
+  jaqm36chr2 CHAR(30),
+  jaqm36chr3 CHAR(30)
+)
+;
+create index JAQM3602 on JAQM36 (JAQM36PAIS, JAQM36TDOC, JAQM36NDOC, JAQM36INT3);
+create index JAQM3603 on JAQM36 (JAQM36UBIG, JAQM36PAIS, JAQM36TDOC, JAQM36NDOC, JAQM36INT3);
+alter table JAQM36
+  add primary key (JAQM36USER, JAQM36TIPO, JAQM36CORR);
+

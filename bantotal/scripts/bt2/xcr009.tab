@@ -1,0 +1,12 @@
+create table XCR009
+(
+  xcrcodpol  NUMBER(3) not null,
+  xcrcorrite NUMBER(3) not null,
+  xcrcodelem CHAR(2) not null,
+  xcrcodfilt NUMBER(1) not null,
+  xcrplus    CHAR(1)
+)
+;
+alter table XCR009
+  add primary key (XCRCODPOL, XCRCORRITE, XCRCODELEM, XCRCODFILT);
+

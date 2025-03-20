@@ -1,0 +1,14 @@
+create table JFCCB1
+(
+  jfccboemp  NUMBER(3) not null,
+  jfccbobol  NUMBER(9) not null,
+  jfccb1corr NUMBER(3) not null,
+  jfccboimp  NUMBER(17,2),
+  jfccbomda  CHAR(3),
+  jfccbocpt  CHAR(30),
+  jfccboobs  CHAR(65)
+)
+;
+alter table JFCCB1
+  add primary key (JFCCBOEMP, JFCCBOBOL, JFCCB1CORR);
+

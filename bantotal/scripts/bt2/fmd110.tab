@@ -1,0 +1,30 @@
+create table FMD110
+(
+  pgcod     NUMBER(3) not null,
+  semmod    NUMBER(3) not null,
+  semoper   NUMBER(9) not null,
+  semintern CHAR(1),
+  semsuc    NUMBER(3),
+  semmda    NUMBER(4),
+  semmocsw1 CHAR(3),
+  semtipo   NUMBER(3),
+  semsaldo  NUMBER(17,2),
+  semsalant NUMBER(17,2),
+  sempap    NUMBER(4),
+  semcta    NUMBER(9),
+  semfing   DATE,
+  semfvto   DATE,
+  semfval   DATE,
+  semuser   CHAR(10),
+  semws     CHAR(10),
+  semaoimp  NUMBER(17,2),
+  semmbcod  NUMBER(2)
+)
+;
+create index FMD11002 on FMD110 (PGCOD, SEMCTA);
+create index FMD11004 on FMD110 (SEMMDA);
+create index FMD11006 on FMD110 (SEMMOD);
+create index FMD11007 on FMD110 (SEMMBCOD);
+alter table FMD110
+  add primary key (PGCOD, SEMMOD, SEMOPER);
+

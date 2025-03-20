@@ -1,0 +1,12 @@
+create table Z99906
+(
+  z99904cod NUMBER(4) not null,
+  z99905cod CHAR(8) not null,
+  z99906cod CHAR(3) not null,
+  z99906dsc CHAR(30),
+  z99906len NUMBER(4)
+)
+;
+alter table Z99906
+  add primary key (Z99904COD, Z99905COD, Z99906COD);
+

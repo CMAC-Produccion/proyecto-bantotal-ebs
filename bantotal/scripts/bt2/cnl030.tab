@@ -1,0 +1,41 @@
+create table CNL030
+(
+  cnl000cod NUMBER(4) not null,
+  cnl030fch DATE not null,
+  cnl030hor CHAR(8) not null,
+  cnl030req NUMBER(10) not null,
+  cnl029cod CHAR(5),
+  cnl030nfs DATE,
+  cnl030nhs CHAR(8),
+  cnl030nrs NUMBER(10),
+  cnl030nop NUMBER(5),
+  cnl030nvt NUMBER(3),
+  cnl030wpr NUMBER(4),
+  cnl030win NUMBER(10),
+  cnl030wit NUMBER(10),
+  cnl030wus CHAR(30),
+  cnl001adm CHAR(30),
+  cnl001usu CHAR(30),
+  cnl030ipc CHAR(30),
+  cnl030ips CHAR(30),
+  cnl030ids CHAR(100),
+  cnl030fir CHAR(100),
+  cnl030pad NUMBER(3),
+  cnl030tad NUMBER(2),
+  cnl030dad CHAR(64),
+  cnl032cod NUMBER(3),
+  cnl030wfe CHAR(5),
+  cnl030ent CHAR(60),
+  cnl030ucf CHAR(60),
+  cnl030fcf DATE,
+  cnl030hcf CHAR(8),
+  cnl030wcf CHAR(30),
+  cnl030dsc CHAR(100)
+)
+;
+create index CNL03002 on CNL030 (CNL029COD);
+create index CNL03003 on CNL030 (CNL000COD, CNL001ADM, CNL001USU);
+create index CNL03004 on CNL030 (CNL000COD, CNL030WPR, CNL030WIN, CNL030WIT);
+alter table CNL030
+  add primary key (CNL000COD, CNL030FCH, CNL030HOR, CNL030REQ);
+

@@ -1,0 +1,46 @@
+create table FPP070
+(
+  pp070emp  NUMBER(3) not null,
+  pp070codi NUMBER(3) not null,
+  pp070fec  DATE not null,
+  pp070lin  NUMBER(9) not null,
+  pp070tipo NUMBER(2) not null,
+  pp070mod  NUMBER(3),
+  pp070suc  NUMBER(3),
+  pp070mda  NUMBER(4),
+  pp070pap  NUMBER(4),
+  pp070cta  NUMBER(9),
+  pp070oper NUMBER(9),
+  pp070sbop NUMBER(3),
+  pp070tope NUMBER(3),
+  pp070fval DATE,
+  pp070imp  NUMBER(17,2),
+  pp070imp2 NUMBER(17,2),
+  pp070imp3 NUMBER(17,2),
+  pp070fvto DATE,
+  pp070pzo  NUMBER(5),
+  pp070cntc NUMBER(5),
+  pp070per  NUMBER(5),
+  pp070tasa NUMBER(10,6),
+  pp070ttas NUMBER(1),
+  pp070ivac NUMBER(17,2),
+  pp070vcuo NUMBER(17,2),
+  pp070fpag DATE,
+  pp070aux1 NUMBER(17,2),
+  pp070aux2 NUMBER(17,2),
+  pp070aux3 NUMBER(16),
+  pp070aux4 DATE,
+  pp070aux5 CHAR(1),
+  pp070aux6 CHAR(1),
+  pp070aux7 CHAR(100),
+  pp070err  NUMBER(5),
+  pp070stat NUMBER(3),
+  pp70seg1  NUMBER(9),
+  pp070seg2 NUMBER(9),
+  pp070com1 NUMBER(3),
+  pp070com2 NUMBER(3)
+)
+;
+alter table FPP070
+  add primary key (PP070EMP, PP070CODI, PP070FEC, PP070LIN, PP070TIPO);
+

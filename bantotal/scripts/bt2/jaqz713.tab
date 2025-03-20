@@ -1,0 +1,32 @@
+create table JAQZ713
+(
+  jaqz713cod  NUMBER(18) not null,
+  jaqz713pais NUMBER(3) not null,
+  jaqz713tdoc NUMBER(2) not null,
+  jaqz713ndoc CHAR(12) not null,
+  jaqz713eeff DATE,
+  jaqz713usur VARCHAR2(30),
+  jaqz713fsis DATE,
+  jaqz713hora TIMESTAMP(6)
+)
+;
+comment on column JAQZ713.jaqz713cod
+  is 'codigo de la jaqz713';
+comment on column JAQZ713.jaqz713pais
+  is 'codigo de pais';
+comment on column JAQZ713.jaqz713tdoc
+  is 'tipo de documento';
+comment on column JAQZ713.jaqz713ndoc
+  is 'numero de documento';
+comment on column JAQZ713.jaqz713eeff
+  is 'fecah de estado financiero';
+comment on column JAQZ713.jaqz713usur
+  is 'usuario';
+comment on column JAQZ713.jaqz713fsis
+  is 'fecha del registro en el sistema';
+comment on column JAQZ713.jaqz713hora
+  is 'hora registro';
+create index JAQZ713IDX_001 on JAQZ713 (JAQZ713PAIS, JAQZ713TDOC, JAQZ713NDOC);
+alter table JAQZ713
+  add primary key (JAQZ713COD, JAQZ713PAIS, JAQZ713TDOC, JAQZ713NDOC);
+

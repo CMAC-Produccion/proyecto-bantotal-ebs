@@ -1,0 +1,18 @@
+create table AQPC287
+(
+  aqpc287actcod4 VARCHAR2(5) not null,
+  aqpc287actcod3 NUMBER(12) not null,
+  aqpc287actnom3 VARCHAR2(250)
+)
+;
+comment on table AQPC287
+  is 'Actividad Economica - Division';
+comment on column AQPC287.aqpc287actcod4
+  is 'Actividad Codigo 4 - Seccion';
+comment on column AQPC287.aqpc287actcod3
+  is 'Actividad Codigo 3 - Division';
+comment on column AQPC287.aqpc287actnom3
+  is 'Actividad Nombre 3 - Division';
+alter table AQPC287
+  add primary key (AQPC287ACTCOD4, AQPC287ACTCOD3);
+

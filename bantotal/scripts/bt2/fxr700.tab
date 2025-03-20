@@ -1,0 +1,16 @@
+create table FXR700
+(
+  rulnum    NUMBER(3) not null,
+  rulorden  NUMBER(3) not null,
+  rulsino   CHAR(1),
+  swtcpo    NUMBER(2),
+  swtcpofmt CHAR(1),
+  rulopel   CHAR(4),
+  rulpgm    CHAR(10),
+  rultfmt   CHAR(1)
+)
+;
+create index FXR70003 on FXR700 (SWTCPO, SWTCPOFMT);
+alter table FXR700
+  add primary key (RULNUM, RULORDEN);
+

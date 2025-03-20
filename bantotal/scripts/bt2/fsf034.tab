@@ -1,0 +1,17 @@
+create table FSF034
+(
+  lfcod      NUMBER(3) not null,
+  lfnivcod   NUMBER(2) not null,
+  lffinro    NUMBER(3) not null,
+  lfcomcod   NUMBER(2) not null,
+  lffecini   NUMBER(3) not null,
+  lfvaldesde NUMBER(17,2) not null,
+  lfcomtasa  NUMBER(10,6),
+  lfimpcomis NUMBER(17,2)
+)
+;
+create index FSF03403 on FSF034 (LFCOMCOD);
+create index FSF03404 on FSF034 (LFNIVCOD);
+alter table FSF034
+  add primary key (LFCOD, LFNIVCOD, LFFINRO, LFCOMCOD, LFFECINI, LFVALDESDE);
+

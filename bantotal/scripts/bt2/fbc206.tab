@@ -1,0 +1,21 @@
+create table FBC206
+(
+  bc205emp  NUMBER(3) not null,
+  bc205cod  NUMBER(5) not null,
+  bc206id1  NUMBER(15) not null,
+  bc206id2  NUMBER(15) not null,
+  bc206id3  NUMBER(15) not null,
+  bc206id4  CHAR(15) not null,
+  bc206nro1 NUMBER(15),
+  bc206nro2 NUMBER(15),
+  bc206nro3 NUMBER(15),
+  bc206chr1 CHAR(40),
+  bc206chr2 CHAR(40),
+  bc206chr3 CHAR(40)
+)
+;
+create index FBC20603 on FBC206 (BC205EMP, BC205COD, BC206ID4, BC206ID1, BC206ID2, BC206ID3);
+create index FBC20604 on FBC206 (BC206NRO1, BC205COD);
+alter table FBC206
+  add primary key (BC205EMP, BC205COD, BC206ID1, BC206ID2, BC206ID3, BC206ID4);
+

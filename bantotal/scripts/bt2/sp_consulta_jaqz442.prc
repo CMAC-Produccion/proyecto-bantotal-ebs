@@ -1,0 +1,19 @@
+CREATE OR REPLACE PROCEDURE SP_CONSULTA_JAQZ442(ln_pp173cod IN NUMBER,
+												ln_pp174cod IN NUMBER,
+												ln_qz442aux7 OUT NUMBER)
+IS
+BEGIN
+	ln_qz442aux7 := 0;
+	FOR l_codre IN (
+		SELECT QZ442AUX7
+		FROM JAQZ442 a
+		WHERE a.PP173COD = ln_pp173cod
+		AND a.PP174COD = ln_pp174cod
+		ORDER BY QZ440CODRE 
+	)
+	LOOP
+		ln_qz442aux7 := l_codre.QZ442AUX7;
+	END LOOP;
+END SP_CONSULTA_JAQZ442;
+/
+

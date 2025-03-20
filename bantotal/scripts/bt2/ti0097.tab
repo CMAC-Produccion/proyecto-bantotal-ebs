@@ -1,0 +1,10 @@
+create table TI0097
+(
+  ticicod NUMBER(4) not null,
+  ticicbc NUMBER(3) not null
+)
+;
+create index TI009703 on TI0097 (TICICBC);
+alter table TI0097
+  add primary key (TICICOD, TICICBC);
+

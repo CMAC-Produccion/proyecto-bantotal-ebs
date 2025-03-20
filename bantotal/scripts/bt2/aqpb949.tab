@@ -1,0 +1,119 @@
+create table AQPB949
+(
+  aqpb949fecc   DATE,
+  aqpb949horc   VARCHAR2(15),
+  aqpb949usrc   VARCHAR2(10),
+  aqpb949feci   DATE,
+  aqpb949fecf   DATE,
+  aqpb949codopi NUMBER(10),
+  aqpb949inst   NUMBER(10),
+  aqpb949bndj   VARCHAR2(50),
+  aqpb949usr    VARCHAR2(10),
+  aqpb949est    VARCHAR2(2),
+  aqpb949estd   VARCHAR2(20),
+  aqpb949fece   DATE,
+  aqpb949hore   VARCHAR2(8),
+  aqpb949fecs   DATE,
+  aqpb949hors   VARCHAR2(8),
+  aqpb949tsol   NUMBER(3),
+  aqpb949tsld   VARCHAR2(70),
+  aqpb949cta    NUMBER(9),
+  aqpb949tdoc   NUMBER(5),
+  aqpb949ndoc   VARCHAR2(12),
+  aqpb949clie   VARCHAR2(50),
+  aqpb949mnto   NUMBER(17,2),
+  aqpb949resp   NUMBER(17,2),
+  aqpb949anl    VARCHAR2(10),
+  aqpb949anlr   VARCHAR2(10),
+  aqpb949age    VARCHAR2(50),
+  aqpb949zon    VARCHAR2(50),
+  aqpb949reg    VARCHAR2(50),
+  aqpb949mod    NUMBER(5),
+  aqpb949modd   VARCHAR2(30),
+  aqpb949tope   NUMBER(5),
+  aqpb949topd   VARCHAR2(30),
+  aqpb949flj    VARCHAR2(30),
+  aqpb949rcons  VARCHAR2(200),
+  aqpb949obs    VARCHAR2(1500),
+  aqpb949anio   NUMBER(4),
+  aqpb949oper   NUMBER(9)
+)
+;
+comment on table AQPB949
+  is 'Tabla Log de Reporte de Opinion de Riesgos';
+comment on column AQPB949.aqpb949fecc
+  is 'Fecha de Consulta';
+comment on column AQPB949.aqpb949horc
+  is 'Hora de Consulta';
+comment on column AQPB949.aqpb949usrc
+  is 'Usuario de Consulta';
+comment on column AQPB949.aqpb949feci
+  is 'Fecha de Inicio de Consulta';
+comment on column AQPB949.aqpb949fecf
+  is 'Fecha de Fin de Consulta';
+comment on column AQPB949.aqpb949inst
+  is 'Solicitud';
+comment on column AQPB949.aqpb949bndj
+  is 'Bandeja';
+comment on column AQPB949.aqpb949usr
+  is 'Usuario';
+comment on column AQPB949.aqpb949est
+  is 'Estado';
+comment on column AQPB949.aqpb949estd
+  is 'Estado Descripcion';
+comment on column AQPB949.aqpb949fece
+  is 'Fecha de Entrada';
+comment on column AQPB949.aqpb949hore
+  is 'Hora de Entrada';
+comment on column AQPB949.aqpb949fecs
+  is 'Fecha de Salida';
+comment on column AQPB949.aqpb949hors
+  is 'Hora de Salida';
+comment on column AQPB949.aqpb949tsol
+  is 'Tipo de Solicitud';
+comment on column AQPB949.aqpb949tsld
+  is 'Tipo de Solicitud Descripcion';
+comment on column AQPB949.aqpb949cta
+  is 'Cuenta';
+comment on column AQPB949.aqpb949tdoc
+  is 'Tipo de Documento';
+comment on column AQPB949.aqpb949ndoc
+  is 'Numero de Documento';
+comment on column AQPB949.aqpb949clie
+  is 'Cliente';
+comment on column AQPB949.aqpb949mnto
+  is 'Monto Consolidado';
+comment on column AQPB949.aqpb949resp
+  is 'Responsabilidad Total';
+comment on column AQPB949.aqpb949anl
+  is 'Analista';
+comment on column AQPB949.aqpb949anlr
+  is 'Analista de Riesgos';
+comment on column AQPB949.aqpb949age
+  is 'Agencia';
+comment on column AQPB949.aqpb949zon
+  is 'Zona';
+comment on column AQPB949.aqpb949reg
+  is 'Region';
+comment on column AQPB949.aqpb949mod
+  is 'Modulo';
+comment on column AQPB949.aqpb949modd
+  is 'Modulo Descripcion';
+comment on column AQPB949.aqpb949tope
+  is 'Tipo de Operacion';
+comment on column AQPB949.aqpb949topd
+  is 'Tipo de Operacion Descripcion';
+comment on column AQPB949.aqpb949flj
+  is 'Tipo de Flujo';
+comment on column AQPB949.aqpb949rcons
+  is 'Reconsideracion';
+comment on column AQPB949.aqpb949obs
+  is 'Observaciones';
+comment on column AQPB949.aqpb949anio
+  is 'Anio';
+comment on column AQPB949.aqpb949oper
+  is 'Operacion';
+create index AQPB949A2 on AQPB949 (AQPB949FECC, AQPB949USRC);
+create index AQPB949A3 on AQPB949 (AQPB949FECE, AQPB949USRC, AQPB949INST);
+create index AQPB949A4 on AQPB949 (AQPB949FECE, AQPB949USRC, AQPB949CODOPI);
+

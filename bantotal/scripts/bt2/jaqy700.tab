@@ -1,0 +1,46 @@
+create table JAQY700
+(
+  jaqy700cod  NUMBER(17) not null,
+  jaqy700usu  VARCHAR2(10) not null,
+  jaqy700regc CHAR(40),
+  jaqy700agec CHAR(30),
+  jaqy700reg  CHAR(40),
+  jaqy700age  CHAR(30),
+  jaqy700mda  CHAR(20),
+  jaqy700cta  CHAR(40),
+  jaqy700pro  CHAR(30),
+  jaqy700eje  CHAR(10),
+  jaqy700tcli CHAR(1),
+  jaqy700pais NUMBER(4),
+  jaqy700tdoc NUMBER(4),
+  jaqy700ndoc CHAR(12),
+  jaqy700ncli CHAR(60),
+  jaqy700cont NUMBER(4),
+  jaqy700mod  NUMBER(4),
+  jaqy700mda1 NUMBER(4),
+  jaqy700pap1 NUMBER(4),
+  jaqy700cta1 NUMBER(9),
+  jaqy700suc1 NUMBER(4),
+  jaqy700ope1 NUMBER(9),
+  jaqy700sub1 NUMBER(4),
+  jaqy700top1 NUMBER(4),
+  jaqy700fech DATE,
+  jaqy700mto1 NUMBER(16,2),
+  jaqy700mto2 NUMBER(16,2),
+  jaqy700mto3 NUMBER(16,2),
+  jaqy700mto4 NUMBER(16,2),
+  jaqy700tc   NUMBER(5,3),
+  jaqy700aux1 NUMBER(4),
+  jaqy700aux2 NUMBER(9),
+  jaqy700aux3 NUMBER(17),
+  jaqy700aux4 NUMBER(16,2),
+  jaqy700aux5 CHAR(20),
+  jaqy700aux6 CHAR(40),
+  jaqy700aux7 CHAR(100),
+  jaqy700aux8 CHAR(200),
+  jaqy700aux9 DATE
+)
+;
+alter table JAQY700
+  add primary key (JAQY700COD, JAQY700USU);
+

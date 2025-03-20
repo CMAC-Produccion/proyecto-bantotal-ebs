@@ -1,0 +1,18 @@
+create table JAQM700
+(
+  jaqm700cac NUMBER(9) not null,
+  jaqm700fac DATE not null,
+  jaqm700suc NUMBER(3) not null,
+  jaqm700asc CHAR(10),
+  jaqm700fec DATE,
+  jaqm700hrc CHAR(8),
+  jaqm700usc CHAR(10),
+  jaqm700fem DATE,
+  jaqm700hrm CHAR(8),
+  jaqm700usm CHAR(10)
+)
+;
+create index JAQM7002 on JAQM700 (JAQM700FAC);
+alter table JAQM700
+  add primary key (JAQM700CAC, JAQM700FAC, JAQM700SUC);
+

@@ -1,0 +1,16 @@
+create table JSBC03
+(
+  jsbc01pg  NUMBER(3) not null,
+  jsbc01ope NUMBER(9) not null,
+  jsbc03cor NUMBER(2) not null,
+  jsbc03fec DATE,
+  jsbc03hor DATE,
+  jsbc03usi CHAR(10),
+  jsbc03usa CHAR(10),
+  jsbc03nes NUMBER(2),
+  jsbc03suc NUMBER(3)
+)
+;
+alter table JSBC03
+  add primary key (JSBC01PG, JSBC01OPE, JSBC03COR);
+

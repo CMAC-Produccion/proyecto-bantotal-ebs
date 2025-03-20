@@ -1,0 +1,23 @@
+create table AUD_FSM002_AUDIT
+(
+  aud_old_prgcmpnom  CHAR(8),
+  aud_new_prgcmpnom  CHAR(8),
+  aud_old_prgcmppos  NUMBER(5),
+  aud_new_prgcmppos  NUMBER(5),
+  aud_old_prgnom     CHAR(8),
+  aud_new_prgnom     CHAR(8),
+  aud_fsm002_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fsm002_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsm002_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsm002_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fsm002_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fsm002_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fsm002_ubu     VARCHAR2(50) default USER not null,
+  aud_fsm002_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsm002_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsm002_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsm002_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsm002_uas     CHAR(1) default 'I' not null
+)
+;
+

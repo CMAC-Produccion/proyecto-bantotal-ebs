@@ -1,0 +1,40 @@
+create table JAQN32
+(
+  jaqn32cod NUMBER(3) not null,
+  jaqn32mod NUMBER(3) not null,
+  jaqn32tcu NUMBER(3) not null,
+  jaqn32top NUMBER(3) not null,
+  jaqn32mon NUMBER(4) not null,
+  jaqn32pap NUMBER(4) not null,
+  jaqn32fvi DATE not null,
+  jaqn32mot NUMBER(17,2) not null,
+  jaqn32fin NUMBER(8),
+  jaqn32ccv CHAR(1)
+)
+;
+comment on table JAQN32
+  is 'Cabecera factor pre-cancelación';
+comment on column JAQN32.jaqn32cod
+  is 'Codigo empresa';
+comment on column JAQN32.jaqn32mod
+  is 'Modulo';
+comment on column JAQN32.jaqn32tcu
+  is 'Tipo curva';
+comment on column JAQN32.jaqn32top
+  is 'tipo operación';
+comment on column JAQN32.jaqn32mon
+  is 'Moneda';
+comment on column JAQN32.jaqn32pap
+  is 'Papel';
+comment on column JAQN32.jaqn32fvi
+  is 'Vigencia';
+comment on column JAQN32.jaqn32mot
+  is 'Monto';
+comment on column JAQN32.jaqn32fin
+  is 'Fecha Inv';
+comment on column JAQN32.jaqn32ccv
+  is 'Estado';
+create index JAQN322 on JAQN32 (JAQN32COD, JAQN32MOD, JAQN32TCU, JAQN32TOP, JAQN32MON, JAQN32PAP, JAQN32FIN, JAQN32MOT);
+alter table JAQN32
+  add primary key (JAQN32COD, JAQN32MOD, JAQN32TCU, JAQN32TOP, JAQN32MON, JAQN32PAP, JAQN32FVI, JAQN32MOT);
+

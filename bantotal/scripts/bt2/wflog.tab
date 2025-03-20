@@ -1,0 +1,11 @@
+create table WFLOG
+(
+  wflogcod  NUMBER(10) not null,
+  wflogtype CHAR(1),
+  wflogusr  CHAR(30),
+  wflogtime DATE
+)
+;
+alter table WFLOG
+  add primary key (WFLOGCOD);
+

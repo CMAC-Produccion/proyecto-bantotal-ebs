@@ -1,0 +1,17 @@
+create table CSML007
+(
+  csml006cor NUMBER(10) not null,
+  csml006lin NUMBER(9) not null,
+  csml007cam NUMBER(3) not null,
+  csml007con NUMBER(2) not null,
+  csml007vnu CHAR(255),
+  csml007van CHAR(255),
+  csml007ubi CHAR(1),
+  csml007usu CHAR(10),
+  csml007fec DATE,
+  csml007hor CHAR(8)
+)
+;
+alter table CSML007
+  add primary key (CSML006COR, CSML006LIN, CSML007CAM, CSML007CON);
+

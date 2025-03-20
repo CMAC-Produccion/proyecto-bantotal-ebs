@@ -1,0 +1,110 @@
+create table AQPB175
+(
+  aqpb175cor   NUMBER(10) not null,
+  aqpb175fecha DATE not null,
+  aqpb175hora  VARCHAR2(10) not null,
+  aqpb175pais  NUMBER(3) not null,
+  aqpb175tdoc  NUMBER(3) not null,
+  aqpb175ndoc  VARCHAR2(12) not null,
+  aqpb175empr  NUMBER(10) not null,
+  aqpb175modr  NUMBER(5) not null,
+  aqpb175sucr  NUMBER(5) not null,
+  aqpb175mdar  NUMBER(3) not null,
+  aqpb175papr  NUMBER(3) not null,
+  aqpb175ctar  NUMBER(10) not null,
+  aqpb175oper  NUMBER(10) not null,
+  aqpb175subpr NUMBER(3) not null,
+  aqpb175toper NUMBER(4) not null,
+  aqpb175grupo NUMBER(5) not null,
+  aqpb175est   VARCHAR2(5) not null,
+  aqpb175empt  NUMBER(3),
+  aqpb175modt  NUMBER(4),
+  aqpb175suct  NUMBER(4),
+  aqpb175tran  NUMBER(4),
+  aqpb175relt  NUMBER(4),
+  aqpb175inst  NUMBER(10),
+  aqpb175pgcod NUMBER(3),
+  aqpb175mod   NUMBER(3),
+  aqpb175suc   NUMBER(3),
+  aqpb175mda   NUMBER(3),
+  aqpb175pap   NUMBER(3),
+  aqpb175cta   NUMBER(10),
+  aqpb175ope   NUMBER(10),
+  aqpb175subp  NUMBER(3),
+  aqpb175tope  NUMBER(3),
+  aqpb175fdes  DATE
+)
+;
+comment on table AQPB175
+  is 'Tabla Listado de Refinanciados';
+comment on column AQPB175.aqpb175cor
+  is 'Correlativo';
+comment on column AQPB175.aqpb175fecha
+  is 'Fecha registro';
+comment on column AQPB175.aqpb175hora
+  is 'Hora registro';
+comment on column AQPB175.aqpb175pais
+  is 'Pais de Documento';
+comment on column AQPB175.aqpb175tdoc
+  is 'Tipo de Documento';
+comment on column AQPB175.aqpb175ndoc
+  is 'Nro de Documento';
+comment on column AQPB175.aqpb175empr
+  is 'Empresa de Refinanciado';
+comment on column AQPB175.aqpb175modr
+  is 'Modulo de Refinanciado';
+comment on column AQPB175.aqpb175sucr
+  is 'Sucursal de Refinanciado';
+comment on column AQPB175.aqpb175mdar
+  is 'Moneda de Refinanciado';
+comment on column AQPB175.aqpb175papr
+  is 'Papel de Refinanciado';
+comment on column AQPB175.aqpb175ctar
+  is 'Cuenta de Refinanciado';
+comment on column AQPB175.aqpb175oper
+  is 'Operacion de Refinanciado';
+comment on column AQPB175.aqpb175subpr
+  is 'SubOperacion de Refinanciado';
+comment on column AQPB175.aqpb175toper
+  is 'Tipo de Operacion de Refinanciado';
+comment on column AQPB175.aqpb175grupo
+  is 'Grupo';
+comment on column AQPB175.aqpb175est
+  is 'Estado S Vigente, N no Vigente, D desembolsado';
+comment on column AQPB175.aqpb175empt
+  is 'Emp de la tx';
+comment on column AQPB175.aqpb175modt
+  is 'Modulo de la tx';
+comment on column AQPB175.aqpb175suct
+  is 'Sucursal de la tx';
+comment on column AQPB175.aqpb175tran
+  is 'transaccion';
+comment on column AQPB175.aqpb175relt
+  is 'Nro de Relacion';
+comment on column AQPB175.aqpb175inst
+  is 'Instancia del nuevo credito';
+comment on column AQPB175.aqpb175pgcod
+  is 'Pgcod del nuevo credito';
+comment on column AQPB175.aqpb175mod
+  is 'Modulo del nuevo credito';
+comment on column AQPB175.aqpb175suc
+  is 'Sucursal del nuevo credito';
+comment on column AQPB175.aqpb175mda
+  is 'Moneda del nuevo credito';
+comment on column AQPB175.aqpb175pap
+  is 'Papel del nuevo credito';
+comment on column AQPB175.aqpb175cta
+  is 'Cuenta del nuevo credito';
+comment on column AQPB175.aqpb175ope
+  is 'Operacion del nuevo credito';
+comment on column AQPB175.aqpb175subp
+  is 'Suboperacion del nuevo credito';
+comment on column AQPB175.aqpb175tope
+  is 'Tipo de operacion del nuevo credito';
+comment on column AQPB175.aqpb175fdes
+  is 'Fecha de Desembolso';
+create index AQPB175A2 on AQPB175 (AQPB175PAIS, AQPB175TDOC, AQPB175NDOC);
+create index AQPB175A3 on AQPB175 (AQPB175EMPR, AQPB175MODR, AQPB175SUCR, AQPB175MDAR, AQPB175PAPR, AQPB175CTAR, AQPB175OPER, AQPB175SUBPR, AQPB175TOPER);
+alter table AQPB175
+  add primary key (AQPB175COR, AQPB175FECHA, AQPB175HORA, AQPB175PAIS, AQPB175TDOC, AQPB175NDOC, AQPB175EMPR, AQPB175MODR, AQPB175SUCR, AQPB175MDAR, AQPB175PAPR, AQPB175CTAR, AQPB175OPER, AQPB175SUBPR, AQPB175TOPER, AQPB175GRUPO, AQPB175EST);
+

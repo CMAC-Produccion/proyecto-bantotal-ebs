@@ -1,0 +1,19 @@
+create table SNG528
+(
+  sng501bien NUMBER(10) not null,
+  sng528cor  NUMBER(3) not null,
+  sng528tpoo NUMBER(4),
+  sng528mda  NUMBER(4),
+  sng528sbop NUMBER(3),
+  sng528oper NUMBER(9),
+  sng528cta  NUMBER(9),
+  sng528pap  NUMBER(4),
+  sng528suc  NUMBER(3),
+  sng528mod  NUMBER(3),
+  sng528pgc  NUMBER(3),
+  sng528val  NUMBER(17,2)
+)
+;
+alter table SNG528
+  add primary key (SNG501BIEN, SNG528COR);
+

@@ -1,0 +1,11 @@
+create table FBC502
+(
+  bc502emp NUMBER(3) not null,
+  bc502fch DATE not null,
+  bc502cpo CHAR(8) not null,
+  bc502prm NUMBER(17,2)
+)
+;
+alter table FBC502
+  add primary key (BC502EMP, BC502FCH, BC502CPO);
+

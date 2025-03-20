@@ -1,0 +1,45 @@
+create table FSD704
+(
+  dcpjpais   NUMBER(3) not null,
+  dcpjtdoc   NUMBER(2) not null,
+  dcpjndoc   CHAR(12) not null,
+  dcpjtotact NUMBER(12),
+  dcpjactcor NUMBER(10),
+  dcpjbcbcor NUMBER(10),
+  dcpjtcrvc  NUMBER(10),
+  dcpjtcrvnc NUMBER(10),
+  dcpjtotpas NUMBER(12),
+  dcpjpascor NUMBER(10),
+  dcpjcppc   NUMBER(10),
+  dcpjcppnc  NUMBER(10),
+  dcpjresna  NUMBER(10),
+  dcpjpatrne NUMBER(12),
+  dcpjotrap  NUMBER(12),
+  dcpjganord NUMBER(10),
+  dcpjresfin NUMBER(10),
+  dcpjimpgan NUMBER(10),
+  dcpjdsrsac NUMBER(10),
+  dcpjfculta NUMBER(8),
+  dcpjfciub  NUMBER(8),
+  dcpjfccub  NUMBER(8),
+  dcpjvtntbn NUMBER(10),
+  dcpjbcncor NUMBER(10),
+  dcpjbccor  NUMBER(10),
+  dcpjcanper NUMBER(6),
+  dcpjpgrec  NUMBER(1),
+  dcpjvinc   NUMBER(1),
+  dcpjobsoc1 CHAR(63),
+  dcpjobsoc2 CHAR(64),
+  dcpjnrosec NUMBER(2),
+  dcpjresbru NUMBER(10),
+  dcpjresext NUMBER(10),
+  dcpjresnet NUMBER(10),
+  dcpjimrete NUMBER(10),
+  dcpjcppnin NUMBER(10),
+  dcpjtipbal NUMBER(1),
+  dcpjtendex NUMBER(1)
+)
+;
+alter table FSD704
+  add primary key (DCPJPAIS, DCPJTDOC, DCPJNDOC);
+

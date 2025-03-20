@@ -1,0 +1,56 @@
+create table JAQL092
+(
+  jaql92chco NUMBER(3) not null,
+  jaql92chsu NUMBER(3) not null,
+  jaql92chmo NUMBER(3) not null,
+  jaql92chmd NUMBER(4) not null,
+  jaql92chpa NUMBER(4) not null,
+  jaql92chct NUMBER(9) not null,
+  jaql92chop NUMBER(9) not null,
+  jaql92chsb NUMBER(3) not null,
+  jaql92chto NUMBER(3) not null,
+  jaql92cheq NUMBER(9) not null,
+  jaql92impo NUMBER(17,2),
+  jaql92pgco NUMBER(3),
+  jaql92scsu NUMBER(3),
+  jaql92scmo NUMBER(3),
+  jaql92scmd NUMBER(4),
+  jaql92scpa NUMBER(4),
+  jaql92scct NUMBER(9),
+  jaql92scop NUMBER(9),
+  jaql92scsb NUMBER(3),
+  jaql92scto NUMBER(3),
+  jaql92impc NUMBER(17,2),
+  jaql92fepr DATE,
+  jaql92hopr CHAR(8),
+  jaql92uspr CHAR(10),
+  jaql92esre CHAR(1),
+  jaql92esch CHAR(1),
+  jaql92itcd NUMBER(3),
+  jaql92itsu NUMBER(3),
+  jaql92itmo NUMBER(3),
+  jaql92ittr NUMBER(3),
+  jaql92itre NUMBER(4),
+  jaql92itor NUMBER(2),
+  jaql92itsb NUMBER(3),
+  jaql92itfc DATE,
+  jaql92au01 CHAR(50),
+  jaql92au02 CHAR(50),
+  jaql92au03 CHAR(50),
+  jaql92au04 NUMBER(9),
+  jaql92au05 NUMBER(9),
+  jaql92au06 NUMBER(9),
+  jaql92au07 NUMBER(17,2),
+  jaql92au08 NUMBER(17,2),
+  jaql92au09 NUMBER(17,2),
+  jaql92au10 DATE,
+  jaql92au11 DATE,
+  jaql92au12 DATE
+)
+;
+create index JAQL921000001 on JAQL092 (JAQL92PGCO, JAQL92SCSU, JAQL92SCMO, JAQL92SCMD, JAQL92SCPA, JAQL92SCCT, JAQL92SCOP, JAQL92SCSB, JAQL92SCTO);
+create index JAQL921000002 on JAQL092 (JAQL92ITCD, JAQL92ITSU, JAQL92ITMO, JAQL92ITTR, JAQL92ITRE, JAQL92ITOR, JAQL92ITSB, JAQL92ITFC);
+create index JAQL921000003 on JAQL092 (JAQL92FEPR, JAQL92ESRE, JAQL92ESCH);
+alter table JAQL092
+  add primary key (JAQL92CHCO, JAQL92CHSU, JAQL92CHMO, JAQL92CHMD, JAQL92CHPA, JAQL92CHCT, JAQL92CHOP, JAQL92CHSB, JAQL92CHTO, JAQL92CHEQ);
+

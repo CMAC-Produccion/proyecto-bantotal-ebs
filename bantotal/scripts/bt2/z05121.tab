@@ -1,0 +1,30 @@
+create table Z05121
+(
+  z05121ano NUMBER(4) not null,
+  z05121mes NUMBER(2) not null,
+  z05121cam CHAR(1) not null,
+  z05121mda NUMBER(4) not null,
+  z05121ttr CHAR(1) not null,
+  z05121emp CHAR(30) not null,
+  z05121bco CHAR(30) not null,
+  z05121suc NUMBER(3) not null,
+  z05121fpg CHAR(1) not null,
+  z05121tip NUMBER(1) not null,
+  z05121cnc NUMBER(12),
+  z05121ace NUMBER(12),
+  z05121rec NUMBER(12),
+  z05121imp NUMBER(17),
+  z05121iac NUMBER(17),
+  z05121ire NUMBER(17),
+  z05121ccc NUMBER(17),
+  z05121icc NUMBER(17),
+  z05121cpc NUMBER(17),
+  z05121icp NUMBER(17),
+  z05121ccx NUMBER(17),
+  z05121icx NUMBER(17),
+  z05121ine NUMBER(17)
+)
+;
+alter table Z05121
+  add primary key (Z05121ANO, Z05121MES, Z05121CAM, Z05121MDA, Z05121TTR, Z05121EMP, Z05121BCO, Z05121SUC, Z05121FPG, Z05121TIP);
+

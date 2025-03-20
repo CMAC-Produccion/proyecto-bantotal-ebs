@@ -1,0 +1,17 @@
+create table AQPA011I
+(
+  aqpa011iinsta NUMBER(10) not null,
+  aqpa011itdoc  NUMBER(3) not null,
+  aqpa011indoc  CHAR(12) not null,
+  aqpa011iburo  NUMBER(3) not null,
+  aqpa011iestad NUMBER(4),
+  aqpa011ifech  DATE,
+  aqpa011ihora  CHAR(8),
+  aqpa011iseria NUMBER(10),
+  aqpa011ifecha DATE,
+  aqpa011ihoraa CHAR(8)
+)
+;
+alter table AQPA011I
+  add primary key (AQPA011IINSTA, AQPA011ITDOC, AQPA011INDOC, AQPA011IBURO);
+

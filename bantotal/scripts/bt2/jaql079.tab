@@ -1,0 +1,38 @@
+create table JAQL079
+(
+  jaql79user CHAR(10) not null,
+  jaql79fepr DATE not null,
+  jaql79tipe NUMBER(4) not null,
+  jaql79modu NUMBER(3) not null,
+  jaql79tope NUMBER(3) not null,
+  jaql79fein DATE,
+  jaql79fefi DATE,
+  jaql79mtap NUMBER(17,2),
+  jaql79spap NUMBER(17,2),
+  jaql79mtac NUMBER(17,2),
+  jaql79spac NUMBER(17,2),
+  jaql79mtre NUMBER(17,2),
+  jaql79mtca NUMBER(17,2),
+  jaql79clap NUMBER(4),
+  jaql79clac NUMBER(4),
+  jaql79memt CHAR(1),
+  jaql79mecl CHAR(1),
+  jaql79comt NUMBER(17,2),
+  jaql79cocl NUMBER(17,2),
+  jaql79au01 CHAR(50),
+  jaql79au02 CHAR(50),
+  jaql79au03 CHAR(50),
+  jaql79au04 NUMBER(9),
+  jaql79au05 NUMBER(9),
+  jaql79au06 NUMBER(9),
+  jaql79au07 NUMBER(17,2),
+  jaql79au08 NUMBER(17,2),
+  jaql79au09 NUMBER(17,2),
+  jaql79au10 DATE,
+  jaql79au11 DATE,
+  jaql79au12 DATE
+)
+;
+alter table JAQL079
+  add primary key (JAQL79USER, JAQL79FEPR, JAQL79TIPE, JAQL79MODU, JAQL79TOPE);
+

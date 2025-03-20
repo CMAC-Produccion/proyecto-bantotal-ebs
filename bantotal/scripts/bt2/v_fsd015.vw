@@ -1,0 +1,3 @@
+create or replace force view v_fsd015 as
+select "PGCOD","ITSUC","ITMOD","ITTRAN","ITNREL","ITFCON","ITFVC","ITCORR","ITUING","ITWING","ITUCNF","ITWCNF","ITHORA","ITCONT","ITCAJA","ITXCAJ" from FSD015 union all select "PGCOD","ITSUC","ITMOD","ITTRAN","ITNREL","ITFCON","ITFVC","ITCORR","ITUING","ITWING","ITUCNF","ITWCNF","ITHORA","ITCONT","ITCAJA","ITXCAJ" from FSD015 where 1=2 with read only;
+

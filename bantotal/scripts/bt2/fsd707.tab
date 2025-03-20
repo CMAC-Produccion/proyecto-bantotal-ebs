@@ -1,0 +1,29 @@
+create table FSD707
+(
+  dcp0pais   NUMBER(3) not null,
+  dcp0tdoc   NUMBER(2) not null,
+  dcp0ndoc   CHAR(12) not null,
+  dcp0entext CHAR(55),
+  dcp0tpotfi NUMBER(1),
+  dcp0paiscm NUMBER(3),
+  dcp0tpoasi NUMBER(1),
+  dcp0pacoob NUMBER(3),
+  dcp0derext NUMBER(1),
+  dcp0mon    NUMBER(1),
+  dcp0sdfnms NUMBER(10,1),
+  dcp0has3mc NUMBER(10),
+  dcp0has3mi NUMBER(10),
+  dcp0mas3mc NUMBER(10),
+  dcp0mas3mi NUMBER(10),
+  dcp0mas6mc NUMBER(10),
+  dcp0mas6mi NUMBER(10),
+  dcp0mas1ac NUMBER(10),
+  dcp0mas1ai NUMBER(10),
+  dcp0mas2ac NUMBER(10),
+  dcp0mas2ai NUMBER(10),
+  dcp0vldvex NUMBER(10,1)
+)
+;
+alter table FSD707
+  add primary key (DCP0PAIS, DCP0TDOC, DCP0NDOC);
+

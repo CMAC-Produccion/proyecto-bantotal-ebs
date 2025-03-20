@@ -1,0 +1,18 @@
+create table AQPB144
+(
+  aqpb144tlf NUMBER(9) not null,
+  aqpb144fal DATE,
+  aqpb144fbj DATE
+)
+;
+comment on table AQPB144
+  is 'Tabla Celulares Caja Arequipa asignados';
+comment on column AQPB144.aqpb144tlf
+  is 'Nro Celular';
+comment on column AQPB144.aqpb144fal
+  is 'Fecha de alta';
+comment on column AQPB144.aqpb144fbj
+  is 'Fecha de Baja';
+alter table AQPB144
+  add primary key (AQPB144TLF);
+

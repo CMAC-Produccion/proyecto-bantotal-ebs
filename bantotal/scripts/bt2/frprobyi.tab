@@ -1,0 +1,10 @@
+create table FRPROBYI
+(
+  frproid    CHAR(6) not null,
+  frproip    CHAR(20) not null,
+  frproipval VARCHAR2(40)
+)
+;
+alter table FRPROBYI
+  add primary key (FRPROID, FRPROIP);
+

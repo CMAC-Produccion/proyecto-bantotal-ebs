@@ -1,0 +1,15 @@
+create table SNGC07
+(
+  sngc07cod  NUMBER(5) not null,
+  sngc07dsc  CHAR(30),
+  segcod     NUMBER(2),
+  sngc07segd NUMBER(4),
+  sngc07aux2 NUMBER(17,2),
+  sngc07aux3 CHAR(60),
+  sngc07aux4 CHAR(60)
+)
+;
+create index SNGC0702 on SNGC07 (SEGCOD);
+alter table SNGC07
+  add primary key (SNGC07COD);
+

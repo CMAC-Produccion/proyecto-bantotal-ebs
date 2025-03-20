@@ -1,0 +1,15 @@
+create table Z05117
+(
+  z05117apl NUMBER(4) not null,
+  z05117bnd CHAR(5) not null,
+  z05117cor NUMBER(9) not null,
+  z05117co2 NUMBER(9) not null,
+  z05117emp CHAR(30),
+  z05117cui NUMBER(11),
+  z05117cte NUMBER(9),
+  z05117est CHAR(2)
+)
+;
+alter table Z05117
+  add primary key (Z05117APL, Z05117BND, Z05117COR, Z05117CO2);
+

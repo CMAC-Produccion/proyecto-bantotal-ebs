@@ -1,0 +1,12 @@
+create table FRNG67
+(
+  rng49cod NUMBER(10) not null,
+  rng50grp NUMBER(3) not null,
+  rng51cod NUMBER(3) not null,
+  rng67cor NUMBER(3) not null,
+  rng67val CHAR(30)
+)
+;
+alter table FRNG67
+  add primary key (RNG49COD, RNG50GRP, RNG51COD, RNG67COR);
+

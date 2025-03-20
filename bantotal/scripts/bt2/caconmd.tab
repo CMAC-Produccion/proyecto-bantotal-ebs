@@ -1,0 +1,14 @@
+create table CACONMD
+(
+  caconid   NUMBER(10) not null,
+  caconlng  CHAR(3) not null,
+  caconvers NUMBER(6) not null,
+  camtappid NUMBER(2) not null,
+  camtid    CHAR(30) not null,
+  cacmtval  CHAR(60)
+)
+;
+create index ICACONMD1 on CACONMD (CAMTAPPID, CAMTID);
+alter table CACONMD
+  add primary key (CACONID, CACONLNG, CACONVERS, CAMTAPPID, CAMTID);
+

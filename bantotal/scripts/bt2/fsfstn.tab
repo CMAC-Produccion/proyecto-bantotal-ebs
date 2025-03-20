@@ -1,0 +1,28 @@
+create table FSFSTN
+(
+  sfst1merc NUMBER(3) not null,
+  sfst2cod  CHAR(1) not null,
+  sfstncod  CHAR(12) not null,
+  sfstnmda1 NUMBER(4),
+  sfstnmda2 NUMBER(4),
+  sfstndesc CHAR(35),
+  sfstnhab  CHAR(1),
+  sfstncar1 CHAR(1),
+  sfstncar2 CHAR(1),
+  sfstncar3 CHAR(1),
+  sfstncar4 CHAR(1),
+  sfstncar5 CHAR(1),
+  sfstnnum1 NUMBER(9),
+  sfstnnum2 NUMBER(9),
+  sfstnnum3 NUMBER(9),
+  sfstnnum4 NUMBER(9),
+  sfstnnum5 NUMBER(9),
+  sfstnfec1 DATE,
+  sfstnfec2 DATE,
+  sfstntxt1 CHAR(20),
+  sfstntxt2 CHAR(20)
+)
+;
+alter table FSFSTN
+  add primary key (SFST1MERC, SFST2COD, SFSTNCOD);
+

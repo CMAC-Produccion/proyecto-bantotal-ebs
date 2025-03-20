@@ -1,0 +1,47 @@
+create table JAQL452
+(
+  jaql452cor NUMBER(10) not null,
+  jaql452fch DATE,
+  jaql452fen DATE,
+  jaql452mai VARCHAR2(50),
+  jaql452cue CLOB,
+  jaql452usr VARCHAR2(10),
+  jaql452use VARCHAR2(10),
+  jaql452cta VARCHAR2(27),
+  jaql452est CHAR(1),
+  jaql452mot VARCHAR2(400),
+  jaql452err VARCHAR2(400),
+  jaql452age VARCHAR2(50),
+  jaql452hrg CHAR(8),
+  jaql452hre CHAR(8)
+)
+;
+comment on table JAQL452
+  is 'TABLA DE GENERACION DE EXTRACTOS';
+comment on column JAQL452.jaql452cor
+  is 'CORRELATIVO DE TABLA';
+comment on column JAQL452.jaql452fch
+  is 'FECHA DE GENERACION DE EXTRACTO';
+comment on column JAQL452.jaql452fen
+  is 'FECHA DE ENVIO DE EXTRACTO';
+comment on column JAQL452.jaql452mai
+  is 'MAIL DESTINATARIO';
+comment on column JAQL452.jaql452cue
+  is 'CUERPO DEL MENSAJE';
+comment on column JAQL452.jaql452usr
+  is 'USUARIO QUE GENERO EL EXTRACTO';
+comment on column JAQL452.jaql452use
+  is 'USUARIO QUE ENVIO EL EXTRACTO';
+comment on column JAQL452.jaql452cta
+  is 'NUMERO DE CUENTA';
+comment on column JAQL452.jaql452est
+  is 'ESTADO DE ENVIO S=ENVIADO, N=NO ENVIADO';
+comment on column JAQL452.jaql452mot
+  is 'MOTIVO DEL NO ENVIO';
+comment on column JAQL452.jaql452err
+  is 'MOTIVODE ERROR DE GENERACION';
+comment on column JAQL452.jaql452age
+  is 'DESCRIPCION DE LA AGENCIA DE LA CUENTA';
+alter table JAQL452
+  add primary key (JAQL452COR);
+

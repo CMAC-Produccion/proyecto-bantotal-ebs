@@ -1,0 +1,21 @@
+create table JAQL486B
+(
+  jaql486bpgc NUMBER(3) not null,
+  jaql486bsuc NUMBER(3) not null,
+  jaql486bmod NUMBER(3) not null,
+  jaql486btrx NUMBER(3) not null,
+  jaql486brel NUMBER(4) not null,
+  jaql486bfec DATE not null,
+  jaql486bmdo NUMBER(3),
+  jaql486btpo NUMBER(3),
+  jaql486bsca NUMBER(3),
+  jaql486bmda NUMBER(4),
+  jaql486bpap NUMBER(4),
+  jaql486bcta NUMBER(9),
+  jaql486bope NUMBER(9),
+  jaql486bsbo NUMBER(3)
+)
+;
+alter table JAQL486B
+  add constraint PK_JAQL486B primary key (JAQL486BPGC, JAQL486BSUC, JAQL486BMOD, JAQL486BTRX, JAQL486BREL, JAQL486BFEC);
+

@@ -1,0 +1,16 @@
+create table JBXIL9
+(
+  jbxil9co CHAR(10) not null,
+  jbxil9pa NUMBER(3) not null,
+  jbxil9td NUMBER(2) not null,
+  jbxil9nd CHAR(12) not null,
+  jbxil9cu NUMBER(9) not null,
+  jbxil9cd NUMBER(2) not null,
+  jbxil9no CHAR(1),
+  jbxil9fe DATE,
+  jbxil9ho CHAR(8),
+  jbxil9us CHAR(10)
+)
+;
+create unique index JBXIL901 on JBXIL9 (JBXIL9CO, JBXIL9PA, JBXIL9TD, JBXIL9ND, JBXIL9CU, JBXIL9CD);
+

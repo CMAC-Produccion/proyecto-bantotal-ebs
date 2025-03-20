@@ -1,0 +1,13 @@
+create table FBC003
+(
+  bcinfor  CHAR(10) not null,
+  bccodigo NUMBER(5) not null,
+  bcrubr   NUMBER(16) not null,
+  bccifsig NUMBER(2),
+  bcarch   CHAR(10),
+  bcsuma   CHAR(1)
+)
+;
+alter table FBC003
+  add primary key (BCINFOR, BCCODIGO, BCRUBR);
+

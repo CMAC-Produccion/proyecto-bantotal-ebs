@@ -1,0 +1,327 @@
+create table JAQL600
+(
+  jaql600fpro   DATE not null,
+  jaql600usu    CHAR(20) not null,
+  jaql600age    NUMBER(3),
+  jaql600mant   NUMBER(10),
+  jaql600codcat NUMBER(3),
+  jaql600tase   CHAR(1),
+  jaql600sdo    NUMBER(17,2),
+  jaql600ncl    NUMBER(10),
+  jaql600sdm    NUMBER(17,2),
+  jaql600pmra   NUMBER(9,2),
+  jaql600soto   NUMBER(17,2),
+  jaql600srec   NUMBER(17,2),
+  jaql600coto   NUMBER(10),
+  jaql600crec   NUMBER(10),
+  jaql600srl    NUMBER(17,2),
+  jaql600nrl    NUMBER(10),
+  jaql600sant   NUMBER(17,2),
+  jaql600cant   NUMBER(10),
+  jaql600sdca   NUMBER(17,2),
+  jaql600sdju   NUMBER(17,2),
+  jaql600crsa   NUMBER(17,2),
+  jaql600crcl   NUMBER(10),
+  jaql600ides   NUMBER(17,2),
+  jaql600pdes   NUMBER(17,2),
+  jaql600mtsa   NUMBER(17,2),
+  jaql600mtcl   NUMBER(10),
+  jaql600mtre   NUMBER(17,2),
+  jaql600mtmr   NUMBER(9,2),
+  jaql600psal   NUMBER(17,2),
+  jaql600pcli   NUMBER(17,2),
+  jaql600pret   NUMBER(17,2),
+  jaql600pmor   NUMBER(17,2),
+  jaql600pvar   NUMBER(17,2),
+  jaql600pjca   NUMBER(17,2),
+  jaql600pjcas  NUMBER(9,2),
+  jaql600cmra   NUMBER(17,2),
+  jaql600cltot  NUMBER(10),
+  jaql600sdtot  NUMBER(17,2),
+  jaql600bsal   NUMBER(17,2),
+  jaql600bcli   NUMBER(17,2),
+  jaql600bmra   NUMBER(17,2),
+  jaql600btri   NUMBER(17,2),
+  jaql600totpa  NUMBER(17,2),
+  jaql600ccam   NUMBER(2),
+  jaql600vcam   NUMBER(17,2),
+  jaql600tcam   NUMBER(17,2),
+  jaql600aux1   NUMBER(17,2),
+  jaql600aux2   NUMBER(17,2),
+  jaql600aux3   NUMBER(17,2),
+  jaql600aux4   NUMBER(17,2),
+  jaql600aux5   NUMBER(17,2),
+  jaql600aux6   NUMBER(17,2),
+  jaql600est    CHAR(1),
+  jaql600neo    CHAR(1),
+  jaql600pcam   NUMBER(17,2),
+  jaql600pord   NUMBER(17,2),
+  jaql600mtod   NUMBER(17,2),
+  jaql600vmor   NUMBER(9,2),
+  jaql600csal   NUMBER(17,2),
+  jaql600esal   NUMBER(17,2),
+  jaql600ccli   NUMBER(10),
+  jaql600ecli   NUMBER(10),
+  jaql600cret   NUMBER(17,2),
+  jaql600eret   NUMBER(17,2),
+  jaql600posa   NUMBER(9,2),
+  jaql600pocl   NUMBER(9,2),
+  jaql600exsa   NUMBER(17,2),
+  jaql600excl   NUMBER(10),
+  jaql600exre   NUMBER(10),
+  jaql600pore   NUMBER(9,2),
+  jaql600bare   NUMBER(17,2),
+  jaql600more   NUMBER(17,2),
+  jaql600pmoa   NUMBER(9,2),
+  jaql600cave   NUMBER(17,2),
+  jaql600clve   NUMBER(10),
+  jaql600comi   CHAR(20),
+  jaql600inco   CHAR(1),
+  jaql600nmes   NUMBER(4),
+  jaql600smort  NUMBER(17,2),
+  jaql600pmort  NUMBER(6,2),
+  jaql600tant   CHAR(1),
+  jaql600pexs1  NUMBER(6,2),
+  jaql600pexs2  NUMBER(6,2),
+  jaql600pexc1  NUMBER(17,2),
+  jaql600pexc2  NUMBER(17,2),
+  jaql600bomi   NUMBER(17,2),
+  jaql600sdacu  NUMBER(17,2),
+  jaql600fecin  DATE,
+  jaql600ndoc   CHAR(12),
+  jaql600baco1  NUMBER(17,2),
+  jaql600poco1  NUMBER(6,2),
+  jaql600paco1  NUMBER(17,2),
+  jaql600baco2  NUMBER(17,2),
+  jaql600poco2  NUMBER(6,2),
+  jaql600paco2  NUMBER(17,2),
+  jaql600bare2  NUMBER(17,2),
+  jaql600pore2  NUMBER(9,2),
+  jaql600more2  NUMBER(17,2),
+  jaql600sdodi  NUMBER(17,2),
+  jaql600pordi  NUMBER(6,2),
+  jaql600pagdi  NUMBER(17,2),
+  jaql600porco  NUMBER(6,2),
+  jaql600mtco1  NUMBER(17,2),
+  jaql600mtco2  NUMBER(17,2),
+  jaql600desag  VARCHAR2(50),
+  jaql600desca  VARCHAR2(50)
+)
+;
+comment on table JAQL600
+  is 'Productividad Analistas 2016';
+comment on column JAQL600.jaql600fpro
+  is 'Fecha Proceso';
+comment on column JAQL600.jaql600usu
+  is 'Asesor / Analista';
+comment on column JAQL600.jaql600age
+  is 'Agencia';
+comment on column JAQL600.jaql600mant
+  is 'Meses Antiguedad Agencia';
+comment on column JAQL600.jaql600codcat
+  is 'Código de Categoría de Analista: Junior - Avanzado';
+comment on column JAQL600.jaql600tase
+  is 'Tipo Asesor P-PYMES/C-CONSUMO';
+comment on column JAQL600.jaql600sdo
+  is 'Saldo Cartera';
+comment on column JAQL600.jaql600ncl
+  is 'Numero Clientes';
+comment on column JAQL600.jaql600sdm
+  is 'Saldo Mora > 15';
+comment on column JAQL600.jaql600pmra
+  is 'Porcentaje Mora';
+comment on column JAQL600.jaql600soto
+  is 'Saldo Otorgado';
+comment on column JAQL600.jaql600srec
+  is 'Saldo Recibido';
+comment on column JAQL600.jaql600coto
+  is 'Clientes Otorgados';
+comment on column JAQL600.jaql600crec
+  is 'Clientes Recibidos';
+comment on column JAQL600.jaql600srl
+  is 'Saldo Recuperacion Legal';
+comment on column JAQL600.jaql600nrl
+  is 'Clientes Recuperacion Legal';
+comment on column JAQL600.jaql600sant
+  is 'Saldo Mes Anterior';
+comment on column JAQL600.jaql600cant
+  is 'Slientes Mes Anterior';
+comment on column JAQL600.jaql600sdca
+  is 'Saldo Castigado';
+comment on column JAQL600.jaql600sdju
+  is 'Saldo Judicial';
+comment on column JAQL600.jaql600crsa
+  is 'Crecimiento Saldo';
+comment on column JAQL600.jaql600crcl
+  is 'Crecimiento Clientes';
+comment on column JAQL600.jaql600ides
+  is 'Indicador Desembolsos Micro-Pequeña';
+comment on column JAQL600.jaql600pdes
+  is 'Porcentaje Pago Desembolsos Micro-Pequeña';
+comment on column JAQL600.jaql600mtsa
+  is 'Meta Saldo';
+comment on column JAQL600.jaql600mtcl
+  is 'Meta Clientes';
+comment on column JAQL600.jaql600mtre
+  is 'Meta Retencion';
+comment on column JAQL600.jaql600mtmr
+  is 'Meta Mora';
+comment on column JAQL600.jaql600psal
+  is 'Pago Cumplimiento Saldo Cartera';
+comment on column JAQL600.jaql600pcli
+  is 'Pago Cumplimiento Clientes';
+comment on column JAQL600.jaql600pret
+  is 'Pago Cumplimiento Retencion';
+comment on column JAQL600.jaql600pmor
+  is 'Pago Cumplimiento Mora';
+comment on column JAQL600.jaql600pvar
+  is 'Total Pago Incentivo Variable';
+comment on column JAQL600.jaql600pjca
+  is 'Porcentaje Castigo';
+comment on column JAQL600.jaql600cmra
+  is 'Castigo Mora';
+comment on column JAQL600.jaql600cltot
+  is 'Clientes Totales incluye transferencia';
+comment on column JAQL600.jaql600sdtot
+  is 'Saldo Total incluye transferencia';
+comment on column JAQL600.jaql600bsal
+  is 'Bono Saldo Trimestral';
+comment on column JAQL600.jaql600bcli
+  is 'Bono Clientes Trimestral';
+comment on column JAQL600.jaql600bmra
+  is 'Bono Mora Trimestral';
+comment on column JAQL600.jaql600btri
+  is 'Total Bono Trimestral';
+comment on column JAQL600.jaql600totpa
+  is 'TOTAL PAGAR Incentivo Variable+Bono Trimestral';
+comment on column JAQL600.jaql600ccam
+  is 'Codigo Campaña';
+comment on column JAQL600.jaql600vcam
+  is 'Valor Campaña';
+comment on column JAQL600.jaql600tcam
+  is 'Total x Campaña';
+comment on column JAQL600.jaql600aux1
+  is 'Auxiliar 1';
+comment on column JAQL600.jaql600aux2
+  is 'Auxiliar 2';
+comment on column JAQL600.jaql600aux3
+  is 'Auxiliar 3';
+comment on column JAQL600.jaql600aux4
+  is 'Auxiliar 4';
+comment on column JAQL600.jaql600aux5
+  is 'Auxiliar 5';
+comment on column JAQL600.jaql600aux6
+  is 'Auxiliar 6';
+comment on column JAQL600.jaql600est
+  is 'Estado';
+comment on column JAQL600.jaql600neo
+  is 'Agencia N-Nueva/';
+comment on column JAQL600.jaql600pcam
+  is 'Porcentaje Campaña';
+comment on column JAQL600.jaql600pord
+  is '% Desembolso MI-PE';
+comment on column JAQL600.jaql600mtod
+  is 'Total Desembolso MI-PE';
+comment on column JAQL600.jaql600vmor
+  is 'Variacion Mora';
+comment on column JAQL600.jaql600csal
+  is 'Pago Cumplimiento Saldo';
+comment on column JAQL600.jaql600esal
+  is 'Pago Excedente Saldo';
+comment on column JAQL600.jaql600ccli
+  is 'Pago Cumplimiento Clientes';
+comment on column JAQL600.jaql600ecli
+  is 'Pago Excedente Clientes';
+comment on column JAQL600.jaql600cret
+  is 'Pago Cumplimiento Retencion';
+comment on column JAQL600.jaql600eret
+  is 'Pago Excedente Retencion';
+comment on column JAQL600.jaql600posa
+  is '% Cumplimiento Saldo';
+comment on column JAQL600.jaql600pocl
+  is '% Cumplimiento Clientes';
+comment on column JAQL600.jaql600exsa
+  is 'Excedente Saldo';
+comment on column JAQL600.jaql600excl
+  is 'Excedente Clientes';
+comment on column JAQL600.jaql600exre
+  is 'Excedente Retencion';
+comment on column JAQL600.jaql600pore
+  is 'Porcentaje de Retencion';
+comment on column JAQL600.jaql600bare
+  is 'Base Retencion';
+comment on column JAQL600.jaql600more
+  is 'Monto Retenidos';
+comment on column JAQL600.jaql600pmoa
+  is 'Porcentaje Mora Mes Anterior';
+comment on column JAQL600.jaql600cave
+  is 'Saldo Cartera Vencida';
+comment on column JAQL600.jaql600clve
+  is 'Clientes Cartera Vencida';
+comment on column JAQL600.jaql600comi
+  is 'Comite - Nombre Analista Senior a Cargo';
+comment on column JAQL600.jaql600inco
+  is 'Indicador excluir continuidad S/N';
+comment on column JAQL600.jaql600nmes
+  is 'Numero de Meses de analista en agencia';
+comment on column JAQL600.jaql600smort
+  is 'Saldo Mora x Traslado - Cartera Recibida ';
+comment on column JAQL600.jaql600pmort
+  is 'Porcentaje Mora x Traslado - Cartera Recibida ';
+comment on column JAQL600.jaql600tant
+  is 'Tipo Antiguedad A- Antiguo / N - Nuevo';
+comment on column JAQL600.jaql600pexs1
+  is 'Porcentaje Excedente Saldo 1';
+comment on column JAQL600.jaql600pexs2
+  is 'Porcentaje Excedente Saldo 2';
+comment on column JAQL600.jaql600pexc1
+  is 'Monto Excedente Clientes 1';
+comment on column JAQL600.jaql600pexc2
+  is 'Monto Excedente Clientes 2';
+comment on column JAQL600.jaql600bomi
+  is 'Bono desembolso Micro';
+comment on column JAQL600.jaql600sdacu
+  is 'Saldo acumulado Traslado';
+comment on column JAQL600.jaql600fecin
+  is 'Fecha Ingreso Trabajador';
+comment on column JAQL600.jaql600ndoc
+  is 'Numero Documento';
+comment on column JAQL600.jaql600baco1
+  is 'Base contencion 0-30';
+comment on column JAQL600.jaql600poco1
+  is 'Porcentaje contencion 0-30';
+comment on column JAQL600.jaql600paco1
+  is 'Pago contencion 0-30';
+comment on column JAQL600.jaql600baco2
+  is 'Base contencion Mayor 30';
+comment on column JAQL600.jaql600poco2
+  is 'Porcentaje contencion Mayor 30';
+comment on column JAQL600.jaql600paco2
+  is 'Pago contencion Mayor 30';
+comment on column JAQL600.jaql600bare2
+  is 'Base retencion 2';
+comment on column JAQL600.jaql600pore2
+  is 'Porcentaje Retencion 2';
+comment on column JAQL600.jaql600more2
+  is 'Monto Retencion 2';
+comment on column JAQL600.jaql600sdodi
+  is 'Saldo Cartera al dia - sin mora';
+comment on column JAQL600.jaql600pordi
+  is 'Porcentaje Cartera al dia - sin mora';
+comment on column JAQL600.jaql600pagdi
+  is 'Pago Cartera al dia - sin mora';
+comment on column JAQL600.jaql600porco
+  is 'Porcentaje Cartera - convenio';
+comment on column JAQL600.jaql600mtco1
+  is 'Monto Contenidos 0-30';
+comment on column JAQL600.jaql600mtco2
+  is 'Monto Contenidos Mayor 30';
+comment on column JAQL600.jaql600desag
+  is 'descripcion agencia';
+comment on column JAQL600.jaql600desca
+  is 'descripcion categoria';
+create index IDX_JAQL600_1 on JAQL600 (JAQL600USU, JAQL600FPRO);
+create index IDX_JAQL600_2 on JAQL600 (JAQL600FPRO, JAQL600EST);
+alter table JAQL600
+  add primary key (JAQL600FPRO, JAQL600USU);
+

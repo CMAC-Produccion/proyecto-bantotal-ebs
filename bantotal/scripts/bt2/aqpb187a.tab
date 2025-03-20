@@ -1,0 +1,133 @@
+create table AQPB187A
+(
+  aqpb187acor     NUMBER(10) not null,
+  aqpb187afch     DATE not null,
+  aqpb187ahora    VARCHAR2(10) not null,
+  aqpb187ains     NUMBER(10) not null,
+  aqpb187apais    NUMBER(3),
+  aqpb187atdoc    NUMBER(3),
+  aqpb187andoc    VARCHAR2(12),
+  aqpb187apgcod   NUMBER(5) not null,
+  aqpb187amod     NUMBER(5) not null,
+  aqpb187asuc     NUMBER(5) not null,
+  aqpb187amda     NUMBER(5) not null,
+  aqpb187apap     NUMBER(5) not null,
+  aqpb187acta     NUMBER(9) not null,
+  aqpb187aope     NUMBER(9) not null,
+  aqpb187asbop    NUMBER(5) not null,
+  aqpb187atope    NUMBER(5) not null,
+  aqpb187aidcof   VARCHAR2(20),
+  aqpb187acodcob  VARCHAR2(50),
+  aqpb187afdes    DATE,
+  aqpb187amntdes  NUMBER(17,2),
+  aqpb187ascap    NUMBER(17,2),
+  aqpb187aamortz  VARCHAR2(5),
+  aqpb187ancuots  NUMBER(5),
+  aqpb187ancpag   NUMBER(5),
+  aqpb187ancpend  NUMBER(5),
+  aqpb187aantpcuo VARCHAR2(5),
+  aqpb187aatraso  NUMBER(5),
+  aqpb187aporc15  NUMBER(17,2),
+  aqpb187acap2cuo NUMBER(17,2),
+  aqpb187abbp     NUMBER(17,2),
+  aqpb187afchbbp  DATE,
+  aqpb187aauxc1   VARCHAR2(25),
+  aqpb187aauxc2   VARCHAR2(25),
+  aqpb187aauxc3   VARCHAR2(25),
+  aqpb187aauxn1   NUMBER(17,2),
+  aqpb187aauxn2   NUMBER(17,2),
+  aqpb187aauxn3   NUMBER(17,2),
+  aqpb187aauxd1   DATE,
+  aqpb187aauxd2   DATE,
+  aqpb187aauxd3   DATE
+)
+;
+comment on table AQPB187A
+  is 'Tabla base para Data BBP';
+comment on column AQPB187A.aqpb187acor
+  is 'Correlativo';
+comment on column AQPB187A.aqpb187afch
+  is 'Fecha de Registro';
+comment on column AQPB187A.aqpb187ahora
+  is 'Hora de Registro';
+comment on column AQPB187A.aqpb187ains
+  is 'Instancia de Credito';
+comment on column AQPB187A.aqpb187apais
+  is 'Pais de Documento';
+comment on column AQPB187A.aqpb187atdoc
+  is 'Tipo de Documento';
+comment on column AQPB187A.aqpb187andoc
+  is 'Nro de Documento';
+comment on column AQPB187A.aqpb187apgcod
+  is 'Pgcod';
+comment on column AQPB187A.aqpb187amod
+  is 'Modulo';
+comment on column AQPB187A.aqpb187asuc
+  is 'Sucursal';
+comment on column AQPB187A.aqpb187amda
+  is 'Moneda';
+comment on column AQPB187A.aqpb187apap
+  is 'Papel';
+comment on column AQPB187A.aqpb187acta
+  is 'Cuenta';
+comment on column AQPB187A.aqpb187aope
+  is 'Operacion';
+comment on column AQPB187A.aqpb187asbop
+  is 'SubOperacion';
+comment on column AQPB187A.aqpb187atope
+  is 'Tipo de Operacion';
+comment on column AQPB187A.aqpb187aidcof
+  is 'ID Cofide AQPC366HIDCOF';
+comment on column AQPB187A.aqpb187acodcob
+  is 'Codigo de Cobertura AQPC366HCODCOB';
+comment on column AQPB187A.aqpb187afdes
+  is 'Fecha de Desembolso';
+comment on column AQPB187A.aqpb187amntdes
+  is 'Monto Desembolsado';
+comment on column AQPB187A.aqpb187ascap
+  is 'Saldo Capital';
+comment on column AQPB187A.aqpb187aamortz
+  is 'Indicador de Amortizacion';
+comment on column AQPB187A.aqpb187ancuots
+  is 'Nro de Cuotas del Credito';
+comment on column AQPB187A.aqpb187ancpag
+  is 'Nro de Cuotas Pagadas';
+comment on column AQPB187A.aqpb187ancpend
+  is 'Nro de Cuotas Pendientes';
+comment on column AQPB187A.aqpb187aantpcuo
+  is 'Indicador de Antepenultima cuota a mas';
+comment on column AQPB187A.aqpb187aatraso
+  is 'Cuotas con más de 8 dias de atraso';
+comment on column AQPB187A.aqpb187aporc15
+  is '15% de Monto Desembolsado';
+comment on column AQPB187A.aqpb187acap2cuo
+  is 'Capital de 2 Ultimas Cuotas';
+comment on column AQPB187A.aqpb187abbp
+  is 'Bono Buen Pagador';
+comment on column AQPB187A.aqpb187afchbbp
+  is 'Fecha Inicio Bono Buen Pagador';
+comment on column AQPB187A.aqpb187aauxc1
+  is 'Auxiliar';
+comment on column AQPB187A.aqpb187aauxc2
+  is 'Auxiliar';
+comment on column AQPB187A.aqpb187aauxc3
+  is 'Auxiliar';
+comment on column AQPB187A.aqpb187aauxn1
+  is 'Auxiliar';
+comment on column AQPB187A.aqpb187aauxn2
+  is 'Auxiliar';
+comment on column AQPB187A.aqpb187aauxn3
+  is 'Auxiliar';
+comment on column AQPB187A.aqpb187aauxd1
+  is 'Auxiliar';
+comment on column AQPB187A.aqpb187aauxd2
+  is 'Auxiliar';
+comment on column AQPB187A.aqpb187aauxd3
+  is 'Auxiliar';
+create index AQPB187AA2 on AQPB187A (AQPB187AFCH);
+create index AQPB187AA3 on AQPB187A (AQPB187APAIS, AQPB187ATDOC, AQPB187ANDOC);
+create index AQPB187AA4 on AQPB187A (AQPB187AINS);
+create index AQPB187AA5 on AQPB187A (AQPB187APGCOD, AQPB187AMOD, AQPB187ASUC, AQPB187AMDA, AQPB187APAP, AQPB187ACTA, AQPB187AOPE, AQPB187ASBOP, AQPB187ATOPE);
+alter table AQPB187A
+  add primary key (AQPB187ACOR, AQPB187AFCH, AQPB187AHORA, AQPB187AINS, AQPB187APGCOD, AQPB187AMOD, AQPB187ASUC, AQPB187AMDA, AQPB187APAP, AQPB187ACTA, AQPB187AOPE, AQPB187ASBOP, AQPB187ATOPE);
+

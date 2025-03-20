@@ -1,0 +1,14 @@
+create table FCB999
+(
+  fcb999pgco NUMBER(3) not null,
+  fcb999mod  NUMBER(3) not null,
+  fcb999oper NUMBER(9) not null,
+  fcb999sbop NUMBER(3) not null,
+  fcb999nfac CHAR(30) not null,
+  fcb999fech DATE,
+  fcb999imp  NUMBER(17,2)
+)
+;
+alter table FCB999
+  add primary key (FCB999PGCO, FCB999MOD, FCB999OPER, FCB999SBOP, FCB999NFAC);
+

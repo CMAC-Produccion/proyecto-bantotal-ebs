@@ -1,0 +1,19 @@
+create table FSFI65
+(
+  sfi65emp   NUMBER(3) not null,
+  sfi65mer   NUMBER(3) not null,
+  sfi65mod   NUMBER(3) not null,
+  sfi65trn   NUMBER(3) not null,
+  sfi65mda1  NUMBER(4) not null,
+  sfi65mda2  NUMBER(4) not null,
+  sfi65rubde NUMBER(16) not null,
+  sfi65rubcr NUMBER(16) not null,
+  sfi65geic  CHAR(1),
+  sfi65geip  CHAR(1),
+  sfi65impco NUMBER(4),
+  sfi65imppa NUMBER(4)
+)
+;
+alter table FSFI65
+  add primary key (SFI65EMP, SFI65MER, SFI65MOD, SFI65TRN, SFI65MDA1, SFI65MDA2, SFI65RUBDE, SFI65RUBCR);
+

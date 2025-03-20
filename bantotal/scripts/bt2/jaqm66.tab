@@ -1,0 +1,142 @@
+create table JAQM66
+(
+  jaqm66ins NUMBER(10) not null,
+  jaqm66suc NUMBER(3),
+  jaqm66mod NUMBER(3),
+  jaqm66tra NUMBER(3),
+  jaqm66nre NUMBER(4),
+  jaqm66ope NUMBER(9),
+  jaqm66top NUMBER(3),
+  jaqm66sop NUMBER(3),
+  jaqm66fea DATE,
+  jaqm66imp NUMBER(17,2),
+  jaqm66ime NUMBER(17,2),
+  jaqm66tim NUMBER(17,2),
+  jaqm66fec DATE,
+  jaqm66hor CHAR(8),
+  jaqm66usu CHAR(10),
+  jaqm66est CHAR(1),
+  jaqm66an1 NUMBER(9),
+  jaqm66an2 NUMBER(9),
+  jaqm66an3 NUMBER(9),
+  jaqm66ad1 DATE,
+  jaqm66ad2 DATE,
+  jaqm66ad3 DATE,
+  jaqm66ai1 NUMBER(17,2),
+  jaqm66ai2 NUMBER(17,2),
+  jaqm66ai3 NUMBER(17,2),
+  jaqm66ac1 CHAR(255),
+  jaqm66ac2 CHAR(255),
+  jaqm66ac3 CHAR(255),
+  jaqm66ttr NUMBER(3),
+  jaqm66mtr NUMBER(3),
+  jaqm66cta NUMBER(9),
+  jaqm66pap NUMBER(4),
+  jaqm66mda NUMBER(4),
+  jaqm66mop NUMBER(3),
+  jaqm66suo NUMBER(3),
+  jaqm66emp NUMBER(3),
+  jaqm66sbo NUMBER(3),
+  jaqm66ord NUMBER(2),
+  jaqm66han CHAR(8),
+  jaqm66fan DATE,
+  jaqm66usa CHAR(10),
+  jaqm66moa CHAR(100),
+  jaqm66per NUMBER(5)
+)
+;
+comment on table JAQM66
+  is 'Nuevo importe cobro extra crédito';
+comment on column JAQM66.jaqm66ins
+  is 'Instancia';
+comment on column JAQM66.jaqm66suc
+  is 'Sucursal asiento';
+comment on column JAQM66.jaqm66mod
+  is 'Modulo asiento';
+comment on column JAQM66.jaqm66tra
+  is 'Transaccion asiento';
+comment on column JAQM66.jaqm66nre
+  is 'Relacion asiento';
+comment on column JAQM66.jaqm66ope
+  is 'Ordinal asiento';
+comment on column JAQM66.jaqm66top
+  is 'Sub ordinal asiento';
+comment on column JAQM66.jaqm66sop
+  is 'Empresa';
+comment on column JAQM66.jaqm66fea
+  is 'Sucursal operacion';
+comment on column JAQM66.jaqm66imp
+  is 'Modulo operacion';
+comment on column JAQM66.jaqm66ime
+  is 'Moneda operacion';
+comment on column JAQM66.jaqm66tim
+  is 'Papel operacion';
+comment on column JAQM66.jaqm66fec
+  is 'Cuenta operacion';
+comment on column JAQM66.jaqm66hor
+  is 'Operacion';
+comment on column JAQM66.jaqm66usu
+  is 'Sub Operacion';
+comment on column JAQM66.jaqm66est
+  is 'Tipo Operacion';
+comment on column JAQM66.jaqm66an1
+  is 'Modulo Transaccion';
+comment on column JAQM66.jaqm66an2
+  is 'Transaccion';
+comment on column JAQM66.jaqm66an3
+  is 'Fecha asiento';
+comment on column JAQM66.jaqm66ad1
+  is 'Importe del credito (capital del credito)';
+comment on column JAQM66.jaqm66ad2
+  is 'Total importe de cobro extra';
+comment on column JAQM66.jaqm66ad3
+  is 'Total de importe (capital + extra)';
+comment on column JAQM66.jaqm66ai1
+  is 'Período Cuotas';
+comment on column JAQM66.jaqm66ai2
+  is 'Fecha';
+comment on column JAQM66.jaqm66ai3
+  is 'Hora';
+comment on column JAQM66.jaqm66ac1
+  is 'Usuario';
+comment on column JAQM66.jaqm66ac2
+  is 'Motivo anulacion';
+comment on column JAQM66.jaqm66ac3
+  is 'Usuario anulacion';
+comment on column JAQM66.jaqm66ttr
+  is 'Fecha anulacion';
+comment on column JAQM66.jaqm66mtr
+  is 'Hora anulacion';
+comment on column JAQM66.jaqm66cta
+  is 'Estado Cobro P: pendiente C: cobrado';
+comment on column JAQM66.jaqm66pap
+  is 'Numeric Auxiliar 1';
+comment on column JAQM66.jaqm66mda
+  is 'Numeric Auxiliar 2';
+comment on column JAQM66.jaqm66mop
+  is 'Numeric Auxiliar 3';
+comment on column JAQM66.jaqm66suo
+  is 'Date Auxiliar 1';
+comment on column JAQM66.jaqm66emp
+  is 'Date Auxiliar 2';
+comment on column JAQM66.jaqm66sbo
+  is 'Date Auxiliar 3';
+comment on column JAQM66.jaqm66ord
+  is 'Importe Auxiliar 1';
+comment on column JAQM66.jaqm66han
+  is 'Importe Auxiliar 2';
+comment on column JAQM66.jaqm66fan
+  is 'Importe Auxiliar 3';
+comment on column JAQM66.jaqm66usa
+  is 'Character Auxiliar 1';
+comment on column JAQM66.jaqm66moa
+  is 'Character Auxiliar 2';
+comment on column JAQM66.jaqm66per
+  is 'Character Auxiliar 3';
+create unique index JAQM66A1 on JAQM66 (JAQM66INS);
+create index JAQM66A2 on JAQM66 (JAQM66INS, JAQM66SUC, JAQM66MOD, JAQM66TRA, JAQM66NRE, JAQM66ORD, JAQM66SBO, JAQM66FEA);
+create index JAQM66A3 on JAQM66 (JAQM66INS, JAQM66EST);
+create index JAQM66A4 on JAQM66 (JAQM66FEA, JAQM66EST);
+create index JAQM66A5 on JAQM66 (JAQM66EMP, JAQM66SUC, JAQM66MOD, JAQM66TRA, JAQM66NRE, JAQM66FEA);
+create index JAQM66A6 on JAQM66 (JAQM66CTA, JAQM66OPE, JAQM66SOP, JAQM66TOP, JAQM66MDA, JAQM66PAP, JAQM66SUO, JAQM66MOP);
+

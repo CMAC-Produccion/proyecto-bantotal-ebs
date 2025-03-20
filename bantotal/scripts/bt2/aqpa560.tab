@@ -1,0 +1,73 @@
+create table AQPA560
+(
+  aqpa560cod  NUMBER(4) not null,
+  aqpa560fec  DATE not null,
+  aqpa560cta  NUMBER(17) not null,
+  aqpa560pro  VARCHAR2(30) not null,
+  aqpa560nroc VARCHAR2(30) not null,
+  aqpa560mto  NUMBER(16,2),
+  aqpa560suc  VARCHAR2(30),
+  aqpa560mot  VARCHAR2(40),
+  aqpa560mda  VARCHAR2(40),
+  aqpa560dep  VARCHAR2(40),
+  aqpa560a1   NUMBER(4),
+  aqpa560a2   NUMBER(17,2),
+  aqpa560a3   VARCHAR2(40),
+  aqpa560a4   VARCHAR2(40),
+  aqpa560a5   DATE,
+  aqpa560a6   DATE,
+  aqpa560a7   CHAR(20),
+  aqpa560age  NUMBER(3),
+  aqpa560cfun CHAR(10),
+  aqpa560dfun CHAR(30),
+  aqpa560mail CHAR(30)
+)
+;
+comment on table AQPA560
+  is 'Cobros Seguro Agricola Desempleo';
+comment on column AQPA560.aqpa560cod
+  is 'Codigo';
+comment on column AQPA560.aqpa560fec
+  is 'FEcha';
+comment on column AQPA560.aqpa560cta
+  is 'Cuenta';
+comment on column AQPA560.aqpa560pro
+  is 'Producto';
+comment on column AQPA560.aqpa560nroc
+  is 'Nro Certificado';
+comment on column AQPA560.aqpa560mto
+  is 'Monto Prima';
+comment on column AQPA560.aqpa560suc
+  is 'Sucursal';
+comment on column AQPA560.aqpa560mot
+  is 'Motivo';
+comment on column AQPA560.aqpa560mda
+  is 'Moneda';
+comment on column AQPA560.aqpa560dep
+  is 'Documento Deposito';
+comment on column AQPA560.aqpa560a1
+  is 'Auxiliar 1';
+comment on column AQPA560.aqpa560a2
+  is 'Auxiliar 2';
+comment on column AQPA560.aqpa560a3
+  is 'Auxiliar 3';
+comment on column AQPA560.aqpa560a4
+  is 'Auxiliar 4';
+comment on column AQPA560.aqpa560a5
+  is 'Auxiliar 5';
+comment on column AQPA560.aqpa560a6
+  is 'Auxiliar 6';
+comment on column AQPA560.aqpa560a7
+  is 'Auxiliar 7';
+comment on column AQPA560.aqpa560age
+  is 'CODIGO AGENCIA';
+comment on column AQPA560.aqpa560cfun
+  is 'CODIGO FFUNCIONARIO';
+comment on column AQPA560.aqpa560dfun
+  is 'DESCRIPCION FUNCIONARIO';
+comment on column AQPA560.aqpa560mail
+  is 'CORREO';
+create index AQPA56001_IDX on AQPA560 (AQPA560COD, AQPA560A4);
+alter table AQPA560
+  add primary key (AQPA560COD, AQPA560FEC, AQPA560CTA, AQPA560PRO, AQPA560NROC);
+

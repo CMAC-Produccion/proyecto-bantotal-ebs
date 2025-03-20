@@ -1,0 +1,13 @@
+create table CSML008
+(
+  csml008cor NUMBER(10) not null,
+  csml008lin NUMBER(9) not null,
+  csml008obs VARCHAR2(800),
+  csml008usu CHAR(10),
+  csml008fec DATE,
+  csml008hor CHAR(8)
+)
+;
+alter table CSML008
+  add primary key (CSML008COR, CSML008LIN);
+

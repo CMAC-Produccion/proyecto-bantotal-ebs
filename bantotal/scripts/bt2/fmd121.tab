@@ -1,0 +1,37 @@
+create table FMD121
+(
+  pgcod      NUMBER(3) not null,
+  leummod    NUMBER(3) not null,
+  leumoper   NUMBER(9) not null,
+  leumsbop   NUMBER(3) not null,
+  leumintern CHAR(1),
+  leumsuc    NUMBER(3),
+  leumtipo   NUMBER(3),
+  leumfemb   DATE,
+  leumfvpag  DATE,
+  leumfvalor DATE,
+  leumfrem   DATE,
+  leumfvto   DATE,
+  leumbcneg  NUMBER(9),
+  leumrefneg CHAR(20),
+  leumbcree  NUMBER(9),
+  leumaoimp  NUMBER(17,2),
+  leummda    NUMBER(4),
+  leummocsw1 CHAR(3),
+  leumuser   CHAR(10),
+  leumws     CHAR(10),
+  leumimpvis NUMBER(17,2),
+  leumimppla NUMBER(17,2),
+  leumsaldo  NUMBER(17,2),
+  leumsdovis NUMBER(17,2),
+  leumsdopla NUMBER(17,2)
+)
+;
+create index FMD12103 on FMD121 (PGCOD, LEUMBCNEG);
+create index FMD12104 on FMD121 (PGCOD, LEUMBCREE);
+create index FMD12105 on FMD121 (LEUMMOD);
+create index FMD12106 on FMD121 (PGCOD, LEUMSUC);
+create index FMD12107 on FMD121 (LEUMMDA);
+alter table FMD121
+  add primary key (PGCOD, LEUMMOD, LEUMOPER, LEUMSBOP);
+

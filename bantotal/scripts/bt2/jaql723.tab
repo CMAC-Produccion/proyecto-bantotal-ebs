@@ -1,0 +1,29 @@
+create table JAQL723
+(
+  jaql723idco VARCHAR2(20),
+  jaql723user VARCHAR2(10),
+  jaql723tido NUMBER,
+  jaql723nudo VARCHAR2(12),
+  jaql723fech DATE,
+  jaql723hora CHAR(8),
+  cod_alerta  NUMBER(5),
+  des_alerta  VARCHAR2(100),
+  cod_color   VARCHAR2(7),
+  cod_accion  VARCHAR2(1),
+  valor1      VARCHAR2(150),
+  valor2      VARCHAR2(150),
+  valor3      VARCHAR2(150),
+  valor4      VARCHAR2(150),
+  valor5      VARCHAR2(150),
+  valor6      VARCHAR2(150),
+  valor7      VARCHAR2(150),
+  valor8      VARCHAR2(150),
+  valor9      VARCHAR2(150),
+  valor10     VARCHAR2(150),
+  correl      NUMBER
+)
+;
+comment on table JAQL723
+  is 'Oferta Comercial - Alertas del cliente';
+create index IDX_JAQL723_001 on JAQL723 (JAQL723IDCO, JAQL723USER, COD_ALERTA, CORREL);
+

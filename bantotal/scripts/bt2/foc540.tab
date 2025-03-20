@@ -1,0 +1,32 @@
+create table FOC540
+(
+  foc540pgco NUMBER(3) not null,
+  foc540oper NUMBER(9) not null,
+  foc540cv   CHAR(1),
+  foc040empr NUMBER(3),
+  foc540mda  NUMBER(4),
+  foc540imp  NUMBER(17,2),
+  foc540feac DATE,
+  foc540ref  CHAR(35),
+  foc540nome CHAR(35),
+  foc540dire CHAR(35),
+  foc540ciue CHAR(35),
+  foc540paie CHAR(35),
+  foc540tdoe CHAR(8),
+  foc540ndoe CHAR(12),
+  foc540nomc CHAR(35),
+  foc540dirc CHAR(35),
+  foc540cuic CHAR(35),
+  foc540paic NUMBER(3),
+  foc540tdoc NUMBER(2),
+  foc540ndoc CHAR(12),
+  foc540ctac NUMBER(9),
+  foc540est  CHAR(1),
+  foc540fech DATE
+)
+;
+create index FOC54002 on FOC540 (FOC040EMPR);
+create index FOC54003 on FOC540 (FOC540PGCO, FOC040EMPR, FOC540CV, FOC540EST, FOC540MDA, FOC540FECH, FOC540OPER);
+alter table FOC540
+  add primary key (FOC540PGCO, FOC540OPER);
+

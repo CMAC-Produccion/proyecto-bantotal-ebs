@@ -1,0 +1,21 @@
+create table FSFL28
+(
+  fsfl28fde DATE not null,
+  fsfl28tip CHAR(10) not null,
+  fsfl28mda NUMBER(4) not null,
+  fsfl28fig DATE not null,
+  fsfl28hig CHAR(8) not null,
+  fsfl28rok CHAR(1),
+  fsfl28trg CHAR(1),
+  fsfl28uig CHAR(10),
+  fsfl28wig CHAR(10),
+  fsfl28fcf DATE,
+  fsfl28hcf CHAR(8),
+  fsfl28ucf CHAR(10),
+  fsfl28wcf CHAR(10),
+  fsfl28lim NUMBER(17,2)
+)
+;
+alter table FSFL28
+  add primary key (FSFL28FDE, FSFL28TIP, FSFL28MDA, FSFL28FIG, FSFL28HIG);
+

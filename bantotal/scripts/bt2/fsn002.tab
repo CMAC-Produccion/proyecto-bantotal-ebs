@@ -1,0 +1,15 @@
+create table FSN002
+(
+  pgcod  NUMBER(3) not null,
+  nrsuc  NUMBER(3) not null,
+  trmod  NUMBER(3) not null,
+  nrmope NUMBER(9),
+  nrmnco NUMBER(9),
+  nrmcor NUMBER(5),
+  nrmcoi NUMBER(5)
+)
+;
+create index FSN00203 on FSN002 (TRMOD);
+alter table FSN002
+  add primary key (PGCOD, NRSUC, TRMOD);
+

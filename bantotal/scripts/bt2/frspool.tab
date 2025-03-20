@@ -1,0 +1,15 @@
+create table FRSPOOL
+(
+  frsfilid   NUMBER(9) not null,
+  frsfilnam  VARCHAR2(255),
+  frsfildsc  VARCHAR2(255),
+  frsfolid   NUMBER(6),
+  frsfildat  DATE,
+  frsfilusri VARCHAR2(70)
+)
+;
+create index FRSPOO03 on FRSPOOL (FRSFILDAT);
+create index FRSPOO04 on FRSPOOL (FRSFOLID, FRSFILDAT);
+alter table FRSPOOL
+  add primary key (FRSFILID);
+

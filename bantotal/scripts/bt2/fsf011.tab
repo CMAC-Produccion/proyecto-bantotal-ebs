@@ -1,0 +1,22 @@
+create table FSF011
+(
+  lccod   NUMBER(3) not null,
+  lcanio  NUMBER(4) not null,
+  lcmes   NUMBER(2) not null,
+  lccta   NUMBER(9) not null,
+  lctpago CHAR(1),
+  lcfultc DATE,
+  lcnpago NUMBER(3),
+  lcprom  NUMBER(17,2),
+  lccom   NUMBER(17,2),
+  lcejec  NUMBER(3),
+  lcrep   NUMBER(3),
+  lcporc  NUMBER(10,6)
+)
+;
+create index FSF01102 on FSF011 (LCCOD, LCEJEC, LCANIO, LCMES);
+create index FSF01103 on FSF011 (LCCOD, LCREP, LCANIO, LCMES);
+create index FSF01104 on FSF011 (LCCOD, LCCTA, LCANIO, LCMES);
+alter table FSF011
+  add primary key (LCCOD, LCANIO, LCMES, LCCTA);
+

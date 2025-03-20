@@ -1,0 +1,79 @@
+create table AQPC820
+(
+  aqpc820codopi  NUMBER(10) not null,
+  aqpc820corr    NUMBER(10) not null,
+  aqpc820fecpro  DATE,
+  aqpc820sldvig  NUMBER(18,2),
+  aqpc820modvig  VARCHAR2(200),
+  aqpc820mntotg  NUMBER(18,2),
+  aqpc820mondcr  VARCHAR2(10),
+  aqpc820cuotg   NUMBER(18,2),
+  aqpc820cuovig  VARCHAR2(30),
+  aqpc820tasavig NUMBER(17,2),
+  aqpc820tipsol  VARCHAR2(2),
+  aqpc820prmatra NUMBER(17,2),
+  aqpc820horareg VARCHAR2(8),
+  aqpc820emp     NUMBER(3),
+  aqpc820modu    NUMBER(3),
+  aqpc820suc     NUMBER(3),
+  aqpc820mda     NUMBER(4),
+  aqpc820pap     NUMBER(4),
+  aqpc820cta     NUMBER(9),
+  aqpc820oper    NUMBER(9),
+  aqpc820sbop    NUMBER(3),
+  aqpc820tope    NUMBER(3),
+  aqpc820estad   VARCHAR2(1)
+)
+;
+comment on table AQPC820
+  is 'Tabla temporal creditos vigentes de rep. opinion de riesgos crm';
+comment on column AQPC820.aqpc820codopi
+  is 'Cod. Opinion riesgo';
+comment on column AQPC820.aqpc820corr
+  is 'Correlativo';
+comment on column AQPC820.aqpc820fecpro
+  is 'fecha de carga';
+comment on column AQPC820.aqpc820sldvig
+  is 'saldo vigente';
+comment on column AQPC820.aqpc820modvig
+  is 'modalidad vigente';
+comment on column AQPC820.aqpc820mntotg
+  is 'Monto Otorgado';
+comment on column AQPC820.aqpc820mondcr
+  is 'moneda credito';
+comment on column AQPC820.aqpc820cuotg
+  is 'Cuota';
+comment on column AQPC820.aqpc820cuovig
+  is 'cuota vigente';
+comment on column AQPC820.aqpc820tasavig
+  is 'tasa vigente';
+comment on column AQPC820.aqpc820tipsol
+  is 'Tipo Solicitud A = ampliación, RF = refinanciacion';
+comment on column AQPC820.aqpc820prmatra
+  is 'Promedio Dias Atraso 6 meses';
+comment on column AQPC820.aqpc820horareg
+  is 'Hora Registro';
+comment on column AQPC820.aqpc820emp
+  is 'Empresa';
+comment on column AQPC820.aqpc820modu
+  is 'Modulo';
+comment on column AQPC820.aqpc820suc
+  is 'Sucursal';
+comment on column AQPC820.aqpc820mda
+  is 'Moneda';
+comment on column AQPC820.aqpc820pap
+  is 'Papel';
+comment on column AQPC820.aqpc820cta
+  is 'Cuenta';
+comment on column AQPC820.aqpc820oper
+  is 'Operación';
+comment on column AQPC820.aqpc820sbop
+  is 'Suboperación';
+comment on column AQPC820.aqpc820tope
+  is 'Tipo Operación';
+comment on column AQPC820.aqpc820estad
+  is 'Estado de registro I - Inhabilitado; H - Habilitado';
+create index AQPC820A2 on AQPC820 (AQPC820CODOPI, AQPC820ESTAD);
+alter table AQPC820
+  add primary key (AQPC820CODOPI, AQPC820CORR);
+

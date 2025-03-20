@@ -1,0 +1,17 @@
+create table FHR110
+(
+  pgcod      NUMBER(3) not null,
+  sehmod     NUMBER(3) not null,
+  sehoper    NUMBER(9) not null,
+  sehmodid   NUMBER(5) not null,
+  sehtopc    NUMBER(2) not null,
+  sehcopc    NUMBER(3) not null,
+  sehtopcds  CHAR(20),
+  sehcopcds  CHAR(25),
+  seiaopcsts CHAR(1),
+  seipopcsts CHAR(1)
+)
+;
+alter table FHR110
+  add primary key (PGCOD, SEHMOD, SEHOPER, SEHMODID, SEHTOPC, SEHCOPC);
+

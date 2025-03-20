@@ -1,0 +1,12 @@
+create table SNGC02
+(
+  sngc01id   NUMBER(3) not null,
+  sngc02id   NUMBER(3) not null,
+  sngc02dsc  CHAR(35),
+  sngc02deex CHAR(80)
+)
+;
+create index IDX$$_61AB0001 on SNGC02 (SNGC02ID, TRIM(SNGC02DSC));
+alter table SNGC02
+  add primary key (SNGC01ID, SNGC02ID);
+

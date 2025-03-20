@@ -1,0 +1,58 @@
+create table AQPB264
+(
+  aqpb264emp NUMBER(3) not null,
+  aqpb264mod NUMBER(3) not null,
+  aqpb264suc NUMBER(3) not null,
+  aqpb264mda NUMBER(4) not null,
+  aqpb264pap NUMBER(4) not null,
+  aqpb264cta NUMBER(9) not null,
+  aqpb264ope NUMBER(9) not null,
+  aqpb264sbo NUMBER(3) not null,
+  aqpb264tpo NUMBER(3) not null,
+  aqpb264fec DATE not null,
+  aqpb264est CHAR(1) not null,
+  aqpb264nu1 NUMBER(9),
+  aqpb264im1 NUMBER(17,2),
+  aqpb264ch1 CHAR(1),
+  aqpb264va1 VARCHAR2(255),
+  aqpb264fe1 DATE
+)
+;
+comment on table AQPB264
+  is 'Tabla Creditos a  Ampliar';
+comment on column AQPB264.aqpb264emp
+  is 'empresa';
+comment on column AQPB264.aqpb264mod
+  is 'modulo';
+comment on column AQPB264.aqpb264suc
+  is 'sucursal';
+comment on column AQPB264.aqpb264mda
+  is 'moneda';
+comment on column AQPB264.aqpb264pap
+  is 'papel';
+comment on column AQPB264.aqpb264cta
+  is 'cuenta';
+comment on column AQPB264.aqpb264ope
+  is 'operacion';
+comment on column AQPB264.aqpb264sbo
+  is 'suboperacion';
+comment on column AQPB264.aqpb264tpo
+  is 'tipo operacion';
+comment on column AQPB264.aqpb264fec
+  is 'fecha carga';
+comment on column AQPB264.aqpb264est
+  is 'estado S-Vigente/ N- No vigente';
+comment on column AQPB264.aqpb264nu1
+  is 'aux numero';
+comment on column AQPB264.aqpb264im1
+  is 'aux importe';
+comment on column AQPB264.aqpb264ch1
+  is 'aux caracter';
+comment on column AQPB264.aqpb264va1
+  is 'aux cadena';
+comment on column AQPB264.aqpb264fe1
+  is 'aux fecha';
+create index AQPB2642 on AQPB264 (AQPB264EMP, AQPB264MOD, AQPB264SUC, AQPB264MDA, AQPB264PAP, AQPB264CTA, AQPB264OPE, AQPB264SBO, AQPB264TPO);
+alter table AQPB264
+  add constraint AQPB2641 primary key (AQPB264FEC, AQPB264EMP, AQPB264MOD, AQPB264SUC, AQPB264MDA, AQPB264PAP, AQPB264CTA, AQPB264OPE, AQPB264SBO, AQPB264TPO, AQPB264EST);
+

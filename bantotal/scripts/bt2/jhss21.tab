@@ -1,0 +1,12 @@
+create table JHSS21
+(
+  jhss21id   CHAR(20) not null,
+  jhss21sr   CHAR(3) not null,
+  jhss21pos  NUMBER(5) not null,
+  jhss21time DATE,
+  jhss21dlen NUMBER(5),
+  jhss21data VARCHAR2(2000)
+)
+;
+create unique index JHSS2101 on JHSS21 (JHSS21ID, JHSS21SR, JHSS21POS);
+

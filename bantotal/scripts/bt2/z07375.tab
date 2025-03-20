@@ -1,0 +1,23 @@
+create table Z07375
+(
+  z07375pg1 NUMBER(3) not null,
+  z07375ct1 NUMBER(9) not null,
+  z07375pg2 NUMBER(3) not null,
+  z07375ct2 NUMBER(9) not null,
+  z07375fan NUMBER(4) not null,
+  z07375fme NUMBER(2) not null,
+  z07375bas NUMBER(7),
+  z07375bru NUMBER(7),
+  z07375liq NUMBER(7),
+  z07375imp NUMBER(7),
+  z07375sud NUMBER(7),
+  z07343cod NUMBER(3),
+  z07375pap NUMBER(4),
+  z07375mon NUMBER(4)
+)
+;
+create index Z0737502 on Z07375 (Z07343COD);
+create index Z0737503 on Z07375 (Z07375PG2, Z07375CT2, Z07375FAN, Z07375FME);
+alter table Z07375
+  add primary key (Z07375PG1, Z07375CT1, Z07375PG2, Z07375CT2, Z07375FAN, Z07375FME);
+

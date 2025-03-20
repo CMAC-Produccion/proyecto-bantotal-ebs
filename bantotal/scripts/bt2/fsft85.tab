@@ -1,0 +1,24 @@
+create table FSFT85
+(
+  sft84emp  NUMBER(3) not null,
+  sft84year NUMBER(4) not null,
+  sft84merc NUMBER(3) not null,
+  sft84agen NUMBER(9) not null,
+  sft84bole NUMBER(8) not null,
+  sft85corr NUMBER(4) not null,
+  sft85comi NUMBER(8),
+  sft85cano NUMBER(12,5),
+  sft85prec NUMBER(11,6),
+  sft85cont NUMBER(6),
+  sft85cta  NUMBER(9),
+  sft85stat CHAR(1),
+  sft85coer NUMBER(4),
+  sft85hora CHAR(15),
+  sft85fcon DATE
+)
+;
+create index FSFT8503 on FSFT85 (SFT84EMP, SFT84YEAR, SFT84MERC, SFT84AGEN, SFT85COMI, SFT85HORA);
+create index FSFT8504 on FSFT85 (SFT84EMP, SFT84YEAR, SFT85STAT, SFT84MERC, SFT84AGEN, SFT85COMI, SFT85FCON, SFT85HORA);
+alter table FSFT85
+  add primary key (SFT84EMP, SFT84YEAR, SFT84MERC, SFT84AGEN, SFT84BOLE, SFT85CORR);
+

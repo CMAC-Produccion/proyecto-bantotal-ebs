@@ -1,0 +1,28 @@
+create table FPP029
+(
+  pp010prd   NUMBER(3) not null,
+  pp017par   NUMBER(4) not null,
+  pp028emp   NUMBER(3) not null,
+  pp028mod   NUMBER(3) not null,
+  pp028top   NUMBER(3) not null,
+  pp028mda   NUMBER(4) not null,
+  pp028pap   NUMBER(4) not null,
+  pp029suc   NUMBER(3) not null,
+  pp029cta   NUMBER(9) not null,
+  pp029oper  NUMBER(9) not null,
+  pp029sop   NUMBER(3) not null,
+  pp029defn  NUMBER(17,2),
+  pp029minn  NUMBER(17,2),
+  pp029maxn  NUMBER(17,2),
+  pp029defc  CHAR(30),
+  pp029defd  DATE,
+  pp029tipos CHAR(1),
+  pp029defv  VARCHAR2(2000),
+  pp029car1  CHAR(1),
+  pp029car2  CHAR(1),
+  pp029car3  CHAR(1)
+)
+;
+alter table FPP029
+  add primary key (PP010PRD, PP017PAR, PP028EMP, PP028MOD, PP028TOP, PP028MDA, PP028PAP, PP029SUC, PP029CTA, PP029OPER, PP029SOP);
+

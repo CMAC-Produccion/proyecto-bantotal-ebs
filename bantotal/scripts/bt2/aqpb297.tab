@@ -1,0 +1,79 @@
+create table AQPB297
+(
+  aqpb297fec   DATE not null,
+  aqpb297cod   NUMBER(3) not null,
+  aqpb297suc   NUMBER(3) not null,
+  aqpb297mda   NUMBER(4) not null,
+  aqpb297pap   NUMBER(4) not null,
+  aqpb297cta   NUMBER(9) not null,
+  aqpb297oper  NUMBER(9) not null,
+  aqpb297sbop  NUMBER(3) not null,
+  aqpb297tope  NUMBER(3) not null,
+  aqpb297mod   NUMBER(3) not null,
+  aqpb297tasa  NUMBER(10,6),
+  aqpb297sdo   NUMBER(17,2),
+  aqpb297est   CHAR(1) not null,
+  aqpb297pais  NUMBER(3),
+  aqpb297tdoc  NUMBER(2) not null,
+  aqpb297ndoc  CHAR(12) not null,
+  aqpb297hora  CHAR(10),
+  aqpb297fech1 DATE,
+  aqpb297fech2 DATE,
+  aqpb297fech3 DATE,
+  aqpb297var1  VARCHAR2(120),
+  aqpb297var2  VARCHAR2(120),
+  aqpb297var3  VARCHAR2(120)
+)
+;
+comment on table AQPB297
+  is 'Tabla Carga Listado Lineas Vinculacion';
+comment on column AQPB297.aqpb297fec
+  is 'fecha de carga';
+comment on column AQPB297.aqpb297cod
+  is 'pgcod';
+comment on column AQPB297.aqpb297suc
+  is 'sucursal';
+comment on column AQPB297.aqpb297mda
+  is 'moneda';
+comment on column AQPB297.aqpb297pap
+  is 'papel';
+comment on column AQPB297.aqpb297cta
+  is 'cuenta';
+comment on column AQPB297.aqpb297oper
+  is 'operacion';
+comment on column AQPB297.aqpb297sbop
+  is 'suboperacion';
+comment on column AQPB297.aqpb297tope
+  is 'tipo operacion';
+comment on column AQPB297.aqpb297mod
+  is 'modulo';
+comment on column AQPB297.aqpb297tasa
+  is 'tasa';
+comment on column AQPB297.aqpb297sdo
+  is 'saldo';
+comment on column AQPB297.aqpb297est
+  is 'estado';
+comment on column AQPB297.aqpb297pais
+  is 'pais';
+comment on column AQPB297.aqpb297tdoc
+  is 'tipo documento';
+comment on column AQPB297.aqpb297ndoc
+  is 'numero documento';
+comment on column AQPB297.aqpb297hora
+  is 'Hora de Registro';
+comment on column AQPB297.aqpb297fech1
+  is 'fecha 1';
+comment on column AQPB297.aqpb297fech2
+  is 'fecha 2';
+comment on column AQPB297.aqpb297fech3
+  is 'fecha 3';
+comment on column AQPB297.aqpb297var1
+  is 'variable 1';
+comment on column AQPB297.aqpb297var2
+  is 'variable 2';
+comment on column AQPB297.aqpb297var3
+  is 'variable 3';
+create index AQPB297A2 on AQPB297 (AQPB297FEC, AQPB297CTA, AQPB297OPER, AQPB297MOD, AQPB297EST);
+alter table AQPB297
+  add primary key (AQPB297FEC, AQPB297COD, AQPB297SUC, AQPB297MDA, AQPB297PAP, AQPB297CTA, AQPB297OPER, AQPB297SBOP, AQPB297TOPE, AQPB297MOD, AQPB297EST);
+

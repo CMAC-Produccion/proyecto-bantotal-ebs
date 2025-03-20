@@ -1,0 +1,22 @@
+create table BBVD53
+(
+  bbv52usuid CHAR(12) not null,
+  bbv52tipc  NUMBER(2) not null,
+  bbv52nomar CHAR(12) not null,
+  bbv53indic NUMBER(15) not null,
+  bbv53bcori NUMBER(6),
+  bbv53ctori NUMBER(16),
+  bbv53tpori NUMBER(3),
+  bbv53iddes CHAR(12),
+  bbv53nodes CHAR(22),
+  bbv53bcdes NUMBER(6),
+  bbv53ctdes CHAR(16),
+  bbv53tpdes NUMBER(3),
+  bbv53vlr   NUMBER(14,2),
+  bbv53descr CHAR(80),
+  bbv53ema   CHAR(60)
+)
+;
+alter table BBVD53
+  add primary key (BBV52USUID, BBV52TIPC, BBV52NOMAR, BBV53INDIC);
+

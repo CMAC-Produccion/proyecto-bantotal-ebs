@@ -1,0 +1,22 @@
+create table FBC731
+(
+  bc731emp  NUMBER(3) not null,
+  bc731fch  DATE not null,
+  bc731rute CHAR(10) not null,
+  bc731esta CHAR(1),
+  bc731razs CHAR(40),
+  bc731tel  CHAR(20),
+  bc731fax  CHAR(20),
+  bc731rutr CHAR(10),
+  bc731nomr CHAR(60),
+  bc731coda CHAR(10),
+  bc731codc CHAR(10),
+  bc731numt NUMBER(6),
+  bc731aux1 NUMBER(17,2),
+  bc731aux2 CHAR(30),
+  bc731aux3 DATE
+)
+;
+alter table FBC731
+  add primary key (BC731EMP, BC731FCH, BC731RUTE);
+

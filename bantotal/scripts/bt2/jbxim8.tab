@@ -1,0 +1,47 @@
+create table JBXIM8
+(
+  jbxim8ent NUMBER(9) not null,
+  jbxim8srv NUMBER(3) not null,
+  jbxim8fch DATE not null,
+  jbxim8suc NUMBER(3) not null,
+  jbxim8ter CHAR(20) not null,
+  jbxim8usu CHAR(10) not null,
+  jbxim8bol NUMBER(9) not null,
+  jbxim8fpg NUMBER(1) not null,
+  jbxim8mda NUMBER(4),
+  jbxim8imp NUMBER(17,2),
+  jbxim8fve DATE,
+  jbxim8mbo NUMBER(4),
+  jbxim8ibo NUMBER(17,2),
+  jbxim8pgc NUMBER(3),
+  jbxim8sud NUMBER(3),
+  jbxim8mod NUMBER(3),
+  jbxim8mdd NUMBER(4),
+  jbxim8pad NUMBER(4),
+  jbxim8ctd NUMBER(9),
+  jbxim8opd NUMBER(9),
+  jbxim8sbd NUMBER(3),
+  jbxim8tod NUMBER(3),
+  jbxim8bco NUMBER(9),
+  jbxim8bsu NUMBER(9),
+  jbxim8bcp CHAR(12),
+  jbxim8chq NUMBER(9),
+  jbxim8im1 NUMBER(17,2),
+  jbxim8im2 NUMBER(17,2),
+  jbxim8fh1 DATE,
+  jbxim8fh2 DATE,
+  jbxim8ax1 CHAR(60),
+  jbxim8ax2 CHAR(60),
+  jbxim8moc NUMBER(3),
+  jbxim8trc NUMBER(3),
+  jbxim8rec NUMBER(4),
+  jbxim8fcc DATE,
+  jbxim8ctb CHAR(1),
+  jbxim8est CHAR(1)
+)
+;
+create unique index JBXIM801 on JBXIM8 (JBXIM8ENT, JBXIM8SRV, JBXIM8FCH, JBXIM8SUC, JBXIM8TER, JBXIM8USU, JBXIM8BOL, JBXIM8FPG);
+create index JBXIM802 on JBXIM8 (JBXIM8FCH, JBXIM8SUC, JBXIM8TER, JBXIM8USU, JBXIM8FPG, JBXIM8MBO);
+create index JBXIM804 on JBXIM8 (JBXIM8SUC, JBXIM8MOC, JBXIM8TRC, JBXIM8REC, JBXIM8FCC);
+create index JBXIM805 on JBXIM8 (JBXIM8ENT, JBXIM8SRV, JBXIM8FCH, JBXIM8SUC, JBXIM8TER, JBXIM8BOL);
+

@@ -1,0 +1,12 @@
+create table JAQY914
+(
+  jaqy914pais NUMBER(3) not null,
+  jaqy914tdoc NUMBER(2) not null,
+  jaqy914ndoc CHAR(12) not null,
+  jaqy914nro  NUMBER(10) not null,
+  jaqy914stat NUMBER(10)
+)
+;
+alter table JAQY914
+  add primary key (JAQY914PAIS, JAQY914TDOC, JAQY914NDOC, JAQY914NRO);
+

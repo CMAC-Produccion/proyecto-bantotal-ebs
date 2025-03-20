@@ -1,0 +1,11 @@
+create table SNG012
+(
+  sng011pgc NUMBER(3) not null,
+  sng011mod NUMBER(4) not null,
+  sng011agp NUMBER(4) not null,
+  sng012top NUMBER(4) not null
+)
+;
+alter table SNG012
+  add primary key (SNG011PGC, SNG011MOD, SNG011AGP, SNG012TOP);
+

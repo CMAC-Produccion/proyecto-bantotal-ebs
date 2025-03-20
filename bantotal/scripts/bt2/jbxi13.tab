@@ -1,0 +1,15 @@
+create table JBXI13
+(
+  jbxi13pro CHAR(41) not null,
+  jbxi13icc CHAR(7),
+  jbxi13ilc NUMBER(17),
+  jbxi13fpr NUMBER(8),
+  jbxi13fva NUMBER(8),
+  jbxi13imp NUMBER(14,2),
+  jbxi13ive NUMBER(14,2),
+  jbxi13lcr CHAR(7),
+  jbxi13tre NUMBER(1)
+)
+;
+create unique index JBXI1301 on JBXI13 (JBXI13PRO);
+

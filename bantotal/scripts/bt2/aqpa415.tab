@@ -1,0 +1,21 @@
+create table AQPA415
+(
+  aqpa415cor  NUMBER(10) not null,
+  aqpa415fec  DATE not null,
+  aqpa415hor  CHAR(8) not null,
+  aqpa415ins  NUMBER(10) not null,
+  aqpa415use  VARCHAR2(40),
+  aqpa415doc  CHAR(12),
+  aqpa415rel  VARCHAR2(20),
+  aqpa415aux1 NUMBER(10),
+  aqpa415aux2 DATE,
+  aqpa415aux3 CHAR(8),
+  aqpa415aux4 VARCHAR2(1),
+  aqpa415pai  NUMBER(3),
+  aqpa415tdo  NUMBER(2)
+)
+;
+create index AQPA4152 on AQPA415 (AQPA415INS);
+alter table AQPA415
+  add primary key (AQPA415FEC, AQPA415COR, AQPA415HOR);
+

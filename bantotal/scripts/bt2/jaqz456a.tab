@@ -1,0 +1,30 @@
+create table JAQZ456A
+(
+  jaqz456afec    DATE not null,
+  jaqz456aid     NUMBER(10) not null,
+  jaqz456ains    NUMBER(10) not null,
+  jaqz456ausrcod CHAR(30),
+  jaqz456arolcod NUMBER(4),
+  jaqz456ataskco NUMBER(4),
+  jaqz456ainit   DATE,
+  jaqz456aend    DATE,
+  jaqz456atscod  CHAR(1),
+  jaqz456astsact NUMBER(1),
+  jaqz456awrn    CHAR(1),
+  jaqz456adln    CHAR(1),
+  jaqz456arntime DATE,
+  jaqz456alntime DATE,
+  jaqz456aprcurn NUMBER(10),
+  jaqz456aprvsta CHAR(1),
+  jaqz456aprvtas NUMBER(4),
+  jaqz456apty    NUMBER(1),
+  jaqz456aprcid  NUMBER(4)
+)
+;
+comment on table JAQZ456A
+  is 'Backup de tabla wfwrkitems';
+alter table JAQZ456A
+  add constraint ID_JAQZ456A1 primary key (JAQZ456AFEC, JAQZ456AINS, JAQZ456AID);
+alter table JAQZ456A
+  add constraint ID_JAQZ456A2 unique (JAQZ456AFEC, JAQZ456AID, JAQZ456AINS);
+

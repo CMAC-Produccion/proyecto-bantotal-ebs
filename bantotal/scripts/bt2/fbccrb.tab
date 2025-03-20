@@ -1,0 +1,23 @@
+create table FBCCRB
+(
+  bccrbemp  NUMBER(3) not null,
+  bccrbfec  DATE not null,
+  bccrbcorr NUMBER(12) not null,
+  bccrb04   CHAR(16) not null,
+  bccrb05   CHAR(13) not null,
+  bccrb03   CHAR(4),
+  bccrb06   CHAR(2),
+  bccrb07   CHAR(2),
+  bccrb08   CHAR(80),
+  bccrb09   CHAR(15),
+  bccrb10   CHAR(6),
+  bccrb11   CHAR(2),
+  bccrb12   CHAR(3),
+  bccrb13   NUMBER(4,2),
+  bccrb14   NUMBER(14,2),
+  bccrb15   CHAR(1)
+)
+;
+alter table FBCCRB
+  add primary key (BCCRBEMP, BCCRBFEC, BCCRBCORR, BCCRB04, BCCRB05);
+

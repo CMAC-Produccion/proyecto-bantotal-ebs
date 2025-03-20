@@ -1,0 +1,21 @@
+create table FCPG76
+(
+  cpg76empbt NUMBER(3) not null,
+  cpg76conv  NUMBER(8) not null,
+  cpg76serv  NUMBER(3) not null,
+  cpg76fpres DATE not null,
+  cpg76nenv  NUMBER(3) not null,
+  cpg76nenve NUMBER(2),
+  cpg76creg  NUMBER(3),
+  cpg76canal NUMBER(3),
+  cpg76est   CHAR(3),
+  cpg76blq   CHAR(1),
+  cpg76inst  NUMBER(10),
+  cpg76fto   CHAR(8)
+)
+;
+create index FCPG7602 on FCPG76 (CPG76INST);
+create index FCPG7603 on FCPG76 (CPG76FPRES);
+alter table FCPG76
+  add primary key (CPG76EMPBT, CPG76CONV, CPG76SERV, CPG76FPRES, CPG76NENV);
+

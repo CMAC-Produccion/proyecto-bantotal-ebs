@@ -1,0 +1,19 @@
+create table SD4301
+(
+  sd01coddis NUMBER(4) not null,
+  sd01codent NUMBER(5) not null,
+  sd01fchinf NUMBER(6) not null,
+  sd01stnoim NUMBER(10),
+  sd01signc6 CHAR(1),
+  sd01impred NUMBER(10),
+  sd01sprevn NUMBER(10),
+  sd01intdoc NUMBER(10),
+  sd01tfinsi NUMBER(10),
+  sd01tfdsdo NUMBER(10),
+  sd01totfin NUMBER(10),
+  sd01rectif CHAR(1)
+)
+;
+alter table SD4301
+  add primary key (SD01CODDIS, SD01CODENT, SD01FCHINF);
+

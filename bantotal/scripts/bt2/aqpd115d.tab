@@ -1,0 +1,66 @@
+create table AQPD115D
+(
+  aqpd115dfcar   DATE not null,
+  aqpd115dcuo    NUMBER(10),
+  aqpd115dcon    VARCHAR2(20) not null,
+  aqpd115dfvto   DATE not null,
+  aqpd115ddias   NUMBER(10),
+  aqpd115dmnd    VARCHAR2(10),
+  aqpd115dpri    NUMBER(18,2),
+  aqpd115dint    NUMBER(18,2),
+  aqpd115dcomi   NUMBER(18,2),
+  aqpd115dmntcob NUMBER(18,2),
+  aqpd115dpriven NUMBER(18,2),
+  aqpd115dcapi   NUMBER(18,2),
+  aqpd115destcuo VARCHAR2(10),
+  aqpd115dpro    VARCHAR2(20),
+  aqpd115dtipo   VARCHAR2(3) not null,
+  aqpd115damo    VARCHAR2(3),
+  aqpd115dtasa   NUMBER(18,10),
+  aqpd115dfecreg DATE default SYSTIMESTAMP,
+  aqpd115dana    VARCHAR2(10)
+)
+;
+comment on table AQPD115D
+  is 'TABLA CRONOGRAMAS MI VIVIENDA - DEFINITIVOS';
+comment on column AQPD115D.aqpd115dfcar
+  is 'FECHA CARGA';
+comment on column AQPD115D.aqpd115dcuo
+  is 'CUOTA';
+comment on column AQPD115D.aqpd115dcon
+  is 'CONTRATO';
+comment on column AQPD115D.aqpd115dfvto
+  is 'FECHA VENCIMIENTO';
+comment on column AQPD115D.aqpd115ddias
+  is 'NRO DE DIAS';
+comment on column AQPD115D.aqpd115dmnd
+  is 'MONEDA';
+comment on column AQPD115D.aqpd115dpri
+  is 'PRINCIPAL';
+comment on column AQPD115D.aqpd115dint
+  is 'INTERES';
+comment on column AQPD115D.aqpd115dcomi
+  is 'COMISION';
+comment on column AQPD115D.aqpd115dmntcob
+  is 'MONTO A COBRAR';
+comment on column AQPD115D.aqpd115dpriven
+  is 'PRINCIPAL POR VENCER';
+comment on column AQPD115D.aqpd115dcapi
+  is 'CAPITALIZACION';
+comment on column AQPD115D.aqpd115destcuo
+  is 'ESTADO CUOTA';
+comment on column AQPD115D.aqpd115dpro
+  is 'PRODUCTO';
+comment on column AQPD115D.aqpd115dtipo
+  is 'TIPO';
+comment on column AQPD115D.aqpd115damo
+  is '¿AMORTIZADO?';
+comment on column AQPD115D.aqpd115dtasa
+  is 'TASA';
+comment on column AQPD115D.aqpd115dfecreg
+  is 'FECHA REGISTRO';
+comment on column AQPD115D.aqpd115dana
+  is 'ANALISTA';
+alter table AQPD115D
+  add primary key (AQPD115DFCAR, AQPD115DCON, AQPD115DFVTO, AQPD115DTIPO);
+

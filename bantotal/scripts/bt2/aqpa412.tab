@@ -1,0 +1,23 @@
+create table AQPA412
+(
+  aqpa412corr  NUMBER(10) not null,
+  aqpa412inst  NUMBER(10) not null,
+  aqpa412user  VARCHAR2(20),
+  aqpa412csbs  VARCHAR2(30),
+  aqpa412ndoc  VARCHAR2(30),
+  aqpa412frcc  DATE,
+  aqpa412fpro  DATE,
+  aqpa412rubro VARCHAR2(20),
+  aqpa412enti  VARCHAR2(200),
+  aqpa412cent  VARCHAR2(50),
+  aqpa412gast  NUMBER(17,2),
+  aqpa412moda  CHAR(1),
+  aqpa412tipo  CHAR(2),
+  aqpa412aux1  VARCHAR2(6),
+  aqpa412aux2  NUMBER(10),
+  aqpa412aux3  DATE,
+  aqpa412aux4  CHAR(20)
+)
+;
+create index AQPA412A2 on AQPA412 (AQPA412INST);
+

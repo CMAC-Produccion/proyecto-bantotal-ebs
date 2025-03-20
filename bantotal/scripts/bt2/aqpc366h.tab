@@ -1,0 +1,352 @@
+create table AQPC366H
+(
+  aqpc366husur   CHAR(10),
+  aqpc366hfproc  DATE,
+  aqpc366hncta   NUMBER(9),
+  aqpc366hnope   NUMBER(9),
+  aqpc366hrucc   VARCHAR2(15),
+  aqpc366hncer   VARCHAR2(50),
+  aqpc366hnsol   VARCHAR2(50),
+  aqpc366hcodgar VARCHAR2(50),
+  aqpc366hcodcob VARCHAR2(50),
+  aqpc366hcodsub VARCHAR2(50),
+  aqpc366hidcof  VARCHAR2(20),
+  aqpc366horifon VARCHAR2(50),
+  aqpc366hnpre   VARCHAR2(30),
+  aqpc366hfdes   DATE,
+  aqpc366hfprcu  DATE,
+  aqpc366hffinc  DATE,
+  aqpc366hfinc   DATE,
+  aqpc366hffnc   DATE,
+  aqpc366htdest  VARCHAR2(20),
+  aqpc366hmone   VARCHAR2(10),
+  aqpc366hscap   NUMBER(17,2),
+  aqpc366hsins   NUMBER(17,2),
+  aqpc366hmpre   NUMBER(17,2),
+  aqpc366hfclas  DATE,
+  aqpc366hcnor   NUMBER(5,2),
+  aqpc366hccpp   NUMBER(5,2),
+  aqpc366hcdef   NUMBER(5,2),
+  aqpc366hcdud   NUMBER(5,2),
+  aqpc366hcper   NUMBER(5,2),
+  aqpc366hscon   CHAR(3),
+  aqpc366htpre   VARCHAR2(50),
+  aqpc366hatru   NUMBER,
+  aqpc366hrgon   VARCHAR2(40),
+  aqpc366hzona   VARCHAR2(40),
+  aqpc366hagen   VARCHAR2(40),
+  aqpc366hanal   VARCHAR2(40),
+  aqpc366htdoc   CHAR(3),
+  aqpc366hndoc   VARCHAR2(15),
+  aqpc366hrsoc   VARCHAR2(70),
+  aqpc366hnomc   VARCHAR2(70),
+  aqpc366htemp   VARCHAR2(30),
+  aqpc366hest    NUMBER(4),
+  aqpc366hestd   CHAR(30),
+  aqpc366hfest   DATE,
+  aqpc366hcdes   NUMBER(17,2),
+  aqpc366hperio  NUMBER(9),
+  aqpc366hpgra   NUMBER(9),
+  aqpc366hncuod  NUMBER(5),
+  aqpc366hcobr   NUMBER(5,2),
+  aqpc366hmcob   NUMBER(17,2),
+  aqpc366hchon   CHAR(1),
+  aqpc366hfhon   DATE,
+  aqpc366hmhon   NUMBER(17,2),
+  aqpc366hsdocap NUMBER(17,2),
+  aqpc366hsdohon NUMBER(17,2),
+  aqpc366hcrehon NUMBER(17,2),
+  aqpc366hdatr   NUMBER(9),
+  aqpc366hcpen   NUMBER(5),
+  aqpc366hfvnui  DATE,
+  aqpc366hfvnup  DATE,
+  aqpc366hfpup   DATE,
+  aqpc366hcuop   NUMBER(5),
+  aqpc366hmcuop  NUMBER(17,2),
+  aqpc366hprcap  NUMBER(17,2),
+  aqpc366hpinc   NUMBER(17,2),
+  aqpc366hpinm   NUMBER(17,2),
+  aqpc366hprin   NUMBER(17,2),
+  aqpc366hprpn   NUMBER(17,2),
+  aqpc366hprseg  NUMBER(17,2),
+  aqpc366hfcsbs  DATE,
+  aqpc366hsnor   NUMBER(5,2),
+  aqpc366hscpp   NUMBER(5,2),
+  aqpc366hsdef   NUMBER(5,2),
+  aqpc366hsdud   NUMBER(5,2),
+  aqpc366hsper   NUMBER(5,2),
+  aqpc366htea    NUMBER(17,2),
+  aqpc366hteam   NUMBER(17,2),
+  aqpc366hciuu   VARCHAR2(5),
+  aqpc366haeco   VARCHAR2(60),
+  aqpc366htcre   VARCHAR2(50),
+  aqpc366hrepro  CHAR(1),
+  aqpc366hfrpro  DATE,
+  aqpc366hnrpro  NUMBER(5),
+  aqpc366hfprcr  DATE,
+  aqpc366hffnpr  DATE,
+  aqpc366hncuor  NUMBER(5),
+  aqpc366hgrac   NUMBER(5),
+  aqpc366hciuo   VARCHAR2(5),
+  aqpc366haecoo  VARCHAR2(60),
+  aqpc366hemp    NUMBER(3),
+  aqpc366hmod    NUMBER(3),
+  aqpc366hsuc    NUMBER(3),
+  aqpc366hmnda   NUMBER(4),
+  aqpc366hpapl   NUMBER(4),
+  aqpc366hsbop   NUMBER(3),
+  aqpc366htope   NUMBER(3),
+  aqpc366hfcr    VARCHAR2(10),
+  aqpc366hhcr    VARCHAR2(10),
+  aqpc366hintcom NUMBER(17,2),
+  aqpc366hintmor NUMBER(17,2),
+  aqpc366hintcov NUMBER(17,2),
+  aqpc366hpen    NUMBER(17,2),
+  aqpc366hcertrn VARCHAR2(50),
+  aqpc366hcobren VARCHAR2(50),
+  aqpc366hsinsap NUMBER(17,2),
+  aqpc366hprpago NUMBER(17,2),
+  aqpc366hpagrea NUMBER(17,2),
+  aqpc366hpramrt NUMBER(17,2),
+  aqpc366hnrccor NUMBER(6),
+  aqpc366hnrccac NUMBER(6),
+  aqpc366hvulcpa NUMBER(17,2),
+  aqpc366hvcprve NUMBER(17,2),
+  aqpc366hfuclpr DATE,
+  aqpc366hcuopc  NUMBER(5)
+)
+;
+comment on table AQPC366H
+  is 'REPORTE FONDO Impulso Peru Temporal';
+comment on column AQPC366H.aqpc366husur
+  is 'USUARIO';
+comment on column AQPC366H.aqpc366hfproc
+  is 'Fecha proceso';
+comment on column AQPC366H.aqpc366hncta
+  is 'N° de cuenta ';
+comment on column AQPC366H.aqpc366hnope
+  is 'N° de operación ';
+comment on column AQPC366H.aqpc366hrucc
+  is 'Esf (ruc Caja Arequipa)';
+comment on column AQPC366H.aqpc366hncer
+  is 'Nº Certificado';
+comment on column AQPC366H.aqpc366hnsol
+  is 'Código de solicitud (dato de Cofide)';
+comment on column AQPC366H.aqpc366hcodgar
+  is 'Codigo de Garantia';
+comment on column AQPC366H.aqpc366hcodcob
+  is 'Codigo de cobertura';
+comment on column AQPC366H.aqpc366hcodsub
+  is 'Codigo de subasta';
+comment on column AQPC366H.aqpc366hidcof
+  is 'Id (Datos COFIDE)';
+comment on column AQPC366H.aqpc366horifon
+  is 'Origen Fondos';
+comment on column AQPC366H.aqpc366hnpre
+  is 'Numero préstamo ';
+comment on column AQPC366H.aqpc366hfdes
+  is 'Fecha de desembolso  ';
+comment on column AQPC366H.aqpc366hfprcu
+  is 'Fecha primera cuota';
+comment on column AQPC366H.aqpc366hffinc
+  is 'Fecha fin del credito';
+comment on column AQPC366H.aqpc366hfinc
+  is 'Fecha inicio credito COFIDE';
+comment on column AQPC366H.aqpc366hffnc
+  is 'Fecha Fin credito COFIDE';
+comment on column AQPC366H.aqpc366htdest
+  is 'Tipo destino';
+comment on column AQPC366H.aqpc366hmone
+  is 'MONEDA Descripcion ';
+comment on column AQPC366H.aqpc366hscap
+  is 'Saldo capital (saldo bantotal al corte)';
+comment on column AQPC366H.aqpc366hsins
+  is 'Saldo insoluto (saldo insoluto al corte)';
+comment on column AQPC366H.aqpc366hmpre
+  is 'Monto prepago (monto amortizado de capital comparando al cierre del mes anterior)';
+comment on column AQPC366H.aqpc366hfclas
+  is 'Fecha clasificación caja ';
+comment on column AQPC366H.aqpc366hcnor
+  is 'Clasificación sbs normal % (en números sin decimales)';
+comment on column AQPC366H.aqpc366hccpp
+  is 'Clasificación sbs cpp % (en números sin decimales)';
+comment on column AQPC366H.aqpc366hcdef
+  is 'Clasificación sbs deficiente % (en números sin decimales)';
+comment on column AQPC366H.aqpc366hcdud
+  is 'Clasificación sbs dudoso % (en números sin decimales)';
+comment on column AQPC366H.aqpc366hcper
+  is 'Clasificación sbs pérdida % (en números sin decimales)';
+comment on column AQPC366H.aqpc366hscon
+  is 'Situación contable (vigente = vgt, vencido=vcd, refinanciado=rfn, judicial=jdc)';
+comment on column AQPC366H.aqpc366htpre
+  is 'Tipo de préstamo ';
+comment on column AQPC366H.aqpc366hatru
+  is 'Días de atraso de la última cuota pagada ';
+comment on column AQPC366H.aqpc366hrgon
+  is 'Región ';
+comment on column AQPC366H.aqpc366hzona
+  is 'Zona ';
+comment on column AQPC366H.aqpc366hagen
+  is 'Agencia ';
+comment on column AQPC366H.aqpc366hanal
+  is 'Analista ';
+comment on column AQPC366H.aqpc366htdoc
+  is 'Tipo de documento (dni, ruc)';
+comment on column AQPC366H.aqpc366hndoc
+  is 'Numero de documento ';
+comment on column AQPC366H.aqpc366hrsoc
+  is 'Razón social ';
+comment on column AQPC366H.aqpc366hnomc
+  is 'Apellidos y nombres del cliente ';
+comment on column AQPC366H.aqpc366htemp
+  is 'Tamaño de la Empresa';
+comment on column AQPC366H.aqpc366hest
+  is 'Estado del Credito';
+comment on column AQPC366H.aqpc366hestd
+  is 'Estado de crédito (normal, cancelado, refinanciado, refinanciado pjm, prejudicial menor, enviado a rl, c. Judicial)';
+comment on column AQPC366H.aqpc366hfest
+  is 'Fecha de cuando se realizó el cambio de estado ';
+comment on column AQPC366H.aqpc366hcdes
+  is 'Monto desembolsado (Bantotal)';
+comment on column AQPC366H.aqpc366hperio
+  is 'Periodo total del credito';
+comment on column AQPC366H.aqpc366hpgra
+  is 'Periodo de gracia del desembolso (en meses)';
+comment on column AQPC366H.aqpc366hncuod
+  is 'N° de cuotas el desembolso (en meses)';
+comment on column AQPC366H.aqpc366hcobr
+  is '% de cobertura ';
+comment on column AQPC366H.aqpc366hmcob
+  is 'Monto de cobertura (saldo insoluto * % de cobertura)';
+comment on column AQPC366H.aqpc366hchon
+  is 'Crédito honrado (si=s, no=n)';
+comment on column AQPC366H.aqpc366hfhon
+  is 'Fecha de honramiento ';
+comment on column AQPC366H.aqpc366hmhon
+  is 'Monto honrado ';
+comment on column AQPC366H.aqpc366hsdocap
+  is 'Saldo Capital ';
+comment on column AQPC366H.aqpc366hsdohon
+  is 'Saldo Honrado ';
+comment on column AQPC366H.aqpc366hcrehon
+  is 'Monto Credito honrado ';
+comment on column AQPC366H.aqpc366hdatr
+  is 'Días de atraso ';
+comment on column AQPC366H.aqpc366hcpen
+  is 'N° de cuotas pendientes de pago ';
+comment on column AQPC366H.aqpc366hfvnui
+  is 'Fecha de vencimiento de la última cuota impaga ';
+comment on column AQPC366H.aqpc366hfvnup
+  is 'Fecha de vencimiento de última cuota pagada ';
+comment on column AQPC366H.aqpc366hfpup
+  is 'Fecha de pago de último pago ';
+comment on column AQPC366H.aqpc366hcuop
+  is 'Número de cuotas pagadas ';
+comment on column AQPC366H.aqpc366hmcuop
+  is 'Monto de cuotas pagadas ';
+comment on column AQPC366H.aqpc366hprcap
+  is 'Pago realizado - capital ';
+comment on column AQPC366H.aqpc366hpinc
+  is 'Pago realizado - interés compensatorio ';
+comment on column AQPC366H.aqpc366hpinm
+  is 'Pago realizado - interés moratorio ';
+comment on column AQPC366H.aqpc366hprin
+  is 'Pago realizado - intereses ';
+comment on column AQPC366H.aqpc366hprpn
+  is 'Pago realizado - penalidad ';
+comment on column AQPC366H.aqpc366hprseg
+  is 'Pago realizado - seguros ';
+comment on column AQPC366H.aqpc366hfcsbs
+  is 'Fecha de clasificación sbs ';
+comment on column AQPC366H.aqpc366hsnor
+  is 'Clasificación sbs normal % (en números con dos decimales)';
+comment on column AQPC366H.aqpc366hscpp
+  is 'Clasificación sbs cpp % (en números con dos decimales)';
+comment on column AQPC366H.aqpc366hsdef
+  is 'Clasificación sbs deficiente % (en números con dos decimales)';
+comment on column AQPC366H.aqpc366hsdud
+  is 'Clasificación sbs dudoso % (en números con dos decimales)';
+comment on column AQPC366H.aqpc366hsper
+  is 'Clasificación sbs pérdida % (en números con dos decimales)';
+comment on column AQPC366H.aqpc366htea
+  is 'Tea (en números con dos decimales)';
+comment on column AQPC366H.aqpc366hteam
+  is 'Tasa moratoria ';
+comment on column AQPC366H.aqpc366hciuu
+  is 'Ciuu ';
+comment on column AQPC366H.aqpc366haeco
+  is 'Actividad económica (de la última evaluación)';
+comment on column AQPC366H.aqpc366htcre
+  is 'Tipo de crédito sbs ';
+comment on column AQPC366H.aqpc366hrepro
+  is 'Flag de reprogramación (si=s, no=n)';
+comment on column AQPC366H.aqpc366hfrpro
+  is 'Fecha de reprogramación (de la última efectuada)';
+comment on column AQPC366H.aqpc366hnrpro
+  is 'N° de reprogramaciones ';
+comment on column AQPC366H.aqpc366hfprcr
+  is 'Fecha de primera cuota de reprogramación ';
+comment on column AQPC366H.aqpc366hffnpr
+  is 'Fecha de fin de crédito posterior a reprogramación ';
+comment on column AQPC366H.aqpc366hncuor
+  is 'N° de cuotas posterior a reprogramación ';
+comment on column AQPC366H.aqpc366hgrac
+  is 'Periodo de gracia posterior a reprogramación ';
+comment on column AQPC366H.aqpc366hciuo
+  is 'Ciiu origen (del desembolso inicial)';
+comment on column AQPC366H.aqpc366haecoo
+  is 'Actividad económica origen (del desembolso inicial)';
+comment on column AQPC366H.aqpc366hemp
+  is 'Empresa ';
+comment on column AQPC366H.aqpc366hmod
+  is 'Modulo ';
+comment on column AQPC366H.aqpc366hsuc
+  is 'Sucursal ';
+comment on column AQPC366H.aqpc366hmnda
+  is 'Moneda ';
+comment on column AQPC366H.aqpc366hpapl
+  is 'Papel ';
+comment on column AQPC366H.aqpc366hsbop
+  is 'Sub operación ';
+comment on column AQPC366H.aqpc366htope
+  is 'Tipo operación ';
+comment on column AQPC366H.aqpc366hfcr
+  is 'Fecha creacion ';
+comment on column AQPC366H.aqpc366hhcr
+  is 'Hora Creacion ';
+comment on column AQPC366H.aqpc366hintcom
+  is 'Interes compensatorios';
+comment on column AQPC366H.aqpc366hintmor
+  is 'Interes moratorio';
+comment on column AQPC366H.aqpc366hintcov
+  is 'Intereses compensatorios vencidos';
+comment on column AQPC366H.aqpc366hpen
+  is 'Penalidad';
+comment on column AQPC366H.aqpc366hcertrn
+  is 'Certificado de renovación/reprogramación';
+comment on column AQPC366H.aqpc366hcobren
+  is 'Cobertura de renovación/reprogramación';
+comment on column AQPC366H.aqpc366hsinsap
+  is 'Saldo Insoluto antes del prepago';
+comment on column AQPC366H.aqpc366hprpago
+  is 'Prepago(Total/Parcial)(Total=cancelacion, Parcial=amortizacion)';
+comment on column AQPC366H.aqpc366hpagrea
+  is 'Pago realizado (Pago total)';
+comment on column AQPC366H.aqpc366hpramrt
+  is 'Principal amortizado';
+comment on column AQPC366H.aqpc366hnrccor
+  is 'Numero de cuotas del cronograma original enviado a COFIDE';
+comment on column AQPC366H.aqpc366hnrccac
+  is 'Numero de cuotas de cronograma actual';
+comment on column AQPC366H.aqpc366hvulcpa
+  is 'Valor de la ultima cuota pagada';
+comment on column AQPC366H.aqpc366hvcprve
+  is 'Valor de cuota proximo vencimiento';
+comment on column AQPC366H.aqpc366hfuclpr
+  is 'Nueva fecha de la ultima cuota luego del prepago';
+comment on column AQPC366H.aqpc366hcuopc
+  is 'N° cuotas pagadas capital';
+create index AQPC366HA2 on AQPC366H (AQPC366HEMP, AQPC366HMOD, AQPC366HSUC, AQPC366HMNDA, AQPC366HPAPL, AQPC366HNCTA, AQPC366HNOPE, AQPC366HSBOP, AQPC366HTOPE);
+create index AQPC366HA3 on AQPC366H (AQPC366HUSUR);
+create index AQPC366HA4 on AQPC366H (AQPC366HUSUR, AQPC366HFPROC);
+

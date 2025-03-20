@@ -1,0 +1,15 @@
+create table JAQZ233
+(
+  jaqz233atm CHAR(16) not null,
+  jaqz233lon NUMBER(9,6),
+  jaqz233lat NUMBER(9,6),
+  jaqz233usr CHAR(10),
+  jaqz233dat DATE,
+  jaqz233cal NUMBER(1) default 0
+)
+;
+comment on column JAQZ233.jaqz233cal
+  is 'Calificación de Canal';
+alter table JAQZ233
+  add primary key (JAQZ233ATM);
+

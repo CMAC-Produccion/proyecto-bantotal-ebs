@@ -1,0 +1,13 @@
+create table FSFF43
+(
+  kefsbc    NUMBER(3) not null,
+  kefrb     NUMBER(16) not null,
+  kefexcmda CHAR(1),
+  kefexcsig CHAR(1),
+  kefexcau1 CHAR(1),
+  kefexcau2 CHAR(1)
+)
+;
+alter table FSFF43
+  add primary key (KEFSBC, KEFRB);
+

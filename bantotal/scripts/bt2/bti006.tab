@@ -1,0 +1,18 @@
+create table BTI006
+(
+  bticannom  VARCHAR2(40) not null,
+  btinom     VARCHAR2(40) not null,
+  btisrvnom  VARCHAR2(40) not null,
+  btifec     DATE not null,
+  btireq     NUMBER(9) not null,
+  btierrid   NUMBER(9) not null,
+  btierrcod  NUMBER(10),
+  btierrdsch VARCHAR2(200),
+  btierraplo VARCHAR2(200),
+  btierrdsco VARCHAR2(200),
+  btierrsevo CHAR(1)
+)
+;
+alter table BTI006
+  add primary key (BTICANNOM, BTINOM, BTISRVNOM, BTIFEC, BTIREQ, BTIERRID);
+

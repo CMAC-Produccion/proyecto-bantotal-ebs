@@ -1,0 +1,11 @@
+create table JSEI01
+(
+  jsei01pdc NUMBER(3) not null,
+  jsei01tdc NUMBER(2) not null,
+  jsei01ndc CHAR(12) not null,
+  jsei01pin NUMBER(4)
+)
+;
+alter table JSEI01
+  add primary key (JSEI01PDC, JSEI01TDC, JSEI01NDC);
+

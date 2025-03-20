@@ -1,0 +1,55 @@
+create table FCD030
+(
+  pgcod      NUMBER(3) not null,
+  coimod     NUMBER(3) not null,
+  coioper    NUMBER(9) not null,
+  coisuc     NUMBER(3),
+  coimda     NUMBER(4),
+  coipap     NUMBER(4),
+  coicta     NUMBER(9),
+  coitipo    NUMBER(3),
+  coifing    DATE,
+  coifval    DATE,
+  coiface    DATE,
+  coifvto    DATE,
+  coifvtant  DATE,
+  coicorrrmt NUMBER(9),
+  coirefcorr CHAR(20),
+  coibcree   NUMBER(9),
+  coiversio  NUMBER(2),
+  coiuser    CHAR(10),
+  coiws      CHAR(10),
+  idioma     NUMBER(2),
+  coiaoimp   NUMBER(17,2),
+  coigtocorr NUMBER(17,2),
+  coimdagtoc CHAR(3),
+  coicomagte NUMBER(17,2),
+  coimdacoma CHAR(3),
+  coiinteres NUMBER(17,2),
+  coimdaint  CHAR(3),
+  coimocsw1  CHAR(3),
+  coibctrnsf NUMBER(9),
+  coigaspor  NUMBER(1),
+  c030cd     NUMBER(3),
+  c030mo     NUMBER(3),
+  c030su     NUMBER(3),
+  c030tr     NUMBER(3),
+  c030re     NUMBER(4),
+  c030fc     DATE,
+  c030co     CHAR(1),
+  coiautree  NUMBER(15)
+)
+;
+create index FCD03002 on FCD030 (PGCOD, COICTA);
+create index FCD03003 on FCD030 (PGCOD, COICORRRMT);
+create index FCD03004 on FCD030 (PGCOD, COIBCREE);
+create index FCD03005 on FCD030 (PGCOD, COIBCTRNSF);
+create index FCD03006 on FCD030 (COIPAP);
+create index FCD03007 on FCD030 (COIMDA);
+create index FCD03008 on FCD030 (PGCOD, COISUC);
+create index FCD03009 on FCD030 (IDIOMA);
+create index FCD03010 on FCD030 (COIMOD);
+create index FCD03080 on FCD030 (COIAUTREE);
+alter table FCD030
+  add primary key (PGCOD, COIMOD, COIOPER);
+

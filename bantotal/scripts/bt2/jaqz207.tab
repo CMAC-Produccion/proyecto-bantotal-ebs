@@ -1,0 +1,27 @@
+create table JAQZ207
+(
+  jaqz207corr NUMBER(4) not null,
+  jaqz207user VARCHAR2(18) not null,
+  jaqz207pgco NUMBER(3),
+  jaqz207modu NUMBER(3),
+  jaqz207sucu NUMBER(3),
+  jaqz207mone NUMBER(3),
+  jaqz207pape NUMBER(3),
+  jaqz207cuen NUMBER(9),
+  jaqz207oper NUMBER(9),
+  jaqz207sbop NUMBER(3),
+  jaqz207tope NUMBER(3),
+  jaqz207mont NUMBER(16,2),
+  jaqz207fech DATE,
+  jaqz207cdcd NUMBER(3),
+  jaqz207momo NUMBER(3),
+  jaqz207susu NUMBER(3),
+  jaqz207trtr NUMBER(3),
+  jaqz207rere NUMBER(4),
+  jaqz207fcfc DATE
+)
+;
+create index JAQZ207A2 on JAQZ207 (JAQZ207USER);
+alter table JAQZ207
+  add primary key (JAQZ207CORR, JAQZ207USER);
+

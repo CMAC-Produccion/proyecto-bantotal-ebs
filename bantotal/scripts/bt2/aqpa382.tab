@@ -1,0 +1,43 @@
+create table AQPA382
+(
+  aqpa382corr  NUMBER(10) not null,
+  aqpa382fproc DATE not null,
+  aqpa382pais  NUMBER(9) not null,
+  aqpa382tdoc  NUMBER(9) not null,
+  aqpa382ndoc  VARCHAR2(12) not null,
+  aqpa382naux1 NUMBER(17,2),
+  aqpa382naux2 NUMBER(17,2),
+  aqpa382vaux1 VARCHAR2(25),
+  aqpa382vaux2 VARCHAR2(25),
+  aqpa382daux1 DATE,
+  aqpa382daux2 DATE
+)
+;
+comment on column AQPA382.aqpa382corr
+  is 'Correlativo por fecha';
+comment on column AQPA382.aqpa382fproc
+  is 'Fecha de Proceso';
+comment on column AQPA382.aqpa382pais
+  is 'Pais de Documento';
+comment on column AQPA382.aqpa382tdoc
+  is 'Tipo de Documento';
+comment on column AQPA382.aqpa382ndoc
+  is 'Nro de Documento';
+comment on column AQPA382.aqpa382naux1
+  is 'Campo Numerico Auxiliar 1';
+comment on column AQPA382.aqpa382naux2
+  is 'Campo Numerico Auxiliar 2';
+comment on column AQPA382.aqpa382vaux1
+  is 'Campo Varchar Auxiliar 1';
+comment on column AQPA382.aqpa382vaux2
+  is 'Campo Varchar Auxiliar 2';
+comment on column AQPA382.aqpa382daux1
+  is 'Campo Fecha Auxiliar 1';
+comment on column AQPA382.aqpa382daux2
+  is 'Campo Fecha Auxiliar 2';
+create index AQPA3822 on AQPA382 (AQPA382PAIS, AQPA382TDOC, AQPA382NDOC);
+create index AQPA3823 on AQPA382 (AQPA382FPROC);
+create index AQPA3824 on AQPA382 (AQPA382FPROC, AQPA382PAIS, AQPA382TDOC, AQPA382NDOC);
+alter table AQPA382
+  add primary key (AQPA382CORR, AQPA382FPROC, AQPA382PAIS, AQPA382TDOC, AQPA382NDOC);
+

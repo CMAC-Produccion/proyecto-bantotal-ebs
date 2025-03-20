@@ -1,0 +1,29 @@
+create table JAQL983
+(
+  jaql983cor NUMBER,
+  jaql983cod VARCHAR2(10),
+  jaql983num VARCHAR2(10),
+  jaql983des VARCHAR2(100),
+  jaql983fin DATE,
+  jaql983ffi DATE,
+  jaql983da1 VARCHAR2(100)
+)
+;
+comment on table JAQL983
+  is 'JOBs Saldos Linea';
+comment on column JAQL983.jaql983cor
+  is 'Correlativo';
+comment on column JAQL983.jaql983cod
+  is 'Codigo de JOB';
+comment on column JAQL983.jaql983num
+  is 'Numero de JOB-Regcod ';
+comment on column JAQL983.jaql983des
+  is 'Descripcion';
+comment on column JAQL983.jaql983fin
+  is 'Fecha Inicio';
+comment on column JAQL983.jaql983ffi
+  is 'Fecha Fin';
+comment on column JAQL983.jaql983da1
+  is 'Datos Adicionales';
+create index JAQL983_ID1 on JAQL983 (JAQL983COR, JAQL983COD, JAQL983NUM);
+

@@ -1,0 +1,11 @@
+create table PLL009
+(
+  ppl008mod  NUMBER(4) not null,
+  ppl008trn  NUMBER(4) not null,
+  pll007alco NUMBER(4) not null
+)
+;
+create index PLL0092 on PLL009 (PLL007ALCO);
+alter table PLL009
+  add primary key (PPL008MOD, PPL008TRN, PLL007ALCO);
+

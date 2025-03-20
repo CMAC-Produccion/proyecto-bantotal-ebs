@@ -1,0 +1,17 @@
+create table AQPB505
+(
+  aqpb505tabcod VARCHAR2(3) not null,
+  aqpb505regcod VARCHAR2(3) not null,
+  aqpb505regest CHAR(1) not null,
+  aqpb505regdes VARCHAR2(90),
+  aqpb505regord NUMBER(3),
+  aqpb505restr1 VARCHAR2(50),
+  aqpb505restr2 VARCHAR2(150),
+  aqpb505renum1 NUMBER(15,2),
+  aqpb505crefec DATE not null,
+  aqpb505creusr VARCHAR2(30) not null
+)
+;
+alter table AQPB505
+  add primary key (AQPB505TABCOD, AQPB505REGCOD);
+

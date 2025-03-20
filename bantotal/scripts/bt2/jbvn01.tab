@@ -1,0 +1,20 @@
+create table JBVN01
+(
+  jbvn01emp NUMBER(3) not null,
+  jbvn01suc NUMBER(3) not null,
+  jbvn01mod NUMBER(3) not null,
+  jbvn01trn NUMBER(3) not null,
+  jbvn01rel NUMBER(4) not null,
+  jbvn01fch DATE not null,
+  jbvn01cta NUMBER(9) not null,
+  jbvn01cor NUMBER(4) not null,
+  jbvn01usu CHAR(10),
+  jbvn01wst CHAR(10),
+  jbvn01hor CHAR(8),
+  jbvn01ori CHAR(3)
+)
+;
+create index JBVN0103 on JBVN01 (JBVN01EMP, JBVN01FCH, JBVN01USU, JBVN01COR);
+alter table JBVN01
+  add primary key (JBVN01EMP, JBVN01SUC, JBVN01MOD, JBVN01TRN, JBVN01REL, JBVN01FCH, JBVN01CTA, JBVN01COR);
+

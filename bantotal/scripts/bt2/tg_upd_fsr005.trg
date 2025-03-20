@@ -1,0 +1,62 @@
+CREATE OR REPLACE TRIGGER TG_UPD_FSR005
+  after update on FSR005
+  for each row
+  
+DECLARE
+  pn_hcmod  fst003.modulo%type;
+  pn_htran  fsd015.ittran%type;
+  pn_pgcod  fst017.pgcod%type;
+  pd_fecpro fst017.pgfape%type;
+  pc_hora char(8);
+  lc_numtar varchar2(65);
+BEGIN
+
+  If  :new.dotelfp <> :old.dotelfp Then
+  
+        pn_pgcod := 1;
+        pn_hcmod := 800;
+        pn_htran := 103;
+        pc_hora := to_char(sysdate,'HH24:mi:ss');
+        begin
+           select a.pgfape into pd_fecpro from fst017 a where a.pgcod= pn_pgcod;
+        end;
+
+          
+       lc_numtar := pq_op_asientos_mplus.fn_ah_doctarjeta(pn_pais   => :new.pepais,
+                                                          pn_tipo   => :new.petdoc,
+                                                          pc_numero => :new.pendoc,
+                                                          pd_fecpro => pd_fecpro
+                                                          );   
+                                                          
+
+       If lc_numtar is not null then    
+       
+            pq_op_asientos_mplus.sp_op_registra_jaql977a(pn_pgcod  => pn_pgcod,
+                                                         pn_hcmod  => pn_hcmod,
+                                                         pn_hsucor => 999,
+                                                         pn_htran  => pn_htran,
+                                                         pn_hnrel  => 0,
+                                                         pd_fecpro => pd_fecpro,
+                                                         pc_uing   => 'BANTOTAL',
+                                                         pc_hora   => pc_hora,
+                                                         pc_cont   => 'S',
+                                                         pn_corr   =>  0,
+                                                         pn_pais   => :new.pepais,
+                                                         pn_tipo   => :new.petdoc,
+                                                         pc_numero => :new.pendoc,
+                                                         pc_valant => :old.dotelfp,
+                                                         pc_valact => :new.dotelfp
+                                                         );
+          
+                                                         
+       End If;                                                           
+  End IF;
+Exception
+When others then
+    null;
+END TG_UPD_FSR005;
+
+
+--select * from JAQL977A for update
+/
+

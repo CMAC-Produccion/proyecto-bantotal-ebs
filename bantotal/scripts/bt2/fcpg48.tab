@@ -1,0 +1,22 @@
+create table FCPG48
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg48codrg NUMBER(3) not null,
+  cpg01cod   CHAR(5),
+  cpg48desc  CHAR(40),
+  cpg48descr CHAR(15),
+  cpg48jerar CHAR(1),
+  cpg48pring CHAR(1),
+  cpg48est   CHAR(3),
+  cpg48blq   CHAR(1),
+  cpg48inst  NUMBER(10)
+)
+;
+create index FCPG4802 on FCPG48 (CPG01COD);
+create index FCPG4804 on FCPG48 (CPG48INST);
+create index FCPG4805 on FCPG48 (CPG48DESCR);
+alter table FCPG48
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG48CODRG);
+

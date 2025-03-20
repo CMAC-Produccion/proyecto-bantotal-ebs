@@ -1,0 +1,17 @@
+create table FCPG97
+(
+  cpg97ins   NUMBER(10) not null,
+  cpg97wit   NUMBER(10) not null,
+  cpg97corr  NUMBER(8) not null,
+  cpg97rang  CHAR(5),
+  cpg97nivje NUMBER(5),
+  cpg97desc  CHAR(40),
+  cpg97ingfd NUMBER(17,2),
+  cpg97aux1  NUMBER(2),
+  cpg97aux2  CHAR(3)
+)
+;
+create index FCPG9702 on FCPG97 (CPG97INS, CPG97WIT, CPG97NIVJE);
+alter table FCPG97
+  add primary key (CPG97INS, CPG97WIT, CPG97CORR);
+

@@ -1,0 +1,30 @@
+create table JAQN216
+(
+  jaqn216emp NUMBER(3) not null,
+  jaqn216mod NUMBER(3) not null,
+  jaqn216suc NUMBER(3) not null,
+  jaqn216mon NUMBER(4) not null,
+  jaqn216pap NUMBER(4) not null,
+  jaqn216cta NUMBER(9) not null,
+  jaqn216ope NUMBER(9) not null,
+  jaqn216sop NUMBER(3) not null,
+  jaqn216top NUMBER(3) not null,
+  jaqn216fac DATE not null,
+  jaqn216ch1 VARCHAR2(250),
+  jaqn216ch2 VARCHAR2(250),
+  jaqn216ch3 VARCHAR2(250),
+  jaqn216nu1 NUMBER(9),
+  jaqn216nu2 NUMBER(9),
+  jaqn216nu3 NUMBER(9),
+  jaqn216im1 NUMBER(17,2),
+  jaqn216im2 NUMBER(17,2),
+  jaqn216im3 NUMBER(17,2),
+  jaqn216fe1 DATE,
+  jaqn216fe2 DATE,
+  jaqn216fe3 DATE
+)
+;
+create index JAQN2162 on JAQN216 (JAQN216EMP, JAQN216CTA);
+alter table JAQN216
+  add primary key (JAQN216EMP, JAQN216MOD, JAQN216SUC, JAQN216MON, JAQN216PAP, JAQN216CTA, JAQN216OPE, JAQN216SOP, JAQN216TOP, JAQN216FAC);
+

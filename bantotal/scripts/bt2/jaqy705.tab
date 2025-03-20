@@ -1,0 +1,32 @@
+create table JAQY705
+(
+  jaqy705codsbs VARCHAR2(3) not null,
+  jaqy705motsbs VARCHAR2(3) not null,
+  jaqy705codlo  VARCHAR2(3) not null,
+  jaqy705motlo  NUMBER(4) not null,
+  jaqy705rev    NUMBER(4),
+  jaqy705t015   NUMBER(4),
+  jaqy705t1530  NUMBER(4),
+  jaqy705t3160  NUMBER(4),
+  jaqy705t60m   NUMBER(4),
+  jaqy708ttot   NUMBER(4),
+  jaqy705ae015  NUMBER(4),
+  jaqy705ae1530 NUMBER(4),
+  jaqy705ae3160 NUMBER(4),
+  jaqy705ae60m  NUMBER(4),
+  jaqy705aesub  NUMBER(4),
+  jaqy705au015  NUMBER(4),
+  jaqy705au1530 NUMBER(4),
+  jaqy705au3160 NUMBER(4),
+  jaqy705au60m  NUMBER(4),
+  jaqy705ausub  NUMBER(4),
+  jaqy705atot   NUMBER(4),
+  jaqy705pda    NUMBER(9,2),
+  jaqy705nmsbs  NUMBER(4),
+  jaqy705ncsbs  NUMBER(4)
+)
+;
+create index JAQY705_01 on JAQY705 (JAQY705NMSBS, JAQY705NCSBS);
+alter table JAQY705
+  add primary key (JAQY705CODSBS, JAQY705MOTSBS, JAQY705CODLO, JAQY705MOTLO);
+

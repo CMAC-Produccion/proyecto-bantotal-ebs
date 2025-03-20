@@ -1,0 +1,106 @@
+create table AQPA134
+(
+  aqpa134fer DATE not null,
+  aqpa134pai NUMBER(3) not null,
+  aqpa134tpo NUMBER(2) not null,
+  aqpa134num CHAR(12) not null,
+  aqpa134hor CHAR(8),
+  aqpa134usr CHAR(10),
+  aqpa134agr NUMBER(3),
+  aqpa134mod NUMBER(3),
+  aqpa134tip NUMBER(3),
+  aqpa134mda NUMBER(4),
+  aqpa134mto NUMBER(17,2),
+  aqpa134est CHAR(1),
+  aqpa134nom VARCHAR2(110),
+  aqpa134dep NUMBER(5),
+  aqpa134prv NUMBER(5),
+  aqpa134dis NUMBER(9),
+  aqpa134dir VARCHAR2(140),
+  aqpa134tel CHAR(50),
+  aqpa134mai VARCHAR2(130),
+  aqpa134fem DATE,
+  aqpa134hom CHAR(8),
+  aqpa134usm CHAR(10),
+  aqpa134agm NUMBER(3),
+  aqpa134ax1 DATE,
+  aqpa134ax2 DATE,
+  aqpa134ax3 NUMBER(9),
+  aqpa134ax4 NUMBER(9),
+  aqpa134ax5 NUMBER(17,2),
+  aqpa134ax6 NUMBER(17,2),
+  aqpa134ax7 CHAR(100),
+  aqpa134ax8 CHAR(100),
+  aqpa134ax9 CHAR(100)
+)
+;
+comment on table AQPA134
+  is 'MAESTRO DE CLIENTE REFERIDOS';
+comment on column AQPA134.aqpa134fer
+  is 'FECHA DE REGISTRO';
+comment on column AQPA134.aqpa134pai
+  is 'PAIS';
+comment on column AQPA134.aqpa134tpo
+  is 'TIPO DOCUMENTO';
+comment on column AQPA134.aqpa134num
+  is 'NUMERO DOCUMENTO';
+comment on column AQPA134.aqpa134hor
+  is 'HORA DE REGISTRO';
+comment on column AQPA134.aqpa134usr
+  is 'USUARIO DE REGISTRO';
+comment on column AQPA134.aqpa134agr
+  is 'AGENCIA DE REGISTRO';
+comment on column AQPA134.aqpa134mod
+  is 'MODULO';
+comment on column AQPA134.aqpa134tip
+  is 'TIPO DE OPERACION';
+comment on column AQPA134.aqpa134mda
+  is 'MONEDA';
+comment on column AQPA134.aqpa134mto
+  is 'MONTO';
+comment on column AQPA134.aqpa134est
+  is 'ESTADO';
+comment on column AQPA134.aqpa134nom
+  is 'NOMBRES Y APELLIDOS';
+comment on column AQPA134.aqpa134dep
+  is 'DEPARTAMENTO';
+comment on column AQPA134.aqpa134prv
+  is 'PROVINCIA';
+comment on column AQPA134.aqpa134dis
+  is 'DISTRITO';
+comment on column AQPA134.aqpa134dir
+  is 'DIRECCION';
+comment on column AQPA134.aqpa134tel
+  is 'TELEFONO';
+comment on column AQPA134.aqpa134mai
+  is 'MAIL';
+comment on column AQPA134.aqpa134fem
+  is 'FECHA MODIFICACION';
+comment on column AQPA134.aqpa134hom
+  is 'HORA DE MODIFICACION';
+comment on column AQPA134.aqpa134usm
+  is 'USUARIO DE MODIFICACION';
+comment on column AQPA134.aqpa134agm
+  is 'AGENCIA DE MODIFICACION';
+comment on column AQPA134.aqpa134ax1
+  is 'AUXILIAR';
+comment on column AQPA134.aqpa134ax2
+  is 'AUXILIAR';
+comment on column AQPA134.aqpa134ax3
+  is 'AUXILIAR';
+comment on column AQPA134.aqpa134ax4
+  is 'AUXILIAR';
+comment on column AQPA134.aqpa134ax5
+  is 'AUXILIAR';
+comment on column AQPA134.aqpa134ax6
+  is 'AUXILIAR';
+comment on column AQPA134.aqpa134ax7
+  is 'AUXILIAR';
+comment on column AQPA134.aqpa134ax8
+  is 'AUXILIAR';
+comment on column AQPA134.aqpa134ax9
+  is 'AUXILIAR';
+create index AQPA134A2 on AQPA134 (AQPA134FER, AQPA134USR);
+alter table AQPA134
+  add primary key (AQPA134FER, AQPA134PAI, AQPA134TPO, AQPA134NUM);
+

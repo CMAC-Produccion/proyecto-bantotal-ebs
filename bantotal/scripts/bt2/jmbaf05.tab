@@ -1,0 +1,11 @@
+create table JMBAF05
+(
+  jmbaf05cif CHAR(7) not null,
+  jmbaf05ope CHAR(14) not null,
+  jmbaf05fve CHAR(10),
+  jmbaf05mve CHAR(12)
+)
+;
+alter table JMBAF05
+  add primary key (JMBAF05CIF, JMBAF05OPE);
+

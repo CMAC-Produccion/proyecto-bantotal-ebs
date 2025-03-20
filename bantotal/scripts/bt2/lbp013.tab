@@ -1,0 +1,27 @@
+create table LBP013
+(
+  lbp013pais NUMBER(3) not null,
+  lbp013tipd NUMBER(2) not null,
+  lbp013ndoc CHAR(12) not null,
+  lbp013codp CHAR(3) not null,
+  lbp013mon  NUMBER(4) not null,
+  lbp013codl NUMBER(3) not null,
+  lbp013imp  NUMBER(14,2),
+  lbp013rpv  NUMBER(5),
+  lbp013rtv  NUMBER(10,6),
+  lbp013canc NUMBER(5),
+  lbp013fchc DATE,
+  lbp013fchv DATE,
+  lbp013est  CHAR(1),
+  lbp013tipc CHAR(1),
+  lbp013lctc NUMBER(14,2),
+  lbp013lcct NUMBER(14,2),
+  lbp013lptc NUMBER(14,2),
+  lbp013lutc CHAR(1),
+  lbp013fchp DATE,
+  lbp013hrpr CHAR(5)
+)
+;
+alter table LBP013
+  add primary key (LBP013PAIS, LBP013TIPD, LBP013NDOC, LBP013CODP, LBP013MON, LBP013CODL);
+

@@ -1,0 +1,38 @@
+create global temporary table FSD601_AUX
+(
+  pgcod    NUMBER(3) not null,
+  ppmod    NUMBER(3) not null,
+  ppsuc    NUMBER(3) not null,
+  ppmda    NUMBER(4) not null,
+  pppap    NUMBER(4) not null,
+  ppcta    NUMBER(9) not null,
+  ppoper   NUMBER(9) not null,
+  ppsbop   NUMBER(3) not null,
+  pptope   NUMBER(3) not null,
+  ppfpag   DATE not null,
+  pptipo   CHAR(1) not null,
+  ppfval   DATE,
+  ppfvto   DATE,
+  pppzo    NUMBER(5),
+  ppcap    NUMBER(17,2),
+  ppint    NUMBER(17,2),
+  ppintmex NUMBER(17,2),
+  ppicap   NUMBER(17,2),
+  ppiint   NUMBER(17,2),
+  ppstat   CHAR(1),
+  ppnume   NUMBER(9),
+  ppfinv   NUMBER(8),
+  d601cd   NUMBER(3),
+  d601mo   NUMBER(3),
+  d601su   NUMBER(3),
+  d601tr   NUMBER(3),
+  d601re   NUMBER(4),
+  d601fc   DATE,
+  d601or   NUMBER(2),
+  d601sb   NUMBER(3),
+  d601co   CHAR(1)
+)
+on commit preserve rows;
+comment on table FSD601_AUX
+  is 'Tabla temporal de llenado en proceso PQ_CR_CALENDARIO';
+

@@ -1,0 +1,31 @@
+create table AUD_MBC009_AUDIT
+(
+  aud_old_mbc9caj    CHAR(1),
+  aud_new_mbc9caj    CHAR(1),
+  aud_old_mbc9cajh   CHAR(1),
+  aud_new_mbc9cajh   CHAR(1),
+  aud_old_mbc9emp    NUMBER(3),
+  aud_new_mbc9emp    NUMBER(3),
+  aud_old_mbc9ncaj   NUMBER(3),
+  aud_new_mbc9ncaj   NUMBER(3),
+  aud_old_mbc9suc    NUMBER(3),
+  aud_new_mbc9suc    NUMBER(3),
+  aud_old_mbc9tes    CHAR(1),
+  aud_new_mbc9tes    CHAR(1),
+  aud_old_mbc9usu    CHAR(10),
+  aud_new_mbc9usu    CHAR(10),
+  aud_mbc009_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_mbc009_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_mbc009_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_mbc009_ubr     VARCHAR2(50) default ' ' not null,
+  aud_mbc009_ubc     VARCHAR2(50) default ' ' not null,
+  aud_mbc009_ubt     VARCHAR2(50) default ' ' not null,
+  aud_mbc009_ubu     VARCHAR2(50) default USER not null,
+  aud_mbc009_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_mbc009_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_mbc009_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_mbc009_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_mbc009_uas     CHAR(1) default 'I' not null
+)
+;
+

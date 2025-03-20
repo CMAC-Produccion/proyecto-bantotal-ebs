@@ -1,0 +1,21 @@
+create table CSMD013
+(
+  csmd005cor NUMBER(10) not null,
+  csmd013cor NUMBER(4) not null,
+  csmd013pgc NUMBER(3),
+  csmd013mod NUMBER(3),
+  csmd013suc NUMBER(3),
+  csmd013mda NUMBER(4),
+  csmd013pap NUMBER(4),
+  csmd013cta NUMBER(9),
+  csmd013ope NUMBER(9),
+  csmd013sbo NUMBER(3),
+  csmd013top NUMBER(3),
+  csmd013ord NUMBER(4),
+  csmd013ref CHAR(30)
+)
+;
+create index CSMD0133 on CSMD013 (CSMD005COR, CSMD013ORD);
+alter table CSMD013
+  add primary key (CSMD005COR, CSMD013COR);
+

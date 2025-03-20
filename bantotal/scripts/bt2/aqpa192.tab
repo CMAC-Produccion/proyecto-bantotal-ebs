@@ -1,0 +1,28 @@
+create table AQPA192
+(
+  aqpa192id      NUMBER(9) not null,
+  aqpa192fecreg  DATE,
+  aqpa192horreg  VARCHAR2(10),
+  aqpa192despro  VARCHAR2(20),
+  aqpa192paidoc  NUMBER(3),
+  aqpa192tipdoc  NUMBER(3),
+  aqpa192numdoc  CHAR(12),
+  aqpa192numcta  VARCHAR2(30),
+  aqpa192tippro  VARCHAR2(3),
+  aqpa192valpar  VARCHAR2(3000),
+  aqpa192codres  CHAR(5),
+  aqpa192msgres  VARCHAR2(200),
+  aqpa192detres  VARCHAR2(1000),
+  aqpa192usuario CHAR(10),
+  aqpa192canal   NUMBER(4),
+  aqpa192auxv1   VARCHAR2(200),
+  aqpa192auxv2   VARCHAR2(200),
+  aqpa192auxv3   VARCHAR2(200),
+  aqpa192auxn1   NUMBER(17,2),
+  aqpa192auxn2   NUMBER(17,2),
+  aqpa192auxn3   NUMBER(17,2)
+)
+;
+alter table AQPA192
+  add primary key (AQPA192ID);
+

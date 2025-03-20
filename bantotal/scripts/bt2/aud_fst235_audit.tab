@@ -1,0 +1,29 @@
+create table AUD_FST235_AUDIT
+(
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_old_trmod      NUMBER(3),
+  aud_new_trmod      NUMBER(3),
+  aud_old_trnro      NUMBER(3),
+  aud_new_trnro      NUMBER(3),
+  aud_old_trord      NUMBER(2),
+  aud_new_trord      NUMBER(2),
+  aud_old_txcod      NUMBER(3),
+  aud_new_txcod      NUMBER(3),
+  aud_old_txecta     CHAR(1),
+  aud_new_txecta     CHAR(1),
+  aud_fst235_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst235_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst235_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst235_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst235_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst235_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst235_ubu     VARCHAR2(50) default USER not null,
+  aud_fst235_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst235_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst235_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst235_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst235_uas     CHAR(1) default 'I' not null
+)
+;
+

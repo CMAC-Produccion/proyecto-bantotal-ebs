@@ -1,0 +1,24 @@
+create table X999JF
+(
+  x999jfpgc NUMBER(3) not null,
+  x999jfcta NUMBER(9) not null,
+  x999jfcor NUMBER(3) not null,
+  x999jfemp CHAR(10),
+  x999jftpo NUMBER(1),
+  x999jfprs CHAR(10),
+  x999jfidc CHAR(22),
+  x999jffvn DATE,
+  x999jfrfd CHAR(15),
+  x999jfmon NUMBER(4),
+  x999jfimp NUMBER(10,2),
+  x999jffds DATE,
+  x999jffhs DATE,
+  x999jfmmd CHAR(1),
+  x999jffal DATE,
+  x999jffbj DATE,
+  x999jfest CHAR(2)
+)
+;
+alter table X999JF
+  add primary key (X999JFPGC, X999JFCTA, X999JFCOR);
+

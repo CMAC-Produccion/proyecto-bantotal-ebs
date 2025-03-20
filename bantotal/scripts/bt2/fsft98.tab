@@ -1,0 +1,25 @@
+create table FSFT98
+(
+  sft98emp   NUMBER(3) not null,
+  sft98cta   NUMBER(9) not null,
+  sft98mon   NUMBER(4) not null,
+  sft98corr  NUMBER(2) not null,
+  sft98feca  DATE not null,
+  sft98hora  CHAR(8) not null,
+  sft98usua  CHAR(10),
+  sft98usuc  CHAR(10),
+  sft98acc   CHAR(1),
+  sft98fecc  DATE,
+  sft98horc  CHAR(8),
+  sft98rubro NUMBER(16),
+  sft98mod   NUMBER(3),
+  sft98ctapa NUMBER(9),
+  sft98scta  NUMBER(3),
+  sft98suc   NUMBER(3),
+  sft98top   NUMBER(3),
+  sft98aues1 CHAR(1)
+)
+;
+alter table FSFT98
+  add primary key (SFT98EMP, SFT98CTA, SFT98MON, SFT98CORR, SFT98FECA, SFT98HORA);
+

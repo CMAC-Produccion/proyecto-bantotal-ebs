@@ -1,0 +1,37 @@
+create table AQPB001
+(
+  aqpb001hpgcod  NUMBER(3) not null,
+  aqpb001hmodul  NUMBER(3) not null,
+  aqpb001htoper  NUMBER(3) not null,
+  aqpb001hsucur  NUMBER(3) not null,
+  aqpb001hmda    NUMBER(4) not null,
+  aqpb001hpap    NUMBER(4) not null,
+  aqpb001hcta    NUMBER(9) not null,
+  aqpb001hoper   NUMBER(9) not null,
+  aqpb001hsubop  NUMBER(3) not null,
+  aqpb001fecha   DATE not null,
+  aqpb001cor     NUMBER(9) not null,
+  aqpb001mcapitd NUMBER(16,2),
+  aqpb001msegud  NUMBER(16,2),
+  aqpb001motrod  NUMBER(16,2),
+  aqpb001mpenad  NUMBER(16,2),
+  aqpb001minmod  NUMBER(16,2),
+  aqpb001micvd   NUMBER(16,2),
+  aqpb001mgasd   NUMBER(16,2),
+  aqpb001statc   NUMBER(3),
+  aqpb001tipcre  VARCHAR2(2),
+  aqpb001diaatr  NUMBER(5),
+  aqpb001est     CHAR(1),
+  aqpb001msumac  NUMBER(16,2),
+  aqpb001mincod  NUMBER(16,2),
+  aqpb001seg1    NUMBER(16,2),
+  aqpb001seg2    NUMBER(16,2),
+  aqpb001seg3    NUMBER(16,2),
+  aqpb001seg4    NUMBER(16,2),
+  aqpb001seg5    NUMBER(16,2)
+)
+;
+create index AQPB0012 on AQPB001 (AQPB001HCTA);
+alter table AQPB001
+  add primary key (AQPB001HPGCOD, AQPB001HMODUL, AQPB001HTOPER, AQPB001HSUCUR, AQPB001HMDA, AQPB001HPAP, AQPB001HCTA, AQPB001HOPER, AQPB001HSUBOP, AQPB001FECHA, AQPB001COR);
+

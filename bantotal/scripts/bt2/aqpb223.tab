@@ -1,0 +1,144 @@
+create table AQPB223
+(
+  aqpb223idl NUMBER(10) not null,
+  aqpb223nro CHAR(19),
+  aqpb223fei DATE,
+  aqpb223hoi CHAR(8),
+  aqpb223pgc NUMBER(3),
+  aqpb223mod NUMBER(3),
+  aqpb223suc NUMBER(3),
+  aqpb223mda NUMBER(4),
+  aqpb223pap NUMBER(4),
+  aqpb223cta NUMBER(9),
+  aqpb223ope NUMBER(9),
+  aqpb223sbo NUMBER(3),
+  aqpb223top NUMBER(3),
+  aqpb223imp NUMBER(17,2),
+  aqpb223cab VARCHAR2(5),
+  aqpb223nut VARCHAR2(20),
+  aqpb223noc VARCHAR2(15),
+  aqpb223bmi VARCHAR2(50),
+  aqpb223tmc VARCHAR2(30),
+  aqpb223cqr VARCHAR2(250),
+  aqpb223tip CHAR(5),
+  aqpb223cau VARCHAR2(20),
+  aqpb223iid VARCHAR2(20),
+  aqpb223tre VARCHAR2(5),
+  aqpb223tex NUMBER(11,6),
+  aqpb223req VARCHAR2(4000),
+  aqpb223res VARCHAR2(4000),
+  aqpb223est CHAR(5),
+  aqpb223cer CHAR(10),
+  aqpb223mer VARCHAR2(200),
+  aqpb223ced CHAR(5),
+  aqpb223med VARCHAR2(200),
+  aqpb223pgo NUMBER(3),
+  aqpb223moc NUMBER(3),
+  aqpb223suo NUMBER(3),
+  aqpb223tnc NUMBER(3),
+  aqpb223nrc NUMBER(4),
+  aqpb223fec DATE,
+  aqpb223con CHAR(1),
+  aqpb223cms NUMBER(4),
+  aqpb223ctr NUMBER(10),
+  aqpb223an1 NUMBER(9),
+  aqpb223ac1 CHAR(1),
+  aqpb223af1 DATE,
+  aqpb223at1 VARCHAR2(100)
+)
+;
+comment on table AQPB223
+  is 'Log de Transacciones QR IZIPAY';
+comment on column AQPB223.aqpb223idl
+  is 'Id Log Izipay QR';
+comment on column AQPB223.aqpb223nro
+  is 'Numero de Tarjeta';
+comment on column AQPB223.aqpb223fei
+  is 'Fecha Ingreso';
+comment on column AQPB223.aqpb223hoi
+  is 'Hora Ingreso';
+comment on column AQPB223.aqpb223pgc
+  is 'Empresa';
+comment on column AQPB223.aqpb223mod
+  is 'Modulo';
+comment on column AQPB223.aqpb223suc
+  is 'Sucursal';
+comment on column AQPB223.aqpb223mda
+  is 'Moneda';
+comment on column AQPB223.aqpb223pap
+  is 'Papel';
+comment on column AQPB223.aqpb223cta
+  is 'Cuenta';
+comment on column AQPB223.aqpb223ope
+  is 'Operacion';
+comment on column AQPB223.aqpb223sbo
+  is 'Sub Operacion';
+comment on column AQPB223.aqpb223top
+  is 'Tipo Operacion';
+comment on column AQPB223.aqpb223imp
+  is 'Importe';
+comment on column AQPB223.aqpb223cab
+  is 'Marca de Tarjeta';
+comment on column AQPB223.aqpb223nut
+  is 'Numero de Transaccion autogenerado';
+comment on column AQPB223.aqpb223noc
+  is 'Numero Unico de Orden de Compra';
+comment on column AQPB223.aqpb223bmi
+  is 'Buyer Mechard Id';
+comment on column AQPB223.aqpb223tmc
+  is 'Valor de Tarjeta del Comercio';
+comment on column AQPB223.aqpb223cqr
+  is 'Codigo QR';
+comment on column AQPB223.aqpb223tip
+  is 'Tipo QR';
+comment on column AQPB223.aqpb223cau
+  is 'Codigo de Autorizacion';
+comment on column AQPB223.aqpb223iid
+  is 'Id Unico generado por Izipay';
+comment on column AQPB223.aqpb223tre
+  is 'Resultado de transaccion Izipay';
+comment on column AQPB223.aqpb223tex
+  is 'Tiempo de Ejecucion';
+comment on column AQPB223.aqpb223req
+  is 'Request';
+comment on column AQPB223.aqpb223res
+  is 'Response';
+comment on column AQPB223.aqpb223est
+  is 'Estado';
+comment on column AQPB223.aqpb223cer
+  is 'Codigo Error';
+comment on column AQPB223.aqpb223mer
+  is 'Mensaje Error';
+comment on column AQPB223.aqpb223ced
+  is 'Codigo Error Devuelto';
+comment on column AQPB223.aqpb223med
+  is 'Mensaje Error Devuelto';
+comment on column AQPB223.aqpb223pgo
+  is 'Empresa Contabilizacion';
+comment on column AQPB223.aqpb223moc
+  is 'Modulo Contabilizacion';
+comment on column AQPB223.aqpb223suo
+  is 'Sucursal Contabilizacion';
+comment on column AQPB223.aqpb223tnc
+  is 'Transaccion Contabilizacion';
+comment on column AQPB223.aqpb223nrc
+  is 'Relacion Contabilizacion';
+comment on column AQPB223.aqpb223fec
+  is 'Fecha Contabilizacion';
+comment on column AQPB223.aqpb223con
+  is 'Contabilizo?';
+comment on column AQPB223.aqpb223cms
+  is 'Codigo Mensaje ISO 8385';
+comment on column AQPB223.aqpb223ctr
+  is 'Codigo Transaccion BT Segun ISO 8385';
+comment on column AQPB223.aqpb223an1
+  is 'Auxiliar Numerico 1';
+comment on column AQPB223.aqpb223ac1
+  is 'Auxiliar Caracter 1';
+comment on column AQPB223.aqpb223af1
+  is 'Auxiliar Fecha 1';
+comment on column AQPB223.aqpb223at1
+  is 'Auxiliar Texto 1';
+alter table AQPB223
+  add primary key (AQPB223IDL);
+

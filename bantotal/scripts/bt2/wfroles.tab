@@ -1,0 +1,10 @@
+create table WFROLES
+(
+  wfrolcod NUMBER(4) not null,
+  wfroldsc CHAR(50)
+)
+;
+create unique index WFROL1 on WFROLES (WFROLDSC);
+alter table WFROLES
+  add primary key (WFROLCOD);
+

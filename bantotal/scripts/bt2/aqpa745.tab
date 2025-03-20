@@ -1,0 +1,27 @@
+create table AQPA745
+(
+  aqpa745clientid VARCHAR2(200) not null,
+  aqpa745clientse VARCHAR2(200),
+  aqpa745estado   VARCHAR2(50),
+  aqpa745fecreg   DATE,
+  aqpa745horreg   VARCHAR2(10),
+  aqpa745usureg   VARCHAR2(10)
+)
+;
+comment on table AQPA745
+  is 'Registro de ClientID para aplicaions';
+comment on column AQPA745.aqpa745clientid
+  is 'ClientID';
+comment on column AQPA745.aqpa745clientse
+  is 'Client Secret';
+comment on column AQPA745.aqpa745estado
+  is 'Estado del ClientID';
+comment on column AQPA745.aqpa745fecreg
+  is 'Fecha del registro';
+comment on column AQPA745.aqpa745horreg
+  is 'Hora del registro';
+comment on column AQPA745.aqpa745usureg
+  is 'Usuario del registro';
+alter table AQPA745
+  add primary key (AQPA745CLIENTID);
+

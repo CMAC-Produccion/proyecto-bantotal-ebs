@@ -1,0 +1,62 @@
+create table AQPA806
+(
+  aqpa806cod     NUMBER(17) not null,
+  aqpa806pgc     NUMBER(3) not null,
+  aqpa806mod     NUMBER(3) not null,
+  aqpa806suc     NUMBER(3) not null,
+  aqpa806mda     NUMBER(4) not null,
+  aqpa806pap     NUMBER(4) not null,
+  aqpa806cta     NUMBER(9) not null,
+  aqpa806ope     NUMBER(9) not null,
+  aqpa806sbo     NUMBER(3) not null,
+  aqpa806tpo     NUMBER(3) not null,
+  aqpa806stat    NUMBER(2),
+  aqpa806diaat   NUMBER(9,2),
+  aqpa806memo    VARCHAR2(25),
+  aqpa806resp    CHAR(25),
+  aqpa806obs     VARCHAR2(500),
+  aqpa806est     CHAR(1),
+  aqpa806feca    DATE,
+  aqpa806mtoi    NUMBER(17,2),
+  aqpa806cap     NUMBER(17,2),
+  aqpa806int     NUMBER(17,2),
+  aqpa806mor     NUMBER(17,2),
+  aqpa806pen     NUMBER(17,2),
+  aqpa806seg     NUMBER(17,2),
+  aqpa806totd    NUMBER(17,2),
+  aqpa806usua    CHAR(10),
+  aqpa806hor     CHAR(8),
+  aqpa806cuonum  NUMBER(2),
+  aqpa806cuofeci DATE,
+  aqpa806cuofre  CHAR(1),
+  aqpa806cuomtot NUMBER(17,2),
+  aqpa806cuofec  DATE,
+  aqpa806cuousu  CHAR(10),
+  aqpa806estp    CHAR(1),
+  aqpa806usuactr CHAR(10),
+  aqpa806fecactr DATE,
+  aqpa806usuacte CHAR(10),
+  aqpa806fecacte DATE,
+  aqpa806detcuo  VARCHAR2(4000),
+  aqpa806otror   NUMBER(17,2),
+  aqpa806icv     NUMBER(17,2),
+  aqpa806feci    DATE,
+  aqpa806hori    CHAR(8),
+  aqpa806esex    CHAR(1),
+  aqpa806menex   VARCHAR2(500)
+)
+;
+comment on column AQPA806.aqpa806feci
+  is 'fecha de Inicio de Acuerdo';
+comment on column AQPA806.aqpa806hori
+  is 'Hora de Inicio de Acuerdo';
+comment on column AQPA806.aqpa806esex
+  is 'Es exonerado S=si y N=no';
+comment on column AQPA806.aqpa806menex
+  is 'Mensaje si es un registro de Exoneración y tiene una observación';
+create index AQPA8062 on AQPA806 (AQPA806PGC, AQPA806MOD, AQPA806SUC, AQPA806MDA, AQPA806PAP, AQPA806CTA, AQPA806OPE, AQPA806SBO, AQPA806TPO);
+create index AQPA8063 on AQPA806 (AQPA806EST);
+create index AQPA8064 on AQPA806 (AQPA806PGC, AQPA806CTA, AQPA806OPE, AQPA806MDA);
+alter table AQPA806
+  add primary key (AQPA806COD);
+

@@ -1,0 +1,25 @@
+create table FSD056
+(
+  prpais  NUMBER(3) not null,
+  prtdoc  NUMBER(2) not null,
+  arndoc  CHAR(12) not null,
+  prtipo  CHAR(1) not null,
+  prncod  NUMBER(3) not null,
+  prnmda  NUMBER(4) not null,
+  prcact  NUMBER(3) not null,
+  przona  NUMBER(3) not null,
+  prtot   NUMBER(17,2),
+  prctcl  CHAR(1),
+  prid03  CHAR(3),
+  prid12  CHAR(12),
+  prtietc CHAR(1),
+  prtottc NUMBER(17,2),
+  praux01 NUMBER(17,2),
+  praux02 NUMBER(17,2),
+  praux03 CHAR(10)
+)
+;
+create index FSD05602 on FSD056 (PRNCOD, PRTOT);
+alter table FSD056
+  add primary key (PRPAIS, PRTDOC, ARNDOC, PRTIPO, PRNCOD, PRNMDA, PRCACT, PRZONA);
+

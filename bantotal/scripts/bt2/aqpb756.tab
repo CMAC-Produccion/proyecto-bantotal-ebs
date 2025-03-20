@@ -1,0 +1,23 @@
+create table AQPB756
+(
+  aqpb756emp    NUMBER(3),
+  aqpb756mod    NUMBER(3),
+  aqpb756suc    NUMBER(3),
+  aqpb756mda    NUMBER(4),
+  aqpb756pap    NUMBER(4),
+  aqpb756cta    NUMBER(9),
+  aqpb756ope    NUMBER(9),
+  aqpb756sbo    NUMBER(3),
+  aqpb756top    NUMBER(3),
+  aqpb756ori    VARCHAR2(10),
+  aqpb756fep    DATE,
+  aqpb756imp    NUMBER(17,2),
+  aqpb756bccate CHAR(15),
+  aqpb756rubr   NUMBER(16),
+  aqpb756bcsdmo NUMBER(17,2),
+  aqpb756tot    NUMBER(17,2),
+  aqpb756fcarga DATE
+)
+;
+create index AQPB7562 on AQPB756 (AQPB756EMP, AQPB756MOD, AQPB756SUC, AQPB756MDA, AQPB756PAP, AQPB756CTA, AQPB756OPE, AQPB756SBO, AQPB756TOP);
+

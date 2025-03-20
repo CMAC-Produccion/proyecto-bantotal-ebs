@@ -1,0 +1,21 @@
+create table FPP057
+(
+  bnxpgcod  NUMBER(3) not null,
+  bnxcomid  NUMBER(9) not null,
+  bnxcomdsc CHAR(35),
+  bnxcomcta NUMBER(9),
+  bnxpais   NUMBER(3),
+  bnxtdoc   NUMBER(2),
+  bnxndoc   CHAR(12),
+  bnxaux1   NUMBER(9),
+  bnxaux2   NUMBER(17,2),
+  bnxaux3   NUMBER(9),
+  bnxaux4   CHAR(100),
+  bnxaux5   CHAR(100),
+  bnxaux6   CHAR(1)
+)
+;
+create index FPP05702 on FPP057 (BNXCOMDSC);
+alter table FPP057
+  add primary key (BNXPGCOD, BNXCOMID);
+

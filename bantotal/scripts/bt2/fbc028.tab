@@ -1,0 +1,24 @@
+create table FBC028
+(
+  bc28inf  CHAR(10) not null,
+  bc28emp  NUMBER(3) not null,
+  bc28suc  NUMBER(3) not null,
+  bc28rubr NUMBER(16) not null,
+  bc28mda  NUMBER(4) not null,
+  bc28pap  NUMBER(4) not null,
+  bc28cta  NUMBER(9) not null,
+  bc28oper NUMBER(9) not null,
+  bc28sbop NUMBER(3) not null,
+  bc28top  NUMBER(3) not null,
+  bc28cuo  NUMBER(9) not null,
+  bc28tot  NUMBER(17,2),
+  bc28cap  NUMBER(17,2),
+  bc28int  NUMBER(17,2),
+  bc28fvto DATE,
+  bc28pzo  NUMBER(9),
+  bc28cpo  CHAR(8)
+)
+;
+alter table FBC028
+  add primary key (BC28INF, BC28EMP, BC28SUC, BC28RUBR, BC28MDA, BC28PAP, BC28CTA, BC28OPER, BC28SBOP, BC28TOP, BC28CUO);
+

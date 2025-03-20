@@ -1,0 +1,70 @@
+create table AQPB079F
+(
+  aqpb079ftcomf VARCHAR2(2) not null,
+  aqpb079fseri  VARCHAR2(4) not null,
+  aqpb079fnum   NUMBER(8) not null,
+  aqpb079ffemi  DATE not null,
+  aqpb079fpgc   NUMBER(3) not null,
+  aqpb079fmod   NUMBER(3) not null,
+  aqpb079fsuc   NUMBER(3) not null,
+  aqpb079ftrx   NUMBER(3) not null,
+  aqpb079frel   NUMBER(4) not null,
+  aqpb079ffcon  DATE not null,
+  aqpb079ftcomp CHAR(2),
+  aqpb079fserie VARCHAR2(50),
+  aqpb079fnro   NUMBER(20),
+  aqpb079fpgce  NUMBER(3),
+  aqpb079fmode  NUMBER(3),
+  aqpb079fsuce  NUMBER(3),
+  aqpb079ftrxe  NUMBER(3),
+  aqpb079frele  NUMBER(4),
+  aqpb079ffcone DATE,
+  aqpb079ffcr   VARCHAR2(10),
+  aqpb079fhcr   VARCHAR2(10)
+)
+;
+comment on table AQPB079F
+  is 'Tabla histórica del comprobante - Referencia AQPB056H';
+comment on column AQPB079F.aqpb079ftcomf
+  is 'Tipo de documento';
+comment on column AQPB079F.aqpb079fseri
+  is 'Serie del documento';
+comment on column AQPB079F.aqpb079fnum
+  is 'Número del documento';
+comment on column AQPB079F.aqpb079ffemi
+  is 'Fecha del documento';
+comment on column AQPB079F.aqpb079fpgc
+  is 'Código Empresa';
+comment on column AQPB079F.aqpb079fmod
+  is 'Módulo';
+comment on column AQPB079F.aqpb079fsuc
+  is 'Sucursal';
+comment on column AQPB079F.aqpb079ftrx
+  is 'Transacción';
+comment on column AQPB079F.aqpb079frel
+  is 'Relación';
+comment on column AQPB079F.aqpb079ffcon
+  is 'Fecha';
+comment on column AQPB079F.aqpb079ftcomp
+  is 'Tipo de documento referenciado';
+comment on column AQPB079F.aqpb079fserie
+  is 'Serie del documento referenciado';
+comment on column AQPB079F.aqpb079fnro
+  is 'Número del documento referenciado';
+comment on column AQPB079F.aqpb079fpgce
+  is 'Código empresa referenciado';
+comment on column AQPB079F.aqpb079fmode
+  is 'Módulo referenciado';
+comment on column AQPB079F.aqpb079fsuce
+  is 'Sucursal referenciado';
+comment on column AQPB079F.aqpb079ftrxe
+  is 'Transacción referenciado';
+comment on column AQPB079F.aqpb079frele
+  is 'Relación referenciado';
+comment on column AQPB079F.aqpb079ffcone
+  is 'Fecha referenciada';
+create index AQPB079F2 on AQPB079F (AQPB079FPGC, AQPB079FMOD, AQPB079FSUC, AQPB079FTRX, AQPB079FREL, AQPB079FFCON);
+create index AQPB079F3 on AQPB079F (AQPB079FFEMI);
+alter table AQPB079F
+  add primary key (AQPB079FTCOMF, AQPB079FSERI, AQPB079FNUM, AQPB079FFEMI);
+

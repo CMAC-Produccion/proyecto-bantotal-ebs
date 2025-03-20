@@ -1,0 +1,41 @@
+create table JBXIX1
+(
+  jbxix1pgco NUMBER(3) not null,
+  jbxix1nsol NUMBER(5) not null,
+  jbxix1pais NUMBER(3) not null,
+  jbxix1tdoc CHAR(4) not null,
+  jbxix1ndoc NUMBER(12) not null,
+  jbxix1tit  NUMBER(2),
+  jbxix1nom  CHAR(50),
+  jbxix1clai CHAR(4),
+  jbxix1suc  NUMBER(3),
+  jbxix1subt NUMBER(9),
+  jbxix1cta  NUMBER(9),
+  jbxix1cnum CHAR(15),
+  jbxix1call CHAR(35),
+  jbxix1dnro NUMBER(5),
+  jbxix1pso  CHAR(4),
+  jbxix1apto CHAR(6),
+  jbxix1cpos CHAR(8),
+  jbxix1loc  CHAR(20),
+  jbxix1prov NUMBER(5),
+  jbxix1fnac DATE,
+  jbxix1naci NUMBER(3),
+  jbxix1sexo CHAR(1),
+  jbxix1eciv CHAR(1),
+  jbxix1cony CHAR(35),
+  jbxix1ptel CHAR(15),
+  jbxix1ctel CHAR(15),
+  jbxix1fing DATE,
+  jbxix1mto  NUMBER(17,2),
+  jbxix1inbr CHAR(1),
+  jbxix1bnum NUMBER(15),
+  jbxix1btc  CHAR(20),
+  jbxix1bjus NUMBER(5),
+  jbxix1civa NUMBER(3),
+  jbxix1stat CHAR(5),
+  jbxix1errc NUMBER(3)
+)
+;
+create unique index JBXIX101 on JBXIX1 (JBXIX1PGCO, JBXIX1NSOL, JBXIX1PAIS, JBXIX1TDOC, JBXIX1NDOC);
+

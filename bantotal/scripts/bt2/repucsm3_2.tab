@@ -1,0 +1,15 @@
+create table REPUCSM3_2
+(
+  tipo          CHAR(1),
+  codigo        VARCHAR2(10),
+  key           VARCHAR2(40),
+  valor_pagado  NUMBER,
+  valor_interes NUMBER,
+  hora          CHAR(8),
+  comprobante   VARCHAR2(19),
+  jaql82user    CHAR(10)
+)
+;
+comment on table REPUCSM3_2
+  is 'Tabla para reporte de pago de UCSM';
+

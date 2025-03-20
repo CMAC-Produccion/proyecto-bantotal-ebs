@@ -1,0 +1,37 @@
+create table JAQY101
+(
+  jaqy101fepr DATE not null,
+  jaqy101user CHAR(10) not null,
+  jaqy101pgco NUMBER(3) not null,
+  jaqy101scsu NUMBER(3) not null,
+  jaqy101scmd NUMBER(3) not null,
+  jaqy101scmo NUMBER(4) not null,
+  jaqy101scpa NUMBER(4) not null,
+  jaqy101scct NUMBER(9) not null,
+  jaqy101scop NUMBER(9) not null,
+  jaqy101scsb NUMBER(3) not null,
+  jaqy101scto NUMBER(3) not null,
+  jaqy101fees DATE,
+  jaqy101tipo CHAR(2),
+  jaqy101veme CHAR(1),
+  jaqy101mtvi NUMBER(17,2),
+  jaqy101mtca NUMBER(17,2),
+  jaqy101mtin NUMBER(17,2),
+  jaqy101au01 CHAR(50),
+  jaqy101au02 CHAR(50),
+  jaqy101au03 CHAR(50),
+  jaqy101au04 NUMBER(9),
+  jaqy101au05 NUMBER(9),
+  jaqy101au06 NUMBER(9),
+  jaqy101au07 NUMBER(17,2),
+  jaqy101au08 NUMBER(17,2),
+  jaqy101au09 NUMBER(17,2),
+  jaqy101au10 DATE,
+  jaqy101au11 DATE,
+  jaqy101au12 DATE
+)
+;
+create index IJAQY10110001 on JAQY101 (JAQY101FEES, JAQY101USER);
+alter table JAQY101
+  add primary key (JAQY101FEPR, JAQY101USER, JAQY101PGCO, JAQY101SCSU, JAQY101SCMD, JAQY101SCMO, JAQY101SCPA, JAQY101SCCT, JAQY101SCOP, JAQY101SCSB, JAQY101SCTO);
+

@@ -1,0 +1,48 @@
+create table FSF090
+(
+  lqlcod     NUMBER(3) not null,
+  lqlsuc     NUMBER(3) not null,
+  lqltope    NUMBER(3) not null,
+  lqlrub     NUMBER(16) not null,
+  lqlmda     NUMBER(4) not null,
+  lqlpap     NUMBER(4) not null,
+  lqlcta     NUMBER(9) not null,
+  lqloper    NUMBER(9) not null,
+  lqlsbop    NUMBER(3) not null,
+  lqlfecha   DATE not null,
+  lqlrubnom  CHAR(40),
+  lqlmdasim  CHAR(4),
+  lqlmdanom  CHAR(30),
+  lqlpapnom  CHAR(30),
+  lqlpapsig  CHAR(5),
+  lqlpapmda  NUMBER(4),
+  lqlpapmdas CHAR(4),
+  lqlpapmdan CHAR(30),
+  lqlpappaic NUMBER(3),
+  lqlpappain CHAR(30),
+  lqlemicod  NUMBER(2),
+  lqleminom  CHAR(20),
+  lqlemscod  NUMBER(5),
+  lqlemsnom  CHAR(30),
+  lqlgpacod  NUMBER(2),
+  lqlgpanom  CHAR(20),
+  lqlclpcod  NUMBER(2),
+  lqlclpnom  CHAR(20),
+  lqlmod     NUMBER(3),
+  lqlfval    DATE,
+  lqlfvto    DATE,
+  lqlpzo     NUMBER(5),
+  lqlsdo     NUMBER(17,2),
+  lqlaux1    NUMBER(9),
+  lqlaux2    NUMBER(9),
+  lqlaux3    CHAR(40),
+  lqlaux4    CHAR(40),
+  lqlaux5    DATE,
+  lqlaux6    DATE,
+  lqlaux7    NUMBER(17,2),
+  lqlaux8    NUMBER(17,2)
+)
+;
+alter table FSF090
+  add primary key (LQLCOD, LQLSUC, LQLTOPE, LQLRUB, LQLMDA, LQLPAP, LQLCTA, LQLOPER, LQLSBOP, LQLFECHA);
+

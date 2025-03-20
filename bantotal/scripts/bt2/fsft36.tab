@@ -1,0 +1,17 @@
+create table FSFT36
+(
+  kdhcod    NUMBER(3) not null,
+  kdhtmda   NUMBER(4) not null,
+  kdhresi   CHAR(1) not null,
+  kdhifin   CHAR(1) not null,
+  kdhtemi   NUMBER(4) not null,
+  kdhcdoter CHAR(1) not null,
+  kdhrubpc  NUMBER(16),
+  kdhrubpv  NUMBER(16),
+  kdhrubcc  NUMBER(16),
+  kdhrubcv  NUMBER(16)
+)
+;
+alter table FSFT36
+  add primary key (KDHCOD, KDHTMDA, KDHRESI, KDHIFIN, KDHTEMI, KDHCDOTER);
+

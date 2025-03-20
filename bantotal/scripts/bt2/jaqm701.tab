@@ -1,0 +1,33 @@
+create table JAQM701
+(
+  jaqm701cac NUMBER(9) not null,
+  jaqm701fac DATE not null,
+  jaqm701suc NUMBER(3) not null,
+  jaqm701ins NUMBER(10) not null,
+  jaqm701cta NUMBER(9),
+  jaqm701nom CHAR(35),
+  jaqm701est CHAR(1),
+  jaqm701mto NUMBER(17,2),
+  jaqm701nrc NUMBER(3),
+  jaqm701opg CHAR(70),
+  jaqm701uac CHAR(10),
+  jaqm701nu1 NUMBER(9),
+  jaqm701nu2 NUMBER(9),
+  jaqm701nu3 NUMBER(9),
+  jaqm701im1 NUMBER(17,2),
+  jaqm701im2 NUMBER(17,2),
+  jaqm701im3 NUMBER(17,2),
+  jaqm701fe1 DATE,
+  jaqm701fe2 DATE,
+  jaqm701fe3 DATE,
+  jaqm701ca1 VARCHAR2(255),
+  jaqm701ca2 VARCHAR2(255),
+  jaqm701ca3 VARCHAR2(255)
+)
+;
+create index JAQM7012 on JAQM701 (JAQM701SUC, JAQM701INS, JAQM701FAC);
+create index JAQM7013 on JAQM701 (JAQM701FAC);
+create index JAQM7014 on JAQM701 (JAQM701INS, JAQM701FAC);
+alter table JAQM701
+  add primary key (JAQM701CAC, JAQM701FAC, JAQM701SUC, JAQM701INS);
+

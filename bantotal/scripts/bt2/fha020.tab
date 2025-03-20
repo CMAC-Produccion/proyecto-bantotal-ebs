@@ -1,0 +1,15 @@
+create table FHA020
+(
+  pgcod      NUMBER(3) not null,
+  lcihmod    NUMBER(3) not null,
+  lcihoper   NUMBER(9) not null,
+  lcihmodid  NUMBER(5) not null,
+  lcihfecwid NUMBER(2) not null,
+  lcihfecwds CHAR(30),
+  lcihafecwf DATE,
+  lcihpfecwf DATE
+)
+;
+alter table FHA020
+  add primary key (PGCOD, LCIHMOD, LCIHOPER, LCIHMODID, LCIHFECWID);
+

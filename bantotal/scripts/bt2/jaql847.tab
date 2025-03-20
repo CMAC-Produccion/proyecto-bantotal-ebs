@@ -1,0 +1,60 @@
+create table JAQL847
+(
+  jaql847cusu VARCHAR2(10),
+  jaql847fpro DATE not null,
+  jaql847crec VARCHAR2(20) not null,
+  jaql847frec DATE,
+  jaql847hrec VARCHAR2(8),
+  jaql847tdoc VARCHAR2(5),
+  jaql847ndoc VARCHAR2(15),
+  jaql847tper VARCHAR2(1),
+  jaql847ncel VARCHAR2(15),
+  jaql847emai VARCHAR2(50),
+  jaql847apat VARCHAR2(50),
+  jaql847amat VARCHAR2(50),
+  jaql847nomb VARCHAR2(50),
+  jaql847ncom VARCHAR2(100),
+  jaql847menv VARCHAR2(100),
+  jaql847fema DATE,
+  jaql847hema VARCHAR2(8),
+  jaql847fdat VARCHAR2(1)
+)
+;
+comment on column JAQL847.jaql847cusu
+  is 'Codigo de usuario';
+comment on column JAQL847.jaql847fpro
+  is 'Fecha Proceso';
+comment on column JAQL847.jaql847crec
+  is 'Codigo Reclamo';
+comment on column JAQL847.jaql847frec
+  is 'Fecha Reclamo';
+comment on column JAQL847.jaql847hrec
+  is 'Hora Reclamo';
+comment on column JAQL847.jaql847tdoc
+  is 'Tipo Documento';
+comment on column JAQL847.jaql847ndoc
+  is 'Numero Documento';
+comment on column JAQL847.jaql847tper
+  is 'Tipo Persona';
+comment on column JAQL847.jaql847ncel
+  is 'Celular';
+comment on column JAQL847.jaql847emai
+  is 'Email';
+comment on column JAQL847.jaql847apat
+  is 'Apellido Paterno';
+comment on column JAQL847.jaql847amat
+  is 'Apellido Materno';
+comment on column JAQL847.jaql847nomb
+  is 'Nombre';
+comment on column JAQL847.jaql847ncom
+  is 'Razon Social';
+comment on column JAQL847.jaql847menv
+  is 'Detalle envio';
+comment on column JAQL847.jaql847fema
+  is 'Fecha envio';
+comment on column JAQL847.jaql847hema
+  is 'Hora envio';
+comment on column JAQL847.jaql847fdat
+  is 'Flag Tratamiento de datos';
+create index JAQL84701 on JAQL847 (JAQL847CUSU, JAQL847FPRO);
+

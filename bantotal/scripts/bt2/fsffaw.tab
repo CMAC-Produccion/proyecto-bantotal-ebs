@@ -1,0 +1,25 @@
+create table FSFFAW
+(
+  dtzabempj NUMBER(3) not null,
+  dtzabtctj NUMBER(2) not null,
+  dtzabtccj NUMBER(4) not null,
+  dtzabctaj NUMBER(9) not null,
+  dtzabopej NUMBER(9) not null,
+  dtzabempe NUMBER(3) not null,
+  dtzabrubb NUMBER(16),
+  dtzabctab NUMBER(9),
+  dtzabopeb NUMBER(9),
+  dtzabsopb NUMBER(3),
+  dtzaba01  DATE,
+  dtzaba02  DATE,
+  dtzaba03  CHAR(30),
+  dtzaba04  CHAR(30),
+  dtzaba05  NUMBER(9),
+  dtzaba06  NUMBER(9),
+  dtzaba07  NUMBER(17,2),
+  dtzaba08  NUMBER(17,2)
+)
+;
+alter table FSFFAW
+  add primary key (DTZABEMPJ, DTZABTCTJ, DTZABTCCJ, DTZABCTAJ, DTZABOPEJ, DTZABEMPE);
+

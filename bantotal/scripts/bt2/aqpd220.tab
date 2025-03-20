@@ -1,0 +1,56 @@
+create table AQPD220
+(
+  aqpd220bcemp  NUMBER(3) not null,
+  aqpd220bccta  NUMBER(9) not null,
+  aqpd220bcoper NUMBER(9) not null,
+  aqpd220bcsbop NUMBER(3) not null,
+  aqpd220bcmda  NUMBER(4) not null,
+  aqpd220bcpap  NUMBER(4) not null,
+  aqpd220bcsuc  NUMBER(3) not null,
+  aqpd220bcmod  NUMBER(3) not null,
+  aqpd220bctop  NUMBER(3) not null,
+  aqpd220tipo   VARCHAR2(42),
+  aqpd220fecc   DATE not null,
+  aqpd220usuc   CHAR(10),
+  aqpd220est    VARCHAR2(1),
+  aqpd220aux    VARCHAR2(20),
+  aqpd220aux2   NUMBER(5)
+)
+;
+comment on table AQPD220
+  is 'Tabla espejo de la tabla de BI USRREPBI.REP_AUTONOMIAS';
+comment on column AQPD220.aqpd220bcemp
+  is 'Empresa';
+comment on column AQPD220.aqpd220bccta
+  is 'Cuenta';
+comment on column AQPD220.aqpd220bcoper
+  is 'Operación';
+comment on column AQPD220.aqpd220bcsbop
+  is 'Suboperación';
+comment on column AQPD220.aqpd220bcmda
+  is 'Moneda';
+comment on column AQPD220.aqpd220bcpap
+  is 'Papel';
+comment on column AQPD220.aqpd220bcsuc
+  is 'Sucursal';
+comment on column AQPD220.aqpd220bcmod
+  is 'Módulo';
+comment on column AQPD220.aqpd220bctop
+  is 'Tipo de Operación';
+comment on column AQPD220.aqpd220tipo
+  is 'Tipo';
+comment on column AQPD220.aqpd220fecc
+  is 'Fecha de Carga';
+comment on column AQPD220.aqpd220usuc
+  is 'Usuario de Carga';
+comment on column AQPD220.aqpd220est
+  is 'Estado';
+comment on column AQPD220.aqpd220aux
+  is 'Auxiliar caracter 20';
+comment on column AQPD220.aqpd220aux2
+  is 'Auxiliar Numerico 5';
+create index AQPD220A2 on AQPD220 (AQPD220BCEMP, AQPD220BCCTA, AQPD220BCOPER, AQPD220BCSBOP, AQPD220BCMDA, AQPD220BCPAP, AQPD220BCSUC, AQPD220BCMOD, AQPD220BCTOP, AQPD220EST);
+create index AQPD220A3 on AQPD220 (AQPD220BCCTA, AQPD220BCOPER);
+alter table AQPD220
+  add primary key (AQPD220BCEMP, AQPD220BCCTA, AQPD220BCOPER, AQPD220BCSBOP, AQPD220BCMDA, AQPD220BCPAP, AQPD220BCSUC, AQPD220BCMOD, AQPD220BCTOP, AQPD220FECC);
+

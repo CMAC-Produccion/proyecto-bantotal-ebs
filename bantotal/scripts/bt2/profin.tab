@@ -1,0 +1,23 @@
+create table PROFIN
+(
+  modulo NUMBER(3),
+  tipope NUMBER(3),
+  desmod VARCHAR2(100),
+  destop VARCHAR2(100),
+  codfin VARCHAR2(2)
+)
+;
+comment on table PROFIN
+  is 'Revision de tipificacion de creditos';
+comment on column PROFIN.modulo
+  is 'Código de módulo';
+comment on column PROFIN.tipope
+  is 'Código de tipo de operacion';
+comment on column PROFIN.desmod
+  is 'Descripción de módulo';
+comment on column PROFIN.destop
+  is 'Descripcion de tipo de operación';
+comment on column PROFIN.codfin
+  is 'Codigo de financiamiento';
+create index IX_PROFIN_1 on PROFIN (MODULO, TIPOPE);
+

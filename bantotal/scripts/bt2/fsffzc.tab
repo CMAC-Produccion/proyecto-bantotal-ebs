@@ -1,0 +1,19 @@
+create table FSFFZC
+(
+  fsffzccod  NUMBER(5) not null,
+  fsffzcusu  CHAR(10),
+  fsffzcnom  CHAR(50),
+  fsffzctel1 CHAR(15),
+  fsffzctel2 CHAR(15),
+  fsffzcdir  CHAR(50),
+  fsffzcmail CHAR(50),
+  fsffzacod  NUMBER(5),
+  fsffzbcod  NUMBER(5)
+)
+;
+create index FSFFZC02 on FSFFZC (FSFFZBCOD);
+create index FSFFZC03 on FSFFZC (FSFFZACOD);
+create index FSFFZC04 on FSFFZC (FSFFZCUSU);
+alter table FSFFZC
+  add primary key (FSFFZCCOD);
+

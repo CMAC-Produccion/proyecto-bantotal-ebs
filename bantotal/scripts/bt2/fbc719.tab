@@ -1,0 +1,25 @@
+create table FBC719
+(
+  bc719emp  NUMBER(3) not null,
+  bc719fch  NUMBER(6) not null,
+  bc719codc CHAR(8) not null,
+  bc719suc  NUMBER(3) not null,
+  bc719tcta NUMBER(3) not null,
+  bc719cope CHAR(1) not null,
+  bc719ncta NUMBER(11) not null,
+  bc719fcho DATE not null,
+  bc719corr NUMBER(10) not null,
+  bc719tpoc CHAR(3),
+  bc719fcha DATE,
+  bc719sdoo NUMBER(11),
+  bc719etca NUMBER(11),
+  bc719ettp CHAR(10),
+  bc719bcoc CHAR(12),
+  bc719bcob CHAR(50),
+  bc719paib CHAR(2)
+)
+;
+create index FBC71902 on FBC719 (BC719EMP, BC719FCH, BC719COPE, BC719NCTA, BC719TCTA, BC719SUC, BC719FCHO, BC719ETTP, BC719BCOC, BC719BCOB, BC719PAIB);
+alter table FBC719
+  add primary key (BC719EMP, BC719FCH, BC719CODC, BC719SUC, BC719TCTA, BC719COPE, BC719NCTA, BC719FCHO, BC719CORR);
+

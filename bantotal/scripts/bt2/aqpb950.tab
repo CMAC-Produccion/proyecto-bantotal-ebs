@@ -1,0 +1,58 @@
+create table AQPB950
+(
+  aqpb950fecc DATE,
+  aqpb950horc VARCHAR2(15),
+  aqpb950usrc VARCHAR2(10),
+  aqpb950usua VARCHAR2(10),
+  aqpb950usum VARCHAR2(10),
+  aqpb950regc NUMBER(5),
+  aqpb950regd VARCHAR2(70),
+  aqpb950zonc NUMBER(5),
+  aqpb950zond VARCHAR2(70),
+  aqpb950succ NUMBER(5),
+  aqpb950sucd VARCHAR2(70),
+  aqpb950est  VARCHAR2(5),
+  aqpb950msg  VARCHAR2(300),
+  aqpb950aux1 NUMBER(10),
+  aqpb950aux2 VARCHAR2(30),
+  aqpb950aux3 DATE
+)
+;
+comment on table AQPB950
+  is 'Tabla Log de Panel de Asignación de Usuarios de Riesgos';
+comment on column AQPB950.aqpb950fecc
+  is 'Fecha de Cambio';
+comment on column AQPB950.aqpb950horc
+  is 'Hora de Cambio';
+comment on column AQPB950.aqpb950usrc
+  is 'Usuario de Cambio';
+comment on column AQPB950.aqpb950usua
+  is 'Usuario Actual';
+comment on column AQPB950.aqpb950usum
+  is 'Usuario Modificado';
+comment on column AQPB950.aqpb950regc
+  is 'Region Codigo';
+comment on column AQPB950.aqpb950regd
+  is 'Region Descripcion';
+comment on column AQPB950.aqpb950zonc
+  is 'Zona Codigo';
+comment on column AQPB950.aqpb950zond
+  is 'Zona Descripcion';
+comment on column AQPB950.aqpb950succ
+  is 'Sucursal Codigo';
+comment on column AQPB950.aqpb950sucd
+  is 'Sucursal Descripcion';
+comment on column AQPB950.aqpb950est
+  is 'Estado Cambio';
+comment on column AQPB950.aqpb950msg
+  is 'Mensaje';
+comment on column AQPB950.aqpb950aux1
+  is 'Auxliar 1';
+comment on column AQPB950.aqpb950aux2
+  is 'Auxliar 2';
+comment on column AQPB950.aqpb950aux3
+  is 'Auxliar 3';
+create index AQPB950A2 on AQPB950 (AQPB950FECC, AQPB950HORC, AQPB950USRC);
+create index AQPB950A3 on AQPB950 (AQPB950FECC, AQPB950ZONC, AQPB950SUCC, AQPB950USUM);
+create index AQPB950A4 on AQPB950 (AQPB950FECC, AQPB950EST);
+

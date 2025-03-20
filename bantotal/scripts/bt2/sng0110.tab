@@ -1,0 +1,30 @@
+create table SNG0110
+(
+  sng0110pgc NUMBER(3) not null,
+  sng0110mod NUMBER(3) not null,
+  sng0110suc NUMBER(3) not null,
+  sng0110mda NUMBER(4) not null,
+  sng0110pap NUMBER(4) not null,
+  sng0110cta NUMBER(9) not null,
+  sng0110opr NUMBER(9) not null,
+  sng0110sbo NUMBER(3) not null,
+  sng0110top NUMBER(3) not null,
+  sng0110cms NUMBER(3) not null,
+  sng0110ax1 DATE,
+  sng0110ax2 DATE,
+  sng0110ax3 DATE,
+  sng0110ax4 CHAR(255),
+  sng0110ax5 CHAR(255),
+  sng0110ax6 CHAR(255),
+  sng0110ax7 NUMBER(10),
+  sng0110ax8 NUMBER(10),
+  sng0110ax9 NUMBER(10),
+  sng0110a10 NUMBER(17,4),
+  sng0110a11 NUMBER(17,4),
+  sng0110a12 NUMBER(17,4)
+)
+;
+create index SNG01103 on SNG0110 (SNG0110CTA, SNG0110MDA, SNG0110MOD, SNG0110OPR, SNG0110PAP, SNG0110PGC, SNG0110SBO, SNG0110SUC, SNG0110TOP);
+alter table SNG0110
+  add primary key (SNG0110PGC, SNG0110MOD, SNG0110SUC, SNG0110MDA, SNG0110PAP, SNG0110CTA, SNG0110OPR, SNG0110SBO, SNG0110TOP, SNG0110CMS);
+

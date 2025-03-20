@@ -1,0 +1,100 @@
+create table AQPB073B
+(
+  aqpb073bcod       NUMBER not null,
+  aqpb073bfec       DATE not null,
+  aqpb073bcor       NUMBER(8) not null,
+  aqpb073bmod       NUMBER(3),
+  aqpb073bsuc       NUMBER(3),
+  aqpb073bmda       NUMBER(4),
+  aqpb073bpap       NUMBER(4),
+  aqpb073bcta       NUMBER(9) not null,
+  aqpb073bope       NUMBER(9) not null,
+  aqpb073bsbo       NUMBER(3),
+  aqpb073btop       NUMBER(3),
+  aqpb073btdoc      VARCHAR2(5),
+  aqpb073bndoc      VARCHAR2(13),
+  aqpb073besf       VARCHAR2(11),
+  aqpb073bccob      VARCHAR2(13),
+  aqpb073btnro      NUMBER(10),
+  aqpb073bmtoe      NUMBER(5),
+  aqpb073bpcob      NUMBER(5,2),
+  aqpb073best       VARCHAR2(1),
+  aqpb073busd       VARCHAR2(10),
+  aqpb073bfed       VARCHAR2(10),
+  aqpb073bhed       VARCHAR2(10),
+  aqpb073bfdes      DATE,
+  aqpb073bmon       NUMBER(10,2),
+  aqpb073bciiuori   VARCHAR2(5),
+  aqpb073bactnomori VARCHAR2(60),
+  aqpb073bnven      NUMBER(17,2),
+  aqpb073bestp      VARCHAR2(1),
+  aqpb073bncer      VARCHAR2(50),
+  aqpb073bchon      VARCHAR2(50),
+  aqpb073bccob2     VARCHAR2(20),
+  aqpb073bconhon    VARCHAR2(50)
+)
+;
+comment on table AQPB073B
+  is 'Tabla para registrar la cabecera de archivos cargados';
+comment on column AQPB073B.aqpb073bcod
+  is 'Código de empresa';
+comment on column AQPB073B.aqpb073bfec
+  is 'Fecha de proceso';
+comment on column AQPB073B.aqpb073bcor
+  is 'Correlativo';
+comment on column AQPB073B.aqpb073bmod
+  is 'Módulo';
+comment on column AQPB073B.aqpb073bsuc
+  is 'Sucursal';
+comment on column AQPB073B.aqpb073bmda
+  is 'Moneda';
+comment on column AQPB073B.aqpb073bpap
+  is 'Papel';
+comment on column AQPB073B.aqpb073bcta
+  is 'Cuenta';
+comment on column AQPB073B.aqpb073bope
+  is 'Operación';
+comment on column AQPB073B.aqpb073bsbo
+  is 'Suboperación';
+comment on column AQPB073B.aqpb073btop
+  is 'Tipo de operación';
+comment on column AQPB073B.aqpb073btdoc
+  is 'TIPDOC COFIDE';
+comment on column AQPB073B.aqpb073bndoc
+  is 'NUMDOC COFIDE';
+comment on column AQPB073B.aqpb073besf
+  is 'ESF';
+comment on column AQPB073B.aqpb073bccob
+  is 'CODIGO_COBERTURA';
+comment on column AQPB073B.aqpb073btnro
+  is 'NUM_TRABAJADORES';
+comment on column AQPB073B.aqpb073bmtoe
+  is 'MONTO_EXPORTACION';
+comment on column AQPB073B.aqpb073bpcob
+  is '% DE COBERTURA';
+comment on column AQPB073B.aqpb073best
+  is 'Estado del archivo';
+comment on column AQPB073B.aqpb073bciiuori
+  is 'CIIU Origen';
+comment on column AQPB073B.aqpb073bactnomori
+  is 'Actividad Económica Origen';
+comment on column AQPB073B.aqpb073bnven
+  is 'Nivel de Ventas';
+comment on column AQPB073B.aqpb073bestp
+  is 'Estado de alta de garantía A=Cancelado C=Contabilizado y H=Honrado';
+comment on column AQPB073B.aqpb073bncer
+  is 'Numero de Certificado';
+comment on column AQPB073B.aqpb073bchon
+  is 'Certificado de Honra';
+comment on column AQPB073B.aqpb073bccob2
+  is 'Codigo de cobertura 2';
+comment on column AQPB073B.aqpb073bconhon
+  is 'Contrato de Honramiento';
+create index AQPB073B2 on AQPB073B (AQPB073BCOD, AQPB073BMOD, AQPB073BSUC, AQPB073BMDA, AQPB073BPAP, AQPB073BCTA, AQPB073BOPE, AQPB073BSBO, AQPB073BTOP);
+create index AQPB073B3 on AQPB073B (AQPB073BFEC, AQPB073BCOR, AQPB073BCOD, AQPB073BMOD, AQPB073BSUC, AQPB073BMDA, AQPB073BPAP, AQPB073BCTA, AQPB073BOPE, AQPB073BSBO, AQPB073BTOP);
+create index AQPB073B4 on AQPB073B (AQPB073BCOD, AQPB073BFEC, AQPB073BCOR);
+create index AQPB073B5 on AQPB073B (AQPB073BCOD, AQPB073BMOD, AQPB073BMDA, AQPB073BPAP, AQPB073BCTA, AQPB073BOPE);
+create index AQPB073B6 on AQPB073B (AQPB073BCTA);
+alter table AQPB073B
+  add primary key (AQPB073BCOD, AQPB073BFEC, AQPB073BCOR, AQPB073BCTA, AQPB073BOPE);
+

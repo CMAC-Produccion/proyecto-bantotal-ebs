@@ -1,0 +1,11 @@
+create table FOC541
+(
+  foc540pgco NUMBER(3) not null,
+  foc540oper NUMBER(9) not null,
+  foc541lin  NUMBER(1) not null,
+  foc541txt  CHAR(35)
+)
+;
+alter table FOC541
+  add primary key (FOC540PGCO, FOC540OPER, FOC541LIN);
+

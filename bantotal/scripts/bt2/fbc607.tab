@@ -1,0 +1,21 @@
+create table FBC607
+(
+  bc606pais NUMBER(3) not null,
+  bc606tdoc NUMBER(2) not null,
+  bc606ndoc CHAR(12) not null,
+  bc606fch  DATE not null,
+  bc606treg NUMBER(3) not null,
+  bc607subc NUMBER(5) not null,
+  bc607emp  NUMBER(3),
+  bc607mod  NUMBER(3),
+  bc607suc  NUMBER(3),
+  bc607trn  NUMBER(3),
+  bc607nrel NUMBER(4),
+  bc607fch  DATE,
+  bc607ord  NUMBER(2),
+  bc607sbo  NUMBER(3)
+)
+;
+alter table FBC607
+  add primary key (BC606PAIS, BC606TDOC, BC606NDOC, BC606FCH, BC606TREG, BC607SUBC);
+

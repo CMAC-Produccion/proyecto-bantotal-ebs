@@ -1,0 +1,30 @@
+create table FSH031
+(
+  drfch    DATE not null,
+  pgcod    NUMBER(3) not null,
+  drsuc    NUMBER(3) not null,
+  drrub    NUMBER(16) not null,
+  drmda    NUMBER(4) not null,
+  drpap    NUMBER(4) not null,
+  drmod    NUMBER(3),
+  drtit    NUMBER(2),
+  drcap    NUMBER(1),
+  drplzo   NUMBER(1),
+  drgru    NUMBER(2),
+  drsdor   NUMBER(17,2),
+  drsdus   NUMBER(17,2),
+  drsdmn   NUMBER(17,2),
+  drfchinv NUMBER(8)
+)
+;
+create index FSH03103 on FSH031 (DRRUB);
+create index FSH03104 on FSH031 (DRMDA);
+create index FSH03105 on FSH031 (DRPAP);
+create index FSH03106 on FSH031 (DRMOD);
+create index FSH03107 on FSH031 (PGCOD, DRFCH, DRMDA, DRTIT, DRCAP, DRSUC);
+create index FSH03108 on FSH031 (PGCOD, DRFCH, DRRUB);
+create index FSH03109 on FSH031 (PGCOD, DRSUC, DRRUB, DRMDA, DRPAP, DRFCHINV);
+create index FSH03110 on FSH031 (PGCOD, DRSUC, DRRUB, DRMDA, DRPAP, DRFCH);
+alter table FSH031
+  add primary key (DRFCH, PGCOD, DRSUC, DRRUB, DRMDA, DRPAP);
+

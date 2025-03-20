@@ -1,0 +1,38 @@
+create table FVAC12
+(
+  vac12cod NUMBER(3) not null,
+  vac12suc NUMBER(3) not null,
+  vac12mod NUMBER(3) not null,
+  vac12trn NUMBER(3) not null,
+  vac12rel NUMBER(4) not null,
+  vac12fch DATE not null,
+  vac12usr CHAR(10),
+  vac12bol NUMBER(9),
+  vac12mda NUMBER(4),
+  vac12ccq NUMBER(9),
+  vac12imp NUMBER(14,2),
+  vac12emp NUMBER(3),
+  vac12muc NUMBER(3),
+  vac12mdc NUMBER(4),
+  vac12pap NUMBER(4),
+  vac12cta NUMBER(9),
+  vac12scc NUMBER(3),
+  vac12ope NUMBER(9),
+  vac12sbc NUMBER(3),
+  vac12top NUMBER(3),
+  vac12sts CHAR(1),
+  vac12ax1 NUMBER(3),
+  vac12ax2 CHAR(30),
+  vac12ax3 DATE,
+  vac12rub NUMBER(16)
+)
+;
+create index FVAC1202 on FVAC12 (VAC12COD, VAC12SUC, VAC12USR, VAC12BOL);
+create index FVAC1203 on FVAC12 (VAC12COD, VAC12FCH, VAC12SUC, VAC12USR, VAC12MDA, VAC12BOL);
+create index FVAC1204 on FVAC12 (VAC12COD, VAC12FCH, VAC12SUC, VAC12MDA, VAC12BOL);
+create index FVAC1205 on FVAC12 (VAC12COD, VAC12BOL);
+create index FVAC1206 on FVAC12 (VAC12EMP, VAC12MUC, VAC12SCC, VAC12MDC, VAC12PAP, VAC12CTA, VAC12OPE, VAC12SBC, VAC12TOP);
+create index FVAC1207 on FVAC12 (VAC12COD, VAC12FCH, VAC12MOD, VAC12TRN, VAC12STS);
+alter table FVAC12
+  add primary key (VAC12COD, VAC12SUC, VAC12MOD, VAC12TRN, VAC12REL, VAC12FCH);
+

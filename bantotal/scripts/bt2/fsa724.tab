@@ -1,0 +1,37 @@
+create table FSA724
+(
+  st724pgcod NUMBER(3) not null,
+  st724suc   NUMBER(3) not null,
+  st724rub   NUMBER(16) not null,
+  st724mda   NUMBER(4) not null,
+  st724pap   NUMBER(4) not null,
+  st724cta   NUMBER(9) not null,
+  st724ope   NUMBER(9) not null,
+  st724sbop  NUMBER(3) not null,
+  st724tope  NUMBER(3) not null,
+  st724ggia  NUMBER(3) not null,
+  st724num   NUMBER(2) not null,
+  st724gtia  NUMBER(3) not null,
+  st724ngia  CHAR(30),
+  st724imp   NUMBER(14,2),
+  st724sdo   NUMBER(14,2),
+  st724nocom NUMBER(14,2),
+  st724tgar  CHAR(2),
+  st724aux1  NUMBER(15),
+  st724aux2  NUMBER(15),
+  st724aux3  NUMBER(15),
+  st724aux4  NUMBER(17,2),
+  st724aux5  NUMBER(17,2),
+  st724aux6  NUMBER(17,2),
+  st724aux7  DATE,
+  st724aux8  DATE,
+  st724aux9  DATE,
+  st724aux10 CHAR(30),
+  st724aux11 CHAR(30),
+  st724aux12 CHAR(30)
+)
+;
+create index FSA72402 on FSA724 (ST724PGCOD, ST724CTA, ST724TGAR, ST724GGIA, ST724NUM);
+alter table FSA724
+  add primary key (ST724PGCOD, ST724SUC, ST724RUB, ST724MDA, ST724PAP, ST724CTA, ST724OPE, ST724SBOP, ST724TOPE, ST724GGIA, ST724NUM, ST724GTIA);
+

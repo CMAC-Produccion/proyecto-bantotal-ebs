@@ -1,0 +1,45 @@
+create table AQPC753
+(
+  aqpc753cod    NUMBER(3) not null,
+  aqpc753itsuc  NUMBER(3) not null,
+  aqpc753itmod  NUMBER(3) not null,
+  aqpc753ittran NUMBER(3) not null,
+  aqpc753itnrel NUMBER(4) not null,
+  aqpc753itord  NUMBER(2) not null,
+  aqpc753itsbor NUMBER(3) not null,
+  aqpc753prgm   VARCHAR2(10) not null,
+  aqpc753cancel VARCHAR2(1),
+  aqpc753user   VARCHAR2(10),
+  aqpc753fecha  DATE,
+  aqpc753hora   VARCHAR2(8)
+)
+;
+comment on table AQPC753
+  is 'Log Lineas';
+comment on column AQPC753.aqpc753cod
+  is 'Código';
+comment on column AQPC753.aqpc753itsuc
+  is 'Sucursal Transacción';
+comment on column AQPC753.aqpc753itmod
+  is 'Módulo Transacción';
+comment on column AQPC753.aqpc753ittran
+  is 'Transacción';
+comment on column AQPC753.aqpc753itnrel
+  is 'Nro. Relación Transacción';
+comment on column AQPC753.aqpc753itord
+  is 'Ordinal Transacción';
+comment on column AQPC753.aqpc753itsbor
+  is 'SubOrdinal Transacción';
+comment on column AQPC753.aqpc753prgm
+  is 'Programa';
+comment on column AQPC753.aqpc753cancel
+  is 'Cancel';
+comment on column AQPC753.aqpc753user
+  is 'Usuario';
+comment on column AQPC753.aqpc753fecha
+  is 'Fecha';
+comment on column AQPC753.aqpc753hora
+  is 'Hora';
+alter table AQPC753
+  add primary key (AQPC753COD, AQPC753ITSUC, AQPC753ITMOD, AQPC753ITTRAN, AQPC753ITNREL, AQPC753ITORD, AQPC753ITSBOR, AQPC753PRGM);
+

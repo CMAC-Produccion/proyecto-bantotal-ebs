@@ -1,0 +1,39 @@
+create table AQPA060
+(
+  aqpa060ins  NUMBER(12) not null,
+  aqpa060usc  CHAR(30),
+  aqpa060fdi  DATE,
+  aqpa060est  VARCHAR2(20),
+  aqpa060cre  NUMBER(3),
+  aqpa060reg  CHAR(40),
+  aqpa060csu  NUMBER(3),
+  aqpa060suc  CHAR(30),
+  aqpa060crd  CHAR(22),
+  aqpa060fapr DATE not null,
+  aqpa060tapr NUMBER(6) not null,
+  aqpa060dcrd VARCHAR2(30),
+  aqpa060plz  NUMBER(5),
+  aqpa060cuo  NUMBER(17,2),
+  aqpa060ana  CHAR(10) not null,
+  aqpa060mod  NUMBER(3) not null,
+  aqpa060mda  VARCHAR2(4) not null,
+  aqpa060cta  NUMBER(9) not null,
+  aqpa060ope  NUMBER(9) not null,
+  aqpa060sbo  NUMBER(3) not null,
+  aqpa060top  NUMBER(3) not null,
+  aqpa060mto  NUMBER(16,2),
+  aqpa060pai  NUMBER(3),
+  aqpa060tdc  NUMBER(2),
+  aqpa060ndc  CHAR(12),
+  aqpa060nom  CHAR(30),
+  aqpa060tel  VARCHAR2(50),
+  aqpa060tso  CHAR(100),
+  aqpa060usr  CHAR(10) not null,
+  aqpa060zon  NUMBER(3)
+)
+;
+create index AQPA060IDC_2 on AQPA060 (AQPA060CRE, AQPA060ZON, AQPA060CSU, AQPA060ANA, AQPA060MOD);
+create index AQPA060IDC_3 on AQPA060 (AQPA060INS, AQPA060USR, AQPA060FAPR, AQPA060TAPR);
+alter table AQPA060
+  add primary key (AQPA060INS, AQPA060FAPR, AQPA060TAPR, AQPA060USR, AQPA060ANA, AQPA060MOD, AQPA060MDA, AQPA060CTA, AQPA060OPE, AQPA060SBO, AQPA060TOP);
+

@@ -1,0 +1,18 @@
+create table FSFSDG
+(
+  sfsdgemp  NUMBER(3) not null,
+  sfsdgtmer NUMBER(3) not null,
+  sfsdgprpr CHAR(1) not null,
+  sfsdgnro  NUMBER(16) not null,
+  sfsdgcorr NUMBER(4) not null,
+  sfsdgcoex NUMBER(5),
+  sfsdgmnco NUMBER(5),
+  sfsdgsuca NUMBER(3),
+  sfsdgmoda NUMBER(3),
+  sfsdgtrna NUMBER(3),
+  sfsdgrela NUMBER(4)
+)
+;
+alter table FSFSDG
+  add primary key (SFSDGEMP, SFSDGTMER, SFSDGPRPR, SFSDGNRO, SFSDGCORR);
+

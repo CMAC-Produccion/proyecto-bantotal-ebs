@@ -1,0 +1,13 @@
+create table BTI012
+(
+  bticannom VARCHAR2(40) not null,
+  btinom    VARCHAR2(40) not null,
+  btisrvnom VARCHAR2(40) not null,
+  btisrvver VARCHAR2(40) not null,
+  btimtdnom VARCHAR2(40) not null,
+  btisrvhab CHAR(1)
+)
+;
+alter table BTI012
+  add primary key (BTICANNOM, BTINOM, BTISRVNOM, BTISRVVER, BTIMTDNOM);
+

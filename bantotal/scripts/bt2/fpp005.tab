@@ -1,0 +1,32 @@
+create table FPP005
+(
+  pgcod      NUMBER(3) not null,
+  aomod      NUMBER(3) not null,
+  aosuc      NUMBER(3) not null,
+  aomda      NUMBER(4) not null,
+  aopap      NUMBER(4) not null,
+  aocta      NUMBER(9) not null,
+  aooper     NUMBER(9) not null,
+  aosbop     NUMBER(3) not null,
+  aotope     NUMBER(3) not null,
+  pp005corr  NUMBER(3) not null,
+  pp005fec   DATE,
+  pp005hora  CHAR(8),
+  pp005usu   CHAR(10),
+  pp005suc   NUMBER(3),
+  pp005mod   NUMBER(3),
+  pp005trn   NUMBER(3),
+  pp005nrel  NUMBER(4),
+  pp005tipo1 NUMBER(2),
+  pp005tipo2 NUMBER(2),
+  pp005aux1  NUMBER(9),
+  pp005aux2  DATE,
+  pp005aux3  CHAR(1),
+  pp005aux4  CHAR(100)
+)
+;
+create index FPP00503 on FPP005 (PP005FEC);
+create index FPP00504 on FPP005 (PGCOD, PP005SUC, PP005MOD, PP005TRN, PP005NREL, PP005AUX2);
+alter table FPP005
+  add primary key (PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, AOCTA, AOOPER, AOSBOP, AOTOPE, PP005CORR);
+

@@ -1,0 +1,22 @@
+create table FST198
+(
+  tp1cod   NUMBER(3) not null,
+  tp1cod1  NUMBER(9) not null,
+  tp1corr1 NUMBER(9) not null,
+  tp1corr2 NUMBER(9) not null,
+  tp1corr3 NUMBER(9) not null,
+  tp1nro1  NUMBER(9),
+  tp1nro2  NUMBER(9),
+  tp1nro3  NUMBER(9),
+  tp1desc  CHAR(30),
+  tp1imp1  NUMBER(17,2),
+  tp1imp2  NUMBER(17,2),
+  tp1imp3  NUMBER(17,2)
+)
+;
+create index ID_IDX$$_01290001_EXA on FST198 (TP1CORR2, TP1COD1);
+create index IDX_FST198EXA on FST198 (TP1COD, TP1COD1, TP1CORR1, TP1NRO3)
+  invisible;
+alter table FST198
+  add primary key (TP1COD, TP1COD1, TP1CORR1, TP1CORR2, TP1CORR3);
+

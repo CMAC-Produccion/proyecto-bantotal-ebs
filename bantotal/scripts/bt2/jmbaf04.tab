@@ -1,0 +1,12 @@
+create table JMBAF04
+(
+  jmbaf04ifi CHAR(7) not null,
+  jmbaf04ope CHAR(14) not null,
+  jmbaf04fca CHAR(10),
+  jmbaf04ica CHAR(12),
+  jmbaf04mca CHAR(2)
+)
+;
+alter table JMBAF04
+  add primary key (JMBAF04IFI, JMBAF04OPE);
+

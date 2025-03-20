@@ -1,0 +1,14 @@
+create table BCCRO32
+(
+  bccr3emp NUMBER(3) not null,
+  bccr3arc CHAR(10) not null,
+  bccr3nar NUMBER(10) not null,
+  bccr3co  NUMBER(8) not null,
+  bccr3sig NUMBER(8) not null,
+  bccr3txt CHAR(30),
+  bccr3val CHAR(40)
+)
+;
+alter table BCCRO32
+  add primary key (BCCR3EMP, BCCR3ARC, BCCR3NAR, BCCR3CO, BCCR3SIG);
+

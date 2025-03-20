@@ -1,0 +1,43 @@
+create table JAQY295_H
+(
+  jaqy295emp        NUMBER(3) not null,
+  jaqy295mod        NUMBER(3) not null,
+  jaqy295suc        NUMBER(3) not null,
+  jaqy295trn        NUMBER(3) not null,
+  jaqy295nrel       NUMBER(4) not null,
+  jaqy295fch        DATE not null,
+  jaqy295nomope     CHAR(30),
+  jaqy295nrotran    VARCHAR2(160),
+  jaqy295hmodul     NUMBER(3),
+  jaqy295mda        NUMBER(4),
+  jaqy295scnom      CHAR(30),
+  jaqy295desmda     VARCHAR2(3),
+  jaqy295monto      NUMBER(17,2),
+  jaqy295origenfon  CHAR(70),
+  jaqy295usu        CHAR(10),
+  jaqy295pais       NUMBER(3),
+  jaqy295tipdoc     NUMBER(2),
+  jaqy295numdoc     CHAR(12),
+  jaqy295hcta       NUMBER(9),
+  jaqy295hoper      NUMBER(9),
+  jaqy295htope      NUMBER(3),
+  jaqy295succuenta  CHAR(30),
+  jaqy295titular    CHAR(140),
+  jaqy295nrodoctra  CHAR(12),
+  jaqy295tdoctra    CHAR(20),
+  jaqy295tra        CHAR(30),
+  jaqy295tramnocli  CHAR(140),
+  jaqy295persbncpep VARCHAR2(100),
+  jaqy295hora       CHAR(8),
+  jaqy295extord     CHAR(1),
+  jaqy295entfin     CHAR(1),
+  jaqy295hsucur     NUMBER(3),
+  jaqy295hpap       NUMBER(4),
+  jaqy295hsubo      NUMBER(3),
+  jaqy295hmda       NUMBER(4),
+  jaqy295usuario    CHAR(10),
+  jaqy295sucred     NUMBER(3)
+)
+;
+create index XN_JAQY295_H_01 on JAQY295_H (JAQY295USUARIO);
+

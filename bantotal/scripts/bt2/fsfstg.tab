@@ -1,0 +1,10 @@
+create table FSFSTG
+(
+  sfst1merc NUMBER(3) not null,
+  sfstgcod  CHAR(1) not null,
+  sfstgdesc CHAR(35)
+)
+;
+alter table FSFSTG
+  add primary key (SFST1MERC, SFSTGCOD);
+

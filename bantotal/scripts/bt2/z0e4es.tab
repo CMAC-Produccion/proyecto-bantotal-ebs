@@ -1,0 +1,19 @@
+create table Z0E4ES
+(
+  z0e4esusr CHAR(10) not null,
+  z0e4eswst CHAR(10) not null,
+  z0e4esmon NUMBER(4) not null,
+  z0e4esbco NUMBER(4) not null,
+  z0e4escnl CHAR(2) not null,
+  z0e4esemp CHAR(10) not null,
+  z0e4esprs CHAR(10) not null,
+  z0e4esfch DATE not null,
+  z0e4estrc NUMBER(2) not null,
+  z0e4esinc NUMBER(2) not null,
+  z0e4esmdc CHAR(1) not null,
+  z0e4esimp NUMBER(14,2)
+)
+;
+alter table Z0E4ES
+  add primary key (Z0E4ESUSR, Z0E4ESWST, Z0E4ESMON, Z0E4ESBCO, Z0E4ESCNL, Z0E4ESEMP, Z0E4ESPRS, Z0E4ESFCH, Z0E4ESTRC, Z0E4ESINC, Z0E4ESMDC);
+

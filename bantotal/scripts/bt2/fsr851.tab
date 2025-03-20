@@ -1,0 +1,62 @@
+create table FSR851
+(
+  sr851cod NUMBER(3) not null,
+  sr851mod NUMBER(3) not null,
+  sr851suc NUMBER(3) not null,
+  sr851mda NUMBER(4) not null,
+  sr851pap NUMBER(4) not null,
+  sr851cta NUMBER(9) not null,
+  sr851ope NUMBER(9) not null,
+  sr851sbp NUMBER(3) not null,
+  sr851top NUMBER(3) not null,
+  sr851cor NUMBER(5) not null,
+  sr851ser CHAR(4),
+  sr851nro NUMBER(9),
+  sr851rel NUMBER(3),
+  sr851num NUMBER(3),
+  sr851fec DATE,
+  sr851pai NUMBER(3),
+  sr851tdo NUMBER(2),
+  sr851ndo CHAR(12),
+  sr851ben CHAR(60),
+  sr851vin CHAR(1),
+  sr851por NUMBER(7,4),
+  sr851tem NUMBER(3),
+  sr851tsu NUMBER(3),
+  sr851tmo NUMBER(3),
+  sr851ttr NUMBER(3),
+  sr851tre NUMBER(4),
+  sr851tfc DATE,
+  sr851tor NUMBER(2),
+  sr851tso NUMBER(3),
+  sr851tco CHAR(1),
+  sr851ius CHAR(10),
+  sr851iws CHAR(10),
+  sr851ife DATE,
+  sr851aus CHAR(10),
+  sr851aws CHAR(10),
+  sr851afe DATE,
+  sr851cus CHAR(10),
+  sr851cws CHAR(10),
+  sr851cfe DATE,
+  sr851ax1 DATE,
+  sr851ax2 DATE,
+  sr851ax3 NUMBER(17,2),
+  sr851ax4 NUMBER(9),
+  sr851ax5 CHAR(200),
+  sr851ax6 CHAR(1),
+  sr851ax7 NUMBER(17,2)
+)
+;
+create index FSR85102 on FSR851 (SR851COD, SR851SUC, SR851CTA);
+create index FSR85104 on FSR851 (SR851COD, SR851MOD, SR851SUC, SR851MDA, SR851PAP, SR851CTA, SR851OPE, SR851SBP, SR851TOP, SR851NUM);
+create index FSR85105 on FSR851 (SR851COD, SR851CTA, SR851FEC);
+create index FSR85106 on FSR851 (SR851COD, SR851PAI, SR851TDO, SR851NDO);
+create index FSR85107 on FSR851 (SR851TEM, SR851TSU, SR851TMO, SR851TTR, SR851TRE, SR851TFC, SR851TOR, SR851TSO, SR851TCO);
+create index FSR85108 on FSR851 (SR851COD, SR851SER, SR851NRO);
+create index FSR85109 on FSR851 (SR851COD, SR851AX1);
+create index FSR85110 on FSR851 (SR851COD, SR851AX4, SR851AFE);
+create index FSR85111 on FSR851 (SR851COD, SR851FEC);
+alter table FSR851
+  add primary key (SR851COD, SR851MOD, SR851SUC, SR851MDA, SR851PAP, SR851CTA, SR851OPE, SR851SBP, SR851TOP, SR851COR);
+

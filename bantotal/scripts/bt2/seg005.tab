@@ -1,0 +1,28 @@
+create table SEG005
+(
+  seg005usu CHAR(10) not null,
+  seg005wks CHAR(10) not null,
+  seg005fch DATE not null,
+  seg005cor NUMBER(8) not null,
+  seg005hra CHAR(8),
+  seg005pgm CHAR(10),
+  seg005pgc NUMBER(3),
+  seg005suc NUMBER(3),
+  seg005rub NUMBER(16),
+  seg005mod NUMBER(3),
+  seg005mda NUMBER(4),
+  seg005pap NUMBER(4),
+  seg005cta NUMBER(9),
+  seg005ope NUMBER(9),
+  seg005sbo NUMBER(3),
+  seg005top NUMBER(3),
+  seg005au1 NUMBER(17,2),
+  seg005au2 CHAR(30),
+  seg005au3 DATE
+)
+;
+create index SEG00503 on SEG005 (SEG005PGC, SEG005SUC, SEG005RUB, SEG005MDA, SEG005PAP, SEG005CTA, SEG005OPE, SEG005SBO, SEG005TOP, SEG005FCH, SEG005HRA);
+create index SEG00504 on SEG005 (SEG005PGC, SEG005CTA, SEG005FCH, SEG005HRA);
+alter table SEG005
+  add primary key (SEG005USU, SEG005WKS, SEG005FCH, SEG005COR);
+

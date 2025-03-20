@@ -1,0 +1,13 @@
+create table WFATTRIB
+(
+  wfprcid    NUMBER(4) not null,
+  wfattid    CHAR(10) not null,
+  wfattdtype CHAR(1),
+  wfattlen   NUMBER(3),
+  wfattinout CHAR(1)
+)
+;
+create index UWFATT1 on WFATTRIB (WFPRCID, WFATTINOUT);
+alter table WFATTRIB
+  add primary key (WFPRCID, WFATTID);
+

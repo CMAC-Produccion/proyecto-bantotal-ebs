@@ -1,0 +1,35 @@
+create table AQPC235
+(
+  aqpc235pgcod     NUMBER(3) not null,
+  aqpc235aomod     NUMBER(3) not null,
+  aqpc235aosuc     NUMBER(3) not null,
+  aqpc235aomda     NUMBER(4) not null,
+  aqpc235aopap     NUMBER(4) not null,
+  aqpc235aocta     NUMBER(9) not null,
+  aqpc235aooper    NUMBER(9) not null,
+  aqpc235aosbop    NUMBER(3) not null,
+  aqpc235aotope    NUMBER(3) not null,
+  aqpc235sgcod     NUMBER(9) not null,
+  aqpc235pp001vc   NUMBER(17,2),
+  aqpc235pp001imp  NUMBER(17,2),
+  aqpc235pp001porc NUMBER(10,6),
+  aqpc235pp001plus NUMBER(10,6),
+  aqpc235pp001part NUMBER(10,6),
+  aqpc235pp001veh  NUMBER(4),
+  aqpc235pp001inm  NUMBER(4),
+  aqpc235pp001end  CHAR(1),
+  aqpc235pp001stat CHAR(1),
+  aqpc235pp001co   CHAR(1),
+  aqpc235pp001aux1 NUMBER(17,2),
+  aqpc235pp001aux2 NUMBER(10,6),
+  aqpc235pp001aux3 DATE,
+  aqpc235pp001aux4 NUMBER(17,2),
+  aqpc235pp001aux5 CHAR(30),
+  aqpc235pp001aux6 CHAR(1),
+  aqpc235pp001aux7 CHAR(1),
+  aqpc235corr      NUMBER(17),
+  aqpc235fec       DATE
+)
+;
+create index AQPC23502 on AQPC235 (AQPC235SGCOD);
+

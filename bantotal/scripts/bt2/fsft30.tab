@@ -1,0 +1,28 @@
+create table FSFT30
+(
+  dtecod    NUMBER(3) not null,
+  dtecta    NUMBER(9) not null,
+  dtepap    NUMBER(4) not null,
+  dtecup    NUMBER(3) not null,
+  dtemod    NUMBER(3),
+  dtectades NUMBER(3),
+  dtemda    NUMBER(4),
+  dtefin    DATE,
+  dtefcu    DATE,
+  dteaux001 NUMBER(9),
+  dteaux002 NUMBER(9),
+  dteaux003 NUMBER(9),
+  dteaux004 DATE,
+  dteaux005 DATE,
+  dteaux006 DATE,
+  dteaux007 CHAR(35),
+  dteaux008 CHAR(35),
+  dteaux009 CHAR(35),
+  dteaux010 NUMBER(17,2),
+  dteaux011 NUMBER(17,2),
+  dteaux012 NUMBER(17,2)
+)
+;
+alter table FSFT30
+  add primary key (DTECOD, DTECTA, DTEPAP, DTECUP);
+

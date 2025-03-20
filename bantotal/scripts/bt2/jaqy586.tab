@@ -1,0 +1,27 @@
+create table JAQY586
+(
+  jaqy586pgcod NUMBER(3) not null,
+  jaqy586modul NUMBER(3) not null,
+  jaqy586sucur NUMBER(3) not null,
+  jaqy586trans NUMBER(3) not null,
+  jaqy586relac NUMBER(4) not null,
+  jaqy586femov DATE not null,
+  jaqy586itcor NUMBER(5),
+  jaqy586itcon CHAR(1),
+  jaqy586copsv NUMBER(10),
+  jaqy586coent NUMBER(4),
+  jaqy586cotsv NUMBER(4),
+  jaqy586sumin VARCHAR2(20),
+  jaqy586esreg CHAR(1),
+  jaqy586cotra NUMBER(10),
+  jaqy586nrvta NUMBER(3),
+  jaqy586cores CHAR(2),
+  jaqy586estad CHAR(1),
+  jaqy586proce CHAR(1),
+  jaqy586usuar CHAR(10),
+  jaqy586moope NUMBER(11)
+)
+;
+alter table JAQY586
+  add primary key (JAQY586PGCOD, JAQY586MODUL, JAQY586SUCUR, JAQY586TRANS, JAQY586RELAC, JAQY586FEMOV);
+

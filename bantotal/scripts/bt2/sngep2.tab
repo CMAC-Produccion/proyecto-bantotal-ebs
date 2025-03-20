@@ -1,0 +1,18 @@
+create table SNGEP2
+(
+  sngep1ite  NUMBER(10) not null,
+  sngep2cor  NUMBER(3) not null,
+  sngep2eva  NUMBER(3),
+  sngep2pai  NUMBER(3),
+  sngep2tdo  NUMBER(2),
+  sngep2ndo  CHAR(12),
+  sngep2tipi CHAR(1),
+  sngep2rel  NUMBER(2),
+  sngep2corr NUMBER(3),
+  sngep2eje  NUMBER(10),
+  sngep2vara VARCHAR2(40)
+)
+;
+alter table SNGEP2
+  add primary key (SNGEP1ITE, SNGEP2COR);
+

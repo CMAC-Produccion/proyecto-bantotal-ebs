@@ -1,0 +1,20 @@
+create table JAQZ674
+(
+  jaqz674pano  NUMBER(4) not null,
+  jaqz674pmes  NUMBER(2) not null,
+  jaqz674paic  NUMBER(3) not null,
+  jaqz674tdoc  NUMBER(2) not null,
+  jaqz674tndoc CHAR(12) not null,
+  jaqz674calf  NUMBER(5),
+  jaqz674fecp  DATE,
+  jaqz674horp  CHAR(10),
+  jaqz674tcal  CHAR(1),
+  jaqz674tse   CHAR(1)
+)
+;
+create index JAQZ6741 on JAQZ674 (JAQZ674PANO, JAQZ674PMES);
+create index JAQZ6742 on JAQZ674 (JAQZ674PAIC, JAQZ674TDOC, JAQZ674TNDOC, JAQZ674PANO);
+create index JAQZ6743 on JAQZ674 (JAQZ674PAIC, JAQZ674TDOC, JAQZ674TNDOC);
+alter table JAQZ674
+  add primary key (JAQZ674PANO, JAQZ674PMES, JAQZ674PAIC, JAQZ674TDOC, JAQZ674TNDOC);
+

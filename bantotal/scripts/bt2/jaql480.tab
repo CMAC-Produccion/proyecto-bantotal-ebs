@@ -1,0 +1,43 @@
+create table JAQL480
+(
+  jaql480corec CHAR(20) not null,
+  jaql480pgcod NUMBER(3) not null,
+  jaql480scsuc NUMBER(3) not null,
+  jaql480scpap NUMBER(4) not null,
+  jaql480scmda NUMBER(4) not null,
+  jaql480scmod NUMBER(3) not null,
+  jaql480sccta NUMBER(9) not null,
+  jaql480scope NUMBER(9) not null,
+  jaql480subop NUMBER(3) not null,
+  jaql480sctop NUMBER(3) not null,
+  jaql480femov DATE not null,
+  jaql480hora  CHAR(8) not null,
+  jaql480cocma NUMBER(3) not null,
+  jaql480ubsuc NUMBER(3) not null,
+  jaql480itmod NUMBER(3) not null,
+  jaql480ittra NUMBER(3) not null,
+  jaql480itnre NUMBER(4) not null,
+  jaql480itord NUMBER(2) not null,
+  jaql480itsub NUMBER(3) not null,
+  jaql480nutar CHAR(16),
+  jaql480monto NUMBER(16,2),
+  jaql480inmov CHAR(1),
+  jaql480aux01 NUMBER(16,2),
+  jaql480aux02 NUMBER(16,2),
+  jaql480aux03 DATE,
+  jaql480aux04 DATE,
+  jaql480aux05 CHAR(100),
+  jaql480aux06 CHAR(100),
+  jaql480aux07 NUMBER(9),
+  jaql480aux08 NUMBER(9),
+  jaql480age   CHAR(30),
+  jaql480ope   CHAR(10),
+  jaql480ch3   CHAR(50),
+  jaql480cct   CHAR(30)
+)
+;
+create index IJAQL480IDX001 on JAQL480 (JAQL480COREC, JAQL480AUX05);
+create index IJAQL480IDX002 on JAQL480 (JAQL480COREC, JAQL480PGCOD, JAQL480SCSUC, JAQL480SCMOD, JAQL480SCMDA, JAQL480SCCTA, JAQL480SCOPE, JAQL480SCTOP, JAQL480SUBOP);
+alter table JAQL480
+  add primary key (JAQL480COREC, JAQL480PGCOD, JAQL480SCSUC, JAQL480SCPAP, JAQL480SCMDA, JAQL480SCMOD, JAQL480SCCTA, JAQL480SCOPE, JAQL480SUBOP, JAQL480SCTOP, JAQL480FEMOV, JAQL480HORA, JAQL480COCMA, JAQL480UBSUC, JAQL480ITMOD, JAQL480ITTRA, JAQL480ITNRE, JAQL480ITORD, JAQL480ITSUB);
+

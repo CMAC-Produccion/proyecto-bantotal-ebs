@@ -1,0 +1,12 @@
+create table FSFT70
+(
+  sft70emp   NUMBER(4) not null,
+  sft70ctaex CHAR(30) not null,
+  sft70ctabt NUMBER(9),
+  sft70ctnom CHAR(35)
+)
+;
+create index FSFT7002 on FSFT70 (SFT70EMP, SFT70CTABT);
+alter table FSFT70
+  add primary key (SFT70EMP, SFT70CTAEX);
+

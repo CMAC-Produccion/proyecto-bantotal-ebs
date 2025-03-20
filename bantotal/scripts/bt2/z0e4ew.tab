@@ -1,0 +1,28 @@
+create table Z0E4EW
+(
+  z0e4evusr CHAR(10) not null,
+  z0e4evwst CHAR(10) not null,
+  z0e4event NUMBER(3) not null,
+  z0e4evfch DATE not null,
+  z0e4evemp CHAR(10) not null,
+  z0e4evprs CHAR(10) not null,
+  z0e4evmon NUMBER(4) not null,
+  z0e4ewbco NUMBER(3) not null,
+  z0e4ewbds CHAR(25),
+  z0e4ewt11 NUMBER(9),
+  z0e4ewt21 NUMBER(9),
+  z0e4ewt31 NUMBER(9),
+  z0e4ewt41 NUMBER(9),
+  z0e4ewt51 NUMBER(9),
+  z0e4ewt61 NUMBER(9),
+  z0e4ewi11 NUMBER(10,2),
+  z0e4ewi21 NUMBER(10,2),
+  z0e4ewi31 NUMBER(10,2),
+  z0e4ewi41 NUMBER(10,2),
+  z0e4ewi51 NUMBER(10,2),
+  z0e4ewi61 NUMBER(10,2)
+)
+;
+alter table Z0E4EW
+  add primary key (Z0E4EVUSR, Z0E4EVWST, Z0E4EVENT, Z0E4EVFCH, Z0E4EVEMP, Z0E4EVPRS, Z0E4EVMON, Z0E4EWBCO);
+

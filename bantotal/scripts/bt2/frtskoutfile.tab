@@ -1,0 +1,15 @@
+create table FRTSKOUTFILE
+(
+  frtskofprcid  NUMBER(6) not null,
+  frtskoftskid  NUMBER(6) not null,
+  frtskofaut    NUMBER(1),
+  frtskoftyp    NUMBER(2),
+  frrepnam      CHAR(15),
+  frtskofpat    VARCHAR2(2000),
+  frtskofsavnam VARCHAR2(255)
+)
+;
+create index IFRTSKO2 on FRTSKOUTFILE (FRREPNAM);
+alter table FRTSKOUTFILE
+  add primary key (FRTSKOFPRCID, FRTSKOFTSKID);
+

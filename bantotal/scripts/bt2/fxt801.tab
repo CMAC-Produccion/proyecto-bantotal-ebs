@@ -1,0 +1,12 @@
+create table FXT801
+(
+  swtcod    NUMBER(5) not null,
+  swtrel    NUMBER(2) not null,
+  swtrelnom CHAR(40),
+  idioma    NUMBER(2)
+)
+;
+create index FXT80103 on FXT801 (IDIOMA);
+alter table FXT801
+  add primary key (SWTCOD, SWTREL);
+

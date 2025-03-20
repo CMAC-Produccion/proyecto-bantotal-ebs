@@ -1,0 +1,29 @@
+create table FSH121
+(
+  hcpfchpro DATE not null,
+  hcpcod    NUMBER(3) not null,
+  hcpmod    NUMBER(3) not null,
+  hcpsuc    NUMBER(3) not null,
+  hcpmda    NUMBER(4) not null,
+  hcppap    NUMBER(4) not null,
+  hcpcta    NUMBER(9) not null,
+  hcpoper   NUMBER(9) not null,
+  hcpsbo    NUMBER(3) not null,
+  hcptope   NUMBER(3) not null,
+  hcpncuo   NUMBER(5) not null,
+  hcpopcod  NUMBER(3),
+  hcpfchgen DATE,
+  hcpfchvto DATE,
+  hcpfchcob DATE,
+  hcpcuota  NUMBER(17,2),
+  hcpestado CHAR(1),
+  hcpcobrad NUMBER(17,2),
+  hcpfchevl DATE,
+  hcpseguro NUMBER(17,2),
+  hcpcomisi NUMBER(17,2),
+  hcpimpues NUMBER(17,2)
+)
+;
+alter table FSH121
+  add primary key (HCPFCHPRO, HCPCOD, HCPMOD, HCPSUC, HCPMDA, HCPPAP, HCPCTA, HCPOPER, HCPSBO, HCPTOPE, HCPNCUO);
+

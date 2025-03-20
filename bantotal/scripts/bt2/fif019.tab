@@ -1,0 +1,13 @@
+create table FIF019
+(
+  if019nom CHAR(6) not null,
+  if019tip CHAR(3),
+  if019for CHAR(1),
+  if019cnt NUMBER(6)
+)
+;
+create index FIF01902 on FIF019 (IF019FOR);
+create index FIF01903 on FIF019 (IF019TIP);
+alter table FIF019
+  add primary key (IF019NOM);
+

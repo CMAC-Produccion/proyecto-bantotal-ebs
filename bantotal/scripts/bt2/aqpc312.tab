@@ -1,0 +1,76 @@
+create table AQPC312
+(
+  aqpc312usureg CHAR(10) not null,
+  aqpc312fecreg DATE not null,
+  aqpc312numcor NUMBER(5) not null,
+  aqpc312pgcod  NUMBER(3),
+  aqpc312hcmod  NUMBER(3),
+  aqpc312hsucor NUMBER(3),
+  aqpc312htran  NUMBER(3),
+  aqpc312hnrel  NUMBER(4),
+  aqpc312hfcon  DATE not null,
+  aqpc312hcord  NUMBER(2) not null,
+  aqpc312hcsubo NUMBER(3) not null,
+  aqpc312hmodul NUMBER(3),
+  aqpc312htoper NUMBER(3),
+  aqpc312hmda   NUMBER(4),
+  aqpc312hsucur NUMBER(3),
+  aqpc312hpap   NUMBER(4),
+  aqpc312hcta   NUMBER(9),
+  aqpc312hoper  NUMBER(9),
+  aqpc312hsubop NUMBER(3),
+  aqpc312hfval  DATE,
+  aqpc312hcimp1 NUMBER(17,2),
+  aqpc312hcref  CHAR(18)
+)
+;
+comment on table AQPC312
+  is 'Compras Proceso Cashback';
+comment on column AQPC312.aqpc312usureg
+  is 'Usuaio Registro';
+comment on column AQPC312.aqpc312fecreg
+  is 'Fecha Registro';
+comment on column AQPC312.aqpc312numcor
+  is 'Correlativo';
+comment on column AQPC312.aqpc312pgcod
+  is 'Pgcod';
+comment on column AQPC312.aqpc312hcmod
+  is 'Hcmod';
+comment on column AQPC312.aqpc312hsucor
+  is 'Hsucor';
+comment on column AQPC312.aqpc312htran
+  is 'Htran';
+comment on column AQPC312.aqpc312hnrel
+  is 'Hnrel';
+comment on column AQPC312.aqpc312hfcon
+  is 'Hfcon';
+comment on column AQPC312.aqpc312hcord
+  is 'Hcord';
+comment on column AQPC312.aqpc312hcsubo
+  is 'Hcsubo';
+comment on column AQPC312.aqpc312hmodul
+  is 'Hmodul';
+comment on column AQPC312.aqpc312htoper
+  is 'Htoper';
+comment on column AQPC312.aqpc312hmda
+  is 'Hmda';
+comment on column AQPC312.aqpc312hsucur
+  is 'Hsucur';
+comment on column AQPC312.aqpc312hpap
+  is 'Hpap';
+comment on column AQPC312.aqpc312hcta
+  is 'Hcta';
+comment on column AQPC312.aqpc312hoper
+  is 'Hoper';
+comment on column AQPC312.aqpc312hsubop
+  is 'Hsubop';
+comment on column AQPC312.aqpc312hfval
+  is 'Hfval';
+comment on column AQPC312.aqpc312hcimp1
+  is 'Hcimp1';
+comment on column AQPC312.aqpc312hcref
+  is 'Hcref';
+create index AQPC312A2 on AQPC312 (AQPC312USUREG);
+alter table AQPC312
+  add primary key (AQPC312USUREG, AQPC312FECREG, AQPC312NUMCOR);
+

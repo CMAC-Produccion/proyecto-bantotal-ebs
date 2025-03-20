@@ -1,0 +1,21 @@
+create table AQPB365B
+(
+  aqpb365binst NUMBER(10) not null,
+  aqpb365bcsbs VARCHAR2(10) not null,
+  aqpb365bcemp CHAR(5) not null,
+  aqpb365bcuen CHAR(14) not null,
+  aqpb365bsald NUMBER(17,2),
+  aqpb365bsalc NUMBER(17,2),
+  aqpb365bsaln NUMBER(17,2),
+  aqpb365bfpre DATE,
+  aqpb365bfech DATE,
+  aqpb365bhora CHAR(8),
+  aqpb365butil NUMBER(17,2),
+  aqpb365btipo NUMBER(5),
+  aqpb365baux1 NUMBER(5),
+  aqpb365baux2 VARCHAR2(50)
+)
+;
+alter table AQPB365B
+  add primary key (AQPB365BINST, AQPB365BCSBS, AQPB365BCEMP, AQPB365BCUEN);
+

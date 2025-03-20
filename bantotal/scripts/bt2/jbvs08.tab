@@ -1,0 +1,16 @@
+create table JBVS08
+(
+  jbvs08tar CHAR(19) not null,
+  jbvs08ent NUMBER(9) not null,
+  jbvs08cor NUMBER(5) not null,
+  jbvs08idc CHAR(19) not null,
+  jbvs08ax1 CHAR(1),
+  jbvs08ax2 CHAR(20),
+  jbvs08fal DATE,
+  jbvs08ax3 DATE,
+  jbvs08ax4 NUMBER(5),
+  jbvs08ax5 NUMBER(17,2)
+)
+;
+create unique index JBVS0801 on JBVS08 (JBVS08TAR, JBVS08ENT, JBVS08COR, JBVS08IDC);
+

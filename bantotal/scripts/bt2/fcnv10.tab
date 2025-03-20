@@ -1,0 +1,19 @@
+create table FCNV10
+(
+  cnv10emp   NUMBER(3) not null,
+  cnv05teval NUMBER(3) not null,
+  cnv10mod   NUMBER(3) not null,
+  cnv10tope  NUMBER(3) not null,
+  cnv10mda   NUMBER(4) not null,
+  cnv10pap   NUMBER(4) not null,
+  cnv10anpzo CHAR(1),
+  cnv10anmto CHAR(1),
+  cnv10ancod CHAR(1),
+  cnv10anbca CHAR(1),
+  cnv10ancnv CHAR(1)
+)
+;
+create index FCNV1002 on FCNV10 (CNV05TEVAL);
+alter table FCNV10
+  add primary key (CNV10EMP, CNV05TEVAL, CNV10MOD, CNV10TOPE, CNV10MDA, CNV10PAP);
+

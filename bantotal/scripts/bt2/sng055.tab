@@ -1,0 +1,13 @@
+create table SNG055
+(
+  sng055emp NUMBER(3) not null,
+  sng055car NUMBER(3) not null,
+  sng055dsc CHAR(30),
+  sng055alc CHAR(1),
+  sng055asd CHAR(1),
+  sng055wkf CHAR(1)
+)
+;
+alter table SNG055
+  add primary key (SNG055EMP, SNG055CAR);
+

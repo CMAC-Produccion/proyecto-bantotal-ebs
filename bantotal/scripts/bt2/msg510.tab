@@ -1,0 +1,11 @@
+create table MSG510
+(
+  estmcod   NUMBER(5) not null,
+  msg510cod NUMBER(10) not null,
+  msg510dsc VARCHAR2(100),
+  msg510tpo CHAR(3)
+)
+;
+alter table MSG510
+  add primary key (ESTMCOD, MSG510COD);
+

@@ -1,0 +1,21 @@
+create table JSBND5
+(
+  jsbnd5pgc  NUMBER(3) not null,
+  jsbnd5mod  NUMBER(3) not null,
+  jsbnd5suc  NUMBER(3) not null,
+  jsbnd5mda  NUMBER(4) not null,
+  jsbnd5pap  NUMBER(4) not null,
+  jsbnd5cta  NUMBER(9) not null,
+  jsbnd5oper NUMBER(9) not null,
+  jsbnd5sbop NUMBER(3) not null,
+  jsbnd5tope NUMBER(3) not null,
+  jsbnd5dias NUMBER(9),
+  jsbnd5aux  NUMBER(17,2),
+  jsbnd5aux2 NUMBER(17,2),
+  jsbnd5fch  DATE
+)
+;
+create index JSBND502 on JSBND5 (JSBND5PGC, JSBND5CTA);
+alter table JSBND5
+  add primary key (JSBND5PGC, JSBND5MOD, JSBND5SUC, JSBND5MDA, JSBND5PAP, JSBND5CTA, JSBND5OPER, JSBND5SBOP, JSBND5TOPE);
+

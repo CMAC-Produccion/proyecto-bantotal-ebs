@@ -1,0 +1,12 @@
+create table FBRD35
+(
+  brd35rgcod NUMBER(5) not null,
+  brd35tpo   CHAR(1) not null,
+  brd35corr  NUMBER(3) not null,
+  brd35car   VARCHAR2(200),
+  brd35msgcc NUMBER(3)
+)
+;
+alter table FBRD35
+  add primary key (BRD35RGCOD, BRD35TPO, BRD35CORR);
+

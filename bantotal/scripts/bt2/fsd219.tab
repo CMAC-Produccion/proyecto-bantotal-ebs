@@ -1,0 +1,18 @@
+create table FSD219
+(
+  pgcod     NUMBER(3) not null,
+  catpais   NUMBER(3) not null,
+  cattdoc   NUMBER(2) not null,
+  catndoc   CHAR(12) not null,
+  catcod    NUMBER(5) not null,
+  catfchdes DATE not null,
+  catcatper CHAR(15)
+)
+;
+create index FSD21902 on FSD219 (CATCOD);
+create index FSD21904 on FSD219 (PGCOD, CATCOD, CATPAIS, CATTDOC, CATNDOC, CATFCHDES);
+create index FSD21905 on FSD219 (PGCOD, CATCOD, CATFCHDES);
+create index FSD21906 on FSD219 (PGCOD, CATCOD, CATNDOC);
+alter table FSD219
+  add primary key (PGCOD, CATPAIS, CATTDOC, CATNDOC, CATCOD, CATFCHDES);
+

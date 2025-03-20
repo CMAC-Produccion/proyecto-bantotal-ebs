@@ -1,0 +1,18 @@
+create table FRTSKFIL
+(
+  frprcid    NUMBER(6) not null,
+  frtskid    NUMBER(6) not null,
+  frtskfilid NUMBER(4) not null,
+  frtskfilty NUMBER(2),
+  frtskfilds VARCHAR2(80),
+  frrepnam   CHAR(15),
+  frtskfilpa VARCHAR2(2000),
+  frtskfilsa VARCHAR2(255),
+  frtskfilvi NUMBER(1)
+)
+;
+create index FRTSKF02 on FRTSKFIL (FRREPNAM);
+create index FRTSKF04 on FRTSKFIL (FRPRCID, FRTSKFILDS);
+alter table FRTSKFIL
+  add primary key (FRPRCID, FRTSKID, FRTSKFILID);
+

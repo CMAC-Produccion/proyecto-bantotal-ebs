@@ -1,0 +1,12 @@
+create table FSD131
+(
+  paisdoc NUMBER(3) not null,
+  tipdoc  NUMBER(2) not null,
+  ttcrc   CHAR(3),
+  tatrib  CHAR(20)
+)
+;
+create index FSD13102 on FSD131 (TIPDOC);
+alter table FSD131
+  add primary key (PAISDOC, TIPDOC);
+

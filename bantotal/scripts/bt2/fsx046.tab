@@ -1,0 +1,16 @@
+create table FSX046
+(
+  fsx046pgc NUMBER(3) not null,
+  fsx046usu CHAR(10) not null,
+  fsx046cod NUMBER(3) not null,
+  fsx046rng NUMBER(3) not null,
+  fsx046val NUMBER(9),
+  fsx046imp NUMBER(17,2),
+  fsx046dsc CHAR(35),
+  fsx046fch DATE,
+  fsx046aux CHAR(1)
+)
+;
+alter table FSX046
+  add primary key (FSX046PGC, FSX046USU, FSX046COD, FSX046RNG);
+

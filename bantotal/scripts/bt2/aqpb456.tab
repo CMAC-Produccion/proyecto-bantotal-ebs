@@ -1,0 +1,128 @@
+create table AQPB456
+(
+  aqpb456fcar   DATE not null,
+  aqpb456pais   NUMBER(3) not null,
+  aqpb456tdoc   NUMBER(2) not null,
+  aqpb456ndoc   CHAR(12) not null,
+  aqpb456tasa   NUMBER(10,6),
+  aqpb456mont   NUMBER(17,2),
+  aqpb456pzo    NUMBER(5),
+  aqpb456pgra   NUMBER(5),
+  aqpb456frec   NUMBER(5),
+  aqpb456pgar   NUMBER(5,2),
+  aqpb456ciiu   NUMBER(12),
+  aqpb456fppago DATE,
+  aqpb456fmdes  DATE,
+  aqpb456pgcod  NUMBER(3),
+  aqpb456hcmod  NUMBER(3),
+  aqpb456hsucor NUMBER(3),
+  aqpb456htran  NUMBER(3),
+  aqpb456hnrel  NUMBER(4),
+  aqpb456hfcon  DATE,
+  aqpb456aoimp  NUMBER(17,2),
+  aqpb456prcins NUMBER(10),
+  aqpb456est    VARCHAR2(1),
+  aqpb456usu    CHAR(10),
+  aqpb456emp    NUMBER(3),
+  aqpb456mod    NUMBER(3),
+  aqpb456suc    NUMBER(3),
+  aqpb456mda    NUMBER(4),
+  aqpb456pap    NUMBER(4),
+  aqpb456cta    NUMBER(9),
+  aqpb456oper   NUMBER(9),
+  aqpb456sbop   NUMBER(3),
+  aqpb456tope   NUMBER(3),
+  aqpb456fins   VARCHAR2(10),
+  aqpb456fhor   VARCHAR2(10),
+  aqpb456fupd   VARCHAR2(10),
+  aqpb456fhupd  VARCHAR2(10),
+  aqpb456cta1   NUMBER(9),
+  aqpb456ind    VARCHAR2(15),
+  aqpb456acti   VARCHAR2(200)
+)
+;
+comment on table AQPB456
+  is 'FAE TURISMO';
+comment on column AQPB456.aqpb456fcar
+  is '1. Fecha de la carga';
+comment on column AQPB456.aqpb456pais
+  is '2. País';
+comment on column AQPB456.aqpb456tdoc
+  is '3. Tipo de documento';
+comment on column AQPB456.aqpb456ndoc
+  is '4. Número de documento';
+comment on column AQPB456.aqpb456tasa
+  is '5. Tasa';
+comment on column AQPB456.aqpb456mont
+  is '6. Monto de la propuesta';
+comment on column AQPB456.aqpb456pzo
+  is '7. Plazo';
+comment on column AQPB456.aqpb456pgra
+  is '8. Período de gracia';
+comment on column AQPB456.aqpb456frec
+  is '9. Frecuencia';
+comment on column AQPB456.aqpb456pgar
+  is '10. Porcentaje de cobertura de garantía';
+comment on column AQPB456.aqpb456ciiu
+  is ' Clasificacion industrial internacional uniforme';
+comment on column AQPB456.aqpb456fppago
+  is 'Fecha de primer pago';
+comment on column AQPB456.aqpb456fmdes
+  is '11. Fecha maxima de desembolso';
+comment on column AQPB456.aqpb456pgcod
+  is '12. Clave Tr: empresa';
+comment on column AQPB456.aqpb456hcmod
+  is '13. Clave Tr: módulo';
+comment on column AQPB456.aqpb456hsucor
+  is '14. Clave Tr: sucursal';
+comment on column AQPB456.aqpb456htran
+  is '15. Clave Tr: transacción';
+comment on column AQPB456.aqpb456hnrel
+  is '16. Clave Tr: relación';
+comment on column AQPB456.aqpb456hfcon
+  is '17. Clave Tr: fecha';
+comment on column AQPB456.aqpb456aoimp
+  is '18. Monto desembolsado';
+comment on column AQPB456.aqpb456prcins
+  is '19. Instancia';
+comment on column AQPB456.aqpb456est
+  is '20. Estado';
+comment on column AQPB456.aqpb456usu
+  is '21. Usuario';
+comment on column AQPB456.aqpb456emp
+  is '22. Clave Cred: empresa';
+comment on column AQPB456.aqpb456mod
+  is '23. Clave Cred: módulo';
+comment on column AQPB456.aqpb456suc
+  is '24. Clave Cred: sucursal';
+comment on column AQPB456.aqpb456mda
+  is '25. Clave Cred: moneda';
+comment on column AQPB456.aqpb456pap
+  is '26. Clave Cred: papel';
+comment on column AQPB456.aqpb456cta
+  is '27. Clave Cred: cuenta';
+comment on column AQPB456.aqpb456oper
+  is '28. Clave Cred: operación';
+comment on column AQPB456.aqpb456sbop
+  is '29. Clave Cred: suboperación';
+comment on column AQPB456.aqpb456tope
+  is '30. Clave Cred: tipo de operación';
+comment on column AQPB456.aqpb456fins
+  is '31. Fecha de inserción';
+comment on column AQPB456.aqpb456fhor
+  is '32. Hora de inserción';
+comment on column AQPB456.aqpb456fupd
+  is '33. Fecha de edición';
+comment on column AQPB456.aqpb456fhupd
+  is '34. Hora de edición';
+comment on column AQPB456.aqpb456cta1
+  is '35. Cuenta cliente';
+comment on column AQPB456.aqpb456ind
+  is '36. Indicador Fondo/Programa';
+comment on column AQPB456.aqpb456acti
+  is 'Actividad Económica';
+create index AQPB456A5 on AQPB456 (AQPB456PAIS, AQPB456TDOC, AQPB456NDOC);
+create index AQPB4562 on AQPB456 (AQPB456EMP, AQPB456MOD, AQPB456SUC, AQPB456MDA, AQPB456PAP, AQPB456CTA, AQPB456OPER, AQPB456SBOP, AQPB456TOPE);
+create index AQPB4563 on AQPB456 (AQPB456PGCOD, AQPB456HCMOD, AQPB456HSUCOR, AQPB456HTRAN, AQPB456HNREL, AQPB456HFCON);
+create index AQPB4564 on AQPB456 (AQPB456FCAR);
+

@@ -1,0 +1,18 @@
+create table JAQZ758
+(
+  jaqz758cod  NUMBER(3) not null,
+  jaqz758fec  DATE not null,
+  jaqz758cino NUMBER(9),
+  jaqz758cima NUMBER(16,2),
+  jaqz758cono NUMBER(9),
+  jaqz758coma NUMBER(16,2),
+  jaqz758dino NUMBER(9),
+  jaqz758dima NUMBER(16,2),
+  jaqz758dono NUMBER(9),
+  jaqz758doma NUMBER(16,2)
+)
+;
+create index JAQZ7581 on JAQZ758 (JAQZ758FEC, JAQZ758COD);
+alter table JAQZ758
+  add primary key (JAQZ758COD, JAQZ758FEC);
+

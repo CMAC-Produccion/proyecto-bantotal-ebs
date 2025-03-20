@@ -1,0 +1,39 @@
+create table JAQN24
+(
+  jaqn24cod NUMBER(3) not null,
+  jaqn24mod NUMBER(3) not null,
+  jaqn24tcu NUMBER(3) not null,
+  jaqn24ctn NUMBER(9) not null,
+  jaqn24mon NUMBER(4) not null,
+  jaqn24pap NUMBER(4) not null,
+  jaqn24fvi DATE not null,
+  jaqn24mto NUMBER(17,2) not null,
+  jaqn24pla NUMBER(5) not null,
+  jaqn24cur NUMBER(10,6)
+)
+;
+comment on table JAQN24
+  is 'Detalle curvas por cuenta';
+comment on column JAQN24.jaqn24cod
+  is 'Codigo empresa';
+comment on column JAQN24.jaqn24mod
+  is 'Modulo';
+comment on column JAQN24.jaqn24tcu
+  is 'Tipo curva';
+comment on column JAQN24.jaqn24ctn
+  is 'Cuenta';
+comment on column JAQN24.jaqn24mon
+  is 'Moneda';
+comment on column JAQN24.jaqn24pap
+  is 'Papel';
+comment on column JAQN24.jaqn24fvi
+  is 'Vigencia';
+comment on column JAQN24.jaqn24mto
+  is 'Monto';
+comment on column JAQN24.jaqn24pla
+  is 'Plazo';
+comment on column JAQN24.jaqn24cur
+  is 'Curva';
+alter table JAQN24
+  add primary key (JAQN24COD, JAQN24MOD, JAQN24TCU, JAQN24CTN, JAQN24MON, JAQN24PAP, JAQN24FVI, JAQN24MTO, JAQN24PLA);
+

@@ -1,0 +1,41 @@
+create table JAQL980A
+(
+  jaql980acor  NUMBER(12) not null,
+  jaql980acod  NUMBER(3) not null,
+  jaql980asuc  NUMBER(3) not null,
+  jaql980amod  NUMBER(3) not null,
+  jaql980atran NUMBER(3) not null,
+  jaql980anrel NUMBER(4) not null,
+  jaql980afcon DATE,
+  jaql980auing CHAR(10),
+  jaql980ahora CHAR(8),
+  jaql980acont CHAR(1),
+  jaql980acorr NUMBER(5)
+)
+;
+comment on column JAQL980A.jaql980acor
+  is 'Correlativo';
+comment on column JAQL980A.jaql980acod
+  is 'PGCOD';
+comment on column JAQL980A.jaql980asuc
+  is 'ITSUC';
+comment on column JAQL980A.jaql980amod
+  is 'ITMOD';
+comment on column JAQL980A.jaql980atran
+  is 'ITTRAN';
+comment on column JAQL980A.jaql980anrel
+  is 'ITNREL';
+comment on column JAQL980A.jaql980afcon
+  is 'ITFCON';
+comment on column JAQL980A.jaql980auing
+  is 'ITUING';
+comment on column JAQL980A.jaql980ahora
+  is 'ITHORA';
+comment on column JAQL980A.jaql980acont
+  is 'ITCONT';
+comment on column JAQL980A.jaql980acorr
+  is 'ITCORR';
+create index JAQL980A_2 on JAQL980A (JAQL980ACOR, JAQL980AFCON);
+alter table JAQL980A
+  add constraint PK_JAQL980A primary key (JAQL980ACOR);
+

@@ -1,0 +1,15 @@
+create table JAQZ758N
+(
+  jaqz758ncod  NUMBER(3) not null,
+  jaqz758nmod  NUMBER(3) not null,
+  jaqz758nfec  DATE not null,
+  jaqz758ndino NUMBER(9),
+  jaqz758ndima NUMBER(16,2),
+  jaqz758ndono NUMBER(9),
+  jaqz758ndoma NUMBER(16,2)
+)
+;
+create index JAQZ758N1 on JAQZ758N (JAQZ758NFEC, JAQZ758NCOD, JAQZ758NMOD);
+alter table JAQZ758N
+  add primary key (JAQZ758NCOD, JAQZ758NMOD, JAQZ758NFEC);
+

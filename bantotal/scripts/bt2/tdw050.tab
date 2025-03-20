@@ -1,0 +1,21 @@
+create table TDW050
+(
+  tdw050red NUMBER(4) not null,
+  tdw050atm CHAR(16) not null,
+  tdw050reb NUMBER(4),
+  tdw050bco NUMBER(5),
+  tdw050dsc CHAR(30),
+  tdw050ubi CHAR(50),
+  tdw050pgc NUMBER(3),
+  tdw050suc NUMBER(3),
+  tdw050tip CHAR(1),
+  tdw050fmd DATE,
+  tdw050umd CHAR(10),
+  tdw050est CHAR(2),
+  tdw050caj NUMBER(3)
+)
+;
+create unique index YS_C0068265 on TDW050 (TDW050RED, TDW050ATM);
+alter table TDW050
+  add primary key (TDW050RED, TDW050ATM);
+

@@ -1,0 +1,21 @@
+create table JBVW03
+(
+  jbvw03pais NUMBER(3) not null,
+  jbvw03tdoc NUMBER(2) not null,
+  jbvw03ndoc CHAR(12) not null,
+  jbvw03cor  NUMBER(2) not null,
+  jbvw03ocp  NUMBER(3),
+  jbvw03nom  CHAR(100),
+  jbvw03npep CHAR(100),
+  jbvw03pos  CHAR(100),
+  jbvw03relp NUMBER(3),
+  jbvw03rpep CHAR(100),
+  jbvw03obs  CHAR(200),
+  jbvw03npj  CHAR(100),
+  jbvw03tpj  NUMBER(3),
+  jbvw03ndpj CHAR(30)
+)
+;
+alter table JBVW03
+  add primary key (JBVW03PAIS, JBVW03TDOC, JBVW03NDOC, JBVW03COR);
+

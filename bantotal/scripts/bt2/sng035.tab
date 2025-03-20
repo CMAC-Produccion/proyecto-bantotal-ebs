@@ -1,0 +1,13 @@
+create table SNG035
+(
+  sng035prog CHAR(10) not null,
+  sng035nomo CHAR(30) not null,
+  sng035asp  CHAR(20),
+  sng035prg  CHAR(10),
+  sng035expc NUMBER(10),
+  sng035prgv CHAR(10)
+)
+;
+alter table SNG035
+  add primary key (SNG035PROG, SNG035NOMO);
+

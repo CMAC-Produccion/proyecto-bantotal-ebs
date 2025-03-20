@@ -1,0 +1,19 @@
+create table JAQL529
+(
+  jaql529nutar CHAR(20) not null,
+  jaql529feblo DATE not null,
+  jaql529hoblo CHAR(8),
+  jaql529usblo CHAR(20),
+  jaql529feact DATE,
+  jaql529hoact CHAR(8),
+  jaql529usact CHAR(20),
+  jaql529esreg CHAR(1),
+  jaql529estar CHAR(5),
+  jaql529nucta NUMBER(3)
+)
+;
+create index JAQL529_02 on JAQL529 (JAQL529FEBLO);
+create index JAQL529_03 on JAQL529 (JAQL529FEACT);
+alter table JAQL529
+  add primary key (JAQL529NUTAR, JAQL529FEBLO);
+

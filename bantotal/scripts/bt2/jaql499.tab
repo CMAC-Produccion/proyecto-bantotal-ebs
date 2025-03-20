@@ -1,0 +1,32 @@
+create table JAQL499
+(
+  jaql499pgc NUMBER(3) not null,
+  jaql499pai NUMBER(3) not null,
+  jaql499tpo NUMBER(2) not null,
+  jaql499num CHAR(12) not null,
+  jaql499fco NUMBER(3) not null,
+  jaql499fcc NUMBER(3) not null,
+  jaql499vid DATE not null,
+  jaql499vih DATE,
+  jaql499lis NUMBER(17,2),
+  jaql499lid NUMBER(17,2),
+  jaql499est CHAR(1),
+  jaql499ax1 NUMBER(9),
+  jaql499ax2 NUMBER(9),
+  jaql499ax3 NUMBER(17,2),
+  jaql499ax4 NUMBER(17,2),
+  jaql499ax5 CHAR(100),
+  jaql499ax6 CHAR(100),
+  jaql499ax7 DATE,
+  jaql499ax8 DATE,
+  jaql499hom CHAR(8),
+  jaql499fem DATE,
+  jaql499hoi CHAR(8),
+  jaql499fei DATE,
+  jaql499usm CHAR(10),
+  jaql499usr CHAR(10)
+)
+;
+alter table JAQL499
+  add primary key (JAQL499PGC, JAQL499PAI, JAQL499TPO, JAQL499NUM, JAQL499FCO, JAQL499FCC, JAQL499VID);
+

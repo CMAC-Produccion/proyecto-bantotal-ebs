@@ -1,0 +1,18 @@
+create table PTD001
+(
+  ptd001emp  NUMBER(3) not null,
+  ptd001mod  NUMBER(3) not null,
+  ptd001suc  NUMBER(3) not null,
+  ptd001mda  NUMBER(4) not null,
+  ptd001pap  NUMBER(4) not null,
+  ptd001cta  NUMBER(9) not null,
+  ptd001oper NUMBER(9) not null,
+  ptd001sbop NUMBER(3) not null,
+  ptd001tope NUMBER(3) not null,
+  ptd001nro  NUMBER(10)
+)
+;
+create index PTD00102 on PTD001 (PTD001NRO);
+alter table PTD001
+  add primary key (PTD001EMP, PTD001MOD, PTD001SUC, PTD001MDA, PTD001PAP, PTD001CTA, PTD001OPER, PTD001SBOP, PTD001TOPE);
+

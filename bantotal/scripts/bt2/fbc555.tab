@@ -1,0 +1,24 @@
+create table FBC555
+(
+  fbc555pgc NUMBER(3) not null,
+  fbc555suc NUMBER(3) not null,
+  fbc555fch DATE not null,
+  fbc555usu CHAR(10) not null,
+  fbc555rub NUMBER(16) not null,
+  fbc555tit NUMBER(2) not null,
+  fbc555cap NUMBER(1) not null,
+  fbc555smn NUMBER(17,2),
+  fbc555au1 NUMBER(4),
+  fbc555au2 NUMBER(10),
+  fbc555au3 NUMBER(17,2),
+  fbc555au4 CHAR(1),
+  fbc555au5 CHAR(100),
+  fbc555au6 DATE,
+  fbc555au7 DATE
+)
+;
+create index FBC55502 on FBC555 (FBC555PGC, FBC555FCH, FBC555USU, FBC555TIT, FBC555CAP, FBC555RUB);
+create index FBC55503 on FBC555 (FBC555PGC, FBC555FCH, FBC555USU, FBC555SUC, FBC555TIT, FBC555CAP, FBC555RUB);
+alter table FBC555
+  add primary key (FBC555PGC, FBC555SUC, FBC555FCH, FBC555USU, FBC555RUB, FBC555TIT, FBC555CAP);
+

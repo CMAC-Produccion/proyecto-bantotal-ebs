@@ -1,0 +1,17 @@
+create table FUP006
+(
+  fup006cod  NUMBER(10) not null,
+  fup006fec  DATE,
+  fup006hrc  CHAR(8),
+  fup006fei  DATE,
+  fup006hri  CHAR(8),
+  fup006est  CHAR(1),
+  fup006arch VARCHAR2(400),
+  fup004pgml CHAR(10),
+  fup005corr NUMBER(4)
+)
+;
+create index FUP00602 on FUP006 (FUP004PGML, FUP005CORR);
+alter table FUP006
+  add primary key (FUP006COD);
+

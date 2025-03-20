@@ -1,0 +1,14 @@
+create table REP006
+(
+  rep001cod  NUMBER(10) not null,
+  rep002cons NUMBER(10) not null,
+  rep006niv  NUMBER(4) not null,
+  rep006desc VARCHAR2(200),
+  rep006cnom CHAR(20),
+  rep006cdsc CHAR(35),
+  rep006cayu CHAR(100)
+)
+;
+alter table REP006
+  add primary key (REP001COD, REP002CONS, REP006NIV);
+

@@ -1,0 +1,26 @@
+create table BTI002
+(
+  bticannom VARCHAR2(40) not null,
+  btinom    VARCHAR2(40) not null,
+  btisrvnom VARCHAR2(40) not null,
+  btisrvver VARCHAR2(40) not null,
+  btimtdnom VARCHAR2(40) not null,
+  btifec    DATE not null,
+  btireq    NUMBER(9) not null,
+  btiusuext VARCHAR2(40),
+  bticanext VARCHAR2(40),
+  btireqext VARCHAR2(40),
+  btiusubt  CHAR(30),
+  btiinifec DATE,
+  btiinihor CHAR(8),
+  btifinfec DATE,
+  btifinhor CHAR(8),
+  btiest    NUMBER(3),
+  btisestok VARCHAR2(40),
+  btitimsrv NUMBER(18),
+  btitimapl NUMBER(18)
+)
+;
+alter table BTI002
+  add primary key (BTICANNOM, BTINOM, BTISRVNOM, BTIFEC, BTIREQ);
+

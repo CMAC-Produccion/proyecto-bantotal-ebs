@@ -1,0 +1,48 @@
+create table FSE313
+(
+  pgcod     NUMBER(3) not null,
+  cv2mod    NUMBER(3) not null,
+  cv2mda    NUMBER(4) not null,
+  cv2pap    NUMBER(4) not null,
+  cv2cta    NUMBER(9) not null,
+  cv2suc    NUMBER(3) not null,
+  cv2oper   NUMBER(9) not null,
+  cv2sbop   NUMBER(3) not null,
+  cv2tope   NUMBER(3) not null,
+  cv2clast1 NUMBER(2),
+  cv2tdia1  NUMBER(1),
+  cv2tano1  NUMBER(1),
+  cv2tvto1  CHAR(1),
+  cv2tint1  CHAR(1),
+  cv2pracr1 NUMBER(2),
+  cv2tfij1  CHAR(1),
+  cv2tpiz1  NUMBER(2),
+  cv2maxsdo NUMBER(17,2),
+  cv2maxpr  NUMBER(17,2),
+  cv2clast2 NUMBER(2),
+  cv2tdia2  NUMBER(1),
+  cv2tano2  NUMBER(1),
+  cv2tvto2  CHAR(1),
+  cv2tint2  CHAR(1),
+  cv2pracr2 NUMBER(2),
+  cv2tfij2  CHAR(1),
+  cv2tpiz2  NUMBER(2),
+  cv2clast3 NUMBER(2),
+  cv2tdia3  NUMBER(1),
+  cv2tano3  NUMBER(1),
+  cv2tvto3  CHAR(1),
+  cv2tint3  CHAR(1),
+  cv2pracr3 NUMBER(2),
+  cv2tfij3  CHAR(1),
+  cv2tpiz3  NUMBER(2),
+  cv2aux1   CHAR(1),
+  cv2aux2   CHAR(1),
+  cv2aux3   CHAR(1),
+  cv2aux4   NUMBER(17,2),
+  cv2aux5   NUMBER(9),
+  cv2aux6   CHAR(35)
+)
+;
+alter table FSE313
+  add primary key (PGCOD, CV2MOD, CV2MDA, CV2PAP, CV2CTA, CV2SUC, CV2OPER, CV2SBOP, CV2TOPE);
+

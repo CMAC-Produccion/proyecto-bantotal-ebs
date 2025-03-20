@@ -1,0 +1,37 @@
+create table AQPA058
+(
+  aqpa058pgc  NUMBER(3) not null,
+  aqpa058mod  NUMBER(3) not null,
+  aqpa058suc  NUMBER(3) not null,
+  aqpa058mda  NUMBER(4) not null,
+  aqpa058pap  NUMBER(4) not null,
+  aqpa058cta  NUMBER(9) not null,
+  aqpa058ope  NUMBER(9) not null,
+  aqpa058sbo  NUMBER(3) not null,
+  aqpa058top  NUMBER(3) not null,
+  aqpa058age  VARCHAR2(30),
+  aqpa058crd  VARCHAR2(27),
+  aqpa058cli  VARCHAR2(30),
+  aqpa058fds  DATE,
+  aqpa058frf  DATE,
+  aqpa058dcrd VARCHAR2(30),
+  aqpa058mnta NUMBER(16,2),
+  aqpa058sdor NUMBER(16,2),
+  aqpa058pzo  NUMBER(4),
+  aqpa058cuo  NUMBER(16,2),
+  aqpa058ana  CHAR(10),
+  aqpa058tcrd CHAR(31),
+  aqpa058est  CHAR(50),
+  aqpa058bbp  NUMBER(16,2),
+  aqpa058ibbp NUMBER(16,2),
+  aqpa058pbp  NUMBER(16,2),
+  aqpa058ipbp NUMBER(16,2),
+  aqpa058usr  CHAR(10)
+)
+;
+create index AQPA058_IDC_01 on AQPA058 (AQPA058PGC, AQPA058ANA);
+create index AQPA058_IDC_02 on AQPA058 (AQPA058PGC, AQPA058FDS);
+create index AQPA058_IDC_03 on AQPA058 (AQPA058PGC, AQPA058FRF);
+alter table AQPA058
+  add primary key (AQPA058PGC, AQPA058MOD, AQPA058SUC, AQPA058MDA, AQPA058PAP, AQPA058CTA, AQPA058OPE, AQPA058SBO, AQPA058TOP);
+

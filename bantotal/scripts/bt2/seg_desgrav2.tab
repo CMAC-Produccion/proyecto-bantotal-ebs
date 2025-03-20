@@ -1,0 +1,74 @@
+create table SEG_DESGRAV2
+(
+  bcrubr      NUMBER(16) not null,
+  pcnomr      CHAR(40),
+  cta_cliente NUMBER(9) not null,
+  operacion   NUMBER(9) not null,
+  titular     CHAR(30),
+  petdoc      NUMBER(2) not null,
+  pendoc      CHAR(12) not null,
+  pffnac      DATE,
+  pjfnac      DATE,
+  njcod       NUMBER(2),
+  fec_des     DATE,
+  mto_apr     NUMBER,
+  saldo       NUMBER,
+  cobert      NUMBER,
+  bcsuc       NUMBER(3) not null,
+  pepais      NUMBER,
+  bcmda       NUMBER,
+  bcsdmo      NUMBER(17,2),
+  petipo      CHAR(1),
+  bcplaz      NUMBER(5),
+  nro_cred    VARCHAR2(100),
+  ndiaat      NUMBER(9),
+  bccta1      NUMBER(9),
+  bcoper1     NUMBER(9),
+  bcmod1      NUMBER(3),
+  bcpap1      NUMBER(3),
+  bcsob1      NUMBER(3),
+  bctop1      NUMBER(3),
+  aux1        NUMBER(3),
+  dfecdes     DATE,
+  edad1       NUMBER(3),
+  indaux1     VARCHAR2(20),
+  ubigeo1     CHAR(6),
+  udpto1      CHAR(2),
+  uprov1      CHAR(4),
+  udist1      CHAR(6)
+)
+;
+comment on table SEG_DESGRAV2
+  is 'Tabla con los datos del cliente para la plantilla de la Poliza de Desgravamen';
+comment on column SEG_DESGRAV2.ndiaat
+  is 'dias atraso';
+comment on column SEG_DESGRAV2.bccta1
+  is 'cuenta';
+comment on column SEG_DESGRAV2.bcoper1
+  is 'operacion';
+comment on column SEG_DESGRAV2.bcmod1
+  is 'modulo';
+comment on column SEG_DESGRAV2.bcpap1
+  is 'papel';
+comment on column SEG_DESGRAV2.bcsob1
+  is 'suboperacion';
+comment on column SEG_DESGRAV2.bctop1
+  is 'tipo operacion';
+comment on column SEG_DESGRAV2.aux1
+  is 'auxiliar numero';
+comment on column SEG_DESGRAV2.dfecdes
+  is 'fecha desembolso';
+comment on column SEG_DESGRAV2.edad1
+  is 'edad';
+comment on column SEG_DESGRAV2.indaux1
+  is 'indicador auxiliar variable';
+comment on column SEG_DESGRAV2.ubigeo1
+  is 'ubigeo';
+comment on column SEG_DESGRAV2.udpto1
+  is 'ubigeo dpto';
+comment on column SEG_DESGRAV2.uprov1
+  is 'ubigeo provincia';
+comment on column SEG_DESGRAV2.udist1
+  is 'ubigeo distrito';
+create index SEG_DESGRAV2B on SEG_DESGRAV2 (PEPAIS, PETDOC, PENDOC);
+

@@ -1,0 +1,25 @@
+create table AQPD105
+(
+  aqpd105fec  DATE not null,
+  aqpd105ord  NUMBER(18) not null,
+  aqpd105dsc1 VARCHAR2(4000),
+  aqpd105dsc2 VARCHAR2(4000),
+  aqpd105sld  NUMBER(18,2)
+)
+;
+comment on table AQPD105
+  is 'TABLA REPORTE 37';
+comment on column AQPD105.aqpd105fec
+  is 'FECHA REPORTE';
+comment on column AQPD105.aqpd105ord
+  is 'ORDEN DE ITEMS';
+comment on column AQPD105.aqpd105dsc1
+  is 'DESCRIPCION 1 ';
+comment on column AQPD105.aqpd105dsc2
+  is 'DESCRIPCION 2';
+comment on column AQPD105.aqpd105sld
+  is 'SALDO';
+create index AQPD1052 on AQPD105 (AQPD105FEC);
+alter table AQPD105
+  add primary key (AQPD105FEC, AQPD105ORD);
+

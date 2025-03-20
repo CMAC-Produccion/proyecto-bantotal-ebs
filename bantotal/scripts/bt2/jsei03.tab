@@ -1,0 +1,16 @@
+create table JSEI03
+(
+  jsei03apl NUMBER(4) not null,
+  jsei03ban CHAR(5) not null,
+  jsei03env NUMBER(9) not null,
+  jsei03cor NUMBER(9) not null,
+  jsei03cpo CHAR(8),
+  jsei03fec DATE,
+  jsei03reg NUMBER(3),
+  jsei03imp NUMBER(17,2)
+)
+;
+create index JSEI0302 on JSEI03 (JSEI03FEC, JSEI03REG, JSEI03CPO);
+alter table JSEI03
+  add primary key (JSEI03APL, JSEI03BAN, JSEI03ENV, JSEI03COR);
+

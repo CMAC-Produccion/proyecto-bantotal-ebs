@@ -1,0 +1,29 @@
+create table HBK030
+(
+  hbk001ppf NUMBER(3) not null,
+  hbk001tpf NUMBER(2) not null,
+  hbk001npf CHAR(12) not null,
+  hbk001ppj NUMBER(3) not null,
+  hbk001tpj NUMBER(2) not null,
+  hbk001npj CHAR(12) not null,
+  hbk030fec DATE not null,
+  hbk030hor CHAR(8) not null,
+  hbk030crr NUMBER(3) not null,
+  hbk030cop CHAR(5),
+  hbk030fcn DATE,
+  hbk030pgc NUMBER(3),
+  hbk030suc NUMBER(3),
+  hbk030mod NUMBER(3),
+  hbk030trn NUMBER(3),
+  hbk030rel NUMBER(4),
+  hbk030mnc NUMBER(5),
+  hbk030dep CHAR(1)
+)
+;
+create index HBK03003 on HBK030 (HBK001PPJ, HBK001TPJ, HBK001NPJ, HBK001PPF, HBK001TPF, HBK001NPF, HBK030FEC, HBK030HOR, HBK030CRR);
+create index HBK03004 on HBK030 (HBK001PPJ, HBK001TPJ, HBK001NPJ, HBK030FEC, HBK030HOR);
+create index HBK03005 on HBK030 (HBK030FEC, HBK030HOR);
+create index HBK03006 on HBK030 (HBK030FCN, HBK030PGC, HBK030SUC, HBK030MOD, HBK030TRN, HBK030REL);
+alter table HBK030
+  add primary key (HBK001PPF, HBK001TPF, HBK001NPF, HBK001PPJ, HBK001TPJ, HBK001NPJ, HBK030FEC, HBK030HOR, HBK030CRR);
+

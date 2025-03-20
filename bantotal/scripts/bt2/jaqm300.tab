@@ -1,0 +1,20 @@
+create table JAQM300
+(
+  jaqm300pai NUMBER(3) not null,
+  jaqm300tdo NUMBER(2) not null,
+  jaqm300nro CHAR(12) not null,
+  jaqm300fin DATE,
+  jaqm300hin CHAR(8),
+  jaqm300ure CHAR(10),
+  jaqm300sre NUMBER(3),
+  jaqm300ren NUMBER(5),
+  jaqm300tcd NUMBER(2),
+  jaqm300tco NUMBER(2),
+  jaqm300fmo DATE,
+  jaqm300hmo CHAR(8),
+  jaqm300umo CHAR(10)
+)
+;
+alter table JAQM300
+  add primary key (JAQM300PAI, JAQM300TDO, JAQM300NRO);
+

@@ -1,0 +1,25 @@
+create table FSFL44
+(
+  fsfl44emp NUMBER(3) not null,
+  fsfl44suc NUMBER(3) not null,
+  fsfl44mod NUMBER(3) not null,
+  fsfl44trn NUMBER(3) not null,
+  fsfl44nre NUMBER(4) not null,
+  fsfl44fco DATE not null,
+  fsfl44tip CHAR(1) not null,
+  fsfl44usu CHAR(10),
+  fsfl44wks CHAR(10),
+  fsfl44fec DATE,
+  fsfl44hor CHAR(8),
+  fsfl44aor CHAR(1),
+  fsfl44mto NUMBER(17,2),
+  fsfl44wsr CHAR(1),
+  fsfl44cta NUMBER(9),
+  fsfl44trd CHAR(10)
+)
+;
+create index FSFL4402 on FSFL44 (FSFL44CTA, FSFL44FCO);
+create index FSFL4403 on FSFL44 (FSFL44EMP, FSFL44FCO);
+alter table FSFL44
+  add primary key (FSFL44EMP, FSFL44SUC, FSFL44MOD, FSFL44TRN, FSFL44NRE, FSFL44FCO, FSFL44TIP);
+

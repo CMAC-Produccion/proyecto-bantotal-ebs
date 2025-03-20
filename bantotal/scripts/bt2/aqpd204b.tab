@@ -1,0 +1,101 @@
+create table AQPD204B
+(
+  aqpd204bfep       DATE not null,
+  aqpd204bemp       NUMBER(3) not null,
+  aqpd204bmod       NUMBER(3) not null,
+  aqpd204bsuc       NUMBER(3) not null,
+  aqpd204bmda       NUMBER(4) not null,
+  aqpd204bpap       NUMBER(4) not null,
+  aqpd204bcta       NUMBER(9) not null,
+  aqpd204bope       NUMBER(9) not null,
+  aqpd204bsbo       NUMBER(3) not null,
+  aqpd204btpo       NUMBER(3) not null,
+  aqpd204btdoc      NUMBER(2),
+  aqpd204bndoc      CHAR(12),
+  aqpd204bmto       NUMBER(18,2),
+  aqpd204btip       VARCHAR2(300),
+  aqpd204bpdi       NUMBER(4),
+  aqpd204bsol       VARCHAR2(2),
+  aqpd204brer       VARCHAR2(10),
+  aqpd204bext       VARCHAR2(10),
+  aqpd204bcon       VARCHAR2(10),
+  aqpd204bfece      DATE,
+  aqpd204btabo      VARCHAR2(50),
+  aqpd204bfecact    DATE not null,
+  aqpd204busuact    CHAR(10),
+  aqpd204best       CHAR(1),
+  aqpd204bredcuo    CHAR(1),
+  aqpd204bnumcuop   NUMBER(3),
+  aqpd204bpagcap    CHAR(1),
+  aqpd204bperio     NUMBER(5),
+  aqpd204bnumcuopti NUMBER(3),
+  aqpd204bsalact    NUMBER(18,2)
+)
+;
+comment on table AQPD204B
+  is 'Tabla de los reprogramados por estado de emergencia';
+comment on column AQPD204B.aqpd204bfep
+  is 'fecha de reprogrmación';
+comment on column AQPD204B.aqpd204bemp
+  is 'empresa';
+comment on column AQPD204B.aqpd204bmod
+  is 'módulo';
+comment on column AQPD204B.aqpd204bsuc
+  is 'sucursal';
+comment on column AQPD204B.aqpd204bmda
+  is 'moneda';
+comment on column AQPD204B.aqpd204bpap
+  is 'papel';
+comment on column AQPD204B.aqpd204bcta
+  is 'cuenta';
+comment on column AQPD204B.aqpd204bope
+  is 'operación';
+comment on column AQPD204B.aqpd204bsbo
+  is 'sub operación';
+comment on column AQPD204B.aqpd204btpo
+  is 'tipo de operación';
+comment on column AQPD204B.aqpd204btdoc
+  is 'tipo de doc';
+comment on column AQPD204B.aqpd204bndoc
+  is 'nro de doc';
+comment on column AQPD204B.aqpd204bmto
+  is 'monto';
+comment on column AQPD204B.aqpd204btip
+  is 'tipo';
+comment on column AQPD204B.aqpd204bpdi
+  is 'AQPD204Bpdi';
+comment on column AQPD204B.aqpd204bsol
+  is 'AQPD204Bsol';
+comment on column AQPD204B.aqpd204brer
+  is 'AQPD204Brer';
+comment on column AQPD204B.aqpd204bext
+  is 'AQPD204Bext ';
+comment on column AQPD204B.aqpd204bcon
+  is 'AQPD204Bcon ';
+comment on column AQPD204B.aqpd204bfece
+  is 'Fecha de extorno';
+comment on column AQPD204B.aqpd204btabo
+  is 'Tabla de donde procede';
+comment on column AQPD204B.aqpd204bfecact
+  is 'Fecha de actualización del registro';
+comment on column AQPD204B.aqpd204busuact
+  is 'usuario de actualización';
+comment on column AQPD204B.aqpd204best
+  is 'Estado';
+comment on column AQPD204B.aqpd204bredcuo
+  is 'Tiene reducción de cuota';
+comment on column AQPD204B.aqpd204bnumcuop
+  is 'Número de cuotas pagados Riesgos';
+comment on column AQPD204B.aqpd204bpagcap
+  is 'Pagó Capital el 20%';
+comment on column AQPD204B.aqpd204bperio
+  is 'Periodo';
+comment on column AQPD204B.aqpd204bnumcuopti
+  is 'Número de cuotas pagadas segun TI';
+comment on column AQPD204B.aqpd204bsalact
+  is 'Saldo capital a la fecha de ejecución';
+create index AQPD204BA2 on AQPD204B (AQPD204BCTA, AQPD204BOPE, AQPD204BSBO);
+create index AQPD204BA3 on AQPD204B (AQPD204BSUC);
+alter table AQPD204B
+  add primary key (AQPD204BFEP, AQPD204BEMP, AQPD204BMOD, AQPD204BSUC, AQPD204BMDA, AQPD204BPAP, AQPD204BCTA, AQPD204BOPE, AQPD204BSBO, AQPD204BTPO, AQPD204BFECACT);
+

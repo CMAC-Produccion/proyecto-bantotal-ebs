@@ -1,0 +1,60 @@
+create table JAQM3J
+(
+  jaqm3jcod NUMBER(3) not null,
+  jaqm3jfec DATE not null,
+  jaqm3jsuc NUMBER(3) not null,
+  jaqm3jcor NUMBER(3) not null,
+  jaqm3jusu CHAR(10) not null,
+  jaqm3jai1 NUMBER(17,2),
+  jaqm3jai2 NUMBER(17,2),
+  jaqm3jai3 NUMBER(17,2),
+  jaqm3jan1 NUMBER(9),
+  jaqm3jan2 NUMBER(9),
+  jaqm3jan3 NUMBER(9),
+  jaqm3jac1 VARCHAR2(255),
+  jaqm3jac2 VARCHAR2(255),
+  jaqm3jac3 VARCHAR2(255),
+  jaqm3jaf1 DATE,
+  jaqm3jaf2 DATE,
+  jaqm3jaf3 DATE
+)
+;
+comment on table JAQM3J
+  is 'Detalle log de Cambio de Comité';
+comment on column JAQM3J.jaqm3jcod
+  is 'Empresa';
+comment on column JAQM3J.jaqm3jfec
+  is 'Fecha';
+comment on column JAQM3J.jaqm3jsuc
+  is 'Sucursal';
+comment on column JAQM3J.jaqm3jcor
+  is 'Correlativo';
+comment on column JAQM3J.jaqm3jusu
+  is 'Usuario';
+comment on column JAQM3J.jaqm3jai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM3J.jaqm3jai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM3J.jaqm3jai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM3J.jaqm3jan1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM3J.jaqm3jan2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM3J.jaqm3jan3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM3J.jaqm3jac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM3J.jaqm3jac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM3J.jaqm3jac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM3J.jaqm3jaf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM3J.jaqm3jaf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM3J.jaqm3jaf3
+  is 'Auxiliar Fecha 3';
+alter table JAQM3J
+  add primary key (JAQM3JCOD, JAQM3JFEC, JAQM3JSUC, JAQM3JCOR, JAQM3JUSU);
+

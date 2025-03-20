@@ -1,0 +1,33 @@
+create table FSD301
+(
+  gtiaemp    NUMBER(3) not null,
+  gtiasuc    NUMBER(3) not null,
+  gtiamod    NUMBER(3) not null,
+  gtiacta    NUMBER(9) not null,
+  gtiamda    NUMBER(4) not null,
+  gtiapap    NUMBER(4) not null,
+  gtiaoper   NUMBER(9) not null,
+  gtiasbop   NUMBER(3) not null,
+  gtiatope   NUMBER(3) not null,
+  gtiacod    NUMBER(5),
+  gtiareg    CHAR(60),
+  gtiadsc    CHAR(60),
+  gtiafchalt DATE,
+  gtiafchvto DATE,
+  gtiavtasac NUMBER(17,2),
+  gtiavafect NUMBER(17,2),
+  gtiacoef   NUMBER(7,4),
+  ciacod     NUMBER(5),
+  gtiapoliza CHAR(20),
+  gtiasegfal DATE,
+  gtiasegfvt DATE,
+  gtiasegimp NUMBER(17,2),
+  gtianoper  CHAR(16),
+  gtiavaval  NUMBER(17,2)
+)
+;
+create index FSD30102 on FSD301 (CIACOD);
+create index FSD30103 on FSD301 (GTIACOD);
+alter table FSD301
+  add primary key (GTIAEMP, GTIASUC, GTIAMOD, GTIACTA, GTIAMDA, GTIAPAP, GTIAOPER, GTIASBOP, GTIATOPE);
+

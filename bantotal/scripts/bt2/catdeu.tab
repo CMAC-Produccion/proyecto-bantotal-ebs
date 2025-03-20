@@ -1,0 +1,190 @@
+create table CATDEU
+(
+  bcfech  DATE not null,
+  pepais  NUMBER(3),
+  petdoc  NUMBER(2),
+  pendoc  CHAR(12),
+  petipo  CHAR(1),
+  penom   CHAR(30),
+  bccate  CHAR(15),
+  bcemp   NUMBER(3) not null,
+  bcsuc   NUMBER(3) not null,
+  bcmda   NUMBER(4) not null,
+  bcpap   NUMBER(4) not null,
+  bcmod   NUMBER(3),
+  bccta   NUMBER(9) not null,
+  bcoper  NUMBER(9) not null,
+  bcsbop  NUMBER(3) not null,
+  bctop   NUMBER(3) not null,
+  bcfval  DATE,
+  bcfvto  DATE,
+  saldomn NUMBER,
+  saldo   NUMBER,
+  bcgpo   NUMBER,
+  rubro   NUMBER,
+  bcprod  NUMBER,
+  estcre  VARCHAR2(3),
+  diaatr  NUMBER(5),
+  modcre  NUMBER(1),
+  catatr  NUMBER(1),
+  fecori  DATE,
+  refatr  NUMBER(5),
+  catuni  NUMBER(1),
+  codsbs  VARCHAR2(10),
+  fecrcc  DATE,
+  catali  NUMBER(1),
+  empali  VARCHAR2(5),
+  catman  NUMBER(1),
+  defper  NUMBER(2),
+  ingdif  NUMBER(12,2),
+  lindis  NUMBER(12,2),
+  rubdis  NUMBER(13),
+  catfin  NUMBER(1),
+  porprv  NUMBER(7,2),
+  porprc  NUMBER(7,2),
+  peresp  NUMBER(7,2),
+  porsob  NUMBER(7,2),
+  mtoprv  NUMBER(12,2),
+  mtoprc  NUMBER(12,2),
+  mtoprs  NUMBER(12,2),
+  garhip  VARCHAR2(1),
+  ppratr  NUMBER(7,2),
+  proatr  NUMBER(12,2),
+  ppruni  NUMBER(7,2),
+  prouni  NUMBER(12,2),
+  pprali  NUMBER(7,2),
+  proali  NUMBER(12,2),
+  pprman  NUMBER(7,2),
+  proman  NUMBER(12,2),
+  catres  NUMBER(1),
+  impprv  NUMBER(12,2),
+  impprc  NUMBER(12,2),
+  impprs  NUMBER(12,2)
+)
+;
+comment on table CATDEU
+  is 'Categoria Provision';
+comment on column CATDEU.bcfech
+  is 'Fecha';
+comment on column CATDEU.pepais
+  is 'Pais';
+comment on column CATDEU.petdoc
+  is 'Tipo documento';
+comment on column CATDEU.pendoc
+  is 'Nro Documento';
+comment on column CATDEU.petipo
+  is 'Tipo';
+comment on column CATDEU.penom
+  is 'Nombre';
+comment on column CATDEU.bccate
+  is 'Categoria';
+comment on column CATDEU.bcemp
+  is 'Empresa';
+comment on column CATDEU.bcsuc
+  is 'Sucursal';
+comment on column CATDEU.bcmda
+  is 'Moneda';
+comment on column CATDEU.bcpap
+  is 'Papel';
+comment on column CATDEU.bcmod
+  is 'Modulo';
+comment on column CATDEU.bccta
+  is 'Cuenta';
+comment on column CATDEU.bcoper
+  is 'Operacion';
+comment on column CATDEU.bcsbop
+  is 'SubOperacion';
+comment on column CATDEU.bctop
+  is 'Tipo de Operacion';
+comment on column CATDEU.bcfval
+  is 'Fecha Valor';
+comment on column CATDEU.bcfvto
+  is 'Fecha Vcto';
+comment on column CATDEU.saldomn
+  is 'Saldo MN';
+comment on column CATDEU.saldo
+  is 'Saldo';
+comment on column CATDEU.bcgpo
+  is 'grupo';
+comment on column CATDEU.rubro
+  is 'rubro';
+comment on column CATDEU.bcprod
+  is 'BCPROD';
+comment on column CATDEU.estcre
+  is 'ESTCRE';
+comment on column CATDEU.diaatr
+  is 'DIAATR';
+comment on column CATDEU.modcre
+  is 'MODCRE';
+comment on column CATDEU.catatr
+  is 'CATATR';
+comment on column CATDEU.fecori
+  is 'FECORI';
+comment on column CATDEU.refatr
+  is 'REFATR';
+comment on column CATDEU.catuni
+  is 'CATUNI';
+comment on column CATDEU.codsbs
+  is 'CODSBS';
+comment on column CATDEU.fecrcc
+  is 'FECRCC';
+comment on column CATDEU.catali
+  is 'CATALI';
+comment on column CATDEU.empali
+  is 'EMPALI';
+comment on column CATDEU.catman
+  is 'CATMAN';
+comment on column CATDEU.defper
+  is 'DEFPER';
+comment on column CATDEU.ingdif
+  is 'INGDIF';
+comment on column CATDEU.lindis
+  is 'LINDIS';
+comment on column CATDEU.rubdis
+  is 'RUBDIS';
+comment on column CATDEU.catfin
+  is 'CATFIN';
+comment on column CATDEU.porprv
+  is 'PORPRV';
+comment on column CATDEU.porprc
+  is 'PORPRC';
+comment on column CATDEU.peresp
+  is 'PERESP';
+comment on column CATDEU.porsob
+  is 'PORSOB';
+comment on column CATDEU.mtoprv
+  is 'MTOPRV';
+comment on column CATDEU.mtoprc
+  is 'MTOPRC';
+comment on column CATDEU.mtoprs
+  is 'MTOPRS';
+comment on column CATDEU.garhip
+  is 'GARHIP';
+comment on column CATDEU.ppratr
+  is 'PPRATR';
+comment on column CATDEU.proatr
+  is 'PROATR';
+comment on column CATDEU.ppruni
+  is 'PPRUNI';
+comment on column CATDEU.prouni
+  is 'PROUNI';
+comment on column CATDEU.pprali
+  is 'PPRALI';
+comment on column CATDEU.proali
+  is 'PROALI';
+comment on column CATDEU.pprman
+  is 'PPRMAN';
+comment on column CATDEU.proman
+  is 'PROMAN';
+comment on column CATDEU.catres
+  is 'CATRES';
+comment on column CATDEU.impprv
+  is 'IMPPRV';
+comment on column CATDEU.impprc
+  is 'IMPPRC';
+comment on column CATDEU.impprs
+  is 'IMPPRS';
+create index IX_CATDEU_PERS on CATDEU (PEPAIS, PETDOC, PENDOC);
+create index IX_CATDEU_TCRE on CATDEU (PEPAIS, PETDOC, PENDOC, BCGPO);
+create index IX_CATDE_1 on CATDEU (BCFECH, BCEMP, BCSUC, BCMDA, BCPAP, BCMOD, BCCTA, BCOPER, BCSBOP, BCTOP);
+

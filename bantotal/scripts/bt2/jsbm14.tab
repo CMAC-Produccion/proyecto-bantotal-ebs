@@ -1,0 +1,11 @@
+create table JSBM14
+(
+  jsbm14gru NUMBER(4) not null,
+  jsbm14sgr NUMBER(5) not null,
+  jsbm14dsc CHAR(60),
+  jsbm14vis CHAR(1)
+)
+;
+alter table JSBM14
+  add primary key (JSBM14GRU, JSBM14SGR);
+

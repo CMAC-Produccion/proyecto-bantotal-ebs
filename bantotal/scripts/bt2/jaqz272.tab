@@ -1,0 +1,25 @@
+create table JAQZ272
+(
+  jaqz272usuario   CHAR(10) not null,
+  jaqz272instancia NUMBER(10) not null,
+  jaqz272sucursal  VARCHAR2(30),
+  jaqz272tdoc      VARCHAR2(20),
+  jaqz272ndoc      VARCHAR2(12),
+  jaqz272cliente   VARCHAR2(30),
+  jaqz272mto       NUMBER(17,2),
+  jaqz272mtopzo    NUMBER(5),
+  jaqz272estado    VARCHAR2(30),
+  jaqz272fecasig   DATE,
+  jaqz272horasig   VARCHAR2(8),
+  jaqz272cuenta    NUMBER(9),
+  jaqz272bdeusu    VARCHAR2(10),
+  jaqz272analista  VARCHAR2(10),
+  jaqz272opiurie   VARCHAR2(2),
+  jaqz272anacal    VARCHAR2(10),
+  jaqz272fechacomp DATE,
+  jaqz272fechact   DATE
+)
+;
+alter table JAQZ272
+  add primary key (JAQZ272USUARIO, JAQZ272INSTANCIA);
+

@@ -1,0 +1,75 @@
+create table JAQN75
+(
+  jaqn75coa CHAR(50) not null,
+  jaqn75cop NUMBER(9),
+  jaqn75com NUMBER(9),
+  jaqn75usi CHAR(10),
+  jaqn75fei DATE,
+  jaqn75hoi CHAR(10),
+  jaqn75sea CHAR(25),
+  jaqn75suc NUMBER(3),
+  jaqn75con CHAR(50),
+  jaqn75dis CHAR(60),
+  jaqn75pre NUMBER(17,2),
+  jaqn75ppe NUMBER(17,2),
+  jaqn75ai1 NUMBER(17,2),
+  jaqn75ai2 NUMBER(17,2),
+  jaqn75ac1 CHAR(20),
+  jaqn75ac2 CHAR(50),
+  jaqn75ad1 DATE,
+  jaqn75ad2 DATE,
+  jaqn75an1 NUMBER(4),
+  jaqn75an2 NUMBER(4),
+  jaqn75at1 CHAR(200),
+  jaqn75at2 CHAR(200)
+)
+;
+comment on table JAQN75
+  is 'Artículos (entrega premios)';
+comment on column JAQN75.jaqn75coa
+  is 'Código Artículo';
+comment on column JAQN75.jaqn75cop
+  is 'Código Producto';
+comment on column JAQN75.jaqn75com
+  is 'Código Marca';
+comment on column JAQN75.jaqn75usi
+  is 'Usuario Ingreso';
+comment on column JAQN75.jaqn75fei
+  is 'Fecha Ingreso';
+comment on column JAQN75.jaqn75hoi
+  is 'Hora Ingreso';
+comment on column JAQN75.jaqn75sea
+  is 'Serie Artículo';
+comment on column JAQN75.jaqn75suc
+  is 'Sucursal';
+comment on column JAQN75.jaqn75con
+  is 'Condición Artículo';
+comment on column JAQN75.jaqn75dis
+  is 'Disposición Artículo';
+comment on column JAQN75.jaqn75pre
+  is 'Precio Entrega';
+comment on column JAQN75.jaqn75ppe
+  is 'Precio Penalidad';
+comment on column JAQN75.jaqn75ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN75.jaqn75ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN75.jaqn75ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQN75.jaqn75ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQN75.jaqn75ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN75.jaqn75ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN75.jaqn75an1
+  is 'Auxilar Numérico 1';
+comment on column JAQN75.jaqn75an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQN75.jaqn75at1
+  is 'Auxiliar Texto 1';
+comment on column JAQN75.jaqn75at2
+  is 'Auxilar Texto 2';
+alter table JAQN75
+  add primary key (JAQN75COA);
+

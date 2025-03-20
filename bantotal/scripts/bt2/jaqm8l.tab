@@ -1,0 +1,110 @@
+create table JAQM8L
+(
+  jaqm8lfec DATE not null,
+  jaqm8lins NUMBER(9) not null,
+  jaqm8lcod NUMBER(3) not null,
+  jaqm8lsuc NUMBER(3) not null,
+  jaqm8lmod NUMBER(3) not null,
+  jaqm8lmda NUMBER(4) not null,
+  jaqm8lpap NUMBER(4) not null,
+  jaqm8lcta NUMBER(9) not null,
+  jaqm8lope NUMBER(9) not null,
+  jaqm8lsbo NUMBER(3) not null,
+  jaqm8ltop NUMBER(3) not null,
+  jaqm8lcor NUMBER(4) not null,
+  jaqm8lmto NUMBER(17,2),
+  jaqm8lfpp DATE,
+  jaqm8lfva DATE,
+  jaqm8ltce NUMBER(10,6),
+  jaqm8ltea NUMBER(10,6),
+  jaqm8lteo NUMBER(10,6),
+  jaqm8lhor CHAR(10),
+  jaqm8lusu CHAR(10),
+  jaqm8lwks CHAR(12),
+  jaqm8lai1 NUMBER(17,2),
+  jaqm8lai2 NUMBER(17,2),
+  jaqm8lai3 NUMBER(17,2),
+  jaqm8lan1 NUMBER(9),
+  jaqm8lan2 NUMBER(9),
+  jaqm8lan3 NUMBER(9),
+  jaqm8lac1 VARCHAR2(255),
+  jaqm8lac2 VARCHAR2(255),
+  jaqm8lac3 VARCHAR2(255),
+  jaqm8laf1 DATE,
+  jaqm8laf2 DATE,
+  jaqm8laf3 DATE
+)
+;
+comment on table JAQM8L
+  is 'Log Cálculo TEA por TCEA';
+comment on column JAQM8L.jaqm8lfec
+  is 'Fecha ';
+comment on column JAQM8L.jaqm8lins
+  is 'Instancia ';
+comment on column JAQM8L.jaqm8lcod
+  is 'Empresa ';
+comment on column JAQM8L.jaqm8lsuc
+  is 'Sucursal ';
+comment on column JAQM8L.jaqm8lmod
+  is 'Módulo ';
+comment on column JAQM8L.jaqm8lmda
+  is 'Moneda ';
+comment on column JAQM8L.jaqm8lpap
+  is 'Moneda ';
+comment on column JAQM8L.jaqm8lcta
+  is 'Cuenta ';
+comment on column JAQM8L.jaqm8lope
+  is 'Operación ';
+comment on column JAQM8L.jaqm8lsbo
+  is 'Suboperación ';
+comment on column JAQM8L.jaqm8ltop
+  is 'Tipo de Operación ';
+comment on column JAQM8L.jaqm8lcor
+  is 'Correlativo ';
+comment on column JAQM8L.jaqm8lmto
+  is 'Monto ';
+comment on column JAQM8L.jaqm8lfpp
+  is 'Fecha Primer Pago ';
+comment on column JAQM8L.jaqm8lfva
+  is 'Fecha Desembolso ';
+comment on column JAQM8L.jaqm8ltce
+  is 'TCEA ';
+comment on column JAQM8L.jaqm8ltea
+  is 'TEA ';
+comment on column JAQM8L.jaqm8lteo
+  is 'TEA Original ';
+comment on column JAQM8L.jaqm8lhor
+  is 'Hora ';
+comment on column JAQM8L.jaqm8lusu
+  is 'Usuario ';
+comment on column JAQM8L.jaqm8lwks
+  is 'WorkStation ';
+comment on column JAQM8L.jaqm8lai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM8L.jaqm8lai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM8L.jaqm8lai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM8L.jaqm8lan1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM8L.jaqm8lan2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM8L.jaqm8lan3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM8L.jaqm8lac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM8L.jaqm8lac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM8L.jaqm8lac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM8L.jaqm8laf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM8L.jaqm8laf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM8L.jaqm8laf3
+  is 'Auxiliar Fecha 3';
+create index JAQM8LA2 on JAQM8L (JAQM8LFEC, JAQM8LINS, JAQM8LCOR);
+create index JAQM8LA3 on JAQM8L (JAQM8LINS, JAQM8LFEC);
+alter table JAQM8L
+  add primary key (JAQM8LFEC, JAQM8LINS, JAQM8LCOD, JAQM8LSUC, JAQM8LMOD, JAQM8LMDA, JAQM8LPAP, JAQM8LCTA, JAQM8LOPE, JAQM8LSBO, JAQM8LTOP, JAQM8LCOR);
+

@@ -1,0 +1,22 @@
+create table JAQY697
+(
+  jaqy697pais NUMBER(3) not null,
+  jaqy697tdoc NUMBER(2) not null,
+  jaqy697ndoc CHAR(12) not null,
+  jaqy697user CHAR(10) not null,
+  jaqy697nomb CHAR(60),
+  jaqy697sali NUMBER(16,2),
+  jaqy697sala NUMBER(17),
+  jaqy697tot  NUMBER(16,2),
+  jaqy697date DATE,
+  jaqy697au1  NUMBER(4),
+  jaqy697au2  NUMBER(4),
+  jaqy697au3  NUMBER(4),
+  jaqy697au4  CHAR(20),
+  jaqy697au5  CHAR(50),
+  jaqy697au6  CHAR(100)
+)
+;
+alter table JAQY697
+  add primary key (JAQY697PAIS, JAQY697TDOC, JAQY697NDOC, JAQY697USER);
+

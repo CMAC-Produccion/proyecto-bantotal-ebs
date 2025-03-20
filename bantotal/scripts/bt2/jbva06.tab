@@ -1,0 +1,13 @@
+create table JBVA06
+(
+  jbva06prom NUMBER(5) not null,
+  jbva06proy NUMBER(5) not null,
+  jbva06aux1 NUMBER(5),
+  jbva06aux2 CHAR(30),
+  jbva06aux3 DATE,
+  jbva06aux4 NUMBER(17,2),
+  jbva06aux5 CHAR(1)
+)
+;
+create unique index JBVA0601 on JBVA06 (JBVA06PROM, JBVA06PROY);
+

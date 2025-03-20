@@ -1,0 +1,18 @@
+create table FPAE82
+(
+  pae51eva  NUMBER(3) not null,
+  pae80mtz  NUMBER(5) not null,
+  pae81fil  NUMBER(2) not null,
+  pae52ite  NUMBER(5) not null,
+  pae82desn NUMBER(18),
+  pae82desc CHAR(30),
+  pae82desd DATE,
+  pae82hasn NUMBER(18),
+  pae82hasc CHAR(30),
+  pae82hasd DATE
+)
+;
+create index FPAE8202 on FPAE82 (PAE51EVA, PAE52ITE);
+alter table FPAE82
+  add primary key (PAE51EVA, PAE80MTZ, PAE81FIL, PAE52ITE);
+

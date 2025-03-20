@@ -1,0 +1,13 @@
+create table Z05507
+(
+  z05507cod NUMBER(2) not null,
+  z05507dsc CHAR(40),
+  z05507mod NUMBER(3),
+  z05507tpo NUMBER(3),
+  z05507mda NUMBER(4)
+)
+;
+create index Z0550702 on Z05507 (Z05507MOD, Z05507TPO, Z05507MDA);
+alter table Z05507
+  add primary key (Z05507COD);
+

@@ -1,0 +1,13 @@
+create table JAQZ511
+(
+  tp1cod   NUMBER(3) not null,
+  tp1cod1  NUMBER(9) not null,
+  tp1corr1 NUMBER(9) not null,
+  tp1corr2 NUMBER(9) not null,
+  tp1corr3 NUMBER(9) not null,
+  tp1nro1  NUMBER(9),
+  tp1nro2  NUMBER(9)
+)
+;
+create index IDX_JAQZ511_01 on JAQZ511 (TP1CORR1, TP1CORR2, TP1CORR3, TP1NRO2);
+

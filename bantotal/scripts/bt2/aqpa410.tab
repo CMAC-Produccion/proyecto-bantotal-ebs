@@ -1,0 +1,106 @@
+create table AQPA410
+(
+  aqpa410corr  NUMBER(10) not null,
+  aqpa410inst  NUMBER(10) not null,
+  aqpa410fecp  DATE not null,
+  aqpa410neva  NUMBER(10),
+  aqpa410pais  NUMBER(3),
+  aqpa410tdoc  NUMBER(2),
+  aqpa410ndoc  CHAR(12),
+  aqpa410ases  VARCHAR2(20),
+  aqpa410numc  NUMBER(10),
+  aqpa410feval DATE,
+  aqpa410fini  DATE,
+  aqpa410finf  DATE,
+  aqpa410fcon  DATE,
+  aqpa410mesc  VARCHAR2(20),
+  aqpa410anio  NUMBER(4),
+  aqpa410resn  NUMBER(17,2),
+  aqpa410ifis  NUMBER(17,2),
+  aqpa410esta  CHAR(1),
+  aqpa410flag  CHAR(1),
+  aqpa410cuoc  NUMBER(17,2),
+  aqpa410flujo NUMBER(17,2),
+  aqpa410ratio NUMBER(17,6),
+  aqpa410aux0  NUMBER(17,2),
+  aqpa410aux1  NUMBER(10),
+  aqpa410aux2  CHAR(5),
+  aqpa410aux3  CHAR(30),
+  aqpa410aux4  VARCHAR2(100),
+  aqpa410aux5  NUMBER(17,2),
+  aqpa410mso   NUMBER(17,2),
+  aqpa410efe   NUMBER(17,2),
+  aqpa410cpo   NUMBER(17,2),
+  aqpa410cco   NUMBER(17,2)
+)
+;
+comment on column AQPA410.aqpa410corr
+  is 'Correlativo';
+comment on column AQPA410.aqpa410inst
+  is 'Instancia';
+comment on column AQPA410.aqpa410fecp
+  is 'Fecha Proceso';
+comment on column AQPA410.aqpa410neva
+  is 'Numero Evaluacion';
+comment on column AQPA410.aqpa410pais
+  is 'Pais';
+comment on column AQPA410.aqpa410tdoc
+  is 'Tipo Documento';
+comment on column AQPA410.aqpa410ndoc
+  is 'Numero Documento';
+comment on column AQPA410.aqpa410ases
+  is 'Analista Solicitud';
+comment on column AQPA410.aqpa410numc
+  is 'Numero Meses';
+comment on column AQPA410.aqpa410feval
+  is 'Fecha Evaluacion';
+comment on column AQPA410.aqpa410fini
+  is 'Fecha Primera Cuota Calendario';
+comment on column AQPA410.aqpa410finf
+  is 'Fecha Ultima Cuota calendario';
+comment on column AQPA410.aqpa410fcon
+  is 'Fecha Cosulta';
+comment on column AQPA410.aqpa410mesc
+  is 'Mes Consulta';
+comment on column AQPA410.aqpa410anio
+  is 'Anio Consulta';
+comment on column AQPA410.aqpa410resn
+  is 'Flujo Acumulado RN';
+comment on column AQPA410.aqpa410ifis
+  is 'Deuda IFIS';
+comment on column AQPA410.aqpa410esta
+  is 'Estado';
+comment on column AQPA410.aqpa410flag
+  is 'Flag Cuota';
+comment on column AQPA410.aqpa410cuoc
+  is 'Cuota Caja';
+comment on column AQPA410.aqpa410flujo
+  is 'Flujo sin credito';
+comment on column AQPA410.aqpa410ratio
+  is 'Ratio capacidad pago';
+comment on column AQPA410.aqpa410aux0
+  is 'Auxiliar 0';
+comment on column AQPA410.aqpa410aux1
+  is 'Auxiliar 1';
+comment on column AQPA410.aqpa410aux2
+  is 'Auxiliar 2';
+comment on column AQPA410.aqpa410aux3
+  is 'Auxiliar 3';
+comment on column AQPA410.aqpa410aux4
+  is 'Auxiliar 4';
+comment on column AQPA410.aqpa410aux5
+  is 'Auxiliar 5';
+comment on column AQPA410.aqpa410mso
+  is 'Monto solicitado';
+comment on column AQPA410.aqpa410efe
+  is 'Efectivo';
+comment on column AQPA410.aqpa410cpo
+  is 'Cuota potencial';
+comment on column AQPA410.aqpa410cco
+  is 'Cuota contingente';
+create index AQPA4102 on AQPA410 (AQPA410INST, AQPA410ESTA, AQPA410FCON);
+create index AQPA4103 on AQPA410 (AQPA410PAIS, AQPA410TDOC, AQPA410NDOC);
+create index AQPA4104 on AQPA410 (AQPA410INST);
+alter table AQPA410
+  add primary key (AQPA410CORR, AQPA410INST, AQPA410FECP);
+

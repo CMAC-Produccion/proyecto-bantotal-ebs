@@ -1,0 +1,23 @@
+create table JAQL743
+(
+  jaql743mone NUMBER(4) not null,
+  jaql743mtmi NUMBER(17,2) not null,
+  jaql743mtma NUMBER(17,2) not null,
+  jaql743tanu NUMBER(5,2),
+  jaql743tare NUMBER(5,2),
+  jaql743fere DATE,
+  jaql743usre CHAR(10),
+  jaql743au01 CHAR(100),
+  jaql743au02 CHAR(100),
+  jaql743au03 NUMBER(17,2),
+  jaql743au04 NUMBER(17,2),
+  jaql743au05 DATE,
+  jaql743au06 DATE,
+  jaql743fini DATE not null,
+  jaql743ffin DATE
+)
+;
+create index JAQL7432 on JAQL743 (JAQL743FINI DESC, JAQL743MONE, JAQL743MTMI, JAQL743MTMA);
+alter table JAQL743
+  add primary key (JAQL743MONE, JAQL743MTMI, JAQL743MTMA, JAQL743FINI);
+

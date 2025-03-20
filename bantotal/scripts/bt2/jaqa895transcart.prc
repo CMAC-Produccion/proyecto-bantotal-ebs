@@ -1,0 +1,389 @@
+CREATE OR REPLACE PROCEDURE JAQA895TRANSCART (
+       PI_JAQA895CCO            IN NUMBER,
+       PI_JAQA895CCD            IN NUMBER
+) IS
+
+ migration_102 boolean := false;
+ migration_103 boolean := false;
+ migration_106 boolean := false;
+ migration_108 boolean := false;
+ migration_109 boolean := false;
+ migration_110 boolean := false;
+ migration_104 boolean := false;
+ migration_104dest boolean := false;
+ tipocobro_101 number := 0;
+
+	CURSOR curs895 IS SELECT JAQA895FDT, JAQA895CCO, JAQA895CCD, JAQA895COR, JAQA895PGC, JAQA895MOD, JAQA895SUC, JAQA895MDA,
+	JAQA895PAP, JAQA895CTA, JAQA895OPE,JAQA895SBO, JAQA895TOP, JAQA895EST
+	FROM JAQA895 WHERE jaqa895est = 'P';
+	registro895 curs895%ROWTYPE;
+
+	BEGIN
+
+   /* Leer fpp101 */
+   SELECT PP101TCOB
+   INTO tipocobro_101
+   FROM FPP101
+   WHERE PP101NCART = PI_JAQA895CCO;
+  /* Fin  fpp101 */
+
+   /* READ JAQA895*/
+	 OPEN curs895;
+	 LOOP
+	  	FETCH curs895 INTO registro895;
+      EXIT WHEN curs895%NOTFOUND;
+
+       /*UPDATE FPP102*/
+            DECLARE
+            CURSOR c102 IS
+            SELECT PP102NCART,PP102COD,PP102MOD,PP102SUC,PP102MDA,PP102PAP,PP102CTA,PP102OPE,PP102SBO,PP102TOP,PP102HAB,PP102TCD,PP102TSU,PP102TMO,
+            PP102TTR,PP102TNR,PP102TFC,PP102TOR,PP102TSB,PP102TCO,PP102AUX1,PP102AUX2,PP102AUX3,PP102AUX4,PP102AUX5,PP102AUX6,PP102AUX7,
+            PP102AUX8,PP102AUX9,PP102AUX10,PP102AUX11,PP102AUX12,PP102AUX13,PP102AUX14,PP102AUX15,PP102AUX16
+            FROM fpp102
+            WHERE PP102NCART = PI_JAQA895CCO AND PP102COD = registro895.JAQA895PGC  AND PP102MOD = registro895.JAQA895MOD AND
+            PP102SUC = registro895.JAQA895SUC AND PP102MDA = registro895.JAQA895MDA AND PP102PAP = registro895.JAQA895PAP AND
+            PP102CTA = registro895.JAQA895CTA AND PP102OPE = registro895.JAQA895OPE AND PP102SBO = registro895.JAQA895SBO AND
+            PP102TOP = registro895.JAQA895TOP;
+            registro102 c102%ROWTYPE;
+
+            BEGIN
+            FOR registro102 IN c102
+            LOOP
+              DBMS_OUTPUT.PUT_LINE('102 ');
+              migration_102 := true;
+                INSERT INTO fpp102 (PP102NCART,PP102COD,PP102MOD,PP102SUC,PP102MDA,PP102PAP,PP102CTA,PP102OPE,PP102SBO,PP102TOP,PP102HAB,PP102TCD,PP102TSU,PP102TMO,
+                    PP102TTR,PP102TNR,PP102TFC,PP102TOR,PP102TSB,PP102TCO,PP102AUX1,PP102AUX2,PP102AUX3,PP102AUX4,PP102AUX5,PP102AUX6,PP102AUX7,
+                    PP102AUX8,PP102AUX9,PP102AUX10,PP102AUX11,PP102AUX12,PP102AUX13,PP102AUX14,PP102AUX15,PP102AUX16)
+                    VALUES (PI_JAQA895CCD, registro102.PP102COD, registro102.PP102MOD, registro102.PP102SUC, registro102.PP102MDA,
+                    registro102.PP102PAP, registro102.PP102CTA, registro102.PP102OPE, registro102.PP102SBO, registro102.PP102TOP,
+                    registro102.PP102HAB, registro102.PP102TCD, registro102.PP102TSU, registro102.PP102TMO, registro102.PP102TTR,
+                    registro102.PP102TNR, registro102.PP102TFC, registro102.PP102TOR, registro102.PP102TSB, registro102.PP102TCO,
+                    registro102.PP102AUX1, registro102.PP102AUX2, registro102.PP102AUX3, registro102.PP102AUX4, registro102.PP102AUX5,
+                    registro102.PP102AUX6, registro102.PP102AUX7, registro102.PP102AUX8, registro102.PP102AUX9, registro102.PP102AUX10,
+                    registro102.PP102AUX11, registro102.PP102AUX12, registro102.PP102AUX13, registro102.PP102AUX14,
+                    registro102.PP102AUX15, registro102.PP102AUX16);
+
+                    DELETE FROM fpp102
+                    WHERE  PP102NCART = PI_JAQA895CCO AND PP102COD = registro895.JAQA895PGC AND
+                    PP102MOD = registro895.JAQA895MOD AND  PP102SUC = registro895.JAQA895SUC AND
+                    PP102MDA = registro895.JAQA895MDA AND PP102PAP = registro895.JAQA895PAP AND
+                    PP102CTA = registro895.JAQA895CTA AND PP102OPE = registro895.JAQA895OPE AND
+                    PP102SBO = registro895.JAQA895SBO AND PP102TOP = registro895.JAQA895TOP;
+
+            END LOOP;
+            if not migration_102 then
+             DBMS_OUTPUT.PUT_LINE('No encontró registros en la FPP102 para la operación ' || REGISTRO895.JAQA895OPE );
+            end if;
+            END;
+            /**FIN FPP102*/
+
+
+             /*UPDATE FPP103*/
+            DECLARE
+            CURSOR c103 IS
+            select PP103NCART,PP103FECD,PP103COD,PP103MOD,PP103SUC,PP103MDA,PP103PAP,PP103CTA,PP103OPE,PP103SBO,PP103TOP,PP103FVAL,PP103DEU,
+            PP103AUX1,PP103AUX2,PP103AUX3,PP103AUX4,PP103AUX5,PP103AUX6,PP103AUX7,PP103AUX8,PP103AUX9,PP103AUX10,PP103AUX11,PP103AUX12,
+            PP103AUX13,PP103AUX14,PP103AUX15,PP103AUX16,PP103AUX17
+            FROM fpp103
+            WHERE PP103NCART = PI_JAQA895CCO AND PP103COD = registro895.JAQA895PGC AND PP103MOD = registro895.JAQA895MOD AND
+            PP103SUC = registro895.JAQA895SUC AND PP103MDA = registro895.JAQA895MDA AND PP103PAP = registro895.JAQA895PAP AND
+            PP103CTA = registro895.JAQA895CTA AND PP103OPE = registro895.JAQA895OPE AND PP103SBO = registro895.JAQA895SBO AND
+            PP103TOP = registro895.JAQA895TOP;
+            registro103 c103%ROWTYPE;
+
+            BEGIN
+            FOR registro103 IN c103
+            LOOP
+            DBMS_OUTPUT.PUT_LINE('103 ');
+              migration_103 := true;
+                    INSERT INTO fpp103 (PP103NCART, PP103FECD, PP103COD, PP103MOD, PP103SUC, PP103MDA, PP103PAP, PP103CTA, PP103OPE,
+                    PP103SBO, PP103TOP, PP103FVAL, PP103DEU, PP103AUX1, PP103AUX2, PP103AUX3, PP103AUX4, PP103AUX5,
+                    PP103AUX6, PP103AUX7, PP103AUX8, PP103AUX9, PP103AUX10, PP103AUX11, PP103AUX12, PP103AUX13,
+                    PP103AUX14, PP103AUX15, PP103AUX16, PP103AUX17)
+                    VALUES (PI_JAQA895CCD, registro103.PP103FECD, registro103.PP103COD, registro103.PP103MOD, registro103.PP103SUC,
+                    registro103.PP103MDA, registro103.PP103PAP, registro103.PP103CTA , registro103.PP103OPE,  registro103.PP103SBO,
+                    registro103.PP103TOP, registro103.PP103FVAL, registro103.PP103DEU, registro103.PP103AUX1, registro103.PP103AUX2,
+                    registro103.PP103AUX3, registro103.PP103AUX4, registro103.PP103AUX5, registro103.PP103AUX6, registro103.PP103AUX7,
+                    registro103.PP103AUX8, registro103.PP103AUX9, registro103.PP103AUX10, registro103.PP103AUX11, registro103.PP103AUX12,
+                    registro103.PP103AUX13, registro103.PP103AUX14, registro103.PP103AUX15, registro103.PP103AUX16, registro103.PP103AUX17);
+
+                    DELETE FROM fpp103
+                    WHERE  PP103NCART = PI_JAQA895CCO AND PP103COD = registro103.PP103COD AND
+                    PP103MOD = registro103.PP103MOD AND PP103SUC = registro103.PP103SUC AND
+                    PP103MDA = registro103.PP103MDA AND PP103PAP = registro103.PP103PAP AND
+                    PP103CTA = registro103.PP103CTA AND PP103OPE = registro103.PP103OPE AND
+                    PP103SBO = REGISTRO103.PP103SBO AND PP103TOP = registro103.PP103TOP;
+
+            END LOOP;
+            if not migration_103 then
+            DBMS_OUTPUT.PUT_LINE('No encontró registros en la FPP103 para la operación ' || REGISTRO895.JAQA895OPE );
+            end if;
+            END;
+            /*FIN FPP103 */
+
+
+            /*UPDATE FPP106*/
+            DECLARE
+            CURSOR c106 IS
+            SELECT PP106NCART,PP106FECD,PP106COD,PP106MOD,PP106SUC,PP106MDA,PP106PAP,PP106CTA,
+            PP106OPE,PP106SBO,PP106TOP,PP106FPAG,PP106TIPO, PP106DEU,PP106AU1,PP106AU2,
+            PP106AU3,PP106AU4,PP106AU5,PP106AU6,PP106AU7,PP106AU8,PP106AU9,PP106AU10,PP106AU11,PP106AU12
+            FROM fpp106
+            WHERE PP106NCART = PI_JAQA895CCO AND PP106COD = registro895.JAQA895PGC AND PP106MOD = registro895.JAQA895MOD AND
+            PP106SUC = registro895.JAQA895SUC AND PP106MDA = registro895.JAQA895MDA AND PP106PAP = registro895.JAQA895PAP AND
+            PP106CTA = registro895.JAQA895CTA AND PP106OPE = registro895.JAQA895OPE AND PP106SBO = registro895.JAQA895SBO AND
+            PP106TOP = registro895.JAQA895TOP;
+            registro106 c106%ROWTYPE;
+
+            BEGIN
+            FOR registro106 IN c106
+            LOOP
+              DBMS_OUTPUT.PUT_LINE('106 ');
+                   migration_106 := true;
+                  INSERT INTO fpp106 (PP106NCART,PP106FECD,PP106COD,PP106MOD,PP106SUC,PP106MDA,PP106PAP,PP106CTA,
+                  PP106OPE,PP106SBO,PP106TOP,PP106FPAG,PP106TIPO, PP106DEU,
+                  PP106AU1,PP106AU2,PP106AU3,PP106AU4,PP106AU5,PP106AU6,PP106AU7,PP106AU8,PP106AU9,PP106AU10,PP106AU11,PP106AU12)
+                  VALUES (PI_JAQA895CCD, registro106.PP106FECD, registro106.PP106COD, registro106.PP106MOD, registro106.PP106SUC,
+                  registro106.PP106MDA, registro106.PP106PAP, registro106.PP106CTA, registro106.PP106OPE, registro106.PP106SBO, registro106.PP106TOP,
+                  registro106.PP106FPAG, registro106.PP106TIPO, registro106.PP106DEU,
+                  registro106.PP106AU1, registro106.PP106AU2, registro106.PP106AU3, registro106.PP106AU4, registro106.PP106AU5, registro106.PP106AU6,
+                  registro106.PP106AU7, registro106.PP106AU8, registro106.PP106AU9, registro106.PP106AU10, registro106.PP106AU11, registro106.PP106AU12
+                  );
+
+                  DELETE FROM fpp106
+                  WHERE PP106NCART = PI_JAQA895CCO AND PP106COD = registro895.JAQA895PGC AND
+                  PP106MOD = registro106.PP106MOD AND  PP106SUC = registro106.PP106SUC AND
+                  PP106MDA = registro106.PP106MDA AND PP106PAP = registro106.PP106PAP AND
+                  PP106CTA = registro106.PP106CTA AND PP106OPE = registro106.PP106OPE AND
+                  PP106SBO = registro106.PP106SBO AND PP106TOP = registro106.PP106TOP;
+           END LOOP;
+           if not migration_106 then
+                   DBMS_OUTPUT.PUT_LINE('No encontró registros en la FPP106 para la operación ' || REGISTRO895.JAQA895OPE );
+           end if;
+           END;
+           /*FIN FPP106*/
+
+          /*UPDATE FPP108*/
+          DECLARE
+          CURSOR c108 IS
+          SELECT PP108NCART,PP108FECD,PP108COD,PP108MOD,PP108SUC,PP108MDA,PP108PAP,PP108CTA,PP108OPE,PP108SBO,PP108TOP,PP108COR,
+          PP108MTO,PP108CERR,PP108TCD,PP108TSU,PP108TMO,PP108TTR,PP108TNR,PP108TFC,PP108TOR,PP108TSB,PP108TCO,PP108AUX1,PP108AUX2,
+          PP108AUX3,PP108AUX4,PP108AUX5,PP108AUX6,PP108AUX7,PP108AUX8,PP108AUX9,PP108AUX10,PP108AUX11,PP108AUX12,PP108AUX13,PP108AUX14,
+          PP108AUX15,PP108AUX16,PP108AUX17,PP108AUX18
+          FROM fpp108
+          WHERE PP108NCART = PI_JAQA895CCO AND PP108COD = registro895.JAQA895PGC AND PP108MOD = registro895.JAQA895MOD AND
+          PP108SUC = registro895.JAQA895SUC AND PP108MDA = registro895.JAQA895MDA AND PP108PAP = registro895.JAQA895PAP AND
+          PP108CTA = registro895.JAQA895CTA AND PP108OPE = registro895.JAQA895OPE AND PP108SBO = registro895.JAQA895SBO AND
+          PP108TOP = registro895.JAQA895TOP;
+          registro108 c108%ROWTYPE;
+
+          BEGIN
+          FOR registro108 IN c108
+          LOOP
+              DBMS_OUTPUT.PUT_LINE('108 ');
+                migration_108 := true;
+                INSERT INTO fpp108 (PP108NCART,PP108FECD,PP108COD,PP108MOD,PP108SUC,PP108MDA,PP108PAP,PP108CTA,PP108OPE,PP108SBO,PP108TOP,PP108COR,
+                PP108MTO,PP108CERR,PP108TCD,PP108TSU,PP108TMO,PP108TTR,PP108TNR,PP108TFC,PP108TOR,PP108TSB,PP108TCO,PP108AUX1,PP108AUX2,
+                PP108AUX3,PP108AUX4,PP108AUX5,PP108AUX6,PP108AUX7,PP108AUX8,PP108AUX9,PP108AUX10,PP108AUX11,PP108AUX12,PP108AUX13,PP108AUX14,
+                PP108AUX15,PP108AUX16,PP108AUX17,PP108AUX18)
+                VALUES (PI_JAQA895CCD, registro108.PP108FECD, registro108.PP108COD, registro108.PP108MOD, registro108.PP108SUC, registro108.PP108MDA,
+                registro108.PP108PAP, registro108.PP108CTA, registro108.PP108OPE, registro108.PP108SBO, registro108.PP108TOP,
+                registro108.PP108COR, registro108.PP108MTO, registro108.PP108CERR, registro108.PP108TCD, registro108.PP108TSU, registro108.PP108TMO,
+                registro108.PP108TTR, registro108.PP108TNR, registro108.PP108TFC, registro108.PP108TOR, registro108.PP108TSB, registro108.PP108TCO,
+                registro108.PP108AUX1, registro108.PP108AUX2, registro108.PP108AUX3, registro108.PP108AUX4, registro108.PP108AUX5, registro108.PP108AUX6,
+                registro108.PP108AUX7, registro108.PP108AUX8, registro108.PP108AUX9, registro108.PP108AUX10, registro108.PP108AUX11, registro108.PP108AUX12,
+                registro108.PP108AUX13, registro108.PP108AUX14, registro108.PP108AUX15, registro108.PP108AUX16, registro108.PP108AUX17, registro108.PP108AUX18);
+
+                DELETE FROM fpp108
+                WHERE  PP108NCART = PI_JAQA895CCO AND PP108COD = registro108.PP108COD AND
+                PP108MOD = registro108.PP108MOD AND  PP108SUC = registro108.PP108SUC AND
+                PP108MDA = registro108.PP108MDA AND PP108PAP = registro108.PP108PAP AND
+                PP108CTA = registro108.PP108CTA AND PP108OPE = registro108.PP108OPE AND
+                PP108SBO = registro108.PP108SBO AND PP108TOP = registro108.PP108TOP;
+          END LOOP;
+          if not migration_108 then
+             DBMS_OUTPUT.PUT_LINE('No encontró registros en la FPP108 para la operación ' || REGISTRO895.JAQA895OPE );
+          end if;
+          END;
+          /* FIN FPP108*/
+
+          /*UPDATE FPP109*/
+          DECLARE
+          CURSOR c109 IS
+          SELECT PP109NCART,PP109TACT,PP109FACT,PP109CORR,PP109PGC,PP109MOD,PP109SUC,PP109MDA,PP109PAP,PP109CTA,PP109OPE,PP109SBO,PP109TOP,
+          PP109CODE,PP109DESE,PP109AUX1,PP109AUX2,PP109AUX3,PP109AUX4,PP109AUX5,PP109AUX6,PP109AUX7,PP109AUX8,PP109AUX9
+          FROM fpp109
+          WHERE PP109NCART = PI_JAQA895CCO AND PP109PGC = registro895.JAQA895PGC AND PP109MOD = registro895.JAQA895MOD AND
+          PP109SUC = registro895.JAQA895SUC AND PP109MDA = registro895.JAQA895MDA AND PP109PAP = registro895.JAQA895PAP AND
+          PP109CTA = registro895.JAQA895CTA AND PP109OPE = registro895.JAQA895OPE AND PP109SBO = registro895.JAQA895SBO AND
+          PP109TOP = registro895.JAQA895TOP;
+          registro109 c109%ROWTYPE;
+
+          BEGIN
+          FOR registro109 IN c109
+          LOOP
+                migration_109 := true;
+                DBMS_OUTPUT.PUT_LINE('109 ');
+                INSERT INTO fpp109 (PP109NCART,PP109TACT,PP109FACT,PP109CORR,PP109PGC,PP109MOD,PP109SUC,PP109MDA,PP109PAP,PP109CTA,PP109OPE,PP109SBO,PP109TOP,
+                PP109CODE,PP109DESE,PP109AUX1,PP109AUX2,PP109AUX3,PP109AUX4,PP109AUX5,PP109AUX6,PP109AUX7,PP109AUX8,PP109AUX9)
+                VALUES (PI_JAQA895CCD, registro109.PP109TACT, registro109.PP109FACT, registro109.PP109CORR, registro109.PP109PGC,
+                registro109.PP109MOD, registro109.PP109SUC, registro109.PP109MDA, registro109.PP109PAP, registro109.PP109CTA,
+                registro109.PP109OPE, registro109.PP109SBO, registro109.PP109TOP, registro109.PP109CODE, registro109.PP109DESE,
+                registro109.PP109AUX1, registro109.PP109AUX2, registro109.PP109AUX3, registro109.PP109AUX4, registro109.PP109AUX5,
+                registro109.PP109AUX6, registro109.PP109AUX7, registro109.PP109AUX8, registro109.PP109AUX9);
+
+                DELETE FROM fpp109
+                WHERE PP109NCART = PI_JAQA895CCO AND PP109PGC = registro109.PP109PGC AND
+                PP109MOD = registro109.PP109MOD AND PP109SUC = registro109.PP109SUC AND
+                PP109MDA = registro109.PP109MDA AND PP109PAP = registro109.PP109PAP AND
+                PP109CTA = registro109.PP109CTA AND PP109OPE = registro109.PP109OPE AND
+                PP109SBO = registro109.PP109SBO AND PP109TOP = registro109.PP109TOP;
+
+          END LOOP;
+          if not migration_109 then
+              DBMS_OUTPUT.PUT_LINE('No encontró registros en la FPP109 para la operación ' || REGISTRO895.JAQA895OPE );
+          end if;
+          END;
+          /*FIN FPP109*/
+
+          /*FPP 110*/
+            BEGIN
+            DBMS_OUTPUT.PUT_LINE('tipocobro_101 - ' || tipocobro_101);
+          if tipocobro_101 = 2 then /*Validar si el campo PP101TCOB de la FPP101 tiene valor 2*/
+              /*UPDATE FPP110*/
+              DECLARE
+                  CURSOR c110 IS
+                  SELECT PP110NCART,PP110CORR,PP110COD,PP110MOD,PP110SUC,PP110MDA,PP110PAP,PP110CTA,PP110OPE,PP110SBO,PP110TOP,
+                  PP110SOB,PP110PARC,PP110AUX1,PP110AUX2,PP110AUX3,PP110AUX4,PP110AUX5,PP110AUX6,PP110AUX7,PP110AUX8,PP110AUX9,
+                  PP110AUX10,PP110AUX11,PP110AUX12
+                  FROM fpp110
+                  WHERE PP110NCART = PI_JAQA895CCO AND PP110COD = registro895.JAQA895PGC AND PP110MOD = registro895.JAQA895MOD AND
+                  PP110SUC = registro895.JAQA895SUC AND PP110MDA = registro895.JAQA895MDA AND PP110PAP = registro895.JAQA895PAP AND
+                  PP110CTA = registro895.JAQA895CTA AND PP110OPE = registro895.JAQA895OPE AND PP110SBO = registro895.JAQA895SBO AND
+                  PP110TOP = registro895.JAQA895TOP;
+                  registro110 c110%ROWTYPE;
+
+                  BEGIN
+                  FOR registro110 IN c110
+                  LOOP
+                        migration_110 := true;
+                        INSERT INTO fpp110 (PP110NCART,PP110CORR,PP110COD,PP110MOD,PP110SUC,PP110MDA,PP110PAP,PP110CTA,PP110OPE,PP110SBO,
+                        PP110TOP,PP110SOB,PP110PARC,PP110AUX1,PP110AUX2,PP110AUX3,PP110AUX4,PP110AUX5,PP110AUX6,PP110AUX7,PP110AUX8,PP110AUX9,
+                        PP110AUX10,PP110AUX11,PP110AUX12)
+                        VALUES (PI_JAQA895CCD, registro110.PP110CORR, registro110.PP110COD, registro110.PP110MOD, registro110.PP110SUC,
+                        registro110.PP110MDA, registro110.PP110PAP, registro110.PP110CTA, registro110.PP110OPE, registro110.PP110SBO,
+                        registro110.PP110TOP, registro110.PP110SOB, registro110.PP110PARC, registro110.PP110AUX1, registro110.PP110AUX2,
+                        registro110.PP110AUX3, registro110.PP110AUX4, registro110.PP110AUX5, registro110.PP110AUX6, registro110.PP110AUX7,
+                        registro110.PP110AUX8, registro110.PP110AUX9, registro110.PP110AUX10, registro110.PP110AUX11, registro110.PP110AUX12);
+
+                        DELETE FROM fpp110
+                        WHERE PP110NCART = PI_JAQA895CCO AND PP110COD = registro110.PP110COD AND
+                        PP110MOD = registro110.PP110MOD AND PP110SUC = registro110.PP110SUC AND
+                        PP110MDA = registro110.PP110MDA AND PP110PAP = registro110.PP110PAP AND
+                        PP110CTA = registro110.PP110CTA AND PP110OPE = registro110.PP110OPE AND
+                        PP110SBO = registro110.PP110SBO AND PP110TOP = registro110.PP110TOP;
+
+                   END LOOP;
+                   if not migration_110 then
+                        DBMS_OUTPUT.PUT_LINE('No encontró registros en la FPP110 para la operación ' || REGISTRO895.JAQA895OPE );
+                   end if;
+               END;
+
+
+          end if;
+          END;
+          /*FPP110*/
+
+
+          /* Actualizar estado*/
+          if tipocobro_101 = 2 then
+                if migration_102 and
+                   migration_103 and
+                   migration_106 and
+                   migration_108 and
+                   migration_109 and
+                   migration_110
+                then
+                  /*UPDATE STATE 'P' TO 'S'*/
+                  UPDATE JAQA895
+                  SET JAQA895EST = 'S'
+                  WHERE JAQA895CCO = PI_JAQA895CCO AND JAQA895CCD = PI_JAQA895CCD AND
+                  JAQA895PGC = registro895.JAQA895PGC AND JAQA895MOD = registro895.JAQA895MOD AND JAQA895SUC = registro895.JAQA895SUC AND
+                  JAQA895MDA = registro895.JAQA895MDA AND JAQA895PAP = registro895.JAQA895PAP AND JAQA895CTA = registro895.JAQA895CTA AND
+                  JAQA895OPE = registro895.JAQA895OPE AND JAQA895SBO = registro895.JAQA895SBO AND JAQA895TOP = registro895.JAQA895TOP;
+                end if;
+          else
+                if migration_102 and
+                     migration_103 and
+                     migration_106 and
+                     migration_108 and
+                     migration_109
+                then
+                    /*UPDATE STATE 'P' TO 'S'*/
+                    UPDATE JAQA895
+                    SET JAQA895EST = 'S'
+                    WHERE JAQA895CCO = PI_JAQA895CCO AND JAQA895CCD = PI_JAQA895CCD AND
+                    JAQA895PGC = registro895.JAQA895PGC AND JAQA895MOD = registro895.JAQA895MOD AND JAQA895SUC = registro895.JAQA895SUC AND
+                    JAQA895MDA = registro895.JAQA895MDA AND JAQA895PAP = registro895.JAQA895PAP AND JAQA895CTA = registro895.JAQA895CTA AND
+                    JAQA895OPE = registro895.JAQA895OPE AND JAQA895SBO = registro895.JAQA895SBO AND JAQA895TOP = registro895.JAQA895TOP;
+                  end if;
+
+          end if;
+          /* Fin Actualizar estado*/
+
+
+
+    END LOOP;
+		CLOSE curs895;
+
+
+   /*ASK FPP104*/
+    DECLARE
+		CURSOR c104dest IS
+		SELECT PP104NCART,PP104TIPOF,PP104CORR,PP104VAL1,PP104VAL2,PP104VAL3,PP104VAL4,PP104COND1,PP104COND2,PP104AUX1,
+    PP104AUX2,PP104AUX3,PP104AUX4,PP104AUX5,PP104AUX6,PP104AUX7,PP104AUX8,PP104AUX9,PP104AUX10
+		FROM fpp104
+		WHERE PP104NCART = PI_JAQA895CCD;
+		registro104dest c104dest%ROWTYPE;
+
+    BEGIN
+    FOR registro104dest IN c104dest
+    LOOP
+        migration_104dest := true;
+        exit;
+    END LOOP;
+
+    if not migration_104dest then
+        /*ADD IN FPP104*/
+        DECLARE
+        CURSOR c104 IS
+        SELECT PP104NCART,PP104TIPOF,PP104CORR,PP104VAL1,PP104VAL2,PP104VAL3,PP104VAL4,PP104COND1,PP104COND2,PP104AUX1,
+        PP104AUX2,PP104AUX3,PP104AUX4,PP104AUX5,PP104AUX6,PP104AUX7,PP104AUX8,PP104AUX9,PP104AUX10
+        FROM fpp104
+        WHERE PP104NCART = PI_JAQA895CCO;
+        registro104 c104%ROWTYPE;
+
+        BEGIN
+        FOR registro104 IN c104
+        LOOP
+                  migration_104 := true;
+                  INSERT INTO fpp104 (PP104NCART,PP104TIPOF,PP104CORR,PP104VAL1,PP104VAL2,PP104VAL3,PP104VAL4,PP104COND1,PP104COND2,
+                  PP104AUX1,PP104AUX2,PP104AUX3,PP104AUX4,PP104AUX5,PP104AUX6,PP104AUX7,PP104AUX8,PP104AUX9,PP104AUX10)
+                  VALUES (PI_JAQA895CCD, registro104.PP104TIPOF, registro104.PP104CORR, registro104.PP104VAL1, registro104.PP104VAL2,
+                  registro104.PP104VAL3, registro104.PP104VAL4, registro104.PP104COND1, registro104.PP104COND2, registro104.PP104AUX1,
+                  registro104.PP104AUX2, registro104.PP104AUX3, registro104.PP104AUX4, registro104.PP104AUX5, registro104.PP104AUX6,
+                  registro104.PP104AUX7, registro104.PP104AUX8, registro104.PP104AUX9, registro104.PP104AUX10);
+        END LOOP;
+        if not migration_104 then
+            DBMS_OUTPUT.PUT_LINE('No encontró registros en la FPP104');
+        end if;
+        END;
+
+    end if;
+		END;
+
+    COMMIT;
+
+	END;
+/
+

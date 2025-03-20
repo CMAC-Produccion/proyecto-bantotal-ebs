@@ -1,0 +1,84 @@
+create table AQPA981
+(
+  aqpa981fproc  DATE not null,
+  aqpa981hora   CHAR(8) not null,
+  aqpa981pais   NUMBER(3) not null,
+  aqpa981tdoc   NUMBER(3) not null,
+  aqpa981ndoc   CHAR(12) not null,
+  aqpa981inst   NUMBER(10) not null,
+  aqpa981est    VARCHAR2(2),
+  aqpa981corr   NUMBER(10) not null,
+  aqpa981user   VARCHAR2(10),
+  aqpa981captot NUMBER(17,2),
+  aqpa981saldol NUMBER(17,2),
+  aqpa981salsol NUMBER(17,2),
+  aqpa981monsol CHAR(1),
+  aqpa981deudol CHAR(1),
+  aqpa981deusol CHAR(1),
+  aqpa981vendol NUMBER(17,2),
+  aqpa981vensol NUMBER(17,2),
+  aqpa981tcamb  NUMBER(14,8),
+  aqpa981excdol NUMBER(17,2),
+  aqpa981excsol NUMBER(17,2),
+  aqpa981resdol NUMBER(17,2),
+  aqpa981ressol NUMBER(17,2),
+  aqpa981ca1    CHAR(1),
+  aqpa981na1    NUMBER(17,2),
+  aqpa981fa1    DATE
+)
+;
+comment on column AQPA981.aqpa981fproc
+  is 'FECHA PROCESO';
+comment on column AQPA981.aqpa981hora
+  is 'HORA PROCESO';
+comment on column AQPA981.aqpa981pais
+  is 'PAIS';
+comment on column AQPA981.aqpa981tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPA981.aqpa981ndoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPA981.aqpa981inst
+  is 'INSTANCIA';
+comment on column AQPA981.aqpa981est
+  is 'ESTADO';
+comment on column AQPA981.aqpa981corr
+  is 'CORRELATIVO';
+comment on column AQPA981.aqpa981user
+  is 'USUARIO';
+comment on column AQPA981.aqpa981captot
+  is 'MONTO CMAC';
+comment on column AQPA981.aqpa981saldol
+  is '1 SALARIO_DOL';
+comment on column AQPA981.aqpa981salsol
+  is '2 SALARIO_SOL';
+comment on column AQPA981.aqpa981monsol
+  is '3 MONEDA_SOLICITUD_SOL';
+comment on column AQPA981.aqpa981deudol
+  is '4 DEUDA_EN_DOLAR';
+comment on column AQPA981.aqpa981deusol
+  is '5 DEUDA_EN_SOLES';
+comment on column AQPA981.aqpa981vendol
+  is '6 VENTAS_DOL';
+comment on column AQPA981.aqpa981vensol
+  is '7 VENTAS_SOL';
+comment on column AQPA981.aqpa981tcamb
+  is '8 TPO_CAMBIO';
+comment on column AQPA981.aqpa981excdol
+  is '9 EXCEDENTE_DOL';
+comment on column AQPA981.aqpa981excsol
+  is '10 EXCEDENTE_SOL';
+comment on column AQPA981.aqpa981resdol
+  is '11 RESULTADO_DOL';
+comment on column AQPA981.aqpa981ressol
+  is '12 RESULTADO_SOL';
+comment on column AQPA981.aqpa981ca1
+  is 'CHAR AUX 1';
+comment on column AQPA981.aqpa981na1
+  is 'NUMBER AUX 1';
+comment on column AQPA981.aqpa981fa1
+  is 'FECHA AUX 1';
+create index AQPA981A3 on AQPA981 (AQPA981INST);
+create index AQPA9812 on AQPA981 (AQPA981FPROC, AQPA981HORA, AQPA981PAIS, AQPA981TDOC, AQPA981NDOC, AQPA981INST, AQPA981EST, AQPA981CORR, AQPA981USER);
+alter table AQPA981
+  add primary key (AQPA981FPROC, AQPA981HORA, AQPA981PAIS, AQPA981TDOC, AQPA981NDOC, AQPA981INST, AQPA981CORR);
+

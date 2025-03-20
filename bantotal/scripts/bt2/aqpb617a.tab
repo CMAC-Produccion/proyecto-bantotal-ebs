@@ -1,0 +1,67 @@
+create table AQPB617A
+(
+  aqpb617acta   NUMBER(9),
+  aqpb617aoper  NUMBER(9),
+  aqpb617afpro  DATE,
+  aqpb617afcon  DATE,
+  aqpb617amda   NUMBER(4),
+  aqpb617aimp1  NUMBER(17,2),
+  aqpb617asucu  NUMBER(3),
+  aqpb617acod   NUMBER(3),
+  aqpb617amod   NUMBER(3),
+  aqpb617asucor NUMBER(3),
+  aqpb617atran  NUMBER(3),
+  aqpb617anrel  NUMBER(4),
+  aqpb617aase   VARCHAR2(10),
+  aqpb617apro   VARCHAR2(2),
+  aqpb617arubro NUMBER(16),
+  aqpb617acina  VARCHAR2(1),
+  aqpb617aocap  NUMBER(4),
+  aqpb617anocp  VARCHAR2(30),
+  aqpb617aucap  VARCHAR2(10)
+)
+;
+comment on table AQPB617A
+  is 'Creditos - Alta, Desembolsos parciales, Ampliación, Alta de Línea';
+comment on column AQPB617A.aqpb617acta
+  is 'CUENTA';
+comment on column AQPB617A.aqpb617aoper
+  is 'OPERACIÓN';
+comment on column AQPB617A.aqpb617afpro
+  is 'FECHA PROCESO';
+comment on column AQPB617A.aqpb617afcon
+  is 'FECHA CONTABLE';
+comment on column AQPB617A.aqpb617amda
+  is 'MONEDA';
+comment on column AQPB617A.aqpb617aimp1
+  is 'IMPORTE';
+comment on column AQPB617A.aqpb617asucu
+  is 'SUCURSAL';
+comment on column AQPB617A.aqpb617acod
+  is 'PGCOD';
+comment on column AQPB617A.aqpb617amod
+  is 'MODULO';
+comment on column AQPB617A.aqpb617asucor
+  is 'SURCURSAL TRANSACION';
+comment on column AQPB617A.aqpb617atran
+  is 'TRANSACCION';
+comment on column AQPB617A.aqpb617anrel
+  is 'NUMERO RELACION';
+comment on column AQPB617A.aqpb617aase
+  is 'ASESOR';
+comment on column AQPB617A.aqpb617apro
+  is 'PRODUCTO';
+comment on column AQPB617A.aqpb617arubro
+  is 'RUBRO';
+comment on column AQPB617A.aqpb617acina
+  is 'Cliente Inactivo';
+comment on column AQPB617A.aqpb617aocap
+  is 'Origen Captación';
+comment on column AQPB617A.aqpb617anocp
+  is 'Nombre Origen Captación';
+comment on column AQPB617A.aqpb617aucap
+  is 'Usuario Captación';
+create index AQPB617AA2 on AQPB617A (AQPB617AASE, AQPB617AFPRO);
+create index AQPB617AA3 on AQPB617A (AQPB617AFPRO);
+create index AQPB617AA4 on AQPB617A (AQPB617ACTA, AQPB617AOPER, AQPB617AFPRO);
+

@@ -1,0 +1,64 @@
+create table JAQZ556H
+(
+  jaqz556hcod            NUMBER(18) not null,
+  jaqz556hau4            NUMBER(17,2),
+  usuario                CHAR(10),
+  fecha_proceso          DATE,
+  jaqz556hau1            NUMBER(9,2),
+  jaqz556hau2            NUMBER(10),
+  jaqz556hau3            NUMBER(17,2),
+  jaqz556hau6            CHAR(20),
+  jaqz556hau7            CHAR(50),
+  jaqz556hau8            CHAR(100),
+  jaqz556hau9            VARCHAR2(40),
+  jaqz556h10             VARCHAR2(40),
+  jaqz556h11             VARCHAR2(200),
+  jaqz556h12             DATE,
+  jaqz556h13             DATE,
+  jaqz556h14             NUMBER(4),
+  jaqz556h15             NUMBER(4),
+  itemh                  NUMBER(4),
+  plan_seguroh           NUMBER(4),
+  patclienteh            VARCHAR2(30),
+  matclienteh            VARCHAR2(30),
+  nombreclienteh         VARCHAR2(30),
+  idch                   VARCHAR2(11),
+  tip_idch               CHAR(3),
+  emailh                 VARCHAR2(50),
+  estadocivilh           VARCHAR2(20),
+  sexoh                  CHAR(1),
+  fecha_nach             CHAR(10),
+  telefonoh              VARCHAR2(50),
+  ocupacionh             VARCHAR2(50),
+  ubigeo_clienteh        VARCHAR2(8),
+  direccionh             VARCHAR2(100),
+  productoh              CHAR(4),
+  codigo_sucursalh       CHAR(3),
+  funcionarioh           VARCHAR2(20),
+  estadoh                CHAR(1),
+  nro_creditoh           VARCHAR2(30),
+  moneda_cuentah         CHAR(3),
+  fecha_cancelacionh     CHAR(10),
+  fecha_desembolsoh      CHAR(10),
+  flagh                  NUMBER(4),
+  jaqz556htipoh          NUMBER(4),
+  costo_seguroh          VARCHAR2(20),
+  cred_falth             NUMBER(4),
+  importe_creditoh       VARCHAR2(16),
+  prima_mensualh         VARCHAR2(7),
+  nro_credito_anateriorh VARCHAR2(30),
+  hora_desembolsoh       VARCHAR2(8),
+  fecha_afiliacionh      CHAR(10),
+  tasah                  VARCHAR2(12),
+  sobretasah             VARCHAR2(20),
+  fecha_desafiliacionh   CHAR(10),
+  agencia_desafiliacionh NUMBER(4)
+)
+;
+create index IJAQZ556H_ID001 on JAQZ556H (CODIGO_SUCURSALH, JAQZ556H12);
+create index IJAQZ556H_ID002 on JAQZ556H (CODIGO_SUCURSALH, JAQZ556H12, JAQZ556HTIPOH, JAQZ556H14);
+create index IJAQZ556H_ID003 on JAQZ556H (CODIGO_SUCURSALH, JAQZ556H12, JAQZ556HTIPOH);
+create index IJAQZ556H1 on JAQZ556H (USUARIO);
+alter table JAQZ556H
+  add primary key (JAQZ556HCOD);
+

@@ -1,0 +1,26 @@
+create table FPP094
+(
+  pp94pepais NUMBER(3) not null,
+  pp94petdoc NUMBER(2) not null,
+  pp94pendoc CHAR(12) not null,
+  pp94docod  NUMBER(2) not null,
+  pp94callp  CHAR(35),
+  pp94nrop   NUMBER(5),
+  pp94aparp  CHAR(6),
+  pp94ciudp  CHAR(20),
+  pp94deptp  CHAR(15),
+  pp94paisp  NUMBER(3),
+  pp94cposp  CHAR(8),
+  pp94aux1   NUMBER(9),
+  pp94aux2   NUMBER(9),
+  pp94aux3   NUMBER(17,2),
+  pp94aux4   DATE,
+  pp94aux5   DATE,
+  pp94aux6   CHAR(30),
+  pp94aux7   CHAR(30),
+  pp94aux8   CHAR(30)
+)
+;
+alter table FPP094
+  add primary key (PP94PEPAIS, PP94PETDOC, PP94PENDOC, PP94DOCOD);
+

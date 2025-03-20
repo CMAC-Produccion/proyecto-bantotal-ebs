@@ -1,0 +1,96 @@
+create table AQPD115S
+(
+  aqpd115sfcar   DATE not null,
+  aqpd115scon    VARCHAR2(20) not null,
+  aqpd115sfdes   DATE,
+  aqpd115smntapr NUMBER(18,2),
+  aqpd115sbbp    NUMBER(18,2),
+  aqpd115splz    NUMBER(10),
+  aqpd115stas    NUMBER(10,2),
+  aqpd115spro    VARCHAR2(20),
+  aqpd115stipo   VARCHAR2(3) not null,
+  aqpd115stea    NUMBER(10,2),
+  aqpd115steq    NUMBER(18,8),
+  aqpd115sfc     NUMBER(18,8),
+  aqpd115scuo    NUMBER(18,2),
+  aqpd115sncuo   NUMBER(10),
+  aqpd115sfvto   DATE not null,
+  aqpd115sdias   NUMBER(10),
+  aqpd115sdiasac NUMBER(10),
+  aqpd115sfaccuo NUMBER(18,8),
+  aqpd115ssld    NUMBER(18,2),
+  aqpd115sfacint NUMBER(18,8),
+  aqpd115sint    NUMBER(18,2),
+  aqpd115scappri NUMBER(18,2),
+  aqpd115scap    NUMBER(18,2),
+  aqpd115smntcob NUMBER(18,2),
+  aqpd115scapacu NUMBER(18,2),
+  aqpd115samo    VARCHAR2(3),
+  aqpd115smnd    VARCHAR2(10),
+  aqpd115sfecreg DATE default SYSTIMESTAMP,
+  aqpd115sana    VARCHAR2(10)
+)
+;
+comment on table AQPD115S
+  is 'TABLA CRONOGRAMAS MI VIVIENDA - SIMULADOS';
+comment on column AQPD115S.aqpd115sfcar
+  is 'FECHA CARGA';
+comment on column AQPD115S.aqpd115scon
+  is 'CONTRATO';
+comment on column AQPD115S.aqpd115sfdes
+  is 'FECHA DESEMBOLSO';
+comment on column AQPD115S.aqpd115smntapr
+  is 'MONTO APROBADO';
+comment on column AQPD115S.aqpd115sbbp
+  is 'BBP';
+comment on column AQPD115S.aqpd115splz
+  is 'PLAZO';
+comment on column AQPD115S.aqpd115stas
+  is 'TASA';
+comment on column AQPD115S.aqpd115spro
+  is 'PRODUCTO';
+comment on column AQPD115S.aqpd115stipo
+  is 'TIPO';
+comment on column AQPD115S.aqpd115stea
+  is 'TEA';
+comment on column AQPD115S.aqpd115steq
+  is 'TEQ';
+comment on column AQPD115S.aqpd115sfc
+  is 'FC';
+comment on column AQPD115S.aqpd115scuo
+  is 'CUOTA';
+comment on column AQPD115S.aqpd115sncuo
+  is 'NRO CUOTA';
+comment on column AQPD115S.aqpd115sfvto
+  is 'FECHA VENCIMIENTO';
+comment on column AQPD115S.aqpd115sdias
+  is 'NRO DE DIAS';
+comment on column AQPD115S.aqpd115sdiasac
+  is 'DIAS ACUM';
+comment on column AQPD115S.aqpd115sfaccuo
+  is 'FACTOR CUOTA';
+comment on column AQPD115S.aqpd115ssld
+  is 'SALDO (PRINCIPAL POR VENCER)';
+comment on column AQPD115S.aqpd115sfacint
+  is 'FACTOR INTERES X CUOTA';
+comment on column AQPD115S.aqpd115sint
+  is 'INTERES';
+comment on column AQPD115S.aqpd115scappri
+  is 'CAPITAL (PRINCIPAL)';
+comment on column AQPD115S.aqpd115scap
+  is 'CAPITAL';
+comment on column AQPD115S.aqpd115smntcob
+  is 'CUOTA (MONTO A COBRAR)';
+comment on column AQPD115S.aqpd115scapacu
+  is 'CAPITAL ACUMULADO';
+comment on column AQPD115S.aqpd115samo
+  is '¿AMORTIZADO?';
+comment on column AQPD115S.aqpd115smnd
+  is 'MONEDA';
+comment on column AQPD115S.aqpd115sfecreg
+  is 'FECHA REGISTRO';
+comment on column AQPD115S.aqpd115sana
+  is 'ANALISTA';
+alter table AQPD115S
+  add primary key (AQPD115SFCAR, AQPD115SCON, AQPD115SFVTO, AQPD115STIPO);
+

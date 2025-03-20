@@ -1,0 +1,39 @@
+create table AQPB433
+(
+  aqpb433cor  NUMBER(18) not null,
+  aqpb433cod  NUMBER(3) not null,
+  aqpb433mod  NUMBER(3) not null,
+  aqpb433suc  NUMBER(3) not null,
+  aqpb433mda  NUMBER(4) not null,
+  aqpb433pap  NUMBER(4) not null,
+  aqpb433cta  NUMBER(9) not null,
+  aqpb433ope  NUMBER(9) not null,
+  aqpb433sbo  NUMBER(3) not null,
+  aqpb433top  NUMBER(3) not null,
+  aqpb433fecc DATE,
+  aqpb433mto  NUMBER(18,2),
+  aqpb433pcj  NUMBER(7,2),
+  aqpb433tasa NUMBER(14,8),
+  aqpb433est  CHAR(1),
+  aqpb433usu  CHAR(10),
+  aqpb433tip  VARCHAR2(2),
+  aqpb433intc NUMBER(18,2),
+  aqpb433com  VARCHAR2(100),
+  aqpb433pch  DATE
+)
+;
+comment on column AQPB433.aqpb433tip
+  is 'Tipo de Fondo';
+comment on column AQPB433.aqpb433intc
+  is 'Interes compensatorio Honrado';
+comment on column AQPB433.aqpb433com
+  is 'Comentario';
+comment on column AQPB433.aqpb433pch
+  is 'Pago en crédito honramiento';
+create index AQPB433A5 on AQPB433 (AQPB433CTA, AQPB433EST, AQPB433COR);
+create index AQPB4332 on AQPB433 (AQPB433CTA, AQPB433EST);
+create index AQPB4333 on AQPB433 (AQPB433COD, AQPB433MOD, AQPB433SUC, AQPB433MDA, AQPB433PAP, AQPB433CTA, AQPB433OPE, AQPB433SBO, AQPB433TOP);
+create index AQPB4334 on AQPB433 (AQPB433COR);
+alter table AQPB433
+  add primary key (AQPB433COR, AQPB433COD, AQPB433MOD, AQPB433SUC, AQPB433MDA, AQPB433PAP, AQPB433CTA, AQPB433OPE, AQPB433SBO, AQPB433TOP);
+

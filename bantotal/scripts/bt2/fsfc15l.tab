@@ -1,0 +1,26 @@
+create table FSFC15L
+(
+  sfc15lemp  NUMBER(3) not null,
+  sfc15lcta  NUMBER(9) not null,
+  sfc15lfing DATE not null,
+  sfc15lhing CHAR(8) not null,
+  sfc15lok   CHAR(1),
+  sfc15ladu  CHAR(1),
+  sfc15lnom  CHAR(35),
+  sfc15luing CHAR(10),
+  sfc15lwing CHAR(10),
+  sfc15lfcnf DATE,
+  sfc15lhcnf CHAR(8),
+  sfc15lucnf CHAR(10),
+  sfc15lwcnf CHAR(10),
+  sfc15la01  NUMBER(9),
+  sfc15la02  NUMBER(9),
+  sfc15la03  NUMBER(17,2),
+  sfc15la04  NUMBER(17,2),
+  sfc15la05  DATE,
+  sfc15la06  DATE
+)
+;
+alter table FSFC15L
+  add primary key (SFC15LEMP, SFC15LCTA, SFC15LFING, SFC15LHING);
+

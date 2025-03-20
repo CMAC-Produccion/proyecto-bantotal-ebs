@@ -1,0 +1,99 @@
+create table AQPC151
+(
+  aqpc151usr  CHAR(10) not null,
+  aqpc151corr NUMBER(9) not null,
+  aqpc151fec  DATE default sysdate,
+  aqpc151cta  NUMBER(9) not null,
+  aqpc151ope  NUMBER(9) not null,
+  aqpc151feh  DATE,
+  aqpc151pro  VARCHAR2(2),
+  aqpc151mda  NUMBER(4) not null,
+  aqpc151tdc  NUMBER(2) not null,
+  aqpc151ndc  CHAR(12) not null,
+  aqpc151rzs  CHAR(70),
+  aqpc151apt  CHAR(30),
+  aqpc151amt  CHAR(30),
+  aqpc151nom  CHAR(30),
+  aqpc151ext  CHAR(2),
+  aqpc151est  CHAR(30) not null,
+  aqpc151fep  DATE,
+  aqpc151cap  NUMBER(17,2),
+  aqpc151itp  NUMBER(17,2),
+  aqpc151icv  NUMBER(17,2),
+  aqpc151mor  NUMBER(17,2),
+  aqpc151pen  NUMBER(17,2),
+  aqpc151oro  NUMBER(17,2),
+  aqpc151seg  NUMBER(17,2),
+  aqpc151gst  NUMBER(17,2),
+  aqpc151mth  NUMBER(17,2),
+  aqpc151itm  NUMBER(17,2),
+  aqpc151rub  NUMBER(16) not null,
+  aqpc151mtr  NUMBER(17,2),
+  aqpc151ich  NUMBER(17,2)
+)
+;
+comment on table AQPC151
+  is 'Tabla temproal del reporte de pagos de honramiento';
+comment on column AQPC151.aqpc151usr
+  is 'Usuario';
+comment on column AQPC151.aqpc151corr
+  is 'Correlativo';
+comment on column AQPC151.aqpc151fec
+  is 'Fecha de proceso';
+comment on column AQPC151.aqpc151cta
+  is 'Cuenta';
+comment on column AQPC151.aqpc151ope
+  is 'Operación';
+comment on column AQPC151.aqpc151feh
+  is 'Fecha de Honramiento';
+comment on column AQPC151.aqpc151pro
+  is 'Programa';
+comment on column AQPC151.aqpc151mda
+  is 'Moneda';
+comment on column AQPC151.aqpc151tdc
+  is 'Tipo de Documento';
+comment on column AQPC151.aqpc151ndc
+  is 'Número de Documento';
+comment on column AQPC151.aqpc151rzs
+  is 'Razón Social';
+comment on column AQPC151.aqpc151apt
+  is 'Apellido Paterno';
+comment on column AQPC151.aqpc151amt
+  is 'Apellido Materno';
+comment on column AQPC151.aqpc151nom
+  is 'Nombre ';
+comment on column AQPC151.aqpc151ext
+  is 'Extorno';
+comment on column AQPC151.aqpc151est
+  is 'Estado de Pago';
+comment on column AQPC151.aqpc151fep
+  is 'Fecha de Pago';
+comment on column AQPC151.aqpc151cap
+  is 'Capital Pagado';
+comment on column AQPC151.aqpc151itp
+  is 'Interés Pagado';
+comment on column AQPC151.aqpc151icv
+  is 'ICV Pagado';
+comment on column AQPC151.aqpc151mor
+  is 'Mora Pagada';
+comment on column AQPC151.aqpc151pen
+  is 'Penalidad Pagada';
+comment on column AQPC151.aqpc151oro
+  is 'Otros Rubros de la Obligación';
+comment on column AQPC151.aqpc151seg
+  is 'Seguro Pagado';
+comment on column AQPC151.aqpc151gst
+  is 'Gasto RL Honramiento';
+comment on column AQPC151.aqpc151mth
+  is 'Monto Honrado Pagado';
+comment on column AQPC151.aqpc151itm
+  is 'Interés Moratorio';
+comment on column AQPC151.aqpc151rub
+  is 'Rubro Recaudadora para Cofide';
+comment on column AQPC151.aqpc151mtr
+  is 'Monto Recaudado Cofide';
+comment on column AQPC151.aqpc151ich
+  is 'Interés compensatorio Honrado';
+alter table AQPC151
+  add primary key (AQPC151USR, AQPC151CORR);
+

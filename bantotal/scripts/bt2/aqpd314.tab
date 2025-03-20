@@ -1,0 +1,174 @@
+create table AQPD314
+(
+  aqpd314carcod VARCHAR2(30) not null,
+  aqpd314carnro NUMBER(4) not null,
+  aqpd314cartip VARCHAR2(1),
+  aqpd314crecta NUMBER(9),
+  aqpd314cremda NUMBER(4),
+  aqpd314cresop NUMBER(3),
+  aqpd314cresuc NUMBER(3),
+  aqpd314creref VARCHAR2(50),
+  aqpd314creimp NUMBER(18,2),
+  aqpd314crecom VARCHAR2(200),
+  aqpd314clipai NUMBER(3),
+  aqpd314clitdo NUMBER(2),
+  aqpd314clindo CHAR(12),
+  aqpd314clifon VARCHAR2(200),
+  aqpd314trapai NUMBER(3),
+  aqpd314tratdo NUMBER(2),
+  aqpd314trando CHAR(12),
+  aqpd314ordpai NUMBER(3),
+  aqpd314ordtdo NUMBER(2),
+  aqpd314ordndo CHAR(12),
+  aqpd314benpai NUMBER(3),
+  aqpd314bentdo NUMBER(2),
+  aqpd314benndo CHAR(12),
+  aqpd314debcta NUMBER(9),
+  aqpd314debmda NUMBER(4),
+  aqpd314debsop NUMBER(3),
+  aqpd314debsuc NUMBER(3),
+  aqpd314debref VARCHAR2(50),
+  aqpd314cotiza NUMBER(9,5),
+  aqpd314conver NUMBER(18,2),
+  aqpd314carest VARCHAR2(1),
+  aqpd314carmsg VARCHAR2(500),
+  aqpd314opgcod NUMBER(3),
+  aqpd314opsucu NUMBER(3),
+  aqpd314opmodu NUMBER(3),
+  aqpd314optran NUMBER(3),
+  aqpd314opnrel NUMBER(4),
+  aqpd314opfcon DATE,
+  aqpd314opesta VARCHAR2(1),
+  aqpd314opmsgc VARCHAR2(100),
+  aqpd314auxnu1 NUMBER(9),
+  aqpd314auxnu2 NUMBER(9),
+  aqpd314auxnu3 NUMBER(9),
+  aqpd314auxim1 NUMBER(18,2),
+  aqpd314auxim2 NUMBER(18,2),
+  aqpd314auxim3 NUMBER(18,2),
+  aqpd314auxfe1 DATE,
+  aqpd314auxfe2 DATE,
+  aqpd314auxfe3 DATE,
+  aqpd314auxch1 CHAR(1),
+  aqpd314auxch2 CHAR(1),
+  aqpd314auxch3 CHAR(1),
+  aqpd314auxva1 VARCHAR2(255),
+  aqpd314auxva2 VARCHAR2(255),
+  aqpd314auxva3 VARCHAR2(255)
+)
+;
+comment on table AQPD314
+  is 'Carga Masiva de Operaciones de Cambio de ME - Detalle';
+comment on column AQPD314.aqpd314carcod
+  is 'Código de Carga';
+comment on column AQPD314.aqpd314carnro
+  is 'Número';
+comment on column AQPD314.aqpd314cartip
+  is 'Tipo de Carga';
+comment on column AQPD314.aqpd314crecta
+  is 'Credito - Cuenta';
+comment on column AQPD314.aqpd314cremda
+  is 'Credito - Moneda';
+comment on column AQPD314.aqpd314cresop
+  is 'Credito - Sub Operación';
+comment on column AQPD314.aqpd314cresuc
+  is 'Credito - Sucursal';
+comment on column AQPD314.aqpd314creref
+  is 'Credito - Referencia';
+comment on column AQPD314.aqpd314creimp
+  is 'Credito - Importe ';
+comment on column AQPD314.aqpd314crecom
+  is 'Credito - Comentarios';
+comment on column AQPD314.aqpd314clipai
+  is 'Cliente - País';
+comment on column AQPD314.aqpd314clitdo
+  is 'Cliente - Tipo de Documento';
+comment on column AQPD314.aqpd314clindo
+  is 'Cliente - Nro. de Documento';
+comment on column AQPD314.aqpd314clifon
+  is 'Cliente - Origen Fondos';
+comment on column AQPD314.aqpd314trapai
+  is 'Tramitante - País';
+comment on column AQPD314.aqpd314tratdo
+  is 'Tramitante - Tipo de Documento';
+comment on column AQPD314.aqpd314trando
+  is 'Tramitante - Nro. de Documento';
+comment on column AQPD314.aqpd314ordpai
+  is 'Ordenante - País';
+comment on column AQPD314.aqpd314ordtdo
+  is 'Ordenante - Tipo de Documento';
+comment on column AQPD314.aqpd314ordndo
+  is 'Ordenante - Nro. de Documento';
+comment on column AQPD314.aqpd314benpai
+  is 'Beneficiario - País';
+comment on column AQPD314.aqpd314bentdo
+  is 'Beneficiario - Tipo de Documento';
+comment on column AQPD314.aqpd314benndo
+  is 'Beneficiario - Nro. de Documento';
+comment on column AQPD314.aqpd314debcta
+  is 'Débito - Cuenta';
+comment on column AQPD314.aqpd314debmda
+  is 'Débito - Moneda';
+comment on column AQPD314.aqpd314debsop
+  is 'Débito - Sub Operación';
+comment on column AQPD314.aqpd314debsuc
+  is 'Débito - Sucursal';
+comment on column AQPD314.aqpd314debref
+  is 'Débito - Referencia';
+comment on column AQPD314.aqpd314cotiza
+  is 'Cotización';
+comment on column AQPD314.aqpd314conver
+  is 'Conversión';
+comment on column AQPD314.aqpd314carest
+  is 'Carga - Estado';
+comment on column AQPD314.aqpd314carmsg
+  is 'Carga - Mensaje';
+comment on column AQPD314.aqpd314opgcod
+  is 'Operación - Empresa';
+comment on column AQPD314.aqpd314opsucu
+  is 'Operación - Sucursal';
+comment on column AQPD314.aqpd314opmodu
+  is 'Operación - Módulo';
+comment on column AQPD314.aqpd314optran
+  is 'Operación - Transacción';
+comment on column AQPD314.aqpd314opnrel
+  is 'Operación - Relación';
+comment on column AQPD314.aqpd314opfcon
+  is 'Operación - Fecha';
+comment on column AQPD314.aqpd314opesta
+  is 'Operación - Estado';
+comment on column AQPD314.aqpd314opmsgc
+  is 'Operación - Mensaje';
+comment on column AQPD314.aqpd314auxnu1
+  is 'AUXILIAR - Número 1';
+comment on column AQPD314.aqpd314auxnu2
+  is 'AUXILIAR - Número 2';
+comment on column AQPD314.aqpd314auxnu3
+  is 'AUXILIAR - Número 3';
+comment on column AQPD314.aqpd314auxim1
+  is 'AUXILIAR - Importe 1';
+comment on column AQPD314.aqpd314auxim2
+  is 'AUXILIAR - Importe 2';
+comment on column AQPD314.aqpd314auxim3
+  is 'AUXILIAR - Importe 3';
+comment on column AQPD314.aqpd314auxfe1
+  is 'AUXILIAR - Fecha 1';
+comment on column AQPD314.aqpd314auxfe2
+  is 'AUXILIAR - Fecha 2';
+comment on column AQPD314.aqpd314auxfe3
+  is 'AUXILIAR - Fecha 3';
+comment on column AQPD314.aqpd314auxch1
+  is 'AUXILIAR - Caracter 1';
+comment on column AQPD314.aqpd314auxch2
+  is 'AUXILIAR - Caracter 2';
+comment on column AQPD314.aqpd314auxch3
+  is 'AUXILIAR - Caracter 3';
+comment on column AQPD314.aqpd314auxva1
+  is 'AUXILIAR - String 1';
+comment on column AQPD314.aqpd314auxva2
+  is 'AUXILIAR - String 2';
+comment on column AQPD314.aqpd314auxva3
+  is 'AUXILIAR - String 3';
+alter table AQPD314
+  add primary key (AQPD314CARCOD, AQPD314CARNRO);
+

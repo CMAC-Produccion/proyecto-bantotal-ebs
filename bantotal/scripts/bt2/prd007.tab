@@ -1,0 +1,24 @@
+create table PRD007
+(
+  pgcod      NUMBER(3) not null,
+  modulo     NUMBER(3) not null,
+  totope     NUMBER(3) not null,
+  moneda     NUMBER(4) not null,
+  papel      NUMBER(4) not null,
+  prd6modac  NUMBER(3) not null,
+  prd6tpoac  NUMBER(3) not null,
+  prd6mdaac  NUMBER(4) not null,
+  prd6papac  NUMBER(4) not null,
+  prd7codcom NUMBER(3) not null,
+  prd7tpotrt CHAR(1),
+  prd7impte  NUMBER(17,2),
+  prd7porcen NUMBER(10,6),
+  prd7pgma   CHAR(10),
+  prd7aux1   NUMBER(3),
+  prd7aux2   DATE,
+  prd7aux3   CHAR(1)
+)
+;
+alter table PRD007
+  add primary key (PGCOD, MODULO, TOTOPE, MONEDA, PAPEL, PRD6MODAC, PRD6TPOAC, PRD6MDAAC, PRD6PAPAC, PRD7CODCOM);
+

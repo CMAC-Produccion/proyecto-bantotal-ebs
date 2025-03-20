@@ -1,0 +1,23 @@
+create table FSR012
+(
+  p1cod  NUMBER(3) not null,
+  p1mod  NUMBER(3) not null,
+  p1suc  NUMBER(3) not null,
+  p1mda  NUMBER(4) not null,
+  p1pap  NUMBER(4) not null,
+  p1cta  NUMBER(9) not null,
+  p1oper NUMBER(9) not null,
+  p1sbop NUMBER(3) not null,
+  p1tope NUMBER(3) not null,
+  relcod NUMBER(3) not null,
+  p1pais NUMBER(3) not null,
+  p1tdoc NUMBER(2) not null,
+  p1ndoc CHAR(12) not null,
+  p1porc NUMBER(7,4)
+)
+;
+create index FSR01202 on FSR012 (RELCOD);
+create index FSR01203 on FSR012 (P1PAIS, P1TDOC, P1NDOC, RELCOD);
+alter table FSR012
+  add primary key (P1COD, P1MOD, P1SUC, P1MDA, P1PAP, P1CTA, P1OPER, P1SBOP, P1TOPE, RELCOD, P1PAIS, P1TDOC, P1NDOC);
+

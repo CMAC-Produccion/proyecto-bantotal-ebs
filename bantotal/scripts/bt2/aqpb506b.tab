@@ -1,0 +1,46 @@
+create table AQPB506B
+(
+  aqpb506bnrocre VARCHAR2(21) not null,
+  aqpb506bempcod NUMBER(3) not null,
+  aqpb506bnroope NUMBER(3) not null,
+  aqpb506bcodcar VARCHAR2(16) not null,
+  aqpb506best    CHAR(1) not null,
+  aqpb506bpgcod  NUMBER(3) not null,
+  aqpb506bscsuc  NUMBER(3) not null,
+  aqpb506bscrub  NUMBER(16) not null,
+  aqpb506bscmda  NUMBER(4) not null,
+  aqpb506bscpap  NUMBER(4) not null,
+  aqpb506bsccta  NUMBER(9) not null,
+  aqpb506bscoper NUMBER(9) not null,
+  aqpb506bscsbop NUMBER(3) not null,
+  aqpb506bsctope NUMBER(3) not null,
+  aqpb506bscmod  NUMBER(3) not null,
+  aqpb506bscgru  NUMBER(2) not null,
+  aqpb506btiptit VARCHAR2(30),
+  aqpb506bfecdes DATE,
+  aqpb506bfecven DATE,
+  aqpb506bndoc   VARCHAR2(12),
+  aqpb506bnom    VARCHAR2(150),
+  aqpb506brcc    VARCHAR2(20),
+  aqpb506bmoneda NUMBER(4),
+  aqpb506bmondes NUMBER(18,2),
+  aqpb506bmonsal NUMBER(18,2),
+  aqpb506btipgar VARCHAR2(30),
+  aqpb506bmonega NUMBER(4),
+  aqpb506bmongar NUMBER(18,2),
+  aqpb506blocali VARCHAR2(150),
+  aqpb506bcrefec DATE not null,
+  aqpb506bcrehor CHAR(8) not null,
+  aqpb506bcreusr VARCHAR2(30) not null,
+  aqpb506bcresuc NUMBER(3) not null,
+  aqpb506bcretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb506bmodfec DATE not null,
+  aqpb506bmodhor CHAR(8) not null,
+  aqpb506bmodusr VARCHAR2(30) not null,
+  aqpb506bmodsuc NUMBER(3) not null,
+  aqpb506bmodtim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+alter table AQPB506B
+  add primary key (AQPB506BNROCRE);
+

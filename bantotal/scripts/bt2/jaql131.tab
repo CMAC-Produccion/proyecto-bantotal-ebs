@@ -1,0 +1,107 @@
+create table JAQL131
+(
+  jaql131cin NUMBER(2) not null,
+  jaql131cac NUMBER(2) not null,
+  jaql131cba NUMBER(2) not null,
+  jaql131pai NUMBER(3) not null,
+  jaql131tdo NUMBER(2) not null,
+  jaql131ndo VARCHAR2(12) not null,
+  jaql131nom VARCHAR2(100),
+  jaql131csb VARCHAR2(10),
+  jaql131nfi CHAR(8),
+  jaql131rfi VARCHAR2(300),
+  jaql131czn CHAR(8),
+  jaql131dne VARCHAR2(300),
+  jaql131tlf VARCHAR2(100),
+  jaql131seg VARCHAR2(100),
+  jaql131age NUMBER(3),
+  jaql131ana VARCHAR2(10),
+  jaql131usu VARCHAR2(10),
+  jaql131sec VARCHAR2(100),
+  jaql131fec VARCHAR2(10),
+  jaql131mda VARCHAR2(20),
+  jaql131mto NUMBER,
+  jaql131idc VARCHAR2(50),
+  jaql131cse NUMBER,
+  jaql131ltd VARCHAR2(50),
+  jaql131lgd VARCHAR2(50),
+  jaql131ltn VARCHAR2(50),
+  jaql131lgn VARCHAR2(50),
+  jaql131mai VARCHAR2(300),
+  jaql131fna VARCHAR2(10),
+  jaql131dpa VARCHAR2(50),
+  jaql131dtd VARCHAR2(50),
+  jaql131sex VARCHAR2(50),
+  jaql131txt VARCHAR2(300)
+)
+;
+comment on table JAQL131
+  is 'PROCESAMIENTO MISTI';
+comment on column JAQL131.jaql131cin
+  is 'CODIGO ';
+comment on column JAQL131.jaql131cac
+  is 'CODIGO ACTIVIDAD';
+comment on column JAQL131.jaql131cba
+  is 'CODIGO BASE';
+comment on column JAQL131.jaql131pai
+  is 'PAIS DOCUMENTO';
+comment on column JAQL131.jaql131tdo
+  is 'TIPO DOCUMENTO';
+comment on column JAQL131.jaql131ndo
+  is 'NRO DOCUMENTO';
+comment on column JAQL131.jaql131nom
+  is 'NOMBRE';
+comment on column JAQL131.jaql131csb
+  is 'CODIGO SBS';
+comment on column JAQL131.jaql131nfi
+  is 'UBIGUEO LEGAL';
+comment on column JAQL131.jaql131rfi
+  is 'DIRECCION LEGAL';
+comment on column JAQL131.jaql131czn
+  is 'UNBIGUEO NEGOCIO';
+comment on column JAQL131.jaql131dne
+  is 'DIRECCION NEGOCIO';
+comment on column JAQL131.jaql131tlf
+  is 'TELEFONO';
+comment on column JAQL131.jaql131seg
+  is 'NOMBRE SEGMENTO';
+comment on column JAQL131.jaql131age
+  is 'CODIGO AGENCIA';
+comment on column JAQL131.jaql131ana
+  is 'ANALISTA';
+comment on column JAQL131.jaql131usu
+  is 'USUARIO LOGEADO';
+comment on column JAQL131.jaql131sec
+  is 'SECTOR';
+comment on column JAQL131.jaql131fec
+  is 'FECHA CANCELACION';
+comment on column JAQL131.jaql131mda
+  is 'MONEDA';
+comment on column JAQL131.jaql131mto
+  is 'MONTO ';
+comment on column JAQL131.jaql131idc
+  is 'CODIGO CONSULTA';
+comment on column JAQL131.jaql131cse
+  is 'CODIGO DE SEGMENTO';
+comment on column JAQL131.jaql131ltd
+  is 'LATITUD DIRECCION LEGAL';
+comment on column JAQL131.jaql131lgd
+  is 'LONGITUD DIRECCION LEGAL';
+comment on column JAQL131.jaql131ltn
+  is 'LATITUD DIRECCION NEGOCIO';
+comment on column JAQL131.jaql131lgn
+  is 'LONGITUD DIRECCION NEGOCIO';
+comment on column JAQL131.jaql131mai
+  is 'EMAIL';
+comment on column JAQL131.jaql131fna
+  is 'FECHA DE NACIMIENTO';
+comment on column JAQL131.jaql131dpa
+  is 'NOMBRE DEL PAIS';
+comment on column JAQL131.jaql131dtd
+  is 'DESCRIPCION TIPO DE DOCUMENTO';
+comment on column JAQL131.jaql131sex
+  is 'SEXO';
+comment on column JAQL131.jaql131txt
+  is 'TEXTO';
+create index IDX_JAQL131_01 on JAQL131 (JAQL131CIN, JAQL131USU);
+

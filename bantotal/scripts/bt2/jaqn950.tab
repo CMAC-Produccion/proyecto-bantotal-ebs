@@ -1,0 +1,35 @@
+create table JAQN950
+(
+  jaqn950emp NUMBER(3) not null,
+  jaqn950fec DATE not null,
+  jaqn950suc NUMBER(3) not null,
+  jaqn950mod NUMBER(3) not null,
+  jaqn950trn NUMBER(3) not null,
+  jaqn950rel NUMBER(4) not null,
+  jaqn950ord NUMBER(2) not null,
+  jaqn950sor NUMBER(3) not null,
+  jaqn950num VARCHAR2(250),
+  jaqn950nom VARCHAR2(250),
+  jaqn950cor NUMBER(4),
+  jaqn950tex LONG,
+  jaqn950est CHAR(1),
+  jaqn950ai1 NUMBER(17,2),
+  jaqn950ai2 NUMBER(17,2),
+  jaqn950ai3 NUMBER(17,2),
+  jaqn950an1 NUMBER(9),
+  jaqn950an2 NUMBER(9),
+  jaqn950an3 NUMBER(9),
+  jaqn950ac1 VARCHAR2(255),
+  jaqn950ac2 VARCHAR2(255),
+  jaqn950ac3 VARCHAR2(255),
+  jaqn950af1 DATE,
+  jaqn950af2 DATE,
+  jaqn950af3 DATE
+)
+;
+create index JAQN9502 on JAQN950 (JAQN950NUM);
+create index JAQN9503 on JAQN950 (JAQN950EST);
+create index JAQN9504 on JAQN950 (JAQN950FEC, JAQN950EST);
+alter table JAQN950
+  add primary key (JAQN950EMP, JAQN950FEC, JAQN950SUC, JAQN950MOD, JAQN950TRN, JAQN950REL, JAQN950ORD, JAQN950SOR);
+

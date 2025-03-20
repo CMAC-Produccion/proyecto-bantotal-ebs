@@ -1,0 +1,14 @@
+create table AUD006
+(
+  audgrpnam  CHAR(20) not null,
+  audtblnam  VARCHAR2(255) not null,
+  audscrnam  VARCHAR2(50) not null,
+  audscrcmp  NUMBER(5) not null,
+  audscrlen  NUMBER(10),
+  audscrtext LONG,
+  audscrsts  CHAR(1)
+)
+;
+alter table AUD006
+  add primary key (AUDGRPNAM, AUDTBLNAM, AUDSCRNAM, AUDSCRCMP);
+

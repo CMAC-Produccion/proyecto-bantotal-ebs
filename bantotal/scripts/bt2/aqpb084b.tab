@@ -1,0 +1,21 @@
+create table AQPB084B
+(
+  aqpb084binst NUMBER(10) not null,
+  aqpb084bcsbs VARCHAR2(10) not null,
+  aqpb084bcemp CHAR(5) not null,
+  aqpb084bcuen CHAR(14) not null,
+  aqpb084bsald NUMBER(17,2),
+  aqpb084bsalc NUMBER(17,2),
+  aqpb084bsaln NUMBER(17,2),
+  aqpb084bfpre DATE,
+  aqpb084bfech DATE,
+  aqpb084bhora CHAR(8),
+  aqpb084butil NUMBER(17,2),
+  aqpb084btipo NUMBER(5),
+  aqpb084baux1 NUMBER(5),
+  aqpb084baux2 VARCHAR2(50)
+)
+;
+alter table AQPB084B
+  add primary key (AQPB084BINST, AQPB084BCSBS, AQPB084BCEMP, AQPB084BCUEN);
+

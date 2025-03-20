@@ -1,0 +1,12 @@
+create table FSR170
+(
+  st170tdcod NUMBER(5) not null,
+  sr170tremp NUMBER(3) not null,
+  sr170trmod NUMBER(3) not null,
+  sr170trnro NUMBER(3) not null
+)
+;
+create index FSR17002 on FSR170 (SR170TREMP, SR170TRMOD, SR170TRNRO);
+alter table FSR170
+  add primary key (ST170TDCOD, SR170TREMP, SR170TRMOD, SR170TRNRO);
+

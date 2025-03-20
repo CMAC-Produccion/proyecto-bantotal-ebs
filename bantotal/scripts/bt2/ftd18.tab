@@ -1,0 +1,13 @@
+create table FTD18
+(
+  td18emp    NUMBER(3) not null,
+  td18suc    NUMBER(3) not null,
+  td18tiptar CHAR(1) not null,
+  td18cntmin NUMBER(4),
+  td18cntale NUMBER(4),
+  td18cntpro NUMBER(4)
+)
+;
+alter table FTD18
+  add primary key (TD18EMP, TD18SUC, TD18TIPTAR);
+

@@ -1,0 +1,17 @@
+create table FSFI15
+(
+  sfi15emp  NUMBER(3) not null,
+  sfi15cus  NUMBER(9) not null,
+  sfi15dep  NUMBER(9) not null,
+  sfi15com  NUMBER(9) not null,
+  sfi15fec  DATE not null,
+  sfi15hora CHAR(8) not null,
+  sfi15usu  CHAR(10) not null,
+  sfi15est  CHAR(1),
+  sfi15dsc  CHAR(80)
+)
+;
+create index FSFI1502 on FSFI15 (SFI15EMP, SFI15FEC, SFI15HORA);
+alter table FSFI15
+  add primary key (SFI15EMP, SFI15CUS, SFI15DEP, SFI15COM, SFI15FEC, SFI15HORA, SFI15USU);
+

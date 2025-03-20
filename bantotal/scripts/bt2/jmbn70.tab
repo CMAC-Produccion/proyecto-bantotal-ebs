@@ -1,0 +1,12 @@
+create table JMBN70
+(
+  jmbn70pgco NUMBER(3) not null,
+  jmbn70thr  NUMBER(3) not null,
+  jmbn70fhas DATE not null,
+  jmn70fdes  DATE
+)
+;
+create index JMBN702 on JMBN70 (JMBN70PGCO, JMBN70FHAS);
+alter table JMBN70
+  add primary key (JMBN70PGCO, JMBN70THR, JMBN70FHAS);
+

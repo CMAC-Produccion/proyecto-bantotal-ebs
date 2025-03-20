@@ -1,0 +1,22 @@
+create table TDB679
+(
+  tdb679nro CHAR(19) not null,
+  tdb679suc NUMBER(3) not null,
+  tdb679cta NUMBER(9) not null,
+  tdb679sct NUMBER(3) not null,
+  tdb679mod NUMBER(3) not null,
+  tdb679mon NUMBER(4) not null,
+  tdb679pap NUMBER(4) not null,
+  tdb679top NUMBER(3) not null,
+  tdb679ope NUMBER(9) not null,
+  tdb679cns CHAR(1),
+  tdb679ret CHAR(1),
+  tdb679dep CHAR(1),
+  tdb679rtr CHAR(1),
+  tdb679etr CHAR(1),
+  tdb679vnc CHAR(1)
+)
+;
+alter table TDB679
+  add primary key (TDB679NRO, TDB679SUC, TDB679CTA, TDB679SCT, TDB679MOD, TDB679MON, TDB679PAP, TDB679TOP, TDB679OPE);
+

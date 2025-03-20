@@ -1,0 +1,25 @@
+create table AQPB450
+(
+  aqpb450pgco NUMBER(4) not null,
+  aqpb450modu NUMBER(4) not null,
+  aqpb450tope NUMBER(4) not null,
+  aqpb450sucd NUMBER(4) not null,
+  aqpb450mone NUMBER(4) not null,
+  aqpb450pape NUMBER(4) not null,
+  aqpb450ctro NUMBER(9) not null,
+  aqpb450oper NUMBER(9) not null,
+  aqpb450subo NUMBER(3) not null,
+  aqpb450rubr NUMBER(16) not null,
+  aqpb450tord NUMBER(2) not null,
+  aqpb450sbor NUMBER(4) not null,
+  aqpb450fval DATE,
+  aqpb450tmod NUMBER(4),
+  aqpb450tsuc NUMBER(4),
+  aqpb450tran NUMBER(4),
+  aqpb450nrel NUMBER(4)
+)
+;
+create index AQPB4502 on AQPB450 (AQPB450PGCO, AQPB450MONE, AQPB450CTRO, AQPB450OPER, AQPB450RUBR);
+alter table AQPB450
+  add primary key (AQPB450PGCO, AQPB450MODU, AQPB450TOPE, AQPB450SUCD, AQPB450MONE, AQPB450PAPE, AQPB450CTRO, AQPB450OPER, AQPB450SUBO, AQPB450RUBR, AQPB450TORD, AQPB450SBOR);
+

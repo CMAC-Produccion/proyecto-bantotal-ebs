@@ -1,0 +1,86 @@
+create table AQPB941
+(
+  aqpb941nucon NUMBER(17) not null,
+  aqpb941anio  NUMBER(4),
+  aqpb941fech  DATE,
+  aqpb941hora  VARCHAR2(15),
+  aqpb941user  VARCHAR2(10),
+  aqpb941usuc  NUMBER(5),
+  aqpb941tdoc  NUMBER(2),
+  aqpb941ndoc  VARCHAR2(12),
+  aqpb941nomb  VARCHAR2(120),
+  aqpb941intgr VARCHAR2(60),
+  aqpb941corre NUMBER(17),
+  aqpb941seria NUMBER(17),
+  aqpb941buro  NUMBER(3),
+  aqpb941est   NUMBER(3),
+  aqpb941orig  NUMBER(2),
+  aqpb941auxv1 VARCHAR2(15),
+  aqpb941auxv2 VARCHAR2(15),
+  aqpb941auxv3 VARCHAR2(15),
+  aqpb941auxv4 VARCHAR2(15),
+  aqpb941auxn1 NUMBER(5),
+  aqpb941auxn2 NUMBER(5),
+  aqpb941auxn3 NUMBER(5),
+  aqpb941auxv5 VARCHAR2(15),
+  aqpb941auxv6 VARCHAR2(15),
+  aqpb941auxv7 VARCHAR2(15)
+)
+;
+comment on table AQPB941
+  is 'TABLA LOG DE CONSULTA A LA CENTRAL DE RIESGOS';
+comment on column AQPB941.aqpb941nucon
+  is 'Codigo de Seguimiento/Consulta';
+comment on column AQPB941.aqpb941anio
+  is 'Año de Consulta';
+comment on column AQPB941.aqpb941fech
+  is 'Fecha de Consulta';
+comment on column AQPB941.aqpb941hora
+  is 'Hora de Consulta';
+comment on column AQPB941.aqpb941user
+  is 'Usuario de Consulta';
+comment on column AQPB941.aqpb941usuc
+  is 'Sucursal del Usuario de Consulta';
+comment on column AQPB941.aqpb941tdoc
+  is 'Tipo de Documento del Integrante';
+comment on column AQPB941.aqpb941ndoc
+  is 'Numero de Documento del Integrante';
+comment on column AQPB941.aqpb941nomb
+  is 'Nombre del Integrante.';
+comment on column AQPB941.aqpb941intgr
+  is 'Tipo de Integrante';
+comment on column AQPB941.aqpb941corre
+  is 'Correlativo Reglas de Consulta AQPA012';
+comment on column AQPB941.aqpb941seria
+  is 'Serial de Buro Generado';
+comment on column AQPB941.aqpb941buro
+  is 'Buro de Consulta (1:Experian/2:Sentinel/3:Equifax)';
+comment on column AQPB941.aqpb941est
+  is 'Estado de Consulta al Buro (1:OK/0:Error)';
+comment on column AQPB941.aqpb941orig
+  is 'Origen (1:BT/2:MISTI/3:CajaLab/4:G.Masivo/5:Web Service BI/6:Web Service RRHH)';
+comment on column AQPB941.aqpb941auxv1
+  is 'Hora de Inicio Preevaluación';
+comment on column AQPB941.aqpb941auxv2
+  is 'Hora de Fin Preevaluación';
+comment on column AQPB941.aqpb941auxv3
+  is 'Hora de Inicio Reporte';
+comment on column AQPB941.aqpb941auxv4
+  is 'Hora de Fin Reporte';
+comment on column AQPB941.aqpb941auxn1
+  is 'Auxiliar Numeric 1';
+comment on column AQPB941.aqpb941auxn2
+  is 'Auxiliar Numeric 2';
+comment on column AQPB941.aqpb941auxn3
+  is 'Auxiliar Numeric 3';
+comment on column AQPB941.aqpb941auxv5
+  is 'Auxiliar Varchar 1';
+comment on column AQPB941.aqpb941auxv6
+  is 'Auxiliar Varchar 2';
+comment on column AQPB941.aqpb941auxv7
+  is 'Auxiliar Varchar 3';
+create index AQPB941A2 on AQPB941 (AQPB941NUCON, AQPB941ANIO, AQPB941AUXN1, AQPB941TDOC, AQPB941NDOC);
+create index AQPB941A3 on AQPB941 (AQPB941TDOC, AQPB941NDOC);
+create index AQPB941A4 on AQPB941 (AQPB941FECH, AQPB941USER, AQPB941USUC, AQPB941ORIG);
+create index AQPB941A5 on AQPB941 (AQPB941FECH, AQPB941BURO, AQPB941EST);
+

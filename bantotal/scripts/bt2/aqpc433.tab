@@ -1,0 +1,59 @@
+create table AQPC433
+(
+  aqpc433emp    NUMBER(3) not null,
+  aqpc433mod    NUMBER(3) not null,
+  aqpc433suc    NUMBER(3) not null,
+  aqpc433mda    NUMBER(4) not null,
+  aqpc433pap    NUMBER(4) not null,
+  aqpc433cta    NUMBER(9) not null,
+  aqpc433oper   NUMBER(9) not null,
+  aqpc433sbop   NUMBER(3) not null,
+  aqpc433top    NUMBER(3) not null,
+  aqpc433fec    DATE not null,
+  aqpc433tip    VARCHAR2(300),
+  aqpc433sbtip  VARCHAR2(300),
+  aqpc433sdmo   NUMBER(17,2),
+  aqpc433aplext CHAR(1),
+  aqpc433fecbi  DATE
+)
+;
+comment on table AQPC433
+  is 'Tabla  espejo AQPB436';
+comment on column AQPC433.aqpc433emp
+  is 'empresa';
+comment on column AQPC433.aqpc433mod
+  is 'módulo ';
+comment on column AQPC433.aqpc433suc
+  is 'sucursal';
+comment on column AQPC433.aqpc433mda
+  is 'moneda';
+comment on column AQPC433.aqpc433pap
+  is 'papel';
+comment on column AQPC433.aqpc433cta
+  is 'cuenta';
+comment on column AQPC433.aqpc433oper
+  is 'operación';
+comment on column AQPC433.aqpc433sbop
+  is 'suboperación';
+comment on column AQPC433.aqpc433top
+  is 'tipo de operación';
+comment on column AQPC433.aqpc433fec
+  is 'fecha de reprogramación';
+comment on column AQPC433.aqpc433tip
+  is 'Tipo';
+comment on column AQPC433.aqpc433sbtip
+  is 'Subtipo';
+comment on column AQPC433.aqpc433sdmo
+  is 'saldo';
+comment on column AQPC433.aqpc433aplext
+  is 'aplica extorno';
+comment on column AQPC433.aqpc433fecbi
+  is 'fecha actualziación BI';
+create index AQPC433A2 on AQPC433 (AQPC433CTA, AQPC433OPER);
+create index AQPC433A3 on AQPC433 (AQPC433CTA, AQPC433OPER, AQPC433SBOP, AQPC433FEC);
+create index AQPC433A4 on AQPC433 (AQPC433FEC, AQPC433CTA, AQPC433OPER, AQPC433SBOP);
+create index AQPC433A5 on AQPC433 (AQPC433EMP, AQPC433MOD, AQPC433SUC, AQPC433MDA, AQPC433PAP, AQPC433CTA, AQPC433OPER, AQPC433SBOP, AQPC433TOP);
+create index AQPC433A6 on AQPC433 (AQPC433FEC);
+alter table AQPC433
+  add primary key (AQPC433EMP, AQPC433MOD, AQPC433SUC, AQPC433MDA, AQPC433PAP, AQPC433CTA, AQPC433OPER, AQPC433SBOP, AQPC433TOP, AQPC433FEC);
+

@@ -1,0 +1,34 @@
+create table AQPB106H
+(
+  aqpb106hcoent  CHAR(10) not null,
+  aqpb106hidgrp  CHAR(6) not null,
+  aqpb106hidcaj  NUMBER(6) not null,
+  aqpb106hcotse  CHAR(6) not null,
+  aqpb106hnrcon  VARCHAR2(20) not null,
+  aqpb106hpefac  CHAR(8) not null,
+  aqpb106hfadoc  VARCHAR2(26) not null,
+  aqpb106hfepro  DATE not null,
+  aqpb106hhopro  VARCHAR2(8) not null,
+  aqpb106hnrdoc  VARCHAR2(20),
+  aqpb106hclien  VARCHAR2(150),
+  aqpb106hcomon  NUMBER(3),
+  aqpb106hmocob  NUMBER(11,2),
+  aqpb106hfefac  CHAR(8),
+  aqpb106hfeven  CHAR(8),
+  aqpb106htrace  CHAR(8),
+  aqpb106htext1  VARCHAR2(1000),
+  aqpb106hauxc3  VARCHAR2(100),
+  aqpb106himpdeu NUMBER(17,2),
+  aqpb106hcom    NUMBER(17,2),
+  aqpb106hcomcan NUMBER(17,2),
+  aqpb106hcomemp NUMBER(17,2),
+  aqpb106hmonmin NUMBER(17,2),
+  aqpb106hmonmax NUMBER(17,2),
+  aqpb106hconadc VARCHAR2(999),
+  aqpb106hforpag VARCHAR2(20),
+  aqpb106htipdo  CHAR(3)
+)
+;
+alter table AQPB106H
+  add primary key (AQPB106HCOENT, AQPB106HIDGRP, AQPB106HIDCAJ, AQPB106HCOTSE, AQPB106HNRCON, AQPB106HPEFAC, AQPB106HFADOC, AQPB106HFEPRO, AQPB106HHOPRO);
+

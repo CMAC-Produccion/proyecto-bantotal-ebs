@@ -1,0 +1,22 @@
+create table SNG057_201X
+(
+  sng055emp  NUMBER(3) not null,
+  sng057usr  CHAR(10) not null,
+  sng055car  NUMBER(3),
+  sng057aut  CHAR(1),
+  sng057sup  CHAR(10),
+  sng057ini  DATE,
+  sng057fin  DATE,
+  sng057jef  CHAR(10),
+  sng057wkf  CHAR(1),
+  sng057prc  NUMBER(10),
+  sng057tsk  NUMBER(10),
+  sng057fpro DATE
+)
+;
+comment on table SNG057_201X
+  is 'log de cargos por usuario al cierre de mes';
+create index SNG05702_2 on SNG057_201X (SNG055EMP, SNG055CAR);
+create index SNG05702_3 on SNG057_201X (SNG057FPRO, SNG057USR);
+create index SNG057024 on SNG057_201X (SNG057FPRO, SNG055CAR);
+

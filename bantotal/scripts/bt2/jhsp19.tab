@@ -1,0 +1,19 @@
+create table JHSP19
+(
+  jhsp19fec DATE not null,
+  jhsp19hor CHAR(8) not null,
+  jhsp19tre CHAR(1) not null,
+  jhsp19mon NUMBER(1) not null,
+  jhsp19nch CHAR(9) not null,
+  jhsp19bgi NUMBER(2),
+  jhsp19dgi NUMBER(3),
+  jhsp19cta CHAR(10),
+  jhsp19bre NUMBER(2),
+  jhsp19ich NUMBER(13),
+  jhsp19pro NUMBER(1),
+  jhsp19fse NUMBER(8),
+  jhsp19est CHAR(1)
+)
+;
+create unique index JHSP1901 on JHSP19 (JHSP19FEC, JHSP19HOR, JHSP19TRE, JHSP19MON, JHSP19NCH);
+

@@ -1,0 +1,18 @@
+create table JAQY346DET
+(
+  c_codsbs VARCHAR2(10),
+  c_tipreg VARCHAR2(1),
+  c_tipdet VARCHAR2(1),
+  c_codemp VARCHAR2(5),
+  c_cretip VARCHAR2(2),
+  c_cuenta VARCHAR2(14),
+  n_diaatr NUMBER(5),
+  n_salcap NUMBER(18,2),
+  c_calvig VARCHAR2(1),
+  d_fecpre DATE
+)
+;
+create index IDX_JAQY346DET_01 on JAQY346DET (D_FECPRE, C_CODSBS);
+create index IDX_JAQY346DET_02 on JAQY346DET (C_CODSBS, C_CUENTA);
+create index IDX_JAQY346DET_03 on JAQY346DET (C_CODSBS, C_CRETIP, C_CODEMP, C_CUENTA);
+

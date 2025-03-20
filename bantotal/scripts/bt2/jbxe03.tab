@@ -1,0 +1,13 @@
+create table JBXE03
+(
+  jbx3nfac  CHAR(13) not null,
+  jbx3vto   DATE not null,
+  jbx3imp   NUMBER(17,2),
+  jbx3nom   CHAR(50),
+  jbx3cuit  CHAR(11),
+  jbx3domic CHAR(80)
+)
+;
+alter table JBXE03
+  add primary key (JBX3NFAC, JBX3VTO);
+

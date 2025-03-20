@@ -1,0 +1,25 @@
+create table FBCCRF
+(
+  bccrfemp  NUMBER(3) not null,
+  bccrffec  DATE not null,
+  bccrfcorr NUMBER(12) not null,
+  bccrf04   CHAR(16) not null,
+  bccrf03   CHAR(4),
+  bccrf05   CHAR(2),
+  bccrf06   CHAR(2),
+  bccrf07   CHAR(2),
+  bccrf08   CHAR(2),
+  bccrf09   CHAR(4),
+  bccrf10   CHAR(2),
+  bccrf11   CHAR(2),
+  bccrf12   NUMBER(14,2),
+  bccrf13   CHAR(1),
+  bccrf14   CHAR(4),
+  bccrf15   CHAR(2),
+  bccrf16   CHAR(2),
+  bccrf17   CHAR(1)
+)
+;
+alter table FBCCRF
+  add primary key (BCCRFEMP, BCCRFFEC, BCCRFCORR, BCCRF04);
+

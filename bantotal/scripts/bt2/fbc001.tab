@@ -1,0 +1,12 @@
+create table FBC001
+(
+  bcinfor CHAR(10) not null,
+  bcmod   NUMBER(3) not null,
+  bctran  NUMBER(3) not null,
+  bcauxc  CHAR(30),
+  bcauxn  NUMBER(17,2)
+)
+;
+alter table FBC001
+  add primary key (BCINFOR, BCMOD, BCTRAN);
+

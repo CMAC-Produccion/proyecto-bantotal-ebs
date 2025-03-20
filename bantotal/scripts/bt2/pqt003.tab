@@ -1,0 +1,17 @@
+create table PQT003
+(
+  pgcod     NUMBER(3) not null,
+  pqtcod    NUMBER(5) not null,
+  modulo    NUMBER(3) not null,
+  totope    NUMBER(3) not null,
+  moneda    NUMBER(4) not null,
+  papel     NUMBER(4) not null,
+  cocod     NUMBER(3) not null,
+  pqt2porc  NUMBER(7,4),
+  pqt2impte NUMBER(17,2)
+)
+;
+create index PQT00302 on PQT003 (PGCOD, MODULO, TOTOPE, MONEDA, PAPEL, COCOD);
+alter table PQT003
+  add primary key (PGCOD, PQTCOD, MODULO, TOTOPE, MONEDA, PAPEL, COCOD);
+

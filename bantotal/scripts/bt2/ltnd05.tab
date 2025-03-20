@@ -1,0 +1,11 @@
+create table LTND05
+(
+  ltnd05idvo NUMBER(10) not null,
+  ltnd05desc CHAR(50),
+  ltnd05est  CHAR(1)
+)
+;
+create index LTND0502 on LTND05 (LTND05DESC);
+alter table LTND05
+  add primary key (LTND05IDVO);
+

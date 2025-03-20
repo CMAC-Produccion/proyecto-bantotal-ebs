@@ -1,0 +1,21 @@
+create table JAQY127
+(
+  jaqy127corr    NUMBER(4) not null,
+  jaqy127lote    NUMBER(9) not null,
+  jaqy127est     NUMBER(3),
+  jaqy127cta     NUMBER(10) not null,
+  jaqy127ope     NUMBER(10) not null,
+  jaqy127suc     NUMBER(3),
+  jaqy127mod     NUMBER(4),
+  jaqy127mda     NUMBER(3),
+  jaqy127top     NUMBER(3),
+  jaqy127equi    CHAR(17),
+  jaqy127clie    VARCHAR2(100),
+  jaqy127nomsuc  VARCHAR2(50),
+  jaqy127fech    DATE,
+  jaqy127fechcan DATE
+)
+;
+alter table JAQY127
+  add primary key (JAQY127CORR, JAQY127LOTE, JAQY127CTA, JAQY127OPE);
+

@@ -1,0 +1,36 @@
+create table JAQL509
+(
+  jaql508coent  NUMBER(3) not null,
+  jaql509cotse  NUMBER(3) not null,
+  jaql509estse  CHAR(1),
+  jaql509rgcta  NUMBER(9),
+  jaql509rgmod  NUMBER(3),
+  jaql509rgmda  NUMBER(4),
+  jaql509cobra  CHAR(1),
+  jaql509inven  CHAR(1),
+  jaql509patot  CHAR(1),
+  jaql509noarc  CHAR(30),
+  jaql509conex  CHAR(1),
+  jaql509incar  NUMBER(2),
+  jaql509ficar  NUMBER(2),
+  jaql509c3aux  CHAR(50),
+  jaql509d1aux  DATE,
+  jaql509d2aux  DATE,
+  jaql509d3aux  DATE,
+  jaql509mtocm  NUMBER(11,2),
+  jaql509porcm  NUMBER(11,4),
+  jaql509opecm  CHAR(1),
+  jaql509mdacm  NUMBER(4),
+  jaql509clicm  CHAR(1),
+  jaql509rancm  CHAR(1),
+  jaql509exarc  CHAR(10),
+  jaql509fofea  CHAR(1),
+  jaql509rgtop  NUMBER(3),
+  jaql509rgsop  NUMBER(3),
+  jaql509comcan CHAR(1) default 'N'
+)
+;
+create index JAQL50903 on JAQL509 (JAQL509RGCTA, JAQL509RGMOD, JAQL509RGMDA);
+alter table JAQL509
+  add primary key (JAQL508COENT, JAQL509COTSE);
+

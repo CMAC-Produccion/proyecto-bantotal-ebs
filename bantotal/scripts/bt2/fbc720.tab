@@ -1,0 +1,27 @@
+create table FBC720
+(
+  bc720emp   NUMBER(3) not null,
+  bc720mod   NUMBER(3) not null,
+  bc720suc   NUMBER(3) not null,
+  bc720mda   NUMBER(4) not null,
+  bc720pap   NUMBER(4) not null,
+  bc720cta   NUMBER(9) not null,
+  bc720oper  NUMBER(9) not null,
+  bc720sbop  NUMBER(3) not null,
+  bc720tope  NUMBER(3) not null,
+  bc720rubro NUMBER(16),
+  bc720trest CHAR(2),
+  bc720fchfo DATE,
+  bc720cntre NUMBER(3),
+  bc720fchte DATE,
+  bc720pgcap NUMBER(3),
+  bc720pgint NUMBER(3),
+  bc720fares NUMBER(2),
+  bc720aux1  NUMBER(17,2),
+  bc720aux2  CHAR(1),
+  bc720aux3  DATE
+)
+;
+alter table FBC720
+  add primary key (BC720EMP, BC720MOD, BC720SUC, BC720MDA, BC720PAP, BC720CTA, BC720OPER, BC720SBOP, BC720TOPE);
+

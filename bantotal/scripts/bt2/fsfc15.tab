@@ -1,0 +1,19 @@
+create table FSFC15
+(
+  sfc15emp NUMBER(3) not null,
+  sfc15cta NUMBER(9) not null,
+  sfc15nom CHAR(35),
+  sfc15fmo DATE,
+  sfc15hmo CHAR(8),
+  sfc15umo CHAR(10),
+  sfc15a01 NUMBER(9),
+  sfc15a02 NUMBER(9),
+  sfc15a03 NUMBER(17,2),
+  sfc15a04 NUMBER(17,2),
+  sfc15a05 DATE,
+  sfc15a06 DATE
+)
+;
+alter table FSFC15
+  add primary key (SFC15EMP, SFC15CTA);
+

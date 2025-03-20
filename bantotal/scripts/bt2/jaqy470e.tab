@@ -1,0 +1,17 @@
+create table JAQY470E
+(
+  jqy470enro NUMBER(10) not null,
+  jqy470efev DATE not null,
+  jqy470esuc NUMBER(3),
+  jqy470eubg CHAR(6),
+  jqy470erub NUMBER(16),
+  jqy470etip CHAR(2),
+  jqy470esal NUMBER(17,2),
+  jqy470ecda CHAR(4),
+  jqy470eces CHAR(2),
+  jqy470ecdi CHAR(2),
+  jqy470efcc CHAR(2)
+)
+;
+create index INX_JAQY470E_01 on JAQY470E (JQY470EFEV, JQY470ENRO, JQY470ESUC, JQY470ETIP, JQY470ERUB, JQY470ECDA, JQY470ECES, JQY470ECDI, JQY470EFCC);
+

@@ -1,0 +1,20 @@
+create table JBXI94
+(
+  jbxi94ch1 CHAR(244) not null,
+  jbxi94ch2 CHAR(240) not null,
+  jbxi94ch3 CHAR(246) not null,
+  jbxi94ch4 CHAR(131) not null,
+  jbxi94emp NUMBER(3) not null,
+  jbxi94suc NUMBER(3) not null,
+  jbxi94mod NUMBER(3) not null,
+  jbxi94rub NUMBER(16) not null,
+  jbxi94mda NUMBER(4) not null,
+  jbxi94pap NUMBER(4) not null,
+  jbxi94cta NUMBER(9) not null,
+  jbxi94ope NUMBER(9) not null,
+  jbxi94sbo NUMBER(3) not null,
+  jbxi94top NUMBER(3) not null
+)
+;
+create unique index JBXI9401 on JBXI94 (JBXI94CH1, JBXI94CH2, JBXI94CH3, JBXI94CH4, JBXI94EMP, JBXI94SUC, JBXI94MOD, JBXI94RUB, JBXI94MDA, JBXI94PAP, JBXI94CTA, JBXI94OPE, JBXI94SBO, JBXI94TOP);
+

@@ -1,0 +1,22 @@
+create table JAQL619
+(
+  jaql619retyp  VARCHAR2(20) not null,
+  jaql619trxid  VARCHAR2(50) not null,
+  jaql619trxts  DATE,
+  jaql619valts  DATE,
+  jaql619amoun  NUMBER(17,2),
+  jaql619recei  VARCHAR2(100),
+  jaql619rcvfn  VARCHAR2(100),
+  jaql619rcvsn  VARCHAR2(100),
+  jaql619sncln  VARCHAR2(50),
+  jaql619sndac  VARCHAR2(50),
+  jaql619messa  VARCHAR2(256),
+  jaql619hora   VARCHAR2(8),
+  jaql619estreg CHAR(1),
+  jaql619estgen CHAR(1),
+  jaql619coddep NUMBER(18)
+)
+;
+alter table JAQL619
+  add primary key (JAQL619RETYP, JAQL619TRXID);
+

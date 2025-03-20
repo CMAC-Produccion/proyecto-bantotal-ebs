@@ -1,0 +1,13 @@
+create table FST331
+(
+  echqmod    NUMBER(3) not null,
+  echqtrn    NUMBER(3) not null,
+  echqestant CHAR(1),
+  echqmotant NUMBER(3),
+  echqestnvo CHAR(1),
+  echqmotnvo NUMBER(3)
+)
+;
+alter table FST331
+  add primary key (ECHQMOD, ECHQTRN);
+

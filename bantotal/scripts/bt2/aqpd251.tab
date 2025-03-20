@@ -1,0 +1,72 @@
+create table AQPD251
+(
+  aqpd251id        NUMBER(17) not null,
+  aqpd251tipope    VARCHAR2(30),
+  aqpd251paidoc    NUMBER(3),
+  aqpd251tipdoc    NUMBER(3),
+  aqpd251numdoc    CHAR(12),
+  aqpd251trareq    CLOB,
+  aqpd251trares    CLOB,
+  aqpd251fecreg    DATE,
+  aqpd251horreg    VARCHAR2(10),
+  aqpd251codres    VARCHAR2(5),
+  aqpd251msjres    VARCHAR2(200),
+  aqpd251errint    VARCHAR2(300),
+  aqpd251fecser    DATE,
+  aqpd251imei      VARCHAR2(100),
+  aqpd251dlat      VARCHAR2(50),
+  aqpd251dlong     VARCHAR2(50),
+  aqpd251dmodelo   VARCHAR2(50),
+  aqpd251ddeviceid VARCHAR2(50),
+  aqpd251dso       VARCHAR2(50),
+  aqpd251horini    VARCHAR2(10),
+  aqpd251horfin    VARCHAR2(10)
+)
+;
+comment on table AQPD251
+  is 'Log Principal de Nano creditos';
+comment on column AQPD251.aqpd251id
+  is 'Correlativo';
+comment on column AQPD251.aqpd251tipope
+  is 'Tipo de Operacion: CONSULTA, POLITICAS, DESEMBOLSO, APERTURA';
+comment on column AQPD251.aqpd251paidoc
+  is 'Pais Documento';
+comment on column AQPD251.aqpd251tipdoc
+  is 'Tipo Documento';
+comment on column AQPD251.aqpd251numdoc
+  is 'Numero Documento';
+comment on column AQPD251.aqpd251trareq
+  is 'Trama Request';
+comment on column AQPD251.aqpd251trares
+  is 'Trama Response';
+comment on column AQPD251.aqpd251fecreg
+  is 'Fecha Registro';
+comment on column AQPD251.aqpd251horreg
+  is 'Hora Registro';
+comment on column AQPD251.aqpd251codres
+  is 'Codigo Resultado';
+comment on column AQPD251.aqpd251msjres
+  is 'Mensaje Resultado';
+comment on column AQPD251.aqpd251errint
+  is 'Error Interno';
+comment on column AQPD251.aqpd251fecser
+  is 'Fecha Servidor';
+comment on column AQPD251.aqpd251imei
+  is 'IMEI / IP';
+comment on column AQPD251.aqpd251dlat
+  is 'Latitud';
+comment on column AQPD251.aqpd251dlong
+  is 'Longitud';
+comment on column AQPD251.aqpd251dmodelo
+  is 'Modelo del Equipo';
+comment on column AQPD251.aqpd251ddeviceid
+  is 'Device ID del Equipo';
+comment on column AQPD251.aqpd251dso
+  is 'Sistema Operativo';
+comment on column AQPD251.aqpd251horini
+  is 'Hora Inicio';
+comment on column AQPD251.aqpd251horfin
+  is 'Hora Fin';
+alter table AQPD251
+  add primary key (AQPD251ID);
+

@@ -1,0 +1,73 @@
+create table JAQM83
+(
+  jaqm83emr NUMBER(3) not null,
+  jaqm83mod NUMBER(3) not null,
+  jaqm83suc NUMBER(3) not null,
+  jaqm83mda NUMBER(4) not null,
+  jaqm83pap NUMBER(4) not null,
+  jaqm83cta NUMBER(9) not null,
+  jaqm83ope NUMBER(9) not null,
+  jaqm83sbo NUMBER(3) not null,
+  jaqm83top NUMBER(3) not null,
+  jaqm83fch DATE not null,
+  jaqm83cor NUMBER(4) not null,
+  jaqm83tid CHAR(10),
+  jaqm83tok CHAR(250),
+  jaqm83tip CHAR(1),
+  jaqm83pai NUMBER(3),
+  jaqm83tdo NUMBER(2),
+  jaqm83ndo CHAR(25),
+  jaqm83idf CHAR(25),
+  jaqm83lin VARCHAR2(2000),
+  jaqm83lou LONG
+)
+;
+comment on table JAQM83
+  is 'Firma Contratacion Digital CA';
+comment on column JAQM83.jaqm83emr
+  is 'Empresa';
+comment on column JAQM83.jaqm83mod
+  is 'Modulo';
+comment on column JAQM83.jaqm83suc
+  is 'Sucursal';
+comment on column JAQM83.jaqm83mda
+  is 'Moneda';
+comment on column JAQM83.jaqm83pap
+  is 'Papel';
+comment on column JAQM83.jaqm83cta
+  is 'Cuenta';
+comment on column JAQM83.jaqm83ope
+  is 'Operación';
+comment on column JAQM83.jaqm83sbo
+  is 'Sub Operación';
+comment on column JAQM83.jaqm83top
+  is 'Tipo de Operacion';
+comment on column JAQM83.jaqm83fch
+  is 'Fecha';
+comment on column JAQM83.jaqm83cor
+  is 'Correlativo';
+comment on column JAQM83.jaqm83tid
+  is 'Tipo de Documento Enviado Digital';
+comment on column JAQM83.jaqm83tok
+  is 'Token';
+comment on column JAQM83.jaqm83tip
+  is 'Tipo Tratamiento (T-todos, I - Individual)';
+comment on column JAQM83.jaqm83pai
+  is 'Pais';
+comment on column JAQM83.jaqm83tdo
+  is 'Tipo de documento';
+comment on column JAQM83.jaqm83ndo
+  is 'Numero documento';
+comment on column JAQM83.jaqm83idf
+  is 'Id Documento Firmado';
+comment on column JAQM83.jaqm83lin
+  is 'Log Entrada';
+comment on column JAQM83.jaqm83lou
+  is 'Log Respuesta';
+create index JAQM83A2 on JAQM83 (JAQM83PAI, JAQM83TDO, JAQM83NDO);
+create index JAQM83A3 on JAQM83 (JAQM83EMR, JAQM83MOD, JAQM83SUC, JAQM83MDA, JAQM83PAP, JAQM83CTA, JAQM83OPE, JAQM83SBO, JAQM83TOP, JAQM83FCH, JAQM83PAI, JAQM83TDO, JAQM83NDO);
+create index JAQM83A4 on JAQM83 (JAQM83TID);
+create index JAQM83A5 on JAQM83 (JAQM83EMR, JAQM83MOD, JAQM83SUC, JAQM83MDA, JAQM83PAP, JAQM83CTA, JAQM83OPE, JAQM83SBO, JAQM83TOP, JAQM83FCH, JAQM83IDF);
+alter table JAQM83
+  add primary key (JAQM83EMR, JAQM83MOD, JAQM83SUC, JAQM83MDA, JAQM83PAP, JAQM83CTA, JAQM83OPE, JAQM83SBO, JAQM83TOP, JAQM83FCH, JAQM83COR);
+

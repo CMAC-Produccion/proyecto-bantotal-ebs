@@ -1,0 +1,19 @@
+create table PEGSIF
+(
+  pegid    CHAR(20) not null,
+  pegsuid  VARCHAR2(36) not null,
+  pegspjid CHAR(80) not null,
+  pegsgpid CHAR(80) not null,
+  pegsrtip CHAR(10) not null,
+  pegsrid  NUMBER(10) not null,
+  pegsrins NUMBER(4) not null,
+  pegsritm DATE not null,
+  pegsrimi VARCHAR2(36) not null,
+  pegsrifd VARCHAR2(128) not null,
+  pegsrifv CLOB,
+  pegsrife CHAR(1)
+)
+;
+alter table PEGSIF
+  add primary key (PEGID, PEGSUID, PEGSPJID, PEGSGPID, PEGSRTIP, PEGSRID, PEGSRINS, PEGSRITM, PEGSRIMI, PEGSRIFD);
+

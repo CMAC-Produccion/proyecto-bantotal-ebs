@@ -1,0 +1,30 @@
+create table AQPA074
+(
+  aqpa074inst  NUMBER(10) not null,
+  aqpa074insta NUMBER(10) not null,
+  aqpa074item  NUMBER(4) not null,
+  aqpa074usrr  NCHAR(10) not null,
+  aqpa074fecr  DATE not null,
+  aqpa074gar   NCHAR(1),
+  aqpa074pgc   NUMBER(3),
+  aqpa074mod   NUMBER(3),
+  aqpa074suc   NUMBER(3),
+  aqpa074mda   NUMBER(4),
+  aqpa074pap   NUMBER(4),
+  aqpa074cta   NUMBER(9),
+  aqpa074oper  NUMBER(9),
+  aqpa074sbop  NUMBER(3),
+  aqpa074tope  NUMBER(3),
+  aqpa074impo  NUMBER(16,2),
+  aqpa074simps NUMBER(16,2),
+  aqpa074simpd NUMBER(16,2),
+  aqpa074segm  NUMBER(5),
+  aqpa074imps  NUMBER(16,2),
+  aqpa074nvar  NCHAR(20),
+  aqpa074vval  NCHAR(20),
+  aqpa074hrar  NCHAR(12)
+)
+;
+alter table AQPA074
+  add primary key (AQPA074INST, AQPA074INSTA, AQPA074ITEM, AQPA074USRR, AQPA074FECR);
+

@@ -1,0 +1,42 @@
+create table JAQL591
+(
+  jaql591tipase  VARCHAR2(50),
+  jaql591tase    CHAR(3),
+  jaql591tusu    CHAR(4),
+  jaql591codcat  NUMBER(3),
+  jaql591catana  VARCHAR2(50),
+  jaql591min     NUMBER(17,2),
+  jaql591max     NUMBER(17,2),
+  jaql591cas     NUMBER(17,2),
+  jaql591vig     CHAR(2),
+  jaql591cantage NUMBER(3),
+  jaql591antage  VARCHAR2(50),
+  jaql591neo     CHAR(1)
+)
+;
+comment on column JAQL591.jaql591tipase
+  is 'Tipo de Asesor PYME / CONSUMO';
+comment on column JAQL591.jaql591tase
+  is 'Código de Tipo de Asesor P-PYME /C-CONSUMO';
+comment on column JAQL591.jaql591tusu
+  is 'Clasificación Analista Inicial (I,II,III,IV,V,VI). Adicionando (VII,VIII,IX)';
+comment on column JAQL591.jaql591codcat
+  is 'Código de Categoría(1,2,3,4,5,6,7,8,9)';
+comment on column JAQL591.jaql591catana
+  is 'Categoría de Analista (Principiante, Junior, AvanzadoJR, Avanzado,ExpertoJR, Experto,SeniorI, SeniorII, SenorIII)';
+comment on column JAQL591.jaql591min
+  is 'Mora MINIMA';
+comment on column JAQL591.jaql591max
+  is 'Mora MAXIMA';
+comment on column JAQL591.jaql591cas
+  is 'Porcentaje Castigo';
+comment on column JAQL591.jaql591vig
+  is 'Vigente -S o NoVigente';
+comment on column JAQL591.jaql591cantage
+  is 'Código de Antigüedad de Agencia: 1-Nueva, 2-EnCrecimiento, 3-Madura';
+comment on column JAQL591.jaql591antage
+  is 'Antigüedad de Agencia: Nueva, EnCrecimiento,Madura';
+comment on column JAQL591.jaql591neo
+  is 'Agencia N-Nueva/E-Especifica/O-Otra';
+create index JAQL591_1 on JAQL591 (JAQL591TASE, JAQL591CODCAT, JAQL591CANTAGE);
+

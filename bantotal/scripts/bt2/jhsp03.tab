@@ -1,0 +1,20 @@
+create table JHSP03
+(
+  jhsp03cod  NUMBER(3) not null,
+  jhsp03mod  NUMBER(3) not null,
+  jhsp03suc  NUMBER(3) not null,
+  jhsp03mda  NUMBER(4) not null,
+  jhsp03pap  NUMBER(4) not null,
+  jhsp03cta  NUMBER(9) not null,
+  jhsp03oper NUMBER(9) not null,
+  jhsp03scta NUMBER(3) not null,
+  jhsp03tope NUMBER(3) not null,
+  jhsp03id   CHAR(1) not null,
+  jhsp03com  NUMBER(3) not null,
+  jhsp03ind  CHAR(1),
+  jhsp03txt  CHAR(50),
+  jhsp03val  CHAR(70)
+)
+;
+create unique index JHSP0301 on JHSP03 (JHSP03COD, JHSP03MOD, JHSP03SUC, JHSP03MDA, JHSP03PAP, JHSP03CTA, JHSP03OPER, JHSP03SCTA, JHSP03TOPE, JHSP03ID, JHSP03COM);
+

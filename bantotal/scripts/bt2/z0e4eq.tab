@@ -1,0 +1,20 @@
+create table Z0E4EQ
+(
+  z0e4eqcap NUMBER(4) not null,
+  z0e4eqcba CHAR(5) not null,
+  z0e4eqcor NUMBER(9) not null,
+  z0e4eqco2 NUMBER(9) not null,
+  z0e4eqirg CHAR(1),
+  z0e4eqcal NUMBER(6),
+  z0e4eqnbl NUMBER(6),
+  z0e4eqcar NUMBER(8),
+  z0e4eqtoc NUMBER(10),
+  z0e4eqsud NUMBER(12,2),
+  z0e4eqsuc NUMBER(12,2),
+  z0e4eqres CHAR(39),
+  z0e4eqest CHAR(2)
+)
+;
+alter table Z0E4EQ
+  add primary key (Z0E4EQCAP, Z0E4EQCBA, Z0E4EQCOR, Z0E4EQCO2);
+

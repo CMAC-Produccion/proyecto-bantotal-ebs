@@ -1,0 +1,51 @@
+create table AQPA720
+(
+  aqpa720id     NUMBER(9) not null,
+  aqpa720numtar CHAR(19),
+  aqpa720tipope CHAR(1),
+  aqpa720codres CHAR(2),
+  aqpa720msjres VARCHAR2(100),
+  aqpa720fecreg DATE,
+  aqpa720horreg VARCHAR2(10),
+  aqpa720canal  NUMBER(3),
+  aqpa720usurio CHAR(10),
+  aqpa720pepais NUMBER(3),
+  aqpa720petdoc NUMBER(2),
+  aqpa720pendoc CHAR(12),
+  aqpa720devcid VARCHAR2(20),
+  aqpa720modelo VARCHAR2(20),
+  aqpa720stmope VARCHAR2(15),
+  aqpa720latitd VARCHAR2(20),
+  aqpa720longtd VARCHAR2(20),
+  aqpa720dscope VARCHAR2(50),
+  aqpa720tipcla VARCHAR2(20),
+  aqpa720nomter VARCHAR2(30)
+)
+;
+comment on column AQPA720.aqpa720usurio
+  is 'Usuario registro';
+comment on column AQPA720.aqpa720pepais
+  is 'Pais del documento';
+comment on column AQPA720.aqpa720petdoc
+  is 'Tipo documento';
+comment on column AQPA720.aqpa720pendoc
+  is 'Documento';
+comment on column AQPA720.aqpa720devcid
+  is 'Ddeviceid';
+comment on column AQPA720.aqpa720modelo
+  is 'Modelo del dispositivo';
+comment on column AQPA720.aqpa720stmope
+  is 'Sistema Operativo';
+comment on column AQPA720.aqpa720latitd
+  is 'Latitud';
+comment on column AQPA720.aqpa720longtd
+  is 'Longitud';
+comment on column AQPA720.aqpa720dscope
+  is 'Descripción de la operación';
+comment on column AQPA720.aqpa720tipcla
+  is 'Tipo de Clave';
+comment on column AQPA720.aqpa720nomter
+  is 'Nombre de Terminal';
+alter table AQPA720
+  add primary key (AQPA720ID);
+

@@ -1,0 +1,129 @@
+create table JAQA257
+(
+  jaqa257emp NUMBER(3) not null,
+  jaqa257mod NUMBER(3) not null,
+  jaqa257suc NUMBER(3) not null,
+  jaqa257mda NUMBER(4) not null,
+  jaqa257pap NUMBER(4) not null,
+  jaqa257cta NUMBER(9) not null,
+  jaqa257ope NUMBER(9) not null,
+  jaqa257sbo NUMBER(3) not null,
+  jaqa257tpo NUMBER(3) not null,
+  jaqa257fec DATE not null,
+  jaqa257fre DATE,
+  jaqa257fpg DATE,
+  jaqa257est CHAR(1),
+  jaqa257tas NUMBER(10,6),
+  jaqa257nu1 NUMBER(9),
+  jaqa257nu2 NUMBER(9),
+  jaqa257nu3 NUMBER(9),
+  jaqa257im1 NUMBER(18,2),
+  jaqa257im2 NUMBER(18,2),
+  jaqa257im3 NUMBER(18,2),
+  jaqa257ch1 CHAR(1),
+  jaqa257ch2 CHAR(1),
+  jaqa257ch3 CHAR(1),
+  jaqa257va1 VARCHAR2(255),
+  jaqa257va2 VARCHAR2(255),
+  jaqa257va3 VARCHAR2(255),
+  jaqa257fe1 DATE,
+  jaqa257fe2 DATE,
+  jaqa257fe3 DATE,
+  jaqa257tea NUMBER(10,6),
+  jaqa257ta1 NUMBER(10,6),
+  jaqa257ta2 NUMBER(10,6),
+  jaqa257ta3 NUMBER(10,6),
+  jaqa257ta4 NUMBER(10,6),
+  jaqa257ta5 NUMBER(10,6),
+  jaqa257ta6 NUMBER(10,6),
+  jaqa257ccu NUMBER(5),
+  jaqa257pcu NUMBER(5),
+  jaqa257scr NUMBER(18,2),
+  jaqa257vcu NUMBER(18,2)
+)
+;
+comment on column JAQA257.jaqa257emp
+  is 'EMPRESA';
+comment on column JAQA257.jaqa257mod
+  is 'MODULO';
+comment on column JAQA257.jaqa257suc
+  is 'SUCURSAL';
+comment on column JAQA257.jaqa257mda
+  is 'MONEDA';
+comment on column JAQA257.jaqa257pap
+  is 'PAPEL';
+comment on column JAQA257.jaqa257cta
+  is 'CUENTA';
+comment on column JAQA257.jaqa257ope
+  is 'OPERACION';
+comment on column JAQA257.jaqa257sbo
+  is 'SUBOPERACION';
+comment on column JAQA257.jaqa257tpo
+  is 'TIPO DE OPERACION';
+comment on column JAQA257.jaqa257fec
+  is 'FECHA DE EJECUCION';
+comment on column JAQA257.jaqa257fre
+  is 'FECHA VALOR DE REPROGRAMACION';
+comment on column JAQA257.jaqa257fpg
+  is 'FECHA PRIMER PAGO';
+comment on column JAQA257.jaqa257est
+  is 'ESTADO';
+comment on column JAQA257.jaqa257tas
+  is 'TASA';
+comment on column JAQA257.jaqa257nu1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQA257.jaqa257nu2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQA257.jaqa257nu3
+  is 'AUXILIAR NUMERICO 3';
+comment on column JAQA257.jaqa257im1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQA257.jaqa257im2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQA257.jaqa257im3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQA257.jaqa257ch1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQA257.jaqa257ch2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQA257.jaqa257ch3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQA257.jaqa257va1
+  is 'AUXILIAR VARCHAR 1';
+comment on column JAQA257.jaqa257va2
+  is 'AUXILIAR VARCHAR 2';
+comment on column JAQA257.jaqa257va3
+  is 'AUXILIAR VARCHAR 3';
+comment on column JAQA257.jaqa257fe1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQA257.jaqa257fe2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQA257.jaqa257fe3
+  is 'AUXILIAR FECHA 3';
+comment on column JAQA257.jaqa257tea
+  is 'TEA ORIGINAL';
+comment on column JAQA257.jaqa257ta1
+  is 'TCEA BT -JAQX208';
+comment on column JAQA257.jaqa257ta2
+  is 'TCEA CALCULADA';
+comment on column JAQA257.jaqa257ta3
+  is 'TASA DESEGRAVAMEN';
+comment on column JAQA257.jaqa257ta4
+  is 'TCEA BT ACTUAL';
+comment on column JAQA257.jaqa257ta5
+  is 'TASA MODIFICADA/FSD012';
+comment on column JAQA257.jaqa257ta6
+  is 'TASA AUX';
+comment on column JAQA257.jaqa257ccu
+  is 'CANTIDAD DE CUOTAS';
+comment on column JAQA257.jaqa257pcu
+  is 'PERIODO';
+comment on column JAQA257.jaqa257scr
+  is 'SALDO A CAPITALIZAR';
+comment on column JAQA257.jaqa257vcu
+  is 'VALOR CUOTA';
+create index JAQA2572 on JAQA257 (JAQA257FEC, JAQA257EST, JAQA257CTA);
+create index JAQA2573 on JAQA257 (JAQA257EST);
+alter table JAQA257
+  add primary key (JAQA257EMP, JAQA257MOD, JAQA257SUC, JAQA257MDA, JAQA257PAP, JAQA257CTA, JAQA257OPE, JAQA257SBO, JAQA257TPO, JAQA257FEC);
+

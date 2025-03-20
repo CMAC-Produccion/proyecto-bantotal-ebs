@@ -1,0 +1,22 @@
+create table J052000
+(
+  e053000pgc NUMBER(3) not null,
+  e053000suc NUMBER(3) not null,
+  e053000mod NUMBER(3) not null,
+  e053000tra NUMBER(3) not null,
+  e053000nre NUMBER(4) not null,
+  e053000ord NUMBER(2) not null,
+  e053000pai NUMBER(3) not null,
+  e053000tdo NUMBER(2) not null,
+  e053000ndo CHAR(25) not null,
+  e053000ctn NUMBER(9),
+  e053000imp NUMBER(17,2),
+  e053000ax1 NUMBER(4),
+  e05300ax2  CHAR(30),
+  e05300ax3  NUMBER(17,2)
+)
+;
+create index J0520002 on J052000 (E053000PAI, E053000TDO, E053000NDO);
+alter table J052000
+  add primary key (E053000PGC, E053000SUC, E053000MOD, E053000TRA, E053000NRE, E053000ORD, E053000PAI, E053000TDO, E053000NDO);
+

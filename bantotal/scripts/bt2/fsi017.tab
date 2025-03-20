@@ -1,0 +1,13 @@
+create table FSI017
+(
+  cicamp CHAR(8) not null,
+  cinro  NUMBER(4),
+  cicoun NUMBER(3),
+  ciorde NUMBER(4)
+)
+;
+create index FSI01703 on FSI017 (CICOUN);
+create index FSI01704 on FSI017 (CIORDE);
+alter table FSI017
+  add primary key (CICAMP);
+

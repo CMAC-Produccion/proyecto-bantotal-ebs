@@ -1,0 +1,72 @@
+create table AQPC222
+(
+  aqpc222fec DATE not null,
+  aqpc222hor VARCHAR2(8) not null,
+  aqpc222usu VARCHAR2(10) not null,
+  aqpc222cor NUMBER(17) not null,
+  aqpc222mes VARCHAR2(50),
+  aqpc222reg VARCHAR2(50),
+  aqpc222age VARCHAR2(50),
+  aqpc222con VARCHAR2(50),
+  aqpc222car VARCHAR2(50),
+  aqpc222ana VARCHAR2(50),
+  aqpc222pac VARCHAR2(50),
+  aqpc222tpc VARCHAR2(50),
+  aqpc222vpc VARCHAR2(50),
+  aqpc222vp1 VARCHAR2(50),
+  aqpc222pag VARCHAR2(50),
+  aqpc222cal VARCHAR2(50),
+  aqpc222mpc VARCHAR2(50),
+  aqpc222mpg VARCHAR2(50),
+  aqpc222aab VARCHAR2(50),
+  aqpc222an1 VARCHAR2(50),
+  aqpc222frg VARCHAR2(50)
+)
+;
+comment on table AQPC222
+  is 'Reporte de Pago Casillero - Segmento Personas';
+comment on column AQPC222.aqpc222fec
+  is 'FECHA REGISTRO';
+comment on column AQPC222.aqpc222hor
+  is 'HORA REGISTRO';
+comment on column AQPC222.aqpc222usu
+  is 'USUARIO REGISTRO';
+comment on column AQPC222.aqpc222cor
+  is 'CORRELATIVO';
+comment on column AQPC222.aqpc222mes
+  is 'MES REGISTRO';
+comment on column AQPC222.aqpc222reg
+  is 'REGION';
+comment on column AQPC222.aqpc222age
+  is 'AGENCIA';
+comment on column AQPC222.aqpc222con
+  is 'CONVENIO';
+comment on column AQPC222.aqpc222car
+  is 'CARTERA';
+comment on column AQPC222.aqpc222ana
+  is 'ANALISTA';
+comment on column AQPC222.aqpc222pac
+  is 'PAGO CASILLERO';
+comment on column AQPC222.aqpc222tpc
+  is 'TIPO CASILLERO';
+comment on column AQPC222.aqpc222vpc
+  is 'CASILLERO APROBADO';
+comment on column AQPC222.aqpc222vp1
+  is 'MONTO DEL CHEQUE O TRANSFERENCIA';
+comment on column AQPC222.aqpc222pag
+  is 'MODALIDAD DE PAGO CASILLERO';
+comment on column AQPC222.aqpc222cal
+  is 'MODALIDAD DE CALCULO';
+comment on column AQPC222.aqpc222mpc
+  is 'MONTO DE PAGO CASILLERO';
+comment on column AQPC222.aqpc222mpg
+  is 'MEDIO DE PAGO';
+comment on column AQPC222.aqpc222aab
+  is 'AREA QUE ABONO';
+comment on column AQPC222.aqpc222an1
+  is 'USUARIO REGISTRO CARGO';
+comment on column AQPC222.aqpc222frg
+  is 'FECHA REGISTRO CARGO';
+alter table AQPC222
+  add primary key (AQPC222FEC, AQPC222HOR, AQPC222USU, AQPC222COR);
+

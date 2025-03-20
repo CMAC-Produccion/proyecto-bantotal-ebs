@@ -1,0 +1,11 @@
+create table WFTASKATTRIBUTES
+(
+  wfprcid        NUMBER(4) not null,
+  wftaskcod      NUMBER(4) not null,
+  wftaskattname  CHAR(30) not null,
+  wftaskattvalue CHAR(254)
+)
+;
+alter table WFTASKATTRIBUTES
+  add primary key (WFPRCID, WFTASKCOD, WFTASKATTNAME);
+

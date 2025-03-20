@@ -1,0 +1,23 @@
+create table FSFICL
+(
+  sficlcod NUMBER(3) not null,
+  sfickper NUMBER(3) not null,
+  sficlcta NUMBER(9) not null,
+  sficlcor NUMBER(4) not null,
+  sficlhab CHAR(1),
+  sficlfec DATE,
+  sficlhor CHAR(8),
+  sficlusr CHAR(10),
+  sficlwks CHAR(10),
+  sficlax1 CHAR(50),
+  sficlax2 CHAR(50),
+  sficlax3 DATE,
+  sficlax4 DATE,
+  sficlax5 NUMBER(9),
+  sficlax6 NUMBER(9),
+  sficlax7 CHAR(1)
+)
+;
+alter table FSFICL
+  add primary key (SFICLCOD, SFICKPER, SFICLCTA, SFICLCOR);
+

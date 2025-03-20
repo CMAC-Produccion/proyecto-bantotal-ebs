@@ -1,0 +1,23 @@
+create table FCPG42
+(
+  cpg41empbt NUMBER(3) not null,
+  cpg41conv  NUMBER(8) not null,
+  cpg41serv  NUMBER(3) not null,
+  cpg41fpres DATE not null,
+  cpg41nenv  NUMBER(3) not null,
+  cpg42nlote NUMBER(3) not null,
+  cpg42nlemp NUMBER(4),
+  cpg42tmov  NUMBER(1),
+  cpg42cpto  CHAR(30),
+  cpg42cmov  NUMBER(10),
+  cpg42imptl NUMBER(17,2),
+  cpg42canal NUMBER(3),
+  cpg42est   CHAR(3),
+  cpg42blq   CHAR(1),
+  cpg42inst  NUMBER(10)
+)
+;
+create index FCPG4203 on FCPG42 (CPG41EMPBT, CPG41FPRES);
+alter table FCPG42
+  add primary key (CPG41EMPBT, CPG41CONV, CPG41SERV, CPG41FPRES, CPG41NENV, CPG42NLOTE);
+

@@ -1,0 +1,14 @@
+create table IBNAVS
+(
+  ibproject  CHAR(60) not null,
+  ibprocessi CHAR(60) not null,
+  ibtaski    CHAR(60) not null,
+  ibprocessf CHAR(60) not null,
+  ibtaskf    CHAR(60) not null,
+  ibnavcod   NUMBER(4) not null,
+  ibnavhab   CHAR(2) not null
+)
+;
+create unique index IBNAVS01 on IBNAVS (IBPROJECT, IBPROCESSI, IBTASKI, IBPROCESSF, IBTASKF);
+create index IBNAVS02 on IBNAVS (IBPROJECT);
+

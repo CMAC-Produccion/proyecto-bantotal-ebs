@@ -1,0 +1,183 @@
+create table AQPA565
+(
+  aqpa565cod    NUMBER(9) not null,
+  aqpa565cta    NUMBER(9) not null,
+  aqpa565dni    CHAR(12) not null,
+  aqpa565fec    DATE not null,
+  aqpa565nro    NUMBER(9) not null,
+  aqpa565emp    CHAR(6),
+  aqpa565pro    CHAR(10),
+  aqpa565cert   CHAR(15),
+  aqpa565app    CHAR(50),
+  aqpa565apm    CHAR(50),
+  aqpa565nom1   CHAR(50),
+  aqpa565nom2   CHAR(50),
+  aqpa565sexo   CHAR(1),
+  aqpa565fnac   CHAR(8),
+  aqpa565tdoc   CHAR(2),
+  aqpa565ndoc   CHAR(15),
+  aqpa565ccua   CHAR(20),
+  aqpa565cat    CHAR(2),
+  aqpa565fven   CHAR(8),
+  aqpa565fafi   CHAR(8),
+  aqpa565prg    CHAR(2),
+  aqpa565edad   NUMBER(2),
+  aqpa565fuma   CHAR(1),
+  aqpa565mto    CHAR(8),
+  aqpa565dir    CHAR(150),
+  aqpa565ugeo   CHAR(6),
+  aqpa565cpos   CHAR(6),
+  aqpa565tel    CHAR(10),
+  aqpa565cel    CHAR(10),
+  aqpa565corr   CHAR(50),
+  aqpa565tdv    CHAR(2),
+  aqpa565ape1c  CHAR(50),
+  aqpa565ape2c  CHAR(50),
+  aqpa565nom1c  CHAR(50),
+  aqpa565nom2c  CHAR(50),
+  aqpa565sexc   CHAR(1),
+  aqpa565fnacc  CHAR(8),
+  aqpa565tdocc  CHAR(20),
+  aqpa565ndocc  CHAR(15),
+  aqpa565rzonc  CHAR(150),
+  aqpa565ruc    CHAR(15),
+  aqpa565direcc CHAR(150),
+  aqpa565ugeoc  CHAR(6),
+  aqpa565copc   CHAR(6),
+  aqpa565telc   CHAR(10),
+  aqpa565celc   CHAR(10),
+  aqpa565corrc  CHAR(50),
+  aqpa565eetar  CHAR(2),
+  aqpa565epro   CHAR(2),
+  aqpa565tpro   CHAR(3),
+  aqpa565ntar   CHAR(20),
+  aqpa565fvtar  CHAR(8),
+  aqpa565titar  CHAR(150),
+  aqpa565cven   CHAR(10),
+  aqpa565csup   CHAR(10),
+  aqpa565agen   CHAR(6),
+  aqpa565ven    CHAR(6),
+  aqopa565a1    NUMBER(4)
+)
+;
+comment on table AQPA565
+  is 'Tabla Temporal  trama ONCOAUNA';
+comment on column AQPA565.aqpa565cod
+  is 'codigo';
+comment on column AQPA565.aqpa565cta
+  is 'cuenta';
+comment on column AQPA565.aqpa565dni
+  is 'dni';
+comment on column AQPA565.aqpa565fec
+  is 'fecha';
+comment on column AQPA565.aqpa565nro
+  is 'nro reporte';
+comment on column AQPA565.aqpa565emp
+  is 'empresa';
+comment on column AQPA565.aqpa565pro
+  is 'producto';
+comment on column AQPA565.aqpa565cert
+  is 'certificado';
+comment on column AQPA565.aqpa565app
+  is 'apellido paterno';
+comment on column AQPA565.aqpa565apm
+  is 'apellido materno';
+comment on column AQPA565.aqpa565nom1
+  is 'nombre1';
+comment on column AQPA565.aqpa565nom2
+  is 'nombre2';
+comment on column AQPA565.aqpa565sexo
+  is 'sexo';
+comment on column AQPA565.aqpa565fnac
+  is 'Fecha nacimiento';
+comment on column AQPA565.aqpa565tdoc
+  is 'Tipo Dcmto identidad';
+comment on column AQPA565.aqpa565ndoc
+  is 'Numero Dcmto identidad ';
+comment on column AQPA565.aqpa565ccua
+  is 'Codigo unico de afiliado (CUA)';
+comment on column AQPA565.aqpa565cat
+  is 'Categoria';
+comment on column AQPA565.aqpa565fven
+  is 'Fecha venta';
+comment on column AQPA565.aqpa565fafi
+  is 'Fecha afiliacion';
+comment on column AQPA565.aqpa565prg
+  is 'Programa';
+comment on column AQPA565.aqpa565edad
+  is 'Edad';
+comment on column AQPA565.aqpa565fuma
+  is 'Fuma';
+comment on column AQPA565.aqpa565mto
+  is 'Tarifa (monto)';
+comment on column AQPA565.aqpa565dir
+  is 'Direccion';
+comment on column AQPA565.aqpa565ugeo
+  is 'Ubigeo';
+comment on column AQPA565.aqpa565cpos
+  is 'Codigo postal';
+comment on column AQPA565.aqpa565tel
+  is 'Telefono';
+comment on column AQPA565.aqpa565cel
+  is 'Celular';
+comment on column AQPA565.aqpa565corr
+  is 'Correo';
+comment on column AQPA565.aqpa565tdv
+  is 'Tipo documento venta (Factura, Boleta)';
+comment on column AQPA565.aqpa565ape1c
+  is 'Apellido paterno contratante';
+comment on column AQPA565.aqpa565ape2c
+  is 'Apellido materno contratante';
+comment on column AQPA565.aqpa565nom1c
+  is 'Nombre 1  contratante';
+comment on column AQPA565.aqpa565nom2c
+  is 'Nombre 2  contratante';
+comment on column AQPA565.aqpa565sexc
+  is 'Sexo';
+comment on column AQPA565.aqpa565fnacc
+  is 'Fecha nacimiento';
+comment on column AQPA565.aqpa565tdocc
+  is 'Tipo Dcmto identidad';
+comment on column AQPA565.aqpa565ndocc
+  is 'Numero Dcmto identidad ';
+comment on column AQPA565.aqpa565rzonc
+  is 'Razon Social';
+comment on column AQPA565.aqpa565ruc
+  is 'RUC';
+comment on column AQPA565.aqpa565direcc
+  is 'Direccion';
+comment on column AQPA565.aqpa565ugeoc
+  is 'Ubigeo';
+comment on column AQPA565.aqpa565copc
+  is 'Codigo postal';
+comment on column AQPA565.aqpa565telc
+  is 'Telefono';
+comment on column AQPA565.aqpa565celc
+  is 'Celular';
+comment on column AQPA565.aqpa565corrc
+  is 'Correo';
+comment on column AQPA565.aqpa565eetar
+  is 'Entidad emisora de la tarjeta';
+comment on column AQPA565.aqpa565epro
+  is 'Entidad Procesadora';
+comment on column AQPA565.aqpa565tpro
+  is 'Tipo de producto(ahorro, cta corr, tjt cred, tjt deb)';
+comment on column AQPA565.aqpa565ntar
+  is 'Numero de tarjeta o cuenta';
+comment on column AQPA565.aqpa565fvtar
+  is 'Fecha de Vencimiento';
+comment on column AQPA565.aqpa565titar
+  is 'Titular de la tarjeta';
+comment on column AQPA565.aqpa565cven
+  is 'Codigo del Vendedor';
+comment on column AQPA565.aqpa565csup
+  is 'Codigo del Supervisor';
+comment on column AQPA565.aqpa565agen
+  is 'Agencia';
+comment on column AQPA565.aqpa565ven
+  is 'Vendedor';
+comment on column AQPA565.aqopa565a1
+  is 'aux1';
+alter table AQPA565
+  add primary key (AQPA565COD, AQPA565CTA, AQPA565DNI, AQPA565FEC, AQPA565NRO);
+

@@ -1,0 +1,20 @@
+create table FSD125
+(
+  pgcod  NUMBER(3) not null,
+  tamod  NUMBER(3) not null,
+  tpizar NUMBER(2) not null,
+  tamda  NUMBER(4) not null,
+  tapap  NUMBER(4) not null,
+  tafdes DATE not null,
+  tamto1 NUMBER(17,2) not null,
+  tafin1 NUMBER(8)
+)
+;
+create index FSD12503 on FSD125 (TPIZAR);
+create index FSD12504 on FSD125 (TAMOD);
+create index FSD12505 on FSD125 (TAMDA);
+create index FSD12506 on FSD125 (TAPAP);
+create index FSD12508 on FSD125 (PGCOD, TAMOD, TPIZAR, TAMDA, TAPAP, TAFIN1, TAMTO1);
+alter table FSD125
+  add primary key (PGCOD, TAMOD, TPIZAR, TAMDA, TAPAP, TAFDES, TAMTO1);
+

@@ -1,0 +1,14 @@
+create table FIF013
+(
+  if013cta CHAR(17) not null,
+  if013ban CHAR(5) not null,
+  if013mes NUMBER(2) not null,
+  if013ano NUMBER(4) not null,
+  if013sdo NUMBER(17,2),
+  if013dec CHAR(1)
+)
+;
+create index FIF01302 on FIF013 (IF013BAN, IF013CTA, IF013ANO, IF013MES);
+alter table FIF013
+  add primary key (IF013CTA, IF013BAN, IF013MES, IF013ANO);
+

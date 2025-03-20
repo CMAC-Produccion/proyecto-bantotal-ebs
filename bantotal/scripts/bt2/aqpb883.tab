@@ -1,0 +1,38 @@
+create table AQPB883
+(
+  aqpb883fec DATE,
+  aqpb883ana VARCHAR2(20),
+  aqpb883tma NUMBER,
+  aqpb883rgp NUMBER,
+  aqpb883co4 NUMBER,
+  aqpb883co6 NUMBER,
+  aqpb883adm VARCHAR2(21),
+  aqpb883seg VARCHAR2(21),
+  aqpb883ram VARCHAR2(21),
+  aqpb883rat VARCHAR2(14)
+)
+;
+comment on table AQPB883
+  is 'Rating de Analistas';
+comment on column AQPB883.aqpb883fec
+  is 'Fecha Proceso';
+comment on column AQPB883.aqpb883ana
+  is 'Código de analista';
+comment on column AQPB883.aqpb883tma
+  is 'Tasa de Mora Ajustada';
+comment on column AQPB883.aqpb883rgp
+  is 'Ratio Gasto de Provision Especifica';
+comment on column AQPB883.aqpb883co4
+  is 'Cosecha Madurez 4M';
+comment on column AQPB883.aqpb883co6
+  is 'Cosecha Madurez 6M';
+comment on column AQPB883.aqpb883adm
+  is 'Indicador de Admision';
+comment on column AQPB883.aqpb883seg
+  is 'Indicador de Seguimiento';
+comment on column AQPB883.aqpb883ram
+  is 'Rating Mensual';
+comment on column AQPB883.aqpb883rat
+  is 'Rating Trimestral';
+create index AQPB8832 on AQPB883 (AQPB883FEC, AQPB883ANA);
+

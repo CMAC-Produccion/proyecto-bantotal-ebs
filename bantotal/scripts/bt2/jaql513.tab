@@ -1,0 +1,14 @@
+create table JAQL513
+(
+  jaql513cotca NUMBER(3) not null,
+  jaql513descr VARCHAR2(50),
+  jaql513esreg CHAR(1),
+  jaql513ftmov CHAR(1),
+  jaql513grcob CHAR(1),
+  jaql513coiso CHAR(2)
+)
+;
+create index JAQL51302 on JAQL513 (JAQL513DESCR);
+alter table JAQL513
+  add primary key (JAQL513COTCA);
+

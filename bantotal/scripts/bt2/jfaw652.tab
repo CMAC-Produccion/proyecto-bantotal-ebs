@@ -1,0 +1,28 @@
+create table JFAW652
+(
+  jfaw652emp NUMBER(3) not null,
+  jfaw652mod NUMBER(3) not null,
+  jfaw652suc NUMBER(3) not null,
+  jfaw652mda NUMBER(4) not null,
+  jfaw652pap NUMBER(4) not null,
+  jfaw652cta NUMBER(9) not null,
+  jfaw652ope NUMBER(9) not null,
+  jfaw652sub NUMBER(3) not null,
+  jfaw652top NUMBER(3) not null,
+  jfaw652mpr NUMBER(3) not null,
+  jfaw652tpr NUMBER(3) not null,
+  jfaw652efe CHAR(1),
+  jfaw652imp NUMBER(17,2),
+  jfaw652por NUMBER(7,4),
+  jfaw652min NUMBER(17,2),
+  jfaw652max NUMBER(17,2),
+  jfaw652con CHAR(50),
+  jfaw652mac NUMBER(1),
+  jfaw652cpr NUMBER(9),
+  jfaw652pra NUMBER(9),
+  jfaw652esa CHAR(1)
+)
+;
+alter table JFAW652
+  add primary key (JFAW652EMP, JFAW652MOD, JFAW652SUC, JFAW652MDA, JFAW652PAP, JFAW652CTA, JFAW652OPE, JFAW652SUB, JFAW652TOP, JFAW652MPR, JFAW652TPR);
+

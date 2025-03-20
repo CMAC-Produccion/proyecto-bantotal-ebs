@@ -1,0 +1,24 @@
+create table FBC507
+(
+  bc507emp   NUMBER(3) not null,
+  bc507tit   NUMBER(2) not null,
+  bc507cap   NUMBER(1) not null,
+  bc507rie   NUMBER(2) not null,
+  bc507mda   NUMBER(4) not null,
+  bc507pap   NUMBER(4) not null,
+  bc507cta   NUMBER(9) not null,
+  bc507suc   NUMBER(3) not null,
+  bc507rub   NUMBER(16) not null,
+  bc507oper  NUMBER(9) not null,
+  bc507sbop  NUMBER(3) not null,
+  bc507top   NUMBER(3) not null,
+  bc507fval  DATE,
+  bc507fvto  DATE,
+  bc507sdomo NUMBER(17,2),
+  bc507sdomn NUMBER(17,2)
+)
+;
+create index FBC50702 on FBC507 (BC507EMP, BC507SUC, BC507RUB, BC507MDA, BC507PAP, BC507OPER, BC507SBOP, BC507TOP);
+alter table FBC507
+  add primary key (BC507EMP, BC507TIT, BC507CAP, BC507RIE, BC507MDA, BC507PAP, BC507CTA, BC507SUC, BC507RUB, BC507OPER, BC507SBOP, BC507TOP);
+

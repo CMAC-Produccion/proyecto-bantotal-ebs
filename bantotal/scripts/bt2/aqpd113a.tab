@@ -1,0 +1,27 @@
+create table AQPD113A
+(
+  aqpd113aper  NUMBER(8) not null,
+  aqpd113acge  NUMBER(10) not null,
+  aqpd113apai  NUMBER(4) not null,
+  aqpd113atdoc VARCHAR2(3) not null,
+  aqpd113andoc VARCHAR2(12) not null,
+  aqpd113acta  NUMBER(9)
+)
+;
+comment on table AQPD113A
+  is 'TABLA REPORTE 29 - GRUPOS';
+comment on column AQPD113A.aqpd113aper
+  is 'PERIODO';
+comment on column AQPD113A.aqpd113acge
+  is 'COD GRUECO';
+comment on column AQPD113A.aqpd113apai
+  is 'PAIS';
+comment on column AQPD113A.aqpd113atdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPD113A.aqpd113andoc
+  is 'NUMERO DE DOCUMENTO';
+comment on column AQPD113A.aqpd113acta
+  is 'CUENTA';
+alter table AQPD113A
+  add primary key (AQPD113APER, AQPD113ACGE, AQPD113APAI, AQPD113ATDOC, AQPD113ANDOC);
+

@@ -1,0 +1,63 @@
+create table JAQA40
+(
+  jaqa40nco NUMBER(4) not null,
+  jaqa40fau DATE,
+  jaqa40mta NUMBER(17,2),
+  jaqa40fpa CHAR(15),
+  jaqa40tre CHAR(15),
+  jaqa40uau CHAR(10),
+  jaqa40uso CHAR(10),
+  jaqa40cmt CHAR(200),
+  jaqa40ai1 NUMBER(17,2),
+  jaqa40ai2 NUMBER(17,2),
+  jaqa40ac1 CHAR(50),
+  jaqa40ac2 CHAR(50),
+  jaqa40ad1 DATE,
+  jaqa40ad2 DATE,
+  jaqa40an1 NUMBER(4),
+  jaqa40an2 NUMBER(4),
+  jaqa40at1 CHAR(200),
+  jaqa40at2 CHAR(200)
+)
+;
+comment on table JAQA40
+  is 'JAQA40 : Log Datos por Canje Publicitario Autorizado';
+comment on column JAQA40.jaqa40nco
+  is 'Número de Convenio';
+comment on column JAQA40.jaqa40fau
+  is 'Fecha de Autorización';
+comment on column JAQA40.jaqa40mta
+  is 'Monto Autorizado';
+comment on column JAQA40.jaqa40fpa
+  is 'Frecuencia de Pago';
+comment on column JAQA40.jaqa40tre
+  is 'Tipo de Registro';
+comment on column JAQA40.jaqa40uau
+  is 'Usuario que Autoriza';
+comment on column JAQA40.jaqa40uso
+  is 'Usuario que Solicita';
+comment on column JAQA40.jaqa40cmt
+  is 'Comentarios';
+comment on column JAQA40.jaqa40ai1
+  is 'JAQA40 AI1';
+comment on column JAQA40.jaqa40ai2
+  is 'JAQA40 AI2';
+comment on column JAQA40.jaqa40ac1
+  is 'JAQA40 AC1';
+comment on column JAQA40.jaqa40ac2
+  is 'JAQA40 AC2';
+comment on column JAQA40.jaqa40ad1
+  is 'JAQA40 AD1';
+comment on column JAQA40.jaqa40ad2
+  is 'JAQA40 AD2';
+comment on column JAQA40.jaqa40an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA40.jaqa40an2
+  is 'JAQA40 AN2';
+comment on column JAQA40.jaqa40at1
+  is 'JAQA40 AT1';
+comment on column JAQA40.jaqa40at2
+  is 'JAQA40 AT2';
+alter table JAQA40
+  add primary key (JAQA40NCO);
+

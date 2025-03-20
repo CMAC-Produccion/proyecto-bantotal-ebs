@@ -1,0 +1,111 @@
+create table AQPA744
+(
+  aqpa744id     NUMBER(17) not null,
+  aqpa744idref  NUMBER(17),
+  aqpa744numtar CHAR(19),
+  aqpa744tipope VARCHAR2(50),
+  aqpa744fecreg DATE,
+  aqpa744horreg VARCHAR2(10),
+  aqpa744paidoc NUMBER(3),
+  aqpa744numdoc CHAR(12),
+  aqpa744opemod NUMBER(3),
+  aqpa744opetra NUMBER(3),
+  aqpa744operel NUMBER(4),
+  aqpa744opesuc NUMBER(3),
+  aqpa744opefec DATE,
+  aqpa744ctaori VARCHAR2(40),
+  aqpa744ctades VARCHAR2(40),
+  aqpa744monope NUMBER(16,2),
+  aqpa744mdaope NUMBER(4),
+  aqpa744nomcli VARCHAR2(100),
+  aqpa744opecel VARCHAR2(15),
+  aqpa744opecor VARCHAR2(100),
+  aqpa744opesms VARCHAR2(200),
+  aqpa744ressms VARCHAR2(100),
+  aqpa744canal  NUMBER(4),
+  aqpa744auxv1  VARCHAR2(200),
+  aqpa744auxv2  VARCHAR2(200),
+  aqpa744auxv3  VARCHAR2(200),
+  aqpa744auxv4  VARCHAR2(200),
+  aqpa744auxv5  VARCHAR2(200),
+  aqpa744auxn1  NUMBER(16,2),
+  aqpa744auxn2  NUMBER(16,2),
+  aqpa744auxn3  NUMBER(16,2),
+  aqpa744auxn4  NUMBER(16,2),
+  aqpa744auxn5  NUMBER(16,2),
+  aqpa744tipdoc NUMBER(4)
+)
+;
+comment on table AQPA744
+  is 'Log de Transacciones APP Agentes';
+comment on column AQPA744.aqpa744id
+  is 'Correlativo';
+comment on column AQPA744.aqpa744idref
+  is 'Correlativo de referencia a la AQPA743Id';
+comment on column AQPA744.aqpa744numtar
+  is 'Numero de Tarjeta';
+comment on column AQPA744.aqpa744tipope
+  is 'Tipo de Operacion';
+comment on column AQPA744.aqpa744fecreg
+  is 'Fecha de Registro';
+comment on column AQPA744.aqpa744horreg
+  is 'HoraRegistro';
+comment on column AQPA744.aqpa744paidoc
+  is 'Pais Documento';
+comment on column AQPA744.aqpa744numdoc
+  is 'Numero Documento';
+comment on column AQPA744.aqpa744opemod
+  is 'Operacion Modulo';
+comment on column AQPA744.aqpa744opetra
+  is 'Operacion Transaccion';
+comment on column AQPA744.aqpa744operel
+  is 'Operacion Relacion';
+comment on column AQPA744.aqpa744opesuc
+  is 'Operacion Sucursal';
+comment on column AQPA744.aqpa744opefec
+  is 'Operacion Fecha';
+comment on column AQPA744.aqpa744ctaori
+  is 'Cuenta Origen';
+comment on column AQPA744.aqpa744ctades
+  is 'Cuenta Destino';
+comment on column AQPA744.aqpa744monope
+  is 'Monto Operacion';
+comment on column AQPA744.aqpa744mdaope
+  is 'Moneda Operacion';
+comment on column AQPA744.aqpa744nomcli
+  is 'Nombre Cliente';
+comment on column AQPA744.aqpa744opecel
+  is 'Operacion Celular';
+comment on column AQPA744.aqpa744opecor
+  is 'Operacion Correo';
+comment on column AQPA744.aqpa744opesms
+  is 'Mensaje enviado';
+comment on column AQPA744.aqpa744ressms
+  is 'Resultado de envío SMS';
+comment on column AQPA744.aqpa744canal
+  is 'Canal de Operacion';
+comment on column AQPA744.aqpa744auxv1
+  is 'Variable Auxiliar 1';
+comment on column AQPA744.aqpa744auxv2
+  is 'Variable Auxiliar 2';
+comment on column AQPA744.aqpa744auxv3
+  is 'Variable Auxiliar 3';
+comment on column AQPA744.aqpa744auxv4
+  is 'Variable Auxiliar 4';
+comment on column AQPA744.aqpa744auxv5
+  is 'Variable Auxiliar 5';
+comment on column AQPA744.aqpa744auxn1
+  is 'Numero Auxiliar 1';
+comment on column AQPA744.aqpa744auxn2
+  is 'Numero Auxiliar 2';
+comment on column AQPA744.aqpa744auxn3
+  is 'Numero Auxiliar 3';
+comment on column AQPA744.aqpa744auxn4
+  is 'Numero Auxiliar 4';
+comment on column AQPA744.aqpa744auxn5
+  is 'Numero Auxiliar 5';
+comment on column AQPA744.aqpa744tipdoc
+  is 'Tipo Documento';
+alter table AQPA744
+  add primary key (AQPA744ID);
+

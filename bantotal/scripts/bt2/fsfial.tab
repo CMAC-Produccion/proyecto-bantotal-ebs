@@ -1,0 +1,24 @@
+create table FSFIAL
+(
+  sfialemp   NUMBER(3) not null,
+  sfiakcod   NUMBER(3) not null,
+  sfialcalif CHAR(3) not null,
+  sfialorden NUMBER(3) not null,
+  sfialmodif CHAR(1),
+  sfialdesc  CHAR(50),
+  sfialch1   CHAR(1),
+  sfialch2   CHAR(1),
+  sfialch3   CHAR(1),
+  sfialch4   CHAR(1),
+  sfialch5   CHAR(1),
+  sfialnum1  NUMBER(4),
+  sfialnum2  NUMBER(4),
+  sfialimp1  NUMBER(17,2),
+  sfialimp2  NUMBER(17,2),
+  sfialimp3  NUMBER(17,2),
+  sfialimp4  NUMBER(17,2)
+)
+;
+alter table FSFIAL
+  add primary key (SFIALEMP, SFIAKCOD, SFIALCALIF, SFIALORDEN);
+

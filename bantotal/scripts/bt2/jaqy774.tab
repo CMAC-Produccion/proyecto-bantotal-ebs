@@ -1,0 +1,44 @@
+create table JAQY774
+(
+  jaqy774cup    NUMBER(15) not null,
+  jaqy774pgc    NUMBER(3),
+  jaqy774mod    NUMBER(3),
+  jaqy774suc    NUMBER(3),
+  jaqy774mda    NUMBER(4),
+  jaqy774pap    NUMBER(4),
+  jaqy774cta    NUMBER(9),
+  jaqy774ope    NUMBER(9),
+  jaqy774sbo    NUMBER(3),
+  jaqy774top    NUMBER(3),
+  jaqy774cre    VARCHAR2(27),
+  jaqy774fec    DATE,
+  jaqy774fop    DATE,
+  jaqy774est    CHAR(1),
+  jaqy774usr    CHAR(10),
+  jaqy774age    NUMBER(3),
+  jaqy774dpt    CHAR(15),
+  jaqy774ant    CHAR(1),
+  jaqy774atr    NUMBER(10),
+  jaqy774cal    NUMBER(10),
+  jaqy774tip    CHAR(1),
+  jaqy774excup  CHAR(5),
+  jaqy774tsbor  NUMBER(3),
+  jaqy774tord   NUMBER(2),
+  jaqy774tnrel  NUMBER(4),
+  jaqy774ttran  NUMBER(3),
+  jaqy774tmod   NUMBER(3),
+  jaqy774tsuc   NUMBER(3),
+  jaqy774fcta   DATE,
+  jaqy774nump   NUMBER(9),
+  jaqy774cupnum NUMBER(10),
+  jaqy774opc    NUMBER(3)
+)
+;
+create index JAQY77401 on JAQY774 (JAQY774PGC, JAQY774MOD, JAQY774SUC, JAQY774MDA, JAQY774PAP, JAQY774CTA, JAQY774OPE, JAQY774SBO, JAQY774TOP, JAQY774FOP);
+create index JAQY77402 on JAQY774 (JAQY774FOP);
+create index JAQY77403 on JAQY774 (JAQY774TSUC, JAQY774TMOD, JAQY774TTRAN, JAQY774FOP);
+create index JAQY77404 on JAQY774 (JAQY774TNREL);
+create index JAQY77405 on JAQY774 (JAQY774PGC, JAQY774MOD, JAQY774SUC, JAQY774MDA, JAQY774PAP, JAQY774CTA, JAQY774OPE, JAQY774SBO, JAQY774TOP, JAQY774FCTA);
+alter table JAQY774
+  add primary key (JAQY774CUP);
+

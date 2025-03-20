@@ -1,0 +1,11 @@
+create table AQPB108
+(
+  aqpb108cotsv CHAR(6) not null,
+  aqpb108fec   DATE not null,
+  aqpb108hor   VARCHAR2(10) not null,
+  aqpb108detsv VARCHAR2(60)
+)
+;
+alter table AQPB108
+  add primary key (AQPB108COTSV, AQPB108FEC, AQPB108HOR);
+

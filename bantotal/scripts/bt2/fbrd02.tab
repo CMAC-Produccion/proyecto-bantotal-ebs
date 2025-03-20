@@ -1,0 +1,23 @@
+create table FBRD02
+(
+  brd02rgemp NUMBER(3) not null,
+  brd02rgcod NUMBER(5) not null,
+  brd02rgdsc CHAR(50),
+  brd02rgsec NUMBER(5),
+  brt01fucod NUMBER(5),
+  brt02sfcod NUMBER(5),
+  brd03cpcod NUMBER(5),
+  brd02rgper CHAR(1),
+  brd01prnom CHAR(10),
+  brd02rgtpr CHAR(1),
+  brd02rgsvd CHAR(1),
+  brd02rghis CHAR(1),
+  brd02rgest CHAR(1)
+)
+;
+create index FBRD0202 on FBRD02 (BRD01PRNOM);
+create index FBRD0203 on FBRD02 (BRD02RGEMP, BRD02RGEST, BRD02RGTPR, BRD02RGSEC);
+create index FBRD0204 on FBRD02 (BRD02RGEMP, BRD02RGSEC);
+alter table FBRD02
+  add primary key (BRD02RGEMP, BRD02RGCOD);
+

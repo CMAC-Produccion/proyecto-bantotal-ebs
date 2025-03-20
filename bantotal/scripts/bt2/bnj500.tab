@@ -1,0 +1,21 @@
+create table BNJ500
+(
+  bnj500rub  NUMBER(16) not null,
+  bnj500mda  NUMBER(4) not null,
+  bnj500i011 NUMBER(17,2),
+  bnj500i012 NUMBER(17,2),
+  bnj500i021 NUMBER(17,2),
+  bnj500i022 NUMBER(17,2),
+  bnj500i031 NUMBER(17,2),
+  bnj500i032 NUMBER(17,2),
+  bnj500i041 NUMBER(17,2),
+  bnj500i042 NUMBER(17,2),
+  bnj500i051 NUMBER(17,2),
+  bnj500i052 NUMBER(17,2),
+  bnj500i061 NUMBER(17,2),
+  bnj500i062 NUMBER(17,2)
+)
+;
+alter table BNJ500
+  add primary key (BNJ500RUB, BNJ500MDA);
+

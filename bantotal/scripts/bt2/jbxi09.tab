@@ -1,0 +1,28 @@
+create table JBXI09
+(
+  jbxi09mov NUMBER(2) not null,
+  jbxi09icc CHAR(7),
+  jbxi09ilc NUMBER(17),
+  jbxi09nom CHAR(50),
+  jbxi09cal CHAR(35),
+  jbxi09dnu NUMBER(6),
+  jbxi09dpi CHAR(2),
+  jbxi09dun CHAR(4),
+  jbxi09cpv NUMBER(4),
+  jbxi09prv NUMBER(2),
+  jbxi09cpn CHAR(8),
+  jbxi09tpa CHAR(5),
+  jbxi09tpp CHAR(3),
+  jbxi09tpc CHAR(3),
+  jbxi09tpn CHAR(4),
+  jbxi09tse CHAR(13),
+  jbxi09fax CHAR(20),
+  jbxi09mai CHAR(32),
+  jbxi09fan NUMBER(8),
+  jbxi09han NUMBER(6),
+  jbxi09usu CHAR(8),
+  jbxi09fpr NUMBER(8)
+)
+;
+create unique index JBXI0901 on JBXI09 (JBXI09MOV);
+

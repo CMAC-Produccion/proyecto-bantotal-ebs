@@ -1,0 +1,19 @@
+create table FBC011
+(
+  f11emp     NUMBER(3) not null,
+  f11suc     NUMBER(3) not null,
+  f11fech    DATE not null,
+  f11mda     NUMBER(4) not null,
+  f11cta     NUMBER(9) not null,
+  f11cod     NUMBER(3) not null,
+  f11sdodep  NUMBER(17,2),
+  f11sdoret  NUMBER(17,2),
+  f11cantdep NUMBER(10),
+  f11cantret NUMBER(10)
+)
+;
+create index FBC01102 on FBC011 (F11EMP, F11FECH, F11MDA, F11CTA, F11COD);
+create index FBC01103 on FBC011 (F11EMP, F11FECH, F11COD, F11CTA, F11MDA);
+alter table FBC011
+  add primary key (F11EMP, F11SUC, F11FECH, F11MDA, F11CTA, F11COD);
+

@@ -1,0 +1,16 @@
+create table TI0009
+(
+  tipais     NUMBER(3) not null,
+  titdoc     NUMBER(2) not null,
+  tindoc     CHAR(12) not null,
+  tiimpucod  NUMBER(3) not null,
+  tidimcorr  NUMBER(3) not null,
+  titpotxt   NUMBER(3) not null,
+  titxtlibre CHAR(60)
+)
+;
+create index TI000902 on TI0009 (TITPOTXT);
+create index TI000903 on TI0009 (TIIMPUCOD);
+alter table TI0009
+  add primary key (TIPAIS, TITDOC, TINDOC, TIIMPUCOD, TIDIMCORR, TITPOTXT);
+

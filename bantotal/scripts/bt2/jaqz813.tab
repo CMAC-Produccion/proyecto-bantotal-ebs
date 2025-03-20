@@ -1,0 +1,14 @@
+create table JAQZ813
+(
+  jaqz813corr      NUMBER(10) not null,
+  jaqz813tiposbs   VARCHAR2(30),
+  jaqz813codsegmnt NUMBER(10),
+  jaqz813plazo     NUMBER(17),
+  jaqz813fchini    DATE,
+  jaqz813fchfin    DATE
+)
+;
+create index JAQZ813IDX001 on JAQZ813 (JAQZ813CORR, JAQZ813TIPOSBS, JAQZ813CODSEGMNT, JAQZ813PLAZO, JAQZ813FCHINI);
+alter table JAQZ813
+  add primary key (JAQZ813CORR);
+

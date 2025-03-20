@@ -1,0 +1,21 @@
+create table FCPG10
+(
+  cpg10embt  NUMBER(3) not null,
+  cpg10pais  NUMBER(3) not null,
+  cpg10tdoc  NUMBER(2) not null,
+  cpg10doc   CHAR(25) not null,
+  cpg10sube  NUMBER(3) not null,
+  cpg10sedes CHAR(40),
+  cpg10compc CHAR(1),
+  cpg10compp CHAR(1),
+  cpg49cod   NUMBER(3),
+  cpg10est   CHAR(3),
+  cpg10blq   CHAR(1),
+  cpg10inst  NUMBER(10)
+)
+;
+create index FCPG1002 on FCPG10 (CPG49COD);
+create index FCPG1003 on FCPG10 (CPG10INST);
+alter table FCPG10
+  add primary key (CPG10EMBT, CPG10PAIS, CPG10TDOC, CPG10DOC, CPG10SUBE);
+

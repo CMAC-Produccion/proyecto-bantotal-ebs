@@ -1,0 +1,111 @@
+create table AQPB092
+(
+  aqpb092fcar   DATE not null,
+  aqpb092pais   NUMBER(3) not null,
+  aqpb092tdoc   NUMBER(2) not null,
+  aqpb092ndoc   CHAR(12) not null,
+  aqpb092tasa   NUMBER(10,6),
+  aqpb092mont   NUMBER(17,2),
+  aqpb092pzo    NUMBER(5),
+  aqpb092pgra   NUMBER(5),
+  aqpb092frec   NUMBER(5),
+  aqpb092pgar   NUMBER(5,2),
+  aqpb092fvig   DATE,
+  aqpb092pgcod  NUMBER(3),
+  aqpb092hcmod  NUMBER(3),
+  aqpb092hsucor NUMBER(3),
+  aqpb092htran  NUMBER(3),
+  aqpb092hnrel  NUMBER(4),
+  aqpb092hfcon  DATE,
+  aqpb092aoimp  NUMBER(17,2),
+  aqpb092prcins NUMBER(10),
+  aqpb092est    VARCHAR2(1),
+  aqpb092usu    CHAR(10),
+  aqpb092crcod  NUMBER(3),
+  aqpb092crmod  NUMBER(3),
+  aqpb092crsuc  NUMBER(3),
+  aqpb092crmda  NUMBER(4),
+  aqpb092crpap  NUMBER(4),
+  aqpb092crcta  NUMBER(9),
+  aqpb092croper NUMBER(9),
+  aqpb092crsbop NUMBER(3),
+  aqpb092crtope NUMBER(3),
+  aqpb092fins   VARCHAR2(10),
+  aqpb092fhor   VARCHAR2(10),
+  aqpb092fupd   VARCHAR2(10),
+  aqpb092fhupd  VARCHAR2(10)
+)
+;
+comment on table AQPB092
+  is 'Listado validado por COFIDE - FAE AGRO';
+comment on column AQPB092.aqpb092fcar
+  is '1. Fecha de la carga';
+comment on column AQPB092.aqpb092pais
+  is '2. País';
+comment on column AQPB092.aqpb092tdoc
+  is '3. Tipo de documento';
+comment on column AQPB092.aqpb092ndoc
+  is '4. Número de documento';
+comment on column AQPB092.aqpb092tasa
+  is '5. Tasa';
+comment on column AQPB092.aqpb092mont
+  is '6. Monto de la propuesta';
+comment on column AQPB092.aqpb092pzo
+  is '7. Plazo';
+comment on column AQPB092.aqpb092pgra
+  is '8. Período de gracia';
+comment on column AQPB092.aqpb092frec
+  is '9. Frecuencia';
+comment on column AQPB092.aqpb092pgar
+  is '10. Porcentaje de cobertura de garantía';
+comment on column AQPB092.aqpb092fvig
+  is '11. Fecha de vigencia';
+comment on column AQPB092.aqpb092pgcod
+  is '12. Clave Tr: empresa';
+comment on column AQPB092.aqpb092hcmod
+  is '13. Clave Tr: módulo';
+comment on column AQPB092.aqpb092hsucor
+  is '14. Clave Tr: sucursal';
+comment on column AQPB092.aqpb092htran
+  is '15. Clave Tr: transacción';
+comment on column AQPB092.aqpb092hnrel
+  is '16. Clave Tr: relación';
+comment on column AQPB092.aqpb092hfcon
+  is '17. Clave Tr: fecha';
+comment on column AQPB092.aqpb092aoimp
+  is '18. Monto desembolsado';
+comment on column AQPB092.aqpb092prcins
+  is '19. Instancia';
+comment on column AQPB092.aqpb092est
+  is '20. Estado';
+comment on column AQPB092.aqpb092usu
+  is '21. Usuario';
+comment on column AQPB092.aqpb092crcod
+  is '22. Clave Cred: empresa';
+comment on column AQPB092.aqpb092crmod
+  is '23. Clave Cred: módulo';
+comment on column AQPB092.aqpb092crsuc
+  is '24. Clave Cred: sucursal';
+comment on column AQPB092.aqpb092crmda
+  is '25. Clave Cred: moneda';
+comment on column AQPB092.aqpb092crpap
+  is '26. Clave Cred: papel';
+comment on column AQPB092.aqpb092crcta
+  is '27. Clave Cred: cuenta';
+comment on column AQPB092.aqpb092croper
+  is '28. Clave Cred: operación';
+comment on column AQPB092.aqpb092crsbop
+  is '29. Clave Cred: suboperación';
+comment on column AQPB092.aqpb092crtope
+  is '30. Clave Cred: tipo de operación';
+comment on column AQPB092.aqpb092fins
+  is '31. Fecha de inserción';
+comment on column AQPB092.aqpb092fhor
+  is '32. Hora de inserción';
+comment on column AQPB092.aqpb092fupd
+  is '33. Fecha de edición';
+comment on column AQPB092.aqpb092fhupd
+  is '34. Hora de edición';
+alter table AQPB092
+  add primary key (AQPB092FCAR, AQPB092PAIS, AQPB092TDOC, AQPB092NDOC);
+

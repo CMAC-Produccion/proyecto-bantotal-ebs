@@ -1,0 +1,15 @@
+create table FSF065
+(
+  lkpgcod  NUMBER(3) not null,
+  lkctnro  NUMBER(9) not null,
+  lknro    NUMBER(3) not null,
+  lkpepais NUMBER(3),
+  lkpetdoc NUMBER(2),
+  lkpendoc CHAR(12),
+  lkdesc   CHAR(30)
+)
+;
+create index FSF06502 on FSF065 (LKPEPAIS, LKPETDOC, LKPENDOC, LKPGCOD, LKCTNRO, LKNRO);
+alter table FSF065
+  add primary key (LKPGCOD, LKCTNRO, LKNRO);
+

@@ -1,0 +1,27 @@
+create table AQPA210
+(
+  aqpa210pjpais NUMBER(3) not null,
+  aqpa210pjtdoc NUMBER(2) not null,
+  aqpa210pjndoc CHAR(12) not null,
+  aqpa210ctnro  NUMBER(9),
+  aqpa210sucurs NUMBER(3),
+  aqpa210usu    CHAR(10),
+  aqpa210pdf    BLOB,
+  aqpa210hor    CHAR(8),
+  aqpa210fec    DATE,
+  aqpa210ax1    NUMBER(9),
+  aqpa210ax2    NUMBER(9),
+  aqpa210ax3    NUMBER(16,2),
+  aqpa210ax4    NUMBER(16,2),
+  aqpa210ax5    DATE,
+  aqpa210ax6    DATE,
+  aqpa210ax7    CHAR(100),
+  aqpa210ax8    CHAR(100),
+  aqpa210ax9    CHAR(100)
+)
+;
+create index AQPA2102 on AQPA210 (AQPA210AX8);
+create index AQPA2103 on AQPA210 (AQPA210FEC);
+alter table AQPA210
+  add primary key (AQPA210PJPAIS, AQPA210PJTDOC, AQPA210PJNDOC);
+

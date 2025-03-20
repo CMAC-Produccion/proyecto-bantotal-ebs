@@ -1,0 +1,35 @@
+create table FSFIBB
+(
+  sfibbgrup NUMBER(2) not null,
+  sfibbcorr NUMBER(5) not null,
+  sfibbvis  CHAR(1),
+  sfibbeof  CHAR(1),
+  sfibbobl  CHAR(1),
+  sfibbc1f  NUMBER(9),
+  sfibbc2f  NUMBER(9),
+  sfibbc3f  CHAR(30),
+  sfibbc4f  CHAR(30),
+  sfibba01  CHAR(1),
+  sfibba02  CHAR(1),
+  sfibba03  CHAR(1),
+  sfibba04  CHAR(1),
+  sfibba05  CHAR(1),
+  sfibba06  CHAR(1),
+  sfibba07  CHAR(1),
+  sfibba08  CHAR(1),
+  sfibba09  CHAR(1),
+  sfibba10  CHAR(1),
+  sfibba11  DATE,
+  sfibba12  DATE,
+  sfibba13  NUMBER(17,2),
+  sfibba14  NUMBER(17,2),
+  sfibba15  NUMBER(9),
+  sfibba16  NUMBER(9),
+  sfibba17  CHAR(30),
+  sfibba18  CHAR(30),
+  sfibba19  CHAR(30)
+)
+;
+alter table FSFIBB
+  add primary key (SFIBBGRUP, SFIBBCORR);
+

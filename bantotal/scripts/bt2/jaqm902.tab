@@ -1,0 +1,36 @@
+create table JAQM902
+(
+  jaqm902cnl NUMBER(2) not null,
+  jaqm902lot NUMBER(9) not null,
+  jaqm902reg NUMBER(9) not null,
+  jaqm902cor NUMBER(9) not null,
+  jaqm902emp NUMBER(3),
+  jaqm902mod NUMBER(3),
+  jaqm902suc NUMBER(3),
+  jaqm902mda NUMBER(4),
+  jaqm902pap NUMBER(4),
+  jaqm902cta NUMBER(9),
+  jaqm902ope NUMBER(9),
+  jaqm902sbo NUMBER(3),
+  jaqm902top NUMBER(3),
+  jaqm902tip CHAR(1),
+  jaqm902ai1 NUMBER(17,2),
+  jaqm902ai2 NUMBER(17,2),
+  jaqm902ai3 NUMBER(17,2),
+  jaqm902an1 NUMBER(9),
+  jaqm902an2 NUMBER(9),
+  jaqm902an3 NUMBER(9),
+  jaqm902ac1 CHAR(1),
+  jaqm902ac2 CHAR(1),
+  jaqm902ac3 CHAR(1),
+  jaqm902av1 VARCHAR2(255),
+  jaqm902av2 VARCHAR2(255),
+  jaqm902av3 VARCHAR2(255),
+  jaqm902af1 DATE,
+  jaqm902af2 DATE,
+  jaqm902af3 DATE
+)
+;
+alter table JAQM902
+  add primary key (JAQM902LOT, JAQM902REG, JAQM902COR);
+

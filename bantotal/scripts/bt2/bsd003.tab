@@ -1,0 +1,59 @@
+create table BSD003
+(
+  bscpaisj  NUMBER(3) not null,
+  bsctdocj  NUMBER(2) not null,
+  bscndocj  CHAR(12) not null,
+  bsccidocj NUMBER(8),
+  bscdigj   NUMBER(1),
+  bscfexpj  DATE,
+  bscfvigj  DATE,
+  bscsigla  CHAR(20),
+  bscnotaj  NUMBER(10),
+  bscmatmj  NUMBER(10),
+  bscfcoma  DATE,
+  bscfrees  DATE,
+  bscciuu   NUMBER(9),
+  bscnuemp  NUMBER(6),
+  bsctrrcm  CHAR(1),
+  bscrsocm  CHAR(70),
+  bscrelcm  CHAR(3),
+  bscbafi   NUMBER(12),
+  bsccomit  CHAR(5),
+  bscdircm  CHAR(80),
+  bscconcm  CHAR(80),
+  bsctoacj  NUMBER(14,2),
+  bsctopaj  NUMBER(14,2),
+  bsctoptj  NUMBER(14,2),
+  bsccapsu  NUMBER(14,2),
+  bsccappa  NUMBER(14,2),
+  bscegran  NUMBER(14,2),
+  bscvtaan  NUMBER(14,2),
+  bscfevta  DATE,
+  bsciva    CHAR(1),
+  bscvabi   NUMBER(14,2),
+  bscvehi   CHAR(1),
+  bscvave   NUMBER(14,2),
+  bscotac   CHAR(1),
+  bscvoac   NUMBER(14,2),
+  bscrefu   CHAR(1),
+  bscimin   CHAR(1),
+  bscemec   CHAR(1),
+  bscmtvi   CHAR(3),
+  bscagj    NUMBER(3),
+  bscestad  CHAR(1),
+  bsctipso  NUMBER(2),
+  bscinme   NUMBER(14,2),
+  bscent    NUMBER(2),
+  bscres    CHAR(1)
+)
+;
+create index BSD00306 on BSD003 (BSCCIDOCJ);
+create index BSD00307 on BSD003 (BSCBAFI);
+create index IBSD003 on BSD003 (BSCMTVI);
+create index IBSD0031 on BSD003 (BSCENT);
+create index IBSD0032 on BSD003 (BSCESTAD);
+create index IBSD0033 on BSD003 (BSCRELCM);
+create index IBSD0036 on BSD003 (BSCTIPSO);
+alter table BSD003
+  add primary key (BSCPAISJ, BSCTDOCJ, BSCNDOCJ);
+

@@ -1,0 +1,11 @@
+create table FST200
+(
+  pgcod  NUMBER(3) not null,
+  opgcod NUMBER(5) not null,
+  opgtxt CHAR(30),
+  opgval CHAR(1)
+)
+;
+alter table FST200
+  add primary key (PGCOD, OPGCOD);
+

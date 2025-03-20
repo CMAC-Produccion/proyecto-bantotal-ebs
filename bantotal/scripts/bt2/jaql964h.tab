@@ -1,0 +1,503 @@
+create table JAQL964H
+(
+  jaql964hfeh   DATE not null,
+  jaql964hcor   NUMBER(10) not null,
+  jaql964hsuc   NUMBER(4),
+  jaql964hnom   VARCHAR2(30),
+  jaql964husu   VARCHAR2(30),
+  jaql964hnum   NUMBER(10),
+  jaql964hsal   NUMBER(16,2),
+  jaql964hcli   NUMBER(4),
+  jaql964hnor   NUMBER(10),
+  jaql964href   NUMBER(10),
+  jaql964hjud   NUMBER(10),
+  jaql964hnr1   NUMBER(10),
+  jaql964hsa1   NUMBER(16,2),
+  jaql964hpo1   NUMBER(6,2),
+  jaql964hnr2   NUMBER(10),
+  jaql964hsa2   NUMBER(16,2),
+  jaql964hpo2   NUMBER(6,2),
+  jaql964hnr3   NUMBER(10),
+  jaql964hsa3   NUMBER(16,2),
+  jaql964hpo3   NUMBER(6,2),
+  jaql964hnr4   NUMBER(10),
+  jaql964hsa4   NUMBER(16,2),
+  jaql964hpo4   NUMBER(6,2),
+  jaql964hnr5   NUMBER(10),
+  jaql964hsa5   NUMBER(16,2),
+  jaql964hpo5   NUMBER(6,2),
+  jaql964hnr6   NUMBER(10),
+  jaql964hsa6   NUMBER(16,2),
+  jaql964hpo6   NUMBER(10),
+  jaql964hcre   VARCHAR2(17),
+  jaql964htit   VARCHAR2(100),
+  jaql964hdoc   CHAR(12),
+  jaql964hcta   NUMBER(9),
+  jaql964hmod   NUMBER(4),
+  jaql964hmda   NUMBER(3),
+  jaql964hope   NUMBER(9),
+  jaql964hdia   NUMBER(9),
+  jaql964hsao   NUMBER(16,2),
+  jaql964hsac   NUMBER(16,2),
+  jaql964hpro   VARCHAR2(30),
+  jaql964hnr7   NUMBER(10),
+  jaql964hsa7   NUMBER(16,2),
+  jaql964hpo7   NUMBER(6,2),
+  jaql964hreg   NUMBER(3),
+  jaql964hren   CHAR(40),
+  jaql964hsob   NUMBER(3),
+  jaql964htop   NUMBER(3),
+  jaql964hpai   NUMBER(3),
+  jaql964htid   NUMBER(2),
+  jaql964htel   VARCHAR2(25),
+  jaql964hdis   VARCHAR2(50),
+  jaql964hdir   VARCHAR2(150),
+  jaql964htco   VARCHAR2(30),
+  jaql964hgar   VARCHAR2(300),
+  jaql964hpre   NUMBER(16,2),
+  jaql964hcal   VARCHAR2(40),
+  jaql964hcca   NUMBER(4),
+  jaql964habo   VARCHAR2(50),
+  jaql964hmtd   NUMBER(16,2),
+  jaql964hmta   NUMBER(16,2),
+  jaql964hcsb   NUMBER(4),
+  jaql964hfep   DATE,
+  jaql964hfec   DATE,
+  jaql964hest   NUMBER(3),
+  jaql964htcc   VARCHAR2(30),
+  jaql964hred   VARCHAR2(200),
+  jaql964hgas   NUMBER(16,2),
+  jaql964hmor   NUMBER(16,2),
+  jaql964hint   NUMBER(16,2),
+  jaql964hcuo   NUMBER(16,2),
+  jaql964hsec   NUMBER(4),
+  jaql964hins   NUMBER(10),
+  jaql964hctav  NUMBER(9),
+  jaql964hnoav  VARCHAR2(100),
+  jaql964hdiav  VARCHAR2(180),
+  jaql964hteav  VARCHAR2(25),
+  jaql964hicex  NUMBER(18,2),
+  jaql964horub  NUMBER(18,2),
+  jaql964hmapr  NUMBER(18,2),
+  jaql964hprov  NUMBER(18,2),
+  jaql964hcalf  NUMBER(18,2),
+  jaql964hdcalf VARCHAR2(50),
+  jaql964hfcan  VARCHAR2(10),
+  jaq964fref    VARCHAR2(10),
+  jaql964hfcas  VARCHAR2(10),
+  jaql964hfdem  VARCHAR2(10),
+  jaql964hftab  VARCHAR2(10),
+  jaql964hpgcod NUMBER(3),
+  jaql964hpap   NUMBER(4),
+  jaql964hfint  VARCHAR2(10),
+  jaql964hfadem VARCHAR2(10),
+  jaql964hapago VARCHAR2(2),
+  jaql964hdpago VARCHAR2(100),
+  jaql964hfirl  VARCHAR2(10),
+  jaql964hcesp  VARCHAR2(200),
+  jaql964hnexp  VARCHAR2(20),
+  jaql964hsdve  NUMBER(18,2),
+  jaql964hsdre  NUMBER(18,2),
+  jaql964hfaabo VARCHAR2(10),
+  jaql964hfejud VARCHAR2(10),
+  jaql964hfdes  VARCHAR2(10),
+  jaql964hsdo   NUMBER(16,2),
+  jaql964htcr   NUMBER(2),
+  jaql964hicv   NUMBER(18,2),
+  jaql964htcap  NUMBER(18,2),
+  jaql964htint  NUMBER(18,2),
+  jaql964htmor  NUMBER(18,2),
+  jaql964htgas  NUMBER(18,2),
+  jaql964hticv  NUMBER(18,2),
+  jaql964hseg   NUMBER(18,2),
+  jaql964htseg  NUMBER(18,2),
+  jaql964hcom   NUMBER(18,2),
+  jaql964htcom  NUMBER(18,2),
+  jaql964hpzo   NUMBER(5),
+  jaql964hsoben VARCHAR2(2),
+  jaql964hdpto  VARCHAR2(50),
+  jaql964hprovi VARCHAR2(50),
+  jaql964hpen   NUMBER(18,2),
+  jaql964htpen  NUMBER(18,2),
+  jaql964hsbbp  NUMBER(18,2),
+  jaql964hibbp  NUMBER(18,2),
+  jaql964hspbp  NUMBER(18,2),
+  jaql964hipbp  NUMBER(18,2),
+  jaql964hsbms  NUMBER(18,2),
+  jaql964hibms  NUMBER(18,2),
+  jaql964hsbfh  NUMBER(18,2),
+  jaql964hibfh  NUMBER(18,2),
+  jaql964hfcr   VARCHAR2(10),
+  jaql964hhcr   VARCHAR2(10)
+)
+partition by range (JAQL964HFEH)
+(
+  partition JAQL964H_201901 values less than (TO_DATE(' 2019-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202003 values less than (TO_DATE(' 2020-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202004 values less than (TO_DATE(' 2020-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202005 values less than (TO_DATE(' 2020-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202006 values less than (TO_DATE(' 2020-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202007 values less than (TO_DATE(' 2020-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202008 values less than (TO_DATE(' 2020-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202009 values less than (TO_DATE(' 2020-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202010 values less than (TO_DATE(' 2020-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202011 values less than (TO_DATE(' 2020-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202012 values less than (TO_DATE(' 2021-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202101 values less than (TO_DATE(' 2021-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202102 values less than (TO_DATE(' 2021-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202103 values less than (TO_DATE(' 2021-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202104 values less than (TO_DATE(' 2021-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202105 values less than (TO_DATE(' 2021-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202106 values less than (TO_DATE(' 2021-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202107 values less than (TO_DATE(' 2021-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202108 values less than (TO_DATE(' 2021-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202109 values less than (TO_DATE(' 2021-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202110 values less than (TO_DATE(' 2021-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202111 values less than (TO_DATE(' 2021-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202112 values less than (TO_DATE(' 2022-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202201 values less than (TO_DATE(' 2022-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202202 values less than (TO_DATE(' 2022-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202203 values less than (TO_DATE(' 2022-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202204 values less than (TO_DATE(' 2022-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202205 values less than (TO_DATE(' 2022-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202206 values less than (TO_DATE(' 2022-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202207 values less than (TO_DATE(' 2022-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202208 values less than (TO_DATE(' 2022-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202209 values less than (TO_DATE(' 2022-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202210 values less than (TO_DATE(' 2022-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202211 values less than (TO_DATE(' 2022-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202212 values less than (TO_DATE(' 2023-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202301 values less than (TO_DATE(' 2023-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202302 values less than (TO_DATE(' 2023-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202303 values less than (TO_DATE(' 2023-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202304 values less than (TO_DATE(' 2023-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202305 values less than (TO_DATE(' 2023-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202306 values less than (TO_DATE(' 2023-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202307 values less than (TO_DATE(' 2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202308 values less than (TO_DATE(' 2023-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202309 values less than (TO_DATE(' 2023-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202310 values less than (TO_DATE(' 2023-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202311 values less than (TO_DATE(' 2023-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202312 values less than (TO_DATE(' 2024-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition JAQL964H_202401 values less than (TO_DATE(' 2024-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202402 values less than (TO_DATE(' 2024-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202403 values less than (TO_DATE(' 2024-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202404 values less than (TO_DATE(' 2024-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202405 values less than (TO_DATE(' 2024-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202406 values less than (TO_DATE(' 2024-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202407 values less than (TO_DATE(' 2024-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202408 values less than (TO_DATE(' 2024-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202409 values less than (TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202410 values less than (TO_DATE(' 2024-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202411 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202412 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202501 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202502 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition JAQL964H_202503 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G
+);
+comment on table JAQL964H
+  is 'Consolidados Saldos Historial x Fecha/Region/Zona/Agencia/Analista';
+comment on column JAQL964H.jaql964hfeh
+  is 'Fecha Historica';
+comment on column JAQL964H.jaql964hcor
+  is 'Correlativo';
+comment on column JAQL964H.jaql964hsuc
+  is 'Codigo Sucursal';
+comment on column JAQL964H.jaql964hnom
+  is 'Nombre Sucursal';
+comment on column JAQL964H.jaql964husu
+  is 'Codigo Usuario/Analista';
+comment on column JAQL964H.jaql964hnum
+  is 'Numero Aux';
+comment on column JAQL964H.jaql964hsal
+  is 'Saldo';
+comment on column JAQL964H.jaql964hcli
+  is 'Clientes';
+comment on column JAQL964H.jaql964hnor
+  is 'Normal';
+comment on column JAQL964H.jaql964href
+  is 'Refinanciado';
+comment on column JAQL964H.jaql964hjud
+  is 'Judicial';
+comment on column JAQL964H.jaql964hnr1
+  is 'Nro1';
+comment on column JAQL964H.jaql964hsa1
+  is 'Saldo1';
+comment on column JAQL964H.jaql964hpo1
+  is 'Por1';
+comment on column JAQL964H.jaql964hnr2
+  is 'Nro2';
+comment on column JAQL964H.jaql964hsa2
+  is 'Saldo2';
+comment on column JAQL964H.jaql964hpo2
+  is 'Por2';
+comment on column JAQL964H.jaql964hnr3
+  is 'Nro3';
+comment on column JAQL964H.jaql964hsa3
+  is 'Saldo3';
+comment on column JAQL964H.jaql964hpo3
+  is 'Por3';
+comment on column JAQL964H.jaql964hnr4
+  is 'Nro4';
+comment on column JAQL964H.jaql964hsa4
+  is 'Saldo4';
+comment on column JAQL964H.jaql964hpo4
+  is 'Por4';
+comment on column JAQL964H.jaql964hnr5
+  is 'Nro5';
+comment on column JAQL964H.jaql964hsa5
+  is 'Saldo5';
+comment on column JAQL964H.jaql964hpo5
+  is 'Por5';
+comment on column JAQL964H.jaql964hnr6
+  is 'Nro6';
+comment on column JAQL964H.jaql964hsa6
+  is 'Saldo6';
+comment on column JAQL964H.jaql964hpo6
+  is 'Por6';
+comment on column JAQL964H.jaql964hcre
+  is 'Credito Sorfy';
+comment on column JAQL964H.jaql964htit
+  is 'Nombre Titular';
+comment on column JAQL964H.jaql964hdoc
+  is 'NumDoc';
+comment on column JAQL964H.jaql964hcta
+  is 'Cuenta';
+comment on column JAQL964H.jaql964hmod
+  is 'Modulo';
+comment on column JAQL964H.jaql964hmda
+  is 'Moneda';
+comment on column JAQL964H.jaql964hope
+  is 'Operacion';
+comment on column JAQL964H.jaql964hdia
+  is 'Dias Atraso';
+comment on column JAQL964H.jaql964hsao
+  is 'Saldo Moneda Origen';
+comment on column JAQL964H.jaql964hsac
+  is 'Saldo Moneda Consolidada';
+comment on column JAQL964H.jaql964hpro
+  is 'Producto SBS';
+comment on column JAQL964H.jaql964hnr7
+  is 'Nro7';
+comment on column JAQL964H.jaql964hsa7
+  is 'Saldo7';
+comment on column JAQL964H.jaql964hpo7
+  is 'Por7';
+comment on column JAQL964H.jaql964hreg
+  is 'Codigo Region';
+comment on column JAQL964H.jaql964hren
+  is 'Nombre Region';
+comment on column JAQL964H.jaql964hsob
+  is 'Suboperacion';
+comment on column JAQL964H.jaql964htop
+  is 'TipoOperacion';
+comment on column JAQL964H.jaql964hpai
+  is 'Pais';
+comment on column JAQL964H.jaql964htid
+  is 'Tipo Doc';
+comment on column JAQL964H.jaql964htel
+  is 'Telefono';
+comment on column JAQL964H.jaql964hdis
+  is 'Distrito';
+comment on column JAQL964H.jaql964hdir
+  is 'Direccion';
+comment on column JAQL964H.jaql964hgar
+  is 'Garantia';
+comment on column JAQL964H.jaql964hcal
+  is 'Calificacion';
+comment on column JAQL964H.jaql964habo
+  is 'Abogado';
+comment on column JAQL964H.jaql964hmtd
+  is 'Monto Deuda';
+comment on column JAQL964H.jaql964hcsb
+  is 'Codigo Producto SBS';
+comment on column JAQL964H.jaql964hfec
+  is 'Fecha Proceso';
+comment on column JAQL964H.jaql964hest
+  is 'Codigo Estado';
+comment on column JAQL964H.jaql964htcc
+  is 'Descripcion Estado';
+comment on column JAQL964H.jaql964hred
+  is 'Referencia Direccion';
+comment on column JAQL964H.jaql964hgas
+  is 'Deuda Gasto ';
+comment on column JAQL964H.jaql964hmor
+  is 'Deuda Mora';
+comment on column JAQL964H.jaql964hint
+  is 'Deuda Interes';
+comment on column JAQL964H.jaql964hcuo
+  is 'Deuda Capital';
+comment on column JAQL964H.jaql964hsec
+  is 'Sector Pequeña Empresa';
+comment on column JAQL964H.jaql964hins
+  is 'Instancia';
+comment on column JAQL964H.jaql964hctav
+  is 'Cuenta Aval';
+comment on column JAQL964H.jaql964hnoav
+  is 'Nombre Aval';
+comment on column JAQL964H.jaql964hdiav
+  is 'Direccion Aval';
+comment on column JAQL964H.jaql964hteav
+  is 'Telefono Aval';
+comment on column JAQL964H.jaql964hmapr
+  is 'Monto Aprobado';
+comment on column JAQL964H.jaql964hprov
+  is 'Provision';
+comment on column JAQL964H.jaql964hcalf
+  is 'Codigo Calificacion';
+comment on column JAQL964H.jaql964hdcalf
+  is 'Descripcion Calificacion';
+comment on column JAQL964H.jaql964hfcan
+  is 'Fecha Cancelacion';
+comment on column JAQL964H.jaql964hfcas
+  is 'Fecha Castigo';
+comment on column JAQL964H.jaql964hfdem
+  is 'Fecha Demanda';
+comment on column JAQL964H.jaql964hpgcod
+  is 'Pgcod';
+comment on column JAQL964H.jaql964hpap
+  is 'Papel';
+comment on column JAQL964H.jaql964hfadem
+  is 'Fecha Asignacion Demanda';
+comment on column JAQL964H.jaql964hfirl
+  is 'Fecha Ingreso RL';
+comment on column JAQL964H.jaql964hsdve
+  is 'Saldo Vencido';
+comment on column JAQL964H.jaql964hsdre
+  is 'Saldo Refinanciado';
+comment on column JAQL964H.jaql964hfaabo
+  is 'Fecha Asiganacion de Abogado';
+comment on column JAQL964H.jaql964hfejud
+  is 'Fecha Envio a Judicial';
+comment on column JAQL964H.jaql964hfdes
+  is 'Fecha de Desembolso';
+comment on column JAQL964H.jaql964hsdo
+  is 'Saldo original';
+comment on column JAQL964H.jaql964htcr
+  is 'Tipo de Credito';
+comment on column JAQL964H.jaql964hicv
+  is 'ICV';
+comment on column JAQL964H.jaql964htcap
+  is 'Total Deuda Capital';
+comment on column JAQL964H.jaql964htint
+  is 'Total Deuda Interes';
+comment on column JAQL964H.jaql964htmor
+  is 'Total Deuda Mora';
+comment on column JAQL964H.jaql964htgas
+  is 'Total Deuda Gastos';
+comment on column JAQL964H.jaql964hticv
+  is 'Total Deuda ICV';
+comment on column JAQL964H.jaql964hseg
+  is 'Deuda Seguros';
+comment on column JAQL964H.jaql964htseg
+  is 'Total Deuda Seguros';
+comment on column JAQL964H.jaql964hcom
+  is 'Deuda Comision';
+comment on column JAQL964H.jaql964htcom
+  is 'Total Deuda Comision';
+comment on column JAQL964H.jaql964hpzo
+  is 'Plazo';
+comment on column JAQL964H.jaql964hsoben
+  is 'Sobreendeudamiento';
+comment on column JAQL964H.jaql964hdpto
+  is 'Dpto titular';
+comment on column JAQL964H.jaql964hprovi
+  is 'Provincia titular';
+comment on column JAQL964H.jaql964hpen
+  is 'Penalidad';
+comment on column JAQL964H.jaql964htpen
+  is 'Total Penalidad';
+comment on column JAQL964H.jaql964hsbbp
+  is 'Saldo Bono Buen Pagador';
+comment on column JAQL964H.jaql964hibbp
+  is 'Interes Bono Buen Pagador';
+comment on column JAQL964H.jaql964hspbp
+  is 'Saldo Premio Buen Pagador';
+comment on column JAQL964H.jaql964hipbp
+  is 'Interes Premio Buen Pagador';
+comment on column JAQL964H.jaql964hsbms
+  is 'Saldo Bono Mi Vivienda Sostenible - SBMS';
+comment on column JAQL964H.jaql964hibms
+  is 'Interes Bono Mi Vivienda Sostenible - IBMS';
+comment on column JAQL964H.jaql964hsbfh
+  is 'Saldo Bono Mi Vivienda Techo Propio - SBFH';
+comment on column JAQL964H.jaql964hibfh
+  is 'Interes Bono Mi Vivienda Techo Propio - IBFH';
+create index JAQL964H2 on JAQL964H (JAQL964HFEH, JAQL964HCTA, JAQL964HOPE)
+  nologging  local;
+create index JAQL964H3 on JAQL964H (JAQL964HFEH, JAQL964HUSU, JAQL964HPAI, JAQL964HTID, JAQL964HDOC, JAQL964HMOD, JAQL964HTOP, JAQL964HEST, JAQL964HDIA, JAQL964HSAO, JAQL964HPGCOD, JAQL964HSUC, JAQL964HMDA, JAQL964HPAP, JAQL964HCTA, JAQL964HOPE, JAQL964HSOB)
+  nologging  local;
+create index JAQL964H4 on JAQL964H (JAQL964HFEH, JAQL964HPAI, JAQL964HTID, JAQL964HDOC)
+  nologging  local;
+create index JAQL964H5 on JAQL964H (JAQL964HFEH, JAQL964HSUC, JAQL964HUSU)
+  nologging  local;
+create index JAQL964H6 on JAQL964H (JAQL964HFEH, JAQL964HFEC, JAQL964HMOD)
+  nologging  local;
+create index JAQL964H7 on JAQL964H (JAQL964HFEH, JAQL964HREG, JAQL964HSUC, JAQL964HPRO, JAQL964HUSU)
+  nologging  local;
+alter table JAQL964H
+  add primary key (JAQL964HFEH, JAQL964HCOR);
+alter index SYS_C001823544 nologging;
+

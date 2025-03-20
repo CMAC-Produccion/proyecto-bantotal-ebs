@@ -1,0 +1,14 @@
+create table FSFL35
+(
+  fsfl35emp NUMBER(3) not null,
+  fsfl35fch DATE not null,
+  fsfl35mda NUMBER(4) not null,
+  fsfl35mom CHAR(1) not null,
+  fsfl35psp NUMBER(17,2),
+  fsfl35pnd NUMBER(17,2),
+  fsfl35pfo NUMBER(17,2)
+)
+;
+alter table FSFL35
+  add primary key (FSFL35EMP, FSFL35FCH, FSFL35MDA, FSFL35MOM);
+

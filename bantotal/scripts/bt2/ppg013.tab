@@ -1,0 +1,13 @@
+create table PPG013
+(
+  ppg013mod  NUMBER(3) not null,
+  ppg013top  NUMBER(3) not null,
+  ppg013mda  NUMBER(4) not null,
+  ppg013pap  NUMBER(4) not null,
+  ppg013corr NUMBER(1) not null,
+  ppg013tit  CHAR(50)
+)
+;
+alter table PPG013
+  add primary key (PPG013MOD, PPG013TOP, PPG013MDA, PPG013PAP, PPG013CORR);
+

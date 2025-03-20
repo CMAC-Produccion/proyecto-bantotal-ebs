@@ -1,0 +1,20 @@
+create table AQPA706A
+(
+  aqpa706acodusu VARCHAR2(20) not null,
+  aqpa706acorr   NUMBER(10) not null,
+  aqpa706afecini DATE,
+  aqpa706afecfin DATE,
+  aqpa706afecreg DATE,
+  aqpa706ahorreg VARCHAR2(10),
+  aqpa706anomcli VARCHAR2(100),
+  aqpa706anumdoc VARCHAR2(12),
+  aqpa706amedio  VARCHAR2(50),
+  aqpa706alimini VARCHAR2(10),
+  aqpa706alimnue VARCHAR2(10),
+  aqpa706acorreo VARCHAR2(200)
+)
+;
+create index AQPA706A2 on AQPA706A (AQPA706ACODUSU);
+alter table AQPA706A
+  add primary key (AQPA706ACODUSU, AQPA706ACORR);
+

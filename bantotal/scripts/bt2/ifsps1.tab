@@ -1,0 +1,47 @@
+create table IFSPS1
+(
+  ifsps1pgc NUMBER(3) not null,
+  ifsps1svc NUMBER(5) not null,
+  ifsps1svn CHAR(65),
+  ifsps1hab CHAR(1),
+  ifsps1cns CHAR(1),
+  ifsps1cnm NUMBER(4),
+  ifsps1imp CHAR(1),
+  ifsps1dol CHAR(1),
+  ifsps1dt1 CHAR(1),
+  ifsps1dt2 CHAR(1),
+  ifsps1dt3 CHAR(1),
+  ifsps1dt4 CHAR(1),
+  ifsps1dt5 CHAR(1),
+  ifsps1dt6 CHAR(1),
+  ifsps1tx1 CHAR(12),
+  ifsps1tx2 CHAR(12),
+  ifsps1tx3 CHAR(12),
+  ifsps1tx4 CHAR(12),
+  ifsps1tx5 CHAR(12),
+  ifsps1tx6 CHAR(12),
+  ifsps1cpg NUMBER(3),
+  ifsps1csu NUMBER(3),
+  ifsps1cmd NUMBER(3),
+  ifsps1cmn NUMBER(4),
+  ifsps1cpa NUMBER(4),
+  ifsps1cct NUMBER(9),
+  ifsps1cop NUMBER(9),
+  ifsps1csb NUMBER(3),
+  ifsps1cto NUMBER(3),
+  ifsps1dpg NUMBER(3),
+  ifsps1dsu NUMBER(3),
+  ifsps1dmd NUMBER(3),
+  ifsps1dmn NUMBER(4),
+  ifsps1dpa NUMBER(4),
+  ifsps1dct NUMBER(9),
+  ifsps1dop NUMBER(9),
+  ifsps1dsb NUMBER(3),
+  ifsps1dto NUMBER(3),
+  ifsps1mov NUMBER(3)
+)
+;
+create index IFSPS102 on IFSPS1 (IFSPS1PGC, IFSPS1SVN);
+alter table IFSPS1
+  add primary key (IFSPS1PGC, IFSPS1SVC);
+

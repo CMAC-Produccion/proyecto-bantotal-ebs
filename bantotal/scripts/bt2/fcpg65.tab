@@ -1,0 +1,17 @@
+create table FCPG65
+(
+  cpg60cod  NUMBER(10) not null,
+  cpg62serv NUMBER(3) not null,
+  cpg65tper CHAR(3) not null,
+  cpg65cntp NUMBER(8),
+  cpg65cpb  NUMBER(8),
+  cpg65mtoa NUMBER(17,2),
+  cpg65est  CHAR(3),
+  cpg65blq  CHAR(1),
+  cpg65inst NUMBER(10)
+)
+;
+create index FCPG6503 on FCPG65 (CPG65INST);
+alter table FCPG65
+  add primary key (CPG60COD, CPG62SERV, CPG65TPER);
+

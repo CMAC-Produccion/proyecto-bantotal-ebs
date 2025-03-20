@@ -1,0 +1,21 @@
+create table FSD557
+(
+  pgcod       NUMBER(3) not null,
+  lhmod       NUMBER(3) not null,
+  lhsuc       NUMBER(3) not null,
+  lhmda       NUMBER(4) not null,
+  lhpap       NUMBER(4) not null,
+  lhcta       NUMBER(9) not null,
+  lhoper      NUMBER(9) not null,
+  lhsbop      NUMBER(3) not null,
+  lhtope      NUMBER(3) not null,
+  lhforma     NUMBER(2) not null,
+  lhfcreacion DATE,
+  lhftomaraz  DATE,
+  lhagentereg CHAR(50),
+  lhcust      CHAR(1)
+)
+;
+alter table FSD557
+  add primary key (PGCOD, LHMOD, LHSUC, LHMDA, LHPAP, LHCTA, LHOPER, LHSBOP, LHTOPE, LHFORMA);
+

@@ -1,0 +1,21 @@
+create table FSFF03
+(
+  kdocodint NUMBER(9) not null,
+  kdocodbnt NUMBER(3),
+  fsfepart  CHAR(1),
+  fsfefalta DATE,
+  fsfecanc  DATE,
+  fsfe0au1  CHAR(1),
+  fsfe0au2  CHAR(1),
+  fsfe0au3  CHAR(1),
+  fsfe0au4  NUMBER(9),
+  fsfe0au5  NUMBER(9),
+  fsfe0au6  NUMBER(16),
+  fsfe0au7  CHAR(30),
+  fsfe0au8  DATE
+)
+;
+create index FSFF0302 on FSFF03 (KDOCODBNT);
+alter table FSFF03
+  add primary key (KDOCODINT);
+

@@ -1,0 +1,18 @@
+create table FCPG91
+(
+  cpg91cod   NUMBER(4) not null,
+  cpg91adm   CHAR(30) not null,
+  cpg91usu   CHAR(30) not null,
+  cpg91empbt NUMBER(3) not null,
+  cpg91conv  NUMBER(8) not null,
+  cpg91serv  NUMBER(3) not null,
+  cpg91aux1  NUMBER(5),
+  cpg91aux2  NUMBER(10),
+  cpg91aux3  CHAR(20),
+  cpg91aux4  CHAR(20),
+  cpg91aux5  CHAR(20)
+)
+;
+alter table FCPG91
+  add primary key (CPG91COD, CPG91ADM, CPG91USU, CPG91EMPBT, CPG91CONV, CPG91SERV);
+

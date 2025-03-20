@@ -1,0 +1,24 @@
+create table JAQZ083_AUX_II
+(
+  pgcod  NUMBER(3) not null,
+  aomod  NUMBER(3) not null,
+  aosuc  NUMBER(3) not null,
+  aomda  NUMBER(4) not null,
+  aopap  NUMBER(4) not null,
+  aocta  NUMBER(9) not null,
+  aooper NUMBER(9) not null,
+  aosbop NUMBER(3) not null,
+  aotope NUMBER(3) not null,
+  aofval DATE,
+  aofvto DATE,
+  aofe99 DATE,
+  aostat NUMBER(2),
+  pepais NUMBER(3) not null,
+  petdoc NUMBER(2) not null,
+  pendoc CHAR(12) not null,
+  fecuso DATE
+)
+;
+create index IDX_JAQZ083_AUX_II_01 on JAQZ083_AUX_II (PEPAIS, PETDOC, PENDOC);
+create index IDX_JAQZ083_AUX_II_02 on JAQZ083_AUX_II (PEPAIS, PETDOC, PENDOC, AOSTAT);
+

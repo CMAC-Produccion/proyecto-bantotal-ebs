@@ -1,0 +1,32 @@
+create table RIA219
+(
+  riapgcod   NUMBER(3) not null,
+  riacatcta  NUMBER(9) not null,
+  riaseccod  NUMBER(3),
+  rianomcta  CHAR(35),
+  riatipgrp  CHAR(30),
+  riavinc    CHAR(1),
+  riacalif   CHAR(15),
+  riarietot  NUMBER(17,2),
+  riagefcta  NUMBER(17,2),
+  riageotcs  NUMBER(17,2),
+  riacoloc   NUMBER(17,2),
+  riarietope NUMBER(17,2),
+  riagacta   NUMBER(17,2),
+  riagaotcta NUMBER(17,2),
+  riagbcta   NUMBER(17,2),
+  riagbotcta NUMBER(17,2),
+  riaprev    NUMBER(17,2),
+  riariecomp NUMBER(17,4),
+  riafch1    DATE,
+  riafch2    DATE,
+  riaaux1    NUMBER(9,2),
+  riaaux2    NUMBER(14,2),
+  riaaux3    NUMBER(17,2),
+  riaaux4    CHAR(30),
+  riaaux5    CHAR(30)
+)
+;
+alter table RIA219
+  add primary key (RIAPGCOD, RIACATCTA);
+

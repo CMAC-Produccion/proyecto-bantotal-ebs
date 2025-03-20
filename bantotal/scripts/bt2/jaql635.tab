@@ -1,0 +1,24 @@
+create table JAQL635
+(
+  n_serenv NUMBER(10) not null,
+  c_canenv CHAR(10) not null,
+  d_fecenv DATE not null,
+  c_horenv CHAR(8) not null,
+  c_trmenv VARCHAR2(4000),
+  c_obsenv VARCHAR2(4000),
+  c_auxvc1 VARCHAR2(1000),
+  c_auxvc2 VARCHAR2(1000),
+  c_auxvc3 VARCHAR2(1000),
+  n_auxnu1 NUMBER(9),
+  n_auxnu2 NUMBER(9),
+  n_auxnu3 NUMBER(9),
+  d_auxda1 DATE,
+  d_auxda2 DATE,
+  d_auxda3 DATE
+)
+;
+create index JAQL6352 on JAQL635 (C_CANENV, D_FECENV);
+create index JAQL6353 on JAQL635 (C_CANENV, D_FECENV, C_HORENV);
+alter table JAQL635
+  add primary key (N_SERENV);
+

@@ -1,0 +1,29 @@
+create table FSFFB9
+(
+  dtzacemp NUMBER(3) not null,
+  dtzacsuc NUMBER(3) not null,
+  dtzacmod NUMBER(3) not null,
+  dtzactrn NUMBER(3) not null,
+  dtzacnrl NUMBER(4) not null,
+  dtzacfch DATE not null,
+  dtzaccta NUMBER(9),
+  dtzacope NUMBER(9),
+  dtzacnum NUMBER(9),
+  dtzaccon NUMBER(9),
+  dtzacrf  NUMBER(17,2),
+  dtzacri  NUMBER(17,2),
+  dtzacrr  NUMBER(17,2),
+  dtzacrv  NUMBER(17,2),
+  dtzacrt  NUMBER(17,2),
+  dtzaca01 NUMBER(9),
+  dtzaca02 NUMBER(9),
+  dtzaca03 NUMBER(17,2),
+  dtzaca04 NUMBER(17,2),
+  dtzaca05 DATE,
+  dtzaca06 DATE
+)
+;
+create index FSFFB902 on FSFFB9 (DTZACEMP, DTZACCTA, DTZACOPE, DTZACFCH);
+alter table FSFFB9
+  add primary key (DTZACEMP, DTZACSUC, DTZACMOD, DTZACTRN, DTZACNRL, DTZACFCH);
+

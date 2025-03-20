@@ -1,0 +1,18 @@
+create table PRD005
+(
+  pgcod     NUMBER(3) not null,
+  modulo    NUMBER(3) not null,
+  totope    NUMBER(3) not null,
+  moneda    NUMBER(4) not null,
+  papel     NUMBER(4) not null,
+  chetpo    NUMBER(3) not null,
+  prd5cntla NUMBER(3),
+  prd5cntlm NUMBER(3),
+  prd5aux1  CHAR(1),
+  prd5aux2  NUMBER(9)
+)
+;
+create index PRD00502 on PRD005 (CHETPO);
+alter table PRD005
+  add primary key (PGCOD, MODULO, TOTOPE, MONEDA, PAPEL, CHETPO);
+

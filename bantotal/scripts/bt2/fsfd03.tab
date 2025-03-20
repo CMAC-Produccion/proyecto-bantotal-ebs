@@ -1,0 +1,37 @@
+create table FSFD03
+(
+  sfd03emp   NUMBER(3) not null,
+  sfd03suc   NUMBER(3) not null,
+  sfd03mod   NUMBER(3) not null,
+  sfd03pap   NUMBER(4) not null,
+  sfd03ope   NUMBER(9) not null,
+  sfd03cta   NUMBER(9) not null,
+  sfd03top   NUMBER(3) not null,
+  sfd03rel   NUMBER(3) not null,
+  sfd03cedim NUMBER(17,2),
+  sfd03cedta NUMBER(10,6),
+  sfd03tanio NUMBER(1),
+  sfd03tpzo  NUMBER(1),
+  sfd03hab   CHAR(1),
+  sfd03fval  DATE,
+  sfd03fvto  DATE,
+  sfd03oriim NUMBER(17,2),
+  sfd03orita NUMBER(10,6),
+  sfd03auim1 NUMBER(17,2),
+  sfd03auim2 NUMBER(17,2),
+  sfd03auim3 NUMBER(17,2),
+  sfd03txt1  CHAR(20),
+  sfd03txt2  CHAR(20),
+  sfd03txt3  CHAR(20),
+  sfd03car1  CHAR(1),
+  sfd03car2  CHAR(1),
+  sfd03car3  CHAR(1),
+  sfd03num1  NUMBER(9),
+  sfd03num2  NUMBER(9),
+  sfd03num3  NUMBER(9)
+)
+;
+create index FSFD0302 on FSFD03 (SFD03EMP, SFD03REL, SFD03OPE);
+alter table FSFD03
+  add primary key (SFD03EMP, SFD03SUC, SFD03MOD, SFD03PAP, SFD03OPE, SFD03CTA, SFD03TOP, SFD03REL);
+

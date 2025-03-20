@@ -1,0 +1,139 @@
+create table AQPB088
+(
+  aqpb088fep    DATE not null,
+  aqpb088cor    NUMBER(9) not null,
+  aqpb088emp    NUMBER(3) not null,
+  aqpb088mod    NUMBER(3) not null,
+  aqpb088suc    NUMBER(3) not null,
+  aqpb088mda    NUMBER(4) not null,
+  aqpb088pap    NUMBER(4) not null,
+  aqpb088cta    NUMBER(9) not null,
+  aqpb088ope    NUMBER(9) not null,
+  aqpb088sbo    NUMBER(3) not null,
+  aqpb088top    NUMBER(3) not null,
+  aqpb088fev    DATE,
+  aqpb088fem    DATE,
+  aqpb088per    NUMBER(4),
+  aqpb088ind    CHAR(1),
+  aqpb088ica    CHAR(1),
+  aqpb088est    CHAR(1),
+  aqpb088fex    DATE,
+  aqpb088hor    CHAR(8),
+  aqpb088fa1    DATE,
+  aqpb088fa2    DATE,
+  aqpb088ca1    CHAR(50),
+  aqpb088ca2    CHAR(30),
+  aqpb088nu1    NUMBER(17,2),
+  aqpb088nu2    NUMBER(17,2),
+  aqpb088mail   VARCHAR2(150),
+  aqpb088fa3    DATE,
+  aqpb088fa4    DATE,
+  aqpb088ca3    CHAR(50),
+  aqpb088ca4    CHAR(30),
+  aqpb088nu3    NUMBER(17,2),
+  aqpb088nu4    NUMBER(17,2),
+  aqpb088mora   CHAR(1),
+  aqpb088fcap   CHAR(1),
+  aqpb088nomarc VARCHAR2(150),
+  aqpb088inst   NUMBER(10),
+  aqpb088fmail  CHAR(1),
+  aqpb088tlfn   VARCHAR2(20),
+  aqpb088fext   DATE,
+  aqpb088hext   CHAR(8),
+  aqpb088usu    CHAR(10),
+  aqpb088usext  CHAR(10),
+  aqpb088usrpt  CHAR(10),
+  aqpb088suext  NUMBER(3)
+)
+;
+comment on column AQPB088.aqpb088fep
+  is 'Fecha carga BI';
+comment on column AQPB088.aqpb088cor
+  is 'Correlativo';
+comment on column AQPB088.aqpb088emp
+  is 'Empresa';
+comment on column AQPB088.aqpb088mod
+  is 'Modulo';
+comment on column AQPB088.aqpb088suc
+  is 'Sucursal';
+comment on column AQPB088.aqpb088mda
+  is 'Moneda';
+comment on column AQPB088.aqpb088pap
+  is 'Papel';
+comment on column AQPB088.aqpb088cta
+  is 'Cuenta';
+comment on column AQPB088.aqpb088ope
+  is 'Operacion';
+comment on column AQPB088.aqpb088sbo
+  is 'Suboperacion';
+comment on column AQPB088.aqpb088top
+  is 'Tipo de operacion';
+comment on column AQPB088.aqpb088fev
+  is 'Fecha de vencimiento';
+comment on column AQPB088.aqpb088fem
+  is 'Fecha de pago propuesta';
+comment on column AQPB088.aqpb088per
+  is 'Periodo de reprogramacion ';
+comment on column AQPB088.aqpb088ind
+  is 'Indicador Parcial';
+comment on column AQPB088.aqpb088ica
+  is 'Indicador Parcial capital';
+comment on column AQPB088.aqpb088est
+  is 'Estado';
+comment on column AQPB088.aqpb088fex
+  is 'Fecha proceso';
+comment on column AQPB088.aqpb088hor
+  is 'Hora proceso ';
+comment on column AQPB088.aqpb088fa1
+  is 'fecha aux1';
+comment on column AQPB088.aqpb088fa2
+  is 'fecha aux2';
+comment on column AQPB088.aqpb088ca1
+  is 'caracter aux1';
+comment on column AQPB088.aqpb088ca2
+  is 'caracter aux2';
+comment on column AQPB088.aqpb088nu1
+  is 'number aux1';
+comment on column AQPB088.aqpb088nu2
+  is 'number aux2';
+comment on column AQPB088.aqpb088mail
+  is 'Mail';
+comment on column AQPB088.aqpb088fa3
+  is 'fecha aux3';
+comment on column AQPB088.aqpb088fa4
+  is 'fecha aux4';
+comment on column AQPB088.aqpb088ca3
+  is 'caracter aux3';
+comment on column AQPB088.aqpb088ca4
+  is 'caracter aux4';
+comment on column AQPB088.aqpb088nu3
+  is 'number aux3';
+comment on column AQPB088.aqpb088nu4
+  is 'number aux4';
+comment on column AQPB088.aqpb088mora
+  is 'Indicador Mora';
+comment on column AQPB088.aqpb088fcap
+  is 'Flag Suma capital';
+comment on column AQPB088.aqpb088nomarc
+  is 'Archivo';
+comment on column AQPB088.aqpb088inst
+  is 'Instancia';
+comment on column AQPB088.aqpb088fmail
+  is 'Flag Mail';
+comment on column AQPB088.aqpb088fext
+  is 'Fecha de Extorno';
+comment on column AQPB088.aqpb088hext
+  is 'Hora de Extorno';
+comment on column AQPB088.aqpb088usu
+  is 'Usuario de proceso';
+comment on column AQPB088.aqpb088usext
+  is 'USUARIO QUE REALIZO LA REVERSION';
+comment on column AQPB088.aqpb088usrpt
+  is 'USUARIO PARA REPORTE';
+comment on column AQPB088.aqpb088suext
+  is 'SUCURSAL AL MOMENTO DE REVERTIR';
+create index AQPB088A3 on AQPB088 (AQPB088EMP, AQPB088MOD, AQPB088MDA, AQPB088PAP, AQPB088CTA, AQPB088OPE, AQPB088TOP);
+create index AQPB0882 on AQPB088 (AQPB088CTA, AQPB088EST);
+alter table AQPB088
+  add primary key (AQPB088FEP, AQPB088COR, AQPB088EMP, AQPB088MOD, AQPB088SUC, AQPB088MDA, AQPB088PAP, AQPB088CTA, AQPB088OPE, AQPB088SBO, AQPB088TOP);
+

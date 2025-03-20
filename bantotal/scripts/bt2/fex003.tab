@@ -1,0 +1,13 @@
+create table FEX003
+(
+  expgcod  NUMBER(3) not null,
+  exinprg  CHAR(10) not null,
+  exincol  NUMBER(4) not null,
+  excicpo  CHAR(8),
+  extipfil NUMBER(1)
+)
+;
+create index FEX00302 on FEX003 (EXPGCOD, EXCICPO);
+alter table FEX003
+  add primary key (EXPGCOD, EXINPRG, EXINCOL);
+

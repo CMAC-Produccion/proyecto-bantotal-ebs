@@ -1,0 +1,16 @@
+create table FSF005
+(
+  pgcod     NUMBER(3) not null,
+  finro     NUMBER(3) not null,
+  fiano     NUMBER(4) not null,
+  fimes     NUMBER(2) not null,
+  fitvaltot NUMBER(17,2),
+  fitvalcuo NUMBER(14,6),
+  fitcntcuo NUMBER(14,6),
+  fitrndbru NUMBER(7,4),
+  fitrndnet NUMBER(7,4)
+)
+;
+alter table FSF005
+  add primary key (PGCOD, FINRO, FIANO, FIMES);
+

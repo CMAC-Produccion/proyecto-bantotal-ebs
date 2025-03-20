@@ -1,0 +1,74 @@
+create table JAQL721
+(
+  jaql721idco VARCHAR2(20) not null,
+  jaql721user VARCHAR2(10) not null,
+  jaql721fere DATE not null,
+  jaql721tido NUMBER(2),
+  jaql721nudo VARCHAR2(12),
+  jaql721segm NUMBER(1),
+  jaql721tidi NUMBER(2),
+  jaql721dire VARCHAR2(250),
+  jaql721tite NUMBER(1),
+  jaql721telf NUMBER(10),
+  jaql721mail VARCHAR2(30),
+  jaql721mone NUMBER(4),
+  jaql721modu NUMBER(3),
+  jaql721tope NUMBER(3),
+  jaql721mont NUMBER(12,2),
+  jaql721plaz NUMBER(4),
+  jaql721tasa NUMBER(10,6),
+  jaql721estr NUMBER(1),
+  jaql721feco DATE,
+  jaql721hora CHAR(8),
+  jaql721nomb VARCHAR2(30),
+  jaql721depr VARCHAR2(500)
+)
+;
+comment on column JAQL721.jaql721idco
+  is 'ID DE CONSULTA';
+comment on column JAQL721.jaql721user
+  is 'USUARIO';
+comment on column JAQL721.jaql721fere
+  is 'FECHA DE REGISTRO';
+comment on column JAQL721.jaql721tido
+  is 'TIPO DOCUMENTO';
+comment on column JAQL721.jaql721nudo
+  is 'NUM DOCUMENTO';
+comment on column JAQL721.jaql721segm
+  is 'TIPO SEGMENTO';
+comment on column JAQL721.jaql721tidi
+  is 'TIPO DIRECCION';
+comment on column JAQL721.jaql721dire
+  is 'DIRECCION';
+comment on column JAQL721.jaql721tite
+  is 'TIPO TELEFONO';
+comment on column JAQL721.jaql721telf
+  is 'TELEFONO';
+comment on column JAQL721.jaql721mail
+  is 'CORREO ELECTRONICO';
+comment on column JAQL721.jaql721mone
+  is 'MONEDA';
+comment on column JAQL721.jaql721modu
+  is 'MODULO';
+comment on column JAQL721.jaql721tope
+  is 'TIPO OPERACION';
+comment on column JAQL721.jaql721mont
+  is 'MONTO';
+comment on column JAQL721.jaql721plaz
+  is 'PLAZO';
+comment on column JAQL721.jaql721tasa
+  is 'TASA';
+comment on column JAQL721.jaql721estr
+  is 'ESTRATEGIA';
+comment on column JAQL721.jaql721feco
+  is 'FECHA CONTACTO';
+comment on column JAQL721.jaql721hora
+  is 'HORA DE REGISTRO';
+comment on column JAQL721.jaql721nomb
+  is 'NOMBRE PERSONA';
+comment on column JAQL721.jaql721depr
+  is 'Descripcion producto';
+create index IDX_JAQL721_001 on JAQL721 (JAQL721TIDO, JAQL721NUDO);
+alter table JAQL721
+  add constraint PK_JAQL721 primary key (JAQL721IDCO, JAQL721USER, JAQL721FERE);
+

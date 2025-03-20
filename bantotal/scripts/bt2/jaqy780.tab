@@ -1,0 +1,40 @@
+create table JAQY780
+(
+  jaqy780cod   NUMBER(3) not null,
+  jaqy780mod   NUMBER(3) not null,
+  jaqy780suc   NUMBER(3) not null,
+  jaqy780mda   NUMBER(4) not null,
+  jaqy780pap   NUMBER(4) not null,
+  jaqy780cta   NUMBER(9) not null,
+  jaqy780oper  NUMBER(9) not null,
+  jaqy780sbop  NUMBER(3) not null,
+  jaqy780tope  NUMBER(3) not null,
+  jaqy780fpag  DATE not null,
+  jaqy780tipo  CHAR(1) not null,
+  jaqy780exte  NUMBER(3) not null,
+  jaqy780imp1  NUMBER(17,2),
+  jaqy780imp2  NUMBER(17,2),
+  jaqy780imp3  NUMBER(17,2),
+  jaqy780imp4  NUMBER(17,2),
+  jaqy780imp5  NUMBER(17,2),
+  jaqy780imp6  NUMBER(17,2),
+  jaqy780imp7  NUMBER(17,2),
+  jaqy780imp8  NUMBER(17,2),
+  jaqy780imp9  NUMBER(17,2),
+  jaqy780imp10 NUMBER(17,2),
+  jaqy780imp11 NUMBER(17,2),
+  jaqy780imp12 NUMBER(17,2),
+  jaqy780imp13 NUMBER(17,2),
+  jaqy780imp14 NUMBER(17,2),
+  jaqy780imp15 NUMBER(17,2),
+  jaqy780imp16 NUMBER(17,2),
+  jaqy780imp17 NUMBER(17,2),
+  jaqy780imp18 NUMBER(17,2),
+  jaqy780imp19 NUMBER(17,2),
+  jaqy780imp20 NUMBER(17,2)
+)
+;
+create index JAQY78003 on JAQY780 (JAQY780COD, JAQY780SUC, JAQY780MDA, JAQY780PAP, JAQY780CTA, JAQY780OPER, JAQY780SBOP, JAQY780TOPE);
+alter table JAQY780
+  add primary key (JAQY780COD, JAQY780MOD, JAQY780SUC, JAQY780MDA, JAQY780PAP, JAQY780CTA, JAQY780OPER, JAQY780SBOP, JAQY780TOPE, JAQY780FPAG, JAQY780TIPO, JAQY780EXTE);
+

@@ -1,0 +1,20 @@
+create table AQPA868
+(
+  aqpa868fep DATE not null,
+  aqpa868cor NUMBER(10) not null,
+  aqpa868id  NUMBER(10),
+  aqpa868emp NUMBER(3),
+  aqpa868mod NUMBER(3),
+  aqpa868suc NUMBER(3),
+  aqpa868mda NUMBER(4),
+  aqpa868pap NUMBER(4),
+  aqpa868cta NUMBER(9),
+  aqpa868ope NUMBER(9),
+  aqpa868sbo NUMBER(3),
+  aqpa868top NUMBER(3)
+)
+;
+create index AQPA8682 on AQPA868 (AQPA868ID);
+alter table AQPA868
+  add primary key (AQPA868FEP, AQPA868COR);
+

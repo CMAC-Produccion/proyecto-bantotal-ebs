@@ -1,0 +1,46 @@
+create table JAQY771
+(
+  jaqy771pgc  INTEGER not null,
+  jaqy771mod  INTEGER not null,
+  jaqy771suc  INTEGER not null,
+  jaqy771mda  INTEGER not null,
+  jaqy771pap  INTEGER not null,
+  jaqy771cta  INTEGER not null,
+  jaqy771ope  INTEGER not null,
+  jaqy771sbo  INTEGER not null,
+  jaqy771top  INTEGER not null,
+  jaqy771sgc  INTEGER not null,
+  jaqy771user VARCHAR2(30),
+  jaqy771fech TIMESTAMP(6) not null,
+  jaqy771estd CHAR(1)
+)
+;
+comment on column JAQY771.jaqy771pgc
+  is 'Codigo';
+comment on column JAQY771.jaqy771mod
+  is 'Modulo';
+comment on column JAQY771.jaqy771suc
+  is 'Sucursal';
+comment on column JAQY771.jaqy771mda
+  is 'Moneda';
+comment on column JAQY771.jaqy771pap
+  is 'Papel';
+comment on column JAQY771.jaqy771cta
+  is 'Cuenta';
+comment on column JAQY771.jaqy771ope
+  is 'Operación';
+comment on column JAQY771.jaqy771sbo
+  is 'Sub Operacion';
+comment on column JAQY771.jaqy771top
+  is 'Tipo de Operacion';
+comment on column JAQY771.jaqy771sgc
+  is 'Código del seguro';
+comment on column JAQY771.jaqy771user
+  is 'Usuario de Bantotal';
+comment on column JAQY771.jaqy771fech
+  is 'Fecha y hora de Bantotal';
+comment on column JAQY771.jaqy771estd
+  is 'Estado de vigencia del seguro en la tabla jaqy771';
+alter table JAQY771
+  add primary key (JAQY771PGC, JAQY771MOD, JAQY771SUC, JAQY771MDA, JAQY771PAP, JAQY771CTA, JAQY771OPE, JAQY771SBO, JAQY771TOP, JAQY771SGC, JAQY771FECH);
+

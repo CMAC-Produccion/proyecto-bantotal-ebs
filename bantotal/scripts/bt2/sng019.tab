@@ -1,0 +1,17 @@
+create table SNG019
+(
+  sng001inst NUMBER(10) not null,
+  sng019corc NUMBER(3) not null,
+  sng019cod1 NUMBER(3),
+  sng019cod2 NUMBER(5),
+  sng019cod3 NUMBER(9),
+  sng019tasa NUMBER(10,6),
+  sng019arb  NUMBER(14,8),
+  sng019imp  NUMBER(17,2),
+  sng019fec  DATE,
+  sng019car3 VARCHAR2(50)
+)
+;
+alter table SNG019
+  add primary key (SNG001INST, SNG019CORC);
+

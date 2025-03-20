@@ -1,0 +1,71 @@
+create table JAQY770
+(
+  jaqy770cor NUMBER(10) not null,
+  jaqy770fec DATE not null,
+  jaqy770hor VARCHAR2(10) not null,
+  jaqy770usu VARCHAR2(10),
+  jaqy770ase VARCHAR2(50),
+  jaqy770doc CHAR(12),
+  jaqy770cta NUMBER(9),
+  jaqy770mod NUMBER(4),
+  jaqy770mda NUMBER(3),
+  jaqy770ope NUMBER(9),
+  jaqy770dia NUMBER(9),
+  jaqy770sao NUMBER(16,2),
+  jaqy770tit VARCHAR2(30),
+  jaqy770mtd NUMBER(16,2),
+  jaqy770gas NUMBER(16,2),
+  jaqy770mor NUMBER(16,2),
+  jaqy770int NUMBER(16,2),
+  jaqy770cuo NUMBER(16,2),
+  jaqy770pag NUMBER(16,2),
+  jaqy770age VARCHAR2(50),
+  jaqy770msg VARCHAR2(160)
+)
+;
+comment on column JAQY770.jaqy770cor
+  is 'Correlativo';
+comment on column JAQY770.jaqy770fec
+  is 'Fecha Pago';
+comment on column JAQY770.jaqy770hor
+  is 'Hora Pago';
+comment on column JAQY770.jaqy770usu
+  is 'Codigo Analista';
+comment on column JAQY770.jaqy770ase
+  is 'Nombre Analista';
+comment on column JAQY770.jaqy770doc
+  is 'Documento Titular';
+comment on column JAQY770.jaqy770cta
+  is 'Cuenta';
+comment on column JAQY770.jaqy770mod
+  is 'Modulo';
+comment on column JAQY770.jaqy770mda
+  is 'Moneda';
+comment on column JAQY770.jaqy770ope
+  is 'Operacion';
+comment on column JAQY770.jaqy770dia
+  is 'Dias de Atraso';
+comment on column JAQY770.jaqy770sao
+  is 'Saldo Moneda Origen';
+comment on column JAQY770.jaqy770tit
+  is 'Nombre Titular';
+comment on column JAQY770.jaqy770mtd
+  is 'Monto Total de la Deuda';
+comment on column JAQY770.jaqy770gas
+  is 'Gasto';
+comment on column JAQY770.jaqy770mor
+  is 'Mora';
+comment on column JAQY770.jaqy770int
+  is 'Interes';
+comment on column JAQY770.jaqy770cuo
+  is 'Cuota';
+comment on column JAQY770.jaqy770pag
+  is 'Monto Pagado';
+comment on column JAQY770.jaqy770age
+  is 'Descripcion Agencia';
+comment on column JAQY770.jaqy770msg
+  is 'Mensaje';
+create index JAQY770_IDX01 on JAQY770 (JAQY770FEC);
+alter table JAQY770
+  add constraint PK2_JAQY770 primary key (JAQY770COR);
+

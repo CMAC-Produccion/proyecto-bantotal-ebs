@@ -1,0 +1,94 @@
+create table X9996D_20250112_0825
+(
+  x9996acnco NUMBER(3) not null,
+  x9996dfesv DATE not null,
+  x9996dhosv CHAR(8) not null,
+  x9996drqsv NUMBER(10) not null,
+  x9996dfecl DATE,
+  x9996dhocl CHAR(8),
+  x9996drqcl CHAR(50),
+  x9996bopco NUMBER(5),
+  x9996cvart NUMBER(3),
+  x9996drqus CHAR(20),
+  x9996drqws CHAR(20),
+  x9996ddpgc NUMBER(3),
+  x9996ddsuc NUMBER(3),
+  x9996ddmod NUMBER(3),
+  x9996ddmda NUMBER(4),
+  x9996ddpap NUMBER(4),
+  x9996ddcta NUMBER(9),
+  x9996ddope NUMBER(9),
+  x9996ddsbo NUMBER(3),
+  x9996ddtop NUMBER(3),
+  x9996dcpgc NUMBER(3),
+  x9996dcsuc NUMBER(3),
+  x9996dcmod NUMBER(3),
+  x9996dcmda NUMBER(4),
+  x9996dcpap NUMBER(4),
+  x9996dccta NUMBER(9),
+  x9996dcope NUMBER(9),
+  x9996dcsbo NUMBER(3),
+  x9996dctop NUMBER(3),
+  x9996dimpo NUMBER(17,2),
+  x9996dimp2 NUMBER(17,2),
+  x9996dmdao NUMBER(4),
+  x9996dcotz NUMBER(14,8),
+  x9996grsco CHAR(5),
+  x9996drpgc NUMBER(3),
+  x9996drsuc NUMBER(3),
+  x9996drmod NUMBER(3),
+  x9996drtrn NUMBER(3),
+  x9996drrel NUMBER(4),
+  x9996drmnc NUMBER(5),
+  x9996drsdo NUMBER(17,2),
+  x9996drsdd NUMBER(17,2)
+)
+partition by range (X9996DFESV)
+(
+  partition X9996D_202409 values less than (TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202410 values less than (TO_DATE(' 2024-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202411 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202412 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202501 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202502 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202503 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202504 values less than (TO_DATE(' 2025-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202505 values less than (TO_DATE(' 2025-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202506 values less than (TO_DATE(' 2025-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202507 values less than (TO_DATE(' 2025-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202508 values less than (TO_DATE(' 2025-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202509 values less than (TO_DATE(' 2025-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202510 values less than (TO_DATE(' 2025-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202511 values less than (TO_DATE(' 2025-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition X9996D_202512 values less than (TO_DATE(' 2026-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC
+);
+create index X9996D02 on X9996D_20250112_0825 (X9996ACNCO, X9996GRSCO)
+  nologging  local;
+create index X9996D03 on X9996D_20250112_0825 (X9996ACNCO, X9996BOPCO, X9996CVART)
+  nologging  local;
+create index X9996D04 on X9996D_20250112_0825 (X9996ACNCO, X9996DFECL, X9996DHOCL, X9996DRQCL)
+  nologging  local;
+create index X9996D05 on X9996D_20250112_0825 (X9996DRPGC, X9996DRSUC, X9996DRMOD, X9996DRTRN, X9996DRREL)
+  nologging  local;
+create index X9996D06 on X9996D_20250112_0825 (X9996ACNCO, X9996DRQSV)
+  nologging  local;
+alter table X9996D_20250112_0825
+  add primary key (X9996ACNCO, X9996DFESV, X9996DHOSV, X9996DRQSV);
+alter index SYS_C00976092 nologging;
+

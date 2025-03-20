@@ -1,0 +1,17 @@
+create table JAQL526
+(
+  jaql526corre NUMBER(9) not null,
+  jaql526moavi CHAR(30),
+  jaql526coent NUMBER(3),
+  jaql526cotse NUMBER(3),
+  jaql526mausu CHAR(65),
+  jaql526cousu VARCHAR2(20),
+  jaql526fecha DATE,
+  jaql526esreg CHAR(1)
+)
+;
+create index JAQL52602 on JAQL526 (JAQL526COENT, JAQL526COTSE);
+create index JAQL52603 on JAQL526 (JAQL526MAUSU);
+alter table JAQL526
+  add primary key (JAQL526CORRE);
+

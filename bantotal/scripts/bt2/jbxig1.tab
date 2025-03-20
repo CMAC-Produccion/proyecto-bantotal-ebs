@@ -1,0 +1,35 @@
+create table JBXIG1
+(
+  jbxig1car DATE not null,
+  jbxig1pai NUMBER(3) not null,
+  jbxig1doc NUMBER(2) not null,
+  jbxig1cdo CHAR(12) not null,
+  jbxig1per CHAR(50),
+  jbxig1tpe CHAR(15),
+  jbxig1tcl CHAR(15),
+  jbxig1scl CHAR(15),
+  jbxig1cri NUMBER(2),
+  jbxig1ing NUMBER(17,2),
+  jbxig1bcr CHAR(15),
+  jbxig1ver CHAR(15),
+  jbxig1seg CHAR(15),
+  jbxig1alt DATE,
+  jbxig1sex CHAR(1),
+  jbxig1nac DATE,
+  jbxig1sue CHAR(1),
+  jbxig1emp CHAR(41),
+  jbxig1ecc CHAR(15),
+  jbxig1cvc CHAR(15),
+  jbxig1cec CHAR(15),
+  jbxig1cbc CHAR(15),
+  jbxig1mbc CHAR(15),
+  jbxig1iva CHAR(15),
+  jbxig1pro CHAR(15),
+  jbxig1cuc NUMBER(11),
+  jbxig1ccb CHAR(15),
+  jbxig1cof CHAR(15)
+)
+;
+create unique index JBXIG101 on JBXIG1 (JBXIG1CAR, JBXIG1PAI, JBXIG1DOC, JBXIG1CDO);
+create index JBXIG102 on JBXIG1 (JBXIG1CDO);
+

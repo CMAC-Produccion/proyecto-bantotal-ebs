@@ -1,0 +1,28 @@
+create table FSD500
+(
+  ncpais     NUMBER(3) not null,
+  nctipdoc   NUMBER(2) not null,
+  ncnrodoc   CHAR(12) not null,
+  nctipper   CHAR(1),
+  ncape1     CHAR(25),
+  ncape2     CHAR(25),
+  ncnom1     CHAR(25),
+  ncnom2     CHAR(25),
+  ncfchnac   DATE,
+  nclugnac   CHAR(27),
+  ncdom      CHAR(54),
+  ncprof     CHAR(42),
+  nccta      NUMBER(9),
+  ncnomcta   CHAR(35),
+  ncdenom    CHAR(50),
+  ncfchconst DATE,
+  ncnroinscr CHAR(10),
+  ncdom1     CHAR(55),
+  ncdom2     CHAR(65),
+  ncactiv    CHAR(45)
+)
+;
+create index FSD50002 on FSD500 (NCAPE1, NCNOM1);
+alter table FSD500
+  add primary key (NCPAIS, NCTIPDOC, NCNRODOC);
+

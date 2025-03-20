@@ -1,0 +1,20 @@
+create table JBXC234
+(
+  jbcod    NUMBER(16) not null,
+  jbfecha  DATE not null,
+  jbmod    NUMBER(3),
+  jbsuc    NUMBER(3),
+  jbtran   NUMBER(3),
+  jbcta    NUMBER(9),
+  jbmdaop  NUMBER(4),
+  jbimpop  NUMBER(17,2),
+  jbmes    NUMBER(2),
+  jbanio   NUMBER(4),
+  jbimpcom NUMBER(17,2),
+  jbmdacom NUMBER(4),
+  jbequimn NUMBER(17,2),
+  jbemp    NUMBER(3)
+)
+;
+create unique index JBXC2341 on JBXC234 (JBCOD, JBFECHA);
+

@@ -1,0 +1,26 @@
+create table AQPA180H
+(
+  aqpa180hid     NUMBER(10) not null,
+  aqpa180hclicta NUMBER(9) not null,
+  aqpa180hnumope NUMBER(9) not null,
+  aqpa180hclidoc CHAR(12) not null,
+  aqpa180hclicel VARCHAR2(40),
+  aqpa180hclifij VARCHAR2(40),
+  aqpa180hclicor VARCHAR2(60),
+  aqpa180hmamdoc CHAR(12),
+  aqpa180hmamnom VARCHAR2(100),
+  aqpa180hmamape VARCHAR2(100),
+  aqpa180hmameda NUMBER(3),
+  aqpa180hdessor VARCHAR2(200),
+  aqpa180hflgpro CHAR(1),
+  aqpa180htipper CHAR(1),
+  aqpa180husureg CHAR(10),
+  aqpa180hhorreg VARCHAR2(20),
+  aqpa180hfecreg DATE,
+  aqpa180husuper CHAR(10),
+  aqpa180hflgver CHAR(1)
+)
+;
+alter table AQPA180H
+  add primary key (AQPA180HID, AQPA180HCLICTA, AQPA180HNUMOPE, AQPA180HCLIDOC);
+

@@ -1,0 +1,22 @@
+create table FSX230
+(
+  checod  NUMBER(3) not null,
+  chemod  NUMBER(3) not null,
+  chesuc  NUMBER(3) not null,
+  chemda  NUMBER(4) not null,
+  chepap  NUMBER(4) not null,
+  checta  NUMBER(9) not null,
+  cheope  NUMBER(9) not null,
+  chesbo  NUMBER(3) not null,
+  chetop  NUMBER(3) not null,
+  chenro  NUMBER(9) not null,
+  chetxt1 CHAR(60),
+  chetxt2 CHAR(60),
+  chetxt3 CHAR(60),
+  chendn  NUMBER(9)
+)
+;
+create index FSX23002 on FSX230 (CHECOD, CHEMOD, CHESUC, CHEMDA, CHEPAP, CHECTA, CHEOPE, CHESBO, CHETOP, CHENDN);
+alter table FSX230
+  add primary key (CHECOD, CHEMOD, CHESUC, CHEMDA, CHEPAP, CHECTA, CHEOPE, CHESBO, CHETOP, CHENRO);
+

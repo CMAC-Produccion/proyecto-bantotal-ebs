@@ -1,0 +1,49 @@
+create table AQPB515C
+(
+  aqpb515cserial NUMBER(10) not null,
+  aqpb515centid  VARCHAR2(100) not null,
+  aqpb515cticta  VARCHAR2(10) not null,
+  aqpb515cfecha  DATE not null,
+  aqpb515ccorrel NUMBER(4) not null,
+  aqpb515ctidet  CHAR(2),
+  aqpb515crazon  CHAR(2),
+  aqpb515cciuda  VARCHAR2(30),
+  aqpb515cofici  VARCHAR2(30),
+  aqpb515cnume   NUMBER(5),
+  aqpb515cconcod VARCHAR2(16) not null,
+  aqpb515ccreusr VARCHAR2(30) not null,
+  aqpb515ccretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515C
+  is 'HUELLA CONSULTA - EQUIFAX';
+comment on column AQPB515C.aqpb515cserial
+  is 'SERIAL';
+comment on column AQPB515C.aqpb515centid
+  is 'ENTIDAD FINAN';
+comment on column AQPB515C.aqpb515cticta
+  is 'CUENTA';
+comment on column AQPB515C.aqpb515cfecha
+  is 'FECHA ';
+comment on column AQPB515C.aqpb515ccorrel
+  is 'CODIGO RELACION';
+comment on column AQPB515C.aqpb515ctidet
+  is 'TIPO DETALLE';
+comment on column AQPB515C.aqpb515crazon
+  is 'RAZONSOCIAL';
+comment on column AQPB515C.aqpb515cciuda
+  is 'CIUDAD';
+comment on column AQPB515C.aqpb515cofici
+  is 'OFICINA';
+comment on column AQPB515C.aqpb515cnume
+  is 'HUELLA - NUMERO';
+comment on column AQPB515C.aqpb515cconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515C.aqpb515ccreusr
+  is 'CONSULTA - USUARIO';
+comment on column AQPB515C.aqpb515ccretim
+  is 'CONSULTA - TIMESTAMP';
+create index AQPB515CA2 on AQPB515C (AQPB515CSERIAL, AQPB515CFECHA DESC, AQPB515CENTID);
+alter table AQPB515C
+  add primary key (AQPB515CSERIAL, AQPB515CENTID, AQPB515CTICTA, AQPB515CFECHA, AQPB515CCORREL, AQPB515CCONCOD, AQPB515CCREUSR);
+

@@ -1,0 +1,12 @@
+create table XWF004
+(
+  xwfprcid   NUMBER(4) not null,
+  xwftaskcod NUMBER(4) not null,
+  xwfpreanom CHAR(10) not null,
+  xwfpreaord NUMBER(3)
+)
+;
+create index UXWF0042 on XWF004 (XWFPRCID, XWFTASKCOD, XWFPREAORD);
+alter table XWF004
+  add primary key (XWFPRCID, XWFTASKCOD, XWFPREANOM);
+

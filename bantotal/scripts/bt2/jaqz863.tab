@@ -1,0 +1,21 @@
+create table JAQZ863
+(
+  jaqz863user CHAR(10) not null,
+  jaqz863inst NUMBER(10) not null,
+  jaqz863neva NUMBER(10) not null,
+  jaqz863tdoc NUMBER(2),
+  jaqz863ndoc CHAR(12),
+  jaqz863pers CHAR(30),
+  jaqz863rela VARCHAR2(40),
+  jaqz863enti VARCHAR2(200),
+  jaqz863mda  NUMBER(4),
+  jaqz863sdeu NUMBER(18,2),
+  jaqz863chek CHAR(1),
+  jaqz863corr NUMBER(10) not null,
+  jaqz863flag CHAR(1)
+)
+;
+create index JAQZ8631 on JAQZ863 (JAQZ863USER, JAQZ863INST, JAQZ863NEVA);
+alter table JAQZ863
+  add primary key (JAQZ863USER, JAQZ863CORR, JAQZ863INST, JAQZ863NEVA);
+

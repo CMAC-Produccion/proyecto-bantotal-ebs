@@ -1,0 +1,160 @@
+create table AQPC783
+(
+  aqpc783corr   NUMBER(17) not null,
+  aqpc783usup   VARCHAR2(10) not null,
+  aqpc783fdesem DATE,
+  aqpc783hora   VARCHAR2(8),
+  aqpc783codreg NUMBER(3),
+  aqpc783nomreg VARCHAR2(40),
+  aqpc783codzon NUMBER(2),
+  aqpc783nomzon VARCHAR2(50),
+  aqpc783codsuc NUMBER(3),
+  aqpc783nomsuc VARCHAR2(30),
+  aqpc783codopr VARCHAR2(10),
+  aqpc783nomopr VARCHAR2(100),
+  aqpc783emp    NUMBER(3),
+  aqpc783mod    NUMBER(3),
+  aqpc783suc    NUMBER(3),
+  aqpc783mda    NUMBER(4),
+  aqpc783pap    NUMBER(4),
+  aqpc783cta    NUMBER(9),
+  aqpc783oper   NUMBER(9),
+  aqpc783sbop   NUMBER(3),
+  aqpc783tope   NUMBER(3),
+  aqpc783empg   NUMBER(3),
+  aqpc783modg   NUMBER(3),
+  aqpc783sucg   NUMBER(3),
+  aqpc783mdag   NUMBER(4),
+  aqpc783papg   NUMBER(4),
+  aqpc783ctag   NUMBER(9),
+  aqpc783operg  NUMBER(9),
+  aqpc783sbopg  NUMBER(3),
+  aqpc783topeg  NUMBER(3),
+  aqpc783smdag  VARCHAR2(4),
+  aqpc783smda   VARCHAR2(4),
+  aqpc783paisg  NUMBER(3),
+  aqpc783tdocg  NUMBER(2),
+  aqpc783ndocg  VARCHAR2(12),
+  aqpc783nomclg VARCHAR2(100),
+  aqpc783pais   NUMBER(3),
+  aqpc783tdoc   NUMBER(2),
+  aqpc783ndoc   VARCHAR2(12),
+  aqpc783nomcli VARCHAR2(100),
+  aqpc783monto  NUMBER(17,2),
+  aqpc783codanl VARCHAR2(10),
+  aqpc783nomanl VARCHAR2(100),
+  aqpc783dpf    VARCHAR2(28),
+  aqpc783tpdesb VARCHAR2(100),
+  aqpc783fchp   DATE,
+  aqpc783horp   VARCHAR2(8),
+  aqpc783estg   NUMBER(2),
+  aqpc783nestg  VARCHAR2(30),
+  aqpc783gcertf VARCHAR2(2)
+)
+;
+comment on table AQPC783
+  is 'Reporte de Desembolsos con DPF';
+comment on column AQPC783.aqpc783corr
+  is 'Correlativo';
+comment on column AQPC783.aqpc783usup
+  is 'Usuario Proceso';
+comment on column AQPC783.aqpc783fdesem
+  is 'Fecha Desembolso';
+comment on column AQPC783.aqpc783hora
+  is 'Hora Desembolso';
+comment on column AQPC783.aqpc783codreg
+  is 'Código Region';
+comment on column AQPC783.aqpc783nomreg
+  is 'Nombre Region';
+comment on column AQPC783.aqpc783codzon
+  is 'Código Zona';
+comment on column AQPC783.aqpc783nomzon
+  is 'Nombre Zona';
+comment on column AQPC783.aqpc783codsuc
+  is 'Código Sucursal';
+comment on column AQPC783.aqpc783nomsuc
+  is 'Nombre Sucursal';
+comment on column AQPC783.aqpc783codopr
+  is 'Código Operador';
+comment on column AQPC783.aqpc783nomopr
+  is 'Nombre Operador';
+comment on column AQPC783.aqpc783emp
+  is 'Empresa';
+comment on column AQPC783.aqpc783mod
+  is 'Módulo';
+comment on column AQPC783.aqpc783suc
+  is 'Sucursal';
+comment on column AQPC783.aqpc783mda
+  is 'Moneda';
+comment on column AQPC783.aqpc783pap
+  is 'Papel';
+comment on column AQPC783.aqpc783cta
+  is 'Cuenta';
+comment on column AQPC783.aqpc783oper
+  is 'Operación';
+comment on column AQPC783.aqpc783sbop
+  is 'Suboperación';
+comment on column AQPC783.aqpc783tope
+  is 'Tipo Operación';
+comment on column AQPC783.aqpc783empg
+  is 'Empresa Garantía';
+comment on column AQPC783.aqpc783modg
+  is 'Módulo Garantía';
+comment on column AQPC783.aqpc783sucg
+  is 'Sucursal Garantía';
+comment on column AQPC783.aqpc783mdag
+  is 'Moneda Garantía';
+comment on column AQPC783.aqpc783papg
+  is 'Papel Garantía';
+comment on column AQPC783.aqpc783ctag
+  is 'Cuenta Garantía';
+comment on column AQPC783.aqpc783operg
+  is 'Operación Garantía';
+comment on column AQPC783.aqpc783sbopg
+  is 'Suboperación Garantía';
+comment on column AQPC783.aqpc783topeg
+  is 'Tipo Operación Garantía';
+comment on column AQPC783.aqpc783smdag
+  is 'Signo Moneda Garantía';
+comment on column AQPC783.aqpc783smda
+  is 'Signo Moneda';
+comment on column AQPC783.aqpc783paisg
+  is 'País Documento Garantía';
+comment on column AQPC783.aqpc783tdocg
+  is 'Tipo Documento Garantía';
+comment on column AQPC783.aqpc783ndocg
+  is 'Nro. Documento Garantía';
+comment on column AQPC783.aqpc783nomclg
+  is 'Nombre Cliente Garantía';
+comment on column AQPC783.aqpc783pais
+  is 'País Documento';
+comment on column AQPC783.aqpc783tdoc
+  is 'Tipo Documento';
+comment on column AQPC783.aqpc783ndoc
+  is 'Nro. Documento';
+comment on column AQPC783.aqpc783nomcli
+  is 'Nombre Cliente';
+comment on column AQPC783.aqpc783monto
+  is 'Monto Desembolso';
+comment on column AQPC783.aqpc783codanl
+  is 'Código Analista';
+comment on column AQPC783.aqpc783nomanl
+  is 'Nombre Analista';
+comment on column AQPC783.aqpc783dpf
+  is 'DPF';
+comment on column AQPC783.aqpc783tpdesb
+  is 'Tipo Desembolso';
+comment on column AQPC783.aqpc783fchp
+  is 'Fecha Proceso';
+comment on column AQPC783.aqpc783horp
+  is 'Hora Proceso';
+comment on column AQPC783.aqpc783estg
+  is 'Estado Garantía';
+comment on column AQPC783.aqpc783nestg
+  is 'Nombre Estado Garantía';
+comment on column AQPC783.aqpc783gcertf
+  is 'Garantía Certificada';
+create index AQPC783A2 on AQPC783 (AQPC783USUP, AQPC783CORR);
+alter table AQPC783
+  add primary key (AQPC783CORR, AQPC783USUP);
+

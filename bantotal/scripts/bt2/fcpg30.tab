@@ -1,0 +1,25 @@
+create table FCPG30
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg02cod   NUMBER(3) not null,
+  cpg03cod   NUMBER(3) not null,
+  cpg30fmac  NUMBER(2) not null,
+  cpg30mda   NUMBER(4) not null,
+  cpg30fdes  DATE not null,
+  cpg30perio CHAR(1),
+  cpg30cntd  NUMBER(3),
+  cpg30cyol  CHAR(1),
+  cpg30codmv NUMBER(3),
+  cpg30est   CHAR(3),
+  cpg30blq   CHAR(1),
+  cpg30inst  NUMBER(10)
+)
+;
+create index FCPG3002 on FCPG30 (CPG03COD);
+create index FCPG3003 on FCPG30 (CPG02COD);
+create index FCPG3005 on FCPG30 (CPG30INST);
+alter table FCPG30
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG02COD, CPG03COD, CPG30FMAC, CPG30MDA, CPG30FDES);
+

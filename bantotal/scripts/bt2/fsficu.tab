@@ -1,0 +1,21 @@
+create table FSFICU
+(
+  sficuemp NUMBER(3) not null,
+  sficumer NUMBER(3) not null,
+  sficugru NUMBER(3) not null,
+  sficudes CHAR(50),
+  sficuafo NUMBER(10,6),
+  sficuhab CHAR(1),
+  sficua01 CHAR(1),
+  sficua02 CHAR(1),
+  sficua03 NUMBER(9),
+  sficua04 NUMBER(9),
+  sficua05 NUMBER(17,2),
+  sficua06 NUMBER(17,2),
+  sficua07 DATE,
+  sficua08 DATE
+)
+;
+alter table FSFICU
+  add primary key (SFICUEMP, SFICUMER, SFICUGRU);
+

@@ -1,0 +1,28 @@
+create table TI0006
+(
+  tiimpucod  NUMBER(3) not null,
+  tidimcorr  NUMBER(3) not null,
+  ticd_ant_i NUMBER(3) not null,
+  tidimsuc   NUMBER(3) not null,
+  tidimpzo   NUMBER(5) not null,
+  tidimmod   NUMBER(3) not null,
+  tidimtope  NUMBER(3) not null,
+  tidimact   NUMBER(9) not null,
+  tirippais  NUMBER(3) not null,
+  tiriptdoc  NUMBER(2) not null,
+  tiripndoc  CHAR(12) not null,
+  tidimfchin DATE not null,
+  tidimfchfi DATE,
+  tidimporc  NUMBER(7,4),
+  tidimcap   NUMBER(17,2),
+  tidimndgi  NUMBER(16),
+  tidimaux1  NUMBER(9),
+  tidimaux2  NUMBER(17,2),
+  tidimaux3  CHAR(1),
+  tidimaux4  DATE
+)
+;
+create index TI000603 on TI0006 (TIIMPUCOD, TIRIPPAIS, TIRIPTDOC, TIRIPNDOC, TIDIMMOD, TIDIMFCHIN);
+alter table TI0006
+  add primary key (TIIMPUCOD, TIDIMCORR, TICD_ANT_I, TIDIMSUC, TIDIMPZO, TIDIMMOD, TIDIMTOPE, TIDIMACT, TIRIPPAIS, TIRIPTDOC, TIRIPNDOC, TIDIMFCHIN);
+

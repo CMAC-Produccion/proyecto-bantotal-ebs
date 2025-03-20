@@ -1,0 +1,18 @@
+create table JAQY715
+(
+  jaqy715inst NUMBER(10) not null,
+  jaqy715fgen DATE,
+  jaqy715hgen CHAR(8),
+  jaqy715nal  NUMBER(9,2),
+  jaqy715pais NUMBER(3),
+  jaqy715tdoc NUMBER(2),
+  jaqy715ndoc CHAR(12),
+  jaqy715asol CHAR(10),
+  jaqy715apr  CHAR(3),
+  jaqy715sca  CHAR(10)
+)
+;
+create index JAQY715_01 on JAQY715 (JAQY715PAIS, JAQY715TDOC, JAQY715NDOC, JAQY715FGEN, JAQY715HGEN);
+alter table JAQY715
+  add primary key (JAQY715INST);
+

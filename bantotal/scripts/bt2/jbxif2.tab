@@ -1,0 +1,11 @@
+create table JBXIF2
+(
+  jbxif2emp NUMBER(3) not null,
+  jbxif2mod NUMBER(3) not null,
+  jbxif2top NUMBER(3) not null,
+  jbxif2mda NUMBER(4) not null,
+  jbxif2pro CHAR(7)
+)
+;
+create unique index JBXIF201 on JBXIF2 (JBXIF2EMP, JBXIF2MOD, JBXIF2TOP, JBXIF2MDA);
+

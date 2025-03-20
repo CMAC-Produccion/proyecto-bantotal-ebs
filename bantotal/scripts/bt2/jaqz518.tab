@@ -1,0 +1,21 @@
+create table JAQZ518
+(
+  jaqz518meva NUMBER(3) not null,
+  jaqz518prg  CHAR(8) not null,
+  jaqz518obj  CHAR(20) not null,
+  jaqz518dsc  CHAR(60),
+  jaqz518tip  CHAR(1),
+  jaqz518asp  CHAR(1),
+  jaqz518cod  NUMBER(4),
+  jaqz518prog CHAR(10),
+  jaqz518prov CHAR(10),
+  jaqz518grd  CHAR(20),
+  jaqz518ord  NUMBER(3),
+  jaqz518obl  CHAR(1)
+)
+;
+create index JAQZ51803 on JAQZ518 (JAQZ518MEVA, JAQZ518PRG, JAQZ518GRD, JAQZ518ORD);
+create index JAQZ51804 on JAQZ518 (JAQZ518MEVA, JAQZ518PRG, JAQZ518TIP);
+alter table JAQZ518
+  add primary key (JAQZ518MEVA, JAQZ518PRG, JAQZ518OBJ);
+

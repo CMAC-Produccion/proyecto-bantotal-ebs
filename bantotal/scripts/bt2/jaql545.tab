@@ -1,0 +1,34 @@
+create table JAQL545
+(
+  jaql545seria NUMBER(4) not null,
+  jaql545cotra NUMBER(10),
+  jaql545nutra CHAR(12),
+  jaql545cotrx CHAR(6),
+  jaql545feini DATE,
+  jaql545fefin DATE,
+  jaql545hoini CHAR(8),
+  jaql545hofin CHAR(8),
+  jaql545comon CHAR(3),
+  jaql545mtoop NUMBER(17,2),
+  jaql545ubica VARCHAR2(40),
+  jaql545nutar VARCHAR2(20),
+  jaql545nuins CHAR(8),
+  jaql545comsj NUMBER(4),
+  jaql545cores CHAR(2),
+  jaql545coter VARCHAR2(5),
+  jaql545modul NUMBER(4),
+  jaql545trans NUMBER(4),
+  jaql545relac NUMBER(4),
+  jaql545paist CHAR(2),
+  jaql545fetra DATE,
+  jaql545nucta VARCHAR2(27),
+  jaql545v0001 VARCHAR2(100),
+  jaql545v0002 VARCHAR2(100),
+  jaql545v0003 VARCHAR2(100),
+  jaql545cousu VARCHAR2(10)
+)
+;
+create index JAQL545_02 on JAQL545 (JAQL545FEINI, JAQL545FEFIN, JAQL545COUSU);
+alter table JAQL545
+  add primary key (JAQL545SERIA);
+

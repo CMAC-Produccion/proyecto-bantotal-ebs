@@ -1,0 +1,47 @@
+create table AQPB813
+(
+  aqpb813fec DATE,
+  aqpb813gru VARCHAR2(10),
+  aqpb813sgr VARCHAR2(35),
+  aqpb813cor NUMBER(17,2),
+  aqpb813gem NUMBER(17,2),
+  aqpb813mem NUMBER(17,2),
+  aqpb813pem NUMBER(17,2),
+  aqpb813mcm NUMBER(17,2),
+  aqpb813con NUMBER(17,2),
+  aqpb813hip NUMBER(17,2),
+  aqpb813tmn NUMBER(17,2),
+  aqpb813imp NUMBER(17,2),
+  aqpb813imd NUMBER(17,2)
+)
+;
+comment on table AQPB813
+  is 'saldo consolidado para reporte 25';
+comment on column AQPB813.aqpb813fec
+  is 'fecha de proceso';
+comment on column AQPB813.aqpb813gru
+  is 'grupo';
+comment on column AQPB813.aqpb813sgr
+  is 'subgrupo';
+comment on column AQPB813.aqpb813cor
+  is 'saldo corporativo';
+comment on column AQPB813.aqpb813gem
+  is 'saldo grande empresa ';
+comment on column AQPB813.aqpb813mem
+  is 'saldo mediana empresa';
+comment on column AQPB813.aqpb813pem
+  is 'saldo pequena empresa';
+comment on column AQPB813.aqpb813mcm
+  is 'saldo microempresa';
+comment on column AQPB813.aqpb813con
+  is 'saldo consumo';
+comment on column AQPB813.aqpb813hip
+  is 'saldo hipotecario';
+comment on column AQPB813.aqpb813tmn
+  is 'importre moneda nacional';
+comment on column AQPB813.aqpb813imp
+  is 'importe';
+comment on column AQPB813.aqpb813imd
+  is 'importe en moneda extranjera';
+create index AQPB813A2 on AQPB813 (AQPB813FEC, AQPB813GRU, AQPB813SGR);
+

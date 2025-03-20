@@ -1,0 +1,13 @@
+create table CONSBA
+(
+  contbl    VARCHAR2(255) not null,
+  conid     NUMBER(10) not null,
+  consbttbl VARCHAR2(255) not null,
+  consbtid  NUMBER(10) not null,
+  consbtatt VARCHAR2(255) not null,
+  consbtpat VARCHAR2(255)
+)
+;
+alter table CONSBA
+  add primary key (CONTBL, CONID, CONSBTTBL, CONSBTID, CONSBTATT);
+

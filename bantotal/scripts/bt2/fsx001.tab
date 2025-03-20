@@ -1,0 +1,16 @@
+create table FSX001
+(
+  pepais NUMBER(3) not null,
+  petdoc NUMBER(2) not null,
+  pendoc CHAR(12) not null,
+  txcod  NUMBER(3) not null,
+  pexren NUMBER(5) not null,
+  pextxt CHAR(65),
+  pexusu CHAR(10),
+  pexfch DATE
+)
+;
+create index FSX00102 on FSX001 (TXCOD);
+alter table FSX001
+  add primary key (PEPAIS, PETDOC, PENDOC, TXCOD, PEXREN);
+

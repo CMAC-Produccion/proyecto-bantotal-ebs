@@ -1,0 +1,31 @@
+create table AQPB104
+(
+  aqpb104fecpro DATE not null,
+  aqpb104corr   NUMBER(9) not null,
+  aqpb104nomage VARCHAR2(40),
+  aqpb104nomemp VARCHAR2(40),
+  aqpb104nomser VARCHAR2(40),
+  aqpb104nrocon VARCHAR2(20),
+  aqpb104monrec NUMBER(17,2),
+  aqpb104rucemp VARCHAR2(20),
+  aqpb104fecpag DATE,
+  aqpb104horpag VARCHAR2(10),
+  aqpb104est    CHAR(1),
+  aqpb104obs    VARCHAR2(500),
+  aqpb104coent  NUMBER(4),
+  aqpb104codsv  NUMBER(4),
+  aqpb104monpag NUMBER(17,2),
+  aqpb104nrocom VARCHAR2(40),
+  aqpb104rubro  VARCHAR2(40),
+  aqpb104suc    NUMBER(3),
+  aqpb104mod    NUMBER(3),
+  aqpb104tran   NUMBER(3),
+  aqpb104rel    NUMBER(4),
+  aqpb104user   CHAR(10),
+  aqpb104nrofac VARCHAR2(20),
+  aqpb104moncan NUMBER(17,2)
+)
+;
+alter table AQPB104
+  add primary key (AQPB104FECPRO, AQPB104CORR);
+

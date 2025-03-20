@@ -1,0 +1,22 @@
+create table JAQL730
+(
+  jaql730idco VARCHAR2(20) not null,
+  jaql730user VARCHAR2(10) not null,
+  jaql730fere DATE not null,
+  jaql730hore VARCHAR2(8) not null,
+  jaql730tido NUMBER(2) not null,
+  jaql730nudo VARCHAR2(12) not null,
+  jaql730doco NUMBER(2) not null,
+  jaql730tidi CHAR(1),
+  jaql730lato VARCHAR2(20),
+  jaql730lono VARCHAR2(20),
+  jaql730latd VARCHAR2(20),
+  jaql730lond VARCHAR2(20),
+  jaql730tite CHAR(1)
+)
+;
+comment on table JAQL730
+  is 'Actualizacion direcciones MISTI';
+alter table JAQL730
+  add primary key (JAQL730IDCO, JAQL730USER, JAQL730FERE, JAQL730HORE);
+

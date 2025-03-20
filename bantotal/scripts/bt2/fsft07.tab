@@ -1,0 +1,45 @@
+create table FSFT07
+(
+  ktpgcod2  NUMBER(3) not null,
+  ktmhcmod  NUMBER(3) not null,
+  ktmhsucor NUMBER(3) not null,
+  ktmhtran  NUMBER(3) not null,
+  ktmhnrel  NUMBER(4) not null,
+  ktmhfcon  DATE not null,
+  ktmhcord  NUMBER(2) not null,
+  ktmhcsubo NUMBER(3) not null,
+  ktmhtoper NUMBER(3),
+  ktmhsucur NUMBER(3),
+  ktmhrubro NUMBER(16),
+  ktmhmda   NUMBER(4),
+  ktmhpap   NUMBER(4),
+  ktmhoper  NUMBER(9),
+  ktmhsubop NUMBER(3),
+  ktmhfval  DATE,
+  ktmhcimp  NUMBER(17,2),
+  ktctnro   NUMBER(9),
+  ktn2mod   NUMBER(3),
+  ktn2sucor NUMBER(3),
+  ktn2tran  NUMBER(3),
+  ktn2nrel  NUMBER(4),
+  ktn2fcon  DATE,
+  ktn2ord   NUMBER(2),
+  ktn2subo  NUMBER(3),
+  kttfec1   DATE,
+  kttfec2   DATE,
+  kttfec3   DATE,
+  kttnum1   NUMBER(9),
+  kttnum2   NUMBER(9),
+  kttnum3   NUMBER(9),
+  kttimp1   NUMBER(17,2),
+  kttimp2   NUMBER(17,2),
+  kttimp3   NUMBER(17,2),
+  sft71dep  NUMBER(9),
+  ktsubcta  NUMBER(9)
+)
+;
+create index FSFT0702 on FSFT07 (KTPGCOD2, KTCTNRO, SFT71DEP, KTSUBCTA);
+create index FSFT0703 on FSFT07 (KTPGCOD2, KTMHFCON);
+alter table FSFT07
+  add primary key (KTPGCOD2, KTMHCMOD, KTMHSUCOR, KTMHTRAN, KTMHNREL, KTMHFCON, KTMHCORD, KTMHCSUBO);
+

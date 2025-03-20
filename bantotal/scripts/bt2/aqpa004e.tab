@@ -1,0 +1,26 @@
+create table AQPA004E
+(
+  pgcod     NUMBER(3) not null,
+  ppmod     NUMBER(3) not null,
+  ppsuc     NUMBER(3) not null,
+  ppmda     NUMBER(4) not null,
+  pppap     NUMBER(4) not null,
+  ppcta     NUMBER(9) not null,
+  ppoper    NUMBER(9) not null,
+  ppsbop    NUMBER(3) not null,
+  pptope    NUMBER(3) not null,
+  ppfpag    DATE not null,
+  pptipo    CHAR(1) not null,
+  prestconc NUMBER(3) not null,
+  pp002imp  NUMBER(17,2),
+  pp002stat CHAR(1),
+  pp002aux1 NUMBER(17,2),
+  pp002aux2 NUMBER(17,2),
+  pp002aux3 NUMBER(17,2),
+  fecha     DATE not null,
+  corre     NUMBER(9) not null
+)
+;
+alter table AQPA004E
+  add primary key (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPFPAG, PPTIPO, PRESTCONC, FECHA, CORRE);
+

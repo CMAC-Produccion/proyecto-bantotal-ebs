@@ -1,0 +1,13 @@
+create table FSFSTD
+(
+  sfst1merc NUMBER(3) not null,
+  sfstdcpap CHAR(5) not null,
+  sfstdpap  NUMBER(4),
+  sfst2cod  CHAR(1)
+)
+;
+create index FSFSTD02 on FSFSTD (SFST1MERC, SFST2COD);
+create index FSFSTD03 on FSFSTD (SFST1MERC, SFSTDPAP);
+alter table FSFSTD
+  add primary key (SFST1MERC, SFSTDCPAP);
+

@@ -1,0 +1,11 @@
+create table CNL133
+(
+  cnl130grp CHAR(60) not null,
+  cnl133fch DATE not null,
+  cnl133tus NUMBER(17,2),
+  cnl133tmn NUMBER(17,2)
+)
+;
+alter table CNL133
+  add primary key (CNL130GRP, CNL133FCH);
+

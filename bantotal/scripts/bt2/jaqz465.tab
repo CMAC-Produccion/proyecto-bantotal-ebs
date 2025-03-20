@@ -1,0 +1,28 @@
+create table JAQZ465
+(
+  jaqz465dini NUMBER(4) not null,
+  jaqz465dfin NUMBER(4) not null,
+  jaqz465sit  CHAR(2) not null,
+  jaqz465tip  NUMBER(2) not null,
+  jaqz465est  CHAR(1) not null,
+  jaqz465fep  DATE not null,
+  jaqz465rep  CHAR(1)
+)
+;
+comment on column JAQZ465.jaqz465dini
+  is 'DIAS INICIO';
+comment on column JAQZ465.jaqz465dfin
+  is 'DIAS FIN';
+comment on column JAQZ465.jaqz465sit
+  is 'SITUACION CLIENTE';
+comment on column JAQZ465.jaqz465tip
+  is 'TIPO EXONERACION';
+comment on column JAQZ465.jaqz465est
+  is 'ESTADO';
+comment on column JAQZ465.jaqz465fep
+  is 'FECHA CARGA';
+comment on column JAQZ465.jaqz465rep
+  is 'INDICADOR REPROGRAMACION';
+alter table JAQZ465
+  add primary key (JAQZ465DINI, JAQZ465DFIN, JAQZ465SIT, JAQZ465TIP, JAQZ465EST, JAQZ465FEP);
+

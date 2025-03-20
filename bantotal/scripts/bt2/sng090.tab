@@ -1,0 +1,14 @@
+create table SNG090
+(
+  sng001inst NUMBER(10) not null,
+  sng090pqt  NUMBER(10) not null,
+  sng090tpo  CHAR(1),
+  sng090ite  NUMBER(10),
+  sng090eva  NUMBER(3),
+  sng090hst  NUMBER(10),
+  sng090res  CHAR(1)
+)
+;
+alter table SNG090
+  add primary key (SNG001INST, SNG090PQT);
+

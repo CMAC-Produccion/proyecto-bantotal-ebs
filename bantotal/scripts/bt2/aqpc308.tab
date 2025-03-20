@@ -1,0 +1,52 @@
+create table AQPC308
+(
+  aqpc308id      NUMBER(9) not null,
+  aqpc308fecini  DATE,
+  aqpc308fecfin  DATE,
+  aqpc308nomcam  VARCHAR2(100),
+  aqpc308porcas  NUMBER(17,2),
+  aqpc308monmax  NUMBER(17,2),
+  aqpc308moncom  NUMBER(17,2),
+  aqpc308numcom  NUMBER(4),
+  aqpc308bolcam  NUMBER(17,2),
+  aqpc308numtar  VARCHAR2(20),
+  aqpc308lottar1 CHAR(8),
+  aqpc308lottar2 CHAR(8),
+  aqpc308lottar3 CHAR(8),
+  aqpc308estcam  CHAR(1)
+)
+;
+comment on table AQPC308
+  is 'Cashback en Compras con Tarjeta de Débito';
+comment on column AQPC308.aqpc308id
+  is 'Correlativo';
+comment on column AQPC308.aqpc308fecini
+  is 'Fecha Inicio de Campaña';
+comment on column AQPC308.aqpc308fecfin
+  is 'Fecha Fin de Campaña';
+comment on column AQPC308.aqpc308nomcam
+  is 'Nombre de Campaña';
+comment on column AQPC308.aqpc308porcas
+  is 'Procentaje de Devolución';
+comment on column AQPC308.aqpc308monmax
+  is 'Monto maximo de Devolución';
+comment on column AQPC308.aqpc308moncom
+  is 'Monto de Compra';
+comment on column AQPC308.aqpc308numcom
+  is 'Número de Compras';
+comment on column AQPC308.aqpc308bolcam
+  is 'Bolsa de Campaña';
+comment on column AQPC308.aqpc308numtar
+  is 'Número de Tarjeta';
+comment on column AQPC308.aqpc308lottar1
+  is 'Lote de Tarjeta 1';
+comment on column AQPC308.aqpc308lottar2
+  is 'Lote de Tarjeta 2';
+comment on column AQPC308.aqpc308lottar3
+  is 'Lote de Tarjeta 3';
+comment on column AQPC308.aqpc308estcam
+  is 'Estado de la Campaña';
+create index AQPC3082 on AQPC308 (AQPC308FECINI, AQPC308FECFIN);
+alter table AQPC308
+  add primary key (AQPC308ID);
+

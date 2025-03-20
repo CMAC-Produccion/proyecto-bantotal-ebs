@@ -1,0 +1,14 @@
+create table FSR002_20250129
+(
+  pepais NUMBER(3) not null,
+  petdoc NUMBER(2) not null,
+  pendoc CHAR(12) not null,
+  rpccyg NUMBER(2) not null,
+  rppais NUMBER(3) not null,
+  rptdoc NUMBER(2) not null,
+  rpndoc CHAR(12) not null,
+  rprpat NUMBER(3)
+)
+compress;
+create index IDX_FSR002_20250129 on FSR002_20250129 (PEPAIS, PETDOC, PENDOC);
+

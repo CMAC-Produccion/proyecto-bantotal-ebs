@@ -1,0 +1,60 @@
+create table JAQM5A
+(
+  jaqm5acorc CHAR(20) not null,
+  jaqm5acban CHAR(20) not null,
+  jaqm5alorg CHAR(30) not null,
+  jaqm5acamp VARCHAR2(50) not null,
+  jaqm5avalo VARCHAR2(250),
+  jaqm5aan1  NUMBER(9),
+  jaqm5aan2  NUMBER(9),
+  jaqm5aan3  NUMBER(9),
+  jaqm5aai1  NUMBER(17,2),
+  jaqm5aai2  NUMBER(17,2),
+  jaqm5aai3  NUMBER(17,2),
+  jaqm5aac1  VARCHAR2(250),
+  jaqm5aac2  VARCHAR2(250),
+  jaqm5aac3  VARCHAR2(250),
+  jaqm5aaf1  DATE,
+  jaqm5aaf2  DATE,
+  jaqm5aaf3  DATE
+)
+;
+comment on table JAQM5A
+  is 'Anexo tabla JAQM24 campo valor';
+comment on column JAQM5A.jaqm5acorc
+  is 'Código Oracle';
+comment on column JAQM5A.jaqm5acban
+  is 'Código Bantotal';
+comment on column JAQM5A.jaqm5alorg
+  is 'Lugar de Origen';
+comment on column JAQM5A.jaqm5acamp
+  is 'Campo';
+comment on column JAQM5A.jaqm5avalo
+  is 'Valor';
+comment on column JAQM5A.jaqm5aan1
+  is 'Auxiliar numerico 1';
+comment on column JAQM5A.jaqm5aan2
+  is 'Auxiliar numerico 2';
+comment on column JAQM5A.jaqm5aan3
+  is 'Auxiliar numerico 3';
+comment on column JAQM5A.jaqm5aai1
+  is 'Auxiliar importe 1';
+comment on column JAQM5A.jaqm5aai2
+  is 'Auxiliar importe 2';
+comment on column JAQM5A.jaqm5aai3
+  is 'Auxiliar importe 3';
+comment on column JAQM5A.jaqm5aac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM5A.jaqm5aac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM5A.jaqm5aac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM5A.jaqm5aaf1
+  is 'Auxiliar fecha 1';
+comment on column JAQM5A.jaqm5aaf2
+  is 'Auxiliar fecha 2';
+comment on column JAQM5A.jaqm5aaf3
+  is 'Auxiliar fecha 3';
+alter table JAQM5A
+  add primary key (JAQM5ACORC, JAQM5ACBAN, JAQM5ALORG, JAQM5ACAMP);
+

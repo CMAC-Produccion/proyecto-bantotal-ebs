@@ -1,0 +1,27 @@
+create table CENDEU
+(
+  tipo       CHAR(2) not null,
+  iden       CHAR(11) not null,
+  codigo_ent CHAR(5) not null,
+  fec_inf    CHAR(6) not null,
+  actividad  CHAR(3),
+  situacion  CHAR(2),
+  prestamos  NUMBER(9,1),
+  particip   NUMBER(9,1),
+  garotor    NUMBER(9,1),
+  garprefa   NUMBER(9,1),
+  garprefb   NUMBER(9,1),
+  singarpref NUMBER(9,1),
+  cgarprefa  NUMBER(9,1),
+  cgarprefb  NUMBER(9,1),
+  sincgarpre NUMBER(9,1),
+  previ      NUMBER(9,1),
+  deuda_cubr NUMBER(1)
+)
+;
+create unique index CENDEU01 on CENDEU (CODIGO_ENT, FEC_INF, TIPO, IDEN);
+create index CENDEU02 on CENDEU (IDEN, TIPO, CODIGO_ENT, FEC_INF);
+create index CENDEU03 on CENDEU (TIPO, IDEN);
+alter table CENDEU
+  add primary key (TIPO, IDEN, CODIGO_ENT, FEC_INF);
+

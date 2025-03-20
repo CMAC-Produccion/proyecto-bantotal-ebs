@@ -1,0 +1,17 @@
+create table JAQZ239
+(
+  jaqz239serial NUMBER(10) not null,
+  jaqz239entid  VARCHAR2(100) not null,
+  jaqz239ticta  VARCHAR2(10) not null,
+  jaqz239fecha  DATE not null,
+  jaqz239correl NUMBER(4) not null,
+  jaqz239tidet  CHAR(2),
+  jaqz239razon  CHAR(2),
+  jaqz239ciuda  VARCHAR2(30),
+  jaqz239ofici  VARCHAR2(30)
+)
+;
+create index JAQZ239A2 on JAQZ239 (JAQZ239SERIAL, JAQZ239FECHA DESC, JAQZ239ENTID);
+alter table JAQZ239
+  add primary key (JAQZ239SERIAL, JAQZ239ENTID, JAQZ239TICTA, JAQZ239FECHA, JAQZ239CORREL);
+

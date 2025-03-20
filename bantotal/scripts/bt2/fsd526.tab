@@ -1,0 +1,23 @@
+create table FSD526
+(
+  pgcod  NUMBER(3) not null,
+  comod  NUMBER(3) not null,
+  cocod  NUMBER(3) not null,
+  copap  NUMBER(4) not null,
+  comda  NUMBER(4) not null,
+  cssegc NUMBER(9) not null,
+  cssuc  NUMBER(3) not null,
+  csfdes DATE not null,
+  csfinv NUMBER(8),
+  csporc NUMBER(7,4),
+  csfhas DATE
+)
+;
+create index FSD52602 on FSD526 (COMDA);
+create index FSD52603 on FSD526 (COPAP);
+create index FSD52604 on FSD526 (COMOD);
+create index FSD52605 on FSD526 (COCOD);
+create index FSD52607 on FSD526 (PGCOD, COMOD, COCOD, COPAP, COMDA, CSSEGC, CSSUC, CSFINV);
+alter table FSD526
+  add primary key (PGCOD, COMOD, COCOD, COPAP, COMDA, CSSEGC, CSSUC, CSFDES);
+

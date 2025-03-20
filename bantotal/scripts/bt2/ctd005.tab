@@ -1,0 +1,12 @@
+create table CTD005
+(
+  ctd000ntbl CHAR(10) not null,
+  ctd002keyr CHAR(255) not null,
+  ctd002corr NUMBER(18) not null,
+  ctd002jcor NUMBER(4) not null,
+  ctd002just CHAR(80)
+)
+;
+alter table CTD005
+  add primary key (CTD000NTBL, CTD002KEYR, CTD002CORR, CTD002JCOR);
+

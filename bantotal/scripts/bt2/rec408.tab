@@ -1,0 +1,23 @@
+create table REC408
+(
+  recmltemp  NUMBER(3) not null,
+  recmltape  DATE not null,
+  recmltid   NUMBER(10) not null,
+  recmltage  NUMBER(3),
+  recmltusr  CHAR(10),
+  recmltimp1 NUMBER(17,2),
+  recmltimp2 NUMBER(17,2),
+  recmltimp3 NUMBER(17,2),
+  recmltimp4 NUMBER(17,2),
+  recmltimp5 NUMBER(17,2),
+  recmltimp6 NUMBER(17,2),
+  recmltimp7 NUMBER(17,2),
+  recmltimp8 NUMBER(17,2),
+  recmlttar  NUMBER(1),
+  recmltsts  CHAR(1),
+  recmltactp NUMBER(10)
+)
+;
+alter table REC408
+  add primary key (RECMLTEMP, RECMLTAPE, RECMLTID);
+

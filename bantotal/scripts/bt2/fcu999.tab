@@ -1,0 +1,17 @@
+create table FCU999
+(
+  cmxtcod  NUMBER(3) not null,
+  cmxtmod  NUMBER(3) not null,
+  cmxtoper NUMBER(9) not null,
+  cmxtsbop NUMBER(3) not null,
+  cmxtucnr NUMBER(2) not null,
+  cmxtuvto DATE,
+  cmxtuimp NUMBER(14,2),
+  cmxtuobs CHAR(40),
+  cmxtuint NUMBER(14,2)
+)
+;
+create index FCU99903 on FCU999 (CMXTCOD, CMXTMOD, CMXTOPER, CMXTSBOP, CMXTUVTO);
+alter table FCU999
+  add primary key (CMXTCOD, CMXTMOD, CMXTOPER, CMXTSBOP, CMXTUCNR);
+

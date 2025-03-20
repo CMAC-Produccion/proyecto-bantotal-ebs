@@ -1,0 +1,10 @@
+create table JHSS14
+(
+  jhss13cls NUMBER(2) not null,
+  jhss14trn NUMBER(2) not null,
+  jhss14dsc VARCHAR2(40),
+  jhss14re  NUMBER(1)
+)
+;
+create unique index JHSS1401 on JHSS14 (JHSS13CLS, JHSS14TRN);
+

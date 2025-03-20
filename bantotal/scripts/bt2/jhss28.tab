@@ -1,0 +1,40 @@
+create table JHSS28
+(
+  jhss28id   CHAR(20) not null,
+  jhss28tipo CHAR(1) not null,
+  jhss28sbid NUMBER(4) not null,
+  jhss28dt   DATE,
+  jhss28usr  CHAR(20),
+  jhss28sec  CHAR(20),
+  jhss28prod CHAR(20),
+  jhss28ape1 CHAR(30),
+  jhss28ape2 CHAR(30),
+  jhss28nom  CHAR(30),
+  jhss28tdoc CHAR(5),
+  jhss28ndoc CHAR(12),
+  jhss28rsoc CHAR(20),
+  jhss28dir  CHAR(200),
+  jhss28ubg  CHAR(6),
+  jhss28tlf  CHAR(20),
+  jhss28uprx CHAR(100),
+  jhss28msg  CHAR(100),
+  jhss28vnm  CHAR(100),
+  jhss28vdir CHAR(200),
+  jhss28vfh  CHAR(10),
+  jhss28vrc  CHAR(1),
+  jhss28vt   DATE,
+  jhss28sflg CHAR(1),
+  jhss28res  CHAR(30),
+  jhss28t    DATE,
+  jhss28rnom CHAR(100),
+  jhss28rtip CHAR(20),
+  jhss28rdir CHAR(200),
+  jhss28rubg CHAR(6),
+  jhss28rest CHAR(30),
+  jhss28rhab CHAR(3),
+  jhss28rt   DATE,
+  jhss28sts  CHAR(5)
+)
+;
+create unique index JHSS2801 on JHSS28 (JHSS28ID, JHSS28TIPO, JHSS28SBID);
+

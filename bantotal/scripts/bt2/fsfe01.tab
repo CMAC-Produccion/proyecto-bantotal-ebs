@@ -1,0 +1,21 @@
+create table FSFE01
+(
+  fepgcod   NUMBER(3) not null,
+  fefinro   NUMBER(3) not null,
+  feimpdep1 NUMBER(17,2),
+  feimpdept NUMBER(17,2),
+  feimpsdom NUMBER(17,2),
+  fenum01   NUMBER(9),
+  fenum02   NUMBER(9),
+  fenum03   NUMBER(9),
+  fefec01   DATE,
+  fefec02   DATE,
+  fefec03   DATE,
+  feimp01   NUMBER(17,2),
+  feimp02   NUMBER(17,2),
+  feimp03   NUMBER(17,2)
+)
+;
+alter table FSFE01
+  add primary key (FEPGCOD, FEFINRO);
+

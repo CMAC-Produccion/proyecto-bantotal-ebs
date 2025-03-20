@@ -1,0 +1,40 @@
+create table FSH010
+(
+  pgcod   NUMBER(3) not null,
+  hcmod   NUMBER(3) not null,
+  hsucor  NUMBER(3) not null,
+  htran   NUMBER(3) not null,
+  hnrel   NUMBER(4) not null,
+  hfcont  DATE not null,
+  hcord   NUMBER(2) not null,
+  hcsubo  NUMBER(3) not null,
+  excod   NUMBER(2) not null,
+  exstat  CHAR(1),
+  exusso  CHAR(10),
+  exwsso  CHAR(10),
+  exusau  CHAR(10),
+  exwsau  CHAR(10),
+  exhora  CHAR(8),
+  exsdo   NUMBER(17,2),
+  extasb  NUMBER(10,6),
+  extass  NUMBER(10,6),
+  expreb  NUMBER(14,8),
+  expres  NUMBER(14,8),
+  exarbb  NUMBER(14,8),
+  exarbs  NUMBER(14,8),
+  excpvt  CHAR(6),
+  exmdab  NUMBER(4),
+  exmdao  NUMBER(4),
+  exejcod NUMBER(3),
+  exnro   NUMBER(9)
+)
+;
+create index FSH01002 on FSH010 (PGCOD, HSUCOR);
+create index FSH01003 on FSH010 (EXCOD);
+create index FSH01004 on FSH010 (HCMOD);
+create index FSH01005 on FSH010 (EXNRO);
+create index FSH01006 on FSH010 (PGCOD, EXUSAU, EXSTAT);
+create index FSH01007 on FSH010 (PGCOD, HFCONT, EXHORA, EXUSAU, EXSTAT);
+alter table FSH010
+  add primary key (PGCOD, HCMOD, HSUCOR, HTRAN, HNREL, HFCONT, HCORD, HCSUBO, EXCOD);
+

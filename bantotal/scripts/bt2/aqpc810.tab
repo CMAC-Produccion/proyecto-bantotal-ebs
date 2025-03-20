@@ -1,0 +1,66 @@
+create table AQPC810
+(
+  aqpc810cod  NUMBER(3),
+  aqpc810mod  NUMBER(3),
+  aqpc810suc  NUMBER(3),
+  aqpc810mda  NUMBER(4),
+  aqpc810pap  NUMBER(4),
+  aqpc810cta  NUMBER(9),
+  aqpc810oper NUMBER(9),
+  aqpc810sbop NUMBER(3),
+  aqpc810tope NUMBER(3),
+  aqpc810emis VARCHAR2(40),
+  aqpc810dest VARCHAR2(150),
+  aqpc810copi VARCHAR2(150),
+  aqpc810mesg LONG,
+  aqpc810asun VARCHAR2(70),
+  aqpc810erro VARCHAR2(5),
+  aqpc810ermg VARCHAR2(500),
+  aqpc810usur CHAR(10),
+  aqpc810fecr DATE,
+  aqpc810hora VARCHAR2(15)
+)
+;
+comment on table AQPC810
+  is 'LOG DE ENVIO DE CORREOS POST-CONFIRMACIÓN DE PAGOS POR CANCELACIÓN O AMORTIZACIÓN';
+comment on column AQPC810.aqpc810cod
+  is 'CODIGO EMPRESA';
+comment on column AQPC810.aqpc810mod
+  is 'MODULO';
+comment on column AQPC810.aqpc810suc
+  is 'SUCURSAL';
+comment on column AQPC810.aqpc810mda
+  is 'MONEDA';
+comment on column AQPC810.aqpc810pap
+  is 'PAPEL';
+comment on column AQPC810.aqpc810cta
+  is 'CUENTA';
+comment on column AQPC810.aqpc810oper
+  is 'OPERACIÓN';
+comment on column AQPC810.aqpc810sbop
+  is 'SUB OPERACIÓN';
+comment on column AQPC810.aqpc810tope
+  is 'TIPO OPERACIÓN';
+comment on column AQPC810.aqpc810emis
+  is 'EMISOR';
+comment on column AQPC810.aqpc810dest
+  is 'DESTINATARIO';
+comment on column AQPC810.aqpc810copi
+  is 'DESTINATARIO COPIA';
+comment on column AQPC810.aqpc810mesg
+  is 'MENSAJE';
+comment on column AQPC810.aqpc810asun
+  is 'ASUNTO';
+comment on column AQPC810.aqpc810erro
+  is 'COD. ERROR';
+comment on column AQPC810.aqpc810ermg
+  is 'MENSAJE ERROR';
+comment on column AQPC810.aqpc810usur
+  is 'USUARIO';
+comment on column AQPC810.aqpc810fecr
+  is 'FECHA';
+comment on column AQPC810.aqpc810hora
+  is 'HORA';
+create index AQPC810A2 on AQPC810 (AQPC810COD, AQPC810MOD, AQPC810SUC, AQPC810MDA, AQPC810PAP, AQPC810CTA, AQPC810OPER, AQPC810SBOP, AQPC810TOPE);
+create index AQPC810A3 on AQPC810 (AQPC810FECR, AQPC810HORA, AQPC810USUR);
+

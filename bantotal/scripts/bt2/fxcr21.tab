@@ -1,0 +1,20 @@
+create table FXCR21
+(
+  xcr21emp   NUMBER(3) not null,
+  xcr21cta   NUMBER(9) not null,
+  xcr21sbop  NUMBER(3) not null,
+  xcr21mda   NUMBER(4) not null,
+  xcr21numca NUMBER(15) not null,
+  xcr21orige CHAR(2) not null,
+  xcr21apfec CHAR(6),
+  xcr21apimp NUMBER(17,2),
+  xcr21clfec CHAR(6),
+  xcr21climp NUMBER(17,2),
+  xcr21stat  CHAR(1),
+  xcr21toper NUMBER(3)
+)
+;
+create index FXCR2102 on FXCR21 (XCR21EMP, XCR21STAT, XCR21CTA, XCR21SBOP, XCR21MDA);
+alter table FXCR21
+  add primary key (XCR21EMP, XCR21CTA, XCR21SBOP, XCR21MDA, XCR21NUMCA, XCR21ORIGE);
+

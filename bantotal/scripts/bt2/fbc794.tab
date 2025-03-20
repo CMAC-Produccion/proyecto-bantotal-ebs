@@ -1,0 +1,21 @@
+create table FBC794
+(
+  bc794emp  NUMBER(3) not null,
+  bc794fch  DATE not null,
+  bc794cage NUMBER(12) not null,
+  bc794idcl NUMBER(2) not null,
+  bc794plaz NUMBER(6) not null,
+  bc794morg NUMBER(4) not null,
+  bc794nopr CHAR(20) not null,
+  bc794corr NUMBER(9) not null,
+  bc794trel NUMBER(4),
+  bc794imp1 NUMBER(17,2),
+  bc794imp2 NUMBER(17,2),
+  bc794chr1 CHAR(20),
+  bc794chr2 CHAR(20),
+  bc794fech DATE
+)
+;
+alter table FBC794
+  add primary key (BC794EMP, BC794FCH, BC794CAGE, BC794IDCL, BC794PLAZ, BC794MORG, BC794NOPR, BC794CORR);
+

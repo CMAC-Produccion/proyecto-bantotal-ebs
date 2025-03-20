@@ -1,0 +1,36 @@
+create table JAQL988
+(
+  jaql988cod  NUMBER(3) not null,
+  jaql988mod  NUMBER(3) not null,
+  jaql988suc  NUMBER(3) not null,
+  jaql988mda  NUMBER(4) not null,
+  jaql988pap  NUMBER(4) not null,
+  jaql988cta  NUMBER(9) not null,
+  jaql988oper NUMBER(9) not null,
+  jaql988sbop NUMBER(3),
+  jaql988tope NUMBER(3),
+  jaql988sol  VARCHAR2(15),
+  jaql988cre  VARCHAR2(17),
+  jaql988doc  VARCHAR2(15),
+  jaql988nom  VARCHAR2(100),
+  jaql988cma  VARCHAR2(3),
+  jaql988age  VARCHAR2(3),
+  jaql988ofi  VARCHAR2(3),
+  jaql988moi  NUMBER(3)
+)
+;
+comment on table JAQL988
+  is 'TABLA DE EQUIVALENCIAS BANTOTAL-SORFY VENTA DE CARTERA';
+comment on column JAQL988.jaql988sol
+  is 'NUMERO DE SOlICITUD';
+comment on column JAQL988.jaql988cre
+  is 'NUMERO DE CREDITO';
+comment on column JAQL988.jaql988doc
+  is 'NUMERO DE DOCUMENTO';
+comment on column JAQL988.jaql988nom
+  is 'TITULAR';
+comment on column JAQL988.jaql988moi
+  is 'MODULO INICIAL';
+alter table JAQL988
+  add constraint PK_JAQL988 primary key (JAQL988COD, JAQL988MOD, JAQL988SUC, JAQL988MDA, JAQL988PAP, JAQL988CTA, JAQL988OPER);
+

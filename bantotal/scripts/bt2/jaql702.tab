@@ -1,0 +1,47 @@
+create table JAQL702
+(
+  jaql702fepr DATE not null,
+  jaql702fein DATE not null,
+  jaql702fefi DATE not null,
+  jaql702user CHAR(10) not null,
+  jaql702pgco NUMBER(3) not null,
+  jaql702scmo NUMBER(3) not null,
+  jaql702scsu NUMBER(3) not null,
+  jaql702scmd NUMBER(4) not null,
+  jaql702scpa NUMBER(4) not null,
+  jaql702scct NUMBER(9) not null,
+  jaql702scop NUMBER(9) not null,
+  jaql702scsb NUMBER(3) not null,
+  jaql702scto NUMBER(3) not null,
+  jaql702feca DATE,
+  jaql702mtor NUMBER(17,2),
+  jaql702mtmn NUMBER(17,2),
+  jaql702tica NUMBER(13,8),
+  jaql702ticr CHAR(1),
+  jaql702ticl CHAR(1),
+  jaql702tipe NUMBER(1),
+  jaql702pais NUMBER(3),
+  jaql702tdoc NUMBER(2),
+  jaql702ndoc CHAR(12),
+  jaql702perf CHAR(10),
+  jaql702sucu NUMBER(3),
+  jaql702au01 CHAR(50),
+  jaql702au02 CHAR(50),
+  jaql702au03 CHAR(50),
+  jaql702au04 NUMBER(9),
+  jaql702au05 NUMBER(9),
+  jaql702au06 NUMBER(9),
+  jaql702au07 NUMBER(17,2),
+  jaql702au08 NUMBER(17,2),
+  jaql702au09 NUMBER(17,2),
+  jaql702au10 DATE,
+  jaql702au11 DATE,
+  jaql702au12 DATE
+)
+;
+create index IJAQL702001 on JAQL702 (JAQL702PAIS, JAQL702TDOC, JAQL702NDOC);
+create index IJAQL702002 on JAQL702 (JAQL702SCCT, JAQL702SCOP, JAQL702SCMO, JAQL702AU01);
+create index IJAQL702003 on JAQL702 (JAQL702FEPR, JAQL702USER, JAQL702FEIN, JAQL702FEFI);
+alter table JAQL702
+  add primary key (JAQL702FEPR, JAQL702FEIN, JAQL702FEFI, JAQL702USER, JAQL702PGCO, JAQL702SCMO, JAQL702SCSU, JAQL702SCMD, JAQL702SCPA, JAQL702SCCT, JAQL702SCOP, JAQL702SCSB, JAQL702SCTO);
+

@@ -1,0 +1,44 @@
+create table FSA005
+(
+  pgcod  NUMBER(3) not null,
+  asucur NUMBER(3) not null,
+  arubro NUMBER(16) not null,
+  amda   NUMBER(4) not null,
+  apap   NUMBER(4) not null,
+  acta   NUMBER(9) not null,
+  aoper  NUMBER(9) not null,
+  asubop NUMBER(3) not null,
+  atoper NUMBER(3) not null,
+  afval  DATE not null,
+  acodmo NUMBER(1) not null,
+  acmod  NUMBER(3),
+  asucor NUMBER(3),
+  atran  NUMBER(3),
+  anrel  NUMBER(4),
+  afcont DATE,
+  acord  NUMBER(2),
+  acsubo NUMBER(3),
+  amodul NUMBER(3),
+  actope NUMBER(3),
+  afvto  DATE,
+  acmcod NUMBER(3),
+  acser  CHAR(1),
+  acnref CHAR(18),
+  asaldo NUMBER(17,2),
+  acimp2 NUMBER(17,2),
+  acimp3 NUMBER(17,2),
+  acncor NUMBER(9),
+  acbbtt CHAR(1),
+  acimpo NUMBER(17,2),
+  acmdao NUMBER(4),
+  asegm  NUMBER(2),
+  afunc  NUMBER(2),
+  alist  CHAR(1),
+  adepur CHAR(1),
+  accos  NUMBER(3),
+  atasa  NUMBER(10,6)
+)
+;
+alter table FSA005
+  add primary key (PGCOD, ASUCUR, ARUBRO, AMDA, APAP, ACTA, AOPER, ASUBOP, ATOPER, AFVAL, ACODMO);
+

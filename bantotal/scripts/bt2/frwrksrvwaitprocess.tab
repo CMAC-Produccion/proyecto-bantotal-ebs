@@ -1,0 +1,11 @@
+create table FRWRKSRVWAITPROCESS
+(
+  frwrksrvser VARCHAR2(40) not null,
+  frwrksrvprt NUMBER(5) not null,
+  frprcid     NUMBER(6) not null
+)
+;
+create index IFRWRKS1 on FRWRKSRVWAITPROCESS (FRPRCID);
+alter table FRWRKSRVWAITPROCESS
+  add primary key (FRWRKSRVSER, FRWRKSRVPRT, FRPRCID);
+

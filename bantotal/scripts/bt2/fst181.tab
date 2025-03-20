@@ -1,0 +1,24 @@
+create table FST181
+(
+  t181pgcod  NUMBER(3) not null,
+  t181cod    NUMBER(5) not null,
+  t181nom    CHAR(40),
+  t181tnum   CHAR(1),
+  t181cdnum  NUMBER(3),
+  t181ullnum NUMBER(9),
+  t181vig    CHAR(1),
+  t181nompg1 CHAR(10),
+  t181nompg2 CHAR(10),
+  t181nompg3 CHAR(10),
+  t181nomf1  CHAR(20),
+  t181sis    NUMBER(3),
+  t181guia   NUMBER(5),
+  t181guiaes NUMBER(9),
+  t181auxn1  NUMBER(9),
+  t181auxn2  NUMBER(9),
+  t181auxc1  CHAR(80)
+)
+;
+alter table FST181
+  add primary key (T181PGCOD, T181COD);
+

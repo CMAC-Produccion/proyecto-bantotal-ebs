@@ -1,0 +1,24 @@
+create table PPF008
+(
+  pgcod     NUMBER(3) not null,
+  ppf008sec NUMBER(5) not null,
+  ppf008nom CHAR(30),
+  ppf008ced CHAR(25),
+  ppf008num NUMBER(3),
+  ppf008au1 NUMBER(9),
+  ppf008au2 NUMBER(9),
+  ppf008au3 NUMBER(9),
+  ppf008au4 CHAR(30),
+  ppf008au5 CHAR(30),
+  ppf008au6 CHAR(30),
+  ppf008au7 DATE,
+  ppf008au8 DATE,
+  ppf008au9 DATE,
+  ppf008a10 NUMBER(17,2),
+  ppf008a11 NUMBER(17,2),
+  ppf008a12 NUMBER(17,2)
+)
+;
+alter table PPF008
+  add primary key (PGCOD, PPF008SEC);
+

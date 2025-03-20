@@ -1,0 +1,55 @@
+create table AQPA732
+(
+  aqpa732id        NUMBER(9) not null,
+  aqpa732fecreg    DATE,
+  aqpa732horreg    VARCHAR2(10),
+  aqpa732tokrefid  VARCHAR2(64),
+  aqpa732numtar    CHAR(19),
+  aqpa732numtarnew CHAR(19),
+  aqpa732metodo    VARCHAR2(40),
+  aqpa732accion    VARCHAR2(40),
+  aqpa732trareq    VARCHAR2(1000),
+  aqpa732trares    VARCHAR2(1000),
+  aqpa732coderr    VARCHAR2(5),
+  aqpa732msgerr    VARCHAR2(150),
+  aqpa732timexe    VARCHAR2(10),
+  aqpa732idproceso VARCHAR2(40),
+  aqpa732reason    VARCHAR2(100)
+)
+;
+comment on table AQPA732
+  is 'Tokenizacion Peticiones a UNIBANCA';
+comment on column AQPA732.aqpa732id
+  is 'Identificador';
+comment on column AQPA732.aqpa732fecreg
+  is 'Fecha Registro';
+comment on column AQPA732.aqpa732horreg
+  is 'Hora Registro';
+comment on column AQPA732.aqpa732tokrefid
+  is 'Token Ref ID';
+comment on column AQPA732.aqpa732numtar
+  is 'Numero de tarjeta';
+comment on column AQPA732.aqpa732numtarnew
+  is 'Numero de tarjeta Nueva';
+comment on column AQPA732.aqpa732metodo
+  is 'Metodo Ejecutado';
+comment on column AQPA732.aqpa732accion
+  is 'Acción Ejecutada';
+comment on column AQPA732.aqpa732trareq
+  is 'Trama Requerimiento';
+comment on column AQPA732.aqpa732trares
+  is 'Trama Respuesta';
+comment on column AQPA732.aqpa732coderr
+  is 'Codigo de Error';
+comment on column AQPA732.aqpa732msgerr
+  is 'Mensaje de Error';
+comment on column AQPA732.aqpa732timexe
+  is 'Tiempo de ejecucion';
+comment on column AQPA732.aqpa732idproceso
+  is 'Identificador del proceso ejecutado';
+comment on column AQPA732.aqpa732reason
+  is 'Razon de la ejecucion';
+create index AQPA73202 on AQPA732 (AQPA732NUMTAR, AQPA732ACCION, AQPA732FECREG);
+alter table AQPA732
+  add primary key (AQPA732ID);
+

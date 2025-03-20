@@ -1,0 +1,28 @@
+create table FPP064
+(
+  pgcod      NUMBER(3) not null,
+  aomod      NUMBER(3) not null,
+  aosuc      NUMBER(3) not null,
+  aomda      NUMBER(4) not null,
+  aopap      NUMBER(4) not null,
+  aocta      NUMBER(9) not null,
+  aooper     NUMBER(9) not null,
+  aosbop     NUMBER(3) not null,
+  aotope     NUMBER(3) not null,
+  pp063tipo  NUMBER(2) not null,
+  pp063ini   NUMBER(3) not null,
+  pp064porc  NUMBER(10,6),
+  pp064mto   NUMBER(17,2),
+  pp064modal CHAR(1),
+  pp064aux1  CHAR(1),
+  pp064aux2  CHAR(1),
+  pp064aux3  CHAR(1),
+  pp064aux4  CHAR(1),
+  pp064aux5  NUMBER(17,2),
+  pp064aux6  DATE,
+  pp064aux7  CHAR(30)
+)
+;
+alter table FPP064
+  add primary key (PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, AOCTA, AOOPER, AOSBOP, AOTOPE, PP063TIPO, PP063INI);
+

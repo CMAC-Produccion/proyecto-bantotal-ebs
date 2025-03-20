@@ -1,0 +1,46 @@
+create table Z0E450
+(
+  z0e401cod NUMBER(2) not null,
+  z0e450nro NUMBER(17) not null,
+  z0e450cor NUMBER(3) not null,
+  z0e445nro NUMBER(9),
+  z0e450ln1 CHAR(25),
+  z0e450ln2 CHAR(25),
+  z0e443cod CHAR(1),
+  z0e450fvg DATE,
+  z0e450fvn DATE,
+  z0e423cod CHAR(2),
+  z0e438cod NUMBER(3),
+  z0e450rsc CHAR(1),
+  z0e450sue NUMBER(3),
+  z0e450fem DATE,
+  z0e418cod CHAR(2),
+  z0e416cod CHAR(1),
+  z0e427cod NUMBER(2),
+  z0e420cod CHAR(2),
+  z0e450sol NUMBER(6),
+  z0e437cod NUMBER(1),
+  z0e450fmd DATE,
+  z0e450umd CHAR(10),
+  z0e450fau DATE,
+  z0e450uau CHAR(10),
+  z0e450est CHAR(2)
+)
+;
+create unique index Z0E45001 on Z0E450 (Z0E401COD, Z0E450NRO, Z0E450COR);
+create index Z0E45002 on Z0E450 (Z0E401COD, Z0E437COD);
+create index Z0E45003 on Z0E450 (Z0E401COD, Z0E420COD);
+create index Z0E45004 on Z0E450 (Z0E401COD, Z0E427COD);
+create index Z0E45005 on Z0E450 (Z0E401COD, Z0E416COD);
+create index Z0E45006 on Z0E450 (Z0E418COD);
+create index Z0E45008 on Z0E450 (Z0E423COD);
+create index Z0E45009 on Z0E450 (Z0E401COD, Z0E445NRO);
+create index Z0E45010 on Z0E450 (Z0E401COD, Z0E443COD);
+create index Z0E45011 on Z0E450 (Z0E438COD, Z0E450FEM);
+create index Z0E45012 on Z0E450 (Z0E450LN1);
+create index Z0E45013 on Z0E450 (Z0E401COD, Z0E450FVN);
+create index Z0E45014 on Z0E450 (Z0E450EST, Z0E450FEM);
+create index Z0E45015 on Z0E450 (Z0E401COD, Z0E450SUE);
+create index Z0E45016 on Z0E450 (Z0E450EST, Z0E438COD, Z0E450LN1);
+create index Z0E45017 on Z0E450 (Z0E450RSC, Z0E450EST, Z0E450LN1);
+

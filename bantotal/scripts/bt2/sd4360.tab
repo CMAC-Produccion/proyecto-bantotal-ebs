@@ -1,0 +1,16 @@
+create table SD4360
+(
+  sd60coddis NUMBER(4) not null,
+  sd60codent NUMBER(5) not null,
+  sd60fchinf NUMBER(6) not null,
+  sd60tpoid  NUMBER(2) not null,
+  sd60nroid  NUMBER(11) not null,
+  sd60nrobie NUMBER(4) not null,
+  sd60descr  CHAR(100),
+  sd60vallib NUMBER(8),
+  sd60rectif CHAR(1)
+)
+;
+alter table SD4360
+  add primary key (SD60CODDIS, SD60CODENT, SD60FCHINF, SD60TPOID, SD60NROID, SD60NROBIE);
+

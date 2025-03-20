@@ -1,0 +1,37 @@
+create table JAQZ683
+(
+  jaqz683emp NUMBER(3) not null,
+  jaqz683mod NUMBER(3),
+  jaqz683suc NUMBER(3),
+  jaqz683mda NUMBER(4),
+  jaqz683pap NUMBER(4),
+  jaqz683cta NUMBER(9),
+  jaqz683ope NUMBER(9),
+  jaqz683sbo NUMBER(3),
+  jaqz683top NUMBER(3),
+  jaqz683est NUMBER(2),
+  jaqz683imp NUMBER(17,2),
+  jaqz683fva DATE,
+  jaqz683fvt DATE,
+  jaqz683pai NUMBER(3),
+  jaqz683tdo NUMBER(2),
+  jaqz683ndo CHAR(12),
+  jaqz683ins NUMBER(10) not null,
+  jaqz683ent CHAR(200) not null,
+  jaqz683sdo NUMBER(18,2),
+  jaqz683reg NUMBER(3),
+  jaqz683ren VARCHAR2(40),
+  jaqz683zon NUMBER(2),
+  jaqz683dzn VARCHAR2(50),
+  jaqz683ana CHAR(12),
+  jaqz683usr CHAR(12) not null,
+  jaqz683fep DATE,
+  jaqz683hor CHAR(8),
+  jaqz683au1 NUMBER(10),
+  jaqz683au2 NUMBER(10),
+  jaqz683au3 CHAR(20)
+)
+;
+alter table JAQZ683
+  add primary key (JAQZ683EMP, JAQZ683INS, JAQZ683ENT, JAQZ683USR);
+

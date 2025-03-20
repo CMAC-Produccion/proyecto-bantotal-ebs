@@ -1,0 +1,31 @@
+create table FREC51
+(
+  rec50nro NUMBER(6) not null,
+  rec51srv NUMBER(6) not null,
+  rec51nom CHAR(50),
+  rec51rf1 CHAR(65),
+  rec51rf2 CHAR(65),
+  rec51rf3 CHAR(65),
+  rec51rf4 CHAR(65),
+  rec51fpe CHAR(1),
+  rec51pgc NUMBER(3),
+  rec51suc NUMBER(3),
+  rec51mod NUMBER(3),
+  rec51pap NUMBER(4),
+  rec51cta NUMBER(9),
+  rec51ope NUMBER(9),
+  rec51mda NUMBER(4),
+  rec51sbo NUMBER(3),
+  rec51top NUMBER(3),
+  rec51sor NUMBER(3),
+  rec51mon NUMBER(4),
+  rec51cmo NUMBER(3),
+  rec51cco NUMBER(3),
+  rec51mcc CHAR(1),
+  rec51bco CHAR(1)
+)
+;
+create index FREC5103 on FREC51 (REC51NOM);
+alter table FREC51
+  add primary key (REC50NRO, REC51SRV);
+

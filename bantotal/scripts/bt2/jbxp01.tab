@@ -1,0 +1,37 @@
+create table JBXP01
+(
+  jbxp01pgco NUMBER(3) not null,
+  jbxp01mod  NUMBER(3) not null,
+  jbxp01suc  NUMBER(3) not null,
+  jbxp01mda  NUMBER(4) not null,
+  jbxp01pap  NUMBER(4) not null,
+  jbxp01cta  NUMBER(9) not null,
+  jbxp01oper NUMBER(9) not null,
+  jbxp01sbop NUMBER(3) not null,
+  jbxp01tope NUMBER(3) not null,
+  jbxp01fch  DATE not null,
+  jbxp01ctnm CHAR(35),
+  jbxp01mnom CHAR(35),
+  jbxp01tcer CHAR(35),
+  jbxp01scno CHAR(30),
+  jbxp01scim NUMBER(3),
+  jbxp01sinm CHAR(30),
+  jbxp01tasa NUMBER(10,6),
+  jbxp01pzo  NUMBER(5),
+  jbxp01fval DATE,
+  jbxp01fvto DATE,
+  jbxp01pzor NUMBER(5),
+  jbxp01imp  NUMBER(17,2),
+  jbxp01intt NUMBER(17,2),
+  jbxp01intc NUMBER(17,2),
+  jbxp01mtof NUMBER(17,2),
+  jbxp01tpoc NUMBER(14,8),
+  jbxp01cer  NUMBER(14,8),
+  jbxp01bca  NUMBER(2),
+  jbxp01sect CHAR(35),
+  jbxp01fci  CHAR(2)
+)
+;
+create unique index JBXP0101 on JBXP01 (JBXP01PGCO, JBXP01MOD, JBXP01SUC, JBXP01MDA, JBXP01PAP, JBXP01CTA, JBXP01OPER, JBXP01SBOP, JBXP01TOPE, JBXP01FCH);
+create index JBXP0102 on JBXP01 (JBXP01FCH);
+

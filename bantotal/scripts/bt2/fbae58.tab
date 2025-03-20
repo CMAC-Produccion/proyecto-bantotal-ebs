@@ -1,0 +1,18 @@
+create table FBAE58
+(
+  fbae58user CHAR(10) not null,
+  fbae58tit  NUMBER(2) not null,
+  fbae58cap  NUMBER(1) not null,
+  fbae58pzo  NUMBER(1) not null,
+  fbae58gru  NUMBER(2) not null,
+  fbae58rub  NUMBER(16) not null,
+  fbae58niv  CHAR(1) not null,
+  fbae58imn  NUMBER(17,2),
+  fbae58id   NUMBER(17,2),
+  fbae58emn  NUMBER(17,2),
+  fbae58mne  NUMBER(17,2)
+)
+;
+alter table FBAE58
+  add primary key (FBAE58USER, FBAE58TIT, FBAE58CAP, FBAE58PZO, FBAE58GRU, FBAE58RUB, FBAE58NIV);
+

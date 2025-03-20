@@ -1,0 +1,35 @@
+create table JAQZ098
+(
+  pgcod           NUMBER(3) not null,
+  scsuc           NUMBER(3) not null,
+  scmod           NUMBER(3),
+  scmda           NUMBER(4) not null,
+  scpap           NUMBER(4) not null,
+  sccta           NUMBER(9) not null,
+  scoper          NUMBER(9) not null,
+  scsbop          NUMBER(3) not null,
+  sctope          NUMBER(3) not null,
+  penom           CHAR(30),
+  pepais          NUMBER(3) not null,
+  petdoc          NUMBER(2) not null,
+  pendoc          CHAR(12) not null,
+  agencia         CHAR(30),
+  tip_sbs         VARCHAR2(4000),
+  mto_apr         NUMBER,
+  deuda_indirecta NUMBER,
+  deuda_directa   NUMBER,
+  mto_sobreen     NUMBER,
+  scfval          DATE,
+  scfvto          DATE,
+  categoria       CHAR(15),
+  cod_sorfy       CHAR(17),
+  scsdo           NUMBER(17,2),
+  scstat          NUMBER(2),
+  scgru           NUMBER(2),
+  scrub           NUMBER(16) not null,
+  instancia       NUMBER,
+  rub_1           VARCHAR2(1)
+)
+;
+create index IDX_JAQZ098_01 on JAQZ098 (INSTANCIA, SCRUB);
+

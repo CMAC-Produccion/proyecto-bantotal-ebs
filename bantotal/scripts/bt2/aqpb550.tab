@@ -1,0 +1,30 @@
+create table AQPB550
+(
+  aqpb550creusu VARCHAR2(10) not null,
+  aqpb550cretim TIMESTAMP(6),
+  aqpb550ops    NUMBER(9) not null,
+  aqpb550can    NUMBER(9) not null,
+  aqpb550pnq    NUMBER(9),
+  aqpb550pjq    NUMBER(9),
+  aqpb550qty    NUMBER(9)
+)
+;
+comment on table AQPB550
+  is 'REP RR3';
+comment on column AQPB550.aqpb550creusu
+  is 'Usuario de Creacion';
+comment on column AQPB550.aqpb550cretim
+  is 'Time';
+comment on column AQPB550.aqpb550ops
+  is 'Operacion/Producto/Servicio';
+comment on column AQPB550.aqpb550can
+  is 'Canal';
+comment on column AQPB550.aqpb550pnq
+  is 'Cantidad - Persona Natural';
+comment on column AQPB550.aqpb550pjq
+  is 'Cantidad - Persona Juridica';
+comment on column AQPB550.aqpb550qty
+  is 'Cantidad Total';
+alter table AQPB550
+  add primary key (AQPB550CREUSU, AQPB550OPS, AQPB550CAN);
+

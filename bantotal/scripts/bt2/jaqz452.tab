@@ -1,0 +1,22 @@
+create table JAQZ452
+(
+  jaqz452fpro DATE not null,
+  jaqz452fech DATE not null,
+  jaqz452age  NUMBER(9) not null,
+  jaqz452ana  VARCHAR2(10) not null,
+  jaqz452cli  VARCHAR2(20) not null,
+  jaqz452tip  NUMBER(10),
+  jaqz452ind  NUMBER(1),
+  jaqz452cod  NUMBER(10),
+  jaqz452con  NUMBER(17,2),
+  jaqz452base NUMBER(17,2)
+)
+;
+comment on column JAQZ452.jaqz452con
+  is 'Contenidos';
+comment on column JAQZ452.jaqz452base
+  is 'Base Contencion';
+create index IDX_JAQZ452_1 on JAQZ452 (JAQZ452FPRO, JAQZ452AGE, JAQZ452ANA);
+alter table JAQZ452
+  add constraint PK_JAQZ452 primary key (JAQZ452FPRO, JAQZ452ANA, JAQZ452CLI);
+

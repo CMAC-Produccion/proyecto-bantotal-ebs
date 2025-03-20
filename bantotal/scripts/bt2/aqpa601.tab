@@ -1,0 +1,64 @@
+create table AQPA601
+(
+  aqpa601fec  DATE not null,
+  aqpa601suc  NUMBER(3) not null,
+  aqpa601usr  CHAR(10) not null,
+  aqpa601usu  CHAR(10) not null,
+  aqpa601mda  CHAR(12) not null,
+  aqpa601mnt  NUMBER(17,2) not null,
+  aqpa601ope  NUMBER(9) not null,
+  aqpa601mtv  VARCHAR2(100),
+  aqpa601tpr  VARCHAR2(50) not null,
+  aqpa601mntr NUMBER(17,2),
+  aqpa601fecr DATE,
+  aqpa601usrr CHAR(10),
+  aqpa601sucr NUMBER(3),
+  aqpa601usur CHAR(10),
+  aqpa601mod  NUMBER(3),
+  aqpa601tra  NUMBER(3),
+  aqpa601modr NUMBER(3),
+  aqpa601trar NUMBER(3),
+  aqpa601vnt  NUMBER(3)
+)
+;
+comment on column AQPA601.aqpa601fec
+  is 'Fecha de registro del Sobrante o Faltante';
+comment on column AQPA601.aqpa601suc
+  is 'Sucursal donde se registra el Sobrante o Faltante';
+comment on column AQPA601.aqpa601usr
+  is 'Usuario que registra el Sobrante o Faltante';
+comment on column AQPA601.aqpa601usu
+  is 'Usuario que confirma el Sobrante o Faltante';
+comment on column AQPA601.aqpa601mda
+  is 'Moneda';
+comment on column AQPA601.aqpa601mnt
+  is 'Monto';
+comment on column AQPA601.aqpa601ope
+  is 'Operacion';
+comment on column AQPA601.aqpa601mtv
+  is 'Motivo';
+comment on column AQPA601.aqpa601tpr
+  is 'Tipo de Reporte';
+comment on column AQPA601.aqpa601mntr
+  is 'Monto de Regularizacion';
+comment on column AQPA601.aqpa601fecr
+  is 'Fecha Regularizacion';
+comment on column AQPA601.aqpa601usrr
+  is 'Usuario que registra la Regularizacion';
+comment on column AQPA601.aqpa601sucr
+  is 'Sucursal de Regularizacion';
+comment on column AQPA601.aqpa601usur
+  is 'Usuario que confirma regularizacion';
+comment on column AQPA601.aqpa601mod
+  is 'Modulo';
+comment on column AQPA601.aqpa601tra
+  is 'Transacción';
+comment on column AQPA601.aqpa601modr
+  is 'Modulo Regularizacion';
+comment on column AQPA601.aqpa601trar
+  is 'Transacción Regularizacion';
+comment on column AQPA601.aqpa601vnt
+  is 'Ventanilla';
+alter table AQPA601
+  add primary key (AQPA601FEC, AQPA601SUC, AQPA601USR, AQPA601USU, AQPA601MDA, AQPA601MNT, AQPA601OPE, AQPA601TPR);
+

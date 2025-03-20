@@ -1,0 +1,11 @@
+create table JBXIMZ
+(
+  jbximzpai NUMBER(3) not null,
+  jbximztdo NUMBER(2) not null,
+  jbximzndo CHAR(12) not null,
+  jbximzau1 NUMBER(17,2),
+  jbximzau2 CHAR(100)
+)
+;
+create unique index JBXIMZ01 on JBXIMZ (JBXIMZPAI, JBXIMZTDO, JBXIMZNDO);
+

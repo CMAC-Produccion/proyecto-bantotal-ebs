@@ -1,0 +1,11 @@
+create table FSFF40
+(
+  kdohppto1 NUMBER(2) not null,
+  kdohppto2 NUMBER(2) not null,
+  kdohprub  NUMBER(16) not null
+)
+;
+create index FSFF4003 on FSFF40 (KDOHPRUB);
+alter table FSFF40
+  add primary key (KDOHPPTO1, KDOHPPTO2, KDOHPRUB);
+

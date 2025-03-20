@@ -1,0 +1,31 @@
+create table FSFF11
+(
+  kdpngnum  NUMBER(9) not null,
+  kdppgcod  NUMBER(3) not null,
+  kdphcmod  NUMBER(3) not null,
+  kdphsucur NUMBER(3) not null,
+  kdphtran  NUMBER(3) not null,
+  kdphnrel  NUMBER(4) not null,
+  kdphfcon  DATE not null,
+  kdphcord  NUMBER(2) not null,
+  kdphcsubo NUMBER(3) not null,
+  kdphfvco  DATE,
+  kdpneg    NUMBER(9),
+  kdpimp1   NUMBER(17,2),
+  kdpimp2   NUMBER(17,2),
+  kdpimp3   NUMBER(17,2),
+  kdpnum1   NUMBER(9),
+  kdpnum2   NUMBER(9),
+  kdpnum3   NUMBER(9),
+  kdpcar1   CHAR(1),
+  kdpcar2   CHAR(1),
+  kdpcar3   CHAR(1),
+  kdptxt1   CHAR(30),
+  kdptxt2   CHAR(30),
+  kdptxt3   CHAR(30)
+)
+;
+create index FSFF1102 on FSFF11 (KDPNGNUM, KDPHFVCO, KDPNEG, KDPPGCOD);
+alter table FSFF11
+  add primary key (KDPNGNUM, KDPPGCOD, KDPHCMOD, KDPHSUCUR, KDPHTRAN, KDPHNREL, KDPHFCON, KDPHCORD, KDPHCSUBO);
+

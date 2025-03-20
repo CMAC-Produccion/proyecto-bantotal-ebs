@@ -1,0 +1,19 @@
+create table SNG051
+(
+  sng049cod NUMBER(10) not null,
+  sng050grp NUMBER(3) not null,
+  sng051cod NUMBER(3) not null,
+  sng051ord NUMBER(3),
+  sng068cod NUMBER(3),
+  sng051tev CHAR(1),
+  sng051ope CHAR(2),
+  sng051val CHAR(20),
+  sng051atr NUMBER(3),
+  sng051cor NUMBER(3)
+)
+;
+create index SNG05103 on SNG051 (SNG049COD, SNG068COD);
+create index SNG05110 on SNG051 (SNG049COD, SNG050GRP, SNG051ORD);
+alter table SNG051
+  add primary key (SNG049COD, SNG050GRP, SNG051COD);
+

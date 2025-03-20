@@ -1,0 +1,21 @@
+create table FSD054
+(
+  chccod  NUMBER(3) not null,
+  chcpais NUMBER(3) not null,
+  chctdoc NUMBER(2) not null,
+  chcndoc CHAR(12) not null,
+  chctipo NUMBER(3) not null,
+  chccont NUMBER(5),
+  chcfch  DATE,
+  chcc1   NUMBER(9),
+  chcc2   NUMBER(9),
+  chcf1   DATE,
+  chcf2   DATE,
+  chctxt1 CHAR(50),
+  chctxt2 CHAR(50),
+  chctxt3 CHAR(50)
+)
+;
+alter table FSD054
+  add primary key (CHCCOD, CHCPAIS, CHCTDOC, CHCNDOC, CHCTIPO);
+

@@ -1,0 +1,18 @@
+create table FSFT08
+(
+  kt3pgcod   NUMBER(3) not null,
+  kt3comvta  CHAR(1) not null,
+  kt3temi    NUMBER(2) not null,
+  kt3tmda    NUMBER(4) not null,
+  kt3tcta    NUMBER(2) not null,
+  kt3rubro2  NUMBER(16),
+  kt3mod2    NUMBER(3),
+  kt3rubro3  NUMBER(16),
+  kt3mod3    NUMBER(3),
+  kt3clirub2 NUMBER(16),
+  kt3clirub3 NUMBER(16)
+)
+;
+alter table FSFT08
+  add primary key (KT3PGCOD, KT3COMVTA, KT3TEMI, KT3TMDA, KT3TCTA);
+

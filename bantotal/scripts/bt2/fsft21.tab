@@ -1,0 +1,29 @@
+create table FSFT21
+(
+  ktnpgcod  NUMBER(3) not null,
+  ktnhcmod  NUMBER(3) not null,
+  ktnhsucor NUMBER(3) not null,
+  ktnhtran  NUMBER(3) not null,
+  ktnhnrel  NUMBER(4) not null,
+  ktnhfcon  DATE not null,
+  ktnhcord  NUMBER(2) not null,
+  ktnhcsubo NUMBER(3) not null,
+  ktnhtoper NUMBER(3),
+  ktnhsucur NUMBER(3),
+  ktnhrubro NUMBER(16),
+  ktnhmda   NUMBER(4),
+  ktnhpap   NUMBER(4),
+  ktnhoper  NUMBER(9),
+  ktnhsubop NUMBER(3),
+  ktnhfval  DATE,
+  ktnhcimp  NUMBER(17,2),
+  ktnctacli NUMBER(9),
+  ktnctnro  NUMBER(9)
+)
+;
+create index FSFT2102 on FSFT21 (KTNPGCOD, KTNCTNRO, KTNCTACLI, KTNHPAP, KTNHFCON);
+create index FSFT2103 on FSFT21 (KTNPGCOD, KTNHSUCUR, KTNHRUBRO, KTNHMDA, KTNHPAP, KTNCTNRO, KTNCTACLI, KTNHOPER, KTNHSUBOP, KTNHTOPER, KTNHFVAL);
+create index FSFT2104 on FSFT21 (KTNPGCOD, KTNCTACLI, KTNHPAP, KTNCTNRO, KTNHFCON);
+alter table FSFT21
+  add primary key (KTNPGCOD, KTNHCMOD, KTNHSUCOR, KTNHTRAN, KTNHNREL, KTNHFCON, KTNHCORD, KTNHCSUBO);
+

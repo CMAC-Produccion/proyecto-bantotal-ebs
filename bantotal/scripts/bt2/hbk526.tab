@@ -1,0 +1,18 @@
+create table HBK526
+(
+  hbk526pg  NUMBER(3) not null,
+  hbk526mo  NUMBER(3) not null,
+  hbk526su  NUMBER(3) not null,
+  hbk526tr  NUMBER(3) not null,
+  hbk526re  NUMBER(4) not null,
+  hbk526sb  NUMBER(3) not null,
+  hbk526fc  DATE not null,
+  hbk526or  NUMBER(2) not null,
+  hbk526co  CHAR(1) not null,
+  hbk526ig1 CHAR(255),
+  hbk526ig2 CHAR(255)
+)
+;
+alter table HBK526
+  add primary key (HBK526PG, HBK526MO, HBK526SU, HBK526TR, HBK526RE, HBK526SB, HBK526FC, HBK526OR, HBK526CO);
+

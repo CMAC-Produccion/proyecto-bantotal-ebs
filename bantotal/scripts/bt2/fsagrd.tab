@@ -1,0 +1,19 @@
+create table FSAGRD
+(
+  sagrdpins  NUMBER(10) not null,
+  sagrdtab   CHAR(30) not null,
+  sagrdid    NUMBER(3) not null,
+  sagrdlin   NUMBER(4) not null,
+  sagrdatid  VARCHAR2(255) not null,
+  sagrdatval VARCHAR2(255),
+  sagrdmod   CHAR(3),
+  sagrdstat  CHAR(3),
+  sagrdatkey CHAR(1),
+  sagrdataux VARCHAR2(255),
+  sagrdatinf VARCHAR2(255)
+)
+;
+create index FSAGRD03 on FSAGRD (SAGRDPINS, SAGRDTAB, SAGRDID, SAGRDLIN, SAGRDATID, SAGRDSTAT);
+alter table FSAGRD
+  add primary key (SAGRDPINS, SAGRDTAB, SAGRDID, SAGRDLIN, SAGRDATID);
+

@@ -1,0 +1,43 @@
+create table FCPG33
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg31paisb NUMBER(3) not null,
+  cpg31tdocb NUMBER(2) not null,
+  cpg31ndocb CHAR(25) not null,
+  cpg33fdes  DATE not null,
+  cpg03cod   NUMBER(3) not null,
+  cpg02cod   NUMBER(3),
+  cpg33bco   NUMBER(3),
+  cpg33sucb  NUMBER(4),
+  cpg33dv1   CHAR(1),
+  cpg33cbu2  NUMBER(14),
+  cpg33semp  NUMBER(3),
+  cpg33ssuc  NUMBER(3),
+  cpg33srub  NUMBER(16),
+  cpg33smda  NUMBER(4),
+  cpg33spap  NUMBER(4),
+  cpg33scta  NUMBER(9),
+  cpg33sope  NUMBER(9),
+  cpg33ssbop NUMBER(3),
+  cpg33stope NUMBER(3),
+  cpg33fingr DATE,
+  cpg33fsolc DATE,
+  cpg33est   CHAR(3),
+  cpg33blq   CHAR(1),
+  cpg33inst  NUMBER(10)
+)
+;
+create index FCPG3302 on FCPG33 (CPG02COD);
+create index FCPG3303 on FCPG33 (CPG03COD);
+create index FCPG3305 on FCPG33 (CPG26EMPBT, CPG33FDES);
+create index FCPG3306 on FCPG33 (CPG33SEMP, CPG03COD, CPG33SSUC, CPG33SMDA, CPG33SPAP, CPG33SCTA, CPG33SOPE, CPG33SSBOP, CPG33STOPE);
+create index FCPG3307 on FCPG33 (CPG26EMPBT, CPG26CONV, CPG15COD, CPG33CBU2);
+create index FCPG3308 on FCPG33 (CPG26EMPBT, CPG31PAISB, CPG31TDOCB, CPG31NDOCB);
+create index FCPG3309 on FCPG33 (CPG33SEMP, CPG33SCTA);
+create index FCPG3310 on FCPG33 (CPG26EMPBT, CPG26CONV, CPG31PAISB, CPG31TDOCB, CPG31NDOCB);
+create index FCPG3311 on FCPG33 (CPG26EMPBT, CPG26CONV, CPG33CBU2);
+alter table FCPG33
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG31PAISB, CPG31TDOCB, CPG31NDOCB, CPG33FDES, CPG03COD);
+

@@ -1,0 +1,32 @@
+create table FPP044
+(
+  xllpgcod   NUMBER(3) not null,
+  xllaomod   NUMBER(3) not null,
+  xllaosuc   NUMBER(3) not null,
+  xllaomda   NUMBER(4) not null,
+  xllaopap   NUMBER(4) not null,
+  xllaocta   NUMBER(9) not null,
+  xllaooper  NUMBER(9) not null,
+  xllaosbop  NUMBER(3) not null,
+  xllaotop   NUMBER(3) not null,
+  pp044mod   NUMBER(3) not null,
+  pp044top   NUMBER(3) not null,
+  xllaococod NUMBER(3) not null,
+  pp044modif CHAR(1),
+  pp044cobra CHAR(1),
+  pp044imp   NUMBER(17,2),
+  pp044mom   NUMBER(2),
+  pp044oblig CHAR(1),
+  pp044aux1  NUMBER(17,2),
+  pp044aux2  NUMBER(10,6),
+  pp044aux3  DATE,
+  pp044aux4  CHAR(1),
+  pp044aux5  CHAR(1),
+  pp044aux6  CHAR(1),
+  pp046aux7  CHAR(100)
+)
+;
+create index FPP04402 on FPP044 (XLLPGCOD, XLLAOMOD, XLLAOSUC, XLLAOMDA, XLLAOPAP, XLLAOCTA, XLLAOOPER, XLLAOSBOP, XLLAOTOP, XLLAOCOCOD);
+alter table FPP044
+  add primary key (XLLPGCOD, XLLAOMOD, XLLAOSUC, XLLAOMDA, XLLAOPAP, XLLAOCTA, XLLAOOPER, XLLAOSBOP, XLLAOTOP, PP044MOD, PP044TOP, XLLAOCOCOD);
+

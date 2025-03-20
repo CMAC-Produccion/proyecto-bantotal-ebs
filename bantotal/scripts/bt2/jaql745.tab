@@ -1,0 +1,27 @@
+create table JAQL745
+(
+  jaql745pgco NUMBER(3) not null,
+  jaql745scsu NUMBER(3) not null,
+  jaql745scmo NUMBER(3) not null,
+  jaql745scmd NUMBER(4) not null,
+  jaql745scpa NUMBER(4) not null,
+  jaql745scct NUMBER(9) not null,
+  jaql745scop NUMBER(9) not null,
+  jaql745scsb NUMBER(3) not null,
+  jaql745scto NUMBER(3) not null,
+  jaql745fech DATE not null,
+  jaql745impo NUMBER(17,2),
+  jaql745au01 VARCHAR2(50),
+  jaql745au02 VARCHAR2(50),
+  jaql745au03 VARCHAR2(50),
+  jaql745au04 NUMBER(12,2),
+  jaql745au05 NUMBER(12,2),
+  jaql745au06 NUMBER(12,2),
+  jaql745au07 DATE,
+  jaql745au08 DATE,
+  jaql745au09 DATE
+)
+;
+alter table JAQL745
+  add primary key (JAQL745PGCO, JAQL745SCSU, JAQL745SCMO, JAQL745SCMD, JAQL745SCPA, JAQL745SCCT, JAQL745SCOP, JAQL745SCSB, JAQL745SCTO, JAQL745FECH);
+

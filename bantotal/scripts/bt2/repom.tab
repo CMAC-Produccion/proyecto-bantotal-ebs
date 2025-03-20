@@ -1,0 +1,38 @@
+create table REPOM
+(
+  bc606tdoc          NUMBER(2) not null,
+  bc606ndoc          CHAR(12) not null,
+  bc606fch           DATE not null,
+  bc606treg          NUMBER(3) not null,
+  bc606impa          NUMBER(17,2) not null,
+  nombrecliente      CHAR(140),
+  rol                VARCHAR2(12),
+  direccioncliente   CHAR(200),
+  telefonocliente    CHAR(20),
+  nombrenocliente    CHAR(140),
+  direccionnocliente CHAR(200),
+  telefononocliente  CHAR(20),
+  monto              NUMBER(17,2),
+  agencia            CHAR(30),
+  nrolist            NUMBER,
+  nropriori          NUMBER,
+  listdes            CHAR(40),
+  n_anopro           NUMBER not null,
+  n_mespro           NUMBER not null,
+  bc607suc           NUMBER,
+  pais               NUMBER,
+  hmodul             NUMBER,
+  htoper             NUMBER,
+  hmda               NUMBER,
+  hpap               NUMBER,
+  hoper              NUMBER,
+  hsubop             NUMBER,
+  hcta               NUMBER,
+  hsucur             NUMBER
+)
+;
+comment on table REPOM
+  is 'Tabla reporte operaciones múltiples';
+alter table REPOM
+  add constraint PK_REPOM_01 primary key (BC606TDOC, BC606NDOC, BC606FCH, BC606TREG, BC606IMPA, N_ANOPRO, N_MESPRO);
+

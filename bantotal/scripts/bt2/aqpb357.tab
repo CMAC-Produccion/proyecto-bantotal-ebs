@@ -1,0 +1,127 @@
+create table AQPB357
+(
+  aqpb357corr  NUMBER(10) not null,
+  aqpb357fech  DATE not null,
+  aqpb357hora  CHAR(8) not null,
+  aqpb357inst  NUMBER(10),
+  aqpb357neva  NUMBER(10),
+  aqpb357pais  NUMBER(3),
+  aqpb357tdoc  NUMBER(2),
+  aqpb357ndoc  CHAR(12),
+  aqpb357rubr  VARCHAR2(14),
+  aqpb357esta  CHAR(2),
+  aqpb357enti  VARCHAR2(200),
+  aqpb357tcre  CHAR(30),
+  aqpb357sdeu  NUMBER(17,2),
+  aqpb357plaz  NUMBER(9,6),
+  aqpb357taza  NUMBER(9,6),
+  aqpb357ccalc NUMBER(17,2),
+  aqpb357gfin  NUMBER(17,2),
+  aqpb357frcc  DATE,
+  aqpb357dori  CHAR(1),
+  aqpb357chek  CHAR(1),
+  aqpb357pers  CHAR(30),
+  aqpb357rela  CHAR(20),
+  aqpb357line  CHAR(20),
+  aqpb357aux1  NUMBER(10),
+  aqpb357aux2  NUMBER(17,2),
+  aqpb357aux3  CHAR(1),
+  aqpb357aux4  VARCHAR2(1),
+  aqpb357aux5  VARCHAR2(50),
+  aqpb357aux6  DATE,
+  aqpb357aux7  NUMBER(10),
+  aqpb357aux8  NUMBER(17,2),
+  aqpb357aux9  VARCHAR2(40),
+  aqpb357mda   NUMBER(4),
+  aqpb357tlin  NUMBER(17,2),
+  aqpb357util  NUMBER(17,2),
+  aqpb357flin  VARCHAR2(1),
+  aqpb357cptn  NUMBER(17,2),
+  aqpb357fac1  NUMBER(10,6),
+  aqpb357fac2  NUMBER(10,6),
+  aqpb357fac3  NUMBER(10,6),
+  aqpb357cent  VARCHAR2(10)
+)
+;
+comment on column AQPB357.aqpb357corr
+  is 'Correlativo';
+comment on column AQPB357.aqpb357fech
+  is 'Fecha Proceso';
+comment on column AQPB357.aqpb357hora
+  is 'Hora Registro';
+comment on column AQPB357.aqpb357inst
+  is 'Instancia / Solicitud';
+comment on column AQPB357.aqpb357neva
+  is 'Evaluacion';
+comment on column AQPB357.aqpb357pais
+  is 'Pais';
+comment on column AQPB357.aqpb357tdoc
+  is 'Tipo Documento';
+comment on column AQPB357.aqpb357ndoc
+  is 'Num Documento';
+comment on column AQPB357.aqpb357rubr
+  is 'Rubro';
+comment on column AQPB357.aqpb357esta
+  is 'Estado S/N';
+comment on column AQPB357.aqpb357enti
+  is 'Entidad Finan';
+comment on column AQPB357.aqpb357tcre
+  is 'Tipo Credito';
+comment on column AQPB357.aqpb357sdeu
+  is 'Saldo Deudor';
+comment on column AQPB357.aqpb357plaz
+  is 'Plazo';
+comment on column AQPB357.aqpb357taza
+  is 'Taza';
+comment on column AQPB357.aqpb357ccalc
+  is 'Cuota Calculada';
+comment on column AQPB357.aqpb357gfin
+  is 'Gasto Financiero';
+comment on column AQPB357.aqpb357frcc
+  is 'Fecha RCC';
+comment on column AQPB357.aqpb357dori
+  is 'Datos Origen';
+comment on column AQPB357.aqpb357chek
+  is 'Vigente';
+comment on column AQPB357.aqpb357pers
+  is 'Nombre Per';
+comment on column AQPB357.aqpb357rela
+  is 'Relacion Per';
+comment on column AQPB357.aqpb357line
+  is 'Tipo de Deuda';
+comment on column AQPB357.aqpb357aux1
+  is 'Tarea de ejecucion';
+comment on column AQPB357.aqpb357aux3
+  is 'Flag Ratio R/ '' ''';
+comment on column AQPB357.aqpb357aux4
+  is 'Flag Compra de Deuda';
+comment on column AQPB357.aqpb357aux5
+  is 'Usuario de Registro';
+comment on column AQPB357.aqpb357aux8
+  is 'Monto de No Uso';
+comment on column AQPB357.aqpb357aux9
+  is 'Descripcion del Credito';
+comment on column AQPB357.aqpb357mda
+  is 'Moneda';
+comment on column AQPB357.aqpb357tlin
+  is 'Monto Total Linea';
+comment on column AQPB357.aqpb357util
+  is 'Monto Utilizacion';
+comment on column AQPB357.aqpb357flin
+  is 'Flag Tipo de deuda L/P';
+comment on column AQPB357.aqpb357cptn
+  is 'Monto Cuota Potencial';
+comment on column AQPB357.aqpb357fac1
+  is 'Factor Calculo Uso';
+comment on column AQPB357.aqpb357fac2
+  is 'Factor Calculo No Uso';
+comment on column AQPB357.aqpb357fac3
+  is 'Factor Calculo Prestamo';
+comment on column AQPB357.aqpb357cent
+  is 'Codigo Entidad';
+create index AQPB3572 on AQPB357 (AQPB357INST, AQPB357NEVA, AQPB357PAIS, AQPB357TDOC, AQPB357NDOC);
+create index AQPB3573 on AQPB357 (AQPB357INST, AQPB357NEVA, AQPB357PAIS, AQPB357TDOC, AQPB357NDOC, AQPB357ESTA, AQPB357SDEU, AQPB357PLAZ, AQPB357TAZA, AQPB357CCALC);
+create index AQPB3574 on AQPB357 (AQPB357INST);
+alter table AQPB357
+  add primary key (AQPB357FECH, AQPB357CORR, AQPB357HORA);
+

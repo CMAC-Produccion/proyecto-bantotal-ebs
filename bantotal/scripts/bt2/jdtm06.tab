@@ -1,0 +1,17 @@
+create table JDTM06
+(
+  jdtm06mod  NUMBER(3) not null,
+  jdtm06top  NUMBER(3) not null,
+  jdtm01tpbn NUMBER(4),
+  jdtm06cnd  NUMBER(1),
+  jdtm06uso  NUMBER(1),
+  jdtm06esp  NUMBER(4),
+  jdtm06bus  NUMBER(1),
+  jdtm06ccol CHAR(1),
+  jdtm06cfid CHAR(1)
+)
+;
+create index JDTM0602 on JDTM06 (JDTM01TPBN);
+alter table JDTM06
+  add primary key (JDTM06MOD, JDTM06TOP);
+

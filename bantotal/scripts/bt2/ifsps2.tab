@@ -1,0 +1,19 @@
+create table IFSPS2
+(
+  ifsps1pgc NUMBER(3) not null,
+  ifsps1svc NUMBER(5) not null,
+  ifsps2uso CHAR(5) not null,
+  ifsps2ncn NUMBER(3),
+  ifsps2nop NUMBER(5),
+  ifsps2nvt NUMBER(3),
+  ifsps2nr1 CHAR(12),
+  ifsps2np1 CHAR(10),
+  ifsps2nr2 CHAR(12),
+  ifsps2np2 CHAR(10),
+  ifsps2npi CHAR(10),
+  ifsps2npv CHAR(10)
+)
+;
+alter table IFSPS2
+  add primary key (IFSPS1PGC, IFSPS1SVC, IFSPS2USO);
+

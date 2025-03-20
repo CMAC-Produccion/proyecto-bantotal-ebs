@@ -1,0 +1,72 @@
+create table AQPA725
+(
+  aqpa725id     NUMBER(9) not null,
+  aqpa725tipope VARCHAR2(20) not null,
+  aqpa725fecha  DATE not null,
+  aqpa725hora   VARCHAR2(10),
+  aqpa725tipdis VARCHAR2(15),
+  aqpa725imei   VARCHAR2(50),
+  aqpa725numtar VARCHAR2(16),
+  aqpa725numdoc VARCHAR2(12),
+  aqpa725claatm VARCHAR2(2),
+  aqpa725clave6 VARCHAR2(2),
+  aqpa725indcla VARCHAR2(8),
+  aqpa725blotmp VARCHAR2(2),
+  aqpa725nomcli VARCHAR2(30),
+  aqpa725codtra VARCHAR2(6),
+  aqpa725tiptel VARCHAR2(50),
+  aqpa725auxc1  VARCHAR2(50),
+  aqpa725auxc2  VARCHAR2(50),
+  aqpa725auxc3  VARCHAR2(50),
+  aqpa725auxn1  NUMBER(17,2),
+  aqpa725auxn2  NUMBER(17,2),
+  aqpa725auxn3  NUMBER(17,2)
+)
+;
+comment on table AQPA725
+  is 'Tramas de Afiliaciones/Login';
+comment on column AQPA725.aqpa725id
+  is 'Id Correlativo';
+comment on column AQPA725.aqpa725tipope
+  is 'Tipo de Operacion';
+comment on column AQPA725.aqpa725fecha
+  is 'Fecha';
+comment on column AQPA725.aqpa725hora
+  is 'Hora';
+comment on column AQPA725.aqpa725tipdis
+  is 'Tipo Dispositivo';
+comment on column AQPA725.aqpa725imei
+  is 'Imei';
+comment on column AQPA725.aqpa725numtar
+  is 'Numero Tarjeta';
+comment on column AQPA725.aqpa725numdoc
+  is 'Numero Documento';
+comment on column AQPA725.aqpa725claatm
+  is 'Clave de ATM';
+comment on column AQPA725.aqpa725clave6
+  is 'Clave de 6 digitos';
+comment on column AQPA725.aqpa725indcla
+  is 'Indicador de Clave Conforme/Errada';
+comment on column AQPA725.aqpa725blotmp
+  is 'Indicador de Bloqueo temporal';
+comment on column AQPA725.aqpa725nomcli
+  is 'Nombre del Cliente';
+comment on column AQPA725.aqpa725codtra
+  is 'Codigo Transaccion';
+comment on column AQPA725.aqpa725tiptel
+  is 'Tipo de Telefono';
+comment on column AQPA725.aqpa725auxc1
+  is 'Texto Auxiliar 1';
+comment on column AQPA725.aqpa725auxc2
+  is 'Texto Auxiliar 2';
+comment on column AQPA725.aqpa725auxc3
+  is 'Texto Auxiliar 3';
+comment on column AQPA725.aqpa725auxn1
+  is 'Numero Auxiliar 1';
+comment on column AQPA725.aqpa725auxn2
+  is 'Numero Auxiliar 2';
+comment on column AQPA725.aqpa725auxn3
+  is 'Numero Auxiliar 3';
+alter table AQPA725
+  add primary key (AQPA725ID, AQPA725TIPOPE, AQPA725FECHA);
+

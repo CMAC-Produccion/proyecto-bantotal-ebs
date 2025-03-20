@@ -1,0 +1,15 @@
+create table FBC739
+(
+  bc739cta  NUMBER(9) not null,
+  bc739pais NUMBER(3) not null,
+  bc739tdoc NUMBER(2) not null,
+  bc739ndoc CHAR(12) not null,
+  bc739sbs  NUMBER(10),
+  bc739tpop NUMBER(1)
+)
+;
+create index FBC73902 on FBC739 (BC739PAIS, BC739TDOC, BC739NDOC);
+create index FBC73903 on FBC739 (BC739SBS);
+alter table FBC739
+  add primary key (BC739CTA, BC739PAIS, BC739TDOC, BC739NDOC);
+

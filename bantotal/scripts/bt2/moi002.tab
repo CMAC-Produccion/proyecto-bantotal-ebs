@@ -1,0 +1,13 @@
+create table MOI002
+(
+  moi001pgco NUMBER(3) not null,
+  moi001cta  NUMBER(9) not null,
+  moi001fech DATE not null,
+  moi001hora CHAR(8) not null,
+  moi002corr NUMBER(4) not null,
+  moi0002dsc CHAR(80)
+)
+;
+alter table MOI002
+  add primary key (MOI001PGCO, MOI001CTA, MOI001FECH, MOI001HORA, MOI002CORR);
+

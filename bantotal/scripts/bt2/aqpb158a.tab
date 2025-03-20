@@ -1,0 +1,42 @@
+create table AQPB158A
+(
+  aqpb158acorr NUMBER(10) not null,
+  aqpb158ainst NUMBER(10) not null,
+  aqpb158afech DATE not null,
+  aqpb158ahora CHAR(8) not null,
+  aqpb158ausu  VARCHAR2(10),
+  aqpb158apais NUMBER(3) not null,
+  aqpb158atdoc NUMBER(3) not null,
+  aqpb158andoc VARCHAR2(12) not null,
+  aqpb158asuc  NUMBER(4),
+  aqpb158aafec VARCHAR2(30),
+  aqpb158aest  VARCHAR2(5)
+)
+;
+comment on table AQPB158A
+  is 'Tabla Validacion de Afectaciones por CIUU y Cred Vencidos';
+comment on column AQPB158A.aqpb158acorr
+  is 'Correlativo';
+comment on column AQPB158A.aqpb158ainst
+  is 'Instancia';
+comment on column AQPB158A.aqpb158afech
+  is 'Fecha de Registro';
+comment on column AQPB158A.aqpb158ahora
+  is 'Hora de Registro';
+comment on column AQPB158A.aqpb158apais
+  is 'Pais';
+comment on column AQPB158A.aqpb158atdoc
+  is 'Tipo de Documento';
+comment on column AQPB158A.aqpb158andoc
+  is 'Nro de Documento';
+comment on column AQPB158A.aqpb158asuc
+  is 'Sucursal Credito';
+comment on column AQPB158A.aqpb158aafec
+  is 'Afectacion';
+comment on column AQPB158A.aqpb158aest
+  is 'Estado';
+create index AQPB158AA2 on AQPB158A (AQPB158AINST, AQPB158AEST);
+create index AQPB158AA3 on AQPB158A (AQPB158APAIS, AQPB158ATDOC, AQPB158ANDOC);
+alter table AQPB158A
+  add primary key (AQPB158ACORR, AQPB158AINST, AQPB158AFECH, AQPB158AHORA, AQPB158APAIS, AQPB158ATDOC, AQPB158ANDOC);
+

@@ -1,0 +1,35 @@
+create table SD4305
+(
+  sd05coddis NUMBER(4) not null,
+  sd05codent NUMBER(5) not null,
+  sd05fchinf NUMBER(6) not null,
+  sd05tpoid  NUMBER(2) not null,
+  sd05nroid  CHAR(11) not null,
+  sd05denom  CHAR(55),
+  sd05categ  NUMBER(1),
+  sd05ressec NUMBER(1),
+  sd05gob    NUMBER(1),
+  sd05prov   NUMBER(2),
+  sd05situac NUMBER(2),
+  sd05vincul NUMBER(1),
+  sd05prvasc NUMBER(10),
+  sd05prvpar NUMBER(10),
+  sd05prvres NUMBER(10),
+  sd05incpr1 NUMBER(10),
+  sd05incpr2 NUMBER(10),
+  sd05maxasi NUMBER(12),
+  sd05totfin NUMBER(12),
+  sd05actpri NUMBER(3),
+  sd05deualc NUMBER(1),
+  sd05rectif CHAR(1),
+  sd05refin  NUMBER(1),
+  sd05recat  NUMBER(1),
+  sd05sitjur NUMBER(1),
+  sd05irrec  NUMBER(1),
+  sd05atraso NUMBER(4),
+  sd05deuenc NUMBER(1)
+)
+;
+alter table SD4305
+  add primary key (SD05CODDIS, SD05CODENT, SD05FCHINF, SD05TPOID, SD05NROID);
+

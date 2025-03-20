@@ -1,0 +1,121 @@
+create table AQPC791
+(
+  aqpc791corr   NUMBER(17) not null,
+  aqpc791fhreg  DATE not null,
+  aqpc791horeg  VARCHAR2(8) not null,
+  aqpc791usreg  VARCHAR2(10) not null,
+  aqpc791inst   NUMBER(10),
+  aqpc791emp    NUMBER(3),
+  aqpc791mod    NUMBER(3),
+  aqpc791suc    NUMBER(3),
+  aqpc791mda    NUMBER(4),
+  aqpc791pap    NUMBER(4),
+  aqpc791cta    NUMBER(9),
+  aqpc791oper   NUMBER(9),
+  aqpc791sbop   NUMBER(3),
+  aqpc791tope   NUMBER(3),
+  aqpc791pais   NUMBER(3),
+  aqpc791tdoc   NUMBER(2),
+  aqpc791ndoc   VARCHAR2(12),
+  aqpc791itmetp NUMBER(10),
+  aqpc791codetp NUMBER(4),
+  aqpc791nometp VARCHAR2(50),
+  aqpc791tipseg NUMBER(2),
+  aqpc791csegan NUMBER(5),
+  aqpc791nsegan VARCHAR2(40),
+  aqpc791csegac NUMBER(5),
+  aqpc791nsegac VARCHAR2(40),
+  aqpc791mtopro NUMBER(17,2),
+  aqpc791topseg NUMBER(17,2),
+  aqpc791maxseg NUMBER(17,2),
+  aqpc791prjseg NUMBER(17,2),
+  aqpc791prmdia NUMBER(9,2),
+  aqpc791fhrcc  DATE,
+  aqpc791normal NUMBER(5,2),
+  aqpc791cpp    NUMBER(5,2),
+  aqpc791defi   NUMBER(5,2),
+  aqpc791dudoso NUMBER(5,2),
+  aqpc791perdid NUMBER(5,2),
+  aqpc791estado VARCHAR2(1)
+)
+;
+comment on table AQPC791
+  is 'Log Excepciones Segmentación';
+comment on column AQPC791.aqpc791corr
+  is 'Correlativo';
+comment on column AQPC791.aqpc791fhreg
+  is 'Fecha Registro';
+comment on column AQPC791.aqpc791horeg
+  is 'Hora Registro';
+comment on column AQPC791.aqpc791usreg
+  is 'Usuario Registro';
+comment on column AQPC791.aqpc791inst
+  is 'Instancia';
+comment on column AQPC791.aqpc791emp
+  is 'Empresa';
+comment on column AQPC791.aqpc791mod
+  is 'Módulo';
+comment on column AQPC791.aqpc791suc
+  is 'Sucursal';
+comment on column AQPC791.aqpc791mda
+  is 'Moneda';
+comment on column AQPC791.aqpc791pap
+  is 'Papel';
+comment on column AQPC791.aqpc791cta
+  is 'Cuenta';
+comment on column AQPC791.aqpc791oper
+  is 'Operación';
+comment on column AQPC791.aqpc791sbop
+  is 'Suboperación';
+comment on column AQPC791.aqpc791tope
+  is 'Tipo Operación';
+comment on column AQPC791.aqpc791pais
+  is 'País Documento';
+comment on column AQPC791.aqpc791tdoc
+  is 'Tipo Documento';
+comment on column AQPC791.aqpc791ndoc
+  is 'Nro. Documento';
+comment on column AQPC791.aqpc791itmetp
+  is 'Ítem Etapa Solicitud';
+comment on column AQPC791.aqpc791codetp
+  is 'Código Etapa Solicitud';
+comment on column AQPC791.aqpc791nometp
+  is 'Nombre Etapa Solicitud';
+comment on column AQPC791.aqpc791tipseg
+  is 'Tipo Segmento';
+comment on column AQPC791.aqpc791csegan
+  is 'Código Segmento Anterior';
+comment on column AQPC791.aqpc791nsegan
+  is 'Nombre Segmento Anterior';
+comment on column AQPC791.aqpc791csegac
+  is 'Código Segmento Actual';
+comment on column AQPC791.aqpc791nsegac
+  is 'Nombre Segmento Actual';
+comment on column AQPC791.aqpc791mtopro
+  is 'Monto Propuesto';
+comment on column AQPC791.aqpc791topseg
+  is 'Tope Monto Segmento';
+comment on column AQPC791.aqpc791maxseg
+  is 'Tope Máximo Monto Segmento';
+comment on column AQPC791.aqpc791prjseg
+  is 'Porcentaje Adicional Segmento';
+comment on column AQPC791.aqpc791prmdia
+  is 'Promedio Días Atraso';
+comment on column AQPC791.aqpc791fhrcc
+  is 'Fecha RCC';
+comment on column AQPC791.aqpc791normal
+  is 'Calificación Normal';
+comment on column AQPC791.aqpc791cpp
+  is 'Calificación CPP';
+comment on column AQPC791.aqpc791defi
+  is 'Calificación Deficiente';
+comment on column AQPC791.aqpc791dudoso
+  is 'Calificación Dudoso';
+comment on column AQPC791.aqpc791perdid
+  is 'Calificación Perdida';
+comment on column AQPC791.aqpc791estado
+  is 'Estado';
+create index AQPC791A2 on AQPC791 (AQPC791INST, AQPC791ESTADO);
+alter table AQPC791
+  add primary key (AQPC791CORR, AQPC791FHREG, AQPC791HOREG, AQPC791USREG);
+

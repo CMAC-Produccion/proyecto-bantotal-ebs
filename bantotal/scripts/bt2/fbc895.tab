@@ -1,0 +1,32 @@
+create table FBC895
+(
+  fbc895emp  NUMBER(3) not null,
+  fbc895fec  DATE not null,
+  fbc895suc  NUMBER(3) not null,
+  fbc895rub  NUMBER(16) not null,
+  fbc895mda  NUMBER(4) not null,
+  fbc895pap  NUMBER(4) not null,
+  fbc895cta  NUMBER(9) not null,
+  fbc895ope  NUMBER(9) not null,
+  fbc895sbop NUMBER(3) not null,
+  fbc895tope NUMBER(3) not null,
+  fbc895pais NUMBER(3) not null,
+  fbc895tdoc NUMBER(2) not null,
+  fbc895ndoc CHAR(12) not null,
+  fbc895mds  CHAR(2),
+  fbc895mon  NUMBER(17,2),
+  fbc895cop  CHAR(40),
+  fbc895tga  CHAR(1),
+  fbc895cga  CHAR(40),
+  fbc895aux1 NUMBER(17,2),
+  fbc895aux2 NUMBER(17,2),
+  fbc895aux3 NUMBER(17,2),
+  fbc895aux4 CHAR(100),
+  fbc895aux5 CHAR(100),
+  fbc895aux6 CHAR(100)
+)
+;
+create index FBC89502 on FBC895 (FBC895EMP, FBC895FEC, FBC895PAIS, FBC895TDOC, FBC895NDOC);
+alter table FBC895
+  add primary key (FBC895EMP, FBC895FEC, FBC895SUC, FBC895RUB, FBC895MDA, FBC895PAP, FBC895CTA, FBC895OPE, FBC895SBOP, FBC895TOPE, FBC895PAIS, FBC895TDOC, FBC895NDOC);
+

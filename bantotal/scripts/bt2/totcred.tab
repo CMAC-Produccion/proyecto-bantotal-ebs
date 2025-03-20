@@ -1,0 +1,16 @@
+create table TOTCRED
+(
+  cta_cliente NUMBER(9),
+  titular     CHAR(30),
+  tip_per     VARCHAR2(7),
+  tip_doc     CHAR(3),
+  pendoc      CHAR(12) not null,
+  fec_nac     DATE,
+  sal_cli     NUMBER,
+  apr_cli     NUMBER,
+  petipo      CHAR(1)
+)
+;
+comment on table TOTCRED
+  is 'Total del crédito para la plantilla de la Póliza';
+

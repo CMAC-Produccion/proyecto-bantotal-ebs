@@ -1,0 +1,29 @@
+create table JSBP21
+(
+  jsbp21bco  NUMBER(3) not null,
+  jsbp21chq  NUMBER(9) not null,
+  jsbp21cta  CHAR(25) not null,
+  jsbp21mda  NUMBER(4) not null,
+  jsbp21fec  DATE not null,
+  jsbp21cor  NUMBER(2) not null,
+  jsbp21imp  NUMBER(17,2),
+  jsbp21modd NUMBER(3),
+  jsbp21ctad NUMBER(9),
+  jsbp21mdad NUMBER(4),
+  jsbp21papd NUMBER(4),
+  jsbp21sbod NUMBER(3),
+  jsbp21oper NUMBER(9),
+  jsbp21sbop NUMBER(3),
+  jsbp21suc  NUMBER(3),
+  jsbp21mod  NUMBER(3),
+  jsbp21trn  NUMBER(3),
+  jsbp21nrel NUMBER(4),
+  jsbp21uing CHAR(10),
+  jsbp21hora CHAR(8),
+  jsbp21rec  CHAR(1)
+)
+;
+create index JSBP2102 on JSBP21 (JSBP21SUC, JSBP21BCO, JSBP21MDA, JSBP21CHQ);
+alter table JSBP21
+  add primary key (JSBP21BCO, JSBP21CHQ, JSBP21CTA, JSBP21MDA, JSBP21FEC, JSBP21COR);
+

@@ -1,0 +1,33 @@
+create table Z05102
+(
+  z05101apl NUMBER(4) not null,
+  z05101bnd CHAR(5) not null,
+  z05101cor NUMBER(9) not null,
+  z05102cor NUMBER(9) not null,
+  z05102tno CHAR(1),
+  z05102dni NUMBER(11),
+  z05102cb1 CHAR(8),
+  z05102cb2 CHAR(14),
+  z05102icp CHAR(22),
+  z05102vto DATE,
+  z05102ppr CHAR(10),
+  z05102tdo CHAR(4),
+  z05102ndo NUMBER(11),
+  z05102rde CHAR(15),
+  z05102imp NUMBER(10,2),
+  z05102mon CHAR(1),
+  z05102cpn CHAR(22),
+  z05102cb3 CHAR(14),
+  z05102cre CHAR(3),
+  z05102fi1 CHAR(3),
+  z05102nop NUMBER(15),
+  z05102vtd DATE,
+  z05102pns NUMBER(5),
+  z05102fi2 CHAR(4),
+  z05102cui NUMBER(11),
+  z05102est CHAR(2)
+)
+;
+alter table Z05102
+  add primary key (Z05101APL, Z05101BND, Z05101COR, Z05102COR);
+

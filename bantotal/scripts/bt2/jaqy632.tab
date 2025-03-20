@@ -1,0 +1,29 @@
+create table JAQY632
+(
+  jaqy632cod  NUMBER(3) not null,
+  jaqy632mod  NUMBER(3) not null,
+  jaqy632suc  NUMBER(3) not null,
+  jaqy632mda  NUMBER(4) not null,
+  jaqy632pap  NUMBER(4) not null,
+  jaqy632cta  NUMBER(9) not null,
+  jaqy632ope  NUMBER(9) not null,
+  jaqy632sbo  NUMBER(3) not null,
+  jaqy632top  NUMBER(3) not null,
+  jaqy632fep  DATE not null,
+  jaqy632pgc  NUMBER(3),
+  jaqy632sut  NUMBER(3),
+  jaqy632mot  NUMBER(3),
+  jaqy632trt  NUMBER(3),
+  jaqy632ret  NUMBER(4),
+  jaqy632est  NUMBER(2),
+  jaqy632mto1 NUMBER(18,2),
+  jaqy632mto2 NUMBER(18,2),
+  jaqy632mto3 NUMBER(18,2),
+  jaqy632mto4 NUMBER(18,2)
+)
+;
+create index JAQY632_INX_01 on JAQY632 (JAQY632PGC, JAQY632SUT, JAQY632MOT, JAQY632TRT, JAQY632RET);
+create index JAQY632_INX_02 on JAQY632 (JAQY632COD, JAQY632CTA, JAQY632EST);
+alter table JAQY632
+  add constraint JAQY632_PK primary key (JAQY632COD, JAQY632MOD, JAQY632SUC, JAQY632MDA, JAQY632PAP, JAQY632CTA, JAQY632OPE, JAQY632SBO, JAQY632TOP, JAQY632FEP);
+

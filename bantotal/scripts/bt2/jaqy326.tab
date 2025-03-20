@@ -1,0 +1,37 @@
+create table JAQY326
+(
+  jaqy326r1cod  NUMBER(3) not null,
+  jaqy326r1mod  NUMBER(3) not null,
+  jaqy326r1suc  NUMBER(3) not null,
+  jaqy326r1mda  NUMBER(4) not null,
+  jaqy326r1pap  NUMBER(4) not null,
+  jaqy326r1cta  NUMBER(9) not null,
+  jaqy326r1ope  NUMBER(9) not null,
+  jaqy326r1sbo  NUMBER(3) not null,
+  jaqy326r1top  NUMBER(3) not null,
+  jaqy326relcod NUMBER(3) not null,
+  jaqy326r2mod  NUMBER(3) not null,
+  jaqy326r2cta  NUMBER(9) not null,
+  jaqy326r2ope  NUMBER(9) not null,
+  jaqy326r2sbo  NUMBER(3) not null,
+  jaqy326r1rub  NUMBER(16),
+  jaqy326r2cod  NUMBER(3),
+  jaqy326r2suc  NUMBER(3),
+  jaqy326r2mda  NUMBER(4),
+  jaqy326r2pap  NUMBER(4),
+  jaqy326r2top  NUMBER(3),
+  jaqy326r2rub  NUMBER(16),
+  jaqy326r011cd NUMBER(3),
+  jaqy326r011mo NUMBER(3),
+  jaqy326r011su NUMBER(3),
+  jaqy326r011tr NUMBER(3),
+  jaqy326r011re NUMBER(4),
+  jaqy326r011fc DATE,
+  jaqy326r011or NUMBER(2),
+  jaqy326r011sb NUMBER(3),
+  jaqy326r011co CHAR(1)
+)
+;
+alter table JAQY326
+  add primary key (JAQY326R1COD, JAQY326R1MOD, JAQY326R1SUC, JAQY326R1MDA, JAQY326R1PAP, JAQY326R1CTA, JAQY326R1OPE, JAQY326R1SBO, JAQY326R1TOP, JAQY326RELCOD, JAQY326R2MOD, JAQY326R2CTA, JAQY326R2OPE, JAQY326R2SBO);
+

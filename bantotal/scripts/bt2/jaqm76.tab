@@ -1,0 +1,136 @@
+create table JAQM76
+(
+  jaqm76emp NUMBER(3) not null,
+  jaqm76suu NUMBER(3) not null,
+  jaqm76mod NUMBER(3) not null,
+  jaqm76suc NUMBER(3) not null,
+  jaqm76mda NUMBER(4) not null,
+  jaqm76pap NUMBER(4) not null,
+  jaqm76cta NUMBER(9) not null,
+  jaqm76ope NUMBER(9) not null,
+  jaqm76sbo NUMBER(3) not null,
+  jaqm76top NUMBER(3) not null,
+  jaqm76pai NUMBER(3) not null,
+  jaqm76tdo NUMBER(2) not null,
+  jaqm76ndo CHAR(12) not null,
+  jaqm76ins NUMBER(10) not null,
+  jaqm76fec DATE not null,
+  jaqm76nin NUMBER(9) not null,
+  jaqm76cor NUMBER(9) not null,
+  jaqm76paq NUMBER(9) not null,
+  jaqm76hit CHAR(1),
+  jaqm76feh DATE,
+  jaqm76hor CHAR(8),
+  jaqm76txn CHAR(20),
+  jaqm76ema CHAR(100),
+  jaqm76err VARCHAR2(500),
+  jaqm76est CHAR(1),
+  jaqm76aco VARCHAR2(1000),
+  jaqm76rqt VARCHAR2(30),
+  jaqm76rsp VARCHAR2(30),
+  jaqm76an1 NUMBER(9),
+  jaqm76an2 NUMBER(9),
+  jaqm76an3 NUMBER(9),
+  jaqm76ad1 DATE,
+  jaqm76ad2 DATE,
+  jaqm76ad3 DATE,
+  jaqm76ai1 NUMBER(17,2),
+  jaqm76ai2 NUMBER(17,2),
+  jaqm76ai3 NUMBER(17,2),
+  jaqm76ac1 CHAR(255),
+  jaqm76ac2 CHAR(255),
+  jaqm76ac3 CHAR(255)
+)
+;
+comment on table JAQM76
+  is 'Biometria Creditos';
+comment on column JAQM76.jaqm76emp
+  is 'Empresa';
+comment on column JAQM76.jaqm76suu
+  is 'Sucursal usuario';
+comment on column JAQM76.jaqm76mod
+  is 'Modulo producto';
+comment on column JAQM76.jaqm76suc
+  is 'Sucursal producto';
+comment on column JAQM76.jaqm76mda
+  is 'Moneda';
+comment on column JAQM76.jaqm76pap
+  is 'Papel';
+comment on column JAQM76.jaqm76cta
+  is 'Cuenta';
+comment on column JAQM76.jaqm76ope
+  is 'Operación';
+comment on column JAQM76.jaqm76sbo
+  is 'Suboperacion';
+comment on column JAQM76.jaqm76top
+  is 'Tipo de operación';
+comment on column JAQM76.jaqm76pai
+  is 'Pais Persona';
+comment on column JAQM76.jaqm76tdo
+  is 'Tipo Documento';
+comment on column JAQM76.jaqm76ndo
+  is 'Numero Documento';
+comment on column JAQM76.jaqm76ins
+  is 'Instancia';
+comment on column JAQM76.jaqm76fec
+  is 'Fecha';
+comment on column JAQM76.jaqm76nin
+  is 'Numero Intentos';
+comment on column JAQM76.jaqm76cor
+  is 'Correlativo';
+comment on column JAQM76.jaqm76paq
+  is 'Grupo de Huellas por paquete';
+comment on column JAQM76.jaqm76hit
+  is 'Si dio Hit';
+comment on column JAQM76.jaqm76feh
+  is 'Fecha intento de ingreso';
+comment on column JAQM76.jaqm76hor
+  is 'Hora ingreso de intento';
+comment on column JAQM76.jaqm76txn
+  is 'Codigo Transaccion Biometrica';
+comment on column JAQM76.jaqm76ema
+  is 'Correo Electronico';
+comment on column JAQM76.jaqm76err
+  is 'Descripcion Error';
+comment on column JAQM76.jaqm76est
+  is 'Estado de la huella L: libre, U: usado, N: no HIT, C: caducado';
+comment on column JAQM76.jaqm76aco
+  is 'Asiento contabilizado';
+comment on column JAQM76.jaqm76rqt
+  is 'Codigo request peticion';
+comment on column JAQM76.jaqm76rsp
+  is 'Codigo response respuesta';
+comment on column JAQM76.jaqm76an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM76.jaqm76an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM76.jaqm76an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM76.jaqm76ad1
+  is 'Date Auxiliar 1';
+comment on column JAQM76.jaqm76ad2
+  is 'Date Auxiliar 2';
+comment on column JAQM76.jaqm76ad3
+  is 'Date Auxiliar 3';
+comment on column JAQM76.jaqm76ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM76.jaqm76ai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM76.jaqm76ai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM76.jaqm76ac1
+  is 'Character Auxiliar 1';
+comment on column JAQM76.jaqm76ac2
+  is 'Character Auxiliar 2';
+comment on column JAQM76.jaqm76ac3
+  is 'Character Auxiliar 3';
+create index JAQM76A2 on JAQM76 (JAQM76PAI, JAQM76TDO, JAQM76NDO);
+create index JAQM76A3 on JAQM76 (JAQM76EMP, JAQM76MOD, JAQM76MDA, JAQM76PAP, JAQM76CTA, JAQM76OPE, JAQM76SBO, JAQM76TOP, JAQM76INS, JAQM76PAQ);
+create index JAQM76A4 on JAQM76 (JAQM76INS, JAQM76MOD, JAQM76PAQ, JAQM76EST);
+create index JAQM76A5 on JAQM76 (JAQM76INS, JAQM76MOD, JAQM76PAQ, JAQM76PAI, JAQM76TDO, JAQM76NDO, JAQM76EST);
+create index JAQM76A6 on JAQM76 (JAQM76EMP, JAQM76INS);
+create index JAQM76A7 on JAQM76 (JAQM76INS, JAQM76MOD, JAQM76EST);
+create index JAQM76A8 on JAQM76 (JAQM76INS, JAQM76EST);
+alter table JAQM76
+  add primary key (JAQM76EMP, JAQM76SUU, JAQM76MOD, JAQM76SUC, JAQM76MDA, JAQM76PAP, JAQM76CTA, JAQM76OPE, JAQM76SBO, JAQM76TOP, JAQM76PAI, JAQM76TDO, JAQM76NDO, JAQM76INS, JAQM76FEC, JAQM76NIN, JAQM76COR, JAQM76PAQ);
+

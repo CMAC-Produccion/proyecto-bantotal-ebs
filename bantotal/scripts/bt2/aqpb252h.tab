@@ -1,0 +1,19 @@
+create table AQPB252H
+(
+  aqpb252emp  NUMBER(3) not null,
+  aqpb252mod  NUMBER(3) not null,
+  aqpb252suc  NUMBER(3) not null,
+  aqpb252mda  NUMBER(4) not null,
+  aqpb252pap  NUMBER(4) not null,
+  aqpb252cta  NUMBER(9) not null,
+  aqpb252oper NUMBER(9) not null,
+  aqpb252sbop NUMBER(3) not null,
+  aqpb252top  NUMBER(3) not null,
+  aqpb252fini DATE not null,
+  aqpb252ffin DATE not null,
+  aqpb252est  VARCHAR2(1) not null,
+  aqpb252ind  VARCHAR2(1)
+)
+compress;
+create index AQPB252HA2 on AQPB252H (AQPB252EMP, AQPB252MOD, AQPB252SUC, AQPB252MDA, AQPB252PAP, AQPB252CTA, AQPB252OPER, AQPB252SBOP, AQPB252TOP, AQPB252EST);
+

@@ -1,0 +1,25 @@
+create table AQPB101
+(
+  aqpb101corr   NUMBER(10) not null,
+  aqpb101fecdi  DATE not null,
+  aqpb101numtar VARCHAR2(20),
+  aqpb101agen   VARCHAR2(50),
+  aqpb101codpa  NUMBER(4),
+  aqpb101tipdoc NUMBER(2),
+  aqpb101nrodoc VARCHAR2(19),
+  aqpb101op1res VARCHAR2(20),
+  aqpb101op2asi VARCHAR2(20),
+  aqpb101op3act VARCHAR2(20),
+  aqpb101actasi VARCHAR2(2),
+  aqpb101ctainc NUMBER(4),
+  aqpb101codusu VARCHAR2(20),
+  aqpb101feuatm DATE,
+  aqpb101feucor DATE,
+  aqpb101feucam DATE,
+  aqpb101feukas DATE,
+  aqpb101feuven DATE
+)
+;
+alter table AQPB101
+  add primary key (AQPB101CORR, AQPB101FECDI);
+

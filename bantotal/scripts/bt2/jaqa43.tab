@@ -1,0 +1,72 @@
+create table JAQA43
+(
+  jaqa43tse NUMBER(9) not null,
+  jaqa43des VARCHAR2(250),
+  jaqa43emi NUMBER(3),
+  jaqa43emx NUMBER(3),
+  jaqa43jso VARCHAR2(2000),
+  jaqa43an1 NUMBER(9),
+  jaqa43an2 NUMBER(9),
+  jaqa43an3 NUMBER(9),
+  jaqa43ad1 DATE,
+  jaqa43ad2 DATE,
+  jaqa43ad3 DATE,
+  jaqa43ai1 NUMBER(17,2),
+  jaqa43ai2 NUMBER(17,2),
+  jaqa43ai3 NUMBER(17,2),
+  jaqa43ac1 CHAR(1),
+  jaqa43ac2 CHAR(1),
+  jaqa43ac3 CHAR(1),
+  jaqa43at1 CHAR(255),
+  jaqa43at2 CHAR(255),
+  jaqa43at3 CHAR(255),
+  jaqa43smu CHAR(1)
+)
+;
+comment on table JAQA43
+  is 'Seguros nuevo modulo pasivas ';
+comment on column JAQA43.jaqa43tse
+  is 'Tipo de seguro';
+comment on column JAQA43.jaqa43des
+  is 'Descripcion seguro';
+comment on column JAQA43.jaqa43emi
+  is 'Edad minima';
+comment on column JAQA43.jaqa43emx
+  is 'Edad Maxima';
+comment on column JAQA43.jaqa43jso
+  is 'Json embevido';
+comment on column JAQA43.jaqa43an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA43.jaqa43an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA43.jaqa43an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA43.jaqa43ad1
+  is 'Auxiliar fecha 1';
+comment on column JAQA43.jaqa43ad2
+  is 'Auxiliar fecha 2';
+comment on column JAQA43.jaqa43ad3
+  is 'Auxiliar fecha 3';
+comment on column JAQA43.jaqa43ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA43.jaqa43ai2
+  is 'Auxiliar importe 2';
+comment on column JAQA43.jaqa43ai3
+  is 'Auxiliar importe 3';
+comment on column JAQA43.jaqa43ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA43.jaqa43ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA43.jaqa43ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQA43.jaqa43at1
+  is 'Auxiliar texto 1';
+comment on column JAQA43.jaqa43at2
+  is 'Auxiliar texto 2';
+comment on column JAQA43.jaqa43at3
+  is 'Auxiliar texto 3';
+comment on column JAQA43.jaqa43smu
+  is 'Permite seguros multiples Si: S, No: N';
+alter table JAQA43
+  add primary key (JAQA43TSE);
+

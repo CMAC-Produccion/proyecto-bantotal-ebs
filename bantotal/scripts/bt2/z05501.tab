@@ -1,0 +1,29 @@
+create table Z05501
+(
+  z05501cod CHAR(10) not null,
+  z05501prs CHAR(10) not null,
+  z05501spr CHAR(10) not null,
+  z05501cvi NUMBER(3) not null,
+  z05501dsc CHAR(30),
+  z05501dvf CHAR(1),
+  z05501pgc NUMBER(3),
+  z05501ctn NUMBER(9),
+  z05501suc NUMBER(3),
+  z05501mod NUMBER(3),
+  z05501mda NUMBER(4),
+  z05501pap NUMBER(4),
+  z05501opr NUMBER(9),
+  z05501sbp NUMBER(3),
+  z05501top NUMBER(3),
+  z05501rub NUMBER(16),
+  z05501cem CHAR(3),
+  z05501fi1 CHAR(10),
+  z05501fi2 CHAR(10),
+  z05501fi3 CHAR(10),
+  z05501est CHAR(2)
+)
+;
+create index Z0550102 on Z05501 (Z05501CEM);
+alter table Z05501
+  add primary key (Z05501COD, Z05501PRS, Z05501SPR, Z05501CVI);
+

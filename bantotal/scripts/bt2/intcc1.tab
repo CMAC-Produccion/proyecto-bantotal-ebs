@@ -1,0 +1,34 @@
+create table INTCC1
+(
+  intcc1cod NUMBER(3) not null,
+  intcc1mod NUMBER(3) not null,
+  intcc1suc NUMBER(3) not null,
+  intcc1mda NUMBER(4) not null,
+  intcc1pap NUMBER(4) not null,
+  intcc1cta NUMBER(9) not null,
+  intcc1ope NUMBER(9) not null,
+  intcc1sbo NUMBER(3) not null,
+  intcc1top NUMBER(3) not null,
+  intcc1fec DATE not null,
+  intcc1acu NUMBER(9) not null,
+  intcc1seg NUMBER(4),
+  intcc1sso NUMBER(17,2),
+  intcc1iac NUMBER(17,2),
+  intcc1tas NUMBER(10,6),
+  intcc1idi NUMBER(17,2),
+  intcc1ico NUMBER(17,2),
+  intcc1dif NUMBER(17,2),
+  intcc1fal DATE,
+  intcc1fvt DATE,
+  intcc1ax1 NUMBER(17,2),
+  intcc1ax2 NUMBER(17,2),
+  intcc1ax3 DATE,
+  intcc1ax4 DATE,
+  intcc1ax5 CHAR(50),
+  intcc1ax6 CHAR(50)
+)
+;
+create index INTCC102 on INTCC1 (INTCC1COD, INTCC1SUC, INTCC1FEC, INTCC1ACU);
+alter table INTCC1
+  add primary key (INTCC1COD, INTCC1MOD, INTCC1SUC, INTCC1MDA, INTCC1PAP, INTCC1CTA, INTCC1OPE, INTCC1SBO, INTCC1TOP, INTCC1FEC, INTCC1ACU);
+

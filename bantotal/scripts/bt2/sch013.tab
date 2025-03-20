@@ -1,0 +1,18 @@
+create table SCH013
+(
+  sch013emp NUMBER(3) not null,
+  sch013ped NUMBER(10) not null,
+  sch013env NUMBER(5) not null,
+  sch013ccc NUMBER(3),
+  sch013fch DATE,
+  sch013cin NUMBER(9),
+  sch013cnt NUMBER(5),
+  sch013est NUMBER(3),
+  sch013ax1 NUMBER(9),
+  sch013ax2 CHAR(50),
+  sch013ax3 DATE
+)
+;
+alter table SCH013
+  add primary key (SCH013EMP, SCH013PED, SCH013ENV);
+

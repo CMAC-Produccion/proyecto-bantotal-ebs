@@ -1,0 +1,20 @@
+create table AQPA460E
+(
+  aqpa460eserie    CHAR(4),
+  aqpa460ecorr     NUMBER,
+  aqpa460epgcod    NUMBER,
+  aqpa460emod      NUMBER,
+  aqpa460esucorend NUMBER,
+  aqpa460etran     NUMBER,
+  aqpa460erel      NUMBER,
+  aqpa460econ      DATE,
+  aqpa460etip      CHAR(1),
+  aqpa460eacoe     CHAR(100),
+  aqpa460eamsge    CHAR(1000)
+)
+;
+comment on column AQPA460E.aqpa460eacoe
+  is 'cod error';
+comment on column AQPA460E.aqpa460eamsge
+  is 'error';
+

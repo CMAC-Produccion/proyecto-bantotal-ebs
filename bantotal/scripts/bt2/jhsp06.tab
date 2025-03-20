@@ -1,0 +1,29 @@
+create table JHSP06
+(
+  jhsp06trep CHAR(2) not null,
+  jhsp06nsec NUMBER(6) not null,
+  jhsp06frep DATE not null,
+  jhsp06emp  NUMBER(5) not null,
+  jhsp06tper CHAR(1),
+  jhsp06csbs CHAR(11),
+  jhsp06tdct CHAR(1),
+  jhsp06ruc  CHAR(11),
+  jhsp06tdci CHAR(1),
+  jhsp06doci CHAR(12),
+  jhsp06cli  CHAR(120),
+  jhsp06dir  CHAR(80),
+  jhsp06ubig CHAR(6),
+  jhsp06tcta CHAR(1),
+  jhsp06ncta CHAR(30),
+  jhsp06tmda CHAR(1),
+  jhsp06fisa DATE,
+  jhsp06tsan CHAR(5),
+  jhsp06tplz CHAR(1),
+  jhsp06ffsa DATE,
+  jhsp06fpu  DATE,
+  jhsp06npub NUMBER(4),
+  jhsp06fre  DATE
+)
+;
+create unique index JHSP0601 on JHSP06 (JHSP06TREP, JHSP06NSEC, JHSP06FREP, JHSP06EMP);
+

@@ -1,0 +1,13 @@
+create table AQPA023C
+(
+  aqpa023cfech  DATE not null,
+  aqpa023ceva   NUMBER(3) not null,
+  aqpa023cejec  NUMBER(10) not null,
+  aqpa023cpgcod NUMBER(3) not null,
+  aqpa023ccuent NUMBER(9) not null,
+  aqpa023cinsta NUMBER(10)
+)
+;
+alter table AQPA023C
+  add primary key (AQPA023CFECH, AQPA023CEVA, AQPA023CEJEC, AQPA023CPGCOD, AQPA023CCUENT);
+

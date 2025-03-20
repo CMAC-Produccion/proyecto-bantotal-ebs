@@ -1,0 +1,37 @@
+create table AQPB079A
+(
+  aqpb079atxtrub NUMBER(16),
+  aqpb079apgcod  NUMBER(3) not null,
+  aqpb079ahcmod  NUMBER(3) not null,
+  aqpb079ahsucor NUMBER(3) not null,
+  aqpb079ahtran  NUMBER(3) not null,
+  aqpb079ahnrel  NUMBER(4) not null,
+  aqpb079ahfcon  DATE not null,
+  aqpb079ahcord  NUMBER(2) not null,
+  aqpb079atxoren NUMBER(3) not null,
+  aqpb079atxtord CHAR(65),
+  aqpb079ahcpcod NUMBER(5),
+  aqpb079ahvnro  NUMBER(10),
+  aqpb079ahvchr  CHAR(50),
+  aqpb079aserie  CHAR(4) not null,
+  aqpb079acorre  NUMBER not null,
+  aqpb079aemp    NUMBER(3),
+  aqpb079amod    NUMBER(3),
+  aqpb079asuc    NUMBER(3),
+  aqpb079amda    NUMBER(4),
+  aqpb079apap    NUMBER(4),
+  aqpb079acta    NUMBER(9),
+  aqpb079aope    NUMBER(9),
+  aqpb079asbo    NUMBER(3),
+  aqpb079atop    NUMBER(3),
+  aqpb079ahip    CHAR(2),
+  aqpb079atcre   NUMBER(4)
+)
+;
+comment on table AQPB079A
+  is 'Referencia AQPA463';
+create index AQPB079A2 on AQPB079A (AQPB079APGCOD, AQPB079AHCMOD, AQPB079AHSUCOR, AQPB079AHTRAN, AQPB079AHNREL, AQPB079AHFCON);
+create index AQPB079A3 on AQPB079A (AQPB079AHFCON);
+alter table AQPB079A
+  add primary key (AQPB079APGCOD, AQPB079AHCMOD, AQPB079AHSUCOR, AQPB079AHTRAN, AQPB079AHNREL, AQPB079AHFCON, AQPB079ASERIE, AQPB079ACORRE, AQPB079AHCORD, AQPB079ATXOREN);
+

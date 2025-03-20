@@ -1,0 +1,17 @@
+create table SEAL_LOG
+(
+  cotra       NUMBER(10),
+  cod_mensale VARCHAR2(3),
+  contrato    VARCHAR2(20),
+  fecha       DATE,
+  hora_inicio VARCHAR2(10),
+  hora_fin    VARCHAR2(10),
+  host        VARCHAR2(64),
+  os_user     VARCHAR2(50),
+  ip_address  VARCHAR2(20)
+)
+;
+comment on table SEAL_LOG
+  is 'Log Seal de registros de tabla JAQL517';
+create index IDX_SEAL_LOG on SEAL_LOG (COTRA);
+

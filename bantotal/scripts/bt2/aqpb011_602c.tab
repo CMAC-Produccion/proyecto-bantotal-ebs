@@ -1,0 +1,48 @@
+create table AQPB011_602C
+(
+  pgcod      NUMBER(3) not null,
+  ppmod      NUMBER(3) not null,
+  ppsuc      NUMBER(3) not null,
+  ppmda      NUMBER(4) not null,
+  pppap      NUMBER(4) not null,
+  ppcta      NUMBER(9) not null,
+  ppoper     NUMBER(9) not null,
+  ppsbop     NUMBER(3) not null,
+  pptope     NUMBER(3) not null,
+  ppfpag     DATE not null,
+  pptipo     CHAR(1) not null,
+  pp1nump    NUMBER(9) not null,
+  pp1fech    DATE not null,
+  pp1cap     NUMBER(17,2),
+  pp1int     NUMBER(17,2),
+  pp1intmex  NUMBER(17,2),
+  pp1intm    NUMBER(17,2),
+  pp1intmmex NUMBER(17,2),
+  pp1icap    NUMBER(17,2),
+  pp1iint    NUMBER(17,2),
+  pp1iintm   NUMBER(17,2),
+  pp1salcap  NUMBER(17,2),
+  pp1salint  NUMBER(17,2),
+  pp1salade  NUMBER(17,2),
+  pp1salmor  NUMBER(17,2),
+  pp1stat    CHAR(1),
+  pp1salintm NUMBER(17,2),
+  pp1salmorm NUMBER(17,2),
+  pp1saladem NUMBER(17,2),
+  d602cd     NUMBER(3),
+  d602mo     NUMBER(3),
+  d602su     NUMBER(3),
+  d602tr     NUMBER(3),
+  d602re     NUMBER(4),
+  d602fc     DATE,
+  d602or     NUMBER(2),
+  d602sb     NUMBER(3),
+  d602co     CHAR(1),
+  fec        DATE not null,
+  cor        NUMBER(9) not null
+)
+;
+create index AQPB011_602C2 on AQPB011_602C (FEC, COR);
+alter table AQPB011_602C
+  add primary key (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPFPAG, PPTIPO, PP1NUMP, PP1FECH, FEC, COR);
+

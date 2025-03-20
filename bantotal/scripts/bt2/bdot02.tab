@@ -1,0 +1,14 @@
+create table BDOT02
+(
+  bdobancod  NUMBER(6) not null,
+  bdobannom  CHAR(50),
+  bdobandebc CHAR(1),
+  bdobanentt NUMBER(2),
+  bdonacha   NUMBER(6),
+  bdomostrar CHAR(1)
+)
+;
+create index BDOT0202 on BDOT02 (BDONACHA);
+alter table BDOT02
+  add primary key (BDOBANCOD);
+

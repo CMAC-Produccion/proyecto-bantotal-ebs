@@ -1,0 +1,19 @@
+create table FSFT42
+(
+  kdncod    NUMBER(3) not null,
+  kdntmda   NUMBER(4) not null,
+  kdnresi   CHAR(1) not null,
+  kdnifin   CHAR(1) not null,
+  kdntemi   NUMBER(4) not null,
+  kdnrubtra NUMBER(16),
+  kdnrub1   NUMBER(16),
+  kdnrub2   NUMBER(16),
+  kdncar1   CHAR(1),
+  kdncar2   CHAR(1),
+  kdnnum1   NUMBER(9),
+  kdnnum2   NUMBER(9)
+)
+;
+alter table FSFT42
+  add primary key (KDNCOD, KDNTMDA, KDNRESI, KDNIFIN, KDNTEMI);
+

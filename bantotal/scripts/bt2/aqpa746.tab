@@ -1,0 +1,27 @@
+create table AQPA746
+(
+  aqpa746clientid VARCHAR2(200) not null,
+  aqpa746api      VARCHAR2(100) not null,
+  aqpa746estado   VARCHAR2(50),
+  aqpa746fecreg   DATE,
+  aqpa746horreg   VARCHAR2(10),
+  aqpa746usureg   VARCHAR2(10)
+)
+;
+comment on table AQPA746
+  is 'Registro de API por ClientID';
+comment on column AQPA746.aqpa746clientid
+  is 'Valor del ClientID';
+comment on column AQPA746.aqpa746api
+  is 'Valor del path de la API';
+comment on column AQPA746.aqpa746estado
+  is 'Estado de la clave Path API + ClientID';
+comment on column AQPA746.aqpa746fecreg
+  is 'Fecha del registro';
+comment on column AQPA746.aqpa746horreg
+  is 'Hora del registro';
+comment on column AQPA746.aqpa746usureg
+  is 'Usuario del registro';
+alter table AQPA746
+  add primary key (AQPA746CLIENTID, AQPA746API);
+

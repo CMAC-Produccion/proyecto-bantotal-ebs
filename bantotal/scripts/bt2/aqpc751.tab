@@ -1,0 +1,95 @@
+create table AQPC751
+(
+  aqpc751correla NUMBER(9) not null,
+  aqpc751codregi NUMBER(3),
+  aqpc751nomregi VARCHAR2(40),
+  aqpc751codzona NUMBER(2),
+  aqpc751nomzona VARCHAR2(50),
+  aqpc751codsucu NUMBER(3),
+  aqpc751nomsucu VARCHAR2(30),
+  aqpc751codases VARCHAR2(10),
+  aqpc751nomases VARCHAR2(30),
+  aqpc751codconv NUMBER(4),
+  aqpc751nomconv VARCHAR2(50),
+  aqpc751mesregi VARCHAR2(20),
+  aqpc751pagcanj VARCHAR2(2),
+  aqpc751mtoapro NUMBER(17,2),
+  aqpc751frepago VARCHAR2(20),
+  aqpc751tipregi VARCHAR2(50),
+  aqpc751usuauto VARCHAR2(10),
+  aqpc751nomauto VARCHAR2(30),
+  aqpc751fechaut DATE,
+  aqpc751mtoauto NUMBER(17,2),
+  aqpc751tipconp VARCHAR2(50),
+  aqpc751ususoli VARCHAR2(10),
+  aqpc751nomsoli VARCHAR2(30),
+  aqpc751mtosoli NUMBER(17,2),
+  aqpc751comenta VARCHAR2(200),
+  aqpc751usuejec VARCHAR2(10) not null,
+  aqpc751fchejec DATE,
+  aqpc751horejec VARCHAR2(8)
+)
+;
+comment on table AQPC751
+  is 'Reporte Canje Publicitario';
+comment on column AQPC751.aqpc751correla
+  is 'Correlativo';
+comment on column AQPC751.aqpc751codregi
+  is 'Código Region';
+comment on column AQPC751.aqpc751nomregi
+  is 'Nombre Region';
+comment on column AQPC751.aqpc751codzona
+  is 'Código Zona';
+comment on column AQPC751.aqpc751nomzona
+  is 'Nombre Zona';
+comment on column AQPC751.aqpc751codsucu
+  is 'Código Sucursal';
+comment on column AQPC751.aqpc751nomsucu
+  is 'Nombre Sucursal';
+comment on column AQPC751.aqpc751codases
+  is 'Código Asesor';
+comment on column AQPC751.aqpc751nomases
+  is 'Nombre Asesor';
+comment on column AQPC751.aqpc751codconv
+  is 'Código Convenio';
+comment on column AQPC751.aqpc751nomconv
+  is 'Nombre Convenio';
+comment on column AQPC751.aqpc751mesregi
+  is 'Mes Registro';
+comment on column AQPC751.aqpc751pagcanj
+  is 'Pago Canje Publicitario';
+comment on column AQPC751.aqpc751mtoapro
+  is 'Monto Aprobado';
+comment on column AQPC751.aqpc751frepago
+  is 'Frecuencia Pago';
+comment on column AQPC751.aqpc751tipregi
+  is 'Tipo Registro';
+comment on column AQPC751.aqpc751usuauto
+  is 'Usuario Autorizo';
+comment on column AQPC751.aqpc751nomauto
+  is 'Nombre Usuario Autorizo';
+comment on column AQPC751.aqpc751fechaut
+  is 'Fecha Autorización';
+comment on column AQPC751.aqpc751mtoauto
+  is 'Monto Autorizado';
+comment on column AQPC751.aqpc751tipconp
+  is 'Tipo Concepto';
+comment on column AQPC751.aqpc751ususoli
+  is 'Usuario Solicito';
+comment on column AQPC751.aqpc751nomsoli
+  is 'Nombre Usuario Solicito';
+comment on column AQPC751.aqpc751mtosoli
+  is 'Monto Solicitado';
+comment on column AQPC751.aqpc751comenta
+  is 'Comentarios';
+comment on column AQPC751.aqpc751usuejec
+  is 'Usuario Ejecuto';
+comment on column AQPC751.aqpc751fchejec
+  is 'Fecha Ejecución';
+comment on column AQPC751.aqpc751horejec
+  is 'Hora Ejecución';
+create index AQPC751A2 on AQPC751 (AQPC751CODCONV);
+create index AQPC751A3 on AQPC751 (AQPC751USUEJEC, AQPC751CORRELA);
+alter table AQPC751
+  add primary key (AQPC751CORRELA, AQPC751USUEJEC);
+

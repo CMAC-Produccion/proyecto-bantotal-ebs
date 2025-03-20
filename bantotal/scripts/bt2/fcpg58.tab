@@ -1,0 +1,14 @@
+create table FCPG58
+(
+  cpg58codim NUMBER(3) not null,
+  cpg58tpoc  NUMBER(3) not null,
+  cpg58codm  NUMBER(3) not null,
+  cpg58cimm  CHAR(2),
+  cpg58blq   CHAR(1),
+  cpg58inst  NUMBER(10)
+)
+;
+create index FCPG5802 on FCPG58 (CPG58INST);
+alter table FCPG58
+  add primary key (CPG58CODIM, CPG58TPOC, CPG58CODM);
+

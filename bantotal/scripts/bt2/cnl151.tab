@@ -1,0 +1,14 @@
+create table CNL151
+(
+  cnl150cod CHAR(12) not null,
+  cnl001pus NUMBER(3) not null,
+  cnl001tus NUMBER(2) not null,
+  cnl001dus CHAR(64) not null,
+  cnl151sts CHAR(1),
+  cnl151fch DATE
+)
+;
+create index CNL15102 on CNL151 (CNL150COD);
+alter table CNL151
+  add primary key (CNL150COD, CNL001PUS, CNL001TUS, CNL001DUS);
+

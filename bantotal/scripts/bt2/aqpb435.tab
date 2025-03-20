@@ -1,0 +1,176 @@
+create table AQPB435
+(
+  aqpb435emp    NUMBER(3) not null,
+  aqpb435mod    NUMBER(3) not null,
+  aqpb435suc    NUMBER(3) not null,
+  aqpb435mda    NUMBER(4) not null,
+  aqpb435pap    NUMBER(4) not null,
+  aqpb435cta    NUMBER(9) not null,
+  aqpb435ope    NUMBER(9) not null,
+  aqpb435sbo    NUMBER(3) not null,
+  aqpb435top    NUMBER(3) not null,
+  aqpb435fecr   DATE not null,
+  aqpb435tip    NUMBER(1),
+  aqpb435est    CHAR(1),
+  aqpb435itcod  NUMBER(3),
+  aqpb435itmod  NUMBER(3),
+  aqpb435itsuc  NUMBER(3),
+  aqpb435ittran NUMBER(3),
+  aqpb435itnrel NUMBER(4),
+  aqpb435itfcon DATE,
+  aqpb435ithor  CHAR(8),
+  aqpb435itucnf CHAR(10),
+  aqpb435fecext DATE,
+  aqpb435aux01  NUMBER(18,2),
+  aqpb435aux02  NUMBER(18,2),
+  aqpb435tipfon VARCHAR2(40),
+  aqpb435fcomca NUMBER(18,2),
+  aqpb435fcompo NUMBER(17,2),
+  aqpb435fcommt NUMBER(17,2),
+  aqpb435mtofgr NUMBER(17,2),
+  aqpb435fitcod NUMBER(3),
+  aqpb435fitmod NUMBER(3),
+  aqpb435fitsuc NUMBER(3),
+  aqpb435fittra NUMBER(3),
+  aqpb435fitnre NUMBER(4),
+  aqpb435fitfco DATE,
+  aqpb435fithor CHAR(8),
+  aqpb435fitucn CHAR(10),
+  aqpb435fest   CHAR(1),
+  aqpb435petdoc NUMBER(2),
+  aqpb435pendoc CHAR(12),
+  aqpb435penom  CHAR(50),
+  aqpb435nrcsap CHAR(15),
+  aqpb435finicr DATE,
+  aqpb435ffpgra DATE,
+  aqpb435ffcr   DATE,
+  aqpb435nrcuin NUMBER(5),
+  aqpb435nrpgra NUMBER(5),
+  aqpb435tasocr NUMBER(10,4),
+  aqpb435mntrpr NUMBER(17,2),
+  aqpb435ffcrpr DATE,
+  aqpb435fpp    DATE,
+  aqpb435tscrpr NUMBER(10,4),
+  aqpb435frepro DATE,
+  aqpb435nupzot NUMBER(5),
+  aqpb435nmsgra NUMBER(5)
+)
+;
+comment on table AQPB435
+  is 'Tabla Base de Reprogramaciones FAE TURISMO';
+comment on column AQPB435.aqpb435emp
+  is 'Codigo Empresa';
+comment on column AQPB435.aqpb435mod
+  is 'Modulo';
+comment on column AQPB435.aqpb435suc
+  is 'Sucursal';
+comment on column AQPB435.aqpb435mda
+  is 'Moneda';
+comment on column AQPB435.aqpb435pap
+  is 'Papel';
+comment on column AQPB435.aqpb435cta
+  is 'Cuenta';
+comment on column AQPB435.aqpb435ope
+  is 'Operacion';
+comment on column AQPB435.aqpb435sbo
+  is 'Sub operacion';
+comment on column AQPB435.aqpb435top
+  is 'Tipo de operacion';
+comment on column AQPB435.aqpb435fecr
+  is 'Fecha de Crédito';
+comment on column AQPB435.aqpb435tip
+  is 'Tipo';
+comment on column AQPB435.aqpb435est
+  is 'Estado';
+comment on column AQPB435.aqpb435itcod
+  is 'Codigo de empresa de Transaccion';
+comment on column AQPB435.aqpb435itmod
+  is 'Modulo de Transaccion';
+comment on column AQPB435.aqpb435itsuc
+  is 'Sucursal de transaccion';
+comment on column AQPB435.aqpb435ittran
+  is 'Id Transaccion';
+comment on column AQPB435.aqpb435itnrel
+  is 'Numero de relacion de transaccion';
+comment on column AQPB435.aqpb435itfcon
+  is 'Fecha contabilizada de transaccion';
+comment on column AQPB435.aqpb435ithor
+  is 'Hora de transaccion';
+comment on column AQPB435.aqpb435itucnf
+  is 'Usuario Transaccion';
+comment on column AQPB435.aqpb435fecext
+  is 'Fecha de extorno';
+comment on column AQPB435.aqpb435aux01
+  is 'Auxiliar numerico 1';
+comment on column AQPB435.aqpb435aux02
+  is 'Auxiliar numerico 2';
+comment on column AQPB435.aqpb435tipfon
+  is 'Tipo de fondo Reactiva, FAE2';
+comment on column AQPB435.aqpb435fcomca
+  is 'Monto capital para el calculo de la comisión';
+comment on column AQPB435.aqpb435fcompo
+  is 'Porcentaje para el calculo de la comisión';
+comment on column AQPB435.aqpb435fcommt
+  is 'Monto de comisión';
+comment on column AQPB435.aqpb435mtofgr
+  is 'Monto FAE';
+comment on column AQPB435.aqpb435fitcod
+  is 'Transacción de pago de la comisión';
+comment on column AQPB435.aqpb435fitmod
+  is 'Comision Modulo';
+comment on column AQPB435.aqpb435fitsuc
+  is 'Comision Sucursal';
+comment on column AQPB435.aqpb435fittra
+  is 'Comision Transaccion';
+comment on column AQPB435.aqpb435fitnre
+  is 'Comision Numero de Relacion';
+comment on column AQPB435.aqpb435fitfco
+  is 'Comision Fecha Contabilizada';
+comment on column AQPB435.aqpb435fithor
+  is 'Comision hora';
+comment on column AQPB435.aqpb435fitucn
+  is 'Comision Usuario';
+comment on column AQPB435.aqpb435fest
+  is 'Indicador de comision contabilizada c=contabilizada e=extornada';
+comment on column AQPB435.aqpb435petdoc
+  is 'Tipo de documento';
+comment on column AQPB435.aqpb435pendoc
+  is 'Número de documento';
+comment on column AQPB435.aqpb435penom
+  is 'Nombre de cliente';
+comment on column AQPB435.aqpb435nrcsap
+  is 'Número contrato SAP';
+comment on column AQPB435.aqpb435finicr
+  is 'Fecha de inicio de crédito';
+comment on column AQPB435.aqpb435ffpgra
+  is 'Fecha fin del periodo de gracia';
+comment on column AQPB435.aqpb435ffcr
+  is 'Fecha fin de crédito';
+comment on column AQPB435.aqpb435nrcuin
+  is 'Número de cuotas inicial';
+comment on column AQPB435.aqpb435nrpgra
+  is 'Número periodos de gracia';
+comment on column AQPB435.aqpb435tasocr
+  is 'Tasa original del crédito';
+comment on column AQPB435.aqpb435mntrpr
+  is 'Monto reprogramado';
+comment on column AQPB435.aqpb435ffcrpr
+  is 'Fecha fin del crédito reprogramado';
+comment on column AQPB435.aqpb435fpp
+  is 'Fecha de primer pago';
+comment on column AQPB435.aqpb435tscrpr
+  is 'Tasa del crédito reprogramado';
+comment on column AQPB435.aqpb435frepro
+  is 'Fecha de reprogramación';
+comment on column AQPB435.aqpb435nupzot
+  is 'Nuevo plazo total desde su otorgamiento';
+comment on column AQPB435.aqpb435nmsgra
+  is 'Número de meses de gracia adicional';
+create index AQPB435A2 on AQPB435 (AQPB435ITCOD, AQPB435ITMOD, AQPB435ITSUC, AQPB435ITTRAN, AQPB435ITNREL, AQPB435ITFCON);
+create index AQPB435A3 on AQPB435 (AQPB435CTA, AQPB435FECR, AQPB435TIP, AQPB435EST);
+create index AQPB435A4 on AQPB435 (AQPB435EMP, AQPB435MOD, AQPB435SUC, AQPB435MDA, AQPB435PAP, AQPB435CTA, AQPB435OPE, AQPB435SBO, AQPB435TOP);
+create index AQPB435A5 on AQPB435 (AQPB435CTA, AQPB435TIP, AQPB435EST);
+create index AQPB435A6 on AQPB435 (AQPB435FITCOD, AQPB435FITMOD, AQPB435FITSUC, AQPB435FITTRA, AQPB435FITNRE, AQPB435FITFCO);
+alter table AQPB435
+  add primary key (AQPB435EMP, AQPB435MOD, AQPB435SUC, AQPB435MDA, AQPB435PAP, AQPB435CTA, AQPB435OPE, AQPB435SBO, AQPB435TOP, AQPB435FECR);
+

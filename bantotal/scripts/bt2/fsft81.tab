@@ -1,0 +1,33 @@
+create table FSFT81
+(
+  sft81fch  DATE not null,
+  sft81cust NUMBER(9) not null,
+  sft81depo NUMBER(9) not null,
+  sft81comi NUMBER(9) not null,
+  sft81tido NUMBER(2) not null,
+  sft81pais NUMBER(3) not null,
+  sft81docu CHAR(12) not null,
+  sft81naci NUMBER(3),
+  sft81dgi  NUMBER(15),
+  sft81call CHAR(35),
+  sft81num  NUMBER(5),
+  sft81piso NUMBER(2),
+  sft81dpto CHAR(6),
+  sft81prov NUMBER(2),
+  sft81pare NUMBER(3),
+  sft81copa NUMBER(6),
+  sft81cono CHAR(5),
+  sft81auc1 CHAR(20),
+  sft81auc2 CHAR(20),
+  sft81aue1 NUMBER(9),
+  sft81aue2 NUMBER(9),
+  sft81aui1 NUMBER(17,2),
+  sft81aui2 NUMBER(17,2),
+  sft81prci NUMBER(2),
+  sft81loc  CHAR(12),
+  sft81lure CHAR(9)
+)
+;
+alter table FSFT81
+  add primary key (SFT81FCH, SFT81CUST, SFT81DEPO, SFT81COMI, SFT81TIDO, SFT81PAIS, SFT81DOCU);
+

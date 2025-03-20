@@ -1,0 +1,19 @@
+create table FSFQ05
+(
+  fsfq05pg NUMBER(3) not null,
+  fsfq05id NUMBER(9) not null,
+  fsfq05co NUMBER(9) not null,
+  fsfq05ha CHAR(1),
+  fsfq05pa NUMBER(5,2),
+  fsfq05c1 CHAR(1),
+  fsfq05c2 CHAR(1),
+  fsfq05c3 CHAR(1),
+  fsfq05m1 NUMBER(4),
+  fsfq05m2 NUMBER(4),
+  fsfq05o1 NUMBER(9),
+  fsfq05o2 NUMBER(9)
+)
+;
+alter table FSFQ05
+  add primary key (FSFQ05PG, FSFQ05ID, FSFQ05CO);
+

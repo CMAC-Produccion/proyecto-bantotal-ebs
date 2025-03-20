@@ -1,0 +1,13 @@
+create table CNL999
+(
+  cnl000cod NUMBER(4) not null,
+  cnl001adm CHAR(30) not null,
+  cnl001usu CHAR(30) not null,
+  cnl999tin NUMBER(3) not null,
+  cnl999nom CHAR(30),
+  cnl999num NUMBER(9)
+)
+;
+alter table CNL999
+  add primary key (CNL000COD, CNL001ADM, CNL001USU, CNL999TIN);
+

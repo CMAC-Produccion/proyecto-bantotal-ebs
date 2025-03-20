@@ -1,0 +1,60 @@
+create table AQPA607
+(
+  aqpa607pgc  NUMBER(3) not null,
+  aqpa607mod  NUMBER(3) not null,
+  aqpa607suc  NUMBER(3) not null,
+  aqpa607mda  NUMBER(4) not null,
+  aqpa607pap  NUMBER(4) not null,
+  aqpa607cta  NUMBER(9) not null,
+  aqpa607ope  NUMBER(9) not null,
+  aqpa607sbo  NUMBER(3) not null,
+  aqpa607top  NUMBER(3) not null,
+  aqpa607est  CHAR(1),
+  aqpa607fec  DATE,
+  aqpa607aux1 VARCHAR2(200),
+  aqpa607aux2 VARCHAR2(200),
+  aqpa607aux3 CHAR(1),
+  aqpa607num1 NUMBER(17,2),
+  aqpa607num2 NUMBER(17,2),
+  aqpa607fec1 DATE,
+  aqpa607fec2 DATE
+)
+;
+comment on table AQPA607
+  is 'Mensajes en Voucher';
+comment on column AQPA607.aqpa607pgc
+  is 'Pgcod';
+comment on column AQPA607.aqpa607mod
+  is 'Modulo';
+comment on column AQPA607.aqpa607suc
+  is 'Sucursal';
+comment on column AQPA607.aqpa607mda
+  is 'Moneda';
+comment on column AQPA607.aqpa607cta
+  is 'Cuenta';
+comment on column AQPA607.aqpa607ope
+  is 'Operacion';
+comment on column AQPA607.aqpa607sbo
+  is 'SubOperacion';
+comment on column AQPA607.aqpa607top
+  is 'Tipo Operacion';
+comment on column AQPA607.aqpa607est
+  is 'Estado';
+comment on column AQPA607.aqpa607fec
+  is 'Fecha';
+comment on column AQPA607.aqpa607aux1
+  is 'Auxiliar 1   varchar2-200';
+comment on column AQPA607.aqpa607aux2
+  is 'Auxiliar 2   varchar2-200';
+comment on column AQPA607.aqpa607aux3
+  is 'Auxiliar 3 char(1)';
+comment on column AQPA607.aqpa607num1
+  is 'Auxiliar Numero 1';
+comment on column AQPA607.aqpa607num2
+  is 'Auxiliar Numero 2';
+comment on column AQPA607.aqpa607fec1
+  is 'Auxiliar Fecha 1';
+comment on column AQPA607.aqpa607fec2
+  is 'Auxiliar Fecha 2';
+create index AQPA6071 on AQPA607 (AQPA607PGC, AQPA607MOD, AQPA607SUC, AQPA607MDA, AQPA607PAP, AQPA607CTA, AQPA607OPE, AQPA607SBO, AQPA607TOP, AQPA607EST);
+

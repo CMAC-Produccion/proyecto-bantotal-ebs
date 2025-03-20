@@ -1,0 +1,47 @@
+create table JAQY667
+(
+  jaqy667dnit CHAR(12) not null,
+  jaqy667dnif CHAR(12) not null,
+  jaqy667nomt CHAR(70),
+  jaqy667fnac DATE,
+  jaqy667estt CHAR(2),
+  jaqy667crel NUMBER(2),
+  jaqy667dcod CHAR(30),
+  jaqy667tdoc CHAR(20),
+  jaqy667nomf CHAR(70),
+  jaqy667fnaf DATE,
+  jaqy667aux4 CHAR(255),
+  jaqy667aux5 DATE,
+  jaqy667nabu NUMBER(4),
+  jaqy667npad NUMBER(4),
+  jaqy667ncoy NUMBER(4),
+  jaqy667nhij NUMBER(4),
+  jaqy667nsue NUMBER(4),
+  jaqy667ncun NUMBER(4),
+  jaqy667user VARCHAR2(12),
+  jaqy667edaf NUMBER(4),
+  jaqy667edat NUMBER(4),
+  jaqy667nny  NUMBER(4),
+  jaqy667ntia NUMBER(4),
+  jaqy667ntio NUMBER(4),
+  jaqy667ntni NUMBER(4),
+  jaqy667ntab NUMBER(4),
+  jaqy667nsob NUMBER(4),
+  jaqy667nphr NUMBER(4),
+  jaqy667nnie NUMBER(4),
+  jaqy667nher NUMBER(4),
+  jaqy667nbni NUMBER(4),
+  jaqy667nbab NUMBER(4),
+  jaqy667aux3 CHAR(200),
+  jaqy667aux2 CHAR(100),
+  jaqy667aux1 CHAR(100),
+  jaqy667npri NUMBER(4),
+  jaqy667aux6 NUMBER(4),
+  jaqy667aux7 NUMBER(4),
+  jaqy667ord  NUMBER(4)
+)
+;
+create index JAQY6671 on JAQY667 (JAQY667USER, JAQY667DNIT, JAQY667ORD);
+alter table JAQY667
+  add primary key (JAQY667DNIT, JAQY667DNIF);
+

@@ -1,0 +1,18 @@
+create table AQPB390D
+(
+  aqpb390dcod    NUMBER(3) not null,
+  aqpb390dfec    DATE not null,
+  aqpb390dcor    NUMBER(10) not null,
+  aqpb390dlin    NUMBER(8) not null,
+  aqpb390dpepais NUMBER(3),
+  aqpb390dpetdoc NUMBER(2),
+  aqpb390dpendoc CHAR(12),
+  aqpb390dest    VARCHAR2(1),
+  aqpb390dusu    VARCHAR2(10),
+  aqpb390dfee    VARCHAR2(10),
+  aqpb390dhoe    VARCHAR2(10)
+)
+;
+alter table AQPB390D
+  add primary key (AQPB390DCOD, AQPB390DFEC, AQPB390DCOR, AQPB390DLIN);
+

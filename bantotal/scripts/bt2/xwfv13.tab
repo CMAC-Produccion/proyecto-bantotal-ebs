@@ -1,0 +1,11 @@
+create table XWFV13
+(
+  xwfv10corr NUMBER(10) not null,
+  xwfv13cor1 NUMBER(10) not null,
+  xwfv13prg  CHAR(20),
+  xwfv13expr NUMBER(10)
+)
+;
+alter table XWFV13
+  add primary key (XWFV10CORR, XWFV13COR1);
+

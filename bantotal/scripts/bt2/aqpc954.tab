@@ -1,0 +1,109 @@
+create table AQPC954
+(
+  aqpc954pai   NUMBER(3) not null,
+  aqpc954tdoc  NUMBER(2) not null,
+  aqpc954ndoc  VARCHAR2(12) not null,
+  aqpc954docod NUMBER(2) not null,
+  aqpc954corr  NUMBER(3) not null,
+  aqpc954usu   VARCHAR2(30) not null,
+  aqpc954maq   VARCHAR2(20) not null,
+  aqpc954dir   VARCHAR2(140),
+  aqpc954nom   VARCHAR2(30),
+  aqpc954emp   NUMBER(3),
+  aqpc954mod   NUMBER(5),
+  aqpc954suc   NUMBER(5),
+  aqpc954mda   NUMBER(4),
+  aqpc954pap   NUMBER(4),
+  aqpc954cta   NUMBER(9),
+  aqpc954ope   NUMBER(9),
+  aqpc954sbo   NUMBER(5),
+  aqpc954top   NUMBER(5),
+  aqpc954emp2  NUMBER(3),
+  aqpc954mod2  NUMBER(5),
+  aqpc954suc2  NUMBER(5),
+  aqpc954mda2  NUMBER(4),
+  aqpc954pap2  NUMBER(4),
+  aqpc954cta2  NUMBER(9),
+  aqpc954ope2  NUMBER(9),
+  aqpc954sbo2  NUMBER(5),
+  aqpc954top2  NUMBER(5),
+  aqpc954fec   DATE,
+  aqpc954hor   VARCHAR2(8),
+  aqpc954aux1  NUMBER(17,2),
+  aqpc954aux2  VARCHAR2(100),
+  aqpc954aux3  DATE,
+  aqpc954aux4  NUMBER(5)
+)
+;
+comment on table AQPC954
+  is 'Tabla temporal de coincidencia de direcciones de garantías';
+comment on column AQPC954.aqpc954pai
+  is 'Pais';
+comment on column AQPC954.aqpc954tdoc
+  is 'Tipo Documento';
+comment on column AQPC954.aqpc954ndoc
+  is 'Nro Documento';
+comment on column AQPC954.aqpc954docod
+  is 'DOCOD';
+comment on column AQPC954.aqpc954corr
+  is 'Correlativo';
+comment on column AQPC954.aqpc954usu
+  is 'Usuario';
+comment on column AQPC954.aqpc954maq
+  is 'Maquina';
+comment on column AQPC954.aqpc954dir
+  is 'Dirección';
+comment on column AQPC954.aqpc954emp
+  is 'Empresa Garantia';
+comment on column AQPC954.aqpc954mod
+  is 'Modulo Garantia';
+comment on column AQPC954.aqpc954suc
+  is 'Sucursal Garantia';
+comment on column AQPC954.aqpc954mda
+  is 'Moneda Garantia';
+comment on column AQPC954.aqpc954pap
+  is 'Papel Garantia';
+comment on column AQPC954.aqpc954cta
+  is 'Cuenta Garantia';
+comment on column AQPC954.aqpc954ope
+  is 'Operación Garantia';
+comment on column AQPC954.aqpc954sbo
+  is 'Sub Operación Garantia';
+comment on column AQPC954.aqpc954top
+  is 'Tipo Operación Garantia';
+comment on column AQPC954.aqpc954emp2
+  is 'Empresa Garantia Coincidencia';
+comment on column AQPC954.aqpc954mod2
+  is 'Modulo Garantia Coincidencia';
+comment on column AQPC954.aqpc954suc2
+  is 'Sucursal Garantia Coincidencia';
+comment on column AQPC954.aqpc954mda2
+  is 'Moneda Garantia Coincidencia';
+comment on column AQPC954.aqpc954pap2
+  is 'Papel Garantia Coincidencia';
+comment on column AQPC954.aqpc954cta2
+  is 'Cuenta Garantia Coincidencia';
+comment on column AQPC954.aqpc954ope2
+  is 'Operación Garantia Coincidencia';
+comment on column AQPC954.aqpc954sbo2
+  is 'Sub Operación Garantia Coincidencia';
+comment on column AQPC954.aqpc954top2
+  is 'Tipo Operación Garantia Coincidencia';
+comment on column AQPC954.aqpc954fec
+  is 'Fecha Registro';
+comment on column AQPC954.aqpc954hor
+  is 'Hora Registro';
+comment on column AQPC954.aqpc954aux1
+  is 'Auxiliar1';
+comment on column AQPC954.aqpc954aux2
+  is 'Auxiliar2';
+comment on column AQPC954.aqpc954aux3
+  is 'Auxiliar3';
+comment on column AQPC954.aqpc954aux4
+  is 'Auxiliar4';
+create index AQPC954A2 on AQPC954 (AQPC954USU, AQPC954MAQ, AQPC954DOCOD);
+create index AQPC954A3 on AQPC954 (AQPC954USU, AQPC954MAQ, AQPC954AUX4);
+create index AQPC954A4 on AQPC954 (AQPC954USU, AQPC954MAQ, AQPC954EMP, AQPC954MOD, AQPC954SUC, AQPC954MDA, AQPC954PAP, AQPC954CTA, AQPC954OPE, AQPC954SBO, AQPC954TOP);
+alter table AQPC954
+  add primary key (AQPC954PAI, AQPC954TDOC, AQPC954NDOC, AQPC954DOCOD, AQPC954CORR, AQPC954USU, AQPC954MAQ);
+

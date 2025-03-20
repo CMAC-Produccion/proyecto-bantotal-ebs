@@ -1,0 +1,63 @@
+create table AQPB122
+(
+  aqpb122fearc  DATE not null,
+  aqpb122feope  DATE not null,
+  aqpb122hoope  CHAR(8) not null,
+  aqpb122corre  NUMBER(9) not null,
+  aqpb122seint  NUMBER(12) not null,
+  aqpb122nutra  CHAR(6),
+  aqpb122comsg  CHAR(4),
+  aqpb122cotra  CHAR(6),
+  aqpb122nucta  CHAR(17),
+  aqpb122comon  CHAR(3),
+  aqpb122moope  NUMBER(11,2),
+  aqpb122cores  CHAR(2),
+  aqpb122deerr  VARCHAR2(255),
+  aqpb122xtrno  CHAR(1),
+  aqpb122coter  VARCHAR2(16),
+  aqpb122codag  VARCHAR2(16),
+  aqpb122tipdif NUMBER(1),
+  aqpb122destra VARCHAR2(255)
+)
+;
+comment on table AQPB122
+  is 'Tabla Ocurrencias conciliacion Niubiz';
+comment on column AQPB122.aqpb122fearc
+  is 'Fecha de archivo';
+comment on column AQPB122.aqpb122feope
+  is 'Fecha de operacion';
+comment on column AQPB122.aqpb122hoope
+  is 'Hora de operacion';
+comment on column AQPB122.aqpb122corre
+  is 'Correlativo';
+comment on column AQPB122.aqpb122seint
+  is 'Secuencial Interno';
+comment on column AQPB122.aqpb122nutra
+  is 'Trace operacion';
+comment on column AQPB122.aqpb122comsg
+  is 'Codigo de mensaje';
+comment on column AQPB122.aqpb122cotra
+  is 'Codigo de transaccion';
+comment on column AQPB122.aqpb122nucta
+  is 'Numero de cuenta';
+comment on column AQPB122.aqpb122comon
+  is 'Codigo de moneda';
+comment on column AQPB122.aqpb122moope
+  is 'Monto de operacion';
+comment on column AQPB122.aqpb122cores
+  is 'Codigo de respuesta';
+comment on column AQPB122.aqpb122deerr
+  is 'Descripcion de ocurrencia';
+comment on column AQPB122.aqpb122xtrno
+  is 'Extornado?';
+comment on column AQPB122.aqpb122coter
+  is 'Codigo terminal Niubiz';
+comment on column AQPB122.aqpb122codag
+  is 'Codigo POS NIUBIZ';
+comment on column AQPB122.aqpb122tipdif
+  is 'Tipo de diferencia';
+comment on column AQPB122.aqpb122destra
+  is 'Descripcion de transaccion';
+alter table AQPB122
+  add primary key (AQPB122FEARC, AQPB122FEOPE, AQPB122HOOPE, AQPB122CORRE, AQPB122SEINT);
+

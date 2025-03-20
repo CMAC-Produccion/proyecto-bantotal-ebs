@@ -1,0 +1,21 @@
+create table PLS021
+(
+  pls021empb NUMBER(3) not null,
+  pls021conv NUMBER(8) not null,
+  pls021serv NUMBER(3) not null,
+  pls021fpre DATE not null,
+  pls021nenv NUMBER(3) not null,
+  pls021nlot NUMBER(3) not null,
+  pls021cod  NUMBER(3) not null,
+  pls021corm NUMBER(10) not null,
+  pls021conc CHAR(30),
+  pls021aux1 NUMBER(3),
+  pls021aux2 NUMBER(8),
+  pls021aux3 CHAR(1),
+  pls021aux4 CHAR(30),
+  pls021aux5 CHAR(50)
+)
+;
+alter table PLS021
+  add primary key (PLS021EMPB, PLS021CONV, PLS021SERV, PLS021FPRE, PLS021NENV, PLS021NLOT, PLS021COD, PLS021CORM);
+

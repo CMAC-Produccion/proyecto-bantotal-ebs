@@ -1,0 +1,23 @@
+create table AQPB511
+(
+  aqpb511carcod VARCHAR2(16) not null,
+  aqpb511cartip VARCHAR2(3) not null,
+  aqpb511num    NUMBER(9) not null,
+  aqpb511nom    VARCHAR2(120),
+  aqpb511nom2   VARCHAR2(120),
+  aqpb511nom3   VARCHAR2(120),
+  aqpb511nom4   VARCHAR2(120),
+  aqpb511nom5   VARCHAR2(120),
+  aqpb511nom6   VARCHAR2(120),
+  aqpb511nom7   VARCHAR2(120),
+  aqpb511nom8   VARCHAR2(120),
+  aqpb511nom9   VARCHAR2(120),
+  aqpb511nom10  VARCHAR2(120),
+  aqpb511doc    VARCHAR2(120),
+  aqpb511fec    DATE,
+  aqpb511cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+alter table AQPB511
+  add primary key (AQPB511CARCOD, AQPB511CARTIP, AQPB511NUM);
+

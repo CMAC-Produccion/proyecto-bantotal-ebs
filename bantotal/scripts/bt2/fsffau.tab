@@ -1,0 +1,14 @@
+create table FSFFAU
+(
+  fsfdcod  NUMBER(2) not null,
+  fsfdtipo NUMBER(2) not null,
+  fsfdsub  NUMBER(3) not null,
+  fsfdau4  CHAR(1),
+  fsfdau5  CHAR(1),
+  fsfdau6  CHAR(1)
+)
+;
+create index FSFFAU03 on FSFFAU (FSFDTIPO, FSFDSUB);
+alter table FSFFAU
+  add primary key (FSFDCOD, FSFDTIPO, FSFDSUB);
+

@@ -1,0 +1,31 @@
+create table AQPA190C
+(
+  aqpa190ceval NUMBER(10) not null,
+  aqpa190ccod  NUMBER(4) not null,
+  aqpa190clin  NUMBER(3) not null,
+  aqpa190cmto1 NUMBER(17,2),
+  aqpa190cmto2 NUMBER(17,2),
+  aqpa190cmto3 NUMBER(17,2),
+  aqpa190cmto4 NUMBER(17,2),
+  aqpa190cmda1 NUMBER(4),
+  aqpa190cmda2 NUMBER(4),
+  aqpa190cmda3 NUMBER(4),
+  aqpa190cmda4 NUMBER(4),
+  aqpa190ctxt1 CHAR(40),
+  aqpa190ctxt2 CHAR(40),
+  aqpa190ctxt3 CHAR(40),
+  aqpa190ccon1 CHAR(10),
+  aqpa190ccon2 CHAR(10),
+  aqpa190ccon3 CHAR(10),
+  aqpa190ccan1 NUMBER(9,3),
+  aqpa190ccan2 NUMBER(9,3),
+  aqpa190ccan3 NUMBER(9,3),
+  aqpa190ccan4 NUMBER(9,3),
+  aqpa190ctxl1 CHAR(50),
+  aqpa190ctxl2 CHAR(50),
+  aqpa190ctxl3 CHAR(50)
+)
+;
+alter table AQPA190C
+  add primary key (AQPA190CEVAL, AQPA190CCOD, AQPA190CLIN);
+

@@ -1,0 +1,42 @@
+create table AQPB515K
+(
+  aqpb515kserial NUMBER(10) not null,
+  aqpb515ksecue  NUMBER(6) not null,
+  aqpb515kfeexp  DATE,
+  aqpb515knuope  NUMBER(10),
+  aqpb515ktofob  NUMBER(16,2),
+  aqpb515kcopao  VARCHAR2(100),
+  aqpb515ktidet  CHAR(2),
+  aqpb515knpai   NUMBER(3),
+  aqpb515kconcod VARCHAR2(16) not null,
+  aqpb515kcreusr VARCHAR2(30) not null,
+  aqpb515kcretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515K
+  is 'COMERCIO EXTERIOR EXPORTACIONES - EQUIFAX';
+comment on column AQPB515K.aqpb515kserial
+  is 'SERIAL';
+comment on column AQPB515K.aqpb515ksecue
+  is 'SECUENCIA';
+comment on column AQPB515K.aqpb515kfeexp
+  is 'FECHA';
+comment on column AQPB515K.aqpb515knuope
+  is 'NUMERO DE OPERACIONES';
+comment on column AQPB515K.aqpb515ktofob
+  is 'VALOR TOTAL FOB';
+comment on column AQPB515K.aqpb515kcopao
+  is 'CODIGO DE PAIS';
+comment on column AQPB515K.aqpb515ktidet
+  is 'TIPO DETALLE';
+comment on column AQPB515K.aqpb515knpai
+  is 'NRO PAISES EXPORTACION';
+comment on column AQPB515K.aqpb515kconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515K.aqpb515kcreusr
+  is 'CONSULTA - USUARIO CREACION';
+comment on column AQPB515K.aqpb515kcretim
+  is 'CONSULTA - FECHA Y HORA DE CREACION';
+alter table AQPB515K
+  add primary key (AQPB515KSERIAL, AQPB515KSECUE, AQPB515KCONCOD, AQPB515KCREUSR);
+

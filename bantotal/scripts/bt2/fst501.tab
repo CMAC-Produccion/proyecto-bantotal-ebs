@@ -1,0 +1,13 @@
+create table FST501
+(
+  tlis     NUMBER(4) not null,
+  tlisde   CHAR(30),
+  tlidorg  CHAR(30),
+  tlisfuac DATE,
+  tlishcon CHAR(1)
+)
+;
+create index FST50102 on FST501 (TLISDE);
+alter table FST501
+  add primary key (TLIS);
+

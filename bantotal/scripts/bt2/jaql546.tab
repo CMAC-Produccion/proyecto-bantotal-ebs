@@ -1,0 +1,104 @@
+create table JAQL546
+(
+  jaql546serial NUMBER(10) not null,
+  jaql546feenv  DATE not null,
+  jaql546hoenv  CHAR(8) not null,
+  jaql546ticon  CHAR(2),
+  jaql546cosbs  CHAR(15),
+  jaql546uspgc  NUMBER(3),
+  jaql546ussuc  NUMBER(3),
+  jaql546uscod  CHAR(10),
+  jaql546tiper  CHAR(1),
+  jaql546tidoe  NUMBER(4),
+  jaql546tidob  NUMBER(4),
+  jaql546nudoc  CHAR(12),
+  jaql546nuope  CHAR(20),
+  jaql546ticre  VARCHAR2(20),
+  jaql546ticrb  VARCHAR2(20),
+  jaql546secrb  NUMBER(4),
+  jaql546crpgc  NUMBER(4),
+  jaql546crsuc  NUMBER(4),
+  jaql546crmod  NUMBER(4),
+  jaql546crmda  NUMBER(4),
+  jaql546crpap  NUMBER(4),
+  jaql546crcta  NUMBER(4),
+  jaql546crope  NUMBER(4),
+  jaql546crsbo  NUMBER(4),
+  jaql546crtop  NUMBER(4),
+  jaql546insta  NUMBER(10),
+  jaql546nuint  NUMBER(4),
+  jaql546nombr  VARCHAR2(100),
+  jaql546noban  NUMBER(4),
+  jaql546corep  NUMBER(4),
+  jaql546nuopr  NUMBER(4),
+  jaql546xmlre  LONG,
+  jaql546coret  CHAR(2),
+  jaql546accio  VARCHAR2(15),
+  jaql546coerr  CHAR(5),
+  jaql546tires  NUMBER(11,4),
+  jaql546estad  CHAR(1),
+  jaql546score  NUMBER(9,2),
+  jaql546mserr  VARCHAR2(1000),
+  jaql546fenac  DATE,
+  jaql546gener  VARCHAR2(1),
+  jaql546ciuda  VARCHAR2(50),
+  jaql546depar  VARCHAR2(50),
+  jaql546estid  VARCHAR2(2),
+  jaql546nocom  VARCHAR2(50),
+  jaql546fenua  DATE,
+  jaql546escon  VARCHAR2(30),
+  jaql546depen  VARCHAR2(30),
+  jaql546cciuu  VARCHAR2(30),
+  jaql546tcont  VARCHAR2(50),
+  jaql546fealt  DATE,
+  jaql546respp  VARCHAR2(1000),
+  jaql546auxc4  VARCHAR2(100),
+  jaql546auxc5  VARCHAR2(100),
+  jaql546auxc6  VARCHAR2(100),
+  jaql546auxc7  VARCHAR2(250),
+  jaql546auxc8  VARCHAR2(100),
+  jaql546auxc9  VARCHAR2(100),
+  jaql546aux10  VARCHAR2(100),
+  jaql546secto  NUMBER(6),
+  jaql546xmlpf  VARCHAR2(4000),
+  jaql546rasoc  VARCHAR2(100),
+  jaql546nuruc  VARCHAR2(20),
+  jaql546nucon  NUMBER(10),
+  jaql546json   CLOB,
+  jaql546auxc11 VARCHAR2(100),
+  jaql546auxc12 VARCHAR2(100),
+  jaql546auxc13 VARCHAR2(100),
+  jaql546auxc14 VARCHAR2(100),
+  jaql546auxc15 VARCHAR2(100),
+  jaql546concod VARCHAR2(16),
+  jaql546creusr VARCHAR2(10),
+  jaql546cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL546.jaql546ticon
+  is 'AA = NUEVO EXPERIAN';
+comment on column JAQL546.jaql546json
+  is 'JSON Respuesta Servicio';
+comment on column JAQL546.jaql546auxc11
+  is 'Auxiliar 11';
+comment on column JAQL546.jaql546auxc12
+  is 'Auxiliar 12';
+comment on column JAQL546.jaql546auxc13
+  is 'Auxiliar 13';
+comment on column JAQL546.jaql546auxc14
+  is 'Auxiliar 14';
+comment on column JAQL546.jaql546auxc15
+  is 'Auxiliar 15';
+comment on column JAQL546.jaql546concod
+  is 'Código de Consulta';
+comment on column JAQL546.jaql546creusr
+  is 'Usuario Creación';
+comment on column JAQL546.jaql546cretim
+  is 'Fecha Hora Registro';
+create index IDX_JAQL546_01 on JAQL546 (JAQL546TIDOB, JAQL546NUDOC, JAQL546COERR);
+create unique index JAQL54600 on JAQL546 (JAQL546SERIAL, JAQL546FEENV, JAQL546HOENV);
+create index JAQL546_01 on JAQL546 (JAQL546NUCON, JAQL546NUDOC);
+create index JAQL54602 on JAQL546 (JAQL546NUCON, JAQL546ACCIO);
+alter table JAQL546
+  add constraint JAQL546_PK primary key (JAQL546SERIAL, JAQL546FEENV, JAQL546HOENV);
+

@@ -1,0 +1,27 @@
+create table FPP015
+(
+  pp010prd  NUMBER(3) not null,
+  pp017par  NUMBER(4) not null,
+  pp015emp  NUMBER(3) not null,
+  pp015tipo CHAR(1) not null,
+  pp015cod  NUMBER(16) not null,
+  pp015dsc  CHAR(30),
+  pp015mod  CHAR(1),
+  pp015ord  NUMBER(4),
+  pp015imp1 NUMBER(17,2),
+  pp015imp2 NUMBER(17,2),
+  pp015imp3 NUMBER(17,2),
+  pp015num1 NUMBER(9),
+  pp015num2 NUMBER(9),
+  pp015num3 NUMBER(9),
+  pp015car1 CHAR(30),
+  pp015car2 CHAR(1),
+  pp015car3 CHAR(1),
+  pp015fec1 DATE,
+  pp015fec2 DATE,
+  pp015fec3 DATE
+)
+;
+alter table FPP015
+  add primary key (PP010PRD, PP017PAR, PP015EMP, PP015TIPO, PP015COD);
+

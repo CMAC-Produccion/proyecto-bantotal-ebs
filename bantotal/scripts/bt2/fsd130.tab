@@ -1,0 +1,24 @@
+create table FSD130
+(
+  devccmod  NUMBER(3) not null,
+  devcctop  NUMBER(3) not null,
+  devccmda  NUMBER(4) not null,
+  devccpap  NUMBER(4) not null,
+  devccdia  NUMBER(1),
+  devccano  NUMBER(1),
+  devccint  CHAR(1),
+  devccvto  CHAR(1),
+  devccini  NUMBER(2),
+  devccper  NUMBER(2),
+  devccsn01 CHAR(1),
+  devccsn02 CHAR(1),
+  devccsn03 CHAR(1),
+  devccsn04 CHAR(1),
+  devccnum1 NUMBER(9),
+  devccnum2 NUMBER(9),
+  devccfec1 DATE
+)
+;
+alter table FSD130
+  add primary key (DEVCCMOD, DEVCCTOP, DEVCCMDA, DEVCCPAP);
+

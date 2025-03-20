@@ -1,0 +1,11 @@
+create table FREC50
+(
+  rec50nro NUMBER(6) not null,
+  rec50nom CHAR(50),
+  rec50itf CHAR(1)
+)
+;
+create index FREC5002 on FREC50 (REC50NOM);
+alter table FREC50
+  add primary key (REC50NRO);
+

@@ -1,0 +1,15 @@
+create table FCPG61
+(
+  cpg60cod  NUMBER(10) not null,
+  cpg61tpot NUMBER(3) not null,
+  cpg61reng NUMBER(2) not null,
+  cpg61desc CHAR(65),
+  cpg61est  CHAR(3),
+  cpg61blq  CHAR(1),
+  cpg61inst NUMBER(10)
+)
+;
+create index FCPG6103 on FCPG61 (CPG61INST);
+alter table FCPG61
+  add primary key (CPG60COD, CPG61TPOT, CPG61RENG);
+

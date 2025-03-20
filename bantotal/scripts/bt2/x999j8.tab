@@ -1,0 +1,20 @@
+create table X999J8
+(
+  x999j8pgc NUMBER(3) not null,
+  x999j8ctn NUMBER(9) not null,
+  x999j7cod NUMBER(3) not null,
+  x999j8suc NUMBER(3),
+  x999j8mod NUMBER(3),
+  x999j8mda NUMBER(4),
+  x999j8pap NUMBER(4),
+  x999j8opr NUMBER(9),
+  x999j8sbp NUMBER(3),
+  x999j8top NUMBER(3),
+  x999j8rub NUMBER(16),
+  x999j8est CHAR(2)
+)
+;
+create index X999J802 on X999J8 (X999J7COD);
+alter table X999J8
+  add primary key (X999J8PGC, X999J8CTN, X999J7COD);
+

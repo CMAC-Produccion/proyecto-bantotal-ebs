@@ -1,0 +1,28 @@
+create table FREC01
+(
+  rec01ente  NUMBER(9) not null,
+  rec01corr  NUMBER(10) not null,
+  rec01serv  NUMBER(9),
+  rec01rec   NUMBER(16),
+  rec01mda   NUMBER(3),
+  rec01fchfa DATE,
+  rec01nom   CHAR(60),
+  rec01imp1  NUMBER(17,2),
+  rec01imp2  NUMBER(17,2),
+  rec01imp3  NUMBER(17,2),
+  rec01imp4  NUMBER(17,2),
+  rec01imp5  NUMBER(17,2),
+  rec01imp6  NUMBER(17,2),
+  rec01fchvt DATE,
+  rec01fch3  DATE,
+  rec01txt1  CHAR(30),
+  rec01txt2  CHAR(30),
+  rec01est   CHAR(1)
+)
+;
+create index FREC012 on FREC01 (REC01ENTE, REC01REC);
+create index FREC013 on FREC01 (REC01ENTE, REC01NOM);
+create index FREC014 on FREC01 (REC01ENTE, REC01SERV, REC01REC);
+alter table FREC01
+  add primary key (REC01ENTE, REC01CORR);
+

@@ -1,0 +1,31 @@
+create table AUD_PREFCAT_AUDIT
+(
+  aud_old_prfcat      NUMBER(3),
+  aud_new_prfcat      NUMBER(3),
+  aud_old_prfcathab   CHAR(1),
+  aud_new_prfcathab   CHAR(1),
+  aud_old_prfcatord   NUMBER(2),
+  aud_new_prfcatord   NUMBER(2),
+  aud_old_prfcattit   CHAR(50),
+  aud_new_prfcattit   CHAR(50),
+  aud_old_prfemp      NUMBER(3),
+  aud_new_prfemp      NUMBER(3),
+  aud_old_prfmod      NUMBER(3),
+  aud_new_prfmod      NUMBER(3),
+  aud_old_prftrn      NUMBER(3),
+  aud_new_prftrn      NUMBER(3),
+  aud_prefcat_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_prefcat_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_prefcat_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_prefcat_ubr     VARCHAR2(50) default ' ' not null,
+  aud_prefcat_ubc     VARCHAR2(50) default ' ' not null,
+  aud_prefcat_ubt     VARCHAR2(50) default ' ' not null,
+  aud_prefcat_ubu     VARCHAR2(50) default USER not null,
+  aud_prefcat_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_prefcat_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_prefcat_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_prefcat_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_prefcat_uas     CHAR(1) default 'I' not null
+)
+;
+

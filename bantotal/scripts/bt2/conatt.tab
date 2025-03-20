@@ -1,0 +1,10 @@
+create table CONATT
+(
+  contbl    VARCHAR2(255) not null,
+  conid     NUMBER(10) not null,
+  conattnam VARCHAR2(255) not null
+)
+;
+alter table CONATT
+  add primary key (CONTBL, CONID, CONATTNAM);
+

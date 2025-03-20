@@ -1,0 +1,13 @@
+create table SNG231
+(
+  sng224cod NUMBER(3) not null,
+  sng225cod NUMBER(3) not null,
+  sng231cod NUMBER(3) not null,
+  sng231dsc CHAR(20),
+  sng231dir VARCHAR2(400),
+  sng231rep NUMBER(10)
+)
+;
+alter table SNG231
+  add primary key (SNG224COD, SNG225COD, SNG231COD);
+

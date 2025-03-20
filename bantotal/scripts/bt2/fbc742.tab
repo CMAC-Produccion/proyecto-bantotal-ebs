@@ -1,0 +1,18 @@
+create table FBC742
+(
+  bc741emp  NUMBER(3) not null,
+  bc741fch  DATE not null,
+  bc741suc  NUMBER(2) not null,
+  bc741age  NUMBER(2) not null,
+  bc741corr NUMBER(10) not null,
+  bc742tpor NUMBER(1) not null,
+  bc740tdoc NUMBER(2),
+  bc740ndoc CHAR(13),
+  bc742orde VARCHAR2(50),
+  bc742relp VARCHAR2(75)
+)
+;
+create index FBC74202 on FBC742 (BC740TDOC, BC740NDOC);
+alter table FBC742
+  add primary key (BC741EMP, BC741FCH, BC741SUC, BC741AGE, BC741CORR, BC742TPOR);
+

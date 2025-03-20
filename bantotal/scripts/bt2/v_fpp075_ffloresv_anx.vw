@@ -1,0 +1,36 @@
+CREATE OR REPLACE FORCE VIEW V_FPP075_FFLORESV_ANX AS
+SELECT
+pgcod,
+aomod,
+aosuc,
+aomda,
+aopap,
+aocta,
+aooper,
+aosbop,
+aotope,
+pp075user,
+p075corr,
+pp075fval,
+pp075fvto,
+pp075pzo,
+pp075stat,
+pp075mncod,
+pp075rub,
+pp075tasa,
+pp075mto1,
+pp075mto2,
+pp075mto3,
+pp075car1,
+pp075car2,
+pp075car3,
+pp075dat1,
+pp075dat2,
+pp075num1,
+pp075num2,
+pp075num3,
+pp075dsc,
+pp075coef
+from FPP075
+ /* GOLDENGATE_DDL_REPLICATION */;
+

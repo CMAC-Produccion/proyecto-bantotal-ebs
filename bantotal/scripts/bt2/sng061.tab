@@ -1,0 +1,16 @@
+create table SNG061
+(
+  sng061tem NUMBER(10) not null,
+  sng060pqt NUMBER(10),
+  sng052tem NUMBER(10),
+  sng061exp NUMBER(10),
+  sng061tpo CHAR(1),
+  sng061est CHAR(1),
+  sng061pro CHAR(1)
+)
+;
+create index SNG06102 on SNG061 (SNG052TEM);
+create index SNG06103 on SNG061 (SNG060PQT);
+alter table SNG061
+  add primary key (SNG061TEM);
+

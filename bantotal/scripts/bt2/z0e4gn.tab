@@ -1,0 +1,31 @@
+create table Z0E4GN
+(
+  z0e4gncod NUMBER(4) not null,
+  z0e4gntip CHAR(5) not null,
+  z0e4gnnev NUMBER(9) not null,
+  z0e4gncor NUMBER(9) not null,
+  z0e4gnpgc NUMBER(3),
+  z0e4gnmod NUMBER(3),
+  z0e4gnsuc NUMBER(3),
+  z0e4gncta NUMBER(9),
+  z0e4gnmon NUMBER(4),
+  z0e4gnpap NUMBER(4),
+  z0e4gnope NUMBER(9),
+  z0e4gntop NUMBER(3),
+  z0e4gnsct NUMBER(3),
+  z0e4gnsda NUMBER(17,2),
+  z0e4gncmo NUMBER(15),
+  z0e4gntde NUMBER(17,2),
+  z0e4gntcr NUMBER(17,2),
+  z0e4gnsdo NUMBER(17,2),
+  z0e4gnsdb NUMBER(17,2),
+  z0e4gnsdn NUMBER(17,2),
+  z0e4gnsds NUMBER(17,2)
+)
+;
+create index Z0E4GN02 on Z0E4GN (Z0E4GNCOD, Z0E4GNTIP, Z0E4GNNEV, Z0E4GNCOR, Z0E4GNCTA, Z0E4GNSCT, Z0E4GNSUC, Z0E4GNMOD, Z0E4GNMON);
+create index Z0E4GN03 on Z0E4GN (Z0E4GNCOD, Z0E4GNTIP, Z0E4GNNEV, Z0E4GNCTA, Z0E4GNSCT, Z0E4GNSUC, Z0E4GNMOD, Z0E4GNMON);
+create index Z0E4GN04 on Z0E4GN (Z0E4GNCOD, Z0E4GNTIP, Z0E4GNNEV, Z0E4GNCTA, Z0E4GNSCT, Z0E4GNMOD, Z0E4GNMON);
+alter table Z0E4GN
+  add primary key (Z0E4GNCOD, Z0E4GNTIP, Z0E4GNNEV, Z0E4GNCOR);
+

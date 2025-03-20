@@ -1,0 +1,42 @@
+create table FTA331
+(
+  fta331tpo NUMBER(3) not null,
+  fta331nro NUMBER(10) not null,
+  fta331fac CHAR(8),
+  fta331emp NUMBER(3),
+  fta331suc NUMBER(3),
+  fta331mod NUMBER(3),
+  fta331trn NUMBER(3),
+  fta331rel NUMBER(4),
+  fta331fec DATE,
+  fta331ord NUMBER(2),
+  fta331sbr NUMBER(3),
+  fta331pem NUMBER(3),
+  fta331pmo NUMBER(3),
+  fta331psc NUMBER(3),
+  fta331pmd NUMBER(4),
+  fta331ppa NUMBER(4),
+  fta331pct NUMBER(9),
+  fta331pop NUMBER(9),
+  fta331psb NUMBER(3),
+  fta331pto NUMBER(3),
+  fta331pfa DATE,
+  fta331ptp CHAR(1),
+  fta331ffc DATE,
+  fta331est CHAR(1),
+  fta331usu CHAR(30),
+  fta331tmv NUMBER(1),
+  fta331ax1 NUMBER(10,6),
+  fta331ax2 NUMBER(10),
+  fta331ax3 CHAR(20),
+  fta331ax4 DATE
+)
+;
+create index FTA33102 on FTA331 (FTA331EMP, FTA331SUC, FTA331MOD, FTA331TRN, FTA331REL, FTA331FEC, FTA331ORD, FTA331SBR);
+create index FTA33103 on FTA331 (FTA331PEM, FTA331PMO, FTA331PSC, FTA331PMD, FTA331PPA, FTA331PCT, FTA331POP, FTA331PSB, FTA331PTO, FTA331PFA, FTA331PTP);
+create index FTA33104 on FTA331 (FTA331FEC, FTA331EST);
+create index FTA33105 on FTA331 (FTA331FFC, FTA331EST);
+create index FTA33106 on FTA331 (FTA331FFC, FTA331FAC);
+alter table FTA331
+  add primary key (FTA331TPO, FTA331NRO);
+

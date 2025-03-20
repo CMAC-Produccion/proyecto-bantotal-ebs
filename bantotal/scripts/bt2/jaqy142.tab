@@ -1,0 +1,98 @@
+create table JAQY142
+(
+  jaqy142corr   NUMBER(10) not null,
+  jaqy142fec    DATE not null,
+  jaqy142hora   CHAR(10) not null,
+  jaqy142pais   NUMBER(9) not null,
+  jaqy142tdoc   NUMBER(9) not null,
+  jaqy142ndoc   VARCHAR2(12) not null,
+  jaqy142tcamb  NUMBER(14,8),
+  jaqy142inst   NUMBER(12) not null,
+  jaqy142pgcod  NUMBER(5),
+  jaqy142mod    NUMBER(5),
+  jaqy142suc    NUMBER(5),
+  jaqy142mda    NUMBER(5),
+  jaqy142pap    NUMBER(5),
+  jaqy142cta    NUMBER(10),
+  jaqy142ope    NUMBER(10),
+  jaqy142sbop   NUMBER(10),
+  jaqy142tope   NUMBER(10),
+  jaqy142perio  NUMBER(5),
+  jaqy142nrcuo  NUMBER(5),
+  jaqy142tsoli  NUMBER(5),
+  jaqy142flcj   VARCHAR2(2),
+  jaqy142cuoimp NUMBER(17,2),
+  jaqy142seguro NUMBER(17,2),
+  jaqy142capfc  NUMBER(17,2),
+  jaqy142caplin NUMBER(17,2),
+  jaqy142capcuo NUMBER(17,2),
+  jaqy142indic  VARCHAR2(10),
+  jaqy142est    VARCHAR2(2),
+  jaqy142user   VARCHAR2(10),
+  jaqy142tarea  NUMBER(10)
+)
+;
+comment on column JAQY142.jaqy142corr
+  is 'Correlativo';
+comment on column JAQY142.jaqy142fec
+  is 'Fecha de Solicitud';
+comment on column JAQY142.jaqy142hora
+  is 'Hora del Registro';
+comment on column JAQY142.jaqy142pais
+  is 'Pais';
+comment on column JAQY142.jaqy142tdoc
+  is 'Tipo de Documento';
+comment on column JAQY142.jaqy142ndoc
+  is 'Numero de Documento';
+comment on column JAQY142.jaqy142tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column JAQY142.jaqy142inst
+  is 'Nro de Solicitud';
+comment on column JAQY142.jaqy142pgcod
+  is 'Pgcod';
+comment on column JAQY142.jaqy142mod
+  is 'Modulo';
+comment on column JAQY142.jaqy142suc
+  is 'Sucursal';
+comment on column JAQY142.jaqy142mda
+  is 'Moneda';
+comment on column JAQY142.jaqy142pap
+  is 'Papel';
+comment on column JAQY142.jaqy142cta
+  is 'Cuenta';
+comment on column JAQY142.jaqy142ope
+  is 'Operacion';
+comment on column JAQY142.jaqy142sbop
+  is 'Sub Operacion';
+comment on column JAQY142.jaqy142tope
+  is 'Tipo de Operacion';
+comment on column JAQY142.jaqy142perio
+  is 'Periodo del Credito';
+comment on column JAQY142.jaqy142nrcuo
+  is 'Nro de Cuotas';
+comment on column JAQY142.jaqy142tsoli
+  is 'Tipo de Solicitud';
+comment on column JAQY142.jaqy142flcj
+  is 'Indicador de Flujo de Caja';
+comment on column JAQY142.jaqy142cuoimp
+  is 'Monto de la Maxima Cuota Pendiente de Pago';
+comment on column JAQY142.jaqy142seguro
+  is 'Seguro del Credito';
+comment on column JAQY142.jaqy142capfc
+  is 'Capacidad de Flujode Caja';
+comment on column JAQY142.jaqy142caplin
+  is 'Capacidad de Linea';
+comment on column JAQY142.jaqy142capcuo
+  is 'Capacidad de la Cuota';
+comment on column JAQY142.jaqy142indic
+  is 'Indicador del Credito (CredVigent, CredVuelo, CredLinea)';
+comment on column JAQY142.jaqy142est
+  is 'Estado del Registro (H Habil, I inhabilitado)';
+create index JAQY142_A5 on JAQY142 (JAQY142FEC, JAQY142INST);
+create index JAQY142A6 on JAQY142 (JAQY142INST, JAQY142EST);
+create index JAQY142IDX002 on JAQY142 (JAQY142PGCOD, JAQY142MOD, JAQY142SUC, JAQY142MDA, JAQY142PAP, JAQY142CTA, JAQY142OPE, JAQY142SBOP, JAQY142TOPE);
+create index JAQY142IDX003 on JAQY142 (JAQY142FEC, JAQY142PAIS, JAQY142TDOC, JAQY142NDOC, JAQY142INST);
+create index JAQY142IDX004 on JAQY142 (JAQY142INST, JAQY142PGCOD, JAQY142MOD, JAQY142SUC, JAQY142MDA, JAQY142PAP, JAQY142CTA, JAQY142OPE, JAQY142SBOP, JAQY142TOPE);
+alter table JAQY142
+  add primary key (JAQY142CORR, JAQY142FEC, JAQY142PAIS, JAQY142TDOC, JAQY142NDOC, JAQY142INST, JAQY142HORA);
+

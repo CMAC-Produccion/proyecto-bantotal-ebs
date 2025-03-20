@@ -1,0 +1,33 @@
+create table FBC791
+(
+  bc791inf CHAR(8) not null,
+  bc791fec DATE not null,
+  bc791dep NUMBER(8) not null,
+  bc791via NUMBER(3) not null,
+  bc791suc NUMBER(3),
+  bc791ope CHAR(20),
+  bc791mon NUMBER(4),
+  bc791rub NUMBER(6),
+  bc791imp NUMBER(16,2),
+  bc791ruc NUMBER(6),
+  bc791imc NUMBER(16,2),
+  bc791tas NUMBER(6,4),
+  bc791fco DATE,
+  bc791fuc NUMBER(8),
+  bc791fvt DATE,
+  bc791cex CHAR(1),
+  bc791emp NUMBER(3),
+  bc791sub NUMBER(3),
+  bc791mod NUMBER(3),
+  bc791mob NUMBER(4),
+  bc791pap NUMBER(4),
+  bc791cta NUMBER(9),
+  bc791sct NUMBER(3),
+  bc791opb NUMBER(9),
+  bc791top NUMBER(3)
+)
+;
+create index FBC79102 on FBC791 (BC791EMP, BC791SUB, BC791MOD, BC791MOB, BC791PAP, BC791CTA, BC791SCT, BC791OPB, BC791TOP);
+alter table FBC791
+  add primary key (BC791INF, BC791FEC, BC791DEP, BC791VIA);
+

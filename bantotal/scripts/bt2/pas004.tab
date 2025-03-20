@@ -1,0 +1,18 @@
+create table PAS004
+(
+  bentpodoc NUMBER(2) not null,
+  bennrodoc NUMBER(9) not null,
+  apopepais NUMBER(3) not null,
+  apopetdoc NUMBER(2) not null,
+  apopendoc CHAR(12) not null,
+  aponombre CHAR(35),
+  apociu    CHAR(30),
+  apodir    CHAR(40),
+  apotel    CHAR(15),
+  apocrtpod CHAR(1),
+  apocrtven DATE
+)
+;
+alter table PAS004
+  add primary key (BENTPODOC, BENNRODOC, APOPEPAIS, APOPETDOC, APOPENDOC);
+

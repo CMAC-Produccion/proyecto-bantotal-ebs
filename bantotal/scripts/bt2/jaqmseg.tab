@@ -1,0 +1,15 @@
+create table JAQMSEG
+(
+  jsegemp  NUMBER(3) not null,
+  jsegcta  NUMBER(9) not null,
+  jsegfch  DATE not null,
+  jsegrdo  VARCHAR2(144),
+  jsegrng  NUMBER(10),
+  jsegejec NUMBER(10),
+  jsegwki  NUMBER(10),
+  jsegprg  CHAR(10)
+)
+;
+alter table JAQMSEG
+  add primary key (JSEGEMP, JSEGCTA, JSEGFCH);
+

@@ -1,0 +1,25 @@
+create table JBXW02
+(
+  jbx02pais  NUMBER(3) not null,
+  jbx02tdoc  NUMBER(2) not null,
+  jbx02ndoc  CHAR(12) not null,
+  jbx02pgcod NUMBER(3),
+  jbx02ctnro NUMBER(9),
+  jbx02nfirm CHAR(40),
+  jbx02nper  CHAR(25),
+  jbx02dir1  CHAR(30),
+  jbx02dir2  CHAR(30),
+  jbx02sts   CHAR(1),
+  jbx02falta DATE,
+  jbx02cdpos CHAR(4),
+  jbx02sexo  CHAR(1),
+  jbx02cderr NUMBER(5),
+  jbx02print CHAR(40),
+  jbx02altn1 NUMBER(9),
+  jbx02altc1 CHAR(20)
+)
+;
+create index JBXW0202 on JBXW02 (JBX02PGCOD, JBX02NFIRM);
+alter table JBXW02
+  add primary key (JBX02PAIS, JBX02TDOC, JBX02NDOC);
+

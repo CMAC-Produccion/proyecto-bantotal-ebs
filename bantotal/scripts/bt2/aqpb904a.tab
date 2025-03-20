@@ -1,0 +1,121 @@
+create table AQPB904A
+(
+  aqpb904acorr  NUMBER(10) not null,
+  aqpb904ains   NUMBER(10),
+  aqpb904acod   NUMBER(3),
+  aqpb904amod   NUMBER(3),
+  aqpb904asuc   NUMBER(3),
+  aqpb904amda   NUMBER(4),
+  aqpb904apap   NUMBER(4),
+  aqpb904acta   NUMBER(9),
+  aqpb904aoper  NUMBER(9),
+  aqpb904asbop  NUMBER(3),
+  aqpb904atope  NUMBER(3),
+  aqpb904atcre  VARCHAR2(21),
+  aqpb904apais  NUMBER(3),
+  aqpb904atdoc  NUMBER(2),
+  aqpb904adocu  VARCHAR2(12),
+  aqpb904ancli  VARCHAR2(100),
+  aqpb904asitu  VARCHAR2(100),
+  aqpb904amcap  NUMBER(17,2),
+  aqpb904agrup  NUMBER(4),
+  aqpb904adeud  NUMBER(17,2),
+  aqpb904adeut  NUMBER(17,2),
+  aqpb904ausur  VARCHAR2(10),
+  aqpb904afecr  DATE,
+  aqpb904ahorr  VARCHAR2(15),
+  aqpb904acod2  NUMBER(3),
+  aqpb904amod2  NUMBER(3),
+  aqpb904asuc2  NUMBER(3),
+  aqpb904amda2  NUMBER(4),
+  aqpb904apap2  NUMBER(4),
+  aqpb904acta2  NUMBER(9),
+  aqpb904aoper2 NUMBER(9),
+  aqpb904asbop2 NUMBER(3),
+  aqpb904atope2 NUMBER(3),
+  aqpb904acdeud NUMBER(17,2),
+  aqpb904acdeut NUMBER(17,2),
+  aqpb904atasa  NUMBER(17,6),
+  aqpb904aaux1  VARCHAR2(1)
+)
+;
+comment on table AQPB904A
+  is 'TABLA PARA LA MIGRACION DE BI PARA REPROGRAMA CAJA';
+comment on column AQPB904A.aqpb904acorr
+  is 'CORRELATIVO';
+comment on column AQPB904A.aqpb904ains
+  is 'INSTANCIA';
+comment on column AQPB904A.aqpb904acod
+  is 'CODIGO EMPRESA';
+comment on column AQPB904A.aqpb904amod
+  is 'MODULO';
+comment on column AQPB904A.aqpb904asuc
+  is 'SUCURSAL';
+comment on column AQPB904A.aqpb904amda
+  is 'MONEDA';
+comment on column AQPB904A.aqpb904apap
+  is 'PAPEL';
+comment on column AQPB904A.aqpb904acta
+  is 'CUENTA';
+comment on column AQPB904A.aqpb904aoper
+  is 'OPERACION';
+comment on column AQPB904A.aqpb904asbop
+  is 'SUB OPERACION';
+comment on column AQPB904A.aqpb904atope
+  is 'TIPO OPERACION';
+comment on column AQPB904A.aqpb904atcre
+  is 'TIPO DE CREDITO';
+comment on column AQPB904A.aqpb904apais
+  is 'PAIS';
+comment on column AQPB904A.aqpb904atdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB904A.aqpb904adocu
+  is 'NRO DOCUMENTO';
+comment on column AQPB904A.aqpb904ancli
+  is 'NOMBRE CLIENTE';
+comment on column AQPB904A.aqpb904asitu
+  is 'SITUACIÓN DEL CLIENTE';
+comment on column AQPB904A.aqpb904amcap
+  is 'MONTO DE CAPITALIZACION';
+comment on column AQPB904A.aqpb904agrup
+  is 'GRUPO DE REPROGRAMACION';
+comment on column AQPB904A.aqpb904adeud
+  is 'DEUDAS SIN CAPITALIZACION TOTAL';
+comment on column AQPB904A.aqpb904adeut
+  is 'DEUDA TOTAL';
+comment on column AQPB904A.aqpb904ausur
+  is 'USUARIO DE REGISTRO';
+comment on column AQPB904A.aqpb904afecr
+  is 'FECHA DE REGISTRO';
+comment on column AQPB904A.aqpb904ahorr
+  is 'HORA DE REGISTRO';
+comment on column AQPB904A.aqpb904acod2
+  is 'CODIGO EMPRESA 116';
+comment on column AQPB904A.aqpb904amod2
+  is 'MODULO 116';
+comment on column AQPB904A.aqpb904asuc2
+  is 'SUCURSAL 116';
+comment on column AQPB904A.aqpb904amda2
+  is 'MONEDA 116';
+comment on column AQPB904A.aqpb904apap2
+  is 'PAPEL 116';
+comment on column AQPB904A.aqpb904acta2
+  is 'CUENTA 116';
+comment on column AQPB904A.aqpb904aoper2
+  is 'OPERACION 116';
+comment on column AQPB904A.aqpb904asbop2
+  is 'SUB OPERACION 116';
+comment on column AQPB904A.aqpb904atope2
+  is 'TIPO OPERACION 116';
+comment on column AQPB904A.aqpb904acdeud
+  is 'DEUDAS SIN CAPITALIZACION';
+comment on column AQPB904A.aqpb904acdeut
+  is 'DEUDA';
+comment on column AQPB904A.aqpb904atasa
+  is 'TASA';
+comment on column AQPB904A.aqpb904aaux1
+  is 'AUXILIAR S/N GESTIONADO';
+create index AQPB904AI2 on AQPB904A (AQPB904ACOD, AQPB904AMOD, AQPB904ASUC, AQPB904AMDA, AQPB904APAP, AQPB904ACTA, AQPB904AOPER, AQPB904ASBOP, AQPB904ATOPE);
+alter table AQPB904A
+  add primary key (AQPB904ACORR);
+

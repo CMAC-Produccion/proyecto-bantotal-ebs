@@ -1,0 +1,19 @@
+create table SNG402
+(
+  sng400cod  NUMBER(3) not null,
+  sng400evto NUMBER(10) not null,
+  sng402cr   NUMBER(4) not null,
+  sng402est  VARCHAR2(40),
+  sng402ag   NUMBER(4),
+  sng402acc  NUMBER(4),
+  sng402tem  NUMBER(4),
+  sng402pr   CHAR(50),
+  sng402tas  CHAR(50),
+  sng402rep  NUMBER(10),
+  sng402rng  NUMBER(10),
+  sng402num  NUMBER(10)
+)
+;
+alter table SNG402
+  add primary key (SNG400COD, SNG400EVTO, SNG402CR);
+

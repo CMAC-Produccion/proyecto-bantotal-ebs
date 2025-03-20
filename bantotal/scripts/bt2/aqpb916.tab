@@ -1,0 +1,27 @@
+create table AQPB916
+(
+  aqpb916ccal NUMBER(5) not null,
+  aqpb916ncal VARCHAR2(200),
+  aqpb916abca VARCHAR2(10),
+  aqpb916coes VARCHAR2(1),
+  aqpb916invi VARCHAR2(1),
+  aqpb916esta VARCHAR2(1)
+)
+;
+comment on table AQPB916
+  is 'TABLA DE TIPOS DE CALIFICACION DE SEGMENTACION MYCRO';
+comment on column AQPB916.aqpb916ccal
+  is 'Codigo Calificacion';
+comment on column AQPB916.aqpb916ncal
+  is 'Nombre Calificacion';
+comment on column AQPB916.aqpb916abca
+  is 'Abreviacion Calificacion';
+comment on column AQPB916.aqpb916coes
+  is 'Indicador Estado';
+comment on column AQPB916.aqpb916invi
+  is 'Indicador Visualizacion S/N-Central Riesgos';
+comment on column AQPB916.aqpb916esta
+  is 'Indicador Visualizacion S/N- Segmentacion Vigente';
+alter table AQPB916
+  add primary key (AQPB916CCAL);
+

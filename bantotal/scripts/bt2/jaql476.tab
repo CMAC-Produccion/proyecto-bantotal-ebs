@@ -1,0 +1,46 @@
+create table JAQL476
+(
+  jaql476nui NUMBER(9) not null,
+  jaql476cor NUMBER(9) not null,
+  jaql476con CHAR(10),
+  jaql476cte CHAR(20),
+  jaql476doc CHAR(12),
+  jaql476cpg NUMBER(3),
+  jaql476csc NUMBER(3),
+  jaql476cmd NUMBER(3),
+  jaql476cma NUMBER(4),
+  jaql476cpa NUMBER(4),
+  jaql476cta NUMBER(9),
+  jaql476cop NUMBER(9),
+  jaql476csb NUMBER(3),
+  jaql476ctp NUMBER(3),
+  jaql476cpe CHAR(6),
+  jaql476ffa DATE,
+  jaql476fve DATE,
+  jaql476nom CHAR(50),
+  jaql476tpg NUMBER(3),
+  jaql476tsc NUMBER(3),
+  jaql476tmd NUMBER(3),
+  jaql476ttx NUMBER(3),
+  jaql476tre NUMBER(4),
+  jaql476est CHAR(1),
+  jaql476au1 CHAR(50),
+  jaql476au2 CHAR(50),
+  jaql476au3 CHAR(50),
+  jaql476au4 NUMBER(9),
+  jaql476au5 NUMBER(9),
+  jaql476au6 NUMBER(9),
+  jaql476au7 NUMBER(17,2),
+  jaql476au8 NUMBER(17,2),
+  jaql476au9 NUMBER(17,2),
+  jaql476a10 DATE,
+  jaql476a11 DATE,
+  jaql476a12 DATE,
+  jaql476mre NUMBER(3),
+  jaql476mto NUMBER(17,2)
+)
+;
+create index IJAQL476002 on JAQL476 (JAQL476TPG, JAQL476TMD, JAQL476TSC, JAQL476TTX, JAQL476TRE, JAQL476A10);
+alter table JAQL476
+  add primary key (JAQL476NUI, JAQL476COR);
+

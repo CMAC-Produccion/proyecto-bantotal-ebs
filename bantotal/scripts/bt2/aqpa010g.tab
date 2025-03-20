@@ -1,0 +1,43 @@
+create table AQPA010G
+(
+  aqpa010gpgcod   NUMBER(3) not null,
+  aqpa010gppmod   NUMBER(3) not null,
+  aqpa010gppsuc   NUMBER(3) not null,
+  aqpa010gppmda   NUMBER(4) not null,
+  aqpa010gpppap   NUMBER(4) not null,
+  aqpa010gppcta   NUMBER(9) not null,
+  aqpa010gppoper  NUMBER(9) not null,
+  aqpa010gppsbop  NUMBER(3) not null,
+  aqpa010gpptope  NUMBER(3) not null,
+  aqpa010gcuota   NUMBER(3) not null,
+  aqpa010gfecuo   DATE,
+  aqpa010gcapitd  NUMBER(16,2),
+  aqpa010ginterd  NUMBER(16,2),
+  aqpa010gsegurd  NUMBER(16,2),
+  aqpa010gicvd    NUMBER(16,2),
+  aqpa010gintmord NUMBER(16,2),
+  aqpa010gpend    NUMBER(16,2),
+  aqpa010gmontod  NUMBER(16,2),
+  aqpa010gcapit   NUMBER(16,2),
+  aqpa010ginter   NUMBER(16,2),
+  aqpa010gsegur   NUMBER(16,2),
+  aqpa010gicv     NUMBER(16,2),
+  aqpa010gintmor  NUMBER(16,2),
+  aqpa010gpen     NUMBER(16,2),
+  aqpa010gmonto   NUMBER(16,2),
+  aqpa010gdiatr   NUMBER(5),
+  aqpa010gcuot    NUMBER(5),
+  aqpa010gfeult   DATE,
+  aqpa010gfvto    DATE,
+  aqpa010gest     VARCHAR2(1),
+  aqpa010ggast    NUMBER(16,2),
+  aqpa010gotro    NUMBER(16,2),
+  aqpa010ggasd    NUMBER(16,2),
+  aqpa010gotrd    NUMBER(16,2),
+  aqpa010gcorr    NUMBER(3) not null,
+  aqpa010ghopro   CHAR(8) not null
+)
+;
+alter table AQPA010G
+  add primary key (AQPA010GPGCOD, AQPA010GPPMOD, AQPA010GPPSUC, AQPA010GPPMDA, AQPA010GPPPAP, AQPA010GPPCTA, AQPA010GPPOPER, AQPA010GPPSBOP, AQPA010GPPTOPE, AQPA010GCUOTA, AQPA010GHOPRO, AQPA010GCORR);
+

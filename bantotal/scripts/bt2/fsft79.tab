@@ -1,0 +1,40 @@
+create table FSFT79
+(
+  sft79emp  NUMBER(3) not null,
+  sft79esp  NUMBER(4) not null,
+  sft79cus  NUMBER(9) not null,
+  sft79dep  NUMBER(9) not null,
+  sft79com  NUMBER(9) not null,
+  sft79ide  NUMBER(2) not null,
+  sft79num  NUMBER(9) not null,
+  sft79vno  NUMBER(17,2),
+  sft79vre  NUMBER(17,7),
+  sft79sig  CHAR(1),
+  sft79tip  CHAR(10),
+  sft79est  CHAR(2),
+  sft79sut  NUMBER(3),
+  sft79mot  NUMBER(3),
+  sft79trn  NUMBER(3),
+  sft79rel  NUMBER(4),
+  sft79fco  DATE,
+  sft79ord  NUMBER(3),
+  sft79cta  NUMBER(9),
+  sft79sus  NUMBER(3),
+  sft79mos  NUMBER(3),
+  sft79nop  NUMBER(9),
+  sft79top  NUMBER(3),
+  sft79nma  NUMBER(9),
+  sft79conc DATE,
+  sft79liqu DATE
+)
+;
+create index FSFT7902 on FSFT79 (SFT79EMP, SFT79SUT, SFT79MOT, SFT79TRN, SFT79REL, SFT79ORD);
+create index FSFT7903 on FSFT79 (SFT79EMP, SFT79SUS, SFT79MOS, SFT79NOP, SFT79TOP);
+create index FSFT7904 on FSFT79 (SFT79EMP, SFT79ESP, SFT79CUS, SFT79DEP, SFT79COM, SFT79IDE, SFT79LIQU);
+create index FSFT7905 on FSFT79 (SFT79EMP, SFT79ESP, SFT79LIQU);
+create index FSFT7906 on FSFT79 (SFT79EMP, SFT79ESP, SFT79CUS, SFT79DEP, SFT79IDE, SFT79FCO);
+create index FSFT7907 on FSFT79 (SFT79EMP, SFT79SUT, SFT79FCO, SFT79MOT, SFT79TRN, SFT79REL, SFT79ORD);
+create index FSFT7908 on FSFT79 (SFT79EMP, SFT79CUS, SFT79DEP, SFT79COM, SFT79SUT, SFT79MOT, SFT79TRN, SFT79REL, SFT79ORD, SFT79FCO);
+alter table FSFT79
+  add primary key (SFT79EMP, SFT79ESP, SFT79CUS, SFT79DEP, SFT79COM, SFT79IDE, SFT79NUM);
+

@@ -1,0 +1,57 @@
+create table AQPC785
+(
+  aqpc785corr   NUMBER(17) not null,
+  aqpc785userp  VARCHAR2(10) not null,
+  aqpc785fechp  DATE not null,
+  aqpc785horap  VARCHAR2(8) not null,
+  aqpc785pais   NUMBER(3),
+  aqpc785tdoc   NUMBER(2),
+  aqpc785ndoc   VARCHAR2(12),
+  aqpc785ncli   VARCHAR2(150),
+  aqpc785score  VARCHAR2(1),
+  aqpc785dpclf  VARCHAR2(250),
+  aqpc785cpclf  NUMBER(17),
+  aqpc785prclf  VARCHAR2(1),
+  aqpc785srcnx  NUMBER(10),
+  aqpc785coderr VARCHAR2(5),
+  aqpc785msgerr VARCHAR2(255)
+)
+;
+comment on table AQPC785
+  is 'Log Máximo de Consultas por Día - Score';
+comment on column AQPC785.aqpc785corr
+  is 'Correlativo';
+comment on column AQPC785.aqpc785userp
+  is 'Usuario Proceso';
+comment on column AQPC785.aqpc785fechp
+  is 'Fecha Proceso';
+comment on column AQPC785.aqpc785horap
+  is 'Hora Proceso';
+comment on column AQPC785.aqpc785pais
+  is 'País Documento';
+comment on column AQPC785.aqpc785tdoc
+  is 'Tipo Documento';
+comment on column AQPC785.aqpc785ndoc
+  is 'Nro. Documento';
+comment on column AQPC785.aqpc785ncli
+  is 'Nombre Cliente';
+comment on column AQPC785.aqpc785score
+  is 'Score Cliente';
+comment on column AQPC785.aqpc785dpclf
+  is 'Descripción Precalificación';
+comment on column AQPC785.aqpc785cpclf
+  is 'Correlativo Precalificación Buro';
+comment on column AQPC785.aqpc785prclf
+  is 'Precalificación Buro';
+comment on column AQPC785.aqpc785srcnx
+  is 'Serial Conexión Buro';
+comment on column AQPC785.aqpc785coderr
+  is 'Código Error';
+comment on column AQPC785.aqpc785msgerr
+  is 'Mensaje Error';
+create index AQPC785A2 on AQPC785 (AQPC785USERP, AQPC785FECHP);
+create index AQPC785A3 on AQPC785 (AQPC785USERP, AQPC785TDOC, AQPC785NDOC, AQPC785FECHP);
+create index AQPC785A4 on AQPC785 (AQPC785TDOC, AQPC785NDOC, AQPC785USERP, AQPC785FECHP);
+alter table AQPC785
+  add primary key (AQPC785CORR, AQPC785USERP, AQPC785FECHP, AQPC785HORAP);
+

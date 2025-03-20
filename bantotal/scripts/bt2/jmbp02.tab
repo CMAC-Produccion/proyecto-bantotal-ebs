@@ -1,0 +1,23 @@
+create table JMBP02
+(
+  jmbp02pgc NUMBER(3) not null,
+  jmbp02caj NUMBER(3) not null,
+  jmbp02suc NUMBER(3) not null,
+  jmbp02fch DATE not null,
+  jmbp02hor CHAR(8) not null,
+  jmbp02mda NUMBER(4) not null,
+  jmbp02usr CHAR(10),
+  jmbp02mto NUMBER(17,2),
+  jmbp02sdo NUMBER(17,2),
+  jmbp02dif NUMBER(17,2),
+  jmbp02tdi CHAR(1),
+  jmbp02aut CHAR(10),
+  jmbp02dsc CHAR(30),
+  jmbp02ax1 CHAR(30)
+)
+;
+create index JMBP0202 on JMBP02 (JMBP02PGC, JMBP02SUC, JMBP02FCH, JMBP02HOR, JMBP02MDA, JMBP02CAJ);
+create index JMBP0203 on JMBP02 (JMBP02PGC, JMBP02SUC, JMBP02CAJ, JMBP02FCH, JMBP02MDA, JMBP02HOR);
+alter table JMBP02
+  add primary key (JMBP02PGC, JMBP02CAJ, JMBP02SUC, JMBP02FCH, JMBP02HOR, JMBP02MDA);
+

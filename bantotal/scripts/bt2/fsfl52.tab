@@ -1,0 +1,12 @@
+create table FSFL52
+(
+  sfl52prd NUMBER(3) not null,
+  sfl52mda NUMBER(4) not null,
+  sfl52mnt NUMBER(17,2),
+  sfl52min NUMBER(17,2),
+  sfl52max NUMBER(17,2)
+)
+;
+alter table FSFL52
+  add primary key (SFL52PRD, SFL52MDA);
+

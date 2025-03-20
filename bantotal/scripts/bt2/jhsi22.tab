@@ -1,0 +1,47 @@
+create table JHSI22
+(
+  jhsi22apl NUMBER(4) not null,
+  jhsi22ban CHAR(5) not null,
+  jhsi22env NUMBER(9) not null,
+  jhsi22cor NUMBER(9) not null,
+  jhsi22tpo NUMBER(1),
+  jhsi22cod NUMBER(1),
+  jhsi22plz CHAR(1),
+  jhsi22fch DATE,
+  jhsi22hor CHAR(8),
+  jhsi22fpo DATE,
+  jhsi22bca CHAR(4),
+  jhsi22caj CHAR(16),
+  jhsi22sec CHAR(12),
+  jhsi22mda NUMBER(4),
+  jhsi22imp NUMBER(17,2),
+  jhsi22bco CHAR(4),
+  jhsi22tcd CHAR(2),
+  jhsi22ctd CHAR(19),
+  jhsi22fpr DATE,
+  jhsi22tpc NUMBER(1),
+  jhsi22cjc CHAR(16),
+  jhsi22scc CHAR(12),
+  jhsi22orc NUMBER(2),
+  jhsi22slc NUMBER(5),
+  jhsi22tdc NUMBER(2),
+  jhsi22snc NUMBER(8),
+  jhsi22bac CHAR(5),
+  jhsi22cmc NUMBER(2),
+  jhsi22ctc NUMBER(10),
+  jhsi22imc NUMBER(17,2),
+  jhsi22mdc NUMBER(4),
+  jhsi22ehc CHAR(1),
+  jhsi22pgc NUMBER(3),
+  jhsi22suc NUMBER(3),
+  jhsi22moc NUMBER(3),
+  jhsi22trc NUMBER(3),
+  jhsi22rec NUMBER(4),
+  jhsi22fec DATE,
+  jhsi22mnc NUMBER(5)
+)
+;
+create unique index JHSI2201 on JHSI22 (JHSI22APL, JHSI22BAN, JHSI22ENV, JHSI22COR);
+create index JHSI2203 on JHSI22 (JHSI22APL, JHSI22BAN, JHSI22ENV, JHSI22MDA);
+create index JHSI2204 on JHSI22 (JHSI22APL, JHSI22BAN, JHSI22ENV, JHSI22TPO, JHSI22SEC, JHSI22MDA, JHSI22EHC);
+

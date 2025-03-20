@@ -1,0 +1,34 @@
+create table FSFI23
+(
+  sfi23emp NUMBER(3) not null,
+  sfi23suc NUMBER(3) not null,
+  sfi23rub NUMBER(16) not null,
+  sfi23mda NUMBER(4) not null,
+  sfi23pap NUMBER(4) not null,
+  sfi23cta NUMBER(9) not null,
+  sfi23ope NUMBER(9) not null,
+  sfi23sbo NUMBER(3) not null,
+  sfi23top NUMBER(3) not null,
+  sfi23div NUMBER(4) not null,
+  sfi23scm NUMBER(3),
+  sfi23mod NUMBER(3),
+  sfi23sor NUMBER(3),
+  sfi23trn NUMBER(3),
+  sfi23rel NUMBER(4),
+  sfi23fco DATE,
+  sfi23est CHAR(1),
+  sfi23a01 NUMBER(9),
+  sfi23a02 NUMBER(9),
+  sfi23a03 DATE,
+  sfi23a04 DATE,
+  sfi23a05 CHAR(30),
+  sfi23a06 CHAR(30),
+  sfi23a07 NUMBER(17,2),
+  sfi23a08 NUMBER(17,2)
+)
+;
+create index FSFI2302 on FSFI23 (SFI23EMP, SFI23PAP, SFI23DIV);
+create index FSFI2303 on FSFI23 (SFI23EST, SFI23EMP, SFI23PAP, SFI23DIV, SFI23CTA);
+alter table FSFI23
+  add primary key (SFI23EMP, SFI23SUC, SFI23RUB, SFI23MDA, SFI23PAP, SFI23CTA, SFI23OPE, SFI23SBO, SFI23TOP, SFI23DIV);
+

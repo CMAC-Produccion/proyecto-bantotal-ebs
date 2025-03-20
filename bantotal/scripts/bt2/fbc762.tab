@@ -1,0 +1,21 @@
+create table FBC762
+(
+  bc761nde CHAR(16) not null,
+  bc760cod CHAR(15) not null,
+  bc762cor NUMBER(9) not null,
+  bc762fof DATE,
+  bc762fce DATE,
+  bc762mon CHAR(3),
+  bc762ftd NUMBER(17,2),
+  bc762fdi NUMBER(17,2),
+  bc762bco NUMBER(5),
+  bc762cvt CHAR(3),
+  bc762pai CHAR(3),
+  bc762fle NUMBER(17,2),
+  bc762tpa NUMBER(17,2),
+  bc762est CHAR(2)
+)
+;
+alter table FBC762
+  add primary key (BC761NDE, BC760COD, BC762COR);
+

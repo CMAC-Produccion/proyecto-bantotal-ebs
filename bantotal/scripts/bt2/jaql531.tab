@@ -1,0 +1,16 @@
+create table JAQL531
+(
+  jaql531seria NUMBER(4) not null,
+  jaql531codop CHAR(6),
+  jaql531desop VARCHAR2(60),
+  jaql531topop CHAR(1),
+  jaql531estad CHAR(1),
+  jaql531mtoop NUMBER(17,2),
+  jaql531canop NUMBER(6),
+  jaql531cored NUMBER(10)
+)
+;
+create index JAQL531_02 on JAQL531 (JAQL531CORED);
+alter table JAQL531
+  add primary key (JAQL531SERIA);
+

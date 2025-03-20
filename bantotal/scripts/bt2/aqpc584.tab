@@ -1,0 +1,39 @@
+create table AQPC584
+(
+  aqpc584ppgcod  NUMBER,
+  aqpc584pitsuc  NUMBER,
+  aqpc584pitmod  NUMBER,
+  aqpc584pittran NUMBER,
+  aqpc584pitnrel NUMBER,
+  aqpc584pitfvto DATE,
+  aqpc584lote    NUMBER,
+  aqpc584tasact  NUMBER(17,2),
+  aqpc584tasguia NUMBER(17,2),
+  aqpc584fech    DATE
+)
+;
+comment on table AQPC584
+  is 'TABLA LOG LIMITE TASA MORATORIA';
+comment on column AQPC584.aqpc584ppgcod
+  is 'Código Empresa';
+comment on column AQPC584.aqpc584pitsuc
+  is 'Sucursal';
+comment on column AQPC584.aqpc584pitmod
+  is 'modulo';
+comment on column AQPC584.aqpc584pittran
+  is 'transaccion';
+comment on column AQPC584.aqpc584pitnrel
+  is 'numero de relacion';
+comment on column AQPC584.aqpc584pitfvto
+  is 'fecha de vencimiento';
+comment on column AQPC584.aqpc584lote
+  is 'numero de lote';
+comment on column AQPC584.aqpc584tasact
+  is 'tasa actual';
+comment on column AQPC584.aqpc584tasguia
+  is 'tasa guía';
+comment on column AQPC584.aqpc584fech
+  is 'fecha de inserción';
+create index AQPC5842 on AQPC584 (AQPC584PITTRAN);
+create index AQPC5843 on AQPC584 (AQPC584LOTE);
+

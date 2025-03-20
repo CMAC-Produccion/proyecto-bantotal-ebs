@@ -1,0 +1,19 @@
+create table FTA334
+(
+  fta334fef DATE not null,
+  fta334tpo NUMBER(3) not null,
+  fta334fec DATE,
+  fta334usu CHAR(10),
+  fta334wrk CHAR(12),
+  fta334cnt NUMBER(10),
+  fta334cnv NUMBER(10),
+  fta334ax1 NUMBER(5),
+  fta334ax2 DATE,
+  fta334ax3 CHAR(20),
+  fta334ax4 NUMBER(8)
+)
+;
+create index FTA33402 on FTA334 (FTA334AX4);
+alter table FTA334
+  add primary key (FTA334FEF, FTA334TPO);
+

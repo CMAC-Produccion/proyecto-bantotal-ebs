@@ -1,0 +1,60 @@
+create table AQPD317
+(
+  aqpd317creusr VARCHAR2(10) not null,
+  aqpd317cretim TIMESTAMP(6),
+  aqpd317etapa  VARCHAR2(1) not null,
+  aqpd317pgcod  NUMBER(3) not null,
+  aqpd317hsucor NUMBER(3) not null,
+  aqpd317hcmod  NUMBER(3) not null,
+  aqpd317htran  NUMBER(3) not null,
+  aqpd317hnrel  NUMBER(4) not null,
+  aqpd317hfcon  DATE not null,
+  aqpd317hfvc   DATE,
+  aqpd317hccorr NUMBER(5),
+  aqpd317husing CHAR(10),
+  aqpd317hwsing CHAR(10),
+  aqpd317huscnf CHAR(10),
+  aqpd317hwscnf CHAR(10),
+  aqpd317hhora  CHAR(8),
+  aqpd317hccaja NUMBER(3)
+)
+;
+comment on table AQPD317
+  is 'Reporte de Operaciones en Horarios Inusuales - Operación';
+comment on column AQPD317.aqpd317creusr
+  is 'Usuario de creación';
+comment on column AQPD317.aqpd317cretim
+  is 'Creación - Timestamp';
+comment on column AQPD317.aqpd317etapa
+  is 'Etapa (P:Primera, U:Ultima)';
+comment on column AQPD317.aqpd317pgcod
+  is 'Operación - Empresa';
+comment on column AQPD317.aqpd317hsucor
+  is 'Operación - Sucursal origen';
+comment on column AQPD317.aqpd317hcmod
+  is 'Operación - Módulo';
+comment on column AQPD317.aqpd317htran
+  is 'Operación - Transacción';
+comment on column AQPD317.aqpd317hnrel
+  is 'Operación - Relación';
+comment on column AQPD317.aqpd317hfcon
+  is 'Operación - Fecha de contabilizado';
+comment on column AQPD317.aqpd317hfvc
+  is 'Operación - Fecha valor contable';
+comment on column AQPD317.aqpd317hccorr
+  is 'Operación - Correlativo';
+comment on column AQPD317.aqpd317husing
+  is 'Operación - Usuario que ingresó';
+comment on column AQPD317.aqpd317hwsing
+  is 'Operación - Workstation que ingresó';
+comment on column AQPD317.aqpd317huscnf
+  is 'Operación - Usuario que confirmó';
+comment on column AQPD317.aqpd317hwscnf
+  is 'Operación - Workstation que confirmó';
+comment on column AQPD317.aqpd317hhora
+  is 'Operación - Hora';
+comment on column AQPD317.aqpd317hccaja
+  is 'Operación - Por Caja';
+alter table AQPD317
+  add primary key (AQPD317CREUSR, AQPD317ETAPA, AQPD317PGCOD, AQPD317HSUCOR, AQPD317HCMOD, AQPD317HTRAN, AQPD317HNREL, AQPD317HFCON);
+

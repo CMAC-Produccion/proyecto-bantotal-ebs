@@ -1,0 +1,37 @@
+create table X054010
+(
+  pgcod      NUMBER(3) not null,
+  xpremod    NUMBER(3) not null,
+  xpretope   NUMBER(3) not null,
+  xpremoneda NUMBER(4) not null,
+  xprepapel  NUMBER(4) not null,
+  xpredesc   CHAR(30),
+  xprelibre  CHAR(1),
+  xpretfer   CHAR(1),
+  xpredrev   NUMBER(5),
+  xpreplus   NUMBER(10,6),
+  xpretipano NUMBER(1),
+  xpretipdia NUMBER(1),
+  xpregrimmi NUMBER(17,2),
+  xpregrimma NUMBER(17,2),
+  xpregrpemi NUMBER(5),
+  xpregrpema NUMBER(5),
+  xpregrprmi NUMBER(6,2),
+  xpregrprma NUMBER(6,2),
+  xprecltcod NUMBER(2),
+  xpretasa   NUMBER(10,6),
+  xprettasa  NUMBER(1),
+  xpretapiz  CHAR(1),
+  xpretipamo NUMBER(2),
+  xprevtos   NUMBER(1),
+  xprecapmax NUMBER(17,2),
+  xprecapmin NUMBER(17,2),
+  xprediamin NUMBER(5),
+  xprediamax NUMBER(5),
+  xprepermin NUMBER(5),
+  xprepermax NUMBER(5)
+)
+;
+alter table X054010
+  add primary key (PGCOD, XPREMOD, XPRETOPE, XPREMONEDA, XPREPAPEL);
+

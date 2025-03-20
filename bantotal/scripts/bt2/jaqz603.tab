@@ -1,0 +1,29 @@
+create table JAQZ603
+(
+  tipo          CHAR(1),
+  codigo        VARCHAR2(10),
+  key           VARCHAR2(30),
+  valor_pagado  NUMBER,
+  valor_interes NUMBER,
+  hora          CHAR(8),
+  comprobante   VARCHAR2(19),
+  jaql82user    CHAR(10)
+)
+;
+comment on column JAQZ603.tipo
+  is 'Detalle de Cabecera';
+comment on column JAQZ603.codigo
+  is 'Código de Alumno (inst)';
+comment on column JAQZ603.key
+  is 'Código de Importe a Cobrar';
+comment on column JAQZ603.valor_pagado
+  is 'Monto de cobro realizado';
+comment on column JAQZ603.valor_interes
+  is 'Monto de Mora Cobrado';
+comment on column JAQZ603.hora
+  is 'Hora de cobro';
+comment on column JAQZ603.comprobante
+  is 'Código del comprobante o Voucher';
+comment on column JAQZ603.jaql82user
+  is 'Usuario que cobra';
+

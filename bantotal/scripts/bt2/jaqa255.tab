@@ -1,0 +1,42 @@
+create table JAQA255
+(
+  jaqa255emp NUMBER(3) not null,
+  jaqa255mod NUMBER(3) not null,
+  jaqa255suc NUMBER(3) not null,
+  jaqa255mda NUMBER(4) not null,
+  jaqa255pap NUMBER(4) not null,
+  jaqa255cta NUMBER(9) not null,
+  jaqa255ope NUMBER(9) not null,
+  jaqa255sbo NUMBER(3) not null,
+  jaqa255tpo NUMBER(3) not null,
+  jaqa255fec DATE not null,
+  jaqa255fre DATE,
+  jaqa255fpg DATE,
+  jaqa255est CHAR(1),
+  jaqa255ccu NUMBER(5),
+  jaqa255pcu NUMBER(5),
+  jaqa255scr NUMBER(17,2),
+  jaqa255vcu NUMBER(17,2),
+  jaqa255nu1 NUMBER(9),
+  jaqa255nu2 NUMBER(9),
+  jaqa255nu3 NUMBER(9),
+  jaqa255im1 NUMBER(17,2),
+  jaqa255im2 NUMBER(17,2),
+  jaqa255im3 NUMBER(17,2),
+  jaqa255ch1 CHAR(1),
+  jaqa255ch2 CHAR(1),
+  jaqa255ch3 CHAR(1),
+  jaqa255va1 VARCHAR2(255),
+  jaqa255va2 VARCHAR2(255),
+  jaqa255va3 VARCHAR2(255),
+  jaqa255fe1 DATE,
+  jaqa255fe2 DATE,
+  jaqa255fe3 DATE
+)
+;
+create index JAQA2552 on JAQA255 (JAQA255FEC, JAQA255EST);
+create index JAQA2553 on JAQA255 (JAQA255CTA, JAQA255FEC, JAQA255EST);
+create index JAQA2554 on JAQA255 (JAQA255EST);
+alter table JAQA255
+  add primary key (JAQA255EMP, JAQA255MOD, JAQA255SUC, JAQA255MDA, JAQA255PAP, JAQA255CTA, JAQA255OPE, JAQA255SBO, JAQA255TPO, JAQA255FEC);
+

@@ -1,0 +1,11 @@
+create table JMBAF06
+(
+  jmbaf06ifi CHAR(7) not null,
+  jmbaf06ope CHAR(14) not null,
+  jmbaf06fin DATE,
+  jmbaf06min NUMBER(1)
+)
+;
+alter table JMBAF06
+  add primary key (JMBAF06IFI, JMBAF06OPE);
+

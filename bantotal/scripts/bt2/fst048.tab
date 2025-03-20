@@ -1,0 +1,19 @@
+create table FST048
+(
+  pgcod  NUMBER(3) not null,
+  ubuser CHAR(10) not null,
+  modulo NUMBER(3) not null,
+  trnro  NUMBER(3) not null,
+  ubting CHAR(1),
+  ubtcon CHAR(1),
+  ubtsup CHAR(1),
+  ubtpro CHAR(1),
+  ubtsn1 CHAR(1),
+  ubtsn2 CHAR(1),
+  ubtsn3 CHAR(1)
+)
+;
+create index FST04803 on FST048 (PGCOD, MODULO, TRNRO, UBUSER);
+alter table FST048
+  add primary key (PGCOD, UBUSER, MODULO, TRNRO);
+

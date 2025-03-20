@@ -1,0 +1,72 @@
+create table JAQM56
+(
+  jaqm56cop CHAR(50) not null,
+  jaqm56coe NUMBER(5) not null,
+  jaqm56cor NUMBER(4) not null,
+  jaqm56vig CHAR(1),
+  jaqm56una CHAR(10),
+  jaqm56suc NUMBER(3),
+  jaqm56udo CHAR(10),
+  jaqm56fec DATE,
+  jaqm56hor CHAR(8),
+  jaqm56an1 NUMBER(9),
+  jaqm56an2 NUMBER(9),
+  jaqm56an3 NUMBER(9),
+  jaqm56ac1 VARCHAR2(255),
+  jaqm56ac2 VARCHAR2(255),
+  jaqm56ac3 VARCHAR2(255),
+  jaqm56af1 DATE,
+  jaqm56af2 DATE,
+  jaqm56af3 DATE,
+  jaqm56ai1 NUMBER(17,2),
+  jaqm56ai2 NUMBER(17,2),
+  jaqm56ai3 NUMBER(17,2)
+)
+;
+comment on table JAQM56
+  is 'Módulo de Poderes Asignación de Personal';
+comment on column JAQM56.jaqm56cop
+  is 'Código de Proceso';
+comment on column JAQM56.jaqm56coe
+  is 'Código de Etapa';
+comment on column JAQM56.jaqm56cor
+  is 'Correlativo Relevante';
+comment on column JAQM56.jaqm56vig
+  is 'Vigente';
+comment on column JAQM56.jaqm56una
+  is 'Usuario que asigna';
+comment on column JAQM56.jaqm56suc
+  is 'Sucuarsal usuario que asigna';
+comment on column JAQM56.jaqm56udo
+  is 'Usuario asignado';
+comment on column JAQM56.jaqm56fec
+  is 'Fecha';
+comment on column JAQM56.jaqm56hor
+  is 'Hora';
+comment on column JAQM56.jaqm56an1
+  is 'Auxiliar numérico 1';
+comment on column JAQM56.jaqm56an2
+  is 'Auxiliar numérico 2';
+comment on column JAQM56.jaqm56an3
+  is 'Auxiliar numérico 3';
+comment on column JAQM56.jaqm56ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM56.jaqm56ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM56.jaqm56ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM56.jaqm56af1
+  is 'Auxiliar fecha 1';
+comment on column JAQM56.jaqm56af2
+  is 'Auxiliar fecha 2';
+comment on column JAQM56.jaqm56af3
+  is 'Auxiliar fecha 3';
+comment on column JAQM56.jaqm56ai1
+  is 'Auxiliar importe 1';
+comment on column JAQM56.jaqm56ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM56.jaqm56ai3
+  is 'Auxiliar importe 3';
+alter table JAQM56
+  add primary key (JAQM56COP, JAQM56COE, JAQM56COR);
+

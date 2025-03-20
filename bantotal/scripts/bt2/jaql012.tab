@@ -1,0 +1,48 @@
+create table JAQL012
+(
+  jaql12corre NUMBER(12) not null,
+  jaql12cam01 NUMBER(12),
+  jaql12cam02 NUMBER(12),
+  jaql12cam03 NUMBER(12),
+  jaql12cam04 NUMBER(12),
+  jaql12cam05 NUMBER(12),
+  jaql12cam06 NUMBER(12),
+  jaql12cam07 NUMBER(12),
+  jaql12cam08 NUMBER(12),
+  jaql12cam09 NUMBER(12),
+  jaql12cam10 NUMBER(12),
+  jaql12cam11 NUMBER(17,2),
+  jaql12cam12 NUMBER(17,2),
+  jaql12cam13 NUMBER(17,2),
+  jaql12cam14 NUMBER(17,2),
+  jaql12cam15 NUMBER(17,2),
+  jaql12cam16 NUMBER(17,2),
+  jaql12cam17 NUMBER(17,2),
+  jaql12cam18 NUMBER(17,2),
+  jaql12cam19 NUMBER(17,2),
+  jaql12cam20 NUMBER(17,2),
+  jaql12cam21 NUMBER(16,3),
+  jaql12cam22 NUMBER(16,3),
+  jaql12cam23 NUMBER(16,3),
+  jaql12cam24 NUMBER(16,3),
+  jaql12cam25 NUMBER(16,3),
+  jaql12cam26 NUMBER(15,4),
+  jaql12cam27 NUMBER(15,4),
+  jaql12cam28 NUMBER(15,4),
+  jaql12cam29 NUMBER(15,4),
+  jaql12cam30 NUMBER(15,4),
+  jaql12cam31 CHAR(50),
+  jaql12cam32 CHAR(50),
+  jaql12cam33 CHAR(50),
+  jaql12cam34 CHAR(30),
+  jaql12cam35 CHAR(30),
+  jaql12cam36 CHAR(30),
+  jaql12cam38 DATE,
+  jaql12cam37 DATE
+)
+;
+create index JAQL0122 on JAQL012 (JAQL12CAM01);
+create index JAQL0123 on JAQL012 (JAQL12CAM31);
+alter table JAQL012
+  add primary key (JAQL12CORRE);
+

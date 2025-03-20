@@ -1,0 +1,84 @@
+create table AQPB515E
+(
+  aqpb515eserial NUMBER(10) not null,
+  aqpb515efeprt  DATE not null,
+  aqpb515enusec  VARCHAR2(20) not null,
+  aqpb515esecue  NUMBER(6) not null,
+  aqpb515enubol  VARCHAR2(10),
+  aqpb515etidoc  VARCHAR2(10),
+  aqpb515enotdo  VARCHAR2(20),
+  aqpb515emoned  VARCHAR2(10),
+  aqpb515edemda  VARCHAR2(20),
+  aqpb515emonto  NUMBER(17,2),
+  aqpb515eemdoc  VARCHAR2(30),
+  aqpb515enotar  VARCHAR2(10),
+  aqpb515enonot  VARCHAR2(50),
+  aqpb515efeven  DATE,
+  aqpb515efereg  DATE,
+  aqpb515efemod  DATE,
+  aqpb515etireg  VARCHAR2(10),
+  aqpb515enotre  VARCHAR2(30),
+  aqpb515eproce  VARCHAR2(10),
+  aqpb515enutiv  VARCHAR2(50),
+  aqpb515efeact  DATE,
+  aqpb515etidet  CHAR(2),
+  aqpb515econcod VARCHAR2(16) not null,
+  aqpb515ecreusr VARCHAR2(30) not null,
+  aqpb515ecretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515E
+  is 'CCL - EQUIFAX';
+comment on column AQPB515E.aqpb515eserial
+  is 'SERIAL';
+comment on column AQPB515E.aqpb515efeprt
+  is 'FECHA';
+comment on column AQPB515E.aqpb515enusec
+  is 'NUMERO SECUENCIA';
+comment on column AQPB515E.aqpb515esecue
+  is 'SECUENCIA';
+comment on column AQPB515E.aqpb515enubol
+  is 'NUMERO BOLETA';
+comment on column AQPB515E.aqpb515etidoc
+  is 'TIPO DE DOCUMENTO';
+comment on column AQPB515E.aqpb515enotdo
+  is 'TIPO DE DOCUMENTO';
+comment on column AQPB515E.aqpb515emoned
+  is 'COD MONEDA';
+comment on column AQPB515E.aqpb515edemda
+  is 'MONEDA';
+comment on column AQPB515E.aqpb515emonto
+  is 'MONTO';
+comment on column AQPB515E.aqpb515eemdoc
+  is 'EMISOR DOCUMENTO';
+comment on column AQPB515E.aqpb515enotar
+  is 'NOTARIA';
+comment on column AQPB515E.aqpb515enonot
+  is 'NOMBRE NOTARIA';
+comment on column AQPB515E.aqpb515efeven
+  is 'FECHA DE VENCIMIENTO';
+comment on column AQPB515E.aqpb515efereg
+  is 'FECHA DE REGULARIZACION';
+comment on column AQPB515E.aqpb515efemod
+  is 'FECHA DE MODIFICACION';
+comment on column AQPB515E.aqpb515etireg
+  is 'TIPO DE REGISTRO';
+comment on column AQPB515E.aqpb515enotre
+  is 'NOMBRE TIPO REGISTRO';
+comment on column AQPB515E.aqpb515eproce
+  is 'PROCESO';
+comment on column AQPB515E.aqpb515enutiv
+  is 'NUMERO';
+comment on column AQPB515E.aqpb515efeact
+  is 'FECHA ACTUALIZACION';
+comment on column AQPB515E.aqpb515etidet
+  is 'TIPO';
+comment on column AQPB515E.aqpb515econcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515E.aqpb515ecreusr
+  is 'CONSULTA - USUARIO';
+comment on column AQPB515E.aqpb515ecretim
+  is 'CONSULTA - TIMESTAMP';
+alter table AQPB515E
+  add primary key (AQPB515ESERIAL, AQPB515EFEPRT, AQPB515ENUSEC, AQPB515ESECUE, AQPB515ECONCOD, AQPB515ECREUSR);
+

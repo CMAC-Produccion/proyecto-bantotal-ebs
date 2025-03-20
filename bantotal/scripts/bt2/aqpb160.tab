@@ -1,0 +1,35 @@
+create table AQPB160
+(
+  aqpb160pais  NUMBER not null,
+  aqpb160tdoc  NUMBER not null,
+  aqpb160dni   CHAR(12) not null,
+  aqpb160tipo  VARCHAR2(12) not null,
+  aqpb160calif VARCHAR2(12) not null,
+  aqpb160vig   VARCHAR2(12) not null,
+  aqpb160fecha DATE not null,
+  aqpb160mes   VARCHAR2(12)
+)
+;
+comment on table AQPB160
+  is 'Clientes MEMORANDO N° 236-2023';
+comment on column AQPB160.aqpb160pais
+  is 'Pais';
+comment on column AQPB160.aqpb160tdoc
+  is 'Tipo de Documento';
+comment on column AQPB160.aqpb160dni
+  is 'Nro de Docmento';
+comment on column AQPB160.aqpb160tipo
+  is 'Tipo';
+comment on column AQPB160.aqpb160calif
+  is 'Calificacion';
+comment on column AQPB160.aqpb160vig
+  is 'Vigencia';
+comment on column AQPB160.aqpb160fecha
+  is 'Fecha';
+comment on column AQPB160.aqpb160mes
+  is 'Mes';
+create index AQPB160A2 on AQPB160 (AQPB160TIPO);
+create index AQPB160A3 on AQPB160 (AQPB160PAIS, AQPB160TDOC, AQPB160DNI);
+alter table AQPB160
+  add primary key (AQPB160PAIS, AQPB160TDOC, AQPB160DNI, AQPB160TIPO, AQPB160CALIF, AQPB160VIG, AQPB160FECHA);
+

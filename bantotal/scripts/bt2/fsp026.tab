@@ -1,0 +1,20 @@
+create table FSP026
+(
+  pgcod   NUMBER(3) not null,
+  comod   NUMBER(3) not null,
+  cocod   NUMBER(3) not null,
+  cocta   NUMBER(9) not null,
+  copap   NUMBER(4) not null,
+  comda   NUMBER(4) not null,
+  cofech  DATE not null,
+  comto   NUMBER(17,2) not null,
+  copzo   NUMBER(5) not null,
+  cotasap NUMBER(10,6),
+  cominp  NUMBER(17,2),
+  comaxp  NUMBER(17,2),
+  coimpp  NUMBER(17,2)
+)
+;
+alter table FSP026
+  add primary key (PGCOD, COMOD, COCOD, COCTA, COPAP, COMDA, COFECH, COMTO, COPZO);
+

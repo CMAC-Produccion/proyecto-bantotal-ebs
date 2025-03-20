@@ -1,0 +1,13 @@
+create table BTMAIX
+(
+  btmtblnam VARCHAR2(255) not null,
+  btmidxnam VARCHAR2(255) not null,
+  btmaixnam VARCHAR2(255) not null,
+  btmaixord CHAR(1),
+  btmaixpos NUMBER(5)
+)
+;
+create index BTMAIX03 on BTMAIX (BTMTBLNAM, BTMIDXNAM, BTMAIXNAM, BTMAIXPOS);
+alter table BTMAIX
+  add primary key (BTMTBLNAM, BTMIDXNAM, BTMAIXNAM);
+

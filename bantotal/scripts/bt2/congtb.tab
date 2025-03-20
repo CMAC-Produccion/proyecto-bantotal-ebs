@@ -1,0 +1,11 @@
+create table CONGTB
+(
+  congrpid VARCHAR2(80) not null,
+  contbl   VARCHAR2(255) not null,
+  conid    NUMBER(10) not null
+)
+;
+create index CONGTB02 on CONGTB (CONTBL, CONID);
+alter table CONGTB
+  add primary key (CONGRPID, CONTBL, CONID);
+

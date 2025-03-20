@@ -1,0 +1,32 @@
+create table JAQY733
+(
+  jaqy733pais  NUMBER(3) not null,
+  jaqy733tdoc  NUMBER(2) not null,
+  jaqy733ndoc  CHAR(12) not null,
+  jaqy733docod NUMBER(2) not null,
+  jaqy733corr  NUMBER(3) not null,
+  jaqy733usu   CHAR(30) not null,
+  jaqy733maq   CHAR(20) not null,
+  jaqy733ugeo  CHAR(6),
+  jaqy733dir   CHAR(140),
+  jaqy733txt1  CHAR(100),
+  jaqy733txt2  CHAR(100),
+  jaqy733txt3  CHAR(100),
+  jaqy733txt4  CHAR(100),
+  jaqy733txt5  CHAR(100),
+  jaqy733txt6  CHAR(100),
+  jaqy733txt7  CHAR(100),
+  jaqy733txt8  CHAR(100),
+  jaqy733txt9  CHAR(100),
+  jaqy733txt10 CHAR(100),
+  jaqy733txt11 CHAR(100),
+  jaqy733txt12 CHAR(100),
+  jaqy733txt13 CHAR(100),
+  jaqy733txt14 CHAR(100),
+  jaqy733txt15 CHAR(100)
+)
+;
+create index JAQY733_01 on JAQY733 (JAQY733USU, JAQY733MAQ);
+alter table JAQY733
+  add primary key (JAQY733PAIS, JAQY733TDOC, JAQY733NDOC, JAQY733DOCOD, JAQY733CORR, JAQY733USU, JAQY733MAQ);
+

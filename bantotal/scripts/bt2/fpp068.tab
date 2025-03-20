@@ -1,0 +1,25 @@
+create table FPP068
+(
+  pgcod     NUMBER(3) not null,
+  aomod     NUMBER(3) not null,
+  aosuc     NUMBER(3) not null,
+  aomda     NUMBER(4) not null,
+  aopap     NUMBER(4) not null,
+  aocta     NUMBER(9) not null,
+  aooper    NUMBER(9) not null,
+  aosbop    NUMBER(3) not null,
+  aotope    NUMBER(3) not null,
+  pp068corr NUMBER(9) not null,
+  pp068imp  NUMBER(17,2),
+  pp068max  NUMBER(17,2),
+  pp068aux1 NUMBER(17,2),
+  pp068aux2 NUMBER(17,2),
+  pp068aux3 DATE,
+  pp068aux4 CHAR(1),
+  pp068aux5 CHAR(1),
+  pp068aux6 CHAR(100)
+)
+;
+alter table FPP068
+  add primary key (PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, AOCTA, AOOPER, AOSBOP, AOTOPE, PP068CORR);
+

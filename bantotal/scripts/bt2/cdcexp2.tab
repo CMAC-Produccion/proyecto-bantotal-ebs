@@ -1,0 +1,29 @@
+create table CDCEXP2
+(
+  cdcexpid   NUMBER(18) not null,
+  cdcexpinsi NUMBER(18) not null,
+  cdcexpline NUMBER(18) not null,
+  cdcexpinsc NUMBER(2),
+  cdcexpt1op NUMBER(2),
+  cdcexpt2op NUMBER(2),
+  cdcexpt3op NUMBER(2),
+  cdcexp1ope CHAR(50),
+  cdcexp2ope CHAR(50),
+  cdcexp3ope CHAR(50),
+  cdcexpf1op NUMBER(4),
+  cdcexpf2op NUMBER(4),
+  cdcexpf3op NUMBER(4),
+  cdcexpo1co NUMBER(2),
+  cdcexpo2co NUMBER(2),
+  cdcexpo3co NUMBER(2),
+  cdcexpu1op NUMBER(4),
+  cdcexpu2op NUMBER(4),
+  cdcexpu3op NUMBER(4),
+  cdcexptext NUMBER(4),
+  cdcexpcpiz NUMBER(4),
+  cdcexpcpdi NUMBER(4)
+)
+;
+alter table CDCEXP2
+  add primary key (CDCEXPID, CDCEXPINSI, CDCEXPLINE);
+

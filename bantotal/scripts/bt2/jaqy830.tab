@@ -1,0 +1,90 @@
+create table JAQY830
+(
+  jaqy830codana CHAR(20),
+  jaqy830ana    VARCHAR2(50),
+  jaqy830codcat NUMBER(3),
+  jaqy830catana VARCHAR2(50),
+  jaqy830codage NUMBER(3),
+  jaqy830agen   VARCHAR2(50),
+  jaqy830fini   DATE,
+  jaqy830est    CHAR(1),
+  jaqy830codid  NUMBER(15),
+  jaqy830ndoc   CHAR(12),
+  jaqy830tipase CHAR(1),
+  jaqy830ffin   DATE,
+  jaqy830dial   NUMBER(3),
+  jaqy830vol    VARCHAR2(50),
+  jaqy830aux1   VARCHAR2(50),
+  jaqy830aux2   VARCHAR2(50),
+  jaqy830faux   DATE,
+  jaqy830naux   NUMBER(9),
+  jaqy830dsus   NUMBER(10),
+  jaqy830fcar   DATE,
+  jaqy830hcar   VARCHAR2(15),
+  jaqy830ucar   VARCHAR2(12),
+  jaqy830antage CHAR(20),
+  jaqy830com1   CHAR(1),
+  jaqy830com2   CHAR(1),
+  jaqy830com3   CHAR(1),
+  jaqy830com4   CHAR(20),
+  jaqy830com5   CHAR(20)
+)
+;
+comment on column JAQY830.jaqy830codana
+  is 'Código de Analista';
+comment on column JAQY830.jaqy830ana
+  is 'Nombre de Analista';
+comment on column JAQY830.jaqy830codcat
+  is 'Código de Categoría';
+comment on column JAQY830.jaqy830catana
+  is 'Categoria/Nombre del Cargo de Trabajador';
+comment on column JAQY830.jaqy830codage
+  is 'Código de Agencia';
+comment on column JAQY830.jaqy830agen
+  is 'Nombre de Agencia';
+comment on column JAQY830.jaqy830fini
+  is 'Fecha de Ingreso';
+comment on column JAQY830.jaqy830est
+  is 'Estado';
+comment on column JAQY830.jaqy830codid
+  is 'Código de Identificación de Trabajador';
+comment on column JAQY830.jaqy830ndoc
+  is 'Nro de DNI de Trabajador';
+comment on column JAQY830.jaqy830tipase
+  is 'Tipo Asesor PYMES-CONVENIO';
+comment on column JAQY830.jaqy830ffin
+  is 'Fecha Cese ';
+comment on column JAQY830.jaqy830dial
+  is 'Dias Laborados';
+comment on column JAQY830.jaqy830vol
+  is 'Volante';
+comment on column JAQY830.jaqy830aux1
+  is 'Campo auxiliar 1';
+comment on column JAQY830.jaqy830aux2
+  is 'Campo auxiliar 2';
+comment on column JAQY830.jaqy830faux
+  is 'Campo auxiliar fecha';
+comment on column JAQY830.jaqy830naux
+  is 'Campo auxiliar numero';
+comment on column JAQY830.jaqy830dsus
+  is 'Dias de Suspensión';
+comment on column JAQY830.jaqy830fcar
+  is 'Fecha de Carga';
+comment on column JAQY830.jaqy830hcar
+  is 'Hora de Carga';
+comment on column JAQY830.jaqy830ucar
+  is 'Usuario de Carga';
+comment on column JAQY830.jaqy830antage
+  is 'Antiguedad de la agencia';
+comment on column JAQY830.jaqy830com1
+  is 'Indicador Cumplimiento Comision 1';
+comment on column JAQY830.jaqy830com2
+  is 'Indicador Cumplimiento Comision 2';
+comment on column JAQY830.jaqy830com3
+  is 'Indicador Cumplimiento Comision 3';
+comment on column JAQY830.jaqy830com4
+  is 'Indicador Cumplimiento Comision 4';
+comment on column JAQY830.jaqy830com5
+  is 'Indicador Cumplimiento Comision 5';
+create index IDX_JAQY830 on JAQY830 (JAQY830CODANA, JAQY830EST);
+

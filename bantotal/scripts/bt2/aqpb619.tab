@@ -1,0 +1,15 @@
+create table AQPB619
+(
+  aqpb619cor NUMBER(15) not null,
+  aqpb619des VARCHAR2(500)
+)
+;
+comment on table AQPB619
+  is 'Lista de Facilidades Reprogramación Caja';
+comment on column AQPB619.aqpb619cor
+  is 'Correlativo';
+comment on column AQPB619.aqpb619des
+  is 'Descripcion';
+alter table AQPB619
+  add primary key (AQPB619COR);
+

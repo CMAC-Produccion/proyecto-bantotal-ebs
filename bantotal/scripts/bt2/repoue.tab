@@ -1,0 +1,44 @@
+create table REPOUE
+(
+  bc604emp             NUMBER(3) not null,
+  bc604mod             NUMBER(3) not null,
+  bc604suc             NUMBER(3) not null,
+  bc604trn             NUMBER(3) not null,
+  bc604nrel            NUMBER(4) not null,
+  bc604fch             DATE not null,
+  nomoperacion         CHAR(30),
+  nrotransaccion       VARCHAR2(160),
+  modulooperacion      NUMBER(3),
+  mdaoperacion         NUMBER(4),
+  agenciaoperacion     CHAR(30),
+  mdatransaccion       VARCHAR2(3),
+  monto                NUMBER(17,2),
+  origendefondos       CHAR(70),
+  fecha                DATE not null,
+  operador             CHAR(10),
+  pais                 NUMBER(3),
+  tipodoc              NUMBER(2),
+  numdoc               CHAR(12),
+  ctacliente           NUMBER,
+  operacion            NUMBER,
+  tipoperacion         NUMBER,
+  succuenta            CHAR(30),
+  titular              CHAR(140),
+  nrodnitramitante     CHAR(12),
+  tdocumento           CHAR(20),
+  tramitante           CHAR(30),
+  tramitantenocliente  CHAR(140),
+  tipo_persona_bnc_pep VARCHAR2(100),
+  hora                 CHAR(8),
+  extord               CHAR(1),
+  entfin               CHAR(1),
+  hsucur               NUMBER,
+  hpap                 NUMBER,
+  hsubop               NUMBER,
+  hmda                 NUMBER,
+  hmodul               NUMBER
+)
+;
+comment on table REPOUE
+  is 'Tabla de reporte operaciones únicas';
+

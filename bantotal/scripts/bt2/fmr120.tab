@@ -1,0 +1,14 @@
+create table FMR120
+(
+  pgcod      NUMBER(3) not null,
+  lcemmod    NUMBER(3) not null,
+  lcemoper   NUMBER(9) not null,
+  mopctipo   NUMBER(2) not null,
+  mopccod    NUMBER(3) not null,
+  lcemopcsts CHAR(1)
+)
+;
+create index FMR12002 on FMR120 (LCEMMOD, MOPCTIPO, MOPCCOD);
+alter table FMR120
+  add primary key (PGCOD, LCEMMOD, LCEMOPER, MOPCTIPO, MOPCCOD);
+

@@ -1,0 +1,14 @@
+create table CDCMEP3
+(
+  cdcmepid   NUMBER(18) not null,
+  cdcmepinst NUMBER(18) not null,
+  cdcmepcorr NUMBER(18) not null,
+  cdcmepform NUMBER(4),
+  cdcmepdatp NUMBER(18),
+  cdcmepmax  NUMBER(4),
+  cdcmepord  NUMBER(4)
+)
+;
+alter table CDCMEP3
+  add primary key (CDCMEPID, CDCMEPINST, CDCMEPCORR);
+

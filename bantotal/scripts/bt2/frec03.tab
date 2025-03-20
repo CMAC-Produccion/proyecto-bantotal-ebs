@@ -1,0 +1,52 @@
+create table FREC03
+(
+  rec02cod   NUMBER(9) not null,
+  rec03cod   NUMBER(3) not null,
+  rec03dsc   CHAR(30),
+  rec03cdemp NUMBER(3),
+  rec03cdmod NUMBER(3),
+  rec03cdsuc NUMBER(3),
+  rec03cdmda NUMBER(4),
+  rec03cdpap NUMBER(4),
+  rec03cdcta NUMBER(9),
+  rec03cdope NUMBER(9),
+  rec03cdsop NUMBER(3),
+  rec03cdtop NUMBER(3),
+  rec03cremp NUMBER(3),
+  rec03crmod NUMBER(3),
+  rec03crsuc NUMBER(3),
+  rec03crmda NUMBER(4),
+  rec03crpap NUMBER(4),
+  rec03crcta NUMBER(9),
+  rec03crope NUMBER(9),
+  rec03crsop NUMBER(3),
+  rec03crtop NUMBER(3),
+  rec03cmo   NUMBER(3),
+  rec03hab   CHAR(1),
+  rec03pzoac NUMBER(3),
+  rec03pzoco NUMBER(3),
+  rec03tcoco NUMBER(4),
+  rec03vigde DATE,
+  rec03vigha DATE,
+  rec03cb1   CHAR(1),
+  rec03cbl1  NUMBER(3),
+  rec03cb2   CHAR(1),
+  rec03cbl2  NUMBER(3),
+  rec03cbmod CHAR(1),
+  rec03cbpgm CHAR(10),
+  rec03con   CHAR(1),
+  rec03conpg CHAR(10),
+  rec03pgmv1 CHAR(10),
+  rec03val   CHAR(1),
+  rec03pgmv2 CHAR(10),
+  rec03pgmo1 CHAR(10),
+  rec03pgmi1 CHAR(10),
+  rec03pgmo2 CHAR(10),
+  rec03pgmi2 CHAR(10)
+)
+;
+create index FREC0303 on FREC03 (REC03CDEMP, REC03CDMOD, REC03CDSUC, REC03CDMDA, REC03CDPAP, REC03CDCTA, REC03CDOPE, REC03CDSOP, REC03CDTOP);
+create index FREC0304 on FREC03 (REC03CREMP, REC03CRMOD, REC03CRSUC, REC03CRMDA, REC03CRPAP, REC03CRCTA, REC03CROPE, REC03CRSOP, REC03CRTOP);
+alter table FREC03
+  add primary key (REC02COD, REC03COD);
+

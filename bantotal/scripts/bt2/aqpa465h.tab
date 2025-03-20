@@ -1,0 +1,66 @@
+create table AQPA465H
+(
+  aqpa465hserie CHAR(4) not null,
+  aqpa465hcorr  NUMBER not null,
+  aqpa465hpgcod NUMBER,
+  aqpa465hmod   NUMBER,
+  aqpa465hsucor NUMBER,
+  aqpa465htran  NUMBER,
+  aqpa465hrel   NUMBER,
+  aqpa465hcon   DATE,
+  aqpa465hhash  VARCHAR2(250),
+  aqpa465hmsgs  VARCHAR2(3000),
+  aqpa465hmsgt  VARCHAR2(3000),
+  aqpa465husu   CHAR(12),
+  aqpa465hfec   DATE,
+  aqpa465hhor   CHAR(8),
+  aqpa465hest   CHAR(1),
+  aqpa465hord   NUMBER,
+  aqpa465hursud CHAR(12),
+  aqpa465hfecd  DATE,
+  aqpa465hhord  CHAR(8)
+)
+;
+comment on column AQPA465H.aqpa465hserie
+  is 'Numero de Serie';
+comment on column AQPA465H.aqpa465hcorr
+  is 'Correlativo';
+comment on column AQPA465H.aqpa465hpgcod
+  is 'Codigo Empresa interno';
+comment on column AQPA465H.aqpa465hmod
+  is 'Codigo Modulo interno';
+comment on column AQPA465H.aqpa465hsucor
+  is 'Codigo Sucursal interno';
+comment on column AQPA465H.aqpa465htran
+  is 'Codigo Transaccion interno';
+comment on column AQPA465H.aqpa465hrel
+  is 'Codigo Relacion interno';
+comment on column AQPA465H.aqpa465hcon
+  is 'Fecha interno';
+comment on column AQPA465H.aqpa465hhash
+  is 'Codigo Hash';
+comment on column AQPA465H.aqpa465hmsgs
+  is 'Mensaje SUNAT';
+comment on column AQPA465H.aqpa465hmsgt
+  is 'Mensaje TCI';
+comment on column AQPA465H.aqpa465husu
+  is 'Usuario registro Interno';
+comment on column AQPA465H.aqpa465hfec
+  is 'Fecha registro Interno';
+comment on column AQPA465H.aqpa465hhor
+  is 'Hora registro Interno';
+comment on column AQPA465H.aqpa465hest
+  is 'Estado';
+comment on column AQPA465H.aqpa465hord
+  is 'Ordinal de Comision';
+comment on column AQPA465H.aqpa465hursud
+  is 'Usuario que descargo PDF';
+comment on column AQPA465H.aqpa465hfecd
+  is 'Fecha de descarga PDF';
+comment on column AQPA465H.aqpa465hhord
+  is 'Hora de descarga PDF';
+create index AQPA465H1 on AQPA465H (AQPA465HSERIE, AQPA465HCORR, AQPA465HPGCOD, AQPA465HMOD, AQPA465HSUCOR, AQPA465HTRAN, AQPA465HREL, AQPA465HCON, AQPA465HHASH);
+create index AQPA465H2 on AQPA465H (AQPA465HPGCOD, AQPA465HMOD, AQPA465HSUCOR, AQPA465HTRAN, AQPA465HREL, AQPA465HCON, AQPA465HEST);
+alter table AQPA465H
+  add primary key (AQPA465HSERIE, AQPA465HCORR);
+

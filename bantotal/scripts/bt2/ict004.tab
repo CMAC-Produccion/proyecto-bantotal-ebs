@@ -1,0 +1,26 @@
+create table ICT004
+(
+  atiid      NUMBER(3) not null,
+  atidsc     CHAR(35),
+  atititcol  CHAR(20),
+  atitipo    CHAR(1),
+  atilargo   NUMBER(2),
+  atidecimal NUMBER(1),
+  atiswtcod  NUMBER(5),
+  atiswtrel  NUMBER(2),
+  atiswtcpo  NUMBER(2),
+  atiswtcpof CHAR(1),
+  atimsgsubc NUMBER(2),
+  atiswtlin  NUMBER(2),
+  atitrn     NUMBER(3),
+  atimod2    CHAR(1),
+  atimod3    CHAR(1),
+  atimod12   CHAR(1),
+  atimod13   CHAR(1),
+  atimodnego CHAR(1)
+)
+;
+create index ICT00402 on ICT004 (ATIDSC);
+alter table ICT004
+  add primary key (ATIID);
+

@@ -1,0 +1,33 @@
+create table FPP183
+(
+  pp173cod   NUMBER(4) not null,
+  pp174cod   NUMBER(9) not null,
+  pp183cod   NUMBER(4) not null,
+  pp183fec   DATE,
+  pp182cod   NUMBER(4),
+  pp183pgcod NUMBER(3),
+  pp183suc   NUMBER(3),
+  pp183mod   NUMBER(3),
+  pp183tran  NUMBER(3),
+  pp183nrel  NUMBER(4),
+  pp183fcon  DATE,
+  pp183ord   NUMBER(2),
+  pp183sbo   NUMBER(3),
+  pp183con   CHAR(1),
+  pp183aux1  NUMBER(9),
+  pp183aux2  NUMBER(4),
+  pp183aux3  NUMBER(4),
+  pp183aux4  NUMBER(4),
+  pp183aux5  NUMBER(4),
+  pp183aux6  NUMBER(4),
+  pp183aux7  NUMBER(4),
+  pp183aux8  NUMBER(4),
+  pp183aux9  NUMBER(4),
+  pp183aux10 NUMBER(4),
+  pp183aux11 NUMBER(4),
+  pp183aux12 NUMBER(4)
+)
+;
+alter table FPP183
+  add primary key (PP173COD, PP174COD, PP183COD);
+

@@ -1,0 +1,21 @@
+create table RPAUX01
+(
+  rpaux01usr   CHAR(10) not null,
+  rpaux01rep   NUMBER(10) not null,
+  rpaux01cons  NUMBER(10) not null,
+  rpaux01col   NUMBER(4) not null,
+  rpaux01dsc   CHAR(70),
+  rpaux01type  CHAR(1),
+  rpaux01count CHAR(1),
+  rpaux01max   CHAR(1),
+  rpaux01sum   CHAR(1),
+  rpaux01min   CHAR(1),
+  rpaux01niv   NUMBER(2),
+  rpaux01vis   CHAR(1),
+  rpaux01len   NUMBER(10),
+  rpaux01exp   VARCHAR2(200)
+)
+;
+alter table RPAUX01
+  add primary key (RPAUX01USR, RPAUX01REP, RPAUX01CONS, RPAUX01COL);
+

@@ -1,0 +1,13 @@
+create table Z99916
+(
+  z99916pgc NUMBER(3) not null,
+  z99916cli NUMBER(9) not null,
+  z99915cod NUMBER(4) not null,
+  z99916dom NUMBER(2),
+  z99916dsc CHAR(30)
+)
+;
+create index Z9991602 on Z99916 (Z99915COD);
+alter table Z99916
+  add primary key (Z99916PGC, Z99916CLI, Z99915COD);
+

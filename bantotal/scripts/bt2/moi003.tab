@@ -1,0 +1,12 @@
+create table MOI003
+(
+  moi003emp NUMBER(3) not null,
+  moi003cta NUMBER(9) not null,
+  moi003mot NUMBER(4) not null,
+  moi003fch DATE,
+  moi003hor CHAR(8)
+)
+;
+alter table MOI003
+  add primary key (MOI003EMP, MOI003CTA, MOI003MOT);
+

@@ -1,0 +1,96 @@
+create table JAQNS7
+(
+  jaqns7pais NUMBER(3) not null,
+  jaqns7tdoc NUMBER(2) not null,
+  jaqns7ndoc CHAR(12) not null,
+  jaqns7mone NUMBER(4),
+  jaqns7cuen NUMBER(9),
+  jaqns7oper NUMBER(9),
+  jaqns7sbop NUMBER(3),
+  jaqns7sdmn NUMBER(17,2),
+  jaqns7fval DATE,
+  jaqns7fvto DATE,
+  jaqns7tasa NUMBER(10,6),
+  jaqns7tact NUMBER(10,6),
+  jaqns7peri NUMBER(5),
+  jaqns7fpag DATE,
+  jaqns7espe NUMBER(3),
+  jaqns7gene NUMBER(3),
+  jaqns7lage VARCHAR2(325),
+  jaqns7num1 NUMBER(10),
+  jaqns7num2 NUMBER(10),
+  jaqns7num3 NUMBER(10),
+  jaqns7imp1 NUMBER(17,2),
+  jaqns7imp2 NUMBER(17,2),
+  jaqns7imp3 NUMBER(17,2),
+  jaqns7var1 VARCHAR2(255),
+  jaqns7var2 VARCHAR2(255),
+  jaqns7var3 VARCHAR2(255),
+  jaqns7fec1 DATE,
+  jaqns7fec2 DATE,
+  jaqns7fec3 DATE
+)
+;
+comment on table JAQNS7
+  is 'Estado reactiva totalizado por persona ';
+comment on column JAQNS7.jaqns7pais
+  is 'Pais del documento';
+comment on column JAQNS7.jaqns7tdoc
+  is 'Tipo documento';
+comment on column JAQNS7.jaqns7ndoc
+  is 'Numero documento';
+comment on column JAQNS7.jaqns7mone
+  is 'Moneda';
+comment on column JAQNS7.jaqns7cuen
+  is 'Cuenta';
+comment on column JAQNS7.jaqns7oper
+  is 'Operacion';
+comment on column JAQNS7.jaqns7sbop
+  is 'Suboperacion';
+comment on column JAQNS7.jaqns7sdmn
+  is 'Saldo en M/N';
+comment on column JAQNS7.jaqns7fval
+  is 'Fecha de valor';
+comment on column JAQNS7.jaqns7fvto
+  is 'Fecha de vencimiento';
+comment on column JAQNS7.jaqns7tasa
+  is 'Tasa';
+comment on column JAQNS7.jaqns7tact
+  is 'Tasa actual';
+comment on column JAQNS7.jaqns7peri
+  is 'Periodo';
+comment on column JAQNS7.jaqns7fpag
+  is 'Fecha de pago prevista';
+comment on column JAQNS7.jaqns7espe
+  is 'Especifica';
+comment on column JAQNS7.jaqns7gene
+  is 'Generica';
+comment on column JAQNS7.jaqns7lage
+  is 'Localizacion agencia';
+comment on column JAQNS7.jaqns7num1
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7num2
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7num3
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7imp1
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7imp2
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7imp3
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7var1
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7var2
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7var3
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7fec1
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7fec2
+  is 'Auxiliar ';
+comment on column JAQNS7.jaqns7fec3
+  is 'Auxiliar ';
+alter table JAQNS7
+  add primary key (JAQNS7PAIS, JAQNS7TDOC, JAQNS7NDOC);
+

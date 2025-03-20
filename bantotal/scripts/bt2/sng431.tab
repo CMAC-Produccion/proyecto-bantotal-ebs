@@ -1,0 +1,13 @@
+create table SNG431
+(
+  sng431cod NUMBER(3) not null,
+  sng431dsc CHAR(40),
+  sng431cta NUMBER(9),
+  sng432tip NUMBER(2),
+  sng431con NUMBER(2)
+)
+;
+create index SNG43102 on SNG431 (SNG432TIP);
+alter table SNG431
+  add primary key (SNG431COD);
+

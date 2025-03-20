@@ -1,0 +1,36 @@
+create table AQPB766
+(
+  aqpb766nsol NUMBER(10),
+  aqpb766tdoc NUMBER(5),
+  aqpb766ndoc VARCHAR2(12),
+  aqpb766tcre VARCHAR2(30),
+  aqpb766scor VARCHAR2(1),
+  aqpb766tabl VARCHAR2(10),
+  aqpb766usrp VARCHAR2(10),
+  aqpb766fprc DATE,
+  aqpb766hora VARCHAR2(8)
+)
+;
+comment on table AQPB766
+  is 'LOG DE SEGUIMIENTO SCORE';
+comment on column AQPB766.aqpb766nsol
+  is 'Nro solicitud';
+comment on column AQPB766.aqpb766tdoc
+  is 'Tipo documento';
+comment on column AQPB766.aqpb766ndoc
+  is 'Número documento';
+comment on column AQPB766.aqpb766tcre
+  is 'Tipo credito SBS';
+comment on column AQPB766.aqpb766scor
+  is 'Score resuelto';
+comment on column AQPB766.aqpb766tabl
+  is 'Tabla resuelto';
+comment on column AQPB766.aqpb766usrp
+  is 'Uusuario reporte';
+comment on column AQPB766.aqpb766fprc
+  is 'Fecha proceso';
+comment on column AQPB766.aqpb766hora
+  is 'Hora';
+create index AQPB766A2 on AQPB766 (AQPB766NSOL);
+create index AQPB766A3 on AQPB766 (AQPB766NDOC);
+

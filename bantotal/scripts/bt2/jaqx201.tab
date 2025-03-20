@@ -1,0 +1,40 @@
+create table JAQX201
+(
+  jaqx201pgc NUMBER(3) not null,
+  jaqx201mod NUMBER(3) not null,
+  jaqx201suc NUMBER(3) not null,
+  jaqx201mda NUMBER(4) not null,
+  jaqx201pap NUMBER(4) not null,
+  jaqx201cta NUMBER(9) not null,
+  jaqx201ope NUMBER(9) not null,
+  jaqx201sbp NUMBER(3) not null,
+  jaqx201top NUMBER(3) not null,
+  jaqx201mto NUMBER(17,2),
+  jaqx201fec DATE,
+  jaqx201tcd NUMBER(3),
+  jaqx201tsu NUMBER(3),
+  jaqx201tmo NUMBER(3),
+  jaqx201ttr NUMBER(3),
+  jaqx201tre NUMBER(4),
+  jaqx201tfc DATE,
+  jaqx201tor NUMBER(2),
+  jaqx201tsb NUMBER(3),
+  jaqx201tco CHAR(1),
+  jaxq201au1 NUMBER(9),
+  jaxq201au2 NUMBER(9),
+  jaqx201au3 NUMBER(9),
+  jaqx201au4 DATE,
+  jaqx201au5 DATE,
+  jaqx201au6 DATE,
+  jaqx201au7 NUMBER(17,2),
+  jaqx201au8 NUMBER(17,2),
+  jaqx201au9 NUMBER(17,2),
+  jaqx201a10 CHAR(255),
+  jaqx201a11 CHAR(255),
+  jaqx201a12 CHAR(255)
+)
+;
+create index JAQX2012 on JAQX201 (JAQX201TCD, JAQX201TSU, JAQX201TMO, JAQX201TTR, JAQX201TRE, JAQX201TFC, JAQX201TOR, JAQX201TSB, JAQX201TCO);
+alter table JAQX201
+  add primary key (JAQX201PGC, JAQX201MOD, JAQX201SUC, JAQX201MDA, JAQX201PAP, JAQX201CTA, JAQX201OPE, JAQX201SBP, JAQX201TOP);
+

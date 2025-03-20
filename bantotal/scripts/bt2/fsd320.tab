@@ -1,0 +1,21 @@
+create table FSD320
+(
+  limcvcod  NUMBER(3) not null,
+  limcvsuc  NUMBER(3) not null,
+  limcvmda  NUMBER(4) not null,
+  limcvpap  NUMBER(4) not null,
+  limcvlcpa NUMBER(17,2),
+  limcvlvta NUMBER(17,2),
+  limcvcpa  NUMBER(17,2),
+  limcvvta  NUMBER(17,2),
+  limcvaux1 NUMBER(17,2),
+  limcvaux2 NUMBER(17,2),
+  limcvaux3 NUMBER(17,2),
+  limcvaux4 NUMBER(14,8),
+  limcvaux5 NUMBER(14,8),
+  limcvaux6 NUMBER(14,8)
+)
+;
+alter table FSD320
+  add primary key (LIMCVCOD, LIMCVSUC, LIMCVMDA, LIMCVPAP);
+

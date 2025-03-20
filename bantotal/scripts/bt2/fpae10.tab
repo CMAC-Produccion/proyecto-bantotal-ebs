@@ -1,0 +1,20 @@
+create table FPAE10
+(
+  pae10nro NUMBER(18) not null,
+  pae10cev NUMBER(3),
+  pae10fec DATE,
+  pae10hor NUMBER(8),
+  pae10usr CHAR(10),
+  pae10pro NUMBER(4),
+  pae10ins NUMBER(10),
+  pae10wri NUMBER(10),
+  pae10res NUMBER(2),
+  pae10mot NUMBER(5),
+  pae10com VARCHAR2(1000)
+)
+;
+create index FPAE1002 on FPAE10 (PAE10PRO, PAE10INS, PAE10WRI);
+create index FPAE1003 on FPAE10 (PAE10CEV, PAE10NRO);
+alter table FPAE10
+  add primary key (PAE10NRO);
+

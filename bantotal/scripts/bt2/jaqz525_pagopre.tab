@@ -1,0 +1,23 @@
+create table JAQZ525_PAGOPRE
+(
+  n_mod_bcmod   NUMBER(3),
+  n_mda_bcmda   NUMBER(4),
+  n_cta_bccta   NUMBER(9),
+  n_oper_bcoper NUMBER(9),
+  n_tope_bctop  NUMBER(3),
+  n_rubr_bcrubr NUMBER(16),
+  aofe99        DATE,
+  pgcod         NUMBER(3),
+  aomod         NUMBER(3),
+  aosuc         NUMBER(3),
+  aomda         NUMBER(4),
+  aopap         NUMBER(4),
+  aocta         NUMBER(9),
+  aooper        NUMBER(9),
+  aosbop        NUMBER(3),
+  aotope        NUMBER(3)
+)
+;
+create index IDX_JAQZ525_PAGOPRE_01 on JAQZ525_PAGOPRE (PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, AOCTA, AOOPER, AOSBOP, AOTOPE, AOFE99);
+create index IDX_JAQZ525_PAGOPRE_02 on JAQZ525_PAGOPRE (PGCOD, AOCTA, AOOPER, AOFE99);
+

@@ -1,0 +1,37 @@
+create table CDEINS6
+(
+  cdeinsid   NUMBER(18) not null,
+  cdcinscorr NUMBER(18) not null,
+  cdeins6cho CHAR(1),
+  cdeins6chf CHAR(1),
+  cdrins6cpr NUMBER(18),
+  cdeins6tip NUMBER(4),
+  cdceins6cn NUMBER(4),
+  cdceins6pv CHAR(1),
+  cdceins6gv CHAR(1),
+  cdceins6ex CHAR(1),
+  cdceins6pr CHAR(30),
+  cdceins6es NUMBER(4),
+  cde6pbnsec NUMBER(5),
+  cde6pathim CHAR(100),
+  cdeins6fin DATE,
+  cdeins6ffi DATE,
+  cdeins6acc NUMBER(4),
+  cdeins6per NUMBER(4),
+  cdeins6dia NUMBER(4),
+  cdeins6usa CHAR(1),
+  cdeins6txt LONG,
+  cdeins6sti NUMBER(4),
+  cdeins6ret NUMBER(4),
+  cdeins6pre NUMBER(4),
+  cdeins6pos NUMBER(4),
+  cdeins6rei NUMBER(4),
+  cdeins6fre NUMBER(4),
+  cdeins6mdu NUMBER(4),
+  cdeins6trn NUMBER(4),
+  cdeins6cag CHAR(1)
+)
+;
+alter table CDEINS6
+  add primary key (CDEINSID, CDCINSCORR);
+

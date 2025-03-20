@@ -1,0 +1,43 @@
+create table JSEA05
+(
+  jsea05emp  NUMBER(3) not null,
+  jsea05suc  NUMBER(3) not null,
+  jsea05mod  NUMBER(3) not null,
+  jsea05mda  NUMBER(4) not null,
+  jsea05pap  NUMBER(4) not null,
+  jsea05cta  NUMBER(9) not null,
+  jsea05oper NUMBER(9) not null,
+  jsea05sbop NUMBER(3) not null,
+  jsea05tope NUMBER(3) not null,
+  jsea05corr NUMBER(3) not null,
+  jsea05cemp NUMBER(3),
+  jsea05csuc NUMBER(3),
+  jsea05cmod NUMBER(3),
+  jsea05cmda NUMBER(4),
+  jsea05cpap NUMBER(4),
+  jsea05ccta NUMBER(9),
+  jsea05cope NUMBER(9),
+  jsea05csbo NUMBER(3),
+  jsea05ctop NUMBER(3),
+  jsea05sdoa NUMBER(17,2),
+  jsea05fch1 DATE,
+  jsea05fch2 DATE,
+  jsea05fch3 DATE,
+  jsea05cod1 NUMBER(5),
+  jsea05cod2 NUMBER(5),
+  jsea05cod3 NUMBER(5),
+  jsea05dsc1 CHAR(30),
+  jsea05dsc2 CHAR(30),
+  jsea05dsc3 CHAR(30),
+  jsea05est1 CHAR(1),
+  jsea05est2 CHAR(1),
+  jsea05est3 CHAR(1),
+  jsea05imp1 NUMBER(17,2),
+  jsea05imp2 NUMBER(17,2),
+  jsea05imp3 NUMBER(17,2)
+)
+;
+create index JSEA0502 on JSEA05 (JSEA05CEMP, JSEA05CSUC, JSEA05CMOD, JSEA05CMDA, JSEA05CPAP, JSEA05CCTA, JSEA05COPE, JSEA05CSBO, JSEA05CTOP);
+alter table JSEA05
+  add primary key (JSEA05EMP, JSEA05SUC, JSEA05MOD, JSEA05MDA, JSEA05PAP, JSEA05CTA, JSEA05OPER, JSEA05SBOP, JSEA05TOPE, JSEA05CORR);
+

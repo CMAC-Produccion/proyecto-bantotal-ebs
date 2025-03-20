@@ -1,0 +1,49 @@
+create table AQPC722
+(
+  aqpc722cor    NUMBER(17) not null,
+  aqpc722tprg   NUMBER(4) not null,
+  aqpc722ccarg  NUMBER(3) not null,
+  aqpc722pcarg  CHAR(10) not null,
+  aqpc722napr   NUMBER(3),
+  aqpc722ndapr  NUMBER(3),
+  aqpc722usrr   CHAR(10),
+  aqpc722frg    TIMESTAMP(6) not null,
+  aqpc722usrm   CHAR(10),
+  aqpc722fmd    TIMESTAMP(6),
+  aqpc722est    CHAR(1) not null,
+  aqpc722impmn  NUMBER(17,2),
+  aqpc722impmax NUMBER(17,2),
+  aqpc722req    CHAR(1)
+)
+;
+comment on column AQPC722.aqpc722cor
+  is 'Correlativo';
+comment on column AQPC722.aqpc722tprg
+  is 'Tipo de Reprogramacion';
+comment on column AQPC722.aqpc722ccarg
+  is 'Cod. de Cargo del Aprobador';
+comment on column AQPC722.aqpc722pcarg
+  is 'Perfil de Cargo del Aprobador';
+comment on column AQPC722.aqpc722napr
+  is 'Nivel de Aprobador';
+comment on column AQPC722.aqpc722ndapr
+  is 'Nivel de dependencia de Aprobador';
+comment on column AQPC722.aqpc722usrr
+  is 'Usuario que realiza el registro';
+comment on column AQPC722.aqpc722frg
+  is 'Fecha de Registro';
+comment on column AQPC722.aqpc722usrm
+  is 'Usuario que realiza la modificacion';
+comment on column AQPC722.aqpc722fmd
+  is 'Fecha de modificacion';
+comment on column AQPC722.aqpc722est
+  is 'Estado del Perfil del Arbol';
+comment on column AQPC722.aqpc722impmn
+  is 'Importe Minimo del Aprobador';
+comment on column AQPC722.aqpc722impmax
+  is 'Importe Maximo del Aprobador';
+comment on column AQPC722.aqpc722req
+  is 'Aprobador Requerido, Obligatorio S -> Si N -> No';
+alter table AQPC722
+  add constraint DESA240331 primary key (AQPC722COR, AQPC722TPRG, AQPC722CCARG, AQPC722PCARG, AQPC722EST, AQPC722FRG);
+

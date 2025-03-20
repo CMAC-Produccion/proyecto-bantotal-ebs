@@ -1,0 +1,10 @@
+create table WFCNFROLES
+(
+  wfcnfrolea NUMBER(4) not null,
+  wfcnfroleb NUMBER(4)
+)
+;
+create index IWFCNFROLES2 on WFCNFROLES (WFCNFROLEB);
+alter table WFCNFROLES
+  add primary key (WFCNFROLEA);
+

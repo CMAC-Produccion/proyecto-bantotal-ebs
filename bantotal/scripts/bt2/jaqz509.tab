@@ -1,0 +1,15 @@
+create table JAQZ509
+(
+  lote        CHAR(2),
+  cuenta      NUMBER not null,
+  operacion   NUMBER not null,
+  modulo      NUMBER,
+  nro         NUMBER(17) not null,
+  jaqz509nrog NUMBER(10)
+)
+;
+comment on column JAQZ509.jaqz509nrog
+  is 'Número de grupo';
+create index IDX_JAQZ509_01 on JAQZ509 (CUENTA, OPERACION);
+create index JAQZ509A3 on JAQZ509 (JAQZ509NROG);
+

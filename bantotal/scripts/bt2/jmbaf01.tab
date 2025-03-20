@@ -1,0 +1,39 @@
+create table JMBAF01
+(
+  jmbaf01cif CHAR(7) not null,
+  jmbaf01ope CHAR(14) not null,
+  jmbaf01apa CHAR(30),
+  jmbaf01ama CHAR(30),
+  jmbaf01nom CHAR(40),
+  jmbaf01rso CHAR(60),
+  jmbaf01tdo CHAR(2),
+  jmbaf01ndo CHAR(11),
+  jmbaf01dir CHAR(60),
+  jmbaf01uge CHAR(6),
+  jmbaf01tel CHAR(9),
+  jmbaf01tpe CHAR(1),
+  jmbaf01gen CHAR(1),
+  jmbaf01aec CHAR(12),
+  jmbaf01act CHAR(15),
+  jmbaf01van CHAR(15),
+  jmbaf01dcr CHAR(2),
+  jmbaf01pzo NUMBER(4),
+  jmbaf01tmo CHAR(2),
+  jmbaf01mde CHAR(15),
+  jmbaf01cpr CHAR(2),
+  jmbaf01fre CHAR(1),
+  jmbaf01com CHAR(15),
+  jmbaf01fso CHAR(10),
+  jmbaf01fap CHAR(10),
+  jmbaf01fem CHAR(10),
+  jmbaf01fde CHAR(10),
+  jmbaf01fve CHAR(10),
+  jmbaf01sec CHAR(60),
+  jmbaf01tae CHAR(2),
+  jmbaf01sbs CHAR(1),
+  jmbaf01tcr CHAR(2)
+)
+;
+alter table JMBAF01
+  add primary key (JMBAF01CIF, JMBAF01OPE);
+

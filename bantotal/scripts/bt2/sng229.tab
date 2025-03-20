@@ -1,0 +1,35 @@
+create table SNG229
+(
+  sng229corr NUMBER(10) not null,
+  sng229usu  CHAR(10),
+  sng229emp  NUMBER(3),
+  sng229age  NUMBER(3),
+  sng224cod  NUMBER(3),
+  sng229fec  DATE,
+  sng229wing CHAR(10),
+  sng229usut CHAR(10),
+  sng229fecp DATE,
+  sng225cod  NUMBER(3),
+  sng229fece DATE,
+  sng229est  NUMBER(4),
+  sng229pais NUMBER(3),
+  sng229tdoc NUMBER(2),
+  sng229ndoc CHAR(12),
+  sng229cta  NUMBER(9),
+  sng229snue NUMBER(10),
+  sng229rss  NUMBER(10),
+  sng229rcs  NUMBER(10),
+  sng229as   NUMBER(10),
+  sng229cob  NUMBER(10),
+  sng229clip NUMBER(10),
+  sng229nrcc NUMBER(3)
+)
+;
+create index SNG229U1 on SNG229 (SNG229SNUE, SNG229EST);
+create index SNG22902 on SNG229 (SNG224COD, SNG225COD);
+create index SNG22903 on SNG229 (SNG229RSS);
+create index SNG22904 on SNG229 (SNG229USUT, SNG229FECP);
+create index SNG22905 on SNG229 (SNG229CTA);
+alter table SNG229
+  add primary key (SNG229CORR);
+

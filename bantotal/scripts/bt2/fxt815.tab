@@ -1,0 +1,11 @@
+create table FXT815
+(
+  pgcod     NUMBER(3) not null,
+  numtip    NUMBER(2) not null,
+  numtipnom CHAR(20),
+  numgen    NUMBER(9)
+)
+;
+alter table FXT815
+  add primary key (PGCOD, NUMTIP);
+

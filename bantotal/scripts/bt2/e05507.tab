@@ -1,0 +1,41 @@
+create table E05507
+(
+  e557pgcod  NUMBER(3) not null,
+  e557mod    NUMBER(3) not null,
+  e557mda    NUMBER(4) not null,
+  e557pap    NUMBER(4) not null,
+  e557cta    NUMBER(9) not null,
+  e557suc    NUMBER(3) not null,
+  e557oper   NUMBER(9) not null,
+  e557sbope  NUMBER(3) not null,
+  e557tope   NUMBER(3) not null,
+  e557rpgcod NUMBER(3),
+  e557rmod   NUMBER(3),
+  e557rmda   NUMBER(4),
+  e557rpap   NUMBER(4),
+  e557rcta   NUMBER(9),
+  e557rsuc   NUMBER(3),
+  e557roper  NUMBER(9),
+  e557rsbop  NUMBER(3),
+  e557rtope  NUMBER(3),
+  e557fval   DATE,
+  e557fvto   DATE,
+  e557vig    CHAR(1),
+  e557tcom   CHAR(1),
+  e557cocom  NUMBER(3),
+  e557csuc   CHAR(1),
+  e557pgm    CHAR(10),
+  e557pzo    NUMBER(5),
+  e557nom    CHAR(35),
+  e557aclec  CHAR(1),
+  e557plec   NUMBER(3),
+  e557flcob  CHAR(15),
+  e557dstr   CHAR(1)
+)
+;
+create index E0550702 on E05507 (E557PGCOD, E557MOD, E557PAP, E557CTA, E557SUC, E557OPER, E557SBOPE, E557TOPE);
+create index E0550703 on E05507 (E557NOM);
+create index E0550704 on E05507 (E557PGCOD, E557RSUC, E557CTA, E557SBOPE);
+alter table E05507
+  add primary key (E557PGCOD, E557MOD, E557MDA, E557PAP, E557CTA, E557SUC, E557OPER, E557SBOPE, E557TOPE);
+

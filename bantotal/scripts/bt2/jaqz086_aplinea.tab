@@ -1,0 +1,13 @@
+create table JAQZ086_APLINEA
+(
+  jaqz086paic  NUMBER(3) not null,
+  jaqz086tdoc  NUMBER(2) not null,
+  jaqz086tndoc CHAR(12) not null,
+  jaqz086calf  NUMBER(5),
+  jaqz086tcal  CHAR(1),
+  jaqz086usr   VARCHAR2(10) not null
+)
+;
+alter table JAQZ086_APLINEA
+  add primary key (JAQZ086PAIC, JAQZ086TDOC, JAQZ086TNDOC, JAQZ086USR);
+

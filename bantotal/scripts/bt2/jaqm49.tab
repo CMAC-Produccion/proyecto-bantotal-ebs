@@ -1,0 +1,30 @@
+create table JAQM49
+(
+  jaqm49cev NUMBER(10) not null,
+  jaqm49ins NUMBER(10) not null,
+  jaqm49pai NUMBER(3),
+  jaqm49tdo NUMBER(2),
+  jaqm49ndo CHAR(12),
+  jaqm49fec DATE,
+  jaqm49usu CHAR(10),
+  jaqm49com CHAR(1),
+  jaqm49nu1 NUMBER(9),
+  jaqm49nu2 NUMBER(9),
+  jaqm49nu3 NUMBER(9),
+  jaqm49im1 NUMBER(17,2),
+  jaqm49im2 NUMBER(17,2),
+  jaqm49im3 NUMBER(17,2),
+  jaqm49fe1 DATE,
+  jaqm49fe2 DATE,
+  jaqm49fe3 DATE,
+  jaqm49ch1 CHAR(1),
+  jaqm49ch2 CHAR(1),
+  jaqm49ch3 CHAR(1),
+  jaqm49va1 VARCHAR2(255),
+  jaqm49va2 VARCHAR2(255),
+  jaqm49va3 VARCHAR2(255)
+)
+;
+alter table JAQM49
+  add primary key (JAQM49CEV, JAQM49INS);
+

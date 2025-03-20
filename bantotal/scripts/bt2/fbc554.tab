@@ -1,0 +1,17 @@
+create table FBC554
+(
+  bcresemp  NUMBER(3) not null,
+  bcresanio NUMBER(4) not null,
+  bcresmes  NUMBER(2) not null,
+  bcresgru  NUMBER(5) not null,
+  bcresrub  NUMBER(16) not null,
+  bcresmn   NUMBER(17,2),
+  bcresme   NUMBER(17,2),
+  bcresmneq NUMBER(17,2),
+  bcrestot  NUMBER(17,2)
+)
+;
+create index FBC55402 on FBC554 (BCRESEMP, BCRESANIO, BCRESMES, BCRESRUB);
+alter table FBC554
+  add primary key (BCRESEMP, BCRESANIO, BCRESMES, BCRESGRU, BCRESRUB);
+

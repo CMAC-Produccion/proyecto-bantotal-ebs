@@ -1,0 +1,29 @@
+create table AQPA109G
+(
+  aqpa109gtpr NUMBER(9) not null,
+  aqpa109gdes CHAR(100),
+  aqpa109gmod NUMBER(3),
+  aqpa109gcod NUMBER(3),
+  aqpa109gnum NUMBER(3),
+  aqpa109gmon NUMBER(17,2),
+  aqpa109gfer DATE,
+  aqpa109gusr CHAR(10),
+  aqpa109gagr NUMBER(3),
+  aqpa109gfem DATE,
+  aqpa109gusm CHAR(10),
+  aqpa109gagm NUMBER(3),
+  aqpa109gax1 NUMBER(9),
+  aqpa109gax2 NUMBER(9),
+  aqpa109gax3 NUMBER(17,2),
+  aqpa109gax4 NUMBER(17,2),
+  aqpa109gax5 DATE,
+  aqpa109gax6 DATE,
+  aqpa109gax7 CHAR(100),
+  aqpa109gax8 CHAR(100),
+  aqpa109gax9 CHAR(100)
+)
+;
+create index AQPA109G2 on AQPA109G (AQPA109GMOD, AQPA109GCOD, AQPA109GNUM, AQPA109GMON);
+alter table AQPA109G
+  add primary key (AQPA109GTPR);
+

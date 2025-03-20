@@ -1,0 +1,53 @@
+create table AQPB907
+(
+  aqpb907cod  NUMBER(3),
+  aqpb907mod  NUMBER(3),
+  aqpb907suc  NUMBER(3),
+  aqpb907mda  NUMBER(4),
+  aqpb907pap  NUMBER(4),
+  aqpb907cta  NUMBER(9),
+  aqpb907oper NUMBER(9),
+  aqpb907sbop NUMBER(3),
+  aqpb907tope NUMBER(3),
+  aqpb907ins  NUMBER(10),
+  aqpb907flag VARCHAR2(1),
+  aqpb907usur VARCHAR2(10),
+  aqpb907fecr DATE,
+  aqpb907hora VARCHAR2(15),
+  aqpb907fecs DATE default SYSDATE
+)
+;
+comment on table AQPB907
+  is 'LOG DE MODIFICACIONES DE CREDITOS DESPUES DE DESEMBOLSO';
+comment on column AQPB907.aqpb907cod
+  is 'CODIGO EMPRESA';
+comment on column AQPB907.aqpb907mod
+  is 'MODULO';
+comment on column AQPB907.aqpb907suc
+  is 'SUCURSAL';
+comment on column AQPB907.aqpb907mda
+  is 'MONEDA';
+comment on column AQPB907.aqpb907pap
+  is 'PAPEL';
+comment on column AQPB907.aqpb907cta
+  is 'CUENTA';
+comment on column AQPB907.aqpb907oper
+  is 'OPERACIÓN';
+comment on column AQPB907.aqpb907sbop
+  is 'SUB OPERACIÓN';
+comment on column AQPB907.aqpb907tope
+  is 'TIPO OPERACIÓN';
+comment on column AQPB907.aqpb907ins
+  is 'INSTANCIA';
+comment on column AQPB907.aqpb907flag
+  is 'EXCEPCION POR INSTANCIA(S/N)';
+comment on column AQPB907.aqpb907usur
+  is 'USUARIO';
+comment on column AQPB907.aqpb907fecr
+  is 'FECHA';
+comment on column AQPB907.aqpb907hora
+  is 'HORA';
+comment on column AQPB907.aqpb907fecs
+  is 'FECHA REAL';
+create index AQPB907A2 on AQPB907 (AQPB907COD, AQPB907MOD, AQPB907SUC, AQPB907MDA, AQPB907PAP, AQPB907CTA, AQPB907OPER, AQPB907SBOP, AQPB907TOPE);
+

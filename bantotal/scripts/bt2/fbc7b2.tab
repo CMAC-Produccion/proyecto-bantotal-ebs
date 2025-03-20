@@ -1,0 +1,23 @@
+create table FBC7B2
+(
+  bc7b2emp  NUMBER(3) not null,
+  bc7b2fec  DATE not null,
+  bc7b2bco  NUMBER(3) not null,
+  bc7b2sub  NUMBER(4) not null,
+  bc7b2oris CHAR(1) not null,
+  bc7b2reg  NUMBER(3) not null,
+  bc7b2rub  NUMBER(6) not null,
+  bc7b2noms CHAR(30),
+  bc7b2tip  CHAR(4),
+  bc7b2dir  CHAR(60),
+  bc7b2tel  CHAR(30),
+  bc7b2fax  CHAR(30),
+  bc7b2res  CHAR(30),
+  bc7b2car  NUMBER(3),
+  bc7b2oric CHAR(1),
+  bc7b2mto  NUMBER(14,2)
+)
+;
+alter table FBC7B2
+  add primary key (BC7B2EMP, BC7B2FEC, BC7B2BCO, BC7B2SUB, BC7B2ORIS, BC7B2REG, BC7B2RUB);
+

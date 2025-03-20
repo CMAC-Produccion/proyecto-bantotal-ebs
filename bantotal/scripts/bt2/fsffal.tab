@@ -1,0 +1,24 @@
+create table FSFFAL
+(
+  fsfaemp  NUMBER(3) not null,
+  fsfaanio NUMBER(4) not null,
+  fsfames  NUMBER(2) not null,
+  fsfapais NUMBER(3) not null,
+  fsfatdoc NUMBER(2) not null,
+  fsfadoc  CHAR(12) not null,
+  fsfatcap NUMBER(2),
+  fsfaacc1 NUMBER(15),
+  fsfaacc2 NUMBER(15),
+  fsfaacc3 NUMBER(15),
+  fsfanum1 NUMBER(15),
+  fsfanum2 NUMBER(15),
+  fsfatxt1 CHAR(30),
+  fsfatxt2 CHAR(30),
+  fsfaciiu NUMBER(4),
+  fsfatinv NUMBER(2)
+)
+;
+create index FSFFAL02 on FSFFAL (FSFAEMP, FSFAPAIS, FSFATDOC, FSFADOC, FSFAANIO, FSFAMES);
+alter table FSFFAL
+  add primary key (FSFAEMP, FSFAANIO, FSFAMES, FSFAPAIS, FSFATDOC, FSFADOC);
+

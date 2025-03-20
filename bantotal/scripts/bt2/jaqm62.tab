@@ -1,0 +1,54 @@
+create table JAQM62
+(
+  jaqm62cop CHAR(50) not null,
+  jaqm62cof NUMBER(3) not null,
+  jaqm62val VARCHAR2(255),
+  jaqm62an1 NUMBER(9),
+  jaqm62an2 NUMBER(9),
+  jaqm62an3 NUMBER(9),
+  jaqm62ac1 VARCHAR2(255),
+  jaqm62ac2 VARCHAR2(255),
+  jaqm62ac3 VARCHAR2(255),
+  jaqm62af1 DATE,
+  jaqm62af2 DATE,
+  jaqm62af3 DATE,
+  jaqm62ai1 NUMBER(17,2),
+  jaqm62ai2 NUMBER(17,2),
+  jaqm62ai3 NUMBER(17,2)
+)
+;
+comment on table JAQM62
+  is 'Módulo de Poderes Respuesta de Facultades';
+comment on column JAQM62.jaqm62cop
+  is 'Código de proceso';
+comment on column JAQM62.jaqm62cof
+  is 'Código de facultad';
+comment on column JAQM62.jaqm62val
+  is 'Valor';
+comment on column JAQM62.jaqm62an1
+  is 'Auxiliar numérico 1';
+comment on column JAQM62.jaqm62an2
+  is 'Auxiliar numérico 2';
+comment on column JAQM62.jaqm62an3
+  is 'Auxiliar numérico 3';
+comment on column JAQM62.jaqm62ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM62.jaqm62ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM62.jaqm62ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM62.jaqm62af1
+  is 'Auxiliar fecha 1';
+comment on column JAQM62.jaqm62af2
+  is 'Auxiliar fecha 2';
+comment on column JAQM62.jaqm62af3
+  is 'Auxiliar fecha 3';
+comment on column JAQM62.jaqm62ai1
+  is 'Auxiliar importe 1';
+comment on column JAQM62.jaqm62ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM62.jaqm62ai3
+  is 'Auxiliar importe 3';
+alter table JAQM62
+  add primary key (JAQM62COP, JAQM62COF);
+

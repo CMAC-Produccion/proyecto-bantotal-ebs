@@ -1,0 +1,39 @@
+create table JAQL656
+(
+  jaql656corre NUMBER(10) not null,
+  jaql656pgcod NUMBER(3) not null,
+  jaql656sucur NUMBER(3) not null,
+  jaql656modul NUMBER(3) not null,
+  jaql656trans NUMBER(3) not null,
+  jaql656relac NUMBER(4) not null,
+  jaql656fecvc DATE not null,
+  jaql656ctamo NUMBER(4),
+  jaql656monto NUMBER(17,2),
+  jaql656moned NUMBER(4),
+  jaql656femov DATE,
+  jaql656vouch CHAR(10),
+  jaql656cajco CHAR(3),
+  jaql656tesco CHAR(10),
+  jaql656tipop CHAR(12),
+  jaql656mvite NUMBER(10),
+  jaql656faper DATE,
+  jaql656buser CHAR(10),
+  jaql656asiet VARCHAR2(20),
+  jaql656rbant VARCHAR2(20),
+  jaql656auxc1 CHAR(60),
+  jaql656auxc2 CHAR(60),
+  jaql656auxc3 CHAR(60),
+  jaql656auxc4 NUMBER(17,2),
+  jaql656auxn1 NUMBER(17,2),
+  jaql656auxn2 NUMBER(17,2),
+  jaql656auxn3 NUMBER(17,2),
+  jaql656auxd1 DATE,
+  jaql656auxd2 DATE,
+  jaql656auxd3 DATE,
+  jaql656encaj CHAR(1),
+  jaql656sucba NUMBER(4)
+)
+;
+alter table JAQL656
+  add primary key (JAQL656CORRE, JAQL656PGCOD, JAQL656SUCUR, JAQL656MODUL, JAQL656TRANS, JAQL656RELAC, JAQL656FECVC);
+

@@ -1,0 +1,35 @@
+create table FBC132
+(
+  bc132emp   NUMBER(3) not null,
+  bc132inf   CHAR(10) not null,
+  bc132fch   DATE not null,
+  bc132cpo   CHAR(8) not null,
+  bc132id1   NUMBER(16) not null,
+  bc132id2   NUMBER(16) not null,
+  bc132id3   NUMBER(16) not null,
+  bc132id4   NUMBER(16) not null,
+  bc132id5   NUMBER(16) not null,
+  bc132id6   NUMBER(16) not null,
+  bc132id7   CHAR(30) not null,
+  bc132id8   CHAR(30) not null,
+  bc132imp1  NUMBER(17,2),
+  bc132imp2  NUMBER(17,2),
+  bc132imp3  NUMBER(17,2),
+  bc132imp4  NUMBER(17,2),
+  bc132nro1  NUMBER(16),
+  bc132nro2  NUMBER(16),
+  bc132nro3  NUMBER(16),
+  bc132nro4  NUMBER(16),
+  bc132fch1  DATE,
+  bc132fch2  DATE,
+  bc132fch3  DATE,
+  bc132chr1  CHAR(30),
+  bc132chr2  CHAR(40),
+  bc132chr3  CHAR(60),
+  bc132tasa1 NUMBER(10,6),
+  bc132tasa2 NUMBER(10,6)
+)
+;
+alter table FBC132
+  add primary key (BC132EMP, BC132INF, BC132FCH, BC132CPO, BC132ID1, BC132ID2, BC132ID3, BC132ID4, BC132ID5, BC132ID6, BC132ID7, BC132ID8);
+

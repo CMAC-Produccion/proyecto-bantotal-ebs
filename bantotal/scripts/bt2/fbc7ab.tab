@@ -1,0 +1,38 @@
+create table FBC7AB
+(
+  bc7abemp   NUMBER(3) not null,
+  bc7abmod   NUMBER(3) not null,
+  bc7absuc   NUMBER(3) not null,
+  bc7abmda   NUMBER(4) not null,
+  bc7abpap   NUMBER(4) not null,
+  bc7abcta   NUMBER(9) not null,
+  bc7aboper  NUMBER(9) not null,
+  bc7absbop  NUMBER(3) not null,
+  bc7abtope  NUMBER(3) not null,
+  bc7abfch   DATE not null,
+  bc7abidbco CHAR(3),
+  bc7abndoc  CHAR(45),
+  bc7abfide  CHAR(30),
+  bc7abidfid CHAR(3),
+  bc7abogar  CHAR(1),
+  bc7abtgar  CHAR(4),
+  bc7abdgar  CHAR(30),
+  bc7abnorg  CHAR(3),
+  bc7abvini  NUMBER(14,2),
+  bc7abvlib  NUMBER(14,2),
+  bc7abidif  CHAR(2),
+  bc7abidem  CHAR(2),
+  bc7abidemi CHAR(2),
+  bc7abpais  CHAR(3),
+  bc7abfula  DATE,
+  bc7abfvto  DATE,
+  bc7absmn   NUMBER(14,2),
+  bc7absmo   NUMBER(14,2),
+  bc7abrubr  NUMBER(16)
+)
+;
+create index FBC7AB02 on FBC7AB (BC7ABFCH, BC7ABEMP, BC7ABMOD, BC7ABTOPE, BC7ABSUC);
+create index FBC7AB03 on FBC7AB (BC7ABEMP, BC7ABFCH, BC7ABIDBCO);
+alter table FBC7AB
+  add primary key (BC7ABEMP, BC7ABMOD, BC7ABSUC, BC7ABMDA, BC7ABPAP, BC7ABCTA, BC7ABOPER, BC7ABSBOP, BC7ABTOPE, BC7ABFCH);
+

@@ -1,0 +1,14 @@
+create table FCT006
+(
+  pgcod      NUMBER(3) not null,
+  modulo     NUMBER(3) not null,
+  doctip     NUMBER(3) not null,
+  docnom     CHAR(30),
+  doccntori  NUMBER(2),
+  doccntcopi NUMBER(2)
+)
+;
+create index FCT00602 on FCT006 (MODULO);
+alter table FCT006
+  add primary key (PGCOD, MODULO, DOCTIP);
+

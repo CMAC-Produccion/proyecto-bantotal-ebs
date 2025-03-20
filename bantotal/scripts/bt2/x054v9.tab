@@ -1,0 +1,35 @@
+create table X054V9
+(
+  x054v9fch  CHAR(6) not null,
+  x054v9hra  NUMBER(4) not null,
+  x054v9idr  NUMBER(1) not null,
+  x054v9con  NUMBER(15) not null,
+  x054v9doc  NUMBER(15) not null,
+  x054v9trn  NUMBER(2),
+  x054v9ede  NUMBER(8),
+  x054v9res  CHAR(1),
+  x054v9cde  NUMBER(17),
+  x054v9imp  NUMBER(10),
+  x054v9cop  CHAR(6),
+  x054v9int  CHAR(16),
+  x054v9inf  CHAR(2),
+  x054v9rea  NUMBER(1),
+  x054v9emp  NUMBER(3),
+  x054v9suc  NUMBER(3),
+  x054v9mod  NUMBER(3),
+  x054v9tra  NUMBER(3),
+  x054v9rel  NUMBER(4),
+  x054v9fco  DATE,
+  x054v9mtcd NUMBER(3),
+  x054v9dvnr NUMBER(3),
+  x054v9env  CHAR(1),
+  x054v9n001 NUMBER(5),
+  x054v9n002 NUMBER(5),
+  x054v9c001 CHAR(5),
+  x054v9c002 CHAR(5)
+)
+;
+create index X054V902 on X054V9 (X054V9FCO);
+alter table X054V9
+  add primary key (X054V9FCH, X054V9HRA, X054V9IDR, X054V9CON, X054V9DOC);
+

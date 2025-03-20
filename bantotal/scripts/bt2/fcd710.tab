@@ -1,0 +1,16 @@
+create table FCD710
+(
+  fcd710cod  NUMBER(3) not null,
+  fcd710mod  NUMBER(3) not null,
+  fcd710tran NUMBER(3) not null,
+  fcd710nrel NUMBER(4) not null,
+  fcd710suc  NUMBER(3) not null,
+  fcd710nreq NUMBER(9),
+  fcd710est  CHAR(1),
+  fcd710fec  DATE,
+  fcd710cta  NUMBER(9)
+)
+;
+alter table FCD710
+  add primary key (FCD710COD, FCD710MOD, FCD710TRAN, FCD710NREL, FCD710SUC);
+

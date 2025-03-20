@@ -1,0 +1,17 @@
+create table BEC011
+(
+  becprdid   NUMBER(10) not null,
+  becmodid   NUMBER(10) not null,
+  becsrvid   NUMBER(10) not null,
+  becsrvnom  CHAR(30),
+  becsrvmto  CHAR(1),
+  becsrvniv  NUMBER(10),
+  becsrvlog  CHAR(1),
+  becsrvseg  CHAR(1),
+  becsrvmail CHAR(1),
+  becsrvsncf DATE
+)
+;
+alter table BEC011
+  add primary key (BECPRDID, BECMODID, BECSRVID);
+

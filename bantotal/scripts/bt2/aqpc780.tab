@@ -1,0 +1,53 @@
+create table AQPC780
+(
+  aqpc780corr   NUMBER(17) not null,
+  aqpc780memo   VARCHAR2(20),
+  aqpc780nomrgl VARCHAR2(30),
+  aqpc780consql VARCHAR2(500),
+  aqpc780numpar NUMBER(3),
+  aqpc780nomvar VARCHAR2(40),
+  aqpc780grpreg VARCHAR2(20),
+  aqpc780numrgl NUMBER(5),
+  aqpc780mgbloq VARCHAR2(300),
+  aqpc780estado VARCHAR2(1),
+  aqpc780tprepr NUMBER(3),
+  aqpc780usureg VARCHAR2(10),
+  aqpc780fchreg DATE,
+  aqpc780horreg VARCHAR2(8)
+)
+;
+comment on table AQPC780
+  is 'Memo';
+comment on column AQPC780.aqpc780corr
+  is 'Correlativo';
+comment on column AQPC780.aqpc780memo
+  is 'Memo';
+comment on column AQPC780.aqpc780nomrgl
+  is 'Nombre de la Regla';
+comment on column AQPC780.aqpc780consql
+  is 'Consulta SQL';
+comment on column AQPC780.aqpc780numpar
+  is 'N?mero de Parametros';
+comment on column AQPC780.aqpc780nomvar
+  is 'Nombre de la Variable de la RNG';
+comment on column AQPC780.aqpc780grpreg
+  is 'Grupo Regla';
+comment on column AQPC780.aqpc780numrgl
+  is 'Número de Regla';
+comment on column AQPC780.aqpc780mgbloq
+  is 'Mensaje Bloqueante';
+comment on column AQPC780.aqpc780estado
+  is 'Estado';
+comment on column AQPC780.aqpc780tprepr
+  is 'Tipo Reprogramación';
+comment on column AQPC780.aqpc780usureg
+  is 'Usuario Registro';
+comment on column AQPC780.aqpc780fchreg
+  is 'Fecha Registro';
+comment on column AQPC780.aqpc780horreg
+  is 'Hora Registro';
+create index AQPC780A2 on AQPC780 (AQPC780MEMO, AQPC780NOMRGL);
+create index AQPC780A3 on AQPC780 (AQPC780MEMO, AQPC780GRPREG);
+alter table AQPC780
+  add primary key (AQPC780CORR);
+

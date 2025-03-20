@@ -1,0 +1,39 @@
+create table ICD001
+(
+  pgcod      NUMBER(3) not null,
+  infwid     NUMBER(5) not null,
+  infwusrid  CHAR(10) not null,
+  infwlinnro NUMBER(9) not null,
+  infwoper   NUMBER(9),
+  infwsboper NUMBER(3),
+  infwati01  CHAR(35),
+  infwati02  CHAR(35),
+  infwati03  CHAR(35),
+  infwati04  CHAR(35),
+  infwati05  CHAR(35),
+  infwati06  CHAR(35),
+  infwati07  CHAR(35),
+  infwati08  CHAR(35),
+  infwati09  CHAR(35),
+  infwati10  CHAR(35),
+  infwati11  CHAR(35),
+  infwati12  CHAR(35),
+  infwati13  CHAR(35),
+  infwati14  CHAR(35),
+  infwati15  CHAR(35),
+  infwati16  CHAR(35),
+  infwati17  CHAR(35),
+  infwati18  CHAR(35),
+  infwati19  CHAR(35),
+  infwati20  CHAR(35),
+  infwati21  CHAR(35),
+  infwati22  CHAR(35),
+  infwati23  CHAR(35),
+  infwati24  CHAR(35),
+  infwati25  CHAR(35)
+)
+;
+create index ICD00103 on ICD001 (PGCOD, INFWID, INFWUSRID, INFWATI01, INFWATI02, INFWATI03, INFWATI04, INFWATI05, INFWATI06, INFWATI07, INFWATI08, INFWATI09, INFWATI10, INFWATI11, INFWATI12);
+alter table ICD001
+  add primary key (PGCOD, INFWID, INFWUSRID, INFWLINNRO);
+

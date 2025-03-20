@@ -1,0 +1,14 @@
+create table JFAW29
+(
+  jfaw29corr NUMBER(4) not null,
+  jfaw29cta  NUMBER(9) not null,
+  jfaw29fec  DATE,
+  jfaw29hra  CHAR(8),
+  jfaw29txt  VARCHAR2(400),
+  jfaw29usu  CHAR(10)
+)
+;
+create index JFAW2902 on JFAW29 (JFAW29FEC);
+alter table JFAW29
+  add primary key (JFAW29CORR, JFAW29CTA);
+

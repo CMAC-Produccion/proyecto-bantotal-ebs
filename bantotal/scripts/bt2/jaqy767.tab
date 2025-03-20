@@ -1,0 +1,97 @@
+create table JAQY767
+(
+  jaqy767cor    NUMBER(18),
+  jaqy767reg    VARCHAR2(40),
+  jaqy767agen   VARCHAR2(30),
+  jaqy767ncre   VARCHAR2(30),
+  jaqy767cli    VARCHAR2(30),
+  jaqy767doc    VARCHAR2(12),
+  jaqy767fnac   DATE,
+  jaqy767ana    VARCHAR2(50),
+  jaqy767tcre   VARCHAR2(40),
+  jaqy767mdad   VARCHAR2(30),
+  jaqy767mtod   NUMBER(18,2),
+  jaqy767fecde  DATE,
+  jaqy767feccan DATE,
+  jaqy767pdia   NUMBER(5),
+  jaqy767pmes   NUMBER(10),
+  jaqy767tpza   VARCHAR2(40),
+  jaqy767pgcod  NUMBER(3) not null,
+  jaqy767mod    NUMBER(3),
+  jaqy767suc    NUMBER(3),
+  jaqy767mda    NUMBER(4),
+  jaqy767pap    NUMBER(4),
+  jaqy767cta    NUMBER(9),
+  jaqy767oper   NUMBER(9),
+  jaqy767sbop   NUMBER(3),
+  jaqy767tope   NUMBER(3),
+  jaqy767codreg NUMBER(3),
+  jaqy767codsuc NUMBER(3),
+  jaqy767usulog CHAR(10),
+  jaqy767nroip  VARCHAR2(20),
+  jaqy767fecpro DATE
+)
+;
+comment on column JAQY767.jaqy767cor
+  is 'Correlativo';
+comment on column JAQY767.jaqy767reg
+  is 'Nombre de Región';
+comment on column JAQY767.jaqy767agen
+  is 'Nombre de Agencia';
+comment on column JAQY767.jaqy767ncre
+  is 'Número de Crédito';
+comment on column JAQY767.jaqy767cli
+  is 'Nombre del Cliente';
+comment on column JAQY767.jaqy767doc
+  is 'Nro de Documento DNI/RUC';
+comment on column JAQY767.jaqy767fnac
+  is 'Fecha de Nacimiento';
+comment on column JAQY767.jaqy767ana
+  is 'Nombre del Analista';
+comment on column JAQY767.jaqy767tcre
+  is 'Tipo de Crédito: Consumo, Pequeña, Microempresa';
+comment on column JAQY767.jaqy767mdad
+  is 'Moneda de Desembolso';
+comment on column JAQY767.jaqy767mtod
+  is 'Monto Desembolsado';
+comment on column JAQY767.jaqy767fecde
+  is 'Fecha del Desembolso';
+comment on column JAQY767.jaqy767feccan
+  is 'Fecha de Cancelación';
+comment on column JAQY767.jaqy767pdia
+  is 'Periodo en Días';
+comment on column JAQY767.jaqy767pmes
+  is 'Periodo en Meses';
+comment on column JAQY767.jaqy767tpza
+  is 'Tipo de Poliza:interna, Externa';
+comment on column JAQY767.jaqy767pgcod
+  is 'Pgcod';
+comment on column JAQY767.jaqy767mod
+  is 'Módulo';
+comment on column JAQY767.jaqy767suc
+  is 'sucursal';
+comment on column JAQY767.jaqy767mda
+  is 'Moneda';
+comment on column JAQY767.jaqy767pap
+  is 'Papel';
+comment on column JAQY767.jaqy767cta
+  is 'Cuenta';
+comment on column JAQY767.jaqy767oper
+  is 'Operación';
+comment on column JAQY767.jaqy767sbop
+  is 'Suboperación';
+comment on column JAQY767.jaqy767tope
+  is 'Tipo de Operación';
+comment on column JAQY767.jaqy767codreg
+  is 'Código de Región';
+comment on column JAQY767.jaqy767codsuc
+  is 'Código de Sucursal';
+comment on column JAQY767.jaqy767usulog
+  is 'Código de Usuario';
+comment on column JAQY767.jaqy767nroip
+  is 'Nro de IP de la  PC';
+comment on column JAQY767.jaqy767fecpro
+  is 'Fecha de Proceso';
+create index JAQY767_1 on JAQY767 (JAQY767FECCAN, JAQY767USULOG);
+create index JAQY767_2 on JAQY767 (JAQY767USULOG, JAQY767FECPRO, JAQY767PGCOD, JAQY767MOD, JAQY767SUC, JAQY767MDA, JAQY767PAP, JAQY767CTA, JAQY767OPER, JAQY767SBOP, JAQY767TOPE);
+

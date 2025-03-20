@@ -1,0 +1,22 @@
+create table FST180
+(
+  t180pgcod  NUMBER(3) not null,
+  t180canal  NUMBER(5) not null,
+  t180cands  CHAR(40),
+  t180candsr CHAR(15),
+  t180ansuc  CHAR(1),
+  t180anmod  CHAR(1),
+  t180antrn  CHAR(1),
+  t180anrub  CHAR(1),
+  t180stsvig CHAR(1),
+  t180an01   CHAR(1),
+  t180an02   CHAR(1),
+  t180an03   CHAR(1),
+  t180auxn1  NUMBER(3),
+  t180auxn2  NUMBER(9),
+  t180auxn3  NUMBER(16)
+)
+;
+alter table FST180
+  add primary key (T180PGCOD, T180CANAL);
+

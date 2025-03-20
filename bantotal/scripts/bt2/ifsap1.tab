@@ -1,0 +1,14 @@
+create table IFSAP1
+(
+  ifsap1apl NUMBER(4) not null,
+  ifsap1ban CHAR(5) not null,
+  ifsap0tpo CHAR(5),
+  ifsap1pgg CHAR(10),
+  ifsap1tbl CHAR(10),
+  ifsap1pth CHAR(40)
+)
+;
+create index IFSAP101 on IFSAP1 (IFSAP0TPO);
+alter table IFSAP1
+  add primary key (IFSAP1APL, IFSAP1BAN);
+

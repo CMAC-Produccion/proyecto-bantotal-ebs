@@ -1,0 +1,43 @@
+create table SD4340
+(
+  sd40coddis NUMBER(4) not null,
+  sd40codent NUMBER(5) not null,
+  sd40fchinf NUMBER(6) not null,
+  sd40tpoid  NUMBER(2) not null,
+  sd40nroid  CHAR(11) not null,
+  sd40finiub NUMBER(8),
+  sd40fcieub NUMBER(8),
+  sd40totact NUMBER(14),
+  sd40actcor NUMBER(12),
+  sd40bscc   NUMBER(12),
+  sd40bscnc  NUMBER(12),
+  sd40totcr1 NUMBER(12),
+  sd40totcr2 NUMBER(12),
+  sd40totpas NUMBER(14),
+  sd40pascor NUMBER(12),
+  sd40ctap1  NUMBER(12),
+  sd40ctap2  NUMBER(12),
+  sd40resasi NUMBER(12),
+  sd40patnet NUMBER(14),
+  sd40oapat  NUMBER(14),
+  sd40ganper NUMBER(12),
+  sd40resfyt NUMBER(12),
+  sd40imgan  NUMBER(12),
+  sd40dirsac NUMBER(12),
+  sd40fasam  NUMBER(8),
+  sd40vsnet  NUMBER(12),
+  sd40rbrut  NUMBER(12),
+  sd40rextr  NUMBER(12),
+  sd40rniag  NUMBER(12),
+  sd40irev   NUMBER(12),
+  sd40cappen NUMBER(12),
+  sd40tipbce NUMBER(1),
+  sd40cantpe NUMBER(6),
+  sd40conjec NUMBER(1),
+  sd40titend NUMBER(1),
+  sd40rectif CHAR(1)
+)
+;
+alter table SD4340
+  add primary key (SD40CODDIS, SD40CODENT, SD40FCHINF, SD40TPOID, SD40NROID);
+

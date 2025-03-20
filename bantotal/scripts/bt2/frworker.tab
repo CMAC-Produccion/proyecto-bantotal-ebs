@@ -1,0 +1,13 @@
+create table FRWORKER
+(
+  frwrksrvse VARCHAR2(40) not null,
+  frwrksrvpr NUMBER(5) not null,
+  frwrksrvke DATE,
+  frwrksrvdo DATE,
+  frwrksrvlo NUMBER(7,2),
+  frwrksrvis NUMBER(1),
+  frwrksrvca VARCHAR2(255)
+)
+;
+create index FRWORK02 on FRWORKER (FRWRKSRVLO, FRWRKSRVIS);
+

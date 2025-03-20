@@ -1,0 +1,261 @@
+create table AQPB515
+(
+  aqpb515serial NUMBER(10) not null,
+  aqpb515feenv  DATE not null,
+  aqpb515hoenv  CHAR(8) not null,
+  aqpb515ticon  CHAR(2),
+  aqpb515cosbs  CHAR(15),
+  aqpb515uspgc  NUMBER(3),
+  aqpb515ussuc  NUMBER(3),
+  aqpb515uscod  CHAR(10),
+  aqpb515tiper  CHAR(1),
+  aqpb515tidoe  NUMBER(4),
+  aqpb515tidob  NUMBER(4),
+  aqpb515nudoc  CHAR(12),
+  aqpb515nuope  VARCHAR2(20),
+  aqpb515ticre  VARCHAR2(20),
+  aqpb515ticrb  VARCHAR2(20),
+  aqpb515secrb  NUMBER(4),
+  aqpb515crpgc  NUMBER(4),
+  aqpb515crsuc  NUMBER(4),
+  aqpb515crmod  NUMBER(4),
+  aqpb515crmda  NUMBER(4),
+  aqpb515crpap  NUMBER(4),
+  aqpb515crcta  NUMBER(4),
+  aqpb515crope  NUMBER(4),
+  aqpb515crsbo  NUMBER(4),
+  aqpb515crtop  NUMBER(4),
+  aqpb515insta  NUMBER(10),
+  aqpb515nuint  NUMBER(4),
+  aqpb515nombr  VARCHAR2(100),
+  aqpb515noban  NUMBER(4),
+  aqpb515corep  NUMBER(4),
+  aqpb515nuopr  NUMBER(4),
+  aqpb515xmlre  CLOB,
+  aqpb515coret  CHAR(2),
+  aqpb515accio  VARCHAR2(15),
+  aqpb515coerr  CHAR(5),
+  aqpb515tires  NUMBER(11,4),
+  aqpb515estad  CHAR(1),
+  aqpb515score  NUMBER(9,2),
+  aqpb515mserr  VARCHAR2(1000),
+  aqpb515fenac  DATE,
+  aqpb515gener  VARCHAR2(1),
+  aqpb515ciuda  VARCHAR2(50),
+  aqpb515depar  VARCHAR2(50),
+  aqpb515estid  VARCHAR2(2),
+  aqpb515nocom  VARCHAR2(50),
+  aqpb515fenua  DATE,
+  aqpb515escon  VARCHAR2(30),
+  aqpb515depen  VARCHAR2(30),
+  aqpb515cciuu  VARCHAR2(30),
+  aqpb515tcont  VARCHAR2(50),
+  aqpb515fealt  DATE,
+  aqpb515respp  VARCHAR2(1000),
+  aqpb515auxc4  VARCHAR2(100),
+  aqpb515auxc5  VARCHAR2(100),
+  aqpb515auxc6  VARCHAR2(100),
+  aqpb515auxc7  VARCHAR2(100),
+  aqpb515auxc8  VARCHAR2(100),
+  aqpb515auxc9  VARCHAR2(100),
+  aqpb515aux10  VARCHAR2(100),
+  aqpb515secto  NUMBER(6),
+  aqpb515xmlpf  VARCHAR2(4000),
+  aqpb515rasoc  VARCHAR2(100),
+  aqpb515nuruc  VARCHAR2(20),
+  aqpb515nucon  NUMBER(10),
+  aqpb515nroope VARCHAR2(16),
+  aqpb515precod VARCHAR2(10) not null,
+  aqpb515pdonro VARCHAR2(20) not null,
+  aqpb515pdotip VARCHAR2(1) not null,
+  aqpb515ppetip VARCHAR2(1) not null,
+  aqpb515clidoc VARCHAR2(20),
+  aqpb515clinom VARCHAR2(300),
+  aqpb515clidir VARCHAR2(300),
+  aqpb515horini VARCHAR2(20),
+  aqpb515horfin VARCHAR2(20),
+  aqpb515hordif VARCHAR2(20),
+  aqpb515rescod VARCHAR2(5),
+  aqpb515resmsg VARCHAR2(2000),
+  aqpb515concod VARCHAR2(16) not null,
+  aqpb515crefec DATE not null,
+  aqpb515crehor VARCHAR2(8) not null,
+  aqpb515creusr VARCHAR2(30) not null,
+  aqpb515cresuc NUMBER(3) not null,
+  aqpb515cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+compress;
+comment on table AQPB515
+  is 'LOG DE CONSULTA - EQUIFAX';
+comment on column AQPB515.aqpb515serial
+  is 'SERIAL';
+comment on column AQPB515.aqpb515feenv
+  is 'FECHA';
+comment on column AQPB515.aqpb515hoenv
+  is 'HORA ENVIO';
+comment on column AQPB515.aqpb515ticon
+  is 'TIPO';
+comment on column AQPB515.aqpb515cosbs
+  is 'DESCRICION SBS';
+comment on column AQPB515.aqpb515uspgc
+  is 'EMPRESA';
+comment on column AQPB515.aqpb515ussuc
+  is 'SUCURSAL';
+comment on column AQPB515.aqpb515uscod
+  is 'CODIGO';
+comment on column AQPB515.aqpb515tiper
+  is 'TIPO PERSONA';
+comment on column AQPB515.aqpb515tidoe
+  is 'TIPO DE DOCUMENTO ';
+comment on column AQPB515.aqpb515tidob
+  is 'TIPO';
+comment on column AQPB515.aqpb515nudoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPB515.aqpb515nuope
+  is 'OPERACIÓN';
+comment on column AQPB515.aqpb515ticre
+  is 'TIPO DE CREDITO';
+comment on column AQPB515.aqpb515ticrb
+  is 'TIPO CREDITO';
+comment on column AQPB515.aqpb515secrb
+  is 'SECTOR';
+comment on column AQPB515.aqpb515crpgc
+  is 'EMPRESA';
+comment on column AQPB515.aqpb515crsuc
+  is 'SUCURSAL';
+comment on column AQPB515.aqpb515crmod
+  is 'MODULO';
+comment on column AQPB515.aqpb515crmda
+  is 'MONEDA';
+comment on column AQPB515.aqpb515crpap
+  is 'PAPEL';
+comment on column AQPB515.aqpb515crcta
+  is 'CUENTA';
+comment on column AQPB515.aqpb515crope
+  is 'CREDITOS OPERACIÓN';
+comment on column AQPB515.aqpb515crsbo
+  is 'SUB OPERACIÓN';
+comment on column AQPB515.aqpb515crtop
+  is 'TIPO OPERACIÓN';
+comment on column AQPB515.aqpb515insta
+  is 'INSTANCIA';
+comment on column AQPB515.aqpb515nuint
+  is 'INDICADOR ';
+comment on column AQPB515.aqpb515nombr
+  is 'NOMBRE CLIENTE';
+comment on column AQPB515.aqpb515noban
+  is 'NUMERO BAN';
+comment on column AQPB515.aqpb515corep
+  is 'CORRELATIVO';
+comment on column AQPB515.aqpb515nuopr
+  is 'NUMERO PR';
+comment on column AQPB515.aqpb515xmlre
+  is 'TRAMA';
+comment on column AQPB515.aqpb515coret
+  is 'CORRELATIVO';
+comment on column AQPB515.aqpb515accio
+  is 'ACCION';
+comment on column AQPB515.aqpb515coerr
+  is 'ERROR';
+comment on column AQPB515.aqpb515tires
+  is 'TIRES';
+comment on column AQPB515.aqpb515estad
+  is 'ESTADO';
+comment on column AQPB515.aqpb515score
+  is 'CORRELATIVO';
+comment on column AQPB515.aqpb515mserr
+  is 'ERROR';
+comment on column AQPB515.aqpb515fenac
+  is 'FECHA';
+comment on column AQPB515.aqpb515gener
+  is 'GENERAR';
+comment on column AQPB515.aqpb515ciuda
+  is 'CIUDAD';
+comment on column AQPB515.aqpb515depar
+  is 'DEPARTAMENTO';
+comment on column AQPB515.aqpb515estid
+  is 'ESTADO';
+comment on column AQPB515.aqpb515nocom
+  is 'NOMBRE';
+comment on column AQPB515.aqpb515fenua
+  is 'FECHA';
+comment on column AQPB515.aqpb515escon
+  is 'ESTADO';
+comment on column AQPB515.aqpb515depen
+  is 'DEPENDENCIA';
+comment on column AQPB515.aqpb515cciuu
+  is 'CIUU';
+comment on column AQPB515.aqpb515tcont
+  is 'CONTABILIZADO';
+comment on column AQPB515.aqpb515fealt
+  is 'FECHA';
+comment on column AQPB515.aqpb515respp
+  is 'RESPP';
+comment on column AQPB515.aqpb515auxc4
+  is 'AUXILIAR';
+comment on column AQPB515.aqpb515auxc5
+  is 'AUXILIAR';
+comment on column AQPB515.aqpb515auxc6
+  is 'AUXILIAR';
+comment on column AQPB515.aqpb515auxc7
+  is 'AUXILIAR';
+comment on column AQPB515.aqpb515auxc8
+  is 'AUXILIAR';
+comment on column AQPB515.aqpb515auxc9
+  is 'AUXILIAR';
+comment on column AQPB515.aqpb515aux10
+  is 'AUXILIAR';
+comment on column AQPB515.aqpb515secto
+  is 'SECTOR';
+comment on column AQPB515.aqpb515xmlpf
+  is 'XML';
+comment on column AQPB515.aqpb515rasoc
+  is 'RAZON SOCIAL';
+comment on column AQPB515.aqpb515nuruc
+  is 'NRO RUC';
+comment on column AQPB515.aqpb515nucon
+  is 'NUMERO DE CONSULTA';
+comment on column AQPB515.aqpb515nroope
+  is 'NUMERO DE OPERACIÓN';
+comment on column AQPB515.aqpb515precod
+  is 'PARAM REP CODIGO';
+comment on column AQPB515.aqpb515pdonro
+  is 'PARAM DOC NUMERO';
+comment on column AQPB515.aqpb515pdotip
+  is 'PARAM DOC TIPO';
+comment on column AQPB515.aqpb515ppetip
+  is 'PARAM PERSONA TIPO';
+comment on column AQPB515.aqpb515clidoc
+  is 'DOCUMENTO CONSULTA';
+comment on column AQPB515.aqpb515clinom
+  is 'CLIENTE CONSULTA';
+comment on column AQPB515.aqpb515clidir
+  is 'CLIENTE DIRECCION';
+comment on column AQPB515.aqpb515horini
+  is 'CONSULTA - HORA INICIO';
+comment on column AQPB515.aqpb515horfin
+  is 'CONSULTA - HORA FIN';
+comment on column AQPB515.aqpb515hordif
+  is 'CONSULTA - HORA DIFERENCIA';
+comment on column AQPB515.aqpb515rescod
+  is 'RESPUESTA - CODIGO';
+comment on column AQPB515.aqpb515resmsg
+  is 'RESPUESTA - MENSAJE';
+comment on column AQPB515.aqpb515concod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515.aqpb515crefec
+  is 'CONSULTA - FECHA';
+comment on column AQPB515.aqpb515crehor
+  is 'CONSULTA - HORA';
+comment on column AQPB515.aqpb515creusr
+  is 'CONSULTA - USUARIO';
+comment on column AQPB515.aqpb515cresuc
+  is 'CONSULTA - SUCURSAL';
+comment on column AQPB515.aqpb515cretim
+  is 'CONSULTA - TIMESTAMP';
+create index AQPB515A2 on AQPB515 (AQPB515COERR);
+create unique index AQPB51500 on AQPB515 (AQPB515SERIAL, AQPB515FEENV, AQPB515HOENV, AQPB515CONCOD, AQPB515CREUSR)
+  compress 4;
+alter table AQPB515
+  add constraint AQPB515PK primary key (AQPB515SERIAL, AQPB515FEENV, AQPB515HOENV, AQPB515CONCOD, AQPB515CREUSR);
+

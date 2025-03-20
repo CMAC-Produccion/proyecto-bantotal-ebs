@@ -1,0 +1,24 @@
+create table IARBAS
+(
+  iarbasfdes DATE not null,
+  iarbasfhas DATE not null,
+  iarbascuit CHAR(12) not null,
+  iarbasfpub DATE,
+  iarbastpco CHAR(1),
+  iarbasalba CHAR(1),
+  iarbascaal CHAR(1),
+  iarbasali  NUMBER(4,2),
+  iarbasreta NUMBER(3,2),
+  iarbasngrp NUMBER(2),
+  iarbasretn NUMBER(2),
+  iarbasaux  NUMBER(17,2),
+  iarbasau1  NUMBER(9),
+  iarbasau2  DATE,
+  iarbasau3  CHAR(60),
+  iarbasau4  CHAR(5)
+)
+;
+create index IARBAS2 on IARBAS (IARBASCUIT, IARBASFDES, IARBASFHAS);
+alter table IARBAS
+  add primary key (IARBASFDES, IARBASFHAS, IARBASCUIT);
+

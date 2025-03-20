@@ -1,0 +1,31 @@
+create table FSFFB8
+(
+  dtzadusu CHAR(10) not null,
+  dtzadfch DATE not null,
+  dtzadren NUMBER(9) not null,
+  dtzadneg NUMBER(9),
+  dtzademp NUMBER(3),
+  dtzadrub NUMBER(16),
+  dtzadcta NUMBER(9),
+  dtzadfmo DATE,
+  dtzadope NUMBER(9),
+  dtzadref CHAR(30),
+  dtzadmda NUMBER(4),
+  dtzaddeb NUMBER(17,2),
+  dtzadcre NUMBER(17,2),
+  dtzadsal NUMBER(17,2),
+  dtzadest NUMBER(1),
+  dtzada01 NUMBER(9),
+  dtzada02 NUMBER(9),
+  dtzada03 NUMBER(17,2),
+  dtzada04 NUMBER(17,2),
+  dtzada05 DATE,
+  dtzada06 DATE,
+  dtzada07 CHAR(30),
+  dtzada08 CHAR(30)
+)
+;
+create index FSFFB802 on FSFFB8 (DTZADUSU, DTZADFCH, DTZADEST, DTZADEMP, DTZADRUB, DTZADCTA, DTZADOPE, DTZADFMO);
+alter table FSFFB8
+  add primary key (DTZADUSU, DTZADFCH, DTZADREN);
+

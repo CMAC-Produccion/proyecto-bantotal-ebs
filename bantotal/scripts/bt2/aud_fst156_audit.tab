@@ -1,0 +1,31 @@
+create table AUD_FST156_AUDIT
+(
+  aud_old_agtecod    NUMBER(7),
+  aud_new_agtecod    NUMBER(7),
+  aud_old_agtenom    CHAR(30),
+  aud_new_agtenom    CHAR(30),
+  aud_old_agtests    CHAR(1),
+  aud_new_agtests    CHAR(1),
+  aud_old_agtesuc    NUMBER(3),
+  aud_new_agtesuc    NUMBER(3),
+  aud_old_agtetip    CHAR(1),
+  aud_new_agtetip    CHAR(1),
+  aud_old_agteusr    CHAR(10),
+  aud_new_agteusr    CHAR(10),
+  aud_old_cargocod   NUMBER(3),
+  aud_new_cargocod   NUMBER(3),
+  aud_fst156_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst156_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst156_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst156_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst156_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst156_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst156_ubu     VARCHAR2(50) default USER not null,
+  aud_fst156_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst156_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst156_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst156_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst156_uas     CHAR(1) default 'I' not null
+)
+;
+

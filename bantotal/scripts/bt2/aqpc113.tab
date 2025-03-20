@@ -1,0 +1,69 @@
+create table AQPC113
+(
+  aqpc113codusu VARCHAR2(20) not null,
+  aqpc113tipo   CHAR(1) not null,
+  aqpc113corr   NUMBER(10) not null,
+  aqpc113codint VARCHAR2(20),
+  aqpc113dpto   VARCHAR2(40),
+  aqpc113prov   VARCHAR2(40),
+  aqpc113dist   VARCHAR2(40),
+  aqpc113depcod NUMBER(5),
+  aqpc113loccod NUMBER(5),
+  aqpc113coddis NUMBER(9),
+  aqpc113nomcom VARCHAR2(100),
+  aqpc113direcc VARCHAR2(1000),
+  aqpc113lati   NUMBER(17,14),
+  aqpc113long   NUMBER(17,14),
+  aqpc113propie VARCHAR2(200),
+  aqpc113tipdoc VARCHAR2(5),
+  aqpc113numdoc VARCHAR2(20),
+  aqpc113agrega VARCHAR2(40),
+  aqpc113tipcaj VARCHAR2(40),
+  aqpc113numcaj NUMBER(4)
+)
+;
+comment on table AQPC113
+  is 'Data Reporte 30 SBS';
+comment on column AQPC113.aqpc113codusu
+  is 'Codigo Usuario';
+comment on column AQPC113.aqpc113tipo
+  is 'Tipo de datos';
+comment on column AQPC113.aqpc113corr
+  is 'Correlativo';
+comment on column AQPC113.aqpc113codint
+  is 'Código Interno';
+comment on column AQPC113.aqpc113dpto
+  is 'Departamento';
+comment on column AQPC113.aqpc113prov
+  is 'Provincia';
+comment on column AQPC113.aqpc113dist
+  is 'Distrito';
+comment on column AQPC113.aqpc113depcod
+  is 'Código Departamento';
+comment on column AQPC113.aqpc113loccod
+  is 'Código Provincia';
+comment on column AQPC113.aqpc113coddis
+  is 'Código Distrito';
+comment on column AQPC113.aqpc113nomcom
+  is 'Nombre Comercial del Establecimiento';
+comment on column AQPC113.aqpc113direcc
+  is 'Dirección';
+comment on column AQPC113.aqpc113lati
+  is 'Latitud';
+comment on column AQPC113.aqpc113long
+  is 'Longitud';
+comment on column AQPC113.aqpc113propie
+  is 'Nombre Propietario';
+comment on column AQPC113.aqpc113tipdoc
+  is 'Tipo de Documento';
+comment on column AQPC113.aqpc113numdoc
+  is 'Número de Documento';
+comment on column AQPC113.aqpc113agrega
+  is 'Agregador de Operadores';
+comment on column AQPC113.aqpc113tipcaj
+  is 'Tipo de Cajero';
+comment on column AQPC113.aqpc113numcaj
+  is 'Número de Cajeros Corresponsales asignados';
+alter table AQPC113
+  add primary key (AQPC113CODUSU, AQPC113TIPO, AQPC113CORR);
+

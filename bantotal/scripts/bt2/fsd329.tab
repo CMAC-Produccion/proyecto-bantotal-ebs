@@ -1,0 +1,25 @@
+create table FSD329
+(
+  cv9cod  NUMBER(3) not null,
+  cv9suc  NUMBER(3) not null,
+  cv9mda  NUMBER(4) not null,
+  cv9pap  NUMBER(4) not null,
+  cv9cta  NUMBER(9) not null,
+  cv9sbop NUMBER(3) not null,
+  cv9pais NUMBER(3) not null,
+  cv9tdoc NUMBER(2) not null,
+  cv9ndoc CHAR(12) not null,
+  cv9rub  NUMBER(16),
+  cv9oper NUMBER(9),
+  cv9tope NUMBER(3),
+  cv9imp  NUMBER(17,2),
+  cv9fch  DATE,
+  cv9aux1 NUMBER(9),
+  cv9aux2 NUMBER(17,2),
+  cv9aux3 DATE,
+  cv9aux4 CHAR(20)
+)
+;
+alter table FSD329
+  add primary key (CV9COD, CV9SUC, CV9MDA, CV9PAP, CV9CTA, CV9SBOP, CV9PAIS, CV9TDOC, CV9NDOC);
+

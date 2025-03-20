@@ -1,0 +1,24 @@
+create table JAQL611
+(
+  jaql611idrep NUMBER(18) not null,
+  jaql611secue NUMBER(9) not null,
+  jaql611idarc NUMBER(18) not null,
+  jaql611fepro DATE,
+  jaql611rtype VARCHAR2(8),
+  jaql611trxts VARCHAR2(19),
+  jaql611valts VARCHAR2(19),
+  jaql611amoun NUMBER(17,2),
+  jaql611pinid VARCHAR2(21),
+  jaql611recnu VARCHAR2(16),
+  jaql611recac VARCHAR2(32),
+  jaql611recfn VARCHAR2(64),
+  jaql611recsn VARCHAR2(64),
+  jaql611messa VARCHAR2(256),
+  jaql611fgpro NUMBER(1),
+  jaql611fearc DATE
+)
+;
+create unique index JAQL61100 on JAQL611 (JAQL611IDREP, JAQL611SECUE, JAQL611IDARC);
+alter table JAQL611
+  add constraint JAQL611_PK primary key (JAQL611IDREP, JAQL611SECUE, JAQL611IDARC);
+

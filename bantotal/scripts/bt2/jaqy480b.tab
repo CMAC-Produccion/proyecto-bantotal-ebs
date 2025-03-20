@@ -1,0 +1,18 @@
+create table JAQY480B
+(
+  jqy480bfec    DATE not null,
+  jqy480bsec    NUMBER(7) not null,
+  jqy480bctarcd NUMBER(9),
+  jqy480bctacre NUMBER(9),
+  jqy480bord    NUMBER(2),
+  jqy480bide    VARCHAR2(17),
+  jqy480bsal    NUMBER(17,2),
+  jqy480bpai    NUMBER(3),
+  jqy480btdi    NUMBER(2),
+  jqy480bndi    VARCHAR2(12),
+  jqy480bcobsbs VARCHAR2(10)
+)
+;
+create index INX_JAQY480B_01 on JAQY480B (JQY480BFEC, JQY480BPAI, JQY480BTDI, JQY480BNDI);
+create index INX_JAQY480B_02 on JAQY480B (JQY480BFEC, JQY480BSEC, JQY480BCTARCD, JQY480BCTACRE, JQY480BORD);
+

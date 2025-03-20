@@ -1,0 +1,31 @@
+create table SNG600
+(
+  sng600cods NUMBER(9) not null,
+  sng600fec  DATE,
+  sng600usu  CHAR(10),
+  sng600suc  NUMBER(3),
+  sng600au1  NUMBER(9),
+  sng600au2  NUMBER(9),
+  sng600au3  CHAR(30),
+  sng600au4  CHAR(30),
+  sng600au5  DATE,
+  sng600au6  DATE,
+  sng600au7  NUMBER(17,2),
+  sng600au8  NUMBER(17,2),
+  sng600anu  CHAR(1),
+  sng600tco  CHAR(1),
+  sng600tsbo NUMBER(3),
+  sng600tord NUMBER(2),
+  sng600tfch DATE,
+  sng600tnre NUMBER(4),
+  sng600ttra NUMBER(3),
+  sng600tmod NUMBER(3),
+  sng600tsuc NUMBER(3),
+  sng600tpgc NUMBER(3)
+)
+;
+create index SNG60002 on SNG600 (SNG600ANU);
+create index SNG60003 on SNG600 (SNG600TPGC, SNG600TSUC, SNG600TMOD, SNG600TTRA, SNG600TNRE, SNG600TFCH, SNG600TORD, SNG600TSBO);
+alter table SNG600
+  add primary key (SNG600CODS);
+

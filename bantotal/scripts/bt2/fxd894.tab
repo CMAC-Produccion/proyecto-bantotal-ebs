@@ -1,0 +1,21 @@
+create table FXD894
+(
+  pgcodt     NUMBER(3) not null,
+  numtipt    NUMBER(2) not null,
+  msgnumt    NUMBER(9) not null,
+  swtcodt    NUMBER(5) not null,
+  swtrelt    NUMBER(2) not null,
+  msgtcposec NUMBER(3) not null,
+  swttcpo    NUMBER(2) not null,
+  swttcpofmt CHAR(1) not null,
+  msgtsubcpo NUMBER(2) not null,
+  msgtidatt  NUMBER(5) not null,
+  msgtnumval NUMBER(14,2),
+  msgtcharva CHAR(65),
+  msgtdateva DATE,
+  msgtflagva CHAR(1)
+)
+;
+alter table FXD894
+  add primary key (PGCODT, NUMTIPT, MSGNUMT, SWTCODT, SWTRELT, MSGTCPOSEC, SWTTCPO, SWTTCPOFMT, MSGTSUBCPO, MSGTIDATT);
+

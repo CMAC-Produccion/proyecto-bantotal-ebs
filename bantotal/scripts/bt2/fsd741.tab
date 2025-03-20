@@ -1,0 +1,22 @@
+create table FSD741
+(
+  d741pgco NUMBER(4) not null,
+  d740catg NUMBER(5) not null,
+  d741pend NUMBER(3) not null,
+  d741rubr NUMBER(16) not null,
+  d741cobr CHAR(1),
+  d741canc CHAR(1),
+  d741trsf CHAR(1),
+  d741ttrf NUMBER(1),
+  d741modc NUMBER(3),
+  d741trnc NUMBER(3),
+  d741modb NUMBER(3),
+  d741trnb NUMBER(3),
+  d741modt NUMBER(3),
+  d741trnt NUMBER(3),
+  d741psob CHAR(1)
+)
+;
+alter table FSD741
+  add primary key (D741PGCO, D740CATG, D741PEND, D741RUBR);
+

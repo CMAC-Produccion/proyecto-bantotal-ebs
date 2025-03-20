@@ -1,0 +1,23 @@
+create table FBCCRV
+(
+  bccrvemp  NUMBER(3) not null,
+  bccrvfec  DATE not null,
+  bccrvcorr NUMBER(12) not null,
+  bccrv03   CHAR(13) not null,
+  bccrv05   CHAR(2) not null,
+  bccrv06   CHAR(2) not null,
+  bccrv07   CHAR(2) not null,
+  bccrv04   CHAR(80),
+  bccrv08   CHAR(10),
+  bccrv09   NUMBER(14,2),
+  bccrv10   NUMBER(14,2),
+  bccrv11   NUMBER(14,2),
+  bccrv12   NUMBER(14,2),
+  bccrv13   NUMBER(14,2),
+  bccrv14   CHAR(1)
+)
+;
+create index FBCCRV02 on FBCCRV (BCCRVEMP, BCCRVFEC, BCCRV03, BCCRV05, BCCRV06, BCCRV07);
+alter table FBCCRV
+  add primary key (BCCRVEMP, BCCRVFEC, BCCRVCORR, BCCRV03, BCCRV05, BCCRV06, BCCRV07);
+

@@ -1,0 +1,46 @@
+create table JAQY255A
+(
+  jaqy255anumer  NUMBER(9) not null,
+  jaqy255acosuc  NUMBER(3),
+  jaqy255anosuc  VARCHAR2(30),
+  jaqy255acousu  VARCHAR2(15),
+  jaqy255anousu  VARCHAR2(100),
+  jaqy255anocar  VARCHAR2(100),
+  jaqy255anoope  VARCHAR2(255),
+  jaqy255ahotra  CHAR(10),
+  jaqy255ahoini  CHAR(10),
+  jaqy255ahofin  CHAR(10),
+  jaqy255anroco  VARCHAR2(30),
+  jaqy255anoper  VARCHAR2(100),
+  jaqy255atfper  VARCHAR2(20),
+  jaqy255acotra  VARCHAR2(50),
+  jaqy255adereg  VARCHAR2(50),
+  jaqy255adezon  VARCHAR2(50),
+  jaqy255adnius  VARCHAR2(12),
+  jaqy255agecli  VARCHAR2(1),
+  jaqy255afenac  DATE,
+  jaqy255adepro  VARCHAR2(50),
+  jaqy255asecli  VARCHAR2(30),
+  jaqy255amodes  NUMBER(17,2),
+  jaqy255afedes  DATE,
+  jaqy255apaicli NUMBER(3),
+  jaqy255atipdoc NUMBER(2),
+  jaqy255anumdoc CHAR(12),
+  jaqy255aprosbs VARCHAR2(50),
+  jaqy255acretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  jaqy255afeccon DATE,
+  jaqy255agirneg VARCHAR2(100),
+  jaqy255aedad   NUMBER(3),
+  jaqy255atfper1 VARCHAR2(20),
+  jaqy255atfper2 VARCHAR2(20),
+  jaqy255aantcre NUMBER(9),
+  jaqy255aantaho NUMBER(9),
+  jaqy255acalifi VARCHAR2(30),
+  jaqy255acreusu VARCHAR2(10)
+)
+;
+comment on column JAQY255A.jaqy255acreusu
+  is 'Usuario que Ejecuta';
+alter table JAQY255A
+  add primary key (JAQY255ANUMER);
+

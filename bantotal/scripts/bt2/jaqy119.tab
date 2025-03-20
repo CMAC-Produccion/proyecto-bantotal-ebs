@@ -1,0 +1,30 @@
+create table JAQY119
+(
+  jaqy119pgcod NUMBER(3) not null,
+  jaqy119mod   NUMBER(3) not null,
+  jaqy119suc   NUMBER(3) not null,
+  jaqy119mda   NUMBER(4) not null,
+  jaqy119pap   NUMBER(4) not null,
+  jaqy119cta   NUMBER(9) not null,
+  jaqy119oper  NUMBER(9) not null,
+  jaqy119sbop  NUMBER(3) not null,
+  jaqy119tope  NUMBER(3) not null,
+  jaqy119corr  NUMBER(10) not null,
+  jaqy119nrel  NUMBER(4),
+  jaqy119int1  NUMBER(9),
+  jaqy119int2  NUMBER(9),
+  jaqy119int3  NUMBER(9),
+  jaqy119imp1  NUMBER(17,2),
+  jaqy119imp2  NUMBER(17,2),
+  jaqy119imp3  NUMBER(17,2),
+  jaqy119fec1  DATE,
+  jaqy119fec2  DATE,
+  jaqy119fec3  DATE,
+  jaqy119chr1  CHAR(30),
+  jaqy119chr2  CHAR(30),
+  jaqy119chr3  CHAR(30)
+)
+;
+alter table JAQY119
+  add constraint PK_JAQY119 primary key (JAQY119PGCOD, JAQY119MOD, JAQY119SUC, JAQY119MDA, JAQY119PAP, JAQY119CTA, JAQY119OPER, JAQY119SBOP, JAQY119TOPE, JAQY119CORR);
+

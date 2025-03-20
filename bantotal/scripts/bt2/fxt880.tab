@@ -1,0 +1,12 @@
+create table FXT880
+(
+  pgcod   NUMBER(3) not null,
+  trmod   NUMBER(3) not null,
+  trnro   NUMBER(3) not null,
+  swgrup  NUMBER(2) not null,
+  swgrnom CHAR(40)
+)
+;
+alter table FXT880
+  add primary key (PGCOD, TRMOD, TRNRO, SWGRUP);
+

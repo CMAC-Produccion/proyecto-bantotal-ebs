@@ -1,0 +1,25 @@
+create table AQPB009A
+(
+  aqpb009afep DATE not null,
+  aqpb009acor NUMBER(9) not null,
+  aqpb009aemp NUMBER(4) not null,
+  aqpb009amod NUMBER(4) not null,
+  aqpb009asuc NUMBER(4) not null,
+  aqpb009amda NUMBER(4) not null,
+  aqpb009apap NUMBER(4) not null,
+  aqpb009acta NUMBER(9) not null,
+  aqpb009aope NUMBER(9) not null,
+  aqpb009asbo NUMBER(4) not null,
+  aqpb009atop NUMBER(4) not null,
+  aqpb009avta NUMBER(4) not null,
+  aqpb009acon NUMBER(4) not null,
+  aqpb009acuo NUMBER(17,2),
+  aqpb009acap NUMBER(17,2),
+  aqpb009amto NUMBER(17,2),
+  aqpb009aacu NUMBER(4),
+  aqpb009atir NUMBER(10,6)
+)
+;
+alter table AQPB009A
+  add primary key (AQPB009AFEP, AQPB009ACOR, AQPB009AEMP, AQPB009AMOD, AQPB009ASUC, AQPB009AMDA, AQPB009APAP, AQPB009ACTA, AQPB009AOPE, AQPB009ASBO, AQPB009ATOP, AQPB009AVTA, AQPB009ACON);
+

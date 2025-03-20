@@ -1,0 +1,355 @@
+create table AQPC116
+(
+  aqpc116serenv   NUMBER(10) not null,
+  aqpc116canenv   CHAR(10) not null,
+  aqpc116fecenv   DATE not null,
+  aqpc116horenv   CHAR(8) not null,
+  aqpc116indice1  CHAR(5),
+  aqpc116indice2  CHAR(1),
+  aqpc116indice3  CHAR(2),
+  aqpc116indice4  CHAR(2),
+  aqpc116indice5  CHAR(4),
+  aqpc116indice6  CHAR(2),
+  aqpc116indice7  CHAR(2),
+  aqpc116indice8  CHAR(5),
+  aqpc116indice9  CHAR(10),
+  aqpc116indice10 CHAR(4),
+  aqpc116indice11 CHAR(19),
+  aqpc116indice12 CHAR(2),
+  aqpc116indice13 CHAR(4),
+  aqpc116indice14 CHAR(1),
+  aqpc116indice15 NUMBER(14,2),
+  aqpc116indice16 NUMBER(14,2),
+  aqpc116indice17 NUMBER(14,2),
+  aqpc116indice18 CHAR(14),
+  aqpc116indice19 NUMBER(11,3),
+  aqpc116indice20 CHAR(6),
+  aqpc116indice21 CHAR(6),
+  aqpc116indice22 CHAR(8),
+  aqpc116indice23 CHAR(4),
+  aqpc116indice24 CHAR(1),
+  aqpc116indice25 CHAR(8),
+  aqpc116indice26 CHAR(4),
+  aqpc116indice27 CHAR(3),
+  aqpc116indice28 CHAR(3),
+  aqpc116indice29 CHAR(3),
+  aqpc116indice30 CHAR(4),
+  aqpc116indice31 CHAR(19),
+  aqpc116indice32 CHAR(2),
+  aqpc116indice33 CHAR(4),
+  aqpc116indice34 CHAR(11),
+  aqpc116indice35 CHAR(11),
+  aqpc116indice36 CHAR(6),
+  aqpc116indice37 CHAR(3),
+  aqpc116indice38 CHAR(80),
+  aqpc116indice39 CHAR(3),
+  aqpc116indice40 CHAR(8),
+  aqpc116indice41 CHAR(15),
+  aqpc116indice42 CHAR(25),
+  aqpc116indice43 CHAR(13),
+  aqpc116indice44 CHAR(3),
+  aqpc116indice45 CHAR(2),
+  aqpc116indice46 CHAR(25),
+  aqpc116indice47 CHAR(25),
+  aqpc116indice48 CHAR(3),
+  aqpc116indice49 CHAR(3),
+  aqpc116indice50 NUMBER(14,2),
+  aqpc116indice51 CHAR(14),
+  aqpc116indice52 CHAR(12),
+  aqpc116indice53 CHAR(23),
+  aqpc116indice54 CHAR(23),
+  aqpc116indice55 CHAR(6),
+  aqpc116indice56 CHAR(6),
+  aqpc116indice57 CHAR(10),
+  aqpc116indice58 CHAR(1),
+  aqpc116indice59 CHAR(1),
+  aqpc116indice60 CHAR(12),
+  aqpc116indice61 CHAR(12),
+  aqpc116indice62 CHAR(6),
+  aqpc116indice63 CHAR(15),
+  aqpc116indice64 CHAR(12),
+  aqpc116indice65 CHAR(12),
+  aqpc116indice66 CHAR(12),
+  aqpc116indice67 CHAR(12),
+  aqpc116indice68 CHAR(12),
+  aqpc116indice69 CHAR(8),
+  aqpc116indice70 CHAR(12),
+  aqpc116indice71 CHAR(35),
+  aqpc116indice72 CHAR(35),
+  aqpc116indice73 CHAR(12),
+  aqpc116indice74 CHAR(12),
+  aqpc116indice75 CHAR(12),
+  aqpc116indice76 CHAR(19),
+  aqpc116indice77 CHAR(1),
+  aqpc116indice78 CHAR(22),
+  aqpc116indice79 CHAR(10),
+  aqpc116indice80 CHAR(22),
+  aqpc116indice81 CHAR(18),
+  aqpc116indice82 CHAR(1),
+  aqpc116indice83 CHAR(15),
+  aqpc116indice84 CHAR(9),
+  aqpc116indice85 CHAR(9),
+  aqpc116indice86 CHAR(1),
+  aqpc116indice87 CHAR(2),
+  aqpc116indice88 CHAR(3),
+  aqpc116indice89 CHAR(2),
+  aqpc116indice90 CHAR(4),
+  aqpc116indice91 CHAR(5)
+)
+partition by range (AQPC116FECENV) interval (NUMTOYMINTERVAL (1, 'MONTH'))
+(
+  partition AQPC116_202303 values less than (TO_DATE(' 2023-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_H,
+  partition AQPC116_202304 values less than (TO_DATE(' 2023-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_H,
+  partition SYS_P57877 values less than (TO_DATE(' 2023-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition SYS_P58748 values less than (TO_DATE(' 2023-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition SYS_P59596 values less than (TO_DATE(' 2023-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition SYS_P60509 values less than (TO_DATE(' 2023-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition SYS_P61383 values less than (TO_DATE(' 2023-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition SYS_P62309 values less than (TO_DATE(' 2023-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition SYS_P63274 values less than (TO_DATE(' 2023-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_B_IDX,
+  partition SYS_P64319 values less than (TO_DATE(' 2024-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P65341 values less than (TO_DATE(' 2024-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P66265 values less than (TO_DATE(' 2024-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P67241 values less than (TO_DATE(' 2024-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P68416 values less than (TO_DATE(' 2024-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P69245 values less than (TO_DATE(' 2024-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P70149 values less than (TO_DATE(' 2024-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P71097 values less than (TO_DATE(' 2024-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P72116 values less than (TO_DATE(' 2024-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P73063 values less than (TO_DATE(' 2024-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P73924 values less than (TO_DATE(' 2024-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P74699 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P678 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P858 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P1309 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P1897 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G
+);
+comment on table AQPC116
+  is 'Trama Disgregada de Monitor';
+comment on column AQPC116.aqpc116serenv
+  is 'ID de tabla JAQL635';
+comment on column AQPC116.aqpc116canenv
+  is 'Canal';
+comment on column AQPC116.aqpc116fecenv
+  is 'Fecha registro';
+comment on column AQPC116.aqpc116horenv
+  is 'Hora registro';
+comment on column AQPC116.aqpc116indice1
+  is 'Indice 1';
+comment on column AQPC116.aqpc116indice2
+  is 'Indice 2';
+comment on column AQPC116.aqpc116indice3
+  is 'Indice 3';
+comment on column AQPC116.aqpc116indice4
+  is 'Indice 4';
+comment on column AQPC116.aqpc116indice5
+  is 'Indice 5';
+comment on column AQPC116.aqpc116indice6
+  is 'Indice 6';
+comment on column AQPC116.aqpc116indice7
+  is 'Indice 7';
+comment on column AQPC116.aqpc116indice8
+  is 'Indice 8';
+comment on column AQPC116.aqpc116indice9
+  is 'Indice 9';
+comment on column AQPC116.aqpc116indice10
+  is 'Indice 10';
+comment on column AQPC116.aqpc116indice11
+  is 'Indice 11';
+comment on column AQPC116.aqpc116indice12
+  is 'Indice 12';
+comment on column AQPC116.aqpc116indice13
+  is 'Indice 13';
+comment on column AQPC116.aqpc116indice14
+  is 'Indice 14';
+comment on column AQPC116.aqpc116indice15
+  is 'Indice 15';
+comment on column AQPC116.aqpc116indice16
+  is 'Indice 16';
+comment on column AQPC116.aqpc116indice17
+  is 'Indice 17';
+comment on column AQPC116.aqpc116indice18
+  is 'Indice 18';
+comment on column AQPC116.aqpc116indice19
+  is 'Indice 19';
+comment on column AQPC116.aqpc116indice20
+  is 'Indice 20';
+comment on column AQPC116.aqpc116indice21
+  is 'Indice 21';
+comment on column AQPC116.aqpc116indice22
+  is 'Indice 22';
+comment on column AQPC116.aqpc116indice23
+  is 'Indice 23';
+comment on column AQPC116.aqpc116indice24
+  is 'Indice 24';
+comment on column AQPC116.aqpc116indice25
+  is 'Indice 25';
+comment on column AQPC116.aqpc116indice26
+  is 'Indice 26';
+comment on column AQPC116.aqpc116indice27
+  is 'Indice 27';
+comment on column AQPC116.aqpc116indice28
+  is 'Indice 28';
+comment on column AQPC116.aqpc116indice29
+  is 'Indice 29';
+comment on column AQPC116.aqpc116indice30
+  is 'Indice 30';
+comment on column AQPC116.aqpc116indice31
+  is 'Indice 31';
+comment on column AQPC116.aqpc116indice32
+  is 'Indice 32';
+comment on column AQPC116.aqpc116indice33
+  is 'Indice 33';
+comment on column AQPC116.aqpc116indice34
+  is 'Indice 34';
+comment on column AQPC116.aqpc116indice35
+  is 'Indice 35';
+comment on column AQPC116.aqpc116indice36
+  is 'Indice 36';
+comment on column AQPC116.aqpc116indice37
+  is 'Indice 37';
+comment on column AQPC116.aqpc116indice38
+  is 'Indice 38';
+comment on column AQPC116.aqpc116indice39
+  is 'Indice 39';
+comment on column AQPC116.aqpc116indice40
+  is 'Indice 40';
+comment on column AQPC116.aqpc116indice41
+  is 'Indice 41';
+comment on column AQPC116.aqpc116indice42
+  is 'Indice 42';
+comment on column AQPC116.aqpc116indice43
+  is 'Indice 43';
+comment on column AQPC116.aqpc116indice44
+  is 'Indice 44';
+comment on column AQPC116.aqpc116indice45
+  is 'Indice 45';
+comment on column AQPC116.aqpc116indice46
+  is 'Indice 46';
+comment on column AQPC116.aqpc116indice47
+  is 'Indice 47';
+comment on column AQPC116.aqpc116indice48
+  is 'Indice 48';
+comment on column AQPC116.aqpc116indice49
+  is 'Indice 49';
+comment on column AQPC116.aqpc116indice50
+  is 'Indice 50';
+comment on column AQPC116.aqpc116indice51
+  is 'Indice 51';
+comment on column AQPC116.aqpc116indice52
+  is 'Indice 52';
+comment on column AQPC116.aqpc116indice53
+  is 'Indice 53';
+comment on column AQPC116.aqpc116indice54
+  is 'Indice 54';
+comment on column AQPC116.aqpc116indice55
+  is 'Indice 55';
+comment on column AQPC116.aqpc116indice56
+  is 'Indice 56';
+comment on column AQPC116.aqpc116indice57
+  is 'Indice 57';
+comment on column AQPC116.aqpc116indice58
+  is 'Indice 58';
+comment on column AQPC116.aqpc116indice59
+  is 'Indice 59';
+comment on column AQPC116.aqpc116indice60
+  is 'Indice 60';
+comment on column AQPC116.aqpc116indice61
+  is 'Indice 61';
+comment on column AQPC116.aqpc116indice62
+  is 'Indice 62';
+comment on column AQPC116.aqpc116indice63
+  is 'Indice 63';
+comment on column AQPC116.aqpc116indice64
+  is 'Indice 64';
+comment on column AQPC116.aqpc116indice65
+  is 'Indice 65';
+comment on column AQPC116.aqpc116indice66
+  is 'Indice 66';
+comment on column AQPC116.aqpc116indice67
+  is 'Indice 67';
+comment on column AQPC116.aqpc116indice68
+  is 'Indice 68';
+comment on column AQPC116.aqpc116indice69
+  is 'Indice 69';
+comment on column AQPC116.aqpc116indice70
+  is 'Indice 70';
+comment on column AQPC116.aqpc116indice71
+  is 'Indice 71';
+comment on column AQPC116.aqpc116indice72
+  is 'Indice 72';
+comment on column AQPC116.aqpc116indice73
+  is 'Indice 73';
+comment on column AQPC116.aqpc116indice74
+  is 'Indice 74';
+comment on column AQPC116.aqpc116indice75
+  is 'Indice 75';
+comment on column AQPC116.aqpc116indice76
+  is 'Indice 76';
+comment on column AQPC116.aqpc116indice77
+  is 'Indice 77';
+comment on column AQPC116.aqpc116indice78
+  is 'Indice 78';
+comment on column AQPC116.aqpc116indice79
+  is 'Indice 79';
+comment on column AQPC116.aqpc116indice80
+  is 'Indice 80';
+comment on column AQPC116.aqpc116indice81
+  is 'Indice 81';
+comment on column AQPC116.aqpc116indice82
+  is 'Indice 82';
+comment on column AQPC116.aqpc116indice83
+  is 'Indice 83';
+comment on column AQPC116.aqpc116indice84
+  is 'Indice 84';
+comment on column AQPC116.aqpc116indice85
+  is 'Indice 85';
+comment on column AQPC116.aqpc116indice86
+  is 'Indice 86';
+comment on column AQPC116.aqpc116indice87
+  is 'Indice 87';
+comment on column AQPC116.aqpc116indice88
+  is 'Indice 88';
+comment on column AQPC116.aqpc116indice89
+  is 'Indice 89';
+comment on column AQPC116.aqpc116indice90
+  is 'Indice 90';
+comment on column AQPC116.aqpc116indice91
+  is 'Indice 91';
+create index AQPC116A2 on AQPC116 (AQPC116FECENV, AQPC116INDICE11)
+  nologging  local;
+create index AQPC116A3 on AQPC116 (AQPC116FECENV, AQPC116INDICE11, AQPC116INDICE22)
+  nologging  local;
+create index AQPC116A4 on AQPC116 (AQPC116CANENV, AQPC116FECENV)
+  nologging  local;
+create index AQPC116A5 on AQPC116 (AQPC116CANENV, AQPC116FECENV, AQPC116HORENV)
+  nologging  local;
+alter table AQPC116
+  add primary key (AQPC116FECENV, AQPC116SERENV);
+alter index SYS_C00975996 nologging;
+

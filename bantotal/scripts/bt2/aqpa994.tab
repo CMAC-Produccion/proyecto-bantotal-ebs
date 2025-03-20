@@ -1,0 +1,157 @@
+create table AQPA994
+(
+  aqpa994idley       NUMBER(10) not null,
+  aqpa994ins         NUMBER(10) not null,
+  aqpa994usu         CHAR(10) not null,
+  aqpa994fecpro      DATE not null,
+  aqpa994hora        CHAR(8) not null,
+  aqpa994est         CHAR(1),
+  aqpa994dni         CHAR(12),
+  aqpa994nomc        VARCHAR2(100),
+  aqpa994credis      VARCHAR2(2000),
+  aqpa994bcajbancs   NUMBER(16,2),
+  aqpa994binvcs      NUMBER(16,2),
+  aqpa994bmaqeqcs    NUMBER(16,2),
+  aqpa994binmucs     NUMBER(16,2),
+  aqpa994botrocs     NUMBER(16,2),
+  aqpa994btotaccs    NUMBER(16,2),
+  aqpa994btotpacs    NUMBER(16,2),
+  aqpa994bpatrcs     NUMBER(16,2),
+  aqpa994venacs      NUMBER(16,2),
+  aqpa994cosvenacs   NUMBER(16,2),
+  aqpa994cosopeacs   NUMBER(16,2),
+  aqpa994gfmypeacs   NUMBER(16,2),
+  aqpa994resempacs   NUMBER(16,2),
+  aqpa994gfconacs    NUMBER(16,2),
+  aqpa994gasfamacs   NUMBER(16,2),
+  aqpa994resnetacs   NUMBER(16,2),
+  aqpa994rapocoacs   NUMBER(16,2),
+  aqpa994vendocs     NUMBER(16,2),
+  aqpa994cosvendocs  NUMBER(16,2),
+  aqpa994cosopedocs  NUMBER(16,2),
+  aqpa994gfmypedocs  NUMBER(16,2),
+  aqpa994resempdocs  NUMBER(16,2),
+  aqpa994gfcondocs   NUMBER(16,2),
+  aqpa994gasfamdocs  NUMBER(16,2),
+  aqpa994resnetdocs  NUMBER(16,2),
+  aqpa994rapocodocs  NUMBER(16,2),
+  aqpa994ingbruacmp  NUMBER(16,2),
+  aqpa994ingnetacmp  NUMBER(16,2),
+  aqpa994gasfamacmp  NUMBER(16,2),
+  aqpa994endeuacmp   NUMBER(16,2),
+  aqpa994totegracmp  NUMBER(16,2),
+  aqpa994resnetacmp  NUMBER(16,2),
+  aqpa994ratpocoacmp NUMBER(16,2),
+  aqpa994ratefeacmp  NUMBER(16,2),
+  aqpa994ingbrudomp  NUMBER(16,2),
+  aqpa994ingnetdomp  NUMBER(16,2),
+  aqpa994gasfamdomp  NUMBER(16,2),
+  aqpa994endeudomp   NUMBER(16,2),
+  aqpa994totegrdomp  NUMBER(16,2),
+  aqpa994resnetdomp  NUMBER(16,2),
+  aqpa994ratpocodomp NUMBER(16,2)
+)
+;
+comment on column AQPA994.aqpa994idley
+  is 'IDLEY';
+comment on column AQPA994.aqpa994ins
+  is 'INSTANCIA';
+comment on column AQPA994.aqpa994usu
+  is 'USUARIO';
+comment on column AQPA994.aqpa994fecpro
+  is 'FECHA PROCESO';
+comment on column AQPA994.aqpa994hora
+  is 'HORA PROCESO';
+comment on column AQPA994.aqpa994est
+  is 'ESTADO';
+comment on column AQPA994.aqpa994dni
+  is 'DNI';
+comment on column AQPA994.aqpa994nomc
+  is 'NOMBRECLIENTE';
+comment on column AQPA994.aqpa994credis
+  is 'CREDITOS REPROGRAMADOS';
+comment on column AQPA994.aqpa994bcajbancs
+  is 'BALANCE CAJA BANCOS CONSUMO';
+comment on column AQPA994.aqpa994binvcs
+  is 'BALANCE INVENTARIO CONSUMO';
+comment on column AQPA994.aqpa994bmaqeqcs
+  is 'BALANCE MAQUINARIA Y EQUIPO CONSUMO';
+comment on column AQPA994.aqpa994binmucs
+  is 'BALANCE INMUEBLES CONSUMO';
+comment on column AQPA994.aqpa994botrocs
+  is 'BALANCE OTROS CONSUMO';
+comment on column AQPA994.aqpa994btotaccs
+  is 'BALANCE TOTAL ACTIVO CONSUMO';
+comment on column AQPA994.aqpa994btotpacs
+  is 'BALANCE TOTAL PASIVO CONSUMO';
+comment on column AQPA994.aqpa994bpatrcs
+  is 'BALANCE PATRIMONIO CONSUMO';
+comment on column AQPA994.aqpa994venacs
+  is 'VENTAS ACTUAL CONSUMO';
+comment on column AQPA994.aqpa994cosvenacs
+  is 'COSTO VENTAS ACTUAL CONSUMO';
+comment on column AQPA994.aqpa994cosopeacs
+  is 'COSTOS OPERATIVOS ACTUAL CONSUMO';
+comment on column AQPA994.aqpa994gfmypeacs
+  is 'GASTO FINANCIERO MYPE ACTUAL CONSUMO';
+comment on column AQPA994.aqpa994resempacs
+  is 'RESULTADO EMP ACTUAL CONSUMO';
+comment on column AQPA994.aqpa994gfconacs
+  is 'GASTOS FINANCIEROS CONSUMO ACTUAL CONSUMO';
+comment on column AQPA994.aqpa994gasfamacs
+  is 'GASTOS FAMILIARES ACTUAL CONSUMO';
+comment on column AQPA994.aqpa994resnetacs
+  is 'RESULTADO NETO ACTUAL CONSUMO';
+comment on column AQPA994.aqpa994rapocoacs
+  is 'RATIO CUOTA POST COVID ACTUAL CONSUMO';
+comment on column AQPA994.aqpa994vendocs
+  is 'VENTAS DENTRO 12 MESES CONSUMO';
+comment on column AQPA994.aqpa994cosvendocs
+  is 'COSTO VENTAS DENTRO 12 MESES CONSUMO';
+comment on column AQPA994.aqpa994cosopedocs
+  is 'COSTOS OPERATIVOS DENTRO 12 MESES CONSUMO';
+comment on column AQPA994.aqpa994gfmypedocs
+  is 'GASTO FINANCIERO MYPE DENTRO 12 MESES CONSUMO';
+comment on column AQPA994.aqpa994resempdocs
+  is 'RESULTADO EMP DENTRO 12 MESES CONSUMO';
+comment on column AQPA994.aqpa994gfcondocs
+  is 'GASTOS FINANCIEROS COSUMO DENTRO 12 MESES CONSUMO';
+comment on column AQPA994.aqpa994gasfamdocs
+  is 'GASTOS FAMILIARES DENTRO 12 MESES CONSUMO';
+comment on column AQPA994.aqpa994resnetdocs
+  is 'RESTULADO NETO DENTRO 12 MESES CONSUMO';
+comment on column AQPA994.aqpa994rapocodocs
+  is 'RATIO CUOTA POST COVID DENTRO 12 MESES CONSUMO';
+comment on column AQPA994.aqpa994ingbruacmp
+  is 'INGRESO BRUTO ACTUAL MYPE';
+comment on column AQPA994.aqpa994ingnetacmp
+  is 'INGRESO NETO ACTUAL MYPE';
+comment on column AQPA994.aqpa994gasfamacmp
+  is 'GASTO FAMILIAR ACTUAL MYPE';
+comment on column AQPA994.aqpa994endeuacmp
+  is 'ENDEUDAMIENTO ACTUAL MYPE';
+comment on column AQPA994.aqpa994totegracmp
+  is 'TOTAL EGRESOS ACTUAL MYPE';
+comment on column AQPA994.aqpa994resnetacmp
+  is 'RESUTADO NETO ACTUAL MYPE';
+comment on column AQPA994.aqpa994ratpocoacmp
+  is 'RATIO POST COVID ACTUAL MYPE';
+comment on column AQPA994.aqpa994ratefeacmp
+  is 'EFECTIVO ACTUAL MYPE';
+comment on column AQPA994.aqpa994ingbrudomp
+  is 'INGRESO BRUTO EN 12 MESES MYPE';
+comment on column AQPA994.aqpa994ingnetdomp
+  is 'INGRESO NETO EN 12 MESES MYPE';
+comment on column AQPA994.aqpa994gasfamdomp
+  is 'GASTO FAMILIAR EN 12 MESES MYPE';
+comment on column AQPA994.aqpa994endeudomp
+  is 'ENDEUDAMIENTO EN 12 MESES MYPE';
+comment on column AQPA994.aqpa994totegrdomp
+  is 'TOTAL EGRESOS EN 12 MESES MYPE';
+comment on column AQPA994.aqpa994resnetdomp
+  is 'RESULTADO NETO EN 12 MESES MYPE';
+comment on column AQPA994.aqpa994ratpocodomp
+  is 'RATIO POST COVID EN 12 MESES MYPE';
+alter table AQPA994
+  add primary key (AQPA994IDLEY, AQPA994INS, AQPA994USU, AQPA994FECPRO, AQPA994HORA);
+

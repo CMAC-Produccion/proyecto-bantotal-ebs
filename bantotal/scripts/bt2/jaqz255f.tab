@@ -1,0 +1,58 @@
+create table JAQZ255F
+(
+  jaqz255fcodtra NUMBER(5) not null,
+  jaqz255fcodper CHAR(6) not null,
+  jaqz255fnomcli CHAR(255),
+  jaqz255ftipdoc CHAR(1),
+  jaqz255fnrodoc CHAR(12) not null,
+  jaqz255fcta    NUMBER(9) not null,
+  jaqz255fcodope NUMBER(9) not null,
+  jaqz255fmon    NUMBER(4),
+  jaqz255fcap    NUMBER(16,2),
+  jaqz255fint    NUMBER(9,2),
+  jaqz255ftot    NUMBER(16,2),
+  jaqz255ftdocaa CHAR(1),
+  jaqz255fndocaa CHAR(12),
+  jaqz255fdoctaa CHAR(11),
+  jaqz255fusr    CHAR(10),
+  jaqz255ffecupd DATE
+)
+;
+comment on table JAQZ255F
+  is 'Tabla de Saldos Focma';
+comment on column JAQZ255F.jaqz255fcodtra
+  is 'Código de transferencia';
+comment on column JAQZ255F.jaqz255fcodper
+  is 'Codigo de periodo';
+comment on column JAQZ255F.jaqz255fnomcli
+  is 'nombre del cliente';
+comment on column JAQZ255F.jaqz255ftipdoc
+  is 'tipo de documento';
+comment on column JAQZ255F.jaqz255fnrodoc
+  is 'número de documento';
+comment on column JAQZ255F.jaqz255fcta
+  is 'cuenta';
+comment on column JAQZ255F.jaqz255fcodope
+  is 'codigo de operación';
+comment on column JAQZ255F.jaqz255fmon
+  is 'nombre';
+comment on column JAQZ255F.jaqz255fcap
+  is 'capital';
+comment on column JAQZ255F.jaqz255fint
+  is 'interes';
+comment on column JAQZ255F.jaqz255ftot
+  is 'total';
+comment on column JAQZ255F.jaqz255ftdocaa
+  is 'tipo de documento a';
+comment on column JAQZ255F.jaqz255fndocaa
+  is 'numero de documento a';
+comment on column JAQZ255F.jaqz255fdoctaa
+  is 'documento';
+comment on column JAQZ255F.jaqz255fusr
+  is 'Usuario ';
+comment on column JAQZ255F.jaqz255ffecupd
+  is 'Fecha de actualziación';
+create index JAQZ255FA2 on JAQZ255F (JAQZ255FCODPER, JAQZ255FCODTRA);
+alter table JAQZ255F
+  add primary key (JAQZ255FCODTRA, JAQZ255FCODPER, JAQZ255FNRODOC, JAQZ255FCTA, JAQZ255FCODOPE);
+

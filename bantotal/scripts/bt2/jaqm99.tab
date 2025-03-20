@@ -1,0 +1,34 @@
+create table JAQM99
+(
+  jaqm99fech DATE not null,
+  jaqm99hor  CHAR(8) not null,
+  jaqm99cuen NUMBER(10) not null,
+  jaqm99nuop NUMBER(10) not null,
+  jaqm99nucu NUMBER(10) not null,
+  jaqm99anal CHAR(20),
+  jaqm99clie VARCHAR2(255),
+  jaqm99obs  VARCHAR2(100),
+  jaqm99cupe NUMBER(17,2),
+  jaqm99nucp VARCHAR2(10),
+  jaqm99sald NUMBER(17,2),
+  jaqm99nu1  NUMBER(9),
+  jaqm99nu2  NUMBER(9),
+  jaqm99nu3  NUMBER(9),
+  jaqm99m1   NUMBER(17,2),
+  jaqm99m2   NUMBER(17,2),
+  jaqm99m3   NUMBER(17,2),
+  jaqm99chi1 CHAR(1),
+  jaqm99chi2 CHAR(1),
+  jaqm99chi3 CHAR(1),
+  jaqm99va1  VARCHAR2(255),
+  jaqm99va2  VARCHAR2(255),
+  jaqm99va3  VARCHAR2(255),
+  jaqm99fe1  DATE,
+  jaqm99fe2  DATE,
+  jaqm99fe3  DATE
+)
+;
+create index JAQM9902 on JAQM99 (JAQM99FECH, JAQM99ANAL);
+alter table JAQM99
+  add primary key (JAQM99FECH, JAQM99HOR, JAQM99CUEN, JAQM99NUOP, JAQM99NUCU);
+

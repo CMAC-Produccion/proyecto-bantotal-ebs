@@ -1,0 +1,11 @@
+create table FST150
+(
+  pgcod   NUMBER(3) not null,
+  secccod NUMBER(5) not null,
+  secctxt CHAR(30),
+  seccjef NUMBER(3)
+)
+;
+alter table FST150
+  add primary key (PGCOD, SECCCOD);
+

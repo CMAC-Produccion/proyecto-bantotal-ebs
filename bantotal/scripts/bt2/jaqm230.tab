@@ -1,0 +1,49 @@
+create table JAQM230
+(
+  jaqm230pai NUMBER(3) not null,
+  jaqm230tdo NUMBER(2) not null,
+  jaqm230ndo CHAR(12) not null,
+  jaqm230pgc NUMBER(3) not null,
+  jaqm230mod NUMBER(3) not null,
+  jaqm230suc NUMBER(3) not null,
+  jaqm230mda NUMBER(4) not null,
+  jaqm230pap NUMBER(4) not null,
+  jaqm230cta NUMBER(9) not null,
+  jaqm230ope NUMBER(9) not null,
+  jaqm230sbo NUMBER(3) not null,
+  jaqm230top NUMBER(3) not null,
+  jaqm230fec DATE not null,
+  jaqm230cor NUMBER(3) not null,
+  jaqm230eor NUMBER(2),
+  jaqm230fe1 NUMBER(5),
+  jaqm230fe2 NUMBER(5),
+  jaqm230ede NUMBER(2),
+  jaqm230fe3 NUMBER(5),
+  jaqm230fe4 NUMBER(5),
+  jaqm230cd  NUMBER(3),
+  jaqm230mo  NUMBER(3),
+  jaqm230su  NUMBER(3),
+  jaqm230tr  NUMBER(3),
+  jaqm230re  NUMBER(4),
+  jaqm230fc  DATE,
+  jaqm230or  NUMBER(2),
+  jaqm230sb  NUMBER(3),
+  jaqm230co  CHAR(1),
+  jaqm230au1 NUMBER(9),
+  jaqm230au2 NUMBER(9),
+  jaqm230au3 NUMBER(9),
+  jaqm230au4 NUMBER(9),
+  jaqm235au5 DATE,
+  jaqm235au6 DATE,
+  jaqm235au7 NUMBER(17,2),
+  jaqm235au8 NUMBER(17,2),
+  jaqm235au9 CHAR(255),
+  jaqm235a10 CHAR(255)
+)
+;
+create index JAQM2302 on JAQM230 (JAQM230CD, JAQM230MO, JAQM230SU, JAQM230TR, JAQM230RE, JAQM230FC, JAQM230OR, JAQM230SB);
+create index JAQM2303 on JAQM230 (JAQM230PGC, JAQM230MOD, JAQM230SUC, JAQM230MDA, JAQM230PAP, JAQM230CTA, JAQM230OPE, JAQM230SBO, JAQM230TOP);
+create index JAQM2304 on JAQM230 (JAQM230SUC, JAQM230FEC, JAQM230EOR);
+alter table JAQM230
+  add primary key (JAQM230PAI, JAQM230TDO, JAQM230NDO, JAQM230PGC, JAQM230MOD, JAQM230SUC, JAQM230MDA, JAQM230PAP, JAQM230CTA, JAQM230OPE, JAQM230SBO, JAQM230TOP, JAQM230FEC, JAQM230COR);
+

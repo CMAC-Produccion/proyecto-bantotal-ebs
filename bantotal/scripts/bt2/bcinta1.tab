@@ -1,0 +1,21 @@
+create table BCINTA1
+(
+  bcitmod    CHAR(6) not null,
+  bcitmon    NUMBER(4) not null,
+  bcitres    CHAR(1) not null,
+  bcitsect   NUMBER(5) not null,
+  bcittasa   NUMBER(10,6) not null,
+  bcitplaz   NUMBER(5) not null,
+  bcindrev   CHAR(1) not null,
+  bctitop    CHAR(1) not null,
+  bcaux      NUMBER(10) not null,
+  bcitcap    NUMBER(16,2),
+  bcitoper   NUMBER(6),
+  bcitsist   NUMBER(3),
+  bctipopac  CHAR(1),
+  bctitopact CHAR(1)
+)
+;
+alter table BCINTA1
+  add primary key (BCITMOD, BCITMON, BCITRES, BCITSECT, BCITTASA, BCITPLAZ, BCINDREV, BCTITOP, BCAUX);
+

@@ -1,0 +1,35 @@
+create table FBC704
+(
+  bc704emp  NUMBER(3) not null,
+  bc704suc  NUMBER(3) not null,
+  bc704mod  NUMBER(3) not null,
+  bc704trn  NUMBER(3) not null,
+  bc704rel  NUMBER(4) not null,
+  bc704ord  NUMBER(2) not null,
+  bc704sbo  NUMBER(3) not null,
+  bc704fch  DATE not null,
+  bc704otpo CHAR(3) not null,
+  bc704omda NUMBER(4),
+  bc704oimo NUMBER(11),
+  bc704oimp NUMBER(11),
+  bc704nbol CHAR(20),
+  bc704nent NUMBER(5),
+  bc704ncta NUMBER(9),
+  bc704tdoc NUMBER(2),
+  bc704ndoc CHAR(12),
+  bc704ccor CHAR(12),
+  bc704insv NUMBER(2),
+  bc704insc NUMBER(2),
+  bc704paib CHAR(2),
+  bc704deno CHAR(50),
+  bc704paio CHAR(2),
+  bc704cpto NUMBER(3),
+  bc704fche DATE,
+  bc704nofi CHAR(16),
+  bc704rect CHAR(1)
+)
+;
+create index FBC70402 on FBC704 (BC704EMP, BC704OTPO, BC704CPTO, BC704INSC, BC704OMDA, BC704FCH);
+alter table FBC704
+  add primary key (BC704EMP, BC704SUC, BC704MOD, BC704TRN, BC704REL, BC704ORD, BC704SBO, BC704FCH, BC704OTPO);
+

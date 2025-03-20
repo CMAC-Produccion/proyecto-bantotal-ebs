@@ -1,0 +1,97 @@
+create table AQPD153
+(
+  aqpd153pais   NUMBER(3),
+  aqpd153tipdoc NUMBER(2),
+  aqpd153numdoc VARCHAR2(12),
+  aqpd153emp    NUMBER(3) not null,
+  aqpd153mod    NUMBER(3) not null,
+  aqpd153suc    NUMBER(3) not null,
+  aqpd153mda    NUMBER(4) not null,
+  aqpd153pap    NUMBER(4) not null,
+  aqpd153cta    NUMBER(9) not null,
+  aqpd153ope    NUMBER(9) not null,
+  aqpd153sbop   NUMBER(3) not null,
+  aqpd153tope   NUMBER(3) not null,
+  aqpd153inst   NUMBER(10),
+  aqpd153mto    NUMBER(17,2),
+  aqpd153sitneg VARCHAR2(30),
+  aqpd153mtocap NUMBER(17,2),
+  aqpd153grurep NUMBER(10),
+  aqpd153feccar DATE not null,
+  aqpd153horcar VARCHAR2(10),
+  aqpd153estcar VARCHAR2(3) not null,
+  aqpd153tipben VARCHAR2(30),
+  aqpd153memo   VARCHAR2(30),
+  aqpd153auxn1  NUMBER(17,2),
+  aqpd151auxn2  NUMBER(17,2),
+  aqpd153auxv1  VARCHAR2(130),
+  aqpd153auxv2  VARCHAR2(150),
+  aqpd153auxd1  DATE,
+  aqpd153auxd2  DATE
+)
+;
+comment on table AQPD153
+  is 'TABLA CREDITOS REFINANCIADOS MEMO 18';
+comment on column AQPD153.aqpd153pais
+  is 'Pais de documento ';
+comment on column AQPD153.aqpd153tipdoc
+  is 'tipo de documento';
+comment on column AQPD153.aqpd153numdoc
+  is 'numero de documento';
+comment on column AQPD153.aqpd153emp
+  is 'Clv credito Empresa';
+comment on column AQPD153.aqpd153mod
+  is 'Clv. credito modulo';
+comment on column AQPD153.aqpd153suc
+  is 'Clv crédito sucursal';
+comment on column AQPD153.aqpd153mda
+  is 'Clv crédito moneda';
+comment on column AQPD153.aqpd153pap
+  is 'Clv crédito papel';
+comment on column AQPD153.aqpd153cta
+  is 'Clc crédito cuenta';
+comment on column AQPD153.aqpd153ope
+  is 'Clv crédito operacion';
+comment on column AQPD153.aqpd153sbop
+  is 'Clv crédito sub operación';
+comment on column AQPD153.aqpd153tope
+  is 'Clv crédito tipo operacion';
+comment on column AQPD153.aqpd153inst
+  is 'numero de instancia de crédito refinanciado';
+comment on column AQPD153.aqpd153mto
+  is 'Monto de crédito';
+comment on column AQPD153.aqpd153sitneg
+  is 'Situacion del negocio';
+comment on column AQPD153.aqpd153mtocap
+  is 'Monto de capitalización';
+comment on column AQPD153.aqpd153grurep
+  is 'Grupo de Reprogramacion';
+comment on column AQPD153.aqpd153feccar
+  is 'fecha de carga de informacion';
+comment on column AQPD153.aqpd153horcar
+  is 'hora de carga de informacion';
+comment on column AQPD153.aqpd153estcar
+  is 'estado de carga (H -> VIGENTE, I -> INHABILITADO)';
+comment on column AQPD153.aqpd153tipben
+  is 'Tipo de beneficio refinanciacion Caja o reprogramacion Caja ';
+comment on column AQPD153.aqpd153memo
+  is 'Memo con que relacion tiene (17 y 18)';
+comment on column AQPD153.aqpd153auxn1
+  is 'Dato auxiliar numerico 1';
+comment on column AQPD153.aqpd151auxn2
+  is 'Dato auxiliar numerico 2';
+comment on column AQPD153.aqpd153auxv1
+  is 'Dato Auxiliar varchar 1';
+comment on column AQPD153.aqpd153auxv2
+  is 'Dato Auxiliar varchar 2';
+comment on column AQPD153.aqpd153auxd1
+  is 'Dato auxiliar Fecha 1';
+comment on column AQPD153.aqpd153auxd2
+  is 'Dato auxiliar Fecha 2';
+create index AQPD153A2 on AQPD153 (AQPD153PAIS, AQPD153TIPDOC, AQPD153NUMDOC, AQPD153ESTCAR);
+create index AQPD153A3 on AQPD153 (AQPD153EMP, AQPD153MOD, AQPD153SUC, AQPD153MDA, AQPD153PAP, AQPD153CTA, AQPD153OPE, AQPD153SBOP, AQPD153TOPE, AQPD153ESTCAR);
+create index AQPD153A4 on AQPD153 (AQPD153OPE, AQPD153ESTCAR);
+create index AQPD153A5 on AQPD153 (AQPD153INST, AQPD153ESTCAR);
+alter table AQPD153
+  add constraint AQPD153A1 primary key (AQPD153EMP, AQPD153MOD, AQPD153SUC, AQPD153MDA, AQPD153PAP, AQPD153CTA, AQPD153OPE, AQPD153SBOP, AQPD153TOPE, AQPD153FECCAR, AQPD153ESTCAR);
+

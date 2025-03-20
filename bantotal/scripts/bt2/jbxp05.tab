@@ -1,0 +1,20 @@
+create table JBXP05
+(
+  jbxp05cod  NUMBER(3) not null,
+  jbxp05suc  NUMBER(3) not null,
+  jbxp05cta  NUMBER(9) not null,
+  jbxp05mod  NUMBER(3) not null,
+  jbxp05mda  NUMBER(4) not null,
+  jbxp05pap  NUMBER(4) not null,
+  jbxp05oper NUMBER(9) not null,
+  jbxp05sbop NUMBER(3) not null,
+  jbxp05tope NUMBER(3) not null,
+  jbxp05fch  DATE not null,
+  jbxp05frec NUMBER(2),
+  jbxp05prc  CHAR(1),
+  jbxp05fprc DATE,
+  jbxp05paq  CHAR(1)
+)
+;
+create unique index JBXP0501 on JBXP05 (JBXP05COD, JBXP05SUC, JBXP05CTA, JBXP05MOD, JBXP05MDA, JBXP05PAP, JBXP05OPER, JBXP05SBOP, JBXP05TOPE, JBXP05FCH);
+
