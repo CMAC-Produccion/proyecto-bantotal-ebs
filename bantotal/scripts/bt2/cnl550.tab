@@ -1,0 +1,13 @@
+create table CNL550
+(
+  cnl500ver CHAR(20) not null,
+  cnl505obj CHAR(50) not null,
+  cnl510tec CHAR(50),
+  cnl511fun CHAR(50)
+)
+;
+create index CNL55002 on CNL550 (CNL511FUN);
+create index CNL55003 on CNL550 (CNL510TEC);
+alter table CNL550
+  add primary key (CNL500VER, CNL505OBJ);
+

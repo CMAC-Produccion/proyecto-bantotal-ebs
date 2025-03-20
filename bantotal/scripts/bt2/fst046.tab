@@ -1,0 +1,17 @@
+create table FST046
+(
+  pgcod  NUMBER(3) not null,
+  ubuser CHAR(10) not null,
+  ubsuc  NUMBER(3),
+  ubcaj  CHAR(1),
+  ubncaj NUMBER(3),
+  ubniv  NUMBER(1),
+  ubmnu  CHAR(8),
+  ubprd  CHAR(1)
+)
+;
+create index FST04602 on FST046 (UBUSER);
+create index FST04603 on FST046 (PGCOD, UBSUC);
+alter table FST046
+  add primary key (PGCOD, UBUSER);
+

@@ -1,0 +1,29 @@
+create table FSD703
+(
+  dcpfpais   NUMBER(3) not null,
+  dcpftdoc   NUMBER(2) not null,
+  dcpfndoc   CHAR(12) not null,
+  dcpftingan NUMBER(10),
+  dcpfpatr   NUMBER(10),
+  dcpfpgrec  NUMBER(1),
+  dcpfvinc   NUMBER(1),
+  dcpftendex NUMBER(1),
+  dcpffchia  NUMBER(8),
+  dcpffchip  NUMBER(8),
+  dcpftotac  NUMBER(12),
+  dcpfaccor  NUMBER(10),
+  dcpftotpa  NUMBER(12),
+  dcpfpacor  NUMBER(10),
+  dcpfvtane  NUMBER(10),
+  dcpfresbr  NUMBER(10),
+  dcpfresfi  NUMBER(10),
+  dcpfganpe  NUMBER(10),
+  dcpfresex  NUMBER(10),
+  dcpfimpga  NUMBER(10),
+  dcpfresni  NUMBER(10),
+  dcpfcanpe  NUMBER(6)
+)
+;
+alter table FSD703
+  add primary key (DCPFPAIS, DCPFTDOC, DCPFNDOC);
+

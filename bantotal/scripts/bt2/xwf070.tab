@@ -1,0 +1,20 @@
+create table XWF070
+(
+  xwfwrkite NUMBER(10) not null,
+  xwfpgcod  NUMBER(3) not null,
+  xwftmod   NUMBER(3) not null,
+  xwftsuc   NUMBER(3) not null,
+  xwfttran  NUMBER(3) not null,
+  xwfnrel   NUMBER(4) not null,
+  xwffcon   DATE not null,
+  xwfprcin  NUMBER(10),
+  xwfnumprd NUMBER(3),
+  xwfcont   CHAR(1)
+)
+;
+create index XWF0701 on XWF070 (XWFFCON);
+create index XWF0702 on XWF070 (XWFPRCIN);
+create index XWF0703 on XWF070 (XWFPGCOD, XWFTMOD, XWFTSUC, XWFTTRAN, XWFFCON, XWFCONT);
+alter table XWF070
+  add primary key (XWFWRKITE, XWFPGCOD, XWFTMOD, XWFTSUC, XWFTTRAN, XWFNREL, XWFFCON);
+

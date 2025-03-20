@@ -1,0 +1,52 @@
+create table AQPD224
+(
+  aqpd224cod    NUMBER(3) not null,
+  aqpd224mod    NUMBER(3) not null,
+  aqpd224suc    NUMBER(3) not null,
+  aqpd224mda    NUMBER(4) not null,
+  aqpd224pap    NUMBER(4) not null,
+  aqpd224cta    NUMBER(9) not null,
+  aqpd224ope    NUMBER(9) not null,
+  aqpd224sbo    NUMBER(3) not null,
+  aqpd224tpo    NUMBER(3) not null,
+  aqpd224est    CHAR(1),
+  aqpd224fecact DATE not null,
+  aqpd224usu    CHAR(10),
+  aqpd224tipe   NUMBER(4) not null,
+  aqpd224desce  VARCHAR2(30)
+)
+;
+comment on table AQPD224
+  is 'Tabla de Refinanciado PJM';
+comment on column AQPD224.aqpd224cod
+  is 'Codigo';
+comment on column AQPD224.aqpd224mod
+  is 'Modulo';
+comment on column AQPD224.aqpd224suc
+  is 'Sucursal';
+comment on column AQPD224.aqpd224mda
+  is 'Moneda';
+comment on column AQPD224.aqpd224pap
+  is 'Papel';
+comment on column AQPD224.aqpd224cta
+  is 'Cuenta';
+comment on column AQPD224.aqpd224ope
+  is 'Operación';
+comment on column AQPD224.aqpd224sbo
+  is 'Sub Operación';
+comment on column AQPD224.aqpd224tpo
+  is 'Tipo de Operación';
+comment on column AQPD224.aqpd224est
+  is 'Estado';
+comment on column AQPD224.aqpd224fecact
+  is 'Fecha de actualización';
+comment on column AQPD224.aqpd224usu
+  is 'usuario';
+comment on column AQPD224.aqpd224tipe
+  is 'Tipo de Exoneración';
+comment on column AQPD224.aqpd224desce
+  is 'Fecha desde';
+create index AQPD224A2 on AQPD224 (AQPD224COD, AQPD224MOD, AQPD224SUC, AQPD224MDA, AQPD224PAP, AQPD224CTA, AQPD224OPE, AQPD224SBO, AQPD224TPO, AQPD224EST);
+alter table AQPD224
+  add primary key (AQPD224COD, AQPD224MOD, AQPD224SUC, AQPD224MDA, AQPD224PAP, AQPD224CTA, AQPD224OPE, AQPD224SBO, AQPD224TPO, AQPD224FECACT, AQPD224TIPE);
+

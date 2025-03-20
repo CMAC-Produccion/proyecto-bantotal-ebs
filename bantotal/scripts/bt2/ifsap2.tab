@@ -1,0 +1,11 @@
+create table IFSAP2
+(
+  ifsap2apl NUMBER(4) not null,
+  ifsap2ban CHAR(5) not null,
+  ifsap2pgm CHAR(10),
+  ifsap2pth CHAR(40)
+)
+;
+alter table IFSAP2
+  add primary key (IFSAP2APL, IFSAP2BAN);
+

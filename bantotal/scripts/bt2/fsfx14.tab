@@ -1,0 +1,27 @@
+create table FSFX14
+(
+  sfx14num NUMBER(15) not null,
+  sfx14pap NUMBER(4) not null,
+  sfx14fec DATE,
+  sfx14ins CHAR(30),
+  sfx14fva NUMBER(14,8),
+  sfx14cco NUMBER(14,8),
+  sfx14fvs NUMBER(14,8),
+  sfx14mon CHAR(10),
+  sfx14moc CHAR(10),
+  sfx14aga CHAR(50),
+  sfx14ax1 NUMBER(9),
+  sfx14ax2 NUMBER(9),
+  sfx14ax3 DATE,
+  sfx14ax4 DATE,
+  sfx14ax5 CHAR(50),
+  sfx14ax6 CHAR(50),
+  sfx14cnf CHAR(2),
+  sfx14cfe DATE,
+  sfx14cho CHAR(8),
+  sfx14usr CHAR(10)
+)
+;
+alter table FSFX14
+  add primary key (SFX14NUM, SFX14PAP);
+

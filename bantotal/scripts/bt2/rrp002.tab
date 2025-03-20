@@ -1,0 +1,64 @@
+create table RRP002
+(
+  rrp002emp NUMBER(3) not null,
+  rrp002pai NUMBER(3) not null,
+  rrp002cli NUMBER(5) not null,
+  rrp002cod NUMBER(5) not null,
+  rrp002id1 NUMBER(15) not null,
+  rrp002id2 NUMBER(15) not null,
+  rrp002id3 NUMBER(15) not null,
+  rrp002id4 CHAR(15) not null,
+  rrp002nr1 NUMBER(17,2),
+  rrp002nr2 NUMBER(17,2),
+  rrp002nr3 NUMBER(17,2),
+  rrp002fe1 DATE,
+  rrp002fe2 DATE,
+  rrp002ta1 NUMBER(10,6),
+  rrp002ta2 NUMBER(10,6),
+  rrp002ch1 CHAR(100),
+  rrp002ch2 CHAR(100),
+  rrp002ch3 CHAR(100)
+)
+;
+comment on table RRP002
+  is 'Detalle maestro tabla normativo';
+comment on column RRP002.rrp002emp
+  is 'Empresa';
+comment on column RRP002.rrp002pai
+  is 'Pais';
+comment on column RRP002.rrp002cli
+  is 'Cliente';
+comment on column RRP002.rrp002cod
+  is 'Codigo';
+comment on column RRP002.rrp002id1
+  is 'Identificador 1';
+comment on column RRP002.rrp002id2
+  is 'Identificador 2';
+comment on column RRP002.rrp002id3
+  is 'Identificador 3';
+comment on column RRP002.rrp002id4
+  is 'Identificador 4';
+comment on column RRP002.rrp002nr1
+  is 'Número 1';
+comment on column RRP002.rrp002nr2
+  is 'Número 2';
+comment on column RRP002.rrp002nr3
+  is 'Numero 3';
+comment on column RRP002.rrp002fe1
+  is 'Fecha 1';
+comment on column RRP002.rrp002fe2
+  is 'Fecha 2';
+comment on column RRP002.rrp002ta1
+  is 'Tasa 1';
+comment on column RRP002.rrp002ta2
+  is 'Tasa 2';
+comment on column RRP002.rrp002ch1
+  is 'Carácter 1';
+comment on column RRP002.rrp002ch2
+  is 'Carácter 2';
+comment on column RRP002.rrp002ch3
+  is 'Cáracter 3';
+create index RRP0022 on RRP002 (RRP002EMP, RRP002COD, RRP002ID4, RRP002ID1, RRP002ID3, RRP002ID2);
+alter table RRP002
+  add primary key (RRP002EMP, RRP002PAI, RRP002CLI, RRP002COD, RRP002ID1, RRP002ID2, RRP002ID3, RRP002ID4);
+

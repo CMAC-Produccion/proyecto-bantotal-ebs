@@ -1,0 +1,20 @@
+create table FVAC14
+(
+  vac14emp  NUMBER(3) not null,
+  vac13pai  NUMBER(3) not null,
+  vac13loc  NUMBER(6) not null,
+  vac14cor  NUMBER(3) not null,
+  vac16eco  NUMBER(3),
+  vac14suc  NUMBER(3),
+  vac14snm  CHAR(30),
+  vac14pzo  NUMBER(3),
+  vac14pza  NUMBER(3),
+  vac14plus NUMBER(3),
+  vac14com  NUMBER(3)
+)
+;
+create index FVAC1402 on FVAC14 (VAC13PAI, VAC13LOC);
+create index FVAC1403 on FVAC14 (VAC14EMP, VAC16ECO);
+alter table FVAC14
+  add primary key (VAC14EMP, VAC13PAI, VAC13LOC, VAC14COR);
+

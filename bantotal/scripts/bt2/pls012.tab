@@ -1,0 +1,14 @@
+create table PLS012
+(
+  cpg10embt  NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg06cod   NUMBER(3) not null,
+  pls012est  CHAR(1),
+  pls012prs  CHAR(10),
+  pls012sbpr CHAR(10)
+)
+;
+create index PLS01202 on PLS012 (CPG06COD);
+alter table PLS012
+  add primary key (CPG10EMBT, CPG26CONV, CPG06COD);
+

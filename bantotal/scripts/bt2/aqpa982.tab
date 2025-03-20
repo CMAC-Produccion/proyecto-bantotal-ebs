@@ -1,0 +1,94 @@
+create table AQPA982
+(
+  aqpa982fproc   DATE not null,
+  aqpa982hora    CHAR(8) not null,
+  aqpa982pais    NUMBER(3) not null,
+  aqpa982tdoc    NUMBER(3) not null,
+  aqpa982ndoc    CHAR(12) not null,
+  aqpa982inst    NUMBER(10) not null,
+  aqpa982est     VARCHAR2(2),
+  aqpa982corr    NUMBER(10) not null,
+  aqpa982user    VARCHAR2(10),
+  aqpa982emp     NUMBER(3),
+  aqpa982suc     NUMBER(3),
+  aqpa982mod     NUMBER(3),
+  aqpa982mda     NUMBER(4),
+  aqpa982pap     NUMBER(4),
+  aqpa982cta     NUMBER(9),
+  aqpa982ope     NUMBER(9),
+  aqpa982sbo     NUMBER(3),
+  aqpa982top     NUMBER(3),
+  aqpa982nrcuo   NUMBER(5),
+  aqpa982instv   NUMBER(10),
+  aqpa982cuoimp  NUMBER(17,2),
+  aqpa982seguro  NUMBER(17,2),
+  aqpa982caplin  NUMBER(17,2),
+  aqpa982carfia  NUMBER(17,2),
+  aqpa982capcuom NUMBER(17,2),
+  aqpa982ca1     CHAR(30),
+  aqpa982na1     NUMBER(17,2),
+  aqpa982fa1     DATE
+)
+;
+comment on column AQPA982.aqpa982fproc
+  is 'FECHA PROCESO';
+comment on column AQPA982.aqpa982hora
+  is 'HORA PROCESO';
+comment on column AQPA982.aqpa982pais
+  is 'PAIS';
+comment on column AQPA982.aqpa982tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPA982.aqpa982ndoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPA982.aqpa982inst
+  is 'INSTANCIA';
+comment on column AQPA982.aqpa982est
+  is 'ESTADO';
+comment on column AQPA982.aqpa982corr
+  is 'CORRELATIVO';
+comment on column AQPA982.aqpa982user
+  is 'USUARIO';
+comment on column AQPA982.aqpa982emp
+  is 'EMPRESA';
+comment on column AQPA982.aqpa982suc
+  is 'SUCURSAL';
+comment on column AQPA982.aqpa982mod
+  is 'MODULO';
+comment on column AQPA982.aqpa982mda
+  is 'MONEDA';
+comment on column AQPA982.aqpa982pap
+  is 'PAPEL';
+comment on column AQPA982.aqpa982cta
+  is 'CUENTA';
+comment on column AQPA982.aqpa982ope
+  is 'OPERACION';
+comment on column AQPA982.aqpa982sbo
+  is 'SUB OPERACION';
+comment on column AQPA982.aqpa982top
+  is 'TIPO OPERACION';
+comment on column AQPA982.aqpa982nrcuo
+  is 'NUMERO CUOTAS';
+comment on column AQPA982.aqpa982instv
+  is 'INSTANCIA VIGENTE';
+comment on column AQPA982.aqpa982cuoimp
+  is 'MONTO CUOTA PENDIENTE PAGO';
+comment on column AQPA982.aqpa982seguro
+  is 'SEGURO CREDITO';
+comment on column AQPA982.aqpa982caplin
+  is 'CAPACIDAD LINEA';
+comment on column AQPA982.aqpa982carfia
+  is 'CAPACIDAD CARTA FIANZA';
+comment on column AQPA982.aqpa982capcuom
+  is 'CAPACIDAD CUOTA MENSUALIZADA';
+comment on column AQPA982.aqpa982ca1
+  is 'CHAR AUX 1';
+comment on column AQPA982.aqpa982na1
+  is 'NUMBER AUX 1';
+comment on column AQPA982.aqpa982fa1
+  is 'FECHA AUX 1';
+create index AQPA982A2 on AQPA982 (AQPA982INST, AQPA982EST, AQPA982CA1);
+create index AQPA9822 on AQPA982 (AQPA982FPROC, AQPA982HORA, AQPA982PAIS, AQPA982TDOC, AQPA982NDOC, AQPA982INST, AQPA982EST, AQPA982CORR, AQPA982USER);
+create index AQPA9823 on AQPA982 (AQPA982EMP, AQPA982SUC, AQPA982MOD, AQPA982MDA, AQPA982PAP, AQPA982CTA, AQPA982OPE, AQPA982SBO, AQPA982TOP);
+alter table AQPA982
+  add primary key (AQPA982FPROC, AQPA982HORA, AQPA982PAIS, AQPA982TDOC, AQPA982NDOC, AQPA982INST, AQPA982CORR);
+

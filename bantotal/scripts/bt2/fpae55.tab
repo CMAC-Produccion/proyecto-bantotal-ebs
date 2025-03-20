@@ -1,0 +1,11 @@
+create table FPAE55
+(
+  pae54cod NUMBER(5) not null,
+  pae52ite NUMBER(5) not null,
+  pae55atr CHAR(20)
+)
+;
+create index FPAE5502 on FPAE55 (PAE52ITE);
+alter table FPAE55
+  add primary key (PAE54COD, PAE52ITE);
+

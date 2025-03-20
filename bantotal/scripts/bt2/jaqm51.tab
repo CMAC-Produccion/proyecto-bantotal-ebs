@@ -1,0 +1,30 @@
+create table JAQM51
+(
+  jaqm51coe NUMBER(10) not null,
+  jaqm51cpr NUMBER(12) not null,
+  jaqm51cre NUMBER(12) not null,
+  jaqm51cor NUMBER(3) not null,
+  jaqm51cvi NUMBER(3) not null,
+  jaqm51tex VARCHAR2(255),
+  jaqm51cca NUMBER(12),
+  jaqm51nu1 NUMBER(9),
+  jaqm51nu2 NUMBER(9),
+  jaqm51nu3 NUMBER(9),
+  jaqm51im1 NUMBER(17,2),
+  jaqm51im2 NUMBER(17,2),
+  jaqm51im3 NUMBER(17,2),
+  jaqm51fe1 DATE,
+  jaqm51fe2 DATE,
+  jaqm51fe3 DATE,
+  jaqm51ch1 CHAR(1),
+  jaqm51ch2 CHAR(1),
+  jaqm51ch3 CHAR(1),
+  jaqm51va1 VARCHAR2(255),
+  jaqm51va2 VARCHAR2(255),
+  jaqm51va3 VARCHAR2(255)
+)
+;
+create index JAQM51A2 on JAQM51 (JAQM51COE, JAQM51CPR, JAQM51CVI, JAQM51COR);
+alter table JAQM51
+  add primary key (JAQM51COE, JAQM51CPR, JAQM51CRE, JAQM51COR, JAQM51CVI);
+

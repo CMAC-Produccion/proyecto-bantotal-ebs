@@ -1,0 +1,15 @@
+create table LTND07
+(
+  ltnd07idoc NUMBER(10) not null,
+  ltnd07pais NUMBER(3),
+  ltnd07tdoc NUMBER(2),
+  ltnd07doc  CHAR(25)
+)
+;
+create index LTND0702 on LTND07 (LTND07PAIS, LTND07DOC);
+create index LTND0703 on LTND07 (LTND07TDOC, LTND07DOC);
+create index LTND0704 on LTND07 (LTND07DOC);
+create index LTND0705 on LTND07 (LTND07PAIS, LTND07TDOC, LTND07DOC);
+alter table LTND07
+  add primary key (LTND07IDOC);
+

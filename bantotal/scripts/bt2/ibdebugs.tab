@@ -1,0 +1,26 @@
+create table IBDEBUGS
+(
+  ibproject   CHAR(60),
+  ibprocess   CHAR(60),
+  ibtask      CHAR(60),
+  iblognum    NUMBER(10),
+  iblogtad    NUMBER(2),
+  iblogpad    NUMBER(3),
+  iblogdad    CHAR(64),
+  iblogadh    NUMBER(3),
+  ibdebcrr    NUMBER(6),
+  ibprogram   CHAR(60),
+  cnl001usu   CHAR(30),
+  iblogip     CHAR(30),
+  iblogdate   DATE,
+  iblogtime   CHAR(8),
+  iblogdateu  DATE,
+  iblogtimeu  CHAR(8),
+  iblogcodret CHAR(10),
+  ibdebug     CLOB
+)
+;
+create unique index IBDEBUGS01 on IBDEBUGS (IBPROJECT, IBPROCESS, IBTASK, IBLOGNUM, IBLOGTAD, IBLOGPAD, IBLOGDAD, IBLOGADH, IBDEBCRR);
+create index IBDEBUGS02 on IBDEBUGS (IBPROJECT, IBPROCESS, IBTASK);
+create index IBDEBUGS03 on IBDEBUGS (IBLOGNUM, IBLOGTAD, IBLOGPAD, IBLOGDAD, IBLOGADH);
+

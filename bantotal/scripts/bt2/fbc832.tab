@@ -1,0 +1,33 @@
+create table FBC832
+(
+  bc832emp   NUMBER(3) not null,
+  bc832anio  NUMBER(4) not null,
+  bc832mes   NUMBER(2) not null,
+  bc832docpa NUMBER(3) not null,
+  bc832doctp NUMBER(2) not null,
+  bc832docno CHAR(12) not null,
+  bc832top   NUMBER(1) not null,
+  bc832cta   NUMBER(9),
+  bc832doct  NUMBER(2),
+  bc832docn  NUMBER(11),
+  bc832cp    NUMBER(17,2),
+  bc832cpcm  NUMBER(17,2),
+  bc832cpcmd NUMBER(17,2),
+  bc832cpcmo NUMBER(17,2),
+  bc832cpdf  NUMBER(17,2),
+  bc832cpdfd NUMBER(17,2),
+  bc832cpdfo NUMBER(17,2),
+  bc832vt    NUMBER(17,2),
+  bc832vtcm  NUMBER(17,2),
+  bc832vtcmd NUMBER(17,2),
+  bc832vtcmo NUMBER(17,2),
+  bc832vtdf  NUMBER(17,2),
+  bc832vtdfd NUMBER(17,2),
+  bc832vtdfo NUMBER(17,2),
+  bc832ctacm NUMBER(11)
+)
+;
+create index FBC83202 on FBC832 (BC832EMP, BC832DOCPA, BC832DOCT, BC832DOCNO);
+alter table FBC832
+  add primary key (BC832EMP, BC832ANIO, BC832MES, BC832DOCPA, BC832DOCTP, BC832DOCNO, BC832TOP);
+

@@ -1,0 +1,15 @@
+create table JBXE02
+(
+  jbx2deenti CHAR(7) not null,
+  jbx2deempr CHAR(3) not null,
+  jbx2defech DATE not null,
+  jbx2denros CHAR(6) not null,
+  jbx2decuot CHAR(4) not null,
+  jbx2decapi CHAR(15),
+  jbx2deinte CHAR(15),
+  jbx2detota CHAR(15),
+  jbx2derefe CHAR(7)
+)
+;
+create unique index JBXE0201 on JBXE02 (JBX2DEENTI, JBX2DEEMPR, JBX2DEFECH, JBX2DENROS, JBX2DECUOT);
+

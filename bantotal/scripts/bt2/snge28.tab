@@ -1,0 +1,17 @@
+create table SNGE28
+(
+  sng021eval NUMBER(10) not null,
+  sng026cod  NUMBER(4) not null,
+  snge28lin  NUMBER(3) not null,
+  snge28fch1 DATE,
+  snge28fch2 DATE,
+  snge28fch3 DATE,
+  snge28dec1 NUMBER(14,4),
+  snge28dec2 NUMBER(14,4),
+  snge28dec3 NUMBER(15),
+  snge28com  VARCHAR2(144)
+)
+;
+alter table SNGE28
+  add primary key (SNG021EVAL, SNG026COD, SNGE28LIN);
+

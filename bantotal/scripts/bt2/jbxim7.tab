@@ -1,0 +1,11 @@
+create table JBXIM7
+(
+  jbxim7emp NUMBER(4) not null,
+  jbxim7pai NUMBER(3),
+  jbxim7tdo NUMBER(2),
+  jbxim7ndo CHAR(12)
+)
+;
+create unique index JBXIM701 on JBXIM7 (JBXIM7EMP);
+create index JBXIM703 on JBXIM7 (JBXIM7PAI, JBXIM7TDO, JBXIM7NDO);
+

@@ -1,0 +1,25 @@
+create table JFAW530
+(
+  jfaw530nv NUMBER(4) not null,
+  jfaw530mn NUMBER(4) not null,
+  jfaw530md NUMBER(17,2) not null,
+  jfaw530mh NUMBER(17,2) not null,
+  jfaw530td NUMBER(5) not null,
+  jfaw530th NUMBER(5) not null,
+  jfaw530qt NUMBER(5,2),
+  jfaw530ml NUMBER(5,2),
+  jfaw530cu NUMBER(5),
+  jfaw530po NUMBER(5,2),
+  jfaw530a1 NUMBER(17,2),
+  jfaw530a2 NUMBER(17,2),
+  jfaw530a3 NUMBER(17,2),
+  jfaw530a4 CHAR(100),
+  jfaw530a5 CHAR(100),
+  jfaw530a6 CHAR(100),
+  jfaw530a7 DATE,
+  jfaw530a8 DATE
+)
+;
+alter table JFAW530
+  add primary key (JFAW530NV, JFAW530MN, JFAW530MD, JFAW530MH, JFAW530TD, JFAW530TH);
+

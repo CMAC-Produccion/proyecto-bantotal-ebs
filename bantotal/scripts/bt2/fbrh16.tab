@@ -1,0 +1,12 @@
+create table FBRH16
+(
+  brh16cta  NUMBER(5) not null,
+  brh16fchp DATE not null,
+  brh16cont NUMBER(6),
+  brh16fchd DATE,
+  brh16fchh DATE
+)
+;
+alter table FBRH16
+  add primary key (BRH16CTA, BRH16FCHP);
+

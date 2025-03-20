@@ -1,0 +1,40 @@
+create table JAQZ146
+(
+  jaqz146cta       NUMBER(9) not null,
+  jaqz146nom       VARCHAR2(113),
+  jaqz146tipdoc    VARCHAR2(20),
+  jaqz146nrodoc    VARCHAR2(25),
+  jaqz146oficio    VARCHAR2(30),
+  jaqz146obs       VARCHAR2(50),
+  jaqz146fecreg    DATE,
+  jaqz146fecrea    DATE,
+  jaqz146fecbaj    DATE,
+  jaqz146codlis    NUMBER(4),
+  jaqz146tiplis    VARCHAR2(28),
+  jaqz146age       CHAR(30),
+  jaqz146mod       VARCHAR2(30),
+  jaqz146tipope    VARCHAR2(30),
+  jaqz146codope    VARCHAR2(27),
+  jaqz146mosign    CHAR(4),
+  jaqz146saldo     NUMBER,
+  jaqz146fecultsal DATE,
+  jaqz146sccta     NUMBER(9) not null,
+  jaqz146scoper    NUMBER(9) not null,
+  jaqz146scmod     NUMBER(3),
+  jaqz146sctope    NUMBER(3) not null,
+  jaqz146scsbop    NUMBER(3) not null,
+  jaqz146tiprep    CHAR(1) not null,
+  jaqz146audubu    VARCHAR2(30),
+  jaqz146audfec    DATE,
+  jaqz146audhor    VARCHAR2(8),
+  jaqz146condic    VARCHAR2(30),
+  jaqz146crefec    TIMESTAMP(6),
+  jaqz146usralt    VARCHAR2(10)
+)
+;
+comment on column JAQZ146.jaqz146crefec
+  is 'Campo de Auditoria';
+comment on column JAQZ146.jaqz146usralt
+  is 'Usuario de Alta o Analista';
+create index JAQZ146A2_OGG on JAQZ146 (JAQZ146NOM, JAQZ146NRODOC);
+

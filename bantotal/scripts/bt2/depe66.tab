@@ -1,0 +1,38 @@
+create table DEPE66
+(
+  depe66apl NUMBER(3) not null,
+  depe66ban CHAR(4) not null,
+  depe66env NUMBER(9) not null,
+  depe66cor NUMBER(9) not null,
+  depe66ncr CHAR(12),
+  depe66ncu NUMBER(4),
+  depe66fve DATE,
+  depe66mda NUMBER(4),
+  depe66imp NUMBER(17,2),
+  depe66nom CHAR(30),
+  depe66cga NUMBER(1),
+  depe66fra NUMBER(14,7),
+  depe66fpe NUMBER(14,7),
+  depe66fpa DATE,
+  depe66fva DATE,
+  depe66age NUMBER(8),
+  depe66caj NUMBER(4),
+  depe66ira NUMBER(14,2),
+  depe66ipe NUMBER(14,2),
+  depe66gco NUMBER(14,2),
+  depe66tot NUMBER(14,2),
+  depe66rel NUMBER(4),
+  depe66mnc NUMBER(5),
+  depe66est CHAR(3),
+  depe66mod NUMBER(4),
+  depe66trn NUMBER(4),
+  depe66im3 NUMBER(17,2),
+  depe66im2 NUMBER(17,2),
+  depe66im1 NUMBER(17,2),
+  marca     NUMBER(3)
+)
+;
+create unique index DEPE6600_N1 on DEPE66 (DEPE66APL, DEPE66BAN, DEPE66ENV, DEPE66COR);
+alter table DEPE66
+  add constraint DEPE66_PK_N1 primary key (DEPE66APL, DEPE66BAN, DEPE66ENV, DEPE66COR);
+

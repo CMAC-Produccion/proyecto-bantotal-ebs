@@ -1,0 +1,25 @@
+create table JHSP02
+(
+  jhsp02apl  NUMBER(4) not null,
+  jhsp02ban  CHAR(5) not null,
+  jhsp02env  NUMBER(9) not null,
+  jhsp02cor  NUMBER(9) not null,
+  jhsp02fpro DATE,
+  jhsp02id   NUMBER(14),
+  jhsp02rucd NUMBER(12),
+  jhsp02tdoc NUMBER(2),
+  jhsp02ndoc CHAR(12),
+  jhsp02bco  NUMBER(4),
+  jhsp02dreg CHAR(50),
+  jhsp02nom  CHAR(90),
+  jhsp02exp  NUMBER(14),
+  jhsp02imp  NUMBER(17,2),
+  jhsp02ex   CHAR(1),
+  jhsp02tdbt NUMBER(2)
+)
+;
+create unique index JHSP0201 on JHSP02 (JHSP02APL, JHSP02BAN, JHSP02ENV, JHSP02COR);
+create index JHSP0202 on JHSP02 (JHSP02FPRO);
+create index JHSP0203 on JHSP02 (JHSP02NOM);
+create index JHSP0204 on JHSP02 (JHSP02EXP);
+

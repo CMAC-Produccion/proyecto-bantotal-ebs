@@ -1,0 +1,22 @@
+create table FSFIAY
+(
+  sfiayemp NUMBER(3) not null,
+  sfiaycod NUMBER(5) not null,
+  sfiayrel NUMBER(2) not null,
+  sfiaycpo NUMBER(2) not null,
+  sfiayfmt CHAR(1) not null,
+  sfiayfse CHAR(1) not null,
+  sfiayhab CHAR(1),
+  sfiaya01 NUMBER(9),
+  sfiaya02 NUMBER(9),
+  sfiaya03 CHAR(40),
+  sfiaya04 CHAR(40),
+  sfiaya05 CHAR(1),
+  sfiaya06 CHAR(1),
+  sfiaya07 CHAR(1),
+  sfiaya08 CHAR(1)
+)
+;
+alter table FSFIAY
+  add primary key (SFIAYEMP, SFIAYCOD, SFIAYREL, SFIAYCPO, SFIAYFMT, SFIAYFSE);
+

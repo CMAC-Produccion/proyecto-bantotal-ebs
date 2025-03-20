@@ -1,0 +1,37 @@
+create or replace force view v_aqpb878_ffloresv_anx as
+select
+pgcod,
+ppmod,
+ppsuc,
+ppmda,
+pppap,
+ppcta,
+ppoper,
+ppsbop,
+pptope,
+ppfpag,
+pptipo,
+pp1nump,
+pp1fech,
+pp1cap,
+pp1int,
+pp1intmex,
+pp1intm,
+pp1intmmex,
+pp1icap,
+pp1iint,
+pp1iintm,
+pp1stat,
+pp1saladem,
+d602cd,
+d602mo,
+d602su,
+d602tr,
+d602re,
+d602fc,
+d602or,
+d602sb,
+d602co
+from AQPB878
+ /* GOLDENGATE_DDL_REPLICATION */;
+

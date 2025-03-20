@@ -1,0 +1,12 @@
+create table FST054
+(
+  pgcod  NUMBER(3) not null,
+  efsuc  NUMBER(3) not null,
+  efcaja NUMBER(3) not null,
+  cajnom CHAR(30),
+  cajhab CHAR(1)
+)
+;
+alter table FST054
+  add primary key (PGCOD, EFSUC, EFCAJA);
+

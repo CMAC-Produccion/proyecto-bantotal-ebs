@@ -1,0 +1,41 @@
+create table AQPD603
+(
+  aqpd603crte DATE not null,
+  aqpd603cta  NUMBER(9) not null,
+  aqpd603oper NUMBER(9) not null,
+  aqpd603scap NUMBER(17,2) not null,
+  aqpd603fecc DATE,
+  aqpd603feca DATE,
+  aqpd603usrc CHAR(10),
+  aqpd603usra CHAR(10),
+  aqpd603sta  CHAR(1),
+  aqpd603fecv DATE
+)
+;
+comment on table AQPD603
+  is 'Lista de Creditos Bloqueados de Riesgos';
+comment on column AQPD603.aqpd603crte
+  is 'Corte';
+comment on column AQPD603.aqpd603cta
+  is 'Número de cuenta';
+comment on column AQPD603.aqpd603oper
+  is 'Operación';
+comment on column AQPD603.aqpd603scap
+  is 'Saldo Capital';
+comment on column AQPD603.aqpd603fecc
+  is 'Fecha de creación';
+comment on column AQPD603.aqpd603feca
+  is 'Fecha de actualización';
+comment on column AQPD603.aqpd603usrc
+  is 'Usuario creación';
+comment on column AQPD603.aqpd603usra
+  is 'Usuario actualización';
+comment on column AQPD603.aqpd603sta
+  is 'Estado(S/N)';
+comment on column AQPD603.aqpd603fecv
+  is 'Fecha de vigencia de excepción';
+create index AQPD603A2 on AQPD603 (AQPD603CTA, AQPD603OPER);
+create index AQPD603A3 on AQPD603 (AQPD603CTA, AQPD603OPER, AQPD603FECV, AQPD603STA);
+alter table AQPD603
+  add primary key (AQPD603CRTE, AQPD603CTA, AQPD603OPER, AQPD603SCAP);
+

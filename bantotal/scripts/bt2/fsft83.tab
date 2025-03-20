@@ -1,0 +1,22 @@
+create table FSFT83
+(
+  sfst83emp NUMBER(3) not null,
+  sft83fch  DATE not null,
+  sft83cust NUMBER(9) not null,
+  sft83idco NUMBER(2) not null,
+  sft83cesp NUMBER(4) not null,
+  sft83depo NUMBER(9) not null,
+  sft83comi NUMBER(9) not null,
+  sft83corr NUMBER(4) not null,
+  sft83tcta NUMBER(2),
+  sft83tmov CHAR(2),
+  sft83vnom NUMBER(17,2),
+  sft83deco NUMBER(9),
+  sft83coco NUMBER(9),
+  sft83cnum NUMBER(2),
+  sft83ref  CHAR(4)
+)
+;
+alter table FSFT83
+  add primary key (SFST83EMP, SFT83FCH, SFT83CUST, SFT83IDCO, SFT83CESP, SFT83DEPO, SFT83COMI, SFT83CORR);
+

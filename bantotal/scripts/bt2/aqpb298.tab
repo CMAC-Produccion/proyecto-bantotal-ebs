@@ -1,0 +1,34 @@
+create table AQPB298
+(
+  aqpb298fec  DATE not null,
+  aqpb298ndoc CHAR(12) not null,
+  aqpb298tdoc NUMBER(2),
+  aqpb298pais NUMBER(3),
+  aqpb298nom  CHAR(30),
+  aqpb298cta  NUMBER(9),
+  aqpb298var1 VARCHAR2(60),
+  aqpb298var2 VARCHAR2(60),
+  aqpb298var3 VARCHAR2(60),
+  aqpb298var4 VARCHAR2(60),
+  aqpb298var5 VARCHAR2(60) not null,
+  aqpb298mto1 NUMBER(17,2),
+  aqpb298mto2 NUMBER(17,2),
+  aqpb298mto3 NUMBER(17,2),
+  aqpb298mto4 NUMBER(17,2),
+  aqpb298mto5 NUMBER(17,2),
+  aqpb298imp1 NUMBER(10,6),
+  aqpb298imp2 NUMBER(10,6),
+  aqpb298imp3 NUMBER(10,6),
+  aqpb298imp4 NUMBER(10,6),
+  aqpb298imp5 NUMBER(10,6),
+  aqpb298est  CHAR(1),
+  aqpb298var6 VARCHAR2(60) not null,
+  aqpb298var7 VARCHAR2(60),
+  aqpb298var8 VARCHAR2(60),
+  aqpb298pla  NUMBER(10),
+  aqpb298ant  NUMBER(10)
+)
+;
+create index AQPB298A2 on AQPB298 (AQPB298NDOC);
+create index AQPB298A3 on AQPB298 (AQPB298PAIS, AQPB298TDOC, AQPB298NDOC);
+

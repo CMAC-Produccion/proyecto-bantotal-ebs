@@ -1,0 +1,42 @@
+create table FBC148
+(
+  bc148emp   NUMBER(3) not null,
+  bc148inf   CHAR(10) not null,
+  bc148finf  DATE not null,
+  bc148cod   CHAR(30) not null,
+  bc148suc   NUMBER(3) not null,
+  bc148rubr  NUMBER(16) not null,
+  bc148mda   NUMBER(4) not null,
+  bc148pap   NUMBER(4) not null,
+  bc148cta   NUMBER(9) not null,
+  bc148oper  NUMBER(9) not null,
+  bc148sbop  NUMBER(3) not null,
+  bc148top   NUMBER(3) not null,
+  bc148tcod  CHAR(3),
+  bc148tpos  NUMBER(1),
+  bc148nomin NUMBER(16,2),
+  bc148razon NUMBER(16,2),
+  bc148fsub  DATE,
+  bc148disp  CHAR(1),
+  bc148tasai CHAR(1),
+  bc148carad CHAR(1),
+  bc148gamma NUMBER(17,2),
+  bc148vega  NUMBER(17,2),
+  bc148paisc CHAR(2),
+  bc148tdc   CHAR(3),
+  bc148ndc   CHAR(18),
+  bc148cta1  NUMBER(6),
+  bc148mo1   NUMBER(17,2),
+  bc148cta2  NUMBER(6),
+  bc148mo2   NUMBER(17,2),
+  bc148cta3  NUMBER(6),
+  bc148mo3   NUMBER(17,2),
+  bc148cta4  NUMBER(6),
+  bc148mo4   NUMBER(17,2),
+  bc148cta5  NUMBER(6),
+  bc148mo5   NUMBER(17,2)
+)
+;
+alter table FBC148
+  add primary key (BC148EMP, BC148INF, BC148FINF, BC148COD, BC148SUC, BC148RUBR, BC148MDA, BC148PAP, BC148CTA, BC148OPER, BC148SBOP, BC148TOP);
+

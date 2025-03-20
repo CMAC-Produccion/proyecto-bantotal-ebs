@@ -1,0 +1,10 @@
+create table JSBND01
+(
+  jsbnd01sec CHAR(3) not null,
+  seccod     NUMBER(3)
+)
+;
+create index JSBND012 on JSBND01 (SECCOD);
+alter table JSBND01
+  add primary key (JSBND01SEC);
+

@@ -1,0 +1,28 @@
+create table REC400
+(
+  rec400cod  NUMBER(9) not null,
+  rec400iac  NUMBER(13),
+  rec400cem  NUMBER(3),
+  rec400csu  NUMBER(3),
+  rec400mod  NUMBER(3),
+  rec400rub  NUMBER(16),
+  rec400mda  NUMBER(4),
+  rec400cta  NUMBER(9),
+  rec400pap  NUMBER(4),
+  rec400ope  NUMBER(9),
+  rec400sub  NUMBER(3),
+  rec400top  NUMBER(3),
+  rec400tpg  CHAR(1),
+  rec400cht  CHAR(1),
+  rec400fpg  CHAR(1),
+  rec400pag  CHAR(1),
+  rec400dsc  CHAR(30),
+  rec400obs  CHAR(50),
+  rec400pgm1 CHAR(8),
+  rec400pgm2 CHAR(8)
+)
+;
+create index REC40002 on REC400 (REC400IAC);
+alter table REC400
+  add primary key (REC400COD);
+

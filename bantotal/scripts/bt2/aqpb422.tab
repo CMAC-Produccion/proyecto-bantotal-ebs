@@ -1,0 +1,31 @@
+create table AQPB422
+(
+  aqpb422emp    NUMBER(3) not null,
+  aqpb422mod    NUMBER(3) not null,
+  aqpb422suc    NUMBER(3) not null,
+  aqpb422mda    NUMBER(4) not null,
+  aqpb422pap    NUMBER(4) not null,
+  aqpb422cta    NUMBER(9) not null,
+  aqpb422ope    NUMBER(9) not null,
+  aqpb422sbo    NUMBER(3) not null,
+  aqpb422top    NUMBER(3) not null,
+  aqpb422rub    NUMBER(13),
+  aqpb422imp    NUMBER(18,2),
+  aqpb422tasa   NUMBER(14,8),
+  aqpb422tip    CHAR(2),
+  aqpb422destip VARCHAR2(50),
+  aqpb422nomt   VARCHAR2(150),
+  aqpb422pdoc   NUMBER(3),
+  aqpb422tdoc   NUMBER(2),
+  aqpb422ndoc   CHAR(12),
+  aqpb422pcob   NUMBER(3),
+  aqpb422est    VARCHAR2(1),
+  aqpb422garfae NUMBER(1),
+  aqpb422usuact VARCHAR2(10),
+  aqpb422fecact DATE
+)
+;
+create index AQPB4222 on AQPB422 (AQPB422CTA, AQPB422EST);
+alter table AQPB422
+  add primary key (AQPB422EMP, AQPB422MOD, AQPB422SUC, AQPB422MDA, AQPB422PAP, AQPB422CTA, AQPB422OPE, AQPB422SBO, AQPB422TOP);
+

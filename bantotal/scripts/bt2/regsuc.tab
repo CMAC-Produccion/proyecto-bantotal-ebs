@@ -1,0 +1,52 @@
+create table REGSUC
+(
+  regcod NUMBER(3) not null,
+  regnom VARCHAR2(40),
+  sucurs NUMBER(3) not null,
+  scnom  VARCHAR2(30),
+  ubig   VARCHAR2(6),
+  dpto   VARCHAR2(100),
+  prov   VARCHAR2(100),
+  dist   VARCHAR2(100),
+  regcre NUMBER(3),
+  rgmcre VARCHAR2(40),
+  codzon NUMBER(2),
+  deszon VARCHAR2(50),
+  codage VARCHAR2(3),
+  ageabr VARCHAR2(16)
+)
+;
+comment on table REGSUC
+  is 'Tabla de regiones, zonas y sucursales de créditos';
+comment on column REGSUC.regcod
+  is 'Código de región';
+comment on column REGSUC.regnom
+  is 'Nombre de región';
+comment on column REGSUC.sucurs
+  is 'Código de sucursal/agencia';
+comment on column REGSUC.scnom
+  is 'Nombre de sucursal/agencia';
+comment on column REGSUC.ubig
+  is 'ubigeo de agencia';
+comment on column REGSUC.dpto
+  is 'Departamento de la agencia';
+comment on column REGSUC.prov
+  is 'Provincia de la agencia';
+comment on column REGSUC.dist
+  is 'Distrito de la agencia';
+comment on column REGSUC.regcre
+  is 'no se usa';
+comment on column REGSUC.rgmcre
+  is 'no se usa';
+comment on column REGSUC.codzon
+  is 'Código de zona';
+comment on column REGSUC.deszon
+  is 'Nombre de zona';
+comment on column REGSUC.codage
+  is 'no se usa';
+comment on column REGSUC.ageabr
+  is 'no se usa';
+create index IX_RS_1 on REGSUC (REGCOD, SUCURS);
+create index IX_RS_2 on REGSUC (SUCURS);
+create index IX_RS_3 on REGSUC (UPPER(SCNOM));
+

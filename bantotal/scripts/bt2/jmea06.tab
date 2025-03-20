@@ -1,0 +1,26 @@
+create table JMEA06
+(
+  jmea06pgc NUMBER(3) not null,
+  jmea06mod NUMBER(3) not null,
+  jmea06suc NUMBER(3) not null,
+  jmea06mda NUMBER(4) not null,
+  jmea06pap NUMBER(4) not null,
+  jmea06cta NUMBER(9) not null,
+  jmea06ope NUMBER(9) not null,
+  jmea06sbo NUMBER(3) not null,
+  jmea06top NUMBER(3) not null,
+  jmea06fch DATE not null,
+  jmea06cbu CHAR(22),
+  jmea06au1 NUMBER(9),
+  jmea06au2 NUMBER(9),
+  jmea06au3 NUMBER(17,2),
+  jmea06au4 NUMBER(17,2),
+  jmea06au5 DATE,
+  jmea06au6 DATE,
+  jmea06au7 CHAR(30),
+  jmea06au8 CHAR(30)
+)
+;
+alter table JMEA06
+  add primary key (JMEA06PGC, JMEA06MOD, JMEA06SUC, JMEA06MDA, JMEA06PAP, JMEA06CTA, JMEA06OPE, JMEA06SBO, JMEA06TOP, JMEA06FCH);
+

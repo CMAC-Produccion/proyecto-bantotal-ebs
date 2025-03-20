@@ -1,0 +1,36 @@
+create table JAQL307
+(
+  jaql307pgcod NUMBER(3) not null,
+  jaql307ubuse CHAR(10) not null,
+  jaql307pgfap DATE not null,
+  jaql307corre NUMBER(18) not null,
+  jaql307tmodu NUMBER(3),
+  jaql307itran NUMBER(3),
+  jaql307scnom CHAR(30),
+  jaql307trnom CHAR(30),
+  jaql307tfcon DATE,
+  jaql307monon CHAR(30),
+  jaql307itimp NUMBER(17,2),
+  jaql307cargo NUMBER(17,2),
+  jaql307impo2 NUMBER(17,2),
+  jaql307impo3 NUMBER(17,2),
+  jaql307impo4 NUMBER(17,2),
+  jaql307ubnom CHAR(30),
+  jaql307ctacm VARCHAR2(27),
+  jaql307cmac  CHAR(35),
+  jaql307ctacl CHAR(27),
+  jaql307auxc1 CHAR(65),
+  jaql307auxc2 CHAR(130),
+  jaql307auxc3 CHAR(65),
+  jaql307auxn1 NUMBER(17,2),
+  jaql307auxn2 NUMBER(17,2),
+  jaql307auxn3 NUMBER(17,2),
+  jaql307auxd1 DATE,
+  jaql307auxd2 DATE,
+  jaql307auxd3 DATE
+)
+;
+create index JAQL3072 on JAQL307 (JAQL307SCNOM, JAQL307TFCON, JAQL307TRNOM);
+alter table JAQL307
+  add primary key (JAQL307PGCOD, JAQL307UBUSE, JAQL307PGFAP, JAQL307CORRE);
+

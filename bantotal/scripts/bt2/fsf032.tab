@@ -1,0 +1,12 @@
+create table FSF032
+(
+  lfnivcod1 NUMBER(2) not null,
+  lfnivsig  NUMBER(2) not null,
+  lfcomcod  NUMBER(2) not null
+)
+;
+create index FSF03204 on FSF032 (LFCOMCOD);
+create index FSF03205 on FSF032 (LFNIVSIG, LFNIVCOD1, LFCOMCOD);
+alter table FSF032
+  add primary key (LFNIVCOD1, LFNIVSIG, LFCOMCOD);
+

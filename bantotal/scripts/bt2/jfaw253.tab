@@ -1,0 +1,47 @@
+create table JFAW253
+(
+  jfa253apli NUMBER(4) not null,
+  jfa253band CHAR(5) not null,
+  jfa253nenv NUMBER(9) not null,
+  jfa253cor1 NUMBER(9) not null,
+  jfa253cor2 NUMBER(2) not null,
+  jfa253flot DATE,
+  jfa253tran NUMBER(6),
+  jfa253part NUMBER(3),
+  jfa253term NUMBER(2),
+  jfa253agen NUMBER(3),
+  jfa253suag NUMBER(3),
+  jfa253fab  DATE,
+  jfa253timo NUMBER(2),
+  jfa253emp  NUMBER(3),
+  jfa253scon NUMBER(3),
+  jfa253mcon NUMBER(3),
+  jfa253tbt  NUMBER(3),
+  jfa253rel  NUMBER(4),
+  jfa253fbt  DATE,
+  jfa253ord  NUMBER(2),
+  jfa253sop  NUMBER(3),
+  jfa253mop  NUMBER(3),
+  jfa253ope  NUMBER(9),
+  jfa253mon  NUMBER(4),
+  jfa253pap  NUMBER(4),
+  jfa253cta  NUMBER(9),
+  jfa253sub  NUMBER(3),
+  jfa253top  NUMBER(3),
+  jfa253imp  NUMBER(17,2),
+  jfa253mar  CHAR(2),
+  jfa253cme  NUMBER(2),
+  jfa253men  CHAR(150),
+  jfa253pgco NUMBER(3),
+  jfa253itsu NUMBER(3),
+  jfa253itmo NUMBER(3),
+  jfa253itra NUMBER(3),
+  jfa253nrel NUMBER(4),
+  jfa253fcon DATE,
+  jfa253usua CHAR(10)
+)
+;
+create index JFAW2533 on JFAW253 (JFA253TBT, JFA253FLOT, JFA253MAR, JFA253AGEN, JFA253SUAG, JFA253FBT, JFA253EMP, JFA253SCON, JFA253MCON, JFA253REL);
+alter table JFAW253
+  add primary key (JFA253APLI, JFA253BAND, JFA253NENV, JFA253COR1, JFA253COR2);
+

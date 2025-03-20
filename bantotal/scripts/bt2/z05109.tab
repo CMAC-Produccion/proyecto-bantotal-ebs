@@ -1,0 +1,12 @@
+create table Z05109
+(
+  z05109bco NUMBER(4) not null,
+  z05109suc NUMBER(4) not null,
+  z05109dsc CHAR(30),
+  z05108cpr NUMBER(3)
+)
+;
+create index Z0510902 on Z05109 (Z05108CPR);
+alter table Z05109
+  add primary key (Z05109BCO, Z05109SUC);
+

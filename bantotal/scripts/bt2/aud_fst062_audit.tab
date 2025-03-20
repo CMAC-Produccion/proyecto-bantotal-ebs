@@ -1,0 +1,29 @@
+create table AUD_FST062_AUDIT
+(
+  aud_old_extcod     NUMBER(9),
+  aud_new_extcod     NUMBER(9),
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_old_trext      NUMBER(2),
+  aud_new_trext      NUMBER(2),
+  aud_old_trmod      NUMBER(3),
+  aud_new_trmod      NUMBER(3),
+  aud_old_trnro      NUMBER(3),
+  aud_new_trnro      NUMBER(3),
+  aud_old_trord      NUMBER(2),
+  aud_new_trord      NUMBER(2),
+  aud_fst062_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst062_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst062_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst062_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst062_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst062_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst062_ubu     VARCHAR2(50) default USER not null,
+  aud_fst062_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst062_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst062_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst062_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst062_uas     CHAR(1) default 'I' not null
+)
+;
+

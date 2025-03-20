@@ -1,0 +1,26 @@
+create table CYP010
+(
+  cyp010pgc NUMBER(3) not null,
+  cyp010suc NUMBER(3) not null,
+  cyp010rub NUMBER(16) not null,
+  cyp010mda NUMBER(4) not null,
+  cyp010pap NUMBER(4) not null,
+  cyp010cta NUMBER(9) not null,
+  cyp010ope NUMBER(9) not null,
+  cyp010sbo NUMBER(3) not null,
+  cyp010top NUMBER(3) not null,
+  cyp010ct2 NUMBER(9) not null,
+  cyp010fch DATE not null,
+  cyp010cor NUMBER(10) not null,
+  cyp010usu CHAR(10),
+  cyp010wks CHAR(10),
+  cyp010hor CHAR(8),
+  cyp010au1 NUMBER(17,2),
+  cyp010au2 CHAR(40),
+  cyp010au3 DATE
+)
+;
+create index CYP01002 on CYP010 (CYP010PGC, CYP010SUC, CYP010RUB, CYP010MDA, CYP010PAP, CYP010CT2, CYP010OPE, CYP010SBO, CYP010TOP, CYP010FCH, CYP010COR);
+alter table CYP010
+  add primary key (CYP010PGC, CYP010SUC, CYP010RUB, CYP010MDA, CYP010PAP, CYP010CTA, CYP010OPE, CYP010SBO, CYP010TOP, CYP010CT2, CYP010FCH, CYP010COR);
+

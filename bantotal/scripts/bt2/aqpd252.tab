@@ -1,0 +1,81 @@
+create table AQPD252
+(
+  aqpd252id           NUMBER(17) not null,
+  aqpd252paidoc       NUMBER(3),
+  aqpd252tipdoc       NUMBER(3),
+  aqpd252fecreg       DATE,
+  aqpd252horreg       VARCHAR2(10),
+  aqpd252numdoc       CHAR(12),
+  aqpd252numcre       VARCHAR2(30),
+  aqpd252numins       NUMBER(10),
+  aqpd252ctades       VARCHAR2(30),
+  aqpd252idbiometria  NUMBER(17),
+  aqpd252monto        NUMBER(16,2),
+  aqpd252nrocuo       NUMBER(4),
+  aqpd252tasa         NUMBER(9,6),
+  aqpd252idreg        NUMBER(10),
+  aqpd252estado       VARCHAR2(20),
+  aqpd252iddesembolso NUMBER(17),
+  aqpd252moneda       NUMBER(4),
+  aqpd252fecdes       DATE,
+  aqpd252hordes       VARCHAR2(10),
+  aqpd252idpoliticas  NUMBER(17),
+  aqpd252idapertura   NUMBER(17),
+  aqpd252ctaape       VARCHAR2(30),
+  aqpd252fecpol       DATE,
+  aqpd252horpol       VARCHAR2(10)
+)
+;
+comment on table AQPD252
+  is 'Log de Desembolsos realizados de Nano creditos';
+comment on column AQPD252.aqpd252id
+  is 'Correlativo Procesamiento';
+comment on column AQPD252.aqpd252paidoc
+  is 'Pais Documento';
+comment on column AQPD252.aqpd252tipdoc
+  is 'Tipo Documento';
+comment on column AQPD252.aqpd252fecreg
+  is 'Fecha Registro';
+comment on column AQPD252.aqpd252horreg
+  is 'Hora Registro';
+comment on column AQPD252.aqpd252numdoc
+  is 'Numero Documento';
+comment on column AQPD252.aqpd252numcre
+  is 'Numero de Credito';
+comment on column AQPD252.aqpd252numins
+  is 'Numero Instancia';
+comment on column AQPD252.aqpd252ctades
+  is 'Cuenta Destino';
+comment on column AQPD252.aqpd252idbiometria
+  is 'ID Biometria';
+comment on column AQPD252.aqpd252monto
+  is 'Monto Desembolso';
+comment on column AQPD252.aqpd252nrocuo
+  is 'Cuotas';
+comment on column AQPD252.aqpd252tasa
+  is 'Tasa';
+comment on column AQPD252.aqpd252idreg
+  is 'Identificador de la tabla AQPA705';
+comment on column AQPD252.aqpd252estado
+  is 'Estado Actual del procesarmiento: INICIO,POLITICAS,DESEMBOLSO';
+comment on column AQPD252.aqpd252iddesembolso
+  is 'ID Correlativo Desembolso';
+comment on column AQPD252.aqpd252moneda
+  is 'Moneda del credito';
+comment on column AQPD252.aqpd252fecdes
+  is 'Fecha Desembolso';
+comment on column AQPD252.aqpd252hordes
+  is 'Hora Desembolso';
+comment on column AQPD252.aqpd252idpoliticas
+  is 'ID Correlativo Validacion Politicas';
+comment on column AQPD252.aqpd252idapertura
+  is 'ID Correlativo Apertura Cuenta';
+comment on column AQPD252.aqpd252ctaape
+  is 'Cuenta Aperturada';
+comment on column AQPD252.aqpd252fecpol
+  is 'Fecha de validacion de politicas';
+comment on column AQPD252.aqpd252horpol
+  is 'Hora Validacion de politicas';
+alter table AQPD252
+  add primary key (AQPD252ID);
+

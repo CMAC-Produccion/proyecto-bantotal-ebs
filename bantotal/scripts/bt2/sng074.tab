@@ -1,0 +1,13 @@
+create table SNG074
+(
+  sng070meva NUMBER(3) not null,
+  sng070prg  CHAR(8) not null,
+  sng072obj  CHAR(20) not null,
+  sng073col  CHAR(10) not null,
+  sng074id   NUMBER(2) not null,
+  sng074dsc  CHAR(50)
+)
+;
+alter table SNG074
+  add primary key (SNG070MEVA, SNG070PRG, SNG072OBJ, SNG073COL, SNG074ID);
+

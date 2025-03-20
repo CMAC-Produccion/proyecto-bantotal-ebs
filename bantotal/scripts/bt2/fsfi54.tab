@@ -1,0 +1,19 @@
+create table FSFI54
+(
+  sfi44cod  NUMBER(3) not null,
+  sfi54cla  NUMBER(2) not null,
+  sfi54com  NUMBER(3),
+  sfi54mod  NUMBER(3),
+  sfi54vnve CHAR(1),
+  sfi54hab  CHAR(1),
+  sfi54aun1 NUMBER(9),
+  sfi54aun2 NUMBER(9),
+  sfi54aun3 NUMBER(9),
+  sfi54aut1 CHAR(20),
+  sfi54aut2 CHAR(20),
+  sfi54aut3 CHAR(20)
+)
+;
+alter table FSFI54
+  add primary key (SFI44COD, SFI54CLA);
+

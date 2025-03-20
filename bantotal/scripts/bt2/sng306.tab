@@ -1,0 +1,12 @@
+create table SNG306
+(
+  sng306mod NUMBER(3) not null,
+  sng306top NUMBER(3) not null,
+  sng306eve NUMBER(3) not null,
+  sng306est NUMBER(5),
+  sng306lda NUMBER(3)
+)
+;
+alter table SNG306
+  add primary key (SNG306MOD, SNG306TOP, SNG306EVE);
+

@@ -1,0 +1,44 @@
+create table FBC912
+(
+  bc912emp   NUMBER(3) not null,
+  bc912suc   NUMBER(3) not null,
+  bc912rubr  NUMBER(16) not null,
+  bc912mda   NUMBER(4) not null,
+  bc912pap   NUMBER(4) not null,
+  bc912cta   NUMBER(9) not null,
+  bc912oper  NUMBER(9) not null,
+  bc912sbop  NUMBER(3) not null,
+  bc912top   NUMBER(3) not null,
+  bc912fech  DATE not null,
+  bc912tit   NUMBER(2),
+  bc912cap   NUMBER(1),
+  bc912pzo   NUMBER(1),
+  bc912sist  NUMBER(3),
+  bc912mod   NUMBER(3),
+  bc912fvto  DATE,
+  bc912fval  DATE,
+  bc9129plaz NUMBER(5),
+  bc912ttasa NUMBER(1),
+  bc912tasa  NUMBER(10,6),
+  bc912clta  NUMBER(2),
+  bc912tdia  NUMBER(1),
+  bc912tano  NUMBER(1),
+  bc912resi  CHAR(1),
+  bc912cate  CHAR(15),
+  bc912acti  NUMBER(12),
+  bc912prod  NUMBER(3),
+  bc912ticu  CHAR(1),
+  bc912tipp  CHAR(1),
+  bc912fatr  DATE,
+  bc912sdor  NUMBER(17,2),
+  bc912sdmn  NUMBER(17,2),
+  bc912sdus  NUMBER(17,2),
+  bc912sdmo  NUMBER(17,2),
+  bc912int   NUMBER(17,2),
+  bc912prev  NUMBER(17,2),
+  bc912gpo   NUMBER(2)
+)
+;
+alter table FBC912
+  add primary key (BC912EMP, BC912SUC, BC912RUBR, BC912MDA, BC912PAP, BC912CTA, BC912OPER, BC912SBOP, BC912TOP, BC912FECH);
+

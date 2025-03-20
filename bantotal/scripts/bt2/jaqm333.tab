@@ -1,0 +1,18 @@
+create table JAQM333
+(
+  jaqm333fec DATE not null,
+  jaqm333hor CHAR(8) not null,
+  jaqm333ins NUMBER(10) not null,
+  jaqm333cod NUMBER(5) not null,
+  jaqm333dsc VARCHAR2(80),
+  jaqm333ch1 CHAR(100),
+  jaqm333ch2 CHAR(100),
+  jaqm333nu1 NUMBER(9),
+  jaqm333nu2 NUMBER(9)
+)
+;
+create index JAQM3332 on JAQM333 (JAQM333FEC, JAQM333INS, JAQM333COD);
+create index JAQM3333 on JAQM333 (JAQM333INS, JAQM333HOR, JAQM333COD);
+alter table JAQM333
+  add primary key (JAQM333FEC, JAQM333HOR, JAQM333INS, JAQM333COD);
+

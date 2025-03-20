@@ -1,0 +1,22 @@
+create table AQPB508
+(
+  aqpb508cod    VARCHAR2(16) not null,
+  aqpb508est    VARCHAR2(1) not null,
+  aqpb508paio   NUMBER(3) not null,
+  aqpb508ptdo   NUMBER(2) not null,
+  aqpb508doco   VARCHAR2(12) not null,
+  aqpb508fcho   DATE not null,
+  aqpb508usuo   VARCHAR2(10) not null,
+  aqpb508pain   NUMBER(3) not null,
+  aqpb508ptdn   NUMBER(2) not null,
+  aqpb508docn   VARCHAR2(12) not null,
+  aqpb508crefec DATE not null,
+  aqpb508crehor VARCHAR2(8) not null,
+  aqpb508creusr VARCHAR2(30) not null,
+  aqpb508cresuc NUMBER(3) not null,
+  aqpb508cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+alter table AQPB508
+  add primary key (AQPB508COD);
+

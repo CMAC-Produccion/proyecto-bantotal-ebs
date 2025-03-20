@@ -1,0 +1,36 @@
+create table FBC815
+(
+  bc815emp  NUMBER(3) not null,
+  bc815mod  NUMBER(3) not null,
+  bc815suc  NUMBER(3) not null,
+  bc815trn  NUMBER(3) not null,
+  bc815nrel NUMBER(4) not null,
+  bc815fco  DATE not null,
+  bc815ord  NUMBER(2) not null,
+  bc815sbor NUMBER(3) not null,
+  bc815ope  CHAR(3),
+  bc815cta  NUMBER(9),
+  bc815pais NUMBER(3),
+  bc815tdoc NUMBER(2),
+  bc815ndoc CHAR(12),
+  bc815impo NUMBER(14,2),
+  bc815impd NUMBER(14,2),
+  bc815cri  CHAR(3),
+  bc815inf  CHAR(1),
+  bc815oper NUMBER(9),
+  bc815esef CHAR(1),
+  bc815mdao NUMBER(4),
+  bc815mdad NUMBER(4),
+  bc815num1 NUMBER(14,2),
+  bc815num2 NUMBER(14,2),
+  bc815fch  DATE,
+  bc815chr1 CHAR(30),
+  bc815chr2 CHAR(1),
+  bc815chr3 CHAR(1)
+)
+;
+create index FBC81502 on FBC815 (BC815OPE, BC815PAIS, BC815TDOC, BC815NDOC);
+create index FBC81503 on FBC815 (BC815OPE, BC815CTA);
+alter table FBC815
+  add primary key (BC815EMP, BC815MOD, BC815SUC, BC815TRN, BC815NREL, BC815FCO, BC815ORD, BC815SBOR);
+

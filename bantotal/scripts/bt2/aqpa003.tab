@@ -1,0 +1,18 @@
+create table AQPA003
+(
+  aqpa003inst NUMBER(10) not null,
+  aqpa003reso VARCHAR2(10) not null,
+  aqpa003vari VARCHAR2(50) not null,
+  aqpa003fech DATE not null,
+  aqpa003hoin CHAR(8) not null,
+  aqpa003hofi CHAR(8),
+  aqpa003time NUMBER(17,4),
+  aqpa003vau1 VARCHAR2(50),
+  aqpa003vau2 VARCHAR2(50),
+  aqpa003tim1 NUMBER(17,4),
+  aqpa003tim2 NUMBER(17,4)
+)
+;
+alter table AQPA003
+  add primary key (AQPA003INST, AQPA003RESO, AQPA003VARI, AQPA003FECH, AQPA003HOIN);
+

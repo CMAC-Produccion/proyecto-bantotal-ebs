@@ -1,0 +1,13 @@
+create table FBC751
+(
+  bc751emp   NUMBER(3) not null,
+  bc751sec   CHAR(15) not null,
+  bc751rut   NUMBER(11) not null,
+  bc751nom   VARCHAR2(600),
+  bc751auxnr NUMBER(17,2),
+  bc751auxch CHAR(30)
+)
+;
+alter table FBC751
+  add primary key (BC751EMP, BC751SEC, BC751RUT);
+

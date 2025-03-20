@@ -1,0 +1,25 @@
+create table X054A2
+(
+  x054a2fch  DATE not null,
+  x054a2pcod NUMBER(3) not null,
+  x054a2suc  NUMBER(3) not null,
+  x054a2mod  NUMBER(3) not null,
+  x054a2tran NUMBER(3) not null,
+  x054a2nrel NUMBER(4) not null,
+  x054a2corr NUMBER(6) not null,
+  x054a2sbor NUMBER(3) not null,
+  x054a2cta  NUMBER(9),
+  x054a2rub  NUMBER(16),
+  x054a2dc   NUMBER(1),
+  x054a2mpr  NUMBER(3),
+  x054a2sbop NUMBER(3),
+  x054a2spr  NUMBER(3),
+  x054a2imp  NUMBER(14,2),
+  x054a2mda  NUMBER(4),
+  x054a2st   NUMBER(2)
+)
+;
+create index X054A202 on X054A2 (X054A2ST);
+alter table X054A2
+  add primary key (X054A2FCH, X054A2PCOD, X054A2SUC, X054A2MOD, X054A2TRAN, X054A2NREL, X054A2CORR, X054A2SBOR);
+

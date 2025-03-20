@@ -1,0 +1,11 @@
+create table JMBN022
+(
+  jmbn022pjp NUMBER(3) not null,
+  jmbn022pjt NUMBER(2) not null,
+  jmbn022pjn CHAR(12) not null,
+  jmbn022sdt LONG
+)
+;
+alter table JMBN022
+  add primary key (JMBN022PJP, JMBN022PJT, JMBN022PJN);
+

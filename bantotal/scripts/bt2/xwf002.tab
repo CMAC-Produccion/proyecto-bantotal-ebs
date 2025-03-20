@@ -1,0 +1,11 @@
+create table XWF002
+(
+  xwfprcid    NUMBER(4) not null,
+  xwfprctestm NUMBER(1),
+  estmcod     NUMBER(5)
+)
+;
+create index IXWF0022 on XWF002 (ESTMCOD);
+alter table XWF002
+  add primary key (XWFPRCID);
+

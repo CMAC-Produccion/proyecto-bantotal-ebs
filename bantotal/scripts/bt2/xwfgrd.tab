@@ -1,0 +1,17 @@
+create table XWFGRD
+(
+  xwfgrpins  NUMBER(10) not null,
+  xwfgrtab   CHAR(30) not null,
+  xwfgrid    NUMBER(3) not null,
+  xwfgrlin   NUMBER(4) not null,
+  xwfgratid  CHAR(100) not null,
+  xwfgratval CHAR(100),
+  xwfgrmod   CHAR(3),
+  xwfgrstat  CHAR(3),
+  xwfgratkey CHAR(1)
+)
+;
+create index XWFGRD03 on XWFGRD (XWFGRPINS, XWFGRTAB, XWFGRID, XWFGRLIN, XWFGRSTAT, XWFGRATID);
+alter table XWFGRD
+  add primary key (XWFGRPINS, XWFGRTAB, XWFGRID, XWFGRLIN, XWFGRATID);
+

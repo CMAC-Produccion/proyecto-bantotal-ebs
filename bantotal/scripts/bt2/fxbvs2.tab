@@ -1,0 +1,14 @@
+create table FXBVS2
+(
+  fxbvs2cod  NUMBER(3) not null,
+  fxbvs2rmur CHAR(16) not null,
+  fxbvs2id   NUMBER(2) not null,
+  fxbvs3id   CHAR(2),
+  fxbvs4id   CHAR(4)
+)
+;
+create index FXBVS202 on FXBVS2 (FXBVS3ID, FXBVS4ID);
+create index FXBVS203 on FXBVS2 (FXBVS2RMUR);
+alter table FXBVS2
+  add primary key (FXBVS2COD, FXBVS2RMUR, FXBVS2ID);
+

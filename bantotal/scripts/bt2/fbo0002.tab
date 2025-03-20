@@ -1,0 +1,40 @@
+create table FBO0002
+(
+  fbo0002cor NUMBER(15) not null,
+  fbo0002pgc NUMBER(3),
+  fbo0002its NUMBER(3),
+  fbo0002itm NUMBER(3),
+  fbo0002itt NUMBER(3),
+  fbo0002itn NUMBER(4),
+  fbo0002fco DATE,
+  fbo0002ord NUMBER(2),
+  fbo0002sbo NUMBER(3),
+  fbo0001cod NUMBER(9),
+  fbo0002nfa NUMBER(12),
+  fbo0002est CHAR(1),
+  fbo0002pai NUMBER(4),
+  fbo0002tdo NUMBER(4),
+  fbo0002ndo CHAR(12),
+  fbo0002nom CHAR(70),
+  fbo0002con CHAR(35),
+  fbo0002mni NUMBER(14,2),
+  fbo0002mnc NUMBER(14,2),
+  fbo0002mda NUMBER(4),
+  fbo0002pap NUMBER(4),
+  fbo0002emp NUMBER(3),
+  fbo0002suc NUMBER(3),
+  fbo0002mod NUMBER(3),
+  fbo0002trn NUMBER(3),
+  fbo0002rel NUMBER(4),
+  fbo0002fca DATE,
+  fbo0002ora NUMBER(2),
+  fbo0002sba NUMBER(3),
+  fbo0002cc  CHAR(20)
+)
+;
+create index FBO00022 on FBO0002 (FBO0001COD);
+create index FBO00023 on FBO0002 (FBO0002PGC, FBO0002ITS, FBO0002ITM, FBO0002ITT, FBO0002ITN, FBO0002FCO, FBO0002ORD, FBO0002SBO);
+create index FBO00024 on FBO0002 (FBO0002EMP, FBO0002SUC, FBO0002MOD, FBO0002TRN, FBO0002REL, FBO0002FCA, FBO0002ORA, FBO0002SBA);
+alter table FBO0002
+  add primary key (FBO0002COR);
+

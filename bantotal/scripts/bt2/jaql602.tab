@@ -1,0 +1,39 @@
+create table JAQL602
+(
+  jaql546serial NUMBER(10) not null,
+  jaql602secue  NUMBER(6) not null,
+  jaql602corre  VARCHAR2(10),
+  jaql602fenua  DATE,
+  jaql602nombr  VARCHAR2(50),
+  jaql602tipid  VARCHAR2(50),
+  jaql602numid  VARCHAR2(20),
+  jaql602cargo  VARCHAR2(30),
+  jaql602fecvi  DATE,
+  jaql602depen  VARCHAR2(10),
+  jaql602proce  VARCHAR2(10),
+  jaql602relac  VARCHAR2(30),
+  jaql602empre  VARCHAR2(50),
+  jaql602carre  VARCHAR2(30),
+  jaql602tiide  VARCHAR2(10),
+  jaql602ident  VARCHAR2(20),
+  jaql602esvil  VARCHAR2(10),
+  jaql602escon  VARCHAR2(2),
+  jaql602feinr  DATE,
+  jaql602rucco  VARCHAR2(20),
+  jaql602tidet  CHAR(2),
+  jaql602concod VARCHAR2(16),
+  jaql602creusr VARCHAR2(10),
+  jaql602cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL602.jaql602concod
+  is 'Código de Consulta';
+comment on column JAQL602.jaql602creusr
+  is 'Usuario Creación';
+comment on column JAQL602.jaql602cretim
+  is 'Fecha Hora Registro';
+create index JAQL602A2 on JAQL602 (JAQL546SERIAL, JAQL602TIDET);
+create unique index JAQL60200 on JAQL602 (JAQL546SERIAL, JAQL602SECUE);
+alter table JAQL602
+  add constraint JAQL602_PK primary key (JAQL546SERIAL, JAQL602SECUE);
+

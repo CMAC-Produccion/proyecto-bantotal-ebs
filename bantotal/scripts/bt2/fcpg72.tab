@@ -1,0 +1,17 @@
+create table FCPG72
+(
+  cpg72empbt NUMBER(3) not null,
+  cpg72prod  NUMBER(3) not null,
+  cpg72marc  NUMBER(3) not null,
+  cpg72atr   NUMBER(3) not null,
+  cpg72camp1 NUMBER(17,2),
+  cpg72camp2 CHAR(25),
+  cpg72blq   CHAR(1),
+  cpg72inst  NUMBER(10),
+  cpg72camp3 NUMBER(10,6)
+)
+;
+create index FCPG7202 on FCPG72 (CPG72INST);
+alter table FCPG72
+  add primary key (CPG72EMPBT, CPG72PROD, CPG72MARC, CPG72ATR);
+

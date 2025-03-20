@@ -1,0 +1,20 @@
+create table JAQL729
+(
+  jaql729user CHAR(10) not null,
+  jaql729tido NUMBER(2) not null,
+  jaql729nudo CHAR(12) not null,
+  jaql729nous NUMBER(4),
+  jaql729nocl CHAR(30),
+  jaql729dicl CHAR(30),
+  jaql729lati CHAR(20),
+  jaql729long CHAR(20),
+  jaql729colo NUMBER(2),
+  jaql729au01 CHAR(50),
+  jaql729au02 NUMBER(15),
+  jaql729au03 NUMBER(17,2),
+  jaql729au04 DATE
+)
+;
+alter table JAQL729
+  add primary key (JAQL729USER, JAQL729TIDO, JAQL729NUDO);
+

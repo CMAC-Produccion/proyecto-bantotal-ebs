@@ -1,0 +1,16 @@
+create table DCO012
+(
+  dco007cuen NUMBER(9) not null,
+  dco000id   NUMBER(10) not null,
+  dco012fech DATE not null,
+  dco012pres CHAR(1),
+  dco012fpre DATE,
+  dco012fven DATE,
+  dco012txt  CHAR(30),
+  dco012usua CHAR(10),
+  dco012wrks CHAR(10)
+)
+;
+alter table DCO012
+  add primary key (DCO007CUEN, DCO000ID, DCO012FECH);
+

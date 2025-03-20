@@ -1,0 +1,12 @@
+create table X054O8
+(
+  x054o8imp NUMBER(3) not null,
+  x054o8cbt NUMBER(3) not null,
+  x054o8cod NUMBER(3) not null,
+  x054o8des CHAR(35)
+)
+;
+create index X054O802 on X054O8 (X054O8CBT);
+alter table X054O8
+  add primary key (X054O8IMP, X054O8CBT, X054O8COD);
+

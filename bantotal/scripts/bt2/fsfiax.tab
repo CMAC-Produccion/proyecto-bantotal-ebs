@@ -1,0 +1,28 @@
+create table FSFIAX
+(
+  sfiaxemp NUMBER(3) not null,
+  sfiaxcod NUMBER(5) not null,
+  sfiaxrel NUMBER(2) not null,
+  sfiaxdes CHAR(40),
+  sfiaxhab CHAR(1),
+  sfiaxa01 NUMBER(9),
+  sfiaxa02 NUMBER(9),
+  sfiaxa03 CHAR(40),
+  sfiaxa04 CHAR(40),
+  sfiaxa05 DATE,
+  sfiaxa06 DATE,
+  sfiaxa07 CHAR(1),
+  sfiaxa08 CHAR(1),
+  sfiaxa09 CHAR(1),
+  sfiaxa10 CHAR(1),
+  sfiaxa11 CHAR(1),
+  sfiaxa12 CHAR(1),
+  sfiaxa13 CHAR(1),
+  sfiaxa14 CHAR(1),
+  sfiaxa15 CHAR(1),
+  sfiaxa16 CHAR(1)
+)
+;
+alter table FSFIAX
+  add primary key (SFIAXEMP, SFIAXCOD, SFIAXREL);
+

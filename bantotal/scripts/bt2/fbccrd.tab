@@ -1,0 +1,17 @@
+create table FBCCRD
+(
+  bccrdemp  NUMBER(3) not null,
+  bccrdfec  DATE not null,
+  bccrdcorr NUMBER(12) not null,
+  bccrd03   CHAR(13) not null,
+  bccrd04   CHAR(1),
+  bccrd05   CHAR(4),
+  bccrd06   CHAR(2),
+  bccrd07   CHAR(2),
+  bccrd08   CHAR(1)
+)
+;
+create index FBCCRD02 on FBCCRD (BCCRDEMP, BCCRDFEC, BCCRD03);
+alter table FBCCRD
+  add primary key (BCCRDEMP, BCCRDFEC, BCCRDCORR, BCCRD03);
+

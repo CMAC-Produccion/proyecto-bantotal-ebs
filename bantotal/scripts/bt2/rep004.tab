@@ -1,0 +1,21 @@
+create table REP004
+(
+  rep001cod      NUMBER(10) not null,
+  rep004parmcod  NUMBER(4) not null,
+  rep001parmdsc  CHAR(10),
+  rep004parmtype CHAR(1),
+  rep004phpr     CHAR(1),
+  rep004pprompt  VARCHAR2(40),
+  rep004prrep    NUMBER(10),
+  rep004prcons   NUMBER(10),
+  rep004larg     NUMBER(3),
+  rep004prec     NUMBER(2),
+  rep004cnom     CHAR(20),
+  rep004cdsc     CHAR(35),
+  rep004cvde     CHAR(20),
+  rep004cayu     CHAR(100)
+)
+;
+alter table REP004
+  add primary key (REP001COD, REP004PARMCOD);
+

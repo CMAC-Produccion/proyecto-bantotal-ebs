@@ -1,0 +1,131 @@
+create table AQPB613C
+(
+  aqpb613ccorr   NUMBER(10) not null,
+  aqpb613cfech   DATE not null,
+  aqpb613chora   CHAR(8) not null,
+  aqpb613cinst   NUMBER(10) not null,
+  aqpb613cneva   NUMBER(10),
+  aqpb613cpais   NUMBER(3),
+  aqpb613ctdoc   NUMBER(2),
+  aqpb613cndoc   CHAR(12),
+  aqpb613crubr   VARCHAR2(14),
+  aqpb613cesta   CHAR(2),
+  aqpb613centi   CHAR(200),
+  aqpb613ctcre   CHAR(30),
+  aqpb613csdeu   NUMBER(17,2),
+  aqpb613cplaz   NUMBER(9,6),
+  aqpb613ctaza   NUMBER(9,6),
+  aqpb613cccalc  NUMBER(17,2),
+  aqpb613cgfin   NUMBER(17,2),
+  aqpb613cfrcc   DATE,
+  aqpb613cdori   CHAR(1),
+  aqpb613cchek   CHAR(1),
+  aqpb613cpers   CHAR(30),
+  aqpb613crela   CHAR(20),
+  aqpb613cline   CHAR(20),
+  aqpb613caux1   NUMBER(10),
+  aqpb613caux2   NUMBER(17,2),
+  aqpb613caux3   CHAR(1),
+  aqpb613caux4   VARCHAR2(1),
+  aqpb613caux5   VARCHAR2(50),
+  aqpb613caux6   DATE,
+  aqpb613caux7   NUMBER(10),
+  aqpb613caux8   NUMBER(17,2),
+  aqpb613caux9   VARCHAR2(40),
+  aqpb613cmda    NUMBER(4),
+  aqpb613ctlin   NUMBER(17,2),
+  aqpb613cutil   NUMBER(17,2),
+  aqpb613cflin   VARCHAR2(1),
+  aqpb613ccptn   NUMBER(17,2),
+  aqpb613cfac1   NUMBER(10,6),
+  aqpb613cfac2   NUMBER(10,6),
+  aqpb613cfac3   NUMBER(10,6),
+  aqpb613ccent   VARCHAR2(10),
+  aqpb613cfeclog DATE,
+  aqpb613chorlog VARCHAR2(15)
+)
+;
+comment on column AQPB613C.aqpb613ccorr
+  is 'Correlativo';
+comment on column AQPB613C.aqpb613cfech
+  is 'Fecha Proceso';
+comment on column AQPB613C.aqpb613chora
+  is 'Hora Registro';
+comment on column AQPB613C.aqpb613cinst
+  is 'Instancia / Solicitud';
+comment on column AQPB613C.aqpb613cneva
+  is 'Evaluacion';
+comment on column AQPB613C.aqpb613cpais
+  is 'Pais';
+comment on column AQPB613C.aqpb613ctdoc
+  is 'Tipo Documento';
+comment on column AQPB613C.aqpb613cndoc
+  is 'Num Documento';
+comment on column AQPB613C.aqpb613crubr
+  is 'Rubro';
+comment on column AQPB613C.aqpb613cesta
+  is 'Estado S/N';
+comment on column AQPB613C.aqpb613centi
+  is 'Entidad Finan';
+comment on column AQPB613C.aqpb613ctcre
+  is 'Tipo Credito';
+comment on column AQPB613C.aqpb613csdeu
+  is 'Saldo Deudor';
+comment on column AQPB613C.aqpb613cplaz
+  is 'Plazo';
+comment on column AQPB613C.aqpb613ctaza
+  is 'Taza';
+comment on column AQPB613C.aqpb613cccalc
+  is 'Cuota Calculada';
+comment on column AQPB613C.aqpb613cgfin
+  is 'Gasto Financiero';
+comment on column AQPB613C.aqpb613cfrcc
+  is 'Fecha RCC';
+comment on column AQPB613C.aqpb613cdori
+  is 'Datos Origen';
+comment on column AQPB613C.aqpb613cchek
+  is 'Vigente';
+comment on column AQPB613C.aqpb613cpers
+  is 'Nombre Per';
+comment on column AQPB613C.aqpb613crela
+  is 'Relacion Per';
+comment on column AQPB613C.aqpb613cline
+  is 'Tipo de Deuda';
+comment on column AQPB613C.aqpb613caux1
+  is 'Tarea de ejecucion';
+comment on column AQPB613C.aqpb613caux3
+  is 'Flag Ratio R/ ';
+comment on column AQPB613C.aqpb613caux4
+  is 'Flag Compra de Deuda';
+comment on column AQPB613C.aqpb613caux5
+  is 'Usuario de Registro';
+comment on column AQPB613C.aqpb613caux8
+  is 'Monto de No Uso';
+comment on column AQPB613C.aqpb613caux9
+  is 'Descripcion del Credito';
+comment on column AQPB613C.aqpb613cmda
+  is 'Moneda';
+comment on column AQPB613C.aqpb613ctlin
+  is 'Monto Total Linea';
+comment on column AQPB613C.aqpb613cutil
+  is 'Monto Utilizacion';
+comment on column AQPB613C.aqpb613cflin
+  is 'Flag Tipo de deuda L/P';
+comment on column AQPB613C.aqpb613ccptn
+  is 'Monto Cuota Potencial';
+comment on column AQPB613C.aqpb613cfac1
+  is 'Factor Calculo Uso';
+comment on column AQPB613C.aqpb613cfac2
+  is 'Factor Calculo No Uso';
+comment on column AQPB613C.aqpb613cfac3
+  is 'Factor Calculo Prestamo';
+comment on column AQPB613C.aqpb613ccent
+  is 'Codigo Entidad';
+comment on column AQPB613C.aqpb613cfeclog
+  is 'Fecha Log';
+comment on column AQPB613C.aqpb613chorlog
+  is 'Hora log ';
+create index AQPB613C2 on AQPB613C (AQPB613CINST, AQPB613CFECH, AQPB613CHORA);
+alter table AQPB613C
+  add primary key (AQPB613CINST, AQPB613CFECH, AQPB613CHORA, AQPB613CCORR);
+

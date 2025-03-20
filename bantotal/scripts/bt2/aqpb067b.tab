@@ -1,0 +1,106 @@
+create table AQPB067B
+(
+  aqpb067bcod       NUMBER not null,
+  aqpb067bfec       DATE not null,
+  aqpb067bcor       NUMBER(8) not null,
+  aqpb067bmod       NUMBER(3),
+  aqpb067bsuc       NUMBER(3),
+  aqpb067bmda       NUMBER(4),
+  aqpb067bpap       NUMBER(4),
+  aqpb067bcta       NUMBER(9) not null,
+  aqpb067bope       NUMBER(9) not null,
+  aqpb067bsbo       NUMBER(3),
+  aqpb067btop       NUMBER(3),
+  aqpb067besf       VARCHAR2(11),
+  aqpb067bcsap      VARCHAR2(13),
+  aqpb067bfdes      DATE,
+  aqpb067bmon       NUMBER(10,2),
+  aqpb067bncuo      NUMBER(8),
+  aqpb067bperi      NUMBER(8),
+  aqpb067bpcob      NUMBER(5,2),
+  aqpb067best       VARCHAR2(1),
+  aqpb067busd       CHAR(10),
+  aqpb067bfed       VARCHAR2(10),
+  aqpb067bhed       VARCHAR2(10),
+  aqpb067bfini      DATE,
+  aqpb067bffin      DATE,
+  aqpb067bciiuori   VARCHAR2(5),
+  aqpb067bactnomori VARCHAR2(60),
+  aqpb067bestp      VARCHAR2(1),
+  aqpb067bncer      VARCHAR2(50),
+  aqpb067bccob      VARCHAR2(50),
+  aqpb067bcren      VARCHAR2(50),
+  aqpb067bcobr      VARCHAR2(50),
+  aqpb067bchon      VARCHAR2(50),
+  aqpb067bcodi      VARCHAR2(50),
+  aqpb067bcrec      VARCHAR2(50)
+)
+;
+comment on table AQPB067B
+  is 'Tabla para registrar la cabecera de archivos cargados';
+comment on column AQPB067B.aqpb067bcod
+  is 'Código de empresa';
+comment on column AQPB067B.aqpb067bfec
+  is 'Fecha de proceso';
+comment on column AQPB067B.aqpb067bcor
+  is 'Correlativo';
+comment on column AQPB067B.aqpb067bmod
+  is 'Módulo';
+comment on column AQPB067B.aqpb067bsuc
+  is 'Sucursal';
+comment on column AQPB067B.aqpb067bmda
+  is 'Moneda';
+comment on column AQPB067B.aqpb067bpap
+  is 'Papel';
+comment on column AQPB067B.aqpb067bcta
+  is 'Cuenta';
+comment on column AQPB067B.aqpb067bope
+  is 'Operación';
+comment on column AQPB067B.aqpb067bsbo
+  is 'Suboperación';
+comment on column AQPB067B.aqpb067btop
+  is 'Tipo de operación';
+comment on column AQPB067B.aqpb067besf
+  is 'ESF';
+comment on column AQPB067B.aqpb067bcsap
+  is 'Contrato SAP';
+comment on column AQPB067B.aqpb067bfdes
+  is 'Fecha desembolso COFIDE';
+comment on column AQPB067B.aqpb067bmon
+  is 'Monto ingresado a COFIDE';
+comment on column AQPB067B.aqpb067bncuo
+  is 'Nro de cuotas ingresado a COFIDE';
+comment on column AQPB067B.aqpb067bperi
+  is 'Período de gracia ingresado a COFIDE';
+comment on column AQPB067B.aqpb067bpcob
+  is 'Porcentaje de cobertura ingresado a COFID  ';
+comment on column AQPB067B.aqpb067best
+  is 'Estado del archivo';
+comment on column AQPB067B.aqpb067bciiuori
+  is 'CIIU Origen';
+comment on column AQPB067B.aqpb067bactnomori
+  is 'Actividad Económica Origen';
+comment on column AQPB067B.aqpb067bestp
+  is 'Estado de alta de garantía A=Cancelado C=Contabilizado y H=Honrado';
+comment on column AQPB067B.aqpb067bncer
+  is 'Numero de Certificado';
+comment on column AQPB067B.aqpb067bccob
+  is 'Codigo de Cobertura';
+comment on column AQPB067B.aqpb067bcren
+  is 'Certificado de Renovacion';
+comment on column AQPB067B.aqpb067bcobr
+  is 'Cobertura de Renovacion';
+comment on column AQPB067B.aqpb067bchon
+  is 'Certificado de Honra';
+comment on column AQPB067B.aqpb067bcodi
+  is 'Codigo de Solicitud COFIDE';
+comment on column AQPB067B.aqpb067bcrec
+  is 'Codigo de Credito COFIDE';
+create index AQPB067B2 on AQPB067B (AQPB067BCOD, AQPB067BMOD, AQPB067BSUC, AQPB067BMDA, AQPB067BPAP, AQPB067BCTA, AQPB067BOPE, AQPB067BSBO, AQPB067BTOP);
+create index AQPB067B3 on AQPB067B (AQPB067BFEC, AQPB067BCOR, AQPB067BCOD, AQPB067BMOD, AQPB067BSUC, AQPB067BMDA, AQPB067BPAP, AQPB067BCTA, AQPB067BOPE, AQPB067BSBO, AQPB067BTOP);
+create index AQPB067B4 on AQPB067B (AQPB067BCOD, AQPB067BFEC, AQPB067BCOR);
+create index AQPB067B5 on AQPB067B (AQPB067BCOD, AQPB067BMOD, AQPB067BMDA, AQPB067BPAP, AQPB067BCTA, AQPB067BOPE);
+create index AQPB067B6 on AQPB067B (AQPB067BCTA);
+alter table AQPB067B
+  add primary key (AQPB067BCOD, AQPB067BFEC, AQPB067BCOR, AQPB067BCTA, AQPB067BOPE);
+

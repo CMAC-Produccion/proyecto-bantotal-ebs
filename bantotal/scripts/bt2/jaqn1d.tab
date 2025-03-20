@@ -1,0 +1,108 @@
+create table JAQN1D
+(
+  jaqn1dcod NUMBER(3) not null,
+  jaqn1dfec DATE not null,
+  jaqn1dfun CHAR(5) not null,
+  jaqn1dsuc NUMBER(3) not null,
+  jaqn1duso CHAR(10) not null,
+  jaqn1dusd CHAR(10) not null,
+  jaqn1dcor NUMBER(5) not null,
+  jaqn1dfei DATE,
+  jaqn1dfef DATE,
+  jaqn1dhoi CHAR(8),
+  jaqn1dhof CHAR(8),
+  jaqn1dest CHAR(1),
+  jaqn1dfdr DATE,
+  jaqn1dhdr CHAR(8),
+  jaqn1dudr CHAR(10),
+  jaqn1dwdr CHAR(10),
+  jaqn1dai1 NUMBER(17,2),
+  jaqn1dai2 NUMBER(17,2),
+  jaqn1dai3 NUMBER(17,2),
+  jaqn1dai4 NUMBER(17,2),
+  jaqn1dan1 NUMBER(9),
+  jaqn1dan2 NUMBER(9),
+  jaqn1dan3 NUMBER(9),
+  jaqn1dan4 NUMBER(9),
+  jaqn1daf1 DATE,
+  jaqn1daf2 DATE,
+  jaqn1daf3 DATE,
+  jaqn1daf4 DATE,
+  jaqn1dac1 VARCHAR2(255),
+  jaqn1dac2 VARCHAR2(255),
+  jaqn1dac3 VARCHAR2(255),
+  jaqn1dac4 VARCHAR2(255)
+)
+;
+comment on table JAQN1D
+  is 'Tabla información de Suplencia para inicio de modificación en Usuarios';
+comment on column JAQN1D.jaqn1dcod
+  is 'Empresa';
+comment on column JAQN1D.jaqn1dfec
+  is 'Fecha de Ingreso';
+comment on column JAQN1D.jaqn1dfun
+  is 'Funcionalidad';
+comment on column JAQN1D.jaqn1dsuc
+  is 'Sucursal';
+comment on column JAQN1D.jaqn1duso
+  is 'Usuario Origen';
+comment on column JAQN1D.jaqn1dusd
+  is 'Usuario Destino';
+comment on column JAQN1D.jaqn1dcor
+  is 'Correlativo';
+comment on column JAQN1D.jaqn1dfei
+  is 'Fecha de Inicio';
+comment on column JAQN1D.jaqn1dfef
+  is 'Fecha de Fin';
+comment on column JAQN1D.jaqn1dhoi
+  is 'Hora de Inicio';
+comment on column JAQN1D.jaqn1dhof
+  is 'Hora de Fin';
+comment on column JAQN1D.jaqn1dest
+  is 'Estado';
+comment on column JAQN1D.jaqn1dfdr
+  is 'Fecha Devolución Real';
+comment on column JAQN1D.jaqn1dhdr
+  is 'Hora Devolución Real';
+comment on column JAQN1D.jaqn1dudr
+  is 'Usuario Devolución Real';
+comment on column JAQN1D.jaqn1dwdr
+  is 'WorkStacion Devolución Real';
+comment on column JAQN1D.jaqn1dai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN1D.jaqn1dai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN1D.jaqn1dai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN1D.jaqn1dai4
+  is 'Auxiliar Importe 4';
+comment on column JAQN1D.jaqn1dan1
+  is 'Auxiliar Numérico 1';
+comment on column JAQN1D.jaqn1dan2
+  is 'Auxiliar Numérico 2';
+comment on column JAQN1D.jaqn1dan3
+  is 'Auxiliar Numérico 3';
+comment on column JAQN1D.jaqn1dan4
+  is 'Auxiliar Numérico 4';
+comment on column JAQN1D.jaqn1daf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN1D.jaqn1daf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN1D.jaqn1daf3
+  is 'Auxiliar Fecha 3';
+comment on column JAQN1D.jaqn1daf4
+  is 'Auxiliar Fecha 4';
+comment on column JAQN1D.jaqn1dac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQN1D.jaqn1dac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQN1D.jaqn1dac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQN1D.jaqn1dac4
+  is 'Auxiliar Caracter 4';
+create index JAQN1DA2 on JAQN1D (JAQN1DFEC, JAQN1DFUN, JAQN1DEST);
+create index JAQN1DA3 on JAQN1D (JAQN1DFEC, JAQN1DFUN, JAQN1DUSO);
+create index JAQN1DA4 on JAQN1D (JAQN1DFEC, JAQN1DFUN, JAQN1DUSD);
+alter table JAQN1D
+  add primary key (JAQN1DCOD, JAQN1DFEC, JAQN1DFUN, JAQN1DSUC, JAQN1DUSO, JAQN1DUSD, JAQN1DCOR);
+

@@ -1,0 +1,211 @@
+create table AQPC351
+(
+  aqpc351usur    CHAR(10) not null,
+  aqpc351cta     NUMBER(9) not null,
+  aqpc351oper    NUMBER(9) not null,
+  aqpc351emp     NUMBER(3) not null,
+  aqpc351mod     NUMBER(3) not null,
+  aqpc351suc     NUMBER(3) not null,
+  aqpc351mda     NUMBER(4) not null,
+  aqpc351pap     NUMBER(4) not null,
+  aqpc351sbop    NUMBER(3) not null,
+  aqpc351tope    NUMBER(3) not null,
+  aqpc351fsub    DATE,
+  aqpc351nsub    VARCHAR2(14),
+  aqpc351ncer    VARCHAR2(20),
+  aqpc351cocob   VARCHAR2(20),
+  aqpc351nact    VARCHAR2(24),
+  aqpc351frepo   DATE,
+  aqpc351tdocsbs NUMBER(3),
+  aqpc351tdocco  VARCHAR2(10),
+  aqpc351ndocco  CHAR(12),
+  aqpc351tdoc    VARCHAR2(10),
+  aqpc351ndoc    CHAR(12),
+  aqpc351csbs    VARCHAR2(11),
+  aqpc351rzsc    VARCHAR2(60),
+  aqpc351ciiu    VARCHAR2(5),
+  aqpc351npre    VARCHAR2(30),
+  aqpc351mone    VARCHAR2(5),
+  aqpc351mto     NUMBER(17,2),
+  aqpc351prccob  NUMBER(8,2),
+  aqpc351mtocob  NUMBER(17,2),
+  aqpc351sdo     NUMBER(17,2),
+  aqpc351sdoin   NUMBER(17,2),
+  aqpc351tear    NUMBER(14,4),
+  aqpc351plaz    NUMBER(9),
+  aqpc351pgra    NUMBER(9),
+  aqpc351finico  DATE,
+  aqpc351fini    DATE,
+  aqpc351ffin    DATE,
+  aqpc351tcre    VARCHAR2(40),
+  aqpc351fcsbs   DATE,
+  aqpc351snor    NUMBER(5,2),
+  aqpc351scpp    NUMBER(5,2),
+  aqpc351sdef    NUMBER(5,2),
+  aqpc351sdud    NUMBER(5,2),
+  aqpc351sper    NUMBER(5,2),
+  aqpc351vent    NUMBER(17,2),
+  aqpc351codhon  VARCHAR2(10),
+  aqpc351datr    NUMBER(9),
+  aqpc351moncof  NUMBER(17,2),
+  aqpc351placof  NUMBER(12),
+  aqpc351percof  NUMBER(12),
+  aqpc351estc    VARCHAR2(30),
+  aqpc351fcest   DATE,
+  aqpc351fcanc   DATE,
+  aqpc351capcanc NUMBER(17,2),
+  aqpc351rgon    VARCHAR2(40),
+  aqpc351zona    VARCHAR2(40),
+  aqpc351agen    VARCHAR2(40),
+  aqpc351anl     VARCHAR2(40),
+  aqpc351chon    CHAR(1),
+  aqpc351fhon    DATE,
+  aqpc351mhon    NUMBER(17,2),
+  aqpc351sdohon  NUMBER(17,2),
+  aqpc351crehon  NUMBER(17,2),
+  aqpc351tmor    NUMBER(14,4),
+  aqpc351tinto   NUMBER(14,4),
+  aqpc351fproc   DATE,
+  aqpc351fcr     VARCHAR2(10),
+  aqpc351hcr     VARCHAR2(10)
+)
+;
+comment on table AQPC351
+  is 'REPORTE FONDOS Reactiva Reprogramado';
+comment on column AQPC351.aqpc351usur
+  is 'Usuario';
+comment on column AQPC351.aqpc351cta
+  is 'Cuenta';
+comment on column AQPC351.aqpc351oper
+  is 'Operacion';
+comment on column AQPC351.aqpc351emp
+  is 'Empresa';
+comment on column AQPC351.aqpc351mod
+  is 'Modulo';
+comment on column AQPC351.aqpc351suc
+  is 'Sucursal';
+comment on column AQPC351.aqpc351mda
+  is 'Moneda';
+comment on column AQPC351.aqpc351pap
+  is 'Papel';
+comment on column AQPC351.aqpc351sbop
+  is 'Sub operación ';
+comment on column AQPC351.aqpc351tope
+  is 'Tipo de operación ';
+comment on column AQPC351.aqpc351fsub
+  is 'Fecha Subasta';
+comment on column AQPC351.aqpc351nsub
+  is 'Nro subasta';
+comment on column AQPC351.aqpc351ncer
+  is 'Nro Certificado';
+comment on column AQPC351.aqpc351cocob
+  is 'Codigo cobertura';
+comment on column AQPC351.aqpc351nact
+  is 'Nro Acto';
+comment on column AQPC351.aqpc351frepo
+  is 'Fecha de Operacion Repo';
+comment on column AQPC351.aqpc351tdocsbs
+  is 'Tipo documento SBS';
+comment on column AQPC351.aqpc351tdocco
+  is 'Tipo documento COFIDE';
+comment on column AQPC351.aqpc351ndocco
+  is 'Nro documento COFIDE';
+comment on column AQPC351.aqpc351tdoc
+  is 'Tipo documento  BT';
+comment on column AQPC351.aqpc351ndoc
+  is 'Nro documento BT';
+comment on column AQPC351.aqpc351csbs
+  is 'Codigo SBS';
+comment on column AQPC351.aqpc351rzsc
+  is 'Razon Social';
+comment on column AQPC351.aqpc351ciiu
+  is 'CIIU';
+comment on column AQPC351.aqpc351npre
+  is 'Nro Prestamo';
+comment on column AQPC351.aqpc351mone
+  is 'Moneda';
+comment on column AQPC351.aqpc351mto
+  is 'Monto Prestamo';
+comment on column AQPC351.aqpc351prccob
+  is '% cobertura';
+comment on column AQPC351.aqpc351mtocob
+  is 'Monto Cobertura';
+comment on column AQPC351.aqpc351sdo
+  is 'Saldo Credito';
+comment on column AQPC351.aqpc351sdoin
+  is 'Saldo Insoluto';
+comment on column AQPC351.aqpc351tear
+  is 'Tasa interes actual reprogramado';
+comment on column AQPC351.aqpc351plaz
+  is 'Plazo';
+comment on column AQPC351.aqpc351pgra
+  is 'Periodo de gracia';
+comment on column AQPC351.aqpc351finico
+  is 'Fecha de inicio  Reprogramado COFIDE';
+comment on column AQPC351.aqpc351fini
+  is 'Fecha de inicio  Reprogramado';
+comment on column AQPC351.aqpc351ffin
+  is 'Fecha fin';
+comment on column AQPC351.aqpc351tcre
+  is 'Tipo de credito SBS';
+comment on column AQPC351.aqpc351fcsbs
+  is 'Fecha clasificacion SBS';
+comment on column AQPC351.aqpc351snor
+  is 'Distribucion normal';
+comment on column AQPC351.aqpc351scpp
+  is 'Distribucion CPP';
+comment on column AQPC351.aqpc351sdef
+  is 'Distribucion deficiente';
+comment on column AQPC351.aqpc351sdud
+  is 'Distribucion dudosa';
+comment on column AQPC351.aqpc351sper
+  is 'Distribucion perdida';
+comment on column AQPC351.aqpc351vent
+  is 'Nivel de Ventas';
+comment on column AQPC351.aqpc351codhon
+  is 'Codigo de honra';
+comment on column AQPC351.aqpc351datr
+  is 'Dias de atraso';
+comment on column AQPC351.aqpc351moncof
+  is 'Monto enviado a COFIDE';
+comment on column AQPC351.aqpc351placof
+  is 'Plazo enviado a COFIDE';
+comment on column AQPC351.aqpc351percof
+  is 'Perido de gracia enviado a COFIDE';
+comment on column AQPC351.aqpc351estc
+  is 'Estado de Credito';
+comment on column AQPC351.aqpc351fcest
+  is 'Fecha de cambio de estado';
+comment on column AQPC351.aqpc351fcanc
+  is 'Fecha Cancelacion';
+comment on column AQPC351.aqpc351capcanc
+  is 'Capital Cancelado';
+comment on column AQPC351.aqpc351rgon
+  is 'Region';
+comment on column AQPC351.aqpc351zona
+  is 'Zona';
+comment on column AQPC351.aqpc351agen
+  is 'Agencia';
+comment on column AQPC351.aqpc351anl
+  is 'Analista';
+comment on column AQPC351.aqpc351chon
+  is 'Credito Honrado(SI/NO)';
+comment on column AQPC351.aqpc351fhon
+  is 'Fecha Honramiento';
+comment on column AQPC351.aqpc351mhon
+  is 'Monto Honrado';
+comment on column AQPC351.aqpc351sdohon
+  is 'Saldo Honrado';
+comment on column AQPC351.aqpc351crehon
+  is 'Credito Honrado';
+comment on column AQPC351.aqpc351tmor
+  is 'Tasa Moratoria';
+comment on column AQPC351.aqpc351tinto
+  is 'Tasa de Interes Original';
+comment on column AQPC351.aqpc351fproc
+  is 'Fecha proceso';
+comment on column AQPC351.aqpc351fcr
+  is 'Fecha creacion ';
+comment on column AQPC351.aqpc351hcr
+  is 'Hora Creacion ';
+

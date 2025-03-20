@@ -1,0 +1,38 @@
+create table JAQL802
+(
+  jaql802coent NUMBER(3) not null,
+  jaql802cosuc NUMBER(3) not null,
+  jaql802comod NUMBER(3) not null,
+  jaql802cotra NUMBER(3) not null,
+  jaql802nurel NUMBER(4) not null,
+  jaql802nuord NUMBER(4) not null,
+  jaql802suord NUMBER(3) not null,
+  jaql802feope DATE not null,
+  jaql802hotra VARCHAR2(8) not null,
+  jaql802cocue NUMBER(9) not null,
+  jaql802coope VARCHAR2(10),
+  jaql802noreg VARCHAR2(40),
+  jaql802nocan VARCHAR2(30),
+  jaql802decan VARCHAR2(30),
+  jaql802corub NUMBER(16),
+  jaql802decom VARCHAR2(40),
+  jaql802demon VARCHAR2(4),
+  jaql802mocom NUMBER(11,2),
+  jaql802tidoc VARCHAR2(20),
+  jaql802nudoc VARCHAR2(12),
+  jaql802notit VARCHAR2(30),
+  jaql802ticom VARCHAR2(30),
+  jaql802secom VARCHAR2(20),
+  jaql802auxc1 VARCHAR2(100),
+  jaql802auxc2 VARCHAR2(100),
+  jaql802auxc3 VARCHAR2(100),
+  jaql802auxn1 NUMBER(17,2),
+  jaql802auxn2 NUMBER(17,2),
+  jaql802auxn3 NUMBER(17,2),
+  jaql802auxd1 DATE,
+  jaql802auxd2 DATE
+)
+;
+alter table JAQL802
+  add primary key (JAQL802COENT, JAQL802COSUC, JAQL802COMOD, JAQL802COTRA, JAQL802NUREL, JAQL802NUORD, JAQL802SUORD, JAQL802FEOPE, JAQL802HOTRA, JAQL802COCUE);
+

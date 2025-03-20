@@ -1,0 +1,34 @@
+create table JSBI05
+(
+  jsbi05apl  NUMBER(4) not null,
+  jsbi05ban  CHAR(5) not null,
+  jsbi05env  NUMBER(9) not null,
+  jsbi05cor  NUMBER(9) not null,
+  jsbi05fec  DATE,
+  jsbi05sec  NUMBER(10),
+  jsbi05fil  NUMBER(2),
+  jsbi05reg  NUMBER(3),
+  jsbi05rej  NUMBER(3),
+  jsbi05age  NUMBER(3),
+  jsbi05tipt NUMBER(3),
+  jsbi05user CHAR(14),
+  jsbi05ter  CHAR(10),
+  jsbi05ctab CHAR(24),
+  jsbi05val  NUMBER(17,2),
+  jsbi05mda  NUMBER(3),
+  jsbi05cau  CHAR(3),
+  jsbi05hora DATE,
+  jsbi05codc NUMBER(9),
+  jsbi05mod  NUMBER(3),
+  jsbi05suc  NUMBER(3),
+  jsbi05trn  NUMBER(3),
+  jsbi05rel  NUMBER(4),
+  jsbi05mnco NUMBER(5),
+  jsbi05proc CHAR(1),
+  jsbi05fco  DATE,
+  jsbi05opc  CHAR(24)
+)
+;
+alter table JSBI05
+  add primary key (JSBI05APL, JSBI05BAN, JSBI05ENV, JSBI05COR);
+

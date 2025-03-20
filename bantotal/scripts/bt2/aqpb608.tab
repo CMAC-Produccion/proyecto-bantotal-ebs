@@ -1,0 +1,127 @@
+create table AQPB608
+(
+  aqpb608corr    NUMBER(5),
+  aqpb608pgcodt  NUMBER(5),
+  aqpb608itsuc   NUMBER(5),
+  aqpb608itmod   NUMBER(5),
+  aqpb608ittran  NUMBER(5),
+  aqpb608itnrel  NUMBER(5),
+  aqpb608itfcon  DATE,
+  aqpb608hort    VARCHAR2(15),
+  aqpb608instan  NUMBER(10),
+  aqpb608pgcodc  NUMBER(5),
+  aqpb608modc    NUMBER(5),
+  aqpb608succ    NUMBER(5),
+  aqpb608monc    NUMBER(5),
+  aqpb608papc    NUMBER(5),
+  aqpb608ctac    NUMBER(10),
+  aqpb608opec    NUMBER(10),
+  aqpb608sopec   NUMBER(10),
+  aqpb608topec   NUMBER(10),
+  aqpb608numdoc  VARCHAR2(15),
+  aqpb608nomcli  VARCHAR2(250),
+  aqpb608usu     VARCHAR2(10),
+  aqpb608fec     DATE,
+  aqpb608hor     VARCHAR2(15),
+  aqpb608fimp    VARCHAR2(1) default 'N',
+  aqpb608nomarc  VARCHAR2(250),
+  aqpb608pais    NUMBER(5),
+  aqpb608tdoc    NUMBER(5),
+  aqpb608usucna  VARCHAR2(10),
+  aqpb608feccna  DATE,
+  aqpb608horcna  VARCHAR2(15),
+  aqpb608fimpcna VARCHAR2(1) default 'N',
+  aqpb608glocon  CHAR(1),
+  aqpb608glocna  CHAR(1),
+  aqpb608tipgar1 NUMBER(5),
+  aqpb608tipgar2 NUMBER(5),
+  aqpb608tipocon VARCHAR2(5) default 'CON',
+  aqpb608fcexcna DATE,
+  aqpb608hrexcna VARCHAR2(15),
+  aqpb608usexcna VARCHAR2(10)
+)
+;
+comment on table AQPB608
+  is 'Table registro constancia de cancelacion y CNA';
+comment on column AQPB608.aqpb608corr
+  is 'CORRELATIVO';
+comment on column AQPB608.aqpb608pgcodt
+  is 'PGCOD TRANSACCION';
+comment on column AQPB608.aqpb608itsuc
+  is 'SUCURSA TRANSACCION';
+comment on column AQPB608.aqpb608itmod
+  is 'MODULO TRANSACCION';
+comment on column AQPB608.aqpb608ittran
+  is 'TRANSACCION TRANSACCION';
+comment on column AQPB608.aqpb608itnrel
+  is 'ITNREL TRANSACCION';
+comment on column AQPB608.aqpb608itfcon
+  is 'ITFCONTRANSACCION';
+comment on column AQPB608.aqpb608hort
+  is 'HORA DE LA TRANSACCION';
+comment on column AQPB608.aqpb608instan
+  is 'INSTANCIA';
+comment on column AQPB608.aqpb608pgcodc
+  is 'PGCOD CREDITO';
+comment on column AQPB608.aqpb608modc
+  is 'MODULO CREDITO';
+comment on column AQPB608.aqpb608succ
+  is 'SUCURSAL CREDITO';
+comment on column AQPB608.aqpb608monc
+  is 'MONEDA CREDITO';
+comment on column AQPB608.aqpb608papc
+  is 'PAPEL CREDITO';
+comment on column AQPB608.aqpb608ctac
+  is 'CUENTA CREDITO';
+comment on column AQPB608.aqpb608opec
+  is 'OPERACION CREDITO';
+comment on column AQPB608.aqpb608sopec
+  is 'SUB OPERACION CREDITO';
+comment on column AQPB608.aqpb608topec
+  is 'TIPO DE OPERACION CREDITO';
+comment on column AQPB608.aqpb608numdoc
+  is 'NUMERO DE DOCUMENTO';
+comment on column AQPB608.aqpb608nomcli
+  is 'Nombre de Cliente';
+comment on column AQPB608.aqpb608usu
+  is 'Usuario Imp. Constancia cancelación';
+comment on column AQPB608.aqpb608fec
+  is 'Fecha Imp. Constancia cancelación';
+comment on column AQPB608.aqpb608hor
+  is 'Hora Imp. Constancia cancelación';
+comment on column AQPB608.aqpb608fimp
+  is 'Flag Imp. Constancia cancelación';
+comment on column AQPB608.aqpb608nomarc
+  is 'NOMBRE DEL ARCHIVO';
+comment on column AQPB608.aqpb608pais
+  is 'PAIS';
+comment on column AQPB608.aqpb608tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB608.aqpb608usucna
+  is 'Usuario Imp. CNA';
+comment on column AQPB608.aqpb608feccna
+  is 'Fecha Imp. CNA';
+comment on column AQPB608.aqpb608horcna
+  is 'Hora Imp. CNA';
+comment on column AQPB608.aqpb608fimpcna
+  is 'Flag Imp. CNA';
+comment on column AQPB608.aqpb608glocon
+  is 'Glosa de Garantias de constancia de cancelación';
+comment on column AQPB608.aqpb608glocna
+  is 'Glosa de Garantias de certificado de no adeudo';
+comment on column AQPB608.aqpb608tipgar1
+  is 'Tipo de garantia de glosa constancia de cancelación';
+comment on column AQPB608.aqpb608tipgar2
+  is 'Tipo de garantia de certificado de no adeud';
+comment on column AQPB608.aqpb608tipocon
+  is 'Tipo CON = constancia, CNA = certificado de no adeudo';
+comment on column AQPB608.aqpb608fcexcna
+  is 'Fecha de Extorno de Impresion CNA';
+comment on column AQPB608.aqpb608hrexcna
+  is 'Hora de Extorno de Impresion CNA';
+comment on column AQPB608.aqpb608usexcna
+  is 'Usuario de Extorno de Impresion CNA';
+create index AQPB608A4 on AQPB608 (AQPB608PGCODC, AQPB608MONC, AQPB608PAPC, AQPB608CTAC, AQPB608OPEC);
+create index AQPB6082 on AQPB608 (AQPB608CTAC, AQPB608OPEC, AQPB608ITFCON);
+create index AQPB6083 on AQPB608 (AQPB608PGCODC, AQPB608MODC, AQPB608SUCC, AQPB608MONC, AQPB608PAPC, AQPB608CTAC, AQPB608OPEC, AQPB608SOPEC, AQPB608TOPEC);
+

@@ -1,0 +1,75 @@
+create table AQPD314A
+(
+  aqpd314acarcod VARCHAR2(30) not null,
+  aqpd314acartip VARCHAR2(1),
+  aqpd314acarest VARCHAR2(1),
+  aqpd314acreusr VARCHAR2(10),
+  aqpd314acrefec DATE,
+  aqpd314acrehor CHAR(8),
+  aqpd314acretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpd314aauxnu1 NUMBER(9),
+  aqpd314aauxnu2 NUMBER(9),
+  aqpd314aauxnu3 NUMBER(9),
+  aqpd314aauxim1 NUMBER(18,2),
+  aqpd314aauxim2 NUMBER(18,2),
+  aqpd314aauxim3 NUMBER(18,2),
+  aqpd314aauxfe1 DATE,
+  aqpd314aauxfe2 DATE,
+  aqpd314aauxfe3 DATE,
+  aqpd314aauxch1 CHAR(1),
+  aqpd314aauxch2 CHAR(1),
+  aqpd314aauxch3 CHAR(1),
+  aqpd314aauxva1 VARCHAR2(255),
+  aqpd314aauxva2 VARCHAR2(255),
+  aqpd314aauxva3 VARCHAR2(255)
+)
+;
+comment on table AQPD314A
+  is 'Carga Masiva de Operaciones de Cambio de ME - Cabecera';
+comment on column AQPD314A.aqpd314acarcod
+  is 'Código de Carga';
+comment on column AQPD314A.aqpd314acartip
+  is 'Tipo de Carga';
+comment on column AQPD314A.aqpd314acarest
+  is 'Estado de Carga';
+comment on column AQPD314A.aqpd314acreusr
+  is 'Usuario';
+comment on column AQPD314A.aqpd314acrefec
+  is 'Fecha';
+comment on column AQPD314A.aqpd314acrehor
+  is 'Hora';
+comment on column AQPD314A.aqpd314acretim
+  is 'TimeStamp';
+comment on column AQPD314A.aqpd314aauxnu1
+  is 'AUXILIAR - Número 1';
+comment on column AQPD314A.aqpd314aauxnu2
+  is 'AUXILIAR - Número 2';
+comment on column AQPD314A.aqpd314aauxnu3
+  is 'AUXILIAR - Número 3';
+comment on column AQPD314A.aqpd314aauxim1
+  is 'AUXILIAR - Importe 1';
+comment on column AQPD314A.aqpd314aauxim2
+  is 'AUXILIAR - Importe 2';
+comment on column AQPD314A.aqpd314aauxim3
+  is 'AUXILIAR - Importe 3';
+comment on column AQPD314A.aqpd314aauxfe1
+  is 'AUXILIAR - Fecha 1';
+comment on column AQPD314A.aqpd314aauxfe2
+  is 'AUXILIAR - Fecha 2';
+comment on column AQPD314A.aqpd314aauxfe3
+  is 'AUXILIAR - Fecha 3';
+comment on column AQPD314A.aqpd314aauxch1
+  is 'AUXILIAR - Caracter 1';
+comment on column AQPD314A.aqpd314aauxch2
+  is 'AUXILIAR - Caracter 2';
+comment on column AQPD314A.aqpd314aauxch3
+  is 'AUXILIAR - Caracter 3';
+comment on column AQPD314A.aqpd314aauxva1
+  is 'AUXILIAR - String 1';
+comment on column AQPD314A.aqpd314aauxva2
+  is 'AUXILIAR - String 2';
+comment on column AQPD314A.aqpd314aauxva3
+  is 'AUXILIAR - String 3';
+alter table AQPD314A
+  add primary key (AQPD314ACARCOD);
+

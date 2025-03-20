@@ -1,0 +1,40 @@
+create table AQPB004
+(
+  aqpb004fech   DATE not null,
+  aqpb004corr   NUMBER(9) not null,
+  aqpb004hora   CHAR(8) not null,
+  aqpb004inst   NUMBER(9),
+  aqpb004eval   NUMBER(9),
+  aqpb004esta   NUMBER(5),
+  aqpb004cdeu   CHAR(1),
+  aqpb004dsctdo CHAR(20),
+  aqpb004ndoc   CHAR(12),
+  aqpb004nomb   CHAR(30),
+  aqpb004rela   CHAR(30),
+  aqpb004enti   VARCHAR2(200),
+  aqpb004rubr   VARCHAR2(20),
+  aqpb004dsccr  CHAR(40),
+  aqpb004dsctcr VARCHAR2(20),
+  aqpb004sdeu   NUMBER(17,2),
+  aqpb004mtou   NUMBER(17,2),
+  aqpb004mtonu  NUMBER(17,2),
+  aqpb004cuoest NUMBER(17,2),
+  aqpb004gasfin NUMBER(17,2),
+  aqpb004facpre NUMBER(10,6),
+  aqpb004cuopot NUMBER(17,2),
+  aqpb004facuso NUMBER(10,6),
+  aqpb004facnus NUMBER(10,6),
+  aqpb004codent VARCHAR2(10),
+  aqpb004moned  CHAR(10),
+  aqpb004linea  CHAR(20),
+  aqpb004tipo   VARCHAR2(1),
+  aqpb004tdoc   NUMBER(2),
+  aqpb004pais   NUMBER(3)
+)
+;
+create index AQPB0042 on AQPB004 (AQPB004INST);
+create index AQPB0043 on AQPB004 (AQPB004EVAL);
+create index AQPB0044 on AQPB004 (AQPB004FECH, AQPB004INST, AQPB004EVAL);
+alter table AQPB004
+  add primary key (AQPB004FECH, AQPB004CORR, AQPB004HORA);
+

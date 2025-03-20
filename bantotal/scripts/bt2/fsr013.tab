@@ -1,0 +1,34 @@
+create table FSR013
+(
+  c1cod  NUMBER(3) not null,
+  c1mod  NUMBER(3) not null,
+  c1suc  NUMBER(3) not null,
+  c1mda  NUMBER(4) not null,
+  c1pap  NUMBER(4) not null,
+  c1cta  NUMBER(9) not null,
+  c1oper NUMBER(9) not null,
+  c1sbop NUMBER(3) not null,
+  c1tope NUMBER(3) not null,
+  c1corr NUMBER(5) not null,
+  c1rub  NUMBER(16),
+  cocod  NUMBER(3),
+  rcper  NUMBER(3),
+  rcapld CHAR(1),
+  rcvtop DATE,
+  rcimp  NUMBER(17,2),
+  r013cd NUMBER(3),
+  r013mo NUMBER(3),
+  r013su NUMBER(3),
+  r013tr NUMBER(3),
+  r013re NUMBER(4),
+  r013fc DATE,
+  r013or NUMBER(2),
+  r013sb NUMBER(3),
+  r013co CHAR(1)
+)
+;
+create index FSR01302 on FSR013 (COCOD);
+create index FSR01303 on FSR013 (R013CD, R013MO, R013SU, R013TR, R013RE, R013FC, R013OR, R013SB);
+alter table FSR013
+  add primary key (C1COD, C1MOD, C1SUC, C1MDA, C1PAP, C1CTA, C1OPER, C1SBOP, C1TOPE, C1CORR);
+

@@ -1,0 +1,15 @@
+create table FSF114
+(
+  lptrmod NUMBER(3) not null,
+  lptrnro NUMBER(3) not null,
+  lptrord NUMBER(2) not null,
+  lpidrng NUMBER(3) not null,
+  lpidpos NUMBER(3) not null,
+  lpidcod NUMBER(3),
+  lpidord NUMBER(3),
+  lpidtxt CHAR(30)
+)
+;
+alter table FSF114
+  add primary key (LPTRMOD, LPTRNRO, LPTRORD, LPIDRNG, LPIDPOS);
+

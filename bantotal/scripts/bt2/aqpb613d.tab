@@ -1,0 +1,30 @@
+create table AQPB613D
+(
+  aqpb613dpgc    NUMBER(3),
+  aqpb613dmod    NUMBER(3),
+  aqpb613dsuc    NUMBER(3),
+  aqpb613dmda    NUMBER(4),
+  aqpb613dpap    NUMBER(4),
+  aqpb613dcta    NUMBER(9),
+  aqpb613dope    NUMBER(9),
+  aqpb613dsbo    NUMBER(3),
+  aqpb613dtop    NUMBER(3),
+  aqpb613dins    NUMBER(10) not null,
+  aqpb613dfep    DATE,
+  aqpb613dfee    DATE,
+  aqpb613dusr    CHAR(10),
+  aqpb613dana    CHAR(10),
+  aqpb613dpai    NUMBER(3),
+  aqpb613dtdo    NUMBER(2),
+  aqpb613dndo    CHAR(12),
+  aqpb613dfeclog DATE not null,
+  aqpb613dhorlog VARCHAR2(15) not null
+)
+;
+comment on column AQPB613D.aqpb613dfeclog
+  is 'Fecha Log';
+comment on column AQPB613D.aqpb613dhorlog
+  is 'Hora log ';
+alter table AQPB613D
+  add primary key (AQPB613DINS, AQPB613DFECLOG, AQPB613DHORLOG);
+

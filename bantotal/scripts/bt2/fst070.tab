@@ -1,0 +1,13 @@
+create table FST070
+(
+  pais   NUMBER(3) not null,
+  depcod NUMBER(5) not null,
+  loccod NUMBER(5) not null,
+  locnom CHAR(30),
+  loctel NUMBER(9),
+  locpos CHAR(10)
+)
+;
+alter table FST070
+  add primary key (PAIS, DEPCOD, LOCCOD);
+

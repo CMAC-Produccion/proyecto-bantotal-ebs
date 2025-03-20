@@ -1,0 +1,25 @@
+create table FCPG69
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg02cod   NUMBER(3) not null,
+  cpg03cod   NUMBER(3) not null,
+  cpg30fmac  NUMBER(2) not null,
+  cpg30mda   NUMBER(4) not null,
+  cpg30fdes  DATE not null,
+  cpg69comp  NUMBER(2) not null,
+  cpg69mto   NUMBER(17,2) not null,
+  cpg69impf  NUMBER(17,2),
+  cpg69porc  NUMBER(10,6),
+  cpg69imin  NUMBER(17,2),
+  cpg69imax  NUMBER(17,2),
+  cpg69est   CHAR(3),
+  cpg69blq   CHAR(1),
+  cpg69inst  NUMBER(10)
+)
+;
+create index FCPG6903 on FCPG69 (CPG69INST);
+alter table FCPG69
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG02COD, CPG03COD, CPG30FMAC, CPG30MDA, CPG30FDES, CPG69COMP, CPG69MTO);
+

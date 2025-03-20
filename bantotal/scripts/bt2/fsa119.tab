@@ -1,0 +1,11 @@
+create table FSA119
+(
+  dgipais NUMBER(3) not null,
+  dgitdoc NUMBER(2) not null,
+  dgindoc CHAR(12) not null,
+  dginomb CHAR(40)
+)
+;
+alter table FSA119
+  add primary key (DGIPAIS, DGITDOC, DGINDOC);
+

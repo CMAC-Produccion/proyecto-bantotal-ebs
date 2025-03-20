@@ -1,0 +1,40 @@
+create table JAQY508
+(
+  jaqy508pgcod     NUMBER(3) not null,
+  jaqy508hcmod     NUMBER(4) not null,
+  jaqy508hsucor    NUMBER(4) not null,
+  jaqy508htran     NUMBER(4),
+  jaqy508hnrel     NUMBER(5) not null,
+  jaqy508hfcon     DATE not null,
+  jaqy508hcord     NUMBER(5) not null,
+  jaqy508hcsubo    NUMBER(5) not null,
+  jaqy508hmodul    NUMBER(5),
+  jaqy508htoper    NUMBER(5),
+  jaqy508hsucur    NUMBER(5),
+  jaqy508hrubro    NUMBER(20),
+  jaqy508hmda      NUMBER(4),
+  jaqy508hpap      NUMBER(4),
+  jaqy508hcta      NUMBER(9),
+  jaqy508hoper     NUMBER(9),
+  jaqy508hsubop    NUMBER(3),
+  jaqy508hcimp1    NUMBER(17,2),
+  jaqy508hcodmo    NUMBER(5),
+  jaqy508hora      CHAR(20),
+  jaqy508agencia   CHAR(100),
+  jaqy508nrocuenta VARCHAR2(30),
+  jaqy508tipdoc    VARCHAR2(30),
+  jaqy508pendoc    CHAR(12),
+  jaqy508penom     VARCHAR2(200),
+  jaqy508nomope    CHAR(50),
+  jaqy508husing    CHAR(20),
+  jaqy508petdoc    NUMBER(2),
+  jaqy508pepais    NUMBER(3),
+  jaqy508monto_dol NUMBER(17,2),
+  jaqy508monto_sol NUMBER(17,2),
+  jaqy508trans     VARCHAR2(2)
+)
+;
+create index XN_JAQY508_01 on JAQY508 (JAQY508HSUCOR);
+create index XN_JAQY508_02 on JAQY508 (JAQY508HSUCOR, JAQY508HFCON);
+create index XN_JAQY508_03 on JAQY508 (JAQY508PENDOC, JAQY508HFCON);
+

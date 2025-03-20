@@ -1,0 +1,16 @@
+create table FSD328
+(
+  vtasemp  NUMBER(3) not null,
+  vtasmod  NUMBER(3) not null,
+  vtaspiz  NUMBER(2) not null,
+  vtascta  NUMBER(9) not null,
+  vtassop  NUMBER(3) not null,
+  vtasmda  NUMBER(4) not null,
+  vtaspap  NUMBER(4) not null,
+  vtasfdes DATE not null,
+  vtasfvto DATE
+)
+;
+alter table FSD328
+  add primary key (VTASEMP, VTASMOD, VTASPIZ, VTASCTA, VTASSOP, VTASMDA, VTASPAP, VTASFDES);
+

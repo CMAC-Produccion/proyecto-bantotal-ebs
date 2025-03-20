@@ -1,0 +1,38 @@
+create table JAQZ841
+(
+  jaqz841corr    NUMBER(10) not null,
+  jaqz841inst    NUMBER(10) not null,
+  jaqz841instv   NUMBER(10) not null,
+  jaqz841fch     DATE not null,
+  jaqz841hora    CHAR(8) not null,
+  jaqz841user    VARCHAR2(10) not null,
+  jaqz841ind     VARCHAR2(10) not null,
+  jaqz841est     VARCHAR2(10) not null,
+  jaqz841cta     NUMBER(10),
+  jaqz841oper    NUMBER(10),
+  jaqz841mod     NUMBER(10),
+  jaqz841mntcred NUMBER(10,2),
+  jaqz841sldcap  NUMBER(10,2),
+  jaqz841mntcuo  NUMBER(10,2),
+  jaqz841nrocuot NUMBER(10),
+  jaqz841nrocuop NUMBER(10),
+  jaqz841fchdes  DATE,
+  jaqz841atrmax  NUMBER(10),
+  jaqz841promatr NUMBER(10,2),
+  jaqz841tasa    NUMBER(10,3),
+  jaqz841auxv1   VARCHAR2(50),
+  jaqz841auxv2   VARCHAR2(50),
+  jaqz841auxv3   VARCHAR2(50),
+  jaqz841auxv4   VARCHAR2(50),
+  jaqz841auxv5   VARCHAR2(50),
+  jaqz841auxv6   VARCHAR2(50),
+  jaqz841auxv7   VARCHAR2(50),
+  jaqz841auxv8   VARCHAR2(50),
+  jaqz841auxv9   VARCHAR2(50),
+  jaqz841auxv10  VARCHAR2(50)
+)
+;
+create index JAQZ841IDX002 on JAQZ841 (JAQZ841INST);
+alter table JAQZ841
+  add constraint JAQZ841IDX001 primary key (JAQZ841CORR, JAQZ841INST, JAQZ841FCH, JAQZ841HORA, JAQZ841USER, JAQZ841IND, JAQZ841EST);
+

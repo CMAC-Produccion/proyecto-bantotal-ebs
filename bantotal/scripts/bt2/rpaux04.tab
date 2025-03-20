@@ -1,0 +1,12 @@
+create table RPAUX04
+(
+  rpaux01usr  CHAR(10) not null,
+  rpaux01rep  NUMBER(10) not null,
+  rpaux01cons NUMBER(10) not null,
+  rpaux02fil  NUMBER(10) not null,
+  rpaux02str  LONG
+)
+;
+alter table RPAUX04
+  add primary key (RPAUX01USR, RPAUX01REP, RPAUX01CONS, RPAUX02FIL);
+

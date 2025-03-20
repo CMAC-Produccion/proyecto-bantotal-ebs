@@ -1,0 +1,17 @@
+create table PEGREI
+(
+  pegprjid  CHAR(80) not null,
+  peggrpid  CHAR(80) not null,
+  pegretid  CHAR(10) not null,
+  pegreqid  NUMBER(10) not null,
+  pegreqins NUMBER(4) not null,
+  pegreqidi DATE,
+  pegreqide DATE,
+  pegreqimk DATE,
+  pegreqius CHAR(10),
+  pegreqist CHAR(3)
+)
+;
+alter table PEGREI
+  add primary key (PEGPRJID, PEGGRPID, PEGRETID, PEGREQID, PEGREQINS);
+

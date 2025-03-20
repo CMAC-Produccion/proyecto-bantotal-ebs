@@ -1,0 +1,23 @@
+create table JFAW21
+(
+  jfaw21mov  NUMBER(10) not null,
+  jfaw20nro  NUMBER(10),
+  jfaw21fec  DATE,
+  jfaw21imp  NUMBER(17,2),
+  jfaw21cmov NUMBER(3),
+  jfaw21est  CHAR(1),
+  jfaw21emp  NUMBER(3),
+  jfaw21mod  NUMBER(3),
+  jfaw21suc  NUMBER(3),
+  jfaw21trn  NUMBER(3),
+  jfaw21rel  NUMBER(4),
+  jfaw21fco  DATE,
+  jfaw21or   NUMBER(2),
+  jfaw21sb   NUMBER(3),
+  jfaw21mda  NUMBER(4)
+)
+;
+create index JFAW2103 on JFAW21 (JFAW20NRO, JFAW21FEC);
+alter table JFAW21
+  add primary key (JFAW21MOV);
+

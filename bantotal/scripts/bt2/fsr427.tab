@@ -1,0 +1,18 @@
+create table FSR427
+(
+  tasemp  NUMBER(3) not null,
+  tasmod  NUMBER(3) not null,
+  taspiz  NUMBER(2) not null,
+  tascta  NUMBER(9) not null,
+  tassop  NUMBER(3) not null,
+  tasmda  NUMBER(4) not null,
+  taspap  NUMBER(4) not null,
+  tasfdes DATE not null,
+  tasmto  NUMBER(17,2) not null,
+  taspzo  NUMBER(5) not null,
+  tastasa NUMBER(10,6)
+)
+;
+alter table FSR427
+  add primary key (TASEMP, TASMOD, TASPIZ, TASCTA, TASSOP, TASMDA, TASPAP, TASFDES, TASMTO, TASPZO);
+

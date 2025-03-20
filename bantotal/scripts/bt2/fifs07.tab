@@ -1,0 +1,11 @@
+create table FIFS07
+(
+  ifs07imb NUMBER(3) not null,
+  ifs07cod NUMBER(3) not null,
+  ifs07mtr NUMBER(6)
+)
+;
+create index FIFS0702 on FIFS07 (IFS07MTR);
+alter table FIFS07
+  add primary key (IFS07IMB, IFS07COD);
+

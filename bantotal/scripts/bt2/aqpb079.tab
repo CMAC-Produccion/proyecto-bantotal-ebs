@@ -1,0 +1,353 @@
+create table AQPB079
+(
+  aqpb079tdoc   VARCHAR2(1),
+  aqpb079rucc   VARCHAR2(11),
+  aqpb079rsoc   VARCHAR2(1500),
+  aqpb079cdis   VARCHAR2(6),
+  aqpb079ncom   VARCHAR2(1500),
+  aqpb079calle  VARCHAR2(200),
+  aqpb079urba   VARCHAR2(25),
+  aqpb079depa   VARCHAR2(100),
+  aqpb079prov   VARCHAR2(30),
+  aqpb079dist   VARCHAR2(30),
+  aqpb079telf   VARCHAR2(20),
+  aqpb079web    VARCHAR2(100),
+  aqpb079cpais  VARCHAR2(2),
+  aqpb079cesun  VARCHAR2(4),
+  aqpb079seri   VARCHAR2(4),
+  aqpb079num    NUMBER(8),
+  aqpb079femi   DATE,
+  aqpb079tcomf  VARCHAR2(2),
+  aqpb079mone   VARCHAR2(3),
+  aqpb079corrr  VARCHAR2(100),
+  aqpb079mglo   VARCHAR2(100),
+  aqpb079coma   VARCHAR2(20),
+  aqpb079tpla   VARCHAR2(3),
+  aqpb079tope   VARCHAR2(4),
+  aqpb079tplco  VARCHAR2(3),
+  aqpb079clog   VARCHAR2(3),
+  aqpb079tdocr  VARCHAR2(1),
+  aqpb079nruc   VARCHAR2(15),
+  aqpb079rasoc  VARCHAR2(1500),
+  aqpb079impt   NUMBER(12,2),
+  aqpb079hemi   VARCHAR2(12),
+  aqpb079simc   NUMBER(12,2),
+  aqpb079svitm  NUMBER(12,2),
+  aqpb079spvi   NUMBER(12,2),
+  aqpb079txml   VARCHAR2(3),
+  aqpb079sdref  VARCHAR2(50),
+  aqpb079ndref  NUMBER(20),
+  aqpb079cmem   VARCHAR2(2),
+  aqpb079sust   VARCHAR2(250),
+  aqpb079serie  VARCHAR2(50),
+  aqpb079nro    NUMBER(20),
+  aqpb079tcomp  VARCHAR2(2),
+  aqpb079fdref  VARCHAR2(10),
+  aqpb079cdist  VARCHAR2(6),
+  aqpb079call   VARCHAR2(500),
+  aqpb079urb    VARCHAR2(100),
+  aqpb079dep    VARCHAR2(500),
+  aqpb079prv    VARCHAR2(500),
+  aqpb079dst    VARCHAR2(500),
+  aqpb079cpai   VARCHAR2(2),
+  aqpb079item   NUMBER(5),
+  aqpb079pnetu  VARCHAR2(3),
+  aqpb079cantf  NUMBER(12,10),
+  aqpb079total  NUMBER(12,2),
+  aqpb079dete   VARCHAR2(1),
+  aqpb079ctpr   VARCHAR2(2),
+  aqpb079vvun   NUMBER,
+  aqpb079vvuig  NUMBER,
+  aqpb079desc   VARCHAR2(500),
+  aqpb079mfun   VARCHAR2(500),
+  aqpb079prvit  NUMBER(15,2),
+  aqpb079medem  VARCHAR2(50),
+  aqpb079csuna  VARCHAR2(8),
+  aqpb079cpgs1  VARCHAR2(14),
+  aqpb079ititm  NUMBER(12,2),
+  aqpb079imptb  NUMBER(12,2),
+  aqpb079impex  NUMBER(12,2),
+  aqpb079afigv  VARCHAR2(2),
+  aqpb079sisc   VARCHAR2(2),
+  aqpb079codtb  VARCHAR2(4),
+  aqpb079dstrb  VARCHAR2(6),
+  aqpb079codun  VARCHAR2(3),
+  aqpb079mbim   NUMBER(12,2),
+  aqpb079taimp  NUMBER(8,5),
+  aqpb079cdley  NUMBER(4),
+  aqpb079teley  VARCHAR2(200),
+  aqpb079text1  VARCHAR2(1000),
+  aqpb079text2  VARCHAR2(1000),
+  aqpb079trecv  VARCHAR2(1000),
+  aqpb079templ  VARCHAR2(3),
+  aqpb079subje  VARCHAR2(100),
+  aqpb079vpcva  VARCHAR2(15),
+  aqpb079nexp   VARCHAR2(10),
+  aqpb079cind   VARCHAR2(1),
+  aqpb079npart  VARCHAR2(50),
+  aqpb079ncont  VARCHAR2(50),
+  aqpb079fotrc  DATE,
+  aqpb079cdisn  VARCHAR2(6),
+  aqpb079direh  VARCHAR2(200),
+  aqpb079urbh   VARCHAR2(25),
+  aqpb079prvh   VARCHAR2(30),
+  aqpb079dsth   VARCHAR2(30),
+  aqpb079depth  VARCHAR2(30),
+  aqpb079mtotal NUMBER(12,2),
+  aqpb079baimp  NUMBER(12,2),
+  aqpb079mtimp  NUMBER(12,2),
+  aqpb079pcima  NUMBER(9,2),
+  aqpb079bsimp  NUMBER(12,2),
+  aqpb079vaimp  NUMBER(12,2),
+  aqpb079mtinf  NUMBER(12,2),
+  aqpb079mtgrt  NUMBER(12,2),
+  aqpb079bsimps NUMBER(12,2),
+  aqpb079mtoti  NUMBER(12,2),
+  aqpb079pgc    NUMBER(3),
+  aqpb079mod    NUMBER(3),
+  aqpb079suc    NUMBER(3),
+  aqpb079trx    NUMBER(3),
+  aqpb079rel    NUMBER(4),
+  aqpb079ore    NUMBER(3),
+  aqpb079pgce   NUMBER(3),
+  aqpb079mode   NUMBER(3),
+  aqpb079suce   NUMBER(3),
+  aqpb079trxe   NUMBER(3),
+  aqpb079rele   NUMBER(4),
+  aqpb079fcone  DATE,
+  aqpb079glos   VARCHAR2(1000),
+  aqpb079tipag  VARCHAR2(1),
+  aqpb079text3  VARCHAR2(1000),
+  aqpb079text4  VARCHAR2(1000),
+  aqpb079conce  VARCHAR2(1)
+)
+;
+comment on table AQPB079
+  is 'Tabla de comprobantes electrónicos - Referencia AQPA460';
+comment on column AQPB079.aqpb079tdoc
+  is 'Codigo del Tipo de Documento de Identidad oENEmpresa';
+comment on column AQPB079.aqpb079rucc
+  is 'N?mero de documento de identidad del emisor oENEmpresa';
+comment on column AQPB079.aqpb079rsoc
+  is 'Apellidos y nombres o denominaci?n o raz?n social oENEmpresa';
+comment on column AQPB079.aqpb079cdis
+  is 'Codigo de UBIGEO oENEmpresa';
+comment on column AQPB079.aqpb079ncom
+  is 'Nombre Comercial oENEmpresa';
+comment on column AQPB079.aqpb079calle
+  is 'Direcci?n completa y detallada oENEmpresa';
+comment on column AQPB079.aqpb079urba
+  is 'Urbanizacion o Zona  oENEmpresa';
+comment on column AQPB079.aqpb079depa
+  is 'Departamento, expresado textualmente  oENEmpresa';
+comment on column AQPB079.aqpb079prov
+  is 'Provincia, expresarlo textualmente   oENEmpresa';
+comment on column AQPB079.aqpb079dist
+  is 'Distrito, expresarlo textualmente oENEmpres';
+comment on column AQPB079.aqpb079telf
+  is 'Telefono de la Empresa Emisora oENEmpres';
+comment on column AQPB079.aqpb079web
+  is 'Pagina Web del Emisor oENEmpres';
+comment on column AQPB079.aqpb079cpais
+  is 'Codigo del Pais del Emisor oENEmpres';
+comment on column AQPB079.aqpb079cesun
+  is 'C?digo del establecimiento de Sunat  oENEmpres';
+comment on column AQPB079.aqpb079seri
+  is 'Serie del comprobante.  Datos del Comprobante';
+comment on column AQPB079.aqpb079num
+  is 'Numero Correlativo del comprobante. Datos del Comprobante';
+comment on column AQPB079.aqpb079femi
+  is 'Fecha de Emision del Comprobante Datos del Comprobante';
+comment on column AQPB079.aqpb079tcomf
+  is 'Codigo del Tipo de Comprobante Datos del Comprobante';
+comment on column AQPB079.aqpb079mone
+  is 'Codigo del Tipo de Moneda Datos del Comprobante';
+comment on column AQPB079.aqpb079corrr
+  is 'El correo electr?nico del Receptor  Datos del Comprobante';
+comment on column AQPB079.aqpb079mglo
+  is 'Multiples Informaci?n adicional u observacion del comprobante.  Datos del Comprobante';
+comment on column AQPB079.aqpb079coma
+  is 'Numero Interno del Comprobante Datos del Comprobante';
+comment on column AQPB079.aqpb079tpla
+  is 'Tiplo de Plantilla  Datos del Comprobante';
+comment on column AQPB079.aqpb079tope
+  is 'C?digo de Tipo de operaciones Datos del Comprobante';
+comment on column AQPB079.aqpb079tplco
+  is 'C?digo de plantilla de correo  Datos del Comprobante';
+comment on column AQPB079.aqpb079clog
+  is 'C?digo del tipo de Logo Datos del Comprobante';
+comment on column AQPB079.aqpb079tdocr
+  is 'Codigo del tipo de documento de identificaci?n del Receptor Datos del Comprobante';
+comment on column AQPB079.aqpb079nruc
+  is 'N?mero de documento de identificaci?n Datos del Comprobante';
+comment on column AQPB079.aqpb079rasoc
+  is 'Apellidos y nombres o denominaci?n o raz?n social Datos del Comprobante';
+comment on column AQPB079.aqpb079impt
+  is 'Importe total  a pagar Datos del Comprobante';
+comment on column AQPB079.aqpb079hemi
+  is 'Hora de Emisi?n  Datos del Comprobante';
+comment on column AQPB079.aqpb079simc
+  is 'Suma de todos los impuestos del comprobante.  Datos del Comprobante';
+comment on column AQPB079.aqpb079svitm
+  is 'Suma del valor de venta total de todos los items   Datos del Comprobante';
+comment on column AQPB079.aqpb079spvi
+  is 'Suma de los precios de venta total de todos los items  Datos del Comprobante';
+comment on column AQPB079.aqpb079txml
+  is ' Indica el tipo de XML que se generar? Datos del Comprobante';
+comment on column AQPB079.aqpb079sdref
+  is 'Serie documento al que se aplica la nota. ENComprobanteMotivoDocumento';
+comment on column AQPB079.aqpb079ndref
+  is 'Numero  documento al que se aplica la nota.  ENComprobanteMotivoDocumento';
+comment on column AQPB079.aqpb079cmem
+  is 'C?digo por el cual se emite la nota.  ENComprobanteMotivoDocumento';
+comment on column AQPB079.aqpb079sust
+  is 'Sustento ENComprobanteMotivoDocumentoSustento';
+comment on column AQPB079.aqpb079serie
+  is 'Serie del comprobante referenciado. Referencia a un comprobante';
+comment on column AQPB079.aqpb079nro
+  is 'N?mero del comprobante referenciado Referencia a un comprobante';
+comment on column AQPB079.aqpb079tcomp
+  is 'C?digo del tipo de comprobante.  Referencia a un comprobante';
+comment on column AQPB079.aqpb079fdref
+  is 'Fecha de emisi?n del comprobante referenciado. Referencia a un comprobante';
+comment on column AQPB079.aqpb079cdist
+  is 'C?digo de UBIGEO Datos adicionales del Receptor';
+comment on column AQPB079.aqpb079call
+  is 'Direcci?n completa y detallada Datos adicionales del Receptor';
+comment on column AQPB079.aqpb079urb
+  is 'Urbanizacion o Zona   Datos adicionales del Receptor';
+comment on column AQPB079.aqpb079dep
+  is 'Departamento Datos adicionales del Receptor';
+comment on column AQPB079.aqpb079prv
+  is 'Provincia   Datos adicionales del Receptor';
+comment on column AQPB079.aqpb079dst
+  is 'Distrito Datos adicionales del Receptor';
+comment on column AQPB079.aqpb079cpai
+  is 'C?digo del Pa?s  Datos adicionales del Receptor';
+comment on column AQPB079.aqpb079item
+  is 'N?mero de orden del Item ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079pnetu
+  is 'Unidad de medida de los bienes vendidos
+ por item (UN/ECE rec 20) ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079cantf
+  is 'Cantidad de unidades vendidas pot item (Q)  ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079total
+  is 'Importe monetario que es el total de la l?nea de detalle, incluyendo variaciones de precio (subvenciones, cargos o descuentos) pero sin impuestos.  ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079dete
+  is 'Codigo de identificaci?n de Onerosidad del Item ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079ctpr
+  is 'Codigo de tipo de importe de afectacion ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079vvun
+  is 'Valores de venta unitarios por item (VU) no incluye impuestos  ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079vvuig
+  is 'Precio de Venta Unitario (Incluye impuestos)  ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079desc
+  is ' Descripcion del producto ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079mfun
+  is 'Multi Descripcion,  puede tener varias desccripciones ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079prvit
+  is 'Es el precio de venta ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079medem
+  is 'Unidad medida del emisor ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079csuna
+  is 'C?digo producto establecido por Sunat   ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079cpgs1
+  is 'C?digo de producto GS1  ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079ititm
+  is 'Impuesto total del item ENComprobanteDetalle ';
+comment on column AQPB079.aqpb079imptb
+  is 'Importe total de un tributo para este item Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPB079.aqpb079impex
+  is 'Importe expl?cito a tributar ( = Tasa Porcentaje * Base Imponible)   Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPB079.aqpb079afigv
+  is 'Afectaci?n del IGV  Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPB079.aqpb079sisc
+  is 'Sistema de ISC  (01=Especifico; 02= al valor; 03=PV al p?blico)  Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPB079.aqpb079codtb
+  is 'Identificaci?n del tributo seg?n cat?logo SUNAT Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPB079.aqpb079dstrb
+  is 'Nombre del Tributo (IGV, IVAP, ISC)  Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPB079.aqpb079codun
+  is 'C?digo del Tipo de Tributo (UN/ECE 5153) Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPB079.aqpb079mbim
+  is 'Monto base del impuesto Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPB079.aqpb079taimp
+  is 'Tasa aplicada del impuesto  Informaci?n acerca del importe total de un tipo particular de impuesto. Una repetici?n por IGV, ISC, IVAP.';
+comment on column AQPB079.aqpb079cdley
+  is 'Codigo de la Leyenda Utilizado para Leyendas';
+comment on column AQPB079.aqpb079teley
+  is 'Texto de la leyenda  Utilizado para Leyendas';
+comment on column AQPB079.aqpb079text1
+  is 'Texto libre 1 : Producto  Informaci?n adicional para la visualizacion
+ de representaciones impresas, antes definido por el integrador.';
+comment on column AQPB079.aqpb079text2
+  is 'Texto libre 2 : N?mero de Cr?dito Informaci?n adicional para la visualizacion
+ de representaciones impresas, antes definido por el integrador.';
+comment on column AQPB079.aqpb079trecv
+  is 'Correo del receptor Utilizado para enviar correos adicionales con
+copia al Correo del Receptor, ingresado en ENComprobante.Correo';
+comment on column AQPB079.aqpb079templ
+  is 'C?digo de Tipo de Plantilla  Utilizado para enviar correos adicionales con
+copia al Correo del Receptor, ingresado en ENComprobante.Correo';
+comment on column AQPB079.aqpb079subje
+  is 'Asunto del correo Utilizado para enviar correos adicionales con
+copia al Correo del Receptor, ingresado en ENComprobante.Correo';
+comment on column AQPB079.aqpb079vpcva
+  is 'Placa del vehiculo Informaci?n adicional del item';
+comment on column AQPB079.aqpb079nexp
+  is 'N?mero de Expediente Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079cind
+  is 'C?digo de indicador  Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079npart
+  is 'N?mero de Partida Registral  Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079ncont
+  is 'N?mero de contrato  Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079fotrc
+  is 'Fecha de Otorgo de cr?dito   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079cdisn
+  is 'C?digo de Ubigeo   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079direh
+  is 'Direcci?n   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079urbh
+  is 'Urbanizaci?n Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079prvh
+  is 'Provincia   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079dsth
+  is 'Distrito   Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079depth
+  is 'Departamento Informaci?n adicional  a nivel de ?tem -  Gastos intereses hipotecarios primera vivienda';
+comment on column AQPB079.aqpb079mtotal
+  is 'Monto total Gravado (Sin impuesto)  Informaci?n de gravada';
+comment on column AQPB079.aqpb079baimp
+  is 'Base del impuesto  IGV del Gravado';
+comment on column AQPB079.aqpb079mtimp
+  is 'Monto total solo del impuesto   IGV del Gravado';
+comment on column AQPB079.aqpb079pcima
+  is 'Porcentaje del impuesto aplicado  IGV del Gravado';
+comment on column AQPB079.aqpb079bsimp
+  is 'Base del impuesto Otros impuestos del Gravado';
+comment on column AQPB079.aqpb079vaimp
+  is 'Monto total solo del impuesto  Otros impuestos del Gravado';
+comment on column AQPB079.aqpb079mtinf
+  is 'Monto total Inafecto  Informaci?n de inafecto';
+comment on column AQPB079.aqpb079mtgrt
+  is 'Monto total Gratuito  Informaci?n de gratuito';
+comment on column AQPB079.aqpb079bsimps
+  is 'Base del impuesto Impuestos del Gratuito';
+comment on column AQPB079.aqpb079mtoti
+  is 'Monto total de impuestos Impuestos del Gratuito';
+comment on column AQPB079.aqpb079glos
+  is 'Glosa';
+comment on column AQPB079.aqpb079tipag
+  is 'Tipo Pago';
+comment on column AQPB079.aqpb079text3
+  is 'Texto 3 Numero de Transaccion';
+comment on column AQPB079.aqpb079text4
+  is 'Texto 4 Concepto';
+comment on column AQPB079.aqpb079conce
+  is 'Concepto ahorro, creditos,servicios';
+create index AQPB0792 on AQPB079 (AQPB079TDOC, AQPB079RUCC, AQPB079RSOC, AQPB079CDIS);
+create index AQPB0793 on AQPB079 (AQPB079SERI, AQPB079NUM, AQPB079ORE);
+create index AQPB0794 on AQPB079 (AQPB079SERI, AQPB079NUM, AQPB079FEMI);
+create index AQPB0795 on AQPB079 (AQPB079PGC, AQPB079MOD, AQPB079SUC, AQPB079TRX, AQPB079REL, AQPB079FEMI);
+

@@ -1,0 +1,12 @@
+create table JFAW064
+(
+  jfaw064pab NUMBER(9) not null,
+  jfaw064dab NUMBER(9) not null,
+  jfaw064pai NUMBER(3),
+  jfaw064dep NUMBER(5)
+)
+;
+create index JFAW0642 on JFAW064 (JFAW064PAI, JFAW064DEP);
+alter table JFAW064
+  add primary key (JFAW064PAB, JFAW064DAB);
+

@@ -1,0 +1,18 @@
+create table FBCOC5
+(
+  bcoc5emp  NUMBER(3) not null,
+  bcoc5mod  NUMBER(3) not null,
+  bcoc5trn  NUMBER(3) not null,
+  bcoc5alc  CHAR(1) not null,
+  bcoc1tpo  CHAR(3),
+  bcoc2cod  NUMBER(3),
+  bcoc5incv NUMBER(2),
+  bcoc5inrr NUMBER(2),
+  bcoc5part CHAR(1)
+)
+;
+create index FBCOC504 on FBCOC5 (BCOC2COD);
+create index FBCOC505 on FBCOC5 (BCOC1TPO);
+alter table FBCOC5
+  add primary key (BCOC5EMP, BCOC5MOD, BCOC5TRN, BCOC5ALC);
+

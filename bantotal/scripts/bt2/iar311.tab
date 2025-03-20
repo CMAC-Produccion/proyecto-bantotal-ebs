@@ -1,0 +1,15 @@
+create table IAR311
+(
+  iardoc1   CHAR(11) not null,
+  iarcor1   CHAR(1) not null,
+  iarnom1   CHAR(44),
+  iarmes1   CHAR(2),
+  iarano1   CHAR(4),
+  iaraux1   CHAR(1),
+  iar311ali CHAR(1),
+  iar311cni NUMBER(3)
+)
+;
+alter table IAR311
+  add primary key (IARDOC1, IARCOR1);
+

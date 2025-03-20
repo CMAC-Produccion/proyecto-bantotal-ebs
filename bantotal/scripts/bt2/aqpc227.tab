@@ -1,0 +1,96 @@
+create table AQPC227
+(
+  aqpc227fec DATE not null,
+  aqpc227usu VARCHAR2(10) not null,
+  aqpc227cor NUMBER(17) not null,
+  aqpc227ins NUMBER(10),
+  aqpc227pai NUMBER(3),
+  aqpc227tip NUMBER(2),
+  aqpc227doc VARCHAR2(12),
+  aqpc227emp NUMBER(3),
+  aqpc227mod NUMBER(3),
+  aqpc227suc NUMBER(3),
+  aqpc227mda NUMBER(4),
+  aqpc227pap NUMBER(4),
+  aqpc227cta NUMBER(9),
+  aqpc227ope NUMBER(9),
+  aqpc227sop NUMBER(9),
+  aqpc227top NUMBER(9),
+  aqpc227ase VARCHAR2(10),
+  aqpc227par VARCHAR2(150),
+  aqpc227ger VARCHAR2(10),
+  aqpc227ccc VARCHAR2(150),
+  aqpc227men VARCHAR2(250),
+  aqpc227cod NUMBER(5),
+  aqpc227err VARCHAR2(250),
+  aqpc227pro VARCHAR2(1),
+  aqpc227te1 NUMBER(17),
+  aqpc227te2 NUMBER(17),
+  aqpc227au1 NUMBER(17),
+  aqpc227au2 VARCHAR2(100),
+  aqpc227au3 DATE
+)
+;
+comment on table AQPC227
+  is 'Log Carga Excel';
+comment on column AQPC227.aqpc227fec
+  is 'Fecha Registro';
+comment on column AQPC227.aqpc227usu
+  is 'Usuario Registro';
+comment on column AQPC227.aqpc227cor
+  is 'Correlativo';
+comment on column AQPC227.aqpc227ins
+  is 'Instancia';
+comment on column AQPC227.aqpc227pai
+  is 'Pais';
+comment on column AQPC227.aqpc227tip
+  is 'Tipo Documento';
+comment on column AQPC227.aqpc227doc
+  is 'Documento';
+comment on column AQPC227.aqpc227emp
+  is 'Empresa';
+comment on column AQPC227.aqpc227mod
+  is 'Modulo';
+comment on column AQPC227.aqpc227suc
+  is 'Sucursal';
+comment on column AQPC227.aqpc227mda
+  is 'Moneda';
+comment on column AQPC227.aqpc227pap
+  is 'Papel';
+comment on column AQPC227.aqpc227cta
+  is 'Cuenta';
+comment on column AQPC227.aqpc227ope
+  is 'Operacion';
+comment on column AQPC227.aqpc227sop
+  is 'Sub Operacion';
+comment on column AQPC227.aqpc227top
+  is 'Tipo Operacion';
+comment on column AQPC227.aqpc227ase
+  is 'Asesor';
+comment on column AQPC227.aqpc227par
+  is 'Para correo';
+comment on column AQPC227.aqpc227ger
+  is 'Gerente Agencia';
+comment on column AQPC227.aqpc227ccc
+  is 'Adjunto correo';
+comment on column AQPC227.aqpc227men
+  is 'Mensaje';
+comment on column AQPC227.aqpc227cod
+  is 'Codigo Error Correo';
+comment on column AQPC227.aqpc227err
+  is 'Mensaje Error Correo';
+comment on column AQPC227.aqpc227pro
+  is 'Flag Proceso';
+comment on column AQPC227.aqpc227te1
+  is 'Telefono Asesor';
+comment on column AQPC227.aqpc227te2
+  is 'Telefono Gerente';
+comment on column AQPC227.aqpc227au1
+  is 'Auxiliar 1';
+comment on column AQPC227.aqpc227au2
+  is 'Auxiliar 2';
+comment on column AQPC227.aqpc227au3
+  is 'Auxiliar 3';
+alter table AQPC227
+  add primary key (AQPC227FEC, AQPC227USU, AQPC227COR);
+

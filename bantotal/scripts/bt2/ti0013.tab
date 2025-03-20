@@ -1,0 +1,27 @@
+create table TI0013
+(
+  tiimpucod  NUMBER(3) not null,
+  tidimcorr  NUMBER(3) not null,
+  ticd_ant_i NUMBER(3) not null,
+  tidimsuc   NUMBER(3) not null,
+  tidimpzo   NUMBER(5) not null,
+  tidimmod   NUMBER(3) not null,
+  tidimtope  NUMBER(3) not null,
+  tidimact   NUMBER(9) not null,
+  timnthasta NUMBER(17,2) not null,
+  timntope   NUMBER(4),
+  timntcoef  NUMBER(3),
+  timntrub   NUMBER(16),
+  timntmnto  NUMBER(17,2),
+  timntmin   NUMBER(17,2),
+  timntaux   CHAR(1),
+  timntrrpen NUMBER(3),
+  timntexc   CHAR(1),
+  timntminfo NUMBER(17,2),
+  timntminba NUMBER(17,2),
+  timntimpma NUMBER(17,2)
+)
+;
+alter table TI0013
+  add primary key (TIIMPUCOD, TIDIMCORR, TICD_ANT_I, TIDIMSUC, TIDIMPZO, TIDIMMOD, TIDIMTOPE, TIDIMACT, TIMNTHASTA);
+

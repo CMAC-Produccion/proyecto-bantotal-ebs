@@ -1,0 +1,27 @@
+create table J13106
+(
+  j131dpdoc NUMBER(3) not null,
+  j131dtdoc NUMBER(2) not null,
+  j131dndoc CHAR(12) not null,
+  j131dcod  NUMBER(2) not null,
+  j131dpais NUMBER(3),
+  j131dprov CHAR(40),
+  j131ddist CHAR(40),
+  j131dcorg CHAR(40),
+  j131dbarr CHAR(40),
+  j131dcall CHAR(40),
+  j131dedif CHAR(35),
+  j131dnume CHAR(10),
+  j131dpiso NUMBER(3),
+  j131dapto CHAR(5),
+  j131dapar CHAR(10),
+  j131dzona CHAR(40),
+  j131dnaux NUMBER(9),
+  j131dfaux DATE,
+  j131dtaux CHAR(35),
+  j131dflau CHAR(1)
+)
+;
+alter table J13106
+  add primary key (J131DPDOC, J131DTDOC, J131DNDOC, J131DCOD);
+

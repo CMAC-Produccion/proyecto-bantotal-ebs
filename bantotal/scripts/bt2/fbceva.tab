@@ -1,0 +1,21 @@
+create table FBCEVA
+(
+  bcevaemp NUMBER(3) not null,
+  bcevafch DATE not null,
+  bcevaent NUMBER(3) not null,
+  bcevasub CHAR(4) not null,
+  bcevades CHAR(1) not null,
+  bcevacod CHAR(3) not null,
+  bcevamo0 NUMBER(17,2),
+  bcevamo1 NUMBER(17,2),
+  bcevamo2 NUMBER(17,2),
+  bcevamo3 NUMBER(17,2),
+  bcevamo4 NUMBER(17,2),
+  bcevamo5 NUMBER(17,2),
+  bcevamo6 NUMBER(17,2),
+  bcevamo7 NUMBER(17,2)
+)
+;
+alter table FBCEVA
+  add primary key (BCEVAEMP, BCEVAFCH, BCEVAENT, BCEVASUB, BCEVADES, BCEVACOD);
+

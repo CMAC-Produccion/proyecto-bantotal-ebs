@@ -1,0 +1,25 @@
+create table FSFFB7
+(
+  fsfe5emp  NUMBER(3) not null,
+  fsfe4inf  NUMBER(5) not null,
+  fsfe4anio NUMBER(4) not null,
+  fsfe4n1c  NUMBER(3) not null,
+  fsfe4n2c  NUMBER(3) not null,
+  fsfe4n3c  NUMBER(3) not null,
+  fsfe4rub  NUMBER(16) not null,
+  fsfe5dh   NUMBER(1),
+  fsfe5imp  NUMBER(17,2),
+  fsfe5au1  CHAR(1),
+  fsfe5au2  CHAR(1),
+  fsfe5au3  CHAR(1),
+  fsfe5au4  NUMBER(9),
+  fsfe5au5  NUMBER(9),
+  fsfe5au6  NUMBER(16),
+  fsfe5au7  CHAR(30),
+  fsfe5au8  DATE
+)
+;
+create index FSFFB702 on FSFFB7 (FSFE4INF, FSFE4ANIO, FSFE4N1C, FSFE4N2C, FSFE4N3C, FSFE4RUB);
+alter table FSFFB7
+  add primary key (FSFE5EMP, FSFE4INF, FSFE4ANIO, FSFE4N1C, FSFE4N2C, FSFE4N3C, FSFE4RUB);
+

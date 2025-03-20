@@ -1,0 +1,16 @@
+create table FMF020
+(
+  pgcod      NUMBER(3) not null,
+  lcimmod    NUMBER(3) not null,
+  lcimoper   NUMBER(9) not null,
+  doctip     NUMBER(3) not null,
+  lcimcntori NUMBER(2),
+  lcimcntcop NUMBER(2),
+  lcimorileg NUMBER(2),
+  lcimcopial NUMBER(2)
+)
+;
+create index FMF02002 on FMF020 (PGCOD, LCIMMOD, DOCTIP);
+alter table FMF020
+  add primary key (PGCOD, LCIMMOD, LCIMOPER, DOCTIP);
+

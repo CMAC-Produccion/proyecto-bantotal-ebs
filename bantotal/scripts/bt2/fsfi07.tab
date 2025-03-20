@@ -1,0 +1,21 @@
+create table FSFI07
+(
+  sfi07pap  NUMBER(4) not null,
+  sfi01emp  NUMBER(3) not null,
+  sfi01mer  NUMBER(3) not null,
+  sfi07cod  CHAR(10),
+  sfi07car1 CHAR(1),
+  sfi07car2 CHAR(1),
+  sfi07car3 CHAR(1),
+  sfi07car4 CHAR(1),
+  sfi07dsc  CHAR(20),
+  sfi07txt1 CHAR(50),
+  sfi07num1 NUMBER(9),
+  sfi07num2 NUMBER(9)
+)
+;
+create index FSFI0703 on FSFI07 (SFI01EMP, SFI01MER, SFI07PAP);
+create index FSFI0704 on FSFI07 (SFI01EMP, SFI01MER, SFI07COD);
+alter table FSFI07
+  add primary key (SFI07PAP, SFI01EMP, SFI01MER);
+

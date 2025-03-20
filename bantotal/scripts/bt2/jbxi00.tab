@@ -1,0 +1,33 @@
+create table JBXI00
+(
+  jx00doctip NUMBER(2) not null,
+  jx00docnum CHAR(12) not null,
+  jx00paicod NUMBER(3) not null,
+  jx00docalt CHAR(12),
+  jx00clinom CHAR(45),
+  jx00clarie NUMBER(3),
+  jx00solori NUMBER(3),
+  jx00fchinf DATE,
+  jx00deusit NUMBER(3),
+  jx00deubsg NUMBER(12,2),
+  jx00bcocan NUMBER(3),
+  jx00deutot NUMBER(12,2),
+  jx00sitban NUMBER(2),
+  jx00sitbco NUMBER(2),
+  jx00sitbcr CHAR(1),
+  jx00inhbcr CHAR(1),
+  jx00inhfch DATE,
+  jx00checan NUMBER(4),
+  jx00conide CHAR(1),
+  jx00exijui CHAR(1),
+  jx00exijun CHAR(1),
+  jx00exiemb CHAR(1),
+  jx00fchult DATE,
+  jx00exiqui CHAR(1),
+  jx00pedqui CHAR(1),
+  jx00bnebcr CHAR(1)
+)
+;
+alter table JBXI00
+  add primary key (JX00DOCTIP, JX00DOCNUM, JX00PAICOD);
+

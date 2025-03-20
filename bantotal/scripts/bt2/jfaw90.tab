@@ -1,0 +1,16 @@
+create table JFAW90
+(
+  jfaw90emp  NUMBER(3) not null,
+  jfaw90cta  NUMBER(9) not null,
+  jfaw90ase  NUMBER(3) not null,
+  jfaw90cor  NUMBER(2) not null,
+  jfaw90dmo  NUMBER(4),
+  jfaw90est  CHAR(1),
+  jfaw90fec  DATE,
+  jfaw90ges  CHAR(10),
+  jfaw90c229 NUMBER(10)
+)
+;
+alter table JFAW90
+  add primary key (JFAW90EMP, JFAW90CTA, JFAW90ASE, JFAW90COR);
+

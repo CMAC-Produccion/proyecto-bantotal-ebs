@@ -1,0 +1,11 @@
+create or replace force view v_aqpb065h_prebus as
+select
+a.AQPB065HUSUR,
+a.AQPB065HAOCTA,
+a.AQPB065HAOOPER,
+a.AQPB065HPCOB,
+a.AQPB065HFPROC,
+a.AQPB065HSDOINS,
+a.AQPB065HMHONR
+from AQPB065H a;
+

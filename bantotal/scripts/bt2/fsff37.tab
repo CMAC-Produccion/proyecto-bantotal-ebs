@@ -1,0 +1,16 @@
+create table FSFF37
+(
+  kfcor  NUMBER(9) not null,
+  kfcat  NUMBER(1) not null,
+  kfub   NUMBER(16) not null,
+  kfdsc  CHAR(40),
+  kfsdo1 NUMBER(17,2),
+  kfsdo2 NUMBER(17,2),
+  kfvar  NUMBER(17,2),
+  kffte  NUMBER(17,2),
+  kfuso  NUMBER(17,2)
+)
+;
+alter table FSFF37
+  add primary key (KFCOR, KFCAT, KFUB);
+

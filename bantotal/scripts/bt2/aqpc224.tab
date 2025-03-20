@@ -1,0 +1,80 @@
+create table AQPC224
+(
+  aqpc224fec DATE not null,
+  aqpc224hor VARCHAR2(8) not null,
+  aqpc224usu VARCHAR2(10) not null,
+  aqpc224cor NUMBER(17) not null,
+  aqpc224ins NUMBER(10),
+  aqpc224asi VARCHAR2(50),
+  aqpc224ing VARCHAR2(50),
+  aqpc224des VARCHAR2(50),
+  aqpc224reg VARCHAR2(50),
+  aqpc224zon VARCHAR2(50),
+  aqpc224suc VARCHAR2(50),
+  aqpc224ana VARCHAR2(10),
+  aqpc224mod NUMBER(3),
+  aqpc224mda VARCHAR2(4),
+  aqpc224cta NUMBER(9),
+  aqpc224ope NUMBER(9),
+  aqpc224sbo NUMBER(3),
+  aqpc224top NUMBER(3),
+  aqpc224mon NUMBER(17,2),
+  aqpc224ndo VARCHAR2(12),
+  aqpc224cli VARCHAR2(50),
+  aqpc224tel VARCHAR2(50),
+  aqpc224tso VARCHAR2(100)
+)
+;
+comment on table AQPC224
+  is 'Log Reporte Creditos MISTI';
+comment on column AQPC224.aqpc224fec
+  is 'Fecha de Registro';
+comment on column AQPC224.aqpc224hor
+  is 'Hora de Registro';
+comment on column AQPC224.aqpc224usu
+  is 'Usuario de Registro';
+comment on column AQPC224.aqpc224cor
+  is 'Correlativo';
+comment on column AQPC224.aqpc224ins
+  is 'Instancia';
+comment on column AQPC224.aqpc224asi
+  is 'Asignado';
+comment on column AQPC224.aqpc224ing
+  is 'Ingdes';
+comment on column AQPC224.aqpc224des
+  is 'Desembolso digital';
+comment on column AQPC224.aqpc224reg
+  is 'Region';
+comment on column AQPC224.aqpc224zon
+  is 'Zona';
+comment on column AQPC224.aqpc224suc
+  is 'Sucursal';
+comment on column AQPC224.aqpc224ana
+  is 'Analista';
+comment on column AQPC224.aqpc224mod
+  is 'Modulo';
+comment on column AQPC224.aqpc224mda
+  is 'Moneda';
+comment on column AQPC224.aqpc224cta
+  is 'Cuenta';
+comment on column AQPC224.aqpc224ope
+  is 'Operacion';
+comment on column AQPC224.aqpc224sbo
+  is 'Suboperacion';
+comment on column AQPC224.aqpc224top
+  is 'Tipo de Operacion';
+comment on column AQPC224.aqpc224mon
+  is 'Monto';
+comment on column AQPC224.aqpc224ndo
+  is 'Numero de Documento';
+comment on column AQPC224.aqpc224cli
+  is 'Cliente';
+comment on column AQPC224.aqpc224tel
+  is 'Telefonos';
+comment on column AQPC224.aqpc224tso
+  is 'Tipo de Solicitud';
+create index IDX_AQPC224A2 on AQPC224 (AQPC224USU);
+create index IDX_AQPC224A3 on AQPC224 (AQPC224INS, AQPC224USU);
+alter table AQPC224
+  add primary key (AQPC224FEC, AQPC224HOR, AQPC224USU, AQPC224COR);
+

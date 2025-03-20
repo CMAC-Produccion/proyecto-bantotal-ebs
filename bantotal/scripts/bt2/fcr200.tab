@@ -1,0 +1,18 @@
+create table FCR200
+(
+  xpgcod   NUMBER(3) not null,
+  xmodulo  NUMBER(3) not null,
+  xoperac  NUMBER(9) not null,
+  xsubope  NUMBER(3) not null,
+  xinstcod NUMBER(2) not null,
+  inststs  CHAR(1),
+  instfch  DATE
+)
+;
+create index FCR20002 on FCR200 (XPGCOD, XINSTCOD, INSTFCH, XMODULO, XOPERAC, XSUBOPE, INSTSTS);
+create index FCR20003 on FCR200 (XPGCOD, INSTFCH, XINSTCOD, XMODULO, XOPERAC, XSUBOPE, INSTSTS);
+create index FCR20004 on FCR200 (XPGCOD, INSTSTS, INSTFCH, XINSTCOD, XMODULO, XOPERAC, XSUBOPE);
+create index FCR20005 on FCR200 (XPGCOD, INSTSTS, XINSTCOD, INSTFCH, XMODULO, XOPERAC, XSUBOPE);
+alter table FCR200
+  add primary key (XPGCOD, XMODULO, XOPERAC, XSUBOPE, XINSTCOD);
+

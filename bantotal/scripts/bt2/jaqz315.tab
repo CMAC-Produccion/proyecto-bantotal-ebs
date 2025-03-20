@@ -1,0 +1,18 @@
+create table JAQZ315
+(
+  jaqz315idarc  NUMBER(18) not null,
+  jaqz315fearc  DATE not null,
+  jaqz315nusec  NUMBER(18) not null,
+  jaqz315trxid  NUMBER(18) not null,
+  jaqz315ftrid  NUMBER(18),
+  jaqz315datim  DATE,
+  jaqz315descr  VARCHAR2(100),
+  jaqz315frocta NUMBER(18),
+  jaqz315tocta  NUMBER(18),
+  jaqz315amoun  NUMBER(17,2),
+  jaqz315fepro  DATE
+)
+;
+alter table JAQZ315
+  add primary key (JAQZ315IDARC, JAQZ315FEARC, JAQZ315NUSEC, JAQZ315TRXID);
+

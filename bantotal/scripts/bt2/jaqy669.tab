@@ -1,0 +1,33 @@
+create table JAQY669
+(
+  jaqy669mod   NUMBER(3) not null,
+  jaqy669tran  NUMBER(3) not null,
+  jaqy669rel   NUMBER(4) not null,
+  jaqy669suc   NUMBER(4) not null,
+  jaqy669fec   DATE not null,
+  jaqy669cta   CHAR(30),
+  jaqy669fope  DATE,
+  jaqy669nope  CHAR(15),
+  jaqy669dope  CHAR(30),
+  jaqy669tmvo  CHAR(15),
+  jaqy669mon   NUMBER(16,2),
+  jaqy669agee  CHAR(30),
+  jaqy669fext  DATE,
+  jaqy669hext  CHAR(8),
+  jaqy669oing  CHAR(12),
+  jaqy669oconf CHAR(12),
+  jaqy669uau   CHAR(12),
+  jaqy669mot   CHAR(100),
+  jaqy669au1   NUMBER(16,2),
+  jaqy669au2   NUMBER(16,2),
+  jaqy669au3   NUMBER(16,5),
+  jaqy669au4   CHAR(100),
+  jaqy669au5   CHAR(100),
+  jaqy669au6   CHAR(100),
+  jaqy669au7   DATE
+)
+;
+create index IJAQY669001 on JAQY669 (JAQY669AGEE, JAQY669FEXT, JAQY669HEXT);
+alter table JAQY669
+  add primary key (JAQY669MOD, JAQY669TRAN, JAQY669REL, JAQY669SUC, JAQY669FEC);
+

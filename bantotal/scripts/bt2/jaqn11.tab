@@ -1,0 +1,93 @@
+create table JAQN11
+(
+  jaqn11cod NUMBER(9) not null,
+  jaqn11emp NUMBER(3) not null,
+  jaqn11suc NUMBER(3) not null,
+  jaqn11mod NUMBER(3) not null,
+  jaqn11pap NUMBER(4) not null,
+  jaqn11mda NUMBER(4) not null,
+  jaqn11cta NUMBER(9) not null,
+  jaqn11ope NUMBER(9) not null,
+  jaqn11sbo NUMBER(3) not null,
+  jaqn11tpo NUMBER(3) not null,
+  jaqn11pzo NUMBER(5),
+  jaqn11mto NUMBER(17,2),
+  jaqn11tra CHAR(1),
+  jaqn11est CHAR(1),
+  jaqn11nu1 NUMBER(9),
+  jaqn11nu2 NUMBER(9),
+  jaqn11nu3 NUMBER(9),
+  jaqn11im1 NUMBER(17,2),
+  jaqn11im2 NUMBER(17,2),
+  jaqn11im3 NUMBER(17,2),
+  jaqn11fe1 DATE,
+  jaqn11fe2 DATE,
+  jaqn11fe3 DATE,
+  jaqn11ca1 VARCHAR2(255),
+  jaqn11ca2 VARCHAR2(255),
+  jaqn11ca3 VARCHAR2(255)
+)
+;
+comment on table JAQN11
+  is 'Posición de Grupo Detalle';
+comment on column JAQN11.jaqn11cod
+  is 'Código de Grupo';
+comment on column JAQN11.jaqn11emp
+  is 'Empresa';
+comment on column JAQN11.jaqn11suc
+  is 'Sucursal';
+comment on column JAQN11.jaqn11mod
+  is 'Módulo';
+comment on column JAQN11.jaqn11pap
+  is 'Papel';
+comment on column JAQN11.jaqn11mda
+  is 'Moneda';
+comment on column JAQN11.jaqn11cta
+  is 'Cuenta';
+comment on column JAQN11.jaqn11ope
+  is 'Operación';
+comment on column JAQN11.jaqn11sbo
+  is 'Suboperación';
+comment on column JAQN11.jaqn11tpo
+  is 'Tipo Operación';
+comment on column JAQN11.jaqn11pzo
+  is 'Plazo';
+comment on column JAQN11.jaqn11mto
+  is 'Monto';
+comment on column JAQN11.jaqn11tra
+  is 'Trabajador de Cmac';
+comment on column JAQN11.jaqn11est
+  is 'Estado';
+comment on column JAQN11.jaqn11nu1
+  is 'Auxiliar Numérico 1';
+comment on column JAQN11.jaqn11nu2
+  is 'Auxiliar Numérico 2';
+comment on column JAQN11.jaqn11nu3
+  is 'Auxiliar Numérico 3';
+comment on column JAQN11.jaqn11im1
+  is 'Auxiliar Importe 1';
+comment on column JAQN11.jaqn11im2
+  is 'Auxiliar Importe 2';
+comment on column JAQN11.jaqn11im3
+  is 'Auxiliar Importe 3';
+comment on column JAQN11.jaqn11fe1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN11.jaqn11fe2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN11.jaqn11fe3
+  is 'Auxiliar Fecha 3';
+comment on column JAQN11.jaqn11ca1
+  is 'Auxiliar Carácter 1';
+comment on column JAQN11.jaqn11ca2
+  is 'Auxiliar Carácter 2';
+comment on column JAQN11.jaqn11ca3
+  is 'Auxiliar Carácter 3';
+create index JAQN11A2 on JAQN11 (JAQN11CTA, JAQN11OPE, JAQN11TPO, JAQN11SBO);
+create index JAQN11A3 on JAQN11 (JAQN11COD, JAQN11SUC);
+create index JAQN11A4 on JAQN11 (JAQN11MOD, JAQN11TPO);
+create index JAQN11A5 on JAQN11 (JAQN11MDA);
+create index JAQN11A6 on JAQN11 (JAQN11EST, JAQN11CTA);
+create index JAQN11A7 on JAQN11 (JAQN11EMP, JAQN11SUC, JAQN11MOD, JAQN11PAP, JAQN11MDA, JAQN11CTA, JAQN11OPE, JAQN11SBO, JAQN11TPO);
+alter table JAQN11
+  add primary key (JAQN11COD, JAQN11EMP, JAQN11SUC, JAQN11MOD, JAQN11PAP, JAQN11MDA, JAQN11CTA, JAQN11OPE, JAQN11SBO, JAQN11TPO);
+

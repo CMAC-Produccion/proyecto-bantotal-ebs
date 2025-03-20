@@ -1,0 +1,32 @@
+create table JAQL080
+(
+  jaql80user CHAR(10) not null,
+  jaql80fepr DATE not null,
+  jaql80perf CHAR(10),
+  jaql80sucu NUMBER(3),
+  jaql80coca NUMBER(17,2),
+  jaql80cocl NUMBER(17,2),
+  jaql80cocc NUMBER(17,2),
+  jaql80pamc NUMBER(5,2),
+  jaql80comc NUMBER(17,2),
+  jaql80nusp NUMBER(4),
+  jaql80cosp NUMBER(17,2),
+  jaql80toco NUMBER(17,2),
+  jaql80au01 CHAR(50),
+  jaql80au02 CHAR(50),
+  jaql80au03 CHAR(50),
+  jaql80au04 NUMBER(9),
+  jaql80au05 NUMBER(9),
+  jaql80au06 NUMBER(9),
+  jaql80au07 NUMBER(17,2),
+  jaql80au08 NUMBER(17,2),
+  jaql80au09 NUMBER(17,2),
+  jaql80au10 DATE,
+  jaql80au11 DATE,
+  jaql80au12 DATE
+)
+;
+create index JAQL8010001 on JAQL080 (JAQL80FEPR, JAQL80SUCU, JAQL80PERF);
+alter table JAQL080
+  add primary key (JAQL80USER, JAQL80FEPR);
+

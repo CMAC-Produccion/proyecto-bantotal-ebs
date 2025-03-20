@@ -1,0 +1,13 @@
+create table FSFBC7
+(
+  xtpgcod2 NUMBER(3) not null,
+  xfi10pap NUMBER(4) not null,
+  xtctnro  NUMBER(9) not null,
+  xfi09id  NUMBER(2) not null,
+  xfi10cod CHAR(12),
+  sfbc7est CHAR(1)
+)
+;
+alter table FSFBC7
+  add primary key (XTPGCOD2, XFI10PAP, XTCTNRO, XFI09ID);
+

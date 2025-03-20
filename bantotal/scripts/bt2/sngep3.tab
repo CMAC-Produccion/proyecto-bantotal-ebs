@@ -1,0 +1,17 @@
+create table SNGEP3
+(
+  sngep1ite NUMBER(10) not null,
+  sngep2cor NUMBER(3) not null,
+  sngep3pol NUMBER(5) not null,
+  sngep3rst CHAR(1),
+  sngep3msg VARCHAR2(120),
+  sngep3aut NUMBER(10),
+  sngep3res CHAR(1),
+  sngep3mot NUMBER(5),
+  sngep3usr CHAR(10),
+  sngep3com VARCHAR2(400)
+)
+;
+alter table SNGEP3
+  add primary key (SNGEP1ITE, SNGEP2COR, SNGEP3POL);
+

@@ -1,0 +1,27 @@
+create table TI0015
+(
+  ticodreg   NUMBER(18) not null,
+  tipgcod    NUMBER(3),
+  timoneda   NUMBER(4),
+  ticta      NUMBER(9),
+  tioper     NUMBER(9),
+  tisbop     NUMBER(3),
+  ticodimp   NUMBER(3),
+  tipais     NUMBER(3),
+  titdoc     NUMBER(2),
+  tindoc     CHAR(12),
+  ticorr     NUMBER(3),
+  ticaimp    NUMBER(3),
+  tisuc      NUMBER(3),
+  timod      NUMBER(3),
+  tipzo      NUMBER(5),
+  titope     NUMBER(3),
+  ticodact   NUMBER(9),
+  timontobas NUMBER(14,2),
+  tifecha    DATE,
+  tiprocesad CHAR(1)
+)
+;
+alter table TI0015
+  add primary key (TICODREG);
+

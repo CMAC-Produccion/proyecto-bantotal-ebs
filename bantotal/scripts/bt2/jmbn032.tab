@@ -1,0 +1,19 @@
+create table JMBN032
+(
+  jmbn032usr CHAR(10) not null,
+  jmbn032pgc NUMBER(3) not null,
+  jmbn032suc NUMBER(3) not null,
+  jmbn032mod NUMBER(3) not null,
+  jmbn032trn NUMBER(3) not null,
+  jmbn032rel NUMBER(4) not null,
+  jmbn032ord NUMBER(2) not null,
+  jmbn032sbo NUMBER(3) not null,
+  jmbn032fco DATE,
+  jmbn032deh NUMBER(1),
+  jmbn032rub NUMBER(16),
+  jmbn032imp NUMBER(17,2)
+)
+;
+alter table JMBN032
+  add primary key (JMBN032USR, JMBN032PGC, JMBN032SUC, JMBN032MOD, JMBN032TRN, JMBN032REL, JMBN032ORD, JMBN032SBO);
+

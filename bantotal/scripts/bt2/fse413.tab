@@ -1,0 +1,31 @@
+create table FSE413
+(
+  se413cod NUMBER(3) not null,
+  se413suc NUMBER(3) not null,
+  se413mod NUMBER(4) not null,
+  se413mda NUMBER(4) not null,
+  se413pap NUMBER(4) not null,
+  se413cta NUMBER(9) not null,
+  se413ope NUMBER(9) not null,
+  se413sbo NUMBER(3) not null,
+  se413top NUMBER(3) not null,
+  se413fte NUMBER(3),
+  se413prm NUMBER(17,2),
+  se413prc NUMBER(3),
+  se413tx1 CHAR(30),
+  se413tx2 CHAR(30),
+  se413tx3 CHAR(50),
+  se413tx4 CHAR(50),
+  se413fc1 DATE,
+  se413fc2 DATE,
+  se413fc3 DATE,
+  se413fc4 DATE,
+  se413im1 NUMBER(17,2),
+  se413im2 NUMBER(17,2),
+  se413im3 NUMBER(17,2),
+  se413im4 NUMBER(17,2)
+)
+;
+alter table FSE413
+  add primary key (SE413COD, SE413SUC, SE413MOD, SE413MDA, SE413PAP, SE413CTA, SE413OPE, SE413SBO, SE413TOP);
+

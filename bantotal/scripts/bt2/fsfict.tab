@@ -1,0 +1,27 @@
+create table FSFICT
+(
+  sfictemp  NUMBER(3) not null,
+  sfictcus  NUMBER(9) not null,
+  sfictfp   NUMBER(3) not null,
+  sfictcont NUMBER(2) not null,
+  sfictcta  NUMBER(9),
+  sfictope  NUMBER(9),
+  sfictsbop NUMBER(3),
+  sficttope NUMBER(3),
+  sfictcal  NUMBER(3),
+  sfictmr   NUMBER(16),
+  sficthab  CHAR(1),
+  sfictmda  NUMBER(4),
+  sfictauc1 CHAR(1),
+  sfictauc2 CHAR(1),
+  sfictaun1 NUMBER(9),
+  sfictaun2 NUMBER(9),
+  sfictaut1 CHAR(20),
+  sfictaut2 CHAR(20),
+  sfictsuc  NUMBER(3)
+)
+;
+create index FSFICT02 on FSFICT (SFICTEMP, SFICTCUS, SFICTFP, SFICTMDA);
+alter table FSFICT
+  add primary key (SFICTEMP, SFICTCUS, SFICTFP, SFICTCONT);
+

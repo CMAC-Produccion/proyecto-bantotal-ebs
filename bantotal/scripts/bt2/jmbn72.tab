@@ -1,0 +1,18 @@
+create table JMBN72
+(
+  jmbn70pgco NUMBER(3) not null,
+  jmbn70thr  NUMBER(3) not null,
+  jmbn70fhas DATE not null,
+  jmbn70corr NUMBER(10) not null,
+  jmbn70cor2 NUMBER(4) not null,
+  jmbn70impr NUMBER(17,2),
+  jmbn70mda  NUMBER(4),
+  jmbn70cicp CHAR(8),
+  jmbn70rubr NUMBER(16),
+  jmbn70tc   NUMBER(17,6),
+  jmbn70cta  NUMBER(9)
+)
+;
+alter table JMBN72
+  add primary key (JMBN70PGCO, JMBN70THR, JMBN70FHAS, JMBN70CORR, JMBN70COR2);
+

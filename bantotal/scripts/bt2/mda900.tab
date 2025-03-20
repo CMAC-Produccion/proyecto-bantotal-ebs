@@ -1,0 +1,13 @@
+create table MDA900
+(
+  mda900tcco NUMBER(3) not null,
+  mda900mda  NUMBER(4) not null,
+  mda900vta1 NUMBER(10,8),
+  mda900vta2 NUMBER(10,8),
+  mda900cpa1 NUMBER(10,8),
+  mda900cpa2 NUMBER(10,8)
+)
+;
+alter table MDA900
+  add primary key (MDA900TCCO, MDA900MDA);
+

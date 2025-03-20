@@ -1,0 +1,16 @@
+create table FBC760
+(
+  bc760cod CHAR(15) not null,
+  bc760fdv DATE not null,
+  bc760dsc CHAR(30),
+  bc760pln NUMBER(3),
+  bc760cpn NUMBER(3),
+  bc760plg NUMBER(3),
+  bc760cpg NUMBER(3),
+  bc760agr NUMBER(1)
+)
+;
+create index FBC76002 on FBC760 (BC760AGR);
+alter table FBC760
+  add primary key (BC760COD, BC760FDV);
+

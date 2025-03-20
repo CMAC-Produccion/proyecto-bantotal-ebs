@@ -1,0 +1,18 @@
+create table Z0E4Q0
+(
+  z0e4q0ca NUMBER(2) not null,
+  z0e4q0cr NUMBER(9) not null,
+  z0e4q0su NUMBER(3) not null,
+  z0e4q0cl NUMBER(9) not null,
+  z0e4q0md NUMBER(4) not null,
+  z0e4q0fc DATE not null,
+  z0e4q0ne NUMBER(3) not null,
+  z0e4q0nu NUMBER(3) not null,
+  z0e4q0im NUMBER(14,2),
+  z0e4q0es CHAR(1)
+)
+;
+create index Z0E4Q002 on Z0E4Q0 (Z0E4Q0ES);
+alter table Z0E4Q0
+  add primary key (Z0E4Q0CA, Z0E4Q0CR, Z0E4Q0SU, Z0E4Q0CL, Z0E4Q0MD, Z0E4Q0FC, Z0E4Q0NE, Z0E4Q0NU);
+

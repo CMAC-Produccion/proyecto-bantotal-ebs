@@ -1,0 +1,31 @@
+create table FBC800
+(
+  bc800emp   NUMBER(3) not null,
+  bc800fch   NUMBER(6) not null,
+  bc800pais  NUMBER(3) not null,
+  bc800tdoc  NUMBER(2) not null,
+  bc800ndoc  CHAR(12) not null,
+  bc800tidtr NUMBER(2),
+  bc800nidtr CHAR(11),
+  bc800tdoid NUMBER(2),
+  bc800ndoid CHAR(16),
+  bc800denom CHAR(55),
+  bc800domi  CHAR(55),
+  bc800nro   CHAR(10),
+  bc800piso  CHAR(2),
+  bc800dpto  CHAR(10),
+  bc800cpos  CHAR(8),
+  bc800loc   CHAR(25),
+  bc800prov  NUMBER(2),
+  bc800paiss CHAR(2),
+  bc800activ NUMBER(3),
+  bc800aux1  CHAR(15),
+  bc800proc  CHAR(1),
+  bc800aux2  CHAR(40),
+  bc800aux3  CHAR(30),
+  bc800aux4  CHAR(30)
+)
+;
+alter table FBC800
+  add primary key (BC800EMP, BC800FCH, BC800PAIS, BC800TDOC, BC800NDOC);
+

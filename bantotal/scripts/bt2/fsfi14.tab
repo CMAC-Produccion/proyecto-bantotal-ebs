@@ -1,0 +1,19 @@
+create table FSFI14
+(
+  sfi14emp   NUMBER(3) not null,
+  sfi14cod   NUMBER(2) not null,
+  sfi14dsc   CHAR(35),
+  sfi14es    CHAR(1),
+  sfi14sbloq CHAR(1),
+  sfi14esuma CHAR(1),
+  sfi14aux1  CHAR(1),
+  sfi14aux2  CHAR(1),
+  sfi14aux3  NUMBER(9),
+  sfi14aux4  NUMBER(9),
+  sfi14opper CHAR(1),
+  sfi14tccv  NUMBER(2)
+)
+;
+alter table FSFI14
+  add primary key (SFI14EMP, SFI14COD);
+

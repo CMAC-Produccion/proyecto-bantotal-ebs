@@ -1,0 +1,19 @@
+create table FBO0001
+(
+  fbo0001cod NUMBER(9) not null,
+  fbo0001ord NUMBER(15),
+  fbo0001fin NUMBER(15),
+  fbo0001fch DATE,
+  fbo0001fac NUMBER(15),
+  fbo0001est CHAR(1),
+  fbo0001usu CHAR(20),
+  fbo0001ult DATE,
+  fbo0001lla CHAR(255),
+  fbo0001lke CHAR(32),
+  fbo0001ffi DATE
+)
+;
+create index FBO00012 on FBO0001 (FBO0001EST, FBO0001ORD);
+alter table FBO0001
+  add primary key (FBO0001COD);
+

@@ -1,0 +1,35 @@
+create table JAQN21
+(
+  jaqn21temp NUMBER(3) not null,
+  jaqn21tmod NUMBER(3) not null,
+  jaqn21tpcu NUMBER(3) not null,
+  jaqn21tmda NUMBER(4) not null,
+  jaqn21tpap NUMBER(4) not null,
+  jaqn21fdes DATE not null,
+  jaqn21tmto NUMBER(17,2) not null,
+  jaqn21finv NUMBER(8)
+)
+;
+comment on table JAQN21
+  is 'Curvas para TTI';
+comment on column JAQN21.jaqn21temp
+  is 'Codigo empresa';
+comment on column JAQN21.jaqn21tmod
+  is 'Modulo';
+comment on column JAQN21.jaqn21tpcu
+  is 'Tipo curva';
+comment on column JAQN21.jaqn21tmda
+  is 'Moneda';
+comment on column JAQN21.jaqn21tpap
+  is 'Papel';
+comment on column JAQN21.jaqn21fdes
+  is 'Vigencia';
+comment on column JAQN21.jaqn21tmto
+  is 'Monto';
+comment on column JAQN21.jaqn21finv
+  is 'Fecha Inv';
+create index JAQN212 on JAQN21 (JAQN21TEMP, JAQN21TMOD, JAQN21TPCU, JAQN21TMDA, JAQN21TPAP, JAQN21TMTO, JAQN21FINV);
+create index JAQN213 on JAQN21 (JAQN21TEMP, JAQN21TMOD, JAQN21TPCU, JAQN21TMDA, JAQN21TPAP, JAQN21FINV, JAQN21TMTO);
+alter table JAQN21
+  add primary key (JAQN21TEMP, JAQN21TMOD, JAQN21TPCU, JAQN21TMDA, JAQN21TPAP, JAQN21FDES, JAQN21TMTO);
+

@@ -1,0 +1,19 @@
+create table FEX001
+(
+  expgcod   NUMBER(3) not null,
+  excicpo   CHAR(8) not null,
+  excinom   CHAR(30),
+  excitipo  CHAR(1),
+  exciper   CHAR(2),
+  excimda   CHAR(1),
+  excitit1  CHAR(15),
+  excitit2  CHAR(15),
+  excitit3  CHAR(15),
+  exciccta  NUMBER(3),
+  exciestad NUMBER(3),
+  excicpo3  CHAR(8)
+)
+;
+alter table FEX001
+  add primary key (EXPGCOD, EXCICPO);
+

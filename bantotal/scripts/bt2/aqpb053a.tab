@@ -1,0 +1,15 @@
+create table AQPB053A
+(
+  aqpb053acode NUMBER(4) not null,
+  aqpb053adesc VARCHAR2(150)
+)
+;
+comment on table AQPB053A
+  is 'Tabla de código de errores';
+comment on column AQPB053A.aqpb053acode
+  is 'Código de error';
+comment on column AQPB053A.aqpb053adesc
+  is 'Descripción';
+alter table AQPB053A
+  add primary key (AQPB053ACODE);
+

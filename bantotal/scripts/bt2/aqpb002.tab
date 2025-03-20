@@ -1,0 +1,136 @@
+create table AQPB002
+(
+  aqpb002fep     DATE not null,
+  aqpb002cor     NUMBER(9) not null,
+  aqpb002emp     NUMBER(3) not null,
+  aqpb002mod     NUMBER(3) not null,
+  aqpb002suc     NUMBER(3) not null,
+  aqpb002mda     NUMBER(4) not null,
+  aqpb002pap     NUMBER(4) not null,
+  aqpb002cta     NUMBER(9) not null,
+  aqpb002ope     NUMBER(9) not null,
+  aqpb002sbo     NUMBER(3) not null,
+  aqpb002top     NUMBER(3) not null,
+  aqpb002grp     NUMBER(3),
+  aqpb002pzo     NUMBER(4),
+  aqpb002est     CHAR(1),
+  aqpb002revr    CHAR(1),
+  aqpb002rub     NUMBER(16),
+  aqpb002sdo     NUMBER(16,2),
+  aqpb002pdi     NUMBER(4),
+  aqpb002pro10   CHAR(1),
+  aqpb002pro11   CHAR(1),
+  aqpb002pro601  CHAR(1),
+  aqpb002pro611  CHAR(1),
+  aqpb002pro602  CHAR(1),
+  aqpb002pro612  CHAR(1),
+  aqpb002fpp     DATE,
+  aqpb002vac     CHAR(2),
+  aqpb002vac2    CHAR(2),
+  aqpb002seg     NUMBER(16,2),
+  aqpb002feca    DATE,
+  aqpb002r010    CHAR(1),
+  aqpb002r011    CHAR(1),
+  aqpb002r601    CHAR(1),
+  aqpb002r611    CHAR(1),
+  aqpb002r602    CHAR(1),
+  aqpb002r612    CHAR(1),
+  aqpb002spag    CHAR(1),
+  aqpb002usrr    CHAR(10),
+  aqpb002fere    DATE,
+  aqpb002fev     DATE,
+  aqpb002fei     DATE,
+  aqpb002fem     DATE,
+  aqpb002hoi     CHAR(8),
+  aqpb002hof     CHAR(8),
+  aqpb002ind     VARCHAR2(2),
+  aqpb002ippi    CHAR(1),
+  aqpb002ippf    CHAR(1),
+  aqpb002cap     NUMBER(16,2),
+  aqpb002int     NUMBER(16,2),
+  aqpb002mor     NUMBER(16,2),
+  aqpb002mora    CHAR(1),
+  aqpb002narc    VARCHAR2(150),
+  aqpb002ins     NUMBER(10),
+  aqpb002fmail   CHAR(1),
+  aqpb002mail    VARCHAR2(150),
+  aqpb002ase     CHAR(10),
+  aqpb002ffer    CHAR(1),
+  aqpb002ftcre   CHAR(1),
+  aqpb002tdo     NUMBER(3),
+  aqpb002ndo     CHAR(12),
+  aqpb002fcap    CHAR(1),
+  aqpb002tipo    VARCHAR2(10),
+  aqpb002estcr   NUMBER(2),
+  aqpb002fec     DATE,
+  aqpb002pen     NUMBER(17,2),
+  aqpb002ecorreo VARCHAR2(200),
+  aqpb002etelefo VARCHAR2(20),
+  aqpb002fctr    DATE,
+  aqpb002hext    CHAR(8),
+  aqpb002usrpt   CHAR(10),
+  aqpb002suext   NUMBER(3)
+)
+;
+comment on column AQPB002.aqpb002feca
+  is 'FECHA DE REVERSION O EXTORNO';
+comment on column AQPB002.aqpb002usrr
+  is 'USUARIO QUE REALIZO LA REVERSION';
+comment on column AQPB002.aqpb002fev
+  is 'FECHA VENCIMIENTO BI';
+comment on column AQPB002.aqpb002fei
+  is 'FECHA VENCIMIENTO INCIIAL';
+comment on column AQPB002.aqpb002fem
+  is 'FECHA VENCIMIENTO LUEGO REPROGRAMACION';
+comment on column AQPB002.aqpb002hoi
+  is 'HORA INICIO';
+comment on column AQPB002.aqpb002hof
+  is 'HORA FIN';
+comment on column AQPB002.aqpb002ind
+  is 'FLAG PAGP PARCIAL';
+comment on column AQPB002.aqpb002ippi
+  is 'FLAG PAGP PARCIAL INICIAL';
+comment on column AQPB002.aqpb002ippf
+  is 'FLAG PAGP PARCIAL FINAL';
+comment on column AQPB002.aqpb002cap
+  is 'SALDO CAPITAL PP';
+comment on column AQPB002.aqpb002int
+  is 'SALDO INTERES PP';
+comment on column AQPB002.aqpb002mor
+  is 'SALDO MORA PP';
+comment on column AQPB002.aqpb002mora
+  is 'FLAG SI TIENE MORA';
+comment on column AQPB002.aqpb002narc
+  is 'NOMBRE ARCHIVO';
+comment on column AQPB002.aqpb002ins
+  is 'INSTANCIA';
+comment on column AQPB002.aqpb002fmail
+  is 'FLAG ENVIO MAIL';
+comment on column AQPB002.aqpb002mail
+  is 'MAIL CLIENTE';
+comment on column AQPB002.aqpb002ase
+  is 'ANALISTA';
+comment on column AQPB002.aqpb002ffer
+  is 'FLAG FERIADO S o N';
+comment on column AQPB002.aqpb002ftcre
+  is 'FLAG REST TIPO CREDITO S = SI CONTINUA';
+comment on column AQPB002.aqpb002tdo
+  is 'TIPO DOCUMENTO';
+comment on column AQPB002.aqpb002ndo
+  is 'NUM DOCUMENTO';
+comment on column AQPB002.aqpb002fcap
+  is 'CAPITALIZACION';
+comment on column AQPB002.aqpb002tipo
+  is 'TIPO DE REPROGRAMACION';
+comment on column AQPB002.aqpb002pen
+  is 'PAGO PARCIAL PENALIDAD';
+comment on column AQPB002.aqpb002hext
+  is 'HORA DE REVERSION O EXTORNO';
+comment on column AQPB002.aqpb002usrpt
+  is 'USUARIO PARA REPORTE';
+comment on column AQPB002.aqpb002suext
+  is 'SUCURSAL AL MOMENTO DE REVERTIR';
+create index AQPB0022 on AQPB002 (AQPB002EMP, AQPB002MOD, AQPB002SUC, AQPB002MDA, AQPB002PAP, AQPB002CTA, AQPB002OPE, AQPB002SBO, AQPB002TOP);
+alter table AQPB002
+  add primary key (AQPB002FEP, AQPB002COR, AQPB002EMP, AQPB002MOD, AQPB002SUC, AQPB002MDA, AQPB002PAP, AQPB002CTA, AQPB002OPE, AQPB002SBO, AQPB002TOP);
+

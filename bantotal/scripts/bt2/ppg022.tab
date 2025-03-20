@@ -1,0 +1,16 @@
+create table PPG022
+(
+  ppg022cpu NUMBER(4) not null,
+  ppg022tpu CHAR(1),
+  ppg022ppu CHAR(10),
+  ppg022dsp CHAR(50),
+  ppg022au1 NUMBER(9),
+  ppg022au2 NUMBER(9),
+  ppg022au3 DATE,
+  ppg022au4 NUMBER(17,2),
+  ppg022au5 CHAR(30)
+)
+;
+alter table PPG022
+  add primary key (PPG022CPU);
+

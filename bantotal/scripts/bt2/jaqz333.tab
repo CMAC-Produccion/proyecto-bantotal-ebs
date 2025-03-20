@@ -1,0 +1,24 @@
+create table JAQZ333
+(
+  jaqz333codusu  VARCHAR2(20) not null,
+  jaqz333corr    NUMBER(10) not null,
+  jaqz333fecini  DATE,
+  jaqz333fecfin  DATE,
+  jaqz333periodo VARCHAR2(50),
+  jaqz333feccom  DATE,
+  jaqz333horcom  VARCHAR2(20),
+  jaqz333tipdoc  VARCHAR2(50),
+  jaqz333numdoc  VARCHAR2(50),
+  jaqz333nomcli  VARCHAR2(150),
+  jaqz333dircli  VARCHAR2(150),
+  jaqz333telcli  VARCHAR2(50),
+  jaqz333corcli  VARCHAR2(100),
+  jaqz333nomcor  VARCHAR2(200),
+  jaqz333moneda  VARCHAR2(50),
+  jaqz333monto   VARCHAR2(50)
+)
+;
+create index JAQZ3332 on JAQZ333 (JAQZ333CODUSU);
+alter table JAQZ333
+  add primary key (JAQZ333CODUSU, JAQZ333CORR);
+

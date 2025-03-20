@@ -1,0 +1,57 @@
+create table JAQM78
+(
+  jaqm78ide VARCHAR2(30) not null,
+  jaqm78tip CHAR(3) not null,
+  jaqm78cor NUMBER(4) not null,
+  jaqm78des LONG,
+  jaqm78an1 NUMBER(9),
+  jaqm78an2 NUMBER(9),
+  jaqm78an3 NUMBER(9),
+  jaqm78ad1 DATE,
+  jaqm78ad2 DATE,
+  jaqm78ad3 DATE,
+  jaqm78ai1 NUMBER(17,2),
+  jaqm78ai2 NUMBER(17,2),
+  jaqm78ai3 NUMBER(17,2),
+  jaqm78ac1 CHAR(255),
+  jaqm78ac2 CHAR(255),
+  jaqm78ac3 CHAR(255)
+)
+;
+comment on table JAQM78
+  is 'Log Biometia';
+comment on column JAQM78.jaqm78ide
+  is 'Identificador';
+comment on column JAQM78.jaqm78tip
+  is 'Tipo Request: RQS  Responde: RES';
+comment on column JAQM78.jaqm78cor
+  is 'Correlativo';
+comment on column JAQM78.jaqm78des
+  is 'Descripción peticion y respuesta';
+comment on column JAQM78.jaqm78an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM78.jaqm78an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM78.jaqm78an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM78.jaqm78ad1
+  is 'Date Auxiliar 1';
+comment on column JAQM78.jaqm78ad2
+  is 'Date Auxiliar 2';
+comment on column JAQM78.jaqm78ad3
+  is 'Date Auxiliar 3';
+comment on column JAQM78.jaqm78ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM78.jaqm78ai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM78.jaqm78ai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM78.jaqm78ac1
+  is 'Character Auxiliar 1';
+comment on column JAQM78.jaqm78ac2
+  is 'Character Auxiliar 2';
+comment on column JAQM78.jaqm78ac3
+  is 'Character Auxiliar 3';
+alter table JAQM78
+  add primary key (JAQM78IDE, JAQM78TIP, JAQM78COR);
+

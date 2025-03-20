@@ -1,0 +1,12 @@
+create table JDTM11
+(
+  jdtm11cod NUMBER(5) not null,
+  jdtm10cod NUMBER(4),
+  jdtm11nom CHAR(30),
+  jdtm11seg CHAR(1)
+)
+;
+create index JDTM1102 on JDTM11 (JDTM10COD);
+alter table JDTM11
+  add primary key (JDTM11COD);
+

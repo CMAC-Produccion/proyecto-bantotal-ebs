@@ -1,0 +1,12 @@
+create table WFCNFTASKS
+(
+  wfcnfprca  NUMBER(4) not null,
+  wfcnftaska NUMBER(4) not null,
+  wfcnfprcb  NUMBER(4) not null,
+  wfcnftaskb NUMBER(4) not null
+)
+;
+create index IWFCNFTASKS2 on WFCNFTASKS (WFCNFPRCB, WFCNFTASKB);
+alter table WFCNFTASKS
+  add primary key (WFCNFPRCA, WFCNFTASKA, WFCNFPRCB, WFCNFTASKB);
+

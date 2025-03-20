@@ -1,0 +1,30 @@
+create table FSFST1
+(
+  sfst1merc  NUMBER(3) not null,
+  sfst1desc  CHAR(35),
+  sfst1hab   CHAR(1),
+  sfst1prpr  CHAR(1),
+  sfst1conf  CHAR(1),
+  sfst1age   NUMBER(3),
+  sfst1ope   NUMBER(2),
+  sfst1pwd   CHAR(10),
+  sfst1ip    CHAR(15),
+  sfst1pto   NUMBER(5),
+  sfst1int   NUMBER(2),
+  sfst1ruta  CHAR(70),
+  sfst1ufec  DATE,
+  sfst1uhora CHAR(8),
+  sfst1usec  NUMBER(5),
+  sfst1mod   CHAR(1),
+  sfst1vers  CHAR(8),
+  sfst1fref  DATE,
+  sfst1href  CHAR(8),
+  sfst1sref  NUMBER(5),
+  sfst1frec  DATE,
+  sfst1hrec  CHAR(8),
+  sfst1srec  NUMBER(5)
+)
+;
+alter table FSFST1
+  add primary key (SFST1MERC);
+

@@ -1,0 +1,58 @@
+create table AQPB094E
+(
+  aqpb094ecod  NUMBER(4) not null,
+  aqpb094ecor  NUMBER(8) not null,
+  aqpb094efec  DATE not null,
+  aqpb094emod  NUMBER(3) not null,
+  aqpb094esuc  NUMBER(3) not null,
+  aqpb094emda  NUMBER(4) not null,
+  aqpb094epap  NUMBER(4) not null,
+  aqpb094ecta  NUMBER(9) not null,
+  aqpb094eope  NUMBER(9) not null,
+  aqpb094esbo  NUMBER(3) not null,
+  aqpb094etop  NUMBER(3) not null,
+  aqpb094ecoe  CHAR(100),
+  aqpb094emsge CHAR(1000),
+  aqpb094eusr  VARCHAR2(10),
+  aqpb094efcr  VARCHAR2(10),
+  aqpb094ehcr  VARCHAR2(10)
+)
+;
+comment on table AQPB094E
+  is 'Tabla para registrar errores de la tabla AQPB094';
+comment on column AQPB094E.aqpb094ecod
+  is 'Código de empresa';
+comment on column AQPB094E.aqpb094ecor
+  is 'Correlativo del archivo cargado';
+comment on column AQPB094E.aqpb094efec
+  is 'Fecha de carga del archivo';
+comment on column AQPB094E.aqpb094emod
+  is 'Módulo';
+comment on column AQPB094E.aqpb094esuc
+  is 'Sucursal';
+comment on column AQPB094E.aqpb094emda
+  is 'Moneda';
+comment on column AQPB094E.aqpb094epap
+  is 'Papel';
+comment on column AQPB094E.aqpb094ecta
+  is 'Cuenta';
+comment on column AQPB094E.aqpb094eope
+  is 'Operación';
+comment on column AQPB094E.aqpb094esbo
+  is 'Suboperación';
+comment on column AQPB094E.aqpb094etop
+  is 'Tipo de operación';
+comment on column AQPB094E.aqpb094ecoe
+  is 'Código de error';
+comment on column AQPB094E.aqpb094emsge
+  is 'Mensaje de error';
+comment on column AQPB094E.aqpb094eusr
+  is 'Usuario de creación';
+comment on column AQPB094E.aqpb094efcr
+  is 'Fecha de creación';
+comment on column AQPB094E.aqpb094ehcr
+  is 'Hora de creación';
+create index AQPB094E2 on AQPB094E (AQPB094ECOD, AQPB094EFEC);
+create index AQPB094E3 on AQPB094E (AQPB094ECOD, AQPB094EMOD, AQPB094ESUC, AQPB094EMDA, AQPB094EPAP, AQPB094ECTA, AQPB094EOPE, AQPB094ESBO, AQPB094ETOP);
+create index AQPB094E4 on AQPB094E (AQPB094EFEC, AQPB094ECOD, AQPB094EMOD, AQPB094ESUC, AQPB094EMDA, AQPB094EPAP, AQPB094ECTA, AQPB094EOPE, AQPB094ESBO, AQPB094ETOP);
+

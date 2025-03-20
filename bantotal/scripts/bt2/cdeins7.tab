@@ -1,0 +1,12 @@
+create table CDEINS7
+(
+  cdeinsid   NUMBER(18) not null,
+  cdeinslori NUMBER(18) not null,
+  cdeeinslde NUMBER(18) not null,
+  cdeinslest NUMBER(4)
+)
+;
+create index CDEINSID on CDEINS7 (CDEINSID, CDEEINSLDE, CDEINSLORI);
+alter table CDEINS7
+  add primary key (CDEINSID, CDEINSLORI, CDEEINSLDE);
+

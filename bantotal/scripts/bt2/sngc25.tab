@@ -1,0 +1,11 @@
+create table SNGC25
+(
+  sngc21ofcd NUMBER(4) not null,
+  sngc25subc NUMBER(4) not null,
+  sngc25reg  CHAR(30),
+  sngc25sbs  CHAR(3)
+)
+;
+alter table SNGC25
+  add primary key (SNGC21OFCD, SNGC25SUBC);
+

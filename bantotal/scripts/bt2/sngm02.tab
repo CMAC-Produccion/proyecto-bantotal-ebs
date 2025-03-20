@@ -1,0 +1,17 @@
+create table SNGM02
+(
+  sngm01tipm NUMBER(4) not null,
+  sngm02motc NUMBER(4) not null,
+  sngm02desc VARCHAR2(160),
+  sngm02inhb CHAR(1),
+  sngm02prog CHAR(10),
+  sngm02rngc NUMBER(10),
+  sngm02accm NUMBER(1),
+  sngm02tlis NUMBER(4),
+  sngm02inta NUMBER(10),
+  sngm02pgma CHAR(10)
+)
+;
+alter table SNGM02
+  add primary key (SNGM01TIPM, SNGM02MOTC);
+

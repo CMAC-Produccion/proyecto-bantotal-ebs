@@ -1,0 +1,25 @@
+create table FSD218
+(
+  pgcod      NUMBER(3) not null,
+  catopesuc  NUMBER(3) not null,
+  catopemod  NUMBER(3) not null,
+  catopemda  NUMBER(4) not null,
+  catopepap  NUMBER(4) not null,
+  catopecta  NUMBER(9) not null,
+  catopeope  NUMBER(9) not null,
+  catopesbop NUMBER(3) not null,
+  catopetope NUMBER(3) not null,
+  catcod     NUMBER(5) not null,
+  catopefch  DATE not null,
+  tipdeucod  NUMBER(2),
+  catopecate CHAR(15)
+)
+;
+create index FSD21802 on FSD218 (CATCOD);
+create index FSD21803 on FSD218 (CATOPECTA, CATOPEMDA, CATOPEMOD, CATOPEOPE, CATOPEPAP, CATOPESBOP, CATOPESUC, CATOPETOPE, CATOPEFCH);
+create index FSD21805 on FSD218 (PGCOD, CATOPECTA, CATCOD, CATOPEFCH);
+create index FSD21806 on FSD218 (PGCOD, CATOPEFCH, TIPDEUCOD, CATOPECTA, CATCOD, CATOPESUC, CATOPEMOD, CATOPEMDA, CATOPEPAP, CATOPEOPE, CATOPESBOP, CATOPETOPE);
+create index FSD21807 on FSD218 (TIPDEUCOD);
+alter table FSD218
+  add primary key (PGCOD, CATOPESUC, CATOPEMOD, CATOPEMDA, CATOPEPAP, CATOPECTA, CATOPEOPE, CATOPESBOP, CATOPETOPE, CATCOD, CATOPEFCH);
+

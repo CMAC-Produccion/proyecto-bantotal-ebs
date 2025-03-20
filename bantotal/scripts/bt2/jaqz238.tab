@@ -1,0 +1,33 @@
+create table JAQZ238
+(
+  jaqz238serial NUMBER(10) not null,
+  jaqz238codsu  VARCHAR2(10) not null,
+  jaqz238ultac  DATE not null,
+  jaqz238numer  VARCHAR2(10) not null,
+  jaqz238entid  VARCHAR2(30),
+  jaqz238estado CHAR(2),
+  jaqz238est48  CHAR(2),
+  jaqz238fecap  DATE,
+  jaqz238fecve  DATE,
+  jaqz238compor VARCHAR2(50),
+  jaqz238ampar  VARCHAR2(10),
+  jaqz238forpa  VARCHAR2(2),
+  jaqz238bloqu  VARCHAR2(10),
+  jaqz238emora  CHAR(3),
+  jaqz238ticta  VARCHAR2(10),
+  jaqz238garan  CHAR(2),
+  jaqz238indbo  CHAR(1),
+  jaqz238cupo   NUMBER(17,2),
+  jaqz238salac  NUMBER(17,2),
+  jaqz238salmo  NUMBER(17,2),
+  jaqz238cuota  NUMBER(17,2),
+  jaqz238valin  NUMBER(17,2),
+  jaqz238cuoca  NUMBER(17,2),
+  jaqz238tocuo  NUMBER(17,2),
+  jaqz238maxmo  NUMBER(17,2),
+  jaqz238tidet  CHAR(2)
+)
+;
+alter table JAQZ238
+  add primary key (JAQZ238SERIAL, JAQZ238CODSU, JAQZ238ULTAC, JAQZ238NUMER);
+

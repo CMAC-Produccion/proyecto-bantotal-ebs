@@ -1,0 +1,13 @@
+create table FSFF65
+(
+  tgcodd9  NUMBER(2) not null,
+  grnrod9  NUMBER(7) not null,
+  pgcodd9  NUMBER(3) not null,
+  ctnrod9  NUMBER(9) not null,
+  xgrincod NUMBER(3),
+  xgrporc  NUMBER(7,4)
+)
+;
+alter table FSFF65
+  add primary key (TGCODD9, GRNROD9, PGCODD9, CTNROD9);
+

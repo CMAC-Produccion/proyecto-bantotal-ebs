@@ -1,0 +1,78 @@
+create table JAQA31
+(
+  jaqa31nco NUMBER(4) not null,
+  jaqa31tls CHAR(1),
+  jaqa31rcr CHAR(1),
+  jaqa31cpb CHAR(1),
+  jaqa31pag CHAR(2),
+  jaqa31cal CHAR(2),
+  jaqa31tpc NUMBER(2),
+  jaqa31dpc CHAR(50),
+  jaqa31vpc CHAR(50),
+  jaqa31drl NUMBER(2),
+  jaqa31ai1 NUMBER(17,2),
+  jaqa31ai2 NUMBER(17,2),
+  jaqa31ac1 CHAR(50),
+  jaqa31ac2 CHAR(50),
+  jaqa31ad1 DATE,
+  jaqa31ad2 DATE,
+  jaqa31an1 NUMBER(4),
+  jaqa31an2 NUMBER(4),
+  jaqa31at1 CHAR(200),
+  jaqa31at2 CHAR(200),
+  jaqa31tre CHAR(20),
+  jaqa31fpg CHAR(20),
+  jaqa31ini NUMBER(17,2)
+)
+;
+comment on table JAQA31
+  is 'Gestión de Pagos de Convenios';
+comment on column JAQA31.jaqa31nco
+  is 'Número de Convenio';
+comment on column JAQA31.jaqa31tls
+  is 'Tipo de Listado';
+comment on column JAQA31.jaqa31rcr
+  is '¿Requiere Cargo de Recepción?';
+comment on column JAQA31.jaqa31cpb
+  is '¿Canje Publicitario?';
+comment on column JAQA31.jaqa31pag
+  is 'Modalidad Pago: Posterior, Anticipado';
+comment on column JAQA31.jaqa31cal
+  is 'Modalidad Calculo: Posterior, Anticipado';
+comment on column JAQA31.jaqa31tpc
+  is 'Tipo de Pago de Casillero';
+comment on column JAQA31.jaqa31dpc
+  is 'Descripción Pago de Casillero';
+comment on column JAQA31.jaqa31vpc
+  is 'Valor Pago Casillero';
+comment on column JAQA31.jaqa31drl
+  is 'Día de Recojo de Listado';
+comment on column JAQA31.jaqa31ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQA31.jaqa31ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQA31.jaqa31ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQA31.jaqa31ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQA31.jaqa31ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQA31.jaqa31ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQA31.jaqa31an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQA31.jaqa31an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQA31.jaqa31at1
+  is 'Auxiliar Texto 1';
+comment on column JAQA31.jaqa31at2
+  is 'Auxiliar Texto 2';
+comment on column JAQA31.jaqa31tre
+  is 'Tipo de Registro (Canje Publicitario)';
+comment on column JAQA31.jaqa31fpg
+  is 'Frecuencia de Pago (Canje Publicitario)';
+comment on column JAQA31.jaqa31ini
+  is 'Monto Inicial (Canje Publicitario)';
+alter table JAQA31
+  add primary key (JAQA31NCO);
+

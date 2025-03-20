@@ -1,0 +1,25 @@
+create table AQPB013
+(
+  aqpb013fep  DATE not null,
+  aqpb013cor  NUMBER(9) not null,
+  aqpb013emp  NUMBER(3) not null,
+  aqpb013mod  NUMBER(3) not null,
+  aqpb013suc  NUMBER(3) not null,
+  aqpb013mda  NUMBER(4) not null,
+  aqpb013pap  NUMBER(4) not null,
+  aqpb013cta  NUMBER(9) not null,
+  aqpb013ope  NUMBER(9) not null,
+  aqpb013sbo  NUMBER(3) not null,
+  aqpb013top  NUMBER(3) not null,
+  aqpb013est  VARCHAR2(1),
+  aqpb013fej  DATE,
+  aqpb013hor  VARCHAR2(8),
+  aqpb013tpo  NUMBER(3),
+  aqpb013ndo  CHAR(12),
+  aqpb013narc VARCHAR2(200),
+  aqpb013cla  VARCHAR2(10)
+)
+;
+alter table AQPB013
+  add primary key (AQPB013FEP, AQPB013COR, AQPB013EMP, AQPB013MOD, AQPB013SUC, AQPB013MDA, AQPB013PAP, AQPB013CTA, AQPB013OPE, AQPB013SBO, AQPB013TOP);
+

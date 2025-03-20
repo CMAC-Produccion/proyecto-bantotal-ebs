@@ -1,0 +1,228 @@
+create table JAQL599
+(
+  jaql599fpro   DATE not null,
+  jaql599fech   DATE not null,
+  jaql599usu    CHAR(20) not null,
+  jaql599age    NUMBER(3),
+  jaql599mant   NUMBER(10),
+  jaql599codcat NUMBER(3),
+  jaql599tase   CHAR(1),
+  jaql599sdo    NUMBER(17,2),
+  jaql599ncl    NUMBER(10),
+  jaql599sdm    NUMBER(17,2),
+  jaql599pmra   NUMBER(9,2),
+  jaql599soto   NUMBER(17,2),
+  jaql599srec   NUMBER(17,2),
+  jaql599coto   NUMBER(10),
+  jaql599crec   NUMBER(10),
+  jaql599srl    NUMBER(17,2),
+  jaql599nrl    NUMBER(10),
+  jaql599sant   NUMBER(17,2),
+  jaql599cant   NUMBER(10),
+  jaql599sdca   NUMBER(17,2),
+  jaql599sdju   NUMBER(17,2),
+  jaql599crsa   NUMBER(17,2),
+  jaql599crcl   NUMBER(10),
+  jaql599ides   NUMBER(17,2),
+  jaql599pdes   NUMBER(17,2),
+  jaql599mtsa   NUMBER(17,2),
+  jaql599mtcl   NUMBER(10),
+  jaql599mtre   NUMBER(17,2),
+  jaql599mtmr   NUMBER(9,2),
+  jaql599psal   NUMBER(17,2),
+  jaql599pcli   NUMBER(17,2),
+  jaql599pret   NUMBER(17,2),
+  jaql599pmor   NUMBER(17,2),
+  jaql599pvar   NUMBER(17,2),
+  jaql599pjca   NUMBER(17,2),
+  jaql599pjcas  NUMBER(9,2),
+  jaql599cmra   NUMBER(17,2),
+  jaql599cltot  NUMBER(10),
+  jaql599sdtot  NUMBER(17,2),
+  jaql599bsal   NUMBER(17,2),
+  jaql599bcli   NUMBER(17,2),
+  jaql599bmra   NUMBER(17,2),
+  jaql599btri   NUMBER(17,2),
+  jaql599totpa  NUMBER(17,2),
+  jaql599ccam   NUMBER(2),
+  jaql599vcam   NUMBER(17,2),
+  jaql599tcam   NUMBER(17,2),
+  jaql599aux1   NUMBER(17,2),
+  jaql599aux2   NUMBER(17,2),
+  jaql599aux3   NUMBER(17,2),
+  jaql599aux4   NUMBER(17,2),
+  jaql599aux5   NUMBER(17,2),
+  jaql599aux6   NUMBER(17,2),
+  jaql599est    CHAR(1),
+  jaql599neo    CHAR(1),
+  jaql599pcam   NUMBER(17,2),
+  jaql599pord   NUMBER(17,2),
+  jaql599mtod   NUMBER(17,2),
+  jaql599vmor   NUMBER(9,2),
+  jaql599csal   NUMBER(17,2),
+  jaql599esal   NUMBER(17,2),
+  jaql599ccli   NUMBER(10),
+  jaql599ecli   NUMBER(10),
+  jaql599cret   NUMBER(17,2),
+  jaql599eret   NUMBER(17,2),
+  jaql599posa   NUMBER(9,2),
+  jaql599pocl   NUMBER(9,2),
+  jaql599exsa   NUMBER(17,2),
+  jaql599excl   NUMBER(10),
+  jaql599exre   NUMBER(10),
+  jaql599pore   NUMBER(9,2),
+  jaql599bare   NUMBER(17,2),
+  jaql599more   NUMBER(17,2),
+  jaql599pmoa   NUMBER(9,2)
+)
+;
+comment on column JAQL599.jaql599fpro
+  is 'Fecha Productividad';
+comment on column JAQL599.jaql599usu
+  is 'Asesor / Analista';
+comment on column JAQL599.jaql599age
+  is 'Agencia';
+comment on column JAQL599.jaql599mant
+  is 'Meses Antiguedad Agencia';
+comment on column JAQL599.jaql599codcat
+  is 'Código de Categoría de Analista: Junior - Avanzado';
+comment on column JAQL599.jaql599tase
+  is 'Tipo Asesor P-PYMES/C-CONSUMO';
+comment on column JAQL599.jaql599sdo
+  is 'Saldo Cartera';
+comment on column JAQL599.jaql599ncl
+  is 'Numero Clientes';
+comment on column JAQL599.jaql599sdm
+  is 'Saldo Mora > 15';
+comment on column JAQL599.jaql599pmra
+  is 'Porcentaje Mora';
+comment on column JAQL599.jaql599soto
+  is 'Saldo Otorgado';
+comment on column JAQL599.jaql599srec
+  is 'Saldo Recibido';
+comment on column JAQL599.jaql599coto
+  is 'Clientes Otorgados';
+comment on column JAQL599.jaql599crec
+  is 'Clientes Recibidos';
+comment on column JAQL599.jaql599srl
+  is 'Saldo Recuperacion Legal';
+comment on column JAQL599.jaql599nrl
+  is 'Clientes Recuperacion Legal';
+comment on column JAQL599.jaql599sant
+  is 'Saldo Mes Anterior';
+comment on column JAQL599.jaql599cant
+  is 'Slientes Mes Anterior';
+comment on column JAQL599.jaql599sdca
+  is 'Saldo Castigado';
+comment on column JAQL599.jaql599sdju
+  is 'Saldo Judicial';
+comment on column JAQL599.jaql599crsa
+  is 'Crecimiento Saldo';
+comment on column JAQL599.jaql599crcl
+  is 'Crecimiento Clientes';
+comment on column JAQL599.jaql599ides
+  is 'Indicador Desembolsos Micro-Pequeña';
+comment on column JAQL599.jaql599pdes
+  is 'Porcentaje Pago Desembolsos Micro-Pequeña';
+comment on column JAQL599.jaql599mtsa
+  is 'Meta Saldo';
+comment on column JAQL599.jaql599mtcl
+  is 'Meta Clientes';
+comment on column JAQL599.jaql599mtre
+  is 'Meta Retencion';
+comment on column JAQL599.jaql599mtmr
+  is 'Meta Mora';
+comment on column JAQL599.jaql599psal
+  is 'Pago Cumplimiento Saldo Cartera';
+comment on column JAQL599.jaql599pcli
+  is 'Pago Cumplimiento Clientes';
+comment on column JAQL599.jaql599pret
+  is 'Pago Cumplimiento Retencion';
+comment on column JAQL599.jaql599pmor
+  is 'Pago Cumplimiento Mora';
+comment on column JAQL599.jaql599pvar
+  is 'Total Pago Incentivo Variable';
+comment on column JAQL599.jaql599pjca
+  is 'Porcentaje Castigo';
+comment on column JAQL599.jaql599cmra
+  is 'Castigo Mora';
+comment on column JAQL599.jaql599cltot
+  is 'Clientes Totales incluye transferencia';
+comment on column JAQL599.jaql599sdtot
+  is 'Saldo Total incluye transferencia';
+comment on column JAQL599.jaql599bsal
+  is 'Bono Saldo Trimestral';
+comment on column JAQL599.jaql599bcli
+  is 'Bono Clientes Trimestral';
+comment on column JAQL599.jaql599bmra
+  is 'Bono Mora Trimestral';
+comment on column JAQL599.jaql599btri
+  is 'Total Bono Trimestral';
+comment on column JAQL599.jaql599totpa
+  is 'TOTAL PAGAR Incentivo Variable+Bono Trimestral';
+comment on column JAQL599.jaql599ccam
+  is 'Codigo Campaña';
+comment on column JAQL599.jaql599vcam
+  is 'Valor Campaña';
+comment on column JAQL599.jaql599tcam
+  is 'Total x Campaña';
+comment on column JAQL599.jaql599aux1
+  is 'Auxiliar 1';
+comment on column JAQL599.jaql599aux2
+  is 'Auxiliar 2';
+comment on column JAQL599.jaql599aux3
+  is 'Auxiliar 3';
+comment on column JAQL599.jaql599aux4
+  is 'Auxiliar 4';
+comment on column JAQL599.jaql599aux5
+  is 'Auxiliar 5';
+comment on column JAQL599.jaql599aux6
+  is 'Auxiliar 6';
+comment on column JAQL599.jaql599est
+  is 'Estado';
+comment on column JAQL599.jaql599neo
+  is 'Agencia N-Nueva/';
+comment on column JAQL599.jaql599pcam
+  is 'Porcentaje Campaña';
+comment on column JAQL599.jaql599pord
+  is '% Desembolso MI-PE';
+comment on column JAQL599.jaql599mtod
+  is 'Total Desembolso MI-PE';
+comment on column JAQL599.jaql599vmor
+  is 'Variacion Mora';
+comment on column JAQL599.jaql599csal
+  is 'Pago Cumplimiento Saldo';
+comment on column JAQL599.jaql599esal
+  is 'Pago Excedente Saldo';
+comment on column JAQL599.jaql599ccli
+  is 'Pago Cumplimiento Clientes';
+comment on column JAQL599.jaql599ecli
+  is 'Pago Excedente Clientes';
+comment on column JAQL599.jaql599cret
+  is 'Pago Cumplimiento Retencion';
+comment on column JAQL599.jaql599eret
+  is 'Pago Excedente Retencion';
+comment on column JAQL599.jaql599posa
+  is '% Cumplimiento Saldo';
+comment on column JAQL599.jaql599pocl
+  is '% Cumplimiento Clientes';
+comment on column JAQL599.jaql599exsa
+  is 'Excedente Saldo';
+comment on column JAQL599.jaql599excl
+  is 'Excedente Clientes';
+comment on column JAQL599.jaql599exre
+  is 'Excedente Retencion';
+comment on column JAQL599.jaql599pore
+  is 'Porcentaje de Retencion';
+comment on column JAQL599.jaql599bare
+  is 'Base Retencion';
+comment on column JAQL599.jaql599more
+  is 'Monto Retenidos';
+comment on column JAQL599.jaql599pmoa
+  is 'Porcentaje Mora Mes Anterior';
+create index IDX_JAQL599_1 on JAQL599 (JAQL599USU, JAQL599FPRO);
+create index IDX_JAQL599_2 on JAQL599 (JAQL599FPRO, JAQL599EST);
+create index IDX_JAQL599_3 on JAQL599 (JAQL599FECH, JAQL599FPRO, JAQL599USU);
+alter table JAQL599
+  add primary key (JAQL599FPRO, JAQL599USU);
+

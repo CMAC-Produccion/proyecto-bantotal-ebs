@@ -1,0 +1,31 @@
+create table AUD_FST139_AUDIT
+(
+  aud_old_intstrf    CHAR(60),
+  aud_new_intstrf    CHAR(60),
+  aud_old_intstri    CHAR(60),
+  aud_new_intstri    CHAR(60),
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_old_trmod      NUMBER(3),
+  aud_new_trmod      NUMBER(3),
+  aud_old_trnro      NUMBER(3),
+  aud_new_trnro      NUMBER(3),
+  aud_old_trord      NUMBER(2),
+  aud_new_trord      NUMBER(2),
+  aud_old_trwrkst    CHAR(10),
+  aud_new_trwrkst    CHAR(10),
+  aud_fst139_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst139_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst139_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst139_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst139_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst139_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst139_ubu     VARCHAR2(50) default USER not null,
+  aud_fst139_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst139_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst139_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst139_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst139_uas     CHAR(1) default 'I' not null
+)
+;
+

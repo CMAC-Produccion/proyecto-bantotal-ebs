@@ -1,0 +1,30 @@
+create table JAQL587
+(
+  jaql587codana CHAR(20),
+  jaql587ana    VARCHAR2(50),
+  jaql587codcat NUMBER(3),
+  jaql587catana VARCHAR2(50),
+  jaql587codage NUMBER(3),
+  jaql587agen   VARCHAR2(50),
+  jaql587fini   DATE,
+  jaql587est    CHAR(1)
+)
+;
+comment on column JAQL587.jaql587codana
+  is 'Código de Analista';
+comment on column JAQL587.jaql587ana
+  is 'Nombre de Analista';
+comment on column JAQL587.jaql587codcat
+  is 'Código de Categoría del Analista';
+comment on column JAQL587.jaql587catana
+  is 'Categoría del Analista';
+comment on column JAQL587.jaql587codage
+  is 'Código de agencia';
+comment on column JAQL587.jaql587agen
+  is 'Nombre de agencia';
+comment on column JAQL587.jaql587fini
+  is 'Fecha Inicio Vigencia';
+comment on column JAQL587.jaql587est
+  is 'Estado S-Vigente/N-No Vigente';
+create index JAQL587_1 on JAQL587 (JAQL587CODANA);
+

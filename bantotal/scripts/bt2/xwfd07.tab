@@ -1,0 +1,10 @@
+create table XWFD07
+(
+  xwfddocins NUMBER(10) not null,
+  xwfdpgcod  NUMBER(3) not null,
+  xwfdctnro  NUMBER(9) not null
+)
+;
+alter table XWFD07
+  add primary key (XWFDDOCINS, XWFDPGCOD, XWFDCTNRO);
+

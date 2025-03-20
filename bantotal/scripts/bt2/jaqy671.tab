@@ -1,0 +1,28 @@
+create table JAQY671
+(
+  jaqy671cod  NUMBER(18) not null,
+  jaqy671ubu  CHAR(10),
+  jaqy671fech DATE,
+  jaqy671hor  CHAR(8),
+  jaqy671age  CHAR(30),
+  jaqy671uarq CHAR(10),
+  jaqy671uaut CHAR(10),
+  jaqy671car  CHAR(30),
+  jaqy671mot1 NUMBER(16,2),
+  jaqy671mot2 NUMBER(16,2),
+  jaqy671mot3 NUMBER(16,2),
+  jaqy671mot4 NUMBER(16,2),
+  jaqy671aux1 NUMBER(16,2),
+  jaqy671aux2 NUMBER(16,2),
+  jaqy671aux3 NUMBER(16,2),
+  jaqy671aux4 CHAR(100),
+  jaqy671aux5 CHAR(100),
+  jaqy671aux6 CHAR(100),
+  jaqy671aux7 CHAR(100),
+  jaqy671aux8 DATE
+)
+;
+create index IJAQY67101 on JAQY671 (JAQY671AUX1, JAQY671FECH, JAQY671HOR);
+alter table JAQY671
+  add primary key (JAQY671COD);
+

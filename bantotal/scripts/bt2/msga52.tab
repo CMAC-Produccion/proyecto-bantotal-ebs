@@ -1,0 +1,10 @@
+create table MSGA52
+(
+  msga50in NUMBER(11) not null,
+  msga52dt VARCHAR2(40) not null,
+  msga52va VARCHAR2(500)
+)
+;
+alter table MSGA52
+  add primary key (MSGA50IN, MSGA52DT);
+

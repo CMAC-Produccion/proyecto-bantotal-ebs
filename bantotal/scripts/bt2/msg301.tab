@@ -1,0 +1,20 @@
+create table MSG301
+(
+  estmcod   NUMBER(5) not null,
+  astcod    NUMBER(3) not null,
+  astpagid  NUMBER(3) not null,
+  astpagtit CHAR(80),
+  astpagord NUMBER(3),
+  astpagtpo CHAR(1),
+  frmcod    NUMBER(3),
+  ptecod    NUMBER(3),
+  astspexp  NUMBER(10),
+  astsppgm  CHAR(20)
+)
+;
+create index IMSG3011 on MSG301 (PTECOD);
+create index IMSG3012 on MSG301 (ESTMCOD, FRMCOD);
+create index UMSG301 on MSG301 (ESTMCOD, ASTCOD, ASTPAGORD);
+alter table MSG301
+  add primary key (ESTMCOD, ASTCOD, ASTPAGID);
+

@@ -1,0 +1,20 @@
+create table JMBN040
+(
+  jmbn040pai NUMBER(3) not null,
+  jmbn040tdo NUMBER(2) not null,
+  jmbn040ndo CHAR(25) not null,
+  jmbn040doc NUMBER(3) not null,
+  jmbn040hde DATE,
+  jmbn040hha DATE,
+  jmbn040lun CHAR(1),
+  jmbn040mar CHAR(1),
+  jmbn040mie CHAR(1),
+  jmbn040jue CHAR(1),
+  jmbn040vie CHAR(1),
+  jmbn040sab CHAR(1),
+  jmbn040dom CHAR(1)
+)
+;
+alter table JMBN040
+  add primary key (JMBN040PAI, JMBN040TDO, JMBN040NDO, JMBN040DOC);
+

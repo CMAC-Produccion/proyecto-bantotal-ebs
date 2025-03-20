@@ -1,0 +1,22 @@
+create table FSD170
+(
+  sd170doemp NUMBER(3) not null,
+  sd170doid  NUMBER(15) not null,
+  st170tdcod NUMBER(5),
+  sd170tiser CHAR(1),
+  sd170tinro NUMBER(15),
+  sd170doser CHAR(1),
+  sd170donro NUMBER(15),
+  sd170trsuc NUMBER(3),
+  sd170trmod NUMBER(3),
+  sd170trtrn NUMBER(3),
+  sd170trrel NUMBER(4),
+  sd170trfch TIMESTAMP(6),
+  sd170doest CHAR(1)
+)
+;
+create index FSD17002 on FSD170 (ST170TDCOD);
+create index FSD17003 on FSD170 (SD170DOEMP, SD170TRMOD, SD170TRSUC, SD170TRTRN, SD170TRREL, SD170TRFCH);
+alter table FSD170
+  add primary key (SD170DOEMP, SD170DOID);
+

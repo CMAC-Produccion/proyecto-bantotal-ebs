@@ -1,0 +1,12 @@
+create table MSG801
+(
+  estmcod  NUMBER(5) not null,
+  lgecod   NUMBER(5) not null,
+  lgecampo CHAR(4) not null,
+  atrnom   CHAR(10)
+)
+;
+create index IMSG801 on MSG801 (ESTMCOD, ATRNOM);
+alter table MSG801
+  add primary key (ESTMCOD, LGECOD, LGECAMPO);
+

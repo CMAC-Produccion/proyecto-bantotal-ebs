@@ -1,0 +1,17 @@
+create table AQPB110
+(
+  aqpb110coent  CHAR(10) not null,
+  aqpb110idgrp  CHAR(6) not null,
+  aqpb110cotse  CHAR(6) not null,
+  aqpb110mtocm  NUMBER(11,2),
+  aqpb110nomlis VARCHAR2(50),
+  aqpb110nomcod VARCHAR2(50),
+  aqpb110horatn VARCHAR2(500),
+  aqpb110longit CHAR(10),
+  aqpb110tipdat VARCHAR2(50),
+  aqpb110sercaj NUMBER(4)
+)
+;
+alter table AQPB110
+  add primary key (AQPB110COENT, AQPB110IDGRP, AQPB110COTSE);
+

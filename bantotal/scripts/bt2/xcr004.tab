@@ -1,0 +1,24 @@
+create table XCR004
+(
+  xcremp     NUMBER(3) not null,
+  xcrcta     NUMBER(9) not null,
+  xcrsbop    NUMBER(3) not null,
+  xcrmda     NUMBER(4) not null,
+  xcrfrec    CHAR(1),
+  xcrdesccor CHAR(30),
+  xcrctaori  CHAR(35),
+  xcrautom   CHAR(1),
+  xcrfecpue  DATE,
+  xcrimplim  NUMBER(17,2),
+  xcrmargen  NUMBER(10,6),
+  xcrcancar  NUMBER(4),
+  xcranucar  CHAR(1),
+  xcrshifte  NUMBER(4),
+  xcrshiftb  NUMBER(4)
+)
+;
+create index XCR00402 on XCR004 (XCREMP, XCRCTAORI);
+create index XCR00403 on XCR004 (XCREMP, XCRDESCCOR, XCRCTA, XCRSBOP, XCRMDA);
+alter table XCR004
+  add primary key (XCREMP, XCRCTA, XCRSBOP, XCRMDA);
+

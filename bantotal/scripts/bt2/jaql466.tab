@@ -1,0 +1,16 @@
+create table JAQL466
+(
+  jaql466pai NUMBER(3) not null,
+  jaql466tdo NUMBER(2) not null,
+  jaql466ndo CHAR(12) not null,
+  jaql466inv CHAR(1),
+  jaql466usv CHAR(10),
+  jaql466fev DATE,
+  jaql466ncc NUMBER(1),
+  jaql466nca NUMBER(1)
+)
+;
+create index JAQL466IDX001 on JAQL466 (JAQL466USV);
+alter table JAQL466
+  add primary key (JAQL466PAI, JAQL466TDO, JAQL466NDO);
+

@@ -1,0 +1,27 @@
+create table FSD141
+(
+  succr2  NUMBER(3) not null,
+  paicr2  NUMBER(3) not null,
+  tipcr2  NUMBER(2) not null,
+  doccr2  CHAR(12) not null,
+  rubcr2  NUMBER(6) not null,
+  mdacr2  NUMBER(1) not null,
+  figcr2  CHAR(1) not null,
+  actcr2  NUMBER(5) not null,
+  idecr2  CHAR(2) not null,
+  thread  NUMBER(3) not null,
+  camcr2  NUMBER(2),
+  impcr2  NUMBER(16,2),
+  calcr2  NUMBER(2),
+  rescr2  CHAR(1),
+  falcr2  CHAR(1),
+  tercr2  CHAR(1),
+  metcrc2 CHAR(1)
+)
+;
+create index FSD14102 on FSD141 (CAMCR2, IMPCR2);
+create index FSD14103 on FSD141 (PAICR2, TIPCR2, DOCCR2);
+create index FSD14104 on FSD141 (CAMCR2, CALCR2, SUCCR2, FIGCR2, RUBCR2, MDACR2, ACTCR2);
+alter table FSD141
+  add primary key (SUCCR2, PAICR2, TIPCR2, DOCCR2, RUBCR2, MDACR2, FIGCR2, ACTCR2, IDECR2, THREAD);
+

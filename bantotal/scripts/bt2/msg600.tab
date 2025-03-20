@@ -1,0 +1,30 @@
+create table MSG600
+(
+  estmcod   NUMBER(5) not null,
+  lsmcod    NUMBER(5) not null,
+  lsmnom    CHAR(40),
+  lsmmodsim CHAR(3),
+  lsmempfil CHAR(1),
+  lsmempval NUMBER(3),
+  lsmsucfil CHAR(1),
+  lsmsucval NUMBER(3),
+  lsmctafil CHAR(1),
+  lsmctaval NUMBER(9),
+  lsmmodfil CHAR(1),
+  lsmmodval NUMBER(3),
+  lsmmdafil CHAR(1),
+  lsmmdaval NUMBER(4),
+  lsmpapfil CHAR(1),
+  lsmpapval NUMBER(4),
+  lsmopefil CHAR(1),
+  lsmopeval NUMBER(9),
+  lsmsopfil CHAR(1),
+  lsmsopval NUMBER(3),
+  lsmtopfil CHAR(1),
+  lsmtopval NUMBER(3),
+  lsmpara   NUMBER(4)
+)
+;
+alter table MSG600
+  add primary key (ESTMCOD, LSMCOD);
+

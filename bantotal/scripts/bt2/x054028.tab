@@ -1,0 +1,37 @@
+create table X054028
+(
+  pgcod      NUMBER(3) not null,
+  xpremod    NUMBER(3) not null,
+  xpretope   NUMBER(3) not null,
+  xpremoneda NUMBER(4) not null,
+  xprepapel  NUMBER(4) not null,
+  xpreaux    NUMBER(1) not null,
+  xpreimpliq CHAR(1),
+  xprectrto  CHAR(1),
+  xprevalcuo CHAR(1),
+  xpreclstas CHAR(1),
+  xprech1    CHAR(1),
+  xprech2    CHAR(1),
+  xprech3    CHAR(1),
+  xprech4    CHAR(1),
+  xprech5    CHAR(1),
+  xprech6    CHAR(1),
+  xprech7    CHAR(1),
+  xprech8    CHAR(1),
+  xprech9    CHAR(1),
+  xprech10   CHAR(1),
+  xprechr1   CHAR(30),
+  xprechr2   CHAR(30),
+  xprechr3   CHAR(30),
+  xpredat1   DATE,
+  xpredat2   DATE,
+  xpredat3   DATE,
+  xprenum1   NUMBER(17,2),
+  xprenum2   NUMBER(17,2),
+  xprenum3   NUMBER(17,2),
+  xprenum4   NUMBER(17,2)
+)
+;
+alter table X054028
+  add primary key (PGCOD, XPREMOD, XPRETOPE, XPREMONEDA, XPREPAPEL, XPREAUX);
+

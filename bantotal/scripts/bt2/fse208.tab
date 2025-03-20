@@ -1,0 +1,12 @@
+create table FSE208
+(
+  firpais NUMBER(3) not null,
+  firtdoc NUMBER(2) not null,
+  firndoc CHAR(12) not null,
+  firtipo CHAR(1) not null,
+  fircorr NUMBER(9)
+)
+;
+alter table FSE208
+  add primary key (FIRPAIS, FIRTDOC, FIRNDOC, FIRTIPO);
+

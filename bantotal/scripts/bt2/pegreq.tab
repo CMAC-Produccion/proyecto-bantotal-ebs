@@ -1,0 +1,13 @@
+create table PEGREQ
+(
+  pegprjid  CHAR(80) not null,
+  peggrpid  CHAR(80) not null,
+  pegretid  CHAR(10) not null,
+  pegreqid  NUMBER(10) not null,
+  pegreqnam CHAR(160)
+)
+;
+create index PEGREQ02 on PEGREQ (PEGRETID);
+alter table PEGREQ
+  add primary key (PEGPRJID, PEGGRPID, PEGRETID, PEGREQID);
+

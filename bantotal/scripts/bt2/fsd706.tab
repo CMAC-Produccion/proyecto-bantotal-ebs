@@ -1,0 +1,14 @@
+create table FSD706
+(
+  pdbagpais  NUMBER(3) not null,
+  pdbagtdoc  NUMBER(2) not null,
+  pdbagndoc  CHAR(12) not null,
+  pdbagnrobi NUMBER(4) not null,
+  pdbagbie1  CHAR(50),
+  pdbagbie2  CHAR(50),
+  pdbagvalas NUMBER(10)
+)
+;
+alter table FSD706
+  add primary key (PDBAGPAIS, PDBAGTDOC, PDBAGNDOC, PDBAGNROBI);
+

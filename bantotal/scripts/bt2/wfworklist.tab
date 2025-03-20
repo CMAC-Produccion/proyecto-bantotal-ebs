@@ -1,0 +1,11 @@
+create table WFWORKLIST
+(
+  wfwrklstitemid NUMBER(10) not null,
+  wfwrklstusrcod CHAR(30) not null,
+  wfwrklstrolcod NUMBER(4)
+)
+;
+create index UWFWRKLST1 on WFWORKLIST (WFWRKLSTUSRCOD, WFWRKLSTITEMID);
+alter table WFWORKLIST
+  add primary key (WFWRKLSTITEMID, WFWRKLSTUSRCOD);
+

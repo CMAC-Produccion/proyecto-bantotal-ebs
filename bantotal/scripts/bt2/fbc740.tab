@@ -1,0 +1,22 @@
+create table FBC740
+(
+  bc740tdoc NUMBER(2) not null,
+  bc740ndoc CHAR(13) not null,
+  bc740nomb VARCHAR2(50),
+  bc740sexo NUMBER(1),
+  bc740fchn DATE,
+  bc740naci CHAR(15),
+  bc740prof NUMBER(3),
+  bc740pais NUMBER(3),
+  bc740dpto NUMBER(5),
+  bc740muni NUMBER(5),
+  bc740dire VARCHAR2(45),
+  bc740telr CHAR(15),
+  bc740empn VARCHAR2(50),
+  bc740empt CHAR(15),
+  bc740acte NUMBER(6)
+)
+;
+alter table FBC740
+  add primary key (BC740TDOC, BC740NDOC);
+

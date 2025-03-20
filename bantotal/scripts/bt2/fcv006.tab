@@ -1,0 +1,31 @@
+create table FCV006
+(
+  cv005cod  NUMBER(3) not null,
+  cv005suc  NUMBER(3) not null,
+  cv005mod  NUMBER(3) not null,
+  cv005mda  NUMBER(4) not null,
+  cv005pap  NUMBER(4) not null,
+  cv005cta  NUMBER(9) not null,
+  cv005ope  NUMBER(9) not null,
+  cv005sbop NUMBER(3) not null,
+  cv005tope NUMBER(3) not null,
+  cv005corr NUMBER(3) not null,
+  cv006fch  DATE not null,
+  cv006codd NUMBER(3),
+  cv006sucd NUMBER(3),
+  cv006modd NUMBER(3),
+  cv006mdad NUMBER(4),
+  cv006papd NUMBER(4),
+  cv006ctad NUMBER(9),
+  cv006oped NUMBER(9),
+  cv006sbod NUMBER(3),
+  cv006topd NUMBER(3),
+  cv006trf  CHAR(1),
+  cv006cmsg NUMBER(3),
+  cv006tpo  CHAR(1),
+  cv006imp  NUMBER(17,2)
+)
+;
+alter table FCV006
+  add primary key (CV005COD, CV005SUC, CV005MOD, CV005MDA, CV005PAP, CV005CTA, CV005OPE, CV005SBOP, CV005TOPE, CV005CORR, CV006FCH);
+

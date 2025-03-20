@@ -1,0 +1,36 @@
+create table AQPC337
+(
+  aqpc337idl NUMBER(10) not null,
+  aqpc337fpr DATE,
+  aqpc337hpr CHAR(8),
+  aqpc337tar CHAR(19),
+  aqpc337pai NUMBER(3),
+  aqpc337tdo NUMBER(2),
+  aqpc337doc CHAR(12),
+  aqpc337usr CHAR(10),
+  aqpc337mer VARCHAR2(100)
+)
+;
+comment on table AQPC337
+  is 'Log desbloqueos automáticos de tarjetas de débito';
+comment on column AQPC337.aqpc337idl
+  is 'Id / Correlativo';
+comment on column AQPC337.aqpc337fpr
+  is 'Fecha de proceso';
+comment on column AQPC337.aqpc337hpr
+  is 'Hora de proceso';
+comment on column AQPC337.aqpc337tar
+  is 'Número de tarjeta';
+comment on column AQPC337.aqpc337pai
+  is 'Pais del documento';
+comment on column AQPC337.aqpc337tdo
+  is 'Tipo del documento';
+comment on column AQPC337.aqpc337doc
+  is 'Número del documento';
+comment on column AQPC337.aqpc337usr
+  is 'Usuario que ejecutó el proceso';
+comment on column AQPC337.aqpc337mer
+  is 'Respuesta proceso';
+alter table AQPC337
+  add primary key (AQPC337IDL);
+

@@ -1,0 +1,54 @@
+create table TEMPORAL
+(
+  jaqlxxxusu CHAR(10) not null,
+  jaqlxxxfec DATE not null,
+  jaqlxxxcod NUMBER(9) not null,
+  jaqlxxxcor NUMBER(9) not null,
+  jaqlxxxax1 NUMBER(9),
+  jaqlxxxax2 NUMBER(9),
+  jaqlxxxax3 NUMBER(9),
+  jaqlxxxax4 NUMBER(9),
+  jaqlxxxax5 NUMBER(9),
+  jaqlxxxax6 NUMBER(9),
+  jaqlxxxax7 NUMBER(9),
+  jaqlxxxax8 NUMBER(9),
+  jaqlxxxax9 NUMBER(9),
+  jaqlxxxa10 NUMBER(9),
+  jaqlxxxa11 NUMBER(16,2),
+  jaqlxxxa12 NUMBER(16,2),
+  jaqlxxxa13 NUMBER(16,2),
+  jaqlxxxa14 NUMBER(16,2),
+  jaqlxxxa15 NUMBER(16,2),
+  jaqlxxxa16 NUMBER(16,2),
+  jaqlxxxa17 NUMBER(16,2),
+  jaqlxxxa18 NUMBER(16,2),
+  jaqlxxxa19 NUMBER(16,2),
+  jaqlxxxa20 NUMBER(16,2),
+  jaqlxxxa21 CHAR(100),
+  jaqlxxxa22 CHAR(100),
+  jaqlxxxa23 CHAR(100),
+  jaqlxxxa24 CHAR(100),
+  jaqlxxxa25 CHAR(100),
+  jaqlxxxa26 CHAR(100),
+  jaqlxxxa27 CHAR(100),
+  jaqlxxxa28 CHAR(100),
+  jaqlxxxa29 CHAR(100),
+  jaqlxxxa30 CHAR(100),
+  jaqlxxxa31 DATE,
+  jaqlxxxa32 DATE,
+  jaqlxxxa33 DATE,
+  jaqlxxxa34 DATE,
+  jaqlxxxa35 DATE,
+  jaqlxxxa36 DATE,
+  jaqlxxxa37 DATE,
+  jaqlxxxa38 DATE,
+  jaqlxxxa39 DATE,
+  jaqlxxxa40 DATE
+)
+;
+comment on table TEMPORAL
+  is 'Tabla intermedia para PQ_AH_REP_AHORROS';
+create index IJAQLXXXIDX01 on TEMPORAL (JAQLXXXUSU, JAQLXXXFEC, JAQLXXXCOD, JAQLXXXA21, JAQLXXXA22, JAQLXXXA23, JAQLXXXA24, JAQLXXXA25);
+alter table TEMPORAL
+  add primary key (JAQLXXXUSU, JAQLXXXFEC, JAQLXXXCOD, JAQLXXXCOR);
+

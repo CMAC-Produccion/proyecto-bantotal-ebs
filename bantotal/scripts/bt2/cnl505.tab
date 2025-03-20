@@ -1,0 +1,13 @@
+create table CNL505
+(
+  cnl500ver  CHAR(20) not null,
+  cnl500pch  CHAR(50) not null,
+  cnl505obj  CHAR(50) not null,
+  cnl505main CHAR(1),
+  cnl505capa CHAR(5)
+)
+;
+create index CNL50502 on CNL505 (CNL500VER, CNL505OBJ);
+alter table CNL505
+  add primary key (CNL500VER, CNL500PCH, CNL505OBJ);
+

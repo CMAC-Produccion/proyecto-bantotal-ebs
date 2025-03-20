@@ -1,0 +1,26 @@
+create table FSFT32
+(
+  kdbacod  NUMBER(3) not null,
+  kdbasuc  NUMBER(3) not null,
+  kdbarub  NUMBER(16) not null,
+  kdbamda  NUMBER(4) not null,
+  kdbapap  NUMBER(4) not null,
+  kdbacta  NUMBER(9) not null,
+  kdbaoper NUMBER(9) not null,
+  kdbasbop NUMBER(3) not null,
+  kdbatope NUMBER(3) not null,
+  kdbafec  DATE not null,
+  kdbalin  NUMBER(3) not null,
+  kdbacta1 NUMBER(9),
+  kdbacta2 NUMBER(9),
+  kdbaimp1 NUMBER(17,2),
+  kdbaimp2 NUMBER(17,2),
+  kdausu   CHAR(10),
+  kdbawst  CHAR(10),
+  kdbahora CHAR(8),
+  kdbatxt  CHAR(50)
+)
+;
+alter table FSFT32
+  add primary key (KDBACOD, KDBASUC, KDBARUB, KDBAMDA, KDBAPAP, KDBACTA, KDBAOPER, KDBASBOP, KDBATOPE, KDBAFEC, KDBALIN);
+

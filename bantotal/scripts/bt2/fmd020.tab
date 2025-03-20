@@ -1,0 +1,55 @@
+create table FMD020
+(
+  pgcod      NUMBER(3) not null,
+  lcimmod    NUMBER(3) not null,
+  lcimoper   NUMBER(9) not null,
+  lcimintern CHAR(1),
+  lcimsuc    NUMBER(3),
+  lcimmda    NUMBER(4),
+  lcimpap    NUMBER(4),
+  lcimcta    NUMBER(9),
+  lcimtipo   NUMBER(3),
+  lcimfing   DATE,
+  lcimfval   DATE,
+  lcimfvto   DATE,
+  lcimfvtem  DATE,
+  lcimbccorr NUMBER(9),
+  lcimrefcor CHAR(20),
+  lcimbcree  NUMBER(9),
+  lcimincot  CHAR(3),
+  lcimabomin NUMBER(5,2),
+  lcimabomax NUMBER(5,2),
+  lcimnatmon NUMBER(2),
+  lcimviacod NUMBER(2),
+  lcimuser   CHAR(10),
+  lcimws     CHAR(10),
+  lcimaoimp  NUMBER(17,2),
+  lcimmocsw1 CHAR(3),
+  lcimimpvis NUMBER(17,2),
+  lcimimppla NUMBER(17,2),
+  lcimsaldo  NUMBER(17,2),
+  lcimsdovis NUMBER(17,2),
+  lcimsdopla NUMBER(17,2),
+  lcimpzopag NUMBER(5),
+  lcimtpzopa NUMBER(2),
+  lcimsgrtip CHAR(10),
+  lcimsgrprc NUMBER(7,4),
+  lcimsgrdda NUMBER(5),
+  lcimautree NUMBER(15),
+  lcimciuneg CHAR(20),
+  lcimpzodoc NUMBER(5),
+  lcimgaspor NUMBER(1),
+  lcimciuval CHAR(20)
+)
+;
+create index FMD02002 on FMD020 (LCIMVIACOD);
+create index FMD02004 on FMD020 (LCIMINCOT);
+create index FMD02005 on FMD020 (PGCOD, LCIMCTA);
+create index FMD02006 on FMD020 (PGCOD, LCIMBCCORR);
+create index FMD02007 on FMD020 (PGCOD, LCIMBCREE);
+create index FMD02008 on FMD020 (LCIMMOD);
+create index FMD02009 on FMD020 (LCIMMDA);
+create index FMD02010 on FMD020 (LCIMTPZOPA);
+alter table FMD020
+  add primary key (PGCOD, LCIMMOD, LCIMOPER);
+

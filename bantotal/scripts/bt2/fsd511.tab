@@ -1,0 +1,28 @@
+create table FSD511
+(
+  ndpais     NUMBER(3) not null,
+  ndtipdoc   NUMBER(2) not null,
+  ndnrodoc   CHAR(25) not null,
+  ndtipper   CHAR(1),
+  ndape1     CHAR(25),
+  ndape2     CHAR(25),
+  ndnom1     CHAR(25),
+  ndnom2     CHAR(25),
+  ndfchnac   DATE,
+  ndlugnac   CHAR(27),
+  nddom      CHAR(54),
+  ndprof     CHAR(42),
+  ndcta      NUMBER(9),
+  ndnomcta   CHAR(35),
+  nddenom    CHAR(50),
+  ndfchconst DATE,
+  ndnroinscr CHAR(10),
+  nddom1     CHAR(55),
+  nddom2     CHAR(65),
+  ndactiv    CHAR(45)
+)
+;
+create index FSD51102 on FSD511 (NDAPE1, NDNOM1);
+alter table FSD511
+  add primary key (NDPAIS, NDTIPDOC, NDNRODOC);
+

@@ -1,0 +1,13 @@
+create table PRFSTS
+(
+  pgcod    NUMBER(3) not null,
+  prfgcod  CHAR(10) not null,
+  cecod    NUMBER(2) not null,
+  prfsts01 CHAR(1),
+  prfsts02 NUMBER(3)
+)
+;
+create index PRFSTS02 on PRFSTS (CECOD);
+alter table PRFSTS
+  add primary key (PGCOD, PRFGCOD, CECOD);
+

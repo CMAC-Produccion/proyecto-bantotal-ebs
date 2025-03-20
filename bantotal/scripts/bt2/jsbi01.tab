@@ -1,0 +1,26 @@
+create table JSBI01
+(
+  jsbi01apl  NUMBER(4) not null,
+  jsbi01ban  CHAR(5) not null,
+  jsbi01env  NUMBER(9) not null,
+  jsbi01cor  NUMBER(9) not null,
+  jsbi01ctcl NUMBER(9),
+  jsbi01encl NUMBER(4),
+  jsbi01fec  DATE,
+  jsbi01ctdb CHAR(30),
+  jsbi01tdoc NUMBER(2),
+  jsbi01ndoc CHAR(12),
+  jsbi01ctem CHAR(30),
+  jsbi01mda  NUMBER(4),
+  jsbi01imp  NUMBER(17,2),
+  jsbi01proc CHAR(1),
+  jsbi01mncd NUMBER(5),
+  jsbi01mod  NUMBER(3),
+  jsbi01suc  NUMBER(3),
+  jsbi01trn  NUMBER(3),
+  jsbi01rel  NUMBER(4)
+)
+;
+alter table JSBI01
+  add primary key (JSBI01APL, JSBI01BAN, JSBI01ENV, JSBI01COR);
+

@@ -1,0 +1,36 @@
+create table FSD550
+(
+  pgcod     NUMBER(3) not null,
+  dgmod     NUMBER(3) not null,
+  dgsuc     NUMBER(3) not null,
+  dgmda     NUMBER(4) not null,
+  dgpap     NUMBER(4) not null,
+  dgcta     NUMBER(9) not null,
+  dgoper    NUMBER(9) not null,
+  dgsbop    NUMBER(9) not null,
+  dgtope    NUMBER(3) not null,
+  tgtsbtip  NUMBER(3),
+  dgimp     NUMBER(14,2),
+  dgvalcob  NUMBER(14,2),
+  tgtporc   NUMBER(14,9),
+  dgfconst  DATE,
+  dgfultmod DATE,
+  dgadec    CHAR(1),
+  dggrado   NUMBER(2),
+  dgfvto    DATE,
+  dgultcorr NUMBER(5),
+  dg550cd   NUMBER(3),
+  dg550mo   NUMBER(3),
+  dg550su   NUMBER(3),
+  dg550tr   NUMBER(3),
+  dg550re   NUMBER(4),
+  dg550fc   DATE,
+  dg550or   NUMBER(2),
+  dg550sb   NUMBER(3),
+  dg550co   CHAR(1)
+)
+;
+create index FSD55003 on FSD550 (DG550CD, DG550MO, DG550SU, DG550TR, DG550RE, DG550FC, DG550OR, DG550SB);
+alter table FSD550
+  add primary key (PGCOD, DGMOD, DGSUC, DGMDA, DGPAP, DGCTA, DGOPER, DGSBOP, DGTOPE);
+

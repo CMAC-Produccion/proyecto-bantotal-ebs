@@ -1,0 +1,29 @@
+create table AUD_SNG091_AUDIT
+(
+  aud_old_sng001inst NUMBER(10),
+  aud_new_sng001inst NUMBER(10),
+  aud_old_sng090pqt  NUMBER(10),
+  aud_new_sng090pqt  NUMBER(10),
+  aud_old_sng091aut  NUMBER(10),
+  aud_new_sng091aut  NUMBER(10),
+  aud_old_sng091num  NUMBER(5),
+  aud_new_sng091num  NUMBER(5),
+  aud_old_sng091res  CHAR(1),
+  aud_new_sng091res  CHAR(1),
+  aud_old_sng091tpo  CHAR(1),
+  aud_new_sng091tpo  CHAR(1),
+  aud_sng091_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_sng091_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng091_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng091_ubr     VARCHAR2(50) default ' ' not null,
+  aud_sng091_ubc     VARCHAR2(50) default ' ' not null,
+  aud_sng091_ubt     VARCHAR2(50) default ' ' not null,
+  aud_sng091_ubu     VARCHAR2(50) default USER not null,
+  aud_sng091_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng091_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng091_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng091_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng091_uas     CHAR(1) default 'I' not null
+)
+;
+

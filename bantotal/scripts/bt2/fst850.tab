@@ -1,0 +1,18 @@
+create table FST850
+(
+  pgcod     NUMBER(3) not null,
+  palpgm    CHAR(10) not null,
+  paldsc    CHAR(35),
+  palpgmrsp CHAR(10),
+  paltbl    CHAR(10),
+  palqpart  NUMBER(2),
+  palqreg   NUMBER(9),
+  palaaux1  CHAR(1),
+  palaaux2  NUMBER(9),
+  palaaux3  NUMBER(15)
+)
+;
+create index FST85003 on FST850 (PGCOD, PALPGMRSP);
+alter table FST850
+  add primary key (PGCOD, PALPGM);
+

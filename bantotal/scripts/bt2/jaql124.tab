@@ -1,0 +1,32 @@
+create table JAQL124
+(
+  jaql124cod NUMBER(3),
+  jaql124suc NUMBER(3),
+  jaql124mod NUMBER(3),
+  jaql124pap NUMBER(4),
+  jaql124cta NUMBER(9),
+  jaql124ope NUMBER(9),
+  jaql124sbo NUMBER(3),
+  jaql124top NUMBER(3),
+  jaql124cpr VARCHAR2(20),
+  jaql124pai NUMBER(3),
+  jaql124tdc NUMBER(3),
+  jaql124ndc VARCHAR2(20),
+  jaql124etr NUMBER(3),
+  jaql124fju DATE,
+  jaql124fca DATE,
+  jaql124ref VARCHAR2(1),
+  jaql124fup DATE,
+  jaql124cpa NUMBER(4),
+  jaql124fde DATE,
+  jaql124mde NUMBER(18,2),
+  jaql124cal VARCHAR2(50),
+  jaql124ppv NUMBER(3),
+  jaql124dir VARCHAR2(140),
+  jaql124act VARCHAR2(140)
+)
+;
+comment on table JAQL124
+  is 'Tabla auxiliar para PQ_CR_VENTA_LUREN';
+create index IDX_JAQL124_01 on JAQL124 (JAQL124COD, JAQL124SUC, JAQL124MOD, JAQL124PAP, JAQL124CTA, JAQL124OPE, JAQL124SBO, JAQL124TOP);
+

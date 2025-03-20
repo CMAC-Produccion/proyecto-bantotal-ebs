@@ -1,0 +1,23 @@
+create table FSFC29
+(
+  sfc29emp  NUMBER(3) not null,
+  sfc29suc  NUMBER(3) not null,
+  sfc29mod  NUMBER(3) not null,
+  sfc29trn  NUMBER(3) not null,
+  sfc29rel  NUMBER(4) not null,
+  sfc29fcon DATE not null,
+  sfc29ope  NUMBER(9) not null,
+  sfc29pdoc NUMBER(3),
+  sfc29tdoc NUMBER(2),
+  sfc29ndoc CHAR(12),
+  sfc29a01  DATE,
+  sfc29a02  DATE,
+  sfc29a03  NUMBER(9),
+  sfc29a04  NUMBER(9),
+  sfc29a05  CHAR(35),
+  sfc29a06  CHAR(35)
+)
+;
+alter table FSFC29
+  add primary key (SFC29EMP, SFC29SUC, SFC29MOD, SFC29TRN, SFC29REL, SFC29FCON, SFC29OPE);
+

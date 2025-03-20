@@ -1,0 +1,14 @@
+create table XCR023
+(
+  xcr023emp  NUMBER(3) not null,
+  xcr023ntip NUMBER(2) not null,
+  xcr023mens NUMBER(9) not null,
+  xcr023cod  NUMBER(5) not null,
+  xcr023rel  NUMBER(2) not null,
+  xcr023sec  NUMBER(3) not null,
+  xcr023nmen NUMBER(9)
+)
+;
+alter table XCR023
+  add primary key (XCR023EMP, XCR023NTIP, XCR023MENS, XCR023COD, XCR023REL, XCR023SEC);
+

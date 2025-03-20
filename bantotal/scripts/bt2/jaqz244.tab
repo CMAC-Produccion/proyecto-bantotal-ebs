@@ -1,0 +1,15 @@
+create table JAQZ244
+(
+  jaqz244serial NUMBER(10) not null,
+  jaqz244secue  NUMBER(6) not null,
+  jaqz244mtode  NUMBER(16,2),
+  jaqz244perio  VARCHAR2(100),
+  jaqz244feinp  DATE,
+  jaqz244entid  VARCHAR2(100),
+  jaqz244fenua  DATE,
+  jaqz244tidet  CHAR(2)
+)
+;
+alter table JAQZ244
+  add primary key (JAQZ244SERIAL, JAQZ244SECUE);
+

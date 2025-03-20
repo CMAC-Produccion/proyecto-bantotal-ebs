@@ -1,0 +1,37 @@
+create table FSFL47
+(
+  sfl47cod  NUMBER(3) not null,
+  sfl47mod  NUMBER(3) not null,
+  sfl47suc  NUMBER(3) not null,
+  sfl47tran NUMBER(3) not null,
+  sfl47nrel NUMBER(4) not null,
+  sfl47fcon DATE not null,
+  sfl47ord  NUMBER(2) not null,
+  sfl47subo NUMBER(3) not null,
+  sfl47tipo CHAR(1) not null,
+  sfl47tlim CHAR(4) not null,
+  sfl47usu  CHAR(10),
+  sfl47cta  NUMBER(9),
+  sfl47uti  NUMBER(17,2),
+  sfl47pres NUMBER(17,2),
+  sfl47exce NUMBER(17,2),
+  sfl47prin CHAR(1),
+  sfl47imp1 NUMBER(17,2),
+  sfl47imp2 NUMBER(17,2),
+  sfl47imp3 NUMBER(17,2),
+  sfl47imp4 NUMBER(17,2),
+  sfl47sucd NUMBER(3),
+  sfl47rub  NUMBER(16),
+  sfl47mda  NUMBER(4),
+  sfl47pap  NUMBER(4),
+  sfl47ope  NUMBER(9),
+  sfl47sbop NUMBER(3),
+  sfl47tope NUMBER(3),
+  sfl47pas  CHAR(1)
+)
+;
+create index FSFL4702 on FSFL47 (SFL47COD, SFL47USU);
+create index FSFL4703 on FSFL47 (SFL47COD, SFL47CTA, SFL47TIPO, SFL47TLIM);
+alter table FSFL47
+  add primary key (SFL47COD, SFL47MOD, SFL47SUC, SFL47TRAN, SFL47NREL, SFL47FCON, SFL47ORD, SFL47SUBO, SFL47TIPO, SFL47TLIM);
+

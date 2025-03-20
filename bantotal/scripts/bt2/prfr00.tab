@@ -1,0 +1,14 @@
+create table PRFR00
+(
+  prfcod    NUMBER(3) not null,
+  prfperf   CHAR(10) not null,
+  prfrolcod NUMBER(4) not null,
+  prffchalt DATE,
+  prfusualt CHAR(10),
+  prffaprod DATE,
+  prfuaprod CHAR(10)
+)
+;
+alter table PRFR00
+  add primary key (PRFCOD, PRFPERF, PRFROLCOD);
+

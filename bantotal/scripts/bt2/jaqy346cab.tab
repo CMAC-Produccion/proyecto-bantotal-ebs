@@ -1,0 +1,35 @@
+create table JAQY346CAB
+(
+  c_codsbs VARCHAR2(10),
+  c_tipreg VARCHAR2(1),
+  c_tipdet VARCHAR2(1),
+  d_fecpre DATE,
+  c_tdoctr VARCHAR2(1),
+  c_doctri VARCHAR2(11),
+  c_tdocid VARCHAR2(1),
+  c_docide VARCHAR2(12),
+  c_person VARCHAR2(1),
+  c_tipemp VARCHAR2(1),
+  n_canent NUMBER(3),
+  n_calif0 NUMBER(5,2),
+  n_calif1 NUMBER(5,2),
+  n_calif2 NUMBER(5,2),
+  n_calif3 NUMBER(5,2),
+  n_calif4 NUMBER(5,2),
+  c_nomdeu VARCHAR2(120),
+  c_apemat VARCHAR2(40),
+  c_apecas VARCHAR2(40),
+  c_prinom VARCHAR2(40),
+  c_segnom VARCHAR2(40)
+)
+;
+create index IDX_JAQY346CAB_02 on JAQY346CAB (C_TDOCID, C_DOCIDE, D_FECPRE);
+create index IDX_JAQY346CAB_03 on JAQY346CAB (D_FECPRE, C_CODSBS);
+create index IDX_JAQY346CAB_05 on JAQY346CAB (C_DOCIDE, D_FECPRE);
+create index IDX_JAQY346CAB_06 on JAQY346CAB (C_DOCIDE);
+create index IDX_JAQY346CAB_07 on JAQY346CAB (C_DOCTRI);
+create index IDX_JAQY346CAB_09 on JAQY346CAB (C_DOCTRI, D_FECPRE);
+create index IDX_JAQY346CAB_10 on JAQY346CAB (C_CODSBS);
+create index IDX_JAQY346CAB_11 on JAQY346CAB (C_NOMDEU);
+create index IDX_JAQY346CAB_12 on JAQY346CAB (C_DOCIDE, C_TDOCID);
+

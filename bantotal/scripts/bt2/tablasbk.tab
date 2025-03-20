@@ -1,0 +1,15 @@
+create table TABLASBK
+(
+  fecha      DATE default SYSDATE,
+  tipobackup VARCHAR2(1000) not null,
+  tablename  VARCHAR2(1000) not null,
+  tipotabla  VARCHAR2(1000),
+  habilitado CHAR(1) default 'S',
+  observac   VARCHAR2(1000)
+)
+;
+comment on table TABLASBK
+  is 'Tablas para respaldos';
+alter table TABLASBK
+  add constraint TABLASBKPK primary key (TIPOBACKUP, TABLENAME);
+

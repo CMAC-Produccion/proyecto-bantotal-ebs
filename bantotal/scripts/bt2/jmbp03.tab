@@ -1,0 +1,10 @@
+create table JMBP03
+(
+  jmbp03pgc NUMBER(3) not null,
+  jmbp03suc NUMBER(3) not null,
+  jmbp03fch DATE not null
+)
+;
+alter table JMBP03
+  add primary key (JMBP03PGC, JMBP03SUC, JMBP03FCH);
+

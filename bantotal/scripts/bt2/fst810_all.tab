@@ -1,0 +1,12 @@
+create table FST810_ALL
+(
+  pgcod  NUMBER(3) not null,
+  regcod NUMBER(3) not null,
+  regnom CHAR(40),
+  fecha  DATE not null
+)
+;
+create index FST81004_2 on FST810_ALL (FECHA);
+alter table FST810_ALL
+  add primary key (PGCOD, REGCOD, FECHA);
+

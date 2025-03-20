@@ -1,0 +1,14 @@
+create table JAQY736
+(
+  jaqy736corr NUMBER(9) not null,
+  jaqy736fech DATE not null,
+  jaqy736hor  VARCHAR2(8) not null,
+  jaqy736usu  VARCHAR2(20) not null,
+  jaqy736inst NUMBER(9),
+  jaqy736eval NUMBER(10)
+)
+;
+create index JAQY736_01 on JAQY736 (JAQY736USU);
+alter table JAQY736
+  add primary key (JAQY736CORR, JAQY736FECH, JAQY736HOR, JAQY736USU);
+

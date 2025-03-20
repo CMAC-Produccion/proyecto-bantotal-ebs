@@ -1,0 +1,21 @@
+create table FOCA01
+(
+  foca01emp  NUMBER(3) not null,
+  foca01suc  NUMBER(3) not null,
+  foca01mod  NUMBER(3) not null,
+  foca01trn  NUMBER(3) not null,
+  foca01rel  NUMBER(3) not null,
+  foca01ord  NUMBER(3) not null,
+  foca01sbo  NUMBER(3) not null,
+  foca01fch  DATE not null,
+  foca01nref NUMBER(9) not null,
+  foca01corr NUMBER(5) not null,
+  foca01ncin NUMBER(3) not null,
+  foca01nofi CHAR(16),
+  foca01faux DATE,
+  foca01imp  NUMBER(17,2)
+)
+;
+alter table FOCA01
+  add primary key (FOCA01EMP, FOCA01SUC, FOCA01MOD, FOCA01TRN, FOCA01REL, FOCA01ORD, FOCA01SBO, FOCA01FCH, FOCA01NREF, FOCA01CORR, FOCA01NCIN);
+

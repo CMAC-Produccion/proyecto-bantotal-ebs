@@ -1,0 +1,33 @@
+create table JAQL507
+(
+  jaql507coent NUMBER(3) not null,
+  jaql507cotse NUMBER(3) not null,
+  jaql507nrcon VARCHAR2(20) not null,
+  jaql507pefac CHAR(8) not null,
+  jaql507fadoc VARCHAR2(36) not null,
+  jaql507fepro DATE not null,
+  jaql507hopro VARCHAR2(8) not null,
+  jaql507nrdoc VARCHAR2(30),
+  jaql507clien VARCHAR2(150),
+  jaql507comon NUMBER(3),
+  jaql507mocob NUMBER(11,2),
+  jaql507fefac DATE,
+  jaql507feven DATE,
+  jaql507esreg CHAR(1),
+  jaql507text1 VARCHAR2(1000),
+  jaql507auxc3 VARCHAR2(100),
+  jaql507auxn1 NUMBER(17,2),
+  jaql507auxn2 NUMBER(17,2),
+  jaql507auxn3 NUMBER(17,2),
+  jaql507auxd1 DATE,
+  jaql507auxd2 DATE,
+  jaql507auxd3 DATE,
+  jaql507auxn4 NUMBER(18,2),
+  jaql507auxn5 NUMBER(18,2),
+  jaql507tipdo CHAR(3)
+)
+;
+create unique index JAQL50701N on JAQL507 (JAQL507FEPRO, JAQL507COENT, JAQL507COTSE, JAQL507NRCON, JAQL507PEFAC, JAQL507FADOC, JAQL507HOPRO);
+alter table JAQL507
+  add constraint JAQL507_PK_NEW1 primary key (JAQL507FEPRO, JAQL507COENT, JAQL507COTSE, JAQL507NRCON, JAQL507PEFAC, JAQL507FADOC, JAQL507HOPRO);
+

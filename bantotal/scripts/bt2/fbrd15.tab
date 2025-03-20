@@ -1,0 +1,21 @@
+create table FBRD15
+(
+  brd15lis   NUMBER(4) not null,
+  brd15fdha  DATE not null,
+  brd15pais  NUMBER(3) not null,
+  brd15tdoc  NUMBER(2) not null,
+  brd15ndoc  CHAR(25) not null,
+  brd15regla NUMBER(5) not null,
+  brd15des   CHAR(30),
+  brd15moobs CHAR(50),
+  brd15mofha DATE,
+  brd15ape2  CHAR(30),
+  brd15ape1  CHAR(30),
+  brd15nom2  CHAR(25),
+  brd15nom1  CHAR(25)
+)
+;
+create index FBRD1502 on FBRD15 (BRD15PAIS, BRD15TDOC, BRD15NDOC, BRD15FDHA, BRD15REGLA);
+alter table FBRD15
+  add primary key (BRD15LIS, BRD15FDHA, BRD15PAIS, BRD15TDOC, BRD15NDOC, BRD15REGLA);
+

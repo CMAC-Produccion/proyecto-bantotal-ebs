@@ -1,0 +1,29 @@
+create table AQPB582
+(
+  aqpb582nro  NUMBER(17),
+  aqpb582var  VARCHAR2(40),
+  aqpb582val  VARCHAR2(150),
+  aqpb582regl NUMBER(10),
+  aqpb582inst NUMBER(10),
+  aqpb582fec  DATE,
+  aqpb582hor  VARCHAR2(8)
+)
+;
+comment on column AQPB582.aqpb582nro
+  is 'NUMERO DE EJECUCION';
+comment on column AQPB582.aqpb582var
+  is 'VARIABLE';
+comment on column AQPB582.aqpb582val
+  is 'VALOR';
+comment on column AQPB582.aqpb582regl
+  is 'REGLA';
+comment on column AQPB582.aqpb582inst
+  is 'INSTANCIA';
+comment on column AQPB582.aqpb582fec
+  is 'FECHA DE PROCESO';
+comment on column AQPB582.aqpb582hor
+  is 'HORA DE PROCESO';
+create index AQPB582A3 on AQPB582 (AQPB582VAR);
+create index AQPB5822 on AQPB582 (AQPB582INST);
+create index AQPB5823 on AQPB582 (AQPB582NRO);
+

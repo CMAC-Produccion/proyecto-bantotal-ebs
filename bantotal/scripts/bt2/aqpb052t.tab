@@ -1,0 +1,106 @@
+create table AQPB052T
+(
+  aqpb052ttcomf  VARCHAR2(2) not null,
+  aqpb052tseri   VARCHAR2(4) not null,
+  aqpb052tnum    NUMBER(8) not null,
+  aqpb052tmone   VARCHAR2(3) not null,
+  aqpb052ttipope VARCHAR2(4) not null,
+  aqpb052ttdoc   VARCHAR2(1) not null,
+  aqpb052tnruc   VARCHAR2(15) not null,
+  aqpb052trasoc  VARCHAR2(1500) not null,
+  aqpb052tincuo  NUMBER(15,2),
+  aqpb052tinmor  NUMBER(15,2),
+  aqpb052tsegfac NUMBER(15,2),
+  aqpb052totrcon NUMBER(15,2),
+  aqpb052topina  NUMBER(15,2),
+  aqpb052topexa  NUMBER(15,2),
+  aqpb052timpt   NUMBER(15,2),
+  aqpb052ttdref  VARCHAR2(2),
+  aqpb052tnsref  VARCHAR2(4),
+  aqpb052tndref  NUMBER(10),
+  aqpb052tfotrc  DATE,
+  aqpb052tmcred  NUMBER(15,2),
+  aqpb052tncon   VARCHAR2(50),
+  aqpb052tnpol   VARCHAR2(50),
+  aqpb052tficob  DATE,
+  aqpb052tffcob  DATE,
+  aqpb052ttseg   VARCHAR2(1),
+  aqpb052tscob   NUMBER(15,2),
+  aqpb052tpgc    NUMBER(3),
+  aqpb052tmod    NUMBER(3),
+  aqpb052tsuc    NUMBER(3),
+  aqpb052ttrx    NUMBER(3),
+  aqpb052trel    NUMBER(4),
+  aqpb052tfemi   DATE,
+  aqpb052tcod    NUMBER(8),
+  aqpb052tpgce   NUMBER(3),
+  aqpb052tmode   NUMBER(3),
+  aqpb052tsuce   NUMBER(3),
+  aqpb052ttrxe   NUMBER(3),
+  aqpb052trele   NUMBER(4),
+  aqpb052tfcone  DATE
+)
+;
+comment on table AQPB052T
+  is 'Tabla Temporal para la generación de la trama a enviar por el aplicativo SEE Empresas Supervisadas';
+comment on column AQPB052T.aqpb052ttcomf
+  is 'C3: Codigo del Tipo de Comprobante Datos del Comprobante';
+comment on column AQPB052T.aqpb052tseri
+  is 'C4: Serie del comprobante.  Datos del Comprobante';
+comment on column AQPB052T.aqpb052tnum
+  is 'C5: Numero Correlativo del comprobante. Datos del Comprobante';
+comment on column AQPB052T.aqpb052tmone
+  is 'C6: Codigo del Tipo de Moneda Datos del Comprobante';
+comment on column AQPB052T.aqpb052ttipope
+  is 'C7: Tipo de operación no gravada';
+comment on column AQPB052T.aqpb052ttdoc
+  is 'C8: Codigo del tipo de documento de identificaci?n del Receptor Datos del Comprobante';
+comment on column AQPB052T.aqpb052tnruc
+  is 'C9: N?mero de documento de identificaci?n Datos del Comprobante';
+comment on column AQPB052T.aqpb052trasoc
+  is 'C10: Apellidos y nombres o denominaci?n o raz?n social Datos del Comprobante';
+comment on column AQPB052T.aqpb052tincuo
+  is 'C11: Monto del interes de la cuota (interes compensatorio) en el caso de los bancos/ monto de la prima facturada (en el caso de seguros)';
+comment on column AQPB052T.aqpb052tinmor
+  is 'C12: Monto del interés moratorio de corresponder';
+comment on column AQPB052T.aqpb052tsegfac
+  is 'C13: Monto total de seguros facturados';
+comment on column AQPB052T.aqpb052totrcon
+  is 'C14: Monto total de otros conceptos facturados';
+comment on column AQPB052T.aqpb052topina
+  is 'C15: Total valor de venta - operaciones inafectas';
+comment on column AQPB052T.aqpb052topexa
+  is 'C16: Total valor de venta - operaciones exoneradas';
+comment on column AQPB052T.aqpb052timpt
+  is 'C17: Total valor de venta - operaciones exoneradas';
+comment on column AQPB052T.aqpb052ttdref
+  is 'C18: Tipo de documento que se modifica';
+comment on column AQPB052T.aqpb052tnsref
+  is 'C19: Número de serie del documento que se modifica';
+comment on column AQPB052T.aqpb052tndref
+  is 'C20: Número correlativo del documento que se modifica';
+comment on column AQPB052T.aqpb052tmcred
+  is 'C21: Monto del crédito otorgado (capital)';
+comment on column AQPB052T.aqpb052tncon
+  is 'C22: Número de contrato';
+comment on column AQPB052T.aqpb052tnpol
+  is 'C23: Número de póliza';
+comment on column AQPB052T.aqpb052tficob
+  is 'C24: Fecha de inicio de vigencia de cobertura';
+comment on column AQPB052T.aqpb052tffcob
+  is 'C25: Fecha de término de vigencia de cobertura';
+comment on column AQPB052T.aqpb052ttseg
+  is 'C26: Tipo de seguro';
+comment on column AQPB052T.aqpb052tscob
+  is 'C27: Suma asegurada / alcance de cobertura o monto';
+comment on column AQPB052T.aqpb052tfemi
+  is 'C1: Fecha de otorgamiento del crédito/Linea de crédito';
+comment on column AQPB052T.aqpb052tcod
+  is 'C2: Correlativo del documento de envio';
+create index AQPB052T2 on AQPB052T (AQPB052TFEMI, AQPB052TCOD, AQPB052TTCOMF, AQPB052TSERI, AQPB052TNUM);
+create index AQPB052T3 on AQPB052T (AQPB052TPGC, AQPB052TMOD, AQPB052TSUC, AQPB052TTRX, AQPB052TREL, AQPB052TFEMI);
+create index AQPB052T4 on AQPB052T (AQPB052TTCOMF, AQPB052TSERI, AQPB052TNUM);
+create index AQPB052T5 on AQPB052T (AQPB052TFEMI);
+alter table AQPB052T
+  add primary key (AQPB052TTCOMF, AQPB052TSERI, AQPB052TNUM);
+

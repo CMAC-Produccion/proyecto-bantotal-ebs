@@ -1,0 +1,40 @@
+create table AQPC569
+(
+  aqpc569f_m  DATE not null,
+  aqpc569h_m  CHAR(8) not null,
+  aqpc569u_m  VARCHAR2(10),
+  aqpc569m_ra NUMBER(18,2),
+  aqpc569f_va DATE,
+  aqpc569m_rn NUMBER(18,2),
+  aqpc569f_vn DATE,
+  aqpc569ctra NUMBER(5),
+  aqpc569nom  CHAR(70),
+  aqpc569cadq NUMBER(5)
+)
+;
+comment on table AQPC569
+  is 'TABLA LOG DE MONTOS TOPE VENTA FOCMA';
+comment on column AQPC569.aqpc569f_m
+  is 'FECHA DE MODIFICACION DEL REGISTRO';
+comment on column AQPC569.aqpc569h_m
+  is 'HORA DE MODIFICACION DEL REGISTRO';
+comment on column AQPC569.aqpc569u_m
+  is 'USUARIO QUE MODIFICO EL REGISTRO';
+comment on column AQPC569.aqpc569m_ra
+  is 'MONTO DE RECAUDACION ANTERIOR';
+comment on column AQPC569.aqpc569f_va
+  is 'FECHA DE VENCIMIENTO DE LOGRO DE META ANTERIOR';
+comment on column AQPC569.aqpc569m_rn
+  is 'MONTO DE RECAUDACION NUEVO';
+comment on column AQPC569.aqpc569f_vn
+  is 'FECHA DE VENCIMIENTO DE LOGRO DE META NUEVO';
+comment on column AQPC569.aqpc569ctra
+  is 'CODIGO DE TRANSFERENCIA';
+comment on column AQPC569.aqpc569nom
+  is 'NOMBRE DE LA EMPRESA ACREEDORA';
+comment on column AQPC569.aqpc569cadq
+  is 'CODIGO DE ADQUIRIENTE';
+create index AQPC569A2 on AQPC569 (AQPC569F_M, AQPC569U_M);
+alter table AQPC569
+  add primary key (AQPC569F_M, AQPC569H_M);
+

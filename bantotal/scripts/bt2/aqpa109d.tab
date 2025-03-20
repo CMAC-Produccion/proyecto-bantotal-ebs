@@ -1,0 +1,27 @@
+create table AQPA109D
+(
+  aqpa109dcct NUMBER(9) not null,
+  aqpa109dcri NUMBER(9),
+  aqpa109dcan NUMBER(9),
+  aqpa109dfer DATE,
+  aqpa109dusr CHAR(10),
+  aqpa109dagr NUMBER(3),
+  aqpa109dfem DATE,
+  aqpa109dusm CHAR(10),
+  aqpa109dagm NUMBER(3),
+  aqpa109dax1 NUMBER(9),
+  aqpa109dax2 NUMBER(9),
+  aqpa109dax3 NUMBER(17,2),
+  aqpa109dax4 NUMBER(17,2),
+  aqpa109dax5 DATE,
+  aqpa109dax6 DATE,
+  aqpa109dax7 CHAR(100),
+  aqpa109dax8 CHAR(100),
+  aqpa109dax9 CHAR(100)
+)
+;
+create index AQPA109D2 on AQPA109D (AQPA109DCAN);
+create index AQPA109D3 on AQPA109D (AQPA109DCRI, AQPA109DCAN);
+alter table AQPA109D
+  add primary key (AQPA109DCCT);
+

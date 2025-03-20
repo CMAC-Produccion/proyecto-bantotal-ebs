@@ -1,0 +1,13 @@
+create table XWF006
+(
+  xwf06prg   CHAR(20) not null,
+  xwf06obj   CHAR(20) not null,
+  xwf06prop  CHAR(30) not null,
+  xwf06pgcod NUMBER(3) not null,
+  xwf06prf   CHAR(10) not null,
+  xwf06val   CHAR(30)
+)
+;
+alter table XWF006
+  add primary key (XWF06PRG, XWF06OBJ, XWF06PROP, XWF06PGCOD, XWF06PRF);
+

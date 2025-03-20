@@ -1,0 +1,22 @@
+create table AQPC815
+(
+  aqpc815codopin NUMBER(10) not null,
+  aqpc815instan  NUMBER(10),
+  aqpc815fecha   DATE,
+  aqpc815hora    VARCHAR2(10)
+)
+;
+comment on table AQPC815
+  is 'Tabla LOG de asignaciones de cod Opiniones';
+comment on column AQPC815.aqpc815codopin
+  is 'Codigo de Opinion';
+comment on column AQPC815.aqpc815instan
+  is 'Instancia';
+comment on column AQPC815.aqpc815fecha
+  is 'Fecha Reg';
+comment on column AQPC815.aqpc815hora
+  is 'Hora Reg';
+create index AQPC815A2 on AQPC815 (AQPC815INSTAN);
+alter table AQPC815
+  add primary key (AQPC815CODOPIN);
+

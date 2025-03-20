@@ -1,0 +1,47 @@
+create table JMBI03
+(
+  jmbi03apl NUMBER(4) not null,
+  jmbi03ban CHAR(5) not null,
+  jmbi03env NUMBER(9) not null,
+  jmbi03cor NUMBER(9) not null,
+  jmbi03fec DATE,
+  jmbi03cod NUMBER(3),
+  jmbi03mod NUMBER(3),
+  jmbi03suc NUMBER(3),
+  jmbi03mda NUMBER(4),
+  jmbi03pap NUMBER(4),
+  jmbi03cta NUMBER(9),
+  jmbi03ope NUMBER(9),
+  jmbi03sop NUMBER(9),
+  jmbi03top NUMBER(3),
+  jmbi03cre NUMBER(12),
+  jmbi03cuo NUMBER(4),
+  jmbi03con CHAR(2),
+  jmbi03mon NUMBER(1),
+  jmbi03app CHAR(20),
+  jmbi03apm CHAR(20),
+  jmbi03nom CHAR(20),
+  jmbi03imc NUMBER(12,2),
+  jmbi03vto DATE,
+  jmbi03tas NUMBER(1),
+  jmbi03fcm NUMBER(8),
+  jmbi03fcc NUMBER(8),
+  jmbi03img NUMBER(12,2),
+  jmbi03ctc NUMBER(11),
+  jmbi03ord NUMBER(12),
+  jmbi03sdo NUMBER(12,2),
+  jmbi03ico NUMBER(12,2),
+  jmbi03imo NUMBER(12,2),
+  jmbi03imm NUMBER(12,2),
+  jmbi03imp NUMBER(12,2),
+  jmbi03imb NUMBER(12,2),
+  jmbi03agn CHAR(4),
+  jmbi03fco DATE,
+  jmbi03hor NUMBER(6),
+  jmbi03com NUMBER(12,2)
+)
+;
+create index JMBI0302 on JMBI03 (JMBI03COD, JMBI03SUC, JMBI03MOD, JMBI03MDA, JMBI03PAP, JMBI03CTA, JMBI03OPE, JMBI03SOP, JMBI03TOP, JMBI03APL, JMBI03BAN, JMBI03CUO, JMBI03ENV);
+alter table JMBI03
+  add primary key (JMBI03APL, JMBI03BAN, JMBI03ENV, JMBI03COR);
+

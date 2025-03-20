@@ -1,0 +1,31 @@
+create table AQPA109B
+(
+  aqpa109bcri NUMBER(9) not null,
+  aqpa109btcp NUMBER(9),
+  aqpa109bdes CHAR(100),
+  aqpa109bfin DATE,
+  aqpa109bffi DATE,
+  aqpa109bpri NUMBER(9),
+  aqpa109best CHAR(1),
+  aqpa109bfer DATE,
+  aqpa109busr CHAR(10),
+  aqpa109bagr NUMBER(3),
+  aqpa109bfem DATE,
+  aqpa109busm CHAR(10),
+  aqpa109bagm NUMBER(3),
+  aqpa109bax1 NUMBER(9),
+  aqpa109bax2 NUMBER(9),
+  aqpa109bax3 NUMBER(17,2),
+  aqpa109bax4 NUMBER(17,2),
+  aqpa109bax5 DATE,
+  aqpa109bax6 DATE,
+  aqpa109bax7 CHAR(100),
+  aqpa109bax8 CHAR(100),
+  aqpa109bax9 CHAR(100)
+)
+;
+create index AQPA109B2 on AQPA109B (AQPA109BTCP);
+create index AQPA109B3 on AQPA109B (AQPA109BPRI);
+alter table AQPA109B
+  add primary key (AQPA109BCRI);
+

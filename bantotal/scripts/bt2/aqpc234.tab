@@ -1,0 +1,47 @@
+create table AQPC234
+(
+  aqpc234pgcod    NUMBER(3) not null,
+  aqpc234ppmod    NUMBER(3) not null,
+  aqpc234ppsuc    NUMBER(3) not null,
+  aqpc234ppmda    NUMBER(4) not null,
+  aqpc234pppap    NUMBER(4) not null,
+  aqpc234ppcta    NUMBER(9) not null,
+  aqpc234ppoper   NUMBER(9) not null,
+  aqpc234ppsbop   NUMBER(3) not null,
+  aqpc234pptope   NUMBER(3) not null,
+  aqpc234ppfpag   DATE not null,
+  aqpc234pptipo   CHAR(1) not null,
+  aqpc234ppfval   DATE,
+  aqpc234ppfvto   DATE,
+  aqpc234pppzo    NUMBER(5),
+  aqpc234ppcap    NUMBER(17,2),
+  aqpc234ppint    NUMBER(17,2),
+  aqpc234ppintmex NUMBER(17,2),
+  aqpc234ppicap   NUMBER(17,2),
+  aqpc234ppiint   NUMBER(17,2),
+  aqpc234ppstat   CHAR(1),
+  aqpc234ppnume   NUMBER(9),
+  aqpc234ppfinv   NUMBER(8),
+  aqpc234d601cd   NUMBER(3),
+  aqpc234d601mo   NUMBER(3),
+  aqpc234d601su   NUMBER(3),
+  aqpc234d601tr   NUMBER(3),
+  aqpc234d601re   NUMBER(4),
+  aqpc234d601fc   DATE,
+  aqpc234d601or   NUMBER(2),
+  aqpc234d601sb   NUMBER(3),
+  aqpc234d601co   CHAR(1),
+  aqpc234dcorr    NUMBER(17),
+  aqpc234dfec     DATE
+)
+;
+create index AQPC23402 on AQPC234 (AQPC234PGCOD, AQPC234PPSUC);
+create index AQPC23403 on AQPC234 (AQPC234PGCOD, AQPC234PPCTA);
+create index AQPC23404 on AQPC234 (AQPC234PPMOD);
+create index AQPC23405 on AQPC234 (AQPC234PPMDA);
+create index AQPC23406 on AQPC234 (AQPC234PPPAP);
+create index AQPC23407 on AQPC234 (AQPC234PGCOD, AQPC234PPMOD, AQPC234PPSUC, AQPC234PPMDA, AQPC234PPPAP, AQPC234PPCTA, AQPC234PPOPER, AQPC234PPSBOP, AQPC234PPTOPE, AQPC234PPTIPO, AQPC234PPFVAL);
+create index AQPC23408 on AQPC234 (AQPC234PGCOD, AQPC234PPMOD, AQPC234PPSUC, AQPC234PPMDA, AQPC234PPPAP, AQPC234PPCTA, AQPC234PPOPER, AQPC234PPSBOP, AQPC234PPTOPE, AQPC234PPTIPO, AQPC234PPFINV);
+create index AQPC23409 on AQPC234 (AQPC234D601CD, AQPC234D601MO, AQPC234D601SU, AQPC234D601TR, AQPC234D601RE, AQPC234D601FC, AQPC234D601OR, AQPC234D601SB);
+create index AQPC23410 on AQPC234 (AQPC234D601CD, AQPC234D601CO);
+

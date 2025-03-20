@@ -1,0 +1,14 @@
+create table FSFFA5
+(
+  kgareccod NUMBER(5) not null,
+  kgarecnom CHAR(50),
+  kgafuncod NUMBER(5),
+  kgarecmda NUMBER(4),
+  kgarecsal NUMBER(17,2),
+  kgarecmts NUMBER(5)
+)
+;
+create index FSFFA502 on FSFFA5 (KGAFUNCOD);
+alter table FSFFA5
+  add primary key (KGARECCOD);
+

@@ -1,0 +1,33 @@
+create table JAQL839T
+(
+  jaql839tcpro NUMBER(3) not null,
+  jaql839ttpro NUMBER(3) not null,
+  jaql839tntar CHAR(19),
+  jaql839tcpai NUMBER(4),
+  jaql839ttdoc NUMBER(3),
+  jaql839tndoc CHAR(12),
+  jaql839tttar CHAR(1),
+  jaql839tczon CHAR(6),
+  jaql839tcusu VARCHAR2(10),
+  jaql839ttatm NUMBER(3),
+  jaql839ttcco NUMBER(3),
+  jaql839ttkas NUMBER(3),
+  jaql839ttven NUMBER(3),
+  jaql839ttcmo NUMBER(3),
+  jaql839tflat NUMBER(1),
+  jaql839tddep VARCHAR2(100),
+  jaql839tdpro VARCHAR2(100),
+  jaql839tddis VARCHAR2(100),
+  jaql839tctra NUMBER(12),
+  jaql839tstra NUMBER(12),
+  jaql839tcage NUMBER(3),
+  jaql839tnreg NUMBER(9),
+  jaql839tmcod NUMBER(3),
+  jaql839tmcor NUMBER(3),
+  jaql839tdreg VARCHAR2(100)
+)
+;
+create index JAQL839T2 on JAQL839T (JAQL839TCPRO, JAQL839TTPRO, JAQL839TNTAR, JAQL839TCPAI, JAQL839TTDOC, JAQL839TNDOC, JAQL839TTTAR);
+create index JAQL839T3 on JAQL839T (JAQL839TCPRO, JAQL839TTPRO, JAQL839TCUSU);
+create index JAQL839T4 on JAQL839T (JAQL839TCPAI, JAQL839TTDOC, JAQL839TNDOC);
+

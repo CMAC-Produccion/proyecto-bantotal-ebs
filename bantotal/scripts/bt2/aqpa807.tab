@@ -1,0 +1,14 @@
+create table AQPA807
+(
+  aqpa806cod    NUMBER(17) not null,
+  aqpa807cuonro NUMBER(2) not null,
+  aqpa807cuofpg DATE,
+  aqpa807cuoval NUMBER(15,2),
+  aqpa807usu    CHAR(10),
+  aqpa807fec    DATE
+)
+;
+create index AQPA8072 on AQPA807 (AQPA806COD);
+alter table AQPA807
+  add primary key (AQPA806COD, AQPA807CUONRO);
+

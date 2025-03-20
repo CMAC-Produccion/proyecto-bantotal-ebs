@@ -1,0 +1,14 @@
+create table JAQZ247
+(
+  jaqz247serial NUMBER(10) not null,
+  jaqz247secue  NUMBER(6) not null,
+  jaqz247feexp  DATE,
+  jaqz247nuope  NUMBER(10),
+  jaqz247tofob  NUMBER(16,2),
+  jaqz247copao  VARCHAR2(100),
+  jaqz247tidet  CHAR(2)
+)
+;
+alter table JAQZ247
+  add primary key (JAQZ247SERIAL, JAQZ247SECUE);
+

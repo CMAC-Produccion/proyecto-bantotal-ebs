@@ -1,0 +1,17 @@
+create table FCU121
+(
+  pgcod     NUMBER(3) not null,
+  lcemod    NUMBER(3) not null,
+  lceoper   NUMBER(9) not null,
+  lcesbop   NUMBER(3) not null,
+  leucuonro NUMBER(2) not null,
+  leucuovto DATE,
+  leucuoimp NUMBER(17,2),
+  leucuoint NUMBER(17,2),
+  leucuoobs CHAR(40)
+)
+;
+create index FCU12120 on FCU121 (PGCOD, LCEMOD, LCEOPER, LCESBOP, LEUCUOVTO);
+alter table FCU121
+  add primary key (PGCOD, LCEMOD, LCEOPER, LCESBOP, LEUCUONRO);
+

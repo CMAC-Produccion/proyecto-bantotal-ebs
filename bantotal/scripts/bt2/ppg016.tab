@@ -1,0 +1,15 @@
+create table PPG016
+(
+  ppg016mod  NUMBER(3) not null,
+  ppg016mda  NUMBER(4) not null,
+  ppg016pap  NUMBER(4) not null,
+  ppg016top  NUMBER(3) not null,
+  ppg016cdat NUMBER(5) not null,
+  ppg016cond CHAR(2) not null,
+  ppg016val1 CHAR(20),
+  ppg016val2 CHAR(20)
+)
+;
+alter table PPG016
+  add primary key (PPG016MOD, PPG016MDA, PPG016PAP, PPG016TOP, PPG016CDAT, PPG016COND);
+

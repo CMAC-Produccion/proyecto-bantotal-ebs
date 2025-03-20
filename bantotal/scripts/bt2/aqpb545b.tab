@@ -1,0 +1,63 @@
+create table AQPB545B
+(
+  aqpb545bemp    NUMBER(3) not null,
+  aqpb545bcod    VARCHAR2(20) not null,
+  aqpb545bremp   NUMBER(3) not null,
+  aqpb545brcod   VARCHAR2(20) not null,
+  aqpb545brtip   VARCHAR2(3) not null,
+  aqpb545btim    TIMESTAMP(6),
+  aqpb545bauimp1 NUMBER(17,2),
+  aqpb545bauimp2 NUMBER(17,2),
+  aqpb545bauimp3 NUMBER(17,2),
+  aqpb545baufec1 DATE,
+  aqpb545baufec2 DATE,
+  aqpb545baufec3 DATE,
+  aqpb545baunum1 NUMBER(9),
+  aqpb545baunum2 NUMBER(9),
+  aqpb545baunum3 NUMBER(9),
+  aqpb545baucha1 VARCHAR2(300),
+  aqpb545baucha2 VARCHAR2(300),
+  aqpb545baucha3 VARCHAR2(300)
+)
+;
+comment on table AQPB545B
+  is 'Reclamos - Reconsideraciones';
+comment on column AQPB545B.aqpb545bemp
+  is 'Reclamo - Empresa';
+comment on column AQPB545B.aqpb545bcod
+  is 'Reclamo - Codigo';
+comment on column AQPB545B.aqpb545bremp
+  is 'Reconsideracion de - Empresa';
+comment on column AQPB545B.aqpb545brcod
+  is 'Reconsideracion de - Codigo';
+comment on column AQPB545B.aqpb545brtip
+  is 'Reconsideracion REC/ Reiteracion REI';
+comment on column AQPB545B.aqpb545btim
+  is 'Creacion';
+comment on column AQPB545B.aqpb545bauimp1
+  is 'Auxiliar IMP1';
+comment on column AQPB545B.aqpb545bauimp2
+  is 'Auxiliar IMP2';
+comment on column AQPB545B.aqpb545bauimp3
+  is 'Auxiliar IMP3';
+comment on column AQPB545B.aqpb545baufec1
+  is 'Auxiliar FEC1';
+comment on column AQPB545B.aqpb545baufec2
+  is 'Auxiliar FEC2';
+comment on column AQPB545B.aqpb545baufec3
+  is 'Auxiliar FEC3';
+comment on column AQPB545B.aqpb545baunum1
+  is 'Auxiliar NUM1';
+comment on column AQPB545B.aqpb545baunum2
+  is 'Auxiliar NUM2';
+comment on column AQPB545B.aqpb545baunum3
+  is 'Auxiliar NUM3';
+comment on column AQPB545B.aqpb545baucha1
+  is 'Auxiliar STR1';
+comment on column AQPB545B.aqpb545baucha2
+  is 'Auxiliar STR2';
+comment on column AQPB545B.aqpb545baucha3
+  is 'Auxiliar STR3';
+alter table AQPB545B
+  add primary key (AQPB545BEMP, AQPB545BCOD, AQPB545BREMP, AQPB545BRCOD, AQPB545BRTIP);
+

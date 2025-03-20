@@ -1,0 +1,23 @@
+create table AUOPRP
+(
+  auoppgc  NUMBER(3) not null,
+  auopsuc  NUMBER(3) not null,
+  auoprub  NUMBER(16) not null,
+  auopmda  NUMBER(4) not null,
+  auoppap  NUMBER(4) not null,
+  auopcta  NUMBER(9) not null,
+  auopope  NUMBER(9) not null,
+  auopsbop NUMBER(3) not null,
+  auoptope NUMBER(3) not null,
+  auopmod  NUMBER(3),
+  auopsdo  NUMBER(17,2),
+  auopaux  DATE,
+  auopaux1 CHAR(70),
+  auopaux2 NUMBER(9),
+  auopaux3 NUMBER(17,2)
+)
+;
+create index AUOPRP2 on AUOPRP (AUOPPGC, AUOPSUC, AUOPMOD, AUOPMDA, AUOPPAP, AUOPCTA, AUOPOPE, AUOPSBOP, AUOPTOPE);
+alter table AUOPRP
+  add primary key (AUOPPGC, AUOPSUC, AUOPRUB, AUOPMDA, AUOPPAP, AUOPCTA, AUOPOPE, AUOPSBOP, AUOPTOPE);
+

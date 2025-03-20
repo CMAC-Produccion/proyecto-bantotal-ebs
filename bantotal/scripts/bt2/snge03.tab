@@ -1,0 +1,40 @@
+create table SNGE03
+(
+  snge03inst NUMBER(10) not null,
+  snge03pzom NUMBER(5),
+  snge03mtoi NUMBER(17,2),
+  snge03pzoi NUMBER(5),
+  snge03prcc NUMBER(10,6),
+  snge03cuoi NUMBER(17,2),
+  snge03tcli NUMBER(1),
+  snge03tvhc NUMBER(1),
+  snge03tcas NUMBER(1),
+  snge03greg NUMBER(17,2),
+  snge03kmrd NUMBER(5,1),
+  snge03dtrb NUMBER(2),
+  snge03pgnv NUMBER(17,2),
+  snge03rndm NUMBER(5,2),
+  snge03pgln NUMBER(17,2),
+  snge03rndg NUMBER(5,2),
+  snge03segn NUMBER(17,2),
+  snge03soat NUMBER(17,2),
+  snge03ahmc NUMBER(17,2),
+  snge03nivr NUMBER(5,2),
+  snge03vcuo NUMBER(17,2),
+  snge03cons NUMBER(5),
+  snge03tall NUMBER(5),
+  snge03stat NUMBER(1),
+  snge03sint NUMBER(4),
+  snge03inta NUMBER(9),
+  snge03impa NUMBER(17,2),
+  snge03tcbi NUMBER(14,8),
+  snge03feca DATE,
+  snge03chr1 CHAR(1),
+  snge03chr3 CHAR(3),
+  snge03ch30 CHAR(30)
+)
+;
+create index SNGE0302 on SNGE03 (SNGE03STAT);
+alter table SNGE03
+  add primary key (SNGE03INST);
+

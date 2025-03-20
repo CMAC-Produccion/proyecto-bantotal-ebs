@@ -1,0 +1,28 @@
+create table FIFS04
+(
+  ifs04cap  NUMBER(4) not null,
+  ifs04cba  CHAR(5) not null,
+  ifs04num  NUMBER(9) not null,
+  ifs04corr NUMBER(9) not null,
+  ifs04fec  DATE,
+  ifs04emp  NUMBER(3),
+  ifs04suc  NUMBER(3),
+  ifs04mod  NUMBER(3),
+  ifs04mda  NUMBER(4),
+  ifs04pap  NUMBER(4),
+  ifs04nct  NUMBER(9),
+  ifs04ope  NUMBER(9),
+  ifs04sct  NUMBER(3),
+  ifs04top  NUMBER(3),
+  ifs04tit  NUMBER(11),
+  ifs04reg  NUMBER(1),
+  ifs04cdo  NUMBER(2),
+  ifs04tct  NUMBER(2),
+  ifs04mon  NUMBER(12),
+  ifs04cbu  CHAR(22)
+)
+;
+create index FIFS0402 on FIFS04 (IFS04CAP, IFS04CBA, IFS04NUM, IFS04CORR, IFS04EMP, IFS04SUC, IFS04MOD, IFS04MDA, IFS04PAP, IFS04NCT, IFS04OPE, IFS04SCT, IFS04TOP);
+alter table FIFS04
+  add primary key (IFS04CAP, IFS04CBA, IFS04NUM, IFS04CORR);
+

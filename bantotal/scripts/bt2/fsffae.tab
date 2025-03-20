@@ -1,0 +1,13 @@
+create table FSFFAE
+(
+  fsfinfcod NUMBER(5) not null,
+  fsfinfn1c NUMBER(3) not null,
+  fsfinfn2c NUMBER(3) not null,
+  fsfinfrub NUMBER(16) not null,
+  fsfinfau7 CHAR(1),
+  fsfinfau8 CHAR(1)
+)
+;
+alter table FSFFAE
+  add primary key (FSFINFCOD, FSFINFN1C, FSFINFN2C, FSFINFRUB);
+

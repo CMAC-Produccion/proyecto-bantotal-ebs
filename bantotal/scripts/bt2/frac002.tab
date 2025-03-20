@@ -1,0 +1,15 @@
+create table FRAC002
+(
+  rac002cod NUMBER(3) not null,
+  rac002mod NUMBER(3) not null,
+  rac002top NUMBER(3) not null,
+  rac002mda NUMBER(4) not null,
+  rac002pap NUMBER(4) not null,
+  rac002cor NUMBER(5) not null,
+  rac002des CHAR(40),
+  rac002pgm CHAR(10)
+)
+;
+alter table FRAC002
+  add primary key (RAC002COD, RAC002MOD, RAC002TOP, RAC002MDA, RAC002PAP, RAC002COR);
+

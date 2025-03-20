@@ -1,0 +1,20 @@
+create table FSFIBA
+(
+  sfibaid  NUMBER(4) not null,
+  sfibacod NUMBER(5) not null,
+  sfibarel NUMBER(2) not null,
+  sfibacpo NUMBER(2) not null,
+  sfibafmt CHAR(1) not null,
+  sfibalin NUMBER(3) not null,
+  sfibatxt CHAR(65),
+  sfibaa01 NUMBER(16),
+  sfibaa02 NUMBER(16),
+  sfibaa03 CHAR(65),
+  sfibaa04 CHAR(65),
+  sfibaa05 DATE,
+  sfibaa06 DATE
+)
+;
+alter table FSFIBA
+  add primary key (SFIBAID, SFIBACOD, SFIBAREL, SFIBACPO, SFIBAFMT, SFIBALIN);
+

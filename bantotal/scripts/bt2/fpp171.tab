@@ -1,0 +1,20 @@
+create table FPP171
+(
+  pp170cbien NUMBER(4) not null,
+  pp171tbien NUMBER(4) not null,
+  pp171desc  CHAR(50),
+  pp176cod   NUMBER(4),
+  pp171au1   NUMBER(9),
+  pp171au2   NUMBER(9),
+  pp171au3   DATE,
+  pp171au4   DATE,
+  pp171au5   NUMBER(17,2),
+  pp171au6   NUMBER(17,2),
+  pp171au7   CHAR(30),
+  pp171au8   CHAR(30)
+)
+;
+create index FPP17104 on FPP171 (PP176COD);
+alter table FPP171
+  add primary key (PP170CBIEN, PP171TBIEN);
+

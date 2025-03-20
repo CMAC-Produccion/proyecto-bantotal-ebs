@@ -1,0 +1,23 @@
+create table JAQZ584
+(
+  jaqz584cod    NUMBER(17) not null,
+  jaqz584codigo NUMBER(17),
+  jaqz584des    VARCHAR2(100),
+  jaqz584nivel  NUMBER(4),
+  jaqz584au1    NUMBER(17),
+  jaqz584au2    NUMBER(17),
+  jaqz584au3    VARCHAR2(40),
+  jaqz584au4    VARCHAR2(200),
+  jaqz584au5    DATE,
+  jaqz584au6    CHAR(20),
+  jaqz584cant   NUMBER(4),
+  jaqz584fecini DATE,
+  jaqz584codide CHAR(20),
+  jaqz584usu    VARCHAR2(12),
+  jaqz584est    VARCHAR2(1)
+)
+;
+create index JAQZ5842 on JAQZ584 (JAQZ584CODIGO);
+alter table JAQZ584
+  add primary key (JAQZ584COD);
+

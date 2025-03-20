@@ -1,0 +1,26 @@
+create table DEPE62J
+(
+  depe62jcor NUMBER(6) not null,
+  depe62jmod NUMBER(3) not null,
+  depe62jtop NUMBER(3) not null,
+  depe62jmda NUMBER(4) not null,
+  depe62jpap NUMBER(4) not null,
+  depe62jdsc CHAR(60),
+  depe62jhab CHAR(1),
+  depe62jnu1 NUMBER(9),
+  depe62jnu2 NUMBER(9),
+  depe62jnu3 NUMBER(9),
+  depe62jim1 NUMBER(17,2),
+  depe62jim2 NUMBER(17,2),
+  depe62jim3 NUMBER(17,2),
+  depe62jtx1 CHAR(30),
+  depe62jtx2 CHAR(30),
+  depe62jtx3 CHAR(30),
+  depe62jfe1 DATE,
+  depe62jfe2 DATE,
+  depe62jfe3 DATE
+)
+;
+alter table DEPE62J
+  add primary key (DEPE62JCOR, DEPE62JMOD, DEPE62JTOP, DEPE62JMDA, DEPE62JPAP);
+

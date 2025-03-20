@@ -1,0 +1,16 @@
+create table FSFT93
+(
+  sft93emp   NUMBER(3) not null,
+  sft93cocom NUMBER(4) not null,
+  sft93comi  NUMBER(3) not null,
+  sft93cust  NUMBER(9) not null,
+  sft93idcu  NUMBER(2) not null,
+  sft93espe  NUMBER(4) not null,
+  sft93nuco  NUMBER(3),
+  sft93numo  NUMBER(3),
+  sft93habil CHAR(1)
+)
+;
+alter table FSFT93
+  add primary key (SFT93EMP, SFT93COCOM, SFT93COMI, SFT93CUST, SFT93IDCU, SFT93ESPE);
+

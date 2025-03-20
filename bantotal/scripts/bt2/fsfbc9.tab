@@ -1,0 +1,17 @@
+create table FSFBC9
+(
+  xc201emp  NUMBER(3) not null,
+  xc201ecid NUMBER(3) not null,
+  xc203tcid NUMBER(3) not null,
+  xc204fch  DATE not null,
+  xc204nro  NUMBER(10) not null,
+  xc201ecno CHAR(35),
+  xc203tcds CHAR(35),
+  xc202caid CHAR(5),
+  sfbc9est  CHAR(1)
+)
+;
+create index FSFBC904 on FSFBC9 (XC201EMP, XC201ECID, XC203TCID, XC204NRO, XC204FCH);
+alter table FSFBC9
+  add primary key (XC201EMP, XC201ECID, XC203TCID, XC204FCH, XC204NRO);
+

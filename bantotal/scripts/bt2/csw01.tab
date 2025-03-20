@@ -1,0 +1,28 @@
+create table CSW01
+(
+  csw01pg  NUMBER(3) not null,
+  csw01usr CHAR(10) not null,
+  csw01fch DATE not null,
+  csw01hra CHAR(10) not null,
+  csw01pai NUMBER(3) not null,
+  csw01tdc NUMBER(2) not null,
+  csw01ndc CHAR(25) not null,
+  csw01mod NUMBER(3) not null,
+  csw01top NUMBER(2) not null,
+  csw01mda NUMBER(4) not null,
+  csw01as  CHAR(30),
+  csw01av  CHAR(1),
+  csw01ejc NUMBER(3),
+  csw01fav DATE,
+  csw01fua DATE,
+  csw01rep NUMBER(4),
+  csw01tpo CHAR(1),
+  csw01cta NUMBER(9),
+  csw01det VARCHAR2(250),
+  csw01est CHAR(20),
+  csw01com VARCHAR2(250)
+)
+;
+alter table CSW01
+  add primary key (CSW01PG, CSW01USR, CSW01FCH, CSW01HRA, CSW01PAI, CSW01TDC, CSW01NDC, CSW01MOD, CSW01TOP, CSW01MDA);
+

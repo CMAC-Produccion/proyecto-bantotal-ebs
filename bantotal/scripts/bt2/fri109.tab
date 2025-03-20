@@ -1,0 +1,50 @@
+create table FRI109
+(
+  ri109cod   NUMBER(3) not null,
+  ri109suc   NUMBER(3) not null,
+  ri109mod   NUMBER(3) not null,
+  ri109rub   NUMBER(16) not null,
+  ri109mda   NUMBER(4) not null,
+  ri109pap   NUMBER(4) not null,
+  ri109cta   NUMBER(9) not null,
+  ri109ope   NUMBER(9) not null,
+  ri109sbop  NUMBER(3) not null,
+  ri109tope  NUMBER(3) not null,
+  ri109fec   DATE not null,
+  ri109arb   NUMBER(14,8),
+  ri109impmo NUMBER(17,2),
+  ri109ncomo NUMBER(17,2),
+  ri109elimo NUMBER(17,2),
+  ri109usamo NUMBER(17,2),
+  ri109sdomo NUMBER(17,2),
+  ri109tgar  CHAR(2),
+  ri109pior  NUMBER(4),
+  ri109aliq  CHAR(20),
+  ri109subt1 CHAR(20),
+  ri109subt2 CHAR(20),
+  ri109subt3 CHAR(20),
+  ri109escom CHAR(1),
+  ri109id    NUMBER(10),
+  ri109aux1  NUMBER(17,2),
+  ri109aux2  NUMBER(17,2),
+  ri109aux3  NUMBER(17,2),
+  ri109aux4  NUMBER(10),
+  ri109aux5  NUMBER(10),
+  ri109aux6  NUMBER(10),
+  ri109aux7  DATE,
+  ri109aux8  DATE,
+  ri109aux9  DATE,
+  ri109aux10 CHAR(30),
+  ri109aux11 CHAR(30),
+  ri109aux12 CHAR(30),
+  ri109esven CHAR(1)
+)
+;
+create index FRI10902 on FRI109 (RI109COD, RI109SUC, RI109MOD, RI109MDA, RI109PAP, RI109CTA, RI109OPE, RI109SBOP, RI109TOPE, RI109FEC);
+create index FRI10903 on FRI109 (RI109COD, RI109FEC, RI109CTA, RI109PIOR);
+create index FRI10904 on FRI109 (RI109COD, RI109CTA, RI109FEC, RI109PIOR);
+create index FRI10905 on FRI109 (RI109COD, RI109FEC, RI109ESCOM, RI109CTA);
+create index FRI10906 on FRI109 (RI109COD, RI109FEC, RI109ALIQ, RI109CTA);
+alter table FRI109
+  add primary key (RI109COD, RI109SUC, RI109MOD, RI109RUB, RI109MDA, RI109PAP, RI109CTA, RI109OPE, RI109SBOP, RI109TOPE, RI109FEC);
+

@@ -1,0 +1,22 @@
+create table FSFL16
+(
+  fsfl16emp NUMBER(3) not null,
+  fsfl16cod NUMBER(3) not null,
+  fsfl16fig DATE not null,
+  fsfl16hig CHAR(8) not null,
+  fsfl16phs NUMBER(5),
+  fsfl16pde NUMBER(5),
+  fsfl16pnd NUMBER(17,2),
+  fsfl16rok CHAR(1),
+  fsfl16tip CHAR(1),
+  fsfl16uig CHAR(10),
+  fsfl16wig CHAR(10),
+  fsfl16fcf DATE,
+  fsfl16hcf CHAR(8),
+  fsfl16ucf CHAR(10),
+  fsfl16wcf CHAR(10)
+)
+;
+alter table FSFL16
+  add primary key (FSFL16EMP, FSFL16COD, FSFL16FIG, FSFL16HIG);
+

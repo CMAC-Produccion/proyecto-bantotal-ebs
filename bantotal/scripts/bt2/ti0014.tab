@@ -1,0 +1,13 @@
+create table TI0014
+(
+  tiimpucod NUMBER(3) not null,
+  tipais    NUMBER(3) not null,
+  titdoc    NUMBER(2) not null,
+  tindoc    CHAR(12) not null,
+  tisuc     NUMBER(3) not null,
+  ticai     NUMBER(3)
+)
+;
+alter table TI0014
+  add primary key (TIIMPUCOD, TIPAIS, TITDOC, TINDOC, TISUC);
+

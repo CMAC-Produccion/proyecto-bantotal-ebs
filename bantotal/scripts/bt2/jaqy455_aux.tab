@@ -1,0 +1,39 @@
+create table JAQY455_AUX
+(
+  bc604emp            NUMBER(3) not null,
+  bc604mod            NUMBER(3) not null,
+  bc604suc            NUMBER(3) not null,
+  bc604trn            NUMBER(3) not null,
+  bc604nrel           NUMBER(4) not null,
+  bc604fch            DATE not null,
+  bc604hor            CHAR(8),
+  bc604ord            NUMBER(2) not null,
+  pgcod               NUMBER(3) not null,
+  hfcon               DATE not null,
+  hcmod               NUMBER(3) not null,
+  hsucor              NUMBER(3) not null,
+  htran               NUMBER(3) not null,
+  hnrel               NUMBER(4) not null,
+  nomoperacion        CHAR(30),
+  nrotransaccion      VARCHAR2(13),
+  modulooperacion     NUMBER(3) not null,
+  mdaoperacion        NUMBER(4),
+  agenciaoperacion    CHAR(30),
+  mdatransaccion      VARCHAR2(3),
+  monto               NUMBER(17,2),
+  origendefondos      CHAR(70),
+  fecha               DATE not null,
+  operador            CHAR(10),
+  pais                NUMBER,
+  tipodoc             NUMBER,
+  numdoc              CHAR(12),
+  nrodnitramitante    CHAR(12),
+  tdocumento          CHAR(20),
+  tramitante          CHAR(30),
+  tramitantenocliente VARCHAR2(140),
+  ubuser              VARCHAR2(10)
+)
+;
+create index IDX_JAQY455_AUX_01 on JAQY455_AUX (UBUSER);
+create index IDX_JAQY455_AUX_02 on JAQY455_AUX (UBUSER, OPERADOR, BC604FCH, FECHA, HFCON, HNREL, BC604NREL, TRAMITANTENOCLIENTE, BC604HOR, NROTRANSACCION, TRAMITANTE, NRODNITRAMITANTE, NUMDOC, MONTO, ORIGENDEFONDOS);
+

@@ -1,0 +1,142 @@
+create table JAQM9D
+(
+  jaqm9demp NUMBER(3) not null,
+  jaqm9dmoc NUMBER(3) not null,
+  jaqm9dsuc NUMBER(3) not null,
+  jaqm9dmda NUMBER(4) not null,
+  jaqm9dpap NUMBER(4) not null,
+  jaqm9dcta NUMBER(9) not null,
+  jaqm9dope NUMBER(9) not null,
+  jaqm9dsbo NUMBER(3) not null,
+  jaqm9dtop NUMBER(3) not null,
+  jaqm9dfec DATE not null,
+  jaqm9dhor CHAR(8) not null,
+  jaqm9dusu CHAR(10) not null,
+  jaqm9dmot NUMBER(17,2),
+  jaqm9ddob VARCHAR2(255),
+  jaqm9dfpa VARCHAR2(255),
+  jaqm9dfcb DATE,
+  jaqm9dfcn DATE,
+  jaqm9dtit CHAR(150),
+  jaqm9dusr CHAR(10),
+  jaqm9dcan CHAR(1),
+  jaqm9dmnt NUMBER(17,2),
+  jaqm9dwrk CHAR(40),
+  jaqm9dfca DATE,
+  jaqm9dsua NUMBER(4),
+  jaqm9dmod NUMBER(3),
+  jaqm9dtrn NUMBER(4),
+  jaqm9drel NUMBER(4),
+  jaqm9dest CHAR(20),
+  jaqm9derd VARCHAR2(255),
+  jaqm9dan1 NUMBER(9),
+  jaqm9dan2 NUMBER(9),
+  jaqm9dan3 NUMBER(9),
+  jaqm9dfe1 DATE,
+  jaqm9dfe2 DATE,
+  jaqm9dfe3 DATE,
+  jaqm9dai1 NUMBER(17,2),
+  jaqm9dai2 NUMBER(17,2),
+  jaqm9dai3 NUMBER(17,2),
+  jaqm9dac1 CHAR(250),
+  jaqm9dac2 CHAR(250),
+  jaqm9dac3 CHAR(250),
+  jaqm9dav1 VARCHAR2(250),
+  jaqm9dav2 VARCHAR2(250),
+  jaqm9dav3 VARCHAR2(250)
+)
+;
+comment on table JAQM9D
+  is 'TABLA REGISTRO PROCESOS PAGOS MASIVOS';
+comment on column JAQM9D.jaqm9demp
+  is 'EMPRES';
+comment on column JAQM9D.jaqm9dmoc
+  is 'MODULO';
+comment on column JAQM9D.jaqm9dsuc
+  is 'SUCURSAL';
+comment on column JAQM9D.jaqm9dmda
+  is 'MONEDA';
+comment on column JAQM9D.jaqm9dpap
+  is 'PAPEL';
+comment on column JAQM9D.jaqm9dcta
+  is 'CUENTA';
+comment on column JAQM9D.jaqm9dope
+  is 'OPERACION';
+comment on column JAQM9D.jaqm9dsbo
+  is 'SUBOPERACION';
+comment on column JAQM9D.jaqm9dtop
+  is 'TIPO OPERACION';
+comment on column JAQM9D.jaqm9dfec
+  is 'FECHA CARGA';
+comment on column JAQM9D.jaqm9dhor
+  is 'HORA';
+comment on column JAQM9D.jaqm9dusu
+  is 'USUARIO';
+comment on column JAQM9D.jaqm9dmot
+  is 'MONTO DIFERENCIA';
+comment on column JAQM9D.jaqm9ddob
+  is 'DOB';
+comment on column JAQM9D.jaqm9dfpa
+  is 'DESCRIPCION PROCESO';
+comment on column JAQM9D.jaqm9dfcb
+  is 'FECHA PROCESO';
+comment on column JAQM9D.jaqm9dfcn
+  is 'FECHA VALOR CONTABLE';
+comment on column JAQM9D.jaqm9dtit
+  is 'TITULO';
+comment on column JAQM9D.jaqm9dusr
+  is 'USUARIO';
+comment on column JAQM9D.jaqm9dcan
+  is 'DIFERENCIA CANTIDAD';
+comment on column JAQM9D.jaqm9dmnt
+  is 'MONTO PAGADO';
+comment on column JAQM9D.jaqm9dwrk
+  is 'CODIGO';
+comment on column JAQM9D.jaqm9dfca
+  is 'FECHA SISTEMA';
+comment on column JAQM9D.jaqm9dsua
+  is 'SUCURSAL USUARIO';
+comment on column JAQM9D.jaqm9dmod
+  is 'MODULO DE TRANSACCION';
+comment on column JAQM9D.jaqm9dtrn
+  is 'TRANSACCION';
+comment on column JAQM9D.jaqm9drel
+  is 'RELACION';
+comment on column JAQM9D.jaqm9dest
+  is 'ESTADO';
+comment on column JAQM9D.jaqm9derd
+  is 'DESCRIPCION RESULTADO';
+comment on column JAQM9D.jaqm9dan1
+  is 'AUXILIAR NUMERO 1';
+comment on column JAQM9D.jaqm9dan2
+  is 'AUXILIAR NUMERO 2';
+comment on column JAQM9D.jaqm9dan3
+  is 'AUXILIAR NUMERO 3';
+comment on column JAQM9D.jaqm9dfe1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM9D.jaqm9dfe2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM9D.jaqm9dfe3
+  is 'AUXILIAR FECHA 3';
+comment on column JAQM9D.jaqm9dai1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM9D.jaqm9dai2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM9D.jaqm9dai3
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM9D.jaqm9dac1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM9D.jaqm9dac2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM9D.jaqm9dac3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM9D.jaqm9dav1
+  is 'AUXILIAR VARCHAR 1';
+comment on column JAQM9D.jaqm9dav2
+  is 'AUXILIAR VARCHAR 2';
+comment on column JAQM9D.jaqm9dav3
+  is 'AUXILIAR VARCHAR 3';
+create index JAQM9DA2 on JAQM9D (JAQM9DFEC, JAQM9DCAN);
+alter table JAQM9D
+  add primary key (JAQM9DEMP, JAQM9DMOC, JAQM9DSUC, JAQM9DMDA, JAQM9DPAP, JAQM9DCTA, JAQM9DOPE, JAQM9DSBO, JAQM9DTOP, JAQM9DFEC, JAQM9DHOR, JAQM9DUSU);
+

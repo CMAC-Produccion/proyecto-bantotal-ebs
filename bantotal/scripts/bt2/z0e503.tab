@@ -1,0 +1,15 @@
+create table Z0E503
+(
+  z0e503top NUMBER(3) not null,
+  z0e503tct CHAR(2),
+  z0e503umd CHAR(10),
+  z0e503aut CHAR(10),
+  z0e503fin DATE,
+  z0e503fau DATE,
+  z0e503est CHAR(2)
+)
+;
+create index Z0E50302 on Z0E503 (Z0E503TCT);
+alter table Z0E503
+  add primary key (Z0E503TOP);
+

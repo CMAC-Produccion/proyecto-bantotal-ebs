@@ -1,0 +1,34 @@
+create table JAQL506
+(
+  jaql506coent NUMBER(3) not null,
+  jaql506cotse NUMBER(3) not null,
+  jaql506nrcon VARCHAR2(20) not null,
+  jaql506pefac CHAR(8) not null,
+  jaql506fadoc VARCHAR2(36) not null,
+  jaql506nrdoc VARCHAR2(30),
+  jaql506clien VARCHAR2(150),
+  jaql506comon NUMBER(3),
+  jaql506mocob NUMBER(11,2),
+  jaql506fefac DATE,
+  jaql506feven DATE,
+  jaql506esreg CHAR(1),
+  jaql506fepro DATE,
+  jaql506text1 VARCHAR2(1000),
+  jaql506hopro VARCHAR2(8),
+  jaql506auxc3 VARCHAR2(100),
+  jaql506auxn1 NUMBER(17,2),
+  jaql506auxn2 NUMBER(17,2),
+  jaql506auxn3 NUMBER(17,2),
+  jaql506auxd1 DATE,
+  jaql506auxd2 DATE,
+  jaql506auxd3 DATE,
+  jaql506auxn4 NUMBER(18,2),
+  jaql506auxn5 NUMBER(18,2),
+  jaql506tipdo CHAR(3)
+)
+;
+create index JAQL50602 on JAQL506 (JAQL506CLIEN);
+create index JAQL50603 on JAQL506 (JAQL506FEPRO);
+alter table JAQL506
+  add primary key (JAQL506COENT, JAQL506COTSE, JAQL506NRCON, JAQL506PEFAC, JAQL506FADOC);
+

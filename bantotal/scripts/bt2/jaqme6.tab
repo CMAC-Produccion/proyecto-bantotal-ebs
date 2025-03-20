@@ -1,0 +1,66 @@
+create table JAQME6
+(
+  jaqme6regi VARCHAR2(30) not null,
+  jaqme6cacl NUMBER(10),
+  jaqme6msbs NUMBER(17,2),
+  jaqme6fein DATE,
+  jaqme6num1 NUMBER(10),
+  jaqme6num2 NUMBER(10),
+  jaqme6imp1 NUMBER(17,2),
+  jaqme6imp2 NUMBER(17,2),
+  jaqme6var1 VARCHAR2(255),
+  jaqme6var2 VARCHAR2(255),
+  jaqme6fec1 DATE,
+  jaqme6fec2 DATE,
+  jaqme6fec3 DATE,
+  jaqme6var3 VARCHAR2(255),
+  jaqme6imp3 NUMBER(17,2),
+  jaqme6num3 NUMBER(10),
+  jaqme6ccma NUMBER(10),
+  jaqme6mmma NUMBER(17,2),
+  jaqme6pmma NUMBER(17,2)
+)
+;
+comment on table JAQME6
+  is 'Mora SBS - Region';
+comment on column JAQME6.jaqme6regi
+  is 'REGION';
+comment on column JAQME6.jaqme6cacl
+  is 'CANTIDAD DE CLIENTES';
+comment on column JAQME6.jaqme6msbs
+  is 'MORA SBS ACTUAL';
+comment on column JAQME6.jaqme6fein
+  is 'FECHA DE INGRESO';
+comment on column JAQME6.jaqme6num1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQME6.jaqme6num2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQME6.jaqme6imp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQME6.jaqme6imp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQME6.jaqme6var1
+  is 'AUXILIAR VARCHAR 1';
+comment on column JAQME6.jaqme6var2
+  is 'AUXILIAR VARCHAR 2';
+comment on column JAQME6.jaqme6fec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQME6.jaqme6fec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQME6.jaqme6fec3
+  is 'AUXILIAR FECHA 3';
+comment on column JAQME6.jaqme6var3
+  is 'AUXILIAR VARCHAR 3';
+comment on column JAQME6.jaqme6imp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQME6.jaqme6num3
+  is 'AUXILIAR NUMERICO 3';
+comment on column JAQME6.jaqme6ccma
+  is 'CANTIDAD DE CLIENTES MES ANTERIOR';
+comment on column JAQME6.jaqme6mmma
+  is 'MONTO MORA MES ANTERIOR';
+comment on column JAQME6.jaqme6pmma
+  is 'PORCENTAJE MORA MES ANTERIOR';
+alter table JAQME6
+  add primary key (JAQME6REGI);
+

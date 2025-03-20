@@ -1,0 +1,26 @@
+create table CCCE01
+(
+  ccce01fch  CHAR(6) not null,
+  ccce01hra  NUMBER(4) not null,
+  ccce01idr  NUMBER(2) not null,
+  ccce01tcon NUMBER(15) not null,
+  ccce01tdoc NUMBER(15) not null,
+  ccce01treg NUMBER(1),
+  ccce01bcod NUMBER(3),
+  ccce01bcog NUMBER(3),
+  ccce01sucg NUMBER(3),
+  ccce01cpos NUMBER(4),
+  ccce01cta  NUMBER(11),
+  ccce01imp  NUMBER(10),
+  ccce01fcom NUMBER(8),
+  ccce01pint NUMBER(4),
+  ccce01t_et CHAR(1),
+  ccce01img  CHAR(61),
+  ccce01frcl NUMBER(6),
+  ccce01fchq NUMBER(6),
+  ccce01est  NUMBER(3)
+)
+;
+alter table CCCE01
+  add primary key (CCCE01FCH, CCCE01HRA, CCCE01IDR, CCCE01TCON, CCCE01TDOC);
+

@@ -1,0 +1,12 @@
+create table WFUSRVFLD
+(
+  wfusrcod        CHAR(30) not null,
+  wfusrvfldapp    CHAR(20) not null,
+  wfusrvfldname   CHAR(30) not null,
+  wfusrvfldfilter VARCHAR2(999)
+)
+;
+create index IWFUSRVFLD1 on WFUSRVFLD (WFUSRVFLDAPP);
+alter table WFUSRVFLD
+  add primary key (WFUSRCOD, WFUSRVFLDAPP, WFUSRVFLDNAME);
+

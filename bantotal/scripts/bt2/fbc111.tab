@@ -1,0 +1,33 @@
+create table FBC111
+(
+  bc111emp  NUMBER(3) not null,
+  bc111suc  NUMBER(3) not null,
+  bc111rub  NUMBER(16) not null,
+  bc111mda  NUMBER(4) not null,
+  bc111pap  NUMBER(4) not null,
+  bc111cta  NUMBER(9) not null,
+  bc111oper NUMBER(9) not null,
+  bc111sbop NUMBER(3) not null,
+  bc111tope NUMBER(3) not null,
+  bc111mod  NUMBER(3),
+  bc111fcon DATE,
+  bc111fval DATE,
+  bc111fvto DATE,
+  bc111fulm DATE,
+  bc111pzo  NUMBER(5),
+  bc111sdo  NUMBER(17,2),
+  bc111sdoh NUMBER(17,2),
+  bc111segm NUMBER(2),
+  bc111func NUMBER(2),
+  bc111stat NUMBER(2),
+  bc111ccc  NUMBER(3),
+  bc111tit  NUMBER(2),
+  bc111cap  NUMBER(1),
+  bc111plzo NUMBER(1),
+  bc111gru  NUMBER(2)
+)
+;
+create index FBC11102 on FBC111 (BC111EMP, BC111CTA, BC111RUB, BC111MDA, BC111PAP, BC111OPER, BC111SBOP);
+alter table FBC111
+  add primary key (BC111EMP, BC111SUC, BC111RUB, BC111MDA, BC111PAP, BC111CTA, BC111OPER, BC111SBOP, BC111TOPE);
+

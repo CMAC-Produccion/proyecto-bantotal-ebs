@@ -1,0 +1,20 @@
+create table X054011
+(
+  pgcod      NUMBER(3) not null,
+  xpremod    NUMBER(3) not null,
+  xpretope   NUMBER(3) not null,
+  xpremoneda NUMBER(4) not null,
+  xprepapel  NUMBER(4) not null,
+  sgcod      NUMBER(9) not null,
+  xsgmodif   CHAR(1),
+  xsgendo    CHAR(1),
+  xsgaux1    CHAR(1),
+  xsgaux2    CHAR(25),
+  xsgaux3    DATE,
+  xsgaux4    NUMBER(17,2)
+)
+;
+create index X0540112 on X054011 (SGCOD);
+alter table X054011
+  add primary key (PGCOD, XPREMOD, XPRETOPE, XPREMONEDA, XPREPAPEL, SGCOD);
+

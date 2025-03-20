@@ -1,0 +1,144 @@
+create table JAQL006
+(
+  jaql6fetra DATE not null,
+  jaql6hotra CHAR(8) not null,
+  jaql6seint NUMBER(12) not null,
+  jaql6nutar CHAR(19),
+  jaql6comen CHAR(4),
+  jaql6seiso CHAR(12),
+  jaql6cotra CHAR(6),
+  jaql6fehot CHAR(10),
+  jaql6feneg DATE,
+  jaql6honeg CHAR(8),
+  jaql6inadq CHAR(11),
+  jaql6inemi CHAR(11),
+  jaql3cored NUMBER(10),
+  jaql9nuele NUMBER(12),
+  jaql6cisoc CHAR(15),
+  jaql6cisot CHAR(8),
+  jaql6comot NUMBER(3),
+  jaql6comtb NUMBER(3),
+  jaql6imptr NUMBER(17,2),
+  jaql6cod01 NUMBER(3),
+  jaql6mod01 NUMBER(3),
+  jaql6suc01 NUMBER(3),
+  jaql6mda01 NUMBER(4),
+  jaql6pap01 NUMBER(4),
+  jaql6cta01 NUMBER(9),
+  jaql6ope01 NUMBER(9),
+  jaql6sbo01 NUMBER(3),
+  jaql6top01 NUMBER(3),
+  jaql6imp01 NUMBER(17,2),
+  jaql6sal01 NUMBER(17,2),
+  jaql6ord01 NUMBER(3),
+  jaql6sub01 NUMBER(3),
+  jaql6cod02 NUMBER(3),
+  jaql6mod02 NUMBER(3),
+  jaql6suc02 NUMBER(3),
+  jaql6mda02 NUMBER(4),
+  jaql6pap02 NUMBER(4),
+  jaql6cta02 NUMBER(9),
+  jaql6ope02 NUMBER(9),
+  jaql6sbo02 NUMBER(3),
+  jaql6top02 NUMBER(3),
+  jaql6imp02 NUMBER(17,2),
+  jaql6sal02 NUMBER(17,2),
+  jaql6ord02 NUMBER(3),
+  jaql6sub02 NUMBER(3),
+  jaql6ctcod NUMBER(3),
+  jaql6ctmod NUMBER(3),
+  jaql6ctsuc NUMBER(3),
+  jaql6cttra NUMBER(3),
+  jaql6ctrel NUMBER(4),
+  jaql6ctfco DATE,
+  jaql6ctcrr NUMBER(5),
+  jaql6ctres NUMBER(5),
+  jaql6secan NUMBER(3),
+  jaql6seope NUMBER(5),
+  jaql6sevar NUMBER(3),
+  jaql6sefec DATE,
+  jaql6sehor CHAR(8),
+  jaql6secre NUMBER(10),
+  jaql6secrs CHAR(5),
+  jaql6morec NUMBER(17,2),
+  jaql6comoc NUMBER(3),
+  jaql6comcb NUMBER(3),
+  jaql6gineg CHAR(4),
+  jaql6adic1 CHAR(30),
+  jaql6adic2 CHAR(30),
+  jaql6adic3 CHAR(30),
+  jaql6feimp DATE,
+  jaql6coaut CHAR(6),
+  jaql6estad CHAR(1),
+  jaql6ctcor NUMBER(3),
+  jaql6ctmor NUMBER(3),
+  jaql6ctsur NUMBER(3),
+  jaql6cttrr NUMBER(3),
+  jaql6ctrer NUMBER(4),
+  jaql6ctfcr DATE,
+  jaql6coapl NUMBER(4),
+  jaql6aux1  CHAR(50),
+  jaql6aux2  CHAR(50),
+  jaql6aux3  CHAR(50),
+  jaql6aux4  CHAR(30),
+  jaql6aux5  CHAR(30),
+  jaql6aux6  CHAR(30),
+  jaql6aux7  CHAR(1),
+  jaql6aux8  CHAR(1),
+  jaql6aux9  CHAR(1),
+  jaql6aux10 NUMBER(17,2),
+  jaql6aux11 NUMBER(17,2),
+  jaql6aux12 NUMBER(17,2),
+  jaql6aux13 NUMBER(9),
+  jaql6aux14 NUMBER(9),
+  jaql6aux15 NUMBER(9),
+  jaql6aux16 DATE,
+  jaql6aux17 DATE,
+  jaql6aux18 DATE
+)
+partition by range (JAQL6FETRA)
+(
+  partition JAQL006_202411 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202412 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202501 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202502 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202503 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202504 values less than (TO_DATE(' 2025-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202505 values less than (TO_DATE(' 2025-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202506 values less than (TO_DATE(' 2025-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202507 values less than (TO_DATE(' 2025-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202508 values less than (TO_DATE(' 2025-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202509 values less than (TO_DATE(' 2025-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202510 values less than (TO_DATE(' 2025-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202511 values less than (TO_DATE(' 2025-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL006_202512 values less than (TO_DATE(' 2026-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC
+);
+create unique index JAQL0061N on JAQL006 (JAQL6FETRA, JAQL6HOTRA, JAQL6SEINT)
+  nologging  local;
+create index JAQL0062N on JAQL006 (JAQL3CORED, JAQL9NUELE)
+  nologging  local;
+create index JAQL0063N on JAQL006 (JAQL6COMEN, JAQL6SEISO, JAQL6FENEG, JAQL6HONEG, JAQL3CORED, JAQL6INADQ, JAQL6INEMI)
+  nologging  local;
+create index JAQL0064N on JAQL006 (JAQL6CTCOD, JAQL6CTMOD, JAQL6CTSUC, JAQL6CTTRA, JAQL6CTREL, JAQL6CTFCO)
+  nologging  local;
+create index JAQL0065N on JAQL006 (JAQL6COMEN, JAQL6SEISO, JAQL6FEHOT, JAQL3CORED, JAQL6INADQ, JAQL6INEMI)
+  nologging  local;
+create index JAQL0066N on JAQL006 (JAQL6FETRA, JAQL6CTFCO, JAQL6CTTRA, JAQL6CTREL)
+  nologging  local;
+alter table JAQL006
+  add primary key (JAQL6FETRA, JAQL6HOTRA, JAQL6SEINT);
+

@@ -1,0 +1,27 @@
+create table AQPA727A
+(
+  aqpa727aclave  CHAR(12) not null,
+  aqpa727afecha  DATE,
+  aqpa727afecreg DATE,
+  aqpa727ahorreg VARCHAR2(10),
+  aqpa727asesion VARCHAR2(1000),
+  aqpa727amsjres VARCHAR2(200)
+)
+;
+comment on table AQPA727A
+  is 'citas virtuales - clave de sesion';
+comment on column AQPA727A.aqpa727aclave
+  is 'Clave de la sesion';
+comment on column AQPA727A.aqpa727afecha
+  is 'Fecha de la sesion';
+comment on column AQPA727A.aqpa727afecreg
+  is 'Fecha de registro';
+comment on column AQPA727A.aqpa727ahorreg
+  is 'Hora de registro';
+comment on column AQPA727A.aqpa727asesion
+  is 'Valor de la sesion';
+comment on column AQPA727A.aqpa727amsjres
+  is 'Mensaje resultado';
+alter table AQPA727A
+  add primary key (AQPA727ACLAVE);
+

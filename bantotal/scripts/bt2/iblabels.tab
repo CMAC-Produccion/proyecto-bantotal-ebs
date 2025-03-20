@@ -1,0 +1,20 @@
+create table IBLABELS
+(
+  ibproject  CHAR(60) not null,
+  ibprocess  CHAR(60) not null,
+  ibtask     CHAR(60) not null,
+  iblabelid  VARCHAR2(20) not null,
+  iblabelvis CHAR(1) not null,
+  iblabelsav CHAR(1) not null,
+  iblabelcod NUMBER(9) not null,
+  iblabelttc NUMBER(9) not null,
+  iblabelgrp VARCHAR2(60),
+  iblabelwfe CHAR(5) not null,
+  iblabelwfp NUMBER(4) not null,
+  iblabelwfn NUMBER(10) not null,
+  iblabelwfi NUMBER(10) not null
+)
+;
+create unique index IBLABELS01 on IBLABELS (IBPROJECT, IBPROCESS, IBTASK, IBLABELID);
+create index IBLABELS02 on IBLABELS (IBPROJECT, IBPROCESS, IBTASK);
+

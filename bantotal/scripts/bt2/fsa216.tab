@@ -1,0 +1,48 @@
+create table FSA216
+(
+  sa216pgm   CHAR(10) not null,
+  sa216usu   CHAR(10) not null,
+  sa216emp   NUMBER(3) not null,
+  sa216sucor NUMBER(3) not null,
+  sa216mod   NUMBER(3) not null,
+  sa216trn   NUMBER(3) not null,
+  sa216nrel  NUMBER(4) not null,
+  sa216fcon  DATE not null,
+  sa216ord   NUMBER(2) not null,
+  sa216subo  NUMBER(3) not null,
+  sa216id1   NUMBER(16) not null,
+  sa216id2   NUMBER(16) not null,
+  sa216id3   NUMBER(16) not null,
+  sa216modul NUMBER(3),
+  sa216suc   NUMBER(3),
+  sa216rub   NUMBER(16),
+  sa216mda   NUMBER(4),
+  sa216pap   NUMBER(4),
+  sa216cta   NUMBER(9),
+  sa216ope   NUMBER(9),
+  sa216sbo   NUMBER(3),
+  sa216top   NUMBER(3),
+  sa216fvco  DATE,
+  sa216nro1  NUMBER(9),
+  sa216nro2  NUMBER(9),
+  sa216nro3  NUMBER(9),
+  sa216imp1  NUMBER(17,2),
+  sa216imp2  NUMBER(17,2),
+  sa216imp3  NUMBER(17,2),
+  sa216fch1  DATE,
+  sa216fch2  DATE,
+  sa216fch3  DATE,
+  sa216chr1  CHAR(10),
+  sa216chr2  CHAR(10),
+  sa216chr3  CHAR(10)
+)
+;
+create index FSA21602 on FSA216 (SA216PGM, SA216USU, SA216EMP, SA216SUC, SA216RUB, SA216MDA, SA216PAP, SA216CTA, SA216OPE, SA216SBO, SA216TOP);
+create index FSA21603 on FSA216 (SA216PGM, SA216USU, SA216EMP, SA216SUC, SA216RUB, SA216FVCO);
+create index FSA21604 on FSA216 (SA216PGM, SA216USU, SA216EMP, SA216ID1, SA216ID2, SA216ID3, SA216FVCO);
+create index FSA21605 on FSA216 (SA216PGM, SA216USU, SA216EMP, SA216FVCO, SA216ID1, SA216ID2, SA216ID3);
+create index FSA21606 on FSA216 (SA216PGM, SA216USU, SA216EMP, SA216FVCO, SA216RUB, SA216ID1, SA216ID2, SA216ID3);
+create index FSA21607 on FSA216 (SA216PGM, SA216USU, SA216EMP, SA216RUB, SA216FVCO);
+alter table FSA216
+  add primary key (SA216PGM, SA216USU, SA216EMP, SA216SUCOR, SA216MOD, SA216TRN, SA216NREL, SA216FCON, SA216ORD, SA216SUBO, SA216ID1, SA216ID2, SA216ID3);
+

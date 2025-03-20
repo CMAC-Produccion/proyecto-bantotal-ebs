@@ -1,0 +1,11 @@
+create table FSF085
+(
+  lqgfecha  DATE not null,
+  lqgidesde NUMBER(17,2) not null,
+  lqgihasta NUMBER(17,2),
+  lqgtasa   NUMBER(10,6)
+)
+;
+alter table FSF085
+  add primary key (LQGFECHA, LQGIDESDE);
+

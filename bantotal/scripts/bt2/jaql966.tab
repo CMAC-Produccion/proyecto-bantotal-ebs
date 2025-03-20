@@ -1,0 +1,31 @@
+create table JAQL966
+(
+  jaql966fec DATE not null,
+  jaql966cod NUMBER(7) not null,
+  jaql966nom CHAR(30),
+  jaql966car NUMBER(3),
+  jaql966tip CHAR(1),
+  jaql966suc NUMBER(3) not null,
+  jaql966sts CHAR(1),
+  jaql966usr CHAR(10) not null
+)
+;
+comment on column JAQL966.jaql966fec
+  is 'Fecha ';
+comment on column JAQL966.jaql966cod
+  is 'Codigo Age';
+comment on column JAQL966.jaql966nom
+  is 'Nombre Usuario';
+comment on column JAQL966.jaql966car
+  is 'Cargo';
+comment on column JAQL966.jaql966tip
+  is 'Tipo';
+comment on column JAQL966.jaql966suc
+  is 'Codigo Sucursal';
+comment on column JAQL966.jaql966sts
+  is 'Estado';
+comment on column JAQL966.jaql966usr
+  is 'Codigo Usuario';
+alter table JAQL966
+  add constraint PK_JAQL966_01 primary key (JAQL966FEC, JAQL966USR, JAQL966SUC);
+

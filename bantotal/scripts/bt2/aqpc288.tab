@@ -1,0 +1,21 @@
+create table AQPC288
+(
+  aqpc288actcod4 VARCHAR2(5) not null,
+  aqpc288actcod3 NUMBER(12) not null,
+  aqpc288actcod2 NUMBER(12) not null,
+  aqpc288actnom2 VARCHAR2(250)
+)
+;
+comment on table AQPC288
+  is 'Actividad Economica - Grupo';
+comment on column AQPC288.aqpc288actcod4
+  is 'Actividad Codigo 4 - Seccion';
+comment on column AQPC288.aqpc288actcod3
+  is 'Actividad Codigo 3 - Division';
+comment on column AQPC288.aqpc288actcod2
+  is 'Actividad Codigo 2 - Grupo';
+comment on column AQPC288.aqpc288actnom2
+  is 'Actividad Nombre 2 - Grupo';
+alter table AQPC288
+  add primary key (AQPC288ACTCOD4, AQPC288ACTCOD3, AQPC288ACTCOD2);
+

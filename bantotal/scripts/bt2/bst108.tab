@@ -1,0 +1,12 @@
+create table BST108
+(
+  bsccdciu NUMBER(8) not null,
+  bscdsciu CHAR(50),
+  bsccddpt NUMBER(6)
+)
+;
+create index BST10802 on BST108 (BSCCDDPT);
+create index BST10803 on BST108 (BSCDSCIU);
+alter table BST108
+  add primary key (BSCCDCIU);
+

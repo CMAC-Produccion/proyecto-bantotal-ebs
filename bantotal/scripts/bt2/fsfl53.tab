@@ -1,0 +1,14 @@
+create table FSFL53
+(
+  sfl53prd NUMBER(3) not null,
+  sfl53mda NUMBER(4) not null,
+  sfl53fvt DATE not null,
+  sfl53hoy DATE not null,
+  sfl53tci NUMBER(14,8),
+  sfl53tac NUMBER(14,8),
+  sfl53tav NUMBER(14,8)
+)
+;
+alter table FSFL53
+  add primary key (SFL53PRD, SFL53MDA, SFL53FVT, SFL53HOY);
+

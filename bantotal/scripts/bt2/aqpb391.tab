@@ -1,0 +1,79 @@
+create table AQPB391
+(
+  aqpb391fec     DATE not null,
+  aqpb391pais    NUMBER(3) not null,
+  aqpb391tdoc    NUMBER(2) not null,
+  aqpb391ndoc    CHAR(12) not null,
+  aqpb391fecsis  DATE,
+  aqpb391mod     NUMBER(3),
+  aqpb391cta     NUMBER(9),
+  aqpb391oper    NUMBER(9),
+  aqpb391tope    NUMBER(3),
+  aqpb391aofval  DATE,
+  aqpb391stat    NUMBER(2),
+  aqpb391ori     NUMBER(2),
+  aqpb391estrab  VARCHAR2(1),
+  aqpb391eval    VARCHAR2(1),
+  aqpb391succred NUMBER(3),
+  aqpb391sucdes  NUMBER(3),
+  aqpb391ape1    VARCHAR2(30),
+  aqpb391ape2    VARCHAR2(30),
+  aqpb391nom1    VARCHAR2(30),
+  aqpb391nom2    VARCHAR2(30),
+  aqpb391razs    VARCHAR2(70),
+  aqpb391usr     VARCHAR2(10),
+  aqpb391fcr     VARCHAR2(10),
+  aqpb391hcr     VARCHAR2(10)
+)
+;
+comment on column AQPB391.aqpb391fec
+  is 'fecha';
+comment on column AQPB391.aqpb391pais
+  is 'pais';
+comment on column AQPB391.aqpb391tdoc
+  is 'tipo documento';
+comment on column AQPB391.aqpb391ndoc
+  is 'numero documento';
+comment on column AQPB391.aqpb391fecsis
+  is 'fecha sistema';
+comment on column AQPB391.aqpb391mod
+  is 'modulo del credito';
+comment on column AQPB391.aqpb391cta
+  is 'cuenta';
+comment on column AQPB391.aqpb391oper
+  is 'operacion';
+comment on column AQPB391.aqpb391tope
+  is 'tipo operacion';
+comment on column AQPB391.aqpb391aofval
+  is 'fecha desembolso fsd010';
+comment on column AQPB391.aqpb391stat
+  is 'estado fsd010';
+comment on column AQPB391.aqpb391ori
+  is 'ori sng001';
+comment on column AQPB391.aqpb391estrab
+  is 'flag es trabajador';
+comment on column AQPB391.aqpb391eval
+  is 'evaluacion procedimiento';
+comment on column AQPB391.aqpb391succred
+  is 'sucursal del credito';
+comment on column AQPB391.aqpb391sucdes
+  is 'sucursal del desembolos';
+comment on column AQPB391.aqpb391ape1
+  is '1er apellido cliente';
+comment on column AQPB391.aqpb391ape2
+  is '2do apellido cliente';
+comment on column AQPB391.aqpb391nom1
+  is '1er nombre cliente';
+comment on column AQPB391.aqpb391nom2
+  is '2do nombre cliente';
+comment on column AQPB391.aqpb391razs
+  is 'razon social';
+comment on column AQPB391.aqpb391usr
+  is 'usuario creacion';
+comment on column AQPB391.aqpb391fcr
+  is 'fecha creacion';
+comment on column AQPB391.aqpb391hcr
+  is 'hora creacion';
+alter table AQPB391
+  add primary key (AQPB391FEC, AQPB391PAIS, AQPB391TDOC, AQPB391NDOC);
+

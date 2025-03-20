@@ -1,0 +1,17 @@
+create table JAQL575
+(
+  jaql575corr  NUMBER(4) not null,
+  jalq572ruc   NUMBER(12) not null,
+  jaql575con   NUMBER(4),
+  jaql575man   NUMBER(4),
+  jaql575valor CHAR(50),
+  jaql575ncar  NUMBER(5),
+  jaql575fec   DATE,
+  jaql575maq   CHAR(20) not null,
+  jaql575usu   CHAR(30) not null
+)
+;
+create index JAQL575_01 on JAQL575 (JAQL575CORR);
+alter table JAQL575
+  add primary key (JAQL575USU, JAQL575MAQ, JAQL575CORR, JALQ572RUC);
+

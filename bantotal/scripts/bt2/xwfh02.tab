@@ -1,0 +1,13 @@
+create table XWFH02
+(
+  xwfh02wi NUMBER(10) not null,
+  xwfh02at CHAR(50) not null,
+  xwfh02wk CHAR(20),
+  xwfh02us CHAR(10),
+  xwfh02va CLOB,
+  xwfh02in NUMBER(10)
+)
+;
+alter table XWFH02
+  add primary key (XWFH02WI, XWFH02AT);
+

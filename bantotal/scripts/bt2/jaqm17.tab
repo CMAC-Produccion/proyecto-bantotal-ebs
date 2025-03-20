@@ -1,0 +1,57 @@
+create table JAQM17
+(
+  jaqm17ide VARCHAR2(30) not null,
+  jaqm17tip CHAR(3) not null,
+  jaqm17cor NUMBER(4) not null,
+  jaqm17des LONG,
+  jaqm17an1 NUMBER(9),
+  jaqm17an2 NUMBER(9),
+  jaqm17an3 NUMBER(9),
+  jaqm17ad1 DATE,
+  jaqm17ad2 DATE,
+  jaqm17ad3 DATE,
+  jaqm17ai1 NUMBER(17,2),
+  jaqm17ai2 NUMBER(17,2),
+  jaqm17ai3 NUMBER(17,2),
+  jaqm17ac1 CHAR(255),
+  jaqm17ac2 CHAR(255),
+  jaqm17ac3 CHAR(255)
+)
+;
+comment on table JAQM17
+  is 'Log Contratacion Digital';
+comment on column JAQM17.jaqm17ide
+  is 'Identificador';
+comment on column JAQM17.jaqm17tip
+  is 'Tipo Request: RQS Responde: RE';
+comment on column JAQM17.jaqm17cor
+  is 'Correlativo';
+comment on column JAQM17.jaqm17des
+  is 'Descripcion peticion y respuesta';
+comment on column JAQM17.jaqm17an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM17.jaqm17an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM17.jaqm17an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM17.jaqm17ad1
+  is 'Date Auxiliar 1';
+comment on column JAQM17.jaqm17ad2
+  is 'Date Auxiliar 2';
+comment on column JAQM17.jaqm17ad3
+  is 'Date Auxiliar 3';
+comment on column JAQM17.jaqm17ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM17.jaqm17ai2
+  is 'Importe Auxiiar 2';
+comment on column JAQM17.jaqm17ai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM17.jaqm17ac1
+  is 'Character Auxiliar 1';
+comment on column JAQM17.jaqm17ac2
+  is 'Character Auxiliar 2';
+comment on column JAQM17.jaqm17ac3
+  is 'Character Auxiliar 3';
+alter table JAQM17
+  add primary key (JAQM17IDE, JAQM17TIP, JAQM17COR);
+

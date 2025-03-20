@@ -1,0 +1,12 @@
+create table JAQL719
+(
+  jaql719acc3 NUMBER(12) not null,
+  jaql719frec NUMBER(1),
+  jaql719desc VARCHAR2(30)
+)
+;
+comment on table JAQL719
+  is 'Oferta Comercial - Frecuencia pago';
+alter table JAQL719
+  add constraint PK_JAQL719 primary key (JAQL719ACC3);
+

@@ -1,0 +1,31 @@
+create table SNG526
+(
+  sng501bien NUMBER(10) not null,
+  sng526cor  NUMBER(3) not null,
+  sng526be   NUMBER(9),
+  sng526emi  NUMBER(4),
+  sng526fv   DATE,
+  sng526fve  DATE,
+  sng526jd   CHAR(60),
+  sng526jpo  NUMBER(13,3),
+  sng526jq   NUMBER(4),
+  sng526nd   NUMBER(9),
+  sng526tipo CHAR(60),
+  sng526wfe  DATE,
+  sng526wfeb DATE,
+  sng526wfp  DATE,
+  sng526wfv  DATE,
+  sng526wnb  NUMBER(18),
+  sng526wnc  NUMBER(5),
+  sng526numa NUMBER(4),
+  sng526aval NUMBER(17,2),
+  sng526num  NUMBER(9),
+  sng526tit  NUMBER(10),
+  sng526vnom NUMBER(17,2),
+  sng526pj   NUMBER(7,3),
+  sng526jvg  NUMBER(17,2)
+)
+;
+alter table SNG526
+  add primary key (SNG501BIEN, SNG526COR);
+

@@ -1,0 +1,16 @@
+create table FSFF15
+(
+  kdopcod   NUMBER(3) not null,
+  kdoppre   NUMBER(6) not null,
+  kdopfec   DATE,
+  kdopdsc   CHAR(40),
+  kdopaai   NUMBER(4),
+  kdopmmi   NUMBER(2),
+  kdopaaf   NUMBER(4),
+  kdopmmf   NUMBER(2),
+  kdopremda NUMBER(4)
+)
+;
+alter table FSFF15
+  add primary key (KDOPCOD, KDOPPRE);
+

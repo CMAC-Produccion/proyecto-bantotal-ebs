@@ -1,0 +1,18 @@
+create table FSEC26
+(
+  sec01pgcod NUMBER(3) not null,
+  sec15lgid  CHAR(10) not null,
+  sec15lgfec DATE not null,
+  sec15lgnro NUMBER(9) not null,
+  sec25anio  NUMBER(4) not null,
+  sec25mes   NUMBER(2) not null,
+  sec25mda   NUMBER(4) not null,
+  sec25pap   NUMBER(4) not null,
+  sec26pzo   NUMBER(5) not null,
+  sec26capmr NUMBER(17,2),
+  sec26intmr NUMBER(17,2)
+)
+;
+alter table FSEC26
+  add primary key (SEC01PGCOD, SEC15LGID, SEC15LGFEC, SEC15LGNRO, SEC25ANIO, SEC25MES, SEC25MDA, SEC25PAP, SEC26PZO);
+

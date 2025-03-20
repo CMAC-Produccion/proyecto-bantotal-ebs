@@ -1,0 +1,15 @@
+create table CNL600
+(
+  cnl600ver CHAR(20) not null,
+  cnl600pch CHAR(50) not null,
+  cnl600flp TIMESTAMP(6),
+  cnl600fim TIMESTAMP(6),
+  cnl600xim CLOB,
+  cnl600fai TIMESTAMP(6),
+  cnl600fpp TIMESTAMP(6),
+  cnl600fun CHAR(60)
+)
+;
+alter table CNL600
+  add primary key (CNL600VER, CNL600PCH);
+

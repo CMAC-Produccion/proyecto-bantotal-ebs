@@ -1,0 +1,11 @@
+create table FSD740
+(
+  d740pgco NUMBER(3) not null,
+  d740catg NUMBER(5) not null,
+  d740titu CHAR(30),
+  d740hab  CHAR(1)
+)
+;
+alter table FSD740
+  add primary key (D740PGCO, D740CATG);
+

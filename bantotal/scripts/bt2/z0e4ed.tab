@@ -1,0 +1,25 @@
+create table Z0E4ED
+(
+  z0e4edapl NUMBER(4) not null,
+  z0e4edbnd CHAR(5) not null,
+  z0e4edcor NUMBER(9) not null,
+  z0e4edreg NUMBER(2),
+  z0e4eddat NUMBER(2),
+  z0e4edemp CHAR(12),
+  z0e4edfcr DATE,
+  z0e4edfi1 CHAR(6),
+  z0e4ednom CHAR(40),
+  z0e4edcci NUMBER(5),
+  z0e4edfi2 CHAR(15),
+  z0e4edbcr NUMBER(4),
+  z0e4edofr NUMBER(4),
+  z0e4edfi3 CHAR(66),
+  z0e4ednbc CHAR(40),
+  z0e4edfi4 CHAR(14),
+  z0e4edfi5 CHAR(12),
+  z0e4edest CHAR(2)
+)
+;
+alter table Z0E4ED
+  add primary key (Z0E4EDAPL, Z0E4EDBND, Z0E4EDCOR);
+

@@ -1,0 +1,17 @@
+create table FBC798
+(
+  bc798emp   NUMBER(3) not null,
+  bc798apl   NUMBER(4) not null,
+  bc798arch  CHAR(8) not null,
+  bc798fch   DATE not null,
+  bc798nreg  NUMBER(9) not null,
+  bc798treg  CHAR(3) not null,
+  bc798cpo   NUMBER(4) not null,
+  bc798chr   LONG,
+  bc798regrl NUMBER(9)
+)
+;
+create index FBC79802 on FBC798 (BC798EMP, BC798APL, BC798ARCH, BC798FCH, BC798REGRL, BC798TREG, BC798CPO);
+alter table FBC798
+  add primary key (BC798EMP, BC798APL, BC798ARCH, BC798FCH, BC798NREG, BC798TREG, BC798CPO);
+

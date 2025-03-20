@@ -1,0 +1,15 @@
+create table FSFF23
+(
+  kdohrub   NUMBER(16) not null,
+  kdohcc    NUMBER(3),
+  kdohgcod  NUMBER(2),
+  kdohg2cod NUMBER(2),
+  kdohrmet  NUMBER(2)
+)
+;
+create index FSFF2303 on FSFF23 (KDOHCC, KDOHGCOD, KDOHRUB);
+create index FSFF2304 on FSFF23 (KDOHCC, KDOHGCOD, KDOHG2COD);
+create index FSFF2305 on FSFF23 (KDOHRMET);
+alter table FSFF23
+  add primary key (KDOHRUB);
+

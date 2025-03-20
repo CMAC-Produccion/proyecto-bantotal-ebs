@@ -1,0 +1,22 @@
+create table FSR211
+(
+  dmcod   NUMBER(3) not null,
+  dmmod   NUMBER(3) not null,
+  dmsuc   NUMBER(3) not null,
+  dmmda   NUMBER(4) not null,
+  dmpap   NUMBER(4) not null,
+  dmcta   NUMBER(9) not null,
+  dmoper  NUMBER(9) not null,
+  dmsbop  NUMBER(3) not null,
+  dmtope  NUMBER(3) not null,
+  docod   NUMBER(2) not null,
+  doordo  NUMBER(2) not null,
+  dotelfo CHAR(30),
+  dotlexo CHAR(25),
+  dofaxo  CHAR(20),
+  domailo CHAR(50)
+)
+;
+alter table FSR211
+  add primary key (DMCOD, DMMOD, DMSUC, DMMDA, DMPAP, DMCTA, DMOPER, DMSBOP, DMTOPE, DOCOD, DOORDO);
+

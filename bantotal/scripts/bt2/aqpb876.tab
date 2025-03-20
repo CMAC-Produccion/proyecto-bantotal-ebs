@@ -1,0 +1,22 @@
+create table AQPB876
+(
+  aqpb876user VARCHAR2(128),
+  aqpb876feho DATE,
+  aqpb876proc VARCHAR2(500),
+  aqpb876para VARCHAR2(2000)
+)
+;
+comment on table AQPB876
+  is 'Log Ejecución de procesos de mesa de ayuda';
+comment on column AQPB876.aqpb876user
+  is 'Usuario ejecutor';
+comment on column AQPB876.aqpb876feho
+  is 'Fecha y hora de ejecución';
+comment on column AQPB876.aqpb876proc
+  is 'Procedimiento ejecutado';
+comment on column AQPB876.aqpb876para
+  is 'Parámetros de entrada';
+create index AQPB8761 on AQPB876 (AQPB876FEHO);
+create index AQPB8762 on AQPB876 (AQPB876PROC);
+create index AQPB8763 on AQPB876 (AQPB876USER);
+

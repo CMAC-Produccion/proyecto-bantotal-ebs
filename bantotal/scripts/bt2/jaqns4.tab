@@ -1,0 +1,105 @@
+create table JAQNS4
+(
+  jaqns4empr NUMBER(3) not null,
+  jaqns4sucu NUMBER(3) not null,
+  jaqns4mone NUMBER(4) not null,
+  jaqns4pape NUMBER(4) not null,
+  jaqns4cuen NUMBER(9) not null,
+  jaqns4oper NUMBER(9) not null,
+  jaqns4sbop NUMBER(3) not null,
+  jaqns4tope NUMBER(3) not null,
+  jaqns4modu NUMBER(3) not null,
+  jaqns4rcod NUMBER(3) not null,
+  jaqns4r2md NUMBER(3) not null,
+  jaqns4r2ct NUMBER(9) not null,
+  jaqns4r2op NUMBER(9) not null,
+  jaqns4r2sb NUMBER(3) not null,
+  jaqns4fech DATE not null,
+  jaqns4rubr NUMBER(16) not null,
+  jaqns4sdmn NUMBER(17,2),
+  jaqns4roid VARCHAR2(20),
+  jaqns4cgar VARCHAR2(30),
+  jaqns4tgar VARCHAR2(100),
+  jaqns4num1 NUMBER(10),
+  jaqns4num2 NUMBER(10),
+  jaqns4num3 NUMBER(10),
+  jaqns4imp1 NUMBER(17,2),
+  jaqns4imp2 NUMBER(17,2),
+  jaqns4imp3 NUMBER(17,2),
+  jaqns4var1 VARCHAR2(255),
+  jaqns4var2 VARCHAR2(255),
+  jaqns4var3 VARCHAR2(255),
+  jaqns4fec1 DATE,
+  jaqns4fec2 DATE,
+  jaqns4fec3 DATE
+)
+;
+comment on table JAQNS4
+  is 'Garantias del totalizado de la tabla de historicos para el dia anterior ';
+comment on column JAQNS4.jaqns4empr
+  is 'Empresa';
+comment on column JAQNS4.jaqns4sucu
+  is 'Sucursal';
+comment on column JAQNS4.jaqns4mone
+  is 'Moneda';
+comment on column JAQNS4.jaqns4pape
+  is 'Papel';
+comment on column JAQNS4.jaqns4cuen
+  is 'Cuenta';
+comment on column JAQNS4.jaqns4oper
+  is 'Operacion';
+comment on column JAQNS4.jaqns4sbop
+  is 'Suboperacion';
+comment on column JAQNS4.jaqns4tope
+  is 'Tipo de operacion';
+comment on column JAQNS4.jaqns4modu
+  is 'Modulo';
+comment on column JAQNS4.jaqns4rcod
+  is 'Codigo de relacion de operacion';
+comment on column JAQNS4.jaqns4r2md
+  is 'R2 modulo';
+comment on column JAQNS4.jaqns4r2ct
+  is 'R2 cuenta';
+comment on column JAQNS4.jaqns4r2op
+  is 'R2 operacion';
+comment on column JAQNS4.jaqns4r2sb
+  is 'R2 suboperacion';
+comment on column JAQNS4.jaqns4fech
+  is 'Fecha del dia';
+comment on column JAQNS4.jaqns4rubr
+  is 'Codigo contable';
+comment on column JAQNS4.jaqns4sdmn
+  is 'Saldo en M/N';
+comment on column JAQNS4.jaqns4roid
+  is 'Columna id';
+comment on column JAQNS4.jaqns4cgar
+  is 'Codigo de garantia';
+comment on column JAQNS4.jaqns4tgar
+  is 'Tipo de garantia';
+comment on column JAQNS4.jaqns4num1
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4num2
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4num3
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4imp1
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4imp2
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4imp3
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4var1
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4var2
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4var3
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4fec1
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4fec2
+  is 'Auxiliar ';
+comment on column JAQNS4.jaqns4fec3
+  is 'Auxiliar ';
+alter table JAQNS4
+  add primary key (JAQNS4EMPR, JAQNS4SUCU, JAQNS4MONE, JAQNS4PAPE, JAQNS4CUEN, JAQNS4OPER, JAQNS4SBOP, JAQNS4TOPE, JAQNS4MODU, JAQNS4RCOD, JAQNS4R2MD, JAQNS4R2CT, JAQNS4R2OP, JAQNS4R2SB, JAQNS4FECH, JAQNS4RUBR);
+

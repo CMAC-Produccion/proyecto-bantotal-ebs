@@ -1,0 +1,20 @@
+create table FCPG17
+(
+  cpg15cod   NUMBER(3) not null,
+  cpg06cod   NUMBER(3) not null,
+  cpg17codmv NUMBER(3),
+  cpg17compd CHAR(1),
+  cpg17genac CHAR(1),
+  cpg17incre CHAR(1),
+  cpg17incbc CHAR(1),
+  cpg17incpa CHAR(1),
+  cpg17est   CHAR(3),
+  cpg17blq   CHAR(1),
+  cpg17inst  NUMBER(10)
+)
+;
+create index FCPG1702 on FCPG17 (CPG06COD);
+create index FCPG1704 on FCPG17 (CPG17INST);
+alter table FCPG17
+  add primary key (CPG15COD, CPG06COD);
+

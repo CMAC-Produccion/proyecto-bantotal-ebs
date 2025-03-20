@@ -1,0 +1,56 @@
+create table FIFS25
+(
+  ifs25int   NUMBER(3) not null,
+  ifs25tpo   NUMBER(3) not null,
+  ifs25nro   NUMBER(9) not null,
+  ifs25cor   NUMBER(10) not null,
+  ifs25tdc   NUMBER(3),
+  ifs25bol   NUMBER(9),
+  ifs25chq   NUMBER(15),
+  ifs25cchq  NUMBER(15),
+  ifs25bcol  NUMBER(3),
+  ifs25sucl  NUMBER(12),
+  ifs25cps   CHAR(12),
+  ifs25loc   NUMBER(3),
+  ifs25ctal  NUMBER(15),
+  ifs25empc  NUMBER(3),
+  ifs25bcoc  NUMBER(3),
+  ifs25succ  NUMBER(3),
+  ifs25pza   NUMBER(3),
+  ifs25pzo   NUMBER(3),
+  ifs25bcod  NUMBER(3),
+  ifs25sucd  NUMBER(3),
+  ifs25mdad  NUMBER(4),
+  ifs25fchd  DATE,
+  ifs25fchv  DATE,
+  ifs25tpoc  NUMBER(2),
+  ifs25trun  CHAR(1),
+  ifs25imp   NUMBER(17,2),
+  ifs25impp  NUMBER(17,2),
+  ifs25mvo   NUMBER(3),
+  ifs25empbt NUMBER(3),
+  ifs25sucbt NUMBER(3),
+  ifs25modbt NUMBER(3),
+  ifs25ctabt NUMBER(9),
+  ifs25mdabt NUMBER(4),
+  ifs25papbt NUMBER(4),
+  ifs25opbt  NUMBER(9),
+  ifs25sbbt  NUMBER(3),
+  ifs25tpbt  NUMBER(3),
+  ifs25rub   NUMBER(16),
+  ifs25tdoc  NUMBER(2),
+  ifs25ndoc  CHAR(25),
+  ifs25nom   CHAR(60),
+  ifs25dom   CHAR(80),
+  ifs25fvto  DATE,
+  ifs25stat  CHAR(1),
+  ifs25men   CHAR(60)
+)
+;
+create index FIFS2502 on FIFS25 (IFS25INT, IFS25BOL, IFS25TDC);
+create index FIFS2503 on FIFS25 (IFS25INT, IFS25NRO, IFS25TDC, IFS25BOL);
+create index FIFS2504 on FIFS25 (IFS25INT, IFS25TPO, IFS25CHQ);
+create index FIFS2505 on FIFS25 (IFS25INT, IFS25TPO, IFS25NRO, IFS25BOL, IFS25TDC);
+alter table FIFS25
+  add primary key (IFS25INT, IFS25TPO, IFS25NRO, IFS25COR);
+

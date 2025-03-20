@@ -1,0 +1,11 @@
+create table FST330
+(
+  echqstat CHAR(1) not null,
+  echqmot  NUMBER(3) not null,
+  echqdesc CHAR(45),
+  echqtpo  CHAR(1)
+)
+;
+alter table FST330
+  add primary key (ECHQSTAT, ECHQMOT);
+

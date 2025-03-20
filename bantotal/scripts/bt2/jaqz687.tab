@@ -1,0 +1,45 @@
+create table JAQZ687
+(
+  jaqz687prg CHAR(10),
+  jaqz687var CHAR(30),
+  jaqz687ins NUMBER(10),
+  jaqz687tar NUMBER(4),
+  jaqz687vn1 NUMBER(10),
+  jaqz687vn2 NUMBER(17,2),
+  jaqz687vn3 NUMBER(10,6),
+  jaqz687vc1 CHAR(1),
+  jaqz687vc2 CHAR(10),
+  jaqz687vc3 CHAR(10),
+  jaqz687fec DATE,
+  jaqz687hor CHAR(8),
+  jaqz687usr CHAR(12)
+)
+;
+comment on column JAQZ687.jaqz687prg
+  is 'Nombre de programa';
+comment on column JAQZ687.jaqz687var
+  is 'Variable del resolutor';
+comment on column JAQZ687.jaqz687ins
+  is 'Instancia';
+comment on column JAQZ687.jaqz687tar
+  is 'Tarea';
+comment on column JAQZ687.jaqz687vn1
+  is 'Variable numerico entero';
+comment on column JAQZ687.jaqz687vn2
+  is 'Variable numerico decimal';
+comment on column JAQZ687.jaqz687vn3
+  is 'Variable numerico decimal';
+comment on column JAQZ687.jaqz687vc1
+  is 'Variable caracter 1';
+comment on column JAQZ687.jaqz687vc2
+  is 'Variable  caracter 2';
+comment on column JAQZ687.jaqz687vc3
+  is 'Variable  caracter 3';
+comment on column JAQZ687.jaqz687fec
+  is 'Fecha de registro';
+comment on column JAQZ687.jaqz687hor
+  is 'Hora de registro';
+comment on column JAQZ687.jaqz687usr
+  is 'Usuario de registro';
+create index JAQZ6871 on JAQZ687 (JAQZ687INS, JAQZ687TAR, JAQZ687PRG, JAQZ687VAR);
+

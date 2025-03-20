@@ -1,0 +1,17 @@
+create table JAQY067
+(
+  jaqy067ccal NUMBER(5) not null,
+  jaqy067ncal VARCHAR2(200),
+  jaqy067abca VARCHAR2(10),
+  jaqy067coes VARCHAR2(1),
+  jaqy067invi VARCHAR2(1),
+  jaqy067esta VARCHAR2(1)
+)
+;
+comment on column JAQY067.jaqy067invi
+  is 'Indicador Visualizacon S/N-Central Riesgos';
+comment on column JAQY067.jaqy067esta
+  is 'Indicador Visualizacon S/N- Segmentacion Vigente';
+alter table JAQY067
+  add primary key (JAQY067CCAL);
+

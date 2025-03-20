@@ -1,0 +1,26 @@
+create table FSFF57
+(
+  dtnemp NUMBER(3) not null,
+  dtnnro NUMBER(9) not null,
+  dtnren NUMBER(5) not null,
+  dtncon CHAR(40),
+  dtnmda NUMBER(4),
+  dtnbas NUMBER(17,2),
+  dtnimp NUMBER(17,2),
+  dtndes NUMBER(17,2),
+  dtntas NUMBER(14,6),
+  dtna01 NUMBER(9),
+  dtna02 NUMBER(9),
+  dtna03 CHAR(10),
+  dtna04 CHAR(10),
+  dtna05 NUMBER(17,2),
+  dtna06 NUMBER(17,2),
+  dtna07 DATE,
+  dtna08 DATE,
+  dtna09 NUMBER(17,2),
+  dtna10 NUMBER(17,2)
+)
+;
+alter table FSFF57
+  add primary key (DTNEMP, DTNNRO, DTNREN);
+

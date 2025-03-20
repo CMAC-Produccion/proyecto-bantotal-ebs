@@ -1,0 +1,18 @@
+create table FSFT60
+(
+  sft60emp   NUMBER(3) not null,
+  sft60id    NUMBER(9) not null,
+  sft60nom   CHAR(50),
+  sft60ini   DATE,
+  sft60fin   DATE,
+  sft60per   NUMBER(5),
+  sft60tote  CHAR(1),
+  sft60habi  CHAR(1),
+  sft60selc  CHAR(1),
+  sft60term  DATE,
+  sft60peofi CHAR(1)
+)
+;
+alter table FSFT60
+  add primary key (SFT60EMP, SFT60ID);
+

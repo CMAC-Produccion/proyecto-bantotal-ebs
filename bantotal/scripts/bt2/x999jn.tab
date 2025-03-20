@@ -1,0 +1,28 @@
+create table X999JN
+(
+  x999jnpgc NUMBER(3) not null,
+  x999jncrc NUMBER(9) not null,
+  x999jneor CHAR(10) not null,
+  x999jntdb NUMBER(1) not null,
+  x999jnprs CHAR(10) not null,
+  x999jnidc CHAR(22) not null,
+  x999jnfvn DATE not null,
+  x999jnrfd CHAR(15) not null,
+  x999jncor NUMBER(3) not null,
+  x999jn2pg NUMBER(3),
+  x999jn2sc NUMBER(3),
+  x999jn2rb NUMBER(16),
+  x999jn2md NUMBER(4),
+  x999jn2pa NUMBER(4),
+  x999jn2ct NUMBER(9),
+  x999jn2op NUMBER(9),
+  x999jn2sb NUMBER(3),
+  x999jn2tp NUMBER(3),
+  x999jn2mo NUMBER(3),
+  x999jnest CHAR(2)
+)
+;
+create index X999JN02 on X999JN (X999JN2PG, X999JN2SC, X999JN2RB, X999JN2MD, X999JN2PA, X999JN2CT, X999JN2OP, X999JN2SB, X999JN2TP);
+alter table X999JN
+  add primary key (X999JNPGC, X999JNCRC, X999JNEOR, X999JNTDB, X999JNPRS, X999JNIDC, X999JNFVN, X999JNRFD, X999JNCOR);
+

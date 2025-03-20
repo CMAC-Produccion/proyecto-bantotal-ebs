@@ -1,0 +1,16 @@
+create table FUP002
+(
+  fup001cod  NUMBER(9) not null,
+  fup002cpo  CHAR(30) not null,
+  fup002colp NUMBER(5),
+  fup002colt CHAR(1),
+  fup002posi NUMBER(4),
+  fup002larg NUMBER(4),
+  fup002expc NUMBER(10),
+  fup002prgc CHAR(10),
+  fup002div  NUMBER(4)
+)
+;
+alter table FUP002
+  add primary key (FUP001COD, FUP002CPO);
+

@@ -1,0 +1,18 @@
+create table FSE103
+(
+  pjxpais NUMBER(3) not null,
+  pjxtdoc NUMBER(2) not null,
+  pjxndoc CHAR(12) not null,
+  pjxcorr NUMBER(3) not null,
+  pjxnom  CHAR(50),
+  pjxdom1 CHAR(50),
+  pjxdom2 CHAR(50),
+  pjxdom3 CHAR(50),
+  pjxtel  CHAR(50),
+  vicod   NUMBER(2)
+)
+;
+create index FSE10302 on FSE103 (VICOD);
+alter table FSE103
+  add primary key (PJXPAIS, PJXTDOC, PJXNDOC, PJXCORR);
+

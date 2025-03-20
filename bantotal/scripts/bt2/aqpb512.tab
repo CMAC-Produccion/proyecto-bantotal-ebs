@@ -1,0 +1,21 @@
+create table AQPB512
+(
+  aqpb512pais   NUMBER(3) not null,
+  aqpb512tdoc   NUMBER(2) not null,
+  aqpb512ndoc   CHAR(12) not null,
+  aqpb512est    CHAR(1) not null,
+  aqpb512crefec DATE not null,
+  aqpb512crehor CHAR(8) not null,
+  aqpb512creusr VARCHAR2(30) not null,
+  aqpb512cresuc NUMBER(3) not null,
+  aqpb512cretim TIMESTAMP(6) default CURRENT_TIMESTAMP not null,
+  aqpb512modfec DATE not null,
+  aqpb512modhor CHAR(8) not null,
+  aqpb512modusr VARCHAR2(30) not null,
+  aqpb512modsuc NUMBER(3) not null,
+  aqpb512modtim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+alter table AQPB512
+  add primary key (AQPB512PAIS, AQPB512TDOC, AQPB512NDOC, AQPB512EST, AQPB512CRETIM);
+

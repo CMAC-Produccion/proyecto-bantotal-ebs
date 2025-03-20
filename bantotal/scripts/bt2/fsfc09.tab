@@ -1,0 +1,34 @@
+create table FSFC09
+(
+  kg09pgcod   NUMBER(3) not null,
+  kg09ctabrok NUMBER(9) not null,
+  kg09suc     NUMBER(3) not null,
+  kg09mod     NUMBER(3) not null,
+  kg09trn     NUMBER(3) not null,
+  kg09norel   NUMBER(4) not null,
+  kg09fcon    DATE not null,
+  kg09tipop   CHAR(3),
+  kg09clasop  CHAR(1),
+  kg09fcomp   DATE,
+  kg09ctacli  NUMBER(9),
+  kg09imp1    NUMBER(17,2),
+  kg09mda1    NUMBER(4),
+  kg09imp2    NUMBER(17,2),
+  kg09mda2    NUMBER(4),
+  kg09tcbo    NUMBER(14,8),
+  kg09comi    NUMBER(17,2),
+  kg09iva     NUMBER(17,2),
+  kg09status  CHAR(1),
+  kg09impax1  NUMBER(17,2),
+  kg09impax2  NUMBER(17,2),
+  kg09chrax1  CHAR(20),
+  kg09chrax2  CHAR(20),
+  kg09fchax1  DATE,
+  kg09fchax2  DATE
+)
+;
+create index FSFC0902 on FSFC09 (KG09PGCOD, KG09SUC, KG09MOD, KG09TRN, KG09NOREL, KG09FCON);
+create index FSFC0903 on FSFC09 (KG09PGCOD, KG09SUC, KG09FCON);
+alter table FSFC09
+  add primary key (KG09PGCOD, KG09CTABROK, KG09SUC, KG09MOD, KG09TRN, KG09NOREL, KG09FCON);
+

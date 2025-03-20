@@ -1,0 +1,15 @@
+create table Z05110
+(
+  z05108cpr NUMBER(3) not null,
+  z05110cpd NUMBER(3) not null,
+  z05110doc NUMBER(2) not null,
+  z05110co1 NUMBER(3),
+  z05110co2 NUMBER(3),
+  z05110co3 NUMBER(3),
+  z05110co4 NUMBER(3),
+  z05110rub NUMBER(16)
+)
+;
+alter table Z05110
+  add primary key (Z05108CPR, Z05110CPD, Z05110DOC);
+

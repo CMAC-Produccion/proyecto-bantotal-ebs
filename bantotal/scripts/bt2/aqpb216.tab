@@ -1,0 +1,62 @@
+create table AQPB216
+(
+  aqpb216idl    NUMBER(10) not null,
+  aqpb216sen    CHAR(10),
+  aqpb216nro    CHAR(19),
+  aqpb216pco    VARCHAR2(5),
+  aqpb216nco    VARCHAR2(20),
+  aqpb216nrd    CHAR(19),
+  aqpb216pcd    VARCHAR2(5),
+  aqpb216ncd    VARCHAR2(20),
+  aqpb216fet    DATE,
+  aqpb216hot    CHAR(8),
+  aqpb216trc    CHAR(20),
+  aqpb216imp    NUMBER(17,2),
+  aqpb216mda    NUMBER(4),
+  aqpb216des    VARCHAR2(100),
+  aqpb216pgo    NUMBER(3),
+  aqpb216moo    NUMBER(3),
+  aqpb216suo    NUMBER(3),
+  aqpb216mdo    NUMBER(4),
+  aqpb216pao    NUMBER(4),
+  aqpb216cto    NUMBER(9),
+  aqpb216opo    NUMBER(9),
+  aqpb216sbo    NUMBER(3),
+  aqpb216too    NUMBER(3),
+  aqpb216pgd    NUMBER(3),
+  aqpb216mod    NUMBER(3),
+  aqpb216sud    NUMBER(3),
+  aqpb216mdd    NUMBER(4),
+  aqpb216pad    NUMBER(4),
+  aqpb216ctd    NUMBER(9),
+  aqpb216opd    NUMBER(9),
+  aqpb216sbd    NUMBER(3),
+  aqpb216tod    NUMBER(3),
+  aqpb216est    CHAR(5),
+  aqpb216pgc    NUMBER(3),
+  aqpb216moc    NUMBER(3),
+  aqpb216suc    NUMBER(3),
+  aqpb216tnc    NUMBER(3),
+  aqpb216nrc    NUMBER(4),
+  aqpb216fec    DATE,
+  aqpb216con    CHAR(1),
+  aqpb216mnc    NUMBER(5),
+  aqpb216tid    VARCHAR2(50),
+  aqpb216cms    NUMBER(4),
+  aqpb216ctr    NUMBER(10),
+  aqpb216dirdes VARCHAR2(50),
+  aqpb216idedes VARCHAR2(50),
+  aqpb216ideqr  VARCHAR2(5)
+)
+;
+comment on column AQPB216.aqpb216dirdes
+  is 'Directorio destino';
+comment on column AQPB216.aqpb216idedes
+  is 'Identificador destino CELULAR o IDE QR';
+comment on column AQPB216.aqpb216ideqr
+  is 'Identificador QR (S o N)';
+create index AQPB2162 on AQPB216 (AQPB216NRO, AQPB216FET, AQPB216EST, AQPB216CON, AQPB216HOT);
+create index AQPB2163 on AQPB216 (AQPB216TRC, AQPB216FET, AQPB216HOT);
+alter table AQPB216
+  add primary key (AQPB216IDL);
+

@@ -1,0 +1,13 @@
+create table RGAP10
+(
+  rgap10apl NUMBER(4) not null,
+  rgap10prc CHAR(10) not null,
+  rgap10fec DATE not null,
+  rgap10cor NUMBER(9) not null,
+  rgap10reg NUMBER(15) not null,
+  rgap10txt LONG
+)
+;
+alter table RGAP10
+  add primary key (RGAP10APL, RGAP10PRC, RGAP10FEC, RGAP10COR, RGAP10REG);
+

@@ -1,0 +1,17 @@
+create table FSFFA6
+(
+  kgaprocod  NUMBER(5) not null,
+  kgaoperub  NUMBER(16) not null,
+  kgaopeaux1 NUMBER(9),
+  kgaopeaux2 NUMBER(9),
+  kgaopeaux3 CHAR(1),
+  kgaopeaux4 CHAR(30),
+  kgaopeaux5 NUMBER(17,2),
+  kgaopeaux6 NUMBER(17,2),
+  kgaopeaux7 NUMBER(17,2)
+)
+;
+create index FSFFA603 on FSFFA6 (KGAOPERUB);
+alter table FSFFA6
+  add primary key (KGAPROCOD, KGAOPERUB);
+

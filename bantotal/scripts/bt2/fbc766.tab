@@ -1,0 +1,22 @@
+create table FBC766
+(
+  bc704emp  NUMBER(3) not null,
+  bc704suc  NUMBER(3) not null,
+  bc704mod  NUMBER(3) not null,
+  bc704trn  NUMBER(3) not null,
+  bc704rel  NUMBER(4) not null,
+  bc704ord  NUMBER(2) not null,
+  bc704sbo  NUMBER(3) not null,
+  bc704fch  DATE not null,
+  bc704otpo CHAR(3) not null,
+  bc765cor  NUMBER(5) not null,
+  bc766nse  NUMBER(5) not null,
+  bc766fap  DATE,
+  bc766nde  CHAR(20),
+  bc766mon  NUMBER(11),
+  bc766nra  CHAR(20)
+)
+;
+alter table FBC766
+  add primary key (BC704EMP, BC704SUC, BC704MOD, BC704TRN, BC704REL, BC704ORD, BC704SBO, BC704FCH, BC704OTPO, BC765COR, BC766NSE);
+

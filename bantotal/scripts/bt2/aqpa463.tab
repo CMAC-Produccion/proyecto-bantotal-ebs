@@ -1,0 +1,39 @@
+create table AQPA463
+(
+  aqpa463txtrub NUMBER(16),
+  aqpa463pgcod  NUMBER(3) not null,
+  aqpa463hcmod  NUMBER(3) not null,
+  aqpa463hsucor NUMBER(3) not null,
+  aqpa463htran  NUMBER(3) not null,
+  aqpa463hnrel  NUMBER(4) not null,
+  aqpa463hfcon  DATE not null,
+  aqpa463hcord  NUMBER(2) not null,
+  aqpa463txoren NUMBER(3) not null,
+  aqpa463txtord CHAR(65),
+  aqpa463hcpcod NUMBER(5),
+  aqpa463hvnro  NUMBER(10),
+  aqpa463hvchr  CHAR(50),
+  aqpa463serie  CHAR(4) not null,
+  aqpa463corre  NUMBER not null,
+  aqpa463emp    NUMBER(3),
+  aqpa463mod    NUMBER(3),
+  aqpa463suc    NUMBER(3),
+  aqpa463mda    NUMBER(4),
+  aqpa463pap    NUMBER(4),
+  aqpa463cta    NUMBER(9),
+  aqpa463ope    NUMBER(9),
+  aqpa463sbo    NUMBER(3),
+  aqpa463top    NUMBER(3),
+  aqpa463hip    CHAR(2),
+  aqpa463tcre   NUMBER(4)
+)
+compress;
+create index AQPA463A3 on AQPA463 (AQPA463HFCON, AQPA463SERIE, AQPA463CORRE)
+  compress;
+create index AQPA463_01 on AQPA463 (AQPA463PGCOD, AQPA463HCMOD, AQPA463HSUCOR, AQPA463HTRAN, AQPA463HNREL, AQPA463HFCON)
+  compress;
+create index AQPA463_02 on AQPA463 (AQPA463HFCON)
+  compress;
+alter table AQPA463
+  add primary key (AQPA463PGCOD, AQPA463HCMOD, AQPA463HSUCOR, AQPA463HTRAN, AQPA463HNREL, AQPA463HFCON, AQPA463SERIE, AQPA463CORRE, AQPA463HCORD, AQPA463TXOREN);
+

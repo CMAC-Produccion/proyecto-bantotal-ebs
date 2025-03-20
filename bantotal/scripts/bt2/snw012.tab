@@ -1,0 +1,25 @@
+create table SNW012
+(
+  x999jfpgc NUMBER(3) not null,
+  x999jfcta NUMBER(9) not null,
+  snw012cor NUMBER(3) not null,
+  snw012rc1 CHAR(3),
+  snw012rc2 CHAR(3),
+  snw012rc3 CHAR(3),
+  snw012rc4 CHAR(3),
+  snw012rc5 CHAR(3),
+  snw012rc6 CHAR(3),
+  snw012fe1 DATE,
+  snw012fe2 DATE,
+  snw012fe3 DATE,
+  snw012im1 NUMBER(17,2),
+  snw012im2 NUMBER(17,2),
+  snw012im3 NUMBER(17,2),
+  snw012ax1 CHAR(1),
+  snw012ax2 CHAR(30),
+  snw012ax3 NUMBER(10)
+)
+;
+alter table SNW012
+  add primary key (X999JFPGC, X999JFCTA, SNW012COR);
+

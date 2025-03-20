@@ -1,0 +1,27 @@
+create table WFPREF
+(
+  wfprefid       NUMBER(4) not null,
+  wfprefname     CHAR(40),
+  wfprefdsc      CHAR(20),
+  wfpreftype     CHAR(1),
+  wfprefscope    CHAR(20),
+  wfprefvalue    CHAR(100),
+  wfprefdefvalue CHAR(100),
+  wfprefdef      CHAR(1),
+  wfprefenb      CHAR(1),
+  wfprefenbdef   CHAR(1),
+  wfprefvis      CHAR(1),
+  wfprefgrpid    NUMBER(4),
+  wfpreforder    NUMBER(4),
+  wfprefctrltype CHAR(1),
+  wfprefdepid    NUMBER(4),
+  wfprefdepval   CHAR(100),
+  wfprefpro      CHAR(1)
+)
+;
+create index UWFPREF1 on WFPREF (WFPREFTYPE, WFPREFSCOPE);
+create index UWFPREF2 on WFPREF (WFPREFGRPID, WFPREFORDER);
+create index UWFPREF3 on WFPREF (WFPREFDEPID);
+alter table WFPREF
+  add primary key (WFPREFID);
+

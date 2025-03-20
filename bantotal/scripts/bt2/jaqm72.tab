@@ -1,0 +1,63 @@
+create table JAQM72
+(
+  jaqm72mod NUMBER(3) not null,
+  jaqm72top NUMBER(3) not null,
+  jaqm72tip CHAR(1),
+  jaqm72val CHAR(255),
+  jaqm72can NUMBER(3),
+  jaqm72mtr CHAR(1),
+  jaqm72ai1 NUMBER(17,2),
+  jaqm72ai2 NUMBER(17,2),
+  jaqm72ai3 NUMBER(17,2),
+  jaqm72ad1 DATE,
+  jaqm72ad2 DATE,
+  jaqm72ad3 DATE,
+  jaqm72an1 NUMBER(9),
+  jaqm72an2 NUMBER(9),
+  jaqm72an3 NUMBER(9),
+  jaqm72ac1 CHAR(255),
+  jaqm72ac2 CHAR(255),
+  jaqm72ac3 CHAR(255)
+)
+;
+comment on table JAQM72
+  is 'Verificador Expedientes de Crédito';
+comment on column JAQM72.jaqm72mod
+  is 'Módulo';
+comment on column JAQM72.jaqm72top
+  is 'Tipo de Operación';
+comment on column JAQM72.jaqm72tip
+  is 'Tipo de Validación (N - No Requiere, P - Por Perfil, U - Por Usuario)';
+comment on column JAQM72.jaqm72val
+  is 'Campo de Validación';
+comment on column JAQM72.jaqm72can
+  is 'Cantidad';
+comment on column JAQM72.jaqm72mtr
+  is 'Modo de Trabajo ( A - Módulo y Tipo de Operación, M - Solo Módulo)';
+comment on column JAQM72.jaqm72ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM72.jaqm72ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM72.jaqm72ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM72.jaqm72ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM72.jaqm72ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM72.jaqm72ad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM72.jaqm72an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM72.jaqm72an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM72.jaqm72an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM72.jaqm72ac1
+  is 'Auxiliar Carácter 1';
+comment on column JAQM72.jaqm72ac2
+  is 'Auxiliar Carácter 2';
+comment on column JAQM72.jaqm72ac3
+  is 'Auxiliar Carácter 3';
+alter table JAQM72
+  add primary key (JAQM72MOD, JAQM72TOP);
+

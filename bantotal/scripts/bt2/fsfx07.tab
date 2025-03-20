@@ -1,0 +1,19 @@
+create table FSFX07
+(
+  sfx04cod NUMBER(4) not null,
+  sfx01fid CHAR(12) not null,
+  sfx07ord NUMBER(4),
+  sfx01ax1 NUMBER(9),
+  sfx01ax2 NUMBER(9),
+  sfx01ax3 NUMBER(9),
+  sfx01ax4 NUMBER(9),
+  sfx01ax5 CHAR(30),
+  sfx01ax6 CHAR(30),
+  sfx01ax7 CHAR(30),
+  sfx01ax8 CHAR(30)
+)
+;
+create index FSFX072 on FSFX07 (SFX01FID);
+alter table FSFX07
+  add primary key (SFX04COD, SFX01FID);
+

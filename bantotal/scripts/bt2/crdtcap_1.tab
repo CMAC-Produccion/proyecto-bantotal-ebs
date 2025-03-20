@@ -1,0 +1,23 @@
+create table CRDTCAP_1
+(
+  n_monto1 NUMBER(12,2),
+  n_monto2 NUMBER(12,2),
+  n_monto3 NUMBER(12,2),
+  n_monto4 NUMBER(12,2),
+  n_monto5 NUMBER(12,2)
+)
+;
+comment on table CRDTCAP_1
+  is 'Intermedia de cálculos';
+comment on column CRDTCAP_1.n_monto1
+  is 'monto1';
+comment on column CRDTCAP_1.n_monto2
+  is 'monto2';
+comment on column CRDTCAP_1.n_monto3
+  is 'monto3';
+comment on column CRDTCAP_1.n_monto4
+  is 'monto4';
+comment on column CRDTCAP_1.n_monto5
+  is 'monto5';
+create index IDX_CRDTCAP on CRDTCAP_1 (N_MONTO1, N_MONTO2, N_MONTO3, N_MONTO4);
+

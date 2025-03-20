@@ -1,0 +1,39 @@
+create table AQPA727
+(
+  aqpa727id     NUMBER(9) not null,
+  aqpa727fecreg DATE,
+  aqpa727horreg VARCHAR2(10),
+  aqpa727trareq VARCHAR2(1000),
+  aqpa727trares VARCHAR2(1000),
+  aqpa727timexe VARCHAR2(10),
+  aqpa727coderr VARCHAR2(5),
+  aqpa727msgerr VARCHAR2(100),
+  aqpa727metodo VARCHAR2(40),
+  aqpa727numdoc CHAR(12)
+)
+;
+comment on table AQPA727
+  is 'Log del sistema de citas virtuales';
+comment on column AQPA727.aqpa727id
+  is 'Id Correlativo';
+comment on column AQPA727.aqpa727fecreg
+  is 'Fecha de registro';
+comment on column AQPA727.aqpa727horreg
+  is 'Hora de registro';
+comment on column AQPA727.aqpa727trareq
+  is 'Trama request';
+comment on column AQPA727.aqpa727trares
+  is 'Trama response';
+comment on column AQPA727.aqpa727timexe
+  is 'Tiempo ejecucion';
+comment on column AQPA727.aqpa727coderr
+  is 'Codigo error';
+comment on column AQPA727.aqpa727msgerr
+  is 'Mensaje error';
+comment on column AQPA727.aqpa727metodo
+  is 'Metodo invocado';
+comment on column AQPA727.aqpa727numdoc
+  is 'Documento del Cliente';
+alter table AQPA727
+  add primary key (AQPA727ID);
+

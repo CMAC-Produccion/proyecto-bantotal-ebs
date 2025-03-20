@@ -1,0 +1,32 @@
+create table JAQL056
+(
+  jaql56fevi DATE not null,
+  jaql56tisu CHAR(1) not null,
+  jaql56clcl CHAR(1) not null,
+  jaql56esta CHAR(1) not null,
+  jaql56sami NUMBER(17,2),
+  jaql56sama NUMBER(17,2),
+  jaql56au16 DATE,
+  jaql56au15 DATE,
+  jaql56au14 DATE,
+  jaql56au13 DATE,
+  jaql56au12 NUMBER(9),
+  jaql56au11 NUMBER(9),
+  jaql56au10 NUMBER(9),
+  jaql56au09 NUMBER(9),
+  jaql56au08 NUMBER(17,2),
+  jaql56au07 NUMBER(17,2),
+  jaql56au06 NUMBER(17,2),
+  jaql56au05 NUMBER(17,2),
+  jaql56au04 CHAR(50),
+  jaql56au03 CHAR(50),
+  jaql56au02 CHAR(50),
+  jaql56au01 CHAR(50),
+  jaql56tipe NUMBER(1) not null
+)
+;
+create index IDXJAQL561001 on JAQL056 (JAQL56TISU, JAQL56TIPE, JAQL56ESTA);
+create index JAQL05610001 on JAQL056 (JAQL56TISU, JAQL56SAMI, JAQL56SAMA, JAQL56ESTA);
+alter table JAQL056
+  add primary key (JAQL56FEVI, JAQL56TISU, JAQL56CLCL, JAQL56ESTA, JAQL56TIPE);
+

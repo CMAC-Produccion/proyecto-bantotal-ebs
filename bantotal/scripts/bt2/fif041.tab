@@ -1,0 +1,49 @@
+create table FIF041
+(
+  if041apl NUMBER(4) not null,
+  if041ban CHAR(5) not null,
+  if041env NUMBER(9) not null,
+  if041sec NUMBER(9),
+  if041far TIMESTAMP(6),
+  if041fpa TIMESTAMP(6),
+  if041reg NUMBER(9),
+  if041ien NUMBER(17),
+  if041den NUMBER(3),
+  if041dsu NUMBER(3),
+  if041dru NUMBER(16),
+  if041dmd NUMBER(4),
+  if041dpa NUMBER(4),
+  if041dct NUMBER(9),
+  if041dop NUMBER(9),
+  if041dsb NUMBER(3),
+  if041dto NUMBER(3),
+  if041dmo NUMBER(3),
+  if041suc NUMBER(3),
+  if041mod NUMBER(3),
+  if041trn NUMBER(3),
+  if041rel NUMBER(4),
+  if041fec TIMESTAMP(6),
+  if041mnc NUMBER(5),
+  if041ide NUMBER(17),
+  if041csu NUMBER(3),
+  if041cmo NUMBER(3),
+  if041ctr NUMBER(3),
+  if041cre NUMBER(4),
+  if041cfe TIMESTAMP(6),
+  if041cmn NUMBER(5),
+  if041usu CHAR(10),
+  if041est CHAR(2),
+  if041cer NUMBER(2),
+  if041der CHAR(60),
+  if041ax1 TIMESTAMP(6),
+  if041ax2 NUMBER(9),
+  if041ax3 NUMBER(17),
+  if041ax4 CHAR(20),
+  if041ax5 CHAR(30)
+)
+;
+create index FIF04102 on FIF041 (IF041APL, IF041BAN, IF041FAR, IF041DCT, IF041SEC);
+create index FIF04103 on FIF041 (IF041APL, IF041BAN, IF041FPA, IF041EST, IF041ENV);
+alter table FIF041
+  add primary key (IF041APL, IF041BAN, IF041ENV);
+

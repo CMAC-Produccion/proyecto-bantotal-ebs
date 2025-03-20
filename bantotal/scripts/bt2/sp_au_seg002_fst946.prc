@@ -1,0 +1,110 @@
+CREATE OR REPLACE PROCEDURE SP_AU_SEG002_FST946 IS
+  HORA CHAR(10);
+  N_CONT NUMBER;
+  CURSOR BASE IS
+    SELECT *
+      FROM SEG002
+     WHERE SEG002FCI = TRUNC(SYSDATE)
+       AND TRIM(SEG002HRS) IS NULL;
+  -- *****************************************************************
+  -- NOMBRE                     : SP_AU_SEG002_FST946
+  -- SISTEMA                    : BANTOTAL
+  -- MÓDULO                     : SESIÓN USUARIOS
+  -- VERSIÓN                    : 1.0
+  -- FECHA DE CREACIÓN          : 14/11/2023
+  -- AUTOR DE CREACIÓN          : LUIS CARPIO
+  -- USO                        : CONTROL DE FECHA Y HORA DE SALIDA DE SESIÓN
+  -- ESTADO                     : ACTIVO
+  -- PARÁMETROS DE ENTRADA      :
+  -- FECHA DE MODIFICACIÓN      : 20/11/2023
+  -- AUTOR DE MODIFICACIÓN      : LUIS CARPIO
+BEGIN
+  FOR I IN BASE LOOP
+    SELECT MAX(X.SESSHORA)
+      INTO HORA
+      FROM FST946 X
+     WHERE X.SESSUSR = I.SEG002USU
+       AND X.SESSFCH = I.SEG002FCI
+       AND X.SESSWRK = I.SEG002WRS; ---OBTENEMOS LA HORA MAXIMA DE CONEXION ACTUAL PARA VER SI SESION SIGUE ACTIVA
+  
+    SELECT COUNT(1)
+      INTO N_CONT
+      FROM FST946 X
+     WHERE X.SESSUSR = I.SEG002USU
+       AND X.SESSFCH = I.SEG002FCI
+       AND X.SESSWRK = I.SEG002WRS; --SE OBTIENE SI TIENE ULTIMA CONEXION.
+  
+    IF TRIM(I.SEG002AU1) = 'I' THEN
+      --SI YA INICIO OTRA SESION ACTUALIZAMOS LA FECHA Y HORA DE CIERRE
+      UPDATE SEG002 F
+         SET F.SEG002HRS =
+             (SELECT MIN(T.SEG002HRI)
+                FROM SEG002 T
+               WHERE T.SEG002PGC = 1
+                 AND T.SEG002USU = F.SEG002USU
+                 AND T.SEG002FCI = F.SEG002FCI
+                 AND T.SEG002HRI > F.SEG002HRI),
+             F.SEG002FCS = TRUNC(SYSDATE)
+       WHERE F.SEG002FCI = I.SEG002FCI
+         AND F.SEG002PGC = 1
+         AND TRIM(F.SEG002HRS) IS NULL
+         AND TRIM(F.SEG002AU1) = 'I'
+         AND F.SEG002USU = I.SEG002USU
+         AND F.SEG002WRS = I.SEG002WRS
+         AND F.SEG002HRI = I.SEG002HRI;
+      COMMIT;
+    ELSE
+      IF N_CONT = 0 THEN
+        --- NO SE ENCUENTRA HORA DE ULTIMA CONEXION
+        UPDATE SEG002 P
+           SET SEG002FCS = TRUNC(SYSDATE),
+               SEG002HRS = TO_CHAR(SYSDATE, 'hh24:mi:ss'),
+               SEG002AU1 = 'N'
+         WHERE P.SEG002PGC = 1
+           AND P.SEG002USU = I.SEG002USU
+           AND P.SEG002FCI = I.SEG002FCI
+           AND P.SEG002WRS = I.SEG002WRS
+           AND P.SEG002HRI = I.SEG002HRI;
+        COMMIT;
+      ELSE
+        IF (TO_CHAR(SYSDATE, 'hh24') * 24 + TO_CHAR(SYSDATE, 'mi') * 1 +
+           TO_CHAR(SYSDATE, 'ss') / 60) -
+           (SUBSTR(HORA, 1, 2) * 24 + SUBSTR(HORA, 4, 2) * 1 +
+           SUBSTR(HORA, 7, 2) / 60) > 8 THEN
+          -- SI PASO MAS DE 8 MINUTOS DE LA ULTIMA CONEXION RECIBIDA
+          IF HORA >= I.SEG002HRI THEN
+            --VALIDAMOS QUE HORA DE CONEXION SEA MAYOR QUE HORA INICIO
+            UPDATE SEG002 P
+               SET SEG002FCS = TRUNC(SYSDATE),
+                   SEG002HRS = TRIM(HORA),
+                   SEG002AU1 = 'W'
+             WHERE P.SEG002PGC = 1
+               AND P.SEG002USU = I.SEG002USU
+               AND P.SEG002FCI = I.SEG002FCI
+               AND P.SEG002HRI = I.SEG002HRI
+               AND P.SEG002WRS = I.SEG002WRS;
+            COMMIT;
+          ELSE
+            UPDATE SEG002 P
+               SET SEG002FCS = TRUNC(SYSDATE),
+                   SEG002HRS = I.SEG002HRI,
+                   SEG002AU1 = 'W'
+             WHERE P.SEG002PGC = 1
+               AND P.SEG002USU = I.SEG002USU
+               AND P.SEG002FCI = I.SEG002FCI
+               AND P.SEG002HRI = I.SEG002HRI
+               AND P.SEG002WRS = I.SEG002WRS;
+            COMMIT;
+          END IF;
+        END IF;
+      END IF;
+    END IF;
+    /*DBMS_OUTPUT.PUT_LINE('INICIO CTA: ' || (TO_CHAR(SYSDATE, 'HH24') * 24 +
+                         TO_CHAR(SYSDATE, 'MI') * 1 +
+                         TO_CHAR(SYSDATE, 'SS') / 60));
+    DBMS_OUTPUT.PUT_LINE((SUBSTR(HORA, 1, 2) * 24 + SUBSTR(HORA, 4, 2) * 1 +
+                         SUBSTR(HORA, 7, 2) / 60));*/
+  END LOOP;
+END;
+/
+

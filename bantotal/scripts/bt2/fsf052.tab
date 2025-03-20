@@ -1,0 +1,19 @@
+create table FSF052
+(
+  lfcuenta  NUMBER(9) not null,
+  lfnomcta  CHAR(35),
+  lfcall    CHAR(35),
+  lfnro     NUMBER(5),
+  lfapar    CHAR(6),
+  lfciud    CHAR(20),
+  lfdepcod  NUMBER(5),
+  lfdepnom  CHAR(20),
+  lfvendcod NUMBER(3),
+  lfvendnom CHAR(30),
+  lfsdocta  NUMBER(17,2),
+  lfdotelf  CHAR(20)
+)
+;
+alter table FSF052
+  add primary key (LFCUENTA);
+

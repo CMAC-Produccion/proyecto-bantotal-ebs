@@ -1,0 +1,41 @@
+create table Z05116
+(
+  z05116pgc NUMBER(3) not null,
+  z05116cta NUMBER(9) not null,
+  z05116joc CHAR(10) not null,
+  z05116jjc NUMBER(1) not null,
+  z05116jbc CHAR(10) not null,
+  z05116idc CHAR(22) not null,
+  z05116fvn DATE not null,
+  z05116rfd CHAR(15) not null,
+  z05116cor NUMBER(3) not null,
+  z05116cof DATE,
+  z05116coh CHAR(8),
+  z05116trc NUMBER(2),
+  z05116tri NUMBER(2),
+  z05116mon NUMBER(4),
+  z05116imp NUMBER(10,2),
+  z05116ctd NUMBER(17),
+  z05116rc1 CHAR(3),
+  z05116rc2 CHAR(3),
+  z05116obs CHAR(80),
+  z05116fal DATE,
+  z05116fcp DATE,
+  z05116fbj DATE,
+  z05116est CHAR(2),
+  z05116fv2 DATE,
+  z05116fv3 DATE,
+  z05116im2 NUMBER(10,2),
+  z05116im3 NUMBER(10,2),
+  z05116dbp NUMBER(2),
+  z05116per NUMBER(3),
+  z051161ct CHAR(1),
+  z05116usu CHAR(10),
+  z05116wst CHAR(10),
+  z05116ob1 CHAR(80),
+  z05116rds CHAR(30)
+)
+;
+alter table Z05116
+  add primary key (Z05116PGC, Z05116CTA, Z05116JOC, Z05116JJC, Z05116JBC, Z05116IDC, Z05116FVN, Z05116RFD, Z05116COR);
+

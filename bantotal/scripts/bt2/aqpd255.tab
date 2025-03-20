@@ -1,0 +1,159 @@
+create table AQPD255
+(
+  aqpd255id       NUMBER(9) not null,
+  aqpd255tipope   VARCHAR2(40),
+  aqpd255tramain  VARCHAR2(2000),
+  aqpd255tramaout VARCHAR2(2000),
+  aqpd255paidoc   NUMBER(3),
+  aqpd255tipdoc   NUMBER(3),
+  aqpd255numdoc   CHAR(12),
+  aqpd255fecreg   DATE,
+  aqpd255horreg   VARCHAR2(10),
+  aqpd255fecsis   DATE,
+  aqpd255codres   VARCHAR2(5),
+  aqpd255msjres   VARCHAR2(300),
+  aqpd255errint   VARCHAR2(300),
+  aqpd255status   VARCHAR2(20),
+  aqpd255issuerid VARCHAR2(24),
+  aqpd255procesid VARCHAR2(24),
+  aqpd255traid    VARCHAR2(36),
+  aqpd255dstraid  VARCHAR2(36),
+  aqpd255stereqid VARCHAR2(36),
+  aqpd255stecount VARCHAR2(5),
+  aqpd255msgvers  VARCHAR2(8),
+  aqpd255rdxmsg   VARCHAR2(8),
+  aqpd255stpreaso VARCHAR2(20),
+  aqpd255acquirid VARCHAR2(11),
+  aqpd255acountry VARCHAR2(3),
+  aqpd255merid    VARCHAR2(35),
+  aqpd255mername  VARCHAR2(40),
+  aqpd255merurl   VARCHAR2(100),
+  aqpd255mercateg VARCHAR2(4),
+  aqpd255mercotry VARCHAR2(3),
+  aqpd255merappre VARCHAR2(256),
+  aqpd255carnum   VARCHAR2(19),
+  aqpd255carexmo  VARCHAR2(2),
+  aqpd255carexye  VARCHAR2(4),
+  aqpd255cartype  VARCHAR2(20),
+  aqpd255carhona  VARCHAR2(45),
+  aqpd255tratime  VARCHAR2(24),
+  aqpd255traamou  VARCHAR2(48),
+  aqpd255tracurr  VARCHAR2(3),
+  aqpd255traexpo  VARCHAR2(1),
+  aqpd255tratype  VARCHAR2(20),
+  aqpd255maregion VARCHAR2(20),
+  aqpd255channel  VARCHAR2(20),
+  aqpd255cretxt   VARCHAR2(100),
+  aqpd255cretyp   VARCHAR2(20),
+  aqpd255creid    VARCHAR2(36),
+  aqpd255varaux1  VARCHAR2(100),
+  aqpd255varaux2  VARCHAR2(100),
+  aqpd255horfin   VARCHAR2(10),
+  aqpd255horini   VARCHAR2(10)
+)
+;
+comment on table AQPD255
+  is 'Log general de peticiones VCAS';
+comment on column AQPD255.aqpd255id
+  is 'Correlativo principal';
+comment on column AQPD255.aqpd255tipope
+  is 'Tipo de Operacion Stepup| InitiateAction';
+comment on column AQPD255.aqpd255tramain
+  is 'Trama Entrada';
+comment on column AQPD255.aqpd255tramaout
+  is 'Trama Salida';
+comment on column AQPD255.aqpd255paidoc
+  is 'Pais Documento';
+comment on column AQPD255.aqpd255tipdoc
+  is 'Tipo Documento';
+comment on column AQPD255.aqpd255numdoc
+  is 'Numero Documento';
+comment on column AQPD255.aqpd255fecreg
+  is 'Fecha Registro Real del dia';
+comment on column AQPD255.aqpd255horreg
+  is 'Hora Registro';
+comment on column AQPD255.aqpd255fecsis
+  is 'Fecha del Sistema FST017';
+comment on column AQPD255.aqpd255codres
+  is 'Codigo Respuesta';
+comment on column AQPD255.aqpd255msjres
+  is 'Mensaje Respuesta';
+comment on column AQPD255.aqpd255errint
+  is 'Error Interno';
+comment on column AQPD255.aqpd255status
+  is 'Status of Stepup Request';
+comment on column AQPD255.aqpd255issuerid
+  is 'IssuerId - VCAS provided identifier for the client.';
+comment on column AQPD255.aqpd255procesid
+  is 'ProcessorId - VCAS provided identifier for the client.';
+comment on column AQPD255.aqpd255traid
+  is 'TransactionId - VCAS generated transaction reference id: 36-character GUID value.';
+comment on column AQPD255.aqpd255dstraid
+  is 'DSTransactionId - Directory Server (DS) generated transaction reference id. GUID format.';
+comment on column AQPD255.aqpd255stereqid
+  is 'StepupRequestId - Unique identifier to identify the particular Stepup request. Length is 36 characters.';
+comment on column AQPD255.aqpd255stecount
+  is 'StepupCounter - Counter for tracking the number of Stepup calls.';
+comment on column AQPD255.aqpd255msgvers
+  is 'MessageVersion - Version of the 3DS protocol based on 3DS spec.';
+comment on column AQPD255.aqpd255rdxmsg
+  is 'RDXMessageVersion - Message Version of the RDX protocol being used.';
+comment on column AQPD255.aqpd255stpreaso
+  is 'StepupReason - The reason the Stepup request was initiated';
+comment on column AQPD255.aqpd255acquirid
+  is 'AcquirerId - AcquirerId for the merchant performing the purchase request.';
+comment on column AQPD255.aqpd255acountry
+  is 'AcquirerCountryCode - Country code of the Acquirer. ISO 3166-1 Numeric format.';
+comment on column AQPD255.aqpd255merid
+  is 'MerchantId - MerchantId for the merchant performing the purchase request.';
+comment on column AQPD255.aqpd255mername
+  is 'MerchantName - Merchant name for the merchant performing the purchase request.';
+comment on column AQPD255.aqpd255merurl
+  is 'MerchantURL - URL or App Name for the merchant performing the purchase request.';
+comment on column AQPD255.aqpd255mercateg
+  is 'MerchantCategoryCode - Code used to describe the merchant¿s type of business product or service that is payment network specific';
+comment on column AQPD255.aqpd255mercotry
+  is 'MerchantCountryCode - Country code of the merchant: 3 characters; e.g. 840';
+comment on column AQPD255.aqpd255merappre
+  is 'MerchantAppRedirectURL - Merchant app declaring their URL within the CReq message so that the Authentication app can call the Merchant app after OOB authentication has occurred';
+comment on column AQPD255.aqpd255carnum
+  is 'CardNumber - Payment card number used in the transaction.';
+comment on column AQPD255.aqpd255carexmo
+  is 'CardExpiryMonth - Expiration month.';
+comment on column AQPD255.aqpd255carexye
+  is 'CardExpiryYear - Expiration year: 2-digits; e.g. 28';
+comment on column AQPD255.aqpd255cartype
+  is 'CardType - Card or account type e.g. Debit or Credit. Possible values: Credit,Debit,Not Applicable';
+comment on column AQPD255.aqpd255carhona
+  is 'CardHolderName - Name of the cardholder';
+comment on column AQPD255.aqpd255tratime
+  is 'TransactionTimeStamp - Transaction timestamp in UTC per ISO 8601 UTC e.g. 2019-03-21T20:55:49.000Z';
+comment on column AQPD255.aqpd255traamou
+  is 'TransactionAmount - Transaction Amount (raw amount, example 1000 for $10.00)';
+comment on column AQPD255.aqpd255tracurr
+  is 'TransactionCurrency - ISO 4217; 3-digit numeric standard. Refer to ISO-4217';
+comment on column AQPD255.aqpd255traexpo
+  is 'TransactionExponent - Exponent for formatting the given currency ISO 4217 code.';
+comment on column AQPD255.aqpd255tratype
+  is 'TransactionType - Type of the transaction. Possible values: Purchase ,CardAdd';
+comment on column AQPD255.aqpd255maregion
+  is 'MandatedRegion - A value describing the region in which mandates may apply to the current transaction. Added to support the new PSD2 transactions in the EEA.';
+comment on column AQPD255.aqpd255channel
+  is 'Channel in which the transaction occurs. Possible values: WEB ,APP, M_WEB, THREERI';
+comment on column AQPD255.aqpd255cretxt
+  is 'Identifier for the credential requested, this will be passed on the InitiateAction';
+comment on column AQPD255.aqpd255cretyp
+  is 'Type of credential used for Stepup';
+comment on column AQPD255.aqpd255creid
+  is 'Dynamic data to be displayed to the cardholder i.e. masked phone number or email address.';
+comment on column AQPD255.aqpd255varaux1
+  is 'Variable Auxiliar 1';
+comment on column AQPD255.aqpd255varaux2
+  is 'Variable Auxiliar 2';
+comment on column AQPD255.aqpd255horfin
+  is 'Hora fin';
+comment on column AQPD255.aqpd255horini
+  is 'Hora inicio';
+alter table AQPD255
+  add primary key (AQPD255ID);
+

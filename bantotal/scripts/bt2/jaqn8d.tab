@@ -1,0 +1,54 @@
+create table JAQN8D
+(
+  jaqn8dempr NUMBER(3) not null,
+  jaqn8dtex  NUMBER(4) not null,
+  jaqn8dfech DATE not null,
+  jaqn8dgara NUMBER(3) not null,
+  jaqn8dnaut NUMBER(3) not null,
+  jaqn8dpamo NUMBER(10,6),
+  jaqn8ddesc CHAR(100),
+  jaqn8dnum1 NUMBER(10),
+  jaqn8dnum2 NUMBER(10),
+  jaqn8dimp1 NUMBER(17,2),
+  jaqn8dimp2 NUMBER(17,2),
+  jaqn8dvar1 VARCHAR2(255),
+  jaqn8dvar2 VARCHAR2(255),
+  jaqn8dfec1 DATE,
+  jaqn8dfec2 DATE
+)
+;
+comment on table JAQN8D
+  is 'Topes Porcentajes de Exoneración';
+comment on column JAQN8D.jaqn8dempr
+  is 'Empresa';
+comment on column JAQN8D.jaqn8dtex
+  is 'Tipo Exoneracion(1: PJM, 2:23, 3:Judicial, 4:Castigada)';
+comment on column JAQN8D.jaqn8dfech
+  is 'Fecha Ingreso';
+comment on column JAQN8D.jaqn8dgara
+  is 'Garantia(0:sin garantia, 1:con garantia)';
+comment on column JAQN8D.jaqn8dnaut
+  is 'nivel autonomia';
+comment on column JAQN8D.jaqn8dpamo
+  is 'Porcentaje Amortizacion';
+comment on column JAQN8D.jaqn8ddesc
+  is 'Descripcion concepto';
+comment on column JAQN8D.jaqn8dnum1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN8D.jaqn8dnum2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN8D.jaqn8dimp1
+  is 'Auxiliar Importe 1';
+comment on column JAQN8D.jaqn8dimp2
+  is 'Auxiliar Importe 2';
+comment on column JAQN8D.jaqn8dvar1
+  is 'Auxiliar varchar 1';
+comment on column JAQN8D.jaqn8dvar2
+  is 'Auxiliar varchar 2';
+comment on column JAQN8D.jaqn8dfec1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN8D.jaqn8dfec2
+  is 'Auxiliar Fecha 2';
+alter table JAQN8D
+  add primary key (JAQN8DEMPR, JAQN8DTEX, JAQN8DFECH, JAQN8DGARA, JAQN8DNAUT);
+

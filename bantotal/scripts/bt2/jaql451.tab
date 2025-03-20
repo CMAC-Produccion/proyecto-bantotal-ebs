@@ -1,0 +1,17 @@
+create table JAQL451
+(
+  jaql451corre NUMBER(10),
+  jaql451pais  NUMBER(3),
+  jaql451tpdoc NUMBER(2),
+  jaql451nudoc CHAR(12),
+  jaql451fchco DATE,
+  jaql451hraco CHAR(8),
+  jaql451fchrp DATE,
+  jaql451hrarp CHAR(8),
+  jaql451estco CHAR(1),
+  jaql451dessa CHAR(100),
+  jaql451tipco CHAR(1)
+)
+;
+create index IDX$$_003D0001 on JAQL451 (JAQL451CORRE, JAQL451NUDOC);
+

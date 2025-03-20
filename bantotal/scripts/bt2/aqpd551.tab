@@ -1,0 +1,60 @@
+create table AQPD551
+(
+  aqpd551fec     DATE not null,
+  aqpd551mod     NUMBER(4) not null,
+  aqpd551tran    NUMBER(4) not null,
+  aqpd551rel     NUMBER(4) not null,
+  aqpd551codban  NUMBER(4),
+  aqpd551oper    NUMBER(9),
+  aqpd551mon     NUMBER(17),
+  aqpd551mod2    NUMBER(4),
+  aqpd551tran2   NUMBER(4),
+  aqpd551rel2    NUMBER(4),
+  aqpd551oper2   NUMBER(9),
+  aqpd551mon2    NUMBER(7),
+  aqpd551cntmod  NUMBER(9),
+  aqpd551cntagen NUMBER(9),
+  aqpd551csubop  NUMBER(4),
+  aqpd551ctipop  NUMBER(4),
+  aqpd551csuc    NUMBER(4)
+)
+;
+comment on table AQPD551
+  is 'Tabla temporal de reporte PCSE';
+comment on column AQPD551.aqpd551fec
+  is 'fecha proceso';
+comment on column AQPD551.aqpd551mod
+  is 'modulo';
+comment on column AQPD551.aqpd551tran
+  is 'transaccion';
+comment on column AQPD551.aqpd551rel
+  is 'relacion';
+comment on column AQPD551.aqpd551codban
+  is 'codigo banco';
+comment on column AQPD551.aqpd551oper
+  is 'operacoin';
+comment on column AQPD551.aqpd551mon
+  is 'monto';
+comment on column AQPD551.aqpd551mod2
+  is 'modulo';
+comment on column AQPD551.aqpd551tran2
+  is 'transacción';
+comment on column AQPD551.aqpd551rel2
+  is 'relacion';
+comment on column AQPD551.aqpd551oper2
+  is 'operacion';
+comment on column AQPD551.aqpd551mon2
+  is 'monto 2';
+comment on column AQPD551.aqpd551cntmod
+  is 'cuenta modulo';
+comment on column AQPD551.aqpd551cntagen
+  is 'cuenta agente';
+comment on column AQPD551.aqpd551csubop
+  is 'cuenta sub operacion';
+comment on column AQPD551.aqpd551ctipop
+  is 'cuenta tipo operacion';
+comment on column AQPD551.aqpd551csuc
+  is 'codigo sucursal';
+alter table AQPD551
+  add primary key (AQPD551FEC, AQPD551MOD, AQPD551TRAN, AQPD551REL);
+

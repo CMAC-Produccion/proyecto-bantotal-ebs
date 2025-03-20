@@ -1,0 +1,13 @@
+create table XWFD02
+(
+  xwfddocins NUMBER(10) not null,
+  xwfddocver NUMBER(6) not null,
+  xwfddocusu CHAR(10),
+  xwfddocfec DATE,
+  xwfddnomar VARCHAR2(200),
+  xwfddblob  BLOB
+)
+;
+alter table XWFD02
+  add primary key (XWFDDOCINS, XWFDDOCVER);
+

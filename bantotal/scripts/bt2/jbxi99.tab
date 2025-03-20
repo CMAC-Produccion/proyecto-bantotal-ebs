@@ -1,0 +1,18 @@
+create table JBXI99
+(
+  jbxi99cin CHAR(1) not null,
+  jbxi99cmo CHAR(3) not null,
+  jbxi99cre NUMBER(1) not null,
+  jbxi99caf CHAR(4) not null,
+  jbxi99fin DATE not null,
+  jbxi99imp NUMBER(17,2) not null,
+  jbxi99num CHAR(41) not null,
+  jbxi99pzo NUMBER(5),
+  jbxi99tas NUMBER(10,6),
+  jbxi99tcu CHAR(1),
+  jbxi99tde CHAR(4),
+  jbxi99ope CHAR(1)
+)
+;
+create unique index JBXI9901 on JBXI99 (JBXI99CIN, JBXI99CMO, JBXI99CRE, JBXI99CAF, JBXI99FIN, JBXI99IMP, JBXI99NUM);
+

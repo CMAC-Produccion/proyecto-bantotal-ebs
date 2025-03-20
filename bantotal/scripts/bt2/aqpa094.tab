@@ -1,0 +1,18 @@
+create table AQPA094
+(
+  aqpa094seg NUMBER(10) not null,
+  aqpa094c1  NUMBER(16,4),
+  aqpa094c2  NUMBER(16,4)
+)
+;
+comment on table AQPA094
+  is 'AQPA094';
+comment on column AQPA094.aqpa094seg
+  is 'CODIGO DE SEGMENTACION';
+comment on column AQPA094.aqpa094c1
+  is 'MONTO CASO 01';
+comment on column AQPA094.aqpa094c2
+  is 'MONTO CAMPAÑA';
+alter table AQPA094
+  add primary key (AQPA094SEG);
+

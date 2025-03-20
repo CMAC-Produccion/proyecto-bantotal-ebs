@@ -1,0 +1,156 @@
+create table JAQL583
+(
+  jaql583usu     CHAR(20) not null,
+  jaql583fpro    DATE not null,
+  jaql583mant    NUMBER(9,1),
+  jaql583dant    NUMBER(9,1),
+  jaql583bsal    NUMBER(17,2),
+  jaql583bcli    NUMBER(17,2),
+  jaql583bmra    NUMBER(17,2),
+  jaql583sdo     NUMBER(17,2),
+  jaql583ncl     NUMBER(10),
+  jaql583sdm     NUMBER(17,2),
+  jaql583pmra    NUMBER(9,2),
+  jaql583soto    NUMBER(17,2),
+  jaql583srec    NUMBER(17,2),
+  jaql583cot     NUMBER(10),
+  jaql583crec    NUMBER(10),
+  jaql583pcod    NUMBER(4),
+  jaql583age     NUMBER(3),
+  jaql583tusu    CHAR(3),
+  jaql583tage    CHAR(3),
+  jaql583tmet    CHAR(3),
+  jaql583crsa    NUMBER(17,2),
+  jaql583crcl    NUMBER(17,2),
+  jaql583crma    NUMBER(17,2),
+  jaql583cran    NUMBER(17,2),
+  jaql583crme    NUMBER(17,2),
+  jaql583crca    NUMBER(10),
+  jaql583crcm    NUMBER(10),
+  jaql583ppla    NUMBER(17,2),
+  jaql583pplm    NUMBER(17,2),
+  jaql583ppca    NUMBER(17,2),
+  jaql583ppcm    NUMBER(17,2),
+  jaql583ppcn    NUMBER(17,2),
+  jaql583sant    NUMBER(17,2),
+  jaql583cant    NUMBER(10),
+  jaql583smax    NUMBER(17,2),
+  jaql583cmax    NUMBER(10),
+  jaql583mtsa    NUMBER(18,2),
+  jaql583mtcl    NUMBER(10),
+  jaql583mtmr    NUMBER(9,2),
+  jaql583ncn     NUMBER(10),
+  jaql583sdcn    NUMBER(17,2),
+  jaql583sdca    NUMBER(17,2),
+  jaql583sdju    NUMBER(17,2),
+  jaql583fcmax   DATE,
+  jaql583fsmax   DATE,
+  jaql583est     CHAR(1),
+  jaql583cmra    NUMBER(17,2),
+  jaql583sdc7    NUMBER(10),
+  jaql583sdc6    NUMBER(10),
+  jaql583sdc5    NUMBER(10),
+  jaql583sdc4    NUMBER(10),
+  jaql583sdc3    NUMBER(10),
+  jaql583sdc2    NUMBER(10),
+  jaql583sdc1    NUMBER(10),
+  jaql583tase    CHAR(3),
+  jaql583bplu    NUMBER(17,2),
+  jaql583bmet    NUMBER(17,2),
+  jaql583c5030   CHAR(4),
+  jaql583lage    CHAR(3),
+  jaql583texme   NUMBER(16,2),
+  jaql583texan   NUMBER(16,2),
+  jaql583exme    NUMBER(16,2),
+  jaql583exan    NUMBER(16,2),
+  jaql583pjcm    NUMBER(16,2),
+  jaql583pjca    NUMBER(16,2),
+  jaql583pjcas   NUMBER(9,2),
+  jaql583cltot   NUMBER(10),
+  jaql583sdtot   NUMBER(17,2),
+  jaql583totpa   NUMBER(17,2),
+  jaql583fmo     DATE,
+  jaql583umo     CHAR(20),
+  jaql583nexm    NUMBER(4),
+  jaql583nexa    NUMBER(4),
+  jaql583cexa    CHAR(2),
+  jaql583cexm    CHAR(2),
+  jaql583inca    CHAR(1),
+  jaql583sdve    NUMBER(17,2),
+  jaql583pmnu    NUMBER(9,2),
+  jaql583sdre    NUMBER(17,2),
+  jaql583ncf     NUMBER(4),
+  jaql583mcf     NUMBER(10,2),
+  jaql583nsdve   NUMBER(17,2),
+  jaql583sdves   NUMBER(17,2),
+  jaql583sdcas   NUMBER(17,2),
+  jaql583sdjus   NUMBER(17,2),
+  jaql583cmdsv   NUMBER(17,2),
+  jaql583sdres   NUMBER(17,2),
+  jaql583pgosv   NUMBER(17,2),
+  jaql583tasv    CHAR(3),
+  jaql583svoto   NUMBER(17,2),
+  jaql583svrec   NUMBER(17,2),
+  jaql583sroto   NUMBER(17,2),
+  jaql583srrec   NUMBER(17,2),
+  jaql583ctipmer NUMBER(3),
+  jaql583codcat  NUMBER(3),
+  jaql583cantage NUMBER(3),
+  jaql583caja    CHAR(3),
+  jaql583neo     CHAR(1),
+  jaql583ivi     CHAR(3)
+)
+;
+comment on column JAQL583.jaql583sdca
+  is 'Saldo Castigado';
+comment on column JAQL583.jaql583sdju
+  is 'Saldo Judicial';
+comment on column JAQL583.jaql583pjcas
+  is 'Porcentaje Castigo';
+comment on column JAQL583.jaql583sdve
+  is 'Saldo Vencido';
+comment on column JAQL583.jaql583sdre
+  is 'Saldo Refinanciado';
+comment on column JAQL583.jaql583ncf
+  is 'Numero de Cartas Fianza';
+comment on column JAQL583.jaql583mcf
+  is 'Pago x Monto de Cartas Fianza';
+comment on column JAQL583.jaql583nsdve
+  is 'Nuevo Saldo Vencido';
+comment on column JAQL583.jaql583sdves
+  is 'Saldo Vencido a Sept.2014';
+comment on column JAQL583.jaql583sdcas
+  is 'Saldo Castigado a Sept.2014';
+comment on column JAQL583.jaql583sdjus
+  is 'Saldo Judicial a Sept.2014';
+comment on column JAQL583.jaql583cmdsv
+  is 'Cantidad Mínima Disminución de Saldo Vencido';
+comment on column JAQL583.jaql583sdres
+  is 'Saldo Refinanciado a Sept.2014';
+comment on column JAQL583.jaql583pgosv
+  is 'Pago por Ajuste Saldo Vencido';
+comment on column JAQL583.jaql583tasv
+  is 'Tipo Analista Saldo Vencido';
+comment on column JAQL583.jaql583svoto
+  is 'Saldo Vencido Otorgado';
+comment on column JAQL583.jaql583svrec
+  is 'Saldo Vencido Recibido';
+comment on column JAQL583.jaql583sroto
+  is 'Saldo Refinanciado Otorgado';
+comment on column JAQL583.jaql583srrec
+  is 'Saldo Refinanciado Recibido';
+comment on column JAQL583.jaql583ctipmer
+  is 'Código de Tipo de Mercado: 1-Decremento, 2-SinCrecimiento, 3-ConCrecimiento';
+comment on column JAQL583.jaql583codcat
+  is 'Código de Categoría de Analista: 1-Principiante, 2-Junior, 3-AvanzadoJR, 4-Avanzado, 5-ExpertoJR, 6-Experto, 7-SeniorI, 8-SeniorII, 9-SeniorIII';
+comment on column JAQL583.jaql583cantage
+  is 'Código de Antigüedad de Agencia: 1-Nueva, 2-EnCrecimiento, 3-Madura';
+comment on column JAQL583.jaql583caja
+  is 'Código de Caja (A-Arequipa, L1-CSL1, L2-CSL2)';
+comment on column JAQL583.jaql583neo
+  is 'Tipo Agencia N-Nueva/E-Especifica/O-Otra';
+comment on column JAQL583.jaql583ivi
+  is 'Clasificacion Analista x Saldo';
+alter table JAQL583
+  add primary key (JAQL583USU, JAQL583FPRO);
+

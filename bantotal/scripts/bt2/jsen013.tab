@@ -1,0 +1,16 @@
+create table JSEN013
+(
+  jsen013pgc NUMBER(3) not null,
+  jsen013ctn NUMBER(9) not null,
+  jsen013pai NUMBER(3) not null,
+  jsen013ptd NUMBER(2) not null,
+  jsen013ndo CHAR(25) not null,
+  jsen013afi DATE,
+  jsen013bfi DATE,
+  jsen013act DATE,
+  jsen013bct DATE
+)
+;
+alter table JSEN013
+  add primary key (JSEN013PGC, JSEN013CTN, JSEN013PAI, JSEN013PTD, JSEN013NDO);
+

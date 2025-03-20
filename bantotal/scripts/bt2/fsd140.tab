@@ -1,0 +1,20 @@
+create table FSD140
+(
+  succr1 NUMBER(3) not null,
+  rubcr1 NUMBER(6) not null,
+  ctacr1 NUMBER(9) not null,
+  mdacr1 NUMBER(1) not null,
+  actcr1 NUMBER(5) not null,
+  idecr1 CHAR(2) not null,
+  camcr1 NUMBER(2),
+  impcr1 NUMBER(16,2),
+  calcr1 NUMBER(2),
+  rescr1 CHAR(1),
+  falcr1 CHAR(1),
+  tercr1 CHAR(1)
+)
+;
+create index FSD14002 on FSD140 (CTACR1);
+alter table FSD140
+  add primary key (SUCCR1, RUBCR1, CTACR1, MDACR1, ACTCR1, IDECR1);
+

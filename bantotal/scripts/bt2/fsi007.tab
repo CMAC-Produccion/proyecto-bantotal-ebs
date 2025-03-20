@@ -1,0 +1,17 @@
+create table FSI007
+(
+  pgcod  NUMBER(3) not null,
+  cicpo  CHAR(8) not null,
+  ciordi NUMBER(2) not null,
+  cicpo1 CHAR(8),
+  cicomp CHAR(2),
+  cicpo2 CHAR(8),
+  cicpor CHAR(8)
+)
+;
+create index FSI00703 on FSI007 (PGCOD, CICPO1);
+create index FSI00704 on FSI007 (PGCOD, CICPO2);
+create index FSI00705 on FSI007 (PGCOD, CICPOR);
+alter table FSI007
+  add primary key (PGCOD, CICPO, CIORDI);
+

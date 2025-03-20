@@ -1,0 +1,82 @@
+create table AQPB902
+(
+  aqpb902corr NUMBER(10) not null,
+  aqpb902ins  NUMBER(12),
+  aqpb902suc  NUMBER(3),
+  aqpb902sucu VARCHAR2(50),
+  aqpb902zona VARCHAR2(50),
+  aqpb902regi VARCHAR2(50),
+  aqpb902anls CHAR(10),
+  aqpb902mnd  NUMBER(5),
+  aqpb902cta  NUMBER(10),
+  aqpb902pais NUMBER(3),
+  aqpb902tdoc NUMBER(2),
+  aqpb902doc  CHAR(12),
+  aqpb902ncli VARCHAR2(50),
+  aqpb902mont NUMBER(17,2),
+  aqpb902aprb DATE,
+  aqpb902canl VARCHAR2(50),
+  aqpb902desb DATE,
+  aqpb902ope  NUMBER(10),
+  aqpb902mod  NUMBER(3),
+  aqpb902tope NUMBER(3),
+  aqpb902tel  VARCHAR2(50),
+  aqpb902soli VARCHAR2(50),
+  aqpb902usur VARCHAR2(10),
+  aqpb902fecr DATE
+)
+;
+comment on table AQPB902
+  is 'REPORTE DE DESEMBOLSO DIGITAL';
+comment on column AQPB902.aqpb902corr
+  is 'CORRELATIVO';
+comment on column AQPB902.aqpb902ins
+  is 'INSTANCIA';
+comment on column AQPB902.aqpb902suc
+  is 'COD.AGENCIA';
+comment on column AQPB902.aqpb902sucu
+  is 'SUCURSAL';
+comment on column AQPB902.aqpb902zona
+  is 'ZONA';
+comment on column AQPB902.aqpb902regi
+  is 'REGION';
+comment on column AQPB902.aqpb902anls
+  is 'ANALISTA';
+comment on column AQPB902.aqpb902mnd
+  is 'MONEDA';
+comment on column AQPB902.aqpb902cta
+  is 'CUENTA CLIENTE';
+comment on column AQPB902.aqpb902pais
+  is 'COD.PAIS';
+comment on column AQPB902.aqpb902tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB902.aqpb902doc
+  is 'DOCUMENTO';
+comment on column AQPB902.aqpb902ncli
+  is 'NOM CLIENTE';
+comment on column AQPB902.aqpb902mont
+  is 'MONTO';
+comment on column AQPB902.aqpb902aprb
+  is 'FECHA APROBACION';
+comment on column AQPB902.aqpb902canl
+  is 'CANAL DESEMBOLSO';
+comment on column AQPB902.aqpb902desb
+  is 'FECHA DESEMBOLSO';
+comment on column AQPB902.aqpb902ope
+  is 'OPERACION DESEMBOLSO';
+comment on column AQPB902.aqpb902mod
+  is 'MODULO DESEMBOLSO';
+comment on column AQPB902.aqpb902tope
+  is 'TIPO OPE. DESEMBOLSO';
+comment on column AQPB902.aqpb902tel
+  is 'TELEFONOS';
+comment on column AQPB902.aqpb902soli
+  is 'TIPO DE SOLICITUD';
+comment on column AQPB902.aqpb902usur
+  is 'USUARIO REPORTE';
+comment on column AQPB902.aqpb902fecr
+  is 'FECHA DEL REPORTE';
+create index AQPB902A2 on AQPB902 (AQPB902FECR, AQPB902USUR);
+alter table AQPB902
+  add primary key (AQPB902CORR);
+

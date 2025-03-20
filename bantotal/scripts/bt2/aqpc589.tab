@@ -1,0 +1,146 @@
+create table AQPC589
+(
+  aqpc589corr   NUMBER(10) not null,
+  aqpc589pais   NUMBER(3) not null,
+  aqpc589ptdc   NUMBER(2) not null,
+  aqpc589dni    CHAR(12) not null,
+  aqpc589emp    NUMBER(3) not null,
+  aqpc589mod    NUMBER(3) not null,
+  aqpc589suc    NUMBER(3) not null,
+  aqpc589mda    NUMBER(4) not null,
+  aqpc589pap    NUMBER(4) not null,
+  aqpc589cta    NUMBER(9) not null,
+  aqpc589oper   NUMBER(9) not null,
+  aqpc589sbop   NUMBER(3) not null,
+  aqpc589top    NUMBER(3) not null,
+  aqpc589taso   NUMBER(17,2),
+  aqpc589inact  NUMBER(10,2),
+  aqpc589incon  NUMBER(10,2),
+  aqpc589pdesc  NUMBER(10,2),
+  aqpc589instvr NUMBER(10),
+  aqpc589instvo NUMBER(10),
+  aqpc589fecpro DATE,
+  aqpc589estpro CHAR(1),
+  aqpc589esthab CHAR(1),
+  aqpc589mora   CHAR(1),
+  aqpc589scap   NUMBER(17,2),
+  aqpc589vgnt   CHAR(1),
+  aqpc589cli    VARCHAR2(100),
+  aqpc589usreg  VARCHAR2(30),
+  aqpc589fecreg TIMESTAMP(6),
+  aqpc589usmod  VARCHAR2(30),
+  aqpc589fchmod TIMESTAMP(6),
+  aqpc589inant  NUMBER(17,2),
+  aqpc589mntmin NUMBER(17,2),
+  aqpc589mntmax NUMBER(17,2),
+  aqpc589mmora  NUMBER(17,2),
+  aqpc589micv   NUMBER(17,2),
+  aqpc589mgas   NUMBER(17,2),
+  aqpc589mseg   NUMBER(17,2),
+  aqpc589descu  VARCHAR2(50),
+  aqpc589mtdeu  NUMBER(17,2),
+  aqpc589mprv   NUMBER(17,2),
+  aqpc589indc   VARCHAR2(10),
+  aqpc589eprv   VARCHAR2(10),
+  aqpc589grupo  NUMBER(5),
+  aqpc589covid  VARCHAR2(10)
+)
+;
+comment on table AQPC589
+  is 'TABLA DE CONDONACIONES';
+comment on column AQPC589.aqpc589corr
+  is 'Correlativo';
+comment on column AQPC589.aqpc589pais
+  is 'Pais del documento';
+comment on column AQPC589.aqpc589ptdc
+  is 'Tipo de documento';
+comment on column AQPC589.aqpc589dni
+  is 'Documento de indentidad';
+comment on column AQPC589.aqpc589emp
+  is 'Clv. credito Empresa';
+comment on column AQPC589.aqpc589mod
+  is 'Clv. credito Modulo';
+comment on column AQPC589.aqpc589suc
+  is 'Clv. credito Sucursal';
+comment on column AQPC589.aqpc589mda
+  is 'Clv. credito Moneda';
+comment on column AQPC589.aqpc589pap
+  is 'Clv. credito Papel';
+comment on column AQPC589.aqpc589cta
+  is 'Clv. credito Cuenta';
+comment on column AQPC589.aqpc589oper
+  is 'Clv. credito Operacion';
+comment on column AQPC589.aqpc589sbop
+  is 'Clv. credito Suboperacion';
+comment on column AQPC589.aqpc589top
+  is 'Clv. credito Tipo de Operacion';
+comment on column AQPC589.aqpc589taso
+  is 'TASA ORIGINAL';
+comment on column AQPC589.aqpc589inact
+  is 'INTERES ACTUAL';
+comment on column AQPC589.aqpc589incon
+  is 'INTERES CONDONADO';
+comment on column AQPC589.aqpc589pdesc
+  is 'PORCENTAJE DE DESCUENTO ';
+comment on column AQPC589.aqpc589instvr
+  is 'INSTANCIA CREDITO A VINCULAR';
+comment on column AQPC589.aqpc589instvo
+  is 'INSTANCIA CREDITO VINCULADO';
+comment on column AQPC589.aqpc589fecpro
+  is 'FECHA PROCESO';
+comment on column AQPC589.aqpc589estpro
+  is 'ESTADO PROCESADO: P - A ';
+comment on column AQPC589.aqpc589esthab
+  is 'ESTADO HABILITADO; H O I ';
+comment on column AQPC589.aqpc589mora
+  is 'INDICADOR MORA ';
+comment on column AQPC589.aqpc589scap
+  is 'SALDO CAPITAL ';
+comment on column AQPC589.aqpc589vgnt
+  is 'INDICADOR DE VIGENCIA ';
+comment on column AQPC589.aqpc589cli
+  is 'NOMBRE DEL CLIENTE ';
+comment on column AQPC589.aqpc589usreg
+  is 'USUARIO QUE REGISTRO';
+comment on column AQPC589.aqpc589fecreg
+  is 'FECHA DE REGISTRO ';
+comment on column AQPC589.aqpc589usmod
+  is 'USUARIO QUE MODIFICO';
+comment on column AQPC589.aqpc589fchmod
+  is 'FECHA DE MODIFICACION ';
+comment on column AQPC589.aqpc589inant
+  is 'INTERES ANTERIOR';
+comment on column AQPC589.aqpc589mntmin
+  is 'MONTO MAXIMO';
+comment on column AQPC589.aqpc589mntmax
+  is 'MONTO MINIMO';
+comment on column AQPC589.aqpc589mmora
+  is 'MONTO MORA';
+comment on column AQPC589.aqpc589micv
+  is 'MONTO ICV';
+comment on column AQPC589.aqpc589mgas
+  is 'MONTO OTROS GASTOS PJAQL969C INCLUYE SEGUROS';
+comment on column AQPC589.aqpc589mseg
+  is 'MONTO PJAQL969C CUOSEG';
+comment on column AQPC589.aqpc589descu
+  is 'CAMPOA PARA DESCUENTO APLICA / NO APLICA';
+comment on column AQPC589.aqpc589mtdeu
+  is 'MONTO TOTAL DE LA DEUDA - MORA+PENALIDAD+ICV+SEGUROS';
+comment on column AQPC589.aqpc589mprv
+  is 'MONTO PROVISION';
+comment on column AQPC589.aqpc589indc
+  is 'INDICADOR SI ES COVID';
+comment on column AQPC589.aqpc589eprv
+  is 'EXONERADO CONTROL PROVISION';
+comment on column AQPC589.aqpc589grupo
+  is 'GRUPO SEGUN LISTADO';
+comment on column AQPC589.aqpc589covid
+  is 'INDICADOR COVID SEGUN LISTADO';
+create index AQPC589A2 on AQPC589 (AQPC589CORR, AQPC589PAIS, AQPC589PTDC, AQPC589DNI);
+create index AQPC589A3 on AQPC589 (AQPC589CORR, AQPC589EMP, AQPC589MOD, AQPC589SUC, AQPC589MDA, AQPC589PAP, AQPC589CTA, AQPC589OPER, AQPC589SBOP, AQPC589TOP);
+create index AQPC589A4 on AQPC589 (AQPC589CORR, AQPC589EMP, AQPC589MOD, AQPC589SUC, AQPC589MDA, AQPC589PAP, AQPC589CTA, AQPC589OPER, AQPC589SBOP, AQPC589TOP, AQPC589ESTPRO, AQPC589ESTHAB);
+create index AQPC589A5 on AQPC589 (AQPC589PAIS, AQPC589PTDC, AQPC589DNI, AQPC589ESTPRO, AQPC589ESTHAB);
+create index AQPC589A6 on AQPC589 (AQPC589PAIS, AQPC589PTDC, AQPC589DNI, AQPC589FECPRO, AQPC589ESTPRO, AQPC589ESTHAB);
+alter table AQPC589
+  add constraint AQPC589A1 primary key (AQPC589CORR, AQPC589PAIS, AQPC589PTDC, AQPC589DNI, AQPC589EMP, AQPC589MOD, AQPC589SUC, AQPC589MDA, AQPC589PAP, AQPC589CTA, AQPC589OPER, AQPC589SBOP, AQPC589TOP);
+

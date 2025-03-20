@@ -1,0 +1,32 @@
+create table JAQM47
+(
+  jaqm47cca NUMBER(12) not null,
+  jaqm47cpr NUMBER(12) not null,
+  jaqm47pre VARCHAR2(255),
+  jaqm47tip VARCHAR2(10),
+  jaqm47vis CHAR(1),
+  jaqm47cpa NUMBER(12),
+  jaqm47cra NUMBER(12),
+  jaqm47ord NUMBER(3),
+  jaqm47obl CHAR(1),
+  jaqm47nu1 NUMBER(9),
+  jaqm47nu2 NUMBER(9),
+  jaqm47nu3 NUMBER(9),
+  jaqm47im1 NUMBER(17,2),
+  jaqm47im2 NUMBER(17,2),
+  jaqm47im3 NUMBER(17,2),
+  jaqm47fe1 DATE,
+  jaqm47fe2 DATE,
+  jaqm47fe3 DATE,
+  jaqm47ch1 CHAR(1),
+  jaqm47ch2 CHAR(1),
+  jaqm47ch3 CHAR(1),
+  jaqm47va1 VARCHAR2(255),
+  jaqm47va2 VARCHAR2(255),
+  jaqm47va3 VARCHAR2(255)
+)
+;
+create index JAQM47A2 on JAQM47 (JAQM47CCA, JAQM47CPR, JAQM47PRE, JAQM47TIP, JAQM47VIS, JAQM47CPA, JAQM47CRA, JAQM47ORD, JAQM47OBL);
+alter table JAQM47
+  add primary key (JAQM47CCA, JAQM47CPR);
+

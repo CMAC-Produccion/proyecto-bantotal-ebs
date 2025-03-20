@@ -1,0 +1,16 @@
+create table AUM004
+(
+  aum000cod  NUMBER(4) not null,
+  aum001nive NUMBER(4) not null,
+  aum003cgru NUMBER(2) not null,
+  aum004sgru NUMBER(2) not null,
+  aum004cntf NUMBER(4),
+  aum004perf CHAR(10),
+  aum004rofi CHAR(1),
+  aum004rsuc CHAR(1),
+  aum004rreg CHAR(1)
+)
+;
+alter table AUM004
+  add primary key (AUM000COD, AUM001NIVE, AUM003CGRU, AUM004SGRU);
+

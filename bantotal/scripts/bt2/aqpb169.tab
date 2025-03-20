@@ -1,0 +1,65 @@
+create table AQPB169
+(
+  aqpb169corr     VARCHAR2(10) not null,
+  aqpb169inst     NUMBER(10) not null,
+  aqpb169fch      DATE not null,
+  aqpb169hora     VARCHAR2(8) not null,
+  aqpb169pais     NUMBER(3),
+  aqpb169tdoc     NUMBER(3),
+  aqpb169ndoc     VARCHAR2(12),
+  aqpb169ciiu     NUMBER,
+  aqpb169tcred    NUMBER,
+  aqpb169tabla    VARCHAR2(10),
+  aqpb169ftabla   DATE,
+  aqpb169segrisk  VARCHAR2(15),
+  aqpb169modeva   NUMBER,
+  aqpb169dpto     NUMBER,
+  aqpb169sgsaras  VARCHAR2(15),
+  aqpb169fsgsaras DATE,
+  aqpb169hsgsaras VARCHAR2(8),
+  aqpb169est      VARCHAR2(5)
+)
+;
+comment on table AQPB169
+  is 'Tabla Log Ejecucion Segmentacion SARAS';
+comment on column AQPB169.aqpb169corr
+  is 'Correlativo';
+comment on column AQPB169.aqpb169inst
+  is 'Instancia';
+comment on column AQPB169.aqpb169fch
+  is 'Fecha';
+comment on column AQPB169.aqpb169hora
+  is 'Hora';
+comment on column AQPB169.aqpb169pais
+  is 'Pais ';
+comment on column AQPB169.aqpb169tdoc
+  is 'Tipo de Documento';
+comment on column AQPB169.aqpb169ndoc
+  is 'Nro de Documento';
+comment on column AQPB169.aqpb169ciiu
+  is 'CIIU del Cliente';
+comment on column AQPB169.aqpb169tcred
+  is 'Tipo de Credito de ejecucion de politicas';
+comment on column AQPB169.aqpb169tabla
+  is 'Tabla de Segm Riesgo JAQL640 o JAQL639';
+comment on column AQPB169.aqpb169ftabla
+  is 'Fecha de la tabla';
+comment on column AQPB169.aqpb169segrisk
+  is 'Segmentacion de Riesgo';
+comment on column AQPB169.aqpb169modeva
+  is 'Modelo de Evaluacion';
+comment on column AQPB169.aqpb169dpto
+  is 'Dpto de la dirección';
+comment on column AQPB169.aqpb169sgsaras
+  is 'Segmentacion Saras';
+comment on column AQPB169.aqpb169fsgsaras
+  is 'Fecha de Segmentacion Saras';
+comment on column AQPB169.aqpb169hsgsaras
+  is 'Hora de Segmentacion Saras';
+comment on column AQPB169.aqpb169est
+  is 'Estado';
+create index AQPB169A2 on AQPB169 (AQPB169INST, AQPB169CORR);
+create index AQPB169A3 on AQPB169 (AQPB169PAIS, AQPB169TDOC, AQPB169NDOC);
+alter table AQPB169
+  add primary key (AQPB169CORR, AQPB169INST, AQPB169FCH, AQPB169HORA);
+

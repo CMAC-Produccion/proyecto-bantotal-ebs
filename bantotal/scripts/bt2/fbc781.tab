@@ -1,0 +1,21 @@
+create table FBC781
+(
+  bc781emp   NUMBER(3) not null,
+  bc781suc   NUMBER(3) not null,
+  bc781tipo  CHAR(1),
+  bc781prov  CHAR(2),
+  bc781cton  CHAR(2),
+  bc781resap CHAR(20),
+  bc781fchap DATE,
+  bc781fchci DATE,
+  bc781resci CHAR(20),
+  bc781freci DATE,
+  bc781est   CHAR(1),
+  bc781aux1  CHAR(20),
+  bc781aux2  NUMBER(17,2),
+  bc781aux3  DATE
+)
+;
+alter table FBC781
+  add primary key (BC781EMP, BC781SUC);
+

@@ -1,0 +1,32 @@
+create table JAQZ197
+(
+  jaqz197cod NUMBER(9) not null,
+  jaqz197tip CHAR(1) not null,
+  jaqz197fec DATE not null,
+  jaqz197usr CHAR(10) not null,
+  jaqz197cor NUMBER(15) not null,
+  jaqz197fil NUMBER(9),
+  jaqz197col NUMBER(9),
+  jaqz197gru CHAR(50),
+  jaqz197ent CHAR(70),
+  jaqz197cal CHAR(5),
+  jaqz197rub CHAR(16),
+  jaqz197dru CHAR(40),
+  jaqz197mda NUMBER(4),
+  jaqz197cta NUMBER(9),
+  jaqz197ope NUMBER(9),
+  jaqz197fve DATE,
+  jaqz197fva DATE,
+  jaqz197tas NUMBER(10,6),
+  jaqz197smo NUMBER(17,2),
+  jaqz197smn NUMBER(17,2),
+  jaqz197int NUMBER(17,2),
+  jaqz197ain NUMBER(9),
+  jaqz197cgr NUMBER(9),
+  jaqz197csg NUMBER(9)
+)
+;
+create index JAQZ1972 on JAQZ197 (JAQZ197FEC, JAQZ197USR);
+alter table JAQZ197
+  add primary key (JAQZ197COD, JAQZ197TIP, JAQZ197FEC, JAQZ197USR, JAQZ197COR);
+

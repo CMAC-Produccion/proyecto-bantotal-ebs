@@ -1,0 +1,20 @@
+create table FSF108
+(
+  lptrmod  NUMBER(3) not null,
+  lptrnro  NUMBER(3) not null,
+  lptrord  NUMBER(2) not null,
+  lpinscod NUMBER(3) not null,
+  lpinsord NUMBER(2) not null,
+  lpinsmod NUMBER(3),
+  lpinsrub NUMBER(16),
+  lpinsobl CHAR(1),
+  lpincodm NUMBER(3),
+  lpinscom NUMBER(3),
+  lpinsper NUMBER(3),
+  lpinsapl CHAR(1),
+  lpinscta CHAR(1)
+)
+;
+alter table FSF108
+  add primary key (LPTRMOD, LPTRNRO, LPTRORD, LPINSCOD, LPINSORD);
+

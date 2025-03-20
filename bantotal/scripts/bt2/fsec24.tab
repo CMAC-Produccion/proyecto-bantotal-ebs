@@ -1,0 +1,27 @@
+create table FSEC24
+(
+  sec24pgcod NUMBER(3) not null,
+  sec24ptcta NUMBER(9) not null,
+  sec24aomod NUMBER(3) not null,
+  sec24aosuc NUMBER(3) not null,
+  sec24aomda NUMBER(4) not null,
+  sec24aopap NUMBER(4) not null,
+  sec24aocta NUMBER(9) not null,
+  sec24aoope NUMBER(9) not null,
+  sec24aosbo NUMBER(3) not null,
+  sec24aotop NUMBER(3) not null,
+  sec24user  CHAR(10),
+  sec24tipo  CHAR(10),
+  sec24fecin DATE,
+  sec24hora  CHAR(8),
+  sec24mvcod NUMBER(3),
+  sec24mvsuc NUMBER(3),
+  sec24mvmod NUMBER(3),
+  sec24mvtrn NUMBER(3),
+  sec24mvnre NUMBER(4),
+  sec24mvfec DATE
+)
+;
+alter table FSEC24
+  add primary key (SEC24PGCOD, SEC24PTCTA, SEC24AOMOD, SEC24AOSUC, SEC24AOMDA, SEC24AOPAP, SEC24AOCTA, SEC24AOOPE, SEC24AOSBO, SEC24AOTOP);
+

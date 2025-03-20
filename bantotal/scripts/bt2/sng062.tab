@@ -1,0 +1,21 @@
+create table SNG062
+(
+  sng062aut  NUMBER(10) not null,
+  sng061tem  NUMBER(10),
+  sng062dsc  CHAR(80),
+  sng064cod  NUMBER(4),
+  sng062ret  NUMBER(4),
+  sng062exp  VARCHAR2(100),
+  sng053cmb  NUMBER(10),
+  sng062est  CHAR(1),
+  sng062who  NUMBER(3),
+  sng062res  CHAR(1),
+  sng062prg  CHAR(20),
+  sng062ndoc NUMBER(2)
+)
+;
+create index SNG06203 on SNG062 (SNG064COD);
+create index SNG06204 on SNG062 (SNG061TEM);
+alter table SNG062
+  add primary key (SNG062AUT);
+

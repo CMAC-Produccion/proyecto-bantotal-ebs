@@ -1,0 +1,39 @@
+create table FSFICW
+(
+  sficwcorr  NUMBER(9) not null,
+  sficwtipo  CHAR(1),
+  sficwpapel NUMBER(4),
+  sficwtval  CHAR(1),
+  sficwimp   NUMBER(17,2),
+  sficwrmcod NUMBER(3),
+  sficwrmusr CHAR(10),
+  sficwcta   NUMBER(9),
+  sficwcpref CHAR(30),
+  sficwfvto  DATE,
+  sficwfing  DATE,
+  sficwhing  CHAR(8),
+  sficwuing  CHAR(10),
+  sficwwing  CHAR(16),
+  sficwsts   CHAR(1),
+  sficwlctrl CHAR(1),
+  sficwlcta  NUMBER(9),
+  sficwlmod  NUMBER(3),
+  sficwltope NUMBER(3),
+  sficwaemp  NUMBER(3),
+  sficwasuc  NUMBER(3),
+  sficwamod  NUMBER(3),
+  sficwatrn  NUMBER(3),
+  sficwarel  NUMBER(4),
+  sficwafcon DATE,
+  sficwacont CHAR(1),
+  sficwrcorr NUMBER(9)
+)
+;
+create index FSFCIW06 on FSFICW (SFICWRCORR);
+create index FSFICW02 on FSFICW (SFICWLCTA, SFICWFVTO);
+create index FSFICW03 on FSFICW (SFICWRMCOD, SFICWFVTO);
+create index FSFICW04 on FSFICW (SFICWFVTO);
+create index FSFICW05 on FSFICW (SFICWAFCON, SFICWAREL, SFICWATRN);
+alter table FSFICW
+  add primary key (SFICWCORR);
+

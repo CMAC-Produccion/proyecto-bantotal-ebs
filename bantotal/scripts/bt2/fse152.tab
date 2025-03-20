@@ -1,0 +1,14 @@
+create table FSE152
+(
+  pgcod      NUMBER(3) not null,
+  secccod    NUMBER(5) not null,
+  nivcod     NUMBER(3) not null,
+  dscod      NUMBER(3) not null,
+  ssismtoaut NUMBER(14,2),
+  ssisporc   NUMBER(10,6)
+)
+;
+create index FSE15202 on FSE152 (DSCOD);
+alter table FSE152
+  add primary key (PGCOD, SECCCOD, NIVCOD, DSCOD);
+

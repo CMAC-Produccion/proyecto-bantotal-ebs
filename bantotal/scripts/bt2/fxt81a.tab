@@ -1,0 +1,17 @@
+create table FXT81A
+(
+  tlxcod     NUMBER(5) not null,
+  tlxrel     NUMBER(2) not null,
+  tlxcablin1 CHAR(75),
+  tlxcablin2 CHAR(75),
+  tlxcablin3 CHAR(75),
+  tlxcablin4 CHAR(75),
+  tlxpielin1 CHAR(75),
+  tlxpielin2 CHAR(75),
+  tlxpielin3 CHAR(75),
+  tlxpielin4 CHAR(75)
+)
+;
+alter table FXT81A
+  add primary key (TLXCOD, TLXREL);
+

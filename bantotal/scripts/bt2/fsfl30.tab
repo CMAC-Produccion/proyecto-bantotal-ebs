@@ -1,0 +1,11 @@
+create table FSFL30
+(
+  fsfl30emp  NUMBER(3) not null,
+  fsfl30grup NUMBER(3) not null,
+  fsfl30mda  NUMBER(4) not null
+)
+;
+create index FSFL3002 on FSFL30 (FSFL30EMP, FSFL30MDA);
+alter table FSFL30
+  add primary key (FSFL30EMP, FSFL30GRUP, FSFL30MDA);
+

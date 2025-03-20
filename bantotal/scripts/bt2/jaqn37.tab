@@ -1,0 +1,97 @@
+create table JAQN37
+(
+  jaqn37emp NUMBER(3) not null,
+  jaqn37ani NUMBER(4) not null,
+  jaqn37mes NUMBER(4) not null,
+  jaqn37mod NUMBER(3) not null,
+  jaqn37top NUMBER(3) not null,
+  jaqn37suc NUMBER(3) not null,
+  jaqn37mon NUMBER(4) not null,
+  jaqn37pap NUMBER(4) not null,
+  jaqn37cta NUMBER(9) not null,
+  jaqn37ope NUMBER(9) not null,
+  jaqn37sop NUMBER(3) not null,
+  jaqn37mac NUMBER(17,2),
+  jaqn37man NUMBER(17,2),
+  jaqn37nu1 NUMBER(9),
+  jaqn37nu2 NUMBER(9),
+  jaqn37nu3 NUMBER(9),
+  jaqn37im1 NUMBER(17,2),
+  jaqn37im2 NUMBER(17,2),
+  jaqn37im3 NUMBER(17,2),
+  jaqn37fe1 DATE,
+  jaqn37fe2 DATE,
+  jaqn37fe3 DATE,
+  jaqn37ch1 CHAR(1),
+  jaqn37ch2 CHAR(1),
+  jaqn37ch3 CHAR(1),
+  jaqn37va1 VARCHAR2(255),
+  jaqn37va2 VARCHAR2(255),
+  jaqn37va3 VARCHAR2(255),
+  jaqn37fec DATE
+)
+;
+comment on table JAQN37
+  is 'Devengado mensual TTI';
+comment on column JAQN37.jaqn37emp
+  is 'empresa';
+comment on column JAQN37.jaqn37ani
+  is 'anio';
+comment on column JAQN37.jaqn37mes
+  is 'mes';
+comment on column JAQN37.jaqn37mod
+  is 'modulo';
+comment on column JAQN37.jaqn37top
+  is 'tipo operación';
+comment on column JAQN37.jaqn37suc
+  is 'sucursal';
+comment on column JAQN37.jaqn37mon
+  is 'moneda';
+comment on column JAQN37.jaqn37pap
+  is 'papel';
+comment on column JAQN37.jaqn37cta
+  is 'cuenta';
+comment on column JAQN37.jaqn37ope
+  is 'operación';
+comment on column JAQN37.jaqn37sop
+  is 'Suboperación';
+comment on column JAQN37.jaqn37mac
+  is 'monto actual';
+comment on column JAQN37.jaqn37man
+  is 'monto anterior';
+comment on column JAQN37.jaqn37nu1
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37nu2
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37nu3
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37im1
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37im2
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37im3
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37fe1
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37fe2
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37fe3
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37ch1
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37ch2
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37ch3
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37va1
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37va2
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37va3
+  is 'Auxiliar';
+comment on column JAQN37.jaqn37fec
+  is 'Fecha';
+create index JAQN372 on JAQN37 (JAQN37EMP, JAQN37ANI, JAQN37MES, JAQN37CTA);
+alter table JAQN37
+  add primary key (JAQN37EMP, JAQN37ANI, JAQN37MES, JAQN37MOD, JAQN37TOP, JAQN37SUC, JAQN37MON, JAQN37PAP, JAQN37CTA, JAQN37OPE, JAQN37SOP);
+

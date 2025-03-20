@@ -1,0 +1,51 @@
+create table AQPD302
+(
+  aqpd302recemp NUMBER(3) not null,
+  aqpd302reccod VARCHAR2(20) not null,
+  aqpd302recfcr DATE,
+  aqpd302recpai NUMBER(3),
+  aqpd302rectdo NUMBER(2),
+  aqpd302recndo CHAR(12),
+  aqpd302reccli VARCHAR2(90),
+  aqpd302recres VARCHAR2(600),
+  aqpd302crefec DATE,
+  aqpd302crehor VARCHAR2(10),
+  aqpd302creusu CHAR(10),
+  aqpd302cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpd302emails VARCHAR2(2),
+  aqpd302emaile VARCHAR2(600)
+)
+;
+comment on table AQPD302
+  is 'Reclamos Asignados a PyC';
+comment on column AQPD302.aqpd302recemp
+  is 'Reclamo - Empresa';
+comment on column AQPD302.aqpd302reccod
+  is 'Reclamo - Código';
+comment on column AQPD302.aqpd302recfcr
+  is 'Reclamo - Fecha de Ingreso';
+comment on column AQPD302.aqpd302recpai
+  is 'Cliente - País';
+comment on column AQPD302.aqpd302rectdo
+  is 'Cliente - Tipo de Documento';
+comment on column AQPD302.aqpd302recndo
+  is 'Cliente - Nro. de Documento';
+comment on column AQPD302.aqpd302reccli
+  is 'Cliente - Nombre';
+comment on column AQPD302.aqpd302recres
+  is 'Reclamo - Resumen';
+comment on column AQPD302.aqpd302crefec
+  is 'Fecha de Asignación';
+comment on column AQPD302.aqpd302crehor
+  is 'Hora de Asignación';
+comment on column AQPD302.aqpd302creusu
+  is 'Creación - Usuario';
+comment on column AQPD302.aqpd302cretim
+  is 'Creación - Time';
+comment on column AQPD302.aqpd302emails
+  is 'Email - Enviado';
+comment on column AQPD302.aqpd302emaile
+  is 'Email - Error al Enviar';
+alter table AQPD302
+  add primary key (AQPD302RECEMP, AQPD302RECCOD);
+

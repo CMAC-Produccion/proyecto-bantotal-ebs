@@ -1,0 +1,13 @@
+create table FECW01
+(
+  ecw01cod NUMBER(3) not null,
+  ecw01suc NUMBER(3) not null,
+  ecw01tx1 CHAR(95),
+  ecw01tx2 CHAR(95),
+  ecw01tx3 CHAR(95),
+  ecw01tx4 CHAR(95)
+)
+;
+alter table FECW01
+  add primary key (ECW01COD, ECW01SUC);
+

@@ -1,0 +1,16 @@
+create table FBC755
+(
+  bc755cup   CHAR(22) not null,
+  bc755fvto  DATE,
+  bc755tipre CHAR(1),
+  bc755ori   CHAR(1),
+  bc755pres  CHAR(1),
+  bc755copre CHAR(1),
+  bc755cofch DATE,
+  bc755cohra CHAR(8),
+  bc755error NUMBER(2)
+)
+;
+alter table FBC755
+  add primary key (BC755CUP);
+

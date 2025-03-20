@@ -1,0 +1,31 @@
+create table JAQY751
+(
+  jaqy751cod     NUMBER(3) not null,
+  jaqy751mod     NUMBER(3) not null,
+  jaqy751suc     NUMBER(3) not null,
+  jaqy751mda     NUMBER(4) not null,
+  jaqy751pap     NUMBER(4) not null,
+  jaqy751cta     NUMBER(9) not null,
+  jaqy751oper    NUMBER(9) not null,
+  jaqy751sbop    NUMBER(3) not null,
+  jaqy751tope    NUMBER(3) not null,
+  jaqy751fchmax  DATE,
+  jaqy751imp11   NUMBER(17,2),
+  jaqy751imp12   NUMBER(17,2),
+  jaqy751imp13   NUMBER(17,2),
+  jaqy751imp14   NUMBER(17,2),
+  jaqy751imp15   NUMBER(17,2),
+  jaqy751numcuot NUMBER(5),
+  jaqy751fchpag  DATE,
+  jaqy751est     CHAR(1),
+  jaqy751descp   VARCHAR2(8),
+  jaqy751anios   NUMBER(5),
+  jaqy751fchnc   DATE,
+  jaqy751ident   CHAR(1),
+  jaqy751fchsis  DATE not null,
+  jaqy751hrasis  CHAR(8) not null
+)
+;
+alter table JAQY751
+  add primary key (JAQY751COD, JAQY751MOD, JAQY751SUC, JAQY751MDA, JAQY751PAP, JAQY751CTA, JAQY751OPER, JAQY751SBOP, JAQY751TOPE, JAQY751FCHSIS, JAQY751HRASIS);
+

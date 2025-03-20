@@ -1,0 +1,18 @@
+create table JBXI98
+(
+  jbxi98cod CHAR(1) not null,
+  jbxi98cui CHAR(11) not null,
+  jbxi98emp NUMBER(3) not null,
+  jbxi98ent NUMBER(3) not null,
+  jbxi98fec DATE,
+  jbxi98fin DATE,
+  jbxi98fig DATE,
+  jbxi98fne DATE,
+  jbxi98mar CHAR(1),
+  jbxi98mon NUMBER(17,2),
+  jbxi98nde CHAR(16),
+  jbxi98rap CHAR(9)
+)
+;
+create unique index JBXI9801 on JBXI98 (JBXI98COD, JBXI98CUI, JBXI98EMP, JBXI98ENT);
+

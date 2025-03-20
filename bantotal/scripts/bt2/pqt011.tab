@@ -1,0 +1,48 @@
+create table PQT011
+(
+  pqt011emp NUMBER(3) not null,
+  pqt011suc NUMBER(3) not null,
+  pqt011mod NUMBER(3) not null,
+  pqt011mda NUMBER(4) not null,
+  pqt011pap NUMBER(9) not null,
+  pqt011cta NUMBER(9) not null,
+  pqt011ope NUMBER(9) not null,
+  pqt011sbo NUMBER(3) not null,
+  pqt011top NUMBER(3) not null,
+  pqt011fec DATE not null,
+  pqt011tpo CHAR(2) not null,
+  pqt011act CHAR(25) not null,
+  pqt011cor NUMBER(4) not null,
+  pqt011sta CHAR(2),
+  pqt011erc NUMBER(4),
+  pqt011ape CHAR(30),
+  pqt011nom CHAR(30),
+  pqt011td1 NUMBER(2),
+  pqt011nd1 CHAR(25),
+  pqt011pd1 NUMBER(3),
+  pqt011sec NUMBER(3),
+  pqt011res CHAR(1),
+  pqt011seg NUMBER(2),
+  pqt011cal CHAR(35),
+  pqt011dnr NUMBER(5),
+  pqt011pso CHAR(6),
+  pqt011apt CHAR(15),
+  pqt011cpo NUMBER(4),
+  pqt011loc NUMBER(5),
+  pqt011prv NUMBER(5),
+  pqt011pai NUMBER(3),
+  pqt011bar NUMBER(9),
+  pqt011ref CHAR(75),
+  pqt011ups CHAR(6),
+  pqt011nap CHAR(30),
+  pqt011ptl CHAR(20),
+  pqt011ctl CHAR(20),
+  pqt011fna DATE,
+  pqt011nac NUMBER(3),
+  pqt011sex CHAR(1),
+  pqt011eci CHAR(1)
+)
+;
+alter table PQT011
+  add primary key (PQT011EMP, PQT011SUC, PQT011MOD, PQT011MDA, PQT011PAP, PQT011CTA, PQT011OPE, PQT011SBO, PQT011TOP, PQT011FEC, PQT011TPO, PQT011ACT, PQT011COR);
+

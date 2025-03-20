@@ -1,0 +1,17 @@
+create table FXR892
+(
+  pgcodt   NUMBER(3) not null,
+  numtipt  NUMBER(2) not null,
+  msgnumt  NUMBER(9) not null,
+  swtcodt  NUMBER(5) not null,
+  swtrelt  NUMBER(2) not null,
+  modulost NUMBER(3) not null,
+  operacst NUMBER(9) not null,
+  subopest NUMBER(3) not null
+)
+;
+create index FXR89202 on FXR892 (PGCODT, MODULOST, OPERACST, SUBOPEST);
+create index FXR89210 on FXR892 (PGCODT, SWTCODT, SWTRELT, MODULOST, OPERACST, SUBOPEST, NUMTIPT, MSGNUMT);
+alter table FXR892
+  add primary key (PGCODT, NUMTIPT, MSGNUMT, SWTCODT, SWTRELT, MODULOST, OPERACST, SUBOPEST);
+

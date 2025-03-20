@@ -1,0 +1,16 @@
+create table FSFSD8
+(
+  sfst1merc  NUMBER(3) not null,
+  sfsd7msje  NUMBER(4) not null,
+  sfsd7flujo CHAR(1) not null,
+  sfsd8bloq  NUMBER(2) not null,
+  sfsd8desc  CHAR(35),
+  sfsd8rei   CHAR(1),
+  sfsd8long  NUMBER(4),
+  sfsd8poin  NUMBER(4),
+  sfsd8id    CHAR(10)
+)
+;
+alter table FSFSD8
+  add primary key (SFST1MERC, SFSD7MSJE, SFSD7FLUJO, SFSD8BLOQ);
+

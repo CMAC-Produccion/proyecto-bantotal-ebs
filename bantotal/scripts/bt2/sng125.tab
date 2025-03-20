@@ -1,0 +1,23 @@
+create table SNG125
+(
+  sng122inst NUMBER(10) not null,
+  sng125corr NUMBER(5) not null,
+  sng125pgc  NUMBER(3),
+  sng125mod  NUMBER(3),
+  sng125suc  NUMBER(3),
+  sng125mda  NUMBER(4),
+  sng125pap  NUMBER(4),
+  sng125cta  NUMBER(9),
+  sng125oper NUMBER(10),
+  sng125sbop NUMBER(3),
+  sng125tope NUMBER(3),
+  sng125sdog NUMBER(17,2),
+  sng125disp NUMBER(17,2),
+  sng125poco NUMBER(10,6),
+  sng125tipo CHAR(3)
+)
+;
+create unique index SNG12502 on SNG125 (SNG122INST, SNG125MOD, SNG125SUC, SNG125MDA, SNG125PAP, SNG125CTA, SNG125OPER, SNG125SBOP, SNG125TOPE);
+alter table SNG125
+  add primary key (SNG122INST, SNG125CORR);
+

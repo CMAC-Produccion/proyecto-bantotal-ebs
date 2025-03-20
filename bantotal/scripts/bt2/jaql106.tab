@@ -1,0 +1,34 @@
+create table JAQL106
+(
+  jaql106pai NUMBER(3) not null,
+  jaql106tdo NUMBER(3) not null,
+  jaql106doc CHAR(12) not null,
+  jaql106pgc NUMBER(3),
+  jaql106mod NUMBER(3),
+  jaql106suc NUMBER(3),
+  jaql106mda NUMBER(4),
+  jaql106pap NUMBER(4),
+  jaql106cta NUMBER(9),
+  jaql106ope NUMBER(9),
+  jaql106sbo NUMBER(3),
+  jaql106top NUMBER(3),
+  jaql106fhc DATE,
+  jaql106a01 NUMBER(9),
+  jaql106a02 NUMBER(9),
+  jaql106a03 NUMBER(9),
+  jaql106a04 CHAR(50),
+  jaql106a05 CHAR(50),
+  jaql106a06 CHAR(50),
+  jaql106a07 NUMBER(16,2),
+  jaql106a08 NUMBER(16,2),
+  jaql106a09 NUMBER(16,2),
+  jaql106a10 DATE,
+  jaql106a11 DATE,
+  jaql106a12 DATE
+)
+;
+create index JAQL1062 on JAQL106 (JAQL106FHC);
+create index JAQL1063 on JAQL106 (JAQL106PGC, JAQL106MOD, JAQL106SUC, JAQL106MDA, JAQL106PAP, JAQL106CTA, JAQL106OPE, JAQL106SBO, JAQL106TOP);
+alter table JAQL106
+  add primary key (JAQL106PAI, JAQL106TDO, JAQL106DOC);
+

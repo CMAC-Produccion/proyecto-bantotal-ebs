@@ -1,0 +1,13 @@
+create table JAQL505
+(
+  jaql505timon CHAR(20) not null,
+  jaql505denom NUMBER(10,2) not null,
+  jaql505comon NUMBER(3) not null,
+  jaql505descr NVARCHAR2(50),
+  jaql505valbi NUMBER(10,2),
+  jaql505estre CHAR(1)
+)
+;
+alter table JAQL505
+  add primary key (JAQL505TIMON, JAQL505DENOM, JAQL505COMON);
+

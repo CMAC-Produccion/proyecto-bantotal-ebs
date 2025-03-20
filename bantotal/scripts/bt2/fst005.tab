@@ -1,0 +1,25 @@
+create table FST005
+(
+  moneda NUMBER(4) not null,
+  mosign CHAR(4),
+  monom  CHAR(30),
+  momdiv CHAR(1),
+  mocpra NUMBER(14,8),
+  movta  NUMBER(14,8),
+  moarb  NUMBER(14,8),
+  moarbc NUMBER(14,8),
+  motcpr NUMBER(10,8),
+  motvta NUMBER(10,8),
+  motarb NUMBER(10,8),
+  motcc  NUMBER(14,8),
+  mocdeq NUMBER(2),
+  mored  NUMBER(1),
+  moreut NUMBER(14,8),
+  mocsw1 CHAR(3),
+  mocsw2 CHAR(3)
+)
+;
+create index FST00521 on FST005 (MOCSW1);
+alter table FST005
+  add primary key (MONEDA);
+

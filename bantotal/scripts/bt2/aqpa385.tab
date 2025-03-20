@@ -1,0 +1,20 @@
+create table AQPA385
+(
+  aqpa385quinto NUMBER(10) not null,
+  aqpa385dsd    NUMBER(14,8) not null,
+  aqpa385hst    NUMBER(14,8) not null,
+  aqpa385dsct   NUMBER(14,8) not null,
+  aqpa385naux1  NUMBER(17,2),
+  aqpa385vaux1  VARCHAR2(25),
+  aqpa385daux1  DATE,
+  aqpa385naux2  NUMBER(17,2),
+  aqpa385vaux2  VARCHAR2(25),
+  aqpa385daux2  DATE,
+  aqpa385naux3  NUMBER(17,2),
+  aqpa385vaux3  VARCHAR2(25),
+  aqpa385daux3  DATE
+)
+;
+alter table AQPA385
+  add primary key (AQPA385QUINTO, AQPA385DSD, AQPA385HST, AQPA385DSCT);
+

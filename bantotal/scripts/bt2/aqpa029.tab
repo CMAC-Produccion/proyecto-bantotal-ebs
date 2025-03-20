@@ -1,0 +1,21 @@
+create table AQPA029
+(
+  aqpa029inst  NUMBER(10) not null,
+  aqpa029moda  CHAR(1),
+  aqpa029tipo  CHAR(2),
+  aqpa029user  VARCHAR2(20),
+  aqpa029csbs  VARCHAR2(30),
+  aqpa029frcc  DATE,
+  aqpa029fpro  DATE,
+  aqpa029rubro VARCHAR2(20),
+  aqpa029enti  VARCHAR2(200),
+  aqpa029cent  VARCHAR2(50),
+  aqpa029tipc  VARCHAR2(2),
+  aqpa029ndoc  CHAR(12) not null,
+  aqpa029corr  NUMBER(10) not null,
+  aqpa029sdeu  NUMBER(17,2)
+)
+;
+alter table AQPA029
+  add primary key (AQPA029INST, AQPA029NDOC, AQPA029CORR);
+

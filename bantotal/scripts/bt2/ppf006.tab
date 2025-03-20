@@ -1,0 +1,11 @@
+create table PPF006
+(
+  ppf006cod NUMBER(3) not null,
+  ppf006cim NUMBER(5) not null,
+  ppf006dsc CHAR(30),
+  ppf006pro CHAR(10)
+)
+;
+alter table PPF006
+  add primary key (PPF006COD, PPF006CIM);
+

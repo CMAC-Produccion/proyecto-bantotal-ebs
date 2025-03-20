@@ -1,0 +1,27 @@
+create table SNG005
+(
+  sng005inst NUMBER(10) not null,
+  sng005wtsk NUMBER(4) not null,
+  sng005user CHAR(10) not null,
+  sng005dec  NUMBER(1),
+  sng005cdec VARCHAR2(400),
+  sng005cap  NUMBER(1),
+  sng005ccap VARCHAR2(400),
+  sng005vpa  NUMBER(1),
+  sng005cvpa VARCHAR2(400),
+  sng005gia  NUMBER(1),
+  sng005cgia VARCHAR2(400),
+  sng005ocu  NUMBER(1),
+  sng005cocu VARCHAR2(400),
+  sng005sop  VARCHAR2(400),
+  sng005au1  NUMBER(1),
+  sng005cau1 VARCHAR2(400),
+  sng005au2  NUMBER(1),
+  sng005cau2 VARCHAR2(400),
+  sng005au3  NUMBER(1),
+  sng005cau3 VARCHAR2(400)
+)
+;
+alter table SNG005
+  add primary key (SNG005INST, SNG005WTSK, SNG005USER);
+

@@ -1,0 +1,13 @@
+create table JAQY738
+(
+  jaqy738corr NUMBER(10) not null,
+  jaqy738usu  CHAR(30) not null,
+  jaqy738maq  CHAR(30) not null,
+  jaqy738eval NUMBER(10),
+  jaqy738tmod NUMBER(4),
+  jaqy738fec  DATE
+)
+;
+alter table JAQY738
+  add primary key (JAQY738CORR, JAQY738USU, JAQY738MAQ);
+

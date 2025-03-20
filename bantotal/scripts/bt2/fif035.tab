@@ -1,0 +1,18 @@
+create table FIF035
+(
+  if035apl NUMBER(4) not null,
+  if035ban CHAR(5) not null,
+  if035bco NUMBER(3) not null,
+  if035cta CHAR(17) not null,
+  if035fmo NUMBER(6) not null,
+  if035fva NUMBER(6) not null,
+  if035dec CHAR(1) not null,
+  if035imp NUMBER(17,2) not null,
+  if035cor NUMBER(4),
+  if035fec NUMBER(6),
+  if035env NUMBER(9)
+)
+;
+alter table FIF035
+  add primary key (IF035APL, IF035BAN, IF035BCO, IF035CTA, IF035FMO, IF035FVA, IF035DEC, IF035IMP);
+

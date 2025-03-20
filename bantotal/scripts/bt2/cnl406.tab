@@ -1,0 +1,11 @@
+create table CNL406
+(
+  cnl305fun CHAR(60) not null,
+  cnl405cat CHAR(100) not null,
+  cnl405pro CHAR(100) not null,
+  cnl406dom CHAR(100) not null
+)
+;
+alter table CNL406
+  add primary key (CNL305FUN, CNL405CAT, CNL405PRO, CNL406DOM);
+

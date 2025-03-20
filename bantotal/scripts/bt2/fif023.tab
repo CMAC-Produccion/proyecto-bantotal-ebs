@@ -1,0 +1,36 @@
+create table FIF023
+(
+  if023apl   NUMBER(4) not null,
+  if023ban   CHAR(5) not null,
+  if023env   NUMBER(4) not null,
+  if023cor   NUMBER(4) not null,
+  if023arc   CHAR(6),
+  if023bco   NUMBER(3),
+  if023cta   CHAR(17),
+  if023mda   CHAR(3),
+  if023vto   DATE,
+  if023ope   CHAR(10),
+  if023num   CHAR(23),
+  if023fal   DATE,
+  if023tas   NUMBER(10,6),
+  if023cap   NUMBER(17,2),
+  if023int   NUMBER(17,2),
+  if023net   NUMBER(17,2),
+  if023tra   CHAR(1),
+  if023aju   CHAR(1),
+  if023tareg CHAR(1),
+  if023fil   CHAR(58),
+  if023fec   DATE,
+  if023eta   CHAR(2),
+  if023ax1   NUMBER(17,2),
+  if023ax2   NUMBER(10,6),
+  if023ax3   CHAR(30),
+  if023ax4   CHAR(10),
+  if023ax5   CHAR(1),
+  if023ax6   DATE
+)
+;
+create index FIF02302 on FIF023 (IF023APL, IF023BAN, IF023FEC, IF023ETA);
+alter table FIF023
+  add primary key (IF023APL, IF023BAN, IF023ENV, IF023COR);
+

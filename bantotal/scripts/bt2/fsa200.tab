@@ -1,0 +1,13 @@
+create table FSA200
+(
+  sa200emp  NUMBER(3) not null,
+  sa200proc CHAR(10) not null,
+  sa200fch  DATE not null,
+  sa200cnvi NUMBER(3) not null,
+  sa200corr NUMBER(16) not null,
+  sa200cant NUMBER(16)
+)
+;
+alter table FSA200
+  add primary key (SA200EMP, SA200PROC, SA200FCH, SA200CNVI, SA200CORR);
+

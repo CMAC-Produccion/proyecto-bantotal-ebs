@@ -1,0 +1,65 @@
+create table AQPB549B
+(
+  aqpb549bcreusu VARCHAR2(10) not null,
+  aqpb549bcretim TIMESTAMP(6),
+  aqpb549brown   NUMBER(9) not null,
+  aqpb549bopst   VARCHAR2(1) not null,
+  aqpb549bopsc   NUMBER(9) not null,
+  aqpb549bopsd   VARCHAR2(500),
+  aqpb549bopsq   NUMBER(9),
+  aqpb549bmotc   NUMBER(3) not null,
+  aqpb549bmotd   VARCHAR2(500),
+  aqpb549bmotq   NUMBER(9),
+  aqpb549bsmoc   NUMBER(9) not null,
+  aqpb549bsmod   VARCHAR2(500),
+  aqpb549bqtyl   NUMBER(9),
+  aqpb549btabl   NUMBER(9),
+  aqpb549brafe   NUMBER(9),
+  aqpb549brafu   NUMBER(9),
+  aqpb549btpav   NUMBER(9,2),
+  aqpb549btpar   NUMBER(9)
+)
+;
+comment on table AQPB549B
+  is 'Reclamos - REP Estadistica';
+comment on column AQPB549B.aqpb549bcreusu
+  is 'Usuario de Creacion';
+comment on column AQPB549B.aqpb549bcretim
+  is 'Creacion';
+comment on column AQPB549B.aqpb549brown
+  is 'Row';
+comment on column AQPB549B.aqpb549bopst
+  is 'OPS Tipo - V: Normal, S: Banca de Seguros';
+comment on column AQPB549B.aqpb549bopsc
+  is 'Operacion/Producto/Servicio - Codigo';
+comment on column AQPB549B.aqpb549bopsd
+  is 'Operacion/Producto/Servicio - Descripcion';
+comment on column AQPB549B.aqpb549bopsq
+  is 'Operacion/Producto/Servicio - Cantidad';
+comment on column AQPB549B.aqpb549bmotc
+  is 'Motivo - Codigo';
+comment on column AQPB549B.aqpb549bmotd
+  is 'Motivo - Descripcion';
+comment on column AQPB549B.aqpb549bmotq
+  is 'Motivo - Cantidad';
+comment on column AQPB549B.aqpb549bsmoc
+  is 'Sub Motivo - Codigo';
+comment on column AQPB549B.aqpb549bsmod
+  is 'Sub Motivo - Descripcion';
+comment on column AQPB549B.aqpb549bqtyl
+  is 'Cantidad de Reclamos x Linea';
+comment on column AQPB549B.aqpb549btabl
+  is 'Dias de Absolucion x Linea';
+comment on column AQPB549B.aqpb549brafe
+  is 'REC Absueltos - Favor de la Empresa x Linea';
+comment on column AQPB549B.aqpb549brafu
+  is 'REC Absueltos - Favor del Usuario x Linea';
+comment on column AQPB549B.aqpb549btpav
+  is 'Tiempo Promedio de Absolucion x Linea (Con 2 decimales)';
+comment on column AQPB549B.aqpb549btpar
+  is 'Tiempo Promedio de Absolucion x Linea (Redondeado)';
+create index AQPB549B01 on AQPB549B (AQPB549BOPSQ);
+create index AQPB549B02 on AQPB549B (AQPB549BQTYL);
+alter table AQPB549B
+  add primary key (AQPB549BCREUSU, AQPB549BROWN, AQPB549BOPST, AQPB549BOPSC, AQPB549BMOTC, AQPB549BSMOC);
+

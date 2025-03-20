@@ -1,0 +1,22 @@
+create table XWF005
+(
+  xwf05cod1  NUMBER(5) not null,
+  xwf05cod2  NUMBER(5) not null,
+  xwf05corr1 NUMBER(10) not null,
+  xwf05corr2 NUMBER(10) not null,
+  xwf05corr3 NUMBER(10) not null,
+  xwf05num1  NUMBER(10),
+  xwf05num2  NUMBER(10),
+  xwf05num3  NUMBER(10),
+  xwf05char1 VARCHAR2(255),
+  xwf05char2 VARCHAR2(255),
+  xwf05char3 VARCHAR2(255),
+  xwf05imp1  NUMBER(17,2),
+  xwf05imp2  NUMBER(17,2),
+  xwf05imp3  NUMBER(17,2)
+)
+;
+create index XWF00502 on XWF005 (XWF05COD1, XWF05COD2, XWF05CHAR1, XWF05CORR1, XWF05CORR2);
+alter table XWF005
+  add primary key (XWF05COD1, XWF05COD2, XWF05CORR1, XWF05CORR2, XWF05CORR3);
+

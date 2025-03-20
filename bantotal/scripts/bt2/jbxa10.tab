@@ -1,0 +1,23 @@
+create table JBXA10
+(
+  jbxa10cod NUMBER(3) not null,
+  jbxa10mod NUMBER(3) not null,
+  jbxa10suc NUMBER(3) not null,
+  jbxa10mda NUMBER(4) not null,
+  jbxa10pap NUMBER(4) not null,
+  jbxa10cta NUMBER(9) not null,
+  jbxa10ope NUMBER(9) not null,
+  jbxa10sbo NUMBER(3) not null,
+  jbxa10top NUMBER(3) not null,
+  jbxa10pai NUMBER(3) not null,
+  jbxa10tdo NUMBER(2) not null,
+  jbxa10ndo CHAR(12) not null,
+  jbxa10sgc NUMBER(9) not null,
+  jbxa10por NUMBER(5,2)
+)
+;
+create index JBXA1002 on JBXA10 (JBXA10COD, JBXA10SGC);
+create index JBXA1003 on JBXA10 (JBXA10PAI, JBXA10NDO, JBXA10TDO);
+alter table JBXA10
+  add primary key (JBXA10COD, JBXA10MOD, JBXA10SUC, JBXA10MDA, JBXA10PAP, JBXA10CTA, JBXA10OPE, JBXA10SBO, JBXA10TOP, JBXA10PAI, JBXA10TDO, JBXA10NDO, JBXA10SGC);
+

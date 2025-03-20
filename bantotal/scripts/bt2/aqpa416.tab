@@ -1,0 +1,23 @@
+create table AQPA416
+(
+  aqpa416corr   NUMBER(10) not null,
+  aqpa416fpro   DATE not null,
+  aqpa416hora   CHAR(8) not null,
+  aqpa416inst   NUMBER(10) not null,
+  aqpa416pgcod  NUMBER(3) not null,
+  aqpa416itsuc  NUMBER(3) not null,
+  aqpa416itmod  NUMBER(3) not null,
+  aqpa416ittra  NUMBER(3) not null,
+  aqpa416itnrel NUMBER(4) not null,
+  aqpa416itfcon DATE not null,
+  aqpa416ituing VARCHAR2(20),
+  aqpa416cptn   NUMBER(17,2),
+  aqpa416aux1   VARCHAR2(6),
+  aqpa416aux2   NUMBER(10),
+  aqpa416aux3   DATE,
+  aqpa416aux4   CHAR(20)
+)
+;
+alter table AQPA416
+  add primary key (AQPA416CORR, AQPA416INST, AQPA416FPRO, AQPA416HORA, AQPA416PGCOD, AQPA416ITSUC, AQPA416ITMOD, AQPA416ITTRA, AQPA416ITNREL, AQPA416ITFCON);
+

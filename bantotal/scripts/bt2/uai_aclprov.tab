@@ -1,0 +1,26 @@
+create table UAI_ACLPROV
+(
+  n_emp_bcemp          NUMBER(3) not null,
+  n_mod_bcmod          NUMBER(3),
+  n_suc_bcsuc          NUMBER(3) not null,
+  n_mda_bcmda          NUMBER(4) not null,
+  n_pap_bcpap          NUMBER(4) not null,
+  n_cta_bccta          NUMBER(9) not null,
+  n_ope_bcoper         NUMBER(9) not null,
+  n_sbop_bcsbop        NUMBER(3) not null,
+  n_tope_bctop         NUMBER(3) not null,
+  n_rubr_bcrubr        NUMBER(16) not null,
+  n_pctjprov_ri105coef NUMBER(14,8),
+  n_mtofijo_bcsdmo     NUMBER(17,2),
+  n_mtoespec_bcsdmo    NUMBER(17,2),
+  n_mtoprocic_bcsdmo   NUMBER(17,2),
+  n_mtosobree_bcsdmo   NUMBER(17,2),
+  n_prov117            NUMBER(17,2)
+)
+;
+comment on table UAI_ACLPROV
+  is 'Tabla procesamiento de data ACL para UAI';
+create index XN_UAI_ACLPROV_01 on UAI_ACLPROV (N_SUC_BCSUC);
+create index XN_UAI_ACLPROV_02 on UAI_ACLPROV (N_SUC_BCSUC, N_RUBR_BCRUBR);
+create index XN_UAI_ACLPROV_03 on UAI_ACLPROV (N_EMP_BCEMP, N_MOD_BCMOD, N_SUC_BCSUC, N_MDA_BCMDA, N_PAP_BCPAP, N_CTA_BCCTA, N_OPE_BCOPER, N_SBOP_BCSBOP, N_TOPE_BCTOP);
+

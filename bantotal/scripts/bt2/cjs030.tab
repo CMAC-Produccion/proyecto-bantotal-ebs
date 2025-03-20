@@ -1,0 +1,16 @@
+create table CJS030
+(
+  cjs030tp1 NUMBER(3) not null,
+  cjs030tp2 NUMBER(9) not null,
+  cjs030tp3 NUMBER(9) not null,
+  cjs030tp4 NUMBER(3) not null,
+  cjs030tp5 DATE not null,
+  cjs030tp6 NUMBER(9) not null,
+  cjs030tip CHAR(3) not null,
+  cjs030lrg NUMBER(4),
+  cjs030num NUMBER(18)
+)
+;
+alter table CJS030
+  add primary key (CJS030TP1, CJS030TP2, CJS030TP3, CJS030TP4, CJS030TP5, CJS030TP6, CJS030TIP);
+

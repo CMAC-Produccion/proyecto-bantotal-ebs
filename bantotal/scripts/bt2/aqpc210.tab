@@ -1,0 +1,42 @@
+create table AQPC210
+(
+  aqpc210fec DATE not null,
+  aqpc210hor VARCHAR2(8) not null,
+  aqpc210usu VARCHAR2(10) not null,
+  aqpc210ano NUMBER(4) not null,
+  aqpc210mes CHAR(15) not null,
+  aqpc210cod NUMBER(3) not null,
+  aqpc210suc CHAR(30) not null,
+  aqpc210bur CHAR(15) not null,
+  aqpc210cok NUMBER(17),
+  aqpc210cer NUMBER(17),
+  aqpc210tot NUMBER(17)
+)
+;
+comment on table AQPC210
+  is 'Reporte Proveedores';
+comment on column AQPC210.aqpc210fec
+  is 'Fecha Registro';
+comment on column AQPC210.aqpc210hor
+  is 'Hora Registro';
+comment on column AQPC210.aqpc210usu
+  is 'Usuario Registro';
+comment on column AQPC210.aqpc210ano
+  is 'Año';
+comment on column AQPC210.aqpc210mes
+  is 'Mes';
+comment on column AQPC210.aqpc210cod
+  is 'Sucursal';
+comment on column AQPC210.aqpc210suc
+  is 'Nombre de Sucursal';
+comment on column AQPC210.aqpc210bur
+  is 'Buro';
+comment on column AQPC210.aqpc210cok
+  is 'Cantidad OK';
+comment on column AQPC210.aqpc210cer
+  is 'Cantidad ERROR';
+comment on column AQPC210.aqpc210tot
+  is 'Cantidad Total';
+alter table AQPC210
+  add primary key (AQPC210FEC, AQPC210HOR, AQPC210USU, AQPC210ANO, AQPC210MES, AQPC210COD, AQPC210SUC, AQPC210BUR);
+

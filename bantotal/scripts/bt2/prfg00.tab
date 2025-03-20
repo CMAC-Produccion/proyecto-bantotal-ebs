@@ -1,0 +1,12 @@
+create table PRFG00
+(
+  pgcod      NUMBER(3) not null,
+  prfgcod    CHAR(10) not null,
+  prfgnom    CHAR(35),
+  prfgfecalt DATE,
+  prfguser   CHAR(10)
+)
+;
+alter table PRFG00
+  add primary key (PGCOD, PRFGCOD);
+

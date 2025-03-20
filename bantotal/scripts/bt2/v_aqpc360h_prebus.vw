@@ -1,0 +1,11 @@
+create or replace force view v_aqpc360h_prebus as
+select
+a.AQPC360HUSUR,
+a.AQPC360HNCTA,
+a.AQPC360HNOPE,
+a.AQPC360HSINS,
+a.AQPC360HCOBR,
+a.AQPC360HMHON,
+a.AQPC360HFPROC
+from AQPC360H a;
+

@@ -1,0 +1,17 @@
+create table JAQZ176
+(
+  jaqz176pa1 NUMBER(3) not null,
+  jaqz176tp1 NUMBER(2) not null,
+  jaqz176nu1 CHAR(12) not null,
+  jaqz176pa2 NUMBER(3) not null,
+  jaqz176tp2 NUMBER(2) not null,
+  jaqz176nu2 CHAR(12) not null,
+  jaqz176vco NUMBER(2) not null,
+  jaqz176par NUMBER(7,4)
+)
+;
+create index JAQZ176IDX001 on JAQZ176 (JAQZ176VCO);
+create index JAQZ176IDX002 on JAQZ176 (JAQZ176PA2, JAQZ176TP2, JAQZ176NU2, JAQZ176VCO);
+alter table JAQZ176
+  add primary key (JAQZ176PA1, JAQZ176TP1, JAQZ176NU1, JAQZ176PA2, JAQZ176TP2, JAQZ176NU2, JAQZ176VCO);
+

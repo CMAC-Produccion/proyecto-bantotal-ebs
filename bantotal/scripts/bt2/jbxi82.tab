@@ -1,0 +1,27 @@
+create table JBXI82
+(
+  jbxi82fch DATE not null,
+  jbxi82cli CHAR(11) not null,
+  jbxi82tcl CHAR(1) not null,
+  jbxi82sec CHAR(4) not null,
+  jbxi82vin CHAR(1) not null,
+  jbxi82ope CHAR(10) not null,
+  jbxi82pro CHAR(3) not null,
+  jbxi82mda CHAR(4) not null,
+  jbxi82ert CHAR(2) not null,
+  jbxi82coe NUMBER(1) not null,
+  jbxi82cpr CHAR(5) not null,
+  jbxi82rub CHAR(4) not null,
+  jbxi82sru CHAR(4) not null,
+  jbxi82cco CHAR(6) not null,
+  jbxi82tta CHAR(1),
+  jbxi82tna NUMBER(10,6),
+  jbxi82vto DATE,
+  jbxi82imp NUMBER(17,2),
+  jbxi82sal NUMBER(17,2),
+  jbxi82sid NUMBER(17,2),
+  jbxi82iad NUMBER(17,2)
+)
+;
+create unique index JBXI8201 on JBXI82 (JBXI82FCH, JBXI82CLI, JBXI82TCL, JBXI82SEC, JBXI82VIN, JBXI82OPE, JBXI82PRO, JBXI82MDA, JBXI82ERT, JBXI82COE, JBXI82CPR, JBXI82RUB, JBXI82SRU, JBXI82CCO);
+

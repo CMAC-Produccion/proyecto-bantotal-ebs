@@ -1,0 +1,27 @@
+create table JFAW160
+(
+  jfaw160fg DATE not null,
+  jfaw160ps NUMBER(3) not null,
+  jfaw160td NUMBER(2) not null,
+  jfaw160nd CHAR(12) not null,
+  jfaw160ig NUMBER(17,2),
+  jfaw160n1 NUMBER(17,2),
+  jfaw160n2 NUMBER(17,2),
+  jfaw160n3 NUMBER(17,2),
+  jfaw160n4 NUMBER(17,2),
+  jfaw160n5 NUMBER(17,2),
+  jfaw160n6 NUMBER(17,2),
+  jfaw160n7 NUMBER(17,2),
+  jfaw160n8 NUMBER(17,2),
+  jfaw160n9 NUMBER(17,2),
+  jfaw160f1 DATE,
+  jfaw160f2 DATE,
+  jfaw160f3 DATE,
+  jfaw160f4 DATE,
+  jfaw160f5 DATE,
+  jfaw160es CHAR(1)
+)
+;
+alter table JFAW160
+  add primary key (JFAW160FG, JFAW160PS, JFAW160TD, JFAW160ND);
+

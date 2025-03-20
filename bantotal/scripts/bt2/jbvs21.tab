@@ -1,0 +1,11 @@
+create table JBVS21
+(
+  jbvs21tar  NUMBER(16) not null,
+  jbvs21corr NUMBER(9) not null,
+  jbvs21ente NUMBER(4) not null,
+  jbvs21cta  CHAR(18)
+)
+;
+create unique index JBVS2101 on JBVS21 (JBVS21TAR, JBVS21CORR, JBVS21ENTE);
+create index JBVS2102 on JBVS21 (JBVS21ENTE, JBVS21TAR, JBVS21CORR);
+

@@ -1,0 +1,47 @@
+create table FBC782
+(
+  bc782pgcod NUMBER(3) not null,
+  bc782itsuc NUMBER(3) not null,
+  bc782itmod NUMBER(3) not null,
+  bc782ittra NUMBER(3) not null,
+  bc782itnre NUMBER(4) not null,
+  bc782itord NUMBER(2) not null,
+  bc782itsbo NUMBER(3) not null,
+  bc782fcon  DATE not null,
+  bc782tiptr CHAR(1),
+  bc782est   CHAR(1),
+  bc782sustr CHAR(2),
+  bc782dviva CHAR(1),
+  bc782ccomp CHAR(2),
+  bc782cfchr DATE,
+  bc782csere CHAR(3),
+  bc782cserp CHAR(3),
+  bc782cnros CHAR(7),
+  bc782cfche DATE,
+  bc782cnroa CHAR(10),
+  bc782cfchc DATE,
+  bc782mserp CHAR(3),
+  bc782msere CHAR(3),
+  bc782mnros CHAR(7),
+  bc782contr CHAR(10),
+  bc782mnroa CHAR(10),
+  bc782mfche DATE,
+  bc782mtipo CHAR(2),
+  bc782cncre CHAR(5),
+  bc782idsut CHAR(2),
+  bc782impor CHAR(1),
+  bc782refdi CHAR(3),
+  bc782refa  CHAR(4),
+  bc782refre CHAR(2),
+  bc782refco CHAR(6),
+  bc782refve CHAR(1),
+  bc782idfip CHAR(13),
+  bc782vacif NUMBER(17,2),
+  bc782basre NUMBER(17,2),
+  bc782expor CHAR(1),
+  bc782doctr CHAR(13)
+)
+;
+alter table FBC782
+  add primary key (BC782PGCOD, BC782ITSUC, BC782ITMOD, BC782ITTRA, BC782ITNRE, BC782ITORD, BC782ITSBO, BC782FCON);
+

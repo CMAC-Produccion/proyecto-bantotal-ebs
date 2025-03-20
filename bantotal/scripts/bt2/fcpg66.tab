@@ -1,0 +1,24 @@
+create table FCPG66
+(
+  cpg60cod   NUMBER(10) not null,
+  cpg62serv  NUMBER(3) not null,
+  cpg66codmv NUMBER(3) not null,
+  cpg66semp  NUMBER(3),
+  cpg66ssuc  NUMBER(3),
+  cpg66srub  NUMBER(16),
+  cpg66spap  NUMBER(4),
+  cpg66smda  NUMBER(4),
+  cpg66scta  NUMBER(9),
+  cpg66sope  NUMBER(9),
+  cpg66ssbop NUMBER(3),
+  cpg66stope NUMBER(3),
+  cpg66est   CHAR(3),
+  cpg66blq   CHAR(1),
+  cpg66inst  NUMBER(10),
+  cpg66defct CHAR(1)
+)
+;
+create index FCPG6603 on FCPG66 (CPG66INST);
+alter table FCPG66
+  add primary key (CPG60COD, CPG62SERV, CPG66CODMV);
+

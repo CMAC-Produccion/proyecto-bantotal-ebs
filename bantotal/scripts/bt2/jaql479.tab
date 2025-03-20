@@ -1,0 +1,52 @@
+create table JAQL479
+(
+  jaql479usu CHAR(10) not null,
+  jaql479fec DATE not null,
+  jaql479cod NUMBER(9) not null,
+  jaql479cor NUMBER(9) not null,
+  jaql479ax1 NUMBER(9),
+  jaql479ax2 NUMBER(9),
+  jaql479ax3 NUMBER(9),
+  jaql479ax4 NUMBER(9),
+  jaql479ax5 NUMBER(9),
+  jaql479ax6 NUMBER(9),
+  jaql479ax7 NUMBER(9),
+  jaql479ax8 NUMBER(9),
+  jaql479ax9 NUMBER(9),
+  jaql479a10 NUMBER(9),
+  jaql479a11 NUMBER(17,2),
+  jaql479a12 NUMBER(17,2),
+  jaql479a13 NUMBER(17,2),
+  jaql479a14 NUMBER(17,2),
+  jaql479a15 NUMBER(17,2),
+  jaql479a16 NUMBER(17,2),
+  jaql479a17 NUMBER(17,2),
+  jaql479a18 NUMBER(17,2),
+  jaql479a19 NUMBER(17,2),
+  jaql479a20 NUMBER(17,2),
+  jaql479a21 CHAR(100),
+  jaql479a22 CHAR(100),
+  jaql479a23 CHAR(100),
+  jaql479a24 CHAR(100),
+  jaql479a25 CHAR(100),
+  jaql479a26 CHAR(100),
+  jaql479a27 CHAR(100),
+  jaql479a28 CHAR(100),
+  jaql479a29 CHAR(100),
+  jaql479a30 CHAR(100),
+  jaql479a31 DATE,
+  jaql479a32 DATE,
+  jaql479a33 DATE,
+  jaql479a34 DATE,
+  jaql479a35 DATE,
+  jaql479a36 DATE,
+  jaql479a37 DATE,
+  jaql479a38 DATE,
+  jaql479a39 DATE,
+  jaql479a40 DATE
+)
+;
+create index IJAQL479IDX01 on JAQL479 (JAQL479USU, JAQL479FEC, JAQL479COD, JAQL479A21, JAQL479A22, JAQL479A23, JAQL479A24, JAQL479A25);
+alter table JAQL479
+  add primary key (JAQL479USU, JAQL479FEC, JAQL479COD, JAQL479COR);
+

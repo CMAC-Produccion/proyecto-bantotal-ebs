@@ -1,0 +1,23 @@
+create table AQPA715A
+(
+  aqpa715ausuario CHAR(10) not null,
+  aqpa715acorr    NUMBER(4) not null,
+  aqpa715anumins  NUMBER(9),
+  aqpa715anumcta  NUMBER(9),
+  aqpa715adespro  VARCHAR2(150),
+  aqpa715amonto   NUMBER(17,2),
+  aqpa715anrocuo  NUMBER(4),
+  aqpa715apercre  NUMBER(4),
+  aqpa715aanacre  VARCHAR2(40),
+  aqpa715aauxc1   VARCHAR2(100),
+  aqpa715aauxc2   VARCHAR2(100),
+  aqpa715aauxc3   VARCHAR2(100),
+  aqpa715aauxn1   NUMBER(17,2),
+  aqpa715aauxn2   NUMBER(17,2),
+  aqpa715aauxn3   NUMBER(17,2),
+  aqpa715amdacre  NUMBER(3)
+)
+;
+alter table AQPA715A
+  add primary key (AQPA715AUSUARIO, AQPA715ACORR);
+

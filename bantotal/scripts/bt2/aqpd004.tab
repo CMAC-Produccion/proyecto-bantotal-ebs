@@ -1,0 +1,114 @@
+create table AQPD004
+(
+  aqpd004seint    NUMBER(12) not null,
+  aqpd004fetra    DATE,
+  aqpd004hotra    VARCHAR2(10),
+  aqpd004cores    CHAR(2),
+  aqpd004deres    VARCHAR2(1150),
+  aqpd004fecsis   DATE,
+  aqpd004tramain  VARCHAR2(2000),
+  aqpd004tramaout VARCHAR2(2000),
+  aqpd004tipope   VARCHAR2(500),
+  aqpd004codprod  CHAR(3),
+  aqpd004tipcon   CHAR(1),
+  aqpd004idcon    CHAR(14),
+  aqpd004codban   CHAR(4),
+  aqpd004canpag   CHAR(2),
+  aqpd004codemp   CHAR(3),
+  aqpd004nomcli   VARCHAR2(500),
+  aqpd004detcon   VARCHAR2(2000),
+  aqpd004numopeb  CHAR(12),
+  aqpd004forpag   CHAR(2),
+  aqpd004numdoc   CHAR(16),
+  aqpd004imp      NUMBER(11,2),
+  aqpd004mon      CHAR(3),
+  aqpd004numope   CHAR(9),
+  aqpd004horini   VARCHAR2(10),
+  aqpd004horfin   VARCHAR2(10),
+  aqpd004auxfec1  DATE,
+  aqpd004auxfec2  DATE,
+  aqpd004auxvar1  VARCHAR2(1000),
+  aqpd004auxvar2  VARCHAR2(1000),
+  aqpd004auxval1  NUMBER(11,2),
+  aqpd004auxval2  NUMBER(11,2),
+  aqpd004rel      NUMBER(4),
+  aqpd004tran     NUMBER(3),
+  aqpd004mod      NUMBER(3),
+  aqpd004suc      NUMBER(3)
+)
+;
+comment on table AQPD004
+  is 'Log Operaciones YAPAGO, Corresponsalia en linea';
+comment on column AQPD004.aqpd004seint
+  is 'Correlativo';
+comment on column AQPD004.aqpd004fetra
+  is 'Fecha de proceso';
+comment on column AQPD004.aqpd004hotra
+  is 'Hora de Proceso';
+comment on column AQPD004.aqpd004cores
+  is 'Codigo de respuesta';
+comment on column AQPD004.aqpd004deres
+  is 'Descripcion de respuesta';
+comment on column AQPD004.aqpd004fecsis
+  is 'Fecha de sistema';
+comment on column AQPD004.aqpd004tramain
+  is 'Trama IN';
+comment on column AQPD004.aqpd004tramaout
+  is 'Trama OUT';
+comment on column AQPD004.aqpd004tipope
+  is 'Tipo de operacion';
+comment on column AQPD004.aqpd004codprod
+  is 'Codigo de producto';
+comment on column AQPD004.aqpd004tipcon
+  is 'Tipo Consulta';
+comment on column AQPD004.aqpd004idcon
+  is 'ID Consulta, Nro credito';
+comment on column AQPD004.aqpd004codban
+  is 'Codigo Banco';
+comment on column AQPD004.aqpd004canpag
+  is 'Canal Pago';
+comment on column AQPD004.aqpd004codemp
+  is 'Codigo empresa';
+comment on column AQPD004.aqpd004nomcli
+  is 'Nombre Cliente';
+comment on column AQPD004.aqpd004detcon
+  is 'Detalle Consulta';
+comment on column AQPD004.aqpd004numopeb
+  is 'Nro Operacion Banco';
+comment on column AQPD004.aqpd004forpag
+  is 'Forma de pago';
+comment on column AQPD004.aqpd004numdoc
+  is 'Numero de Documento';
+comment on column AQPD004.aqpd004imp
+  is 'Importe Operacion';
+comment on column AQPD004.aqpd004mon
+  is 'Moneda Operacion';
+comment on column AQPD004.aqpd004numope
+  is 'Nro Operacion ERP, asiento contable';
+comment on column AQPD004.aqpd004horini
+  is 'Hora Inicio Operacion ';
+comment on column AQPD004.aqpd004horfin
+  is 'Hora Fin Operacion';
+comment on column AQPD004.aqpd004auxfec1
+  is 'Auxiliar fecha 1';
+comment on column AQPD004.aqpd004auxfec2
+  is 'Auxiliar fecha 2';
+comment on column AQPD004.aqpd004auxvar1
+  is 'Auxiliar texto 1';
+comment on column AQPD004.aqpd004auxvar2
+  is 'Auxiliar texto 1';
+comment on column AQPD004.aqpd004auxval1
+  is 'Auxiliar numero 1';
+comment on column AQPD004.aqpd004auxval2
+  is 'Auxiliar numero 1';
+comment on column AQPD004.aqpd004rel
+  is 'Relacion';
+comment on column AQPD004.aqpd004tran
+  is 'Transaccion';
+comment on column AQPD004.aqpd004mod
+  is 'Modo';
+comment on column AQPD004.aqpd004suc
+  is 'Sucursal';
+alter table AQPD004
+  add primary key (AQPD004SEINT);
+

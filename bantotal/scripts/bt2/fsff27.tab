@@ -1,0 +1,15 @@
+create table FSFF27
+(
+  kdohmcod  NUMBER(3) not null,
+  kdohmanio NUMBER(4) not null,
+  kdohmmes  NUMBER(2) not null,
+  kdohcc    NUMBER(3) not null,
+  kdohmet   NUMBER(2) not null,
+  kdohcc2   NUMBER(3) not null,
+  kdohval4  NUMBER(17,4)
+)
+;
+create index FSFF2702 on FSFF27 (KDOHMET);
+alter table FSFF27
+  add primary key (KDOHMCOD, KDOHMANIO, KDOHMMES, KDOHCC, KDOHMET, KDOHCC2);
+

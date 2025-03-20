@@ -1,0 +1,26 @@
+create table JAQY777
+(
+  jaqy777pai  NUMBER(3) not null,
+  jaqy777tdoc NUMBER(2) not null,
+  jaqy777ndoc CHAR(12) not null,
+  jaqy777usu  CHAR(30) not null,
+  jaqy777maq  CHAR(12) not null,
+  jaqy777pla  CHAR(50),
+  jaqy777nom  CHAR(30),
+  jaqy777cta  NUMBER(9),
+  jaqy777mar  CHAR(50),
+  jaqy777mod  CHAR(50),
+  jaqy777suc  NUMBER(3),
+  jaqy777anio CHAR(50),
+  jaqy777oper NUMBER(9),
+  jaqy777modu NUMBER(3),
+  jaqy777mda  NUMBER(3),
+  jaqy777pap  NUMBER(3),
+  jaqy777sbop NUMBER(4),
+  jaqy777top  NUMBER(4)
+)
+;
+create index IJAQY77701 on JAQY777 (JAQY777USU, JAQY777MAQ);
+alter table JAQY777
+  add primary key (JAQY777PAI, JAQY777TDOC, JAQY777NDOC, JAQY777USU, JAQY777MAQ);
+

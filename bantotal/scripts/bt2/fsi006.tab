@@ -1,0 +1,15 @@
+create table FSI006
+(
+  pgcod  NUMBER(3) not null,
+  cicpo  CHAR(8) not null,
+  rubro  NUMBER(16) not null,
+  cipzod NUMBER(5),
+  cipzoh NUMBER(5),
+  cipzot CHAR(1)
+)
+;
+create index FSI00602 on FSI006 (RUBRO);
+create index FSI00604 on FSI006 (PGCOD, RUBRO, CICPO);
+alter table FSI006
+  add primary key (PGCOD, CICPO, RUBRO);
+

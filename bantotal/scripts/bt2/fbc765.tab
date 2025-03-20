@@ -1,0 +1,27 @@
+create table FBC765
+(
+  bc704emp  NUMBER(3) not null,
+  bc704suc  NUMBER(3) not null,
+  bc704mod  NUMBER(3) not null,
+  bc704trn  NUMBER(3) not null,
+  bc704rel  NUMBER(4) not null,
+  bc704ord  NUMBER(2) not null,
+  bc704sbo  NUMBER(3) not null,
+  bc704fch  DATE not null,
+  bc704otpo CHAR(3) not null,
+  bc765cor  NUMBER(5) not null,
+  bc765nie  CHAR(20),
+  bc765tac  NUMBER(1),
+  bc765tin  NUMBER(8),
+  bc765mor  NUMBER(11),
+  bc765mpe  NUMBER(11),
+  bc765est  CHAR(2),
+  bc765fcu  DATE,
+  bc765nop  NUMBER(11)
+)
+;
+create index FBC76503 on FBC765 (BC704FCH);
+create index FBC76504 on FBC765 (BC765EST);
+alter table FBC765
+  add primary key (BC704EMP, BC704SUC, BC704MOD, BC704TRN, BC704REL, BC704ORD, BC704SBO, BC704FCH, BC704OTPO, BC765COR);
+

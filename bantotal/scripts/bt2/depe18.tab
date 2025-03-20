@@ -1,0 +1,46 @@
+create table DEPE18
+(
+  depe18cod NUMBER(3) not null,
+  depe18suc NUMBER(3) not null,
+  depe18mod NUMBER(3) not null,
+  depe18rub NUMBER(16) not null,
+  depe18mda NUMBER(4) not null,
+  depe18pap NUMBER(4) not null,
+  depe18cta NUMBER(9) not null,
+  depe18ope NUMBER(9) not null,
+  depe18sbo NUMBER(3) not null,
+  depe18top NUMBER(3) not null,
+  depe18fil NUMBER(4) not null,
+  depe18plz NUMBER(6),
+  depe18cat NUMBER(4),
+  depe18prv NUMBER(17,2),
+  depe18por NUMBER(17,2),
+  depe18tcr NUMBER(4),
+  depe18cap NUMBER(17,2),
+  depe18int NUMBER(17,2),
+  depe18deu NUMBER(17,2),
+  depe18igr NUMBER(17,2),
+  depe18dgr CHAR(50),
+  depe18pi  NUMBER(17,2),
+  depe18lgd NUMBER(17,2),
+  depe18ead NUMBER(17,2),
+  depe18pe  NUMBER(17,2),
+  depe18ppe NUMBER(17,2),
+  depe18pr1 NUMBER(17,2),
+  depe18pf  NUMBER(17,2),
+  depe18dif NUMBER(17,2),
+  depe18uno NUMBER(17,2),
+  depe18dos NUMBER(17,2),
+  depe18tre NUMBER(17,2),
+  depe18cua CHAR(80),
+  depe18cin CHAR(80),
+  depe18sei CHAR(80),
+  depe18sie DATE,
+  depe18och DATE,
+  depe8nue  DATE
+)
+;
+create index DEPE1802 on DEPE18 (DEPE18COD, DEPE18CTA, DEPE18MOD, DEPE18TOP);
+alter table DEPE18
+  add primary key (DEPE18COD, DEPE18SUC, DEPE18MOD, DEPE18RUB, DEPE18MDA, DEPE18PAP, DEPE18CTA, DEPE18OPE, DEPE18SBO, DEPE18TOP, DEPE18FIL);
+

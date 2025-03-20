@@ -1,0 +1,23 @@
+create table JAQZ057
+(
+  jaqz057emp NUMBER(3),
+  jaqz057mod NUMBER(3),
+  jaqz057suc NUMBER(3),
+  jaqz057mda NUMBER(4),
+  jaqz057pap NUMBER(4),
+  jaqz057cta NUMBER(9),
+  jaqz057ope NUMBER(9),
+  jaqz057sbo NUMBER(3),
+  jaqz057top NUMBER(3),
+  jaqz057ins NUMBER(12),
+  jaqz057fed DATE,
+  jaqz057sol NUMBER(2),
+  jaqz057est NUMBER(2),
+  jaqz057fdc DATE,
+  jaqz057cuo NUMBER(4),
+  jaqz057pzo NUMBER(5)
+)
+;
+create index XN_JAQZ057_01 on JAQZ057 (JAQZ057SUC);
+create index XN_JAQZ057_02 on JAQZ057 (JAQZ057SUC, JAQZ057FED);
+

@@ -1,0 +1,13 @@
+create table X054105
+(
+  x054aotope  NUMBER(3) not null,
+  x054tipodo  NUMBER(3) not null,
+  x054modop   NUMBER(3) not null,
+  x054modcont CHAR(1)
+)
+;
+create index X0541052 on X054105 (X054TIPODO);
+create index X0541053 on X054105 (X054MODOP, X054AOTOPE);
+alter table X054105
+  add primary key (X054AOTOPE, X054TIPODO, X054MODOP);
+

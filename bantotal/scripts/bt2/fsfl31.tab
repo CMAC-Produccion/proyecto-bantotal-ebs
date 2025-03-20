@@ -1,0 +1,20 @@
+create table FSFL31
+(
+  fsfl31emp NUMBER(3) not null,
+  fsfl31cod NUMBER(3) not null,
+  fsfl31fec DATE not null,
+  fsfl31hor CHAR(8) not null,
+  fsfl31dsc CHAR(35),
+  fsfl31reg CHAR(1),
+  fsfl31tip CHAR(1),
+  fsfl31uig CHAR(10),
+  fsfl31wig CHAR(10),
+  fsfl31fcf DATE,
+  fsfl31hcf CHAR(8),
+  fsfl31ucf CHAR(8),
+  fsfl31wcf CHAR(10)
+)
+;
+alter table FSFL31
+  add primary key (FSFL31EMP, FSFL31COD, FSFL31FEC, FSFL31HOR);
+

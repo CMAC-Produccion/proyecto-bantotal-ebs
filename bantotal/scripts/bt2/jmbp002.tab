@@ -1,0 +1,18 @@
+create table JMBP002
+(
+  jmbp02cod  NUMBER(3) not null,
+  jmbp02mod  NUMBER(3) not null,
+  jmbp02mda  NUMBER(4) not null,
+  jmbp02pap  NUMBER(4) not null,
+  jmbp02cta  NUMBER(9) not null,
+  jmbp02suc  NUMBER(3) not null,
+  jmbp02oper NUMBER(9) not null,
+  jmbp02sbop NUMBER(3) not null,
+  jmbp02top  NUMBER(3) not null,
+  jmbp02fpag DATE not null,
+  jmbp02imp  NUMBER(17,2)
+)
+;
+alter table JMBP002
+  add primary key (JMBP02COD, JMBP02MOD, JMBP02MDA, JMBP02PAP, JMBP02CTA, JMBP02SUC, JMBP02OPER, JMBP02SBOP, JMBP02TOP, JMBP02FPAG);
+

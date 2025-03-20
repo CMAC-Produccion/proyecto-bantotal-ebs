@@ -1,0 +1,24 @@
+create table AQPA140
+(
+  aqpa140fec DATE not null,
+  aqpa140pai NUMBER(3) not null,
+  aqpa140tip NUMBER(2) not null,
+  aqpa140doc CHAR(12) not null,
+  aqpa140num NUMBER(3)
+)
+;
+comment on table AQPA140
+  is 'TABLA GENERACIONES PLANILLAS CTS POR EMPLEADOR';
+comment on column AQPA140.aqpa140fec
+  is 'FECHA DE PROCESO';
+comment on column AQPA140.aqpa140pai
+  is 'PAIS';
+comment on column AQPA140.aqpa140tip
+  is 'TIPO DOCUMENTO';
+comment on column AQPA140.aqpa140doc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPA140.aqpa140num
+  is 'NRO DE INTENTO';
+alter table AQPA140
+  add primary key (AQPA140FEC, AQPA140PAI, AQPA140TIP, AQPA140DOC);
+

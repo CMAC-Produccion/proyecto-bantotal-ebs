@@ -1,0 +1,84 @@
+CREATE OR REPLACE PROCEDURE SP_AH_INSJAQY658(P_PGCOD IN NUMBER, P_SCSUC IN NUMBER, P_SCRUB IN NUMBER, P_SCMDA IN NUMBER, P_SCPAP IN NUMBER
+, P_SCCTA IN NUMBER, P_SCOPER IN NUMBER, P_SCSBOP IN NUMBER, P_SCTOPE IN NUMBER, P_SCMOD IN NUMBER
+, P_CODIGO IN NUMBER, P_AGENCIA IN VARCHAR2, P_FECHA IN DATE, P_CUENTA IN VARCHAR2, P_MONEDA IN VARCHAR2, P_SOLICITA  IN VARCHAR2
+, P_AUTORIZA IN VARCHAR2, P_TEXTO1 IN VARCHAR2, P_ESTADO IN VARCHAR2, P_TEXTO2 IN VARCHAR2, P_TEXTO3 IN VARCHAR2, P_USUARIO IN VARCHAR2, P_ACCION IN NUMBER) IS
+
+  ---***
+  ld_fape DATE;
+  ld_fval DATE;
+  ln_sbop NUMBER(3);
+  lc_tono VARCHAR(30);
+  ---***
+
+BEGIN
+  ---***
+  ld_fape := NULL;
+  ld_fval := NULL;
+  ln_sbop := NULL;
+  lc_tono := NULL;
+  ---*** ld_fape
+  IF(P_SCMOD = 21) THEN
+    begin
+    SELECT SCFVAL INTO ld_fape FROM FSD011
+    WHERE PGCOD = P_PGCOD AND SCSUC = P_SCSUC AND SCRUB = P_SCRUB AND SCMDA = P_SCMDA AND SCPAP = P_SCPAP
+    AND SCCTA = P_SCCTA AND SCOPER = P_SCOPER AND SCSBOP = P_SCSBOP AND SCTOPE = P_SCTOPE AND SCMOD = P_SCMOD;
+    exception
+      when others then
+        ld_fape := null;
+      end;
+  ELSE -- FECHA APERTURA DPF Y CREDITOS
+    begin
+    SELECT AOFVAL INTO ld_fape FROM FSD010
+    WHERE PGCOD = P_PGCOD AND AOSUC = P_SCSUC AND AOMDA = P_SCMDA AND AOPAP = P_SCPAP
+    AND AOCTA = P_SCCTA AND AOOPER = P_SCOPER 
+    AND AOSTAT <> 99
+    AND AOTOPE = P_SCTOPE
+    AND AOMOD = P_SCMOD
+    AND ROWNUM = 1;
+    exception
+      when others then
+        ld_fape := null;
+      end;
+    ---*** LOG BORRAR
+    --INSERT INTO JAQY658_TMP VALUES(P_PGCOD, P_SCSUC, P_SCRUB, P_SCMDA, P_SCPAP, P_SCCTA, P_SCOPER, P_SCSBOP, P_SCTOPE, P_SCMOD, SYSDATE);
+    ---***
+  END IF;
+  ---***
+
+  ---*** FECHA RENOVACION DPF
+  IF(P_SCMOD = 22) THEN
+    begin
+    SELECT SCFVAL, SCSBOP INTO ld_fval, ln_sbop  FROM FSD011
+    WHERE PGCOD = P_PGCOD AND SCSUC = P_SCSUC AND SCRUB = P_SCRUB AND SCMDA = P_SCMDA AND SCPAP = P_SCPAP
+    AND SCCTA = P_SCCTA AND SCOPER = P_SCOPER AND SCSBOP = P_SCSBOP AND SCTOPE = P_SCTOPE AND SCMOD = P_SCMOD;
+    exception
+      when others then
+        ld_fape := null;
+        ln_sbop := 0;
+      end;
+  END IF;
+  ---***
+  SELECT TRIM(TONOM) INTO lc_tono FROM fst004 WHERE MODULO = P_SCMOD AND TOTOPE = P_SCTOPE;
+  ---***
+
+  CASE P_ACCION
+  WHEN 1 THEN
+      insert into jaqy658(jaqy658cod
+      ,jaqy658fec,jaqy658aux1,jaqy658auxa,jaqy658auxb,jaqy658auxc,jaqy658auxd
+      ,jaqy658auxe,jaqy658auxf,jaqy658auxg,jaqy658auxh,jaqy658auxi,jaqy658auxk,JAQY658FVAL,JAQY658SBOP,JAQY658TONO)
+       values(SQ_AH_JAQY658.NEXTVAL
+       ,ld_fape,P_CODIGO,P_AGENCIA,P_CUENTA,P_MONEDA,P_SOLICITA
+       ,P_AUTORIZA,P_TEXTO1,P_ESTADO,P_TEXTO2,P_TEXTO3,P_USUARIO,ld_fval,ln_sbop,lc_tono);
+       ---***
+       COMMIT;
+       ---***
+  WHEN 2 THEN
+      DELETE JAQY658
+      where jaqy658auxk  = p_USUARIO;
+      ---***
+      COMMIT;
+      ---***
+  END CASE;
+END SP_AH_INSJAQY658;
+/
+

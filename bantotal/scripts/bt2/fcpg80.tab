@@ -1,0 +1,27 @@
+create table FCPG80
+(
+  cpg78empbt NUMBER(3) not null,
+  cpg78bco   NUMBER(3) not null,
+  cpg78fgen  DATE not null,
+  cpg78nenv  NUMBER(3) not null,
+  cpg79ncarg NUMBER(8) not null,
+  cpg80nmov  NUMBER(10) not null,
+  cpg80sucb  NUMBER(4),
+  cpg80ctab  NUMBER(11),
+  cpg80tcta  CHAR(2),
+  cpg80imp   NUMBER(17,2),
+  cpg80cmpr  NUMBER(7),
+  cpg80benef CHAR(35),
+  cpg80pais  NUMBER(3),
+  cpg80tdoc  NUMBER(3),
+  cpg80ndoc  CHAR(25),
+  cpg80prov  NUMBER(2),
+  cpg80est   CHAR(3),
+  cpg80blq   CHAR(1),
+  cpg80inst  NUMBER(10)
+)
+;
+create index FCPG8003 on FCPG80 (CPG80INST);
+alter table FCPG80
+  add primary key (CPG78EMPBT, CPG78BCO, CPG78FGEN, CPG78NENV, CPG79NCARG, CPG80NMOV);
+

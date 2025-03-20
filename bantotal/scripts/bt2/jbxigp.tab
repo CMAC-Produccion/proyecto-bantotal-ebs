@@ -1,0 +1,26 @@
+create table JBXIGP
+(
+  jbxigpfec DATE not null,
+  jbxigpsuc NUMBER(3) not null,
+  jbxigpmod NUMBER(4) not null,
+  jbxigptrs NUMBER(3) not null,
+  jbxigpasi NUMBER(5) not null,
+  jbxigpfco DATE not null,
+  jbxigpord NUMBER(5) not null,
+  jbxigpcct NUMBER(16) not null,
+  jbxigpscd NUMBER(3),
+  jbxigpcco NUMBER(6),
+  jbxigpmdc CHAR(1),
+  jbxigpimp NUMBER(17,2),
+  jbxigpimo NUMBER(17,2),
+  jbxigpdes CHAR(30),
+  jbxigptas CHAR(5),
+  jbxigpfim DATE,
+  jbxigpmon NUMBER(4),
+  jbxigpusu CHAR(15),
+  jbxigpfpr DATE,
+  jbxigphpr NUMBER(8)
+)
+;
+create unique index JBXIGP01 on JBXIGP (JBXIGPFEC, JBXIGPSUC, JBXIGPMOD, JBXIGPTRS, JBXIGPASI, JBXIGPFCO, JBXIGPORD, JBXIGPCCT);
+

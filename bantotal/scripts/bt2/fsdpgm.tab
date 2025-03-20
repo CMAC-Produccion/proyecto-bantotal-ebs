@@ -1,0 +1,13 @@
+create table FSDPGM
+(
+  pgmusu CHAR(10) not null,
+  pgmfch DATE not null,
+  pgmhra CHAR(8) not null,
+  pgmpgm CHAR(8),
+  pgmwrk CHAR(10)
+)
+;
+create index FSDPGM02 on FSDPGM (PGMFCH, PGMHRA, PGMUSU);
+alter table FSDPGM
+  add primary key (PGMUSU, PGMFCH, PGMHRA);
+

@@ -1,0 +1,16 @@
+create table X054029
+(
+  pgcod      NUMBER(3) not null,
+  xpremod    NUMBER(3) not null,
+  xpretope   NUMBER(3) not null,
+  xpremoneda NUMBER(4) not null,
+  xprepapel  NUMBER(4) not null,
+  xprecocod  NUMBER(3) not null,
+  xprecoimp  NUMBER(17,2),
+  xprecobra  CHAR(1),
+  xpremodif  CHAR(1)
+)
+;
+alter table X054029
+  add primary key (PGCOD, XPREMOD, XPRETOPE, XPREMONEDA, XPREPAPEL, XPRECOCOD);
+

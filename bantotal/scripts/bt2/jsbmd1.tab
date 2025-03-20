@@ -1,0 +1,14 @@
+create table JSBMD1
+(
+  jsbmd1pgc  NUMBER(3) not null,
+  jsbmd1cta  NUMBER(9) not null,
+  jsbmd1indi NUMBER(8,5),
+  jsbmd1tama CHAR(1),
+  jsbmd1fec  DATE,
+  jsbmd1inst NUMBER(10),
+  jsbmd1pgma CHAR(10)
+)
+;
+alter table JSBMD1
+  add primary key (JSBMD1PGC, JSBMD1CTA);
+

@@ -1,0 +1,22 @@
+create table FSFC02L
+(
+  kmlpgcod   NUMBER(3) not null,
+  kmlmda     NUMBER(4) not null,
+  kmlc02fing DATE not null,
+  kmlc02hing CHAR(8) not null,
+  kmlc02ok   CHAR(1),
+  kmlc02adu  CHAR(1),
+  kmlmdatran NUMBER(4),
+  kmlcalcod  NUMBER(3),
+  kmlc02uing CHAR(10),
+  kmlc02wing CHAR(10),
+  kmlc02fcnf DATE,
+  kmlc02hcnf CHAR(8),
+  kmlc02ucnf CHAR(10),
+  kmlc02wcnf CHAR(10)
+)
+;
+create index FSFC02L2 on FSFC02L (KMLPGCOD, KMLMDA, KMLC02OK);
+alter table FSFC02L
+  add primary key (KMLPGCOD, KMLMDA, KMLC02FING, KMLC02HING);
+

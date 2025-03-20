@@ -1,0 +1,30 @@
+create table AQPA122A
+(
+  aqpa122apgc NUMBER(3) not null,
+  aqpa122amod NUMBER(3) not null,
+  aqpa122asuc NUMBER(3) not null,
+  aqpa122amda NUMBER(4) not null,
+  aqpa122apap NUMBER(4) not null,
+  aqpa122acta NUMBER(9) not null,
+  aqpa122aope NUMBER(9) not null,
+  aqpa122asub NUMBER(3) not null,
+  aqpa122atpo NUMBER(3) not null,
+  aqpa122apai NUMBER(3) not null,
+  aqpa122apet NUMBER(2) not null,
+  aqpa122anum CHAR(12) not null,
+  aqpa122afec DATE,
+  aqpa122aax1 NUMBER(9),
+  aqpa122aax2 NUMBER(9),
+  aqpa122aax3 NUMBER(17,2),
+  aqpa122aax4 NUMBER(17,2),
+  aqpa122aax5 DATE,
+  aqpa122aax6 DATE,
+  aqpa122aax7 CHAR(100),
+  aqpa122aax8 CHAR(100),
+  aqpa122aax9 CHAR(100)
+)
+;
+create index AQPA122A2 on AQPA122A (AQPA122AFEC);
+alter table AQPA122A
+  add primary key (AQPA122APGC, AQPA122AMOD, AQPA122ASUC, AQPA122AMDA, AQPA122APAP, AQPA122ACTA, AQPA122AOPE, AQPA122ASUB, AQPA122ATPO, AQPA122APAI, AQPA122APET, AQPA122ANUM);
+

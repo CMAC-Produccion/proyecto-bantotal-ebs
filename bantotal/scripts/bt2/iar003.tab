@@ -1,0 +1,11 @@
+create table IAR003
+(
+  iarmod     NUMBER(3) not null,
+  iartrn     NUMBER(3) not null,
+  iartrnord  NUMBER(2) not null,
+  iartrnordt CHAR(1)
+)
+;
+alter table IAR003
+  add primary key (IARMOD, IARTRN, IARTRNORD);
+

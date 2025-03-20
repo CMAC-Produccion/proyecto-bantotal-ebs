@@ -1,0 +1,33 @@
+create table JAQA90
+(
+  jaqa90empr NUMBER(3) not null,
+  jaqa90sucu NUMBER(3) not null,
+  jaqa90modl NUMBER(3) not null,
+  jaqa90tran NUMBER(3) not null,
+  jaqa90rela NUMBER(4) not null,
+  jaqa90fech DATE not null,
+  jaqa90ases CHAR(10),
+  jaqa90imca NUMBER(17,2),
+  jaqa90imac NUMBER(17,2),
+  jaqa90imal NUMBER(17,2),
+  jaqa90num1 NUMBER(9),
+  jaqa90num2 NUMBER(9),
+  jaqa90num3 NUMBER(9),
+  jaqa90imp1 NUMBER(17,2),
+  jaqa90imp2 NUMBER(17,2),
+  jaqa90imp3 NUMBER(17,2),
+  jaqa90cha1 CHAR(1),
+  jaqa90cha2 CHAR(1),
+  jaqa90cha3 CHAR(1),
+  jaqa90var1 VARCHAR2(255),
+  jaqa90var2 VARCHAR2(255),
+  jaqa90var3 VARCHAR2(255),
+  jaqa90fec1 DATE,
+  jaqa90fec2 DATE,
+  jaqa90fec3 DATE
+)
+;
+create index JAQA9002 on JAQA90 (JAQA90ASES, JAQA90FECH);
+alter table JAQA90
+  add primary key (JAQA90EMPR, JAQA90SUCU, JAQA90MODL, JAQA90TRAN, JAQA90RELA, JAQA90FECH);
+

@@ -1,0 +1,22 @@
+create table PQT005
+(
+  pqt5pgco NUMBER(3) not null,
+  pqt5codp NUMBER(5) not null,
+  pqt5modu NUMBER(3) not null,
+  pqt5tope NUMBER(3) not null,
+  pqt5mone NUMBER(4) not null,
+  pqt5pape NUMBER(4) not null,
+  pqt5tdoc NUMBER(4) not null,
+  pqt5clap NUMBER(5),
+  pqt5clme NUMBER(5),
+  pqt5aux1 DATE,
+  pqt5aux2 DATE,
+  pqt5aux3 NUMBER(17,2),
+  pqt5aux4 NUMBER(17,2),
+  pqt5aux5 CHAR(30),
+  pqt5aux6 CHAR(30)
+)
+;
+alter table PQT005
+  add primary key (PQT5PGCO, PQT5CODP, PQT5MODU, PQT5TOPE, PQT5MONE, PQT5PAPE, PQT5TDOC);
+

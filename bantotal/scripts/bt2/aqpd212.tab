@@ -1,0 +1,65 @@
+create table AQPD212
+(
+  aqpd212emp     NUMBER(3) not null,
+  aqpd212mod     NUMBER(3) not null,
+  aqpd212suc     NUMBER(3) not null,
+  aqpd212mda     NUMBER(4) not null,
+  aqpd212pap     NUMBER(4) not null,
+  aqpd212cta     NUMBER(9) not null,
+  aqpd212ope     NUMBER(9) not null,
+  aqpd212sbop    NUMBER(3) not null,
+  aqpd212tope    NUMBER(3) not null,
+  aqpd212tasaact NUMBER(10,6),
+  aqpd212mtocap  NUMBER(17,2),
+  aqpd212usuact  VARCHAR2(10),
+  aqpd212fec     DATE not null,
+  aqpd212hor     VARCHAR2(10),
+  aqpd212est     VARCHAR2(1),
+  aqpd212aux     VARCHAR2(10),
+  aqpd212aux1    VARCHAR2(10),
+  aqpd212aux2    NUMBER(17,2)
+)
+;
+comment on table AQPD212
+  is 'Tabla de Refinanciado con exoneración de última cuota PJM';
+comment on column AQPD212.aqpd212emp
+  is 'Clv credito Empresa';
+comment on column AQPD212.aqpd212mod
+  is 'Clv. credito modulo';
+comment on column AQPD212.aqpd212suc
+  is 'Clv. credito sucursal';
+comment on column AQPD212.aqpd212mda
+  is 'Clv. credito moneda';
+comment on column AQPD212.aqpd212pap
+  is 'Clv. credito papel';
+comment on column AQPD212.aqpd212cta
+  is 'Clv. credito cuenta';
+comment on column AQPD212.aqpd212ope
+  is 'Clv. credito operacion';
+comment on column AQPD212.aqpd212sbop
+  is 'Clv. credito sub operacion';
+comment on column AQPD212.aqpd212tope
+  is 'Clv. credito tipo de operacion';
+comment on column AQPD212.aqpd212tasaact
+  is 'Tasa Actual';
+comment on column AQPD212.aqpd212mtocap
+  is 'Monto de Capitalización';
+comment on column AQPD212.aqpd212usuact
+  is 'Usuario de Actualización';
+comment on column AQPD212.aqpd212fec
+  is 'Fecha de modificacion del registro';
+comment on column AQPD212.aqpd212hor
+  is 'Hora de insercion del registro';
+comment on column AQPD212.aqpd212est
+  is 'Estado del Registro';
+comment on column AQPD212.aqpd212aux
+  is 'Campo Auxiliar';
+comment on column AQPD212.aqpd212aux1
+  is 'Campo Auxiliar1';
+comment on column AQPD212.aqpd212aux2
+  is 'Campo Auxiliar2';
+create index AQPD212A2 on AQPD212 (AQPD212EMP, AQPD212MOD, AQPD212SUC, AQPD212MDA, AQPD212PAP, AQPD212CTA, AQPD212OPE, AQPD212SBOP, AQPD212TOPE);
+create index AQPD212A3 on AQPD212 (AQPD212OPE, AQPD212EST);
+alter table AQPD212
+  add primary key (AQPD212EMP, AQPD212MOD, AQPD212SUC, AQPD212MDA, AQPD212PAP, AQPD212CTA, AQPD212OPE, AQPD212SBOP, AQPD212TOPE, AQPD212FEC);
+

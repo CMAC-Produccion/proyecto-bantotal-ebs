@@ -1,0 +1,20 @@
+create table JAQY477P
+(
+  jaqy477pfch       DATE not null,
+  jaqy477ppai       NUMBER(3) not null,
+  jaqy477ptdo       NUMBER(2) not null,
+  jaqy477pndo       VARCHAR2(12) not null,
+  jaqy477pcta       NUMBER(9) not null,
+  jaqy477pfeccta    DATE,
+  jaqy477psig       VARCHAR2(1),
+  jaqy477paho       NUMBER(16,2),
+  jaqy477pcre       NUMBER(16,2),
+  jaqy477pprmahoant NUMBER(16,2),
+  jaqy477pprmahoact NUMBER(16,2),
+  jaqy477pmaycreant NUMBER(16,2),
+  jaqy477pmaycreact NUMBER(16,2)
+)
+;
+alter table JAQY477P
+  add primary key (JAQY477PFCH, JAQY477PPAI, JAQY477PTDO, JAQY477PNDO, JAQY477PCTA);
+

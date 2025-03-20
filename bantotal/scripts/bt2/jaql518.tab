@@ -1,0 +1,14 @@
+create table JAQL518
+(
+  jaql518pgcod NUMBER(3) not null,
+  jaql518pgsuc NUMBER(3) not null,
+  jaql518coent NUMBER(3) not null,
+  jaql518cotsv NUMBER(3) not null,
+  jaql518cobra CHAR(1),
+  jaql518exone CHAR(1),
+  jaql518esreg CHAR(1)
+)
+;
+alter table JAQL518
+  add primary key (JAQL518PGCOD, JAQL518PGSUC, JAQL518COENT, JAQL518COTSV);
+

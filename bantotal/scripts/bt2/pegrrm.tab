@@ -1,0 +1,20 @@
+create table PEGRRM
+(
+  pegprjid  CHAR(80) not null,
+  peggrpid  CHAR(80) not null,
+  pegretid  CHAR(10) not null,
+  pegreqid  NUMBER(10) not null,
+  pegreqins NUMBER(4) not null,
+  pegreqrtm DATE not null,
+  pegreqrid VARCHAR2(36) not null,
+  pegreqrtb VARCHAR2(255),
+  pegreqrky VARCHAR2(1000),
+  pegreqrus VARCHAR2(50),
+  pegreqrua VARCHAR2(50),
+  pegreqrtp CHAR(1),
+  pegreqrst CHAR(1)
+)
+;
+alter table PEGRRM
+  add primary key (PEGPRJID, PEGGRPID, PEGRETID, PEGREQID, PEGREQINS, PEGREQRTM, PEGREQRID);
+

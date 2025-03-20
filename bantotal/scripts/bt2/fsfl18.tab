@@ -1,0 +1,22 @@
+create table FSFL18
+(
+  fsfl18emp NUMBER(3) not null,
+  fsfl18cta NUMBER(9) not null,
+  fsfl18fig DATE not null,
+  fsfl18hig CHAR(8) not null,
+  fsfl18nom CHAR(30),
+  fsfl18id  CHAR(12),
+  fsfl18acd NUMBER(5),
+  fsfl18rok CHAR(1),
+  fsfl18tip CHAR(1),
+  fsfl18uig CHAR(10),
+  fsfl18wig CHAR(10),
+  fsfl18fcf DATE,
+  fsfl18hcf CHAR(8),
+  fsfl18ucf CHAR(10),
+  fsfl18wcf CHAR(10)
+)
+;
+alter table FSFL18
+  add primary key (FSFL18EMP, FSFL18CTA, FSFL18FIG, FSFL18HIG);
+

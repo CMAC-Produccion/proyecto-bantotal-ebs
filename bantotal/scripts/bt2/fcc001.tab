@@ -1,0 +1,14 @@
+create table FCC001
+(
+  fcc001cod  NUMBER(3) not null,
+  fcc001mod  NUMBER(3) not null,
+  fcc001oper NUMBER(9) not null,
+  fcc001sbop NUMBER(3) not null,
+  fcc001tipo NUMBER(1) not null,
+  fcc001coti NUMBER(17,5),
+  fcc001mda  NUMBER(4)
+)
+;
+alter table FCC001
+  add primary key (FCC001COD, FCC001MOD, FCC001OPER, FCC001SBOP, FCC001TIPO);
+

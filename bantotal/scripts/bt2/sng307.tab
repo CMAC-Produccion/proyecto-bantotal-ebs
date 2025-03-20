@@ -1,0 +1,22 @@
+create table SNG307
+(
+  sng307pgc  NUMBER(3) not null,
+  sng307mod  NUMBER(3) not null,
+  sng307trn  NUMBER(3) not null,
+  sng300cod  NUMBER(3) not null,
+  sng307ord  NUMBER(3),
+  sng307sbo  NUMBER(3),
+  sng307posf NUMBER(2),
+  sng307ordc NUMBER(3),
+  sng307posc NUMBER(2),
+  sng307ordi NUMBER(3),
+  sng307posi NUMBER(2),
+  sng307ordp NUMBER(3),
+  sng307posa NUMBER(2),
+  sng307inta NUMBER(9),
+  sng307vara VARCHAR2(40)
+)
+;
+alter table SNG307
+  add primary key (SNG307PGC, SNG307MOD, SNG307TRN, SNG300COD);
+

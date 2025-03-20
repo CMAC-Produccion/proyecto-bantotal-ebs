@@ -1,0 +1,50 @@
+create table FSFI12
+(
+  sfi12emp   NUMBER(3) not null,
+  sfi12suc   NUMBER(3) not null,
+  sfi12mod   NUMBER(3) not null,
+  sfi12pap   NUMBER(4) not null,
+  sfi12ope   NUMBER(9) not null,
+  sfi12cta   NUMBER(9) not null,
+  sfi12top   NUMBER(3) not null,
+  sfi12rel   NUMBER(3) not null,
+  sfi12bemp  NUMBER(3) not null,
+  sfi12bsuc  NUMBER(3) not null,
+  sfi12bmod  NUMBER(3) not null,
+  sfi12bope  NUMBER(9) not null,
+  sfi12bcta  NUMBER(16) not null,
+  sfi12btop  NUMBER(3) not null,
+  sfi12imp   NUMBER(18),
+  sfi12arb   NUMBER(14,8),
+  sfi12pre   NUMBER(14,8),
+  sfi12asimo NUMBER(3),
+  sfi12asisu NUMBER(3),
+  sfi12asitr NUMBER(3),
+  sfi12asire NUMBER(4),
+  sfi12asifc DATE,
+  sfi12asior NUMBER(2),
+  sfi12asisb NUMBER(3),
+  sfi12est   CHAR(1),
+  sfi12mer   NUMBER(3),
+  sfi12pro   NUMBER(3),
+  sfi12tipo  NUMBER(2),
+  sfi12age   NUMBER(9),
+  sfi12cv    CHAR(1),
+  sfi12imovn CHAR(1),
+  sfi12aux1  CHAR(1),
+  sfi12aux2  CHAR(1),
+  sfi12aux3  NUMBER(9),
+  sfi12aux4  NUMBER(9),
+  sfi12aux5  NUMBER(14,8),
+  sfi12aux6  NUMBER(14,8),
+  sfi12aux7  NUMBER(17,2),
+  sfi12aux8  NUMBER(17,2),
+  sfi12sbop  NUMBER(3)
+)
+;
+create index FSFI1202 on FSFI12 (SFI12EMP, SFI12ASIMO, SFI12ASISU, SFI12ASITR, SFI12ASIRE, SFI12ASIFC, SFI12ASIOR, SFI12ASISB);
+create index FSFI1203 on FSFI12 (SFI12EMP, SFI12REL, SFI12AGE, SFI12MOD, SFI12TOP, SFI12PAP, SFI12OPE);
+create index FSFI1204 on FSFI12 (SFI12REL, SFI12BEMP, SFI12BSUC, SFI12BMOD, SFI12BOPE, SFI12BCTA, SFI12BTOP);
+alter table FSFI12
+  add primary key (SFI12EMP, SFI12SUC, SFI12MOD, SFI12PAP, SFI12OPE, SFI12CTA, SFI12TOP, SFI12REL, SFI12BEMP, SFI12BSUC, SFI12BMOD, SFI12BOPE, SFI12BCTA, SFI12BTOP);
+

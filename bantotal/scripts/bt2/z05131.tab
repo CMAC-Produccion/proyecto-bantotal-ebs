@@ -1,0 +1,36 @@
+create table Z05131
+(
+  z05131ftr DATE not null,
+  z05131suc NUMBER(3) not null,
+  z05131cor NUMBER(9) not null,
+  z05131emp NUMBER(3),
+  z05131cta NUMBER(9),
+  z05131est CHAR(2),
+  z05131idc CHAR(22),
+  z05131ref CHAR(15),
+  z05131mda NUMBER(4),
+  z05131imp NUMBER(10,2),
+  z05131cb1 CHAR(8),
+  z05131cb2 CHAR(14),
+  z05131cb3 CHAR(8),
+  z05131cb4 CHAR(14),
+  z05131ctb NUMBER(9),
+  z05131tdb NUMBER(2),
+  z05131ndb CHAR(11),
+  z05131nmb CHAR(30),
+  z05131fpr DATE,
+  z05131hpr CHAR(8),
+  z05131iar CHAR(1),
+  z05131cnt NUMBER(15),
+  z05131mod NUMBER(3),
+  z05131trn NUMBER(3),
+  z05131rel NUMBER(4),
+  z05131fco DATE,
+  z05131ord NUMBER(2),
+  z05131sub NUMBER(3),
+  z05131val CHAR(1)
+)
+;
+alter table Z05131
+  add primary key (Z05131FTR, Z05131SUC, Z05131COR);
+

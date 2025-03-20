@@ -1,0 +1,29 @@
+create table JAQX301
+(
+  jaqx301pgc NUMBER(3) not null,
+  jaqx301mod NUMBER(3) not null,
+  jaqx301mda NUMBER(4) not null,
+  jaqx301pap NUMBER(4) not null,
+  jaqx301cta NUMBER(9) not null,
+  jaqx301suc NUMBER(3) not null,
+  jaqx301ope NUMBER(9) not null,
+  jaqx301sop NUMBER(3) not null,
+  jaqx301top NUMBER(3) not null,
+  jaqx301env CHAR(1),
+  jaqx301in1 NUMBER(9),
+  jaqx301in2 NUMBER(9),
+  jaqx301in3 NUMBER(9),
+  jaqx301mt1 NUMBER(17,2),
+  jaqx301mt2 NUMBER(17,2),
+  jaqx301mt3 NUMBER(17,2),
+  jaqx301dt1 DATE,
+  jaqx301dt2 DATE,
+  jaqx301dt3 DATE,
+  jaqx301ch1 CHAR(50),
+  jaqx301ch2 CHAR(50),
+  jaqx301ch3 CHAR(50)
+)
+;
+alter table JAQX301
+  add primary key (JAQX301PGC, JAQX301MOD, JAQX301MDA, JAQX301PAP, JAQX301CTA, JAQX301SUC, JAQX301OPE, JAQX301SOP, JAQX301TOP);
+

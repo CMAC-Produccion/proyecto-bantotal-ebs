@@ -1,0 +1,37 @@
+create table JBXIH9
+(
+  jbxih9fec DATE not null,
+  jbxih9tar CHAR(19) not null,
+  jbxih9pai NUMBER(3),
+  jbxih9tdo NUMBER(2),
+  jbxih9ndo CHAR(12),
+  jbxih9mie CHAR(1),
+  jbxih9fat DATE,
+  jbxih9fbt DATE,
+  jbxih9fvt DATE,
+  jbxih9est CHAR(15),
+  jbxih9cpc CHAR(15),
+  jbxih9cse NUMBER(2),
+  jbxih9ntt CHAR(24),
+  jbxih9cof CHAR(15),
+  jbxih9eca NUMBER(3),
+  jbxih9mca NUMBER(3),
+  jbxih9sca NUMBER(3),
+  jbxih9mdc NUMBER(4),
+  jbxih9pca NUMBER(4),
+  jbxih9nca NUMBER(9),
+  jbxih9oca NUMBER(9),
+  jbxih9sba NUMBER(3),
+  jbxih9tca NUMBER(3),
+  jbxih9seg CHAR(15),
+  jbxih9tta CHAR(2),
+  jbxih9ntr NUMBER(16),
+  jbxih9cvt CHAR(15),
+  jbxih9cbj CHAR(15),
+  jbxih9mbj CHAR(15),
+  jbxih9mtb NUMBER(1)
+)
+;
+create unique index JBXIH901 on JBXIH9 (JBXIH9FEC, JBXIH9TAR);
+create index JBXIH902 on JBXIH9 (JBXIH9TAR);
+

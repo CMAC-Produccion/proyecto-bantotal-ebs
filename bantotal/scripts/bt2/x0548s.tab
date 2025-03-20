@@ -1,0 +1,22 @@
+create table X0548S
+(
+  x0548rfch CHAR(6) not null,
+  x0548rhra NUMBER(4) not null,
+  x0548sidr NUMBER(1) not null,
+  x0548slot NUMBER(7) not null,
+  x0548strn NUMBER(3),
+  x0548sre1 CHAR(16),
+  x0548sre2 CHAR(20),
+  x0548sre3 CHAR(10),
+  x0548stre CHAR(3),
+  x0548sdtr CHAR(10),
+  x0548sfch CHAR(6),
+  x0548svto NUMBER(6),
+  x0548sre4 CHAR(3),
+  x0548scoo CHAR(1),
+  x0548sent NUMBER(8)
+)
+;
+alter table X0548S
+  add primary key (X0548RFCH, X0548RHRA, X0548SIDR, X0548SLOT);
+

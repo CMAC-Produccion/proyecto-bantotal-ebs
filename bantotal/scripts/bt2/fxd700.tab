@@ -1,0 +1,11 @@
+create table FXD700
+(
+  rulnum NUMBER(3) not null,
+  swtcod NUMBER(5) not null,
+  rulsts CHAR(1)
+)
+;
+create index FXD70003 on FXD700 (SWTCOD);
+alter table FXD700
+  add primary key (RULNUM, SWTCOD);
+

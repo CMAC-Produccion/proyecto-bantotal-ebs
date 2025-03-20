@@ -1,0 +1,43 @@
+create table JAQY511
+(
+  jaqy511emp        NUMBER(3) not null,
+  jaqy511mod        NUMBER(3) not null,
+  jaqy511suc        NUMBER(3) not null,
+  jaqy511trn        NUMBER(3) not null,
+  jaqy511nrel       NUMBER(4) not null,
+  jaqy511fch        DATE not null,
+  jaqy511nomope     CHAR(30),
+  jaqy511nrotran    VARCHAR2(160),
+  jaqy511hmodul     NUMBER(3),
+  jaqy511mda        NUMBER(4),
+  jaqy511scnom      CHAR(30),
+  jaqy511desmda     VARCHAR2(3),
+  jaqy511monto      NUMBER(17,2),
+  jaqy511origenfon  CHAR(70),
+  jaqy511usu        CHAR(10),
+  jaqy511pais       NUMBER(3),
+  jaqy511tipdoc     NUMBER(2),
+  jaqy511numdoc     CHAR(12),
+  jaqy511hcta       NUMBER(9),
+  jaqy511hoper      NUMBER(9),
+  jaqy511htope      NUMBER(3),
+  jaqy511succuenta  CHAR(30),
+  jaqy511titular    CHAR(140),
+  jaqy511nrodoctra  CHAR(12),
+  jaqy511tdoctra    CHAR(20),
+  jaqy511tra        CHAR(30),
+  jaqy511tramnocli  CHAR(140),
+  jaqy511persbncpep VARCHAR2(100),
+  jaqy511hora       CHAR(8),
+  jaqy511extord     CHAR(1),
+  jaqy511entfin     CHAR(1),
+  jaqy511hsucur     NUMBER(3),
+  jaqy511hpap       NUMBER(4),
+  jaqy511hsubo      NUMBER(3),
+  jaqy511hmda       NUMBER(4),
+  jaqy511xsuc       NUMBER(3)
+)
+;
+create index IDX_JAQY511_01 on JAQY511 (JAQY511TITULAR);
+create index IDX_JAQY511_02 on JAQY511 (JAQY511TITULAR, JAQY511MONTO);
+

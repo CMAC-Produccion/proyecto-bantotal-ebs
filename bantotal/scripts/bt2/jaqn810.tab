@@ -1,0 +1,55 @@
+create table JAQN810
+(
+  jaqn810emp NUMBER(3) not null,
+  jaqn810nta CHAR(19) not null,
+  jaqn810tta CHAR(1) not null,
+  jaqn810suc NUMBER(3) not null,
+  jaqn810pai NUMBER(3) not null,
+  jaqn810tdo NUMBER(2) not null,
+  jaqn810nro CHAR(12) not null,
+  jaqn810fec DATE not null,
+  jaqn810nin NUMBER(9) not null,
+  jaqn810hit CHAR(1) not null,
+  jaqn810txn CHAR(20),
+  jaqn810cor CHAR(100),
+  jaqn810tel CHAR(20),
+  jaqn810lgp VARCHAR2(2000),
+  jaqn810lgr VARCHAR2(2000)
+)
+;
+comment on table JAQN810
+  is 'DATOS BIOMETRIA EMISION DE TARJETAS TDV';
+comment on column JAQN810.jaqn810emp
+  is 'Empresa';
+comment on column JAQN810.jaqn810nta
+  is 'NumeroTarjeta';
+comment on column JAQN810.jaqn810tta
+  is 'TipoTarjeta';
+comment on column JAQN810.jaqn810suc
+  is 'Sucursal Administrativa';
+comment on column JAQN810.jaqn810pai
+  is 'Pais';
+comment on column JAQN810.jaqn810tdo
+  is 'Tipo Documento';
+comment on column JAQN810.jaqn810nro
+  is 'Nro Documento';
+comment on column JAQN810.jaqn810fec
+  is 'Fecha';
+comment on column JAQN810.jaqn810nin
+  is 'Numero Intentos';
+comment on column JAQN810.jaqn810hit
+  is 'Hit (S N)';
+comment on column JAQN810.jaqn810txn
+  is 'Codigo Transaccion Biometrica';
+comment on column JAQN810.jaqn810cor
+  is 'Correo';
+comment on column JAQN810.jaqn810tel
+  is 'telefono';
+comment on column JAQN810.jaqn810lgp
+  is 'Log Peticion';
+comment on column JAQN810.jaqn810lgr
+  is 'Log Respuesta';
+create index JAQN8102 on JAQN810 (JAQN810EMP, JAQN810NTA, JAQN810SUC, JAQN810PAI, JAQN810TDO, JAQN810NRO, JAQN810FEC);
+alter table JAQN810
+  add primary key (JAQN810EMP, JAQN810NTA, JAQN810TTA, JAQN810SUC, JAQN810PAI, JAQN810TDO, JAQN810NRO, JAQN810FEC, JAQN810NIN, JAQN810HIT);
+

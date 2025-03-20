@@ -1,0 +1,9253 @@
+create or replace package pq_cr_resolutor_cappago is
+
+  -- Author  : MPOSTIGOC
+  -- Created : 13/01/2016 04:46:54 p.m.
+  -- Purpose :
+  -- Modificado : 2017.03.28 DCASTRO se modifico sp_refinanLinea
+  -- Modificado : 18/07/2017 MPOSTIGOC  Cambio de longitud de Variable ln_captotal1
+  -- Modificado : 16/10/2017 MPOSTIGOC  Se considera Amortizaciones en el procedimiento SP_CR_CAPACIDADFC
+  -- Modificado : 24/06/2019 MPOSTIGOC No se considera los creditos que estan en el area legal
+  -- Fecha de Modificación      : 30/11/2023
+  -- Autor de la Modificación   :  Maria Postigo
+  -- Descripción de Modificación: se considero NVL para la variable de nro de cuotas en casos de flujo de caja
+  -- Fecha de Modificación      : 15/03/2024
+  -- Autor de la Modificación   :  Maria Postigo
+  -- Descripción de Modificación: Se descomento el monto de cuota potencial en el denominador de la formula 
+  -- Fecha de Modificación      : 10/12/2024
+  -- Autor de la Modificación   :  Maria Postigo
+  -- Descripción de Modificación: Se agrego un procedimiento de control mantiene evaluacion. 
+  -- Fecha de Modificación      : 11/12/2024
+  -- Autor de la Modificación   :  Maria Postigo
+  -- Descripción de Modificación: Se agrego nvl para variables en procedimeto manbtiene eval. 
+  -- Fecha de Modificación      : 13/12/2024
+  -- Autor de la Modificación   :  Maria Postigo
+  -- Descripción de Modificación: Se agrego sum para variables en procedimeto manbtiene eval. 
+
+  -----------------------------------------------------------
+
+  procedure sp_cuentas(ln_Pepais     in number,
+                       ln_Petdoc     in number,
+                       ln_Pendoc     in char,
+                       tipocambio    in number,
+                       Instancia     in number,
+                       pd_fecpro     in date,
+                       lc_prgm       in varchar2,
+                       ln_captotcaja out number,
+                       saldo_externo out number,
+                       ResultNeto    out number,
+                       ln_captotal   out number);
+  ------------------------------------------------------------
+  procedure sp_InicioRatio(ln_Pepais     in number,
+                           ln_Petdoc     in number,
+                           ln_Pendoc     in char,
+                           tipocambio    in number,
+                           Instancia     in number,
+                           pd_fecpro     in date,
+                           lc_prgm       in varchar2,
+                           lc_Usuario    in varchar2,
+                           ln_captotcaja out number,
+                           saldo_externo out number,
+                           ResultNeto    out number,
+                           ln_captotal   out number);
+  ---------------------------------------------------------------------                           
+  procedure sp_cr_DeudaIFIS(Instancia     in number,
+                            ln_tipocambio in number,
+                            saldo_externo out number);
+  ----------------------------------------------------------
+  procedure sp_cr_CuotaContinCF(ln_Instancia    in number,
+                                pd_fecpro       in date,
+                                lc_flgprg       in varchar2,
+                                ln_MntCuoCntgCF out number);
+  -----------------------------------------------------------
+  procedure sp_cr_CuotaContinAval(ln_Instancia      in number,
+                                  pd_fecpro         in date,
+                                  lc_flgprg         in varchar2,
+                                  ln_MntCuoCntgAval out number);
+  ----------------------------------------------------------
+  procedure sp_cR_CuotaPotencial(ln_Instancia   in number,
+                                 ln_MntPotncial out number);
+  ---------------------------------------------------------------
+  procedure sp_cr_CuotaPotencialII(ln_Instancia   in number,
+                                   ld_fecha       in date,
+                                   lc_usuario     in varchar2,
+                                   ln_MntPotncial out number);
+  ---------------------------------------------------------------                                 
+  procedure sp_cuentaship(ln_Pepais     in number,
+                          ln_Petdoc     in number,
+                          ln_Pendoc     in char,
+                          tipocambio    in number,
+                          Instancia     in number,
+                          pd_fecpro     in date,
+                          lc_prgm       in varchar2,
+                          ln_captotcaja out number,
+                          saldo_externo out number,
+                          ResultNeto    out number,
+                          ln_captotal   out number);
+  ------------------------------------------------------
+  procedure sp_cuotas(ln_pgcod10    in number,
+                      ln_mod10      in number,
+                      ln_suc10      in number,
+                      ln_mda10      in number,
+                      ln_pap10      in number,
+                      ln_cta10      in number,
+                      ln_oper10     in number,
+                      ln_sbop10     in number,
+                      ln_tope10     in number,
+                      ln_NRO_CUOTAS out number);
+  -------------------------------------------------------
+  procedure sp_instancia(ln_mod10     in number,
+                         ln_suc10     in number,
+                         ln_mda10     in number,
+                         ln_pap10     in number,
+                         ln_cta10     in number,
+                         ln_oper10    in number,
+                         ln_sbop10    in number,
+                         ln_tope10    in number,
+                         ln_SNG001Ori out number,
+                         ln_instancia out number);
+  -------------------------------------------------------
+  procedure sp_cuota_impaga(ln_pgcod10    in number,
+                            ln_mod10      in number,
+                            ln_suc10      in number,
+                            ln_mda10      in number,
+                            ln_pap10      in number,
+                            ln_cta10      in number,
+                            ln_oper10     in number,
+                            ln_subop10    in number,
+                            ln_tope10     in number,
+                            tipocambio    in number,
+                            ln_cuoimp     out number,
+                            fech_maxcuota out date);
+  ---------------------------------------------------------                            
+  procedure sp_cuota_impagavuelo(ln_pgcod10    in number,
+                                 ln_mod10      in number,
+                                 ln_suc10      in number,
+                                 ln_mda10      in number,
+                                 ln_pap10      in number,
+                                 ln_cta10      in number,
+                                 ln_oper10     in number,
+                                 ln_subop10    in number,
+                                 ln_tope10     in number,
+                                 tipocambio    in number,
+                                 ln_cuoimp     out number,
+                                 fech_maxcuota out date);
+  ---------------------------------------------------------
+  procedure sp_seguro(ln_mod10        in number,
+                      ln_suc10        in number,
+                      ln_mda10        in number,
+                      ln_pap10        in number,
+                      ln_cta10        in number,
+                      ln_oper10       in number,
+                      ln_sbop10       in number,
+                      ln_tope10       in number,
+                      tipocambio      in number,
+                      fech_maxcuota   in date,
+                      ln_monto_seguro out number);
+  ----------------------------------------------------------
+
+  procedure sp_capacidadlinea(ln_mod10   in number,
+                              ln_suc10   in number,
+                              ln_mda10   in number,
+                              ln_pap10   in number,
+                              ln_cta10   in number,
+                              ln_oper10  in number,
+                              ln_sbop10  in number,
+                              ln_tope10  in number,
+                              tipocambio in number,
+                              ln_formula out number);
+  --------------------------------------------------
+  procedure sp_cr_capacidadFC(ln_mod10   in number,
+                              ln_suc10   in number,
+                              ln_mda10   in number,
+                              ln_pap10   in number,
+                              ln_cta10   in number,
+                              ln_oper10  in number,
+                              ln_sbop10  in number,
+                              ln_tope10  in number,
+                              tipocambio in number,
+                              ln_formula out number);
+  -----------------------------------------------------------                              
+  procedure sp_capacidadpago(ln_MAX_CUOTA    in number,
+                             ln_NRO_CUOTAS   in number,
+                             ln_SNG001Ori    in number,
+                             ln_peri10       in number,
+                             ln_monto_seguro in number,
+                             ln_mod10        in number,
+                             ln_capacidad    out number);
+  -----------------------------------------------------
+  procedure sp_capacidadpagoparc(ln_NRO_CUOTAS   in number,
+                                 ln_SNG001Ori    in number,
+                                 ln_monto_seguro in number,
+                                 ln_mod10        in number,
+                                 ln_instancia    in number,
+                                 tipocambio      in number,
+                                 ln_suc10        in number, --mod 2016.04.12
+                                 ln_mda10        in number, --mod 2016.04.12
+                                 ln_pap10        in number, --mod 2016.04.12
+                                 ln_cta10        in number, --mod 2016.04.12
+                                 ln_oper10       in number, --mod 2016.04.12 
+                                 ln_sbop10       in number, --mod 2016.04.12
+                                 ln_tope10       in number, --mod 2016.04.12
+                                 ln_indicador    in number, --mod 2016.04.12
+                                 ln_cuoparc      out number,
+                                 ln_capacidad    out number);
+  --------------------------------------------------------
+  procedure sp_resolutor(ln_Pepais    in number,
+                         ln_Petdoc    in number,
+                         ln_Pendoc    in char,
+                         Instancia    in number,
+                         pd_fecpro    in date,
+                         ln_pgcod10   in number,
+                         ln_mod10     in number,
+                         ln_suc10     in number,
+                         ln_mda10     in number,
+                         ln_pap10     in number,
+                         ln_cta10     in number,
+                         ln_oper10    in number,
+                         ln_sbop10    in number,
+                         ln_tope10    in number,
+                         ln_peri10    in number,
+                         tipocambio   in number,
+                         ln_indicador in number,
+                         lc_IndCred   in varchar2,
+                         lc_flgprg    in varchar2,
+                         lc_EjecRatio in varchar2,
+                         lc_Usuario   in varchar2,
+                         ln_capacidad out number,
+                         ln_Tarea     in number);
+  ----------------------------------------------------------
+  --mod 2016.04.13
+  Procedure Sp_Adicional_CK(pn_mod  in number,
+                            pn_top  in number,
+                            Pc_flag out varchar2);
+  ----------------------------------------------------------
+  --mod 2016.04.13
+  Procedure Sp_ampliados_CK(ln_emp10  in number,
+                            ln_mod10  in number,
+                            ln_suc10  in number,
+                            ln_mda10  in number,
+                            ln_pap10  in number,
+                            ln_cta10  in number,
+                            ln_oper10 in number,
+                            ln_sbop10 in number,
+                            ln_tope10 in number,
+                            Pc_flag   out varchar2);
+  ----------------------------------------------------------------
+
+  procedure sp_refinanLinea(ln_pgcod10  in number,
+                            ln_mod10    in number,
+                            ln_suc10    in number,
+                            ln_mda10    in number,
+                            ln_pap10    in number,
+                            ln_cta10    in number,
+                            ln_oper10   in number,
+                            lc_fgRefLin out varchar2);
+  ----------------------------------------------------------
+  procedure sp_cr_VerVincLinea(ln_mod10  in number,
+                               ln_suc10  in number,
+                               ln_mda10  in number,
+                               ln_pap10  in number,
+                               ln_cta10  in number,
+                               ln_oper10 in number,
+                               ln_sbop10 in number,
+                               ln_tope10 in number,
+                               lc_FlgLn  out varchar2);
+  ---------------------------------------------------------
+
+  procedure sp_cr_flujocaja(ln_emp10  in number,
+                            ln_mod10  in number,
+                            ln_suc10  in number,
+                            ln_mda10  in number,
+                            ln_pap10  in number,
+                            ln_cta10  in number,
+                            ln_oper10 in number,
+                            ln_sbop10 in number,
+                            ln_tope10 in number,
+                            ln_flagFC out varchar2);
+
+  ------------------------------------------------------------
+  procedure sp_cuota_impaga_Lin(ln_pgcod10    in number,
+                                ln_mod10      in number,
+                                ln_suc10      in number,
+                                ln_mda10      in number,
+                                ln_pap10      in number,
+                                ln_cta10      in number,
+                                ln_oper10     in number,
+                                tipocambio    in number,
+                                ln_cuoimp     out number,
+                                fech_maxcuota out date);
+  ------------------------------------------------------------                            
+
+  procedure sp_capacidadpago_Lin(ln_MAX_CUOTA    in number,
+                                 ln_NRO_CUOTAS   in number,
+                                 ln_peri10       in number,
+                                 ln_monto_seguro in number,
+                                 ln_mod10        in number,
+                                 ln_capacidad    out number);
+  ---------------------------------------------------------------
+  procedure sp_resolutor_venc(ln_Pepais  in number,
+                              ln_Petdoc  in number,
+                              ln_Pendoc  in char,
+                              Instancia  in number,
+                              pd_fecpro  in date,
+                              ln_pgcod10 in number,
+                              ln_mod10   in number,
+                              ln_suc10   in number,
+                              ln_mda10   in number,
+                              ln_pap10   in number,
+                              ln_cta10   in number,
+                              ln_oper10  in number,
+                              ln_sbop10  in number,
+                              ln_tope10  in number,
+                              -- ln_peri10    in number,
+                              tipocambio   in number,
+                              lc_IndCred   in varchar2,
+                              lc_flgprg    in varchar2,
+                              lc_EjecRatio in varchar2,
+                              ln_Tarea     in number,
+                              ln_capacidad out number);
+  -----------------------------------------------------------
+  procedure sp_cr_LogRatio(ln_Pepais      in number,
+                           ln_Petdoc      in number,
+                           ln_Pendoc      in char,
+                           tipocambio     in number,
+                           Instancia      in number,
+                           pd_fecpro      in date,
+                           ln_captotcaja  in number,
+                           saldo_externo  in number,
+                           ResultNeto     in number,
+                           ln_captotal    in number,
+                           lc_indicador   in varchar2,
+                           lc_flgprg      in varchar2,
+                           lc_Usuario     in varchar2,
+                           ln_MntCuoCntg  in number,
+                           ln_MntPotncial in number,
+                           ln_Tarea       in number,
+                           ln_InstME      in number,
+                           LN_EvalME      in number);
+
+  -------------------------------------------------------
+  procedure sp_cr_LogCuentas(lnPepais     in number,
+                             lnPetdoc     in number,
+                             lnPendoc     in char,
+                             tipocambio   in number,
+                             Instancia    in number,
+                             pd_fecpro    in date,
+                             ln_PGCOD     in number,
+                             ln_MOD       in number,
+                             ln_SUC       in number,
+                             ln_MDA       in number,
+                             ln_PAP       in number,
+                             ln_CTA       in number,
+                             ln_OPE       in number,
+                             ln_SBOP      in number,
+                             ln_TOPE      in number,
+                             ln_peri10    in number,
+                             ln_nrocuotas in number,
+                             ln_parciales in number,
+                             ln_flagFC    in varchar2,
+                             ln_cuotimp   in number,
+                             ln_seguro    in number,
+                             ln_CapFC     in number,
+                             CapLinea     in number,
+                             ln_CAPCUO    in number,
+                             lc_IndCred   IN VARCHAR2,
+                             lc_flgprg    in varchar2,
+                             lc_Usuario   in varchar2,
+                             ln_Tarea     in number);
+  -----------------------------------------------------------
+  procedure sp_Cr_verfvigPSD(ln_instancia in number,
+                             lc_VerfNewCP out VARCHAR2);
+  --------------------------------------------------------------                             
+  procedure sp_cr_CtrlPSDAprob(ln_Instancia    in number,
+                               ld_fchproc      in date,
+                               lc_CtrlPSDAprob out varchar2);
+  ---------------------------------------------------------------
+  procedure sp_cr_MntPropAprob(ln_instancia in number,
+                               ln_mntprop   out number,
+                               ln_mntaprob  out number);
+  -----------------------------------------------------------
+  procedure sp_cr_VerfPSDenEval(ln_instancia in number,
+                                lc_PSDEval   out varchar2);
+  ---------------------------------------------------
+  procedure sp_cr_CuotaPotnclCMAC(ln_instancia in number,
+                                  ln_Pepais    in number,
+                                  ln_Petdoc    in number,
+                                  ln_Pendoc    in varchar2,
+                                  pd_fecpro    in date,
+                                  ln_tarea     in number,
+                                  lc_flgprg    in varchar2,
+                                  ln_PtnclCMAC out number);
+  ---------------------------------------------------------
+  procedure sp_cr_insertJAQY142L(ln_INST     in number,
+                                 ln_PAIS     in number,
+                                 ln_TDOC     in number,
+                                 lc_NDOC     in varchar2,
+                                 ld_FECH     in date,
+                                 ln_PGCOD    in number,
+                                 ln_MOD      in number,
+                                 ln_SUC      in number,
+                                 ln_MDA      in number,
+                                 ln_PAP      in number,
+                                 ln_CTA      in number,
+                                 ln_OPE      in number,
+                                 ln_SBOP     in number,
+                                 ln_TOPE     in number,
+                                 ln_RUBRO    in number,
+                                 ln_MNTCR    in number,
+                                 ln_USADO    in number,
+                                 ln_DISPB    in number,
+                                 ln_tarea    in number,
+                                 lc_flgprg   in varchar2,
+                                 ln_mntcuota in number,
+                                 ln_segmento in number);
+  -------------------------------------------------------------
+  procedure sp_cr_maxcuotppago(ln_pgcod10 in number,
+                               ln_mod10   in number,
+                               ln_suc10   in number,
+                               ln_mda10   in number,
+                               ln_pap10   in number,
+                               ln_cta10   in number,
+                               ln_oper10  in number,
+                               ln_subop10 in number,
+                               ln_tope10  in number,
+                               tipocambio in number,
+                               ln_cuoimp  out number);
+  --------------------------------------------------------------
+  procedure sp_cr_VerfLVInsertada(ln_instancia  in number,
+                                  lc_Estado     in varchar2,
+                                  ln_pgcod117   number,
+                                  ln_mod117     in number,
+                                  ln_suc117     in number,
+                                  ln_mda117     in number,
+                                  ln_pap117     in number,
+                                  ln_cta117     in number,
+                                  ln_ope117     in number,
+                                  ln_sbop117    in number,
+                                  ln_tope117    in number,
+                                  lc_RegInst116 out varchar2);
+  -------------------------------------------------------------
+  procedure sp_Cr_CuotPotencialEval(ln_Instancia  in number,
+                                    ln_CuotaPoten out number);
+  ----------------------------------------------------------------
+  procedure sp_Cr_VerfMantEval(ln_Instancia    in number,
+                               ln_InstAnterior out number,
+                               ln_DeuIFIS      out number);
+
+end pq_cr_resolutor_cappago;
+/
+
+create or replace package body pq_cr_resolutor_cappago is
+
+  ------- RESOLUTOR CUOTA RESULTADO EN CAJA AQP Y DEUDA FINANCIERA EXTERNA
+
+  procedure sp_cuentas(ln_Pepais     in number,
+                       ln_Petdoc     in number,
+                       ln_Pendoc     in char,
+                       tipocambio    in number,
+                       Instancia     in number,
+                       pd_fecpro     in date,
+                       lc_prgm       in varchar2,
+                       ln_captotcaja out number,
+                       saldo_externo out number,
+                       ResultNeto    out number,
+                       ln_captotal   out number) is
+  
+    ln_capacidad number(17, 2);
+    divisor      number(17, 2);
+    evaluacion   number(17, 2);
+    mntsoles     number(17, 2);
+    mntdolar     number(17, 2);
+    lc_FlgLn     varchar2(2);
+    lc_fgAdic    varchar2(1); --mod 2016.04.12
+    lc_fgAmpl    varchar2(1); --mod 2016.04.12
+    lc_ven       char(1); --mod 2016.04.12
+    ln_indicador number(10); --mod 2016.04.12
+  
+    lc_fgRefLin varchar2(1); -- 28/06/16 mpostigoc
+    --ResultNeto1  number(10, 2);
+    ln_captotal1 number(10, 6); -- 18/07/2017 MPOSTIGOC  Cambio de longitud de Variable
+  
+    lc_flgprg   varchar2(2) := 'N';
+    lc_TieneRL  varchar2(5) := 'N';
+    lc_IsInsert varchar2(5) := 'N';
+  
+    cursor inserta_vencidos is
+      select d10.pgcod    ln_pgcod10,
+             d10.aomod    ln_mod10,
+             d10.aosuc    ln_suc10,
+             d10.aomda    ln_mda10,
+             d10.aopap    ln_pap10,
+             d10.aocta    ln_cta10,
+             d10.aooper   ln_oper10,
+             d10.aosbop   ln_sbop10,
+             d10.aotope   ln_tope10,
+             d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from fsr008
+                            where pepais = ln_Pepais
+                              and Petdoc = ln_Petdoc
+                              and pendoc = ln_Pendoc
+                           /*and Ttcod = 1
+                           and Cttfir = 'T'*/
+                           )
+         and (d10.Aomod in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (29, 33, 200))) --mpostigoc INC1373 04/10/18
+         and d10.Aostat <> 99
+         and d10.aofvto < pd_fecpro --mpostigoc  14/12/16
+      union
+      
+      select b.pgcod    ln_pgcod10,
+             b.aomod    ln_mod10,
+             b.aosuc    ln_suc10,
+             b.aomda    ln_mda10,
+             b.aopap    ln_pap10,
+             b.aocta    ln_cta10,
+             b.aooper   ln_oper10,
+             b.aosbop   ln_sbop10,
+             b.aotope   ln_tope10,
+             b.aoperiod ln_peri10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+            --and a.cttfir = 'T'
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and (b.Aomod in (select modulo
+                            from fst111
+                           where dscod = 50
+                             and modulo not in (29, 33, 200))) --mpostigoc INC1373 04/10/18
+         and b.aostat <> 99
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and b.aofvto < pd_fecpro;
+  
+    cursor inserta is
+      select d10.pgcod    ln_pgcod10,
+             d10.aomod    ln_mod10,
+             d10.aosuc    ln_suc10,
+             d10.aomda    ln_mda10,
+             d10.aopap    ln_pap10,
+             d10.aocta    ln_cta10,
+             d10.aooper   ln_oper10,
+             d10.aosbop   ln_sbop10,
+             d10.aotope   ln_tope10,
+             d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from fsr008
+                            where pepais = ln_Pepais
+                              and Petdoc = ln_Petdoc
+                              and pendoc = ln_Pendoc
+                           /*and Ttcod = 1
+                           and Cttfir = 'T'*/
+                           )
+         and (d10.Aomod in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             d10.Aomod = 117)
+         and d10.Aostat <> 99
+         and d10.aofvto >= pd_fecpro --mpostigoc  14/12/16
+      union
+      
+      select b.pgcod    ln_pgcod10,
+             b.aomod    ln_mod10,
+             b.aosuc    ln_suc10,
+             b.aomda    ln_mda10,
+             b.aopap    ln_pap10,
+             b.aocta    ln_cta10,
+             b.aooper   ln_oper10,
+             b.aosbop   ln_sbop10,
+             b.aotope   ln_tope10,
+             b.aoperiod ln_peri10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+            --and a.cttfir = 'T'
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and (b.Aomod in (select modulo
+                            from fst111
+                           where dscod = 50
+                             and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             b.Aomod = 117)
+         and b.aostat <> 99
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and b.aofvto >= pd_fecpro;
+  
+    cursor vuelo is
+    
+      select x.xwfempresa ln_pgcod10,
+             x.xwfmodulo ln_mod10,
+             x.xwfsucursal ln_suc10,
+             x.xwfmoneda ln_mda10,
+             x.xwfpapel ln_pap10,
+             x.xwfcuenta ln_cta10,
+             x.xwfoperacion ln_oper10,
+             x.xwfsubope ln_sbop10,
+             x.xwftipope ln_tope10,
+             max(s.sng120per) ln_peri10
+        from xwf700 x, sng120 s
+       where x.xwfempresa = 1
+         and x.xwfcuenta in (select Ctnro
+                               from fsr008
+                              where pepais = ln_Pepais
+                                and Petdoc = ln_Petdoc
+                                and pendoc = ln_Pendoc
+                             /*and Ttcod = 1
+                             and Cttfir = 'T'*/
+                             )
+            
+         and (x.xwfmodulo in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             x.xwfmodulo = 117)
+            
+         and x.XWFPRCINS in
+             (select wfinsprcid
+                from wfwrkitems wf
+               where wf.wfinsprcid = x.xwfprcins
+                 and wf.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                 and wf.wfiteminit =
+                     (select max(wfiteminit)
+                        from wfwrkitems w
+                       where w.wfinsprcid = x.xwfprcins
+                         and w.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                         and w.wfitemstsact = 1
+                            --and wftaskcod <> 55  --20160623ABR
+                         and w.wfiteminit >=
+                             to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+                    --and wftaskcod <> 55--20160623ABR
+                 and wf.wfiteminit >= to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+         and s.sng120ins = x.XWFPRCINS
+         and x.xwfcar3 = '1'
+      
+       group by x.xwfempresa,
+                x.xwfmodulo,
+                x.xwfsucursal,
+                x.xwfmoneda,
+                x.xwfpapel,
+                x.xwfcuenta,
+                x.xwfoperacion,
+                x.xwfsubope,
+                x.xwftipope
+      union
+      select x.xwfempresa ln_pgcod10,
+             x.xwfmodulo ln_mod10,
+             x.xwfsucursal ln_suc10,
+             x.xwfmoneda ln_mda10,
+             x.xwfpapel ln_pap10,
+             x.xwfcuenta ln_cta10,
+             x.xwfoperacion ln_oper10,
+             x.xwfsubope ln_sbop10,
+             x.xwftipope ln_tope10,
+             max(s.sng120per) ln_peri10
+        from xwf700 x, sng120 s, fsr002 c, fsr008 a
+       where x.xwfempresa = 1
+         and c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+         and a.pgcod = x.xwfempresa
+         and a.ctnro = x.xwfcuenta
+         and (x.xwfmodulo in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             x.xwfmodulo = 117)
+            
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and x.XWFPRCINS in
+             (select wfinsprcid
+                from wfwrkitems wf
+               where wf.wfinsprcid = x.xwfprcins
+                 and wf.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                 and wf.wfiteminit =
+                     (select max(wfiteminit)
+                        from wfwrkitems w
+                       where w.wfinsprcid = x.xwfprcins
+                         and w.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                            --and wftaskcod <> 55--20160623ABR
+                         and w.wfitemstsact = 1
+                         and w.wfiteminit >=
+                             to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+                    --and wftaskcod <> 55--20160623ABR
+                 and wf.wfiteminit >= to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+         and s.sng120ins = x.XWFPRCINS
+         and x.xwfcar3 = '1'
+      
+       group by x.xwfempresa,
+                x.xwfmodulo,
+                x.xwfsucursal,
+                x.xwfmoneda,
+                x.xwfpapel,
+                x.xwfcuenta,
+                x.xwfoperacion,
+                x.xwfsubope,
+                x.xwftipope;
+  
+    cursor lineas_ven is
+    
+      select d10.pgcod    ln_pgcod10,
+             d10.aomod    ln_mod10,
+             d10.aosuc    ln_suc10,
+             d10.aomda    ln_mda10,
+             d10.aopap    ln_pap10,
+             d10.aocta    ln_cta10,
+             d10.aooper   ln_oper10,
+             d10.aosbop   ln_sbop10,
+             d10.aotope   ln_tope10,
+             d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from fsr008
+                            where pepais = ln_Pepais
+                              and Petdoc = ln_Petdoc
+                              and pendoc = ln_Pendoc
+                           /*and Ttcod = 1
+                           and Cttfir = 'T'*/
+                           )
+         and d10.Aomod = 117
+         and d10.aofvto < pd_fecpro
+      -- and Aostat <> 99
+      
+      union
+      
+      select b.pgcod    ln_pgcod10,
+             b.aomod    ln_mod10,
+             b.aosuc    ln_suc10,
+             b.aomda    ln_mda10,
+             b.aopap    ln_pap10,
+             b.aocta    ln_cta10,
+             b.aooper   ln_oper10,
+             b.aosbop   ln_sbop10,
+             b.aotope   ln_tope10,
+             b.aoperiod ln_peri10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+            --and a.cttfir = 'T'
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and b.aomod = 117
+            -- and b.aostat <> 99
+         and b.aofvto < pd_fecpro
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66;
+  
+    lc_IndCred    varchar2(10);
+    ln_tipocambio number;
+    --ln_formula    number(10, 6);
+    lc_Usuario        VARCHAR2(10);
+    ln_captotcaja1    number;
+    ln_captotcaja2    number;
+    ln_MntCuoCntgCF   number := 0;
+    ln_MntCuoCntgAval number := 0;
+    ln_MntCuoCntg     number := 0;
+    ln_MntPotncial    number := 0;
+    ln_Tarea          number := 0;
+    ln_periodo        number;
+    lc_TieneInfoPSD   varchar2(2) := 'S';
+    ln_NroSolCredME   number;
+    ln_NroEvalME      number;
+  
+  begin
+  
+    ln_captotcaja := 0;
+  
+    ln_tipocambio := tipocambio;
+  
+    begin
+      -- Usuario que esta procesando la Solicitud MPOSTIGOC 08/11/2017
+      select trim(w.wfitemusrcod)
+        into lc_Usuario
+        from wfwrkitems w
+       where w.wfinsprcid = Instancia
+         and w.wfitemstsact = 1;
+    exception
+      when others then
+        null;
+      
+    end;
+    begin
+      -- Tarea de la solicitud
+      select w.wftaskcod
+        into ln_Tarea
+        from wfwrkitems w
+       where w.wfinsprcid = Instancia
+         and w.wfitemstsact = 1;
+    exception
+      when others then
+        null;
+      
+    end;
+  
+    begin
+    
+      select 'S'
+        into lc_flgprg
+        from fst198 a
+       where a.tp1cod = 1
+         and a.tp1cod1 = 10899
+         and a.tp1corr1 = 13
+         and a.tp1corr2 = 4
+         and a.tp1corr3 = 1
+         and a.tp1nro1 = 1
+         and trim(a.tp1desc) = trim(lc_prgm);
+    exception
+      when others then
+        lc_flgprg := 'N';
+      
+    end;
+  
+    if lc_prgm = 'RJAQY843' then
+      -- 07/09/2017 MPOSTIGOC
+    
+      lc_flgprg := 'R';
+    
+      begin
+        delete JAQY142 J
+         WHERE J.JAQY142INST = Instancia
+           and j.jaqy142est = 'R';
+      end;
+      begin
+        delete JAQY140 J
+         WHERE J.JAQY140INST = Instancia
+           and j.jaqy140est = 'R';
+      end;
+    
+    end if;
+  
+    if lc_flgprg = 'S' then
+      -- 04/09/2017 mpostigoc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+      begin
+        UPDATE jaqy142 j
+           set jaqy142est = 'I'
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'H';
+        commit;
+      end;
+    
+    end if;
+  
+    if tipocambio is null or tipocambio <= 0 then
+    
+      begin
+        select s. sng120tcbi
+          into ln_tipocambio
+          from sng120 s
+         where s.sng120ins = Instancia
+           and s.sng120tsk = 'EVALUACION';
+      exception
+        when others then
+          ln_tipocambio := 0;
+      end;
+    
+    end if;
+  
+    for i in inserta loop
+    
+      lc_fgAdic    := null;
+      lc_fgAmpl    := null;
+      ln_indicador := 1;
+      lc_IndCred   := 'CredVigent';
+      lc_FlgLn     := 'N';
+      --  if i.ln_mod10 = 117 then
+    
+      pq_cr_resolutor_cappago.sp_refinanLinea(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              lc_fgRefLin);
+      --  end if;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(i.ln_mod10,
+                                              i.ln_tope10,
+                                              lc_fgAdic);
+      pq_cr_resolutor_cappago.Sp_ampliados_CK(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              i.ln_sbop10,
+                                              i.ln_tope10,
+                                              lc_fgAmpl);
+    
+      pq_cr_resolutor_cappago.sp_cr_VerVincLinea(i.ln_mod10,
+                                                 i.ln_suc10,
+                                                 i.ln_mda10,
+                                                 i.ln_pap10,
+                                                 i.ln_cta10,
+                                                 i.ln_oper10,
+                                                 i.ln_sbop10,
+                                                 i.ln_tope10,
+                                                 lc_FlgLn);
+    
+      if lc_fgAdic <> 'S' and lc_fgAmpl <> 'S' and lc_fgRefLin <> 'S' and
+         lc_FlgLn <> 'S' and i.ln_tope10 <> 550 then
+        pq_cr_resolutor_cappago.sp_resolutor(ln_Pepais,
+                                             ln_Petdoc,
+                                             ln_Pendoc,
+                                             Instancia,
+                                             pd_fecpro,
+                                             i.ln_pgcod10,
+                                             i.ln_mod10,
+                                             i.ln_suc10,
+                                             i.ln_mda10,
+                                             i.ln_pap10,
+                                             i.ln_cta10,
+                                             i.ln_oper10,
+                                             i.ln_sbop10,
+                                             i.ln_tope10,
+                                             i.ln_peri10,
+                                             ln_tipocambio,
+                                             ln_indicador,
+                                             lc_IndCred,
+                                             lc_flgprg,
+                                             'S',
+                                             lc_Usuario,
+                                             ln_capacidad,
+                                             ln_Tarea);
+      
+        --  ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      
+      end if;
+    
+      if i.ln_tope10 = 550 then
+        -- mpostigoc 20.09.2020
+        lc_TieneRL := 'S';
+      end if;
+    
+    end loop;
+  
+    for i in inserta_vencidos loop
+    
+      lc_fgAdic    := null;
+      lc_fgAmpl    := null;
+      ln_indicador := 1;
+      lc_IndCred   := 'CredVencid';
+    
+      --  if i.ln_mod10 = 117 then
+    
+      pq_cr_resolutor_cappago.sp_refinanLinea(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              lc_fgRefLin);
+      --  end if;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(i.ln_mod10,
+                                              i.ln_tope10,
+                                              lc_fgAdic);
+      pq_cr_resolutor_cappago.Sp_ampliados_CK(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              i.ln_sbop10,
+                                              i.ln_tope10,
+                                              lc_fgAmpl);
+    
+      pq_cr_resolutor_cappago.sp_cr_VerVincLinea(i.ln_mod10,
+                                                 i.ln_suc10,
+                                                 i.ln_mda10,
+                                                 i.ln_pap10,
+                                                 i.ln_cta10,
+                                                 i.ln_oper10,
+                                                 i.ln_sbop10,
+                                                 i.ln_tope10,
+                                                 lc_FlgLn);
+    
+      if lc_fgAdic <> 'S' and lc_fgAmpl <> 'S' and lc_fgRefLin <> 'S' and
+         lc_FlgLn <> 'S' and i.ln_tope10 <> 550 then
+        pq_cr_resolutor_cappago.sp_resolutor(ln_Pepais,
+                                             ln_Petdoc,
+                                             ln_Pendoc,
+                                             Instancia,
+                                             pd_fecpro,
+                                             i.ln_pgcod10,
+                                             i.ln_mod10,
+                                             i.ln_suc10,
+                                             i.ln_mda10,
+                                             i.ln_pap10,
+                                             i.ln_cta10,
+                                             i.ln_oper10,
+                                             i.ln_sbop10,
+                                             i.ln_tope10,
+                                             i.ln_peri10,
+                                             ln_tipocambio,
+                                             ln_indicador,
+                                             lc_IndCred,
+                                             lc_flgprg,
+                                             'S',
+                                             lc_Usuario,
+                                             ln_capacidad,
+                                             ln_Tarea);
+      
+        --   ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      
+      end if;
+    
+      if i.ln_tope10 = 550 then
+        -- mpostigoc 20.09.2020
+        lc_TieneRL := 'S';
+      end if;
+    
+    end loop;
+  
+    for c in vuelo loop
+      ln_indicador := 2;
+      lc_IndCred   := 'CredVuelo';
+    
+      ln_periodo := c.ln_peri10;
+    
+      begin
+        select tp1imp1
+          into ln_periodo
+          from fst198
+         where tp1cod = 1
+           and tp1cod1 = 10801
+           and tp1corr1 = 54
+           and tp1corr2 = 1
+           and tp1corr3 > 0
+           and tp1nro2 = c.ln_mod10
+           and tp1nro3 = c.ln_tope10;
+      exception
+        when no_data_found then
+          ln_periodo := c.ln_peri10;
+      end;
+    
+      ln_periodo := nvl(ln_periodo, 0);
+    
+      if ln_periodo = 0 then
+        -- mpostigoc 22062020
+      
+        begin
+          select x.xllperiodo
+            into ln_periodo
+            from x054023 x
+           where x.xllpgcod = c.ln_pgcod10
+             and x.xllaomod = c.ln_mod10
+             and x.xllaosuc = c.ln_suc10
+             and x.xllaomda = c.ln_mda10
+             and x.xllaopap = c.ln_pap10
+             and x.xllaocta = c.ln_cta10
+             and x.xllaooper = c.ln_oper10
+             and x.xllaosbop = c.ln_sbop10
+             and x.xllaotop = c.ln_tope10;
+        exception
+          when others then
+            ln_periodo := 30;
+        end;
+      end if;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(c.ln_mod10,
+                                              c.ln_tope10,
+                                              lc_fgAdic);
+    
+      if lc_fgAdic <> 'S' then
+      
+        pq_cr_resolutor_cappago.sp_resolutor(ln_Pepais,
+                                             ln_Petdoc,
+                                             ln_Pendoc,
+                                             Instancia,
+                                             pd_fecpro,
+                                             c.ln_pgcod10,
+                                             c.ln_mod10,
+                                             c.ln_suc10,
+                                             c.ln_mda10,
+                                             c.ln_pap10,
+                                             c.ln_cta10,
+                                             c.ln_oper10,
+                                             c.ln_sbop10,
+                                             c.ln_tope10,
+                                             ln_periodo,
+                                             ln_tipocambio,
+                                             ln_indicador,
+                                             lc_IndCred,
+                                             lc_flgprg,
+                                             'S',
+                                             lc_Usuario,
+                                             ln_capacidad,
+                                             ln_Tarea);
+      
+        --   ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      
+      end if;
+    
+    end loop;
+  
+    --mod 2016.04.13
+    for j in lineas_ven loop
+    
+      lc_IndCred := 'LineaVencd';
+    
+      ln_indicador := 3;
+      begin
+        select 'S'
+          into lc_ven
+          from fsr011 a, fsd010 b
+         where a.r2cod = j.ln_pgcod10
+           and a.r2mod = j.ln_mod10
+           and a.r2suc = j.ln_suc10
+           and a.r2mda = j.ln_mda10
+           and a.r2pap = j.ln_pap10
+           and a.r2cta = j.ln_cta10
+           and a.r2oper = j.ln_oper10
+           and a.r2sbop = j.ln_sbop10
+           and a.r2tope = j.ln_tope10
+           and a.r1cod = b.pgcod
+           and a.r1mod = b.aomod
+           and a.r1suc = b.aosuc
+           and a.r1mda = b.aomda
+           and a.r1pap = b.aopap
+           and a.r1cta = b.aocta
+           and a.r1oper = b.aooper
+           and a.r1sbop = b.aosbop
+           and a.r1tope = b.aotope
+           and b.aostat <> 99
+           and relcod = 46
+           and rownum = 1;
+      exception
+        when no_data_found then
+          lc_ven := 'N';
+      end;
+    
+      lc_fgAdic := null;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(j.ln_mod10,
+                                              j.ln_tope10,
+                                              lc_fgAdic);
+    
+      pq_cr_resolutor_cappago.sp_refinanLinea(J.ln_pgcod10,
+                                              J.ln_mod10,
+                                              J.ln_suc10,
+                                              J.ln_mda10,
+                                              J.ln_pap10,
+                                              J.ln_cta10,
+                                              J.ln_oper10,
+                                              lc_fgRefLin);
+    
+      pq_cr_resolutor_cappago.sp_cr_VerVincLinea(j.ln_mod10,
+                                                 j.ln_suc10,
+                                                 j.ln_mda10,
+                                                 j.ln_pap10,
+                                                 j.ln_cta10,
+                                                 j.ln_oper10,
+                                                 j.ln_sbop10,
+                                                 j.ln_tope10,
+                                                 lc_FlgLn);
+    
+      if lc_ven = 'S' then
+        pq_cr_resolutor_cappago.sp_cr_VerfLVInsertada(ln_instancia  => Instancia,
+                                                      lc_Estado     => lc_flgprg,
+                                                      ln_pgcod117   => 1,
+                                                      ln_mod117     => j.ln_mod10,
+                                                      ln_suc117     => j.ln_suc10,
+                                                      ln_mda117     => j.ln_mda10,
+                                                      ln_pap117     => j.ln_pap10,
+                                                      ln_cta117     => j.ln_cta10,
+                                                      ln_ope117     => j.ln_oper10,
+                                                      ln_sbop117    => j.ln_sbop10,
+                                                      ln_tope117    => j.ln_tope10,
+                                                      lc_RegInst116 => lc_IsInsert);
+      end if;
+    
+      if lc_ven = 'S' and lc_IsInsert = 'N' and lc_fgAdic <> 'S' and
+         lc_fgRefLin <> 'S' and lc_FlgLn <> 'S' and j.ln_tope10 <> 550 then
+        pq_cr_resolutor_cappago.sp_resolutor_venc(ln_Pepais,
+                                                  ln_Petdoc,
+                                                  ln_Pendoc,
+                                                  Instancia,
+                                                  pd_fecpro,
+                                                  j.ln_pgcod10,
+                                                  j.ln_mod10,
+                                                  j.ln_suc10,
+                                                  j.ln_mda10,
+                                                  j.ln_pap10,
+                                                  j.ln_cta10,
+                                                  j.ln_oper10,
+                                                  j.ln_sbop10,
+                                                  j.ln_tope10,
+                                                  -- j.ln_peri10,
+                                                  ln_tipocambio,
+                                                  lc_IndCred,
+                                                  lc_flgprg,
+                                                  'S',
+                                                  ln_Tarea,
+                                                  ln_capacidad);
+      
+        --ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      end if;
+    
+    end loop;
+  
+    begin
+      -- Cuota Contingente PRY1527 
+      pq_cr_resolutor_cappago.sp_cr_CuotaContinCF(Instancia,
+                                                  pd_fecpro,
+                                                  lc_flgprg,
+                                                  ln_MntCuoCntgCF);
+      pq_cr_resolutor_cappago.sp_cr_CuotaContinAval(Instancia,
+                                                    pd_fecpro,
+                                                    lc_flgprg,
+                                                    ln_MntCuoCntgAval);
+    
+      ln_MntCuoCntg := ln_MntCuoCntgCF + ln_MntCuoCntgAval;
+    end;
+  
+    /* begin
+      pq_cr_resolutor_cappago.sp_cR_CuotaPotencial(Instancia,
+                                                   ln_MntPotncial);
+    end;*/ --09/07/2019 MPOSTIGOC
+  
+    --
+    begin
+      pq_cr_resolutor_cappago.sp_cr_CuotaPotencialII(Instancia,
+                                                     pd_fecpro,
+                                                     lc_Usuario,
+                                                     ln_MntPotncial);
+    end;
+  
+    if lc_prgm = 'RJAQY843' then
+    
+      begin
+        -- mpostigoc INC1373 04/10/18
+      
+        select sum(j.jaqy142capcuo)
+          into ln_captotcaja1
+          from jaqy142 j
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'R'
+           and (j.jaqy142mod not in
+               (select tp1nro1
+                   from fst198 a
+                  where a.tp1cod = 1
+                    and a.tp1cod1 = 10899
+                    and a.tp1corr1 = 13
+                    and a.tp1corr2 = 1) and j.jaqy142mod not in 117) --mpostigoc 051118
+           and j.jaqy142nrcuo > 1
+           and j.jaqy142indic in
+               ('CredVigent', 'CredVencid', 'CredVuelo', 'LineaVencd');
+      
+      exception
+        when others then
+          ln_captotcaja1 := 0;
+      end;
+    
+      begin
+        -- mpostigoc INC1373 04/10/18    
+        select sum(j.jaqy142capcuo)
+          into ln_captotcaja2
+          from jaqy142 j
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'R'
+           and j.jaqy142mod = 117
+           and j.jaqy142indic in
+               ('CredVigent', 'CredVencid', 'CredVuelo', 'LineaVencd');
+      exception
+        when others then
+          ln_captotcaja2 := 0;
+      end;
+    
+      ln_captotcaja := nvl(ln_captotcaja1, 0) + nvl(ln_captotcaja2, 0);
+    
+    else
+    
+      begin
+        -- mpostigoc INC1373 04/10/18
+      
+        select sum(j.jaqy142capcuo)
+          into ln_captotcaja1
+          from jaqy142 j
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'H'
+           and (j.jaqy142mod not in
+               (select tp1nro1
+                   from fst198 a
+                  where a.tp1cod = 1
+                    and a.tp1cod1 = 10899
+                    and a.tp1corr1 = 13
+                    and a.tp1corr2 = 1) and j.jaqy142mod not in 117) --mpostigoc 051118
+           and j.jaqy142nrcuo > 1
+           and j.jaqy142indic in
+               ('CredVigent', 'CredVencid', 'CredVuelo', 'LineaVencd');
+      exception
+        when others then
+          ln_captotcaja1 := 0;
+      end;
+    
+      begin
+        -- mpostigoc INC1373 04/10/18    
+        select sum(j.jaqy142capcuo)
+          into ln_captotcaja2
+          from jaqy142 j
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'H'
+           and j.jaqy142mod = 117
+           and j.jaqy142indic in
+               ('CredVigent', 'CredVencid', 'CredVuelo', 'LineaVencd');
+      exception
+        when others then
+          ln_captotcaja2 := 0;
+      end;
+    
+      ln_captotcaja := nvl(ln_captotcaja1, 0) + nvl(ln_captotcaja2, 0);
+    end if;
+  
+    begin
+      --mpostigoc 01/08/2019 
+      -- DEUDA IFIS
+      pq_cr_mantiene_eval.sp_cr_verifPSD(Instancia, lc_TieneInfoPSD);
+    
+      if lc_TieneInfoPSD = 'S' then
+        -- Para instancias que si han registrado informacion en el PSD      
+        pq_cr_resolutor_cappago.sp_cr_DeudaIFIS(Instancia,
+                                                ln_tipocambio,
+                                                saldo_externo);
+      
+      else
+        if lc_TieneInfoPSD = 'N' then
+          -- Para instancias que no han registrado informacion en el PSD, se valida si mantienen informacion
+          pq_cr_mantiene_eval.sp_cr_inicio(Instancia,
+                                           saldo_externo,
+                                           ln_NroSolCredME,
+                                           ln_NroEvalME);
+        
+        end if;
+      end if;
+    
+    end;
+  
+    begin
+      --- Resultado Neto
+    
+      begin
+        select a.sng021eval
+          into evaluacion
+          from sng021 a
+         where a.sng021sol = Instancia;
+      exception
+        when others then
+          null;
+      end;
+    
+      begin
+        select a.sng023mto
+          into mntsoles
+          from sng023 a
+         where a.sng021eval = evaluacion
+           and a.sng026cod = 40;
+      exception
+        when others then
+          null;
+      end;
+    
+      begin
+        select a.sng023mto
+          into mntdolar
+          from sng023 a
+         where a.sng021eval = evaluacion
+           and a.sng026cod = 540;
+      exception
+        when others then
+          null;
+      end;
+    
+      ResultNeto := ((mntdolar * ln_tipocambio) + mntsoles);
+      ResultNeto := nvl(ResultNeto, 0);
+      ResultNeto := round(ResultNeto, 2);
+    
+    end;
+  
+    --saldo_externo := nvl(saldo_externo, 0) - nvl(ln_MntPotncial, 0); --mpostigoc 03.07.21
+  
+    begin
+    
+      Divisor := nvl(ResultNeto, 0) + nvl(saldo_externo, 0) +
+                 nvl(ln_MntPotncial, 0);
+    end;
+    if Divisor <> 0 then
+    
+      begin
+        ln_captotal1 := round(((ln_captotcaja + saldo_externo +
+                              ln_MntCuoCntg + ln_MntPotncial) /
+                              (saldo_externo + ResultNeto + ln_MntPotncial)),
+                              6);
+      exception
+        when others then
+          ln_captotal1 := 0;
+      end;
+    
+    else
+      ln_captotal1 := 0;
+    end if;
+  
+    if lc_TieneRL = 'S' then
+      ln_captotal := 550;
+    else
+      if lc_TieneRL = 'N' then
+        ln_captotal := nvl(ln_captotal1, 0);
+      end if;
+    end if;
+  
+    if lc_flgprg = 'S' or lc_flgprg = 'R' then
+    
+      pq_cr_resolutor_cappago.sp_cr_LogRatio(ln_Pepais      => ln_Pepais,
+                                             ln_Petdoc      => ln_Petdoc,
+                                             ln_Pendoc      => ln_Pendoc,
+                                             tipocambio     => ln_tipocambio,
+                                             Instancia      => Instancia,
+                                             pd_fecpro      => pd_fecpro,
+                                             ln_captotcaja  => ln_captotcaja,
+                                             saldo_externo  => saldo_externo,
+                                             ResultNeto     => ResultNeto,
+                                             ln_captotal    => ln_captotal,
+                                             lc_indicador   => 'P',
+                                             lc_flgprg      => lc_flgprg,
+                                             lc_Usuario     => lc_Usuario,
+                                             ln_MntCuoCntg  => ln_MntCuoCntg,
+                                             ln_MntPotncial => ln_MntPotncial,
+                                             ln_Tarea       => ln_Tarea,
+                                             ln_InstME      => ln_NroSolCredME,
+                                             LN_EvalME      => ln_NroEvalME);
+    end if;
+  
+  end sp_cuentas;
+  ----------------------------------------------------------------------------------
+  procedure sp_InicioRatio(ln_Pepais     in number,
+                           ln_Petdoc     in number,
+                           ln_Pendoc     in char,
+                           tipocambio    in number,
+                           Instancia     in number,
+                           pd_fecpro     in date,
+                           lc_prgm       in varchar2,
+                           lc_Usuario    in varchar2,
+                           ln_captotcaja out number,
+                           saldo_externo out number,
+                           ResultNeto    out number,
+                           ln_captotal   out number) is
+  
+    cursor inserta_vencidos is
+      select d10.pgcod    ln_pgcod10,
+             d10.aomod    ln_mod10,
+             d10.aosuc    ln_suc10,
+             d10.aomda    ln_mda10,
+             d10.aopap    ln_pap10,
+             d10.aocta    ln_cta10,
+             d10.aooper   ln_oper10,
+             d10.aosbop   ln_sbop10,
+             d10.aotope   ln_tope10,
+             d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from fsr008
+                            where pepais = ln_Pepais
+                              and Petdoc = ln_Petdoc
+                              and pendoc = ln_Pendoc
+                           /*and Ttcod = 1
+                           and Cttfir = 'T'*/
+                           )
+         and (d10.Aomod in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (29, 33, 200))) --mpostigoc INC1373 04/10/18
+         and d10.Aostat <> 99
+         and d10.aofvto < pd_fecpro --mpostigoc  14/12/16
+      union
+      
+      select b.pgcod    ln_pgcod10,
+             b.aomod    ln_mod10,
+             b.aosuc    ln_suc10,
+             b.aomda    ln_mda10,
+             b.aopap    ln_pap10,
+             b.aocta    ln_cta10,
+             b.aooper   ln_oper10,
+             b.aosbop   ln_sbop10,
+             b.aotope   ln_tope10,
+             b.aoperiod ln_peri10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+            --and a.cttfir = 'T'
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and (b.Aomod in (select modulo
+                            from fst111
+                           where dscod = 50
+                             and modulo not in (29, 33, 200))) --mpostigoc INC1373 04/10/18
+         and b.aostat <> 99
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and b.aofvto < pd_fecpro;
+  
+    cursor inserta is
+      select d10.pgcod    ln_pgcod10,
+             d10.aomod    ln_mod10,
+             d10.aosuc    ln_suc10,
+             d10.aomda    ln_mda10,
+             d10.aopap    ln_pap10,
+             d10.aocta    ln_cta10,
+             d10.aooper   ln_oper10,
+             d10.aosbop   ln_sbop10,
+             d10.aotope   ln_tope10,
+             d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from fsr008
+                            where pepais = ln_Pepais
+                              and Petdoc = ln_Petdoc
+                              and pendoc = ln_Pendoc
+                           /*and Ttcod = 1
+                           and Cttfir = 'T'*/
+                           )
+         and (d10.Aomod in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             d10.Aomod = 117)
+         and d10.Aostat <> 99
+         and d10.aofvto >= pd_fecpro --mpostigoc  14/12/16
+      union
+      
+      select b.pgcod    ln_pgcod10,
+             b.aomod    ln_mod10,
+             b.aosuc    ln_suc10,
+             b.aomda    ln_mda10,
+             b.aopap    ln_pap10,
+             b.aocta    ln_cta10,
+             b.aooper   ln_oper10,
+             b.aosbop   ln_sbop10,
+             b.aotope   ln_tope10,
+             b.aoperiod ln_peri10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+            --and a.cttfir = 'T'
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and (b.Aomod in (select modulo
+                            from fst111
+                           where dscod = 50
+                             and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             b.Aomod = 117)
+         and b.aostat <> 99
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and b.aofvto >= pd_fecpro;
+  
+    cursor vuelo is
+    
+      select x.xwfempresa ln_pgcod10,
+             x.xwfmodulo ln_mod10,
+             x.xwfsucursal ln_suc10,
+             x.xwfmoneda ln_mda10,
+             x.xwfpapel ln_pap10,
+             x.xwfcuenta ln_cta10,
+             x.xwfoperacion ln_oper10,
+             x.xwfsubope ln_sbop10,
+             x.xwftipope ln_tope10,
+             max(s.sng120per) ln_peri10
+        from xwf700 x, sng120 s
+       where x.xwfempresa = 1
+         and x.xwfcuenta in (select Ctnro
+                               from fsr008
+                              where pepais = ln_Pepais
+                                and Petdoc = ln_Petdoc
+                                and pendoc = ln_Pendoc
+                             /*and Ttcod = 1
+                             and Cttfir = 'T'*/
+                             )
+            
+         and (x.xwfmodulo in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             x.xwfmodulo = 117)
+            
+         and x.XWFPRCINS in
+             (select wfinsprcid
+                from wfwrkitems wf
+               where wf.wfinsprcid = x.xwfprcins
+                 and wf.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                 and wf.wfiteminit =
+                     (select max(wfiteminit)
+                        from wfwrkitems w
+                       where w.wfinsprcid = x.xwfprcins
+                         and w.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                         and w.wfitemstsact = 1
+                            --and wftaskcod <> 55  --20160623ABR
+                         and w.wfiteminit >=
+                             to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+                    --and wftaskcod <> 55--20160623ABR
+                 and wf.wfiteminit >= to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+         and s.sng120ins = x.XWFPRCINS
+         and x.xwfcar3 = '1'
+      
+       group by x.xwfempresa,
+                x.xwfmodulo,
+                x.xwfsucursal,
+                x.xwfmoneda,
+                x.xwfpapel,
+                x.xwfcuenta,
+                x.xwfoperacion,
+                x.xwfsubope,
+                x.xwftipope
+      union
+      select x.xwfempresa ln_pgcod10,
+             x.xwfmodulo ln_mod10,
+             x.xwfsucursal ln_suc10,
+             x.xwfmoneda ln_mda10,
+             x.xwfpapel ln_pap10,
+             x.xwfcuenta ln_cta10,
+             x.xwfoperacion ln_oper10,
+             x.xwfsubope ln_sbop10,
+             x.xwftipope ln_tope10,
+             max(s.sng120per) ln_peri10
+        from xwf700 x, sng120 s, fsr002 c, fsr008 a
+       where x.xwfempresa = 1
+         and c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+         and a.pgcod = x.xwfempresa
+         and a.ctnro = x.xwfcuenta
+         and (x.xwfmodulo in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             x.xwfmodulo = 117)
+            
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and x.XWFPRCINS in
+             (select wfinsprcid
+                from wfwrkitems wf
+               where wf.wfinsprcid = x.xwfprcins
+                 and wf.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                 and wf.wfiteminit =
+                     (select max(wfiteminit)
+                        from wfwrkitems w
+                       where w.wfinsprcid = x.xwfprcins
+                         and w.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                            --and wftaskcod <> 55--20160623ABR
+                         and w.wfitemstsact = 1
+                         and w.wfiteminit >=
+                             to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+                    --and wftaskcod <> 55--20160623ABR
+                 and wf.wfiteminit >= to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+         and s.sng120ins = x.XWFPRCINS
+         and x.xwfcar3 = '1'
+      
+       group by x.xwfempresa,
+                x.xwfmodulo,
+                x.xwfsucursal,
+                x.xwfmoneda,
+                x.xwfpapel,
+                x.xwfcuenta,
+                x.xwfoperacion,
+                x.xwfsubope,
+                x.xwftipope;
+  
+    cursor lineas_ven is
+    
+      select d10.pgcod    ln_pgcod10,
+             d10.aomod    ln_mod10,
+             d10.aosuc    ln_suc10,
+             d10.aomda    ln_mda10,
+             d10.aopap    ln_pap10,
+             d10.aocta    ln_cta10,
+             d10.aooper   ln_oper10,
+             d10.aosbop   ln_sbop10,
+             d10.aotope   ln_tope10,
+             d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from fsr008
+                            where pepais = ln_Pepais
+                              and Petdoc = ln_Petdoc
+                              and pendoc = ln_Pendoc
+                           /*and Ttcod = 1
+                           and Cttfir = 'T'*/
+                           )
+         and d10.Aomod = 117
+         and d10.aofvto < pd_fecpro
+      -- and Aostat <> 99
+      
+      union
+      
+      select b.pgcod    ln_pgcod10,
+             b.aomod    ln_mod10,
+             b.aosuc    ln_suc10,
+             b.aomda    ln_mda10,
+             b.aopap    ln_pap10,
+             b.aocta    ln_cta10,
+             b.aooper   ln_oper10,
+             b.aosbop   ln_sbop10,
+             b.aotope   ln_tope10,
+             b.aoperiod ln_peri10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+            --and a.cttfir = 'T'
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and b.aomod = 117
+            -- and b.aostat <> 99
+         and b.aofvto < pd_fecpro
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66;
+  
+    ln_capacidad number(17, 2);
+    --saldo_extSoles    number(17, 2);
+    -- saldo_extDol      number(17, 2);
+    divisor            number(17, 2);
+    evaluacion         number(17, 2);
+    mntsoles           number(17, 2);
+    mntdolar           number(17, 2);
+    lc_FlgLn           varchar2(2);
+    lc_fgAdic          varchar2(1); --mod 2016.04.12
+    lc_fgAmpl          varchar2(1); --mod 2016.04.12
+    lc_ven             char(1); --mod 2016.04.12
+    ln_indicador       number(10); --mod 2016.04.12
+    lc_fgRefLin        varchar2(1); -- 28/06/16 mpostigoc
+    ln_captotal1       number(10, 6); -- 18/07/2017 MPOSTIGOC  Cambio de longitud de Variable
+    lc_flgprg          varchar2(2) := 'N';
+    lc_IndCred         varchar2(10);
+    ln_tipocambio      number;
+    ln_captotcaja1     number;
+    ln_captotcaja2     number;
+    ln_MntCuoCntgCF    number := 0;
+    ln_MntCuoCntgAval  number := 0;
+    ln_MntCuoCntg      number := 0;
+    ln_MntPotncial     number := 0;
+    lc_EjecRatio       varchar2(5) := 'N';
+    ln_Tarea           number(10);
+    ln_Periodo         number;
+    lc_TieneInfoPSD    varchar2(2) := 'N';
+    ln_NroSolCredME    number;
+    ln_NroEvalME       number;
+    lc_TieneRL         varchar2(5) := 'N';
+    ln_MntPotncialCMAC number(17, 2) := 0.00;
+    lc_IsInsert        varchar2(5) := 'N';
+  
+  begin
+  
+    ln_captotcaja := 0;
+  
+    ln_tipocambio := tipocambio;
+  
+    begin
+      -- Tarea de la solicitud
+      select w.wftaskcod
+        into ln_Tarea
+        from wfwrkitems w
+       where w.wfinsprcid = Instancia
+         and w.wfitemstsact = 1;
+    exception
+      when others then
+        null;
+      
+    end;
+  
+    begin
+      -- 24/01/19 Verifica si el ratio 
+      select 'S'
+        into lc_EjecRatio
+        from fst198 a
+       where a.tp1cod = 1
+         and a.tp1cod1 = 10899
+         and a.tp1corr1 = 13
+         and a.TP1CORR2 = 50
+         and a.tp1corr3 > 0
+         and trim(a.tp1desc) = trim(lc_prgm)
+         and a.tp1nro3 = ln_Tarea;
+    exception
+      when others then
+        lc_EjecRatio := 'N';
+    end;
+  
+    -- 24/01/19 Solo si la tarea y programa stan incluidos en la guia pueden ejecutar el ratio
+    -- excepcionado la impresion de ratios
+  
+    begin
+      select 'S'
+        into lc_flgprg
+        from fst198 a
+       where a.tp1cod = 1
+         and a.tp1cod1 = 10899
+         and a.tp1corr1 = 13
+         and a.tp1corr2 = 4
+         and a.tp1corr3 = 1
+         and a.tp1nro1 = 1
+         and trim(a.tp1desc) = trim(lc_prgm);
+    exception
+      when others then
+        lc_flgprg := 'N';
+      
+    end;
+  
+    if lc_prgm = 'RJAQY843' then
+      -- 07/09/2017 MPOSTIGOC
+    
+      lc_flgprg := 'R';
+    
+      begin
+        delete JAQY142 J
+         WHERE J.JAQY142INST = Instancia
+           and j.jaqy142est = 'R';
+      end;
+      begin
+        delete JAQY140 J
+         WHERE J.JAQY140INST = Instancia
+           and j.jaqy140est = 'R';
+      end;
+    
+    end if;
+  
+    if lc_flgprg = 'S' and lc_EjecRatio = 'S' then
+      -- 04/09/2017 mpostigoc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+      begin
+        UPDATE jaqy142 j
+           set jaqy142est = 'I'
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'H'
+           and j.jaqy142tarea = ln_Tarea;
+        commit;
+      end;
+    
+    end if;
+  
+    if tipocambio is null or tipocambio <= 0 then
+    
+      begin
+        select s. sng120tcbi
+          into ln_tipocambio
+          from sng120 s
+         where s.sng120ins = Instancia
+           and s.sng120tsk = 'EVALUACION';
+      exception
+        when others then
+          ln_tipocambio := 0;
+      end;
+    
+    end if;
+  
+    for i in inserta loop
+    
+      lc_fgAdic    := null;
+      lc_fgAmpl    := null;
+      ln_indicador := 1;
+      lc_IndCred   := 'CredVigent';
+      lc_FlgLn     := 'N';
+      --  if i.ln_mod10 = 117 then
+    
+      pq_cr_resolutor_cappago.sp_refinanLinea(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              lc_fgRefLin);
+      --  end if;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(i.ln_mod10,
+                                              i.ln_tope10,
+                                              lc_fgAdic);
+      pq_cr_resolutor_cappago.Sp_ampliados_CK(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              i.ln_sbop10,
+                                              i.ln_tope10,
+                                              lc_fgAmpl);
+    
+      pq_cr_resolutor_cappago.sp_cr_VerVincLinea(i.ln_mod10,
+                                                 i.ln_suc10,
+                                                 i.ln_mda10,
+                                                 i.ln_pap10,
+                                                 i.ln_cta10,
+                                                 i.ln_oper10,
+                                                 i.ln_sbop10,
+                                                 i.ln_tope10,
+                                                 lc_FlgLn);
+    
+      if lc_fgAdic <> 'S' and lc_fgAmpl <> 'S' and lc_fgRefLin <> 'S' and
+         lc_FlgLn <> 'S' and i.ln_tope10 <> 550 then
+        pq_cr_resolutor_cappago.sp_resolutor(ln_Pepais,
+                                             ln_Petdoc,
+                                             ln_Pendoc,
+                                             Instancia,
+                                             pd_fecpro,
+                                             i.ln_pgcod10,
+                                             i.ln_mod10,
+                                             i.ln_suc10,
+                                             i.ln_mda10,
+                                             i.ln_pap10,
+                                             i.ln_cta10,
+                                             i.ln_oper10,
+                                             i.ln_sbop10,
+                                             i.ln_tope10,
+                                             i.ln_peri10,
+                                             ln_tipocambio,
+                                             ln_indicador,
+                                             lc_IndCred,
+                                             lc_flgprg,
+                                             lc_EjecRatio,
+                                             lc_Usuario,
+                                             ln_capacidad,
+                                             ln_Tarea);
+      
+        --  ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      
+      end if;
+    
+      if i.ln_tope10 = 550 then
+        lc_TieneRL := 'S';
+      end if;
+    
+    end loop;
+  
+    for i in inserta_vencidos loop
+    
+      lc_fgAdic    := null;
+      lc_fgAmpl    := null;
+      ln_indicador := 1;
+      lc_IndCred   := 'CredVencid';
+    
+      --  if i.ln_mod10 = 117 then
+    
+      pq_cr_resolutor_cappago.sp_refinanLinea(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              lc_fgRefLin);
+      --  end if;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(i.ln_mod10,
+                                              i.ln_tope10,
+                                              lc_fgAdic);
+      pq_cr_resolutor_cappago.Sp_ampliados_CK(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              i.ln_sbop10,
+                                              i.ln_tope10,
+                                              lc_fgAmpl);
+    
+      pq_cr_resolutor_cappago.sp_cr_VerVincLinea(i.ln_mod10,
+                                                 i.ln_suc10,
+                                                 i.ln_mda10,
+                                                 i.ln_pap10,
+                                                 i.ln_cta10,
+                                                 i.ln_oper10,
+                                                 i.ln_sbop10,
+                                                 i.ln_tope10,
+                                                 lc_FlgLn);
+    
+      if lc_fgAdic <> 'S' and lc_fgAmpl <> 'S' and lc_fgRefLin <> 'S' and
+         lc_FlgLn <> 'S' and i.ln_tope10 <> 550 then
+        pq_cr_resolutor_cappago.sp_resolutor(ln_Pepais,
+                                             ln_Petdoc,
+                                             ln_Pendoc,
+                                             Instancia,
+                                             pd_fecpro,
+                                             i.ln_pgcod10,
+                                             i.ln_mod10,
+                                             i.ln_suc10,
+                                             i.ln_mda10,
+                                             i.ln_pap10,
+                                             i.ln_cta10,
+                                             i.ln_oper10,
+                                             i.ln_sbop10,
+                                             i.ln_tope10,
+                                             i.ln_peri10,
+                                             ln_tipocambio,
+                                             ln_indicador,
+                                             lc_IndCred,
+                                             lc_flgprg,
+                                             lc_EjecRatio,
+                                             lc_Usuario,
+                                             ln_capacidad,
+                                             ln_Tarea);
+      
+        --   ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      
+      end if;
+    
+      if i.ln_tope10 = 550 then
+        lc_TieneRL := 'S';
+      end if;
+    
+    end loop;
+  
+    for c in vuelo loop
+      ln_indicador := 2;
+      lc_IndCred   := 'CredVuelo';
+    
+      ln_periodo := c.ln_peri10;
+    
+      begin
+        select tp1imp1
+          into ln_periodo
+          from fst198
+         where tp1cod = 1
+           and tp1cod1 = 10801
+           and tp1corr1 = 54
+           and tp1corr2 = 1
+           and tp1corr3 > 0
+           and tp1nro2 = c.ln_mod10
+           and tp1nro3 = c.ln_tope10;
+      exception
+        when no_data_found then
+          ln_periodo := c.ln_peri10;
+      end;
+    
+      ln_periodo := nvl(ln_periodo, 0);
+    
+      if ln_periodo = 0 then
+        -- mpostigoc 22062020
+      
+        begin
+          select x.xllperiodo
+            into ln_periodo
+            from x054023 x
+           where x.xllpgcod = c.ln_pgcod10
+             and x.xllaomod = c.ln_mod10
+             and x.xllaosuc = c.ln_suc10
+             and x.xllaomda = c.ln_mda10
+             and x.xllaopap = c.ln_pap10
+             and x.xllaocta = c.ln_cta10
+             and x.xllaooper = c.ln_oper10
+             and x.xllaosbop = c.ln_sbop10
+             and x.xllaotop = c.ln_tope10;
+        exception
+          when others then
+            ln_periodo := 30;
+        end;
+      end if;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(c.ln_mod10,
+                                              c.ln_tope10,
+                                              lc_fgAdic);
+    
+      if lc_fgAdic <> 'S' then
+      
+        pq_cr_resolutor_cappago.sp_resolutor(ln_Pepais,
+                                             ln_Petdoc,
+                                             ln_Pendoc,
+                                             Instancia,
+                                             pd_fecpro,
+                                             c.ln_pgcod10,
+                                             c.ln_mod10,
+                                             c.ln_suc10,
+                                             c.ln_mda10,
+                                             c.ln_pap10,
+                                             c.ln_cta10,
+                                             c.ln_oper10,
+                                             c.ln_sbop10,
+                                             c.ln_tope10,
+                                             ln_periodo,
+                                             ln_tipocambio,
+                                             ln_indicador,
+                                             lc_IndCred,
+                                             lc_flgprg,
+                                             lc_EjecRatio,
+                                             lc_Usuario,
+                                             ln_capacidad,
+                                             ln_Tarea);
+      
+        --   ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      
+      end if;
+    
+    end loop;
+  
+    --mod 2016.04.13
+    for j in lineas_ven loop
+    
+      lc_IndCred := 'LineaVencd';
+    
+      ln_indicador := 3;
+      begin
+        select 'S'
+          into lc_ven
+          from fsr011 a, fsd010 b
+         where a.r2cod = j.ln_pgcod10
+           and a.r2mod = j.ln_mod10
+           and a.r2suc = j.ln_suc10
+           and a.r2mda = j.ln_mda10
+           and a.r2pap = j.ln_pap10
+           and a.r2cta = j.ln_cta10
+           and a.r2oper = j.ln_oper10
+           and a.r2sbop = j.ln_sbop10
+           and a.r2tope = j.ln_tope10
+           and a.r1cod = b.pgcod
+           and a.r1mod = b.aomod
+           and a.r1suc = b.aosuc
+           and a.r1mda = b.aomda
+           and a.r1pap = b.aopap
+           and a.r1cta = b.aocta
+           and a.r1oper = b.aooper
+           and a.r1sbop = b.aosbop
+           and a.r1tope = b.aotope
+           and b.aostat <> 99
+           and relcod = 46
+           and rownum = 1;
+      exception
+        when no_data_found then
+          lc_ven := 'N';
+      end;
+    
+      lc_fgAdic := null;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(j.ln_mod10,
+                                              j.ln_tope10,
+                                              lc_fgAdic);
+    
+      pq_cr_resolutor_cappago.sp_refinanLinea(J.ln_pgcod10,
+                                              J.ln_mod10,
+                                              J.ln_suc10,
+                                              J.ln_mda10,
+                                              J.ln_pap10,
+                                              J.ln_cta10,
+                                              J.ln_oper10,
+                                              lc_fgRefLin);
+    
+      pq_cr_resolutor_cappago.sp_cr_VerVincLinea(j.ln_mod10,
+                                                 j.ln_suc10,
+                                                 j.ln_mda10,
+                                                 j.ln_pap10,
+                                                 j.ln_cta10,
+                                                 j.ln_oper10,
+                                                 j.ln_sbop10,
+                                                 j.ln_tope10,
+                                                 lc_FlgLn);
+    
+      if lc_ven = 'S' then
+        pq_cr_resolutor_cappago.sp_cr_VerfLVInsertada(ln_instancia  => Instancia,
+                                                      lc_Estado     => lc_flgprg,
+                                                      ln_pgcod117   => 1,
+                                                      ln_mod117     => j.ln_mod10,
+                                                      ln_suc117     => j.ln_suc10,
+                                                      ln_mda117     => j.ln_mda10,
+                                                      ln_pap117     => j.ln_pap10,
+                                                      ln_cta117     => j.ln_cta10,
+                                                      ln_ope117     => j.ln_oper10,
+                                                      ln_sbop117    => j.ln_sbop10,
+                                                      ln_tope117    => j.ln_tope10,
+                                                      lc_RegInst116 => lc_IsInsert);
+      end if;
+    
+      if lc_ven = 'S' and lc_IsInsert = 'N' and lc_fgAdic <> 'S' and
+         lc_fgRefLin <> 'S' and lc_FlgLn <> 'S' and j.ln_tope10 <> 550 then
+        pq_cr_resolutor_cappago.sp_resolutor_venc(ln_Pepais,
+                                                  ln_Petdoc,
+                                                  ln_Pendoc,
+                                                  Instancia,
+                                                  pd_fecpro,
+                                                  j.ln_pgcod10,
+                                                  j.ln_mod10,
+                                                  j.ln_suc10,
+                                                  j.ln_mda10,
+                                                  j.ln_pap10,
+                                                  j.ln_cta10,
+                                                  j.ln_oper10,
+                                                  j.ln_sbop10,
+                                                  j.ln_tope10,
+                                                  -- j.ln_peri10,
+                                                  ln_tipocambio,
+                                                  lc_IndCred,
+                                                  lc_flgprg,
+                                                  lc_EjecRatio,
+                                                  ln_Tarea,
+                                                  ln_capacidad);
+      
+        --ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      end if;
+    
+    end loop;
+  
+    begin
+      -- Cuota Contingente PRY1527 
+      pq_cr_resolutor_cappago.sp_cr_CuotaContinCF(Instancia,
+                                                  pd_fecpro,
+                                                  lc_flgprg,
+                                                  ln_MntCuoCntgCF);
+    
+      pq_cr_resolutor_cappago.sp_cr_CuotaContinAval(Instancia,
+                                                    pd_fecpro,
+                                                    lc_flgprg,
+                                                    ln_MntCuoCntgAval);
+    
+      ln_MntCuoCntg := ln_MntCuoCntgCF + ln_MntCuoCntgAval;
+      ln_MntCuoCntg := nvl(ln_MntCuoCntg, 0);
+    end;
+  
+    /*begin
+      -- Cuota Potencial PRY1527
+      pq_cr_resolutor_cappago.sp_cR_CuotaPotencial(Instancia,
+                                                   ln_MntPotncial);
+    end;*/
+  
+    -- 09/07/2019 mpostigoc
+  
+    begin
+      pq_cr_resolutor_cappago.sp_cr_CuotaPotencialII(Instancia,
+                                                     pd_fecpro,
+                                                     lc_Usuario,
+                                                     ln_MntPotncial);
+      ln_MntPotncial := nvl(ln_MntPotncial, 0);
+    
+    end;
+  
+    if lc_prgm = 'RJAQY843' then
+    
+      begin
+        -- mpostigoc INC1373 04/10/18
+      
+        select sum(j.jaqy142capcuo)
+          into ln_captotcaja1
+          from jaqy142 j
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'R'
+           and (j.jaqy142mod not in
+               (select tp1nro1
+                   from fst198 a
+                  where a.tp1cod = 1
+                    and a.tp1cod1 = 10899
+                    and a.tp1corr1 = 13
+                    and a.tp1corr2 = 1) and j.jaqy142mod not in 117) --mpostigoc 051118
+           and j.jaqy142nrcuo > 1
+           and j.jaqy142indic in
+               ('CredVigent', 'CredVencid', 'CredVuelo', 'LineaVencd')
+           and j.jaqy142tarea = ln_Tarea; -- mpostigoc 26.09.2020
+      exception
+        when others then
+          ln_captotcaja1 := 0;
+      end;
+    
+      begin
+        -- mpostigoc INC1373 04/10/18    
+        select sum(j.jaqy142capcuo)
+          into ln_captotcaja2
+          from jaqy142 j
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'R'
+           and j.jaqy142mod = 117
+           and j.jaqy142indic in
+               ( /*'CredVigent', 'CredVencid',*/ 'CredVuelo', 'LineaVencd')
+           and j.jaqy142tarea = ln_Tarea; -- mpostigoc 26.09.2020
+      exception
+        when others then
+          ln_captotcaja2 := 0;
+      end;
+    
+      ln_captotcaja := nvl(ln_captotcaja1, 0) + nvl(ln_captotcaja2, 0);
+    
+    else
+    
+      begin
+        -- mpostigoc INC1373 04/10/18
+      
+        select sum(j.jaqy142capcuo)
+          into ln_captotcaja1
+          from jaqy142 j
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'H'
+           and (j.jaqy142mod not in
+               (select tp1nro1
+                   from fst198 a
+                  where a.tp1cod = 1
+                    and a.tp1cod1 = 10899
+                    and a.tp1corr1 = 13
+                    and a.tp1corr2 = 1) and j.jaqy142mod not in 117) --mpostigoc 051118
+           and j.jaqy142nrcuo > 1
+           and j.jaqy142indic in
+               ('CredVigent', 'CredVencid', 'CredVuelo', 'LineaVencd')
+           and j.jaqy142tarea = ln_Tarea; -- mpostigoc 26.09.2020
+      exception
+        when others then
+          ln_captotcaja1 := 0;
+      end;
+    
+      begin
+        -- mpostigoc INC1373 04/10/18    
+        select sum(j.jaqy142capcuo)
+          into ln_captotcaja2
+          from jaqy142 j
+         where j.jaqy142inst = Instancia
+           and j.jaqy142est = 'H'
+           and j.jaqy142mod = 117
+           and j.jaqy142indic in
+               ( /*'CredVigent', 'CredVencid', */ 'CredVuelo', 'LineaVencd')
+           and j.jaqy142tarea = ln_Tarea; -- mpostigoc 26.09.2020
+      exception
+        when others then
+          ln_captotcaja2 := 0;
+      end;
+    
+      ln_captotcaja := nvl(ln_captotcaja1, 0) + nvl(ln_captotcaja2, 0);
+    end if;
+  
+    if ln_MntPotncial = 9999 then
+      -- 07/03/2019 mpostigoc
+      ln_captotal := 9999;
+    
+    else
+    
+      --mpostigoc 01/08/2019 
+      -- DEUDA IFIS
+      pq_cr_mantiene_eval.sp_cr_verifPSD(Instancia, lc_TieneInfoPSD);
+    
+      if lc_TieneInfoPSD = 'S' then
+        -- Para instancias que si han registrado informacion en el PSD      
+        pq_cr_resolutor_cappago.sp_cr_DeudaIFIS(Instancia,
+                                                ln_tipocambio,
+                                                saldo_externo);
+      
+      else
+        if lc_TieneInfoPSD = 'N' then
+          -- Para instancias que no han registrado informacion en el PSD, se valida si mantienen informacion
+          pq_cr_mantiene_eval.sp_cr_inicio(Instancia,
+                                           saldo_externo,
+                                           ln_NroSolCredME,
+                                           ln_NroEvalME);
+        
+          if ln_NroSolCredME = 0 and saldo_externo = 0 then
+          
+            ---- 05/12/2024 MPOSTIGOC reverifico si mantiene Evaluacion
+            Pq_Cr_Resolutor_Cappago.sp_Cr_VerfMantEval(ln_Instancia    => Instancia,
+                                                       ln_InstAnterior => ln_NroSolCredME,
+                                                       ln_DeuIFIS      => saldo_externo);
+            --------
+            saldo_externo := nvl(saldo_externo, 0);
+          
+          end if;
+        
+          if ln_MntPotncial = 0 then
+            pq_cr_resolutor_cappago.sp_cR_CuotaPotencial(ln_NroSolCredME,
+                                                         ln_MntPotncial);
+            ln_MntPotncial := nvl(ln_MntPotncial, 0);
+          
+            if ln_MntPotncial = 0 or ln_MntPotncial = 9999 then
+            
+              pq_cr_resolutor_cappago.sp_cr_CuotaPotencialII(ln_NroSolCredME,
+                                                             pd_fecpro,
+                                                             lc_Usuario,
+                                                             ln_MntPotncial);
+              ln_MntPotncial := nvl(ln_MntPotncial, 0);
+            
+            end if;
+          
+          end if;
+        
+        end if;
+      end if;
+    
+      begin
+        --- Resultado Neto
+      
+        begin
+          select a.sng021eval
+            into evaluacion
+            from sng021 a
+           where a.sng021sol = Instancia;
+        exception
+          when others then
+            null;
+        end;
+      
+        begin
+          select a.sng023mto
+            into mntsoles
+            from sng023 a
+           where a.sng021eval = evaluacion
+             and a.sng026cod = 40;
+        exception
+          when others then
+            null;
+        end;
+      
+        begin
+          select a.sng023mto
+            into mntdolar
+            from sng023 a
+           where a.sng021eval = evaluacion
+             and a.sng026cod = 540;
+        exception
+          when others then
+            null;
+        end;
+      
+        mntdolar := nvl(mntdolar, 0);
+        mntsoles := nvl(mntsoles, 0);
+      
+        ResultNeto := ((mntdolar * ln_tipocambio) + mntsoles);
+        ResultNeto := nvl(ResultNeto, 0);
+        ResultNeto := round(ResultNeto, 2);
+      
+      end;
+    
+      -- saldo_externo := nvl(saldo_externo, 0) - nvl(ln_MntPotncial, 0); --mpostigoc 03.07.21
+    
+      begin
+      
+        Divisor := nvl(ResultNeto, 0) + nvl(saldo_externo, 0) +
+                   nvl(ln_MntPotncial, 0); -- INC2949
+      end;
+    
+      if Divisor <> 0 then
+      
+        ln_captotcaja  := nvl(ln_captotcaja, 0);
+        saldo_externo  := nvl(saldo_externo, 0);
+        ln_MntCuoCntg  := nvl(ln_MntCuoCntg, 0);
+        ln_MntPotncial := nvl(ln_MntPotncial, 0);
+        ResultNeto     := nvl(ResultNeto, 0);
+      
+        begin
+          ln_captotal1 := round(((ln_captotcaja + saldo_externo +
+                                ln_MntCuoCntg + ln_MntPotncial) /
+                                (saldo_externo + ResultNeto +
+                                ln_MntPotncial)),
+                                6);
+        exception
+          when others then
+            ln_captotal1 := 0;
+        end;
+      
+      else
+        ln_captotal1 := 0;
+      end if;
+    
+      ln_captotal := nvl(ln_captotal1, 0);
+    
+    end if;
+  
+    if lc_TieneRL = 'S' then
+      ln_captotal := 550;
+    else
+      if lc_TieneRL = 'N' then
+        ln_captotal := nvl(ln_captotal1, 0);
+      end if;
+    end if;
+  
+    if (lc_flgprg = 'S' or lc_flgprg = 'R') and lc_EjecRatio = 'S' then
+    
+      pq_cr_resolutor_cappago.sp_cr_LogRatio(ln_Pepais      => ln_Pepais,
+                                             ln_Petdoc      => ln_Petdoc,
+                                             ln_Pendoc      => ln_Pendoc,
+                                             tipocambio     => ln_tipocambio,
+                                             Instancia      => Instancia,
+                                             pd_fecpro      => pd_fecpro,
+                                             ln_captotcaja  => ln_captotcaja,
+                                             saldo_externo  => saldo_externo,
+                                             ResultNeto     => ResultNeto,
+                                             ln_captotal    => ln_captotal,
+                                             lc_indicador   => 'P',
+                                             lc_flgprg      => lc_flgprg,
+                                             lc_Usuario     => lc_Usuario,
+                                             ln_MntCuoCntg  => ln_MntCuoCntg,
+                                             ln_MntPotncial => ln_MntPotncial,
+                                             ln_Tarea       => ln_Tarea,
+                                             ln_InstME      => ln_NroSolCredME,
+                                             LN_EvalME      => ln_NroEvalME);
+    end if;
+  
+  end sp_InicioRatio;
+  ----------------------------------------------------------------------------------
+  procedure sp_cuentaship(ln_Pepais     in number,
+                          ln_Petdoc     in number,
+                          ln_Pendoc     in char,
+                          tipocambio    in number,
+                          Instancia     in number,
+                          pd_fecpro     in date,
+                          lc_prgm       in varchar2,
+                          ln_captotcaja out number,
+                          saldo_externo out number,
+                          ResultNeto    out number,
+                          ln_captotal   out number) is
+  
+    ln_capacidad   number(17, 2);
+    saldo_extSoles number(17, 2);
+    saldo_extDol   number(17, 2);
+    --ln_cajaext     number(10, 2);
+    divisor      number(17, 2);
+    evaluacion   number(17, 2);
+    mntsoles     number(17, 2);
+    mntdolar     number(17, 2);
+    lc_FlgLn     varchar2(2);
+    lc_fgAdic    varchar2(1); --mod 2016.04.12
+    lc_fgAmpl    varchar2(1); --mod 2016.04.12
+    lc_ven       char(1); --mod 2016.04.12
+    ln_indicador number(10); --mod 2016.04.12
+  
+    lc_fgRefLin varchar2(1); -- 28/06/16 mpostigoc
+    --ResultNeto1  number(10, 2);
+    ln_captotal1 number(10, 6); -- 18/07/2017 MPOSTIGOC  Cambio de longitud de Variable
+  
+    lc_flgprg  varchar2(2) := 'N';
+    lc_TieneRL varchar2(5) := 'N';
+  
+    cursor inserta_vencidos is
+      select d10.pgcod    ln_pgcod10,
+             d10.aomod    ln_mod10,
+             d10.aosuc    ln_suc10,
+             d10.aomda    ln_mda10,
+             d10.aopap    ln_pap10,
+             d10.aocta    ln_cta10,
+             d10.aooper   ln_oper10,
+             d10.aosbop   ln_sbop10,
+             d10.aotope   ln_tope10,
+             d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from fsr008
+                            where pepais = ln_Pepais
+                              and Petdoc = ln_Petdoc
+                              and pendoc = ln_Pendoc
+                           
+                           )
+         and (d10.Aomod in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (select tp1nro1
+                                       from fst198 a
+                                      where a.tp1cod = 1
+                                        and a.tp1cod1 = 10899
+                                        and a.tp1corr1 = 13
+                                        and a.tp1corr2 = 1)
+                  and modulo not in (29, 33, 200))) --mpostigoc INC1373 04/10/18
+         and d10.Aostat <> 99
+         and d10.aofvto < pd_fecpro --mpostigoc  14/12/16
+      union
+      
+      select b.pgcod    ln_pgcod10,
+             b.aomod    ln_mod10,
+             b.aosuc    ln_suc10,
+             b.aomda    ln_mda10,
+             b.aopap    ln_pap10,
+             b.aocta    ln_cta10,
+             b.aooper   ln_oper10,
+             b.aosbop   ln_sbop10,
+             b.aotope   ln_tope10,
+             b.aoperiod ln_peri10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+            --and a.cttfir = 'T'
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and (b.Aomod in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (select tp1nro1
+                                       from fst198 a
+                                      where a.tp1cod = 1
+                                        and a.tp1cod1 = 10899
+                                        and a.tp1corr1 = 13
+                                        and a.tp1corr2 = 1)
+                  and modulo not in (29, 33, 200)))
+         and b.aostat <> 99
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and b.aofvto < pd_fecpro;
+  
+    cursor inserta is
+      select d10.pgcod    ln_pgcod10,
+             d10.aomod    ln_mod10,
+             d10.aosuc    ln_suc10,
+             d10.aomda    ln_mda10,
+             d10.aopap    ln_pap10,
+             d10.aocta    ln_cta10,
+             d10.aooper   ln_oper10,
+             d10.aosbop   ln_sbop10,
+             d10.aotope   ln_tope10,
+             d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from fsr008
+                            where pepais = ln_Pepais
+                              and Petdoc = ln_Petdoc
+                              and pendoc = ln_Pendoc
+                           
+                           )
+         and (d10.Aomod in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (select tp1nro1
+                                       from fst198 a
+                                      where a.tp1cod = 1
+                                        and a.tp1cod1 = 10899
+                                        and a.tp1corr1 = 13
+                                        and a.tp1corr2 = 1)
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             d10.Aomod = 117)
+         and d10.Aostat <> 99
+         and d10.aofvto >= pd_fecpro --mpostigoc  14/12/16
+      union
+      
+      select b.pgcod    ln_pgcod10,
+             b.aomod    ln_mod10,
+             b.aosuc    ln_suc10,
+             b.aomda    ln_mda10,
+             b.aopap    ln_pap10,
+             b.aocta    ln_cta10,
+             b.aooper   ln_oper10,
+             b.aosbop   ln_sbop10,
+             b.aotope   ln_tope10,
+             b.aoperiod ln_peri10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and (b.Aomod in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (select tp1nro1
+                                       from fst198 a
+                                      where a.tp1cod = 1
+                                        and a.tp1cod1 = 10899
+                                        and tp1corr1 = 13
+                                        and tp1corr2 = 1)
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             b.Aomod = 117)
+         and b.aostat <> 99
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and b.aofvto >= pd_fecpro;
+  
+    cursor vuelo is
+    
+      select x.xwfempresa ln_pgcod10,
+             x.xwfmodulo ln_mod10,
+             x.xwfsucursal ln_suc10,
+             x.xwfmoneda ln_mda10,
+             x.xwfpapel ln_pap10,
+             x.xwfcuenta ln_cta10,
+             x.xwfoperacion ln_oper10,
+             x.xwfsubope ln_sbop10,
+             x.xwftipope ln_tope10,
+             max(s.sng120per) ln_peri10
+        from xwf700 x, sng120 s
+       where x.xwfempresa = 1
+         and x.xwfcuenta in (select Ctnro
+                               from fsr008
+                              where pepais = ln_Pepais
+                                and Petdoc = ln_Petdoc
+                                and pendoc = ln_Pendoc)
+            
+         and (x.xwfmodulo in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (select tp1nro1
+                                       from fst198 a
+                                      where a.tp1cod = 1
+                                        and a.tp1cod1 = 10899
+                                        and a.tp1corr1 = 13
+                                        and a.tp1corr2 = 1)
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             x.xwfmodulo = 117)
+            
+         and x.XWFPRCINS in
+             (select wfinsprcid
+                from wfwrkitems wf
+               where wf.wfinsprcid = x.xwfprcins
+                 and wf.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                 and wf.wfiteminit =
+                     (select max(wfiteminit)
+                        from wfwrkitems w
+                       where w.wfinsprcid = x.xwfprcins
+                         and w.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                         and w.wfitemstsact = 1
+                            --and wftaskcod <> 55  --20160623ABR
+                         and w.wfiteminit >=
+                             to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+                    --and wftaskcod <> 55--20160623ABR
+                 and wf.wfiteminit >= to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+         and s.sng120ins = x.XWFPRCINS
+         and x.xwfcar3 = '1'
+      
+       group by x.xwfempresa,
+                x.xwfmodulo,
+                x.xwfsucursal,
+                x.xwfmoneda,
+                x.xwfpapel,
+                x.xwfcuenta,
+                x.xwfoperacion,
+                x.xwfsubope,
+                x.xwftipope
+      union
+      select x.xwfempresa ln_pgcod10,
+             x.xwfmodulo ln_mod10,
+             x.xwfsucursal ln_suc10,
+             x.xwfmoneda ln_mda10,
+             x.xwfpapel ln_pap10,
+             x.xwfcuenta ln_cta10,
+             x.xwfoperacion ln_oper10,
+             x.xwfsubope ln_sbop10,
+             x.xwftipope ln_tope10,
+             max(s.sng120per) ln_peri10
+        from xwf700 x, sng120 s, fsr002 c, fsr008 a
+       where x.xwfempresa = 1
+         and c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+         and a.pgcod = x.xwfempresa
+         and a.ctnro = x.xwfcuenta
+         and (x.xwfmodulo in
+             (select modulo
+                 from fst111
+                where dscod = 50
+                  and modulo not in (select tp1nro1
+                                       from fst198 a
+                                      where a.tp1cod = 1
+                                        and a.tp1cod1 = 10899
+                                        and a.tp1corr1 = 13
+                                        and a.tp1corr2 = 1)
+                  and modulo not in (29, 33, 200)) or -- mpostigoc INC1373 04/10/18
+             x.xwfmodulo = 117)
+            
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and x.XWFPRCINS in
+             (select wfinsprcid
+                from wfwrkitems wf
+               where wf.wfinsprcid = x.xwfprcins
+                 and wf.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                 and wf.wfiteminit =
+                     (select max(wfiteminit)
+                        from wfwrkitems w
+                       where w.wfinsprcid = x.xwfprcins
+                         and w.WFSTSCOD not in ('C', 'D', 'B', 'E', 'T')
+                            --and wftaskcod <> 55--20160623ABR
+                         and w.wfitemstsact = 1
+                         and w.wfiteminit >=
+                             to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+                    --and wftaskcod <> 55--20160623ABR
+                 and wf.wfiteminit >= to_date('2013.07.01', 'yyyy.mm.dd')) --20160519
+         and s.sng120ins = x.XWFPRCINS
+         and x.xwfcar3 = '1'
+      
+       group by x.xwfempresa,
+                x.xwfmodulo,
+                x.xwfsucursal,
+                x.xwfmoneda,
+                x.xwfpapel,
+                x.xwfcuenta,
+                x.xwfoperacion,
+                x.xwfsubope,
+                x.xwftipope;
+  
+    cursor lineas_ven is
+    
+      select d10.pgcod    ln_pgcod10,
+             d10.aomod    ln_mod10,
+             d10.aosuc    ln_suc10,
+             d10.aomda    ln_mda10,
+             d10.aopap    ln_pap10,
+             d10.aocta    ln_cta10,
+             d10.aooper   ln_oper10,
+             d10.aosbop   ln_sbop10,
+             d10.aotope   ln_tope10,
+             d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from fsr008
+                            where pepais = ln_Pepais
+                              and Petdoc = ln_Petdoc
+                              and pendoc = ln_Pendoc
+                           
+                           )
+         and d10.Aomod = 117
+         and d10.aofvto < pd_fecpro
+      -- and Aostat <> 99
+      
+      union
+      
+      select b.pgcod    ln_pgcod10,
+             b.aomod    ln_mod10,
+             b.aosuc    ln_suc10,
+             b.aomda    ln_mda10,
+             b.aopap    ln_pap10,
+             b.aocta    ln_cta10,
+             b.aooper   ln_oper10,
+             b.aosbop   ln_sbop10,
+             b.aotope   ln_tope10,
+             b.aoperiod ln_peri10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = ln_Pendoc
+            --and a.cttfir = 'T'
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and b.aomod = 117
+            -- and b.aostat <> 99
+         and b.aofvto < pd_fecpro
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66;
+  
+    lc_IndCred    varchar2(10);
+    ln_tipocambio number;
+    --ln_formula    number(10, 6);
+    lc_Usuario   VARCHAR2(10);
+    ln_periodo   number; --16052019 mpostigoc
+    ln_nrocuotas number;
+    lc_IsInsert  varchar2(5) := 'N';
+  
+  begin
+  
+    ln_captotcaja := 0;
+  
+    ln_tipocambio := tipocambio;
+  
+    if tipocambio is null or tipocambio <= 0 then
+    
+      begin
+        select s. sng120tcbi
+          into ln_tipocambio
+          from sng120 s
+         where s.sng120ins = Instancia
+           and s.sng120tsk = 'EVALUACION';
+      exception
+        when others then
+          ln_tipocambio := 0;
+      end;
+    
+    end if;
+  
+    for i in inserta loop
+    
+      lc_fgAdic    := null;
+      lc_fgAmpl    := null;
+      ln_indicador := 1;
+      lc_IndCred   := 'CredVigent';
+      lc_FlgLn     := 'N';
+      --  if i.ln_mod10 = 117 then
+    
+      pq_cr_resolutor_cappago.sp_refinanLinea(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              lc_fgRefLin);
+      --  end if;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(i.ln_mod10,
+                                              i.ln_tope10,
+                                              lc_fgAdic);
+      pq_cr_resolutor_cappago.Sp_ampliados_CK(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              i.ln_sbop10,
+                                              i.ln_tope10,
+                                              lc_fgAmpl);
+    
+      pq_cr_resolutor_cappago.sp_cuotas(i.ln_pgcod10,
+                                        i.ln_mod10,
+                                        i.ln_suc10,
+                                        i.ln_mda10,
+                                        i.ln_pap10,
+                                        i.ln_cta10,
+                                        i.ln_oper10,
+                                        i.ln_sbop10,
+                                        i.ln_tope10,
+                                        ln_nrocuotas);
+    
+      --   if i.ln_mod10 = 117 then -- PRY1509
+      -- Ampliacion de Lineas  06/09/17 mpostigoc
+      /* begin
+        select 'S'
+          into lc_FlgLn
+          from jaqy800
+         where JAQY800PGCD = 1
+           and JAQY800MOD = i.ln_mod10
+           and JAQY800SUC = i.ln_suc10
+           and JAQY800MDA = i.ln_mda10
+           and JAQY800PAP = i.ln_pap10
+           and JAQY800CTA = i.ln_cta10
+           and JAQY800OPE = i.ln_oper10
+           and JAQY800SBOP = i.ln_sbop10
+           and JAQY800TOPE = i.ln_tope10
+           and jaqy800vinc = 'S'
+           and rownum = 1;
+      exception
+        when others then
+          lc_FlgLn := 'N';
+      end;
+      --   end if;
+      */
+      --16052019 mpostigoc
+      pq_cr_resolutor_cappago.sp_cr_VerVincLinea(i.ln_mod10,
+                                                 i.ln_suc10,
+                                                 i.ln_mda10,
+                                                 i.ln_pap10,
+                                                 i.ln_cta10,
+                                                 i.ln_oper10,
+                                                 i.ln_sbop10,
+                                                 i.ln_tope10,
+                                                 lc_FlgLn);
+    
+      if lc_fgAdic <> 'S' and lc_fgAmpl <> 'S' and lc_fgRefLin <> 'S' and
+         lc_FlgLn <> 'S' and i.ln_tope10 <> 550 and
+         ((ln_nrocuotas > 1 and i.ln_mod10 <> 117) or i.ln_mod10 = 117) then
+        pq_cr_resolutor_cappago.sp_resolutor(ln_Pepais,
+                                             ln_Petdoc,
+                                             ln_Pendoc,
+                                             Instancia,
+                                             pd_fecpro,
+                                             i.ln_pgcod10,
+                                             i.ln_mod10,
+                                             i.ln_suc10,
+                                             i.ln_mda10,
+                                             i.ln_pap10,
+                                             i.ln_cta10,
+                                             i.ln_oper10,
+                                             i.ln_sbop10,
+                                             i.ln_tope10,
+                                             i.ln_peri10,
+                                             ln_tipocambio,
+                                             ln_indicador,
+                                             lc_IndCred,
+                                             lc_flgprg,
+                                             'S',
+                                             lc_Usuario,
+                                             ln_capacidad,
+                                             7);
+      
+        ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      
+      end if;
+    
+    end loop;
+  
+    for i in inserta_vencidos loop
+    
+      lc_fgAdic    := null;
+      lc_fgAmpl    := null;
+      ln_indicador := 1;
+      lc_IndCred   := 'CredVencid';
+    
+      --  if i.ln_mod10 = 117 then
+    
+      pq_cr_resolutor_cappago.sp_refinanLinea(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              lc_fgRefLin);
+      --  end if;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(i.ln_mod10,
+                                              i.ln_tope10,
+                                              lc_fgAdic);
+      pq_cr_resolutor_cappago.Sp_ampliados_CK(i.ln_pgcod10,
+                                              i.ln_mod10,
+                                              i.ln_suc10,
+                                              i.ln_mda10,
+                                              i.ln_pap10,
+                                              i.ln_cta10,
+                                              i.ln_oper10,
+                                              i.ln_sbop10,
+                                              i.ln_tope10,
+                                              lc_fgAmpl);
+      pq_cr_resolutor_cappago.sp_cuotas(i.ln_pgcod10,
+                                        i.ln_mod10,
+                                        i.ln_suc10,
+                                        i.ln_mda10,
+                                        i.ln_pap10,
+                                        i.ln_cta10,
+                                        i.ln_oper10,
+                                        i.ln_sbop10,
+                                        i.ln_tope10,
+                                        ln_nrocuotas);
+    
+      /*begin
+        select 'S'
+          into lc_FlgLn
+          from jaqy800
+         where JAQY800PGCD = 1
+           and JAQY800MOD = i.ln_mod10
+           and JAQY800SUC = i.ln_suc10
+           and JAQY800MDA = i.ln_mda10
+           and JAQY800PAP = i.ln_pap10
+           and JAQY800CTA = i.ln_cta10
+           and JAQY800OPE = i.ln_oper10
+           and JAQY800SBOP = i.ln_sbop10
+           and JAQY800TOPE = i.ln_tope10
+           and jaqy800vinc = 'S'
+           and rownum = 1;
+      exception
+        when others then
+          lc_FlgLn := 'N';
+      end;*/
+    
+      pq_cr_resolutor_cappago.sp_cr_VerVincLinea(i.ln_mod10,
+                                                 i.ln_suc10,
+                                                 i.ln_mda10,
+                                                 i.ln_pap10,
+                                                 i.ln_cta10,
+                                                 i.ln_oper10,
+                                                 i.ln_sbop10,
+                                                 i.ln_tope10,
+                                                 lc_FlgLn);
+    
+      if lc_fgAdic <> 'S' and lc_fgAmpl <> 'S' and lc_fgRefLin <> 'S' and
+         lc_FlgLn <> 'S' and i.ln_tope10 <> 550 and
+         ((ln_nrocuotas > 1 and i.ln_mod10 <> 117) or i.ln_mod10 = 117) then
+        pq_cr_resolutor_cappago.sp_resolutor(ln_Pepais,
+                                             ln_Petdoc,
+                                             ln_Pendoc,
+                                             Instancia,
+                                             pd_fecpro,
+                                             i.ln_pgcod10,
+                                             i.ln_mod10,
+                                             i.ln_suc10,
+                                             i.ln_mda10,
+                                             i.ln_pap10,
+                                             i.ln_cta10,
+                                             i.ln_oper10,
+                                             i.ln_sbop10,
+                                             i.ln_tope10,
+                                             i.ln_peri10,
+                                             ln_tipocambio,
+                                             ln_indicador,
+                                             lc_IndCred,
+                                             lc_flgprg,
+                                             'S',
+                                             lc_Usuario,
+                                             ln_capacidad,
+                                             7);
+      
+        ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      
+      end if;
+    
+    end loop;
+  
+    for c in vuelo loop
+      ln_indicador := 2;
+      lc_IndCred   := 'CredVuelo';
+    
+      ln_periodo := c.ln_peri10;
+    
+      begin
+        select tp1imp1
+          into ln_periodo
+          from fst198
+         where tp1cod = 1
+           and tp1cod1 = 10801
+           and tp1corr1 = 54
+           and tp1corr2 = 1
+           and tp1corr3 > 0
+           and tp1nro2 = c.ln_mod10
+           and tp1nro3 = c.ln_tope10;
+      exception
+        when no_data_found then
+          ln_periodo := c.ln_peri10;
+      end;
+    
+      ln_periodo := nvl(ln_periodo, 0);
+    
+      if ln_periodo = 0 then
+        -- mpostigoc 22062020
+      
+        begin
+          select x.xllperiodo
+            into ln_periodo
+            from x054023 x
+           where x.xllpgcod = c.ln_pgcod10
+             and x.xllaomod = c.ln_mod10
+             and x.xllaosuc = c.ln_suc10
+             and x.xllaomda = c.ln_mda10
+             and x.xllaopap = c.ln_pap10
+             and x.xllaocta = c.ln_cta10
+             and x.xllaooper = c.ln_oper10
+             and x.xllaosbop = c.ln_sbop10
+             and x.xllaotop = c.ln_tope10;
+        exception
+          when others then
+            ln_periodo := 30;
+        end;
+      end if;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(c.ln_mod10,
+                                              c.ln_tope10,
+                                              lc_fgAdic);
+      pq_cr_resolutor_cappago.sp_cuotas(c.ln_pgcod10,
+                                        c.ln_mod10,
+                                        c.ln_suc10,
+                                        c.ln_mda10,
+                                        c.ln_pap10,
+                                        c.ln_cta10,
+                                        c.ln_oper10,
+                                        c.ln_sbop10,
+                                        c.ln_tope10,
+                                        ln_nrocuotas);
+    
+      if lc_fgAdic <> 'S' and
+         ((ln_nrocuotas > 1 and c.ln_mod10 <> 117) or c.ln_mod10 = 117) then
+      
+        pq_cr_resolutor_cappago.sp_resolutor(ln_Pepais,
+                                             ln_Petdoc,
+                                             ln_Pendoc,
+                                             Instancia,
+                                             pd_fecpro,
+                                             c.ln_pgcod10,
+                                             c.ln_mod10,
+                                             c.ln_suc10,
+                                             c.ln_mda10,
+                                             c.ln_pap10,
+                                             c.ln_cta10,
+                                             c.ln_oper10,
+                                             c.ln_sbop10,
+                                             c.ln_tope10,
+                                             ln_periodo,
+                                             ln_tipocambio,
+                                             ln_indicador,
+                                             lc_IndCred,
+                                             lc_flgprg,
+                                             'S',
+                                             lc_Usuario,
+                                             ln_capacidad,
+                                             7);
+      
+        ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      
+      end if;
+    
+    end loop;
+  
+    --mod 2016.04.13
+    for j in lineas_ven loop
+    
+      lc_IndCred := 'LineaVencd';
+    
+      ln_indicador := 3;
+      begin
+        select 'S'
+          into lc_ven
+          from fsr011 a, fsd010 b
+         where a.r2cod = j.ln_pgcod10
+           and a.r2mod = j.ln_mod10
+           and a.r2suc = j.ln_suc10
+           and a.r2mda = j.ln_mda10
+           and a.r2pap = j.ln_pap10
+           and a.r2cta = j.ln_cta10
+           and a.r2oper = j.ln_oper10
+           and a.r2sbop = j.ln_sbop10
+           and a.r2tope = j.ln_tope10
+           and a.r1cod = b.pgcod
+           and a.r1mod = b.aomod
+           and a.r1suc = b.aosuc
+           and a.r1mda = b.aomda
+           and a.r1pap = b.aopap
+           and a.r1cta = b.aocta
+           and a.r1oper = b.aooper
+           and a.r1sbop = b.aosbop
+           and a.r1tope = b.aotope
+           and b.aostat <> 99
+           and relcod = 46
+           and rownum = 1;
+      exception
+        when no_data_found then
+          lc_ven := 'N';
+      end;
+    
+      lc_fgAdic := null;
+    
+      pq_cr_resolutor_cappago.Sp_Adicional_CK(j.ln_mod10,
+                                              j.ln_tope10,
+                                              lc_fgAdic);
+    
+      pq_cr_resolutor_cappago.sp_refinanLinea(J.ln_pgcod10,
+                                              J.ln_mod10,
+                                              J.ln_suc10,
+                                              J.ln_mda10,
+                                              J.ln_pap10,
+                                              J.ln_cta10,
+                                              J.ln_oper10,
+                                              lc_fgRefLin);
+      pq_cr_resolutor_cappago.sp_cuotas(j.ln_pgcod10,
+                                        j.ln_mod10,
+                                        j.ln_suc10,
+                                        j.ln_mda10,
+                                        j.ln_pap10,
+                                        j.ln_cta10,
+                                        j.ln_oper10,
+                                        j.ln_sbop10,
+                                        j.ln_tope10,
+                                        ln_nrocuotas);
+    
+      --  if j.ln_mod10 = 117 then
+      -- Ampliacion de Lineas  06/09/17 mpostigoc
+      /* begin
+          select 'S'
+            into lc_FlgLn
+            from jaqy800
+           where JAQY800PGCD = 1
+             and JAQY800MOD = j.ln_mod10
+             and JAQY800SUC = j.ln_suc10
+             and JAQY800MDA = j.ln_mda10
+             and JAQY800PAP = j.ln_pap10
+             and JAQY800CTA = j.ln_cta10
+             and JAQY800OPE = j.ln_oper10
+             and JAQY800SBOP = j.ln_sbop10
+             and JAQY800TOPE = j.ln_tope10
+             and jaqy800vinc = 'S'
+             and rownum = 1;
+        exception
+          when others then
+            lc_FlgLn := 'N';
+        end;
+        -- end if;
+      */
+      pq_cr_resolutor_cappago.sp_cr_VerVincLinea(j.ln_mod10,
+                                                 j.ln_suc10,
+                                                 j.ln_mda10,
+                                                 j.ln_pap10,
+                                                 j.ln_cta10,
+                                                 j.ln_oper10,
+                                                 j.ln_sbop10,
+                                                 j.ln_tope10,
+                                                 lc_FlgLn);
+    
+      if lc_ven = 'S' then
+        pq_cr_resolutor_cappago.sp_cr_VerfLVInsertada(ln_instancia  => Instancia,
+                                                      lc_Estado     => lc_flgprg,
+                                                      ln_pgcod117   => 1,
+                                                      ln_mod117     => j.ln_mod10,
+                                                      ln_suc117     => j.ln_suc10,
+                                                      ln_mda117     => j.ln_mda10,
+                                                      ln_pap117     => j.ln_pap10,
+                                                      ln_cta117     => j.ln_cta10,
+                                                      ln_ope117     => j.ln_oper10,
+                                                      ln_sbop117    => j.ln_sbop10,
+                                                      ln_tope117    => j.ln_tope10,
+                                                      lc_RegInst116 => lc_IsInsert);
+      end if;
+    
+      if lc_ven = 'S' and lc_IsInsert = 'N' and lc_fgAdic <> 'S' and
+         lc_fgRefLin <> 'S' and lc_FlgLn <> 'S' and j.ln_tope10 <> 550 and
+         ((ln_nrocuotas > 1 and j.ln_mod10 <> 117) or j.ln_mod10 = 117) then
+        pq_cr_resolutor_cappago.sp_resolutor_venc(ln_Pepais,
+                                                  ln_Petdoc,
+                                                  ln_Pendoc,
+                                                  Instancia,
+                                                  pd_fecpro,
+                                                  j.ln_pgcod10,
+                                                  j.ln_mod10,
+                                                  j.ln_suc10,
+                                                  j.ln_mda10,
+                                                  j.ln_pap10,
+                                                  j.ln_cta10,
+                                                  j.ln_oper10,
+                                                  j.ln_sbop10,
+                                                  j.ln_tope10,
+                                                  -- j.ln_peri10,
+                                                  ln_tipocambio,
+                                                  lc_IndCred,
+                                                  lc_flgprg,
+                                                  'S',
+                                                  7,
+                                                  ln_capacidad);
+      
+        ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0); -- mpostigoc INC1373 04/10/18
+      end if;
+    
+    end loop;
+  
+    begin
+      -- DEUDA EXTERNA
+    
+      begin
+        select sum(j.jaqy327gfin)
+          into saldo_extSoles
+          from jaqy327 j
+         where j.jaqy327inst = Instancia
+           and j.jaqy327esta = 'S'
+           and j.jaqy327chek = '1'
+           and j.jaqy327cent <> '00104' -- mpostigoc 29.09.2022
+           and j.jaqy327tcre in
+               ('Pymes S/.', 'Consumo S/.', 'Hipotecario S/.')
+           and j.jaqy327aux3 = 'R' -- MPOSTIGOC 04/10/18 INC1373
+           and j.jaqy327aux1 = 7; -- Tarea de Evaluacion Propuesta MPOSTIGOC 04/10/18 INC1373
+      exception
+        when others then
+          saldo_extSoles := 0;
+        
+      end;
+    
+      begin
+        begin
+          select sum(j.jaqy327gfin)
+            into saldo_extDol
+            from jaqy327 j
+           where j.jaqy327inst = Instancia
+             and j.jaqy327esta = 'S'
+             and j.jaqy327chek = '1'
+             and j.jaqy327cent <> '00104' -- mpostigoc 29.09.2022
+             and j.jaqy327tcre in
+                 ('Pymes US$', 'Consumo US$', 'Hipotecario US$')
+             and j.jaqy327aux3 = 'R' -- MPOSTIGOC 04/10/18 INC1373
+             and j.jaqy327aux1 = 7; -- Tarea de Evaluacion Propuesta MPOSTIGOC 04/10/18 INC1373;
+        exception
+          when others then
+            saldo_extDol := 0;
+        end;
+      
+        saldo_extDol := nvl(saldo_extDol, 0) * ln_tipocambio;
+      
+      end;
+    
+      saldo_externo := nvl(saldo_extDol, 0) + nvl(saldo_extSoles, 0);
+    end;
+  
+    begin
+      --- Resultado Neto
+    
+      begin
+        select a.sng021eval
+          into evaluacion
+          from sng021 a
+         where a.sng021sol = Instancia;
+      exception
+        when others then
+          null;
+      end;
+    
+      begin
+        select a.sng023mto
+          into mntsoles
+          from sng023 a
+         where a.sng021eval = evaluacion
+           and a.sng026cod = 40;
+      exception
+        when others then
+          null;
+      end;
+    
+      begin
+        select a.sng023mto
+          into mntdolar
+          from sng023 a
+         where a.sng021eval = evaluacion
+           and a.sng026cod = 540;
+      exception
+        when others then
+          null;
+      end;
+    
+      ResultNeto := ((mntdolar * ln_tipocambio) + mntsoles);
+      ResultNeto := nvl(ResultNeto, 0);
+      ResultNeto := round(ResultNeto, 2);
+    
+    end;
+    begin
+    
+      Divisor := nvl(ResultNeto, 0) + nvl(saldo_externo, 0);
+    end;
+    if Divisor <> 0 then
+    
+      ln_captotal1 := round(((ln_captotcaja + saldo_externo) /
+                            (saldo_externo + ResultNeto)),
+                            6);
+    else
+      ln_captotal1 := 0;
+    end if;
+  
+    ln_captotal := nvl(ln_captotal1, 0);
+  
+  end sp_cuentaship;
+  ----------------------------------------------------------------------
+  procedure sp_cr_DeudaIFIS(Instancia     in number,
+                            ln_tipocambio in number,
+                            saldo_externo out number) is
+  
+    saldo_extSoles number(17, 2);
+    saldo_extDol   number(17, 2);
+  
+  begin
+  
+    begin
+      -- DEUDA EXTERNA
+      begin
+        --MPOSTIGOC 04/10/18 INC1373
+        -- actualizamos todos los valores que se tienen para la tarea de Evaluacion/Propuesta
+        update jaqy327 j
+           set j.jaqy327aux3 = ''
+         where j.jaqy327inst = Instancia
+           and j.jaqy327aux1 = 7; --Tarea de Evaluacion Propuesta
+        commit;
+      end;
+    
+      begin
+        --MPOSTIGOC 04/10/18 INC1373
+        -- actualizamos los ultimos valores que se tienen para la tarea de Evaluacion/Propuesta contabilizados
+        -- con una marca en R
+        update jaqy327 j
+           set j.jaqy327aux3 = 'R'
+         where j.jaqy327inst = Instancia
+           and j.jaqy327esta = 'S'
+           and j.jaqy327chek = '1'
+           and j.jaqy327aux1 = 7; --Tarea de Evaluacion Propuesta
+        commit;
+      end;
+    
+      begin
+        select sum(j.jaqy327gfin)
+          into saldo_extSoles
+          from jaqy327 j
+         where j.jaqy327inst = Instancia
+           and j.jaqy327esta = 'S'
+           and j.jaqy327chek = '1'
+           and j.jaqy327cent <> '00104'
+           and j.jaqy327tcre in
+               ('Pymes S/.', 'Consumo S/.', 'Hipotecario S/.')
+           and j.jaqy327aux3 = 'R' -- MPOSTIGOC 04/10/18 INC1373
+           and j.jaqy327aux1 = 7; -- Tarea de Evaluacion Propuesta MPOSTIGOC 04/10/18 INC1373
+      exception
+        when others then
+          saldo_extSoles := 0;
+        
+      end;
+    
+      begin
+        begin
+          select sum(j.jaqy327gfin)
+            into saldo_extDol
+            from jaqy327 j
+           where j.jaqy327inst = Instancia
+             and j.jaqy327esta = 'S'
+             and j.jaqy327chek = '1'
+             and j.jaqy327cent <> '00104'
+             and j.jaqy327tcre in
+                 ('Pymes US$', 'Consumo US$', 'Hipotecario US$')
+             and j.jaqy327aux3 = 'R' -- MPOSTIGOC 04/10/18 INC1373
+             and j.jaqy327aux1 = 7; -- Tarea de Evaluacion Propuesta MPOSTIGOC 04/10/18 INC1373;
+        exception
+          when others then
+            saldo_extDol := 0;
+        end;
+      
+        saldo_extDol := nvl(saldo_extDol, 0) * ln_tipocambio;
+      
+      end;
+    
+      saldo_externo := nvl(saldo_extDol, 0) + nvl(saldo_extSoles, 0);
+    end;
+  
+  end sp_cr_DeudaIFIS;
+  --------------------------------------------------------------------------------
+  procedure sp_cr_CuotaContinCF(ln_Instancia    in number,
+                                pd_fecpro       in date,
+                                lc_flgprg       in varchar2,
+                                ln_MntCuoCntgCF out number) is
+  
+    cursor lista_CredVigCF(ln_pais number,
+                           ln_tdoc number,
+                           lc_ndoc varchar2) is
+    
+      select distinct d10.pgcod    ln_pgcod10,
+                      d10.aomod    ln_mod10,
+                      d10.aosuc    ln_suc10,
+                      d10.aomda    ln_mda10,
+                      d10.aopap    ln_pap10,
+                      d10.aocta    ln_cta10,
+                      d10.aooper   ln_oper10,
+                      d10.aosbop   ln_sbop10,
+                      d10.aotope   ln_tope10,
+                      d10.aoperiod ln_peri10
+      
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in (select Ctnro
+                             from sng001 s, fsr008 f
+                            where s.sng001inst = ln_Instancia
+                              and s.sng001pais = f.pepais
+                              and s.sng001tdoc = f.Petdoc
+                              and s.sng001ndoc = f.pendoc
+                              and cttfir = 'T')
+         and d10.Aomod = 141
+         and d10.Aostat <> 99;
+  
+    cursor lista_CredvueloCF(ln_pais number,
+                             ln_tdoc number,
+                             lc_ndoc varchar2) is
+    
+      select distinct x.xwfempresa   ln_pgcod10,
+                      x.xwfmodulo    ln_mod10,
+                      x.xwfsucursal  ln_suc10,
+                      x.xwfmoneda    ln_mda10,
+                      x.xwfpapel     ln_pap10,
+                      x.xwfcuenta    ln_cta10,
+                      x.xwfoperacion ln_oper10,
+                      x.xwfsubope    ln_sbop10,
+                      x.xwftipope    ln_tope10,
+                      x.xwfprcins    ln_InstAvalada
+        from xwf700 x, wfwrkitems w
+       where x.xwfempresa = 1
+         and x.xwfcuenta in (select Ctnro
+                               from sng001 s, fsr008 f
+                              where s.sng001inst = ln_Instancia
+                                and s.sng001pais = f.pepais
+                                and s.sng001tdoc = f.Petdoc
+                                and s.sng001ndoc = f.pendoc
+                                and cttfir = 'T')
+            
+         and x.xwfmodulo = 141
+         and x.XWFPRCINS = w.wfinsprcid
+         and w.wfitemstsact = 1
+         and x.xwfcar3 = '1';
+  
+    ln_pais        number;
+    ln_tdoc        number;
+    lc_ndoc        number;
+    ln_CuotCntgAux number;
+    ln_SaldCap     number;
+    ln_tipocambio  number;
+    lc_Usuario     varchar2(10);
+    --pd_fecpro      date;
+    ln_Tarea  number;
+    ln_moneda number;
+  
+  begin
+    ln_MntCuoCntgCF := 0;
+    begin
+      select s.sng001pais, s.sng001tdoc, s.sng001ndoc
+        into ln_pais, ln_tdoc, lc_ndoc
+        from sng001 s
+       where s.sng001inst = ln_Instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    begin
+      -- Usuario que esta procesando la Solicitud MPOSTIGOC 08/11/2017
+      select trim(w.wfitemusrcod), w.wftaskcod
+        into lc_Usuario, ln_Tarea
+        from wfwrkitems w
+       where w.wfinsprcid = ln_Instancia
+         and w.wfitemstsact = 1;
+    exception
+      when others then
+        null;
+    end;
+  
+    begin
+      select s. sng120tcbi
+        into ln_tipocambio
+        from sng120 s
+       where s.sng120ins = ln_Instancia
+         and s.sng120tsk = 'EVALUACION';
+    exception
+      when others then
+        ln_tipocambio := 0;
+    end;
+  
+    /* begin
+        select pgfape into pd_fecpro from fst017 f where f.pgcod = 1;
+      end;
+    */
+    if ln_pais is not null then
+    
+      for l in lista_CredVigCF(ln_pais, ln_tdoc, lc_ndoc) loop
+        begin
+          select f.scsdo * -1
+            into ln_SaldCap
+            from fsd011 f
+           where f.pgcod = l.ln_pgcod10
+             and f.scsuc = l.ln_suc10
+             and f.scmda = l.ln_mda10
+             and f.scpap = l.ln_pap10
+             and f.sccta = l.ln_cta10
+             and f.scoper = l.ln_oper10
+             and f.scsbop = l.ln_sbop10
+             and f.sctope = l.ln_tope10;
+        exception
+          when others then
+            ln_SaldCap := 0;
+        end;
+      
+        if l.ln_mda10 = 101 then
+          ln_SaldCap := ln_SaldCap * ln_tipocambio;
+        end if;
+      
+        ln_CuotCntgAux := (ln_SaldCap * 2.34) / 100; -- mpostigoc 04.08.2022
+      
+        if (lc_flgprg = 'S' or lc_flgprg = 'R') and ln_SaldCap > 0 then
+          begin
+            pq_cr_resolutor_cappago.sp_cr_LogCuentas(ln_pais,
+                                                     ln_tdoc,
+                                                     lc_ndoc,
+                                                     ln_tipocambio,
+                                                     ln_Instancia,
+                                                     pd_fecpro,
+                                                     l.ln_pgcod10,
+                                                     l.ln_mod10,
+                                                     l.ln_suc10,
+                                                     l.ln_mda10,
+                                                     l.ln_pap10,
+                                                     l.ln_cta10,
+                                                     l.ln_oper10,
+                                                     l.ln_sbop10,
+                                                     l.ln_tope10,
+                                                     l.ln_peri10,
+                                                     0,
+                                                     0,
+                                                     0,
+                                                     ln_SaldCap,
+                                                     0,
+                                                     0,
+                                                     0,
+                                                     ln_CuotCntgAux,
+                                                     'CredVgntCF',
+                                                     lc_flgprg,
+                                                     lc_Usuario,
+                                                     ln_Tarea);
+          end;
+        end if;
+        ln_MntCuoCntgCF := ln_MntCuoCntgCF + ln_CuotCntgAux;
+      
+      end loop;
+    
+      for v in lista_CredvueloCF(ln_pais, ln_tdoc, lc_ndoc) loop
+      
+        begin
+          select w.xwfmonto1, w.xwfmoneda
+            into ln_SaldCap, ln_moneda
+            from xwf700 w
+           where w.xwfprcins = v.ln_InstAvalada
+             and w.xwfcar3 = '1';
+        exception
+          when others then
+            ln_SaldCap := 0;
+        end;
+      
+        if ln_moneda = 101 then
+          ln_SaldCap := ln_SaldCap * ln_tipocambio;
+        end if;
+      
+        ln_CuotCntgAux := (ln_SaldCap * 2.34) / 100; -- mpostigoc 04.08.2022
+      
+        if (lc_flgprg = 'S' or lc_flgprg = 'R') and ln_SaldCap > 0 then
+          begin
+            pq_cr_resolutor_cappago.sp_cr_LogCuentas(ln_pais,
+                                                     ln_tdoc,
+                                                     lc_ndoc,
+                                                     ln_tipocambio,
+                                                     ln_Instancia,
+                                                     pd_fecpro,
+                                                     v.ln_pgcod10,
+                                                     v.ln_mod10,
+                                                     v.ln_suc10,
+                                                     v.ln_mda10,
+                                                     v.ln_pap10,
+                                                     v.ln_cta10,
+                                                     v.ln_oper10,
+                                                     v.ln_sbop10,
+                                                     v.ln_tope10,
+                                                     999,
+                                                     0,
+                                                     0,
+                                                     0,
+                                                     ln_SaldCap,
+                                                     0,
+                                                     0,
+                                                     0,
+                                                     ln_CuotCntgAux,
+                                                     'CredVuelCF',
+                                                     lc_flgprg,
+                                                     lc_Usuario,
+                                                     ln_Tarea);
+          end;
+        end if;
+        ln_MntCuoCntgCF := ln_MntCuoCntgCF + ln_CuotCntgAux;
+      
+      end loop;
+    
+    end if;
+  
+  end sp_cr_CuotaContinCF;
+  --------------------------------------------------------------------------------
+  procedure sp_cr_CuotaContinAval(ln_Instancia      in number,
+                                  pd_fecpro         in date,
+                                  lc_flgprg         in varchar2,
+                                  ln_MntCuoCntgAval out number) is
+  
+    cursor lista_CredVigAval(ln_pais number,
+                             ln_tdoc number,
+                             lc_doc  varchar2) is
+      select distinct h.pgcod  ln_pgcod10,
+                      h.aomod  ln_mod10,
+                      h.aosuc  ln_suc10,
+                      h.aomda  ln_mda10,
+                      h.aopap  ln_pap10,
+                      h.aocta  ln_cta10,
+                      h.aooper ln_oper10,
+                      h.aosbop ln_sbop10,
+                      h.aotope ln_tope10
+        from sng003 g, xwf700 x, fsd010 h
+       where g.sng003cta in (select f.ctnro
+                               from fsr008 f
+                              where f.pepais = ln_pais
+                                and f.petdoc = ln_tdoc
+                                and f.pendoc = lc_doc
+                                and f.cttfir = 'T')
+         and g.sng001inst = x.xwfprcins
+         and x.xwfcar3 = '1'
+         and x.xwfempresa = h.pgcod
+         and x.xwfsucursal = h.aosuc
+         and x.xwfmodulo = h.aomod
+         and x.xwfmoneda = h.aomda
+         and x.xwfpapel = h.aopap
+         and x.xwfcuenta = h.aocta
+         and x.xwfoperacion = h.aooper
+         and x.xwfsubope = h.aosbop
+         and x.xwftipope = h.aotope
+         and (x.xwfmodulo in
+             (select k.modulo
+                 from fst111 k
+                where k.dscod = 50
+                  and k.modulo not in (33, 200)) or
+             x.xwfmodulo in (117, 141))
+         and h.aostat <> 99;
+  
+    cursor lista_CredvueloAval(ln_pais number,
+                               ln_tdoc number,
+                               lc_doc  varchar2) is
+    
+      select distinct x.xwfempresa   ln_pgcod10,
+                      x.xwfsucursal  ln_suc10,
+                      x.xwfmodulo    ln_mod10,
+                      x.xwfmoneda    ln_mda10,
+                      x.xwfpapel     ln_pap10,
+                      x.xwfcuenta    ln_cta10,
+                      x.xwfoperacion ln_oper10,
+                      x.xwfsubope    ln_sbop10,
+                      x.xwftipope    ln_tope10,
+                      x.xwfprcins    ln_InstanciaAvalada
+      
+        from sng003 g, xwf700 x, wfwrkitems w
+       where g.sng003cta in (select f.ctnro
+                               from fsr008 f
+                              where f.pepais = ln_pais
+                                and f.petdoc = ln_tdoc
+                                and f.pendoc = lc_doc
+                                and f.cttfir = 'T')
+         and g.sng001inst = x.xwfprcins
+         and x.xwfcar3 = '1'
+         and x.xwfprcins = w.wfinsprcid
+         and (x.xwfmodulo in
+             (select k.modulo
+                 from fst111 k
+                where k.dscod = 50
+                  and k.modulo not in (33, 200)) or
+             x.xwfmodulo in (117, 141))
+         and w.wfitemstsact = 1;
+  
+    ln_pais        number;
+    ln_tdoc        number;
+    lc_ndoc        varchar2(12);
+    ln_paiscy      number;
+    ln_tdoccy      number;
+    lc_ndoccy      varchar2(12);
+    ln_CuotCntgAux number;
+    ln_SaldCap     number;
+    ln_tipocambio  number;
+    lc_Usuario     varchar2(10);
+    --pd_fecpro      date;
+    ln_Tarea     number;
+    ln_moneda    number;
+    lc_verfamp   varchar2(2) := 'N';
+    lc_vrfrefrep varchar2(2) := 'N';
+    lc_verfvinc  varchar2(2) := 'N';
+    ln_EsConsd   number;
+  
+  begin
+    ln_MntCuoCntgAval := 0;
+  
+    begin
+      -- Datos del Titular
+      select s.sng001pais, s.sng001tdoc, s.sng001ndoc
+        into ln_pais, ln_tdoc, lc_ndoc
+        from sng001 s
+       where s.sng001inst = ln_Instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    begin
+      --- Datos del Cnyuge
+      select f.rppais, f.rptdoc, f.rpndoc
+        into ln_paiscy, ln_tdoccy, lc_ndoccy
+        from fsr002 f
+       where f.pepais = ln_pais
+         and f.petdoc = ln_tdoc
+         and f.pendoc = lc_ndoc
+         and f.rpccyg = 66;
+    exception
+      when no_data_found then
+        begin
+          select f.rppais, f.rptdoc, f.rpndoc
+            into ln_paiscy, ln_tdoccy, lc_ndoccy
+            from fsr002 f
+           where f.rppais = ln_pais
+             and f.rptdoc = ln_tdoc
+             and f.rpndoc = lc_ndoc
+             and f.rpccyg = 66;
+        exception
+          when others then
+            null;
+        end;
+      when others then
+        null;
+      
+    end;
+  
+    begin
+      -- Usuario que esta procesando la Solicitud MPOSTIGOC 08/11/2017
+      select trim(w.wfitemusrcod), w.wftaskcod
+        into lc_Usuario, ln_Tarea
+        from wfwrkitems w
+       where w.wfinsprcid = ln_Instancia
+         and w.wfitemstsact = 1;
+    exception
+      when others then
+        null;
+      
+    end;
+  
+    begin
+      select s. sng120tcbi
+        into ln_tipocambio
+        from sng120 s
+       where s.sng120ins = ln_Instancia
+         and s.sng120tsk = 'EVALUACION';
+    exception
+      when others then
+        ln_tipocambio := 0;
+    end;
+  
+    /* begin
+      select pgfape into pd_fecpro from fst017 f where f.pgcod = 1;
+    end;
+    */
+  
+    if ln_pais is not null then
+    
+      for l in lista_CredVigAval(ln_pais, ln_tdoc, lc_ndoc) loop
+      
+        ln_SaldCap := 0;
+      
+        pq_cr_resolutor_cappago.Sp_ampliados_CK(ln_emp10  => l.ln_pgcod10,
+                                                ln_mod10  => l.ln_mod10,
+                                                ln_suc10  => l.ln_suc10,
+                                                ln_mda10  => l.ln_mda10,
+                                                ln_pap10  => l.ln_pap10,
+                                                ln_cta10  => l.ln_cta10,
+                                                ln_oper10 => l.ln_oper10,
+                                                ln_sbop10 => l.ln_sbop10,
+                                                ln_tope10 => l.ln_tope10,
+                                                Pc_flag   => lc_verfamp);
+      
+        pq_cr_resolutor_cappago.sp_refinanLinea(ln_pgcod10  => l.ln_pgcod10,
+                                                ln_mod10    => l.ln_mod10,
+                                                ln_suc10    => l.ln_suc10,
+                                                ln_mda10    => l.ln_mda10,
+                                                ln_pap10    => l.ln_pap10,
+                                                ln_cta10    => l.ln_cta10,
+                                                ln_oper10   => l.ln_oper10,
+                                                lc_fgRefLin => lc_vrfrefrep);
+      
+        pq_cr_resolutor_cappago.sp_cr_VerVincLinea(ln_mod10  => l.ln_mod10,
+                                                   ln_suc10  => l.ln_suc10,
+                                                   ln_mda10  => l.ln_mda10,
+                                                   ln_pap10  => l.ln_pap10,
+                                                   ln_cta10  => l.ln_cta10,
+                                                   ln_oper10 => l.ln_oper10,
+                                                   ln_sbop10 => l.ln_sbop10,
+                                                   ln_tope10 => l.ln_tope10,
+                                                   lc_FlgLn  => lc_verfvinc);
+      
+        if lc_verfamp = 'N' and lc_vrfrefrep = 'N' and lc_verfvinc = 'N' then
+        
+          if l.ln_mod10 <> 117 then
+            begin
+              select f.scsdo
+                into ln_SaldCap
+                from fsd011 f
+               where f.pgcod = l.ln_pgcod10
+                 and f.scsuc = l.ln_suc10
+                 and f.scmda = l.ln_mda10
+                 and f.scpap = l.ln_pap10
+                 and f.sccta = l.ln_cta10
+                 and f.scoper = l.ln_oper10
+                 and f.scsbop = l.ln_sbop10
+                 and f.sctope = l.ln_tope10;
+            exception
+              when others then
+                ln_SaldCap := 0;
+            end;
+          
+            if ln_SaldCap < 0 then
+              ln_SaldCap := ln_SaldCap * -1;
+            end if; --mpostigoc 08/07/2019
+          
+            if l.ln_mda10 = 101 then
+              ln_SaldCap := ln_SaldCap * ln_tipocambio;
+            end if;
+          
+          else
+            if l.ln_mod10 = 117 then
+              begin
+                select x.xwfmonto1
+                  into ln_SaldCap
+                  from xwf700 x
+                 where x.xwfempresa = l.ln_pgcod10
+                   and x.xwfsucursal = l.ln_suc10
+                   and x.xwfmodulo = l.ln_mod10
+                   and x.xwfmoneda = l.ln_mda10
+                   and x.xwfpapel = l.ln_pap10
+                   and x.xwfcuenta = l.ln_cta10
+                   and x.xwfoperacion = l.ln_oper10
+                   and x.xwfsubope = l.ln_sbop10
+                   and x.xwftipope = l.ln_tope10
+                   and x.xwfcar3 = '1';
+              exception
+                when others then
+                  ln_SaldCap := 0;
+              end;
+            
+              if ln_SaldCap < 0 then
+                ln_SaldCap := ln_SaldCap * -1;
+              end if; --mpostigoc 08/07/2019
+            
+              if l.ln_mda10 = 101 then
+                ln_SaldCap := ln_SaldCap * ln_tipocambio;
+              end if;
+            end if;
+          end if;
+        
+          ln_CuotCntgAux := (ln_SaldCap * 2.34) / 100; -- mpostigoc 04.08.2022
+        
+          if (lc_flgprg = 'S' or lc_flgprg = 'R') and ln_SaldCap > 0 then
+            begin
+              pq_cr_resolutor_cappago.sp_cr_LogCuentas(ln_pais,
+                                                       ln_tdoc,
+                                                       lc_ndoc,
+                                                       ln_tipocambio,
+                                                       ln_Instancia,
+                                                       pd_fecpro,
+                                                       l.ln_pgcod10,
+                                                       l.ln_mod10,
+                                                       l.ln_suc10,
+                                                       l.ln_mda10,
+                                                       l.ln_pap10,
+                                                       l.ln_cta10,
+                                                       l.ln_oper10,
+                                                       l.ln_sbop10,
+                                                       l.ln_tope10,
+                                                       999,
+                                                       0,
+                                                       0,
+                                                       'N',
+                                                       ln_SaldCap,
+                                                       0,
+                                                       0,
+                                                       0,
+                                                       ln_CuotCntgAux,
+                                                       'CredVgnAvl',
+                                                       lc_flgprg,
+                                                       lc_Usuario,
+                                                       ln_Tarea);
+            end;
+          end if;
+        
+          ln_MntCuoCntgAval := ln_MntCuoCntgAval + ln_CuotCntgAux;
+        end if;
+      end loop;
+    
+      for v in lista_CredvueloAval(ln_pais, ln_tdoc, lc_ndoc) loop
+        ln_SaldCap := 0;
+      
+        begin
+          select w.xwfmonto1, w.xwfmoneda
+            into ln_SaldCap, ln_moneda
+            from xwf700 w
+           where w.xwfprcins = v.ln_InstanciaAvalada
+             and w.xwfcar3 = '1';
+        exception
+          when others then
+            ln_SaldCap := 0;
+        end;
+      
+        if ln_SaldCap < 0 then
+          ln_SaldCap := ln_SaldCap * -1;
+        end if; --mpostigoc 08/07/2019
+      
+        if ln_moneda = 101 then
+          ln_SaldCap := ln_SaldCap * ln_tipocambio;
+        end if;
+      
+        ln_CuotCntgAux := (ln_SaldCap * 2.34) / 100; -- mpostigoc 04.08.2022
+      
+        if (lc_flgprg = 'S' or lc_flgprg = 'R') and ln_SaldCap > 0 then
+        
+          begin
+            pq_cr_resolutor_cappago.sp_cr_LogCuentas(ln_pais,
+                                                     ln_tdoc,
+                                                     lc_ndoc,
+                                                     ln_tipocambio,
+                                                     ln_Instancia,
+                                                     pd_fecpro,
+                                                     v.ln_pgcod10,
+                                                     v.ln_mod10,
+                                                     v.ln_suc10,
+                                                     v.ln_mda10,
+                                                     v.ln_pap10,
+                                                     v.ln_cta10,
+                                                     v.ln_oper10,
+                                                     v.ln_sbop10,
+                                                     v.ln_tope10,
+                                                     999,
+                                                     0,
+                                                     0,
+                                                     'N',
+                                                     ln_SaldCap,
+                                                     0,
+                                                     0,
+                                                     0,
+                                                     ln_CuotCntgAux,
+                                                     'CredVlAval',
+                                                     lc_flgprg,
+                                                     lc_Usuario,
+                                                     ln_Tarea);
+          end;
+        
+        end if;
+        ln_MntCuoCntgAval := ln_MntCuoCntgAval + ln_CuotCntgAux;
+      
+      end loop;
+    
+    end if;
+  
+    if ln_paiscy is not null then
+    
+      for l in lista_CredVigAval(ln_paiscy, ln_tdoccy, lc_ndoccy) loop
+      
+        if lc_flgprg = 'S' then
+          begin
+            select count(*)
+              into ln_EsConsd
+              from jaqy142 j
+             where j.jaqy142pgcod = l.ln_pgcod10
+               and j.jaqy142mod = l.ln_mod10
+               and j.jaqy142suc = l.ln_suc10
+               and j.jaqy142mda = l.ln_mda10
+               and j.jaqy142pap = l.ln_pap10
+               and j.jaqy142cta = l.ln_cta10
+               and j.jaqy142ope = l.ln_oper10
+               and j.jaqy142sbop = l.ln_sbop10
+               and j.jaqy142tope = l.ln_tope10
+               and j.jaqy142inst = ln_Instancia
+               and j.jaqy142est = 'H';
+          exception
+            when others then
+              null;
+          end;
+        else
+          if lc_flgprg = 'R' then
+          
+            begin
+              select count(*)
+                into ln_EsConsd
+                from jaqy142 j
+               where j.jaqy142pgcod = l.ln_pgcod10
+                 and j.jaqy142mod = l.ln_mod10
+                 and j.jaqy142suc = l.ln_suc10
+                 and j.jaqy142mda = l.ln_mda10
+                 and j.jaqy142pap = l.ln_pap10
+                 and j.jaqy142cta = l.ln_cta10
+                 and j.jaqy142ope = l.ln_oper10
+                 and j.jaqy142sbop = l.ln_sbop10
+                 and j.jaqy142tope = l.ln_tope10
+                 and j.jaqy142inst = ln_Instancia
+                 and j.jaqy142est = 'R';
+            exception
+              when others then
+                null;
+            end;
+          
+          end if;
+        end if;
+      
+        if ln_EsConsd = 0 then
+        
+          pq_cr_resolutor_cappago.Sp_ampliados_CK(ln_emp10  => l.ln_pgcod10,
+                                                  ln_mod10  => l.ln_mod10,
+                                                  ln_suc10  => l.ln_suc10,
+                                                  ln_mda10  => l.ln_mda10,
+                                                  ln_pap10  => l.ln_pap10,
+                                                  ln_cta10  => l.ln_cta10,
+                                                  ln_oper10 => l.ln_oper10,
+                                                  ln_sbop10 => l.ln_sbop10,
+                                                  ln_tope10 => l.ln_tope10,
+                                                  Pc_flag   => lc_verfamp);
+        
+          pq_cr_resolutor_cappago.sp_refinanLinea(ln_pgcod10  => l.ln_pgcod10,
+                                                  ln_mod10    => l.ln_mod10,
+                                                  ln_suc10    => l.ln_suc10,
+                                                  ln_mda10    => l.ln_mda10,
+                                                  ln_pap10    => l.ln_pap10,
+                                                  ln_cta10    => l.ln_cta10,
+                                                  ln_oper10   => l.ln_oper10,
+                                                  lc_fgRefLin => lc_vrfrefrep);
+        
+          pq_cr_resolutor_cappago.sp_cr_VerVincLinea(ln_mod10  => l.ln_mod10,
+                                                     ln_suc10  => l.ln_suc10,
+                                                     ln_mda10  => l.ln_mda10,
+                                                     ln_pap10  => l.ln_pap10,
+                                                     ln_cta10  => l.ln_cta10,
+                                                     ln_oper10 => l.ln_oper10,
+                                                     ln_sbop10 => l.ln_sbop10,
+                                                     ln_tope10 => l.ln_tope10,
+                                                     lc_FlgLn  => lc_verfvinc);
+        
+          if lc_verfamp = 'N' and lc_vrfrefrep = 'N' and lc_verfvinc = 'N' then
+          
+            if l.ln_mod10 <> 117 then
+              begin
+                select f.scsdo
+                  into ln_SaldCap
+                  from fsd011 f
+                 where f.pgcod = l.ln_pgcod10
+                   and f.scsuc = l.ln_suc10
+                   and f.scmda = l.ln_mda10
+                   and f.scpap = l.ln_pap10
+                   and f.sccta = l.ln_cta10
+                   and f.scoper = l.ln_oper10
+                   and f.scsbop = l.ln_sbop10
+                   and f.sctope = l.ln_tope10;
+              exception
+                when others then
+                  ln_SaldCap := 0;
+              end;
+            
+              if ln_SaldCap < 0 then
+                ln_SaldCap := ln_SaldCap * -1;
+              end if; --mpostigoc 08/07/2019
+            
+              if l.ln_mda10 = 101 then
+                ln_SaldCap := ln_SaldCap * ln_tipocambio;
+              end if;
+            
+            else
+              if l.ln_mod10 = 117 then
+                begin
+                  select x.xwfmonto1
+                    into ln_SaldCap
+                    from xwf700 x
+                   where x.xwfempresa = l.ln_pgcod10
+                     and x.xwfsucursal = l.ln_suc10
+                     and x.xwfmodulo = l.ln_mod10
+                     and x.xwfmoneda = l.ln_mda10
+                     and x.xwfpapel = l.ln_pap10
+                     and x.xwfcuenta = l.ln_cta10
+                     and x.xwfoperacion = l.ln_oper10
+                     and x.xwfsubope = l.ln_sbop10
+                     and x.xwftipope = l.ln_tope10
+                     and x.xwfcar3 = '1';
+                exception
+                  when others then
+                    ln_SaldCap := 0;
+                end;
+              
+                if ln_SaldCap < 0 then
+                  ln_SaldCap := ln_SaldCap * -1;
+                end if; --mpostigoc 08/07/2019
+              
+                if l.ln_mda10 = 101 then
+                  ln_SaldCap := ln_SaldCap * ln_tipocambio;
+                end if;
+              end if;
+            end if;
+          
+            ln_CuotCntgAux := (ln_SaldCap * 2.34) / 100; -- mpostigoc 04.08.2022
+          
+            if (lc_flgprg = 'S' or lc_flgprg = 'R') and ln_SaldCap > 0 then
+              begin
+                pq_cr_resolutor_cappago.sp_cr_LogCuentas(ln_pais,
+                                                         ln_tdoc,
+                                                         lc_ndoc,
+                                                         ln_tipocambio,
+                                                         ln_Instancia,
+                                                         pd_fecpro,
+                                                         l.ln_pgcod10,
+                                                         l.ln_mod10,
+                                                         l.ln_suc10,
+                                                         l.ln_mda10,
+                                                         l.ln_pap10,
+                                                         l.ln_cta10,
+                                                         l.ln_oper10,
+                                                         l.ln_sbop10,
+                                                         l.ln_tope10,
+                                                         999,
+                                                         0,
+                                                         0,
+                                                         'N',
+                                                         ln_SaldCap,
+                                                         0,
+                                                         0,
+                                                         0,
+                                                         ln_CuotCntgAux,
+                                                         'CredVgnAvl',
+                                                         lc_flgprg,
+                                                         lc_Usuario,
+                                                         ln_Tarea);
+              end;
+            end if;
+          
+            ln_MntCuoCntgAval := ln_MntCuoCntgAval + ln_CuotCntgAux;
+          end if;
+        end if;
+      
+      end loop;
+    
+      for v in lista_CredvueloAval(ln_paiscy, ln_tdoccy, lc_ndoccy) loop
+        ln_SaldCap := 0;
+      
+        begin
+          select w.xwfmonto1, w.xwfmoneda
+            into ln_SaldCap, ln_moneda
+            from xwf700 w
+           where w.xwfprcins = v.ln_InstanciaAvalada
+             and w.xwfcar3 = '1';
+        exception
+          when others then
+            ln_SaldCap := 0;
+        end;
+      
+        if ln_SaldCap < 0 then
+          ln_SaldCap := ln_SaldCap * -1;
+        end if; --mpostigoc 08/07/2019
+      
+        if ln_moneda = 101 then
+          ln_SaldCap := ln_SaldCap * ln_tipocambio;
+        end if;
+      
+        ln_CuotCntgAux := (ln_SaldCap * 2.34) / 100; -- mpostigoc 04.08.2022
+      
+        if (lc_flgprg = 'S' or lc_flgprg = 'R') and ln_SaldCap > 0 then
+        
+          begin
+            pq_cr_resolutor_cappago.sp_cr_LogCuentas(ln_pais,
+                                                     ln_tdoc,
+                                                     lc_ndoc,
+                                                     ln_tipocambio,
+                                                     ln_Instancia,
+                                                     pd_fecpro,
+                                                     v.ln_pgcod10,
+                                                     v.ln_mod10,
+                                                     v.ln_suc10,
+                                                     v.ln_mda10,
+                                                     v.ln_pap10,
+                                                     v.ln_cta10,
+                                                     v.ln_oper10,
+                                                     v.ln_sbop10,
+                                                     v.ln_tope10,
+                                                     999,
+                                                     0,
+                                                     0,
+                                                     'N',
+                                                     ln_SaldCap,
+                                                     0,
+                                                     0,
+                                                     0,
+                                                     ln_CuotCntgAux,
+                                                     'CredVlAval',
+                                                     lc_flgprg,
+                                                     lc_Usuario,
+                                                     ln_Tarea);
+          end;
+        end if;
+        ln_MntCuoCntgAval := ln_MntCuoCntgAval + ln_CuotCntgAux;
+      
+      end loop;
+    end if;
+  
+  end sp_cr_CuotaContinAval;
+  --------------------------------------------------------------------------------
+  procedure sp_cR_CuotaPotencial(ln_Instancia   in number,
+                                 ln_MntPotncial out number) is
+  
+    cursor lista_lineas is
+      select sum(j.jaqy327tlin) ln_LineaTotal,
+             sum(j.jaqy327util) ln_LineaUtilizada
+        from jaqy327 j
+       where j.jaqy327inst = ln_Instancia
+         and j.jaqy327esta = 'S'
+         and j.jaqy327chek = '1'
+         and j.jaqy327flin in ('L');
+  
+    ln_LineaUtilizada   number := 0;
+    ln_LineaNoUtilizada number := 0;
+    ln_LineaTotal       number := 0;
+    ln_MntPotncialAux   number := 0;
+    ln_PorcUtilz        number := 0;
+    ln_FccEscalonado    number := 0;
+    ln_LineasConCero    number := 0;
+  
+  begin
+  
+    ln_MntPotncial := 0;
+  
+    begin
+      select count(*)
+        into ln_LineasConCero
+        from jaqy327 j
+       where j.jaqy327inst = ln_Instancia
+         and j.jaqy327esta = 'S'
+         and j.jaqy327chek = '1'
+         and j.jaqy327flin in ('L')
+         and j.jaqy327tlin = 0;
+    exception
+      when others then
+        ln_LineasConCero := 0;
+    end;
+  
+    if ln_LineasConCero = 0 then
+    
+      for l in lista_lineas loop
+      
+        if l.ln_LineaTotal > 0 then
+        
+          ln_LineaNoUtilizada := l.ln_LineaTotal - l.ln_LineaUtilizada;
+          -- ln_PorcUtilz        := (l.ln_LineaUtilizada * 100) / l.ln_LineaTotal;  --> @MPCA MOD 13/02/2019
+          ln_PorcUtilz := (l.ln_LineaUtilizada) / l.ln_LineaTotal;
+        
+          if ln_PorcUtilz < 0.45 then
+            ln_FccEscalonado := 0.02;
+          else
+            if ln_PorcUtilz >= 0.45 and ln_PorcUtilz < 0.65 then
+              ln_FccEscalonado := 0.09;
+            
+            else
+              if ln_PorcUtilz >= 0.65 and ln_PorcUtilz < 0.85 then
+                ln_FccEscalonado := 0.11;
+              
+              else
+                if ln_PorcUtilz >= 0.85 then
+                  ln_FccEscalonado := 0.21;
+                
+                end if;
+              end if;
+            end if;
+          end if;
+        
+        elsif l.ln_LineaTotal = 0 then
+        
+          ln_MntPotncial := 9999;
+        end if;
+      
+        ln_MntPotncialAux := ln_LineaNoUtilizada * 0.044 * ln_FccEscalonado;
+      
+        ln_MntPotncial := nvl(ln_MntPotncial, 0) +
+                          nvl(ln_MntPotncialAux, 0);
+      
+      end loop;
+    
+    else
+      if ln_LineasConCero > 0 then
+        ln_MntPotncial := 9999;
+      end if;
+    end if;
+  
+  end sp_cR_CuotaPotencial;
+  --------------------------------------------------------------------------------
+  procedure sp_cr_CuotaPotencialII(ln_Instancia   in number,
+                                   ld_fecha       in date,
+                                   lc_usuario     in varchar2,
+                                   ln_MntPotncial out number) is
+  
+    cursor lista_LineaPyme is
+      select *
+        from jaqy327 j
+       where j.jaqy327inst = ln_Instancia
+         and j.jaqy327esta = 'S';
+  
+    cursor lista_LineaConsumo is
+      select *
+        from jaqz862 j
+       where j.jaqz862inst = ln_Instancia
+         and j.jaqz862esta = 'S';
+  
+    --  ln_LineaUtilizada   number := 0;
+    -- ln_LineaNoUtilizada number := 0;
+    -- ln_LineaTotal       number := 0;
+    -- ln_MntPotncialAux   number := 0;
+    -- ln_PorcUtilz        number := 0;
+    -- ln_FccEscalonado    number := 0;
+    --  ln_LineasConCero    number := 0;
+    ln_TipoSol number;
+    lc_hora    character(8);
+  
+  begin
+  
+    begin
+      select s.sng021tmod
+        into ln_TipoSol
+        from sng021 s
+       where s.sng021sol = ln_Instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    begin
+      delete from JAQZ823 j where j.jaqz823inst = ln_Instancia;
+      commit;
+    end;
+  
+    begin
+      select to_char(sysdate, 'HH24:MI:SS') into lc_hora from dual;
+    end;
+  
+    if ln_TipoSol = 13 then
+      for p in lista_LineaPyme loop
+      
+        begin
+          insert into jaqz823
+            (jaqz823corr,
+             jaqz823fech,
+             jaqz823hora,
+             jaqz823inst,
+             jaqz823neva,
+             jaqz823pais,
+             jaqz823tdoc,
+             jaqz823ndoc,
+             jaqz823rubr,
+             jaqz823esta,
+             jaqz823enti,
+             jaqz823tcre,
+             jaqz823sdeu,
+             jaqz823plaz,
+             jaqz823tasa,
+             jaqz823ccalc,
+             jaqz823gfin,
+             jaqz823frcc,
+             jaqz823dori,
+             jaqz823chek,
+             jaqz823pers,
+             jaqz823rela,
+             jaqz823line,
+             jaqz823aux1,
+             jaqz823aux2,
+             jaqz823aux3,
+             jaqz823aux4,
+             jaqz823aux5,
+             jaqz823aux6,
+             jaqz823aux7,
+             jaqz823aux8,
+             jaqz823aux9,
+             jaqz823mda,
+             jaqz823tlin,
+             jaqz823util,
+             jaqz823flin,
+             jaqz823cptn,
+             jaqz823fac1,
+             jaqz823fac2,
+             jaqz823fac3,
+             jaqz823indic,
+             jaqz823fratio,
+             jaqz823uratio,
+             jaqz823hratio)
+          values
+            (p.jaqy327corr,
+             p.jaqy327fech,
+             p.jaqy327hora,
+             p.jaqy327inst,
+             p.jaqy327neva,
+             p.jaqy327pais,
+             p.jaqy327tdoc,
+             p.jaqy327ndoc,
+             p.jaqy327rubr,
+             p.jaqy327esta,
+             p.jaqy327enti,
+             p.jaqy327tcre,
+             p.jaqy327sdeu,
+             p.jaqy327plaz,
+             p.jaqy327taza,
+             p.jaqy327ccalc,
+             p.jaqy327gfin,
+             p.jaqy327frcc,
+             p.jaqy327dori,
+             p.jaqy327chek,
+             p.jaqy327pers,
+             p.jaqy327rela,
+             p.jaqy327line,
+             p.jaqy327aux1,
+             p.jaqy327aux2,
+             p.jaqy327aux3,
+             p.jaqy327aux4,
+             p.jaqy327aux5,
+             p.jaqy327aux6,
+             p.jaqy327aux7,
+             p.jaqy327aux8,
+             p.jaqy327aux9,
+             p.jaqy327mda,
+             p.jaqy327tlin,
+             p.jaqy327util,
+             p.jaqy327flin,
+             p.jaqy327cptn,
+             p.jaqy327fac1,
+             p.jaqy327fac2,
+             p.jaqy327fac3,
+             'P',
+             ld_fecha,
+             lc_usuario,
+             lc_hora);
+        end;
+      
+      end loop;
+      commit;
+    
+    else
+      if ln_TipoSol = 14 then
+      
+        for c in lista_LineaConsumo loop
+          begin
+            insert into jaqz823
+              (jaqz823corr,
+               jaqz823fech,
+               jaqz823hora,
+               jaqz823inst,
+               jaqz823neva,
+               jaqz823pais,
+               jaqz823tdoc,
+               jaqz823ndoc,
+               jaqz823rubr,
+               jaqz823esta,
+               jaqz823enti,
+               jaqz823tcre,
+               jaqz823sdeu,
+               jaqz823plaz,
+               jaqz823tasa,
+               jaqz823ccalc,
+               jaqz823gfin,
+               jaqz823frcc,
+               jaqz823dori,
+               jaqz823chek,
+               jaqz823pers,
+               jaqz823rela,
+               jaqz823line,
+               jaqz823aux1,
+               jaqz823aux2,
+               jaqz823aux3,
+               jaqz823aux4,
+               jaqz823aux5,
+               jaqz823aux6,
+               jaqz823aux7,
+               jaqz823aux8,
+               jaqz823aux9,
+               jaqz823mda,
+               jaqz823tlin,
+               jaqz823util,
+               jaqz823flin,
+               jaqz823cptn,
+               jaqz823fac1,
+               jaqz823fac2,
+               jaqz823fac3,
+               jaqz823indic,
+               jaqz823fratio,
+               jaqz823uratio,
+               jaqz823hratio)
+            values
+              (c.jaqz862corr,
+               c.jaqz862fech,
+               c.jaqz862hora,
+               c.jaqz862inst,
+               c.jaqz862neva,
+               c.jaqz862pais,
+               c.jaqz862tdoc,
+               c.jaqz862ndoc,
+               c.jaqz862rubr,
+               c.jaqz862esta,
+               c.jaqz862enti,
+               c.jaqz862tcre,
+               c.jaqz862sdeu,
+               c.jaqz862plaz,
+               c.jaqz862taza,
+               c.jaqz862ccalc,
+               c.jaqz862gfin,
+               c.jaqz862frcc,
+               c.jaqz862dori,
+               c.jaqz862chek,
+               c.jaqz862pers,
+               c.jaqz862rela,
+               c.jaqz862line,
+               c.jaqz862aux1,
+               c.jaqz862aux2,
+               c.jaqz862aux3,
+               c.jaqz862aux4,
+               c.jaqz862aux5,
+               c.jaqz862aux6,
+               c.jaqz862aux7,
+               c.jaqz862aux8,
+               c.jaqz862aux9,
+               c.jaqz862mda,
+               c.jaqz862tlin,
+               c.jaqz862util,
+               c.jaqz862flin,
+               c.jaqz862cptn,
+               c.jaqz862fac1,
+               c.jaqz862fac2,
+               c.jaqz862fac3,
+               'C',
+               ld_fecha,
+               lc_usuario,
+               lc_hora);
+          end;
+        end loop;
+        commit;
+      
+      end if;
+    
+    end if;
+  
+    begin
+      select sum(j.jaqz823cptn)
+        into ln_MntPotncial
+        from jaqz823 j
+       where j.jaqz823inst = ln_Instancia
+         and j.jaqz823esta = 'S'
+         and j.jaqz823chek = '1'
+         and j.jaqz823flin = 'L';
+    exception
+      when others then
+        ln_MntPotncial := 0;
+    end;
+  
+    ln_MntPotncial := nvl(ln_MntPotncial, 0);
+  
+  end sp_cR_CuotaPotencialII;
+  --------------------------------------------------------------------------------
+  procedure sp_cuotas(ln_pgcod10    in number,
+                      ln_mod10      in number,
+                      ln_suc10      in number,
+                      ln_mda10      in number,
+                      ln_pap10      in number,
+                      ln_cta10      in number,
+                      ln_oper10     in number,
+                      ln_sbop10     in number,
+                      ln_tope10     in number,
+                      ln_NRO_CUOTAS out number) is
+  begin
+    begin
+    
+      select count(*)
+        into ln_NRO_CUOTAS
+        from fsd601
+       where Pgcod = ln_pgcod10
+         and Ppmod = ln_mod10
+         and Ppsuc = ln_suc10
+         and Ppmda = ln_mda10
+         and Pppap = ln_pap10
+         and Ppcta = ln_cta10
+         and Ppoper = ln_oper10
+         and Ppsbop = ln_sbop10
+         and Pptope = ln_tope10
+         and D601co in ('S', 'X', 'E');
+    exception
+      when others then
+        null;
+    end;
+  
+  end sp_cuotas;
+  ----------------------------------------------------
+  procedure sp_instancia(ln_mod10     in number,
+                         ln_suc10     in number,
+                         ln_mda10     in number,
+                         ln_pap10     in number,
+                         ln_cta10     in number,
+                         ln_oper10    in number,
+                         ln_sbop10    in number,
+                         ln_tope10    in number,
+                         ln_SNG001Ori out number,
+                         ln_instancia out number) is
+  
+    --- ln_instancia number;
+  
+  begin
+    begin
+      sp_instancia_credito(v_Scmod     => ln_mod10,
+                           v_Scsuc     => ln_suc10,
+                           v_Scmda     => ln_mda10,
+                           v_Scpap     => ln_pap10,
+                           v_Sccta     => ln_cta10,
+                           v_Scoper    => ln_oper10,
+                           v_Scsbop    => ln_sbop10,
+                           v_Sctope    => ln_tope10,
+                           v_instancia => ln_instancia);
+    end;
+  
+    begin
+      select SNG001Ori
+        into ln_SNG001Ori
+        from sng001 s01
+       where s01.sng001inst = ln_instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+  end sp_instancia;
+
+  ---CUOTA IMPAGA --------------------------
+  procedure sp_cuota_impaga(ln_pgcod10    in number,
+                            ln_mod10      in number,
+                            ln_suc10      in number,
+                            ln_mda10      in number,
+                            ln_pap10      in number,
+                            ln_cta10      in number,
+                            ln_oper10     in number,
+                            ln_subop10    in number,
+                            ln_tope10     in number,
+                            tipocambio    in number,
+                            ln_cuoimp     out number,
+                            fech_maxcuota out date) is
+  
+    lc_estado character(1);
+    ld_fecha  date;
+    /*ln_r1mod  number;
+    ln_r1suc  number;
+    ln_r1mda  number;
+    ln_r1pap  number;
+    ln_r1cta  number;
+    ln_r1oper number;
+    ln_r1cod  number;*/
+  
+  begin
+  
+    if ln_mod10 <> 117 then
+    
+      BEGIN
+        select max(ppfpag)
+          into ld_fecha
+          from fsd602 f
+         where f.pgcod = ln_pgcod10
+           and f.ppmod = ln_mod10
+           and f.ppsuc = ln_suc10
+           and f.ppmda = ln_mda10
+           and f.pppap = ln_pap10
+           and f.ppcta = ln_cta10
+           and f.ppoper = ln_oper10
+           and f.ppsbop = ln_subop10
+           and f.pptope = ln_tope10
+           and D602CO = 'S'
+           and (f.pp1cap + f.pp1int) > 0; -- 24.08.2022 mpostigoc
+      exception
+        when others then
+          NULL;
+        
+      END;
+    
+      begin
+        select max(f602.pp1stat) --, ppfpag
+          into lc_estado
+          from fsd602 f602
+         where f602.pgcod = ln_pgcod10
+           and f602.ppmod = ln_mod10
+           and f602.ppsuc = ln_suc10
+           and f602.ppmda = ln_mda10
+           and f602.pppap = ln_pap10
+           and f602.ppcta = ln_cta10
+           and f602.ppoper = ln_oper10
+           and f602.ppsbop = ln_subop10
+           and f602.pptope = ln_tope10
+           and f602.ppfpag = ld_fecha
+           and D602CO = 'S';
+      exception
+        when others then
+          NULL;
+      end;
+    
+      lc_estado := nvl(lc_estado, null);
+    
+      if lc_estado = 'T' or lc_estado = 'P' then
+        if lc_estado = 'P' then
+        
+          begin
+            select max(ppcap + ppint)
+              into ln_cuoimp
+              from fsd601
+             where pgcod = ln_pgcod10
+               and ppmod = ln_mod10
+               and ppsuc = ln_suc10
+               and ppmda = ln_mda10
+               and pppap = ln_pap10
+               and ppcta = ln_cta10
+               and ppoper = ln_oper10
+               and ppsbop = ln_subop10
+               and pptope = ln_tope10
+               and ppfpag >= ld_fecha;
+            -- and rownum = 1;
+          exception
+            when too_many_rows then
+              begin
+                select max(ppcap + ppint)
+                  into ln_cuoimp
+                  from fsd601
+                 where pgcod = ln_pgcod10
+                   and ppmod = ln_mod10
+                   and ppsuc = ln_suc10
+                   and ppmda = ln_mda10
+                   and pppap = ln_pap10
+                   and ppcta = ln_cta10
+                   and ppoper = ln_oper10
+                   and ppsbop = ln_subop10
+                   and pptope = ln_tope10
+                   and ppfpag >= ld_fecha
+                   and rownum = 1;
+              exception
+                when others then
+                  NULL;
+              end;
+          end;
+        else
+          if lc_estado = 'T' then
+          
+            begin
+              select max(ppcap + ppint)
+                into ln_cuoimp
+                from fsd601
+               where pgcod = ln_pgcod10
+                 and ppmod = ln_mod10
+                 and ppsuc = ln_suc10
+                 and ppmda = ln_mda10
+                 and pppap = ln_pap10
+                 and ppcta = ln_cta10
+                 and ppoper = ln_oper10
+                 and ppsbop = ln_subop10
+                 and pptope = ln_tope10
+                 and ppfpag > ld_fecha;
+              -- and rownum = 1;
+            exception
+              when too_many_rows then
+                begin
+                  select max(ppcap + ppint)
+                    into ln_cuoimp
+                    from fsd601
+                   where pgcod = ln_pgcod10
+                     and ppmod = ln_mod10
+                     and ppsuc = ln_suc10
+                     and ppmda = ln_mda10
+                     and pppap = ln_pap10
+                     and ppcta = ln_cta10
+                     and ppoper = ln_oper10
+                     and ppsbop = ln_subop10
+                     and pptope = ln_tope10
+                     and ppfpag > ld_fecha
+                     and rownum = 1;
+                exception
+                  when others then
+                  
+                    NULL;
+                end;
+            end;
+          end if;
+        end if;
+      
+      else
+        if lc_estado is null then
+          begin
+            select max(ppcap + ppint)
+              into ln_cuoimp
+              from fsd601 d
+             where pgcod = ln_pgcod10
+               and ppmod = ln_mod10
+               and ppsuc = ln_suc10
+               and ppmda = ln_mda10
+               and pppap = ln_pap10
+               and ppcta = ln_cta10
+               and ppoper = ln_oper10
+               and ppsbop = ln_subop10
+               and pptope = ln_tope10;
+          exception
+            when others then
+            
+              NULL;
+            
+          end;
+        
+        end if;
+      
+      end if;
+    
+      begin
+        select d.ppfpag
+          into fech_maxcuota
+          from fsd601 d
+         where pgcod = ln_pgcod10
+           and ppmod = ln_mod10
+           and ppsuc = ln_suc10
+           and ppmda = ln_mda10
+           and pppap = ln_pap10
+           and ppcta = ln_cta10
+           and ppoper = ln_oper10
+           and ppsbop = ln_subop10
+           and pptope = ln_tope10
+           and (ppcap + ppint) = ln_cuoimp
+           and rownum = 1;
+      exception
+        when others then
+        
+          NULL;
+        
+      end;
+    
+      if ln_mda10 = 101 then
+        ln_cuoimp := nvl(ln_cuoimp, 0) * tipocambio;
+      end if;
+    
+    end if;
+  
+  end sp_cuota_impaga;
+
+  ---CUOTA IMPAGA --------------------------
+  procedure sp_cuota_impagavuelo(ln_pgcod10    in number,
+                                 ln_mod10      in number,
+                                 ln_suc10      in number,
+                                 ln_mda10      in number,
+                                 ln_pap10      in number,
+                                 ln_cta10      in number,
+                                 ln_oper10     in number,
+                                 ln_subop10    in number,
+                                 ln_tope10     in number,
+                                 tipocambio    in number,
+                                 ln_cuoimp     out number,
+                                 fech_maxcuota out date) is
+  
+  begin
+  
+    begin
+      select max(d.ppcap + d.ppint)
+        into ln_cuoimp
+        from fsd601 d
+       where d.pgcod = ln_pgcod10
+         and d.ppmod = ln_mod10
+         and d.ppsuc = ln_suc10
+         and d.ppmda = ln_mda10
+         and d.pppap = ln_pap10
+         and d.ppcta = ln_cta10
+         and d.ppoper = ln_oper10
+         and d.ppsbop = ln_subop10
+         and d.pptope = ln_tope10
+         and d.d601co in ('X', 'E');
+    exception
+      when others then
+        NULL;
+      
+    end;
+  
+    begin
+      select d.ppfpag
+        into fech_maxcuota
+        from fsd601 d
+       where d.pgcod = ln_pgcod10
+         and d.ppmod = ln_mod10
+         and d.ppsuc = ln_suc10
+         and d.ppmda = ln_mda10
+         and d.pppap = ln_pap10
+         and d.ppcta = ln_cta10
+         and d.ppoper = ln_oper10
+         and d.ppsbop = ln_subop10
+         and d.pptope = ln_tope10
+         and (d.ppcap + d.ppint) = ln_cuoimp
+         and d.d601co in ('X', 'E')
+         and rownum = 1;
+    exception
+      when others then
+        NULL;
+      
+    end;
+  
+    if ln_mda10 = 101 then
+      ln_cuoimp := nvl(ln_cuoimp, 0) * tipocambio;
+    end if;
+  
+  end sp_cuota_impagavuelo;
+
+  --------------------------------------------------
+  procedure sp_seguro(ln_mod10        in number,
+                      ln_suc10        in number,
+                      ln_mda10        in number,
+                      ln_pap10        in number,
+                      ln_cta10        in number,
+                      ln_oper10       in number,
+                      ln_sbop10       in number,
+                      ln_tope10       in number,
+                      tipocambio      in number,
+                      fech_maxcuota   in date,
+                      ln_monto_seguro out number) is
+  
+  begin
+    begin
+      select sum(ppimp11 + ppimp12 + ppimp13 + ppimp14 + ppimp15)
+        into ln_monto_seguro
+        from fsd611
+       where Pgcod = 1
+         and Ppmod = ln_mod10
+         and Ppsuc = ln_suc10
+         and Ppmda = ln_mda10
+         and Pppap = ln_pap10
+         and Ppcta = ln_cta10
+         and Ppoper = ln_oper10
+         and Ppsbop = ln_sbop10
+         and Pptope = ln_tope10
+         and ppfpag = fech_maxcuota;
+    exception
+      when others then
+        null;
+    end;
+  
+    if ln_mda10 = 101 then
+      ln_monto_seguro := nvl(ln_monto_seguro, 0) * nvl(tipocambio, 0);
+    end if;
+  
+    ln_monto_seguro := nvl(ln_monto_seguro, 0);
+  
+  end sp_seguro;
+  --------------------------------------------------
+
+  procedure sp_capacidadlinea(ln_mod10   in number,
+                              ln_suc10   in number,
+                              ln_mda10   in number,
+                              ln_pap10   in number,
+                              ln_cta10   in number,
+                              ln_oper10  in number,
+                              ln_sbop10  in number,
+                              ln_tope10  in number,
+                              tipocambio in number,
+                              ln_formula out number) is
+  
+    ln_plazo      number(17, 2);
+    ln_tasa       number(17, 2);
+    ln_saldo      number(17, 2);
+    instancia     number;
+    ln_instancia  number;
+    ln_paralelo   number;
+    LN_TIPOCRED   number;
+    lc_FlagSegmnt varchar2(2);
+    lc_FlagGuia   varchar2(1) := 'N';
+  
+  begin
+  
+    begin
+      select 'S'
+        into lc_FlagGuia
+        from fst198 a
+       where a.tp1cod = 1
+         and a.tp1cod1 = 10899
+         and a.tp1corr1 = 13
+         and a.tp1corr2 = 18
+         and a.tp1nro2 = ln_mod10
+         and a.tp1nro3 = ln_tope10;
+    exception
+      when others then
+        lc_FlagGuia := 'N';
+      
+    end;
+  
+    if lc_FlagGuia = 'S' then
+      --Extraemos el plazo de la guia
+    
+      begin
+        ln_instancia := fn_instancia_credito(v_Scmod  => ln_mod10,
+                                             v_Scsuc  => ln_suc10,
+                                             v_Scmda  => ln_mda10,
+                                             v_Scpap  => ln_pap10,
+                                             v_Sccta  => ln_cta10,
+                                             v_Scoper => ln_oper10,
+                                             v_Scsbop => ln_sbop10,
+                                             v_Sctope => ln_tope10);
+      end;
+    
+      begin
+        -- Tipo de Credito en el flujo
+      
+        select to_number(REGEXP_REPLACE((UPPER(replace(w.wfattsval, ';', ''))),
+                                        '([A-Z])',
+                                        ''))
+          into LN_TIPOCRED
+          from wfattsvalues w
+         where w.wfinsprcid = ln_instancia
+           and w.wfattsid = 'TIPO_CREDITO';
+      exception
+        when others then
+          null;
+      end;
+    
+      begin
+        select 'S'
+          into lc_FlagSegmnt
+          from fst198 a
+         where a.tp1cod = 1
+           and a.tp1cod1 = 10899
+           and a.tp1corr1 = 13
+           and a.tp1corr2 = 17
+           and a.tp1nro3 = LN_TIPOCRED;
+      exception
+        when others then
+          lc_FlagSegmnt := 'N';
+      end;
+    
+      if lc_FlagSegmnt = 'S' then
+        -- mpostigoc 23/11/2017
+      
+        begin
+          select f.pp028maxn
+            into ln_plazo
+            from fpp028 f
+           where f.pp017par = 103
+             and f.pp028mod = 116
+             and f.pp028top = ln_tope10
+             and f.pp028mda = ln_mda10; -- plazo
+        exception
+          when others then
+            null;
+        end;
+      
+      else
+        if lc_FlagSegmnt = 'N' then
+        
+          begin
+            select a.tp1nro2
+              into ln_plazo
+              from fst198 a
+             where a.tp1cod = 1
+               and a.tp1cod1 = 10899
+               and a.tp1corr1 = 13
+               and a.tp1corr2 = 17
+               and a.tp1corr3 = 4;
+          exception
+            when others then
+              null;
+          end;
+        
+        end if;
+      end if;
+    
+    else
+    
+      if lc_FlagGuia = 'N' then
+        -- Extraemos el plazo del Preseteo
+        -- mpostigoc 09/01/2018
+      
+        begin
+          select f.pp028maxn
+            into ln_plazo
+            from fpp028 f
+           where f.pp017par = 103
+             and f.pp028mod = 116
+             and f.pp028top = ln_tope10
+             and f.pp028mda = ln_mda10; -- plazo
+        exception
+          when others then
+            null;
+        end;
+      
+      end if;
+    
+    end if;
+  
+    begin
+      select aotasa, aoimp
+        into ln_tasa, ln_saldo
+        from fsd010
+       where pgcod = 1
+         and aocta = ln_cta10
+         and aooper = ln_oper10
+         and aomod = ln_mod10
+         and aosuc = ln_suc10
+         and aomda = ln_mda10
+         and aopap = ln_pap10
+         and aosbop = ln_sbop10
+         and aotope = ln_tope10; --tasa
+    exception
+      when others then
+        null;
+    end;
+  
+    if ln_saldo is null then
+      begin
+        instancia := fn_instancia_credito(v_Scmod  => ln_mod10,
+                                          v_Scsuc  => ln_suc10,
+                                          v_Scmda  => ln_mda10,
+                                          v_Scpap  => ln_pap10,
+                                          v_Sccta  => ln_cta10,
+                                          v_Scoper => ln_oper10,
+                                          v_Scsbop => ln_sbop10,
+                                          v_Sctope => ln_tope10);
+      end;
+    
+      begin
+        select x.xwfmonto1 --, x.xwfprcins
+          into ln_saldo --, 
+          from xwf700 x
+         where x.xwfprcins = instancia
+           and x.xwfcar3 = '1';
+      exception
+        when others then
+          null;
+        
+      end;
+    
+      begin
+        /*select max(sng120tasa)
+            into ln_tasa
+            from sng120
+           where sng120ins = instancia;
+        exception
+          when others then
+          
+            NULL;*/ -- mpostigoc 10/01/2018 se encontro un caso que no se actualizaba correctamente la taza
+      
+        select x.xlltasap
+          into ln_tasa
+          from x054023 x
+         where x.Xllpgcod = 1
+           and x.Xllaomod = ln_mod10
+           and x.Xllaosuc = ln_suc10
+           and x.Xllaomda = ln_mda10
+           and x.Xllaopap = ln_pap10
+           and x.XLLAOCTA = ln_cta10
+           and x.Xllaooper = ln_oper10
+           and x.Xllaosbop = ln_sbop10
+           and x.Xllaotop = ln_tope10;
+      exception
+        when others then
+          NULL;
+        
+      end;
+    end if;
+  
+    begin
+      select SUM(SNGE01IMPA)
+        into ln_paralelo
+        from SNGE01
+       WHERE SNGE01INST = instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    begin
+      select x.xwfprcins
+        into instancia
+        from xwf700 x
+       where x.xwfempresa = 1
+         and x.xwfsucursal = ln_suc10
+         and x.xwfmodulo = ln_mod10
+         and x.xwfmoneda = ln_mda10
+         and x.xwfpapel = ln_pap10
+         and x.xwfcuenta = ln_cta10
+         and x.xwfoperacion = ln_oper10
+         and x.xwfsubope = ln_sbop10
+         and x.xwftipope = ln_tope10;
+    exception
+      when others then
+        null;
+      
+    end;
+  
+    ln_saldo := nvl(ln_saldo, 0) - nvl(ln_paralelo, 0);
+  
+    if ln_mda10 = 101 then
+      ln_saldo := ln_saldo * tipocambio;
+    end if;
+  
+    -- pq_cr_resolutor_cappago.Sp_Adicional(instancia,tipocambio,ln_mda10,ln_mtoAdic);
+  
+    -- ln_saldo := ln_saldo - ln_mtoAdic;
+  
+    begin
+    
+      ln_formula := (ln_saldo *
+                    ((power((1 + (ln_tasa / 100)), (1 / 12))) - 1)) /
+                    (1 - power((1 +
+                               ((power((1 + (ln_tasa / 100)), (1 / 12))) - 1)),
+                               -ln_plazo));
+    
+    end;
+  
+  end sp_capacidadlinea;
+
+  -----------------------------------------------------------
+  procedure sp_capacidadpago(ln_MAX_CUOTA    in number,
+                             ln_NRO_CUOTAS   in number,
+                             ln_SNG001Ori    in number,
+                             ln_peri10       in number,
+                             ln_monto_seguro in number,
+                             ln_mod10        in number,
+                             ln_capacidad    out number) is
+  
+    ln_mensual number(17, 2) := 0;
+    ln_cuota   number(17, 2) := 0.00;
+  
+  begin
+  
+    ln_capacidad := 0.00;
+  
+    begin
+    
+      if ln_mod10 <> 117 then
+      
+        if ln_SNG001Ori <> 7 and ln_peri10 > 0 then
+          -- mpostigoc INC1373 04/10/18
+        
+          ln_mensual := ln_peri10 / 30;
+        
+          ln_cuota := nvl(ln_MAX_CUOTA, 0) + nvl(ln_monto_seguro, 0);
+        
+          ln_capacidad := nvl(ln_cuota, 0) / nvl(ln_mensual, 0);
+        
+        end if;
+      
+      end if;
+    end;
+  end sp_capacidadpago;
+  -----------------------------------------------------------------------
+  procedure sp_capacidadpagoparc(ln_NRO_CUOTAS   in number,
+                                 ln_SNG001Ori    in number,
+                                 ln_monto_seguro in number,
+                                 ln_mod10        in number,
+                                 ln_instancia    in number,
+                                 tipocambio      in number,
+                                 ln_suc10        in number, --mod 2016.04.12
+                                 ln_mda10        in number, --mod 2016.04.12
+                                 ln_pap10        in number, --mod 2016.04.12
+                                 ln_cta10        in number, --mod 2016.04.12
+                                 ln_oper10       in number, --mod 2016.04.12 
+                                 ln_sbop10       in number, --mod 2016.04.12
+                                 ln_tope10       in number, --mod 2016.04.12
+                                 ln_indicador    in number, --mod 2016.04.12
+                                 ln_cuoparc      out number,
+                                 ln_capacidad    out number) is
+    ln_mensual number(17, 2);
+    ln_cuota   number(17, 2);
+    -- ln_sngmda  number;
+    -- ln_cuotaimp number;
+  
+    ln_mtoPar number(17, 2); --mod 2016.04.12
+    ln_plazo  number(17, 2); --mod 2016.04.12
+    ln_tasa   number(17, 2); --mod 2016.04.12
+    ln_period number; --mod 2016.04.12
+    ln_cuo    number(17, 2);
+  begin
+  
+    begin
+    
+      if ln_mod10 <> 117 then
+      
+        if /*ln_NRO_CUOTAS > 1 and */
+         ln_SNG001Ori = 7 then
+          -- mpostigoc INC1373 04/10/18
+        
+          if ln_indicador = 2 then
+            --Desembolsos parciales en vuelo
+          
+            begin
+              select a.sng120mto, A.SNG120TASA, A.SNG120CUO, a.sng120per
+                into ln_mtoPar, ln_tasa, ln_plazo, ln_period
+                from sng120 a
+               where a.sng120ins = ln_instancia
+                 and a.sng120tsk like 'PROPUES%'
+                 and rownum = 1;
+            exception
+              when others then
+                null;
+            end;
+            if ln_mda10 = 101 then
+              ln_mtoPar := ln_mtoPar * tipocambio;
+            end if;
+          
+            begin
+            
+              ln_cuo := (ln_mtoPar *
+                        ((power((1 + (ln_tasa / 100)), (1 / 12))) - 1)) /
+                        (1 - power((1 +
+                                   ((power((1 + (ln_tasa / 100)), (1 / 12))) - 1)),
+                                   -ln_plazo));
+            
+              ln_mensual := ln_period / 30;
+            
+              /*ln_cuota     := ln_cuo / ln_mensual; --mensualisa la cuota
+              ln_capacidad := nvl(ln_cuota, 0) + nvl(ln_monto_seguro, 0);*/
+            
+              ln_cuota := nvl(ln_cuo, 0) + nvl(ln_monto_seguro, 0);
+            
+              ln_capacidad := nvl(ln_cuota, 0) / ln_mensual; --mensualiza la cuota ;
+            
+            end;
+          end if;
+        
+          if ln_indicador = 1 then
+            --Desembolsos parciales contabilizados
+          
+            begin
+              select a.aotasa, a.aoperiod
+                into ln_tasa, ln_period
+                from fsd010 a
+               where a.pgcod = 1
+                 and a.aomod = ln_mod10
+                 and a.aosuc = ln_suc10
+                 and a.aomda = ln_mda10
+                 and a.aopap = ln_pap10
+                 and a.aocta = ln_cta10
+                 and a.aooper = ln_oper10
+                 and a.aosbop = ln_sbop10
+                 and a.aotope = ln_tope10;
+            exception
+              when others then
+                null;
+            end;
+            begin
+              select count(*)
+                into ln_plazo
+                from fsd601 a
+               where a.pgcod = 1
+                 and a.ppmod = ln_mod10
+                 and a.ppsuc = ln_suc10
+                 and a.ppmda = ln_mda10
+                 and a.pppap = ln_pap10
+                 and a.ppcta = ln_cta10
+                 and a.ppoper = ln_oper10
+                 and a.ppsbop = ln_sbop10
+                 and a.pptope = ln_tope10
+                 and a.d601co = 'S'
+                 and (a.ppcap + a.ppint) <> 0;
+            exception
+              when others then
+                null;
+            end;
+            begin
+              select a.sng120mto
+                into ln_mtoPar
+                from sng120 a
+               where a.sng120ins = ln_instancia
+                 and a.sng120tsk like 'APROBAC%'
+                 and rownum = 1;
+            exception
+              when others then
+                null;
+            end;
+            if ln_mda10 = 101 then
+              ln_mtoPar := ln_mtoPar * tipocambio;
+            end if;
+          
+            begin
+            
+              ln_cuo := (ln_mtoPar *
+                        ((power((1 + (ln_tasa / 100)), (1 / 12))) - 1)) /
+                        (1 - power((1 +
+                                   ((power((1 + (ln_tasa / 100)), (1 / 12))) - 1)),
+                                   -ln_plazo));
+            
+              ln_mensual := ln_period / 30;
+            
+              ln_cuota := nvl(ln_cuo, 0) + nvl(ln_monto_seguro, 0);
+            
+              ln_capacidad := nvl(ln_cuota, 0) / ln_mensual; --mensualiza la cuota ;
+            
+            end;
+          end if;
+        
+        end if;
+      
+        ln_cuoparc := nvl(ln_cuo, 0);
+      
+      end if;
+    end;
+  end sp_capacidadpagoparc;
+
+  --------------------------------------------------
+  procedure sp_resolutor(ln_Pepais    in number,
+                         ln_Petdoc    in number,
+                         ln_Pendoc    in char,
+                         Instancia    in number,
+                         pd_fecpro    in date,
+                         ln_pgcod10   in number,
+                         ln_mod10     in number,
+                         ln_suc10     in number,
+                         ln_mda10     in number,
+                         ln_pap10     in number,
+                         ln_cta10     in number,
+                         ln_oper10    in number,
+                         ln_sbop10    in number,
+                         ln_tope10    in number,
+                         ln_peri10    in number,
+                         tipocambio   in number,
+                         ln_indicador in number,
+                         lc_IndCred   in varchar2,
+                         lc_flgprg    in varchar2,
+                         lc_EjecRatio in varchar2,
+                         lc_Usuario   in varchar2,
+                         ln_capacidad out number,
+                         ln_Tarea     in number) is
+  
+    ln_nrocuotas  number(17, 2);
+    ln_parciales  number(17, 2);
+    ln_cuotimp    number(17, 2) := 0;
+    ln_seguro     number(17, 2);
+    fech_maxcuota date;
+    ln_instancia  number;
+    --lc_ven        char(1);
+    ln_flagFC  varchar2(1) := 'N'; -- 20/12/2016 mpostigoc
+    ln_CapFC   number(17, 2);
+    CapLinea   number(17, 2);
+    ln_cuoparc number(17, 2);
+    -- lc_Usuario varchar2(10);
+  
+  begin
+  
+    ln_CapFC := 0;
+    CapLinea := 0;
+  
+    pq_cr_resolutor_cappago.sp_cuotas(ln_pgcod10,
+                                      ln_mod10,
+                                      ln_suc10,
+                                      ln_mda10,
+                                      ln_pap10,
+                                      ln_cta10,
+                                      ln_oper10,
+                                      ln_sbop10,
+                                      ln_tope10,
+                                      ln_nrocuotas);
+  
+    pq_cr_resolutor_cappago.sp_instancia(ln_mod10,
+                                         ln_suc10,
+                                         ln_mda10,
+                                         ln_pap10,
+                                         ln_cta10,
+                                         ln_oper10,
+                                         ln_sbop10,
+                                         ln_tope10,
+                                         ln_parciales,
+                                         ln_instancia);
+  
+    pq_cr_resolutor_cappago.sp_cr_flujocaja(ln_pgcod10,
+                                            ln_mod10,
+                                            ln_suc10,
+                                            ln_mda10,
+                                            ln_pap10,
+                                            ln_cta10,
+                                            ln_oper10,
+                                            ln_sbop10,
+                                            ln_tope10,
+                                            ln_flagFC);
+  
+    if ln_mod10 <> 117 and ln_flagFC = 'N' then
+      if ln_indicador <> 2 then
+        pq_cr_resolutor_cappago.sp_cuota_impaga(ln_pgcod10,
+                                                ln_mod10,
+                                                ln_suc10,
+                                                ln_mda10,
+                                                ln_pap10,
+                                                ln_cta10,
+                                                ln_oper10,
+                                                ln_sbop10,
+                                                ln_tope10,
+                                                tipocambio,
+                                                ln_cuotimp,
+                                                fech_maxcuota);
+      else
+      
+        pq_cr_resolutor_cappago.sp_cuota_impagavuelo(ln_pgcod10,
+                                                     ln_mod10,
+                                                     ln_suc10,
+                                                     ln_mda10,
+                                                     ln_pap10,
+                                                     ln_cta10,
+                                                     ln_oper10,
+                                                     ln_sbop10,
+                                                     ln_tope10,
+                                                     tipocambio,
+                                                     ln_cuotimp,
+                                                     fech_maxcuota);
+      
+      end if;
+    
+    else
+      if ln_mod10 <> 117 and ln_flagFC = 'S' then
+        pq_cr_resolutor_cappago.sp_cr_capacidadFC(ln_mod10,
+                                                  ln_suc10,
+                                                  ln_mda10,
+                                                  ln_pap10,
+                                                  ln_cta10,
+                                                  ln_oper10,
+                                                  ln_sbop10,
+                                                  ln_tope10,
+                                                  tipocambio,
+                                                  ln_cuotimp);
+      
+        ln_CapFC := ln_cuotimp;
+      
+      end if;
+    end if;
+  
+    Pq_Cr_Resolutor_Cappago.sp_seguro(ln_mod10,
+                                      ln_suc10,
+                                      ln_mda10,
+                                      ln_pap10,
+                                      ln_cta10,
+                                      ln_oper10,
+                                      ln_sbop10,
+                                      ln_tope10,
+                                      tipocambio,
+                                      fech_maxcuota,
+                                      ln_seguro);
+  
+    if ln_mod10 = 117 then
+      pq_cr_resolutor_cappago.sp_capacidadlinea(ln_mod10,
+                                                ln_suc10,
+                                                ln_mda10,
+                                                ln_pap10,
+                                                ln_cta10,
+                                                ln_oper10,
+                                                ln_sbop10,
+                                                ln_tope10,
+                                                tipocambio,
+                                                ln_capacidad);
+    
+      CapLinea := ln_capacidad;
+    
+    end if;
+  
+    IF ln_parciales = 7 then
+    
+      pq_cr_resolutor_cappago.sp_capacidadpagoparc(ln_nrocuotas,
+                                                   ln_parciales,
+                                                   ln_seguro,
+                                                   ln_mod10,
+                                                   ln_instancia,
+                                                   tipocambio,
+                                                   ln_suc10,
+                                                   ln_mda10,
+                                                   ln_pap10,
+                                                   ln_cta10,
+                                                   ln_oper10,
+                                                   ln_sbop10,
+                                                   ln_tope10,
+                                                   ln_indicador,
+                                                   ln_cuoparc,
+                                                   ln_capacidad);
+    
+      ln_cuotimp := ln_cuoparc;
+    
+    end if;
+  
+    if ln_mod10 <> 117 and ln_parciales <> 7 then
+    
+      pq_cr_resolutor_cappago.sp_capacidadpago(ln_cuotimp,
+                                               ln_nrocuotas,
+                                               ln_parciales,
+                                               ln_peri10,
+                                               ln_seguro,
+                                               ln_mod10,
+                                               ln_capacidad);
+    end if;
+  
+    if (lc_flgprg = 'S' or lc_flgprg = 'R') and lc_EjecRatio = 'S' then
+    
+      if ln_capacidad > 0 then
+      
+        if ln_CapFC <> 0 then
+          ln_cuotimp := 0;
+        end if;
+      
+        pq_cr_resolutor_cappago.sp_cr_LogCuentas(ln_Pepais,
+                                                 ln_Petdoc,
+                                                 ln_Pendoc,
+                                                 tipocambio,
+                                                 Instancia,
+                                                 pd_fecpro,
+                                                 ln_pgcod10,
+                                                 ln_mod10,
+                                                 ln_suc10,
+                                                 ln_mda10,
+                                                 ln_pap10,
+                                                 ln_cta10,
+                                                 ln_oper10,
+                                                 ln_sbop10,
+                                                 ln_tope10,
+                                                 ln_peri10,
+                                                 ln_nrocuotas,
+                                                 ln_parciales,
+                                                 ln_flagFC,
+                                                 ln_cuotimp,
+                                                 ln_seguro,
+                                                 ln_CapFC,
+                                                 CapLinea,
+                                                 ln_capacidad,
+                                                 lc_IndCred,
+                                                 lc_flgprg,
+                                                 lc_Usuario,
+                                                 ln_Tarea);
+      end if;
+    end if;
+  
+  end sp_resolutor;
+
+  --------------------------------------------------
+  procedure sp_resolutor_venc(ln_Pepais  in number,
+                              ln_Petdoc  in number,
+                              ln_Pendoc  in char,
+                              Instancia  in number,
+                              pd_fecpro  in date,
+                              ln_pgcod10 in number,
+                              ln_mod10   in number,
+                              ln_suc10   in number,
+                              ln_mda10   in number,
+                              ln_pap10   in number,
+                              ln_cta10   in number,
+                              ln_oper10  in number,
+                              ln_sbop10  in number,
+                              ln_tope10  in number,
+                              --ln_peri10    in number,
+                              tipocambio   in number,
+                              lc_IndCred   in varchar2,
+                              lc_flgprg    in varchar2,
+                              lc_EjecRatio in varchar2,
+                              ln_Tarea     in number,
+                              ln_capacidad out number) is
+    ln_nrocuotas number;
+    -- ln_parciales  number;
+    ln_cuotimp    number(17, 2);
+    ln_seguro     number(17, 2);
+    fech_maxcuota date;
+    --   ln_instancia  number;
+    lc_ven char(1);
+  
+    cursor creditos is
+      select a.r1cod  ln_pgcod10,
+             a.r1mod  ln_mod10,
+             a.r1suc  ln_suc10,
+             a.r1mda  ln_mda10,
+             a.r1pap  ln_pap10,
+             a.r1cta  ln_cta10,
+             a.r1oper ln_oper10,
+             a.r1sbop ln_sbop10,
+             a.r1tope ln_tope10
+        from fsr011 a, fsd010 b
+       where a.r2cod = ln_pgcod10
+         and a.r2mod = ln_mod10
+         and a.r2suc = ln_suc10
+         and a.r2mda = ln_mda10
+         and a.r2pap = ln_pap10
+         and a.r2cta = ln_cta10
+         and a.r2oper = ln_oper10
+         and a.r2sbop = ln_sbop10
+         and a.r2tope = ln_tope10
+         and a.r1cod = b.pgcod
+         and a.r1mod = b.aomod
+         and a.r1suc = b.aosuc
+         and a.r1mda = b.aomda
+         and a.r1pap = b.aopap
+         and a.r1cta = b.aocta
+         and a.r1oper = b.aooper
+         and a.r1sbop = b.aosbop
+         and a.r1tope = b.aotope
+         and b.aostat <> 99
+         and relcod = 46;
+  
+    ln_pr116     number;
+    ln_capTem    number(10, 2);
+    ln_parciales number;
+    ln_flagFC    varchar2(2);
+    ln_CapFC     number;
+    CapLinea     number;
+    ln_instancia number;
+    lc_Usuario   varchar2(10);
+  
+  begin
+  
+    begin
+      select 'S'
+        into lc_ven
+        from fsr011 a, fsd010 b
+       where a.r2cod = ln_pgcod10
+         and a.r2mod = ln_mod10
+         and a.r2suc = ln_suc10
+         and a.r2mda = ln_mda10
+         and a.r2pap = ln_pap10
+         and a.r2cta = ln_cta10
+         and a.r2oper = ln_oper10
+         and a.r2sbop = ln_sbop10
+         and a.r2tope = ln_tope10
+         and a.r1cod = b.pgcod
+         and a.r1mod = b.aomod
+         and a.r1suc = b.aosuc
+         and a.r1mda = b.aomda
+         and a.r1pap = b.aopap
+         and a.r1cta = b.aocta
+         and a.r1oper = b.aooper
+         and a.r1sbop = b.aosbop
+         and a.r1tope = b.aotope
+         and b.aostat <> 99
+         and relcod = 46
+         and rownum = 1;
+    exception
+      when no_data_found then
+        lc_ven := 'N';
+    end;
+  
+    if lc_ven = 'S' then
+      for i in creditos loop
+      
+        pq_cr_resolutor_cappago.sp_cuotas(i.ln_pgcod10,
+                                          i.ln_mod10,
+                                          i.ln_suc10,
+                                          i.ln_mda10,
+                                          i.ln_pap10,
+                                          i.ln_cta10,
+                                          i.ln_oper10,
+                                          i.ln_sbop10,
+                                          i.ln_tope10,
+                                          ln_nrocuotas);
+        begin
+          select a.aoperiod
+            into ln_pr116
+            from fsd010 a
+           where a.pgcod = i.ln_pgcod10
+             and a.aomod = i.ln_mod10
+             and a.aosuc = i.ln_suc10
+             and a.aomda = i.ln_mda10
+             and a.aopap = i.ln_pap10
+             and a.aocta = i.ln_cta10
+             and a.aooper = i.ln_oper10
+             and a.aosbop = i.ln_sbop10
+             and a.aotope = i.ln_tope10;
+        exception
+          when others then
+            null;
+        end;
+      
+        pq_cr_resolutor_cappago.sp_cuota_impaga_lin(i.ln_pgcod10,
+                                                    i.ln_mod10,
+                                                    i.ln_suc10,
+                                                    i.ln_mda10,
+                                                    i.ln_pap10,
+                                                    i.ln_cta10,
+                                                    i.ln_oper10,
+                                                    tipocambio,
+                                                    ln_cuotimp,
+                                                    fech_maxcuota);
+      
+        Pq_Cr_Resolutor_Cappago.sp_seguro(i.ln_mod10,
+                                          i.ln_suc10,
+                                          i.ln_mda10,
+                                          i.ln_pap10,
+                                          i.ln_cta10,
+                                          i.ln_oper10,
+                                          i.ln_sbop10,
+                                          i.ln_tope10,
+                                          tipocambio,
+                                          fech_maxcuota,
+                                          ln_seguro);
+        pq_cr_resolutor_cappago.sp_capacidadpago_lin(ln_cuotimp,
+                                                     ln_nrocuotas,
+                                                     ln_pr116,
+                                                     ln_seguro,
+                                                     i.ln_mod10,
+                                                     ln_capTem);
+        pq_cr_resolutor_cappago.sp_instancia(i.ln_mod10,
+                                             i.ln_suc10,
+                                             i.ln_mda10,
+                                             i.ln_pap10,
+                                             i.ln_cta10,
+                                             i.ln_oper10,
+                                             i.ln_sbop10,
+                                             i.ln_tope10,
+                                             ln_parciales,
+                                             ln_instancia);
+      
+        if ln_capTem > 0 and lc_EjecRatio = 'S' then
+        
+          ln_flagFC := 'N';
+          ln_CapFC  := nvl(ln_CapFC, 0);
+          CapLinea  := nvl(CapLinea, 0);
+        
+          pq_cr_resolutor_cappago.sp_cr_LogCuentas(ln_Pepais,
+                                                   ln_Petdoc,
+                                                   ln_Pendoc,
+                                                   tipocambio,
+                                                   Instancia,
+                                                   pd_fecpro,
+                                                   ln_pgcod10,
+                                                   ln_mod10,
+                                                   ln_suc10,
+                                                   ln_mda10,
+                                                   ln_pap10,
+                                                   ln_cta10,
+                                                   ln_oper10,
+                                                   ln_sbop10,
+                                                   ln_tope10,
+                                                   ln_pr116,
+                                                   ln_nrocuotas,
+                                                   ln_parciales,
+                                                   ln_flagFC,
+                                                   ln_cuotimp,
+                                                   ln_seguro,
+                                                   ln_CapFC,
+                                                   CapLinea,
+                                                   ln_capTem,
+                                                   lc_IndCred,
+                                                   lc_flgprg,
+                                                   lc_Usuario,
+                                                   ln_Tarea);
+        end if;
+      
+        ln_capacidad := nvl(ln_capacidad, 0) + nvl(ln_capTem, 0);
+      
+      end loop;
+    end if;
+  
+  end sp_resolutor_venc;
+  -------------------------------------------------------------------------------------------
+  Procedure Sp_ampliados_CK(ln_emp10  in number,
+                            ln_mod10  in number,
+                            ln_suc10  in number,
+                            ln_mda10  in number,
+                            ln_pap10  in number,
+                            ln_cta10  in number,
+                            ln_oper10 in number,
+                            ln_sbop10 in number,
+                            ln_tope10 in number,
+                            Pc_flag   out varchar2) is --mod 2016.04.12
+  
+  begin
+  
+    begin
+    
+      select 'S'
+        into Pc_flag
+        from xwf700 a, sng001 s /* xwf070 w,*/, wfwrkitems x
+       where a.xwfempresa = ln_emp10
+         and a.xwfsucursal = ln_suc10
+         and a.xwfmodulo = ln_mod10
+         and a.xwfmoneda = ln_mda10
+         and a.xwfpapel = ln_pap10
+         and a.xwfcuenta = ln_cta10
+         and a.xwfoperacion = ln_oper10
+         and a.xwfsubope = ln_sbop10
+         and a.xwftipope = ln_tope10
+         and a.xwfprcins = s.sng001inst
+         and s.sng001ori in (4, 15) -- Ampliaciones Normales, Ampliaciones Especiales
+         and s.sng001inst = x.wfinsprcid
+         and x.wfitemstsact = 1
+         and rownum = 1;
+    exception
+      when no_data_found then
+        Pc_flag := 'N';
+    end;
+  
+  end Sp_ampliados_CK;
+
+  --------------------------------------------------------------------------
+
+  Procedure Sp_Adicional_CK(pn_mod  in number,
+                            pn_top  in number,
+                            Pc_flag out varchar2) is --mod 2016.04.12
+  
+  begin
+    if pn_mod = 117 then
+      begin
+        select 'S'
+          into Pc_flag
+          from fst198 a
+         where a.tp1cod = 1
+           and a.tp1cod1 = 20001
+           and a.tp1corr1 = 1
+           and a.tp1corr2 = 1211
+           and a.tp1nro1 = pn_top;
+      
+      exception
+        when no_data_found then
+          Pc_flag := 'N';
+      end;
+    else
+      Pc_flag := 'N';
+    end if;
+  
+  end Sp_Adicional_CK;
+
+  ------------------------------------------------------------
+
+  procedure sp_refinanLinea(ln_pgcod10  in number,
+                            ln_mod10    in number,
+                            ln_suc10    in number,
+                            ln_mda10    in number,
+                            ln_pap10    in number,
+                            ln_cta10    in number,
+                            ln_oper10   in number,
+                            lc_fgRefLin out varchar2) is
+    --2017.03.28 DCASTRO se agrego condicion rownum    
+  
+    ln_InstVerfca number; --07012020 mpostigoc
+  begin
+  
+    lc_fgRefLin := 'N';
+    if ln_mod10 = 117 then
+    
+      begin
+        select max(w.xwfprcins)
+          into ln_InstVerfca
+          from fsr011 f, xwf700 w
+         where f.r1cod = w.xwfempresa
+           and f.r1mod = w.xwfmodulo
+           and f.r1suc = w.xwfsucursal
+           and f.r1mda = w.xwfmoneda
+           and f.r1pap = w.xwfpapel
+           and f.r1cta = w.xwfcuenta
+           and w.xwfcar3 = 'R'
+           and f.r2cod = ln_pgcod10
+           and f.r2mod = ln_mod10
+           and f.r2suc = ln_suc10
+           and f.R2MDA = ln_mda10
+           and f.R2PAP = ln_pap10
+           and f.r2cta = ln_cta10
+           and f.r2oper = ln_oper10
+           and f.relcod = 46;
+      exception
+        when no_data_found then
+          ln_InstVerfca := 0;
+      end;
+    
+      --mpostigoc 20200107 INC2264
+      begin
+        select 'S'
+          into lc_fgRefLin
+          from wfwrkitems w, sng001 s
+         where w.wfinsprcid = s.sng001inst
+           and w.wfinsprcid = ln_InstVerfca
+           and s.sng001ori in (3, 13, 14)
+           and w.wfitemstsact = 1;
+      exception
+        when others then
+          lc_fgRefLin := 'N';
+      end;
+      --    
+    else
+    
+      begin
+        select 'S'
+          into lc_fgRefLin
+          from xwf700 a, sng001 s /*, xwf070 w*/, wfwrkitems x
+         where a.xwfempresa = ln_pgcod10
+           and a.xwfsucursal = ln_suc10
+           and a.xwfmodulo = ln_mod10
+           and a.xwfmoneda = ln_mda10
+           and a.xwfpapel = ln_pap10
+           and a.xwfcuenta = ln_cta10
+           and a.xwfoperacion = ln_oper10
+              -- and a.xwfsubope = ln_sbop10
+              -- and a.xwftipope = ln_tope10
+           and a.xwfprcins = s.sng001inst
+           and s.sng001ori in (3, 13, 14) -- Refinanciaciones, Reprogramaciones
+           and s.sng001inst = x.wfinsprcid
+           and x.wfitemstsact = 1
+           and rownum = 1;
+      
+      exception
+        when no_data_found then
+          lc_fgRefLin := 'N';
+        
+      end;
+    end if;
+  
+  end sp_refinanLinea;
+  --------------------------------------------------
+  procedure sp_cr_VerVincLinea(ln_mod10  in number,
+                               ln_suc10  in number,
+                               ln_mda10  in number,
+                               ln_pap10  in number,
+                               ln_cta10  in number,
+                               ln_oper10 in number,
+                               ln_sbop10 in number,
+                               ln_tope10 in number,
+                               lc_FlgLn  out varchar2) is
+  
+    cursor instancias(ln_mod10N  number,
+                      ln_suc10N  number,
+                      ln_mda10N  number,
+                      ln_pap10N  number,
+                      ln_cta10N  number,
+                      ln_oper10N number,
+                      ln_sbop10N number,
+                      ln_tope10N number) is
+    
+      select j.jaqy800ins ln_InsVinc
+        from jaqy800 j
+       where JAQY800PGCD = 1
+         and JAQY800MOD = ln_mod10N
+         and JAQY800SUC = ln_suc10N
+         and JAQY800MDA = ln_mda10N
+         and JAQY800PAP = ln_pap10N
+         and JAQY800CTA = ln_cta10N
+         and JAQY800OPE = ln_oper10N
+         and JAQY800SBOP = ln_sbop10N
+         and JAQY800TOPE = ln_tope10N
+         and jaqy800vinc = 'S';
+  
+    ln_InsVinc   number := 0;
+    Ln_EstVignt  number := 0;
+    ln_instancia number := 0;
+    ln_mod10N    number;
+    ln_suc10N    number;
+    ln_mda10N    number;
+    ln_pap10N    number;
+    ln_cta10N    number;
+    ln_oper10N   number;
+    ln_sbop10N   number;
+    ln_tope10N   number;
+  
+  begin
+    lc_FlgLn := 'N';
+  
+    ln_mod10N  := ln_mod10;
+    ln_suc10N  := ln_suc10;
+    ln_mda10N  := ln_mda10;
+    ln_pap10N  := ln_pap10;
+    ln_cta10N  := ln_cta10;
+    ln_oper10N := ln_oper10;
+    ln_sbop10N := ln_sbop10;
+    ln_tope10N := ln_tope10;
+  
+    if ln_mod10N = 116 then
+      begin
+        select F.R2MOD,
+               F.R2CTA,
+               F.R2OPER,
+               F.R2SBOP,
+               F.R2SUC,
+               F.R2MDA,
+               F.R2PAP,
+               F.R2TOPE
+          into ln_mod10N,
+               ln_cta10N,
+               ln_oper10N,
+               ln_sbop10N,
+               ln_suc10N,
+               ln_mda10N,
+               ln_pap10N,
+               ln_tope10N
+          from fsr011 f
+         where f.r1cod = 1
+           and f.r1mod = ln_mod10N
+           and f.r1suc = ln_suc10N
+           and f.r1mda = ln_mda10N
+           and f.r1pap = ln_pap10N
+           and f.r1cta = ln_cta10N
+           and f.r1oper = ln_oper10N
+           and f.r1sbop = ln_sbop10N
+           and f.r1tope = ln_tope10N
+           and f.relcod = 46;
+      exception
+        when others then
+          null;
+      end;
+    end if;
+  
+    for n in instancias(ln_mod10N, ln_suc10N, ln_mda10N, ln_pap10N, ln_cta10N, ln_oper10N, ln_sbop10N, ln_tope10N) loop
+    
+      ln_instancia := fn_instancia_credito(v_Scmod  => ln_mod10N,
+                                           v_Scsuc  => ln_suc10N,
+                                           v_Scmda  => ln_mda10N,
+                                           v_Scpap  => ln_pap10N,
+                                           v_Sccta  => ln_cta10N,
+                                           v_Scoper => ln_oper10N,
+                                           v_Scsbop => ln_sbop10N,
+                                           v_Sctope => ln_tope10N);
+    
+      if ln_instancia <> n.ln_InsVinc then
+      
+        if n.ln_InsVinc <> 0 then
+          begin
+            select count(*)
+              into Ln_EstVignt
+              from wfwrkitems w
+             where w.wfinsprcid = n.ln_InsVinc
+               and w.wfitemstsact = 1;
+          exception
+            when others then
+              Ln_EstVignt := 0;
+          end;
+        
+          if Ln_EstVignt > 0 then
+            lc_FlgLn := 'S';
+            exit;
+          
+          else
+            if Ln_EstVignt = 0 then
+            
+              begin
+                select 'S'
+                  into lc_FlgLn
+                  from xwf700 x, fsd010 f
+                 where x.xwfprcins = n.ln_InsVinc
+                   and x.xwfcar3 = '1'
+                   and x.xwfempresa = f.pgcod
+                   and x.xwfsucursal = f.aosuc
+                   and x.xwfmodulo = f.aomod
+                   and x.xwfmoneda = f.aomda
+                   and x.xwfpapel = f.aopap
+                   and x.xwfcuenta = f.aocta
+                   and x.xwfoperacion = f.aooper
+                   and x.xwfsubope = f.aosbop
+                   and x.xwftipope = f.aotope;
+              exception
+                when others then
+                  lc_FlgLn := 'N';
+              end;
+            end if;
+          end if;
+        end if;
+      else
+        lc_FlgLn := 'N';
+      end if;
+    
+    end loop;
+  
+  end;
+  --------------------------------------------------
+  procedure sp_cr_flujocaja(ln_emp10  in number,
+                            ln_mod10  in number,
+                            ln_suc10  in number,
+                            ln_mda10  in number,
+                            ln_pap10  in number,
+                            ln_cta10  in number,
+                            ln_oper10 in number,
+                            ln_sbop10 in number,
+                            ln_tope10 in number,
+                            ln_flagFC out varchar2) is
+  
+    ln_fc           number(17, 2);
+    ln_nroflujo     number;
+    lc_tienecalen   VARCHAR2(2);
+    lc_tieneseguros varchar2(2);
+    ln_MaxFchTx     date;
+  
+  begin
+  
+    begin
+      -- verifica si tiene calendario de pago 05/07/2017 mpostigoc
+    
+      select 'S'
+        into lc_tienecalen
+        from fsd601 f
+       where f.pgcod = ln_emp10
+         and f.ppmod = ln_mod10
+         and f.ppsuc = ln_suc10
+         and f.ppmda = ln_mda10
+         and f.pppap = ln_pap10
+         and f.ppcta = ln_cta10
+         and f.ppoper = ln_oper10
+         and f.ppsbop = ln_sbop10
+         and f.pptope = ln_tope10
+         and rownum = 1;
+    exception
+      when others then
+        lc_tienecalen := 'N';
+    end;
+  
+    begin
+      -- Verifica si tiene calendario de Seguros 05/07/2017 mpostigoc
+      select 'S'
+        into lc_tieneseguros
+        from fsd611 f
+       where f.pgcod = ln_emp10
+         and f.ppmod = ln_mod10
+         and f.ppsuc = ln_suc10
+         and f.ppmda = ln_mda10
+         and f.pppap = ln_pap10
+         and f.ppcta = ln_cta10
+         and f.ppoper = ln_oper10
+         and f.ppsbop = ln_sbop10
+         and f.pptope = ln_tope10
+         and rownum = 1;
+    exception
+      when others then
+        lc_tieneseguros := 'N';
+    end;
+  
+    if lc_tienecalen = 'S' and lc_tieneseguros = 'S' then
+      --05/07/2017 mpostigoc
+    
+      if ln_mod10 <> 116 then
+      
+        begin
+          select max(f.ppcap + f.ppint + s.ppimp11 + s.ppimp12 + s.ppimp13 +
+                     s.ppimp14 + s.ppimp15) -
+                 min(f.ppcap + f.ppint + s.ppimp11 + s.ppimp12 + s.ppimp13 +
+                     s.ppimp14 + s.ppimp15)
+            into ln_fc
+            from fsd601 f, fsd611 s
+           where f.pgcod = ln_emp10
+             and f.ppmod = ln_mod10
+             and f.ppsuc = ln_suc10
+             and f.ppmda = ln_mda10
+             and f.pppap = ln_pap10
+             and f.ppcta = ln_cta10
+             and f.ppoper = ln_oper10
+             and f.ppsbop = ln_sbop10
+             and f.pptope = ln_tope10
+             and f.pgcod = s.pgcod
+             and f.ppmod = s.ppmod
+             and f.ppsuc = s.ppsuc
+             and f.ppmda = s.ppmda
+             and f.pppap = s.pppap
+             and f.ppcta = s.ppcta
+             and f.ppoper = s.ppoper
+             and f.ppsbop = s.ppsbop
+             and f.pptope = s.pptope
+             and f.ppfpag = s.ppfpag;
+        exception
+          when others then
+            null;
+          
+        end;
+      
+      else
+        begin
+          select max(f.d602fc)
+            into ln_MaxFchTx
+            from fsd602 f
+           where f.pgcod = 1
+             and f.ppmod = ln_mod10
+             and f.ppsuc = ln_suc10
+             and f.ppmda = ln_mda10
+             and f.pppap = ln_pap10
+             and f.ppcta = ln_cta10
+             and f.ppoper = ln_oper10
+             and f.ppsbop = ln_sbop10
+             and f.pptope = ln_tope10
+             and f.d602mo = 116
+             and f.d602tr in (50, 60);
+        exception
+          when others then
+            null;
+        end;
+      
+        if ln_MaxFchTx is not null then
+        
+          begin
+            select max(f.ppcap + f.ppint + s.ppimp11 + s.ppimp12 +
+                       s.ppimp13 + s.ppimp14 + s.ppimp15) -
+                   min(f.ppcap + f.ppint + s.ppimp11 + s.ppimp12 +
+                       s.ppimp13 + s.ppimp14 + s.ppimp15)
+              into ln_fc
+              from fsd601 f, fsd611 s
+             where f.pgcod = ln_emp10
+               and f.ppmod = ln_mod10
+               and f.ppsuc = ln_suc10
+               and f.ppmda = ln_mda10
+               and f.pppap = ln_pap10
+               and f.ppcta = ln_cta10
+               and f.ppoper = ln_oper10
+               and f.ppsbop = ln_sbop10
+               and f.pptope = ln_tope10
+               and f.ppfpag > ln_MaxFchTx
+               and f.pgcod = s.pgcod
+               and f.ppmod = s.ppmod
+               and f.ppsuc = s.ppsuc
+               and f.ppmda = s.ppmda
+               and f.pppap = s.pppap
+               and f.ppcta = s.ppcta
+               and f.ppoper = s.ppoper
+               and f.ppsbop = s.ppsbop
+               and f.pptope = s.pptope
+               and f.ppfpag = s.ppfpag;
+          exception
+            when others then
+              ln_fc := 0;
+          end;
+        
+        else
+        
+          begin
+            select max(f.ppcap + f.ppint + s.ppimp11 + s.ppimp12 +
+                       s.ppimp13 + s.ppimp14 + s.ppimp15) -
+                   min(f.ppcap + f.ppint + s.ppimp11 + s.ppimp12 +
+                       s.ppimp13 + s.ppimp14 + s.ppimp15)
+              into ln_fc
+              from fsd601 f, fsd611 s
+             where f.pgcod = ln_emp10
+               and f.ppmod = ln_mod10
+               and f.ppsuc = ln_suc10
+               and f.ppmda = ln_mda10
+               and f.pppap = ln_pap10
+               and f.ppcta = ln_cta10
+               and f.ppoper = ln_oper10
+               and f.ppsbop = ln_sbop10
+               and f.pptope = ln_tope10
+               and f.pgcod = s.pgcod
+               and f.ppmod = s.ppmod
+               and f.ppsuc = s.ppsuc
+               and f.ppmda = s.ppmda
+               and f.pppap = s.pppap
+               and f.ppcta = s.ppcta
+               and f.ppoper = s.ppoper
+               and f.ppsbop = s.ppsbop
+               and f.pptope = s.pptope
+               and f.ppfpag = s.ppfpag;
+          exception
+            when others then
+              ln_fc := 0;
+          end;
+        
+        end if;
+      end if;
+    
+    else
+      if lc_tienecalen = 'S' and lc_tieneseguros = 'N' then
+        --05/07/2017 mpostigoc
+      
+        if ln_mod10 <> 116 then
+          begin
+          
+            select max(f.ppcap + f.ppint) - min(f.ppcap + f.ppint)
+              into ln_fc
+              from fsd601 f
+             where f.pgcod = ln_emp10
+               and f.ppmod = ln_mod10
+               and f.ppsuc = ln_suc10
+               and f.ppmda = ln_mda10
+               and f.pppap = ln_pap10
+               and f.ppcta = ln_cta10
+               and f.ppoper = ln_oper10
+               and f.ppsbop = ln_sbop10
+               and f.pptope = ln_tope10;
+          exception
+            when others then
+              null;
+            
+          end;
+        
+        else
+          begin
+            select max(f.d602fc)
+              into ln_MaxFchTx
+              from fsd602 f
+             where f.pgcod = 1
+               and f.ppmod = ln_mod10
+               and f.ppsuc = ln_suc10
+               and f.ppmda = ln_mda10
+               and f.pppap = ln_pap10
+               and f.ppcta = ln_cta10
+               and f.ppoper = ln_oper10
+               and f.ppsbop = ln_sbop10
+               and f.pptope = ln_tope10
+               and f.d602mo = 116
+               and f.d602tr in (50, 60);
+          exception
+            when others then
+              null;
+          end;
+        
+          if ln_MaxFchTx is not null then
+          
+            begin
+              select max(f.ppcap + f.ppint) - min(f.ppcap + f.ppint)
+                into ln_fc
+                from fsd601 f
+               where f.pgcod = ln_emp10
+                 and f.ppmod = ln_mod10
+                 and f.ppsuc = ln_suc10
+                 and f.ppmda = ln_mda10
+                 and f.pppap = ln_pap10
+                 and f.ppcta = ln_cta10
+                 and f.ppoper = ln_oper10
+                 and f.ppsbop = ln_sbop10
+                 and f.pptope = ln_tope10
+                 and f.ppfpag > ln_MaxFchTx;
+            exception
+              when others then
+                ln_fc := 0;
+            end;
+          
+          else
+          
+            begin
+              select max(f.ppcap + f.ppint) - min(f.ppcap + f.ppint)
+                into ln_fc
+                from fsd601 f
+               where f.pgcod = ln_emp10
+                 and f.ppmod = ln_mod10
+                 and f.ppsuc = ln_suc10
+                 and f.ppmda = ln_mda10
+                 and f.pppap = ln_pap10
+                 and f.ppcta = ln_cta10
+                 and f.ppoper = ln_oper10
+                 and f.ppsbop = ln_sbop10
+                 and f.pptope = ln_tope10;
+            exception
+              when others then
+                ln_fc := 0;
+            end;
+          
+          end if;
+        end if;
+      
+      end if;
+    end if;
+  
+    begin
+      select tp1nro1
+        into ln_nroflujo
+        from fst198 a
+       where a.tp1cod = 1
+         and a.tp1cod1 = 10899
+         and tp1corr1 = 13
+         and tp1corr2 = 3;
+    exception
+      when others then
+        null;
+    end;
+  
+    if ln_fc is not null then
+    
+      if ln_fc <= ln_nroflujo then
+        ln_flagFC := 'N';
+      else
+        ln_flagFC := 'S';
+      END IF;
+    
+    else
+      if ln_fc is null then
+        ln_flagFC := 'N';
+      
+      end if;
+    
+    end if;
+  end sp_cr_flujocaja;
+
+  -------------------------------------------------
+
+  procedure sp_cr_capacidadFC(ln_mod10   in number,
+                              ln_suc10   in number,
+                              ln_mda10   in number,
+                              ln_pap10   in number,
+                              ln_cta10   in number,
+                              ln_oper10  in number,
+                              ln_sbop10  in number,
+                              ln_tope10  in number,
+                              tipocambio in number,
+                              ln_formula out number) is
+  
+    ln_plazo  number := 0;
+    ln_tasa   number(17, 6) := 0.00;
+    ln_saldo  number(17, 2) := 0.00;
+    instancia number;
+    --ln_periodo number;
+    ln_cuotas          number := 0;
+    ld_fchamort        date;
+    lc_flagAmort       varchar2(2) := 'N';
+    ln_CapPagado       number;
+    ln_CapProgramad    number;
+    ld_FchUltPagoTotal date;
+    ln_MaxFchTx        date;
+  
+  begin
+  
+    begin
+      select max(evfval) --, 'S'
+        into ld_fchamort --, lc_flagAmort
+        from fsd012 f
+       where f.pgcod = 1
+         and f.aomod = ln_mod10
+         and f.aosuc = ln_suc10
+         and f.aomda = ln_mda10
+         and f.aopap = ln_pap10
+         and f.aocta = ln_cta10
+         and f.aooper = ln_oper10
+         and f.aosbop = ln_sbop10
+         and f.aotope = ln_tope10
+         and f.evtipo = 50
+         and f.d012co = 'S'; --mpostigoc 25/02/2020
+    exception
+      when others then
+        null;
+    end;
+  
+    if ld_fchamort is not null then
+    
+      lc_flagAmort := 'S';
+    else
+      lc_flagAmort := 'N';
+    end if;
+  
+    if lc_flagAmort = 'S' then
+      -- 16/10/2017 El credito es una amortizacion mpostigoc
+      begin
+        begin
+          select sum(pp1cap)
+            into ln_CapPagado
+            from fsd602
+           where pgcod = 1
+             and ppmod = ln_mod10
+             and ppsuc = ln_suc10
+             and ppmda = ln_mda10
+             and pppap = ln_pap10
+             and ppcta = ln_cta10
+             and ppoper = ln_oper10
+             and ppsbop = ln_sbop10
+             and pptope = ln_tope10
+             and pp1cap > 0
+             and d602co = 'S';
+        exception
+          when others then
+            ln_CapPagado := 0;
+        end;
+      
+        ln_CapPagado := nvl(ln_CapPagado, 0);
+      
+        begin
+          select sum(ppcap)
+            into ln_CapProgramad
+            from fsd601
+           where pgcod = 1
+             and ppmod = ln_mod10
+             and ppsuc = ln_suc10
+             and ppmda = ln_mda10
+             and pppap = ln_pap10
+             and ppcta = ln_cta10
+             and ppoper = ln_oper10
+             and ppsbop = ln_sbop10
+             and pptope = ln_tope10
+             and ppcap > 0;
+        exception
+          when others then
+            ln_CapProgramad := 0;
+        end;
+      
+        ln_CapProgramad := nvl(ln_CapProgramad, 0);
+      
+        begin
+          select max(ppfpag)
+            into ld_FchUltPagoTotal
+            from fsd602
+           where pgcod = 1
+             and ppmod = ln_mod10
+             and ppsuc = ln_suc10
+             and ppmda = ln_mda10
+             and pppap = ln_pap10
+             and ppcta = ln_cta10
+             and ppoper = ln_oper10
+             and ppsbop = ln_sbop10
+             and pptope = ln_tope10
+             and pp1stat = 'T'
+             and d602co = 'S';
+        exception
+          when others then
+            null;
+        end;
+      
+        begin
+          select count(*)
+            into ln_cuotas
+            from fsd601
+           where pgcod = 1
+             and ppmod = ln_mod10
+             and ppsuc = ln_suc10
+             and ppmda = ln_mda10
+             and pppap = ln_pap10
+             and ppcta = ln_cta10
+             and ppoper = ln_oper10
+             and ppsbop = ln_sbop10
+             and pptope = ln_tope10
+             and ppfpag > ld_FchUltPagoTotal;
+        exception
+          when others then
+            ln_cuotas := 0;
+        end;
+      
+        begin
+          select aotasa, aoperiod
+            into ln_tasa, ln_plazo
+            from fsd010
+           where pgcod = 1
+             and aocta = ln_cta10
+             and aooper = ln_oper10
+             and aomod = ln_mod10
+             and aosuc = ln_suc10
+             and aomda = ln_mda10
+             and aopap = ln_pap10
+             and aosbop = ln_sbop10
+             and aotope = ln_tope10; --tasa
+        exception
+          when others then
+            null;
+        end;
+      
+        ln_saldo := nvl(ln_CapProgramad, 0) - nvl(ln_CapPagado, 0);
+      
+      end;
+    
+    else
+      if lc_flagAmort = 'N' then
+        -- 16/10/2017 El credito no es una amortizacion mpostigoc
+      
+        begin
+          select aotasa, aoimp, aoperiod
+            into ln_tasa, ln_saldo, ln_plazo
+            from fsd010
+           where pgcod = 1
+             and aocta = ln_cta10
+             and aooper = ln_oper10
+             and aomod = ln_mod10
+             and aosuc = ln_suc10
+             and aomda = ln_mda10
+             and aopap = ln_pap10
+             and aosbop = ln_sbop10
+             and aotope = ln_tope10; --tasa
+        exception
+          when others then
+            null;
+        end;
+      
+        begin
+        
+          if ln_mod10 <> 116 then
+          
+            begin
+              instancia := fn_instancia_credito(v_Scmod  => ln_mod10,
+                                                v_Scsuc  => ln_suc10,
+                                                v_Scmda  => ln_mda10,
+                                                v_Scpap  => ln_pap10,
+                                                v_Sccta  => ln_cta10,
+                                                v_Scoper => ln_oper10,
+                                                v_Scsbop => ln_sbop10,
+                                                v_Sctope => ln_tope10);
+            end;
+          
+            begin
+            
+              select max(sng120cuo)
+                into ln_cuotas
+                from sng120 s
+               where s.sng120ins = instancia;
+            exception
+              when others then
+                ln_cuotas := 0;
+            end;
+          
+            ln_cuotas := nvl(ln_cuotas, 0);
+          
+          end if;
+        
+          if ln_cuotas = 0 then
+          
+            begin
+              select count(*)
+                into ln_cuotas
+                from fsd601
+               where Pgcod = 1 --ln_pgcod10
+                 and Ppmod = ln_mod10
+                 and Ppsuc = ln_suc10
+                 and Ppmda = ln_mda10
+                 and Pppap = ln_pap10
+                 and Ppcta = ln_cta10
+                 and Ppoper = ln_oper10
+                 and Ppsbop = ln_sbop10
+                 and Pptope = ln_tope10
+                 and D601co in ('S');
+            exception
+              when others then
+                null;
+            end;
+          
+          end if;
+        end;
+      
+        ln_saldo := nvl(ln_saldo, 0);
+      
+        if ln_saldo = 0 then
+          -- credito en vuelo
+        
+          begin
+            instancia := fn_instancia_credito(v_Scmod  => ln_mod10,
+                                              v_Scsuc  => ln_suc10,
+                                              v_Scmda  => ln_mda10,
+                                              v_Scpap  => ln_pap10,
+                                              v_Sccta  => ln_cta10,
+                                              v_Scoper => ln_oper10,
+                                              v_Scsbop => ln_sbop10,
+                                              v_Sctope => ln_tope10);
+          end;
+        
+          begin
+            select x.xwfmonto1
+              into ln_saldo
+              from xwf700 x
+             where x.xwfprcins = instancia
+               and x.xwfcar3 = '1';
+          exception
+            when others then
+              ln_saldo := 0;
+          end;
+        
+          begin
+            select max(sng120tasa)
+              into ln_tasa
+              from sng120
+             where sng120ins = instancia;
+          exception
+            when others then
+              ln_tasa := 0;
+          end;
+        
+          begin
+            select max(sng120cuo), max(sng120per)
+              into ln_cuotas, ln_plazo
+              from sng120 s
+             where s.sng120ins = instancia;
+          exception
+            when others then
+              ln_cuotas := 0;
+              ln_plazo  := 0;
+          end;
+        
+        end if;
+      end if;
+    end if;
+  
+    if ln_mda10 = 101 then
+      ln_saldo := ln_saldo * tipocambio;
+    end if;
+  
+    if ln_mod10 <> 33 and ln_tasa > 0 and ln_plazo > 0 and ln_saldo > 0 and
+       ln_cuotas > 0 then
+    
+      begin
+      
+        ln_tasa := ((power(1 + (ln_tasa / 100), (ln_plazo / 360))) - 1) * 100;
+      end;
+    
+      if ln_tasa <= 0 then
+        -- INC6802 18.01.2024 mpostigoc
+        ln_tasa := 0.000001;
+      end if;
+    
+      begin
+      
+        ln_formula := ln_saldo *
+                      (((ln_tasa / 100) *
+                      (power(1 + (ln_tasa / 100), ln_cuotas))) /
+                      (power(1 + (ln_tasa / 100), ln_cuotas) - 1));
+      
+      end;
+    
+    end if;
+  end sp_cr_capacidadFC;
+
+  --------------------------------------------------
+
+  procedure sp_cuota_impaga_Lin(ln_pgcod10    in number,
+                                ln_mod10      in number,
+                                ln_suc10      in number,
+                                ln_mda10      in number,
+                                ln_pap10      in number,
+                                ln_cta10      in number,
+                                ln_oper10     in number,
+                                tipocambio    in number,
+                                ln_cuoimp     out number,
+                                fech_maxcuota out date) is
+  
+    lc_estado character(1);
+    ld_fecha  date;
+  
+  begin
+  
+    BEGIN
+      select max(ppfpag)
+        into ld_fecha
+        from fsd602
+       where pgcod = ln_pgcod10
+         and ppmod = ln_mod10
+         and ppsuc = ln_suc10
+         and ppmda = ln_mda10
+         and pppap = ln_pap10
+         and ppcta = ln_cta10
+         and ppoper = ln_oper10;
+    exception
+      when others then
+        NULL;
+      
+    END;
+  
+    begin
+      select max(f602.pp1stat) --, ppfpag
+        into lc_estado
+        from fsd602 f602
+       where f602.pgcod = ln_pgcod10
+         and f602.ppmod = ln_mod10
+         and f602.ppsuc = ln_suc10
+         and f602.ppmda = ln_mda10
+         and f602.pppap = ln_pap10
+         and f602.ppcta = ln_cta10
+         and f602.ppoper = ln_oper10
+         and f602.ppfpag = ld_fecha
+         and f602.d602co = 'S';
+    exception
+      when others then
+        NULL;
+    end;
+  
+    if lc_estado = 'T' or lc_estado = 'P' then
+      begin
+        select max(ppcap + ppint)
+          into ln_cuoimp
+          from fsd601
+         where pgcod = ln_pgcod10
+           and ppmod = ln_mod10
+           and ppsuc = ln_suc10
+           and ppmda = ln_mda10
+           and pppap = ln_pap10
+           and ppcta = ln_cta10
+           and ppoper = ln_oper10
+           and ppfpag > ld_fecha;
+        -- and rownum = 1;
+      exception
+        when too_many_rows then
+          begin
+            select max(ppcap + ppint)
+              into ln_cuoimp
+              from fsd601
+             where pgcod = ln_pgcod10
+               and ppmod = ln_mod10
+               and ppsuc = ln_suc10
+               and ppmda = ln_mda10
+               and pppap = ln_pap10
+               and ppcta = ln_cta10
+               and ppoper = ln_oper10
+               and ppfpag > ld_fecha
+               and rownum = 1;
+          exception
+            when others then
+            
+              NULL;
+          end;
+      end;
+    
+    else
+      if lc_estado is null then
+        begin
+          select max(ppcap + ppint)
+            into ln_cuoimp
+            from fsd601 d
+           where pgcod = ln_pgcod10
+             and ppmod = ln_mod10
+             and ppsuc = ln_suc10
+             and ppmda = ln_mda10
+             and pppap = ln_pap10
+             and ppcta = ln_cta10
+             and ppoper = ln_oper10;
+        exception
+          when others then
+          
+            NULL;
+          
+        end;
+      
+      end if;
+    
+    end if;
+  
+    begin
+      select d.ppfpag
+        into fech_maxcuota
+        from fsd601 d
+       where pgcod = ln_pgcod10
+         and ppmod = ln_mod10
+         and ppsuc = ln_suc10
+         and ppmda = ln_mda10
+         and pppap = ln_pap10
+         and ppcta = ln_cta10
+         and ppoper = ln_oper10
+         and (ppcap + ppint) = ln_cuoimp
+         and rownum = 1;
+    exception
+      when others then
+        NULL;
+      
+    end;
+  
+    if ln_mda10 = 101 then
+      ln_cuoimp := nvl(ln_cuoimp, 0) * tipocambio;
+    end if;
+  
+  end sp_cuota_impaga_Lin;
+
+  -----------------------------------------------------------
+  procedure sp_capacidadpago_Lin(ln_MAX_CUOTA    in number,
+                                 ln_NRO_CUOTAS   in number,
+                                 ln_peri10       in number,
+                                 ln_monto_seguro in number,
+                                 ln_mod10        in number,
+                                 ln_capacidad    out number) is
+    ln_mensual number(17, 2);
+    ln_cuota   number(17, 2);
+    -- ln_sngmda  number;
+    -- ln_cuotaimp number;
+  
+  begin
+  
+    begin
+    
+      if ln_mod10 <> 117 then
+      
+        if ln_NRO_CUOTAS > 1 then
+        
+          ln_mensual := ln_peri10 / 30;
+        
+          ln_cuota := nvl(ln_MAX_CUOTA, 0) + nvl(ln_monto_seguro, 0);
+        
+          ln_capacidad := nvl(ln_cuota, 0) / nvl(ln_mensual, 0); -- Se mensualiza la cuota
+        
+        end if;
+      
+      end if;
+    end;
+  end sp_capacidadpago_Lin;
+  ---------------------------------------------------------------------------
+
+  procedure sp_cr_LogRatio(ln_Pepais      in number,
+                           ln_Petdoc      in number,
+                           ln_Pendoc      in char,
+                           tipocambio     in number,
+                           Instancia      in number,
+                           pd_fecpro      in date,
+                           ln_captotcaja  in number,
+                           saldo_externo  in number,
+                           ResultNeto     in number,
+                           ln_captotal    in number,
+                           lc_indicador   in varchar2,
+                           lc_flgprg      in varchar2,
+                           lc_Usuario     in varchar2,
+                           ln_MntCuoCntg  in number,
+                           ln_MntPotncial in number,
+                           ln_Tarea       in number,
+                           ln_InstME      in number,
+                           LN_EvalME      in number) is
+  
+    ln_corr    number;
+    lc_IndEst  varchar2(2);
+    lc_hora    character(8);
+    lc_cod     varchar2(50);
+    lc_msg     varchar2(1500);
+    ln_correrr number;
+    lc_IndME   varchar2(5);
+  
+  begin
+  
+    begin
+    
+      select max(j.jaqy140corr)
+        into ln_corr
+        from jaqy140 j
+       where j.jaqy140fec = pd_fecpro
+         and j.jaqy140inst = Instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    begin
+    
+      select max(j.jaqy140errcorr)
+        into ln_correrr
+        from jaqy140err j
+       where j.jaqy140errfec = pd_fecpro
+         and j.jaqy140errinst = Instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    ln_corr    := nvl(ln_corr, 0);
+    ln_correrr := nvl(ln_correrr, 0);
+  
+    if lc_flgprg = 'S' then
+    
+      lc_IndEst := 'H';
+    
+      begin
+        update jaqy140 j
+           set j.jaqy140est = 'I'
+         where j.jaqy140inst = Instancia
+           and j.jaqy140est = 'H'
+           and j.jaqy140tarea = ln_Tarea;
+        commit;
+      end;
+    
+    else
+      if lc_flgprg = 'R' then
+      
+        lc_IndEst := 'R';
+      
+      end if;
+    
+    end if;
+  
+    begin
+      select to_char(sysdate, 'HH24:MI:SS') into lc_hora from dual;
+    exception
+      when others then
+        null;
+    end;
+  
+    if ln_InstME > 0 or LN_EvalME > 0 then
+      lc_IndME := 'S';
+    else
+      lc_IndME := 'N';
+    end if;
+  
+    -- ln_Instancia := null;
+    -- if lc_exist = 'N' then
+    begin
+      insert into jaqy140
+        (jaqy140corr,
+         jaqy140pais,
+         jaqy140tdoc,
+         jaqy140ndoc,
+         jaqy140tcamb,
+         jaqy140inst,
+         jaqy140fec,
+         jaqy140hora,
+         jaqy140capcaja,
+         jaqy140sldext,
+         jaqy140resnet,
+         jaqy140ratio,
+         jaqy140ind,
+         JAQY140EST,
+         JAQY140USER,
+         jaqy140CCONTG,
+         jaqy140cpoten,
+         jaqy140tarea,
+         jaqy140INDME,
+         jaqy140INSTCRD,
+         jaqy140EVALME)
+      values
+        (ln_corr + 1,
+         ln_Pepais,
+         ln_Petdoc,
+         ln_Pendoc,
+         tipocambio,
+         Instancia,
+         pd_fecpro,
+         lc_hora,
+         ln_captotcaja,
+         saldo_externo,
+         ResultNeto,
+         ln_captotal,
+         lc_indicador,
+         lc_IndEst,
+         lc_Usuario,
+         ln_MntCuoCntg,
+         ln_MntPotncial,
+         ln_Tarea,
+         lc_IndME,
+         ln_InstME,
+         LN_EvalME);
+      commit;
+    exception
+      when others then
+        lc_cod := sqlcode;
+        lc_msg := sqlerrm;
+        begin
+          insert into jaqy140ERR
+            (jaqy140ERRcorr,
+             jaqy140ERRpais,
+             jaqy140ERRtdoc,
+             jaqy140ERRndoc,
+             jaqy140ERRtcamb,
+             jaqy140ERRinst,
+             jaqy140ERRfec,
+             jaqy140ERRhora,
+             jaqy140ERRcapcaja,
+             jaqy140ERRsldext,
+             jaqy140ERRresnet,
+             jaqy140ERRratio,
+             jaqy140ERRind,
+             jaqy140ERREST,
+             jaqy140ERRUSER,
+             jaqy140ERRCODERR,
+             jaqy140ERRMSGERR)
+          values
+            (ln_correrr + 1,
+             ln_Pepais,
+             ln_Petdoc,
+             ln_Pendoc,
+             tipocambio,
+             Instancia,
+             pd_fecpro,
+             lc_hora,
+             ln_captotcaja,
+             saldo_externo,
+             ResultNeto,
+             ln_captotal,
+             lc_indicador,
+             lc_IndEst,
+             lc_Usuario,
+             lc_cod,
+             lc_msg);
+          commit;
+        
+        end;
+      
+    end;
+  
+  end sp_cr_LogRatio;
+
+  -------------------------------------------------------------------
+  procedure sp_cr_LogCuentas(lnPepais     in number,
+                             lnPetdoc     in number,
+                             lnPendoc     in char,
+                             tipocambio   in number,
+                             Instancia    in number,
+                             pd_fecpro    in date,
+                             ln_PGCOD     in number,
+                             ln_MOD       in number,
+                             ln_SUC       in number,
+                             ln_MDA       in number,
+                             ln_PAP       in number,
+                             ln_CTA       in number,
+                             ln_OPE       in number,
+                             ln_SBOP      in number,
+                             ln_TOPE      in number,
+                             ln_peri10    in number,
+                             ln_nrocuotas in number,
+                             ln_parciales in number,
+                             ln_flagFC    in varchar2,
+                             ln_cuotimp   in number,
+                             ln_seguro    in number,
+                             ln_CapFC     in number,
+                             CapLinea     in number,
+                             ln_CAPCUO    in number,
+                             lc_IndCred   IN VARCHAR2,
+                             lc_flgprg    in varchar2,
+                             lc_Usuario   in varchar2,
+                             ln_Tarea     in number) is
+  
+    ln_corr number;
+    --lc_exist varchar2(2) := 'N';
+    lc_hora   character(8);
+    lc_IndEst varchar2(2);
+  
+  begin
+  
+    begin
+    
+      select max(j.jaqy142corr)
+        into ln_corr
+        from jaqy142 j
+       where j.jaqy142fec = pd_fecpro
+         and j.jaqy142inst = Instancia;
+    exception
+      when no_data_found then
+        ln_corr := 0;
+      
+    end;
+  
+    ln_corr := nvl(ln_corr, 0);
+  
+    begin
+      select to_char(sysdate, 'HH24:MI:SS') into lc_hora from dual;
+    exception
+      when others then
+        null;
+    end;
+  
+    if lc_flgprg = 'S' then
+    
+      lc_IndEst := 'H';
+    
+    else
+      if lc_flgprg = 'R' then
+      
+        lc_IndEst := 'R';
+      
+      end if;
+    end if;
+  
+    -- if lc_exist = 'N' then
+  
+    begin
+      insert into jaqy142
+        (jaqy142corr,
+         jaqy142fec,
+         jaqy142hora,
+         jaqy142pais,
+         jaqy142tdoc,
+         jaqy142ndoc,
+         jaqy142tcamb,
+         jaqy142inst,
+         jaqy142pgcod,
+         jaqy142mod,
+         jaqy142suc,
+         jaqy142mda,
+         jaqy142pap,
+         jaqy142cta,
+         jaqy142ope,
+         jaqy142sbop,
+         jaqy142tope,
+         JAQY142PERIO,
+         JAQY142NRCUO,
+         JAQY142TSOLI,
+         JAQY142FLCJ,
+         JAQY142CUOIMP,
+         JAQY142SEGURO,
+         JAQY142CAPFC,
+         JAQY142CAPLIN,
+         jaqy142capcuo,
+         JAQY142INDIC,
+         jaqy142est,
+         JAQY142USER,
+         jaqy142tarea)
+      
+      values
+        (ln_corr + 1,
+         pd_fecpro,
+         lc_hora,
+         lnPepais,
+         lnPetdoc,
+         lnPendoc,
+         tipocambio,
+         Instancia,
+         ln_PGCOD,
+         ln_MOD,
+         ln_SUC,
+         ln_MDA,
+         ln_PAP,
+         ln_CTA,
+         ln_OPE,
+         ln_SBOP,
+         ln_TOPE,
+         ln_peri10,
+         ln_nrocuotas,
+         ln_parciales,
+         ln_flagFC,
+         ln_cuotimp,
+         ln_seguro,
+         ln_CapFC,
+         CapLinea,
+         ln_CAPCUO,
+         lc_IndCred,
+         lc_IndEst,
+         lc_Usuario,
+         ln_Tarea);
+    
+      commit;
+    
+    end;
+  
+  end sp_cr_LogCuentas;
+
+  -------------------------------------------------------------
+  procedure sp_cr_LogRatioSec(ln_Pepais     in number,
+                              ln_Petdoc     in number,
+                              ln_Pendoc     in char,
+                              tipocambio    in number,
+                              Instancia     in number,
+                              pd_fecpro     in date,
+                              ln_captotcaja in number,
+                              saldo_externo in number,
+                              ResultNeto    in number,
+                              ln_captotal   in number,
+                              ln_formula    in number,
+                              lc_indicador  in varchar2,
+                              lc_Usuario    in varchar2) is
+  
+    ln_corr   number;
+    lc_IndEst varchar2(2);
+    lc_hora   character(8);
+  begin
+  
+    begin
+    
+      select max(j.jaqy140scorr)
+        into ln_corr
+        from jaqy140S j
+       where j.jaqy140sfec = pd_fecpro
+         and j.jaqy140sinst = Instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    ln_corr := nvl(ln_corr, 0);
+  
+    begin
+      select to_char(sysdate, 'HH24:MI:SS') into lc_hora from dual;
+    exception
+      when others then
+        null;
+    end;
+  
+    -- if lc_exist = 'N' then
+    begin
+      insert into jaqy140S
+        (jaqy140Scorr,
+         jaqy140Spais,
+         jaqy140Stdoc,
+         jaqy140Sndoc,
+         jaqy140Stcamb,
+         jaqy140Sinst,
+         jaqy140Sfec,
+         jaqy140Shora,
+         jaqy140Scapcaja,
+         jaqy140Ssldext,
+         jaqy140Sresnet,
+         jaqy140Sratio,
+         JAQY140SFORMULA,
+         jaqy140sind,
+         JAQY140sEST,
+         JAQY140SUSER)
+      values
+        (ln_corr + 1,
+         ln_Pepais,
+         ln_Petdoc,
+         ln_Pendoc,
+         tipocambio,
+         Instancia,
+         pd_fecpro,
+         lc_hora,
+         ln_captotcaja,
+         saldo_externo,
+         ResultNeto,
+         ln_captotal,
+         ln_formula,
+         lc_indicador,
+         lc_IndEst,
+         lc_Usuario);
+      commit;
+    end;
+  
+  end sp_cr_LogRatioSec;
+  ------------------------------------------------------------
+  procedure sp_Cr_verfvigPSD(ln_instancia in number,
+                             lc_VerfNewCP out VARCHAR2) is
+  
+    lc_Desemb     varchar2(2) := 'N';
+    ln_TipoSol    number;
+    ld_fchPSD     date;
+    ld_FchIniNPSD date;
+  
+  begin
+    -- Verifica si la Instancia esta desembolsada
+    begin
+      select 'S'
+        into lc_Desemb
+        from xwf700 x, fsd010 f
+       where x.xwfprcins = ln_instancia
+         and x.xwfcar3 = '1'
+         and x.xwfempresa = f.pgcod
+         and x.xwfsucursal = f.aosuc
+         and x.xwfmodulo = f.aomod
+         and x.xwfmoneda = f.aomda
+         and x.xwfpapel = f.aopap
+         and x.xwfcuenta = f.aocta
+         and x.xwfoperacion = f.aooper
+         and x.xwfsubope = f.aosbop
+         and x.xwftipope = f.aotope
+         and rownum = 1;
+    exception
+      when others then
+        lc_Desemb := 'N';
+    end;
+  
+    --Fecha de Inicio de Nuevo Panel Saldo Deudor
+    begin
+      select to_date(TRIM(F.TP1DESC), 'YYYY/MM/DD')
+        into ld_FchIniNPSD
+        from FST198 f
+       where f.tp1cod = 1
+         and f.tp1cod1 = 11105
+         and f.tp1corr1 = 23
+         and f.tp1corr2 = 1
+         and f.tp1corr3 = 1;
+    exception
+      when others then
+        null;
+    end;
+  
+    --Verificar la Maxima Fecha Vigente del Panel Saldo Deudor segun Tipo de Solicitud
+    begin
+      begin
+        select s.sng021tmod
+          into ln_TipoSol
+          from sng021 s
+         where s.sng021sol = ln_Instancia;
+      exception
+        when others then
+          null;
+      end;
+    
+      if ln_TipoSol = 13 then
+        begin
+          select max(j.jaqy327fech)
+            into ld_fchPSD
+            from jaqy327 j
+           where j.jaqy327inst = ln_instancia
+             and j.jaqy327esta = 'S';
+        exception
+          when others then
+            null;
+        end;
+      
+      else
+        if ln_TipoSol = 14 then
+        
+          begin
+            select max(j.jaqz862fech)
+              into ld_fchPSD
+              from jaqz862 j
+             where j.jaqz862inst = ln_instancia
+               and j.jaqz862esta = 'S';
+          exception
+            when others then
+              null;
+          end;
+        end if;
+      end if;
+    
+      if ld_fchPSD is not null then
+      
+        if ld_fchPSD < ld_FchIniNPSD and lc_Desemb = 'S' then
+          lc_VerfNewCP := 'N';
+        else
+          if ld_fchPSD < ld_FchIniNPSD and lc_Desemb = 'N' then
+            lc_VerfNewCP := 'N';
+          else
+            if ld_fchPSD >= ld_FchIniNPSD and lc_Desemb = 'N' then
+              lc_VerfNewCP := 'S';
+            else
+              if ld_fchPSD >= ld_FchIniNPSD and lc_Desemb = 'S' then
+                lc_VerfNewCP := 'S';
+              end if;
+            end if;
+          end if;
+        end if;
+      else
+        lc_VerfNewCP := 'S';
+      END IF;
+    
+    end;
+  
+  end sp_Cr_verfvigPSD;
+  -----------------------------------------------------------
+  procedure sp_cr_CtrlPSDAprob(ln_Instancia    in number,
+                               ld_fchproc      in date,
+                               lc_CtrlPSDAprob out varchar2) is
+  
+    lc_EnAprob     varchar2(2) := 'N';
+    ln_codAut      number;
+    ld_FchIniAprob date;
+    ld_FchIniNPSD  date;
+    ln_TipoSol     number;
+    ld_fchPSD      date;
+  
+  begin
+  
+    -- Verfica que este la instancia en aprobacion
+    begin
+      select 'S'
+        into lc_EnAprob
+        from wfwrkitems w
+       where w.wfinsprcid = ln_Instancia
+         and w.wftaskcod = 11
+         and w.wfitemstsact = 1;
+    exception
+      when others then
+        lc_EnAprob := 'N';
+    end;
+  
+    if lc_EnAprob = 'S' then
+    
+      begin
+        select max(s.sng091aut)
+          into ln_codAut
+          from sng091 s
+         where s.sng001inst = ln_Instancia;
+      exception
+        when others then
+          null;
+      end;
+    
+      if ln_codAut is not null then
+        begin
+          select min(d.sng065fap)
+            into ld_FchIniAprob
+            from sng065 d
+           where d.sng062aut = ln_codAut
+             and d.sng065est in ('F');
+        exception
+          when others then
+            ld_FchIniAprob := ld_fchproc;
+        end;
+      end if;
+    
+      if ld_FchIniAprob is null then
+        ld_FchIniAprob := ld_fchproc;
+      end if;
+    
+      --Fecha de Inicio de Nuevo Panel Saldo Deudor
+      begin
+        select to_date(TRIM(F.TP1DESC), 'YYYY/MM/DD')
+          into ld_FchIniNPSD
+          from FST198 f
+         where f.tp1cod = 1
+           and f.tp1cod1 = 11105
+           and f.tp1corr1 = 23
+           and f.tp1corr2 = 1
+           and f.tp1corr3 = 1;
+      exception
+        when others then
+          null;
+      end;
+    
+      --Verificar la Maxima Fecha Vigente del Panel Saldo Deudor segun Tipo de Solicitud
+    
+      begin
+        select s.sng021tmod
+          into ln_TipoSol
+          from sng021 s
+         where s.sng021sol = ln_Instancia;
+      exception
+        when others then
+          null;
+      end;
+    
+      if ln_TipoSol = 13 then
+        begin
+          select max(j.jaqy327fech)
+            into ld_fchPSD
+            from jaqy327 j
+           where j.jaqy327inst = ln_instancia
+             and j.jaqy327esta = 'S';
+        exception
+          when others then
+            null;
+        end;
+      
+      else
+        if ln_TipoSol = 14 then
+        
+          begin
+            select max(j.jaqz862fech)
+              into ld_fchPSD
+              from jaqz862 j
+             where j.jaqz862inst = ln_instancia
+               and j.jaqz862esta = 'S';
+          exception
+            when others then
+              null;
+          end;
+        end if;
+      end if;
+    
+      if ld_FchIniAprob < ld_FchIniNPSD and ld_FchIniAprob >= ld_fchPSD then
+        lc_CtrlPSDAprob := 'S';
+      
+      else
+        if ld_FchIniAprob >= ld_FchIniNPSD and ld_fchPSD < ld_FchIniNPSD then
+          lc_CtrlPSDAprob := 'S';
+        end if;
+      end if;
+    else
+      lc_CtrlPSDAprob := 'N';
+    
+    end if;
+  
+  end sp_cr_CtrlPSDAprob;
+  ----------------------------------------------------------
+  procedure sp_cr_MntPropAprob(ln_instancia in number,
+                               ln_mntprop   out number,
+                               ln_mntaprob  out number) is
+  
+  begin
+  
+    begin
+      select s.sng120mto
+        into ln_mntprop
+        from sng120 s
+       where s.sng120ins = ln_instancia
+         and s.sng120tsk = 'PROPUESTA';
+    exception
+      when others then
+        null;
+    end;
+  
+    begin
+      select X.XLLCAPITAL
+        into ln_mntaprob
+        from x054023 x, xwf700 w
+       where x.xllpgcod = w.xwfempresa
+         and x.xllaomod = w.xwfmodulo
+         and x.xllaosuc = w.xwfsucursal
+         and x.xllaomda = w.xwfmoneda
+         and x.xllaopap = w.xwfpapel
+         and x.xllaocta = w.xwfcuenta
+         and x.xllaooper = w.xwfoperacion
+         and x.xllaosbop = w.xwfsubope
+         and x.xllaotop = w.xwftipope
+         and w.xwfprcins = ln_instancia
+         and w.xwfcar3 = '1';
+    exception
+      when others then
+        null;
+    end;
+  
+  end sp_cr_MntPropAprob;
+  -----------------------------------------------------------
+  procedure sp_cr_VerfPSDenEval(ln_instancia in number,
+                                lc_PSDEval   out varchar2) is
+  
+    ld_FchIniNPSD date;
+    ln_TipoSol    number;
+    ld_fchPSD     date;
+  
+  begin
+    begin
+      select s.sng021tmod
+        into ln_TipoSol
+        from sng021 s
+       where s.sng021sol = ln_Instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    if ln_TipoSol = 13 then
+      begin
+        select max(j.jaqy327fech)
+          into ld_fchPSD
+          from jaqy327 j
+         where j.jaqy327inst = ln_instancia
+           and j.jaqy327esta = 'S';
+      exception
+        when others then
+          null;
+      end;
+    
+    else
+      if ln_TipoSol = 14 then
+      
+        begin
+          select max(j.jaqz862fech)
+            into ld_fchPSD
+            from jaqz862 j
+           where j.jaqz862inst = ln_instancia
+             and j.jaqz862esta = 'S';
+        exception
+          when others then
+            null;
+        end;
+      end if;
+    end if;
+  
+    --Fecha de Inicio de Nuevo Panel Saldo Deudor
+    begin
+      select to_date(TRIM(F.TP1DESC), 'YYYY/MM/DD')
+        into ld_FchIniNPSD
+        from FST198 f
+       where f.tp1cod = 1
+         and f.tp1cod1 = 11105
+         and f.tp1corr1 = 23
+         and f.tp1corr2 = 1
+         and f.tp1corr3 = 1;
+    exception
+      when others then
+        null;
+    end;
+  
+    if ld_FchIniNPSD > ld_fchPSD then
+      lc_PSDEval := 'S';
+    else
+      lc_PSDEval := 'N';
+    end if;
+  
+  end sp_cr_VerfPSDenEval;
+  --------------------------------------------------------
+  procedure sp_cr_CuotaPotnclCMAC(ln_instancia in number,
+                                  ln_Pepais    in number,
+                                  ln_Petdoc    in number,
+                                  ln_Pendoc    in varchar2,
+                                  pd_fecpro    in date,
+                                  ln_tarea     in number,
+                                  lc_flgprg    in varchar2,
+                                  ln_PtnclCMAC out number) is
+  
+    cursor lineasvig is
+      select d10.pgcod  ln_pgcod10,
+             d10.aomod  ln_mod10,
+             d10.aosuc  ln_suc10,
+             d10.aomda  ln_mda10,
+             d10.aopap  ln_pap10,
+             d10.aocta  ln_cta10,
+             d10.aooper ln_oper10,
+             d10.aosbop ln_sbop10,
+             d10.aotope ln_tope10
+        from fsd010 d10
+       where d10.Pgcod = 1
+         and d10.Aocta in
+             (select Ctnro
+                from fsr008
+               where pepais = ln_Pepais
+                 and Petdoc = ln_Petdoc
+                 and pendoc = rpad(ln_Pendoc, 12))
+         and d10.Aomod = 117
+         and d10.Aostat <> 99
+         and d10.aofvto >= pd_fecpro
+      union
+      select b.pgcod  ln_pgcod10,
+             b.aomod  ln_mod10,
+             b.aosuc  ln_suc10,
+             b.aomda  ln_mda10,
+             b.aopap  ln_pap10,
+             b.aocta  ln_cta10,
+             b.aooper ln_oper10,
+             b.aosbop ln_sbop10,
+             b.aotope ln_tope10
+        from fsr008 a, fsd010 b, fsr002 c
+       where c.pepais = ln_Pepais
+         and c.petdoc = ln_Petdoc
+         and c.pendoc = rpad(ln_Pendoc, 12)
+         and a.pgcod = b.pgcod
+         and a.ctnro = b.aocta
+         and b.Aomod = 117
+         and b.aostat <> 99
+         and a.pepais = c.rppais
+         and a.petdoc = c.rptdoc
+         and a.pendoc = c.rpndoc
+         and c.rpccyg = 66
+         and b.aofvto >= pd_fecpro;
+  
+    cursor disposiciones(ln_pgcod number,
+                         ln_mod   number,
+                         ln_suc   number,
+                         ln_mda   number,
+                         ln_pap   number,
+                         ln_cta   number,
+                         ln_ope   number,
+                         ln_sbop  number,
+                         ln_tope  number) is
+    
+      select r1cod  ln_pgcod116,
+             r1mod  ln_modulo116,
+             r1suc  ln_sucursal116,
+             r1mda  ln_moneda116,
+             r1pap  ln_papel116,
+             r1cta  ln_cuenta116,
+             r1oper ln_operacion116,
+             r1sbop ln_sbop116,
+             r1tope ln_top116
+        from fsr011 f
+       where f.r2cod = ln_pgcod
+         and f.r2mod = ln_mod
+         and f.r2suc = ln_suc
+         and f.r2cta = ln_cta
+         and f.r2oper = ln_ope
+         and f.r2sbop = ln_sbop
+         and f.r2mda = ln_mda
+         and f.r2pap = ln_pap
+         and f.r2tope = ln_tope
+         and f.relcod = 46
+       order by f.r1oper;
+  
+    ln_pgcod116      number;
+    ln_modulo116     number;
+    ln_sucursal116   number;
+    ln_moneda116     number;
+    ln_papel116      number;
+    ln_cuenta116     number;
+    ln_operacion116  number;
+    ln_sbop116       number;
+    ln_top116        number;
+    ln_LineaTotal    number(17, 2) := 0.00;
+    ln_LineaUtilzd   number(17, 2) := 0.00;
+    ln_DispVignt     number;
+    ln_MntDispnb     number(17, 2) := 0.00;
+    ln_rubro         number;
+    ln_RubroDispos   number;
+    lc_SegmntoActual number;
+    ln_cuodisp       number(17, 2) := 0.01;
+    ln_tipocambio    number(10.6);
+    ld_maxfech       date;
+    lc_Vinculado     varchar2(2) := 'N';
+  
+  begin
+  
+    begin
+      UPDATE jaqy142L j
+         set jaqy142Lest = 'I'
+       where j.jaqy142Linst = ln_Instancia
+         and j.jaqy142Lest = 'H';
+      commit;
+    end;
+  
+    begin
+      select s. sng120tcbi
+        into ln_tipocambio
+        from sng120 s
+       where s.sng120ins = ln_Instancia
+         and s.sng120tsk = 'EVALUACION';
+    exception
+      when others then
+        ln_tipocambio := 0;
+    end;
+  
+    if ln_tipocambio = 0 then
+    
+      ln_tipocambio := fn_tipo_cambio_fijo(P_FECHA => pd_fecpro);
+    
+    end if;
+  
+    begin
+      Pq_Cr_Consultaburo.sp_cr_SegmntoActual(ln_Instancia,
+                                             lc_SegmntoActual);
+    end;
+  
+    if lc_SegmntoActual = 1 then
+    
+      for l in lineasvig loop
+      
+        ln_cuodisp     := 0.01;
+        lc_Vinculado   := 'N';
+        ln_MntDispnb   := 0.00;
+        ln_DispVignt   := 0;
+        ln_LineaUtilzd := 0.00;
+        ln_RubroDispos := 0;
+      
+        pq_cr_resolutor_cappago.sp_cr_VerVincLinea(ln_mod10  => l.ln_mod10,
+                                                   ln_suc10  => l.ln_suc10,
+                                                   ln_mda10  => l.ln_mda10,
+                                                   ln_pap10  => l.ln_pap10,
+                                                   ln_cta10  => l.ln_cta10,
+                                                   ln_oper10 => l.ln_oper10,
+                                                   ln_sbop10 => l.ln_sbop10,
+                                                   ln_tope10 => l.ln_tope10,
+                                                   lc_FlgLn  => lc_Vinculado);
+      
+        if lc_Vinculado = 'N' then
+        
+          for d in disposiciones(l.ln_pgcod10, l.ln_mod10, l.ln_suc10, l.ln_mda10, l.ln_pap10, l.ln_cta10, l.ln_oper10, l.ln_sbop10, l.ln_tope10) loop
+          
+            ln_MntDispnb   := 0.00;
+            ln_DispVignt   := 0;
+            ln_LineaUtilzd := 0.00;
+            ln_RubroDispos := 0;
+            ln_cuodisp     := 0.01;
+          
+            begin
+              select count(*)
+                into ln_DispVignt
+                from fsd010 f
+               where f.pgcod = d.ln_pgcod116
+                 and f.aomod = d.ln_modulo116
+                 and f.aosuc = d.ln_sucursal116
+                 and f.aomda = d.ln_moneda116
+                 and f.aopap = d.ln_papel116
+                 and f.aocta = d.ln_cuenta116
+                 and f.aooper = d.ln_operacion116
+                 and f.aosbop = d.ln_sbop116
+                 and f.aotope = d.ln_top116
+                 and f.aostat = 0;
+            exception
+              when others then
+                null;
+            end;
+          
+            if ln_DispVignt > 0 then
+            
+              begin
+                select f.scsdo, f.scrub
+                  into ln_LineaUtilzd, ln_RubroDispos
+                  from fsd011 f
+                 where f.pgcod = d.ln_pgcod116
+                   and f.scsuc = d.ln_sucursal116
+                   and f.scmda = d.ln_moneda116
+                   and f.scpap = d.ln_papel116
+                   and f.sccta = d.ln_cuenta116
+                   and f.scoper = d.ln_operacion116
+                   and f.scsbop = d.ln_sbop116
+                   and f.sctope = d.ln_top116
+                   and f.scmod = d.ln_modulo116;
+              exception
+                when others then
+                  ln_LineaUtilzd := 0.00;
+              end;
+            
+              begin
+                pq_cr_resolutor_cappago.sp_cuota_impaga(ln_pgcod10    => d.ln_pgcod116,
+                                                        ln_mod10      => d.ln_modulo116,
+                                                        ln_suc10      => d.ln_sucursal116,
+                                                        ln_mda10      => d.ln_moneda116,
+                                                        ln_pap10      => d.ln_papel116,
+                                                        ln_cta10      => d.ln_cuenta116,
+                                                        ln_oper10     => d.ln_operacion116,
+                                                        ln_subop10    => d.ln_sbop116,
+                                                        ln_tope10     => d.ln_top116,
+                                                        tipocambio    => ln_tipocambio,
+                                                        ln_cuoimp     => ln_cuodisp,
+                                                        fech_maxcuota => ld_maxfech);
+              exception
+                when others then
+                  ln_cuodisp := 0.01;
+              end;
+            
+              if ln_LineaUtilzd < 0 then
+              
+                ln_LineaUtilzd := ln_LineaUtilzd * -1;
+              
+              end if;
+            
+              begin
+                select f.scsdo, f.scrub
+                  into ln_LineaTotal, ln_rubro
+                  from fsd011 f
+                 where f.pgcod = l.ln_pgcod10
+                   and f.scmod = l.ln_mod10
+                   and f.scsuc = l.ln_suc10
+                   and f.scmda = l.ln_mda10
+                   and f.scpap = l.ln_pap10
+                   and f.sccta = l.ln_cta10
+                   and f.scoper = l.ln_oper10
+                   and f.scsbop = l.ln_sbop10
+                   and f.sctope = l.ln_tope10;
+              exception
+                when others then
+                  ln_LineaTotal := 0.00;
+              end;
+            
+              if ln_LineaTotal < 0 then
+              
+                ln_LineaTotal := ln_LineaTotal * -1;
+              
+              end if;
+            
+              ln_MntDispnb := nvl(ln_LineaTotal, 0) -
+                              nvl(ln_LineaUtilzd, 0);
+            
+              begin
+                pq_cr_resolutor_cappago.sp_cr_insertJAQY142L(ln_INST     => ln_instancia,
+                                                             ln_PAIS     => ln_Pepais,
+                                                             ln_TDOC     => ln_Petdoc,
+                                                             lc_NDOC     => ln_Pendoc,
+                                                             ld_FECH     => pd_fecpro,
+                                                             ln_PGCOD    => l.ln_pgcod10,
+                                                             ln_MOD      => l.ln_mod10,
+                                                             ln_SUC      => l.ln_suc10,
+                                                             ln_MDA      => l.ln_mda10,
+                                                             ln_PAP      => l.ln_pap10,
+                                                             ln_CTA      => l.ln_cta10,
+                                                             ln_OPE      => l.ln_oper10,
+                                                             ln_SBOP     => l.ln_sbop10,
+                                                             ln_TOPE     => l.ln_tope10,
+                                                             ln_RUBRO    => ln_RubroDispos,
+                                                             ln_MNTCR    => ln_LineaTotal,
+                                                             ln_USADO    => ln_LineaUtilzd,
+                                                             ln_DISPB    => ln_MntDispnb,
+                                                             ln_tarea    => ln_tarea,
+                                                             lc_flgprg   => lc_flgprg,
+                                                             ln_mntcuota => ln_cuodisp,
+                                                             ln_segmento => lc_SegmntoActual);
+              exception
+                when others then
+                  null;
+                
+              end;
+            
+            end if;
+          end loop;
+        
+          begin
+            select f.scsdo, f.scrub
+              into ln_LineaTotal, ln_rubro
+              from fsd011 f
+             where f.pgcod = l.ln_pgcod10
+               and f.scmod = l.ln_mod10
+               and f.scsuc = l.ln_suc10
+               and f.scmda = l.ln_mda10
+               and f.scpap = l.ln_pap10
+               and f.sccta = l.ln_cta10
+               and f.scoper = l.ln_oper10
+               and f.scsbop = l.ln_sbop10
+               and f.sctope = l.ln_tope10;
+          exception
+            when others then
+              ln_LineaTotal := 0.00;
+          end;
+        
+          if ln_LineaTotal < 0 then
+          
+            ln_LineaTotal := ln_LineaTotal * -1;
+          
+          end if;
+        
+          ln_MntDispnb := nvl(ln_LineaTotal, 0) - nvl(ln_LineaUtilzd, 0);
+        
+          begin
+            pq_cr_resolutor_cappago.sp_cr_insertJAQY142L(ln_INST     => ln_instancia,
+                                                         ln_PAIS     => ln_Pepais,
+                                                         ln_TDOC     => ln_Petdoc,
+                                                         lc_NDOC     => ln_Pendoc,
+                                                         ld_FECH     => pd_fecpro,
+                                                         ln_PGCOD    => l.ln_pgcod10,
+                                                         ln_MOD      => l.ln_mod10,
+                                                         ln_SUC      => l.ln_suc10,
+                                                         ln_MDA      => l.ln_mda10,
+                                                         ln_PAP      => l.ln_pap10,
+                                                         ln_CTA      => l.ln_cta10,
+                                                         ln_OPE      => l.ln_oper10,
+                                                         ln_SBOP     => l.ln_sbop10,
+                                                         ln_TOPE     => l.ln_tope10,
+                                                         ln_RUBRO    => ln_Rubro,
+                                                         ln_MNTCR    => ln_LineaTotal,
+                                                         ln_USADO    => ln_LineaUtilzd,
+                                                         ln_DISPB    => ln_MntDispnb,
+                                                         ln_tarea    => ln_tarea,
+                                                         lc_flgprg   => lc_flgprg,
+                                                         ln_mntcuota => ln_cuodisp,
+                                                         ln_segmento => lc_SegmntoActual);
+          exception
+            when others then
+              null;
+            
+          end;
+        end if;
+      end loop;
+    
+    else
+      if lc_SegmntoActual = 2 then
+      
+        for l in lineasvig loop
+          ln_cuodisp := 0.01;
+        
+          pq_cr_resolutor_cappago.sp_cr_VerVincLinea(ln_mod10  => l.ln_mod10,
+                                                     ln_suc10  => l.ln_suc10,
+                                                     ln_mda10  => l.ln_mda10,
+                                                     ln_pap10  => l.ln_pap10,
+                                                     ln_cta10  => l.ln_cta10,
+                                                     ln_oper10 => l.ln_oper10,
+                                                     ln_sbop10 => l.ln_sbop10,
+                                                     ln_tope10 => l.ln_tope10,
+                                                     lc_FlgLn  => lc_Vinculado);
+        
+          if lc_Vinculado = 'N' then
+            for d in disposiciones(l.ln_pgcod10, l.ln_mod10, l.ln_suc10, l.ln_mda10, l.ln_pap10, l.ln_cta10, l.ln_oper10, l.ln_sbop10, l.ln_tope10) loop
+            
+              ln_MntDispnb   := 0.00;
+              ln_DispVignt   := 0;
+              ln_LineaUtilzd := 0.00;
+              ln_RubroDispos := 0;
+              ln_cuodisp     := 0.01;
+            
+              begin
+                select count(*)
+                  into ln_DispVignt
+                  from fsd010 f
+                 where f.pgcod = d.ln_pgcod116
+                   and f.aomod = d.ln_modulo116
+                   and f.aosuc = d.ln_sucursal116
+                   and f.aomda = d.ln_moneda116
+                   and f.aopap = d.ln_papel116
+                   and f.aocta = d.ln_cuenta116
+                   and f.aooper = d.ln_operacion116
+                   and f.aosbop = d.ln_sbop116
+                   and f.aotope = d.ln_top116
+                   and f.aostat = 0;
+              exception
+                when others then
+                  null;
+                
+              end;
+            
+              if ln_DispVignt > 0 then
+              
+                begin
+                  select f.scsdo, f.scrub
+                    into ln_LineaUtilzd, ln_RubroDispos
+                    from fsd011 f
+                   where f.pgcod = d.ln_pgcod116
+                     and f.scsuc = d.ln_sucursal116
+                     and f.scmda = d.ln_moneda116
+                     and f.scpap = d.ln_papel116
+                     and f.sccta = d.ln_cuenta116
+                     and f.scoper = d.ln_operacion116
+                     and f.scsbop = d.ln_sbop116
+                     and f.sctope = d.ln_top116
+                     and f.scmod = d.ln_modulo116;
+                exception
+                  when others then
+                    ln_LineaUtilzd := 0.00;
+                end;
+              
+                begin
+                  pq_cr_resolutor_cappago.sp_cuota_impaga(ln_pgcod10    => d.ln_pgcod116,
+                                                          ln_mod10      => d.ln_modulo116,
+                                                          ln_suc10      => d.ln_sucursal116,
+                                                          ln_mda10      => d.ln_moneda116,
+                                                          ln_pap10      => d.ln_papel116,
+                                                          ln_cta10      => d.ln_cuenta116,
+                                                          ln_oper10     => d.ln_operacion116,
+                                                          ln_subop10    => d.ln_sbop116,
+                                                          ln_tope10     => d.ln_top116,
+                                                          tipocambio    => ln_tipocambio,
+                                                          ln_cuoimp     => ln_cuodisp,
+                                                          fech_maxcuota => ld_maxfech);
+                
+                exception
+                  when others then
+                    ln_cuodisp := 0.01;
+                end;
+              
+                if ln_LineaUtilzd < 0 then
+                
+                  ln_LineaUtilzd := ln_LineaUtilzd * -1;
+                
+                end if;
+              
+                begin
+                  select f.scsdo, f.scrub
+                    into ln_LineaTotal, ln_rubro
+                    from fsd011 f
+                   where f.pgcod = l.ln_pgcod10
+                     and f.scmod = l.ln_mod10
+                     and f.scsuc = l.ln_suc10
+                     and f.scmda = l.ln_mda10
+                     and f.scpap = l.ln_pap10
+                     and f.sccta = l.ln_cta10
+                     and f.scoper = l.ln_oper10
+                     and f.scsbop = l.ln_sbop10
+                     and f.sctope = l.ln_tope10;
+                exception
+                  when others then
+                    ln_LineaTotal := 0.00;
+                end;
+              
+                if ln_LineaTotal < 0 then
+                
+                  ln_LineaTotal := ln_LineaTotal * -1;
+                
+                end if;
+              
+                ln_MntDispnb := nvl(ln_LineaTotal, 0) -
+                                nvl(ln_LineaUtilzd, 0);
+              
+                begin
+                  pq_cr_resolutor_cappago.sp_cr_insertJAQY142L(ln_INST     => ln_instancia,
+                                                               ln_PAIS     => ln_Pepais,
+                                                               ln_TDOC     => ln_Petdoc,
+                                                               lc_NDOC     => ln_Pendoc,
+                                                               ld_FECH     => pd_fecpro,
+                                                               ln_PGCOD    => l.ln_pgcod10,
+                                                               ln_MOD      => l.ln_mod10,
+                                                               ln_SUC      => l.ln_suc10,
+                                                               ln_MDA      => l.ln_mda10,
+                                                               ln_PAP      => l.ln_pap10,
+                                                               ln_CTA      => l.ln_cta10,
+                                                               ln_OPE      => l.ln_oper10,
+                                                               ln_SBOP     => l.ln_sbop10,
+                                                               ln_TOPE     => l.ln_tope10,
+                                                               ln_RUBRO    => ln_RubroDispos,
+                                                               ln_MNTCR    => ln_LineaTotal,
+                                                               ln_USADO    => ln_LineaUtilzd,
+                                                               ln_DISPB    => ln_MntDispnb,
+                                                               ln_tarea    => ln_tarea,
+                                                               lc_flgprg   => lc_flgprg,
+                                                               ln_mntcuota => ln_cuodisp,
+                                                               ln_segmento => lc_SegmntoActual);
+                exception
+                  when others then
+                    null;
+                  
+                end;
+              
+              end if;
+            end loop;
+            begin
+              select f.scsdo, f.scrub
+                into ln_LineaTotal, ln_rubro
+                from fsd011 f
+               where f.pgcod = l.ln_pgcod10
+                 and f.scmod = l.ln_mod10
+                 and f.scsuc = l.ln_suc10
+                 and f.scmda = l.ln_mda10
+                 and f.scpap = l.ln_pap10
+                 and f.sccta = l.ln_cta10
+                 and f.scoper = l.ln_oper10
+                 and f.scsbop = l.ln_sbop10
+                 and f.sctope = l.ln_tope10;
+            exception
+              when others then
+                ln_LineaTotal := 0.00;
+            end;
+          
+            if ln_LineaTotal < 0 then
+            
+              ln_LineaTotal := ln_LineaTotal * -1;
+            
+            end if;
+          
+            ln_MntDispnb := nvl(ln_LineaTotal, 0) - nvl(ln_LineaUtilzd, 0);
+          
+            begin
+              pq_cr_resolutor_cappago.sp_cr_insertJAQY142L(ln_INST     => ln_instancia,
+                                                           ln_PAIS     => ln_Pepais,
+                                                           ln_TDOC     => ln_Petdoc,
+                                                           lc_NDOC     => ln_Pendoc,
+                                                           ld_FECH     => pd_fecpro,
+                                                           ln_PGCOD    => l.ln_pgcod10,
+                                                           ln_MOD      => l.ln_mod10,
+                                                           ln_SUC      => l.ln_suc10,
+                                                           ln_MDA      => l.ln_mda10,
+                                                           ln_PAP      => l.ln_pap10,
+                                                           ln_CTA      => l.ln_cta10,
+                                                           ln_OPE      => l.ln_oper10,
+                                                           ln_SBOP     => l.ln_sbop10,
+                                                           ln_TOPE     => l.ln_tope10,
+                                                           ln_RUBRO    => ln_Rubro,
+                                                           ln_MNTCR    => ln_LineaTotal,
+                                                           ln_USADO    => ln_LineaUtilzd,
+                                                           ln_DISPB    => ln_MntDispnb,
+                                                           ln_tarea    => ln_tarea,
+                                                           lc_flgprg   => lc_flgprg,
+                                                           ln_mntcuota => ln_cuodisp,
+                                                           ln_segmento => lc_SegmntoActual);
+            exception
+              when others then
+                null;
+              
+            end;
+          
+          end if;
+        end loop;
+      
+      end if;
+    end if;
+  
+  end sp_cr_CuotaPotnclCMAC;
+  -----------------------------------------------------------
+  procedure sp_cr_insertJAQY142L(ln_INST     in number,
+                                 ln_PAIS     in number,
+                                 ln_TDOC     in number,
+                                 lc_NDOC     in varchar2,
+                                 ld_FECH     in date,
+                                 ln_PGCOD    in number,
+                                 ln_MOD      in number,
+                                 ln_SUC      in number,
+                                 ln_MDA      in number,
+                                 ln_PAP      in number,
+                                 ln_CTA      in number,
+                                 ln_OPE      in number,
+                                 ln_SBOP     in number,
+                                 ln_TOPE     in number,
+                                 ln_RUBRO    in number,
+                                 ln_MNTCR    in number,
+                                 ln_USADO    in number,
+                                 ln_DISPB    in number,
+                                 ln_tarea    in number,
+                                 lc_flgprg   in varchar2,
+                                 ln_mntcuota in number,
+                                 ln_segmento in number) is
+  
+    ln_corr   number;
+    lc_hora   character(8);
+    lc_IndEst varchar2(2);
+  
+  begin
+  
+    begin
+      select max(j.jaqy142lcorr)
+        into ln_corr
+        from jaqy142l j
+       where j.jaqy142linst = ln_INST;
+    exception
+      when others then
+        ln_corr := 0;
+    end;
+  
+    ln_corr := nvl(ln_corr, 0);
+  
+    begin
+      select to_char(sysdate, 'HH24:MI:SS') into lc_hora from dual;
+    exception
+      when others then
+        null;
+    end;
+  
+    lc_IndEst := 'H';
+  
+    begin
+      insert into JAQY142L
+        (JAQY142LCORR,
+         JAQY142LINST,
+         JAQY142LPAIS,
+         JAQY142LTDOC,
+         JAQY142LNDOC,
+         JAQY142LFECH,
+         JAQY142LHORA,
+         JAQY142LPGCOD,
+         JAQY142LMOD,
+         JAQY142LSUC,
+         JAQY142LMDA,
+         JAQY142LPAP,
+         JAQY142LCTA,
+         JAQY142LOPE,
+         JAQY142LSBOP,
+         JAQY142LTOPE,
+         JAQY142LRUBRO,
+         JAQY142LMNTCR,
+         JAQY142LUSADO,
+         JAQY142LDISPB,
+         JAQY142LEST,
+         JAQY142LSEGMN,
+         JAQY142LCUOTA,
+         JAQY142LTAREA)
+      values
+        (ln_corr + 1,
+         ln_INST,
+         ln_PAIS,
+         ln_TDOC,
+         lc_NDOC,
+         ld_FECH,
+         lc_HORA,
+         ln_PGCOD,
+         ln_MOD,
+         ln_SUC,
+         ln_MDA,
+         ln_PAP,
+         ln_CTA,
+         ln_OPE,
+         ln_SBOP,
+         ln_TOPE,
+         ln_RUBRO,
+         ln_MNTCR,
+         ln_USADO,
+         ln_DISPB,
+         lc_IndEst,
+         ln_segmento,
+         ln_mntcuota,
+         ln_tarea);
+      commit;
+    end;
+  end;
+
+  ----------------------------------------------------------
+  procedure sp_cr_maxcuotppago(ln_pgcod10 in number,
+                               ln_mod10   in number,
+                               ln_suc10   in number,
+                               ln_mda10   in number,
+                               ln_pap10   in number,
+                               ln_cta10   in number,
+                               ln_oper10  in number,
+                               ln_subop10 in number,
+                               ln_tope10  in number,
+                               tipocambio in number,
+                               ln_cuoimp  out number) is
+  
+    lc_estado   character(1);
+    ld_fecha    date;
+    ln_tieneSeg number;
+  
+  begin
+  
+    begin
+      select count(*)
+        into ln_tieneSeg
+        from fsd611 f
+       where f.pgcod = ln_pgcod10
+         and f.ppmod = ln_mod10
+         and f.ppsuc = ln_suc10
+         and f.ppmda = ln_mda10
+         and f.pppap = ln_pap10
+         and f.ppcta = ln_cta10
+         and f.ppoper = ln_oper10
+         and f.ppsbop = ln_subop10
+         and f.pptope = ln_tope10;
+    exception
+      when others then
+        ln_tieneSeg := 0;
+    end;
+  
+    if ln_mod10 <> 117 then
+    
+      BEGIN
+        select max(ppfpag)
+          into ld_fecha
+          from fsd602 f
+         where f.pgcod = ln_pgcod10
+           and f.ppmod = ln_mod10
+           and f.ppsuc = ln_suc10
+           and f.ppmda = ln_mda10
+           and f.pppap = ln_pap10
+           and f.ppcta = ln_cta10
+           and f.ppoper = ln_oper10
+           and f.ppsbop = ln_subop10
+           and f.pptope = ln_tope10
+           and D602CO = 'S'
+           and (f.pp1cap + f.pp1int) > 0; -- 24.08.2022 mpostigoc
+      exception
+        when others then
+          NULL;
+      END;
+    
+      begin
+        select max(f602.pp1stat) --, ppfpag
+          into lc_estado
+          from fsd602 f602
+         where f602.pgcod = ln_pgcod10
+           and f602.ppmod = ln_mod10
+           and f602.ppsuc = ln_suc10
+           and f602.ppmda = ln_mda10
+           and f602.pppap = ln_pap10
+           and f602.ppcta = ln_cta10
+           and f602.ppoper = ln_oper10
+           and f602.ppsbop = ln_subop10
+           and f602.pptope = ln_tope10
+           and f602.ppfpag = ld_fecha
+           and D602CO = 'S';
+      exception
+        when others then
+          NULL;
+      end;
+    
+      lc_estado := nvl(lc_estado, null);
+    
+      if lc_estado = 'T' or lc_estado = 'P' then
+        if lc_estado = 'P' and ln_tieneSeg > 0 then
+        
+          begin
+            select max(ppcap + ppint + ppimp11 + ppimp12 + ppimp13 +
+                       ppimp14 + ppimp15)
+              into ln_cuoimp
+              from fsd601 f, fsd611 d
+             where f.pgcod = d.pgcod
+               and f.ppmod = d.ppmod
+               and f.ppsuc = d.ppsuc
+               and f.ppmda = d.ppmda
+               and f.pppap = d.pppap
+               and f.ppcta = d.ppcta
+               and f.ppoper = d.ppoper
+               and f.ppsbop = d.ppsbop
+               and f.pptope = d.pptope
+               and f.ppfpag = d.ppfpag
+               and f.pgcod = ln_pgcod10
+               and f.ppmod = ln_mod10
+               and f.ppsuc = ln_suc10
+               and f.ppmda = ln_mda10
+               and f.pppap = ln_pap10
+               and f.ppcta = ln_cta10
+               and f.ppoper = ln_oper10
+               and f.ppsbop = ln_subop10
+               and f.pptope = ln_tope10
+               and f.ppfpag >= ld_fecha;
+            -- and rownum = 1;
+          exception
+            when too_many_rows then
+              begin
+                select max(ppcap + ppint + ppimp11 + ppimp12 + ppimp13 +
+                           ppimp14 + ppimp15)
+                  into ln_cuoimp
+                  from fsd601 f, fsd611 d
+                 where f.pgcod = d.pgcod
+                   and f.ppmod = d.ppmod
+                   and f.ppsuc = d.ppsuc
+                   and f.ppmda = d.ppmda
+                   and f.pppap = d.pppap
+                   and f.ppcta = d.ppcta
+                   and f.ppoper = d.ppoper
+                   and f.ppsbop = d.ppsbop
+                   and f.pptope = d.pptope
+                   and f.ppfpag = d.ppfpag
+                   and f.pgcod = ln_pgcod10
+                   and f.ppmod = ln_mod10
+                   and f.ppsuc = ln_suc10
+                   and f.ppmda = ln_mda10
+                   and f.pppap = ln_pap10
+                   and f.ppcta = ln_cta10
+                   and f.ppoper = ln_oper10
+                   and f.ppsbop = ln_subop10
+                   and f.pptope = ln_tope10
+                   and f.ppfpag >= ld_fecha
+                   and rownum = 1;
+              exception
+                when others then
+                  NULL;
+              end;
+            
+          end;
+        else
+          if lc_estado = 'P' and ln_tieneSeg = 0 then
+          
+            begin
+              select max(ppcap + ppint)
+                into ln_cuoimp
+                from fsd601 f
+               where f.pgcod = ln_pgcod10
+                 and f.ppmod = ln_mod10
+                 and f.ppsuc = ln_suc10
+                 and f.ppmda = ln_mda10
+                 and f.pppap = ln_pap10
+                 and f.ppcta = ln_cta10
+                 and f.ppoper = ln_oper10
+                 and f.ppsbop = ln_subop10
+                 and f.pptope = ln_tope10
+                 and f.ppfpag >= ld_fecha;
+              -- and rownum = 1;
+            exception
+              when too_many_rows then
+                begin
+                  select max(ppcap + ppint)
+                    into ln_cuoimp
+                    from fsd601 f
+                   where f.pgcod = ln_pgcod10
+                     and f.ppmod = ln_mod10
+                     and f.ppsuc = ln_suc10
+                     and f.ppmda = ln_mda10
+                     and f.pppap = ln_pap10
+                     and f.ppcta = ln_cta10
+                     and f.ppoper = ln_oper10
+                     and f.ppsbop = ln_subop10
+                     and f.pptope = ln_tope10
+                     and f.ppfpag >= ld_fecha
+                     and rownum = 1;
+                exception
+                  when others then
+                    NULL;
+                end;
+            end;
+          
+          else
+            if lc_estado = 'T' and ln_tieneSeg > 0 then
+            
+              begin
+                select max(ppcap + ppint + ppimp11 + ppimp12 + ppimp13 +
+                           ppimp14 + ppimp15)
+                  into ln_cuoimp
+                  from fsd601 f, fsd611 d
+                 where f.pgcod = d.pgcod
+                   and f.ppmod = d.ppmod
+                   and f.ppsuc = d.ppsuc
+                   and f.ppmda = d.ppmda
+                   and f.pppap = d.pppap
+                   and f.ppcta = d.ppcta
+                   and f.ppoper = d.ppoper
+                   and f.ppsbop = d.ppsbop
+                   and f.pptope = d.pptope
+                   and f.ppfpag = d.ppfpag
+                   and f.pgcod = ln_pgcod10
+                   and f.ppmod = ln_mod10
+                   and f.ppsuc = ln_suc10
+                   and f.ppmda = ln_mda10
+                   and f.pppap = ln_pap10
+                   and f.ppcta = ln_cta10
+                   and f.ppoper = ln_oper10
+                   and f.ppsbop = ln_subop10
+                   and f.pptope = ln_tope10
+                   and f.ppfpag > ld_fecha;
+                -- and rownum = 1;
+              exception
+                when too_many_rows then
+                  begin
+                    select max(ppcap + ppint + ppimp11 + ppimp12 + ppimp13 +
+                               ppimp14 + ppimp15)
+                      into ln_cuoimp
+                      from fsd601 f, fsd611 d
+                     where f.pgcod = d.pgcod
+                       and f.ppmod = d.ppmod
+                       and f.ppsuc = d.ppsuc
+                       and f.ppmda = d.ppmda
+                       and f.pppap = d.pppap
+                       and f.ppcta = d.ppcta
+                       and f.ppoper = d.ppoper
+                       and f.ppsbop = d.ppsbop
+                       and f.pptope = d.pptope
+                       and f.ppfpag = d.ppfpag
+                       and f.pgcod = ln_pgcod10
+                       and f.ppmod = ln_mod10
+                       and f.ppsuc = ln_suc10
+                       and f.ppmda = ln_mda10
+                       and f.pppap = ln_pap10
+                       and f.ppcta = ln_cta10
+                       and f.ppoper = ln_oper10
+                       and f.ppsbop = ln_subop10
+                       and f.pptope = ln_tope10
+                       and f.ppfpag > ld_fecha
+                       and rownum = 1;
+                  exception
+                    when others then
+                      NULL;
+                  end;
+                
+              end;
+            else
+              if lc_estado = 'T' and ln_tieneSeg = 0 then
+              
+                begin
+                  select max(ppcap + ppint)
+                    into ln_cuoimp
+                    from fsd601 f
+                   where f.pgcod = ln_pgcod10
+                     and f.ppmod = ln_mod10
+                     and f.ppsuc = ln_suc10
+                     and f.ppmda = ln_mda10
+                     and f.pppap = ln_pap10
+                     and f.ppcta = ln_cta10
+                     and f.ppoper = ln_oper10
+                     and f.ppsbop = ln_subop10
+                     and f.pptope = ln_tope10
+                     and f.ppfpag > ld_fecha;
+                  -- and rownum = 1;
+                exception
+                  when too_many_rows then
+                    begin
+                      select max(ppcap + ppint)
+                        into ln_cuoimp
+                        from fsd601 f
+                       where f.pgcod = ln_pgcod10
+                         and f.ppmod = ln_mod10
+                         and f.ppsuc = ln_suc10
+                         and f.ppmda = ln_mda10
+                         and f.pppap = ln_pap10
+                         and f.ppcta = ln_cta10
+                         and f.ppoper = ln_oper10
+                         and f.ppsbop = ln_subop10
+                         and f.pptope = ln_tope10
+                         and f.ppfpag > ld_fecha
+                         and rownum = 1;
+                    exception
+                      when others then
+                        NULL;
+                    end;
+                end;
+              end if;
+            end if;
+          end if;
+        end if;
+      
+      else
+        if lc_estado is null and ln_tieneSeg > 0 then
+          begin
+            select max(ppcap + ppint + ppimp11 + ppimp12 + ppimp13 +
+                       ppimp14 + ppimp15)
+              into ln_cuoimp
+              from fsd601 f, fsd611 d
+             where f.pgcod = d.pgcod
+               and f.ppmod = d.ppmod
+               and f.ppsuc = d.ppsuc
+               and f.ppmda = d.ppmda
+               and f.pppap = d.pppap
+               and f.ppcta = d.ppcta
+               and f.ppoper = d.ppoper
+               and f.ppsbop = d.ppsbop
+               and f.pptope = d.pptope
+               and f.ppfpag = d.ppfpag
+               and f.pgcod = ln_pgcod10
+               and f.ppmod = ln_mod10
+               and f.ppsuc = ln_suc10
+               and f.ppmda = ln_mda10
+               and f.pppap = ln_pap10
+               and f.ppcta = ln_cta10
+               and f.ppoper = ln_oper10
+               and f.ppsbop = ln_subop10
+               and f.pptope = ln_tope10;
+          exception
+            when others then
+              NULL;
+          end;
+        
+        else
+          if lc_estado is null and ln_tieneSeg = 0 then
+            begin
+              select max(ppcap + ppint)
+                into ln_cuoimp
+                from fsd601 f
+               where f.pgcod = ln_pgcod10
+                 and f.ppmod = ln_mod10
+                 and f.ppsuc = ln_suc10
+                 and f.ppmda = ln_mda10
+                 and f.pppap = ln_pap10
+                 and f.ppcta = ln_cta10
+                 and f.ppoper = ln_oper10
+                 and f.ppsbop = ln_subop10
+                 and f.pptope = ln_tope10;
+            exception
+              when others then
+                NULL;
+            end;
+          end if;
+        end if;
+      end if;
+    
+      if ln_mda10 = 101 then
+        ln_cuoimp := nvl(ln_cuoimp, 0) * tipocambio;
+      end if;
+    
+    end if;
+  
+  end sp_cr_maxcuotppago;
+  ----------------------------------------------------------------
+  procedure sp_cr_VerfLVInsertada(ln_instancia  in number,
+                                  lc_Estado     in varchar2,
+                                  ln_pgcod117   number,
+                                  ln_mod117     in number,
+                                  ln_suc117     in number,
+                                  ln_mda117     in number,
+                                  ln_pap117     in number,
+                                  ln_cta117     in number,
+                                  ln_ope117     in number,
+                                  ln_sbop117    in number,
+                                  ln_tope117    in number,
+                                  lc_RegInst116 out varchar2) is
+  
+    ln_pgcod116  number;
+    ln_mod116    number;
+    ln_suc116    number;
+    ln_mda116    number;
+    ln_pap116    number;
+    ln_cta116    number;
+    ln_ope116    number;
+    ln_sbop116   number;
+    ln_tope116   number;
+    ln_NroReg142 number;
+    lc_IndEst    varchar2(5) := 'H';
+  
+  begin
+    lc_RegInst116 := 'N';
+  
+    if lc_Estado = 'S' then
+    
+      lc_IndEst := 'H';
+    
+    else
+      if lc_Estado = 'R' then
+      
+        lc_IndEst := 'R';
+      
+      end if;
+    end if;
+  
+    begin
+      select a.r1cod,
+             a.r1mod,
+             a.r1suc,
+             a.r1mda,
+             a.r1pap,
+             a.r1cta,
+             a.r1oper,
+             a.r1sbop,
+             a.r1tope
+        into ln_pgcod116,
+             ln_mod116,
+             ln_suc116,
+             ln_mda116,
+             ln_pap116,
+             ln_cta116,
+             ln_ope116,
+             ln_sbop116,
+             ln_tope116
+        from fsr011 a, fsd010 b
+       where a.r2cod = ln_pgcod117
+         and a.r2mod = ln_mod117
+         and a.r2suc = ln_suc117
+         and a.r2mda = ln_mda117
+         and a.r2pap = ln_pap117
+         and a.r2cta = ln_cta117
+         and a.r2oper = ln_ope117
+         and a.r2sbop = ln_sbop117
+         and a.r2tope = ln_tope117
+         and a.r1cod = b.pgcod
+         and a.r1mod = b.aomod
+         and a.r1suc = b.aosuc
+         and a.r1mda = b.aomda
+         and a.r1pap = b.aopap
+         and a.r1cta = b.aocta
+         and a.r1oper = b.aooper
+         and a.r1sbop = b.aosbop
+         and a.r1tope = b.aotope
+         and b.aostat <> 99
+         and relcod = 46
+         and rownum = 1;
+    exception
+      when others then
+        null;
+    end;
+  
+    if ln_pgcod116 > 0 then
+    
+      begin
+        select count(*)
+          into ln_NroReg142
+          from jaqy142 j
+         where j.jaqy142inst = ln_instancia
+           and j.jaqy142pgcod = ln_pgcod116
+           and j.jaqy142mod = ln_mod116
+           and j.jaqy142suc = ln_suc116
+           and j.jaqy142mda = ln_mda116
+           and j.jaqy142pap = ln_pap116
+           and j.jaqy142cta = ln_cta116
+           and j.jaqy142ope = ln_ope116
+           and j.jaqy142sbop = ln_sbop116
+           and j.jaqy142tope = ln_tope116
+           and j.jaqy142est = lc_IndEst;
+      exception
+        when others then
+          null;
+      end;
+    
+      if ln_NroReg142 > 0 then
+        lc_RegInst116 := 'S';
+      else
+        lc_RegInst116 := 'N';
+      end if;
+    end if;
+  
+  end;
+  -------------------------------------------------------------
+  procedure sp_Cr_CuotPotencialEval(ln_Instancia  in number,
+                                    ln_CuotaPoten out number) is
+  
+    ln_TipoSol number;
+  
+  begin
+  
+    begin
+      select s.sng021tmod
+        into ln_TipoSol
+        from sng021 s
+       where s.sng021sol = ln_Instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    if ln_TipoSol = 13 then
+      begin
+        select sum(j.jaqy327cptn)
+          into ln_CuotaPoten
+          from jaqy327 j
+         where j.jaqy327inst = ln_Instancia
+           and j.jaqy327esta = 'S'
+           and j.jaqy327chek = '1'
+           and j.jaqy327flin = 'L';
+      exception
+        when others then
+          null;
+      end;
+    
+    else
+      if ln_TipoSol = 14 then
+      
+        begin
+          select sum(j.jaqz862cptn)
+            into ln_CuotaPoten
+            from jaqz862 j
+           where j.jaqz862inst = ln_Instancia
+             and j.jaqz862esta = 'S'
+             and j.jaqz862chek = '1'
+             and j.jaqz862flin = 'L';
+        exception
+          when others then
+            null;
+        end;
+      
+      end if;
+    
+    end if;
+  
+    ln_CuotaPoten := nvl(ln_CuotaPoten, 0);
+  
+  end sp_Cr_CuotPotencialEval;
+  -------------------------------------------------------------
+  procedure sp_Cr_VerfMantEval(ln_Instancia    in number,
+                               ln_InstAnterior out number,
+                               ln_DeuIFIS      out number) is
+  
+    ln_NroEval     number;
+    ln_ModEval     number;
+    ln_TienePSD    number;
+    ln_GFinanBTSol number(17, 2) := 0.00;
+    ln_GFinanBTDol number(17, 2) := 0.00;
+    lc_MantEval    varchar2(5) := 'N';
+    ln_pais        number;
+    ln_tdoc        number;
+    lc_ndoc        varchar2(12);
+    ln_TipCamb     number(14, 6) := 0.000;
+    ld_feval       date;
+    ld_FEvalAnt    date;
+    ld_FchAux      date;
+    ld_Fpag        date;
+    ld_Fval        date;
+    ld_FpagAnt     date;
+    ld_FvalAnt     date;
+    ln_InstAnte    number;
+  
+  begin
+  
+    begin
+      select s.sng021eval, s.sng021tmod
+        into ln_NroEval, ln_ModEval
+        from sng021 s
+       where s.sng021sol = ln_Instancia;
+    exception
+      when others then
+        null;
+    end;
+  
+    if ln_ModEval = 13 then
+    
+      begin
+        select count(*)
+          into ln_TienePSD
+          from jaqy327 j
+         where j.jaqy327inst = ln_Instancia
+           and j.jaqy327esta = 'S';
+      exception
+        when others then
+          null;
+      end;
+    
+      --Gastos Financieros en estado y ganancias y de gastos familiares
+      begin
+        select sum(s.sng023mto)
+          into ln_GFinanBTSol
+          from sng023 s
+         where s.sng021eval = ln_NroEval
+           and s.sng026cod in (19, 79);
+      exception
+        when others then
+          ln_GFinanBTSol := 0;
+      end;
+    
+      ln_GFinanBTSol := nvl(ln_GFinanBTSol, 0);
+    
+      begin
+        select sum(s.sng023mto)
+          into ln_GFinanBTDol
+          from sng023 s
+         where s.sng021eval = ln_NroEval
+           and s.sng026cod in (519, 579);
+      exception
+        when others then
+          ln_GFinanBTDol := 0;
+      end;
+    
+      ln_GFinanBTDol := nvl(ln_GFinanBTDol, 0);
+    
+      begin
+        select s.sng001pais, s.sng001tdoc, s.sng001ndoc
+          into ln_pais, ln_tdoc, lc_ndoc
+          from sng001 s
+         where s.sng001inst = ln_Instancia;
+      exception
+        when others then
+          null;
+      end;
+    
+      begin
+        select max(s.sng021sol)
+          into ln_InstAnte
+          from sng021 s, xwf070 x
+         where s.sng021sol = x.xwfprcin
+           and x.xwfcont = 'S'
+           and s.sng021pdoc = ln_pais
+           and s.sng021tdoc = ln_tdoc
+           and s.sng021ndoc = lc_ndoc
+           and s.sng021tmod = ln_ModEval
+           and s.sng021sol < ln_Instancia;
+      exception
+        when others then
+          ln_InstAnte := 0;
+      end;
+    
+      begin
+        select s.sng120fpag, s.sng120fval
+          into ld_Fpag, ld_Fval
+          from sng120 s
+         where s.sng120ins = ln_Instancia
+           and s.sng120tsk = 'EVALUACION';
+      exception
+        when others then
+          null;
+      end;
+    
+      ld_FchAux := to_Date('01/07/2013', 'dd/mm/yyyy');
+    
+      if ld_Fpag > ld_FchAux then
+        ld_Feval := ld_Fpag;
+      else
+        if ld_Fval > ld_FchAux then
+          ld_Feval := ld_Fval;
+        end if;
+      end if;
+    
+      begin
+        select s.sng120fpag, s.sng120fval
+          into ld_FpagAnt, ld_FvalAnt
+          from sng120 s
+         where s.sng120ins = ln_InstAnte
+           and s.sng120tsk = 'EVALUACION';
+      exception
+        when others then
+          null;
+      end;
+    
+      if ld_FpagAnt > ld_FchAux then
+        ld_FevalAnt := ld_FpagAnt;
+      else
+        if ld_FvalAnt > ld_FchAux then
+          ld_FevalAnt := ld_FvalAnt;
+        end if;
+      end if;
+    
+      if (ln_GFinanBTSol > 0 or ln_GFinanBTDol > 0) and ln_TienePSD = 0 /*and
+                                                                                                         ld_FevalAnt = ld_Feval*/
+       then
+      
+        lc_MantEval     := 'S';
+        ln_InstAnterior := ln_InstAnte;
+      
+      end if;
+    
+      if lc_MantEval = 'S' then
+      
+        begin
+          select s.sng120tcbi
+            into ln_TipCamb
+            from sng120 s
+           where s.sng120ins = ln_Instancia
+             and s.sng120tsk = 'EVALUACION';
+        exception
+          when others then
+            ln_TipCamb := 1;
+        end;
+      
+        if ln_InstAnterior > 0 then
+        
+          ln_DeuIFIS := ln_GFinanBTSol + (ln_GFinanBTDol * ln_TipCamb);
+          ln_DeuIFIS := nvl(ln_DeuIFIS, 0);
+        
+        end if;
+      
+      end if;
+    
+    end if;
+  
+  end sp_Cr_VerfMantEval;
+  -------------------------------------------------------------
+end PQ_CR_RESOLUTOR_CAPPAGO;
+/
+

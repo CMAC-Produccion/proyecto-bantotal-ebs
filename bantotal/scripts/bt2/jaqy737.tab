@@ -1,0 +1,16 @@
+create table JAQY737
+(
+  jaqy737pais NUMBER(3) not null,
+  jaqy737tdoc NUMBER(2) not null,
+  jaqy737ndoc CHAR(12) not null,
+  jaqy737fec  DATE not null,
+  jaqy737csbs NUMBER(15),
+  jaqy737seg  CHAR(60),
+  jaqy737sol  NUMBER(1),
+  jaqy737des  NUMBER(1),
+  jaqy737nent NUMBER(10)
+)
+;
+alter table JAQY737
+  add primary key (JAQY737PAIS, JAQY737TDOC, JAQY737NDOC, JAQY737FEC);
+

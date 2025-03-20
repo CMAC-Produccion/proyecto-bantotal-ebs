@@ -1,0 +1,28 @@
+create table PPG004
+(
+  ppg004cod  NUMBER(3) not null,
+  ppg004mod  NUMBER(3) not null,
+  ppg004suc  NUMBER(3) not null,
+  ppg004mda  NUMBER(4) not null,
+  ppg004pap  NUMBER(4) not null,
+  ppg004cta  NUMBER(9) not null,
+  ppg004ope  NUMBER(9) not null,
+  ppg004sbo  NUMBER(3) not null,
+  ppg004top  NUMBER(3) not null,
+  ppg004cor  NUMBER(3) not null,
+  ppg004frm  NUMBER(3) not null,
+  ppg004cdat NUMBER(5) not null,
+  ppg004dato NUMBER(17,2),
+  ppg004au1  NUMBER(9),
+  ppg004au2  NUMBER(9),
+  ppg004au3  NUMBER(17,2),
+  ppg004au4  DATE,
+  ppg004au5  DATE,
+  ppg004au6  CHAR(30),
+  ppg004au7  CHAR(30)
+)
+;
+create index PPG00402 on PPG004 (PPG004CDAT);
+alter table PPG004
+  add primary key (PPG004COD, PPG004MOD, PPG004SUC, PPG004MDA, PPG004PAP, PPG004CTA, PPG004OPE, PPG004SBO, PPG004TOP, PPG004COR, PPG004FRM, PPG004CDAT);
+

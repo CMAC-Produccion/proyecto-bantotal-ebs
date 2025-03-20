@@ -1,0 +1,42 @@
+create table AQPC301
+(
+  aqpc301cor    VARCHAR2(20) not null,
+  aqpc301can    VARCHAR2(20) not null,
+  aqpc301codcan CHAR(1),
+  aqpc301dsc    VARCHAR2(50),
+  aqpc301dir    VARCHAR2(50),
+  aqpc301lati   VARCHAR2(20),
+  aqpc301long   VARCHAR2(20),
+  aqpc301cal    NUMBER(1),
+  aqpc301usu    CHAR(10),
+  aqpc301fec    DATE,
+  aqpc301hor    CHAR(8)
+)
+;
+comment on table AQPC301
+  is 'Tabla Nuevos Canales Alternativos';
+comment on column AQPC301.aqpc301cor
+  is 'Correlativo de Canal';
+comment on column AQPC301.aqpc301can
+  is 'Nombre de Canal';
+comment on column AQPC301.aqpc301codcan
+  is 'Código de Canal';
+comment on column AQPC301.aqpc301dsc
+  is 'Descripción de Canal';
+comment on column AQPC301.aqpc301dir
+  is 'Dirección de Canal';
+comment on column AQPC301.aqpc301lati
+  is 'Latitud de Canal';
+comment on column AQPC301.aqpc301long
+  is 'Longitud de Canal';
+comment on column AQPC301.aqpc301cal
+  is 'Calificación de Canal';
+comment on column AQPC301.aqpc301usu
+  is 'Usuaio de registro';
+comment on column AQPC301.aqpc301fec
+  is 'Fecha de registro';
+comment on column AQPC301.aqpc301hor
+  is 'Hora de registro';
+alter table AQPC301
+  add primary key (AQPC301COR, AQPC301CAN);
+

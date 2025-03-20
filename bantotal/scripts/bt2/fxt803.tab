@@ -1,0 +1,13 @@
+create table FXT803
+(
+  swtcod    NUMBER(5) not null,
+  swtrel    NUMBER(2) not null,
+  swtcpo    NUMBER(2) not null,
+  swtcpofmt CHAR(1) not null,
+  cpofmtsel CHAR(1) not null,
+  s803dummy NUMBER(1)
+)
+;
+alter table FXT803
+  add primary key (SWTCOD, SWTREL, SWTCPO, SWTCPOFMT, CPOFMTSEL);
+

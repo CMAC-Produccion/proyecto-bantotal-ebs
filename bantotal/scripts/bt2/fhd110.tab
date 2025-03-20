@@ -1,0 +1,35 @@
+create table FHD110
+(
+  pgcod      NUMBER(3) not null,
+  sehmod     NUMBER(3) not null,
+  sehoper    NUMBER(9) not null,
+  sehmodid   NUMBER(5) not null,
+  sehmodnro  NUMBER(5),
+  sehintern  CHAR(1),
+  sehsuc     NUMBER(3),
+  seiamda    NUMBER(4),
+  seipmda    NUMBER(4),
+  seiamocsw1 CHAR(3),
+  seipmocsw1 CHAR(3),
+  seiatipo   NUMBER(3),
+  seiptipo   NUMBER(3),
+  sehpap     NUMBER(4),
+  seiacta    NUMBER(9),
+  seipcta    NUMBER(9),
+  sehfing    DATE,
+  seiafvto   DATE,
+  seipfvto   DATE,
+  sehfval    DATE,
+  sehuser    CHAR(10),
+  sehws      CHAR(10),
+  seiaaoimp  NUMBER(17,2),
+  seipaoimp  NUMBER(17,2),
+  seiambcod  NUMBER(1),
+  seipmbcod  NUMBER(2),
+  seiasaldo  NUMBER(17,2),
+  seipsaldo  NUMBER(17,2)
+)
+;
+alter table FHD110
+  add primary key (PGCOD, SEHMOD, SEHOPER, SEHMODID);
+

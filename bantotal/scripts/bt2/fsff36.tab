@@ -1,0 +1,32 @@
+create table FSFF36
+(
+  kdojcor    NUMBER(9) not null,
+  kdojcoraux NUMBER(9) not null,
+  kdojfvc    DATE,
+  kdojneg    NUMBER(9),
+  kdojmod    NUMBER(3),
+  kdojtrn    NUMBER(3),
+  kdojrel    NUMBER(4),
+  kdojtip    NUMBER(1),
+  kdojtrnom  CHAR(30),
+  kdojusr    CHAR(10),
+  kdojord    NUMBER(2),
+  kdojsbor   NUMBER(3),
+  kdojsuc    NUMBER(3),
+  kdojrub    NUMBER(16),
+  kdojnomrub CHAR(40),
+  kdojmda    NUMBER(4),
+  kdojpap    NUMBER(4),
+  kdojcta    NUMBER(9),
+  kdojnomcta CHAR(35),
+  kdojope    NUMBER(9),
+  kdojsbop   NUMBER(3),
+  kdojtop    NUMBER(3),
+  kdojimpdeb NUMBER(17,2),
+  kdojimphab NUMBER(17,2)
+)
+;
+create index FSFF3602 on FSFF36 (KDOJCOR, KDOJFVC, KDOJNEG, KDOJMOD, KDOJTRN, KDOJREL, KDOJTIP, KDOJCORAUX);
+alter table FSFF36
+  add primary key (KDOJCOR, KDOJCORAUX);
+

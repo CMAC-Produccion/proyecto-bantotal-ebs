@@ -1,0 +1,10 @@
+create table FPAE86
+(
+  pae86mftip NUMBER(5) not null,
+  pae84mfid  NUMBER(5) not null
+)
+;
+create index FPAE8602 on FPAE86 (PAE84MFID);
+alter table FPAE86
+  add primary key (PAE86MFTIP, PAE84MFID);
+

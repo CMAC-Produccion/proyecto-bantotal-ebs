@@ -1,0 +1,49 @@
+create table Z05122
+(
+  z05122pgc NUMBER(3) not null,
+  z05122cta NUMBER(9) not null,
+  z05122fac DATE not null,
+  z05122eor CHAR(10) not null,
+  z05122idc CHAR(22) not null,
+  z05122rfc CHAR(15) not null,
+  z05122sec NUMBER(3) not null,
+  z05122cor NUMBER(3) not null,
+  z05122trc NUMBER(2),
+  z05122tri NUMBER(2),
+  z05122cof DATE,
+  z05122coh CHAR(8),
+  z05122snt CHAR(3),
+  z05122enm CHAR(16),
+  z05122edv CHAR(1),
+  z05122fal DATE,
+  z05122fcp DATE,
+  z05122mon NUMBER(4),
+  z05122imp NUMBER(10,2),
+  z05122cb1 CHAR(8),
+  z05122cb2 CHAR(14),
+  z05122cb3 CHAR(8),
+  z05122cb4 CHAR(14),
+  z05122pvo NUMBER(3),
+  z05122pvd NUMBER(3),
+  z05122opr CHAR(3),
+  z05122ct2 NUMBER(9),
+  z05122rtd NUMBER(2),
+  z05122rnd CHAR(11),
+  z05122rnm CHAR(30),
+  z05122ax1 CHAR(1),
+  z05122ax2 CHAR(2),
+  z05122ins NUMBER(2),
+  z05122rc1 CHAR(3),
+  z05122rc2 CHAR(3),
+  z05122obs CHAR(80),
+  z05122usu CHAR(10),
+  z05122wst CHAR(10),
+  z05122est CHAR(2),
+  z05122ob1 CHAR(80),
+  z05122ob2 CHAR(30)
+)
+;
+create index Z0512202 on Z05122 (Z05122FCP);
+alter table Z05122
+  add primary key (Z05122PGC, Z05122CTA, Z05122FAC, Z05122EOR, Z05122IDC, Z05122RFC, Z05122SEC, Z05122COR);
+

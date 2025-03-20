@@ -1,0 +1,31 @@
+create table FPP046
+(
+  pp035cod  NUMBER(3) not null,
+  pp035mod  NUMBER(3) not null,
+  pp035suc  NUMBER(3) not null,
+  pp035mda  NUMBER(4) not null,
+  pp035pap  NUMBER(4) not null,
+  pp035cta  NUMBER(9) not null,
+  pp035oper NUMBER(9) not null,
+  pp035sbop NUMBER(3) not null,
+  pp035top  NUMBER(3) not null,
+  pp035md   NUMBER(3) not null,
+  pp035tp   NUMBER(3) not null,
+  tpizar    NUMBER(2) not null,
+  pp046fdes DATE not null,
+  pp046mto  NUMBER(17,2) not null,
+  pp046pzo  NUMBER(5) not null,
+  pp046tasa NUMBER(10,6),
+  pp046ttas NUMBER(1),
+  pp046tol  NUMBER(7,4),
+  pp046aux1 CHAR(1),
+  pp046aux2 CHAR(1),
+  pp046aux3 NUMBER(10,6),
+  pp046aux4 DATE
+)
+;
+create index FPP04602 on FPP046 (TPIZAR);
+create index FPP04604 on FPP046 (PP035COD, PP035MOD, PP035SUC, PP035MDA, PP035PAP, PP035CTA, PP035OPER, PP035SBOP, PP035TOP, PP035MD, PP035TP, PP046FDES);
+alter table FPP046
+  add primary key (PP035COD, PP035MOD, PP035SUC, PP035MDA, PP035PAP, PP035CTA, PP035OPER, PP035SBOP, PP035TOP, PP035MD, PP035TP, TPIZAR, PP046FDES, PP046MTO, PP046PZO);
+

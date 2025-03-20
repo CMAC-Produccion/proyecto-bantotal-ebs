@@ -1,0 +1,34 @@
+create table JAQZ235
+(
+  jaqz235tarje CHAR(19) not null,
+  jaqz235corre NUMBER(5) not null,
+  jaqz235fecha DATE,
+  jaqz235hora  CHAR(8),
+  jaqz235tipoo CHAR(1),
+  jaqz235ctaor VARCHAR2(30),
+  jaqz235ctade VARCHAR2(30),
+  jaqz235coent NUMBER(10),
+  jaqz235cotsv NUMBER(10),
+  jaqz235contr VARCHAR2(20),
+  jaqz235impor NUMBER(16,2),
+  jaqz235trdni CHAR(12),
+  jaqz235trtdo NUMBER(4),
+  jaqz235trnom VARCHAR2(50),
+  jaqz235auxv1 VARCHAR2(50),
+  jaqz235auxv2 VARCHAR2(50),
+  jaqz235auxv3 VARCHAR2(50),
+  jaqz235auxn1 NUMBER(9),
+  jaqz235auxn2 NUMBER(9),
+  jaqz235auxn3 NUMBER(8,2),
+  jaqz235direc VARCHAR2(60),
+  jaqz235telef NUMBER(9),
+  jaqz235celul NUMBER(9),
+  jaqz235conce NUMBER(4),
+  jaqz235tipot NUMBER(4),
+  jaqz235tipob CHAR(1),
+  jaqz235desc  VARCHAR2(100)
+)
+;
+alter table JAQZ235
+  add primary key (JAQZ235TARJE, JAQZ235CORRE);
+

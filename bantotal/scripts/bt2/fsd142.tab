@@ -1,0 +1,25 @@
+create table FSD142
+(
+  anocr3 NUMBER(4) not null,
+  mescr3 NUMBER(2) not null,
+  paicr3 NUMBER(3) not null,
+  tipcr3 NUMBER(2) not null,
+  doccr3 CHAR(12) not null,
+  percr3 CHAR(1),
+  actcr3 NUMBER(5),
+  empcr3 CHAR(1),
+  sexcr3 CHAR(1),
+  naccr3 DATE,
+  apecr3 CHAR(20),
+  ap2cr3 CHAR(20),
+  nomcr3 CHAR(40),
+  sigcr3 CHAR(20),
+  razcr3 CHAR(80),
+  comcr3 CHAR(50),
+  rescr3 CHAR(1)
+)
+;
+create index FSD14202 on FSD142 (PAICR3, TIPCR3, DOCCR3);
+alter table FSD142
+  add primary key (ANOCR3, MESCR3, PAICR3, TIPCR3, DOCCR3);
+

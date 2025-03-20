@@ -1,0 +1,25 @@
+create table AQPA383A
+(
+  aqpa383acorr    NUMBER(10) not null,
+  aqpa383apais    NUMBER(9) not null,
+  aqpa383atdoc    NUMBER(9) not null,
+  aqpa383andoc    VARCHAR2(12) not null,
+  aqpa383atcamb   NUMBER(14,8),
+  aqpa383afec     DATE not null,
+  aqpa383acorrp   NUMBER(10) not null,
+  aqpa383afchcor  DATE not null,
+  aqpa383adeucmac NUMBER(17,2),
+  aqpa383aniventa NUMBER(17,2),
+  aqpa383aratio   NUMBER(17,6),
+  aqpa383aest     VARCHAR2(2),
+  aqpa383ahora    CHAR(8) not null,
+  aqpa383auser    VARCHAR2(10),
+  aqpa383anaux1   NUMBER(17,2),
+  aqpa383anaux2   NUMBER(17,2),
+  aqpa383anaux3   NUMBER(17,2)
+)
+;
+create index AQPA383A2 on AQPA383A (AQPA383ACORR, AQPA383AFEC, AQPA383AHORA);
+alter table AQPA383A
+  add primary key (AQPA383ACORR, AQPA383APAIS, AQPA383ATDOC, AQPA383ANDOC, AQPA383ACORRP, AQPA383AFCHCOR, AQPA383AFEC, AQPA383AHORA);
+

@@ -1,0 +1,36 @@
+create table AQPA368
+(
+  aqpa368corr   NUMBER(10) not null,
+  aqpa368fec    DATE not null,
+  aqpa368hora   CHAR(10) not null,
+  aqpa368user   VARCHAR2(10),
+  aqpa368inst   NUMBER(10) not null,
+  aqpa368pais   NUMBER(9) not null,
+  aqpa368tdoc   NUMBER(9) not null,
+  aqpa368ndoc   VARCHAR2(12) not null,
+  aqpa368tdias  NUMBER(10,2),
+  aqpa368ncuot  NUMBER(10,2),
+  aqpa368promt  NUMBER(10,2),
+  aqpa368mormax NUMBER(10,2),
+  aqpa368naux1  NUMBER(17,2),
+  aqpa368naux2  NUMBER(17,2),
+  aqpa368naux3  NUMBER(17,2),
+  aqpa368naux4  NUMBER(17,2),
+  aqpa368naux5  NUMBER(17,2),
+  aqpa368vaux1  VARCHAR2(40),
+  aqpa368vaux2  VARCHAR2(40),
+  aqpa368vaux3  VARCHAR2(40),
+  aqpa368vaux4  VARCHAR2(40),
+  aqpa368vaux5  VARCHAR2(40),
+  aqpa368daux1  DATE,
+  aqpa368daux2  DATE,
+  aqpa368daux3  DATE
+)
+;
+create index AQPA3682 on AQPA368 (AQPA368FEC, AQPA368PAIS, AQPA368TDOC, AQPA368NDOC, AQPA368INST);
+create index AQPA3683 on AQPA368 (AQPA368FEC, AQPA368PAIS, AQPA368TDOC, AQPA368NDOC);
+create index AQPA3684 on AQPA368 (AQPA368INST, AQPA368FEC);
+create index AQPA3685 on AQPA368 (AQPA368INST);
+alter table AQPA368
+  add primary key (AQPA368CORR, AQPA368FEC, AQPA368PAIS, AQPA368TDOC, AQPA368NDOC, AQPA368INST, AQPA368HORA);
+

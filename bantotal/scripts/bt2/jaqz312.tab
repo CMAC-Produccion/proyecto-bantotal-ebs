@@ -1,0 +1,22 @@
+create table JAQZ312
+(
+  jaqz312nusec  NUMBER(18) not null,
+  jaqz312ferep  VARCHAR2(64) not null,
+  jaqz312acoid  VARCHAR2(230) not null,
+  jaqz312achid  VARCHAR2(230),
+  jaqz312msisdn VARCHAR2(230),
+  jaqz312profi  VARCHAR2(230),
+  jaqz312actyp  VARCHAR2(20),
+  jaqz312balan  NUMBER(17,2),
+  jaqz312curren VARCHAR2(3),
+  jaqz312bkdom  VARCHAR2(230),
+  jaqz312fearc  DATE,
+  jaqz312idarc  NUMBER(18),
+  jaqz312fepro  DATE,
+  jaqz312fgpro  NUMBER(1) default 0
+)
+;
+create index JAQZ3122 on JAQZ312 (JAQZ312FEARC);
+alter table JAQZ312
+  add primary key (JAQZ312NUSEC, JAQZ312FEREP, JAQZ312ACOID);
+

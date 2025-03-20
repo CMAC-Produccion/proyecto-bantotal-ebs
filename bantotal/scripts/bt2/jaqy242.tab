@@ -1,0 +1,31 @@
+create table JAQY242
+(
+  jaqy242cod NUMBER(3) not null,
+  jaqy242ori NUMBER(3) not null,
+  jaqy242nro NUMBER(9) not null,
+  jaqy242asi NUMBER(9) not null,
+  jaqy242ord NUMBER(2) not null,
+  jaqy242sbo NUMBER(3) not null,
+  jaqy242pla NUMBER(10) not null,
+  jaqy242suc NUMBER(3),
+  jaqy242mdl NUMBER(3),
+  jaqy242scd NUMBER(3),
+  jaqy242rub NUMBER(16),
+  jaqy242mda NUMBER(4),
+  jaqy242sub NUMBER(3),
+  jaqy242ope NUMBER(9),
+  jaqy242imp NUMBER(17,2),
+  jaqy242mdo NUMBER(4),
+  jaqy242tdh NUMBER(1),
+  jaqy242cta NUMBER(9),
+  jaqy242fvl DATE,
+  jaqy242cmp CHAR(10),
+  jaqy242anu CHAR(1),
+  jaqy242prv NUMBER(10),
+  jaqy242ser CHAR(6),
+  jaqy242num CHAR(10)
+)
+;
+alter table JAQY242
+  add primary key (JAQY242COD, JAQY242ORI, JAQY242NRO, JAQY242ASI, JAQY242ORD, JAQY242SBO, JAQY242PLA);
+

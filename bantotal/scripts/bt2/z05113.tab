@@ -1,0 +1,33 @@
+create table Z05113
+(
+  z05112apl NUMBER(4) not null,
+  z05112bnd CHAR(5) not null,
+  z05112cor NUMBER(9) not null,
+  z05112co2 NUMBER(9) not null,
+  z05113cor NUMBER(9) not null,
+  z05113tpr CHAR(1),
+  z05113tpd CHAR(2),
+  z05113ndo NUMBER(11),
+  z05113nlo NUMBER(5),
+  z05113ttr CHAR(1),
+  z05113fcp DATE,
+  z05113con CHAR(35),
+  z05113tar CHAR(19),
+  z05113tik CHAR(6),
+  z05113caj CHAR(16),
+  z05113fmm NUMBER(2),
+  z05113fdd NUMBER(2),
+  z05113deb NUMBER(3),
+  z05113ser CHAR(2),
+  z05113ofi CHAR(3),
+  z05113num CHAR(6),
+  z05113dig CHAR(1),
+  z05113cnt NUMBER(3),
+  z05113tim NUMBER(14,2),
+  z05113fil CHAR(5),
+  z05113est CHAR(2)
+)
+;
+alter table Z05113
+  add primary key (Z05112APL, Z05112BND, Z05112COR, Z05112CO2, Z05113COR);
+

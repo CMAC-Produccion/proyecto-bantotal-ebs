@@ -1,0 +1,12 @@
+create table WFDOCINST
+(
+  wfinsprcid  NUMBER(10) not null,
+  wfinsdocid  NUMBER(10) not null,
+  wfinsdoclng CHAR(3) not null,
+  wfinsdocver NUMBER(6) not null
+)
+;
+create index IWFINSTPRC11 on WFDOCINST (WFINSDOCID, WFINSDOCLNG, WFINSDOCVER);
+alter table WFDOCINST
+  add primary key (WFINSPRCID, WFINSDOCID, WFINSDOCLNG, WFINSDOCVER);
+

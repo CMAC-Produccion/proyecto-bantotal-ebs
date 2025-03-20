@@ -1,0 +1,29 @@
+create table JAQZ581
+(
+  jaqz581doc    VARCHAR2(12) not null,
+  jaqz581tdoc   VARCHAR2(20) not null,
+  jaqz581csbs   VARCHAR2(20) not null,
+  jaqz581docav  VARCHAR2(12) not null,
+  jaqz581tdocav VARCHAR2(20) not null,
+  jaqz581csbsav VARCHAR2(20) not null,
+  jaqz581nroe   NUMBER(4),
+  jaqz581nom    VARCHAR2(150),
+  jaqz581nome   VARCHAR2(150),
+  jaqz581nomav  VARCHAR2(150),
+  jaqz581cali   VARCHAR2(40),
+  jaqz581tipp   VARCHAR2(40),
+  jaqz581usu    VARCHAR2(12),
+  jaqz581fecha  DATE,
+  jaqz581au1    NUMBER(4),
+  jaqz581au2    NUMBER(16,2),
+  jaqz581au3    NUMBER(16,2),
+  jaqz581au4    CHAR(20),
+  jaqz581au5    VARCHAR2(40),
+  jaqz581au6    VARCHAR2(120),
+  jaqz581au7    VARCHAR2(120),
+  jaqz581au8    DATE
+)
+;
+alter table JAQZ581
+  add primary key (JAQZ581DOC, JAQZ581TDOC, JAQZ581CSBS, JAQZ581DOCAV, JAQZ581TDOCAV, JAQZ581CSBSAV);
+

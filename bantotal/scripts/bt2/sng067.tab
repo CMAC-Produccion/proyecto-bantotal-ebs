@@ -1,0 +1,12 @@
+create table SNG067
+(
+  sng049cod NUMBER(10) not null,
+  sng050grp NUMBER(3) not null,
+  sng051cod NUMBER(3) not null,
+  sng067cor NUMBER(3) not null,
+  sng067val CHAR(20)
+)
+;
+alter table SNG067
+  add primary key (SNG049COD, SNG050GRP, SNG051COD, SNG067COR);
+

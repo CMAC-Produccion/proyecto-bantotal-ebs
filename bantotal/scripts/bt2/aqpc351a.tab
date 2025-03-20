@@ -1,0 +1,39 @@
+create table AQPC351A
+(
+  aqpc351acod NUMBER(3) not null,
+  aqpc351afec DATE not null,
+  aqpc351acor NUMBER(8) not null,
+  aqpc351aest CHAR(1),
+  aqpc351ausr CHAR(10),
+  aqpc351afcr VARCHAR2(10),
+  aqpc351ahcr VARCHAR2(10),
+  aqpc351ausd CHAR(10),
+  aqpc351afed VARCHAR2(10),
+  aqpc351ahed VARCHAR2(10)
+)
+;
+comment on table AQPC351A
+  is 'Tabla Cabecera Reprogramados Reactiva';
+comment on column AQPC351A.aqpc351acod
+  is 'Código de empresa';
+comment on column AQPC351A.aqpc351afec
+  is 'Fecha de carga del archivo';
+comment on column AQPC351A.aqpc351acor
+  is 'Correlativo del archivo cargado';
+comment on column AQPC351A.aqpc351aest
+  is 'Estado del archivo';
+comment on column AQPC351A.aqpc351ausr
+  is 'Usuario de creación';
+comment on column AQPC351A.aqpc351afcr
+  is 'Fecha de creación';
+comment on column AQPC351A.aqpc351ahcr
+  is 'Hora de creación';
+comment on column AQPC351A.aqpc351ausd
+  is 'Usuario de edición';
+comment on column AQPC351A.aqpc351afed
+  is 'Fecha de edición';
+comment on column AQPC351A.aqpc351ahed
+  is 'Hora de edición';
+alter table AQPC351A
+  add primary key (AQPC351ACOD, AQPC351AFEC, AQPC351ACOR);
+

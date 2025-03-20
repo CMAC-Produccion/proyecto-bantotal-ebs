@@ -1,0 +1,49 @@
+create table JAQZ188
+(
+  jaqz188pgc NUMBER(3) not null,
+  jaqz188mod NUMBER(3) not null,
+  jaqz188suc NUMBER(3) not null,
+  jaqz188mda NUMBER(4) not null,
+  jaqz188pap NUMBER(4) not null,
+  jaqz188cta NUMBER(9) not null,
+  jaqz188ope NUMBER(9) not null,
+  jaqz188sbo NUMBER(3) not null,
+  jaqz188tpo NUMBER(3) not null,
+  jaqz188cte NUMBER(9),
+  jaqz188fep DATE,
+  jaqz188hop CHAR(8),
+  jaqz188usp CHAR(10),
+  jaqz188fev DATE,
+  jaqz188hev CHAR(8),
+  jaqz188uev CHAR(10),
+  jaqz188med NUMBER(1),
+  jaqz188est CHAR(1),
+  jaqz188mot VARCHAR2(400),
+  jaqz188cue CLOB,
+  jaqz188cbl BLOB,
+  jaqz188abl BLOB,
+  jaqz188mai VARCHAR2(800),
+  jaqz188ax1 NUMBER(9),
+  jaqz188ax2 NUMBER(9),
+  jaqz188ax3 NUMBER(17,2),
+  jaqz188ax4 NUMBER(17,2),
+  jaqz188ax5 DATE,
+  jaqz188ax6 DATE,
+  jaqz188ax7 CHAR(100),
+  jaqz188ax8 CHAR(100),
+  jaqz188ax9 CHAR(100),
+  jaqz188frg DATE,
+  jaqz188hrg CHAR(8),
+  jaqz188urg CHAR(10)
+)
+;
+comment on column JAQZ188.jaqz188frg
+  is 'FECHA DE REGULARIZACION';
+comment on column JAQZ188.jaqz188hrg
+  is 'HORA DE REGULARIZACION';
+comment on column JAQZ188.jaqz188urg
+  is 'USUARIO DE REGULARIZACION';
+create index JAQZ1882 on JAQZ188 (JAQZ188FEV);
+alter table JAQZ188
+  add primary key (JAQZ188PGC, JAQZ188MOD, JAQZ188SUC, JAQZ188MDA, JAQZ188PAP, JAQZ188CTA, JAQZ188OPE, JAQZ188SBO, JAQZ188TPO);
+

@@ -1,0 +1,28 @@
+create table FCPG41
+(
+  cpg41empbt NUMBER(3) not null,
+  cpg41conv  NUMBER(8) not null,
+  cpg41serv  NUMBER(3) not null,
+  cpg41fpres DATE not null,
+  cpg41nenv  NUMBER(3) not null,
+  cpg41nenve NUMBER(2),
+  cpg41facre NUMBER(8),
+  cpg41clot  NUMBER(4),
+  cpg41imptl NUMBER(17,2),
+  cpg41mda   NUMBER(4),
+  cpg41canal NUMBER(3),
+  cpg41genac CHAR(1),
+  cpg41fto   CHAR(8),
+  cpg41tpom  NUMBER(1),
+  cpg41est   CHAR(3),
+  cpg41blq   CHAR(1),
+  cpg41inst  NUMBER(10)
+)
+;
+create index FCPG4102 on FCPG41 (CPG41INST);
+create index FCPG4103 on FCPG41 (CPG41EMPBT, CPG41FPRES);
+create index FCPG4104 on FCPG41 (CPG41EMPBT, CPG41CONV, CPG41SERV, CPG41NENVE, CPG41FACRE);
+create index FCPG4105 on FCPG41 (CPG41EMPBT, CPG41CONV, CPG41FACRE, CPG41EST);
+alter table FCPG41
+  add primary key (CPG41EMPBT, CPG41CONV, CPG41SERV, CPG41FPRES, CPG41NENV);
+

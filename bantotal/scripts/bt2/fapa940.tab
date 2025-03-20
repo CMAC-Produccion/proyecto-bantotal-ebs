@@ -1,0 +1,34 @@
+create table FAPA940
+(
+  faivfea NUMBER(8) not null,
+  faivpgc NUMBER(3) not null,
+  faivsuc NUMBER(3) not null,
+  faivmod NUMBER(3) not null,
+  faivtrn NUMBER(3) not null,
+  faivrel NUMBER(4) not null,
+  faivcdo CHAR(3) not null,
+  faivnre NUMBER(5) not null,
+  faivfes NUMBER(8),
+  faivhos NUMBER(9),
+  faivusr CHAR(10),
+  faivope CHAR(2),
+  faivopc CHAR(1),
+  faivmdo CHAR(1),
+  faivori CHAR(2),
+  faivrub CHAR(16),
+  faivval NUMBER(13),
+  faivva1 NUMBER(13),
+  faivfop CHAR(1),
+  faivcta CHAR(10),
+  faivgmf CHAR(1),
+  faivva2 NUMBER(13),
+  faivret CHAR(1),
+  faivtdf CHAR(2),
+  faivfep NUMBER(8),
+  faivcoj CHAR(1),
+  faivgru CHAR(2)
+)
+;
+alter table FAPA940
+  add primary key (FAIVFEA, FAIVPGC, FAIVSUC, FAIVMOD, FAIVTRN, FAIVREL, FAIVCDO, FAIVNRE);
+

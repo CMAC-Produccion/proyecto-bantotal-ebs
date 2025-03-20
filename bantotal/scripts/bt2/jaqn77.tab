@@ -1,0 +1,85 @@
+create global temporary table JAQN77
+(
+  jaqn77codu VARCHAR2(3),
+  jaqn77uni  VARCHAR2(100),
+  jaqn77cse  VARCHAR2(10),
+  jaqn77sede VARCHAR2(100),
+  jaqn77cdep VARCHAR2(20),
+  jaqn77dep  VARCHAR2(100),
+  jaqn77car  VARCHAR2(20),
+  jaqn77are  VARCHAR2(100),
+  jaqn77cos  VARCHAR2(10),
+  jaqn77sec  VARCHAR2(100),
+  jaqn77ctr  VARCHAR2(20),
+  jaqn77app  VARCHAR2(50),
+  jaqn77apm  VARCHAR2(50),
+  jaqn77nom  VARCHAR2(100),
+  jaqn77dni  VARCHAR2(20),
+  jaqn77sex  VARCHAR2(1),
+  jaqn77fnac DATE,
+  jaqn77fnm  DATE,
+  jaqn77cor  VARCHAR2(100),
+  jaqn77cpl  VARCHAR2(3),
+  jaqn77pla  VARCHAR2(50),
+  jaqn77ptr  VARCHAR2(100),
+  jaqn77fing DATE,
+  jaqn77fces DATE,
+  jaqn77mov  VARCHAR2(250),
+  jaqn77situ VARCHAR2(20)
+)
+on commit preserve rows;
+comment on table JAQN77
+  is 'Tabla temporal del reporte Data Ubicacion';
+comment on column JAQN77.jaqn77codu
+  is 'Codigo de unidad';
+comment on column JAQN77.jaqn77uni
+  is 'Unidad';
+comment on column JAQN77.jaqn77cse
+  is 'Codigo de sede';
+comment on column JAQN77.jaqn77sede
+  is 'Sede';
+comment on column JAQN77.jaqn77cdep
+  is 'Codigo Departamento';
+comment on column JAQN77.jaqn77dep
+  is 'Departamento';
+comment on column JAQN77.jaqn77car
+  is 'Codigo Area';
+comment on column JAQN77.jaqn77are
+  is 'Area';
+comment on column JAQN77.jaqn77cos
+  is 'Codigo Seccion';
+comment on column JAQN77.jaqn77sec
+  is 'Seccion';
+comment on column JAQN77.jaqn77ctr
+  is 'Codigo de trabajador';
+comment on column JAQN77.jaqn77app
+  is 'Apellido Paterno';
+comment on column JAQN77.jaqn77apm
+  is 'Apellido Materno';
+comment on column JAQN77.jaqn77nom
+  is 'Nombre';
+comment on column JAQN77.jaqn77dni
+  is 'Dni';
+comment on column JAQN77.jaqn77sex
+  is 'Sexo';
+comment on column JAQN77.jaqn77fnac
+  is 'Fecha nacimiento';
+comment on column JAQN77.jaqn77fnm
+  is 'Fecha nacimiento';
+comment on column JAQN77.jaqn77cor
+  is 'Correo';
+comment on column JAQN77.jaqn77cpl
+  is 'Codigo de planilla';
+comment on column JAQN77.jaqn77pla
+  is 'Planilla';
+comment on column JAQN77.jaqn77ptr
+  is 'Puesto de trabajo';
+comment on column JAQN77.jaqn77fing
+  is 'Fecha ingreso';
+comment on column JAQN77.jaqn77fces
+  is 'Fecha Cese';
+comment on column JAQN77.jaqn77mov
+  is 'Motivo';
+comment on column JAQN77.jaqn77situ
+  is 'Situacion trabajador';
+

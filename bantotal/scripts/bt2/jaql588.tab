@@ -1,0 +1,49 @@
+create table JAQL588
+(
+  jaql588caja    CHAR(3),
+  jaql588tase    CHAR(3),
+  jaql588ctipmer NUMBER(3),
+  jaql588tipmer  VARCHAR2(50),
+  jaql588cantage NUMBER(3),
+  jaql588antage  VARCHAR2(50),
+  jaql588codcat  NUMBER(3),
+  jaql588catana  VARCHAR2(50),
+  jaql588sdoini  NUMBER(17,2),
+  jaql588cliini  NUMBER(10),
+  jaql588metsal  NUMBER(17,2),
+  jaql588metcli  NUMBER(10),
+  jaql588fini    DATE,
+  jaql588est     CHAR(1)
+)
+;
+comment on column JAQL588.jaql588caja
+  is 'Código de Tipo de Caja: A- Caja Arequipa / L-Caja Señor de Luren ';
+comment on column JAQL588.jaql588tase
+  is 'Código de Tipo de Asesor: P-Pyme /C-Consumo';
+comment on column JAQL588.jaql588ctipmer
+  is 'Código de Tipo de Mercado: 1-Decremento 2-SinCrecimiento 3-ConCrecimiento';
+comment on column JAQL588.jaql588tipmer
+  is 'Tipo de Mercado: Decremento, SinCrecimiento, ConCrecimiento';
+comment on column JAQL588.jaql588cantage
+  is 'Código de Antigüedad de Agencia: 1-Nueva 2-EnCrecimiento 3-Madura';
+comment on column JAQL588.jaql588antage
+  is 'Antigüedad de la Agencia: Nueva, EnCrecimiento, Madura';
+comment on column JAQL588.jaql588codcat
+  is 'Código de Categoría: 1,2,3,4,5,6,7,8,,9';
+comment on column JAQL588.jaql588catana
+  is 'Categoría de Analista:Principiante, Junior, AvanzadoJR, Avanzado, ExpertoJR, Experto, SeniorI, SeniorII, SeniorIII';
+comment on column JAQL588.jaql588sdoini
+  is 'Saldo Inicial';
+comment on column JAQL588.jaql588cliini
+  is 'Cliente Inicial';
+comment on column JAQL588.jaql588metsal
+  is 'MetaSaldo';
+comment on column JAQL588.jaql588metcli
+  is 'MetaCliente';
+comment on column JAQL588.jaql588fini
+  is 'Fecha Inicio Vigencia';
+comment on column JAQL588.jaql588est
+  is 'Estado S-Vigente/ N-No Vigente';
+create index IDX_JAQL588_2 on JAQL588 (JAQL588CODCAT, JAQL588TASE, JAQL588CAJA, JAQL588CTIPMER, JAQL588CANTAGE, JAQL588EST);
+create index JAQL588_1 on JAQL588 (JAQL588CAJA, JAQL588TASE, JAQL588CTIPMER, JAQL588CANTAGE, JAQL588CODCAT);
+

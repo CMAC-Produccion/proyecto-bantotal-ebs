@@ -1,0 +1,14 @@
+create table CAAPP
+(
+  caappid      NUMBER(2) not null,
+  caappdsc     CHAR(60),
+  caappestreq  NUMBER(1),
+  caappaudreq  NUMBER(1),
+  caapptyp     NUMBER(1),
+  caapppathfdr CHAR(254)
+)
+;
+create index UCAAPP1 on CAAPP (CAAPPDSC);
+alter table CAAPP
+  add primary key (CAAPPID);
+

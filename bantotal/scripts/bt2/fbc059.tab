@@ -1,0 +1,19 @@
+create table FBC059
+(
+  bcdfec  DATE not null,
+  bcdcorr NUMBER(6) not null,
+  bcdcon  NUMBER(1),
+  bcdins  NUMBER(4),
+  bcdzon  NUMBER(1),
+  bcdcli  NUMBER(2),
+  bcdcod  NUMBER(4),
+  bcdzoc  NUMBER(1),
+  bcdmon  NUMBER(3),
+  bcdimp  NUMBER(17,2),
+  bcdcbi  NUMBER(14,8),
+  bcdarb  NUMBER(14,8)
+)
+;
+alter table FBC059
+  add primary key (BCDFEC, BCDCORR);
+

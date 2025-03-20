@@ -1,0 +1,11 @@
+create table CNL177
+(
+  cnl005cod NUMBER(6) not null,
+  cnl177tar NUMBER(4) not null,
+  cnl177dsc CHAR(50) not null,
+  cnl038lit NUMBER(9) not null,
+  cnl177hab CHAR(1) not null
+)
+;
+create unique index CNL17701 on CNL177 (CNL005COD, CNL177TAR);
+

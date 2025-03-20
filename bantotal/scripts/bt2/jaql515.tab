@@ -1,0 +1,48 @@
+create table JAQL515
+(
+  jaql515copsv  NUMBER(10) not null,
+  jaql515pgcod  NUMBER(3),
+  jaql515pgsuc  NUMBER(3),
+  jaql515pgofi  NUMBER(3),
+  jaql515coent  NUMBER(3),
+  jaql515cotsv  NUMBER(3),
+  jaql515femov  DATE not null,
+  jaql515homov  VARCHAR2(10) not null,
+  jaql515cousu  VARCHAR2(15),
+  jaql515comon  NUMBER(3),
+  jaql515moccl  NUMBER(3),
+  jaql515mtocc  NUMBER(11,2),
+  jaql515mocem  NUMBER(3),
+  jaql515mtoop  NUMBER(11,2),
+  jaql515cotca  NUMBER(3),
+  jaql515inefe  CHAR(1),
+  jaql515idcli  CHAR(1),
+  jaql515nocli  VARCHAR2(100),
+  jaql515sumin  VARCHAR2(20) not null,
+  jaql515esreg  CHAR(1),
+  jaql515esenv  CHAR(1),
+  jaql515mtoce  NUMBER(11,2),
+  jaql515sccta  NUMBER(9),
+  jaql515scmod  NUMBER(3),
+  jaql515stran  NUMBER(3),
+  jaql515snrel  NUMBER(4),
+  jaql515mdapg  NUMBER(4),
+  jaql515nrodo  CHAR(20),
+  jaql515tidoc  NUMBER(2),
+  jaql515tdocor NUMBER(2),
+  jaql515ndocor CHAR(20)
+)
+;
+comment on column JAQL515.jaql515tdocor
+  is 'Tipo de Documento de Ordenante';
+comment on column JAQL515.jaql515ndocor
+  is 'Número de documento de Ordenante';
+create index JAQL515_02 on JAQL515 (JAQL515COENT, JAQL515COTSV, JAQL515SUMIN);
+create index JAQL515_03 on JAQL515 (JAQL515COTCA);
+create index JAQL515_04 on JAQL515 (JAQL515SUMIN);
+create index JAQL515_05 on JAQL515 (JAQL515PGSUC);
+create index JAQL515_06 on JAQL515 (JAQL515SCMOD, JAQL515STRAN, JAQL515FEMOV);
+create index JAQL515_07 on JAQL515 (JAQL515FEMOV);
+alter table JAQL515
+  add primary key (JAQL515COPSV, JAQL515FEMOV, JAQL515HOMOV, JAQL515SUMIN);
+

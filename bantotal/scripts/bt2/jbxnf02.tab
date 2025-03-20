@@ -1,0 +1,14 @@
+create table JBXNF02
+(
+  jbxnf02pai NUMBER(3) not null,
+  jbxnf02tpo NUMBER(2) not null,
+  jbxnf02nro CHAR(25) not null,
+  jbxnf02sas CHAR(3),
+  jbxnf02sfz CHAR(3)
+)
+;
+create index JBXNF022 on JBXNF02 (JBXNF02SAS);
+create index JBXNF023 on JBXNF02 (JBXNF02SFZ);
+alter table JBXNF02
+  add primary key (JBXNF02PAI, JBXNF02TPO, JBXNF02NRO);
+

@@ -1,0 +1,14 @@
+create table BST504
+(
+  modulo NUMBER(3) not null,
+  totope NUMBER(3) not null,
+  moneda NUMBER(4) not null,
+  tdocum NUMBER(2) not null,
+  seccod NUMBER(3) not null
+)
+;
+create index BST50402 on BST504 (SECCOD);
+create index IBST504 on BST504 (TDOCUM);
+alter table BST504
+  add primary key (MODULO, TOTOPE, MONEDA, TDOCUM, SECCOD);
+

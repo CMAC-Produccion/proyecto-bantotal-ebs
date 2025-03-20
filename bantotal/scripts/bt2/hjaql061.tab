@@ -1,0 +1,18 @@
+create table HJAQL061
+(
+  hjaql61pgco NUMBER(3) not null,
+  hjaql61pais NUMBER(3) not null,
+  hjaql61tdoc NUMBER(2) not null,
+  hjaql61ndoc CHAR(12) not null,
+  hjaql61user CHAR(10) not null,
+  hjaql61fech DATE not null,
+  hjaql61esta CHAR(1) not null,
+  hjaql61fein DATE not null,
+  hjaql61hoin CHAR(8) not null
+)
+;
+create index IHJAQL610001 on HJAQL061 (HJAQL61USER, HJAQL61FECH, HJAQL61FEIN, HJAQL61ESTA);
+create index IHJAQL610002 on HJAQL061 (HJAQL61FECH, HJAQL61ESTA);
+alter table HJAQL061
+  add primary key (HJAQL61PGCO, HJAQL61PAIS, HJAQL61TDOC, HJAQL61NDOC, HJAQL61USER, HJAQL61FECH, HJAQL61ESTA, HJAQL61FEIN, HJAQL61HOIN);
+

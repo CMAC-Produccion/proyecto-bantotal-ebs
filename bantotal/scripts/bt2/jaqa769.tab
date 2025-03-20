@@ -1,0 +1,40 @@
+create table JAQA769
+(
+  jaqa769fpr DATE not null,
+  jaqa769usr CHAR(10) not null,
+  jaqa769suc NUMBER(3) not null,
+  jaqa769rub NUMBER(16) not null,
+  jaqa769mda NUMBER(4) not null,
+  jaqa769pap NUMBER(4) not null,
+  jaqa769cta NUMBER(9) not null,
+  jaqa769ope NUMBER(9) not null,
+  jaqa769sbo NUMBER(3) not null,
+  jaqa769top NUMBER(3) not null,
+  jaqa769drb CHAR(40),
+  jaqa769tdc NUMBER(2),
+  jaqa769ndc CHAR(12),
+  jaqa769dtd CHAR(20),
+  jaqa769nom CHAR(35),
+  jaqa769mto NUMBER(17,2),
+  jaqa769mmn NUMBER(17,2),
+  jaqa769mus NUMBER(17,2),
+  jaqa769fvt DATE,
+  jaqa769fvl DATE,
+  jaqa769nu1 NUMBER(9),
+  jaqa769nu2 NUMBER(9),
+  jaqa769nu3 NUMBER(9),
+  jaqa769fe1 DATE,
+  jaqa769fe2 DATE,
+  jaqa769fe3 DATE,
+  jaqa769im1 NUMBER(17,2),
+  jaqa769im2 NUMBER(17,2),
+  jaqa769im3 NUMBER(17,2),
+  jaqa769ca1 VARCHAR2(255),
+  jaqa769ca2 VARCHAR2(255),
+  jaqa769ca3 VARCHAR2(255)
+)
+;
+create index JAQA7692 on JAQA769 (JAQA769FPR, JAQA769USR, JAQA769RUB, JAQA769MDA, JAQA769SUC, JAQA769CTA);
+alter table JAQA769
+  add primary key (JAQA769FPR, JAQA769USR, JAQA769SUC, JAQA769RUB, JAQA769MDA, JAQA769PAP, JAQA769CTA, JAQA769OPE, JAQA769SBO, JAQA769TOP);
+

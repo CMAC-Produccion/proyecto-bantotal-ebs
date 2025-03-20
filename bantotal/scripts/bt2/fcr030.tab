@@ -1,0 +1,14 @@
+create table FCR030
+(
+  pgcod     NUMBER(3) not null,
+  coimod    NUMBER(3) not null,
+  coioper   NUMBER(9) not null,
+  mopctipo  NUMBER(2) not null,
+  mopccod   NUMBER(3) not null,
+  coiopcsts CHAR(1)
+)
+;
+create index FCR03003 on FCR030 (COIMOD, MOPCTIPO, MOPCCOD);
+alter table FCR030
+  add primary key (PGCOD, COIMOD, COIOPER, MOPCTIPO, MOPCCOD);
+

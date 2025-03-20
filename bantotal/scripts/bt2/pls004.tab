@@ -1,0 +1,20 @@
+create table PLS004
+(
+  pls004emp  NUMBER(3) not null,
+  pls004conv NUMBER(8) not null,
+  pls001cod  CHAR(1),
+  pls004peri CHAR(1),
+  pls004mdan NUMBER(4),
+  pls004mdae NUMBER(4),
+  pls004mtln NUMBER(17,2),
+  pls004mtle NUMBER(17,2),
+  pls004aux1 NUMBER(17,2),
+  pls004aux2 DATE,
+  pls004aux3 NUMBER(4),
+  pls004aux4 CHAR(50)
+)
+;
+create index PLS00402 on PLS004 (PLS001COD);
+alter table PLS004
+  add primary key (PLS004EMP, PLS004CONV);
+

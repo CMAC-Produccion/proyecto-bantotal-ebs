@@ -1,0 +1,17 @@
+create table CAAUDCON
+(
+  caatcfch   DATE not null,
+  caconid    NUMBER(10) not null,
+  caconlng   CHAR(3) not null,
+  caconvers  NUMBER(6) not null,
+  caatcappid NUMBER(2),
+  caatcresp  CHAR(254),
+  caatcact   NUMBER(1),
+  caatcdet   CHAR(60)
+)
+;
+create index ICAAUDC1 on CAAUDCON (CACONID, CACONLNG, CACONVERS);
+create index ICAAUDC2 on CAAUDCON (CAATCAPPID);
+alter table CAAUDCON
+  add primary key (CAATCFCH, CACONID, CACONLNG, CACONVERS);
+

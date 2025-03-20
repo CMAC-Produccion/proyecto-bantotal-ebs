@@ -1,0 +1,32 @@
+create table JAQZ510
+(
+  pgcod       NUMBER(3) not null,
+  hcta        NUMBER(9),
+  hoper       NUMBER(9),
+  hmodul      NUMBER(3),
+  rubro       NUMBER(16),
+  moneda      NUMBER(4),
+  mod         NUMBER(3) not null,
+  trans       NUMBER(3) not null,
+  hnrel       NUMBER(4) not null,
+  fecha_pago  DATE not null,
+  pago        NUMBER(17,2),
+  tran        CHAR(30),
+  ordinal     NUMBER(2),
+  imp1        NUMBER(17,2),
+  imp2        NUMBER(17,2),
+  imp3        NUMBER(17,2),
+  imp4        NUMBER(17,2),
+  imp5        NUMBER(17,2),
+  imp6        NUMBER(17,2),
+  coor        NUMBER(5),
+  sucu        NUMBER(3),
+  jaqz510nrog NUMBER(10)
+)
+;
+comment on column JAQZ510.jaqz510nrog
+  is 'número de grupo';
+create index IDX_JAQZ510_01 on JAQZ510 (MOD, TRANS, ORDINAL);
+create index IDX_JAQZ510_02 on JAQZ510 (MOD, TRANS, ORDINAL, FECHA_PAGO);
+create index JAQZ510A3 on JAQZ510 (JAQZ510NROG);
+

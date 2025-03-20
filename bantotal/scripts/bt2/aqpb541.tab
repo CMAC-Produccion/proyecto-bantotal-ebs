@@ -1,0 +1,36 @@
+create table AQPB541
+(
+  aqpb541codigo VARCHAR2(30) not null,
+  aqpb541cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb541creusu VARCHAR2(10),
+  aqpb541cresuc NUMBER(3),
+  aqpb541fecha  DATE,
+  aqpb541hora   VARCHAR2(8),
+  aqpb541pais   NUMBER(3),
+  aqpb541tdoc   NUMBER(2),
+  aqpb541ndoc   VARCHAR2(12)
+)
+;
+comment on table AQPB541
+  is 'LOG de Impresion de Posicion de Cliente';
+comment on column AQPB541.aqpb541codigo
+  is 'Codigo';
+comment on column AQPB541.aqpb541cretim
+  is 'Campo de Auditoria';
+comment on column AQPB541.aqpb541creusu
+  is 'Usuario';
+comment on column AQPB541.aqpb541cresuc
+  is 'Sucursal de Usuario';
+comment on column AQPB541.aqpb541fecha
+  is 'Fecha';
+comment on column AQPB541.aqpb541hora
+  is 'Hora';
+comment on column AQPB541.aqpb541pais
+  is 'Cliente - Pais';
+comment on column AQPB541.aqpb541tdoc
+  is 'Cliente - Tipo de Documento';
+comment on column AQPB541.aqpb541ndoc
+  is 'Cliente - Nro. de Documento';
+alter table AQPB541
+  add primary key (AQPB541CODIGO);
+

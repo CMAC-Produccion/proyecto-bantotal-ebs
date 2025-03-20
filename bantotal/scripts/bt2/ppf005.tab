@@ -1,0 +1,17 @@
+create table PPF005
+(
+  ppf005cod NUMBER(3) not null,
+  ppf005con NUMBER(9) not null,
+  ppf005cfi NUMBER(9) not null,
+  ppf005nom CHAR(25),
+  ppf005doc CHAR(25),
+  ppf005au1 NUMBER(9),
+  ppf005au2 NUMBER(17,2),
+  ppf005au3 DATE,
+  ppf005au4 CHAR(20)
+)
+;
+create index PPF00502 on PPF005 (PPF005CON, PPF005CFI);
+alter table PPF005
+  add primary key (PPF005COD, PPF005CON, PPF005CFI);
+

@@ -1,0 +1,27 @@
+create table JBXNG99
+(
+  jbxng99pgc NUMBER(3) not null,
+  jbxng99ssu NUMBER(3) not null,
+  jbxng99smo NUMBER(3) not null,
+  jbxng99scc NUMBER(9) not null,
+  jbxng99scm NUMBER(4) not null,
+  jbxng99scp NUMBER(4) not null,
+  jbxng99scs NUMBER(3) not null,
+  jbxgng99sc NUMBER(3) not null,
+  jbxng99sco NUMBER(9) not null,
+  jbxng99fec DATE not null,
+  jbxng99cco NUMBER(17,2),
+  jbxng99cob NUMBER(17,2),
+  jbxng99dev NUMBER(17,2),
+  jbxng99bir NUMBER(17,2),
+  jbxng99bic NUMBER(17,2),
+  jbxng99dbi NUMBER(17,2),
+  jbxng99dre NUMBER(17,2),
+  jbxng99dca NUMBER(17,2),
+  jbxng99bdr NUMBER(17,2),
+  jbxng99ess CHAR(1)
+)
+;
+create unique index JBXNG991 on JBXNG99 (JBXNG99PGC, JBXNG99SSU, JBXNG99SMO, JBXNG99SCC, JBXNG99SCM, JBXNG99SCP, JBXNG99SCS, JBXGNG99SC, JBXNG99SCO, JBXNG99FEC);
+create index JBXNG992 on JBXNG99 (JBXNG99PGC, JBXNG99SCC, JBXNG99FEC);
+

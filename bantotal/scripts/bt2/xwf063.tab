@@ -1,0 +1,21 @@
+create table XWF063
+(
+  xwfinsprcid NUMBER(10) not null,
+  xwfgrpdid   NUMBER(4) not null,
+  xwfdocid    NUMBER(10) not null,
+  xwfdocstid  NUMBER(4) not null,
+  xwfdocstfe  DATE,
+  xwfdocsthr  CHAR(8),
+  xwfdocstur  CHAR(30),
+  xwfdocstvn  NUMBER(5),
+  xwfdocstvf  DATE,
+  xwfdocstvc  VARCHAR2(40),
+  xwfconid    NUMBER(10),
+  xwfconlng   CHAR(3),
+  xwfconvers  NUMBER(6)
+)
+;
+create index XWF06302 on XWF063 (XWFDOCID);
+alter table XWF063
+  add primary key (XWFINSPRCID, XWFGRPDID, XWFDOCID, XWFDOCSTID);
+

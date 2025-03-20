@@ -1,0 +1,156 @@
+create table AQPD102
+(
+  aqpd102per   NUMBER(8) not null,
+  aqpd102anx   VARCHAR2(10) not null,
+  aqpd102ctp   NUMBER(10) not null,
+  aqpd102dtp   VARCHAR2(300),
+  aqpd102cor   NUMBER(10) not null,
+  aqpd102cva   VARCHAR2(50),
+  aqpd102val   VARCHAR2(50),
+  aqpd102vln   NUMBER(13,3),
+  aqpd102vlp   NUMBER(13,3),
+  aqpd102vde   VARCHAR2(1000),
+  aqpd102dfe   DATE default sysdate,
+  aqpd102hoj   VARCHAR2(20),
+  aqpd102ca1   VARCHAR2(4000),
+  aqpd102ca2   VARCHAR2(4000),
+  aqpd102ca3   VARCHAR2(4000),
+  aqpd102wh1   VARCHAR2(4000),
+  aqpd102ca4   VARCHAR2(4000),
+  aqpd102ca5   VARCHAR2(4000),
+  aqpd102ca6   VARCHAR2(4000),
+  aqpd102ca7   VARCHAR2(4000),
+  aqpd102ca8   VARCHAR2(4000),
+  aqpd102ca9   VARCHAR2(4000),
+  aqpd102ca10  VARCHAR2(4000),
+  aqpd102ca11  VARCHAR2(4000),
+  aqpd102ca12  VARCHAR2(4000),
+  aqpd102ca13  VARCHAR2(1000),
+  aqpd102ca14  VARCHAR2(4000),
+  aqpd102ca141 VARCHAR2(4000),
+  aqpd102ca15  VARCHAR2(4000),
+  aqpd102ca16  VARCHAR2(4000),
+  aqpd102ca17  VARCHAR2(4000),
+  aqpd102cvl1  NUMBER(18),
+  aqpd102cvl2  NUMBER(18),
+  aqpd102cvl3  NUMBER(18),
+  aqpd102crep  NUMBER(10),
+  aqpd102rpc1  NUMBER(5),
+  aqpd102rpc2  NUMBER(5),
+  aqpd102csbs  VARCHAR2(200),
+  aqpd102usra  VARCHAR2(10),
+  aqpd102feca  DATE,
+  aqpd102hora  VARCHAR2(8),
+  aqpd102aux1  VARCHAR2(2),
+  aqpd102aux2  VARCHAR2(30),
+  aqpd102aux3  NUMBER(10),
+  aqpd102aux4  NUMBER(10),
+  aqpd102aux5  DATE,
+  aqpd102ca19  VARCHAR2(200),
+  aqpd102vln2  NUMBER(13,3),
+  aqpd102val4  NUMBER(18),
+  aqpd102vlp2  NUMBER(13,3),
+  aqpd102vlp3  NUMBER(13,3)
+)
+;
+comment on table AQPD102
+  is 'TABLA PARAMETROS FINAL 2-A1';
+comment on column AQPD102.aqpd102per
+  is 'PERIODO';
+comment on column AQPD102.aqpd102anx
+  is 'ANEXO';
+comment on column AQPD102.aqpd102ctp
+  is 'CODIGO TIPO PARAMETRO';
+comment on column AQPD102.aqpd102dtp
+  is 'DESCRIPCION TIPO DE PARAMETRO';
+comment on column AQPD102.aqpd102cor
+  is 'CORRELATIVO';
+comment on column AQPD102.aqpd102cva
+  is 'CODIGO VALOR';
+comment on column AQPD102.aqpd102val
+  is 'VALOR';
+comment on column AQPD102.aqpd102vln
+  is 'VALOR NUMERICO';
+comment on column AQPD102.aqpd102vlp
+  is 'VALOR PONDERADO';
+comment on column AQPD102.aqpd102vde
+  is 'VALOR DESCRIPCION';
+comment on column AQPD102.aqpd102dfe
+  is 'FECHA REGISTRO';
+comment on column AQPD102.aqpd102hoj
+  is 'HOJA';
+comment on column AQPD102.aqpd102ca1
+  is 'CAMPO 1';
+comment on column AQPD102.aqpd102ca2
+  is 'CAMPO 2';
+comment on column AQPD102.aqpd102ca3
+  is 'CAMPO 3';
+comment on column AQPD102.aqpd102wh1
+  is 'WHERE 1';
+comment on column AQPD102.aqpd102ca4
+  is 'CAMPO 4';
+comment on column AQPD102.aqpd102ca5
+  is 'CAMPO 5';
+comment on column AQPD102.aqpd102ca6
+  is 'CAMPO 6';
+comment on column AQPD102.aqpd102ca7
+  is 'CAMPO 7';
+comment on column AQPD102.aqpd102ca8
+  is 'CAMPO 8';
+comment on column AQPD102.aqpd102ca9
+  is 'CAMPO 9';
+comment on column AQPD102.aqpd102ca10
+  is 'CAMPO 10';
+comment on column AQPD102.aqpd102ca11
+  is 'CAMPO 11';
+comment on column AQPD102.aqpd102ca12
+  is 'CAMPO 12';
+comment on column AQPD102.aqpd102ca13
+  is 'CAMPO 13';
+comment on column AQPD102.aqpd102ca14
+  is 'CAMPO 14';
+comment on column AQPD102.aqpd102ca141
+  is 'CAMPO 14_1';
+comment on column AQPD102.aqpd102ca15
+  is 'CAMPO 15';
+comment on column AQPD102.aqpd102ca16
+  is 'CAMPO 16';
+comment on column AQPD102.aqpd102ca17
+  is 'CAMPO 17';
+comment on column AQPD102.aqpd102cvl1
+  is 'CAMPO VALOR 1';
+comment on column AQPD102.aqpd102cvl2
+  is 'CAMPO VALOR 2';
+comment on column AQPD102.aqpd102cvl3
+  is 'CAMPO VALOR 3';
+comment on column AQPD102.aqpd102crep
+  is 'CODIGO DE REPORTE';
+comment on column AQPD102.aqpd102rpc1
+  is 'VALOR REPORTE 1';
+comment on column AQPD102.aqpd102rpc2
+  is 'VALOR REPORTE 2';
+comment on column AQPD102.aqpd102csbs
+  is 'VALOR CODIGO SBS';
+comment on column AQPD102.aqpd102usra
+  is 'USUARIO DE ACTUALIZACION';
+comment on column AQPD102.aqpd102feca
+  is 'FECHA DE ACTUALIZACION';
+comment on column AQPD102.aqpd102hora
+  is 'HORA DE ACTUALIZACION';
+comment on column AQPD102.aqpd102aux1
+  is 'AUXILIAR TEXTO';
+comment on column AQPD102.aqpd102aux2
+  is 'AUXILIAR TEXTO';
+comment on column AQPD102.aqpd102aux3
+  is 'AUXILIAR NUMERICO';
+comment on column AQPD102.aqpd102aux4
+  is 'AUXILIAR NUMERICO';
+comment on column AQPD102.aqpd102aux5
+  is 'AUXILIAR FECHA';
+create index AQPD1022 on AQPD102 (AQPD102PER, AQPD102ANX, AQPD102CTP, AQPD102COR DESC);
+create index AQPD1023 on AQPD102 (AQPD102PER, AQPD102ANX, AQPD102CTP);
+create index AQPD1024 on AQPD102 (AQPD102PER, AQPD102ANX, AQPD102USRA);
+create index AQPD1025 on AQPD102 (AQPD102PER, AQPD102ANX, AQPD102FECA, AQPD102HORA);
+alter table AQPD102
+  add primary key (AQPD102PER, AQPD102ANX, AQPD102CTP, AQPD102COR);
+

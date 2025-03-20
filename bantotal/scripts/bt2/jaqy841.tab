@@ -1,0 +1,73 @@
+create table JAQY841
+(
+  jaqy841corr    NUMBER not null,
+  jaqy841tndoc   VARCHAR2(18) not null,
+  jaqy841tdoc    VARCHAR2(4),
+  jaqy841ndoc    VARCHAR2(15),
+  jaqy841fecenv  NUMBER(8) not null,
+  jaqy841ip      VARCHAR2(15),
+  jaqy841horenv  NUMBER(6),
+  jaqy841usucons VARCHAR2(20),
+  jaqy841codburo NUMBER(10) not null,
+  jaqy841ctnro   VARCHAR2(15),
+  jaqy841auxv1   VARCHAR2(40),
+  jaqy841auxv2   VARCHAR2(40),
+  jaqy841auxv3   VARCHAR2(40),
+  jaqy841auxv4   VARCHAR2(40),
+  jaqy841auxv5   VARCHAR2(40),
+  jaqy841auxn1   NUMBER(17,2),
+  jaqy841auxn2   NUMBER(17,2),
+  jaqy841auxn3   NUMBER(17,2),
+  jaqy841auxn4   NUMBER(17,2),
+  jaqy841auxn5   NUMBER(17,2),
+  jaqy841fecpro  DATE,
+  jaqy841corr2   NUMBER(18)
+)
+;
+comment on column JAQY841.jaqy841corr
+  is 'Correlativo';
+comment on column JAQY841.jaqy841tndoc
+  is 'Concatenado Tipo de Documento más Nro. de Documento';
+comment on column JAQY841.jaqy841tdoc
+  is 'Tipo de Documento';
+comment on column JAQY841.jaqy841ndoc
+  is 'Nro. de Documento';
+comment on column JAQY841.jaqy841fecenv
+  is 'Fecha de Aplicación de la Consulta - Fecha de Envío';
+comment on column JAQY841.jaqy841ip
+  is 'IP del Terminal donde se realizó la Consulta';
+comment on column JAQY841.jaqy841horenv
+  is 'Hora de Aplicación de la Consulta--Hora de Envío';
+comment on column JAQY841.jaqy841usucons
+  is 'Usuario que realizó la Consulta';
+comment on column JAQY841.jaqy841codburo
+  is 'Código de Identificación del Buró de Crédito';
+comment on column JAQY841.jaqy841ctnro
+  is 'Cód. Interno del cliente dentro de la Institución - Nro. de la Cuenta.';
+comment on column JAQY841.jaqy841auxv1
+  is 'Campo Auxiliar reservado para dato caracter 1';
+comment on column JAQY841.jaqy841auxv2
+  is 'Campo Auxiliar reservado para dato caracter 2';
+comment on column JAQY841.jaqy841auxv3
+  is 'Campo Auxiliar reservado para dato caracter 3';
+comment on column JAQY841.jaqy841auxv4
+  is 'Campo Auxiliar reservado para dato caracter 4';
+comment on column JAQY841.jaqy841auxv5
+  is 'Campo Auxiliar reservado para dato caracter 5';
+comment on column JAQY841.jaqy841auxn1
+  is 'Campo Auxiliar reservado para dato numérico 1';
+comment on column JAQY841.jaqy841auxn2
+  is 'Campo Auxiliar reservado para dato numérico 2';
+comment on column JAQY841.jaqy841auxn3
+  is 'Campo Auxiliar reservado para dato numérico 3';
+comment on column JAQY841.jaqy841auxn4
+  is 'Campo Auxiliar reservado para dato numérico 4';
+comment on column JAQY841.jaqy841auxn5
+  is 'Campo Auxiliar reservado para dato numérico 5';
+comment on column JAQY841.jaqy841fecpro
+  is 'Fecha de Proceso';
+comment on column JAQY841.jaqy841corr2
+  is 'Correlativo 2 de tabla para Monitor Plus';
+alter table JAQY841
+  add primary key (JAQY841CORR, JAQY841TNDOC, JAQY841FECENV, JAQY841CODBURO);
+

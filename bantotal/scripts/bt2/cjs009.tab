@@ -1,0 +1,44 @@
+create table CJS009
+(
+  cjs007cod NUMBER(3) not null,
+  cjs007suc NUMBER(3) not null,
+  cjs007ccs NUMBER(9) not null,
+  cjs009cta NUMBER(9) not null,
+  cjs009cor NUMBER(9) not null,
+  cjs009dom NUMBER(2),
+  cjs004bon NUMBER(3),
+  cjs009fhb DATE,
+  cjs003fre NUMBER(3),
+  cjs009emd NUMBER(3),
+  cjs009sud NUMBER(3),
+  cjs009mod NUMBER(3),
+  cjs009ctd NUMBER(9),
+  cjs009sbd NUMBER(3),
+  cjs009opd NUMBER(9),
+  cjs009tod NUMBER(3),
+  cjs009pad NUMBER(4),
+  cjs009mdd NUMBER(4),
+  cjs009est CHAR(2),
+  cjs009tnv CHAR(3),
+  cjs009uin CHAR(10),
+  cjs009fin DATE,
+  cjs009tin CHAR(10),
+  cjs009hin CHAR(8),
+  cjs009uau CHAR(10),
+  cjs009fau DATE,
+  cjs009tau CHAR(10),
+  cjs009hau CHAR(8),
+  cjs009fpa CHAR(1),
+  cjs009fat DATE,
+  cjs009fbj DATE,
+  cjs009fup DATE,
+  cjs009fud DATE
+)
+;
+create index CJS00902 on CJS009 (CJS003FRE);
+create index CJS00903 on CJS009 (CJS004BON);
+create index CJS00905 on CJS009 (CJS007COD, CJS009CTA, CJS007SUC);
+create index CJS00906 on CJS009 (CJS007COD, CJS009FPA, CJS009FUP);
+alter table CJS009
+  add primary key (CJS007COD, CJS007SUC, CJS007CCS, CJS009CTA, CJS009COR);
+

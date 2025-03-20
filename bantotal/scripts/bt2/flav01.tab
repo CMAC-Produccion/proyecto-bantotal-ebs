@@ -1,0 +1,12 @@
+create table FLAV01
+(
+  lav00tlist NUMBER(4) not null,
+  lav00curl  NUMBER(3) not null,
+  lav01fch   DATE not null,
+  lav01tot   NUMBER(10)
+)
+;
+create index FLAV0103 on FLAV01 (LAV01FCH);
+alter table FLAV01
+  add primary key (LAV00TLIST, LAV00CURL, LAV01FCH);
+

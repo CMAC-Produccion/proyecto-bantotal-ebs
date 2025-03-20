@@ -1,0 +1,18 @@
+create table SD4316
+(
+  sd16coddis NUMBER(4) not null,
+  sd16codent NUMBER(5) not null,
+  sd16fchinf NUMBER(6) not null,
+  sd16sdop01 NUMBER(10),
+  sd16sdop02 NUMBER(10),
+  sd16sdop03 NUMBER(10),
+  sd16sdop04 NUMBER(10),
+  sd16incp01 NUMBER(10),
+  sd16incp02 NUMBER(10),
+  sd16totprv NUMBER(10),
+  sd16rectif CHAR(1)
+)
+;
+alter table SD4316
+  add primary key (SD16CODDIS, SD16CODENT, SD16FCHINF);
+

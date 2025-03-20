@@ -1,0 +1,67 @@
+create table FRI000
+(
+  ri000usu   CHAR(30) not null,
+  ri000est   CHAR(60) not null,
+  ri000inf   CHAR(20) not null,
+  ri000id1   NUMBER(5) not null,
+  ri000id2   NUMBER(5) not null,
+  ri000id3   NUMBER(5) not null,
+  ri000id4   NUMBER(18) not null,
+  ri000mon   NUMBER(4),
+  ri000cat   NUMBER(5),
+  ri000tdda  NUMBER(5),
+  ri000emp   NUMBER(3),
+  ri000suc   NUMBER(5),
+  ri000rub   NUMBER(16),
+  ri000mod   NUMBER(5),
+  ri000mda   NUMBER(4),
+  ri000pap   NUMBER(6),
+  ri000cta   NUMBER(9),
+  ri000oper  NUMBER(9),
+  ri000sbop  NUMBER(5),
+  ri000tope  NUMBER(3),
+  ri000pais  NUMBER(3),
+  ri000tdoc  NUMBER(4),
+  ri000ndoc  CHAR(25),
+  ri000imp01 NUMBER(17,2),
+  ri000imp02 NUMBER(17,2),
+  ri000imp03 NUMBER(17,2),
+  ri000imp04 NUMBER(17,2),
+  ri000imp05 NUMBER(17,2),
+  ri000imp06 NUMBER(17,2),
+  ri000imp07 NUMBER(17,2),
+  ri000imp08 NUMBER(17,2),
+  ri000imp09 NUMBER(17,2),
+  ri000imp10 NUMBER(17,2),
+  ri000imp11 NUMBER(17,2),
+  ri000imp12 NUMBER(17,2),
+  ri000imp13 NUMBER(17,2),
+  ri000imp14 NUMBER(17,2),
+  ri000imp15 NUMBER(17,2),
+  ri000tas01 NUMBER(14,8),
+  ri000tas02 NUMBER(14,8),
+  ri000fec01 DATE,
+  ri000fec02 DATE,
+  ri000fec03 DATE,
+  ri000txt01 CHAR(50),
+  ri000txt02 CHAR(50),
+  ri000txt03 CHAR(50),
+  ri000txt04 CHAR(50),
+  ri000txt05 CHAR(50),
+  ri000num01 NUMBER(16),
+  ri000num02 NUMBER(16),
+  ri000num03 NUMBER(16),
+  ri000num04 NUMBER(16),
+  ri000num05 NUMBER(16)
+)
+;
+create index FRI00002 on FRI000 (RI000EMP, RI000SUC, RI000MOD, RI000RUB, RI000CTA, RI000MDA, RI000PAP, RI000OPER, RI000SBOP, RI000TOPE, RI000INF, RI000USU, RI000EST);
+create index FRI00003 on FRI000 (RI000CTA, RI000INF, RI000USU, RI000EST);
+create index FRI00004 on FRI000 (RI000PAIS, RI000TDOC, RI000NDOC, RI000INF, RI000USU, RI000EST);
+create index FRI00005 on FRI000 (RI000MON, RI000INF, RI000USU, RI000EST);
+create index FRI00006 on FRI000 (RI000CAT, RI000INF, RI000USU, RI000EST);
+create index FRI00007 on FRI000 (RI000TDDA, RI000INF, RI000USU, RI000EST);
+create index FRI00008 on FRI000 (RI000RUB, RI000CTA, RI000INF, RI000USU, RI000EST);
+alter table FRI000
+  add primary key (RI000USU, RI000EST, RI000INF, RI000ID1, RI000ID2, RI000ID3, RI000ID4);
+

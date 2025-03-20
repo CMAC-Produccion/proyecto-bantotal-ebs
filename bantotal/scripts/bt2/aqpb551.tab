@@ -1,0 +1,40 @@
+create table AQPB551
+(
+  aqpb551pgc   NUMBER(3),
+  aqpb551mod   NUMBER(3),
+  aqpb551suc   NUMBER(3),
+  aqpb551mda   NUMBER(4),
+  aqpb551ccta  NUMBER(9),
+  aqpb551oper  NUMBER(9),
+  aqpb551pap   NUMBER(4),
+  aqpb551sbop  NUMBER(3),
+  aqpb551tope  NUMBER(3),
+  aqpb551rubr  NUMBER(16),
+  aqpb551tsbs  VARCHAR2(25),
+  aqpb551tea   NUMBER(10,6),
+  aqpb551fecc  DATE,
+  aqpb551fecv  DATE,
+  aqpb551tesq  VARCHAR2(20),
+  aqpb551pert  VARCHAR2(20),
+  aqpb551pern  NUMBER(3),
+  aqpb551sdoc  NUMBER(17,2),
+  aqpb551fecuo DATE,
+  aqpb551capc  NUMBER(17,2),
+  aqpb551intc  NUMBER(17,2),
+  aqpb551capt  NUMBER(17,2),
+  aqpb551sdot  NUMBER(17,2),
+  aqpb551cuomn NUMBER(17,2),
+  aqpb551cuomy NUMBER(17,2),
+  aqpb551cuoaj NUMBER(17,2),
+  aqpb551narm  NUMBER(8,2),
+  aqpb551fpon  NUMBER(5,2),
+  aqpb551usrr  VARCHAR2(10),
+  aqpb551fecr  DATE,
+  aqpb551usrm  VARCHAR2(10),
+  aqpb551fecm  DATE,
+  aqpb551fecon DATE
+)
+;
+create index AQPB5511 on AQPB551 (AQPB551PGC, AQPB551FECON, AQPB551USRR);
+create index IX_AQPB5511 on AQPB551 (AQPB551SUC, AQPB551TEA, AQPB551FECR, AQPB551FECV, AQPB551FECUO, AQPB551NARM, AQPB551CUOMY, AQPB551INTC, AQPB551CUOAJ, AQPB551CUOMN);
+

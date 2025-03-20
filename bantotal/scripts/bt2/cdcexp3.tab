@@ -1,0 +1,17 @@
+create table CDCEXP3
+(
+  cdcexpid   NUMBER(18) not null,
+  cdcexpinsi NUMBER(18) not null,
+  cdcexpline NUMBER(18) not null,
+  cdcexplncu NUMBER(4) not null,
+  cdcexplcor NUMBER(18) not null,
+  cdcexpltab CHAR(30),
+  cdcexplcam CHAR(30),
+  cdcexplfor NUMBER(4),
+  cdcexplope CHAR(40),
+  cdcexplnop NUMBER(18)
+)
+;
+alter table CDCEXP3
+  add primary key (CDCEXPID, CDCEXPINSI, CDCEXPLINE, CDCEXPLNCU, CDCEXPLCOR);
+

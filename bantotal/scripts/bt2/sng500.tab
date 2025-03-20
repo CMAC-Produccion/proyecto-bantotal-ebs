@@ -1,0 +1,43 @@
+create table SNG500
+(
+  sng500ins NUMBER(10) not null,
+  sng500pc  NUMBER(10) not null,
+  sng500ps  NUMBER(3) not null,
+  sng500td  NUMBER(2) not null,
+  sng500nd  CHAR(12) not null,
+  sng500sc  NUMBER(3),
+  sng500fc  DATE,
+  sng500cu  CHAR(20),
+  sng500cl  NUMBER(9),
+  sng500of  CHAR(20),
+  sng500an  CHAR(20),
+  sng500tr  CHAR(20),
+  sng500cn  NUMBER(10),
+  sng500dr  NUMBER(10),
+  sng500pr  NUMBER(10),
+  sng500lm  NUMBER(18),
+  sng500lt  NUMBER(18),
+  sng500l1  NUMBER(18),
+  sng500l2  NUMBER(18),
+  sng500l3  NUMBER(18),
+  sng500l4  NUMBER(18),
+  sng500l5  NUMBER(18),
+  sng500op  NUMBER(10),
+  sng500tl  NUMBER(18),
+  sng500a1  NUMBER(17,2),
+  sng500a2  NUMBER(18),
+  sng500a3  NUMBER(18),
+  sng500a4  NUMBER(18),
+  sng500a5  CHAR(40),
+  sng500a6  CHAR(40),
+  sng500a7  CHAR(40),
+  sng500a8  DATE,
+  sng500a9  DATE,
+  sng500b1  NUMBER(18),
+  sng500b2  NUMBER(18),
+  sng500zn  NUMBER(3)
+)
+;
+alter table SNG500
+  add primary key (SNG500INS, SNG500PC, SNG500PS, SNG500TD, SNG500ND);
+

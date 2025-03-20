@@ -1,0 +1,23 @@
+create table PREFCPO
+(
+  prfemp     NUMBER(3) not null,
+  prfmod     NUMBER(3) not null,
+  prftrn     NUMBER(3) not null,
+  prfcat     NUMBER(3) not null,
+  prfcpo     NUMBER(3) not null,
+  prfcpotit  CHAR(50),
+  prfcpohab  CHAR(1),
+  prfcpotcod NUMBER(4),
+  prfcpogrb  CHAR(10),
+  prfcpoord  NUMBER(2),
+  prfcpoctl  CHAR(30),
+  prfcpoedt  CHAR(1),
+  prfcpofrzc CHAR(18),
+  prfcpofrzn NUMBER(17,2),
+  prfcpofrz2 NUMBER(4)
+)
+;
+create index PREFCPO3 on PREFCPO (PRFCPOTCOD);
+alter table PREFCPO
+  add primary key (PRFEMP, PRFMOD, PRFTRN, PRFCAT, PRFCPO);
+

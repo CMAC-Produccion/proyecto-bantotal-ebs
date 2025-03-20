@@ -1,0 +1,15 @@
+create table AQPD113B
+(
+  aqpd113bcta  NUMBER(9) not null,
+  aqpd113bcant NUMBER(10)
+)
+;
+comment on table AQPD113B
+  is 'TABLA REPORTE 29 - CUENTAS';
+comment on column AQPD113B.aqpd113bcta
+  is 'CUENTA';
+comment on column AQPD113B.aqpd113bcant
+  is 'CANTIDAD';
+alter table AQPD113B
+  add primary key (AQPD113BCTA);
+

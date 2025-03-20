@@ -1,0 +1,13 @@
+create table JHSP26
+(
+  jhsp26fprc DATE not null,
+  jhsp26emp  NUMBER(3) not null,
+  jhsp26sec  NUMBER(3) not null,
+  jhsp26uprc CHAR(10),
+  jhsp26uaut CHAR(10),
+  jhsp26hora CHAR(8),
+  jhsp26est  CHAR(1)
+)
+;
+create unique index JHSP2601 on JHSP26 (JHSP26FPRC, JHSP26EMP, JHSP26SEC);
+

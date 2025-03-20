@@ -1,0 +1,30 @@
+create table FST912
+(
+  fst912co  NUMBER(3) not null,
+  fst912su  NUMBER(3) not null,
+  fst912mo  NUMBER(3) not null,
+  fst912md  NUMBER(4) not null,
+  fst912pa  NUMBER(4) not null,
+  fst912ct  NUMBER(9) not null,
+  fst912op  NUMBER(9) not null,
+  fst912sb  NUMBER(3) not null,
+  fst912to  NUMBER(3) not null,
+  fst911co  NUMBER(3) not null,
+  fst911pe  NUMBER(3) not null,
+  fst912fa  DATE,
+  fst912fb  DATE,
+  fst912ua  CHAR(10),
+  fst912ub  CHAR(10),
+  fst912dc  CHAR(30),
+  fst912ax1 NUMBER(9),
+  fst912ax2 NUMBER(9),
+  fst912ax3 DATE,
+  fst912ax4 NUMBER(4),
+  fst912ax5 CHAR(20),
+  fst912ax6 CHAR(20)
+)
+;
+create index FST91202 on FST912 (FST911CO, FST911PE);
+alter table FST912
+  add primary key (FST912CO, FST912SU, FST912MO, FST912MD, FST912PA, FST912CT, FST912OP, FST912SB, FST912TO, FST911CO, FST911PE);
+

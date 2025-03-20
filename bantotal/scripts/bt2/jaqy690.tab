@@ -1,0 +1,45 @@
+create table JAQY690
+(
+  jaqy690nruc VARCHAR2(12) not null,
+  jaqy690fech DATE not null,
+  jaqy690hora VARCHAR2(8) not null,
+  jaqy690user VARCHAR2(10) not null,
+  jaqy690agen NUMBER(3),
+  jaqy690mail VARCHAR2(50),
+  jaqy690arch VARCHAR2(30),
+  jaqy690pair NUMBER(3),
+  jaqy690tipr NUMBER(2),
+  jaqy690docr VARCHAR2(12),
+  jaqy690nomr VARCHAR2(50),
+  jaqy690ruta VARCHAR2(50),
+  jaqy690area VARCHAR2(1),
+  jaqy690esta VARCHAR2(3),
+  jaqy690aux1 NUMBER(4),
+  jaqy690aux2 NUMBER(17),
+  jaqy690aux3 NUMBER(16,2),
+  jaqy690aux4 NUMBER(4),
+  jaqy690aux5 VARCHAR2(50),
+  jaqy690aux6 VARCHAR2(100),
+  jaqy690aux7 VARCHAR2(200),
+  jaqy690aux8 VARCHAR2(100),
+  jaqy690aux9 DATE,
+  jaqy690usud VARCHAR2(12),
+  jaqy690aged NUMBER(3),
+  jaqy690fecd DATE,
+  jaqy690hord VARCHAR2(8),
+  jaqy690agep NUMBER(3),
+  jaqy690usup VARCHAR2(12),
+  jaqy690fecp DATE,
+  jaqy690horp VARCHAR2(8),
+  jaqy690truc NUMBER(2),
+  jaqy690pruc NUMBER(3),
+  jaqy690pais NUMBER(3),
+  jaqy690tdoc NUMBER(2)
+)
+;
+create index IJAQY690_001 on JAQY690 (JAQY690AGEN, JAQY690AREA, JAQY690ESTA);
+create index IJAQY690_002 on JAQY690 (JAQY690ARCH);
+create index IJAQY690_003 on JAQY690 (JAQY690FECH, JAQY690HORA);
+alter table JAQY690
+  add primary key (JAQY690NRUC, JAQY690FECH, JAQY690HORA, JAQY690USER);
+

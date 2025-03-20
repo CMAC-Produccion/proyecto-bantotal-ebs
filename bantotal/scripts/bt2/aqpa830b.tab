@@ -1,0 +1,42 @@
+create table AQPA830B
+(
+  aqpa830bfep       DATE not null,
+  aqpa830bemp       NUMBER(3) not null,
+  aqpa830bmod       NUMBER(3) not null,
+  aqpa830bsuc       NUMBER(3) not null,
+  aqpa830bmda       NUMBER(4) not null,
+  aqpa830bpap       NUMBER(4) not null,
+  aqpa830bcta       NUMBER(9) not null,
+  aqpa830bope       NUMBER(9) not null,
+  aqpa830bsbo       NUMBER(3) not null,
+  aqpa830btpo       NUMBER(3) not null,
+  aqpa830btdoc      NUMBER(2),
+  aqpa830bndoc      CHAR(12),
+  aqpa830bmto       NUMBER(18,2),
+  aqpa830btip       VARCHAR2(10),
+  aqpa830bpdi       NUMBER(4),
+  aqpa830bsol       VARCHAR2(2),
+  aqpa830brer       VARCHAR2(10),
+  aqpa830bext       VARCHAR2(10),
+  aqpa830bcon       VARCHAR2(10),
+  aqpa830bfece      DATE,
+  aqpa830btabo      VARCHAR2(50),
+  aqpa830bfecact    DATE not null,
+  aqpa830busuact    CHAR(10),
+  aqpa830best       CHAR(1),
+  aqpa830bredcuo    CHAR(1),
+  aqpa830bnumcuop   NUMBER(3),
+  aqpa830bpagcap    CHAR(1),
+  aqpa830bperio     NUMBER(5),
+  aqpa830bnumcuopti NUMBER(3),
+  aqpa830bsalact    NUMBER(18,2)
+)
+;
+comment on column AQPA830B.aqpa830bnumcuopti
+  is 'cuotas pagadas del cálculo de TI';
+create index AQPA830B2 on AQPA830B (AQPA830BEMP, AQPA830BMOD, AQPA830BSUC, AQPA830BMDA, AQPA830BPAP, AQPA830BCTA, AQPA830BOPE, AQPA830BSBO, AQPA830BTPO);
+create index AQPA830B3 on AQPA830B (AQPA830BCTA, AQPA830BOPE, AQPA830BSBO);
+create index AQPA830B4 on AQPA830B (AQPA830BFECACT, AQPA830BCTA, AQPA830BOPE);
+alter table AQPA830B
+  add primary key (AQPA830BFEP, AQPA830BEMP, AQPA830BMOD, AQPA830BSUC, AQPA830BMDA, AQPA830BPAP, AQPA830BCTA, AQPA830BOPE, AQPA830BSBO, AQPA830BTPO, AQPA830BFECACT);
+

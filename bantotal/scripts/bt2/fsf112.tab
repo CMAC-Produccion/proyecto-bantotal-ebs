@@ -1,0 +1,12 @@
+create table FSF112
+(
+  lptrmod  NUMBER(3) not null,
+  lptrnro  NUMBER(3) not null,
+  lptrord  NUMBER(2) not null,
+  lptrext  NUMBER(2) not null,
+  lpextcod NUMBER(9)
+)
+;
+alter table FSF112
+  add primary key (LPTRMOD, LPTRNRO, LPTRORD, LPTREXT);
+

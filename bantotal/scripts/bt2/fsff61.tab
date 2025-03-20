@@ -1,0 +1,33 @@
+create table FSFF61
+(
+  xpjpaisd3  NUMBER(3) not null,
+  xpjtdocd3  NUMBER(2) not null,
+  xpjndocd3  CHAR(12) not null,
+  xpjrazs    CHAR(70),
+  xnjcod     NUMBER(2),
+  xpjfcon    DATE,
+  xpjfexp    DATE,
+  xpjnror    NUMBER(10),
+  xpjfreg    DATE,
+  xpjfina    DATE,
+  xpjpbal    CHAR(1),
+  xpjfpba    DATE,
+  xpjfbal    DATE,
+  xpjcant    CHAR(1),
+  xpjfcan    DATE,
+  xpjfluc    CHAR(1),
+  xentecod   NUMBER(3),
+  xsececocod CHAR(5),
+  xsocconcod CHAR(3),
+  xpjsegment NUMBER(3),
+  xpjcd01    CHAR(1),
+  xpjcd02    CHAR(1),
+  xpjcd03    NUMBER(3),
+  xpjcd04    NUMBER(9),
+  xpjcd05    NUMBER(3),
+  xpjcd06    NUMBER(3)
+)
+;
+alter table FSFF61
+  add primary key (XPJPAISD3, XPJTDOCD3, XPJNDOCD3);
+

@@ -1,0 +1,31 @@
+create table FSFC24
+(
+  sfc24emp NUMBER(3) not null,
+  sfc24ban NUMBER(3) not null,
+  sfc24mda NUMBER(4) not null,
+  sfc24imp NUMBER(17,2) not null,
+  sfc24fch DATE not null,
+  sfc24hor CHAR(8) not null,
+  sfc24tcc NUMBER(14,8),
+  sfc24tcv NUMBER(14,8),
+  sfc24ttc NUMBER(10,8),
+  sfc24ttv NUMBER(10,8),
+  sfc24arc NUMBER(14,8),
+  sfc24arv NUMBER(14,8),
+  sfc24tac NUMBER(10,8),
+  sfc24tav NUMBER(10,8),
+  sfc24a01 NUMBER(17,2),
+  sfc24a02 NUMBER(17,2),
+  sfc24a03 NUMBER(14,8),
+  sfc24a04 NUMBER(14,8),
+  sfc24a05 NUMBER(10,8),
+  sfc24a06 NUMBER(10,8),
+  sfc24a07 DATE,
+  sfc24a08 DATE,
+  sfc24a09 CHAR(1),
+  sfc24a10 CHAR(1)
+)
+;
+alter table FSFC24
+  add primary key (SFC24EMP, SFC24BAN, SFC24MDA, SFC24IMP, SFC24FCH, SFC24HOR);
+

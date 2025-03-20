@@ -1,0 +1,22 @@
+create table SNG400
+(
+  sng400cod  NUMBER(3) not null,
+  sng400evto NUMBER(10) not null,
+  sng400dsc  VARCHAR2(80),
+  sng400scp  NUMBER(3),
+  sng400din  NUMBER(4),
+  sng400tv   CHAR(1),
+  sng400dvt  NUMBER(4),
+  sng400vto  CHAR(1),
+  sng400exp  NUMBER(10),
+  sng400pae  NUMBER(3),
+  sng400vig  CHAR(1),
+  sng400ctle CHAR(1),
+  sng400glog CHAR(1),
+  sng400frec NUMBER(4),
+  sng400mdia CHAR(1)
+)
+;
+alter table SNG400
+  add primary key (SNG400COD, SNG400EVTO);
+

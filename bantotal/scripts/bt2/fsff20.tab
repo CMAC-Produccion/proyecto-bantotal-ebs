@@ -1,0 +1,14 @@
+create table FSFF20
+(
+  kdocemp    NUMBER(3) not null,
+  kdochcmod  NUMBER(3) not null,
+  kdochsucor NUMBER(3) not null,
+  kdochtran  NUMBER(3) not null,
+  kdochnrel  NUMBER(4) not null,
+  kdochfcon  DATE not null,
+  kdocproc   CHAR(1)
+)
+;
+alter table FSFF20
+  add primary key (KDOCEMP, KDOCHCMOD, KDOCHSUCOR, KDOCHTRAN, KDOCHNREL, KDOCHFCON);
+

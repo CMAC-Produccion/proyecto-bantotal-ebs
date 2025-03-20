@@ -1,0 +1,12 @@
+create table AUT0004
+(
+  jautexcod  NUMBER(2) not null,
+  jautexmodu NUMBER(3) not null,
+  jautnivel  NUMBER(3) not null,
+  jautsucurs NUMBER(8) not null,
+  jautperfil CHAR(10) not null
+)
+;
+alter table AUT0004
+  add primary key (JAUTEXCOD, JAUTEXMODU, JAUTNIVEL, JAUTSUCURS, JAUTPERFIL);
+

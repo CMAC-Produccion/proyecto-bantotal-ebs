@@ -1,0 +1,12 @@
+create table JFAW307
+(
+  jfaw307pgc NUMBER(3) not null,
+  jfaw307rec NUMBER(5) not null,
+  jfaw307ren CHAR(40),
+  jfaw322sid NUMBER(4)
+)
+;
+create index JFAW30702 on JFAW307 (JFAW322SID);
+alter table JFAW307
+  add primary key (JFAW307PGC, JFAW307REC);
+

@@ -1,0 +1,14 @@
+create table BCCRO11
+(
+  bccr1emp NUMBER(3) not null,
+  bccr1arc CHAR(10) not null,
+  bccr1nar NUMBER(10) not null,
+  bccr1co  NUMBER(8) not null,
+  bccr1tag CHAR(30),
+  bccr1for CHAR(1),
+  bccr1va1 CHAR(30)
+)
+;
+alter table BCCRO11
+  add primary key (BCCR1EMP, BCCR1ARC, BCCR1NAR, BCCR1CO);
+

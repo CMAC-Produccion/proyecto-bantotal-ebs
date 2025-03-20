@@ -1,0 +1,43 @@
+create table AQPA551
+(
+  aqpa551cod      NUMBER(4) not null,
+  aqpa551mod      NUMBER(3) not null,
+  aqpa551suc      NUMBER(3) not null,
+  aqpa551mda      NUMBER(4) not null,
+  aqpa551pap      NUMBER(4) not null,
+  aqpa551cta      NUMBER(9) not null,
+  aqpa551oper     NUMBER(9) not null,
+  aqpa551sbop     NUMBER(3) not null,
+  aqpa551tope     NUMBER(3) not null,
+  aqpa551nro      NUMBER(4) not null,
+  aqpa551fpro     DATE,
+  aqpa551mop      NUMBER(3),
+  aqpa551sup      NUMBER(3),
+  aqpa551trp      NUMBER(4),
+  aqpa551rep      NUMBER(4),
+  aqpa551fep      DATE,
+  aqpa551mto      NUMBER(16,2),
+  aqpa551au1      NUMBER(4),
+  aqpa551au2      NUMBER(16,2),
+  aqpa551au3      CHAR(20),
+  aqpa551au4      VARCHAR2(40),
+  aqpa551au5      DATE,
+  aqpa551saldo    NUMBER(17,2),
+  aqpa551fecini   DATE,
+  aqpa551fecfin   DATE,
+  aqpa551dias     NUMBER,
+  aqpa551cubierto NUMBER(17,2),
+  aqpa551interes  NUMBER(17,2),
+  aqpa551bcrp     NUMBER(17,2),
+  aqpa551ca1      NUMBER(17,2),
+  aqpa551ca2      NUMBER(17,2),
+  aqpa551ca3      NUMBER(17,2),
+  aqpa551ca4      NUMBER(17,2),
+  aqpa551ca5      NUMBER(17,2),
+  aqpa551ca6      NUMBER
+)
+;
+create index AQPA5512 on AQPA551 (AQPA551COD, AQPA551SUP, AQPA551MOP, AQPA551TRP, AQPA551REP);
+alter table AQPA551
+  add primary key (AQPA551COD, AQPA551MOD, AQPA551SUC, AQPA551MDA, AQPA551PAP, AQPA551CTA, AQPA551OPER, AQPA551SBOP, AQPA551TOPE, AQPA551NRO);
+

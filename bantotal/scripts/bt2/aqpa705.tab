@@ -1,0 +1,52 @@
+create table AQPA705
+(
+  aqpa705corr   NUMBER(9) not null,
+  aqpa705seint  NUMBER(9),
+  aqpa705nutar  CHAR(19),
+  aqpa705pdoc   NUMBER(3),
+  aqpa705tdoc   NUMBER(2),
+  aqpa705ndoc   CHAR(12),
+  aqpa705tipope CHAR(1),
+  aqpa705fectra DATE,
+  aqpa705hortra CHAR(8),
+  aqpa705ctcod  NUMBER(3),
+  aqpa705ctmod  NUMBER(3),
+  aqpa705ctsuc  NUMBER(3),
+  aqpa705cttra  NUMBER(3),
+  aqpa705ctrel  NUMBER(4),
+  aqpa705ctfec  DATE,
+  aqpa705ctaori VARCHAR2(50),
+  aqpa705ctades VARCHAR2(50),
+  aqpa705monope NUMBER(11,2),
+  aqpa705mdaope NUMBER(3),
+  aqpa705comope NUMBER(11,2),
+  aqpa705auxv1  VARCHAR2(200),
+  aqpa705auxv2  VARCHAR2(200),
+  aqpa705auxv3  VARCHAR2(200),
+  aqpa705auxv4  VARCHAR2(200),
+  aqpa705auxv5  VARCHAR2(200),
+  aqpa705auxn1  NUMBER(17,2),
+  aqpa705auxn2  NUMBER(17,2),
+  aqpa705auxn3  NUMBER(17,2),
+  aqpa705auxn4  NUMBER(17,2),
+  aqpa705auxn5  NUMBER(17,2),
+  aqpa705correo VARCHAR2(200),
+  aqpa705archiv VARCHAR2(1000),
+  aqpa705canal  NUMBER(5),
+  aqpa705coderr VARCHAR2(5),
+  aqpa705msgerr VARCHAR2(200),
+  aqpa705auxv6  VARCHAR2(1500)
+)
+;
+comment on column AQPA705.aqpa705coderr
+  is 'Codigo de Error';
+comment on column AQPA705.aqpa705msgerr
+  is 'Mensaje de Error';
+comment on column AQPA705.aqpa705auxv6
+  is 'Propiedad auxiliar 6';
+create index AQPA7052 on AQPA705 (AQPA705CTMOD, AQPA705CTSUC, AQPA705CTTRA, AQPA705CTREL, AQPA705CTFEC);
+create index AQPA7053 on AQPA705 (AQPA705NUTAR);
+create index AQPA7054 on AQPA705 (AQPA705PDOC, AQPA705TDOC, AQPA705NDOC);
+alter table AQPA705
+  add primary key (AQPA705CORR);
+

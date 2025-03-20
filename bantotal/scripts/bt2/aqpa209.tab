@@ -1,0 +1,14 @@
+create table AQPA209
+(
+  aqpa209nim NUMBER(12) not null,
+  aqpa209cor NUMBER(4) not null,
+  aqpa209usu CHAR(10) not null,
+  aqpa209nom CHAR(30),
+  aqpa209fec DATE,
+  aqpa209doc CHAR(12),
+  aqpa209hor CHAR(8)
+)
+;
+alter table AQPA209
+  add primary key (AQPA209NIM, AQPA209COR, AQPA209USU);
+

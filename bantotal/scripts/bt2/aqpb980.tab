@@ -1,0 +1,32 @@
+create table AQPB980
+(
+  aqpb980inst NUMBER(12),
+  aqpb980dseg VARCHAR2(150),
+  aqpb980cseg NUMBER(3),
+  aqpb980tpzl NUMBER(10),
+  aqpb980grpo NUMBER(30),
+  aqpb980mnto NUMBER(17,2),
+  aqpb980tasa NUMBER(10,6),
+  aqpb980fecr TIMESTAMP(6) default SYSDATE
+)
+;
+comment on table AQPB980
+  is 'TABLA LOG DE REGISTRO DE TASA';
+comment on column AQPB980.aqpb980inst
+  is 'INSTANCIA';
+comment on column AQPB980.aqpb980dseg
+  is 'DESCRIPCION SEGMENTO';
+comment on column AQPB980.aqpb980cseg
+  is 'CODIGO SEGMENTO';
+comment on column AQPB980.aqpb980tpzl
+  is 'PIZARRA';
+comment on column AQPB980.aqpb980grpo
+  is 'GRUPO';
+comment on column AQPB980.aqpb980mnto
+  is 'MONTO';
+comment on column AQPB980.aqpb980tasa
+  is 'TASA';
+comment on column AQPB980.aqpb980fecr
+  is 'FECHA DE REGISTRO';
+create index AQPB908A2 on AQPB980 (AQPB980INST);
+

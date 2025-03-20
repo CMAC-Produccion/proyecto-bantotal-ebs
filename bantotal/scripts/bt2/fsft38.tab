@@ -1,0 +1,18 @@
+create table FSFT38
+(
+  kdjcod    NUMBER(3) not null,
+  kdjtmda   NUMBER(4) not null,
+  kdjresi   CHAR(1) not null,
+  kdjclase  NUMBER(2) not null,
+  kdjrubtra NUMBER(16),
+  kdjrub1   NUMBER(16),
+  kdjrub2   NUMBER(16),
+  kdjcar1   CHAR(20),
+  kdjcar2   CHAR(20),
+  kdjnum1   NUMBER(9),
+  kdjnum2   NUMBER(9)
+)
+;
+alter table FSFT38
+  add primary key (KDJCOD, KDJTMDA, KDJRESI, KDJCLASE);
+

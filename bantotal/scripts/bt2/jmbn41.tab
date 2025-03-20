@@ -1,0 +1,11 @@
+create table JMBN41
+(
+  jmbn41pgco NUMBER(3) not null,
+  jmbn41codc CHAR(10) not null,
+  jmbn41dscc CHAR(80),
+  jmbn41hab  CHAR(1)
+)
+;
+alter table JMBN41
+  add primary key (JMBN41PGCO, JMBN41CODC);
+

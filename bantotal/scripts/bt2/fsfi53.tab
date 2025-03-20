@@ -1,0 +1,36 @@
+create table FSFI53
+(
+  sfi53emp NUMBER(3) not null,
+  sfi53mer NUMBER(3) not null,
+  sfi53pro NUMBER(3) not null,
+  sfi53com NUMBER(3) not null,
+  sfi53cla NUMBER(2) not null,
+  sfi53co1 NUMBER(3),
+  sfi53co2 NUMBER(3),
+  sfi53co3 NUMBER(3),
+  sfi53ha1 CHAR(1),
+  sfi53ha2 CHAR(1),
+  sfi53ha3 CHAR(1),
+  sfi53mo1 NUMBER(3),
+  sfi53mo2 NUMBER(3),
+  sfi53mo3 NUMBER(3),
+  sfi53bs1 CHAR(2),
+  sfi53bs2 CHAR(2),
+  sfi53bs3 CHAR(2),
+  sfi53mn1 NUMBER(4),
+  sfi53mn2 NUMBER(4),
+  sfi53mn3 NUMBER(4),
+  sfi53cp1 CHAR(2),
+  sfi53cp2 CHAR(2),
+  sfi53cp3 CHAR(2),
+  sfi53ax1 DATE,
+  sfi53ax2 DATE,
+  sfi53ax3 NUMBER(9),
+  sfi53ax4 NUMBER(9),
+  sfi53ax5 NUMBER(17,2),
+  sfi53ax6 NUMBER(17,2)
+)
+;
+alter table FSFI53
+  add primary key (SFI53EMP, SFI53MER, SFI53PRO, SFI53COM, SFI53CLA);
+

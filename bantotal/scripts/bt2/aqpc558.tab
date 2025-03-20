@@ -1,0 +1,36 @@
+create table AQPC558
+(
+  aqpc558corr   NUMBER(10) not null,
+  aqpc558fecha  DATE not null,
+  aqpc558hora   CHAR(8) not null,
+  aqpc558usureg VARCHAR2(100) not null,
+  aqpc558nomcli VARCHAR2(250),
+  aqpc558nrocta NUMBER(9),
+  aqpc558monto  NUMBER(17,2),
+  aqpc558ndo    VARCHAR2(12)
+)
+;
+comment on table AQPC558
+  is 'TABLA LOG DE GENERACION DE CUPON, RENOVACION EXPRESS';
+comment on column AQPC558.aqpc558corr
+  is 'Numero correlativo';
+comment on column AQPC558.aqpc558fecha
+  is 'Fecha en la que se genera el cupon ';
+comment on column AQPC558.aqpc558hora
+  is 'Hora en la que se genera el cupon';
+comment on column AQPC558.aqpc558usureg
+  is 'Usuario que se le logea al panel';
+comment on column AQPC558.aqpc558nomcli
+  is 'Nombre del cliente acreedor del cupon';
+comment on column AQPC558.aqpc558nrocta
+  is 'Numero de cuenta de cliente';
+comment on column AQPC558.aqpc558monto
+  is 'Monto del credito';
+comment on column AQPC558.aqpc558ndo
+  is 'Numero de documento del cliente';
+create index AQPC5581 on AQPC558 (AQPC558CORR);
+create index AQPC5582 on AQPC558 (AQPC558FECHA, AQPC558HORA);
+create index AQPC5583 on AQPC558 (AQPC558USUREG);
+alter table AQPC558
+  add primary key (AQPC558CORR, AQPC558FECHA, AQPC558HORA, AQPC558USUREG);
+

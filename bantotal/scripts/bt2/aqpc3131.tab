@@ -1,0 +1,24 @@
+create table AQPC3131
+(
+  aqpc3131fecpro VARCHAR2(100),
+  aqpc3131bccta  VARCHAR2(100),
+  aqpc3131bcoper VARCHAR2(100),
+  aqpc3131pago   VARCHAR2(100)
+)
+organization external
+(
+  type ORACLE_LOADER
+  default directory DIR_SCORE
+  access parameters 
+  (
+    records delimited by newline
+    skip 1
+    nobadfile
+    nodiscardfile
+    fields terminated by ","
+    optionally enclosed by '"'
+  )
+  location (DIR_SCORE:'Global_F.csv')
+)
+reject limit UNLIMITED;
+

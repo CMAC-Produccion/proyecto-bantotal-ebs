@@ -1,0 +1,62 @@
+create table AQPB614
+(
+  aqpb614correl NUMBER(18),
+  aqpb614instan NUMBER(10) not null,
+  aqpb614tipsol NUMBER(4),
+  aqpb614numeva NUMBER(10),
+  aqpb614monins NUMBER(17,2),
+  aqpb614suesol NUMBER(17,2),
+  aqpb614suedol NUMBER(17,2),
+  aqpb614suebru NUMBER(17,2),
+  aqpb614suecal NUMBER(17,2),
+  aqpb614valcal NUMBER(14,8),
+  aqpb614vallim NUMBER(14,8),
+  aqpb614tipcam NUMBER(14,8),
+  aqpb614flag   VARCHAR2(1),
+  aqpb614estado CHAR(1),
+  aqpb614aux1n  NUMBER(14,8),
+  aqpb614aux2c  VARCHAR2(250),
+  aqpb614fecha  DATE not null,
+  aqpb614hora   VARCHAR2(20) not null
+)
+;
+comment on column AQPB614.aqpb614correl
+  is 'CORRELATIVO';
+comment on column AQPB614.aqpb614instan
+  is 'INSTANCIA';
+comment on column AQPB614.aqpb614tipsol
+  is 'MONEDA SOLICITUD';
+comment on column AQPB614.aqpb614numeva
+  is 'NUMERO EVALUACION';
+comment on column AQPB614.aqpb614monins
+  is 'MONTO INSTANCIA';
+comment on column AQPB614.aqpb614suesol
+  is 'SUELDO SOLES';
+comment on column AQPB614.aqpb614suedol
+  is 'SUELDO DÓLAR';
+comment on column AQPB614.aqpb614suebru
+  is 'SUELDO BRUTO';
+comment on column AQPB614.aqpb614suecal
+  is 'SUELDO CALCULADO';
+comment on column AQPB614.aqpb614valcal
+  is 'VALOR CALCULO';
+comment on column AQPB614.aqpb614vallim
+  is 'VALOR LIMITE';
+comment on column AQPB614.aqpb614tipcam
+  is 'TIPO CAMBIO';
+comment on column AQPB614.aqpb614flag
+  is 'FLAG';
+comment on column AQPB614.aqpb614estado
+  is 'ESTADO';
+comment on column AQPB614.aqpb614aux1n
+  is 'AUX1N';
+comment on column AQPB614.aqpb614aux2c
+  is 'AUX2C';
+comment on column AQPB614.aqpb614fecha
+  is 'FECHA';
+comment on column AQPB614.aqpb614hora
+  is 'HORA';
+create index AQPB6142 on AQPB614 (AQPB614NUMEVA, AQPB614FECHA, AQPB614HORA);
+alter table AQPB614
+  add primary key (AQPB614INSTAN, AQPB614FECHA, AQPB614HORA);
+

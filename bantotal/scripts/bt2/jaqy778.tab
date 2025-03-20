@@ -1,0 +1,47 @@
+create table JAQY778
+(
+  jaqy778cod    NUMBER(3) not null,
+  jaqy778mod    NUMBER(3) not null,
+  jaqy778suc    NUMBER(3) not null,
+  jaqy778mda    NUMBER(4) not null,
+  jaqy778pap    NUMBER(4) not null,
+  jaqy778cta    NUMBER(9) not null,
+  jaqy778oper   NUMBER(9) not null,
+  jaqy778sbop   NUMBER(3) not null,
+  jaqy778tope   NUMBER(3) not null,
+  jaqy778fpag   DATE not null,
+  jaqy778tipo   CHAR(1),
+  jaqy778exte   NUMBER(3),
+  jaqy778imp1   NUMBER(17,2),
+  jaqy778imp2   NUMBER(17,2),
+  jaqy778imp3   NUMBER(17,2),
+  jaqy778imp4   NUMBER(17,2),
+  jaqy778imp5   NUMBER(17,2),
+  jaqy778imp6   NUMBER(17,2),
+  jaqy778imp7   NUMBER(17,2),
+  jaqy778imp8   NUMBER(17,2),
+  jaqy778imp9   NUMBER(17,2),
+  jaqy778imp10  NUMBER(17,2),
+  jaqy778imp11  NUMBER(17,2),
+  jaqy778imp12  NUMBER(17,2),
+  jaqy778imp13  NUMBER(17,2),
+  jaqy778imp14  NUMBER(17,2),
+  jaqy778imp15  NUMBER(17,2),
+  jaqy778imp16  NUMBER(17,2),
+  jaqy778imp17  NUMBER(17,2),
+  jaqy778imp18  NUMBER(17,2),
+  jaqy778imp19  NUMBER(17,2),
+  jaqy778imp20  NUMBER(17,2),
+  jaqy778fchsis DATE not null,
+  jaqy778hora   CHAR(8) not null,
+  jaqy778user   CHAR(10),
+  jaqy778est    CHAR(1) not null
+)
+;
+create index JAQY77801 on JAQY778 (JAQY778COD, JAQY778MOD, JAQY778SUC, JAQY778MDA, JAQY778PAP, JAQY778CTA, JAQY778OPER, JAQY778SBOP, JAQY778TOPE);
+create index JAQY77802 on JAQY778 (JAQY778COD, JAQY778MOD, JAQY778SUC, JAQY778MDA, JAQY778PAP, JAQY778CTA, JAQY778OPER, JAQY778SBOP, JAQY778TOPE, JAQY778FPAG, JAQY778TIPO, JAQY778EXTE);
+create index JAQY77803 on JAQY778 (JAQY778FCHSIS);
+create index JAQY77804 on JAQY778 (JAQY778COD, JAQY778MOD, JAQY778SUC, JAQY778MDA, JAQY778PAP, JAQY778CTA, JAQY778OPER, JAQY778SBOP, JAQY778TOPE, JAQY778FCHSIS, JAQY778EST);
+alter table JAQY778
+  add primary key (JAQY778COD, JAQY778MOD, JAQY778SUC, JAQY778MDA, JAQY778PAP, JAQY778CTA, JAQY778OPER, JAQY778SBOP, JAQY778TOPE, JAQY778FPAG, JAQY778FCHSIS, JAQY778HORA, JAQY778EST);
+

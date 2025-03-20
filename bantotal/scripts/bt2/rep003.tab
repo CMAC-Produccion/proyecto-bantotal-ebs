@@ -1,0 +1,21 @@
+create table REP003
+(
+  rep001cod  NUMBER(10) not null,
+  rep002cons NUMBER(10) not null,
+  rep003col  NUMBER(4) not null,
+  rep003dsc  CHAR(70),
+  rep003exp  VARCHAR2(2000),
+  rep003type CHAR(1),
+  rep003gpby CHAR(1),
+  rep003niv  NUMBER(4),
+  rep003larg NUMBER(3),
+  rep003prec NUMBER(2),
+  rep003cnom CHAR(70),
+  rep003cdsc CHAR(35),
+  rep003cvde CHAR(20),
+  rep003cayu CHAR(100)
+)
+;
+alter table REP003
+  add primary key (REP001COD, REP002CONS, REP003COL);
+

@@ -1,0 +1,17 @@
+create table FOC010
+(
+  foc010empr NUMBER(3) not null,
+  foc010suc  NUMBER(3) not null,
+  foc010mda  NUMBER(4) not null,
+  foc010cta  NUMBER(9) not null,
+  foc010scta NUMBER(3) not null,
+  foc010desc CHAR(35),
+  foc010pais NUMBER(3),
+  foc010plaz CHAR(30),
+  foc010mult CHAR(1),
+  foc010hab  CHAR(1)
+)
+;
+alter table FOC010
+  add primary key (FOC010EMPR, FOC010SUC, FOC010MDA, FOC010CTA, FOC010SCTA);
+

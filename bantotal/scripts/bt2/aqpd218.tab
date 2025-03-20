@@ -1,0 +1,56 @@
+create table AQPD218
+(
+  aqpd218emp    NUMBER(3) not null,
+  aqpd218mod    NUMBER(3) not null,
+  aqpd218suc    NUMBER(3) not null,
+  aqpd218mda    NUMBER(4) not null,
+  aqpd218pap    NUMBER(4) not null,
+  aqpd218cta    NUMBER(9) not null,
+  aqpd218ope    NUMBER(9) not null,
+  aqpd218sbop   NUMBER(3) not null,
+  aqpd218tope   NUMBER(3) not null,
+  aqpd218usuact VARCHAR2(10),
+  aqpd218fecact DATE not null,
+  aqpd218est    VARCHAR2(1),
+  aqpd218aux    VARCHAR2(30),
+  aqpd218aux1   VARCHAR2(30),
+  aqpd218aux2   NUMBER(17,2)
+)
+;
+comment on table AQPD218
+  is 'Tabla de Refinanciaciones';
+comment on column AQPD218.aqpd218emp
+  is 'Clv credito Empresa';
+comment on column AQPD218.aqpd218mod
+  is 'Clv. credito modulo';
+comment on column AQPD218.aqpd218suc
+  is 'Clv. credito sucursal';
+comment on column AQPD218.aqpd218mda
+  is 'Clv. credito moneda';
+comment on column AQPD218.aqpd218pap
+  is 'Clv. credito papel';
+comment on column AQPD218.aqpd218cta
+  is 'Clv. credito cuenta';
+comment on column AQPD218.aqpd218ope
+  is 'Clv. credito operacion';
+comment on column AQPD218.aqpd218sbop
+  is 'Clv. credito sub operacion';
+comment on column AQPD218.aqpd218tope
+  is 'Clv. credito tipo de operacion';
+comment on column AQPD218.aqpd218usuact
+  is 'Usuario de Actualización';
+comment on column AQPD218.aqpd218fecact
+  is 'Fecha de modificacion del registro';
+comment on column AQPD218.aqpd218est
+  is 'Estado del Registro';
+comment on column AQPD218.aqpd218aux
+  is 'Campo Auxiliar';
+comment on column AQPD218.aqpd218aux1
+  is 'Campo Auxiliar1';
+comment on column AQPD218.aqpd218aux2
+  is 'Campo Auxiliar2';
+create index AQPD218A2 on AQPD218 (AQPD218EMP, AQPD218MOD, AQPD218SUC, AQPD218MDA, AQPD218PAP, AQPD218CTA, AQPD218OPE, AQPD218SBOP, AQPD218TOPE);
+create index AQPD218A3 on AQPD218 (AQPD218EMP, AQPD218MOD, AQPD218SUC, AQPD218MDA, AQPD218PAP, AQPD218CTA, AQPD218OPE, AQPD218SBOP, AQPD218TOPE, AQPD218EST);
+alter table AQPD218
+  add primary key (AQPD218EMP, AQPD218MOD, AQPD218SUC, AQPD218MDA, AQPD218PAP, AQPD218CTA, AQPD218OPE, AQPD218SBOP, AQPD218TOPE, AQPD218FECACT);
+

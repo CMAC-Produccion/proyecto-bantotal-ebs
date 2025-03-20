@@ -1,0 +1,38 @@
+create table FPP103
+(
+  pp103ncart NUMBER(4) not null,
+  pp103fecd  DATE not null,
+  pp103cod   NUMBER(3) not null,
+  pp103mod   NUMBER(3) not null,
+  pp103suc   NUMBER(3) not null,
+  pp103mda   NUMBER(4) not null,
+  pp103pap   NUMBER(4) not null,
+  pp103cta   NUMBER(9) not null,
+  pp103ope   NUMBER(9) not null,
+  pp103sbo   NUMBER(3) not null,
+  pp103top   NUMBER(3) not null,
+  pp103fval  DATE,
+  pp103deu   NUMBER(17,2),
+  pp103aux1  NUMBER(17,2),
+  pp103aux2  NUMBER(17,2),
+  pp103aux3  NUMBER(17,2),
+  pp103aux4  NUMBER(17,2),
+  pp103aux5  NUMBER(17,2),
+  pp103aux6  NUMBER(17,2),
+  pp103aux7  NUMBER(17,2),
+  pp103aux8  NUMBER(17,2),
+  pp103aux9  NUMBER(17,2),
+  pp103aux10 DATE,
+  pp103aux11 DATE,
+  pp103aux12 DATE,
+  pp103aux13 NUMBER(9),
+  pp103aux14 NUMBER(9),
+  pp103aux15 CHAR(1),
+  pp103aux16 CHAR(1),
+  pp103aux17 CHAR(30)
+)
+;
+create index FPP10302 on FPP103 (PP103NCART, PP103FVAL);
+alter table FPP103
+  add primary key (PP103NCART, PP103FECD, PP103COD, PP103MOD, PP103SUC, PP103MDA, PP103PAP, PP103CTA, PP103OPE, PP103SBO, PP103TOP);
+

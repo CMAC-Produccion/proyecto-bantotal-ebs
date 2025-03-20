@@ -1,0 +1,11 @@
+create table SNG004
+(
+  sng001inst NUMBER(10) not null,
+  sng004corr NUMBER(2) not null,
+  sng004mon  NUMBER(17,2),
+  sng004dsc  LONG
+)
+;
+alter table SNG004
+  add primary key (SNG001INST, SNG004CORR);
+

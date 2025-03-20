@@ -1,0 +1,33 @@
+create table AUD_FST046_AUDIT
+(
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_old_ubcaj      CHAR(1),
+  aud_new_ubcaj      CHAR(1),
+  aud_old_ubmnu      CHAR(8),
+  aud_new_ubmnu      CHAR(8),
+  aud_old_ubncaj     NUMBER(3),
+  aud_new_ubncaj     NUMBER(3),
+  aud_old_ubniv      NUMBER(1),
+  aud_new_ubniv      NUMBER(1),
+  aud_old_ubprd      CHAR(1),
+  aud_new_ubprd      CHAR(1),
+  aud_old_ubsuc      NUMBER(3),
+  aud_new_ubsuc      NUMBER(3),
+  aud_old_ubuser     CHAR(10),
+  aud_new_ubuser     CHAR(10),
+  aud_fst046_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst046_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst046_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst046_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst046_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst046_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst046_ubu     VARCHAR2(50) default USER not null,
+  aud_fst046_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst046_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst046_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst046_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst046_uas     CHAR(1) default 'I' not null
+)
+;
+

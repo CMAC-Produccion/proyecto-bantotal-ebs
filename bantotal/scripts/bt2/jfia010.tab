@@ -1,0 +1,11 @@
+create table JFIA010
+(
+  jfia010ps  NUMBER(3) not null,
+  jfia010tp  NUMBER(2) not null,
+  jfia010nd  CHAR(12) not null,
+  jfia010ben CHAR(30)
+)
+;
+alter table JFIA010
+  add primary key (JFIA010PS, JFIA010TP, JFIA010ND);
+

@@ -1,0 +1,19 @@
+create table X999J3
+(
+  x999j0cod CHAR(10) not null,
+  x999j3cod CHAR(10) not null,
+  x999j3idl NUMBER(2),
+  x999j3ax1 CHAR(1),
+  x999j3ax2 CHAR(1),
+  x999j3ax3 CHAR(1),
+  x999j3ax4 CHAR(22),
+  x999j3ax5 CHAR(22),
+  x999j3ax6 CHAR(22),
+  x999j3fal DATE,
+  x999j3fbj DATE,
+  x999j3est CHAR(2)
+)
+;
+alter table X999J3
+  add primary key (X999J0COD, X999J3COD);
+

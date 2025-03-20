@@ -1,0 +1,16 @@
+create table FSA117
+(
+  pdspgcod  NUMBER(3) not null,
+  pdspepais NUMBER(3) not null,
+  pdspetdoc NUMBER(2) not null,
+  pdspendoc CHAR(12) not null,
+  pdsctnro  NUMBER(9) not null,
+  pdssaldo  NUMBER(14,2),
+  pdsmes    NUMBER(2)
+)
+;
+create index FSA11702 on FSA117 (PDSMES);
+create index FSA11703 on FSA117 (PDSCTNRO);
+alter table FSA117
+  add primary key (PDSPGCOD, PDSPEPAIS, PDSPETDOC, PDSPENDOC, PDSCTNRO);
+

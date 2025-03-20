@@ -1,0 +1,56 @@
+create table AQPB222
+(
+  aqpb222idl NUMBER(10) not null,
+  aqpb222nro CHAR(19),
+  aqpb222fei DATE,
+  aqpb222hoi CHAR(8),
+  aqpb222pgc NUMBER(3),
+  aqpb222mod NUMBER(3),
+  aqpb222suc NUMBER(3),
+  aqpb222mda NUMBER(4),
+  aqpb222pap NUMBER(4),
+  aqpb222cta NUMBER(9),
+  aqpb222ope NUMBER(9),
+  aqpb222sbo NUMBER(3),
+  aqpb222top NUMBER(3),
+  aqpb222imp NUMBER(17,2),
+  aqpb222cor VARCHAR2(320),
+  aqpb222ncu NUMBER(4),
+  aqpb222itc VARCHAR2(40),
+  aqpb222mid VARCHAR2(40),
+  aqpb222cqr VARCHAR2(250),
+  aqpb222tip CHAR(5),
+  aqpb222pnu VARCHAR2(40),
+  aqpb222cau VARCHAR2(20),
+  aqpb222trn VARCHAR2(20),
+  aqpb222tid VARCHAR2(40),
+  aqpb222eti VARCHAR2(40),
+  aqpb222idu VARCHAR2(20),
+  aqpb222tex NUMBER(11,6),
+  aqpb222req VARCHAR2(4000),
+  aqpb222res VARCHAR2(4000),
+  aqpb222est CHAR(5),
+  aqpb222cer CHAR(10),
+  aqpb222mer VARCHAR2(200),
+  aqpb222ced CHAR(5),
+  aqpb222med VARCHAR2(200),
+  aqpb222pgo NUMBER(3),
+  aqpb222moc NUMBER(3),
+  aqpb222suo NUMBER(3),
+  aqpb222tnc NUMBER(3),
+  aqpb222nrc NUMBER(4),
+  aqpb222fec DATE,
+  aqpb222con CHAR(1),
+  aqpb222cms NUMBER(4),
+  aqpb222ctr NUMBER(10),
+  aqpb222an1 NUMBER(9),
+  aqpb222ac1 CHAR(1),
+  aqpb222af1 DATE,
+  aqpb222at1 VARCHAR2(100)
+)
+;
+create index AQPB222_2 on AQPB222 (AQPB222IDL, AQPB222NRO, AQPB222FEI);
+create index AQPB222_3 on AQPB222 (AQPB222NRO, AQPB222FEI, AQPB222EST, AQPB222CON, AQPB222HOI, AQPB222CTA);
+alter table AQPB222
+  add primary key (AQPB222IDL);
+

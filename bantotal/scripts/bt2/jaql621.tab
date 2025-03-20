@@ -1,0 +1,15 @@
+create table JAQL621
+(
+  jaql621retyp  VARCHAR2(20) not null,
+  jaql621nusec  NUMBER(18) not null,
+  jaql621trxid  VARCHAR2(50) not null,
+  jaql621result VARCHAR2(10),
+  jaql621ftrxid NUMBER(18),
+  jaql621reason VARCHAR2(40),
+  jaql621idarc  NUMBER(18),
+  jaql621fearc  DATE
+)
+;
+alter table JAQL621
+  add primary key (JAQL621RETYP, JAQL621NUSEC, JAQL621TRXID);
+

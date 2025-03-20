@@ -1,0 +1,19 @@
+create table FPP041
+(
+  pp010prd  NUMBER(3) not null,
+  pp017par  NUMBER(4) not null,
+  pp028emp  NUMBER(3) not null,
+  pp037cod  NUMBER(3) not null,
+  pp041vis  CHAR(1),
+  pp041mod  CHAR(1),
+  pp041aux1 NUMBER(17,2),
+  pp041aux2 CHAR(30),
+  pp041aux3 DATE,
+  pp041aux4 CHAR(1),
+  pp041aux5 CHAR(1)
+)
+;
+create index FPP04102 on FPP041 (PP010PRD, PP017PAR, PP037COD);
+alter table FPP041
+  add primary key (PP010PRD, PP017PAR, PP028EMP, PP037COD);
+

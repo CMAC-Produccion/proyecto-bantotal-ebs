@@ -1,0 +1,42 @@
+create table JAQN35
+(
+  jaqn35cod NUMBER(3) not null,
+  jaqn35mod NUMBER(3) not null,
+  jaqn35tcu NUMBER(3) not null,
+  jaqn35top NUMBER(3) not null,
+  jaqn35mon NUMBER(4) not null,
+  jaqn35pap NUMBER(4) not null,
+  jaqn35fvi DATE not null,
+  jaqn35mto NUMBER(17,2) not null,
+  jaqn35pli NUMBER(5) not null,
+  jaqn35pls NUMBER(5) not null,
+  jaqn35fds NUMBER(10,6)
+)
+;
+comment on table JAQN35
+  is 'Detalle factor decrecimiento';
+comment on column JAQN35.jaqn35cod
+  is 'Codigo empresa';
+comment on column JAQN35.jaqn35mod
+  is 'Modulo';
+comment on column JAQN35.jaqn35tcu
+  is 'Tipo curva';
+comment on column JAQN35.jaqn35top
+  is 'tipo operación';
+comment on column JAQN35.jaqn35mon
+  is 'Moneda';
+comment on column JAQN35.jaqn35pap
+  is 'Papel';
+comment on column JAQN35.jaqn35fvi
+  is 'Vigencia';
+comment on column JAQN35.jaqn35mto
+  is 'Monto';
+comment on column JAQN35.jaqn35pli
+  is 'Plazo Inf';
+comment on column JAQN35.jaqn35pls
+  is 'Plazo sup';
+comment on column JAQN35.jaqn35fds
+  is 'Valor';
+alter table JAQN35
+  add primary key (JAQN35COD, JAQN35MOD, JAQN35TCU, JAQN35TOP, JAQN35MON, JAQN35PAP, JAQN35FVI, JAQN35MTO, JAQN35PLI, JAQN35PLS);
+

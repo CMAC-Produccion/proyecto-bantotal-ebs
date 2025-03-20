@@ -1,0 +1,41 @@
+create table FST300
+(
+  sgcod      NUMBER(9) not null,
+  sgtxt      CHAR(40),
+  sgcntpag   NUMBER(5),
+  sgperpag   NUMBER(5),
+  sgcocod    NUMBER(3),
+  sgcta      NUMBER(9),
+  sgsn01     CHAR(1),
+  sgsn02     CHAR(1),
+  sgsn03     CHAR(1),
+  sgsn04     CHAR(1),
+  sgsn05     CHAR(1),
+  sgcd01     NUMBER(9),
+  sgcd02     NUMBER(9),
+  sgcd03     NUMBER(9),
+  sgcd04     NUMBER(17,2),
+  sgcd05     NUMBER(17,2),
+  sgcli      CHAR(1),
+  sgcliimp   NUMBER(17,2),
+  sgclipor   NUMBER(7,4),
+  sgcomporfi CHAR(1),
+  sgcomporc  NUMBER(7,4),
+  sgcomporva CHAR(1),
+  sgcompor1  NUMBER(7,4),
+  sgcompor2  NUMBER(7,4),
+  sgcompor3  NUMBER(7,4),
+  sgcompor4  NUMBER(7,4),
+  sgcompor5  NUMBER(7,4),
+  sgcompor6  NUMBER(7,4),
+  sgcompor7  NUMBER(7,4),
+  sgcompor8  NUMBER(7,4),
+  sgcompor9  NUMBER(7,4),
+  sgcompor0  NUMBER(7,4),
+  sgcomdevim CHAR(1),
+  sgcomdevdi CHAR(1)
+)
+;
+alter table FST300
+  add primary key (SGCOD);
+

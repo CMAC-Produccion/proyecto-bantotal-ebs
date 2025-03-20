@@ -1,0 +1,11 @@
+create table FSFFB1
+(
+  fsfe3emp  NUMBER(3) not null,
+  fsfe3anio NUMBER(4) not null,
+  fsfe3nota NUMBER(4) not null
+)
+;
+create index FSFFB102 on FSFFB1 (FSFE3ANIO, FSFE3NOTA);
+alter table FSFFB1
+  add primary key (FSFE3EMP, FSFE3ANIO, FSFE3NOTA);
+

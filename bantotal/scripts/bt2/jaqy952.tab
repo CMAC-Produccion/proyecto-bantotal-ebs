@@ -1,0 +1,28 @@
+create table JAQY952
+(
+  jaqy952nro    NUMBER(10) not null,
+  jaqy952fec    DATE,
+  jaqy952est    CHAR(1),
+  jaqy952esd    CHAR(10),
+  jaqy952aut    VARCHAR2(150),
+  jaqy952eso    NUMBER(2),
+  jaqy952cnt    NUMBER(15),
+  jaqy952usr    CHAR(10),
+  jaqy952hor    CHAR(8),
+  jaqy952atr    NUMBER(10),
+  jaqy952sdo    NUMBER(17,2),
+  jaqy952cad    NUMBER(9),
+  jaqy952nad    CHAR(80),
+  jaqy952fev    DATE,
+  jaqy952mod    NUMBER(3),
+  jaqy952top    NUMBER(3),
+  jaqy952gru    NUMBER(10),
+  jaqy952tiprec NUMBER(4)
+)
+;
+comment on column JAQY952.jaqy952tiprec
+  is 'Código de Tipo de Recaudo';
+create index INX_JAQY952_01 on JAQY952 (JAQY952GRU, JAQY952NRO);
+alter table JAQY952
+  add primary key (JAQY952NRO);
+

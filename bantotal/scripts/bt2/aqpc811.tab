@@ -1,0 +1,355 @@
+create table AQPC811
+(
+  aqpc811codopi  NUMBER(10) not null,
+  aqpc811afeere  DATE,
+  aqpc811afeean  DATE,
+  aqpc811aicmda1 VARCHAR2(10),
+  aqpc811aierbrt NUMBER(17,2),
+  aqpc811aieabrt NUMBER(17,2),
+  aqpc811aiahbrt NUMBER(17,2),
+  aqpc811aicmda2 VARCHAR2(10),
+  aqpc811aierbry NUMBER(17,2),
+  aqpc811aieabry NUMBER(17,2),
+  aqpc811aiahbry NUMBER(17,2),
+  aqpc811aicmda3 VARCHAR2(10),
+  aqpc811aierbrc NUMBER(17,2),
+  aqpc811aieabrc NUMBER(17,2),
+  aqpc811aiahbrc NUMBER(17,2),
+  aqpc811aicmda4 VARCHAR2(10),
+  aqpc811aierbro NUMBER(17,2),
+  aqpc811aieabro NUMBER(17,2),
+  aqpc811aiahbro NUMBER(17,2),
+  aqpc811aicmd24 VARCHAR2(10),
+  aqpc811aierbot NUMBER(17,2),
+  aqpc811aieabot NUMBER(17,2),
+  aqpc811aiahbot NUMBER(17,2),
+  aqpc811aicmda5 VARCHAR2(10),
+  aqpc811aierbto NUMBER(17,2),
+  aqpc811aieabto NUMBER(17,2),
+  aqpc811aiahbto NUMBER(17,2),
+  aqpc811aicmda6 VARCHAR2(10),
+  aqpc811aierntt NUMBER(17,2),
+  aqpc811aieantt NUMBER(17,2),
+  aqpc811aiahntt NUMBER(17,2),
+  aqpc811aicmda7 VARCHAR2(10),
+  aqpc811aiernty NUMBER(17,2),
+  aqpc811aieanty NUMBER(17,2),
+  aqpc811aiahnty NUMBER(17,2),
+  aqpc811aicmda8 VARCHAR2(10),
+  aqpc811aierntc NUMBER(17,2),
+  aqpc811aieantc NUMBER(17,2),
+  aqpc811aiahntc NUMBER(17,2),
+  aqpc811aicmda9 VARCHAR2(10),
+  aqpc811aiernto NUMBER(17,2),
+  aqpc811aieanto NUMBER(17,2),
+  aqpc811aiahnto NUMBER(17,2),
+  aqpc811aecmd25 VARCHAR2(10),
+  aqpc811aeernot NUMBER(17,2),
+  aqpc811aeeanot NUMBER(17,2),
+  aqpc811aeahnot NUMBER(17,2),
+  aqpc811aicmd10 VARCHAR2(10),
+  aqpc811aierntl NUMBER(17,2),
+  aqpc811aieantl NUMBER(17,2),
+  aqpc811aiahntl NUMBER(17,2),
+  aqpc811aecmd11 VARCHAR2(10),
+  aqpc811aeerali NUMBER(17,2),
+  aqpc811aeeaali NUMBER(17,2),
+  aqpc811aeahali NUMBER(17,2),
+  aqpc811aecmd12 VARCHAR2(10),
+  aqpc811aeeralq NUMBER(17,2),
+  aqpc811aeeaalq NUMBER(17,2),
+  aqpc811aeahalq NUMBER(17,2),
+  aqpc811aecmd13 VARCHAR2(10),
+  aqpc811aeertrp NUMBER(17,2),
+  aqpc811aeeatrp NUMBER(17,2),
+  aqpc811aeahtrp NUMBER(17,2),
+  aqpc811aecmd14 VARCHAR2(10),
+  aqpc811aeeredu NUMBER(17,2),
+  aqpc811aeeaedu NUMBER(17,2),
+  aqpc811aeahedu NUMBER(17,2),
+  aqpc811aecmd15 VARCHAR2(10),
+  aqpc811aeerser NUMBER(17,2),
+  aqpc811aeeaser NUMBER(17,2),
+  aqpc811aeahser NUMBER(17,2),
+  aqpc811aecmd16 VARCHAR2(10),
+  aqpc811aeerfam NUMBER(17,2),
+  aqpc811aeeafam NUMBER(17,2),
+  aqpc811aeahfam NUMBER(17,2),
+  aqpc811aecmd17 VARCHAR2(10),
+  aqpc811aeerotr NUMBER(17,2),
+  aqpc811aeeaotr NUMBER(17,2),
+  aqpc811aeahotr NUMBER(17,2),
+  aqpc811aecmd18 VARCHAR2(10),
+  aqpc811aeergft NUMBER(17,2),
+  aqpc811aeeagft NUMBER(17,2),
+  aqpc811aeahgft NUMBER(17,2),
+  aqpc811agcmd19 VARCHAR2(10),
+  aqpc811agergft NUMBER(17,2),
+  aqpc811ageagft NUMBER(17,2),
+  aqpc811agahgft NUMBER(17,2),
+  aqpc811aecmd20 VARCHAR2(10),
+  aqpc811aeerntm NUMBER(17,2),
+  aqpc811aeeantm NUMBER(17,2),
+  aqpc811aeahntm NUMBER(17,2),
+  aqpc811aecmd21 VARCHAR2(10),
+  aqpc811aeercrp NUMBER(17,2),
+  aqpc811aeeacrp NUMBER(17,2),
+  aqpc811aecmd22 VARCHAR2(10),
+  aqpc811aeercrv NUMBER(17,2),
+  aqpc811aeeacrv NUMBER(17,2),
+  aqpc811aecmd23 VARCHAR2(10),
+  aqpc811aeerexf NUMBER(17,2),
+  aqpc811aeeaexf NUMBER(17,2),
+  aqpc811artign1 VARCHAR2(20),
+  aqpc811artign2 VARCHAR2(20),
+  aqpc811artexn1 VARCHAR2(20),
+  aqpc811artexn2 VARCHAR2(20),
+  aqpc811fechreg DATE,
+  aqpc811horareg VARCHAR2(8),
+  aqpc811corr    NUMBER(10) not null,
+  aqpc811estad   VARCHAR2(1),
+  aqpc811instant NUMBER(10),
+  aqpc811aecmd24 VARCHAR2(10),
+  aqpc811aeercot NUMBER(17,2),
+  aqpc811aeeacot NUMBER(17,2),
+  aqpc811aecmd26 VARCHAR2(10),
+  aqpc811aeerpot NUMBER(17,2),
+  aqpc811aeeapot NUMBER(17,2)
+)
+;
+comment on table AQPC811
+  is 'Tabla Detalle Analisis Financiero Creditos CONSUMO de Opinion de Riesgos';
+comment on column AQPC811.aqpc811codopi
+  is 'Codigo de Opinion de Riesgos';
+comment on column AQPC811.aqpc811afeere
+  is 'Fecha Eval. Reciente Anl Financiero Creditos';
+comment on column AQPC811.aqpc811afeean
+  is 'Fecha Eval. Anterior Anl Financiero Creditos';
+comment on column AQPC811.aqpc811aicmda1
+  is 'Anl. Fin. Ingresos Bruto Titular Moneda';
+comment on column AQPC811.aqpc811aierbrt
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Bruto Titular';
+comment on column AQPC811.aqpc811aieabrt
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Bruto Titular';
+comment on column AQPC811.aqpc811aiahbrt
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Bruto Titular';
+comment on column AQPC811.aqpc811aicmda2
+  is 'Anl. Fin. Ingresos Bruto Conyuge Moneda';
+comment on column AQPC811.aqpc811aierbry
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Bruto Conyuge';
+comment on column AQPC811.aqpc811aieabry
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Bruto Conyuge';
+comment on column AQPC811.aqpc811aiahbry
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Bruto Conyuge';
+comment on column AQPC811.aqpc811aicmda3
+  is 'Anl. Fin. Ingresos Bruto Comisiones Moneda';
+comment on column AQPC811.aqpc811aierbrc
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Bruto Comisiones';
+comment on column AQPC811.aqpc811aieabrc
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Bruto Comisiones';
+comment on column AQPC811.aqpc811aiahbrc
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Bruto Comisiones';
+comment on column AQPC811.aqpc811aicmda4
+  is 'Anl. Fin. Ingresos Bruto Comisiones Moneda';
+comment on column AQPC811.aqpc811aierbro
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Bruto Otros';
+comment on column AQPC811.aqpc811aieabro
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Bruto Otros';
+comment on column AQPC811.aqpc811aiahbro
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Bruto Otros';
+comment on column AQPC811.aqpc811aicmd24
+  is 'Anl. Fin. Ingresos Otros Ingresos bruto Moneda';
+comment on column AQPC811.aqpc811aierbot
+  is 'Anl. Fin. Ingresos Analisis Reciente Otros Ingresos 1';
+comment on column AQPC811.aqpc811aieabot
+  is 'Anl. Fin. Ingresos Analisis Anterior Otros Ingresos 1';
+comment on column AQPC811.aqpc811aiahbot
+  is 'Anl. Fin. Ingresos Analisis Horizontal Otros Ingresos 1';
+comment on column AQPC811.aqpc811aicmda5
+  is 'Anl. Fin. Ingresos Bruto Total Moneda';
+comment on column AQPC811.aqpc811aierbto
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Bruto Total';
+comment on column AQPC811.aqpc811aieabto
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Bruto Total';
+comment on column AQPC811.aqpc811aiahbto
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Bruto Total';
+comment on column AQPC811.aqpc811aicmda6
+  is 'Anl. Fin. Ingresos Neto Titular Moneda';
+comment on column AQPC811.aqpc811aierntt
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Neto Titular';
+comment on column AQPC811.aqpc811aieantt
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Neto Titular';
+comment on column AQPC811.aqpc811aiahntt
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Neto Titular';
+comment on column AQPC811.aqpc811aicmda7
+  is 'Anl. Fin. Ingresos Neto Conyuge Moneda';
+comment on column AQPC811.aqpc811aiernty
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Neto Conyuge';
+comment on column AQPC811.aqpc811aieanty
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Neto Conyuge';
+comment on column AQPC811.aqpc811aiahnty
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Neto Conyuge';
+comment on column AQPC811.aqpc811aicmda8
+  is 'Anl. Fin. Ingresos Neto Comisiones Moneda';
+comment on column AQPC811.aqpc811aierntc
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Neto Comisiones';
+comment on column AQPC811.aqpc811aieantc
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Neto Comisiones';
+comment on column AQPC811.aqpc811aiahntc
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Neto Comisiones';
+comment on column AQPC811.aqpc811aicmda9
+  is 'Anl. Fin. Ingresos Neto Comisiones Moneda';
+comment on column AQPC811.aqpc811aiernto
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Neto Otros';
+comment on column AQPC811.aqpc811aieanto
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Neto Otros';
+comment on column AQPC811.aqpc811aiahnto
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Neto Otros';
+comment on column AQPC811.aqpc811aecmd25
+  is 'Anl. Fin. Ingresos Otros Ingresos Neto Moneda';
+comment on column AQPC811.aqpc811aeernot
+  is 'Anl. Fin. Ingresos Analisis Reciente Otros Ingresos 2';
+comment on column AQPC811.aqpc811aeeanot
+  is 'Anl. Fin. Ingresos Analisis Anterior Otros Ingresos 2';
+comment on column AQPC811.aqpc811aeahnot
+  is 'Anl. Fin. Ingresos Analisis Horizontal Otros Ingresos 2';
+comment on column AQPC811.aqpc811aicmd10
+  is 'Anl. Fin. Ingresos Neto Total Moneda';
+comment on column AQPC811.aqpc811aierntl
+  is 'Anl. Fin. Ingresos Analisis Reciente Ingr.Neto Total';
+comment on column AQPC811.aqpc811aieantl
+  is 'Anl. Fin. Ingresos Analisis Anterior Ingr.Neto Total';
+comment on column AQPC811.aqpc811aiahntl
+  is 'Anl. Fin. Ingresos Analisis Horizontal Ingr.Neto Total';
+comment on column AQPC811.aqpc811aecmd11
+  is 'Anl. Fin. Egresos Alimentacion Moneda';
+comment on column AQPC811.aqpc811aeerali
+  is 'Anl. Fin. Egresos Analisis Reciente Alimentacion';
+comment on column AQPC811.aqpc811aeeaali
+  is 'Anl. Fin. Egresos Analisis Anterior Alimentacion';
+comment on column AQPC811.aqpc811aeahali
+  is 'Anl. Fin. Egresos Analisis Horizontal Alimentacion';
+comment on column AQPC811.aqpc811aecmd12
+  is 'Anl. Fin. Egresos Alquiler Moneda';
+comment on column AQPC811.aqpc811aeeralq
+  is 'Anl. Fin. Egresos Analisis Reciente Alquiler';
+comment on column AQPC811.aqpc811aeeaalq
+  is 'Anl. Fin. Egresos Analisis Anterior Alquiler';
+comment on column AQPC811.aqpc811aeahalq
+  is 'Anl. Fin. Egresos Analisis Horizontal Alquiler';
+comment on column AQPC811.aqpc811aecmd13
+  is 'Anl. Fin. Egresos Transporte Moneda';
+comment on column AQPC811.aqpc811aeertrp
+  is 'Anl. Fin. Egresos Analisis Reciente Transporte';
+comment on column AQPC811.aqpc811aeeatrp
+  is 'Anl. Fin. Egresos Analisis Anterior Transporte';
+comment on column AQPC811.aqpc811aeahtrp
+  is 'Anl. Fin. Egresos Analisis Horizontal Transporte';
+comment on column AQPC811.aqpc811aecmd14
+  is 'Anl. Fin. Egresos Educacion Moneda';
+comment on column AQPC811.aqpc811aeeredu
+  is 'Anl. Fin. Egresos Analisis Reciente Educacion';
+comment on column AQPC811.aqpc811aeeaedu
+  is 'Anl. Fin. Egresos Analisis Anterior Educacion';
+comment on column AQPC811.aqpc811aeahedu
+  is 'Anl. Fin. Egresos Analisis Horizontal Educacion';
+comment on column AQPC811.aqpc811aecmd15
+  is 'Anl. Fin. Egresos Servicios Publicos Moneda';
+comment on column AQPC811.aqpc811aeerser
+  is 'Anl. Fin. Egresos Analisis Reciente Servicios Publicos';
+comment on column AQPC811.aqpc811aeeaser
+  is 'Anl. Fin. Egresos Analisis Anterior Servicios Publicos';
+comment on column AQPC811.aqpc811aeahser
+  is 'Anl. Fin. Egresos Analisis Horizontal Servicios Publicos';
+comment on column AQPC811.aqpc811aecmd16
+  is 'Anl. Fin. Egresos Aporte Familiar Moneda';
+comment on column AQPC811.aqpc811aeerfam
+  is 'Anl. Fin. Egresos Analisis Reciente Aporte Familiar ';
+comment on column AQPC811.aqpc811aeeafam
+  is 'Anl. Fin. Egresos Analisis Anterior Aporte Familiar ';
+comment on column AQPC811.aqpc811aeahfam
+  is 'Anl. Fin. Egresos Analisis Horizontal Aporte Familiar ';
+comment on column AQPC811.aqpc811aecmd17
+  is 'Anl. Fin. Egresos Otros Gastos Moneda';
+comment on column AQPC811.aqpc811aeerotr
+  is 'Anl. Fin. Egresos Analisis Reciente Otros Gastos';
+comment on column AQPC811.aqpc811aeeaotr
+  is 'Anl. Fin. Egresos Analisis Anterior Otros Gastos';
+comment on column AQPC811.aqpc811aeahotr
+  is 'Anl. Fin. Egresos Analisis Horizontal Otros Gastos';
+comment on column AQPC811.aqpc811aecmd18
+  is 'Anl. Fin. Egresos Gastos Familiares Total Moneda';
+comment on column AQPC811.aqpc811aeergft
+  is 'Anl. Fin. Egresos Analisis Reciente Gastos Familiares Total';
+comment on column AQPC811.aqpc811aeeagft
+  is 'Anl. Fin. Egresos Analisis Anterior Gastos Familiares Total';
+comment on column AQPC811.aqpc811aeahgft
+  is 'Anl. Fin. Egresos Analisis Horizontal Gastos Familiares Total';
+comment on column AQPC811.aqpc811agcmd19
+  is 'Anl. Fin. Egresos Gastos Financieros Total Moneda';
+comment on column AQPC811.aqpc811agergft
+  is 'Anl. Fin. Egresos Analisis Reciente Gastos Financieros Total';
+comment on column AQPC811.aqpc811ageagft
+  is 'Anl. Fin. Egresos Analisis Anterior Gastos Financieros Total';
+comment on column AQPC811.aqpc811agahgft
+  is 'Anl. Fin. Egresos Analisis Horizontal Gastos Financieros Total';
+comment on column AQPC811.aqpc811aecmd20
+  is 'Anl. Fin. Excedentes Neto Mensual Total Moneda';
+comment on column AQPC811.aqpc811aeerntm
+  is 'Anl. Fin. Excedentes Analisis Reciente Neto Mensual Total';
+comment on column AQPC811.aqpc811aeeantm
+  is 'Anl. Fin. Excedentes Analisis Anterior Neto Mensual Total';
+comment on column AQPC811.aqpc811aeahntm
+  is 'Anl. Fin. Excedentes Analisis Horizontal Neto Mensual Total';
+comment on column AQPC811.aqpc811aecmd21
+  is 'Anl. Fin. Excedentes Credito Propuesto Moneda';
+comment on column AQPC811.aqpc811aeercrp
+  is 'Anl. Fin. Excedentes Analisis Reciente Credito Propuesto';
+comment on column AQPC811.aqpc811aeeacrp
+  is 'Anl. Fin. Excedentes Analisis Anterior Credito Propuesto';
+comment on column AQPC811.aqpc811aecmd22
+  is 'Anl. Fin. Excedentes Credito Vigentes Moneda';
+comment on column AQPC811.aqpc811aeercrv
+  is 'Anl. Fin. Excedentes Analisis Reciente Creditos Vigentes';
+comment on column AQPC811.aqpc811aeeacrv
+  is 'Anl. Fin. Excedentes Analisis Anterior Creditos Vigentes';
+comment on column AQPC811.aqpc811aecmd23
+  is 'Anl. Fin. Excedentes Excedente Final Moneda';
+comment on column AQPC811.aqpc811aeerexf
+  is 'Anl. Fin. Excedentes Analisis Reciente Excedente Final';
+comment on column AQPC811.aqpc811aeeaexf
+  is 'Anl. Fin. Excedentes Analisis Anterior Excedente Final';
+comment on column AQPC811.aqpc811artign1
+  is 'Anl. Fin. Ratio Cuota de Ingreso Neto 1 ';
+comment on column AQPC811.aqpc811artign2
+  is 'Anl. Fin. Ratio Cuota de Ingreso Neto 2 ';
+comment on column AQPC811.aqpc811artexn1
+  is 'Anl. Fin. Ratio Cuota de Excedente Neto 1 ';
+comment on column AQPC811.aqpc811artexn2
+  is 'Anl. Fin. Ratio Cuota de Excedente Neto 2 ';
+comment on column AQPC811.aqpc811fechreg
+  is 'Fecha Registro';
+comment on column AQPC811.aqpc811horareg
+  is 'Hora Registro';
+comment on column AQPC811.aqpc811corr
+  is 'Correlativo';
+comment on column AQPC811.aqpc811estad
+  is 'Estado del registro I - Inhabilitado;H - Habilitado';
+comment on column AQPC811.aqpc811instant
+  is 'Instancia Anterior';
+comment on column AQPC811.aqpc811aecmd24
+  is 'Anl. Fin. Credito Contingente Moneda';
+comment on column AQPC811.aqpc811aeercot
+  is 'Anl. Fin. Cred. Actv. reciente Credito Contingente';
+comment on column AQPC811.aqpc811aeeacot
+  is 'Anl. Fin. Cred. Actv. Anterior Credito Contingente';
+comment on column AQPC811.aqpc811aecmd26
+  is 'Anl. Fin. credito potencial Moneda';
+comment on column AQPC811.aqpc811aeerpot
+  is 'Anl. Fin. Cred. Actv. Reciente  credito potencial';
+comment on column AQPC811.aqpc811aeeapot
+  is 'Anl. Fin. Cred. Actv. Anterior credito potencial';
+create index AQPC811A2 on AQPC811 (AQPC811CODOPI, AQPC811ESTAD);
+alter table AQPC811
+  add primary key (AQPC811CODOPI, AQPC811CORR);
+

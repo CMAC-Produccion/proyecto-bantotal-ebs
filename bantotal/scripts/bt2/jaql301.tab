@@ -1,0 +1,27 @@
+create table JAQL301
+(
+  jaql301pgcod NUMBER(3) not null,
+  jaql301uuser CHAR(10) not null,
+  jaql301fecha DATE not null,
+  jaql301sucuc NUMBER(3) not null,
+  jaql301estad CHAR(15) not null,
+  jaql301titar CHAR(1) not null,
+  jaql301nlote NUMBER(9) not null,
+  jaql301nosuc CHAR(30),
+  jaql301tarje CHAR(30),
+  jaql301canti NUMBER(5),
+  jaql301auxc1 CHAR(30),
+  jaql301auxc2 CHAR(30),
+  jaql301auxc3 CHAR(30),
+  jaql301auxn1 NUMBER(17,2),
+  jaql301auxn2 NUMBER(17,2),
+  jaql301auxn3 NUMBER(17,2),
+  jaql301auxd1 DATE,
+  jaql301auxd2 DATE,
+  jaql301auxd3 DATE
+)
+;
+create index JAQL3012 on JAQL301 (JAQL301PGCOD, JAQL301NOSUC, JAQL301NLOTE);
+alter table JAQL301
+  add primary key (JAQL301PGCOD, JAQL301UUSER, JAQL301FECHA, JAQL301SUCUC, JAQL301ESTAD, JAQL301TITAR, JAQL301NLOTE);
+

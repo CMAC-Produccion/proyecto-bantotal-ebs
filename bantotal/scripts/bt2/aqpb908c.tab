@@ -1,0 +1,97 @@
+create table AQPB908C
+(
+  aqpb908cusu   VARCHAR2(10) not null,
+  aqpb908cmaq   VARCHAR2(30) not null,
+  aqpb908ctip   NUMBER(5) not null,
+  aqpb908cnro   NUMBER(10) not null,
+  aqpb908ctxt1  VARCHAR2(100),
+  aqpb908ctxt2  VARCHAR2(100),
+  aqpb908ctxt3  VARCHAR2(100),
+  aqpb908ctxt4  VARCHAR2(100),
+  aqpb908ctxt5  VARCHAR2(100),
+  aqpb908cfec1  DATE,
+  aqpb908cfec2  DATE,
+  aqpb908cfec3  DATE,
+  aqpb908cent1  NUMBER(10),
+  aqpb908cent2  NUMBER(10),
+  aqpb908cent3  NUMBER(10),
+  aqpb908cnum1  NUMBER(17,2),
+  aqpb908cnum2  NUMBER(17,2),
+  aqpb908cnum3  NUMBER(17,2),
+  aqpb908cnum4  NUMBER(17,2),
+  aqpb908cnum5  NUMBER(17,2),
+  aqpb908cnum6  NUMBER(17,2),
+  aqpb908cnum7  NUMBER(17,2),
+  aqpb908cnum8  NUMBER(17,2),
+  aqpb908cnum9  NUMBER(17,2),
+  aqpb908cnum10 NUMBER(17,2),
+  aqpb908cnum11 NUMBER(17,2),
+  aqpb908cnum12 NUMBER(17,2),
+  aqpb908cnum13 NUMBER(17,2),
+  aqpb908cnum14 NUMBER(17,2),
+  aqpb908cnum15 NUMBER(17,2)
+)
+;
+comment on table AQPB908C
+  is 'TABLA TEMPORAL Y AUXILIAR EQUIFAX';
+comment on column AQPB908C.aqpb908cusu
+  is 'USUARIO';
+comment on column AQPB908C.aqpb908cmaq
+  is 'MAQUINA';
+comment on column AQPB908C.aqpb908ctip
+  is 'TIPO';
+comment on column AQPB908C.aqpb908cnro
+  is 'NRO SERIAL';
+comment on column AQPB908C.aqpb908ctxt1
+  is 'TEXTO 1';
+comment on column AQPB908C.aqpb908ctxt2
+  is 'TEXTO 2';
+comment on column AQPB908C.aqpb908ctxt3
+  is 'TEXTO 3';
+comment on column AQPB908C.aqpb908ctxt4
+  is 'TEXTO 4';
+comment on column AQPB908C.aqpb908ctxt5
+  is 'TEXTO 5';
+comment on column AQPB908C.aqpb908cfec1
+  is 'FECHA 1';
+comment on column AQPB908C.aqpb908cfec2
+  is 'FECHA 2';
+comment on column AQPB908C.aqpb908cfec3
+  is 'FECHA 3';
+comment on column AQPB908C.aqpb908cent1
+  is 'ENTERO 1';
+comment on column AQPB908C.aqpb908cent2
+  is 'ENTERO 2';
+comment on column AQPB908C.aqpb908cent3
+  is 'ENTERO 3';
+comment on column AQPB908C.aqpb908cnum1
+  is 'DECIMAL 1';
+comment on column AQPB908C.aqpb908cnum3
+  is 'DECIMAL 3';
+comment on column AQPB908C.aqpb908cnum4
+  is 'DECIMAL 4';
+comment on column AQPB908C.aqpb908cnum5
+  is 'DECIMAL 5';
+comment on column AQPB908C.aqpb908cnum6
+  is 'DECIMAL 6';
+comment on column AQPB908C.aqpb908cnum7
+  is 'DECIMAL 7';
+comment on column AQPB908C.aqpb908cnum8
+  is 'DECIMAL 8';
+comment on column AQPB908C.aqpb908cnum9
+  is 'DECIMAL 9';
+comment on column AQPB908C.aqpb908cnum10
+  is 'DECIMAL 10';
+comment on column AQPB908C.aqpb908cnum11
+  is 'DECIMAL 11';
+comment on column AQPB908C.aqpb908cnum12
+  is 'DECIMAL 12';
+comment on column AQPB908C.aqpb908cnum13
+  is 'DECIMAL 13';
+comment on column AQPB908C.aqpb908cnum14
+  is 'DECIMAL 14';
+comment on column AQPB908C.aqpb908cnum15
+  is 'DECIMAL 15';
+alter table AQPB908C
+  add primary key (AQPB908CUSU, AQPB908CMAQ, AQPB908CTIP, AQPB908CNRO);
+

@@ -1,0 +1,14 @@
+create table FST246
+(
+  pgcod     NUMBER(3) not null,
+  ubusertrs CHAR(10) not null,
+  ubsucini  NUMBER(3),
+  ubaux1    NUMBER(9),
+  ubaux2    CHAR(20),
+  ubaux3    CHAR(1),
+  ubaux4    DATE
+)
+;
+alter table FST246
+  add primary key (PGCOD, UBUSERTRS);
+

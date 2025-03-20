@@ -1,0 +1,25 @@
+create table SNGC20
+(
+  sngc20pg   NUMBER(3) not null,
+  sngc20cta  NUMBER(9) not null,
+  sngc20c1   CHAR(1),
+  sngc20c2   CHAR(1),
+  sngc20tc1  CHAR(5),
+  sngc20tc2  CHAR(5),
+  sngc20nm1  NUMBER(5),
+  sngc20nm2  NUMBER(5),
+  sngc20nc1  NUMBER(1),
+  sngc20nl1  NUMBER(10),
+  sngc20nl2  NUMBER(10),
+  sngc20imp1 NUMBER(17,2),
+  sngc20imp2 NUMBER(17,2),
+  sngc20tm1  CHAR(20),
+  sngc20tl2  CHAR(50),
+  sngc20d1   DATE,
+  sngc20d2   DATE,
+  sngc20v1   VARCHAR2(800)
+)
+;
+alter table SNGC20
+  add primary key (SNGC20PG, SNGC20CTA);
+

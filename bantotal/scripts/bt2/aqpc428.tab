@@ -1,0 +1,71 @@
+create table AQPC428
+(
+  aqpc428emp    NUMBER(3) not null,
+  aqpc428mod    NUMBER(3) not null,
+  aqpc428suc    NUMBER(3) not null,
+  aqpc428mda    NUMBER(3) not null,
+  aqpc428pap    NUMBER(4) not null,
+  aqpc428cta    NUMBER(9) not null,
+  aqpc428ope    NUMBER(9) not null,
+  aqpc428sbo    NUMBER(3) not null,
+  aqpc428top    NUMBER(3) not null,
+  aqpc428fecr   DATE,
+  aqpc428tcod   NUMBER(3) not null,
+  aqpc428itmod  NUMBER(3) not null,
+  aqpc428itsuc  NUMBER(3) not null,
+  aqpc428ttran  NUMBER(3) not null,
+  aqpc428itnrel NUMBER(4) not null,
+  aqpc428itfcon DATE not null,
+  aqpc428mora   NUMBER(18,2),
+  aqpc428icv    NUMBER(18,2),
+  aqpc428code   NUMBER(5),
+  aqpc428msje   VARCHAR2(150)
+)
+;
+comment on table AQPC428
+  is 'Tabla de log de las transferencias de saldos de mora e icvv';
+comment on column AQPC428.aqpc428emp
+  is 'empresa';
+comment on column AQPC428.aqpc428mod
+  is 'Módulo';
+comment on column AQPC428.aqpc428suc
+  is 'Sucursal';
+comment on column AQPC428.aqpc428mda
+  is 'MOneda';
+comment on column AQPC428.aqpc428pap
+  is 'Papel';
+comment on column AQPC428.aqpc428cta
+  is 'Cuenta';
+comment on column AQPC428.aqpc428ope
+  is 'Operación';
+comment on column AQPC428.aqpc428sbo
+  is 'Sub operación';
+comment on column AQPC428.aqpc428top
+  is 'Tipo de operación';
+comment on column AQPC428.aqpc428fecr
+  is 'Fecha de actualización';
+comment on column AQPC428.aqpc428tcod
+  is 'Empresa - Clave de la transacción';
+comment on column AQPC428.aqpc428itmod
+  is 'modulo de la transacción';
+comment on column AQPC428.aqpc428itsuc
+  is 'suc transacción';
+comment on column AQPC428.aqpc428ttran
+  is 'transacción';
+comment on column AQPC428.aqpc428itnrel
+  is 'rel transacción';
+comment on column AQPC428.aqpc428itfcon
+  is 'fecha transacción';
+comment on column AQPC428.aqpc428mora
+  is 'MOra';
+comment on column AQPC428.aqpc428icv
+  is 'ICV';
+comment on column AQPC428.aqpc428code
+  is 'Código de Error';
+comment on column AQPC428.aqpc428msje
+  is 'Mensaje de error';
+create index AQPC428A2 on AQPC428 (AQPC428CTA, AQPC428OPE);
+create index AQPC428A3 on AQPC428 (AQPC428FECR);
+alter table AQPC428
+  add primary key (AQPC428EMP, AQPC428MOD, AQPC428SUC, AQPC428MDA, AQPC428PAP, AQPC428CTA, AQPC428OPE, AQPC428SBO, AQPC428TOP, AQPC428TCOD, AQPC428ITMOD, AQPC428ITSUC, AQPC428TTRAN, AQPC428ITNREL, AQPC428ITFCON);
+

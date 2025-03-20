@@ -1,0 +1,11 @@
+create table Z05215
+(
+  z05215tipo CHAR(3) not null,
+  z05215nro  NUMBER(12) not null,
+  z05215fech DATE,
+  z05215hora CHAR(8)
+)
+;
+alter table Z05215
+  add primary key (Z05215TIPO, Z05215NRO);
+

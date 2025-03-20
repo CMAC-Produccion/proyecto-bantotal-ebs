@@ -1,0 +1,22 @@
+create table FSFF14
+(
+  kdoxcor NUMBER(9) not null,
+  kdoxmda NUMBER(4) not null,
+  kdoxpap NUMBER(4) not null,
+  kdoxtit NUMBER(2) not null,
+  kdoxcap NUMBER(2) not null,
+  kdoxgru NUMBER(2) not null,
+  kdoxrub NUMBER(16) not null,
+  kdoxrru NUMBER(5) not null,
+  kdoxpzo NUMBER(5) not null,
+  kdoxsub NUMBER(5) not null,
+  kdoxssu NUMBER(5) not null,
+  kdoxsmo NUMBER(17,2),
+  kdoxsus NUMBER(17,2),
+  kdoxsmn NUMBER(17,2),
+  kdoxsdh NUMBER(17,2)
+)
+;
+alter table FSFF14
+  add primary key (KDOXCOR, KDOXMDA, KDOXPAP, KDOXTIT, KDOXCAP, KDOXGRU, KDOXRUB, KDOXRRU, KDOXPZO, KDOXSUB, KDOXSSU);
+

@@ -1,0 +1,14 @@
+create table PRDP03
+(
+  prdp03emp  NUMBER(3) not null,
+  prdp03anio NUMBER(4) not null,
+  prdp03prod NUMBER(3) not null,
+  prdp03ncuo NUMBER(4) not null,
+  prdp03fch  DATE,
+  prdp03fchl DATE
+)
+;
+create index PRDP0302 on PRDP03 (PRDP03EMP, PRDP03ANIO, PRDP03PROD, PRDP03FCH);
+alter table PRDP03
+  add primary key (PRDP03EMP, PRDP03ANIO, PRDP03PROD, PRDP03NCUO);
+

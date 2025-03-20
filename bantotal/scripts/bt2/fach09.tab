@@ -1,0 +1,17 @@
+create table FACH09
+(
+  ach09sol   NUMBER(4) not null,
+  ach09fapl  DATE not null,
+  ach09corr  NUMBER(8) not null,
+  ach09emp   NUMBER(3),
+  ach09suc   NUMBER(3),
+  ach09mod   NUMBER(3),
+  ach09trn   NUMBER(3),
+  ach09rel   NUMBER(4),
+  ach09fcon  DATE,
+  ach09mncod NUMBER(4)
+)
+;
+alter table FACH09
+  add primary key (ACH09SOL, ACH09FAPL, ACH09CORR);
+

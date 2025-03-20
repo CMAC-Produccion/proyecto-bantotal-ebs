@@ -1,0 +1,25 @@
+create table FVC000
+(
+  fvc000proc NUMBER(4) not null,
+  fvc000pgco NUMBER(3) not null,
+  fvc000sucu NUMBER(3) not null,
+  fvc000cuen NUMBER(9) not null,
+  fvc000oper NUMBER(9) not null,
+  fvc000subo NUMBER(3) not null,
+  fvc000mda  NUMBER(4) not null,
+  fvc000pap  NUMBER(4) not null,
+  fvc000modu NUMBER(3) not null,
+  fvc000fech DATE not null,
+  fvc000sald NUMBER(17,2),
+  fvc000sdoi NUMBER(17,2),
+  fvc000itsu NUMBER(3),
+  fvc000itmo NUMBER(3),
+  fvc000ittr NUMBER(3),
+  fvc000itnr NUMBER(4),
+  fvc000fcon DATE
+)
+;
+create index FVC0002 on FVC000 (FVC000PGCO, FVC000FCON, FVC000ITSU, FVC000ITMO, FVC000ITNR);
+alter table FVC000
+  add primary key (FVC000PROC, FVC000PGCO, FVC000SUCU, FVC000CUEN, FVC000OPER, FVC000SUBO, FVC000MDA, FVC000PAP, FVC000MODU, FVC000FECH);
+

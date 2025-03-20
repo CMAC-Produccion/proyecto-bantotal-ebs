@@ -1,0 +1,148 @@
+create table JAQM77
+(
+  jaqm77id  VARCHAR2(20) not null,
+  jaqm77des CHAR(150),
+  jaqm77emp NUMBER(3),
+  jaqm77mod NUMBER(3),
+  jaqm77tra NUMBER(3),
+  jaqm77suc NUMBER(3),
+  jaqm77mda NUMBER(4),
+  jaqm77pap NUMBER(4),
+  jaqm77cta NUMBER(9),
+  jaqm77ope NUMBER(9),
+  jaqm77sbp NUMBER(3),
+  jaqm77top NUMBER(3),
+  jaqm77ord NUMBER(2),
+  jaqm77sbo NUMBER(3),
+  jaqm77tfl CHAR(20),
+  jaqm77cdp NUMBER(9),
+  jaqm77imx NUMBER(17,2),
+  jaqm77nit NUMBER(9),
+  jaqm77deg CHAR(1),
+  jaqm77udg CHAR(30),
+  jaqm77tdg CHAR(30),
+  jaqm77gxt NUMBER(9),
+  jaqm77act CHAR(1),
+  jaqm77tvh NUMBER(10),
+  jaqm77cdu CHAR(1),
+  jaqm77cdi CHAR(20),
+  jaqm77etp CHAR(250),
+  jaqm77fjb CHAR(1),
+  jaqm77oin CHAR(1),
+  jaqm77jso VARCHAR2(2000),
+  jaqm77aps CHAR(1),
+  jaqm77ape CHAR(1),
+  jaqm77apa CHAR(1),
+  jaqm77apd CHAR(1),
+  jaqm77an1 NUMBER(9),
+  jaqm77an2 NUMBER(9),
+  jaqm77an3 NUMBER(9),
+  jaqm77ad1 DATE,
+  jaqm77ad2 DATE,
+  jaqm77ad3 DATE,
+  jaqm77ai1 NUMBER(17,2),
+  jaqm77ai2 NUMBER(17,2),
+  jaqm77ai3 NUMBER(17,2),
+  jaqm77ac1 CHAR(255),
+  jaqm77ac2 CHAR(255),
+  jaqm77ac3 CHAR(255)
+)
+;
+comment on table JAQM77
+  is 'Parametria Biometria';
+comment on column JAQM77.jaqm77id
+  is 'Identificador';
+comment on column JAQM77.jaqm77des
+  is 'Descripcion';
+comment on column JAQM77.jaqm77emp
+  is 'Empresa';
+comment on column JAQM77.jaqm77mod
+  is 'Modulo';
+comment on column JAQM77.jaqm77tra
+  is 'Transacion';
+comment on column JAQM77.jaqm77suc
+  is 'Sucursal';
+comment on column JAQM77.jaqm77mda
+  is 'Moneda';
+comment on column JAQM77.jaqm77pap
+  is 'Papel';
+comment on column JAQM77.jaqm77cta
+  is 'Cuenta';
+comment on column JAQM77.jaqm77ope
+  is 'Operacion';
+comment on column JAQM77.jaqm77sbp
+  is 'Sub Operacion';
+comment on column JAQM77.jaqm77top
+  is 'Tipo de Operacion';
+comment on column JAQM77.jaqm77ord
+  is 'Ordinal';
+comment on column JAQM77.jaqm77sbo
+  is 'Subordinal';
+comment on column JAQM77.jaqm77tfl
+  is 'Tipo de flujo';
+comment on column JAQM77.jaqm77cdp
+  is 'Codigo de proceso';
+comment on column JAQM77.jaqm77imx
+  is 'Importe Maximo';
+comment on column JAQM77.jaqm77nit
+  is 'Numero Intentos';
+comment on column JAQM77.jaqm77deg
+  is 'Debug S: activo N: desactivado';
+comment on column JAQM77.jaqm77udg
+  is 'Usuario Debug';
+comment on column JAQM77.jaqm77tdg
+  is 'Tipo Debug';
+comment on column JAQM77.jaqm77gxt
+  is 'GXtimeOut';
+comment on column JAQM77.jaqm77act
+  is 'Activacion total S:si N: no (solo una sucursal)';
+comment on column JAQM77.jaqm77tvh
+  is 'Tiempo vigencia Huella';
+comment on column JAQM77.jaqm77cdu
+  is 'Control Dual S: si N: no (activo)';
+comment on column JAQM77.jaqm77cdi
+  is 'Control Dual Identificador';
+comment on column JAQM77.jaqm77etp
+  is 'Identificador de Etapas';
+comment on column JAQM77.jaqm77fjb
+  is 'Flujo biometria (S: si N: no flujo normal)';
+comment on column JAQM77.jaqm77oin
+  is 'Obliga intentos (Omitir despues de intentos) S: si N: no';
+comment on column JAQM77.jaqm77jso
+  is 'Descripcion Json';
+comment on column JAQM77.jaqm77aps
+  is 'Aprobado solicitud';
+comment on column JAQM77.jaqm77ape
+  is 'Aprobado evaluacion';
+comment on column JAQM77.jaqm77apa
+  is 'Aprobado aprobacion';
+comment on column JAQM77.jaqm77apd
+  is 'Aprobado desembolso';
+comment on column JAQM77.jaqm77an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM77.jaqm77an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM77.jaqm77an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM77.jaqm77ad1
+  is 'Date Auxiliar 1';
+comment on column JAQM77.jaqm77ad2
+  is 'Date Auxiliar 2';
+comment on column JAQM77.jaqm77ad3
+  is 'Date Auxiliar 3';
+comment on column JAQM77.jaqm77ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM77.jaqm77ai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM77.jaqm77ai3
+  is 'Importe Auxilir 3';
+comment on column JAQM77.jaqm77ac1
+  is 'Character Auxiliar 1';
+comment on column JAQM77.jaqm77ac2
+  is 'Character Auxiliar 2';
+comment on column JAQM77.jaqm77ac3
+  is 'Character Auxiliar 3';
+create index JAQM77A2 on JAQM77 (JAQM77EMP, JAQM77MOD, JAQM77TRA, JAQM77SUC, JAQM77MDA, JAQM77PAP, JAQM77CTA, JAQM77OPE, JAQM77SBP, JAQM77TOP, JAQM77ORD, JAQM77SBO);
+alter table JAQM77
+  add primary key (JAQM77ID);
+

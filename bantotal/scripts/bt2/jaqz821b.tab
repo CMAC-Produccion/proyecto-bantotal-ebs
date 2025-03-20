@@ -1,0 +1,55 @@
+create table JAQZ821B
+(
+  jaqz821corr    NUMBER(4) not null,
+  jaqz821pais    NUMBER(9) not null,
+  jaqz821tdoc    NUMBER(9) not null,
+  jaqz821ndoc    VARCHAR2(12) not null,
+  jaqz821tcamb   NUMBER(14,8),
+  jaqz821inst    NUMBER(12) not null,
+  jaqz821fec     DATE not null,
+  jaqz821hora    CHAR(8) not null,
+  jaqz821capcaja NUMBER(17,2),
+  jaqz821sldext  NUMBER(17,2),
+  jaqz821exdmens NUMBER(17,2),
+  jaqz821ccontg  NUMBER(17,2),
+  jaqz821cpoten  NUMBER(17,2),
+  jaqz821ratio   NUMBER(17,6),
+  jaqz821ind     VARCHAR2(2),
+  jaqz821est     VARCHAR2(2),
+  jaqz821user    VARCHAR2(10)
+)
+;
+comment on column JAQZ821B.jaqz821corr
+  is 'Correlativo';
+comment on column JAQZ821B.jaqz821pais
+  is 'Pais de Documento';
+comment on column JAQZ821B.jaqz821tdoc
+  is 'Tipo de Documento';
+comment on column JAQZ821B.jaqz821ndoc
+  is 'Nro de Documento';
+comment on column JAQZ821B.jaqz821tcamb
+  is 'Tipo de Cambio';
+comment on column JAQZ821B.jaqz821inst
+  is 'Instancia';
+comment on column JAQZ821B.jaqz821fec
+  is 'Fecha de Proceso';
+comment on column JAQZ821B.jaqz821hora
+  is 'Hora de Insercion en la Tabla';
+comment on column JAQZ821B.jaqz821capcaja
+  is 'Capacidad en la Caja';
+comment on column JAQZ821B.jaqz821sldext
+  is 'Saldo Externo - Sistema Financiero';
+comment on column JAQZ821B.jaqz821exdmens
+  is 'Excedente Mensual';
+comment on column JAQZ821B.jaqz821ratio
+  is 'Ratio Cuota Resultado';
+comment on column JAQZ821B.jaqz821ind
+  is 'Indicador C consumo';
+comment on column JAQZ821B.jaqz821est
+  is 'H habilitado, I inhabilitado';
+create index JAQZ821B2 on JAQZ821B (JAQZ821CORR, JAQZ821FEC, JAQZ821HORA);
+create index JAQZ821B3 on JAQZ821B (JAQZ821INST);
+create index JAQZ821B4 on JAQZ821B (JAQZ821FEC, JAQZ821INST);
+alter table JAQZ821B
+  add primary key (JAQZ821CORR, JAQZ821PAIS, JAQZ821TDOC, JAQZ821NDOC, JAQZ821INST, JAQZ821FEC, JAQZ821HORA);
+

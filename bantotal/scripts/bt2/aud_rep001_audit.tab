@@ -1,0 +1,33 @@
+create table AUD_REP001_AUDIT
+(
+  aud_old_rep001cod   NUMBER(10),
+  aud_new_rep001cod   NUMBER(10),
+  aud_old_rep001cone  NUMBER(10),
+  aud_new_rep001cone  NUMBER(10),
+  aud_old_rep001dsc   CHAR(20),
+  aud_new_rep001dsc   CHAR(20),
+  aud_old_rep001exp   NUMBER(10),
+  aud_new_rep001exp   NUMBER(10),
+  aud_old_rep001imp   CHAR(1),
+  aud_new_rep001imp   CHAR(1),
+  aud_old_rep001phtml VARCHAR2(200),
+  aud_new_rep001phtml VARCHAR2(200),
+  aud_old_rep001vis   VARCHAR2(5),
+  aud_new_rep001vis   VARCHAR2(5),
+  aud_old_rep001ws    CHAR(1),
+  aud_new_rep001ws    CHAR(1),
+  aud_rep001_guidkey  VARCHAR2(40) default SYS_GUID() not null,
+  aud_rep001_uon      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_rep001_ut       TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_rep001_ubr      VARCHAR2(50) default ' ' not null,
+  aud_rep001_ubc      VARCHAR2(50) default ' ' not null,
+  aud_rep001_ubt      VARCHAR2(50) default ' ' not null,
+  aud_rep001_ubu      VARCHAR2(50) default USER not null,
+  aud_rep001_uba      VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_rep001_ubs      VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_rep001_ubp      VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_rep001_ubm      VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_rep001_uas      CHAR(1) default 'I' not null
+)
+;
+

@@ -1,0 +1,14 @@
+create table WFOBJECT
+(
+  wfprcid    NUMBER(4) not null,
+  wfobjid    NUMBER(4) not null,
+  wfobjdsc   CHAR(40),
+  wfobjtmpid NUMBER(4),
+  wfobjtpoid NUMBER(4)
+)
+;
+create index IWFOBJE1 on WFOBJECT (WFOBJTPOID);
+create index IWFOBJE2 on WFOBJECT (WFPRCID, WFOBJTMPID);
+alter table WFOBJECT
+  add primary key (WFPRCID, WFOBJID);
+

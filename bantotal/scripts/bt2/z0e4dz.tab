@@ -1,0 +1,22 @@
+create table Z0E4DZ
+(
+  z0e4dzcod NUMBER(4) not null,
+  z0e4dztip CHAR(5) not null,
+  z0e4dznev NUMBER(9) not null,
+  z0e4dzcor NUMBER(9) not null,
+  z0e4dzreg CHAR(2),
+  z0e4dzarc CHAR(10),
+  z0e4dzban NUMBER(3),
+  z0e4dzfec NUMBER(8),
+  z0e4dzhor NUMBER(10),
+  z0e4dzcan NUMBER(8),
+  z0e4dzfi1 CHAR(250),
+  z0e4dzfi2 CHAR(250),
+  z0e4dzfi3 CHAR(19),
+  z0e4dzest CHAR(2),
+  z0e4dztex CHAR(50)
+)
+;
+alter table Z0E4DZ
+  add primary key (Z0E4DZCOD, Z0E4DZTIP, Z0E4DZNEV, Z0E4DZCOR);
+

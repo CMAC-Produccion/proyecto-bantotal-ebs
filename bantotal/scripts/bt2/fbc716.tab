@@ -1,0 +1,18 @@
+create table FBC716
+(
+  bc716emp  NUMBER(3) not null,
+  bc716reg  NUMBER(5) not null,
+  bc716tpo  CHAR(1) not null,
+  bc716cor  NUMBER(5) not null,
+  bc716ato  NUMBER(2),
+  bc716ent  NUMBER(3),
+  bc716suc  NUMBER(4),
+  bc716sub  CHAR(4),
+  bc716cod  NUMBER(6),
+  bc716idsd NUMBER(1),
+  bc716ope  CHAR(1)
+)
+;
+alter table FBC716
+  add primary key (BC716EMP, BC716REG, BC716TPO, BC716COR);
+

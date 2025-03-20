@@ -1,0 +1,29 @@
+create table FSE414
+(
+  se414cod NUMBER(3) not null,
+  se414suc NUMBER(3) not null,
+  se414mod NUMBER(3) not null,
+  se414pap NUMBER(4) not null,
+  se414mda NUMBER(4) not null,
+  se414cta NUMBER(9) not null,
+  se414ope NUMBER(9) not null,
+  se414sbo NUMBER(3) not null,
+  se414top NUMBER(3) not null,
+  se414pai NUMBER(3) not null,
+  se414mdt NUMBER(4) not null,
+  se414ime NUMBER(17,2),
+  se414imr NUMBER(17,2),
+  se414tx1 CHAR(20),
+  se414tx2 CHAR(20),
+  se414tx3 CHAR(20),
+  se414fc1 DATE,
+  se414fc2 DATE,
+  se414fc3 DATE,
+  se414im1 NUMBER(17,2),
+  se414im2 NUMBER(17,2),
+  se414im3 NUMBER(17,2)
+)
+;
+alter table FSE414
+  add primary key (SE414COD, SE414SUC, SE414MOD, SE414PAP, SE414MDA, SE414CTA, SE414OPE, SE414SBO, SE414TOP, SE414PAI, SE414MDT);
+

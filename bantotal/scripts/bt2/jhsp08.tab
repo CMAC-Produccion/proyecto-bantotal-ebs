@@ -1,0 +1,36 @@
+create table JHSP08
+(
+  jhsp08fprc DATE not null,
+  jhsp08fila NUMBER(6) not null,
+  jhsp08csbs NUMBER(10),
+  jhsp08clie CHAR(20),
+  jhsp08ciiu CHAR(4),
+  jhsp08ofic CHAR(2),
+  jhsp08subs CHAR(2),
+  jhsp08tipi CHAR(1),
+  jhsp08part CHAR(10),
+  jhsp08ruc  NUMBER(11),
+  jhsp08tdi  CHAR(1),
+  jhsp08nroi CHAR(12),
+  jhsp08tper CHAR(1),
+  jhsp08resi CHAR(1),
+  jhsp08mag  CHAR(1),
+  jhsp08acc  CHAR(1),
+  jhsp08rel  CHAR(1),
+  jhsp08nac  CHAR(4),
+  jhsp08fnac DATE,
+  jhsp08sex  CHAR(1),
+  jhsp08estc CHAR(1),
+  jhsp08sigl CHAR(20),
+  jhsp08apep CHAR(40),
+  jhsp08apem CHAR(40),
+  jhsp08apec CHAR(40),
+  jhsp08nom1 CHAR(40),
+  jhsp08nom2 CHAR(40),
+  jhsp08dir  CHAR(80),
+  jhsp08ubig CHAR(6),
+  jhsp08filr NUMBER(6)
+)
+;
+create unique index JHSP0801 on JHSP08 (JHSP08FPRC, JHSP08FILA);
+

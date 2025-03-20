@@ -1,0 +1,14 @@
+create table FSA110
+(
+  a112cod NUMBER(3) not null,
+  a112suc NUMBER(3) not null,
+  a112mod NUMBER(3) not null,
+  a112trn NUMBER(3) not null,
+  a112rel NUMBER(4) not null,
+  a112ord NUMBER(2) not null,
+  a112num NUMBER(9)
+)
+;
+alter table FSA110
+  add primary key (A112COD, A112SUC, A112MOD, A112TRN, A112REL, A112ORD);
+

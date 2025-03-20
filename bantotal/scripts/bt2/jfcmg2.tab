@@ -1,0 +1,18 @@
+create table JFCMG2
+(
+  jfcmg2gnro NUMBER(9) not null,
+  jfcmg2emp  NUMBER(3) not null,
+  jfcmg2ctai NUMBER(9) not null,
+  jfcmg2cta  NUMBER(9),
+  jfcmg2mod  NUMBER(3),
+  jfcmg2suc  NUMBER(3),
+  jfcmg2mda  NUMBER(4),
+  jfcmg2pap  NUMBER(4),
+  jfcmg2oper NUMBER(9),
+  jfcmg2sbop NUMBER(3),
+  jfcmg2tope NUMBER(3)
+)
+;
+alter table JFCMG2
+  add primary key (JFCMG2GNRO, JFCMG2EMP, JFCMG2CTAI);
+

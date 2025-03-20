@@ -1,0 +1,28 @@
+create table MBC007
+(
+  mbc007emp  NUMBER(3) not null,
+  mbc007suc  NUMBER(3) not null,
+  mbc007mod  NUMBER(3) not null,
+  mbc007tran NUMBER(3) not null,
+  mbc007rel  NUMBER(4) not null,
+  mbc007ord  NUMBER(2) not null,
+  mbc007sbo  NUMBER(3) not null,
+  mbc007usr  CHAR(10) not null,
+  mbc007caj  NUMBER(3) not null,
+  mbc007rub  NUMBER(16) not null,
+  mbc007fch  DATE not null,
+  mbc007hor  CHAR(8) not null,
+  mbc007mda  NUMBER(4) not null,
+  mbc007cva  NUMBER(17,2) not null,
+  mbc007tpo  CHAR(1) not null,
+  mbc007cic  NUMBER(9),
+  mbc7inii   NUMBER(9),
+  mbc007cin  NUMBER(9),
+  mbc7ingi   NUMBER(9),
+  mbc007ceg  NUMBER(9),
+  mbc7egri   NUMBER(9)
+)
+;
+alter table MBC007
+  add primary key (MBC007EMP, MBC007SUC, MBC007MOD, MBC007TRAN, MBC007REL, MBC007ORD, MBC007SBO, MBC007USR, MBC007CAJ, MBC007RUB, MBC007FCH, MBC007HOR, MBC007MDA, MBC007CVA, MBC007TPO);
+

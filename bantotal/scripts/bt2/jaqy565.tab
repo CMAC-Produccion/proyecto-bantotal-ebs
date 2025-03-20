@@ -1,0 +1,12 @@
+create table JAQY565
+(
+  jaqy565cod   NUMBER(4) not null,
+  jaqy565desc  VARCHAR2(250),
+  jaqy565coent NUMBER(3) not null
+)
+;
+comment on column JAQY565.jaqy565coent
+  is 'Codigo de Empresa';
+alter table JAQY565
+  add primary key (JAQY565COD, JAQY565COENT);
+

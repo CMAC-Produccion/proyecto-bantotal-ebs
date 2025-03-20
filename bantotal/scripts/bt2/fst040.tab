@@ -1,0 +1,21 @@
+create table FST040
+(
+  pgcod  NUMBER(3) not null,
+  trmod  NUMBER(3) not null,
+  trnro  NUMBER(3) not null,
+  trord  NUMBER(2) not null,
+  trlinc NUMBER(2) not null,
+  trcomp CHAR(2),
+  trocmp NUMBER(2),
+  trticm NUMBER(2),
+  trcope CHAR(1),
+  troope NUMBER(2),
+  trtiop NUMBER(2),
+  coecod NUMBER(3),
+  trcoef NUMBER(14,8)
+)
+;
+create index FST04003 on FST040 (COECOD);
+alter table FST040
+  add primary key (PGCOD, TRMOD, TRNRO, TRORD, TRLINC);
+

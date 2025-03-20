@@ -1,0 +1,60 @@
+create table BSD030
+(
+  cqcod    NUMBER(3) not null,
+  scmod    NUMBER(3) not null,
+  scsuc    NUMBER(3) not null,
+  scmda    NUMBER(4) not null,
+  scpap    NUMBER(4) not null,
+  sccta    NUMBER(9) not null,
+  scoper   NUMBER(9) not null,
+  scsbop   NUMBER(3) not null,
+  sctope   NUMBER(3) not null,
+  cqnro    NUMBER(9) not null,
+  cqini    NUMBER(9),
+  cqpais   NUMBER(3),
+  cqtdoc   NUMBER(2),
+  cqndoc   CHAR(12),
+  cqbenef  CHAR(50),
+  cqimp    NUMBER(14,2),
+  cqest    CHAR(1),
+  cqestnom CHAR(30),
+  cqestim  CHAR(1),
+  cqpaiss  NUMBER(3),
+  cqtdocs  NUMBER(2),
+  cqndocs  CHAR(12),
+  cqcd     NUMBER(3),
+  cqmod    NUMBER(3),
+  cqsuc    NUMBER(3),
+  cqtrn    NUMBER(3),
+  cqrel    NUMBER(4),
+  cqfc     DATE,
+  cqord    NUMBER(2),
+  cqsb     NUMBER(3),
+  cqcdp    NUMBER(3),
+  cqmodp   NUMBER(3),
+  cqsucp   NUMBER(3),
+  cqtrnp   NUMBER(3),
+  cqrelp   NUMBER(4),
+  cqfcp    DATE,
+  cqordp   NUMBER(2),
+  cqsbp    NUMBER(3),
+  cqc01    CHAR(1),
+  cqc10    CHAR(10),
+  cqc20    CHAR(20),
+  cqn05    NUMBER(5),
+  cqn15    NUMBER(14,2),
+  cqn18    NUMBER(17,2),
+  cqd01    DATE,
+  cqd02    DATE
+)
+;
+create index BSD03002 on BSD030 (SCPAP);
+create index BSD03003 on BSD030 (SCMDA);
+create index BSD03004 on BSD030 (SCMOD);
+create index BSD03005 on BSD030 (CQCD, CQMOD, CQSUC, CQTRN, CQREL, CQFC, CQORD, CQSB);
+create index BSD03006 on BSD030 (CQCDP, CQMODP, CQSUCP, CQTRNP, CQRELP, CQFCP, CQORDP, CQSBP);
+create index BSD03007 on BSD030 (CQPAIS, CQTDOC, CQNDOC);
+create index BSD03008 on BSD030 (CQPAISS, CQTDOCS, CQNDOCS);
+alter table BSD030
+  add primary key (CQCOD, SCMOD, SCSUC, SCMDA, SCPAP, SCCTA, SCOPER, SCSBOP, SCTOPE, CQNRO);
+

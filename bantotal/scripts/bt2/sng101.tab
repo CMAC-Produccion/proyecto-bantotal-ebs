@@ -1,0 +1,25 @@
+create table SNG101
+(
+  sng100tgcd NUMBER(3) not null,
+  sng101ticd NUMBER(3) not null,
+  sng101tids CHAR(30),
+  sng101tinn NUMBER(5),
+  sng101cord CHAR(1),
+  sng101vexp NUMBER(10),
+  sng101ttpe CHAR(1),
+  sng101vala NUMBER(3),
+  sng101valb NUMBER(3),
+  sng101valc NUMBER(3),
+  sng101vald CHAR(1),
+  sng101vale CHAR(20),
+  sng101valf NUMBER(5),
+  sng101valg CHAR(1),
+  sng101fec1 DATE,
+  sng101fec2 DATE,
+  sng101sts  CHAR(1),
+  sng101cred CHAR(1)
+)
+;
+alter table SNG101
+  add primary key (SNG100TGCD, SNG101TICD);
+

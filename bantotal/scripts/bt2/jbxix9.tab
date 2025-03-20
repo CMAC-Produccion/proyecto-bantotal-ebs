@@ -1,0 +1,26 @@
+create table JBXIX9
+(
+  jbxix9fch  NUMBER(8) not null,
+  jbxix9pd   NUMBER(3) not null,
+  jbxix9td   NUMBER(2) not null,
+  jbxix9nd   CHAR(12) not null,
+  jbxix9nf   NUMBER(5) not null,
+  jbxix9cat  NUMBER(1),
+  jbxix9cal  NUMBER(1),
+  jbxix9sca  CHAR(1),
+  jbxix9pt   NUMBER(16,2),
+  jbxix9pcg  NUMBER(16,2),
+  jbxix9pig  NUMBER(16,2),
+  jbxix9pce  NUMBER(16,2),
+  jbxix9pie  NUMBER(16,2),
+  jbxix9pcng NUMBER(16,2),
+  jbxix9ping NUMBER(16,2),
+  jbxix9pcn  NUMBER(16,2),
+  jbxix9pin  NUMBER(16,2),
+  jbxix9cob  NUMBER(2),
+  jbxix9da   NUMBER(6)
+)
+;
+alter table JBXIX9
+  add primary key (JBXIX9FCH, JBXIX9PD, JBXIX9TD, JBXIX9ND, JBXIX9NF);
+

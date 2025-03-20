@@ -1,0 +1,105 @@
+create table AQPA840
+(
+  aqpa840emp       NUMBER(3) not null,
+  aqpa840mod       NUMBER(3) not null,
+  aqpa840suc       NUMBER(3) not null,
+  aqpa840mda       NUMBER(4) not null,
+  aqpa840pap       NUMBER(4) not null,
+  aqpa840cta       NUMBER(9) not null,
+  aqpa840ope       NUMBER(9) not null,
+  aqpa840sbo       NUMBER(3) not null,
+  aqpa840top       NUMBER(3) not null,
+  aqpa840fecr      DATE not null,
+  aqpa840tip       NUMBER(1),
+  aqpa840rub       NUMBER(16),
+  aqpa840ins       NUMBER(10),
+  aqpa840sdo       NUMBER(18,2),
+  aqpa840est       CHAR(1),
+  aqpa840itcod     NUMBER(3),
+  aqpa840itmod     NUMBER(3),
+  aqpa840itsuc     NUMBER(3),
+  aqpa840ittran    NUMBER(3),
+  aqpa840itnrel    NUMBER(4),
+  aqpa840itfcon    DATE,
+  aqpa840ithor     CHAR(8),
+  aqpa840itucnf    CHAR(10),
+  aqpa840fecext    DATE,
+  aqpa840aux01     NUMBER(18,2),
+  aqpa840aux02     NUMBER(18,2),
+  aqpa840diast     NUMBER(5),
+  aqpa840capital   NUMBER(17,2),
+  aqpa840tasan     NUMBER(14,8),
+  aqpa840tasapr    NUMBER(14,8),
+  aqpa840intr      NUMBER(17,2),
+  aqpa840tasav     NUMBER(14,8),
+  aqpa840tasapv    NUMBER(14,8),
+  aqpa840intv      NUMBER(17,2),
+  aqpa840difint    NUMBER(17,2),
+  aqpa840gargob    NUMBER(1),
+  aqpa840tipfondo  VARCHAR2(40),
+  aqpa840fcomcap   NUMBER(18,2),
+  aqpa840fcompor   NUMBER(17,2),
+  aqpa840fcommonto NUMBER(17,2),
+  aqpa840fgramonto NUMBER(17,2),
+  aqpa840fitcod    NUMBER(3),
+  aqpa840fitmod    NUMBER(3),
+  aqpa840fitsuc    NUMBER(3),
+  aqpa840fittran   NUMBER(3),
+  aqpa840fitnrel   NUMBER(4),
+  aqpa840fitfcon   DATE,
+  aqpa840fithor    CHAR(8),
+  aqpa840fitucnf   CHAR(10),
+  aqpa840fest      CHAR(1),
+  aqpa840gitcod    NUMBER(3),
+  aqpa840gitmod    NUMBER(3),
+  aqpa840gitsuc    NUMBER(3),
+  aqpa840gittran   NUMBER(3),
+  aqpa840gitnrel   NUMBER(4),
+  aqpa840gitfcon   DATE,
+  aqpa840githor    CHAR(8),
+  aqpa840gitucnf   CHAR(10),
+  aqpa840gest      CHAR(1),
+  aqpa840coml      VARCHAR2(10)
+)
+;
+comment on column AQPA840.aqpa840diast
+  is 'días transcurridos';
+comment on column AQPA840.aqpa840capital
+  is 'saldo capital';
+comment on column AQPA840.aqpa840tasan
+  is 'nueva tasa reprogramado';
+comment on column AQPA840.aqpa840tasapr
+  is 'tasa periodo reducido';
+comment on column AQPA840.aqpa840intr
+  is 'interes reducido';
+comment on column AQPA840.aqpa840tasav
+  is 'tasa vigente';
+comment on column AQPA840.aqpa840tasapv
+  is 'tasa periodo vigente';
+comment on column AQPA840.aqpa840intv
+  is 'interes vigente';
+comment on column AQPA840.aqpa840difint
+  is 'interesvigente-interesreducido';
+comment on column AQPA840.aqpa840tipfondo
+  is 'es el tipo de fondo Reactiva, FAE2';
+comment on column AQPA840.aqpa840fcomcap
+  is 'monto capitla para el calculo de la comisión';
+comment on column AQPA840.aqpa840fcompor
+  is 'porcentaje para el calculo de la comisión';
+comment on column AQPA840.aqpa840fcommonto
+  is 'monto de comisión';
+comment on column AQPA840.aqpa840fitcod
+  is 'transacción de pago de la comisión';
+comment on column AQPA840.aqpa840fest
+  is 'Indicador de comision contabilizada c=contabilizada e=extornada';
+comment on column AQPA840.aqpa840coml
+  is 'Indicador que viene de una línea. colocar descripcion de Linea';
+create index AQPA8402 on AQPA840 (AQPA840ITCOD, AQPA840ITMOD, AQPA840ITSUC, AQPA840ITTRAN, AQPA840ITNREL, AQPA840ITFCON);
+create index AQPA8403 on AQPA840 (AQPA840CTA, AQPA840FECR, AQPA840TIP, AQPA840EST);
+create index AQPA8404 on AQPA840 (AQPA840EMP, AQPA840MOD, AQPA840SUC, AQPA840MDA, AQPA840PAP, AQPA840CTA, AQPA840OPE, AQPA840SBO, AQPA840TOP);
+create index AQPA8405 on AQPA840 (AQPA840CTA, AQPA840TIP, AQPA840EST);
+create index AQPA8406 on AQPA840 (AQPA840FITCOD, AQPA840FITMOD, AQPA840FITSUC, AQPA840FITTRAN, AQPA840FITNREL, AQPA840FITFCON);
+create index AQPA8407 on AQPA840 (AQPA840GITCOD, AQPA840GITMOD, AQPA840GITSUC, AQPA840GITTRAN, AQPA840GITNREL, AQPA840GITFCON);
+alter table AQPA840
+  add primary key (AQPA840EMP, AQPA840MOD, AQPA840SUC, AQPA840MDA, AQPA840PAP, AQPA840CTA, AQPA840OPE, AQPA840SBO, AQPA840TOP, AQPA840FECR);
+

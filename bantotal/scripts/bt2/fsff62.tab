@@ -1,0 +1,25 @@
+create table FSFF62
+(
+  xifpaisd4 NUMBER(3) not null,
+  xiftdocd4 NUMBER(2) not null,
+  xifndocd4 CHAR(12) not null,
+  xifnom    CHAR(60),
+  xtifcod   NUMBER(2),
+  xifplin   CHAR(1),
+  xifpbal   CHAR(1),
+  xiffpba   DATE,
+  xiffbal   DATE,
+  xifcant   CHAR(1),
+  xiffcan   DATE,
+  xifctlx   CHAR(1),
+  xifcswf   CHAR(1),
+  xiffaut   CHAR(1),
+  xiflcrc   CHAR(1),
+  xiflcro   CHAR(1),
+  xifcext   CHAR(1),
+  xifswif   CHAR(16)
+)
+;
+alter table FSFF62
+  add primary key (XIFPAISD4, XIFTDOCD4, XIFNDOCD4);
+

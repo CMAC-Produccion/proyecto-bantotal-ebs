@@ -1,0 +1,45 @@
+create table JAQA63
+(
+  jaqa63pro VARCHAR2(50) not null,
+  jaqa63nra CHAR(50) not null,
+  jaqa63nrp NUMBER(4) not null,
+  jaqa63fec CHAR(20),
+  jaqa63mon NUMBER(11,2),
+  jaqa63est VARCHAR2(1),
+  jaqa63fea CHAR(20),
+  jaqa63fee DATE,
+  jaqa63hoe CHAR(10),
+  jaqa63fem DATE,
+  jaqa63esm CHAR(1),
+  jaqa63erd VARCHAR2(255)
+)
+;
+comment on table JAQA63
+  is 'Tabla puente de la tabla TMP_SisDataCuotas"@SISRETAIL';
+comment on column JAQA63.jaqa63pro
+  is 'Producto';
+comment on column JAQA63.jaqa63nra
+  is 'Numero de Afiliacion';
+comment on column JAQA63.jaqa63nrp
+  is 'Numero de Pago';
+comment on column JAQA63.jaqa63fec
+  is 'Fecha esperada de pago';
+comment on column JAQA63.jaqa63mon
+  is 'Monto  a pagar';
+comment on column JAQA63.jaqa63est
+  is 'Estado';
+comment on column JAQA63.jaqa63fea
+  is 'Fecha Cobro';
+comment on column JAQA63.jaqa63fee
+  is 'Fecha de ejecucion';
+comment on column JAQA63.jaqa63hoe
+  is 'Hora de ejecucion';
+comment on column JAQA63.jaqa63fem
+  is 'Fecha de migracion';
+comment on column JAQA63.jaqa63esm
+  is 'Estado e migracion';
+comment on column JAQA63.jaqa63erd
+  is 'Error Descripcion';
+alter table JAQA63
+  add primary key (JAQA63PRO, JAQA63NRA, JAQA63NRP);
+

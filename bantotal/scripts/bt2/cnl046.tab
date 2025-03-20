@@ -1,0 +1,29 @@
+create table CNL046
+(
+  cnl046sol NUMBER(9) not null,
+  cnl046fec DATE,
+  cnl046pgc NUMBER(3),
+  cnl046mod NUMBER(3),
+  cnl046suc NUMBER(3),
+  cnl046mda NUMBER(4),
+  cnl046pap NUMBER(4),
+  cnl046ope NUMBER(9),
+  cnl046top NUMBER(3),
+  cnl046cta NUMBER(9),
+  cnl046sbc NUMBER(3),
+  cnl046lib NUMBER(4),
+  cnl046tip NUMBER(3),
+  cnl046tch CHAR(1),
+  cnl046crz CHAR(1),
+  cnl046aut CHAR(25),
+  cnl046pai NUMBER(3),
+  cnl046tdo NUMBER(2),
+  cnl046ndo CHAR(12),
+  cnl046sre NUMBER(3),
+  cnl046est CHAR(1)
+)
+;
+create index CNL04602 on CNL046 (CNL046EST);
+alter table CNL046
+  add primary key (CNL046SOL);
+

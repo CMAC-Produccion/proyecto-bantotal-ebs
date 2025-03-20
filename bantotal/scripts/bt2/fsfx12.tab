@@ -1,0 +1,13 @@
+create table FSFX12
+(
+  sfx12num NUMBER(15) not null,
+  sfx12pap NUMBER(4) not null,
+  sfx12ax1 CHAR(50),
+  sfx12ax2 CHAR(50),
+  sfx12ax3 NUMBER(9),
+  sfx12ax4 NUMBER(9)
+)
+;
+alter table FSFX12
+  add primary key (SFX12NUM, SFX12PAP);
+

@@ -1,0 +1,36 @@
+create table PRDP02
+(
+  prdp02emp  NUMBER(3) not null,
+  prdp02anio NUMBER(4) not null,
+  prdp02prod NUMBER(3) not null,
+  prdp02mod  NUMBER(3) not null,
+  prdp02suc  NUMBER(3) not null,
+  prdp02cta  NUMBER(9) not null,
+  prdp02mda  NUMBER(4) not null,
+  prdp02pap  NUMBER(4) not null,
+  prdp02oper NUMBER(9) not null,
+  prdp02sbop NUMBER(3) not null,
+  prdp02tope NUMBER(3) not null,
+  prdp02imp  NUMBER(17,2),
+  prdp02icuo NUMBER(17,2),
+  prdp02edir CHAR(50),
+  prdp02enom CHAR(50),
+  prdp02etel CHAR(15),
+  prdp02fvta DATE,
+  prdp02fcbo DATE,
+  prdp02cuor CHAR(1),
+  prdp02aux1 NUMBER(9),
+  prdp02aux2 DATE,
+  prdp02aux3 NUMBER(17,2),
+  prdp02aux4 CHAR(30),
+  prdp02aux5 CHAR(1)
+)
+;
+create index PRDP0202 on PRDP02 (PRDP02EMP, PRDP02ANIO, PRDP02PROD, PRDP02MOD, PRDP02MDA, PRDP02PAP, PRDP02CTA);
+create index PRDP0203 on PRDP02 (PRDP02EMP, PRDP02ANIO, PRDP02PROD, PRDP02CTA, PRDP02SBOP);
+create index PRDP0204 on PRDP02 (PRDP02EMP, PRDP02ANIO, PRDP02MOD, PRDP02SUC, PRDP02CTA, PRDP02MDA, PRDP02PAP, PRDP02OPER, PRDP02SBOP, PRDP02TOPE);
+create index PRDP0205 on PRDP02 (PRDP02EMP, PRDP02MOD, PRDP02CTA);
+create index PRDP0206 on PRDP02 (PRDP02EMP, PRDP02MOD, PRDP02SUC, PRDP02CTA, PRDP02MDA, PRDP02PAP, PRDP02OPER, PRDP02SBOP, PRDP02TOPE);
+alter table PRDP02
+  add primary key (PRDP02EMP, PRDP02ANIO, PRDP02PROD, PRDP02MOD, PRDP02SUC, PRDP02CTA, PRDP02MDA, PRDP02PAP, PRDP02OPER, PRDP02SBOP, PRDP02TOPE);
+

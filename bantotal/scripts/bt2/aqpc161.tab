@@ -1,0 +1,45 @@
+create table AQPC161
+(
+  aqpc161codopi   NUMBER(10) not null,
+  aqpc161corr     NUMBER(10) not null,
+  aqpc161fecpro   DATE not null,
+  aqpc161entfin   VARCHAR2(200),
+  aqpc161montrlf  VARCHAR2(20),
+  aqpc161plzorlf  VARCHAR2(15),
+  aqpc161cuotrlf  VARCHAR2(20),
+  aqpc161sdorlf   VARCHAR2(20),
+  aqpc161cuocan   VARCHAR2(20),
+  aqpc161tearlf   VARCHAR2(20),
+  aqpc161clasfrlf VARCHAR2(30),
+  aqpc161horareg  VARCHAR2(8)
+)
+;
+comment on table AQPC161
+  is 'Tabla temporal de relaciones financieras de rep. opinion de riesgos';
+comment on column AQPC161.aqpc161codopi
+  is 'Cod. Opinion riesgo';
+comment on column AQPC161.aqpc161corr
+  is 'Correlativo';
+comment on column AQPC161.aqpc161fecpro
+  is 'fecha de carga';
+comment on column AQPC161.aqpc161entfin
+  is 'Entidad financiera';
+comment on column AQPC161.aqpc161montrlf
+  is 'monto otorgado ';
+comment on column AQPC161.aqpc161plzorlf
+  is 'Plazo original';
+comment on column AQPC161.aqpc161cuotrlf
+  is 'cuota';
+comment on column AQPC161.aqpc161sdorlf
+  is 'saldo capital';
+comment on column AQPC161.aqpc161cuocan
+  is 'cuotas canceladas';
+comment on column AQPC161.aqpc161tearlf
+  is 'TEA';
+comment on column AQPC161.aqpc161clasfrlf
+  is 'clasificación';
+comment on column AQPC161.aqpc161horareg
+  is 'Hora Registro';
+alter table AQPC161
+  add primary key (AQPC161CODOPI, AQPC161CORR, AQPC161FECPRO);
+

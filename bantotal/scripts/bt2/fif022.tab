@@ -1,0 +1,22 @@
+create table FIF022
+(
+  if022apl NUMBER(4) not null,
+  if022ban CHAR(5) not null,
+  if022env NUMBER(9) not null,
+  if022crr NUMBER(5) not null,
+  if022crc NUMBER(1) not null,
+  if022ope NUMBER(7),
+  if022cod NUMBER(3),
+  if022suc NUMBER(3),
+  if022mod NUMBER(3),
+  if022trn NUMBER(3),
+  if022rel NUMBER(4),
+  if022fec DATE
+)
+;
+create index FIF02202 on FIF022 (IF022APL, IF022BAN, IF022OPE, IF022CRC);
+create index FIF02203 on FIF022 (IF022COD, IF022SUC, IF022MOD, IF022TRN, IF022REL);
+create index FIF02204 on FIF022 (IF022APL, IF022FEC, IF022BAN);
+alter table FIF022
+  add primary key (IF022APL, IF022BAN, IF022ENV, IF022CRR, IF022CRC);
+

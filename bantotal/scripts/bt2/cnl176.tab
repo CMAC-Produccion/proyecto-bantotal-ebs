@@ -1,0 +1,35 @@
+create table CNL176
+(
+  cnl001pad  NUMBER(3) not null,
+  cnl001tad  NUMBER(2) not null,
+  cnl001dad  CHAR(64) not null,
+  cnl032cod  NUMBER(3) not null,
+  cnl172grp  CHAR(20) not null,
+  cnl175pgc  NUMBER(3) not null,
+  cnl175mod  NUMBER(3) not null,
+  cnl175suc  NUMBER(3) not null,
+  cnl175mda  NUMBER(4) not null,
+  cnl175cta  NUMBER(9) not null,
+  cnl175pap  NUMBER(4) not null,
+  cnl175ope  NUMBER(9) not null,
+  cnl175top  NUMBER(3) not null,
+  cnl175sbo  NUMBER(3) not null,
+  cnl170lfu  CHAR(20) not null,
+  cnl005cod  NUMBER(6) not null,
+  cnl177tar  NUMBER(4) not null,
+  cnl176lop  NUMBER(18,2) not null,
+  cnl176lopa NUMBER(18,2) not null,
+  cnl176ldi  NUMBER(18,2) not null,
+  cnl176ldia NUMBER(18,2) not null,
+  cnl176hab  CHAR(1) not null,
+  cnl176wfe  CHAR(5) not null,
+  cnl176wfp  NUMBER(4) not null,
+  cnl176wfn  NUMBER(10) not null,
+  cnl176wfi  NUMBER(10) not null,
+  cnl176hor  CHAR(8) not null,
+  cnl176fch  DATE
+)
+;
+create unique index CNL17601 on CNL176 (CNL001PAD, CNL001TAD, CNL001DAD, CNL032COD, CNL172GRP, CNL175PGC, CNL175MOD, CNL175SUC, CNL175MDA, CNL175CTA, CNL175PAP, CNL175OPE, CNL175TOP, CNL175SBO, CNL170LFU, CNL005COD, CNL177TAR);
+create index CNL17602 on CNL176 (CNL001PAD, CNL001TAD, CNL001DAD, CNL032COD, CNL172GRP, CNL170LFU, CNL005COD, CNL177TAR);
+

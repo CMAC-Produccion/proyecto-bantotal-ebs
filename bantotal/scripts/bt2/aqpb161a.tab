@@ -1,0 +1,28 @@
+create table AQPB161A
+(
+  aqpb161inst   NUMBER not null,
+  aqpb161fch    DATE not null,
+  aqpb161hora   CHAR(8) not null,
+  aqpb161tceamx NUMBER(10,6),
+  aqpb161tceawf NUMBER(10,6),
+  aqpb161est    VARCHAR2(5) not null
+)
+;
+comment on table AQPB161A
+  is 'Tabla Log para tceas  en impulso peru';
+comment on column AQPB161A.aqpb161inst
+  is 'Instancia';
+comment on column AQPB161A.aqpb161fch
+  is 'fecha';
+comment on column AQPB161A.aqpb161hora
+  is 'hora';
+comment on column AQPB161A.aqpb161tceamx
+  is 'TCEA maxima enviada';
+comment on column AQPB161A.aqpb161tceawf
+  is 'TCEA calculada en WF';
+comment on column AQPB161A.aqpb161est
+  is 'Estado';
+create index AQPB161AA2 on AQPB161A (AQPB161INST);
+alter table AQPB161A
+  add primary key (AQPB161INST, AQPB161FCH, AQPB161HORA, AQPB161EST);
+

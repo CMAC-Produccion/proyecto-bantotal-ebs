@@ -1,0 +1,20 @@
+create table FCNV91
+(
+  cnv91cod  NUMBER(3) not null,
+  cnv91mod  NUMBER(3) not null,
+  cnv91suc  NUMBER(3) not null,
+  cnv91mda  NUMBER(4) not null,
+  cnv91pap  NUMBER(4) not null,
+  cnv91cta  NUMBER(9) not null,
+  cnv91oper NUMBER(9) not null,
+  cnv91sbop NUMBER(3) not null,
+  cnv91tope NUMBER(3) not null,
+  cnv90cod  NUMBER(3) not null,
+  cnv91corr NUMBER(3) not null,
+  cnv91xml  LONG
+)
+;
+create index FCNV9102 on FCNV91 (CNV90COD);
+alter table FCNV91
+  add primary key (CNV91COD, CNV91MOD, CNV91SUC, CNV91MDA, CNV91PAP, CNV91CTA, CNV91OPER, CNV91SBOP, CNV91TOPE, CNV90COD, CNV91CORR);
+

@@ -1,0 +1,29 @@
+create table FSD850
+(
+  sd850cod NUMBER(3) not null,
+  sd850mda NUMBER(4) not null,
+  sd850suc NUMBER(3) not null,
+  sd850ser CHAR(4) not null,
+  sd850nro NUMBER(9) not null,
+  sd850est NUMBER(2),
+  sd850fec DATE,
+  sd850rub CHAR(1),
+  sd850sel CHAR(1),
+  sd850stk NUMBER(2),
+  sd850ax1 DATE,
+  sd850ax2 DATE,
+  sd850ax3 NUMBER(17,2),
+  sd850ax4 NUMBER(9),
+  sd850ax5 CHAR(200),
+  sd850ax6 CHAR(1),
+  sd850ax7 NUMBER(17,2)
+)
+;
+create index FSD85003 on FSD850 (SD850COD, SD850EST, SD850SUC, SD850MDA);
+create index FSD85004 on FSD850 (SD850COD, SD850AX1);
+create index FSD85005 on FSD850 (SD850COD, SD850AX2);
+create index FSD85006 on FSD850 (SD850COD, SD850AX4);
+create index FSD85007 on FSD850 (SD850COD, SD850SUC, SD850AX4);
+alter table FSD850
+  add primary key (SD850COD, SD850MDA, SD850SUC, SD850SER, SD850NRO);
+

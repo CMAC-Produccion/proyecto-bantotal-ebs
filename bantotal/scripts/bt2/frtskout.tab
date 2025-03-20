@@ -1,0 +1,15 @@
+create table FRTSKOUT
+(
+  frtskofprc NUMBER(6) not null,
+  frtskoftsk NUMBER(6) not null,
+  frtskofaut NUMBER(1),
+  frtskoftyp NUMBER(2),
+  frrepnam   CHAR(15),
+  frtskofpat VARCHAR2(2000),
+  frtskofsav VARCHAR2(255)
+)
+;
+create index FRTSKO03 on FRTSKOUT (FRREPNAM);
+alter table FRTSKOUT
+  add primary key (FRTSKOFPRC, FRTSKOFTSK);
+

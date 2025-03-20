@@ -1,0 +1,12 @@
+create table FPAE01
+(
+  pae01cev NUMBER(3) not null,
+  pae01des CHAR(40),
+  pae01pgr CHAR(8),
+  pae01hab CHAR(1)
+)
+;
+create index FPAE0102 on FPAE01 (PAE01DES);
+alter table FPAE01
+  add primary key (PAE01CEV);
+

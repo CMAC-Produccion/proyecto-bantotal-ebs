@@ -1,0 +1,24 @@
+create table JAQL527
+(
+  jaql527idarq  NUMBER(9) not null,
+  jaql527fearq  DATE,
+  jaql527hoarq  CHAR(8),
+  jaql527usuej  CHAR(20),
+  jaql527usuco  CHAR(20),
+  jaql527confi  CHAR(2),
+  jaql527motiv  NUMBER(4),
+  jaql527observ VARCHAR2(200),
+  jaql527agarq  NUMBER(4),
+  jaql527atarq  NUMBER(4),
+  jaql527auxc3  CHAR(100),
+  jaql527auxn3  NUMBER(9),
+  jaql527dspdo  NUMBER(17,2),
+  jaql527dspso  NUMBER(17,2),
+  jaql527resdo  CHAR(50),
+  jaql527resso  CHAR(50)
+)
+;
+create index JAQL527_02 on JAQL527 (JAQL527FEARQ);
+alter table JAQL527
+  add primary key (JAQL527IDARQ);
+

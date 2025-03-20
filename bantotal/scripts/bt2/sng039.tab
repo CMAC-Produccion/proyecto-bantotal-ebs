@@ -1,0 +1,14 @@
+create table SNG039
+(
+  sng038prog CHAR(12) not null,
+  sng038cpid NUMBER(3) not null,
+  sng039corr NUMBER(3) not null,
+  sng039valc CHAR(10),
+  sng039ltco NUMBER(5),
+  sng039prog CHAR(10),
+  sng039rngc NUMBER(10)
+)
+;
+alter table SNG039
+  add primary key (SNG038PROG, SNG038CPID, SNG039CORR);
+

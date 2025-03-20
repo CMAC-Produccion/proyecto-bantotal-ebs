@@ -1,0 +1,14 @@
+create table JDTMD7
+(
+  jdtmd1ins  NUMBER(10) not null,
+  jdtmd1cor  NUMBER(3) not null,
+  jdtmd7cor  NUMBER(3) not null,
+  jdtmd7pais NUMBER(3),
+  jdtmd7tdoc NUMBER(2),
+  jdtmd7ndoc CHAR(12),
+  jdtmd7doce CHAR(25)
+)
+;
+alter table JDTMD7
+  add primary key (JDTMD1INS, JDTMD1COR, JDTMD7COR);
+

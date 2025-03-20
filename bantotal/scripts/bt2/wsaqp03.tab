@@ -1,0 +1,10 @@
+create table WSAQP03
+(
+  wsaqp03ori NUMBER(3) not null,
+  wsaqp03usr CHAR(10) not null,
+  wsaqp03ok  CHAR(1)
+)
+;
+alter table WSAQP03
+  add primary key (WSAQP03ORI, WSAQP03USR);
+

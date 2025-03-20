@@ -1,0 +1,19 @@
+create table AQPB507
+(
+  aqpb507codcar VARCHAR2(16) not null,
+  aqpb507est    CHAR(1) not null,
+  aqpb507crefec DATE not null,
+  aqpb507crehor CHAR(8) not null,
+  aqpb507creusr VARCHAR2(30) not null,
+  aqpb507cresuc NUMBER(3) not null,
+  aqpb507cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb507modfec DATE not null,
+  aqpb507modhor CHAR(8) not null,
+  aqpb507modusr VARCHAR2(30) not null,
+  aqpb507modsuc NUMBER(3) not null,
+  aqpb507modtim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+alter table AQPB507
+  add primary key (AQPB507CODCAR);
+

@@ -1,0 +1,13 @@
+create table FSFT74
+(
+  ktctnro    NUMBER(9) not null,
+  sft73num   NUMBER(9) not null,
+  sft74comi  NUMBER(9) not null,
+  sft74corr  NUMBER(6) not null,
+  sft74cta   NUMBER(9),
+  sft74coerr CHAR(10)
+)
+;
+alter table FSFT74
+  add primary key (KTCTNRO, SFT73NUM, SFT74COMI, SFT74CORR);
+

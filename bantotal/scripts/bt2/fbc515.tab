@@ -1,0 +1,12 @@
+create table FBC515
+(
+  bc515emp NUMBER(3) not null,
+  bc515inf CHAR(10) not null,
+  bc515fch DATE not null,
+  bc515id1 CHAR(15) not null,
+  bc515id2 CHAR(255) not null
+)
+;
+alter table FBC515
+  add primary key (BC515EMP, BC515INF, BC515FCH, BC515ID1, BC515ID2);
+

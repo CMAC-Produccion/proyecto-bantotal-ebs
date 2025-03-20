@@ -1,0 +1,25 @@
+create table JBXA26
+(
+  jbxa26cod NUMBER(3) not null,
+  jbxa26pai NUMBER(3) not null,
+  jbxa26tdo NUMBER(2) not null,
+  jbxa26ndo CHAR(12) not null,
+  jbxa26cta NUMBER(9) not null,
+  jbxa26raz CHAR(30),
+  jbxa26deu NUMBER(17,2),
+  jbxa26pri NUMBER(4),
+  jbxa26fec DATE,
+  jbxa26cat NUMBER(3),
+  jbxa26au1 NUMBER(17,2),
+  jbxa26au2 CHAR(30),
+  jbxa26au3 NUMBER(9),
+  jbxa26pin NUMBER(4)
+)
+;
+create index JBXA2602 on JBXA26 (JBXA26COD, JBXA26PAI, JBXA26TDO, JBXA26NDO, JBXA26CTA, JBXA26CAT, JBXA26DEU);
+create index JBXA2603 on JBXA26 (JBXA26COD, JBXA26PAI, JBXA26TDO, JBXA26NDO, JBXA26FEC, JBXA26CAT, JBXA26DEU);
+create index JBXA2604 on JBXA26 (JBXA26COD, JBXA26PAI, JBXA26TDO, JBXA26NDO, JBXA26PRI);
+create index JBXA2605 on JBXA26 (JBXA26COD, JBXA26PAI, JBXA26TDO, JBXA26NDO, JBXA26PIN);
+alter table JBXA26
+  add primary key (JBXA26COD, JBXA26PAI, JBXA26TDO, JBXA26NDO, JBXA26CTA);
+

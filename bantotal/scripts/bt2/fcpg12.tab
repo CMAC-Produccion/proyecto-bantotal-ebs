@@ -1,0 +1,28 @@
+create table FCPG12
+(
+  cpg10embt  NUMBER(3) not null,
+  cpg10pais  NUMBER(3) not null,
+  cpg10tdoc  NUMBER(2) not null,
+  cpg10doc   CHAR(25) not null,
+  cpg10sube  NUMBER(3) not null,
+  cpg12cod   NUMBER(5) not null,
+  cpg12depem CHAR(15),
+  cpg12nom   CHAR(40),
+  cpg12calle CHAR(35),
+  cpg12pta   CHAR(5),
+  cpg12piso  CHAR(3),
+  cpg12uni   CHAR(3),
+  cpg12local CHAR(30),
+  cpg12cp    CHAR(8),
+  cpg12tdep  CHAR(3),
+  cpg12cben  NUMBER(6),
+  cpg12est   CHAR(3),
+  cpg12blq   CHAR(1),
+  cpg12inst  NUMBER(10)
+)
+;
+create index FCPG1204 on FCPG12 (CPG12INST);
+create index FCPG1205 on FCPG12 (CPG10EMBT, CPG12DEPEM);
+alter table FCPG12
+  add primary key (CPG10EMBT, CPG10PAIS, CPG10TDOC, CPG10DOC, CPG10SUBE, CPG12COD);
+

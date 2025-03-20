@@ -1,0 +1,71 @@
+create table AQPB075
+(
+  aqpb075cod    NUMBER(3) not null,
+  aqpb075mod    NUMBER(3) not null,
+  aqpb075suc    NUMBER(3) not null,
+  aqpb075mda    NUMBER(4) not null,
+  aqpb075pap    NUMBER(4) not null,
+  aqpb075cta    NUMBER(9) not null,
+  aqpb075oper   NUMBER(9) not null,
+  aqpb075sbop   NUMBER(3) not null,
+  aqpb075tope   NUMBER(3) not null,
+  aqpb075fpag   DATE not null,
+  aqpb075tipo   CHAR(1) not null,
+  aqpb075fval   DATE,
+  aqpb075fvto   DATE,
+  aqpb075pzo    NUMBER(5),
+  aqpb075cap    NUMBER(17,2),
+  aqpb075int    NUMBER(17,2),
+  aqpb075intmex NUMBER(17,2),
+  aqpb075icap   NUMBER(17,2),
+  aqpb075iint   NUMBER(17,2),
+  aqpb075stat   CHAR(1),
+  aqpb075nume   NUMBER(9),
+  aqpb075finv   NUMBER(8),
+  aqpb075cd     NUMBER(3),
+  aqpb075mo     NUMBER(3),
+  aqpb075su     NUMBER(3),
+  aqpb075tr     NUMBER(3),
+  aqpb075re     NUMBER(4),
+  aqpb075fc     DATE,
+  aqpb075or     NUMBER(2),
+  aqpb075sb     NUMBER(3),
+  aqpb075co     CHAR(1),
+  aqpb075frep   DATE not null,
+  aqpb075ncor   NUMBER not null,
+  aqpb075fecc   DATE not null,
+  aqpb075proc   VARCHAR2(100) not null,
+  aqpb0751nump  NUMBER,
+  aqpb0751fech  DATE,
+  aqpb0751cap   NUMBER(17,2),
+  aqpb0751int   NUMBER(17,2),
+  aqpb0751stat  CHAR(1),
+  aqpb075frer   DATE,
+  aqpb075ncof   NUMBER,
+  aqpb075tabr   CHAR(10),
+  aqpb0751intm  NUMBER(17,2)
+)
+;
+comment on column AQPB075.aqpb075frep
+  is 'FECHA REPROGRAMACION';
+comment on column AQPB075.aqpb075ncor
+  is 'NRO CORRELATIVO';
+comment on column AQPB075.aqpb075fecc
+  is 'FECHA DE CIERRE AFECTADO';
+comment on column AQPB075.aqpb075proc
+  is 'TIPO DE PROCESO C= CAPITALIZACION , R = REPROGRAMACION , T=AJUSTE TASA';
+comment on column AQPB075.aqpb0751nump
+  is 'NRO PAGO';
+comment on column AQPB075.aqpb0751fech
+  is 'FECHA DE PAGO';
+comment on column AQPB075.aqpb0751cap
+  is 'MTO CAPITAL PAGADO';
+comment on column AQPB075.aqpb0751int
+  is 'INTERES PAGADO';
+comment on column AQPB075.aqpb0751stat
+  is 'ESTADO T/P';
+comment on column AQPB075.aqpb0751intm
+  is 'Mora pagada';
+create index AQPB0752 on AQPB075 (AQPB075FREP, AQPB075NCOR);
+create index AQPB0753 on AQPB075 (AQPB075COD, AQPB075MOD, AQPB075SUC, AQPB075MDA, AQPB075PAP, AQPB075CTA, AQPB075OPER, AQPB075SBOP, AQPB075TOPE);
+

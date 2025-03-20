@@ -1,0 +1,73 @@
+create table JAQZ675
+(
+  jaqz675cod NUMBER(3) not null,
+  jaqz675mod NUMBER(3) not null,
+  jaqz675suc NUMBER(3) not null,
+  jaqz675trn NUMBER(3) not null,
+  jaqz675nre NUMBER(4) not null,
+  jaqz675fco DATE not null,
+  jaqz675cor NUMBER(2) not null,
+  jaqz675csu NUMBER(3) not null,
+  jaqz675tco NUMBER(3) not null,
+  jaqz675toe NUMBER(3) not null,
+  jaqz675tor CHAR(65),
+  jaqz675tsu NUMBER(3),
+  jaqz675tru NUMBER(16),
+  jaqz675tmd NUMBER(4),
+  jaqz675tpa NUMBER(4),
+  jaqz675tct NUMBER(9),
+  jaqz675top NUMBER(9),
+  jaqz675tsb NUMBER(3),
+  jaqz675tto NUMBER(3),
+  jaqz675tmo NUMBER(3),
+  jaqz675cpc NUMBER(5)
+)
+;
+comment on column JAQZ675.jaqz675cod
+  is 'pgcod';
+comment on column JAQZ675.jaqz675mod
+  is 'hcmod';
+comment on column JAQZ675.jaqz675suc
+  is 'hsucor';
+comment on column JAQZ675.jaqz675trn
+  is 'htran';
+comment on column JAQZ675.jaqz675nre
+  is 'hnrel';
+comment on column JAQZ675.jaqz675fco
+  is 'hfcon';
+comment on column JAQZ675.jaqz675cor
+  is 'hcord';
+comment on column JAQZ675.jaqz675csu
+  is 'hcsubo';
+comment on column JAQZ675.jaqz675tco
+  is 'txcod';
+comment on column JAQZ675.jaqz675toe
+  is 'txoren';
+comment on column JAQZ675.jaqz675tor
+  is 'txtord';
+comment on column JAQZ675.jaqz675tsu
+  is 'txtsuc';
+comment on column JAQZ675.jaqz675tru
+  is 'txtrub';
+comment on column JAQZ675.jaqz675tmd
+  is 'txtmda';
+comment on column JAQZ675.jaqz675tpa
+  is 'txtpap';
+comment on column JAQZ675.jaqz675tct
+  is 'txtcta';
+comment on column JAQZ675.jaqz675top
+  is 'txtope';
+comment on column JAQZ675.jaqz675tsb
+  is 'txtsbo';
+comment on column JAQZ675.jaqz675tto
+  is 'txttop';
+comment on column JAQZ675.jaqz675tmo
+  is 'txtmod';
+comment on column JAQZ675.jaqz675cpc
+  is 'cpcod';
+create index IDX_JAQZ675 on JAQZ675 (JAQZ675TOR, JAQZ675TRU);
+create index JAQZ6751 on JAQZ675 (JAQZ675FCO);
+create index JAQZ6752 on JAQZ675 (JAQZ675COD, JAQZ675TRU, JAQZ675CPC, JAQZ675FCO);
+create index JAQZ6753 on JAQZ675 (JAQZ675COD, JAQZ675TRU, JAQZ675CPC, JAQZ675FCO, JAQZ675SUC);
+create index JAQZ6754 on JAQZ675 (JAQZ675COD, JAQZ675MOD, JAQZ675SUC, JAQZ675TRN, JAQZ675NRE, JAQZ675FCO);
+

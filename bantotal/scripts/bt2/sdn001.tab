@@ -1,0 +1,20 @@
+create table SDN001
+(
+  sdnid   CHAR(10) not null,
+  sdnname CHAR(200),
+  sdntype CHAR(12),
+  sdnprg  CHAR(15),
+  sdntit  CHAR(180),
+  sdncall CHAR(8),
+  sdnvess CHAR(25),
+  sdnton  CHAR(14),
+  sdngrt  CHAR(8),
+  sdnflg  CHAR(40),
+  sdnown  CHAR(150),
+  sdnrem  CHAR(200)
+)
+;
+create index SDN00102 on SDN001 (SDNNAME);
+alter table SDN001
+  add primary key (SDNID);
+

@@ -1,0 +1,11 @@
+create table JBXAF0
+(
+  jbxaf0nfem NUMBER(3) not null,
+  jbxaf0nfid NUMBER(9) not null,
+  jbxaf0fec  DATE not null,
+  jbxaf0usu  CHAR(10),
+  jbxaf0mcc  CHAR(1)
+)
+;
+create unique index JBXAF001 on JBXAF0 (JBXAF0NFEM, JBXAF0NFID, JBXAF0FEC);
+

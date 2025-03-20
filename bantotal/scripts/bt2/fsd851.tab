@@ -1,0 +1,46 @@
+create table FSD851
+(
+  sd851cod NUMBER(3) not null,
+  sd851mod NUMBER(3) not null,
+  sd851suc NUMBER(3) not null,
+  sd851mda NUMBER(4) not null,
+  sd851pap NUMBER(4) not null,
+  sd851cta NUMBER(9) not null,
+  sd851ope NUMBER(9) not null,
+  sd851sbp NUMBER(3) not null,
+  sd851top NUMBER(3) not null,
+  sd851ser CHAR(4) not null,
+  sd851nro NUMBER(9) not null,
+  sd851fec DATE,
+  sd851est NUMBER(2),
+  sd851re1 CHAR(120),
+  sd851re2 CHAR(120),
+  sd851tem NUMBER(3),
+  sd851tsu NUMBER(3),
+  sd851tmo NUMBER(3),
+  sd851ttr NUMBER(3),
+  sd851tnr NUMBER(4),
+  sd851tfe DATE,
+  sd851tor NUMBER(2),
+  sd851tso NUMBER(3),
+  sd851tco CHAR(1),
+  sd851ax1 DATE,
+  sd851ax2 DATE,
+  sd851ax3 NUMBER(17,2),
+  sd851ax4 NUMBER(9),
+  sd851ax5 CHAR(200),
+  sd851ax6 CHAR(1),
+  sd851ax7 NUMBER(17,2)
+)
+;
+create index FSD85102 on FSD851 (SD851COD, SD851SER, SD851NRO);
+create index FSD85103 on FSD851 (SD851COD, SD851SUC, SD851CTA);
+create index FSD85104 on FSD851 (SD851COD, SD851CTA, SD851FEC);
+create index FSD85105 on FSD851 (SD851COD, SD851MDA, SD851CTA);
+create index FSD85106 on FSD851 (SD851COD, SD851FEC, SD851SUC);
+create index FSD85107 on FSD851 (SD851TEM, SD851TSU, SD851TMO, SD851TTR, SD851TNR, SD851TFE, SD851TOR, SD851TSO, SD851TCO);
+create index FSD85108 on FSD851 (SD851COD, SD851AX1);
+create index FSD85109 on FSD851 (SD851COD, SD851AX4);
+alter table FSD851
+  add primary key (SD851COD, SD851MOD, SD851SUC, SD851MDA, SD851PAP, SD851CTA, SD851OPE, SD851SBP, SD851TOP, SD851SER, SD851NRO);
+

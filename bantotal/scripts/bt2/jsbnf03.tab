@@ -1,0 +1,20 @@
+create table JSBNF03
+(
+  jsbnf03fch DATE not null,
+  jsbnf03hra CHAR(8) not null,
+  jsbnf03usr CHAR(10) not null,
+  jsbnf03cor NUMBER(9) not null,
+  jsbnf03org CHAR(10),
+  jsbnf03suc NUMBER(3),
+  jsbnf03ci  CHAR(20),
+  jsbnf03ape CHAR(30),
+  jsbnf03seg CHAR(30),
+  jsbnf03cas CHAR(30),
+  jsbnf03nom CHAR(50),
+  jsbnf03fna DATE
+)
+;
+create index JSBNF032 on JSBNF03 (JSBNF03SUC, JSBNF03FCH, JSBNF03USR);
+alter table JSBNF03
+  add primary key (JSBNF03FCH, JSBNF03HRA, JSBNF03USR, JSBNF03COR);
+

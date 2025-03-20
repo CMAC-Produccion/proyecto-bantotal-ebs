@@ -1,0 +1,28 @@
+create table Z0E4GT
+(
+  z0e4gtcod NUMBER(4) not null,
+  z0e4gttip CHAR(5) not null,
+  z0e4gtnev NUMBER(9) not null,
+  z0e4gtcor NUMBER(9) not null,
+  z0e4gtfet DATE,
+  z0e4gtfen DATE,
+  z0e4gtmov NUMBER(2),
+  z0e4gtsec NUMBER(10),
+  z0e4gtatm CHAR(20),
+  z0e4gthor CHAR(8),
+  z0e4gttar CHAR(19),
+  z0e4gttvo NUMBER(2),
+  z0e4gtmoo NUMBER(4),
+  z0e4gtimo NUMBER(12,2),
+  z0e4gttvc NUMBER(2),
+  z0e4gtmoc NUMBER(4),
+  z0e4gtimc NUMBER(12,2),
+  z0e4gtest CHAR(2),
+  z0e4gttex CHAR(50)
+)
+;
+create index Z0E4GT02 on Z0E4GT (Z0E4GTEST);
+create index Z0E4GT03 on Z0E4GT (Z0E4GTCOD, Z0E4GTTIP, Z0E4GTNEV, Z0E4GTSEC);
+alter table Z0E4GT
+  add primary key (Z0E4GTCOD, Z0E4GTTIP, Z0E4GTNEV, Z0E4GTCOR);
+

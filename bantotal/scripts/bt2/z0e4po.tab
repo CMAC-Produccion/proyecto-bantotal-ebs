@@ -1,0 +1,19 @@
+create table Z0E4PO
+(
+  z0e4pocar NUMBER(2) not null,
+  z0e4pocor NUMBER(9) not null,
+  z0e4pofdp DATE,
+  z0e4pofge DATE,
+  z0e4pofre DATE,
+  z0e4pohrr CHAR(8),
+  z0e4pousr CHAR(10),
+  z0e4pohrg CHAR(8),
+  z0e4pousg CHAR(10)
+)
+;
+create index Z0E4PO02 on Z0E4PO (Z0E4POCAR, Z0E4POFDP);
+create index Z0E4PO03 on Z0E4PO (Z0E4POCAR, Z0E4POCOR, Z0E4POFDP);
+create index Z0E4PO04 on Z0E4PO (Z0E4POCAR, Z0E4POCOR, Z0E4POFGE);
+alter table Z0E4PO
+  add primary key (Z0E4POCAR, Z0E4POCOR);
+

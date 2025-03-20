@@ -1,0 +1,10 @@
+create table FSEC06
+(
+  sec01pgcod NUMBER(3) not null,
+  sec01ptcta NUMBER(9) not null,
+  sec06suc   NUMBER(3) not null
+)
+;
+alter table FSEC06
+  add primary key (SEC01PGCOD, SEC01PTCTA, SEC06SUC);
+

@@ -1,0 +1,17 @@
+create table FCR704
+(
+  fcd704pgco NUMBER(3) not null,
+  fcd704mod  NUMBER(3) not null,
+  fcd704oper NUMBER(9) not null,
+  fcd704subo NUMBER(3) not null,
+  fcd704fliq DATE not null,
+  fcd704corr NUMBER(3) not null,
+  fcr704napl NUMBER(3) not null,
+  fcr704fapl DATE,
+  fcr704depe CHAR(16),
+  fcr704impa NUMBER(17,2)
+)
+;
+alter table FCR704
+  add primary key (FCD704PGCO, FCD704MOD, FCD704OPER, FCD704SUBO, FCD704FLIQ, FCD704CORR, FCR704NAPL);
+

@@ -1,0 +1,350 @@
+create table AQPB379
+(
+  aqpb379usur    CHAR(10) not null,
+  aqpb379pgcod   NUMBER(3) not null,
+  aqpb379mod     NUMBER(3) not null,
+  aqpb379suc     NUMBER(3) not null,
+  aqpb379mda     NUMBER(4) not null,
+  aqpb379pap     NUMBER(4) not null,
+  aqpb379cta     NUMBER(9) not null,
+  aqpb379ope     NUMBER(9) not null,
+  aqpb379sbo     NUMBER(3) not null,
+  aqpb379top     NUMBER(3) not null,
+  aqpb379anio    VARCHAR2(4),
+  aqpb379mes     VARCHAR2(4),
+  aqpb379tdoc    NUMBER(4),
+  aqpb379ndoc    CHAR(12),
+  aqpb379csol    VARCHAR2(20),
+  aqpb379esfco   CHAR(11),
+  aqpb379ofon    NUMBER(1),
+  aqpb379mondes  NUMBER(17,2),
+  aqpb379mondis  NUMBER(17,2),
+  aqpb379pzo     NUMBER(5),
+  aqpb379pgra    NUMBER(5),
+  aqpb379ncer    VARCHAR2(20),
+  aqpb379idlin   NUMBER(17),
+  aqpb379fdesp   DATE,
+  aqpb379moned   CHAR(10),
+  aqpb379sdocap  NUMBER(17,2),
+  aqpb379sdoins  NUMBER(17,2),
+  aqpb379monpre  NUMBER(17,2),
+  aqpb379tcre    NUMBER(5),
+  aqpb379ncre    CHAR(50),
+  aqpb379csbs    CHAR(11),
+  aqpb379fcal    DATE,
+  aqpb379canom   NUMBER(5,2),
+  aqpb379cacpp   NUMBER(5,2),
+  aqpb379cadef   NUMBER(5,2),
+  aqpb379cadud   NUMBER(5,2),
+  aqpb379caper   NUMBER(5,2),
+  aqpb379fcla    DATE,
+  aqpb379clnom   NUMBER(5,2),
+  aqpb379clcpp   NUMBER(5,2),
+  aqpb379cldef   NUMBER(5,2),
+  aqpb379cldud   NUMBER(5,2),
+  aqpb379clper   NUMBER(5,2),
+  aqpb379sitcon  CHAR(4),
+  aqpb379sitconc CHAR(20),
+  aqpb379datrcuo NUMBER(4),
+  aqpb379fprepa  DATE,
+  aqpb379tspre   NUMBER(10,6),
+  aqpb379razn    CHAR(100),
+  aqpb379ciiu    VARCHAR2(5),
+  aqpb379aeco    VARCHAR2(60),
+  aqpb379npre    CHAR(21),
+  aqpb379frepa   NUMBER(5),
+  aqpb379ncuot   NUMBER(10),
+  aqpb379ncuop   NUMBER(10),
+  aqpb379finl    DATE,
+  aqpb379ffil    DATE,
+  aqpb379finc    DATE,
+  aqpb379ffic    DATE,
+  aqpb379reg     NUMBER(9),
+  aqpb379nreg    CHAR(30),
+  aqpb379zon     NUMBER(9),
+  aqpb379nzon    CHAR(40),
+  aqpb379nsuc    CHAR(30),
+  aqpb379ase     CHAR(10),
+  aqpb379repro   CHAR(2),
+  aqpb379frepro  DATE,
+  aqpb379amort   CHAR(2),
+  aqpb379famor   DATE,
+  aqpb379mamor   NUMBER(17,2),
+  aqpb379nestcre CHAR(30),
+  aqpb379fulpa   DATE,
+  aqpb379monpag  NUMBER(17,2),
+  aqpb379cappag  NUMBER(17,2),
+  aqpb379incomp  NUMBER(17,2),
+  aqpb379inmora  NUMBER(17,2),
+  aqpb379inte    NUMBER(17,2),
+  aqpb379segu    NUMBER(17,2),
+  aqpb379pena    NUMBER(17,2),
+  aqpb379pcob    NUMBER(5,2),
+  aqpb379r1cod   NUMBER(3) not null,
+  aqpb379r1mod   NUMBER(3) not null,
+  aqpb379r1suc   NUMBER(3) not null,
+  aqpb379r1mda   NUMBER(4) not null,
+  aqpb379r1pap   NUMBER(4) not null,
+  aqpb379r1cta   NUMBER(9) not null,
+  aqpb379r1ope   NUMBER(9) not null,
+  aqpb379r1sbo   NUMBER(3) not null,
+  aqpb379r1top   NUMBER(3) not null,
+  aqpb379stat    NUMBER(2),
+  aqpb379fe99    DATE,
+  aqpb379fproc   DATE,
+  aqpb379fcrea   VARCHAR2(10),
+  aqpb379hcrea   VARCHAR2(10),
+  aqpb379mhonr   NUMBER(17,2),
+  aqpb379fhonr   DATE,
+  aqpb379chonr   CHAR(1),
+  aqpb379sdocaph NUMBER(17,2),
+  aqpb379sdohon  NUMBER(17,2),
+  aqpb379crehon  NUMBER(17,2),
+  aqpb379tmor    NUMBER(5,2),
+  aqpb379moncob  NUMBER(17,2),
+  aqpb379fcest   DATE,
+  aqpb379ccob    VARCHAR2(50),
+  aqpb379cren    VARCHAR2(50),
+  aqpb379chon    VARCHAR2(50),
+  aqpb379sinsap  NUMBER(17,2),
+  aqpb379prpago  NUMBER(17,2),
+  aqpb379pagrea  NUMBER(17,2),
+  aqpb379pramrt  NUMBER(17,2),
+  aqpb379nrccor  NUMBER(6),
+  aqpb379nrccac  NUMBER(6),
+  aqpb379vulcpa  NUMBER(17,2),
+  aqpb379vcprve  NUMBER(17,2),
+  aqpb379fuclpr  DATE,
+  aqpb379intcom  NUMBER(17,2),
+  aqpb379intcov  NUMBER(17,2),
+  aqpb379intmor  NUMBER(17,2),
+  aqpb379penali  NUMBER(17,2)
+)
+;
+comment on table AQPB379
+  is 'Tabla para cargar datos para reporte';
+comment on column AQPB379.aqpb379usur
+  is 'Usuario';
+comment on column AQPB379.aqpb379pgcod
+  is 'Código de empresa';
+comment on column AQPB379.aqpb379mod
+  is 'Módulo A';
+comment on column AQPB379.aqpb379suc
+  is 'Sucursal A ';
+comment on column AQPB379.aqpb379mda
+  is 'Moneda A';
+comment on column AQPB379.aqpb379pap
+  is 'Papel A';
+comment on column AQPB379.aqpb379cta
+  is 'Cuenta A';
+comment on column AQPB379.aqpb379ope
+  is 'Operación A';
+comment on column AQPB379.aqpb379sbo
+  is 'Suboperación A';
+comment on column AQPB379.aqpb379top
+  is 'Tipo de operación A';
+comment on column AQPB379.aqpb379anio
+  is 'Año';
+comment on column AQPB379.aqpb379mes
+  is 'Mes';
+comment on column AQPB379.aqpb379tdoc
+  is 'Tipo de documento';
+comment on column AQPB379.aqpb379ndoc
+  is 'Numero de documento';
+comment on column AQPB379.aqpb379csol
+  is 'Codigo solicitud';
+comment on column AQPB379.aqpb379esfco
+  is 'ESF/COOPAC';
+comment on column AQPB379.aqpb379ofon
+  is 'Origen fondos';
+comment on column AQPB379.aqpb379mondes
+  is 'Monto Desembolsado Cupo Principal';
+comment on column AQPB379.aqpb379mondis
+  is 'Monto Desembolsado Disposición';
+comment on column AQPB379.aqpb379pzo
+  is 'Plazo';
+comment on column AQPB379.aqpb379pgra
+  is 'Periodo de gracia';
+comment on column AQPB379.aqpb379ncer
+  is 'Numero certificado';
+comment on column AQPB379.aqpb379idlin
+  is 'Id Linea';
+comment on column AQPB379.aqpb379fdesp
+  is 'Fecha de desembolso prestamo';
+comment on column AQPB379.aqpb379moned
+  is 'Moneda';
+comment on column AQPB379.aqpb379sdocap
+  is 'Saldo Capital Pendiente';
+comment on column AQPB379.aqpb379sdoins
+  is 'Saldo insoluto';
+comment on column AQPB379.aqpb379monpre
+  is 'Monto prepago';
+comment on column AQPB379.aqpb379tcre
+  is 'Tipo de credito SBS';
+comment on column AQPB379.aqpb379ncre
+  is 'Tipo de credito SBS concepto';
+comment on column AQPB379.aqpb379csbs
+  is 'Codigo de cliente SBS';
+comment on column AQPB379.aqpb379fcal
+  is 'Fecha de Calificacion actualizada';
+comment on column AQPB379.aqpb379canom
+  is 'Calificacion normal';
+comment on column AQPB379.aqpb379cacpp
+  is 'Calificacion CPP';
+comment on column AQPB379.aqpb379cadef
+  is 'Calificacion Deficiente';
+comment on column AQPB379.aqpb379cadud
+  is 'Calificacion dudosa';
+comment on column AQPB379.aqpb379caper
+  is 'Calificacion perdida';
+comment on column AQPB379.aqpb379fcla
+  is 'Fecha de clasificacion interna caja';
+comment on column AQPB379.aqpb379clnom
+  is 'Clasificacion Normal';
+comment on column AQPB379.aqpb379clcpp
+  is 'Clasificacion CPP';
+comment on column AQPB379.aqpb379cldef
+  is 'Clasificacion deficiente';
+comment on column AQPB379.aqpb379cldud
+  is 'Clasificacion dudosa';
+comment on column AQPB379.aqpb379clper
+  is 'Clasificacion perdida';
+comment on column AQPB379.aqpb379sitcon
+  is 'Situacion contable';
+comment on column AQPB379.aqpb379sitconc
+  is 'Situacion contable concepto';
+comment on column AQPB379.aqpb379datrcuo
+  is 'Dias atraso pago cuota';
+comment on column AQPB379.aqpb379fprepa
+  is 'fecha prepago';
+comment on column AQPB379.aqpb379tspre
+  is 'Tasa subprestamo';
+comment on column AQPB379.aqpb379razn
+  is 'Razon social';
+comment on column AQPB379.aqpb379ciiu
+  is 'CIIU';
+comment on column AQPB379.aqpb379aeco
+  is 'Actividad Economica';
+comment on column AQPB379.aqpb379npre
+  is 'Numero de prestamo';
+comment on column AQPB379.aqpb379frepa
+  is 'frecuencia de pago';
+comment on column AQPB379.aqpb379ncuot
+  is 'Numero de cuotas totales';
+comment on column AQPB379.aqpb379ncuop
+  is 'Numero de cuotas pagadas';
+comment on column AQPB379.aqpb379finl
+  is 'Fecha Inicio de Linea';
+comment on column AQPB379.aqpb379ffil
+  is 'Fecha Fin de linea';
+comment on column AQPB379.aqpb379finc
+  is 'Fecha Inicio de Certificado';
+comment on column AQPB379.aqpb379ffic
+  is 'Fecha Fin de Certificado';
+comment on column AQPB379.aqpb379reg
+  is 'Region';
+comment on column AQPB379.aqpb379nreg
+  is 'Region Nombre';
+comment on column AQPB379.aqpb379zon
+  is 'Zona';
+comment on column AQPB379.aqpb379nzon
+  is 'Zona Nombre';
+comment on column AQPB379.aqpb379nsuc
+  is 'Agencia Sucursal Nombre';
+comment on column AQPB379.aqpb379ase
+  is 'Analista';
+comment on column AQPB379.aqpb379repro
+  is 'Reprogramacion';
+comment on column AQPB379.aqpb379frepro
+  is 'Fecha de Reprogramacion';
+comment on column AQPB379.aqpb379amort
+  is 'Amortizacion';
+comment on column AQPB379.aqpb379famor
+  is 'Fecha de Amortizacion';
+comment on column AQPB379.aqpb379mamor
+  is 'Monto amortizacion';
+comment on column AQPB379.aqpb379nestcre
+  is 'Estado credito descripcion';
+comment on column AQPB379.aqpb379fulpa
+  is 'Fecha ultimo pago realizado';
+comment on column AQPB379.aqpb379monpag
+  is 'Monto pagado';
+comment on column AQPB379.aqpb379cappag
+  is 'Capital pagado';
+comment on column AQPB379.aqpb379incomp
+  is 'Interes compensatorio pagado';
+comment on column AQPB379.aqpb379inmora
+  is 'Interes moratorio pagado';
+comment on column AQPB379.aqpb379inte
+  is 'Interes';
+comment on column AQPB379.aqpb379segu
+  is 'Seguros';
+comment on column AQPB379.aqpb379pena
+  is 'Penalidades';
+comment on column AQPB379.aqpb379pcob
+  is '% de Cobertura';
+comment on column AQPB379.aqpb379stat
+  is 'Estado de Credito';
+comment on column AQPB379.aqpb379fe99
+  is 'Fecha de Cancelacion';
+comment on column AQPB379.aqpb379fproc
+  is 'Fecha de Proceso';
+comment on column AQPB379.aqpb379fcrea
+  is 'Fecha de Creacion';
+comment on column AQPB379.aqpb379hcrea
+  is 'Hora de creacion';
+comment on column AQPB379.aqpb379mhonr
+  is 'monto honrado';
+comment on column AQPB379.aqpb379fhonr
+  is 'fecha honramiento';
+comment on column AQPB379.aqpb379chonr
+  is 'es credito honrado S/N';
+comment on column AQPB379.aqpb379sdocaph
+  is 'saldo capital';
+comment on column AQPB379.aqpb379sdohon
+  is 'Saldo honrado';
+comment on column AQPB379.aqpb379crehon
+  is 'Saldo credito honrado';
+comment on column AQPB379.aqpb379tmor
+  is 'Tasa interes moratorio';
+comment on column AQPB379.aqpb379moncob
+  is 'Monto Coberturado';
+comment on column AQPB379.aqpb379fcest
+  is 'Fecha cambio de estado';
+comment on column AQPB379.aqpb379ccob
+  is 'Codigo de Cobertura';
+comment on column AQPB379.aqpb379cren
+  is 'Certificado de Renovacion';
+comment on column AQPB379.aqpb379chon
+  is 'Certificado de Honra';
+comment on column AQPB379.aqpb379sinsap
+  is 'Saldo Insoluto antes del prepago';
+comment on column AQPB379.aqpb379prpago
+  is 'Prepago(Total/Parcial)(Total=cancelacion, Parcial=amortizacion)';
+comment on column AQPB379.aqpb379pagrea
+  is 'Pago realizado (Pago total)';
+comment on column AQPB379.aqpb379pramrt
+  is 'Principal amortizado';
+comment on column AQPB379.aqpb379nrccor
+  is 'Numero de cuotas del cronograma original enviado a COFIDE';
+comment on column AQPB379.aqpb379nrccac
+  is 'Numero de cuotas de cronograma actual';
+comment on column AQPB379.aqpb379vulcpa
+  is 'Valor de la ultima cuota pagada';
+comment on column AQPB379.aqpb379vcprve
+  is 'Valor de cuota proximo vencimiento';
+comment on column AQPB379.aqpb379fuclpr
+  is 'Nueva fecha de la ultima cuota luego del prepago';
+comment on column AQPB379.aqpb379intcom
+  is 'Interes compensatorios';
+comment on column AQPB379.aqpb379intcov
+  is 'Intereses compensatorios vencidos';
+comment on column AQPB379.aqpb379intmor
+  is 'Interes moratorio';
+comment on column AQPB379.aqpb379penali
+  is 'Penalidad';
+create index AQPB3792 on AQPB379 (AQPB379PGCOD, AQPB379MOD, AQPB379SUC, AQPB379MDA, AQPB379PAP, AQPB379CTA, AQPB379OPE, AQPB379SBO, AQPB379TOP);
+create index AQPB3793 on AQPB379 (AQPB379USUR);
+alter table AQPB379
+  add primary key (AQPB379USUR, AQPB379PGCOD, AQPB379MOD, AQPB379SUC, AQPB379MDA, AQPB379PAP, AQPB379CTA, AQPB379OPE, AQPB379SBO, AQPB379TOP, AQPB379R1COD, AQPB379R1MOD, AQPB379R1SUC, AQPB379R1MDA, AQPB379R1PAP, AQPB379R1CTA, AQPB379R1OPE, AQPB379R1SBO, AQPB379R1TOP);
+

@@ -1,0 +1,29 @@
+create table FSA312
+(
+  pgcod    NUMBER(3) not null,
+  uusuario CHAR(10) not null,
+  uaxsuc   NUMBER(3) not null,
+  uaxrubr  NUMBER(16) not null,
+  uaxmda   NUMBER(4) not null,
+  uaxpap   NUMBER(4) not null,
+  uaxcta   NUMBER(9) not null,
+  uaxoper  NUMBER(9) not null,
+  uaxsbop  NUMBER(3) not null,
+  uaxtope  NUMBER(3) not null,
+  uaxmod   NUMBER(3),
+  uaxfcon  DATE,
+  uaxfval  DATE,
+  uaxfvto  DATE,
+  uaxpzo   NUMBER(1),
+  uaxsdo   NUMBER(17,2),
+  uaxsdoh  NUMBER(17,2),
+  uaxsegm  NUMBER(2),
+  uaxfunc  NUMBER(2),
+  uaxcc    NUMBER(3),
+  uaxtasa  NUMBER(10,6)
+)
+;
+create index FSA31203 on FSA312 (PGCOD, UUSUARIO, UAXRUBR, UAXMDA, UAXPAP, UAXCTA, UAXFVTO);
+alter table FSA312
+  add primary key (PGCOD, UUSUARIO, UAXSUC, UAXRUBR, UAXMDA, UAXPAP, UAXCTA, UAXOPER, UAXSBOP, UAXTOPE);
+

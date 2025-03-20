@@ -1,0 +1,30 @@
+create table FCPG21
+(
+  cpg21empbt NUMBER(3) not null,
+  cpg21cod   NUMBER(3) not null,
+  cpg21pais  NUMBER(3),
+  cpg21tdoc  NUMBER(2),
+  cpg21doc   CHAR(25),
+  cpg21dfcte NUMBER(3),
+  cpg21scod  NUMBER(3),
+  cpg21ssuc  NUMBER(3),
+  cpg21srub  NUMBER(16),
+  cpg21smda  NUMBER(4),
+  cpg21spap  NUMBER(4),
+  cpg21scta  NUMBER(9),
+  cpg21sope  NUMBER(9),
+  cpg21ssbop NUMBER(3),
+  cpg21stope NUMBER(3),
+  cpg21cdesc CHAR(40),
+  cpg21ctel  CHAR(20),
+  cpg21opcob NUMBER(4),
+  cpg21est   CHAR(3),
+  cpg21blq   CHAR(1),
+  cpg21inst  NUMBER(10)
+)
+;
+create index FCPG2102 on FCPG21 (CPG21EMPBT, CPG21OPCOB);
+create index FCPG2103 on FCPG21 (CPG21INST);
+alter table FCPG21
+  add primary key (CPG21EMPBT, CPG21COD);
+

@@ -1,0 +1,23 @@
+create table FHU121
+(
+  pgcod      NUMBER(3) not null,
+  leuhmod    NUMBER(3) not null,
+  leuhoper   NUMBER(9) not null,
+  leuhsbop   NUMBER(3) not null,
+  leuhmodid  NUMBER(5) not null,
+  leuhcuonro NUMBER(2) not null,
+  leuiacuovt DATE,
+  leuipcuovt DATE,
+  leuiacuoim NUMBER(17,2),
+  leuipcuoim NUMBER(17,2),
+  leuiacuoin NUMBER(17,2),
+  leuipcuoin NUMBER(17,2),
+  leuiacuoob CHAR(40),
+  leuipcuoob CHAR(40),
+  leuiacuosd NUMBER(17,2),
+  leuipcuosd NUMBER(17,2)
+)
+;
+alter table FHU121
+  add primary key (PGCOD, LEUHMOD, LEUHOPER, LEUHSBOP, LEUHMODID, LEUHCUONRO);
+

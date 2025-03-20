@@ -1,0 +1,136 @@
+create table AQPA861
+(
+  aqpa861fep DATE not null,
+  aqpa861cor NUMBER(9) not null,
+  aqpa861pai NUMBER(3) not null,
+  aqpa861tdo NUMBER(2) not null,
+  aqpa861ndo CHAR(12) not null,
+  aqpa861suc NUMBER(3),
+  aqpa861mda NUMBER(4),
+  aqpa861cta NUMBER(9),
+  aqpa861mod NUMBER(3),
+  aqpa861top NUMBER(3),
+  aqpa861ase CHAR(10),
+  aqpa861mto NUMBER(17,2),
+  aqpa861pzo NUMBER(5),
+  aqpa861cuo NUMBER(10),
+  aqpa861moe NUMBER(4),
+  aqpa861usr CHAR(10),
+  aqpa861au1 DATE,
+  aqpa861au2 NUMBER(10),
+  aqpa861au3 NUMBER(17,2),
+  aqpa861au4 CHAR(30),
+  aqpa861au5 CHAR(1),
+  aqpa861ind CHAR(1),
+  aqpa861eva NUMBER(10),
+  aqpa861sbs NUMBER(5),
+  aqpa861flg CHAR(1),
+  aqpa861mcu NUMBER(17,2),
+  aqpa861tip CHAR(30),
+  aqpa861moa NUMBER(3),
+  aqpa861sua NUMBER(3),
+  aqpa861maa NUMBER(4),
+  aqpa861paa NUMBER(4),
+  aqpa861caa NUMBER(9),
+  aqpa861opa NUMBER(9),
+  aqpa861sba NUMBER(3),
+  aqpa861toa NUMBER(3),
+  aqpa861act CHAR(1),
+  aqpa861des CHAR(30),
+  aqpa861tca CHAR(1),
+  aqpa861fan DATE,
+  aqpa861caj NUMBER(17,2),
+  aqpa861feg DATE,
+  aqpa861inc CHAR(1),
+  aqpa861err CHAR(100)
+)
+;
+comment on column AQPA861.aqpa861fep
+  is 'Fecha de proceso';
+comment on column AQPA861.aqpa861cor
+  is 'Correlativo';
+comment on column AQPA861.aqpa861pai
+  is 'Pais';
+comment on column AQPA861.aqpa861tdo
+  is 'Tipo de documento';
+comment on column AQPA861.aqpa861ndo
+  is 'Nro de documento';
+comment on column AQPA861.aqpa861suc
+  is 'Sucursal';
+comment on column AQPA861.aqpa861mda
+  is 'Moneda';
+comment on column AQPA861.aqpa861cta
+  is 'Cuenta';
+comment on column AQPA861.aqpa861mod
+  is 'Modulo';
+comment on column AQPA861.aqpa861top
+  is 'Tipo de operacion';
+comment on column AQPA861.aqpa861ase
+  is 'Analista';
+comment on column AQPA861.aqpa861mto
+  is 'Monto';
+comment on column AQPA861.aqpa861pzo
+  is 'Plazo';
+comment on column AQPA861.aqpa861cuo
+  is 'Nro de cuotas';
+comment on column AQPA861.aqpa861moe
+  is 'Modelo de evaluacion';
+comment on column AQPA861.aqpa861usr
+  is 'Usuario de proceso';
+comment on column AQPA861.aqpa861au1
+  is 'Campo auxiliar1';
+comment on column AQPA861.aqpa861au2
+  is 'Campo auxiliar2';
+comment on column AQPA861.aqpa861au3
+  is 'Campo auxiliar3';
+comment on column AQPA861.aqpa861au4
+  is 'Campo auxiliar4';
+comment on column AQPA861.aqpa861au5
+  is 'Campo auxiliar5';
+comment on column AQPA861.aqpa861ind
+  is 'Indicador tipo de proceso';
+comment on column AQPA861.aqpa861eva
+  is 'Numero de evaluacion';
+comment on column AQPA861.aqpa861sbs
+  is 'Tipologia SBS';
+comment on column AQPA861.aqpa861flg
+  is 'Indicador de tasa especial';
+comment on column AQPA861.aqpa861mcu
+  is 'Monto Cuota';
+comment on column AQPA861.aqpa861tip
+  is 'Tipo de campaña';
+comment on column AQPA861.aqpa861moa
+  is 'Modulo de credito a ampliarse';
+comment on column AQPA861.aqpa861sua
+  is 'Sucursal de credito a ampliarse';
+comment on column AQPA861.aqpa861maa
+  is 'Moneda de credito a ampliarse';
+comment on column AQPA861.aqpa861paa
+  is 'Papel de credito a ampliarse';
+comment on column AQPA861.aqpa861caa
+  is 'Cuenta de credito a ampliarse';
+comment on column AQPA861.aqpa861opa
+  is 'Operacion de credito a ampliarse';
+comment on column AQPA861.aqpa861sba
+  is 'Suboperacion de credito a ampliarse';
+comment on column AQPA861.aqpa861toa
+  is 'TipoOperacion de credito a ampliarse';
+comment on column AQPA861.aqpa861act
+  is 'Actividad Economica';
+comment on column AQPA861.aqpa861tca
+  is 'Indicador campania Aprobado preaprobado';
+comment on column AQPA861.aqpa861fan
+  is 'Fecha de lanzamiento de proceso';
+comment on column AQPA861.aqpa861caj
+  is 'Cuota Caja';
+comment on column AQPA861.aqpa861feg
+  is 'Fecha de primer pago';
+comment on column AQPA861.aqpa861inc
+  is 'Inclumple politicas';
+comment on column AQPA861.aqpa861err
+  is 'Descripcion de error';
+create index AQPA8612 on AQPA861 (AQPA861PAI, AQPA861TDO, AQPA861NDO);
+create index AQPA8613 on AQPA861 (AQPA861ASE);
+alter table AQPA861
+  add primary key (AQPA861FEP, AQPA861COR, AQPA861PAI, AQPA861TDO, AQPA861NDO);
+

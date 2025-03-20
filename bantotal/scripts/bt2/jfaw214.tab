@@ -1,0 +1,27 @@
+create table JFAW214
+(
+  jfaw214emp NUMBER(3) not null,
+  jfaw214suc NUMBER(3) not null,
+  jfaw214mod NUMBER(3) not null,
+  jfaw214mda NUMBER(4) not null,
+  jfaw214pap NUMBER(4) not null,
+  jfaw214cta NUMBER(9) not null,
+  jfaw214ope NUMBER(9) not null,
+  jfaw214sbo NUMBER(3) not null,
+  jfaw214top NUMBER(3) not null,
+  jfaw214ins NUMBER(10) not null,
+  jfaw214age NUMBER(3),
+  jfaw214sba NUMBER(3),
+  jfaw214ca1 CHAR(30),
+  jfaw214ca2 CHAR(30),
+  jfaw214nu1 NUMBER(9),
+  jfaw214nu2 NUMBER(9),
+  jfaw214im1 NUMBER(17,2),
+  jfaw214im2 NUMBER(17,2),
+  jfaw214fe1 DATE,
+  jfaw214fe2 DATE
+)
+;
+alter table JFAW214
+  add primary key (JFAW214EMP, JFAW214SUC, JFAW214MOD, JFAW214MDA, JFAW214PAP, JFAW214CTA, JFAW214OPE, JFAW214SBO, JFAW214TOP, JFAW214INS);
+

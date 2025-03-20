@@ -1,0 +1,19 @@
+create table X054W9
+(
+  x054w9fch DATE not null,
+  x054w9tip NUMBER(1) not null,
+  x054w9reg NUMBER(3) not null,
+  x054w9cbu CHAR(22) not null,
+  x054w9nd2 CHAR(13) not null,
+  x054w9pee CHAR(1),
+  x054w9tdo NUMBER(2),
+  x054w9imp NUMBER(1),
+  x054w9sdo NUMBER(14,2),
+  x054w9mod NUMBER(3),
+  x054w9trn NUMBER(3),
+  x054w9ndo CHAR(13)
+)
+;
+alter table X054W9
+  add primary key (X054W9FCH, X054W9TIP, X054W9REG, X054W9CBU, X054W9ND2);
+

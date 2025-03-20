@@ -1,0 +1,16 @@
+create table SNG236
+(
+  sng229corr NUMBER(10) not null,
+  sng230corr NUMBER(10) not null,
+  sng236esti CHAR(30) not null,
+  sng236estf NUMBER(3),
+  sng236usu  CHAR(10),
+  sng236esdo CHAR(1),
+  sng236fch  DATE,
+  sng236dsc  VARCHAR2(400),
+  sng236pqte NUMBER(10)
+)
+;
+alter table SNG236
+  add primary key (SNG229CORR, SNG230CORR, SNG236ESTI);
+

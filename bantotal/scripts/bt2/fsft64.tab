@@ -1,0 +1,13 @@
+create table FSFT64
+(
+  sft60emp   NUMBER(3) not null,
+  sft60id    NUMBER(9) not null,
+  sft64tigru NUMBER(2) not null,
+  sft64grup  NUMBER(7) not null,
+  sft64hab   CHAR(1),
+  sft64selec CHAR(1)
+)
+;
+alter table FSFT64
+  add primary key (SFT60EMP, SFT60ID, SFT64TIGRU, SFT64GRUP);
+

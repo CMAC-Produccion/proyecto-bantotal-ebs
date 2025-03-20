@@ -1,0 +1,12 @@
+create table FSEC08
+(
+  sec01pgcod NUMBER(3) not null,
+  sec01ptcta NUMBER(9) not null,
+  sec08mda   NUMBER(4) not null,
+  sec08pap   NUMBER(4) not null,
+  sec08pcmin NUMBER(14,8)
+)
+;
+alter table FSEC08
+  add primary key (SEC01PGCOD, SEC01PTCTA, SEC08MDA, SEC08PAP);
+

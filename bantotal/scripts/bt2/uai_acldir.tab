@@ -1,0 +1,20 @@
+create table UAI_ACLDIR
+(
+  n_pais_pepais     NUMBER(3) not null,
+  n_tdoc_petdoc     NUMBER(2) not null,
+  c_ndoc_pendoc     CHAR(12) not null,
+  n_cta_bccta       NUMBER(9) not null,
+  n_coddir_docod    NUMBER(2) not null,
+  c_dir_sngc13dir   CHAR(140),
+  c_ref_sngc13ref1  VARCHAR2(200),
+  n_corr_sngc13corr NUMBER(3) not null,
+  c_via_sngc13dsc1  CHAR(30),
+  c_ubi_sngc13ugeo  CHAR(6),
+  n_dpto_sngc13dpto NUMBER(5),
+  n_prov_sngc13prov NUMBER(5),
+  n_dist_sngc13dist NUMBER(9)
+)
+;
+comment on table UAI_ACLDIR
+  is 'Tabla procesamiento de data ACL para UAI';
+

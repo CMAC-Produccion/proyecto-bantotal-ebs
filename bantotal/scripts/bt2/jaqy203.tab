@@ -1,0 +1,32 @@
+create table JAQY203
+(
+  jaqy203corre NUMBER(4) not null,
+  jaqy203opgco NUMBER(3),
+  jaqy203npgco NUMBER(3),
+  jaqy203oprfg CHAR(10),
+  jaqy203nprfg CHAR(10),
+  jaqy203ofcal DATE,
+  jaqy203nfcal DATE,
+  jaqy203ofcvt DATE,
+  jaqy203nfcvt DATE,
+  jaqy203outpo NUMBER(1),
+  jaqy203nutpo NUMBER(1),
+  jaqy203ouusr CHAR(10),
+  jaqy203nuusr CHAR(10),
+  jaqy203oubsr CHAR(10),
+  jaqy203nubsr CHAR(10),
+  jaqy203auxc3 CHAR(60),
+  jaqy203auxc2 CHAR(60),
+  jaqy203auxc1 CHAR(60),
+  jaqy203auxd3 DATE,
+  jaqy203auxd2 DATE,
+  jaqy203auxd1 DATE,
+  jaqy203auxn3 NUMBER(17,2),
+  jaqy203auxn2 NUMBER(17,2),
+  jaqy203auxn1 NUMBER(17,2)
+)
+;
+create index JAQY2031 on JAQY203 (JAQY203AUXC1);
+alter table JAQY203
+  add primary key (JAQY203CORRE);
+

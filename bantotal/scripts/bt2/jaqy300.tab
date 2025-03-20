@@ -1,0 +1,22 @@
+create table JAQY300
+(
+  pgcod       NUMBER(3) not null,
+  scmod       NUMBER(3) not null,
+  scsuc       NUMBER(3) not null,
+  scmda       NUMBER(4) not null,
+  scpap       NUMBER(4) not null,
+  sccta       NUMBER(9) not null,
+  scoper      NUMBER(9) not null,
+  scsbop      NUMBER(3) not null,
+  sctope      NUMBER(3) not null,
+  scstat      NUMBER(2),
+  scgru       NUMBER(2),
+  scrub       NUMBER(16) not null,
+  scsdo       NUMBER(17,2),
+  dias_atraso NUMBER(4),
+  sector      NUMBER(4),
+  instancia   NUMBER(10)
+)
+;
+create index XN_JAQY300_01 on JAQY300 (SCRUB, SCSUC);
+

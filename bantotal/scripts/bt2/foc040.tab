@@ -1,0 +1,13 @@
+create table FOC040
+(
+  foc040empr NUMBER(3) not null,
+  foc040nom  CHAR(40),
+  foc040corr NUMBER(9),
+  foc040cv   CHAR(1),
+  foc040cta  NUMBER(9),
+  foc040pref CHAR(5)
+)
+;
+alter table FOC040
+  add primary key (FOC040EMPR);
+

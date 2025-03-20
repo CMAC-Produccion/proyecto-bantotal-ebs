@@ -1,0 +1,31 @@
+create table FBC054
+(
+  bcinfd    CHAR(3) not null,
+  bcfecd    DATE not null,
+  bcsucd    NUMBER(3) not null,
+  bcrubd    NUMBER(16) not null,
+  bcmdad    NUMBER(4) not null,
+  bcpapd    NUMBER(4) not null,
+  bcctad    NUMBER(9) not null,
+  bcoperd   NUMBER(9) not null,
+  bcsubd    NUMBER(3) not null,
+  bctipd    NUMBER(3) not null,
+  bcfvtod   DATE not null,
+  bcpzod    NUMBER(5) not null,
+  bccuotad  NUMBER(5) not null,
+  bcmdasupd NUMBER(4),
+  bcagregd  CHAR(1),
+  bccampod  CHAR(8),
+  bctiptasd NUMBER(1),
+  bccapmo   NUMBER(17,2),
+  bcreajmo  NUMBER(17,2),
+  bcintmo   NUMBER(17,2),
+  bccapmn   NUMBER(17,2),
+  bcreajmn  NUMBER(17,2),
+  bcintmn   NUMBER(17,2)
+)
+;
+create index FBC05402 on FBC054 (BCINFD, BCFECD, BCAGREGD, BCSUCD, BCRUBD, BCMDAD, BCPAPD, BCCTAD, BCOPERD, BCSUBD, BCTIPD, BCFVTOD, BCPZOD, BCCUOTAD);
+alter table FBC054
+  add primary key (BCINFD, BCFECD, BCSUCD, BCRUBD, BCMDAD, BCPAPD, BCCTAD, BCOPERD, BCSUBD, BCTIPD, BCFVTOD, BCPZOD, BCCUOTAD);
+

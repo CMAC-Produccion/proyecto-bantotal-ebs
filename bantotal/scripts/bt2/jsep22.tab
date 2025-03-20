@@ -1,0 +1,39 @@
+create table JSEP22
+(
+  jsep22pgc NUMBER(3) not null,
+  jsep22mod NUMBER(3) not null,
+  jsep22mda NUMBER(4) not null,
+  jsep22pap NUMBER(4) not null,
+  jsep22cta NUMBER(9) not null,
+  jsep22suc NUMBER(3) not null,
+  jsep22ope NUMBER(9) not null,
+  jsep22sbo NUMBER(3) not null,
+  jsep22top NUMBER(3) not null,
+  jsep22pzo NUMBER(5),
+  jsep22dep NUMBER(5),
+  jsep22fre NUMBER(2),
+  jsep22mto NUMBER(17,2),
+  jsep22tpr CHAR(1),
+  jsep22fpa DATE,
+  jsep22pag NUMBER(5),
+  jsep22rec CHAR(1),
+  jsep22emv NUMBER(3),
+  jsep22mov NUMBER(3),
+  jsep22mdv NUMBER(4),
+  jsep22pav NUMBER(4),
+  jsep22ctv NUMBER(9),
+  jsep22suv NUMBER(3),
+  jsep22opv NUMBER(9),
+  jsep22sbv NUMBER(3),
+  jsep22tov NUMBER(3),
+  jsep22ax1 NUMBER(17,2),
+  jsep22ax2 NUMBER(17,2),
+  jsep22ax3 CHAR(20),
+  jsep22ax4 CHAR(30),
+  jsep22ax5 DATE,
+  jsep22ax6 DATE
+)
+;
+alter table JSEP22
+  add primary key (JSEP22PGC, JSEP22MOD, JSEP22MDA, JSEP22PAP, JSEP22CTA, JSEP22SUC, JSEP22OPE, JSEP22SBO, JSEP22TOP);
+

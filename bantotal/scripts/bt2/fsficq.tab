@@ -1,0 +1,23 @@
+create table FSFICQ
+(
+  sficqemp NUMBER(3) not null,
+  sficqemi NUMBER(3) not null,
+  sficqdsc CHAR(50),
+  sficqtip CHAR(2),
+  sficqmda NUMBER(4),
+  sficqlim NUMBER(17,2),
+  sficqhab CHAR(1),
+  sficqax1 CHAR(70),
+  sficqax2 CHAR(70),
+  sficqax3 CHAR(70),
+  sficqax4 NUMBER(17,2),
+  sficqax5 NUMBER(17,2),
+  sficqax6 NUMBER(17,2),
+  sficqax7 DATE,
+  sficqax8 DATE,
+  sficqax9 DATE
+)
+;
+alter table FSFICQ
+  add primary key (SFICQEMP, SFICQEMI);
+

@@ -1,0 +1,13 @@
+create table TI0008
+(
+  tiimpucod  NUMBER(3) not null,
+  tidimcorr  NUMBER(3) not null,
+  ticd_ant_i NUMBER(3) not null,
+  titpotxt   NUMBER(3) not null
+)
+;
+create index TI000802 on TI0008 (TITPOTXT);
+create index TI000803 on TI0008 (TIIMPUCOD, TICD_ANT_I);
+alter table TI0008
+  add primary key (TIIMPUCOD, TIDIMCORR, TICD_ANT_I, TITPOTXT);
+

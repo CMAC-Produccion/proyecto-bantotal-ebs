@@ -1,0 +1,17 @@
+create table CNL130
+(
+  cnl130grp CHAR(60) not null,
+  cnl130lus NUMBER(17,2),
+  cnl130lmn NUMBER(17,2),
+  cnl130dur NUMBER(4),
+  cnl130vig CHAR(1),
+  cnl130wfe CHAR(5),
+  cnl130wfp NUMBER(4),
+  cnl130wfn NUMBER(10),
+  cnl130wfi NUMBER(10)
+)
+;
+create index CNL13002 on CNL130 (CNL130WFP, CNL130WFN, CNL130WFI);
+alter table CNL130
+  add primary key (CNL130GRP);
+

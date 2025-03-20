@@ -1,0 +1,17 @@
+create table TMP_CART_AYER
+(
+  bcemp  NUMBER(3) not null,
+  bcsuc  NUMBER(3) not null,
+  bcmda  NUMBER(4) not null,
+  bcpap  NUMBER(4) not null,
+  bccta  NUMBER(9) not null,
+  bcoper NUMBER(9) not null,
+  bcsbop NUMBER(3) not null,
+  bctop  NUMBER(3) not null,
+  bcmod  NUMBER(3),
+  bcsdmn NUMBER,
+  id     ROWID
+)
+compress;
+create index IX_TMP_CART_AYER on TMP_CART_AYER (BCEMP, BCMOD, BCCTA, BCOPER, BCSBOP);
+

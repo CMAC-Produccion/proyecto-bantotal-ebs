@@ -1,0 +1,72 @@
+create table JAQMC6
+(
+  jaqmc6regi VARCHAR2(30) not null,
+  jaqmc6zona VARCHAR2(40) not null,
+  jaqmc6agen VARCHAR2(30) not null,
+  jaqmc6cacl NUMBER(10),
+  jaqmc6msbs NUMBER(17,2),
+  jaqmc6fein DATE,
+  jaqmc6num1 NUMBER(10),
+  jaqmc6num2 NUMBER(10),
+  jaqmc6imp1 NUMBER(17,2),
+  jaqmc6imp2 NUMBER(17,2),
+  jaqmc6var1 VARCHAR2(255),
+  jaqmc6var2 VARCHAR2(255),
+  jaqmc6fec1 DATE,
+  jaqmc6fec2 DATE,
+  jaqmc6fec3 DATE,
+  jaqmc6var3 VARCHAR2(255),
+  jaqmc6imp3 NUMBER(17,2),
+  jaqmc6num3 NUMBER(10),
+  jaqmc6ccma NUMBER(10),
+  jaqmc6mmma NUMBER(17,2),
+  jaqmc6pmma NUMBER(17,2)
+)
+;
+comment on table JAQMC6
+  is 'Mora SBS - Agencia';
+comment on column JAQMC6.jaqmc6regi
+  is 'REGION';
+comment on column JAQMC6.jaqmc6zona
+  is 'ZONA';
+comment on column JAQMC6.jaqmc6agen
+  is 'AGENCIA';
+comment on column JAQMC6.jaqmc6cacl
+  is 'CANTIDAD DE CLIENTES';
+comment on column JAQMC6.jaqmc6msbs
+  is 'MONTOS';
+comment on column JAQMC6.jaqmc6fein
+  is 'FECHA DE INGRESO';
+comment on column JAQMC6.jaqmc6num1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQMC6.jaqmc6num2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQMC6.jaqmc6imp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQMC6.jaqmc6imp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQMC6.jaqmc6var1
+  is 'AUXILIAR VARCHAR 1';
+comment on column JAQMC6.jaqmc6var2
+  is 'AUXILIAR VARCHAR 2';
+comment on column JAQMC6.jaqmc6fec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQMC6.jaqmc6fec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQMC6.jaqmc6fec3
+  is 'AUXILIAR FECHA 3';
+comment on column JAQMC6.jaqmc6var3
+  is 'AUXILIAR VARCHAR 3';
+comment on column JAQMC6.jaqmc6imp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQMC6.jaqmc6num3
+  is 'AUXILIAR NUMERICO 3';
+comment on column JAQMC6.jaqmc6ccma
+  is 'CANTIDAD DE CLIENTES MES ANTERIOR';
+comment on column JAQMC6.jaqmc6mmma
+  is 'MONTO MORA MES ANTERIOR';
+comment on column JAQMC6.jaqmc6pmma
+  is 'PORCENTAJE MORA MES ANTERIOR';
+alter table JAQMC6
+  add primary key (JAQMC6REGI, JAQMC6ZONA, JAQMC6AGEN);
+

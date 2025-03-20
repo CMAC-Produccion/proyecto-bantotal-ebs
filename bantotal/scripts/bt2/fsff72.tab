@@ -1,0 +1,36 @@
+create table FSFF72
+(
+  inftpais65 NUMBER(3) not null,
+  inftdoc65  NUMBER(2) not null,
+  inftndoc65 CHAR(12) not null,
+  xinfsujre  CHAR(1),
+  xinfcont   CHAR(1),
+  xinfgcont  CHAR(1),
+  xinfautor  CHAR(1),
+  xinfconaut CHAR(30),
+  xinfresdi  NUMBER(14),
+  xinfrdaut  NUMBER(14),
+  xinfregco  CHAR(1),
+  xinfreges  CHAR(1),
+  xinfresdo  CHAR(1),
+  xinfvigil  CHAR(1),
+  xinfpris   CHAR(1),
+  xinfestcr  CHAR(1),
+  xinfcomer  CHAR(1),
+  xinfing    NUMBER(14,2),
+  xinfpat    NUMBER(14,2),
+  xinffidu   CHAR(1),
+  xinfest    CHAR(1),
+  xinfemb    CHAR(1),
+  xinf001    CHAR(1),
+  xinf002    CHAR(30),
+  xinf003    NUMBER(1),
+  xinf004    NUMBER(9),
+  xinf005    NUMBER(14,2),
+  xinf006    DATE,
+  xinfexedpm CHAR(1)
+)
+;
+alter table FSFF72
+  add primary key (INFTPAIS65, INFTDOC65, INFTNDOC65);
+

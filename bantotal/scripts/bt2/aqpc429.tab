@@ -1,0 +1,124 @@
+create table AQPC429
+(
+  aqpc429r1cod  NUMBER(3) not null,
+  aqpc429r1mod  NUMBER(3),
+  aqpc429r1suc  NUMBER(3),
+  aqpc429r1mda  NUMBER(4),
+  aqpc429r1pap  NUMBER(4),
+  aqpc429r1cta  NUMBER(9),
+  aqpc429r1ope  NUMBER(9),
+  aqpc429r1sbo  NUMBER(3),
+  aqpc429r1top  NUMBER(3),
+  aqpc429relco  NUMBER(3),
+  aqpc429r2mod  NUMBER(3),
+  aqpc429r2cta  NUMBER(9),
+  aqpc429r2ope  NUMBER(9),
+  aqpc429r2sbo  NUMBER(3),
+  aqpc429r1rub  NUMBER(16),
+  aqpc429r2cod  NUMBER(3),
+  aqpc429r2suc  NUMBER(3),
+  aqpc429r2mda  NUMBER(4),
+  aqpc429r2pap  NUMBER(4),
+  aqpc429r2top  NUMBER(3),
+  aqpc429r2rub  NUMBER(16),
+  aqpc429r011c  NUMBER(3),
+  aqpc429r011m  NUMBER(3),
+  aqpc429r011s  NUMBER(3),
+  aqpc429r011t  NUMBER(3),
+  aqpc429r011r  NUMBER(4),
+  aqpc429r011f  DATE,
+  aqpc429r011or NUMBER(2),
+  aqpc429r011sb NUMBER(3),
+  aqpc429r011co CHAR(1),
+  aqpc429pgcod  NUMBER(3) not null,
+  aqpc429itsuc  NUMBER(3) not null,
+  aqpc429itmod  NUMBER(3) not null,
+  aqpc429ittran NUMBER(3) not null,
+  aqpc429itnrel NUMBER(4) not null,
+  aqpc429itfcon DATE not null,
+  aqpc429est    CHAR(1),
+  aqpc429fecext DATE
+)
+;
+comment on table AQPC429
+  is 'Tabla BK de la FSR011 de las bajas de garantías ';
+comment on column AQPC429.aqpc429r1cod
+  is 'r1cod';
+comment on column AQPC429.aqpc429r1mod
+  is 'r1mod';
+comment on column AQPC429.aqpc429r1suc
+  is 'r1suc';
+comment on column AQPC429.aqpc429r1mda
+  is 'r1mda';
+comment on column AQPC429.aqpc429r1pap
+  is 'r1pap';
+comment on column AQPC429.aqpc429r1cta
+  is 'r1cta';
+comment on column AQPC429.aqpc429r1ope
+  is 'r1oper';
+comment on column AQPC429.aqpc429r1sbo
+  is 'r1sbop';
+comment on column AQPC429.aqpc429r1top
+  is 'r1tope';
+comment on column AQPC429.aqpc429relco
+  is 'relcod';
+comment on column AQPC429.aqpc429r2mod
+  is 'r2mod';
+comment on column AQPC429.aqpc429r2cta
+  is 'r2cta';
+comment on column AQPC429.aqpc429r2ope
+  is 'r2oper';
+comment on column AQPC429.aqpc429r2sbo
+  is 'r2sbop';
+comment on column AQPC429.aqpc429r1rub
+  is 'r1rub';
+comment on column AQPC429.aqpc429r2cod
+  is 'r2cod';
+comment on column AQPC429.aqpc429r2suc
+  is 'r2suc';
+comment on column AQPC429.aqpc429r2mda
+  is 'r2mda';
+comment on column AQPC429.aqpc429r2pap
+  is 'r2pap';
+comment on column AQPC429.aqpc429r2top
+  is 'r2tope';
+comment on column AQPC429.aqpc429r2rub
+  is 'r2rub ';
+comment on column AQPC429.aqpc429r011c
+  is 'r011cd';
+comment on column AQPC429.aqpc429r011m
+  is 'r011mo';
+comment on column AQPC429.aqpc429r011s
+  is 'r011su';
+comment on column AQPC429.aqpc429r011t
+  is 'r011tr';
+comment on column AQPC429.aqpc429r011r
+  is 'r011re';
+comment on column AQPC429.aqpc429r011f
+  is 'r011fc';
+comment on column AQPC429.aqpc429r011or
+  is 'r011or';
+comment on column AQPC429.aqpc429r011sb
+  is 'r011sb';
+comment on column AQPC429.aqpc429r011co
+  is 'r011co';
+comment on column AQPC429.aqpc429pgcod
+  is 'Usuario de Ingreso de la transacción';
+comment on column AQPC429.aqpc429itsuc
+  is 'suc transacción';
+comment on column AQPC429.aqpc429itmod
+  is 'módulo transacción';
+comment on column AQPC429.aqpc429ittran
+  is 'transacción';
+comment on column AQPC429.aqpc429itnrel
+  is 'rel transacción';
+comment on column AQPC429.aqpc429itfcon
+  is 'fecha transacción';
+comment on column AQPC429.aqpc429est
+  is 'Estado: C-contabilizado,  E:Extornado';
+comment on column AQPC429.aqpc429fecext
+  is 'Fecha de Extorno';
+create index AQPC429A2 on AQPC429 (AQPC429PGCOD, AQPC429ITSUC, AQPC429ITMOD, AQPC429ITTRAN, AQPC429ITNREL, AQPC429ITFCON);
+alter table AQPC429
+  add primary key (AQPC429R1COD, AQPC429PGCOD, AQPC429ITSUC, AQPC429ITMOD, AQPC429ITTRAN, AQPC429ITNREL, AQPC429ITFCON);
+

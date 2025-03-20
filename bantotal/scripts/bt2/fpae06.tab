@@ -1,0 +1,11 @@
+create table FPAE06
+(
+  pae06rie NUMBER(3) not null,
+  pae06des CHAR(30),
+  pae07res NUMBER(2)
+)
+;
+create index FPAE0602 on FPAE06 (PAE07RES);
+alter table FPAE06
+  add primary key (PAE06RIE);
+

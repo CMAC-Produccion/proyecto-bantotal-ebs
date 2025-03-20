@@ -1,0 +1,21 @@
+create table FXR893
+(
+  pgcodt   NUMBER(3) not null,
+  scmodst  NUMBER(3) not null,
+  scmdast  NUMBER(4) not null,
+  scpapst  NUMBER(4) not null,
+  scctast  NUMBER(9) not null,
+  scsucst  NUMBER(3) not null,
+  scoperst NUMBER(9) not null,
+  scsbopst NUMBER(3) not null,
+  sctopest NUMBER(3) not null,
+  numtipt  NUMBER(2) not null,
+  msgnumt  NUMBER(9) not null,
+  swtcodt  NUMBER(5) not null,
+  swtrelt  NUMBER(2) not null
+)
+;
+create index IFXR893 on FXR893 (PGCODT, NUMTIPT, MSGNUMT, SWTCODT, SWTRELT);
+alter table FXR893
+  add primary key (PGCODT, SCMODST, SCMDAST, SCPAPST, SCCTAST, SCSUCST, SCOPERST, SCSBOPST, SCTOPEST, NUMTIPT, MSGNUMT, SWTCODT, SWTRELT);
+

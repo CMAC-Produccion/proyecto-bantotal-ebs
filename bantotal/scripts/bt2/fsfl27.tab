@@ -1,0 +1,12 @@
+create table FSFL27
+(
+  fsfl27fde DATE not null,
+  fsfl27tip CHAR(10) not null,
+  fsfl27mda NUMBER(4) not null,
+  fsfl27lim NUMBER(17,2)
+)
+;
+create index FSFL2702 on FSFL27 (FSFL27MDA, FSFL27TIP, FSFL27FDE);
+alter table FSFL27
+  add primary key (FSFL27FDE, FSFL27TIP, FSFL27MDA);
+

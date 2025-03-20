@@ -1,0 +1,113 @@
+create table JAQM8M
+(
+  jaqm8mccta NUMBER(9) not null,
+  jaqm8mnope NUMBER(9) not null,
+  jaqm8mnins NUMBER(10) not null,
+  jaqm8mfein DATE not null,
+  jaqm8mregi VARCHAR2(30),
+  jaqm8mzona VARCHAR2(40),
+  jaqm8magen VARCHAR2(30),
+  jaqm8mcomi VARCHAR2(100),
+  jaqm8mcana VARCHAR2(20),
+  jaqm8mnana VARCHAR2(100),
+  jaqm8mncli VARCHAR2(100),
+  jaqm8mtdoc NUMBER(2),
+  jaqm8mndoc VARCHAR2(12),
+  jaqm8mdcli VARCHAR2(2000),
+  jaqm8mccli VARCHAR2(2000),
+  jaqm8mmont NUMBER(17,2),
+  jaqm8mcuot NUMBER(17,2),
+  jaqm8mffap DATE,
+  jaqm8mfrat DATE,
+  jaqm8mrana VARCHAR2(50),
+  jaqm8mpers VARCHAR2(50),
+  jaqm8mnum1 NUMBER(9),
+  jaqm8mnum2 NUMBER(9),
+  jaqm8mnum3 NUMBER(9),
+  jaqm8mimp1 NUMBER(17,2),
+  jaqm8mimp2 NUMBER(17,2),
+  jaqm8mimp3 NUMBER(17,2),
+  jaqm8mcha1 VARCHAR2(255),
+  jaqm8mcha2 VARCHAR2(255),
+  jaqm8mcha3 VARCHAR2(255),
+  jaqm8mfec1 DATE,
+  jaqm8mfec2 DATE,
+  jaqm8mfec3 DATE
+)
+;
+comment on table JAQM8M
+  is 'Tabla de Rating de Analistas';
+comment on column JAQM8M.jaqm8mccta
+  is 'CÓDIGO DE CUENTA';
+comment on column JAQM8M.jaqm8mnope
+  is 'CÓDIGO DE OPERACIÓN';
+comment on column JAQM8M.jaqm8mnins
+  is 'NÚMERO DE INSTANCIA';
+comment on column JAQM8M.jaqm8mfein
+  is 'FECHA DE INGRESO DE DATA';
+comment on column JAQM8M.jaqm8mregi
+  is 'REGIÓN';
+comment on column JAQM8M.jaqm8mzona
+  is 'ZONA';
+comment on column JAQM8M.jaqm8magen
+  is 'AGENCIA';
+comment on column JAQM8M.jaqm8mcomi
+  is 'COMITÉ';
+comment on column JAQM8M.jaqm8mcana
+  is 'CÓDIGO DE ANALISTA';
+comment on column JAQM8M.jaqm8mnana
+  is 'NOMBRE DE ANALISTA';
+comment on column JAQM8M.jaqm8mncli
+  is 'NOMBRE DE CLIENTE';
+comment on column JAQM8M.jaqm8mtdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column JAQM8M.jaqm8mndoc
+  is 'NÚMERO DE DOCUMENTO';
+comment on column JAQM8M.jaqm8mdcli
+  is 'DIRECCIÓN DE CLIENTE';
+comment on column JAQM8M.jaqm8mccli
+  is 'TELÉFONO DE CLIENTE';
+comment on column JAQM8M.jaqm8mmont
+  is 'MONTO';
+comment on column JAQM8M.jaqm8mcuot
+  is 'CUOTA SOLICITUD';
+comment on column JAQM8M.jaqm8mffap
+  is 'FECHA FIN APROBACION';
+comment on column JAQM8M.jaqm8mfrat
+  is 'FECHA RATING';
+comment on column JAQM8M.jaqm8mrana
+  is 'RATING ANALISTA';
+comment on column JAQM8M.jaqm8mpers
+  is 'PERSPECTIVA';
+comment on column JAQM8M.jaqm8mnum1
+  is 'AUXILIAR NUMÉRICO 1';
+comment on column JAQM8M.jaqm8mnum2
+  is 'AUXILIAR NUMÉRICO 2';
+comment on column JAQM8M.jaqm8mnum3
+  is 'AUXILIAR NUMÉRICO 3';
+comment on column JAQM8M.jaqm8mimp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM8M.jaqm8mimp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM8M.jaqm8mimp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQM8M.jaqm8mcha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM8M.jaqm8mcha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM8M.jaqm8mcha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM8M.jaqm8mfec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM8M.jaqm8mfec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM8M.jaqm8mfec3
+  is 'AUXILIAR FECHA 3';
+create index JAQM8MA2 on JAQM8M (JAQM8MFEIN);
+create index JAQM8MA3 on JAQM8M (JAQM8MNINS);
+create index JAQM8MA4 on JAQM8M (JAQM8MREGI, JAQM8MZONA, JAQM8MAGEN, JAQM8MCCTA, JAQM8MNOPE, JAQM8MNINS, JAQM8MFEIN);
+create index JAQM8MA5 on JAQM8M (JAQM8MFEIN, JAQM8MAGEN);
+create index JAQM8MA6 on JAQM8M (JAQM8MFEIN, JAQM8MCCTA, JAQM8MNOPE);
+alter table JAQM8M
+  add primary key (JAQM8MCCTA, JAQM8MNOPE, JAQM8MNINS, JAQM8MFEIN);
+

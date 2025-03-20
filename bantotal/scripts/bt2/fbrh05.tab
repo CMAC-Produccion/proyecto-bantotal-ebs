@@ -1,0 +1,24 @@
+create table FBRH05
+(
+  brh05emp   NUMBER(3) not null,
+  brh05anio  NUMBER(4) not null,
+  brh05mes   NUMBER(2) not null,
+  brh05cptid NUMBER(5) not null,
+  brh05sucid NUMBER(3) not null,
+  brh05modid NUMBER(3) not null,
+  brh05trnid NUMBER(3) not null,
+  brh05rubid NUMBER(16) not null,
+  brh05mdaid NUMBER(4) not null,
+  brh05papid NUMBER(4) not null,
+  brh05ctaid NUMBER(9) not null,
+  brh05deha  CHAR(1) not null,
+  brh05acmo  NUMBER(17,2),
+  brh05acmn  NUMBER(17,2),
+  brh05acme  NUMBER(17,2),
+  brh05cntm  NUMBER(12)
+)
+;
+create index FBRH0502 on FBRH05 (BRH05EMP, BRH05ANIO, BRH05MES, BRH05CPTID, BRH05CTAID, BRH05MODID, BRH05TRNID, BRH05RUBID);
+alter table FBRH05
+  add primary key (BRH05EMP, BRH05ANIO, BRH05MES, BRH05CPTID, BRH05SUCID, BRH05MODID, BRH05TRNID, BRH05RUBID, BRH05MDAID, BRH05PAPID, BRH05CTAID, BRH05DEHA);
+

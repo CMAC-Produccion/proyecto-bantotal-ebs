@@ -1,0 +1,126 @@
+create table JAQA44
+(
+  jaqa44tse NUMBER(9) not null,
+  jaqa44cse NUMBER(9) not null,
+  jaqa44pla CHAR(15),
+  jaqa44her CHAR(1),
+  jaqa44ben CHAR(1),
+  jaqa44mcr NUMBER(17,2),
+  jaqa44moc CHAR(1),
+  jaqa44com CHAR(100),
+  jaqa44cor NUMBER(10),
+  jaqa44cco CHAR(10),
+  jaqa44pva CHAR(15),
+  jaqa44det VARCHAR2(2000),
+  jaqa44des CHAR(255),
+  jaqa44jso VARCHAR2(2000),
+  jaqa44num VARCHAR2(15),
+  jaqa44an1 NUMBER(9),
+  jaqa44an2 NUMBER(9),
+  jaqa44an3 NUMBER(9),
+  jaqa44ad1 DATE,
+  jaqa44ad2 DATE,
+  jaqa44ad3 DATE,
+  jaqa44ai1 NUMBER(17,2),
+  jaqa44a12 NUMBER(17,2),
+  jaqa44ai3 NUMBER(17,2),
+  jaqa44ac1 CHAR(1),
+  jaqa44ac2 CHAR(1),
+  jaqa44ac3 CHAR(1),
+  jaqa44at1 CHAR(255),
+  jaqa44at2 CHAR(255),
+  jaqa44at3 CHAR(255),
+  jaqa44cot NUMBER(5),
+  jaqa44per NUMBER(5),
+  jaqa44hma NUMBER(3),
+  jaqa44bma NUMBER(3),
+  jaqa44cmp NUMBER(3),
+  jaqa44rat CHAR(1),
+  jaqa44dma NUMBER(9),
+  jaqa44hmo CHAR(1),
+  jaqa44cmo CHAR(10)
+)
+;
+comment on table JAQA44
+  is 'Seguro y codigo seguro detalle nuevo modulo pasiva';
+comment on column JAQA44.jaqa44tse
+  is 'Tipo de seguro';
+comment on column JAQA44.jaqa44cse
+  is 'Codigo de seguro ';
+comment on column JAQA44.jaqa44pla
+  is 'Programa que resuelve plantilla';
+comment on column JAQA44.jaqa44her
+  is 'Herederos S: si N: No';
+comment on column JAQA44.jaqa44ben
+  is 'Beneficiarios S: si N: No';
+comment on column JAQA44.jaqa44mcr
+  is 'Monto cobro';
+comment on column JAQA44.jaqa44moc
+  is 'Modo Cobro M: mensual R: repetitico';
+comment on column JAQA44.jaqa44com
+  is 'Nombre compañia seguro';
+comment on column JAQA44.jaqa44cor
+  is 'Codigo Reporteador';
+comment on column JAQA44.jaqa44cco
+  is 'Codigo Cobro';
+comment on column JAQA44.jaqa44pva
+  is 'Programa validador';
+comment on column JAQA44.jaqa44det
+  is 'Json Detalle';
+comment on column JAQA44.jaqa44des
+  is 'Descripcion';
+comment on column JAQA44.jaqa44jso
+  is 'Json embevido';
+comment on column JAQA44.jaqa44num
+  is 'Programa que resuelve numeracion o codigo numerador';
+comment on column JAQA44.jaqa44an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA44.jaqa44an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA44.jaqa44an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA44.jaqa44ad1
+  is 'Auxiliar fecha 1';
+comment on column JAQA44.jaqa44ad2
+  is 'Auxiliar fecha 2';
+comment on column JAQA44.jaqa44ad3
+  is 'Auxiliar fecha 3';
+comment on column JAQA44.jaqa44ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA44.jaqa44a12
+  is 'Auxiliar importe 2';
+comment on column JAQA44.jaqa44ai3
+  is 'Auxiliar importe 3';
+comment on column JAQA44.jaqa44ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA44.jaqa44ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA44.jaqa44ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQA44.jaqa44at1
+  is 'Auxiliar texto 1';
+comment on column JAQA44.jaqa44at2
+  is 'Auxiliar texto 2';
+comment on column JAQA44.jaqa44at3
+  is 'Auxiliar texto 3';
+comment on column JAQA44.jaqa44cot
+  is 'Cantidad de cuotas';
+comment on column JAQA44.jaqa44per
+  is 'Perido';
+comment on column JAQA44.jaqa44hma
+  is 'Cantidad max herederos';
+comment on column JAQA44.jaqa44bma
+  is 'Cantidad max beneficiarios';
+comment on column JAQA44.jaqa44cmp
+  is 'Cantidad Maxima de seguros permitidos por persona';
+comment on column JAQA44.jaqa44rat
+  is 'Aplicar renovacion automatica forzada (S: si, N: no)';
+comment on column JAQA44.jaqa44dma
+  is 'Dias minimos anular';
+comment on column JAQA44.jaqa44hmo
+  is 'Permite para movil S: si N: no';
+comment on column JAQA44.jaqa44cmo
+  is 'Codigo Cobro Movil';
+alter table JAQA44
+  add primary key (JAQA44TSE, JAQA44CSE);
+

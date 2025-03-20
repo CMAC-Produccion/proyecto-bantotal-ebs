@@ -1,0 +1,136 @@
+create table AQPB069
+(
+  aqpb069usur    CHAR(10) not null,
+  aqpb069pgcod   NUMBER(3) not null,
+  aqpb069aomod   NUMBER(3) not null,
+  aqpb069aosuc   NUMBER(3) not null,
+  aqpb069aomda   NUMBER(4) not null,
+  aqpb069aopap   NUMBER(4) not null,
+  aqpb069aocta   NUMBER(9) not null,
+  aqpb069aooper  NUMBER(9) not null,
+  aqpb069aosbop  NUMBER(3) not null,
+  aqpb069aotope  NUMBER(3) not null,
+  aqpb069csap    NUMBER(17),
+  aqpb069tdoc    NUMBER(4),
+  aqpb069ndoc    CHAR(12),
+  aqpb069razn    CHAR(70),
+  aqpb069fpre    DATE,
+  aqpb069mpag    NUMBER(17,2),
+  aqpb069mpri    NUMBER(17,2),
+  aqpb069sdop    NUMBER(17,2),
+  aqpb069ffin    DATE,
+  aqpb069ncro    NUMBER(8),
+  aqpb069ncac    NUMBER(8),
+  aqpb069cval    NUMBER(17,2),
+  aqpb069cvto    NUMBER(17,2),
+  aqpb069lpla    CHAR(2),
+  aqpb069lrep    CHAR(2),
+  aqpb069nrep    NUMBER(10),
+  aqpb069frep    DATE,
+  aqpb069frepp   DATE,
+  aqpb069frepu   DATE,
+  aqpb069reg     NUMBER(9),
+  aqpb069nreg    CHAR(30),
+  aqpb069zon     NUMBER(9),
+  aqpb069nzon    CHAR(40),
+  aqpb069nsuc    CHAR(30),
+  aqpb069ase     CHAR(10),
+  aqpb069fcr     VARCHAR2(10),
+  aqpb069hcr     VARCHAR2(10),
+  aqpb069stat    NUMBER(2),
+  aqpb069fe99    DATE,
+  aqpb069sdo     NUMBER(17,2),
+  aqpb069fproc   DATE,
+  aqpb069mhonr   NUMBER(17,2),
+  aqpb069fhonr   DATE,
+  aqpb069chonr   CHAR(1),
+  aqpb069sdocap  NUMBER(17,2),
+  aqpb069sdohon  NUMBER(17,2),
+  aqpb069crehon  NUMBER(17,2),
+  aqpb069tmor    NUMBER(5,2),
+  aqpb069tcrepro NUMBER(5,2),
+  aqpb069fcest   DATE
+)
+;
+comment on table AQPB069
+  is 'Tabla reporte FAE MYPE - 3.Reporte de Prepagos';
+comment on column AQPB069.aqpb069usur
+  is 'Usuario que genera el reporte';
+comment on column AQPB069.aqpb069aosuc
+  is '21. Agencia';
+comment on column AQPB069.aqpb069aocta
+  is '23. Nro. de cuenta';
+comment on column AQPB069.aqpb069aooper
+  is '24. Nro. de operación';
+comment on column AQPB069.aqpb069csap
+  is '1. Código SAP ';
+comment on column AQPB069.aqpb069tdoc
+  is '2. Tipo de Documento';
+comment on column AQPB069.aqpb069ndoc
+  is '2.1. Número de documento';
+comment on column AQPB069.aqpb069razn
+  is '3. Apellidos y nombres del cliente';
+comment on column AQPB069.aqpb069fpre
+  is '4. Fecha del prepago realizado   ';
+comment on column AQPB069.aqpb069mpag
+  is '5. Pago realizado ';
+comment on column AQPB069.aqpb069mpri
+  is '6. Monto Principal Amortizado';
+comment on column AQPB069.aqpb069sdop
+  is '7. Saldo de capital (posterior a amortización)';
+comment on column AQPB069.aqpb069ffin
+  is '8. Fecha de fin del crédito';
+comment on column AQPB069.aqpb069ncro
+  is '9. Número de cuotas del cronograma original';
+comment on column AQPB069.aqpb069ncac
+  is '10. Número de cuotas del cronograma actual ';
+comment on column AQPB069.aqpb069cval
+  is '11. Valor de la última cuota pagada';
+comment on column AQPB069.aqpb069cvto
+  is '12. Valor de cuota próximo vencimiento';
+comment on column AQPB069.aqpb069lpla
+  is '13. FLAG REDUJO PLAZO O REDUJO CUOTA O ADELANTÓ CUOTAS';
+comment on column AQPB069.aqpb069lrep
+  is '14. Flag de re reprogramación';
+comment on column AQPB069.aqpb069nrep
+  is '15. Número de reprogramaciones';
+comment on column AQPB069.aqpb069frep
+  is '16. Fecha de re reprogramación';
+comment on column AQPB069.aqpb069frepp
+  is '17. Fecha de primera cuota de re reprogramación';
+comment on column AQPB069.aqpb069frepu
+  is '18. Fecha de última cuota de re reprogramación';
+comment on column AQPB069.aqpb069reg
+  is '19. Región';
+comment on column AQPB069.aqpb069nreg
+  is '19.1 Región - Nombre';
+comment on column AQPB069.aqpb069zon
+  is '20. Zona';
+comment on column AQPB069.aqpb069nzon
+  is '20.1 Zona - Nombre';
+comment on column AQPB069.aqpb069nsuc
+  is '21.1 Agencia(Sucursal) - Nombre ';
+comment on column AQPB069.aqpb069ase
+  is '22. Analista';
+comment on column AQPB069.aqpb069mhonr
+  is 'monto honrado';
+comment on column AQPB069.aqpb069fhonr
+  is 'fecha honramiento';
+comment on column AQPB069.aqpb069chonr
+  is 'es credito honrado S/N';
+comment on column AQPB069.aqpb069sdocap
+  is 'saldo capital';
+comment on column AQPB069.aqpb069sdohon
+  is 'Saldo honrado';
+comment on column AQPB069.aqpb069crehon
+  is 'Saldo credito honrado';
+comment on column AQPB069.aqpb069tmor
+  is 'Tasa Interes Moratorio';
+comment on column AQPB069.aqpb069tcrepro
+  is 'Tasa Credito Reprogramado';
+comment on column AQPB069.aqpb069fcest
+  is 'Fecha Cambio de estado';
+create index AQPB0692 on AQPB069 (AQPB069USUR);
+alter table AQPB069
+  add primary key (AQPB069USUR, AQPB069PGCOD, AQPB069AOMOD, AQPB069AOSUC, AQPB069AOMDA, AQPB069AOPAP, AQPB069AOCTA, AQPB069AOOPER, AQPB069AOSBOP, AQPB069AOTOPE);
+

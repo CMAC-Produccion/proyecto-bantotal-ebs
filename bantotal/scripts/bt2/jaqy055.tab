@@ -1,0 +1,23 @@
+create table JAQY055
+(
+  jaqy055perano NUMBER(4) not null,
+  jaqy055permes NUMBER(2) not null,
+  jaqy055corr   NUMBER(15) not null,
+  jaqy055pais   NUMBER(3),
+  jaqy055tipv   NUMBER(4),
+  jaqy055ndov   CHAR(12),
+  jaqy055tdov   NUMBER(2),
+  jaqy055paiv   NUMBER(4),
+  jaqy055tipe   VARCHAR2(1),
+  jaqy055tipo   VARCHAR2(2),
+  jaqy055tdoc   NUMBER(2),
+  jaqy055ndoc   CHAR(12),
+  jaqy055tidi   VARCHAR2(1),
+  jaqy055poac   NUMBER(6,4),
+  jaqy055nrov   NUMBER(15)
+)
+;
+create index ID_JAQY055_1 on JAQY055 (JAQY055NDOV, JAQY055NDOC);
+alter table JAQY055
+  add primary key (JAQY055PERANO, JAQY055PERMES, JAQY055CORR);
+

@@ -1,0 +1,24 @@
+create table AQPC216
+(
+  aqpc216fec DATE not null,
+  aqpc216hor CHAR(8) not null,
+  aqpc216usu CHAR(10) not null,
+  aqpc216cod CHAR(10),
+  aqpc216nom CHAR(30)
+)
+;
+comment on table AQPC216
+  is 'AQPC216';
+comment on column AQPC216.aqpc216fec
+  is 'Fecha de Registro';
+comment on column AQPC216.aqpc216hor
+  is 'Hora de Registro';
+comment on column AQPC216.aqpc216usu
+  is 'Usuario de Registro';
+comment on column AQPC216.aqpc216cod
+  is 'Código de Analista';
+comment on column AQPC216.aqpc216nom
+  is 'Nombre de Analista';
+alter table AQPC216
+  add primary key (AQPC216FEC, AQPC216HOR, AQPC216USU);
+

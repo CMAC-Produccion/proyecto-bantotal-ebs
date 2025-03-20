@@ -1,0 +1,28 @@
+create table JHSP17
+(
+  jhsp17apl CHAR(10) not null,
+  jhsp17cod NUMBER(3) not null,
+  jhsp17cta NUMBER(9) not null,
+  jhsp17mod NUMBER(3) not null,
+  jhsp17suc NUMBER(3) not null,
+  jhsp17mda NUMBER(4) not null,
+  jhsp17pap NUMBER(4) not null,
+  jhsp17top NUMBER(3) not null,
+  jhsp17ope NUMBER(9) not null,
+  jhsp17sop NUMBER(3) not null,
+  jhsp17fec DATE not null,
+  jhsp17ax1 NUMBER(17,2),
+  jhsp17ax2 NUMBER(9),
+  jhsp17ax3 DATE,
+  jhsp17ax4 CHAR(20),
+  jhsp17ax5 CHAR(20),
+  jhsp17moa NUMBER(3),
+  jhsp17tra NUMBER(3),
+  jhsp17sua NUMBER(3),
+  jhsp17nra NUMBER(4),
+  jhsp17fca DATE
+)
+;
+create unique index JHSP1701 on JHSP17 (JHSP17APL, JHSP17COD, JHSP17CTA, JHSP17MOD, JHSP17SUC, JHSP17MDA, JHSP17PAP, JHSP17TOP, JHSP17OPE, JHSP17SOP, JHSP17FEC);
+create index JHSP1702 on JHSP17 (JHSP17APL, JHSP17FEC, JHSP17CTA);
+

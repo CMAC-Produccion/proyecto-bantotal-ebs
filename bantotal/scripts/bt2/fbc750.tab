@@ -1,0 +1,22 @@
+create table FBC750
+(
+  bc750emp  NUMBER(3) not null,
+  bc750mod  NUMBER(3) not null,
+  bc750tope NUMBER(3) not null,
+  bc750mda  NUMBER(4) not null,
+  bc750ttas NUMBER(1) not null,
+  bc750fvig DATE not null,
+  bc750plaz NUMBER(5) not null,
+  bc750tasa NUMBER(10,6),
+  bc750tole NUMBER(7,4),
+  bc750fchi NUMBER(8),
+  bc750tipo CHAR(1),
+  bc750anio NUMBER(1),
+  bc750aux1 CHAR(20),
+  bc750aux2 NUMBER(17,2)
+)
+;
+create index FBC75002 on FBC750 (BC750EMP, BC750MOD, BC750TOPE, BC750MDA, BC750TTAS, BC750FCHI, BC750PLAZ);
+alter table FBC750
+  add primary key (BC750EMP, BC750MOD, BC750TOPE, BC750MDA, BC750TTAS, BC750FVIG, BC750PLAZ);
+

@@ -1,0 +1,14 @@
+create table FCR120
+(
+  pgcod     NUMBER(3) not null,
+  lcemod    NUMBER(3) not null,
+  lceoper   NUMBER(9) not null,
+  mopctipo  NUMBER(2) not null,
+  mopccod   NUMBER(3) not null,
+  lceopcsts CHAR(1)
+)
+;
+create index FCR12002 on FCR120 (LCEMOD, MOPCTIPO, MOPCCOD);
+alter table FCR120
+  add primary key (PGCOD, LCEMOD, LCEOPER, MOPCTIPO, MOPCCOD);
+

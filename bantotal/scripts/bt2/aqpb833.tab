@@ -1,0 +1,88 @@
+create table AQPB833
+(
+  aqpb833fec   DATE not null,
+  aqpb833pai   NUMBER(3) not null,
+  aqpb833tdo   NUMBER(2) not null,
+  aqpb833ndo   CHAR(12) not null,
+  aqpb833est   CHAR(1),
+  aqpb833va1   NUMBER(5),
+  aqpb833va2   NUMBER(5),
+  aqpb833va3   NUMBER(5),
+  aqpb833va4   NUMBER(5),
+  aqpb833va5   NUMBER(5),
+  aqpb833va6   NUMBER(5),
+  aqpb833va7   NUMBER(5),
+  aqpb833va8   NUMBER(5),
+  aqpb833va9   NUMBER(5),
+  aqpb833va10  NUMBER(5),
+  aqpb833csbs  VARCHAR2(10),
+  aqpb833var1  VARCHAR2(40),
+  aqpb833var2  VARCHAR2(40),
+  aqpb833var3  VARCHAR2(40),
+  aqpb833var4  VARCHAR2(40),
+  aqpb833var5  VARCHAR2(40),
+  aqpb833var6  VARCHAR2(40),
+  aqpb833var7  VARCHAR2(40),
+  aqpb833var8  VARCHAR2(40),
+  aqpb833var9  VARCHAR2(40),
+  aqpb833var10 VARCHAR2(40)
+)
+;
+comment on table AQPB833
+  is 'Resultado proceso mensual potencialidad';
+comment on column AQPB833.aqpb833fec
+  is 'Fecha de proceso';
+comment on column AQPB833.aqpb833pai
+  is 'pais cliente';
+comment on column AQPB833.aqpb833tdo
+  is 'tipo doc cliente';
+comment on column AQPB833.aqpb833ndo
+  is 'num doc cliente';
+comment on column AQPB833.aqpb833est
+  is 'estado';
+comment on column AQPB833.aqpb833va1
+  is 'valor 1';
+comment on column AQPB833.aqpb833va2
+  is 'valor 2';
+comment on column AQPB833.aqpb833va3
+  is 'valor 3';
+comment on column AQPB833.aqpb833va4
+  is 'valor 4';
+comment on column AQPB833.aqpb833va5
+  is 'valor 5';
+comment on column AQPB833.aqpb833va6
+  is 'valor 6';
+comment on column AQPB833.aqpb833va7
+  is 'valor 7';
+comment on column AQPB833.aqpb833va8
+  is 'valor 8';
+comment on column AQPB833.aqpb833va9
+  is 'valor 9';
+comment on column AQPB833.aqpb833va10
+  is 'valor 10';
+comment on column AQPB833.aqpb833csbs
+  is 'codigo sbs';
+comment on column AQPB833.aqpb833var1
+  is 'variable 1';
+comment on column AQPB833.aqpb833var2
+  is 'variable 2';
+comment on column AQPB833.aqpb833var3
+  is 'variable 3';
+comment on column AQPB833.aqpb833var4
+  is 'variable 4';
+comment on column AQPB833.aqpb833var5
+  is 'variable 5';
+comment on column AQPB833.aqpb833var6
+  is 'variable 6';
+comment on column AQPB833.aqpb833var7
+  is 'variable 7';
+comment on column AQPB833.aqpb833var8
+  is 'variable 8';
+comment on column AQPB833.aqpb833var9
+  is 'variable 9';
+comment on column AQPB833.aqpb833var10
+  is 'variable 10';
+create index AQPB833A2 on AQPB833 (AQPB833FEC, AQPB833VA10);
+alter table AQPB833
+  add primary key (AQPB833FEC, AQPB833PAI, AQPB833TDO, AQPB833NDO);
+

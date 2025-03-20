@@ -1,0 +1,21 @@
+create table FSFFCG
+(
+  fsffcgcor  NUMBER(9) not null,
+  fsffcgreg  NUMBER(2),
+  fsffcgcod  NUMBER(3),
+  fsffcgscod NUMBER(3),
+  fsffcgndoc CHAR(12),
+  fsffcgdig  CHAR(1),
+  fsffcglet  CHAR(1),
+  fsffcgnom  CHAR(50),
+  fsffcgimp1 NUMBER(17,2),
+  fsffcgimp2 NUMBER(17,2),
+  fsffcgimp3 NUMBER(17,2),
+  fsffcgart  CHAR(15),
+  fsffcgcall CHAR(35),
+  fsffcgdep  NUMBER(5)
+)
+;
+alter table FSFFCG
+  add primary key (FSFFCGCOR);
+

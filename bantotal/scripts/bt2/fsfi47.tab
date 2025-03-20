@@ -1,0 +1,35 @@
+create table FSFI47
+(
+  sfi47emp   NUMBER(3) not null,
+  sfi47esp   NUMBER(4) not null,
+  sfi47incod NUMBER(9) not null,
+  sfi47cod   NUMBER(9),
+  sfi47mer   NUMBER(3),
+  sfi47tipo  CHAR(1),
+  sfi47fvto  DATE,
+  sfi47preej NUMBER(14,8),
+  sfi47esti  CHAR(1),
+  sfi47cbol  CHAR(12),
+  sfi47pzo   NUMBER(5),
+  sfi47prpri NUMBER(14,8),
+  sfi47mdapr NUMBER(4),
+  sfi47depmi NUMBER(7,4),
+  sfi47mtolo NUMBER(17,2),
+  sfi47lomin NUMBER(17,2),
+  sfi47aux1  NUMBER(9),
+  sfi47aux2  NUMBER(9),
+  sfi47aux3  DATE,
+  sfi47aux4  DATE,
+  sfi47aux5  CHAR(20),
+  sfi47aux6  CHAR(20),
+  sfi47aux7  CHAR(1),
+  sfi47aux8  CHAR(1),
+  sfi47aux9  NUMBER(17,2),
+  sfi47auxa  NUMBER(14,8)
+)
+;
+create index FSFI4702 on FSFI47 (SFI47EMP, SFI47ESP, SFI47COD);
+create index FSFI4703 on FSFI47 (SFI47EMP, SFI47MER, SFI47ESP, SFI47COD);
+alter table FSFI47
+  add primary key (SFI47EMP, SFI47ESP, SFI47INCOD);
+

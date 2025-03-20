@@ -1,0 +1,43 @@
+create table FPP175
+(
+  pp173cod   NUMBER(4) not null,
+  pp174cod   NUMBER(9) not null,
+  pp175corr  NUMBER(4) not null,
+  pp175pgcod NUMBER(3),
+  pp175mod   NUMBER(3),
+  pp175suc   NUMBER(3),
+  pp175mda   NUMBER(4),
+  pp175pap   NUMBER(4),
+  pp175cta   NUMBER(9),
+  pp175oper  NUMBER(9),
+  pp175sbop  NUMBER(3),
+  pp175tope  NUMBER(3),
+  pp175tpgc  NUMBER(3),
+  pp175tsuc  NUMBER(3),
+  pp175tmod  NUMBER(3),
+  pp175ttran NUMBER(3),
+  pp175tnrel NUMBER(4),
+  pp175tfco  DATE,
+  pp175tord  NUMBER(2),
+  pp175tsbo  NUMBER(3),
+  pp175tco   CHAR(1),
+  pp175au1   NUMBER(9),
+  pp175au2   NUMBER(9),
+  pp175au3   NUMBER(9),
+  pp175au4   DATE,
+  pp175au5   DATE,
+  pp175au6   DATE,
+  pp175au7   NUMBER(17,2),
+  pp175au8   NUMBER(17,2),
+  pp175au9   NUMBER(17,2),
+  pp175au10  CHAR(30),
+  pp175au11  CHAR(30),
+  pp175au12  CHAR(30)
+)
+;
+create index FPP17503 on FPP175 (PP175PGCOD, PP175MOD, PP175SUC, PP175MDA, PP175PAP, PP175CTA, PP175OPER, PP175SBOP, PP175TOPE, PP173COD);
+create index FPP17504 on FPP175 (PP175TPGC, PP175TSUC, PP175TMOD, PP175TTRAN, PP175TNREL, PP175TFCO, PP175TORD, PP175TSBO);
+create index FPP17505 on FPP175 (PP173COD, PP174COD, PP175SUC, PP175SBOP);
+alter table FPP175
+  add primary key (PP173COD, PP174COD, PP175CORR);
+

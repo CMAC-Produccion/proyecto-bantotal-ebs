@@ -1,0 +1,12 @@
+create table SNG056
+(
+  sng055emp NUMBER(3) not null,
+  sng053cmb NUMBER(10) not null,
+  sng056cod NUMBER(10) not null,
+  sng055car NUMBER(3)
+)
+;
+create index SNG05602 on SNG056 (SNG055EMP, SNG055CAR);
+alter table SNG056
+  add primary key (SNG055EMP, SNG053CMB, SNG056COD);
+

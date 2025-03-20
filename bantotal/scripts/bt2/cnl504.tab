@@ -1,0 +1,12 @@
+create table CNL504
+(
+  cnl500ver CHAR(20) not null,
+  cnl500pch CHAR(50) not null,
+  cnl009cod NUMBER(9) not null,
+  cnl009cor NUMBER(9) not null
+)
+;
+create index CNL50402 on CNL504 (CNL009COD, CNL009COR);
+alter table CNL504
+  add primary key (CNL500VER, CNL500PCH, CNL009COD, CNL009COR);
+

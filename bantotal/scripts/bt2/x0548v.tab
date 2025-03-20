@@ -1,0 +1,20 @@
+create table X0548V
+(
+  x0548rfch CHAR(6) not null,
+  x0548rhra NUMBER(4) not null,
+  x0548vidr NUMBER(1) not null,
+  x0548vlot NUMBER(7) not null,
+  x0548vcod NUMBER(3),
+  x0548vcan NUMBER(6),
+  x0548vtot NUMBER(10),
+  x0548vdeb NUMBER(12),
+  x0548vcre NUMBER(12),
+  x0548vre1 CHAR(10),
+  x0548vre2 CHAR(19),
+  x0548vre3 CHAR(6),
+  x0548vinf NUMBER(8)
+)
+;
+alter table X0548V
+  add primary key (X0548RFCH, X0548RHRA, X0548VIDR, X0548VLOT);
+

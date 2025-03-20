@@ -1,0 +1,32 @@
+create table CACON
+(
+  caconid        NUMBER(10) not null,
+  caconlng       CHAR(3) not null,
+  caconvers      NUMBER(6) not null,
+  caconresp      CHAR(254),
+  cactypappid    NUMBER(2),
+  cactypid       NUMBER(10),
+  cacontit       CHAR(254),
+  caconsum       VARCHAR2(2000),
+  caestappid     NUMBER(2),
+  caestid        NUMBER(10),
+  caconfchcre    DATE,
+  caconfchlstmod DATE,
+  caconchkout    NUMBER(1),
+  cacontmechkout DATE,
+  caconrspchkout CHAR(254),
+  caconchar      CHAR(254),
+  cacontmp       NUMBER(1),
+  caconlvch      LONG,
+  caconblobcnt   NUMBER(4),
+  caconlstver    NUMBER(1),
+  cacondel       NUMBER(1)
+)
+;
+create index ICACON1 on CACON (CAESTAPPID, CAESTID);
+create index ICACON2 on CACON (CACTYPAPPID, CACTYPID);
+create index UCACON1 on CACON (CACTYPID, CACONID, CACONLNG, CACONVERS);
+create index UCACON3 on CACON (CACONRESP);
+alter table CACON
+  add primary key (CACONID, CACONLNG, CACONVERS);
+

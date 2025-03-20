@@ -1,0 +1,11 @@
+create table LTND06
+(
+  ltnm03bsor NUMBER(10) not null,
+  ltnd07idoc NUMBER(10) not null,
+  ltnd07cant NUMBER(5)
+)
+;
+create index LTND0602 on LTND06 (LTND07IDOC);
+alter table LTND06
+  add primary key (LTNM03BSOR, LTND07IDOC);
+

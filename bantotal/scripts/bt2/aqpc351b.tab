@@ -1,0 +1,83 @@
+create table AQPC351B
+(
+  aqpc351bcod    NUMBER(3) not null,
+  aqpc351bfec    DATE not null,
+  aqpc351bcor    NUMBER(8) not null,
+  aqpc351blin    NUMBER(8) not null,
+  aqpc351bcta    NUMBER(9) not null,
+  aqpc351bope    NUMBER(9) not null,
+  aqpc351bfsub   DATE,
+  aqpc351bnsub   VARCHAR2(14),
+  aqpc351bncer   VARCHAR2(20),
+  aqpc351bcocob  VARCHAR2(20),
+  aqpc351bnact   VARCHAR2(24),
+  aqpc351bfrepo  DATE,
+  aqpc351btdoc   VARCHAR2(10),
+  aqpc351bndoc   CHAR(12),
+  aqpc351bprccob NUMBER(8,2),
+  aqpc351bfinire DATE,
+  aqpc351bmoncof NUMBER(17,2),
+  aqpc351bplacof NUMBER(12),
+  aqpc351bpercof NUMBER(12),
+  aqpc351bnven   NUMBER(17,2),
+  aqpc351best    VARCHAR2(1),
+  aqpc351busu    VARCHAR2(10),
+  aqpc351bfedi   VARCHAR2(10),
+  aqpc351bhedi   VARCHAR2(10)
+)
+;
+comment on table AQPC351B
+  is 'Tabla detalle Reprogramados Reactiva';
+comment on column AQPC351B.aqpc351bcod
+  is 'Código de empresa';
+comment on column AQPC351B.aqpc351bfec
+  is 'Fecha de proceso';
+comment on column AQPC351B.aqpc351bcor
+  is 'Correlativo';
+comment on column AQPC351B.aqpc351blin
+  is 'Linea de Carga';
+comment on column AQPC351B.aqpc351bcta
+  is 'Cuenta ';
+comment on column AQPC351B.aqpc351bope
+  is 'Operacion';
+comment on column AQPC351B.aqpc351bfsub
+  is 'Fecha Subasta';
+comment on column AQPC351B.aqpc351bnsub
+  is 'Nro Subasta';
+comment on column AQPC351B.aqpc351bncer
+  is 'Nro Certificado Reprogramado';
+comment on column AQPC351B.aqpc351bcocob
+  is 'Codigo de Cobertura Reprogramado';
+comment on column AQPC351B.aqpc351bnact
+  is 'Nro de Acto de Aporte';
+comment on column AQPC351B.aqpc351bfrepo
+  is 'Fecha de operacion repo BCRP';
+comment on column AQPC351B.aqpc351btdoc
+  is 'Tipo de Documento Deudor COFIDE';
+comment on column AQPC351B.aqpc351bndoc
+  is 'Numero Documento Deudor COFIDE';
+comment on column AQPC351B.aqpc351bprccob
+  is 'Porcentaje de Cobertura';
+comment on column AQPC351B.aqpc351bfinire
+  is 'Fecha de Inicio de Reprogramacion COFIDE';
+comment on column AQPC351B.aqpc351bmoncof
+  is 'Monto Reprogramado aprobado por COFIDE';
+comment on column AQPC351B.aqpc351bplacof
+  is 'Plazo Reprogramado aprobado por COFIDE';
+comment on column AQPC351B.aqpc351bpercof
+  is 'Periodo de Gracia Reprogramado aprobado por COFIDE';
+comment on column AQPC351B.aqpc351bnven
+  is 'Nivel de ventas';
+comment on column AQPC351B.aqpc351best
+  is 'Estado';
+comment on column AQPC351B.aqpc351busu
+  is 'Usuario';
+comment on column AQPC351B.aqpc351bfedi
+  is 'Fecha Edicion';
+comment on column AQPC351B.aqpc351bhedi
+  is 'Hora de edicion';
+create index AQPC351BA2 on AQPC351B (AQPC351BCOD, AQPC351BCTA);
+create index AQPC351BA3 on AQPC351B (AQPC351BCTA, AQPC351BOPE);
+alter table AQPC351B
+  add primary key (AQPC351BCOD, AQPC351BFEC, AQPC351BCOR, AQPC351BCTA, AQPC351BOPE);
+

@@ -1,0 +1,32 @@
+create table JAQY651
+(
+  jaqy651cor  NUMBER(17) not null,
+  jaqy650fec  DATE not null,
+  jaqy650suc  NUMBER(3) not null,
+  jaqy650cor  NUMBER(17) not null,
+  jaqy651pgc  NUMBER(3),
+  jaqy651mod  NUMBER(3),
+  jaqy651suc  NUMBER(3),
+  jaqy651mda  NUMBER(4),
+  jaqy651pap  NUMBER(4),
+  jaqy651cta  NUMBER(9),
+  jaqy651ope  NUMBER(9),
+  jaqy651sop  NUMBER(3),
+  jaqy651top  NUMBER(3),
+  jaqy651est  NUMBER(2),
+  jaqy651fpr  DATE,
+  jaqy651imp  NUMBER(17,2),
+  jaqy651etd  CHAR(1),
+  jaqy651fc5  DATE,
+  jaqy651nr5  NUMBER(4),
+  jaqy651tr5  NUMBER(3),
+  jaqy651mo5  NUMBER(3),
+  jaqy651it5  NUMBER(3),
+  jaqy651pg5  NUMBER(3),
+  jaqy651mtou CHAR(1)
+)
+;
+create index IJAQY6512 on JAQY651 (JAQY650FEC, JAQY650SUC, JAQY650COR, JAQY651CTA, JAQY651OPE);
+alter table JAQY651
+  add primary key (JAQY651COR, JAQY650FEC, JAQY650SUC, JAQY650COR);
+

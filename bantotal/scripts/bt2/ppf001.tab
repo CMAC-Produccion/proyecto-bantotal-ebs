@@ -1,0 +1,14 @@
+create table PPF001
+(
+  ppf001cod NUMBER(3) not null,
+  ppf001pai NUMBER(3) not null,
+  ppf001tdo NUMBER(2) not null,
+  ppf001ndo CHAR(12) not null,
+  ppf001nde CHAR(25),
+  ppf001cde NUMBER(9)
+)
+;
+create index PPF00102 on PPF001 (PPF001COD, PPF001CDE);
+alter table PPF001
+  add primary key (PPF001COD, PPF001PAI, PPF001TDO, PPF001NDO);
+

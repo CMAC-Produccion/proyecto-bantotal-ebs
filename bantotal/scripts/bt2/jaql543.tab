@@ -1,0 +1,38 @@
+create table JAQL543
+(
+  jaql543fepro DATE not null,
+  jaql543chequ CHAR(15) not null,
+  jaql543hopro CHAR(8),
+  jaql543estad CHAR(1),
+  jaql543ubige CHAR(10),
+  jaql543comis NUMBER(5,2),
+  jaql543plaza CHAR(2),
+  jaql543valor CHAR(1),
+  jaql543modtr NUMBER(3),
+  jaql543tratr NUMBER(4),
+  jaql543reltr NUMBER(4),
+  jaql543suctr NUMBER(3),
+  jaql543pgcod NUMBER(3),
+  jaql543scsuc NUMBER(3),
+  jaql543scmda NUMBER(4),
+  jaql543scpap NUMBER(4),
+  jaql543sccta NUMBER(9),
+  jaql543sctop NUMBER(3),
+  jaql543scmod NUMBER(3),
+  jaql543coder CHAR(4),
+  jaql543msjer VARCHAR2(100),
+  jaql543auxc1 VARCHAR2(150),
+  jaql543auxc2 VARCHAR2(150),
+  jaql543auxc3 VARCHAR2(150),
+  jaql543auxn1 NUMBER(11,2),
+  jaql543auxn2 NUMBER(11,2),
+  jaql543auxn3 NUMBER(11,2),
+  jaql543scsbo NUMBER(3),
+  jaql543scope NUMBER(9)
+)
+;
+create index JAQL543_03 on JAQL543 (JAQL543UBIGE);
+create index JAQL543_04 on JAQL543 (JAQL543SCCTA, JAQL543SCMOD, JAQL543SCMDA);
+alter table JAQL543
+  add primary key (JAQL543FEPRO, JAQL543CHEQU);
+

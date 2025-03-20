@@ -1,0 +1,15 @@
+create table FCF999
+(
+  cmxtcod    NUMBER(3) not null,
+  cmxtmod    NUMBER(3) not null,
+  cmxtoper   NUMBER(9) not null,
+  cmxtsbop   NUMBER(3) not null,
+  cmxtdoctip NUMBER(3) not null,
+  cmxtcntori NUMBER(2),
+  cmxtcntcop NUMBER(2),
+  cmtxcntdoc CHAR(6)
+)
+;
+alter table FCF999
+  add primary key (CMXTCOD, CMXTMOD, CMXTOPER, CMXTSBOP, CMXTDOCTIP);
+

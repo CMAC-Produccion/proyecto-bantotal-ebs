@@ -1,0 +1,17 @@
+create table BBVD52
+(
+  bbv52usuid CHAR(12) not null,
+  bbv52tipc  NUMBER(2) not null,
+  bbv52nomar CHAR(12) not null,
+  bbv52fect  DATE,
+  bbv52hort  CHAR(8),
+  bbv52feca  DATE,
+  bbv52numre NUMBER(6),
+  bbv52vlrto NUMBER(14,2),
+  bbv52ciclo NUMBER(1),
+  bbv52deslo CHAR(10)
+)
+;
+alter table BBVD52
+  add primary key (BBV52USUID, BBV52TIPC, BBV52NOMAR);
+

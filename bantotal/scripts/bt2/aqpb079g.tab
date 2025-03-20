@@ -1,0 +1,104 @@
+create table AQPB079G
+(
+  aqpb079gtcomf  VARCHAR2(2) not null,
+  aqpb079gseri   VARCHAR2(4) not null,
+  aqpb079gnum    NUMBER(8) not null,
+  aqpb079gmone   VARCHAR2(3) not null,
+  aqpb079gtipope VARCHAR2(4) not null,
+  aqpb079gtdoc   VARCHAR2(1) not null,
+  aqpb079gnruc   VARCHAR2(15) not null,
+  aqpb079grasoc  VARCHAR2(1500) not null,
+  aqpb079gincuo  NUMBER(15,2),
+  aqpb079ginmor  NUMBER(15,2),
+  aqpb079gsegfac NUMBER(15,2),
+  aqpb079gotrcon NUMBER(15,2),
+  aqpb079gopina  NUMBER(15,2),
+  aqpb079gopexa  NUMBER(15,2),
+  aqpb079gimpt   NUMBER(15,2),
+  aqpb079gtdref  VARCHAR2(2),
+  aqpb079gnsref  VARCHAR2(4),
+  aqpb079gndref  NUMBER(10),
+  aqpb079gfotrc  DATE,
+  aqpb079gmcred  NUMBER(15,2),
+  aqpb079gncon   VARCHAR2(50),
+  aqpb079gnpol   VARCHAR2(50),
+  aqpb079gficob  DATE,
+  aqpb079gffcob  DATE,
+  aqpb079gtseg   VARCHAR2(1),
+  aqpb079gscob   NUMBER(15,2),
+  aqpb079gpgc    NUMBER(3),
+  aqpb079gmod    NUMBER(3),
+  aqpb079gsuc    NUMBER(3),
+  aqpb079gtrx    NUMBER(3),
+  aqpb079grel    NUMBER(4),
+  aqpb079gfemi   DATE not null,
+  aqpb079gcod    NUMBER(8) not null,
+  aqpb079gpgce   NUMBER(3),
+  aqpb079gmode   NUMBER(3),
+  aqpb079gsuce   NUMBER(3),
+  aqpb079gtrxe   NUMBER(3),
+  aqpb079grele   NUMBER(4),
+  aqpb079gfcone  DATE
+)
+;
+comment on table AQPB079G
+  is 'Tabla para la generación de la trama - Referencia AQPB052';
+comment on column AQPB079G.aqpb079gtcomf
+  is 'C3: Codigo del Tipo de Comprobante Datos del Comprobante';
+comment on column AQPB079G.aqpb079gseri
+  is 'C4: Serie del comprobante.  Datos del Comprobante';
+comment on column AQPB079G.aqpb079gnum
+  is 'C5: Numero Correlativo del comprobante. Datos del Comprobante';
+comment on column AQPB079G.aqpb079gmone
+  is 'C6: Codigo del Tipo de Moneda Datos del Comprobante';
+comment on column AQPB079G.aqpb079gtipope
+  is 'C7: Tipo de operación no gravada';
+comment on column AQPB079G.aqpb079gtdoc
+  is 'C8: Codigo del tipo de documento de identificaci?n del Receptor Datos del Comprobante';
+comment on column AQPB079G.aqpb079gnruc
+  is 'C9: N?mero de documento de identificaci?n Datos del Comprobante';
+comment on column AQPB079G.aqpb079grasoc
+  is 'C10: Apellidos y nombres o denominaci?n o raz?n social Datos del Comprobante';
+comment on column AQPB079G.aqpb079gincuo
+  is 'C11: Monto del interes de la cuota (interes compensatorio) en el caso de los bancos/ monto de la prima facturada (en el caso de seguros)';
+comment on column AQPB079G.aqpb079ginmor
+  is 'C12: Monto del interés moratorio de corresponder';
+comment on column AQPB079G.aqpb079gsegfac
+  is 'C13: Monto total de seguros facturados';
+comment on column AQPB079G.aqpb079gotrcon
+  is 'C14: Monto total de otros conceptos facturados';
+comment on column AQPB079G.aqpb079gopina
+  is 'C15: Total valor de venta - operaciones inafectas';
+comment on column AQPB079G.aqpb079gopexa
+  is 'C16: Total valor de venta - operaciones exoneradas';
+comment on column AQPB079G.aqpb079gimpt
+  is 'C17: Total valor de venta - operaciones exoneradas';
+comment on column AQPB079G.aqpb079gtdref
+  is 'C18: Tipo de documento que se modifica';
+comment on column AQPB079G.aqpb079gnsref
+  is 'C19: Número de serie del documento que se modifica';
+comment on column AQPB079G.aqpb079gndref
+  is 'C20: Número correlativo del documento que se modifica';
+comment on column AQPB079G.aqpb079gmcred
+  is 'C21: Monto del crédito otorgado (capital)';
+comment on column AQPB079G.aqpb079gncon
+  is 'C22: Número de contrato';
+comment on column AQPB079G.aqpb079gnpol
+  is 'C23: Número de póliza';
+comment on column AQPB079G.aqpb079gficob
+  is 'C24: Fecha de inicio de vigencia de cobertura';
+comment on column AQPB079G.aqpb079gffcob
+  is 'C25: Fecha de término de vigencia de cobertura';
+comment on column AQPB079G.aqpb079gtseg
+  is 'C26: Tipo de seguro';
+comment on column AQPB079G.aqpb079gscob
+  is 'C27: Suma asegurada / alcance de cobertura o monto';
+comment on column AQPB079G.aqpb079gfemi
+  is 'C1: Fecha de otorgamiento del crédito/Linea de crédito';
+comment on column AQPB079G.aqpb079gcod
+  is 'C2: Correlativo del documento de envio';
+create index AQPB079G2 on AQPB079G (AQPB079GFEMI, AQPB079GCOD, AQPB079GTCOMF, AQPB079GSERI, AQPB079GNUM);
+create index AQPB079G3 on AQPB079G (AQPB079GPGC, AQPB079GMOD, AQPB079GSUC, AQPB079GTRX, AQPB079GREL, AQPB079GFEMI);
+alter table AQPB079G
+  add primary key (AQPB079GTCOMF, AQPB079GSERI, AQPB079GNUM);
+

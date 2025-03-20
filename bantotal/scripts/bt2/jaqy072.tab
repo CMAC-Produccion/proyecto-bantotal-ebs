@@ -1,0 +1,29 @@
+create table JAQY072
+(
+  jaqy072corr NUMBER(18) not null,
+  jaqy072tmod NUMBER(3) not null,
+  jaqy072tran NUMBER(3) not null,
+  jaqy072trel NUMBER(4) not null,
+  jaqy072fect DATE not null,
+  jaqy072pgco NUMBER(4),
+  jaqy072sucu NUMBER(4),
+  jaqy072pape NUMBER(4),
+  jaqy072modu NUMBER(3),
+  jaqy072tope NUMBER(4),
+  jaqy072oper NUMBER(9),
+  jaqy072omda NUMBER(4),
+  jaqy072ncta NUMBER(9),
+  jaqy072sbop NUMBER(3),
+  jaqy072imto NUMBER(17,2),
+  jaqy072rubr NUMBER(16),
+  jaqy072stat NUMBER(2),
+  jaqy072com  VARCHAR2(1),
+  jaqy072nar  NUMBER(15),
+  jaqy072imp  NUMBER(17,2)
+)
+;
+alter table JAQY072
+  add primary key (JAQY072CORR, JAQY072TMOD, JAQY072TRAN, JAQY072TREL, JAQY072FECT);
+alter table JAQY072
+  add constraint UK_C00450654 unique (JAQY072TMOD, JAQY072TRAN, JAQY072TREL, JAQY072FECT);
+

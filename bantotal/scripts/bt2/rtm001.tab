@@ -1,0 +1,12 @@
+create table RTM001
+(
+  rtm000pgco NUMBER(3) not null,
+  rtm001modu NUMBER(3) not null,
+  rtm001tipo NUMBER(3) not null,
+  rtm001mref NUMBER(3),
+  rtm001tore NUMBER(4)
+)
+;
+alter table RTM001
+  add primary key (RTM000PGCO, RTM001MODU, RTM001TIPO);
+

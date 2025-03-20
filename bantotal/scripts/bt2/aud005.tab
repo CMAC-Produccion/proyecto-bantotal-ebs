@@ -1,0 +1,12 @@
+create table AUD005
+(
+  audmsttim DATE not null,
+  audmstid  VARCHAR2(36) not null,
+  audmstfld VARCHAR2(128) not null,
+  audmstold VARCHAR2(2000),
+  audmstnew VARCHAR2(2000)
+)
+;
+alter table AUD005
+  add primary key (AUDMSTTIM, AUDMSTID, AUDMSTFLD);
+

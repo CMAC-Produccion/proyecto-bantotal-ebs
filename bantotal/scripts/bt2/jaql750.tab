@@ -1,0 +1,85 @@
+create table JAQL750
+(
+  jaql750pgco NUMBER(3) not null,
+  jaql750pais NUMBER(3) not null,
+  jaql750tdoc NUMBER(2) not null,
+  jaql750ndoc CHAR(12) not null,
+  jaql750fech DATE not null,
+  jaql750hora CHAR(8) not null,
+  jaql750saho NUMBER(17,2),
+  jaql750sact NUMBER(17,2),
+  jaql750sdpf NUMBER(17,2),
+  jaql750posi NUMBER(17,2),
+  jaql750fape DATE,
+  jaql750anti NUMBER(9),
+  jaql750nump NUMBER(5),
+  jaql750sucu NUMBER(3),
+  jaql750segm NUMBER(5),
+  jaql750esta CHAR(1),
+  jaql750au01 VARCHAR2(250),
+  jaql750au02 VARCHAR2(250),
+  jaql750au03 VARCHAR2(250),
+  jaql750au04 NUMBER(17,2),
+  jaql750au05 NUMBER(17,2),
+  jaql750au06 NUMBER(17,2),
+  jaql750au07 NUMBER(17,2),
+  jaql750au08 DATE,
+  jaql750au09 DATE
+)
+;
+comment on table JAQL750
+  is 'Segmentacion clientes pasivos';
+comment on column JAQL750.jaql750pgco
+  is 'Empresa';
+comment on column JAQL750.jaql750pais
+  is 'País doc';
+comment on column JAQL750.jaql750tdoc
+  is 'Tipo doc';
+comment on column JAQL750.jaql750ndoc
+  is 'Num doc';
+comment on column JAQL750.jaql750fech
+  is 'Fecha segmentación';
+comment on column JAQL750.jaql750hora
+  is 'Hora Segmentación';
+comment on column JAQL750.jaql750saho
+  is 'Total Saldo MN AHO';
+comment on column JAQL750.jaql750sact
+  is 'Total Saldo MN CTS ';
+comment on column JAQL750.jaql750sdpf
+  is 'Total Saldo MN DPF';
+comment on column JAQL750.jaql750posi
+  is 'Total posición MN (suma las 3 anteriores)';
+comment on column JAQL750.jaql750fape
+  is 'Fecha apertura más antigua';
+comment on column JAQL750.jaql750anti
+  is 'Antigüedad cliente (días)';
+comment on column JAQL750.jaql750nump
+  is 'Num. Productos';
+comment on column JAQL750.jaql750sucu
+  is 'Sucursal cliente';
+comment on column JAQL750.jaql750segm
+  is 'Segmento';
+comment on column JAQL750.jaql750esta
+  is 'Estado';
+comment on column JAQL750.jaql750au01
+  is 'Auxiliar';
+comment on column JAQL750.jaql750au02
+  is 'Auxiliar';
+comment on column JAQL750.jaql750au03
+  is 'Auxiliar';
+comment on column JAQL750.jaql750au04
+  is 'Auxiliar';
+comment on column JAQL750.jaql750au05
+  is 'Auxiliar';
+comment on column JAQL750.jaql750au06
+  is 'Auxiliar';
+comment on column JAQL750.jaql750au07
+  is 'Auxiliar';
+comment on column JAQL750.jaql750au08
+  is 'Auxiliar';
+comment on column JAQL750.jaql750au09
+  is 'Auxiliar';
+create index JAQL750A2 on JAQL750 (JAQL750PGCO, JAQL750SUCU);
+alter table JAQL750
+  add primary key (JAQL750PGCO, JAQL750PAIS, JAQL750TDOC, JAQL750NDOC, JAQL750FECH, JAQL750HORA);
+

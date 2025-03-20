@@ -1,0 +1,12 @@
+create table CDEINSA
+(
+  cdeinsid   NUMBER(18) not null,
+  cdcinscorr NUMBER(18) not null,
+  cdeinsacor NUMBER(4) not null,
+  cdeinsacod NUMBER(18)
+)
+;
+create index CDEINSA3 on CDEINSA (CDEINSID, CDEINSACOD, CDCINSCORR);
+alter table CDEINSA
+  add primary key (CDEINSID, CDCINSCORR, CDEINSACOR);
+

@@ -1,0 +1,28 @@
+create table Z05106
+(
+  z05104apl NUMBER(4) not null,
+  z05104bnd CHAR(5) not null,
+  z05104cor NUMBER(9) not null,
+  z05104co2 NUMBER(9) not null,
+  z05105cor NUMBER(9) not null,
+  z05106cor NUMBER(9) not null,
+  z05106tpr CHAR(1),
+  z05106tpd CHAR(2),
+  z05106ndo NUMBER(11),
+  z05106nlo NUMBER(4),
+  z05106cb1 CHAR(8),
+  z05106cb2 CHAR(17),
+  z05106cno CHAR(30),
+  z05106ctd CHAR(2),
+  z05106cnd NUMBER(11),
+  z05106ref CHAR(15),
+  z05106imp NUMBER(15,2),
+  z05106edo CHAR(3),
+  z05106cte NUMBER(12),
+  z05106fil CHAR(19),
+  z05106est CHAR(2)
+)
+;
+alter table Z05106
+  add primary key (Z05104APL, Z05104BND, Z05104COR, Z05104CO2, Z05105COR, Z05106COR);
+

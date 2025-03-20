@@ -1,0 +1,13 @@
+create table FXT804
+(
+  swtcpo    NUMBER(2) not null,
+  swtcpofmt CHAR(1) not null,
+  swtcpocor NUMBER(2) not null,
+  swtdto    CHAR(4),
+  dtotip    NUMBER(3)
+)
+;
+create index FXT80403 on FXT804 (SWTDTO, DTOTIP);
+alter table FXT804
+  add primary key (SWTCPO, SWTCPOFMT, SWTCPOCOR);
+

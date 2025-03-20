@@ -1,0 +1,19 @@
+create table X99937
+(
+  x99937pgc NUMBER(3) not null,
+  x99937nrt CHAR(19) not null,
+  x99937suc NUMBER(3) not null,
+  x99937mon NUMBER(4) not null,
+  x99937pap NUMBER(4) not null,
+  x99937cta NUMBER(9) not null,
+  x99937ope NUMBER(9) not null,
+  x99937sbo NUMBER(3) not null,
+  x99937top NUMBER(3) not null,
+  x99937mod NUMBER(3) not null,
+  x99937prc NUMBER(2) not null
+)
+;
+create index X9993702 on X99937 (X99937PGC, X99937SUC, X99937MON, X99937PAP, X99937CTA, X99937OPE, X99937SBO, X99937TOP, X99937MOD);
+alter table X99937
+  add primary key (X99937PGC, X99937NRT, X99937SUC, X99937MON, X99937PAP, X99937CTA, X99937OPE, X99937SBO, X99937TOP, X99937MOD, X99937PRC);
+

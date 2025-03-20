@@ -1,0 +1,14 @@
+create table JAQY346_AUX
+(
+  jaqy346pai NUMBER(3) not null,
+  jaqy346tdo NUMBER(3) not null,
+  jaqy346ndo CHAR(12) not null,
+  jaqy346dig VARCHAR2(1)
+)
+;
+create index IDX_JAQY346_AUX_01 on JAQY346_AUX (JAQY346PAI, JAQY346TDO, JAQY346NDO);
+create index IDX_JAQY346_AUX_02 on JAQY346_AUX (JAQY346NDO);
+create index IDX_JAQY346_AUX_03 on JAQY346_AUX (JAQY346DIG);
+alter table JAQY346_AUX
+  add constraint PK_JAQY346_AUX primary key (JAQY346PAI, JAQY346TDO, JAQY346NDO);
+

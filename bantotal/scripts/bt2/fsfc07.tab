@@ -1,0 +1,10 @@
+create table FSFC07
+(
+  kg07pgcod   NUMBER(3) not null,
+  kg07causno  NUMBER(2) not null,
+  kg07causdsc CHAR(35)
+)
+;
+alter table FSFC07
+  add primary key (KG07PGCOD, KG07CAUSNO);
+

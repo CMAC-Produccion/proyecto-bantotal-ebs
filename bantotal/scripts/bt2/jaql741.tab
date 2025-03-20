@@ -1,0 +1,38 @@
+create table JAQL741
+(
+  jaql741pgco NUMBER(3) not null,
+  jaql741scsu NUMBER(3) not null,
+  jaql741scmo NUMBER(3) not null,
+  jaql741scmd NUMBER(4) not null,
+  jaql741scpa NUMBER(4) not null,
+  jaql741scct NUMBER(9) not null,
+  jaql741scop NUMBER(9) not null,
+  jaql741scsb NUMBER(3) not null,
+  jaql741scto NUMBER(3) not null,
+  jaql741fein DATE not null,
+  jaql741sapn NUMBER(17,2),
+  jaql741tean NUMBER(5,2),
+  jaql741fefi DATE,
+  jaql741mail VARCHAR2(500),
+  jaql741esta CHAR(1),
+  jaql741fere DATE,
+  jaql741hore CHAR(8),
+  jaql741usre CHAR(10),
+  jaql741feca DATE,
+  jaql741hoca CHAR(8),
+  jaql741usca CHAR(10),
+  jaql741detp VARCHAR2(250),
+  jaql741feup DATE,
+  jaql741inre NUMBER(17,2),
+  jaql741au01 VARCHAR2(100),
+  jaql741au02 VARCHAR2(100),
+  jaql741au03 NUMBER(17,2),
+  jaql741au04 NUMBER(17,2),
+  jaql741au05 DATE,
+  jaql741au06 DATE
+)
+;
+create index JAQL7412 on JAQL741 (JAQL741ESTA);
+alter table JAQL741
+  add primary key (JAQL741PGCO, JAQL741SCSU, JAQL741SCMO, JAQL741SCMD, JAQL741SCPA, JAQL741SCCT, JAQL741SCOP, JAQL741SCSB, JAQL741SCTO, JAQL741FEIN);
+

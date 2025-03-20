@@ -1,0 +1,15 @@
+create table SNG006
+(
+  sng005inst NUMBER(10) not null,
+  sng006wki  NUMBER(10) not null,
+  sng006tar  CHAR(20),
+  sng006usr  CHAR(10),
+  sng006car  CHAR(30),
+  sng006fec  DATE,
+  sng006con  NUMBER(1),
+  sng006com  VARCHAR2(400)
+)
+;
+alter table SNG006
+  add primary key (SNG005INST, SNG006WKI);
+

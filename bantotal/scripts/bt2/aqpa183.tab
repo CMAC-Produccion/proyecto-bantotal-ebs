@@ -1,0 +1,20 @@
+create table AQPA183
+(
+  aqpa183id     NUMBER(10) not null,
+  aqpa183tipdoc NUMBER(4),
+  aqpa183numdoc CHAR(12),
+  aqpa183tipcli CHAR(1),
+  aqpa183lisneg CHAR(1),
+  aqpa183acnco  NUMBER(4),
+  aqpa183drqsv  NUMBER(10),
+  aqpa183usureg CHAR(10),
+  aqpa183msjres VARCHAR2(200),
+  aqpa183codres CHAR(5),
+  aqpa183horreg VARCHAR2(10),
+  aqpa183fecreg DATE,
+  aqpa183paidoc NUMBER(3)
+)
+;
+alter table AQPA183
+  add primary key (AQPA183ID);
+

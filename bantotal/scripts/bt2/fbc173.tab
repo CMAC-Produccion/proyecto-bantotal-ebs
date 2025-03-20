@@ -1,0 +1,15 @@
+create table FBC173
+(
+  bcinforme  CHAR(10) not null,
+  bcdesc     CHAR(50),
+  bcperiod   CHAR(1),
+  bctipo     NUMBER(2),
+  bcform     NUMBER(3),
+  bcprograma CHAR(10),
+  bctip2     CHAR(1)
+)
+;
+create index FBC17302 on FBC173 (BCPERIOD, BCFORM);
+alter table FBC173
+  add primary key (BCINFORME);
+

@@ -1,0 +1,13 @@
+create table FCA030
+(
+  pgcod      NUMBER(3) not null,
+  coimod     NUMBER(3) not null,
+  coioper    NUMBER(9) not null,
+  fecwid     NUMBER(2) not null,
+  coifecwfch DATE
+)
+;
+create index FCA03002 on FCA030 (FECWID);
+alter table FCA030
+  add primary key (PGCOD, COIMOD, COIOPER, FECWID);
+

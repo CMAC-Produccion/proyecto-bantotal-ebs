@@ -1,0 +1,96 @@
+create table AQPD407
+(
+  aqpd407ndoc   VARCHAR2(12) not null,
+  aqpd407ninf   VARCHAR2(20) not null,
+  aqpd407nrel   NUMBER(17) not null,
+  aqpd407area   VARCHAR2(40),
+  aqpd407cdaten VARCHAR2(10),
+  aqpd407ematen VARCHAR2(40),
+  aqpd407noaten VARCHAR2(100),
+  aqpd407cdfunc VARCHAR2(10),
+  aqpd407emfunc VARCHAR2(40),
+  aqpd407nofunc VARCHAR2(100),
+  aqpd407emadic VARCHAR2(255),
+  aqpd407nomcli VARCHAR2(100),
+  aqpd407coment VARCHAR2(255),
+  aqpd407comnt2 VARCHAR2(255),
+  aqpd407nomar1 VARCHAR2(255),
+  aqpd407nomar2 VARCHAR2(255),
+  aqpd407est    VARCHAR2(1),
+  aqpd407cdeml1 NUMBER(5),
+  aqpd407mseml1 VARCHAR2(255),
+  aqpd407mail1  CLOB,
+  aqpd407cdeml2 NUMBER(5),
+  aqpd407mseml2 VARCHAR2(255),
+  aqpd407mail2  CLOB,
+  aqpd407usu1   VARCHAR2(10),
+  aqpd407fch1   DATE,
+  aqpd407hra1   VARCHAR2(8),
+  aqpd407usu2   VARCHAR2(10),
+  aqpd407fch2   DATE,
+  aqpd407hra2   VARCHAR2(8)
+)
+;
+comment on table AQPD407
+  is 'Informe Rectificación - Cabecera';
+comment on column AQPD407.aqpd407ndoc
+  is 'Nro. Documento';
+comment on column AQPD407.aqpd407ninf
+  is 'Nro. Informe';
+comment on column AQPD407.aqpd407nrel
+  is 'Nro. Relación';
+comment on column AQPD407.aqpd407area
+  is 'Nombre Área';
+comment on column AQPD407.aqpd407cdaten
+  is 'Código Atención 1';
+comment on column AQPD407.aqpd407ematen
+  is 'Email Atención 1';
+comment on column AQPD407.aqpd407noaten
+  is 'Nombre Atención 1';
+comment on column AQPD407.aqpd407cdfunc
+  is 'Código Funcionario Aprobo Cambio';
+comment on column AQPD407.aqpd407emfunc
+  is 'Email Funcionario Aprobo Cambio';
+comment on column AQPD407.aqpd407nofunc
+  is 'Nombre Funcionario Aprobo Cambio';
+comment on column AQPD407.aqpd407emadic
+  is 'Email Adicional';
+comment on column AQPD407.aqpd407nomcli
+  is 'Nombre Cliente';
+comment on column AQPD407.aqpd407coment
+  is 'Comentario Área TI';
+comment on column AQPD407.aqpd407comnt2
+  is 'Comentario Área Reclamos';
+comment on column AQPD407.aqpd407nomar1
+  is 'Nombre Archivo 1';
+comment on column AQPD407.aqpd407nomar2
+  is 'Nombre Archivo 2';
+comment on column AQPD407.aqpd407est
+  is 'Estado Informe';
+comment on column AQPD407.aqpd407cdeml1
+  is 'Código Error Mail - Reclamos';
+comment on column AQPD407.aqpd407mseml1
+  is 'Mensaje Error Mail - Reclamos';
+comment on column AQPD407.aqpd407mail1
+  is 'Mensaje Mail Área Reclamos';
+comment on column AQPD407.aqpd407cdeml2
+  is 'Código Error Mail - TI';
+comment on column AQPD407.aqpd407mseml2
+  is 'Mensaje Error Mail - TI';
+comment on column AQPD407.aqpd407mail2
+  is 'Mensaje Mail Área TI';
+comment on column AQPD407.aqpd407usu1
+  is 'Usuario Género Informe';
+comment on column AQPD407.aqpd407fch1
+  is 'Fecha Género Informe';
+comment on column AQPD407.aqpd407hra1
+  is 'Hora Género Informe';
+comment on column AQPD407.aqpd407usu2
+  is 'Usuario Rectifico o Devolvio Informe';
+comment on column AQPD407.aqpd407fch2
+  is 'Fecha  Rectifico o Devolvio Informe';
+comment on column AQPD407.aqpd407hra2
+  is 'Hora  Rectifico o Devolvio Informe';
+alter table AQPD407
+  add primary key (AQPD407NDOC, AQPD407NINF, AQPD407NREL);
+

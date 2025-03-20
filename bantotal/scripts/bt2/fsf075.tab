@@ -1,0 +1,25 @@
+create table FSF075
+(
+  lrpgcod   NUMBER(3) not null,
+  lrctnro   NUMBER(9) not null,
+  lrpromo   NUMBER(2),
+  lrorigen  NUMBER(2),
+  lrsubori  NUMBER(3),
+  lrctaimp1 NUMBER(17,2),
+  lrctaimp2 NUMBER(17,2),
+  lrctaimp3 NUMBER(17,2),
+  lrctanum1 NUMBER(3),
+  lrctanum2 NUMBER(3),
+  lrctanum3 NUMBER(3),
+  lrctacar1 CHAR(1),
+  lrctacar2 CHAR(1),
+  lrctacar3 CHAR(1)
+)
+;
+create index FSF07502 on FSF075 (LRORIGEN, LRSUBORI);
+create index FSF07503 on FSF075 (LRPROMO);
+create index FSF07504 on FSF075 (LRPGCOD, LRPROMO, LRCTNRO);
+create index FSF07505 on FSF075 (LRPGCOD, LRORIGEN, LRSUBORI, LRCTNRO);
+alter table FSF075
+  add primary key (LRPGCOD, LRCTNRO);
+

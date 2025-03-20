@@ -1,0 +1,18 @@
+create global temporary table JAQY734
+(
+  jaqy734pai   NUMBER(3) not null,
+  jaqy734tdoc  NUMBER(2) not null,
+  jaqy734ndoc  CHAR(12) not null,
+  jaqy734docod NUMBER(2) not null,
+  jaqy734corr  NUMBER(3) not null,
+  jaqy734usu   CHAR(30) not null,
+  jaqy734maq   CHAR(20) not null,
+  jaqy734dir   CHAR(140),
+  jaqy734nom   CHAR(30)
+)
+on commit preserve rows;
+comment on table JAQY734
+  is 'TEMPORAL PARA busqueda de direcciones';
+alter table JAQY734
+  add primary key (JAQY734PAI, JAQY734TDOC, JAQY734NDOC, JAQY734DOCOD, JAQY734CORR, JAQY734USU, JAQY734MAQ);
+

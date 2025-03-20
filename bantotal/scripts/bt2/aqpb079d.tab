@@ -1,0 +1,65 @@
+create table AQPB079D
+(
+  aqpb079dserie CHAR(4) not null,
+  aqpb079dcorr  NUMBER not null,
+  aqpb079dpgcod NUMBER,
+  aqpb079dmod   NUMBER,
+  aqpb079dsucor NUMBER,
+  aqpb079dtran  NUMBER,
+  aqpb079drel   NUMBER,
+  aqpb079dcon   DATE,
+  aqpb079dmsgs  VARCHAR2(3000),
+  aqpb079dmsgt  VARCHAR2(3000),
+  aqpb079dusu   CHAR(12),
+  aqpb079dhor   CHAR(8),
+  aqpb079dhash  VARCHAR2(250),
+  aqpb079dfec   DATE,
+  aqpb079dest   CHAR(1),
+  aqpb079dusud  CHAR(12),
+  aqpb079dfecd  DATE,
+  aqpb079dhord  CHAR(8)
+)
+;
+comment on table AQPB079D
+  is 'Referencia AQPA466';
+comment on column AQPB079D.aqpb079dserie
+  is 'Numero de Serie';
+comment on column AQPB079D.aqpb079dcorr
+  is 'Correlativo';
+comment on column AQPB079D.aqpb079dpgcod
+  is 'Codigo Empresa interno';
+comment on column AQPB079D.aqpb079dmod
+  is 'Codigo Modulo interno';
+comment on column AQPB079D.aqpb079dsucor
+  is 'Codigo Sucursal interno';
+comment on column AQPB079D.aqpb079dtran
+  is 'Codigo Transaccion interno';
+comment on column AQPB079D.aqpb079drel
+  is 'Codigo Relacion interno';
+comment on column AQPB079D.aqpb079dcon
+  is 'Fecha interno';
+comment on column AQPB079D.aqpb079dmsgs
+  is 'Mensaje SUNAT';
+comment on column AQPB079D.aqpb079dmsgt
+  is 'Mensaje TCI';
+comment on column AQPB079D.aqpb079dusu
+  is 'Usuario registro Interno';
+comment on column AQPB079D.aqpb079dhor
+  is 'Hora registro Interno';
+comment on column AQPB079D.aqpb079dhash
+  is 'Codigo Hash';
+comment on column AQPB079D.aqpb079dfec
+  is 'Fecha registro Interno';
+comment on column AQPB079D.aqpb079dest
+  is 'Estado';
+comment on column AQPB079D.aqpb079dusud
+  is 'Usuario que descargo PDF';
+comment on column AQPB079D.aqpb079dfecd
+  is 'Fecha de descarga PDF';
+comment on column AQPB079D.aqpb079dhord
+  is 'Hora de descarga PDF';
+create index AQPB079D2 on AQPB079D (AQPB079DSERIE, AQPB079DCORR, AQPB079DPGCOD, AQPB079DMOD, AQPB079DSUCOR, AQPB079DTRAN, AQPB079DREL, AQPB079DCON, AQPB079DHASH);
+create index AQPB079D3 on AQPB079D (AQPB079DSERIE, AQPB079DCORR);
+alter table AQPB079D
+  add primary key (AQPB079DSERIE, AQPB079DCORR);
+

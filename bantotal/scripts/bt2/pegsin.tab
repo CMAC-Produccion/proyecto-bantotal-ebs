@@ -1,0 +1,20 @@
+create table PEGSIN
+(
+  pegid    CHAR(20) not null,
+  pegsuid  VARCHAR2(36) not null,
+  pegspjid CHAR(80) not null,
+  pegsgpid CHAR(80) not null,
+  pegsrtip CHAR(10) not null,
+  pegsrid  NUMBER(10) not null,
+  pegsrins NUMBER(4) not null,
+  pegsriin DATE,
+  pegsrien DATE,
+  pegsridn DATE,
+  pegsriap DATE,
+  pegsriau CHAR(10),
+  pegsrist CHAR(3)
+)
+;
+alter table PEGSIN
+  add primary key (PEGID, PEGSUID, PEGSPJID, PEGSGPID, PEGSRTIP, PEGSRID, PEGSRINS);
+

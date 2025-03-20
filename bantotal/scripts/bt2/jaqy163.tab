@@ -1,0 +1,16 @@
+create table JAQY163
+(
+  jaqy163pais  NUMBER(3) not null,
+  jaqy163tdoc  NUMBER(2) not null,
+  jaqy163ndoc  CHAR(12) not null,
+  jaqy163nume  NUMBER(3),
+  jaqy163nume2 NUMBER(5)
+)
+;
+comment on column JAQY163.jaqy163nume2
+  is 'AGRUPACION 3 DIGITOS';
+create index IJAQY16301 on JAQY163 (JAQY163NUME);
+create index JAQY163A3 on JAQY163 (JAQY163NUME2);
+alter table JAQY163
+  add primary key (JAQY163PAIS, JAQY163TDOC, JAQY163NDOC);
+

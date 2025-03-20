@@ -1,0 +1,40 @@
+create table JAQN34
+(
+  jaqn34cod NUMBER(3) not null,
+  jaqn34mod NUMBER(3) not null,
+  jaqn34tcu NUMBER(3) not null,
+  jaqn34top NUMBER(3) not null,
+  jaqn34mon NUMBER(4) not null,
+  jaqn34pap NUMBER(4) not null,
+  jaqn34fvi DATE not null,
+  jaqn34mot NUMBER(17,2) not null,
+  jaqn34fin NUMBER(8),
+  jaqn34fdv CHAR(1)
+)
+;
+comment on table JAQN34
+  is 'Cabecera factor decrecimiento';
+comment on column JAQN34.jaqn34cod
+  is 'Codigo empresa';
+comment on column JAQN34.jaqn34mod
+  is 'Modulo';
+comment on column JAQN34.jaqn34tcu
+  is 'Tipo curva';
+comment on column JAQN34.jaqn34top
+  is 'tipo operación';
+comment on column JAQN34.jaqn34mon
+  is 'Moneda';
+comment on column JAQN34.jaqn34pap
+  is 'Papel';
+comment on column JAQN34.jaqn34fvi
+  is 'Vigencia';
+comment on column JAQN34.jaqn34mot
+  is 'Monto';
+comment on column JAQN34.jaqn34fin
+  is 'Fecha Inv';
+comment on column JAQN34.jaqn34fdv
+  is 'Estado';
+create index JAQN342 on JAQN34 (JAQN34COD, JAQN34MOD, JAQN34TCU, JAQN34TOP, JAQN34MON, JAQN34PAP, JAQN34FIN, JAQN34MOT);
+alter table JAQN34
+  add primary key (JAQN34COD, JAQN34MOD, JAQN34TCU, JAQN34TOP, JAQN34MON, JAQN34PAP, JAQN34FVI, JAQN34MOT);
+

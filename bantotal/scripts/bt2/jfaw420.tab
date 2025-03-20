@@ -1,0 +1,28 @@
+create table JFAW420
+(
+  jfaw420nro NUMBER(10) not null,
+  jfaw420cor NUMBER(10) not null,
+  jfaw420gen DATE,
+  jfaw420cel CHAR(10),
+  jfaw420ps  NUMBER(3),
+  jfaw420td  NUMBER(2),
+  jfaw420nd  CHAR(25),
+  jfaw420nm  CHAR(30),
+  jfaw420lcr NUMBER(17,2),
+  jfaw420dis NUMBER(17,2),
+  jfaw420fvt DATE,
+  jfaw420pc  NUMBER(17,2),
+  jfaw420pm  NUMBER(17,2),
+  jfaw420tea NUMBER(10,6),
+  jfaw420ax1 NUMBER(17,2),
+  jfaw420ax2 NUMBER(17,2),
+  jfaw420ax3 NUMBER(17,2),
+  jfaw420ax4 CHAR(20),
+  jfaw420ax5 CHAR(20),
+  jfaw420ax6 DATE,
+  jfaw420ax7 DATE
+)
+;
+alter table JFAW420
+  add primary key (JFAW420NRO, JFAW420COR);
+

@@ -1,0 +1,17 @@
+create table AQPA655
+(
+  aqpa655cod    NUMBER(5) not null,
+  aqpa655fecini DATE not null,
+  aqpa655fecfin DATE,
+  aqpa655coefic NUMBER(15,2) not null,
+  aqpa655est    CHAR(1) not null,
+  aqpa655usuact CHAR(10) not null,
+  aqpa655fecact DATE not null,
+  aqpa655horact CHAR(10) not null
+)
+;
+create index AQPA6552 on AQPA655 (AQPA655FECINI, AQPA655FECFIN);
+create index AQPA6553 on AQPA655 (AQPA655FECACT);
+alter table AQPA655
+  add primary key (AQPA655COD);
+

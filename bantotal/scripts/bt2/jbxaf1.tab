@@ -1,0 +1,31 @@
+create table JBXAF1
+(
+  jbxaf1nfem NUMBER(3) not null,
+  jbxaf1nfid NUMBER(9) not null,
+  jbxaf1fsal DATE not null,
+  jbxaf1emp  NUMBER(3) not null,
+  jbxaf1mod  NUMBER(3) not null,
+  jbxaf1suc  NUMBER(3) not null,
+  jbxaf1mda  NUMBER(4) not null,
+  jbxaf1pap  NUMBER(4) not null,
+  jbxaf1cta  NUMBER(9) not null,
+  jbxaf1ope  NUMBER(9) not null,
+  jbxaf1sub  NUMBER(3) not null,
+  jbxaf1top  NUMBER(3) not null,
+  jbxaf1sint NUMBER(17,2),
+  jbxaf1scom NUMBER(17,2),
+  jbxaf1spun NUMBER(17,2),
+  jbxaf1inte NUMBER(17,2),
+  jbxaf1comp NUMBER(17,2),
+  jbxaf1puni NUMBER(17,2),
+  jbxaf1tasa NUMBER(10,6),
+  jbxaf1au1  NUMBER(17,2),
+  jbxaf1au2  NUMBER(17,2),
+  jbxaf1au3  DATE,
+  jbxaf1au4  NUMBER(10,6),
+  jbxaf1au5  CHAR(30)
+)
+;
+create unique index JBXAF101 on JBXAF1 (JBXAF1NFEM, JBXAF1NFID, JBXAF1FSAL, JBXAF1EMP, JBXAF1MOD, JBXAF1SUC, JBXAF1MDA, JBXAF1PAP, JBXAF1CTA, JBXAF1OPE, JBXAF1SUB, JBXAF1TOP);
+create index JBXAF102 on JBXAF1 (JBXAF1EMP, JBXAF1MOD, JBXAF1SUC, JBXAF1MDA, JBXAF1PAP, JBXAF1CTA, JBXAF1OPE, JBXAF1SUB, JBXAF1TOP);
+

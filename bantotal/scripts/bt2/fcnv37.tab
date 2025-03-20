@@ -1,0 +1,12 @@
+create table FCNV37
+(
+  cnv36proc  NUMBER(5) not null,
+  cnv37etapa NUMBER(5) not null,
+  cnv37etads CHAR(40),
+  cnv37etaca CHAR(5),
+  cnv37sts   CHAR(1)
+)
+;
+alter table FCNV37
+  add primary key (CNV36PROC, CNV37ETAPA);
+

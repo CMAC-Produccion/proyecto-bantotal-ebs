@@ -1,0 +1,81 @@
+create table AQPB540
+(
+  aqpb540cretim TIMESTAMP(6) not null,
+  aqpb540creusu VARCHAR2(20) not null,
+  aqpb540pgcod  NUMBER(3) not null,
+  aqpb540itsuc  NUMBER(3) not null,
+  aqpb540itmod  NUMBER(3) not null,
+  aqpb540ittran NUMBER(3) not null,
+  aqpb540itnrel NUMBER(4) not null,
+  aqpb540fecha  DATE,
+  aqpb540hora   VARCHAR2(8),
+  aqpb540canal  VARCHAR2(30),
+  aqpb540termi  VARCHAR2(30),
+  aqpb540tarj   VARCHAR2(20),
+  aqpb540oricta VARCHAR2(30),
+  aqpb540oripai NUMBER(3),
+  aqpb540oritdo NUMBER(2),
+  aqpb540orindo VARCHAR2(12),
+  aqpb540orinom VARCHAR2(120),
+  aqpb540descta VARCHAR2(30),
+  aqpb540despai NUMBER(3),
+  aqpb540destdo NUMBER(2),
+  aqpb540desndo VARCHAR2(12),
+  aqpb540tramon NUMBER(18,2),
+  aqpb540traest VARCHAR2(1),
+  aqpb540motest VARCHAR2(30)
+)
+;
+comment on table AQPB540
+  is 'LOG de Transferencias - Reporte';
+comment on column AQPB540.aqpb540cretim
+  is 'PRC - Campo de Auditoria';
+comment on column AQPB540.aqpb540creusu
+  is 'PRC - Usuario';
+comment on column AQPB540.aqpb540pgcod
+  is 'Empresa';
+comment on column AQPB540.aqpb540itsuc
+  is 'TRX - Sucursal';
+comment on column AQPB540.aqpb540itmod
+  is 'TRX - Modulo';
+comment on column AQPB540.aqpb540ittran
+  is 'TRX - Transaccion';
+comment on column AQPB540.aqpb540itnrel
+  is 'TRX - Relacion';
+comment on column AQPB540.aqpb540fecha
+  is 'Fecha';
+comment on column AQPB540.aqpb540hora
+  is 'Hora';
+comment on column AQPB540.aqpb540canal
+  is 'Canal';
+comment on column AQPB540.aqpb540termi
+  is 'Terminal';
+comment on column AQPB540.aqpb540tarj
+  is 'Tarjeta';
+comment on column AQPB540.aqpb540oricta
+  is 'Origen - CTA';
+comment on column AQPB540.aqpb540oripai
+  is 'Origen - Pais';
+comment on column AQPB540.aqpb540oritdo
+  is 'Origen - Tipo DOC';
+comment on column AQPB540.aqpb540orindo
+  is 'Origen - Nro. DOC';
+comment on column AQPB540.aqpb540orinom
+  is 'Origen - Nombre';
+comment on column AQPB540.aqpb540descta
+  is 'Destino - CTA';
+comment on column AQPB540.aqpb540despai
+  is 'Destino - Pais';
+comment on column AQPB540.aqpb540destdo
+  is 'Destino - Tipo DOC';
+comment on column AQPB540.aqpb540desndo
+  is 'Destino - Nro. DOC';
+comment on column AQPB540.aqpb540tramon
+  is 'Transferencia - Monto';
+comment on column AQPB540.aqpb540traest
+  is 'Transferencia - Estado';
+comment on column AQPB540.aqpb540motest
+  is 'Motivo del Estado';
+alter table AQPB540
+  add primary key (AQPB540CRETIM, AQPB540CREUSU, AQPB540PGCOD, AQPB540ITSUC, AQPB540ITMOD, AQPB540ITTRAN, AQPB540ITNREL);
+

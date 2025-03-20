@@ -1,0 +1,63 @@
+create table RCDIDE
+(
+  rcdiemp   NUMBER(3) not null,
+  rcdiinfo  CHAR(10) not null,
+  rcdifech  DATE not null,
+  rcdivia   NUMBER(3) not null,
+  rcdipais  NUMBER(3) not null,
+  rcditdoc  NUMBER(2) not null,
+  rcdindoc  CHAR(12) not null,
+  rcdicsbs  NUMBER(10) not null,
+  rcdicemp  CHAR(20) not null,
+  rcdinsec  NUMBER(8),
+  rcdiciiu  CHAR(4),
+  rcdizreg  CHAR(2),
+  rcdioreg  CHAR(2),
+  rcditide  CHAR(1),
+  rcdinide  NUMBER(10),
+  rcditdtr  CHAR(1),
+  rcdindtr  NUMBER(11),
+  rcditdid  CHAR(1),
+  rcdindid  CHAR(12),
+  rcditipp  CHAR(1),
+  rcdipeti  CHAR(1),
+  rcdiresi  CHAR(1),
+  rcdiclasi CHAR(1),
+  rcdimagn  CHAR(1),
+  rcdiacci  CHAR(1),
+  rcdirlab  CHAR(1),
+  rcdipres  CHAR(4),
+  rcdigene  CHAR(1),
+  rcdiestc  CHAR(1),
+  rcdisigla CHAR(20),
+  rcdiaprs  CHAR(120),
+  rcdiapem  CHAR(40),
+  rcdiapec  CHAR(40),
+  rcdinom1  CHAR(40),
+  rcdinom2  CHAR(40),
+  rcdiircc  CHAR(1),
+  rcdiiatr  CHAR(1),
+  rcdiclem  CHAR(5),
+  rcdiclsa  CHAR(1),
+  rcdigrec  CHAR(20),
+  rcdifnac  DATE,
+  rcditdcm  CHAR(2),
+  rcdindcm  CHAR(40),
+  rcdicsbe  CHAR(1),
+  rcdictac  NUMBER(9),
+  rcdiofic  NUMBER(4),
+  rcdiaxc1  CHAR(20),
+  rcdiaxc2  CHAR(60),
+  rcdiaxn1  NUMBER(17,2),
+  rcdiaxn2  NUMBER(17,2),
+  rcdiaxd1  DATE,
+  rcdiaxd2  DATE
+)
+compress;
+create unique index RCDIDE_00 on RCDIDE (RCDIEMP, RCDIINFO, RCDIFECH, RCDIVIA, RCDIPAIS, RCDITDOC, RCDINDOC, RCDICSBS, RCDICEMP)
+  compress 8;
+create index RCDIDE02_02 on RCDIDE (RCDIEMP, RCDIINFO, RCDIFECH, RCDIPAIS, RCDITDOC, RCDINDOC, RCDICEMP)
+  compress;
+alter table RCDIDE
+  add constraint RCDIDE_PK primary key (RCDIEMP, RCDIINFO, RCDIFECH, RCDIVIA, RCDIPAIS, RCDITDOC, RCDINDOC, RCDICSBS, RCDICEMP);
+

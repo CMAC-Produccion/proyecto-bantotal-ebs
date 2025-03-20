@@ -1,0 +1,14 @@
+create table TI0001
+(
+  tirippais  NUMBER(3) not null,
+  tiriptdoc  NUMBER(2) not null,
+  tiripndoc  CHAR(12) not null,
+  tiimpucod  NUMBER(3) not null,
+  tiripcorr  NUMBER(3) not null,
+  ticd_ant_i NUMBER(3)
+)
+;
+create index TI000102 on TI0001 (TIIMPUCOD, TICD_ANT_I);
+alter table TI0001
+  add primary key (TIRIPPAIS, TIRIPTDOC, TIRIPNDOC, TIIMPUCOD, TIRIPCORR);
+

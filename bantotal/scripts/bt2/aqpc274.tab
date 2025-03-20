@@ -1,0 +1,141 @@
+create table AQPC274
+(
+  aqpc274fcar DATE not null,
+  aqpc274pais NUMBER(3) not null,
+  aqpc274tdoc NUMBER(2) not null,
+  aqpc274ndoc VARCHAR2(12) not null,
+  aqpc274usu  VARCHAR2(10) not null,
+  aqpc274fprc DATE not null,
+  aqpc274hprc VARCHAR2(8) not null,
+  aqpc274cdap NUMBER(5) not null,
+  aqpc274apl  VARCHAR2(30),
+  aqpc274vgnt VARCHAR2(1),
+  aqpc274tasa NUMBER(10,6),
+  aqpc274mntp NUMBER(17,2),
+  aqpc274pzmn NUMBER(5),
+  aqpc274pzmx NUMBER(5),
+  aqpc274pgmn NUMBER(5),
+  aqpc274pgmx NUMBER(5),
+  aqpc274frec NUMBER(5),
+  aqpc274pcob NUMBER(5,2),
+  aqpc274ciiu NUMBER(12),
+  aqpc274fvig DATE,
+  aqpc274fppg DATE,
+  aqpc274fmds DATE,
+  aqpc274tcod NUMBER(3),
+  aqpc274tmod NUMBER(3),
+  aqpc274tsuc NUMBER(3),
+  aqpc274tran NUMBER(3),
+  aqpc274trel NUMBER(4),
+  aqpc274tfch DATE,
+  aqpc274mntd NUMBER(17,2),
+  aqpc274ins  NUMBER(10),
+  aqpc274ctcl NUMBER(9),
+  aqpc274cod  NUMBER(3),
+  aqpc274mod  NUMBER(3),
+  aqpc274suc  NUMBER(3),
+  aqpc274mda  NUMBER(4),
+  aqpc274pap  NUMBER(4),
+  aqpc274cta  NUMBER(9),
+  aqpc274oper NUMBER(9),
+  aqpc274sbop NUMBER(3),
+  aqpc274tope NUMBER(3),
+  aqpc274est  VARCHAR2(1),
+  aqpc274modo VARCHAR2(3)
+)
+;
+comment on table AQPC274
+  is 'Aplicaciones';
+comment on column AQPC274.aqpc274fcar
+  is 'Fecha de Carga';
+comment on column AQPC274.aqpc274pais
+  is 'País';
+comment on column AQPC274.aqpc274tdoc
+  is 'Tipo de Documento';
+comment on column AQPC274.aqpc274ndoc
+  is 'Número de Documento';
+comment on column AQPC274.aqpc274usu
+  is 'Usuario';
+comment on column AQPC274.aqpc274fprc
+  is 'Fecha de Proceso';
+comment on column AQPC274.aqpc274hprc
+  is 'Hora de Proceso';
+comment on column AQPC274.aqpc274cdap
+  is 'Codigo de la Aplicacion';
+comment on column AQPC274.aqpc274apl
+  is 'Aplicación';
+comment on column AQPC274.aqpc274vgnt
+  is 'Vigente = 1 / No Vigente = 0';
+comment on column AQPC274.aqpc274tasa
+  is 'Tasa';
+comment on column AQPC274.aqpc274mntp
+  is 'Monto de Propuesta';
+comment on column AQPC274.aqpc274pzmn
+  is 'Plazo Mínimo';
+comment on column AQPC274.aqpc274pzmx
+  is 'Plazo Máximo';
+comment on column AQPC274.aqpc274pgmn
+  is 'Período de Gracia Mínimo';
+comment on column AQPC274.aqpc274pgmx
+  is 'Período de Gracia Máximo';
+comment on column AQPC274.aqpc274frec
+  is 'Frecuencia';
+comment on column AQPC274.aqpc274pcob
+  is 'Porcentaje de Cobertura';
+comment on column AQPC274.aqpc274ciiu
+  is 'Clasificacion Industrial Internacional Uniforme';
+comment on column AQPC274.aqpc274fvig
+  is 'Fecha de Vigencia';
+comment on column AQPC274.aqpc274fppg
+  is 'Fecha de Primer Pago';
+comment on column AQPC274.aqpc274fmds
+  is 'Fecha Maxima de Desembolso';
+comment on column AQPC274.aqpc274tcod
+  is 'Transacción Empresa';
+comment on column AQPC274.aqpc274tmod
+  is 'Transacción Módulo';
+comment on column AQPC274.aqpc274tsuc
+  is 'Transacción Sucursal';
+comment on column AQPC274.aqpc274tran
+  is 'Transacción';
+comment on column AQPC274.aqpc274trel
+  is 'Transacción Relación';
+comment on column AQPC274.aqpc274tfch
+  is 'Transacción Fecha';
+comment on column AQPC274.aqpc274mntd
+  is 'Monto Desembolsado';
+comment on column AQPC274.aqpc274ins
+  is 'Instancia';
+comment on column AQPC274.aqpc274ctcl
+  is 'Cuenta del Cliente';
+comment on column AQPC274.aqpc274cod
+  is 'Crédito Empresa';
+comment on column AQPC274.aqpc274mod
+  is 'Crédito Módulo';
+comment on column AQPC274.aqpc274suc
+  is 'Crédito Sucursal';
+comment on column AQPC274.aqpc274mda
+  is 'Crédito Moneda';
+comment on column AQPC274.aqpc274pap
+  is 'Crédito Papel';
+comment on column AQPC274.aqpc274cta
+  is 'Crédito Cuenta';
+comment on column AQPC274.aqpc274oper
+  is 'Crédito Operación';
+comment on column AQPC274.aqpc274sbop
+  is 'Crédito Suboperación';
+comment on column AQPC274.aqpc274tope
+  is 'Crédito Tipo de Operación';
+comment on column AQPC274.aqpc274est
+  is 'Estado';
+comment on column AQPC274.aqpc274modo
+  is 'Modo';
+create index AQPC274A2 on AQPC274 (AQPC274PAIS, AQPC274TDOC, AQPC274NDOC, AQPC274FPRC, AQPC274HPRC);
+create index AQPC274A3 on AQPC274 (AQPC274PAIS, AQPC274TDOC, AQPC274NDOC, AQPC274CDAP, AQPC274FPRC, AQPC274HPRC);
+create index AQPC274A4 on AQPC274 (AQPC274FPRC, AQPC274HPRC, AQPC274USU);
+create index AQPC274A5 on AQPC274 (AQPC274NDOC, AQPC274CDAP, AQPC274FPRC, AQPC274HPRC);
+create index AQPC274A6 on AQPC274 (AQPC274CDAP, AQPC274FPRC, AQPC274HPRC);
+create index AQPC274A7 on AQPC274 (AQPC274FCAR, AQPC274CDAP);
+alter table AQPC274
+  add primary key (AQPC274FCAR, AQPC274PAIS, AQPC274TDOC, AQPC274NDOC, AQPC274USU, AQPC274FPRC, AQPC274HPRC, AQPC274CDAP);
+

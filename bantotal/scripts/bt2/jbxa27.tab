@@ -1,0 +1,18 @@
+create table JBXA27
+(
+  jbxa27cod NUMBER(3) not null,
+  jbxa27pai NUMBER(3) not null,
+  jbxa27tdo NUMBER(2) not null,
+  jbxa27ndo CHAR(12) not null,
+  jbxa27lim NUMBER(17,2),
+  jbxa27au1 CHAR(30),
+  jbxa27au2 CHAR(30),
+  jbxa27au3 DATE,
+  jbxa27au4 DATE,
+  jbxa27au5 NUMBER(17,2),
+  jbxa27au6 NUMBER(17,2)
+)
+;
+create unique index JBXA2701 on JBXA27 (JBXA27COD, JBXA27PAI, JBXA27TDO, JBXA27NDO);
+create index JBXA2702 on JBXA27 (JBXA27COD, JBXA27PAI, JBXA27TDO, JBXA27NDO, JBXA27LIM);
+

@@ -1,0 +1,16 @@
+create table JBVX50
+(
+  jbvx50usr  CHAR(10) not null,
+  jbvx50wrst CHAR(10) not null,
+  jbvx50pgm  CHAR(10) not null,
+  jbvx50cor  NUMBER(7) not null,
+  jbvx50ord  CHAR(25),
+  jbvx50inf1 CHAR(250),
+  jbvx50inf2 CHAR(250),
+  jbvx50inf3 CHAR(250)
+)
+;
+create index JBVX5003 on JBVX50 (JBVX50USR, JBVX50WRST, JBVX50PGM, JBVX50ORD);
+alter table JBVX50
+  add primary key (JBVX50USR, JBVX50WRST, JBVX50PGM, JBVX50COR);
+

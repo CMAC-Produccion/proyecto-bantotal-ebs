@@ -1,0 +1,96 @@
+create table AQPB604
+(
+  aqpb604corr   NUMBER(10) not null,
+  aqpb604csuc   NUMBER(5),
+  aqpb604sucu   VARCHAR2(500),
+  aqpb604lote   NUMBER(10),
+  aqpb604deud   VARCHAR2(500),
+  aqpb604dlot   VARCHAR2(500),
+  aqpb604fadj   DATE,
+  aqpb604crem   NUMBER(10),
+  aqpb604frem   DATE,
+  aqpb604fven   DATE,
+  aqpb604tdoc   VARCHAR2(15),
+  aqpb604ndoc   VARCHAR2(15),
+  aqpb604madj   NUMBER(18,2),
+  aqpb604mlet   VARCHAR2(500),
+  aqpb604capi   NUMBER(18,2),
+  aqpb604inte   NUMBER(18,2),
+  aqpb604cuen   NUMBER(10),
+  aqpb604oper   NUMBER(10),
+  aqpb60414k    NUMBER(18,6),
+  aqpb60418k    NUMBER(18,6),
+  aqpb60421k    NUMBER(18,6),
+  aqpb604elot   VARCHAR2(500),
+  aqpb604comp   VARCHAR2(500),
+  aqpb604dni    VARCHAR2(15),
+  aqpb604fdes   DATE,
+  aqpb604fdev   DATE,
+  aqpb604usur   VARCHAR2(15),
+  aqpb604fecr   DATE,
+  aqpb604tiprem VARCHAR2(20)
+)
+;
+comment on column AQPB604.aqpb604corr
+  is 'CORRELATIVO';
+comment on column AQPB604.aqpb604csuc
+  is 'CODIGO SUCURSA';
+comment on column AQPB604.aqpb604sucu
+  is 'SUCURSAL';
+comment on column AQPB604.aqpb604lote
+  is 'LOTE';
+comment on column AQPB604.aqpb604deud
+  is 'DEUDOR';
+comment on column AQPB604.aqpb604dlot
+  is 'DESCRIPCION DEL LOTE';
+comment on column AQPB604.aqpb604fadj
+  is 'FECHA ADJUDICACION';
+comment on column AQPB604.aqpb604crem
+  is 'CODIGO REMATE';
+comment on column AQPB604.aqpb604frem
+  is 'FECHA_REMATE';
+comment on column AQPB604.aqpb604fven
+  is 'FECHA_VENDIDO';
+comment on column AQPB604.aqpb604tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB604.aqpb604ndoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPB604.aqpb604madj
+  is 'MONTO ADJUDICADO';
+comment on column AQPB604.aqpb604mlet
+  is 'MONTO EN LETRAS';
+comment on column AQPB604.aqpb604capi
+  is 'CAPITAL';
+comment on column AQPB604.aqpb604inte
+  is 'INTERES';
+comment on column AQPB604.aqpb604cuen
+  is 'CUENTA';
+comment on column AQPB604.aqpb604oper
+  is 'OPERACION';
+comment on column AQPB604.aqpb60414k
+  is '14k';
+comment on column AQPB604.aqpb60418k
+  is '18k';
+comment on column AQPB604.aqpb60421k
+  is '21K';
+comment on column AQPB604.aqpb604elot
+  is 'Estado Lote';
+comment on column AQPB604.aqpb604comp
+  is 'Comprador';
+comment on column AQPB604.aqpb604dni
+  is 'DNI';
+comment on column AQPB604.aqpb604fdes
+  is 'FECHA DESMONTAJE';
+comment on column AQPB604.aqpb604fdev
+  is 'FECHA DEVOLUCION';
+comment on column AQPB604.aqpb604usur
+  is 'USUARIO REPORTE';
+comment on column AQPB604.aqpb604fecr
+  is 'FEC DEL REPORTE';
+comment on column AQPB604.aqpb604tiprem
+  is 'TIPO DE REMATE';
+create index AQPB6042 on AQPB604 (AQPB604CREM);
+create index AQPB6043 on AQPB604 (AQPB604CREM, AQPB604USUR);
+alter table AQPB604
+  add primary key (AQPB604CORR);
+

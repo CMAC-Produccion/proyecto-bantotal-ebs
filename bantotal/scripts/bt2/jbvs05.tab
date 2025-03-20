@@ -1,0 +1,52 @@
+create table JBVS05
+(
+  jbvs05corr NUMBER(9) not null,
+  jbvs05tpoo CHAR(1),
+  jbvs05bcoo NUMBER(3),
+  jbvs05emp  NUMBER(3),
+  jbvs05suc  NUMBER(3),
+  jbvs05mon  NUMBER(4),
+  jbvs05dmod NUMBER(3),
+  jbvs05pap  NUMBER(4),
+  jbvs05dcta NUMBER(9),
+  jbvs05ope  NUMBER(9),
+  jbvs05sbop NUMBER(3),
+  jbvs05top  NUMBER(3),
+  jbvs05paio NUMBER(3),
+  jbvs05tdoo NUMBER(2),
+  jbvs05ndco CHAR(25),
+  jbvs05mo   NUMBER(3),
+  jbvs05tr   NUMBER(3),
+  jbvs05fap  DATE,
+  jbvs05fvg  DATE,
+  jbvs05fal  DATE,
+  jbvs05fex  DATE,
+  jbvs05pda  CHAR(1),
+  jbvs005dfi NUMBER(8),
+  jbvs05dgv  NUMBER(1),
+  jbvs05imp  NUMBER(17,2),
+  jbvs05hab  CHAR(1),
+  jbvs05tdod NUMBER(2),
+  jbvs05ncdd CHAR(25),
+  jbvs05nomd CHAR(25),
+  jbvs05bcod NUMBER(3),
+  jbvs05dfid NUMBER(8),
+  jbvs05dgvd NUMBER(1),
+  jbvs05add  CHAR(3),
+  jbvs05oba  CHAR(80),
+  jbvs05ctad CHAR(17),
+  jbvs05tcta CHAR(10),
+  jbvs05fcha DATE,
+  jbvs05idt  NUMBER(1),
+  jbvs05cpto CHAR(40),
+  jbvs05ctra NUMBER(2),
+  jbvs05csrv NUMBER(2),
+  jbvs05clic NUMBER(5),
+  jbvs05debc NUMBER(1),
+  jbvs05dias NUMBER(2)
+)
+;
+create index JBVS0502 on JBVS05 (JBVS05IDT, JBVS05HAB);
+alter table JBVS05
+  add primary key (JBVS05CORR);
+

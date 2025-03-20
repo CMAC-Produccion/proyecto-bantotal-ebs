@@ -1,0 +1,31 @@
+create table FCI002
+(
+  pgcod     NUMBER(3) not null,
+  cndmod    NUMBER(3) not null,
+  cndtrn    NUMBER(3) not null,
+  cndord    NUMBER(2) not null,
+  cndsubord NUMBER(3) not null,
+  cndcorr   NUMBER(3) not null,
+  cndordrel NUMBER(2),
+  cndsorrel NUMBER(3),
+  cndordexi CHAR(1),
+  cndtiop   NUMBER(2),
+  cndopci   NUMBER(3),
+  cndopsts  CHAR(1),
+  cndidi    NUMBER(2),
+  cndtipidi NUMBER(1),
+  cndreem   NUMBER(2),
+  cndtipcre NUMBER(3),
+  cndtif    NUMBER(2),
+  cndres    CHAR(1),
+  cndcta    NUMBER(9),
+  cndgas    NUMBER(1),
+  cndcd01   CHAR(3),
+  cndcd02   CHAR(5),
+  cndcd03   NUMBER(5),
+  cndcd04   NUMBER(5)
+)
+;
+alter table FCI002
+  add primary key (PGCOD, CNDMOD, CNDTRN, CNDORD, CNDSUBORD, CNDCORR);
+

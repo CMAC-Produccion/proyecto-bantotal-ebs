@@ -1,0 +1,80 @@
+create table AQPA363
+(
+  aqpa363corr    NUMBER(4) not null,
+  aqpa363horar   CHAR(10),
+  aqpa363fec     DATE not null,
+  aqpa363hora    CHAR(10) not null,
+  aqpa363user    VARCHAR2(10),
+  aqpa363pais    NUMBER(4) not null,
+  aqpa363tdoc    NUMBER(4) not null,
+  aqpa363ndoc    VARCHAR2(12) not null,
+  aqpa363tcamb   NUMBER(14,8),
+  aqpa363inst    NUMBER(12) not null,
+  aqpa363feval   DATE,
+  aqpa363fecal   DATE,
+  aqpa363mesanio VARCHAR2(8),
+  aqpa363capcaja NUMBER(17,2),
+  aqpa363ifis    NUMBER(17,2),
+  aqpa363resneto NUMBER(17,2),
+  aqpa363ccontg  NUMBER(17,2),
+  aqpa363cpoten  NUMBER(17,2),
+  aqpa363ratio   NUMBER(10,6),
+  aqpa363est     VARCHAR2(2),
+  aqpa363tarea   VARCHAR2(4),
+  aqpa363naux1   NUMBER(17,2),
+  aqpa363naux2   NUMBER(17,2),
+  aqpa363naux3   NUMBER(17,2),
+  aqpa363vaux1   VARCHAR2(25),
+  aqpa363vaux2   VARCHAR2(25),
+  aqpa363vaux3   VARCHAR2(25),
+  aqpa363daux1   DATE,
+  aqpa363daux2   DATE,
+  aqpa363daux3   DATE
+)
+;
+comment on column AQPA363.aqpa363corr
+  is 'Correlativo';
+comment on column AQPA363.aqpa363fec
+  is 'Fecha de Proceso';
+comment on column AQPA363.aqpa363hora
+  is 'Hora de Proceso';
+comment on column AQPA363.aqpa363user
+  is 'Usuario';
+comment on column AQPA363.aqpa363pais
+  is 'Pais de Documento';
+comment on column AQPA363.aqpa363tdoc
+  is 'Tipo de Documento';
+comment on column AQPA363.aqpa363ndoc
+  is 'Nro de Documento';
+comment on column AQPA363.aqpa363tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column AQPA363.aqpa363inst
+  is 'Nro de Instancia';
+comment on column AQPA363.aqpa363feval
+  is 'Fecha de Evaluacion';
+comment on column AQPA363.aqpa363fecal
+  is 'Mes a considerar para el calculo';
+comment on column AQPA363.aqpa363mesanio
+  is 'Año y Mes a considerar para el calculo';
+comment on column AQPA363.aqpa363capcaja
+  is 'Cuota Caja en el Mes';
+comment on column AQPA363.aqpa363ifis
+  is 'Deuda IFIS del mes ingresado en el Panel de Eval Flujo';
+comment on column AQPA363.aqpa363resneto
+  is 'Resultado Neto del Mes ingresado en el Panel de Eval Flujo';
+comment on column AQPA363.aqpa363ccontg
+  is 'Cuota Contingente';
+comment on column AQPA363.aqpa363cpoten
+  is 'Cuota Potencial';
+comment on column AQPA363.aqpa363ratio
+  is 'Ratio Mensual';
+comment on column AQPA363.aqpa363est
+  is 'Estado H(Habilitado) ultimo ejecutado, I (Inhabilitado) ejecutado anteriormente';
+comment on column AQPA363.aqpa363tarea
+  is 'De donde se saco la data, OT otorgamiento DP ultima disposicion AC actualizacion';
+create index AQPA3632 on AQPA363 (AQPA363FEC, AQPA363PAIS, AQPA363TDOC, AQPA363NDOC, AQPA363INST);
+create index AQPA3633 on AQPA363 (AQPA363INST, AQPA363MESANIO, AQPA363EST);
+create index AQPA3634 on AQPA363 (AQPA363PAIS, AQPA363TDOC, AQPA363NDOC);
+alter table AQPA363
+  add primary key (AQPA363CORR, AQPA363FEC, AQPA363PAIS, AQPA363TDOC, AQPA363NDOC, AQPA363INST, AQPA363HORA);
+

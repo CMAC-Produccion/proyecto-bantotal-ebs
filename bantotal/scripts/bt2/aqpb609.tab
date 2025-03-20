@@ -1,0 +1,77 @@
+create table AQPB609
+(
+  aqpb609correl NUMBER(15) not null,
+  aqpb609nomage VARCHAR2(250),
+  aqpb609codage NUMBER(5),
+  aqpb609usuimp VARCHAR2(10),
+  aqpb609fecimp DATE,
+  aqpb609flaimp VARCHAR2(1),
+  aqpb609nomcli VARCHAR2(250),
+  aqpb609numcre VARCHAR2(30),
+  aqpb609anacar VARCHAR2(250),
+  aqpb609agecan VARCHAR2(250),
+  aqpb609feccan DATE,
+  aqpb609pgcod  NUMBER(10),
+  aqpb609modulo NUMBER(10),
+  aqpb609sucurs NUMBER(10),
+  aqpb609moneda NUMBER(10),
+  aqpb609papel  NUMBER(10),
+  aqpb609cuenta NUMBER(10),
+  aqpb609operac NUMBER(10),
+  aqpb609subope NUMBER(10),
+  aqpb609tipope NUMBER(10),
+  aqpb609fecrep DATE,
+  aqpb609usurep VARCHAR2(10),
+  aqpb609tipcon VARCHAR2(5)
+)
+;
+comment on column AQPB609.aqpb609correl
+  is 'CORRELATIVO';
+comment on column AQPB609.aqpb609nomage
+  is 'NOMBRE AGENCIA';
+comment on column AQPB609.aqpb609codage
+  is 'CODIGO AGENCIA';
+comment on column AQPB609.aqpb609usuimp
+  is 'USUARIO QUE IMPRIME';
+comment on column AQPB609.aqpb609fecimp
+  is 'FECHA QUE IMPRIME';
+comment on column AQPB609.aqpb609flaimp
+  is 'FLAG DE IMPRESIÓN';
+comment on column AQPB609.aqpb609nomcli
+  is 'NOMBRE CLIENTE';
+comment on column AQPB609.aqpb609numcre
+  is 'CODIGO ';
+comment on column AQPB609.aqpb609anacar
+  is 'ANALISTA DE LA CARTERA';
+comment on column AQPB609.aqpb609agecan
+  is 'AGENCIA DE CANCELACION';
+comment on column AQPB609.aqpb609feccan
+  is 'FECHA DE CANCELACION';
+comment on column AQPB609.aqpb609pgcod
+  is 'PGCOD DEL CREDITO';
+comment on column AQPB609.aqpb609modulo
+  is 'MODULO DEL CREDITO';
+comment on column AQPB609.aqpb609sucurs
+  is 'SUCURSAL DEL CREDITO';
+comment on column AQPB609.aqpb609moneda
+  is 'MONEDA DEL CREDITO';
+comment on column AQPB609.aqpb609papel
+  is 'PAPEL DEL CREDITO';
+comment on column AQPB609.aqpb609cuenta
+  is 'CUENTA DEL CREDITO';
+comment on column AQPB609.aqpb609operac
+  is 'OPERACION DEL CREDITO';
+comment on column AQPB609.aqpb609subope
+  is 'SUB OPERACION DEL CREDITO';
+comment on column AQPB609.aqpb609tipope
+  is 'TIPO DE OPERACION DEL CREDITO';
+comment on column AQPB609.aqpb609fecrep
+  is 'FECHA GENERA EL REPORTE';
+comment on column AQPB609.aqpb609usurep
+  is 'USUARIO GENERA EL REPORTE';
+comment on column AQPB609.aqpb609tipcon
+  is 'Tipo CONSTANCIA';
+create index AQPB60902 on AQPB609 (AQPB609FECCAN, AQPB609CODAGE, AQPB609USUREP);
+alter table AQPB609
+  add primary key (AQPB609CORREL);
+

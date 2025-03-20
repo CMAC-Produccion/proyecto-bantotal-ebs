@@ -1,0 +1,21 @@
+create table JAQN002
+(
+  jaqn002pgc NUMBER(3) not null,
+  jaqn002pai NUMBER(3) not null,
+  jaqn002tdo NUMBER(2) not null,
+  jaqn002ndo CHAR(12) not null,
+  jaqn002usr CHAR(10) not null,
+  jaqn002ax1 NUMBER(9),
+  jaqn002ax2 NUMBER(9),
+  jaqn002ax3 CHAR(10),
+  jaqn002ax4 CHAR(10),
+  jaqn002ax5 NUMBER(17,2),
+  jaqn002ax6 NUMBER(17,2),
+  jaqn002ax7 DATE,
+  jaqn002ax8 DATE
+)
+;
+create index JAQN0022 on JAQN002 (JAQN002USR);
+alter table JAQN002
+  add primary key (JAQN002PGC, JAQN002PAI, JAQN002TDO, JAQN002NDO, JAQN002USR);
+

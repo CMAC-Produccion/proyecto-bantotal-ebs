@@ -1,0 +1,81 @@
+create table JAQN575
+(
+  jaqn575fec DATE not null,
+  jaqn575cod NUMBER(4) not null,
+  jaqn575nro NUMBER(4) not null,
+  jaqn575tas NUMBER(10,6) not null,
+  jaqn575tra NUMBER(4) not null,
+  jaqn575sec NUMBER(4) not null,
+  jaqn575fea DATE,
+  jaqn575fen DATE,
+  jaqn575por NUMBER(10,6),
+  jaqn575saa NUMBER(17,2),
+  jaqn575san NUMBER(17,2),
+  jaqn575dif NUMBER(17,2),
+  jaqn575ai1 NUMBER(17,2),
+  jaqn575ai2 NUMBER(17,2),
+  jaqn575ai3 NUMBER(17,2),
+  jaqn575an1 NUMBER(9),
+  jaqn575an2 NUMBER(9),
+  jaqn575an3 NUMBER(9),
+  jaqn575ac1 VARCHAR2(255),
+  jaqn575ac2 VARCHAR2(255),
+  jaqn575ac3 VARCHAR2(255),
+  jaqn575af1 DATE,
+  jaqn575af2 DATE,
+  jaqn575af3 DATE
+)
+;
+comment on table JAQN575
+  is 'Tabla detalle de disminución de Saldos';
+comment on column JAQN575.jaqn575fec
+  is 'Fecha detalle diferencia de Saldos';
+comment on column JAQN575.jaqn575cod
+  is 'Código de Entidad Participante';
+comment on column JAQN575.jaqn575nro
+  is 'Número de operacióm';
+comment on column JAQN575.jaqn575tas
+  is 'tasa_adjudicada_negoc';
+comment on column JAQN575.jaqn575tra
+  is 'num_tramo';
+comment on column JAQN575.jaqn575sec
+  is 'num_secuencia';
+comment on column JAQN575.jaqn575fea
+  is 'Fecha Anterior';
+comment on column JAQN575.jaqn575fen
+  is 'Fecha Actual';
+comment on column JAQN575.jaqn575por
+  is 'Porcentaje de Cobertura';
+comment on column JAQN575.jaqn575saa
+  is 'Saldo Anterior';
+comment on column JAQN575.jaqn575san
+  is 'Saldo Actual';
+comment on column JAQN575.jaqn575dif
+  is 'Diferencia de Saldos Coberturados';
+comment on column JAQN575.jaqn575ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN575.jaqn575ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN575.jaqn575ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN575.jaqn575an1
+  is 'Auxiliar Númerica 1';
+comment on column JAQN575.jaqn575an2
+  is 'Auxiliar Númerica 2';
+comment on column JAQN575.jaqn575an3
+  is 'Auxiliar Númerica 3';
+comment on column JAQN575.jaqn575ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQN575.jaqn575ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQN575.jaqn575ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQN575.jaqn575af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN575.jaqn575af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN575.jaqn575af3
+  is 'Auxiliar Fecha 3';
+alter table JAQN575
+  add primary key (JAQN575FEC, JAQN575COD, JAQN575NRO, JAQN575TAS, JAQN575TRA, JAQN575SEC);
+

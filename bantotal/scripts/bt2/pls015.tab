@@ -1,0 +1,11 @@
+create table PLS015
+(
+  pls014bloq NUMBER(9) not null,
+  pls014coda NUMBER(9) not null,
+  pls015code NUMBER(2) not null,
+  pls015desc CHAR(30)
+)
+;
+alter table PLS015
+  add primary key (PLS014BLOQ, PLS014CODA, PLS015CODE);
+

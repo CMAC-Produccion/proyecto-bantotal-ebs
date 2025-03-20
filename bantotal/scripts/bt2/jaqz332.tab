@@ -1,0 +1,33 @@
+create table JAQZ332
+(
+  jaqz332id     NUMBER(18) not null,
+  jaqz332tiptrx CHAR(1),
+  jaqz332numtar CHAR(18),
+  jaqz332codest VARCHAR2(20),
+  jaqz332nomcli VARCHAR2(100),
+  jaqz332doccli CHAR(12),
+  jaqz332nomest VARCHAR2(100),
+  jaqz332mdaope NUMBER(4),
+  jaqz332monope NUMBER(17,2),
+  jaqz332moncob NUMBER(17,2),
+  jaqz332estope CHAR(1),
+  jaqz332pordto NUMBER(3),
+  jaqz332codmod NUMBER(4),
+  jaqz332codtop NUMBER(6),
+  jaqz332fecpro DATE,
+  jaqz332fecact DATE,
+  jaqz332horpro VARCHAR2(10),
+  jaqz332msjerr VARCHAR2(100),
+  jaqz332coderr VARCHAR2(5),
+  jaqz332mondto NUMBER(17,2),
+  jaqz332trxvis VARCHAR2(10),
+  jaqz332trxvir VARCHAR2(10),
+  jaqz332glosa  VARCHAR2(500),
+  jaqz332idterm VARCHAR2(20),
+  jaqz332fecvis DATE
+)
+;
+create index IDX_JAQZ332_2 on JAQZ332 (JAQZ332FECPRO, JAQZ332TIPTRX, JAQZ332ESTOPE);
+alter table JAQZ332
+  add primary key (JAQZ332ID);
+

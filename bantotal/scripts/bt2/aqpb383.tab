@@ -1,0 +1,21 @@
+create table AQPB383
+(
+  aqpb383eval    NUMBER(10) not null,
+  aqpb383taskcod NUMBER(4) not null,
+  aqpb383pdoc    NUMBER(3),
+  aqpb383tdoc    NUMBER(2),
+  aqpb383ndoc    CHAR(12),
+  aqpb383fec     DATE,
+  aqpb383usu     CHAR(10),
+  aqpb383sol     NUMBER(10),
+  aqpb383tmod    NUMBER(4),
+  aqpb383fecg    DATE,
+  aqpb383horg    CHAR(8),
+  aqpb383user    CHAR(10)
+)
+;
+create index AQPB38302 on AQPB383 (AQPB383PDOC, AQPB383TDOC, AQPB383NDOC, AQPB383EVAL, AQPB383TASKCOD);
+create index AQPB38303 on AQPB383 (AQPB383SOL);
+alter table AQPB383
+  add primary key (AQPB383EVAL, AQPB383TASKCOD);
+

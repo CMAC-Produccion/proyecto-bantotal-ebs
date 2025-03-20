@@ -1,0 +1,39 @@
+create table XCSU01
+(
+  csucod     NUMBER(3) not null,
+  csusuc     NUMBER(3) not null,
+  csurub     NUMBER(16) not null,
+  csumda     NUMBER(4) not null,
+  csupap     NUMBER(4) not null,
+  csucta     NUMBER(9) not null,
+  csuoper    NUMBER(9) not null,
+  csusbop    NUMBER(3) not null,
+  csutope    NUMBER(3) not null,
+  csumod     NUMBER(3),
+  csucodnue  NUMBER(3),
+  csusucnue  NUMBER(3),
+  csurubnue  NUMBER(16),
+  csumdanue  NUMBER(4),
+  csupapnue  NUMBER(4),
+  csuctanue  NUMBER(9),
+  csuopernue NUMBER(9),
+  csusbopnue NUMBER(3),
+  csutopenue NUMBER(3),
+  csumodnue  NUMBER(3),
+  csufimp    DATE,
+  csufecaux  DATE,
+  csunroaux  NUMBER(16),
+  csuchraux  CHAR(10),
+  csustsaux  CHAR(1)
+)
+;
+create index XCSU0102 on XCSU01 (CSUCODNUE, CSUSUCNUE, CSURUBNUE, CSUMDANUE, CSUPAPNUE, CSUCTANUE, CSUOPERNUE, CSUSBOPNUE, CSUTOPENUE);
+create index XCSU0103 on XCSU01 (CSUCOD, CSUSUC, CSUCTA, CSUFIMP);
+create index XCSU0104 on XCSU01 (CSUFIMP, CSUCOD, CSUSUC, CSUCTA);
+create index XCSU0105 on XCSU01 (CSUCOD, CSUMOD, CSUSUC, CSURUB, CSUMDA, CSUPAP, CSUCTA, CSUOPER, CSUSBOP, CSUTOPE);
+create index XCSU0106 on XCSU01 (CSUCODNUE, CSUMODNUE, CSUSUCNUE, CSURUBNUE, CSUMDANUE, CSUPAPNUE, CSUCTANUE, CSUOPERNUE, CSUSBOPNUE, CSUTOPENUE);
+create index XCSU0107 on XCSU01 (CSUSTSAUX, CSUCOD, CSUMOD, CSUSUC, CSUMDA, CSUPAP, CSUCTA, CSUOPER, CSUSBOP, CSUTOPE, CSURUB);
+create index XCSU0108 on XCSU01 (CSUSTSAUX, CSUCODNUE, CSUMODNUE, CSUSUCNUE, CSUMDANUE, CSUPAPNUE, CSUCTANUE, CSUOPERNUE, CSUSBOPNUE, CSUTOPENUE);
+alter table XCSU01
+  add primary key (CSUCOD, CSUSUC, CSURUB, CSUMDA, CSUPAP, CSUCTA, CSUOPER, CSUSBOP, CSUTOPE);
+

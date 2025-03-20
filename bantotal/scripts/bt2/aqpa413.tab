@@ -1,0 +1,24 @@
+create table AQPA413
+(
+  aqpa413inst  NUMBER(10) not null,
+  aqpa413moda  CHAR(1),
+  aqpa413tipo  CHAR(2),
+  aqpa413user  VARCHAR2(20),
+  aqpa413csbs  VARCHAR2(30),
+  aqpa413frcc  DATE,
+  aqpa413fpro  DATE,
+  aqpa413rubro VARCHAR2(20),
+  aqpa413enti  VARCHAR2(200),
+  aqpa413cent  VARCHAR2(50),
+  aqpa413util  NUMBER(17,2),
+  aqpa413nout  NUMBER(17,2),
+  aqpa413tipc  VARCHAR2(2),
+  aqpa413ndoc  CHAR(12) not null,
+  aqpa413corr  NUMBER(10) not null,
+  aqpa413rub72 VARCHAR2(20)
+)
+;
+create index AQPA413A2 on AQPA413 (AQPA413INST);
+alter table AQPA413
+  add primary key (AQPA413INST, AQPA413NDOC, AQPA413CORR);
+

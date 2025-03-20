@@ -1,0 +1,44 @@
+create table JAQM100
+(
+  jaqm100pai NUMBER(3) not null,
+  jaqm100tdo NUMBER(2) not null,
+  jaqm100ndo CHAR(12) not null,
+  jaqm100tme CHAR(1) not null,
+  jaqm100cof NUMBER(9) not null,
+  jaqm100cor NUMBER(9) not null,
+  jaqm100fpr DATE not null,
+  jaqm100hpr CHAR(8) not null,
+  jaqm100mpa VARCHAR2(255),
+  jaqm100mvo VARCHAR2(255),
+  jaqm100fiv DATE,
+  jaqm100ffv DATE,
+  jaqm100cus CHAR(10),
+  jaqm100upr CHAR(10),
+  jaqm100emp NUMBER(3),
+  jaqm100suc NUMBER(3),
+  jaqm100mod NUMBER(3),
+  jaqm100mon NUMBER(4),
+  jaqm100pap NUMBER(4),
+  jaqm100cta NUMBER(9),
+  jaqm100ope NUMBER(9),
+  jaqm100sop NUMBER(3),
+  jaqm100top NUMBER(3),
+  jaqm100ch1 CHAR(255),
+  jaqm100ch2 CHAR(255),
+  jaqm100ch3 CHAR(255),
+  jaqm100nu1 NUMBER(9),
+  jaqm100nu2 NUMBER(9),
+  jaqm100nu3 NUMBER(9),
+  jaqm100fe1 DATE,
+  jaqm100fe2 DATE,
+  jaqm100fe3 DATE,
+  jaqm100im1 NUMBER(17,2),
+  jaqm100im2 NUMBER(17,2),
+  jaqm100im3 NUMBER(17,2)
+)
+;
+create index JAQM1002 on JAQM100 (JAQM100EMP, JAQM100SUC, JAQM100MOD, JAQM100MON, JAQM100PAP, JAQM100CTA, JAQM100OPE, JAQM100SOP, JAQM100TOP);
+create index JAQM1003 on JAQM100 (JAQM100FPR, JAQM100HPR);
+alter table JAQM100
+  add primary key (JAQM100PAI, JAQM100TDO, JAQM100NDO, JAQM100TME, JAQM100COF, JAQM100COR, JAQM100FPR, JAQM100HPR);
+

@@ -1,0 +1,12 @@
+create table AQPA474
+(
+  aqpa474type    VARCHAR2(20),
+  aqpa474urlhttp VARCHAR2(250)
+)
+;
+comment on column AQPA474.aqpa474type
+  is 'Tipo';
+comment on column AQPA474.aqpa474urlhttp
+  is 'Pagina Web';
+create unique index AQPA4741 on AQPA474 (AQPA474TYPE);
+

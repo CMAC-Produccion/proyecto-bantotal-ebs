@@ -1,0 +1,27 @@
+create table SNGEG1
+(
+  sngeg1inst NUMBER(10) not null,
+  sngeg1pgc  NUMBER(3) not null,
+  sngeg1cta  NUMBER(9) not null,
+  sngeg1mtos NUMBER(17,2),
+  sngeg1icuo NUMBER(17,2),
+  sngeg1suav NUMBER(17,2),
+  sngeg1stg  NUMBER(5),
+  sngeg1mpre NUMBER(3),
+  sngeg1mpos NUMBER(3),
+  sngeg1preh NUMBER(10),
+  sngeg1posh NUMBER(10),
+  sngeg1stat CHAR(1),
+  sngeg1rtio NUMBER(17,4),
+  sngeg1inta NUMBER(9),
+  sngeg1deca NUMBER(14,8),
+  sngeg1impa NUMBER(17,2),
+  sngeg1feca DATE,
+  sngeg1pred VARCHAR2(80),
+  sngeg1stgd VARCHAR2(120),
+  sngeg1vara VARCHAR2(400)
+)
+;
+alter table SNGEG1
+  add primary key (SNGEG1INST, SNGEG1PGC, SNGEG1CTA);
+

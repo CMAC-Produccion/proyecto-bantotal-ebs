@@ -1,0 +1,10 @@
+create table CAESTATE
+(
+  caestappid NUMBER(2) not null,
+  caestid    NUMBER(10) not null,
+  caestdsc   CHAR(60)
+)
+;
+alter table CAESTATE
+  add primary key (CAESTAPPID, CAESTID);
+

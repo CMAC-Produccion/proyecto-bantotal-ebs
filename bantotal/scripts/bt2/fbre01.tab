@@ -1,0 +1,12 @@
+create table FBRE01
+(
+  brd01prnom CHAR(10) not null,
+  bre01pacod NUMBER(3) not null,
+  bre01padsc CHAR(50),
+  bre01patpo CHAR(1),
+  bre01paran CHAR(1)
+)
+;
+alter table FBRE01
+  add primary key (BRD01PRNOM, BRE01PACOD);
+

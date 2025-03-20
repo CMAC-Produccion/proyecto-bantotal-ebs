@@ -1,0 +1,31 @@
+create table JAQL113
+(
+  jaql113pgc NUMBER(3) not null,
+  jaql113suc NUMBER(4) not null,
+  jaql113mda NUMBER(4) not null,
+  jaql113pap NUMBER(4) not null,
+  jaql113cta NUMBER(9) not null,
+  jaql113ope NUMBER(9) not null,
+  jaql113sbo NUMBER(3) not null,
+  jaql113mod NUMBER(3) not null,
+  jaql113top NUMBER(3) not null,
+  jaql113sor CHAR(17),
+  jaql113tas NUMBER(11,6),
+  jaql113int NUMBER(18,3),
+  jaql113dis NUMBER(18,3),
+  jaql113emb NUMBER(18,3),
+  jaql113blq NUMBER(18,3),
+  jaql113smi NUMBER(18,3),
+  jaql113a01 NUMBER(18,3),
+  jaql113a02 NUMBER(18,3),
+  jaql113a03 DATE,
+  jaql113a04 DATE,
+  jaql113a05 CHAR(50),
+  jaql113a06 CHAR(50)
+)
+;
+comment on table JAQL113
+  is 'Migracion - Tasas de ahorros';
+alter table JAQL113
+  add primary key (JAQL113PGC, JAQL113SUC, JAQL113MDA, JAQL113PAP, JAQL113CTA, JAQL113OPE, JAQL113SBO, JAQL113MOD, JAQL113TOP);
+

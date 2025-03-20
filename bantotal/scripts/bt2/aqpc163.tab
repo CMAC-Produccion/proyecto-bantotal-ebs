@@ -1,0 +1,46 @@
+create table AQPC163
+(
+  aqpc163pgcod NUMBER(3) not null,
+  aqpc163prg   CHAR(8) not null,
+  aqpc163obj   CHAR(20) not null,
+  aqpc163dsc   CHAR(60),
+  aqpc163tip   CHAR(1),
+  aqpc163asp   CHAR(1),
+  aqpc163cod   NUMBER(10,2),
+  aqpc163prog  CHAR(10),
+  aqpc163prov  CHAR(10),
+  aqpc163grd   CHAR(20),
+  aqpc163ord   NUMBER(10,2),
+  aqpc163obl   CHAR(1)
+)
+;
+comment on table AQPC163
+  is 'Tabla temporal cabecera de repor. opinion de riesgos';
+comment on column AQPC163.aqpc163pgcod
+  is 'empresa';
+comment on column AQPC163.aqpc163prg
+  is 'Programa';
+comment on column AQPC163.aqpc163obj
+  is 'obtjeto';
+comment on column AQPC163.aqpc163dsc
+  is 'descripcion';
+comment on column AQPC163.aqpc163tip
+  is 'Tipo ';
+comment on column AQPC163.aqpc163asp
+  is 'ASP';
+comment on column AQPC163.aqpc163cod
+  is 'Codigo';
+comment on column AQPC163.aqpc163prog
+  is 'Prog';
+comment on column AQPC163.aqpc163prov
+  is 'Prov.';
+comment on column AQPC163.aqpc163grd
+  is 'Grilla';
+comment on column AQPC163.aqpc163ord
+  is 'Orden';
+comment on column AQPC163.aqpc163obl
+  is 'Estado';
+create index AQPC163A2 on AQPC163 (AQPC163PGCOD, AQPC163PRG, AQPC163GRD);
+alter table AQPC163
+  add primary key (AQPC163PGCOD, AQPC163PRG, AQPC163OBJ);
+

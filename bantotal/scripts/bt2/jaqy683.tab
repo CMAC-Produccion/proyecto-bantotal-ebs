@@ -1,0 +1,56 @@
+create table JAQY683
+(
+  jaqy683pais   NUMBER(3) not null,
+  jaqy683tdoc   NUMBER(2) not null,
+  jaqy683ndoc   VARCHAR2(12) not null,
+  jaqy683cta    VARCHAR2(30) not null,
+  jaqy683pdesc  VARCHAR2(30),
+  jaqy683clie   VARCHAR2(70),
+  jaqy683perj   VARCHAR2(70),
+  jaqy683nom1   VARCHAR2(25),
+  jaqy683nom2   VARCHAR2(25),
+  jaqy683ape1   VARCHAR2(30),
+  jaqy683ape2   VARCHAR2(30),
+  jaqy683pais1  NUMBER(3),
+  jaqy683tdoc1  NUMBER(2),
+  jaqy683ndoc1  VARCHAR2(12),
+  jaqy683cargo  VARCHAR2(30),
+  jaqy683desdoc VARCHAR2(20),
+  jaqy683sigla  VARCHAR2(2),
+  jaqy683dir    VARCHAR2(140),
+  jaqy683dept   VARCHAR2(20),
+  jaqy683prov   VARCHAR2(30),
+  jaqy683dist   VARCHAR2(30),
+  jaqy683fnac   DATE,
+  jaqy683fape   DATE,
+  jaqy683sccta  NUMBER(9),
+  jaqy683scmod  NUMBER(3),
+  jaqy683scmda  NUMBER(4),
+  jaqy683scpap  NUMBER(4),
+  jaqy683scoper NUMBER(9),
+  jaqy683scsbop NUMBER(3),
+  jaqy683sctope NUMBER(3),
+  jaqy683scsld  NUMBER(17,2),
+  jaqy683scsuc  NUMBER(3),
+  jaqy683age    VARCHAR2(30),
+  jaqy683mail   VARCHAR2(65),
+  jaqy683tele   VARCHAR2(50),
+  jaqy683est    VARCHAR2(1),
+  jaqy683fins   DATE,
+  jaqy683aux1   NUMBER(16,2),
+  jaqy683aux2   NUMBER(16,2),
+  jaqy683aux3   NUMBER(16,2),
+  jaqy683aux4   NUMBER(4),
+  jaqy683aux5   VARCHAR2(30),
+  jaqy683aux6   VARCHAR2(50),
+  jaqy683aux7   VARCHAR2(100),
+  jaqy683aux8   VARCHAR2(200),
+  jaqy683aux9   DATE,
+  jaqy683aux11  DATE
+)
+;
+create index IJAQY683001 on JAQY683 (JAQY683FINS);
+create index IJAQY683002 on JAQY683 (JAQY683FAPE);
+alter table JAQY683
+  add primary key (JAQY683PAIS, JAQY683TDOC, JAQY683NDOC, JAQY683CTA);
+

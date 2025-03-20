@@ -1,0 +1,15 @@
+create table X999JS
+(
+  x999jrpgc NUMBER(3) not null,
+  x999jrctn NUMBER(9) not null,
+  x999jrcod CHAR(5) not null,
+  x999jscor NUMBER(9) not null,
+  x999jsfch DATE,
+  x999jshor CHAR(8),
+  x999jsest CHAR(2)
+)
+;
+create index X999JS03 on X999JS (X999JRCOD, X999JSEST);
+alter table X999JS
+  add primary key (X999JRPGC, X999JRCTN, X999JRCOD, X999JSCOR);
+

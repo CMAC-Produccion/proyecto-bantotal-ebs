@@ -1,0 +1,82 @@
+create table AQPB546B
+(
+  aqpb546bemp    NUMBER(3) not null,
+  aqpb546breq    VARCHAR2(20) not null,
+  aqpb546bpai    NUMBER(3),
+  aqpb546btdo    NUMBER(2),
+  aqpb546bndo    CHAR(12),
+  aqpb546btel    VARCHAR2(20),
+  aqpb546bcel    VARCHAR2(20),
+  aqpb546bmai    VARCHAR2(100),
+  aqpb546bdir    VARCHAR2(300),
+  aqpb546bubi    NUMBER(9),
+  aqpb546bcreusu CHAR(10),
+  aqpb546bcretim TIMESTAMP(6),
+  aqpb546bauimp1 NUMBER(17,2),
+  aqpb546bauimp2 NUMBER(17,2),
+  aqpb546bauimp3 NUMBER(17,2),
+  aqpb546baufec1 DATE,
+  aqpb546baufec2 DATE,
+  aqpb546baufec3 DATE,
+  aqpb546baunum1 NUMBER(9),
+  aqpb546baunum2 NUMBER(9),
+  aqpb546baunum3 NUMBER(9),
+  aqpb546baucha1 VARCHAR2(300),
+  aqpb546baucha2 VARCHAR2(300),
+  aqpb546baucha3 VARCHAR2(300)
+)
+;
+comment on table AQPB546B
+  is 'REQINFO - Terceros';
+comment on column AQPB546B.aqpb546bemp
+  is 'REQINFO - Empresa';
+comment on column AQPB546B.aqpb546breq
+  is 'REQINFO - Codigo';
+comment on column AQPB546B.aqpb546bpai
+  is 'Tercero - Pais';
+comment on column AQPB546B.aqpb546btdo
+  is 'Tercero - Tipo de Documento';
+comment on column AQPB546B.aqpb546bndo
+  is 'Tercero - Nro. de Documento';
+comment on column AQPB546B.aqpb546btel
+  is 'Tercero - Telefono';
+comment on column AQPB546B.aqpb546bcel
+  is 'Tercero - Celular';
+comment on column AQPB546B.aqpb546bmai
+  is 'Tercero - Email';
+comment on column AQPB546B.aqpb546bdir
+  is 'Tercero - Direccion';
+comment on column AQPB546B.aqpb546bubi
+  is 'Tercero - UBIGEO';
+comment on column AQPB546B.aqpb546bcreusu
+  is 'Creacion - Usuario';
+comment on column AQPB546B.aqpb546bcretim
+  is 'Creacion - Tiempo';
+comment on column AQPB546B.aqpb546bauimp1
+  is 'Auxiliar IMP1';
+comment on column AQPB546B.aqpb546bauimp2
+  is 'Auxiliar IMP2';
+comment on column AQPB546B.aqpb546bauimp3
+  is 'Auxiliar IMP3';
+comment on column AQPB546B.aqpb546baufec1
+  is 'Auxiliar FEC1';
+comment on column AQPB546B.aqpb546baufec2
+  is 'Auxiliar FEC2';
+comment on column AQPB546B.aqpb546baufec3
+  is 'Auxiliar FEC3';
+comment on column AQPB546B.aqpb546baunum1
+  is 'Auxiliar NUM1';
+comment on column AQPB546B.aqpb546baunum2
+  is 'Auxiliar NUM2';
+comment on column AQPB546B.aqpb546baunum3
+  is 'Auxiliar NUM3';
+comment on column AQPB546B.aqpb546baucha1
+  is 'Auxiliar STR1';
+comment on column AQPB546B.aqpb546baucha2
+  is 'Auxiliar STR2';
+comment on column AQPB546B.aqpb546baucha3
+  is 'Auxiliar STR3';
+create index AQPB546B01 on AQPB546B (AQPB546BPAI, AQPB546BTDO, AQPB546BNDO);
+alter table AQPB546B
+  add primary key (AQPB546BEMP, AQPB546BREQ);
+

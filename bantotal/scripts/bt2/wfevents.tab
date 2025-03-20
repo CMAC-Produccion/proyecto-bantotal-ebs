@@ -1,0 +1,16 @@
+create table WFEVENTS
+(
+  wfevnid      NUMBER(10) not null,
+  wfevntime    DATE,
+  wfevntype    NUMBER(2),
+  wfevnsource  CHAR(30),
+  wfevntartype NUMBER(2),
+  wfevnarg     CHAR(30),
+  wfevnuser    CHAR(30)
+)
+;
+create index IWFEVE1 on WFEVENTS (WFEVNTYPE);
+create index IWFEVE2 on WFEVENTS (WFEVNUSER);
+alter table WFEVENTS
+  add primary key (WFEVNID);
+

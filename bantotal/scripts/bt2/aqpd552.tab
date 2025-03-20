@@ -1,0 +1,48 @@
+create table AQPD552
+(
+  aqpd552idcor   NUMBER(10) not null,
+  aqpd552fecproc DATE,
+  aqpd552hrapro  VARCHAR2(8),
+  aqpd552codemp  NUMBER(3),
+  aqpd552codserv NUMBER(3),
+  aqpd552nomarch CHAR(40),
+  aqpd552estreg  VARCHAR2(15),
+  aqpd552nrreg   NUMBER(5),
+  aqpd552coderr  CHAR(5),
+  aqpd552msjerr  VARCHAR2(100),
+  aqpd552user    CHAR(10),
+  aqpd552tipenv  VARCHAR2(7),
+  aqpd552nomemp  VARCHAR2(60)
+)
+;
+comment on table AQPD552
+  is 'Tabla Envío masivo de archivos de empresas - Recaudacion';
+comment on column AQPD552.aqpd552idcor
+  is 'Identificador Correlativo';
+comment on column AQPD552.aqpd552fecproc
+  is 'Fecha proceso';
+comment on column AQPD552.aqpd552hrapro
+  is 'Hora Proceso';
+comment on column AQPD552.aqpd552codemp
+  is 'Codigo Empresa';
+comment on column AQPD552.aqpd552codserv
+  is 'Codigo Servicio';
+comment on column AQPD552.aqpd552nomarch
+  is 'Nombre Archivo';
+comment on column AQPD552.aqpd552estreg
+  is 'Estado Registro (PROCESADO/NO PROCESADO/ERROR)';
+comment on column AQPD552.aqpd552nrreg
+  is 'Numero Registros';
+comment on column AQPD552.aqpd552coderr
+  is 'Codigo error';
+comment on column AQPD552.aqpd552msjerr
+  is 'Mensaje Error';
+comment on column AQPD552.aqpd552user
+  is 'Usuario';
+comment on column AQPD552.aqpd552tipenv
+  is 'Tipo Envio';
+comment on column AQPD552.aqpd552nomemp
+  is 'Nombre Empresa';
+alter table AQPD552
+  add primary key (AQPD552IDCOR);
+

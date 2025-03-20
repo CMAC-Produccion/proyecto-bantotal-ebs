@@ -1,0 +1,36 @@
+create table JFAW162
+(
+  jfaw160ps NUMBER(3) not null,
+  jfaw160td NUMBER(2) not null,
+  jfaw160nd CHAR(12) not null,
+  jfaw161cd NUMBER(9) not null,
+  jfaw162n1 NUMBER(17,2),
+  jfaw162n2 NUMBER(17,2),
+  jfaw162n3 NUMBER(17,2),
+  jfaw162f1 DATE,
+  jfaw162f2 DATE,
+  jfaw162f3 DATE,
+  jfaw162em NUMBER(3),
+  jfaw162sc NUMBER(3),
+  jfaw162md NUMBER(3),
+  jfaw162mn NUMBER(4),
+  jfaw162pa NUMBER(4),
+  jfaw162ct NUMBER(9),
+  jfaw162op NUMBER(9),
+  jfaw162so NUMBER(3),
+  jfaw162tp NUMBER(3),
+  jfaw162mt NUMBER(17,2),
+  jfaw162cm NUMBER(4),
+  jfaw162ca NUMBER(4),
+  jfaw162n4 NUMBER(17,2),
+  jfaw162n5 NUMBER(17,2),
+  jfaw162fv DATE,
+  jfaw162f4 DATE,
+  jfaw162es CHAR(1)
+)
+;
+create index JFAW1622 on JFAW162 (JFAW161CD);
+create index JFAW1623 on JFAW162 (JFAW162EM, JFAW162SC, JFAW162MD, JFAW162MN, JFAW162PA, JFAW162CT, JFAW162OP, JFAW162SO, JFAW162TP);
+alter table JFAW162
+  add primary key (JFAW160PS, JFAW160TD, JFAW160ND, JFAW161CD);
+

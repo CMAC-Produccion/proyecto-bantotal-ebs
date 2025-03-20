@@ -1,0 +1,23 @@
+create table FSH317
+(
+  sh317cod   NUMBER(3) not null,
+  sh317fec   DATE not null,
+  sh317suc   NUMBER(3) not null,
+  sh317mod   NUMBER(3) not null,
+  sh317rub   NUMBER(16) not null,
+  sh317mda   NUMBER(4) not null,
+  sh317pap   NUMBER(4) not null,
+  sh317cta   NUMBER(9) not null,
+  sh317oper  NUMBER(9) not null,
+  sh317sbop  NUMBER(3) not null,
+  sh317tope  NUMBER(3) not null,
+  sh317singa NUMBER(17,2),
+  sh317aux1  NUMBER(17,2),
+  sh317aux2  NUMBER(17,2),
+  sh317tot   NUMBER(17,2)
+)
+;
+create index FSH31702 on FSH317 (SH317COD, SH317FEC, SH317CTA);
+alter table FSH317
+  add primary key (SH317COD, SH317FEC, SH317SUC, SH317MOD, SH317RUB, SH317MDA, SH317PAP, SH317CTA, SH317OPER, SH317SBOP, SH317TOPE);
+

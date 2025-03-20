@@ -1,0 +1,21 @@
+create table FSF076
+(
+  lrpais    NUMBER(3) not null,
+  lrtdoc    NUMBER(2) not null,
+  lrndoc    CHAR(12) not null,
+  lrclibco  CHAR(1),
+  lrcorp    CHAR(1),
+  lrperimp1 NUMBER(17,2),
+  lrpernum1 NUMBER(3),
+  lrpernum2 NUMBER(3),
+  lrpernum3 NUMBER(3),
+  lrpernum4 NUMBER(3),
+  lrpercar1 CHAR(1),
+  lrpercar2 CHAR(1),
+  lrpercar3 CHAR(1),
+  lrpercar4 CHAR(1)
+)
+;
+alter table FSF076
+  add primary key (LRPAIS, LRTDOC, LRNDOC);
+

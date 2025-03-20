@@ -1,0 +1,49 @@
+create table FSAH12
+(
+  fsaemp   NUMBER(3) not null,
+  fsasuc   NUMBER(3) not null,
+  fsarubr  NUMBER(16) not null,
+  fsamda   NUMBER(4) not null,
+  fsapap   NUMBER(4) not null,
+  fsacta   NUMBER(9) not null,
+  fsaoper  NUMBER(9) not null,
+  fsasbop  NUMBER(3) not null,
+  fsatop   NUMBER(3) not null,
+  fsafech  DATE not null,
+  fsatit   NUMBER(2),
+  fsacap   NUMBER(1),
+  fsapzo   NUMBER(1),
+  fsagpo   NUMBER(2),
+  fsasist  NUMBER(3),
+  fsamod   NUMBER(3),
+  fsafvto  DATE,
+  fsafval  DATE,
+  fsaplaz  NUMBER(5),
+  fsattasa NUMBER(1),
+  fsatasa  NUMBER(10,6),
+  fsaclta  NUMBER(2),
+  fsatdia  NUMBER(1),
+  fsatano  NUMBER(1),
+  fsaresi  CHAR(1),
+  fsacate  CHAR(15),
+  fsaacti  NUMBER(12),
+  fsaprod  NUMBER(3),
+  fsaticu  CHAR(1),
+  fsatipp  CHAR(1),
+  fsafatr  DATE,
+  fsasdor  NUMBER(17,2),
+  fsasdmn  NUMBER(17,2),
+  fsasdus  NUMBER(17,2),
+  fsasdmo  NUMBER(17,2),
+  fsaint   NUMBER(17,2),
+  fsaprev  NUMBER(17,2)
+)
+;
+create index FSAH1202 on FSAH12 (FSAEMP, FSARUBR, FSAFECH);
+create index FSAH1203 on FSAH12 (FSAEMP, FSAFECH, FSARUBR, FSACTA);
+create index FSAH1204 on FSAH12 (FSAEMP, FSAFECH, FSARUBR, FSAMDA);
+create index FSAH1206 on FSAH12 (FSAEMP, FSAFECH, FSACTA, FSARUBR, FSAMDA);
+create index FSAH1207 on FSAH12 (FSAEMP, FSAFECH, FSACTA, FSAMDA);
+alter table FSAH12
+  add primary key (FSAEMP, FSASUC, FSARUBR, FSAMDA, FSAPAP, FSACTA, FSAOPER, FSASBOP, FSATOP, FSAFECH);
+

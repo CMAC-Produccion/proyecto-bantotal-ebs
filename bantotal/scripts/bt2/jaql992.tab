@@ -1,0 +1,18 @@
+create table JAQL992
+(
+  jaql992pgcod NUMBER(3) not null,
+  jaql992suc   NUMBER(3) not null,
+  jaql992mod   NUMBER(3) not null,
+  jaql992mda   NUMBER(4),
+  jaql992pap   NUMBER(4),
+  jaql992cta   NUMBER(9),
+  jaql992ope   NUMBER(9),
+  jaql992sbop  NUMBER(3),
+  jaql992tope  NUMBER(3),
+  jaql992fec   DATE,
+  jaql992tcea  NUMBER(10,6)
+)
+;
+alter table JAQL992
+  add constraint PK_JAQL992 unique (JAQL992PGCOD, JAQL992MOD, JAQL992SUC, JAQL992MDA, JAQL992PAP, JAQL992CTA, JAQL992OPE, JAQL992SBOP, JAQL992TOPE, JAQL992FEC);
+

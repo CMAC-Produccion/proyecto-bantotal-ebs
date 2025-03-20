@@ -1,0 +1,26 @@
+create table CJS011
+(
+  cjs007cod NUMBER(3) not null,
+  cjs007suc NUMBER(3) not null,
+  cjs007ccs NUMBER(9) not null,
+  cjs008cta NUMBER(9) not null,
+  cjs008cor NUMBER(9) not null,
+  cjs011pai NUMBER(3) not null,
+  cjs011tdo NUMBER(2) not null,
+  cjs011ndo CHAR(12) not null,
+  cjs011tpp CHAR(1),
+  cjs011est CHAR(2),
+  cjs011uin CHAR(10),
+  cjs011fin DATE,
+  cjs011tin CHAR(10),
+  cjs011hin CHAR(8),
+  cjs011uau CHAR(10),
+  cjs011fau DATE,
+  cjs011tau CHAR(10),
+  cjs011hau CHAR(8),
+  cjs011tnv CHAR(3)
+)
+;
+alter table CJS011
+  add primary key (CJS007COD, CJS007SUC, CJS007CCS, CJS008CTA, CJS008COR, CJS011PAI, CJS011TDO, CJS011NDO);
+

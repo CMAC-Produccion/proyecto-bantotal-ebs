@@ -1,0 +1,27 @@
+create table FBC221
+(
+  bc221emp  NUMBER(3) not null,
+  bc221inf  CHAR(10) not null,
+  bc221fch  DATE not null,
+  bc221cod  NUMBER(4) not null,
+  bc221suc  NUMBER(4) not null,
+  bc221mda  NUMBER(4) not null,
+  bc221cta  NUMBER(9) not null,
+  bc221mod  NUMBER(4) not null,
+  bc221trn  NUMBER(4) not null,
+  bc221nrel NUMBER(4) not null,
+  bc221fech DATE not null,
+  bc221imp1 NUMBER(17,2),
+  bc221imp2 NUMBER(17,2),
+  bc221imp3 NUMBER(17,2),
+  bc221nro1 NUMBER(16),
+  bc221nro2 NUMBER(16),
+  bc221nro3 NUMBER(16),
+  bc221chr1 CHAR(40),
+  bc221chr2 CHAR(20),
+  bc221chr3 CHAR(40)
+)
+;
+alter table FBC221
+  add primary key (BC221EMP, BC221INF, BC221FCH, BC221COD, BC221SUC, BC221MDA, BC221CTA, BC221MOD, BC221TRN, BC221NREL, BC221FECH);
+

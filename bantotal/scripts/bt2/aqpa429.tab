@@ -1,0 +1,12 @@
+create table AQPA429
+(
+  aqpa806cod  NUMBER(17) not null,
+  aqpa429line NUMBER(10) not null,
+  aqpa429peri NUMBER(10),
+  aqpa429perf NUMBER(10),
+  aqpa429varc NUMBER(17,2)
+)
+;
+alter table AQPA429
+  add primary key (AQPA806COD, AQPA429LINE);
+

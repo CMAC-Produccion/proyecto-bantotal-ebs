@@ -1,0 +1,15 @@
+create table AQPB107
+(
+  aqpb107codent NUMBER(6) not null,
+  aqpb107codser CHAR(6) not null,
+  aqpb107nrocon VARCHAR2(20) not null,
+  aqpb107monori NUMBER(17,2),
+  aqpb107monred NUMBER(17,2),
+  aqpb107mondif NUMBER(17,2),
+  aqpb107fecreg DATE,
+  aqpb107horreg VARCHAR2(10)
+)
+;
+alter table AQPB107
+  add primary key (AQPB107CODENT, AQPB107CODSER, AQPB107NROCON);
+

@@ -1,0 +1,16 @@
+create table JAQL095
+(
+  jaql95fepa DATE not null,
+  jaql95coin CHAR(10) not null,
+  jaql95copa CHAR(10) not null,
+  jaql95cops CHAR(20) not null,
+  jaql95copb NUMBER(9) not null,
+  jaql95fepr DATE,
+  jaql95hopr CHAR(8),
+  jaql95repr NUMBER(3)
+)
+;
+create index IJAQL095100001 on JAQL095 (JAQL95FEPR);
+alter table JAQL095
+  add primary key (JAQL95FEPA, JAQL95COIN, JAQL95COPA, JAQL95COPS, JAQL95COPB);
+

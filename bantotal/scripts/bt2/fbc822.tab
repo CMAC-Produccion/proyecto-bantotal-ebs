@@ -1,0 +1,17 @@
+create table FBC822
+(
+  bc822inf CHAR(8) not null,
+  bc822fec DATE not null,
+  bc822dep NUMBER(8) not null,
+  bc822per NUMBER(8) not null,
+  bc822via NUMBER(3) not null,
+  bc822cfi CHAR(1),
+  bc822cin CHAR(1),
+  bc822cit CHAR(1),
+  bc822ppa NUMBER(6,4),
+  bc822pin NUMBER(6,4)
+)
+;
+alter table FBC822
+  add primary key (BC822INF, BC822FEC, BC822DEP, BC822PER, BC822VIA);
+

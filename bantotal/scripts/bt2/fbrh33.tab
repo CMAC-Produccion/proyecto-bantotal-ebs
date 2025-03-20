@@ -1,0 +1,30 @@
+create table FBRH33
+(
+  brh33emp   NUMBER(3) not null,
+  brh33pais  NUMBER(3) not null,
+  brh33tdoc  NUMBER(2) not null,
+  brh33ndoc  CHAR(12) not null,
+  brh33suc   NUMBER(3) not null,
+  brh33rub   NUMBER(16) not null,
+  brh33mda   NUMBER(4) not null,
+  brh33pap   NUMBER(4) not null,
+  brh33cta   NUMBER(9) not null,
+  brh33op    NUMBER(9) not null,
+  brh33sop   NUMBER(3) not null,
+  brh33top   NUMBER(3) not null,
+  brh33reg   NUMBER(5) not null,
+  brh33cparm NUMBER(3) not null,
+  brh33fch   DATE not null,
+  brh33hra   CHAR(8) not null,
+  brh33nrod  NUMBER(16),
+  brh33nroh  NUMBER(16),
+  brh33chh   CHAR(30),
+  brh33chd   CHAR(30),
+  brh33fchd  DATE,
+  brh33fchh  DATE,
+  brh33usu   CHAR(10)
+)
+;
+alter table FBRH33
+  add primary key (BRH33EMP, BRH33PAIS, BRH33TDOC, BRH33NDOC, BRH33SUC, BRH33RUB, BRH33MDA, BRH33PAP, BRH33CTA, BRH33OP, BRH33SOP, BRH33TOP, BRH33REG, BRH33CPARM, BRH33FCH, BRH33HRA);
+

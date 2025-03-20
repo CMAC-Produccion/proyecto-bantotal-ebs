@@ -1,0 +1,23 @@
+create table FRAC004
+(
+  rac004cod NUMBER(3) not null,
+  rac004mod NUMBER(3) not null,
+  rac004top NUMBER(3) not null,
+  rac004mda NUMBER(4) not null,
+  rac004pap NUMBER(4) not null,
+  rac004suc NUMBER(3) not null,
+  rac004sbo NUMBER(3) not null,
+  rac004cor NUMBER(4) not null,
+  rac004fch DATE not null,
+  rac004cta NUMBER(9) not null,
+  rac004opv NUMBER(9) not null,
+  rac004fhm DATE not null,
+  rac004hra CHAR(8) not null,
+  rac004usr CHAR(10),
+  rac004ant CHAR(1),
+  rac004act CHAR(1)
+)
+;
+alter table FRAC004
+  add primary key (RAC004COD, RAC004MOD, RAC004TOP, RAC004MDA, RAC004PAP, RAC004SUC, RAC004SBO, RAC004COR, RAC004FCH, RAC004CTA, RAC004OPV, RAC004FHM, RAC004HRA);
+

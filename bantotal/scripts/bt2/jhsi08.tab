@@ -1,0 +1,22 @@
+create table JHSI08
+(
+  jhsi08apl  NUMBER(4) not null,
+  jhsi08ban  CHAR(5) not null,
+  jhsi08env  NUMBER(9) not null,
+  jhsi08cta  NUMBER(9),
+  jhsi08cod  NUMBER(3),
+  jhsi08fec  DATE,
+  jhsi08suc  NUMBER(3),
+  jhsi08mod  NUMBER(3),
+  jhsi08trn  NUMBER(3),
+  jhsi08rel  NUMBER(4),
+  jhsi08mnco NUMBER(5),
+  jhsi08proc CHAR(1),
+  jhsi08fecp DATE,
+  jhsi08mda  NUMBER(4)
+)
+;
+create unique index JHSI0801 on JHSI08 (JHSI08APL, JHSI08BAN, JHSI08ENV);
+create index JHSI0802 on JHSI08 (JHSI08APL, JHSI08BAN, JHSI08COD, JHSI08CTA);
+create index JHSI0803 on JHSI08 (JHSI08SUC, JHSI08MOD, JHSI08TRN, JHSI08REL);
+

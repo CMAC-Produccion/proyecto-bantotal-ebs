@@ -1,0 +1,15 @@
+create table JAQY592B
+(
+  año           NUMBER,
+  trimestre     NUMBER,
+  codana        CHAR(10),
+  ubnom         CHAR(30),
+  scnom         CHAR(30),
+  ubsuc         NUMBER(3),
+  numcres_otor3 NUMBER,
+  tipo          VARCHAR2(22),
+  num_cli_enc   NUMBER
+)
+;
+create index IX_JAQY592B_CODANA on JAQY592B (CODANA);
+

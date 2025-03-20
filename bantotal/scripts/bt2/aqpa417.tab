@@ -1,0 +1,33 @@
+create table AQPA417
+(
+  aqpa417corr   NUMBER(10) not null,
+  aqpa417inst   NUMBER(10) not null,
+  aqpa417fpro   DATE not null,
+  aqpa417hora   CHAR(8) not null,
+  aqpa417pgcod  NUMBER(3) not null,
+  aqpa417itsuc  NUMBER(3) not null,
+  aqpa417itmod  NUMBER(3) not null,
+  aqpa417ittra  NUMBER(3) not null,
+  aqpa417itnrel NUMBER(4) not null,
+  aqpa417itfcon DATE not null,
+  aqpa417ituing VARCHAR2(20),
+  aqpa417csbs   VARCHAR2(30),
+  aqpa417ndoc   VARCHAR2(30),
+  aqpa417frcc   DATE,
+  aqpa417rubro  VARCHAR2(20),
+  aqpa417enti   VARCHAR2(200),
+  aqpa417cent   VARCHAR2(50),
+  aqpa417gast   NUMBER(17,2),
+  aqpa417moda   CHAR(1),
+  aqpa417tipo   CHAR(2),
+  aqpa417aux1   VARCHAR2(6),
+  aqpa417aux2   NUMBER(10),
+  aqpa417aux3   DATE,
+  aqpa417aux4   CHAR(20),
+  aqpa417fact   NUMBER(9,6),
+  aqpa417cptn   NUMBER(17,2)
+)
+;
+alter table AQPA417
+  add primary key (AQPA417CORR, AQPA417INST, AQPA417FPRO, AQPA417HORA, AQPA417PGCOD, AQPA417ITSUC, AQPA417ITMOD, AQPA417ITTRA, AQPA417ITNREL, AQPA417ITFCON);
+

@@ -1,0 +1,36 @@
+create or replace force view v_aqpa366_ffloresv_anx as
+select
+aqpa366corr,
+aqpa366fec,
+aqpa366hora,
+aqpa366user,
+aqpa366inst,
+aqpa366pais,
+aqpa366tdoc,
+aqpa366pgcod,
+aqpa366mod,
+aqpa366suc,
+aqpa366mda,
+aqpa366pap,
+aqpa366cta,
+aqpa366tope,
+aqpa366expc,
+aqpa366ncuot,
+aqpa366dias,
+aqpa366mormax,
+aqpa366naux1,
+aqpa366naux2,
+aqpa366naux3,
+aqpa366naux4,
+aqpa366naux5,
+aqpa366vaux1,
+aqpa366vaux2,
+aqpa366vaux3,
+aqpa366vaux4,
+aqpa366vaux5,
+aqpa366daux1,
+aqpa366daux2,
+aqpa366daux3
+from AQPA366
+ /* GOLDENGATE_DDL_REPLICATION */;
+

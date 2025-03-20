@@ -1,0 +1,30 @@
+create table AQPB890
+(
+  nid         CHAR(40),
+  prodint     NUMBER(5) not null,
+  canlint     NUMBER(5) not null,
+  producto    VARCHAR2(50),
+  certificado VARCHAR2(30),
+  cuenta      VARCHAR2(30),
+  documento   CHAR(12)
+)
+;
+comment on table AQPB890
+  is 'TABLA PUENTE VISTA V_CERTIFICADOS';
+comment on column AQPB890.nid
+  is 'Correlativo';
+comment on column AQPB890.prodint
+  is 'Producto Interno';
+comment on column AQPB890.canlint
+  is 'Canal Interno';
+comment on column AQPB890.producto
+  is 'Producto';
+comment on column AQPB890.certificado
+  is 'Certificado';
+comment on column AQPB890.cuenta
+  is 'Cuenta';
+comment on column AQPB890.documento
+  is 'Documento';
+create index AQPB890A_OGG on AQPB890 (NID, PRODINT, CANLINT, PRODUCTO, CERTIFICADO, CUENTA, DOCUMENTO);
+create unique index AQPB890A2 on AQPB890 (NID);
+

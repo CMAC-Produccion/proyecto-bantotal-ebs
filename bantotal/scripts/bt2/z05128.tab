@@ -1,0 +1,18 @@
+create table Z05128
+(
+  z05128tmo NUMBER(1) not null,
+  z05128cop CHAR(3) not null,
+  z05128tit CHAR(1) not null,
+  z05128tde NUMBER(1) not null,
+  z05128tcr NUMBER(1) not null,
+  z05128tpe CHAR(1) not null,
+  z05128mod NUMBER(3),
+  z05128trn NUMBER(3),
+  z05128ord NUMBER(2),
+  z05128sbo NUMBER(3),
+  z05128pgm CHAR(1)
+)
+;
+alter table Z05128
+  add primary key (Z05128TMO, Z05128COP, Z05128TIT, Z05128TDE, Z05128TCR, Z05128TPE);
+

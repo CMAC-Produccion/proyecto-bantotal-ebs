@@ -1,0 +1,20 @@
+create table JHSP40
+(
+  jhsp40emp NUMBER(3) not null,
+  jhsp40ped NUMBER(10) not null,
+  jhsp40no1 CHAR(70),
+  jhsp40no2 CHAR(70),
+  jhsp40no3 CHAR(70),
+  jhsp40fc1 DATE,
+  jhsp40fc2 DATE,
+  jhsp40fc3 DATE,
+  jhsp40tx1 CHAR(30),
+  jhsp40tx2 CHAR(30),
+  jhsp40tx3 CHAR(30),
+  jhsp40ax1 NUMBER(9),
+  jhsp40ax2 NUMBER(9),
+  jhsp40ax3 NUMBER(9)
+)
+;
+create unique index JHSP4001 on JHSP40 (JHSP40EMP, JHSP40PED);
+

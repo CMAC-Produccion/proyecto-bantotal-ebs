@@ -1,0 +1,28 @@
+create table FSFX09
+(
+  sfx09num NUMBER(15) not null,
+  sfx04cod NUMBER(4),
+  sfx09urq CHAR(10),
+  sfx09urs CHAR(10),
+  sfx09rqd DATE,
+  sfx09rqt CHAR(8),
+  sfx09rqn CHAR(50),
+  sfx09rsn CHAR(50),
+  sfx09prq NUMBER(9),
+  sfx09prs NUMBER(9),
+  sfx09nid NUMBER(9),
+  sfx09nib NUMBER(4),
+  sfx09rsd DATE,
+  sfx09rst CHAR(8),
+  sfx09srq CHAR(2),
+  sfx09srs CHAR(2),
+  sfx09spr CHAR(2),
+  sfx09pru CHAR(10),
+  sfx09prd DATE,
+  sfx09prt CHAR(8)
+)
+;
+create index FSFX092 on FSFX09 (SFX04COD);
+alter table FSFX09
+  add primary key (SFX09NUM);
+

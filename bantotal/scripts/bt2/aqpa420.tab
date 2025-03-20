@@ -1,0 +1,16 @@
+create table AQPA420
+(
+  aqpa420corr NUMBER(10) not null,
+  aqpa420fpro DATE not null,
+  aqpa420hora CHAR(8) not null,
+  aqpa420inst NUMBER(10) not null,
+  aqpa420cptn NUMBER(17,2),
+  aqpa420aux1 VARCHAR2(6),
+  aqpa420aux2 NUMBER(10),
+  aqpa420aux3 DATE,
+  aqpa420aux4 CHAR(20)
+)
+;
+alter table AQPA420
+  add primary key (AQPA420CORR, AQPA420INST, AQPA420FPRO, AQPA420HORA);
+

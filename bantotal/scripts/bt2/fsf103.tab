@@ -1,0 +1,44 @@
+create table FSF103
+(
+  lnpgcod  NUMBER(3) not null,
+  lntrmod  NUMBER(3) not null,
+  lntrnro  NUMBER(3) not null,
+  lntrnom  CHAR(30),
+  lntrtdef CHAR(20),
+  lntrtext CHAR(1),
+  lntrmn   CHAR(1),
+  lntrme   CHAR(1),
+  lntralba CHAR(1),
+  lntrreco CHAR(1),
+  lntrporc NUMBER(2),
+  lntrsorc NUMBER(2),
+  lntropau CHAR(1),
+  lntropep CHAR(1),
+  lntrcors CHAR(1),
+  lntromlm CHAR(1),
+  lntrimpr CHAR(1),
+  lntrcej  CHAR(1),
+  lntrincr CHAR(1),
+  lntrbjpa CHAR(1),
+  lntrbjan CHAR(1),
+  lntrtafe CHAR(1),
+  lntranhi CHAR(1),
+  lntrcbcu CHAR(1),
+  lntrccla CHAR(1),
+  lntrnetp CHAR(1),
+  lntrcomi NUMBER(3),
+  lntrgts  CHAR(1),
+  lntriva  CHAR(1),
+  lntrivme CHAR(1),
+  lntrswif NUMBER(3),
+  lntrccos CHAR(1),
+  lntridoc CHAR(1),
+  lntrhabt CHAR(1),
+  lntrdtpo CHAR(1),
+  lnpftcod NUMBER(5),
+  lntrconf CHAR(1)
+)
+;
+alter table FSF103
+  add primary key (LNPGCOD, LNTRMOD, LNTRNRO);
+

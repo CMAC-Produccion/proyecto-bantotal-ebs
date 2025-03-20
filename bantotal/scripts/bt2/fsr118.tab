@@ -1,0 +1,19 @@
+create table FSR118
+(
+  efpgcod   NUMBER(3) not null,
+  efscsuc   NUMBER(3) not null,
+  efscmda   NUMBER(4) not null,
+  efscpap   NUMBER(4) not null,
+  efsccta   NUMBER(9) not null,
+  efscoper  NUMBER(9) not null,
+  efscsbop  NUMBER(3) not null,
+  efsctope  NUMBER(3) not null,
+  efscmod   NUMBER(3) not null,
+  efppepais NUMBER(3) not null,
+  efppetdoc NUMBER(2) not null,
+  efppendoc CHAR(12) not null
+)
+;
+alter table FSR118
+  add primary key (EFPGCOD, EFSCSUC, EFSCMDA, EFSCPAP, EFSCCTA, EFSCOPER, EFSCSBOP, EFSCTOPE, EFSCMOD, EFPPEPAIS, EFPPETDOC, EFPPENDOC);
+

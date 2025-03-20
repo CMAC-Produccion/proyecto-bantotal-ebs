@@ -1,0 +1,25 @@
+create table AQPB264D
+(
+  aqpb264dfec DATE not null,
+  aqpb264dpai NUMBER(3) not null,
+  aqpb264dtip NUMBER(2) not null,
+  aqpb264ddoc CHAR(12) not null,
+  aqpb264dest CHAR(1) not null
+)
+;
+comment on table AQPB264D
+  is 'Tabla Creditos a  Ampliar- DNI';
+comment on column AQPB264D.aqpb264dfec
+  is 'fecha carga';
+comment on column AQPB264D.aqpb264dpai
+  is 'pais';
+comment on column AQPB264D.aqpb264dtip
+  is 'tipo doc';
+comment on column AQPB264D.aqpb264ddoc
+  is 'numdoc';
+comment on column AQPB264D.aqpb264dest
+  is 'estado';
+create index AQPB2641D1 on AQPB264D (AQPB264DFEC);
+alter table AQPB264D
+  add constraint AQPB2641D primary key (AQPB264DFEC, AQPB264DPAI, AQPB264DTIP, AQPB264DDOC, AQPB264DEST);
+

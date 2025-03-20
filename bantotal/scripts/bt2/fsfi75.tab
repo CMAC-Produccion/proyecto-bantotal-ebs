@@ -1,0 +1,18 @@
+create table FSFI75
+(
+  sfi70emp   NUMBER(3) not null,
+  sfi73papel NUMBER(4) not null,
+  sfi73num   NUMBER(9) not null,
+  sfi75ctnro NUMBER(9) not null,
+  sfi75opccd NUMBER(5),
+  sfi75txt   CHAR(50),
+  sfi75user  CHAR(10),
+  sfi75rgfec DATE,
+  sfi75rghor CHAR(8),
+  sfi75rgwst CHAR(10),
+  sfi75vig   CHAR(1)
+)
+;
+alter table FSFI75
+  add primary key (SFI70EMP, SFI73PAPEL, SFI73NUM, SFI75CTNRO);
+

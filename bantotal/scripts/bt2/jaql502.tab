@@ -1,0 +1,27 @@
+create table JAQL502
+(
+  jaql502pgcod NUMBER(3) not null,
+  jaql502sucur NUMBER(3) not null,
+  jaql502coofi NUMBER(3) not null,
+  jaql502coatm NUMBER(3) not null,
+  jaql502fecie DATE not null,
+  jaql502hocie CHAR(10),
+  jaql502bisol NUMBER(11,2),
+  jaql502bidol NUMBER(11,2),
+  jaql502orsol NUMBER(11,2),
+  jaql502ordol NUMBER(11,2),
+  jaql502rosol NUMBER(11,2),
+  jaql502rodol NUMBER(11,2),
+  jaql502sosol NUMBER(11,2),
+  jaql502sodol NUMBER(11,2),
+  jaql502tosol NUMBER(11,2),
+  jaql502todol NUMBER(11,2),
+  jaql502sisol NUMBER(11,2),
+  jaql502sidol NUMBER(11,2),
+  jaql502escie CHAR(1)
+)
+;
+create index JAQL50202 on JAQL502 (JAQL502COATM);
+alter table JAQL502
+  add primary key (JAQL502PGCOD, JAQL502SUCUR, JAQL502COOFI, JAQL502COATM, JAQL502FECIE);
+

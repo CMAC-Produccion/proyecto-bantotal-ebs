@@ -1,0 +1,17 @@
+create table Z05502
+(
+  z05502apl NUMBER(4) not null,
+  z05502bnd CHAR(5) not null,
+  z05502cor NUMBER(9) not null,
+  z05502tno CHAR(1),
+  z05502cui NUMBER(11),
+  z05502pre CHAR(10),
+  z05502ori NUMBER(3),
+  z05502vto DATE,
+  z05502fil CHAR(167),
+  z05502est CHAR(2)
+)
+;
+alter table Z05502
+  add primary key (Z05502APL, Z05502BND, Z05502COR);
+

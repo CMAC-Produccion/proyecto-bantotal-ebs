@@ -1,0 +1,74 @@
+create table AQPC290
+(
+  aqpc290corr   NUMBER(9) not null,
+  aqpc290pais   NUMBER(3) not null,
+  aqpc290tdoc   NUMBER(2) not null,
+  aqpc290ndoc   VARCHAR2(12) not null,
+  aqpc290fecha  DATE not null,
+  aqpc290user   VARCHAR2(10) not null,
+  aqpc290hora   VARCHAR2(8) not null,
+  aqpc290ciiua  NUMBER(9),
+  aqpc290ciiuda VARCHAR2(60),
+  aqpc290ciiun  NUMBER(9),
+  aqpc290ciiudn VARCHAR2(60),
+  aqpc290cgrp   NUMBER(9),
+  aqpc290cdvs   NUMBER(9),
+  aqpc290csesi  VARCHAR2(10),
+  aqpc290est    VARCHAR2(5),
+  aqpc290fmact  VARCHAR2(15),
+  aqpc290inst   NUMBER(10),
+  aqpc290txcod  NUMBER(3),
+  aqpc290txmod  NUMBER(3),
+  aqpc290txsuc  NUMBER(3),
+  aqpc290txtra  NUMBER(3),
+  aqpc290txrel  NUMBER(4)
+)
+;
+comment on table AQPC290
+  is 'Log CIIU';
+comment on column AQPC290.aqpc290corr
+  is 'Correlativo';
+comment on column AQPC290.aqpc290pais
+  is 'Pais';
+comment on column AQPC290.aqpc290tdoc
+  is 'Tipo Documento';
+comment on column AQPC290.aqpc290ndoc
+  is 'Nro. Documento';
+comment on column AQPC290.aqpc290fecha
+  is 'Fecha';
+comment on column AQPC290.aqpc290user
+  is 'Usuario';
+comment on column AQPC290.aqpc290hora
+  is 'Hora';
+comment on column AQPC290.aqpc290ciiua
+  is 'CIIU Antiguo';
+comment on column AQPC290.aqpc290ciiuda
+  is 'Descripcion CIIU Antiguo';
+comment on column AQPC290.aqpc290ciiun
+  is 'CIIU Nuevo';
+comment on column AQPC290.aqpc290ciiudn
+  is 'Descripcion CIIU Nuevo';
+comment on column AQPC290.aqpc290cgrp
+  is 'Codigo Grupo';
+comment on column AQPC290.aqpc290cdvs
+  is 'Codigo Division';
+comment on column AQPC290.aqpc290csesi
+  is 'Codigo Sesion';
+comment on column AQPC290.aqpc290fmact
+  is 'Forma Actualizacion';
+comment on column AQPC290.aqpc290inst
+  is 'Instancia';
+comment on column AQPC290.aqpc290txcod
+  is 'Codigo Transaccion';
+comment on column AQPC290.aqpc290txmod
+  is 'Modulo Transaccion';
+comment on column AQPC290.aqpc290txsuc
+  is 'Sucursal Transaccion';
+comment on column AQPC290.aqpc290txtra
+  is 'Nro. Transaccion';
+comment on column AQPC290.aqpc290txrel
+  is 'Nro. Relacion';
+create index AQPC290A2 on AQPC290 (AQPC290PAIS, AQPC290TDOC, AQPC290NDOC);
+alter table AQPC290
+  add primary key (AQPC290CORR, AQPC290PAIS, AQPC290TDOC, AQPC290NDOC, AQPC290FECHA, AQPC290USER, AQPC290HORA);
+

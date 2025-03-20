@@ -1,0 +1,14 @@
+create table FBC764
+(
+  bc761nde CHAR(16) not null,
+  bc763npa NUMBER(5) not null,
+  bc760cod CHAR(15) not null,
+  bc762cor NUMBER(9) not null,
+  bc764fle NUMBER(17,2),
+  bc764imp NUMBER(17,2)
+)
+;
+create index FBC76402 on FBC764 (BC761NDE, BC760COD, BC762COR);
+alter table FBC764
+  add primary key (BC761NDE, BC763NPA, BC760COD, BC762COR);
+

@@ -1,0 +1,30 @@
+create table AQPD111
+(
+  aqpd111fec    DATE not null,
+  aqpd111ndoc   VARCHAR2(12) not null,
+  aqpd111enti   VARCHAR2(30),
+  aqpd111mntsol NUMBER(18,2),
+  aqpd111mntdol NUMBER(18,2),
+  aqpd111fecreg DATE,
+  aqpd111usu    VARCHAR2(10)
+)
+;
+comment on table AQPD111
+  is 'Datos de Canje';
+comment on column AQPD111.aqpd111fec
+  is 'Fecha de datos de canje';
+comment on column AQPD111.aqpd111ndoc
+  is 'Número de documento de la entidad (RUC)';
+comment on column AQPD111.aqpd111enti
+  is 'Razón social de la entidad';
+comment on column AQPD111.aqpd111mntsol
+  is 'Importe en soles';
+comment on column AQPD111.aqpd111mntdol
+  is 'Importe en dólares';
+comment on column AQPD111.aqpd111fecreg
+  is 'Fecha de importación/registro';
+comment on column AQPD111.aqpd111usu
+  is 'Usuario que ejecuta la importación';
+alter table AQPD111
+  add primary key (AQPD111FEC, AQPD111NDOC);
+

@@ -1,0 +1,28 @@
+create table FME999
+(
+  cmxtmecod NUMBER(3) not null,
+  cmxtmemod NUMBER(3) not null,
+  cmxtmeope NUMBER(9) not null,
+  cmxtmect1 NUMBER(9),
+  cmxtmect2 NUMBER(9),
+  cmxtmect3 NUMBER(9),
+  cmxtmefe1 DATE,
+  cmxtmefe2 DATE,
+  cmxtmefe3 DATE,
+  cmxtmeim1 NUMBER(14,2),
+  cmxtmeim2 NUMBER(14,2),
+  cmxtmeim3 NUMBER(14,2),
+  cmxtmenu1 NUMBER(16),
+  cmxtmenu2 NUMBER(16),
+  cmxtmenu3 NUMBER(16),
+  cmxtmest1 CHAR(35),
+  cmxtmest2 CHAR(35),
+  cmxtmest3 CHAR(35),
+  cmxtmepo1 NUMBER(7,4),
+  cmxtmepo2 NUMBER(7,4),
+  cmxtmepo3 NUMBER(7,4)
+)
+;
+alter table FME999
+  add primary key (CMXTMECOD, CMXTMEMOD, CMXTMEOPE);
+

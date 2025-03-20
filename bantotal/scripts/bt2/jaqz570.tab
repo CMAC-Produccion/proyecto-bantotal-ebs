@@ -1,0 +1,32 @@
+create table JAQZ570
+(
+  jaqz570cred  VARCHAR2(40) not null,
+  jaqz570cta   NUMBER(9),
+  jaqz570oper  NUMBER(9),
+  jaqz570sldo  NUMBER(16,2),
+  jaqz570tasa  NUMBER(9,3),
+  jaqz570tipo  CHAR(20),
+  jaqz570ndo   CHAR(12),
+  jaqz570nom   CHAR(100),
+  jaqz570rzs   CHAR(100),
+  jaqz570fnac  DATE,
+  jaqz570dir   CHAR(140),
+  jaqz570dist  CHAR(100),
+  jaqz570prov  CHAR(100),
+  jaqz570depto CHAR(100),
+  jaqz570usr   CHAR(12),
+  jaqz570sgcod NUMBER(4),
+  jaqz570edad  VARCHAR2(50),
+  jaqz570au1   NUMBER(4),
+  jaqz570au2   NUMBER(17),
+  jaqz570au3   NUMBER(16,2),
+  jaqz570au4   CHAR(20),
+  jaqz570au5   CHAR(200),
+  jaqz570au6   VARCHAR2(40),
+  jaqz570au7   VARCHAR2(100),
+  jaqz570au8   DATE
+)
+;
+alter table JAQZ570
+  add primary key (JAQZ570CRED);
+

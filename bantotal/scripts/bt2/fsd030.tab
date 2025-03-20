@@ -1,0 +1,32 @@
+create table FSD030
+(
+  pgcod  NUMBER(3) not null,
+  scmod  NUMBER(3) not null,
+  scsuc  NUMBER(3) not null,
+  scmda  NUMBER(4) not null,
+  scpap  NUMBER(4) not null,
+  sccta  NUMBER(9) not null,
+  scoper NUMBER(9) not null,
+  scsbop NUMBER(3) not null,
+  sctope NUMBER(3) not null,
+  cqinic NUMBER(9) not null,
+  cqcant NUMBER(2),
+  cq1    CHAR(1),
+  cq2    CHAR(1),
+  cq3    CHAR(1),
+  cq4    CHAR(1),
+  cq5    CHAR(1),
+  cqcheq CHAR(50),
+  cqser  CHAR(1),
+  cqfval DATE,
+  cqstat CHAR(1)
+)
+;
+create index FSD03002 on FSD030 (PGCOD, SCSUC);
+create index FSD03003 on FSD030 (PGCOD, SCCTA);
+create index FSD03004 on FSD030 (SCMOD);
+create index FSD03005 on FSD030 (SCMDA);
+create index FSD03006 on FSD030 (SCPAP);
+alter table FSD030
+  add primary key (PGCOD, SCMOD, SCSUC, SCMDA, SCPAP, SCCTA, SCOPER, SCSBOP, SCTOPE, CQINIC);
+

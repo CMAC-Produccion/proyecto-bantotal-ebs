@@ -1,0 +1,69 @@
+create table AQPC956A
+(
+  aqpc956acorr  NUMBER(10),
+  aqpc956aferg  DATE,
+  aqpc956ahorg  VARCHAR2(8),
+  aqpc956ausrg  VARCHAR2(10),
+  aqpc956apais  NUMBER(4),
+  aqpc956atdoc  NUMBER(4),
+  aqpc956andoc  VARCHAR2(12),
+  aqpc956afech  DATE,
+  aqpc956ahorf  VARCHAR2(8),
+  aqpc956atime  NUMBER(10),
+  aqpc956aaux1  NUMBER(17,2),
+  aqpc956aaux2  NUMBER(17,2),
+  aqpc956aaux3  NUMBER(17,2),
+  aqpc956aaux4  NUMBER(17,2),
+  aqpc956aaux5  VARCHAR2(100),
+  aqpc956aaux6  VARCHAR2(100),
+  aqpc956aaux7  VARCHAR2(100),
+  aqpc956aaux8  VARCHAR2(100),
+  aqpc956aaux9  DATE,
+  aqpc956aaux10 DATE
+)
+;
+comment on table AQPC956A
+  is 'TABLA LOG DE REPORTE HISTORICO DE VARIABLES';
+comment on column AQPC956A.aqpc956acorr
+  is 'CORRELATIVO';
+comment on column AQPC956A.aqpc956aferg
+  is 'FECHA DE REGISTRO';
+comment on column AQPC956A.aqpc956ahorg
+  is 'HORA DE REGISTRO';
+comment on column AQPC956A.aqpc956ausrg
+  is 'USUARIO DE REGISTRO';
+comment on column AQPC956A.aqpc956apais
+  is 'PAIS';
+comment on column AQPC956A.aqpc956atdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column AQPC956A.aqpc956andoc
+  is 'NRO DE DOCUMENTO';
+comment on column AQPC956A.aqpc956afech
+  is 'FECHA DE PROCESO';
+comment on column AQPC956A.aqpc956ahorf
+  is 'HORA DE TERMINO';
+comment on column AQPC956A.aqpc956atime
+  is 'SEGUNDOS DE EJECUCIÓN';
+comment on column AQPC956A.aqpc956aaux1
+  is 'AUXILIAR 1';
+comment on column AQPC956A.aqpc956aaux2
+  is 'AUXILIAR 2';
+comment on column AQPC956A.aqpc956aaux3
+  is 'AUXILIAR 3';
+comment on column AQPC956A.aqpc956aaux4
+  is 'AUXILIAR 4';
+comment on column AQPC956A.aqpc956aaux5
+  is 'AUXILIAR 5';
+comment on column AQPC956A.aqpc956aaux6
+  is 'AUXILIAR 6';
+comment on column AQPC956A.aqpc956aaux7
+  is 'AUXILIAR 7';
+comment on column AQPC956A.aqpc956aaux8
+  is 'AUXILIAR 8';
+comment on column AQPC956A.aqpc956aaux9
+  is 'AUXILIAR 9';
+comment on column AQPC956A.aqpc956aaux10
+  is 'AUXILIAR 10';
+create index AQPC956AA2 on AQPC956A (AQPC956AFERG, AQPC956AHORG, AQPC956AUSRG);
+create index AQPC956AA3 on AQPC956A (AQPC956APAIS, AQPC956ATDOC, AQPC956ANDOC);
+

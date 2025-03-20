@@ -1,0 +1,14 @@
+create table FSFC06
+(
+  kg06pgcod NUMBER(3) not null,
+  kg06ctnro NUMBER(9) not null,
+  kg06ctnom CHAR(35),
+  kg06topco NUMBER(7,4),
+  kg06femod DATE,
+  kg06homod CHAR(8),
+  kg06usmod CHAR(10)
+)
+;
+alter table FSFC06
+  add primary key (KG06PGCOD, KG06CTNRO);
+

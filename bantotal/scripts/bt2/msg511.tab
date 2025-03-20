@@ -1,0 +1,19 @@
+create table MSG511
+(
+  estmcod   NUMBER(5) not null,
+  msg510cod NUMBER(10) not null,
+  msg511atr VARCHAR2(100) not null,
+  msg511nt  VARCHAR2(100),
+  atrnom    CHAR(10),
+  msg511tip CHAR(1),
+  msg511df  VARCHAR2(200),
+  msg511cl  CHAR(1),
+  msg511lar NUMBER(4),
+  msg511dec NUMBER(4),
+  msg511udf CHAR(1)
+)
+;
+create index MSG51102 on MSG511 (ESTMCOD, ATRNOM);
+alter table MSG511
+  add primary key (ESTMCOD, MSG510COD, MSG511ATR);
+

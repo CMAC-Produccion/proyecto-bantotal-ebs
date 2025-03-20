@@ -1,0 +1,66 @@
+create table AQPB165
+(
+  aqpb165corr    NUMBER(10) not null,
+  aqpb165pgcod   NUMBER(10) not null,
+  aqpb165suct    NUMBER(4) not null,
+  aqpb165modt    NUMBER(4) not null,
+  aqpb165ttran   NUMBER(4) not null,
+  aqpb165relt    NUMBER(4) not null,
+  aqpb165ordt    NUMBER(4) not null,
+  aqpb165fec     DATE not null,
+  aqpb165hora    VARCHAR2(8) not null,
+  aqpb165mntope  NUMBER(17,2),
+  aqpb165mntacum NUMBER(17,2),
+  aqpb165cta     NUMBER(9),
+  aqpb165pais    NUMBER(4),
+  aqpb165tdoc    NUMBER(4),
+  aqpb165ndoc    VARCHAR2(12),
+  aqpb165credcd  NUMBER(10),
+  aqpb165bloq    VARCHAR2(10),
+  aqpb165est     VARCHAR2(5)
+)
+;
+comment on table AQPB165
+  is 'Tabla Log de Control monto maximo de Condonaciones';
+comment on column AQPB165.aqpb165corr
+  is 'Correlativo';
+comment on column AQPB165.aqpb165pgcod
+  is 'Pgcod tx';
+comment on column AQPB165.aqpb165suct
+  is 'Sucursal tx';
+comment on column AQPB165.aqpb165modt
+  is 'Modulo tx';
+comment on column AQPB165.aqpb165ttran
+  is 'Transaccion';
+comment on column AQPB165.aqpb165relt
+  is 'Relacion tx';
+comment on column AQPB165.aqpb165ordt
+  is 'Ordinal tx';
+comment on column AQPB165.aqpb165fec
+  is 'Fecha tx';
+comment on column AQPB165.aqpb165hora
+  is 'Hora tx';
+comment on column AQPB165.aqpb165mntope
+  is 'Monto tope condonaciones';
+comment on column AQPB165.aqpb165mntacum
+  is 'Monto Acumulado';
+comment on column AQPB165.aqpb165cta
+  is 'Cuenta';
+comment on column AQPB165.aqpb165pais
+  is 'Pais';
+comment on column AQPB165.aqpb165tdoc
+  is 'Tipo de documento';
+comment on column AQPB165.aqpb165ndoc
+  is 'Nro de Documento';
+comment on column AQPB165.aqpb165credcd
+  is 'Nro de Creditos con dscto AQPB589';
+comment on column AQPB165.aqpb165bloq
+  is 'Bloquea la tx, S permite continuar N bloquea';
+comment on column AQPB165.aqpb165est
+  is 'Estado';
+create index AQPB165A2 on AQPB165 (AQPB165PGCOD, AQPB165SUCT, AQPB165MODT, AQPB165TTRAN, AQPB165RELT, AQPB165ORDT);
+create index AQPB165A3 on AQPB165 (AQPB165FEC);
+create index AQPB165A4 on AQPB165 (AQPB165PAIS, AQPB165TDOC, AQPB165NDOC);
+alter table AQPB165
+  add primary key (AQPB165CORR, AQPB165PGCOD, AQPB165SUCT, AQPB165MODT, AQPB165TTRAN, AQPB165RELT, AQPB165ORDT, AQPB165FEC, AQPB165HORA);
+

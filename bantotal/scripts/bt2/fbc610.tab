@@ -1,0 +1,42 @@
+create table FBC610
+(
+  bc610emp   NUMBER(3) not null,
+  bc610feci  DATE not null,
+  bc610rubro CHAR(16) not null,
+  bc610corr  NUMBER(9) not null,
+  bc610codn  CHAR(15),
+  bc610pza   CHAR(15),
+  bc610emis  CHAR(50),
+  bc610sbs   CHAR(10),
+  bc610pais  CHAR(4),
+  bc610desc  CHAR(6),
+  bc610eys   CHAR(5),
+  bc610codm  CHAR(3),
+  bc610tc    NUMBER(7,4),
+  bc610fecc  CHAR(8),
+  bc610fecv  CHAR(8),
+  bc610can   NUMBER(14,4),
+  bc610valn  NUMBER(14,4),
+  bc610contr CHAR(50),
+  bc610fecp  CHAR(8),
+  bc610fecu  CHAR(8),
+  bc610cos   NUMBER(14,2),
+  bc610vall  NUMBER(14,2),
+  bc610prec  NUMBER(7,4),
+  bc610trec  NUMBER(7,4),
+  bc610pree  NUMBER(7,4),
+  bc610tase  NUMBER(7,4),
+  bc610valm  NUMBER(14,4),
+  bc610fuen  CHAR(50),
+  bc610prov  NUMBER(14,2),
+  bc610emr1  CHAR(50),
+  bc610emr2  CHAR(50),
+  bc610emr3  CHAR(50),
+  bc610emr4  CHAR(50),
+  bc610cus   CHAR(50),
+  bc610sub   CHAR(1)
+)
+;
+alter table FBC610
+  add primary key (BC610EMP, BC610FECI, BC610RUBRO, BC610CORR);
+

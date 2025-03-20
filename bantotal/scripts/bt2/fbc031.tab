@@ -1,0 +1,16 @@
+create table FBC031
+(
+  bc031fch  DATE not null,
+  bc031pais NUMBER(3) not null,
+  bc031tid  NUMBER(2) not null,
+  bc031nid  CHAR(12) not null,
+  bc031par  NUMBER(8) not null,
+  bc031cod  NUMBER(1) not null,
+  bc031den  CHAR(55),
+  bc031nor  CHAR(200),
+  bc031imp  NUMBER(17,2)
+)
+;
+alter table FBC031
+  add primary key (BC031FCH, BC031PAIS, BC031TID, BC031NID, BC031PAR, BC031COD);
+

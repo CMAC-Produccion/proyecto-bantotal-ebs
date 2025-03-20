@@ -1,0 +1,12 @@
+create table TDW003
+(
+  tdw003agr NUMBER(3) not null,
+  tdw003dsc CHAR(60),
+  tdw003com NUMBER(3),
+  tdw003grp CHAR(1)
+)
+;
+create index TDW00302 on TDW003 (TDW003COM);
+alter table TDW003
+  add primary key (TDW003AGR);
+

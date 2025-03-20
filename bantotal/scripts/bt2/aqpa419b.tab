@@ -1,0 +1,28 @@
+create table AQPA419B
+(
+  aqpa419binst   NUMBER(10) not null,
+  aqpa419bcsbs   VARCHAR2(10) not null,
+  aqpa419bcemp   CHAR(5) not null,
+  aqpa419bcuen   CHAR(14) not null,
+  aqpa419bsald   NUMBER(17,2),
+  aqpa419bsalc   NUMBER(17,2),
+  aqpa419bsaln   NUMBER(17,2),
+  aqpa419bfpre   DATE,
+  aqpa419bfech   DATE not null,
+  aqpa419bhora   CHAR(8) not null,
+  aqpa419butil   NUMBER(17,2),
+  aqpa419bpgcod  NUMBER(3) not null,
+  aqpa419bitsuc  NUMBER(3) not null,
+  aqpa419bitmod  NUMBER(3) not null,
+  aqpa419bittran NUMBER(3) not null,
+  aqpa419bitfcon DATE not null,
+  aqpa419bitnrel NUMBER(4) not null,
+  aqpa419bituing NVARCHAR2(20),
+  aqpa419btipo   NUMBER(5),
+  aqpa419baux1   NUMBER(5),
+  aqpa419baux2   VARCHAR2(50)
+)
+;
+alter table AQPA419B
+  add primary key (AQPA419BINST, AQPA419BCSBS, AQPA419BCEMP, AQPA419BCUEN, AQPA419BPGCOD, AQPA419BITSUC, AQPA419BITMOD, AQPA419BITTRAN, AQPA419BITFCON, AQPA419BITNREL, AQPA419BFECH, AQPA419BHORA);
+

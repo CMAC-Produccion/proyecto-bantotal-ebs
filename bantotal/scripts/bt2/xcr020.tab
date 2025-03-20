@@ -1,0 +1,16 @@
+create table XCR020
+(
+  xcrrefrubr NUMBER(16) not null,
+  xcrrefmod  NUMBER(3) not null,
+  xcrreftrn  NUMBER(3) not null,
+  xcrrefdesc CHAR(30),
+  xcrrefacci NUMBER(2),
+  xcrrefcod  CHAR(18),
+  xcrrefaux1 CHAR(1),
+  xcrrefaux2 DATE,
+  xcrrefaux3 NUMBER(17,2)
+)
+;
+alter table XCR020
+  add primary key (XCRREFRUBR, XCRREFMOD, XCRREFTRN);
+

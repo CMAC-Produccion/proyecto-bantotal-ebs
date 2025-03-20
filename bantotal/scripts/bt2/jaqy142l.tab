@@ -1,0 +1,91 @@
+create table JAQY142L
+(
+  jaqy142lcorr   NUMBER not null,
+  jaqy142linst   NUMBER not null,
+  jaqy142lpais   NUMBER,
+  jaqy142ltdoc   NUMBER,
+  jaqy142lndoc   VARCHAR2(10),
+  jaqy142lfech   DATE not null,
+  jaqy142lhora   CHAR(8) not null,
+  jaqy142lpgcod  NUMBER,
+  jaqy142lmod    NUMBER,
+  jaqy142lsuc    NUMBER,
+  jaqy142lmda    NUMBER,
+  jaqy142lpap    NUMBER,
+  jaqy142lcta    NUMBER,
+  jaqy142lope    NUMBER,
+  jaqy142lsbop   NUMBER,
+  jaqy142ltope   NUMBER,
+  jaqy142lrubro  NUMBER,
+  jaqy142lcuota  NUMBER(17,2),
+  jaqy142lmntcr  NUMBER(17,2),
+  jaqy142lusado  NUMBER(17,2),
+  jaqy142ldispb  NUMBER(17,2),
+  jaqy142lfactor NUMBER,
+  jaqy142lcpoten NUMBER(17,2),
+  jaqy142lest    VARCHAR2(10),
+  jaqy142lsegmn  NUMBER,
+  jaqy142ltarea  NUMBER
+)
+;
+comment on table JAQY142L
+  is 'Tabla de Lineas Vigentes para Cuota Potencial CMAC';
+comment on column JAQY142L.jaqy142lcorr
+  is 'Correlativo';
+comment on column JAQY142L.jaqy142linst
+  is 'Instancia';
+comment on column JAQY142L.jaqy142lpais
+  is 'Pais';
+comment on column JAQY142L.jaqy142ltdoc
+  is 'Tipo de documento';
+comment on column JAQY142L.jaqy142lndoc
+  is 'Nro de documento';
+comment on column JAQY142L.jaqy142lfech
+  is 'Fecha de registro';
+comment on column JAQY142L.jaqy142lhora
+  is 'Hora de registro';
+comment on column JAQY142L.jaqy142lpgcod
+  is 'Pgcod';
+comment on column JAQY142L.jaqy142lmod
+  is 'Modulo';
+comment on column JAQY142L.jaqy142lsuc
+  is 'Sucursal';
+comment on column JAQY142L.jaqy142lmda
+  is 'Moneda';
+comment on column JAQY142L.jaqy142lpap
+  is 'Papel';
+comment on column JAQY142L.jaqy142lcta
+  is 'Cuenta';
+comment on column JAQY142L.jaqy142lope
+  is 'Operacion';
+comment on column JAQY142L.jaqy142lsbop
+  is 'SubOperacioon';
+comment on column JAQY142L.jaqy142ltope
+  is 'Tipo de Operacion';
+comment on column JAQY142L.jaqy142lrubro
+  is 'Rubro';
+comment on column JAQY142L.jaqy142lcuota
+  is 'Cuota';
+comment on column JAQY142L.jaqy142lmntcr
+  is 'Monto Credito';
+comment on column JAQY142L.jaqy142lusado
+  is 'Monto Usado';
+comment on column JAQY142L.jaqy142ldispb
+  is 'Monto Disponible';
+comment on column JAQY142L.jaqy142lfactor
+  is 'Factor';
+comment on column JAQY142L.jaqy142lcpoten
+  is 'Cuota Potencial';
+comment on column JAQY142L.jaqy142lest
+  is 'Estado';
+comment on column JAQY142L.jaqy142lsegmn
+  is 'Segmento';
+comment on column JAQY142L.jaqy142ltarea
+  is 'Tarea';
+create index JAQY142LA2 on JAQY142L (JAQY142LINST);
+create index JAQY142LA3 on JAQY142L (JAQY142LINST, JAQY142LEST);
+create index JAQY142LA4 on JAQY142L (JAQY142LINST, JAQY142LRUBRO, JAQY142LEST);
+create index JAQY142LA5 on JAQY142L (JAQY142LINST, JAQY142LPGCOD, JAQY142LMOD, JAQY142LSUC, JAQY142LMDA, JAQY142LPAP, JAQY142LCTA, JAQY142LOPE, JAQY142LSBOP, JAQY142LTOPE, JAQY142LEST);
+alter table JAQY142L
+  add primary key (JAQY142LCORR, JAQY142LINST, JAQY142LFECH, JAQY142LHORA);
+

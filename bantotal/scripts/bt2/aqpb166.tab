@@ -1,0 +1,66 @@
+create table AQPB166
+(
+  aqpb166corr     NUMBER(10) not null,
+  aqpb166inst     NUMBER(10),
+  aqpb166tdoc     NUMBER(4) not null,
+  aqpb166ndoc     VARCHAR2(12) not null,
+  aqpb166user     VARCHAR2(10) not null,
+  aqpb166fec      DATE not null,
+  aqpb166hora     VARCHAR2(8) not null,
+  aqpb166prgm     VARCHAR2(15) not null,
+  aqpb166score    VARCHAR2(15),
+  aqpb166probal   NUMBER(9,7),
+  aqpb166segmrisk VARCHAR2(15),
+  aqpb166pdcal    NUMBER(9,7),
+  aqpb166tabla    VARCHAR2(15),
+  aqpb166f640     DATE,
+  aqpb166f639     DATE,
+  aqpb166est      VARCHAR2(5),
+  aqpb166scora    VARCHAR2(10),
+  aqpb166nscor    VARCHAR2(30)
+)
+;
+comment on table AQPB166
+  is 'Tabla Log de Score por CRU y  Flujo ';
+comment on column AQPB166.aqpb166corr
+  is 'Correlativo';
+comment on column AQPB166.aqpb166inst
+  is 'Instancia';
+comment on column AQPB166.aqpb166tdoc
+  is 'Tipo de documento';
+comment on column AQPB166.aqpb166ndoc
+  is 'Nro de Documento';
+comment on column AQPB166.aqpb166user
+  is 'Usuario';
+comment on column AQPB166.aqpb166fec
+  is 'Fecha';
+comment on column AQPB166.aqpb166hora
+  is 'Hora';
+comment on column AQPB166.aqpb166prgm
+  is 'Programa';
+comment on column AQPB166.aqpb166score
+  is 'Score';
+comment on column AQPB166.aqpb166probal
+  is 'Probabilidad';
+comment on column AQPB166.aqpb166segmrisk
+  is 'Segmento Riesgo';
+comment on column AQPB166.aqpb166pdcal
+  is 'PD Calif';
+comment on column AQPB166.aqpb166tabla
+  is 'Tabla origen de Score';
+comment on column AQPB166.aqpb166f640
+  is 'Fecha tabla JAQL640';
+comment on column AQPB166.aqpb166f639
+  is 'Fecha Tabla JAQL639';
+comment on column AQPB166.aqpb166est
+  is 'Estado';
+comment on column AQPB166.aqpb166scora
+  is 'Score Abreviado';
+comment on column AQPB166.aqpb166nscor
+  is 'Nuevo Score';
+create index AQPB166A2 on AQPB166 (AQPB166INST);
+create index AQPB166A3 on AQPB166 (AQPB166TDOC, AQPB166NDOC);
+create index AQPB166A4 on AQPB166 (AQPB166TDOC, AQPB166NDOC, AQPB166FEC);
+alter table AQPB166
+  add primary key (AQPB166CORR, AQPB166TDOC, AQPB166NDOC, AQPB166USER, AQPB166FEC, AQPB166HORA, AQPB166PRGM);
+

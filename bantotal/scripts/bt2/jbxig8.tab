@@ -1,0 +1,33 @@
+create table JBXIG8
+(
+  jbxig8cod NUMBER(3) not null,
+  jbxig8suc NUMBER(3) not null,
+  jbxig8cjs NUMBER(9) not null,
+  jbxig8cta NUMBER(9) not null,
+  jbxig8coc CHAR(15),
+  jbxig8nco NUMBER(18),
+  jbxig8cat CHAR(15),
+  jbxig8loc CHAR(15),
+  jbxig8pai NUMBER(3),
+  jbxig8tdo NUMBER(2),
+  jbxig8ndo CHAR(12),
+  jbxig8vto DATE,
+  jbxig8pag DATE,
+  jbxig8imp NUMBER(17,2),
+  jbxig8iva NUMBER(17,2),
+  jbxig8sel NUMBER(17,2),
+  jbxig8pbo NUMBER(7,4),
+  jbxig8fib DATE,
+  jbxig8fhb DATE,
+  jbxig8sdo NUMBER(17,2),
+  jbxig8sse NUMBER(17,2),
+  jbxig8siv NUMBER(17,2),
+  jbxig8ofi CHAR(15),
+  jbxig8fal DATE,
+  jbxig8fba DATE,
+  jbxig8mba CHAR(15),
+  jbxig8cco CHAR(15)
+)
+;
+create unique index JBXIG801 on JBXIG8 (JBXIG8COD, JBXIG8SUC, JBXIG8CJS, JBXIG8CTA);
+

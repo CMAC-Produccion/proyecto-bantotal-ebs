@@ -1,0 +1,45 @@
+create table AQPD756
+(
+  aqpd756inst     NUMBER(17),
+  aqpd756pgcod    NUMBER(3),
+  aqpd756mod      NUMBER(3),
+  aqpd756suc      NUMBER(3),
+  aqpd756mda      NUMBER(4),
+  aqpd756pap      NUMBER(4),
+  aqpd756cta      NUMBER(9),
+  aqpd756oper     NUMBER(9),
+  aqpd756sbop     NUMBER(3),
+  aqpd756tope     NUMBER(3),
+  aqpd756ctacrk   VARCHAR2(50),
+  aqpd756cdtcod   NUMBER(3),
+  aqpd756cdtsuc   NUMBER(3),
+  aqpd756cdtmod   NUMBER(3),
+  aqpd756cdttranc NUMBER(17),
+  aqpd756cdtnrel  NUMBER(17),
+  aqpd756cdtfch   DATE,
+  aqpd756fchdes   DATE,
+  aqpd756cod      NUMBER(17),
+  aqpd756usureg   CHAR(10),
+  aqpd756fchreg   DATE,
+  aqpd756hreg     CHAR(8),
+  aqpd756usuact   CHAR(10),
+  aqpd756fchact   DATE,
+  aqpd756hact     CHAR(8),
+  aqpd756usurev   CHAR(10),
+  aqpd756fchrev   DATE,
+  aqpd756hrev     CHAR(8),
+  aqpd756est      CHAR(1),
+  aqpd756aux1     DATE,
+  aqpd756aux2     DATE,
+  aqpd756aux3     NUMBER(17,2),
+  aqpd756aux4     NUMBER(17,2),
+  aqpd756aux5     VARCHAR2(50),
+  aqpd756aux6     VARCHAR2(50)
+)
+;
+create index AQPD756A1 on AQPD756 (AQPD756INST);
+create index AQPD756A2 on AQPD756 (AQPD756PGCOD, AQPD756MOD, AQPD756SUC, AQPD756MDA, AQPD756PAP, AQPD756CTA, AQPD756OPER, AQPD756SBOP, AQPD756TOPE);
+create index AQPD756A3 on AQPD756 (AQPD756CDTCOD, AQPD756CDTSUC, AQPD756CDTMOD, AQPD756CDTTRANC, AQPD756CDTNREL, AQPD756CDTFCH);
+create index AQPD756A4 on AQPD756 (AQPD756INST, AQPD756FCHDES);
+create index AQPD756A5 on AQPD756 (AQPD756INST, AQPD756FCHREG);
+

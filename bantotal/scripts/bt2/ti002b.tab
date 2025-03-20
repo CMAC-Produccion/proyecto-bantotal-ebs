@@ -1,0 +1,20 @@
+create table TI002B
+(
+  ti002bcod NUMBER(3) not null,
+  ti002bcor NUMBER(3) not null,
+  ti002bcai NUMBER(3) not null,
+  ti002bsuc NUMBER(3) not null,
+  ti002bpzo NUMBER(5) not null,
+  ti002bmod NUMBER(3) not null,
+  ti002btop NUMBER(3) not null,
+  ti002bact NUMBER(9) not null,
+  ti002bmre NUMBER(17,2),
+  ti002bau1 CHAR(35),
+  ti002bau2 NUMBER(17,2),
+  ti002bau3 NUMBER(9),
+  ti002bau4 DATE
+)
+;
+alter table TI002B
+  add primary key (TI002BCOD, TI002BCOR, TI002BCAI, TI002BSUC, TI002BPZO, TI002BMOD, TI002BTOP, TI002BACT);
+

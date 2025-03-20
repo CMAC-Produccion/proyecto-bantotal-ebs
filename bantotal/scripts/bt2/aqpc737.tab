@@ -1,0 +1,23 @@
+create table AQPC737
+(
+  aqpc737cre  VARCHAR2(50),
+  aqpc737ins  NUMBER(10),
+  aqpc737cod  NUMBER(3),
+  aqpc737suc  NUMBER(3),
+  aqpc737mod  NUMBER(3),
+  aqpc737mda  NUMBER(4),
+  aqpc737pap  NUMBER(4),
+  aqpc737cta  NUMBER(9),
+  aqpc737oper NUMBER(9),
+  aqpc737sbop NUMBER(3),
+  aqpc737tope NUMBER(3),
+  aqpc737fec  DATE,
+  aqpc737601  VARCHAR2(10),
+  aqpc737611  VARCHAR2(10),
+  aqpc737001  VARCHAR2(10)
+)
+;
+create unique index AQPC737 on AQPC737 (AQPC737INS);
+create unique index AQPC737A2 on AQPC737 (AQPC737COD, AQPC737SUC, AQPC737MOD, AQPC737MDA, AQPC737PAP, AQPC737CTA, AQPC737OPER, AQPC737SBOP, AQPC737TOPE);
+create unique index AQPC737A3 on AQPC737 (AQPC737CRE);
+

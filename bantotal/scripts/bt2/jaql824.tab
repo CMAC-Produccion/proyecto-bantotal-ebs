@@ -1,0 +1,16 @@
+create table JAQL824
+(
+  jaql824apl NUMBER(3) not null,
+  jaql824ban CHAR(4) not null,
+  jaql824env NUMBER(9) not null,
+  jaql824tar CHAR(2) not null,
+  jaql824fpr DATE,
+  jaql824fen DATE,
+  jaql824uin CHAR(10),
+  jaql824nar CHAR(100),
+  jaql824est CHAR(1)
+)
+;
+alter table JAQL824
+  add primary key (JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824TAR);
+

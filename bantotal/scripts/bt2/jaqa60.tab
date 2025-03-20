@@ -1,0 +1,108 @@
+create table JAQA60
+(
+  jaqa60pro VARCHAR2(50) not null,
+  jaqa60nra CHAR(50) not null,
+  jaqa60cop VARCHAR2(6) not null,
+  jaqa60nrp CHAR(50),
+  jaqa60faf CHAR(20),
+  jaqa60tse CHAR(9),
+  jaqa60cos CHAR(9),
+  jaqa60ccu CHAR(5),
+  jaqa60imp NUMBER(17,2),
+  jaqa60usv CHAR(10),
+  jaqa60est CHAR(1),
+  jaqa60aor CHAR(50),
+  jaqa60fev CHAR(20),
+  jaqa60fer CHAR(20),
+  jaqa60moc CHAR(1),
+  jaqa60coc CHAR(9),
+  jaqa60rna CHAR(1),
+  jaqa60fiv CHAR(20),
+  jaqa60fea CHAR(20),
+  jaqa60mta VARCHAR2(255),
+  jaqa60mco CHAR(1),
+  jaqa60pai NUMBER(3),
+  jaqa60tip CHAR(3),
+  jaqa60ndo CHAR(12),
+  jaqa60cet CHAR(1),
+  jaqa60dep VARCHAR2(300),
+  jaqa60dec VARCHAR2(300),
+  jaqa60cod NUMBER(9),
+  jaqa60fee DATE,
+  jaqa60hoe CHAR(10),
+  jaqa60fem DATE,
+  jaqa60esm CHAR(1),
+  jaqa60erd VARCHAR2(255)
+)
+;
+comment on table JAQA60
+  is 'Tabla puente de la tabla TMP_SisDataCertificados"@SISRETAIL';
+comment on column JAQA60.jaqa60pro
+  is 'Producto';
+comment on column JAQA60.jaqa60nra
+  is 'Numero Afiliacion';
+comment on column JAQA60.jaqa60cop
+  is 'Codigo Plan';
+comment on column JAQA60.jaqa60nrp
+  is 'Numero de Poliza';
+comment on column JAQA60.jaqa60faf
+  is 'Fecha de Afiliación';
+comment on column JAQA60.jaqa60tse
+  is 'Tipo de Seguro';
+comment on column JAQA60.jaqa60cos
+  is 'Codigo de Seguros';
+comment on column JAQA60.jaqa60ccu
+  is 'Cantidad de Cuotas';
+comment on column JAQA60.jaqa60imp
+  is 'Importe';
+comment on column JAQA60.jaqa60usv
+  is 'Usuario Vendedor';
+comment on column JAQA60.jaqa60est
+  is 'Estado';
+comment on column JAQA60.jaqa60aor
+  is 'Numero Afiliacion que origino renovación';
+comment on column JAQA60.jaqa60fev
+  is 'Fecha de Vencimiento';
+comment on column JAQA60.jaqa60fer
+  is 'Fecha de Renovación';
+comment on column JAQA60.jaqa60moc
+  is 'Modo Cobro';
+comment on column JAQA60.jaqa60coc
+  is 'CodigoCobro';
+comment on column JAQA60.jaqa60rna
+  is 'Renovación Automatica';
+comment on column JAQA60.jaqa60fiv
+  is 'Fecha Inicio de Vigencia';
+comment on column JAQA60.jaqa60fea
+  is 'Fecha de Anulación';
+comment on column JAQA60.jaqa60mta
+  is 'Motivo de Anulación';
+comment on column JAQA60.jaqa60mco
+  is 'Modo de Contratación';
+comment on column JAQA60.jaqa60pai
+  is 'Pais Contratante';
+comment on column JAQA60.jaqa60tip
+  is 'Tipo de Documento';
+comment on column JAQA60.jaqa60ndo
+  is 'Numero de documento del contratante';
+comment on column JAQA60.jaqa60cet
+  is 'Contratante es Titular';
+comment on column JAQA60.jaqa60dep
+  is 'Descripcion Plan';
+comment on column JAQA60.jaqa60dec
+  is 'Descripcion Costo';
+comment on column JAQA60.jaqa60cod
+  is 'Codigo Costo';
+comment on column JAQA60.jaqa60fee
+  is 'Fecha de ejecucion';
+comment on column JAQA60.jaqa60hoe
+  is 'Hora de ejecucion';
+comment on column JAQA60.jaqa60fem
+  is 'Fecha de migracion';
+comment on column JAQA60.jaqa60esm
+  is 'Estado de migracion';
+comment on column JAQA60.jaqa60erd
+  is 'Descripcion del error';
+alter table JAQA60
+  add primary key (JAQA60PRO, JAQA60NRA, JAQA60COP);
+

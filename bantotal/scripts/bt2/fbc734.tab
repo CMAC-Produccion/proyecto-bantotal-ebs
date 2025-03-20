@@ -1,0 +1,41 @@
+create table FBC734
+(
+  bc734emp  NUMBER(3) not null,
+  bc734fch  DATE not null,
+  bc734ruta CHAR(10) not null,
+  bc734rute CHAR(10) not null,
+  bc734codc CHAR(10) not null,
+  bc734nump CHAR(10),
+  bc734fchp DATE,
+  bc734finc CHAR(1),
+  bc734mdap CHAR(1),
+  bc734capp NUMBER(17,2),
+  bc734sdod NUMBER(17,2),
+  bc734capu NUMBER(17,2),
+  bc734nroc NUMBER(3),
+  bc734vto1 DATE,
+  bc734valc NUMBER(17,2),
+  bc734moni NUMBER(17,2),
+  bc734mong NUMBER(17,2),
+  bc734mons NUMBER(17,2),
+  bc734moos NUMBER(17,2),
+  bc734remi NUMBER(17,2),
+  bc734mint NUMBER(17,2),
+  bc734mono NUMBER(17,2),
+  bc734tasa NUMBER(10,6),
+  bc734intr CHAR(1),
+  bc734plar CHAR(1),
+  bc734tram CHAR(1),
+  bc734intp NUMBER(17,2),
+  bc734aval NUMBER(1),
+  bc734ofip CHAR(40),
+  bc734ccom CHAR(10),
+  bc734canc CHAR(1),
+  bc734aux1 DATE,
+  bc734aux2 NUMBER(17,2),
+  bc734aux3 CHAR(30)
+)
+;
+alter table FBC734
+  add primary key (BC734EMP, BC734FCH, BC734RUTA, BC734RUTE, BC734CODC);
+

@@ -1,0 +1,19 @@
+create table FBC180
+(
+  ctrinf     CHAR(10) not null,
+  ctrregnro  NUMBER(5) not null,
+  ctrregdesc CHAR(30),
+  ctrequiv   CHAR(2),
+  ctrajuste  CHAR(1),
+  ctrajinf   CHAR(10),
+  ctrajmda   NUMBER(4),
+  ctrajunid  NUMBER(2),
+  ctrajreng  NUMBER(4),
+  ctrajcol   NUMBER(2),
+  ctrerror   NUMBER(17,2),
+  ctrajdif   NUMBER(17,2)
+)
+;
+alter table FBC180
+  add primary key (CTRINF, CTRREGNRO);
+

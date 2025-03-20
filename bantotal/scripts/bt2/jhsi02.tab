@@ -1,0 +1,46 @@
+create table JHSI02
+(
+  jhsi02apl  NUMBER(4) not null,
+  jhsi02ban  CHAR(5) not null,
+  jhsi02env  NUMBER(9) not null,
+  jhsi02cor  NUMBER(4) not null,
+  jhsi02banc NUMBER(4),
+  jhsi02fec  DATE,
+  jhsi02feca DATE,
+  jhsi02creg CHAR(10),
+  jhsi02ccli CHAR(10),
+  jhsi02ncli CHAR(32),
+  jhsi02fac  CHAR(10),
+  jhsi02cben CHAR(10),
+  jhsi02cmon CHAR(3),
+  jhsi02imp  NUMBER(17,2),
+  jhsi02fvto DATE,
+  jhsi02tasi NUMBER(10,6),
+  jhsi02nroc CHAR(10),
+  jhsi02fecp DATE,
+  jhsi02hpag CHAR(8),
+  jhsi02int  NUMBER(17,2),
+  jhsi02monp NUMBER(17,2),
+  jhsi02tpag CHAR(2),
+  jhsi02fval DATE,
+  jhsi02cage NUMBER(3),
+  jhsi02idco CHAR(10),
+  jhsi02sitp CHAR(1),
+  jhsi02tcob NUMBER(2),
+  jhsi02mone NUMBER(17,2),
+  jhsi02monc NUMBER(17,2),
+  jhsi02monr NUMBER(17,2),
+  jhsi02cta  NUMBER(9),
+  jhsi02emp  NUMBER(3),
+  jhsi02qbco NUMBER(4),
+  jhsi02nbco NUMBER(8),
+  jhsi02gdev NUMBER(17,2),
+  jhsi02fdev DATE,
+  jhsi02tcan NUMBER(1),
+  jhsi02free CHAR(45)
+)
+;
+create index JHSI0202 on JHSI02 (JHSI02FEC, JHSI02CMON);
+alter table JHSI02
+  add primary key (JHSI02APL, JHSI02BAN, JHSI02ENV, JHSI02COR);
+

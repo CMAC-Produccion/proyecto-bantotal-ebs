@@ -1,0 +1,35 @@
+create table JAQY658
+(
+  jaqy658cod  NUMBER(10) not null,
+  jaqy658fec  DATE,
+  jaqy658aux1 NUMBER(17),
+  jaqy658aux2 NUMBER(17),
+  jaqy658aux3 NUMBER(17),
+  jaqy658aux4 NUMBER(17),
+  jaqy658aux5 NUMBER(17),
+  jaqy658aux6 NUMBER(17,2),
+  jaqy658aux7 NUMBER(17,2),
+  jaqy658aux8 NUMBER(17,2),
+  jaqy658aux9 NUMBER(17,2),
+  jaqy658auxa VARCHAR2(50),
+  jaqy658auxb VARCHAR2(50),
+  jaqy658auxc VARCHAR2(50),
+  jaqy658auxd VARCHAR2(50),
+  jaqy658auxe VARCHAR2(50),
+  jaqy658auxf VARCHAR2(100),
+  jaqy658auxg VARCHAR2(100),
+  jaqy658auxh VARCHAR2(100),
+  jaqy658auxi VARCHAR2(200),
+  jaqy658auxj VARCHAR2(250),
+  jaqy658auxk VARCHAR2(300),
+  jaqy658fval DATE,
+  jaqy658sbop NUMBER(3),
+  jaqy658tono VARCHAR2(30)
+)
+;
+create index IJAQY6562 on JAQY658 (JAQY658FEC, JAQY658AUX1);
+create index IJAQY6581 on JAQY658 (JAQY658AUX1, JAQY658FEC);
+create index JAQY6583 on JAQY658 (JAQY658FEC, JAQY658AUXJ, JAQY658AUX1, JAQY658AUXC);
+alter table JAQY658
+  add primary key (JAQY658COD);
+

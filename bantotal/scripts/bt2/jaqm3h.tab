@@ -1,0 +1,87 @@
+create table JAQM3H
+(
+  jaqm3hcod NUMBER(3) not null,
+  jaqm3hfec DATE not null,
+  jaqm3hsuc NUMBER(3) not null,
+  jaqm3hcor NUMBER(3) not null,
+  jaqm3hjec CHAR(10),
+  jaqm3hest CHAR(1),
+  jaqm3husi CHAR(10),
+  jaqm3hfei DATE,
+  jaqm3hhoi CHAR(8),
+  jaqm3hwki CHAR(12),
+  jaqm3husa CHAR(10),
+  jaqm3hfea DATE,
+  jaqm3hhoa CHAR(8),
+  jaqm3hwka CHAR(12),
+  jaqm3hai1 NUMBER(17,2),
+  jaqm3hai2 NUMBER(17,2),
+  jaqm3hai3 NUMBER(17,2),
+  jaqm3han1 NUMBER(9),
+  jaqm3han2 NUMBER(9),
+  jaqm3han3 NUMBER(9),
+  jaqm3hac1 VARCHAR2(255),
+  jaqm3hac2 VARCHAR2(255),
+  jaqm3hac3 VARCHAR2(255),
+  jaqm3haf1 DATE,
+  jaqm3haf2 DATE,
+  jaqm3haf3 DATE
+)
+;
+comment on table JAQM3H
+  is 'Log de Cambios Comités';
+comment on column JAQM3H.jaqm3hcod
+  is 'Empresa';
+comment on column JAQM3H.jaqm3hfec
+  is 'Fecha';
+comment on column JAQM3H.jaqm3hsuc
+  is 'Sucursal';
+comment on column JAQM3H.jaqm3hcor
+  is 'Correlativo Log';
+comment on column JAQM3H.jaqm3hjec
+  is 'Jefe de Comité';
+comment on column JAQM3H.jaqm3hest
+  is 'Estado';
+comment on column JAQM3H.jaqm3husi
+  is 'Usuario de Ingreso';
+comment on column JAQM3H.jaqm3hfei
+  is 'Fecha de Ingreso';
+comment on column JAQM3H.jaqm3hhoi
+  is 'Hora de Ingreso';
+comment on column JAQM3H.jaqm3hwki
+  is 'WorkStation de Ingreso';
+comment on column JAQM3H.jaqm3husa
+  is 'Usuario de Aprobación';
+comment on column JAQM3H.jaqm3hfea
+  is 'Fecha de Aprobación';
+comment on column JAQM3H.jaqm3hhoa
+  is 'Hora de Aprobación';
+comment on column JAQM3H.jaqm3hwka
+  is 'WorkStation de Aprobación';
+comment on column JAQM3H.jaqm3hai1
+  is 'Auxiliar de Importe 1';
+comment on column JAQM3H.jaqm3hai2
+  is 'Auxiliar de Importe 2';
+comment on column JAQM3H.jaqm3hai3
+  is 'Auxiliar de Importe 3';
+comment on column JAQM3H.jaqm3han1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM3H.jaqm3han2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM3H.jaqm3han3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM3H.jaqm3hac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM3H.jaqm3hac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM3H.jaqm3hac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM3H.jaqm3haf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM3H.jaqm3haf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM3H.jaqm3haf3
+  is 'Auxiliar Fecha 3';
+alter table JAQM3H
+  add primary key (JAQM3HCOD, JAQM3HFEC, JAQM3HSUC, JAQM3HCOR);
+

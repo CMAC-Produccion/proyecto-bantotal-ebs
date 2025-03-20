@@ -1,0 +1,146 @@
+create table JAQM2E
+(
+  jaqm2ecod NUMBER(3) not null,
+  jaqm2esuc NUMBER(3) not null,
+  jaqm2efun CHAR(4) not null,
+  jaqm2efec DATE not null,
+  jaqm2euso CHAR(10) not null,
+  jaqm2eusd CHAR(10) not null,
+  jaqm2ecor NUMBER(5) not null,
+  jaqm2ecso NUMBER(1),
+  jaqm2enio NUMBER(1),
+  jaqm2eceo NUMBER(9),
+  jaqm2ecao NUMBER(3),
+  jaqm2ejeo CHAR(10),
+  jaqm2ecsd NUMBER(1),
+  jaqm2enid NUMBER(1),
+  jaqm2eced NUMBER(9),
+  jaqm2ecad NUMBER(3),
+  jaqm2ejed CHAR(10),
+  jaqm2efei DATE,
+  jaqm2efef DATE,
+  jaqm2ehoi CHAR(8),
+  jaqm2ehof CHAR(8),
+  jaqm2eest CHAR(1),
+  jaqm2eusi CHAR(10),
+  jaqm2efin DATE,
+  jaqm2ehin CHAR(10),
+  jaqm2ewki CHAR(12),
+  jaqm2eusa CHAR(10),
+  jaqm2efap DATE,
+  jaqm2ehap CHAR(10),
+  jaqm2ewka CHAR(12),
+  jaqm2eude CHAR(10),
+  jaqm2efde DATE,
+  jaqm2ehde CHAR(10),
+  jaqm2ewkd CHAR(12),
+  jaqm2eai1 NUMBER(17,2),
+  jaqm2eai2 NUMBER(17,2),
+  jaqm2eai3 NUMBER(17,2),
+  jaqm2ean1 NUMBER(9),
+  jaqm2ean2 NUMBER(9),
+  jaqm2ean3 NUMBER(9),
+  jaqm2eac1 VARCHAR2(255),
+  jaqm2eac2 VARCHAR2(255),
+  jaqm2eac3 VARCHAR2(255),
+  jaqm2eaf1 DATE,
+  jaqm2eaf2 DATE,
+  jaqm2eaf3 DATE
+)
+;
+comment on column JAQM2E.jaqm2ecod
+  is 'Empresa';
+comment on column JAQM2E.jaqm2esuc
+  is 'Sucursal';
+comment on column JAQM2E.jaqm2efun
+  is 'Funcionalidad';
+comment on column JAQM2E.jaqm2efec
+  is 'Fecha';
+comment on column JAQM2E.jaqm2euso
+  is 'Usuario Suplido';
+comment on column JAQM2E.jaqm2eusd
+  is 'Usuario Suplente';
+comment on column JAQM2E.jaqm2ecor
+  is 'Correlativo';
+comment on column JAQM2E.jaqm2ecso
+  is 'Cantidad de Sesiones Suplido';
+comment on column JAQM2E.jaqm2enio
+  is 'Nivel de Usuario Suplido';
+comment on column JAQM2E.jaqm2eceo
+  is 'Cantidad de Espacios Suplido';
+comment on column JAQM2E.jaqm2ecao
+  is 'Cargo Suplido';
+comment on column JAQM2E.jaqm2ejeo
+  is 'Jefe Inmediato Suplido';
+comment on column JAQM2E.jaqm2ecsd
+  is 'Cantidad de Sesiones Suplente';
+comment on column JAQM2E.jaqm2enid
+  is 'Nivel de Usuario Suplente';
+comment on column JAQM2E.jaqm2eced
+  is 'Cantidad de Espacios Suplente';
+comment on column JAQM2E.jaqm2ecad
+  is 'Cargo Suplente';
+comment on column JAQM2E.jaqm2ejed
+  is 'Jefe Inmediato Suplente';
+comment on column JAQM2E.jaqm2efei
+  is 'Fecha de Inicio de Suplencia';
+comment on column JAQM2E.jaqm2efef
+  is 'Fecha de Fin de Suplencia';
+comment on column JAQM2E.jaqm2ehoi
+  is 'Hora de Inicio de Suplencia';
+comment on column JAQM2E.jaqm2ehof
+  is 'Hora de Fin de Suplencia';
+comment on column JAQM2E.jaqm2eest
+  is 'Estado de Suplencia';
+comment on column JAQM2E.jaqm2eusi
+  is 'Usuario de Ingreso de Solicitud';
+comment on column JAQM2E.jaqm2efin
+  is 'Fecha de Ingreso de Solicitud';
+comment on column JAQM2E.jaqm2ehin
+  is 'Hora de Ingreso de Solicitud';
+comment on column JAQM2E.jaqm2ewki
+  is 'WorkStation de Solicitud';
+comment on column JAQM2E.jaqm2eusa
+  is 'Usuario de Aprobación';
+comment on column JAQM2E.jaqm2efap
+  is 'Fecha de Aprobación';
+comment on column JAQM2E.jaqm2ehap
+  is 'Hora de Aprobación';
+comment on column JAQM2E.jaqm2ewka
+  is 'WorkStation de Aprobación';
+comment on column JAQM2E.jaqm2efde
+  is 'Fecha de Devolución';
+comment on column JAQM2E.jaqm2ehde
+  is 'Hora de Devolución';
+comment on column JAQM2E.jaqm2ewkd
+  is 'WorkStation de Devolución';
+comment on column JAQM2E.jaqm2eai1
+  is 'Auxiliar de Importe 1';
+comment on column JAQM2E.jaqm2eai2
+  is 'Auxiliar de Importe 2';
+comment on column JAQM2E.jaqm2eai3
+  is 'Auxiliar de Importe 3';
+comment on column JAQM2E.jaqm2ean1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM2E.jaqm2ean2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM2E.jaqm2ean3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM2E.jaqm2eac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM2E.jaqm2eac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM2E.jaqm2eac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM2E.jaqm2eaf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM2E.jaqm2eaf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM2E.jaqm2eaf3
+  is 'Auxiliar Fecha 3';
+create index JAQM2EA2 on JAQM2E (JAQM2EFEC, JAQM2ECOR);
+create index JAQM2EA3 on JAQM2E (JAQM2EUSO, JAQM2EFEC);
+create index JAQM2EA4 on JAQM2E (JAQM2EUSD, JAQM2EFEC);
+alter table JAQM2E
+  add primary key (JAQM2ECOD, JAQM2ESUC, JAQM2EFUN, JAQM2EFEC, JAQM2EUSO, JAQM2EUSD, JAQM2ECOR);
+

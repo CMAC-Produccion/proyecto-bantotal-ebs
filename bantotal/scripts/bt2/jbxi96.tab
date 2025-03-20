@@ -1,0 +1,30 @@
+create table JBXI96
+(
+  jbxi96ide CHAR(11) not null,
+  jbxi96tdo CHAR(3) not null,
+  jbxi96nro NUMBER(11) not null,
+  jbxi96ica NUMBER(1),
+  jbxi96sta NUMBER(2),
+  jbxi96nom CHAR(50),
+  jbxi96cal CHAR(35),
+  jbxi96num NUMBER(6),
+  jbxi96pis CHAR(2),
+  jbxi96uni CHAR(4),
+  jbxi96pos NUMBER(5),
+  jbxi96loc CHAR(15),
+  jbxi96pro NUMBER(2),
+  jbxi96pai NUMBER(3),
+  jbxi96bcr NUMBER(4),
+  jbxi96soc CHAR(3),
+  jbxi96fij NUMBER(1),
+  jbxi96alt NUMBER(8),
+  jbxi96per CHAR(1),
+  jbxi96ncu NUMBER(11),
+  jbxi96gru CHAR(7),
+  jbxi96gca NUMBER(4),
+  jbxi96fcr NUMBER(3),
+  jbxi96cod NUMBER(2)
+)
+;
+create unique index JBXI9601 on JBXI96 (JBXI96IDE, JBXI96TDO, JBXI96NRO);
+

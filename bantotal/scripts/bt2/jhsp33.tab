@@ -1,0 +1,13 @@
+create table JHSP33
+(
+  jhsp33pai NUMBER(3) not null,
+  jhsp33tdo NUMBER(2) not null,
+  jhsp33ndo CHAR(12) not null,
+  jhsp33fec DATE not null,
+  jhsp33ax1 NUMBER(9),
+  jhsp33ax2 DATE,
+  jhsp33ax3 NUMBER(4)
+)
+;
+create unique index JHSP3301 on JHSP33 (JHSP33PAI, JHSP33TDO, JHSP33NDO, JHSP33FEC);
+

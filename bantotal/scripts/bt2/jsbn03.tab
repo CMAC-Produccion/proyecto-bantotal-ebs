@@ -1,0 +1,20 @@
+create table JSBN03
+(
+  jsbn03corr NUMBER(9) not null,
+  jsbn03fch  DATE,
+  jsbn03hora CHAR(8),
+  jsbn03usr  CHAR(10),
+  jsbn03wrk  CHAR(10),
+  jsbn03acci CHAR(5),
+  jsbn03pais NUMBER(3),
+  jsbn03tdoc NUMBER(2),
+  jsbn03ndoc CHAR(25),
+  jsbn03nom  CHAR(50)
+)
+;
+create index JSBN0302 on JSBN03 (JSBN03FCH, JSBN03NOM);
+create index JSBN0303 on JSBN03 (JSBN03NOM);
+create index JSBN0304 on JSBN03 (JSBN03USR, JSBN03NOM);
+alter table JSBN03
+  add primary key (JSBN03CORR);
+

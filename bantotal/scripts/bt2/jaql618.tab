@@ -1,0 +1,17 @@
+create table JAQL618
+(
+  jaql618retyp  VARCHAR2(50) not null,
+  jaql618trxid  VARCHAR2(100) not null,
+  jaql618trxts  DATE,
+  jaql618bokts  DATE,
+  jaql618amoun  NUMBER(17,2),
+  jaql618paiid  VARCHAR2(50),
+  jaql618resul  VARCHAR2(50),
+  jaql618hora   VARCHAR2(8),
+  jaql618estgen CHAR(1),
+  jaql618fearc  DATE
+)
+;
+alter table JAQL618
+  add primary key (JAQL618RETYP, JAQL618TRXID);
+

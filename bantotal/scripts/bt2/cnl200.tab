@@ -1,0 +1,22 @@
+create table CNL200
+(
+  cnl000cod  NUMBER(4) not null,
+  cnl200cod  NUMBER(4) not null,
+  cnl005cod  NUMBER(6),
+  x9996acnco NUMBER(3),
+  x9996bopco NUMBER(5),
+  x9996cvart NUMBER(3),
+  cnl200mod  NUMBER(3),
+  cnl200io   CHAR(3),
+  cnl200nom  CHAR(60),
+  cnl200hab  CHAR(1),
+  cnl200pgm  CHAR(15),
+  cnl200prc  CHAR(60),
+  cnl200tsk  CHAR(60)
+)
+;
+create index ICNL2001 on CNL200 (X9996ACNCO, X9996BOPCO, X9996CVART);
+create index ICNL2002 on CNL200 (CNL005COD);
+alter table CNL200
+  add primary key (CNL000COD, CNL200COD);
+

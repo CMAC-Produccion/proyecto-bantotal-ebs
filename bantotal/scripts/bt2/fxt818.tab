@@ -1,0 +1,13 @@
+create table FXT818
+(
+  swtcpo     NUMBER(2) not null,
+  swtcpofmt  CHAR(1) not null,
+  fmtout     NUMBER(1) not null,
+  idioma     NUMBER(2) not null,
+  swtcpotitl NUMBER(1) not null,
+  swtcpotita CHAR(35)
+)
+;
+alter table FXT818
+  add primary key (SWTCPO, SWTCPOFMT, FMTOUT, IDIOMA, SWTCPOTITL);
+

@@ -1,0 +1,19 @@
+create table JBXI14
+(
+  jbxi14pro CHAR(41) not null,
+  jbxi14fve NUMBER(3) not null,
+  jbxi14fuv NUMBER(8),
+  jbxi14fup NUMBER(8),
+  jbxi14cim NUMBER(14,2),
+  jbxi14iim NUMBER(14,2),
+  jbxi14imp NUMBER(14,2),
+  jbxi14pim NUMBER(14,2),
+  jbxi14gim NUMBER(14,2),
+  jbxi14ogi NUMBER(14,2),
+  jbxi14sim NUMBER(14,2),
+  jbxi14ivi NUMBER(14,2),
+  jbxi14emp CHAR(1)
+)
+;
+create unique index JBXI1401 on JBXI14 (JBXI14PRO, JBXI14FVE);
+

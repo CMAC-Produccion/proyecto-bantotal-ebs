@@ -1,0 +1,33 @@
+create table AUD_SNG060_AUDIT
+(
+  aud_old_sng057usr  CHAR(10),
+  aud_new_sng057usr  CHAR(10),
+  aud_old_sng060emp  NUMBER(3),
+  aud_new_sng060emp  NUMBER(3),
+  aud_old_sng060est  CHAR(1),
+  aud_new_sng060est  CHAR(1),
+  aud_old_sng060fap  DATE,
+  aud_new_sng060fap  DATE,
+  aud_old_sng060now  DATE,
+  aud_new_sng060now  DATE,
+  aud_old_sng060pqt  NUMBER(10),
+  aud_new_sng060pqt  NUMBER(10),
+  aud_old_sng060suc  NUMBER(3),
+  aud_new_sng060suc  NUMBER(3),
+  aud_old_sng060wrk  CHAR(10),
+  aud_new_sng060wrk  CHAR(10),
+  aud_sng060_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_sng060_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng060_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng060_ubr     VARCHAR2(50) default ' ' not null,
+  aud_sng060_ubc     VARCHAR2(50) default ' ' not null,
+  aud_sng060_ubt     VARCHAR2(50) default ' ' not null,
+  aud_sng060_ubu     VARCHAR2(50) default USER not null,
+  aud_sng060_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng060_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng060_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng060_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng060_uas     CHAR(1) default 'I' not null
+)
+;
+

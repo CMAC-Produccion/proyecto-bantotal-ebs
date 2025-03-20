@@ -1,0 +1,13 @@
+create table X05200
+(
+  il00cdcbar NUMBER(2) not null,
+  il00cdrgin NUMBER(4) not null,
+  il00nrolin NUMBER(2) not null,
+  il00fchprc DATE,
+  il00horprc CHAR(8),
+  il00errtxt CHAR(60)
+)
+;
+alter table X05200
+  add primary key (IL00CDCBAR, IL00CDRGIN, IL00NROLIN);
+

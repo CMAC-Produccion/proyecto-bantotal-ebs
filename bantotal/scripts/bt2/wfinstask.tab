@@ -1,0 +1,11 @@
+create table WFINSTASK
+(
+  wfitinsprcid NUMBER(10) not null,
+  wfittaskcod  NUMBER(4) not null,
+  wfittype     CHAR(1) not null,
+  wfititem     CHAR(30)
+)
+;
+alter table WFINSTASK
+  add primary key (WFITINSPRCID, WFITTASKCOD, WFITTYPE);
+

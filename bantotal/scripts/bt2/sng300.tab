@@ -1,0 +1,22 @@
+create table SNG300
+(
+  sng300cod  NUMBER(3) not null,
+  sng300dsc  CHAR(60),
+  sng300rub  NUMBER(16),
+  sng300mod  NUMBER(3),
+  sng300pct  CHAR(1),
+  sng300pop  CHAR(1),
+  sng300psu  CHAR(1),
+  sng300com  NUMBER(3),
+  sng300tpo  CHAR(1),
+  sng300aux  CHAR(10),
+  sng300pch  CHAR(1),
+  sng300pgm  CHAR(10),
+  sng300rng  NUMBER(10),
+  sng300inta NUMBER(9),
+  sng300vara VARCHAR2(80)
+)
+;
+alter table SNG300
+  add primary key (SNG300COD);
+

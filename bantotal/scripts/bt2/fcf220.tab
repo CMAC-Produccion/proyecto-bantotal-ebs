@@ -1,0 +1,15 @@
+create table FCF220
+(
+  docdigemp  NUMBER(3) not null,
+  docdigmod  NUMBER(3) not null,
+  docdigoper NUMBER(9) not null,
+  docdigsbop NUMBER(3) not null,
+  docdigtip  NUMBER(3) not null,
+  docdigcorr NUMBER(3) not null,
+  docdigdir  CHAR(100),
+  docdigdesc CHAR(100)
+)
+;
+alter table FCF220
+  add primary key (DOCDIGEMP, DOCDIGMOD, DOCDIGOPER, DOCDIGSBOP, DOCDIGTIP, DOCDIGCORR);
+

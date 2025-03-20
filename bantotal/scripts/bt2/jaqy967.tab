@@ -1,0 +1,14 @@
+create table JAQY967
+(
+  jaqy967nro NUMBER(10) not null,
+  jaqy967pai NUMBER(3) not null,
+  jaqy967tdo NUMBER(2) not null,
+  jaqy967ndo CHAR(25) not null,
+  jaqy967lst NUMBER(4) not null,
+  jaqy967est CHAR(1),
+  jaqy967obs VARCHAR2(50)
+)
+;
+alter table JAQY967
+  add primary key (JAQY967NRO, JAQY967PAI, JAQY967TDO, JAQY967NDO, JAQY967LST);
+

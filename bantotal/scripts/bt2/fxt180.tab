@@ -1,0 +1,38 @@
+create table FXT180
+(
+  swcodi NUMBER(9) not null,
+  swtagi CHAR(2),
+  swmodf CHAR(1),
+  swbank CHAR(8),
+  swbrco CHAR(3),
+  swnam1 CHAR(35),
+  swnam2 CHAR(35),
+  swnam3 CHAR(35),
+  swbri1 CHAR(35),
+  swbri2 CHAR(35),
+  swcith CHAR(35),
+  swsubt CHAR(4),
+  swvads CHAR(60),
+  swexti CHAR(35),
+  swpha1 CHAR(35),
+  swpha2 CHAR(35),
+  swpha3 CHAR(35),
+  swpha4 CHAR(35),
+  swloc1 CHAR(35),
+  swloc2 CHAR(35),
+  swloc3 CHAR(35),
+  swcou1 CHAR(35),
+  swcou2 CHAR(35),
+  swpobn CHAR(35),
+  swpol1 CHAR(35),
+  swpol2 CHAR(35),
+  swpol3 CHAR(35),
+  swpoc1 CHAR(35),
+  swpoc2 CHAR(35)
+)
+;
+create index FXT18002 on FXT180 (SWBANK, SWBRCO);
+create index FXT18003 on FXT180 (SWNAM1);
+alter table FXT180
+  add primary key (SWCODI);
+

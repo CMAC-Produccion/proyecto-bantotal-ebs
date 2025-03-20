@@ -1,0 +1,26 @@
+create table JDTMD2
+(
+  jdtmd1ins NUMBER(10) not null,
+  jdtmd2cor NUMBER(3) not null,
+  jdtmd2nro VARCHAR2(40),
+  jdtmd2col VARCHAR2(40),
+  jdtmd2cha VARCHAR2(40),
+  jdtmd2cil NUMBER(2),
+  jdtmd2com NUMBER(1),
+  jdtmd2npl VARCHAR2(20),
+  jdtmd2tns NUMBER(1),
+  jdtmd2tcc NUMBER(1),
+  jdtmd2cmo VARCHAR2(20),
+  jdtmd2npo VARCHAR2(20),
+  jdtmd2ncu VARCHAR2(20),
+  jdtmd2val NUMBER(17,2),
+  jdtmd2fem DATE,
+  jdtmd2ccp NUMBER(9),
+  jdtmd2des VARCHAR2(400),
+  jdtmd2cap NUMBER(17,2),
+  jdtmd2cav NUMBER(17,2)
+)
+;
+alter table JDTMD2
+  add primary key (JDTMD1INS, JDTMD2COR);
+

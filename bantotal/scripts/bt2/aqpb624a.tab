@@ -1,0 +1,25 @@
+create table AQPB624A
+(
+  aqpb624atip CHAR(20) not null,
+  aqpb624acod CHAR(10) not null,
+  aqpb624ades CHAR(50),
+  aqpb624aest CHAR(1) not null,
+  aqpb624afec DATE not null
+)
+;
+comment on table AQPB624A
+  is 'Tabla Tipo Evento Control Seguimiento de Riesgo';
+comment on column AQPB624A.aqpb624atip
+  is 'tipo';
+comment on column AQPB624A.aqpb624acod
+  is 'codigo';
+comment on column AQPB624A.aqpb624ades
+  is 'descripcion';
+comment on column AQPB624A.aqpb624aest
+  is 'estado';
+comment on column AQPB624A.aqpb624afec
+  is 'fecha';
+create index AQPB624AA2 on AQPB624A (AQPB624ATIP, AQPB624ACOD, AQPB624ADES, AQPB624AEST, AQPB624AFEC);
+alter table AQPB624A
+  add primary key (AQPB624ATIP, AQPB624ACOD, AQPB624AEST, AQPB624AFEC);
+

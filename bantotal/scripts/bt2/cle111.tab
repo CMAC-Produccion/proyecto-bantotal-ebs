@@ -1,0 +1,15 @@
+create table CLE111
+(
+  cle111cod NUMBER(3) not null,
+  cle111suc NUMBER(3) not null,
+  cle111fec DATE not null,
+  cle111hab CHAR(1),
+  cle111ax1 NUMBER(4),
+  cle111ax2 NUMBER(4),
+  cle111ax3 CHAR(20),
+  cle111ax4 DATE
+)
+;
+alter table CLE111
+  add primary key (CLE111COD, CLE111SUC, CLE111FEC);
+

@@ -1,0 +1,17 @@
+create table FSFF44
+(
+  khemp  NUMBER(3) not null,
+  khmod  NUMBER(3) not null,
+  khsuc  NUMBER(3) not null,
+  khtrn  NUMBER(3) not null,
+  khrel  NUMBER(4) not null,
+  khfcon DATE not null,
+  khfvc  DATE
+)
+;
+create index FSFF4402 on FSFF44 (KHFCON, KHEMP, KHMOD, KHSUC, KHTRN, KHREL);
+create index FSFF4403 on FSFF44 (KHFVC, KHEMP, KHMOD, KHSUC, KHTRN, KHREL);
+create index FSFF4404 on FSFF44 (KHEMP, KHFVC, KHSUC, KHMOD, KHTRN, KHREL);
+alter table FSFF44
+  add primary key (KHEMP, KHMOD, KHSUC, KHTRN, KHREL, KHFCON);
+

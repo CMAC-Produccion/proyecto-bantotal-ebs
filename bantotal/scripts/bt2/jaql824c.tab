@@ -1,0 +1,55 @@
+create table JAQL824C
+(
+  jaql824apl  NUMBER(3) not null,
+  jaql824ban  CHAR(4) not null,
+  jaql824env  NUMBER(9) not null,
+  jaql824cnre CHAR(15) not null,
+  jaql824creg NUMBER(9),
+  jaql824ctre NUMBER(2),
+  jaql824ccde CHAR(20),
+  jaql824cnde CHAR(30),
+  jaql824cre1 CHAR(10),
+  jaql824cre2 CHAR(10),
+  jaql824ctop CHAR(1),
+  jaql824cccu CHAR(8),
+  jaql824cfem DATE not null,
+  jaql824cfve DATE,
+  jaql824cndo CHAR(15),
+  jaql824cmde NUMBER(2),
+  jaql824cdc1 NUMBER(11,2),
+  jaql824cdc2 NUMBER(11,2),
+  jaql824cdc3 NUMBER(11,2),
+  jaql824cdc4 NUMBER(11,2),
+  jaql824cdc5 NUMBER(11,2),
+  jaql824cdc6 NUMBER(11,2),
+  jaql824cdc7 NUMBER(11,2),
+  jaql824ctcp CHAR(1),
+  jaql824cpcp CHAR(3),
+  jaql824cmcp CHAR(2),
+  jaql824cncp CHAR(20),
+  jaql824cia1 NUMBER(15,2),
+  jaql824ctcs CHAR(1),
+  jaql824cpcs CHAR(3),
+  jaql824cmcs CHAR(2),
+  jaql824cncs CHAR(20),
+  jaql824cia2 NUMBER(15,2),
+  jaql824cgpa CHAR(67),
+  jaql824clib CHAR(68),
+  jaql824ctfo NUMBER(2),
+  jaql824ccfi NUMBER(4),
+  jaql824cpa1 NUMBER(11,2)
+)
+partition by range (JAQL824CFEM) interval (NUMTOYMINTERVAL (1, 'MONTH'))
+(
+  partition JAQL824C_20201031 values less than (TO_DATE(' 2020-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G_IDX,
+  partition JAQL824C_20201130 values less than (TO_DATE(' 2020-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G_IDX,
+  partition SYS_P1892 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G
+);
+create unique index JAQL824C2 on JAQL824C (JAQL824CFEM, JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824CNRE)
+  nologging  local;
+alter table JAQL824C
+  add constraint JAQL824C_PK primary key (JAQL824CFEM, JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824CNRE);
+

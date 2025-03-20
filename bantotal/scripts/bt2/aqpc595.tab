@@ -1,0 +1,135 @@
+create table AQPC595
+(
+  aqpc595cor    NUMBER(30),
+  aqpc595cue    NUMBER(10),
+  aqpc595ope    NUMBER,
+  aqpc595usu    CHAR(10),
+  aqpc595ins    NUMBER(10),
+  aqpc595fec    DATE,
+  aqpc595hor    VARCHAR2(15),
+  aqpc595cli    VARCHAR2(50),
+  aqpc595are    VARCHAR2(20),
+  aqpc595seg    VARCHAR2(50),
+  aqpc595age    VARCHAR2(70),
+  aqpc595map    NUMBER(17,2),
+  aqpc595tea    NUMBER(10,4),
+  aqpc595paj    NUMBER(10,4),
+  aqpc595tpr    NUMBER(10,4),
+  aqpc595des    VARCHAR2(50),
+  aqpc595gar    VARCHAR2(40),
+  aqpc595mot    VARCHAR2(500),
+  aqpc595arc    VARCHAR2(200),
+  aqpc595est    VARCHAR2(5),
+  aqpc595opi    VARCHAR2(500),
+  aqpc595uop    VARCHAR2(30),
+  aqpc595fop    DATE,
+  aqpc595eha    VARCHAR2(10),
+  aqpc595hca    VARCHAR2(15),
+  aqpc595sco    VARCHAR2(10),
+  aqpc595pdef   NUMBER(10,7),
+  aqpc595srsgo  VARCHAR2(10),
+  aqpc595anali  VARCHAR2(70),
+  aqpc595gerag  VARCHAR2(70),
+  aqpc595estr   VARCHAR2(2),
+  aqpc595u512   VARCHAR2(30),
+  aqpc595u517   VARCHAR2(30),
+  aqpc595ufi    VARCHAR2(30),
+  aqpc595ffi    DATE,
+  aqpc595hfi    VARCHAR2(15),
+  aqpc595papro  NUMBER(10,4),
+  aqpc595teapro NUMBER(10,4),
+  aqpc595opire  VARCHAR2(500),
+  aqpc595tipoo  NUMBER(9),
+  aqpc595prfpa  CHAR(10),
+  aqpc595cargo  NUMBER(3),
+  aqpc595usrpa  CHAR(10),
+  aqpc595cmtpa  VARCHAR2(250),
+  aqpc595fpapr  DATE,
+  aqpc595hpapr  CHAR(8),
+  aqpc595tpapr  NUMBER(10,6),
+  aqpc595ppapr  NUMBER(10,4)
+)
+;
+comment on table AQPC595
+  is 'TABLA DE CAMBIO DE TASA';
+comment on column AQPC595.aqpc595cue
+  is 'CUENTA DEL CLIENTE';
+comment on column AQPC595.aqpc595usu
+  is 'USUARIO QUE REGISTRA CAMBIO';
+comment on column AQPC595.aqpc595ins
+  is 'NUMERO DE INSTANCIA DEL CREDITO';
+comment on column AQPC595.aqpc595fec
+  is 'FECHA DE CAMBIO';
+comment on column AQPC595.aqpc595hor
+  is 'HORA DE CAMBIO';
+comment on column AQPC595.aqpc595cli
+  is 'NOMBRE DE CLIENTE';
+comment on column AQPC595.aqpc595are
+  is 'ANALISTA RESPONSABLE';
+comment on column AQPC595.aqpc595seg
+  is 'SEGMENTO AL QUE PERTENECE EL CREDITO';
+comment on column AQPC595.aqpc595age
+  is 'AGENCIA';
+comment on column AQPC595.aqpc595map
+  is 'MONTO APROBADO DEL CREDITO';
+comment on column AQPC595.aqpc595tea
+  is 'TEA PIZARRA';
+comment on column AQPC595.aqpc595paj
+  is 'PORCENTAJE DE AJUSTE';
+comment on column AQPC595.aqpc595tpr
+  is 'TEA PROPUESTA';
+comment on column AQPC595.aqpc595des
+  is 'DESTINO';
+comment on column AQPC595.aqpc595gar
+  is 'GARANTIAS del CREDITO';
+comment on column AQPC595.aqpc595mot
+  is 'DESCRIPCION DEL MOTIVO DE CAMBIO DE TASA';
+comment on column AQPC595.aqpc595arc
+  is 'NOMBRE DEL ARCHIVO QUE SE SUBE AL SISTEMA';
+comment on column AQPC595.aqpc595sco
+  is 'SCORE';
+comment on column AQPC595.aqpc595pdef
+  is 'PROBABILIDAD DE DEFAULT';
+comment on column AQPC595.aqpc595srsgo
+  is 'SEGMENTACION DE RIESGO';
+comment on column AQPC595.aqpc595anali
+  is 'ANALISTA RESPONSABLE';
+comment on column AQPC595.aqpc595gerag
+  is 'GERENTE DE AGENCIA';
+comment on column AQPC595.aqpc595estr
+  is 'RECONSIDERACION S/N';
+comment on column AQPC595.aqpc595u512
+  is 'USUARIO DE LA GESTION PANEL AQPC512';
+comment on column AQPC595.aqpc595u517
+  is 'USUARIO DE LA GESTION PANEL AQPC517';
+comment on column AQPC595.aqpc595papro
+  is 'PORCENTAJE APROBADO';
+comment on column AQPC595.aqpc595teapro
+  is 'TEA APROBADA';
+comment on column AQPC595.aqpc595opire
+  is 'OPINION DE RECHAZO';
+comment on column AQPC595.aqpc595tipoo
+  is 'Cod. de Tipo de Operación - guia especial 11175';
+comment on column AQPC595.aqpc595prfpa
+  is 'Cod. Perfil del Primer Aprobador antes de GCreditos';
+comment on column AQPC595.aqpc595cargo
+  is 'Cod. Cargo de Primer Aprobador antes de GCreditos';
+comment on column AQPC595.aqpc595usrpa
+  is 'Usuario del Primer Aprobador antes de GCreditos';
+comment on column AQPC595.aqpc595cmtpa
+  is 'Comentario del Primer Aprobador';
+comment on column AQPC595.aqpc595fpapr
+  is 'Fecha de Pre-Aprobacion';
+comment on column AQPC595.aqpc595hpapr
+  is 'Hora de Pre-Aprobacion';
+comment on column AQPC595.aqpc595tpapr
+  is 'Tasa Pre-Aprobada';
+comment on column AQPC595.aqpc595ppapr
+  is 'Porcentaje Pre-Aprobado';
+create index AQPC595A2 on AQPC595 (AQPC595FEC, AQPC595USU);
+create index AQPC595A3 on AQPC595 (AQPC595EHA, AQPC595EST, AQPC595FEC);
+create index AQPC595A4 on AQPC595 (AQPC595EHA, AQPC595FEC);
+create index AQPC595A5 on AQPC595 (AQPC595EST, AQPC595FEC);
+create index AQPC595A6 on AQPC595 (AQPC595FEC);
+create index AQPC595A7 on AQPC595 (AQPC595COR);
+

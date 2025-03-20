@@ -1,0 +1,20 @@
+create table JAQY596
+(
+  jaqy596inst NUMBER(10) not null,
+  jaqy596etap NUMBER(4) not null,
+  jaqy596poli NUMBER(5) not null,
+  jaqy596esta CHAR(1),
+  jaqy596usuc CHAR(10),
+  jaqy596fecc DATE,
+  jaqy596horc CHAR(8),
+  jaqy596usum CHAR(10),
+  jaqy596fecm DATE,
+  jaqy596horm CHAR(8),
+  jaqy596menp VARCHAR2(100),
+  jaqy596obse VARCHAR2(100),
+  jaqy596can  NUMBER(5)
+)
+;
+alter table JAQY596
+  add primary key (JAQY596INST, JAQY596ETAP, JAQY596POLI);
+

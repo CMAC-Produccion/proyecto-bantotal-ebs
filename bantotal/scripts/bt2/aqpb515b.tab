@@ -1,0 +1,105 @@
+create table AQPB515B
+(
+  aqpb515bserial NUMBER(10) not null,
+  aqpb515bcodsu  VARCHAR2(10) not null,
+  aqpb515bultac  DATE not null,
+  aqpb515bnumer  NUMBER(10) not null,
+  aqpb515bentid  VARCHAR2(150) not null,
+  aqpb515bestado CHAR(2),
+  aqpb515best48  CHAR(2),
+  aqpb515bfecap  DATE,
+  aqpb515bfecve  DATE not null,
+  aqpb515bcompor VARCHAR2(50),
+  aqpb515bcondic VARCHAR2(30),
+  aqpb515bampar  VARCHAR2(10),
+  aqpb515bforpa  VARCHAR2(2),
+  aqpb515bbloqu  VARCHAR2(10),
+  aqpb515bemora  CHAR(3),
+  aqpb515bticta  VARCHAR2(10) not null,
+  aqpb515bgaran  CHAR(2),
+  aqpb515bindbo  CHAR(1),
+  aqpb515bcupo   NUMBER(17,2),
+  aqpb515bsalac  NUMBER(17,2),
+  aqpb515bsalmo  NUMBER(17,2),
+  aqpb515bcuota  NUMBER(17,2),
+  aqpb515bvalin  NUMBER(17,2),
+  aqpb515bcuoca  NUMBER(17,2),
+  aqpb515btocuo  NUMBER(17,2),
+  aqpb515bmaxmo  NUMBER(17,2),
+  aqpb515bmoned  VARCHAR2(10),
+  aqpb515bdescr  VARCHAR2(150),
+  aqpb515btidet  CHAR(2),
+  aqpb515bconcod VARCHAR2(16),
+  aqpb515bcreusr VARCHAR2(30) not null,
+  aqpb515bcretim TIMESTAMP(6)
+)
+compress;
+comment on table AQPB515B
+  is 'CUENTA CARTERA - EQUIFAX';
+comment on column AQPB515B.aqpb515bserial
+  is 'SERIAL';
+comment on column AQPB515B.aqpb515bcodsu
+  is 'COD.SUSCRIPTOR';
+comment on column AQPB515B.aqpb515bultac
+  is 'FECHA ULTIMA ACTUALIZACION';
+comment on column AQPB515B.aqpb515bnumer
+  is 'NUMERO';
+comment on column AQPB515B.aqpb515bentid
+  is 'ENTIDAD';
+comment on column AQPB515B.aqpb515bestado
+  is 'ESTADO';
+comment on column AQPB515B.aqpb515best48
+  is 'ESTADO';
+comment on column AQPB515B.aqpb515bfecap
+  is 'FECHA';
+comment on column AQPB515B.aqpb515bfecve
+  is 'FECHA VENCIMIENTO';
+comment on column AQPB515B.aqpb515bcompor
+  is 'COMPORTAMIENTO';
+comment on column AQPB515B.aqpb515bcondic
+  is 'CONDICION';
+comment on column AQPB515B.aqpb515bampar
+  is 'AMPARO';
+comment on column AQPB515B.aqpb515bforpa
+  is 'FORMA PAGO';
+comment on column AQPB515B.aqpb515bbloqu
+  is 'BLOQUE';
+comment on column AQPB515B.aqpb515bemora
+  is 'MORA';
+comment on column AQPB515B.aqpb515bticta
+  is 'TIPO DE CUENTA';
+comment on column AQPB515B.aqpb515bgaran
+  is 'GARANTIA';
+comment on column AQPB515B.aqpb515bindbo
+  is 'INDICADOR BASE';
+comment on column AQPB515B.aqpb515bcupo
+  is 'CUPO';
+comment on column AQPB515B.aqpb515bsalac
+  is 'SALDO';
+comment on column AQPB515B.aqpb515bsalmo
+  is 'SALDO AMORTIZACION';
+comment on column AQPB515B.aqpb515bcuota
+  is 'CUOTA';
+comment on column AQPB515B.aqpb515bvalin
+  is 'VALOR INTERES';
+comment on column AQPB515B.aqpb515bcuoca
+  is 'CUOTA CALCULADA';
+comment on column AQPB515B.aqpb515btocuo
+  is 'CUOTA ';
+comment on column AQPB515B.aqpb515bmaxmo
+  is 'MAXIMO MOVIMIENTO';
+comment on column AQPB515B.aqpb515bdescr
+  is 'DESCRIPCION CUENTA';
+comment on column AQPB515B.aqpb515btidet
+  is 'TIPO DOCUMENTO';
+comment on column AQPB515B.aqpb515bconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515B.aqpb515bcreusr
+  is 'CONSULTA - USUARIO';
+comment on column AQPB515B.aqpb515bcretim
+  is 'CONSULTA - TIMESTAMP';
+create unique index AQPB515B00 on AQPB515B (AQPB515BSERIAL, AQPB515BNUMER, AQPB515BULTAC, AQPB515BFECVE, AQPB515BENTID, AQPB515BTICTA, AQPB515BCREUSR)
+  compress 6;
+alter table AQPB515B
+  add constraint AQPB515BPK primary key (AQPB515BSERIAL, AQPB515BNUMER, AQPB515BULTAC, AQPB515BFECVE, AQPB515BENTID, AQPB515BTICTA, AQPB515BCREUSR);
+

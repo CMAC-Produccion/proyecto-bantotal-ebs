@@ -1,0 +1,77 @@
+create table AQPB608L
+(
+  aqpb608lpgcod  NUMBER(3),
+  aqpb608lsuc    NUMBER(3),
+  aqpb608lmod    NUMBER(3),
+  aqpb608ltran   NUMBER(3),
+  aqpb608lrel    NUMBER(4),
+  aqpb608lfcon   DATE,
+  aqpb608lcerr   NUMBER(10),
+  aqpb608lmerr   VARCHAR2(250),
+  aqpb608lmsql   VARCHAR2(4000),
+  aqpb608lfecreg DATE,
+  aqpb608lhorreg VARCHAR2(15),
+  aqpb608lpgcodc NUMBER(3),
+  aqpb608lmodc   NUMBER(3),
+  aqpb608lsucc   NUMBER(3),
+  aqpb608lmdac   NUMBER(4),
+  aqpb608lpapc   NUMBER(4),
+  aqpb608lctac   NUMBER(10),
+  aqpb608lopec   NUMBER(10),
+  aqpb608lsopec  NUMBER(3),
+  aqpb608ltopec  NUMBER(3),
+  aqpb608lestc   NUMBER(2),
+  aqpb608lsldo   NUMBER(17,2),
+  aqpb608linst   NUMBER(10)
+)
+;
+comment on table AQPB608L
+  is 'Tabla log error CNA';
+comment on column AQPB608L.aqpb608lpgcod
+  is 'PGCOD TRANSACCIÓN';
+comment on column AQPB608L.aqpb608lsuc
+  is 'SUCURSAL TRANSACCIÓN';
+comment on column AQPB608L.aqpb608lmod
+  is 'MODULO TRANSACCIÓN';
+comment on column AQPB608L.aqpb608ltran
+  is 'TRANSACCIÓN';
+comment on column AQPB608L.aqpb608lrel
+  is 'RELACION TRANSACCIÓN';
+comment on column AQPB608L.aqpb608lfcon
+  is 'FECHA CONTABLE TRANSACCIÓN';
+comment on column AQPB608L.aqpb608lcerr
+  is 'CODIGO DE ERROR';
+comment on column AQPB608L.aqpb608lmerr
+  is 'MENSAJE ERROR';
+comment on column AQPB608L.aqpb608lmsql
+  is 'MENSAJE SQL';
+comment on column AQPB608L.aqpb608lfecreg
+  is 'FECHA REGISTRO';
+comment on column AQPB608L.aqpb608lhorreg
+  is 'HORA REGISTRO';
+comment on column AQPB608L.aqpb608lpgcodc
+  is 'PGCOD CREDITO';
+comment on column AQPB608L.aqpb608lmodc
+  is 'MODULO CREDITO';
+comment on column AQPB608L.aqpb608lsucc
+  is 'SUCURSAL CREDITO';
+comment on column AQPB608L.aqpb608lmdac
+  is 'MONEDA CREDITO';
+comment on column AQPB608L.aqpb608lpapc
+  is 'PAPEL CREDITO';
+comment on column AQPB608L.aqpb608lctac
+  is 'CUENTA CREDITO';
+comment on column AQPB608L.aqpb608lopec
+  is 'OPERACION CREDITO';
+comment on column AQPB608L.aqpb608lsopec
+  is 'SUBOPERACION CREDITO';
+comment on column AQPB608L.aqpb608ltopec
+  is 'TIPO OPERACION CREDITO';
+comment on column AQPB608L.aqpb608lestc
+  is 'ESTADO CREDITO FSD011';
+comment on column AQPB608L.aqpb608lsldo
+  is 'SALDO CREDITO';
+comment on column AQPB608L.aqpb608linst
+  is 'INSTANCIA';
+create index AQPB608LA2 on AQPB608L (AQPB608LPGCOD, AQPB608LSUC, AQPB608LMOD, AQPB608LTRAN, AQPB608LREL, AQPB608LFCON);
+

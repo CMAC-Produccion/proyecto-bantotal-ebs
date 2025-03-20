@@ -1,0 +1,29 @@
+create table CDCPGM0
+(
+  cdcpgmid   NUMBER(10) not null,
+  cdcpgmdsc  CHAR(50),
+  cdcpgmname CHAR(10),
+  cdcpgmsopp CHAR(1),
+  cdcpgmpart CHAR(10),
+  cdcpgmparc CHAR(10),
+  cdcpgmparn NUMBER(1),
+  cdcpgmrep1 NUMBER(4),
+  cdcpgmrep2 NUMBER(4),
+  cdcpgmrep3 NUMBER(4),
+  cdcpgmrep4 NUMBER(4),
+  cdcpgmrep5 NUMBER(4),
+  cdcpgmrep6 NUMBER(4),
+  cdcpgmval1 NUMBER(18),
+  cdcpgmval2 NUMBER(18),
+  cdcpgmval3 NUMBER(18),
+  cdcpgmval4 NUMBER(18),
+  cdcpgmval5 NUMBER(18),
+  cdcpgmval6 NUMBER(18),
+  cdcpgmsqlp VARCHAR2(40),
+  cdcpgmcntv NUMBER(4)
+)
+;
+create index CDCPGM02 on CDCPGM0 (CDCPGMNAME);
+alter table CDCPGM0
+  add primary key (CDCPGMID);
+

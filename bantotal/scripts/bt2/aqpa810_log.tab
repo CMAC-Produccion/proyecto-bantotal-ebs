@@ -1,0 +1,18 @@
+create table AQPA810_LOG
+(
+  aqpa810linst    NUMBER(10) not null,
+  aqpa810lcta     NUMBER(9) not null,
+  aqpa810lctaaval NUMBER(9) not null,
+  aqpa810lpaisi   NUMBER(3) not null,
+  aqpa810ltdoci   NUMBER(2) not null,
+  aqpa810lndoci   CHAR(12) not null,
+  aqpa810lcodopi  NUMBER(9) not null,
+  aqpa810lctaopi  NUMBER(9) not null,
+  aqpa810lvinculo VARCHAR2(200),
+  aqpa810lubuser  CHAR(10),
+  aqpa810lfupd    DATE
+)
+;
+alter table AQPA810_LOG
+  add primary key (AQPA810LINST);
+

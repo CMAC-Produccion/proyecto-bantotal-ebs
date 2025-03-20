@@ -1,0 +1,91 @@
+create table JAQA49
+(
+  jaqa49emp NUMBER(3) not null,
+  jaqa49sus NUMBER(3) not null,
+  jaqa49naf CHAR(50) not null,
+  jaqa49npg NUMBER(9) not null,
+  jaqa49cop CHAR(10) not null,
+  jaqa49fpg DATE not null,
+  jaqa49mab NUMBER(17,2),
+  jaqa49mod NUMBER(3),
+  jaqa49trn NUMBER(3),
+  jaqa49rel NUMBER(4),
+  jaqa49des CHAR(250),
+  jaqa49est CHAR(1),
+  jaqa49an1 NUMBER(9),
+  jaqa49an2 NUMBER(9),
+  jaqa49an3 NUMBER(9),
+  jaqa49ai1 NUMBER(17,2),
+  jaqa49ai2 NUMBER(17,2),
+  jaqa49ai3 NUMBER(17,2),
+  jaqa49af1 DATE,
+  jaqa49af2 DATE,
+  jaqa49af3 DATE,
+  jaqa49ac1 CHAR(1),
+  jaqa49ac2 CHAR(1),
+  jaqa49ac3 CHAR(1),
+  jaqa49at1 VARCHAR2(250),
+  jaqa49at2 VARCHAR2(250),
+  jaqa49at3 VARCHAR2(250)
+)
+;
+comment on table JAQA49
+  is 'Detalle pago de cuota nuevo modulo seguro pasiva';
+comment on column JAQA49.jaqa49emp
+  is 'Empresa';
+comment on column JAQA49.jaqa49sus
+  is 'Sucursal';
+comment on column JAQA49.jaqa49naf
+  is 'Nro Afiliacion';
+comment on column JAQA49.jaqa49npg
+  is 'Numero de pago';
+comment on column JAQA49.jaqa49cop
+  is 'codigo de pago';
+comment on column JAQA49.jaqa49fpg
+  is 'Fecha de abono';
+comment on column JAQA49.jaqa49mab
+  is 'Monto de abono';
+comment on column JAQA49.jaqa49mod
+  is 'Modulo de cobro';
+comment on column JAQA49.jaqa49trn
+  is 'Transaccion de cobro';
+comment on column JAQA49.jaqa49rel
+  is 'relacion de cobro';
+comment on column JAQA49.jaqa49des
+  is 'Descripcion cobro';
+comment on column JAQA49.jaqa49est
+  is 'estado de cobro';
+comment on column JAQA49.jaqa49an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA49.jaqa49an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA49.jaqa49an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA49.jaqa49ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA49.jaqa49ai2
+  is 'Auxiliar importe 2';
+comment on column JAQA49.jaqa49ai3
+  is 'Auxiliar importe 3';
+comment on column JAQA49.jaqa49af1
+  is 'Auxiliar fecha 1';
+comment on column JAQA49.jaqa49af2
+  is 'Auxiliar fecha 2';
+comment on column JAQA49.jaqa49af3
+  is 'Auxiliar fecha 3';
+comment on column JAQA49.jaqa49ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA49.jaqa49ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA49.jaqa49ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQA49.jaqa49at1
+  is 'Auxiliar texto 1';
+comment on column JAQA49.jaqa49at2
+  is 'Auxiliar texto 2';
+comment on column JAQA49.jaqa49at3
+  is 'Auxiliar texto 3';
+create index JAQA492 on JAQA49 (JAQA49FPG, JAQA49COP, JAQA49EST);
+alter table JAQA49
+  add primary key (JAQA49EMP, JAQA49SUS, JAQA49NAF, JAQA49NPG, JAQA49COP, JAQA49FPG);
+

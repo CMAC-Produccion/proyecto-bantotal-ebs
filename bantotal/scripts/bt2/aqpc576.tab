@@ -1,0 +1,113 @@
+create table AQPC576
+(
+  aqpc576pgcod   NUMBER(3) not null,
+  aqpc576ppmod   NUMBER(3) not null,
+  aqpc576ppsuc   NUMBER(3) not null,
+  aqpc576ppmda   NUMBER(4) not null,
+  aqpc576pppap   NUMBER(4) not null,
+  aqpc576ppcta   NUMBER(9) not null,
+  aqpc576ppoper  NUMBER(9) not null,
+  aqpc576ppsbop  NUMBER(3) not null,
+  aqpc576pptope  NUMBER(3) not null,
+  aqpc576ppfpag  DATE not null,
+  aqpc576pptipo  CHAR(1) not null,
+  aqpc576ppexte  NUMBER(3) not null,
+  aqpc576ppimp1  NUMBER(17,2),
+  aqpc576ppimp2  NUMBER(17,2),
+  aqpc576ppimp3  NUMBER(17,2),
+  aqpc576ppimp4  NUMBER(17,2),
+  aqpc576ppimp5  NUMBER(17,2),
+  aqpc576ppimp6  NUMBER(17,2),
+  aqpc576ppimp7  NUMBER(17,2),
+  aqpc576ppimp8  NUMBER(17,2),
+  aqpc576ppimp9  NUMBER(17,2),
+  aqpc576ppimp10 NUMBER(17,2),
+  aqpc576ppimp11 NUMBER(17,2),
+  aqpc576ppimp12 NUMBER(17,2),
+  aqpc576ppimp13 NUMBER(17,2),
+  aqpc576ppimp14 NUMBER(17,2),
+  aqpc576ppimp15 NUMBER(17,2),
+  aqpc576ppimp16 NUMBER(17,2),
+  aqpc576ppimp17 NUMBER(17,2),
+  aqpc576ppimp18 NUMBER(17,2),
+  aqpc576ppimp19 NUMBER(17,2),
+  aqpc576ppimp20 NUMBER(17,2),
+  aqpc576fec     DATE not null,
+  aqpc576cor     NUMBER(9) not null,
+  aqpc576usu     NVARCHAR2(10)
+)
+;
+comment on table AQPC576
+  is 'TABLA TEMPORAL DE LA AQPB088_611C';
+comment on column AQPC576.aqpc576pgcod
+  is 'codigo empresa';
+comment on column AQPC576.aqpc576ppmod
+  is 'modulo';
+comment on column AQPC576.aqpc576ppsuc
+  is 'sucursal';
+comment on column AQPC576.aqpc576ppmda
+  is 'moneda';
+comment on column AQPC576.aqpc576pppap
+  is 'papel';
+comment on column AQPC576.aqpc576ppcta
+  is 'cuenta';
+comment on column AQPC576.aqpc576ppoper
+  is 'operacion';
+comment on column AQPC576.aqpc576ppsbop
+  is 'suboperacion';
+comment on column AQPC576.aqpc576pptope
+  is 'tipo de operacion';
+comment on column AQPC576.aqpc576ppfpag
+  is 'fecha de sistema';
+comment on column AQPC576.aqpc576pptipo
+  is 'tipo';
+comment on column AQPC576.aqpc576ppimp1
+  is 'importe 1';
+comment on column AQPC576.aqpc576ppimp2
+  is 'importe 2';
+comment on column AQPC576.aqpc576ppimp3
+  is 'importe 3';
+comment on column AQPC576.aqpc576ppimp4
+  is 'importe 4';
+comment on column AQPC576.aqpc576ppimp5
+  is 'importe 5';
+comment on column AQPC576.aqpc576ppimp6
+  is 'importe 6';
+comment on column AQPC576.aqpc576ppimp7
+  is 'importe 7';
+comment on column AQPC576.aqpc576ppimp8
+  is 'importe 8';
+comment on column AQPC576.aqpc576ppimp9
+  is 'importe 9';
+comment on column AQPC576.aqpc576ppimp10
+  is 'importe 10';
+comment on column AQPC576.aqpc576ppimp11
+  is 'importe 11';
+comment on column AQPC576.aqpc576ppimp12
+  is 'importe 12';
+comment on column AQPC576.aqpc576ppimp13
+  is 'importe 13';
+comment on column AQPC576.aqpc576ppimp14
+  is 'importe 14';
+comment on column AQPC576.aqpc576ppimp15
+  is 'importe 15';
+comment on column AQPC576.aqpc576ppimp16
+  is 'importe 16';
+comment on column AQPC576.aqpc576ppimp17
+  is 'importe 17';
+comment on column AQPC576.aqpc576ppimp18
+  is 'importe 18';
+comment on column AQPC576.aqpc576ppimp19
+  is 'importe 19';
+comment on column AQPC576.aqpc576ppimp20
+  is 'importe 20';
+comment on column AQPC576.aqpc576fec
+  is 'fecha de registro';
+comment on column AQPC576.aqpc576cor
+  is 'numero correlativo';
+comment on column AQPC576.aqpc576usu
+  is 'usuaio registro';
+create index AQPC576A2 on AQPC576 (AQPC576FEC, AQPC576COR);
+alter table AQPC576
+  add primary key (AQPC576PGCOD, AQPC576PPMOD, AQPC576PPSUC, AQPC576PPMDA, AQPC576PPPAP, AQPC576PPCTA, AQPC576PPOPER, AQPC576PPSBOP, AQPC576PPTOPE, AQPC576PPFPAG, AQPC576PPTIPO, AQPC576PPEXTE, AQPC576FEC, AQPC576COR);
+

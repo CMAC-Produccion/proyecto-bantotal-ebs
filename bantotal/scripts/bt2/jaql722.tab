@@ -1,0 +1,21 @@
+create table JAQL722
+(
+  jaql722cogr NUMBER(2) not null,
+  jaql722codi VARCHAR2(10) not null,
+  jaql722desc VARCHAR2(50),
+  jaql722extr VARCHAR2(50)
+)
+;
+comment on table JAQL722
+  is 'Oferta comercial - Maestros';
+comment on column JAQL722.jaql722cogr
+  is 'Codigo de grupo';
+comment on column JAQL722.jaql722codi
+  is 'Codigo de item';
+comment on column JAQL722.jaql722desc
+  is 'Descripcion de item';
+comment on column JAQL722.jaql722extr
+  is 'Valor extra';
+alter table JAQL722
+  add constraint PK_JAQL722 primary key (JAQL722COGR, JAQL722CODI);
+

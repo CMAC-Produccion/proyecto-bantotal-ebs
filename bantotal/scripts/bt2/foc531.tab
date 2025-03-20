@@ -1,0 +1,75 @@
+create table FOC531
+(
+  foc531pg   NUMBER(3) not null,
+  foc531eor  CHAR(1) not null,
+  foc531ope  NUMBER(9) not null,
+  foc531ref  CHAR(20),
+  foc531mda  NUMBER(4),
+  foc531imp  NUMBER(17,2),
+  foc531fing DATE,
+  foc531fval DATE,
+  foc531fvto DATE,
+  foc531tpag NUMBER(2),
+  foc531mctb NUMBER(3),
+  foc531nctb NUMBER(9),
+  foc531sctb NUMBER(3),
+  foc531ctbe CHAR(35),
+  foc531nomb CHAR(65),
+  foc531tdob CHAR(20),
+  foc531ndob CHAR(20),
+  foc531dirb CHAR(60),
+  foc531ciub CHAR(30),
+  foc531estb CHAR(30),
+  foc531paib CHAR(30),
+  foc531cpob CHAR(20),
+  foc531telb CHAR(20),
+  foc531au1b CHAR(65),
+  foc531au2b CHAR(65),
+  foc531nomo CHAR(65),
+  foc531tdoo CHAR(20),
+  foc531ndoo CHAR(20),
+  foc531diro CHAR(60),
+  foc531ciuo CHAR(30),
+  foc531esto CHAR(30),
+  foc531paio CHAR(30),
+  foc531cpoo CHAR(20),
+  foc531telo CHAR(20),
+  foc531au1o CHAR(65),
+  foc531au2o CHAR(65),
+  foc531suci NUMBER(3),
+  foc531usri CHAR(10),
+  foc531hori CHAR(8),
+  foc531nac  CHAR(1),
+  foc531bic  CHAR(11),
+  foc531gast CHAR(3),
+  foc531call CHAR(4),
+  foc531gest CHAR(1),
+  foc531asem NUMBER(3),
+  foc531assu NUMBER(3),
+  foc531asmo NUMBER(3),
+  foc531astr NUMBER(3),
+  foc531asre NUMBER(4),
+  foc531asfc DATE,
+  foc531cmx  CHAR(1),
+  foc531au1g CHAR(65),
+  foc531au2g CHAR(65),
+  foc531au3g NUMBER(17,2),
+  foc531au4g NUMBER(17,2),
+  foc531au5g DATE,
+  foc531coct NUMBER(9),
+  foc531comd NUMBER(4),
+  foc531cosc NUMBER(3),
+  foc531mdcb NUMBER(4),
+  foc531sucb NUMBER(3),
+  foc531bcin CHAR(11)
+)
+;
+create index FOC53102 on FOC531 (FOC531PG, FOC531EOR, FOC531NDOB);
+create index FOC53103 on FOC531 (FOC531PG, FOC531EOR, FOC531NOMB);
+create index FOC53104 on FOC531 (FOC531PG, FOC531EOR, FOC531REF);
+create index FOC53105 on FOC531 (FOC531PG, FOC531EOR, FOC531GEST, FOC531OPE);
+create index FOC53106 on FOC531 (FOC531PG, FOC531EOR, FOC531MDA, FOC531SUCI);
+create index FOC53107 on FOC531 (FOC531PG, FOC531EOR, FOC531GAST, FOC531FING);
+alter table FOC531
+  add primary key (FOC531PG, FOC531EOR, FOC531OPE);
+

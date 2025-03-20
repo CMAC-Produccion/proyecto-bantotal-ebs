@@ -1,0 +1,14 @@
+create table SNG305
+(
+  sng305mod NUMBER(3) not null,
+  sng305top NUMBER(3) not null,
+  sng300cod NUMBER(3) not null,
+  sng305cmp CHAR(3),
+  sng305pgm CHAR(12),
+  sng305rng NUMBER(10)
+)
+;
+create index SNG30502 on SNG305 (SNG300COD);
+alter table SNG305
+  add primary key (SNG305MOD, SNG305TOP, SNG300COD);
+

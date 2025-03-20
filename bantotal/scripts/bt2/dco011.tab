@@ -1,0 +1,18 @@
+create table DCO011
+(
+  dco006pais NUMBER(3) not null,
+  dco006tdoc NUMBER(2) not null,
+  dco006ndoc CHAR(12) not null,
+  dco000id   NUMBER(10) not null,
+  dco011fech DATE not null,
+  dco011pres CHAR(1),
+  dco011fpre DATE,
+  dco011fven DATE,
+  dco011txt  CHAR(30),
+  dco011usua CHAR(10),
+  dco011wrks CHAR(10)
+)
+;
+alter table DCO011
+  add primary key (DCO006PAIS, DCO006TDOC, DCO006NDOC, DCO000ID, DCO011FECH);
+

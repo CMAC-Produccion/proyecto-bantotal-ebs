@@ -1,0 +1,22 @@
+create table JBVP01
+(
+  jbvp01cod  NUMBER(3) not null,
+  jbvp01suc  NUMBER(3) not null,
+  jbvp01mod  NUMBER(3) not null,
+  jbvp01cta  NUMBER(9) not null,
+  jbvp01sbop NUMBER(3) not null,
+  jbvp01nchq NUMBER(9) not null,
+  jbvp01fch  DATE not null,
+  jbvp01imp  NUMBER(11,2),
+  jbvp01prc  CHAR(1),
+  jbvp01bco  NUMBER(3),
+  jbvp01ax1  CHAR(10),
+  jbvp01ax2  CHAR(50),
+  jbvp01ax3  NUMBER(9),
+  jbvp01ax4  DATE,
+  jbvp01ax5  NUMBER(14,2),
+  jbvp01ax6  CHAR(2)
+)
+;
+create unique index JBVP0101 on JBVP01 (JBVP01COD, JBVP01SUC, JBVP01MOD, JBVP01CTA, JBVP01SBOP, JBVP01NCHQ, JBVP01FCH);
+

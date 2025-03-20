@@ -1,0 +1,28 @@
+create table JAQL576
+(
+  jaql576cor   NUMBER(5) not null,
+  jaql576tiacv VARCHAR2(15),
+  jaql576cvmin NUMBER(18,2),
+  jaql576cvmax NUMBER(18,2),
+  jaql576pgmen NUMBER(18,2),
+  jaql576pgtot NUMBER(18,2),
+  jaql576tase  CHAR(3)
+)
+;
+comment on column JAQL576.jaql576cor
+  is 'Correlativo';
+comment on column JAQL576.jaql576tiacv
+  is 'Tipo Analista según Cartera Vencida';
+comment on column JAQL576.jaql576cvmin
+  is 'Cartera Vencida Mínima';
+comment on column JAQL576.jaql576cvmax
+  is 'Cartera Vencida Máxima';
+comment on column JAQL576.jaql576pgmen
+  is 'Pago Mensual';
+comment on column JAQL576.jaql576pgtot
+  is 'Pago Total';
+comment on column JAQL576.jaql576tase
+  is 'Tipo de Analista P -Pyme  C-Consumo';
+alter table JAQL576
+  add constraint JAQL576COR primary key (JAQL576COR);
+

@@ -1,0 +1,12 @@
+create table XWFV11
+(
+  xwfv10corr NUMBER(10) not null,
+  xwfv11atr  CHAR(10) not null,
+  xwfv11grd  NUMBER(4) not null,
+  xwfv11fil  NUMBER(10) not null,
+  xwfv11val  LONG
+)
+;
+alter table XWFV11
+  add primary key (XWFV10CORR, XWFV11ATR, XWFV11GRD, XWFV11FIL);
+

@@ -1,0 +1,33 @@
+create table FST112
+(
+  pendcob    NUMBER(3) not null,
+  pendnom    CHAR(40),
+  pendrcod   NUMBER(3),
+  pendprior  NUMBER(3),
+  pendtrn    NUMBER(3),
+  pendresmn  NUMBER(3),
+  pendresme  NUMBER(3),
+  pendganmn  NUMBER(3),
+  pendganme  NUMBER(3),
+  pendperdmn NUMBER(3),
+  pendperdme NUMBER(3),
+  pendcodm   NUMBER(3),
+  pendparc   CHAR(1),
+  pendsob    CHAR(1),
+  pendorden  CHAR(1),
+  pendorigen CHAR(1),
+  pendtot    CHAR(1),
+  pendexc    CHAR(1),
+  pendcexc   NUMBER(3),
+  pend001    CHAR(1),
+  pend002    CHAR(1),
+  pend003    CHAR(1),
+  pend004    NUMBER(3),
+  pend005    NUMBER(17,2),
+  pend006    CHAR(1)
+)
+;
+create index FST11202 on FST112 (PENDPRIOR);
+alter table FST112
+  add primary key (PENDCOB);
+

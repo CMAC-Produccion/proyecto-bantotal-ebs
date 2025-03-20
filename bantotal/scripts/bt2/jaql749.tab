@@ -1,0 +1,40 @@
+create table JAQL749
+(
+  jaql749segm NUMBER(5) not null,
+  jaql749fvig DATE not null,
+  jaql749tipe NUMBER(3) not null,
+  jaql749sald NUMBER(17,2),
+  jaql749anti NUMBER(9),
+  jaql749prod NUMBER(5),
+  jaql749au01 VARCHAR2(250),
+  jaql749au02 NUMBER(17,2),
+  jaql749au03 NUMBER(17,2),
+  jaql749au04 DATE
+)
+;
+comment on table JAQL749
+  is 'Condiciones segmentación';
+comment on column JAQL749.jaql749segm
+  is 'Segmento';
+comment on column JAQL749.jaql749fvig
+  is 'Fecha inicio';
+comment on column JAQL749.jaql749tipe
+  is 'Tipo persona';
+comment on column JAQL749.jaql749sald
+  is 'Saldo';
+comment on column JAQL749.jaql749anti
+  is 'Antigüedad cliente (días)';
+comment on column JAQL749.jaql749prod
+  is 'Num. Productos';
+comment on column JAQL749.jaql749au01
+  is 'Auxiliar';
+comment on column JAQL749.jaql749au02
+  is 'Auxiliar';
+comment on column JAQL749.jaql749au03
+  is 'Auxiliar';
+comment on column JAQL749.jaql749au04
+  is 'Auxiliar';
+create index JAQL749A2 on JAQL749 (JAQL749FVIG, JAQL749TIPE, JAQL749SALD, JAQL749ANTI, JAQL749PROD);
+alter table JAQL749
+  add primary key (JAQL749SEGM, JAQL749FVIG, JAQL749TIPE);
+

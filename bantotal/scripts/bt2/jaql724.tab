@@ -1,0 +1,19 @@
+create table JAQL724
+(
+  jaql724idco VARCHAR2(20),
+  jaql724user VARCHAR2(10),
+  jaql724tido NUMBER,
+  jaql724nudo VARCHAR2(12),
+  jaql724fech DATE,
+  jaql724hora CHAR(8),
+  modulo      NUMBER(3),
+  desmod      VARCHAR2(30),
+  tipope      NUMBER(3),
+  destip      VARCHAR2(30),
+  frecpag     VARCHAR2(100)
+)
+;
+comment on table JAQL724
+  is 'Oferta comercial - Cabecera Propuesta ';
+create index IDX_JAQL724_001 on JAQL724 (JAQL724IDCO, JAQL724USER);
+

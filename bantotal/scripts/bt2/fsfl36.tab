@@ -1,0 +1,20 @@
+create table FSFL36
+(
+  fsfl36emp  NUMBER(3) not null,
+  fsfl36fch  DATE not null,
+  fsfl36mod  NUMBER(3) not null,
+  fsfl36suc  NUMBER(3) not null,
+  fsfl36trn  NUMBER(3) not null,
+  fsfl36nrel NUMBER(4) not null,
+  fsfl36mome CHAR(1),
+  fsfl36user CHAR(10),
+  fsfl36fval DATE,
+  fsfl36mtax NUMBER(17,2),
+  fsfl36stax CHAR(10)
+)
+;
+create index FSFL3602 on FSFL36 (FSFL36EMP, FSFL36FCH, FSFL36MOME, FSFL36MOD, FSFL36SUC, FSFL36TRN, FSFL36NREL);
+create index FSFL3603 on FSFL36 (FSFL36EMP, FSFL36FCH, FSFL36MOME, FSFL36USER, FSFL36MOD);
+alter table FSFL36
+  add primary key (FSFL36EMP, FSFL36FCH, FSFL36MOD, FSFL36SUC, FSFL36TRN, FSFL36NREL);
+

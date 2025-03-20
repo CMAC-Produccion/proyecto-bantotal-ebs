@@ -1,0 +1,31 @@
+create table JAQL717
+(
+  jaql717idgr NUMBER(9) not null,
+  jaql717segm NUMBER(1),
+  jaql717cond NUMBER(1),
+  jaql717cali NUMBER(5),
+  jaql717modu NUMBER(3),
+  jaql717tope NUMBER(3),
+  jaql717alia VARCHAR2(20)
+)
+;
+comment on table JAQL717
+  is 'Oferta Comercial - Cabecera tarifario';
+comment on column JAQL717.jaql717idgr
+  is 'Identificador Grupo';
+comment on column JAQL717.jaql717segm
+  is 'Segmento';
+comment on column JAQL717.jaql717cond
+  is 'Condici?n';
+comment on column JAQL717.jaql717cali
+  is 'Tipo de segmentacion';
+comment on column JAQL717.jaql717modu
+  is 'Modulo';
+comment on column JAQL717.jaql717tope
+  is 'Tipo de Operacion';
+comment on column JAQL717.jaql717alia
+  is 'Alias del modulo';
+create index IDX_JAQL717_001 on JAQL717 (JAQL717MODU, JAQL717TOPE);
+alter table JAQL717
+  add constraint PK_JAQL717 primary key (JAQL717IDGR);
+

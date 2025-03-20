@@ -1,0 +1,20 @@
+create table BNJ209
+(
+  bnj209pgc  NUMBER(3) not null,
+  bnj209mod  NUMBER(3) not null,
+  bnj209suc  NUMBER(3) not null,
+  bnj209mda  NUMBER(4) not null,
+  bnj209pap  NUMBER(4) not null,
+  bnj209cta  NUMBER(9) not null,
+  bnj209ope  NUMBER(9) not null,
+  bnj209sbo  NUMBER(3) not null,
+  bnj209top  NUMBER(3) not null,
+  bnj209cerr NUMBER(4) not null,
+  bnj209desc CHAR(200),
+  bnj209fch  DATE,
+  bnj209hor  CHAR(8)
+)
+;
+alter table BNJ209
+  add primary key (BNJ209PGC, BNJ209MOD, BNJ209SUC, BNJ209MDA, BNJ209PAP, BNJ209CTA, BNJ209OPE, BNJ209SBO, BNJ209TOP, BNJ209CERR);
+

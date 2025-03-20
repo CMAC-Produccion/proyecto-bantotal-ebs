@@ -1,0 +1,12 @@
+create table PPG018
+(
+  ppg018mod  NUMBER(3) not null,
+  ppg018mda  NUMBER(4) not null,
+  ppg018pap  NUMBER(4) not null,
+  ppg018top  NUMBER(3) not null,
+  ppg018desc CHAR(50)
+)
+;
+alter table PPG018
+  add primary key (PPG018MOD, PPG018MDA, PPG018PAP, PPG018TOP);
+

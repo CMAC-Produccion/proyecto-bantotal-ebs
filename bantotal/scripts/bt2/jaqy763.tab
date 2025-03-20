@@ -1,0 +1,40 @@
+create table JAQY763
+(
+  jaqy763ind   NUMBER(9) not null,
+  jaqy763asocn VARCHAR2(100),
+  jaqy763sucu  NUMBER(4),
+  jaqy763ubig  VARCHAR2(100),
+  jaqy763fchcg DATE,
+  jaqy763pres  VARCHAR2(40),
+  jaqy763asocs NUMBER(9),
+  jaqy763fchst DATE,
+  jaqy763hrast CHAR(8),
+  jaqy763user  CHAR(10),
+  jaqy763hist  CHAR(1)
+)
+;
+comment on column JAQY763.jaqy763ind
+  is 'Codigo unico para cada asociación';
+comment on column JAQY763.jaqy763asocn
+  is 'Nombre de la asociación';
+comment on column JAQY763.jaqy763sucu
+  is 'Sucursal que pertenece la asociación';
+comment on column JAQY763.jaqy763ubig
+  is 'Direccion de la asociación';
+comment on column JAQY763.jaqy763fchcg
+  is 'Fecha de la ultima carga';
+comment on column JAQY763.jaqy763pres
+  is 'Nombre del presidente de la asociación';
+comment on column JAQY763.jaqy763asocs
+  is 'Número de asociados';
+comment on column JAQY763.jaqy763fchst
+  is 'fecha del sistema';
+comment on column JAQY763.jaqy763hrast
+  is 'Hora del sistema';
+comment on column JAQY763.jaqy763user
+  is 'Ususario del BT';
+comment on column JAQY763.jaqy763hist
+  is 'Indicador de nueva carga';
+alter table JAQY763
+  add primary key (JAQY763IND);
+

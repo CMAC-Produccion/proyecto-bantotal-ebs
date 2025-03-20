@@ -1,0 +1,51 @@
+create table JAQM84
+(
+  jaqm84cod NUMBER(9) not null,
+  jaqm84arc BLOB,
+  jaqm84an1 NUMBER(9),
+  jaqm84an2 NUMBER(9),
+  jaqm84an3 NUMBER(9),
+  jaqm84ai1 NUMBER(17,2),
+  jaqm84ai2 NUMBER(17,2),
+  jaqm84ai3 NUMBER(17,2),
+  jaqm84ac1 CHAR(255),
+  jaqm84ac2 CHAR(255),
+  jaqm84ac3 CHAR(255),
+  jaqm84af1 DATE,
+  jaqm84af2 DATE,
+  jaqm84af3 DATE
+)
+;
+comment on table JAQM84
+  is 'Tabla Archivo Correlativo Poliza VC';
+comment on column JAQM84.jaqm84cod
+  is 'Codigo ';
+comment on column JAQM84.jaqm84arc
+  is 'Archivo';
+comment on column JAQM84.jaqm84an1
+  is 'Auxiliar n1';
+comment on column JAQM84.jaqm84an2
+  is 'Auxiliar n2';
+comment on column JAQM84.jaqm84an3
+  is 'Auxiliar n3';
+comment on column JAQM84.jaqm84ai1
+  is 'Auxiliar i1';
+comment on column JAQM84.jaqm84ai2
+  is 'Auxiliar i2';
+comment on column JAQM84.jaqm84ai3
+  is 'Auxiliar i3';
+comment on column JAQM84.jaqm84ac1
+  is 'Auxiliar c1';
+comment on column JAQM84.jaqm84ac2
+  is 'Auxiliar c2';
+comment on column JAQM84.jaqm84ac3
+  is 'Auxiliar c3';
+comment on column JAQM84.jaqm84af1
+  is 'Auxiliar f1';
+comment on column JAQM84.jaqm84af2
+  is 'Auxiliar f2';
+comment on column JAQM84.jaqm84af3
+  is 'Auxiliar f3';
+alter table JAQM84
+  add primary key (JAQM84COD);
+

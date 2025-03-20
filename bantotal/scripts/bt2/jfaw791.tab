@@ -1,0 +1,25 @@
+create table JFAW791
+(
+  jfaw791emp NUMBER(3) not null,
+  jfaw791mod NUMBER(3) not null,
+  jfaw791mda NUMBER(4) not null,
+  jfaw791pap NUMBER(4) not null,
+  jfaw791cta NUMBER(9) not null,
+  jfaw791ope NUMBER(9) not null,
+  jfaw791sbo NUMBER(3) not null,
+  jfaw791top NUMBER(3) not null,
+  jfaw791fva DATE,
+  jfaw791fvt DATE,
+  jfaw791est CHAR(1),
+  jfaw791mto NUMBER(17,2),
+  jfaw791ac1 CHAR(50),
+  jfaw791ac2 CHAR(50),
+  jfaw791ac3 CHAR(50),
+  jfaw791an1 NUMBER(9),
+  jfaw791an2 NUMBER(9),
+  jfaw791an3 NUMBER(9)
+)
+;
+alter table JFAW791
+  add primary key (JFAW791EMP, JFAW791MOD, JFAW791MDA, JFAW791PAP, JFAW791CTA, JFAW791OPE, JFAW791SBO, JFAW791TOP);
+

@@ -1,0 +1,41 @@
+create table SEG002
+(
+  seg002pgc NUMBER(3) not null,
+  seg002usu CHAR(10) not null,
+  seg002wrs CHAR(20) not null,
+  seg002fci DATE not null,
+  seg002hri CHAR(8) not null,
+  seg002suc NUMBER(3),
+  seg002fcs DATE,
+  seg002hrs CHAR(8),
+  seg002au1 CHAR(30),
+  seg002au2 NUMBER(17,2)
+)
+;
+comment on table SEG002
+  is 'Logins en Bantotal';
+comment on column SEG002.seg002pgc
+  is 'Seg002 Pgc                  ';
+comment on column SEG002.seg002usu
+  is 'Usuario';
+comment on column SEG002.seg002wrs
+  is 'Workstation                 ';
+comment on column SEG002.seg002fci
+  is 'Fecha de ingreso            ';
+comment on column SEG002.seg002hri
+  is 'Hora de ingreso             ';
+comment on column SEG002.seg002suc
+  is 'Sucursal en la que se logueo';
+comment on column SEG002.seg002fcs
+  is 'Fecha de salida             ';
+comment on column SEG002.seg002hrs
+  is 'Hora de salida              ';
+comment on column SEG002.seg002au1
+  is 'Auxiliar 1 caracteres       ';
+comment on column SEG002.seg002au2
+  is 'Auxiliar 2 importe          ';
+create index ID_SEG002_EXA on SEG002 (SEG002USU, SEG002FCI, SEG002HRI, TRIM(SEG002HRS));
+create index SEG0022 on SEG002 (SEG002FCI, SEG002HRI, SEG002PGC, SEG002USU, SEG002WRS);
+alter table SEG002
+  add primary key (SEG002PGC, SEG002USU, SEG002WRS, SEG002FCI, SEG002HRI);
+

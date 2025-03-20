@@ -1,0 +1,31 @@
+create table FSFC18
+(
+  sfc18emp   NUMBER(3) not null,
+  sfc18mer   NUMBER(3) not null,
+  sfc18pro   NUMBER(3) not null,
+  sfc18monc  NUMBER(4) not null,
+  sfc18monv  NUMBER(4) not null,
+  sfc18base  CHAR(1),
+  sfc18inter CHAR(1),
+  sfc18conto CHAR(1),
+  sfc18tolen CHAR(1),
+  sfc18tol   NUMBER(13,8),
+  sfc18max   NUMBER(13,8),
+  sfc18min   NUMBER(13,8),
+  sfc18auex  CHAR(1),
+  sfc18alex  CHAR(1),
+  sfc18hab   CHAR(1),
+  sfc18aux1  CHAR(10),
+  sfc18aux2  CHAR(1),
+  sfc18aux3  CHAR(1),
+  sfc18aux4  CHAR(1),
+  sfc18aux5  NUMBER(13,8),
+  sfc18aux6  NUMBER(13,8),
+  sfc18aux7  NUMBER(13,8),
+  sfc18aux8  NUMBER(5),
+  sfc18aux9  NUMBER(5)
+)
+;
+alter table FSFC18
+  add primary key (SFC18EMP, SFC18MER, SFC18PRO, SFC18MONC, SFC18MONV);
+

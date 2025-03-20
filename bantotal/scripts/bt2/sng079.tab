@@ -1,0 +1,12 @@
+create table SNG079
+(
+  sng021eval NUMBER(10) not null,
+  sng026cod  NUMBER(4) not null,
+  sng079grd  CHAR(15) not null,
+  sng079corr NUMBER(4) not null,
+  sng079atr  CHAR(20)
+)
+;
+alter table SNG079
+  add primary key (SNG021EVAL, SNG026COD, SNG079GRD, SNG079CORR);
+

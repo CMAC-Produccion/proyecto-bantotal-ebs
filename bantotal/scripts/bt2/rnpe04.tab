@@ -1,0 +1,184 @@
+create table RNPE04
+(
+  rnpe04emp  NUMBER(3) not null,
+  rnpe04fec  DATE not null,
+  rnpe04suc  NUMBER(5) not null,
+  rnpe04mod  NUMBER(5) not null,
+  rnpe04mon  NUMBER(4) not null,
+  rnpe04pap  NUMBER(6) not null,
+  rnpe04cta  NUMBER(9) not null,
+  rnpe04ope  NUMBER(9) not null,
+  rnpe04sbop NUMBER(5) not null,
+  rnpe04top  NUMBER(3) not null,
+  rnpe04rub  NUMBER(16),
+  rnpe04idop NUMBER(16),
+  rnpe04mdac CHAR(6),
+  rnpe04pai  NUMBER(3),
+  rnpe04tdo  NUMBER(4),
+  rnpe04ndo  CHAR(25),
+  rnpe04sapm NUMBER(17,2),
+  rnpe04cntp NUMBER(5),
+  rnpe04capp NUMBER(17,2),
+  rnpe04intp NUMBER(17,2),
+  rnpe04tea  NUMBER(10,6),
+  rnpe04tem  NUMBER(10,6),
+  rnpe04tla  NUMBER(10,6),
+  rnpe04tlm  NUMBER(10,6),
+  rnpe04rel1 NUMBER(3),
+  rnpe04rub1 NUMBER(16),
+  rnpe04sdo1 NUMBER(17,2),
+  rnpe04rel2 NUMBER(3),
+  rnpe04rub2 NUMBER(16),
+  rnpe04sdo2 NUMBER(17,2),
+  rnpe04rel3 NUMBER(3),
+  rnpe04rub3 NUMBER(16),
+  rnpe04sdo3 NUMBER(17,2),
+  rnpe04rel4 NUMBER(3),
+  rnpe04rub4 NUMBER(16),
+  rnpe04sdo4 NUMBER(17,2),
+  rnpe04rel5 NUMBER(3),
+  rnpe04rub5 NUMBER(16),
+  rnpe04sdo5 NUMBER(17,2),
+  rnpe04smn  NUMBER(17,2),
+  rnpe04sme  NUMBER(17,2),
+  rnpe04smo  NUMBER(17,2),
+  rnpe04fau1 DATE,
+  rnpe04fau2 DATE,
+  rnpe04fau3 DATE,
+  rnpe04fau4 DATE,
+  rnpe04fau5 DATE,
+  rnpe04nro1 NUMBER(3),
+  rnpe04nro2 NUMBER(3),
+  rnpe04nro3 NUMBER(3),
+  rnpe04nro4 NUMBER(10),
+  rnpe04nro5 NUMBER(10),
+  rnpe04chr1 CHAR(20),
+  rnpe04chr2 CHAR(50),
+  rnpe04chr3 CHAR(10),
+  rnpe04camn NUMBER(17,2),
+  rnpe04came NUMBER(17,2),
+  rnpe04feve DATE,
+  rnpe04feac DATE,
+  rnpe04tca  NUMBER(14,8),
+  rnpe04arb  NUMBER(14,8)
+)
+;
+comment on table RNPE04
+  is 'TABLA TEMPORAL ANEXO 17A';
+comment on column RNPE04.rnpe04emp
+  is 'EMPRESA';
+comment on column RNPE04.rnpe04fec
+  is 'FECHA';
+comment on column RNPE04.rnpe04suc
+  is 'SUCURSAL';
+comment on column RNPE04.rnpe04mod
+  is 'MODULO';
+comment on column RNPE04.rnpe04mon
+  is 'MONEDA';
+comment on column RNPE04.rnpe04pap
+  is 'PAPEL';
+comment on column RNPE04.rnpe04cta
+  is 'CUENTA';
+comment on column RNPE04.rnpe04ope
+  is 'OPERACIÓN';
+comment on column RNPE04.rnpe04sbop
+  is 'SUB OPERACIÓN';
+comment on column RNPE04.rnpe04top
+  is 'TIPO DE OPERACIÓN';
+comment on column RNPE04.rnpe04idop
+  is 'NUMERO OPERACIÓN SBS';
+comment on column RNPE04.rnpe04mdac
+  is 'MONEDA EQUIVALENTE BCP';
+comment on column RNPE04.rnpe04pai
+  is 'PSIT';
+comment on column RNPE04.rnpe04tdo
+  is 'TIPO DOC';
+comment on column RNPE04.rnpe04ndo
+  is 'NUMERO DOC';
+comment on column RNPE04.rnpe04sapm
+  is 'SALDO PROMEDIO';
+comment on column RNPE04.rnpe04cntp
+  is 'CANTIDAD DE CUOTAS PACTADAS';
+comment on column RNPE04.rnpe04capp
+  is 'CAPITAL PACTADO';
+comment on column RNPE04.rnpe04intp
+  is 'INTERES PACTADO';
+comment on column RNPE04.rnpe04tea
+  is 'TEA';
+comment on column RNPE04.rnpe04tem
+  is 'TEM';
+comment on column RNPE04.rnpe04tla
+  is 'TASA LINEAL ANUAL';
+comment on column RNPE04.rnpe04tlm
+  is 'TASA LINEAL MENSUAL';
+comment on column RNPE04.rnpe04rel1
+  is 'PRIMERA RELACION';
+comment on column RNPE04.rnpe04rub1
+  is 'PRIMER RUBRO';
+comment on column RNPE04.rnpe04sdo1
+  is 'PRIMER SALDO';
+comment on column RNPE04.rnpe04rel2
+  is 'SEGUNDA RELACION';
+comment on column RNPE04.rnpe04rub2
+  is 'SEGUNDO RUBRO';
+comment on column RNPE04.rnpe04sdo2
+  is 'SEGUNDO SALDO';
+comment on column RNPE04.rnpe04rel3
+  is 'TERCERA RELACION';
+comment on column RNPE04.rnpe04rub3
+  is 'TERCER RUBRO';
+comment on column RNPE04.rnpe04sdo3
+  is 'TERCER SALDO';
+comment on column RNPE04.rnpe04rel4
+  is 'CUARTA RELACION';
+comment on column RNPE04.rnpe04rub4
+  is 'CUARTO RUBRO';
+comment on column RNPE04.rnpe04sdo4
+  is 'CUARTO SALDO';
+comment on column RNPE04.rnpe04rel5
+  is 'QUINTA RELACION';
+comment on column RNPE04.rnpe04rub5
+  is 'QUINTO RUBRO';
+comment on column RNPE04.rnpe04sdo5
+  is 'QUINTO SALDO';
+comment on column RNPE04.rnpe04fau1
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04fau2
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04fau3
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04fau4
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04fau5
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04nro1
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04nro2
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04nro3
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04nro4
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04nro5
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04chr1
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04chr2
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04chr3
+  is 'AUXILIAR';
+comment on column RNPE04.rnpe04camn
+  is 'SALDO CAPITAL MN';
+comment on column RNPE04.rnpe04came
+  is 'SALDO CAPITAL ME';
+comment on column RNPE04.rnpe04feve
+  is 'FECHA DE VENCIMIENTO';
+comment on column RNPE04.rnpe04feac
+  is 'FECHA DE ACTUALIZACION';
+create index RNPE042 on RNPE04 (RNPE04EMP, RNPE04SUC, RNPE04MOD, RNPE04MON, RNPE04PAP, RNPE04CTA, RNPE04OPE, RNPE04SBOP, RNPE04TOP, RNPE04FEC);
+create index RNPE043 on RNPE04 (RNPE04EMP, RNPE04FEC, RNPE04PAI, RNPE04TDO, RNPE04NDO);
+create index RNPE044 on RNPE04 (RNPE04EMP, RNPE04FEC, RNPE04RUB, RNPE04CTA, RNPE04SUC, RNPE04MON, RNPE04PAP, RNPE04OPE, RNPE04SBOP, RNPE04TOP);
+create index RNPE045 on RNPE04 (RNPE04EMP, RNPE04CTA, RNPE04SUC, RNPE04MOD, RNPE04MON, RNPE04PAP, RNPE04OPE, RNPE04SBOP, RNPE04TOP, RNPE04FEC);
+alter table RNPE04
+  add primary key (RNPE04EMP, RNPE04FEC, RNPE04SUC, RNPE04MOD, RNPE04MON, RNPE04PAP, RNPE04CTA, RNPE04OPE, RNPE04SBOP, RNPE04TOP);
+

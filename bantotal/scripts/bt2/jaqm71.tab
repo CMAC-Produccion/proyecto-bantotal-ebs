@@ -1,0 +1,37 @@
+create table JAQM71
+(
+  jaqm71fech DATE not null,
+  jaqm71anal CHAR(10) not null,
+  jaqm71hora CHAR(8) not null,
+  jaqm71clie CHAR(150),
+  jaqm71prod CHAR(100),
+  jaqm71segm CHAR(100),
+  jaqm71dina NUMBER(4),
+  jaqm71moap NUMBER(17,2),
+  jaqm71conv CHAR(100),
+  jaqm71pcca NUMBER(3),
+  jaqm71calf CHAR(100),
+  jaqm71tcre CHAR(100),
+  jaqm71num1 NUMBER(9),
+  jaqm71num2 NUMBER(9),
+  jaqm71num3 NUMBER(9),
+  jaqm71imp1 NUMBER(17,2),
+  jaqm71imp2 NUMBER(17,2),
+  jaqm71imp3 NUMBER(17,2),
+  jaqm71car1 CHAR(1),
+  jaqm71car2 CHAR(1),
+  jaqm71car3 CHAR(1),
+  jaqm71var1 VARCHAR2(255),
+  jaqm71var2 VARCHAR2(255),
+  jaqm71var3 VARCHAR2(255),
+  jaqm71fec1 DATE,
+  jaqm71fec2 DATE,
+  jaqm71fec3 DATE,
+  jaqm71pais NUMBER(3) not null,
+  jaqm71tdoc NUMBER(2) not null,
+  jaqm71ndoc CHAR(12) not null
+)
+;
+alter table JAQM71
+  add primary key (JAQM71FECH, JAQM71PAIS, JAQM71ANAL, JAQM71HORA, JAQM71TDOC, JAQM71NDOC);
+

@@ -1,0 +1,49 @@
+create table AQPA370
+(
+  aqpa370corr   NUMBER(10) not null,
+  aqpa370fec    DATE not null,
+  aqpa370hora   CHAR(10) not null,
+  aqpa370user   VARCHAR2(10) not null,
+  aqpa370inst   NUMBER(10) not null,
+  aqpa370pgcod  NUMBER(5),
+  aqpa370mod    NUMBER(4),
+  aqpa370suc    NUMBER(4),
+  aqpa370cta    NUMBER(10),
+  aqpa370ope    NUMBER(10),
+  aqpa370sbop   NUMBER(4),
+  aqpa370top    NUMBER(4),
+  aqpa370nomb   VARCHAR2(150),
+  aqpa370age    VARCHAR2(50),
+  aqpa370anlst  VARCHAR2(10),
+  aqpa370mnt    NUMBER(17,2),
+  aqpa370prod   VARCHAR2(50),
+  aqpa370nropol NUMBER(5) not null,
+  aqpa370fori   DATE,
+  aqpa370hori   CHAR(8),
+  aqpa370aut    VARCHAR2(10),
+  aqpa370faut   DATE,
+  aqpa370haut   CHAR(8),
+  aqpa370rpta   VARCHAR2(15),
+  aqpa370com    VARCHAR2(400),
+  aqpa370naux1  NUMBER(17,2),
+  aqpa370naux2  NUMBER(17,2),
+  aqpa370naux3  NUMBER(17,2),
+  aqpa370naux4  NUMBER(17,2),
+  aqpa370naux5  NUMBER(17,2),
+  aqpa370vaux1  VARCHAR2(40),
+  aqpa370vaux2  VARCHAR2(40),
+  aqpa370vaux3  VARCHAR2(40),
+  aqpa370vaux4  VARCHAR2(40),
+  aqpa370vaux5  VARCHAR2(40),
+  aqpa370daux1  DATE,
+  aqpa370daux2  DATE,
+  aqpa370daux3  DATE
+)
+;
+create index AQPA370A5 on AQPA370 (AQPA370FEC, AQPA370USER);
+create index AQPA3702 on AQPA370 (AQPA370USER);
+create index AQPA3703 on AQPA370 (AQPA370INST);
+create index AQPA3704 on AQPA370 (AQPA370NROPOL);
+alter table AQPA370
+  add primary key (AQPA370CORR, AQPA370FEC, AQPA370HORA, AQPA370USER, AQPA370INST, AQPA370NROPOL);
+

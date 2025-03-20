@@ -1,0 +1,26 @@
+create table FPP174
+(
+  pp173cod   NUMBER(4) not null,
+  pp174cod   NUMBER(9) not null,
+  pp174suc   NUMBER(3),
+  pp174cta   NUMBER(9),
+  pp174fec   DATE,
+  pp174desc  CHAR(50),
+  pp174aux1  NUMBER(9),
+  pp174aux2  NUMBER(9),
+  pp174aux3  NUMBER(9),
+  pp174aux4  CHAR(50),
+  pp174aux5  CHAR(50),
+  pp174aux6  CHAR(50),
+  pp174aux7  DATE,
+  pp174aux8  DATE,
+  pp174aux9  DATE,
+  pp174aux10 NUMBER(17,2),
+  pp174aux11 NUMBER(17,2),
+  pp174aux12 NUMBER(17,2)
+)
+;
+create index FPP17403 on FPP174 (PP174SUC, PP174CTA, PP174FEC);
+alter table FPP174
+  add primary key (PP173COD, PP174COD);
+

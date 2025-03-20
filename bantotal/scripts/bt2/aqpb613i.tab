@@ -1,0 +1,136 @@
+create table AQPB613I
+(
+  aqpb613icorr   NUMBER(10) not null,
+  aqpb613ifech   DATE not null,
+  aqpb613ihora   CHAR(8) not null,
+  aqpb613iinst   NUMBER(10) not null,
+  aqpb613ineva   NUMBER(10),
+  aqpb613ipais   NUMBER(3),
+  aqpb613itdoc   NUMBER(2),
+  aqpb613indoc   CHAR(12),
+  aqpb613irubr   VARCHAR2(14),
+  aqpb613iesta   CHAR(2),
+  aqpb613ienti   VARCHAR2(200),
+  aqpb613itcre   CHAR(30),
+  aqpb613isdeu   NUMBER(17,2),
+  aqpb613iplaz   NUMBER(9,6),
+  aqpb613itaza   NUMBER(9,6),
+  aqpb613iccalc  NUMBER(17,2),
+  aqpb613igfin   NUMBER(17,2),
+  aqpb613ifrcc   DATE,
+  aqpb613idori   CHAR(1),
+  aqpb613ichek   CHAR(1),
+  aqpb613ipers   CHAR(30),
+  aqpb613irela   CHAR(20),
+  aqpb613iline   CHAR(20),
+  aqpb613iaux1   NUMBER(10),
+  aqpb613iaux2   NUMBER(17,2),
+  aqpb613iaux3   CHAR(1),
+  aqpb613iaux4   VARCHAR2(1),
+  aqpb613iaux5   VARCHAR2(50),
+  aqpb613iaux6   DATE,
+  aqpb613iaux7   NUMBER(10),
+  aqpb613iaux8   NUMBER(17,2),
+  aqpb613iaux9   VARCHAR2(40),
+  aqpb613imda    NUMBER(4),
+  aqpb613itlin   NUMBER(17,2),
+  aqpb613iutil   NUMBER(17,2),
+  aqpb613iflin   VARCHAR2(1),
+  aqpb613icptn   NUMBER(17,2),
+  aqpb613ifac1   NUMBER(10,6),
+  aqpb613ifac2   NUMBER(10,6),
+  aqpb613ifac3   NUMBER(10,6),
+  aqpb613icent   VARCHAR2(10),
+  aqpb613ifeclog DATE,
+  aqpb613ihorlog VARCHAR2(15)
+)
+;
+comment on column AQPB613I.aqpb613icorr
+  is 'Correlativo';
+comment on column AQPB613I.aqpb613ifech
+  is 'Fecha Proceso';
+comment on column AQPB613I.aqpb613ihora
+  is 'Hora Registro';
+comment on column AQPB613I.aqpb613iinst
+  is 'Instancia / Solicitud';
+comment on column AQPB613I.aqpb613ineva
+  is 'Evaluacion';
+comment on column AQPB613I.aqpb613ipais
+  is 'Pais';
+comment on column AQPB613I.aqpb613itdoc
+  is 'Tipo Documento';
+comment on column AQPB613I.aqpb613indoc
+  is 'Num Documento';
+comment on column AQPB613I.aqpb613irubr
+  is 'Rubro';
+comment on column AQPB613I.aqpb613iesta
+  is 'Estado S/N';
+comment on column AQPB613I.aqpb613ienti
+  is 'Entidad Finan';
+comment on column AQPB613I.aqpb613itcre
+  is 'Tipo Credito';
+comment on column AQPB613I.aqpb613isdeu
+  is 'Saldo Deudor';
+comment on column AQPB613I.aqpb613iplaz
+  is 'Plazo';
+comment on column AQPB613I.aqpb613itaza
+  is 'Taza';
+comment on column AQPB613I.aqpb613iccalc
+  is 'Cuota Calculada';
+comment on column AQPB613I.aqpb613igfin
+  is 'Gasto Financiero';
+comment on column AQPB613I.aqpb613ifrcc
+  is 'Fecha RCC';
+comment on column AQPB613I.aqpb613idori
+  is 'Datos Origen';
+comment on column AQPB613I.aqpb613ichek
+  is 'Vigente';
+comment on column AQPB613I.aqpb613ipers
+  is 'Nombre Per';
+comment on column AQPB613I.aqpb613irela
+  is 'Relacion Per';
+comment on column AQPB613I.aqpb613iline
+  is 'Tipo de Deuda';
+comment on column AQPB613I.aqpb613iaux1
+  is 'Tarea de ejecucion';
+comment on column AQPB613I.aqpb613iaux2
+  is '0';
+comment on column AQPB613I.aqpb613iaux3
+  is 'Flag Ratio R/ ';
+comment on column AQPB613I.aqpb613iaux4
+  is 'Flag Compra de Deuda';
+comment on column AQPB613I.aqpb613iaux5
+  is 'Usuario de Registro';
+comment on column AQPB613I.aqpb613iaux6
+  is '0';
+comment on column AQPB613I.aqpb613iaux7
+  is '0';
+comment on column AQPB613I.aqpb613iaux8
+  is 'Monto de No Uso';
+comment on column AQPB613I.aqpb613iaux9
+  is 'Descripcion del Credito';
+comment on column AQPB613I.aqpb613imda
+  is 'Moneda';
+comment on column AQPB613I.aqpb613itlin
+  is 'Monto Total Linea';
+comment on column AQPB613I.aqpb613iutil
+  is 'Monto Utilizacion';
+comment on column AQPB613I.aqpb613iflin
+  is 'Flag Tipo de deuda L/P';
+comment on column AQPB613I.aqpb613icptn
+  is 'Monto Cuota Potencial';
+comment on column AQPB613I.aqpb613ifac1
+  is 'Factor Calculo Uso';
+comment on column AQPB613I.aqpb613ifac2
+  is 'Factor Calculo No Uso';
+comment on column AQPB613I.aqpb613ifac3
+  is 'Factor Calculo Prestamo';
+comment on column AQPB613I.aqpb613icent
+  is 'Codigo Entidad';
+comment on column AQPB613I.aqpb613ifeclog
+  is 'Fecha Log';
+comment on column AQPB613I.aqpb613ihorlog
+  is 'Hora log ';
+alter table AQPB613I
+  add primary key (AQPB613IINST, AQPB613IFECH, AQPB613IHORA, AQPB613ICORR);
+

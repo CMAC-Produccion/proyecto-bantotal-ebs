@@ -1,0 +1,59 @@
+create table FSE012
+(
+  ldcod    NUMBER(3) not null,
+  ldmod    NUMBER(3) not null,
+  ldmda    NUMBER(4) not null,
+  ldpap    NUMBER(4) not null,
+  ldcta    NUMBER(9) not null,
+  ldsuc    NUMBER(3) not null,
+  ldoper   NUMBER(9) not null,
+  ldsbop   NUMBER(3) not null,
+  ldtope   NUMBER(3) not null,
+  lddcom   NUMBER(3),
+  lddges   NUMBER(3),
+  ldfvto   DATE,
+  ldfvto1  DATE,
+  ldmto    NUMBER(17,2),
+  ldbco    NUMBER(3),
+  ldabco   NUMBER(3),
+  ldacep   CHAR(30),
+  lddoac   CHAR(30),
+  ldciud   CHAR(30),
+  ldlist   NUMBER(9),
+  ldpzo    NUMBER(5),
+  ldndoc   NUMBER(9),
+  ldttas   NUMBER(1),
+  ldtasa   NUMBER(10,6),
+  ldpza    NUMBER(3),
+  ldpepais NUMBER(3),
+  ldpetdoc NUMBER(2),
+  ldpendoc CHAR(12),
+  ldsn01   CHAR(1),
+  ldsn02   CHAR(1),
+  e012cd   NUMBER(3),
+  e012mo   NUMBER(3),
+  e012su   NUMBER(3),
+  e012tr   NUMBER(3),
+  e012re   NUMBER(4),
+  e012fc   DATE,
+  e012or   NUMBER(2),
+  e012sb   NUMBER(3),
+  e012co   CHAR(1),
+  ldaforo  NUMBER(17,2),
+  ldafporc NUMBER(7,4),
+  ldafimp  NUMBER(17,2),
+  ldmtoori NUMBER(17,2)
+)
+;
+create index FSE01202 on FSE012 (LDBCO);
+create index FSE01203 on FSE012 (LDCOD, LDSUC, LDLIST);
+create index FSE01204 on FSE012 (LDCOD, LDACEP, LDFVTO);
+create index FSE01205 on FSE012 (E012CD, E012MO, E012SU, E012TR, E012RE, E012FC, E012OR, E012SB);
+create index FSE01206 on FSE012 (LDPEPAIS, LDPETDOC, LDPENDOC);
+create index FSE01207 on FSE012 (LDCOD, LDCTA, LDMOD, LDLIST);
+create index FSE01208 on FSE012 (LDCOD, LDAFIMP);
+create index JBXE1201 on FSE012 (LDNDOC, LDABCO, LDBCO, E012CO, LDCOD, LDMOD, LDTOPE);
+create index JBXE1202 on FSE012 (LDCOD, LDMOD, LDTOPE, LDFVTO, E012CO, E012SU);
+alter table FSE012
+  add primary key (LDCOD, LDMOD, LDMDA, LDPAP, LDCTA, LDSUC, LDOPER, LDSBOP, LDTOPE);
+

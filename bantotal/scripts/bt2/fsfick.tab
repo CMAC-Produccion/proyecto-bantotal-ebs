@@ -1,0 +1,17 @@
+create table FSFICK
+(
+  sfickcod NUMBER(3) not null,
+  sfickper NUMBER(3) not null,
+  sfickdes CHAR(50),
+  sfickax1 CHAR(50),
+  sfickax2 CHAR(50),
+  sfickax3 DATE,
+  sfickax4 DATE,
+  sfickax5 NUMBER(9),
+  sfickax6 NUMBER(9),
+  sfickax7 CHAR(1)
+)
+;
+alter table FSFICK
+  add primary key (SFICKCOD, SFICKPER);
+

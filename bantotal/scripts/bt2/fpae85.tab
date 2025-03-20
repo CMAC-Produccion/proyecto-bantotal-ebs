@@ -1,0 +1,10 @@
+create table FPAE85
+(
+  pae85mrtip NUMBER(5) not null,
+  pae83mrid  NUMBER(5) not null
+)
+;
+create index FPAE8502 on FPAE85 (PAE83MRID);
+alter table FPAE85
+  add primary key (PAE85MRTIP, PAE83MRID);
+

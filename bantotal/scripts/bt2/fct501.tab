@@ -1,0 +1,16 @@
+create table FCT501
+(
+  pgcod     NUMBER(3) not null,
+  trmod     NUMBER(3) not null,
+  trnro     NUMBER(3) not null,
+  trord     NUMBER(2) not null,
+  drubsec   NUMBER(3) not null,
+  druftopc  NUMBER(2) not null,
+  drufcdop  NUMBER(3) not null,
+  drustsopc CHAR(1)
+)
+;
+create index FCT50102 on FCT501 (TRMOD, DRUFTOPC, DRUFCDOP);
+alter table FCT501
+  add primary key (PGCOD, TRMOD, TRNRO, TRORD, DRUBSEC, DRUFTOPC, DRUFCDOP);
+

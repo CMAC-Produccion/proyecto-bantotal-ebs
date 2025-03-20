@@ -1,0 +1,16 @@
+create table FXT881
+(
+  pgcod   NUMBER(3) not null,
+  trmod   NUMBER(3) not null,
+  trnro   NUMBER(3) not null,
+  swgrup  NUMBER(2) not null,
+  swgrsec NUMBER(2) not null,
+  swtcod  NUMBER(5),
+  swtrel  NUMBER(2),
+  swgrsts CHAR(1)
+)
+;
+create index FXT88102 on FXT881 (SWTCOD, SWTREL);
+alter table FXT881
+  add primary key (PGCOD, TRMOD, TRNRO, SWGRUP, SWGRSEC);
+

@@ -1,0 +1,27 @@
+create table AQPC328H
+(
+  aqpc328fcgh DATE not null,
+  aqpc328ndoh CHAR(12) not null,
+  aqpc328ap1h CHAR(30),
+  aqpc328ap2h CHAR(30),
+  aqpc328no1h CHAR(25),
+  aqpc328no2h CHAR(25)
+)
+;
+comment on table AQPC328H
+  is 'Historico Relación de clientes tarjeta platinum';
+comment on column AQPC328H.aqpc328fcgh
+  is 'Fecha de carga';
+comment on column AQPC328H.aqpc328ndoh
+  is 'Número de documento';
+comment on column AQPC328H.aqpc328ap1h
+  is '1er. apellido';
+comment on column AQPC328H.aqpc328ap2h
+  is '2do. apellido';
+comment on column AQPC328H.aqpc328no1h
+  is '1er. nombre';
+comment on column AQPC328H.aqpc328no2h
+  is '2do. nombre';
+alter table AQPC328H
+  add primary key (AQPC328FCGH, AQPC328NDOH);
+

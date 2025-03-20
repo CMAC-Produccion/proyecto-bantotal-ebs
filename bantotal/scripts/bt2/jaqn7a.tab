@@ -1,0 +1,88 @@
+create table JAQN7A
+(
+  jaqn7afec DATE not null,
+  jaqn7ausu CHAR(10) not null,
+  jaqn7acod NUMBER(9) not null,
+  jaqn7ahor CHAR(10),
+  jaqn7afea DATE,
+  jaqn7ausa CHAR(20),
+  jaqn7awki CHAR(10),
+  jaqn7awka CHAR(10),
+  jaqn7asuc NUMBER(3),
+  jaqn7asua NUMBER(3),
+  jaqn7aacc CHAR(20),
+  jaqn7aest CHAR(1),
+  jaqn7arui CHAR(255),
+  jaqn7arus CHAR(255),
+  jaqn7aan1 NUMBER(9),
+  jaqn7aan2 NUMBER(9),
+  jaqn7aan3 NUMBER(9),
+  jaqn7aac1 VARCHAR2(255),
+  jaqn7aac2 VARCHAR2(255),
+  jaqn7aac3 VARCHAR2(255),
+  jaqn7aaf1 DATE,
+  jaqn7aaf2 DATE,
+  jaqn7aaf3 DATE,
+  jaqn7aai1 NUMBER(17,2),
+  jaqn7aai2 NUMBER(17,2),
+  jaqn7aai3 NUMBER(17,2)
+)
+;
+comment on table JAQN7A
+  is 'Cabecera - alta y cancelación DPF';
+comment on column JAQN7A.jaqn7afec
+  is 'Date';
+comment on column JAQN7A.jaqn7ausu
+  is 'Character';
+comment on column JAQN7A.jaqn7acod
+  is 'Numeric';
+comment on column JAQN7A.jaqn7ahor
+  is 'Character';
+comment on column JAQN7A.jaqn7afea
+  is 'Date';
+comment on column JAQN7A.jaqn7ausa
+  is 'Character';
+comment on column JAQN7A.jaqn7awki
+  is 'Character';
+comment on column JAQN7A.jaqn7awka
+  is 'Character';
+comment on column JAQN7A.jaqn7asuc
+  is 'Numeric';
+comment on column JAQN7A.jaqn7asua
+  is 'Numeric';
+comment on column JAQN7A.jaqn7aacc
+  is 'Character';
+comment on column JAQN7A.jaqn7aest
+  is 'Character';
+comment on column JAQN7A.jaqn7arui
+  is 'Character';
+comment on column JAQN7A.jaqn7arus
+  is 'Character';
+comment on column JAQN7A.jaqn7aan1
+  is 'Numeric';
+comment on column JAQN7A.jaqn7aan2
+  is 'Numeric';
+comment on column JAQN7A.jaqn7aan3
+  is 'Numeric';
+comment on column JAQN7A.jaqn7aac1
+  is 'VarChar';
+comment on column JAQN7A.jaqn7aac2
+  is 'VarChar';
+comment on column JAQN7A.jaqn7aac3
+  is 'VarChar';
+comment on column JAQN7A.jaqn7aaf1
+  is 'Date';
+comment on column JAQN7A.jaqn7aaf2
+  is 'Date';
+comment on column JAQN7A.jaqn7aaf3
+  is 'Date';
+comment on column JAQN7A.jaqn7aai1
+  is 'Numeric';
+comment on column JAQN7A.jaqn7aai2
+  is 'Numeric';
+comment on column JAQN7A.jaqn7aai3
+  is 'Numeric';
+create index JAQN7AA2 on JAQN7A (JAQN7ACOD);
+alter table JAQN7A
+  add primary key (JAQN7AFEC, JAQN7AUSU, JAQN7ACOD);
+

@@ -1,0 +1,21 @@
+create table JAQZ074_AUX
+(
+  pgcod  NUMBER(3) not null,
+  aomod  NUMBER(3) not null,
+  aosuc  NUMBER(3) not null,
+  aomda  NUMBER(4) not null,
+  aopap  NUMBER(4) not null,
+  aocta  NUMBER(9) not null,
+  aooper NUMBER(9) not null,
+  aosbop NUMBER(3) not null,
+  aotope NUMBER(3) not null,
+  aofval DATE,
+  aofvto DATE,
+  aofe99 DATE,
+  aostat NUMBER(2),
+  flag   CHAR(1),
+  hipo   CHAR(1)
+)
+;
+create index IDX_JAQZ074_AUX_01 on JAQZ074_AUX (AOCTA);
+

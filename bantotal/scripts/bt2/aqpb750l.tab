@@ -1,0 +1,46 @@
+create table AQPB750L
+(
+  aqpb750lnro    NUMBER(10),
+  aqpb750lpgc    NUMBER(3),
+  aqpb750lmod    NUMBER(3),
+  aqpb750lsuc    NUMBER(3),
+  aqpb750lmda    NUMBER(4),
+  aqpb750lpap    NUMBER(4),
+  aqpb750lcta    NUMBER(9),
+  aqpb750lope    NUMBER(9),
+  aqpb750lsbo    NUMBER(3),
+  aqpb750ltop    NUMBER(3),
+  aqpb750lmsg    VARCHAR2(250),
+  aqpb750lfecact DATE,
+  aqpb750lusuact CHAR(10)
+)
+;
+comment on table AQPB750L
+  is 'tabla Log de Carga Propuesta de Venta de cartera -Carga Manual';
+comment on column AQPB750L.aqpb750lpgc
+  is 'Codigo Empresa';
+comment on column AQPB750L.aqpb750lmod
+  is 'Sucursal del Credito';
+comment on column AQPB750L.aqpb750lsuc
+  is 'Modulo del Credito';
+comment on column AQPB750L.aqpb750lmda
+  is 'Moneda del Credito';
+comment on column AQPB750L.aqpb750lpap
+  is 'Papel del Credito';
+comment on column AQPB750L.aqpb750lcta
+  is 'Cuenta del Credito';
+comment on column AQPB750L.aqpb750lope
+  is 'Operacion del Credito';
+comment on column AQPB750L.aqpb750lsbo
+  is 'Suboperacion del Credito';
+comment on column AQPB750L.aqpb750ltop
+  is 'Tipo operacion del Credito';
+comment on column AQPB750L.aqpb750lmsg
+  is 'Mensaje de error';
+comment on column AQPB750L.aqpb750lfecact
+  is 'Fecha de Generación';
+comment on column AQPB750L.aqpb750lusuact
+  is 'Usuario Actualización';
+create index AQPB750LA2 on AQPB750L (AQPB750LCTA, AQPB750LOPE);
+create index AQPB750LA3 on AQPB750L (AQPB750LNRO, AQPB750LPGC, AQPB750LMOD, AQPB750LSUC, AQPB750LMDA, AQPB750LPAP, AQPB750LCTA, AQPB750LOPE, AQPB750LSBO, AQPB750LTOP);
+

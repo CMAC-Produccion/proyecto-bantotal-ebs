@@ -1,0 +1,20 @@
+create table FSFSDF
+(
+  sfsdfemp  NUMBER(3) not null,
+  sfsdfsuc  NUMBER(3) not null,
+  sfsdfmod  NUMBER(3) not null,
+  sfsdftrn  NUMBER(3) not null,
+  sfsdfrel  NUMBER(4) not null,
+  sfsdffcon DATE not null,
+  sfsdford  NUMBER(2) not null,
+  sfsdfsubo NUMBER(3) not null,
+  sfsdftmer NUMBER(3) not null,
+  sfsdfmsje NUMBER(4) not null,
+  sfsdffluj CHAR(1) not null,
+  sfsdfcorr NUMBER(4) not null,
+  sfsdfdato CHAR(250)
+)
+;
+alter table FSFSDF
+  add primary key (SFSDFEMP, SFSDFSUC, SFSDFMOD, SFSDFTRN, SFSDFREL, SFSDFFCON, SFSDFORD, SFSDFSUBO, SFSDFTMER, SFSDFMSJE, SFSDFFLUJ, SFSDFCORR);
+

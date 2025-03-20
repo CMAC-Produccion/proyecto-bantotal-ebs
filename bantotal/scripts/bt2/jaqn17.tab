@@ -1,0 +1,108 @@
+create table JAQN17
+(
+  jaqn17emp NUMBER(3) not null,
+  jaqn17fin DATE not null,
+  jaqn17suc NUMBER(3) not null,
+  jaqn17uso CHAR(10) not null,
+  jaqn17usd CHAR(10) not null,
+  jaqn17pop CHAR(10) not null,
+  jaqn17hde CHAR(8) not null,
+  jaqn17fde DATE,
+  jaqn17mot NUMBER(4),
+  jaqn17fvt DATE,
+  jaqn17hvt CHAR(8),
+  jaqn17est CHAR(1),
+  jaqn17fdv DATE,
+  jaqn17hdv CHAR(8),
+  jaqn17udv CHAR(10),
+  jaqn17wdv CHAR(10),
+  jaqn17nu1 NUMBER(9),
+  jaqn17nu2 NUMBER(9),
+  jaqn17nu3 NUMBER(9),
+  jaqn17nu4 NUMBER(9),
+  jaqn17im1 NUMBER(17,2),
+  jaqn17im2 NUMBER(17,2),
+  jaqn17im3 NUMBER(17,2),
+  jaqn17im4 NUMBER(17,2),
+  jaqn17fe1 DATE,
+  jaqn17fe2 DATE,
+  jaqn17fe3 DATE,
+  jaqn17fe4 DATE,
+  jaqn17ch1 VARCHAR2(255),
+  jaqn17ch2 VARCHAR2(255),
+  jaqn17ch3 VARCHAR2(255),
+  jaqn17ch4 VARCHAR2(255)
+)
+;
+comment on table JAQN17
+  is 'Log delegaciones de accesos temporales';
+comment on column JAQN17.jaqn17emp
+  is 'Código empresa';
+comment on column JAQN17.jaqn17fin
+  is 'Fecha Ingreso';
+comment on column JAQN17.jaqn17suc
+  is 'Sucursal';
+comment on column JAQN17.jaqn17uso
+  is 'Usuario Origen';
+comment on column JAQN17.jaqn17usd
+  is 'Usuario Destino';
+comment on column JAQN17.jaqn17pop
+  is 'Perfil Operativo Relacionado';
+comment on column JAQN17.jaqn17hde
+  is 'Hora Delegación';
+comment on column JAQN17.jaqn17fde
+  is 'Fecha Delegación';
+comment on column JAQN17.jaqn17mot
+  is 'Motivo';
+comment on column JAQN17.jaqn17fvt
+  is 'Fecha Vencimiento Delegación';
+comment on column JAQN17.jaqn17hvt
+  is 'Hora Vencimiento Delegación';
+comment on column JAQN17.jaqn17est
+  is 'Estado (P: Pendiente, A: Activo, T: Terminado)';
+comment on column JAQN17.jaqn17fdv
+  is 'Fecha de Devolución Real';
+comment on column JAQN17.jaqn17hdv
+  is 'Hora de Devolución Real';
+comment on column JAQN17.jaqn17udv
+  is 'User Devolución Real';
+comment on column JAQN17.jaqn17wdv
+  is 'Workstation Devolución Real';
+comment on column JAQN17.jaqn17nu1
+  is 'Auxiliar Numérico 1';
+comment on column JAQN17.jaqn17nu2
+  is 'Auxiliar Numérico 2';
+comment on column JAQN17.jaqn17nu3
+  is 'Auxiliar Numérico 3';
+comment on column JAQN17.jaqn17nu4
+  is 'Auxiliar Numérico 4';
+comment on column JAQN17.jaqn17im1
+  is 'Auxiliar Importe 1 ';
+comment on column JAQN17.jaqn17im2
+  is 'Auxiliar Importe 2';
+comment on column JAQN17.jaqn17im3
+  is 'Auxiliar Importe 3';
+comment on column JAQN17.jaqn17im4
+  is 'Auxiliar Importe 4';
+comment on column JAQN17.jaqn17fe1
+  is 'Auxiliar Fecha 1 ';
+comment on column JAQN17.jaqn17fe2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN17.jaqn17fe3
+  is 'Auxiliar Fecha 3';
+comment on column JAQN17.jaqn17fe4
+  is 'Auxiliar Fecha 4';
+comment on column JAQN17.jaqn17ch1
+  is 'Auxiliar Character 1';
+comment on column JAQN17.jaqn17ch2
+  is 'Auxiliar Character 2';
+comment on column JAQN17.jaqn17ch3
+  is 'Auxiliar Character 3';
+comment on column JAQN17.jaqn17ch4
+  is 'Auxiliar Character 4';
+create index JAQN1702 on JAQN17 (JAQN17EST);
+create index JAQN1703 on JAQN17 (JAQN17USD, JAQN17EST);
+create index JAQN1704 on JAQN17 (JAQN17EMP, JAQN17SUC);
+alter table JAQN17
+  add primary key (JAQN17EMP, JAQN17FIN, JAQN17SUC, JAQN17USO, JAQN17USD, JAQN17POP, JAQN17HDE);
+

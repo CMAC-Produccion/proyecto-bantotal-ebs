@@ -1,0 +1,11 @@
+create table JAQM400
+(
+  jaqm400ins NUMBER(10) not null,
+  jaqm400fec DATE not null,
+  jaqm400cod NUMBER(4) not null,
+  jaqm400mon NUMBER(17,2)
+)
+;
+alter table JAQM400
+  add primary key (JAQM400INS, JAQM400FEC, JAQM400COD);
+

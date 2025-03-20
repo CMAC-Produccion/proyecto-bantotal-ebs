@@ -1,0 +1,24 @@
+create table FCNV04
+(
+  cnv00jqnom CHAR(20) not null,
+  cnv03tinfo NUMBER(5) not null,
+  cnv04orden NUMBER(5) not null,
+  cnv04cpo   CHAR(10),
+  cnv04cpova CHAR(20),
+  cnv04sts   CHAR(1),
+  cnv04cpods CHAR(40),
+  cnv04vig   CHAR(1),
+  cnv04mod   NUMBER(3),
+  cnv04trn   NUMBER(3),
+  cnv04pae   NUMBER(3),
+  cnv04exp   NUMBER(10),
+  cnv04tnum  NUMBER(3),
+  cnv04cdn01 NUMBER(10),
+  cnv04cdn02 NUMBER(9),
+  cnv04fec   DATE
+)
+;
+create index FCNV0403 on FCNV04 (CNV03TINFO);
+alter table FCNV04
+  add primary key (CNV00JQNOM, CNV03TINFO, CNV04ORDEN);
+

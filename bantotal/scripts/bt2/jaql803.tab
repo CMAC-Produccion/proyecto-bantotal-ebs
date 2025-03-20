@@ -1,0 +1,28 @@
+create table JAQL803
+(
+  jaql803tireg  CHAR(2) not null,
+  jaql803coent  CHAR(5) not null,
+  jaql803feope  DATE not null,
+  jaql803fepro  DATE not null,
+  jaql803nuruc  VARCHAR2(12),
+  jaql803nopro  VARCHAR2(40),
+  jaql803hopro  CHAR(6),
+  jaql803filler VARCHAR2(174),
+  jaql803coest  CHAR(1),
+  jaql803nureg  NUMBER(6),
+  jaql803tosol  NUMBER(13,2),
+  jaql803auxc1  VARCHAR2(100),
+  jaql803auxc2  VARCHAR2(100),
+  jaql803auxc3  VARCHAR2(100),
+  jaql803auxn1  NUMBER(17,2),
+  jaql803auxn2  NUMBER(17,2),
+  jaql803auxn3  NUMBER(17,2),
+  jaql803auxd1  DATE,
+  jaql803auxd2  DATE,
+  jaql803auxd3  DATE,
+  jaql803proce  DATE
+)
+;
+alter table JAQL803
+  add primary key (JAQL803TIREG, JAQL803COENT, JAQL803FEOPE, JAQL803FEPRO);
+

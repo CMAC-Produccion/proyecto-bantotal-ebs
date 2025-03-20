@@ -1,0 +1,33 @@
+create table AQPD103T
+(
+  aqpd103ttipo VARCHAR2(10),
+  aqpd103tnfwd VARCHAR2(15),
+  aqpd103tcfwd NUMBER(18),
+  aqpd103tent  VARCHAR2(50),
+  aqpd103tdeal NUMBER(18) not null,
+  aqpd103tpru  VARCHAR2(50),
+  aqpd103tfreg DATE default SYSTIMESTAMP not null,
+  aqpd103tana  VARCHAR2(10) not null
+)
+;
+comment on table AQPD103T
+  is 'Evaluacion de pruebas en forward';
+comment on column AQPD103T.aqpd103ttipo
+  is 'Tipo de forward';
+comment on column AQPD103T.aqpd103tnfwd
+  is 'Nombre de forward';
+comment on column AQPD103T.aqpd103tcfwd
+  is 'Código de forward';
+comment on column AQPD103T.aqpd103tent
+  is 'Entidad';
+comment on column AQPD103T.aqpd103tdeal
+  is 'ID de forward (EBS)';
+comment on column AQPD103T.aqpd103tpru
+  is 'Evaluación de prueba';
+comment on column AQPD103T.aqpd103tfreg
+  is 'Fecha de registro';
+comment on column AQPD103T.aqpd103tana
+  is 'Usuario que genera proceso';
+alter table AQPD103T
+  add primary key (AQPD103TDEAL, AQPD103TFREG, AQPD103TANA);
+

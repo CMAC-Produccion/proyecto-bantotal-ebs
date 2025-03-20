@@ -1,0 +1,12 @@
+create table CSMT008
+(
+  csmt002cod NUMBER(4) not null,
+  csmt007cod NUMBER(4) not null,
+  csmt008est CHAR(1),
+  csmt008com NUMBER(3)
+)
+;
+create index CSMT0082 on CSMT008 (CSMT007COD);
+alter table CSMT008
+  add primary key (CSMT002COD, CSMT007COD);
+

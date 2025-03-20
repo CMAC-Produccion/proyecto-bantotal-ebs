@@ -1,0 +1,20 @@
+create table FSFI63
+(
+  sfi62impid NUMBER(4) not null,
+  sfi63reng  NUMBER(3) not null,
+  sfi63desc  CHAR(50),
+  sfi63fuen  CHAR(2),
+  sfi63tdas  CHAR(10),
+  sfi63orddc CHAR(1),
+  sfi63nuimp NUMBER(2),
+  sfi63codvf NUMBER(6),
+  sfi63ssi   CHAR(1),
+  sfi63tdssi CHAR(10),
+  sfi63txcod NUMBER(3),
+  sfi63txren NUMBER(3),
+  sfi63prog  CHAR(20)
+)
+;
+alter table FSFI63
+  add primary key (SFI62IMPID, SFI63RENG);
+

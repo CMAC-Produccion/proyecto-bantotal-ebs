@@ -1,0 +1,53 @@
+create table FMD021
+(
+  pgcod      NUMBER(3) not null,
+  liummod    NUMBER(3) not null,
+  liumoper   NUMBER(9) not null,
+  liumsbop   NUMBER(3) not null,
+  liumintern CHAR(1),
+  liumsuc    NUMBER(3),
+  liumtipo   NUMBER(3),
+  liumfemb   DATE,
+  liumfrdoc  DATE,
+  liumfvpag  DATE,
+  liumfvalor DATE,
+  liumfvto   DATE,
+  liumbcneg  NUMBER(9),
+  liumrefneg CHAR(20),
+  liumbcree  NUMBER(9),
+  liumcomage NUMBER(17,2),
+  liummdacom CHAR(3),
+  liumgascor NUMBER(17,2),
+  liummdagto CHAR(3),
+  liumintext NUMBER(17,2),
+  liummdaint CHAR(3),
+  liumuser   CHAR(10),
+  liumws     CHAR(10),
+  liumaoimp  NUMBER(17,2),
+  liummda    NUMBER(4),
+  liumtzttas NUMBER(1),
+  liumtasa   NUMBER(10,6),
+  liumgascod NUMBER(17,2),
+  liumcomagd NUMBER(17,2),
+  liumintexd NUMBER(17,2),
+  liumsaldo  NUMBER(17,2),
+  liumsdovis NUMBER(17,2),
+  liumsdopla NUMBER(17,2),
+  liumfing   DATE,
+  liumimpvis NUMBER(17,2),
+  liumimppla NUMBER(17,2),
+  liummocsw1 CHAR(3),
+  liumdeumda NUMBER(4),
+  liumdeucta NUMBER(9)
+)
+;
+create index FMD02102 on FMD021 (LIUMTZTTAS);
+create index FMD02103 on FMD021 (PGCOD, LIUMBCNEG);
+create index FMD02104 on FMD021 (PGCOD, LIUMBCREE);
+create index FMD02105 on FMD021 (LIUMMOD);
+create index FMD02106 on FMD021 (LIUMDEUMDA);
+create index FMD02107 on FMD021 (PGCOD, LIUMDEUCTA);
+create index FMD02108 on FMD021 (LIUMMDA);
+alter table FMD021
+  add primary key (PGCOD, LIUMMOD, LIUMOPER, LIUMSBOP);
+

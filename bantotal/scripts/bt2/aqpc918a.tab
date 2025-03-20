@@ -1,0 +1,15 @@
+create table AQPC918A
+(
+  aqpc918aid     NUMBER(10) not null,
+  aqpc918afecpro DATE
+)
+;
+comment on table AQPC918A
+  is 'Cabecera Registros cuadre Archivo CCE';
+comment on column AQPC918A.aqpc918aid
+  is 'ID de Registro';
+comment on column AQPC918A.aqpc918afecpro
+  is 'Fecha de proceso';
+alter table AQPC918A
+  add primary key (AQPC918AID);
+

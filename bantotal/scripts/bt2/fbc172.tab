@@ -1,0 +1,11 @@
+create table FBC172
+(
+  bc92act  NUMBER(9) not null,
+  bc92unid NUMBER(2) not null,
+  bc92reng NUMBER(4) not null,
+  bc92desc CHAR(50)
+)
+;
+alter table FBC172
+  add primary key (BC92ACT, BC92UNID, BC92RENG);
+

@@ -1,0 +1,14 @@
+create table CDCEXP0
+(
+  cdcexpid   NUMBER(18) not null,
+  cdcexpnemo CHAR(20),
+  cdcexpdsp  CHAR(50),
+  cdcexpiult NUMBER(18),
+  cdcexpiedi NUMBER(18),
+  cdcexpieje NUMBER(18),
+  cdcexpdel  CHAR(1)
+)
+;
+alter table CDCEXP0
+  add primary key (CDCEXPID);
+

@@ -1,0 +1,18 @@
+create table DEUY03
+(
+  deuy03cta  NUMBER(9) not null,
+  deuy02cod  NUMBER(4) not null,
+  deuy03fpre DATE,
+  deuy03fven DATE,
+  deuy03fen  NUMBER(17,2),
+  deuy03fsa  NUMBER(17,2),
+  deuy03au1  NUMBER(17,2),
+  deuy03au2  NUMBER(17,2),
+  deuy03au3  CHAR(20),
+  deuy03au4  DATE
+)
+;
+create index DEUY0302 on DEUY03 (DEUY02COD);
+alter table DEUY03
+  add primary key (DEUY03CTA, DEUY02COD);
+

@@ -1,0 +1,20 @@
+create table FSD554
+(
+  pgcod   NUMBER(3) not null,
+  prrmod  NUMBER(3) not null,
+  prrsuc  NUMBER(3) not null,
+  prrmda  NUMBER(4) not null,
+  prrpap  NUMBER(4) not null,
+  prrcta  NUMBER(9) not null,
+  prroper NUMBER(9) not null,
+  prrsbop NUMBER(3) not null,
+  prrtope NUMBER(3) not null,
+  prrcod  NUMBER(3) not null,
+  prrpai  NUMBER(3) not null,
+  prrtdoc NUMBER(2) not null,
+  prrndoc CHAR(12) not null
+)
+;
+alter table FSD554
+  add primary key (PGCOD, PRRMOD, PRRSUC, PRRMDA, PRRPAP, PRRCTA, PRROPER, PRRSBOP, PRRTOPE, PRRCOD, PRRPAI, PRRTDOC, PRRNDOC);
+

@@ -1,0 +1,161 @@
+create table AQPC752
+(
+  aqpc752user   VARCHAR2(10) not null,
+  aqpc752fecha  DATE not null,
+  aqpc752hora   VARCHAR2(8) not null,
+  aqpc752corr   NUMBER(10) not null,
+  aqpc752regcrd NUMBER(3),
+  aqpc752nrgcrd VARCHAR2(40),
+  aqpc752zoncrd NUMBER(2),
+  aqpc752nzncrd VARCHAR2(50),
+  aqpc752succrd NUMBER(3),
+  aqpc752nsccrd VARCHAR2(30),
+  aqpc752regopr NUMBER(3),
+  aqpc752nrgopr VARCHAR2(40),
+  aqpc752zonopr NUMBER(2),
+  aqpc752nznopr VARCHAR2(50),
+  aqpc752sucopr NUMBER(3),
+  aqpc752nscopr VARCHAR2(30),
+  aqpc752operad VARCHAR2(10),
+  aqpc752nomopr VARCHAR2(30),
+  aqpc752regfil NUMBER(3),
+  aqpc752nrgfil VARCHAR2(40),
+  aqpc752zonfil NUMBER(2),
+  aqpc752nznfil VARCHAR2(50),
+  aqpc752sucfil NUMBER(3),
+  aqpc752nscfil VARCHAR2(30),
+  aqpc752fchini DATE,
+  aqpc752fchfin DATE,
+  aqpc752cod    NUMBER(3),
+  aqpc752mod    NUMBER(3),
+  aqpc752suc    NUMBER(3),
+  aqpc752mda    NUMBER(4),
+  aqpc752pap    NUMBER(4),
+  aqpc752cta    NUMBER(9),
+  aqpc752oper   NUMBER(9),
+  aqpc752sbop   NUMBER(3),
+  aqpc752tope   NUMBER(3),
+  aqpc752sgnmda VARCHAR2(4),
+  aqpc752nommod VARCHAR2(30),
+  aqpc752nomtop VARCHAR2(30),
+  aqpc752fhrpr  DATE,
+  aqpc752hrrpr  VARCHAR2(8),
+  aqpc752pais   NUMBER(3),
+  aqpc752tdoc   NUMBER(2),
+  aqpc752ndoc   VARCHAR2(12),
+  aqpc752nomcli VARCHAR2(100),
+  aqpc752estado VARCHAR2(1),
+  aqpc752nomest VARCHAR2(50),
+  aqpc752sdoact NUMBER(17,2),
+  aqpc752sdorpr NUMBER(17,2),
+  aqpc752codase VARCHAR2(10),
+  aqpc752nomase VARCHAR2(30)
+)
+;
+comment on table AQPC752
+  is 'Reporte Cambio Estado Reprogramación';
+comment on column AQPC752.aqpc752user
+  is 'Usuario';
+comment on column AQPC752.aqpc752fecha
+  is 'Fecha';
+comment on column AQPC752.aqpc752hora
+  is 'Hora';
+comment on column AQPC752.aqpc752corr
+  is 'Correlativo';
+comment on column AQPC752.aqpc752regcrd
+  is 'Código Región Crédito';
+comment on column AQPC752.aqpc752nrgcrd
+  is 'Nombre Región Crédito';
+comment on column AQPC752.aqpc752zoncrd
+  is 'Código Zona Crédito';
+comment on column AQPC752.aqpc752nzncrd
+  is 'Nombre Zona Crédito';
+comment on column AQPC752.aqpc752succrd
+  is 'Código Sucursal Crédito';
+comment on column AQPC752.aqpc752nsccrd
+  is 'Nombre Sucursal Crédito';
+comment on column AQPC752.aqpc752regopr
+  is 'Código Región Operador';
+comment on column AQPC752.aqpc752nrgopr
+  is 'Nombre Región Operador';
+comment on column AQPC752.aqpc752zonopr
+  is 'Código Zona Operador';
+comment on column AQPC752.aqpc752nznopr
+  is 'Nombre Zona Operador';
+comment on column AQPC752.aqpc752sucopr
+  is 'Código Sucursal Operador';
+comment on column AQPC752.aqpc752nscopr
+  is 'Nombre Sucursal Operador';
+comment on column AQPC752.aqpc752operad
+  is 'Código Operador';
+comment on column AQPC752.aqpc752nomopr
+  is 'Nombre Operador';
+comment on column AQPC752.aqpc752regfil
+  is 'Código Región Filtro';
+comment on column AQPC752.aqpc752nrgfil
+  is 'Nombre Región Filtro';
+comment on column AQPC752.aqpc752zonfil
+  is 'Código Zona Filtro';
+comment on column AQPC752.aqpc752nznfil
+  is 'Nombre Zona Filtro';
+comment on column AQPC752.aqpc752sucfil
+  is 'Código Sucursal Filtro';
+comment on column AQPC752.aqpc752nscfil
+  is 'Nombre Sucursal Filtro';
+comment on column AQPC752.aqpc752fchini
+  is 'Fecha Inicio Filtro';
+comment on column AQPC752.aqpc752fchfin
+  is 'Fecha Fin Filtro';
+comment on column AQPC752.aqpc752cod
+  is 'Código';
+comment on column AQPC752.aqpc752mod
+  is 'Módulo';
+comment on column AQPC752.aqpc752suc
+  is 'Sucursal';
+comment on column AQPC752.aqpc752mda
+  is 'Moneda';
+comment on column AQPC752.aqpc752pap
+  is 'Papel';
+comment on column AQPC752.aqpc752cta
+  is 'Cuenta';
+comment on column AQPC752.aqpc752oper
+  is 'Operación';
+comment on column AQPC752.aqpc752sbop
+  is 'Suboperación';
+comment on column AQPC752.aqpc752tope
+  is 'Tipo Operación';
+comment on column AQPC752.aqpc752sgnmda
+  is 'Signo Moneda';
+comment on column AQPC752.aqpc752nommod
+  is 'Nombre Módulo';
+comment on column AQPC752.aqpc752nomtop
+  is 'Nombre Tipo Operación';
+comment on column AQPC752.aqpc752fhrpr
+  is 'Fecha Reprogramación';
+comment on column AQPC752.aqpc752hrrpr
+  is 'Hora Reprogramación';
+comment on column AQPC752.aqpc752pais
+  is 'Pais';
+comment on column AQPC752.aqpc752tdoc
+  is 'Tipo Documento';
+comment on column AQPC752.aqpc752ndoc
+  is 'Nro. Documento';
+comment on column AQPC752.aqpc752nomcli
+  is 'Nombre Cliente';
+comment on column AQPC752.aqpc752estado
+  is 'Estado Reprogramación';
+comment on column AQPC752.aqpc752nomest
+  is 'Nombre Estado Reprogramación';
+comment on column AQPC752.aqpc752sdoact
+  is 'Saldo Capital Actual';
+comment on column AQPC752.aqpc752sdorpr
+  is 'Saldo Capital Reprogramación';
+comment on column AQPC752.aqpc752codase
+  is 'Código Asesor';
+comment on column AQPC752.aqpc752nomase
+  is 'Nombre Asesor';
+create index AQPC752A2 on AQPC752 (AQPC752FHRPR, AQPC752CTA, AQPC752OPER);
+create index AQPC752A3 on AQPC752 (AQPC752COD, AQPC752CTA, AQPC752OPER, AQPC752FHRPR);
+alter table AQPC752
+  add primary key (AQPC752USER, AQPC752FECHA, AQPC752HORA, AQPC752CORR);
+

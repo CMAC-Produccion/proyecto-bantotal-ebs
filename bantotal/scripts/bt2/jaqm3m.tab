@@ -1,0 +1,128 @@
+create table JAQM3M
+(
+  jaqm3mccta NUMBER(9) not null,
+  jaqm3mnope NUMBER(9) not null,
+  jaqm3mnins NUMBER(10) not null,
+  jaqm3mfein DATE not null,
+  jaqm3mregi VARCHAR2(30),
+  jaqm3mzona VARCHAR2(40),
+  jaqm3magen VARCHAR2(30),
+  jaqm3mcomi VARCHAR2(10),
+  jaqm3mcana VARCHAR2(50),
+  jaqm3mnana VARCHAR2(30),
+  jaqm3mncli VARCHAR2(114),
+  jaqm3mtdoc NUMBER(2),
+  jaqm3mndoc VARCHAR2(12),
+  jaqm3mdcli VARCHAR2(140),
+  jaqm3mccli VARCHAR2(2000),
+  jaqm3mnava VARCHAR2(114),
+  jaqm3mdava VARCHAR2(2000),
+  jaqm3mcava VARCHAR2(2000),
+  jaqm3mscap NUMBER(17,2),
+  jaqm3mdatr NUMBER(10),
+  jaqm3mmapr NUMBER(17,2),
+  jaqm3mvcuo NUMBER(17,2),
+  jaqm3mcpag VARCHAR2(81),
+  jaqm3mupag NUMBER(17,2),
+  jaqm3mtpag VARCHAR2(8),
+  jaqm3mfupa DATE,
+  jaqm3mnum1 NUMBER(9),
+  jaqm3mnum2 NUMBER(9),
+  jaqm3mnum3 NUMBER(9),
+  jaqm3mimp1 NUMBER(17,2),
+  jaqm3mimp2 NUMBER(17,2),
+  jaqm3mimp3 NUMBER(17,2),
+  jaqm3mcha1 VARCHAR2(255),
+  jaqm3mcha2 VARCHAR2(255),
+  jaqm3mcha3 VARCHAR2(255),
+  jaqm3mfec1 DATE,
+  jaqm3mfec2 DATE,
+  jaqm3mfec3 DATE
+)
+;
+comment on table JAQM3M
+  is 'MORA > 5% DEL SALDO CAPITAL';
+comment on column JAQM3M.jaqm3mccta
+  is 'CÓDIGO DE CUENTA';
+comment on column JAQM3M.jaqm3mnope
+  is 'CÓDIGO DE OPERACIÓN';
+comment on column JAQM3M.jaqm3mnins
+  is 'NÚMERO DE INSTANCIA';
+comment on column JAQM3M.jaqm3mfein
+  is 'FECHA DE INGRESO DE DATA';
+comment on column JAQM3M.jaqm3mregi
+  is 'REGIÓN';
+comment on column JAQM3M.jaqm3mzona
+  is 'ZONA';
+comment on column JAQM3M.jaqm3magen
+  is 'AGENCIA';
+comment on column JAQM3M.jaqm3mcomi
+  is 'COMITE';
+comment on column JAQM3M.jaqm3mcana
+  is 'CÓDIGO DE ANALISTA';
+comment on column JAQM3M.jaqm3mnana
+  is 'NOMBRE DEL ANALISTA';
+comment on column JAQM3M.jaqm3mncli
+  is 'NOMBRE DEL CLIENTE';
+comment on column JAQM3M.jaqm3mtdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column JAQM3M.jaqm3mndoc
+  is 'NÚMERO DE DOCUMENTO';
+comment on column JAQM3M.jaqm3mdcli
+  is 'DIRECCIÓN DE CLIENTE';
+comment on column JAQM3M.jaqm3mccli
+  is 'CELULAR DE CLIENTE';
+comment on column JAQM3M.jaqm3mnava
+  is 'NOMBRE DEL AVAL';
+comment on column JAQM3M.jaqm3mdava
+  is 'DIRECCIÓN DEL AVAL';
+comment on column JAQM3M.jaqm3mcava
+  is 'CELULAR DEL AVAL';
+comment on column JAQM3M.jaqm3mscap
+  is 'SALDO CAPITAL';
+comment on column JAQM3M.jaqm3mdatr
+  is 'DIAS ATRASO CALENDARIO';
+comment on column JAQM3M.jaqm3mmapr
+  is 'MONTO APROBADO';
+comment on column JAQM3M.jaqm3mvcuo
+  is 'VALOR DE LA CUOTA';
+comment on column JAQM3M.jaqm3mcpag
+  is 'CUOTAS PAGADAS';
+comment on column JAQM3M.jaqm3mupag
+  is 'ÚLTIMO PAGO';
+comment on column JAQM3M.jaqm3mtpag
+  is 'TIPO DE PAGO';
+comment on column JAQM3M.jaqm3mfupa
+  is 'FECHA DE ÚLTIMO PAGO';
+comment on column JAQM3M.jaqm3mnum1
+  is 'AUXILIAR NUMÉRICO 1';
+comment on column JAQM3M.jaqm3mnum2
+  is 'AUXILIAR NUMÉRICO 2';
+comment on column JAQM3M.jaqm3mnum3
+  is 'AUXILIAR NUMÉRICO 3';
+comment on column JAQM3M.jaqm3mimp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM3M.jaqm3mimp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM3M.jaqm3mimp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQM3M.jaqm3mcha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM3M.jaqm3mcha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM3M.jaqm3mcha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM3M.jaqm3mfec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM3M.jaqm3mfec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM3M.jaqm3mfec3
+  is 'AUXILIAR FECHA 3';
+create index JAQM3MA2 on JAQM3M (JAQM3MFEIN);
+create index JAQM3MA3 on JAQM3M (JAQM3MNINS);
+create index JAQM3MA4 on JAQM3M (JAQM3MREGI, JAQM3MZONA, JAQM3MAGEN, JAQM3MCCTA, JAQM3MNOPE, JAQM3MNINS, JAQM3MFEIN);
+create index JAQM3MA5 on JAQM3M (JAQM3MFEIN, JAQM3MAGEN);
+create index JAQM3MA6 on JAQM3M (JAQM3MFEIN, JAQM3MCCTA, JAQM3MNOPE);
+alter table JAQM3M
+  add primary key (JAQM3MCCTA, JAQM3MNOPE, JAQM3MNINS, JAQM3MFEIN);
+

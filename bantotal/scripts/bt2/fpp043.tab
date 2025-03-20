@@ -1,0 +1,34 @@
+create table FPP043
+(
+  ppgcod     NUMBER(3) not null,
+  xpretope   NUMBER(3) not null,
+  xpremod    NUMBER(3) not null,
+  xpremoneda NUMBER(4) not null,
+  xprepapel  NUMBER(4) not null,
+  pp043suc   NUMBER(3) not null,
+  pp043cta   NUMBER(9) not null,
+  pp043oper  NUMBER(9) not null,
+  pp043sbop  NUMBER(3) not null,
+  pp043md    NUMBER(3) not null,
+  pp043top   NUMBER(3) not null,
+  sgcod      NUMBER(9) not null,
+  pp043aux4  NUMBER(17,2),
+  pp043aux3  DATE,
+  pp043aux2  CHAR(25),
+  pp043aux1  CHAR(1),
+  pp043endo  CHAR(1),
+  pp043modif CHAR(1),
+  pp043vc    NUMBER(17,2),
+  pp043imp   NUMBER(17,2),
+  pp043porc  NUMBER(10,6),
+  pp043plus  NUMBER(10,6),
+  pp043veh   NUMBER(4),
+  pp043inm   NUMBER(4),
+  pp043part  NUMBER(10,6),
+  pp043stat  CHAR(1)
+)
+;
+create index FPP04302 on FPP043 (SGCOD);
+alter table FPP043
+  add primary key (PPGCOD, XPRETOPE, XPREMOD, XPREMONEDA, XPREPAPEL, PP043SUC, PP043CTA, PP043OPER, PP043SBOP, PP043MD, PP043TOP, SGCOD);
+

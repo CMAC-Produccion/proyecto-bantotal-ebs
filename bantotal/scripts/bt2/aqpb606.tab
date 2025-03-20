@@ -1,0 +1,144 @@
+create table AQPB606
+(
+  aqpb606corr   NUMBER(10) not null,
+  aqpb606paid   NUMBER(5) not null,
+  aqpb606tipd   NUMBER(5) not null,
+  aqpb606numd   VARCHAR2(12) not null,
+  aqpb606fecc   DATE not null,
+  aqpb606horc   VARCHAR2(15) not null,
+  aqpb606pgco   NUMBER(5) not null,
+  aqpb606mod    NUMBER(5) not null,
+  aqpb606suc    NUMBER(5) not null,
+  aqpb606mon    NUMBER(5) not null,
+  aqpb606pap    NUMBER(5) not null,
+  aqpb606cta    NUMBER(10) not null,
+  aqpb606ope    NUMBER(10) not null,
+  aqpb606sope   NUMBER(10) not null,
+  aqpb606tipo   NUMBER(10) not null,
+  aqpb606pgcoc  NUMBER(5),
+  aqpb606modc   NUMBER(5),
+  aqpb606succ   NUMBER(5),
+  aqpb606monc   NUMBER(5),
+  aqpb606papc   NUMBER(5),
+  aqpb606ctac   NUMBER(10),
+  aqpb606opec   NUMBER(10),
+  aqpb606sopec  NUMBER(10),
+  aqpb606tipoc  NUMBER(10),
+  aqpb606lstn   VARCHAR2(2),
+  aqpb606abo6   VARCHAR2(2),
+  aqpb606mntm   NUMBER(17,2),
+  aqpb606proa   NUMBER(17,2),
+  aqpb606cal6   VARCHAR2(2),
+  aqpb606scos   VARCHAR2(25),
+  aqpb606nroa   NUMBER(4),
+  aqpb606tipv   VARCHAR2(50),
+  aqpb606sobr   VARCHAR2(2),
+  aqpb606crej   VARCHAR2(2),
+  aqpb606traa   VARCHAR2(2),
+  aqpb606ilet   VARCHAR2(2),
+  aqpb606salc   NUMBER(17,2),
+  aqpb606ades   VARCHAR2(2),
+  aqpb606rat    NUMBER(10,6),
+  aqpb606est    VARCHAR2(5) not null,
+  aqpb606dscjud VARCHAR2(5),
+  aqpa606flgtm  VARCHAR2(5),
+  aqpa606fgdfpr VARCHAR2(5),
+  aqpb606tcarg  CHAR(1)
+)
+;
+comment on column AQPB606.aqpb606paid
+  is 'PAIS DEL DOCUMENTO';
+comment on column AQPB606.aqpb606tipd
+  is 'TIPO DE DOCUMENTO';
+comment on column AQPB606.aqpb606numd
+  is 'NRO DE DOCUMENTO';
+comment on column AQPB606.aqpb606fecc
+  is 'FECHA DE CARGA';
+comment on column AQPB606.aqpb606horc
+  is 'HORA DE CARGA';
+comment on column AQPB606.aqpb606pgco
+  is 'PGCOD DE LA CUENTA';
+comment on column AQPB606.aqpb606mod
+  is 'MODULO DE LA CUENTA';
+comment on column AQPB606.aqpb606suc
+  is 'SUCURSAL DE LA CUENTA';
+comment on column AQPB606.aqpb606mon
+  is 'MONEDA DE LA CUENTA';
+comment on column AQPB606.aqpb606pap
+  is 'PAPEL DE LA CUENTA';
+comment on column AQPB606.aqpb606cta
+  is 'CUENTA DE LA CUENTA';
+comment on column AQPB606.aqpb606ope
+  is 'OPERACIÓN DE LA CUENTA';
+comment on column AQPB606.aqpb606sope
+  is 'SUBOPERACION DE LA CUENTA';
+comment on column AQPB606.aqpb606tipo
+  is 'TIPO DE OPERACIÓN DE LA CUENTA';
+comment on column AQPB606.aqpb606pgcoc
+  is 'PGCOD DEL CREDITO';
+comment on column AQPB606.aqpb606modc
+  is 'MODULO DEL CREDITO';
+comment on column AQPB606.aqpb606succ
+  is 'SUCURSAL DEL CREDITO';
+comment on column AQPB606.aqpb606monc
+  is 'MONEDA DEL CREDITO';
+comment on column AQPB606.aqpb606papc
+  is 'PAPEL DEL CREDITO';
+comment on column AQPB606.aqpb606ctac
+  is 'CUENTA DEL CREDITO';
+comment on column AQPB606.aqpb606opec
+  is 'OPERACIÓN DEL CREDITO';
+comment on column AQPB606.aqpb606sopec
+  is 'SUBOPERACION DEL CREDITO';
+comment on column AQPB606.aqpb606tipoc
+  is 'TIPO DE OPERACIÓN DEL CREDITO';
+comment on column AQPB606.aqpb606lstn
+  is 'INDICADOR LISTA NEGRA';
+comment on column AQPB606.aqpb606abo6
+  is 'INDICADOR ABONO ULT 6 MESES';
+comment on column AQPB606.aqpb606mntm
+  is 'MONTO ABONO MINIMO';
+comment on column AQPB606.aqpb606proa
+  is 'PROMEDIO DE ABONOS';
+comment on column AQPB606.aqpb606cal6
+  is 'IND CALF NORMAL 100 ULT 6 MESES';
+comment on column AQPB606.aqpb606scos
+  is 'SCORE SEGMENTACION ';
+comment on column AQPB606.aqpb606nroa
+  is 'NRO DE ATRASO MAXIMO';
+comment on column AQPB606.aqpb606tipv
+  is 'TIPO DE VIVIENDA';
+comment on column AQPB606.aqpb606sobr
+  is 'SOBREENDEUDADO';
+comment on column AQPB606.aqpb606crej
+  is 'INDICADOR CRED JUDICIAL';
+comment on column AQPB606.aqpb606traa
+  is 'INDICADOR SI ES TRABAJADOR ACTVO CAJA';
+comment on column AQPB606.aqpb606ilet
+  is 'ILETRADO';
+comment on column AQPB606.aqpb606salc
+  is 'SALDO CONSOLIDADO';
+comment on column AQPB606.aqpb606ades
+  is 'CRED VIGENTE ADELNT SUELDO';
+comment on column AQPB606.aqpb606rat
+  is 'RATIO';
+comment on column AQPB606.aqpb606est
+  is 'ESTADO';
+comment on column AQPB606.aqpb606dscjud
+  is 'Flag Descuento Judicial';
+comment on column AQPB606.aqpa606flgtm
+  is 'Flag tiene Teléfono o Mail';
+comment on column AQPB606.aqpa606fgdfpr
+  is 'Flag Diferencia % de abonos mayor al 20%';
+comment on column AQPB606.aqpb606tcarg
+  is 'Tipo de Carga';
+create index AQPB606A4 on AQPB606 (AQPB606PGCO, AQPB606MOD, AQPB606SUC, AQPB606MON, AQPB606PAP, AQPB606CTA, AQPB606OPE, AQPB606SOPE, AQPB606TIPO, AQPB606FECC);
+create index AQPB606A5 on AQPB606 (AQPB606FECC, AQPB606CORR);
+create index AQPB606A6 on AQPB606 (AQPB606PAID, AQPB606TIPD, AQPB606NUMD, AQPB606FECC, AQPB606PROA, AQPB606EST, AQPB606TCARG);
+create index AQPB606A7 on AQPB606 (AQPB606FECC);
+create index AQPB606A8 on AQPB606 (AQPB606PGCO, AQPB606MOD, AQPB606SUC, AQPB606MON, AQPB606PAP, AQPB606CTA, AQPB606OPE, AQPB606SOPE, AQPB606TIPO, AQPB606TCARG);
+create index AQPB60602 on AQPB606 (AQPB606PAID, AQPB606TIPD, AQPB606NUMD);
+create index AQPB60603 on AQPB606 (AQPB606PGCO, AQPB606MOD, AQPB606SUC, AQPB606MON, AQPB606PAP, AQPB606CTA, AQPB606OPE, AQPB606SOPE, AQPB606TIPO);
+alter table AQPB606
+  add primary key (AQPB606CORR, AQPB606PAID, AQPB606TIPD, AQPB606NUMD, AQPB606PGCO, AQPB606MOD, AQPB606SUC, AQPB606MON, AQPB606PAP, AQPB606CTA, AQPB606OPE, AQPB606SOPE, AQPB606TIPO, AQPB606EST, AQPB606FECC, AQPB606HORC);
+

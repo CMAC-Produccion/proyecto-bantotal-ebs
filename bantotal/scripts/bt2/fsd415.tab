@@ -1,0 +1,27 @@
+create table FSD415
+(
+  carcod  NUMBER(3) not null,
+  carsuc  NUMBER(3) not null,
+  carmod  NUMBER(3) not null,
+  cartran NUMBER(3) not null,
+  carnrel NUMBER(4) not null,
+  carfcon DATE not null,
+  carord  NUMBER(2) not null,
+  carsbor NUMBER(3) not null,
+  carcorr NUMBER(3) not null,
+  carcv   CHAR(1),
+  carcodm NUMBER(3),
+  carmda1 NUMBER(4),
+  carmda2 NUMBER(4),
+  carimp  NUMBER(17,2),
+  carcta  NUMBER(9),
+  carporc NUMBER(7,4),
+  corrcod NUMBER(5)
+)
+;
+create index FSD41502 on FSD415 (CORRCOD);
+create index FSD41503 on FSD415 (CARCOD, CARFCON, CARCODM);
+create index FSD41504 on FSD415 (CARCOD, CARFCON, CARCORR);
+alter table FSD415
+  add primary key (CARCOD, CARSUC, CARMOD, CARTRAN, CARNREL, CARFCON, CARORD, CARSBOR, CARCORR);
+

@@ -1,0 +1,26 @@
+create table SNG034
+(
+  sng021eval NUMBER(10) not null,
+  sng026cod  NUMBER(4) not null,
+  sng034cod  NUMBER(10) not null,
+  sng034lin  NUMBER(10) not null,
+  sng034t1   CHAR(40),
+  sng034t2   CHAR(40),
+  sng034t3   CHAR(40),
+  sng034t4   CHAR(40),
+  sng034t5   CHAR(40),
+  sng034t6   CHAR(40),
+  sng034d1   DATE,
+  sng034d2   DATE,
+  sng034d3   DATE,
+  sng034m1   NUMBER(17,2),
+  sng034m2   NUMBER(17,2),
+  sng034m3   NUMBER(17,2),
+  sng034m4   NUMBER(9,2),
+  sng034m5   NUMBER(9,2),
+  sng034m6   NUMBER(9,2)
+)
+;
+alter table SNG034
+  add primary key (SNG021EVAL, SNG026COD, SNG034COD, SNG034LIN);
+

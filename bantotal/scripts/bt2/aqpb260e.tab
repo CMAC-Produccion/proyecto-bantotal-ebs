@@ -1,0 +1,29 @@
+create table AQPB260E
+(
+  aqpb260esdi NUMBER(18,2) not null,
+  aqpb260esdf NUMBER(18,2) not null,
+  aqpb260ecui NUMBER(4) not null,
+  aqpb260ecuf NUMBER(4) not null,
+  aqpb260epla NUMBER(4) not null,
+  aqpb260efec DATE not null,
+  aqpb260eest VARCHAR2(1) not null
+)
+;
+comment on table AQPB260E
+  is 'Tabla Plazo Maximo- Refinanciados Exoneracion';
+comment on column AQPB260E.aqpb260esdi
+  is 'SALDO INICIAL';
+comment on column AQPB260E.aqpb260esdf
+  is 'SALDO FINAL';
+comment on column AQPB260E.aqpb260ecui
+  is 'CUOTA INICIAL';
+comment on column AQPB260E.aqpb260ecuf
+  is 'CUOTA FINAL';
+comment on column AQPB260E.aqpb260epla
+  is 'PLAZO';
+comment on column AQPB260E.aqpb260efec
+  is 'FECHA';
+comment on column AQPB260E.aqpb260eest
+  is 'ESTADO';
+create index AQPB260E2 on AQPB260E (AQPB260ESDI, AQPB260ESDF, AQPB260ECUI, AQPB260ECUF, AQPB260EEST);
+

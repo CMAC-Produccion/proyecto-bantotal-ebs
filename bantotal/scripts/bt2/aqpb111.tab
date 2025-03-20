@@ -1,0 +1,40 @@
+create table AQPB111
+(
+  aqpb111copsv NUMBER(10) not null,
+  aqpb111femov DATE not null,
+  aqpb111homov VARCHAR2(10) not null,
+  aqpb111sumin VARCHAR2(20) not null,
+  aqpb111pgcod NUMBER(3),
+  aqpb111pgsuc NUMBER(3),
+  aqpb111pgofi NUMBER(3),
+  aqpb111coent CHAR(10),
+  aqpb111idgrp CHAR(6),
+  aqpb111idcaj NUMBER(6),
+  aqpb111cotsv CHAR(6),
+  aqpb111cousu VARCHAR2(15),
+  aqpb111comon NUMBER(3),
+  aqpb111moccl NUMBER(3),
+  aqpb111mtocc NUMBER(11,2),
+  aqpb111mocem NUMBER(3),
+  aqpb111mtoce NUMBER(11,2),
+  aqpb111sccta NUMBER(9),
+  aqpb111scmod NUMBER(3),
+  aqpb111stran NUMBER(3),
+  aqpb111snrel NUMBER(4),
+  aqpb111mtoop NUMBER(11,2),
+  aqpb111cotca NUMBER(3),
+  aqpb111inefe CHAR(1),
+  aqpb111idcli CHAR(1),
+  aqpb111nocli VARCHAR2(100),
+  aqpb111esreg CHAR(1),
+  aqpb111esenv CHAR(1),
+  aqpb111tidoc NUMBER(2),
+  aqpb111nrodo CHAR(20),
+  aqpb111mdapg NUMBER(4),
+  aqpb111noent VARCHAR2(40),
+  aqpb111noser VARCHAR2(40)
+)
+;
+alter table AQPB111
+  add primary key (AQPB111COPSV, AQPB111FEMOV, AQPB111HOMOV, AQPB111SUMIN);
+

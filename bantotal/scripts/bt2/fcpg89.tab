@@ -1,0 +1,58 @@
+create table FCPG89
+(
+  cpg89ins   NUMBER(10) not null,
+  cpg89wit   NUMBER(10) not null,
+  cpg89tab   CHAR(10) not null,
+  cpg89corr  NUMBER(8) not null,
+  cpg89est   CHAR(1),
+  cpg89acc   CHAR(1),
+  cpg89img   CHAR(1),
+  cpg89empbt NUMBER(3),
+  cpg89conv  NUMBER(8),
+  cpg89serv  NUMBER(3),
+  cpg89fpres DATE,
+  cpg89nenv  NUMBER(3),
+  cpg89nlote NUMBER(3),
+  cpg89cod   NUMBER(3),
+  cpg89corrm NUMBER(10),
+  cpg89nenve NUMBER(2),
+  cpg89facre DATE,
+  cpg89clot  NUMBER(4),
+  cpg89imptl NUMBER(17,2),
+  cpg89mda   NUMBER(4),
+  cpg89canal NUMBER(3),
+  cpg89genac CHAR(1),
+  cpg89fto   CHAR(8),
+  cpg89nlemp NUMBER(4),
+  cpg89tmov  NUMBER(1),
+  cpg89cpto  CHAR(30),
+  cpg89cmov  NUMBER(10),
+  cpg89imtl  NUMBER(17,2),
+  cpg89facp  DATE,
+  cpg89cmvp  NUMBER(10),
+  cpg89tpcta NUMBER(3),
+  cpg89bco   NUMBER(3),
+  cpg89sucb  NUMBER(4),
+  cpg89cta   NUMBER(11),
+  cpg89cbu1  NUMBER(8),
+  cpg89cbu2  NUMBER(14),
+  cpg89impm  NUMBER(17,2),
+  cpg89paisb NUMBER(3),
+  cpg89tdocb NUMBER(3),
+  cpg89ndocb CHAR(25),
+  cpg89provb NUMBER(2),
+  cpg89depb  CHAR(15),
+  cpg89ncrf  NUMBER(7),
+  cpg89apnmb CHAR(20),
+  cpg89tpolq NUMBER(3),
+  cpg89tporg NUMBER(2),
+  cpg89estc  CHAR(1),
+  cpg89pend  NUMBER(1),
+  cpg89best  CHAR(3)
+)
+;
+create index FCPG8902 on FCPG89 (CPG89INS, CPG89TAB, CPG89CORR);
+create index FCPG8903 on FCPG89 (CPG89INS, CPG89WIT, CPG89TAB, CPG89CORR, CPG89CORRM);
+alter table FCPG89
+  add primary key (CPG89INS, CPG89WIT, CPG89TAB, CPG89CORR);
+

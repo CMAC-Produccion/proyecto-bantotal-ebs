@@ -1,0 +1,17 @@
+create table FBC154
+(
+  bc154emp  NUMBER(3) not null,
+  bc154anio NUMBER(4) not null,
+  bc154mes  NUMBER(2) not null,
+  bc154gru  NUMBER(5) not null,
+  bc154rub  NUMBER(6) not null,
+  bc154mn   NUMBER(17,2),
+  bc154me   NUMBER(17,2),
+  bc154mne  NUMBER(17,2),
+  bc154tot  NUMBER(17,2)
+)
+;
+create index FBC15402 on FBC154 (BC154EMP, BC154ANIO, BC154MES, BC154RUB);
+alter table FBC154
+  add primary key (BC154EMP, BC154ANIO, BC154MES, BC154GRU, BC154RUB);
+

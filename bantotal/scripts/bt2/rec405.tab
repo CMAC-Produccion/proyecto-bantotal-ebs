@@ -1,0 +1,24 @@
+create table REC405
+(
+  rec403rec  NUMBER(9) not null,
+  rec403emp  NUMBER(3) not null,
+  rec403suc  NUMBER(3) not null,
+  rec403mod  NUMBER(3) not null,
+  rec403trn  NUMBER(3) not null,
+  rec403nrel NUMBER(4) not null,
+  rec405fec  DATE not null,
+  rec405cor  NUMBER(9) not null,
+  rec405ppro NUMBER(14,2),
+  rec405ppen NUMBER(14,2),
+  rec405psal NUMBER(14,2),
+  rec405spro NUMBER(14,2),
+  rec405spen NUMBER(14,2),
+  rec405ssal NUMBER(14,2),
+  rec405siss NUMBER(14,2),
+  rec405nom  CHAR(30),
+  rec405num  CHAR(12)
+)
+;
+alter table REC405
+  add primary key (REC403REC, REC403EMP, REC403SUC, REC403MOD, REC403TRN, REC403NREL, REC405FEC, REC405COR);
+

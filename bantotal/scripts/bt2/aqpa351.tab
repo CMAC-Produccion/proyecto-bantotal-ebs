@@ -1,0 +1,103 @@
+create table AQPA351
+(
+  aqpa351fproc   DATE not null,
+  aqpa351hora    CHAR(8) not null,
+  aqpa351user    VARCHAR2(10) not null,
+  aqpa351pgcodt  NUMBER not null,
+  aqpa351suct    NUMBER not null,
+  aqpa351modt    NUMBER not null,
+  aqpa351ttran   NUMBER not null,
+  aqpa351relt    NUMBER not null,
+  aqpa351ordt    NUMBER not null,
+  aqpa351sbort   NUMBER not null,
+  aqpa351pgcod   NUMBER,
+  aqpa351ctnro   NUMBER(10),
+  aqpa351itoper  NUMBER(10),
+  aqpa351itsubo  NUMBER(5),
+  aqpa351itsucd  NUMBER(5),
+  aqpa351ittope  NUMBER(5),
+  aqpa351modulo  NUMBER(5),
+  aqpa351moneda  NUMBER(5),
+  aqpa351papel   NUMBER(5),
+  aqpa351pgcod17 NUMBER(5),
+  aqpa351mod17   NUMBER(5),
+  aqpa351suc17   NUMBER(5),
+  aqpa351mda17   NUMBER(5),
+  aqpa351pap17   NUMBER(5),
+  aqpa351cta17   NUMBER(10),
+  aqpa351oper17  NUMBER(10),
+  aqpa351subo17  NUMBER(5),
+  aqpa351tope17  NUMBER(5),
+  aqpa351fdes    DATE,
+  aqpa351fchnplz DATE,
+  aqpa351plzing  NUMBER,
+  aqpa351plzperm NUMBER
+)
+;
+comment on column AQPA351.aqpa351fproc
+  is 'FECHA TRANSACCION';
+comment on column AQPA351.aqpa351hora
+  is 'HORA TRANSACCION';
+comment on column AQPA351.aqpa351user
+  is 'USUARIO TRANSACCION';
+comment on column AQPA351.aqpa351suct
+  is 'SUCURSAL TRANSACCION';
+comment on column AQPA351.aqpa351modt
+  is 'MODULO TRANSACCION';
+comment on column AQPA351.aqpa351ttran
+  is 'TRANSACCION';
+comment on column AQPA351.aqpa351relt
+  is 'NRO RELACION TRANSACCION';
+comment on column AQPA351.aqpa351ordt
+  is 'ORDINAL TRANSACCION';
+comment on column AQPA351.aqpa351sbort
+  is 'SUBORDINAL TRANSACCION';
+comment on column AQPA351.aqpa351pgcod
+  is 'PGCOD TRANSACCION';
+comment on column AQPA351.aqpa351ctnro
+  is 'CUENTA FSD016';
+comment on column AQPA351.aqpa351itoper
+  is 'OPERACION FSD016';
+comment on column AQPA351.aqpa351itsubo
+  is 'SUBOPERACION FSD016';
+comment on column AQPA351.aqpa351itsucd
+  is 'SUCURSAL CRED FSD016';
+comment on column AQPA351.aqpa351ittope
+  is 'TIPO FSD016';
+comment on column AQPA351.aqpa351modulo
+  is 'MOD CRED FSD016';
+comment on column AQPA351.aqpa351moneda
+  is 'MDA FSD016';
+comment on column AQPA351.aqpa351papel
+  is 'PAPEL FSD016';
+comment on column AQPA351.aqpa351pgcod17
+  is 'PGCOD 117';
+comment on column AQPA351.aqpa351mod17
+  is 'MODULO 117';
+comment on column AQPA351.aqpa351suc17
+  is 'SUCURSAL 117';
+comment on column AQPA351.aqpa351mda17
+  is 'MDA 117';
+comment on column AQPA351.aqpa351pap17
+  is 'PAPEL 117';
+comment on column AQPA351.aqpa351cta17
+  is 'CUENTA 117';
+comment on column AQPA351.aqpa351oper17
+  is 'OPERACION 117';
+comment on column AQPA351.aqpa351subo17
+  is 'SUBOPERA 117';
+comment on column AQPA351.aqpa351tope17
+  is 'TOPE 117';
+comment on column AQPA351.aqpa351fdes
+  is 'FCH DESEMBOLSO 117';
+comment on column AQPA351.aqpa351fchnplz
+  is 'FCH NUEVO PLAZO';
+comment on column AQPA351.aqpa351plzing
+  is 'PLAZO INGRESADO';
+comment on column AQPA351.aqpa351plzperm
+  is 'PLAZO PERMITIDO';
+create index AQPA3512 on AQPA351 (AQPA351PGCOD, AQPA351CTNRO, AQPA351ITOPER, AQPA351ITSUBO, AQPA351ITSUCD, AQPA351ITTOPE, AQPA351MODULO, AQPA351MONEDA, AQPA351PAPEL);
+create index AQPA3513 on AQPA351 (AQPA351PGCOD17, AQPA351MOD17, AQPA351SUC17, AQPA351MDA17, AQPA351PAP17, AQPA351CTA17, AQPA351OPER17, AQPA351SUBO17, AQPA351TOPE17);
+alter table AQPA351
+  add primary key (AQPA351FPROC, AQPA351HORA, AQPA351USER, AQPA351PGCODT, AQPA351SUCT, AQPA351MODT, AQPA351TTRAN, AQPA351RELT, AQPA351ORDT, AQPA351SBORT);
+

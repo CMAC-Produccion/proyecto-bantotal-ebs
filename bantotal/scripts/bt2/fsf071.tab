@@ -1,0 +1,20 @@
+create table FSF071
+(
+  lqpgcod   NUMBER(3) not null,
+  lqctnro   NUMBER(9) not null,
+  lqmda     NUMBER(4) not null,
+  lqfecha   DATE not null,
+  lqnromov  NUMBER(3) not null,
+  lqrel     NUMBER(4),
+  lqtexto   CHAR(30),
+  lqtexto1  CHAR(50),
+  lqvn      NUMBER(17,2),
+  lqprecio  NUMBER(17,2),
+  lqve      NUMBER(17,2),
+  lqcd      NUMBER(1),
+  lqimporte NUMBER(17,2)
+)
+;
+alter table FSF071
+  add primary key (LQPGCOD, LQCTNRO, LQMDA, LQFECHA, LQNROMOV);
+

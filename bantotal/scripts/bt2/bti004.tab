@@ -1,0 +1,18 @@
+create table BTI004
+(
+  btinom        VARCHAR2(40) not null,
+  btisrvnom     VARCHAR2(40) not null,
+  btisrvver     VARCHAR2(40) not null,
+  btisrvdsc     VARCHAR2(200) not null,
+  btisrvnsbt    CHAR(1),
+  btisrvcannsbt NUMBER(4),
+  btisrvopnsbt  NUMBER(5),
+  btisrvvarnsbt NUMBER(3),
+  btisrvpgmname VARCHAR2(40),
+  btisrvstatus  CHAR(20),
+  btisrvfpath   VARCHAR2(100)
+)
+;
+alter table BTI004
+  add primary key (BTINOM, BTISRVNOM, BTISRVVER);
+

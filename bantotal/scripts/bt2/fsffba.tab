@@ -1,0 +1,30 @@
+create table FSFFBA
+(
+  fsffbaemp NUMBER(3) not null,
+  fsffbanro NUMBER(9) not null,
+  fsffbaren NUMBER(9) not null,
+  fsffbatct NUMBER(2),
+  fsffbatcc NUMBER(4),
+  fsffbaent NUMBER(9),
+  fsffbacta NUMBER(9),
+  fsffbasub NUMBER(3),
+  fsffbacnb CHAR(20),
+  fsffbaben NUMBER(9),
+  fsffbaaba CHAR(15),
+  fsffbasor CHAR(15),
+  fsffbaref CHAR(18),
+  fsffbando NUMBER(9),
+  fsffbaimp NUMBER(17,2),
+  fsffbaa01 NUMBER(9),
+  fsffbaa02 NUMBER(9),
+  fsffbaa03 DATE,
+  fsffbaa04 DATE,
+  fsffbaa05 CHAR(65),
+  fsffbaa06 CHAR(65),
+  fsffbaa07 NUMBER(17,2),
+  fsffbaa08 NUMBER(17,2)
+)
+;
+alter table FSFFBA
+  add primary key (FSFFBAEMP, FSFFBANRO, FSFFBAREN);
+

@@ -1,0 +1,124 @@
+create table JAQM98
+(
+  jaqm98fech DATE not null,
+  jaqm98hor  CHAR(8) not null,
+  jaqm98cuen NUMBER(10) not null,
+  jaqm98nuop NUMBER(10) not null,
+  jaqm98anal CHAR(20),
+  jaqm98clie VARCHAR2(255),
+  jaqm98cal  VARCHAR2(255),
+  jaqm98calp NUMBER(4),
+  jaqm98mont NUMBER(17,2),
+  jaqm98prcj VARCHAR2(255),
+  jaqm98tise VARCHAR2(100),
+  jaqm98sald NUMBER(17,2),
+  jaqm98cupa NUMBER(4),
+  jaqm98cuto NUMBER(4),
+  jaqm98avcu VARCHAR2(10),
+  jaqm98prda NUMBER(17,2),
+  jaqm98ulfe DATE,
+  jaqm98garn VARCHAR2(100),
+  jaqm98case VARCHAR2(100),
+  jaqm98nu1  NUMBER(9),
+  jaqm98nu2  NUMBER(9),
+  jaqm98nu3  NUMBER(9),
+  jaqm98m1   NUMBER(17,2),
+  jaqm98m2   NUMBER(17,2),
+  jaqm98m3   NUMBER(17,2),
+  jaqm98va1  VARCHAR2(255),
+  jaqm98va2  VARCHAR2(255),
+  jaqm98va3  VARCHAR2(255),
+  jaqm98fe1  DATE,
+  jaqm98fe2  DATE,
+  jaqm98fe3  DATE,
+  jaqm98tope NUMBER(3),
+  jaqm98sope NUMBER(3),
+  jaqm98pape NUMBER(4),
+  jaqm98mone NUMBER(4),
+  jaqm98sucu NUMBER(3),
+  jaqm98modu NUMBER(3),
+  jaqm98empr NUMBER(3)
+)
+;
+comment on table JAQM98
+  is 'Cartera Vigente';
+comment on column JAQM98.jaqm98fech
+  is 'Fecha';
+comment on column JAQM98.jaqm98hor
+  is 'Hora';
+comment on column JAQM98.jaqm98cuen
+  is 'Cuenta Cliente';
+comment on column JAQM98.jaqm98nuop
+  is 'Número de operación';
+comment on column JAQM98.jaqm98anal
+  is 'Código de ANALISTA';
+comment on column JAQM98.jaqm98clie
+  is 'Nombre Cliente';
+comment on column JAQM98.jaqm98cal
+  is 'Calificación';
+comment on column JAQM98.jaqm98calp
+  is 'Calificación Porcentual';
+comment on column JAQM98.jaqm98mont
+  is 'Monto Solicitado';
+comment on column JAQM98.jaqm98prcj
+  is 'Producto Caja';
+comment on column JAQM98.jaqm98tise
+  is 'Tipo de segmento';
+comment on column JAQM98.jaqm98sald
+  is 'Saldo del crédito';
+comment on column JAQM98.jaqm98cupa
+  is 'Cuotas Pagadas';
+comment on column JAQM98.jaqm98cuto
+  is 'Cuotas Totales';
+comment on column JAQM98.jaqm98avcu
+  is 'Avance Cuotas %';
+comment on column JAQM98.jaqm98prda
+  is 'Promedio días de atraso';
+comment on column JAQM98.jaqm98ulfe
+  is 'Última Fecha de Evaluación';
+comment on column JAQM98.jaqm98garn
+  is 'Garantia';
+comment on column JAQM98.jaqm98case
+  is 'Cambio Segmentación';
+comment on column JAQM98.jaqm98nu1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM98.jaqm98nu2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM98.jaqm98nu3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM98.jaqm98m1
+  is 'Auxiliar Importe 1';
+comment on column JAQM98.jaqm98m2
+  is 'Auxiliar Importe 2';
+comment on column JAQM98.jaqm98m3
+  is 'Auxiliar Importe 3';
+comment on column JAQM98.jaqm98va1
+  is 'Auxiliar Varchar 1';
+comment on column JAQM98.jaqm98va2
+  is 'Auxiliar Varchar 2';
+comment on column JAQM98.jaqm98va3
+  is 'Auxiliar Varchar 3';
+comment on column JAQM98.jaqm98fe1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM98.jaqm98fe2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM98.jaqm98fe3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM98.jaqm98tope
+  is 'Tipo Operacion';
+comment on column JAQM98.jaqm98sope
+  is 'Sub Operacion';
+comment on column JAQM98.jaqm98pape
+  is 'Papel';
+comment on column JAQM98.jaqm98mone
+  is 'Moneda';
+comment on column JAQM98.jaqm98sucu
+  is 'Sucursal';
+comment on column JAQM98.jaqm98modu
+  is 'Modulo';
+comment on column JAQM98.jaqm98empr
+  is 'Empresa';
+create index JAQM98A2 on JAQM98 (JAQM98FECH, JAQM98ANAL);
+alter table JAQM98
+  add primary key (JAQM98FECH, JAQM98HOR, JAQM98CUEN, JAQM98NUOP);
+

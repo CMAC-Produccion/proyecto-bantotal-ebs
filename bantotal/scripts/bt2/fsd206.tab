@@ -1,0 +1,26 @@
+create table FSD206
+(
+  licnro   CHAR(14) not null,
+  licprop  NUMBER(5),
+  licfch   DATE,
+  liccnt   NUMBER(17,2),
+  licmda   NUMBER(4),
+  licttas  NUMBER(1),
+  lictas   NUMBER(10,6),
+  lictasc  NUMBER(10,6),
+  licadj   NUMBER(17,2),
+  licpzo   NUMBER(5),
+  licfvto  DATE,
+  licato   CHAR(1),
+  licmdadb NUMBER(4),
+  licsn01  CHAR(1),
+  licsn02  CHAR(1),
+  licsn03  CHAR(30),
+  liccd01  NUMBER(9),
+  liccd02  NUMBER(17,2),
+  liccd03  NUMBER(17,2)
+)
+;
+alter table FSD206
+  add primary key (LICNRO);
+

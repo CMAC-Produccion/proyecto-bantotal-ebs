@@ -1,0 +1,14 @@
+create table JHSI09
+(
+  jhsi09apl  NUMBER(4) not null,
+  jhsi09ban  CHAR(5) not null,
+  jhsi09env  NUMBER(9) not null,
+  jhsi09cor  NUMBER(9) not null,
+  jhsi09ctr  CHAR(3),
+  jhsi09ncta CHAR(10),
+  jhsi09imp  NUMBER(17,2),
+  jhsi09fil  CHAR(100)
+)
+;
+create unique index JHSI0901 on JHSI09 (JHSI09APL, JHSI09BAN, JHSI09ENV, JHSI09COR);
+

@@ -1,0 +1,11 @@
+create table FFXE02
+(
+  fxe02swtco NUMBER(5) not null,
+  fxe02cpo   NUMBER(2) not null,
+  fxe02fmt   CHAR(1) not null,
+  fxe02pgmp  CHAR(10)
+)
+;
+alter table FFXE02
+  add primary key (FXE02SWTCO, FXE02CPO, FXE02FMT);
+

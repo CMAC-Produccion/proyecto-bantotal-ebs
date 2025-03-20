@@ -1,0 +1,16 @@
+create table JAQZ582
+(
+  jaqz582fecc  DATE not null,
+  jaqz582fecha DATE not null,
+  jaqz582hora  CHAR(8) not null,
+  jaqz582tipo  CHAR(4) not null,
+  jaqz582au1   NUMBER(4),
+  jaqz582au2   NUMBER(16,2),
+  jaqz582au3   DATE,
+  jaqz582au4   VARCHAR2(40),
+  jaqz582au5   VARCHAR2(100)
+)
+;
+alter table JAQZ582
+  add primary key (JAQZ582FECC, JAQZ582FECHA, JAQZ582HORA, JAQZ582TIPO);
+

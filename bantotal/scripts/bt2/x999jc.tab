@@ -1,0 +1,65 @@
+create table X999JC
+(
+  x999japgc NUMBER(3) not null,
+  x999jacta NUMBER(9) not null,
+  x999j0cod CHAR(10) not null,
+  x999jjcod NUMBER(1) not null,
+  x999jbcod CHAR(10) not null,
+  x999jbidc CHAR(22) not null,
+  x999jcfvn DATE not null,
+  x999jcrfd CHAR(15) not null,
+  x999jctrc NUMBER(2),
+  x999jctri NUMBER(2),
+  x999jcmon NUMBER(4),
+  x999jcimp NUMBER(10,2),
+  x999jcctd NUMBER(17),
+  x999jcusu CHAR(10),
+  x999jcwst CHAR(10),
+  x999jc1pg NUMBER(3),
+  x999jc1su NUMBER(3),
+  x999jc1md NUMBER(3),
+  x999jc1tr NUMBER(3),
+  x999jc1rl NUMBER(4),
+  x999jc1fc DATE,
+  x999jc1ct CHAR(1),
+  x999jc1or NUMBER(2),
+  x999jc1sb NUMBER(3),
+  x999jc2di NUMBER(10),
+  x999jc2oi NUMBER(10),
+  x999jc2pf DATE,
+  x999jc2ph CHAR(8),
+  x999jc2ia CHAR(1),
+  x999jc2cr NUMBER(15),
+  x999jc3tr CHAR(5),
+  x999jc3lt NUMBER(9),
+  x999jc3cr NUMBER(9),
+  x999jc4ap NUMBER(4),
+  x999jc4ba CHAR(5),
+  x999jc4cr NUMBER(9),
+  x999jc4cl NUMBER(9),
+  x999jc4ci NUMBER(9),
+  x999jcfal DATE,
+  x999jcfcp DATE,
+  x999jcfbj DATE,
+  x999jcest CHAR(2),
+  x999jcfv2 DATE,
+  x999jcfv3 DATE,
+  x999jcim2 NUMBER(10,2),
+  x999jcim3 NUMBER(10,2),
+  x999jcdbp NUMBER(2),
+  x999jcper NUMBER(3)
+)
+;
+create index X999JC03 on X999JC (X999J0COD, X999JJCOD, X999JBCOD, X999JCFVN);
+create index X999JC05 on X999JC (X999JC1PG, X999JC1SU, X999JC1MD, X999JC1TR, X999JC1RL, X999JC1FC, X999JC1OR, X999JC1SB);
+create index X999JC07 on X999JC (X999J0COD, X999JC3TR, X999JC3LT, X999JCTRC, X999JCTRI, X999JC3CR);
+create index X999JC08 on X999JC (X999JCFAL, X999J0COD, X999JBCOD, X999JJCOD, X999JCTRC, X999JCTRI);
+create index X999JC10 on X999JC (X999JCFBJ);
+create index X999JC11 on X999JC (X999JCEST);
+create index X999JC12 on X999JC (X999JCFVN);
+create index X999JC13 on X999JC (X999JC4AP, X999JC4BA, X999JC4CR, X999JC4CL, X999JC4CI);
+create index X999JC14 on X999JC (X999JCFCP, X999J0COD, X999JBCOD, X999JJCOD, X999JCTRC, X999JCTRI);
+create index X999JC15 on X999JC (X999JAPGC, X999JCFVN, X999JACTA);
+alter table X999JC
+  add primary key (X999JAPGC, X999JACTA, X999J0COD, X999JJCOD, X999JBCOD, X999JBIDC, X999JCFVN, X999JCRFD);
+

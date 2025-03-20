@@ -1,0 +1,38 @@
+create table FST167
+(
+  paqempb    NUMBER(3) not null,
+  paqctab    NUMBER(9) not null,
+  paqcodb    NUMBER(3) not null,
+  paqcorrb   NUMBER(2) not null,
+  paqfchb    DATE not null,
+  paqdescb   CHAR(40),
+  paqctaempb NUMBER(9),
+  empcorctb  NUMBER(2),
+  empcodb    NUMBER(4),
+  paqfcha    DATE,
+  modcosb    NUMBER(3),
+  mdacosb    NUMBER(4),
+  papcosb    NUMBER(4),
+  ctacosb    NUMBER(9),
+  succosb    NUMBER(3),
+  opecosb    NUMBER(9),
+  sbocosb    NUMBER(3),
+  tpocosb    NUMBER(3),
+  paqcobrb   CHAR(1),
+  paqsucb    NUMBER(3),
+  paqnumtb   NUMBER(3),
+  ctrchqlb   NUMBER(3),
+  ctrbollb   NUMBER(3),
+  pqporempb  NUMBER(7,4),
+  pqimpempb  NUMBER(14,2),
+  pqporclib  NUMBER(7,4),
+  pqimpclib  NUMBER(14,2)
+)
+;
+create index FST16703 on FST167 (PAQEMPB, PAQCTAEMPB, PAQCTAB);
+create index FST16704 on FST167 (PAQEMPB, PAQSUCB, PAQCTAB);
+create index FST16705 on FST167 (PAQEMPB, PAQSUCB, PAQFCHB, PAQCODB, PAQCTAB);
+create index FST16706 on FST167 (PAQEMPB, PAQFCHB, PAQSUCB, PAQCTAB, PAQCODB);
+alter table FST167
+  add primary key (PAQEMPB, PAQCTAB, PAQCODB, PAQCORRB, PAQFCHB);
+

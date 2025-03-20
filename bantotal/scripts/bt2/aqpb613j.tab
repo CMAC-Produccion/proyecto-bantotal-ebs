@@ -1,0 +1,17 @@
+create table AQPB613J
+(
+  aqpb613jins    NUMBER(10) not null,
+  aqpb613jfec    DATE not null,
+  aqpb613jcod    NUMBER(4) not null,
+  aqpb613jmon    NUMBER(17,2),
+  aqpb613jfeclog DATE not null,
+  aqpb613jhorlog VARCHAR2(15) not null
+)
+;
+comment on column AQPB613J.aqpb613jfeclog
+  is 'Fecha Log';
+comment on column AQPB613J.aqpb613jhorlog
+  is 'Hora log ';
+alter table AQPB613J
+  add primary key (AQPB613JINS, AQPB613JFEC, AQPB613JCOD, AQPB613JFECLOG, AQPB613JHORLOG);
+

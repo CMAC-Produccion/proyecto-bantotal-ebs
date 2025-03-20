@@ -1,0 +1,29 @@
+create table FCE999
+(
+  lcixtpgcod NUMBER(3) not null,
+  lcixtmod   NUMBER(3) not null,
+  lcixtoper  NUMBER(9) not null,
+  lcixtctabn NUMBER(9),
+  lcixtcta2  NUMBER(9),
+  lcixtcta3  NUMBER(9),
+  lcixtfch1  DATE,
+  lcixtfch2  DATE,
+  lcixtfch3  DATE,
+  lcixtimp1  NUMBER(14,2),
+  lcixtimp2  NUMBER(14,2),
+  lcixtimp3  NUMBER(14,2),
+  lcixtpte1  NUMBER(7,4),
+  lcixtpte2  NUMBER(7,4),
+  lcixtpte3  NUMBER(7,4),
+  lcixtnum1  NUMBER(16),
+  lcixtnum2  NUMBER(16),
+  lcixtnum3  NUMBER(16),
+  lcixtstr1  CHAR(35),
+  lcixtstr2  CHAR(35),
+  lcixtstr3  CHAR(35)
+)
+;
+create index FCE99902 on FCE999 (LCIXTPGCOD, LCIXTCTABN);
+alter table FCE999
+  add primary key (LCIXTPGCOD, LCIXTMOD, LCIXTOPER);
+

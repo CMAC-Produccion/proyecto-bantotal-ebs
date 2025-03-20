@@ -1,0 +1,40 @@
+create table AQPA724
+(
+  aqpa724id     NUMBER(9) not null,
+  aqpa724idref  NUMBER(9),
+  aqpa724paidoc NUMBER(3),
+  aqpa724tipdoc NUMBER(2),
+  aqpa724numdoc CHAR(12),
+  aqpa724numcre VARCHAR2(30),
+  aqpa724numins NUMBER(9),
+  aqpa724monto  NUMBER(17,2),
+  aqpa724moneda NUMBER(3),
+  aqpa724idbio  NUMBER(9),
+  aqpa724ruta   VARCHAR2(200),
+  aqpa724nomarc VARCHAR2(100),
+  aqpa724cliarc VARCHAR2(100),
+  aqpa724genarc CHAR(1),
+  aqpa724firdig CHAR(1),
+  aqpa724envcli CHAR(1),
+  aqpa724pagele CHAR(1),
+  aqpa724trareq CLOB,
+  aqpa724trares CLOB,
+  aqpa724fecreg DATE,
+  aqpa724horreg VARCHAR2(10),
+  aqpa724feccav DATE,
+  aqpa724horcav VARCHAR2(10),
+  aqpa724fecenv DATE,
+  aqpa724horenv VARCHAR2(10),
+  aqpa724coderr CHAR(5),
+  aqpa724msgerr VARCHAR2(200),
+  aqpa724auxn3  NUMBER(17,2),
+  aqpa724auxn2  NUMBER(17,2),
+  aqpa724auxn1  NUMBER(17,2),
+  aqpa724auxv3  VARCHAR2(200),
+  aqpa724auxv2  VARCHAR2(200),
+  aqpa724auxv1  VARCHAR2(200)
+)
+;
+alter table AQPA724
+  add primary key (AQPA724ID);
+

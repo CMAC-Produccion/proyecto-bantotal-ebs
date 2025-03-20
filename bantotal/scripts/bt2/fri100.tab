@@ -1,0 +1,57 @@
+create table FRI100
+(
+  ri100cod   NUMBER(3) not null,
+  ri100suc   NUMBER(3) not null,
+  ri100rub   NUMBER(16) not null,
+  ri100mda   NUMBER(4) not null,
+  ri100pap   NUMBER(4) not null,
+  ri100cta   NUMBER(9) not null,
+  ri100ope   NUMBER(9) not null,
+  ri100sbop  NUMBER(3) not null,
+  ri100tope  NUMBER(3) not null,
+  ri100id    NUMBER(10) not null,
+  ri100num   NUMBER(4) not null,
+  ri100mod   NUMBER(3),
+  ri100plazo NUMBER(10),
+  ri100arb   NUMBER(14,8),
+  ri100impus NUMBER(17,2),
+  ri100imp   NUMBER(17,2),
+  ri100int   NUMBER(17,2),
+  ri100intus NUMBER(17,2),
+  ri100int1  NUMBER(17,2),
+  ri100inus1 NUMBER(17,2),
+  ri100essus CHAR(1),
+  ri100admg  CHAR(2),
+  ri100lazo  NUMBER(15),
+  ri100aux1  NUMBER(15),
+  ri100aux2  NUMBER(15),
+  ri100aux3  NUMBER(15),
+  ri100aux4  NUMBER(17,2),
+  ri100aux5  NUMBER(17,2),
+  ri100aux6  NUMBER(17,2),
+  ri100aux7  DATE,
+  ri100aux8  DATE,
+  ri100aux9  DATE,
+  ri100aux10 CHAR(30),
+  ri100aux11 CHAR(30),
+  ri100aux12 CHAR(30),
+  ri100gcod  NUMBER(3),
+  ri100gsuc  NUMBER(3),
+  ri100grub  NUMBER(16),
+  ri100gmda  NUMBER(4),
+  ri100gpap  NUMBER(4),
+  ri100gcta  NUMBER(9),
+  ri100gope  NUMBER(9),
+  ri100gsbop NUMBER(3),
+  ri100gtope NUMBER(3),
+  ri100gid   NUMBER(10),
+  ri100tgar  CHAR(2),
+  ri100gmod  NUMBER(3),
+  ri100prio  NUMBER(4)
+)
+;
+create index FRI10002 on FRI100 (RI100LAZO, RI100CTA, RI100ID);
+create index FRI10003 on FRI100 (RI100GCOD, RI100GSUC, RI100GRUB, RI100GMDA, RI100GPAP, RI100GCTA, RI100GOPE, RI100GSBOP, RI100GTOPE, RI100GID);
+alter table FRI100
+  add primary key (RI100COD, RI100SUC, RI100RUB, RI100MDA, RI100PAP, RI100CTA, RI100OPE, RI100SBOP, RI100TOPE, RI100ID, RI100NUM);
+

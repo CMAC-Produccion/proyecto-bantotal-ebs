@@ -1,0 +1,15 @@
+create table FBC708
+(
+  bc708fing NUMBER(1) not null,
+  bc708cuit NUMBER(11) not null,
+  bc708nope NUMBER(11) not null,
+  bc708nsec NUMBER(5) not null,
+  bc708fapl DATE,
+  bc708ndes CHAR(20),
+  bc708mapl NUMBER(11),
+  bc708naut CHAR(20)
+)
+;
+alter table FBC708
+  add primary key (BC708FING, BC708CUIT, BC708NOPE, BC708NSEC);
+

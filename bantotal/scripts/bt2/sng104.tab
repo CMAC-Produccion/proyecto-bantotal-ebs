@@ -1,0 +1,17 @@
+create table SNG104
+(
+  sng100tgcd NUMBER(3) not null,
+  sng104tmod NUMBER(3) not null,
+  sng104ttop NUMBER(3) not null,
+  sng104tmda NUMBER(4) not null,
+  sng104tpap NUMBER(4) not null,
+  sng104sts  CHAR(1),
+  sng104aux1 NUMBER(9),
+  sng104aux2 DATE,
+  sng104aux3 NUMBER(17,2),
+  sng104aux4 CHAR(30)
+)
+;
+alter table SNG104
+  add primary key (SNG100TGCD, SNG104TMOD, SNG104TTOP, SNG104TMDA, SNG104TPAP);
+

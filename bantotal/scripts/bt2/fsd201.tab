@@ -1,0 +1,25 @@
+create table FSD201
+(
+  tlis     NUMBER(4) not null,
+  lnfact   DATE not null,
+  lnpais   NUMBER(3) not null,
+  lntdoc   NUMBER(2) not null,
+  lnndoc   CHAR(25) not null,
+  lndeno   CHAR(70),
+  lnmotina NUMBER(4),
+  lnmotdes CHAR(30),
+  lnmoobs  CHAR(50),
+  lnmofdes DATE,
+  lnmofhas DATE,
+  lnape1   CHAR(30),
+  lnapea   CHAR(30),
+  lnnom1   CHAR(25),
+  lnnoma   CHAR(25)
+)
+;
+create index FSD20103 on FSD201 (LNPAIS, LNTDOC, LNNDOC);
+create index FSD20104 on FSD201 (LNAPEA, LNNOMA);
+create index FSD20105 on FSD201 (LNDENO);
+alter table FSD201
+  add primary key (TLIS, LNFACT, LNPAIS, LNTDOC, LNNDOC);
+

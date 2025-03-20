@@ -1,0 +1,23 @@
+create table JAQL061
+(
+  jaql61pgco NUMBER(3) not null,
+  jaql61pais NUMBER(3) not null,
+  jaql61tdoc NUMBER(2) not null,
+  jaql61ndoc CHAR(12) not null,
+  jaql61user CHAR(10) not null,
+  jaql61fech DATE,
+  jaql61au01 CHAR(50),
+  jaql61au02 CHAR(50),
+  jaql61au03 NUMBER(17,2),
+  jaql61au04 NUMBER(17,2),
+  jaql61au05 NUMBER(9),
+  jaql61au06 NUMBER(9),
+  jaql61au07 DATE,
+  jaql61au08 DATE,
+  jaql61esta CHAR(1)
+)
+;
+create index IDXJAQL611001 on JAQL061 (JAQL61PGCO, JAQL61USER, JAQL61ESTA);
+alter table JAQL061
+  add primary key (JAQL61PGCO, JAQL61PAIS, JAQL61TDOC, JAQL61NDOC, JAQL61USER);
+

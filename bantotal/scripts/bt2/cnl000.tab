@@ -1,0 +1,14 @@
+create table CNL000
+(
+  cnl000cod NUMBER(4) not null,
+  cnl000nom CHAR(60),
+  cnl000hab CHAR(1),
+  cnl000urq NUMBER(10),
+  cnl000tnv CHAR(3),
+  cnl000nts NUMBER(10)
+)
+;
+create index CNL00002 on CNL000 (CNL000NOM, CNL000COD);
+alter table CNL000
+  add primary key (CNL000COD);
+

@@ -1,0 +1,22 @@
+create table FSC015
+(
+  pgcod   NUMBER(3) not null,
+  witsuc  NUMBER(3) not null,
+  witmod  NUMBER(3) not null,
+  wittran NUMBER(3) not null,
+  witnrel NUMBER(4) not null,
+  witfcon DATE not null,
+  impnro  NUMBER(9) not null,
+  werrcod NUMBER(5),
+  wstat   CHAR(1),
+  waleid  NUMBER(6),
+  wintaux NUMBER(9),
+  wfilnam VARCHAR2(80),
+  wvaraux VARCHAR2(255)
+)
+;
+create index FSC01504 on FSC015 (PGCOD, WITSUC, WITMOD, WITTRAN, WITNREL, WITFCON, WSTAT);
+create index FSC01505 on FSC015 (WALEID, WSTAT, IMPNRO);
+alter table FSC015
+  add primary key (PGCOD, WITSUC, WITMOD, WITTRAN, WITNREL, WITFCON, IMPNRO);
+

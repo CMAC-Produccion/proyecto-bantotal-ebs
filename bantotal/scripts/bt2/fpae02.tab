@@ -1,0 +1,13 @@
+create table FPAE02
+(
+  pae02cco NUMBER(5) not null,
+  pae02des CHAR(40),
+  pae02fja CHAR(1),
+  pae02pgm CHAR(8),
+  pae02hab CHAR(1)
+)
+;
+create index FPAE0202 on FPAE02 (PAE02DES);
+alter table FPAE02
+  add primary key (PAE02CCO);
+

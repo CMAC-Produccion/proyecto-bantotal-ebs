@@ -1,0 +1,25 @@
+create table Z99901
+(
+  z99901pgco NUMBER(3) not null,
+  z99901mod  NUMBER(3) not null,
+  z99901suc  NUMBER(3) not null,
+  z99901mda  NUMBER(4) not null,
+  z99901pap  NUMBER(4) not null,
+  z99901cta  NUMBER(9) not null,
+  z99901oper NUMBER(9) not null,
+  z99901sope NUMBER(3) not null,
+  z99901tope NUMBER(3) not null,
+  z99901fppa DATE,
+  z99901capi NUMBER(14,2),
+  z99901inte NUMBER(14,2),
+  z99901mora NUMBER(14,2),
+  z99901camn NUMBER(14,2),
+  z99901inmn NUMBER(14,2),
+  z99901momn NUMBER(14,2),
+  z99901treg CHAR(1),
+  z99901tred CHAR(40)
+)
+;
+alter table Z99901
+  add primary key (Z99901PGCO, Z99901MOD, Z99901SUC, Z99901MDA, Z99901PAP, Z99901CTA, Z99901OPER, Z99901SOPE, Z99901TOPE);
+

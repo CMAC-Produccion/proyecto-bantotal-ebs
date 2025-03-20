@@ -1,0 +1,20 @@
+create table FPAE53
+(
+  pae51eva NUMBER(3) not null,
+  pae52ite NUMBER(5) not null,
+  pae53prg CHAR(10),
+  pae53mul NUMBER(14,8),
+  pae53scv NUMBER(17,9),
+  pae53pol CHAR(1),
+  pae53msg CHAR(80),
+  pae53def CHAR(1),
+  pae53pid NUMBER(5),
+  pae53res CHAR(1),
+  pae53scd CHAR(1),
+  pae53rng NUMBER(10)
+)
+;
+create index FPAE5302 on FPAE53 (PAE52ITE);
+alter table FPAE53
+  add primary key (PAE51EVA, PAE52ITE);
+

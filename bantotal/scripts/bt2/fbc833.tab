@@ -1,0 +1,28 @@
+create table FBC833
+(
+  bc833emp   NUMBER(3) not null,
+  bc833mes   NUMBER(2) not null,
+  bc833anio  NUMBER(4) not null,
+  bc833pais  NUMBER(3) not null,
+  bc833doctp NUMBER(2) not null,
+  bc833docno CHAR(12) not null,
+  bc833nom   CHAR(30),
+  bc833doct  NUMBER(2),
+  bc833docn  NUMBER(11),
+  bc833call  CHAR(30),
+  bc833calln CHAR(6),
+  bc833dep   CHAR(5),
+  bc833sec   CHAR(5),
+  bc833torr  CHAR(5),
+  bc833man   CHAR(5),
+  bc833piso  CHAR(5),
+  bc833loc   CHAR(30),
+  bc833pro   NUMBER(2),
+  bc833cp    CHAR(10),
+  bc833ctacm NUMBER(11),
+  bc833sinmv CHAR(1)
+)
+;
+alter table FBC833
+  add primary key (BC833EMP, BC833MES, BC833ANIO, BC833PAIS, BC833DOCTP, BC833DOCNO);
+

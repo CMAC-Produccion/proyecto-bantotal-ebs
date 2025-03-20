@@ -1,0 +1,64 @@
+create table FCD020
+(
+  pgcod      NUMBER(3) not null,
+  lcimod     NUMBER(3) not null,
+  lcioper    NUMBER(9) not null,
+  lcisuc     NUMBER(3),
+  lcimda     NUMBER(4),
+  lcipap     NUMBER(4),
+  lcicta     NUMBER(9),
+  lcitipo    NUMBER(3),
+  lcifing    DATE,
+  lcifval    DATE,
+  lcifvto    DATE,
+  lcifvtem   DATE,
+  lcibccorr  NUMBER(9),
+  incoterm   CHAR(3),
+  lciabomin  NUMBER(5,2),
+  lciabomax  NUMBER(5,2),
+  lcinatmon  NUMBER(2),
+  lciversio  NUMBER(2),
+  lciuser    CHAR(10),
+  lciws      CHAR(10),
+  idioma     NUMBER(2),
+  lciaoimp   NUMBER(17,2),
+  lcimocsw1  CHAR(3),
+  lciimpvis  NUMBER(17,2),
+  lciimppla  NUMBER(17,2),
+  lcipzopag  NUMBER(5),
+  pzopag     NUMBER(2),
+  lcisgrtip  CHAR(10),
+  lcisgrprc  NUMBER(7,4),
+  lcisgrddad NUMBER(5),
+  lcirefcorr CHAR(20),
+  lcibcree   NUMBER(9),
+  lciciuneg  CHAR(20),
+  lciciuval  CHAR(20),
+  lcipzodoc  NUMBER(5),
+  lcigaspor  NUMBER(1),
+  viacod     NUMBER(2),
+  c020cd     NUMBER(3),
+  c020mo     NUMBER(3),
+  c020su     NUMBER(3),
+  c020tr     NUMBER(3),
+  c020re     NUMBER(4),
+  c020fc     DATE,
+  c020co     CHAR(1),
+  lciautree  NUMBER(15)
+)
+;
+create index FCD02002 on FCD020 (PGCOD, LCICTA);
+create index FCD02003 on FCD020 (PGCOD, LCIBCCORR);
+create index FCD02004 on FCD020 (PGCOD, LCIBCREE);
+create index FCD02005 on FCD020 (PGCOD, LCISUC);
+create index FCD02006 on FCD020 (INCOTERM);
+create index FCD02007 on FCD020 (PZOPAG);
+create index FCD02008 on FCD020 (VIACOD);
+create index FCD02009 on FCD020 (IDIOMA);
+create index FCD02010 on FCD020 (LCIMOD);
+create index FCD02011 on FCD020 (LCIMDA);
+create index FCD02012 on FCD020 (LCIPAP);
+create index FCD02080 on FCD020 (LCIAUTREE);
+alter table FCD020
+  add primary key (PGCOD, LCIMOD, LCIOPER);
+

@@ -1,0 +1,13 @@
+create table JHSS24
+(
+  jhss24tdoc NUMBER(3) not null,
+  jhss24doc  CHAR(20) not null,
+  jhss24tipo CHAR(1) not null,
+  jhss24pos  NUMBER(6) not null,
+  jhss24len  NUMBER(6),
+  jhss24time DATE,
+  jhss24data VARCHAR2(2000)
+)
+;
+create unique index JHSS2401 on JHSS24 (JHSS24TDOC, JHSS24DOC, JHSS24TIPO, JHSS24POS);
+

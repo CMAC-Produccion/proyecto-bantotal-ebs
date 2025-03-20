@@ -1,0 +1,19 @@
+create table FSF110
+(
+  lptrmod  NUMBER(3) not null,
+  lptrnro  NUMBER(3) not null,
+  lptrord  NUMBER(2) not null,
+  lptrlinc NUMBER(2) not null,
+  lptrcomp CHAR(2),
+  lptrocmp NUMBER(2),
+  lptrticm NUMBER(2),
+  lptrcope CHAR(1),
+  lptroope NUMBER(2),
+  lptrtiop NUMBER(2),
+  lpcoecod NUMBER(3),
+  lptrcoef NUMBER(14,8)
+)
+;
+alter table FSF110
+  add primary key (LPTRMOD, LPTRNRO, LPTRORD, LPTRLINC);
+

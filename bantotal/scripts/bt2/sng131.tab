@@ -1,0 +1,39 @@
+create table SNG131
+(
+  sng130cor  NUMBER(10) not null,
+  sng131pgc  NUMBER(3) not null,
+  sng131mod  NUMBER(3) not null,
+  sng131suc  NUMBER(3) not null,
+  sng131mda  NUMBER(4) not null,
+  sng131pap  NUMBER(4) not null,
+  sng131cta  NUMBER(9) not null,
+  sng131ope  NUMBER(9) not null,
+  sng131sbo  NUMBER(3) not null,
+  sng131top  NUMBER(3) not null,
+  sng131inst NUMBER(10),
+  sng131tpgc NUMBER(3),
+  sng131tmod NUMBER(3),
+  sng131tsuc NUMBER(3),
+  sng131trn  NUMBER(3),
+  sng131rel  NUMBER(4),
+  sng131fec  DATE,
+  sng131con  CHAR(1),
+  sng131cerr NUMBER(5),
+  sng131ord  NUMBER(2),
+  sng131sbor NUMBER(3),
+  sng131sdo  NUMBER(17,2),
+  sng131mora NUMBER(5),
+  sng131seg  NUMBER(2),
+  sng131dep  NUMBER(5),
+  sng131mun  NUMBER(5),
+  sng131barr NUMBER(9),
+  sng131inta NUMBER(9),
+  sng131impa NUMBER(17,2),
+  sng131feca DATE,
+  sng131chra CHAR(1)
+)
+;
+create index SNG13103 on SNG131 (SNG131PGC, SNG131CTA);
+alter table SNG131
+  add primary key (SNG130COR, SNG131PGC, SNG131MOD, SNG131SUC, SNG131MDA, SNG131PAP, SNG131CTA, SNG131OPE, SNG131SBO, SNG131TOP);
+

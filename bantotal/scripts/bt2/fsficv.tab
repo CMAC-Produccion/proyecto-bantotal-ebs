@@ -1,0 +1,20 @@
+create table FSFICV
+(
+  sficvemp NUMBER(3) not null,
+  sficvmer NUMBER(3) not null,
+  sficvgru NUMBER(3) not null,
+  sficvesp NUMBER(4) not null,
+  sficvhab CHAR(1),
+  sficva01 CHAR(1),
+  sficva02 CHAR(1),
+  sficva03 NUMBER(9),
+  sficva04 NUMBER(9),
+  sficva05 NUMBER(17,2),
+  sficva06 NUMBER(17,2),
+  sficva07 DATE,
+  sficva08 DATE
+)
+;
+alter table FSFICV
+  add primary key (SFICVEMP, SFICVMER, SFICVGRU, SFICVESP);
+

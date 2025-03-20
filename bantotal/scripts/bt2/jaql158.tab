@@ -1,0 +1,16 @@
+create table JAQL158
+(
+  jaql158codigo NUMBER(5) not null,
+  jaql158codrep NUMBER(3),
+  jaql158segmen NUMBER(2),
+  jaql158actmod NUMBER(12),
+  jaql158indiam CHAR(1),
+  jaql158estado CHAR(1),
+  jaql158tipcre NUMBER(4)
+)
+;
+create unique index JAQL158001 on JAQL158 (JAQL158CODREP, JAQL158SEGMEN, JAQL158ACTMOD, JAQL158TIPCRE);
+create index JAQL158002 on JAQL158 (JAQL158TIPCRE);
+alter table JAQL158
+  add primary key (JAQL158CODIGO);
+

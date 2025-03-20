@@ -1,0 +1,33 @@
+create table FSFL41
+(
+  fsfl41mod NUMBER(3) not null,
+  fsfl41top NUMBER(3) not null,
+  fsfl41emp NUMBER(3) not null,
+  fsfl41suc NUMBER(3) not null,
+  fsfl41cta NUMBER(9) not null,
+  fsfl41ope NUMBER(9) not null,
+  fsfl41mon NUMBER(4) not null,
+  fsfl41pap NUMBER(4) not null,
+  fsfl41imp NUMBER(17,2),
+  fsfl41fva DATE,
+  fsfl41fvt DATE,
+  fsfl41fv2 DATE,
+  fsfl41sta CHAR(1),
+  fsfl41tcb NUMBER(14,8),
+  fsfl41asu NUMBER(3),
+  fsfl41amo NUMBER(3),
+  fsfl41atr NUMBER(3),
+  fsfl41anr NUMBER(4),
+  fsfl41afc DATE,
+  fsfl41im1 NUMBER(17,2),
+  fsfl41im2 NUMBER(17,2),
+  fsfl41fe1 DATE,
+  fsfl41fe2 DATE,
+  fsfl41ch1 CHAR(25),
+  fsfl41ch2 CHAR(25)
+)
+;
+create index FSFL4102 on FSFL41 (FSFL41STA);
+alter table FSFL41
+  add primary key (FSFL41MOD, FSFL41TOP, FSFL41EMP, FSFL41SUC, FSFL41CTA, FSFL41OPE, FSFL41MON, FSFL41PAP);
+

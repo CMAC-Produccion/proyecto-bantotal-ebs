@@ -1,0 +1,20 @@
+create table XCR200
+(
+  xcremp     NUMBER(3) not null,
+  xcr200inf  CHAR(10) not null,
+  xcr200fch  DATE not null,
+  xcr200id1  CHAR(10) not null,
+  xcr200id2  NUMBER(12) not null,
+  xcr200imp1 NUMBER(17,2),
+  xcr200nro1 NUMBER(10),
+  xcr200nro2 NUMBER(10),
+  xcr200nro3 NUMBER(10),
+  xcr200chr1 CHAR(1),
+  xcr200chr2 CHAR(1),
+  xcr200chr3 CHAR(50)
+)
+;
+create index XCR20002 on XCR200 (XCREMP, XCR200INF, XCR200FCH, XCR200ID2, XCR200ID1);
+alter table XCR200
+  add primary key (XCREMP, XCR200INF, XCR200FCH, XCR200ID1, XCR200ID2);
+

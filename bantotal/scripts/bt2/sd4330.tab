@@ -1,0 +1,32 @@
+create table SD4330
+(
+  sd30coddis NUMBER(4) not null,
+  sd30codent NUMBER(5) not null,
+  sd30fchinf NUMBER(6) not null,
+  sd30tpoid  NUMBER(2) not null,
+  sd30nroid  CHAR(11) not null,
+  sd30toting NUMBER(10),
+  sd30patnet NUMBER(11),
+  sd30otraju NUMBER(11),
+  sd30fching NUMBER(8),
+  sd30fchinp NUMBER(8),
+  sd30totact NUMBER(12),
+  sd30actcor NUMBER(10),
+  sd30totpas NUMBER(12),
+  sd30pascor NUMBER(10),
+  sd30vtanet NUMBER(10),
+  sd30resbru NUMBER(11),
+  sd30resfin NUMBER(11),
+  sd30ganper NUMBER(11),
+  sd30resext NUMBER(11),
+  sd30impgan NUMBER(10),
+  sd30resnet NUMBER(11),
+  sd30canper NUMBER(6),
+  sd30conjec NUMBER(1),
+  sd30titend NUMBER(1),
+  sd30rectif CHAR(1)
+)
+;
+alter table SD4330
+  add primary key (SD30CODDIS, SD30CODENT, SD30FCHINF, SD30TPOID, SD30NROID);
+

@@ -1,0 +1,51 @@
+create table AQPD117
+(
+  aqpd117fec    DATE not null,
+  aqpd117ord    NUMBER(5) not null,
+  aqpd117codrow NUMBER(5) not null,
+  aqpd117desrow VARCHAR2(500),
+  aqpd117cfondo VARCHAR2(4) not null,
+  aqpd117dfondo VARCHAR2(50),
+  aqpd117col1   NUMBER(12,2),
+  aqpd117col2   NUMBER(12,2),
+  aqpd117col3   NUMBER(12,2),
+  aqpd117col4   NUMBER(12,2),
+  aqpd117col5   NUMBER(12,2),
+  aqpd117col6   NUMBER(12,2),
+  aqpd117fecreg DATE default SYSTIMESTAMP,
+  aqpd117ana    VARCHAR2(10)
+)
+;
+comment on table AQPD117
+  is 'TABLA REPORTE - ANEXO 5 - 5A';
+comment on column AQPD117.aqpd117fec
+  is 'Fecha';
+comment on column AQPD117.aqpd117ord
+  is 'Orden de items de reporte';
+comment on column AQPD117.aqpd117codrow
+  is 'Codigo de fila';
+comment on column AQPD117.aqpd117desrow
+  is 'Item';
+comment on column AQPD117.aqpd117cfondo
+  is 'Codigo de fondo de inversión';
+comment on column AQPD117.aqpd117dfondo
+  is 'Nombre de fondo';
+comment on column AQPD117.aqpd117col1
+  is 'Importe en columna 1 (Normal)';
+comment on column AQPD117.aqpd117col2
+  is 'Importe en columna 2 (CPP)';
+comment on column AQPD117.aqpd117col3
+  is 'Importe en columna 3 (Deficiente)';
+comment on column AQPD117.aqpd117col4
+  is 'Importe en columna 4 (Dudoso)';
+comment on column AQPD117.aqpd117col5
+  is 'Importe en columna 5 (Pérdida)';
+comment on column AQPD117.aqpd117col6
+  is 'Importe en columna 6 (Total)';
+comment on column AQPD117.aqpd117fecreg
+  is 'FECHA REGISTRO';
+comment on column AQPD117.aqpd117ana
+  is 'ANALISTA';
+alter table AQPD117
+  add primary key (AQPD117FEC, AQPD117CFONDO, AQPD117CODROW, AQPD117ORD);
+

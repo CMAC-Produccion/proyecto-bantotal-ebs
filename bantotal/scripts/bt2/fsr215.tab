@@ -1,0 +1,18 @@
+create table FSR215
+(
+  pendcob    NUMBER(3) not null,
+  impucod    NUMBER(3) not null,
+  pendimpexc CHAR(1),
+  pendimpcex NUMBER(3),
+  pendimpsis NUMBER(3),
+  pendimpcpo CHAR(8),
+  pendimp001 CHAR(1),
+  pendimp002 CHAR(1),
+  pendimp003 CHAR(1),
+  pendimp004 CHAR(1)
+)
+;
+create index FSR21502 on FSR215 (IMPUCOD);
+alter table FSR215
+  add primary key (PENDCOB, IMPUCOD);
+

@@ -1,0 +1,35 @@
+create table FSH741
+(
+  h741pgco NUMBER(3) not null,
+  h741sucu NUMBER(3) not null,
+  h741modu NUMBER(3) not null,
+  h741tran NUMBER(3) not null,
+  h741rela NUMBER(4) not null,
+  h741fech DATE not null,
+  h741pend NUMBER(3),
+  h741rubr NUMBER(16),
+  h741empp NUMBER(3),
+  h741sucp NUMBER(3),
+  h741modp NUMBER(3),
+  h741mdap NUMBER(4),
+  h741papp NUMBER(4),
+  h741ctap NUMBER(9),
+  h741opep NUMBER(9),
+  h741sbop NUMBER(3),
+  h741topp NUMBER(3),
+  h741impo NUMBER(17,2),
+  h741sucd NUMBER(3),
+  h741mdad NUMBER(4),
+  h741oped NUMBER(9),
+  h741sbod NUMBER(3),
+  h741topd NUMBER(3),
+  h741rubd NUMBER(16),
+  h741accn NUMBER(1),
+  h741cerr NUMBER(5)
+)
+;
+create index FSH74102 on FSH741 (H741EMPP, H741SUCP, H741MODP, H741MDAP, H741PAPP, H741CTAP, H741OPEP, H741SBOP, H741TOPP, H741FECH);
+create index FSH74103 on FSH741 (H741PGCO, H741FECH, H741EMPP, H741SUCP, H741MODP, H741MDAP, H741PAPP, H741CTAP, H741OPEP, H741SBOP, H741TOPP, H741OPED);
+alter table FSH741
+  add primary key (H741PGCO, H741SUCU, H741MODU, H741TRAN, H741RELA, H741FECH);
+

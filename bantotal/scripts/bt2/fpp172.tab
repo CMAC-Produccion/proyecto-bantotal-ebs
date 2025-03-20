@@ -1,0 +1,24 @@
+create table FPP172
+(
+  pp170cbien NUMBER(4) not null,
+  pp171tbien NUMBER(4) not null,
+  pp172fecha DATE not null,
+  pp172mda   NUMBER(4) not null,
+  pp172cocom NUMBER(14,8),
+  pp172coven NUMBER(14,8),
+  pp172au1   NUMBER(9),
+  pp172au2   NUMBER(9),
+  pp172au3   DATE,
+  pp172au4   DATE,
+  pp172au5   DATE,
+  pp172au6   CHAR(30),
+  pp172au7   CHAR(30),
+  pp172au8   NUMBER(14,8),
+  pp172au9   NUMBER(14,8),
+  pp172au10  NUMBER(14,8),
+  pp172au11  NUMBER(14,8)
+)
+;
+alter table FPP172
+  add primary key (PP170CBIEN, PP171TBIEN, PP172FECHA, PP172MDA);
+

@@ -1,0 +1,13 @@
+create table MSG100
+(
+  estmcod       NUMBER(5) not null,
+  frmcod        NUMBER(3) not null,
+  frmnom        CHAR(40),
+  frmetq        VARCHAR2(200),
+  frmcmt        VARCHAR2(255),
+  frmultfrmaord NUMBER(3)
+)
+;
+alter table MSG100
+  add primary key (ESTMCOD, FRMCOD);
+

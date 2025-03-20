@@ -1,0 +1,43 @@
+create table AQPD701
+(
+  aqpd701ins    NUMBER(10) not null,
+  aqpd701pais   NUMBER(3),
+  aqpd701tdoc   NUMBER(2),
+  aqpd701ndoc   CHAR(12),
+  aqpd701fechc  DATE,
+  aqpd701horac  VARCHAR2(8),
+  aqpd701annoim NUMBER(4),
+  aqpd701mesim  VARCHAR2(10),
+  aqpd701impmx  NUMBER(17,2),
+  aqpd701user   VARCHAR2(10)
+)
+;
+comment on table AQPD701
+  is 'Tabla de creditos e importes del mes';
+comment on column AQPD701.aqpd701ins
+  is 'Instancia';
+comment on column AQPD701.aqpd701pais
+  is 'Pais del cliente';
+comment on column AQPD701.aqpd701tdoc
+  is 'Tipo de documento del cliente';
+comment on column AQPD701.aqpd701ndoc
+  is 'Documento del cliente';
+comment on column AQPD701.aqpd701fechc
+  is 'Fecha de consulta';
+comment on column AQPD701.aqpd701horac
+  is 'Hora de consulta';
+comment on column AQPD701.aqpd701annoim
+  is 'Año del importe maximo';
+comment on column AQPD701.aqpd701mesim
+  is 'Mes del importe maximo';
+comment on column AQPD701.aqpd701impmx
+  is 'Importe maximo';
+comment on column AQPD701.aqpd701user
+  is 'Usuario';
+create index AQPD701A2 on AQPD701 (AQPD701INS, AQPD701USER);
+create index AQPD701A3 on AQPD701 (AQPD701INS, AQPD701FECHC);
+create index AQPD701A4 on AQPD701 (AQPD701PAIS, AQPD701TDOC, AQPD701NDOC);
+create index AQPD7016A1 on AQPD701 (AQPD701INS);
+alter table AQPD701
+  add primary key (AQPD701INS);
+

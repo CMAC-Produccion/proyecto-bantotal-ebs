@@ -1,0 +1,40 @@
+create table FSFSDI
+(
+  sfsdiemp   NUMBER(3) not null,
+  sfsditmer  NUMBER(3) not null,
+  sfsdiprpr  CHAR(1) not null,
+  sfsdieos   CHAR(1) not null,
+  sfsdifch   DATE not null,
+  sfsdisec   NUMBER(5) not null,
+  sfsditope  CHAR(1) not null,
+  sfsdiage   NUMBER(3) not null,
+  sfsdimsg   NUMBER(4),
+  sfsdirued  CHAR(4),
+  sfsditoor  CHAR(1),
+  sfsditode  CHAR(1),
+  sfsdiagco  NUMBER(3),
+  sfsdiagag  NUMBER(3),
+  sfsdiespe  CHAR(5),
+  sfsdimda   CHAR(1),
+  sfsdipzo   NUMBER(3),
+  sfsdivano  NUMBER(17,2),
+  sfsdipreci NUMBER(17,7),
+  sfsdistat  CHAR(2),
+  sfsdieos2  CHAR(1),
+  sfsdifch2  DATE,
+  sfsdisec2  NUMBER(5),
+  sfsditop2  CHAR(1),
+  sfsdiage2  NUMBER(3),
+  sfsdiref   NUMBER(5),
+  sfsdipata  NUMBER(1),
+  sfsdimeco  CHAR(3),
+  sfsdiesse1 CHAR(1),
+  sfsdicta   NUMBER(9),
+  sfsdiesse2 CHAR(1)
+)
+;
+create index FSFSDI02 on FSFSDI (SFSDIEMP, SFSDITMER, SFSDIPRPR, SFSDIFCH, SFSDITOPE, SFSDIAGE, SFSDIESPE, SFSDITODE, SFSDIMDA, SFSDIVANO);
+create index FSFSDI03 on FSFSDI (SFSDIEMP, SFSDITMER, SFSDIPRPR, SFSDIEOS2, SFSDIFCH2, SFSDISEC2, SFSDITOP2, SFSDIAGE2);
+alter table FSFSDI
+  add primary key (SFSDIEMP, SFSDITMER, SFSDIPRPR, SFSDIEOS, SFSDIFCH, SFSDISEC, SFSDITOPE, SFSDIAGE);
+

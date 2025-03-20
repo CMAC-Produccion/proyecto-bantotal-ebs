@@ -1,0 +1,24 @@
+create table FBC730
+(
+  bc730emp  NUMBER(3) not null,
+  bc730fch  DATE not null,
+  bc730ruta CHAR(10) not null,
+  bc730rute CHAR(10) not null,
+  bc730esta CHAR(1) not null,
+  bc730tipa CHAR(1),
+  bc730clae CHAR(10),
+  bc730codc CHAR(10),
+  bc730fchn DATE,
+  bc730nomb CHAR(30),
+  bc730ape  CHAR(30),
+  bc730sexo CHAR(1),
+  bc730regp CHAR(1),
+  bc730regs CHAR(1),
+  bc730aux1 NUMBER(17,2),
+  bc730aux2 CHAR(30),
+  bc730aux3 DATE
+)
+;
+alter table FBC730
+  add primary key (BC730EMP, BC730FCH, BC730RUTA, BC730RUTE, BC730ESTA);
+

@@ -1,0 +1,37 @@
+create table AQPD758
+(
+  aqpd758fechag DATE,
+  aqpd758nro1   NUMBER,
+  aqpd758nro2   NUMBER,
+  aqpd758nro3   NUMBER,
+  aqpd758nro4   NUMBER,
+  aqpd758nro5   NUMBER,
+  aqpd758nro6   NUMBER,
+  aqpd758nrov1  NUMBER,
+  aqpd758nrov2  NUMBER,
+  aqpd758nrov3  NUMBER,
+  aqpd758nrov4  NUMBER,
+  aqpd758nrov5  NUMBER,
+  aqpd758nrov6  NUMBER,
+  aqpd758aux1   NUMBER,
+  aqpd758aux2   VARCHAR2(100)
+)
+;
+comment on table AQPD758
+  is 'NUMEROS GANADORES BONO ESCOLARIDAD 022025';
+comment on column AQPD758.aqpd758fechag
+  is 'FECHA DE GANADORES';
+comment on column AQPD758.aqpd758nro1
+  is 'PRIMER GANADOR DIARIO';
+comment on column AQPD758.aqpd758nro2
+  is 'SEGUNDO GANADOR DIARIO';
+comment on column AQPD758.aqpd758nrov1
+  is 'PRIMER GANADOR VERDADERO DIARIO';
+comment on column AQPD758.aqpd758nrov2
+  is 'SEGUNDO GANADOR VERDADERO DIARIO';
+comment on column AQPD758.aqpd758aux1
+  is 'AUXILIAR 1';
+comment on column AQPD758.aqpd758aux2
+  is 'AUXILIAR 2';
+create index AQPD758A1 on AQPD758 (AQPD758FECHAG);
+

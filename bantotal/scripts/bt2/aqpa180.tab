@@ -1,0 +1,28 @@
+create table AQPA180
+(
+  aqpa180id     NUMBER(10) not null,
+  aqpa180clicta NUMBER(9) not null,
+  aqpa180numope NUMBER(9) not null,
+  aqpa180clidoc CHAR(12) not null,
+  aqpa180clicel VARCHAR2(40),
+  aqpa180clifij VARCHAR2(40),
+  aqpa180clicor VARCHAR2(60),
+  aqpa180mamdoc CHAR(12),
+  aqpa180mamnom VARCHAR2(100),
+  aqpa180mamape VARCHAR2(100),
+  aqpa180mameda NUMBER(3),
+  aqpa180dessor VARCHAR2(200),
+  aqpa180flgpro CHAR(1),
+  aqpa180tipper CHAR(1),
+  aqpa180usureg CHAR(10),
+  aqpa180horreg VARCHAR2(20),
+  aqpa180fecreg DATE,
+  aqpa180usuper CHAR(10),
+  aqpa180flgver CHAR(1)
+)
+;
+create index AQPA1802 on AQPA180 (AQPA180CLIDOC, AQPA180TIPPER);
+create index AQPA1803 on AQPA180 (AQPA180USUPER, AQPA180TIPPER);
+alter table AQPA180
+  add primary key (AQPA180ID, AQPA180CLICTA, AQPA180NUMOPE, AQPA180CLIDOC);
+

@@ -1,0 +1,36 @@
+create table FVAC34
+(
+  vac34usr CHAR(10) not null,
+  vac34trm CHAR(10) not null,
+  vac34emp NUMBER(3) not null,
+  vac34mod NUMBER(3) not null,
+  vac34suc NUMBER(3) not null,
+  vac34mda NUMBER(4) not null,
+  vac34pap NUMBER(4) not null,
+  vac34cta NUMBER(9) not null,
+  vac34ope NUMBER(9) not null,
+  vac34sbo NUMBER(9) not null,
+  vac34top NUMBER(3) not null,
+  vac34bco NUMBER(3) not null,
+  vac34che NUMBER(9) not null,
+  vac34prc NUMBER(3) not null,
+  vac34tch CHAR(1),
+  vac34fac DATE,
+  vac34fde DATE,
+  vac34loc CHAR(30),
+  vac34pos NUMBER(14,2),
+  vac34mdi CHAR(1),
+  vac34deb NUMBER(14,2),
+  vac34cre NUMBER(14,2),
+  vac34rec CHAR(1),
+  vac34com NUMBER(14,2),
+  vac34bol NUMBER(9),
+  vac34cor NUMBER(5)
+)
+;
+create index FVAC3402 on FVAC34 (VAC34USR, VAC34TRM, VAC34PRC, VAC34EMP, VAC34MOD, VAC34SUC, VAC34MDA, VAC34PAP, VAC34CTA, VAC34OPE, VAC34SBO, VAC34TOP, VAC34FAC, VAC34FDE);
+create index FVAC3403 on FVAC34 (VAC34EMP, VAC34SUC, VAC34MOD, VAC34MDA, VAC34PAP, VAC34CTA, VAC34OPE, VAC34SBO, VAC34TOP);
+create index FVAC3404 on FVAC34 (VAC34USR, VAC34TRM, VAC34PRC, VAC34EMP, VAC34BCO);
+alter table FVAC34
+  add primary key (VAC34USR, VAC34TRM, VAC34EMP, VAC34MOD, VAC34SUC, VAC34MDA, VAC34PAP, VAC34CTA, VAC34OPE, VAC34SBO, VAC34TOP, VAC34BCO, VAC34CHE, VAC34PRC);
+

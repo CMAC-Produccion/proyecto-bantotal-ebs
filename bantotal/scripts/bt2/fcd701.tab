@@ -1,0 +1,35 @@
+create table FCD701
+(
+  fcd701pgco NUMBER(3) not null,
+  fcd701pemb CHAR(16) not null,
+  fcd701pdoc NUMBER(2),
+  fcd701ndoc CHAR(12),
+  fcd701tdoc NUMBER(2),
+  fcd701nom  CHAR(35),
+  fcd701dir  CHAR(35),
+  fcd701fofi DATE,
+  fcd701femb DATE,
+  fcd701fcom DATE,
+  fcd701mdas CHAR(3),
+  fcd701mda  NUMBER(4),
+  fcd701itot NUMBER(17,2),
+  fcd701iapl NUMBER(17,2),
+  fcd701iflt NUMBER(4),
+  fcd701ifla NUMBER(17,2),
+  fcd701iset NUMBER(17,2),
+  fcd701isea NUMBER(17,2),
+  fcd701fobt NUMBER(17,2),
+  fcd701moim NUMBER(17,2),
+  fcd701est  CHAR(1),
+  fcd701fvto DATE,
+  fcd701fau1 DATE,
+  fcd701fau2 DATE,
+  fcd701iau1 NUMBER(17,2),
+  fcd701iau2 NUMBER(17,2),
+  fcd701tau1 CHAR(60),
+  fcd701tau2 CHAR(60)
+)
+;
+alter table FCD701
+  add primary key (FCD701PGCO, FCD701PEMB);
+

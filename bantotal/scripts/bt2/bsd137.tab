@@ -1,0 +1,29 @@
+create table BSD137
+(
+  pgcod  NUMBER(3) not null,
+  scmod  NUMBER(3) not null,
+  scsuc  NUMBER(3) not null,
+  scmda  NUMBER(4) not null,
+  scpap  NUMBER(4) not null,
+  sccta  NUMBER(9) not null,
+  scoper NUMBER(9) not null,
+  scsbop NUMBER(3) not null,
+  sctope NUMBER(3) not null,
+  dotope NUMBER(9) not null,
+  dottip NUMBER(3),
+  dotage NUMBER(3),
+  dotini NUMBER(10),
+  dotest CHAR(1),
+  dotcan NUMBER(2),
+  dotfin NUMBER(10),
+  dotcob CHAR(1)
+)
+;
+create index BSD13703 on BSD137 (SCPAP);
+create index BSD13704 on BSD137 (SCMDA);
+create index BSD13705 on BSD137 (PGCOD, SCSUC);
+create index BSD13706 on BSD137 (SCMOD);
+create index BSD13707 on BSD137 (PGCOD, SCCTA, DOTTIP, DOTAGE, DOTOPE, SCSBOP, SCMDA, SCPAP);
+alter table BSD137
+  add primary key (PGCOD, SCMOD, SCSUC, SCMDA, SCPAP, SCCTA, SCOPER, SCSBOP, SCTOPE, DOTOPE);
+

@@ -1,0 +1,24 @@
+create table SNG065
+(
+  sng062aut NUMBER(10) not null,
+  sng065ord NUMBER(3) not null,
+  sng065emp NUMBER(3),
+  sng065car NUMBER(3),
+  sng065usr CHAR(10),
+  sng065sup CHAR(1),
+  sng065suc NUMBER(3),
+  sng065wrk CHAR(10),
+  sng065fap DATE,
+  sng065now DATE,
+  sng065est CHAR(1),
+  sng065res CHAR(1),
+  sng046mto NUMBER(3),
+  sng065com VARCHAR2(400),
+  sng065ins NUMBER(10)
+)
+;
+create index SNG06503 on SNG065 (SNG065USR, SNG065NOW, SNG065EST);
+create index SNG06504 on SNG065 (SNG065INS);
+alter table SNG065
+  add primary key (SNG062AUT, SNG065ORD);
+

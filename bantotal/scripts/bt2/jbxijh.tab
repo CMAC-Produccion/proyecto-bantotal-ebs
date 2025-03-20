@@ -1,0 +1,14 @@
+create table JBXIJH
+(
+  jbxijhapl CHAR(10) not null,
+  jbxijhfch DATE not null,
+  jbxijhhor CHAR(6) not null,
+  jbxijhprg CHAR(10) not null,
+  jbxijhrce NUMBER(9),
+  jbxijhrse NUMBER(9),
+  jbxijhrto NUMBER(9)
+)
+;
+alter table JBXIJH
+  add primary key (JBXIJHAPL, JBXIJHFCH, JBXIJHHOR, JBXIJHPRG);
+

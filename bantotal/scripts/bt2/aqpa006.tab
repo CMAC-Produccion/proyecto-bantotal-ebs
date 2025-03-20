@@ -1,0 +1,41 @@
+create table AQPA006
+(
+  aqpa006cod    NUMBER(3) not null,
+  aqpa006mod    NUMBER(3) not null,
+  aqpa006suc    NUMBER(3) not null,
+  aqpa006mda    NUMBER(4) not null,
+  aqpa006pap    NUMBER(4) not null,
+  aqpa006cta    NUMBER(9) not null,
+  aqpa006oper   NUMBER(9) not null,
+  aqpa006sbop   NUMBER(3) not null,
+  aqpa006tope   NUMBER(3) not null,
+  aqpa006fpag   DATE not null,
+  aqpa006tipo   CHAR(1) not null,
+  aqpa006fval   DATE,
+  aqpa006fvto   DATE,
+  aqpa006pzo    NUMBER(5),
+  aqpa006cap    NUMBER(17,2),
+  aqpa006int    NUMBER(17,2),
+  aqpa006intmex NUMBER(17,2),
+  aqpa006icap   NUMBER(17,2),
+  aqpa006iint   NUMBER(17,2),
+  aqpa006stat   CHAR(1),
+  aqpa006nume   NUMBER(9),
+  aqpa006finv   NUMBER(8),
+  aqpa006cd     NUMBER(3),
+  aqpa006mo     NUMBER(3),
+  aqpa006su     NUMBER(3),
+  aqpa006tr     NUMBER(3),
+  aqpa006re     NUMBER(4),
+  aqpa006fc     DATE,
+  aqpa006or     NUMBER(2),
+  aqpa006sb     NUMBER(3),
+  aqpa006co     CHAR(1),
+  aqpa006fecpro DATE not null,
+  aqpa006horpro CHAR(8) not null,
+  aqpa006cor    NUMBER(9) default 1 not null
+)
+;
+alter table AQPA006
+  add primary key (AQPA006COD, AQPA006MOD, AQPA006SUC, AQPA006MDA, AQPA006PAP, AQPA006CTA, AQPA006OPER, AQPA006SBOP, AQPA006TOPE, AQPA006FPAG, AQPA006TIPO, AQPA006FECPRO, AQPA006HORPRO, AQPA006COR);
+

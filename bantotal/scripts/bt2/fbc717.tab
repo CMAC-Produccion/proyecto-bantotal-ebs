@@ -1,0 +1,12 @@
+create table FBC717
+(
+  bc717pais NUMBER(3) not null,
+  bc717tdoc NUMBER(2) not null,
+  bc717ndoc CHAR(12) not null,
+  bc717tipo NUMBER(1) not null,
+  bc717tope NUMBER(14,2)
+)
+;
+alter table FBC717
+  add primary key (BC717PAIS, BC717TDOC, BC717NDOC, BC717TIPO);
+

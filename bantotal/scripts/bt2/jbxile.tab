@@ -1,0 +1,43 @@
+create table JBXILE
+(
+  jbxileide CHAR(7) not null,
+  jbxilencl NUMBER(13),
+  jbxilepre CHAR(3),
+  jbxilecae CHAR(5),
+  jbxilecaa CHAR(3),
+  jbxilenut CHAR(4),
+  jbxileape CHAR(20),
+  jbxilenom CHAR(30),
+  jbxileemp NUMBER(2),
+  jbxilemon NUMBER(2),
+  jbxilegan NUMBER(3),
+  jbxilepau CHAR(1),
+  jbxileusr CHAR(10),
+  jbxilefec NUMBER(8),
+  jbxilehor NUMBER(6),
+  jbxileusm CHAR(10),
+  jbxilefem NUMBER(8),
+  jbxilehom NUMBER(6),
+  jbxilecls NUMBER(13),
+  jbxileori CHAR(10),
+  jbxiletip NUMBER(2),
+  jbxilesub NUMBER(2),
+  jbxilepro NUMBER(2),
+  jbxilenes NUMBER(2),
+  jbxilefes NUMBER(1),
+  jbxiletso NUMBER(2),
+  jbxilecat NUMBER(2),
+  jbxilefi1 NUMBER(15,2),
+  jbxilefi2 NUMBER(7),
+  jbxilefi3 CHAR(10),
+  jbxilefi4 CHAR(10),
+  jbxilepai NUMBER(3),
+  jbxiletdo NUMBER(2),
+  jbxilendo CHAR(12)
+)
+;
+create index JBXILE02 on JBXILE (JBXILEPAI, JBXILETDO, JBXILENDO);
+create index JBXILE03 on JBXILE (JBXILENDO);
+alter table JBXILE
+  add primary key (JBXILEIDE);
+

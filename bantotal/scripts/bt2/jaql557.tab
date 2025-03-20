@@ -1,0 +1,25 @@
+create table JAQL557
+(
+  jaql557cod NUMBER(3) not null,
+  jaql557mod NUMBER(3) not null,
+  jaql557tra NUMBER(3) not null,
+  jaql557fco DATE not null,
+  jaql557usu CHAR(10) not null,
+  jaql557cor NUMBER(3) not null,
+  jaql557uco CHAR(10),
+  jaql557con CHAR(1),
+  jaql557ch1 CHAR(20),
+  jaql557ch2 CHAR(40),
+  jaql557ch3 CHAR(60),
+  jaql557nr1 NUMBER(4),
+  jaql557nr2 NUMBER(4),
+  jaql557nr3 NUMBER(4),
+  jaql557fc1 DATE,
+  jaql557fc2 DATE,
+  jaql557fc3 DATE,
+  jaql557des CHAR(50)
+)
+;
+alter table JAQL557
+  add primary key (JAQL557COD, JAQL557MOD, JAQL557TRA, JAQL557FCO, JAQL557USU, JAQL557COR);
+

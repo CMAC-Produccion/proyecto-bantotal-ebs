@@ -1,0 +1,45 @@
+create table FBC816
+(
+  bc816emp   NUMBER(3) not null,
+  bc816fch   DATE not null,
+  bc816inf   CHAR(10) not null,
+  bc816mod   NUMBER(3) not null,
+  bc816suc   NUMBER(3) not null,
+  bc816trn   NUMBER(3) not null,
+  bc816nrel  NUMBER(4) not null,
+  bc816fco   DATE not null,
+  bc816ord   NUMBER(2) not null,
+  bc816sbor  NUMBER(3) not null,
+  bc816cta   CHAR(18),
+  bc816fchop NUMBER(8),
+  bc816comp  CHAR(18),
+  bc816ope   CHAR(3),
+  bc816mdar  NUMBER(4),
+  bc816mdae  NUMBER(4),
+  bc816impmo NUMBER(16,2),
+  bc816impme NUMBER(16,2),
+  bc816paist CHAR(2),
+  bc816tdoct CHAR(3),
+  bc816ndoct CHAR(18),
+  bc816paisv CHAR(2),
+  bc816tdocv CHAR(3),
+  bc816ndocv CHAR(18),
+  bc816nomr  CHAR(240),
+  bc816domr  CHAR(80),
+  bc816ctar  CHAR(30),
+  bc816swr   CHAR(15),
+  bc816paisr CHAR(2),
+  bc816impd  NUMBER(16,2),
+  bc816impoe CHAR(1),
+  bc816impde CHAR(1),
+  bc816num1  NUMBER(16,2),
+  bc816num2  NUMBER(16,2),
+  bc816fch1  DATE,
+  bc816chr1  CHAR(30),
+  bc816chr2  CHAR(1),
+  bc816chr3  CHAR(1)
+)
+;
+alter table FBC816
+  add primary key (BC816EMP, BC816FCH, BC816INF, BC816MOD, BC816SUC, BC816TRN, BC816NREL, BC816FCO, BC816ORD, BC816SBOR);
+

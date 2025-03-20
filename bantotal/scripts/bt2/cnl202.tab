@@ -1,0 +1,13 @@
+create table CNL202
+(
+  cnl000cod NUMBER(4) not null,
+  cnl001adm CHAR(30) not null,
+  cnl001usu CHAR(30) not null,
+  cnl202tel CHAR(30) not null,
+  cnl202zon CHAR(30) not null,
+  cnl202pro CHAR(30) not null,
+  cnl202hab CHAR(1) not null
+)
+;
+create unique index CNL20201 on CNL202 (CNL000COD, CNL001ADM, CNL001USU, CNL202TEL);
+

@@ -1,0 +1,27 @@
+create table FVAC31
+(
+  vac31chq  NUMBER(2) not null,
+  vac13pai  NUMBER(3) not null,
+  vac10zna  NUMBER(3) not null,
+  vac31paic NUMBER(3) not null,
+  vac31znac NUMBER(3) not null,
+  vac31dsc1 CHAR(2),
+  vac31dsc  CHAR(40),
+  vac31rub  NUMBER(16),
+  vac31rub1 NUMBER(16),
+  vac31rel1 NUMBER(3),
+  vac31rel2 NUMBER(3),
+  vac31rel3 NUMBER(3),
+  vac31rel4 NUMBER(3),
+  vac31rel5 NUMBER(3),
+  vac31rel6 NUMBER(3),
+  vac31rel7 NUMBER(3),
+  vac31rel8 NUMBER(3),
+  vac31dcrr NUMBER(2)
+)
+;
+create index FVAC3102 on FVAC31 (VAC13PAI, VAC10ZNA);
+create index FVAC3103 on FVAC31 (VAC31PAIC, VAC31ZNAC);
+alter table FVAC31
+  add primary key (VAC31CHQ, VAC13PAI, VAC10ZNA, VAC31PAIC, VAC31ZNAC);
+

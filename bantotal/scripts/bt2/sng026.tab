@@ -1,0 +1,11 @@
+create table SNG026
+(
+  sng026cod NUMBER(4) not null,
+  sng026dsc CHAR(40),
+  sng026tip CHAR(1)
+)
+;
+create index SNG02602 on SNG026 (SNG026TIP);
+alter table SNG026
+  add primary key (SNG026COD);
+

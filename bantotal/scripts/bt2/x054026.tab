@@ -1,0 +1,18 @@
+create table X054026
+(
+  xllpgcod  NUMBER(3) not null,
+  xllaomod  NUMBER(3) not null,
+  xllaosuc  NUMBER(3) not null,
+  xllaomda  NUMBER(4) not null,
+  xllaopap  NUMBER(4) not null,
+  xllaocta  NUMBER(9) not null,
+  xllaooper NUMBER(9) not null,
+  xllaosbop NUMBER(3) not null,
+  xllaotop  NUMBER(3) not null,
+  xllaoper  NUMBER(5) not null,
+  xllaotasa NUMBER(10,6)
+)
+;
+alter table X054026
+  add primary key (XLLPGCOD, XLLAOMOD, XLLAOSUC, XLLAOMDA, XLLAOPAP, XLLAOCTA, XLLAOOPER, XLLAOSBOP, XLLAOTOP, XLLAOPER);
+

@@ -1,0 +1,13 @@
+create table FCA999
+(
+  cmxtcod   NUMBER(3) not null,
+  cmxtmod   NUMBER(3) not null,
+  cmxtoper  NUMBER(9) not null,
+  cmxtsbop  NUMBER(3) not null,
+  cmxtafwid NUMBER(2) not null,
+  cmxtafec  DATE
+)
+;
+alter table FCA999
+  add primary key (CMXTCOD, CMXTMOD, CMXTOPER, CMXTSBOP, CMXTAFWID);
+

@@ -1,0 +1,36 @@
+create table JAQL060
+(
+  jaql60pgco NUMBER(3) not null,
+  jaql60pais NUMBER(3) not null,
+  jaql60tdoc NUMBER(2) not null,
+  jaql60ndoc CHAR(12) not null,
+  jaql60sucu NUMBER(3),
+  jaql60sapf NUMBER(17,2),
+  jaql60sact NUMBER(17,2),
+  jaql60saah NUMBER(17,2),
+  jaql60sato NUMBER(17,2),
+  jaql60fata NUMBER(17,2),
+  jaql60faan NUMBER(17,2),
+  jaql60cali CHAR(1),
+  jaql60fech DATE,
+  jaql60hora CHAR(8),
+  jaql60moti CHAR(50),
+  jaql60au12 DATE,
+  jaql60au11 DATE,
+  jaql60au10 DATE,
+  jaql60au09 NUMBER(9),
+  jaql60au08 NUMBER(9),
+  jaql60au07 NUMBER(9),
+  jaql60au06 NUMBER(17,2),
+  jaql60au05 NUMBER(17,2),
+  jaql60au04 NUMBER(17,2),
+  jaql60au03 CHAR(50),
+  jaql60au02 CHAR(50),
+  jaql60au01 CHAR(50),
+  jaql60tipe NUMBER(1)
+)
+;
+create index JAQL06010001 on JAQL060 (JAQL60SUCU, JAQL60CALI);
+alter table JAQL060
+  add primary key (JAQL60PGCO, JAQL60PAIS, JAQL60TDOC, JAQL60NDOC);
+

@@ -1,0 +1,27 @@
+create table FSFT80
+(
+  sft80emp  NUMBER(3) not null,
+  sft80esp  NUMBER(4) not null,
+  sft80cus  NUMBER(9) not null,
+  sft80dep  NUMBER(9) not null,
+  sft80com  NUMBER(9) not null,
+  sft80ide  NUMBER(2) not null,
+  sft80ano  NUMBER(4) not null,
+  sft80vn01 NUMBER(17,2),
+  sft80vn02 NUMBER(17,2),
+  sft80vn03 NUMBER(17,2),
+  sft80vn04 NUMBER(17,2),
+  sft80vn05 NUMBER(17,2),
+  sft80vn06 NUMBER(17,2),
+  sft80vn07 NUMBER(17,2),
+  sft80vn08 NUMBER(17,2),
+  sft80vn09 NUMBER(17,2),
+  sft80vn10 NUMBER(17,2),
+  sft80vn11 NUMBER(17,2),
+  sft80vn12 NUMBER(17,2)
+)
+;
+create index FSFT8002 on FSFT80 (SFT80EMP, SFT80ANO, SFT80ESP, SFT80CUS, SFT80DEP, SFT80COM, SFT80IDE);
+alter table FSFT80
+  add primary key (SFT80EMP, SFT80ESP, SFT80CUS, SFT80DEP, SFT80COM, SFT80IDE, SFT80ANO);
+

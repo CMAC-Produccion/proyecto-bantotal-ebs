@@ -1,0 +1,12 @@
+create table JAQL160
+(
+  jaql160pgcod  NUMBER(3) not null,
+  jaql160sucban NUMBER(3) not null,
+  jaql160sucfin CHAR(3),
+  jaql160cajfin CHAR(3)
+)
+;
+create index JAQL160002 on JAQL160 (JAQL160SUCFIN);
+alter table JAQL160
+  add primary key (JAQL160PGCOD, JAQL160SUCBAN);
+

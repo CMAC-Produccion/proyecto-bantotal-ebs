@@ -1,0 +1,11 @@
+create table FCQ001
+(
+  fcq001emp  NUMBER(3) not null,
+  fcq001mod  NUMBER(3) not null,
+  fcq001niv  NUMBER(1) not null,
+  fcq001tope NUMBER(17,2)
+)
+;
+alter table FCQ001
+  add primary key (FCQ001EMP, FCQ001MOD, FCQ001NIV);
+

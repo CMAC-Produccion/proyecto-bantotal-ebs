@@ -1,0 +1,82 @@
+create table JAQY821
+(
+  jaqy821mod    NUMBER(3),
+  jaqy821suc    NUMBER(3),
+  jaqy821mda    NUMBER(4),
+  jaqy821nmda   CHAR(50) not null,
+  jaqy821cta    NUMBER(9),
+  jaqy821oper   NUMBER(9),
+  jaqy821sbop   NUMBER(3),
+  jaqy821tope   NUMBER(3),
+  jaqy821evcor  NUMBER(9),
+  jaqy821evtip  NUMBER(2) not null,
+  jaqy821evtnom CHAR(50) not null,
+  jaqy821evfval DATE not null,
+  jaqy821evttas NUMBER(1) not null,
+  jaqy821evttan CHAR(50) not null,
+  jaqy821evtasa NUMBER(11,6) not null,
+  jaqy821d012fc DATE,
+  jaqy821d012co CHAR(1) not null,
+  jaqy821ad012u VARCHAR2(50) not null,
+  jaqy821stat   NUMBER(4) not null,
+  jaqy821statn  CHAR(50) not null,
+  jaqy821fval   DATE not null,
+  jaqy821cor    NUMBER(9) not null,
+  jaqy821usu    CHAR(10),
+  jaqy821caruct VARCHAR2(50),
+  jaqy821fupag  DATE
+)
+;
+comment on column JAQY821.jaqy821mod
+  is 'Módulo';
+comment on column JAQY821.jaqy821suc
+  is 'Sucursal';
+comment on column JAQY821.jaqy821mda
+  is 'Moneda';
+comment on column JAQY821.jaqy821nmda
+  is 'Nombre Moneda';
+comment on column JAQY821.jaqy821cta
+  is 'Cuenta';
+comment on column JAQY821.jaqy821oper
+  is 'Operación';
+comment on column JAQY821.jaqy821sbop
+  is 'SubOperación';
+comment on column JAQY821.jaqy821tope
+  is 'Tipo Operación';
+comment on column JAQY821.jaqy821evcor
+  is 'Correlativo evento';
+comment on column JAQY821.jaqy821evtip
+  is 'Código Tipo evento';
+comment on column JAQY821.jaqy821evtnom
+  is 'Nombre Tipo evento';
+comment on column JAQY821.jaqy821evfval
+  is 'Fecha valor';
+comment on column JAQY821.jaqy821evttas
+  is 'Código de Tipo de tasa';
+comment on column JAQY821.jaqy821evttan
+  is 'Nombre de Tipo de tasa';
+comment on column JAQY821.jaqy821evtasa
+  is 'Tasa';
+comment on column JAQY821.jaqy821d012fc
+  is 'Hfcon-Fecha de Contabilización';
+comment on column JAQY821.jaqy821d012co
+  is 'Contabilizado o no';
+comment on column JAQY821.jaqy821ad012u
+  is 'Usuario que realiza cambio de tasa';
+comment on column JAQY821.jaqy821stat
+  is 'Código de Estado';
+comment on column JAQY821.jaqy821statn
+  is 'Nombre de Estado';
+comment on column JAQY821.jaqy821fval
+  is 'Fecha de Desembolso';
+comment on column JAQY821.jaqy821cor
+  is 'Correlativo';
+comment on column JAQY821.jaqy821usu
+  is 'Usuario que se loguea y genera reporte';
+comment on column JAQY821.jaqy821caruct
+  is 'Cargo de usuario que cambia la tasa';
+comment on column JAQY821.jaqy821fupag
+  is 'Fecha de último pago';
+create index JAQY821_1 on JAQY821 (JAQY821D012FC, JAQY821EVTTAS, JAQY821AD012U);
+create index JAQY821_2 on JAQY821 (JAQY821D012CO, JAQY821EVTIP, JAQY821AD012U);
+

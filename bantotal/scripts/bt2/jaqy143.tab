@@ -1,0 +1,38 @@
+create table JAQY143
+(
+  jaqy143corr  NUMBER(10) not null,
+  jaqy143fpro  DATE,
+  jaqy143pgcod NUMBER(4),
+  jaqy143mod   NUMBER(4),
+  jaqy143pap   NUMBER(4),
+  jaqy143suc   NUMBER(4),
+  jaqy143cta   NUMBER(10),
+  jaqy143ope   NUMBER(10),
+  jaqy143mda   NUMBER(4),
+  jaqy143sbop  NUMBER(4),
+  jaqy143tope  NUMBER(4),
+  jaqy143rubr  NUMBER(16),
+  jaqy143tsol  VARCHAR2(100),
+  jaqy143tsbs  VARCHAR2(50),
+  jaqy143plz   NUMBER(4),
+  jaqy143fdes  DATE,
+  jaqy143fven  DATE,
+  jaqy143mnt1  NUMBER(9,2),
+  jaqy143mnt2  NUMBER(9,2),
+  jaqy143mnt3  NUMBER(9,2),
+  jaqy143mnt4  NUMBER(9,2),
+  jaqy143modt  NUMBER(4),
+  jaqy143suct  NUMBER(4),
+  jaqy143trans NUMBER(4),
+  jaqy143rel   NUMBER(4),
+  jaqy143cont  VARCHAR2(2),
+  jaqy143gru   NUMBER(4),
+  jaqy143sol   NUMBER(2),
+  jaqy143eqp   NUMBER(4) not null
+)
+;
+create index ID_JAQY143_III on JAQY143 (JAQY143PGCOD, JAQY143MODT, JAQY143SUCT, JAQY143TRANS, JAQY143REL, JAQY143FPRO, JAQY143CONT);
+create index ID_JAQY143_04 on JAQY143 (JAQY143EQP, JAQY143CORR, JAQY143PGCOD, JAQY143CTA, JAQY143OPE, JAQY143MDA, JAQY143MOD, JAQY143SUC, JAQY143SBOP, JAQY143TOPE, JAQY143PAP);
+alter table JAQY143
+  add primary key (JAQY143EQP, JAQY143CORR);
+

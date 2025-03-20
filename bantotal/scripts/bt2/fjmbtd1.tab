@@ -1,0 +1,14 @@
+create table FJMBTD1
+(
+  jmbtd1atm CHAR(16) not null,
+  jmbtd1fne DATE not null,
+  jmbtd1sup NUMBER(17,2),
+  jmbtd1sud NUMBER(17,2),
+  jmbtd1sbp NUMBER(17,2),
+  jmbtd1sbd NUMBER(17,2)
+)
+;
+create index JMBTD13 on FJMBTD1 (JMBTD1FNE, JMBTD1ATM);
+alter table FJMBTD1
+  add primary key (JMBTD1ATM, JMBTD1FNE);
+

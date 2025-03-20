@@ -1,0 +1,199 @@
+create table AQPB155
+(
+  aqpb15bcfech  DATE,
+  aqpb155bccta  NUMBER,
+  aqpb155bcoper NUMBER,
+  aqpb155saldo  NUMBER,
+  aqpb155atraso NUMBER
+)
+partition by range (AQPB15BCFECH) interval (NUMTOYMINTERVAL (1, 'MONTH'))
+(
+  partition AQPB155_201801 values less than (TO_DATE(' 2018-01-31 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_H,
+  partition AQPB155_201802 values less than (TO_DATE(' 2018-02-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_H,
+  partition SYS_P55017 values less than (TO_DATE(' 2018-03-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55030 values less than (TO_DATE(' 2018-04-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55013 values less than (TO_DATE(' 2018-05-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55015 values less than (TO_DATE(' 2018-06-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55016 values less than (TO_DATE(' 2018-07-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55014 values less than (TO_DATE(' 2018-08-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55019 values less than (TO_DATE(' 2018-09-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55007 values less than (TO_DATE(' 2018-10-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55036 values less than (TO_DATE(' 2018-11-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55008 values less than (TO_DATE(' 2018-12-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55006 values less than (TO_DATE(' 2019-01-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55009 values less than (TO_DATE(' 2019-02-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55021 values less than (TO_DATE(' 2019-03-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55005 values less than (TO_DATE(' 2019-04-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55011 values less than (TO_DATE(' 2019-05-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55023 values less than (TO_DATE(' 2019-06-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55010 values less than (TO_DATE(' 2019-07-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55020 values less than (TO_DATE(' 2019-08-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55012 values less than (TO_DATE(' 2019-09-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55035 values less than (TO_DATE(' 2019-10-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55039 values less than (TO_DATE(' 2019-11-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55022 values less than (TO_DATE(' 2019-12-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55038 values less than (TO_DATE(' 2020-01-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55050 values less than (TO_DATE(' 2020-02-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55053 values less than (TO_DATE(' 2020-03-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55049 values less than (TO_DATE(' 2020-04-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55047 values less than (TO_DATE(' 2020-05-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55042 values less than (TO_DATE(' 2020-06-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55037 values less than (TO_DATE(' 2020-07-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55040 values less than (TO_DATE(' 2020-08-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55028 values less than (TO_DATE(' 2020-09-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55025 values less than (TO_DATE(' 2020-10-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55027 values less than (TO_DATE(' 2020-11-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55034 values less than (TO_DATE(' 2020-12-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55031 values less than (TO_DATE(' 2021-01-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55029 values less than (TO_DATE(' 2021-02-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55026 values less than (TO_DATE(' 2021-03-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55002 values less than (TO_DATE(' 2021-04-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55004 values less than (TO_DATE(' 2021-05-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55033 values less than (TO_DATE(' 2021-06-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55024 values less than (TO_DATE(' 2021-07-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55003 values less than (TO_DATE(' 2021-08-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55032 values less than (TO_DATE(' 2021-09-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55043 values less than (TO_DATE(' 2021-10-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55054 values less than (TO_DATE(' 2021-11-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55018 values less than (TO_DATE(' 2021-12-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55046 values less than (TO_DATE(' 2022-01-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55044 values less than (TO_DATE(' 2022-02-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55048 values less than (TO_DATE(' 2022-03-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55041 values less than (TO_DATE(' 2022-04-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55052 values less than (TO_DATE(' 2022-05-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55051 values less than (TO_DATE(' 2022-06-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55045 values less than (TO_DATE(' 2022-07-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55060 values less than (TO_DATE(' 2022-08-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55057 values less than (TO_DATE(' 2022-09-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55059 values less than (TO_DATE(' 2022-10-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55058 values less than (TO_DATE(' 2022-11-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55055 values less than (TO_DATE(' 2022-12-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P55056 values less than (TO_DATE(' 2023-01-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P56285 values less than (TO_DATE(' 2023-02-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P56284 values less than (TO_DATE(' 2023-03-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P57170 values less than (TO_DATE(' 2023-04-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P58008 values less than (TO_DATE(' 2023-05-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P58908 values less than (TO_DATE(' 2023-06-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P59710 values less than (TO_DATE(' 2023-07-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P60569 values less than (TO_DATE(' 2023-08-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P61403 values less than (TO_DATE(' 2023-09-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P62344 values less than (TO_DATE(' 2023-10-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P63354 values less than (TO_DATE(' 2023-11-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P64375 values less than (TO_DATE(' 2023-12-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P65456 values less than (TO_DATE(' 2024-01-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P66295 values less than (TO_DATE(' 2024-02-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P67295 values less than (TO_DATE(' 2024-03-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P68436 values less than (TO_DATE(' 2024-04-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P69296 values less than (TO_DATE(' 2024-05-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P70181 values less than (TO_DATE(' 2024-06-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P71168 values less than (TO_DATE(' 2024-07-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P72127 values less than (TO_DATE(' 2024-08-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P73159 values less than (TO_DATE(' 2024-09-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P73959 values less than (TO_DATE(' 2024-10-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P74740 values less than (TO_DATE(' 2024-11-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P689 values less than (TO_DATE(' 2024-12-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P870 values less than (TO_DATE(' 2025-01-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P1327 values less than (TO_DATE(' 2025-02-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G,
+  partition SYS_P1914 values less than (TO_DATE(' 2025-03-28 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_G
+);
+comment on table AQPB155
+  is 'Copia AOJEDA_anx.Saldos_Atras_Tma';
+comment on column AQPB155.aqpb15bcfech
+  is 'BCFECH';
+comment on column AQPB155.aqpb155bccta
+  is 'BCCTA';
+comment on column AQPB155.aqpb155bcoper
+  is 'BCOPER';
+comment on column AQPB155.aqpb155saldo
+  is 'SALDO';
+comment on column AQPB155.aqpb155atraso
+  is 'ATRASO';
+create index AQPB155A2 on AQPB155 (AQPB155BCCTA, AQPB155BCOPER);
+

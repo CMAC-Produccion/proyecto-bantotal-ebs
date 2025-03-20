@@ -1,0 +1,16 @@
+create table JAQY474D
+(
+  jaqy474pais    NUMBER(3) not null,
+  jaqy474tdoc    NUMBER(2) not null,
+  jaqy474ndoc    VARCHAR2(12) not null,
+  jaqy474nreg    NUMBER(4) not null,
+  jaqy474dnumfac NUMBER(2) not null,
+  jaqy474dcodfac NUMBER(9),
+  jaqy474dval    NUMBER(3),
+  jaqy474dpon    NUMBER(17,15),
+  jaqy474dptj    NUMBER(17,15)
+)
+;
+alter table JAQY474D
+  add primary key (JAQY474PAIS, JAQY474TDOC, JAQY474NDOC, JAQY474NREG, JAQY474DNUMFAC);
+

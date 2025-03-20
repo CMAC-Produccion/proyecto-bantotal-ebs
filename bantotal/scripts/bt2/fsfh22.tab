@@ -1,0 +1,47 @@
+create table FSFH22
+(
+  sfi22pap   NUMBER(4) not null,
+  sfi22cod   NUMBER(4) not null,
+  sfh22fecha DATE not null,
+  sfh22hora  CHAR(8) not null,
+  sfh22user  CHAR(10),
+  sfh22tip   CHAR(1),
+  sfh22emda  NUMBER(4),
+  sfh22ecoe  NUMBER(14,9),
+  sfh22ppap  NUMBER(4),
+  sfh22coefi NUMBER(14,9),
+  sfh22pcoe  NUMBER(14,9),
+  sfh22fchco DATE,
+  sfh22fchli DATE,
+  sfh22hab   CHAR(1),
+  sfh22a01   NUMBER(9),
+  sfh22a02   NUMBER(9),
+  sfh22a03   DATE,
+  sfh22a04   DATE,
+  sfh22a05   CHAR(20),
+  sfh22a06   CHAR(20),
+  sfh22coamo NUMBER(12,9),
+  sfh22a07   NUMBER(14,9),
+  sfh22a08   NUMBER(14,9),
+  sfh22ivaop CHAR(1),
+  sfh22car1  CHAR(1),
+  sfh22car2  CHAR(1),
+  sfh22car3  CHAR(1),
+  sfh22car4  CHAR(1),
+  sfh22car5  CHAR(1),
+  sfh22num1  NUMBER(9),
+  sfh22num2  NUMBER(9),
+  sfh22num3  NUMBER(9),
+  sfh22nuc1  NUMBER(14,8),
+  sfh22nuc2  NUMBER(14,8),
+  sfh22nuc3  NUMBER(14,8),
+  sfh22usera CHAR(10),
+  sfh22userb CHAR(10),
+  sfh22suc   NUMBER(3),
+  sfh22ws    CHAR(10),
+  sfh22abm   CHAR(1)
+)
+;
+alter table FSFH22
+  add primary key (SFI22PAP, SFI22COD, SFH22FECHA, SFH22HORA);
+

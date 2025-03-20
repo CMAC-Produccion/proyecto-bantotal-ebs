@@ -1,0 +1,17 @@
+create table FMF999
+(
+  cmxtmcod  NUMBER(3) not null,
+  cmxtmmod  NUMBER(3) not null,
+  cmxtmope  NUMBER(9) not null,
+  cmxtmsbo  NUMBER(3) not null,
+  cmxtmftdo NUMBER(3) not null,
+  cmxtmfcor NUMBER(2),
+  cmxtmfcco NUMBER(2),
+  cmxtmfole NUMBER(2),
+  cmxtmfcle NUMBER(2),
+  cmxtmfcdo CHAR(6)
+)
+;
+alter table FMF999
+  add primary key (CMXTMCOD, CMXTMMOD, CMXTMOPE, CMXTMSBO, CMXTMFTDO);
+

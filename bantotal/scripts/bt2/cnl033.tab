@@ -1,0 +1,14 @@
+create table CNL033
+(
+  cnl035cod NUMBER(3) not null,
+  cnl033cor NUMBER(5) not null,
+  cnl033tip CHAR(2),
+  cnl033mod NUMBER(3),
+  cnl033top NUMBER(3),
+  cnl033rub NUMBER(16)
+)
+;
+create index CNL03303 on CNL033 (CNL035COD, CNL033TIP, CNL033COR);
+alter table CNL033
+  add primary key (CNL035COD, CNL033COR);
+

@@ -1,0 +1,35 @@
+create table FCD700
+(
+  fcd700pemb CHAR(16) not null,
+  fcd700corr NUMBER(9) not null,
+  fcd700cui  CHAR(12),
+  fcd700mda  CHAR(3),
+  fcd700mtot NUMBER(17,2),
+  fcd700mitm NUMBER(17,2),
+  fcd700mtfl NUMBER(17,2),
+  fcd700mtse NUMBER(17,2),
+  fcd700nom  CHAR(35),
+  fcd700dir  CHAR(35),
+  fcd700faaa DATE,
+  fcd700femb DATE,
+  fct703posa CHAR(15),
+  fct702ins  NUMBER(5),
+  fcd700inco CHAR(3),
+  fcd700cpto NUMBER(3),
+  fcd700obse CHAR(65),
+  fcd700fau1 DATE,
+  fcd700fau2 DATE,
+  fcd700fau3 DATE,
+  fcd700iau1 NUMBER(17,2),
+  fcd700iau2 NUMBER(17,2),
+  fcd700iau3 NUMBER(17,2),
+  fcd700tau1 CHAR(65),
+  fcd700tau2 CHAR(65),
+  fcd700tau3 CHAR(65)
+)
+;
+create index FCD70002 on FCD700 (FCT702INS);
+create index FCD70003 on FCD700 (FCT703POSA);
+alter table FCD700
+  add primary key (FCD700PEMB, FCD700CORR);
+

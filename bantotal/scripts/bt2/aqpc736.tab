@@ -1,0 +1,33 @@
+create table AQPC736
+(
+  aqpc736cre  VARCHAR2(50),
+  aqpc736ncuo NUMBER(5),
+  aqpc736fpag DATE not null,
+  aqpc736fval DATE not null,
+  plazo       NUMBER(5),
+  aqpc736mto  NUMBER(17,2),
+  aqpc736cap  NUMBER(17,2),
+  aqpc736int  NUMBER(17,2),
+  aqpc736seg  NUMBER(17,2),
+  aqpc73otr   NUMBER(17,2),
+  aqpc73ins   NUMBER(10),
+  aqpc73cod   NUMBER(3),
+  aqpc73suc   NUMBER(3),
+  aqpc73mod   NUMBER(3),
+  aqpc73pap   NUMBER(4),
+  aqpc73cta   NUMBER(9),
+  aqpc73ope   NUMBER(9),
+  aqpc73sub   NUMBER(3),
+  aqpc73tip   NUMBER(3),
+  aqpc73fpro  DATE,
+  aqpc73601   VARCHAR2(10),
+  aqpc73611   VARCHAR2(10),
+  aqpc73001   VARCHAR2(10),
+  aqpc73mda   NUMBER(4),
+  aqpc73msg   VARCHAR2(1000)
+)
+;
+create index AQPC736A2 on AQPC736 (AQPC736CRE, AQPC736FPAG);
+create index AQPC736A3 on AQPC736 (AQPC73INS, AQPC736FPAG);
+create index AQPC736A4 on AQPC736 (AQPC73FPRO, AQPC73CTA, AQPC73OPE);
+

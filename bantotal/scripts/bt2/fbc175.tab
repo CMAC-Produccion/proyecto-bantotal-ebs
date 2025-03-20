@@ -1,0 +1,10 @@
+create table FBC175
+(
+  bcdepcod  NUMBER(2) not null,
+  bcciucod  NUMBER(3) not null,
+  bcciudesc CHAR(50)
+)
+;
+alter table FBC175
+  add primary key (BCDEPCOD, BCCIUCOD);
+

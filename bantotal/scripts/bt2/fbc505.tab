@@ -1,0 +1,29 @@
+create table FBC505
+(
+  bcemp      NUMBER(3) not null,
+  bcinfor    CHAR(10) not null,
+  bcfinf     DATE not null,
+  bcpepais   NUMBER(3) not null,
+  bcpetdoc   NUMBER(2) not null,
+  bcpendoc   CHAR(12) not null,
+  bccta      NUMBER(9) not null,
+  bcoper     NUMBER(9) not null,
+  bcsbop     NUMBER(3) not null,
+  bc52numact NUMBER(10),
+  bc52feccon DATE,
+  bc52calid  NUMBER(2),
+  bc52fval   DATE,
+  bc52fvto   DATE,
+  bc52sdoini NUMBER(17,2),
+  bc52sdocap NUMBER(17,2),
+  bc52sdoint NUMBER(17,2),
+  bc52sdootr NUMBER(17,2),
+  bc52sdopro NUMBER(17,2),
+  bc52sdouvr NUMBER(17,2),
+  bc52gartip NUMBER(3),
+  bc52garval NUMBER(17,2)
+)
+;
+alter table FBC505
+  add primary key (BCEMP, BCINFOR, BCFINF, BCPEPAIS, BCPETDOC, BCPENDOC, BCCTA, BCOPER, BCSBOP);
+

@@ -1,0 +1,31 @@
+create table AQPD152
+(
+  aqpd152corr    NUMBER not null,
+  aqpd152inst    NUMBER(10) not null,
+  aqpd152fec     DATE not null,
+  aqpd152hor     VARCHAR2(8),
+  aqpd152tipcam  NUMBER(14,6),
+  aqpd152mntcons NUMBER(17,2),
+  aqpd152estreg  VARCHAR2(1)
+)
+;
+comment on table AQPD152
+  is 'TABLA LOG CABECERA SALDO CONSOLIDADO';
+comment on column AQPD152.aqpd152corr
+  is 'Correlativo del Registro';
+comment on column AQPD152.aqpd152inst
+  is 'instancia de registro';
+comment on column AQPD152.aqpd152fec
+  is 'Fecha de registro';
+comment on column AQPD152.aqpd152hor
+  is 'hora de registro';
+comment on column AQPD152.aqpd152tipcam
+  is 'tipo de cambio';
+comment on column AQPD152.aqpd152mntcons
+  is 'monto consolidado en soles';
+comment on column AQPD152.aqpd152estreg
+  is 'estado de registro';
+create index AQPD152A2 on AQPD152 (AQPD152INST, AQPD152FEC);
+alter table AQPD152
+  add primary key (AQPD152CORR, AQPD152INST, AQPD152FEC);
+

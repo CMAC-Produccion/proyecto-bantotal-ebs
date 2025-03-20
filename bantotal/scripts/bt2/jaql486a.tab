@@ -1,0 +1,16 @@
+create table JAQL486A
+(
+  jaql486apgc NUMBER(3) not null,
+  jaql486asuc NUMBER(3) not null,
+  jaql486amod NUMBER(3) not null,
+  jaql486atrx NUMBER(3) not null,
+  jaql486arel NUMBER(4) not null,
+  jaql486afec DATE not null,
+  jaql486acan NUMBER(4),
+  jaql486amco NUMBER(17,2),
+  jaql486areg NUMBER(2)
+)
+;
+alter table JAQL486A
+  add constraint PK_JAQL486A primary key (JAQL486APGC, JAQL486ASUC, JAQL486AMOD, JAQL486ATRX, JAQL486AREL, JAQL486AFEC);
+

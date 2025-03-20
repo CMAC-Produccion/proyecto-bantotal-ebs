@@ -1,0 +1,78 @@
+create table JAQZ451B
+(
+  jaqz451bfpro DATE not null,
+  jaqz451bccli VARCHAR2(20) not null,
+  jaqz451bpai  NUMBER(3),
+  jaqz451btdo  NUMBER(2),
+  jaqz451bpen  CHAR(12) not null,
+  jaqz451bcre  VARCHAR2(50),
+  jaqz451bemp  NUMBER(3),
+  jaqz451bsuc  NUMBER(3),
+  jaqz451bmda  NUMBER(4),
+  jaqz451bpap  NUMBER(4),
+  jaqz451bcta  NUMBER(9),
+  jaqz451bope  NUMBER(9),
+  jaqz451bsbo  NUMBER(3),
+  jaqz451btop  NUMBER(3),
+  jaqz451brub  NUMBER(16),
+  jaqz451bmod  NUMBER(3),
+  jaqz451bfvto DATE,
+  jaqz451bfval DATE,
+  jaqz451bsdmn NUMBER(18,2),
+  jaqz451bdatr NUMBER(9),
+  jaqz451bana  VARCHAR2(12),
+  jaqz451bfcan DATE,
+  jaqz451bmtv  VARCHAR2(50)
+)
+;
+comment on table JAQZ451B
+  is 'rep_ret_b';
+comment on column JAQZ451B.jaqz451bfpro
+  is 'Fecha Proceso';
+comment on column JAQZ451B.jaqz451bccli
+  is 'Codigo Cliente';
+comment on column JAQZ451B.jaqz451bpai
+  is 'Pais';
+comment on column JAQZ451B.jaqz451btdo
+  is 'Tipo Doc';
+comment on column JAQZ451B.jaqz451bpen
+  is 'Numdoc';
+comment on column JAQZ451B.jaqz451bcre
+  is 'Credito';
+comment on column JAQZ451B.jaqz451bemp
+  is 'Empresa';
+comment on column JAQZ451B.jaqz451bsuc
+  is 'Sucursal';
+comment on column JAQZ451B.jaqz451bmda
+  is 'Moneda';
+comment on column JAQZ451B.jaqz451bpap
+  is 'Papel';
+comment on column JAQZ451B.jaqz451bcta
+  is 'Cuenta';
+comment on column JAQZ451B.jaqz451bope
+  is 'Operacion';
+comment on column JAQZ451B.jaqz451bsbo
+  is 'Suboperacion';
+comment on column JAQZ451B.jaqz451btop
+  is 'Tipo Operacion';
+comment on column JAQZ451B.jaqz451brub
+  is 'Rubro';
+comment on column JAQZ451B.jaqz451bmod
+  is 'Modulo';
+comment on column JAQZ451B.jaqz451bfvto
+  is 'Fecha Vencimiento';
+comment on column JAQZ451B.jaqz451bfval
+  is 'FEcha Desembolso';
+comment on column JAQZ451B.jaqz451bsdmn
+  is 'Saldo Moneda Nacional';
+comment on column JAQZ451B.jaqz451bdatr
+  is 'Dias Atraso';
+comment on column JAQZ451B.jaqz451bana
+  is 'Analista';
+comment on column JAQZ451B.jaqz451bfcan
+  is 'Fecha Cancelacion';
+comment on column JAQZ451B.jaqz451bmtv
+  is 'Monto';
+create index JAQZ451B_1 on JAQZ451B (JAQZ451BFPRO, JAQZ451BCCLI);
+create index JAQZ451B_2 on JAQZ451B (JAQZ451BFPRO, JAQZ451BANA, JAQZ451BSUC);
+

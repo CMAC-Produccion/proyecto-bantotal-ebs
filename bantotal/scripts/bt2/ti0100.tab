@@ -1,0 +1,26 @@
+create table TI0100
+(
+  txpgcod    NUMBER(3) not null,
+  txscsuc    NUMBER(3) not null,
+  txscmod    NUMBER(3) not null,
+  txscmda    NUMBER(4) not null,
+  txscpap    NUMBER(4) not null,
+  txsccta    NUMBER(9) not null,
+  txscoper   NUMBER(9) not null,
+  txscsbop   NUMBER(3) not null,
+  txsctope   NUMBER(3) not null,
+  tximpucod  NUMBER(3) not null,
+  txdimcorr  NUMBER(3) not null,
+  txoprub    NUMBER(16),
+  txopcoef   NUMBER(3),
+  txopmnto   NUMBER(17,2),
+  txopmin    NUMBER(17,2),
+  txopminbas NUMBER(17,2),
+  txopminfor NUMBER(17,2),
+  txopimpmax NUMBER(17,2),
+  txopexc    CHAR(1)
+)
+;
+alter table TI0100
+  add primary key (TXPGCOD, TXSCSUC, TXSCMOD, TXSCMDA, TXSCPAP, TXSCCTA, TXSCOPER, TXSCSBOP, TXSCTOPE, TXIMPUCOD, TXDIMCORR);
+

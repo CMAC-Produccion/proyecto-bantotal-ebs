@@ -1,0 +1,39 @@
+create table AQPC360A
+(
+  aqpc360acod NUMBER not null,
+  aqpc360afec DATE not null,
+  aqpc360acor NUMBER(8) not null,
+  aqpc360aest CHAR(1),
+  aqpc360ausr CHAR(10),
+  aqpc360afcr VARCHAR2(10),
+  aqpc360ahcr VARCHAR2(10),
+  aqpc360ausd CHAR(10),
+  aqpc360afed VARCHAR2(10),
+  aqpc360ahed VARCHAR2(10)
+)
+;
+comment on table AQPC360A
+  is 'Tabla CABECERA FAE TEXCO';
+comment on column AQPC360A.aqpc360acod
+  is 'Código de empresa';
+comment on column AQPC360A.aqpc360afec
+  is 'Fecha de carga del archivo';
+comment on column AQPC360A.aqpc360acor
+  is 'Correlativo del archivo cargado';
+comment on column AQPC360A.aqpc360aest
+  is 'Estado del archivo';
+comment on column AQPC360A.aqpc360ausr
+  is 'Usuario de creación';
+comment on column AQPC360A.aqpc360afcr
+  is 'Fecha de creación';
+comment on column AQPC360A.aqpc360ahcr
+  is 'Hora de creación';
+comment on column AQPC360A.aqpc360ausd
+  is 'Usuario de edición';
+comment on column AQPC360A.aqpc360afed
+  is 'Fecha de edición';
+comment on column AQPC360A.aqpc360ahed
+  is 'Hora de edición';
+alter table AQPC360A
+  add primary key (AQPC360ACOD, AQPC360AFEC, AQPC360ACOR);
+

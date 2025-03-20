@@ -1,0 +1,63 @@
+create table AQPB542
+(
+  aqpb542codigo VARCHAR2(30) not null,
+  aqpb542nroreg NUMBER(9) not null,
+  aqpb542pais   NUMBER(3),
+  aqpb542tdoc   NUMBER(2),
+  aqpb542ndoc   VARCHAR2(12),
+  aqpb542pgcod  NUMBER(3),
+  aqpb542scsuc  NUMBER(3),
+  aqpb542scrub  NUMBER(16),
+  aqpb542scmda  NUMBER(4),
+  aqpb542scpap  NUMBER(4),
+  aqpb542sccta  NUMBER(9),
+  aqpb542scoper NUMBER(9),
+  aqpb542scsbop NUMBER(3),
+  aqpb542sctope NUMBER(3),
+  aqpb542scmod  NUMBER(3),
+  aqpb542estins NUMBER(2),
+  aqpb542proest VARCHAR2(1),
+  aqpb542promsg VARCHAR2(600)
+)
+;
+comment on table AQPB542
+  is 'Cuenta Suplantada - Detalle';
+comment on column AQPB542.aqpb542codigo
+  is 'Codigo de Carga';
+comment on column AQPB542.aqpb542nroreg
+  is 'Nro. de Registro';
+comment on column AQPB542.aqpb542pais
+  is 'Pais';
+comment on column AQPB542.aqpb542tdoc
+  is 'Tipo de Documento';
+comment on column AQPB542.aqpb542ndoc
+  is 'Nro. de Documento';
+comment on column AQPB542.aqpb542pgcod
+  is 'Empresa';
+comment on column AQPB542.aqpb542scsuc
+  is 'Sucursal';
+comment on column AQPB542.aqpb542scrub
+  is 'Rubro';
+comment on column AQPB542.aqpb542scmda
+  is 'Moneda';
+comment on column AQPB542.aqpb542scpap
+  is 'Papel';
+comment on column AQPB542.aqpb542sccta
+  is 'Cuenta';
+comment on column AQPB542.aqpb542scoper
+  is 'Operacion';
+comment on column AQPB542.aqpb542scsbop
+  is 'Sub Operacion';
+comment on column AQPB542.aqpb542sctope
+  is 'Tipo de Operacion';
+comment on column AQPB542.aqpb542scmod
+  is 'Modulo';
+comment on column AQPB542.aqpb542estins
+  is 'Estado Instruccion';
+comment on column AQPB542.aqpb542proest
+  is 'Estado Proceso';
+comment on column AQPB542.aqpb542promsg
+  is 'MSG de Proceso';
+alter table AQPB542
+  add primary key (AQPB542CODIGO, AQPB542NROREG);
+

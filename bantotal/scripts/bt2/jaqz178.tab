@@ -1,0 +1,37 @@
+create table JAQZ178
+(
+  jaqz178seq NUMBER(15) not null,
+  jaqz178fec DATE,
+  jaqz178hor CHAR(8),
+  jaqz178usr CHAR(10),
+  jaqz178age NUMBER(3),
+  jaqz178imp NUMBER(9),
+  jaqz178car BLOB,
+  jaqz178pgc NUMBER(3),
+  jaqz178mod NUMBER(3),
+  jaqz178suc NUMBER(3),
+  jaqz178mda NUMBER(4),
+  jaqz178pap NUMBER(4),
+  jaqz178cta NUMBER(9),
+  jaqz178ope NUMBER(9),
+  jaqz178sbo NUMBER(3),
+  jaqz178tpo NUMBER(3),
+  jaqz178est CHAR(1),
+  jaqz178mot CHAR(250),
+  jaqz178mai CHAR(65),
+  jaqz178ax1 NUMBER(9),
+  jaqz178ax2 NUMBER(9),
+  jaqz178ax3 NUMBER(17,2),
+  jaqz178ax4 NUMBER(17,2),
+  jaqz178ax5 DATE,
+  jaqz178ax6 DATE,
+  jaqz178ax7 CHAR(100),
+  jaqz178ax8 CHAR(100),
+  jaqz178ax9 CHAR(100),
+  jaqz178nom CHAR(30)
+)
+;
+create index JAQZ178IDX001 on JAQZ178 (JAQZ178PGC, JAQZ178MOD, JAQZ178SUC, JAQZ178MDA, JAQZ178PAP, JAQZ178CTA, JAQZ178OPE, JAQZ178SBO, JAQZ178TPO);
+alter table JAQZ178
+  add primary key (JAQZ178SEQ);
+

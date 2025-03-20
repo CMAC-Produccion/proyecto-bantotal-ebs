@@ -1,0 +1,16 @@
+create table FVC001
+(
+  fvc001pgco NUMBER(3) not null,
+  fvc001fech NUMBER(6) not null,
+  fvc001sucu NUMBER(3) not null,
+  fvc001cuen NUMBER(9) not null,
+  fvc001oper NUMBER(9) not null,
+  fvc001subo NUMBER(3) not null,
+  fvc001mda  NUMBER(4) not null,
+  fvc001pap  NUMBER(4) not null,
+  fvc001modu NUMBER(3) not null
+)
+;
+alter table FVC001
+  add primary key (FVC001PGCO, FVC001FECH, FVC001SUCU, FVC001CUEN, FVC001OPER, FVC001SUBO, FVC001MDA, FVC001PAP, FVC001MODU);
+

@@ -1,0 +1,21 @@
+create table CNL027
+(
+  cnl000cod NUMBER(4) not null,
+  cnl001adm CHAR(30) not null,
+  cnl001usu CHAR(30) not null,
+  cnl027fch DATE not null,
+  cnl002pgc NUMBER(3) not null,
+  cnl002mod NUMBER(3) not null,
+  cnl002suc NUMBER(3) not null,
+  cnl002mda NUMBER(4) not null,
+  cnl002pap NUMBER(4) not null,
+  cnl002ope NUMBER(9) not null,
+  cnl002top NUMBER(3) not null,
+  cnl002cta NUMBER(9) not null,
+  cnl002sbo NUMBER(3) not null,
+  cnl027imp NUMBER(17,2)
+)
+;
+alter table CNL027
+  add primary key (CNL000COD, CNL001ADM, CNL001USU, CNL027FCH, CNL002PGC, CNL002MOD, CNL002SUC, CNL002MDA, CNL002PAP, CNL002OPE, CNL002TOP, CNL002CTA, CNL002SBO);
+

@@ -1,0 +1,29 @@
+create table FSR162
+(
+  paqemp   NUMBER(3) not null,
+  paqcta   NUMBER(9) not null,
+  paqcod   NUMBER(3) not null,
+  paqcorr  NUMBER(2) not null,
+  arprod   NUMBER(3) not null,
+  prodcor  NUMBER(2) not null,
+  modprod  NUMBER(3),
+  mdaprod  NUMBER(4),
+  papprod  NUMBER(4),
+  ctaprod  NUMBER(9),
+  sucprod  NUMBER(3),
+  opeprod  NUMBER(9),
+  sboprod  NUMBER(3),
+  tpoprod  NUMBER(3),
+  ctrmovl  NUMBER(3),
+  ntrjprod CHAR(20),
+  strjprod NUMBER(12),
+  ftrjvto  DATE,
+  ftrjaux  DATE,
+  trjaux1  CHAR(1),
+  trjaux2  NUMBER(9)
+)
+;
+create index FSR16202 on FSR162 (PAQEMP, PAQCOD, ARPROD);
+alter table FSR162
+  add primary key (PAQEMP, PAQCTA, PAQCOD, PAQCORR, ARPROD, PRODCOR);
+

@@ -1,0 +1,18 @@
+create table FOC993
+(
+  foc993emp  NUMBER(3) not null,
+  foc993opre NUMBER(9) not null,
+  foc993opsu NUMBER(9) not null,
+  foc993id   NUMBER(2) not null,
+  foc993mda  NUMBER(4) not null,
+  foc993ser  CHAR(10) not null,
+  foc993nro  NUMBER(12) not null,
+  foc993biab CHAR(11) not null,
+  foc993est  CHAR(1)
+)
+;
+create index FOC99302 on FOC993 (FOC993EMP, FOC993OPSU, FOC993ID, FOC993MDA, FOC993SER, FOC993NRO, FOC993BIAB);
+create index FOC99303 on FOC993 (FOC993EMP, FOC993MDA, FOC993EST);
+alter table FOC993
+  add primary key (FOC993EMP, FOC993OPRE, FOC993OPSU, FOC993ID, FOC993MDA, FOC993SER, FOC993NRO, FOC993BIAB);
+

@@ -1,0 +1,27 @@
+create table JMBN033
+(
+  jmbn33fech DATE not null,
+  jmbn33pgco NUMBER(3) not null,
+  jmbn33suc  NUMBER(4) not null,
+  jmbn33mda  NUMBER(4) not null,
+  jmbn33pap  NUMBER(4) not null,
+  jmbn33tit  NUMBER(2) not null,
+  jmbn33cap  NUMBER(1) not null,
+  jmbn33pzo  NUMBER(1) not null,
+  jmbn33grp  NUMBER(2) not null,
+  jmbn33rubr NUMBER(16) not null,
+  jmbn33mes  NUMBER(2) not null,
+  jmbn33user CHAR(10),
+  jmbn33deb  NUMBER(17,2),
+  jmbn33cred NUMBER(17,2),
+  jmbn33mn   NUMBER(17,2),
+  jmbn33do   NUMBER(17,2),
+  jmbn33aux1 NUMBER(17,2),
+  jmbn33aux2 CHAR(60)
+)
+;
+create index JMBN0332 on JMBN033 (JMBN33TIT, JMBN33CAP, JMBN33RUBR, JMBN33GRP, JMBN33FECH, JMBN33SUC);
+create index JMBN0333 on JMBN033 (JMBN33TIT, JMBN33RUBR, JMBN33GRP, JMBN33FECH, JMBN33SUC);
+alter table JMBN033
+  add primary key (JMBN33FECH, JMBN33PGCO, JMBN33SUC, JMBN33MDA, JMBN33PAP, JMBN33TIT, JMBN33CAP, JMBN33PZO, JMBN33GRP, JMBN33RUBR, JMBN33MES);
+

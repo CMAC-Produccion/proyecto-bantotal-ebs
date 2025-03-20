@@ -1,0 +1,35 @@
+create table JAQZ320
+(
+  jaqz320id     NUMBER(18) not null,
+  jaqz320numcel VARCHAR2(20),
+  jaqz320monope NUMBER(18),
+  jaqz320estope CHAR(1),
+  jaqz320codcan NUMBER(4),
+  jaqz320ctaori NUMBER(9),
+  jaqz320ctasuc NUMBER(3),
+  jaqz320ctamod NUMBER(3),
+  jaqz320ctamda NUMBER(4),
+  jaqz320ctapap NUMBER(4),
+  jaqz320ctasbo NUMBER(3),
+  jaqz320ctatop NUMBER(3),
+  jaqz320mod    NUMBER(3),
+  jaqz320tra    NUMBER(3),
+  jaqz320rel    NUMBER(4),
+  jaqz320suc    NUMBER(3),
+  jaqz320fecpro DATE,
+  jaqz320horpro VARCHAR2(10),
+  jaqz320codusu VARCHAR2(15),
+  jaqz320fecven DATE,
+  jaqz320fecact DATE,
+  jaqz320pgcod  NUMBER(3),
+  jaqz320ctaope NUMBER(9),
+  jaqz320numope NUMBER(9),
+  jaqz320moneda NUMBER(1),
+  jaqz320nomrem VARCHAR2(100),
+  jaqz320estrem CHAR(1)
+)
+;
+create index JAQZ3202 on JAQZ320 (JAQZ320MOD, JAQZ320TRA, JAQZ320REL, JAQZ320SUC, JAQZ320FECPRO, JAQZ320PGCOD);
+alter table JAQZ320
+  add primary key (JAQZ320ID);
+

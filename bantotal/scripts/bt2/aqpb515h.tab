@@ -1,0 +1,42 @@
+create table AQPB515H
+(
+  aqpb515hserial NUMBER(10) not null,
+  aqpb515hsecue  NUMBER(6) not null,
+  aqpb515hmtode  NUMBER(16,2),
+  aqpb515hperio  VARCHAR2(100),
+  aqpb515hfeinp  DATE,
+  aqpb515hentid  VARCHAR2(100),
+  aqpb515hfenua  DATE,
+  aqpb515htidet  CHAR(2),
+  aqpb515hconcod VARCHAR2(16) not null,
+  aqpb515hcreusr VARCHAR2(30) not null,
+  aqpb515hcretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515H
+  is 'DEUDA TRIBUTARIA - EQIFAX';
+comment on column AQPB515H.aqpb515hserial
+  is 'SERIAL';
+comment on column AQPB515H.aqpb515hsecue
+  is 'SECUENCIA';
+comment on column AQPB515H.aqpb515hmtode
+  is 'MONTO DE DEUDA';
+comment on column AQPB515H.aqpb515hperio
+  is 'PERIODO';
+comment on column AQPB515H.aqpb515hfeinp
+  is 'FECHA INCIO DE PROCESO';
+comment on column AQPB515H.aqpb515hentid
+  is 'ENTIDAD';
+comment on column AQPB515H.aqpb515hfenua
+  is 'FECHA NUEVA DE ACTUALIZACION';
+comment on column AQPB515H.aqpb515htidet
+  is 'TIPO DETALLE';
+comment on column AQPB515H.aqpb515hconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515H.aqpb515hcreusr
+  is 'CONSULTA - USUARIO DE CREACION';
+comment on column AQPB515H.aqpb515hcretim
+  is 'CONSULTA - FECHA HORA DE CREACION';
+alter table AQPB515H
+  add primary key (AQPB515HSERIAL, AQPB515HSECUE, AQPB515HCONCOD, AQPB515HCREUSR);
+

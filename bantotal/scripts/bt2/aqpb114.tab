@@ -1,0 +1,42 @@
+create table AQPB114
+(
+  aqpb114idgrp  CHAR(10) not null,
+  aqpb114idemp  CHAR(6) not null,
+  aqpb114cotsv  CHAR(6) not null,
+  aqpb114cocan  NUMBER(3) not null,
+  aqpb114tipcom NUMBER(4) not null,
+  aqpb114mtocm  NUMBER(8,2),
+  aqpb114porcm  NUMBER(8,2),
+  aqpb114mtomin NUMBER(8,2),
+  aqpb114mtomax NUMBER(8,2),
+  aqpb114estreg CHAR(1),
+  aqpb114tipval NUMBER(4)
+)
+;
+comment on table AQPB114
+  is 'Tabla Comisiones Cliente/Empresa Kasnet';
+comment on column AQPB114.aqpb114idgrp
+  is 'Id Grupo';
+comment on column AQPB114.aqpb114idemp
+  is 'Id Empresa';
+comment on column AQPB114.aqpb114cotsv
+  is 'Codigo de servicio';
+comment on column AQPB114.aqpb114cocan
+  is 'Codigo de Canal';
+comment on column AQPB114.aqpb114tipcom
+  is 'Tipo de Comision 1=Empresa, 2=Cliente';
+comment on column AQPB114.aqpb114mtocm
+  is 'Monto de Comision';
+comment on column AQPB114.aqpb114porcm
+  is 'Porcentaje de Comision';
+comment on column AQPB114.aqpb114mtomin
+  is 'Monto Minimo de Comision';
+comment on column AQPB114.aqpb114mtomax
+  is 'Monto Maximo de Comision';
+comment on column AQPB114.aqpb114estreg
+  is 'Estado de Comision';
+comment on column AQPB114.aqpb114tipval
+  is 'Valor Comision 0=Monto Fijo, 1=Porcentual';
+alter table AQPB114
+  add primary key (AQPB114IDGRP, AQPB114IDEMP, AQPB114COTSV, AQPB114COCAN, AQPB114TIPCOM);
+

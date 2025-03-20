@@ -1,0 +1,10 @@
+create table WFDOCACTIONS
+(
+  wfdocacnid  NUMBER(4) not null,
+  wfdocacndsc CHAR(50)
+)
+;
+create index WFACTUSR1 on WFDOCACTIONS (WFDOCACNDSC);
+alter table WFDOCACTIONS
+  add primary key (WFDOCACNID);
+

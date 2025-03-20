@@ -1,0 +1,18 @@
+create table FST811_ALL
+(
+  pgcod  NUMBER(3) not null,
+  regcod NUMBER(3) not null,
+  oficod NUMBER(3) not null,
+  ofisuc CHAR(1),
+  ofiusu CHAR(10),
+  ofifch DATE,
+  ofihor CHAR(8),
+  ofihab CHAR(1),
+  fecha  DATE not null
+)
+;
+create index FST81103_2 on FST811_ALL (PGCOD, OFICOD);
+create index FST81104_2 on FST811_ALL (FECHA);
+alter table FST811_ALL
+  add primary key (PGCOD, REGCOD, OFICOD, FECHA);
+

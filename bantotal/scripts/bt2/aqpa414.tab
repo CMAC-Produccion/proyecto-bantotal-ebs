@@ -1,0 +1,21 @@
+create table AQPA414
+(
+  aqpa414inst  NUMBER(10) not null,
+  aqpa414moda  CHAR(1),
+  aqpa414tipo  CHAR(2),
+  aqpa414user  VARCHAR2(20),
+  aqpa414csbs  VARCHAR2(30),
+  aqpa414frcc  DATE,
+  aqpa414fpro  DATE,
+  aqpa414rubro VARCHAR2(20),
+  aqpa414enti  VARCHAR2(200),
+  aqpa414cent  VARCHAR2(50),
+  aqpa414tipc  VARCHAR2(2),
+  aqpa414ndoc  CHAR(12) not null,
+  aqpa414corr  NUMBER(10) not null,
+  aqpa414sdeu  NUMBER(17,2)
+)
+;
+alter table AQPA414
+  add primary key (AQPA414INST, AQPA414NDOC, AQPA414CORR);
+

@@ -1,0 +1,11 @@
+create table FBC006
+(
+  bccemp  NUMBER(3) not null,
+  bccsuc  NUMBER(3) not null,
+  bccunid NUMBER(2),
+  bccreng NUMBER(4)
+)
+;
+alter table FBC006
+  add primary key (BCCEMP, BCCSUC);
+

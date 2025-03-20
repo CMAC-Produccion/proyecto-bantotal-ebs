@@ -1,0 +1,50 @@
+create table JAQM410
+(
+  jaqm410fec DATE not null,
+  jaqm410emp NUMBER(3) not null,
+  jaqm410mod NUMBER(3) not null,
+  jaqm410suc NUMBER(3) not null,
+  jaqm410mda NUMBER(4) not null,
+  jaqm410pap NUMBER(4) not null,
+  jaqm410cta NUMBER(9) not null,
+  jaqm410ope NUMBER(9) not null,
+  jaqm410sbo NUMBER(3) not null,
+  jaqm410top NUMBER(3) not null,
+  jaqm41cemp NUMBER(3) not null,
+  jaqm41cmod NUMBER(3) not null,
+  jaqm41ccta NUMBER(9) not null,
+  jaqm41cope NUMBER(9) not null,
+  jaqm41csbo NUMBER(3) not null,
+  jaqm41csuc NUMBER(3),
+  jaqm41cmda NUMBER(4),
+  jaqm41cpap NUMBER(4),
+  jaqm41ctop NUMBER(3),
+  jaqm410ins NUMBER(10),
+  jaqm410sdo NUMBER(17,2),
+  jaqm410uti NUMBER(17,2),
+  jaqm410dis NUMBER(17,2),
+  jaqm410est CHAR(20),
+  jaqm410tca NUMBER(14,8),
+  jaqm410cob NUMBER(10,6),
+  jaqm410pri NUMBER(3),
+  jaqm410an1 NUMBER(9),
+  jaqm410an2 NUMBER(9),
+  jaqm410an3 NUMBER(9),
+  jaqm410ai1 NUMBER(17,2),
+  jaqm410ai2 NUMBER(17,2),
+  jaqm410ai3 NUMBER(17,2),
+  jaqm410af1 DATE,
+  jaqm410af2 DATE,
+  jaqm410af3 DATE,
+  jaqm410ac1 CHAR(1),
+  jaqm410ac2 CHAR(1),
+  jaqm410ac3 CHAR(1),
+  jaqm410at1 VARCHAR2(250),
+  jaqm410at2 VARCHAR2(250),
+  jaqm410at3 VARCHAR2(250)
+)
+;
+create index JAQM4102 on JAQM410 (JAQM41CEMP, JAQM41CMOD, JAQM41CSUC, JAQM41CMDA, JAQM41CPAP, JAQM41CCTA, JAQM41COPE, JAQM41CSBO, JAQM41CTOP);
+alter table JAQM410
+  add primary key (JAQM410FEC, JAQM410EMP, JAQM410MOD, JAQM410SUC, JAQM410MDA, JAQM410PAP, JAQM410CTA, JAQM410OPE, JAQM410SBO, JAQM410TOP, JAQM41CEMP, JAQM41CMOD, JAQM41CCTA, JAQM41COPE, JAQM41CSBO);
+

@@ -1,0 +1,12 @@
+create table WFPREF1
+(
+  wfprefid       NUMBER(4) not null,
+  wfprefval      CHAR(100) not null,
+  wfpreftext     CHAR(20),
+  wfprefvalorder NUMBER(4)
+)
+;
+create index UWFPREF11 on WFPREF1 (WFPREFID, WFPREFVALORDER);
+alter table WFPREF1
+  add primary key (WFPREFID, WFPREFVAL);
+

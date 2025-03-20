@@ -1,0 +1,78 @@
+create table JAQN40
+(
+  jaqn40pat NUMBER(3) not null,
+  jaqn40tdt NUMBER(2) not null,
+  jaqn40ndt CHAR(12) not null,
+  jaqn40cod VARCHAR2(14) not null,
+  jaqn40fec DATE,
+  jaqn40hoc CHAR(8),
+  jaqn40suc NUMBER(3),
+  jaqn40usc CHAR(10),
+  jaqn40nu1 NUMBER(9),
+  jaqn40nu2 NUMBER(9),
+  jaqn40nu3 NUMBER(9),
+  jaqn40im1 NUMBER(17,2),
+  jaqn40im2 NUMBER(17,2),
+  jaqn40im3 NUMBER(17,2),
+  jaqn40fe1 DATE,
+  jaqn40fe2 DATE,
+  jaqn40fe3 DATE,
+  jaqn40ch1 CHAR(1),
+  jaqn40ch2 CHAR(1),
+  jaqn40ch3 CHAR(1),
+  jaqn40va1 VARCHAR2(255),
+  jaqn40va2 VARCHAR2(255),
+  jaqn40va3 VARCHAR2(255)
+)
+;
+comment on table JAQN40
+  is 'Carga Masiva de Familiares - CAB';
+comment on column JAQN40.jaqn40pat
+  is 'Pais Trabajador';
+comment on column JAQN40.jaqn40tdt
+  is 'Tipo de documento Trabajador';
+comment on column JAQN40.jaqn40ndt
+  is 'Numero de documento Trabajador';
+comment on column JAQN40.jaqn40cod
+  is 'Codigo Unico de Carga';
+comment on column JAQN40.jaqn40fec
+  is 'Fecha de Carga';
+comment on column JAQN40.jaqn40hoc
+  is 'Hora de Carga';
+comment on column JAQN40.jaqn40suc
+  is 'Sucursal de Carga';
+comment on column JAQN40.jaqn40usc
+  is 'Usuario de carga';
+comment on column JAQN40.jaqn40nu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN40.jaqn40nu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN40.jaqn40nu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQN40.jaqn40im1
+  is 'Auxiliar Importe 1';
+comment on column JAQN40.jaqn40im2
+  is 'Auxiliar Importe 2';
+comment on column JAQN40.jaqn40im3
+  is 'Auxiliar Importe 3';
+comment on column JAQN40.jaqn40fe1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN40.jaqn40fe2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN40.jaqn40fe3
+  is 'Auxiliar Fecha 3';
+comment on column JAQN40.jaqn40ch1
+  is 'Auxiliar Booleano 1';
+comment on column JAQN40.jaqn40ch2
+  is 'Auxiliar Booleano 2';
+comment on column JAQN40.jaqn40ch3
+  is 'Auxiliar Booleano 3';
+comment on column JAQN40.jaqn40va1
+  is 'Auxiliar Varchar 1';
+comment on column JAQN40.jaqn40va2
+  is 'Auxiliar Varchar 2';
+comment on column JAQN40.jaqn40va3
+  is 'Auxiliar Varchar 3';
+alter table JAQN40
+  add primary key (JAQN40PAT, JAQN40TDT, JAQN40NDT, JAQN40COD);
+

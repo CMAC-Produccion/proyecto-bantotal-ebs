@@ -1,0 +1,110 @@
+create table AQPB281
+(
+  aqpb281usur   CHAR(10) not null,
+  aqpb281codsbs VARCHAR2(12) not null,
+  aqpb281fproc  DATE,
+  aqpb281fcr    DATE not null,
+  aqpb281hcr    CHAR(10) not null,
+  aqpb281codemp VARCHAR2(5) not null,
+  aqpb281desemp VARCHAR2(150),
+  aqpb281cretip VARCHAR2(4),
+  aqpb281tidesc VARCHAR2(30),
+  aqpb281ctac   VARCHAR2(15),
+  aqpb281desc   VARCHAR2(40),
+  aqpb281saldo0 NUMBER(17,2),
+  aqpb281saldo1 NUMBER(17,2),
+  aqpb281saldo2 NUMBER(17,2),
+  aqpb281saldo3 NUMBER(17,2),
+  aqpb281saldo4 NUMBER(17,2),
+  aqpb281saldo5 NUMBER(17,2),
+  aqpb281saldo6 NUMBER(17,2),
+  aqpb281prcba  NUMBER(10,4),
+  aqpb281prdis1 NUMBER(10,4),
+  aqpb281prdis2 NUMBER(10,4),
+  aqpb281prdis3 NUMBER(10,4),
+  aqpb281prdis4 NUMBER(10,4),
+  aqpb281prdis5 NUMBER(10,4),
+  aqpb281prdis6 NUMBER(10,4),
+  aqpb281pagu6  CHAR(1),
+  aqpb281ori1   VARCHAR2(10) not null,
+  aqpb281ori2   VARCHAR2(10) not null,
+  aqpb281ori3   VARCHAR2(10),
+  aqpb281ins    NUMBER(10),
+  aqpb281aux1   VARCHAR2(50),
+  aqpb281aux2   VARCHAR2(50),
+  aqpb281aux3   VARCHAR2(50)
+)
+;
+comment on table AQPB281
+  is 'Tabla log consulta saldos RESOLUTOR';
+comment on column AQPB281.aqpb281usur
+  is 'Usuario';
+comment on column AQPB281.aqpb281codsbs
+  is 'Codigo SBS';
+comment on column AQPB281.aqpb281fproc
+  is 'Fecha de proceso';
+comment on column AQPB281.aqpb281fcr
+  is 'Fecha creacion';
+comment on column AQPB281.aqpb281hcr
+  is 'Hora creacion';
+comment on column AQPB281.aqpb281codemp
+  is 'Codigo empresa';
+comment on column AQPB281.aqpb281desemp
+  is 'Descripcion empresa';
+comment on column AQPB281.aqpb281cretip
+  is 'Tipo Credito';
+comment on column AQPB281.aqpb281tidesc
+  is 'Descripcion tipo credito';
+comment on column AQPB281.aqpb281ctac
+  is 'Cuenta';
+comment on column AQPB281.aqpb281desc
+  is 'Descripcion';
+comment on column AQPB281.aqpb281saldo0
+  is 'Saldo mes inicial';
+comment on column AQPB281.aqpb281saldo1
+  is 'Saldo mes 1';
+comment on column AQPB281.aqpb281saldo2
+  is 'Saldo mes 2';
+comment on column AQPB281.aqpb281saldo3
+  is 'Saldo mes 3';
+comment on column AQPB281.aqpb281saldo4
+  is 'Saldo mes 4';
+comment on column AQPB281.aqpb281saldo5
+  is 'Saldo mes 5 ultimo rcc';
+comment on column AQPB281.aqpb281saldo6
+  is 'Saldo mes 6';
+comment on column AQPB281.aqpb281prcba
+  is 'Porcentaje base';
+comment on column AQPB281.aqpb281prdis1
+  is 'Porcentaje disminucion 1er mes';
+comment on column AQPB281.aqpb281prdis2
+  is 'Porcentaje disminucion 2do mes';
+comment on column AQPB281.aqpb281prdis3
+  is 'Porcentaje disminucion 3er mes';
+comment on column AQPB281.aqpb281prdis4
+  is 'Porcentaje disminucion 4to mes';
+comment on column AQPB281.aqpb281prdis5
+  is 'Porcentaje disminucion 5to mes';
+comment on column AQPB281.aqpb281prdis6
+  is 'Porcentaje disminucion 6to mes';
+comment on column AQPB281.aqpb281pagu6
+  is 'Pago ultimos 6 meses';
+comment on column AQPB281.aqpb281ori1
+  is 'Origen 3';
+comment on column AQPB281.aqpb281ins
+  is 'Instancia';
+comment on column AQPB281.aqpb281aux1
+  is 'Auxiliar 1';
+comment on column AQPB281.aqpb281aux2
+  is 'Auxiliar 2';
+comment on column AQPB281.aqpb281aux3
+  is 'Auxiliar 3';
+create index AQPB281A2 on AQPB281 (AQPB281CODSBS);
+create index AQPB281A3 on AQPB281 (AQPB281USUR, AQPB281CODSBS);
+create index AQPB281A4 on AQPB281 (AQPB281USUR, AQPB281CODSBS, AQPB281ORI1);
+create index AQPB281A5 on AQPB281 (AQPB281INS, AQPB281ORI1);
+create index AQPB281A6 on AQPB281 (AQPB281USUR, AQPB281ORI1, AQPB281AUX2);
+create index AQPB281A7 on AQPB281 (AQPB281USUR, AQPB281ORI1, AQPB281AUX3);
+alter table AQPB281
+  add primary key (AQPB281USUR, AQPB281CODSBS, AQPB281FCR, AQPB281HCR, AQPB281CODEMP, AQPB281ORI1, AQPB281ORI2);
+

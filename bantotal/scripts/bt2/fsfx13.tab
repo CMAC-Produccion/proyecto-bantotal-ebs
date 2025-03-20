@@ -1,0 +1,20 @@
+create table FSFX13
+(
+  sfx13num NUMBER(15) not null,
+  sfx13usr CHAR(10),
+  sfx13fec DATE,
+  sfx13hor CHAR(8),
+  sfx13cnt NUMBER(5),
+  sfx13sts CHAR(2),
+  sfx13ax1 NUMBER(15),
+  sfx13ax2 NUMBER(15),
+  sfx13ax3 DATE,
+  sfx13ax4 DATE,
+  sfx13ax5 CHAR(50),
+  sfx13ax6 CHAR(50),
+  sfx13psa NUMBER(5)
+)
+;
+alter table FSFX13
+  add primary key (SFX13NUM);
+

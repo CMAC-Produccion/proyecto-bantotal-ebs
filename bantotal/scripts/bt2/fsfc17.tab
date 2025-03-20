@@ -1,0 +1,15 @@
+create table FSFC17
+(
+  sfc17emp NUMBER(3) not null,
+  sfc17cod NUMBER(3) not null,
+  sfc17dsc CHAR(30),
+  sfc17die NUMBER(5),
+  sfc17dil NUMBER(5),
+  sfc17a01 NUMBER(9),
+  sfc17a02 DATE,
+  sfc17a03 CHAR(35)
+)
+;
+alter table FSFC17
+  add primary key (SFC17EMP, SFC17COD);
+

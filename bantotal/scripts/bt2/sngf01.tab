@@ -1,0 +1,29 @@
+create table SNGF01
+(
+  sngf01emp NUMBER(3) not null,
+  sngf01ope NUMBER(9) not null,
+  sngf01dsc CHAR(30),
+  sngf01reg NUMBER(10),
+  sngf01por NUMBER(10,6),
+  sngf01pri NUMBER(3),
+  sngf01tip CHAR(1),
+  sngf01mdi CHAR(1),
+  sngf01tch CHAR(1),
+  sngf01sdo NUMBER(17,2),
+  sngf01rel NUMBER(3),
+  sngf01suc NUMBER(3),
+  sngf01mod NUMBER(3),
+  sngf01mda NUMBER(4),
+  sngf01pap NUMBER(4),
+  sngf01cta NUMBER(9),
+  sngf01sub NUMBER(3),
+  sngf01top NUMBER(3),
+  sngf01ax1 NUMBER(9),
+  sngf01ax2 NUMBER(17,2),
+  sngf01ax3 NUMBER(14,8),
+  sngf01ax4 CHAR(20)
+)
+;
+alter table SNGF01
+  add primary key (SNGF01EMP, SNGF01OPE);
+

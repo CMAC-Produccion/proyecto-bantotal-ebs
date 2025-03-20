@@ -1,0 +1,29 @@
+create table JAQY102
+(
+  jaqy102fepr DATE not null,
+  jaqy102user CHAR(10) not null,
+  jaqy102tipo CHAR(2) not null,
+  jaqy102veme CHAR(1) not null,
+  jaqy102mtvi NUMBER(17,2),
+  jaqy102mtca NUMBER(17,2),
+  jaqy102mtin NUMBER(17,2),
+  jaqy102au01 CHAR(50),
+  jaqy102au02 CHAR(50),
+  jaqy102au03 CHAR(50),
+  jaqy102au04 NUMBER(9),
+  jaqy102au05 NUMBER(9),
+  jaqy102au06 NUMBER(9),
+  jaqy102au07 NUMBER(17,2),
+  jaqy102au08 NUMBER(17,2),
+  jaqy102au09 NUMBER(17,2),
+  jaqy102au10 DATE,
+  jaqy102au11 DATE,
+  jaqy102au12 DATE,
+  jaql102perf CHAR(10),
+  jaql102sucu NUMBER(3)
+)
+;
+create index IJAQY10210002 on JAQY102 (JAQY102USER, JAQL102PERF, JAQL102SUCU);
+alter table JAQY102
+  add primary key (JAQY102FEPR, JAQY102USER, JAQY102TIPO, JAQY102VEME);
+

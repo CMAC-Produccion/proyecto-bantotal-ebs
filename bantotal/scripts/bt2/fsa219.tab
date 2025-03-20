@@ -1,0 +1,15 @@
+create table FSA219
+(
+  pgcod      NUMBER(3) not null,
+  deucatcta  NUMBER(9) not null,
+  deucatpais NUMBER(3) not null,
+  deucattdoc NUMBER(2) not null,
+  deucatndoc CHAR(12) not null,
+  deucatsdo  NUMBER(17,2)
+)
+;
+create index FSA21903 on FSA219 (PGCOD, DEUCATPAIS, DEUCATTDOC, DEUCATNDOC);
+create index FSA21904 on FSA219 (PGCOD, DEUCATSDO);
+alter table FSA219
+  add primary key (PGCOD, DEUCATCTA, DEUCATPAIS, DEUCATTDOC, DEUCATNDOC);
+

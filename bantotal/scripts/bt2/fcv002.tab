@@ -1,0 +1,41 @@
+create table FCV002
+(
+  cv001pgcod NUMBER(3) not null,
+  cv001mod   NUMBER(3) not null,
+  cv001suc   NUMBER(3) not null,
+  cv001mda   NUMBER(4) not null,
+  cv001pap   NUMBER(4) not null,
+  cv001cta   NUMBER(9) not null,
+  cv001oper  NUMBER(9) not null,
+  cv001sbop  NUMBER(3) not null,
+  cv001tope  NUMBER(3) not null,
+  cv001lib   NUMBER(9) not null,
+  cv002hoj   NUMBER(3) not null,
+  cv002lin   NUMBER(9) not null,
+  cv002fch   DATE,
+  cv002imp   NUMBER(14,2),
+  cv002dbha  NUMBER(1),
+  cv002pos   CHAR(1),
+  cv002sdovi NUMBER(17,2),
+  cv002sdoau NUMBER(17,2),
+  cv002codm  CHAR(3),
+  cv002ref   CHAR(18),
+  cv002che   NUMBER(9),
+  cv002pgc   NUMBER(3),
+  cv002suc   NUMBER(3),
+  cv002mod   NUMBER(3),
+  cv002tran  NUMBER(3),
+  cv002nrel  NUMBER(4),
+  cv002ord   NUMBER(2),
+  cv002sbor  NUMBER(3),
+  cv002fcon  DATE,
+  cv002usr   CHAR(10),
+  cv002ax1   NUMBER(9),
+  cv002ax2   DATE,
+  cv002ax3   CHAR(30)
+)
+;
+create index FCV00203 on FCV002 (CV002PGC, CV002SUC, CV002MOD, CV002TRAN, CV002NREL, CV002ORD, CV002SBOR, CV002FCON);
+alter table FCV002
+  add primary key (CV001PGCOD, CV001MOD, CV001SUC, CV001MDA, CV001PAP, CV001CTA, CV001OPER, CV001SBOP, CV001TOPE, CV001LIB, CV002HOJ, CV002LIN);
+

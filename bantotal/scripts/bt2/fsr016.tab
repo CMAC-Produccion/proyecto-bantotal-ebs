@@ -1,0 +1,51 @@
+create table FSR016
+(
+  gacod    NUMBER(3) not null,
+  gamod    NUMBER(3) not null,
+  gasuc    NUMBER(3) not null,
+  gamda    NUMBER(4) not null,
+  gapap    NUMBER(4) not null,
+  gacta    NUMBER(9) not null,
+  gaoper   NUMBER(9) not null,
+  gasbop   NUMBER(3) not null,
+  gatope   NUMBER(3) not null,
+  gainv    NUMBER(7) not null,
+  ganum    NUMBER(7),
+  gainvpag NUMBER(7),
+  garub    NUMBER(16),
+  gafech   DATE,
+  gaori    NUMBER(17,2),
+  cocod    NUMBER(3),
+  ganue    NUMBER(17,2),
+  gastat   CHAR(1),
+  gacoimp  NUMBER(17,2),
+  gacotasa NUMBER(10,6),
+  gacomin  NUMBER(17,2),
+  gacomax  NUMBER(17,2),
+  gaord    NUMBER(2),
+  gatimp   NUMBER(1),
+  ganom    CHAR(40),
+  garubdes NUMBER(16),
+  gasucdes NUMBER(3),
+  gactades NUMBER(9),
+  gamdades NUMBER(4),
+  gaopedes NUMBER(9),
+  gasopdes NUMBER(3),
+  gatopdes NUMBER(3),
+  r016cd   NUMBER(3),
+  r016mo   NUMBER(3),
+  r016su   NUMBER(3),
+  r016tr   NUMBER(3),
+  r016re   NUMBER(4),
+  r016fc   DATE,
+  r016or   NUMBER(2),
+  r016sb   NUMBER(3),
+  r016co   CHAR(1)
+)
+;
+create index FSR01602 on FSR016 (COCOD);
+create index FSR01603 on FSR016 (R016CD, R016MO, R016SU, R016TR, R016RE, R016FC, R016OR, R016SB);
+create index FSR01604 on FSR016 (R016CD, R016CO);
+alter table FSR016
+  add primary key (GACOD, GAMOD, GASUC, GAMDA, GAPAP, GACTA, GAOPER, GASBOP, GATOPE, GAINV);
+

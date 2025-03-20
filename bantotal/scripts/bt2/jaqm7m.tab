@@ -1,0 +1,110 @@
+create table JAQM7M
+(
+  jaqm7mccta NUMBER(9) not null,
+  jaqm7mnope NUMBER(9) not null,
+  jaqm7mnins NUMBER(10) not null,
+  jaqm7mfein DATE not null,
+  jaqm7mregi VARCHAR2(30),
+  jaqm7mzona VARCHAR2(40),
+  jaqm7magen VARCHAR2(30),
+  jaqm7mcomi VARCHAR2(100),
+  jaqm7mcana VARCHAR2(20),
+  jaqm7mnana VARCHAR2(100),
+  jaqm7mncli VARCHAR2(100),
+  jaqm7mtdoc NUMBER(2),
+  jaqm7mndoc VARCHAR2(12),
+  jaqm7mdcli VARCHAR2(2000),
+  jaqm7mccli VARCHAR2(2000),
+  jaqm7mmont NUMBER(17,2),
+  jaqm7mcuot NUMBER(17,2),
+  jaqm7msald NUMBER(17,2),
+  jaqm7mfpcu DATE,
+  jaqm7mupag NUMBER(17,2),
+  jaqm7mnum1 NUMBER(9),
+  jaqm7mnum2 NUMBER(9),
+  jaqm7mnum3 NUMBER(9),
+  jaqm7mimp1 NUMBER(17,2),
+  jaqm7mimp2 NUMBER(17,2),
+  jaqm7mimp3 NUMBER(17,2),
+  jaqm7mcha1 VARCHAR2(255),
+  jaqm7mcha2 VARCHAR2(255),
+  jaqm7mcha3 VARCHAR2(255),
+  jaqm7mfec1 DATE,
+  jaqm7mfec2 DATE,
+  jaqm7mfec3 DATE
+)
+;
+comment on table JAQM7M
+  is 'Créditos Refinanciados';
+comment on column JAQM7M.jaqm7mccta
+  is 'CÓDIGO DE CUENTA';
+comment on column JAQM7M.jaqm7mnope
+  is 'CÓDIGO DE OPERACIÓN';
+comment on column JAQM7M.jaqm7mnins
+  is 'NÚMERO DE INSTANCIA';
+comment on column JAQM7M.jaqm7mfein
+  is 'FECHA DE INGRESO DE DATA';
+comment on column JAQM7M.jaqm7mregi
+  is 'REGIÓN';
+comment on column JAQM7M.jaqm7mzona
+  is 'ZONA';
+comment on column JAQM7M.jaqm7magen
+  is 'AGENCIA';
+comment on column JAQM7M.jaqm7mcomi
+  is 'COMITE';
+comment on column JAQM7M.jaqm7mcana
+  is 'CÓDIGO DE ANALISTA';
+comment on column JAQM7M.jaqm7mnana
+  is 'NOMBRE DEL ANALISTA';
+comment on column JAQM7M.jaqm7mncli
+  is 'NOMBRE DEL CLIENTE';
+comment on column JAQM7M.jaqm7mtdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column JAQM7M.jaqm7mndoc
+  is 'NÚMERO DE DOCUMENTO';
+comment on column JAQM7M.jaqm7mdcli
+  is 'DIRECCIÓN DE CLIENTE';
+comment on column JAQM7M.jaqm7mccli
+  is 'TELEFONO DE CLIENTE';
+comment on column JAQM7M.jaqm7mmont
+  is 'MONTO';
+comment on column JAQM7M.jaqm7mcuot
+  is 'CUOTA';
+comment on column JAQM7M.jaqm7msald
+  is 'SALDO';
+comment on column JAQM7M.jaqm7mfpcu
+  is 'FECHA PRIMERA CUOTA';
+comment on column JAQM7M.jaqm7mupag
+  is 'ULTIMO PAGO REAL';
+comment on column JAQM7M.jaqm7mnum1
+  is 'AUXILIAR NUMÉRICO 1';
+comment on column JAQM7M.jaqm7mnum2
+  is 'AUXILIAR NUMÉRICO 2';
+comment on column JAQM7M.jaqm7mnum3
+  is 'AUXILIAR NUMÉRICO 3';
+comment on column JAQM7M.jaqm7mimp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM7M.jaqm7mimp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM7M.jaqm7mimp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQM7M.jaqm7mcha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM7M.jaqm7mcha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM7M.jaqm7mcha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM7M.jaqm7mfec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM7M.jaqm7mfec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM7M.jaqm7mfec3
+  is 'AUXILIAR FECHA 3';
+create index JAQM7MA2 on JAQM7M (JAQM7MFEIN);
+create index JAQM7MA3 on JAQM7M (JAQM7MNINS);
+create index JAQM7MA4 on JAQM7M (JAQM7MREGI, JAQM7MZONA, JAQM7MAGEN, JAQM7MCCTA, JAQM7MNOPE, JAQM7MNINS, JAQM7MFEIN);
+create index JAQM7MA5 on JAQM7M (JAQM7MFEIN, JAQM7MAGEN);
+create index JAQM7MA6 on JAQM7M (JAQM7MFEIN, JAQM7MCCTA, JAQM7MNOPE);
+alter table JAQM7M
+  add primary key (JAQM7MCCTA, JAQM7MNOPE, JAQM7MNINS, JAQM7MFEIN);
+

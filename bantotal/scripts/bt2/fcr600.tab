@@ -1,0 +1,19 @@
+create table FCR600
+(
+  fcr600cod  NUMBER(3) not null,
+  fcr600mod  NUMBER(3) not null,
+  fcr600oper NUMBER(9) not null,
+  fcr600sbop NUMBER(3) not null,
+  fcr600inst NUMBER(2) not null,
+  fcr600corr NUMBER(2) not null,
+  fcr600fchr DATE,
+  fcr600usrr CHAR(10),
+  fcr600fchp DATE,
+  fcr600usrp CHAR(10),
+  fcr600txt  VARCHAR2(200),
+  fcr600est  CHAR(1)
+)
+;
+alter table FCR600
+  add primary key (FCR600COD, FCR600MOD, FCR600OPER, FCR600SBOP, FCR600INST, FCR600CORR);
+

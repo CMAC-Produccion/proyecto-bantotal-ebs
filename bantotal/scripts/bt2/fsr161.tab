@@ -1,0 +1,16 @@
+create table FSR161
+(
+  paqemp   NUMBER(3) not null,
+  paqcod   NUMBER(3) not null,
+  arprod   NUMBER(3) not null,
+  cntprod  NUMBER(3),
+  cntmovl  NUMBER(3),
+  paqiaux1 CHAR(1),
+  paqiaux2 NUMBER(9),
+  paqiaux3 DATE
+)
+;
+create index FSR16102 on FSR161 (ARPROD);
+alter table FSR161
+  add primary key (PAQEMP, PAQCOD, ARPROD);
+

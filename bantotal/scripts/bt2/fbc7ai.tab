@@ -1,0 +1,33 @@
+create table FBC7AI
+(
+  bc7aiemp  NUMBER(3) not null,
+  bc7aifech DATE not null,
+  bc7aitreg NUMBER(2) not null,
+  bc7aisuc  NUMBER(3) not null,
+  bc7airub  NUMBER(16) not null,
+  bc7aimda  NUMBER(4) not null,
+  bc7aipap  NUMBER(4) not null,
+  bc7aicta  NUMBER(9) not null,
+  bc7aiope  NUMBER(9) not null,
+  bc7aisbop NUMBER(3) not null,
+  bc7aitop  NUMBER(3) not null,
+  bc7aimod  NUMBER(3),
+  bc7ainpre CHAR(20),
+  bc7aifeci DATE,
+  bc7aifecf DATE,
+  bc7aisdoi NUMBER(17,2),
+  bc7aisdof NUMBER(17,2),
+  bc7aisdom NUMBER(17,2),
+  bc7aitasr NUMBER(10,6),
+  bc7aiingt NUMBER(17,2),
+  bc7aiinge NUMBER(17,2),
+  bc7aidife NUMBER(17,2),
+  bc7ailimt NUMBER(10,6),
+  bc7aidift NUMBER(17,2),
+  bc7aicref NUMBER(17,2)
+)
+;
+create index FBC7AI02 on FBC7AI (BC7AIEMP, BC7AISUC, BC7AIRUB, BC7AIMDA, BC7AIPAP, BC7AICTA, BC7AIOPE, BC7AISBOP, BC7AITOP, BC7AITREG, BC7AIFECH);
+alter table FBC7AI
+  add primary key (BC7AIEMP, BC7AIFECH, BC7AITREG, BC7AISUC, BC7AIRUB, BC7AIMDA, BC7AIPAP, BC7AICTA, BC7AIOPE, BC7AISBOP, BC7AITOP);
+

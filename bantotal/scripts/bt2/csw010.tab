@@ -1,0 +1,19 @@
+create table CSW010
+(
+  csw010pai NUMBER(3) not null,
+  csw010tdo NUMBER(2) not null,
+  csw010ndo CHAR(12) not null,
+  csw010mod NUMBER(3) not null,
+  csw010top NUMBER(4) not null,
+  csw010cor NUMBER(9) not null,
+  csw010txt VARCHAR2(200),
+  csw010est CHAR(2),
+  csw010usu CHAR(10),
+  csw010ter CHAR(10),
+  csw010tim CHAR(8),
+  csw010fec DATE
+)
+;
+alter table CSW010
+  add primary key (CSW010PAI, CSW010TDO, CSW010NDO, CSW010MOD, CSW010TOP, CSW010COR);
+

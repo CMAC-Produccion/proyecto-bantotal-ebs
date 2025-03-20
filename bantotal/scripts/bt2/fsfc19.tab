@@ -1,0 +1,41 @@
+create table FSFC19
+(
+  sfc19emp   NUMBER(3) not null,
+  sfc19mer   NUMBER(3) not null,
+  sfc19pro   NUMBER(3) not null,
+  sfc19tipo  NUMBER(2) not null,
+  sfc19plac  NUMBER(5) not null,
+  sfc19plav  NUMBER(5) not null,
+  sfc19pced  CHAR(1),
+  sfc19pved  CHAR(1),
+  sfc19des   CHAR(25),
+  sfc19desab CHAR(12),
+  sfc19ajpc  CHAR(1),
+  sfc19tiapc CHAR(1),
+  sfc19calc  CHAR(1),
+  sfc19calec NUMBER(3),
+  sfc19ajpv  CHAR(1),
+  sfc19tiapv CHAR(1),
+  sfc19calv  CHAR(1),
+  sfc19calev NUMBER(3),
+  sfc19mod   NUMBER(3),
+  sfc19tran  NUMBER(3),
+  sfc19hab   CHAR(1),
+  sfc19aux1  CHAR(1),
+  sfc19aux2  CHAR(1),
+  sfc19aux3  CHAR(1),
+  sfc19aux4  CHAR(1),
+  sfc19aux5  NUMBER(13,8),
+  sfc19aux6  NUMBER(13,8),
+  sfc19aux7  NUMBER(13,8),
+  sfc19aux8  NUMBER(5),
+  sfc19aux9  NUMBER(5),
+  sfc19mod2  NUMBER(3),
+  sfc19tran2 NUMBER(3),
+  sfc19orpa  NUMBER(2),
+  sfc19orpa2 NUMBER(2)
+)
+;
+alter table FSFC19
+  add primary key (SFC19EMP, SFC19MER, SFC19PRO, SFC19TIPO, SFC19PLAC, SFC19PLAV);
+

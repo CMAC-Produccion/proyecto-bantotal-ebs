@@ -1,0 +1,16 @@
+create table CON050
+(
+  conusr  CHAR(10) not null,
+  conwrst CHAR(10) not null,
+  conpgm  CHAR(10) not null,
+  concor  NUMBER(7) not null,
+  conord  CHAR(25),
+  coninf1 CHAR(250),
+  coninf2 CHAR(250),
+  coninf3 CHAR(250)
+)
+;
+create index CON05003 on CON050 (CONUSR, CONWRST, CONPGM, CONORD);
+alter table CON050
+  add primary key (CONUSR, CONWRST, CONPGM, CONCOR);
+

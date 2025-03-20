@@ -1,0 +1,28 @@
+create table AQPA044
+(
+  aqpa044pgcod NUMBER(3) not null,
+  aqpa044modu  NUMBER(3) not null,
+  aqpa044tope  NUMBER(3) not null,
+  aqpa044sucd  NUMBER(3) not null,
+  aqpa044mon   NUMBER(4) not null,
+  aqpa044pap   NUMBER(4) not null,
+  aqpa044ctnro NUMBER(9) not null,
+  aqpa044oper  NUMBER(9) not null,
+  aqpa044sbop  NUMBER(3) not null,
+  aqpa044fec   DATE,
+  aqpa044dias  NUMBER(5),
+  aqpa044aux1  VARCHAR2(100),
+  aqpa044aux2  VARCHAR2(100),
+  aqpa044aux3  NUMBER(17,2),
+  aqpa044aux4  NUMBER(17,2),
+  aqpa044suc   NUMBER(4),
+  aqpa044cor   NUMBER(10) not null,
+  aqpa044sac   NUMBER(17,2),
+  aqpa044sao   NUMBER(17,2),
+  aqpa044fep   DATE,
+  aqpa044est   NUMBER(3)
+)
+;
+alter table AQPA044
+  add primary key (AQPA044PGCOD, AQPA044MODU, AQPA044TOPE, AQPA044SUCD, AQPA044MON, AQPA044PAP, AQPA044CTNRO, AQPA044OPER, AQPA044SBOP, AQPA044COR);
+

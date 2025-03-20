@@ -1,0 +1,42 @@
+create table JAQL524
+(
+  jaql524scsuc NUMBER(3) not null,
+  jaql524sccta NUMBER(9) not null,
+  jaql524scmda NUMBER(4) not null,
+  jaql524scsbo NUMBER(3) not null,
+  jaql524sctop NUMBER(3) not null,
+  jaql524scmod NUMBER(3) not null,
+  jaql524coent NUMBER(3) not null,
+  jaql524cotsv NUMBER(3) not null,
+  jaql524nrcon VARCHAR2(20) not null,
+  jaql524coafi NUMBER(7),
+  jaql524diain NUMBER(2),
+  jaql524diafi NUMBER(2),
+  jaql524mtomx NUMBER(11,2),
+  jaql524feafi DATE,
+  jaql524usafi VARCHAR2(20),
+  jaql524fedes DATE,
+  jaql524usdes VARCHAR2(20),
+  jaql524ulpro DATE,
+  jaql524esulp CHAR(1),
+  jaql524esreg CHAR(1),
+  jaql524obser VARCHAR2(200),
+  jaql524sua   NUMBER(3),
+  jaql524hor   CHAR(8),
+  jaql524ax1   NUMBER(9),
+  jaql524ax2   NUMBER(9),
+  jaql524ax3   NUMBER(17,2),
+  jaql524ax4   NUMBER(17,2),
+  jaql524ax5   DATE,
+  jaql524ax6   DATE,
+  jaql524ax7   CHAR(100),
+  jaql524ax8   CHAR(100),
+  jaql524ax9   CHAR(100)
+)
+;
+create index JAQL524IDX1 on JAQL524 (JAQL524SUA, JAQL524FEAFI);
+create index JAQL52402 on JAQL524 (JAQL524COAFI);
+create index JAQL52403 on JAQL524 (JAQL524COENT, JAQL524COTSV, JAQL524NRCON);
+alter table JAQL524
+  add primary key (JAQL524SCSUC, JAQL524SCCTA, JAQL524SCMDA, JAQL524SCSBO, JAQL524SCTOP, JAQL524SCMOD, JAQL524COENT, JAQL524COTSV, JAQL524NRCON);
+

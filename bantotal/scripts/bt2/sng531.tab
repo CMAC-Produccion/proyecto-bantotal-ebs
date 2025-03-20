@@ -1,0 +1,10 @@
+create table SNG531
+(
+  sng501bien NUMBER(10) not null,
+  sng530cod  NUMBER(10) not null
+)
+;
+create index SNG53102 on SNG531 (SNG530COD);
+alter table SNG531
+  add primary key (SNG501BIEN, SNG530COD);
+

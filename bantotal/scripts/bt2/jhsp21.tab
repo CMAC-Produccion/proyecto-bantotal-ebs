@@ -1,0 +1,18 @@
+create table JHSP21
+(
+  jhsp21fec DATE not null,
+  jhsp21hor CHAR(8) not null,
+  jhsp21tre CHAR(1) not null,
+  jhsp21cba NUMBER(2) not null,
+  jhsp21mon NUMBER(1) not null,
+  jhsp21pro NUMBER(1) not null,
+  jhsp21fse NUMBER(8),
+  jhsp21cch NUMBER(6),
+  jhsp21imb NUMBER(18),
+  jhsp21ccc NUMBER(6),
+  jhsp21imc NUMBER(18),
+  jhsp21aju CHAR(1)
+)
+;
+create unique index JHSP2101 on JHSP21 (JHSP21FEC, JHSP21HOR, JHSP21TRE, JHSP21CBA, JHSP21MON, JHSP21PRO);
+

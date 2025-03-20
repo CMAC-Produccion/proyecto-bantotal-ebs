@@ -1,0 +1,17 @@
+create table JSENG14
+(
+  jseng13pgc NUMBER(3) not null,
+  jseng13ctn NUMBER(9) not null,
+  jseng13fac NUMBER(3) not null,
+  jseng13cfa NUMBER(3) not null,
+  jseng13ctf DATE not null,
+  jseng13cat CHAR(3) not null,
+  jseng14nim NUMBER(4),
+  jseng14sel NUMBER(4),
+  jseng14hue NUMBER(4),
+  jseng14fir NUMBER(4)
+)
+;
+alter table JSENG14
+  add primary key (JSENG13PGC, JSENG13CTN, JSENG13FAC, JSENG13CFA, JSENG13CTF, JSENG13CAT);
+

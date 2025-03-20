@@ -1,0 +1,24 @@
+create table FCPG55
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg47coddp NUMBER(5) not null,
+  cpg55fechc DATE not null,
+  cpg55sucat NUMBER(3),
+  cpg18cod   NUMBER(3),
+  cpg20sucep NUMBER(4),
+  cpg02cod   NUMBER(3),
+  cpg55fvpre DATE,
+  cpg55est   CHAR(3),
+  cpg55blq   CHAR(1),
+  cpg55inst  NUMBER(10)
+)
+;
+create index FCPG5503 on FCPG55 (CPG02COD);
+create index FCPG5504 on FCPG55 (CPG55INST);
+create index FCPG5505 on FCPG55 (CPG26EMPBT, CPG18COD, CPG20SUCEP);
+create index FCPG5506 on FCPG55 (CPG26EMPBT, CPG55FECHC);
+alter table FCPG55
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG47CODDP, CPG55FECHC);
+

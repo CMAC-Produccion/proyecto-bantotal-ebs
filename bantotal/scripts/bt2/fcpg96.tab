@@ -1,0 +1,17 @@
+create table FCPG96
+(
+  cpg96ins   NUMBER(10) not null,
+  cpg96wit   NUMBER(10) not null,
+  cpg96tab   CHAR(10) not null,
+  cpg96corr  NUMBER(8) not null,
+  cpg96ncom  NUMBER(5) not null,
+  cpg96reng  NUMBER(2) not null,
+  cpg96com   CHAR(65),
+  cpg96usu   CHAR(10),
+  cpg96uwrki NUMBER(10),
+  cpg96est   CHAR(1)
+)
+;
+alter table FCPG96
+  add primary key (CPG96INS, CPG96WIT, CPG96TAB, CPG96CORR, CPG96NCOM, CPG96RENG);
+

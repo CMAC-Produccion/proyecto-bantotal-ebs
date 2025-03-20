@@ -1,0 +1,12 @@
+create table IAR008
+(
+  iar008cuit CHAR(11) not null,
+  iar008mdes NUMBER(2) not null,
+  iar008ades NUMBER(4) not null,
+  iar008mhas NUMBER(2) not null,
+  iar008ahas NUMBER(4) not null
+)
+;
+alter table IAR008
+  add primary key (IAR008CUIT, IAR008MDES, IAR008ADES, IAR008MHAS, IAR008AHAS);
+

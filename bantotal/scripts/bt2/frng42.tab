@@ -1,0 +1,14 @@
+create table FRNG42
+(
+  rng49cod NUMBER(10) not null,
+  rng42nro NUMBER(10) not null,
+  rng42now DATE,
+  rng42usr CHAR(10),
+  rng42res CHAR(1),
+  rng42grp NUMBER(10),
+  rng42ret VARCHAR2(400)
+)
+;
+alter table FRNG42
+  add primary key (RNG49COD, RNG42NRO);
+

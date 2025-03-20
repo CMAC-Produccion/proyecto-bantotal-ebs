@@ -1,0 +1,10 @@
+create table FUP008
+(
+  fup008corr NUMBER(10) not null,
+  fup008lin  NUMBER(9) not null,
+  fup008reg  VARCHAR2(2000)
+)
+;
+alter table FUP008
+  add primary key (FUP008CORR, FUP008LIN);
+

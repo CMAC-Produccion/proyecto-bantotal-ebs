@@ -1,0 +1,22 @@
+create table FSEC23
+(
+  sec01pgcod NUMBER(3) not null,
+  sec15lgid  CHAR(10) not null,
+  sec15lgfec DATE not null,
+  sec15lgnro NUMBER(9) not null,
+  sec13motiv NUMBER(3) not null,
+  sec23mod   NUMBER(3) not null,
+  sec23suc   NUMBER(3) not null,
+  sec23mda   NUMBER(4) not null,
+  sec23pap   NUMBER(4) not null,
+  sec23cta   NUMBER(9) not null,
+  sec23oper  NUMBER(9) not null,
+  sec23sbop  NUMBER(3) not null,
+  sec23tope  NUMBER(3) not null,
+  sec23hora  CHAR(8)
+)
+;
+create index FSEC2302 on FSEC23 (SEC13MOTIV);
+alter table FSEC23
+  add primary key (SEC01PGCOD, SEC15LGID, SEC15LGFEC, SEC15LGNRO, SEC13MOTIV, SEC23MOD, SEC23SUC, SEC23MDA, SEC23PAP, SEC23CTA, SEC23OPER, SEC23SBOP, SEC23TOPE);
+

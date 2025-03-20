@@ -1,0 +1,51 @@
+create table AQPC204
+(
+  aqpc204co1 NUMBER(17) not null,
+  aqpc204vre VARCHAR2(40) not null,
+  aqpc204co2 NUMBER(17) not null,
+  aqpc204nom VARCHAR2(250),
+  aqpc204arc BLOB,
+  aqpc204ac1 VARCHAR2(250),
+  aqpc204ac2 VARCHAR2(250),
+  aqpc204an1 NUMBER(17,2),
+  aqpc204an2 NUMBER(17,2),
+  aqpc204ad1 DATE,
+  aqpc204ad2 DATE,
+  aqpc204fec DATE,
+  aqpc204hor VARCHAR2(8),
+  aqpc204usu VARCHAR2(10)
+)
+;
+comment on table AQPC204
+  is 'AQPC204';
+comment on column AQPC204.aqpc204co1
+  is 'Correlativo AQPC202';
+comment on column AQPC204.aqpc204vre
+  is 'Variable Regla';
+comment on column AQPC204.aqpc204co2
+  is 'Correlativo AQPC204';
+comment on column AQPC204.aqpc204nom
+  is 'Nombre del archivo';
+comment on column AQPC204.aqpc204arc
+  is 'Archivo';
+comment on column AQPC204.aqpc204ac1
+  is 'Campo Auxiliar 1';
+comment on column AQPC204.aqpc204ac2
+  is 'Campo Auxiliar 2';
+comment on column AQPC204.aqpc204an1
+  is 'Campo Auxiliar 1';
+comment on column AQPC204.aqpc204an2
+  is 'Campo Auxiliar 2';
+comment on column AQPC204.aqpc204ad1
+  is 'Campo Auxiliar 1';
+comment on column AQPC204.aqpc204ad2
+  is 'Campo Auxiliar 2';
+comment on column AQPC204.aqpc204fec
+  is 'Fecha Registro';
+comment on column AQPC204.aqpc204hor
+  is 'Hora Registro';
+comment on column AQPC204.aqpc204usu
+  is 'Usuario Registro';
+alter table AQPC204
+  add primary key (AQPC204CO1, AQPC204VRE, AQPC204CO2);
+

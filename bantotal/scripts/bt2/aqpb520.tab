@@ -1,0 +1,81 @@
+create table AQPB520
+(
+  aqpb520creusr VARCHAR2(10) not null,
+  aqpb520cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb520reccod VARCHAR2(20) not null,
+  aqpb520trccod NUMBER(3),
+  aqpb520trcdes VARCHAR2(30),
+  aqpb520clinom VARCHAR2(30),
+  aqpb520clipai NUMBER(3),
+  aqpb520clitdo NUMBER(2),
+  aqpb520clindo VARCHAR2(12) not null,
+  aqpb520fecrec DATE,
+  aqpb520estcod NUMBER(3),
+  aqpb520estdes VARCHAR2(30),
+  aqpb520fecres DATE,
+  aqpb520agecod NUMBER(3),
+  aqpb520agedes VARCHAR2(30),
+  aqpb520recreg VARCHAR2(40),
+  aqpb520recfff DATE,
+  aqpb520diaate NUMBER(6),
+  aqpb520diaabs NUMBER(6),
+  aqpb520coment VARCHAR2(4000),
+  aqpb520carres VARCHAR2(50),
+  aqpb520soluci VARCHAR2(500),
+  aqpb520tipsol VARCHAR2(150),
+  aqpb520calpro NUMBER(6,2)
+)
+;
+comment on table AQPB520
+  is 'Reporte Reclamos KPI';
+comment on column AQPB520.aqpb520creusr
+  is 'Usuario de Creacion';
+comment on column AQPB520.aqpb520cretim
+  is 'Tiempo Creacion';
+comment on column AQPB520.aqpb520reccod
+  is 'Reclamo Codigo';
+comment on column AQPB520.aqpb520trccod
+  is 'Tipo de Reclamo Codigo';
+comment on column AQPB520.aqpb520trcdes
+  is 'Tipo de Reclamo Descripcion';
+comment on column AQPB520.aqpb520clinom
+  is 'Cliente Nombre';
+comment on column AQPB520.aqpb520clipai
+  is 'Cliente Pais';
+comment on column AQPB520.aqpb520clitdo
+  is 'Cliente Tipo de Documento';
+comment on column AQPB520.aqpb520clindo
+  is 'Cliente Nro de Documento';
+comment on column AQPB520.aqpb520fecrec
+  is 'Fecha de Recepcion de Reclamo';
+comment on column AQPB520.aqpb520estcod
+  is 'Estado Codigo';
+comment on column AQPB520.aqpb520estdes
+  is 'Estado Descripcion';
+comment on column AQPB520.aqpb520fecres
+  is 'Fecha de Respuesta';
+comment on column AQPB520.aqpb520agecod
+  is 'Agencia Codigo';
+comment on column AQPB520.aqpb520agedes
+  is 'Agencia Descripcion';
+comment on column AQPB520.aqpb520recreg
+  is 'Reclamo Region';
+comment on column AQPB520.aqpb520recfff
+  is 'Reclamo Fecha de Corte';
+comment on column AQPB520.aqpb520diaate
+  is 'Dias de Atencion';
+comment on column AQPB520.aqpb520diaabs
+  is 'Dias de Absolucion';
+comment on column AQPB520.aqpb520coment
+  is 'Comentario';
+comment on column AQPB520.aqpb520carres
+  is 'Carta de Respuesta';
+comment on column AQPB520.aqpb520soluci
+  is 'Solucion';
+comment on column AQPB520.aqpb520tipsol
+  is 'Tipo de Solucion';
+comment on column AQPB520.aqpb520calpro
+  is 'Calculo Promedio Mayor A';
+alter table AQPB520
+  add primary key (AQPB520CREUSR, AQPB520RECCOD, AQPB520CLINDO);
+

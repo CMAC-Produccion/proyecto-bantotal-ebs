@@ -1,0 +1,34 @@
+create table JAQZ310
+(
+  jaqz310cored     NUMBER(10) not null,
+  jaqz310nuele     NUMBER(12) not null,
+  jaqz310numcel    CHAR(20),
+  jaqz310numdoc    CHAR(20),
+  jaqz310pgcod     NUMBER(3),
+  jaqz310sucursal  NUMBER(3),
+  jaqz310modulo    NUMBER(3),
+  jaqz310moneda    NUMBER(4),
+  jaqz310papel     NUMBER(4),
+  jaqz310cuenta    NUMBER(9),
+  jaqz310operacion NUMBER(9),
+  jaqz310subope    NUMBER(3),
+  jaqz310tipope    NUMBER(3),
+  jaqz310fecreg    DATE,
+  jaqz310codusu    CHAR(20),
+  jaqz310aux1      CHAR(50),
+  jaqz310aux2      CHAR(50),
+  jaqz310aux3      CHAR(50),
+  jaqz310aux4      NUMBER(9),
+  jaqz310aux5      NUMBER(9),
+  jaqz310aux6      NUMBER(9),
+  jaqz310aux7      NUMBER(9,2),
+  jaqz310aux8      NUMBER(9,2),
+  jaqz310aux9      NUMBER(9,2),
+  jaqz310aux10     DATE,
+  jaqz310aux11     DATE,
+  jaqz310aux12     DATE
+)
+;
+alter table JAQZ310
+  add primary key (JAQZ310CORED, JAQZ310NUELE);
+

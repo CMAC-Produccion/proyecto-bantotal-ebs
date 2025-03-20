@@ -1,0 +1,16 @@
+create table FSFBC8
+(
+  xpapel   NUMBER(4) not null,
+  xprfdes  DATE not null,
+  xpasing  CHAR(5),
+  xprecom  NUMBER(14,8),
+  xprevta  NUMBER(14,8),
+  xprecie  NUMBER(14,8),
+  xprfinv  NUMBER(8),
+  sfbc8est CHAR(1)
+)
+;
+create index FSFBC803 on FSFBC8 (XPAPEL, XPRFINV);
+alter table FSFBC8
+  add primary key (XPAPEL, XPRFDES);
+

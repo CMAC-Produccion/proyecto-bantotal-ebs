@@ -1,0 +1,17 @@
+create table FSFL39
+(
+  fsfl39pgc NUMBER(3) not null,
+  fsfl39leg NUMBER(3) not null,
+  fsfl39nom CHAR(20),
+  fsfl39usu CHAR(10),
+  fsfl39fec DATE,
+  fsfl39oto NUMBER(17,2),
+  fsfl39dsp NUMBER(17,2),
+  fsfl39exc NUMBER(17,2),
+  fsfl39est CHAR(1)
+)
+;
+create index FSFL3902 on FSFL39 (FSFL39PGC, FSFL39USU);
+alter table FSFL39
+  add primary key (FSFL39PGC, FSFL39LEG);
+

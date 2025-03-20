@@ -1,0 +1,75 @@
+create table CSMD006
+(
+  csmd005cor NUMBER(10) not null,
+  csmd006cor NUMBER(9) not null,
+  csmd006con CHAR(30),
+  csmd006bpg NUMBER(3),
+  csmd006bmo NUMBER(3),
+  csmd006bsu NUMBER(3),
+  csmd006btr NUMBER(3),
+  csmd006bnr NUMBER(4),
+  csmd006bfc DATE,
+  csmd006bor NUMBER(2),
+  csmd006bsb NUMBER(3),
+  csmd006ppg NUMBER(3),
+  csmd006pmo NUMBER(3),
+  csmd006psu NUMBER(3),
+  csmd006ptr NUMBER(3),
+  csmd006pnr NUMBER(4),
+  csmd006pfc DATE,
+  csmd006por NUMBER(2),
+  csmd006psb NUMBER(3),
+  csmd006est CHAR(1),
+  csmd006emp CHAR(20),
+  csmd006app CHAR(60),
+  csmd006apm CHAR(30),
+  csmd006pno CHAR(30),
+  csmd006sno CHAR(30),
+  csmd006pai NUMBER(3),
+  csmd006tdo NUMBER(2),
+  csmd006nro CHAR(12),
+  csmd006mda NUMBER(4),
+  csmd006imp NUMBER(17,2),
+  csmd006doc CHAR(20),
+  csmd006ref CHAR(30),
+  csmd006fec DATE,
+  csmt001cod NUMBER(4),
+  csmd006suc NUMBER(3),
+  csmd006bmd NUMBER(4),
+  csmd006pap NUMBER(4),
+  csmd006mod NUMBER(3),
+  csmd006ope NUMBER(9),
+  csmd006top NUMBER(3),
+  csmd006cta NUMBER(9),
+  csmd006sbc NUMBER(3),
+  csmd006trn CHAR(20),
+  csmd006sdi CHAR(20),
+  csmd006sba CHAR(20),
+  csmd006bdr CHAR(60),
+  csmd006bct CHAR(20),
+  csmd006cpa NUMBER(3),
+  csmd006cti NUMBER(2),
+  csmd006cnr CHAR(12),
+  csmd006com NUMBER(17,2),
+  csmd006im1 NUMBER(17,2),
+  csmd006im2 NUMBER(17,2),
+  csmd006im3 NUMBER(17,2),
+  csmd006ca1 CHAR(100),
+  csmd006ca2 CHAR(100),
+  csmd006ca3 CHAR(100),
+  csmd006fe1 DATE,
+  csmd006fe2 DATE,
+  csmd006co1 NUMBER(10,6),
+  csmd006co2 NUMBER(10,6)
+)
+;
+create index CSMD0062 on CSMD006 (CSMT001COD);
+create index CSMD0064 on CSMD006 (CSMD005COR, CSMD006FEC, CSMD006CON);
+create index CSMD0065 on CSMD006 (CSMD006BPG, CSMD006BSU, CSMD006BMO, CSMD006BTR, CSMD006BNR, CSMD006BFC, CSMD006BOR, CSMD006BSB);
+create index CSMD0066 on CSMD006 (CSMD006MOD, CSMD006SUC, CSMD006BMD, CSMD006PAP, CSMD006OPE, CSMD006TOP, CSMD006CTA, CSMD006SBC);
+create index CSMD0067 on CSMD006 (CSMD005COR, CSMD006EST);
+create index CSMD0068 on CSMD006 (CSMD006DOC, CSMD005COR);
+create index CSMD0069 on CSMD006 (CSMD006APP, CSMD006APM, CSMD006PNO, CSMD006SNO, CSMD006EST);
+alter table CSMD006
+  add primary key (CSMD005COR, CSMD006COR);
+

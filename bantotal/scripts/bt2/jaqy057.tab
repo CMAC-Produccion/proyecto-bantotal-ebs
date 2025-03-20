@@ -1,0 +1,27 @@
+create table JAQY057
+(
+  jaqy056pano NUMBER(4) not null,
+  jaqy056pmes NUMBER(2) not null,
+  jaqy056coor NUMBER(15) not null,
+  jaqy057coor NUMBER(15) not null,
+  jaqy057pgco NUMBER(3),
+  jaqy057pmod NUMBER(3),
+  jaqy057psuc NUMBER(3),
+  jaqy057pmda NUMBER(4),
+  jaqy057ppap NUMBER(4),
+  jaqy057pcta NUMBER(9),
+  jaqy057oper NUMBER(9),
+  jaqy057sbop NUMBER(3),
+  jaqy057tope NUMBER(3),
+  jaqy057mtod NUMBER(16,2),
+  jaqy057escr NUMBER(2),
+  jaqy057esco NUMBER(4),
+  jaqy057fede DATE,
+  jaqy057trel NUMBER(4),
+  jaqy057esre VARCHAR2(1),
+  jaqy057diat NUMBER(6)
+)
+;
+alter table JAQY057
+  add primary key (JAQY056PANO, JAQY056PMES, JAQY056COOR, JAQY057COOR);
+

@@ -1,0 +1,15 @@
+create table FBRD54
+(
+  brd54emp  NUMBER(3) not null,
+  brd54suc  NUMBER(3) not null,
+  brd54mda  NUMBER(4) not null,
+  brd54cta  NUMBER(9) not null,
+  brd54sbop NUMBER(3) not null,
+  brd54top  NUMBER(3) not null,
+  brd54tpo  NUMBER(4) not null,
+  brd54imp  NUMBER(17,2)
+)
+;
+alter table FBRD54
+  add primary key (BRD54EMP, BRD54SUC, BRD54MDA, BRD54CTA, BRD54SBOP, BRD54TOP, BRD54TPO);
+

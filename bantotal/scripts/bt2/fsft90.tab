@@ -1,0 +1,17 @@
+create table FSFT90
+(
+  sft90emp   NUMBER(3) not null,
+  sft90merc  NUMBER(3) not null,
+  sft90prod  NUMBER(3) not null,
+  sft90comi  NUMBER(3) not null,
+  sft90cust  NUMBER(9) not null,
+  sft90espe  NUMBER(4) not null,
+  sft90id    NUMBER(2) not null,
+  sft90nucom NUMBER(3),
+  sft90numod NUMBER(3),
+  sft90habil CHAR(1)
+)
+;
+alter table FSFT90
+  add primary key (SFT90EMP, SFT90MERC, SFT90PROD, SFT90COMI, SFT90CUST, SFT90ESPE, SFT90ID);
+

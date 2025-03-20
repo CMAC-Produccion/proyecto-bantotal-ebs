@@ -1,0 +1,28 @@
+create table FSFT27
+(
+  papel  NUMBER(4) not null,
+  dtbcor NUMBER(4) not null,
+  dtbfei DATE,
+  dtbfef DATE,
+  dtbtas NUMBER(10,6),
+  dtbpls NUMBER(10,6),
+  dtbaa1 NUMBER(9),
+  dtbaa2 NUMBER(9),
+  dtbaa3 NUMBER(9),
+  dtbab1 NUMBER(17,2),
+  dtbab2 NUMBER(17,2),
+  dtbab3 NUMBER(17,2),
+  dtbac1 NUMBER(10,6),
+  dtbac2 NUMBER(10,6),
+  dtbac3 NUMBER(10,6),
+  dtbad1 DATE,
+  dtbad2 DATE,
+  dtbad3 DATE,
+  dtbae1 CHAR(40),
+  dtbae2 CHAR(40),
+  dtbae3 CHAR(40)
+)
+;
+alter table FSFT27
+  add primary key (PAPEL, DTBCOR);
+

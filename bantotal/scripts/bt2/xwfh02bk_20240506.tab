@@ -1,0 +1,14 @@
+create table XWFH02BK_20240506
+(
+  xwfh02wi NUMBER(4) not null,
+  xwfh02at NUMBER(4) not null,
+  xwfh02wk NUMBER(4),
+  xwfh02us NUMBER(4),
+  xwfh02va LONG,
+  xwfh02in NUMBER(4)
+)
+;
+create index XWFH0202 on XWFH02BK_20240506 (XWFH02IN, XWFH02AT, XWFH02WI);
+alter table XWFH02BK_20240506
+  add primary key (XWFH02WI, XWFH02AT);
+

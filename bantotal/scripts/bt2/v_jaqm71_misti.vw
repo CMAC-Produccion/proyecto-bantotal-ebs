@@ -1,0 +1,35 @@
+create or replace force view v_jaqm71_misti as
+select
+a.jaqm71fech,
+a.jaqm71anal,
+a.jaqm71hora,
+a.jaqm71clie,
+a.jaqm71prod,
+a.jaqm71segm,
+a.jaqm71dina,
+a.jaqm71moap,
+a.jaqm71conv,
+a.jaqm71pcca,
+--a.jaqm71calf,
+a.jaqm71tcre,
+a.jaqm71num1,
+a.jaqm71num2,
+a.jaqm71num3,
+a.jaqm71imp1,
+a.jaqm71imp2,
+a.jaqm71imp3,
+a.jaqm71car1,
+a.jaqm71car2,
+a.jaqm71car3,
+a.jaqm71var1,
+a.jaqm71var2,
+a.jaqm71var3,
+a.jaqm71fec1,
+a.jaqm71fec2,
+a.jaqm71fec3,
+a.jaqm71pais,
+a.jaqm71tdoc,
+a.jaqm71ndoc
+from JAQM71 a
+;
+

@@ -1,0 +1,36 @@
+create table FIF006
+(
+  if006apl NUMBER(4) not null,
+  if006ban CHAR(5) not null,
+  if006env NUMBER(9) not null,
+  if006crr NUMBER(9) not null,
+  if006bco NUMBER(3),
+  if006cta CHAR(17),
+  if006fmo NUMBER(6),
+  if006fva NUMBER(6),
+  if006dec CHAR(1),
+  if006imp NUMBER(17,2),
+  if006cor NUMBER(4),
+  if006com NUMBER(12),
+  if006ope CHAR(3),
+  if006cmo NUMBER(2),
+  if006nex NUMBER(4),
+  if006fex CHAR(6),
+  if006fec CHAR(6),
+  if006suc CHAR(5),
+  if006dep CHAR(8),
+  if006mar CHAR(1),
+  if006des CHAR(25),
+  if006fil CHAR(38),
+  if006fi2 CHAR(58),
+  if006eta CHAR(2),
+  if006arc CHAR(6),
+  if006fim CHAR(6)
+)
+;
+create index FIF00602 on FIF006 (IF006APL, IF006BAN, IF006ENV, IF006BCO, IF006CTA, IF006DEC, IF006FMO, IF006FVA);
+create index FIF00603 on FIF006 (IF006APL, IF006BAN, IF006ENV, IF006BCO, IF006CTA, IF006FMO, IF006FVA, IF006DEC, IF006IMP);
+create index FIF00604 on FIF006 (IF006APL, IF006BAN, IF006FEC, IF006ETA);
+alter table FIF006
+  add primary key (IF006APL, IF006BAN, IF006ENV, IF006CRR);
+

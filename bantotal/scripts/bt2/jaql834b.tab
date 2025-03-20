@@ -1,0 +1,16 @@
+create table JAQL834B
+(
+  jaql834cpro  NUMBER(9),
+  jaql834bcmon NUMBER(3),
+  jaql834bctac VARCHAR2(20),
+  jaql834btipc VARCHAR2(1),
+  jaql834bmont NUMBER(17,2),
+  jaql834bmod  NUMBER(3),
+  jaql834btrn  NUMBER(3),
+  jaql834bsuc  NUMBER(3),
+  jaql834brel  NUMBER(4),
+  jaql834bobs  VARCHAR2(1000)
+)
+;
+create index IDX_JAQL834B_001 on JAQL834B (JAQL834CPRO, JAQL834BCMON, JAQL834BCTAC, JAQL834BTIPC);
+

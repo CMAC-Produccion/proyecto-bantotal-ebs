@@ -1,0 +1,20 @@
+create table JHSS30
+(
+  jhss30grp  NUMBER(4) not null,
+  jhss30mda  NUMBER(4) not null,
+  jhss30corr NUMBER(9) not null,
+  jhss30acp  CHAR(30),
+  jhss30tdoc CHAR(30),
+  jhss30ndoc NUMBER(9),
+  jhss30vto  DATE,
+  jhss30pag  DATE,
+  jhss30mto  NUMBER(17,2),
+  jhss30imp  NUMBER(17,2),
+  jhss30nvto DATE,
+  jhss30nmto NUMBER(17,2),
+  jhss30prd  CHAR(30)
+)
+;
+create unique index JHSS3001 on JHSS30 (JHSS30GRP, JHSS30MDA, JHSS30CORR);
+create index JHSS3002 on JHSS30 (JHSS30GRP, JHSS30MDA, JHSS30PRD, JHSS30VTO, JHSS30MTO, JHSS30NDOC);
+

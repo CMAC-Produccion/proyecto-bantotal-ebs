@@ -1,0 +1,38 @@
+create table JAQL663
+(
+  jaql663corre NUMBER(10) not null,
+  jaql663pgcod NUMBER(3) not null,
+  jaql663sucur NUMBER(3) not null,
+  jaql663modul NUMBER(3) not null,
+  jaql663trans NUMBER(3) not null,
+  jaql663relac NUMBER(4) not null,
+  jaql663fecvc DATE not null,
+  jaql663ctamo NUMBER(10),
+  jaql663monto NUMBER(17,2),
+  jaql663moned NUMBER(4),
+  jaql663femov DATE,
+  jaql663vouch CHAR(10),
+  jaql663cajco CHAR(3),
+  jaql663tesco CHAR(10),
+  jaql663tipop CHAR(12),
+  jaql663mvite NUMBER(10),
+  jaql663faper DATE,
+  jaql663buser CHAR(10),
+  jaql663asiet VARCHAR2(20),
+  jaql663rbant VARCHAR2(20),
+  jaql663ctacl NUMBER(9),
+  jaql663auxc1 CHAR(60),
+  jaql663auxc2 CHAR(60),
+  jaql663auxc3 CHAR(60),
+  jaql663auxc4 CHAR(60),
+  jaql663auxn1 NUMBER(17,2),
+  jaql663auxn2 NUMBER(17,2),
+  jaql663auxn3 NUMBER(17,2),
+  jaql663auxd1 DATE,
+  jaql663auxd2 DATE,
+  jaql663auxd3 DATE
+)
+;
+alter table JAQL663
+  add primary key (JAQL663CORRE, JAQL663PGCOD, JAQL663SUCUR, JAQL663MODUL, JAQL663TRANS, JAQL663RELAC, JAQL663FECVC);
+

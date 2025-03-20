@@ -1,0 +1,14 @@
+create table FTD4DH
+(
+  td4dhcod NUMBER(4) not null,
+  td4dhtip CHAR(5) not null,
+  td4dhnev NUMBER(9) not null,
+  td4dhcor NUMBER(9) not null,
+  td4dhtar CHAR(19),
+  td4dhest CHAR(2),
+  td4dhtex CHAR(50)
+)
+;
+alter table FTD4DH
+  add primary key (TD4DHCOD, TD4DHTIP, TD4DHNEV, TD4DHCOR);
+

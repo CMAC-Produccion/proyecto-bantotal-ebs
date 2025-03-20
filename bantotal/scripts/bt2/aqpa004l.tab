@@ -1,0 +1,23 @@
+create table AQPA004L
+(
+  aqpa4lpgcod NUMBER(3) not null,
+  aqpa4lmod   NUMBER(3) not null,
+  aqpa4lsuc   NUMBER(3) not null,
+  aqpa4lmda   NUMBER(4) not null,
+  aqpa4lpap   NUMBER(4) not null,
+  aqpa4lcta   NUMBER(9) not null,
+  aqpa4loper  NUMBER(9) not null,
+  aqpa4lsbop  NUMBER(3) not null,
+  aqpa4ltope  NUMBER(3) not null,
+  aqpa4lfec   DATE not null,
+  aqpa4lhor   CHAR(8) not null,
+  aqpa4lusu   CHAR(10),
+  aqpa4lfecm  DATE,
+  aqpa4lhorm  CHAR(8),
+  aqpa4lusum  CHAR(10),
+  aqpa4ltipo  VARCHAR2(10)
+)
+;
+alter table AQPA004L
+  add primary key (AQPA4LPGCOD, AQPA4LMOD, AQPA4LSUC, AQPA4LMDA, AQPA4LPAP, AQPA4LCTA, AQPA4LOPER, AQPA4LSBOP, AQPA4LTOPE, AQPA4LFEC, AQPA4LHOR);
+

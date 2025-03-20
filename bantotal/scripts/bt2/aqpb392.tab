@@ -1,0 +1,51 @@
+create table AQPB392
+(
+  aqpb392usr     CHAR(10) not null,
+  aqpb392emp     NUMBER(3) not null,
+  aqpb392suc     NUMBER(3) not null,
+  aqpb392mod     NUMBER(3) not null,
+  aqpb392mda     NUMBER(4) not null,
+  aqpb392pap     NUMBER(4) not null,
+  aqpb392cta     NUMBER(9) not null,
+  aqpb392ope     NUMBER(9) not null,
+  aqpb392sbo     NUMBER(3) not null,
+  aqpb392top     NUMBER(3) not null,
+  aqpb392ins     NUMBER(10),
+  aqpb392sdo     NUMBER(18,2),
+  aqpb392mtoa    NUMBER(18,2),
+  aqpb392pcj     NUMBER(5,2),
+  aqpb392tip     NUMBER(2),
+  aqpb392empg    NUMBER(3),
+  aqpb392sucg    NUMBER(3),
+  aqpb392modg    NUMBER(3),
+  aqpb392mdag    NUMBER(4),
+  aqpb392papg    NUMBER(4),
+  aqpb392ctag    NUMBER(9),
+  aqpb392opeg    NUMBER(9),
+  aqpb392sbog    NUMBER(3),
+  aqpb392topg    NUMBER(3),
+  aqpb392estg    NUMBER(2),
+  aqpb392estgde  CHAR(30),
+  aqpb392mtoog   NUMBER(18,2),
+  aqpb392mtoag   NUMBER(18,2),
+  aqpb392est     CHAR(1),
+  aqpb392estc    NUMBER(2),
+  aqpb392estcde  CHAR(30),
+  aqpb392itcod   NUMBER(3) not null,
+  aqpb392itmod   NUMBER(3) not null,
+  aqpb392itsuc   NUMBER(3) not null,
+  aqpb392ittran  NUMBER(3) not null,
+  aqpb392itnrel  NUMBER(4) not null,
+  aqpb392itfcon  DATE not null,
+  aqpb392ithor   CHAR(8),
+  aqpb392itucnf  CHAR(10),
+  aqpb392usuact  CHAR(10),
+  aqpb392fecact  DATE,
+  aqpb392sucdes  CHAR(30),
+  aqpb392sucgdes CHAR(30)
+)
+;
+create index AQPB3922 on AQPB392 (AQPB392USR);
+alter table AQPB392
+  add primary key (AQPB392USR, AQPB392EMP, AQPB392SUC, AQPB392MOD, AQPB392MDA, AQPB392PAP, AQPB392CTA, AQPB392OPE, AQPB392SBO, AQPB392TOP, AQPB392ITCOD, AQPB392ITMOD, AQPB392ITSUC, AQPB392ITTRAN, AQPB392ITNREL, AQPB392ITFCON);
+

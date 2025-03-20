@@ -1,0 +1,53 @@
+create table AQPC276
+(
+  aqpc276pais NUMBER(3) not null,
+  aqpc276tdoc NUMBER(2) not null,
+  aqpc276ndoc VARCHAR2(12) not null,
+  aqpc276fch  DATE not null,
+  aqpc276hora VARCHAR2(8) not null,
+  aqpc276user VARCHAR2(10) not null,
+  aqpc276vgnt VARCHAR2(1),
+  aqpc276prec VARCHAR2(1),
+  aqpc276serc NUMBER(10),
+  aqpc276serb NUMBER(10),
+  aqpc276buro NUMBER(3),
+  aqpc276serp NUMBER(10),
+  aqpc276cerr VARCHAR2(5),
+  aqpc276msge VARCHAR2(100)
+)
+;
+comment on table AQPC276
+  is 'Log de la Precalificacion del Cliente';
+comment on column AQPC276.aqpc276pais
+  is 'Codigo del Pais';
+comment on column AQPC276.aqpc276tdoc
+  is 'Tipo de Documento';
+comment on column AQPC276.aqpc276ndoc
+  is 'Nro. de Documento';
+comment on column AQPC276.aqpc276fch
+  is 'Fecha';
+comment on column AQPC276.aqpc276hora
+  is 'Hora';
+comment on column AQPC276.aqpc276user
+  is 'Usuario';
+comment on column AQPC276.aqpc276vgnt
+  is 'Vigente = 1 / No Vigente = 0';
+comment on column AQPC276.aqpc276prec
+  is 'Precalificacion Cliente';
+comment on column AQPC276.aqpc276serc
+  is 'Serial Conexion';
+comment on column AQPC276.aqpc276serb
+  is 'Serial Buro';
+comment on column AQPC276.aqpc276buro
+  is 'Buro';
+comment on column AQPC276.aqpc276serp
+  is 'Serial Precalificacion Cliente';
+comment on column AQPC276.aqpc276cerr
+  is 'Codigo de Error';
+comment on column AQPC276.aqpc276msge
+  is 'Mensaje de Error';
+create index AQPC276A2 on AQPC276 (AQPC276PAIS, AQPC276TDOC, AQPC276NDOC, AQPC276FCH, AQPC276HORA);
+create index AQPC276A3 on AQPC276 (AQPC276NDOC);
+alter table AQPC276
+  add primary key (AQPC276PAIS, AQPC276TDOC, AQPC276NDOC, AQPC276FCH, AQPC276HORA, AQPC276USER);
+

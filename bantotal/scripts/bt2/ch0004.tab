@@ -1,0 +1,27 @@
+create table CH0004
+(
+  cestusu  CHAR(10) not null,
+  cestwst  CHAR(10) not null,
+  cestcor  NUMBER(9) not null,
+  cestcod  NUMBER(3),
+  cestmod  NUMBER(3),
+  cestmda  NUMBER(4),
+  cestpap  NUMBER(4),
+  cestcta  NUMBER(9),
+  cestscta NUMBER(3),
+  cestope  NUMBER(9),
+  cesttop  NUMBER(3),
+  cestsuc  NUMBER(3),
+  cestimp  NUMBER(17,2),
+  cestcmov NUMBER(3),
+  cestdh   NUMBER(1),
+  cestfmov DATE,
+  cestdoc  NUMBER(9),
+  cestsdo  NUMBER(17,2),
+  cestfad  DATE
+)
+;
+create index CH000402 on CH0004 (CESTUSU, CESTWST, CESTCOD, CESTSUC, CESTMOD, CESTMDA, CESTPAP, CESTCTA, CESTOPE, CESTSCTA, CESTTOP, CESTFMOV, CESTCMOV);
+alter table CH0004
+  add primary key (CESTUSU, CESTWST, CESTCOR);
+

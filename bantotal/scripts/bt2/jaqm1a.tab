@@ -1,0 +1,113 @@
+create table JAQM1A
+(
+  jaqm1atem NUMBER(3) not null,
+  jaqm1atfc DATE not null,
+  jaqm1atsu NUMBER(3) not null,
+  jaqm1atmo NUMBER(3) not null,
+  jaqm1attr NUMBER(3) not null,
+  jaqm1atre NUMBER(4) not null,
+  jaqm1apsu NUMBER(3) not null,
+  jaqm1amod NUMBER(3) not null,
+  jaqm1amda NUMBER(4) not null,
+  jaqm1apap NUMBER(4) not null,
+  jaqm1acta NUMBER(9) not null,
+  jaqm1aope NUMBER(9) not null,
+  jaqm1asbo NUMBER(3) not null,
+  jaqm1atop NUMBER(3) not null,
+  jaqm1ains NUMBER(10) not null,
+  jaqm1aord NUMBER(2) not null,
+  jaqm1asor NUMBER(3) not null,
+  jaqm1aain CHAR(50) not null,
+  jaqm1atfl CHAR(20) not null,
+  jaqm1ahor CHAR(8),
+  jaqm1aest CHAR(1),
+  jaqm1adsc CHAR(250),
+  jaqm1aan1 NUMBER(9),
+  jaqm1aan2 NUMBER(9),
+  jaqm1aan3 NUMBER(9),
+  jaqm1aad1 DATE,
+  jaqm1aad2 DATE,
+  jaqm1aad3 DATE,
+  jaqm1aai1 NUMBER(17,2),
+  jaqm1aai2 NUMBER(17,2),
+  jaqm1aai3 NUMBER(17,2),
+  jaqm1aac1 CHAR(255),
+  jaqm1aac2 CHAR(255),
+  jaqm1aac3 CHAR(255)
+)
+;
+comment on table JAQM1A
+  is 'Trailer relacion Contratacion Digital';
+comment on column JAQM1A.jaqm1atem
+  is 'Trailer Empresa';
+comment on column JAQM1A.jaqm1atfc
+  is 'Trailer Fecha (JAQM16FCH)';
+comment on column JAQM1A.jaqm1atsu
+  is 'Trailer Sucursal (JAQM16SUC)';
+comment on column JAQM1A.jaqm1atmo
+  is 'Trailer Modulo';
+comment on column JAQM1A.jaqm1attr
+  is 'Código Unico Interno';
+comment on column JAQM1A.jaqm1atre
+  is 'Trailer Relacion';
+comment on column JAQM1A.jaqm1apsu
+  is 'Producto Sucursal';
+comment on column JAQM1A.jaqm1amod
+  is 'Producto Modulo (JAQM16MOD)';
+comment on column JAQM1A.jaqm1amda
+  is 'Producto Moneda (JAQM16MDA)';
+comment on column JAQM1A.jaqm1apap
+  is 'Producto Papel (JAQM16PAP)';
+comment on column JAQM1A.jaqm1acta
+  is 'Producto Cuenta (JAQM16CTA)';
+comment on column JAQM1A.jaqm1aope
+  is 'Producto Operación (JAQM16OPE)';
+comment on column JAQM1A.jaqm1asbo
+  is 'Producto Sub Operación (JAQM16SBO)';
+comment on column JAQM1A.jaqm1atop
+  is 'Producto Tipo de Operacion (JAQM16TOP)';
+comment on column JAQM1A.jaqm1ains
+  is 'Instancia (JAQM16INS)';
+comment on column JAQM1A.jaqm1aord
+  is 'Referencia Ordinal (JAQM16ORD)';
+comment on column JAQM1A.jaqm1asor
+  is 'Referencia Subordinal (JAQM16SOR)';
+comment on column JAQM1A.jaqm1aain
+  is 'Referencia Auxiliar (JAQM16AIN)';
+comment on column JAQM1A.jaqm1atfl
+  is 'Referencia Tipo de flujo (JAQM16TFL)';
+comment on column JAQM1A.jaqm1ahor
+  is 'Hora';
+comment on column JAQM1A.jaqm1aest
+  is 'Estado (P : procesador E: error)';
+comment on column JAQM1A.jaqm1adsc
+  is 'Descripcion estado';
+comment on column JAQM1A.jaqm1aan1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM1A.jaqm1aan2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM1A.jaqm1aan3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM1A.jaqm1aad1
+  is 'Date Auxiliar 1';
+comment on column JAQM1A.jaqm1aad2
+  is 'Date Auxiliar 2';
+comment on column JAQM1A.jaqm1aad3
+  is 'Date Auxiliar 3';
+comment on column JAQM1A.jaqm1aai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM1A.jaqm1aai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM1A.jaqm1aai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM1A.jaqm1aac1
+  is 'Character Auxiliar 1';
+comment on column JAQM1A.jaqm1aac2
+  is 'Character Auxiliar 2';
+comment on column JAQM1A.jaqm1aac3
+  is 'Character Auxiliar 3';
+create index JAQM1AA2 on JAQM1A (JAQM1ATEM, JAQM1ATFC, JAQM1ATSU, JAQM1ATMO, JAQM1ATTR, JAQM1ATRE, JAQM1AHOR, JAQM1AINS);
+create index JAQM1AA3 on JAQM1A (JAQM1ATEM, JAQM1APSU, JAQM1AMOD, JAQM1AMDA, JAQM1APAP, JAQM1ACTA, JAQM1AOPE, JAQM1ASBO, JAQM1ATOP, JAQM1AINS);
+alter table JAQM1A
+  add primary key (JAQM1ATEM, JAQM1ATFC, JAQM1ATSU, JAQM1ATMO, JAQM1ATTR, JAQM1ATRE, JAQM1APSU, JAQM1AMOD, JAQM1AMDA, JAQM1APAP, JAQM1ACTA, JAQM1AOPE, JAQM1ASBO, JAQM1ATOP, JAQM1AINS, JAQM1AORD, JAQM1ASOR, JAQM1AAIN, JAQM1ATFL);
+

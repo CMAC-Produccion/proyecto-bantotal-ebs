@@ -1,0 +1,83 @@
+create table AQPA359
+(
+  aqpa359corr    NUMBER(10) not null,
+  aqpa359pais    NUMBER(9) not null,
+  aqpa359tdoc    NUMBER(9) not null,
+  aqpa359ndoc    VARCHAR2(12) not null,
+  aqpa359tcamb   NUMBER(14,8),
+  aqpa359fec     DATE not null,
+  aqpa359instl   NUMBER(12) not null,
+  aqpa359inste   NUMBER(12),
+  aqpa359pgcod   NUMBER(9),
+  aqpa359itsuc   NUMBER(9),
+  aqpa359itmod   NUMBER(9),
+  aqpa359ittran  NUMBER(9),
+  aqpa359itnrel  NUMBER(9),
+  aqpa359itord   NUMBER(9),
+  aqpa359itsbor  NUMBER(9),
+  aqpa359hora    CHAR(8) not null,
+  aqpa359user    VARCHAR2(12),
+  aqpa359mesanio VARCHAR2(8),
+  aqpa359capcaja NUMBER(17,2),
+  aqpa359ifis    NUMBER(17,2),
+  aqpa359resneto NUMBER(17,2),
+  aqpa359ccontg  NUMBER(17,2),
+  aqpa359cpoten  NUMBER(17,2),
+  aqpa359ratio   NUMBER(10,6),
+  aqpa359est     VARCHAR2(2),
+  aqpa359naux1   NUMBER(17,2),
+  aqpa359naux2   NUMBER(17,2),
+  aqpa359naux3   NUMBER(17,2),
+  aqpa359naux4   NUMBER(17,2),
+  aqpa359naux5   NUMBER(17,2),
+  aqpa359vaux1   VARCHAR2(25),
+  aqpa359vaux2   VARCHAR2(25),
+  aqpa359vaux3   VARCHAR2(25),
+  aqpa359vaux4   VARCHAR2(25),
+  aqpa359vaux5   VARCHAR2(25),
+  aqpa359daux1   DATE,
+  aqpa359daux2   DATE,
+  aqpa359daux3   DATE
+)
+;
+comment on column AQPA359.aqpa359corr
+  is 'Correlativo';
+comment on column AQPA359.aqpa359pais
+  is 'Pais de Documento';
+comment on column AQPA359.aqpa359tdoc
+  is 'Tipo de Documento';
+comment on column AQPA359.aqpa359ndoc
+  is 'Nro de Documento';
+comment on column AQPA359.aqpa359tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column AQPA359.aqpa359fec
+  is 'Fecha de Proceso';
+comment on column AQPA359.aqpa359instl
+  is 'Nro de Solicitud de la Linea ';
+comment on column AQPA359.aqpa359inste
+  is 'Nro de Solicitud de la Evaluacion ';
+comment on column AQPA359.aqpa359hora
+  is 'Hora de Proceso';
+comment on column AQPA359.aqpa359user
+  is 'Usuario';
+comment on column AQPA359.aqpa359mesanio
+  is 'Mes y Año de Maximo Ratio calculado en AQPA358';
+comment on column AQPA359.aqpa359capcaja
+  is 'Capacidad CMAC de Maximo Ratio calculado en AQPA358';
+comment on column AQPA359.aqpa359ifis
+  is 'Deuda IFIS mensual de Maximo Ratio calculado en AQPA358';
+comment on column AQPA359.aqpa359resneto
+  is 'Resultado Neto de Maximo Ratio calculado en AQPA358';
+comment on column AQPA359.aqpa359ccontg
+  is 'Cuota Contingente de Maximo Ratio calculado en AQPA358';
+comment on column AQPA359.aqpa359cpoten
+  is 'Cuota Potencial de Maximo Ratio calculado en AQPA358';
+comment on column AQPA359.aqpa359ratio
+  is 'Maximo Ratio calculado en AQPA358';
+comment on column AQPA359.aqpa359est
+  is 'Estado H(Habilitado) ultimo ejecutado, I (Inhabilitado) ejecutado anteriormente';
+create index AQPA3592 on AQPA359 (AQPA359CORR, AQPA359FEC, AQPA359HORA);
+create index AQPA3593 on AQPA359 (AQPA359INSTL);
+alter table AQPA359
+  add primary key (AQPA359CORR, AQPA359PAIS, AQPA359TDOC, AQPA359NDOC, AQPA359INSTL, AQPA359FEC, AQPA359HORA);
+

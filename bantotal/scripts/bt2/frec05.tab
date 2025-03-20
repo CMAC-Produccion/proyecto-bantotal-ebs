@@ -1,0 +1,15 @@
+create table FREC05
+(
+  rec02cod NUMBER(9) not null,
+  rec03cod NUMBER(3) not null,
+  rec05ams NUMBER(6) not null,
+  rec05tfc NUMBER(18),
+  rec05ac1 CHAR(35),
+  rec05an1 NUMBER(17,2),
+  rec05ac2 CHAR(35),
+  rec05an2 NUMBER(17,2)
+)
+;
+alter table FREC05
+  add primary key (REC02COD, REC03COD, REC05AMS);
+

@@ -1,0 +1,76 @@
+create table AQPB395
+(
+  aqpb395ulog VARCHAR2(10) not null,
+  aqpb395fep  DATE not null,
+  aqpb395cor  NUMBER(9) not null,
+  aqpb395pai  NUMBER(3) not null,
+  aqpb395tdo  NUMBER(2) not null,
+  aqpb395ndo  CHAR(12) not null,
+  aqpb395suc  NUMBER(3),
+  aqpb395mda  NUMBER(4),
+  aqpb395cta  NUMBER(9),
+  aqpb395mod  NUMBER(3),
+  aqpb395top  NUMBER(3),
+  aqpb395ase  CHAR(10),
+  aqpb395mto  NUMBER(17,2),
+  aqpb395pzo  NUMBER(5),
+  aqpb395cuo  NUMBER(10),
+  aqpb395moe  NUMBER(4),
+  aqpb395au5  CHAR(1),
+  aqpb395des  CHAR(30),
+  aqpb395tca  CHAR(1),
+  aqpb395prio VARCHAR2(10),
+  aqpb395base VARCHAR2(45),
+  aqpb395hora CHAR(8)
+)
+;
+comment on table AQPB395
+  is 'Tabla Temporal para delegacion de ofertas';
+comment on column AQPB395.aqpb395ulog
+  is 'Usuario';
+comment on column AQPB395.aqpb395fep
+  is 'Fecha de proceso';
+comment on column AQPB395.aqpb395cor
+  is 'Correlativo';
+comment on column AQPB395.aqpb395pai
+  is 'Pais';
+comment on column AQPB395.aqpb395tdo
+  is 'Tipo de documento';
+comment on column AQPB395.aqpb395ndo
+  is 'Nro de documento';
+comment on column AQPB395.aqpb395suc
+  is 'Sucursal';
+comment on column AQPB395.aqpb395mda
+  is 'Moneda';
+comment on column AQPB395.aqpb395cta
+  is 'Cuenta';
+comment on column AQPB395.aqpb395mod
+  is 'Modulo';
+comment on column AQPB395.aqpb395top
+  is 'Tipo de operacion';
+comment on column AQPB395.aqpb395ase
+  is 'Analista';
+comment on column AQPB395.aqpb395mto
+  is 'Monto';
+comment on column AQPB395.aqpb395pzo
+  is 'Plazo';
+comment on column AQPB395.aqpb395cuo
+  is 'Nro de cuotas';
+comment on column AQPB395.aqpb395moe
+  is 'Modelo de evaluacion';
+comment on column AQPB395.aqpb395au5
+  is 'Campo auxiliar5';
+comment on column AQPB395.aqpb395des
+  is 'Descripcion de campaña';
+comment on column AQPB395.aqpb395tca
+  is 'Indicador campania Aprobado preaprobado';
+comment on column AQPB395.aqpb395prio
+  is 'Prioridad';
+comment on column AQPB395.aqpb395base
+  is 'Base';
+comment on column AQPB395.aqpb395hora
+  is 'Hora';
+create index AQPB395A2 on AQPB395 (AQPB395ULOG);
+alter table AQPB395
+  add primary key (AQPB395ULOG, AQPB395FEP, AQPB395COR, AQPB395PAI, AQPB395TDO, AQPB395NDO);
+

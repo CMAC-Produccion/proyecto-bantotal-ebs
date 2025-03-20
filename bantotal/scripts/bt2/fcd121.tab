@@ -1,0 +1,40 @@
+create table FCD121
+(
+  pgcod      NUMBER(3) not null,
+  lcemod     NUMBER(3) not null,
+  lceoper    NUMBER(9) not null,
+  lcesbop    NUMBER(3) not null,
+  leusuc     NUMBER(3),
+  leutipo    NUMBER(3),
+  leufemb    DATE,
+  leufvpag   DATE,
+  leufvalor  DATE,
+  leufrem    DATE,
+  leufvto    DATE,
+  leubcneg   NUMBER(9),
+  leurefneg  CHAR(20),
+  leubcree   NUMBER(9),
+  leuaoimp   NUMBER(17,2),
+  leumda     NUMBER(4),
+  leuidirmsa NUMBER(2),
+  leuuser    CHAR(10),
+  leuws      CHAR(10),
+  leuimpvis  NUMBER(17,2),
+  leuimppla  NUMBER(17,2),
+  c121cd     NUMBER(3),
+  c121mo     NUMBER(3),
+  c121su     NUMBER(3),
+  c121tr     NUMBER(3),
+  c121re     NUMBER(4),
+  c121fc     DATE,
+  c121co     CHAR(1)
+)
+;
+create index FCD12103 on FCD121 (LEUMDA);
+create index FCD12104 on FCD121 (PGCOD, LEUBCNEG);
+create index FCD12105 on FCD121 (PGCOD, LEUBCREE);
+create index FCD12106 on FCD121 (LEUIDIRMSA);
+create index FCD12107 on FCD121 (PGCOD, LEUSUC);
+alter table FCD121
+  add primary key (PGCOD, LCEMOD, LCEOPER, LCESBOP);
+

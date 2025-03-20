@@ -1,0 +1,58 @@
+create table AQPC835
+(
+  aqpc835fepro  DATE,
+  aqpc835cor    NUMBER(9),
+  aqpc835cod    NUMBER(3),
+  aqpc835mod    NUMBER(3),
+  aqpc835suc    NUMBER(3),
+  aqpc835mda    NUMBER(4),
+  aqpc835pap    NUMBER(4),
+  aqpc835cta    NUMBER(9),
+  aqpc835oper   NUMBER(9),
+  aqpc835sbop   NUMBER(3),
+  aqpc835tope   NUMBER(3),
+  aqpc835inst   NUMBER(10),
+  aqpc835fini   DATE,
+  aqpc835ffin   DATE,
+  aqpc835usurej CHAR(10),
+  aqpc835fecr   DATE,
+  aqpc835hora   VARCHAR2(15),
+  aqpc835aux1   NUMBER(17,2),
+  aqpc835aux2   VARCHAR2(100),
+  aqpc834aux3   DATE
+)
+;
+comment on table AQPC835
+  is 'LOG DE PROCESO EXONERACION DE MORA DE CRED. IMPULSA';
+comment on column AQPC835.aqpc835fepro
+  is 'Fecha';
+comment on column AQPC835.aqpc835cor
+  is 'Correlativo';
+comment on column AQPC835.aqpc835cod
+  is 'CODIGO EMPRESA';
+comment on column AQPC835.aqpc835mod
+  is 'MODULO';
+comment on column AQPC835.aqpc835suc
+  is 'SUCURSAL';
+comment on column AQPC835.aqpc835mda
+  is 'MONEDA';
+comment on column AQPC835.aqpc835pap
+  is 'PAPEL';
+comment on column AQPC835.aqpc835cta
+  is 'CUENTA';
+comment on column AQPC835.aqpc835oper
+  is 'OPERACIÓN';
+comment on column AQPC835.aqpc835sbop
+  is 'SUB OPERACIÓN';
+comment on column AQPC835.aqpc835tope
+  is 'TIPO OPERACIÓN';
+comment on column AQPC835.aqpc835usurej
+  is 'USUARIO';
+comment on column AQPC835.aqpc835fecr
+  is 'FECHA';
+comment on column AQPC835.aqpc835hora
+  is 'HORA';
+create index AQPC835A2 on AQPC835 (AQPC835COD, AQPC835MOD, AQPC835SUC, AQPC835MDA, AQPC835PAP, AQPC835CTA, AQPC835OPER, AQPC835SBOP, AQPC835TOPE, AQPC835FEPRO, AQPC835COR);
+create index AQPC835A3 on AQPC835 (AQPC835FECR, AQPC835HORA, AQPC835USUREJ);
+create index AQPC835A4 on AQPC835 (AQPC835FEPRO);
+

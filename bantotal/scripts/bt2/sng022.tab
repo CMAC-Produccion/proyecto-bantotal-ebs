@@ -1,0 +1,13 @@
+create table SNG022
+(
+  sng021eval NUMBER(10) not null,
+  sng025ori  NUMBER(2) not null,
+  sng026cod  NUMBER(4) not null,
+  sng022mto  NUMBER(17,2)
+)
+;
+create index SNG02202 on SNG022 (SNG025ORI);
+create index SNG02203 on SNG022 (SNG021EVAL, SNG026COD);
+alter table SNG022
+  add primary key (SNG021EVAL, SNG025ORI, SNG026COD);
+

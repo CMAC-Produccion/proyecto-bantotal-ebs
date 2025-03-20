@@ -1,0 +1,102 @@
+create table BNJ096
+(
+  bnj096suc NUMBER(3) not null,
+  bnj096mda NUMBER(4) not null,
+  bnj096pap NUMBER(4) not null,
+  bnj096cta NUMBER(9) not null,
+  bnj096ope NUMBER(9) not null,
+  bnj096sub NUMBER(3) not null,
+  bnj096mod NUMBER(3) not null,
+  bnj096top NUMBER(3) not null,
+  bnj096sor CHAR(17) not null,
+  bnj096cci CHAR(20),
+  bnj096sol CHAR(17),
+  bnj096tip CHAR(1),
+  bnj096uni CHAR(12),
+  bnj096doc CHAR(12),
+  bnj096fna DATE,
+  bnj096nom CHAR(100),
+  bnj096ord NUMBER(1),
+  bnj096cpe CHAR(10),
+  bnj096tcr CHAR(2),
+  bnj096too NUMBER(3),
+  bnj096moo NUMBER(3),
+  bnj096est CHAR(1),
+  bnj096pac CHAR(2),
+  bnj096pas CHAR(1),
+  bnj096lin CHAR(1),
+  bnj096lcr CHAR(2),
+  bnj096ccr CHAR(1),
+  bnj096gar CHAR(1)
+)
+;
+comment on table BNJ096
+  is 'Tabla bandeja para migración creditos SORFY';
+comment on column BNJ096.bnj096suc
+  is 'Sucursal';
+comment on column BNJ096.bnj096mda
+  is 'moneda';
+comment on column BNJ096.bnj096pap
+  is 'papel';
+comment on column BNJ096.bnj096cta
+  is 'cuenta';
+comment on column BNJ096.bnj096ope
+  is 'operación';
+comment on column BNJ096.bnj096sub
+  is 'sub operación';
+comment on column BNJ096.bnj096mod
+  is 'modulo';
+comment on column BNJ096.bnj096top
+  is 'tipo operación';
+comment on column BNJ096.bnj096sor
+  is 'cuenta sorfy';
+comment on column BNJ096.bnj096cci
+  is 'codigo cci';
+comment on column BNJ096.bnj096sol
+  is 'nro solicitud';
+comment on column BNJ096.bnj096tip
+  is 'Tipo Produto Sorfy';
+comment on column BNJ096.bnj096uni
+  is 'Codigo producto NRO Sorfy';
+comment on column BNJ096.bnj096doc
+  is 'nro documento';
+comment on column BNJ096.bnj096fna
+  is 'fecha nacimiento';
+comment on column BNJ096.bnj096nom
+  is 'nombre';
+comment on column BNJ096.bnj096ord
+  is 'Nro Orden ';
+comment on column BNJ096.bnj096cpe
+  is 'CODIGO PERSONA SORFY';
+comment on column BNJ096.bnj096tcr
+  is 'Tipo Credito SBS';
+comment on column BNJ096.bnj096too
+  is 'Tipo operación origen';
+comment on column BNJ096.bnj096moo
+  is 'Modulo Origen';
+comment on column BNJ096.bnj096est
+  is 'estado';
+comment on column BNJ096.bnj096pac
+  is 'Producto Sorfy';
+comment on column BNJ096.bnj096pas
+  is 'SubProducto Sorfy';
+comment on column BNJ096.bnj096lin
+  is 'Linea Sorfy';
+comment on column BNJ096.bnj096lcr
+  is 'Tipo credito Sorfy';
+comment on column BNJ096.bnj096ccr
+  is 'CCR Sorfy';
+comment on column BNJ096.bnj096gar
+  is 'es garantia';
+create index BNJ09602 on BNJ096 (BNJ096SOR, BNJ096CTA);
+create index BNJ09603 on BNJ096 (BNJ096CTA);
+create index BNJ09604 on BNJ096 (BNJ096CCI);
+create index BNJ09606 on BNJ096 (BNJ096MOD, BNJ096SUC, BNJ096CTA);
+create index BNJ09607 on BNJ096 (BNJ096DOC, BNJ096ORD);
+create index BNJ09608 on BNJ096 (BNJ096UNI);
+create index BNJ09609 on BNJ096 (BNJ096DOC);
+create index BNJ09610 on BNJ096 (BNJ096CPE);
+create index IDX_BNJ096_09 on BNJ096 (BNJ096SOL);
+alter table BNJ096
+  add primary key (BNJ096SUC, BNJ096MDA, BNJ096PAP, BNJ096CTA, BNJ096OPE, BNJ096SUB, BNJ096MOD, BNJ096TOP, BNJ096SOR);
+

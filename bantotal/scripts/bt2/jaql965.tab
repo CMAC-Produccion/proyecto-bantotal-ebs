@@ -1,0 +1,102 @@
+create table JAQL965
+(
+  jaql965fech DATE not null,
+  jaql965emp  NUMBER(3) not null,
+  jaql965mod  NUMBER(3),
+  jaql965suc  NUMBER(3) not null,
+  jaql965mda  NUMBER(4) not null,
+  jaql965pap  NUMBER(4) not null,
+  jaql965cta  NUMBER(9) not null,
+  jaql965oper NUMBER(9) not null,
+  jaql965sbop NUMBER(3) not null,
+  jaql965top  NUMBER(3) not null,
+  jaql965inst NUMBER,
+  jaql965ase  CHAR(10),
+  jaql965rubr NUMBER(16),
+  jaql965sdmn NUMBER,
+  jaql965sdmo NUMBER,
+  jaql965datr NUMBER,
+  jaql965fval DATE,
+  jaql965fvto DATE,
+  jaql965pais NUMBER(3),
+  jaql965tdoc NUMBER(2),
+  jaql965ndoc CHAR(12),
+  jaql965tcrd CHAR(20),
+  jaql965sect NUMBER,
+  jaql965stat NUMBER,
+  jaql965prom CHAR(10),
+  jaql965tpcl NUMBER(2),
+  jaql965sdve NUMBER(18,2),
+  jaql965sdre NUMBER(18,2),
+  jaql965ind  CHAR(1)
+)
+compress;
+comment on column JAQL965.jaql965fech
+  is 'FECHA DE CIERRE';
+comment on column JAQL965.jaql965emp
+  is 'EMPRESA';
+comment on column JAQL965.jaql965mod
+  is 'MODULO';
+comment on column JAQL965.jaql965suc
+  is 'SUCURSAL';
+comment on column JAQL965.jaql965mda
+  is 'MONEDA';
+comment on column JAQL965.jaql965pap
+  is 'PAPEL';
+comment on column JAQL965.jaql965cta
+  is 'CUENTA';
+comment on column JAQL965.jaql965oper
+  is 'OPERACION';
+comment on column JAQL965.jaql965sbop
+  is 'SUB OPERACION';
+comment on column JAQL965.jaql965top
+  is 'TIPO OPERACION';
+comment on column JAQL965.jaql965inst
+  is 'INSTANCIA';
+comment on column JAQL965.jaql965ase
+  is 'ANALISTA';
+comment on column JAQL965.jaql965rubr
+  is 'RUBRO';
+comment on column JAQL965.jaql965sdmn
+  is 'SALDO MONEDA NACIONAL';
+comment on column JAQL965.jaql965sdmo
+  is 'SALDO MONEDA ORIGEN';
+comment on column JAQL965.jaql965datr
+  is 'DIAS DE ATRASO';
+comment on column JAQL965.jaql965fval
+  is 'FECHA VALOR';
+comment on column JAQL965.jaql965fvto
+  is 'FECHA VENCIMIENTO';
+comment on column JAQL965.jaql965pais
+  is 'PAIS TITULAR REPRESENTATIVO';
+comment on column JAQL965.jaql965tdoc
+  is 'TIPO DOCUMENTO TITULAR REPRESENTATIVO';
+comment on column JAQL965.jaql965ndoc
+  is 'NRO DOCUMENTO TITULAR REPRESENTATIVO';
+comment on column JAQL965.jaql965tcrd
+  is 'TIPO DE CREDITO';
+comment on column JAQL965.jaql965sect
+  is 'SECTOR PEQUEÑA';
+comment on column JAQL965.jaql965stat
+  is 'ESTADO';
+comment on column JAQL965.jaql965prom
+  is 'PROMOTOR DE CREDITOS';
+comment on column JAQL965.jaql965tpcl
+  is 'TIPO CLIENTE';
+comment on column JAQL965.jaql965sdve
+  is 'SALDO VENCIDO';
+comment on column JAQL965.jaql965sdre
+  is 'SALDO REFINANCIADO';
+comment on column JAQL965.jaql965ind
+  is 'Indicador actualizacion A-analista';
+create unique index PK_JAQL965N1_01 on JAQL965 (JAQL965FECH, JAQL965EMP, JAQL965MOD, JAQL965SUC, JAQL965MDA, JAQL965PAP, JAQL965CTA, JAQL965OPER, JAQL965SBOP, JAQL965TOP, JAQL965RUBR)
+  compress 10;
+create index XN_JAQL965N1_02 on JAQL965 (JAQL965FECH, JAQL965INST)
+  compress;
+create index XN_JAQL965N1_03 on JAQL965 (JAQL965FECH, JAQL965PAIS, JAQL965TDOC, JAQL965NDOC)
+  compress;
+create index XN_JAQL965N1_04 on JAQL965 (JAQL965FECH, JAQL965ASE)
+  compress;
+create index XN_JAQL965N1_05 on JAQL965 (JAQL965ASE)
+  compress;
+

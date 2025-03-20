@@ -1,0 +1,61 @@
+create table AQPA473
+(
+  aqpa473xmlid      NUMBER not null,
+  aqpa473trxid      NUMBER,
+  aqpa473proc       VARCHAR2(250),
+  aqpa473xmle       CLOB,
+  aqpa473xmlr       CLOB,
+  aqpa473obsv       VARCHAR2(3600),
+  aqpa473orgid      NUMBER,
+  aqpa473idreg      NUMBER,
+  aqpa473freg       DATE,
+  aqpa473idact      NUMBER,
+  aqpa473fact       DATE,
+  aqpa473capdf      CLOB,
+  aqpa473caxml      CLOB,
+  aqpa473tipo_de_ws VARCHAR2(1000)
+)
+;
+comment on column AQPA473.aqpa473xmlid
+  is 'ID del XML
+';
+comment on column AQPA473.aqpa473trxid
+  is 'Codigo de Transaccion
+';
+comment on column AQPA473.aqpa473proc
+  is 'Proceso
+';
+comment on column AQPA473.aqpa473xmle
+  is 'Cadena XML Enviada
+';
+comment on column AQPA473.aqpa473xmlr
+  is 'Cadena XML Retornada
+';
+comment on column AQPA473.aqpa473obsv
+  is 'Observacion
+';
+comment on column AQPA473.aqpa473orgid
+  is 'Codigo de Organización
+';
+comment on column AQPA473.aqpa473idreg
+  is 'Codigo de Registro
+';
+comment on column AQPA473.aqpa473freg
+  is 'Fecha de Registro
+';
+comment on column AQPA473.aqpa473idact
+  is 'Codigo de Ultima Actualizacion
+';
+comment on column AQPA473.aqpa473fact
+  is 'Fecha de Ultima Actualizacion
+';
+comment on column AQPA473.aqpa473capdf
+  is 'Cadena PDF
+';
+comment on column AQPA473.aqpa473caxml
+  is 'Cadena XML';
+comment on column AQPA473.aqpa473tipo_de_ws
+  is 'Tipo de WebService';
+alter table AQPA473
+  add primary key (AQPA473XMLID);
+

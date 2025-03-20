@@ -1,0 +1,14 @@
+create table JAQZ086
+(
+  jaqz086paic  NUMBER(3) not null,
+  jaqz086tdoc  NUMBER(2) not null,
+  jaqz086tndoc VARCHAR2(12) not null,
+  jaqz086calf  NUMBER(5),
+  jaqz086tcal  CHAR(1),
+  jaqz086usr   VARCHAR2(10) not null
+)
+;
+create index JAQZ086A1 on JAQZ086 (JAQZ086TNDOC, JAQZ086USR, JAQZ086CALF);
+alter table JAQZ086
+  add primary key (JAQZ086PAIC, JAQZ086TDOC, JAQZ086TNDOC, JAQZ086USR);
+

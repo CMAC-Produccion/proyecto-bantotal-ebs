@@ -1,0 +1,21 @@
+create table DEPE67
+(
+  depe67apl NUMBER(3) not null,
+  depe67ban CHAR(4) not null,
+  depe67env NUMBER(9) not null,
+  depe67fpr DATE,
+  depe67fen DATE,
+  depe67hsh CHAR(32),
+  depe67uin CHAR(10),
+  depe67ads CHAR(50),
+  depe67aor CHAR(50),
+  depe67tre NUMBER(2),
+  depe67its NUMBER(17,2),
+  depe67itd NUMBER(17,2),
+  depe67nre NUMBER(7),
+  depe67est CHAR(3)
+)
+;
+alter table DEPE67
+  add primary key (DEPE67APL, DEPE67BAN, DEPE67ENV);
+

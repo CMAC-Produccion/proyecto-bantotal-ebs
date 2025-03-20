@@ -1,0 +1,116 @@
+create table AQPD201
+(
+  aqpd201emp    NUMBER(3) not null,
+  aqpd201suc    NUMBER(3) not null,
+  aqpd201mod    NUMBER(3) not null,
+  aqpd201mda    NUMBER(4) not null,
+  aqpd201pap    NUMBER(4) not null,
+  aqpd201cta    NUMBER(9) not null,
+  aqpd201ope    NUMBER(9) not null,
+  aqpd201sbo    NUMBER(3) not null,
+  aqpd201top    NUMBER(3) not null,
+  aqpd201ins    NUMBER(10),
+  aqpd201sdo    NUMBER(18,2),
+  aqpd201mtoa   NUMBER(18,2),
+  aqpd201pcj    NUMBER(5,2),
+  aqpd201tip    NUMBER(2),
+  aqpd201empg   NUMBER(3),
+  aqpd201sucg   NUMBER(3),
+  aqpd201modg   NUMBER(3),
+  aqpd201mdag   NUMBER(4),
+  aqpd201papg   NUMBER(4),
+  aqpd201ctag   NUMBER(9),
+  aqpd201opeg   NUMBER(9),
+  aqpd201sbog   NUMBER(3),
+  aqpd201topg   NUMBER(3),
+  aqpd201est    CHAR(1),
+  aqpd201itcod  NUMBER(3) not null,
+  aqpd201itmod  NUMBER(3) not null,
+  aqpd201itsuc  NUMBER(3) not null,
+  aqpd201ittran NUMBER(3) not null,
+  aqpd201itnrel NUMBER(4) not null,
+  aqpd201itfcon DATE not null,
+  aqpd201ithor  CHAR(8),
+  aqpd201itucnf CHAR(10),
+  aqpd201usuact CHAR(10),
+  aqpd201fecact DATE
+)
+;
+comment on table AQPD201
+  is 'Lista de los créditos y garantías que se han dado de alta de los créditos de Fae Texco';
+comment on column AQPD201.aqpd201emp
+  is 'Empresa del crédito';
+comment on column AQPD201.aqpd201suc
+  is 'sucursal del credito';
+comment on column AQPD201.aqpd201mod
+  is 'modulo del credito';
+comment on column AQPD201.aqpd201mda
+  is 'Monedo del crdito';
+comment on column AQPD201.aqpd201pap
+  is 'papel del credito';
+comment on column AQPD201.aqpd201cta
+  is 'cuenta del credito';
+comment on column AQPD201.aqpd201ope
+  is 'operacion del credito';
+comment on column AQPD201.aqpd201sbo
+  is 'suboperacion del credito';
+comment on column AQPD201.aqpd201top
+  is 'tipo operacion del credito';
+comment on column AQPD201.aqpd201ins
+  is 'Instancia';
+comment on column AQPD201.aqpd201sdo
+  is 'Saldo del capital del credito';
+comment on column AQPD201.aqpd201mtoa
+  is 'Monto de alta de la garantía';
+comment on column AQPD201.aqpd201pcj
+  is 'Porcentaje para el caluclo de alta del monto de garantía';
+comment on column AQPD201.aqpd201tip
+  is 'Tipo de Credito 1=consumo 2=mypes/vehiculares 3=hipotecario';
+comment on column AQPD201.aqpd201empg
+  is 'Empresa de la garantia';
+comment on column AQPD201.aqpd201sucg
+  is 'Sucursal de la Garantía';
+comment on column AQPD201.aqpd201modg
+  is 'Modúlo de la garantía';
+comment on column AQPD201.aqpd201mdag
+  is 'Moneda de la Garantía';
+comment on column AQPD201.aqpd201papg
+  is 'Papel de la Garantía';
+comment on column AQPD201.aqpd201ctag
+  is 'Cuenta de la Garantía';
+comment on column AQPD201.aqpd201opeg
+  is 'Operación de la Garnatía';
+comment on column AQPD201.aqpd201sbog
+  is 'Suboperación de la garantía';
+comment on column AQPD201.aqpd201topg
+  is 'Tipo de Operacion de la Garantía';
+comment on column AQPD201.aqpd201est
+  is 'Estado del registro C=Contabilizado, E=Extornado, N=No se contabilizó, I=CargaInicial';
+comment on column AQPD201.aqpd201itcod
+  is 'codigo empresa transacción';
+comment on column AQPD201.aqpd201itmod
+  is 'modulo transaccion';
+comment on column AQPD201.aqpd201itsuc
+  is 'sucursal transaccion';
+comment on column AQPD201.aqpd201ittran
+  is 'transacción';
+comment on column AQPD201.aqpd201itnrel
+  is 'numero de relacion transaccion';
+comment on column AQPD201.aqpd201itfcon
+  is 'fecha transacción';
+comment on column AQPD201.aqpd201ithor
+  is 'hora transacción';
+comment on column AQPD201.aqpd201itucnf
+  is 'usuario transaccion';
+comment on column AQPD201.aqpd201usuact
+  is 'usuario de acualizacion';
+comment on column AQPD201.aqpd201fecact
+  is 'fecha de actualización';
+create index AQPD201A2 on AQPD201 (AQPD201ITCOD, AQPD201ITMOD, AQPD201ITSUC, AQPD201ITTRAN, AQPD201ITNREL, AQPD201ITFCON);
+create index AQPD201A3 on AQPD201 (AQPD201CTA, AQPD201EST);
+create index AQPD201A4 on AQPD201 (AQPD201EMP, AQPD201SUC, AQPD201MOD, AQPD201MDA, AQPD201PAP, AQPD201CTA, AQPD201OPE, AQPD201SBO, AQPD201TOP);
+create index AQPD201A5 on AQPD201 (AQPD201EMPG, AQPD201SUCG, AQPD201MODG, AQPD201MDAG, AQPD201PAPG, AQPD201CTAG, AQPD201OPEG, AQPD201SBOG, AQPD201TOPG);
+create index AQPD201A6 on AQPD201 (AQPD201CTAG, AQPD201EST);
+alter table AQPD201
+  add primary key (AQPD201EMP, AQPD201SUC, AQPD201MOD, AQPD201MDA, AQPD201PAP, AQPD201CTA, AQPD201OPE, AQPD201SBO, AQPD201TOP, AQPD201ITCOD, AQPD201ITMOD, AQPD201ITSUC, AQPD201ITTRAN, AQPD201ITNREL, AQPD201ITFCON);
+

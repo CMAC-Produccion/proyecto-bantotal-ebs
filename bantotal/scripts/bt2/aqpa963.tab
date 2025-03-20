@@ -1,0 +1,80 @@
+create table AQPA963
+(
+  aqpa963pgcod  NUMBER(3) not null,
+  aqpa963itsuc  NUMBER(3) not null,
+  aqpa963itmod  NUMBER(3) not null,
+  aqpa963ittran NUMBER(3) not null,
+  aqpa963itnrel NUMBER(4) not null,
+  aqpa963itfcon DATE not null,
+  aqpa963idarc  NUMBER(2) not null,
+  aqpa963ituing CHAR(10),
+  aqpa963ithora CHAR(8),
+  aqpa963fproc  DATE,
+  aqpa963emp    NUMBER(3),
+  aqpa963suc    NUMBER(3),
+  aqpa963mod    NUMBER(3),
+  aqpa963mda    NUMBER(4),
+  aqpa963pap    NUMBER(4),
+  aqpa963cta    NUMBER(9),
+  aqpa963ope    NUMBER(9),
+  aqpa963sbo    NUMBER(3),
+  aqpa963top    NUMBER(3),
+  aqpa963inst   NUMBER(10) not null,
+  aqpa963pais   NUMBER(3),
+  aqpa963tdoc   NUMBER(3),
+  aqpa963ndoc   CHAR(12),
+  aqpa963esfc   NUMBER(9),
+  aqpa963nomarc VARCHAR2(150),
+  aqpa963arc    BLOB,
+  aqpa963fa1    DATE,
+  aqpa963ca1    CHAR(1)
+)
+;
+comment on column AQPA963.aqpa963idarc
+  is 'CORR3->GUIA ESP 11138 2';
+comment on column AQPA963.aqpa963ituing
+  is 'USUARIO TRANSACCION';
+comment on column AQPA963.aqpa963ithora
+  is 'HORA TRANSACCION';
+comment on column AQPA963.aqpa963fproc
+  is 'FECHA PROCESO';
+comment on column AQPA963.aqpa963emp
+  is 'EMPRESA';
+comment on column AQPA963.aqpa963suc
+  is 'SUCURSAL';
+comment on column AQPA963.aqpa963mod
+  is 'MODULO';
+comment on column AQPA963.aqpa963mda
+  is 'MONEDA';
+comment on column AQPA963.aqpa963pap
+  is 'PAPEL';
+comment on column AQPA963.aqpa963cta
+  is 'CUENTA';
+comment on column AQPA963.aqpa963ope
+  is 'OPERACION';
+comment on column AQPA963.aqpa963sbo
+  is 'SUB OPERACION';
+comment on column AQPA963.aqpa963top
+  is 'TIPO OPERACION';
+comment on column AQPA963.aqpa963inst
+  is 'INSTANCIA';
+comment on column AQPA963.aqpa963pais
+  is 'PAIS';
+comment on column AQPA963.aqpa963tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPA963.aqpa963ndoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPA963.aqpa963esfc
+  is 'ES FONDO CRECER';
+comment on column AQPA963.aqpa963nomarc
+  is 'NOMBRE ARCHIVO';
+comment on column AQPA963.aqpa963arc
+  is 'ARCHIVO';
+comment on column AQPA963.aqpa963fa1
+  is 'FECHA AUX 1';
+comment on column AQPA963.aqpa963ca1
+  is 'CHAR AUX 1';
+create index AQPA9632 on AQPA963 (AQPA963FPROC, AQPA963EMP, AQPA963SUC, AQPA963MOD, AQPA963MDA, AQPA963PAP, AQPA963CTA, AQPA963OPE, AQPA963SBO, AQPA963TOP, AQPA963INST);
+alter table AQPA963
+  add primary key (AQPA963PGCOD, AQPA963ITSUC, AQPA963ITMOD, AQPA963ITTRAN, AQPA963ITNREL, AQPA963ITFCON, AQPA963IDARC, AQPA963INST);
+

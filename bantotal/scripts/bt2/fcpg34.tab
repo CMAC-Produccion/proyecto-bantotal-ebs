@@ -1,0 +1,41 @@
+create table FCPG34
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg31paisb NUMBER(3) not null,
+  cpg31tdocb NUMBER(2) not null,
+  cpg31ndocb CHAR(25) not null,
+  cpg34fcomp DATE not null,
+  cpg04cod   NUMBER(3) not null,
+  cpg34corr  NUMBER(3) not null,
+  cpg34impc  NUMBER(17,2),
+  cpg34impa  NUMBER(17,2),
+  cpg34spemp NUMBER(3),
+  cpg34spsuc NUMBER(3),
+  cpg34srub  NUMBER(16),
+  cpg34pmod  NUMBER(3),
+  cpg34spmda NUMBER(4),
+  cpg34sppag NUMBER(4),
+  cpg34spcta NUMBER(9),
+  cpg34spope NUMBER(9),
+  cpg34spsbo NUMBER(3),
+  cpg34sptop NUMBER(3),
+  cpg34pfpag DATE,
+  cpg34ptipo CHAR(1),
+  cpg34dembt NUMBER(3),
+  cpg34demom NUMBER(3),
+  cpg34dfrec DATE,
+  cpg34dnenv NUMBER(10),
+  cpg34dnlot NUMBER(3),
+  cpg34dnmov NUMBER(10),
+  cpg34dtarj CHAR(30),
+  cpg34est   CHAR(3),
+  cpg34blq   CHAR(1),
+  cpg34inst  NUMBER(10)
+)
+;
+create index FCPG3402 on FCPG34 (CPG04COD);
+alter table FCPG34
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG31PAISB, CPG31TDOCB, CPG31NDOCB, CPG34FCOMP, CPG04COD, CPG34CORR);
+

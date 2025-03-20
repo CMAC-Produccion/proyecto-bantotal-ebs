@@ -1,0 +1,49 @@
+create table AQPC817
+(
+  aqpc817corr    NUMBER(10) not null,
+  aqpc817inst    NUMBER(10),
+  aqpc817tdoc    NUMBER(4) not null,
+  aqpc817ndoc    VARCHAR2(12) not null,
+  aqpc817csbs    VARCHAR2(10),
+  aqpc817user    VARCHAR2(10) not null,
+  aqpc817fec     DATE not null,
+  aqpc817hora    VARCHAR2(8) not null,
+  aqpc817prgmori VARCHAR2(15) not null,
+  aqpc817grad    VARCHAR2(50),
+  aqpc817est     VARCHAR2(5),
+  aqpc817nmesrcc NUMBER(8)
+)
+;
+comment on table AQPC817
+  is 'Tabla Log de info. graduado';
+comment on column AQPC817.aqpc817corr
+  is 'Correlativo';
+comment on column AQPC817.aqpc817inst
+  is 'Instancia';
+comment on column AQPC817.aqpc817tdoc
+  is 'Tipo de documento';
+comment on column AQPC817.aqpc817ndoc
+  is 'Nro de Documento';
+comment on column AQPC817.aqpc817csbs
+  is 'codigo SBS';
+comment on column AQPC817.aqpc817user
+  is 'Usuario';
+comment on column AQPC817.aqpc817fec
+  is 'Fecha';
+comment on column AQPC817.aqpc817hora
+  is 'Hora';
+comment on column AQPC817.aqpc817prgmori
+  is 'Programa';
+comment on column AQPC817.aqpc817grad
+  is 'Graduado o No graduado';
+comment on column AQPC817.aqpc817est
+  is 'Estado';
+comment on column AQPC817.aqpc817nmesrcc
+  is 'Cantidad de meses de RCC';
+create index AQPC817A2 on AQPC817 (AQPC817INST);
+create index AQPC817A3 on AQPC817 (AQPC817TDOC, AQPC817NDOC);
+create index AQPC817A4 on AQPC817 (AQPC817TDOC, AQPC817NDOC, AQPC817FEC);
+create index AQPC817A5 on AQPC817 (AQPC817CSBS);
+alter table AQPC817
+  add primary key (AQPC817CORR, AQPC817TDOC, AQPC817NDOC, AQPC817USER, AQPC817FEC, AQPC817HORA, AQPC817PRGMORI);
+

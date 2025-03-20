@@ -1,0 +1,102 @@
+create table AQPB561
+(
+  aqpb561cod     NUMBER(10),
+  aqpb561pais    NUMBER(3) not null,
+  aqpb561ptdc    NUMBER(2) not null,
+  aqpb561dni     VARCHAR2(12) not null,
+  aqpb561emp     NUMBER(3) not null,
+  aqpb561mod     NUMBER(3) not null,
+  aqpb561suc     NUMBER(3) not null,
+  aqpb561mda     NUMBER(4) not null,
+  aqpb561pap     NUMBER(4) not null,
+  aqpb561cta     NUMBER(9) not null,
+  aqpb561oper    NUMBER(9) not null,
+  aqpb561sbop    NUMBER(3) not null,
+  aqpb561top     NUMBER(3) not null,
+  aqpb561inst    NUMBER(10),
+  aqpb561est     VARCHAR2(1) default 'P' not null,
+  aqpb561fecc    TIMESTAMP(6),
+  aqpb561fecr    TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb561usrr    VARCHAR2(10),
+  aqpb561fecm    TIMESTAMP(6),
+  aqpb561usrm    VARCHAR2(10),
+  aqpb561tasa    NUMBER(10,6),
+  aqpb561capt    NUMBER(17,2),
+  aqpb561redu    NUMBER(17,6),
+  aqpb561ehab    VARCHAR2(1),
+  aqpb561fcrm    TIMESTAMP(6),
+  aqpb561scap    NUMBER(17,2),
+  aqpb561pcarg   NUMBER(10),
+  aqpb561fac     VARCHAR2(250),
+  aqpb561com     VARCHAR2(250),
+  aqpb561usrpa   VARCHAR2(10),
+  aqpb561tredu   NUMBER(10,6),
+  aqpb561predu   NUMBER(10,6),
+  aqpb561tasaact NUMBER(10,6)
+)
+;
+comment on column AQPB561.aqpb561cod
+  is 'Correlativo';
+comment on column AQPB561.aqpb561pais
+  is 'Pais del documento';
+comment on column AQPB561.aqpb561ptdc
+  is 'Tipo de documento';
+comment on column AQPB561.aqpb561dni
+  is 'Documento de indentidad';
+comment on column AQPB561.aqpb561emp
+  is 'Clv. credito Empresa';
+comment on column AQPB561.aqpb561mod
+  is 'Clv. credito Modulo';
+comment on column AQPB561.aqpb561suc
+  is 'Clv. credito Sucursal';
+comment on column AQPB561.aqpb561mda
+  is 'Clv. credito Moneda';
+comment on column AQPB561.aqpb561pap
+  is 'Clv. credito Papel';
+comment on column AQPB561.aqpb561cta
+  is 'Clv. credito Cuenta';
+comment on column AQPB561.aqpb561oper
+  is 'Clv. credito Operacion';
+comment on column AQPB561.aqpb561sbop
+  is 'Clv. credito Suboperacion';
+comment on column AQPB561.aqpb561top
+  is 'Clv. credito Tipo de Operacion';
+comment on column AQPB561.aqpb561inst
+  is 'Instancia';
+comment on column AQPB561.aqpb561est
+  is 'Estado de la reprogramacion';
+comment on column AQPB561.aqpb561fecc
+  is 'Fecha de aprobacion/rechazo';
+comment on column AQPB561.aqpb561fecr
+  is 'Fecha de registro ';
+comment on column AQPB561.aqpb561usrr
+  is 'Usuario que registro';
+comment on column AQPB561.aqpb561fecm
+  is 'Fecha de modificaci{on';
+comment on column AQPB561.aqpb561usrm
+  is 'Usuario que modifico';
+comment on column AQPB561.aqpb561tasa
+  is 'Tasa Actual - Ley31050_creditos';
+comment on column AQPB561.aqpb561capt
+  is 'Capitalizacion';
+comment on column AQPB561.aqpb561redu
+  is 'Reduccion';
+comment on column AQPB561.aqpb561ehab
+  is 'Estado Habilitado';
+comment on column AQPB561.aqpb561fcrm
+  is 'Fecha en Bantotal del CRM';
+comment on column AQPB561.aqpb561pcarg
+  is 'Cargos en codigo.';
+comment on column AQPB561.aqpb561fac
+  is 'Facilidad';
+comment on column AQPB561.aqpb561com
+  is 'Comentarios del autorizador';
+comment on column AQPB561.aqpb561usrpa
+  is 'Usuario Propuesto para Aprobar';
+comment on column AQPB561.aqpb561tredu
+  is 'Tasa de Reduccion';
+comment on column AQPB561.aqpb561predu
+  is 'Porcentaje de reduccion';
+comment on column AQPB561.aqpb561tasaact
+  is 'Tasa Actual';
+

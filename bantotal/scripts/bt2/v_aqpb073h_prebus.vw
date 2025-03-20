@@ -1,0 +1,11 @@
+create or replace force view v_aqpb073h_prebus as
+select
+a.AQPB073HUSUR,
+a.AQPB073HCTA,
+a.AQPB073HOPE,
+a.AQPB073HPCOB,
+a.AQPB073HFPROC,
+a.AQPB073HSDOINS,
+a.AQPB073HMHONR
+from AQPB073H a;
+

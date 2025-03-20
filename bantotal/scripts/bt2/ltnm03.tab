@@ -1,0 +1,17 @@
+create table LTNM03
+(
+  ltnm03bsor NUMBER(10) not null,
+  ltnm03desc CHAR(50),
+  ltnm03mdvo NUMBER(2),
+  ltnm03pais CHAR(1),
+  ltnm03tdoc CHAR(1),
+  ltnm03doc  CHAR(1),
+  ltnm03uact DATE,
+  fup001cod  NUMBER(9),
+  ltnm03act  CHAR(1)
+)
+;
+create index LTNM0302 on LTNM03 (FUP001COD);
+alter table LTNM03
+  add primary key (LTNM03BSOR);
+

@@ -1,0 +1,23 @@
+create table AQPB085B
+(
+  aqpb085binst  NUMBER(10) not null,
+  aqpb085bmoda  CHAR(1),
+  aqpb085btipo  CHAR(2),
+  aqpb085buser  VARCHAR2(20),
+  aqpb085bcsbs  VARCHAR2(30),
+  aqpb085bfrcc  DATE,
+  aqpb085bfpro  DATE,
+  aqpb085brubro VARCHAR2(20),
+  aqpb085benti  VARCHAR2(200),
+  aqpb085bcent  VARCHAR2(50),
+  aqpb085butil  NUMBER(17,2),
+  aqpb085bnout  NUMBER(17,2),
+  aqpb085btipc  VARCHAR2(2),
+  aqpb085bndoc  CHAR(12) not null,
+  aqpb085bcorr  NUMBER(10) not null,
+  aqpb085brub72 VARCHAR2(20)
+)
+;
+alter table AQPB085B
+  add primary key (AQPB085BINST, AQPB085BNDOC, AQPB085BCORR);
+

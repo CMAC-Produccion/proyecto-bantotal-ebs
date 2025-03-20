@@ -1,0 +1,16 @@
+create table CDEINS5
+(
+  cdeinsid   NUMBER(18) not null,
+  cdeinsvcod NUMBER(18) not null,
+  cdeinsvtip NUMBER(4),
+  cdeinsvfor NUMBER(4),
+  cdeinssubt NUMBER(18),
+  cdeinsvmom NUMBER(4),
+  cdeinsvobj NUMBER(18),
+  cdeinsvobt CHAR(40),
+  cdceinsvam NUMBER(4)
+)
+;
+alter table CDEINS5
+  add primary key (CDEINSID, CDEINSVCOD);
+

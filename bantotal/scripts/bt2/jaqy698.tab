@@ -1,0 +1,22 @@
+create table JAQY698
+(
+  jaqy698mmin NUMBER(16,2) not null,
+  jaqy698mmax NUMBER(16,2) not null,
+  jaqy698tcc  NUMBER(4,3),
+  jaqy698tcv  NUMBER(4,3),
+  jaqy698var  NUMBER(4,3),
+  jaqy698desc VARCHAR2(10),
+  jaqy698fec  DATE,
+  jaqy698usu  CHAR(10),
+  jaqy698aux1 NUMBER(4),
+  jaqy698aux2 NUMBER(17),
+  jaqy698aux3 NUMBER(16,2),
+  jaqy698aux4 CHAR(20),
+  jaqy698aux5 CHAR(100),
+  jaqy698aux6 CHAR(200),
+  jaqy698aux7 DATE
+)
+;
+alter table JAQY698
+  add primary key (JAQY698MMIN, JAQY698MMAX);
+

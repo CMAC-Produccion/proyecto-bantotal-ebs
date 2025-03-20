@@ -1,0 +1,27 @@
+create table AQPC212
+(
+  aqpc212co1 NUMBER(3) not null,
+  aqpc212co2 NUMBER(3) not null,
+  aqpc212co3 NUMBER(3) not null,
+  aqpc212des CHAR(20),
+  aqpc212pla VARCHAR2(400),
+  aqpc212rep NUMBER(10)
+)
+;
+comment on table AQPC212
+  is 'AQPC212';
+comment on column AQPC212.aqpc212co1
+  is 'Código 1';
+comment on column AQPC212.aqpc212co2
+  is 'Código 2';
+comment on column AQPC212.aqpc212co3
+  is 'Código 3';
+comment on column AQPC212.aqpc212des
+  is 'Descripción';
+comment on column AQPC212.aqpc212pla
+  is 'Plantilla';
+comment on column AQPC212.aqpc212rep
+  is 'Reporte';
+alter table AQPC212
+  add primary key (AQPC212CO1, AQPC212CO2, AQPC212CO3);
+

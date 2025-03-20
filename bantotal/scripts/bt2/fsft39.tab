@@ -1,0 +1,21 @@
+create table FSFT39
+(
+  kdkcod    NUMBER(3) not null,
+  kdktmda   NUMBER(4) not null,
+  kdkresi   CHAR(1) not null,
+  kdkifin   CHAR(1) not null,
+  kdktemi   NUMBER(4) not null,
+  kdkgrusec NUMBER(3) not null,
+  kdkplzo   NUMBER(5) not null,
+  kdkptmop  NUMBER(16),
+  kdkrub1   NUMBER(16),
+  kdkrub2   NUMBER(16),
+  kdkcar1   CHAR(20),
+  kdkcar2   CHAR(20),
+  kdknum1   NUMBER(9),
+  kdknum2   NUMBER(9)
+)
+;
+alter table FSFT39
+  add primary key (KDKCOD, KDKTMDA, KDKRESI, KDKIFIN, KDKTEMI, KDKGRUSEC, KDKPLZO);
+

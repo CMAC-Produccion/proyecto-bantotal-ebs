@@ -1,0 +1,47 @@
+create table FSD601
+(
+  pgcod    NUMBER(3) not null,
+  ppmod    NUMBER(3) not null,
+  ppsuc    NUMBER(3) not null,
+  ppmda    NUMBER(4) not null,
+  pppap    NUMBER(4) not null,
+  ppcta    NUMBER(9) not null,
+  ppoper   NUMBER(9) not null,
+  ppsbop   NUMBER(3) not null,
+  pptope   NUMBER(3) not null,
+  ppfpag   DATE not null,
+  pptipo   CHAR(1) not null,
+  ppfval   DATE,
+  ppfvto   DATE,
+  pppzo    NUMBER(5),
+  ppcap    NUMBER(17,2),
+  ppint    NUMBER(17,2),
+  ppintmex NUMBER(17,2),
+  ppicap   NUMBER(17,2),
+  ppiint   NUMBER(17,2),
+  ppstat   CHAR(1),
+  ppnume   NUMBER(9),
+  ppfinv   NUMBER(8),
+  d601cd   NUMBER(3),
+  d601mo   NUMBER(3),
+  d601su   NUMBER(3),
+  d601tr   NUMBER(3),
+  d601re   NUMBER(4),
+  d601fc   DATE,
+  d601or   NUMBER(2),
+  d601sb   NUMBER(3),
+  d601co   CHAR(1)
+)
+;
+create index FSD60102 on FSD601 (PGCOD, PPSUC);
+create index FSD60103 on FSD601 (PGCOD, PPCTA);
+create index FSD60104 on FSD601 (PPMOD);
+create index FSD60105 on FSD601 (PPMDA);
+create index FSD60106 on FSD601 (PPPAP);
+create index FSD60107 on FSD601 (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPTIPO, PPFVAL);
+create index FSD60108 on FSD601 (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPTIPO, PPFINV);
+create index FSD60109 on FSD601 (D601CD, D601MO, D601SU, D601TR, D601RE, D601FC, D601OR, D601SB);
+create index FSD60110 on FSD601 (D601CD, D601CO);
+alter table FSD601
+  add primary key (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPFPAG, PPTIPO);
+

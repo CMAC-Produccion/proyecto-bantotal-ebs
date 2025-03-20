@@ -1,0 +1,19 @@
+create table JAQZ471
+(
+  jaqz471fech DATE,
+  jaqz471hora VARCHAR2(8),
+  jaqz471alid NUMBER(6),
+  jaqz471nror NUMBER(6)
+)
+;
+comment on column JAQZ471.jaqz471fech
+  is 'Fecha de Registro de Depuración';
+comment on column JAQZ471.jaqz471hora
+  is 'Hora de Registro de registros a depurar';
+comment on column JAQZ471.jaqz471alid
+  is 'ID (secuencia) de FRALERTS';
+comment on column JAQZ471.jaqz471nror
+  is 'Número de Registros a depurar';
+create index JAQZ4711 on JAQZ471 (JAQZ471FECH);
+create index JAQZ4712 on JAQZ471 (JAQZ471ALID);
+

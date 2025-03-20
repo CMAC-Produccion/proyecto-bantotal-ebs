@@ -1,0 +1,16 @@
+create table FCPG39
+(
+  cpg39empbt NUMBER(3) not null,
+  cpg39conv  NUMBER(8) not null,
+  cpg39serv  NUMBER(3) not null,
+  cpg07cod   NUMBER(3) not null,
+  cpg39num   NUMBER(10),
+  cpg39est   CHAR(3),
+  cpg39blq   CHAR(1),
+  cpg39inst  NUMBER(10)
+)
+;
+create index FCPG3902 on FCPG39 (CPG07COD);
+alter table FCPG39
+  add primary key (CPG39EMPBT, CPG39CONV, CPG39SERV, CPG07COD);
+

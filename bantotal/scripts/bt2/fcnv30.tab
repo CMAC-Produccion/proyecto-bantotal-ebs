@@ -1,0 +1,35 @@
+create table FCNV30
+(
+  cnv30pgcod NUMBER(3) not null,
+  cnv30ctnro NUMBER(9) not null,
+  cnv30exfec DATE not null,
+  cnv30exsts CHAR(1),
+  cnv30exblq CHAR(1),
+  cnv06cobcd NUMBER(3),
+  cnv07abocd NUMBER(3),
+  cnv30fecub DATE,
+  cnv30fecuw DATE,
+  cnv30wfins NUMBER(10),
+  cnv30exref CHAR(20),
+  cnv30uacrf CHAR(5),
+  cnv30stcob CHAR(5),
+  cnv30feca1 DATE,
+  cnv30feca2 DATE,
+  cnv30coda1 CHAR(20),
+  cnv34stcob NUMBER(2),
+  cnv36proc  NUMBER(5),
+  cnv37etapa NUMBER(5),
+  cnv38cdjuz CHAR(10),
+  cnv30fecdm DATE,
+  cnv30junro CHAR(20)
+)
+;
+create index FCNV3002 on FCNV30 (CNV06COBCD);
+create index FCNV3003 on FCNV30 (CNV07ABOCD);
+create index FCNV3004 on FCNV30 (CNV34STCOB);
+create index FCNV3005 on FCNV30 (CNV38CDJUZ);
+create index FCNV3006 on FCNV30 (CNV36PROC, CNV37ETAPA);
+create index FCNV3010 on FCNV30 (CNV30PGCOD, CNV30CTNRO, CNV30EXSTS);
+alter table FCNV30
+  add primary key (CNV30PGCOD, CNV30CTNRO, CNV30EXFEC);
+

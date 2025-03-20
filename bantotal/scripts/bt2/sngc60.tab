@@ -1,0 +1,28 @@
+create table SNGC60
+(
+  sngc60pais NUMBER(3) not null,
+  sngc60tdoc NUMBER(2) not null,
+  sngc60ndoc CHAR(12) not null,
+  sngc60corr NUMBER(2) not null,
+  sngc60vcod NUMBER(2),
+  sngc60ocup NUMBER(5),
+  sngc60rute CHAR(12),
+  sngc60rzso CHAR(50),
+  sngc60rutp CHAR(25),
+  sngc60erut CHAR(1),
+  sngc60fine DATE,
+  sngc60fini DATE,
+  sngc60nome CHAR(50),
+  sngc60ubic NUMBER(6),
+  sngc60tipa NUMBER(15),
+  sngc60acte NUMBER(11),
+  sngc60aux1 CHAR(60),
+  sngc60aux2 DATE,
+  sngc60aux3 NUMBER(9),
+  sngc60aux4 NUMBER(17,2),
+  sngc60aux5 VARCHAR2(400)
+)
+;
+alter table SNGC60
+  add primary key (SNGC60PAIS, SNGC60TDOC, SNGC60NDOC, SNGC60CORR);
+

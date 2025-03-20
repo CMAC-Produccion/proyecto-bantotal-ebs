@@ -1,0 +1,67 @@
+create table JAQN425H
+(
+  jaqn425hfpr DATE not null,
+  jaqn425hnco VARCHAR2(10) not null,
+  jaqn425hcod VARCHAR2(40) not null,
+  jaqn425hlot VARCHAR2(150) not null,
+  jaqn425htip VARCHAR2(150) not null,
+  jaqn425hp01 VARCHAR2(150),
+  jaqn425hp02 VARCHAR2(150),
+  jaqn425hp03 VARCHAR2(150),
+  jaqn425hp04 VARCHAR2(150),
+  jaqn425hp05 VARCHAR2(150),
+  jaqn425hp06 VARCHAR2(150),
+  jaqn425hp07 VARCHAR2(150),
+  jaqn425hp08 VARCHAR2(150),
+  jaqn425hp09 VARCHAR2(150),
+  jaqn425hp10 VARCHAR2(150),
+  jaqn425hp11 VARCHAR2(150),
+  jaqn425hp12 VARCHAR2(150),
+  jaqn425hp13 VARCHAR2(150),
+  jaqn425hp14 VARCHAR2(150)
+)
+;
+comment on table JAQN425H
+  is 'Movimientos TEL.TX Historico';
+comment on column JAQN425H.jaqn425hfpr
+  is 'Fecha Proceso';
+comment on column JAQN425H.jaqn425hnco
+  is 'Número Corte';
+comment on column JAQN425H.jaqn425hcod
+  is 'Código Entidad';
+comment on column JAQN425H.jaqn425hlot
+  is 'Lote';
+comment on column JAQN425H.jaqn425htip
+  is 'Tipo Registro';
+comment on column JAQN425H.jaqn425hp01
+  is 'Parámetro 1';
+comment on column JAQN425H.jaqn425hp02
+  is 'Parámetro 2';
+comment on column JAQN425H.jaqn425hp03
+  is 'Parámetro 3';
+comment on column JAQN425H.jaqn425hp04
+  is 'Parámetro 4';
+comment on column JAQN425H.jaqn425hp05
+  is 'Parámetro 5';
+comment on column JAQN425H.jaqn425hp06
+  is 'Parámetro 6';
+comment on column JAQN425H.jaqn425hp07
+  is 'Parámetro 7';
+comment on column JAQN425H.jaqn425hp08
+  is 'Parámetro 8';
+comment on column JAQN425H.jaqn425hp09
+  is 'Parámetro 9';
+comment on column JAQN425H.jaqn425hp10
+  is 'Parámetro 10';
+comment on column JAQN425H.jaqn425hp11
+  is 'Parámetro 11';
+comment on column JAQN425H.jaqn425hp12
+  is 'Parámetro 12';
+comment on column JAQN425H.jaqn425hp13
+  is 'Parámetro 13';
+comment on column JAQN425H.jaqn425hp14
+  is 'Parámetro 14';
+create index JAQN425H2 on JAQN425H (JAQN425HFPR, JAQN425HLOT);
+alter table JAQN425H
+  add primary key (JAQN425HFPR, JAQN425HNCO, JAQN425HCOD, JAQN425HLOT, JAQN425HTIP);
+

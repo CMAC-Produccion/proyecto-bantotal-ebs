@@ -1,0 +1,25 @@
+create table FSFIAK
+(
+  sfiakemp  NUMBER(3) not null,
+  sfiakcod  NUMBER(3) not null,
+  sfiaknom  CHAR(30),
+  sfiakdesc CHAR(50),
+  sfiakch1  CHAR(1),
+  sfiakch2  CHAR(1),
+  sfiakch3  CHAR(1),
+  sfiakch4  CHAR(1),
+  sfiakch5  CHAR(1),
+  sfiaknum1 NUMBER(4),
+  sfiaknum2 NUMBER(4),
+  sfiaknum3 NUMBER(9),
+  sfiaknum4 NUMBER(9),
+  sfiaknum5 NUMBER(9),
+  sfiakimp1 NUMBER(17,2),
+  sfiakimp2 NUMBER(17,2),
+  sfiakimp3 NUMBER(17,2),
+  sfiakimp4 NUMBER(17,2)
+)
+;
+alter table FSFIAK
+  add primary key (SFIAKEMP, SFIAKCOD);
+

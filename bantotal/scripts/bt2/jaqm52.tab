@@ -1,0 +1,33 @@
+create table JAQM52
+(
+  jaqm52cat NUMBER(12) not null,
+  jaqm52pan CHAR(10),
+  jaqm52nca VARCHAR2(255),
+  jaqm52nbo CHAR(30),
+  jaqm52pre CHAR(10),
+  jaqm52vis CHAR(1),
+  jaqm52rpp CHAR(1),
+  jaqm52pro VARCHAR2(255),
+  jaqm52nu1 NUMBER(9),
+  jaqm52nu2 NUMBER(9),
+  jaqm52nu3 NUMBER(9),
+  jaqm52im1 NUMBER(17,2),
+  jaqm52im2 NUMBER(17,2),
+  jaqm52im3 NUMBER(17,2),
+  jaqm52fe1 DATE,
+  jaqm52fe2 DATE,
+  jaqm52fe3 DATE,
+  jaqm52ch1 CHAR(1),
+  jaqm52ch2 CHAR(1),
+  jaqm52ch3 CHAR(1),
+  jaqm52va1 VARCHAR2(255),
+  jaqm52va2 VARCHAR2(255),
+  jaqm52va3 VARCHAR2(255),
+  jaqm52pco VARCHAR2(255),
+  jaqm52vco CHAR(1)
+)
+;
+create index JAQM52A2 on JAQM52 (JAQM52CAT, JAQM52PAN, JAQM52NCA, JAQM52NBO, JAQM52PRE, JAQM52VIS, JAQM52VCO, JAQM52PCO);
+alter table JAQM52
+  add primary key (JAQM52CAT);
+

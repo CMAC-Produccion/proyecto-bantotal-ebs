@@ -1,0 +1,44 @@
+create table JAQN850
+(
+  jaqn850emp NUMBER(3) not null,
+  jaqn850mod NUMBER(3) not null,
+  jaqn850suc NUMBER(3) not null,
+  jaqn850mda NUMBER(4) not null,
+  jaqn850pap NUMBER(4) not null,
+  jaqn850cta NUMBER(9) not null,
+  jaqn850ope NUMBER(9) not null,
+  jaqn850sbo NUMBER(3) not null,
+  jaqn850top NUMBER(3) not null,
+  jaqn850ano NUMBER(4) not null,
+  jaqn850tip CHAR(1) not null,
+  jaqn850nro NUMBER(5) not null,
+  jaqn850mto NUMBER(17,2),
+  jaqn850est CHAR(1),
+  jaqn850ccd NUMBER(3),
+  jaqn850cmd NUMBER(3),
+  jaqn850csu NUMBER(3),
+  jaqn850ctr NUMBER(3),
+  jaqn850cre NUMBER(4),
+  jaqn850cfe DATE,
+  jaqn850eid NUMBER(5),
+  jaqn850eds VARCHAR2(255),
+  jaqn850ai1 NUMBER(17,2),
+  jaqn850ai2 NUMBER(17,2),
+  jaqn850ai3 NUMBER(17,2),
+  jaqn850an1 NUMBER(9),
+  jaqn850an2 NUMBER(9),
+  jaqn850an3 NUMBER(9),
+  jaqn850ac1 VARCHAR2(255),
+  jaqn850ac2 VARCHAR2(255),
+  jaqn850ac3 VARCHAR2(255),
+  jaqn850fe1 NUMBER(4),
+  jaqn850fe2 NUMBER(4),
+  jaqn850fe3 NUMBER(4)
+)
+;
+comment on table JAQN850
+  is 'Movimientos capital DPF';
+create index JAQN8502 on JAQN850 (JAQN850CCD, JAQN850CMD, JAQN850CSU, JAQN850CTR, JAQN850CRE, JAQN850CFE);
+alter table JAQN850
+  add primary key (JAQN850EMP, JAQN850MOD, JAQN850SUC, JAQN850MDA, JAQN850PAP, JAQN850CTA, JAQN850OPE, JAQN850SBO, JAQN850TOP, JAQN850ANO, JAQN850TIP, JAQN850NRO);
+

@@ -1,0 +1,23 @@
+create table JAQY672TEM
+(
+  jaqy672dnit VARCHAR2(12) not null,
+  jaqy672fcht DATE not null,
+  jaqy672cuet BLOB,
+  jaqy672usrt VARCHAR2(10),
+  jaqy672uset VARCHAR2(10),
+  jaqy672estt CHAR(1),
+  jaqy672msg  VARCHAR2(2000),
+  jaqy672tem1 NUMBER(4),
+  jaqy672tem2 NUMBER(4),
+  jaqy672tem3 VARCHAR2(200),
+  jaqy672tem4 DATE,
+  jaqy672tem5 CHAR(20),
+  jaqy672errt VARCHAR2(400),
+  jaqy672hrgt CHAR(8),
+  jaqy672hret CHAR(8)
+)
+;
+create index JAQY672TEM1 on JAQY672TEM (JAQY672FCHT);
+alter table JAQY672TEM
+  add primary key (JAQY672DNIT, JAQY672FCHT);
+

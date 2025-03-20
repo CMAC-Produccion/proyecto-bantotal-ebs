@@ -1,0 +1,25 @@
+create table FST080
+(
+  cnvemp    NUMBER(3) not null,
+  cnvcta    NUMBER(9) not null,
+  cnvscta   NUMBER(3) not null,
+  cnvtxt    CHAR(50),
+  cnvsucc   NUMBER(3),
+  cnvsuc    NUMBER(3),
+  cnvmod    NUMBER(3),
+  cnvmda    NUMBER(4),
+  cnvpap    NUMBER(4),
+  cnvctacc  NUMBER(9),
+  cnvope    NUMBER(9),
+  cnvsop    NUMBER(3),
+  cnvtop    NUMBER(3),
+  cnvfvto   DATE,
+  cnvvig    CHAR(1),
+  cnvcomres CHAR(1),
+  cnvcomsuc CHAR(1),
+  cnvpgm    CHAR(10)
+)
+;
+alter table FST080
+  add primary key (CNVEMP, CNVCTA, CNVSCTA);
+

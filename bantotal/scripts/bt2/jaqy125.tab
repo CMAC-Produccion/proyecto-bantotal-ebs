@@ -1,0 +1,37 @@
+create table JAQY125
+(
+  jaqy125r1cod  NUMBER(3) not null,
+  jaqy125r1mod  NUMBER(3) not null,
+  jaqy125r1suc  NUMBER(3) not null,
+  jaqy125r1mda  NUMBER(4) not null,
+  jaqy125r1pap  NUMBER(4) not null,
+  jaqy125r1cta  NUMBER(9) not null,
+  jaqy125r1oper NUMBER(9) not null,
+  jaqy125r1sbop NUMBER(3) not null,
+  jaqy125r1tope NUMBER(3) not null,
+  jaqy125relc   NUMBER(3) not null,
+  jaqy125r2mod  NUMBER(3) not null,
+  jaqy125r2cta  NUMBER(9) not null,
+  jaqy125r2oper NUMBER(9) not null,
+  jaqy125r2sbop NUMBER(3) not null,
+  jaqy125r1rub  NUMBER(16),
+  jaqy125r2cod  NUMBER(3),
+  jaqy125r2suc  NUMBER(3),
+  jaqy125r2mda  NUMBER(4),
+  jaqy125r2pap  NUMBER(4),
+  jaqy125r2tope NUMBER(3),
+  jaqy125r2rub  NUMBER(16),
+  jaqy125r011cd NUMBER(3),
+  jaqy125r011mo NUMBER(3),
+  jaqy125r011su NUMBER(3),
+  jaqy125r011tr NUMBER(3),
+  jaqy125r011re NUMBER(4),
+  jaqy125r011fc DATE,
+  jaqy125r011or NUMBER(2),
+  jaqy125r011sb NUMBER(3),
+  jaqy125r011co CHAR(1)
+)
+;
+alter table JAQY125
+  add constraint PK_JAQY125 primary key (JAQY125R1COD, JAQY125R1MOD, JAQY125R1SUC, JAQY125R1MDA, JAQY125R1PAP, JAQY125R1CTA, JAQY125R1OPER, JAQY125R1SBOP, JAQY125R1TOPE, JAQY125RELC, JAQY125R2MOD, JAQY125R2CTA, JAQY125R2OPER, JAQY125R2SBOP);
+

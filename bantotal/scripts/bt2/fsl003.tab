@@ -1,0 +1,20 @@
+create table FSL003
+(
+  fsl003pgco NUMBER(3) not null,
+  fsl003pais NUMBER(3) not null,
+  fsl003tdoc NUMBER(2) not null,
+  fsl003ndoc CHAR(25) not null,
+  fsl003corr NUMBER(9) not null,
+  fsl003mda  NUMBER(4),
+  fsl003mont NUMBER(17,2),
+  fsl003fcha DATE,
+  fsl003fchv DATE,
+  fsl003usri CHAR(10),
+  fsl003usrc CHAR(10),
+  fsl003vig  CHAR(1)
+)
+;
+create index FSL00302 on FSL003 (FSL003FCHV, FSL003CORR, FSL003PAIS, FSL003TDOC, FSL003NDOC, FSL003VIG);
+alter table FSL003
+  add primary key (FSL003PGCO, FSL003PAIS, FSL003TDOC, FSL003NDOC, FSL003CORR);
+

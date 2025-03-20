@@ -1,0 +1,72 @@
+create table JAQL989
+(
+  jaql989cor NUMBER(10) not null,
+  jaql989fec DATE,
+  jaql989hor VARCHAR2(10),
+  jaql989usu VARCHAR2(10),
+  jaql989ase VARCHAR2(50),
+  jaql989doc CHAR(12),
+  jaql989cta NUMBER(9),
+  jaql989mod NUMBER(4),
+  jaql989mda NUMBER(3),
+  jaql989ope NUMBER(9),
+  jaql989dia NUMBER(9),
+  jaql989sao NUMBER(16,2),
+  jaql989tit VARCHAR2(30),
+  jaql989mtd NUMBER(16,2),
+  jaql989gas NUMBER(16,2),
+  jaql989mor NUMBER(16,2),
+  jaql989int NUMBER(16,2),
+  jaql989cuo NUMBER(16,2),
+  jaql989pag NUMBER(16,2),
+  jaql989age VARCHAR2(50),
+  jaql989dif NUMBER(9)
+)
+;
+comment on column JAQL989.jaql989cor
+  is 'Correlativo';
+comment on column JAQL989.jaql989fec
+  is 'Fecha Pago';
+comment on column JAQL989.jaql989hor
+  is 'Hora Pago';
+comment on column JAQL989.jaql989usu
+  is 'Codigo Analista';
+comment on column JAQL989.jaql989ase
+  is 'Nombre Analista';
+comment on column JAQL989.jaql989doc
+  is 'Documento Titular';
+comment on column JAQL989.jaql989cta
+  is 'Cuenta';
+comment on column JAQL989.jaql989mod
+  is 'Modulo';
+comment on column JAQL989.jaql989mda
+  is 'Moneda';
+comment on column JAQL989.jaql989ope
+  is 'Operacion';
+comment on column JAQL989.jaql989dia
+  is 'Dias de Atraso';
+comment on column JAQL989.jaql989sao
+  is 'Saldo Moneda Origen';
+comment on column JAQL989.jaql989tit
+  is 'Nombre Titular';
+comment on column JAQL989.jaql989mtd
+  is 'Monto Total de la Deuda';
+comment on column JAQL989.jaql989gas
+  is 'Gasto';
+comment on column JAQL989.jaql989mor
+  is 'Mora';
+comment on column JAQL989.jaql989int
+  is 'Interes';
+comment on column JAQL989.jaql989cuo
+  is 'Cuota';
+comment on column JAQL989.jaql989pag
+  is 'Monto Pagado';
+comment on column JAQL989.jaql989age
+  is 'Descripcion Agencia';
+comment on column JAQL989.jaql989dif
+  is 'Dias de Atraso Despues Pago';
+create index JAQL98901 on JAQL989 (JAQL989FEC, JAQL989HOR);
+create index JAQL98902 on JAQL989 (JAQL989FEC, JAQL989HOR, JAQL989USU);
+alter table JAQL989
+  add constraint PK_JAQL989 primary key (JAQL989COR);
+

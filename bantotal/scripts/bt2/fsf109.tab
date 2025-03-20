@@ -1,0 +1,21 @@
+create table FSF109
+(
+  lnpgcod  NUMBER(3) not null,
+  lntrmod  NUMBER(3) not null,
+  lntrnro  NUMBER(3) not null,
+  lntrord  NUMBER(2) not null,
+  lninscod NUMBER(3) not null,
+  lninsord NUMBER(2) not null,
+  lninsmod NUMBER(3),
+  lninsrub NUMBER(16),
+  lninsobl CHAR(1),
+  lnincodm NUMBER(3),
+  lninscom NUMBER(3),
+  lninsper NUMBER(3),
+  lninsapl CHAR(1),
+  lninscta CHAR(1)
+)
+;
+alter table FSF109
+  add primary key (LNPGCOD, LNTRMOD, LNTRNRO, LNTRORD, LNINSCOD, LNINSORD);
+

@@ -1,0 +1,14 @@
+create table JAQL467
+(
+  jaql467cor NUMBER(10) not null,
+  jaql467pai NUMBER(3),
+  jaql467tdo NUMBER(2),
+  jaql467ndo CHAR(12),
+  jaql467ase CHAR(10)
+)
+;
+create index JAQL467IDX001 on JAQL467 (JAQL467ASE);
+create index JAQL467IDX002 on JAQL467 (JAQL467PAI, JAQL467TDO, JAQL467NDO);
+alter table JAQL467
+  add primary key (JAQL467COR);
+

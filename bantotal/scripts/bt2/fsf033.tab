@@ -1,0 +1,17 @@
+create table FSF033
+(
+  lfcod     NUMBER(3) not null,
+  lfejcod   NUMBER(3) not null,
+  lfctnro   NUMBER(9) not null,
+  lffecdes  DATE not null,
+  lffecbaja DATE
+)
+;
+create index FSF03303 on FSF033 (LFCOD, LFEJCOD, LFFECBAJA);
+create index FSF03304 on FSF033 (LFCOD, LFCTNRO, LFFECDES);
+create index FSF03305 on FSF033 (LFCOD, LFCTNRO, LFFECBAJA);
+create index FSF03306 on FSF033 (LFCOD, LFFECBAJA, LFCTNRO);
+create index FSF03308 on FSF033 (LFCOD, LFFECDES, LFCTNRO);
+alter table FSF033
+  add primary key (LFCOD, LFEJCOD, LFCTNRO, LFFECDES);
+

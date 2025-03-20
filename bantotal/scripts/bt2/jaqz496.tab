@@ -1,0 +1,19 @@
+create table JAQZ496
+(
+  jaqz496fsms DATE,
+  jaqz496hsms VARCHAR2(8),
+  jaqz496ctra VARCHAR2(10) not null,
+  jaqz496cver NUMBER(5)
+)
+;
+comment on column JAQZ496.jaqz496fsms
+  is 'Fecha de sms';
+comment on column JAQZ496.jaqz496hsms
+  is 'Hora de sms';
+comment on column JAQZ496.jaqz496ctra
+  is 'Código de trabajador';
+comment on column JAQZ496.jaqz496cver
+  is 'Código de verificación';
+alter table JAQZ496
+  add primary key (JAQZ496CTRA);
+

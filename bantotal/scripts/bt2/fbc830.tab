@@ -1,0 +1,44 @@
+create table FBC830
+(
+  bc830emp   NUMBER(3) not null,
+  bc830inf   CHAR(10) not null,
+  bc830fch   DATE not null,
+  bc830mod   NUMBER(3) not null,
+  bc830suc   NUMBER(3) not null,
+  bc830cta   NUMBER(9) not null,
+  bc830mda   NUMBER(4) not null,
+  bc830pap   NUMBER(4) not null,
+  bc830oper  NUMBER(9) not null,
+  bc830sbop  NUMBER(3) not null,
+  bc830tope  NUMBER(3) not null,
+  bc830fech  DATE,
+  bc830ctan  CHAR(22),
+  bc830regt  NUMBER(2),
+  bc830ctat  NUMBER(2),
+  bc830sucid NUMBER(5),
+  bc830idtpo NUMBER(2),
+  bc830idnro NUMBER(11),
+  bc830cjcod NUMBER(5),
+  bc830carac NUMBER(2),
+  bc830incnt NUMBER(2),
+  bc830tjcnt NUMBER(2),
+  bc830mdat  NUMBER(3),
+  bc830acimp NUMBER(17,2),
+  bc830sdosg NUMBER(1),
+  bc830sdo   NUMBER(17,2),
+  bc830sgcon NUMBER(1),
+  bc830tjcon NUMBER(17,2),
+  bc830movt  NUMBER(1),
+  bc830movf  DATE,
+  bc830impf  DATE,
+  bc830vncf  DATE,
+  bc830chr1  CHAR(20),
+  bc830chr2  CHAR(1),
+  bc830fch1  DATE,
+  bc830imp1  NUMBER(17,2),
+  bc830imp2  NUMBER(17,2)
+)
+;
+alter table FBC830
+  add primary key (BC830EMP, BC830INF, BC830FCH, BC830MOD, BC830SUC, BC830CTA, BC830MDA, BC830PAP, BC830OPER, BC830SBOP, BC830TOPE);
+

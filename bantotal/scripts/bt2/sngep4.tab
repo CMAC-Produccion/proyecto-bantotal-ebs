@@ -1,0 +1,16 @@
+create table SNGEP4
+(
+  sngep4ite  NUMBER(10) not null,
+  sngep4cor  NUMBER(3) not null,
+  sngep4pol  NUMBER(5) not null,
+  sngep4chr1 CHAR(1),
+  sngep4chr2 CHAR(1),
+  sngep4ch3  CHAR(1),
+  sngep4chr4 CHAR(1),
+  sngep4com  VARCHAR2(144),
+  sngep4cod  CHAR(50)
+)
+;
+alter table SNGEP4
+  add primary key (SNGEP4ITE, SNGEP4COR, SNGEP4POL);
+

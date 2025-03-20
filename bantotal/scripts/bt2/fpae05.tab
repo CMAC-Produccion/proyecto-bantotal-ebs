@@ -1,0 +1,23 @@
+create table FPAE05
+(
+  pae04ite NUMBER(5) not null,
+  pae05pfj CHAR(1) not null,
+  pae05tpm CHAR(1) not null,
+  pae05soa CHAR(1) not null,
+  pae05rie NUMBER(9) not null,
+  pae05num NUMBER(18) not null,
+  pae05chr CHAR(30) not null,
+  pae05dat DATE not null,
+  pae06rie NUMBER(3)
+)
+;
+create index FPAE0502 on FPAE05 (PAE06RIE);
+create index FPAE0504 on FPAE05 (PAE05PFJ, PAE05RIE);
+create index FPAE0505 on FPAE05 (PAE04ITE, PAE05PFJ, PAE05RIE);
+create index FPAE0506 on FPAE05 (PAE05PFJ, PAE05TPM, PAE05SOA);
+create index FPAE0507 on FPAE05 (PAE04ITE, PAE05PFJ, PAE05TPM, PAE05SOA, PAE05RIE, PAE06RIE);
+create index FPAE0508 on FPAE05 (PAE04ITE, PAE06RIE);
+create index FPAE0509 on FPAE05 (PAE05RIE);
+alter table FPAE05
+  add primary key (PAE04ITE, PAE05PFJ, PAE05TPM, PAE05SOA, PAE05RIE, PAE05NUM, PAE05CHR, PAE05DAT);
+

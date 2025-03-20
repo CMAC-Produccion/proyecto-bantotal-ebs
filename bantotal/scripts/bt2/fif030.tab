@@ -1,0 +1,23 @@
+create table FIF030
+(
+  if030apl  NUMBER(4) not null,
+  if030ban  CHAR(5) not null,
+  if030env  NUMBER(9) not null,
+  if030crr  NUMBER(5) not null,
+  if030bco  NUMBER(3),
+  if030cta  CHAR(17),
+  if030impe CHAR(1),
+  if030codm CHAR(3),
+  if030numv CHAR(10),
+  if030nump CHAR(2),
+  if030fecv CHAR(6),
+  if030forp CHAR(1),
+  if030imp  NUMBER(14,2),
+  if030fecl CHAR(6),
+  if030fill CHAR(102),
+  if030arc  CHAR(6)
+)
+;
+alter table FIF030
+  add primary key (IF030APL, IF030BAN, IF030ENV, IF030CRR);
+

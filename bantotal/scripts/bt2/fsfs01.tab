@@ -1,0 +1,12 @@
+create table FSFS01
+(
+  fsfs01emp NUMBER(3) not null,
+  fsfs01fec DATE not null,
+  fsfs01hor CHAR(8) not null,
+  fsfs01cor NUMBER(6) not null,
+  fsfs01txt CHAR(255)
+)
+;
+alter table FSFS01
+  add primary key (FSFS01EMP, FSFS01FEC, FSFS01HOR, FSFS01COR);
+

@@ -1,0 +1,22 @@
+create table FSXH17
+(
+  himcod NUMBER(3) not null,
+  himfch DATE not null,
+  himsuc NUMBER(3) not null,
+  himmod NUMBER(3) not null,
+  himtrn NUMBER(3) not null,
+  himrel NUMBER(4) not null,
+  himnim NUMBER(3) not null,
+  himnar NUMBER(8),
+  himc01 CHAR(5),
+  himc02 CHAR(5),
+  himc03 CHAR(5),
+  himn01 NUMBER(5),
+  himn02 NUMBER(5),
+  himn03 NUMBER(5),
+  himn04 NUMBER(5)
+)
+;
+alter table FSXH17
+  add primary key (HIMCOD, HIMFCH, HIMSUC, HIMMOD, HIMTRN, HIMREL, HIMNIM);
+

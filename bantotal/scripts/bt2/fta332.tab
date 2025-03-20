@@ -1,0 +1,15 @@
+create table FTA332
+(
+  fta331tpo NUMBER(3) not null,
+  fta331nro NUMBER(10) not null,
+  fta332cor NUMBER(2) not null,
+  fta332cpt NUMBER(1),
+  fta332val NUMBER(17,2),
+  fta332vim NUMBER(17,2),
+  fta332vlx NUMBER(17,2),
+  fta332vax NUMBER(17,2)
+)
+;
+alter table FTA332
+  add primary key (FTA331TPO, FTA331NRO, FTA332COR);
+

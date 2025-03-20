@@ -1,0 +1,64 @@
+create table JAQL011
+(
+  jaql11feenv DATE not null,
+  jaql11hoenv CHAR(8) not null,
+  jaql11coenv NUMBER(12) not null,
+  jaql11coser CHAR(5),
+  jaql11comod NUMBER(10),
+  jaql11uspgc NUMBER(3),
+  jaql11ussuc NUMBER(3),
+  jaql11uscod CHAR(20),
+  jaql11tiper CHAR(1),
+  jaql11tidoe NUMBER(2),
+  jaql11tidob NUMBER(2),
+  jaql11nudoc CHAR(12),
+  jaql11nuope CHAR(20),
+  jaql11ticre CHAR(3),
+  jaql11ticrb NUMBER(5),
+  jaql11secrb NUMBER(5),
+  jaql11crpgc NUMBER(3),
+  jaql11crsuc NUMBER(3),
+  jaql11crmod NUMBER(3),
+  jaql11crmda NUMBER(4),
+  jaql11crpap NUMBER(4),
+  jaql11crcta NUMBER(9),
+  jaql11crope NUMBER(9),
+  jaql11crsbo NUMBER(3),
+  jaql11crtop NUMBER(3),
+  jaql11insta NUMBER(10),
+  jaql11nuint CHAR(10),
+  jaql11nombr CHAR(100),
+  jaql11coban CHAR(20),
+  jaql11noban CHAR(50),
+  jaql11corep CHAR(10),
+  jaql11nuopr CHAR(20),
+  jaql11xmlre LONG,
+  jaql11coret CHAR(2),
+  jaql11accio CHAR(50),
+  jaql11coerr CHAR(5),
+  jaql11tires NUMBER(12),
+  jaql11estad CHAR(1),
+  jaql11aux1  CHAR(50),
+  jaql11aux2  CHAR(50),
+  jaql11aux3  CHAR(50),
+  jaql11aux4  CHAR(30),
+  jaql11aux5  CHAR(30),
+  jaql11aux6  CHAR(30),
+  jaql11aux7  NUMBER(17,2),
+  jaql11aux8  NUMBER(17,2),
+  jaql11aux9  NUMBER(17,2),
+  jaql11aux10 NUMBER(9),
+  jaql11aux11 NUMBER(9),
+  jaql11aux12 NUMBER(9),
+  jaql11aux13 DATE,
+  jaql11aux14 DATE,
+  jaql11aux15 DATE
+)
+;
+create index JAQL0112 on JAQL011 (JAQL11USCOD, JAQL11FEENV, JAQL11HOENV, JAQL11COENV);
+create index JAQL0113 on JAQL011 (JAQL11NUOPE, JAQL11COSER, JAQL11NUINT, JAQL11COREP, JAQL11COBAN);
+create index JAQL0114 on JAQL011 (JAQL11INSTA, JAQL11COSER);
+create index JAQL0115 on JAQL011 (JAQL11NUDOC, JAQL11COSER);
+alter table JAQL011
+  add primary key (JAQL11FEENV, JAQL11HOENV, JAQL11COENV);
+

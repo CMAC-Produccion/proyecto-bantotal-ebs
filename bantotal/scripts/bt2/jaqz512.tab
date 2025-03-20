@@ -1,0 +1,69 @@
+create table JAQZ512
+(
+  jaqz512idc  VARCHAR2(20),
+  jaqz512usr  VARCHAR2(10),
+  jaqz512pai  NUMBER(3),
+  jaqz512tdo  NUMBER,
+  jaqz512ndo  VARCHAR2(12),
+  jaqz512nom  VARCHAR2(110),
+  jaqz512fec  DATE,
+  jaqz512hor  CHAR(8),
+  jaqz512pro  VARCHAR2(30),
+  jaqz512mda  VARCHAR2(3),
+  jaqz512mot  NUMBER(18,2),
+  jaqz512pzo  NUMBER(3),
+  jaqz512modp NUMBER(18,2),
+  jaqz512moda NUMBER(18,2),
+  jaqz512moup NUMBER(18,2),
+  jaqz512moua NUMBER(18,2),
+  jaqz512fvt  DATE,
+  jaqz512est  VARCHAR2(3),
+  jaqz512vac  VARCHAR2(50),
+  jaqz512lat  VARCHAR2(140),
+  jaqz512lon  VARCHAR2(200)
+)
+;
+comment on column JAQZ512.jaqz512idc
+  is 'Id de consulta';
+comment on column JAQZ512.jaqz512usr
+  is 'Usuario de consulta';
+comment on column JAQZ512.jaqz512pai
+  is 'Pais';
+comment on column JAQZ512.jaqz512tdo
+  is 'Tipo de documento';
+comment on column JAQZ512.jaqz512ndo
+  is 'Numero de documento';
+comment on column JAQZ512.jaqz512nom
+  is 'Nombre del cliente';
+comment on column JAQZ512.jaqz512fec
+  is 'Fecha de consulta';
+comment on column JAQZ512.jaqz512hor
+  is 'Hora de consulta';
+comment on column JAQZ512.jaqz512pro
+  is 'Producto de la linea';
+comment on column JAQZ512.jaqz512mda
+  is 'Moneda de la linea';
+comment on column JAQZ512.jaqz512mot
+  is 'Monto total de la linea';
+comment on column JAQZ512.jaqz512pzo
+  is 'Plazo de la linea';
+comment on column JAQZ512.jaqz512modp
+  is 'Monto Disponible principal';
+comment on column JAQZ512.jaqz512moda
+  is 'Monto Disponible adicional';
+comment on column JAQZ512.jaqz512moup
+  is 'Monto Utilizado principal';
+comment on column JAQZ512.jaqz512moua
+  is 'Monto Utilizado adicional';
+comment on column JAQZ512.jaqz512fvt
+  is 'Fecha de vencimiento de la linea';
+comment on column JAQZ512.jaqz512est
+  is 'Estado de la linea';
+comment on column JAQZ512.jaqz512vac
+  is 'Valor en caracter';
+comment on column JAQZ512.jaqz512lat
+  is 'Latitud';
+comment on column JAQZ512.jaqz512lon
+  is 'Longitud';
+create index IDX_JAQZ512_01 on JAQZ512 (JAQZ512IDC, JAQZ512USR);
+

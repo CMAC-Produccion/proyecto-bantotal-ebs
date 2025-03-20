@@ -1,0 +1,13 @@
+create table FRCONTROLS
+(
+  frctlcla    CHAR(15) not null,
+  frctltyp    CHAR(3) not null,
+  frctldes    CHAR(30),
+  frctlcodbas VARCHAR2(50),
+  frctlid     VARCHAR2(50)
+)
+;
+create index IFRCONTROLS on FRCONTROLS (FRCTLTYP);
+alter table FRCONTROLS
+  add primary key (FRCTLCLA, FRCTLTYP);
+

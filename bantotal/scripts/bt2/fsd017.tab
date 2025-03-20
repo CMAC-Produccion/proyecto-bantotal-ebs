@@ -1,0 +1,27 @@
+create table FSD017
+(
+  deucod   NUMBER(3) not null,
+  deusuc   NUMBER(3) not null,
+  deumod   NUMBER(3) not null,
+  deurub   NUMBER(16) not null,
+  deumda   NUMBER(4) not null,
+  deupap   NUMBER(4) not null,
+  deucta   NUMBER(9) not null,
+  deuoper  NUMBER(9) not null,
+  deusbop  NUMBER(3) not null,
+  deutope  NUMBER(3) not null,
+  deuimp   NUMBER(17,2),
+  deugare  NUMBER(17,2),
+  deugareg NUMBER(17,2),
+  deugarg  NUMBER(17,2),
+  deusdo   NUMBER(17,2),
+  deuaux1  NUMBER(17,2),
+  deuaux2  NUMBER(17,2),
+  deutpo   CHAR(1)
+)
+;
+create index FSD01702 on FSD017 (DEUCOD, DEUCTA, DEUMOD, DEUMDA, DEUPAP);
+create index FSD01703 on FSD017 (DEUCOD, DEUSUC, DEUMOD, DEUMDA, DEUPAP, DEUCTA, DEUOPER, DEUSBOP, DEUTOPE);
+alter table FSD017
+  add primary key (DEUCOD, DEUSUC, DEUMOD, DEURUB, DEUMDA, DEUPAP, DEUCTA, DEUOPER, DEUSBOP, DEUTOPE);
+

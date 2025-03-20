@@ -1,0 +1,26 @@
+create table AQPB891
+(
+  nid         CHAR(40),
+  producto    VARCHAR2(50),
+  certificado VARCHAR2(30),
+  cuenta      VARCHAR2(30),
+  documento   CHAR(12)
+)
+;
+comment on table AQPB891
+  is 'TABLA CON DATA DE VISTA SIGSRETAIL V_CERTSEGUROS';
+comment on column AQPB891.nid
+  is 'Correlativo';
+comment on column AQPB891.producto
+  is 'Producto';
+comment on column AQPB891.certificado
+  is 'Certificado';
+comment on column AQPB891.cuenta
+  is 'Cuenta';
+comment on column AQPB891.documento
+  is 'Documento';
+create unique index AQPB891A2 on AQPB891 (NID);
+create index AQPB891A3 on AQPB891 (PRODUCTO, DOCUMENTO);
+create index AQPB891A4 on AQPB891 (DOCUMENTO);
+create index AQPB891A5 on AQPB891 (CUENTA);
+

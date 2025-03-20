@@ -1,0 +1,22 @@
+create table FHU030
+(
+  pgcod      NUMBER(3) not null,
+  coihmod    NUMBER(3) not null,
+  coihoper   NUMBER(9) not null,
+  coihmodid  NUMBER(5) not null,
+  coihcuonro NUMBER(2) not null,
+  coiiacuovt DATE,
+  coiipcuovt DATE,
+  coiiacuoim NUMBER(17,2),
+  coiipcuoim NUMBER(17,2),
+  coiiacuoin NUMBER(17,2),
+  coiipcuoin NUMBER(17,2),
+  coiiacuoob CHAR(40),
+  coiipcuoob CHAR(40),
+  coiiacuosd NUMBER(17,2),
+  coiipcuosd NUMBER(17,2)
+)
+;
+alter table FHU030
+  add primary key (PGCOD, COIHMOD, COIHOPER, COIHMODID, COIHCUONRO);
+

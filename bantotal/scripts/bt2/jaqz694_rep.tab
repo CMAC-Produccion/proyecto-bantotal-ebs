@@ -1,0 +1,70 @@
+create table JAQZ694_REP
+(
+  jaqz694rins NUMBER(10),
+  jaqz694reva NUMBER(10),
+  jaqz694rmt1 NUMBER(17,2),
+  jaqz694rmt2 NUMBER(17,2),
+  jaqz694rmt3 NUMBER(17,2),
+  jaqz694rmtf NUMBER(17,2),
+  jaqz694rseg NUMBER(5),
+  jaqz694rplz NUMBER(5),
+  jaqz694rnrc NUMBER(10),
+  jaqz694rrcc DATE,
+  jaqz694rfep DATE,
+  jaqz694rusr CHAR(10),
+  jaqz694rsbs NUMBER(5),
+  jaqz694rfvt DATE,
+  jaqz694rfv1 DATE,
+  jaqz694rusp CHAR(10),
+  jaqz694rau1 DATE,
+  jaqz694rau2 NUMBER(10),
+  jaqz694rau3 NUMBER(17,2),
+  jaqz694rau4 CHAR(30),
+  jaqz694rau5 CHAR(1)
+)
+;
+comment on column JAQZ694_REP.jaqz694rins
+  is 'Instancia';
+comment on column JAQZ694_REP.jaqz694reva
+  is 'Numero de evaluacion';
+comment on column JAQZ694_REP.jaqz694rmt1
+  is 'Monto 50% de desembolso';
+comment on column JAQZ694_REP.jaqz694rmt2
+  is 'Monto Nivel Ventas';
+comment on column JAQZ694_REP.jaqz694rmt3
+  is 'Monto Máximo a otorgar según segmentación';
+comment on column JAQZ694_REP.jaqz694rmtf
+  is 'Monto Final';
+comment on column JAQZ694_REP.jaqz694rseg
+  is 'Segmentacion';
+comment on column JAQZ694_REP.jaqz694rplz
+  is 'Plazo 90 o 180';
+comment on column JAQZ694_REP.jaqz694rnrc
+  is 'Numero de credito vigentes';
+comment on column JAQZ694_REP.jaqz694rrcc
+  is 'Fecha de RCC';
+comment on column JAQZ694_REP.jaqz694rfep
+  is 'Fecha de Proceso';
+comment on column JAQZ694_REP.jaqz694rusr
+  is 'Usuario de Proceso';
+comment on column JAQZ694_REP.jaqz694rsbs
+  is 'Tipologia SBS';
+comment on column JAQZ694_REP.jaqz694rfvt
+  is 'Fecha de vencimiento de primera cuota';
+comment on column JAQZ694_REP.jaqz694rfv1
+  is 'Fecha de vencimiento de primera cuota mas 1';
+comment on column JAQZ694_REP.jaqz694rusp
+  is 'Usuario que genera el reporte';
+comment on column JAQZ694_REP.jaqz694rau1
+  is 'Campo auxiliar1';
+comment on column JAQZ694_REP.jaqz694rau2
+  is 'Campo auxiliar2';
+comment on column JAQZ694_REP.jaqz694rau3
+  is 'Campo auxiliar3';
+comment on column JAQZ694_REP.jaqz694rau4
+  is 'Campo auxiliar4';
+comment on column JAQZ694_REP.jaqz694rau5
+  is 'Campo auxiliar5';
+create index JAQZ694_REP2 on JAQZ694_REP (JAQZ694RFEP);
+create index JAQZ694_REP3 on JAQZ694_REP (JAQZ694RFEP, JAQZ694RUSP);
+

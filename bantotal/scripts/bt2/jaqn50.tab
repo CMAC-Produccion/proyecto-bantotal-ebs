@@ -1,0 +1,130 @@
+create table JAQN50
+(
+  jaqn50empe NUMBER(3) not null,
+  jaqn50sucu NUMBER(3) not null,
+  jaqn50modc NUMBER(3) not null,
+  jaqn50mone NUMBER(4) not null,
+  jaqn50pape NUMBER(4) not null,
+  jaqn50cnta NUMBER(9) not null,
+  jaqn50oper NUMBER(9) not null,
+  jaqn50suop NUMBER(3) not null,
+  jaqn50tope NUMBER(3) not null,
+  jaqn50suca NUMBER(3) not null,
+  jaqn50moda NUMBER(3) not null,
+  jaqn50tran NUMBER(3) not null,
+  jaqn50nrel NUMBER(4) not null,
+  jaqn50fect DATE not null,
+  jaqn50nomb CHAR(30),
+  jaqn50pais NUMBER(3),
+  jaqn50tdoc NUMBER(2),
+  jaqn50pdoc CHAR(20),
+  jaqn50ocup NUMBER(5),
+  jaqn50domi CHAR(50),
+  jaqn50orim CHAR(30),
+  jaqn50anio NUMBER(4),
+  jaqn50impd NUMBER(17,2),
+  jaqn50celu CHAR(15),
+  jaqn50mail CHAR(30),
+  jaqn50tiap CHAR(1),
+  jaqn50cont CHAR(1),
+  jaqn50an1  NUMBER(9),
+  jaqn50an2  NUMBER(9),
+  jaqn50an3  NUMBER(9),
+  jaqn50ad1  DATE,
+  jaqn50ad2  DATE,
+  jaqn50ad3  DATE,
+  jaqn50ai1  NUMBER(17,2),
+  jaqn50ai2  NUMBER(17,2),
+  jaqn50ai3  NUMBER(17,2),
+  jaqn50ac1  CHAR(255),
+  jaqn50ac2  CHAR(255),
+  jaqn50ac3  CHAR(255)
+)
+;
+comment on table JAQN50
+  is 'TABLA DE ABONO CUENTAS DE PARTIDOS POLITICOS';
+comment on column JAQN50.jaqn50empe
+  is 'Empresa';
+comment on column JAQN50.jaqn50sucu
+  is 'Sucursal';
+comment on column JAQN50.jaqn50modc
+  is 'Modulo cuenta';
+comment on column JAQN50.jaqn50mone
+  is 'Moneda';
+comment on column JAQN50.jaqn50pape
+  is 'Papel';
+comment on column JAQN50.jaqn50cnta
+  is 'Cuenta';
+comment on column JAQN50.jaqn50oper
+  is 'Operación';
+comment on column JAQN50.jaqn50suop
+  is 'Suboperacion';
+comment on column JAQN50.jaqn50tope
+  is 'Tipo de Operación';
+comment on column JAQN50.jaqn50suca
+  is 'Sucursal asiento';
+comment on column JAQN50.jaqn50moda
+  is 'Modulo asiento';
+comment on column JAQN50.jaqn50tran
+  is 'Transaccion';
+comment on column JAQN50.jaqn50nrel
+  is 'N° de relacion';
+comment on column JAQN50.jaqn50fect
+  is 'Fecha de la transaccion';
+comment on column JAQN50.jaqn50nomb
+  is 'Nombre del Aportante';
+comment on column JAQN50.jaqn50pais
+  is 'Pais';
+comment on column JAQN50.jaqn50tdoc
+  is 'Tipo Documento';
+comment on column JAQN50.jaqn50pdoc
+  is 'DNI o RUC';
+comment on column JAQN50.jaqn50ocup
+  is 'Ocupación';
+comment on column JAQN50.jaqn50domi
+  is 'Domicilio';
+comment on column JAQN50.jaqn50orim
+  is 'Origen del Importe';
+comment on column JAQN50.jaqn50anio
+  is 'Año Transacción';
+comment on column JAQN50.jaqn50impd
+  is 'Importe depósitado';
+comment on column JAQN50.jaqn50celu
+  is 'Celular';
+comment on column JAQN50.jaqn50mail
+  is 'Mail';
+comment on column JAQN50.jaqn50tiap
+  is 'Tipo de Aporte ( R: Representante, E: Externo)';
+comment on column JAQN50.jaqn50cont
+  is 'Contabilizado ( S: Sí, N: No)';
+comment on column JAQN50.jaqn50an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQN50.jaqn50an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQN50.jaqn50an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQN50.jaqn50ad1
+  is 'Date Auxiliar 1';
+comment on column JAQN50.jaqn50ad2
+  is 'Date Auxiliar 2';
+comment on column JAQN50.jaqn50ad3
+  is 'Date Auxiliar 3';
+comment on column JAQN50.jaqn50ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQN50.jaqn50ai2
+  is 'Importe Auxiliar 2';
+comment on column JAQN50.jaqn50ai3
+  is 'Importe Auxiliar 3';
+comment on column JAQN50.jaqn50ac1
+  is 'Character Auxiliar 1';
+comment on column JAQN50.jaqn50ac2
+  is 'Character Auxiliar 2';
+comment on column JAQN50.jaqn50ac3
+  is 'Character Auxiliar 3';
+create index JAQN5002 on JAQN50 (JAQN50EMPE, JAQN50SUCU, JAQN50MODC, JAQN50MONE, JAQN50PAPE, JAQN50CNTA, JAQN50OPER, JAQN50SUOP, JAQN50TOPE, JAQN50FECT, JAQN50TIAP);
+create index JAQN5003 on JAQN50 (JAQN50EMPE, JAQN50SUCU, JAQN50MODC, JAQN50MONE, JAQN50PAPE, JAQN50CNTA, JAQN50OPER, JAQN50SUOP, JAQN50TOPE, JAQN50FECT, JAQN50CONT);
+create index JAQN5004 on JAQN50 (JAQN50EMPE, JAQN50SUCA, JAQN50MODA, JAQN50TRAN, JAQN50NREL, JAQN50FECT);
+create index JAQN5005 on JAQN50 (JAQN50EMPE, JAQN50SUCU, JAQN50MODC, JAQN50MONE, JAQN50PAPE, JAQN50CNTA, JAQN50OPER, JAQN50SUOP, JAQN50TOPE, JAQN50ANIO, JAQN50CONT);
+alter table JAQN50
+  add primary key (JAQN50EMPE, JAQN50SUCU, JAQN50MODC, JAQN50MONE, JAQN50PAPE, JAQN50CNTA, JAQN50OPER, JAQN50SUOP, JAQN50TOPE, JAQN50SUCA, JAQN50MODA, JAQN50TRAN, JAQN50NREL, JAQN50FECT);
+

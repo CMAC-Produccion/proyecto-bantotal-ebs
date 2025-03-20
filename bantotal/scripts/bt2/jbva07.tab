@@ -1,0 +1,13 @@
+create table JBVA07
+(
+  jbva07age  NUMBER(5) not null,
+  jbva07ven  NUMBER(5) not null,
+  jbva07aux1 NUMBER(5),
+  jbva07aux2 CHAR(30),
+  jbva07aux3 DATE,
+  jbva07aux4 NUMBER(17,2),
+  jbva07aux5 CHAR(1)
+)
+;
+create unique index JBVA0701 on JBVA07 (JBVA07AGE, JBVA07VEN);
+

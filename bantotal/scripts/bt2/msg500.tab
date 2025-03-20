@@ -1,0 +1,15 @@
+create table MSG500
+(
+  estmcod  NUMBER(5) not null,
+  ltrcod   NUMBER(3) not null,
+  ltrnom   CHAR(40),
+  ltrbatch CHAR(1),
+  ltrcmt   VARCHAR2(255),
+  msgpgcod NUMBER(3),
+  msgtrmod NUMBER(3),
+  msgtrnro NUMBER(3)
+)
+;
+alter table MSG500
+  add primary key (ESTMCOD, LTRCOD);
+

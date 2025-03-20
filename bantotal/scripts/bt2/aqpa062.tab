@@ -1,0 +1,22 @@
+create table AQPA062
+(
+  aqpa062year NUMBER(4) not null,
+  aqpa062mesn NUMBER(2) not null,
+  aqpa062usr  CHAR(10) not null,
+  aqpa062mod  NUMBER(3) not null,
+  aqpa062mda  NUMBER(4) not null,
+  aqpa062mes  CHAR(30),
+  aqpa062ncr  NUMBER(10),
+  aqpa062mct  NUMBER(16,2),
+  aqpa062bbp  NUMBER(16,2),
+  aqpa062pbp  NUMBER(16,2),
+  aqpa062sdo  NUMBER(16,2),
+  aqpa062fec  DATE,
+  aqpa062ipbp NUMBER(16,6),
+  aqpa062ibbp NUMBER(16,6),
+  aqpa062cta  NUMBER(9) not null
+)
+;
+alter table AQPA062
+  add primary key (AQPA062YEAR, AQPA062MESN, AQPA062USR, AQPA062MOD, AQPA062MDA, AQPA062CTA);
+

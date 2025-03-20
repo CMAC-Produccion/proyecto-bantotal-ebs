@@ -1,0 +1,41 @@
+create table FSFI49
+(
+  sfi49emp  NUMBER(3) not null,
+  sfi49suc  NUMBER(3) not null,
+  sfi49rub  NUMBER(16) not null,
+  sfi49mda  NUMBER(4) not null,
+  sfi49pap  NUMBER(4) not null,
+  sfi49cta  NUMBER(9) not null,
+  sfi49ope  NUMBER(9) not null,
+  sfi49sbop NUMBER(3) not null,
+  sfi49top  NUMBER(3) not null,
+  sfi49div  NUMBER(4) not null,
+  sfi49inv  NUMBER(4) not null,
+  sfi49corr NUMBER(4),
+  sfi49mod  NUMBER(3),
+  sfi49asuc NUMBER(3),
+  sfi49amod NUMBER(3),
+  sfi49atrn NUMBER(3),
+  sfi49anre NUMBER(4),
+  sfi49afco DATE,
+  sfi49imp1 NUMBER(17,2),
+  sfi49imp2 NUMBER(17,2),
+  sfi49imp3 NUMBER(17,2),
+  sfi49imp4 NUMBER(17,2),
+  sfi49imp5 NUMBER(17,2),
+  sfi49est  CHAR(1),
+  sfi49au01 NUMBER(9),
+  sfi49au02 NUMBER(9),
+  sfi49au03 DATE,
+  sfi49au04 DATE,
+  sfi49au05 CHAR(20),
+  sfi49au06 CHAR(20),
+  sfi49au07 NUMBER(17,2),
+  sfi49au08 NUMBER(17,2)
+)
+;
+create index FSFI4902 on FSFI49 (SFI49EMP, SFI49CTA, SFI49MOD, SFI49OPE);
+create index FSFI4903 on FSFI49 (SFI49EMP, SFI49ASUC, SFI49AMOD, SFI49ATRN, SFI49ANRE, SFI49AFCO);
+alter table FSFI49
+  add primary key (SFI49EMP, SFI49SUC, SFI49RUB, SFI49MDA, SFI49PAP, SFI49CTA, SFI49OPE, SFI49SBOP, SFI49TOP, SFI49DIV, SFI49INV);
+

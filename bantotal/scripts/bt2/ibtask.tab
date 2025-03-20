@@ -1,0 +1,17 @@
+create table IBTASK
+(
+  ibproject CHAR(60) not null,
+  ibprocess CHAR(60) not null,
+  ibtask    CHAR(60) not null,
+  ibtaskdsc VARCHAR2(60) not null,
+  ibtasknum NUMBER(10) not null,
+  ibtaskord CHAR(1) not null,
+  ibtasknpr CHAR(60) not null,
+  ibtasknta CHAR(60) not null,
+  ibtaskws  CHAR(8) not null,
+  ibtasklog CHAR(1)
+)
+;
+create unique index IBTASK01 on IBTASK (IBPROJECT, IBPROCESS, IBTASK);
+create index IBTASK02 on IBTASK (IBPROJECT, IBPROCESS);
+

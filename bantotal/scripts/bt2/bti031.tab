@@ -1,0 +1,11 @@
+create table BTI031
+(
+  btifileid   NUMBER(10) not null,
+  btiblobid   NUMBER(4) not null,
+  btifileblob BLOB,
+  btifilepath VARCHAR2(200)
+)
+;
+alter table BTI031
+  add primary key (BTIFILEID, BTIBLOBID);
+

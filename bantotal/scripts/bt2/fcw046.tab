@@ -1,0 +1,15 @@
+create table FCW046
+(
+  cmxwcod   NUMBER(3) not null,
+  cmxwusr   CHAR(10) not null,
+  cmxwlcco  CHAR(3) not null,
+  cmxwinst  NUMBER(2) not null,
+  usinswupd CHAR(1),
+  usinswqry CHAR(1),
+  usinswaut CHAR(1)
+)
+;
+create index FCW04602 on FCW046 (CMXWLCCO, CMXWINST);
+alter table FCW046
+  add primary key (CMXWCOD, CMXWUSR, CMXWLCCO, CMXWINST);
+

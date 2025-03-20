@@ -1,0 +1,11 @@
+create table AUM006
+(
+  aum006exco NUMBER(9) not null,
+  aum006usr  CHAR(10) not null,
+  auxm006cor NUMBER(4),
+  auxm006acc CHAR(1)
+)
+;
+alter table AUM006
+  add primary key (AUM006EXCO, AUM006USR);
+

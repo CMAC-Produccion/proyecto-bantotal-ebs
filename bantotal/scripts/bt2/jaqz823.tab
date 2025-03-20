@@ -1,0 +1,136 @@
+create table JAQZ823
+(
+  jaqz823corr   NUMBER(10) not null,
+  jaqz823fech   DATE not null,
+  jaqz823hora   CHAR(8) not null,
+  jaqz823inst   NUMBER(10) not null,
+  jaqz823neva   NUMBER(10),
+  jaqz823pais   NUMBER(3) not null,
+  jaqz823tdoc   NUMBER(2) not null,
+  jaqz823ndoc   CHAR(12) not null,
+  jaqz823rubr   VARCHAR2(14),
+  jaqz823esta   CHAR(2),
+  jaqz823enti   CHAR(200),
+  jaqz823tcre   CHAR(30),
+  jaqz823sdeu   NUMBER(17,2),
+  jaqz823plaz   NUMBER(9,6),
+  jaqz823tasa   NUMBER(9,6),
+  jaqz823ccalc  NUMBER(17,2),
+  jaqz823gfin   NUMBER(17,2),
+  jaqz823frcc   DATE,
+  jaqz823dori   CHAR(1),
+  jaqz823chek   CHAR(1),
+  jaqz823pers   CHAR(30),
+  jaqz823rela   CHAR(20),
+  jaqz823line   CHAR(20),
+  jaqz823aux1   NUMBER(10),
+  jaqz823aux2   NUMBER(17,2),
+  jaqz823aux3   CHAR(1),
+  jaqz823aux4   VARCHAR2(1),
+  jaqz823aux5   VARCHAR2(50),
+  jaqz823aux6   DATE,
+  jaqz823aux7   NUMBER(10),
+  jaqz823aux8   NUMBER(17,2),
+  jaqz823aux9   VARCHAR2(40),
+  jaqz823mda    NUMBER(4),
+  jaqz823tlin   NUMBER(17,2),
+  jaqz823util   NUMBER(17,2),
+  jaqz823flin   VARCHAR2(1),
+  jaqz823cptn   NUMBER(17,2),
+  jaqz823fac1   NUMBER(10,6),
+  jaqz823fac2   NUMBER(10,6),
+  jaqz823fac3   NUMBER(10,6),
+  jaqz823indic  VARCHAR2(10),
+  jaqz823fratio DATE,
+  jaqz823uratio VARCHAR2(10),
+  jaqz823hratio CHAR(8)
+)
+;
+comment on column JAQZ823.jaqz823corr
+  is 'Correlativo';
+comment on column JAQZ823.jaqz823fech
+  is 'Fecha Proceso';
+comment on column JAQZ823.jaqz823hora
+  is 'Hora Registro';
+comment on column JAQZ823.jaqz823inst
+  is 'Instancia / Solicitud';
+comment on column JAQZ823.jaqz823neva
+  is 'Evaluacion';
+comment on column JAQZ823.jaqz823pais
+  is 'Pais';
+comment on column JAQZ823.jaqz823tdoc
+  is 'Tipo Documento';
+comment on column JAQZ823.jaqz823ndoc
+  is 'Num Documento';
+comment on column JAQZ823.jaqz823rubr
+  is 'Rubro';
+comment on column JAQZ823.jaqz823esta
+  is 'Estado S/N';
+comment on column JAQZ823.jaqz823enti
+  is 'Entidad Finan';
+comment on column JAQZ823.jaqz823tcre
+  is 'Tipo Credito';
+comment on column JAQZ823.jaqz823sdeu
+  is 'Saldo Deudor';
+comment on column JAQZ823.jaqz823plaz
+  is 'Plazo';
+comment on column JAQZ823.jaqz823tasa
+  is 'Taza';
+comment on column JAQZ823.jaqz823ccalc
+  is 'Cuota Calculada';
+comment on column JAQZ823.jaqz823gfin
+  is 'Gasto Financiero';
+comment on column JAQZ823.jaqz823frcc
+  is 'Fecha RCC';
+comment on column JAQZ823.jaqz823dori
+  is 'Datos Origen';
+comment on column JAQZ823.jaqz823chek
+  is 'Vigente';
+comment on column JAQZ823.jaqz823pers
+  is 'Nombre Per';
+comment on column JAQZ823.jaqz823rela
+  is 'Relacion Per';
+comment on column JAQZ823.jaqz823line
+  is 'Tipo de Deuda';
+comment on column JAQZ823.jaqz823aux1
+  is 'Tarea de ejecucion';
+comment on column JAQZ823.jaqz823aux3
+  is 'Flag Ratio R/ '' ''';
+comment on column JAQZ823.jaqz823aux4
+  is 'Flag Compra de Deuda';
+comment on column JAQZ823.jaqz823aux5
+  is 'Usuario de Registro';
+comment on column JAQZ823.jaqz823aux8
+  is 'Monto de No Uso';
+comment on column JAQZ823.jaqz823aux9
+  is 'Descripcion del Credito';
+comment on column JAQZ823.jaqz823mda
+  is 'Moneda';
+comment on column JAQZ823.jaqz823tlin
+  is 'Monto Total Linea';
+comment on column JAQZ823.jaqz823util
+  is 'Monto Utilizacion';
+comment on column JAQZ823.jaqz823flin
+  is 'Flag Tipo de deuda L/P';
+comment on column JAQZ823.jaqz823cptn
+  is 'Monto Cuota Potencial';
+comment on column JAQZ823.jaqz823fac1
+  is 'Factor Calculo Usado';
+comment on column JAQZ823.jaqz823fac2
+  is 'Factor Calculo No Usado';
+comment on column JAQZ823.jaqz823fac3
+  is 'Factor Calculo Prestamo';
+comment on column JAQZ823.jaqz823indic
+  is 'Indicador P Pyme C Consumo';
+comment on column JAQZ823.jaqz823fratio
+  is 'Fecha Calculo de Ratio';
+comment on column JAQZ823.jaqz823uratio
+  is 'Usuario Calculo Ratio';
+comment on column JAQZ823.jaqz823hratio
+  is 'Hora Calculo Ratio';
+create index JAQZ8232 on JAQZ823 (JAQZ823INST);
+create index JAQZ8233 on JAQZ823 (JAQZ823INST, JAQZ823NEVA, JAQZ823PAIS, JAQZ823TDOC, JAQZ823NDOC);
+create index JAQZ8234 on JAQZ823 (JAQZ823INST, JAQZ823NEVA, JAQZ823PAIS, JAQZ823TDOC, JAQZ823NDOC, JAQZ823ESTA, JAQZ823SDEU, JAQZ823PLAZ, JAQZ823TASA, JAQZ823CCALC);
+alter table JAQZ823
+  add primary key (JAQZ823FECH, JAQZ823CORR, JAQZ823HORA, JAQZ823INST, JAQZ823PAIS, JAQZ823TDOC, JAQZ823NDOC);
+

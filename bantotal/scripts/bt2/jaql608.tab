@@ -1,0 +1,37 @@
+create table JAQL608
+(
+  jaql546serial NUMBER(10) not null,
+  jaql608secue  NUMBER(6) not null,
+  jaql608coafp  VARCHAR2(100),
+  jaql608pedev  DATE,
+  jaql608rasoc  VARCHAR2(100),
+  jaql608tipde  VARCHAR2(100),
+  jaql608mtodf  NUMBER(16,2),
+  jaql608mtoda  NUMBER(16,2),
+  jaql608indde  VARCHAR2(100),
+  jaql608accio  VARCHAR2(100),
+  jaql608conre  VARCHAR2(100),
+  jaql608fecre  DATE,
+  jaql608feact  DATE,
+  jaql608feccn  DATE,
+  jaql608cosus  VARCHAR2(100),
+  jaql608facsu  DATE,
+  jaql608tidet  CHAR(2),
+  jaql608dven   NUMBER(10),
+  jaql608concod VARCHAR2(16),
+  jaql608creusr VARCHAR2(10),
+  jaql608cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL608.jaql608dven
+  is 'Dias Vencidos';
+comment on column JAQL608.jaql608concod
+  is 'Código de Consulta';
+comment on column JAQL608.jaql608creusr
+  is 'Usuario Creación';
+comment on column JAQL608.jaql608cretim
+  is 'Fecha Hora Registro';
+create index JAQL608A2 on JAQL608 (JAQL546SERIAL, JAQL608PEDEV DESC);
+alter table JAQL608
+  add primary key (JAQL546SERIAL, JAQL608SECUE);
+

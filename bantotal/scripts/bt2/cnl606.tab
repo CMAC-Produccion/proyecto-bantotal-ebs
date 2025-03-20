@@ -1,0 +1,17 @@
+create table CNL606
+(
+  cnl600ver  CHAR(20) not null,
+  cnl600pch  CHAR(50) not null,
+  cnl606acnc NUMBER(3) not null,
+  cnl606bopc NUMBER(5) not null,
+  cnl606cvar NUMBER(3) not null,
+  cnl606tip  CHAR(5) not null,
+  cnl606est  CHAR(120),
+  cnl650code NUMBER(4),
+  cnl606errp NUMBER(4)
+)
+;
+create index ICNL606 on CNL606 (CNL650CODE);
+alter table CNL606
+  add primary key (CNL600VER, CNL600PCH, CNL606ACNC, CNL606BOPC, CNL606CVAR, CNL606TIP);
+

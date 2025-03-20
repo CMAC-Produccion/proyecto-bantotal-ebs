@@ -1,0 +1,12 @@
+create table FSFCA9
+(
+  fsf9fec DATE not null,
+  fsf9mda NUMBER(4) not null,
+  fsf9imp NUMBER(17,2),
+  fsf9fei NUMBER(8)
+)
+;
+create index FSFCA902 on FSFCA9 (FSF9MDA, FSF9FEI);
+alter table FSFCA9
+  add primary key (FSF9FEC, FSF9MDA);
+

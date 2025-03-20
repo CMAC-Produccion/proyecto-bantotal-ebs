@@ -1,0 +1,46 @@
+create table FBC7C2
+(
+  bc7c2emp   NUMBER(3) not null,
+  bc7c2inf   CHAR(10) not null,
+  bc7c2fch   DATE not null,
+  bc7c2id1   CHAR(7) not null,
+  bc7c2id2   CHAR(7) not null,
+  bc7c2id3   CHAR(7) not null,
+  bc7c2id4   CHAR(21) not null,
+  bc7c2tipcl CHAR(1),
+  bc7c2apepa CHAR(25),
+  bc7c2apema CHAR(25),
+  bc7c2apeca CHAR(25),
+  bc7c2prino CHAR(25),
+  bc7c2segno CHAR(25),
+  bc7c2sexcl NUMBER(1),
+  bc7c2segso CHAR(25),
+  bc7c2estci NUMBER(1),
+  bc7c2legno CHAR(70),
+  bc7c2comno CHAR(70),
+  bc7c2dircl CHAR(80),
+  bc7c2fecna DATE,
+  bc7c2telca CHAR(7),
+  bc7c2fax1  CHAR(7),
+  bc7c2fax2  CHAR(7),
+  bc7c2telot CHAR(7),
+  bc7c2telce CHAR(7),
+  bc7c2lugtr CHAR(50),
+  bc7c2dirtr CHAR(80),
+  bc7c2postr CHAR(50),
+  bc7c2ingme NUMBER(17,2),
+  bc7c2fecin DATE,
+  bc7c2ofi1t CHAR(7),
+  bc7c2ofi2t CHAR(5),
+  bc7c2conyn CHAR(20),
+  bc7c2conya CHAR(20),
+  bc7c2cedco CHAR(21),
+  bc7c2padno CHAR(20),
+  bc7c2padap CHAR(20),
+  bc7c2madno CHAR(20),
+  bc7c2madap CHAR(20)
+)
+;
+alter table FBC7C2
+  add primary key (BC7C2EMP, BC7C2INF, BC7C2FCH, BC7C2ID1, BC7C2ID2, BC7C2ID3, BC7C2ID4);
+

@@ -1,0 +1,22 @@
+create table FSFT12
+(
+  kt7pgcod  NUMBER(3) not null,
+  kt7anio   NUMBER(4) not null,
+  kt7mes    NUMBER(2) not null,
+  kt7fondo  NUMBER(3) not null,
+  kt7datok  NUMBER(14,8),
+  kt7tpodes NUMBER(6,2),
+  kt7imp01  NUMBER(17,2),
+  kt7imp02  NUMBER(17,2),
+  kt7imp03  NUMBER(17,2),
+  kt7coef01 NUMBER(14,8),
+  kt7coef02 NUMBER(14,8),
+  kt7coef03 NUMBER(14,8),
+  kt7fec01  DATE,
+  kt7fec02  DATE,
+  kt7fec03  DATE
+)
+;
+alter table FSFT12
+  add primary key (KT7PGCOD, KT7ANIO, KT7MES, KT7FONDO);
+

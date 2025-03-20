@@ -1,0 +1,43 @@
+create table JISYM1
+(
+  jisym1cta  NUMBER(9) not null,
+  jisym1fap  DATE not null,
+  jisym1fc   CHAR(1),
+  jisym1ct2  NUMBER(9),
+  jisym1cod  CHAR(1),
+  jisym1gru  CHAR(1),
+  jisym1in2  NUMBER(9),
+  jisym1in3  NUMBER(9),
+  jisym1in4  NUMBER(9),
+  jisym1in5  NUMBER(9),
+  jisym1in6  NUMBER(9),
+  jisym1cvi  CHAR(1),
+  jisym1su1  NUMBER(3),
+  jisym1su2  NUMBER(3),
+  jisym1su3  NUMBER(3),
+  jisym1su4  NUMBER(3),
+  jisym1cat  CHAR(2),
+  jisym1sdo1 NUMBER(17,2),
+  jisym1sdo2 NUMBER(17,2),
+  jisym1sdo3 NUMBER(17,2),
+  jisym1sdo4 NUMBER(17,2),
+  jisym1vto  DATE,
+  jisym1imli NUMBER(17,2),
+  jisym1dis  NUMBER(17,2),
+  jisym1acu  NUMBER(17,2),
+  jisym1cuo  NUMBER(17,2),
+  jisym1cap  NUMBER(17,2),
+  jisym1au1  NUMBER(17,2),
+  jisym1au2  NUMBER(17,2),
+  jisym1au3  NUMBER(17,2),
+  jisym1au4  NUMBER(9),
+  jisym1au5  NUMBER(9),
+  jisym1au6  CHAR(1),
+  jisym1au7  CHAR(1),
+  jisym1au8  CHAR(2),
+  jisym1au9  DATE
+)
+;
+alter table JISYM1
+  add primary key (JISYM1CTA, JISYM1FAP);
+

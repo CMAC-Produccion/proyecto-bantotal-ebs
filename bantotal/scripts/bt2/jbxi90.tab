@@ -1,0 +1,19 @@
+create table JBXI90
+(
+  jbxi90fin DATE not null,
+  jbxi90fei DATE not null,
+  jbxi90cbc NUMBER(6) not null,
+  jbxi90cen NUMBER(11) not null,
+  jbxi90mda CHAR(4) not null,
+  jbxi90cca NUMBER(1),
+  jbxi90bib CHAR(2),
+  jbxi90sab NUMBER(17,2),
+  jbxi90sam NUMBER(17,2),
+  jbxi90spr NUMBER(17,2),
+  jbxi90spm NUMBER(17,2),
+  jbxi90mbt NUMBER(4)
+)
+;
+create unique index JBXI9001 on JBXI90 (JBXI90FIN, JBXI90FEI, JBXI90CBC, JBXI90CEN, JBXI90MDA);
+create index JBXI9002 on JBXI90 (JBXI90FIN, JBXI90CEN, JBXI90MDA, JBXI90FEI);
+

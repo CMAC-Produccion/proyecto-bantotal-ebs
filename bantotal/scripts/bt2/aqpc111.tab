@@ -1,0 +1,75 @@
+create table AQPC111
+(
+  aqpc111codusu VARCHAR2(20) not null,
+  aqpc111corr   NUMBER(10) not null,
+  aqpc111fecini DATE,
+  aqpc111fecfin DATE,
+  aqpc111dpto   NUMBER(5),
+  aqpc111prov   NUMBER(5),
+  aqpc111dist   NUMBER(9),
+  aqpc111modulo NUMBER(3),
+  aqpc111ntran  NUMBER(6),
+  aqpc111montot NUMBER(16,2),
+  aqpc111ntrusm NUMBER(6),
+  aqpc111ntrusf NUMBER(6),
+  aqpc111ntrjur NUMBER(6),
+  aqpc111nrgusm NUMBER(6),
+  aqpc111nrgusf NUMBER(6),
+  aqpc111nrgjur NUMBER(6),
+  aqpc111ntranf NUMBER(6),
+  aqpc111ntranm NUMBER(6),
+  aqpc111ntranj NUMBER(6),
+  aqpc111monfem NUMBER(16,2),
+  aqpc111monmas NUMBER(16,2),
+  aqpc111monjur NUMBER(16,2)
+)
+;
+comment on table AQPC111
+  is 'Reporte de Operaciones CM/HB';
+comment on column AQPC111.aqpc111codusu
+  is 'Codigo Usuario';
+comment on column AQPC111.aqpc111corr
+  is 'Correlativo';
+comment on column AQPC111.aqpc111fecini
+  is 'Fecha Inicio';
+comment on column AQPC111.aqpc111fecfin
+  is 'Fecha Fin';
+comment on column AQPC111.aqpc111dpto
+  is 'Departamento';
+comment on column AQPC111.aqpc111prov
+  is 'Provincia';
+comment on column AQPC111.aqpc111dist
+  is 'Distrito';
+comment on column AQPC111.aqpc111modulo
+  is 'Modulo';
+comment on column AQPC111.aqpc111ntran
+  is 'Cantidad Transacciones';
+comment on column AQPC111.aqpc111montot
+  is 'Monto Total';
+comment on column AQPC111.aqpc111ntrusm
+  is 'Transacciones Usuarios Masculinos';
+comment on column AQPC111.aqpc111ntrusf
+  is 'Transacciones Usuarios Femeninos';
+comment on column AQPC111.aqpc111ntrjur
+  is 'Transacciones Personas Juridicas';
+comment on column AQPC111.aqpc111nrgusm
+  is 'Usuarios Masculinos Registrados';
+comment on column AQPC111.aqpc111nrgusf
+  is 'Usuarios Femeninos Registrados';
+comment on column AQPC111.aqpc111nrgjur
+  is 'Personas Juridicas Registradas';
+comment on column AQPC111.aqpc111ntranf
+  is 'Cantidad Transacciones Per. Natural Femenino';
+comment on column AQPC111.aqpc111ntranm
+  is 'Cantidad Transacciones Per. Natural Masculino';
+comment on column AQPC111.aqpc111ntranj
+  is 'Cantidad Transacciones Persona Juridica';
+comment on column AQPC111.aqpc111monfem
+  is 'Monto Total Per. Natural Femenino';
+comment on column AQPC111.aqpc111monmas
+  is 'Monto Total Per. Natural Masculino';
+comment on column AQPC111.aqpc111monjur
+  is 'Monto Total Persona Juridica';
+alter table AQPC111
+  add primary key (AQPC111CODUSU, AQPC111CORR);
+

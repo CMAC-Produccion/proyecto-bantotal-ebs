@@ -1,0 +1,24 @@
+create table JPGYW01
+(
+  jpgyw01pgc NUMBER(3) not null,
+  jpgyw01cta NUMBER(9) not null,
+  jpgyw01cor NUMBER(5) not null,
+  jpgyw01prc NUMBER(6),
+  jpgyw01ins NUMBER(10),
+  jpgyw01wrk NUMBER(10),
+  jpgyw01prf NUMBER(17,2),
+  jpgyw01mnt NUMBER(17,2),
+  jpgyw01est CHAR(1),
+  jpgyw01usi CHAR(10),
+  jpgyw01fci DATE,
+  jpgyw01usa CHAR(10),
+  jpgyw01fca DATE,
+  jpgyw01cat CHAR(1),
+  jpgyw01fap DATE,
+  jpgyw01vct DATE,
+  jpgyw01aec VARCHAR2(200)
+)
+;
+alter table JPGYW01
+  add primary key (JPGYW01PGC, JPGYW01CTA, JPGYW01COR);
+

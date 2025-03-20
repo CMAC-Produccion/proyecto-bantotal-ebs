@@ -1,0 +1,41 @@
+create table JAQZ592
+(
+  jaqz592pgc   NUMBER(4) not null,
+  jaqz592suc   NUMBER(3) not null,
+  jaqz592mda   NUMBER(3) not null,
+  jaqz592pap   NUMBER(4) not null,
+  jaqz592cta   NUMBER(9) not null,
+  jaqz592ope   NUMBER(9) not null,
+  jaqz592sbop  NUMBER(3) not null,
+  jaqz592tope  NUMBER(3) not null,
+  jaqz592mod   NUMBER(3) not null,
+  jaqz592fpag  DATE not null,
+  jaqz592seg   NUMBER(4) not null,
+  jaqz592rub   NUMBER(16) not null,
+  jaqz592est   NUMBER(4),
+  jaqz592dest  VARCHAR2(40),
+  jaqz592fpro  DATE,
+  jaqz592mto   NUMBER(17,2),
+  jaqz592diat  NUMBER(5),
+  jaqz592xsuc  NUMBER(3),
+  jaqz592xmod  NUMBER(3),
+  jaqz592xtran NUMBER(4),
+  jaqz592xrel  NUMBER(4),
+  jaqz592xfec  DATE,
+  jaqz592cont  NUMBER(4),
+  jaqz592au1   NUMBER(4),
+  jaqz592au2   NUMBER(4),
+  jaqz592au3   NUMBER(17),
+  jaqz592au4   VARCHAR2(40),
+  jaqz592au5   VARCHAR2(100),
+  jaqz592au6   DATE,
+  jaqz592au7   DATE,
+  jaqz592au8   CHAR(50),
+  jaqz592au9   CHAR(100),
+  jaqz592hist  DATE
+)
+;
+create index JAQZ5922 on JAQZ592 (JAQZ592PGC, JAQZ592CTA);
+alter table JAQZ592
+  add primary key (JAQZ592PGC, JAQZ592SUC, JAQZ592MDA, JAQZ592PAP, JAQZ592CTA, JAQZ592OPE, JAQZ592SBOP, JAQZ592TOPE, JAQZ592MOD, JAQZ592FPAG, JAQZ592SEG, JAQZ592RUB);
+

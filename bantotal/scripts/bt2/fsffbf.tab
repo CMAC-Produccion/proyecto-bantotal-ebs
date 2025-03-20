@@ -1,0 +1,29 @@
+create table FSFFBF
+(
+  fsffbfusu CHAR(10) not null,
+  fsffbffch DATE not null,
+  fsffbffil NUMBER(9) not null,
+  fsffbfneg NUMBER(9),
+  fsffbfrub CHAR(20),
+  fsffbfcta NUMBER(9),
+  fsffbfhfc DATE,
+  fsffbfhop NUMBER(9),
+  fsffbfimd NUMBER(17,2),
+  fsffbfimh NUMBER(17,2),
+  fsffbfpgc NUMBER(3),
+  fsffbfhsu NUMBER(3),
+  fsffbfhcm NUMBER(3),
+  fsffbfhtr NUMBER(3),
+  fsffbfhnr NUMBER(4),
+  fsffbfhfa DATE,
+  fsffbfa01 NUMBER(9),
+  fsffbfa02 NUMBER(9),
+  fsffbfa03 DATE,
+  fsffbfa04 DATE,
+  fsffbfa05 NUMBER(17,2),
+  fsffbfa06 NUMBER(17,2)
+)
+;
+alter table FSFFBF
+  add primary key (FSFFBFUSU, FSFFBFFCH, FSFFBFFIL);
+

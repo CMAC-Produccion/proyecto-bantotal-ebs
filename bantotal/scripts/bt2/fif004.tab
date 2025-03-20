@@ -1,0 +1,48 @@
+create table FIF004
+(
+  if004apl   NUMBER(4) not null,
+  if004ban   CHAR(5) not null,
+  if004env   NUMBER(9) not null,
+  if004crr   NUMBER(5) not null,
+  if004cba   NUMBER(3),
+  if004ncu   CHAR(17),
+  if004cmo   CHAR(3),
+  if004nom   CHAR(29),
+  if004ced   CHAR(23),
+  if004sco   NUMBER(17,2),
+  if004dcco  CHAR(1),
+  if004sin   NUMBER(17,2),
+  if004dcin  CHAR(1),
+  if004sop   NUMBER(17,2),
+  if004dcop  CHAR(1),
+  if004tot   NUMBER(17,2),
+  if004mar   NUMBER(17,2),
+  if004dcma  CHAR(1),
+  if004fum   CHAR(6),
+  if004hum   CHAR(6),
+  if004fap   CHAR(6),
+  if004ide   NUMBER(17,2),
+  if004ipp   NUMBER(17,2),
+  if004dcpa  CHAR(1),
+  if004can   NUMBER(3),
+  if004lco   NUMBER(17,2),
+  if004dco   NUMBER(17,2),
+  if004cco   NUMBER(17,2),
+  if004eta   CHAR(2),
+  if004fcu   CHAR(6),
+  if004nex   NUMBER(3),
+  if004chd   NUMBER(3),
+  if004fca   CHAR(6),
+  if004tno   NUMBER(4,2),
+  if004tef   NUMBER(4,2),
+  if004tca   CHAR(1),
+  if004fpr   DATE,
+  if004fil   CHAR(255),
+  if004sind  NUMBER(17,2),
+  if004dcsin CHAR(1),
+  if004arc   CHAR(6)
+)
+;
+alter table FIF004
+  add primary key (IF004APL, IF004BAN, IF004ENV, IF004CRR);
+

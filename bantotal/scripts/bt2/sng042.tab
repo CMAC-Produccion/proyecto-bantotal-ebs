@@ -1,0 +1,14 @@
+create table SNG042
+(
+  sng049cod NUMBER(10) not null,
+  sng042nro NUMBER(10) not null,
+  sng042now DATE,
+  sng042usr CHAR(10),
+  sng042res CHAR(1),
+  sng042grp NUMBER(10),
+  sng042ret VARCHAR2(40)
+)
+;
+alter table SNG042
+  add primary key (SNG049COD, SNG042NRO);
+

@@ -1,0 +1,27 @@
+create table AQPB011_003C
+(
+  pgcod     NUMBER(3) not null,
+  ppmod     NUMBER(3) not null,
+  ppsuc     NUMBER(3) not null,
+  ppmda     NUMBER(4) not null,
+  pppap     NUMBER(4) not null,
+  ppcta     NUMBER(9) not null,
+  ppoper    NUMBER(9) not null,
+  ppsbop    NUMBER(3) not null,
+  pptope    NUMBER(3) not null,
+  ppfpag    DATE not null,
+  pptipo    CHAR(1) not null,
+  pp003nump NUMBER(9) not null,
+  prestconc NUMBER(3) not null,
+  pp003imp  NUMBER(17,2),
+  pp003stat CHAR(1),
+  pp003aux1 NUMBER(17,2),
+  pp003aux2 NUMBER(17,2),
+  pp003aux3 NUMBER(17,2),
+  fec       DATE not null,
+  cor       NUMBER(9) not null
+)
+;
+alter table AQPB011_003C
+  add primary key (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPFPAG, PPTIPO, PP003NUMP, PRESTCONC, FEC, COR);
+

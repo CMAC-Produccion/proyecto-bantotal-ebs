@@ -1,0 +1,126 @@
+create table AQPB546
+(
+  aqpb546creusr CHAR(10) not null,
+  aqpb546recemp NUMBER(3) not null,
+  aqpb546reccod VARCHAR2(20) not null,
+  aqpb546recpai NUMBER(3) not null,
+  aqpb546rectdo NUMBER(2) not null,
+  aqpb546recndo VARCHAR2(12) not null,
+  aqpb546clinom VARCHAR2(90),
+  aqpb546clicod VARCHAR2(20),
+  aqpb546recfcr DATE,
+  aqpb546caning NUMBER(9),
+  aqpb546canind VARCHAR2(30),
+  aqpb546canope VARCHAR2(500),
+  aqpb546ampfcm DATE,
+  aqpb546ampcrp VARCHAR2(30),
+  aqpb546recfcc DATE,
+  aqpb546reccrp VARCHAR2(30),
+  aqpb546ugprpr NUMBER(9),
+  aqpb546reopsc VARCHAR2(10),
+  aqpb546reopsd VARCHAR2(500),
+  aqpb546remtvc NUMBER(3),
+  aqpb546remtvd VARCHAR2(500),
+  aqpb546resubc NUMBER(9),
+  aqpb546resubd VARCHAR2(300),
+  aqpb546reccmr VARCHAR2(4000),
+  aqpb546rereso VARCHAR2(40),
+  aqpb546recres CLOB,
+  aqpb546recmps VARCHAR2(2000),
+  aqpb546procaj VARCHAR2(150),
+  aqpb546recesr NUMBER(3),
+  aqpb546recesd VARCHAR2(30),
+  aqpb546recpre VARCHAR2(20),
+  aqpb546banseg VARCHAR2(2),
+  aqpb546reobsc NUMBER(9),
+  aqpb546reobsd VARCHAR2(300),
+  aqpb546rmtbsc NUMBER(9),
+  aqpb546rmtbsd VARCHAR2(300),
+  aqpb546rsmbsc NUMBER(9),
+  aqpb546rsmbsd VARCHAR2(300),
+  aqpb546cretim TIMESTAMP(6)
+)
+;
+comment on table AQPB546
+  is 'Reclamos - ANEXO 1A - Tabla Reporte';
+comment on column AQPB546.aqpb546creusr
+  is 'Usuario de Creacion';
+comment on column AQPB546.aqpb546recemp
+  is 'Reclamo - Empresa';
+comment on column AQPB546.aqpb546reccod
+  is 'Reclamo - Codigo';
+comment on column AQPB546.aqpb546recpai
+  is 'Cliente - Pais';
+comment on column AQPB546.aqpb546rectdo
+  is 'Cliente - Tipo de Doc';
+comment on column AQPB546.aqpb546recndo
+  is 'Cliente - Nro. de Doc';
+comment on column AQPB546.aqpb546clinom
+  is 'Cliente - Nombre';
+comment on column AQPB546.aqpb546clicod
+  is 'Cliente - Codigo';
+comment on column AQPB546.aqpb546recfcr
+  is 'Reclamo - Fecha de Ingreso';
+comment on column AQPB546.aqpb546caning
+  is 'Reclamo - Canal de Ingreso Codigo';
+comment on column AQPB546.aqpb546canind
+  is 'Reclamo - Canal de Ingreso Desc';
+comment on column AQPB546.aqpb546canope
+  is 'Reclamo - Canal de Operaci?n';
+comment on column AQPB546.aqpb546ampfcm
+  is 'Fecha de la Comunicacion de Ampliacion';
+comment on column AQPB546.aqpb546ampcrp
+  is 'Ampliacion - Canal de Comunicacion';
+comment on column AQPB546.aqpb546recfcc
+  is 'Reclamo - Fecha de Resolucion';
+comment on column AQPB546.aqpb546reccrp
+  is 'Reclamo - Canal de Respuesta';
+comment on column AQPB546.aqpb546ugprpr
+  is 'Reclamo - UBIGEO donde se Presento';
+comment on column AQPB546.aqpb546reopsc
+  is 'Reclamo - (Operacion/Producto/Servicio) Codigo';
+comment on column AQPB546.aqpb546reopsd
+  is 'Reclamo - (Operacion/Producto/Servicio) Desc';
+comment on column AQPB546.aqpb546remtvc
+  is 'Reclamo - Motivo Codigo';
+comment on column AQPB546.aqpb546remtvd
+  is 'Reclamo - Motivo Desc';
+comment on column AQPB546.aqpb546resubc
+  is 'Reclamo - SUB Motivo Codigo';
+comment on column AQPB546.aqpb546resubd
+  is 'Reclamo - SUB Motivo Desc';
+comment on column AQPB546.aqpb546reccmr
+  is 'Reclamo - Detalle Completo';
+comment on column AQPB546.aqpb546rereso
+  is 'Reclamo - Resolucion';
+comment on column AQPB546.aqpb546recres
+  is 'Reclamo - Respuesta';
+comment on column AQPB546.aqpb546recmps
+  is 'Reclamo - Monto Reclamado';
+comment on column AQPB546.aqpb546procaj
+  is 'Reclamo - Producto Caja';
+comment on column AQPB546.aqpb546recesr
+  is 'Reclamo - Estado Codigo';
+comment on column AQPB546.aqpb546recesd
+  is 'Reclamo - Estado Desc';
+comment on column AQPB546.aqpb546recpre
+  is 'Reclamo Previo';
+comment on column AQPB546.aqpb546banseg
+  is 'Banca Seguros';
+comment on column AQPB546.aqpb546reobsc
+  is 'Reclamo - OPS Banca Seguros Codigo';
+comment on column AQPB546.aqpb546reobsd
+  is 'Reclamo - OPS Banca Seguros Desc';
+comment on column AQPB546.aqpb546rmtbsc
+  is 'Reclamo - MTV Banca Seguros Codigo';
+comment on column AQPB546.aqpb546rmtbsd
+  is 'Reclamo - MTV Banca Seguros Desc';
+comment on column AQPB546.aqpb546rsmbsc
+  is 'Reclamo - SUBMTV Banca Seguros Codigo';
+comment on column AQPB546.aqpb546rsmbsd
+  is 'Reclamo - SUBMTV Banca Seguros Desc';
+comment on column AQPB546.aqpb546cretim
+  is 'Fecha y Hora';
+alter table AQPB546
+  add primary key (AQPB546CREUSR, AQPB546RECEMP, AQPB546RECCOD, AQPB546RECPAI, AQPB546RECTDO, AQPB546RECNDO);
+

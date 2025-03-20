@@ -1,0 +1,21 @@
+create table FSFI06
+(
+  sfi01emp   NUMBER(3) not null,
+  sfi01mer   NUMBER(3) not null,
+  sfi06age   NUMBER(9) not null,
+  sfi06cus   NUMBER(9),
+  sfi06dep   NUMBER(9),
+  sfi06com   NUMBER(9),
+  sfi06au1   CHAR(1),
+  sfi06au2   CHAR(1),
+  sfi06au3   NUMBER(9),
+  sfi06au4   NUMBER(9),
+  sfi06pucus NUMBER(9),
+  sfi06pudep NUMBER(9),
+  sfi06pucom NUMBER(9)
+)
+;
+create index FSFI0603 on FSFI06 (SFI01EMP, SFI06CUS, SFI06DEP, SFI06COM);
+alter table FSFI06
+  add primary key (SFI01EMP, SFI01MER, SFI06AGE);
+

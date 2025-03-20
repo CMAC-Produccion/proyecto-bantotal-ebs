@@ -1,0 +1,26 @@
+create table JSENGB2
+(
+  jsengb1pgc NUMBER(3) not null,
+  jsengb1fec DATE not null,
+  jsengb1inf NUMBER(2) not null,
+  jsengb1seg NUMBER(2) not null,
+  jsengb1nve NUMBER(2) not null,
+  jsengb1col NUMBER(4) not null,
+  jsengb2mod NUMBER(3) not null,
+  jsengb2top NUMBER(3) not null,
+  jsengb2suc NUMBER(3) not null,
+  jsengb2mda NUMBER(4) not null,
+  jsnegb2pap NUMBER(4) not null,
+  jsengb2cue NUMBER(9) not null,
+  jsengb2ope NUMBER(9) not null,
+  jsengb2sbo NUMBER(3) not null,
+  jsengb2cap NUMBER(17,2),
+  jsengb2rub NUMBER(16),
+  jsengb2int NUMBER(17,2),
+  jsengb2mor NUMBER(17,2)
+)
+;
+create index JSENGB23 on JSENGB2 (JSENGB1FEC, JSENGB1INF, JSENGB2SUC, JSENGB2CUE, JSENGB2RUB, JSENGB2MDA, JSNEGB2PAP, JSENGB2TOP, JSENGB2OPE, JSENGB2SBO, JSENGB1NVE, JSENGB1COL);
+alter table JSENGB2
+  add primary key (JSENGB1PGC, JSENGB1FEC, JSENGB1INF, JSENGB1SEG, JSENGB1NVE, JSENGB1COL, JSENGB2MOD, JSENGB2TOP, JSENGB2SUC, JSENGB2MDA, JSNEGB2PAP, JSENGB2CUE, JSENGB2OPE, JSENGB2SBO);
+

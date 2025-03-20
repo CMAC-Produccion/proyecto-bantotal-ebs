@@ -1,0 +1,25 @@
+create table FCPG28
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg28codmv NUMBER(3) not null,
+  cpg28defct CHAR(1),
+  cpg28semp  NUMBER(3),
+  cpg28ssuc  NUMBER(3),
+  cpg28srub  NUMBER(16),
+  cpg28spap  NUMBER(4),
+  cpg28smda  NUMBER(4),
+  cpg28scta  NUMBER(9),
+  cpg28sope  NUMBER(9),
+  cpg28ssbop NUMBER(3),
+  cpg28stope NUMBER(3),
+  cpg28est   CHAR(3),
+  cpg28blq   CHAR(1),
+  cpg28inst  NUMBER(10),
+  cpg28smod  NUMBER(3)
+)
+;
+alter table FCPG28
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG28CODMV);
+

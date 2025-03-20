@@ -1,0 +1,21 @@
+create table FSFF56
+(
+  dtmemp NUMBER(3) not null,
+  dtmnro NUMBER(9) not null,
+  dtmren NUMBER(5) not null,
+  dtmtip CHAR(1) not null,
+  dtmcod NUMBER(5) not null,
+  dtmimp NUMBER(14,2),
+  dtma01 NUMBER(9),
+  dtma02 NUMBER(9),
+  dtma03 CHAR(5),
+  dtma04 CHAR(5),
+  dtma05 NUMBER(14,2),
+  dtma06 NUMBER(14,2),
+  dtma07 DATE,
+  dtma08 DATE
+)
+;
+alter table FSFF56
+  add primary key (DTMEMP, DTMNRO, DTMREN, DTMTIP, DTMCOD);
+

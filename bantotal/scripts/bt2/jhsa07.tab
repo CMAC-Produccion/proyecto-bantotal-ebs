@@ -1,0 +1,10 @@
+create table JHSA07
+(
+  jhsa06num NUMBER(3) not null,
+  jhsa07cod NUMBER(5) not null,
+  jhsa07dsc CHAR(50)
+)
+;
+create unique index JHSA0701 on JHSA07 (JHSA06NUM, JHSA07COD);
+create index JHSA0703 on JHSA07 (JHSA06NUM, JHSA07DSC);
+

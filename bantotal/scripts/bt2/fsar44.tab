@@ -1,0 +1,14 @@
+create table FSAR44
+(
+  sarpais  NUMBER(3) not null,
+  sartdoc  NUMBER(2) not null,
+  sarndoc  CHAR(25) not null,
+  sarlibro NUMBER(3),
+  sartomo  NUMBER(3),
+  sarfolio NUMBER(4),
+  saractec NUMBER(9)
+)
+;
+alter table FSAR44
+  add primary key (SARPAIS, SARTDOC, SARNDOC);
+

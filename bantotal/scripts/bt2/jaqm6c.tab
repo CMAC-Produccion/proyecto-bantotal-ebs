@@ -1,0 +1,51 @@
+create table JAQM6C
+(
+  jaqm6cregi VARCHAR2(30) not null,
+  jaqm6czona VARCHAR2(40) not null,
+  jaqm6cagen VARCHAR2(30) not null,
+  jaqm6ccacl NUMBER(10),
+  jaqm6cmont NUMBER(17,2),
+  jaqm6cfein DATE,
+  jaqm6cnum1 NUMBER(10),
+  jaqm6cnum2 NUMBER(10),
+  jaqm6cimp1 NUMBER(17,2),
+  jaqm6cimp2 NUMBER(17,2),
+  jaqm6cvar1 VARCHAR2(255),
+  jaqm6cvar2 VARCHAR2(255),
+  jaqm6cfec1 DATE,
+  jaqm6cfec2 DATE
+)
+;
+comment on table JAQM6C
+  is 'Creditos por desembolsar - Agencia';
+comment on column JAQM6C.jaqm6cregi
+  is 'REGION';
+comment on column JAQM6C.jaqm6czona
+  is 'ZONA';
+comment on column JAQM6C.jaqm6cagen
+  is 'AGENCIA';
+comment on column JAQM6C.jaqm6ccacl
+  is 'CANTIDAD DE CLIENTES';
+comment on column JAQM6C.jaqm6cmont
+  is 'MONTOS';
+comment on column JAQM6C.jaqm6cfein
+  is 'FECHA DE INGRESO';
+comment on column JAQM6C.jaqm6cnum1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQM6C.jaqm6cnum2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQM6C.jaqm6cimp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM6C.jaqm6cimp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM6C.jaqm6cvar1
+  is 'AUXILIAR VARCHAR 1';
+comment on column JAQM6C.jaqm6cvar2
+  is 'AUXILIAR VARCHAR 2';
+comment on column JAQM6C.jaqm6cfec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM6C.jaqm6cfec2
+  is 'AUXILIAR FECHA 2';
+alter table JAQM6C
+  add primary key (JAQM6CREGI, JAQM6CZONA, JAQM6CAGEN);
+

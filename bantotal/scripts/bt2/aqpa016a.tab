@@ -1,0 +1,18 @@
+create table AQPA016A
+(
+  aqpa016acor NUMBER(9) not null,
+  aqpa016acod NUMBER(9),
+  aqpa016adni CHAR(12),
+  aqpa016auni VARCHAR2(50),
+  aqpa016ased VARCHAR2(50),
+  aqpa016aape VARCHAR2(150),
+  aqpa016acar VARCHAR2(50),
+  aqpa016afec DATE,
+  aqpa016atdo NUMBER(2),
+  aqpa016apai NUMBER(3)
+)
+;
+create index AQPA016A2 on AQPA016A (AQPA016ADNI);
+alter table AQPA016A
+  add primary key (AQPA016ACOR);
+

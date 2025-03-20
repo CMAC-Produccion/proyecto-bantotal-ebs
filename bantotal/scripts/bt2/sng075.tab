@@ -1,0 +1,14 @@
+create table SNG075
+(
+  sng070meva NUMBER(3) not null,
+  sng070prg  CHAR(8) not null,
+  sng072obj  CHAR(20) not null,
+  sng075prg  CHAR(8) not null,
+  sng075obj  CHAR(20) not null,
+  sng075cod  NUMBER(4)
+)
+;
+create index SNG07503 on SNG075 (SNG070MEVA, SNG075PRG, SNG075OBJ);
+alter table SNG075
+  add primary key (SNG070MEVA, SNG070PRG, SNG072OBJ, SNG075PRG, SNG075OBJ);
+

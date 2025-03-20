@@ -1,0 +1,24 @@
+create table JAQL628
+(
+  jaql628cocom NUMBER(6) not null,
+  jaql628perio VARCHAR2(10) not null,
+  jaql628fecon DATE,
+  jaql628hocon CHAR(8),
+  jaql628caint NUMBER(4),
+  jaql628obser VARCHAR2(1000),
+  jaql628auxc1 VARCHAR2(200),
+  jaql628auxc2 VARCHAR2(200),
+  jaql628auxc3 VARCHAR2(200),
+  jaql628auxn1 NUMBER(9),
+  jaql628auxn2 NUMBER(9),
+  jaql628auxn3 NUMBER(9),
+  jaql628auxn4 NUMBER(17,2),
+  jaql628auxn5 NUMBER(17,2),
+  jaql628auxd1 DATE,
+  jaql628auxd2 DATE,
+  jaql628auxd3 DATE
+)
+;
+alter table JAQL628
+  add primary key (JAQL628COCOM, JAQL628PERIO);
+

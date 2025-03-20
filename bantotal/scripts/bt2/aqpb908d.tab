@@ -1,0 +1,46 @@
+create table AQPB908D
+(
+  aqpb908dburo   NUMBER(5) not null,
+  aqpb908dcodigo NUMBER(10) not null,
+  aqpb908dentid  VARCHAR2(200) not null,
+  aqpb908dcateg  VARCHAR2(200),
+  aqpb908dticta  VARCHAR2(3),
+  aqpb908daux1   NUMBER(10),
+  aqpb908daux2   NUMBER(10),
+  aqpb908daux3   VARCHAR2(50),
+  aqpb908daux4   VARCHAR2(50),
+  aqpb908daux5   VARCHAR2(50),
+  aqpb908daux6   DATE,
+  aqpb908dfechor TIMESTAMP(6) default SYSDATE
+)
+;
+comment on table AQPB908D
+  is 'Tabla de entidades Buro y el Tipo de Cartera';
+comment on column AQPB908D.aqpb908dburo
+  is 'Buro';
+comment on column AQPB908D.aqpb908dcodigo
+  is 'Codigo Entidad';
+comment on column AQPB908D.aqpb908dentid
+  is 'Entidad';
+comment on column AQPB908D.aqpb908dcateg
+  is 'Categoria';
+comment on column AQPB908D.aqpb908dticta
+  is 'Tipo de Cuenta Cartera';
+comment on column AQPB908D.aqpb908daux1
+  is 'Auxiliar 1';
+comment on column AQPB908D.aqpb908daux2
+  is 'Auxiliar 2';
+comment on column AQPB908D.aqpb908daux3
+  is 'Auxiliar 3';
+comment on column AQPB908D.aqpb908daux4
+  is 'Auxiliar 4';
+comment on column AQPB908D.aqpb908daux5
+  is 'Auxiliar 5';
+comment on column AQPB908D.aqpb908daux6
+  is 'Auxiliar 6';
+comment on column AQPB908D.aqpb908dfechor
+  is 'Fecha Hora de Registro';
+create index AQPB908DA2 on AQPB908D (AQPB908DBURO, AQPB908DTICTA);
+alter table AQPB908D
+  add primary key (AQPB908DBURO, AQPB908DCODIGO, AQPB908DENTID);
+

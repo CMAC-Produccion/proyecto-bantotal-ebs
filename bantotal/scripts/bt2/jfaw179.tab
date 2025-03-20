@@ -1,0 +1,30 @@
+create table JFAW179
+(
+  jfaw178ps  NUMBER(3) not null,
+  jfaw178td  NUMBER(2) not null,
+  jfaw178nd  CHAR(12) not null,
+  jfaw178ft  DATE not null,
+  jfaw179cr  NUMBER(5) not null,
+  jfaw179fc  NUMBER(9),
+  jfaw179tf  CHAR(1),
+  jfaw179tp  NUMBER(1),
+  jfaw179fo  DATE,
+  jfaw179mn  NUMBER(4),
+  jfaw179mt  NUMBER(17,2),
+  jfaw179pl  NUMBER(5),
+  jfaw179em  CHAR(50),
+  jfaw179a1  CHAR(50),
+  jfaw179a2  CHAR(50),
+  jfaw179a3  CHAR(50),
+  jfaw179a4  NUMBER(9),
+  jfaw179a5  NUMBER(9),
+  jfaw179a6  NUMBER(9),
+  jfaw179a7  NUMBER(17,2),
+  jfaw179a8  DATE,
+  jfaw179a9  DATE,
+  jfaw179a10 DATE
+)
+;
+alter table JFAW179
+  add primary key (JFAW178PS, JFAW178TD, JFAW178ND, JFAW178FT, JFAW179CR);
+

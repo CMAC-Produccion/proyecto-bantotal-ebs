@@ -1,0 +1,16 @@
+create table FSA022
+(
+  apmda    NUMBER(4) not null,
+  apcat    NUMBER(5) not null,
+  apcatnom CHAR(15),
+  apsdo1   NUMBER(17,2),
+  apsdo2   NUMBER(17,2),
+  apsdo3   NUMBER(17,2),
+  apsdo4   NUMBER(17,2),
+  apsdo5   NUMBER(17,2)
+)
+;
+create index FSA02202 on FSA022 (APCAT, APMDA);
+alter table FSA022
+  add primary key (APMDA, APCAT);
+

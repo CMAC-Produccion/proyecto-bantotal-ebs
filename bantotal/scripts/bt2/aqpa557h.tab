@@ -1,0 +1,103 @@
+create table AQPA557H
+(
+  aqpa557hcod   NUMBER(4) not null,
+  aqpa557hmod   NUMBER(3) not null,
+  aqpa557hsuc   NUMBER(3) not null,
+  aqpa557hmda   NUMBER(4) not null,
+  aqpa557hpap   NUMBER(4) not null,
+  aqpa557hcta   NUMBER(9) not null,
+  aqpa557hope   NUMBER(9) not null,
+  aqpa557hsbo   NUMBER(3) not null,
+  aqpa557htip   NUMBER(3) not null,
+  aqpa557hfep   DATE not null,
+  aqpa557hcanal NUMBER(4),
+  aqpa557hcprod NUMBER(10),
+  aqpa557hcorr  NUMBER(17),
+  aqpa557hcert  VARCHAR2(20),
+  aqpa557hncuo  NUMBER(4) not null,
+  aqpa557hndoc  CHAR(12),
+  aqpa557htdoc  CHAR(3),
+  aqpa557htcta  CHAR(3),
+  aqpa557hncre  CHAR(30),
+  aqpa557hprim  NUMBER(17,2),
+  aqpa557hfech  DATE,
+  aqpa557hercod VARCHAR2(4),
+  aqpa557herdes VARCHAR2(80),
+  aqpa557hpais  NUMBER(4),
+  aqpa557ha1    NUMBER(4),
+  aqpa557ha2    NUMBER(4),
+  aqpa557ha3    CHAR(20),
+  aqpa557ha4    VARCHAR2(40),
+  aqpa557ha5    DATE,
+  aqpa557ha6    CHAR(100),
+  aqpa557ha7    CHAR(100)
+)
+;
+comment on table AQPA557H
+  is 'Historico Recaudos Multiriesgo';
+comment on column AQPA557H.aqpa557hcod
+  is 'Empresa';
+comment on column AQPA557H.aqpa557hmod
+  is 'Modulo';
+comment on column AQPA557H.aqpa557hsuc
+  is 'Sucursal';
+comment on column AQPA557H.aqpa557hmda
+  is 'Moneda';
+comment on column AQPA557H.aqpa557hpap
+  is 'Papel';
+comment on column AQPA557H.aqpa557hcta
+  is 'Cuenta';
+comment on column AQPA557H.aqpa557hope
+  is 'Operacion';
+comment on column AQPA557H.aqpa557hsbo
+  is 'Sub operacion';
+comment on column AQPA557H.aqpa557htip
+  is 'Tipo Operacion';
+comment on column AQPA557H.aqpa557hfep
+  is 'Fecha ejecucion';
+comment on column AQPA557H.aqpa557hcanal
+  is 'Valor Fijo que corresponde al código de Canal';
+comment on column AQPA557H.aqpa557hcprod
+  is 'Indica el producto a ser declarado';
+comment on column AQPA557H.aqpa557hcorr
+  is 'Nro de Registro';
+comment on column AQPA557H.aqpa557hcert
+  is 'Nro Certificado';
+comment on column AQPA557H.aqpa557hncuo
+  is 'Nro Cuota';
+comment on column AQPA557H.aqpa557hndoc
+  is 'Nro Documento';
+comment on column AQPA557H.aqpa557htdoc
+  is 'Tipo Documento';
+comment on column AQPA557H.aqpa557htcta
+  is 'Tipo cuenta';
+comment on column AQPA557H.aqpa557hncre
+  is 'Nro de Credito';
+comment on column AQPA557H.aqpa557hprim
+  is 'Monto Prima';
+comment on column AQPA557H.aqpa557hfech
+  is 'Fecha';
+comment on column AQPA557H.aqpa557hercod
+  is 'Codigo Error';
+comment on column AQPA557H.aqpa557herdes
+  is 'Descripcion Codigo Error';
+comment on column AQPA557H.aqpa557hpais
+  is 'pais';
+comment on column AQPA557H.aqpa557ha1
+  is 'Auxiliar 1';
+comment on column AQPA557H.aqpa557ha2
+  is 'Auxiliar 2';
+comment on column AQPA557H.aqpa557ha3
+  is 'Auxiliar 3';
+comment on column AQPA557H.aqpa557ha4
+  is 'Auxiliar 4';
+comment on column AQPA557H.aqpa557ha5
+  is 'Auxiliar 5';
+comment on column AQPA557H.aqpa557ha6
+  is 'Auxiliar 6';
+comment on column AQPA557H.aqpa557ha7
+  is 'Auxiliar 7';
+create index AQPA557HA2 on AQPA557H (AQPA557HCTA, AQPA557HOPE);
+alter table AQPA557H
+  add primary key (AQPA557HCOD, AQPA557HMOD, AQPA557HSUC, AQPA557HMDA, AQPA557HPAP, AQPA557HCTA, AQPA557HOPE, AQPA557HSBO, AQPA557HTIP, AQPA557HNCUO);
+

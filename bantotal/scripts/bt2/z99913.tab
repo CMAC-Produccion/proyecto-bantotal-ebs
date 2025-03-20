@@ -1,0 +1,14 @@
+create table Z99913
+(
+  z99913cap NUMBER(4) not null,
+  z99913cba CHAR(5) not null,
+  z99913dap CHAR(30),
+  z99913dba CHAR(30),
+  z99913cor NUMBER(9),
+  z99913prg CHAR(8),
+  z99913tpo CHAR(2)
+)
+;
+alter table Z99913
+  add primary key (Z99913CAP, Z99913CBA);
+

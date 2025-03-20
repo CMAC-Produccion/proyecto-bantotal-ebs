@@ -1,0 +1,76 @@
+create table AQPD114
+(
+  aqpd114cor    NUMBER(10) not null,
+  aqpd114est    VARCHAR2(1),
+  aqpd114fdes   DATE,
+  aqpd114par    VARCHAR2(10),
+  aqpd114ade    VARCHAR2(20),
+  aqpd114mnd    VARCHAR2(5),
+  aqpd114imp    NUMBER(18,2),
+  aqpd114cuo    NUMBER(18) not null,
+  aqpd114fcuo   DATE not null,
+  aqpd114tas    NUMBER(18,8),
+  aqpd114pri    NUMBER(18,2),
+  aqpd114int    NUMBER(18,9),
+  aqpd114sld    NUMBER(18,2),
+  aqpd114tiptas VARCHAR2(5),
+  aqpd114diacal NUMBER(10),
+  aqpd114id     NUMBER(10) not null,
+  aqpd114subo   VARCHAR2(5),
+  aqpd114ori    VARCHAR2(5),
+  aqpd114form   VARCHAR2(10),
+  aqpd114diaano NUMBER(5),
+  aqpd114freg   DATE default SYSDATE,
+  aqpd114ana    VARCHAR2(10),
+  aqpd114fpre   DATE
+)
+;
+comment on table AQPD114
+  is 'TABLA CRONOGRAMAS DE ADEUDOS';
+comment on column AQPD114.aqpd114cor
+  is 'CORRELATIVO';
+comment on column AQPD114.aqpd114est
+  is 'ESTADO';
+comment on column AQPD114.aqpd114fdes
+  is 'DESEMBOLSO';
+comment on column AQPD114.aqpd114par
+  is 'PARTIDA';
+comment on column AQPD114.aqpd114ade
+  is 'ADEUDO';
+comment on column AQPD114.aqpd114mnd
+  is 'MONEDA';
+comment on column AQPD114.aqpd114imp
+  is 'IMPORTE PRESTAMO';
+comment on column AQPD114.aqpd114cuo
+  is 'CUOTA';
+comment on column AQPD114.aqpd114fcuo
+  is 'FECHA_CUOTAS';
+comment on column AQPD114.aqpd114tas
+  is 'TASA DE INTERES';
+comment on column AQPD114.aqpd114pri
+  is 'PRINCIPAL';
+comment on column AQPD114.aqpd114int
+  is 'INTERÉS';
+comment on column AQPD114.aqpd114sld
+  is 'SALDO';
+comment on column AQPD114.aqpd114tiptas
+  is 'TIPO DE TASA';
+comment on column AQPD114.aqpd114diacal
+  is 'NRO DIAS DE CALCULO';
+comment on column AQPD114.aqpd114id
+  is 'ID';
+comment on column AQPD114.aqpd114subo
+  is 'SUBORDINADO';
+comment on column AQPD114.aqpd114ori
+  is 'ORIGEN';
+comment on column AQPD114.aqpd114form
+  is 'FORMULA INTERES';
+comment on column AQPD114.aqpd114diaano
+  is 'DIAS DEL AÑO';
+comment on column AQPD114.aqpd114freg
+  is 'FECHA REGISTRO';
+comment on column AQPD114.aqpd114ana
+  is 'ANALISTA';
+alter table AQPD114
+  add primary key (AQPD114ID, AQPD114COR, AQPD114FCUO, AQPD114CUO);
+

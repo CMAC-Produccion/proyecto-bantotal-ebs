@@ -1,0 +1,36 @@
+create table AQPD103P
+(
+  aqpd103pclf   VARCHAR2(10) not null,
+  aqpd103pmnd   VARCHAR2(10) not null,
+  aqpd103pfec   DATE not null,
+  aqpd103pnodo  NUMBER(18) not null,
+  aqpd103pcfwd  NUMBER(18,7),
+  aqpd103pdif   NUMBER(18,9),
+  aqpd103ptcsbs NUMBER(18,7),
+  aqpd103puser  CHAR(10) not null
+)
+;
+comment on table AQPD103P
+  is 'TABLA PARAMETROS FINAL 2-A1';
+comment on column AQPD103P.aqpd103pclf
+  is 'CALIFICACIÓN DE LA CURVA';
+comment on column AQPD103P.aqpd103pmnd
+  is 'MONEDA';
+comment on column AQPD103P.aqpd103pfec
+  is 'FECHA DE LA CURVA';
+comment on column AQPD103P.aqpd103pnodo
+  is 'NODO';
+comment on column AQPD103P.aqpd103pcfwd
+  is 'VALOR';
+comment on column AQPD103P.aqpd103pdif
+  is 'DIFERENCIA';
+comment on column AQPD103P.aqpd103ptcsbs
+  is 'TC SBS';
+comment on column AQPD103P.aqpd103puser
+  is 'USUARIP';
+create index AQPD103P2 on AQPD103P (AQPD103PUSER, AQPD103PFEC);
+create index AQPD103P3 on AQPD103P (AQPD103PFEC);
+create index AQPD103P4 on AQPD103P (AQPD103PCLF, AQPD103PMND, AQPD103PNODO, AQPD103PFEC);
+alter table AQPD103P
+  add primary key (AQPD103PCLF, AQPD103PMND, AQPD103PFEC, AQPD103PNODO, AQPD103PUSER);
+

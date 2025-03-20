@@ -1,0 +1,24 @@
+create table AQPC326
+(
+  aqpc326usrprc CHAR(10) not null,
+  aqpc326fecprc DATE not null,
+  aqpc326horini CHAR(8),
+  aqpc326horfin CHAR(8),
+  aqpc326fecrea DATE
+)
+;
+comment on table AQPC326
+  is 'Fechas procesadas cashback de referidos';
+comment on column AQPC326.aqpc326usrprc
+  is 'Usuario que procesa';
+comment on column AQPC326.aqpc326fecprc
+  is 'Fecha de proceso';
+comment on column AQPC326.aqpc326horini
+  is 'Hora inicio proceso';
+comment on column AQPC326.aqpc326horfin
+  is 'Hora fin proceso';
+comment on column AQPC326.aqpc326fecrea
+  is 'Fecha real';
+alter table AQPC326
+  add primary key (AQPC326FECPRC);
+

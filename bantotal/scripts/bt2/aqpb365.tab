@@ -1,0 +1,12 @@
+create table AQPB365
+(
+  aqpb365inst NUMBER(10) not null,
+  aqpb365fech DATE not null,
+  aqpb365hora CHAR(8) not null,
+  aqpb365grup NUMBER(4) not null,
+  aqpb365fact NUMBER(9,6)
+)
+;
+alter table AQPB365
+  add primary key (AQPB365INST, AQPB365FECH, AQPB365HORA, AQPB365GRUP);
+

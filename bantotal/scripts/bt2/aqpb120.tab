@@ -1,0 +1,72 @@
+create table AQPB120
+(
+  aqpb120tireg  CHAR(2) not null,
+  aqpb120coent  CHAR(10) not null,
+  aqpb120feope  DATE not null,
+  aqpb120fepro  DATE not null,
+  aqpb120nuruc  VARCHAR2(12),
+  aqpb120nopro  VARCHAR2(40),
+  aqpb120hopro  CHAR(8),
+  aqpb120filler VARCHAR2(174),
+  aqpb120coest  CHAR(1),
+  aqpb120proce  DATE,
+  aqpb120nureg  NUMBER(6),
+  aqpb120tosol  NUMBER(13,2),
+  aqpb120auxc1  VARCHAR2(100),
+  aqpb120auxc2  VARCHAR2(100),
+  aqpb120auxc3  VARCHAR2(100),
+  aqpb120auxn1  NUMBER(17,2),
+  aqpb120auxn2  NUMBER(17,2),
+  aqpb120auxn3  NUMBER(17,2),
+  aqpb120auxd1  DATE,
+  aqpb120auxd2  DATE,
+  aqpb120auxd3  DATE
+)
+;
+comment on table AQPB120
+  is 'Tabla Cabecera Conciliacion NIUBIZ';
+comment on column AQPB120.aqpb120tireg
+  is 'Tipo de registro';
+comment on column AQPB120.aqpb120coent
+  is 'Codigo de entidad';
+comment on column AQPB120.aqpb120feope
+  is 'Fecha operaciones del dia';
+comment on column AQPB120.aqpb120fepro
+  is 'Fecha de proceso';
+comment on column AQPB120.aqpb120nuruc
+  is 'RUC proveedor servicio financiero';
+comment on column AQPB120.aqpb120nopro
+  is 'Nombre proveedor';
+comment on column AQPB120.aqpb120hopro
+  is 'Hora de proceso';
+comment on column AQPB120.aqpb120filler
+  is 'Filler';
+comment on column AQPB120.aqpb120coest
+  is 'Codigo de estado';
+comment on column AQPB120.aqpb120proce
+  is 'Fecha Procesado';
+comment on column AQPB120.aqpb120nureg
+  is 'Numero de registros';
+comment on column AQPB120.aqpb120tosol
+  is 'Monto total soles';
+comment on column AQPB120.aqpb120auxc1
+  is 'Dato Reserva texto';
+comment on column AQPB120.aqpb120auxc2
+  is 'Dato Reserva texto';
+comment on column AQPB120.aqpb120auxc3
+  is 'Dato Reserva texto';
+comment on column AQPB120.aqpb120auxn1
+  is 'Dato Reserva numero';
+comment on column AQPB120.aqpb120auxn2
+  is 'Dato Reserva numero';
+comment on column AQPB120.aqpb120auxn3
+  is 'Dato Reserva numero';
+comment on column AQPB120.aqpb120auxd1
+  is 'Dato Reserva fecha';
+comment on column AQPB120.aqpb120auxd2
+  is 'Dato Reserva fecha';
+comment on column AQPB120.aqpb120auxd3
+  is 'Dato Reserva fecha';
+alter table AQPB120
+  add primary key (AQPB120TIREG, AQPB120COENT, AQPB120FEOPE, AQPB120FEPRO);
+

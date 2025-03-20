@@ -1,0 +1,15 @@
+create table FOC992
+(
+  foc992idse CHAR(30) not null,
+  foc992biab CHAR(11) not null,
+  foc992id   NUMBER(2) not null,
+  foc992mda  NUMBER(4) not null,
+  foc992ser  CHAR(10) not null,
+  foc992nro  NUMBER(12) not null,
+  foc992imp  NUMBER(17,2),
+  foc992est  CHAR(1)
+)
+;
+alter table FOC992
+  add primary key (FOC992IDSE, FOC992BIAB, FOC992ID, FOC992MDA, FOC992SER, FOC992NRO);
+

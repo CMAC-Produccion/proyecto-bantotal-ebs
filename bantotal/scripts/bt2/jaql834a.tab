@@ -1,0 +1,28 @@
+create table JAQL834A
+(
+  jaql834cpro  NUMBER(9) not null,
+  jaql834fpro  DATE not null,
+  jaql834fafe  DATE,
+  jaql834acmon NUMBER(3),
+  jaql834acmen VARCHAR2(1),
+  jaql834acser VARCHAR2(1),
+  jaql834aorig NUMBER(2),
+  jaql834actra NUMBER(4),
+  jaql834acotr NUMBER(4),
+  jaql834attra VARCHAR2(1),
+  jaql834atcom NUMBER(3),
+  jaql834amont NUMBER(17,2),
+  jaql834accar VARCHAR2(20),
+  jaql834acabo VARCHAR2(20),
+  jaql834acana VARCHAR2(10),
+  jaql834anord NUMBER(7) not null,
+  jaql834aflag NUMBER(1),
+  jaql834amod  NUMBER(3),
+  jaql834atrn  NUMBER(3),
+  jaql834asuc  NUMBER(3),
+  jaql834arel  NUMBER(4)
+)
+;
+alter table JAQL834A
+  add primary key (JAQL834CPRO, JAQL834FPRO, JAQL834ANORD);
+

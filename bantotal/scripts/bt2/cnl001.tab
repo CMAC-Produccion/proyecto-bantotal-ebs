@@ -1,0 +1,73 @@
+create table CNL001
+(
+  cnl000cod NUMBER(4) not null,
+  cnl001adm CHAR(30) not null,
+  cnl001usu CHAR(30) not null,
+  cnl001nom CHAR(64),
+  cnl001pwd CHAR(64),
+  cnl001tu  CHAR(5),
+  cnl001pad NUMBER(3),
+  cnl001tad NUMBER(2),
+  cnl001dad CHAR(64),
+  cnl001pus NUMBER(3),
+  cnl001tus NUMBER(2),
+  cnl001dus CHAR(64),
+  cnl001ppv NUMBER(3),
+  cnl001tpv NUMBER(2),
+  cnl001dpv CHAR(64),
+  cnl003cod NUMBER(6),
+  cnl004cod NUMBER(6),
+  cnl001hab CHAR(1),
+  cnl001suc NUMBER(3),
+  cnl001cid CHAR(2),
+  cnl001mai CHAR(65),
+  cnl001fir CHAR(100),
+  cnl001pw1 CHAR(64),
+  cnl001wfe CHAR(5),
+  cnl001wfp NUMBER(4),
+  cnl001wfn NUMBER(10),
+  cnl001wfi NUMBER(10),
+  cnl001ucf DATE,
+  cnl001uch CHAR(8),
+  cnl001act CHAR(1),
+  cnl001uip CHAR(30),
+  cnl001uss CHAR(100),
+  cnl001inf NUMBER(3),
+  cnl001pal CHAR(65),
+  cnl001cam CHAR(1),
+  cnl001fcm DATE,
+  cnl001pg1 CHAR(65),
+  cnl001pg2 CHAR(65),
+  cnl001pg3 CHAR(65),
+  cnl001rs1 CHAR(65),
+  cnl001rs2 CHAR(65),
+  cnl001rs3 CHAR(65),
+  cnl001cai CHAR(1),
+  cnl001fci DATE,
+  cnl001lme CHAR(30),
+  cnl001csp CHAR(1),
+  cnl001csm CHAR(1),
+  cnl001grp CHAR(1),
+  cnl032cod NUMBER(3),
+  cnl001raz CHAR(75),
+  cnl001pti CHAR(1),
+  cnl001ocu CHAR(75),
+  cnl001tel CHAR(20),
+  cnl001dom CHAR(75),
+  cnl023prc CHAR(60),
+  cnl001lha CHAR(1),
+  cnl001fnc DATE,
+  cnl001iuc CHAR(60),
+  cnl001hdc CHAR(60),
+  cnl180cat CHAR(20)
+)
+;
+create index CNL00102 on CNL001 (CNL003COD, CNL004COD);
+create index CNL00104 on CNL001 (CNL000COD, CNL001PAD, CNL001TAD, CNL001DAD, CNL001PUS, CNL001TUS, CNL001DUS);
+create index CNL00105 on CNL001 (CNL000COD, CNL001PUS, CNL001TUS, CNL001DUS);
+create index CNL00106 on CNL001 (CNL000COD, CNL001NOM);
+create index CNL00111 on CNL001 (CNL000COD, CNL001USU);
+create index ICNL001 on CNL001 (CNL001PAD, CNL001TAD, CNL001DAD);
+alter table CNL001
+  add primary key (CNL000COD, CNL001ADM, CNL001USU);
+

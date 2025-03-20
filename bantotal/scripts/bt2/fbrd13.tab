@@ -1,0 +1,14 @@
+create table FBRD13
+(
+  brd13emp  NUMBER(3) not null,
+  brd13cta  NUMBER(9) not null,
+  brd13tpol CHAR(1) not null,
+  brd13rgo  CHAR(1),
+  brd13fing DATE,
+  brd13est  CHAR(1)
+)
+;
+create index FBRD1302 on FBRD13 (BRD13TPOL);
+alter table FBRD13
+  add primary key (BRD13EMP, BRD13CTA, BRD13TPOL);
+

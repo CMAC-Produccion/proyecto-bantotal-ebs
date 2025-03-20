@@ -1,0 +1,14 @@
+create table FBC004
+(
+  fech    CHAR(6) not null,
+  codpar  CHAR(8) not null,
+  facpon  NUMBER(3) not null,
+  coddis  CHAR(4),
+  codent2 NUMBER(5),
+  codcon  CHAR(1),
+  impor1  NUMBER(11)
+)
+;
+alter table FBC004
+  add primary key (FECH, CODPAR, FACPON);
+

@@ -1,0 +1,47 @@
+create table DEPE63D
+(
+  depe63demp NUMBER(3) not null,
+  depe63dmod NUMBER(3) not null,
+  depe63dsuc NUMBER(3) not null,
+  depe63dmda NUMBER(4) not null,
+  depe63dpap NUMBER(4) not null,
+  depe63dcta NUMBER(9) not null,
+  depe63dope NUMBER(9) not null,
+  depe63dsop NUMBER(3) not null,
+  depe63dtop NUMBER(3) not null,
+  depe63dsta NUMBER(2),
+  depe63dgem NUMBER(3),
+  depe63dgmo NUMBER(3),
+  depe63dgsu NUMBER(3),
+  depe63dgma NUMBER(4),
+  depe63dgpa NUMBER(4),
+  depe63dgct NUMBER(9),
+  depe63dgop NUMBER(9),
+  depe63dgsb NUMBER(3),
+  depe63dgto NUMBER(3),
+  depe63dnu1 NUMBER(9),
+  depe63dnu2 NUMBER(9),
+  depe63dnu3 NUMBER(9),
+  depe63dim1 NUMBER(17,2),
+  depe63dim2 NUMBER(17,2),
+  depe63dim3 NUMBER(17,2),
+  depe63dtx1 CHAR(30),
+  depe63dtx2 CHAR(30),
+  depe63dtx3 CHAR(30),
+  depe63dfe1 DATE,
+  depe63dfe2 DATE,
+  depe63dfe3 DATE,
+  depe63dtem NUMBER(3),
+  depe63dtsu NUMBER(3),
+  depe63dtmo NUMBER(3),
+  depe63dttr NUMBER(3),
+  depe63dtre NUMBER(4),
+  depe63dtor NUMBER(2),
+  depe63dtso NUMBER(3),
+  depe63dtfe DATE,
+  depe63dtst CHAR(1)
+)
+;
+alter table DEPE63D
+  add primary key (DEPE63DEMP, DEPE63DMOD, DEPE63DSUC, DEPE63DMDA, DEPE63DPAP, DEPE63DCTA, DEPE63DOPE, DEPE63DSOP, DEPE63DTOP);
+

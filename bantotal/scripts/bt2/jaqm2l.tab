@@ -1,0 +1,122 @@
+create table JAQM2L
+(
+  jaqm2ltdo VARCHAR2(3) not null,
+  jaqm2lndo VARCHAR2(12) not null,
+  jaqm2lnce VARCHAR2(50) not null,
+  jaqm2lfem DATE not null,
+  jaqm2lcor NUMBER(5) not null,
+  jaqm2lv19 NUMBER(16,2),
+  jaqm2lv20 NUMBER(16,2),
+  jaqm2ltor NUMBER(17,2),
+  jaqm2lfir DATE,
+  jaqm2lffr DATE,
+  jaqm2lmtt NUMBER(17,2),
+  jaqm2lmto NUMBER(17,2),
+  jaqm2lpgr NUMBER(3),
+  jaqm2lptr NUMBER(3),
+  jaqm2lrep NUMBER(17,2),
+  jaqm2lmtd NUMBER(17,2),
+  jaqm2lcoc VARCHAR2(20),
+  jaqm2lnuc VARCHAR2(50),
+  jaqm2lmtr NUMBER(17,2),
+  jaqm2lfei DATE,
+  jaqm2lfef DATE,
+  jaqm2lcso NUMBER(1),
+  jaqm2lmod CHAR(3),
+  jaqm2lhor CHAR(10),
+  jaqm2lusu CHAR(10),
+  jaqm2lwks CHAR(12),
+  jaqm2lai1 NUMBER(17,2),
+  jaqm2lai2 NUMBER(17,2),
+  jaqm2lai3 NUMBER(17,2),
+  jaqm2lan1 NUMBER(9),
+  jaqm2lan2 NUMBER(9),
+  jaqm2lan3 NUMBER(9),
+  jaqm2lac1 VARCHAR2(255),
+  jaqm2lac2 VARCHAR2(255),
+  jaqm2lac3 VARCHAR2(255),
+  jaqm2laf1 DATE,
+  jaqm2laf2 DATE,
+  jaqm2laf3 DATE
+)
+;
+comment on table JAQM2L
+  is 'Log y Temporal de AQPB712';
+comment on column JAQM2L.jaqm2ltdo
+  is 'Tipo de Documento';
+comment on column JAQM2L.jaqm2lndo
+  is 'Número de Documento';
+comment on column JAQM2L.jaqm2lnce
+  is 'Número de Certificado';
+comment on column JAQM2L.jaqm2lfem
+  is 'Fecha de Inserción Modificación';
+comment on column JAQM2L.jaqm2lcor
+  is 'Correlativo';
+comment on column JAQM2L.jaqm2lv19
+  is 'Vent IV 19';
+comment on column JAQM2L.jaqm2lv20
+  is 'Vent IV 20';
+comment on column JAQM2L.jaqm2ltor
+  is 'TEA Original';
+comment on column JAQM2L.jaqm2lfir
+  is 'Fecha de Inicio Repro';
+comment on column JAQM2L.jaqm2lffr
+  is 'Fecha Fin Repro';
+comment on column JAQM2L.jaqm2lmtt
+  is 'Monto Total Desembolsado Original';
+comment on column JAQM2L.jaqm2lmto
+  is 'Monto Desembolsado Original';
+comment on column JAQM2L.jaqm2lpgr
+  is 'Periodo de Gracias Reprogramación';
+comment on column JAQM2L.jaqm2lptr
+  is 'Periodo Total Reprogramación';
+comment on column JAQM2L.jaqm2lrep
+  is 'TEA Reprogramación';
+comment on column JAQM2L.jaqm2lmtd
+  is 'Monto Desembolsado BCR';
+comment on column JAQM2L.jaqm2lcoc
+  is 'Código de Cobertura';
+comment on column JAQM2L.jaqm2lnuc
+  is 'Número de Certificado';
+comment on column JAQM2L.jaqm2lmtr
+  is 'Monto Reprogramación';
+comment on column JAQM2L.jaqm2lfei
+  is 'Fecha de Inicio Certificado';
+comment on column JAQM2L.jaqm2lfef
+  is 'Fecha de Fin Certificado';
+comment on column JAQM2L.jaqm2lmod
+  is 'Tipo de Alteración de Registro';
+comment on column JAQM2L.jaqm2lhor
+  is 'Hora';
+comment on column JAQM2L.jaqm2lusu
+  is 'Usuario';
+comment on column JAQM2L.jaqm2lwks
+  is 'WorkStation';
+comment on column JAQM2L.jaqm2lai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM2L.jaqm2lai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM2L.jaqm2lai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM2L.jaqm2lan1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM2L.jaqm2lan2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM2L.jaqm2lan3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM2L.jaqm2lac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM2L.jaqm2lac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM2L.jaqm2lac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM2L.jaqm2laf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM2L.jaqm2laf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM2L.jaqm2laf3
+  is 'Auxiliar Fecha 3';
+create index JAQM2LA2 on JAQM2L (JAQM2LFEM, JAQM2LCOR);
+alter table JAQM2L
+  add primary key (JAQM2LTDO, JAQM2LNDO, JAQM2LNCE, JAQM2LFEM, JAQM2LCOR);
+

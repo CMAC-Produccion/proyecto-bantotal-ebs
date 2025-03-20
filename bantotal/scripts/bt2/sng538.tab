@@ -1,0 +1,18 @@
+create table SNG538
+(
+  sng538id   CHAR(30) not null,
+  sng538prog CHAR(10) not null,
+  sng538orig CHAR(20) not null,
+  sng538hora CHAR(8) not null,
+  sng538cor  NUMBER(10) not null,
+  sng538ord  NUMBER(4),
+  sng538est  NUMBER(1),
+  sng538dato VARCHAR2(2000),
+  sng538dpt  CHAR(20),
+  sng538loc  CHAR(20),
+  sng538zona CHAR(30)
+)
+;
+alter table SNG538
+  add primary key (SNG538ID, SNG538PROG, SNG538ORIG, SNG538HORA, SNG538COR);
+

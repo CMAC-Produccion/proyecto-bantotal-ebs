@@ -1,0 +1,15 @@
+create table Z05504
+(
+  z05504apl NUMBER(4) not null,
+  z05504bnd CHAR(5) not null,
+  z05504cor NUMBER(9) not null,
+  z05504tpn CHAR(1),
+  z05504ret NUMBER(7),
+  z05504imt NUMBER(15,2),
+  z05504fil CHAR(177),
+  z05504est CHAR(2)
+)
+;
+alter table Z05504
+  add primary key (Z05504APL, Z05504BND, Z05504COR);
+

@@ -1,0 +1,24 @@
+create table FSFIAD
+(
+  sfiademp NUMBER(3) not null,
+  sfiadcod NUMBER(9) not null,
+  sfiaddsc CHAR(65),
+  sfiada01 NUMBER(9),
+  sfiada02 NUMBER(9),
+  sfiada03 DATE,
+  sfiada04 DATE,
+  sfiada05 CHAR(35),
+  sfiada06 CHAR(35),
+  sfiada07 CHAR(35),
+  sfiada08 CHAR(35),
+  sfiada09 CHAR(1),
+  sfiada10 CHAR(1),
+  sfiada11 CHAR(1),
+  sfiada12 CHAR(1),
+  sfiaddsa CHAR(20),
+  sfiadhab CHAR(1)
+)
+;
+alter table FSFIAD
+  add primary key (SFIADEMP, SFIADCOD);
+

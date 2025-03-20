@@ -1,0 +1,44 @@
+create table FSD712
+(
+  d712pais   NUMBER(3) not null,
+  d712tdoc   NUMBER(2) not null,
+  d712ndoc   CHAR(12) not null,
+  d712tipo   CHAR(1),
+  d712fccub  NUMBER(8),
+  d712disp   NUMBER(10),
+  d712invco  NUMBER(10),
+  d712oacco  NUMBER(10),
+  d712crnc   NUMBER(10),
+  d712invnc  NUMBER(10),
+  d712bcbco  NUMBER(10),
+  d712bcbnc  NUMBER(10),
+  d712bduso  NUMBER(10),
+  d712oacnc  NUMBER(10),
+  d712tacnc  NUMBER(10),
+  d712deuco  NUMBER(10),
+  d712preco  NUMBER(10),
+  d712opaco  NUMBER(10),
+  d712deunc  NUMBER(10),
+  d712prenc  NUMBER(10),
+  d712opanc  NUMBER(10),
+  d712tpanc  NUMBER(10),
+  d712costo  NUMBER(10),
+  d712gaop   NUMBER(10),
+  d712orord  NUMBER(10),
+  d712rord   NUMBER(10),
+  d712faoa   NUMBER(8),
+  d712toian  NUMBER(10),
+  d712fcinf  NUMBER(8),
+  d712cileg  CHAR(11),
+  d712fcvcs  NUMBER(8),
+  d712tcvco  NUMBER(10),
+  d712tcvnc  NUMBER(10),
+  d712oapa   NUMBER(10),
+  d712rena   NUMBER(10),
+  d712inrt   NUMBER(10),
+  d712vtntbn NUMBER(10)
+)
+;
+alter table FSD712
+  add primary key (D712PAIS, D712TDOC, D712NDOC);
+

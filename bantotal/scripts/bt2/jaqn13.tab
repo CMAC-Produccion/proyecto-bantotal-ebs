@@ -1,0 +1,38 @@
+create table JAQN13
+(
+  jaqn13emp NUMBER(3) not null,
+  jaqn13suc NUMBER(3) not null,
+  jaqn13mod NUMBER(3) not null,
+  jaqn13trs NUMBER(3) not null,
+  jaqn13nre NUMBER(4) not null,
+  jaqn13fco DATE not null,
+  jaqn13ord NUMBER(2) not null,
+  jaqn13sbo NUMBER(3) not null,
+  jaqn13hor CHAR(8),
+  jaqn13dha NUMBER(1),
+  jaqn13tab CHAR(10),
+  jaqn13mon NUMBER(4),
+  jaqn13imp NUMBER(17,2),
+  jaqn13nta CHAR(16),
+  jaqn13nu1 NUMBER(9),
+  jaqn13nu2 NUMBER(9),
+  jaqn13nu3 NUMBER(9),
+  jaqn13va1 VARCHAR2(255),
+  jaqn13va2 VARCHAR2(255),
+  jaqn13va3 VARCHAR2(255),
+  jaqn13da1 DATE,
+  jaqn13da2 DATE,
+  jaqn13da3 DATE,
+  jaqn13im1 NUMBER(17,2),
+  jaqn13im2 NUMBER(17,2),
+  jaqn13im3 NUMBER(17,2),
+  jaqn13ch1 CHAR(255),
+  jaqn13ch2 CHAR(255),
+  jaqn13ch3 CHAR(255)
+)
+;
+create index JAQN13A21 on JAQN13 (JAQN13EMP, JAQN13FCO, JAQN13SUC, JAQN13MOD, JAQN13TRS, JAQN13ORD)
+  compress;
+create index JAQN13A31 on JAQN13 (JAQN13EMP, JAQN13FCO, JAQN13MOD, JAQN13TRS, JAQN13ORD)
+  compress;
+

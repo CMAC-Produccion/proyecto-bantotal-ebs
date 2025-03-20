@@ -1,0 +1,41 @@
+create table WFENGINE
+(
+  wfengcod         NUMBER(1) not null,
+  wfengmailadr     CHAR(40),
+  wfengsmtpsrv     CHAR(40),
+  wfengsmtpaut     CHAR(1),
+  wfengmailusr     CHAR(30),
+  wfengmailencpwd  CHAR(30),
+  wfengmailname    CHAR(40),
+  wfengurl         VARCHAR2(254),
+  wfengshexptime   NUMBER(10),
+  wfengavltimsch   CHAR(1),
+  wfengavlrscmng   CHAR(1),
+  wfenghigsec      CHAR(1),
+  wfengusradmin    CHAR(30),
+  wfengpwdadmin    CHAR(30),
+  wfengencpwd      CHAR(1),
+  wfengtslrbegin   DATE,
+  wfengtslrend     DATE,
+  wfengenbwrklog   NUMBER(1),
+  wfengdocpath     CHAR(254),
+  wfengenckey      CHAR(100),
+  wfengpshost      CHAR(30),
+  wfengpsport      NUMBER(4),
+  wfengpsbaseurl   CHAR(254),
+  wfengpstimeout   NUMBER(4),
+  wfenginboxorder  CHAR(1),
+  wfengcommit      CHAR(1),
+  wfengmailhtmlurl CHAR(254),
+  wfengnumtasks    NUMBER(4),
+  wfengmaxitems    NUMBER(10),
+  wfengrefreshpage CHAR(1),
+  wfengenbevents   CHAR(1),
+  wfengdepwizhtml  CLOB,
+  wfengchartsrvurl CHAR(254),
+  wfengrblwrklst   CHAR(1)
+)
+;
+alter table WFENGINE
+  add primary key (WFENGCOD);
+

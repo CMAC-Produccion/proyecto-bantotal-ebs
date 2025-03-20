@@ -1,0 +1,12 @@
+create table JAQY472
+(
+  jaqy472sbsemp   NUMBER(3),
+  jaqy472sbsinfo  VARCHAR2(30),
+  jaqy472sbsfech  DATE,
+  jaqy472sbsubic  VARCHAR2(4),
+  jaqy472sbsvalor NUMBER(18,2),
+  jaqy472sbstext  VARCHAR2(120)
+)
+;
+create index INX_JAQY472_01 on JAQY472 (JAQY472SBSEMP, JAQY472SBSINFO, JAQY472SBSFECH, JAQY472SBSUBIC);
+

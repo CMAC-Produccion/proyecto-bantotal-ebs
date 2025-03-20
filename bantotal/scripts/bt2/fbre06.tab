@@ -1,0 +1,16 @@
+create table FBRE06
+(
+  brt01fuemp NUMBER(3) not null,
+  brd05rqcor NUMBER(10) not null,
+  bre06esfch DATE not null,
+  bre06eshor CHAR(8) not null,
+  bre06esant CHAR(1),
+  bre06espos CHAR(1),
+  bre06esusu CHAR(10),
+  bre06esdsc CHAR(50),
+  bre06eserr NUMBER(5)
+)
+;
+alter table FBRE06
+  add primary key (BRT01FUEMP, BRD05RQCOR, BRE06ESFCH, BRE06ESHOR);
+

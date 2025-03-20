@@ -1,0 +1,116 @@
+create table AQPC170
+(
+  aqpc170mesdesb  DATE,
+  aqpc170bccta    NUMBER(9),
+  aqpc170bcoper   NUMBER(9),
+  aqpc170tipdoc   VARCHAR2(4000),
+  aqpc170pendoc   VARCHAR2(4000),
+  aqpc170region   VARCHAR2(30),
+  aqpc170zona     VARCHAR2(40),
+  aqpc170agenci   VARCHAR2(30),
+  aqpc170tipcrd   VARCHAR2(15),
+  aqpc170ref      NUMBER,
+  aqpc170slddes   NUMBER,
+  aqpc170co1m     NUMBER,
+  aqpc170co2m     NUMBER,
+  aqpc170co3m     NUMBER,
+  aqpc170co4m     NUMBER,
+  aqpc170co5m     NUMBER,
+  aqpc170co6m     NUMBER,
+  aqpc170co7m     NUMBER,
+  aqpc170co8m     NUMBER,
+  aqpc170co9m     NUMBER,
+  aqpc170co10m    NUMBER,
+  aqpc170co11m    NUMBER,
+  aqpc170co12m    NUMBER,
+  aqpc170co13m    NUMBER,
+  aqpc170co14m    NUMBER,
+  aqpc170co15m    NUMBER,
+  aqpc170flpympr  NUMBER,
+  aqpc170bcmod    NUMBER(3),
+  aqpc170segmtac  VARCHAR2(21),
+  aqpc170score    VARCHAR2(10),
+  aqpc170pd       NUMBER,
+  aqpc170segcpyme VARCHAR2(100),
+  aqpc170segccons VARCHAR2(100),
+  aqpc170flg_camp NUMBER(2),
+  aqpc170campnia  VARCHAR2(50),
+  aqpc170analist  VARCHAR2(4000)
+)
+;
+comment on table AQPC170
+  is 'Tabla temporal clon aojeda_anx.pd';
+comment on column AQPC170.aqpc170mesdesb
+  is 'mesdesb ';
+comment on column AQPC170.aqpc170bccta
+  is 'bccta   ';
+comment on column AQPC170.aqpc170bcoper
+  is 'bcoper  ';
+comment on column AQPC170.aqpc170tipdoc
+  is 'tipdoc  ';
+comment on column AQPC170.aqpc170pendoc
+  is 'pendoc  ';
+comment on column AQPC170.aqpc170region
+  is 'region  ';
+comment on column AQPC170.aqpc170zona
+  is 'zona    ';
+comment on column AQPC170.aqpc170agenci
+  is 'agenci  ';
+comment on column AQPC170.aqpc170tipcrd
+  is 'tipcre  ';
+comment on column AQPC170.aqpc170ref
+  is 'ref     ';
+comment on column AQPC170.aqpc170slddes
+  is 'slddes  ';
+comment on column AQPC170.aqpc170co1m
+  is 'co1m    ';
+comment on column AQPC170.aqpc170co2m
+  is 'co2m    ';
+comment on column AQPC170.aqpc170co3m
+  is 'co3m    ';
+comment on column AQPC170.aqpc170co4m
+  is 'co4m    ';
+comment on column AQPC170.aqpc170co5m
+  is 'co5m    ';
+comment on column AQPC170.aqpc170co6m
+  is 'co6m    ';
+comment on column AQPC170.aqpc170co7m
+  is 'co7m    ';
+comment on column AQPC170.aqpc170co8m
+  is 'co8m    ';
+comment on column AQPC170.aqpc170co9m
+  is 'co9m    ';
+comment on column AQPC170.aqpc170co10m
+  is 'co10m   ';
+comment on column AQPC170.aqpc170co11m
+  is 'co11m   ';
+comment on column AQPC170.aqpc170co12m
+  is 'co12m   ';
+comment on column AQPC170.aqpc170co13m
+  is 'co13m   ';
+comment on column AQPC170.aqpc170co14m
+  is 'co14m   ';
+comment on column AQPC170.aqpc170co15m
+  is 'co15m   ';
+comment on column AQPC170.aqpc170flpympr
+  is 'flpympr ';
+comment on column AQPC170.aqpc170bcmod
+  is 'bcmod   ';
+comment on column AQPC170.aqpc170segmtac
+  is 'segmtc  ';
+comment on column AQPC170.aqpc170score
+  is 'score   ';
+comment on column AQPC170.aqpc170pd
+  is 'pd      ';
+comment on column AQPC170.aqpc170segcpyme
+  is 'segcpym ';
+comment on column AQPC170.aqpc170segccons
+  is 'segccon ';
+comment on column AQPC170.aqpc170flg_camp
+  is 'flgcamp ';
+comment on column AQPC170.aqpc170campnia
+  is 'campnia ';
+comment on column AQPC170.aqpc170analist
+  is 'analista ';
+create index AQPC170A2 on AQPC170 (AQPC170MESDESB, AQPC170BCCTA, AQPC170BCOPER);
+

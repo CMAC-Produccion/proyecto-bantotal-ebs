@@ -1,0 +1,20 @@
+create table FSE201
+(
+  sppepais NUMBER(3) not null,
+  sppetdoc NUMBER(2) not null,
+  sppendoc CHAR(12) not null,
+  spptipo  NUMBER(2) not null,
+  sppais   NUMBER(3),
+  spodoc   CHAR(25),
+  sppcal   CHAR(1),
+  spaux1   CHAR(1),
+  spaux2   NUMBER(9),
+  spaux3   DATE,
+  spaux4   NUMBER(17,2),
+  spaux5   CHAR(30)
+)
+;
+create index FSE20102 on FSE201 (SPPAIS, SPPTIPO, SPODOC);
+alter table FSE201
+  add primary key (SPPEPAIS, SPPETDOC, SPPENDOC, SPPTIPO);
+

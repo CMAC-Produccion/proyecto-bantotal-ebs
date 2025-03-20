@@ -1,0 +1,13 @@
+create table AQPD853
+(
+  aqpd853emp NUMBER not null,
+  aqpd853usr CHAR(10) not null,
+  aqpd853car NUMBER,
+  aqpd853del CHAR(10) not null,
+  aqpd853ini DATE,
+  aqpd853fin DATE
+)
+;
+alter table AQPD853
+  add primary key (AQPD853EMP, AQPD853USR, AQPD853DEL);
+

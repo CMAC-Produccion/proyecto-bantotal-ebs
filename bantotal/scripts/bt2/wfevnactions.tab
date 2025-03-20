@@ -1,0 +1,11 @@
+create table WFEVNACTIONS
+(
+  wfactevnid     NUMBER(10) not null,
+  wfactevnaction NUMBER(4),
+  wfactevnctx    CHAR(30)
+)
+;
+create index UWFACTEVN1 on WFEVNACTIONS (WFACTEVNACTION, WFACTEVNCTX);
+alter table WFEVNACTIONS
+  add primary key (WFACTEVNID);
+

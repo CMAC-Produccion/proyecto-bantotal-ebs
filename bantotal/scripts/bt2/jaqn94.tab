@@ -1,0 +1,75 @@
+create table JAQN94
+(
+  jaqn94idr NUMBER(4) not null,
+  jaqn94pgm CHAR(10) not null,
+  jaqn94cor NUMBER(9) not null,
+  jaqn94tip CHAR(32),
+  jaqn94mot CHAR(32),
+  jaqn94det VARCHAR2(2000),
+  jaqn94obs CHAR(100),
+  jaqn94usu CHAR(10),
+  jaqn94fec DATE,
+  jaqn94hor CHAR(8),
+  jaqn94ai1 NUMBER(17,2),
+  jaqn94ai2 NUMBER(17,2),
+  jaqn94ai3 NUMBER(17,2),
+  jaqn94ad1 DATE,
+  jaqn94ad2 DATE,
+  jaqn94ad3 DATE,
+  jaqn94an1 NUMBER(9),
+  jaqn94an2 NUMBER(9),
+  jaqn94an3 NUMBER(9),
+  jaqn94ac1 CHAR(255),
+  jaqn94ac2 CHAR(255),
+  jaqn94ac3 CHAR(255)
+)
+;
+comment on table JAQN94
+  is 'LOG de Regiones';
+comment on column JAQN94.jaqn94idr
+  is 'ID de Region';
+comment on column JAQN94.jaqn94pgm
+  is 'Programa';
+comment on column JAQN94.jaqn94cor
+  is 'Correlativo';
+comment on column JAQN94.jaqn94tip
+  is 'Tipo';
+comment on column JAQN94.jaqn94mot
+  is 'Motivo';
+comment on column JAQN94.jaqn94det
+  is 'Detalle en XML';
+comment on column JAQN94.jaqn94obs
+  is 'Observacion';
+comment on column JAQN94.jaqn94usu
+  is 'Usuario';
+comment on column JAQN94.jaqn94fec
+  is 'Fecha';
+comment on column JAQN94.jaqn94hor
+  is 'Hora';
+comment on column JAQN94.jaqn94ai1
+  is 'Auxiliar Imp1';
+comment on column JAQN94.jaqn94ai2
+  is 'Auxiliar Imp2';
+comment on column JAQN94.jaqn94ai3
+  is 'Auxiliar Imp3';
+comment on column JAQN94.jaqn94ad1
+  is 'Auxiliar Fecha1';
+comment on column JAQN94.jaqn94ad2
+  is 'Auxiliar Fecha2';
+comment on column JAQN94.jaqn94ad3
+  is 'Auxiliar Fecha3';
+comment on column JAQN94.jaqn94an1
+  is 'Auxiliar Num1';
+comment on column JAQN94.jaqn94an2
+  is 'Auxiliar Num2';
+comment on column JAQN94.jaqn94an3
+  is 'Auxiliar Num3';
+comment on column JAQN94.jaqn94ac1
+  is 'Auxiliar Char1';
+comment on column JAQN94.jaqn94ac2
+  is 'Auxiliar Char2';
+comment on column JAQN94.jaqn94ac3
+  is 'Auxiliar Char3';
+alter table JAQN94
+  add primary key (JAQN94IDR, JAQN94PGM, JAQN94COR);
+

@@ -1,0 +1,24 @@
+create table FSFC23
+(
+  sfc23emp NUMBER(3) not null,
+  sfc23ban NUMBER(3) not null,
+  sfc23ren NUMBER(5) not null,
+  sfc23des CHAR(35),
+  sfc23hab CHAR(1),
+  sfc23mod NUMBER(3),
+  sfc23seg NUMBER(2),
+  sfc23eqp NUMBER(9),
+  sfc23a01 CHAR(1),
+  sfc23a02 CHAR(1),
+  sfc23a03 DATE,
+  sfc23a04 DATE,
+  sfc23a05 NUMBER(9),
+  sfc23a06 NUMBER(9)
+)
+;
+create index FSFC2302 on FSFC23 (SFC23EMP, SFC23BAN, SFC23MOD);
+create index FSFC2303 on FSFC23 (SFC23EMP, SFC23BAN, SFC23SEG);
+create index FSFC2304 on FSFC23 (SFC23EMP, SFC23BAN, SFC23EQP);
+alter table FSFC23
+  add primary key (SFC23EMP, SFC23BAN, SFC23REN);
+

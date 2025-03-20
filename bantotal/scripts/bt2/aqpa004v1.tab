@@ -1,0 +1,38 @@
+create table AQPA004V1
+(
+  aqpa4cpgcod  NUMBER(3) not null,
+  aqpa4caomod  NUMBER(3) not null,
+  aqpa4caosuc  NUMBER(3) not null,
+  aqpa4caomda  NUMBER(4) not null,
+  aqpa4caopap  NUMBER(4) not null,
+  aqpa4caocta  NUMBER(9) not null,
+  aqpa4caooper NUMBER(9) not null,
+  aqpa4caosbop NUMBER(3) not null,
+  aqpa4caotope NUMBER(3) not null,
+  aqpa4csgcod  NUMBER(9) not null,
+  aqpa4cfpro   DATE not null,
+  aqpa4cvc     NUMBER(17,2),
+  aqpa4cimp    NUMBER(17,2),
+  aqpa4cporc   NUMBER(10,6),
+  aqpa4cplus   NUMBER(10,6),
+  aqpa4cpart   NUMBER(10,6),
+  aqpa4cveh    NUMBER(4),
+  aqpa4cinm    NUMBER(4),
+  aqpa4cend    CHAR(1),
+  aqpa4cstat   CHAR(1),
+  aqpa4cco     CHAR(1),
+  aqpa4caux1   NUMBER(17,2),
+  aqpa4caux2   NUMBER(10,6),
+  aqpa4caux3   DATE,
+  aqpa4caux4   NUMBER(17,2),
+  aqpa4caux5   CHAR(30),
+  aqpa4caux6   CHAR(1),
+  aqpa4caux7   CHAR(1),
+  aqpa4cfep    DATE not null,
+  aqpa4ccor    NUMBER(9) not null
+)
+;
+create index AQPA004V12 on AQPA004V1 (AQPA4CFEP, AQPA4CCOR);
+alter table AQPA004V1
+  add primary key (AQPA4CPGCOD, AQPA4CAOMOD, AQPA4CAOSUC, AQPA4CAOMDA, AQPA4CAOPAP, AQPA4CAOCTA, AQPA4CAOOPER, AQPA4CAOSBOP, AQPA4CAOTOPE, AQPA4CSGCOD, AQPA4CFPRO, AQPA4CFEP, AQPA4CCOR);
+

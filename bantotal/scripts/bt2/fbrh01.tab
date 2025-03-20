@@ -1,0 +1,19 @@
+create table FBRH01
+(
+  brh01rqemp NUMBER(3) not null,
+  brh01rqcor NUMBER(10) not null,
+  brh01rqdsc CHAR(50),
+  brh01rqfun NUMBER(5),
+  brh01rqsfu NUMBER(5),
+  brh01rqtpr CHAR(1),
+  brh01rqfci DATE,
+  brh01rqfcv DATE,
+  brh01rqfcp DATE,
+  brh01rqsev CHAR(1),
+  brh01rqest CHAR(1)
+)
+;
+create index FBRH0102 on FBRH01 (BRH01RQEMP, BRH01RQFUN, BRH01RQSFU, BRH01RQEST, BRH01RQFCP);
+alter table FBRH01
+  add primary key (BRH01RQEMP, BRH01RQCOR);
+

@@ -1,0 +1,43 @@
+create table M02TOKEN
+(
+  numtar    CHAR(19) not null,
+  token     CHAR(24) not null,
+  idtra     CHAR(44) not null,
+  estok     NUMBER(1) not null,
+  dattk     DATE default sysdate,
+  medio     VARCHAR2(10),
+  destino   VARCHAR2(300),
+  resultado VARCHAR2(100),
+  operacion VARCHAR2(100),
+  canal     VARCHAR2(20),
+  tipotoken VARCHAR2(20),
+  ddeviceid VARCHAR2(50),
+  dmodelo   VARCHAR2(50),
+  dso       VARCHAR2(50),
+  dlat      VARCHAR2(50),
+  dlong     VARCHAR2(50)
+)
+;
+comment on table M02TOKEN
+  is 'Token digital de 6 digitos para transacciones financieras';
+comment on column M02TOKEN.resultado
+  is 'Resultado del envio de token';
+comment on column M02TOKEN.operacion
+  is 'Operacion de token enviado';
+comment on column M02TOKEN.canal
+  is 'Canal que solicita el Token Digital';
+comment on column M02TOKEN.tipotoken
+  is 'Tipo de Token Digital TRANSACCION,REGISTRO,SOFTTOKEN';
+comment on column M02TOKEN.ddeviceid
+  is 'Device ID del equipo solicitante';
+comment on column M02TOKEN.dmodelo
+  is 'Modelo del equipo solicitante';
+comment on column M02TOKEN.dso
+  is 'Sistema Operativo del equipo solicitante';
+comment on column M02TOKEN.dlat
+  is 'Latitud ubicacion del equipo solicitante';
+comment on column M02TOKEN.dlong
+  is 'Longitud ubicacion del equipo solicitante';
+alter table M02TOKEN
+  add primary key (IDTRA, TOKEN, NUMTAR);
+

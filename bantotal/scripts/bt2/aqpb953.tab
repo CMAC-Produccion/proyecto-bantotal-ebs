@@ -1,0 +1,119 @@
+create table AQPB953
+(
+  aqpb953cod     NUMBER(10),
+  aqpb953pais    NUMBER(3) not null,
+  aqpb953ptdc    NUMBER(2) not null,
+  aqpb953dni     VARCHAR2(12) not null,
+  aqpb953emp     NUMBER(3) not null,
+  aqpb953mod     NUMBER(3) not null,
+  aqpb953suc     NUMBER(3) not null,
+  aqpb953mda     NUMBER(4) not null,
+  aqpb953pap     NUMBER(4) not null,
+  aqpb953cta     NUMBER(9) not null,
+  aqpb953oper    NUMBER(9) not null,
+  aqpb953sbop    NUMBER(3) not null,
+  aqpb953top     NUMBER(3) not null,
+  aqpb953inst    NUMBER(10),
+  aqpb953est     CHAR(1) default 'P' not null,
+  aqpb953fecc    TIMESTAMP(6),
+  aqpb953fecr    TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb953usrr    VARCHAR2(10),
+  aqpb953fecm    TIMESTAMP(6),
+  aqpb953usrm    VARCHAR2(10),
+  aqpb953tasa    NUMBER(10,6),
+  aqpb953capt    NUMBER(17,2),
+  aqpb953redu    NUMBER(17,6),
+  aqpb953ehab    VARCHAR2(3),
+  aqpb953fcrm    TIMESTAMP(6),
+  aqpb953scap    NUMBER(17,2),
+  aqpb953pcarg   NUMBER(10),
+  aqpb953fac     VARCHAR2(250),
+  aqpb953com     VARCHAR2(250),
+  aqpb953usrpa   VARCHAR2(10),
+  aqpb953tredu   NUMBER(10,6),
+  aqpb953predu   NUMBER(10,6),
+  aqpb953tasaact NUMBER(10,6),
+  aqpb953dcar    NUMBER(17,2),
+  aqpb953cfac    NUMBER(3),
+  aqpb953dtot    NUMBER(17,2),
+  aqpb953scapt   NUMBER(17,2),
+  aqpb953deutf   NUMBER(17,2)
+)
+;
+comment on column AQPB953.aqpb953cod
+  is 'Correlativo';
+comment on column AQPB953.aqpb953pais
+  is 'Pais del documento';
+comment on column AQPB953.aqpb953ptdc
+  is 'Tipo de documento';
+comment on column AQPB953.aqpb953dni
+  is 'Documento de indentidad';
+comment on column AQPB953.aqpb953emp
+  is 'Clv. credito Empresa';
+comment on column AQPB953.aqpb953mod
+  is 'Clv. credito Modulo';
+comment on column AQPB953.aqpb953suc
+  is 'Clv. credito Sucursal';
+comment on column AQPB953.aqpb953mda
+  is 'Clv. credito Moneda';
+comment on column AQPB953.aqpb953pap
+  is 'Clv. credito Papel';
+comment on column AQPB953.aqpb953cta
+  is 'Clv. credito Cuenta';
+comment on column AQPB953.aqpb953oper
+  is 'Clv. credito Operacion';
+comment on column AQPB953.aqpb953sbop
+  is 'Clv. credito Suboperacion';
+comment on column AQPB953.aqpb953top
+  is 'Clv. credito Tipo de Operacion';
+comment on column AQPB953.aqpb953inst
+  is 'Instancia';
+comment on column AQPB953.aqpb953est
+  is 'Estado de la reprogramacion';
+comment on column AQPB953.aqpb953fecc
+  is 'Fecha de aprobacion/rechazo';
+comment on column AQPB953.aqpb953fecr
+  is 'Fecha de registro ';
+comment on column AQPB953.aqpb953usrr
+  is 'Usuario que registro';
+comment on column AQPB953.aqpb953fecm
+  is 'Fecha de modificaci{on';
+comment on column AQPB953.aqpb953usrm
+  is 'Usuario que modifico';
+comment on column AQPB953.aqpb953tasa
+  is 'Tasa Actual';
+comment on column AQPB953.aqpb953capt
+  is 'Capitalizacion';
+comment on column AQPB953.aqpb953redu
+  is 'Reduccion';
+comment on column AQPB953.aqpb953ehab
+  is 'Estado Habilitado ';
+comment on column AQPB953.aqpb953fcrm
+  is 'Fecha en Bantotal de BI';
+comment on column AQPB953.aqpb953scap
+  is 'Saldo Capital';
+comment on column AQPB953.aqpb953pcarg
+  is 'Cargos en codigo.';
+comment on column AQPB953.aqpb953fac
+  is 'Facilidad';
+comment on column AQPB953.aqpb953com
+  is 'Comentarios del autorizador';
+comment on column AQPB953.aqpb953usrpa
+  is 'Usuario Propuesto para Aprobar';
+comment on column AQPB953.aqpb953tredu
+  is 'Tasa de Reduccion';
+comment on column AQPB953.aqpb953predu
+  is 'Porcentaje de reduccion';
+comment on column AQPB953.aqpb953tasaact
+  is 'Tasa Actual';
+comment on column AQPB953.aqpb953dcar
+  is 'Descuento de Capitalizacion Real';
+comment on column AQPB953.aqpb953cfac
+  is 'Codigo Facilidad';
+comment on column AQPB953.aqpb953dtot
+  is 'Deuda Total';
+comment on column AQPB953.aqpb953scapt
+  is 'SaldoCapital Total';
+comment on column AQPB953.aqpb953deutf
+  is 'DEUDA TOTAL A LA FECHA';
+

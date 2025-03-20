@@ -1,0 +1,136 @@
+create table AQPB838C
+(
+  aqpb838ccod1  NUMBER(3) not null,
+  aqpb838cmod1  NUMBER(3) not null,
+  aqpb838csuc1  NUMBER(3) not null,
+  aqpb838cmda1  NUMBER(4) not null,
+  aqpb838cpap1  NUMBER(4) not null,
+  aqpb838ccta1  NUMBER(9) not null,
+  aqpb838coper1 NUMBER(9) not null,
+  aqpb838csbop1 NUMBER(3) not null,
+  aqpb838ctope1 NUMBER(3) not null,
+  aqpb838cmod2  NUMBER(3),
+  aqpb838ccta2  NUMBER(9),
+  aqpb838coper2 NUMBER(9),
+  aqpb838csbop2 NUMBER(3),
+  aqpb838ccod2  NUMBER(3),
+  aqpb838csuc2  NUMBER(3),
+  aqpb838cmda2  NUMBER(4),
+  aqpb838cpap2  NUMBER(4),
+  aqpb838ctope2 NUMBER(3),
+  aqpb838crub2  NUMBER(16),
+  aqpb838ccd    NUMBER(3),
+  aqpb838cmo    NUMBER(3),
+  aqpb838csu    NUMBER(3),
+  aqpb838ctr    NUMBER(3),
+  aqpb838cre    NUMBER(4),
+  aqpb838cfc    DATE,
+  aqpb838cor    NUMBER(2),
+  aqpb838csb    NUMBER(3),
+  aqpb838cco    CHAR(1),
+  aqpb838ccap   NUMBER(18,2),
+  aqpb838cint   NUMBER(18,2),
+  aqpb838cmor   NUMBER(18,2),
+  aqpb838cseg   NUMBER(18,2),
+  aqpb838cicv   NUMBER(18,2),
+  aqpb838cpen   NUMBER(18,2),
+  aqpb838cncap  NUMBER(18,2),
+  aqpb838ctipo  VARCHAR2(50),
+  aqpb838cind   VARCHAR2(50),
+  aqpb838cusu   CHAR(10) not null,
+  aqpb838ccred  VARCHAR2(40) not null,
+  aqpb838ccorr  NUMBER(18) not null,
+  aqpb838cfecc  DATE,
+  aqpb838chorc  CHAR(8)
+)
+;
+comment on table AQPB838C
+  is 'TABLA DE CAMBIOS DE CREDITOS TEMP';
+comment on column AQPB838C.aqpb838ccod1
+  is 'empresa 1';
+comment on column AQPB838C.aqpb838cmod1
+  is 'modulo 1';
+comment on column AQPB838C.aqpb838csuc1
+  is 'sucursal 1';
+comment on column AQPB838C.aqpb838cmda1
+  is 'moneda 1';
+comment on column AQPB838C.aqpb838cpap1
+  is 'papel 1 ';
+comment on column AQPB838C.aqpb838ccta1
+  is 'cuenta 1';
+comment on column AQPB838C.aqpb838coper1
+  is 'operacion 1';
+comment on column AQPB838C.aqpb838csbop1
+  is 'suboperacion 1';
+comment on column AQPB838C.aqpb838ctope1
+  is 'tipo de operacion 1';
+comment on column AQPB838C.aqpb838cmod2
+  is 'modulo 2';
+comment on column AQPB838C.aqpb838ccta2
+  is 'cuenta 2';
+comment on column AQPB838C.aqpb838coper2
+  is 'operacion 2';
+comment on column AQPB838C.aqpb838csbop2
+  is 'suboperacion 2';
+comment on column AQPB838C.aqpb838ccod2
+  is 'codigo 2';
+comment on column AQPB838C.aqpb838csuc2
+  is 'sucursal 2 ';
+comment on column AQPB838C.aqpb838cmda2
+  is 'moneda 2';
+comment on column AQPB838C.aqpb838cpap2
+  is 'papel 2';
+comment on column AQPB838C.aqpb838ctope2
+  is 'tipo de operacion 2';
+comment on column AQPB838C.aqpb838crub2
+  is 'rubro 2';
+comment on column AQPB838C.aqpb838ccd
+  is 'empresa transaccion';
+comment on column AQPB838C.aqpb838cmo
+  is 'modulo transaccion';
+comment on column AQPB838C.aqpb838csu
+  is 'susursaldo transaccion';
+comment on column AQPB838C.aqpb838ctr
+  is 'transaccion ';
+comment on column AQPB838C.aqpb838cre
+  is 'relacion transaccion';
+comment on column AQPB838C.aqpb838cfc
+  is 'fecha transaccion';
+comment on column AQPB838C.aqpb838cor
+  is 'ordinal';
+comment on column AQPB838C.aqpb838csb
+  is 'subordinal';
+comment on column AQPB838C.aqpb838cco
+  is 'estado ';
+comment on column AQPB838C.aqpb838ccap
+  is 'Capital';
+comment on column AQPB838C.aqpb838cint
+  is 'Interes';
+comment on column AQPB838C.aqpb838cmor
+  is 'Mora';
+comment on column AQPB838C.aqpb838cseg
+  is 'Seguros';
+comment on column AQPB838C.aqpb838cicv
+  is 'ICV';
+comment on column AQPB838C.aqpb838cpen
+  is 'Penalidad';
+comment on column AQPB838C.aqpb838cncap
+  is 'Capital Negativo';
+comment on column AQPB838C.aqpb838ctipo
+  is 'Tipo Reprogramacion/Refinanciacion';
+comment on column AQPB838C.aqpb838cind
+  is 'Indicador';
+comment on column AQPB838C.aqpb838cusu
+  is 'Usuario que gerera el reporte ';
+comment on column AQPB838C.aqpb838ccred
+  is 'Credito concatenado';
+comment on column AQPB838C.aqpb838ccorr
+  is 'Correlativo';
+comment on column AQPB838C.aqpb838cfecc
+  is 'Fecha de ultimo cambio';
+comment on column AQPB838C.aqpb838chorc
+  is 'hora de ultimo cambio';
+create index AQPB838CA2 on AQPB838C (AQPB838CUSU, AQPB838CCRED, AQPB838CCORR, AQPB838CCOD1, AQPB838CMOD1, AQPB838CSUC1, AQPB838CMDA1, AQPB838CPAP1, AQPB838CCTA1, AQPB838COPER1, AQPB838CSBOP1, AQPB838CTOPE1, AQPB838CMOD2, AQPB838CCTA2, AQPB838COPER2, AQPB838CSBOP2, AQPB838CCOD2, AQPB838CSUC2, AQPB838CMDA2, AQPB838CPAP2, AQPB838CTOPE2);
+alter table AQPB838C
+  add primary key (AQPB838CUSU, AQPB838CCRED, AQPB838CCORR);
+

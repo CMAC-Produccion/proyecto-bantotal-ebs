@@ -1,0 +1,30 @@
+create table FSH008
+(
+  sh008cod   NUMBER(3) not null,
+  sh008cta   NUMBER(9) not null,
+  sh008pais  NUMBER(3) not null,
+  sh008ndoc  CHAR(12) not null,
+  sh008tdoc  NUMBER(2) not null,
+  sh008corr  NUMBER(5) not null,
+  sh008ttcod NUMBER(2),
+  sh008tfir  CHAR(1),
+  sh008falta DATE,
+  sh008fbaja DATE,
+  sh008fmod  DATE,
+  sh008ttmod NUMBER(2),
+  sh008tfmod CHAR(1),
+  sh008aux1  CHAR(35),
+  sh008aux2  CHAR(35),
+  sh008aux3  CHAR(20),
+  sh008aux4  NUMBER(9),
+  sh008aux5  NUMBER(18),
+  sh008aux6  NUMBER(18),
+  sh008aux7  DATE,
+  sh008aux8  DATE
+)
+;
+create index FSH00802 on FSH008 (SH008AUX1, SH008CTA, SH008CORR);
+create index FSH00803 on FSH008 (SH008COD, SH008PAIS, SH008TDOC, SH008NDOC, SH008CORR);
+alter table FSH008
+  add primary key (SH008COD, SH008CTA, SH008PAIS, SH008NDOC, SH008TDOC, SH008CORR);
+

@@ -1,0 +1,23 @@
+create table FCNV05
+(
+  cnv05teval NUMBER(3) not null,
+  cnv05tevds CHAR(40),
+  cnv05tepgm CHAR(10),
+  cnv05teatr CHAR(10),
+  cnv05tetip CHAR(1),
+  cnv05tepgp CHAR(10),
+  cnv05minpc NUMBER(7,4),
+  cnv05atpzo NUMBER(5),
+  cnv05atfec CHAR(1),
+  cnv05atprc NUMBER(5),
+  cnv05atwit NUMBER(10),
+  cnv05atref NUMBER(3),
+  cnv05eqref CHAR(20),
+  cnv05eqsnr NUMBER(3),
+  cnv05sts   CHAR(1),
+  cnv05tcorr CHAR(1)
+)
+;
+alter table FCNV05
+  add primary key (CNV05TEVAL);
+

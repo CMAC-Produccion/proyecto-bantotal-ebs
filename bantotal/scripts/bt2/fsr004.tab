@@ -1,0 +1,12 @@
+create table FSR004
+(
+  ifpais NUMBER(3) not null,
+  iftdoc NUMBER(2) not null,
+  ifndoc CHAR(12) not null,
+  ifcnro CHAR(34) not null,
+  ifcmda NUMBER(4) not null
+)
+;
+alter table FSR004
+  add primary key (IFPAIS, IFTDOC, IFNDOC, IFCNRO, IFCMDA);
+

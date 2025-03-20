@@ -1,0 +1,19 @@
+create table JHSI04
+(
+  jhsi04apl  NUMBER(4) not null,
+  jhsi04ban  CHAR(5) not null,
+  jhsi04env  NUMBER(9) not null,
+  jhsi04corr NUMBER(9) not null,
+  jhsi04cta  NUMBER(9),
+  jhsi04oper NUMBER(9),
+  jhsi04sbop NUMBER(3),
+  jhsi04mda  NUMBER(4),
+  jhsi04imp  NUMBER(17,2),
+  jhsi04fval DATE,
+  jhsi04fvto DATE,
+  jhsi04int  NUMBER(17,2),
+  jhsi04tope NUMBER(3)
+)
+;
+create unique index JHSI0401 on JHSI04 (JHSI04APL, JHSI04BAN, JHSI04ENV, JHSI04CORR);
+

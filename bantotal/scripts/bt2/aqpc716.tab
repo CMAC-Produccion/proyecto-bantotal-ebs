@@ -1,0 +1,38 @@
+create table AQPC716
+(
+  aqpc716cor   NUMBER(17),
+  aqpc716fecr  DATE,
+  aqpc716inst  NUMBER(10) not null,
+  aqpc716prg   VARCHAR2(20),
+  aqpc716pqt   VARCHAR2(50),
+  aqpc716prd   VARCHAR2(50),
+  aqpc716peje  VARCHAR2(150),
+  aqpc716err   VARCHAR2(5),
+  aqpc716msge  VARCHAR2(250),
+  aqpc716fecrh TIMESTAMP(6) default SYSDATE
+)
+;
+comment on column AQPC716.aqpc716cor
+  is 'Correlativo';
+comment on column AQPC716.aqpc716fecr
+  is 'Fecha de Registro del evento de error';
+comment on column AQPC716.aqpc716inst
+  is 'Instancia del credito';
+comment on column AQPC716.aqpc716prg
+  is 'Programa asociado al error';
+comment on column AQPC716.aqpc716pqt
+  is 'Paquete asociado al error';
+comment on column AQPC716.aqpc716prd
+  is 'Procedimiento asociado al error';
+comment on column AQPC716.aqpc716peje
+  is 'Parametro de ejecucion';
+comment on column AQPC716.aqpc716err
+  is 'Codigo de Error';
+comment on column AQPC716.aqpc716msge
+  is 'Mensaje de Error';
+comment on column AQPC716.aqpc716fecrh
+  is 'Fecha y hora de registro';
+create index AQPC716INST on AQPC716 (AQPC716INST);
+alter table AQPC716
+  add primary key (AQPC716INST);
+

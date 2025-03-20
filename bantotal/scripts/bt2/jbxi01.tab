@@ -1,0 +1,12 @@
+create table JBXI01
+(
+  jx00doctip NUMBER(2) not null,
+  jx00docnum CHAR(12) not null,
+  jx00paicod NUMBER(3) not null,
+  jx01bconro NUMBER(5) not null,
+  jx01bcodeu NUMBER(12,2)
+)
+;
+alter table JBXI01
+  add primary key (JX00DOCTIP, JX00DOCNUM, JX00PAICOD, JX01BCONRO);
+

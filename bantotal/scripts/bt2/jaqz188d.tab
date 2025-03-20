@@ -1,0 +1,100 @@
+create table JAQZ188D
+(
+  jaqz188dpgc NUMBER(3) not null,
+  jaqz188dmod NUMBER(3) not null,
+  jaqz188dsuc NUMBER(3) not null,
+  jaqz188dmda NUMBER(4) not null,
+  jaqz188dpap NUMBER(4) not null,
+  jaqz188dcta NUMBER(9) not null,
+  jaqz188dope NUMBER(9) not null,
+  jaqz188dsbo NUMBER(3) not null,
+  jaqz188dtpo NUMBER(3) not null,
+  jaqz188dcte NUMBER(9),
+  jaqz188dfep DATE,
+  jaqz188dhop CHAR(8),
+  jaqz188dusp CHAR(10),
+  jaqz188dfev DATE,
+  jaqz188dhev CHAR(8),
+  jaqz188duev CHAR(10),
+  jaqz188dest CHAR(1),
+  jaqz188dmot VARCHAR2(400),
+  jaqz188dcue CLOB,
+  jaqz188dcbl BLOB,
+  jaqz188dmai VARCHAR2(800),
+  jaqz188dax1 NUMBER(9),
+  jaqz188dax2 NUMBER(9),
+  jaqz188dax3 NUMBER(17,2),
+  jaqz188dax4 NUMBER(17,2),
+  jaqz188dax5 DATE,
+  jaqz188dax6 DATE,
+  jaqz188dax7 CHAR(100),
+  jaqz188dax8 CHAR(100),
+  jaqz188dax9 CHAR(100)
+)
+;
+comment on table JAQZ188D
+  is 'LOG ENVIO MAIL BIENVENIDA CLIENTES CTS EX CREDINKA';
+comment on column JAQZ188D.jaqz188dpgc
+  is 'EMPRESA';
+comment on column JAQZ188D.jaqz188dmod
+  is 'MODULO';
+comment on column JAQZ188D.jaqz188dsuc
+  is 'SUCURSAL';
+comment on column JAQZ188D.jaqz188dmda
+  is 'MONEDA';
+comment on column JAQZ188D.jaqz188dpap
+  is 'PAPEL';
+comment on column JAQZ188D.jaqz188dcta
+  is 'CUENTA';
+comment on column JAQZ188D.jaqz188dope
+  is 'OPERACIÓN';
+comment on column JAQZ188D.jaqz188dsbo
+  is 'SUB OPERACIÓN';
+comment on column JAQZ188D.jaqz188dtpo
+  is 'TIPO DE OPERACION';
+comment on column JAQZ188D.jaqz188dcte
+  is 'CUENTA DEL EMPLEADOR';
+comment on column JAQZ188D.jaqz188dfep
+  is 'FECHA DE PROCESO';
+comment on column JAQZ188D.jaqz188dhop
+  is 'HORA DE PROCESO';
+comment on column JAQZ188D.jaqz188dusp
+  is 'USUARIO DE PROCESO';
+comment on column JAQZ188D.jaqz188dfev
+  is 'FECHA DE ENVIO';
+comment on column JAQZ188D.jaqz188dhev
+  is 'HORA DE ENVIO';
+comment on column JAQZ188D.jaqz188duev
+  is 'USUARIO DE ENVIO';
+comment on column JAQZ188D.jaqz188dest
+  is 'ESTADO';
+comment on column JAQZ188D.jaqz188dmot
+  is 'MOTIVO ENVIO';
+comment on column JAQZ188D.jaqz188dcue
+  is 'CUERPO DEL CORREO';
+comment on column JAQZ188D.jaqz188dcbl
+  is 'ADJUNTO';
+comment on column JAQZ188D.jaqz188dmai
+  is 'MAIL DESTINO';
+comment on column JAQZ188D.jaqz188dax1
+  is 'AUXILIAR';
+comment on column JAQZ188D.jaqz188dax2
+  is 'AUXILIAR';
+comment on column JAQZ188D.jaqz188dax3
+  is 'AUXILIAR';
+comment on column JAQZ188D.jaqz188dax4
+  is 'AUXILIAR';
+comment on column JAQZ188D.jaqz188dax5
+  is 'AUXILIAR';
+comment on column JAQZ188D.jaqz188dax6
+  is 'AUXILIAR';
+comment on column JAQZ188D.jaqz188dax7
+  is 'AUXILIAR';
+comment on column JAQZ188D.jaqz188dax8
+  is 'AUXILIAR';
+comment on column JAQZ188D.jaqz188dax9
+  is 'AUXILIAR';
+create index JAQZ188D2 on JAQZ188D (JAQZ188DFEV);
+alter table JAQZ188D
+  add primary key (JAQZ188DPGC, JAQZ188DMOD, JAQZ188DSUC, JAQZ188DMDA, JAQZ188DPAP, JAQZ188DCTA, JAQZ188DOPE, JAQZ188DSBO, JAQZ188DTPO);
+

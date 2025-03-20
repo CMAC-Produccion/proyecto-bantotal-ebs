@@ -1,0 +1,17 @@
+create table JHSP12
+(
+  jhsp12fec DATE not null,
+  jhsp12hor CHAR(8) not null,
+  jhsp12tre CHAR(1) not null,
+  jhsp12mon NUMBER(1) not null,
+  jhsp12nch CHAR(8) not null,
+  jhsp12bgi NUMBER(2) not null,
+  jhsp12dgi NUMBER(3),
+  jhsp12cta CHAR(10),
+  jhsp12bre NUMBER(2),
+  jhsp12imp NUMBER(13),
+  jhsp12pro NUMBER(1)
+)
+;
+create unique index JHSP1201 on JHSP12 (JHSP12FEC, JHSP12HOR, JHSP12TRE, JHSP12MON, JHSP12NCH, JHSP12BGI);
+

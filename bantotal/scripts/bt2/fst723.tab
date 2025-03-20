@@ -1,0 +1,27 @@
+create table FST723
+(
+  st723pgcod NUMBER(3) not null,
+  st723mod   NUMBER(3) not null,
+  st723ggcod NUMBER(3) not null,
+  st723num   NUMBER(2) not null,
+  st723tgcod NUMBER(3),
+  st723ggnom CHAR(50),
+  st723tgnom CHAR(30),
+  st723porc  NUMBER(5,2),
+  st723aux1  NUMBER(15),
+  st723aux2  NUMBER(15),
+  st723aux3  NUMBER(15),
+  st723aux4  NUMBER(17,2),
+  st723aux5  NUMBER(17,2),
+  st723aux6  NUMBER(17,2),
+  st723aux7  DATE,
+  st723aux8  DATE,
+  st723aux9  DATE,
+  st723aux10 CHAR(30),
+  st723aux11 CHAR(30),
+  st723aux12 CHAR(30)
+)
+;
+alter table FST723
+  add primary key (ST723PGCOD, ST723MOD, ST723GGCOD, ST723NUM);
+

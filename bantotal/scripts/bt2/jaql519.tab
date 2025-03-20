@@ -1,0 +1,15 @@
+create table JAQL519
+(
+  jaql519coent NUMBER(3) not null,
+  jaql519cotsv NUMBER(3) not null,
+  jaql519nrcon VARCHAR2(20) not null,
+  jaql519fepro DATE,
+  jaql519hopro CHAR(10),
+  jaql519ppais NUMBER(3),
+  jaql519ptdoc NUMBER(2),
+  jaql519nrdoc CHAR(20)
+)
+;
+alter table JAQL519
+  add primary key (JAQL519COENT, JAQL519COTSV, JAQL519NRCON);
+

@@ -1,0 +1,15 @@
+create table SD4350
+(
+  sd50coddis NUMBER(4) not null,
+  sd50codent NUMBER(5) not null,
+  sd50fchinf NUMBER(6) not null,
+  sd50tpoid  NUMBER(2) not null,
+  sd50nroid  NUMBER(11) not null,
+  sd50secuen NUMBER(2) not null,
+  sd50descr  CHAR(127),
+  sd50rectif CHAR(1)
+)
+;
+alter table SD4350
+  add primary key (SD50CODDIS, SD50CODENT, SD50FCHINF, SD50TPOID, SD50NROID, SD50SECUEN);
+

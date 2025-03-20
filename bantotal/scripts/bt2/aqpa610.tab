@@ -1,0 +1,13 @@
+create table AQPA610
+(
+  aqpa610pps  NUMBER(3) not null,
+  aqpa610ptd  NUMBER(2) not null,
+  aqpa610pnd  CHAR(12) not null,
+  aqpa610ubu  CHAR(10) not null,
+  aqpa610inst NUMBER(9),
+  aqpa610num  NUMBER(12) default 0
+)
+;
+alter table AQPA610
+  add primary key (AQPA610PPS, AQPA610PTD, AQPA610PND, AQPA610UBU);
+

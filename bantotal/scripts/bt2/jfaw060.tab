@@ -1,0 +1,12 @@
+create table JFAW060
+(
+  jfaw060pab NUMBER(9) not null,
+  jfaw060pju NUMBER(9),
+  jfaw060pbt NUMBER(4)
+)
+;
+create index JFAW0602 on JFAW060 (JFAW060PJU);
+create index JFAW0603 on JFAW060 (JFAW060PBT);
+alter table JFAW060
+  add primary key (JFAW060PAB);
+

@@ -1,0 +1,63 @@
+create table AQPC114
+(
+  aqpc114codusu VARCHAR2(20) not null,
+  aqpc114tipo   CHAR(1) not null,
+  aqpc114corr   NUMBER(10) not null,
+  aqpc114codint VARCHAR2(20),
+  aqpc114coddep NUMBER(5),
+  aqpc114codprv NUMBER(5),
+  aqpc114coddis NUMBER(9),
+  aqpc114nomcom VARCHAR2(100),
+  aqpc114direcc VARCHAR2(1000),
+  aqpc114lati   NUMBER(17,14),
+  aqpc114long   NUMBER(17,14),
+  aqpc114tipdoc VARCHAR2(5),
+  aqpc114numdoc VARCHAR2(20),
+  aqpc114propie VARCHAR2(200),
+  aqpc114agrega VARCHAR2(40),
+  aqpc114totdep NUMBER(4),
+  aqpc114total  NUMBER(4),
+  aqpc114error  VARCHAR2(30)
+)
+;
+comment on table AQPC114
+  is 'Data Reporte 30 SBS';
+comment on column AQPC114.aqpc114codusu
+  is 'Codigo Usuario';
+comment on column AQPC114.aqpc114tipo
+  is 'Tipo Reporte Cajeros o Agentes';
+comment on column AQPC114.aqpc114corr
+  is 'Correlativo';
+comment on column AQPC114.aqpc114codint
+  is 'Código Interno';
+comment on column AQPC114.aqpc114coddep
+  is 'Código de Departamento';
+comment on column AQPC114.aqpc114codprv
+  is 'Código de Provincia';
+comment on column AQPC114.aqpc114coddis
+  is 'Código de Distrito';
+comment on column AQPC114.aqpc114nomcom
+  is 'Nombre Comercial del Establecimiento';
+comment on column AQPC114.aqpc114direcc
+  is 'Dirección Establecimiento';
+comment on column AQPC114.aqpc114lati
+  is 'Latitud';
+comment on column AQPC114.aqpc114long
+  is 'Longitud';
+comment on column AQPC114.aqpc114tipdoc
+  is 'Tipo de Documento Propietario';
+comment on column AQPC114.aqpc114numdoc
+  is 'Número de Documento Propietario';
+comment on column AQPC114.aqpc114propie
+  is 'Nombre Propietario';
+comment on column AQPC114.aqpc114agrega
+  is 'Agregador de Operadores';
+comment on column AQPC114.aqpc114totdep
+  is 'Total de Cajeros que reciben depósitos';
+comment on column AQPC114.aqpc114total
+  is 'Total de Cajeros';
+comment on column AQPC114.aqpc114error
+  is 'Errores de data';
+alter table AQPC114
+  add primary key (AQPC114CODUSU, AQPC114TIPO, AQPC114CORR);
+

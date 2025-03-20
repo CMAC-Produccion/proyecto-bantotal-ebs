@@ -1,0 +1,11 @@
+create table CNL502
+(
+  cnl500ver CHAR(20) not null,
+  cnl500pch CHAR(50) not null,
+  wfprcid   NUMBER(4) not null,
+  wfprcname CHAR(50)
+)
+;
+alter table CNL502
+  add primary key (CNL500VER, CNL500PCH, WFPRCID);
+

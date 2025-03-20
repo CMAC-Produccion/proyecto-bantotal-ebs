@@ -1,0 +1,20 @@
+create table JDTS02
+(
+  jdts01ser CHAR(4) not null,
+  jdts05cen CHAR(2) not null,
+  jdts02est CHAR(1),
+  jdts02ax1 NUMBER(9),
+  jdts02ax2 NUMBER(9),
+  jdts02ax3 NUMBER(9),
+  jdts02ax4 NUMBER(17,2),
+  jdts02ax5 NUMBER(17,2),
+  jdts02ax6 CHAR(30),
+  jdts02ax7 CHAR(30),
+  jdts02ax8 DATE,
+  jdts02ax9 DATE
+)
+;
+create index JDTS0202 on JDTS02 (JDTS05CEN);
+alter table JDTS02
+  add primary key (JDTS01SER, JDTS05CEN);
+

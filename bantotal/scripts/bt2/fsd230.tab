@@ -1,0 +1,31 @@
+create table FSD230
+(
+  checod NUMBER(3) not null,
+  chemod NUMBER(3) not null,
+  chesuc NUMBER(3) not null,
+  chemda NUMBER(4) not null,
+  chepap NUMBER(4) not null,
+  checta NUMBER(9) not null,
+  cheope NUMBER(9) not null,
+  chesbo NUMBER(3) not null,
+  chetop NUMBER(3) not null,
+  cheini NUMBER(9) not null,
+  checnt NUMBER(3),
+  chelst CHAR(250),
+  cheser CHAR(1),
+  chests NUMBER(3),
+  chefch DATE,
+  chetpo NUMBER(3)
+)
+;
+create index FSD23002 on FSD230 (CHETPO);
+create index FSD23003 on FSD230 (CHESTS);
+create index FSD23004 on FSD230 (CHECOD, CHEINI);
+create index FSD23005 on FSD230 (CHECOD, CHECTA);
+create index FSD23006 on FSD230 (CHEPAP);
+create index FSD23007 on FSD230 (CHEMDA);
+create index FSD23008 on FSD230 (CHEMOD);
+create index FSD23009 on FSD230 (CHECOD, CHESUC);
+alter table FSD230
+  add primary key (CHECOD, CHEMOD, CHESUC, CHEMDA, CHEPAP, CHECTA, CHEOPE, CHESBO, CHETOP, CHEINI);
+

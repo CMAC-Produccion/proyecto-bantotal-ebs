@@ -1,0 +1,14 @@
+create table FCPG29
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg21cod   NUMBER(3) not null,
+  cpg29est   CHAR(3),
+  cpg29blq   CHAR(1),
+  cpg29inst  NUMBER(10)
+)
+;
+alter table FCPG29
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG21COD);
+

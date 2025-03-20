@@ -1,0 +1,300 @@
+create table AQPB119
+(
+  aqpb119fetra  DATE not null,
+  aqpb119hotra  CHAR(8) not null,
+  aqpb119seint  NUMBER(12) not null,
+  aqpb119nutar  CHAR(19),
+  aqpb119comen  CHAR(4),
+  aqpb119descme VARCHAR2(100),
+  aqpb119seiso  CHAR(12),
+  aqpb119cotra  CHAR(6),
+  aqpb119desctr VARCHAR2(100),
+  aqpb119fehot  CHAR(10),
+  aqpb119feneg  DATE,
+  aqpb119honeg  CHAR(8),
+  aqpb119inadq  CHAR(11),
+  aqpb119inemi  CHAR(11),
+  aqpb119cored  NUMBER(10),
+  aqpb119nuele  NUMBER(12),
+  aqpb119cisoc  CHAR(15),
+  aqpb119cisot  CHAR(8),
+  aqpb119comot  NUMBER(3),
+  aqpb119comtb  NUMBER(3),
+  aqpb119imptr  NUMBER(17,2),
+  aqpb119cod01  NUMBER(3),
+  aqpb119mod01  NUMBER(3),
+  aqpb119suc01  NUMBER(3),
+  aqpb119mda01  NUMBER(4),
+  aqpb119pap01  NUMBER(4),
+  aqpb119cta01  NUMBER(9),
+  aqpb119ope01  NUMBER(9),
+  aqpb119sbo01  NUMBER(3),
+  aqpb119top01  NUMBER(3),
+  aqpb119imp01  NUMBER(17,2),
+  aqpb119sal01  NUMBER(17,2),
+  aqpb119ord01  NUMBER(3),
+  aqpb119sub01  NUMBER(3),
+  aqpb119cod02  NUMBER(3),
+  aqpb119mod02  NUMBER(3),
+  aqpb119suc02  NUMBER(3),
+  aqpb119mda02  NUMBER(4),
+  aqpb119pap02  NUMBER(4),
+  aqpb119cta02  NUMBER(9),
+  aqpb119ope02  NUMBER(9),
+  aqpb119sbo02  NUMBER(3),
+  aqpb119top02  NUMBER(3),
+  aqpb119imp02  NUMBER(17,2),
+  aqpb119sal02  NUMBER(17,2),
+  aqpb119ord02  NUMBER(3),
+  aqpb119sub02  NUMBER(3),
+  aqpb119ctcod  NUMBER(3),
+  aqpb119ctmod  NUMBER(3),
+  aqpb119ctsuc  NUMBER(3),
+  aqpb119cttra  NUMBER(3),
+  aqpb119ctrel  NUMBER(4),
+  aqpb119ctfco  DATE,
+  aqpb119ctcrr  NUMBER(5),
+  aqpb119ctres  NUMBER(5),
+  aqpb119secan  NUMBER(3),
+  aqpb119seope  NUMBER(5),
+  aqpb119sevar  NUMBER(3),
+  aqpb119sefec  DATE,
+  aqpb119sehor  CHAR(8),
+  aqpb119secre  NUMBER(10),
+  aqpb119secrs  CHAR(5),
+  aqpb119morec  NUMBER(17,2),
+  aqpb119comoc  NUMBER(3),
+  aqpb119comcb  NUMBER(3),
+  aqpb119gineg  CHAR(4),
+  aqpb119adic1  CHAR(30),
+  aqpb119adic2  CHAR(30),
+  aqpb119adic3  CHAR(30),
+  aqpb119feimp  DATE,
+  aqpb119coaut  CHAR(6),
+  aqpb119estad  CHAR(1),
+  aqpb119ctcor  NUMBER(3),
+  aqpb119ctmor  NUMBER(3),
+  aqpb119ctsur  NUMBER(3),
+  aqpb119cttrr  NUMBER(3),
+  aqpb119ctrer  NUMBER(4),
+  aqpb119ctfcr  DATE,
+  aqpb119coapl  NUMBER(4),
+  aqpb119aux1   CHAR(50),
+  aqpb119aux2   CHAR(50),
+  aqpb119aux3   CHAR(50),
+  aqpb119aux4   CHAR(30),
+  aqpb119aux5   CHAR(30),
+  aqpb119aux6   CHAR(30),
+  aqpb119aux7   CHAR(1),
+  aqpb119aux8   CHAR(1),
+  aqpb119aux9   CHAR(1),
+  aqpb119aux10  NUMBER(17,2),
+  aqpb119aux11  NUMBER(17,2),
+  aqpb119aux12  NUMBER(17,2),
+  aqpb119aux13  NUMBER(9),
+  aqpb119aux14  NUMBER(9),
+  aqpb119aux15  NUMBER(9),
+  aqpb119aux16  DATE,
+  aqpb119aux17  DATE,
+  aqpb119aux18  DATE not null
+)
+;
+comment on table AQPB119
+  is 'Tabla Log de Pagos NIUBIZ';
+comment on column AQPB119.aqpb119fetra
+  is 'Fecha transaccion';
+comment on column AQPB119.aqpb119hotra
+  is 'Hora transaccion';
+comment on column AQPB119.aqpb119seint
+  is 'Secuencial Interno';
+comment on column AQPB119.aqpb119nutar
+  is 'Numero de tarjeta';
+comment on column AQPB119.aqpb119comen
+  is 'Codigo Mensaje';
+comment on column AQPB119.aqpb119descme
+  is 'Descripcion Codigo de mensaje';
+comment on column AQPB119.aqpb119seiso
+  is 'Secuencial ISO';
+comment on column AQPB119.aqpb119cotra
+  is 'Codigo de transaccion';
+comment on column AQPB119.aqpb119desctr
+  is 'Descripcion Codigo de transaccion';
+comment on column AQPB119.aqpb119fehot
+  is 'Fecha y hora transmision';
+comment on column AQPB119.aqpb119feneg
+  is 'Fecha de negocio';
+comment on column AQPB119.aqpb119honeg
+  is 'Hora de negocio';
+comment on column AQPB119.aqpb119inadq
+  is 'Institucion adquiriente';
+comment on column AQPB119.aqpb119inemi
+  is 'Institucion emisor requerimiento';
+comment on column AQPB119.aqpb119cored
+  is 'Codigo Red';
+comment on column AQPB119.aqpb119nuele
+  is 'Numero de elemento';
+comment on column AQPB119.aqpb119cisoc
+  is 'Codigo comercio ISO';
+comment on column AQPB119.aqpb119cisot
+  is 'Codigo terminal ISO';
+comment on column AQPB119.aqpb119comot
+  is 'Codigo moneda transaccion ISO';
+comment on column AQPB119.aqpb119comtb
+  is 'Codigo moneda transaccion BT';
+comment on column AQPB119.aqpb119imptr
+  is 'Importe transaccion';
+comment on column AQPB119.aqpb119cod01
+  is 'Empresa 1';
+comment on column AQPB119.aqpb119mod01
+  is 'Modulo 1';
+comment on column AQPB119.aqpb119suc01
+  is 'Sucursal 1';
+comment on column AQPB119.aqpb119mda01
+  is 'Moneda 1';
+comment on column AQPB119.aqpb119pap01
+  is 'Papel 1';
+comment on column AQPB119.aqpb119cta01
+  is 'Cuenta 1';
+comment on column AQPB119.aqpb119ope01
+  is 'Operacion 1';
+comment on column AQPB119.aqpb119sbo01
+  is 'Suboperacion 1';
+comment on column AQPB119.aqpb119top01
+  is 'Tipo operacion 1';
+comment on column AQPB119.aqpb119imp01
+  is 'Importe 1';
+comment on column AQPB119.aqpb119sal01
+  is 'Saldo 1';
+comment on column AQPB119.aqpb119ord01
+  is 'Ordinal 1';
+comment on column AQPB119.aqpb119sub01
+  is 'Subordinal 1';
+comment on column AQPB119.aqpb119cod02
+  is 'Empresa 2';
+comment on column AQPB119.aqpb119mod02
+  is 'Modulo 2';
+comment on column AQPB119.aqpb119suc02
+  is 'Sucursal 2';
+comment on column AQPB119.aqpb119mda02
+  is 'Moneda 2';
+comment on column AQPB119.aqpb119pap02
+  is 'Papel 2';
+comment on column AQPB119.aqpb119cta02
+  is 'Cuenta 2';
+comment on column AQPB119.aqpb119ope02
+  is 'Operacion 2';
+comment on column AQPB119.aqpb119sbo02
+  is 'Suboperacion 2';
+comment on column AQPB119.aqpb119top02
+  is 'Tipo operacion 2';
+comment on column AQPB119.aqpb119imp02
+  is 'Importe 2';
+comment on column AQPB119.aqpb119sal02
+  is 'Saldo 2';
+comment on column AQPB119.aqpb119ord02
+  is 'Ordinal 2';
+comment on column AQPB119.aqpb119sub02
+  is 'Subordinal 2';
+comment on column AQPB119.aqpb119ctcod
+  is 'Empresa Contabilizacion';
+comment on column AQPB119.aqpb119ctmod
+  is 'Modulo Contabilizacion';
+comment on column AQPB119.aqpb119ctsuc
+  is 'Sucursal Contabilizacion';
+comment on column AQPB119.aqpb119cttra
+  is 'Transaccion Contabilizacion';
+comment on column AQPB119.aqpb119ctrel
+  is 'Relacion Contabilizacion';
+comment on column AQPB119.aqpb119ctfco
+  is 'Fecha Contabilizacion';
+comment on column AQPB119.aqpb119ctcrr
+  is 'Correlativo asiento Contabilizacion';
+comment on column AQPB119.aqpb119ctres
+  is 'Resultado Contabilizacion';
+comment on column AQPB119.aqpb119secan
+  is 'Canal servicio';
+comment on column AQPB119.aqpb119seope
+  is 'Operacion servicio';
+comment on column AQPB119.aqpb119sevar
+  is 'Variante servicio';
+comment on column AQPB119.aqpb119sefec
+  is 'Fecha Servicio';
+comment on column AQPB119.aqpb119sehor
+  is 'Hora Servicio';
+comment on column AQPB119.aqpb119secre
+  is 'Codigo requerimiento servicio';
+comment on column AQPB119.aqpb119secrs
+  is 'Codigo resultado servicio';
+comment on column AQPB119.aqpb119morec
+  is 'Monto recibido';
+comment on column AQPB119.aqpb119comoc
+  is 'Codigo moneda compensacion ISO';
+comment on column AQPB119.aqpb119comcb
+  is 'Codigo moneda compensacion BT';
+comment on column AQPB119.aqpb119gineg
+  is 'Giro de negocio';
+comment on column AQPB119.aqpb119adic1
+  is 'Dato adicional 1';
+comment on column AQPB119.aqpb119adic2
+  is 'Dato adicional 2';
+comment on column AQPB119.aqpb119adic3
+  is 'Dato adicional 3';
+comment on column AQPB119.aqpb119feimp
+  is 'Fecha de impacto';
+comment on column AQPB119.aqpb119coaut
+  is 'Codigo de autorizacion';
+comment on column AQPB119.aqpb119estad
+  is 'Estado';
+comment on column AQPB119.aqpb119ctcor
+  is 'Empresa contabilizacion de referencia';
+comment on column AQPB119.aqpb119ctmor
+  is 'Modulo contabilizacion de referencia';
+comment on column AQPB119.aqpb119ctsur
+  is 'Sucursal contabilizacion de referencia';
+comment on column AQPB119.aqpb119cttrr
+  is 'Transaccion contabilizacion de referencia';
+comment on column AQPB119.aqpb119ctrer
+  is 'Relacion contabilizacion de referencia';
+comment on column AQPB119.aqpb119ctfcr
+  is 'Fecha contabilizacion de referencia';
+comment on column AQPB119.aqpb119coapl
+  is 'Codigo aplicacion';
+comment on column AQPB119.aqpb119aux1
+  is 'Dato reserva Texto';
+comment on column AQPB119.aqpb119aux2
+  is 'Dato reserva Texto';
+comment on column AQPB119.aqpb119aux3
+  is 'Dato reserva Texto';
+comment on column AQPB119.aqpb119aux4
+  is 'Dato reserva Texto';
+comment on column AQPB119.aqpb119aux5
+  is 'Dato reserva Texto';
+comment on column AQPB119.aqpb119aux6
+  is 'Dato reserva Texto';
+comment on column AQPB119.aqpb119aux7
+  is 'Dato reserva Texto';
+comment on column AQPB119.aqpb119aux8
+  is 'Dato reserva Texto';
+comment on column AQPB119.aqpb119aux9
+  is 'Dato reserva Texto';
+comment on column AQPB119.aqpb119aux10
+  is 'Dato reserva Numero';
+comment on column AQPB119.aqpb119aux11
+  is 'Dato reserva Numero';
+comment on column AQPB119.aqpb119aux12
+  is 'Dato reserva Numero';
+comment on column AQPB119.aqpb119aux13
+  is 'Dato reserva Numero';
+comment on column AQPB119.aqpb119aux14
+  is 'Dato reserva Numero';
+comment on column AQPB119.aqpb119aux15
+  is 'Dato reserva Numero';
+comment on column AQPB119.aqpb119aux16
+  is 'Dato reserva Fecha';
+comment on column AQPB119.aqpb119aux17
+  is 'Dato reserva Fecha';
+comment on column AQPB119.aqpb119aux18
+  is 'Dato reserva Fecha';
+alter table AQPB119
+  add primary key (AQPB119FETRA, AQPB119HOTRA, AQPB119SEINT, AQPB119AUX18);
+

@@ -1,0 +1,28 @@
+create table LD2402
+(
+  ld2tipid  NUMBER(2) not null,
+  ld2nroid  CHAR(12) not null,
+  ld2tpocta NUMBER(3) not null,
+  ld2nrocta NUMBER(9) not null,
+  ld2fecha  DATE not null,
+  ld2nrocor NUMBER(18) not null,
+  ld2nomraz CHAR(50),
+  ld2dcalle CHAR(20),
+  ld2dnrop  CHAR(5),
+  ld2dcodp  NUMBER(4),
+  ld2codact NUMBER(3),
+  ld2fchape DATE,
+  ld2fchopr DATE,
+  ld2etcant NUMBER(7),
+  ld2ettipo CHAR(30),
+  ld2impopr NUMBER(12),
+  ld2bcocor CHAR(20),
+  ld2benext CHAR(20),
+  ld2paiben CHAR(20)
+)
+;
+create index LD240202 on LD2402 (LD2FECHA, LD2TIPID, LD2NROID, LD2TPOCTA, LD2NROCTA);
+create index LD240203 on LD2402 (LD2FECHA, LD2NROCTA);
+alter table LD2402
+  add primary key (LD2TIPID, LD2NROID, LD2TPOCTA, LD2NROCTA, LD2FECHA, LD2NROCOR);
+

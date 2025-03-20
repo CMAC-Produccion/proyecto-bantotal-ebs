@@ -1,0 +1,117 @@
+create table JAQN800
+(
+  jaqn800id  NUMBER(18) not null,
+  jaqn800emp NUMBER(3),
+  jaqn800mod NUMBER(3),
+  jaqn800suc NUMBER(3),
+  jaqn800mda NUMBER(4),
+  jaqn800pap NUMBER(4),
+  jaqn800cta NUMBER(9),
+  jaqn800ope NUMBER(9),
+  jaqn800sbo NUMBER(3),
+  jaqn800top NUMBER(3),
+  jaqn800hab CHAR(1),
+  jaqn800sua NUMBER(3),
+  jaqn800can NUMBER(5),
+  jaqn800fad DATE,
+  jaqn800faf DATE,
+  jaqn800haf CHAR(8),
+  jaqn800uaf CHAR(10),
+  jaqn800fab NUMBER(5),
+  jaqn800tab NUMBER(1),
+  jaqn800iab NUMBER(17,2),
+  jaqn800fdf DATE,
+  jaqn800hdf CHAR(8),
+  jaqn800udf CHAR(10),
+  jaqn800an1 NUMBER(9),
+  jaqn800an2 NUMBER(9),
+  jaqn800an3 NUMBER(9),
+  jaqn800ad1 DATE,
+  jaqn800ad2 DATE,
+  jaqn800ad3 DATE,
+  jaqn800ai1 NUMBER(17,2),
+  jaqn800ai2 NUMBER(17,2),
+  jaqn800ai3 NUMBER(17,2),
+  jaqn800ac1 CHAR(255),
+  jaqn800ac2 CHAR(255),
+  jaqn800ac3 CHAR(255)
+)
+;
+comment on table JAQN800
+  is 'Abono de intereses DPF';
+comment on column JAQN800.jaqn800id
+  is 'ID Autonumerico ';
+comment on column JAQN800.jaqn800emp
+  is 'Empresa';
+comment on column JAQN800.jaqn800mod
+  is 'Modulo';
+comment on column JAQN800.jaqn800suc
+  is 'Sucursal ';
+comment on column JAQN800.jaqn800mda
+  is 'Moneda';
+comment on column JAQN800.jaqn800pap
+  is 'Papel';
+comment on column JAQN800.jaqn800cta
+  is 'Cuenta';
+comment on column JAQN800.jaqn800ope
+  is 'Operación';
+comment on column JAQN800.jaqn800sbo
+  is 'Sub Operación';
+comment on column JAQN800.jaqn800top
+  is 'Tipo de Operación';
+comment on column JAQN800.jaqn800hab
+  is 'Habilitado ';
+comment on column JAQN800.jaqn800sua
+  is 'Sucursal de Afiliación';
+comment on column JAQN800.jaqn800can
+  is 'Canal';
+comment on column JAQN800.jaqn800fad
+  is 'Fecha de alta de DPF';
+comment on column JAQN800.jaqn800faf
+  is 'Fecha de afiliacion';
+comment on column JAQN800.jaqn800haf
+  is 'Hora de afiliacion ';
+comment on column JAQN800.jaqn800uaf
+  is 'Usuario de afiliacion';
+comment on column JAQN800.jaqn800fab
+  is 'Frecuencia de Abono';
+comment on column JAQN800.jaqn800tab
+  is 'Tipo de Abono';
+comment on column JAQN800.jaqn800iab
+  is 'Importe de Abono';
+comment on column JAQN800.jaqn800fdf
+  is 'Fecha de desafiliacion';
+comment on column JAQN800.jaqn800hdf
+  is 'Hora de desafiliación';
+comment on column JAQN800.jaqn800udf
+  is 'Usuario de desafiliación';
+comment on column JAQN800.jaqn800an1
+  is 'Numero auxiliar 1';
+comment on column JAQN800.jaqn800an2
+  is 'Numero auxiliar 2';
+comment on column JAQN800.jaqn800an3
+  is 'Numero auxiliar 3';
+comment on column JAQN800.jaqn800ad1
+  is 'Date auxiliar 1';
+comment on column JAQN800.jaqn800ad2
+  is 'Date auxiliar 2';
+comment on column JAQN800.jaqn800ad3
+  is 'Date auxiliar 3';
+comment on column JAQN800.jaqn800ai1
+  is 'Importe auxiliar 1';
+comment on column JAQN800.jaqn800ai2
+  is 'Importe auxiliar 2';
+comment on column JAQN800.jaqn800ai3
+  is 'Importe auxiliar 3';
+comment on column JAQN800.jaqn800ac1
+  is 'Caracter auxiliar 1';
+comment on column JAQN800.jaqn800ac2
+  is 'Caracter auxiliar 2';
+comment on column JAQN800.jaqn800ac3
+  is 'Caracter auxiliar 3';
+create index JAQN800A2 on JAQN800 (JAQN800EMP, JAQN800MOD, JAQN800SUC, JAQN800MDA, JAQN800PAP, JAQN800CTA, JAQN800OPE, JAQN800SBO, JAQN800TOP);
+create index JAQN800A3 on JAQN800 (JAQN800HAB);
+create index JAQN800A4 on JAQN800 (JAQN800EMP, JAQN800CTA, JAQN800HAB);
+alter table JAQN800
+  add primary key (JAQN800ID);
+

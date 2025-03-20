@@ -1,0 +1,13 @@
+create table REP016
+(
+  rep015impc NUMBER(10) not null,
+  rep016prci NUMBER(4) not null,
+  rep016expc NUMBER(10),
+  rep016stat CHAR(1),
+  rep016webc CHAR(1),
+  rep016prgr CHAR(20)
+)
+;
+alter table REP016
+  add primary key (REP015IMPC, REP016PRCI);
+

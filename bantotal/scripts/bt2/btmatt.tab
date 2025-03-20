@@ -1,0 +1,20 @@
+create table BTMATT
+(
+  btmtblnam VARCHAR2(255) not null,
+  btmattnam VARCHAR2(255) not null,
+  btmattdsc VARCHAR2(255),
+  btmatttyp VARCHAR2(255),
+  btmattlen NUMBER(5),
+  btmattdec NUMBER(5),
+  btmattsig CHAR(1),
+  btmattaut CHAR(1),
+  btmattnul CHAR(1),
+  btmattcls NUMBER(5),
+  btmattpk  CHAR(1),
+  btmattsup VARCHAR2(255)
+)
+;
+create index BTMATT03 on BTMATT (BTMTBLNAM, BTMATTNAM, BTMATTPK);
+alter table BTMATT
+  add primary key (BTMTBLNAM, BTMATTNAM);
+

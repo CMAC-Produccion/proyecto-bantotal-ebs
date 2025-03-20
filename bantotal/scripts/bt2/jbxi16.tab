@@ -1,0 +1,21 @@
+create table JBXI16
+(
+  jbxi16ilc NUMBER(17) not null,
+  jbxi16tdo CHAR(1) not null,
+  jbxi16cal CHAR(35),
+  jbxi16cpv NUMBER(5),
+  jbxi16num NUMBER(6),
+  jbxi16pis CHAR(2),
+  jbxi16uni CHAR(4),
+  jbxi16loc CHAR(20),
+  jbxi16prv CHAR(25),
+  jbxi16te1 CHAR(15),
+  jbxi16te2 CHAR(15),
+  jbxi16emp CHAR(1),
+  jbxi16rso CHAR(30),
+  jbxi16cpn CHAR(8),
+  jbxi16fax CHAR(20)
+)
+;
+create unique index JBXI1601 on JBXI16 (JBXI16ILC, JBXI16TDO);
+

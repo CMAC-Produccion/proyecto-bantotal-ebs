@@ -1,0 +1,81 @@
+create table AQPA743
+(
+  aqpa743id        NUMBER(17) not null,
+  aqpa743numtar    CHAR(19),
+  aqpa743tipope    VARCHAR2(50),
+  aqpa743trareq    CLOB,
+  aqpa743trares    CLOB,
+  aqpa743fecreg    DATE,
+  aqpa743horreg    VARCHAR2(10),
+  aqpa743codres    VARCHAR2(5),
+  aqpa743msjres    VARCHAR2(200),
+  aqpa743errint    VARCHAR2(300),
+  aqpa743canal     NUMBER(5),
+  aqpa743fecser    DATE,
+  aqpa743paidoc    NUMBER(3),
+  aqpa743tipdoc    NUMBER(4),
+  aqpa743numdoc    CHAR(12),
+  aqpa743modelo    VARCHAR2(100),
+  aqpa743imei      VARCHAR2(100),
+  aqpa743dlat      VARCHAR2(50),
+  aqpa743dlong     VARCHAR2(50),
+  aqpa743dmodelo   VARCHAR2(50),
+  aqpa743ddeviceid VARCHAR2(50),
+  aqpa743dso       VARCHAR2(50),
+  aqpa743horfin    VARCHAR2(10),
+  aqpa743horini    VARCHAR2(10)
+)
+;
+comment on table AQPA743
+  is 'Log de APP Agentes';
+comment on column AQPA743.aqpa743id
+  is 'Correlativo';
+comment on column AQPA743.aqpa743numtar
+  is 'Numero de tarjeta';
+comment on column AQPA743.aqpa743tipope
+  is 'Tipo de Operacion';
+comment on column AQPA743.aqpa743trareq
+  is 'Trama Request';
+comment on column AQPA743.aqpa743trares
+  is 'Trama Response';
+comment on column AQPA743.aqpa743fecreg
+  is 'Fecha Registro';
+comment on column AQPA743.aqpa743horreg
+  is 'Hora Registro';
+comment on column AQPA743.aqpa743codres
+  is 'Codigo Resultado';
+comment on column AQPA743.aqpa743msjres
+  is 'Mensaje Resultado';
+comment on column AQPA743.aqpa743errint
+  is 'Error Interno';
+comment on column AQPA743.aqpa743canal
+  is 'Canal de entrada';
+comment on column AQPA743.aqpa743fecser
+  is 'Fecha Servidor';
+comment on column AQPA743.aqpa743paidoc
+  is 'Pais Documento';
+comment on column AQPA743.aqpa743tipdoc
+  is 'Tipo Documento';
+comment on column AQPA743.aqpa743numdoc
+  is 'Numero Documento';
+comment on column AQPA743.aqpa743modelo
+  is 'Modelo del Equipo';
+comment on column AQPA743.aqpa743imei
+  is 'IMEI';
+comment on column AQPA743.aqpa743dlat
+  is 'Latitud';
+comment on column AQPA743.aqpa743dlong
+  is 'Longitud';
+comment on column AQPA743.aqpa743dmodelo
+  is 'Modelo del Equipo';
+comment on column AQPA743.aqpa743ddeviceid
+  is 'Devide ID del Equipo';
+comment on column AQPA743.aqpa743dso
+  is 'Sistema Operativo';
+comment on column AQPA743.aqpa743horfin
+  is 'Hora Fin';
+comment on column AQPA743.aqpa743horini
+  is 'Hora Inicio';
+alter table AQPA743
+  add primary key (AQPA743ID);
+

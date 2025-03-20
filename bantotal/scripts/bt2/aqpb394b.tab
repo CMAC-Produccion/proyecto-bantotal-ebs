@@ -1,0 +1,100 @@
+create table AQPB394B
+(
+  aqpb394bcod    NUMBER(3) not null,
+  aqpb394bfec    DATE not null,
+  aqpb394bcor    NUMBER(8) not null,
+  aqpb394blin    NUMBER(8) not null,
+  aqpb394bcta    NUMBER(9) not null,
+  aqpb394bope    NUMBER(9) not null,
+  aqpb394btdco   VARCHAR2(20),
+  aqpb394bndco   VARCHAR2(12),
+  aqpb394bcocer  VARCHAR2(20),
+  aqpb394bcocob  VARCHAR2(20),
+  aqpb394bmoncof NUMBER(17,2),
+  aqpb394bprccof NUMBER(6,2),
+  aqpb394bmoncob NUMBER(17,2),
+  aqpb394bciiu   VARCHAR2(5),
+  aqpb394bcosub  VARCHAR2(16),
+  aqpb394bnivec  NUMBER(17,2),
+  aqpb394bnom    VARCHAR2(80),
+  aqpb394bfinc   DATE,
+  aqpb394bffic   DATE,
+  aqpb394best    VARCHAR2(1),
+  aqpb394busu    VARCHAR2(10),
+  aqpb394bfedi   VARCHAR2(10),
+  aqpb394bhedi   VARCHAR2(10),
+  aqpb394bestp   VARCHAR2(1),
+  aqpb394bcren   VARCHAR2(50),
+  aqpb394bcobr   VARCHAR2(50),
+  aqpb394bchon   VARCHAR2(50),
+  aqpb394bcodi   VARCHAR2(50),
+  aqpb394bconsap VARCHAR2(50)
+)
+;
+comment on table AQPB394B
+  is 'Tabla detalle PAE MYPE';
+comment on column AQPB394B.aqpb394bcod
+  is 'Código de empresa';
+comment on column AQPB394B.aqpb394bfec
+  is 'Fecha de proceso';
+comment on column AQPB394B.aqpb394bcor
+  is 'Correlativo';
+comment on column AQPB394B.aqpb394blin
+  is 'Linea de Carga';
+comment on column AQPB394B.aqpb394bcta
+  is 'Cuenta ';
+comment on column AQPB394B.aqpb394bope
+  is 'Operacion';
+comment on column AQPB394B.aqpb394btdco
+  is 'Tipo documento COFIDE';
+comment on column AQPB394B.aqpb394bndco
+  is 'Numero Documento COFIDE';
+comment on column AQPB394B.aqpb394bcocer
+  is 'Codigo Certificado';
+comment on column AQPB394B.aqpb394bcocob
+  is 'Codigo de cobertura';
+comment on column AQPB394B.aqpb394bmoncof
+  is 'Monto COFIDE';
+comment on column AQPB394B.aqpb394bprccof
+  is 'Porcentaje CObertura COFIDE';
+comment on column AQPB394B.aqpb394bmoncob
+  is 'Monto Maximo de Cobertura';
+comment on column AQPB394B.aqpb394bciiu
+  is 'CIIU';
+comment on column AQPB394B.aqpb394bcosub
+  is 'codigo de subasta';
+comment on column AQPB394B.aqpb394bnivec
+  is 'nivel de ventas mensuales env a COFIDE';
+comment on column AQPB394B.aqpb394bnom
+  is 'Nombres';
+comment on column AQPB394B.aqpb394bfinc
+  is 'fecha Inicio Certificado';
+comment on column AQPB394B.aqpb394bffic
+  is 'fecha Fin Certificado';
+comment on column AQPB394B.aqpb394best
+  is 'Estado';
+comment on column AQPB394B.aqpb394busu
+  is 'Usuario';
+comment on column AQPB394B.aqpb394bfedi
+  is 'Fecha Edicion';
+comment on column AQPB394B.aqpb394bhedi
+  is 'Hora de edicion';
+comment on column AQPB394B.aqpb394bestp
+  is 'Estado de alta de garantía A=Cancelado C=Contabilizado y H=Honrado';
+comment on column AQPB394B.aqpb394bcren
+  is 'Certificado de Renovacion';
+comment on column AQPB394B.aqpb394bcobr
+  is 'Cobertura de Renovacion';
+comment on column AQPB394B.aqpb394bchon
+  is 'Certificado de Honra';
+comment on column AQPB394B.aqpb394bcodi
+  is 'Codigo de Solicitud COFIDE';
+comment on column AQPB394B.aqpb394bconsap
+  is 'Contrato SAP';
+create index AQPB394BA2 on AQPB394B (AQPB394BCOD, AQPB394BCTA);
+create index AQPB394BA3 on AQPB394B (AQPB394BFEC, AQPB394BCOR, AQPB394BCOD, AQPB394BCTA);
+create index AQPB394BA4 on AQPB394B (AQPB394BCOD, AQPB394BCTA, AQPB394BFEC, AQPB394BEST);
+create index AQPB394BA5 on AQPB394B (AQPB394BCTA);
+alter table AQPB394B
+  add primary key (AQPB394BCOD, AQPB394BFEC, AQPB394BCOR, AQPB394BCTA, AQPB394BOPE);
+

@@ -1,0 +1,13 @@
+create table JAQZ663
+(
+  jaqz663paic  NUMBER(3) not null,
+  jaqz663tdoc  NUMBER(2) not null,
+  jaqz663tndoc VARCHAR2(12) not null,
+  jaqz663calf  NUMBER(5),
+  jaqz663tcal  CHAR(1),
+  jaqz663usr   VARCHAR2(10) not null
+)
+;
+alter table JAQZ663
+  add primary key (JAQZ663PAIC, JAQZ663TDOC, JAQZ663TNDOC, JAQZ663USR);
+

@@ -1,0 +1,12 @@
+create table WFOBJTMP
+(
+  wfprcid    NUMBER(4) not null,
+  wfobjtmpid NUMBER(4) not null,
+  wfobjtmpds CHAR(40),
+  wfobjtmppa CHAR(254),
+  wfobjtmptp CHAR(1)
+)
+;
+alter table WFOBJTMP
+  add primary key (WFPRCID, WFOBJTMPID);
+

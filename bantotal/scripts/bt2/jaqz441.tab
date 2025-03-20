@@ -1,0 +1,79 @@
+create table JAQZ441
+(
+  qz440codre NUMBER(4) not null,
+  pp177codd  NUMBER(4) not null,
+  qz441dnum  NUMBER(9) not null,
+  qz441dsal  NUMBER(17,2),
+  qz441dcoef NUMBER(10,3),
+  qz441dfec  DATE,
+  qz441dtext CHAR(50),
+  qz441dcom  VARCHAR2(250),
+  qz441aux1  NUMBER(9),
+  qz441aux2  NUMBER(9),
+  qz441aux3  DATE,
+  qz441aux4  DATE,
+  qz441aux5  NUMBER(14,3),
+  qz441aux6  NUMBER(14,3),
+  qz441aux8  NUMBER(17,2),
+  qz441aux7  NUMBER(17,2),
+  qz441aux9  CHAR(50),
+  qz441aux10 CHAR(50),
+  qz441usr   CHAR(20),
+  qz441ufec  DATE,
+  qz44nip    VARCHAR2(16)
+)
+;
+comment on column JAQZ441.qz440codre
+  is 'Codigo del Remate';
+comment on column JAQZ441.pp177codd
+  is 'Codigo de Dato Generico del Lote';
+comment on column JAQZ441.qz441dnum
+  is 'Repositorio para Valores Numericos de datos generico del Lote
+';
+comment on column JAQZ441.qz441dsal
+  is 'Repositorio para  Saldos de datos genericos del Lote
+';
+comment on column JAQZ441.qz441dcoef
+  is 'Repositorio para Coeficiente de datos genericos del Lote
+';
+comment on column JAQZ441.qz441dfec
+  is 'Repositorio para Fechas de datos genericos del Lote
+';
+comment on column JAQZ441.qz441dtext
+  is 'Repositorio para texto de datos genericos del Lote
+';
+comment on column JAQZ441.qz441dcom
+  is 'Comentario
+';
+comment on column JAQZ441.qz441aux1
+  is 'Dato Auxiliar 1
+';
+comment on column JAQZ441.qz441aux2
+  is 'Dato Auxiliar 1
+';
+comment on column JAQZ441.qz441aux3
+  is 'Dato Auxiliar 3';
+comment on column JAQZ441.qz441aux4
+  is 'Dato Auxiliar 4';
+comment on column JAQZ441.qz441aux5
+  is 'Dato Auxiliar 5';
+comment on column JAQZ441.qz441aux6
+  is 'Dato Auxiliar 6';
+comment on column JAQZ441.qz441aux8
+  is 'Dato Auxiliar 7';
+comment on column JAQZ441.qz441aux7
+  is 'Dato Auxiliar 8';
+comment on column JAQZ441.qz441aux9
+  is 'Dato Auxiliar 9';
+comment on column JAQZ441.qz441aux10
+  is 'Dato Auxiliar 10';
+comment on column JAQZ441.qz441usr
+  is 'Usuario que registra';
+comment on column JAQZ441.qz441ufec
+  is 'Fecha y Hora de Registro';
+comment on column JAQZ441.qz44nip
+  is 'Numero de IP';
+create index JAQZ4411 on JAQZ441 (PP177CODD);
+alter table JAQZ441
+  add primary key (QZ440CODRE, PP177CODD, QZ441DNUM);
+

@@ -1,0 +1,72 @@
+create table AQPB548
+(
+  aqpb548creusr  VARCHAR2(10) not null,
+  aqpb548cretim  TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb548fecini  DATE,
+  aqpb548fecfin  DATE,
+  aqpb548rr1keye VARCHAR2(50) not null,
+  aqpb548rr1keyg VARCHAR2(50) not null,
+  aqpb548canopes NUMBER(9),
+  aqpb548recopss NUMBER(9),
+  aqpb548canings NUMBER(9),
+  aqpb548ugprres VARCHAR2(20),
+  aqpb548recmtvs NUMBER(9),
+  aqpb548recsmts NUMBER(9),
+  aqpb548reiter  NUMBER(1),
+  aqpb548banseg  NUMBER(1),
+  aqpb548canress NUMBER(9),
+  aqpb548canopec NUMBER(9),
+  aqpb548recopsc NUMBER(9),
+  aqpb548ugprrec NUMBER(9),
+  aqpb548recmtvc NUMBER(9),
+  aqpb548recsmtc NUMBER(9),
+  aqpb548canresc NUMBER(9)
+)
+;
+comment on table AQPB548
+  is 'RR1 - Key SBS de Reclamos';
+comment on column AQPB548.aqpb548creusr
+  is 'Usuario';
+comment on column AQPB548.aqpb548cretim
+  is 'Creacion';
+comment on column AQPB548.aqpb548fecini
+  is 'Fecha Inicio';
+comment on column AQPB548.aqpb548fecfin
+  is 'Fecha Fin';
+comment on column AQPB548.aqpb548rr1keye
+  is 'RR1 Key Especifica';
+comment on column AQPB548.aqpb548rr1keyg
+  is 'RR1 Key General';
+comment on column AQPB548.aqpb548canopes
+  is 'Canal de Operacion (SBS)';
+comment on column AQPB548.aqpb548recopss
+  is 'Operacion/Producto/Servicio (SBS)';
+comment on column AQPB548.aqpb548canings
+  is 'Canal de Ingreso (SBS)';
+comment on column AQPB548.aqpb548ugprres
+  is 'Ubigeo (SBS)';
+comment on column AQPB548.aqpb548recmtvs
+  is 'Motivo (SBS)';
+comment on column AQPB548.aqpb548recsmts
+  is 'Sub Motivo (SBS)';
+comment on column AQPB548.aqpb548reiter
+  is 'Reiteracion';
+comment on column AQPB548.aqpb548banseg
+  is 'Banca de Seguros';
+comment on column AQPB548.aqpb548canress
+  is 'Canal de Respuesta (SBS)';
+comment on column AQPB548.aqpb548canopec
+  is 'Canal de Operacion (CAQP)';
+comment on column AQPB548.aqpb548recopsc
+  is 'Operacion/Producto/Servicio (CAQP)';
+comment on column AQPB548.aqpb548ugprrec
+  is 'Ubigeo (CAQP)';
+comment on column AQPB548.aqpb548recmtvc
+  is 'Motivo (CAQP)';
+comment on column AQPB548.aqpb548recsmtc
+  is 'Sub Motivo (CAQP)';
+comment on column AQPB548.aqpb548canresc
+  is 'Canal de Respuesta (CAQP)';
+alter table AQPB548
+  add primary key (AQPB548CREUSR, AQPB548RR1KEYE, AQPB548RR1KEYG);
+

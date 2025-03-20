@@ -1,0 +1,13 @@
+create table FST066
+(
+  pgcod      NUMBER(3) not null,
+  ubuser     CHAR(10) not null,
+  formulario CHAR(4) not null,
+  impresora  CHAR(40)
+)
+;
+create index FST06603 on FST066 (FORMULARIO);
+create index FST06604 on FST066 (IMPRESORA);
+alter table FST066
+  add primary key (PGCOD, UBUSER, FORMULARIO);
+

@@ -1,0 +1,21 @@
+create table FSFP06
+(
+  sfp06pais  NUMBER(3) not null,
+  sfp06tdoc  NUMBER(2) not null,
+  sfp06ndoc  CHAR(12) not null,
+  sfp06envi  CHAR(2),
+  sfp06renta CHAR(1),
+  sfp06ciiu  CHAR(10),
+  sfp06ingr  NUMBER(17,2),
+  sfp06tipo  CHAR(2),
+  sfp06agre  CHAR(1),
+  sfp06apae  NUMBER(8),
+  sfp06paaa  NUMBER(3),
+  sfp06deaa  NUMBER(5),
+  sfp06ciaa  NUMBER(5),
+  sfp06mail  CHAR(40)
+)
+;
+alter table FSFP06
+  add primary key (SFP06PAIS, SFP06TDOC, SFP06NDOC);
+

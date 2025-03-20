@@ -1,0 +1,12 @@
+create table SNGC15
+(
+  sngc15pais NUMBER(3) not null,
+  sngc15tdoc NUMBER(2) not null,
+  sngc15ndoc CHAR(12) not null,
+  sngc15ddoc NUMBER(2) not null,
+  sngc15dxml CLOB
+)
+;
+alter table SNGC15
+  add primary key (SNGC15PAIS, SNGC15TDOC, SNGC15NDOC, SNGC15DDOC);
+

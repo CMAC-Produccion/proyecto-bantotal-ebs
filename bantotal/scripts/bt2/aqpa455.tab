@@ -1,0 +1,30 @@
+create table AQPA455
+(
+  aqpa455emp    NUMBER not null,
+  aqpa455mod    NUMBER not null,
+  aqpa455suc    NUMBER not null,
+  aqpa455mda    NUMBER not null,
+  aqpa455pap    NUMBER not null,
+  aqpa455cta    NUMBER not null,
+  aqpa455oper   NUMBER not null,
+  aqpa455sbop   NUMBER not null,
+  aqpa455tope   NUMBER not null,
+  aqpa455imp    NUMBER,
+  aqpa455fval   DATE,
+  aqpa455fe99   DATE,
+  aqpa455period NUMBER,
+  aqpa455estd2  NUMBER,
+  aqpa455flag   CHAR(1),
+  aqpa455usr    CHAR(20) not null,
+  aqpa455ccamp  NUMBER,
+  aqpa455nomca  CHAR(60),
+  aqpa455fepro  DATE
+)
+;
+create index AQPA4551 on AQPA455 (AQPA455EMP, AQPA455CTA, AQPA455OPER);
+create index AQPA4552 on AQPA455 (AQPA455EMP, AQPA455MOD, AQPA455SUC, AQPA455MDA, AQPA455PAP, AQPA455CTA, AQPA455OPER, AQPA455SBOP, AQPA455TOPE);
+create index AQPA4553 on AQPA455 (AQPA455EMP, AQPA455MOD, AQPA455SUC, AQPA455CTA, AQPA455OPER);
+create index AQPA4554 on AQPA455 (AQPA455EMP, AQPA455USR);
+alter table AQPA455
+  add primary key (AQPA455EMP, AQPA455MOD, AQPA455SUC, AQPA455MDA, AQPA455PAP, AQPA455CTA, AQPA455OPER, AQPA455SBOP, AQPA455TOPE, AQPA455USR);
+

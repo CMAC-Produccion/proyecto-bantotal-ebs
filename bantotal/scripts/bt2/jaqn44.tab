@@ -1,0 +1,100 @@
+create table JAQN44
+(
+  jaqn44pai NUMBER(3) not null,
+  jaqn44tpd NUMBER(2) not null,
+  jaqn44nrd CHAR(12) not null,
+  jaqn44emp NUMBER(3) not null,
+  jaqn44mod NUMBER(3) not null,
+  jaqn44suc NUMBER(3) not null,
+  jaqn44mon NUMBER(4) not null,
+  jaqn44pap NUMBER(4) not null,
+  jaqn44cta NUMBER(9) not null,
+  jaqn44nop NUMBER(9) not null,
+  jaqn44top NUMBER(3) not null,
+  jaqn44suo NUMBER(3) not null,
+  jaqn44fec DATE,
+  jaqn44tac NUMBER(10,6),
+  jaqn44tcr CHAR(30),
+  jaqn44sac NUMBER(17,2),
+  jaqn44nu1 NUMBER(9),
+  jaqn44nu2 NUMBER(9),
+  jaqn44nu3 NUMBER(9),
+  jaqn44im1 NUMBER(17,2),
+  jaqn44im2 NUMBER(17,2),
+  jaqn44im3 NUMBER(17,2),
+  jaqn44fe1 DATE,
+  jaqn44fe2 DATE,
+  jaqn44fe3 DATE,
+  jaqn44ch1 CHAR(1),
+  jaqn44ch2 CHAR(1),
+  jaqn44ch3 CHAR(1),
+  jaqn44va1 VARCHAR2(255),
+  jaqn44va2 VARCHAR2(255),
+  jaqn44va3 VARCHAR2(255)
+)
+;
+comment on column JAQN44.jaqn44pai
+  is 'pais';
+comment on column JAQN44.jaqn44tpd
+  is 'tipo doc';
+comment on column JAQN44.jaqn44nrd
+  is 'numero';
+comment on column JAQN44.jaqn44emp
+  is 'empresa';
+comment on column JAQN44.jaqn44mod
+  is 'modulo';
+comment on column JAQN44.jaqn44suc
+  is 'sucursal';
+comment on column JAQN44.jaqn44mon
+  is 'moneda';
+comment on column JAQN44.jaqn44pap
+  is 'papel';
+comment on column JAQN44.jaqn44cta
+  is 'cuenta';
+comment on column JAQN44.jaqn44nop
+  is 'operacion';
+comment on column JAQN44.jaqn44top
+  is 'tipo operacion';
+comment on column JAQN44.jaqn44suo
+  is 'suboperacion';
+comment on column JAQN44.jaqn44fec
+  is 'fecha';
+comment on column JAQN44.jaqn44tac
+  is 'tasa';
+comment on column JAQN44.jaqn44tcr
+  is 'tipo credito';
+comment on column JAQN44.jaqn44sac
+  is 'saldo';
+comment on column JAQN44.jaqn44nu1
+  is 'numero aux1';
+comment on column JAQN44.jaqn44nu2
+  is 'numero aux2';
+comment on column JAQN44.jaqn44nu3
+  is 'numero aux3';
+comment on column JAQN44.jaqn44im1
+  is 'importe aux1';
+comment on column JAQN44.jaqn44im2
+  is 'importe aux2';
+comment on column JAQN44.jaqn44im3
+  is 'importe aux3';
+comment on column JAQN44.jaqn44fe1
+  is 'fecha aux1';
+comment on column JAQN44.jaqn44fe2
+  is 'fecha aux2';
+comment on column JAQN44.jaqn44fe3
+  is 'fecha aux3';
+comment on column JAQN44.jaqn44ch1
+  is 'char aux1';
+comment on column JAQN44.jaqn44ch2
+  is 'char aux2';
+comment on column JAQN44.jaqn44ch3
+  is 'char aux3';
+comment on column JAQN44.jaqn44va1
+  is 'cadena aux1';
+comment on column JAQN44.jaqn44va2
+  is 'cadena aux2';
+comment on column JAQN44.jaqn44va3
+  is 'cadena aux3';
+alter table JAQN44
+  add primary key (JAQN44PAI, JAQN44TPD, JAQN44NRD, JAQN44EMP, JAQN44MOD, JAQN44SUC, JAQN44MON, JAQN44PAP, JAQN44CTA, JAQN44NOP, JAQN44TOP, JAQN44SUO);
+

@@ -1,0 +1,219 @@
+create table RRPET1
+(
+  rrpet1emp NUMBER(3) not null,
+  rrpet1inf CHAR(10) not null,
+  rrpet1fec DATE not null,
+  rrpet1clv CHAR(40) not null,
+  rrpet1cor NUMBER(16) not null,
+  rrpet1s01 NUMBER(17,2),
+  rrpet1s02 NUMBER(17,2),
+  rrpet1s03 NUMBER(17,2),
+  rrpet1s04 NUMBER(17,2),
+  rrpet1s05 NUMBER(17,2),
+  rrpet1s06 NUMBER(17,2),
+  rrpet1s07 NUMBER(17,2),
+  rrpet1s08 NUMBER(17,2),
+  rrpet1s09 NUMBER(17,2),
+  rrpet1s10 NUMBER(17,2),
+  rrpet1s11 NUMBER(17,2),
+  rrpet1s12 NUMBER(17,2),
+  rrpet1s13 NUMBER(17,2),
+  rrpet1s14 NUMBER(17,2),
+  rrpet1s15 NUMBER(17,2),
+  rrpet1s16 NUMBER(17,2),
+  rrpet1s17 NUMBER(17,2),
+  rrpet1s18 NUMBER(17,2),
+  rrpet1s19 NUMBER(17,2),
+  rrpet1s20 NUMBER(17,2),
+  rrpet1t01 NUMBER(10,6),
+  rrpet1t02 NUMBER(10,6),
+  rrpet1t03 NUMBER(10,6),
+  rrpet1t04 NUMBER(10,6),
+  rrpet1t05 NUMBER(10,6),
+  rrpet1t06 NUMBER(10,6),
+  rrpet1t07 NUMBER(10,6),
+  rrpet1t08 NUMBER(10,6),
+  rrpet1t09 NUMBER(10,6),
+  rrpet1t10 NUMBER(10,6),
+  rrpet1f01 DATE,
+  rrpet1f02 DATE,
+  rrpet1f03 DATE,
+  rrpet1f04 DATE,
+  rrpet1f05 DATE,
+  rrpet1f06 DATE,
+  rrpet1f07 DATE,
+  rrpet1f08 DATE,
+  rrpet1f09 DATE,
+  rrpet1f10 DATE,
+  rrpet1c01 CHAR(255),
+  rrpet1c02 CHAR(250),
+  rrpet1c03 CHAR(100),
+  rrpet1c04 CHAR(100),
+  rrpet1c05 CHAR(100),
+  rrpet1c06 CHAR(100),
+  rrpet1c07 CHAR(100),
+  rrpet1c08 CHAR(50),
+  rrpet1c09 CHAR(50),
+  rrpet1c10 CHAR(50),
+  rrpet1c11 CHAR(50),
+  rrpet1c12 CHAR(50),
+  rrpet1c13 CHAR(10),
+  rrpet1c14 CHAR(10),
+  rrpet1c15 CHAR(10),
+  rrpet1c16 CHAR(10),
+  rrpet1c17 CHAR(10),
+  rrpet1c18 CHAR(1),
+  rrpet1c19 CHAR(1),
+  rrpet1c20 CHAR(1),
+  rrpet1c21 CHAR(1),
+  rrpet1c22 CHAR(1),
+  rrpet1c23 CHAR(1),
+  rrpet1c24 CHAR(1),
+  rrpet1c25 CHAR(1)
+)
+;
+comment on table RRPET1
+  is 'Tabla Auxiliar de Datos para Perú';
+comment on column RRPET1.rrpet1emp
+  is 'Empresa';
+comment on column RRPET1.rrpet1inf
+  is 'Informe';
+comment on column RRPET1.rrpet1fec
+  is 'Fecha de Informe';
+comment on column RRPET1.rrpet1clv
+  is 'Clave';
+comment on column RRPET1.rrpet1cor
+  is 'Correlativo';
+comment on column RRPET1.rrpet1s01
+  is 'Saldo 1';
+comment on column RRPET1.rrpet1s02
+  is 'Saldo 2';
+comment on column RRPET1.rrpet1s03
+  is 'Saldo 3';
+comment on column RRPET1.rrpet1s04
+  is 'Saldo 4';
+comment on column RRPET1.rrpet1s05
+  is 'Saldo 5';
+comment on column RRPET1.rrpet1s06
+  is 'Saldo 6';
+comment on column RRPET1.rrpet1s07
+  is 'Saldo 7';
+comment on column RRPET1.rrpet1s08
+  is 'Saldo 8';
+comment on column RRPET1.rrpet1s09
+  is 'Saldo 9';
+comment on column RRPET1.rrpet1s10
+  is 'Saldo 10';
+comment on column RRPET1.rrpet1s11
+  is 'Saldo 11';
+comment on column RRPET1.rrpet1s12
+  is 'Saldo 12';
+comment on column RRPET1.rrpet1s13
+  is 'Saldo 13';
+comment on column RRPET1.rrpet1s14
+  is 'Saldo 14';
+comment on column RRPET1.rrpet1s15
+  is 'Saldo 15';
+comment on column RRPET1.rrpet1s16
+  is 'Saldo 16';
+comment on column RRPET1.rrpet1s17
+  is 'Saldo 17';
+comment on column RRPET1.rrpet1s18
+  is 'Saldo 18';
+comment on column RRPET1.rrpet1s19
+  is 'Saldo 19';
+comment on column RRPET1.rrpet1s20
+  is 'Saldo 20';
+comment on column RRPET1.rrpet1t01
+  is 'Tasa 1';
+comment on column RRPET1.rrpet1t02
+  is 'Tasa 2';
+comment on column RRPET1.rrpet1t03
+  is 'Tasa 3';
+comment on column RRPET1.rrpet1t04
+  is 'Tasa 4';
+comment on column RRPET1.rrpet1t05
+  is 'Tasa 5';
+comment on column RRPET1.rrpet1t06
+  is 'Tasa 6';
+comment on column RRPET1.rrpet1t07
+  is 'Tasa 7';
+comment on column RRPET1.rrpet1t08
+  is 'Tasa 8';
+comment on column RRPET1.rrpet1t09
+  is 'Tasa 9';
+comment on column RRPET1.rrpet1t10
+  is 'Tasa 10';
+comment on column RRPET1.rrpet1f01
+  is 'Fecha 1';
+comment on column RRPET1.rrpet1f02
+  is 'Fecha 2';
+comment on column RRPET1.rrpet1f03
+  is 'Fecha 3';
+comment on column RRPET1.rrpet1f04
+  is 'Fecha 4';
+comment on column RRPET1.rrpet1f05
+  is 'Fecha 5';
+comment on column RRPET1.rrpet1f06
+  is 'Fecha 6';
+comment on column RRPET1.rrpet1f07
+  is 'Fecha 7';
+comment on column RRPET1.rrpet1f08
+  is 'Fecha 8';
+comment on column RRPET1.rrpet1f09
+  is 'Fecha 9';
+comment on column RRPET1.rrpet1f10
+  is 'Fecha 10';
+comment on column RRPET1.rrpet1c01
+  is 'Caracter 1';
+comment on column RRPET1.rrpet1c02
+  is 'Caracter 2';
+comment on column RRPET1.rrpet1c03
+  is 'Caracter 3';
+comment on column RRPET1.rrpet1c04
+  is 'Caracter 4';
+comment on column RRPET1.rrpet1c05
+  is 'Caracter 5';
+comment on column RRPET1.rrpet1c06
+  is 'Caracter 6';
+comment on column RRPET1.rrpet1c07
+  is 'Caracter 7';
+comment on column RRPET1.rrpet1c08
+  is 'Caracter 8';
+comment on column RRPET1.rrpet1c09
+  is 'Caracter 9';
+comment on column RRPET1.rrpet1c10
+  is 'Caracter 10';
+comment on column RRPET1.rrpet1c11
+  is 'Caracter 11';
+comment on column RRPET1.rrpet1c12
+  is 'Caracter 12';
+comment on column RRPET1.rrpet1c13
+  is 'Caracter 13';
+comment on column RRPET1.rrpet1c14
+  is 'Caracter 14';
+comment on column RRPET1.rrpet1c15
+  is 'Caracter 15';
+comment on column RRPET1.rrpet1c16
+  is 'Caracter 16';
+comment on column RRPET1.rrpet1c17
+  is 'Caracter 17';
+comment on column RRPET1.rrpet1c18
+  is 'Caracter 18';
+comment on column RRPET1.rrpet1c19
+  is 'Caracter 19';
+comment on column RRPET1.rrpet1c20
+  is 'Caracter 20';
+comment on column RRPET1.rrpet1c21
+  is 'Caracter 21';
+comment on column RRPET1.rrpet1c22
+  is 'Caracter 22';
+comment on column RRPET1.rrpet1c23
+  is 'Caracter 23';
+comment on column RRPET1.rrpet1c24
+  is 'Caracter 24';
+comment on column RRPET1.rrpet1c25
+  is 'Caracter 25';
+alter table RRPET1
+  add primary key (RRPET1EMP, RRPET1INF, RRPET1FEC, RRPET1CLV, RRPET1COR);
+

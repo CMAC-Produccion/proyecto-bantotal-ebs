@@ -1,0 +1,41 @@
+create table JFAW331
+(
+  jfaw331nro NUMBER(10) not null,
+  jfaw331fac CHAR(8),
+  jfaw331emp NUMBER(3),
+  jfaw331suc NUMBER(3),
+  jfaw331mod NUMBER(3),
+  jfaw331trn NUMBER(3),
+  jfaw331rel NUMBER(4),
+  jfaw331fec DATE,
+  jfaw331ord NUMBER(2),
+  jfaw331sbr NUMBER(3),
+  jfaw331pem NUMBER(3),
+  jfaw331pmo NUMBER(3),
+  jfaw331psc NUMBER(3),
+  jfaw331pmd NUMBER(4),
+  jfaw331ppa NUMBER(4),
+  jfaw331pct NUMBER(9),
+  jfaw331pop NUMBER(9),
+  jfaw331psb NUMBER(3),
+  jfaw331pto NUMBER(3),
+  jfaw331pfa DATE,
+  jfaw331ptp CHAR(1),
+  jfaw331ffc DATE,
+  jfaw331est CHAR(1),
+  jfaw331usu CHAR(30),
+  jfaw331tmv NUMBER(1),
+  jfaw331ax1 NUMBER(10,6),
+  jfaw331ax2 NUMBER(10),
+  jfaw331ax3 CHAR(20),
+  jfaw331ax4 DATE
+)
+;
+create index JFAW33102 on JFAW331 (JFAW331EMP, JFAW331SUC, JFAW331MOD, JFAW331TRN, JFAW331REL, JFAW331FEC, JFAW331ORD, JFAW331SBR);
+create index JFAW33103 on JFAW331 (JFAW331PEM, JFAW331PMO, JFAW331PSC, JFAW331PMD, JFAW331PPA, JFAW331PCT, JFAW331POP, JFAW331PSB, JFAW331PTO, JFAW331PFA, JFAW331PTP);
+create index JFAW33104 on JFAW331 (JFAW331FEC, JFAW331EST);
+create index JFAW33105 on JFAW331 (JFAW331FFC, JFAW331EST);
+create index JFAW33106 on JFAW331 (JFAW331FFC, JFAW331FAC);
+alter table JFAW331
+  add primary key (JFAW331NRO);
+

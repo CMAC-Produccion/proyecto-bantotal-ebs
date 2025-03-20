@@ -1,0 +1,82 @@
+create table AQPB187
+(
+  aqpb187cor    NUMBER(10) not null,
+  aqpb187fch    DATE not null,
+  aqpb187ins    NUMBER(10) not null,
+  aqpb187pais   NUMBER(3) not null,
+  aqpb187tdoc   NUMBER(3) not null,
+  aqpb187ndoc   VARCHAR2(12) not null,
+  aqpb187pgcod  NUMBER(5),
+  aqpb187mod    NUMBER(5),
+  aqpb187suc    NUMBER(5),
+  aqpb187mda    NUMBER(5),
+  aqpb187pap    NUMBER(5),
+  aqpb187cta    NUMBER(9),
+  aqpb187ope    NUMBER(9),
+  aqpb187sbop   NUMBER(5),
+  aqpb187tope   NUMBER(5),
+  aqpb187idcof  VARCHAR2(20),
+  aqpb187codcob VARCHAR2(50),
+  aqpb187fdes   DATE,
+  aqpb187mntdes NUMBER(17,2),
+  aqpb187scap   NUMBER(17,2),
+  aqpb187fibbp  DATE,
+  aqpb187bbp    NUMBER(17,2),
+  aqpb187est    VARCHAR2(20)
+)
+;
+comment on table AQPB187
+  is 'Tabla Log PLANTILLA DE SOLICITUD DEL BBP';
+comment on column AQPB187.aqpb187cor
+  is 'Correlativo';
+comment on column AQPB187.aqpb187fch
+  is 'Fecha de Registro';
+comment on column AQPB187.aqpb187ins
+  is 'Instancia';
+comment on column AQPB187.aqpb187pais
+  is 'Pais';
+comment on column AQPB187.aqpb187tdoc
+  is 'Tipo de Documento';
+comment on column AQPB187.aqpb187ndoc
+  is 'Nro de Documento';
+comment on column AQPB187.aqpb187pgcod
+  is 'Pgcod';
+comment on column AQPB187.aqpb187mod
+  is 'Modulo';
+comment on column AQPB187.aqpb187suc
+  is 'Sucursal';
+comment on column AQPB187.aqpb187mda
+  is 'Moneda';
+comment on column AQPB187.aqpb187pap
+  is 'Papel';
+comment on column AQPB187.aqpb187cta
+  is 'Cuenta';
+comment on column AQPB187.aqpb187ope
+  is 'Operacion';
+comment on column AQPB187.aqpb187sbop
+  is 'SubOperacion';
+comment on column AQPB187.aqpb187tope
+  is 'Tipo de Operacion';
+comment on column AQPB187.aqpb187idcof
+  is 'ID Cofide';
+comment on column AQPB187.aqpb187codcob
+  is 'Codigo de Cobertura';
+comment on column AQPB187.aqpb187fdes
+  is 'Fecha de Desembolso';
+comment on column AQPB187.aqpb187mntdes
+  is 'Monto Desembolsado';
+comment on column AQPB187.aqpb187scap
+  is 'Saldo Capital';
+comment on column AQPB187.aqpb187fibbp
+  is 'Fecha de Inicion de BBP';
+comment on column AQPB187.aqpb187bbp
+  is 'Monto BBP';
+comment on column AQPB187.aqpb187est
+  is 'Estado de BBP Aplicado / No Aplicado';
+create index AQPB1872 on AQPB187 (AQPB187FCH);
+create index AQPB1873 on AQPB187 (AQPB187PAIS, AQPB187TDOC, AQPB187NDOC);
+create index AQPB1874 on AQPB187 (AQPB187INS);
+create index AQPB1875 on AQPB187 (AQPB187EST);
+alter table AQPB187
+  add primary key (AQPB187COR, AQPB187FCH, AQPB187INS, AQPB187PAIS, AQPB187TDOC, AQPB187NDOC);
+

@@ -1,0 +1,12 @@
+create table JDTMD5
+(
+  jdtmd1ins NUMBER(10) not null,
+  jdtm15cod NUMBER(5),
+  jdtmd5cos NUMBER(17,2),
+  jdtmd5cta NUMBER(9)
+)
+;
+create index JDTMD502 on JDTMD5 (JDTM15COD);
+alter table JDTMD5
+  add primary key (JDTMD1INS);
+

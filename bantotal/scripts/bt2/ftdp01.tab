@@ -1,0 +1,12 @@
+create table FTDP01
+(
+  tdp01suc NUMBER(3) not null,
+  tdp01car CHAR(3) not null,
+  tdp01tco CHAR(3) not null,
+  tdp01cor NUMBER(3) not null,
+  tdp01cod CHAR(65)
+)
+;
+alter table FTDP01
+  add primary key (TDP01SUC, TDP01CAR, TDP01TCO, TDP01COR);
+

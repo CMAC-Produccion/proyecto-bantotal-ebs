@@ -1,0 +1,23 @@
+create table GXA1755
+(
+  sngm10corr NUMBER(10) not null,
+  sngm10pgmd CHAR(10),
+  sngm10inst NUMBER(10),
+  sngm10cod  NUMBER(10),
+  sngm10idau NUMBER(10),
+  sngm10user CHAR(10),
+  sngm10role NUMBER(5),
+  sngm10wkst CHAR(10),
+  sngm10date DATE,
+  sngm01tipm NUMBER(4),
+  sngm02motc NUMBER(4),
+  sngm10aut  NUMBER(10),
+  sngm10stat CHAR(1),
+  sngm10inta NUMBER(9),
+  sngm10feca DATE,
+  sngm10stra CHAR(20),
+  sngm10come VARCHAR2(400)
+)
+;
+create unique index GXI1755 on GXA1755 (SNGM10CORR);
+

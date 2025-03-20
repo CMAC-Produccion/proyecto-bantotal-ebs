@@ -1,0 +1,21 @@
+create table Z05207
+(
+  z05201nrot CHAR(19) not null,
+  z05207sucu NUMBER(3) not null,
+  z05207mone NUMBER(4) not null,
+  z05207pape NUMBER(4) not null,
+  z05207cuen NUMBER(9) not null,
+  z05207oper NUMBER(9) not null,
+  z05207scue NUMBER(3) not null,
+  z05207tope NUMBER(3) not null,
+  z05207modu NUMBER(3) not null,
+  z05207fech DATE not null,
+  z05207hora CHAR(8) not null,
+  z05207tipo NUMBER(1),
+  z05207stat NUMBER(2)
+)
+;
+create index Z0520703 on Z05207 (Z05207SUCU, Z05207MONE, Z05207PAPE, Z05207CUEN, Z05207OPER, Z05207SCUE, Z05207TOPE, Z05207MODU);
+alter table Z05207
+  add primary key (Z05201NROT, Z05207SUCU, Z05207MONE, Z05207PAPE, Z05207CUEN, Z05207OPER, Z05207SCUE, Z05207TOPE, Z05207MODU, Z05207FECH, Z05207HORA);
+

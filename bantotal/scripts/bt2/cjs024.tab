@@ -1,0 +1,35 @@
+create table CJS024
+(
+  cjs020cod NUMBER(3) not null,
+  cjs020suc NUMBER(3) not null,
+  cjs020cjs NUMBER(9) not null,
+  cjs022cta NUMBER(9) not null,
+  cjs022cor NUMBER(9) not null,
+  cjs024emp NUMBER(3) not null,
+  cjs024suc NUMBER(3) not null,
+  cjs024mod NUMBER(3) not null,
+  cjs024cta NUMBER(9) not null,
+  cjs024sub NUMBER(3) not null,
+  cjs024ope NUMBER(9) not null,
+  cjs024top NUMBER(3) not null,
+  cjs024pap NUMBER(4) not null,
+  cjs024mda NUMBER(4) not null,
+  cjs024rub NUMBER(16),
+  cjs024uin CHAR(10),
+  cjs024fin DATE,
+  cjs024hin CHAR(8),
+  cjs024tin CHAR(10),
+  cjs024uau CHAR(10),
+  cjs024fau DATE,
+  cjs024hau CHAR(8),
+  cjs024tau CHAR(10),
+  cjs024tnv CHAR(3),
+  cjs024est CHAR(2),
+  cjs024ax1 NUMBER(4),
+  cjs024ax2 CHAR(15)
+)
+;
+create index CJS02403 on CJS024 (CJS024EMP, CJS024SUC, CJS024MOD, CJS024MDA, CJS024PAP, CJS024CTA, CJS024OPE, CJS024SUB, CJS024TOP);
+alter table CJS024
+  add primary key (CJS020COD, CJS020SUC, CJS020CJS, CJS022CTA, CJS022COR, CJS024EMP, CJS024SUC, CJS024MOD, CJS024CTA, CJS024SUB, CJS024OPE, CJS024TOP, CJS024PAP, CJS024MDA);
+

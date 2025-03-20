@@ -1,0 +1,12 @@
+create table FST067
+(
+  wrkstation CHAR(10) not null,
+  formulario CHAR(4) not null,
+  impresora  CHAR(40)
+)
+;
+create index FST06703 on FST067 (FORMULARIO);
+create index FST06704 on FST067 (IMPRESORA);
+alter table FST067
+  add primary key (WRKSTATION, FORMULARIO);
+

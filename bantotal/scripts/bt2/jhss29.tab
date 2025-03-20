@@ -1,0 +1,11 @@
+create table JHSS29
+(
+  jhss29wfin NUMBER(10) not null,
+  jhss29id   NUMBER(14) not null,
+  jhss29time DATE,
+  jhss29pgm  CHAR(10),
+  jhss29msg  CHAR(255)
+)
+;
+create unique index JHSS2901 on JHSS29 (JHSS29WFIN, JHSS29ID);
+

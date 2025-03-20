@@ -1,0 +1,52 @@
+create table AQPC910
+(
+  aqpc910id     NUMBER(9) not null,
+  aqpc910fecreg DATE,
+  aqpc910horreg VARCHAR2(8),
+  aqpc910usureg VARCHAR2(10),
+  aqpc910estado VARCHAR2(20),
+  aqpc910fecini DATE,
+  aqpc910fecfin DATE,
+  aqpc910nrotar CHAR(19),
+  aqpc910paidoc NUMBER(3),
+  aqpc910tipdoc NUMBER(3),
+  aqpc910numdoc CHAR(12),
+  aqpc910fecaut DATE,
+  aqpc910horaut VARCHAR2(8),
+  aqpc910usuaut VARCHAR2(10)
+)
+;
+comment on table AQPC910
+  is 'Log Autorizacion Token Email';
+comment on column AQPC910.aqpc910id
+  is 'ID de Log';
+comment on column AQPC910.aqpc910fecreg
+  is 'Fecha de Registro';
+comment on column AQPC910.aqpc910horreg
+  is 'Hora de Registro';
+comment on column AQPC910.aqpc910usureg
+  is 'Usuario de Registro';
+comment on column AQPC910.aqpc910estado
+  is 'Estado';
+comment on column AQPC910.aqpc910fecini
+  is 'Fecha de Inicio';
+comment on column AQPC910.aqpc910fecfin
+  is 'Fecha de Fin';
+comment on column AQPC910.aqpc910nrotar
+  is 'Nro Tarjeta';
+comment on column AQPC910.aqpc910paidoc
+  is 'Pais del documento';
+comment on column AQPC910.aqpc910tipdoc
+  is 'Tipo del documento';
+comment on column AQPC910.aqpc910numdoc
+  is 'Numero del documento';
+comment on column AQPC910.aqpc910fecaut
+  is 'Fecha Autorizacion';
+comment on column AQPC910.aqpc910horaut
+  is 'Hora de Autorizacion';
+comment on column AQPC910.aqpc910usuaut
+  is 'Usuario Autorizacion';
+create index AQPC910A2 on AQPC910 (AQPC910PAIDOC, AQPC910TIPDOC, AQPC910NUMDOC);
+alter table AQPC910
+  add primary key (AQPC910ID);
+

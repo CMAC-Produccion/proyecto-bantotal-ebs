@@ -1,0 +1,19 @@
+create table JAQL062
+(
+  jaql62pgco NUMBER(3) not null,
+  jaql62user CHAR(10) not null,
+  jaql62sucu NUMBER(3) not null,
+  jaql62esta CHAR(1),
+  jaql62au01 CHAR(50),
+  jaql62au02 CHAR(50),
+  jaql62au03 NUMBER(9),
+  jaql62au04 NUMBER(9),
+  jaql62au05 NUMBER(17,2),
+  jaql62au06 NUMBER(17,2),
+  jaql62au07 DATE,
+  jaql62au08 DATE
+)
+;
+alter table JAQL062
+  add primary key (JAQL62PGCO, JAQL62USER, JAQL62SUCU);
+

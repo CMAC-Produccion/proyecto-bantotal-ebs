@@ -1,0 +1,20 @@
+create table JAQZ579
+(
+  jaqz579inc  NUMBER(10) not null,
+  jaqz579fec  DATE not null,
+  jaqz579hor  CHAR(8) not null,
+  jaqz579usr  CHAR(10) not null,
+  jaqz579arch VARCHAR2(30) not null,
+  jaqz579ruta VARCHAR2(50),
+  jaqz579a1   NUMBER(4),
+  jaqz579a2   NUMBER(10),
+  jaqz579a3   NUMBER(18),
+  jaqz579a4   CHAR(20),
+  jaqz579a5   CHAR(100),
+  jaqz579a6   DATE,
+  jaqz579a7   NUMBER(4)
+)
+;
+alter table JAQZ579
+  add primary key (JAQZ579INC, JAQZ579FEC, JAQZ579HOR, JAQZ579USR, JAQZ579ARCH);
+

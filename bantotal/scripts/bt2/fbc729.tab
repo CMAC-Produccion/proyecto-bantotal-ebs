@@ -1,0 +1,22 @@
+create table FBC729
+(
+  bc729emp  NUMBER(3) not null,
+  bc729fch  DATE not null,
+  bc729pais NUMBER(3) not null,
+  bc729tdoc NUMBER(2) not null,
+  bc729ndoc CHAR(12) not null,
+  bc729secc CHAR(10) not null,
+  bc729lin  NUMBER(3) not null,
+  bc729dsc  CHAR(30),
+  bc729imp1 NUMBER(17,2),
+  bc729imp2 NUMBER(17,2),
+  bc729cpo  CHAR(8),
+  bc729rent CHAR(1),
+  bc729aux1 CHAR(10),
+  bc729aux2 NUMBER(17,2),
+  bc729aux3 NUMBER(17,2)
+)
+;
+alter table FBC729
+  add primary key (BC729EMP, BC729FCH, BC729PAIS, BC729TDOC, BC729NDOC, BC729SECC, BC729LIN);
+

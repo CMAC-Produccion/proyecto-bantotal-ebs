@@ -1,0 +1,28 @@
+create table FSD558
+(
+  pgcod     NUMBER(3) not null,
+  ccomod    NUMBER(3) not null,
+  ccosuc    NUMBER(3) not null,
+  ccomda    NUMBER(4) not null,
+  ccopap    NUMBER(4) not null,
+  ccocta    NUMBER(9) not null,
+  ccooper   NUMBER(9) not null,
+  ccosbop   NUMBER(3) not null,
+  ccotope   NUMBER(3) not null,
+  cocod     NUMBER(3) not null,
+  ccoesq    NUMBER(3),
+  ccodesc   CHAR(50),
+  ccopi     CHAR(1),
+  ccovalor  NUMBER(14,2),
+  ccomax    NUMBER(14,2),
+  ccomin    NUMBER(14,2),
+  ccocant   NUMBER(5),
+  ccoper    NUMBER(9),
+  ccodivisa NUMBER(10,6),
+  ccopag    CHAR(1)
+)
+;
+create index FSD55802 on FSD558 (COCOD);
+alter table FSD558
+  add primary key (PGCOD, CCOMOD, CCOSUC, CCOMDA, CCOPAP, CCOCTA, CCOOPER, CCOSBOP, CCOTOPE, COCOD);
+

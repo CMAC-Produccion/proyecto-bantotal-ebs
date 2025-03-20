@@ -1,0 +1,40 @@
+create table AQPB283
+(
+  aqpb283cta  NUMBER(9) not null,
+  aqpb283ope  NUMBER(9) not null,
+  aqpb283des  VARCHAR2(30),
+  aqpb283tip  CHAR(1) not null,
+  aqpb283ind  CHAR(2) not null,
+  aqpb283est  CHAR(1) not null,
+  aqpb283fec  DATE,
+  aqpb283daux DATE,
+  aqpb283caux VARCHAR2(50),
+  aqpb283naux NUMBER(18,2)
+)
+;
+comment on table AQPB283
+  is 'Tabla refinanciados Opinion riesgos';
+comment on column AQPB283.aqpb283cta
+  is 'cuenta';
+comment on column AQPB283.aqpb283ope
+  is 'operacion';
+comment on column AQPB283.aqpb283des
+  is 'descripcion';
+comment on column AQPB283.aqpb283tip
+  is 'tipo';
+comment on column AQPB283.aqpb283ind
+  is 'indicador opinion riesgos S/N';
+comment on column AQPB283.aqpb283est
+  is 'estado';
+comment on column AQPB283.aqpb283fec
+  is 'fecha carga';
+comment on column AQPB283.aqpb283daux
+  is 'fecha aux';
+comment on column AQPB283.aqpb283caux
+  is 'caracter aux';
+comment on column AQPB283.aqpb283naux
+  is 'numero aux';
+create index AQPB283A2 on AQPB283 (AQPB283FEC, AQPB283EST, AQPB283CTA, AQPB283OPE);
+alter table AQPB283
+  add primary key (AQPB283CTA, AQPB283OPE, AQPB283EST, AQPB283TIP, AQPB283IND);
+

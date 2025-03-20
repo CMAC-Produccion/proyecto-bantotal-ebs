@@ -1,0 +1,25 @@
+create table JAQZ457
+(
+  jaqz457cod NUMBER(5) not null,
+  jaqz457rub NUMBER(3),
+  jaqz457des VARCHAR2(20),
+  jaqz457max NUMBER(10),
+  jaqz457nr1 NUMBER(10)
+)
+;
+comment on table JAQZ457
+  is 'Tabla Numero de Serie para Facturacion';
+comment on column JAQZ457.jaqz457cod
+  is 'Codigo';
+comment on column JAQZ457.jaqz457rub
+  is 'Rubro';
+comment on column JAQZ457.jaqz457des
+  is 'Descripcion Producto';
+comment on column JAQZ457.jaqz457max
+  is 'Fecha Proceso';
+comment on column JAQZ457.jaqz457nr1
+  is 'Numero para Letra utilizada';
+create index IDX_JAQZ457_2 on JAQZ457 (JAQZ457RUB);
+alter table JAQZ457
+  add constraint IDX_JAQZ457_1 primary key (JAQZ457COD);
+

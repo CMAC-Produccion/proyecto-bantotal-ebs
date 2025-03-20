@@ -1,0 +1,15 @@
+create table FSCM01
+(
+  cmemp     NUMBER(3) not null,
+  cmfecha   DATE not null,
+  cmrubro   NUMBER(16) not null,
+  cmindrie  NUMBER(7,4) not null,
+  cmpondera NUMBER(7,4) not null,
+  cmmoneda  NUMBER(4) not null,
+  cmcodpar  CHAR(8) not null,
+  cmsaldo   NUMBER(17,2)
+)
+;
+alter table FSCM01
+  add primary key (CMEMP, CMFECHA, CMRUBRO, CMINDRIE, CMPONDERA, CMMONEDA, CMCODPAR);
+

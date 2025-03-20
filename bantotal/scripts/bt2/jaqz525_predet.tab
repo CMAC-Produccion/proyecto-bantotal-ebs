@@ -1,0 +1,32 @@
+create table JAQZ525_PREDET
+(
+  n_emp_bcemp   NUMBER(3),
+  n_mod_bcmod   NUMBER(3),
+  n_suc_bcsuc   NUMBER(3),
+  n_mda_bcmda   NUMBER(4),
+  n_pap_bcpap   NUMBER(4),
+  n_cta_bccta   NUMBER(9),
+  n_oper_bcoper NUMBER(9),
+  n_sbop_bcsbop NUMBER(3),
+  n_tope_bctop  NUMBER(3),
+  d_fecpac      DATE,
+  d_fecrel      DATE,
+  n_mtotot      NUMBER(17,2),
+  n_mtocap      NUMBER(17,2),
+  n_mtoint      NUMBER(17,2),
+  n_mtomor      NUMBER(17,2),
+  n_mtoseg      NUMBER(17,2),
+  n_mtocom      NUMBER(17,2),
+  n_motxt       NUMBER(3),
+  n_suctxt      NUMBER(3),
+  n_trttxt      NUMBER(3),
+  n_reltxt      NUMBER(4),
+  d_fectxt      DATE,
+  n_morault     NUMBER(10),
+  c_usutran     CHAR(10),
+  c_deshora     CHAR(8)
+)
+;
+create index XN_JAQZ525_PREDET_01 on JAQZ525_PREDET (N_EMP_BCEMP, N_MOD_BCMOD, N_SUC_BCSUC, N_MDA_BCMDA, N_PAP_BCPAP, N_CTA_BCCTA, N_OPER_BCOPER, N_SBOP_BCSBOP, N_TOPE_BCTOP, D_FECPAC, D_FECREL);
+create index XN_JAQZ525_PREDET_02 on JAQZ525_PREDET (N_SUC_BCSUC);
+

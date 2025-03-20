@@ -1,0 +1,76 @@
+create table JAQA48
+(
+  jaqa48emp NUMBER(3) not null,
+  jaqa48sus NUMBER(3) not null,
+  jaqa48naf CHAR(50) not null,
+  jaqa48npg NUMBER(9) not null,
+  jaqa48fpg DATE,
+  jaqa48mpg NUMBER(17,2),
+  jaqa48est CHAR(1),
+  jaqa48an1 NUMBER(9),
+  jaqa48an2 NUMBER(9),
+  jaqa48an3 NUMBER(9),
+  jaqa48ai1 NUMBER(17,2),
+  jaqa48ai2 NUMBER(17,2),
+  jaqa48ai3 NUMBER(17,2),
+  jaqa48af1 DATE,
+  jaqa48af2 DATE,
+  jaqa48af3 DATE,
+  jaqa48ac1 CHAR(1),
+  jaqa48ac2 CHAR(1),
+  jaqa48ac3 CHAR(1),
+  jaqa48at1 VARCHAR2(250),
+  jaqa48at2 VARCHAR2(250),
+  jaqa48at3 VARCHAR2(250)
+)
+;
+comment on table JAQA48
+  is 'Cabecera pago de cuota nuevo modulo seguro pasiva';
+comment on column JAQA48.jaqa48emp
+  is 'Empresa';
+comment on column JAQA48.jaqa48sus
+  is 'Sucursal';
+comment on column JAQA48.jaqa48naf
+  is 'Nro Afiliación';
+comment on column JAQA48.jaqa48npg
+  is 'Numero de pago';
+comment on column JAQA48.jaqa48fpg
+  is 'Fecha esperada de pago';
+comment on column JAQA48.jaqa48mpg
+  is 'Monto a pagar';
+comment on column JAQA48.jaqa48est
+  is 'Estado C: cobrado P: pendiente, D: deshabilitado';
+comment on column JAQA48.jaqa48an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA48.jaqa48an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA48.jaqa48an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA48.jaqa48ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA48.jaqa48ai2
+  is 'Auxiliar importe 2';
+comment on column JAQA48.jaqa48ai3
+  is 'Auxiliar importe 3';
+comment on column JAQA48.jaqa48af1
+  is 'Auxiliar fecha 1';
+comment on column JAQA48.jaqa48af2
+  is 'Auxiliar fecha 2';
+comment on column JAQA48.jaqa48af3
+  is 'Auxiliar fecha 3';
+comment on column JAQA48.jaqa48ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA48.jaqa48ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA48.jaqa48ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQA48.jaqa48at1
+  is 'Auxiliar texto 1';
+comment on column JAQA48.jaqa48at2
+  is 'Auxiliar texto 2';
+comment on column JAQA48.jaqa48at3
+  is 'Auxiliar texto 3';
+create index JAQA482 on JAQA48 (JAQA48EMP, JAQA48SUS, JAQA48NAF, JAQA48NPG, JAQA48EST);
+alter table JAQA48
+  add primary key (JAQA48EMP, JAQA48SUS, JAQA48NAF, JAQA48NPG);
+

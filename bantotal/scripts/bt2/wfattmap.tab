@@ -1,0 +1,16 @@
+create table WFATTMAP
+(
+  wfnetprcid   NUMBER(4) not null,
+  wfnettaskcod NUMBER(4) not null,
+  wfnspty      CHAR(1) not null,
+  wfnsprcid    NUMBER(4) not null,
+  wfnstaskcod  NUMBER(4) not null,
+  wfnetattid   CHAR(10) not null,
+  wfnsattid    CHAR(10) not null,
+  wfattinout   CHAR(1)
+)
+;
+create index UWFATTMAP1 on WFATTMAP (WFNETPRCID, WFNETTASKCOD, WFNSPRCID, WFNSTASKCOD, WFATTINOUT);
+alter table WFATTMAP
+  add primary key (WFNETPRCID, WFNETTASKCOD, WFNSPTY, WFNSPRCID, WFNSTASKCOD, WFNETATTID, WFNSATTID);
+

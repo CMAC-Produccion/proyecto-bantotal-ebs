@@ -1,0 +1,28 @@
+create table FSFSTH
+(
+  sfsthemp  NUMBER(3) not null,
+  sfsthsuc  NUMBER(3) not null,
+  sfsthmod  NUMBER(3) not null,
+  sfsthtiop NUMBER(3) not null,
+  sfsthnuop NUMBER(9) not null,
+  sfsthmerc NUMBER(3) not null,
+  sfsthmsg  NUMBER(4) not null,
+  sfsthfluj CHAR(1) not null,
+  sfsthprpr CHAR(1) not null,
+  sfsthfch  DATE not null,
+  sfsthsec  NUMBER(5) not null,
+  sfsthhora CHAR(6),
+  sfsthest  CHAR(1),
+  sfsthemtn NUMBER(3),
+  sfsthsutn NUMBER(3),
+  sfsthmotn NUMBER(3),
+  sfsthtrn  NUMBER(3),
+  sfsthfcco DATE,
+  sfsthnure NUMBER(4),
+  sfsthnupr NUMBER(9)
+)
+;
+create index FSFSTH02 on FSFSTH (SFSTHMERC, SFSTHMSG, SFSTHFCH, SFSTHSEC);
+alter table FSFSTH
+  add primary key (SFSTHEMP, SFSTHSUC, SFSTHMOD, SFSTHTIOP, SFSTHNUOP, SFSTHMERC, SFSTHMSG, SFSTHFLUJ, SFSTHPRPR, SFSTHFCH, SFSTHSEC);
+

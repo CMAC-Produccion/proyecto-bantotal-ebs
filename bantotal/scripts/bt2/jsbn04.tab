@@ -1,0 +1,13 @@
+create table JSBN04
+(
+  jsbn04tpol NUMBER(4) not null,
+  jsbn04falt DATE not null,
+  jsbn04pais NUMBER(3) not null,
+  jsbn04tdoc NUMBER(2) not null,
+  jsbn04ndoc CHAR(25) not null,
+  jsbn04obs  VARCHAR2(150)
+)
+;
+alter table JSBN04
+  add primary key (JSBN04TPOL, JSBN04FALT, JSBN04PAIS, JSBN04TDOC, JSBN04NDOC);
+

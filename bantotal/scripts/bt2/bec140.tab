@@ -1,0 +1,17 @@
+create table BEC140
+(
+  becprdid   NUMBER(10) not null,
+  beccliid   NUMBER(10) not null,
+  becctoid   NUMBER(10) not null,
+  becusuid   CHAR(10) not null,
+  becsesfec  DATE not null,
+  becsesid   CHAR(30) not null,
+  becsesfint DATE,
+  becsesultt DATE,
+  becsessts  CHAR(1),
+  becsesstsm CHAR(1)
+)
+;
+alter table BEC140
+  add primary key (BECPRDID, BECCLIID, BECCTOID, BECUSUID, BECSESFEC, BECSESID);
+

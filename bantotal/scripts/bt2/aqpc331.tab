@@ -1,0 +1,61 @@
+create table AQPC331
+(
+  aqpc331idl NUMBER(10) not null,
+  aqpc331tar CHAR(19),
+  aqpc331pai NUMBER(3),
+  aqpc331tdo NUMBER(2),
+  aqpc331doc CHAR(12),
+  aqpc331fei DATE,
+  aqpc331hoi CHAR(8),
+  aqpc331est CHAR(3),
+  aqpc331tex VARCHAR2(10),
+  aqpc331cer CHAR(5),
+  aqpc331mer VARCHAR2(200),
+  aqpc331req VARCHAR2(4000),
+  aqpc331res VARCHAR2(4000),
+  aqpc331ced CHAR(5),
+  aqpc331med VARCHAR2(200),
+  aqpc331can NUMBER(5),
+  aqpc331sei NUMBER(9)
+)
+;
+comment on table AQPC331
+  is 'Log Visa Digital Enablement SDK Message Encryption';
+comment on column AQPC331.aqpc331idl
+  is 'Id / Correlativo';
+comment on column AQPC331.aqpc331tar
+  is 'Número de tarjeta';
+comment on column AQPC331.aqpc331pai
+  is 'Pais del documento';
+comment on column AQPC331.aqpc331tdo
+  is 'Tipo del documento';
+comment on column AQPC331.aqpc331doc
+  is 'Número del documento';
+comment on column AQPC331.aqpc331fei
+  is 'Fecha de ingreso';
+comment on column AQPC331.aqpc331hoi
+  is 'Hora de ingreso';
+comment on column AQPC331.aqpc331est
+  is 'Estado';
+comment on column AQPC331.aqpc331tex
+  is 'Tiempo de ejecución';
+comment on column AQPC331.aqpc331cer
+  is 'Código error';
+comment on column AQPC331.aqpc331mer
+  is 'Mensaje error';
+comment on column AQPC331.aqpc331req
+  is 'Trama request';
+comment on column AQPC331.aqpc331res
+  is 'Trama response';
+comment on column AQPC331.aqpc331ced
+  is 'Código devuelto';
+comment on column AQPC331.aqpc331med
+  is 'Mensaje devuelto';
+comment on column AQPC331.aqpc331can
+  is 'Canal';
+comment on column AQPC331.aqpc331sei
+  is 'Secuencial log ISO banca movil';
+create index AQPC331A2 on AQPC331 (AQPC331FEI, AQPC331PAI, AQPC331TDO, AQPC331DOC);
+alter table AQPC331
+  add primary key (AQPC331IDL);
+

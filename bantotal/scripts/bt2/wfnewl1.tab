@@ -1,0 +1,11 @@
+create table WFNEWL1
+(
+  wflblid  CHAR(20) not null,
+  wflngid  CHAR(3) not null,
+  wflbltxt CHAR(80)
+)
+;
+create index IWFNEWLABELS11 on WFNEWL1 (WFLNGID);
+alter table WFNEWL1
+  add primary key (WFLBLID, WFLNGID);
+

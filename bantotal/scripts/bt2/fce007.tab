@@ -1,0 +1,12 @@
+create table FCE007
+(
+  modulo     NUMBER(3) not null,
+  mopctipo   NUMBER(2) not null,
+  mopccod    NUMBER(3) not null,
+  mopcdscrng NUMBER(2) not null,
+  mopcdscext CHAR(65)
+)
+;
+alter table FCE007
+  add primary key (MODULO, MOPCTIPO, MOPCCOD, MOPCDSCRNG);
+

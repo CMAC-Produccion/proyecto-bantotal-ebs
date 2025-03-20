@@ -1,0 +1,20 @@
+create table AQPB105E
+(
+  aqpb105efec  DATE not null,
+  aqpb105ehor  VARCHAR2(10) not null,
+  aqpb105ecat  CHAR(5) not null,
+  aqpb105elist VARCHAR2(999),
+  aqpb105ereq  CLOB,
+  aqpb105eres  CLOB,
+  aqpb105etip  CHAR(3),
+  aqpb105etim  VARCHAR2(10),
+  aqpb105ecod  CHAR(5),
+  aqpb105emen  VARCHAR2(500),
+  aqpb105ecan  NUMBER(2),
+  aqpb105etac  VARCHAR2(999),
+  aqpb105etrf  VARCHAR2(999)
+)
+;
+alter table AQPB105E
+  add primary key (AQPB105EFEC, AQPB105EHOR, AQPB105ECAT);
+

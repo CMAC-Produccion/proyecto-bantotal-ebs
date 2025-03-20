@@ -1,0 +1,28 @@
+create table AQPB183
+(
+  aqpb183cor     NUMBER(10) not null,
+  aqpb183fecha   DATE not null,
+  aqpb183hora    VARCHAR2(10),
+  aqpb183saldotc NUMBER(17,2),
+  aqpb183mntciiu NUMBER(17,2),
+  aqpb183porctj  NUMBER(10,6)
+)
+;
+comment on table AQPB183
+  is 'Tabla Log de Saldo Vigente Control de Saras en bebidas';
+comment on column AQPB183.aqpb183cor
+  is 'Correlativo';
+comment on column AQPB183.aqpb183fecha
+  is 'Fecha';
+comment on column AQPB183.aqpb183hora
+  is 'Hora';
+comment on column AQPB183.aqpb183saldotc
+  is 'Saldo Vigente de Cartera Total';
+comment on column AQPB183.aqpb183mntciiu
+  is 'Saldo Vigente de CIIUs';
+comment on column AQPB183.aqpb183porctj
+  is 'Porcentaje';
+create index AQPB183A2 on AQPB183 (AQPB183FECHA);
+alter table AQPB183
+  add primary key (AQPB183COR, AQPB183FECHA);
+

@@ -1,0 +1,20 @@
+create table JHSA13
+(
+  jhsa13cod NUMBER(3) not null,
+  jhsa13cri NUMBER(5) not null,
+  jhsa13fca DATE not null,
+  jhsa13std NUMBER(14,8),
+  jhsa13m30 NUMBER(14,8),
+  jhsa13m10 NUMBER(14,8),
+  jsha13au1 NUMBER(9),
+  jsha13au2 NUMBER(9),
+  jsha13au3 DATE,
+  jsha13au4 DATE,
+  jsha13au5 CHAR(30),
+  jsha13au6 CHAR(30),
+  jsha13au7 NUMBER(17,2),
+  jsha13au8 NUMBER(17,2)
+)
+;
+create unique index JHSA1301 on JHSA13 (JHSA13COD, JHSA13CRI, JHSA13FCA);
+

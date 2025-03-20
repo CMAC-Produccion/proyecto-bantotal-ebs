@@ -1,0 +1,102 @@
+create table JAQM90
+(
+  jaqm90emp NUMBER(3) not null,
+  jaqm90mod NUMBER(3) not null,
+  jaqm90suc NUMBER(3) not null,
+  jaqm90mda NUMBER(4) not null,
+  jaqm90pap NUMBER(4) not null,
+  jaqm90cta NUMBER(9) not null,
+  jaqm90ope NUMBER(9) not null,
+  jaqm90sbo NUMBER(3) not null,
+  jaqm90top NUMBER(3) not null,
+  jaqm90pai NUMBER(3) not null,
+  jaqm90tdo NUMBER(2) not null,
+  jaqm90ndo CHAR(12) not null,
+  jaqm90fec DATE not null,
+  jaqm90nin NUMBER(9) not null,
+  jaqm90hit CHAR(1),
+  jaqm90txn CHAR(20),
+  jaqm90lgp VARCHAR2(30),
+  jaqm90lgr VARCHAR2(30),
+  jaqm90err VARCHAR2(255),
+  jaqm90ch1 CHAR(255),
+  jaqm90ch2 CHAR(255),
+  jaqm90ch3 CHAR(255),
+  jaqm90nu1 NUMBER(9),
+  jaqm90nu2 NUMBER(9),
+  jaqm90nu3 NUMBER(9),
+  jaqm90fe1 DATE,
+  jaqm90fe2 DATE,
+  jaqm90fe3 DATE,
+  jaqm90im1 NUMBER(17,2),
+  jaqm90im2 NUMBER(17,2),
+  jaqm90im3 NUMBER(17,2)
+)
+;
+comment on table JAQM90
+  is 'Tabla Biometrica de Activacion de Cuentas';
+comment on column JAQM90.jaqm90emp
+  is 'Empresa';
+comment on column JAQM90.jaqm90mod
+  is 'Modulo';
+comment on column JAQM90.jaqm90suc
+  is 'Sucursal';
+comment on column JAQM90.jaqm90mda
+  is 'Moneda';
+comment on column JAQM90.jaqm90pap
+  is 'Papel';
+comment on column JAQM90.jaqm90cta
+  is 'Cuenta';
+comment on column JAQM90.jaqm90ope
+  is 'Operacion';
+comment on column JAQM90.jaqm90sbo
+  is 'Sub Operacion';
+comment on column JAQM90.jaqm90top
+  is 'Tipo de Operacion';
+comment on column JAQM90.jaqm90pai
+  is 'Pais';
+comment on column JAQM90.jaqm90tdo
+  is 'Tipo de Documento';
+comment on column JAQM90.jaqm90ndo
+  is 'Nro. de Documento';
+comment on column JAQM90.jaqm90fec
+  is 'Fecha';
+comment on column JAQM90.jaqm90nin
+  is 'Nro. de Intentos';
+comment on column JAQM90.jaqm90hit
+  is 'Flag HIT';
+comment on column JAQM90.jaqm90txn
+  is 'Codigo Transaccion Biometrica';
+comment on column JAQM90.jaqm90lgp
+  is 'Correo electronico';
+comment on column JAQM90.jaqm90lgr
+  is 'LOG Peticion';
+comment on column JAQM90.jaqm90err
+  is 'LOG Respuesta';
+comment on column JAQM90.jaqm90ch1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM90.jaqm90ch2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM90.jaqm90ch3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM90.jaqm90nu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM90.jaqm90nu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM90.jaqm90nu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQM90.jaqm90fe1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM90.jaqm90fe2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM90.jaqm90fe3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM90.jaqm90im1
+  is 'Auxiliar Importe 1';
+comment on column JAQM90.jaqm90im2
+  is 'Auxiliar Importe 2';
+comment on column JAQM90.jaqm90im3
+  is 'Auxiliar Importe 3';
+alter table JAQM90
+  add primary key (JAQM90EMP, JAQM90MOD, JAQM90SUC, JAQM90MDA, JAQM90PAP, JAQM90CTA, JAQM90OPE, JAQM90SBO, JAQM90TOP, JAQM90PAI, JAQM90TDO, JAQM90NDO, JAQM90FEC, JAQM90NIN);
+

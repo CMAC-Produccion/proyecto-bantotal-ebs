@@ -1,0 +1,19 @@
+create table Z0E4GP
+(
+  z0e4gpcod NUMBER(4) not null,
+  z0e4gptip CHAR(5) not null,
+  z0e4gpnev NUMBER(9) not null,
+  z0e4gpcor NUMBER(9) not null,
+  z0e4gptct NUMBER(2),
+  z0e4gptra CHAR(13),
+  z0e4gpca1 NUMBER(8),
+  z0e4gpfil CHAR(250),
+  z0e4gpfi2 CHAR(29),
+  z0e4gpest CHAR(2),
+  z0e4gptex CHAR(50)
+)
+;
+create index Z0E4GP02 on Z0E4GP (Z0E4GPCOD, Z0E4GPTIP, Z0E4GPNEV, Z0E4GPTCT);
+alter table Z0E4GP
+  add primary key (Z0E4GPCOD, Z0E4GPTIP, Z0E4GPNEV, Z0E4GPCOR);
+

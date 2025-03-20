@@ -1,0 +1,27 @@
+create table JAQL606
+(
+  jaql546serial NUMBER(10) not null,
+  jaql606secue  NUMBER(6) not null,
+  jaql606fepre  DATE,
+  jaql606nuope  NUMBER(10),
+  jaql606tofob  NUMBER(16,2),
+  jaql606fofls  NUMBER(16,2),
+  jaql606copao  VARCHAR2(100),
+  jaql606tidet  CHAR(2),
+  jaql606npai   NUMBER(10),
+  jaql606concod VARCHAR2(16),
+  jaql606creusr VARCHAR2(10),
+  jaql606cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL606.jaql606npai
+  is 'Numero de Paises';
+comment on column JAQL606.jaql606concod
+  is 'Código de Consulta';
+comment on column JAQL606.jaql606creusr
+  is 'Usuario Creación';
+comment on column JAQL606.jaql606cretim
+  is 'Fecha Hora Registro';
+alter table JAQL606
+  add primary key (JAQL546SERIAL, JAQL606SECUE);
+

@@ -1,0 +1,14 @@
+create table MSG800
+(
+  estmcod   NUMBER(5) not null,
+  lgecod    NUMBER(5) not null,
+  lgenom    CHAR(40),
+  lgepgm    CHAR(30),
+  lgegenrel CHAR(1),
+  lgectlwf  CHAR(1),
+  lgegenxml CHAR(1)
+)
+;
+alter table MSG800
+  add primary key (ESTMCOD, LGECOD);
+

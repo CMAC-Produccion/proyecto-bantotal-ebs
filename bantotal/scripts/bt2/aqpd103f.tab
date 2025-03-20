@@ -1,0 +1,148 @@
+create table AQPD103F
+(
+  aqpd103fctacon  VARCHAR2(50),
+  aqpd103ftipo    VARCHAR2(50) not null,
+  aqpd103fnfwd    VARCHAR2(15),
+  aqpd103fcodfwd  NUMBER(20) not null,
+  aqpd103fsldcon  NUMBER(18,8),
+  aqpd103fmoneda  VARCHAR2(10),
+  aqpd103fmntnom  NUMBER(18,2),
+  aqpd103fplvalm  NUMBER(18,2),
+  aqpd103fdrmapl  NUMBER(18,6),
+  aqpd103fdrmopl  NUMBER(18,6),
+  aqpd103fpcvalm  NUMBER(18,2),
+  aqpd103fdrmapc  NUMBER(18,6),
+  aqpd103fdrmopc  NUMBER(18,6),
+  aqpd103fcmoen1  VARCHAR2(15),
+  aqpd103fcmore1  VARCHAR2(15),
+  aqpd103ffecini  DATE,
+  aqpd103ffecvto  DATE,
+  aqpd103fent     VARCHAR2(50),
+  aqpd103fcodent  VARCHAR2(50),
+  aqpd103freside  VARCHAR2(1),
+  aqpd103fpais    VARCHAR2(10),
+  aqpd103fdoc     VARCHAR2(12),
+  aqpd103ffinan   VARCHAR2(5),
+  aqpd103fcodsbs  VARCHAR2(10),
+  aqpd103fcoddeu  NUMBER(10),
+  aqpd103fponven  NUMBER(18,6),
+  aqpd103fconven  VARCHAR2(10),
+  aqpd103fini     NUMBER(18,6),
+  aqpd103fcie     NUMBER(18,6),
+  aqpd103fticapa  NUMBER(18,6),
+  aqpd103fpotsin  NUMBER(18,2),
+  aqpd103fpotica  NUMBER(18,2),
+  aqpd103ftot     NUMBER(18,2),
+  aqpd103fintcon  VARCHAR2(5),
+  aqpd103fparcub  VARCHAR2(30),
+  aqpd103fporcob  NUMBER(18,6),
+  aqpd103feficob  NUMBER(18,12),
+  aqpd103ffpago   VARCHAR2(20),
+  aqpd103fnmoent2 NUMBER(18,6),
+  aqpd103fnmorec2 NUMBER(18,6),
+  aqpd103fnmoent3 NUMBER(18,6),
+  aqpd103fnmorec3 NUMBER(18,6),
+  aqpd103ffecha   DATE not null,
+  aqpd103ffecgen  DATE,
+  aqpd103fusugen  VARCHAR2(10),
+  aqpd103ffecpro  DATE
+)
+;
+comment on table AQPD103F
+  is 'TABLA FINAL DE REPORTE';
+comment on column AQPD103F.aqpd103fctacon
+  is 'Cuenta Contable';
+comment on column AQPD103F.aqpd103ftipo
+  is 'Por Vada Contrato u Operación Vigente';
+comment on column AQPD103F.aqpd103fnfwd
+  is 'CODIGO DE FORWARD';
+comment on column AQPD103F.aqpd103fcodfwd
+  is 'Código de la operación (3)';
+comment on column AQPD103F.aqpd103fsldcon
+  is 'Saldo Contable';
+comment on column AQPD103F.aqpd103fmoneda
+  is 'Moneda pactada (4)';
+comment on column AQPD103F.aqpd103fmntnom
+  is 'Monto Nominal Pactado (expresado en la moneda pactada)';
+comment on column AQPD103F.aqpd103fplvalm
+  is 'Posición larga a Valor de Mercado (5, i )';
+comment on column AQPD103F.aqpd103fdrmapl
+  is 'Duración de Macaulay posición larga (5, ii)';
+comment on column AQPD103F.aqpd103fdrmopl
+  is 'Duración modificada posición larga (5, iii)';
+comment on column AQPD103F.aqpd103fpcvalm
+  is 'Posición corta a Valor de Mercado (5, i)';
+comment on column AQPD103F.aqpd103fdrmapc
+  is 'Duración de Macaulay posición corta (5, ii)';
+comment on column AQPD103F.aqpd103fdrmopc
+  is 'Duración modificada posición corta (5, iii)';
+comment on column AQPD103F.aqpd103fcmoen1
+  is 'Descripción de la Operación  (6,i) => Moneda entregada';
+comment on column AQPD103F.aqpd103fcmore1
+  is 'Descripción de la Operación  (6,i) => Moneda recibida';
+comment on column AQPD103F.aqpd103ffecini
+  is 'Fecha de Inicio';
+comment on column AQPD103F.aqpd103ffecvto
+  is 'Fecha de Vencimiento';
+comment on column AQPD103F.aqpd103fent
+  is 'Nombre';
+comment on column AQPD103F.aqpd103fcodent
+  is 'CODIGO ENTIDAD';
+comment on column AQPD103F.aqpd103freside
+  is 'Residente / No Residente (b)';
+comment on column AQPD103F.aqpd103fpais
+  is 'País ( c)';
+comment on column AQPD103F.aqpd103fdoc
+  is 'Documento (d)';
+comment on column AQPD103F.aqpd103ffinan
+  is 'Financiero / No Financiero ( e)';
+comment on column AQPD103F.aqpd103fcodsbs
+  is 'Código SBS (f)';
+comment on column AQPD103F.aqpd103fcoddeu
+  is 'Código de deudor, asignado por la empresa financiera (g)';
+comment on column AQPD103F.aqpd103fponven
+  is 'Ponderación por vencimiento residual (riesgo de crédito) (h)';
+comment on column AQPD103F.aqpd103fconven
+  is 'Convenio marco de contratación (i)';
+comment on column AQPD103F.aqpd103fini
+  is 'Inicial';
+comment on column AQPD103F.aqpd103fcie
+  is 'Al cierre en la fecha de reporte';
+comment on column AQPD103F.aqpd103fticapa
+  is 'Tipo de Cambio Pactado ';
+comment on column AQPD103F.aqpd103fpotsin
+  is 'Por Tasa de Interés';
+comment on column AQPD103F.aqpd103fpotica
+  is 'Por Tipo de Cambio';
+comment on column AQPD103F.aqpd103ftot
+  is 'Total';
+comment on column AQPD103F.aqpd103fintcon
+  is 'Intención de Contratación (9)';
+comment on column AQPD103F.aqpd103fparcub
+  is 'Partida Cubierta (a)';
+comment on column AQPD103F.aqpd103fporcob
+  is 'Porcentaje de cobertura (b)';
+comment on column AQPD103F.aqpd103feficob
+  is 'Eficacia de cobertura ( c)';
+comment on column AQPD103F.aqpd103ffpago
+  is 'Forma de Pago (11)';
+comment on column AQPD103F.aqpd103fnmoent2
+  is 'Tasas Anuales de Interés Utilizadas al Fijar Precio => Moneda entregada';
+comment on column AQPD103F.aqpd103fnmorec2
+  is 'Tasas Anuales de Interés Utilizadas al Fijar Precio => Moneda recibida';
+comment on column AQPD103F.aqpd103fnmoent3
+  is 'Tasas Anuales de Interés Spot en la fecha de reporte => Moneda entregada';
+comment on column AQPD103F.aqpd103fnmorec3
+  is 'Tasas Anuales de Interés Spot en la fecha de reporte => Moneda recibida';
+comment on column AQPD103F.aqpd103ffecha
+  is 'FECHA REPORTE';
+comment on column AQPD103F.aqpd103ffecgen
+  is 'FECHA DE GENERACION';
+comment on column AQPD103F.aqpd103fusugen
+  is 'USUARIO GENERACION';
+comment on column AQPD103F.aqpd103ffecpro
+  is 'FECHA PARA EL PROCESO';
+create index AQPD103F2 on AQPD103F (AQPD103FFECHA);
+alter table AQPD103F
+  add primary key (AQPD103FTIPO, AQPD103FCODFWD, AQPD103FFECHA);
+

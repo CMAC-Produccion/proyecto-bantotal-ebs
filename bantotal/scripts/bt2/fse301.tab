@@ -1,0 +1,22 @@
+create table FSE301
+(
+  fse301pais NUMBER(3) not null,
+  fse301tdoc NUMBER(2) not null,
+  fse301ndoc CHAR(12) not null,
+  fse301exip CHAR(1),
+  fse301cntp CHAR(4),
+  fse301car1 CHAR(1),
+  fse301car2 CHAR(30),
+  fse301car3 CHAR(65),
+  fse301car4 CHAR(1),
+  fse301fch1 DATE,
+  fse301fch2 DATE,
+  fse301num1 NUMBER(1),
+  fse301num2 NUMBER(14,2),
+  fse301num3 NUMBER(9),
+  fse301num4 NUMBER(17,2)
+)
+;
+alter table FSE301
+  add primary key (FSE301PAIS, FSE301TDOC, FSE301NDOC);
+

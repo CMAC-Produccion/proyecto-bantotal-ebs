@@ -1,0 +1,46 @@
+create table JAQL714
+(
+  jaql714pgco NUMBER(3) not null,
+  jaql714scsu NUMBER(3) not null,
+  jaql714scmd NUMBER(4) not null,
+  jaql714scpa NUMBER(4) not null,
+  jaql714scct NUMBER(9) not null,
+  jaql714scop NUMBER(9) not null,
+  jaql714scsb NUMBER(3) not null,
+  jaql714scto NUMBER(3) not null,
+  jaql714scmo NUMBER(3) not null,
+  jaql714enti NUMBER(5) not null,
+  jaql714movi VARCHAR2(20) not null,
+  jaql714corr NUMBER(5) not null,
+  jaql714orde CHAR(20),
+  jaql714femv DATE,
+  jaql714hora CHAR(8),
+  jaql714cmno CHAR(30),
+  jaql714deop CHAR(30),
+  jaql714feva DATE,
+  jaql714luga CHAR(30),
+  jaql714docu CHAR(30),
+  jaql714node CHAR(30),
+  jaql714depo NUMBER(17,2),
+  jaql714reti NUMBER(17,2),
+  jaql714sald NUMBER(17,2),
+  jaql714cain NUMBER(17,2),
+  jaql714oper CHAR(10),
+  jaql714agen CHAR(30),
+  jaql714au01 CHAR(50),
+  jaql714au02 CHAR(50),
+  jaql714au03 CHAR(50),
+  jaql714au04 NUMBER(12),
+  jaql714au05 NUMBER(12),
+  jaql714au06 NUMBER(12),
+  jaql714au07 NUMBER(17,2),
+  jaql714au08 NUMBER(17,2),
+  jaql714au09 NUMBER(17,2),
+  jaql714au10 DATE,
+  jaql714au11 DATE,
+  jaql714au12 DATE
+)
+;
+alter table JAQL714
+  add primary key (JAQL714PGCO, JAQL714SCSU, JAQL714SCMD, JAQL714SCPA, JAQL714SCCT, JAQL714SCOP, JAQL714SCSB, JAQL714SCTO, JAQL714SCMO, JAQL714ENTI, JAQL714MOVI, JAQL714CORR);
+

@@ -1,0 +1,13 @@
+create table CAFLEEXT
+(
+  cafex     CHAR(30) not null,
+  cafexdsc  CHAR(60),
+  cafeximg  BLOB,
+  cafexmime CHAR(60),
+  caappid   NUMBER(2)
+)
+;
+create index ICAFLEE1 on CAFLEEXT (CAAPPID);
+alter table CAFLEEXT
+  add primary key (CAFEX);
+

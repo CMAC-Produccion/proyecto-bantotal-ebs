@@ -1,0 +1,31 @@
+create table SNG501
+(
+  sng501bien NUMBER(10) not null,
+  sng501mod  NUMBER(3),
+  sng501suc  NUMBER(3),
+  sng501pap  NUMBER(4),
+  sng501cta  NUMBER(9),
+  sng501oper NUMBER(9),
+  sng501sbop NUMBER(3),
+  sng501mda  NUMBER(4),
+  sng501tpoo NUMBER(4),
+  sng517tpob NUMBER(2),
+  sng501com  VARCHAR2(400),
+  sng501gar  NUMBER(9),
+  sng501pgc  NUMBER(3),
+  sng501pais NUMBER(3),
+  sng501nrod CHAR(12),
+  sng501tdoc NUMBER(2),
+  sng501pat  NUMBER(11),
+  sng501itmo NUMBER(3),
+  sng501ittr NUMBER(3),
+  sng501itnr NUMBER(4),
+  sng501pfdi NUMBER(3),
+  sng501cont CHAR(1),
+  sng501fchc DATE
+)
+;
+create index SNG50102 on SNG501 (SNG517TPOB);
+alter table SNG501
+  add primary key (SNG501BIEN);
+

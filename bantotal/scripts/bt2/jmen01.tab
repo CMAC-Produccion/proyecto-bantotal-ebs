@@ -1,0 +1,20 @@
+create table JMEN01
+(
+  jmen01pgc  NUMBER(3) not null,
+  jmen01pais NUMBER(3) not null,
+  jmen01tdoc NUMBER(2) not null,
+  jmen01ndoc CHAR(25) not null,
+  jmen01cta  NUMBER(9) not null,
+  jmen01usr  CHAR(10) not null,
+  jmen01peno CHAR(40),
+  jmen01ctno CHAR(40),
+  jmen01vinc NUMBER(2),
+  jmen01fch  DATE,
+  jmen01hor  CHAR(8),
+  jmen01aux  CHAR(70),
+  jmen01aux2 NUMBER(17,2)
+)
+;
+create unique index JMEN0101 on JMEN01 (JMEN01PGC, JMEN01PAIS, JMEN01TDOC, JMEN01NDOC, JMEN01CTA, JMEN01USR);
+create index JMEN0102 on JMEN01 (JMEN01PGC, JMEN01USR, JMEN01PAIS, JMEN01TDOC, JMEN01NDOC, JMEN01CTA);
+

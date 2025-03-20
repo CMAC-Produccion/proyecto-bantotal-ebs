@@ -1,0 +1,66 @@
+create table JAQM61
+(
+  jaqm61cop CHAR(50) not null,
+  jaqm61cor NUMBER(4) not null,
+  jaqm61usu CHAR(10),
+  jaqm61suc NUMBER(3),
+  jaqm61fec DATE,
+  jaqm61hor CHAR(8),
+  jaqm61wie CHAR(40),
+  jaqm61an1 NUMBER(9),
+  jaqm61an2 NUMBER(9),
+  jaqm61an3 NUMBER(9),
+  jaqm61ac1 VARCHAR2(255),
+  jaqm61ac2 VARCHAR2(255),
+  jaqm61ac3 VARCHAR2(255),
+  jaqm61af1 DATE,
+  jaqm61af2 DATE,
+  jaqm61af3 DATE,
+  jaqm61ai1 NUMBER(17,2),
+  jaqm61ai2 NUMBER(17,2),
+  jaqm61ai3 NUMBER(17,2)
+)
+;
+comment on table JAQM61
+  is 'Módulo de Poderes Confirmación de Facultades';
+comment on column JAQM61.jaqm61cop
+  is 'Código de proceso';
+comment on column JAQM61.jaqm61cor
+  is 'Correlativo';
+comment on column JAQM61.jaqm61usu
+  is 'Usuario';
+comment on column JAQM61.jaqm61suc
+  is 'Sucursal';
+comment on column JAQM61.jaqm61fec
+  is 'Fecha';
+comment on column JAQM61.jaqm61hor
+  is 'Hora';
+comment on column JAQM61.jaqm61wie
+  is 'Workstation';
+comment on column JAQM61.jaqm61an1
+  is 'Auxiliar numérico 1';
+comment on column JAQM61.jaqm61an2
+  is 'Auxiliar numérico 2';
+comment on column JAQM61.jaqm61an3
+  is 'Auxiliar numérico 3';
+comment on column JAQM61.jaqm61ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM61.jaqm61ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM61.jaqm61ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM61.jaqm61af1
+  is 'Auxiliar fecha 1';
+comment on column JAQM61.jaqm61af2
+  is 'Auxiliar fecha 2';
+comment on column JAQM61.jaqm61af3
+  is 'Auxiliar fecha 3';
+comment on column JAQM61.jaqm61ai1
+  is 'Auxiliar importe 1';
+comment on column JAQM61.jaqm61ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM61.jaqm61ai3
+  is 'Auxiliar importe 3';
+alter table JAQM61
+  add primary key (JAQM61COP, JAQM61COR);
+

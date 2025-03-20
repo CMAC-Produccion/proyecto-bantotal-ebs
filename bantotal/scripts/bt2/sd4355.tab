@@ -1,0 +1,17 @@
+create table SD4355
+(
+  sd55coddis NUMBER(4) not null,
+  sd55codent NUMBER(5) not null,
+  sd55fchinf NUMBER(6) not null,
+  sd55tpoid  NUMBER(2) not null,
+  sd55nroid  NUMBER(11) not null,
+  sd55fccnso NUMBER(8),
+  sd55fcinac NUMBER(8),
+  sd55fcinsc NUMBER(8),
+  sd55regins CHAR(11),
+  sd55rectif CHAR(1)
+)
+;
+alter table SD4355
+  add primary key (SD55CODDIS, SD55CODENT, SD55FCHINF, SD55TPOID, SD55NROID);
+

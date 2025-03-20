@@ -1,0 +1,15 @@
+create table FST163
+(
+  paqemp    NUMBER(3) not null,
+  paqctaemp NUMBER(9) not null,
+  paqcod    NUMBER(3) not null,
+  empporc   NUMBER(7,4),
+  empimp    NUMBER(17,2),
+  cliporc   NUMBER(7,4),
+  cliimp    NUMBER(17,2)
+)
+;
+create index FST16302 on FST163 (PAQEMP, PAQCOD);
+alter table FST163
+  add primary key (PAQEMP, PAQCTAEMP, PAQCOD);
+

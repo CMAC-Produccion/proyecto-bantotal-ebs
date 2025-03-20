@@ -1,0 +1,19 @@
+create table JCTN013
+(
+  jctn013id  NUMBER(17) not null,
+  jctn013tli NUMBER(3),
+  jctn013pai NUMBER(3),
+  jctn013tdo NUMBER(3),
+  jctn013ndo CHAR(25),
+  jctn013nm1 CHAR(30),
+  jctn013nm2 CHAR(30),
+  jctn013ap1 CHAR(30),
+  jctn013ap2 CHAR(30),
+  jctn013fca DATE,
+  jctn013fcb DATE
+)
+;
+create index JCTN0132 on JCTN013 (JCTN013TLI);
+alter table JCTN013
+  add primary key (JCTN013ID);
+

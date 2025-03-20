@@ -1,0 +1,65 @@
+create table AQPC194
+(
+  aqpc194inst    NUMBER(10) not null,
+  aqpc194feccg   DATE not null,
+  aqpc194usuej   VARCHAR2(10) not null,
+  aqpc194cta     NUMBER(9),
+  aqpc194oper    NUMBER(9),
+  aqpc194ases    VARCHAR2(30),
+  aqpc194clie    VARCHAR2(30),
+  aqpc194desmod  VARCHAR2(40),
+  aqpc194mntcr   NUMBER(17,2),
+  aqpc194prod    VARCHAR2(40),
+  aqpc194tipso   VARCHAR2(50),
+  aqpc194fecing  DATE,
+  aqpc194etpa    VARCHAR2(50),
+  aqpc194nivl    NUMBER(2),
+  aqpc194estd    VARCHAR2(10),
+  aqpc194aux1    VARCHAR2(10),
+  aqpc194aux2    NUMBER(10),
+  aqpc194aux3    DATE,
+  aqpc194ansrieg VARCHAR2(10)
+)
+;
+comment on table AQPC194
+  is 'Tabla temporal instancias con pendiente de opinion de riesgos';
+comment on column AQPC194.aqpc194inst
+  is 'Soliciturd';
+comment on column AQPC194.aqpc194feccg
+  is 'Fecha Carga';
+comment on column AQPC194.aqpc194usuej
+  is 'Usuario de carga';
+comment on column AQPC194.aqpc194cta
+  is 'Cuenta';
+comment on column AQPC194.aqpc194oper
+  is 'Operación';
+comment on column AQPC194.aqpc194ases
+  is 'Asesor';
+comment on column AQPC194.aqpc194clie
+  is 'Cliente';
+comment on column AQPC194.aqpc194desmod
+  is 'Descripción de Módulo';
+comment on column AQPC194.aqpc194prod
+  is 'Producto';
+comment on column AQPC194.aqpc194tipso
+  is 'Tipo Solicitud';
+comment on column AQPC194.aqpc194fecing
+  is 'Fecha ingreso de crédito';
+comment on column AQPC194.aqpc194etpa
+  is 'Etapa';
+comment on column AQPC194.aqpc194nivl
+  is 'Nivel';
+comment on column AQPC194.aqpc194estd
+  is 'Estado';
+comment on column AQPC194.aqpc194aux1
+  is 'Usuario derivado';
+comment on column AQPC194.aqpc194aux2
+  is 'Auxiliar 2';
+comment on column AQPC194.aqpc194aux3
+  is 'Auxiliar 3';
+comment on column AQPC194.aqpc194ansrieg
+  is 'Analista Senior de riesgos';
+create index APQC194A2 on AQPC194 (AQPC194USUEJ, AQPC194FECING);
+alter table AQPC194
+  add primary key (AQPC194INST, AQPC194FECCG, AQPC194USUEJ);
+

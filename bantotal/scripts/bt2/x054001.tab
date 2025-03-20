@@ -1,0 +1,15 @@
+create table X054001
+(
+  pgcod      NUMBER(3) not null,
+  xlloprccod NUMBER(9) not null,
+  xlloprcdes CHAR(40),
+  xlloxeje   CHAR(1),
+  xlloxsuc   CHAR(1),
+  xlloxsts   CHAR(1),
+  dscod      NUMBER(3)
+)
+;
+create index X0540013 on X054001 (DSCOD);
+alter table X054001
+  add primary key (PGCOD, XLLOPRCCOD);
+

@@ -1,0 +1,13 @@
+create table FSF066
+(
+  lmpgcod   NUMBER(3) not null,
+  lmctnro   NUMBER(9) not null,
+  lmfecvis  DATE not null,
+  lmnrovis  NUMBER(2),
+  lmriesgo  NUMBER(4),
+  lmfecprox DATE
+)
+;
+alter table FSF066
+  add primary key (LMPGCOD, LMCTNRO, LMFECVIS);
+

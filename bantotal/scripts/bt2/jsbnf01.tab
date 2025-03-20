@@ -1,0 +1,21 @@
+create table JSBNF01
+(
+  jsbn01ci   CHAR(20) not null,
+  jsbn01corr NUMBER(9) not null,
+  jsbn01pria CHAR(30),
+  jsbn01sega CHAR(30),
+  jsbn01casa CHAR(30),
+  jsbn01nom  CHAR(50),
+  jsbn01sexo CHAR(1),
+  jsbn01estc CHAR(1),
+  jsbn01pais CHAR(3),
+  jsbn01fchn DATE,
+  jsbn01dpto CHAR(5),
+  jsbn01prov CHAR(5),
+  jsbn01dom1 CHAR(40),
+  jsbn01dom2 CHAR(40)
+)
+;
+alter table JSBNF01
+  add primary key (JSBN01CI, JSBN01CORR);
+

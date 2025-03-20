@@ -1,0 +1,58 @@
+create table JAQY710
+(
+  jaqy710cor  NUMBER(4) not null,
+  jaqy710fpro DATE not null,
+  jaqy710cod  NUMBER(3) not null,
+  jaqy710mod  NUMBER(4) not null,
+  jaqy710suc  NUMBER(4) not null,
+  jaqy710mda  NUMBER(3) not null,
+  jaqy710pap  NUMBER(4) not null,
+  jaqy710cta  NUMBER(9) not null,
+  jaqy710ope  NUMBER(9) not null,
+  jaqy710sbo  NUMBER(3) not null,
+  jaqy710top  NUMBER(3) not null,
+  jaqy710inst NUMBER(10),
+  jaqy710pai  NUMBER(3),
+  jaqy710tdc  NUMBER(2),
+  jaqy710ndc  CHAR(12),
+  jaqy710age  CHAR(30),
+  jaqy710usu  CHAR(30),
+  jaqy710tit  CHAR(100),
+  jaqy710sac  NUMBER(16,2),
+  jaqy710ama  NUMBER(5),
+  jaqy710map  NUMBER(16,2),
+  jaqy710mcu  NUMBER(16,2),
+  jaqy710frp  NUMBER(4),
+  jaqy710dat  NUMBER(5),
+  jaqy710dti  CHAR(150),
+  jaqy710ret  CHAR(200),
+  jaqy710dis  CHAR(50),
+  jaqy710nav  NUMBER(4),
+  jaqy710rpj  CHAR(5),
+  jaqy710zon  CHAR(60),
+  jaqy710seg  CHAR(50),
+  jaqy710fge  DATE,
+  jaqy710fas  DATE,
+  jaqy710eve  NUMBER(10),
+  jaqy710uge  CHAR(10),
+  jaqy710nge  CHAR(30),
+  jaqy710nsu  CHAR(30),
+  jaqy710nas  CHAR(30),
+  jaqy710fco  DATE,
+  jaqy710uco  CHAR(10),
+  jaqy710prg  CHAR(10),
+  jaqy710sca  NUMBER(16,2),
+  jaqy710czo  NUMBER(3),
+  jaqy710cev  NUMBER(10),
+  jaqy710ufpe DATE,
+  jaqy710cime NUMBER(16,2),
+  jaqy710dmoe NUMBER(16,2),
+  jaqy710tca  NUMBER(14,8)
+)
+;
+create index JAQY710_01_2 on JAQY710 (JAQY710COD, JAQY710MOD, JAQY710SUC, JAQY710MDA, JAQY710PAP, JAQY710CTA, JAQY710OPE, JAQY710SBO, JAQY710TOP, JAQY710FGE);
+create index JAQY710_02_2 on JAQY710 (JAQY710PAI, JAQY710TDC, JAQY710NDC);
+create index JAQY710_03_2 on JAQY710 (JAQY710EVE, JAQY710FGE);
+alter table JAQY710
+  add constraint JAQY710_PK_2 primary key (JAQY710COR, JAQY710FPRO, JAQY710COD, JAQY710MOD, JAQY710SUC, JAQY710MDA, JAQY710PAP, JAQY710CTA, JAQY710OPE, JAQY710SBO, JAQY710TOP);
+

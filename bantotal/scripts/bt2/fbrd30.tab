@@ -1,0 +1,34 @@
+create table FBRD30
+(
+  brd30pgcod NUMBER(3) not null,
+  brd30id    NUMBER(5) not null,
+  brd30fch   DATE not null,
+  brd30cta   NUMBER(9) not null,
+  brd30suc   NUMBER(3) not null,
+  brd30rub   NUMBER(16) not null,
+  brd30mda   NUMBER(4) not null,
+  brd30pap   NUMBER(4) not null,
+  brd30oper  NUMBER(9) not null,
+  brd30sbop  NUMBER(3) not null,
+  brd30tope  NUMBER(3) not null,
+  brd30mod   NUMBER(3),
+  brd30pepai NUMBER(3),
+  brd30petdo NUMBER(2),
+  brd30pendo CHAR(12),
+  brd30penom CHAR(30),
+  brd30dsc   CHAR(40),
+  brd30imp1  NUMBER(14,2),
+  brd30imp2  NUMBER(14,2),
+  brd30num1  NUMBER(15),
+  brd30num2  NUMBER(15),
+  brd30char1 CHAR(30),
+  brd30char2 CHAR(30),
+  brd30fch1  DATE,
+  brd30fch2  DATE
+)
+;
+create index FBRD3002 on FBRD30 (BRD30PGCOD, BRD30FCH, BRD30ID, BRD30CTA, BRD30CHAR1);
+create index FBRD3004 on FBRD30 (BRD30PGCOD, BRD30ID, BRD30FCH, BRD30PEPAI, BRD30PETDO, BRD30PENDO);
+alter table FBRD30
+  add primary key (BRD30PGCOD, BRD30ID, BRD30FCH, BRD30CTA, BRD30SUC, BRD30RUB, BRD30MDA, BRD30PAP, BRD30OPER, BRD30SBOP, BRD30TOPE);
+

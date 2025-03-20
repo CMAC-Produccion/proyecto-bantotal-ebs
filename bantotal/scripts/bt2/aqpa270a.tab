@@ -1,0 +1,112 @@
+create table AQPA270A
+(
+  aqpa270acorr    NUMBER(18) not null,
+  aqpa270apais    NUMBER(9) not null,
+  aqpa270atdoc    NUMBER(9) not null,
+  aqpa270andoc    VARCHAR2(12) not null,
+  aqpa270atcamb   NUMBER(14,8),
+  aqpa270ainst    NUMBER(12) not null,
+  aqpa270afec     DATE not null,
+  aqpa270acapcaja NUMBER(17,2),
+  aqpa270asldext  NUMBER(17,2),
+  aqpa270aresnet  NUMBER(17,2),
+  aqpa270accontg  NUMBER(17,2),
+  aqpa270acpoten  NUMBER(17,2),
+  aqpa270aratio   NUMBER(10,6),
+  aqpa270aind     VARCHAR2(2),
+  aqpa270aest     VARCHAR2(2),
+  aqpa270ahora    CHAR(8) not null,
+  aqpa270auser    VARCHAR2(10),
+  aqpa270apgcod   NUMBER(3) not null,
+  aqpa270aitsuc   NUMBER(3) not null,
+  aqpa270aitmod   NUMBER(3) not null,
+  aqpa270aittran  NUMBER(3) not null,
+  aqpa270aitnrel  NUMBER(4) not null,
+  aqpa270aitord   NUMBER(2) not null,
+  aqpa270aitsbor  NUMBER(3) not null,
+  aqpa270agarant  VARCHAR2(2),
+  aqpa270asegmen  NUMBER(3),
+  aqpa270amod     NUMBER(3),
+  aqpa270asuc     NUMBER(3),
+  aqpa270amda     NUMBER(4),
+  aqpa270apap     NUMBER(4),
+  aqpa270acta     NUMBER(10),
+  aqpa270aope     NUMBER(10),
+  aqpa270asbop    NUMBER(3),
+  aqpa270atop     NUMBER(3)
+)
+;
+comment on column AQPA270A.aqpa270acorr
+  is 'Correlativo';
+comment on column AQPA270A.aqpa270apais
+  is 'Pais del Documento';
+comment on column AQPA270A.aqpa270atdoc
+  is 'Tipo del Documento';
+comment on column AQPA270A.aqpa270andoc
+  is 'Nro de Documento';
+comment on column AQPA270A.aqpa270atcamb
+  is 'Tipo de Cambio del dia';
+comment on column AQPA270A.aqpa270ainst
+  is 'Nro de Instancia de la Linea';
+comment on column AQPA270A.aqpa270afec
+  is 'Fecha de Proceso';
+comment on column AQPA270A.aqpa270acapcaja
+  is 'Cuota CMAC';
+comment on column AQPA270A.aqpa270asldext
+  is 'Cuota IFIS';
+comment on column AQPA270A.aqpa270aresnet
+  is 'Resultado Neto / Excedente Mensual';
+comment on column AQPA270A.aqpa270accontg
+  is 'Cuota Contingente';
+comment on column AQPA270A.aqpa270acpoten
+  is 'Cuota Potencial';
+comment on column AQPA270A.aqpa270aratio
+  is 'Ratio';
+comment on column AQPA270A.aqpa270aind
+  is 'Indicador';
+comment on column AQPA270A.aqpa270aest
+  is 'Estado I intento H Contabilizado';
+comment on column AQPA270A.aqpa270ahora
+  is 'Hora de Registro';
+comment on column AQPA270A.aqpa270auser
+  is 'Usuario de Transaccion';
+comment on column AQPA270A.aqpa270apgcod
+  is 'Pgcod de la transaccion';
+comment on column AQPA270A.aqpa270aitsuc
+  is 'Sucursal de la transaccion';
+comment on column AQPA270A.aqpa270aitmod
+  is 'Modulo de la transaccion';
+comment on column AQPA270A.aqpa270aittran
+  is 'Transaccion';
+comment on column AQPA270A.aqpa270aitnrel
+  is 'Nro de Relacion';
+comment on column AQPA270A.aqpa270aitord
+  is 'Ordinal de la Transaccion';
+comment on column AQPA270A.aqpa270aitsbor
+  is 'SubOrdinal de la Transaccion';
+comment on column AQPA270A.aqpa270agarant
+  is 'Flag de Garantia';
+comment on column AQPA270A.aqpa270asegmen
+  is 'Segmento del Cliente';
+comment on column AQPA270A.aqpa270amod
+  is 'Modulo del Credito';
+comment on column AQPA270A.aqpa270asuc
+  is 'Sucursal del Credito';
+comment on column AQPA270A.aqpa270amda
+  is 'Moneda del Credito';
+comment on column AQPA270A.aqpa270apap
+  is 'Papel del Credito';
+comment on column AQPA270A.aqpa270acta
+  is 'Cuenta del Credito';
+comment on column AQPA270A.aqpa270aope
+  is 'Operacion del Credito';
+comment on column AQPA270A.aqpa270asbop
+  is 'SubOperacion del Credito';
+comment on column AQPA270A.aqpa270atop
+  is 'Tipo de Operacion del Credito';
+create index AQPA270A2 on AQPA270A (AQPA270ACORR, AQPA270AFEC, AQPA270AHORA);
+create index AQPA270A3 on AQPA270A (AQPA270AINST);
+create index AQPA270A4 on AQPA270A (AQPA270APGCOD, AQPA270AITSUC, AQPA270AITMOD, AQPA270AITTRAN, AQPA270AITNREL, AQPA270AITORD, AQPA270AITSBOR);
+alter table AQPA270A
+  add primary key (AQPA270ACORR, AQPA270APAIS, AQPA270ATDOC, AQPA270ANDOC, AQPA270AINST, AQPA270AFEC, AQPA270AHORA, AQPA270APGCOD, AQPA270AITSUC, AQPA270AITMOD, AQPA270AITTRAN, AQPA270AITNREL, AQPA270AITORD, AQPA270AITSBOR);
+

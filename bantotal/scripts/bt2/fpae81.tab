@@ -1,0 +1,16 @@
+create table FPAE81
+(
+  pae51eva NUMBER(3) not null,
+  pae80mtz NUMBER(5) not null,
+  pae81fil NUMBER(2) not null,
+  pae81scv NUMBER(17,9),
+  pae81pol CHAR(1),
+  pae81msg CHAR(80),
+  pae90pol NUMBER(5),
+  pae81res CHAR(1)
+)
+;
+create index FPAE8103 on FPAE81 (PAE90POL);
+alter table FPAE81
+  add primary key (PAE51EVA, PAE80MTZ, PAE81FIL);
+

@@ -1,0 +1,39 @@
+create table FBC747
+(
+  bc747pgc NUMBER(3) not null,
+  bc747trn NUMBER(3) not null,
+  bc747mod NUMBER(3) not null,
+  bc747com CHAR(1) not null,
+  bc747inf CHAR(1) not null,
+  bc747res CHAR(1) not null,
+  bc747top CHAR(1) not null,
+  bc747dob CHAR(1) not null,
+  bc747ope CHAR(5),
+  bc747cot CHAR(1),
+  bc747cov CHAR(5),
+  bc747ict CHAR(1),
+  bc747ice CHAR(25),
+  bc747icv CHAR(5),
+  bc747ivt CHAR(1),
+  bc747ivv CHAR(5),
+  bc747ive CHAR(25),
+  bc747den CHAR(1),
+  bc747dee CHAR(25),
+  bc747cta CHAR(1),
+  bc747dom CHAR(1),
+  bc747pai CHAR(1),
+  bc747bco CHAR(1),
+  bc747eso CHAR(1),
+  bc747nof CHAR(1),
+  bc747fen CHAR(1),
+  bc747obs CHAR(1),
+  bc747fip CHAR(1),
+  bc747pgd CHAR(10),
+  bc747pei CHAR(10),
+  bc747rda CHAR(1),
+  bc747ctx NUMBER(5)
+)
+;
+alter table FBC747
+  add primary key (BC747PGC, BC747TRN, BC747MOD, BC747COM, BC747INF, BC747RES, BC747TOP, BC747DOB);
+

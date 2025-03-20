@@ -1,0 +1,32 @@
+create table FPAE70
+(
+  pae51eva   NUMBER(3) not null,
+  pae70nro   NUMBER(10) not null,
+  pae70pdoc  NUMBER(3),
+  pae70tdoc  NUMBER(2),
+  pae70ndoc  CHAR(12),
+  pae70pgcod NUMBER(3),
+  pae70mod   NUMBER(3),
+  pae70tope  NUMBER(3),
+  pae70mda   NUMBER(4),
+  pae70pap   NUMBER(4),
+  pae70pro   NUMBER(4),
+  pae70ins   NUMBER(10),
+  pae70wri   NUMBER(10),
+  pae70time  DATE,
+  pae70usr   CHAR(10),
+  pae70scv   NUMBER(17,9),
+  pae70res   CHAR(40),
+  pae70pol   CHAR(1),
+  pae70msg   CHAR(80),
+  pae70stgc  NUMBER(5),
+  pae70stgd  CHAR(40)
+)
+;
+create index FPAE7003 on FPAE70 (PAE70PDOC, PAE70TDOC, PAE70NDOC, PAE51EVA, PAE70NRO);
+create index FPAE7004 on FPAE70 (PAE70PGCOD, PAE70MOD, PAE70TOPE, PAE70MDA, PAE70PAP, PAE51EVA, PAE70NRO);
+create index FPAE7005 on FPAE70 (PAE70PRO, PAE70INS, PAE51EVA, PAE70NRO);
+create index FPAE7006 on FPAE70 (PAE70WRI, PAE51EVA, PAE70NRO);
+alter table FPAE70
+  add primary key (PAE51EVA, PAE70NRO);
+

@@ -1,0 +1,69 @@
+create table JAQM2B
+(
+  jaqm2busr CHAR(10) not null,
+  jaqm2bper CHAR(10) not null,
+  jaqm2bnom CHAR(30),
+  jaqm2bsuc NUMBER(3),
+  jaqm2bdsc CHAR(30),
+  jaqm2bfch DATE,
+  jaqm2bhra CHAR(8),
+  jaqm2bfcr DATE,
+  jaqm2bai1 NUMBER(17,2),
+  jaqm2bai2 NUMBER(17,2),
+  jaqm2bai3 NUMBER(17,2),
+  jaqm2bad1 DATE,
+  jaqm2bad2 DATE,
+  jaqm2bad3 DATE,
+  jaqm2ban1 NUMBER(9),
+  jaqm2ban2 NUMBER(9),
+  jaqm2ban3 NUMBER(9),
+  jaqm2bac1 CHAR(250),
+  jaqm2bac2 CHAR(250),
+  jaqm2bac3 CHAR(250)
+)
+compress;
+comment on table JAQM2B
+  is 'LOG PARA ENVIO DE CORREOS DESHABILITAR PERFIL DE CONVENIOS A ANALISTAS';
+comment on column JAQM2B.jaqm2busr
+  is 'USUARIO';
+comment on column JAQM2B.jaqm2bper
+  is 'PERFIL';
+comment on column JAQM2B.jaqm2bnom
+  is 'NOMBRES';
+comment on column JAQM2B.jaqm2bsuc
+  is 'SUCURSAL';
+comment on column JAQM2B.jaqm2bdsc
+  is 'JAQM2BDSC';
+comment on column JAQM2B.jaqm2bfch
+  is 'JAQM2BFCH';
+comment on column JAQM2B.jaqm2bhra
+  is 'JAQM2BHRA';
+comment on column JAQM2B.jaqm2bfcr
+  is 'JAQM2BFCR';
+comment on column JAQM2B.jaqm2bai1
+  is 'JAQM2BAI1';
+comment on column JAQM2B.jaqm2bai2
+  is 'JAQM2BAI2';
+comment on column JAQM2B.jaqm2bai3
+  is 'JAQM2BAI3';
+comment on column JAQM2B.jaqm2bad1
+  is 'JAQM2BAD1';
+comment on column JAQM2B.jaqm2bad2
+  is 'JAQM2BAD2';
+comment on column JAQM2B.jaqm2bad3
+  is 'JAQM2BAD3';
+comment on column JAQM2B.jaqm2ban1
+  is 'JAQM2BAN1';
+comment on column JAQM2B.jaqm2ban2
+  is 'JAQM2BAN2';
+comment on column JAQM2B.jaqm2ban3
+  is 'JAQM2BAN3';
+comment on column JAQM2B.jaqm2bac1
+  is 'JAQM2BAC1';
+comment on column JAQM2B.jaqm2bac2
+  is 'JAQM2BAC2';
+comment on column JAQM2B.jaqm2bac3
+  is 'JAQM2BAC3';
+alter table JAQM2B
+  add primary key (JAQM2BUSR, JAQM2BPER);
+

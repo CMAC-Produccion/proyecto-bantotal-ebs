@@ -1,0 +1,29 @@
+create table SNG120
+(
+  sng120ins  NUMBER(10) not null,
+  sng120tsk  CHAR(10) not null,
+  sng120mod  NUMBER(3),
+  sng120top  NUMBER(3),
+  sng120mda  NUMBER(4),
+  sng120pap  NUMBER(4),
+  sng120pzo  NUMBER(5),
+  sng120cuo  NUMBER(5),
+  sng120per  NUMBER(5),
+  sng120cliq CHAR(1),
+  sng120mto  NUMBER(17,2),
+  sng120mcr  NUMBER(17,2),
+  sng120fval DATE,
+  sng120fpag DATE,
+  sng120fvto DATE,
+  sng120vcuo NUMBER(17,2),
+  sng120ttas NUMBER(1),
+  sng120clta NUMBER(2),
+  sng120tasa NUMBER(10,6),
+  sng120plus NUMBER(10,6),
+  sng120tcbi NUMBER(14,8),
+  sng120xml  VARCHAR2(2000)
+)
+;
+alter table SNG120
+  add primary key (SNG120INS, SNG120TSK);
+

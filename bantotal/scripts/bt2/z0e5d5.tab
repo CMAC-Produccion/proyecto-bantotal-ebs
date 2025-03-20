@@ -1,0 +1,19 @@
+create table Z0E5D5
+(
+  z0e5d5cod NUMBER(4) not null,
+  z0e5d5tip CHAR(5) not null,
+  z0e5d5nev NUMBER(9) not null,
+  z0e5d5cor NUMBER(9) not null,
+  z0e5d5nro CHAR(18),
+  z0e5d5c19 CHAR(1),
+  z0e5d5nom CHAR(30),
+  z0e5d5dom CHAR(30),
+  z0e5d5loc CHAR(15),
+  z0e5d5cpo NUMBER(4),
+  z0e5d5tdc NUMBER(2),
+  z0e5d5ndc NUMBER(11)
+)
+;
+alter table Z0E5D5
+  add primary key (Z0E5D5COD, Z0E5D5TIP, Z0E5D5NEV, Z0E5D5COR);
+

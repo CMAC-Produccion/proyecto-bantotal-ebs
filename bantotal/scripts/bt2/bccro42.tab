@@ -1,0 +1,14 @@
+create table BCCRO42
+(
+  bccr4emp NUMBER(3) not null,
+  bccr4arc CHAR(10) not null,
+  bccr4nar NUMBER(10) not null,
+  bccr4co  NUMBER(8) not null,
+  bccr4sig NUMBER(8) not null,
+  bccr4txt CHAR(30),
+  bccr4val CHAR(40)
+)
+;
+alter table BCCRO42
+  add primary key (BCCR4EMP, BCCR4ARC, BCCR4NAR, BCCR4CO, BCCR4SIG);
+

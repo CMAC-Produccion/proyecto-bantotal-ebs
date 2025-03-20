@@ -1,0 +1,13 @@
+create table REP025
+(
+  rep025scod NUMBER(3) not null,
+  rep025smod NUMBER(3) not null,
+  rep025stra NUMBER(3) not null,
+  rep025snim NUMBER(3) not null,
+  rep001cod  NUMBER(10)
+)
+;
+create index REP02502 on REP025 (REP001COD);
+alter table REP025
+  add primary key (REP025SCOD, REP025SMOD, REP025STRA, REP025SNIM);
+

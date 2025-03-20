@@ -1,0 +1,26 @@
+create table FST237
+(
+  relpgcod  NUMBER(3) not null,
+  reltrmod  NUMBER(3) not null,
+  reltrnro  NUMBER(3) not null,
+  reltrord  NUMBER(2) not null,
+  relrelcod NUMBER(3) not null,
+  relord    NUMBER(3) not null,
+  relmod    NUMBER(3),
+  relrub    NUMBER(16),
+  relobl    CHAR(1),
+  relpos    CHAR(1),
+  relstori  NUMBER(2),
+  relstdes  NUMBER(2),
+  relcta    CHAR(1),
+  relope    CHAR(1),
+  relsbop   CHAR(1),
+  relcd01   CHAR(1),
+  relcd02   CHAR(1),
+  relcd03   CHAR(1),
+  relcd04   NUMBER(9)
+)
+;
+alter table FST237
+  add primary key (RELPGCOD, RELTRMOD, RELTRNRO, RELTRORD, RELRELCOD, RELORD);
+

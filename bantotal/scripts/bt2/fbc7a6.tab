@@ -1,0 +1,51 @@
+create table FBC7A6
+(
+  bc7a6emp   NUMBER(3) not null,
+  bc7a6fch   DATE not null,
+  bc7a6ent   NUMBER(3) not null,
+  bc7a6succ  NUMBER(4) not null,
+  bc7a6sub   CHAR(4) not null,
+  bc7a6codp  CHAR(4) not null,
+  bc7a6cruc  CHAR(30) not null,
+  bc7a6ori   CHAR(1) not null,
+  bc7a6corr  NUMBER(9) not null,
+  bc7a6digv  NUMBER(2),
+  bc7a6enom  CHAR(60),
+  bc7a6codg  CHAR(30),
+  bc7a6tpor  CHAR(4),
+  bc7a6coda  NUMBER(4),
+  bc7a6cata  CHAR(2),
+  bc7a6codt  CHAR(2),
+  bc7a6dest  CHAR(1),
+  bc7a6sect  CHAR(1),
+  bc7a6mdai  CHAR(3),
+  bc7a6paie  NUMBER(3),
+  bc7a6ries  CHAR(2),
+  bc7a6fvto  DATE,
+  bc7a6fv_c  DATE,
+  bc7a6cato  CHAR(2),
+  bc7a6cupf  CHAR(30),
+  bc7a6cupc  NUMBER(17,2),
+  bc7a6porp  NUMBER(17,2),
+  bc7a6valn  NUMBER(17,2),
+  bc7a6vala  NUMBER(17,2),
+  bc7a6vall  NUMBER(17,2),
+  bc7a6valm  NUMBER(17,2),
+  bc7a6amoa  NUMBER(17,2),
+  bc7a6prov  NUMBER(17,2),
+  bc7a6valv  NUMBER(17,2),
+  bc7a6mod   NUMBER(3),
+  bc7a6suc   NUMBER(3),
+  bc7a6mda   NUMBER(4),
+  bc7a6pap   NUMBER(4),
+  bc7a6cta   NUMBER(9),
+  bc7a6oper  NUMBER(9),
+  bc7a6sbop  NUMBER(3),
+  bc7a6tope  NUMBER(3),
+  bc7a6greco CHAR(30)
+)
+;
+create index FBC7A602 on FBC7A6 (BC7A6EMP, BC7A6FCH, BC7A6CTA, BC7A6OPER, BC7A6SBOP, BC7A6MOD, BC7A6MDA, BC7A6SUC, BC7A6PAP, BC7A6TOPE);
+alter table FBC7A6
+  add primary key (BC7A6EMP, BC7A6FCH, BC7A6ENT, BC7A6SUCC, BC7A6SUB, BC7A6CODP, BC7A6CRUC, BC7A6ORI, BC7A6CORR);
+

@@ -1,0 +1,21 @@
+create table CTDAUX8
+(
+  ctdaux8fch DATE not null,
+  ctdaux8hra CHAR(8) not null,
+  ctdaux8ctn NUMBER(9) not null,
+  ctdaux8usr CHAR(10) not null,
+  ctdaux8mod CHAR(1) not null,
+  ctdaux8tb  CHAR(10),
+  ctdaux8a1  NUMBER(9),
+  ctdaux8a2  NUMBER(9),
+  ctdaux8a3  CHAR(255),
+  ctdaux8a4  CHAR(255),
+  ctdaux8d1  DATE,
+  ctdaux8d2  DATE
+)
+;
+create index CTDAUX82 on CTDAUX8 (CTDAUX8MOD, CTDAUX8FCH, CTDAUX8HRA, CTDAUX8CTN);
+create index CTDAUX83 on CTDAUX8 (CTDAUX8CTN, CTDAUX8FCH);
+alter table CTDAUX8
+  add primary key (CTDAUX8FCH, CTDAUX8HRA, CTDAUX8CTN, CTDAUX8USR, CTDAUX8MOD);
+

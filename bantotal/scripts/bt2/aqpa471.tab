@@ -1,0 +1,394 @@
+create table AQPA471
+(
+  aqpa471trxid   NUMBER not null,
+  aqpa471todco   VARCHAR2(250),
+  aqpa471ibco    NUMBER,
+  aqpa471cuid    NUMBER,
+  aqpa471source  VARCHAR2(250),
+  aqpa471orad    VARCHAR2(250),
+  aqpa471prin1   VARCHAR2(250),
+  aqpa471prin2   VARCHAR2(250),
+  aqpa471prin3   VARCHAR2(250),
+  aqpa471tico    VARCHAR2(250),
+  aqpa471idcocl  VARCHAR2(250),
+  aqpa471otor    VARCHAR2(250),
+  aqpa471status  VARCHAR2(30),
+  aqpa471statusd VARCHAR2(3000),
+  aqpa471stsu    VARCHAR2(30),
+  aqpa471stsude  VARCHAR2(250),
+  aqpa471reco    VARCHAR2(30),
+  aqpa471reda    DATE,
+  aqpa471rede    VARCHAR2(250),
+  aqpa471reid    NUMBER,
+  aqpa471idreg   NUMBER,
+  aqpa471freg    DATE,
+  aqpa471idact   NUMBER,
+  aqpa471fact    DATE,
+  aqpa471coha    VARCHAR2(250),
+  aqpa471coharev VARCHAR2(250),
+  aqpa471favcl   DATE,
+  aqpa471fvasu   DATE,
+  aqpa471siemco  VARCHAR2(6),
+  aqpa471ertci   VARCHAR2(10),
+  aqpa471detci   VARCHAR2(3000),
+  aqpa471eres    VARCHAR2(10),
+  aqpa471deres   VARCHAR2(3000),
+  aqpa460cdley   NUMBER,
+  aqpa460teley   VARCHAR2(200),
+  aqpa460text1   VARCHAR2(1000),
+  aqpa460text2   VARCHAR2(1000),
+  aqpa460trecv   VARCHAR2(1000),
+  aqpa460templ   VARCHAR2(3),
+  aqpa460subje   VARCHAR2(100),
+  aqpa460mtotal  NUMBER,
+  aqpa460baimp   NUMBER,
+  aqpa460mtimp   NUMBER,
+  aqpa460pcima   NUMBER,
+  aqpa460bsimp   NUMBER,
+  aqpa460vaimp   NUMBER,
+  aqpa460mtinf   NUMBER,
+  aqpa460mtgrt   NUMBER,
+  aqpa460bsimps  NUMBER,
+  aqpa460mtoti   NUMBER,
+  aqpa460tdoc    VARCHAR2(1),
+  aqpa460rucc    VARCHAR2(11),
+  aqpa460rsoc    VARCHAR2(1500),
+  aqpa460cdis    VARCHAR2(6),
+  aqpa460ncom    VARCHAR2(1500),
+  aqpa460calle   VARCHAR2(200),
+  aqpa460urba    VARCHAR2(25),
+  aqpa460depa    VARCHAR2(100),
+  aqpa460prov    VARCHAR2(30),
+  aqpa460dist    VARCHAR2(30),
+  aqpa460telf    VARCHAR2(20),
+  aqpa460web     VARCHAR2(100),
+  aqpa460cpais   VARCHAR2(2),
+  aqpa460cesun   VARCHAR2(4),
+  aqpa460seri    VARCHAR2(4),
+  aqpa460num     NUMBER,
+  aqpa460femi    DATE,
+  aqpa460tcomf   VARCHAR2(2),
+  aqpa460mone    VARCHAR2(3),
+  aqpa460corrr   VARCHAR2(100),
+  aqpa460mglo    VARCHAR2(100),
+  aqpa460coma    VARCHAR2(20),
+  aqpa460tpla    VARCHAR2(3),
+  aqpa460tope    VARCHAR2(4),
+  aqpa460tplco   VARCHAR2(3),
+  aqpa460clog    VARCHAR2(3),
+  aqpa460tdocr   VARCHAR2(1),
+  aqpa460nruc    VARCHAR2(15),
+  aqpa460rasoc   VARCHAR2(1500),
+  aqpa460impt    NUMBER,
+  aqpa460hemi    VARCHAR2(12),
+  aqpa460simc    NUMBER,
+  aqpa460svitm   NUMBER,
+  aqpa460spvi    NUMBER,
+  aqpa460txml    VARCHAR2(3),
+  aqpa460cdist   VARCHAR2(6),
+  aqpa460call    VARCHAR2(500),
+  aqpa460urb     VARCHAR2(100),
+  aqpa460dep     VARCHAR2(500),
+  aqpa460prv     VARCHAR2(500),
+  aqpa460dst     VARCHAR2(500),
+  aqpa460cpai    VARCHAR2(2),
+  aqpa460sdref   VARCHAR2(50),
+  aqpa460ndref   NUMBER,
+  aqpa460cmem    VARCHAR2(2),
+  aqpa460sust    VARCHAR2(250),
+  aqpa460serie   VARCHAR2(50),
+  aqpa460nro     NUMBER,
+  aqpa460tcomp   VARCHAR2(2),
+  aqpa460fdref   VARCHAR2(10),
+  aqpa471fepro   DATE,
+  aqpa471ncoap   NUMBER,
+  aqpa471scoap   VARCHAR2(4),
+  aqpa471cesot   VARCHAR2(10),
+  aqpa471cesle   VARCHAR2(10),
+  aqpa471cesre   VARCHAR2(10),
+  aqpa471coes    VARCHAR2(1),
+  aqpa471codrco  VARCHAR2(1),
+  aqpa471conrco  VARCHAR2(1),
+  aqpa471ereco   VARCHAR2(500),
+  aqpa471noxml   VARCHAR2(250),
+  aqpa471xml     BLOB,
+  aqpa471nopdf   VARCHAR2(250),
+  aqpa471pdf     BLOB,
+  aqpa471flgexp  VARCHAR2(1) default 'N',
+  aqpa471reqid   NUMBER
+)
+;
+comment on column AQPA471.aqpa471trxid
+  is 'Codigo de transaccion';
+comment on column AQPA471.aqpa471todco
+  is 'Tipo de Operación Descripcion de Comprobante';
+comment on column AQPA471.aqpa471ibco
+  is 'Importe Base de Comprobante';
+comment on column AQPA471.aqpa471cuid
+  is 'Codigo Cliente';
+comment on column AQPA471.aqpa471source
+  is 'Origen';
+comment on column AQPA471.aqpa471orad
+  is 'Direccion de la Organización';
+comment on column AQPA471.aqpa471prin1
+  is 'Impresión de Informacion 1';
+comment on column AQPA471.aqpa471prin2
+  is 'Impresión de Informacion 2';
+comment on column AQPA471.aqpa471prin3
+  is 'Impresión de Informacion 3';
+comment on column AQPA471.aqpa471tico
+  is 'Tipo de Codigo';
+comment on column AQPA471.aqpa471idcocl
+  is 'Codigo Comprobante Cliente';
+comment on column AQPA471.aqpa471otor
+  is 'Otorgar';
+comment on column AQPA471.aqpa471status
+  is 'Estado';
+comment on column AQPA471.aqpa471statusd
+  is 'Descripcion del Estado';
+comment on column AQPA471.aqpa471stsu
+  is 'Estado SUNAT';
+comment on column AQPA471.aqpa471stsude
+  is 'Descripcion de Estado SUNAT';
+comment on column AQPA471.aqpa471reco
+  is 'Codigo de Reversion
+';
+comment on column AQPA471.aqpa471reda
+  is 'Fecha de Reversion
+';
+comment on column AQPA471.aqpa471rede
+  is 'Descripcion de Reversion';
+comment on column AQPA471.aqpa471reid
+  is 'Codigo de Solicitud';
+comment on column AQPA471.aqpa471idreg
+  is 'Codigo de Registro';
+comment on column AQPA471.aqpa471freg
+  is 'Fecha de Registro';
+comment on column AQPA471.aqpa471idact
+  is 'Codigo de Ultima Actualizacion';
+comment on column AQPA471.aqpa471fact
+  is 'Fecha de Ultima Actualizacion';
+comment on column AQPA471.aqpa471coha
+  is 'Codigo Hash';
+comment on column AQPA471.aqpa471coharev
+  is 'Codigo Hash Reversion';
+comment on column AQPA471.aqpa471favcl
+  is 'Fecha Aviso Cliente';
+comment on column AQPA471.aqpa471fvasu
+  is 'Fecha Valida SUNAT
+';
+comment on column AQPA471.aqpa471siemco
+  is 'Sistema Emisor del Comprobante
+';
+comment on column AQPA471.aqpa471ertci
+  is 'Error TCI
+';
+comment on column AQPA471.aqpa471detci
+  is 'Descripcion Error TCI
+';
+comment on column AQPA471.aqpa471eres
+  is 'Error Estado
+';
+comment on column AQPA471.aqpa471deres
+  is 'Descripcion Error Estado
+';
+comment on column AQPA471.aqpa460cdley
+  is 'Codigo de la Leyenda Utilizado para Leyendas
+';
+comment on column AQPA471.aqpa460teley
+  is 'Texto de la leyenda  Utilizado para Leyendas
+';
+comment on column AQPA471.aqpa460text1
+  is '"Texto libre 1 : Producto  Informaci?n adicional para la visualizacion
+ de representaciones impresas, antes definido por el integrador."
+';
+comment on column AQPA471.aqpa460text2
+  is '"Texto libre 2 : N?mero de Cr?dito Informaci?n adicional para la visualizacion
+ de representaciones impresas, antes definido por el integrador."
+';
+comment on column AQPA471.aqpa460trecv
+  is '"Correo del receptor Utilizado para enviar correos adicionales con
+copia al Correo del Receptor, ingresado en ENComprobante.Correo"
+';
+comment on column AQPA471.aqpa460templ
+  is '"C?digo de Tipo de Plantilla  Utilizado para enviar correos adicionales con
+copia al Correo del Receptor, ingresado en ENComprobante.Correo"
+';
+comment on column AQPA471.aqpa460subje
+  is '"Asunto del correo Utilizado para enviar correos adicionales con
+copia al Correo del Receptor, ingresado en ENComprobante.Correo"
+';
+comment on column AQPA471.aqpa460mtotal
+  is 'Monto total Gravado (Sin impuesto)  Informaci?n de gravada
+';
+comment on column AQPA471.aqpa460baimp
+  is 'Base del impuesto  IGV del Gravado
+';
+comment on column AQPA471.aqpa460mtimp
+  is 'Monto total solo del impuesto   IGV del Gravado
+';
+comment on column AQPA471.aqpa460pcima
+  is 'Porcentaje del impuesto aplicado  IGV del Gravado
+';
+comment on column AQPA471.aqpa460bsimp
+  is 'Base del impuesto Otros impuestos del Gravado
+';
+comment on column AQPA471.aqpa460vaimp
+  is 'Monto total solo del impuesto  Otros impuestos del Gravado
+';
+comment on column AQPA471.aqpa460mtinf
+  is 'Monto total Inafecto  Informaci?n de inafecto
+';
+comment on column AQPA471.aqpa460mtgrt
+  is 'Monto total Gratuito  Informaci?n de gratuito
+';
+comment on column AQPA471.aqpa460bsimps
+  is 'Base del impuesto Impuestos del Gratuito
+';
+comment on column AQPA471.aqpa460mtoti
+  is 'Monto total de impuestos Impuestos del Gratuito
+';
+comment on column AQPA471.aqpa460tdoc
+  is 'Codigo del Tipo de Documento de Identidad oENEmpresa
+';
+comment on column AQPA471.aqpa460rucc
+  is 'N?mero de documento de identidad del emisor oENEmpresa
+';
+comment on column AQPA471.aqpa460rsoc
+  is 'Apellidos y nombres o denominaci?n o raz?n social oENEmpresa
+';
+comment on column AQPA471.aqpa460cdis
+  is 'Codigo de UBIGEO oENEmpresa
+';
+comment on column AQPA471.aqpa460ncom
+  is 'Nombre Comercial oENEmpresa
+';
+comment on column AQPA471.aqpa460calle
+  is 'Direcci?n completa y detallada oENEmpresa
+';
+comment on column AQPA471.aqpa460urba
+  is 'Urbanizacion o Zona  oENEmpresa
+';
+comment on column AQPA471.aqpa460depa
+  is 'Departamento, expresado textualmente  oENEmpresa';
+comment on column AQPA471.aqpa460prov
+  is 'Provincia, expresarlo textualmente   oENEmpresa';
+comment on column AQPA471.aqpa460dist
+  is 'Distrito, expresarlo textualmente oENEmpres';
+comment on column AQPA471.aqpa460telf
+  is 'Telefono de la Empresa Emisora oENEmpres';
+comment on column AQPA471.aqpa460web
+  is 'Pagina Web del Emisor oENEmpres';
+comment on column AQPA471.aqpa460cpais
+  is 'Codigo del Pais del Emisor oENEmpres';
+comment on column AQPA471.aqpa460cesun
+  is 'C?digo del establecimiento de Sunat  oENEmpres';
+comment on column AQPA471.aqpa460seri
+  is 'Serie del comprobante.  Datos del Comprobante';
+comment on column AQPA471.aqpa460num
+  is 'Numero Correlativo del comprobante. Datos del Comprobante';
+comment on column AQPA471.aqpa460femi
+  is 'Fecha de Emision del Comprobante Datos del Comprobante';
+comment on column AQPA471.aqpa460tcomf
+  is 'Codigo del Tipo de Comprobante Datos del Comprobante';
+comment on column AQPA471.aqpa460mone
+  is 'Codigo del Tipo de Moneda Datos del Comprobante';
+comment on column AQPA471.aqpa460corrr
+  is 'El correo electr?nico del Receptor  Datos del Comprobante';
+comment on column AQPA471.aqpa460mglo
+  is 'Multiples Informaci?n adicional u observacion del comprobante.  Datos del Comprobante';
+comment on column AQPA471.aqpa460coma
+  is 'Numero Interno del Comprobante Datos del Comprobante';
+comment on column AQPA471.aqpa460tpla
+  is 'Tiplo de Plantilla  Datos del Comprobante';
+comment on column AQPA471.aqpa460tope
+  is 'C?digo de Tipo de operaciones Datos del Comprobante';
+comment on column AQPA471.aqpa460tplco
+  is 'C?digo de plantilla de correo  Datos del Comprobante';
+comment on column AQPA471.aqpa460clog
+  is 'C?digo del tipo de Logo Datos del Comprobante';
+comment on column AQPA471.aqpa460tdocr
+  is 'Codigo del tipo de documento de identificaci?n del Receptor Datos del Comprobante';
+comment on column AQPA471.aqpa460nruc
+  is 'N?mero de documento de identificaci?n Datos del Comprobante';
+comment on column AQPA471.aqpa460rasoc
+  is 'Apellidos y nombres o denominaci?n o raz?n social Datos del Comprobante';
+comment on column AQPA471.aqpa460impt
+  is 'Importe total  a pagar Datos del Comprobante';
+comment on column AQPA471.aqpa460hemi
+  is 'Hora de Emisi?n  Datos del Comprobante';
+comment on column AQPA471.aqpa460simc
+  is 'Suma de todos los impuestos del comprobante.  Datos del Comprobante';
+comment on column AQPA471.aqpa460svitm
+  is 'Suma del valor de venta total de todos los items   Datos del Comprobante';
+comment on column AQPA471.aqpa460spvi
+  is 'Suma de los precios de venta total de todos los items  Datos del Comprobante';
+comment on column AQPA471.aqpa460txml
+  is 'Indica el tipo de XML que se generar? Datos del Comprobante';
+comment on column AQPA471.aqpa460cdist
+  is 'C?digo de UBIGEO Datos adicionales del Receptor';
+comment on column AQPA471.aqpa460call
+  is 'Direcci?n completa y detallada Datos adicionales del Receptor';
+comment on column AQPA471.aqpa460urb
+  is 'Urbanizacion o Zona   Datos adicionales del Receptor';
+comment on column AQPA471.aqpa460dep
+  is 'Departamento Datos adicionales del Receptor';
+comment on column AQPA471.aqpa460prv
+  is 'Provincia   Datos adicionales del Receptor';
+comment on column AQPA471.aqpa460dst
+  is 'Distrito Datos adicionales del Receptor';
+comment on column AQPA471.aqpa460cpai
+  is 'C?digo del Pa?s  Datos adicionales del Receptor';
+comment on column AQPA471.aqpa460sdref
+  is 'Serie documento al que se aplica la nota. ENComprobanteMotivoDocumento';
+comment on column AQPA471.aqpa460ndref
+  is 'Numero  documento al que se aplica la nota.  ENComprobanteMotivoDocumento';
+comment on column AQPA471.aqpa460cmem
+  is 'C?digo por el cual se emite la nota.  ENComprobanteMotivoDocumento';
+comment on column AQPA471.aqpa460sust
+  is 'Sustento ENComprobanteMotivoDocumentoSustento';
+comment on column AQPA471.aqpa460serie
+  is 'Serie del comprobante referenciado. Referencia a un comprobante';
+comment on column AQPA471.aqpa460nro
+  is 'N?mero del comprobante referenciado Referencia a un comprobante';
+comment on column AQPA471.aqpa460tcomp
+  is 'C?digo del tipo de comprobante.  Referencia a un comprobante';
+comment on column AQPA471.aqpa460fdref
+  is 'Fecha de emisi?n del comprobante referenciado. Referencia a un comprobante';
+comment on column AQPA471.aqpa471fepro
+  is 'Fecha de Proceso';
+comment on column AQPA471.aqpa471ncoap
+  is 'Numero de Comprobante Aplicado';
+comment on column AQPA471.aqpa471scoap
+  is 'Serie de Comprobante Aplicado';
+comment on column AQPA471.aqpa471cesot
+  is 'Configuracion de Estado Otorgar';
+comment on column AQPA471.aqpa471cesle
+  is 'Configuracion de Estado Leido';
+comment on column AQPA471.aqpa471cesre
+  is 'Configuracion de Estado Rechazado';
+comment on column AQPA471.aqpa471coes
+  is 'Confirmar Estado';
+comment on column AQPA471.aqpa471codrco
+  is 'Codigo Responsable de Comprobante';
+comment on column AQPA471.aqpa471conrco
+  is 'Configuracion Responsable de Comprobante';
+comment on column AQPA471.aqpa471ereco
+  is 'Error Responsable de Comprobante';
+comment on column AQPA471.aqpa471noxml
+  is 'Nombre de Archivo XML';
+comment on column AQPA471.aqpa471xml
+  is 'Archivo XML';
+comment on column AQPA471.aqpa471nopdf
+  is 'Nombre de Archivo PDF';
+comment on column AQPA471.aqpa471pdf
+  is 'Archivo PDF';
+comment on column AQPA471.aqpa471flgexp
+  is 'Flag de exportacion al EBS';
+comment on column AQPA471.aqpa471reqid
+  is 'Request ID del concurrente que importa al EBS';
+create unique index AQPA4712 on AQPA471 (AQPA460SERI, AQPA460NUM);
+create index AQPA4713 on AQPA471 (AQPA471STATUS, AQPA471NOXML, AQPA471NOPDF, AQPA460SERI, AQPA460NUM);
+alter table AQPA471
+  add primary key (AQPA471TRXID);
+

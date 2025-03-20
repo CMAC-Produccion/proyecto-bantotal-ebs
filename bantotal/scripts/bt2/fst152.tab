@@ -1,0 +1,12 @@
+create table FST152
+(
+  pgcod    NUMBER(3) not null,
+  secccod  NUMBER(5) not null,
+  nivcod   NUMBER(3) not null,
+  montoaut NUMBER(17,2)
+)
+;
+create index FST15202 on FST152 (PGCOD, NIVCOD);
+alter table FST152
+  add primary key (PGCOD, SECCCOD, NIVCOD);
+

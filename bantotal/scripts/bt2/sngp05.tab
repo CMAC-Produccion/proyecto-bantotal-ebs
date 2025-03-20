@@ -1,0 +1,13 @@
+create table SNGP05
+(
+  sngp05pgc  NUMBER(4) not null,
+  sngp09cod  NUMBER(3) not null,
+  sngp05chr1 CHAR(1),
+  sngp05int9 NUMBER(9),
+  sngp05pgm1 CHAR(10)
+)
+;
+create index SNGP0502 on SNGP05 (SNGP09COD);
+alter table SNGP05
+  add primary key (SNGP05PGC, SNGP09COD);
+

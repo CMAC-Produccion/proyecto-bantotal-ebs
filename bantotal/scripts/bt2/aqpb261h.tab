@@ -1,0 +1,18 @@
+create table AQPB261H
+(
+  aqpb261hfec DATE,
+  aqpb261hcta NUMBER,
+  aqpb261hope NUMBER,
+  aqpb261hdia NUMBER,
+  aqpb261hdnz NUMBER
+)
+compress;
+comment on table AQPB261H
+  is 'Historico - REP_DIAS_ATRASO_HIST - BI';
+create index AQPB261H2 on AQPB261H (AQPB261HFEC)
+  compress;
+create index AQPB261H3 on AQPB261H (AQPB261HFEC, AQPB261HCTA, AQPB261HOPE)
+  compress;
+create index AQPB261H4 on AQPB261H (AQPB261HCTA, AQPB261HOPE, AQPB261HDIA, AQPB261HFEC)
+  compress;
+

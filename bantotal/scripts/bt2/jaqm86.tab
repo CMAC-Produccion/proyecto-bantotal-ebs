@@ -1,0 +1,43 @@
+create table JAQM86
+(
+  jaqm86fech DATE not null,
+  jaqm86hor  CHAR(8) not null,
+  jaqm86cuen NUMBER(10) not null,
+  jaqm86nuop NUMBER(10) not null,
+  jaqm86anal CHAR(20),
+  jaqm86clie VARCHAR2(255),
+  jaqm86prcj VARCHAR2(255),
+  jaqm86diav NUMBER(10),
+  jaqm86psbs VARCHAR2(255),
+  jaqm86mopv NUMBER(17,2),
+  jaqm86move NUMBER(17,2),
+  jaqm86tirp VARCHAR2(100),
+  jaqm86nu1  NUMBER(9),
+  jaqm86nu2  NUMBER(9),
+  jaqm86nu3  NUMBER(9),
+  jaqm86m1   NUMBER(17,2),
+  jaqm86m2   NUMBER(17,2),
+  jaqm86m3   NUMBER(17,2),
+  jaqm86va1  VARCHAR2(255),
+  jaqm86va2  VARCHAR2(255),
+  jaqm86va3  VARCHAR2(255),
+  jaqm86fe1  DATE,
+  jaqm86fe2  DATE,
+  jaqm86fe3  DATE,
+  jaqm86datr NUMBER(4),
+  jaqm86upag DATE,
+  jaqm86cpag NUMBER(17,2),
+  jaqm86fpag DATE,
+  jaqm86scap NUMBER(17,2),
+  jaqm86tope NUMBER(3),
+  jaqm86sope NUMBER(3),
+  jaqm86pape NUMBER(4),
+  jaqm86mone NUMBER(4),
+  jaqm86sucu NUMBER(3),
+  jaqm86modu NUMBER(3),
+  jaqm86empr NUMBER(3)
+)
+;
+create index JAQM86A21 on JAQM86 (JAQM86FECH, JAQM86ANAL)
+  compress;
+

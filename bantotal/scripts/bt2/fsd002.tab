@@ -1,0 +1,33 @@
+create table FSD002
+(
+  pfpais NUMBER(3) not null,
+  pftdoc NUMBER(2) not null,
+  pfndoc CHAR(12) not null,
+  pfape1 CHAR(30),
+  pfape2 CHAR(30),
+  pfnom1 CHAR(25),
+  pfnom2 CHAR(25),
+  pfebco CHAR(1),
+  pffibc DATE,
+  pfcant CHAR(1),
+  pffnac DATE,
+  pfeciv CHAR(1),
+  pfpnac NUMBER(3),
+  pflnac CHAR(20),
+  pfcleg CHAR(1),
+  pffleg DATE,
+  pffal  CHAR(1),
+  pfffal DATE,
+  pfcapl NUMBER(2),
+  pffant DATE,
+  pfepat CHAR(1),
+  pffpep DATE
+)
+;
+create index FSD00202 on FSD002 (PFPNAC);
+create index FSD00203 on FSD002 (PFECIV);
+create index FSD00204 on FSD002 (PFCAPL);
+create index FSD00206 on FSD002 (PFAPE1, PFNOM1);
+alter table FSD002
+  add primary key (PFPAIS, PFTDOC, PFNDOC);
+

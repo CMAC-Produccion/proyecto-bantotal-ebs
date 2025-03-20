@@ -1,0 +1,19 @@
+create table Z0E4PB
+(
+  z0e4pbemp  NUMBER(3) not null,
+  z0e4pbcta  NUMBER(9) not null,
+  z0e4pbdsc  CHAR(30),
+  z0e4pbcuit CHAR(11),
+  z0e4pbfmd  DATE,
+  z0e4pbumd  CHAR(10),
+  z0e4pbfau  DATE,
+  z0e4pbuau  CHAR(10),
+  z0e4pbest  CHAR(2),
+  z0e4pbtso  CHAR(1),
+  z0e4pbpgm  CHAR(8)
+)
+;
+create index Z0E4PB02 on Z0E4PB (Z0E4PBEMP, Z0E4PBDSC);
+alter table Z0E4PB
+  add primary key (Z0E4PBEMP, Z0E4PBCTA);
+

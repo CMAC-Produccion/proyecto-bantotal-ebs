@@ -1,0 +1,29 @@
+create table AQPA156
+(
+  aqpa156id     NUMBER(10) not null,
+  aqpa156tipope CHAR(1),
+  aqpa156codreq NUMBER(10),
+  aqpa156xml    CLOB,
+  aqpa156fecreg DATE,
+  aqpa156horreg VARCHAR2(10),
+  aqpa156flgpro CHAR(1),
+  aqpa156coderr CHAR(5),
+  aqpa156msjerr VARCHAR2(100),
+  aqpa156codcan NUMBER(3),
+  aqpa156codusu CHAR(10),
+  aqpa156idord  VARCHAR2(50),
+  aqpa156tipres VARCHAR2(50),
+  aqpa156codrea VARCHAR2(10),
+  aqpa156numdoc CHAR(12),
+  aqpa156tipdoc VARCHAR2(10),
+  aqpa156findat VARCHAR2(30),
+  aqpa156idedoc VARCHAR2(100),
+  aqpa156paidoc VARCHAR2(10)
+)
+;
+create index AQPA1562 on AQPA156 (AQPA156FECREG, AQPA156TIPRES, AQPA156FLGPRO);
+create index AQPA1563 on AQPA156 (AQPA156IDORD, AQPA156FINDAT);
+create index AQPA1564 on AQPA156 (AQPA156CODREQ, AQPA156TIPRES, AQPA156CODREA);
+alter table AQPA156
+  add primary key (AQPA156ID);
+

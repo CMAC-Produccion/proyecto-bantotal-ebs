@@ -1,0 +1,46 @@
+create table JSBC01
+(
+  jsbc01pg   NUMBER(3) not null,
+  jsbc01ope  NUMBER(9) not null,
+  jsbc01cest CHAR(4),
+  jsbc01gest NUMBER(2),
+  jsbc02erem NUMBER(3),
+  jsbc01ref  CHAR(20),
+  jsbc01mda  NUMBER(4),
+  jsbc01imp  NUMBER(17,2),
+  jsbc01fing DATE,
+  jsbc01fval DATE,
+  jsbc01fvto DATE,
+  jsbc01tpag NUMBER(2),
+  jsbc01mctb NUMBER(3),
+  jsbc01ctb  NUMBER(9),
+  jsbc01sctb NUMBER(9),
+  jsbc01nben CHAR(65),
+  jsbc01tdob NUMBER(2),
+  jsbc01ndob CHAR(20),
+  jsbc01dben CHAR(60),
+  jsbc01cben CHAR(30),
+  jsbc01eben CHAR(30),
+  jsbc01cpb  CHAR(30),
+  jsbc01te1b CHAR(20),
+  jsbc01te2b CHAR(20),
+  jsbc01nac  CHAR(1),
+  jsbc01aux1 CHAR(65),
+  jsbc01aux2 CHAR(65),
+  jsbc01aux3 CHAR(65),
+  jsbc01aux4 CHAR(65),
+  jsbc01aux5 CHAR(65),
+  jsbc01aux6 NUMBER(17,2),
+  jsbc01aux7 NUMBER(17,2),
+  jsbc01aux8 NUMBER(17,2),
+  jsbc01aux9 DATE
+)
+;
+create index JSBC0102 on JSBC01 (JSBC02EREM);
+create index JSBC0103 on JSBC01 (JSBC01PG, JSBC02EREM, JSBC01GEST, JSBC01AUX9);
+create index JSBC0104 on JSBC01 (JSBC01PG, JSBC02EREM, JSBC01GEST, JSBC01FVAL);
+create index JSBC0105 on JSBC01 (JSBC01PG, JSBC02EREM, JSBC01GEST, JSBC01AUX6, JSBC01AUX9);
+create index JSBC0106 on JSBC01 (JSBC01PG, JSBC02EREM, JSBC01REF);
+alter table JSBC01
+  add primary key (JSBC01PG, JSBC01OPE);
+

@@ -1,0 +1,27 @@
+create table JAQY659
+(
+  jaqy659cod NUMBER(18) not null,
+  jaqy659age VARCHAR2(50),
+  jaqy659fec DATE,
+  jaqy659hor VARCHAR2(30),
+  jaqy659ope VARCHAR2(20),
+  jaqy659cli VARCHAR2(70),
+  jaqy659tc  NUMBER(9,8),
+  jaqy659m1  NUMBER(17,2),
+  jaqy659m2  NUMBER(17,2),
+  tipo       VARCHAR2(2),
+  usuario    VARCHAR2(20),
+  jaqy659dni CHAR(12),
+  jaqy659au1 NUMBER(4),
+  jaqy659au2 NUMBER(17,2),
+  jaqy659au3 CHAR(20),
+  jaqy659au4 VARCHAR2(40),
+  jaqy659au5 DATE,
+  jaqy659au6 CHAR(200)
+)
+;
+create index IJAQY6591 on JAQY659 (USUARIO);
+create index IJAQY659101 on JAQY659 (JAQY659FEC, JAQY659HOR);
+alter table JAQY659
+  add primary key (JAQY659COD);
+

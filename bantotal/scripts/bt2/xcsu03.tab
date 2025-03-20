@@ -1,0 +1,18 @@
+create table XCSU03
+(
+  csucod    NUMBER(3) not null,
+  csusuc    NUMBER(3) not null,
+  csurub    NUMBER(16) not null,
+  csumda    NUMBER(4) not null,
+  csupap    NUMBER(4) not null,
+  csucta    NUMBER(9) not null,
+  csuoper   NUMBER(9) not null,
+  csusbop   NUMBER(3) not null,
+  csutope   NUMBER(3) not null,
+  csutblnom CHAR(8) not null,
+  csutblsts CHAR(1)
+)
+;
+alter table XCSU03
+  add primary key (CSUCOD, CSUSUC, CSURUB, CSUMDA, CSUPAP, CSUCTA, CSUOPER, CSUSBOP, CSUTOPE, CSUTBLNOM);
+

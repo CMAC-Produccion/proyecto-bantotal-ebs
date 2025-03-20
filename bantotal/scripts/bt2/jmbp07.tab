@@ -1,0 +1,26 @@
+create table JMBP07
+(
+  jmbp07atm CHAR(16) not null,
+  jmbp07fch DATE not null,
+  jmbp07hor CHAR(8) not null,
+  jmbp07mda NUMBER(4) not null,
+  jmbp07den NUMBER(17,2) not null,
+  jmbp07tpo CHAR(1) not null,
+  jmbp07dsb CHAR(1) not null,
+  jmbp07cnt NUMBER(9),
+  jmbp07imp NUMBER(17,2),
+  jmbp07emp NUMBER(3),
+  jmbp07suc NUMBER(3),
+  jmbp07mod NUMBER(3),
+  jmbp07trn NUMBER(3),
+  jmbp07rel NUMBER(4),
+  jmbp07fco DATE,
+  jmbp07rem NUMBER(9),
+  jmbp07est CHAR(1),
+  jmbp07tra CHAR(1)
+)
+;
+create index JMBP0702 on JMBP07 (JMBP07EMP, JMBP07SUC, JMBP07MOD, JMBP07TRN, JMBP07REL, JMBP07FCO);
+alter table JMBP07
+  add primary key (JMBP07ATM, JMBP07FCH, JMBP07HOR, JMBP07MDA, JMBP07DEN, JMBP07TPO, JMBP07DSB);
+

@@ -1,0 +1,21 @@
+create table JAQY346_AUX_II
+(
+  jaqy346pai NUMBER(3),
+  jaqy346tdo NUMBER(2),
+  jaqy346ndo CHAR(12),
+  jaqy346res NUMBER(17,2),
+  jaqy346pat NUMBER(17,2)
+)
+;
+comment on column JAQY346_AUX_II.jaqy346pai
+  is 'Pais';
+comment on column JAQY346_AUX_II.jaqy346tdo
+  is 'Tipo de documento';
+comment on column JAQY346_AUX_II.jaqy346ndo
+  is 'Numero de documento';
+comment on column JAQY346_AUX_II.jaqy346res
+  is 'Resultado Neto';
+comment on column JAQY346_AUX_II.jaqy346pat
+  is 'Patrimonio';
+create index IDX_JAQY346_AUX_II_01 on JAQY346_AUX_II (JAQY346PAI, JAQY346TDO, JAQY346NDO);
+

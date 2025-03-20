@@ -1,0 +1,30 @@
+create table FSX016
+(
+  pgcod  NUMBER(3) not null,
+  hcmod  NUMBER(3) not null,
+  hsucor NUMBER(3) not null,
+  htran  NUMBER(3) not null,
+  hnrel  NUMBER(4) not null,
+  hfcon  DATE not null,
+  hcord  NUMBER(2) not null,
+  hcsubo NUMBER(3) not null,
+  txcod  NUMBER(3) not null,
+  txoren NUMBER(3) not null,
+  txtord CHAR(65),
+  txtsuc NUMBER(3),
+  txtrub NUMBER(16),
+  txtmda NUMBER(4),
+  txtpap NUMBER(4),
+  txtcta NUMBER(9),
+  txtope NUMBER(9),
+  txtsbo NUMBER(3),
+  txttop NUMBER(3),
+  txtmod NUMBER(3)
+)
+;
+create index FSX01603 on FSX016 (TXCOD);
+create index FSX01604 on FSX016 (PGCOD, TXTMOD, TXTSUC, TXTMDA, TXTPAP, TXTCTA, TXTOPE, TXTSBO, TXTTOP);
+create index FSX01605 on FSX016 (PGCOD, TXCOD, HFCON, HCMOD, HSUCOR, HTRAN, HNREL, TXOREN);
+alter table FSX016
+  add primary key (PGCOD, HCMOD, HSUCOR, HTRAN, HNREL, HFCON, HCORD, HCSUBO, TXCOD, TXOREN);
+

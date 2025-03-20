@@ -1,0 +1,13 @@
+create table FSFC01
+(
+  kmcod     NUMBER(3) not null,
+  kmcodpzo  NUMBER(3) not null,
+  kmdsc     CHAR(30),
+  kmdiasext NUMBER(5),
+  kmdiasloc NUMBER(5)
+)
+;
+create index FSFC0102 on FSFC01 (KMCOD, KMDSC);
+alter table FSFC01
+  add primary key (KMCOD, KMCODPZO);
+

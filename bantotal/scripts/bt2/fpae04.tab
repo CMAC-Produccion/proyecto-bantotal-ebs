@@ -1,0 +1,17 @@
+create table FPAE04
+(
+  pae04ite NUMBER(5) not null,
+  pae04des CHAR(40),
+  pae04cal CHAR(1),
+  pae04tva CHAR(1),
+  pae04crd CHAR(1),
+  pae04tda CHAR(1),
+  pae04lar NUMBER(2),
+  pae04dec NUMBER(2),
+  pae04hab CHAR(1)
+)
+;
+create index FPAE0402 on FPAE04 (PAE04DES);
+alter table FPAE04
+  add primary key (PAE04ITE);
+

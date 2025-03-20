@@ -1,0 +1,78 @@
+create table AQPB074
+(
+  aqpb074cod  NUMBER(3) not null,
+  aqpb074mod  NUMBER(3) not null,
+  aqpb074suc  NUMBER(3) not null,
+  aqpb074mda  NUMBER(4) not null,
+  aqpb074pap  NUMBER(4) not null,
+  aqpb074cta  NUMBER(9) not null,
+  aqpb074oper NUMBER(9) not null,
+  aqpb074sbop NUMBER(3) not null,
+  aqpb074tope NUMBER(3) not null,
+  aqpb074fval DATE,
+  aqpb074fvto DATE,
+  aqpb074pzo  NUMBER(5),
+  aqpb074tasa NUMBER(10,6),
+  aqpb074imp  NUMBER(17,2),
+  aqpb074md   CHAR(1),
+  aqpb074stat NUMBER(2),
+  aqpb074fe99 DATE,
+  aqpb074peri NUMBER(5),
+  aqpb074frep DATE not null,
+  aqpb074ncor NUMBER not null,
+  aqpb074proc VARCHAR2(100) not null,
+  aqpb074fcie DATE not null,
+  aqpb074inst NUMBER,
+  aqpb074est  VARCHAR2(100),
+  aqpb074fece DATE,
+  aqpb074diat NUMBER,
+  aqpb074diag NUMBER,
+  aqpb074fepv DATE,
+  aqpb074sdo  NUMBER(17,2),
+  aqpb074frer DATE,
+  aqpb074ncof NUMBER,
+  aqpb074tabr CHAR(10),
+  aqpb074fppk DATE,
+  aqpb074ncpr NUMBER,
+  aqpb074ncpa NUMBER,
+  aqpb074dakr NUMBER,
+  aqpb074orde NUMBER,
+  aqpb074actu VARCHAR2(10)
+)
+;
+comment on column AQPB074.aqpb074frep
+  is 'FECHA DE PROCESO DE REPROGRAMACION O AFECTACION DE DATOS';
+comment on column AQPB074.aqpb074ncor
+  is 'NRO CORRELATIVO';
+comment on column AQPB074.aqpb074proc
+  is 'TIPO DE PROCESO C= CAPITALIZACION , R = REPROGRAMACION , T=AJUSTE TASA';
+comment on column AQPB074.aqpb074fcie
+  is 'CIERE MENSUAL AL QUE AFECTA';
+comment on column AQPB074.aqpb074inst
+  is 'NRO INSTANCIA';
+comment on column AQPB074.aqpb074est
+  is 'ESTADO X=REVERSADO S= VIGENTE R=REPROGRAMADO';
+comment on column AQPB074.aqpb074fece
+  is 'FECHA CAMBIO ESTADO';
+comment on column AQPB074.aqpb074diat
+  is 'DIAS DE ATRASO';
+comment on column AQPB074.aqpb074diag
+  is 'DIAS GRACIA';
+comment on column AQPB074.aqpb074fepv
+  is 'FECHA PROXIMO PAGO';
+comment on column AQPB074.aqpb074sdo
+  is 'SALDO CAPITAL ';
+comment on column AQPB074.aqpb074fppk
+  is 'fecha primer pago de kapital';
+comment on column AQPB074.aqpb074ncpr
+  is 'nro. cuotas programadas';
+comment on column AQPB074.aqpb074ncpa
+  is 'nro cuotas pagadas';
+comment on column AQPB074.aqpb074dakr
+  is 'dia atraso de cuota';
+comment on column AQPB074.aqpb074actu
+  is 'Se ajusto dato por inconsistencia BDC';
+create index AQPB0742 on AQPB074 (AQPB074FREP, AQPB074NCOR);
+create index AQPB0743 on AQPB074 (AQPB074COD, AQPB074MOD, AQPB074SUC, AQPB074MDA, AQPB074PAP, AQPB074CTA, AQPB074OPER, AQPB074SBOP, AQPB074TOPE);
+create index AQPB0744 on AQPB074 (AQPB074CTA, AQPB074OPER, AQPB074SBOP, AQPB074FCIE);
+

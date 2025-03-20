@@ -1,0 +1,66 @@
+create table JAQA33
+(
+  jaqa33nco NUMBER(4) not null,
+  jaqa33frg DATE not null,
+  jaqa33cor NUMBER(9) not null,
+  jaqa33ana CHAR(10),
+  jaqa33mpc NUMBER(17,2),
+  jaqa33mpg CHAR(50),
+  jaqa33aac CHAR(50),
+  jaqa33hor CHAR(8),
+  jaqa33est CHAR(1),
+  jaqa33ai1 NUMBER(17,2),
+  jaqa33ai2 NUMBER(17,2),
+  jaqa33ac1 CHAR(50),
+  jaqa33ac2 CHAR(50),
+  jaqa33ad1 DATE,
+  jaqa33ad2 DATE,
+  jaqa33an1 NUMBER(4),
+  jaqa33an2 NUMBER(4),
+  jaqa33at1 CHAR(200),
+  jaqa33at2 CHAR(200)
+)
+;
+comment on table JAQA33
+  is 'Log de Pago de Casillero';
+comment on column JAQA33.jaqa33nco
+  is 'Número de Convenio';
+comment on column JAQA33.jaqa33frg
+  is 'Fecha de Registro';
+comment on column JAQA33.jaqa33cor
+  is 'Correlativo';
+comment on column JAQA33.jaqa33ana
+  is 'Analista';
+comment on column JAQA33.jaqa33mpc
+  is 'Monto Pago de Casillero';
+comment on column JAQA33.jaqa33mpg
+  is 'Medio de Pago';
+comment on column JAQA33.jaqa33aac
+  is 'Area que Abono el Casillero';
+comment on column JAQA33.jaqa33hor
+  is 'Hora de Registro';
+comment on column JAQA33.jaqa33est
+  is 'Estado';
+comment on column JAQA33.jaqa33ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQA33.jaqa33ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQA33.jaqa33ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQA33.jaqa33ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQA33.jaqa33ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQA33.jaqa33ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQA33.jaqa33an1
+  is 'Auxiliar Númercio 1';
+comment on column JAQA33.jaqa33an2
+  is 'Auxiliar Númercio 2';
+comment on column JAQA33.jaqa33at1
+  is 'Auxiliar Texto 1';
+comment on column JAQA33.jaqa33at2
+  is 'Auxiliar Texto 2';
+alter table JAQA33
+  add primary key (JAQA33NCO, JAQA33FRG, JAQA33COR);
+

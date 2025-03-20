@@ -1,0 +1,27 @@
+create table JAQY146
+(
+  jaqy146corr    NUMBER(10) not null,
+  jaqy146pepais  NUMBER(5) not null,
+  jaqy146petdoc  NUMBER(4) not null,
+  jaqy146pendoc  VARCHAR2(12) not null,
+  jaqy146pgcod   NUMBER(4),
+  jaqy146hcmod   NUMBER(4),
+  jaqy146hsucor  NUMBER(10),
+  jaqy146htran   NUMBER(10),
+  jaqy146hnrel   NUMBER(10),
+  jaqy146fchcont DATE,
+  jaqy146mod     NUMBER(10),
+  jaqy146suc     NUMBER(4),
+  jaqy146mda     NUMBER(4),
+  jaqy146pap     NUMBER(4),
+  jaqy146cta     NUMBER(10),
+  jaqy146ope     NUMBER(10),
+  jaqy146sbop    NUMBER(10),
+  jaqy146tope    NUMBER(10),
+  jaqy146est     VARCHAR2(1) not null
+)
+;
+create index JAQY146_IDX2 on JAQY146 (JAQY146PGCOD, JAQY146HCMOD, JAQY146HSUCOR, JAQY146HTRAN, JAQY146HNREL);
+alter table JAQY146
+  add constraint JAQY146_IDX1 primary key (JAQY146PEPAIS, JAQY146PETDOC, JAQY146PENDOC, JAQY146EST);
+

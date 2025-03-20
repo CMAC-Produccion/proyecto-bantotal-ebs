@@ -1,0 +1,15 @@
+create table FBC506
+(
+  bcemp     NUMBER(3) not null,
+  bcinfor   CHAR(10) not null,
+  bcfinf    DATE not null,
+  bcpepais  NUMBER(3) not null,
+  bcpetdoc  NUMBER(2) not null,
+  bcpendoc  CHAR(12) not null,
+  bcsdotit  NUMBER(17,2),
+  bcsdotit2 NUMBER(17,2)
+)
+;
+alter table FBC506
+  add primary key (BCEMP, BCINFOR, BCFINF, BCPEPAIS, BCPETDOC, BCPENDOC);
+

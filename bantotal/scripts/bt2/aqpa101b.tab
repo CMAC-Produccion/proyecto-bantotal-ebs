@@ -1,0 +1,18 @@
+create table AQPA101B
+(
+  aqpa101bpgcod  NUMBER(3) not null,
+  aqpa101bubuser CHAR(10) not null,
+  aqpa101bmodulo NUMBER(3) not null,
+  aqpa101btrnro  NUMBER(3) not null,
+  aqpa101bubting CHAR(1),
+  aqpa101bubtcon CHAR(1),
+  aqpa101bubtsup CHAR(1),
+  aqpa101bubtpro CHAR(1),
+  aqpa101bubtsn1 CHAR(1),
+  aqpa101bubtsn2 CHAR(1),
+  aqpa101bubtsn3 CHAR(1)
+)
+;
+alter table AQPA101B
+  add primary key (AQPA101BPGCOD, AQPA101BUBUSER, AQPA101BMODULO, AQPA101BTRNRO);
+

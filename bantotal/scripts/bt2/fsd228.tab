@@ -1,0 +1,18 @@
+create table FSD228
+(
+  sd228cod NUMBER(3) not null,
+  sd228mod NUMBER(3) not null,
+  sd228suc NUMBER(3) not null,
+  sd228mda NUMBER(4) not null,
+  sd228pap NUMBER(4) not null,
+  sd228cta NUMBER(9) not null,
+  sd228ope NUMBER(9) not null,
+  sd228sbo NUMBER(3) not null,
+  sd228top NUMBER(3) not null,
+  sd228fec DATE,
+  sd228coe NUMBER(14,8)
+)
+;
+alter table FSD228
+  add primary key (SD228COD, SD228MOD, SD228SUC, SD228MDA, SD228PAP, SD228CTA, SD228OPE, SD228SBO, SD228TOP);
+

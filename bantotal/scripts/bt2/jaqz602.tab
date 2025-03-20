@@ -1,0 +1,20 @@
+create table JAQZ602
+(
+  tipo      CHAR(1),
+  idempresa VARCHAR2(10),
+  fecha     VARCHAR2(10),
+  registros NUMBER,
+  total     NUMBER
+)
+;
+comment on column JAQZ602.tipo
+  is 'Cabecera de Totales';
+comment on column JAQZ602.idempresa
+  is 'Código de Institución';
+comment on column JAQZ602.fecha
+  is 'Fecha de Proceso';
+comment on column JAQZ602.registros
+  is 'Nº de registros procesados';
+comment on column JAQZ602.total
+  is 'Total de importes procesados';
+

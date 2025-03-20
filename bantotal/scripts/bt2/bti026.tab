@@ -1,0 +1,23 @@
+create table BTI026
+(
+  btisdtnom       VARCHAR2(40) not null,
+  btisdtversion   VARCHAR2(40) not null,
+  btisdtelemnom   VARCHAR2(40) not null,
+  btisdtelemnint  VARCHAR2(40),
+  btisdtelemobl   CHAR(1),
+  btisdtelemcat   CHAR(1),
+  btisdtelemtipo  VARCHAR2(40),
+  btisdtelemsdt   VARCHAR2(40),
+  btisdtelemsdtve VARCHAR2(40),
+  btisdtelemplano CHAR(1),
+  btisdtelemlargo NUMBER(4),
+  btisdtelemenu   CHAR(1),
+  btisdtelemval   CLOB,
+  btisdtelemdsc   VARCHAR2(200),
+  btisdtelemposi  NUMBER(4),
+  btisdtelemcatit CHAR(1)
+)
+;
+alter table BTI026
+  add primary key (BTISDTNOM, BTISDTVERSION, BTISDTELEMNOM);
+

@@ -1,0 +1,23 @@
+create table FST204
+(
+  sicod  NUMBER(3) not null,
+  simod  NUMBER(3) not null,
+  sitran NUMBER(3) not null,
+  sinimp NUMBER(3) not null,
+  avmod  NUMBER(3) not null,
+  avtope NUMBER(3) not null,
+  avdval NUMBER(5),
+  avdvto NUMBER(5),
+  avstan NUMBER(1),
+  avstpr NUMBER(1),
+  avresi CHAR(1),
+  avnres CHAR(1),
+  avsect NUMBER(5),
+  avmn   CHAR(1),
+  avme   CHAR(1),
+  avper  NUMBER(3)
+)
+;
+alter table FST204
+  add primary key (SICOD, SIMOD, SITRAN, SINIMP, AVMOD, AVTOPE);
+

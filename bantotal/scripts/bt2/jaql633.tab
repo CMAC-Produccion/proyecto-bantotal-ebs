@@ -1,0 +1,17 @@
+create table JAQL633
+(
+  jaql633nutar CHAR(19) not null,
+  jaql633fereg DATE not null,
+  jaql633horeg CHAR(8) not null,
+  jaql633impor NUMBER(17,2),
+  jaql633conta NUMBER(5),
+  jaql633blqtm CHAR(1),
+  jaql633obser VARCHAR2(500),
+  jaql633usmod VARCHAR2(20),
+  jaql633femod DATE,
+  jaql633homod CHAR(8)
+)
+;
+alter table JAQL633
+  add primary key (JAQL633NUTAR, JAQL633FEREG, JAQL633HOREG);
+

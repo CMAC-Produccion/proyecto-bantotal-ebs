@@ -1,0 +1,15 @@
+create table AQPA742M
+(
+  aqpa742mcodres CHAR(5) not null,
+  aqpa742mdesres VARCHAR2(150)
+)
+;
+comment on table AQPA742M
+  is 'Mensajes de respuesta APP Agentes';
+comment on column AQPA742M.aqpa742mcodres
+  is 'Codigo de respuesta';
+comment on column AQPA742M.aqpa742mdesres
+  is 'Mensaje de respuesta';
+alter table AQPA742M
+  add primary key (AQPA742MCODRES);
+

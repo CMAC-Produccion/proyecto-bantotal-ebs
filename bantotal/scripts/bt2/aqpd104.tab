@@ -1,0 +1,49 @@
+create table AQPD104
+(
+  aqpd104fecha  DATE not null,
+  aqpd104codrep VARCHAR2(10) not null,
+  aqpd104codsec NUMBER(5) not null,
+  aqpd104orden  NUMBER(5) not null,
+  aqpd104descon VARCHAR2(300),
+  aqpd104col_1  NUMBER(20,2),
+  aqpd104col_2  NUMBER(25,4),
+  aqpd104col_3  NUMBER(30,4),
+  aqpd104col_4  NUMBER(14,4),
+  aqpd104col_5  NUMBER(14,4),
+  aqpd104col_6  NUMBER(14,4),
+  aqpd104col_7  NUMBER(14,4),
+  aqpd104fecpro DATE
+)
+;
+comment on table AQPD104
+  is 'TABLA ANEXO 4B';
+comment on column AQPD104.aqpd104fecha
+  is 'FECHA';
+comment on column AQPD104.aqpd104codrep
+  is 'TIPO';
+comment on column AQPD104.aqpd104codsec
+  is 'TIPO SBS';
+comment on column AQPD104.aqpd104orden
+  is 'CODIGO SBS';
+comment on column AQPD104.aqpd104descon
+  is 'CODIGO PAIS';
+comment on column AQPD104.aqpd104col_1
+  is 'TIPO DOCUMENTO';
+comment on column AQPD104.aqpd104col_2
+  is 'NUMERO DOCUMENTO';
+comment on column AQPD104.aqpd104col_3
+  is 'PGCOD';
+comment on column AQPD104.aqpd104col_4
+  is 'SUCURSAL';
+comment on column AQPD104.aqpd104col_5
+  is 'MODULO';
+comment on column AQPD104.aqpd104col_6
+  is 'MONEDA';
+comment on column AQPD104.aqpd104col_7
+  is 'PAPEL';
+comment on column AQPD104.aqpd104fecpro
+  is 'CUENTA';
+create index AQPD1042 on AQPD104 (AQPD104CODREP, AQPD104FECHA, AQPD104CODSEC);
+alter table AQPD104
+  add primary key (AQPD104FECHA, AQPD104CODREP, AQPD104CODSEC, AQPD104ORDEN);
+

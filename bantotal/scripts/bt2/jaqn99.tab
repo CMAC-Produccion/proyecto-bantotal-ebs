@@ -1,0 +1,57 @@
+create table JAQN99
+(
+  jaqn99ido NUMBER(9) not null,
+  jaqn99ida NUMBER(9) not null,
+  jaqn99nom VARCHAR2(250),
+  jaqn99val VARCHAR2(250),
+  jaqn99an1 NUMBER(9),
+  jaqn99an2 NUMBER(9),
+  jaqn99an3 NUMBER(9),
+  jaqn99ac1 VARCHAR2(255),
+  jaqn99ac2 VARCHAR2(255),
+  jaqn99ac3 VARCHAR2(255),
+  jaqn99ai1 NUMBER(18),
+  jaqn99ai2 NUMBER(17,2),
+  jaqn99ai3 NUMBER(17,2),
+  jaqn99af1 DATE,
+  jaqn99af2 DATE,
+  jaqn99af3 DATE
+)
+;
+comment on table JAQN99
+  is 'Campañas (entrega premios)';
+comment on column JAQN99.jaqn99ido
+  is 'Id Campo';
+comment on column JAQN99.jaqn99ida
+  is 'Id Campaña';
+comment on column JAQN99.jaqn99nom
+  is 'Nombre Campo';
+comment on column JAQN99.jaqn99val
+  is 'Valor Campo';
+comment on column JAQN99.jaqn99an1
+  is 'Auxiliar númerico 1';
+comment on column JAQN99.jaqn99an2
+  is 'Auxiliar númerico 2';
+comment on column JAQN99.jaqn99an3
+  is 'Auxiliar númerico 3';
+comment on column JAQN99.jaqn99ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN99.jaqn99ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN99.jaqn99ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN99.jaqn99ai1
+  is 'Auxiliar importe 1';
+comment on column JAQN99.jaqn99ai2
+  is 'Auxiliar importe 2';
+comment on column JAQN99.jaqn99ai3
+  is 'Auxiliar importe 3';
+comment on column JAQN99.jaqn99af1
+  is 'Auxiliar fecha 1';
+comment on column JAQN99.jaqn99af2
+  is 'Auxiliar fecha 2';
+comment on column JAQN99.jaqn99af3
+  is 'Auxiliar fecha 3';
+alter table JAQN99
+  add primary key (JAQN99IDO, JAQN99IDA);
+

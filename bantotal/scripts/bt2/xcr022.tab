@@ -1,0 +1,15 @@
+create table XCR022
+(
+  xcremp    NUMBER(3) not null,
+  xcrcta    NUMBER(9) not null,
+  xcrsbop   NUMBER(3) not null,
+  xcrmda    NUMBER(4) not null,
+  xcrtipfch CHAR(2) not null,
+  xcrcorfch NUMBER(4) not null,
+  xcrfchdes DATE,
+  xcrfchhas DATE
+)
+;
+alter table XCR022
+  add primary key (XCREMP, XCRCTA, XCRSBOP, XCRMDA, XCRTIPFCH, XCRCORFCH);
+

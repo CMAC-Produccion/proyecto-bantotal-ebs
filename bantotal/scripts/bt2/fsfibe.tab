@@ -1,0 +1,22 @@
+create table FSFIBE
+(
+  sfibcemp  NUMBER(3) not null,
+  sfibcpais NUMBER(3) not null,
+  sfibdcod  NUMBER(3) not null,
+  sfibecla  NUMBER(2) not null,
+  sfibedsc  CHAR(30),
+  sfibehab  CHAR(1),
+  sfibecar1 CHAR(1),
+  sfibecar2 CHAR(1),
+  sfibecar3 CHAR(1),
+  sfibenum1 NUMBER(9),
+  sfibenum2 NUMBER(9),
+  sfibenum3 NUMBER(9),
+  sfibetxt1 CHAR(20),
+  sfibetxt2 CHAR(20),
+  sfibetxt3 CHAR(20)
+)
+;
+alter table FSFIBE
+  add primary key (SFIBCEMP, SFIBCPAIS, SFIBDCOD, SFIBECLA);
+

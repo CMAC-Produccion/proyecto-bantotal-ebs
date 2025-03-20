@@ -1,0 +1,36 @@
+create table UAI_ACLPPE
+(
+  n_emp_depe18cod    NUMBER(3) not null,
+  n_suc_depe18suc    NUMBER(3) not null,
+  n_mod_depe18mod    NUMBER(3) not null,
+  n_mda_depe18mda    NUMBER(4) not null,
+  n_pap_depe18pap    NUMBER(4) not null,
+  n_cta_depe18cta    NUMBER(9) not null,
+  n_ope_depe18ope    NUMBER(9) not null,
+  n_sbo_depe18sbo    NUMBER(3) not null,
+  n_top_depe18top    NUMBER(3) not null,
+  n_diam_depe18plz   NUMBER(6),
+  n_cat_depe18cat    NUMBER(4),
+  n_prov_depe18prv   NUMBER(17,2),
+  n_por_depe18por    NUMBER(17,2),
+  n_tipcre_depe18tcr NUMBER(4),
+  n_cap_depe18cap    NUMBER(17,2),
+  n_int_depe18int    NUMBER(17,2),
+  n_deut_depe18deu   NUMBER(17,2),
+  n_gar_depe18igr    NUMBER(17,2),
+  c_tipgar_depe18dgr CHAR(50),
+  n_pori_depe18pi    NUMBER(17,2),
+  n_sevper_depe18lgd NUMBER(17,2),
+  n_exp_depe18ead    NUMBER(17,2),
+  n_peres_depe18pe   NUMBER(17,2),
+  n_provpe_depe18ppe NUMBER(17,2),
+  n_nor_depe18pr1    NUMBER(17,2),
+  n_pe_depe18pf      NUMBER(17,2),
+  n_difca_depe18dif  NUMBER(17,2),
+  d_fecpro_bcfech    DATE,
+  n_rub_depe18rub    NUMBER(16)
+)
+;
+comment on table UAI_ACLPPE
+  is 'Tabla procesamiento de data ACL para UAI';
+

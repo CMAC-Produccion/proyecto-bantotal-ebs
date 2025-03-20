@@ -1,0 +1,40 @@
+create table JAQL461
+(
+  jaql461cor NUMBER(10) not null,
+  jaql461fch DATE,
+  jaql461hrg CHAR(8),
+  jaql461per DATE,
+  jaql461pgo NUMBER(3),
+  jaql461suc NUMBER(3),
+  jaql461mod NUMBER(3),
+  jaql461mda NUMBER(4),
+  jaql461cta NUMBER(9),
+  jaql461pap NUMBER(4),
+  jaql461ope NUMBER(9),
+  jaql461sub NUMBER(3),
+  jaql461top NUMBER(3),
+  jaql461fec DATE,
+  jaql461mot CHAR(255),
+  jaql461ax1 NUMBER(9),
+  jaql461ax2 NUMBER(9),
+  jaql461ax3 NUMBER(9),
+  jaql461ax4 CHAR(200),
+  jaql461ax5 CHAR(200),
+  jaql461ax6 CHAR(200),
+  jaql461ax7 NUMBER(17,2),
+  jaql461ax8 NUMBER(17,2),
+  jaql461ax9 NUMBER(17,2),
+  jaql461fx1 DATE,
+  jaql461fx2 DATE,
+  jaql461fx3 DATE,
+  jaql461usu CHAR(10),
+  jaql461use CHAR(10),
+  jaql461est CHAR(1)
+)
+;
+create index IDX001 on JAQL461 (JAQL461PGO, JAQL461SUC, JAQL461MDA, JAQL461PAP, JAQL461CTA, JAQL461OPE, JAQL461SUB, JAQL461TOP, JAQL461PER);
+create index IDX002 on JAQL461 (JAQL461PER, JAQL461AX1);
+create index IDX003 on JAQL461 (JAQL461FCH);
+alter table JAQL461
+  add primary key (JAQL461COR);
+

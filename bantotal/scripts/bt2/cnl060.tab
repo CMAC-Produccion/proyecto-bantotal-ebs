@@ -1,0 +1,13 @@
+create table CNL060
+(
+  cnl060emp NUMBER(9) not null,
+  cnl060srv NUMBER(3) not null,
+  cnl060dsc CHAR(30),
+  cnl060ord NUMBER(4),
+  cnl060est CHAR(1)
+)
+;
+create index CNL06002 on CNL060 (CNL060ORD);
+alter table CNL060
+  add primary key (CNL060EMP, CNL060SRV);
+

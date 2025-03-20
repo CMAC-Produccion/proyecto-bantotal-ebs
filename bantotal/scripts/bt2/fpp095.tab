@@ -1,0 +1,30 @@
+create table FPP095
+(
+  pp95nlote  NUMBER(5) not null,
+  pp95mut    CHAR(20) not null,
+  pp95emp    CHAR(20) not null,
+  pp95fech   DATE,
+  pp95coec   NUMBER(10,6),
+  pp95impa   NUMBER(17,2),
+  pp95valc   NUMBER(17,2),
+  pp95ivab   NUMBER(17,2),
+  pp95ivar   NUMBER(17,2),
+  pp95cope   NUMBER(5),
+  pp95aux1   NUMBER(9),
+  pp95aux2   NUMBER(9),
+  pp95aux3   NUMBER(9),
+  pp95aux4   NUMBER(17,2),
+  pp95aux5   NUMBER(17,2),
+  pp95aux6   NUMBER(17,2),
+  pp95aux7   DATE,
+  pp95aux8   DATE,
+  pp95aux9   DATE,
+  pp95aux10  CHAR(30),
+  pp95aux11  CHAR(30),
+  pp95aux12  CHAR(30),
+  pp95estado CHAR(1)
+)
+;
+alter table FPP095
+  add primary key (PP95NLOTE, PP95MUT, PP95EMP);
+

@@ -1,0 +1,23 @@
+create table AQPB567T
+(
+  aqpb567temp NUMBER(3) not null,
+  aqpb567mod  NUMBER(3) not null,
+  aqpb567tsuc NUMBER(3) not null,
+  aqpb567tmda NUMBER(4) not null,
+  aqpb567tpap NUMBER(4) not null,
+  aqpb567tcta NUMBER(9) not null,
+  aqpb567tope NUMBER(9) not null,
+  aqpb567tsbo NUMBER(3) not null,
+  aqpb567ttop NUMBER(3) not null,
+  aqpb567tori VARCHAR2(10) not null,
+  aqpb567tfep DATE not null,
+  aqpb567fmax DATE
+)
+;
+comment on column AQPB567T.aqpb567fmax
+  is 'fecha maxima';
+create index AQPB567T01 on AQPB567T (AQPB567TEMP, AQPB567TMDA, AQPB567TPAP, AQPB567TCTA, AQPB567TOPE, AQPB567TFEP);
+create index AQPB567T03 on AQPB567T (AQPB567TSUC);
+alter table AQPB567T
+  add primary key (AQPB567TEMP, AQPB567MOD, AQPB567TSUC, AQPB567TMDA, AQPB567TPAP, AQPB567TCTA, AQPB567TOPE, AQPB567TSBO, AQPB567TTOP, AQPB567TORI, AQPB567TFEP);
+

@@ -1,0 +1,20 @@
+create table CSML002
+(
+  csml002tip CHAR(1) not null,
+  csml002cod NUMBER(10) not null,
+  csml002cor NUMBER(4) not null,
+  csml002fec DATE,
+  csml002hor CHAR(8),
+  csml002reg NUMBER(9),
+  csml002msj CHAR(100),
+  csml002can NUMBER(4),
+  csml002adm CHAR(30),
+  csml002usu CHAR(30),
+  csml002tin NUMBER(3),
+  csml002num NUMBER(9),
+  csml002pla NUMBER(10)
+)
+;
+alter table CSML002
+  add primary key (CSML002TIP, CSML002COD, CSML002COR);
+

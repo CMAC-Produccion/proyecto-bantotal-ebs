@@ -1,0 +1,17 @@
+create table CLE106
+(
+  cle106prd  NUMBER(3) not null,
+  cle106tpo  NUMBER(3) not null,
+  cle106suc  NUMBER(3) not null,
+  cle106fch  DATE not null,
+  cle106hra  CHAR(8) not null,
+  cle106lote NUMBER(9),
+  cle106ax1  CHAR(10),
+  cle106ax2  DATE,
+  cle106ax3  NUMBER(9),
+  cle106ax4  CHAR(50)
+)
+;
+alter table CLE106
+  add primary key (CLE106PRD, CLE106TPO, CLE106SUC, CLE106FCH, CLE106HRA);
+

@@ -1,0 +1,58 @@
+create table AQPD152D
+(
+  aqpd152dcorr   NUMBER not null,
+  aqpd152dinst   NUMBER(9) not null,
+  aqpd152dfec    DATE not null,
+  aqpd152dhor    VARCHAR2(8),
+  aqpd152dtcamb  NUMBER(14,6),
+  aqpd152dpgcod  NUMBER(3),
+  aqpd152dsuc    NUMBER(3),
+  aqpd152dmod    NUMBER(3),
+  aqpd152dmnd    NUMBER(4),
+  aqpd152dpap    NUMBER(4),
+  aqpd152dcta    NUMBER(9),
+  aqpd152dope    NUMBER(9),
+  aqpd152dsubope NUMBER(3),
+  aqpd152dtipope NUMBER(3),
+  aqpd152dsalcp  NUMBER(17,2),
+  aqpd152destreg VARCHAR2(1)
+)
+;
+comment on table AQPD152D
+  is 'TABLA LOG DETALLE DE SALDOS CONSOLIDADOS';
+comment on column AQPD152D.aqpd152dcorr
+  is 'correlativo de registro';
+comment on column AQPD152D.aqpd152dinst
+  is 'instancia de crédito';
+comment on column AQPD152D.aqpd152dfec
+  is 'Fecha de registro';
+comment on column AQPD152D.aqpd152dhor
+  is 'Hora de registro';
+comment on column AQPD152D.aqpd152dtcamb
+  is 'tipo de cambio';
+comment on column AQPD152D.aqpd152dpgcod
+  is 'codigo de empresa';
+comment on column AQPD152D.aqpd152dsuc
+  is 'sucursal del crédito';
+comment on column AQPD152D.aqpd152dmod
+  is 'modulo';
+comment on column AQPD152D.aqpd152dmnd
+  is 'moneda';
+comment on column AQPD152D.aqpd152dpap
+  is 'papel';
+comment on column AQPD152D.aqpd152dcta
+  is 'cuenta de crédito';
+comment on column AQPD152D.aqpd152dope
+  is 'operación de crédito';
+comment on column AQPD152D.aqpd152dsubope
+  is 'suboperacion ';
+comment on column AQPD152D.aqpd152dtipope
+  is 'tipo de operacion ';
+comment on column AQPD152D.aqpd152dsalcp
+  is 'saldo capital';
+comment on column AQPD152D.aqpd152destreg
+  is 'estado de registro';
+create index AQPD152DA2 on AQPD152D (AQPD152DINST, AQPD152DFEC);
+alter table AQPD152D
+  add primary key (AQPD152DCORR, AQPD152DINST, AQPD152DFEC);
+

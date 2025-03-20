@@ -1,0 +1,25 @@
+create table CSW003
+(
+  csw003emp NUMBER(3) not null,
+  csw003fch DATE not null,
+  csw003usu CHAR(16) not null,
+  csw003cor NUMBER(3) not null,
+  csw003cta NUMBER(9),
+  csw003asu CHAR(50),
+  csw003dsc CHAR(200),
+  csw003pub CHAR(1),
+  csw003rec CHAR(1),
+  csw003sta CHAR(1),
+  csw003rsp VARCHAR2(200),
+  csw003ing DATE,
+  csw003tip CHAR(1),
+  csw003pai NUMBER(3),
+  csw003tdo NUMBER(2),
+  csw003pro CHAR(12),
+  csw003hor CHAR(4),
+  csw003fre NUMBER(3)
+)
+;
+alter table CSW003
+  add primary key (CSW003EMP, CSW003FCH, CSW003USU, CSW003COR);
+

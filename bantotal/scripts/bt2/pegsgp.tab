@@ -1,0 +1,14 @@
+create table PEGSGP
+(
+  pegid    CHAR(20) not null,
+  pegsuid  VARCHAR2(36) not null,
+  pegspjid CHAR(80) not null,
+  pegsgpid CHAR(80) not null,
+  pegsgpnm CHAR(160),
+  pegsgpst CHAR(3),
+  pegsgplu DATE
+)
+;
+alter table PEGSGP
+  add primary key (PEGID, PEGSUID, PEGSPJID, PEGSGPID);
+

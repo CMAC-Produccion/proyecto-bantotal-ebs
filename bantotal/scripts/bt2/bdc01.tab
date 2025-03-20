@@ -1,0 +1,284 @@
+create table BDC01
+(
+  d_fecpro  DATE,
+  ccl       VARCHAR2(17),
+  csbs      VARCHAR2(10),
+  tid       VARCHAR2(1),
+  nid       VARCHAR2(15),
+  ncl       VARCHAR2(100),
+  ccr       VARCHAR2(17),
+  mon       VARCHAR2(3),
+  morg      NUMBER(17,2),
+  skcr      NUMBER(17,2),
+  tcr       VARCHAR2(2),
+  cal       VARCHAR2(1),
+  calint    VARCHAR2(1),
+  dak       NUMBER,
+  dakr      NUMBER,
+  dapr      NUMBER,
+  pci       NUMBER(17,2),
+  kvi       NUMBER(17,2),
+  ccvi      VARCHAR2(40),
+  kre       NUMBER(17,2),
+  ccre      VARCHAR2(40),
+  krf       NUMBER(17,2),
+  ccrf      VARCHAR2(40),
+  kve       NUMBER(17,2),
+  ccve      VARCHAR2(40),
+  kju       NUMBER(17,2),
+  ccju      VARCHAR2(40),
+  kco       NUMBER(17,2),
+  ccco      VARCHAR2(40),
+  fcc       VARCHAR2(1),
+  sin       NUMBER(17,2),
+  ccsin     VARCHAR2(40),
+  sid       NUMBER(17,2),
+  ccsid     CHAR(40),
+  sis       NUMBER(17,2),
+  ccsis     VARCHAR2(40),
+  fot       DATE,
+  esam      VARCHAR2(1),
+  dgr       NUMBER,
+  fppk      DATE,
+  fveg      DATE,
+  fvep      DATE,
+  pcuo      NUMBER,
+  ncpr      NUMBER(3),
+  ncpa      NUMBER,
+  ciiu      CHAR(8),
+  tpr       VARCHAR2(30),
+  rfa       CHAR(1),
+  cage      CHAR(3),
+  csec      CHAR(10),
+  tea       NUMBER,
+  mdcr      CHAR(16),
+  nrprg     NUMBER,
+  fultrprg  VARCHAR2(10),
+  indic     NUMBER,
+  lco       NUMBER(17,2),
+  lcnu      NUMBER(17,2),
+  cclcnu    VARCHAR2(40),
+  tcrint    NUMBER,
+  tcri      VARCHAR2(40),
+  tspr      VARCHAR2(100),
+  ccnd      NUMBER(17,2),
+  ccccnd    VARCHAR2(40),
+  rom       NUMBER(17,2),
+  pci2      NUMBER(17,2),
+  pci3      NUMBER(17,2),
+  tipoc     VARCHAR2(20),
+  cracl     VARCHAR2(1),
+  tcli      VARCHAR2(50),
+  segc      NUMBER,
+  tclic     VARCHAR2(50),
+  segcc     NUMBER,
+  segcd     NUMBER,
+  tclid     VARCHAR2(50),
+  fecsol    DATE,
+  ubi       VARCHAR2(10),
+  seg       VARCHAR2(100),
+  segcm     VARCHAR2(100),
+  cong      NUMBER,
+  pest      NUMBER,
+  pcob      NUMBER(17,2),
+  tipo      VARCHAR2(10),
+  fc        NUMBER,
+  dak_r     NUMBER,
+  cong_r    NUMBER,
+  tipo_bi   VARCHAR2(10),
+  mdcr_bi   CHAR(16),
+  skcr_1    NUMBER(17,2),
+  procovcap NUMBER(17,2),
+  procovint NUMBER(17,2),
+  ncro      NUMBER,
+  fot_h     VARCHAR2(10)
+)
+;
+comment on table BDC01
+  is 'Cartera de créditos activa, más líneas de créditos (módulo 117)';
+comment on column BDC01.d_fecpro
+  is 'FECHA DE CIERRE';
+comment on column BDC01.ccl
+  is 'CODIGO UNICO DE DEUDOR ';
+comment on column BDC01.csbs
+  is 'CODIGO SBS';
+comment on column BDC01.tid
+  is 'TIPO DOCUMENTO';
+comment on column BDC01.nid
+  is 'NRO DOCUMENTO IDENTIDAD';
+comment on column BDC01.ncl
+  is 'NOMBRE DEL DEUDOR';
+comment on column BDC01.ccr
+  is 'Nro de operación de credito';
+comment on column BDC01.mon
+  is 'moneda';
+comment on column BDC01.morg
+  is 'Monto Otorgado';
+comment on column BDC01.skcr
+  is 'Saldo Capital al cierre';
+comment on column BDC01.tcr
+  is 'Tipo de credito SBS';
+comment on column BDC01.cal
+  is 'Calificacion Final';
+comment on column BDC01.calint
+  is 'Calificacion Interna';
+comment on column BDC01.dak
+  is 'Dias de Atraso cierre de mes';
+comment on column BDC01.dakr
+  is 'Dias de atraso reales de la ultima cuota pagada';
+comment on column BDC01.dapr
+  is 'Promedio de dias de atraso de los 6 utimos meses';
+comment on column BDC01.pci
+  is 'Provicion ';
+comment on column BDC01.kvi
+  is 'Capitaal vigente';
+comment on column BDC01.ccvi
+  is 'Cuenta contable de capital vigente';
+comment on column BDC01.kre
+  is 'Capital reprogramado';
+comment on column BDC01.ccre
+  is 'Cuenta contable de capital reprogramado';
+comment on column BDC01.krf
+  is 'Capital refinanciado';
+comment on column BDC01.ccrf
+  is 'Cuenta contable de capital refinanciado';
+comment on column BDC01.kve
+  is 'Capital vencido';
+comment on column BDC01.ccve
+  is 'Cuenta contable de Capital vencido';
+comment on column BDC01.kju
+  is 'Capital Judicial';
+comment on column BDC01.ccju
+  is 'cuenta Contable Capital Judicial';
+comment on column BDC01.kco
+  is 'Saldo contingente';
+comment on column BDC01.ccco
+  is 'cuenta contable saldo Contingente';
+comment on column BDC01.fcc
+  is 'Factor de riesgo crediticio ';
+comment on column BDC01.sin
+  is 'Interes Devengado';
+comment on column BDC01.ccsin
+  is 'Cuenta Contable Interes Devengado';
+comment on column BDC01.sid
+  is 'Interes diferido';
+comment on column BDC01.ccsid
+  is 'Cuenta contable interes diferiso';
+comment on column BDC01.sis
+  is 'Interes en suspenso';
+comment on column BDC01.ccsis
+  is 'Cuenta contable interes en suspenso';
+comment on column BDC01.fot
+  is 'fecha de otorgamiento';
+comment on column BDC01.esam
+  is 'Esquema de amortizacion';
+comment on column BDC01.dgr
+  is 'dias de gracia';
+comment on column BDC01.fppk
+  is 'Fecha de primer pago de capital';
+comment on column BDC01.fveg
+  is 'fecha de vencimiento general';
+comment on column BDC01.fvep
+  is 'Fecha de proximo vencimiento';
+comment on column BDC01.pcuo
+  is 'periodo de cuotas';
+comment on column BDC01.ncpr
+  is 'nro cuotas programadas';
+comment on column BDC01.ncpa
+  is 'nro cuotas pagadas';
+comment on column BDC01.ciiu
+  is 'codigo de ciiu';
+comment on column BDC01.tpr
+  is 'tipo producto CMAC';
+comment on column BDC01.rfa
+  is 'Indicador RFA';
+comment on column BDC01.cage
+  is 'codigo agencia';
+comment on column BDC01.csec
+  is 'codigo de Analista';
+comment on column BDC01.tea
+  is 'Tasa Efectiva anual';
+comment on column BDC01.mdcr
+  is 'Modalidad de credito';
+comment on column BDC01.nrprg
+  is 'nro de reprogramaciones';
+comment on column BDC01.fultrprg
+  is 'Fecha Ultima reprogramacion';
+comment on column BDC01.indic
+  is 'Indica informacion que sera necesaria para la visita';
+comment on column BDC01.lco
+  is 'Total Linea otorgada';
+comment on column BDC01.lcnu
+  is 'Total linea no utilizada';
+comment on column BDC01.cclcnu
+  is 'Cuenta contable de Linea no utilizada';
+comment on column BDC01.tcrint
+  is 'codigo tipo de Credito Interno';
+comment on column BDC01.tcri
+  is 'Tipo de credito interno';
+comment on column BDC01.tspr
+  is 'Tipo sub producto';
+comment on column BDC01.ccnd
+  is 'importe de credito consedido no desembolsado';
+comment on column BDC01.ccccnd
+  is 'cuenta contable de importe de credito consedido no desembolsado';
+comment on column BDC01.rom
+  is 'Importe total de credito reprogramado';
+comment on column BDC01.pci2
+  is 'auxiliar';
+comment on column BDC01.pci3
+  is 'auxiliar';
+comment on column BDC01.tipoc
+  is 'tipo revolvente';
+comment on column BDC01.cracl
+  is '1= cartera trasferida  0 = cartera cmac';
+comment on column BDC01.tcli
+  is 'tipo cliente';
+comment on column BDC01.segc
+  is 'segmentacion de credito';
+comment on column BDC01.tclic
+  is 'Tipo cliente cierre';
+comment on column BDC01.segcc
+  is 'Segmentacion cierre';
+comment on column BDC01.segcd
+  is 'segmentacion desembolso';
+comment on column BDC01.tclid
+  is 'Tipo cliente Desembolso';
+comment on column BDC01.fecsol
+  is 'Fecha solicitud';
+comment on column BDC01.ubi
+  is 'ubigeo';
+comment on column BDC01.seg
+  is 'Segmento de mercado';
+comment on column BDC01.segcm
+  is 'auxiliar';
+comment on column BDC01.cong
+  is 'Credito Congelado (1) si el conteo de días de atraso registrados al 29/02/2020 quedó suspendido a la fecha de corte, caso contrario (0)';
+comment on column BDC01.pest
+  is 'Financiamiento 0: No tiene cobertura1: Fondo Crecer2: Reactiva 13: Reactiva 24: FAE MYPE 15: FAE MYPE 26: Otros (de ser el caso, detallar leyenda)';
+comment on column BDC01.pcob
+  is 'cobertura finicaiamiento';
+comment on column BDC01.tipo
+  is 'Tipo reprogramacion';
+comment on column BDC01.fc
+  is 'Facilidad Crediticia 1: Período de gracia (capital e intereses) e incremento del monto de la cuota (número de cuotas se mantiene).2: Período de gracia (capital e intereses) y monto de la cuota constante (número de cuotas se incrementa)3: Período de gracia (capital e intereses) y cuota balloon con .';
+comment on column BDC01.dak_r
+  is 'dias de atraso Riesgos';
+comment on column BDC01.cong_r
+  is 'Congelado Riesgos';
+comment on column BDC01.tipo_bi
+  is 'tipo reprogramado bi';
+comment on column BDC01.mdcr_bi
+  is 'modalida covit bi';
+comment on column BDC01.skcr_1
+  is 'auxiliar';
+comment on column BDC01.procovcap
+  is 'provicion covid capital';
+comment on column BDC01.procovint
+  is 'provicion covid interes';
+comment on column BDC01.ncro
+  is 'nro de cronograma';
+comment on column BDC01.fot_h
+  is 'hora de desembolso';
+create index XN_BDC01 on BDC01 (CCL, CCR);
+

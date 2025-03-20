@@ -1,0 +1,52 @@
+create table AQPB514
+(
+  aqpb514pais   NUMBER(3) not null,
+  aqpb514tdoc   NUMBER(2) not null,
+  aqpb514ndoc   VARCHAR2(25) not null,
+  aqpb514est    CHAR(1) not null,
+  aqpb514crefec DATE not null,
+  aqpb514crehor CHAR(8) not null,
+  aqpb514creusr VARCHAR2(10) not null,
+  aqpb514cresuc NUMBER(3) not null,
+  aqpb514cretim TIMESTAMP(6) default CURRENT_TIMESTAMP not null,
+  aqpb514modfec DATE not null,
+  aqpb514modhor CHAR(8) not null,
+  aqpb514modusr VARCHAR2(10) not null,
+  aqpb514modsuc NUMBER(3) not null,
+  aqpb514modtim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb514autfec DATE
+)
+;
+comment on table AQPB514
+  is 'Compra Venta ME - Lista Blanca';
+comment on column AQPB514.aqpb514pais
+  is 'Pais';
+comment on column AQPB514.aqpb514tdoc
+  is 'Tipo Documento';
+comment on column AQPB514.aqpb514ndoc
+  is 'Nro Documento';
+comment on column AQPB514.aqpb514est
+  is 'Estado';
+comment on column AQPB514.aqpb514crefec
+  is 'Creacion Fecha';
+comment on column AQPB514.aqpb514crehor
+  is 'Creacion Hora';
+comment on column AQPB514.aqpb514creusr
+  is 'Creacion Usuario';
+comment on column AQPB514.aqpb514cresuc
+  is 'Creacion Sucursal';
+comment on column AQPB514.aqpb514cretim
+  is 'Creacion TimeStamp';
+comment on column AQPB514.aqpb514modfec
+  is 'Modificacion Fecha';
+comment on column AQPB514.aqpb514modhor
+  is 'Modificacion Hora';
+comment on column AQPB514.aqpb514modusr
+  is 'Modificacion Usuario';
+comment on column AQPB514.aqpb514modsuc
+  is 'Modificacion Sucursal';
+comment on column AQPB514.aqpb514modtim
+  is 'Modificacion TimeStamp';
+alter table AQPB514
+  add primary key (AQPB514PAIS, AQPB514TDOC, AQPB514NDOC, AQPB514CRETIM);
+

@@ -1,0 +1,42 @@
+create table AQPB387
+(
+  aqpb387cod NUMBER(3) not null,
+  aqpb387fec DATE not null,
+  aqpb387cor NUMBER(10) not null,
+  aqpb387mon NUMBER(17,2),
+  aqpb387est VARCHAR2(1),
+  aqpb387usr VARCHAR2(10),
+  aqpb387fcr VARCHAR2(10),
+  aqpb387hcr VARCHAR2(10),
+  aqpb387usd VARCHAR2(10),
+  aqpb387fed VARCHAR2(10),
+  aqpb387hed VARCHAR2(10)
+)
+;
+comment on table AQPB387
+  is 'Tabla control limite global patrimonio efectivo';
+comment on column AQPB387.aqpb387cod
+  is 'Empresa';
+comment on column AQPB387.aqpb387fec
+  is 'Fecha';
+comment on column AQPB387.aqpb387cor
+  is 'Correlativo';
+comment on column AQPB387.aqpb387mon
+  is 'Monto patrimonio efectivo';
+comment on column AQPB387.aqpb387est
+  is 'Estado';
+comment on column AQPB387.aqpb387usr
+  is 'Usuario Creacion';
+comment on column AQPB387.aqpb387fcr
+  is 'Fecha Creacion';
+comment on column AQPB387.aqpb387hcr
+  is 'Hora Creacion';
+comment on column AQPB387.aqpb387usd
+  is 'Usuario Modificacion';
+comment on column AQPB387.aqpb387fed
+  is 'Fecha Modificacion';
+comment on column AQPB387.aqpb387hed
+  is 'Hora Modificacion';
+alter table AQPB387
+  add primary key (AQPB387COD, AQPB387FEC, AQPB387COR);
+

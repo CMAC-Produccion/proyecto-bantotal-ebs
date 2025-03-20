@@ -1,0 +1,57 @@
+create table AQPC599
+(
+  aqpc599codrec NUMBER(10),
+  aqpc599mtran  NUMBER(18,2),
+  aqpc599macum  NUMBER(18,2),
+  aqpc599trang  NUMBER(18,2),
+  aqpc599mcal   NUMBER(18,2),
+  aqpc599cmac   NUMBER(18,2),
+  aqpc599focma  NUMBER(18,2),
+  aqpc599codtra NUMBER(10),
+  aqpc599porc   NUMBER(10),
+  aqpc599cmacd  NUMBER(18,2),
+  aqpc599focmad NUMBER(18,2),
+  aqpc599fec    DATE,
+  aqpc599hor    VARCHAR2(10),
+  aqpc599fecp   DATE,
+  aqpc599user   VARCHAR2(12)
+)
+;
+comment on table AQPC599
+  is 'TABLA LOG DE CALCULO VENTA FOCMA';
+comment on column AQPC599.aqpc599codrec
+  is 'CODIGO DE RECAUDO';
+comment on column AQPC599.aqpc599mtran
+  is 'MONTO QUE YA FUE TRANSFERIDO';
+comment on column AQPC599.aqpc599macum
+  is 'MONTO ACUMULADO';
+comment on column AQPC599.aqpc599trang
+  is 'TOPE DE RANGO';
+comment on column AQPC599.aqpc599mcal
+  is 'MONTO CALCULADO';
+comment on column AQPC599.aqpc599cmac
+  is 'MONTO PARA CAJA SOLES';
+comment on column AQPC599.aqpc599focma
+  is 'MONTO PARA FOCMA SOLES';
+comment on column AQPC599.aqpc599codtra
+  is 'CODIGO DE TRANSFERENCIA';
+comment on column AQPC599.aqpc599porc
+  is 'PORCENTAJE ';
+comment on column AQPC599.aqpc599cmacd
+  is 'MONTO PARA CAJA DOLARES';
+comment on column AQPC599.aqpc599focmad
+  is 'MONTO PARA FOCMA DOLARES';
+comment on column AQPC599.aqpc599fec
+  is 'Fecha en la que se inserto el registro';
+comment on column AQPC599.aqpc599hor
+  is 'hora en la que se inserto el registro';
+comment on column AQPC599.aqpc599fecp
+  is 'Fecha de procesado para el calculo';
+comment on column AQPC599.aqpc599user
+  is 'usuario que registra';
+create index AQPC599A2 on AQPC599 (AQPC599CODREC);
+create index AQPC599A3 on AQPC599 (AQPC599CODREC, AQPC599CODTRA, AQPC599FEC);
+create index AQPC599A4 on AQPC599 (AQPC599CODTRA, AQPC599FEC);
+create index AQPC599A5 on AQPC599 (AQPC599CODREC, AQPC599FEC);
+create index AQPC599A6 on AQPC599 (AQPC599CODREC, AQPC599CODTRA);
+

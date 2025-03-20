@@ -1,0 +1,41 @@
+create table TI0300
+(
+  thpgcod    NUMBER(3) not null,
+  thimpucod  NUMBER(3) not null,
+  thpsuc     NUMBER(3) not null,
+  thmodt     NUMBER(3) not null,
+  thtrn      NUMBER(3) not null,
+  thfchc     DATE not null,
+  thnrel     NUMBER(4) not null,
+  thfordi    NUMBER(2) not null,
+  thcorrt    NUMBER(3) not null,
+  thordo     NUMBER(2),
+  thsbororig NUMBER(3),
+  thsbordest NUMBER(3),
+  thordd     NUMBER(2),
+  thscrub    NUMBER(16),
+  thmontoimp NUMBER(14,2),
+  thrubdest  NUMBER(16),
+  thcorrelai NUMBER(5),
+  thcodmov   NUMBER(3),
+  thmda      NUMBER(4),
+  thimportet NUMBER(14,2),
+  thhsccta   NUMBER(9),
+  thhscoper  NUMBER(9),
+  thhscsuc   NUMBER(3),
+  thhsctope  NUMBER(3),
+  thhscsbop  NUMBER(3),
+  thhscmod   NUMBER(3),
+  thhscmda   NUMBER(4),
+  thhscpap   NUMBER(4),
+  thcodhisto NUMBER(3),
+  thcontabil CHAR(1),
+  thfval     DATE,
+  thdbha     NUMBER(1)
+)
+;
+create index TI030002 on TI0300 (THPGCOD, THFCHC, THMODT, THTRN, THPSUC, THNREL, THFORDI, THCORRT);
+create index TI030003 on TI0300 (THPGCOD, THHSCCTA, THHSCMDA, THHSCMOD, THHSCOPER, THHSCPAP, THHSCSBOP, THHSCSUC, THHSCTOPE, THMDA, THIMPUCOD, THCORRELAI);
+alter table TI0300
+  add primary key (THPGCOD, THIMPUCOD, THPSUC, THMODT, THTRN, THFCHC, THNREL, THFORDI, THCORRT);
+

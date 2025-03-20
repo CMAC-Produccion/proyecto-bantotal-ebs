@@ -1,0 +1,53 @@
+create table FCPG60
+(
+  cpg60cod   NUMBER(10) not null,
+  cpg60suc   NUMBER(3),
+  cpg60fecha DATE,
+  cpg60usu   CHAR(10),
+  cpg60zonn  CHAR(40),
+  cpg60zona  CHAR(40),
+  cpg60pais  NUMBER(3),
+  cpg60tdoc  NUMBER(2),
+  cpg60ndoc  CHAR(25),
+  cpg60cta   NUMBER(9),
+  cpg60loc   CHAR(20),
+  cpg60prov  NUMBER(5),
+  cpg60actp  CHAR(40),
+  cpg60pserv CHAR(1),
+  cpg60cglob NUMBER(17,2),
+  cpg60segm  NUMBER(3),
+  cpg60denom CHAR(30),
+  cpg60ctcto CHAR(50),
+  cpg60tel   CHAR(25),
+  cpg60email CHAR(45),
+  cpg60mda   NUMBER(4),
+  cpg60perp  CHAR(1),
+  cpg60volt  CHAR(1),
+  cpg60calac CHAR(1),
+  cpg60porac NUMBER(4,2),
+  cpg60calpr CHAR(1),
+  cpg60adelf CHAR(1),
+  cpg60pbcnt NUMBER(10),
+  cpg60pbpor NUMBER(4,2),
+  cpg60perac NUMBER(2),
+  cpg60ente  CHAR(1),
+  cpg60tpoa  CHAR(1),
+  cpg60canal NUMBER(3),
+  cpg60fchrc DATE,
+  cpg60est   CHAR(3),
+  cpg60blq   CHAR(1),
+  cpg60inst  NUMBER(10),
+  cpg60calle CHAR(35),
+  cpg60npta  NUMBER(5),
+  cpg60und   CHAR(6),
+  cpg60piso  CHAR(2),
+  cpg60cpost CHAR(8),
+  cpg60pdom  NUMBER(3),
+  cpg60casc  NUMBER(5),
+  cpg60sube  NUMBER(3)
+)
+;
+create index FCPG6002 on FCPG60 (CPG60INST);
+alter table FCPG60
+  add primary key (CPG60COD);
+

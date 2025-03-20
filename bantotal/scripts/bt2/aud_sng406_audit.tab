@@ -1,0 +1,29 @@
+create table AUD_SNG406_AUDIT
+(
+  aud_old_sng400cod  NUMBER(3),
+  aud_new_sng400cod  NUMBER(3),
+  aud_old_sng400evto NUMBER(10),
+  aud_new_sng400evto NUMBER(10),
+  aud_old_sng402cr   NUMBER(4),
+  aud_new_sng402cr   NUMBER(4),
+  aud_old_sng406mod  CHAR(1),
+  aud_new_sng406mod  CHAR(1),
+  aud_old_sng406ord  NUMBER(4),
+  aud_new_sng406ord  NUMBER(4),
+  aud_old_sng406prg  CHAR(10),
+  aud_new_sng406prg  CHAR(10),
+  aud_sng406_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_sng406_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng406_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng406_ubr     VARCHAR2(50) default ' ' not null,
+  aud_sng406_ubc     VARCHAR2(50) default ' ' not null,
+  aud_sng406_ubt     VARCHAR2(50) default ' ' not null,
+  aud_sng406_ubu     VARCHAR2(50) default USER not null,
+  aud_sng406_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng406_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng406_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng406_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng406_uas     CHAR(1) default 'I' not null
+)
+;
+

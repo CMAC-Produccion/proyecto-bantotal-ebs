@@ -1,0 +1,18 @@
+create table FRTSKFILES
+(
+  frprcid        NUMBER(6) not null,
+  frtskid        NUMBER(6) not null,
+  frtskfilid     NUMBER(4) not null,
+  frtskfiltyp    NUMBER(2),
+  frtskfildsc    VARCHAR2(80),
+  frrepnam       CHAR(15),
+  frtskfilpat    VARCHAR2(2000),
+  frtskfilsavnam VARCHAR2(255),
+  frtskfilvis    NUMBER(1)
+)
+;
+create index IFRTSKF1 on FRTSKFILES (FRREPNAM);
+create index UFRTSKFILES on FRTSKFILES (FRPRCID, FRTSKFILDSC);
+alter table FRTSKFILES
+  add primary key (FRPRCID, FRTSKID, FRTSKFILID);
+

@@ -1,0 +1,38 @@
+create table JAQZ715
+(
+  jaqz715cod        NUMBER(18) not null,
+  jaqz715inst       NUMBER(10) not null,
+  jaqz715activo     NUMBER(1),
+  jaqz715fecvigauto DATE,
+  jaqz715desc       VARCHAR2(150),
+  jaqz715estado     VARCHAR2(1),
+  jaqz715usur       VARCHAR2(30),
+  jaqz715fechahora  TIMESTAMP(6),
+  jaqz715fechamod   TIMESTAMP(6),
+  jaqz715usurmod    VARCHAR2(30)
+)
+;
+comment on column JAQZ715.jaqz715cod
+  is 'JAQZ715 COD';
+comment on column JAQZ715.jaqz715inst
+  is 'JAQZ715 INST';
+comment on column JAQZ715.jaqz715activo
+  is 'JAQZ715 ACTIVO';
+comment on column JAQZ715.jaqz715fecvigauto
+  is 'JAQZ715 FECVIGAUTO';
+comment on column JAQZ715.jaqz715desc
+  is 'JAQZ715 DESCP';
+comment on column JAQZ715.jaqz715estado
+  is 'JAQZ715 ESTADO';
+comment on column JAQZ715.jaqz715usur
+  is 'JAQZ715 USUARIO';
+comment on column JAQZ715.jaqz715fechahora
+  is 'JAQZ715 FECHAHORA';
+comment on column JAQZ715.jaqz715fechamod
+  is 'JAQZ715 FECHAMOD';
+comment on column JAQZ715.jaqz715usurmod
+  is 'JAQZ715 USURMOD';
+create index JAQZ715IDX_001 on JAQZ715 (JAQZ715INST);
+alter table JAQZ715
+  add primary key (JAQZ715COD, JAQZ715INST);
+

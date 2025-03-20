@@ -1,0 +1,28 @@
+create table JAQY678
+(
+  jaqy678pai NUMBER(3) not null,
+  jaqy678ptd NUMBER(2) not null,
+  jaqy678doc CHAR(12) not null,
+  jaqy678fch DATE not null,
+  jaqy678usu CHAR(10) not null,
+  jaqy678hra CHAR(8) not null,
+  jaqy678reg TIMESTAMP(6),
+  jaqy678est CHAR(1),
+  jaqy678a01 NUMBER(9),
+  jaqy678a02 NUMBER(9),
+  jaqy678a03 NUMBER(9),
+  jaqy678a04 CHAR(50),
+  jaqy678a05 CHAR(50),
+  jaqy678a06 CHAR(50),
+  jaqy678a07 DATE,
+  jaqy678a08 DATE,
+  jaqy678a09 DATE,
+  jaqy678a10 NUMBER(17,2),
+  jaqy678a11 NUMBER(17,2),
+  jaqy678a12 NUMBER(17,2)
+)
+;
+create index JAQY6782 on JAQY678 (JAQY678PAI, JAQY678PTD, JAQY678DOC, JAQY678FCH, JAQY678HRA);
+alter table JAQY678
+  add primary key (JAQY678PAI, JAQY678PTD, JAQY678DOC, JAQY678FCH, JAQY678USU);
+

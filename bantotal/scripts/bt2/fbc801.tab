@@ -1,0 +1,30 @@
+create table FBC801
+(
+  bc801emp   NUMBER(3) not null,
+  bc801fch   NUMBER(6) not null,
+  bc801codo  CHAR(1) not null,
+  bc801oper  CHAR(22) not null,
+  bc801tope  NUMBER(3) not null,
+  bc801suc   NUMBER(5) not null,
+  bc801fcho  DATE not null,
+  bc801corr  NUMBER(10) not null,
+  bc801faper DATE,
+  bc801monto NUMBER(14,2),
+  bc801cntes NUMBER(14,2),
+  bc801tpoes CHAR(5),
+  bc801bcoc  CHAR(12),
+  bc801bcoo  CHAR(50),
+  bc801paisb CHAR(2),
+  bc801aux1  CHAR(80),
+  bc801proc  CHAR(1),
+  bc801aux2  CHAR(40),
+  bc801aux3  CHAR(30),
+  bc801aux4  CHAR(30)
+)
+;
+create index FBC80102 on FBC801 (BC801EMP, BC801FCH, BC801CODO, BC801OPER, BC801TOPE, BC801SUC, BC801FCHO, BC801TPOES, BC801BCOC, BC801BCOO, BC801PAISB);
+create index FBC80103 on FBC801 (BC801EMP, BC801FCH, BC801FCHO);
+create index FBC80135 on FBC801 (BC801EMP, BC801TOPE, BC801FCHO);
+alter table FBC801
+  add primary key (BC801EMP, BC801FCH, BC801CODO, BC801OPER, BC801TOPE, BC801SUC, BC801FCHO, BC801CORR);
+

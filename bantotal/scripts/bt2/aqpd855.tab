@@ -1,0 +1,41 @@
+create table AQPD855
+(
+  aqpd855ident NUMBER(12) not null,
+  aqpd855insta NUMBER(10),
+  aqpd855insan NUMBER(10),
+  aqpd855evalu NUMBER(10),
+  aqpd855evala NUMBER(10),
+  aqpd855tipoc NUMBER(14,8),
+  aqpd855actso NUMBER(17,2),
+  aqpd855actsa NUMBER(17,2),
+  aqpd855actdo NUMBER(17,2),
+  aqpd855actda NUMBER(17,2),
+  aqpd855venso NUMBER(17,2),
+  aqpd855vensa NUMBER(17,2),
+  aqpd855vendo NUMBER(17,2),
+  aqpd855venda NUMBER(17,2),
+  aqpd855utbso NUMBER(17,2),
+  aqpd855utbsa NUMBER(17,2),
+  aqpd855utbdo NUMBER(17,2),
+  aqpd855utbda NUMBER(17,2),
+  aqpd855actin NUMBER(17,2),
+  aqpd855ventn NUMBER(17,2),
+  aqpd855utiln NUMBER(17,2),
+  aqpd855actia NUMBER(17,2),
+  aqpd855venta NUMBER(17,2),
+  aqpd855utiba NUMBER(17,2),
+  aqpd855estad CHAR(1),
+  aqpd855fecre TIMESTAMP(6),
+  aqpd855usuar CHAR(30),
+  aqpd855auxc1 CHAR(50),
+  aqpd855auxc2 CHAR(50),
+  aqpd855auxn1 NUMBER(17,2),
+  aqpd855auxn2 NUMBER(17,2),
+  aqpd855auxd1 DATE,
+  aqpd855auxd2 DATE
+)
+;
+create index AQPD855A2 on AQPD855 (AQPD855INSTA);
+create index AQPD855A3 on AQPD855 (AQPD855INSTA, AQPD855ESTAD);
+create unique index PK on AQPD855 (AQPD855IDENT);
+

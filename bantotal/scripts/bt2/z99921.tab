@@ -1,0 +1,16 @@
+create table Z99921
+(
+  z99921fec DATE not null,
+  z99921hor CHAR(8) not null,
+  z99921cod CHAR(8) not null,
+  z99921cla CHAR(250) not null,
+  z99921reg CHAR(250),
+  z99921ds2 CHAR(30),
+  z99921usu CHAR(10),
+  z99921tno CHAR(3),
+  z99921tn2 CHAR(3)
+)
+;
+alter table Z99921
+  add primary key (Z99921FEC, Z99921HOR, Z99921COD, Z99921CLA);
+

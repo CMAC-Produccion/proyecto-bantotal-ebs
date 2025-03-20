@@ -1,0 +1,44 @@
+create table FCCW01
+(
+  fcccod NUMBER(4) not null,
+  fccsuc NUMBER(3) not null,
+  fccrub NUMBER(16) not null,
+  fccmda NUMBER(4) not null,
+  fccpap NUMBER(4) not null,
+  fcccta NUMBER(9) not null,
+  fccope NUMBER(9) not null,
+  fccsbo NUMBER(3) not null,
+  fcctop NUMBER(3) not null,
+  fccmod NUMBER(3),
+  fccfch DATE,
+  fcchra CHAR(8),
+  fccsdo NUMBER(17,2),
+  fccsda NUMBER(17,2),
+  fcctip CHAR(1),
+  fccejc NUMBER(3),
+  fccejn CHAR(30),
+  fccctn CHAR(35),
+  fccmon CHAR(30),
+  fccmdn CHAR(30),
+  fccrun CHAR(20),
+  fccpan CHAR(30),
+  fcctel CHAR(20),
+  fccpro NUMBER(17,2),
+  fccdsg NUMBER(3),
+  fcccac CHAR(15),
+  fccsts NUMBER(2),
+  fccax1 NUMBER(17,2),
+  fccax2 NUMBER(17,2),
+  fccax3 NUMBER(17,2),
+  fccax4 NUMBER(17,2),
+  fccax5 NUMBER(9),
+  fccax6 NUMBER(3),
+  fccax7 CHAR(30),
+  fccax8 CHAR(20)
+)
+;
+create index FCCW0102 on FCCW01 (FCCCOD, FCCSUC, FCCCTA, FCCTIP);
+create index FCCW0103 on FCCW01 (FCCCOD, FCCEJC, FCCCTA, FCCTIP);
+alter table FCCW01
+  add primary key (FCCCOD, FCCSUC, FCCRUB, FCCMDA, FCCPAP, FCCCTA, FCCOPE, FCCSBO, FCCTOP);
+

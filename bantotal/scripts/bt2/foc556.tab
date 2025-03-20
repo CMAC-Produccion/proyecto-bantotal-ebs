@@ -1,0 +1,14 @@
+create table FOC556
+(
+  foc556emp  NUMBER(3) not null,
+  foc556suc  NUMBER(3) not null,
+  foc556emis NUMBER(2) not null,
+  foc556prod NUMBER(2) not null,
+  foc556mda  NUMBER(4) not null,
+  foc556deno NUMBER(9) not null,
+  foc556cant NUMBER(5)
+)
+;
+alter table FOC556
+  add primary key (FOC556EMP, FOC556SUC, FOC556EMIS, FOC556PROD, FOC556MDA, FOC556DENO);
+

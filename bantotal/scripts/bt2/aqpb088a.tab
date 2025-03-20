@@ -1,0 +1,27 @@
+create table AQPB088A
+(
+  aqpb088apgcod NUMBER(3) not null,
+  aqpb088amod   NUMBER(3) not null,
+  aqpb088asuc   NUMBER(3) not null,
+  aqpb088amda   NUMBER(4) not null,
+  aqpb088apap   NUMBER(4) not null,
+  aqpb088acta   NUMBER(9) not null,
+  aqpb088aoper  NUMBER(9) not null,
+  aqpb088asbop  NUMBER(3) not null,
+  aqpb088atope  NUMBER(3) not null,
+  aqpb088afec   DATE not null,
+  aqpb088ahor   CHAR(8) not null,
+  aqpb088ausu   CHAR(10),
+  aqpb088afecm  DATE,
+  aqpb088ahorm  CHAR(8),
+  aqpb088ausum  CHAR(10),
+  aqpb088atipo  VARCHAR2(10),
+  aqpb088afep   DATE not null,
+  aqpb088acor   NUMBER(9) not null,
+  aqpb088aest   VARCHAR2(2)
+)
+;
+create index AQPB088A2 on AQPB088A (AQPB088AFEP, AQPB088ACOR);
+alter table AQPB088A
+  add primary key (AQPB088APGCOD, AQPB088AMOD, AQPB088ASUC, AQPB088AMDA, AQPB088APAP, AQPB088ACTA, AQPB088AOPER, AQPB088ASBOP, AQPB088ATOPE, AQPB088AFEC, AQPB088AFEP, AQPB088ACOR);
+

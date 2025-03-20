@@ -1,0 +1,24 @@
+create table FSFSDC
+(
+  sfsdcemp  NUMBER(3) not null,
+  sfsdcmod  NUMBER(3) not null,
+  sfsdctrn  NUMBER(3) not null,
+  sfsdcmerc NUMBER(3) not null,
+  sfsdcmsje NUMBER(4) not null,
+  sfsdcfluj CHAR(1) not null,
+  sfsdcbloq NUMBER(2) not null,
+  sfsdcsec  NUMBER(3) not null,
+  sfsdcfuen CHAR(2),
+  sfsdctdas CHAR(10),
+  sfsdcordi NUMBER(2),
+  sfsdcsubo NUMBER(3),
+  sfsdcnuim NUMBER(2),
+  sfsdccots NUMBER(6),
+  sfsdcpgm  CHAR(20),
+  sfsdctxco NUMBER(3),
+  sfsdctxre NUMBER(3)
+)
+;
+alter table FSFSDC
+  add primary key (SFSDCEMP, SFSDCMOD, SFSDCTRN, SFSDCMERC, SFSDCMSJE, SFSDCFLUJ, SFSDCBLOQ, SFSDCSEC);
+

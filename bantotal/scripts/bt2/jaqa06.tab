@@ -1,0 +1,142 @@
+create table JAQA06
+(
+  jaqa06regi VARCHAR2(30) not null,
+  jaqa06fein DATE,
+  jaqa06cbrt NUMBER(17,2),
+  jaqa06mvsa NUMBER(17,2),
+  jaqa06pasb NUMBER(10,6),
+  jaqa06ncto NUMBER(9),
+  jaqa06ncli NUMBER(9),
+  jaqa06mvcl NUMBER(9),
+  jaqa06pacl NUMBER(10,6),
+  jaqa06pjat NUMBER(10,6),
+  jaqa06catr NUMBER(17,2),
+  jaqa06mvmo NUMBER(17,2),
+  jaqa06pjmt NUMBER(10,6),
+  jaqa06scmt NUMBER(17,2),
+  jaqa06sjud NUMBER(17,2),
+  jaqa06vmcb NUMBER(17,2),
+  jaqa06vmcl NUMBER(9),
+  jaqa06vmpa NUMBER(10,6),
+  jaqa06vmat NUMBER(17,2),
+  jaqa06vdcb NUMBER(17,2),
+  jaqa06vdcl NUMBER(4),
+  jaqa06vdpa NUMBER(10,6),
+  jaqa06vdat NUMBER(17,2),
+  jaqa06vmju NUMBER(17,2),
+  jaqa06mcju NUMBER(17,2),
+  jaqa06num1 NUMBER(9),
+  jaqa06num2 NUMBER(9),
+  jaqa06num3 NUMBER(9),
+  jaqa06imp1 NUMBER(17,2),
+  jaqa06imp2 NUMBER(17,2),
+  jaqa06imp3 NUMBER(17,2),
+  jaqa06cha1 VARCHAR2(255),
+  jaqa06cha2 VARCHAR2(255),
+  jaqa06cha3 VARCHAR2(255),
+  jaqa06fec1 DATE,
+  jaqa06fec2 DATE,
+  jaqa06fec3 DATE,
+  jaqa06imp8 NUMBER(17,2),
+  jaqa06imp7 NUMBER(17,2),
+  jaqa06imp6 NUMBER(17,2),
+  jaqa06imp5 NUMBER(17,2),
+  jaqa06imp4 NUMBER(17,2),
+  jaqa06cmnc NUMBER(10),
+  jaqa06cmcb NUMBER(17,2)
+)
+;
+comment on table JAQA06
+  is 'Región - Posicionamiento de Negocio';
+comment on column JAQA06.jaqa06regi
+  is 'REGIÓN';
+comment on column JAQA06.jaqa06fein
+  is 'FECHA INGRESO DE DATA';
+comment on column JAQA06.jaqa06cbrt
+  is 'CARTERA BRUTA';
+comment on column JAQA06.jaqa06mvsa
+  is 'META VARIACIÓN SALDO';
+comment on column JAQA06.jaqa06pasb
+  is 'PORCENTAJE AVANCE SALDO BRUTO';
+comment on column JAQA06.jaqa06ncto
+  is 'NÚMERO CRÉDITO TOTAL';
+comment on column JAQA06.jaqa06ncli
+  is 'NÚMERO DE CLIENTES';
+comment on column JAQA06.jaqa06mvcl
+  is 'META VARIACIÓN CLIENTES';
+comment on column JAQA06.jaqa06pacl
+  is 'PORCENTAJE AVANCE CLIENTES';
+comment on column JAQA06.jaqa06pjat
+  is 'PORCENTAJE ATRASADO';
+comment on column JAQA06.jaqa06catr
+  is 'CARTERA ATRASADA';
+comment on column JAQA06.jaqa06mvmo
+  is 'META VARACIÓN MORA';
+comment on column JAQA06.jaqa06pjmt
+  is 'PORCENTAJE MAYOR A 30';
+comment on column JAQA06.jaqa06scmt
+  is 'SALDO CAPITAL MAYORA A 30';
+comment on column JAQA06.jaqa06sjud
+  is 'SALDO JUDICIAL';
+comment on column JAQA06.jaqa06vmcb
+  is 'VARIACIÓN MES CARTERA BRUTA';
+comment on column JAQA06.jaqa06vmcl
+  is 'VARIACIÓN MES CLIENTE';
+comment on column JAQA06.jaqa06vmpa
+  is 'VARIACIÓN MES PORCENTAJE ATRASADO';
+comment on column JAQA06.jaqa06vmat
+  is 'VARIACIÓN MES ATRASADO';
+comment on column JAQA06.jaqa06vdcb
+  is 'VARIACIÓN DÍA CARTERA BRUTA';
+comment on column JAQA06.jaqa06vdcl
+  is 'VARIACIÓN DÍA CLIENTE';
+comment on column JAQA06.jaqa06vdpa
+  is 'VARIACIÓN DÍA PORCENTAJE ATRASADO';
+comment on column JAQA06.jaqa06vdat
+  is 'VARIACIÓN DÍA ATRASADO';
+comment on column JAQA06.jaqa06vmju
+  is 'VARIACIÓN META JUDICIAL';
+comment on column JAQA06.jaqa06mcju
+  is 'META CARTERA JUDICIAL';
+comment on column JAQA06.jaqa06num1
+  is 'NUMERO CLIENTES CIERRE MES ANTERIOR';
+comment on column JAQA06.jaqa06num2
+  is 'AUXILIAR NUMÉRICO 2';
+comment on column JAQA06.jaqa06num3
+  is 'AUXILIAR NUMÉRICO 3';
+comment on column JAQA06.jaqa06imp1
+  is 'POTENCIAL CARTERA SALDO INICIAL DIA';
+comment on column JAQA06.jaqa06imp2
+  is 'POTENCIAL CARTERA SALDO ACTUAL';
+comment on column JAQA06.jaqa06imp3
+  is 'CARTERA BRUTA CIERRE MES ANTERIOR';
+comment on column JAQA06.jaqa06cha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQA06.jaqa06cha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQA06.jaqa06cha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQA06.jaqa06fec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQA06.jaqa06fec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQA06.jaqa06fec3
+  is 'AUXILIAR FECHA 3';
+comment on column JAQA06.jaqa06imp8
+  is 'AUXILIAR IMPORTE 8';
+comment on column JAQA06.jaqa06imp7
+  is 'AUXILIAR IMPORTE 7';
+comment on column JAQA06.jaqa06imp6
+  is 'AUXILIAR IMPORTE 6';
+comment on column JAQA06.jaqa06imp5
+  is 'AUXILIAR IMPORTE 5';
+comment on column JAQA06.jaqa06imp4
+  is 'AUXILIAR IMPORTE 4';
+comment on column JAQA06.jaqa06cmnc
+  is 'CRECIMIENTO MES NUMERO CLIENTES';
+comment on column JAQA06.jaqa06cmcb
+  is 'CRECIMIENTO MES CARTERA BRUTA';
+create index JAQA06A2 on JAQA06 (JAQA06CBRT);
+alter table JAQA06
+  add primary key (JAQA06REGI);
+

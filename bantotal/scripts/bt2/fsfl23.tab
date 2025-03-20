@@ -1,0 +1,25 @@
+create table FSFL23
+(
+  fsfl23emp  NUMBER(3) not null,
+  fsfl23cta  NUMBER(9) not null,
+  fsfl23suc  NUMBER(3) not null,
+  fsfl23mod  NUMBER(3) not null,
+  fsfl23trn  NUMBER(3) not null,
+  fsfl23nrel NUMBER(4) not null,
+  fsfl23fch  DATE not null,
+  fsfl23ope  NUMBER(9),
+  fsfl23cov  CHAR(1),
+  fsfl23mda  NUMBER(4),
+  fsfl23imp  NUMBER(17,2),
+  fsfl23cum  DATE,
+  fsfl23tcc  NUMBER(14,8),
+  fsfl23tcv  NUMBER(14,8),
+  fsfl23stat CHAR(1),
+  fsfl23maux NUMBER(17,2)
+)
+;
+create index FSFL2302 on FSFL23 (FSFL23EMP, FSFL23CTA, FSFL23COV, FSFL23MDA, FSFL23CUM, FSFL23SUC, FSFL23MOD, FSFL23TRN, FSFL23NREL, FSFL23FCH);
+create index FSFL2303 on FSFL23 (FSFL23EMP, FSFL23CUM, FSFL23CTA);
+alter table FSFL23
+  add primary key (FSFL23EMP, FSFL23CTA, FSFL23SUC, FSFL23MOD, FSFL23TRN, FSFL23NREL, FSFL23FCH);
+

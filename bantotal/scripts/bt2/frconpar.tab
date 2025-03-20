@@ -1,0 +1,11 @@
+create table FRCONPAR
+(
+  frctlcla   CHAR(15) not null,
+  frctltyp   CHAR(3) not null,
+  frctlprmna CHAR(20) not null,
+  frctlprmva VARCHAR2(20)
+)
+;
+alter table FRCONPAR
+  add primary key (FRCTLCLA, FRCTLTYP, FRCTLPRMNA);
+

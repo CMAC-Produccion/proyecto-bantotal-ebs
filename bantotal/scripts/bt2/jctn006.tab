@@ -1,0 +1,15 @@
+create table JCTN006
+(
+  jctn006cd NUMBER(3) not null,
+  jctn006ct NUMBER(9) not null,
+  jctn006fe DATE,
+  jctn006su NUMBER(3),
+  jctn006a1 NUMBER(12),
+  jctn006a2 DATE,
+  jctn006a3 CHAR(20)
+)
+;
+create index JCTN0062 on JCTN006 (JCTN006FE, JCTN006SU);
+alter table JCTN006
+  add primary key (JCTN006CD, JCTN006CT);
+

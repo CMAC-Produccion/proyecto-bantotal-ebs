@@ -1,0 +1,78 @@
+create table JAQM87
+(
+  jaqm87ins NUMBER(10) not null,
+  jaqm87pro NUMBER(4) not null,
+  jaqm87mr1 NUMBER(4) not null,
+  jaqm87mr2 NUMBER(4) not null,
+  jaqm87fec DATE not null,
+  jaqm87hor CHAR(8) not null,
+  jaqm87cod CHAR(12) not null,
+  jaqm87usu CHAR(10),
+  jaqm87fes DATE,
+  jaqm87nom CHAR(255),
+  jaqm87ext CHAR(20),
+  jaqm87an1 NUMBER(9),
+  jaqm87an2 NUMBER(9),
+  jaqm87an3 NUMBER(9),
+  jaqm87ai1 NUMBER(17,2),
+  jaqm87ai2 NUMBER(17,2),
+  jaqm87ai3 NUMBER(17,2),
+  jaqm87ac1 VARCHAR2(255),
+  jaqm87ac2 VARCHAR2(255),
+  jaqm87ac3 VARCHAR2(255),
+  jaqm87af1 DATE,
+  jaqm87af2 DATE,
+  jaqm87af3 DATE
+)
+;
+comment on table JAQM87
+  is 'Solicitud credito Rechazo';
+comment on column JAQM87.jaqm87ins
+  is 'Instancia';
+comment on column JAQM87.jaqm87pro
+  is 'Proceso';
+comment on column JAQM87.jaqm87mr1
+  is 'Tipo motivo';
+comment on column JAQM87.jaqm87mr2
+  is 'Motivo';
+comment on column JAQM87.jaqm87fec
+  is 'Fecha';
+comment on column JAQM87.jaqm87hor
+  is 'Hora';
+comment on column JAQM87.jaqm87cod
+  is 'Codigo archivo';
+comment on column JAQM87.jaqm87usu
+  is 'usuario';
+comment on column JAQM87.jaqm87fes
+  is 'Fecha subida archivo';
+comment on column JAQM87.jaqm87nom
+  is 'Nombre del archivo';
+comment on column JAQM87.jaqm87ext
+  is 'Extension del archivo';
+comment on column JAQM87.jaqm87an1
+  is 'auxiliar numerico 1';
+comment on column JAQM87.jaqm87an2
+  is 'auxiliar numerico 2';
+comment on column JAQM87.jaqm87an3
+  is 'auxiliar numerico 3';
+comment on column JAQM87.jaqm87ai1
+  is 'auxiliar importe 1';
+comment on column JAQM87.jaqm87ai2
+  is 'auxiliar importe 2';
+comment on column JAQM87.jaqm87ai3
+  is 'auxiliar importe 3';
+comment on column JAQM87.jaqm87ac1
+  is 'auxiliar caracter 1';
+comment on column JAQM87.jaqm87ac2
+  is 'auxiliar caracter 2';
+comment on column JAQM87.jaqm87ac3
+  is 'auxiliar caracter 3';
+comment on column JAQM87.jaqm87af1
+  is 'auxiliar fecha 1';
+comment on column JAQM87.jaqm87af2
+  is 'auxiliar fecha 2';
+comment on column JAQM87.jaqm87af3
+  is 'auxiliar fecha 3';
+alter table JAQM87
+  add primary key (JAQM87INS, JAQM87PRO, JAQM87MR1, JAQM87MR2, JAQM87FEC, JAQM87HOR, JAQM87COD);
+

@@ -1,0 +1,12 @@
+create table FCI001
+(
+  pgcod  NUMBER(3) not null,
+  cndmod NUMBER(3) not null,
+  cndtrn NUMBER(3) not null,
+  cndord NUMBER(2) not null,
+  cnddes CHAR(30)
+)
+;
+alter table FCI001
+  add primary key (PGCOD, CNDMOD, CNDTRN, CNDORD);
+

@@ -1,0 +1,41 @@
+create table JAQL549
+(
+  jaql546serial NUMBER(10) not null,
+  jaql549entid  VARCHAR2(100) not null,
+  jaql549ticta  VARCHAR2(10) not null,
+  jaql549fecha  DATE not null,
+  jaql549correl NUMBER(4) not null,
+  jaql549tidet  CHAR(2),
+  jaql549razon  CHAR(2),
+  jaql549ciuda  VARCHAR2(30),
+  jaql549ofici  VARCHAR2(30),
+  jaql549actec  VARCHAR2(100),
+  jaql549ultcon DATE,
+  jaql549secue  NUMBER(10),
+  jaql549numer  NUMBER(10),
+  jaql549concod VARCHAR2(16),
+  jaql549creusr VARCHAR2(10),
+  jaql549cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL549.jaql549entid
+  is 'Descripcion de Entidad';
+comment on column JAQL549.jaql549actec
+  is 'Actividad Economica';
+comment on column JAQL549.jaql549ultcon
+  is 'Ultima Consulta';
+comment on column JAQL549.jaql549secue
+  is 'Correlativo Secuencial';
+comment on column JAQL549.jaql549numer
+  is 'Número de Consultas';
+comment on column JAQL549.jaql549concod
+  is 'Código de Consulta';
+comment on column JAQL549.jaql549creusr
+  is 'Usuario Creación';
+comment on column JAQL549.jaql549cretim
+  is 'Fecha Hora Registro';
+create index JAQL549A2 on JAQL549 (JAQL546SERIAL, JAQL549FECHA DESC, JAQL549ENTID);
+create unique index JAQL54900 on JAQL549 (JAQL546SERIAL, JAQL549ENTID, JAQL549TICTA, JAQL549FECHA, JAQL549CORREL);
+alter table JAQL549
+  add primary key (JAQL546SERIAL, JAQL549ENTID, JAQL549TICTA, JAQL549FECHA, JAQL549CORREL);
+

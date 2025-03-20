@@ -1,0 +1,12 @@
+create table FSF024
+(
+  whtoper  NUMBER(3) not null,
+  whcta    NUMBER(9) not null,
+  wcodmov  NUMBER(2) not null,
+  whmda    NUMBER(4),
+  wimporte NUMBER(17,2)
+)
+;
+alter table FSF024
+  add primary key (WHTOPER, WHCTA, WCODMOV);
+

@@ -1,0 +1,22 @@
+create table Z05112
+(
+  z05112apl NUMBER(4) not null,
+  z05112bnd CHAR(5) not null,
+  z05112cor NUMBER(9) not null,
+  z05112co2 NUMBER(9) not null,
+  z05112tpr CHAR(1),
+  z05112prd CHAR(1),
+  z05112mon CHAR(3),
+  z05112fil CHAR(15),
+  z05112clo NUMBER(4),
+  z05112tim NUMBER(14,2),
+  z05112fca DATE,
+  z05112emp NUMBER(3),
+  z05112nem CHAR(30),
+  z05112fi2 CHAR(69),
+  z05112est CHAR(2)
+)
+;
+alter table Z05112
+  add primary key (Z05112APL, Z05112BND, Z05112COR, Z05112CO2);
+

@@ -1,0 +1,39 @@
+create table JAQZ174
+(
+  jaqz174sec NUMBER(15) not null,
+  jaqz174tip CHAR(1),
+  jaqz174for CHAR(1),
+  jaqz174fec DATE,
+  jaqz174hor CHAR(8),
+  jaqz174usu CHAR(10),
+  jaqz174age NUMBER(3),
+  jaqz174fev DATE,
+  jaqz174hov CHAR(8),
+  jaqz174usv CHAR(10),
+  jaqz174agv NUMBER(3),
+  jaqz174pai NUMBER(3),
+  jaqz174tpo NUMBER(2),
+  jaqz174num CHAR(12),
+  jaqz174cta NUMBER(9),
+  jaqz174nom CHAR(50),
+  jaqz174arc BLOB,
+  jaqz174est CHAR(1),
+  jaqz174mot CHAR(100),
+  jaqz174mai VARCHAR2(1000),
+  jaqz174err VARCHAR2(400),
+  jaqz174ax1 NUMBER(9),
+  jaqz174ax2 NUMBER(9),
+  jaqz174ax3 NUMBER(18),
+  jaqz174ax4 NUMBER(17,2),
+  jaqz174ax5 DATE,
+  jaqz174ax6 DATE,
+  jaqz174ax7 CHAR(100),
+  jaqz174ax8 CHAR(100),
+  jaqz174ax9 CHAR(100)
+)
+;
+create index JAQZ174_IDX001 on JAQZ174 (JAQZ174TIP, JAQZ174FOR, JAQZ174FEC, JAQZ174USU, JAQZ174PAI, JAQZ174TPO, JAQZ174NUM);
+create index JAQZ174_IDX002 on JAQZ174 (JAQZ174TIP, JAQZ174FOR, JAQZ174FEV, JAQZ174USV);
+alter table JAQZ174
+  add primary key (JAQZ174SEC);
+

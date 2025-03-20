@@ -1,0 +1,69 @@
+create table JAQM06
+(
+  jaqm06cana VARCHAR2(2000) not null,
+  jaqm06coan CHAR(10) not null,
+  jaqm06cacl NUMBER(10),
+  jaqm06msbs NUMBER(17,2),
+  jaqm06fein DATE,
+  jaqm06num1 NUMBER(10),
+  jaqm06num2 NUMBER(10),
+  jaqm06imp1 NUMBER(17,2),
+  jaqm06imp2 NUMBER(17,2),
+  jaqm06var1 VARCHAR2(255),
+  jaqm06var2 VARCHAR2(255),
+  jaqm06fec1 DATE,
+  jaqm06fec2 DATE,
+  jaqm06fec3 DATE,
+  jaqm06var3 VARCHAR2(255),
+  jaqm06imp3 NUMBER(17,2),
+  jaqm06num3 NUMBER(10),
+  jaqm06ccma NUMBER(10),
+  jaqm06mmma NUMBER(17,2),
+  jaqm06pmma NUMBER(17,2)
+)
+;
+comment on table JAQM06
+  is 'Mora SBS - Analista';
+comment on column JAQM06.jaqm06cana
+  is 'COMITE DEL ANALISTA';
+comment on column JAQM06.jaqm06coan
+  is 'CODIGO ANALISTA';
+comment on column JAQM06.jaqm06cacl
+  is 'CANTIDAD DE CLIENTES';
+comment on column JAQM06.jaqm06msbs
+  is 'MORA SBS ACTUAL';
+comment on column JAQM06.jaqm06fein
+  is 'FECHA DE INGRESO';
+comment on column JAQM06.jaqm06num1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQM06.jaqm06num2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQM06.jaqm06imp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM06.jaqm06imp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM06.jaqm06var1
+  is 'AUXILIAR VARCHAR 1';
+comment on column JAQM06.jaqm06var2
+  is 'AUXILIAR VARCHAR 2';
+comment on column JAQM06.jaqm06fec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM06.jaqm06fec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM06.jaqm06fec3
+  is 'AUXILIAR FECHA 3';
+comment on column JAQM06.jaqm06var3
+  is 'AUXILIAR VARCHAR 3';
+comment on column JAQM06.jaqm06imp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQM06.jaqm06num3
+  is 'AUXILIAR NUMERICO 3';
+comment on column JAQM06.jaqm06ccma
+  is 'CANTIDAD DE CLIENTES MES ANTERIOR';
+comment on column JAQM06.jaqm06mmma
+  is 'MONTO MORA MES ANTERIOR';
+comment on column JAQM06.jaqm06pmma
+  is 'PORCENTAJE MORA MES ANTERIOR';
+alter table JAQM06
+  add primary key (JAQM06CANA, JAQM06COAN);
+

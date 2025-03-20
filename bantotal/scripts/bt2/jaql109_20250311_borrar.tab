@@ -1,0 +1,11 @@
+create table JAQL109_20250311_BORRAR
+(
+  jaql109pgcod NUMBER(3) not null,
+  jaql109sucur NUMBER(3) not null,
+  jaql109tipsu CHAR(3) not null,
+  jaql109fecha DATE
+)
+;
+alter table JAQL109_20250311_BORRAR
+  add primary key (JAQL109PGCOD, JAQL109SUCUR, JAQL109TIPSU);
+

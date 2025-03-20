@@ -1,0 +1,55 @@
+create table JAQL477
+(
+  jaql477pemp1 NUMBER(3) not null,
+  jaql477temp1 NUMBER(2) not null,
+  jaql477nemp1 CHAR(12) not null,
+  jaql477pemp2 NUMBER(3) not null,
+  jaql477temp2 NUMBER(2) not null,
+  jaql477nemp2 CHAR(12) not null,
+  jaql477ctae2 NUMBER(9) not null,
+  jaql477tiprg NUMBER(1) not null,
+  jaql477fecrg DATE not null,
+  jaql477horrg CHAR(8) not null,
+  jaql477usurg CHAR(10),
+  jaql477sucrg NUMBER(3),
+  jaql477mdacb NUMBER(4),
+  jaql477mdarm NUMBER(4),
+  jaql477imprm NUMBER(17,2),
+  jaql477retex CHAR(1),
+  jaql477embpj NUMBER(5,2),
+  jaql477embop NUMBER(9),
+  jaql477embrf CHAR(18),
+  jaql477embds CHAR(70),
+  jaql477fecbj DATE,
+  jaql477sucbj NUMBER(3),
+  jaql477usubj CHAR(10),
+  jaql477auxd1 DATE,
+  jaql477auxd2 DATE,
+  jaql477auxn1 NUMBER(17,2),
+  jaql477auxn2 NUMBER(9),
+  jaql477auxt1 CHAR(30),
+  jaql477auxt2 CHAR(30),
+  jaql477auxt3 CHAR(100),
+  jaql477auxt4 CHAR(100),
+  jaql477auxt5 CHAR(100),
+  jaql477auxt6 CHAR(100),
+  jaql477auxn3 NUMBER(9),
+  jaql477auxn4 NUMBER(9),
+  jaql477auxn5 NUMBER(9),
+  jaql477auxn6 NUMBER(9),
+  jaql477auxn7 NUMBER(17,2),
+  jaql477auxn8 NUMBER(17,2),
+  jaql477auxn9 NUMBER(17,2),
+  jaql477auxd3 DATE,
+  jaql477auxd4 DATE,
+  jaql477auxd5 DATE,
+  jaql477auxd6 DATE
+)
+;
+create index IJAQL477001 on JAQL477 (JAQL477CTAE2, JAQL477TIPRG, JAQL477FECRG);
+create index IJAQL477002 on JAQL477 (JAQL477PEMP2, JAQL477TEMP2, JAQL477NEMP2, JAQL477CTAE2, JAQL477FECRG);
+create index IJAQL477003 on JAQL477 (JAQL477FECRG, JAQL477PEMP1, JAQL477TEMP1, JAQL477NEMP1);
+create index IJAQL477004 on JAQL477 (JAQL477PEMP1, JAQL477TEMP1, JAQL477NEMP1, JAQL477TIPRG, JAQL477FECRG);
+alter table JAQL477
+  add primary key (JAQL477PEMP1, JAQL477TEMP1, JAQL477NEMP1, JAQL477PEMP2, JAQL477TEMP2, JAQL477NEMP2, JAQL477CTAE2, JAQL477TIPRG, JAQL477FECRG, JAQL477HORRG);
+

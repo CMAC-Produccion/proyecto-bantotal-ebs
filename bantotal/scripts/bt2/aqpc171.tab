@@ -1,0 +1,128 @@
+create table AQPC171
+(
+  aqpc171codopi  NUMBER(10) not null,
+  aqpc171corr    NUMBER(10) not null,
+  aqpc171usur    VARCHAR2(10) not null,
+  aqpc171fecpro  DATE,
+  aqpc171inst    NUMBER(10),
+  aqpc171cargo   VARCHAR2(100),
+  aqpc171ancneg  VARCHAR2(4000),
+  aqpc171anvic   VARCHAR2(4000),
+  aqpc171fcn     VARCHAR2(4000),
+  aqpc171aesfcc  VARCHAR2(4000),
+  aqpc171rdcln   VARCHAR2(4000),
+  aqpc171ancp    VARCHAR2(4000),
+  aqpc171ancpg   VARCHAR2(4000),
+  aqpc171dandc   VARCHAR2(4000),
+  aqpc171dgcor   VARCHAR2(4000),
+  aqpc171rancneg VARCHAR2(4000),
+  aqpc171mtrep   VARCHAR2(4000),
+  aqpc171raesfcc VARCHAR2(4000),
+  aqpc171ancprf  VARCHAR2(4000),
+  aqpc171anvpg   VARCHAR2(4000),
+  aqpc171degv    VARCHAR2(4000),
+  aqpc171rfancne VARCHAR2(4000),
+  aqpc171mtrefn  VARCHAR2(4000),
+  aqpc171rfaesfc VARCHAR2(4000),
+  aqpc171rfancpr VARCHAR2(4000),
+  aqpc171rfanvpg VARCHAR2(4000),
+  aqpc171rfdegv  VARCHAR2(4000),
+  aqpc171usurar  VARCHAR2(10),
+  aqpc171comen   VARCHAR2(4000),
+  aqpc171resol   VARCHAR2(4000),
+  aqpc171conrec  VARCHAR2(4000),
+  aqpc171argreco VARCHAR2(4000),
+  aqpc171anacome VARCHAR2(4000),
+  aqpc171resolre VARCHAR2(4000),
+  aqpc171condrec VARCHAR2(4000),
+  aqpc171horareg VARCHAR2(8),
+  aqpc171estad   VARCHAR2(1),
+  aqpc171motobsv VARCHAR2(4000)
+)
+;
+comment on table AQPC171
+  is 'Tabla temporal de comentarios de opinion de riesgos';
+comment on column AQPC171.aqpc171codopi
+  is 'Cod. Opinion riesgo';
+comment on column AQPC171.aqpc171corr
+  is 'Correlativo';
+comment on column AQPC171.aqpc171usur
+  is 'Usuario analista creditos';
+comment on column AQPC171.aqpc171fecpro
+  is 'Fecha Carga';
+comment on column AQPC171.aqpc171inst
+  is 'Instancia';
+comment on column AQPC171.aqpc171cargo
+  is 'Cargo';
+comment on column AQPC171.aqpc171ancneg
+  is 'Antecedentes del Cliente y del Negocio AC -GA';
+comment on column AQPC171.aqpc171anvic
+  is 'Analisis de Vinculados  AC -GA';
+comment on column AQPC171.aqpc171fcn
+  is 'Fortalezas del Cliente y del Negocio  AC -GA';
+comment on column AQPC171.aqpc171aesfcc
+  is 'Analisis del Endeudamiento en el Sistema Financiero y Calificación Crediticia AC - GA';
+comment on column AQPC171.aqpc171rdcln
+  is 'Riesgos y Debilidades del Cliente y del Negocio  AC -GA';
+comment on column AQPC171.aqpc171ancp
+  is 'Análisis de la Nueva Capacidad de Pago  AC -GA';
+comment on column AQPC171.aqpc171ancpg
+  is 'Análisis de Ratios Financieros y Principales Variaciones en EEFF  AC -GA';
+comment on column AQPC171.aqpc171dandc
+  is 'Detalle y Análisis del Destino del Crédito  AC -GA';
+comment on column AQPC171.aqpc171dgcor
+  is 'Detalle de la Garantía y Cobertura  AC -GA';
+comment on column AQPC171.aqpc171rancneg
+  is 'Antecedentes del Cliente y del Negocio REPR';
+comment on column AQPC171.aqpc171mtrep
+  is 'Motivo de la Reprogramación REPR';
+comment on column AQPC171.aqpc171raesfcc
+  is 'Analisis del Endeudamiento en el Sistema Financiero y Calificación Crediticia REPR';
+comment on column AQPC171.aqpc171ancprf
+  is 'Análisis de la Nueva Capacidad de Pago y Principales Ratios Financieros REPR';
+comment on column AQPC171.aqpc171anvpg
+  is 'Análisis de la Voluntad de Pago REPR';
+comment on column AQPC171.aqpc171degv
+  is 'Detalle de la Garantía Vigente REPR';
+comment on column AQPC171.aqpc171rfancne
+  is 'Antecedentes del Cliente y del Negocio REF';
+comment on column AQPC171.aqpc171mtrefn
+  is 'Motivo de la Refinanciación REF';
+comment on column AQPC171.aqpc171rfaesfc
+  is 'Analisis del Endeudamiento en el Sistema Financiero y Calificación Crediticia REF';
+comment on column AQPC171.aqpc171rfancpr
+  is 'Análisis de la Nueva Capacidad de Pago y Principales Ratios Financieros REF';
+comment on column AQPC171.aqpc171rfanvpg
+  is 'Análisis de la Voluntad de Pago REF';
+comment on column AQPC171.aqpc171rfdegv
+  is 'Detalle de la Garantía Vigente REF';
+comment on column AQPC171.aqpc171usurar
+  is 'Usuario de Analista de riesgos';
+comment on column AQPC171.aqpc171comen
+  is 'Comentario de Unidad de riesgos';
+comment on column AQPC171.aqpc171resol
+  is 'Resolución';
+comment on column AQPC171.aqpc171conrec
+  is 'Condiciones / Recomendaciones';
+comment on column AQPC171.aqpc171argreco
+  is 'Argumentos de Reconsideración';
+comment on column AQPC171.aqpc171anacome
+  is 'Análisis y Comentarios - Reconsideración';
+comment on column AQPC171.aqpc171resolre
+  is 'Resolución - Reconsideración';
+comment on column AQPC171.aqpc171condrec
+  is 'Condiciones / Recomendaciones - Reconsideración';
+comment on column AQPC171.aqpc171horareg
+  is 'Hora Registro';
+comment on column AQPC171.aqpc171estad
+  is 'Estado del registro I - Inhabilitado;H - Habilitado';
+comment on column AQPC171.aqpc171motobsv
+  is 'Motivo de observación';
+create index AQPC171A2 on AQPC171 (AQPC171CODOPI, AQPC171USUR, AQPC171FECPRO, AQPC171CORR);
+create index AQPC171A3 on AQPC171 (AQPC171CODOPI, AQPC171INST);
+create index AQPC171A5 on AQPC171 (AQPC171CODOPI, AQPC171ESTAD);
+alter table AQPC171
+  add primary key (AQPC171CODOPI, AQPC171CORR, AQPC171USUR);
+alter table AQPC171
+  add constraint AQPC171A4 unique (AQPC171CODOPI, AQPC171CORR, AQPC171INST);
+

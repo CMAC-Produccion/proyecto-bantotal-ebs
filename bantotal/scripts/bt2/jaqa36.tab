@@ -1,0 +1,67 @@
+create table JAQA36
+(
+  jaqa36car CHAR(100) not null,
+  jaqa36cod NUMBER(4) not null,
+  jaqa36fch DATE not null,
+  jaqa36cor NUMBER(4) not null,
+  jaqa36hor CHAR(10),
+  jaqa36nar CHAR(100),
+  jaqa36ext CHAR(50),
+  jaqa36org CHAR(1),
+  jaqa36arc BLOB,
+  jaqa36ai1 NUMBER(17,2),
+  jaqa36ai2 NUMBER(17,2),
+  jaqa36ac1 CHAR(50),
+  jaqa36ac2 CHAR(50),
+  jaqa36ad1 DATE,
+  jaqa36ad2 DATE,
+  jaqa36an1 NUMBER(4),
+  jaqa36an2 NUMBER(4),
+  jaqa36at1 CHAR(200),
+  jaqa36at2 CHAR(200)
+)
+;
+comment on table JAQA36
+  is 'Archivos para Gestión de Pago de Convenios';
+comment on column JAQA36.jaqa36car
+  is 'Código de Archivo';
+comment on column JAQA36.jaqa36cod
+  is 'Código de Plantilla Base';
+comment on column JAQA36.jaqa36fch
+  is 'Fecha Subida de Archivo';
+comment on column JAQA36.jaqa36cor
+  is 'Correlativo';
+comment on column JAQA36.jaqa36hor
+  is 'Hora Subida de Archivo';
+comment on column JAQA36.jaqa36nar
+  is 'Nombre de Archivo';
+comment on column JAQA36.jaqa36ext
+  is 'Extension de Archivo';
+comment on column JAQA36.jaqa36org
+  is 'M: Movil , V: Ventanilla';
+comment on column JAQA36.jaqa36arc
+  is 'Archivo';
+comment on column JAQA36.jaqa36ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQA36.jaqa36ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQA36.jaqa36ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQA36.jaqa36ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQA36.jaqa36ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQA36.jaqa36ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQA36.jaqa36an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQA36.jaqa36an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQA36.jaqa36at1
+  is 'Auxiliar Texto 1';
+comment on column JAQA36.jaqa36at2
+  is 'Auxiliar Texto 2';
+create index JAQA36A2 on JAQA36 (JAQA36COR);
+alter table JAQA36
+  add primary key (JAQA36CAR, JAQA36COD, JAQA36FCH, JAQA36COR);
+

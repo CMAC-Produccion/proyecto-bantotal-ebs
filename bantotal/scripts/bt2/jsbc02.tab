@@ -1,0 +1,33 @@
+create table JSBC02
+(
+  jsbc02erem NUMBER(3) not null,
+  jsbc02enom CHAR(30),
+  jsbc02dven NUMBER(5),
+  jsbc02rubc NUMBER(16),
+  jsbc02bco  NUMBER(9),
+  jsbc02mod  NUMBER(3),
+  jsbc02mda  NUMBER(4),
+  jsbc02cta  NUMBER(9),
+  jsbc02scta NUMBER(9),
+  jsbc02rep  CHAR(8),
+  jsbc02ccom NUMBER(3),
+  jsbc02ruto CHAR(100),
+  jsbc02ruth CHAR(100),
+  jsbc02rutc CHAR(100),
+  jsbc02pgmp CHAR(8),
+  jsbc02ccal CHAR(1),
+  jsbc02bcom CHAR(1),
+  jsbc02aux1 CHAR(65),
+  jsbc02aux2 CHAR(65),
+  jsbc02aux3 CHAR(65),
+  jsbc02aux4 CHAR(65),
+  jsbc02aux5 CHAR(65),
+  jsbc02aux6 NUMBER(17,2),
+  jsbc02aux7 NUMBER(17,2),
+  jsbc02aux8 NUMBER(17,2),
+  jsbc02aux9 DATE
+)
+;
+alter table JSBC02
+  add primary key (JSBC02EREM);
+

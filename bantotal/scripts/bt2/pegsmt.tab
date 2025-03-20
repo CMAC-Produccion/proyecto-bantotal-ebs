@@ -1,0 +1,17 @@
+create table PEGSMT
+(
+  pegid   CHAR(20) not null,
+  pegsuid VARCHAR2(36) not null,
+  pegsmtb VARCHAR2(255) not null,
+  pegsmcn VARCHAR2(255) not null,
+  pegsmck CHAR(1),
+  pegsmcl NUMBER(5),
+  pegsmcp NUMBER(5),
+  pegsmcs NUMBER(3),
+  pegsmct VARCHAR2(255),
+  pegsmce CHAR(1)
+)
+;
+alter table PEGSMT
+  add primary key (PEGID, PEGSUID, PEGSMTB, PEGSMCN);
+

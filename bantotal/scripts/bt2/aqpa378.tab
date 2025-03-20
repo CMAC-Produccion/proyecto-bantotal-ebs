@@ -1,0 +1,25 @@
+create table AQPA378
+(
+  aqpa378corr   NUMBER(18) not null,
+  aqpa378fec    DATE not null,
+  aqpa378hora   CHAR(8) not null,
+  aqpa378inst   NUMBER(10) not null,
+  aqpa378pgcod  NUMBER(5),
+  aqpa378mod    NUMBER(5),
+  aqpa378suc    NUMBER(5),
+  aqpa378mda    NUMBER(5),
+  aqpa378pap    NUMBER(5),
+  aqpa378cta    NUMBER(10),
+  aqpa378ope    NUMBER(10),
+  aqpa378sbop   NUMBER(10),
+  aqpa378tope   NUMBER(10),
+  aqpa378instc  NUMBER(10),
+  aqpa378tcred  NUMBER(10),
+  aqpa378dtcred VARCHAR2(30)
+)
+;
+create index AQPA3782 on AQPA378 (AQPA378INST);
+create index AQPA3783 on AQPA378 (AQPA378PGCOD, AQPA378MOD, AQPA378SUC, AQPA378MDA, AQPA378PAP, AQPA378CTA, AQPA378OPE, AQPA378SBOP, AQPA378TOPE);
+alter table AQPA378
+  add primary key (AQPA378CORR, AQPA378FEC, AQPA378HORA, AQPA378INST);
+

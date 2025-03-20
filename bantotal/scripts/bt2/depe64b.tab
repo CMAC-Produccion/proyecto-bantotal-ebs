@@ -1,0 +1,46 @@
+create table DEPE64B
+(
+  depe64bapl NUMBER(9) not null,
+  depe64bban CHAR(5) not null,
+  depe64benv NUMBER(9) not null,
+  depe64bcor NUMBER(9) not null,
+  depe64bfmo DATE,
+  depe64bncu NUMBER(6),
+  depe64bmnt NUMBER(17,2),
+  depe64bfve DATE,
+  depe64bnso NUMBER(10),
+  depe64bmcs NUMBER(17,2),
+  depe64bnic CHAR(20),
+  depe64btmo CHAR(1),
+  depe64bmda NUMBER(4),
+  depe64bfop DATE,
+  depe64bmod NUMBER(4),
+  depe64btrn NUMBER(4),
+  depe64brel NUMBER(4),
+  depe64bord NUMBER(4),
+  depe64bpgc NUMBER(3),
+  depe64bmdl NUMBER(3),
+  depe64bsuc NUMBER(3),
+  depe64bmon NUMBER(4),
+  depe64bpap NUMBER(4),
+  depe64bcta NUMBER(9),
+  depe64bopr NUMBER(9),
+  depe64bsop NUMBER(3),
+  depe64btop NUMBER(3),
+  depe64bnu1 NUMBER(9),
+  depe64bnu2 NUMBER(9),
+  depe64bnu3 NUMBER(9),
+  depe64bim1 NUMBER(17,2),
+  depe64bim2 NUMBER(17,2),
+  depe64bim3 NUMBER(17,2),
+  depe64btx1 CHAR(30),
+  depe64btx2 CHAR(30),
+  depe64btx3 CHAR(30),
+  depe64bda1 DATE,
+  depe64bda2 DATE,
+  depe64bda3 DATE
+)
+;
+alter table DEPE64B
+  add primary key (DEPE64BAPL, DEPE64BBAN, DEPE64BENV, DEPE64BCOR);
+

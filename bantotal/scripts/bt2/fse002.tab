@@ -1,0 +1,75 @@
+create table FSE002
+(
+  pfxpais    NUMBER(3) not null,
+  pfxtdoc    NUMBER(2) not null,
+  pfxndoc    CHAR(12) not null,
+  hobcod     NUMBER(3),
+  clubcod    NUMBER(5),
+  ninscod    NUMBER(3),
+  profcod    NUMBER(3),
+  pfxfpro    DATE,
+  ocucod     NUMBER(5),
+  vicod      NUMBER(2),
+  pfxempr    CHAR(50),
+  pfxfdes    DATE,
+  pfxchij    NUMBER(3),
+  pais       NUMBER(3),
+  pfxpdrape  CHAR(30),
+  pfxpdrnom  CHAR(30),
+  pfxmdrape  CHAR(30),
+  pfxmdrnom  CHAR(30),
+  pfxconape  CHAR(30),
+  pfxconnom  CHAR(30),
+  pfxconocu  NUMBER(5),
+  pfxvndt    CHAR(1),
+  pfxtmpr    NUMBER(3),
+  pfxarr     CHAR(50),
+  pfxarrtel  CHAR(50),
+  pfxemad1   CHAR(50),
+  pfxemad2   CHAR(50),
+  pfxematel  CHAR(50),
+  pfxemapat  CHAR(50),
+  pfxematpo  NUMBER(3),
+  pfxemacar  CHAR(50),
+  pfxemcact  CHAR(50),
+  pfxemcfch  DATE,
+  pfxemcnom  CHAR(50),
+  pfxemccar  CHAR(50),
+  pfxemcd1   CHAR(50),
+  pfxemcd2   CHAR(50),
+  pfxemctel  CHAR(50),
+  pfxingmen  NUMBER(17,2),
+  pfxingsal  NUMBER(17,2),
+  pfxingotr  NUMBER(17,2),
+  pfxingref  CHAR(50),
+  pfxingsalc NUMBER(17,2),
+  pfxingotrc NUMBER(17,2),
+  pfxingrefc CHAR(50),
+  pfxingegr  NUMBER(17,2),
+  pfxhip     CHAR(1),
+  pfxhipsdo  NUMBER(17,2),
+  pfxhipcuo  NUMBER(17,2),
+  pfxtarsdo  NUMBER(17,2),
+  pfxtarcuo  NUMBER(17,2),
+  pfxpresdo  NUMBER(17,2),
+  pfxprecuo  NUMBER(17,2),
+  pfxgtoalq  NUMBER(17,2),
+  pfxgtofam  NUMBER(17,2),
+  pfxgtootr  NUMBER(17,2),
+  pfxgtoref  CHAR(50),
+  pfxactinm  NUMBER(17,2),
+  pfxactveh  NUMBER(17,2),
+  pfxactotr  NUMBER(17,2),
+  pfxactref  CHAR(50)
+)
+;
+create index FSE00202 on FSE002 (PAIS);
+create index FSE00203 on FSE002 (VICOD);
+create index FSE00204 on FSE002 (OCUCOD);
+create index FSE00205 on FSE002 (PROFCOD);
+create index FSE00206 on FSE002 (NINSCOD);
+create index FSE00208 on FSE002 (CLUBCOD);
+create index FSE00209 on FSE002 (HOBCOD);
+alter table FSE002
+  add primary key (PFXPAIS, PFXTDOC, PFXNDOC);
+

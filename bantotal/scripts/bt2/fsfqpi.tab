@@ -1,0 +1,24 @@
+create table FSFQPI
+(
+  fsfqpipg NUMBER(3) not null,
+  fsfqpiic NUMBER(9) not null,
+  fsfqpitp CHAR(1) not null,
+  fsfqpiid CHAR(3) not null,
+  fsfqpiha CHAR(1),
+  fsfqpitx CHAR(65),
+  fsfqpit1 CHAR(45),
+  fsfqpic1 CHAR(1),
+  fsfqpic2 CHAR(1),
+  fsfqpic3 CHAR(10),
+  fsfqpic4 CHAR(10),
+  fsfqpic5 CHAR(10),
+  fsfqpin1 NUMBER(9),
+  fsfqpin2 NUMBER(9),
+  fsfqpin3 NUMBER(9),
+  fsfqpid1 DATE,
+  fsfqpid2 DATE
+)
+;
+alter table FSFQPI
+  add primary key (FSFQPIPG, FSFQPIIC, FSFQPITP, FSFQPIID);
+

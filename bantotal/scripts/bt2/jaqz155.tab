@@ -1,0 +1,14 @@
+create table JAQZ155
+(
+  jaqz155prg CHAR(10) not null,
+  jaqz155pgc NUMBER(3) not null,
+  jaqz155suc NUMBER(3) not null,
+  jaqz155mod NUMBER(3) not null,
+  jaqz155trx NUMBER(3) not null,
+  jaqz155fec DATE not null,
+  jaqz155rel NUMBER(4)
+)
+;
+alter table JAQZ155
+  add primary key (JAQZ155PRG, JAQZ155PGC, JAQZ155SUC, JAQZ155MOD, JAQZ155TRX, JAQZ155FEC);
+

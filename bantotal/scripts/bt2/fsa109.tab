@@ -1,0 +1,15 @@
+create table FSA109
+(
+  bcem   NUMBER(3) not null,
+  bcsucu NUMBER(3) not null,
+  bcmodu NUMBER(3) not null,
+  bctran NUMBER(3) not null,
+  bcnrel NUMBER(4) not null,
+  bcord  NUMBER(2) not null,
+  bcsbor NUMBER(3) not null,
+  proces CHAR(1)
+)
+;
+alter table FSA109
+  add primary key (BCEM, BCSUCU, BCMODU, BCTRAN, BCNREL, BCORD, BCSBOR);
+

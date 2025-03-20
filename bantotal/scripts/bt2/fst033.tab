@@ -1,0 +1,14 @@
+create table FST033
+(
+  pgcod   NUMBER(3) not null,
+  modulo  NUMBER(3) not null,
+  totope  NUMBER(3) not null,
+  tofech  DATE not null,
+  tocred  CHAR(1),
+  tovalid CHAR(1)
+)
+;
+create index FST03303 on FST033 (MODULO, TOTOPE);
+alter table FST033
+  add primary key (PGCOD, MODULO, TOTOPE, TOFECH);
+

@@ -1,0 +1,15 @@
+create table AQPA197
+(
+  aqpa197codent NUMBER(3) not null,
+  aqpa197codser NUMBER(3) not null,
+  aqpa197nrocon VARCHAR2(20) not null,
+  aqpa197monori NUMBER(17,2),
+  aqpa197monred NUMBER(17,2),
+  aqpa197mondif NUMBER(17,2),
+  aqpa197fecreg DATE,
+  aqpa197horreg VARCHAR2(10)
+)
+;
+alter table AQPA197
+  add primary key (AQPA197CODENT, AQPA197CODSER, AQPA197NROCON);
+

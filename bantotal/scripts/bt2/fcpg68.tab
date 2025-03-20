@@ -1,0 +1,15 @@
+create table FCPG68
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg68min   NUMBER(10) not null,
+  cpg68fech  DATE,
+  cpg68est   CHAR(3),
+  cpg68blq   CHAR(1),
+  cpg68inst  NUMBER(10)
+)
+;
+create index FCPG6803 on FCPG68 (CPG68INST);
+alter table FCPG68
+  add primary key (CPG26EMPBT, CPG26CONV, CPG68MIN);
+

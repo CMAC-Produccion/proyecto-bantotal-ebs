@@ -1,0 +1,20 @@
+create table FBC010
+(
+  pzemp    NUMBER(3) not null,
+  pzsuc    NUMBER(3) not null,
+  pzmod    NUMBER(3) not null,
+  pzmda    NUMBER(4) not null,
+  pzpap    NUMBER(4) not null,
+  pzcta    NUMBER(9) not null,
+  pzoper   NUMBER(9) not null,
+  pzsbop   NUMBER(3) not null,
+  pztop    NUMBER(3) not null,
+  pzfchvto DATE,
+  pzsdo    NUMBER(17,2),
+  pzint    NUMBER(17,2),
+  pzprev   NUMBER(17,2)
+)
+;
+alter table FBC010
+  add primary key (PZEMP, PZSUC, PZMOD, PZMDA, PZPAP, PZCTA, PZOPER, PZSBOP, PZTOP);
+

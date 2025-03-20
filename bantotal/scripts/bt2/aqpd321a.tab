@@ -1,0 +1,69 @@
+create table AQPD321A
+(
+  aqpd321acreusu VARCHAR2(10) not null,
+  aqpd321acodigo NUMBER(3) not null,
+  aqpd321afecreg DATE not null,
+  aqpd321ahorreg VARCHAR2(8) not null,
+  aqpd321abancod NUMBER(3) not null,
+  aqpd321abanage NUMBER(12) not null,
+  aqpd321actache VARCHAR2(25) not null,
+  aqpd321acheque NUMBER(9) not null,
+  aqpd321achemda NUMBER(4) not null,
+  aqpd321acheimp NUMBER(17,2) not null,
+  aqpd321actacli NUMBER(9) not null,
+  aqpd321aclinom VARCHAR2(30),
+  aqpd321actamda NUMBER(4),
+  aqpd321aagecod NUMBER(3),
+  aqpd321aagenom VARCHAR2(30),
+  aqpd321ausureg VARCHAR2(10),
+  aqpd321abannom VARCHAR2(30),
+  aqpd321achemdd VARCHAR2(4),
+  aqpd321actamdd VARCHAR2(4),
+  aqpd321acretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPD321A
+  is 'Tabla Auxiliar - Cheques Depositados';
+comment on column AQPD321A.aqpd321acreusu
+  is 'Creación - Usuario';
+comment on column AQPD321A.aqpd321acodigo
+  is 'Código';
+comment on column AQPD321A.aqpd321afecreg
+  is 'Cheque - Fecha de Registro';
+comment on column AQPD321A.aqpd321ahorreg
+  is 'Cheque - Hora de Registro';
+comment on column AQPD321A.aqpd321abancod
+  is 'Cheque - Banco de Origen';
+comment on column AQPD321A.aqpd321abanage
+  is 'Cheque - Agencia del Banco';
+comment on column AQPD321A.aqpd321actache
+  is 'Cheque - Cuenta';
+comment on column AQPD321A.aqpd321acheque
+  is 'Cheque - Número';
+comment on column AQPD321A.aqpd321achemda
+  is 'Cheque - Moneda';
+comment on column AQPD321A.aqpd321acheimp
+  is 'Cheque - Importe';
+comment on column AQPD321A.aqpd321actacli
+  is 'CAQP - Cuenta Cliente';
+comment on column AQPD321A.aqpd321aclinom
+  is 'CAQP - Nombre Cliente';
+comment on column AQPD321A.aqpd321actamda
+  is 'CAQP - Moneda de Cuenta';
+comment on column AQPD321A.aqpd321aagecod
+  is 'CAQP - Agencia Código';
+comment on column AQPD321A.aqpd321aagenom
+  is 'CAQP - Agencia Nombre';
+comment on column AQPD321A.aqpd321ausureg
+  is 'CAQP - Usuario que Registra';
+comment on column AQPD321A.aqpd321abannom
+  is 'Cheque - Banco de Origen (Nombre)';
+comment on column AQPD321A.aqpd321achemdd
+  is 'Cheque - Moneda (Nombre)';
+comment on column AQPD321A.aqpd321actamdd
+  is 'CAQP - Moneda de Cuenta (Nombre)';
+comment on column AQPD321A.aqpd321acretim
+  is 'Creación - TimeStamp';
+alter table AQPD321A
+  add primary key (AQPD321ACREUSU, AQPD321ACODIGO, AQPD321AFECREG, AQPD321AHORREG, AQPD321ABANCOD, AQPD321ABANAGE, AQPD321ACTACHE, AQPD321ACHEQUE, AQPD321ACHEMDA, AQPD321ACHEIMP, AQPD321ACTACLI);
+

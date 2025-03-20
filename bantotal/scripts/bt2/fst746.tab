@@ -1,0 +1,14 @@
+create table FST746
+(
+  ubuser  CHAR(10) not null,
+  ubnom   CHAR(30),
+  pgcodac NUMBER(3),
+  pgnomac CHAR(50),
+  ubfech  DATE,
+  ubhora  CHAR(8)
+)
+;
+create index FST74602 on FST746 (UBNOM);
+alter table FST746
+  add primary key (UBUSER);
+

@@ -1,0 +1,52 @@
+create table JAQL610
+(
+  jaql610serial NUMBER(9) not null,
+  jaql610fepro  DATE not null,
+  jaql610rtype  VARCHAR2(8) not null,
+  jaql610cacnu  VARCHAR2(16),
+  jaql610caanu  VARCHAR2(32) not null,
+  jaql610curre  VARCHAR2(3) not null,
+  jaql610babef  NUMBER(17,2),
+  jaql610baaft  NUMBER(17,2),
+  jaql610auxc1  CHAR(100),
+  jaql610auxc2  CHAR(100),
+  jaql610auxc3  CHAR(100),
+  jaql610auxv1  VARCHAR2(1000),
+  jaql610auxv2  VARCHAR2(1000),
+  jaql610auxv3  VARCHAR2(1000),
+  jaql610auxn1  NUMBER(9),
+  jaql610auxn2  NUMBER(9),
+  jaql610auxn3  NUMBER(9),
+  jaql610auxn4  NUMBER(17,2),
+  jaql610auxn5  NUMBER(17,2),
+  jaql610auxn6  NUMBER(17,2),
+  jaql610auxd1  DATE,
+  jaql610auxd2  DATE,
+  jaql610auxd3  DATE,
+  jaql610hopro  CHAR(8)
+)
+;
+comment on table JAQL610
+  is 'TABLA CABECERA DINERO ELECTRONICO';
+comment on column JAQL610.jaql610serial
+  is 'CORRELATIVO';
+comment on column JAQL610.jaql610fepro
+  is 'FECHA DE PROCESO';
+comment on column JAQL610.jaql610rtype
+  is 'TYPE OF RECORD, HDR IN THIS CASE. (RECORD TYPE) - ESPECIFICACION';
+comment on column JAQL610.jaql610cacnu
+  is 'THE BANK CODE OF THE CUSTODY ACCOUNT. CODIGO SBS. (CUSTODY-ACCOUNT-CLEARINGNUMBER) - ESPECIFICACION';
+comment on column JAQL610.jaql610caanu
+  is 'ACCOUNT NUMBES OF THE CUSTODY ACCOUNT. (CUSTODY-ACCOUNT-ACOUNTNUMBER) - ESPECIFICACION';
+comment on column JAQL610.jaql610curre
+  is 'CURRENCY CODE ACCORDING TO ISO 4217 FOR CUSTODY ACCOUNT AND THE RELATED TRANSACTIONS IN THE FILE (CURRENCY) - ESPECIFICACION';
+comment on column JAQL610.jaql610babef
+  is 'BALANCE ON CUSTODY ACCOUNT BEFORE TRANSACTIONS IN FILE. (BALANCE-BEFORE) - ESPECIFICACION';
+comment on column JAQL610.jaql610baaft
+  is 'BALANCE ON CUSTODY ACCOUNT AFTER TRANSACTIONS IN FILE. (BALANCE-AFTER) - ESPECIFICACION';
+comment on column JAQL610.jaql610hopro
+  is 'HORA DE PROCESO';
+create index JAQL610_02 on JAQL610 (JAQL610RTYPE, JAQL610CAANU, JAQL610CURRE);
+alter table JAQL610
+  add primary key (JAQL610SERIAL, JAQL610FEPRO);
+

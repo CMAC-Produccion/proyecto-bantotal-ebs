@@ -1,0 +1,29 @@
+create table FSEC19
+(
+  sec01pgcod NUMBER(3) not null,
+  sec15lgid  CHAR(10) not null,
+  sec15lgfec DATE not null,
+  sec15lgnro NUMBER(9) not null,
+  sec03mod   NUMBER(3) not null,
+  sec03tope  NUMBER(3) not null,
+  sec19mda   NUMBER(4) not null,
+  sec19pap   NUMBER(4) not null,
+  sec19emcta NUMBER(9) not null,
+  sec19calif CHAR(10),
+  sec19clffe DATE,
+  sec19rfint CHAR(10),
+  sec19clfor NUMBER(5),
+  sec19sdo   NUMBER(17,2),
+  sec19sdmpt NUMBER(17,2),
+  sec19pcmpt NUMBER(14,8),
+  sec19imp01 NUMBER(17,2),
+  sec19imp02 NUMBER(17,2),
+  sec19imp03 NUMBER(17,2),
+  sec19pc01  NUMBER(14,8)
+)
+;
+create index FSEC1903 on FSEC19 (SEC01PGCOD, SEC15LGID, SEC15LGFEC, SEC15LGNRO, SEC19CLFOR, SEC03MOD, SEC03TOPE, SEC19MDA, SEC19PAP);
+create index FSEC1904 on FSEC19 (SEC01PGCOD, SEC15LGID, SEC15LGFEC, SEC15LGNRO, SEC19EMCTA, SEC03MOD, SEC03TOPE, SEC19MDA, SEC19PAP);
+alter table FSEC19
+  add primary key (SEC01PGCOD, SEC15LGID, SEC15LGFEC, SEC15LGNRO, SEC03MOD, SEC03TOPE, SEC19MDA, SEC19PAP, SEC19EMCTA);
+

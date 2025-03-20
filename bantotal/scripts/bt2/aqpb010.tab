@@ -1,0 +1,79 @@
+create table AQPB010
+(
+  aqpb010emp NUMBER(3) not null,
+  aqpb010mod NUMBER(3) not null,
+  aqpb010suc NUMBER(3) not null,
+  aqpb010mda NUMBER(4) not null,
+  aqpb010pap NUMBER(4) not null,
+  aqpb010cta NUMBER(9) not null,
+  aqpb010ope NUMBER(9) not null,
+  aqpb010sbo NUMBER(3) not null,
+  aqpb010tpo NUMBER(3) not null,
+  aqpb010fec DATE not null,
+  aqpb010fre DATE,
+  aqpb010fpg DATE,
+  aqpb010est CHAR(1),
+  aqpb010tas NUMBER(10,6),
+  aqpb010nu1 NUMBER(9),
+  aqpb010nu2 NUMBER(9),
+  aqpb010nu3 NUMBER(9),
+  aqpb010ta1 NUMBER(10,6),
+  aqpb010ccu NUMBER(5),
+  aqpb010pcu NUMBER(5),
+  aqpb010scr NUMBER(18,2),
+  aqpb010fap DATE,
+  aqpb010fej DATE,
+  aqpb010hor CHAR(8)
+)
+;
+comment on column AQPB010.aqpb010emp
+  is 'EMPRESA';
+comment on column AQPB010.aqpb010mod
+  is 'MODULO';
+comment on column AQPB010.aqpb010suc
+  is 'SUCURSAL';
+comment on column AQPB010.aqpb010mda
+  is 'MONEDA';
+comment on column AQPB010.aqpb010pap
+  is 'PAPEL';
+comment on column AQPB010.aqpb010cta
+  is 'CUENTA';
+comment on column AQPB010.aqpb010ope
+  is 'OPERACION';
+comment on column AQPB010.aqpb010sbo
+  is 'SUBOPERACION';
+comment on column AQPB010.aqpb010tpo
+  is 'TIPO DE OPERACION';
+comment on column AQPB010.aqpb010fec
+  is 'FECHA DE EJECUCION';
+comment on column AQPB010.aqpb010fre
+  is 'FECHA VALOR DE REPROGRAMACION';
+comment on column AQPB010.aqpb010fpg
+  is 'FECHA PRIMER PAGO';
+comment on column AQPB010.aqpb010est
+  is 'ESTADO';
+comment on column AQPB010.aqpb010tas
+  is 'TASA';
+comment on column AQPB010.aqpb010nu1
+  is 'AUXILIAR NUMERICO 1';
+comment on column AQPB010.aqpb010nu2
+  is 'AUXILIAR NUMERICO 2';
+comment on column AQPB010.aqpb010ta1
+  is 'TCEA BT - TASA';
+comment on column AQPB010.aqpb010ccu
+  is 'cantidad de cuotas';
+comment on column AQPB010.aqpb010pcu
+  is 'periodo';
+comment on column AQPB010.aqpb010scr
+  is 'saldo a capitalizar';
+comment on column AQPB010.aqpb010fap
+  is 'fecha sistema';
+comment on column AQPB010.aqpb010fej
+  is 'fecha ejecucion';
+comment on column AQPB010.aqpb010hor
+  is 'hora ejecucion';
+create index AQPB0102 on AQPB010 (AQPB010FEC, AQPB010EST, AQPB010CTA);
+create index AQPB0103 on AQPB010 (AQPB010EST);
+alter table AQPB010
+  add primary key (AQPB010EMP, AQPB010MOD, AQPB010SUC, AQPB010MDA, AQPB010PAP, AQPB010CTA, AQPB010OPE, AQPB010SBO, AQPB010TPO, AQPB010FEC);
+

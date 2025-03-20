@@ -1,0 +1,28 @@
+create table AQPA386B
+(
+  aqpa386corr  NUMBER(10) not null,
+  aqpa386inst  NUMBER(10) not null,
+  aqpa386fecha DATE not null,
+  aqpa386hora  CHAR(8) not null,
+  aqpa386pgcod NUMBER(10) not null,
+  aqpa386mod   NUMBER(10) not null,
+  aqpa386suc   NUMBER(10) not null,
+  aqpa386mda   NUMBER(10) not null,
+  aqpa386pap   NUMBER(10) not null,
+  aqpa386cta   NUMBER(10) not null,
+  aqpa386ope   NUMBER(10) not null,
+  aqpa386sbo   NUMBER(10) not null,
+  aqpa386top   NUMBER(10) not null,
+  aqpa386ncuo  NUMBER(10) not null,
+  aqpa386tori  NUMBER(14,8),
+  aqpa386fcuo  DATE not null,
+  aqpa386tasa  NUMBER(14,8),
+  aqpa386est   VARCHAR2(5)
+)
+;
+create index AQPA386B2 on AQPA386B (AQPA386INST);
+create index AQPA386B3 on AQPA386B (AQPA386PGCOD, AQPA386MOD, AQPA386SUC, AQPA386MDA, AQPA386PAP, AQPA386CTA, AQPA386OPE, AQPA386SBO, AQPA386TOP);
+create index AQPA386B4 on AQPA386B (AQPA386FECHA);
+alter table AQPA386B
+  add primary key (AQPA386CORR, AQPA386INST, AQPA386FECHA, AQPA386HORA, AQPA386PGCOD, AQPA386MOD, AQPA386SUC, AQPA386MDA, AQPA386PAP, AQPA386CTA, AQPA386OPE, AQPA386SBO, AQPA386TOP, AQPA386NCUO, AQPA386FCUO);
+

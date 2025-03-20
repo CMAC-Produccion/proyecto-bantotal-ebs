@@ -1,0 +1,101 @@
+create table JAQL005
+(
+  jaql5fetra DATE not null,
+  jaql5hotra CHAR(8) not null,
+  jaql5seint NUMBER(12) not null,
+  jaql5coing CHAR(2),
+  jaql5cores CHAR(2),
+  jaql5feits DATE,
+  jaql5hoits CHAR(8),
+  jaql5fefts DATE,
+  jaql5hofts CHAR(8),
+  jaql5texti VARCHAR2(1150),
+  jaql5nutar CHAR(19),
+  jaql5comen CHAR(4),
+  jaql5seiso CHAR(12),
+  jaql5cotra CHAR(6),
+  jaql5fehot CHAR(10),
+  jaql5feneg DATE,
+  jaql5honeg CHAR(8),
+  jaql5inadq CHAR(11),
+  jaql5inemi CHAR(11),
+  jaql3cored NUMBER(10),
+  jaql9nuele NUMBER(12),
+  jaql5cisot CHAR(8),
+  jaql5cisoc CHAR(15),
+  jaql5secan NUMBER(3),
+  jaql5seope NUMBER(5),
+  jaql5sevar NUMBER(3),
+  jaql5sefec DATE,
+  jaql5sehor CHAR(8),
+  jaql5secre NUMBER(10),
+  jaql5secrs CHAR(5),
+  jaql5gineg CHAR(4),
+  jaql5coaut CHAR(6),
+  jaql5texto VARCHAR2(1150),
+  jaql5tiout NUMBER(1),
+  jaql5tidtr NUMBER(12),
+  jaql5coire CHAR(3),
+  jaql5aux1  CHAR(50),
+  jaql5aux2  CHAR(50),
+  jaql5aux3  CHAR(50),
+  jaql5aux4  CHAR(30),
+  jaql5aux5  CHAR(30),
+  jaql5aux6  CHAR(30),
+  jaql5aux7  CHAR(1),
+  jaql5aux8  CHAR(1),
+  jaql5aux9  CHAR(1),
+  jaql5aux10 NUMBER(17,2),
+  jaql5aux11 NUMBER(17,2),
+  jaql5aux12 NUMBER(17,2),
+  jaql5aux13 NUMBER(9),
+  jaql5aux14 NUMBER(9),
+  jaql5aux15 NUMBER(9),
+  jaql5aux16 DATE,
+  jaql5aux17 DATE,
+  jaql5aux18 DATE
+)
+partition by range (JAQL5FETRA)
+(
+  partition JAQL005_202411 values less than (TO_DATE(' 2024-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202412 values less than (TO_DATE(' 2025-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202501 values less than (TO_DATE(' 2025-02-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202502 values less than (TO_DATE(' 2025-03-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202503 values less than (TO_DATE(' 2025-04-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202504 values less than (TO_DATE(' 2025-05-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202505 values less than (TO_DATE(' 2025-06-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202506 values less than (TO_DATE(' 2025-07-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202507 values less than (TO_DATE(' 2025-08-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202508 values less than (TO_DATE(' 2025-09-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202509 values less than (TO_DATE(' 2025-10-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202510 values less than (TO_DATE(' 2025-11-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202511 values less than (TO_DATE(' 2025-12-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC,
+  partition JAQL005_202512 values less than (TO_DATE(' 2026-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+    tablespace BANTPROD_PCI_ENC
+);
+create unique index JAQL0051N on JAQL005 (JAQL5FETRA, JAQL5HOTRA, JAQL5SEINT)
+  nologging  local;
+create index JAQL0052N on JAQL005 (JAQL3CORED, JAQL9NUELE)
+  nologging  local;
+create index JAQL0053N on JAQL005 (JAQL5COMEN, JAQL5SEISO, JAQL5FENEG, JAQL5HONEG, JAQL3CORED, JAQL5INADQ, JAQL5INEMI)
+  nologging  local;
+create index JAQL0054N on JAQL005 (JAQL5COMEN, JAQL5SEISO, JAQL5FEHOT, JAQL3CORED, JAQL5INADQ, JAQL5INEMI)
+  nologging  local;
+create index JAQL0055N on JAQL005 (JAQL5FEITS, JAQL5CORES)
+  nologging  local;
+alter table JAQL005
+  add primary key (JAQL5FETRA, JAQL5HOTRA, JAQL5SEINT);
+

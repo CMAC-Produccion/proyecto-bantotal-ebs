@@ -1,0 +1,14 @@
+create table FSD046
+(
+  wrkpgcod  NUMBER(3) not null,
+  wrkuser   CHAR(10) not null,
+  wrkstring CHAR(60) not null,
+  wrktxt1   CHAR(60),
+  wrktxt2   CHAR(60),
+  wrktxt3   CHAR(60),
+  wrkhab    CHAR(1)
+)
+;
+alter table FSD046
+  add primary key (WRKPGCOD, WRKUSER, WRKSTRING);
+

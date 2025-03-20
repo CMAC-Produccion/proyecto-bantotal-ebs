@@ -1,0 +1,15 @@
+create table SNGH63
+(
+  sngh62aut NUMBER(10) not null,
+  sngh63ord NUMBER(3) not null,
+  sngh63usr CHAR(10),
+  sngh63car NUMBER(3),
+  sngh63fec DATE,
+  sngh63res CHAR(1),
+  sngh63com VARCHAR2(400),
+  sngh63mrz CHAR(40)
+)
+;
+alter table SNGH63
+  add primary key (SNGH62AUT, SNGH63ORD);
+

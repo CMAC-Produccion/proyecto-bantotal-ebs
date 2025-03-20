@@ -1,0 +1,18 @@
+create table FSF116
+(
+  lptrmod  NUMBER(3) not null,
+  lptrnro  NUMBER(3) not null,
+  lptrord  NUMBER(2) not null,
+  lpcmsbor NUMBER(3) not null,
+  lpcocod  NUMBER(3),
+  lpcmobs  CHAR(20),
+  lpcmtop  NUMBER(3),
+  lpcmord  NUMBER(2),
+  lpcmtimp NUMBER(1),
+  lpcmsn1  CHAR(1),
+  lpcmsn2  CHAR(1)
+)
+;
+alter table FSF116
+  add primary key (LPTRMOD, LPTRNRO, LPTRORD, LPCMSBOR);
+

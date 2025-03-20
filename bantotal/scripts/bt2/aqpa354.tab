@@ -1,0 +1,77 @@
+create table AQPA354
+(
+  aqpa354corr    NUMBER(10) not null,
+  aqpa354pais    NUMBER(9) not null,
+  aqpa354tdoc    NUMBER(9) not null,
+  aqpa354ndoc    VARCHAR2(12) not null,
+  aqpa354tcamb   NUMBER(14,8),
+  aqpa354inst    NUMBER(12) not null,
+  aqpa354fec     DATE not null,
+  aqpa354hora    CHAR(8) not null,
+  aqpa354user    VARCHAR2(12),
+  aqpa354mesanio VARCHAR2(8),
+  aqpa354capcaja NUMBER(17,2),
+  aqpa354ifis    NUMBER(17,2),
+  aqpa354resneto NUMBER(17,2),
+  aqpa354ccontg  NUMBER(17,2),
+  aqpa354cpoten  NUMBER(17,2),
+  aqpa354ratio   NUMBER(17,6),
+  aqpa354est     VARCHAR2(2),
+  aqpa354tarea   NUMBER(10),
+  aqpa354naux1   NUMBER(17,2),
+  aqpa354naux2   NUMBER(17,2),
+  aqpa354naux3   NUMBER(17,2),
+  aqpa354naux4   NUMBER(17,2),
+  aqpa354naux5   NUMBER(17,2),
+  aqpa354vaux1   VARCHAR2(25),
+  aqpa354vaux2   VARCHAR2(25),
+  aqpa354vaux3   VARCHAR2(25),
+  aqpa354vaux4   VARCHAR2(25),
+  aqpa354vaux5   VARCHAR2(25),
+  aqpa354daux1   DATE,
+  aqpa354daux2   DATE,
+  aqpa354daux3   DATE
+)
+;
+comment on column AQPA354.aqpa354corr
+  is 'Correlativo';
+comment on column AQPA354.aqpa354pais
+  is 'Pais de Documento';
+comment on column AQPA354.aqpa354tdoc
+  is 'Tipo de Documento';
+comment on column AQPA354.aqpa354ndoc
+  is 'Nro de Documento';
+comment on column AQPA354.aqpa354tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column AQPA354.aqpa354inst
+  is 'Nro de Solicitud ';
+comment on column AQPA354.aqpa354fec
+  is 'Fecha de Proceso';
+comment on column AQPA354.aqpa354hora
+  is 'Hora de Proceso';
+comment on column AQPA354.aqpa354user
+  is 'Usuario';
+comment on column AQPA354.aqpa354mesanio
+  is 'Mes y Año de Maximo Ratio calculado en AQPA353';
+comment on column AQPA354.aqpa354capcaja
+  is 'Capacidad CMAC de Maximo Ratio calculado en AQPA353';
+comment on column AQPA354.aqpa354ifis
+  is 'Deuda IFIS mensual de Maximo Ratio calculado en AQPA353';
+comment on column AQPA354.aqpa354resneto
+  is 'Resultado Neto de Maximo Ratio calculado en AQPA353';
+comment on column AQPA354.aqpa354ccontg
+  is 'Cuota Contingente de Maximo Ratio calculado en AQPA353';
+comment on column AQPA354.aqpa354cpoten
+  is 'Cuota Potencial de Maximo Ratio calculado en AQPA353';
+comment on column AQPA354.aqpa354ratio
+  is 'Maximo Ratio calculado en AQPA353';
+comment on column AQPA354.aqpa354est
+  is 'Estado H(Habilitado) ultimo ejecutado, I (Inhabilitado) ejecutado anteriormente';
+comment on column AQPA354.aqpa354tarea
+  is 'Tarea de Proceso';
+create index AQPA354A4 on AQPA354 (AQPA354INST, AQPA354EST, AQPA354TAREA);
+create index AQPA3542 on AQPA354 (AQPA354CORR, AQPA354FEC, AQPA354HORA);
+create index AQPA3543 on AQPA354 (AQPA354INST);
+alter table AQPA354
+  add constraint AQPA354IDX001 primary key (AQPA354CORR, AQPA354PAIS, AQPA354TDOC, AQPA354NDOC, AQPA354INST, AQPA354FEC, AQPA354HORA);
+

@@ -1,0 +1,21 @@
+create table FCPG23
+(
+  cpg23empbt NUMBER(3) not null,
+  cpg23cod   NUMBER(3) not null,
+  cpg23frec  DATE not null,
+  cpg23nenv  NUMBER(3) not null,
+  cpg23nenve NUMBER(2),
+  cpg23clot  NUMBER(4),
+  cpg23imptl NUMBER(17,2),
+  cpg23mda   NUMBER(4),
+  cpg23conv  NUMBER(8),
+  cpg23canal NUMBER(3),
+  cpg23est   CHAR(3),
+  cpg23blq   CHAR(1),
+  cpg23inst  NUMBER(10),
+  cpg23fto   CHAR(8)
+)
+;
+alter table FCPG23
+  add primary key (CPG23EMPBT, CPG23COD, CPG23FREC, CPG23NENV);
+

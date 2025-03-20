@@ -1,0 +1,139 @@
+create table AQPC277
+(
+  aqpc277itcod  NUMBER(3) not null,
+  aqpc277itsuc  NUMBER(3) not null,
+  aqpc277itmod  NUMBER(3) not null,
+  aqpc277ittran NUMBER(3) not null,
+  aqpc277itnrel NUMBER(4) not null,
+  aqpc277itord  NUMBER(3) not null,
+  aqpc277itfcon DATE not null,
+  aqpc277pais   NUMBER(3),
+  aqpc277tdoc   NUMBER(2),
+  aqpc277ndoc   VARCHAR2(12),
+  aqpc277nomcli VARCHAR2(30),
+  aqpc277inst   NUMBER(10),
+  aqpc277cod    NUMBER(3),
+  aqpc277mod    NUMBER(3),
+  aqpc277suc    NUMBER(3),
+  aqpc277mda    NUMBER(4),
+  aqpc277pap    NUMBER(4),
+  aqpc277cta    NUMBER(9),
+  aqpc277oper   NUMBER(9),
+  aqpc277sbop   NUMBER(3),
+  aqpc277tope   NUMBER(3),
+  aqpc277nrogrt NUMBER(9) not null,
+  aqpc277codg   NUMBER(3),
+  aqpc277modg   NUMBER(3),
+  aqpc277sucg   NUMBER(3),
+  aqpc277mdag   NUMBER(4),
+  aqpc277papg   NUMBER(4),
+  aqpc277ctag   NUMBER(9),
+  aqpc277operg  NUMBER(9),
+  aqpc277sbopg  NUMBER(3),
+  aqpc277topeg  NUMBER(3),
+  aqpc277user   VARCHAR2(10) not null,
+  aqpc277fch    DATE not null,
+  aqpc277hora   VARCHAR2(8) not null,
+  aqpc277emis   VARCHAR2(250),
+  aqpc277dest   VARCHAR2(250),
+  aqpc277copi   VARCHAR2(250),
+  aqpc277msg    LONG,
+  aqpc277asun   VARCHAR2(100),
+  aqpc277coderr VARCHAR2(5),
+  aqpc277msgerr VARCHAR2(250)
+)
+;
+comment on table AQPC277
+  is 'Log Certificado No Adeudo';
+comment on column AQPC277.aqpc277itcod
+  is 'Empresa Transaccion';
+comment on column AQPC277.aqpc277itsuc
+  is 'Sucursal Transaccion';
+comment on column AQPC277.aqpc277itmod
+  is 'Modulo Transaccion';
+comment on column AQPC277.aqpc277ittran
+  is 'Modulo Transaccion';
+comment on column AQPC277.aqpc277itnrel
+  is 'Nro. Relacion Transaccion';
+comment on column AQPC277.aqpc277itord
+  is 'Ordinal Transaccion';
+comment on column AQPC277.aqpc277itfcon
+  is 'Fecha Contabilizacion';
+comment on column AQPC277.aqpc277pais
+  is 'Pais Titular';
+comment on column AQPC277.aqpc277tdoc
+  is 'Tipo Documento Titular';
+comment on column AQPC277.aqpc277ndoc
+  is 'Documento Titular';
+comment on column AQPC277.aqpc277nomcli
+  is 'Nombre Cliente Titular';
+comment on column AQPC277.aqpc277inst
+  is 'Instancia';
+comment on column AQPC277.aqpc277cod
+  is 'Empresa';
+comment on column AQPC277.aqpc277mod
+  is 'Modulo';
+comment on column AQPC277.aqpc277suc
+  is 'Sucursal';
+comment on column AQPC277.aqpc277mda
+  is 'Moneda';
+comment on column AQPC277.aqpc277pap
+  is 'Papel';
+comment on column AQPC277.aqpc277cta
+  is 'Cuenta';
+comment on column AQPC277.aqpc277oper
+  is 'Operacion';
+comment on column AQPC277.aqpc277sbop
+  is 'Suboperacion';
+comment on column AQPC277.aqpc277tope
+  is 'Tipo Operacion';
+comment on column AQPC277.aqpc277nrogrt
+  is 'Nro. Garantias Cliente';
+comment on column AQPC277.aqpc277codg
+  is 'Empresa Garantia';
+comment on column AQPC277.aqpc277modg
+  is 'Modulo Garantia';
+comment on column AQPC277.aqpc277sucg
+  is 'Sucursal Garantia';
+comment on column AQPC277.aqpc277mdag
+  is 'Moneda Garantia';
+comment on column AQPC277.aqpc277papg
+  is 'Papel Garantia';
+comment on column AQPC277.aqpc277ctag
+  is 'Cuenta Garantia';
+comment on column AQPC277.aqpc277operg
+  is 'Operacion Garantia';
+comment on column AQPC277.aqpc277sbopg
+  is 'Suboperacion Garantia';
+comment on column AQPC277.aqpc277topeg
+  is 'Tipo Operacion Garantia';
+comment on column AQPC277.aqpc277user
+  is 'Usuario';
+comment on column AQPC277.aqpc277fch
+  is 'Fecha';
+comment on column AQPC277.aqpc277hora
+  is 'Hora';
+comment on column AQPC277.aqpc277emis
+  is 'Emisor';
+comment on column AQPC277.aqpc277dest
+  is 'Destinatario';
+comment on column AQPC277.aqpc277copi
+  is 'Destinatario Copia';
+comment on column AQPC277.aqpc277msg
+  is 'Mensaje';
+comment on column AQPC277.aqpc277asun
+  is 'Asunto';
+comment on column AQPC277.aqpc277coderr
+  is 'Codigo Error';
+comment on column AQPC277.aqpc277msgerr
+  is 'Mensaje Error';
+create index AQPC277A2 on AQPC277 (AQPC277COD, AQPC277MOD, AQPC277SUC, AQPC277MDA, AQPC277PAP, AQPC277CTA, AQPC277OPER, AQPC277SBOP, AQPC277TOPE);
+create index AQPC277A3 on AQPC277 (AQPC277COD, AQPC277CTA, AQPC277OPER);
+create index AQPC277A4 on AQPC277 (AQPC277CODG, AQPC277MODG, AQPC277SUCG, AQPC277MDAG, AQPC277PAPG, AQPC277CTAG, AQPC277OPERG, AQPC277SBOPG, AQPC277TOPEG);
+create index AQPC277A5 on AQPC277 (AQPC277CODG, AQPC277CTAG, AQPC277OPERG);
+create index AQPC277A6 on AQPC277 (AQPC277INST);
+create index AQPC277A7 on AQPC277 (AQPC277PAIS, AQPC277TDOC, AQPC277NDOC);
+create index AQPC277A8 on AQPC277 (AQPC277NDOC);
+alter table AQPC277
+  add primary key (AQPC277ITCOD, AQPC277ITSUC, AQPC277ITMOD, AQPC277ITTRAN, AQPC277ITNREL, AQPC277ITORD, AQPC277ITFCON, AQPC277NROGRT, AQPC277USER, AQPC277FCH, AQPC277HORA);
+

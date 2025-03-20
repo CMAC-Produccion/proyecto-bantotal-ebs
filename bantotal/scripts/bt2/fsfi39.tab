@@ -1,0 +1,24 @@
+create table FSFI39
+(
+  sfi39emp NUMBER(3) not null,
+  sfi39cas NUMBER(9) not null,
+  sfi39ide NUMBER(2) not null,
+  sfi39ch1 CHAR(20),
+  sfi39ch2 CHAR(30),
+  sfi39ch3 CHAR(1),
+  sfi39ch4 CHAR(1),
+  sfi39ch5 CHAR(1),
+  sfi39ch6 CHAR(1),
+  sfi39ch7 CHAR(1),
+  sfi39ch8 CHAR(1),
+  sfi39ch9 CHAR(1),
+  sfi39hab CHAR(1),
+  sfi39nu1 NUMBER(9),
+  sfi39nu2 NUMBER(9),
+  sfi39nu3 NUMBER(9),
+  sfi39nu4 NUMBER(4)
+)
+;
+alter table FSFI39
+  add primary key (SFI39EMP, SFI39CAS, SFI39IDE);
+

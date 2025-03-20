@@ -1,0 +1,54 @@
+create table JAQZ442
+(
+  qz440codre NUMBER(4) not null,
+  pp173cod   NUMBER(4) not null,
+  pp174cod   NUMBER(9) not null,
+  qz442aux1  NUMBER(9),
+  qz442aux2  NUMBER(9),
+  qz442aux3  DATE,
+  qz442aux4  DATE,
+  qz442aux5  CHAR(50),
+  qz442aux6  CHAR(50),
+  qz442aux7  NUMBER(17,2),
+  qz442aux8  NUMBER(17,2),
+  qz442usr   CHAR(20),
+  qz442ufec  DATE,
+  qz442nip   VARCHAR2(16),
+  qz442dlt   CHAR(1)
+)
+;
+comment on column JAQZ442.qz440codre
+  is 'Codigo de Remate';
+comment on column JAQZ442.pp173cod
+  is 'Moneda';
+comment on column JAQZ442.pp174cod
+  is 'Codigo de Lote';
+comment on column JAQZ442.qz442aux1
+  is 'Dato Auxiliar 1';
+comment on column JAQZ442.qz442aux2
+  is 'Dato Auxiliar 2';
+comment on column JAQZ442.qz442aux3
+  is 'Dato Auxiliar 3';
+comment on column JAQZ442.qz442aux4
+  is 'Dato Auxiliar 4';
+comment on column JAQZ442.qz442aux5
+  is 'Dato Auxiliar 5';
+comment on column JAQZ442.qz442aux6
+  is 'Dato Auxiliar 6';
+comment on column JAQZ442.qz442aux7
+  is 'Dato Auxiliar 7';
+comment on column JAQZ442.qz442aux8
+  is 'Dato Auxiliar 8';
+comment on column JAQZ442.qz442usr
+  is 'Usuario que registra';
+comment on column JAQZ442.qz442ufec
+  is 'Fecha y Hora de registro';
+comment on column JAQZ442.qz442nip
+  is 'numero de ip';
+comment on column JAQZ442.qz442dlt
+  is 'Detalle del estado del Lote P->Preventa. R->En Remate, V->Vendido, A->Adjudicado';
+create index JAQZ4421 on JAQZ442 (PP173COD, PP174COD);
+create index JAQZ4423 on JAQZ442 (QZ440CODRE, QZ442AUX1, QZ442AUX2, PP174COD);
+alter table JAQZ442
+  add primary key (QZ440CODRE, PP173COD, PP174COD);
+

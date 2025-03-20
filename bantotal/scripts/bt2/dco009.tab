@@ -1,0 +1,11 @@
+create table DCO009
+(
+  dco009pais NUMBER(3) not null,
+  dco009peti NUMBER(3) not null,
+  dco009pend CHAR(12) not null,
+  dco009comp CHAR(1)
+)
+;
+alter table DCO009
+  add primary key (DCO009PAIS, DCO009PETI, DCO009PEND);
+

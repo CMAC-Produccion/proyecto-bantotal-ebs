@@ -1,0 +1,31 @@
+create table JAQL701
+(
+  jaql701pgcj NUMBER(3) not null,
+  jaql701modj NUMBER(3) not null,
+  jaql701sucj NUMBER(3) not null,
+  jaql701mdaj NUMBER(4) not null,
+  jaql701papj NUMBER(4) not null,
+  jaql701ctaj NUMBER(9) not null,
+  jaql701opej NUMBER(9) not null,
+  jaql701sboj NUMBER(3) not null,
+  jaql701topj NUMBER(3) not null,
+  jaql701pgcn NUMBER(3),
+  jaql701modn NUMBER(3),
+  jaql701sucn NUMBER(3),
+  jaql701mdan NUMBER(4),
+  jaql701papn NUMBER(4),
+  jaql701ctan NUMBER(9),
+  jaql701open NUMBER(9),
+  jaql701sbon NUMBER(3),
+  jaql701topn NUMBER(3),
+  jaql701fech DATE,
+  jaql701pais NUMBER(3),
+  jaql701tdoc NUMBER(2),
+  jaql701ndoc CHAR(12)
+)
+;
+create index JAQL701001 on JAQL701 (JAQL701PGCN, JAQL701MODN, JAQL701SUCN, JAQL701MDAN, JAQL701PAPN, JAQL701CTAN, JAQL701OPEN, JAQL701SBON, JAQL701TOPN);
+create index JAQL701002 on JAQL701 (JAQL701PAIS, JAQL701TDOC, JAQL701NDOC);
+alter table JAQL701
+  add primary key (JAQL701PGCJ, JAQL701MODJ, JAQL701SUCJ, JAQL701MDAJ, JAQL701PAPJ, JAQL701CTAJ, JAQL701OPEJ, JAQL701SBOJ, JAQL701TOPJ);
+

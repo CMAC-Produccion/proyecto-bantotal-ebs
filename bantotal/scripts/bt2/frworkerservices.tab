@@ -1,0 +1,15 @@
+create table FRWORKERSERVICES
+(
+  frwrksrvser    VARCHAR2(40) not null,
+  frwrksrvprt    NUMBER(5) not null,
+  frwrksrvkepali DATE,
+  frwrksrvdowtim DATE,
+  frwrksrvloaind NUMBER(7,2),
+  frwrksrvisful  NUMBER(1),
+  frwrksrvcap    VARCHAR2(255)
+)
+;
+create index UFRPRCWRKSRVLOAIND on FRWORKERSERVICES (FRWRKSRVLOAIND, FRWRKSRVISFUL);
+alter table FRWORKERSERVICES
+  add primary key (FRWRKSRVSER, FRWRKSRVPRT);
+

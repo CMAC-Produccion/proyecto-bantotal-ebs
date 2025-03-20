@@ -1,0 +1,25 @@
+create table FPP105
+(
+  pp105ncart NUMBER(4) not null,
+  pp105tipoa NUMBER(3) not null,
+  pp105feca  TIMESTAMP(6) not null,
+  pp105est   CHAR(1),
+  pp105fval  TIMESTAMP(6),
+  pp105code  NUMBER(4),
+  pp105au1   NUMBER(9),
+  pp105au2   NUMBER(9),
+  pp105au3   NUMBER(9),
+  pp105au4   NUMBER(9),
+  pp105au5   TIMESTAMP(6),
+  pp105au6   TIMESTAMP(6),
+  pp105au7   TIMESTAMP(6),
+  pp105au8   TIMESTAMP(6),
+  pp105au9   NUMBER(17),
+  pp105au10  NUMBER(17),
+  pp105au11  CHAR(20),
+  pp105au12  CHAR(20)
+)
+;
+alter table FPP105
+  add primary key (PP105NCART, PP105TIPOA, PP105FECA);
+

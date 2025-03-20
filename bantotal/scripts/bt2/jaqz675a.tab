@@ -1,0 +1,39 @@
+create table JAQZ675A
+(
+  jaqz675acod  NUMBER(3) not null,
+  jaqz675amod  NUMBER(3) not null,
+  jaqz675asuc  NUMBER(3) not null,
+  jaqz675atrn  NUMBER(3) not null,
+  jaqz675anre  NUMBER(4) not null,
+  jaqz675afco  DATE not null,
+  jaqz675acor  NUMBER(2) not null,
+  jaqz675acsu  NUMBER(3) not null,
+  jaqz675acta  NUMBER(9) not null,
+  jaqz675asucu NUMBER(3) not null,
+  jaqz675aimp1 NUMBER(17,2)
+)
+;
+comment on column JAQZ675A.jaqz675acod
+  is 'pgcod';
+comment on column JAQZ675A.jaqz675amod
+  is 'hcmod';
+comment on column JAQZ675A.jaqz675asuc
+  is 'hsucor';
+comment on column JAQZ675A.jaqz675atrn
+  is 'htran';
+comment on column JAQZ675A.jaqz675anre
+  is 'hnrel';
+comment on column JAQZ675A.jaqz675afco
+  is 'hfcon';
+comment on column JAQZ675A.jaqz675acor
+  is 'hcord';
+comment on column JAQZ675A.jaqz675acsu
+  is 'hcsubo';
+comment on column JAQZ675A.jaqz675acta
+  is 'HCTA';
+comment on column JAQZ675A.jaqz675asucu
+  is 'hsucur';
+comment on column JAQZ675A.jaqz675aimp1
+  is 'hcimp1';
+create index JAQZ675A1 on JAQZ675A (JAQZ675ACOD, JAQZ675AMOD, JAQZ675ATRN, JAQZ675ACOR, JAQZ675ACSU);
+

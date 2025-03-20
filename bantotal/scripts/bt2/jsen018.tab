@@ -1,0 +1,23 @@
+create table JSEN018
+(
+  jsen018tli NUMBER(4) not null,
+  jsen018fch DATE not null,
+  jsen018pai NUMBER(3) not null,
+  jsen018tdo NUMBER(2) not null,
+  jsen018ndo CHAR(25) not null,
+  jsen018vic NUMBER(2) not null,
+  jsen018pvi NUMBER(3) not null,
+  jsen018tdv NUMBER(2) not null,
+  jsen018ndv CHAR(25) not null,
+  jsen018cor NUMBER(4) not null,
+  jsen018fac DATE,
+  jsen018usr CHAR(10),
+  jsen018cod CHAR(4),
+  jsen018est NUMBER(1),
+  jsen018obs CHAR(50),
+  jsen018fba DATE
+)
+;
+alter table JSEN018
+  add primary key (JSEN018TLI, JSEN018FCH, JSEN018PAI, JSEN018TDO, JSEN018NDO, JSEN018VIC, JSEN018PVI, JSEN018TDV, JSEN018NDV, JSEN018COR);
+

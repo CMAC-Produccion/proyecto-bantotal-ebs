@@ -1,0 +1,18 @@
+create table SNG113
+(
+  sng113emp  NUMBER(3) not null,
+  sng113usr  CHAR(10) not null,
+  sng113aseo NUMBER(5) not null,
+  sng113ased NUMBER(5) not null,
+  sng113ageo NUMBER(4) not null,
+  sng113aged NUMBER(3) not null,
+  sng113fape DATE not null,
+  sng113inst NUMBER(10) not null,
+  sng113est  CHAR(1),
+  sng113cer  NUMBER(5)
+)
+;
+create index SNG11302 on SNG113 (SNG113INST);
+alter table SNG113
+  add primary key (SNG113EMP, SNG113USR, SNG113ASEO, SNG113ASED, SNG113AGEO, SNG113AGED, SNG113FAPE, SNG113INST);
+

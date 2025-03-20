@@ -1,0 +1,39 @@
+create table JAQZ575
+(
+  jaqz575cod           NUMBER(18) not null,
+  jaqz575datga         VARCHAR2(40) not null,
+  jaqz575codga         NUMBER(4) not null,
+  jaqz575tabla         VARCHAR2(40),
+  jaqz575camcodg       VARCHAR2(40),
+  jaqz575cond          VARCHAR2(40),
+  jaqz575camdata       VARCHAR2(40),
+  jaqz575inmins        VARCHAR2(40),
+  jaqz575terrins       VARCHAR2(40),
+  jaqz575maqeinsn      VARCHAR2(40),
+  jaqz575maqeinsu      VARCHAR2(40),
+  jaqz575merinvins     VARCHAR2(40),
+  jaqz575vehiinsn      VARCHAR2(40),
+  jaqz575vehiinsu      VARCHAR2(40),
+  jaqz575buqinsn       VARCHAR2(40),
+  jaqz575buqinsu       VARCHAR2(40),
+  jaqz575navaerinsn    VARCHAR2(40),
+  jaqz575navaerinsu    VARCHAR2(40),
+  jaqz575joymetpreins  VARCHAR2(40),
+  jaqz575bienesdtit    VARCHAR2(40),
+  jaqz575garpaval      VARCHAR2(40),
+  jaqz575carcreins     VARCHAR2(40),
+  jaqz575preagrmininsn VARCHAR2(40),
+  jaqz575preagrmininsu VARCHAR2(40),
+  jaqz575garcrepren    VARCHAR2(40),
+  jaqz575a1            VARCHAR2(40),
+  jaqz575a2            VARCHAR2(40),
+  jaqz575a3            VARCHAR2(40),
+  jaqz575a4            VARCHAR2(40),
+  jaqz575a5            VARCHAR2(40),
+  jaqz575a6            VARCHAR2(40)
+)
+;
+create index JAQZ5752 on JAQZ575 (JAQZ575COD, JAQZ575TABLA, JAQZ575CODGA);
+alter table JAQZ575
+  add primary key (JAQZ575COD, JAQZ575DATGA, JAQZ575CODGA);
+

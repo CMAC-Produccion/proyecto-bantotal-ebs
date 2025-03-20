@@ -1,0 +1,24 @@
+create table PXFPDVZF
+(
+  pxsior CHAR(2) not null,
+  pxnfid NUMBER(7) not null,
+  pxfsal DATE not null,
+  pxsuag NUMBER(4) not null,
+  pxnuax NUMBER(9) not null,
+  pxnuor NUMBER(2) not null,
+  pxmone CHAR(3),
+  pxsint NUMBER(14,2),
+  pxscom NUMBER(14,2),
+  pxspun NUMBER(14,2),
+  pxinte NUMBER(14,2),
+  pxcomp NUMBER(14,2),
+  pxpuni NUMBER(14,2),
+  pxtasa NUMBER(6,4),
+  pxaint NUMBER(14,2),
+  pxacom NUMBER(14,2),
+  pxapun NUMBER(14,2)
+)
+;
+alter table PXFPDVZF
+  add primary key (PXSIOR, PXNFID, PXFSAL, PXSUAG, PXNUAX, PXNUOR);
+

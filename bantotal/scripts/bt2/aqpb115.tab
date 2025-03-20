@@ -1,0 +1,99 @@
+create table AQPB115
+(
+  aqpb115fec    DATE not null,
+  aqpb115hor    VARCHAR2(20) not null,
+  aqpb115canal  NUMBER(2) not null,
+  aqpb115pai    NUMBER(4),
+  aqpb115tipdoc NUMBER(4),
+  aqpb115nrodoc VARCHAR2(19),
+  aqpb115mod    NUMBER(4),
+  aqpb115mon    NUMBER(4),
+  aqpb115pap    NUMBER(4),
+  aqpb115ubsuc  NUMBER(4),
+  aqpb115tipope NUMBER(9),
+  aqpb115pzo    NUMBER(5),
+  aqpb115mto    NUMBER(16,2),
+  aqpb115cuo    NUMBER(10),
+  aqpb115tasa   NUMBER(7,2),
+  aqpb115mcu    NUMBER(16,2),
+  aqpb115seg    VARCHAR2(40),
+  aqpb115coderr CHAR(5),
+  aqpb115msgerr VARCHAR2(200),
+  aqpb115cel1   VARCHAR2(40),
+  aqpb115cel2   VARCHAR2(40),
+  aqpb115ana    VARCHAR2(100),
+  aqpb115camp   VARCHAR2(100),
+  aqpb115score  VARCHAR2(40),
+  aqpb115precal VARCHAR2(40),
+  aqpb115mtos   NUMBER(17,2),
+  aqpb115pcru   VARCHAR2(20),
+  aqpb115fcru   DATE,
+  aqpb115hcru   VARCHAR2(20),
+  aqpb115msgcru VARCHAR2(200)
+)
+;
+comment on table AQPB115
+  is 'Tabla Log de Consultas de Tasa Dataentry/SMS';
+comment on column AQPB115.aqpb115fec
+  is 'Fecha Operacion';
+comment on column AQPB115.aqpb115hor
+  is 'Hora Operacion';
+comment on column AQPB115.aqpb115canal
+  is 'Origen de Consulta';
+comment on column AQPB115.aqpb115pai
+  is 'Codigo Pais Documento';
+comment on column AQPB115.aqpb115tipdoc
+  is 'Codigo tipo de Documento';
+comment on column AQPB115.aqpb115nrodoc
+  is 'Numero de Documento';
+comment on column AQPB115.aqpb115mod
+  is 'Modulo de Credito';
+comment on column AQPB115.aqpb115mon
+  is 'Moneda de Credito';
+comment on column AQPB115.aqpb115pap
+  is 'Papel de Credito';
+comment on column AQPB115.aqpb115ubsuc
+  is 'Sucursal de Analista';
+comment on column AQPB115.aqpb115tipope
+  is 'Tipo de Operacion';
+comment on column AQPB115.aqpb115pzo
+  is 'Frecuencia de Pago';
+comment on column AQPB115.aqpb115mto
+  is 'Monto de Credito';
+comment on column AQPB115.aqpb115cuo
+  is 'Numero de cuotas';
+comment on column AQPB115.aqpb115tasa
+  is 'Tasa Calculada';
+comment on column AQPB115.aqpb115mcu
+  is 'Monto de Cuota';
+comment on column AQPB115.aqpb115seg
+  is 'Segmentacion del Cliente';
+comment on column AQPB115.aqpb115coderr
+  is 'Codigo de error';
+comment on column AQPB115.aqpb115msgerr
+  is 'Mensaje de error';
+comment on column AQPB115.aqpb115cel1
+  is 'Celular del cliente';
+comment on column AQPB115.aqpb115cel2
+  is 'Celular del Analista';
+comment on column AQPB115.aqpb115ana
+  is 'Analista de credito';
+comment on column AQPB115.aqpb115camp
+  is 'Campaña';
+comment on column AQPB115.aqpb115score
+  is 'Score';
+comment on column AQPB115.aqpb115precal
+  is 'Precalificacion';
+comment on column AQPB115.aqpb115mtos
+  is 'Monto de credito con seguro';
+comment on column AQPB115.aqpb115pcru
+  is 'Procesado envío de la CRU';
+comment on column AQPB115.aqpb115fcru
+  is 'Fecha  de envio de la CRU';
+comment on column AQPB115.aqpb115hcru
+  is 'Hora de Envio de la CRU';
+comment on column AQPB115.aqpb115msgcru
+  is 'Mensaje de error de la CRU en caso corresponda';
+alter table AQPB115
+  add primary key (AQPB115FEC, AQPB115HOR, AQPB115CANAL);
+

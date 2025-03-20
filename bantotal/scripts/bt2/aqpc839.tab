@@ -1,0 +1,53 @@
+create table AQPC839
+(
+  aqpc839feccarg DATE not null,
+  aqpc839usucarg VARCHAR2(10) not null,
+  aqpc839corr    NUMBER(10) not null,
+  aqpc839nomcons VARCHAR2(100),
+  aqpc839tipdoc  VARCHAR2(10),
+  aqpc839nrodoc  VARCHAR2(20),
+  aqpc839girent  VARCHAR2(200),
+  aqpc839entcons VARCHAR2(200),
+  aqpc839period  DATE,
+  aqpc839cantcon NUMBER(10),
+  aqpc839horcarg VARCHAR2(10),
+  aqpc839fproces VARCHAR2(1),
+  aqpc839aux1    VARCHAR2(50),
+  aqpc839aux2    NUMBER(10,2)
+)
+;
+comment on table AQPC839
+  is 'Tabla para carga datos de EQUIFAX consultas';
+comment on column AQPC839.aqpc839feccarg
+  is 'Fecha Carga';
+comment on column AQPC839.aqpc839usucarg
+  is 'Usuario Carga';
+comment on column AQPC839.aqpc839corr
+  is 'Correlativo';
+comment on column AQPC839.aqpc839nomcons
+  is 'Nombre en consulta';
+comment on column AQPC839.aqpc839tipdoc
+  is 'Tipo documento';
+comment on column AQPC839.aqpc839nrodoc
+  is 'Nro. Documento';
+comment on column AQPC839.aqpc839girent
+  is 'Giro de la Entidad';
+comment on column AQPC839.aqpc839entcons
+  is 'Entidad Consultante';
+comment on column AQPC839.aqpc839period
+  is 'Periodo';
+comment on column AQPC839.aqpc839cantcon
+  is 'Cantidad de Consultas';
+comment on column AQPC839.aqpc839horcarg
+  is 'Hora de carga';
+comment on column AQPC839.aqpc839fproces
+  is 'Flg Procesado';
+comment on column AQPC839.aqpc839aux1
+  is 'Auxiliar 1';
+comment on column AQPC839.aqpc839aux2
+  is 'Auxiliar 2';
+create index AQPC839A2 on AQPC839 (AQPC839NRODOC, AQPC839ENTCONS);
+create index AQPC839A3 on AQPC839 (AQPC839TIPDOC, AQPC839NRODOC);
+alter table AQPC839
+  add primary key (AQPC839FECCARG, AQPC839USUCARG, AQPC839CORR);
+

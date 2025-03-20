@@ -1,0 +1,93 @@
+create table AQPB546A
+(
+  aqpb546arecemp NUMBER(3) not null,
+  aqpb546arectip VARCHAR2(3) not null,
+  aqpb546areccod VARCHAR2(20) not null,
+  aqpb546acodamp NUMBER(3) not null,
+  aqpb546acaramp VARCHAR2(40),
+  aqpb546afecemi DATE,
+  aqpb546afeccom DATE,
+  aqpb546amotamp CLOB,
+  aqpb546adiaamp NUMBER(3),
+  aqpb546adiatip VARCHAR2(1),
+  aqpb546acanamp NUMBER(9),
+  aqpb546aestamp VARCHAR2(1),
+  aqpb546acreusu CHAR(10),
+  aqpb546acretim TIMESTAMP(6),
+  aqpb546amodusu CHAR(10),
+  aqpb546amodtim TIMESTAMP(6),
+  aqpb546aauimp1 NUMBER(17,2),
+  aqpb546aauimp2 NUMBER(17,2),
+  aqpb546aauimp3 NUMBER(17,2),
+  aqpb546aaufec1 DATE,
+  aqpb546aaufec2 DATE,
+  aqpb546aaufec3 DATE,
+  aqpb546aaunum1 NUMBER(9),
+  aqpb546aaunum2 NUMBER(9),
+  aqpb546aaunum3 NUMBER(9),
+  aqpb546aaucha1 VARCHAR2(300),
+  aqpb546aaucha2 VARCHAR2(300),
+  aqpb546aaucha3 VARCHAR2(300)
+)
+;
+comment on table AQPB546A
+  is 'Reclamos - Ampliaciones';
+comment on column AQPB546A.aqpb546arecemp
+  is 'Reclamo - Empresa';
+comment on column AQPB546A.aqpb546arectip
+  is 'Reclamo (REC), Requerimiento de Informacion (REQ))';
+comment on column AQPB546A.aqpb546areccod
+  is 'Reclamo - Codigo';
+comment on column AQPB546A.aqpb546acodamp
+  is 'Código de Ampliación';
+comment on column AQPB546A.aqpb546acaramp
+  is 'Nro.Carta de Ampliación';
+comment on column AQPB546A.aqpb546afecemi
+  is 'Fecha de Emision';
+comment on column AQPB546A.aqpb546afeccom
+  is 'Fecha de Comunicación';
+comment on column AQPB546A.aqpb546amotamp
+  is 'Motivo de Apmliación';
+comment on column AQPB546A.aqpb546adiaamp
+  is 'Nro. de Dias Ampliados';
+comment on column AQPB546A.aqpb546adiatip
+  is 'Tipo de Dias Ampliados - C:Calendario H:Habiles';
+comment on column AQPB546A.aqpb546acanamp
+  is 'Canal de Comunicación de Ampliación';
+comment on column AQPB546A.aqpb546aestamp
+  is 'Estado de la Ampliación';
+comment on column AQPB546A.aqpb546acreusu
+  is 'Usuario de Creación';
+comment on column AQPB546A.aqpb546acretim
+  is 'Creación';
+comment on column AQPB546A.aqpb546amodusu
+  is 'Usuario de Modificación';
+comment on column AQPB546A.aqpb546amodtim
+  is 'Modificación';
+comment on column AQPB546A.aqpb546aauimp1
+  is 'Auxiliar IMP1';
+comment on column AQPB546A.aqpb546aauimp2
+  is 'Auxiliar IMP2';
+comment on column AQPB546A.aqpb546aauimp3
+  is 'Auxiliar IMP3';
+comment on column AQPB546A.aqpb546aaufec1
+  is 'Auxiliar FEC1';
+comment on column AQPB546A.aqpb546aaufec2
+  is 'Auxiliar FEC2';
+comment on column AQPB546A.aqpb546aaufec3
+  is 'Auxiliar FEC3';
+comment on column AQPB546A.aqpb546aaunum1
+  is 'Auxiliar NUM1';
+comment on column AQPB546A.aqpb546aaunum2
+  is 'Auxiliar NUM2';
+comment on column AQPB546A.aqpb546aaunum3
+  is 'Auxiliar NUM3';
+comment on column AQPB546A.aqpb546aaucha1
+  is 'Auxiliar STR1';
+comment on column AQPB546A.aqpb546aaucha2
+  is 'Auxiliar STR2';
+comment on column AQPB546A.aqpb546aaucha3
+  is 'Auxiliar STR3';
+alter table AQPB546A
+  add primary key (AQPB546ARECEMP, AQPB546ARECTIP, AQPB546ARECCOD, AQPB546ACODAMP);
+

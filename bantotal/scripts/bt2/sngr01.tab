@@ -1,0 +1,10 @@
+create table SNGR01
+(
+  sngr01pgcd NUMBER(3) not null,
+  sngr01supe CHAR(10) not null,
+  sngr01depe CHAR(10) not null
+)
+;
+alter table SNGR01
+  add primary key (SNGR01PGCD, SNGR01SUPE, SNGR01DEPE);
+

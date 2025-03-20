@@ -1,0 +1,22 @@
+create table CNL638
+(
+  cnl600ver  CHAR(20) not null,
+  cnl600pch  CHAR(50) not null,
+  cnl638acnc NUMBER(3) not null,
+  cnl638bopc NUMBER(5) not null,
+  cnl638cvar NUMBER(3) not null,
+  cnl638cod  NUMBER(4) not null,
+  cnl638idi  CHAR(2) not null,
+  cnl638lit  NUMBER(9) not null,
+  cnl638crr  NUMBER(4) not null,
+  cnl638txt  CHAR(65),
+  cnl638est  CHAR(120),
+  cnl638txp  CHAR(65),
+  cnl650code NUMBER(4),
+  cnl638errp NUMBER(4)
+)
+;
+create index CNL63802 on CNL638 (CNL650CODE);
+alter table CNL638
+  add primary key (CNL600VER, CNL600PCH, CNL638ACNC, CNL638BOPC, CNL638CVAR, CNL638COD, CNL638IDI, CNL638LIT, CNL638CRR);
+

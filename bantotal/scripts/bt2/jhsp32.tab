@@ -1,0 +1,15 @@
+create table JHSP32
+(
+  jhsp32pai NUMBER(3) not null,
+  jhsp32tdo NUMBER(2) not null,
+  jhsp32ndo CHAR(12) not null,
+  jhsp32tre NUMBER(4) not null,
+  jhsp32cnt NUMBER(9),
+  jhsp32ax1 NUMBER(9),
+  jhsp32ax2 NUMBER(9),
+  jhsp32ax3 NUMBER(17,2)
+)
+;
+create unique index JHSP3201 on JHSP32 (JHSP32PAI, JHSP32TDO, JHSP32NDO, JHSP32TRE);
+create index JHSP3202 on JHSP32 (JHSP32TRE, JHSP32PAI, JHSP32TDO, JHSP32NDO);
+

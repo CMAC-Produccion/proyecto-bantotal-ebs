@@ -1,0 +1,15 @@
+create table SCR746
+(
+  scrx1 CHAR(64) not null,
+  scrsn NUMBER(2) not null,
+  scrs1 CHAR(30),
+  scrsp NUMBER(5),
+  scrs2 DATE
+)
+;
+create index SCR74603 on SCR746 (SCRX1, SCRS1);
+create index SCR74604 on SCR746 (SCRX1, SCRSP);
+create index SCR74605 on SCR746 (SCRS1, SCRSP);
+alter table SCR746
+  add primary key (SCRX1, SCRSN);
+

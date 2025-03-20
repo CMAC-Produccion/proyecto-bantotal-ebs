@@ -1,0 +1,33 @@
+create table AQPB542A
+(
+  aqpb542acodigo VARCHAR2(30) not null,
+  aqpb542atipo   VARCHAR2(3),
+  aqpb542acretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb542acreusu VARCHAR2(10),
+  aqpb542acresuc NUMBER(3),
+  aqpb542afecha  DATE,
+  aqpb542ahora   VARCHAR2(8),
+  aqpb542awrksta VARCHAR2(10)
+)
+;
+comment on table AQPB542A
+  is 'Cuenta Suplantada - Cabecera Carga de Excel';
+comment on column AQPB542A.aqpb542acodigo
+  is 'Codigo de Carga';
+comment on column AQPB542A.aqpb542atipo
+  is 'Tipo';
+comment on column AQPB542A.aqpb542acretim
+  is 'Campo de Auditoria';
+comment on column AQPB542A.aqpb542acreusu
+  is 'Usuario';
+comment on column AQPB542A.aqpb542acresuc
+  is 'Sucursal';
+comment on column AQPB542A.aqpb542afecha
+  is 'Fecha';
+comment on column AQPB542A.aqpb542ahora
+  is 'Hora';
+comment on column AQPB542A.aqpb542awrksta
+  is 'WorkStation';
+alter table AQPB542A
+  add primary key (AQPB542ACODIGO);
+

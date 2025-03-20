@@ -1,0 +1,13 @@
+CREATE OR REPLACE FORCE VIEW V_BNJ096_PRECON AS
+SELECT
+bnj096suc,
+bnj096mda,
+bnj096pap,
+bnj096cta,
+bnj096ope,
+bnj096sub,
+bnj096mod,
+bnj096top,
+bnj096sor
+FROM BANTPROD.BNJ096;
+

@@ -1,0 +1,18 @@
+create table FST001
+(
+  pgcod  NUMBER(3) not null,
+  sucurs NUMBER(3) not null,
+  scnom  CHAR(30),
+  scnomr CHAR(5),
+  sccall CHAR(25),
+  scnro  NUMBER(5),
+  scciud CHAR(20),
+  scdept CHAR(15),
+  sctelf CHAR(20),
+  calcod NUMBER(3)
+)
+;
+create index FST00103 on FST001 (CALCOD);
+alter table FST001
+  add primary key (PGCOD, SUCURS);
+

@@ -1,0 +1,57 @@
+create table JAQN93
+(
+  jaqn93idr NUMBER(4) not null,
+  jaqn93ids NUMBER(4) not null,
+  jaqn93mtl NUMBER(17,2),
+  jaqn93mdl NUMBER(4),
+  jaqn93ai1 NUMBER(17,2),
+  jaqn93ai2 NUMBER(17,2),
+  jaqn93ai3 NUMBER(17,2),
+  jaqn93ad1 DATE,
+  jaqn93ad2 DATE,
+  jaqn93ad3 DATE,
+  jaqn93an1 NUMBER(9),
+  jaqn93an2 NUMBER(9),
+  jaqn93an3 NUMBER(9),
+  jaqn93ac1 CHAR(255),
+  jaqn93ac2 CHAR(255),
+  jaqn93ac3 CHAR(255)
+)
+;
+comment on table JAQN93
+  is 'Region - Sucursal';
+comment on column JAQN93.jaqn93idr
+  is 'ID de Region';
+comment on column JAQN93.jaqn93ids
+  is 'ID de Sucursal';
+comment on column JAQN93.jaqn93mtl
+  is 'Monto Limite';
+comment on column JAQN93.jaqn93mdl
+  is 'Moneda de Limmite';
+comment on column JAQN93.jaqn93ai1
+  is 'Auxiliar Imp1';
+comment on column JAQN93.jaqn93ai2
+  is 'Auxiliar Imp2';
+comment on column JAQN93.jaqn93ai3
+  is 'Auxiliar Imp3';
+comment on column JAQN93.jaqn93ad1
+  is 'Auxiliar Fecha1';
+comment on column JAQN93.jaqn93ad2
+  is 'Auxiliar Fecha2';
+comment on column JAQN93.jaqn93ad3
+  is 'Auxiliar Fecha3';
+comment on column JAQN93.jaqn93an1
+  is 'Auxiliar Num1';
+comment on column JAQN93.jaqn93an2
+  is 'Auxiliar Num2';
+comment on column JAQN93.jaqn93an3
+  is 'Auxiliar Num3';
+comment on column JAQN93.jaqn93ac1
+  is 'Auxiliar Char1';
+comment on column JAQN93.jaqn93ac2
+  is 'Auxiliar Char2';
+comment on column JAQN93.jaqn93ac3
+  is 'Auxiliar Char3';
+alter table JAQN93
+  add primary key (JAQN93IDR, JAQN93IDS);
+

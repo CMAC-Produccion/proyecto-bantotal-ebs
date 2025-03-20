@@ -1,0 +1,22 @@
+create table FSFC06L
+(
+  kgl06pgcod NUMBER(3) not null,
+  kgl06ctnro NUMBER(9) not null,
+  kmlc06fing DATE not null,
+  kmlc06hing CHAR(8) not null,
+  kmlc06ok   CHAR(1),
+  kmlc06adu  CHAR(1),
+  kgl06ctnom CHAR(35),
+  kgl06topco NUMBER(7,4),
+  kmlc06uing CHAR(10),
+  kmlc06wing CHAR(10),
+  kmlc06fcnf DATE,
+  kmlc06hcnf CHAR(8),
+  kmlc06ucnf CHAR(10),
+  kmlc06wcnf CHAR(10)
+)
+;
+create index FSFC06L2 on FSFC06L (KGL06PGCOD, KGL06CTNRO, KMLC06OK);
+alter table FSFC06L
+  add primary key (KGL06PGCOD, KGL06CTNRO, KMLC06FING, KMLC06HING);
+

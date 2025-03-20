@@ -1,0 +1,18 @@
+create table AQPB599
+(
+  aqpb599fech DATE not null,
+  aqpb599cont NUMBER,
+  aqpb599buro NUMBER not null
+)
+;
+comment on table AQPB599
+  is 'Tabla de Contador de Buros de CRU';
+comment on column AQPB599.aqpb599fech
+  is 'Fecha';
+comment on column AQPB599.aqpb599cont
+  is 'Contador';
+comment on column AQPB599.aqpb599buro
+  is 'Buro';
+alter table AQPB599
+  add constraint BANTPROD primary key (AQPB599FECH, AQPB599BURO);
+

@@ -1,0 +1,25 @@
+create table JAQL171
+(
+  jaql171emp NUMBER(3) not null,
+  jaql171suc NUMBER(3) not null,
+  jaql171cta NUMBER(9) not null,
+  jaql171mda NUMBER(4) not null,
+  jaql171mod NUMBER(3) not null,
+  jaql171top NUMBER(3) not null,
+  jaql171ope NUMBER(9) not null,
+  jaql171sop NUMBER(3) not null,
+  jaql171fec DATE not null,
+  jaql171mdt NUMBER(4),
+  jaql171mto NUMBER(17,2),
+  jaql171cam NUMBER(14,8),
+  jaql171pos CHAR(1),
+  jaql171aut VARCHAR2(200),
+  jaql171usm CHAR(10),
+  jaql171fem DATE,
+  jaql171hom CHAR(8)
+)
+;
+create index JAQL171001 on JAQL171 (JAQL171FEC);
+alter table JAQL171
+  add primary key (JAQL171EMP, JAQL171SUC, JAQL171CTA, JAQL171MDA, JAQL171MOD, JAQL171TOP, JAQL171OPE, JAQL171SOP, JAQL171FEC);
+

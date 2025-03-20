@@ -1,0 +1,19 @@
+create table FSFT14
+(
+  kt8pgcod  NUMBER(3) not null,
+  kt8clasif NUMBER(2) not null,
+  kt8cladsc CHAR(40),
+  kt8durvol CHAR(1),
+  kt8calcdv CHAR(1),
+  kt8sino1  CHAR(1),
+  kt8sino2  CHAR(1),
+  kt8sino3  CHAR(1),
+  kt8exi3   NUMBER(10),
+  kt8exi4   NUMBER(10),
+  kt8exi5c  NUMBER(10),
+  kt8exi5v  NUMBER(10)
+)
+;
+alter table FSFT14
+  add primary key (KT8PGCOD, KT8CLASIF);
+

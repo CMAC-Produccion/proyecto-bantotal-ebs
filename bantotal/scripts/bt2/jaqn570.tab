@@ -1,0 +1,79 @@
+create table JAQN570
+(
+  jaqn570fec DATE not null,
+  jaqn570cod NUMBER(4) not null,
+  jaqn570nro NUMBER(4) not null,
+  jaqn570tas NUMBER(10,6) not null,
+  jaqn570tra NUMBER(4) not null,
+  jaqn570sec NUMBER(4) not null,
+  jaqn570smd NUMBER(17,2),
+  jaqn570ssp NUMBER(17,2),
+  jaqn570mon NUMBER(4),
+  jaqn570can NUMBER(5),
+  jaqn570pro NUMBER(10,6),
+  jaqn570ai1 NUMBER(17,2),
+  jaqn570ai2 NUMBER(17,2),
+  jaqn570ai3 NUMBER(17,2),
+  jaqn570an1 NUMBER(9),
+  jaqn570an2 NUMBER(9),
+  jaqn570an3 NUMBER(9),
+  jaqn570ac1 VARCHAR2(255),
+  jaqn570ac2 VARCHAR2(255),
+  jaqn570ac3 VARCHAR2(255),
+  jaqn570af1 DATE,
+  jaqn570af2 DATE,
+  jaqn570af3 DATE
+)
+;
+comment on table JAQN570
+  is 'Tabla Cabecera Reactiva';
+comment on column JAQN570.jaqn570fec
+  is 'Fecha de Generacion';
+comment on column JAQN570.jaqn570cod
+  is 'Código de Entidad Participante';
+comment on column JAQN570.jaqn570nro
+  is 'Número de operacióm';
+comment on column JAQN570.jaqn570tas
+  is 'tasa_adjudicada_negoc';
+comment on column JAQN570.jaqn570tra
+  is 'num_tramo';
+comment on column JAQN570.jaqn570sec
+  is 'número de secuencia';
+comment on column JAQN570.jaqn570smd
+  is 'suma monto desembolsado';
+comment on column JAQN570.jaqn570ssp
+  is 'suma saldo pendiente';
+comment on column JAQN570.jaqn570mon
+  is 'moneda ';
+comment on column JAQN570.jaqn570can
+  is 'cantidad de préstamos';
+comment on column JAQN570.jaqn570pro
+  is 'promedio porcentaje';
+comment on column JAQN570.jaqn570ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN570.jaqn570ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN570.jaqn570ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN570.jaqn570an1
+  is 'Auxiliar Númerica 1';
+comment on column JAQN570.jaqn570an2
+  is 'Auxiliar Númerica 2';
+comment on column JAQN570.jaqn570an3
+  is 'Auxiliar Númerica 3';
+comment on column JAQN570.jaqn570ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQN570.jaqn570ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQN570.jaqn570ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQN570.jaqn570af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN570.jaqn570af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN570.jaqn570af3
+  is 'Auxiliar Fecha 3';
+create index JAQN570A2 on JAQN570 (JAQN570COD, JAQN570NRO, JAQN570TAS, JAQN570TRA, JAQN570SEC);
+alter table JAQN570
+  add primary key (JAQN570FEC, JAQN570COD, JAQN570NRO, JAQN570TAS, JAQN570TRA, JAQN570SEC);
+

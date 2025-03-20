@@ -1,0 +1,17 @@
+create table IBUSERNAV
+(
+  cnl000cod  NUMBER(4) not null,
+  cnl001usu  CHAR(30) not null,
+  ibusrsess  CHAR(100) not null,
+  ibuserflag CHAR(20) not null,
+  ibusrprc   CHAR(60) not null,
+  ibusrtsk   CHAR(60) not null,
+  ibusernum  NUMBER(10) not null,
+  ibdate     DATE not null,
+  ibtime     CHAR(8) not null,
+  ibcontext  CLOB
+)
+;
+create unique index IBUSERNAV01 on IBUSERNAV (CNL000COD, CNL001USU, IBUSRSESS, IBUSERFLAG);
+create index IBUSERNAV02 on IBUSERNAV (CNL000COD);
+

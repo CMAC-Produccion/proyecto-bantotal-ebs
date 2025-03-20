@@ -1,0 +1,20 @@
+create table FSFC25
+(
+  sfc25emp NUMBER(3) not null,
+  sfc25mda NUMBER(4) not null,
+  sfc25fch DATE not null,
+  sfc25mto NUMBER(17,2),
+  sfc25hab CHAR(1),
+  sfc25a01 NUMBER(9),
+  sfc25a02 NUMBER(9),
+  sfc25a03 NUMBER(17,2),
+  sfc25a04 NUMBER(17,2),
+  sfc25a05 CHAR(1),
+  sfc25a06 CHAR(1),
+  sfc25a07 DATE,
+  sfc25a08 DATE
+)
+;
+alter table FSFC25
+  add primary key (SFC25EMP, SFC25MDA, SFC25FCH);
+

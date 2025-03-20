@@ -1,0 +1,67 @@
+create table JAQM8C
+(
+  jaqm8ccrr NUMBER(9) not null,
+  jaqm8cusr CHAR(10) not null,
+  jaqm8cfec DATE not null,
+  jaqm8cnca CHAR(200),
+  jaqm8can1 NUMBER(9),
+  jaqm8can2 NUMBER(9),
+  jaqm8can3 NUMBER(9),
+  jaqm8cai1 NUMBER(17,2),
+  jaqm8cai2 NUMBER(17,2),
+  jaqm8cai3 NUMBER(17,2),
+  jaqm8caf1 DATE,
+  jaqm8caf2 DATE,
+  jaqm8caf3 DATE,
+  jaqm8cac1 CHAR(1),
+  jaqm8cac2 CHAR(1),
+  jaqm8cac3 CHAR(1),
+  jaqm8cat1 VARCHAR2(250),
+  jaqm8cat2 VARCHAR2(250),
+  jaqm8cat3 VARCHAR2(250)
+)
+;
+comment on table JAQM8C
+  is 'Log Cartas Mora';
+comment on column JAQM8C.jaqm8ccrr
+  is 'Correlativo';
+comment on column JAQM8C.jaqm8cusr
+  is 'Usuario';
+comment on column JAQM8C.jaqm8cfec
+  is 'Fecha';
+comment on column JAQM8C.jaqm8cnca
+  is 'Nca';
+comment on column JAQM8C.jaqm8can1
+  is 'Can 1';
+comment on column JAQM8C.jaqm8can2
+  is 'Can 2';
+comment on column JAQM8C.jaqm8can3
+  is 'Can 3';
+comment on column JAQM8C.jaqm8cai1
+  is 'Cai 1';
+comment on column JAQM8C.jaqm8cai2
+  is 'Cai 2';
+comment on column JAQM8C.jaqm8cai3
+  is 'Cai 3';
+comment on column JAQM8C.jaqm8caf1
+  is 'Caf 1';
+comment on column JAQM8C.jaqm8caf2
+  is 'Caf 2';
+comment on column JAQM8C.jaqm8caf3
+  is 'Caf 3';
+comment on column JAQM8C.jaqm8cac1
+  is 'Cac 1';
+comment on column JAQM8C.jaqm8cac2
+  is 'Cac 2';
+comment on column JAQM8C.jaqm8cac3
+  is 'Cac 3';
+comment on column JAQM8C.jaqm8cat1
+  is 'Cat 1';
+comment on column JAQM8C.jaqm8cat2
+  is 'Cat 2';
+comment on column JAQM8C.jaqm8cat3
+  is 'Cat 3';
+create index JAQM8CA2 on JAQM8C (JAQM8CUSR, JAQM8CFEC);
+alter table JAQM8C
+  add primary key (JAQM8CCRR, JAQM8CUSR, JAQM8CFEC);
+

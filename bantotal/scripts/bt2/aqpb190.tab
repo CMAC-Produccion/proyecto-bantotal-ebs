@@ -1,0 +1,44 @@
+create table AQPB190
+(
+  aqpb190cor   NUMBER(10) not null,
+  aqpb190fch   DATE not null,
+  aqpb190hora  VARCHAR2(10) not null,
+  aqpb190inst  NUMBER(10) not null,
+  aqpb190user  VARCHAR2(10),
+  aqpb190ind   VARCHAR2(5),
+  aqpb190est   VARCHAR2(5),
+  aqpb190aux1  VARCHAR2(25),
+  aqpb190aux2  VARCHAR2(25),
+  aqpb190auxn1 NUMBER(17,2),
+  aqpb190auxn2 NUMBER(17,2)
+)
+;
+comment on table AQPB190
+  is 'Tabla Log Verifica En Seguimiento Arbol de Aprobacion';
+comment on column AQPB190.aqpb190cor
+  is 'Correlativo';
+comment on column AQPB190.aqpb190fch
+  is 'Fecha';
+comment on column AQPB190.aqpb190hora
+  is 'Hora';
+comment on column AQPB190.aqpb190inst
+  is 'Instancia';
+comment on column AQPB190.aqpb190user
+  is 'Usuario en Seguimiento';
+comment on column AQPB190.aqpb190ind
+  is 'Indicador en Seguimiento';
+comment on column AQPB190.aqpb190est
+  is 'Estado';
+comment on column AQPB190.aqpb190aux1
+  is 'Campo Auxiliar';
+comment on column AQPB190.aqpb190aux2
+  is 'Campo Auxiliar';
+comment on column AQPB190.aqpb190auxn1
+  is 'Campo Auxiliar';
+comment on column AQPB190.aqpb190auxn2
+  is 'Campo Auxiliar';
+create index AQPB1902 on AQPB190 (AQPB190INST);
+create index AQPB1903 on AQPB190 (AQPB190USER);
+alter table AQPB190
+  add primary key (AQPB190COR, AQPB190FCH, AQPB190HORA, AQPB190INST);
+

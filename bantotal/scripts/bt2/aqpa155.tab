@@ -1,0 +1,27 @@
+create table AQPA155
+(
+  aqpa155id      NUMBER(10) not null,
+  aqpa155fecpro  DATE,
+  aqpa155ordini  VARCHAR2(10),
+  aqpa155ordfin  VARCHAR2(10),
+  aqpa155idcli   VARCHAR2(100),
+  aqpa155idpro   VARCHAR2(100),
+  aqpa155ordenes CLOB,
+  aqpa155usureg  CHAR(10),
+  aqpa155fecreg  DATE,
+  aqpa155flgpro  CHAR(1),
+  aqpa155coderr  CHAR(5),
+  aqpa155msjerr  VARCHAR2(100),
+  aqpa155horreg  VARCHAR2(10),
+  aqpa155horenv  VARCHAR2(10),
+  aqpa155fecenv  DATE,
+  aqpa155tipope  CHAR(1),
+  aqpa155idope   NUMBER(10),
+  aqpa155usupro  CHAR(10),
+  aqpa155flgori  CHAR(1)
+)
+;
+create index AQPA1552 on AQPA155 (AQPA155FECPRO, AQPA155TIPOPE, AQPA155FLGPRO);
+alter table AQPA155
+  add primary key (AQPA155ID);
+

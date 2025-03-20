@@ -1,0 +1,10 @@
+create table JBXP11
+(
+  jbxp11cod NUMBER(3) not null,
+  jbxp11nro NUMBER(9) not null,
+  jbxp11mod NUMBER(3) not null,
+  jbxp11top NUMBER(3) not null
+)
+;
+create unique index JBXP1101 on JBXP11 (JBXP11COD, JBXP11NRO, JBXP11MOD, JBXP11TOP);
+

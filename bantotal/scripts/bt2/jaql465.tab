@@ -1,0 +1,21 @@
+create table JAQL465
+(
+  jaql465pai NUMBER(3) not null,
+  jaql465tdo NUMBER(2) not null,
+  jaql465ndo CHAR(12) not null,
+  jaql465cod NUMBER(3) not null,
+  jaql465txt CHAR(65) not null,
+  jaql465ren NUMBER(5),
+  jaql465usu CHAR(10),
+  jaql465fch DATE,
+  jaql465usi CHAR(10),
+  jaql465usa CHAR(10),
+  jaql465fei DATE,
+  jaql465fea DATE,
+  jaql465tca CHAR(1),
+  jaql465tcl CHAR(1)
+)
+;
+alter table JAQL465
+  add primary key (JAQL465PAI, JAQL465TDO, JAQL465NDO, JAQL465COD, JAQL465TXT);
+

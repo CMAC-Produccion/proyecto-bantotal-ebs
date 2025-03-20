@@ -1,0 +1,16 @@
+create table CPI126
+(
+  pmopais NUMBER(3) not null,
+  pmotd   NUMBER(2) not null,
+  pmond   CHAR(25) not null,
+  pmoid   NUMBER(2) not null,
+  pmod    CHAR(30),
+  pmosdo  NUMBER(17,2),
+  pmocta  NUMBER(17,2),
+  pmobco  CHAR(30),
+  pmomda  NUMBER(4)
+)
+;
+alter table CPI126
+  add primary key (PMOPAIS, PMOTD, PMOND, PMOID);
+

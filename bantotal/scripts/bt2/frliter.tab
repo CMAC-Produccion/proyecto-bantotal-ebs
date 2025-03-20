@@ -1,0 +1,12 @@
+create table FRLITER
+(
+  frlitid VARCHAR2(2000) not null,
+  frlitlg VARCHAR2(4) not null,
+  frlittr VARCHAR2(2000),
+  frlitfo VARCHAR2(100)
+)
+;
+create index FRLITER2 on FRLITER (FRLITLG);
+alter table FRLITER
+  add primary key (FRLITID, FRLITLG);
+

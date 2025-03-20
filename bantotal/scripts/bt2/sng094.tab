@@ -1,0 +1,28 @@
+create table SNG094
+(
+  sng088ejid NUMBER(10) not null,
+  sng094cor  NUMBER(4) not null,
+  sng094pgc  NUMBER(3),
+  sng094mod  NUMBER(3),
+  sng094suc  NUMBER(3),
+  sng094mda  NUMBER(4),
+  sng094pap  NUMBER(4),
+  sng094cta  NUMBER(9),
+  sng094ope  NUMBER(9),
+  sng094sbo  NUMBER(3),
+  sng094top  NUMBER(3),
+  sng094sibo NUMBER(2),
+  sng094fdoo NUMBER(2),
+  sng094sibd NUMBER(2),
+  sng094fdod NUMBER(2),
+  sng094inst NUMBER(10),
+  sng094rubo NUMBER(16),
+  sng094auxn NUMBER(10),
+  sng094auxc CHAR(20),
+  sng094auxd DATE,
+  sng094auxi NUMBER(17,2)
+)
+;
+alter table SNG094
+  add primary key (SNG088EJID, SNG094COR);
+

@@ -1,0 +1,32 @@
+create table CSMH005
+(
+  csmh005fpr DATE not null,
+  csmh005cor NUMBER(10) not null,
+  csmh001cod NUMBER(4),
+  csmh002cod NUMBER(4),
+  csmh005fec DATE,
+  csmh005hor CHAR(8),
+  csmh005est CHAR(1),
+  csmh005ema CHAR(35),
+  csmh005mda NUMBER(4),
+  csmh005imp NUMBER(17,2),
+  csmh007cod NUMBER(4),
+  csmh005tco CHAR(1),
+  csmh005tdc NUMBER(2),
+  csmh005can NUMBER(9),
+  csmh005fpg DATE,
+  csmh005tpg CHAR(1),
+  csmh005com NUMBER(17,2),
+  csmh005im1 NUMBER(17,2),
+  csmh005im2 NUMBER(17,2),
+  csmh005fe1 DATE,
+  csmh005fe2 DATE,
+  csmh005ca1 CHAR(100),
+  csmh005ca2 CHAR(100),
+  csmh005co1 NUMBER(10,6),
+  csmh005co2 NUMBER(10,6)
+)
+;
+alter table CSMH005
+  add primary key (CSMH005FPR, CSMH005COR);
+

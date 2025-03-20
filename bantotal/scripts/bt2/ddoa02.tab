@@ -1,0 +1,25 @@
+create table DDOA02
+(
+  ddo02pais  NUMBER(3) not null,
+  ddo02tdoc  NUMBER(2) not null,
+  ddo02ndoc  CHAR(12) not null,
+  ddo02pgcod NUMBER(3),
+  ddo02ctnro NUMBER(9),
+  ddo02nfirm CHAR(40),
+  ddo02nper  CHAR(25),
+  ddo02dir1  CHAR(30),
+  ddo02dir2  CHAR(30),
+  ddo02sts   CHAR(1),
+  ddo02falta DATE,
+  ddo02cdpos CHAR(4),
+  ddo02sexo  CHAR(1),
+  ddo02cderr NUMBER(5),
+  ddo02print CHAR(40),
+  ddo02altn1 NUMBER(9),
+  ddo02altc1 CHAR(20)
+)
+;
+create index DDOA0202 on DDOA02 (DDO02PGCOD, DDO02NFIRM, DDO02STS);
+alter table DDOA02
+  add primary key (DDO02PAIS, DDO02TDOC, DDO02NDOC);
+

@@ -1,0 +1,29 @@
+create table FSA121
+(
+  cpcod      NUMBER(3) not null,
+  cpmod      NUMBER(3) not null,
+  cpsuc      NUMBER(3) not null,
+  cpmda      NUMBER(4) not null,
+  cppap      NUMBER(4) not null,
+  cpcta      NUMBER(9) not null,
+  cpoper     NUMBER(9) not null,
+  cpsbop     NUMBER(3) not null,
+  cptope     NUMBER(3) not null,
+  cpncuo     NUMBER(5) not null,
+  cpopcod    NUMBER(3),
+  cpfchgen   DATE,
+  cpfchvto   DATE,
+  cpfchevl   DATE,
+  cpfchcob   DATE,
+  cpcuota    NUMBER(17,2),
+  cpestado   CHAR(1),
+  cpcobrado  NUMBER(17,2),
+  cpseguro   NUMBER(17,2),
+  cpcomision NUMBER(17,2),
+  cpimpuesto NUMBER(17,2)
+)
+;
+create index FSA12102 on FSA121 (CPCOD, CPOPCOD, CPCTA);
+alter table FSA121
+  add primary key (CPCOD, CPMOD, CPSUC, CPMDA, CPPAP, CPCTA, CPOPER, CPSBOP, CPTOPE, CPNCUO);
+

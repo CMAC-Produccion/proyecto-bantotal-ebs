@@ -1,0 +1,29 @@
+create table FSD555
+(
+  pgcod      NUMBER(3) not null,
+  thmod      NUMBER(3) not null,
+  thsuc      NUMBER(3) not null,
+  thmda      NUMBER(4) not null,
+  thpap      NUMBER(4) not null,
+  thcta      NUMBER(9) not null,
+  thoper     NUMBER(9) not null,
+  thsbop     NUMBER(3) not null,
+  thtope     NUMBER(3) not null,
+  thcod      NUMBER(18) not null,
+  thfolcod   NUMBER(18) not null,
+  thregcod   NUMBER(18) not null,
+  thfesc     DATE,
+  thpais     NUMBER(3),
+  thdepto    NUMBER(5),
+  thciucod   NUMBER(4),
+  zoncod     NUMBER(3),
+  thanex     CHAR(50),
+  thinsreg   NUMBER(18),
+  thfinsreg  DATE,
+  thinsregpa CHAR(50)
+)
+;
+create index FSD55503 on FSD555 (THPAIS, THDEPTO, THCIUCOD);
+alter table FSD555
+  add primary key (PGCOD, THMOD, THSUC, THMDA, THPAP, THCTA, THOPER, THSBOP, THTOPE, THCOD, THFOLCOD, THREGCOD);
+

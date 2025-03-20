@@ -1,0 +1,13 @@
+create table SDN003
+(
+  sdnid      CHAR(10) not null,
+  sdnaltid   CHAR(10) not null,
+  sdnalttyp  CHAR(8),
+  sdnaltname CHAR(200),
+  sdnaltrem  CHAR(200)
+)
+;
+create index SDN00303 on SDN003 (SDNALTNAME);
+alter table SDN003
+  add primary key (SDNID, SDNALTID);
+

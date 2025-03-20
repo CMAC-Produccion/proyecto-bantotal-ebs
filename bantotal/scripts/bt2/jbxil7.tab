@@ -1,0 +1,16 @@
+create table JBXIL7
+(
+  jbxil7cl CHAR(17) not null,
+  jbxil7ta CHAR(10) not null,
+  jbxil7at CHAR(10) not null,
+  jbxil7fe DATE not null,
+  jbxil7ho CHAR(8) not null,
+  jbxil7va CHAR(200),
+  jbxil7vp CHAR(200),
+  jbxil7us CHAR(10)
+)
+;
+create unique index JBXIL701 on JBXIL7 (JBXIL7CL, JBXIL7TA, JBXIL7AT, JBXIL7FE, JBXIL7HO);
+create index JBXIL702 on JBXIL7 (JBXIL7FE, JBXIL7TA, JBXIL7CL);
+create index JBXIL703 on JBXIL7 (JBXIL7TA, JBXIL7AT);
+

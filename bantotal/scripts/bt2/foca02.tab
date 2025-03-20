@@ -1,0 +1,13 @@
+create table FOCA02
+(
+  foca02emp  NUMBER(3) not null,
+  foca02nbol CHAR(20) not null,
+  foca02ncin NUMBER(3) not null,
+  foca02nofi CHAR(16),
+  foca02faux DATE,
+  foca02imp  NUMBER(17,2)
+)
+;
+alter table FOCA02
+  add primary key (FOCA02EMP, FOCA02NBOL, FOCA02NCIN);
+

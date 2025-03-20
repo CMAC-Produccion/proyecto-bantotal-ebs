@@ -1,0 +1,62 @@
+create table FCD120
+(
+  pgcod      NUMBER(3) not null,
+  lcemod     NUMBER(3) not null,
+  lceoper    NUMBER(9) not null,
+  lcesuc     NUMBER(3),
+  lcemda     NUMBER(4),
+  lcepap     NUMBER(4),
+  lcecta     NUMBER(9),
+  lcetipo    NUMBER(3),
+  lcefemi    DATE,
+  lcefing    DATE,
+  lcefvto    DATE,
+  lcefval    DATE,
+  lcefvtem   DATE,
+  lcebcemiso NUMBER(9),
+  lcerefemi  CHAR(20),
+  lcebcree   NUMBER(9),
+  lceciuneg  CHAR(20),
+  lceabomin  NUMBER(5,2),
+  lceabomax  NUMBER(5,2),
+  lcegaspor  NUMBER(1),
+  lcenatmon  NUMBER(2),
+  lceversio  NUMBER(2),
+  lceuser    CHAR(10),
+  lcews      CHAR(10),
+  idioma     NUMBER(2),
+  lceaoimp   NUMBER(17,2),
+  lcemocsw1  CHAR(3),
+  frmreeid   NUMBER(2),
+  lceimpvis  NUMBER(17,2),
+  lceimppla  NUMBER(17,2),
+  lceautree  NUMBER(15),
+  lcebcpagad NUMBER(9),
+  lcebcavi   NUMBER(9),
+  lcebcdsg   NUMBER(9),
+  lcebctrnsf NUMBER(9),
+  c120cd     NUMBER(3),
+  c120mo     NUMBER(3),
+  c120su     NUMBER(3),
+  c120tr     NUMBER(3),
+  c120re     NUMBER(4),
+  c120fc     DATE,
+  c120co     CHAR(1)
+)
+;
+create index FCD12002 on FCD120 (PGCOD, LCECTA);
+create index FCD12003 on FCD120 (PGCOD, LCEBCEMISO);
+create index FCD12004 on FCD120 (PGCOD, LCEBCREE);
+create index FCD12005 on FCD120 (PGCOD, LCEBCTRNSF);
+create index FCD12006 on FCD120 (PGCOD, LCEBCAVI);
+create index FCD12007 on FCD120 (LCEPAP);
+create index FCD12008 on FCD120 (LCEMDA);
+create index FCD12009 on FCD120 (PGCOD, LCESUC);
+create index FCD12011 on FCD120 (IDIOMA);
+create index FCD12012 on FCD120 (PGCOD, LCEBCPAGAD);
+create index FCD12013 on FCD120 (PGCOD, LCEMOD, FRMREEID);
+create index FCD12014 on FCD120 (PGCOD, LCEBCDSG);
+create index FCD12080 on FCD120 (LCEAUTREE);
+alter table FCD120
+  add primary key (PGCOD, LCEMOD, LCEOPER);
+

@@ -1,0 +1,25 @@
+create table JAQY477
+(
+  jaqy477fch       DATE not null,
+  jaqy477pai       NUMBER(3) not null,
+  jaqy477tdo       NUMBER(2) not null,
+  jaqy477ndo       VARCHAR2(12) not null,
+  jaqy477ant       NUMBER(6),
+  jaqy477sig       VARCHAR2(1),
+  jaqy477aho       NUMBER(16,2),
+  jaqy477cre       NUMBER(16,2),
+  jaqy477iah       VARCHAR2(1),
+  jaqy477icr       VARCHAR2(1),
+  jaqy477prmahoant NUMBER(16,2),
+  jaqy477prmahoact NUMBER(16,2),
+  jaqy477maycreant NUMBER(16,2),
+  jaqy477maycreact NUMBER(16,2),
+  jaqy477seg       VARCHAR2(1),
+  jaqy477subseg    VARCHAR2(1)
+)
+;
+create index JAQY47701 on JAQY477 (JAQY477PAI, JAQY477TDO, JAQY477NDO, JAQY477FCH);
+create index JAQY47702 on JAQY477 (JAQY477FCH, JAQY477SEG, JAQY477SUBSEG);
+alter table JAQY477
+  add primary key (JAQY477FCH, JAQY477PAI, JAQY477TDO, JAQY477NDO);
+

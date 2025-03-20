@@ -1,0 +1,307 @@
+create table RRT002
+(
+  rrt002pgc NUMBER(4) not null,
+  rrt002inf CHAR(10) not null,
+  rrt002fec DATE not null,
+  rrt002thr NUMBER(3) not null,
+  rrt002cor NUMBER(9) not null,
+  rrt002rub NUMBER(16),
+  rrt002emp NUMBER(3),
+  rrt002mod NUMBER(5),
+  rrt002suc NUMBER(5),
+  rrt002mda NUMBER(4),
+  rrt002pap NUMBER(6),
+  rrt002cta NUMBER(9),
+  rrt002ope NUMBER(9),
+  rrt002sbo NUMBER(5),
+  rrt002top NUMBER(3),
+  rrt002cid CHAR(30),
+  rrt002sbs NUMBER(10),
+  rrt002tid NUMBER(4),
+  rrt002nid CHAR(25),
+  rrt002ncl CHAR(100),
+  rrt002ccr NUMBER(9),
+  rrt002ccg NUMBER(9),
+  rrt002ncg CHAR(100),
+  rrt002ncc NUMBER(7),
+  rrt002rpt CHAR(100),
+  rrt002drc CHAR(100),
+  rrt002cig NUMBER(9),
+  rrt002nic NUMBER(7),
+  rrt002ugg CHAR(6),
+  rrt002tda CHAR(30),
+  rrt002mrg NUMBER(17,2),
+  rrt002scr NUMBER(17,2),
+  rrt002tcr NUMBER(9),
+  rrt002cal CHAR(20),
+  rrt002clt CHAR(20),
+  rrt002dak NUMBER(8),
+  rrt002dkr NUMBER(8),
+  rrt002dkg NUMBER(8),
+  rrt002pci NUMBER(17,2),
+  rrt002kvi NUMBER(17,2),
+  rrt002cvi NUMBER(16),
+  rrt002kre NUMBER(17,2),
+  rrt002cre NUMBER(16),
+  rrt002krf NUMBER(17,2),
+  rrt002crf NUMBER(16),
+  rrt002kve NUMBER(17,2),
+  rrt002cve NUMBER(16),
+  rrt002kju NUMBER(17,2),
+  rrt002cju NUMBER(16),
+  rrt002kco NUMBER(17,2),
+  rrt002sin NUMBER(17,2),
+  rrt002rin NUMBER(16),
+  rrt002sid NUMBER(17,2),
+  rrt002rid NUMBER(16),
+  rrt002sis NUMBER(17,2),
+  rrt002ris NUMBER(16),
+  rrt002fot DATE,
+  rrt002eam NUMBER(5),
+  rrt002dgr NUMBER(3),
+  rrt002fpp DATE,
+  rrt002fvg DATE,
+  rrt002fvp DATE,
+  rrt002pcu NUMBER(5),
+  rrt002nco NUMBER(5),
+  rrt002ncp NUMBER(5),
+  rrt002ciu NUMBER(12),
+  rrt002tpr CHAR(30),
+  rrt002spr CHAR(30),
+  rrt002mcr CHAR(40),
+  rrt002age CHAR(100),
+  rrt002sec CHAR(100),
+  rrt002tea NUMBER(10,6),
+  rrt002dil CHAR(200),
+  rrt002dip CHAR(200),
+  rrt002ucl CHAR(6),
+  rrt002ucp CHAR(6),
+  rrt002ncs NUMBER(9),
+  rrt002nac CHAR(100),
+  rrt002csd NUMBER(17,2),
+  rrt002nde NUMBER(9),
+  rrt002sas NUMBER(17,2),
+  rrt002ddr NUMBER(17,2),
+  rrt002did NUMBER(17,2),
+  rrt002pcl CHAR(20),
+  rrt002ing NUMBER(17,2),
+  rrt002sti NUMBER(3),
+  rrt002ncu NUMBER(4),
+  rrt002mcc NUMBER(17,2),
+  rrt002mic NUMBER(17,2),
+  rrt002com NUMBER(17,2),
+  rrt002mim NUMBER(17,2),
+  rrt002psd NUMBER(17,2),
+  rrt002mtc NUMBER(17,2),
+  rrt002fvc DATE,
+  rrt002fcc DATE,
+  rrt002frm NUMBER(5),
+  rrt002mrc NUMBER(17,2),
+  rrt002mcp NUMBER(17,2),
+  rrt002mas NUMBER(17,2)
+)
+;
+comment on table RRT002
+  is 'Tabla Auxiliar Creditos Grupales';
+comment on column RRT002.rrt002pgc
+  is 'Empresa';
+comment on column RRT002.rrt002inf
+  is 'Informe';
+comment on column RRT002.rrt002fec
+  is 'Fecha de Informe';
+comment on column RRT002.rrt002thr
+  is 'Thread';
+comment on column RRT002.rrt002cor
+  is 'Correlativo';
+comment on column RRT002.rrt002rub
+  is 'Rubro';
+comment on column RRT002.rrt002emp
+  is 'Empresa';
+comment on column RRT002.rrt002mod
+  is 'Modulo';
+comment on column RRT002.rrt002suc
+  is 'Sucursal';
+comment on column RRT002.rrt002mda
+  is 'Moneda';
+comment on column RRT002.rrt002pap
+  is 'Papel';
+comment on column RRT002.rrt002cta
+  is 'Cuenta';
+comment on column RRT002.rrt002ope
+  is 'Operacion';
+comment on column RRT002.rrt002sbo
+  is 'Suboperacion';
+comment on column RRT002.rrt002top
+  is 'Tipo de Operacion';
+comment on column RRT002.rrt002cid
+  is 'Codigo Interno Deudor';
+comment on column RRT002.rrt002sbs
+  is 'Codigo SBS del Deudor';
+comment on column RRT002.rrt002tid
+  is 'Tipo de Documento';
+comment on column RRT002.rrt002nid
+  is 'Numero de Documento';
+comment on column RRT002.rrt002ncl
+  is 'Nombre del Deudor';
+comment on column RRT002.rrt002ccr
+  is 'Numero o Codigo de operacion';
+comment on column RRT002.rrt002ccg
+  is 'Codigo Interno del Grupo';
+comment on column RRT002.rrt002ncg
+  is 'Nombre del Grupo';
+comment on column RRT002.rrt002ncc
+  is 'Numero de Ciclo';
+comment on column RRT002.rrt002rpt
+  is 'Representante del grupo';
+comment on column RRT002.rrt002drc
+  is 'Direccion del grupo para fines legales';
+comment on column RRT002.rrt002cig
+  is 'Codigo interno del credito grupal';
+comment on column RRT002.rrt002nic
+  is 'Numero de ciclo del cliente';
+comment on column RRT002.rrt002ugg
+  is 'Ubigeo del domicilio del grupo';
+comment on column RRT002.rrt002tda
+  is 'Detalle moneda';
+comment on column RRT002.rrt002mrg
+  is 'Monto original credito otorgado';
+comment on column RRT002.rrt002scr
+  is 'Saldo capital de la deuda';
+comment on column RRT002.rrt002tcr
+  is 'Tipo de credito';
+comment on column RRT002.rrt002cal
+  is 'Clasificacion del deudor';
+comment on column RRT002.rrt002clt
+  is 'Clasificacion del deudor sin alineamiento';
+comment on column RRT002.rrt002dak
+  is 'Dias atraso al cierre de mes credito';
+comment on column RRT002.rrt002dkr
+  is 'Dias atraso reales ultima cuota pagada';
+comment on column RRT002.rrt002dkg
+  is 'Dias atraso del credito grupal cierre de mes';
+comment on column RRT002.rrt002pci
+  is 'Provision constituida';
+comment on column RRT002.rrt002kvi
+  is 'Saldo de capital vigente de operacion';
+comment on column RRT002.rrt002cvi
+  is 'Rubro de registro del saldo capital vigente';
+comment on column RRT002.rrt002kre
+  is 'Saldo de capital reestructurado';
+comment on column RRT002.rrt002cre
+  is 'Rubro de saldo de capital reestructurado';
+comment on column RRT002.rrt002krf
+  is 'Saldo de capital refinanciado';
+comment on column RRT002.rrt002crf
+  is 'Rubro del saldo de capital refinanciado';
+comment on column RRT002.rrt002kve
+  is 'Saldo de capital vencido';
+comment on column RRT002.rrt002cve
+  is 'Rubro del saldo de capital vencido';
+comment on column RRT002.rrt002kju
+  is 'Saldo de capital en cobranza judicial';
+comment on column RRT002.rrt002cju
+  is 'Rubro del saldo de capital en cobranza judicial';
+comment on column RRT002.rrt002kco
+  is 'Saldo contigente';
+comment on column RRT002.rrt002sin
+  is 'Rendimientos devengados';
+comment on column RRT002.rrt002rin
+  is 'Rubro de los rendimientos devengados';
+comment on column RRT002.rrt002sid
+  is 'Ingresos diferidos acumulados';
+comment on column RRT002.rrt002rid
+  is 'Rubro de los interese diferidos';
+comment on column RRT002.rrt002sis
+  is 'Intereses en suspenso acumulados';
+comment on column RRT002.rrt002ris
+  is 'Rubro de los intereses en suspenso';
+comment on column RRT002.rrt002fot
+  is 'Fecha de desembolso';
+comment on column RRT002.rrt002eam
+  is 'Esquema de amortizacion';
+comment on column RRT002.rrt002dgr
+  is 'Numero de dias de gracia';
+comment on column RRT002.rrt002fpp
+  is 'Fecha de primer pago capital';
+comment on column RRT002.rrt002fvg
+  is 'Fecha de vencimiento general';
+comment on column RRT002.rrt002fvp
+  is 'Fecha de vencimiento puntual';
+comment on column RRT002.rrt002pcu
+  is 'Periodicidad de cuotas';
+comment on column RRT002.rrt002nco
+  is 'Numero de cuotas programadas';
+comment on column RRT002.rrt002ncp
+  is 'Numero de cuotas pagadas';
+comment on column RRT002.rrt002ciu
+  is 'Codigo CIIU';
+comment on column RRT002.rrt002tpr
+  is 'Producto crediticio';
+comment on column RRT002.rrt002spr
+  is 'SubProducto Crediticio';
+comment on column RRT002.rrt002mcr
+  is 'Modalidad especifica credito otorgado';
+comment on column RRT002.rrt002age
+  is 'Codigo de Agencia';
+comment on column RRT002.rrt002sec
+  is 'Codigo de sectorista o analista';
+comment on column RRT002.rrt002tea
+  is 'Tasa efectiva anual';
+comment on column RRT002.rrt002dil
+  is 'Direccion del domicilio del deudor';
+comment on column RRT002.rrt002dip
+  is 'Direccion del negocio o empresa del deudor';
+comment on column RRT002.rrt002ucl
+  is 'Ubigeo del domicilio del deudor';
+comment on column RRT002.rrt002ucp
+  is 'Ubigeo de la direccion del negocio del deudor';
+comment on column RRT002.rrt002ncs
+  is 'Numero de cambios contractuales';
+comment on column RRT002.rrt002nac
+  is 'Nivel que aprobo el credito';
+comment on column RRT002.rrt002csd
+  is 'Cobertura del seguro degravamen';
+comment on column RRT002.rrt002nde
+  is 'Numero de entidades';
+comment on column RRT002.rrt002sas
+  is 'Saldo castigado';
+comment on column RRT002.rrt002ddr
+  is 'Deuda directa SF regulado';
+comment on column RRT002.rrt002did
+  is 'Deuda indirecta SF';
+comment on column RRT002.rrt002pcl
+  is 'Peor clasificacion F';
+comment on column RRT002.rrt002ing
+  is 'Ingresos';
+comment on column RRT002.rrt002sti
+  is 'Sustento del tipo de ingreso';
+comment on column RRT002.rrt002ncu
+  is 'Numero de cuota';
+comment on column RRT002.rrt002mcc
+  is 'Monto de capital de cuota';
+comment on column RRT002.rrt002mic
+  is 'Monto intereses compensatorios cuota';
+comment on column RRT002.rrt002com
+  is 'Comisiones portes y otros cobros cuota';
+comment on column RRT002.rrt002mim
+  is 'Monto intereses moratorios cuota';
+comment on column RRT002.rrt002psd
+  is 'Prima por seguro de degravamen';
+comment on column RRT002.rrt002mtc
+  is 'Monto total de cuota';
+comment on column RRT002.rrt002fvc
+  is 'Fecha de vencimiento de cuota';
+comment on column RRT002.rrt002fcc
+  is 'Fecha de cancelacion de cuota';
+comment on column RRT002.rrt002frm
+  is 'Forma de cancelacion de cuota';
+comment on column RRT002.rrt002mrc
+  is 'Monto real cuota pagada por deudor';
+comment on column RRT002.rrt002mcp
+  is 'Monto de la cuota pagada por el grupo';
+comment on column RRT002.rrt002mas
+  is 'Monto del aporte solidario';
+create index RRT0022 on RRT002 (RRT002EMP, RRT002INF, RRT002FEC, RRT002THR, RRT002DGR, RRT002TID, RRT002NID, RRT002DAK, RRT002DKR, RRT002TPR);
+alter table RRT002
+  add primary key (RRT002PGC, RRT002INF, RRT002FEC, RRT002THR, RRT002COR);
+

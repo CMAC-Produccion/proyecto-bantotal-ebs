@@ -1,0 +1,20 @@
+create table FSFT44
+(
+  kdcpgcod  NUMBER(3) not null,
+  kdccod    NUMBER(2) not null,
+  kdcdsc    CHAR(30),
+  kdcrub    NUMBER(16),
+  kdcmod    NUMBER(3),
+  kdccar1   CHAR(1),
+  kdccar2   CHAR(1),
+  kdcimp1   NUMBER(17,2),
+  kdcimp2   NUMBER(17,2),
+  kdctxt1   CHAR(30),
+  kdctxt2   CHAR(30),
+  kdcigucta CHAR(1),
+  kaccta    NUMBER(9)
+)
+;
+alter table FSFT44
+  add primary key (KDCPGCOD, KDCCOD);
+

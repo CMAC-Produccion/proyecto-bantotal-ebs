@@ -1,0 +1,30 @@
+create table AQPB892
+(
+  nid         CHAR(40),
+  prodint     NUMBER(5) not null,
+  canlint     NUMBER(5) not null,
+  producto    VARCHAR2(50),
+  certificado VARCHAR2(30),
+  cuenta      VARCHAR2(30),
+  documento   CHAR(12)
+)
+;
+comment on table AQPB892
+  is 'TABLA CON DATA DE VISTA V_CERTIFICADOS';
+comment on column AQPB892.nid
+  is 'Correlativo';
+comment on column AQPB892.prodint
+  is 'Producto Interno';
+comment on column AQPB892.canlint
+  is 'Canal Interno';
+comment on column AQPB892.producto
+  is 'Producto';
+comment on column AQPB892.certificado
+  is 'Certificado';
+comment on column AQPB892.cuenta
+  is 'Cuenta';
+comment on column AQPB892.documento
+  is 'Documento';
+create unique index AQPB892A2 on AQPB892 (NID);
+create index AQPB892A3 on AQPB892 (DOCUMENTO);
+

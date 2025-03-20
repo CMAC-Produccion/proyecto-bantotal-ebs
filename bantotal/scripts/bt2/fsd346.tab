@@ -1,0 +1,18 @@
+create table FSD346
+(
+  pgcoddlt NUMBER(3) not null,
+  deltahab CHAR(1),
+  alerthab CHAR(1)
+)
+;
+comment on table FSD346
+  is 'Descripción de la tabla FSD346';
+comment on column FSD346.pgcoddlt
+  is 'Código del Delta';
+comment on column FSD346.deltahab
+  is 'Indicador de Delta Habitual';
+comment on column FSD346.alerthab
+  is 'Indicador de Alerta Habitual';
+alter table FSD346
+  add primary key (PGCODDLT);
+

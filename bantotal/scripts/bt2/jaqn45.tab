@@ -1,0 +1,78 @@
+create table JAQN45
+(
+  jaqn45emp NUMBER(3) not null,
+  jaqn45mod NUMBER(3) not null,
+  jaqn45suc NUMBER(3) not null,
+  jaqn45mda NUMBER(4) not null,
+  jaqn45pap NUMBER(4) not null,
+  jaqn45cta NUMBER(9) not null,
+  jaqn45ope NUMBER(9) not null,
+  jaqn45sbo NUMBER(3) not null,
+  jaqn45top NUMBER(3) not null,
+  jaqn45fec DATE not null,
+  jaqn45tar NUMBER(4) not null,
+  jaqn45usu VARCHAR2(40),
+  jaqn45fcr DATE,
+  jaqn45hcr CHAR(8),
+  jaqn45fcu DATE,
+  jaqn45hcu CHAR(8),
+  jaqn45nu1 NUMBER(9),
+  jaqn45nu2 NUMBER(9),
+  jaqn45nu3 NUMBER(9),
+  jaqn45im1 NUMBER(17,2),
+  jaqn45im2 NUMBER(17,2),
+  jaqn45im3 NUMBER(17,2),
+  jaqn45fe1 DATE,
+  jaqn45fe2 DATE,
+  jaqn45fe3 DATE,
+  jaqn45ch1 CHAR(1),
+  jaqn45ch2 CHAR(1),
+  jaqn45ch3 CHAR(1),
+  jaqn45va1 VARCHAR2(255),
+  jaqn45va2 VARCHAR2(255),
+  jaqn45va3 VARCHAR2(255)
+)
+;
+comment on table JAQN45
+  is 'Estado de la tarea';
+comment on column JAQN45.jaqn45emp
+  is 'codigo de empresa';
+comment on column JAQN45.jaqn45mod
+  is 'modulo';
+comment on column JAQN45.jaqn45suc
+  is 'sucursal';
+comment on column JAQN45.jaqn45mda
+  is 'moneda';
+comment on column JAQN45.jaqn45pap
+  is 'papel';
+comment on column JAQN45.jaqn45cta
+  is 'cuenta';
+comment on column JAQN45.jaqn45ope
+  is 'operacion';
+comment on column JAQN45.jaqn45sbo
+  is 'suboperacion';
+comment on column JAQN45.jaqn45top
+  is 'tipo de operacion';
+comment on column JAQN45.jaqn45fec
+  is 'fecha de transaccion';
+comment on column JAQN45.jaqn45im1
+  is 'importe 1';
+comment on column JAQN45.jaqn45im2
+  is 'importe 2';
+comment on column JAQN45.jaqn45im3
+  is 'importe 3';
+comment on column JAQN45.jaqn45fe1
+  is 'fecha 1';
+comment on column JAQN45.jaqn45fe2
+  is 'fecha 2';
+comment on column JAQN45.jaqn45fe3
+  is 'fecha 3';
+comment on column JAQN45.jaqn45ch3
+  is 'caracter 1';
+comment on column JAQN45.jaqn45va1
+  is 'caracter 2';
+comment on column JAQN45.jaqn45va2
+  is 'caracter 3';
+alter table JAQN45
+  add primary key (JAQN45EMP, JAQN45MOD, JAQN45SUC, JAQN45MDA, JAQN45PAP, JAQN45CTA, JAQN45OPE, JAQN45SBO, JAQN45TOP, JAQN45FEC, JAQN45TAR);
+

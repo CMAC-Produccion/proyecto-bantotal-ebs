@@ -1,0 +1,43 @@
+create table AQPB221
+(
+  aqpb221opl NUMBER(10) not null,
+  aqpb221pai NUMBER(3),
+  aqpb221tdo NUMBER(2),
+  aqpb221ndo CHAR(12),
+  aqpb221if1 NUMBER(10),
+  aqpb221if2 NUMBER(10),
+  aqpb221if3 NUMBER(10),
+  aqpb221if4 NUMBER(10),
+  aqpb221if5 NUMBER(10),
+  aqpb221fei DATE,
+  aqpb221hoi CHAR(8),
+  aqpb221est CHAR(5),
+  aqpb221fef DATE,
+  aqpb221hof CHAR(8),
+  aqpb221psc NUMBER(13,10),
+  aqpb221ide CHAR(10),
+  aqpb221ipa VARCHAR2(20),
+  aqpb221deh VARCHAR2(40),
+  aqpb221ave VARCHAR2(20),
+  aqpb221osv VARCHAR2(20),
+  aqpb221osy VARCHAR2(20),
+  aqpb221dem VARCHAR2(20),
+  aqpb221den VARCHAR2(20),
+  aqpb221ocr CLOB,
+  aqpb221fdo CLOB,
+  aqpb221bdo CLOB,
+  aqpb221fac CLOB,
+  aqpb221tra CLOB,
+  aqpb221al1 CLOB,
+  aqpb221al2 CLOB,
+  aqpb221an1 NUMBER(9),
+  aqpb221ac1 CHAR(1),
+  aqpb221af1 DATE,
+  aqpb221at1 VARCHAR2(100)
+)
+;
+create index AQPB2212 on AQPB221 (AQPB221PAI, AQPB221TDO, AQPB221NDO, AQPB221EST, AQPB221OPL);
+create index AQPB2213 on AQPB221 (AQPB221OPL, AQPB221FEI, AQPB221NDO, AQPB221EST);
+alter table AQPB221
+  add primary key (AQPB221OPL);
+

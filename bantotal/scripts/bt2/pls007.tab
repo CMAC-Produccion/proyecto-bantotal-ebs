@@ -1,0 +1,12 @@
+create table PLS007
+(
+  pls007emp  NUMBER(3) not null,
+  pls007conv NUMBER(8) not null,
+  pls007mda  NUMBER(4) not null,
+  pls007fch  DATE,
+  pls007imp  NUMBER(17,2)
+)
+;
+alter table PLS007
+  add primary key (PLS007EMP, PLS007CONV, PLS007MDA);
+

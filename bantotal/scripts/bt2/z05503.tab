@@ -1,0 +1,33 @@
+create table Z05503
+(
+  z05502apl NUMBER(4) not null,
+  z05502bnd CHAR(5) not null,
+  z05502cor NUMBER(9) not null,
+  z05503cor NUMBER(9) not null,
+  z05503tno CHAR(1),
+  z05503dni NUMBER(11),
+  z05503cb1 CHAR(8),
+  z05503cb2 CHAR(14),
+  z05503icp CHAR(22),
+  z05503vto DATE,
+  z05503ppr CHAR(10),
+  z05503tdo CHAR(4),
+  z05503ndo NUMBER(11),
+  z05503rde CHAR(15),
+  z05503imp NUMBER(10,2),
+  z05503mon CHAR(1),
+  z05503cpn CHAR(22),
+  z05503cb3 CHAR(14),
+  z05503cre CHAR(3),
+  z05503fi1 CHAR(3),
+  z05503nop NUMBER(15),
+  z05503vtd DATE,
+  z05503pns NUMBER(5),
+  z05503fi2 CHAR(4),
+  z05503cui NUMBER(11),
+  z05503est CHAR(2)
+)
+;
+alter table Z05503
+  add primary key (Z05502APL, Z05502BND, Z05502COR, Z05503COR);
+

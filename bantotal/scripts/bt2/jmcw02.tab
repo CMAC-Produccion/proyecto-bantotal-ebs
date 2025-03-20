@@ -1,0 +1,11 @@
+create table JMCW02
+(
+  jmcw01cod  CHAR(15) not null,
+  jmcw02docg CHAR(5) not null,
+  jmcw02cmp1 CHAR(30),
+  jmcw02cmp2 CHAR(255)
+)
+;
+alter table JMCW02
+  add primary key (JMCW01COD, JMCW02DOCG);
+

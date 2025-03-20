@@ -1,0 +1,15 @@
+create table AQPB352
+(
+  aqpb352tipo NUMBER(5) not null,
+  aqpb352cod  NUMBER(11) not null,
+  aqpb352fec  DATE not null,
+  aqpb352hora CHAR(8) not null,
+  aqpb352desc VARCHAR2(200) not null,
+  aqpb352est  CHAR(1),
+  aqpb352usr  CHAR(10),
+  aqpb352tdec NUMBER(5) not null
+)
+;
+alter table AQPB352
+  add primary key (AQPB352TIPO, AQPB352COD, AQPB352FEC, AQPB352HORA, AQPB352DESC, AQPB352TDEC);
+

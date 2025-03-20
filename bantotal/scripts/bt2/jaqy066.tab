@@ -1,0 +1,21 @@
+create table JAQY066
+(
+  jaqy066pano  NUMBER(4) not null,
+  jaqy066pmes  NUMBER(2) not null,
+  jaqy066paic  NUMBER(3) not null,
+  jaqy066tdoc  NUMBER(2) not null,
+  jaqy066tndoc CHAR(12) not null,
+  jaqy066calf  NUMBER(5),
+  jaqy066fecp  DATE,
+  jaqy066horp  CHAR(10),
+  jaqy066tcal  CHAR(1),
+  jaqy066tse   CHAR(1) not null,
+  jaqy066nse   CHAR(1)
+)
+;
+create index IDX_JAQY066_01 on JAQY066 (JAQY066PANO, JAQY066PMES, JAQY066NSE);
+create index IDX_JAQY066_02 on JAQY066 (JAQY066PAIC, JAQY066TDOC, JAQY066TNDOC, JAQY066PANO);
+create index IJAQY661 on JAQY066 (JAQY066PAIC, JAQY066TDOC, JAQY066TNDOC);
+alter table JAQY066
+  add primary key (JAQY066PANO, JAQY066PMES, JAQY066PAIC, JAQY066TDOC, JAQY066TNDOC, JAQY066TSE);
+

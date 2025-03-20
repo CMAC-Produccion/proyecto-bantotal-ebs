@@ -1,0 +1,134 @@
+create table JAQM0M
+(
+  jaqm0mccta NUMBER(9) not null,
+  jaqm0mnope NUMBER(9) not null,
+  jaqm0mnins NUMBER(10) not null,
+  jaqm0mfein DATE not null,
+  jaqm0mregi VARCHAR2(30),
+  jaqm0mzona VARCHAR2(40),
+  jaqm0magen VARCHAR2(30),
+  jaqm0mcomi VARCHAR2(10),
+  jaqm0mcana VARCHAR2(50),
+  jaqm0mnana VARCHAR2(30),
+  jaqm0mncli VARCHAR2(114),
+  jaqm0mtdoc NUMBER(2),
+  jaqm0mndoc VARCHAR2(12),
+  jaqm0mdcli VARCHAR2(140),
+  jaqm0mccli VARCHAR2(2000),
+  jaqm0mnava VARCHAR2(144),
+  jaqm0mdava VARCHAR2(2000),
+  jaqm0mcava VARCHAR2(2000),
+  jaqm0mscap NUMBER(17,2),
+  jaqm0mdatr NUMBER(10),
+  jaqm0mmapr NUMBER(17,2),
+  jaqm0mvcuo NUMBER(17,2),
+  jaqm0mcpag VARCHAR2(81),
+  jaqm0mupag NUMBER(17,2),
+  jaqm0mtpag VARCHAR2(8),
+  jaqm0mfupa DATE,
+  jaqm0mnrie VARCHAR2(12),
+  jaqm0mtcre VARCHAR2(21),
+  jaqm0mnum1 NUMBER(9),
+  jaqm0mnum2 NUMBER(9),
+  jaqm0mnum3 NUMBER(9),
+  jaqm0mimp1 NUMBER(17,2),
+  jaqm0mimp2 NUMBER(17,2),
+  jaqm0mimp3 NUMBER(17,2),
+  jaqm0mcha1 VARCHAR2(255),
+  jaqm0mcha2 VARCHAR2(255),
+  jaqm0mcha3 VARCHAR2(255),
+  jaqm0mfec1 DATE,
+  jaqm0mfec2 DATE,
+  jaqm0mfec3 DATE
+)
+;
+comment on table JAQM0M
+  is 'MALA COSECHA EN BASE AL DESEMBOLSO';
+comment on column JAQM0M.jaqm0mccta
+  is 'CÓDIGO DE CUENTA';
+comment on column JAQM0M.jaqm0mnope
+  is 'CÓDIGO DE OPERACIÓN';
+comment on column JAQM0M.jaqm0mnins
+  is 'NÚMERO DE INSTANCIA';
+comment on column JAQM0M.jaqm0mfein
+  is 'FECHA DE INGRESO DE DATA';
+comment on column JAQM0M.jaqm0mregi
+  is 'REGIÓN';
+comment on column JAQM0M.jaqm0mzona
+  is 'ZONA';
+comment on column JAQM0M.jaqm0magen
+  is 'AGENCIA';
+comment on column JAQM0M.jaqm0mcomi
+  is 'COMITE';
+comment on column JAQM0M.jaqm0mcana
+  is 'CÓDIGO DE ANALISTA';
+comment on column JAQM0M.jaqm0mnana
+  is 'NOMBRE DEL ANALISTA';
+comment on column JAQM0M.jaqm0mncli
+  is 'NOMBRE DEL CLIENTE';
+comment on column JAQM0M.jaqm0mtdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column JAQM0M.jaqm0mndoc
+  is 'NÚMERO DE DOCUMENTO';
+comment on column JAQM0M.jaqm0mdcli
+  is 'DIRECCIÓN DE CLIENTE';
+comment on column JAQM0M.jaqm0mccli
+  is 'CELULAR DE CLIENTE';
+comment on column JAQM0M.jaqm0mnava
+  is 'NOMBRE DEL AVAL';
+comment on column JAQM0M.jaqm0mdava
+  is 'DIRECCIÓN DEL AVAL';
+comment on column JAQM0M.jaqm0mcava
+  is 'CELULAR DEL AVAL';
+comment on column JAQM0M.jaqm0mscap
+  is 'SALDO CAPITAL';
+comment on column JAQM0M.jaqm0mdatr
+  is 'DIAS ATRASO CALENDARIO';
+comment on column JAQM0M.jaqm0mmapr
+  is 'MONTO APROBADO';
+comment on column JAQM0M.jaqm0mvcuo
+  is 'VALOR DE LA CUOTA';
+comment on column JAQM0M.jaqm0mcpag
+  is 'CUOTAS PAGADAS';
+comment on column JAQM0M.jaqm0mupag
+  is 'ÚLTIMO PAGO';
+comment on column JAQM0M.jaqm0mtpag
+  is 'TIPO DE PAGO';
+comment on column JAQM0M.jaqm0mfupa
+  is 'FECHA DE ÚLTIMO PAGO';
+comment on column JAQM0M.jaqm0mnrie
+  is 'NIVEL DE RIESGO';
+comment on column JAQM0M.jaqm0mtcre
+  is 'TIPO DE CRÉDITO';
+comment on column JAQM0M.jaqm0mnum1
+  is 'AUXILIAR NUMÉRICO 1';
+comment on column JAQM0M.jaqm0mnum2
+  is 'AUXILIAR NUMÉRICO 2';
+comment on column JAQM0M.jaqm0mnum3
+  is 'AUXILIAR NUMÉRICO 3';
+comment on column JAQM0M.jaqm0mimp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM0M.jaqm0mimp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM0M.jaqm0mimp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQM0M.jaqm0mcha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM0M.jaqm0mcha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM0M.jaqm0mcha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM0M.jaqm0mfec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM0M.jaqm0mfec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM0M.jaqm0mfec3
+  is 'AUXILIAR FECHA 3';
+create index JAQM0MA2 on JAQM0M (JAQM0MFEIN);
+create index JAQM0MA3 on JAQM0M (JAQM0MNINS);
+create index JAQM0MA4 on JAQM0M (JAQM0MREGI, JAQM0MZONA, JAQM0MAGEN, JAQM0MCCTA, JAQM0MNOPE, JAQM0MNINS, JAQM0MFEIN);
+create index JAQM0MA5 on JAQM0M (JAQM0MFEIN, JAQM0MAGEN);
+create index JAQM0MA6 on JAQM0M (JAQM0MFEIN, JAQM0MCCTA, JAQM0MNOPE);
+alter table JAQM0M
+  add primary key (JAQM0MCCTA, JAQM0MNOPE, JAQM0MNINS, JAQM0MFEIN);
+

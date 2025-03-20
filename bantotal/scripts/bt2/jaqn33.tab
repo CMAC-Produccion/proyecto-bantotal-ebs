@@ -1,0 +1,42 @@
+create table JAQN33
+(
+  jaqn33cod NUMBER(3) not null,
+  jaqn33mod NUMBER(3) not null,
+  jaqn33tcu NUMBER(3) not null,
+  jaqn33top NUMBER(3) not null,
+  jaqn33mon NUMBER(4) not null,
+  jaqn33pap NUMBER(4) not null,
+  jaqn33fvi DATE not null,
+  jaqn33mto NUMBER(17,2) not null,
+  jaqn33pli NUMBER(5) not null,
+  jaqn33pls NUMBER(5) not null,
+  jaqn33cur NUMBER(10,6)
+)
+;
+comment on table JAQN33
+  is 'Detalle factor pre-cancelación';
+comment on column JAQN33.jaqn33cod
+  is 'Codigo empresa';
+comment on column JAQN33.jaqn33mod
+  is 'Modulo';
+comment on column JAQN33.jaqn33tcu
+  is 'Tipo curva';
+comment on column JAQN33.jaqn33top
+  is 'tipo operación';
+comment on column JAQN33.jaqn33mon
+  is 'Moneda';
+comment on column JAQN33.jaqn33pap
+  is 'Papel';
+comment on column JAQN33.jaqn33fvi
+  is 'Vigencia';
+comment on column JAQN33.jaqn33mto
+  is 'Monto';
+comment on column JAQN33.jaqn33pli
+  is 'Plazo Inf';
+comment on column JAQN33.jaqn33pls
+  is 'Plazo sup';
+comment on column JAQN33.jaqn33cur
+  is 'Valor';
+alter table JAQN33
+  add primary key (JAQN33COD, JAQN33MOD, JAQN33TCU, JAQN33TOP, JAQN33MON, JAQN33PAP, JAQN33FVI, JAQN33MTO, JAQN33PLI, JAQN33PLS);
+

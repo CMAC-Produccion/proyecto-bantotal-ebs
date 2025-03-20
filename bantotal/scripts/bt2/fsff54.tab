@@ -1,0 +1,18 @@
+create table FSFF54
+(
+  dtkemp NUMBER(3) not null,
+  dtkcod NUMBER(5) not null,
+  dtkdes CHAR(40),
+  dtka01 NUMBER(9),
+  dtka02 CHAR(9),
+  dtka03 CHAR(5),
+  dtka04 CHAR(5),
+  dtka05 NUMBER(14,2),
+  dtka06 NUMBER(14,2),
+  dtka07 DATE,
+  dtka08 DATE
+)
+;
+alter table FSFF54
+  add primary key (DTKEMP, DTKCOD);
+

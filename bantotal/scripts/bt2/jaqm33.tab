@@ -1,0 +1,49 @@
+create table JAQM33
+(
+  jaqm33cor  NUMBER(10) not null,
+  jaqm33nexp CHAR(20),
+  jaqm25co   NUMBER(4),
+  jaqm26co   CHAR(4),
+  jaqm33jz   CHAR(20),
+  jaqm33sc   CHAR(20),
+  jaqm33fint DATE,
+  jaqm33ffin DATE,
+  jaqm33mnt  NUMBER(17,2),
+  jaqm30co   CHAR(4),
+  jaqm31co   CHAR(4),
+  jaqm33mdc  CHAR(1),
+  jaqm33fdem DATE,
+  jaqm33fact DATE,
+  jaqm33opab CHAR(50),
+  jaqm33obs  CHAR(50),
+  jaqm33ubi  CHAR(6),
+  jaqm33est  NUMBER(2),
+  jaqm33tpgc NUMBER(3),
+  jaqm33tsuc NUMBER(3),
+  jaqm33tmod NUMBER(3),
+  jaqm33ttrn NUMBER(3),
+  jaqm33trel NUMBER(4),
+  jaqm33tfco DATE,
+  jaqm33tord NUMBER(2),
+  jaqm33tsbo NUMBER(3),
+  jaqm33tco  CHAR(1),
+  jaqm33int1 NUMBER(9),
+  jaqm33int2 NUMBER(9),
+  jaqm33int3 NUMBER(9),
+  jaqm33imp1 NUMBER(17,2),
+  jaqm33imp2 NUMBER(17,2),
+  jaqm33imp3 NUMBER(17,2),
+  jaqm33fec1 DATE,
+  jaqm33fec2 DATE,
+  jaqm33fec3 DATE,
+  jaqm33chr1 CHAR(30),
+  jaqm33chr2 CHAR(30),
+  jaqm33chr3 CHAR(30)
+)
+;
+create index JAQM3302 on JAQM33 (JAQM30CO, JAQM31CO);
+create index JAQM3303 on JAQM33 (JAQM26CO);
+create index JAQM3304 on JAQM33 (JAQM25CO);
+alter table JAQM33
+  add primary key (JAQM33COR);
+

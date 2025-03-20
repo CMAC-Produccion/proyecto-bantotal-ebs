@@ -1,0 +1,22 @@
+create table JSBN011
+(
+  jsbn011cor NUMBER(9) not null,
+  jsbn011pgc NUMBER(3),
+  jsbn011ctn NUMBER(9),
+  jsbn011pai NUMBER(4),
+  jsbn011tdo NUMBER(2),
+  jsbn011ndo CHAR(25),
+  jsbn011suc NUMBER(3),
+  jsbn011fch DATE,
+  jsbn011uin CHAR(10),
+  jsbn011ucn CHAR(10),
+  jsbn011wki CHAR(10),
+  jsbn011wcn CHAR(10),
+  jsbn011pno CHAR(35),
+  jsbn011acc CHAR(3)
+)
+;
+create index JSBN0112 on JSBN011 (JSBN011COR, JSBN011PGC, JSBN011CTN, JSBN011PAI, JSBN011TDO, JSBN011NDO);
+alter table JSBN011
+  add primary key (JSBN011COR);
+

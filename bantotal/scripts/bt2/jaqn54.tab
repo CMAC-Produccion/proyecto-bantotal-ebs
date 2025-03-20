@@ -1,0 +1,48 @@
+create table JAQN54
+(
+  jaqn54pais NUMBER(3) not null,
+  jaqn54tdoc NUMBER(2) not null,
+  jaqn54ndoc CHAR(25) not null,
+  jaqn54apep CHAR(30),
+  jaqn54apem CHAR(30),
+  jaqn54pnom CHAR(25),
+  jaqn54snom CHAR(25),
+  jaqn54desc CHAR(30),
+  jaqn54fcre DATE,
+  jaqn54hcre DATE,
+  jaqn54cusu CHAR(10),
+  jaqn54wrks CHAR(10)
+)
+;
+comment on table JAQN54
+  is 'Lista Blanca Personas';
+comment on column JAQN54.jaqn54pais
+  is 'PAIS';
+comment on column JAQN54.jaqn54tdoc
+  is 'TIPO de Documento';
+comment on column JAQN54.jaqn54ndoc
+  is 'NRO. de Documento';
+comment on column JAQN54.jaqn54apep
+  is 'APELLIDO PATERNO';
+comment on column JAQN54.jaqn54apem
+  is 'APELLIDO MATERNO';
+comment on column JAQN54.jaqn54pnom
+  is 'PRIMER NOMBRE';
+comment on column JAQN54.jaqn54snom
+  is 'SEGUNDO NOMBRE';
+comment on column JAQN54.jaqn54desc
+  is 'DESC - MOTIVO';
+comment on column JAQN54.jaqn54fcre
+  is 'FECHA CREACION';
+comment on column JAQN54.jaqn54hcre
+  is 'HORA CREACION';
+comment on column JAQN54.jaqn54cusu
+  is 'USUARIO CREACION';
+comment on column JAQN54.jaqn54wrks
+  is 'WORKSTATION';
+create index JAQN54A2 on JAQN54 (JAQN54NDOC);
+create index JAQN54A3 on JAQN54 (JAQN54PNOM, JAQN54SNOM);
+create index JAQN54A4 on JAQN54 (JAQN54APEP, JAQN54APEM);
+alter table JAQN54
+  add primary key (JAQN54PAIS, JAQN54TDOC, JAQN54NDOC);
+

@@ -1,0 +1,22 @@
+create table FSFI81
+(
+  sfi81emp   NUMBER(3) not null,
+  sfi81agr   NUMBER(5) not null,
+  sfi81des   CHAR(65),
+  sfi81cta   CHAR(1),
+  sfi81gru   CHAR(1),
+  sfi81esp   CHAR(1),
+  sfi81mon   CHAR(1),
+  sfi81ope   CHAR(1),
+  sfi81pro   CHAR(20),
+  sfi81auxn1 NUMBER(4),
+  sfi81auxn2 NUMBER(4),
+  sfi81auxc1 CHAR(1),
+  sfi81auxc2 CHAR(1),
+  sfi81auxc3 CHAR(1),
+  sfi81auxc4 CHAR(1)
+)
+;
+alter table FSFI81
+  add primary key (SFI81EMP, SFI81AGR);
+

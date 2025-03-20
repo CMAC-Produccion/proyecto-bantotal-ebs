@@ -1,0 +1,5260 @@
+create or replace package PQ_CV_MONITOREO_ACF_CJ is
+  -- ------------------------------------------------------------------------------------------------
+  -- Nombre                : PQ_CV_MONITOREO_ACF_CJ
+  -- Sistema               : BANTOTAL
+  -- Módulo                : CAJA - CJ
+  -- Versión               : 1.0
+  -- Fecha de Creación     : 23/08/2022
+  -- Autor de Creación     : Julio Luna Flores
+  -- Uso                   : Construccion de la trama a enviar a UNIBANCA para el monitoreo de Agencias
+  -- Estado                : Activo
+  -- Acceso                : Público
+  -- Fecha de Modificación : 04/10/2022
+  -- Autor de Modificación : Julio Luna Flores
+  -- Descripción Modific.  : Envío de transferencias interbancarias y cancelaciones de DPF
+  -- Fecha de Modificación : 15/11/2022
+  -- Autor de Modificación : Julio Luna Flores
+  -- Descripción Modific.  : Cambio en código de transacción (índice 12) para cancelaciones de cuentas de ahorro
+  -- Fecha de Modificación : 24/11/2022
+  -- Autor de Modificación : Julio Luna Flores
+  -- Descripción Modific.  : Envío de saldo de cliente en índice 50
+  -- Fecha de Modificación : 15/05/2023
+  -- Autor de Creación     : Renzo Cuadros Salazar
+  -- Descripción Modific.  : Se ajusta función de índice 012, 041, 042, 043 para envío de tramas espejo
+  -- Fecha de Modificación : 29/05/2023
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Envio de cuenta origen en indice 53
+  -- Fecha de Modificación : 18/02/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se añade transacción Bimoneda
+  -- ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  --// Entrada Principal 
+  procedure sp_construirTrama(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number,
+                              pn_codcan in varchar2,
+                              pc_trmrsp out varchar2,
+                              pc_coderr out varchar2,
+                              pc_msgerr out varchar2);
+
+  procedure sp_parsearTrama(pn_codcan in varchar2,
+                            pc_trmpar in varchar2,
+                            pc_coderr out varchar2,
+                            pc_msgerr out varchar2);
+
+  procedure sp_logTrama(pn_codcan in char,
+                        pc_trmpar in varchar2,
+                        pc_obstrm in varchar2,
+                        pc_coderr out varchar2,
+                        pc_msgerr out varchar2);
+
+  procedure sp_debugErrorres(pn_codcan in char,
+                             pc_trmpar in varchar2,
+                             pc_obstrm in varchar2,
+                             pc_coderr in varchar2,
+                             pc_msgerr in varchar2);
+
+  --// Cabecera
+  function fn_trama_indice001 return varchar2;
+  function fn_trama_indice002 return varchar2;
+  function fn_trama_indice003 return varchar2;
+  function fn_trama_indice004 return varchar2;
+  function fn_trama_indice005 return varchar2;
+  function fn_trama_indice006 return varchar2;
+  function fn_trama_indice007 return varchar2;
+  function fn_trama_indice008 return varchar2;
+  function fn_trama_indice009 return varchar2;
+
+  --// Detalle
+  function fn_trama_indice010(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice011(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice012(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice013(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice014(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice015(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice016(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice017(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice018(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice019(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+
+  function fn_trama_indice020(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice021(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice022(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice023(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice024(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice025(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice026(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice027(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice028(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice029(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+
+  function fn_trama_indice030(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice031(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice032(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice033(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice034(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice035(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice036(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice037(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice038(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice039(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+
+  function fn_trama_indice040(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice041(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice042(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice043(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice044(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice045(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice046(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice047(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice048(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice049(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+
+  function fn_trama_indice050(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice051(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice052(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice053(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice054(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice055(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice056(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice057(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice058(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice059(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+
+  function fn_trama_indice060(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice061(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice062(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice063(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice064(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice065(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice066(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice067(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice068(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice069(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+
+  function fn_trama_indice070(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice071(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice072(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice073(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice074(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice075(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice076(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice077(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice078(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice079(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+
+  function fn_trama_indice080(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice081(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice082(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice083(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice084(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice085(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice086(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice087(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice088(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice089(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+
+  function fn_trama_indice090(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+  function fn_trama_indice091(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2;
+
+end PQ_CV_MONITOREO_ACF_CJ;
+/
+
+create or replace package body PQ_CV_MONITOREO_ACF_CJ is
+  -- ------------------------------------------------------------------------------------------------
+  -- Nombre                : PQ_CV_MONITOREO_ACF_CJ
+  -- Sistema               : BANTOTAL
+  -- Módulo                : CAJA - CJ
+  -- Versión               : 1.0
+  -- Fecha de Creación     : 25/08/2022
+  -- Autor de Creación     : Julio Luna Flores
+  -- Uso                   : Construccion de la trama a enviar a UNIBANCA para el monitoreo de Agencias
+  -- Estado                : Activo
+  -- Acceso                : Público
+  -- Fecha de Modificación : 04/10/2022
+  -- Autor de Modificación : Julio Luna Flores
+  -- Descripción Modific.  : Envío de transferencias interbancarias y cancelaciones de DPF
+  -- Fecha de Modificación : 15/11/2022
+  -- Autor de Modificación : Julio Luna Flores
+  -- Descripción Modific.  : Cambio en código de transacción (índice 12) para cancelaciones de cuentas de ahorro
+  -- Fecha de Modificación : 24/11/2022
+  -- Autor de Modificación : Julio Luna Flores
+  -- Descripción Modific.  : Envío de saldo de cliente en índice 50
+  -- Fecha de Modificación : 15/05/2023
+  -- Autor de Creación     : Renzo Cuadros Salazar
+  -- Descripción Modific.  : Se ajusta función de índice 012, 041, 042, 043 para envío de tramas espejo
+  -- Fecha de Modificación : 29/05/2023
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Envio de cuenta origen en indice 53
+  -- Fecha de Modificación : 18/02/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se añade transacción Bimoneda
+  -- ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  --//
+  procedure sp_construirTrama(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number,
+                              pn_codcan in varchar2,
+                              pc_trmrsp out varchar2,
+                              pc_coderr out varchar2,
+                              pc_msgerr out varchar2) is
+  
+    lc_trmrsp varchar2(4000);
+    --//
+    lc_aux031 varchar2(19);
+  
+    cursor c1 is
+      select acf.c_cabdet,
+             acf.c_import,
+             acf.n_indice,
+             acf.n_codigo,
+             acf.c_noming,
+             acf.c_nomesp,
+             acf.c_format,
+             acf.c_tipdat,
+             acf.n_longit,
+             acf.n_decima,
+             acf.n_posini,
+             acf.n_camiso,
+             acf.c_justxt,
+             acf.c_jusnum
+        from jaql634 acf
+       where acf.n_indice <= 1000
+       order by acf.n_indice;
+  begin
+    pc_coderr := '00000';
+    pc_msgerr := '';
+    --//
+    for i in c1 loop
+      --//
+      case i.n_indice
+        when 1 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := rpad(STR1 => fn_trama_indice001, LEN => i.n_longit,
+                              PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lpad(STR1 => fn_trama_indice001, LEN => i.n_longit,
+                              PAD => i.c_jusnum);
+          end if;
+        when 2 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice002, LEN => i.n_longit,
+                              PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice002, LEN => i.n_longit,
+                              PAD => i.c_jusnum);
+          end if;
+        when 3 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice003, LEN => i.n_longit,
+                              PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice003, LEN => i.n_longit,
+                              PAD => i.c_jusnum);
+          end if;
+        when 4 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice004, LEN => i.n_longit,
+                              PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice004, LEN => i.n_longit,
+                              PAD => i.c_jusnum);
+          end if;
+        when 5 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice005, LEN => i.n_longit,
+                              PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice005, LEN => i.n_longit,
+                              PAD => i.c_jusnum);
+          end if;
+        when 6 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice006, LEN => i.n_longit,
+                              PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice006, LEN => i.n_longit,
+                              PAD => i.c_jusnum);
+          end if;
+        when 7 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice007, LEN => i.n_longit,
+                              PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice007, LEN => i.n_longit,
+                              PAD => i.c_jusnum);
+          end if;
+        when 8 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice008, LEN => i.n_longit,
+                              PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice008, LEN => i.n_longit,
+                              PAD => i.c_jusnum);
+          end if;
+        when 9 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice009, LEN => i.n_longit,
+                              PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice009, LEN => i.n_longit,
+                              PAD => i.c_jusnum);
+          end if;
+        when 10 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice010(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice010(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 11 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice011(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice011(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 12 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice012(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice012(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 13 then
+          --S
+          --//
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice013(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice013(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 14 then
+          --R        
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice014(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice014(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 15 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice015(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice015(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 16 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice016(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice016(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 17 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice017(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice017(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 18 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice018(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice018(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 19 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice019(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice019(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 20 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice020(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice020(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 21 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice021(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice021(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 22 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice022(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice022(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 23 then
+          --S
+          --//
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice023(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice023(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 24 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice024(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice024(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 25 then
+          --O
+          --//
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice025(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice025(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 26 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice026(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice026(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 27 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice027(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice027(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 28 then
+          --S
+          --//
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice028(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice028(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 29 then
+          --O
+          --//
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice029(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice029(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 30 then
+          --R
+          --//
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice030(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice030(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 31 then
+          --S
+          --//          
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice031(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice031(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 32 then
+          --R
+          --//          
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice032(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice032(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 33 then
+          --O
+          --//          
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice033(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice033(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 34 then
+          --R
+          --//          
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice034(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice034(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 35 then
+          --R
+          --//          
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice035(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice035(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 36 then
+          --R
+          --//          
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice036(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice036(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 37 then
+          --R
+          --//          
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice037(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice037(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 38 then
+          --O
+          --//                  
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice038(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice038(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 39 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice039(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice039(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 40 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice040(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice040(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 41 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice041(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice041(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 42 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice042(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice042(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 43 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice043(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice043(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 44 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice044(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice044(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 45 then
+          --O
+          --//                  
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice045(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice045(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 46 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice046(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice046(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 47 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice047(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice047(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 48 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice048(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice048(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 49 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice049(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice049(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 50 then
+          --O
+          --//                  
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice050(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice050(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 51 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice051(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice051(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 52 then
+          --O
+          --//                  
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice052(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice052(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 53 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice053(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice053(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 54 then
+          --S
+          --// aqui esta el problema 
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice054(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice054(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 55 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice055(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice055(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 56 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice056(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice056(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 57 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice057(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice057(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 58 then
+          --O
+          --//                  
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice058(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice058(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 59 then
+          --O
+          --//                  
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice059(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice059(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 60 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice060(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice060(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 61 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice061(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice061(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 62 then
+          --O
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice062(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice062(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 63 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice063(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice063(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 64 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice064(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice064(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 65 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice065(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice065(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 66 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice066(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice066(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 67 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice067(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice067(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 68 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice068(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice068(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 69 then
+          --O
+          --//                  
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice069(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice069(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 70 then
+          --O
+          --//                  
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice070(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice070(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 71 then
+          --O
+          --//                  
+          if i.c_import = 'O' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice071(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'O' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice071(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 72 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice072(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice072(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 73 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice073(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice073(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 74 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice074(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice074(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 75 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice075(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice075(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 76 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice076(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice076(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 77 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice077(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice077(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 78 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice078(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice078(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 79 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice079(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice079(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 80 then
+          --S
+          --//                  
+          if i.c_import = 'S' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice080(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'S' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice080(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        
+        when 81 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice081(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice081(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 82 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice082(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice082(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 83 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice083(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice083(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 84 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice084(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice084(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 85 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice085(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice085(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 86 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice086(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice086(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 87 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice087(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice087(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 88 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice088(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice088(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 89 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice089(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice089(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 90 then
+          --I
+          --//                  
+          if i.c_import = 'I' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice090(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'I' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice090(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        when 91 then
+          --R
+          --//                  
+          if i.c_import = 'R' and i.c_tipdat = 'A' then
+            lc_trmrsp := lc_trmrsp ||
+                         rpad(STR1 => fn_trama_indice091(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_justxt);
+          elsif i.c_import = 'R' and i.c_tipdat = 'N' then
+            lc_trmrsp := lc_trmrsp ||
+                         lpad(STR1 => fn_trama_indice091(pn_pgcod, pn_itsuc,
+                                                         pn_itmod, pn_ittran,
+                                                         pn_itnrel, pn_itord,
+                                                         pn_itsbor),
+                              LEN => i.n_longit, PAD => i.c_jusnum);
+          end if;
+        else
+          null;
+          --//    
+      end case;
+      --//
+    end loop;
+  
+    --// Realizar validaciones antes de enviar la trama al ACF
+    pc_trmrsp := lc_trmrsp;
+  exception
+    when others then
+      pc_coderr := sqlcode;
+      pc_msgerr := sqlerrm;
+  end sp_construirTrama;
+  --//
+
+  /*******************************************************************************************
+  *
+  * Inicio de la construccion de la trama CABECERA
+  *
+  *******************************************************************************************/
+
+  --// R
+  function fn_trama_indice001 return varchar2 is
+    lc_cmp001 varchar2(100);
+  begin
+    --//
+    lc_cmp001 := 'ByteI';
+    return lc_cmp001;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice001;
+
+  --// R
+  function fn_trama_indice002 return varchar2 is
+    lc_cmp002 varchar2(100);
+  begin
+    --//
+    lc_cmp002 := 'N';
+    return lc_cmp002;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice002;
+
+  --// R
+  function fn_trama_indice003 return varchar2 is
+    lc_cmp003 varchar2(100);
+  begin
+    --//
+    select to_char(trunc(sysdate), 'DD') into lc_cmp003 from dual;
+    return lc_cmp003;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice003;
+
+  --// R
+  function fn_trama_indice004 return varchar2 is
+    lc_cmp004 varchar2(100);
+  begin
+    --//
+    select to_char(trunc(sysdate), 'MM') into lc_cmp004 from dual;
+    return lc_cmp004;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice004;
+
+  --// R
+  function fn_trama_indice005 return varchar2 is
+    lc_cmp005 varchar2(100);
+  begin
+    --//
+    select to_char(trunc(sysdate), 'YYYY') into lc_cmp005 from dual;
+    return lc_cmp005;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice005;
+
+  --// R
+  function fn_trama_indice006 return varchar2 is
+    lc_cmp006 varchar2(100);
+  begin
+    --//
+    select to_char(sysdate, 'hh24') into lc_cmp006 from dual;
+    return lc_cmp006;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice006;
+
+  --// R
+  function fn_trama_indice007 return varchar2 is
+    lc_cmp007 varchar2(100);
+  begin
+    --//
+    select to_char(sysdate, 'mi') into lc_cmp007 from dual;
+    return lc_cmp007;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice007;
+
+  --// R
+  function fn_trama_indice008 return varchar2 is
+    lc_cmp008 varchar2(100);
+  begin
+    --//
+    lc_cmp008 := '00745';
+    return lc_cmp008;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice008;
+
+  --// R
+  function fn_trama_indice009 return varchar2 is
+    lc_cmp009 varchar2(100);
+  begin
+    --//
+    lc_cmp009 := '426153';
+    return lc_cmp009;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice009;
+
+  /*******************************************************************************************
+  *
+  * Inicio de la construccion de la trama DETALLE
+  *
+  *******************************************************************************************/
+
+  --// R
+  function fn_trama_indice010(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp010 varchar2(100);
+  begin
+    --//  
+    lc_cmp010 := '7946';
+    return lc_cmp010;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice010;
+
+  --// R
+  function fn_trama_indice011(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp011 varchar2(100) := '';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+    --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_cmp011
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    return lc_cmp011;
+  exception
+    when others then
+      return ' ';
+  end fn_trama_indice011;
+
+  --// R
+  function fn_trama_indice012(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp012 varchar2(100);
+  begin
+    case
+
+       -- rcuadros inicio 15/05/2023
+       when pn_itmod = 50 and pn_ittran in (599) and pn_itord = 26 then
+            lc_cmp012 := '27';
+       -- rcuadros fin 15/05/2023
+       when pn_itmod = 50 and pn_ittran in (426) then -- Retiros
+            -- Retiros 50/426
+            lc_cmp012 := '1';
+       when pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+            -- Transferencias entre cuentas 50/599
+            lc_cmp012 := '40'; -- Transferencia mismo banco (terceros)
+       when (pn_itmod = 22 and pn_ittran in (300)) or -- jlunaf 04/10/2022 - Se añade Cancelación de DPF
+            (pn_itmod = 21 and pn_ittran in (905)) then -- jlunaf 15/11/2022 - Se añade Cancelación de Cuentas de Ahorro
+            -- Cancelacion DPF 22/300
+            -- Cierre de Cajas de Ahorro 21/905
+            lc_cmp012 := '68';       
+       when pn_itmod = 18 and pn_ittran in (25, 30) then -- jlunaf 04/10/2022 - Se añade transferencias diferidas
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            lc_cmp012 := '48';
+       when pn_itmod = 18 and pn_ittran in (125) then -- jlunaf 04/10/2022 - Se añade transferencias inmediatas
+            -- Transferencia TIN Linea 18/125
+            lc_cmp012 := '90';
+       else
+            -- Otros
+            lc_cmp012 := '0';
+    end case;
+    return lc_cmp012;
+  exception
+    when others then
+      return '0';
+  end fn_trama_indice012;
+
+  --// S
+  function fn_trama_indice013(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp013 varchar2(100);
+  begin
+    --//
+    lc_cmp013 := '0';
+    return lc_cmp013;
+  exception
+    when others then
+      return '0';
+  end fn_trama_indice013;
+
+  --// R 
+  function fn_trama_indice014(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp014 varchar2(100) := 'N';
+  begin
+    If pn_itsbor = 999 then
+       lc_cmp014 := 'S';
+    End If;
+    return lc_cmp014;
+  exception
+    when others then
+      return ' ';
+  end fn_trama_indice014;
+
+  --// R
+  function fn_trama_indice015(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp015 varchar2(100);
+    ld_fectra date;
+    ln_tipcam number := 0;
+    ln_ordaux number;
+    ln_aux004 number := 0;
+    ln_codmda number;
+    ln_conver number(14, 2) := 0.0;
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    sp_tipo_cambio(FECHA => ld_fectra, monori => 0, mondes => 101,
+                   tipo => 500, tc => ln_tipcam);
+    case
+       when pn_itmod = 50 and pn_ittran in (426) then -- Retiros
+            -- Retiros 50/426
+            ln_ordaux := 40; -- Con TDV
+       when pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+            -- Transferencias entre cuentas 50/599
+            ln_ordaux := 7; -- Con TDV
+       when pn_itmod = 21 and pn_ittran in (905) then -- Cancelaciones cuenta
+            -- Cierre de Cajas de Ahorro 21/905
+            ln_ordaux := 24; -- Con TDV
+       when pn_itmod = 22 and pn_ittran in (300) then -- jlunaf 04/10/2022 - Se añade Cancelación DPF
+            -- Cancelacion DPF 22/300
+            ln_ordaux := 5;
+       when pn_itmod = 18 and pn_ittran in (25, 30, 125) then -- jlunaf 04/10/2022 - Se añade transferencias interbancarias
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            -- Transferencia TIN Linea 18/125
+            ln_ordaux := 19;
+       else
+            -- Se deja 10 por defecto, pero todas las transacciones monitoreadas deben ser mapeadas
+            ln_ordaux := 10;
+    end case;
+    select a.itimp1, a.moneda
+      into ln_aux004, ln_codmda
+      from fsd016 a
+     where a.pgcod = pn_pgcod
+       and a.itsuc = pn_itsuc
+       and a.itmod = pn_itmod
+       and a.ittran = pn_ittran
+       and a.itnrel = pn_itnrel
+       and a.itord = ln_ordaux
+       and a.itsbor = 1;
+    if ln_codmda = 0 then
+      ln_conver := ln_aux004 / ln_tipcam;
+      lc_cmp015 := lpad(trim(replace(replace(to_char(ln_conver, '9999999D99'),
+                                             ',', ''), '.', '')), 14, '0');
+    else
+      lc_cmp015 := lpad(trim(replace(replace(to_char(ln_aux004, '9999999D99'),
+                                             ',', ''), '.', '')), 14, '0');
+    end if;
+    return lc_cmp015;
+  exception
+    when others then
+      return '0';
+  end fn_trama_indice015;
+
+  --// R
+  function fn_trama_indice016(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp016 varchar2(100);
+    ln_ordaux number;
+  begin
+    --//
+    case
+       when pn_itmod = 50 and pn_ittran in (426) then -- Retiros
+            -- Retiros 50/426
+            ln_ordaux := 40; -- Con TDV
+       when pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+            -- Transferencias entre cuentas 50/599
+            ln_ordaux := 7; -- Con TDV
+       when pn_itmod = 21 and pn_ittran in (905) then -- Cancelaciones
+            -- Cierre de Cajas de Ahorro 21/905
+            ln_ordaux := 24; -- Con TDV
+       when pn_itmod = 22 and pn_ittran in (300) then -- jlunaf 04/10/2022 - Se añade Cancelación DPF
+            -- Cancelacion DPF 22/300
+            ln_ordaux := 5;
+       when pn_itmod = 18 and pn_ittran in (25, 30, 125) then -- jlunaf 04/10/2022 - Se añade transferencias interbancarias
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            -- Transferencia TIN Linea 18/125
+            ln_ordaux := 19;
+       else
+            -- Se deja 10 por defecto, pero todas las transacciones monitoreadas deben ser mapeadas
+            ln_ordaux := 10;
+    end case;
+    select lpad(trim(replace(replace(to_char(a.itimp1, '9999999D99'), ',',
+                                     ''), '.', '')), 14, '0')
+      into lc_cmp016
+      from fsd016 a
+     where a.pgcod = pn_pgcod
+       and a.itsuc = pn_itsuc
+       and a.itmod = pn_itmod
+       and a.ittran = pn_ittran
+       and a.itnrel = pn_itnrel
+       and a.itord = ln_ordaux
+       and a.itsbor = 1;
+  
+    return lc_cmp016;
+  exception
+    when others then
+      return '0';
+  end fn_trama_indice016;
+
+  --// R
+  function fn_trama_indice017(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp017 varchar2(100);
+    ld_fectra date;
+    ln_tipcam number := 0;
+    ln_ordaux number;
+    ln_aux004 number := 0;
+    ln_codmda number;
+    ln_conver number(14, 2) := 0.0;
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    sp_tipo_cambio(FECHA => ld_fectra, monori => 0, mondes => 101,
+                   tipo => 500, tc => ln_tipcam);
+    case
+       when pn_itmod = 50 and pn_ittran in (426) then -- Retiros
+            --Retiros 50/426
+            ln_ordaux := 40; -- Con TDV
+       when pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+            --Transferencias entre cuentas 50/599
+            ln_ordaux := 7; -- Con TDV
+       when pn_itmod = 21 and pn_ittran in (905) then -- Cancelaciones
+            --Cierre de Cajas de Ahorro 21/905
+            ln_ordaux := 24; -- Con TDV
+       when pn_itmod = 22 and pn_ittran in (300) then -- jlunaf 04/10/2022 - Se añade Cancelación DPF
+            -- Cancelacion DPF 22/300
+            ln_ordaux := 5;
+       when pn_itmod = 18 and pn_ittran in (25, 30, 125) then -- jlunaf 04/10/2022 - Se añade transferencias interbancarias
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            -- Transferencia TIN Linea 18/125
+            ln_ordaux := 19;
+       else
+            --Se deja 10 por defecto, pero todas las transacciones monitoreadas deben ser mapeadas
+            ln_ordaux := 10;
+    end case;
+    select a.itimp1, a.moneda
+      into ln_aux004, ln_codmda
+      from fsd016 a
+     where a.pgcod = pn_pgcod
+       and a.itsuc = pn_itsuc
+       and a.itmod = pn_itmod
+       and a.ittran = pn_ittran
+       and a.itnrel = pn_itnrel
+       and a.itord = ln_ordaux
+       and a.itsbor = 1;
+    if ln_codmda = 0 then
+      ln_conver := ln_aux004 / ln_tipcam;
+      lc_cmp017 := lpad(trim(replace(replace(to_char(ln_conver, '9999999D99'),
+                                             ',', ''), '.', '')), 14, '0');
+    else
+      lc_cmp017 := lpad(trim(replace(replace(to_char(ln_aux004, '9999999D99'),
+                                             ',', ''), '.', '')), 14, '0');
+    end if;
+    return lc_cmp017;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice017;
+
+  --// R
+  function fn_trama_indice018(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp018 varchar2(100);
+    ld_fectra date;
+    lc_horaut varchar2(10);
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    select a.ithora
+      into lc_horaut
+      from fsd015 a
+     where a.pgcod = pn_pgcod
+       and a.itsuc = pn_itsuc
+       and a.itmod = pn_itmod
+       and a.ittran = pn_ittran
+       and a.itnrel = pn_itnrel;
+    lc_cmp018 := to_char(ld_fectra, 'yyyymmdd') ||
+                 trim(replace(lc_horaut, ':', ''));
+    return lc_cmp018;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice018;
+
+  --// R
+  function fn_trama_indice019(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp019 varchar2(100);
+    ln_tipcam number := 0;
+    ld_fectra date;
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    sp_tipo_cambio(FECHA => ld_fectra, monori => 0, mondes => 101,
+                   tipo => 500, tc => ln_tipcam);
+    lc_cmp019 := lpad(replace(replace(to_char(ln_tipcam,'FM90D900'), ',', ''), '.', ''), 11, '0');
+    return lc_cmp019;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice019;
+
+  --// R
+  function fn_trama_indice020(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp020 varchar2(100);
+  begin
+    --//
+    lc_cmp020 := lpad(trim(to_char(pn_ittran)), 2, '0') ||
+                 lpad(trim(to_char(pn_itnrel)), 4, '0');
+    return lc_cmp020;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice020;
+
+  --// R
+  function fn_trama_indice021(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp021 varchar2(100);
+  begin
+    --//
+    select trim(replace(a.ithora, ':', ''))
+      into lc_cmp021
+      from fsd015 a
+     where a.pgcod = pn_pgcod
+       and a.itsuc = pn_itsuc
+       and a.itmod = pn_itmod
+       and a.ittran = pn_ittran
+       and a.itnrel = pn_itnrel;
+    return lc_cmp021;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice021;
+
+  --// R
+  function fn_trama_indice022(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp022 varchar2(100);
+  begin
+    --//
+    select to_char(a.itfcon, 'yyyymmdd')
+      into lc_cmp022
+      from fsd015 a
+     where a.pgcod = pn_pgcod
+       and a.itsuc = pn_itsuc
+       and a.itmod = pn_itmod
+       and a.ittran = pn_ittran
+       and a.itnrel = pn_itnrel;
+    return lc_cmp022;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice022;
+
+  --// S
+  function fn_trama_indice023(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp023 varchar2(100);
+  begin
+    --//      
+    lc_cmp023 := '00000';
+    return lc_cmp023;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice023;
+
+  --// R
+  function fn_trama_indice024(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp024 varchar2(100);
+  begin
+    --//
+    lc_cmp024 := 'O';
+    return lc_cmp024;
+  exception
+    when others then
+      return 'O';
+  end fn_trama_indice024;
+
+  --// O
+  function fn_trama_indice025(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp025 varchar2(100);
+  begin
+    --//
+    select to_char(a1.pgfape, 'yyyymmdd')
+      into lc_cmp025
+      from fst017 a1
+      --from fst017_apla0206 a1--borrar
+     where a1.pgcod = 1;
+    return lc_cmp025;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice025;
+
+  --// R
+  function fn_trama_indice026(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp026 varchar2(100) := '0000';
+  begin
+    --//
+    lc_cmp026 := '6010';
+    return lc_cmp026;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice026;
+
+  --// R
+  function fn_trama_indice027(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp027 varchar2(100) := '604';
+  begin
+    --//
+    return lc_cmp027;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice027;
+
+  --// S
+  function fn_trama_indice028(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp028 varchar2(100) := '604';
+  begin
+    --//
+    return lc_cmp028;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice028;
+
+  --// O
+  function fn_trama_indice029(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp029 varchar2(100) := '604';
+  begin
+    --//
+    return lc_cmp029;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice029;
+
+  --// R
+  function fn_trama_indice030(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp030 varchar2(100);
+  begin
+    --//
+    lc_cmp030 := '0500';
+    return lc_cmp030;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice030;
+
+  --// S
+  function fn_trama_indice031(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp031 varchar2(100) := ' ';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_cmp031
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    return lc_cmp031;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice031;
+
+  --// R
+  function fn_trama_indice032(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp032 varchar2(100);
+  begin
+    --//
+    --Se asigna el valor en duro debido a que no se tiene este valor en las transacciones
+    lc_cmp032 := '64';
+    return lc_cmp032;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice032;
+
+  --// O
+  function fn_trama_indice033(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp033 varchar2(100);
+  begin
+    --//
+    lc_cmp033 := '0';
+    return lc_cmp033;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice033;
+
+  --// R
+  function fn_trama_indice034(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp034 varchar2(100) := '';
+  begin
+    --//
+    --Se envía el BIN de la Caja 
+    lc_cmp034 := '426153';
+    return lc_cmp034;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice034;
+
+  --// R
+  function fn_trama_indice035(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp035 varchar2(100);
+  begin
+    --//
+    --Se envía el BIN de la Caja   
+    lc_cmp035 := '426153';
+    return lc_cmp035;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice035;
+
+  --// R
+  function fn_trama_indice036(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp036 varchar2(100);
+  begin
+    --//
+    lc_cmp036 := lpad(trim(to_char(pn_ittran)), 2, '0') ||
+                 lpad(trim(to_char(pn_itnrel)), 4, '0');
+    return lc_cmp036;
+  exception
+    when others then
+      return '00000';
+  end fn_trama_indice036;
+
+  --// R
+  function fn_trama_indice037(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp037 varchar2(100) := '00';
+  begin
+    --//
+    return lc_cmp037;
+  exception
+    when others then
+      return lc_cmp037;
+  end fn_trama_indice037;
+
+  --// O
+  function fn_trama_indice038(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp038 varchar2(100) := '00';
+  begin
+    --//
+    return lc_cmp038;
+  exception
+    when others then
+      return lc_cmp038;
+  end fn_trama_indice038;
+
+  --// R
+  function fn_trama_indice039(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp039 varchar2(100) := '';
+  begin
+    --//
+    --Valor UBA
+    lc_cmp039 := '000';
+    return lc_cmp039;
+  exception
+    when others then
+      return lc_cmp039;
+  end fn_trama_indice039;
+
+  --// R
+  function fn_trama_indice040(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp040 varchar2(100) := ' ';
+  begin
+    --//
+    select substr(trim(a.ituing), 1, 8)
+      into lc_cmp040
+      from fsd015 a
+     where a.pgcod = pn_pgcod
+       and a.itsuc = pn_itsuc
+       and a.itmod = pn_itmod
+       and a.ittran = pn_ittran
+       and a.itnrel = pn_itnrel;
+    return lc_cmp040;
+  exception
+    when others then
+      return lc_cmp040;
+  end fn_trama_indice040;
+
+  --// R
+  function fn_trama_indice041(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp041 varchar2(100) := ' ';
+  begin
+    --rcuadros 15/05/2023 - Se añade case para evualuar nuevas transacciones
+    case
+      -- rcuadros inicio 15/05/2023
+      when pn_itmod = 50 and pn_ittran in (599) and pn_itord = 26  then
+           lc_cmp041 := 'AQPTRANSFRECIB';
+      -- rcuadros fin 15/05/2023
+      else
+         --//
+         lc_cmp041 := 'AGENCIAAQP';
+    end case;
+    return lc_cmp041;
+  exception
+    when others then
+      return lc_cmp041;
+  end fn_trama_indice041;
+
+  --// R
+  function fn_trama_indice042(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp042 varchar2(150) := ' ';
+  begin
+    --rcuadros 15/05/2023 - Se añade case para evualuar nuevas transacciones
+    case
+      -- rcuadros inicio 15/05/2023
+      when pn_itmod = 50 and pn_ittran in (599) and pn_itord = 26 then
+           lc_cmp042 := 'Transferencia Recibida';
+      -- rcuadros fin 15/05/2023
+      else
+        --//
+        select substr(trim(b1.scnom), 1, 25) into lc_cmp042 FROM fst001 b1
+        where b1.pgcod = pn_pgcod and b1.sucurs = pn_itsuc;
+    end case;
+    return lc_cmp042;
+  exception
+    when others then
+      return lc_cmp042;
+  end fn_trama_indice042;
+
+  --// R
+  function fn_trama_indice043(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp043 varchar2(100) := 'PE';
+  begin
+    --//
+    case
+       -- rcuadros inicio 15/05/2023
+       when pn_itmod = 50 and pn_ittran in (599) and pn_itord = 26 then
+           lc_cmp043 := 'Agencia';
+       -- rcuadros fin 15/05/2023
+       when pn_itmod = 50 and pn_ittran in (426) then
+            -- Retiro 50/426
+            lc_cmp043 := 'retiro';
+       when (pn_itmod = 50 and pn_ittran in (599)) or
+            (pn_itmod = 18 and pn_ittran in (25, 30, 125)) then -- jlunaf 04/10/2022 - Se añade transferencias interbancarias
+            -- Retiro 50/599
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            -- Transferencia TIN Linea 18/125
+            lc_cmp043 := 'transferencia';
+       when pn_itmod = 21 and pn_ittran in (905) then
+            -- Cierre de Cajas de Ahorro 21/905
+            lc_cmp043 := 'cancela cta';
+       when pn_itmod = 22 and pn_ittran in (300) then -- jlunaf 04/10/2022 - Se añade Cancelación DPF
+            -- Cancelacion DPF 22/300
+            lc_cmp043 := 'cancela DPF';
+       when pn_itmod = 21 and pn_ittran in (31) then --dmanriquec - 20/02/2025 - se añade bimoneda mod21 y transaccion 31
+            -- Bimoneda 21/31
+            lc_cmp043 := 'bimoneda';
+       else
+            lc_cmp043 := 'PE';
+    end case;
+    return lc_cmp043;
+  exception
+    when others then
+      return lc_cmp043;
+  end fn_trama_indice043;
+
+  --// R
+  function fn_trama_indice044(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp044 varchar2(100) := 'PE';
+  begin
+    --//
+    return lc_cmp044;
+  exception
+    when others then
+      return lc_cmp044;
+  end fn_trama_indice044;
+
+  --// O
+  function fn_trama_indice045(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp045 varchar2(100) := '  ';
+  begin
+    --//
+    lc_cmp045 := '  ';
+    return lc_cmp045;
+  exception
+    when others then
+      return lc_cmp045;
+  end fn_trama_indice045;
+
+  --// S
+  function fn_trama_indice046(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp046 varchar2(100) := '';
+  begin
+    --//
+    --No aplica porque nuestras tarjetas no son nominadas y no lega el TRACK 1
+    lc_cmp046 := ' ';
+    return lc_cmp046;
+  exception
+    when others then
+      return lc_cmp046;
+  end fn_trama_indice046;
+
+  --// S
+  function fn_trama_indice047(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp047 varchar2(100) := '';
+  begin
+    --//
+    -- No aplica porque nuestras tarjetas no son nominadas y no lega el TRACK 1   
+    lc_cmp047 := ' ';
+    return lc_cmp047;
+  exception
+    when others then
+      return lc_cmp047;
+  end fn_trama_indice047;
+
+  --// R
+  function fn_trama_indice048(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp048 varchar2(100) := '0';
+    ln_ordaux number;
+  begin
+    --//
+    case
+       when pn_itmod = 50 and pn_ittran in (426) then
+            -- Retiros 50/426
+            ln_ordaux := 40; --Con TDV
+       when pn_itmod = 50 and pn_ittran in (599) then
+            -- Tranferencias 50/599
+            ln_ordaux := 7; --Con TDV
+       when pn_itmod = 21 and pn_ittran in (905) then
+             -- Cierre de Cajas de Ahorro 50/905
+            ln_ordaux := 24; --Con TDV
+       when pn_itmod = 22 and pn_ittran in (300) then -- jlunaf 04/10/2022 - Se añade Cancelación DPF
+            -- Cancelacion DPF 22/300
+            ln_ordaux := 5;
+       when pn_itmod = 18 and pn_ittran in (25, 30, 125) then -- jlunaf 04/10/2022 - Se añade transferencias interbancarias
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            -- Transferencia TIN Linea 18/125
+            ln_ordaux := 19;
+       --dmanriquec - 20/02/2025 - se añade bimoneda mod21 y transaccion 31
+       when pn_itmod = 21 and pn_ittran in (31) then
+             -- Transferencia Bimoneda 21/31
+            ln_ordaux := 10; 
+       --dmanriquec - 20/02/2025 - se añade bimoneda mod21 y transaccion 31 
+       else
+            -- Se deja 10 por defecto, pero todas las transacciones monitoreadas deben ser mapeadas
+            ln_ordaux := 10;
+    end case;
+    select case
+             when a.moneda = 0 then
+              '604'
+             else
+              '840'
+           end
+      into lc_cmp048
+      from fsd016 a
+     where a.pgcod = pn_pgcod
+       and a.itsuc = pn_itsuc
+       and a.itmod = pn_itmod
+       and a.ittran = pn_ittran
+       and a.itnrel = pn_itnrel
+       and a.itord = ln_ordaux
+       and a.itsbor = 1;
+    return lc_cmp048;
+  exception
+    when others then
+      return lc_cmp048;
+  end fn_trama_indice048;
+
+  --// S
+  function fn_trama_indice049(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp049 varchar2(100) := '0';
+    ln_ordaux number;
+  begin
+    --//
+    case
+       when pn_itmod = 50 and pn_ittran in (426) then
+            -- Retiros 50/426
+            ln_ordaux := 40; --Con TDV
+       when pn_itmod = 50 and pn_ittran in (599) then
+            -- Tranferencias 50/599
+            ln_ordaux := 7; --Con TDV
+       when pn_itmod = 21 and pn_ittran in (905) then
+             -- Cierre de Cajas de Ahorro 21/905
+            ln_ordaux := 24; --Con TDV
+       when pn_itmod = 22 and pn_ittran in (300) then -- jlunaf 04/10/2022 - Se añade Cancelación DPF
+            -- Cancelacion DPF 22/300
+            ln_ordaux := 5;
+       when pn_itmod = 18 and pn_ittran in (25, 30, 125) then -- jlunaf 04/10/2022 - Se añade transferencias interbancarias
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            -- Transferencia TIN Linea 18/125
+            ln_ordaux := 19;
+       --dmanriquec - 20/02/2025 - se añade bimoneda mod21 y transaccion 31
+       when pn_itmod = 21 and pn_ittran in (31) then
+             -- Transferencia Bimoneda 21/31
+            ln_ordaux := 10; 
+       --dmanriquec - 20/02/2025 - se añade bimoneda mod21 y transaccion 31 
+       else
+            -- Se deja 10 por defecto, pero todas las transacciones monitoreadas deben ser mapeadas
+            ln_ordaux := 10;
+    end case;
+    select case
+             when a.moneda = 0 then
+              '604'
+             else
+              '840'
+           end
+      into lc_cmp049
+      from fsd016 a
+     where a.pgcod = pn_pgcod
+       and a.itsuc = pn_itsuc
+       and a.itmod = pn_itmod
+       and a.ittran = pn_ittran
+       and a.itnrel = pn_itnrel
+       and a.itord = ln_ordaux
+       and a.itsbor = 1;
+    return lc_cmp049;
+  exception
+    when others then
+      return lc_cmp049;
+  end fn_trama_indice049;
+
+  --// O
+  function fn_trama_indice050(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp050 varchar2(100) := '';
+    lc_auxtar varchar2(100);
+    ln_codpai number;
+    ln_tipdoc number;
+    lc_numdoc char(12);
+    ln_saldo  number;
+    ln_tipcam number := 0;
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+  begin
+    --//        
+    -- jlunaf 24/11/2022 - INICIO - Obtención del saldo sumarizado de todas las cuentas asociadas del tarjeta
+    lc_cmp050 := '0';
+    ln_saldo  := 0;
+    
+    -- Obtiene tipo de cambio
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    sp_tipo_cambio(FECHA => ld_fectra, monori => 0, mondes => 101,
+                   tipo => 500, tc => ln_tipcam);
+    
+    -- Obtiene tarjeta habiente para recorrer cuentas asociadas al documento del cliente
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select z0e478thp, z0e478tht, z0e478thd into ln_codpai, ln_tipdoc, lc_numdoc
+      from z0e478 where z0e478nro = rpad(lc_auxtar, 19, ' ');
+      
+    -- Obtiene saldo sumarizado
+    select nvl(sum(case when scmda = 0 then (scsdo / ln_tipcam) else scsdo end), 0) into ln_saldo from fsd011
+       where pgcod = 1 and scmod in (21,22) and sccta in 
+      (select ctnro from fsr008 where cttfir = 'T' and pepais = ln_codpai and petdoc = ln_tipdoc
+          and pendoc = lc_numdoc)
+       and scstat = 0;
+    lc_cmp050 := lpad(trim(replace(replace(to_char(ln_saldo, '999999999D99'), ',', ''), '.', '')), 14, '0');
+    -- jlunaf 27/06/2022 - FIN
+    return lc_cmp050;
+  exception
+    when others then
+      return lc_cmp050;
+  end fn_trama_indice050;
+
+  --// S
+  function fn_trama_indice051(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp051 varchar2(100) := ' ';
+  begin
+    --//
+    return lc_cmp051;
+  exception
+    when others then
+      return lc_cmp051;
+  end fn_trama_indice051;
+
+  --// O
+  function fn_trama_indice052(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp052 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp052 := '0';
+    return lc_cmp052;
+  exception
+    when others then
+      return lc_cmp052;
+  end fn_trama_indice052;
+
+  --// S
+  function fn_trama_indice053(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp053 varchar2(100) := ' ';
+    ln_ordaux numeric(10) :=0;
+  begin
+    --//
+    lc_cmp053 := ' ';
+    case
+      --mod 50 - 599,426
+      --mod 22 - 300
+      --mod 21 - 905
+      --mod 18 - 25,30,125
+       when pn_itmod = 50 and pn_ittran in (426) then
+            -- Retiros 50/426
+            ln_ordaux := 40; -- Con TDV
+       when pn_itmod = 50 and pn_ittran in (599) then
+            -- Transferencias entre cuentas 50/599
+            ln_ordaux := 7; -- Con TDV
+       when pn_itmod = 21 and pn_ittran in (905) then
+            -- Cierre de Cajas de Ahorro 21/905
+            ln_ordaux := 24; -- Con TDV
+       when pn_itmod = 22 and pn_ittran in (300) then -- jlunaf 04/10/2022 - Se añade Cancelación DPF
+            -- Cancelacion DPF 22/300
+            ln_ordaux := 5;
+       when pn_itmod = 18 and pn_ittran in (25, 30, 125) then -- jlunaf 04/10/2022 - Se añade transferencias interbancarias
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            -- Transferencia TIN Linea 18/125
+            ln_ordaux := 19;
+       --dmanriquec - 20/02/2025 - se añade bimoneda mod21 y transaccion 31
+       when pn_itmod = 21 and pn_ittran in (31) then
+            -- Bimoneda 21/31
+            ln_ordaux := 10; 
+       --dmanriquec - 20/02/2025 - se añade bimoneda mod21 y transaccion 31
+       else 
+            -- Se deja 10 por defecto, pero todas las transacciones monitoreadas deben ser mapeadas
+            ln_ordaux := 10;
+    end case;
+   -- DManriquec 29/05/2023 -Se añade armado de cuenta para Transaccion de cancelacion DPF
+   -- Armado de cuenta para las transacciones 300
+    if (pn_ittran = 300) then
+         select lpad(to_char(a.ctnro), 9, '0') ||
+               lpad(to_char(a.modulo), 3, '0') ||
+               lpad(to_char(a.moneda), 3, '0') ||
+               lpad(to_char(a.itoper), 9, '0') ||
+               lpad(to_char(a.ittope), 3, '0')
+          into lc_cmp053
+          from fsd016 a
+         where a.pgcod = pn_pgcod
+           and a.itsuc = pn_itsuc
+           and a.itmod = pn_itmod
+           and a.ittran = pn_ittran
+           and a.itnrel = pn_itnrel
+           and a.itord = ln_ordaux --Cuenta Origen
+           and a.itsbor = 1;  
+    else
+         select lpad(to_char(a.ctnro), 9, '0') ||
+               lpad(to_char(a.modulo), 3, '0') ||
+               lpad(to_char(a.moneda), 3, '0') ||
+               lpad(to_char(a.itsubo), 2, '0') ||
+               lpad(to_char(a.ittope), 3, '0')
+          into lc_cmp053
+          from fsd016 a
+         where a.pgcod = pn_pgcod
+           and a.itsuc = pn_itsuc
+           and a.itmod = pn_itmod
+           and a.ittran = pn_ittran
+           and a.itnrel = pn_itnrel
+           and a.itord = ln_ordaux --Cuenta Origen
+           and a.itsbor = 1;
+    end if;
+    return lc_cmp053;
+  exception
+    when others then
+      return lc_cmp053;
+  end fn_trama_indice053;
+
+  --// S
+  function fn_trama_indice054(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp054 varchar2(100) := ' ';
+    ld_fectra date;
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    case
+       when pn_itmod = 50 and pn_ittran in (599) then
+            -- Transferencias entre cuentas 50/599
+            select lpad(to_char(a.ctnro), 9, '0') ||
+                   lpad(to_char(a.modulo), 3, '0') ||
+                   lpad(to_char(a.moneda), 3, '0') ||
+                   lpad(to_char(a.itsubo), 2, '0') ||
+                   lpad(to_char(a.ittope), 3, '0')
+              into lc_cmp054
+              from fsd016 a
+             where a.pgcod = pn_pgcod
+               and a.itsuc = pn_itsuc
+               and a.itmod = pn_itmod
+               and a.ittran = pn_ittran
+               and a.itnrel = pn_itnrel
+               and a.itord = 26 --Cuenta Destino
+               and a.itsbor = 1;
+       when pn_itmod = 18 and pn_ittran in (25, 30) then -- jlunaf 04/10/2022 - Se añade transferencias diferidas
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            select se115ccids
+              into lc_cmp054
+              from fse115
+             where se115cd = pn_pgcod
+               and se115md = pn_itmod
+               and se115su = pn_itsuc
+               and se115tr = pn_ittran
+               and se115re = pn_itnrel 
+               and se115fc = ld_fectra
+               and se115or in (38, 39) 
+               and se115sbor = 1; 
+       when pn_itmod = 18 and pn_ittran in (125) then -- jlunaf 04/10/2022 - Se añade transferencias inmediatas
+            -- Transferencia TIN Linea 18/125
+            select trim(a.JAQL706CCID)                 
+              into lc_cmp054 
+              from JAQL706 a 
+             where a.JAQL706ITCD = pn_pgcod 
+               and JAQL706ITSU  = pn_itsuc
+               and JAQL706ITMO  = pn_itmod
+               and JAQL706ITTR  = pn_ittran
+               and JAQL706ITRE  = pn_itnrel
+               and JAQL706ITFC  = ld_fectra; 
+       
+       when pn_itmod = 21 and pn_ittran in (31) then
+            -- Transferencias  Bimoneda 21-31
+            select lpad(to_char(a.ctnro), 9, '0') ||
+                   lpad(to_char(a.modulo), 3, '0') ||
+                   lpad(to_char(a.moneda), 3, '0') ||
+                   lpad(to_char(a.itsubo), 2, '0') ||
+                   lpad(to_char(a.ittope), 3, '0')
+              into lc_cmp054
+              from fsd016 a
+             where a.pgcod = pn_pgcod
+               and a.itsuc = pn_itsuc
+               and a.itmod = pn_itmod
+               and a.ittran = pn_ittran
+               and a.itnrel = pn_itnrel
+               and a.itord = 20 --Cuenta Destino
+               and a.itsbor = 1;
+       else --Resto de transacciones
+            lc_cmp054 := ' ';
+    end case;
+    return lc_cmp054;
+  exception
+    when others then
+      return lc_cmp054;
+  end fn_trama_indice054;
+
+  --// S
+  function fn_trama_indice055(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp055 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp055 := 'VISA';
+    return lc_cmp055;
+  exception
+    when others then
+      return lc_cmp055;
+  end fn_trama_indice055;
+
+  --// R
+  function fn_trama_indice056(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp056 varchar2(100) := ' ';
+  begin
+    --//
+    lc_cmp056 := '426153';
+    return lc_cmp056;
+  exception
+    when others then
+      return lc_cmp056;
+  end fn_trama_indice056;
+
+  --// S
+  function fn_trama_indice057(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp057 varchar2(100) := ' ';
+    lc_auxtar varchar2(100) := ' ';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+  begin
+    --//
+    /*
+    P: Procesada
+    A: Activa
+    C: Cancelada
+    W: Suspendida
+    H: Orden de captura
+    F: Posible fraude
+    T: Solicita cambio de PIN como primera transacción
+    */
+    --//                         
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select decode(b1.z0e478est, 'AC', 'A', 'BA', 'C', 'BT', 'W')
+      into lc_cmp057
+      from z0e478 b1
+     where b1.z0e478nro = rpad(trim(lc_auxtar),19,' ');
+    return lc_cmp057;
+  exception
+    when others then
+      return lc_cmp057;
+  end fn_trama_indice057;
+
+  --// O 
+  function fn_trama_indice058(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp058 varchar2(100) := ' ';
+    ln_ordaux number;
+    ln_numcta number;
+    ld_fectra date;
+    ln_codaux number;
+    lc_auxtar varchar2(100) := ' ';
+    ln_codpai number;
+    ln_tipdoc number;
+    lc_numdoc char(12);
+    ln_count  number;
+  begin
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+    case
+       when pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+            -- Transferencias entre cuentas 50/599
+            ln_ordaux := 26; -- Cuenta destino
+            select a.ctnro into ln_numcta
+              from fsd016 a
+             where a.pgcod = pn_pgcod
+               and a.itsuc = pn_itsuc
+               and a.itmod = pn_itmod
+               and a.ittran = pn_ittran
+               and a.itnrel = pn_itnrel
+               and a.itord = ln_ordaux
+               and a.itsbor = 1;
+            select substr(trim(b.txtord), 1, 16)
+              into lc_auxtar
+              from fsx016 b
+             where b.pgcod = pn_pgcod
+               and b.hcmod = pn_itmod
+               and b.htran = pn_ittran
+               and b.hnrel = pn_itnrel
+               and b.hfcon = ld_fectra
+               and b.hsucor = pn_itsuc
+               and b.hcord = pn_itord
+               and b.txcod = ln_codaux
+               and b.txoren = 1;
+            select a1.z0e478thp, a1.z0e478tht, a1.z0e478thd into ln_codpai, ln_tipdoc, lc_numdoc
+              from z0e478 a1 where a1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+            select count(ctnro) into ln_count FROM fsr008
+              where ctnro = ln_numcta AND pepais = ln_codpai AND petdoc = ln_tipdoc AND pendoc = lc_numdoc;
+            if ln_count > 0 then
+               lc_cmp058 := 'S';
+            else
+               lc_cmp058 := 'N';
+            end if;
+       when pn_itmod = 18 and pn_ittran in (25, 30) then -- jlunaf 04/10/2022 - Se añade transferencias diferidas
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            select case when se115clasi = 'M' then 'S' else 'N' end
+              into lc_cmp058
+              from fse115
+             where se115cd = pn_pgcod
+               and se115md = pn_itmod
+               and se115su = pn_itsuc
+               and se115tr = pn_ittran
+               and se115re = pn_itnrel 
+               and se115fc = ld_fectra
+               and se115or in (38, 39) 
+               and se115sbor = 1; 
+       when pn_itmod = 18 and pn_ittran in (125) then -- jlunaf 04/10/2022 - Se añade transferencias inmediatas
+            -- Transferencia TIN Linea 18/125
+            select case when a.JAQL706CLAS = 'M' then 'S' else 'N' end
+              into lc_cmp058 
+              from JAQL706 a 
+             where a.JAQL706ITCD = pn_pgcod 
+               and JAQL706ITSU  = pn_itsuc
+               and JAQL706ITMO  = pn_itmod
+               and JAQL706ITTR  = pn_ittran
+               and JAQL706ITRE  = pn_itnrel
+               and JAQL706ITFC  = ld_fectra; 
+       else
+            lc_cmp058 := ' ';
+    end case;
+    return lc_cmp058;
+  exception
+    when others then
+      return lc_cmp058;
+  end fn_trama_indice058;
+
+  --// O
+  function fn_trama_indice059(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp059 varchar2(100) := ' ';
+  begin
+    --//        
+    lc_cmp059 := 'T';
+    return lc_cmp059;
+  exception
+    when others then
+      return lc_cmp059;
+  end fn_trama_indice059;
+
+  --// S
+  function fn_trama_indice060(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp060 varchar2(100) := '0';
+  begin
+    --//        
+    lc_cmp060 := '0';
+    return lc_cmp060;
+  exception
+    when others then
+      return lc_cmp060;
+  end fn_trama_indice060;
+
+  --// R
+  function fn_trama_indice061(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp061 varchar2(100) := '0';
+  begin
+    --//            
+    return lc_cmp061;
+  exception
+    when others then
+      return lc_cmp061;
+  end fn_trama_indice061;
+
+  --// O
+  function fn_trama_indice062(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp062 varchar2(100) := ' ';
+  begin
+    --//        
+    lc_cmp062 := ' ';
+    return lc_cmp062;
+  exception
+    when others then
+      return lc_cmp062;
+  end fn_trama_indice062;
+
+  --// R
+  function fn_trama_indice063(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp063 varchar2(100) := ' ';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+    lc_auxtar varchar2(100) := ' ';
+    lc_tipdoc char(1);
+    lc_numdoc char(12);
+    lc_espbla char(1) := ' ';
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select decode(to_char(b1.z0e478tht), '21', '1', '9', '2', '2', '3', '5', '5'),
+           trim(b1.z0e478thd)
+      into lc_tipdoc, lc_numdoc
+      from z0e478 b1
+     where b1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+    lc_cmp063 := lc_tipdoc || lpad(trim(lc_numdoc), 12, '0') ||
+                 lpad(lc_espbla, 2, ' ');
+    return lc_cmp063;
+  exception
+    when others then
+      return lc_cmp063;
+  end fn_trama_indice063;
+
+  --// S
+  function fn_trama_indice064(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp064 varchar2(100) := ' ';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+    lc_auxtar varchar2(100) := ' ';
+    ln_codpai number;
+    ln_tipdoc number;
+    lc_numdoc char(12);
+  begin
+    --//
+    lc_cmp064 := ' ';
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select a1.z0e478thp, a1.z0e478tht, a1.z0e478thd into ln_codpai, ln_tipdoc, lc_numdoc
+      from z0e478 a1 where a1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+    select nvl(b1.pfnom1, ' ') into lc_cmp064 from fsd002 b1
+     where b1.pfpais = ln_codpai and b1.pftdoc = ln_tipdoc and b1.pfndoc = lc_numdoc;
+    return lc_cmp064;
+  exception
+    when others then
+      return lc_cmp064;
+  end fn_trama_indice064;
+
+  --// S
+  function fn_trama_indice065(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp065 varchar2(100) := ' ';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+    lc_auxtar varchar2(100) := ' ';        
+    ln_codpai number;
+    ln_tipdoc number;
+    lc_numdoc char(12);
+  begin
+    --//
+    lc_cmp065 := ' ';
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select a1.z0e478thp, a1.z0e478tht, a1.z0e478thd into ln_codpai, ln_tipdoc, lc_numdoc
+      from z0e478 a1 where a1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+    select nvl(b1.pfnom2, ' ') into lc_cmp065 from fsd002 b1
+     where b1.pfpais = ln_codpai and b1.pftdoc = ln_tipdoc and b1.pfndoc = lc_numdoc;
+    return lc_cmp065;
+  exception
+    when others then
+      return lc_cmp065;
+  end fn_trama_indice065;
+
+  --// S
+  function fn_trama_indice066(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp066 varchar2(100) := ' ';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+    lc_auxtar varchar2(100) := ' ';
+    ln_codpai number;
+    ln_tipdoc number;
+    lc_numdoc char(12);
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select a1.z0e478thp, a1.z0e478tht, a1.z0e478thd into ln_codpai, ln_tipdoc, lc_numdoc
+      from z0e478 a1 where a1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+    select nvl(b1.pfape1, ' ') into lc_cmp066 from fsd002 b1
+     where b1.pfpais = ln_codpai and b1.pftdoc = ln_tipdoc and b1.pfndoc = lc_numdoc;
+    return lc_cmp066;
+  exception
+    when others then
+      return lc_cmp066;
+  end fn_trama_indice066;
+
+  --// S
+  function fn_trama_indice067(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp067 varchar2(100) := ' ';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+    lc_auxtar varchar2(100) := ' ';
+    ln_codpai number;
+    ln_tipdoc number;
+    lc_numdoc char(12);
+  begin
+    --//
+    lc_cmp067 := ' ';
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select a1.z0e478thp, a1.z0e478tht, a1.z0e478thd into ln_codpai, ln_tipdoc, lc_numdoc
+      from z0e478 a1 where a1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+    select nvl(b1.pfape2, ' ') into lc_cmp067 from fsd002 b1
+     where b1.pfpais = ln_codpai and b1.pftdoc = ln_tipdoc and b1.pfndoc = lc_numdoc;
+    return lc_cmp067;
+  exception
+    when others then
+      return lc_cmp067;
+  end fn_trama_indice067;
+
+  --// S
+  function fn_trama_indice068(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp068 varchar2(100) := ' ';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+    lc_auxtar varchar2(100) := ' ';
+  begin
+    --//
+    lc_cmp068 := ' ';
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select nvl(a1.z0e478thd, ' ') into lc_cmp068
+      from z0e478 a1 where a1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+    return lc_cmp068;
+  exception
+    when others then
+      return lc_cmp068;
+  end fn_trama_indice068;
+
+  --// O
+  function fn_trama_indice069(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp069 varchar2(100) := '0';
+    ln_ordaux number;
+    ln_codaux number;
+    ln_codpai number;
+    ln_tipdoc number;
+    lc_numdoc char(12);
+    lc_auxtar varchar2(100) := ' ';
+    ln_numcta numeric;
+    ld_fectra date;
+  begin
+    --//
+    lc_cmp069 := '0';
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select a1.z0e478thp, a1.z0e478tht, a1.z0e478thd into ln_codpai, ln_tipdoc, lc_numdoc
+      from z0e478 a1 where a1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+    select nvl(to_char(b1.pffnac, 'YYYYMMDD'), '0') into lc_cmp069 from fsd002 b1
+     where b1.pfpais = ln_codpai and b1.pftdoc = ln_tipdoc and b1.pfndoc = lc_numdoc;
+    return lc_cmp069;
+  exception
+    when others then
+      return lc_cmp069;
+  end fn_trama_indice069;
+
+  --// O
+  function fn_trama_indice070(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp070 varchar2(100) := ' ';
+  begin
+    --//
+    lc_cmp070 := ' ';
+    return lc_cmp070;
+  exception
+    when others then
+      return lc_cmp070;
+  end fn_trama_indice070;
+
+  --// O
+  function fn_trama_indice071(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp071 varchar2(100) := ' ';
+  begin
+    --//
+    lc_cmp071 := ' ';
+    return lc_cmp071;
+  exception
+    when others then
+      return lc_cmp071;
+  end fn_trama_indice071;
+
+  --// S
+  function fn_trama_indice072(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp072 varchar2(100) := ' ';
+  begin
+    --//
+    lc_cmp072 := ' ';
+    return lc_cmp072;
+  exception
+    when others then
+      return lc_cmp072;
+  end fn_trama_indice072;
+
+  --// S
+  function fn_trama_indice073(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp073 varchar2(100) := '0';
+  begin
+    --//
+    lc_cmp073 := '0';
+    return lc_cmp073;
+  exception
+    when others then
+      return lc_cmp073;
+  end fn_trama_indice073;
+
+  --// S
+  function fn_trama_indice074(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp074 varchar2(100) := '0';
+  begin
+    --//
+    lc_cmp074 := '0';
+    return lc_cmp074;
+  exception
+    when others then
+      return lc_cmp074;
+  end fn_trama_indice074;
+
+  --// S
+  function fn_trama_indice075(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp075 varchar2(100) := '0';
+  begin
+    --//
+    lc_cmp075 := '0';
+    return lc_cmp075;
+  exception
+    when others then
+      return lc_cmp075;
+  end fn_trama_indice075;
+
+  --// R
+  function fn_trama_indice076(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp076 varchar2(100) := ' ';
+    ld_fectra date;
+    ln_ordaux number;
+    ln_codaux number;
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_cmp076
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    return lc_cmp076;
+  exception
+    when others then
+      return lc_cmp076;
+  end fn_trama_indice076;
+
+  --// I
+  function fn_trama_indice077(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp077 varchar2(100) := 'N';
+    ln_ordaux number;
+    ld_fectra date;
+    ln_codaux number;
+    lc_auxtar varchar2(100) := ' ';
+    ln_codpai number;
+    ln_tipdoc number;
+    lc_numdoc char(12);
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select a1.z0e478thp, a1.z0e478tht, a1.z0e478thd into ln_codpai, ln_tipdoc, lc_numdoc
+      from z0e478 a1 where a1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+    case
+       when pn_itmod = 50 and pn_ittran in (426) then -- Retiros
+            -- Retiros 50/426
+            ln_ordaux := 40; -- Con TDV
+       when pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+            -- Transferencias entre cuentas 50/599
+            ln_ordaux := 7; -- Con TDV
+       when pn_itmod = 21 and pn_ittran in (905) then -- Cancelaciones
+             -- Cierre de Cajas de Ahorro 21/905
+            ln_ordaux := 24; -- Con TDV
+       when pn_itmod = 22 and pn_ittran in (300) then -- jlunaf 04/10/2022 - Se añade transacción de Cancelación DPF
+            -- Cancelacion DPF 22/300
+            ln_ordaux := 5;
+       when pn_itmod = 18 and pn_ittran in (25, 30, 125) then -- jlunaf 04/10/2022 - Se añade transferencias interbancarias
+            -- Transferencia diferida O/T 18/25
+            -- Transferencia diferida M/T 18/30
+            -- Transferencia TIN Linea 18/125
+            ln_ordaux := 19;
+       else
+            --Se deja 10 por defecto, pero todas las transacciones monitoreadas deben ser mapeadas
+            ln_ordaux := 10;
+    end case;
+    select nvl(b1.jaqm301hit, 'N') into lc_cmp077 from jaqm301 b1 where jaqm301emp = pn_pgcod and jaqm301mod = pn_itmod
+       and jaqm301suc = pn_itsuc and jaqm301tra = pn_ittran and jaqm301rel = pn_itnrel
+       and jaqm301ord = ln_ordaux and jaqm301sor = 1 and jaqm301pai = ln_codpai
+       and jaqm301tdo = ln_tipdoc and jaqm301ndo = lc_numdoc and jaqm301fec = ld_fectra;
+    return lc_cmp077;
+  exception
+    when others then
+      return lc_cmp077;
+  end fn_trama_indice077;
+
+  --// I
+  function fn_trama_indice078(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp078 varchar2(100) := ' ';
+  begin
+    --//        
+    lc_cmp078 := ' ';
+    return lc_cmp078;
+  exception
+    when others then
+      return lc_cmp078;
+  end fn_trama_indice078;
+
+  --// I
+  function fn_trama_indice079(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp079 varchar2(100) := ' ';
+  begin
+    --//        
+    lc_cmp079 := ' ';
+    return lc_cmp079;
+  exception
+    when others then
+      return lc_cmp079;
+  end fn_trama_indice079;
+
+  --// S
+  function fn_trama_indice080(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp080 varchar2(100) := ' ';
+    lc_auxtar varchar2(100) := ' ';
+    ln_ordaux number;
+    ln_codaux number;
+    ld_fectra date;
+  begin
+    --//
+    select b1.pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;
+    --select b1.pgfape into ld_fectra from fst017_apla0206 b1 where b1.pgcod = 1;--borrar
+    -- jlunaf 04/10/2022 - INICIO
+    ln_ordaux := pn_itord;
+    if pn_itmod = 22 then
+       ln_ordaux := 0;
+    end if;
+    -- jlunaf 04/10/2022 - FIN
+    if pn_itmod = 21 then
+       ln_codaux := 501;
+    else
+       ln_codaux := 601;
+    end if;
+     --rcuadros inicio 15/05/2023
+    if pn_itmod = 50 and pn_ittran in (599) then -- Transferencias
+      ln_ordaux := 7;
+    end if;
+    --rcuadros fin 15/05/2023
+    select substr(trim(b.txtord), 1, 16)
+      into lc_auxtar
+      from fsx016 b
+     where b.pgcod = pn_pgcod
+       and b.hcmod = pn_itmod
+       and b.htran = pn_ittran
+       and b.hnrel = pn_itnrel
+       and b.hfcon = ld_fectra
+       and b.hsucor = pn_itsuc
+       and b.hcord = ln_ordaux
+       and b.txcod = ln_codaux
+       and b.txoren = 1;
+    select nvl(to_char(a1.z0e478fal, 'YYYYMMDD'), ' ') into lc_cmp080
+      from z0e478 a1 where a1.z0e478nro = rpad(lc_auxtar, 19, ' ');
+    return lc_cmp080;
+  exception
+    when others then
+      return lc_cmp080;
+  end fn_trama_indice080;
+
+  --// I
+  function fn_trama_indice081(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp081 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp081 := ' ';
+    return lc_cmp081;
+  exception
+    when others then
+      return lc_cmp081;
+  end fn_trama_indice081;
+
+  --// R
+  function fn_trama_indice082(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp082 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp082 := '1';
+    return lc_cmp082;
+  exception
+    when others then
+      return lc_cmp082;
+  end fn_trama_indice082;
+
+  --// I
+  function fn_trama_indice083(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp083 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp083 := '0';
+    return lc_cmp083;
+  exception
+    when others then
+      return lc_cmp083;
+  end fn_trama_indice083;
+
+  --// I
+  function fn_trama_indice084(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp084 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp084 := '0';
+    return lc_cmp084;
+  exception
+    when others then
+      return lc_cmp084;
+  end fn_trama_indice084;
+
+  --// I
+  function fn_trama_indice085(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp085 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp085 := ' ';
+    return lc_cmp085;
+  exception
+    when others then
+      return lc_cmp085;
+  end fn_trama_indice085;
+
+  --// I
+  function fn_trama_indice086(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp086 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp086 := ' ';
+    return lc_cmp086;
+  exception
+    when others then
+      return lc_cmp086;
+  end fn_trama_indice086;
+
+  --// I
+  function fn_trama_indice087(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp087 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp087 := '0';
+    return lc_cmp087;
+  exception
+    when others then
+      return lc_cmp087;
+  end fn_trama_indice087;
+
+  --// I
+  function fn_trama_indice088(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp088 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp088 := ' ';
+    return lc_cmp088;
+  exception
+    when others then
+      return lc_cmp088;
+  end fn_trama_indice088;
+
+  --// I
+  function fn_trama_indice089(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp089 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp089 := '0';
+    return lc_cmp089;
+  exception
+    when others then
+      return lc_cmp089;
+  end fn_trama_indice089;
+
+  --// I
+  function fn_trama_indice090(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp090 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp090 := ' ';
+    return lc_cmp090;
+  exception
+    when others then
+      return lc_cmp090;
+  end fn_trama_indice090;
+
+  --// R 91
+  function fn_trama_indice091(pn_pgcod  in number,
+                              pn_itsuc  in number,
+                              pn_itmod  in number,
+                              pn_ittran in number,
+                              pn_itnrel in number,
+                              pn_itord  in number,
+                              pn_itsbor in number) return varchar2 is
+    lc_cmp091 varchar2(100) := '';
+  begin
+    --//        
+    lc_cmp091 := 'ByteF';
+    return lc_cmp091;
+  exception
+    when others then
+      return lc_cmp091;
+  end fn_trama_indice091;
+
+  --//
+  procedure sp_parsearTrama(pn_codcan in varchar2,
+                            pc_trmpar in varchar2,
+                            pc_coderr out varchar2,
+                            pc_msgerr out varchar2) is
+    --//
+    lc_coderr varchar2(5) := '';
+    lc_msgerr varchar2(1000) := '';
+    lc_trmpar varchar2(4000) := '';
+    ln_indice number := 0;
+    --//
+    cursor c1 is
+      select acf.c_cabdet,
+             acf.c_import,
+             acf.n_indice,
+             acf.n_codigo,
+             acf.c_noming,
+             acf.c_nomesp,
+             acf.c_format,
+             acf.c_tipdat,
+             acf.n_longit,
+             acf.n_decima,
+             acf.n_posini,
+             acf.n_camiso,
+             acf.c_justxt,
+             acf.c_jusnum
+        from jaql634 acf
+       where acf.n_indice < 1000
+       order by acf.n_indice;
+  begin
+    lc_coderr := '00000';
+    lc_msgerr := '';
+    lc_trmpar := '';
+    --// Longitud de la trama
+    dbms_output.put_line('LONGITUD TRAMA ACF [' || length(pc_trmpar) || ']');
+    --//
+    for i in c1 loop
+      --//
+      lc_trmpar := substr(pc_trmpar, i.n_posini, i.n_longit);
+      dbms_output.put_line('TRAMA ACF PARSEADA CAMPO[' ||
+                           lpad(trim(to_char(i.n_indice)), 2, '0') ||
+                           '], IMPORTANCIA [' || i.c_import || ']' ||
+                           ', VALOR : [' || lc_trmpar || ']' --||
+                           --', LONGITUD : [' || i.n_longit || ']'
+                           );
+      --//
+    /*
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  lc_trmpar := substr(pc_trmpar, i.n_posini, i.n_longit);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  dbms_output.put_line('TRAMA ACF PARSEADA CAMPO[' ||
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       lpad(trim(to_char(i.n_indice)), 2, '0') ||
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       '], LONGITUD [' ||
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       lpad(trim(to_char(i.n_longit)), 2, '0') ||
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       '], TIPO DE DATO [' || i.c_tipdat ||
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       '], IMPORTANCIA [' || i.c_import || ']' ||
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ', VALOR : [' || lc_trmpar || ']');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  */
+    --//
+    end loop;
+    --//
+    pc_coderr := lc_coderr;
+    pc_msgerr := lc_msgerr;
+  exception
+    when others then
+      pc_coderr := sqlcode;
+      pc_msgerr := sqlerrm;
+  end sp_parsearTrama;
+
+  --//
+  procedure sp_logTrama(pn_codcan in char,
+                        pc_trmpar in varchar2,
+                        pc_obstrm in varchar2,
+                        pc_coderr out varchar2,
+                        pc_msgerr out varchar2) is
+  
+    --//
+    lc_coderr varchar2(5) := '';
+    lc_msgerr varchar2(1000) := '';
+    --//
+    ln_serenv JAQL635.N_SERENV%type;
+    lc_canenv JAQL635.C_CANENV%type;
+    ld_fecenv JAQL635.D_FECENV%type;
+    lc_horenv JAQL635.C_HORENV%type;
+    lc_trmenv JAQL635.C_TRMENV%type;
+    lc_obsenv JAQL635.C_OBSENV%type;
+    lc_auxvc1 JAQL635.C_AUXVC1%type;
+    lc_auxvc2 JAQL635.C_AUXVC2%type;
+    lc_auxvc3 JAQL635.C_AUXVC3%type;
+    ln_auxnu1 JAQL635.N_AUXNU1%type;
+    ln_auxnu2 JAQL635.N_AUXNU2%type;
+    ln_auxnu3 JAQL635.N_AUXNU3%type;
+    ld_auxda1 JAQL635.D_AUXDA1%type;
+    ld_auxda2 JAQL635.D_AUXDA2%type;
+    ld_auxda3 JAQL635.D_AUXDA3%type;
+  
+  begin
+    --//
+    lc_coderr := '00000';
+    lc_msgerr := '';
+    --//
+    ln_serenv := SQ_CV_LOGACF_TRAMASUNIBANCA.NEXTVAL;
+    lc_canenv := lpad(to_char(pn_codcan), 10, '0');
+    ld_fecenv := trunc(sysdate);
+    lc_horenv := to_char(sysdate, 'HH24:mi:ss');
+    lc_trmenv := pc_trmpar;
+    lc_obsenv := pc_obstrm;
+    lc_auxvc1 := '';
+    lc_auxvc2 := '';
+    lc_auxvc3 := '';
+    ln_auxnu1 := 0;
+    ln_auxnu2 := 0;
+    ln_auxnu3 := 0;
+    ld_auxda1 := null;
+    ld_auxda2 := null;
+    ld_auxda3 := null;
+  
+    insert into JAQL635
+      (N_SERENV,
+       C_CANENV,
+       D_FECENV,
+       C_HORENV,
+       C_TRMENV,
+       C_OBSENV,
+       C_AUXVC1,
+       C_AUXVC2,
+       C_AUXVC3,
+       N_AUXNU1,
+       N_AUXNU2,
+       N_AUXNU3,
+       D_AUXDA1,
+       D_AUXDA2,
+       D_AUXDA3)
+    values
+      (ln_serenv,
+       lc_canenv,
+       ld_fecenv,
+       lc_horenv,
+       lc_trmenv,
+       lc_obsenv,
+       lc_auxvc1,
+       lc_auxvc2,
+       lc_auxvc3,
+       ln_auxnu1,
+       ln_auxnu2,
+       ln_auxnu3,
+       ld_auxda1,
+       ld_auxda2,
+       ld_auxda3);
+  
+    commit;
+    --//
+    pc_coderr := lc_coderr;
+    pc_msgerr := lc_msgerr;
+  exception
+    when others then
+      pc_coderr := sqlcode;
+      pc_msgerr := sqlerrm;
+  end sp_logTrama;
+
+  procedure sp_debugErrorres(pn_codcan in char,
+                             pc_trmpar in varchar2,
+                             pc_obstrm in varchar2,
+                             pc_coderr in varchar2,
+                             pc_msgerr in varchar2) is
+    --//
+    ld_fecenv JAQL635A.D_FECENV%type;
+    lc_horenv JAQL635A.C_HORENV%type;
+  begin
+    --//
+    ld_fecenv := trunc(sysdate);
+    lc_horenv := to_char(sysdate, 'HH24:mi:ss');
+    --//
+    insert into JAQL635A
+      (C_CANENV,
+       D_FECENV,
+       C_HORENV,
+       C_TRMENV,
+       C_OBSENV,
+       C_CODERR,
+       C_MGSERR)
+    values
+      (pn_codcan,
+       ld_fecenv,
+       lc_horenv,
+       pc_trmpar,
+       pc_obstrm,
+       pc_coderr,
+       pc_msgerr);
+    commit;
+  exception
+    when others then
+      null;
+  end sp_debugErrorres;
+
+--//
+end PQ_CV_MONITOREO_ACF_CJ;
+/
+

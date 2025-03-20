@@ -1,0 +1,20 @@
+create table FSFF28
+(
+  kdohpgcod NUMBER(3) not null,
+  kdohanio  NUMBER(4) not null,
+  kdohmes   NUMBER(2) not null,
+  kdohcc    NUMBER(3) not null,
+  kdohgcod  NUMBER(2) not null,
+  kdohg2cod NUMBER(2) not null,
+  kdohniv1  NUMBER(2) not null,
+  kdohniv2  NUMBER(2) not null,
+  kdohval1  NUMBER(17,4),
+  kdohval2  NUMBER(17,4),
+  kdohval3  NUMBER(17,4)
+)
+;
+create index FSFF2802 on FSFF28 (KDOHNIV1, KDOHNIV2);
+create index FSFF2803 on FSFF28 (KDOHCC, KDOHGCOD, KDOHG2COD);
+alter table FSFF28
+  add primary key (KDOHPGCOD, KDOHANIO, KDOHMES, KDOHCC, KDOHGCOD, KDOHG2COD, KDOHNIV1, KDOHNIV2);
+

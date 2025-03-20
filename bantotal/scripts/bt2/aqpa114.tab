@@ -1,0 +1,33 @@
+create table AQPA114
+(
+  aqpa114fec DATE not null,
+  aqpa114pgc NUMBER(3) not null,
+  aqpa114mod NUMBER(3) not null,
+  aqpa114suc NUMBER(3) not null,
+  aqpa114mda NUMBER(4) not null,
+  aqpa114pap NUMBER(4) not null,
+  aqpa114cta NUMBER(9) not null,
+  aqpa114ope NUMBER(9) not null,
+  aqpa114sbo NUMBER(3) not null,
+  aqpa114tpo NUMBER(3) not null,
+  aqpa114tas NUMBER(11,6),
+  aqpa114fre DATE,
+  aqpa114ure CHAR(10),
+  aqpa114are NUMBER(3),
+  aqpa114fmo DATE,
+  aqpa114umo CHAR(10),
+  aqpa114amo NUMBER(3),
+  aqpa114ax1 NUMBER(9),
+  aqpa114ax2 NUMBER(9),
+  aqpa114ax3 NUMBER(17,2),
+  aqpa114ax4 NUMBER(17,2),
+  aqpa114ax5 DATE,
+  aqpa114ax6 DATE,
+  aqpa114ax7 CHAR(100),
+  aqpa114ax8 CHAR(100),
+  aqpa114ax9 CHAR(100)
+)
+;
+alter table AQPA114
+  add primary key (AQPA114FEC, AQPA114PGC, AQPA114MOD, AQPA114SUC, AQPA114MDA, AQPA114PAP, AQPA114CTA, AQPA114OPE, AQPA114SBO, AQPA114TPO);
+

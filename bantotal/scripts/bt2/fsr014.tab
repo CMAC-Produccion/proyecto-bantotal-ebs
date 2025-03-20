@@ -1,0 +1,12 @@
+create table FSR014
+(
+  rubro  NUMBER(16) not null,
+  rrcod  NUMBER(3) not null,
+  rrrubr NUMBER(16)
+)
+;
+create index FSR01403 on FSR014 (RRRUBR, RRCOD);
+create index FSR01482 on FSR014 (RRCOD);
+alter table FSR014
+  add primary key (RUBRO, RRCOD);
+

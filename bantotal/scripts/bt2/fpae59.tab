@@ -1,0 +1,14 @@
+create table FPAE59
+(
+  pae51eva   NUMBER(3) not null,
+  pae59stgi  NUMBER(5) not null,
+  pae59stgf  NUMBER(5) not null,
+  pae85mrtip NUMBER(5),
+  pae86mftip NUMBER(5)
+)
+;
+create index FPAE5902 on FPAE59 (PAE59STGI);
+create index FPAE5903 on FPAE59 (PAE59STGF);
+alter table FPAE59
+  add primary key (PAE51EVA, PAE59STGI, PAE59STGF);
+

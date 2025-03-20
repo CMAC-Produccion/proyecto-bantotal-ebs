@@ -1,0 +1,57 @@
+create table AQPD316
+(
+  aqpd316creusr VARCHAR2(10) not null,
+  aqpd316nroreg NUMBER(9) not null,
+  aqpd316cretim TIMESTAMP(6),
+  aqpd316fecape DATE,
+  aqpd316clicta NUMBER(9),
+  aqpd316clinom VARCHAR2(90),
+  aqpd316moncod NUMBER(4),
+  aqpd316mondes VARCHAR2(10),
+  aqpd316dmonap NUMBER(18,2),
+  aqpd316dplazo NUMBER(6),
+  aqpd316fecven DATE,
+  aqpd316dptasa NUMBER(10,6),
+  aqpd316oficod NUMBER(3),
+  aqpd316drecod NUMBER(3),
+  aqpd316dredes VARCHAR2(30),
+  aqpd316cesifi VARCHAR2(1)
+)
+;
+comment on table AQPD316
+  is 'Reporte de Tesoreria - Tasa ponderada DPFs';
+comment on column AQPD316.aqpd316creusr
+  is 'Usuario de creación';
+comment on column AQPD316.aqpd316nroreg
+  is 'Nro. de Registro';
+comment on column AQPD316.aqpd316cretim
+  is 'Creación - Timestamp';
+comment on column AQPD316.aqpd316fecape
+  is 'Fecha Apertura';
+comment on column AQPD316.aqpd316clicta
+  is 'Cuenta Cliente';
+comment on column AQPD316.aqpd316clinom
+  is 'Nombre del Cliente';
+comment on column AQPD316.aqpd316moncod
+  is 'Moneda - Código';
+comment on column AQPD316.aqpd316mondes
+  is 'Moneda - Símbolo';
+comment on column AQPD316.aqpd316dmonap
+  is 'DPF - Monto de Apertura';
+comment on column AQPD316.aqpd316dplazo
+  is 'DPF - Plazo';
+comment on column AQPD316.aqpd316fecven
+  is 'DPF - Fecha Vencimiento';
+comment on column AQPD316.aqpd316dptasa
+  is 'DPF - TASA';
+comment on column AQPD316.aqpd316oficod
+  is 'Agencia';
+comment on column AQPD316.aqpd316drecod
+  is 'Región - Código';
+comment on column AQPD316.aqpd316dredes
+  is 'Región - Descripción';
+comment on column AQPD316.aqpd316cesifi
+  is 'FLAG - Entidad Financiera';
+alter table AQPD316
+  add primary key (AQPD316CREUSR, AQPD316NROREG);
+

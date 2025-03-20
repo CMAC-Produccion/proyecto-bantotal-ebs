@@ -1,0 +1,26 @@
+create table JBXIGE
+(
+  jbxigefec DATE not null,
+  jbxigeemp NUMBER(3) not null,
+  jbxigemod NUMBER(3) not null,
+  jbxigesuc NUMBER(3) not null,
+  jbxigemda NUMBER(4) not null,
+  jbxigepap NUMBER(4) not null,
+  jbxigecta NUMBER(9) not null,
+  jbxigeope NUMBER(9) not null,
+  jbxigesbo NUMBER(3) not null,
+  jbxigetop NUMBER(3) not null,
+  jbxigepai NUMBER(3) not null,
+  jbxigetdo NUMBER(2) not null,
+  jbxigendo CHAR(12) not null,
+  jbxigence CHAR(13) not null,
+  jbxigefus DATE,
+  jbxigemus NUMBER(17,2),
+  jbxigecvt CHAR(15),
+  jbxigecba CHAR(15),
+  jbxigemba CHAR(15),
+  jbxigecpq CHAR(15)
+)
+;
+create unique index JBXIGE01 on JBXIGE (JBXIGEFEC, JBXIGEEMP, JBXIGEMOD, JBXIGESUC, JBXIGEMDA, JBXIGEPAP, JBXIGECTA, JBXIGEOPE, JBXIGESBO, JBXIGETOP, JBXIGEPAI, JBXIGETDO, JBXIGENDO, JBXIGENCE);
+

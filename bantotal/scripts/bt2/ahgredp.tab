@@ -1,0 +1,43 @@
+create global temporary table AHGREDP
+(
+  c_codpro CHAR(2),
+  n_capchv NUMBER(12,2),
+  c_codmon CHAR(2),
+  n_sucurs NUMBER(3),
+  c_codina CHAR(1),
+  c_tipsbs CHAR(2),
+  c_codsbs CHAR(2),
+  c_tipmto CHAR(1),
+  c_tippla CHAR(1),
+  c_tipctr CHAR(1),
+  c_numcta CHAR(17) not null,
+  c_indgar CHAR(1)
+)
+on commit preserve rows;
+comment on table AHGREDP
+  is 'TABLA TEMPORAL RECLASIFICACION ASIENTOS CONTABLES DE DEPOSITOS';
+comment on column AHGREDP.c_codpro
+  is 'CODIGO DE PRODUCTO';
+comment on column AHGREDP.n_capchv
+  is 'MONTO DE CAPITAL MAS CHEQUES EN VALORIZACION';
+comment on column AHGREDP.c_codmon
+  is 'CODIGO DE MONEDA';
+comment on column AHGREDP.n_sucurs
+  is 'CODIGO DE AGENCIA';
+comment on column AHGREDP.c_codina
+  is 'CODIGO DE CUENTA ACTIVA/INACTIVA';
+comment on column AHGREDP.c_tipsbs
+  is 'CODIGO DE TIPO DE CUENTA SBS';
+comment on column AHGREDP.c_codsbs
+  is 'CODIGO DE CUENTA SBS';
+comment on column AHGREDP.c_tipmto
+  is 'TIPO DE MONTO K=CAPITAL/I=INTERES';
+comment on column AHGREDP.c_tippla
+  is 'CODIGO DE PLAZO C=CORTO/L=LARGO';
+comment on column AHGREDP.c_tipctr
+  is 'CODIGO DE CUENTA DE RETENCION JUDICIAL S/N';
+comment on column AHGREDP.c_numcta
+  is 'NUMERO DE CUENTA';
+comment on column AHGREDP.c_indgar
+  is 'INDICADOR CUENTA EN GARANTIAS S/N';
+

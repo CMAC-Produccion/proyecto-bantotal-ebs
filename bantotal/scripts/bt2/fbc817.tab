@@ -1,0 +1,32 @@
+create table FBC817
+(
+  bc817emp   NUMBER(3) not null,
+  bc817fch   DATE not null,
+  bc817inf   CHAR(10) not null,
+  bc817pais  CHAR(2) not null,
+  bc817tdoc  CHAR(3) not null,
+  bc817ndoc  CHAR(18) not null,
+  bc817tper  CHAR(1),
+  bc817res   CHAR(1),
+  bc817sec   NUMBER(5),
+  bc817temp  CHAR(1),
+  bc817paisr CHAR(2),
+  bc817fnac  NUMBER(8),
+  bc817pape  CHAR(20),
+  bc817sape  CHAR(20),
+  bc817nom   CHAR(40),
+  bc817sig   CHAR(20),
+  bc817razs  CHAR(40),
+  bc817nomf  CHAR(50),
+  bc817dom   CHAR(81),
+  bc817num1  NUMBER(16,2),
+  bc817num2  NUMBER(16,2),
+  bc817fch1  DATE,
+  bc817chr1  CHAR(30),
+  bc817chr2  CHAR(1),
+  bc817chr3  CHAR(1)
+)
+;
+alter table FBC817
+  add primary key (BC817EMP, BC817FCH, BC817INF, BC817PAIS, BC817TDOC, BC817NDOC);
+

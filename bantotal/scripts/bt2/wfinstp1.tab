@@ -1,0 +1,13 @@
+create table WFINSTP1
+(
+  wfinsprcid NUMBER(10) not null,
+  wfinsobjid NUMBER(4) not null,
+  wfinsobjds CHAR(40),
+  wfinsobjna CHAR(26),
+  wfiprcid   NUMBER(4),
+  wfobjid    NUMBER(4)
+)
+;
+alter table WFINSTP1
+  add primary key (WFINSPRCID, WFINSOBJID);
+

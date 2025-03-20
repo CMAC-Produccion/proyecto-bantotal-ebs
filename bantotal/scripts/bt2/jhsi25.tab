@@ -1,0 +1,34 @@
+create table JHSI25
+(
+  jhsi25apl  NUMBER(4) not null,
+  jhsi25band CHAR(5) not null,
+  jhsi25env  NUMBER(9) not null,
+  jhsi25cor  NUMBER(9) not null,
+  jhsi25regi CHAR(1),
+  jhsi25tdoc NUMBER(2),
+  jhsi25ndoc CHAR(15),
+  jhsi25ape  CHAR(50),
+  jhsi25nom  CHAR(40),
+  jhsi25_per CHAR(1),
+  jhsi25sexo CHAR(1),
+  jhsi25fcha NUMBER(8),
+  jhsi25t1te CHAR(1),
+  jhsi25tel1 CHAR(20),
+  jhsi25t2te CHAR(1),
+  jhsi25tel2 CHAR(20),
+  jhsi25t3te CHAR(1),
+  jhsi25tel3 CHAR(20),
+  jhsi25empl CHAR(50),
+  jhsi25fecn NUMBER(8),
+  jhsi25estc CHAR(1),
+  jhsi25tipo CHAR(3),
+  jhsi25idcl CHAR(20),
+  jhsi25fill CHAR(255),
+  jhsi25pepa NUMBER(3)
+)
+;
+create unique index JHSI2501 on JHSI25 (JHSI25APL, JHSI25BAND, JHSI25ENV, JHSI25COR);
+create index JHSI2502 on JHSI25 (JHSI25PEPA, JHSI25TDOC, JHSI25NDOC, JHSI25APL, JHSI25BAND, JHSI25ENV, JHSI25COR);
+create index JHSI2504 on JHSI25 (JHSI25IDCL, JHSI25APL, JHSI25BAND, JHSI25ENV, JHSI25COR);
+create index JHSI2505 on JHSI25 (JHSI25APE, JHSI25NOM, JHSI25APL, JHSI25BAND, JHSI25ENV, JHSI25COR);
+

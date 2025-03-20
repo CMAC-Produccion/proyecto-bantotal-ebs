@@ -1,0 +1,129 @@
+create table AQPB620
+(
+  aqpb620cor     NUMBER(18) not null,
+  aqpb620fec     DATE,
+  aqpb620hor     VARCHAR2(15),
+  aqpb620ntrx    VARCHAR2(50),
+  aqpb620nomcli  VARCHAR2(50),
+  aqpb620emp     NUMBER(3),
+  aqpb620mda     NUMBER(4),
+  aqpb620cta     NUMBER(9),
+  aqpb620ope     NUMBER(9),
+  aqpb620sope    NUMBER(3),
+  aqpb620tope    NUMBER(3),
+  aqpb620mod     NUMBER(3),
+  aqpb620sucope  VARCHAR2(50),
+  aqpb620dmdatr  VARCHAR2(10),
+  aqpb620sldcan  NUMBER(18,2),
+  aqpb620totcan  NUMBER(18,2),
+  aqpb620mntoto  NUMBER(18,2),
+  aqpb620emptrx  NUMBER(3),
+  aqpb620modtrx  NUMBER(3),
+  aqpb620suctrx  NUMBER(3),
+  aqpb620trx     NUMBER(3),
+  aqpb620reltrx  NUMBER(4),
+  aqpb620fcontrx DATE,
+  aqpb620nsuctr  VARCHAR2(50),
+  aqpb620nmod    VARCHAR2(50),
+  aqpb620ntope   VARCHAR2(50),
+  aqpb620ntipcr  VARCHAR2(50),
+  aqpb620ana     CHAR(10),
+  aqpb620tlf     VARCHAR2(1000),
+  aqpb620dircl   VARCHAR2(1000),
+  aqpb620dirng   VARCHAR2(1000),
+  aqpb620region  VARCHAR2(50),
+  aqpb620ctagar  NUMBER(9),
+  aqpb620opegar  NUMBER(9),
+  aqpb620mndgar  CHAR(4),
+  aqpb620mtogar  NUMBER(17,2),
+  aqpb620tipgar  CHAR(30),
+  aqpb620estgar  NUMBER(10),
+  aqpb620usurpt  CHAR(10),
+  aqpb620fecrpt  DATE
+)
+;
+comment on table AQPB620
+  is 'REPORTE CREDITOS CANCELADOS CON GARANTIA';
+comment on column AQPB620.aqpb620cor
+  is 'Correlativo';
+comment on column AQPB620.aqpb620fec
+  is 'Fecha';
+comment on column AQPB620.aqpb620hor
+  is 'Hora';
+comment on column AQPB620.aqpb620ntrx
+  is 'Transaccion';
+comment on column AQPB620.aqpb620nomcli
+  is 'Cliente';
+comment on column AQPB620.aqpb620emp
+  is 'Empresa';
+comment on column AQPB620.aqpb620mda
+  is 'Moneda';
+comment on column AQPB620.aqpb620cta
+  is 'Cuenta';
+comment on column AQPB620.aqpb620ope
+  is 'Operacion';
+comment on column AQPB620.aqpb620sope
+  is 'Sub_Oper';
+comment on column AQPB620.aqpb620tope
+  is 'Tipo_Oper';
+comment on column AQPB620.aqpb620mod
+  is 'Modulo';
+comment on column AQPB620.aqpb620sucope
+  is 'Sucursal_Ope';
+comment on column AQPB620.aqpb620dmdatr
+  is 'Moneda_Trx';
+comment on column AQPB620.aqpb620sldcan
+  is 'Saldo_Cancelado';
+comment on column AQPB620.aqpb620totcan
+  is 'Total_Cancelacion';
+comment on column AQPB620.aqpb620mntoto
+  is 'ImpOtorgado';
+comment on column AQPB620.aqpb620emptrx
+  is 'EmpresaTrx';
+comment on column AQPB620.aqpb620modtrx
+  is 'ModuloTrx';
+comment on column AQPB620.aqpb620suctrx
+  is 'SucursalTrx';
+comment on column AQPB620.aqpb620trx
+  is 'TransaccionTrx';
+comment on column AQPB620.aqpb620reltrx
+  is 'RelacionTrx';
+comment on column AQPB620.aqpb620fcontrx
+  is 'FConTrx';
+comment on column AQPB620.aqpb620nsuctr
+  is 'Sucursal_Transaccion';
+comment on column AQPB620.aqpb620nmod
+  is 'Modulo';
+comment on column AQPB620.aqpb620ntope
+  is 'Tipo_Oper';
+comment on column AQPB620.aqpb620ntipcr
+  is 'Tipo_Credito';
+comment on column AQPB620.aqpb620ana
+  is 'Analista';
+comment on column AQPB620.aqpb620tlf
+  is 'Telefono';
+comment on column AQPB620.aqpb620dircl
+  is 'Direccion_Cliente';
+comment on column AQPB620.aqpb620dirng
+  is 'Direccion_Negocio';
+comment on column AQPB620.aqpb620region
+  is 'Region';
+comment on column AQPB620.aqpb620ctagar
+  is 'Cta_Garantia';
+comment on column AQPB620.aqpb620opegar
+  is 'Oper_Garantia';
+comment on column AQPB620.aqpb620mndgar
+  is 'Moneda_Garantia';
+comment on column AQPB620.aqpb620mtogar
+  is 'Mto_Garantia';
+comment on column AQPB620.aqpb620tipgar
+  is 'Tipo_Garantia';
+comment on column AQPB620.aqpb620estgar
+  is 'Estado_Garantia';
+comment on column AQPB620.aqpb620usurpt
+  is 'UsuarioRpt';
+comment on column AQPB620.aqpb620fecrpt
+  is 'FechaRpt';
+alter table AQPB620
+  add primary key (AQPB620COR);
+

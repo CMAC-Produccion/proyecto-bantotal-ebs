@@ -1,0 +1,319 @@
+create table AQPB073
+(
+  aqpb073usur      CHAR(10) not null,
+  aqpb073corr      NUMBER(18),
+  aqpb073fec       DATE,
+  aqpb073hora      CHAR(8),
+  aqpb073pais      NUMBER(9) not null,
+  aqpb073tdoc      NUMBER(9) not null,
+  aqpb073ndoc      CHAR(12) not null,
+  aqpb073ipgcod    NUMBER(3),
+  aqpb073itsuc     NUMBER(3),
+  aqpb073itmod     NUMBER(3),
+  aqpb073ittran    NUMBER(3),
+  aqpb073itnrel    NUMBER(4),
+  aqpb073itord     NUMBER(2),
+  aqpb073itsbor    NUMBER(3),
+  aqpb073pgcod     NUMBER(5) not null,
+  aqpb073mod       NUMBER(5) not null,
+  aqpb073suc       NUMBER(5) not null,
+  aqpb073mda       NUMBER(5) not null,
+  aqpb073pap       NUMBER(5) not null,
+  aqpb073cta       NUMBER(10) not null,
+  aqpb073ope       NUMBER(10) not null,
+  aqpb073sbop      NUMBER(10) not null,
+  aqpb073tope      NUMBER(10) not null,
+  aqpb073esf       CHAR(11),
+  aqpb073ccob      VARCHAR2(13),
+  aqpb073fval      DATE,
+  aqpb073sdoi      NUMBER(17,2),
+  aqpb073mdad      CHAR(10),
+  aqpb073fcla      DATE,
+  aqpb073cnom      NUMBER(5,2),
+  aqpb073ccpp      NUMBER(5,2),
+  aqpb073cdef      NUMBER(5,2),
+  aqpb073cdud      NUMBER(5,2),
+  aqpb073cper      NUMBER(5,2),
+  aqpb073dcon      CHAR(4),
+  aqpb073ncon      CHAR(20),
+  aqpb073tasa      NUMBER(10,6),
+  aqpb073ntra      NUMBER(10),
+  aqpb073nven      NUMBER(17,2),
+  aqpb073expr      NUMBER(17,2),
+  aqpb073reg       NUMBER(9),
+  aqpb073nreg      CHAR(30),
+  aqpb073zon       NUMBER(9),
+  aqpb073nzon      CHAR(40),
+  aqpb073nsuc      CHAR(30),
+  aqpb073ase       CHAR(10),
+  aqpb073tcre      NUMBER(5),
+  aqpb073ncre      CHAR(20),
+  aqpb073ciuu      NUMBER(9),
+  aqpb073actn      CHAR(60),
+  aqpb073dmon      NUMBER(17,2),
+  aqpb073ncuo      NUMBER(8),
+  aqpb073pcuo      NUMBER(8),
+  aqpb073fvenuc    DATE,
+  aqpb073fvenup    DATE,
+  aqpb073fpag      DATE,
+  aqpb073ncuop     NUMBER,
+  aqpb073mcuop     NUMBER(17,2),
+  aqpb073dpag      NUMBER(17,2),
+  aqpb073gas       NUMBER(16,2),
+  aqpb073mor       NUMBER(16,2),
+  aqpb073int       NUMBER(16,2),
+  aqpb073cuo       NUMBER(16,2),
+  aqpb073icv       NUMBER(16,2),
+  aqpb073pen       NUMBER(16,2),
+  aqpb073diat      NUMBER(4),
+  aqpb073vcuo      DATE,
+  aqpb073tasm      NUMBER(10,6),
+  aqpb073pcob      NUMBER(5,2),
+  aqpb073mcob      NUMBER(17,2),
+  aqpb073fini      DATE,
+  aqpb073ffin      DATE,
+  aqpb073lrep      CHAR(2),
+  aqpb073nrep      NUMBER(10),
+  aqpb073frep      DATE,
+  aqpb073lamr      CHAR(2),
+  aqpb073famr      DATE,
+  aqpb073prel      NUMBER(17,2),
+  aqpb073camr      NUMBER(17,2),
+  aqpb073estd      CHAR(30),
+  aqpb073fcan      DATE,
+  aqpb073scap      NUMBER(17,2),
+  aqpb073fcae      DATE,
+  aqpb073dest      CHAR(5),
+  aqpb073inst      NUMBER(10),
+  aqpb073eval      NUMBER(10),
+  aqpb073fcr       VARCHAR2(10),
+  aqpb073hcr       VARCHAR2(10),
+  aqpb073stat      NUMBER(2),
+  aqpb073fe99      DATE,
+  aqpb073paisb     NUMBER(9),
+  aqpb073tdocb     NUMBER(9),
+  aqpb073ndocb     CHAR(12),
+  aqpb073diaimp    NUMBER(4),
+  aqpb073fproc     DATE,
+  aqpb073sdoins    NUMBER(17,2),
+  aqpb073ciiuori   VARCHAR2(5),
+  aqpb073actnomori VARCHAR2(60),
+  aqpb073mhonr     NUMBER(17,2),
+  aqpb073fhonr     DATE,
+  aqpb073chonr     CHAR(1),
+  aqpb073sdocap    NUMBER(17,2),
+  aqpb073sdohon    NUMBER(17,2),
+  aqpb073crehon    NUMBER(17,2),
+  aqpb073fclaa     DATE,
+  aqpb073cnoma     NUMBER(5,2),
+  aqpb073ccppa     NUMBER(5,2),
+  aqpb073cdefa     NUMBER(5,2),
+  aqpb073cduda     NUMBER(5,2),
+  aqpb073cpera     NUMBER(5,2),
+  aqpb073rnom      CHAR(70),
+  aqpb073codcob    CHAR(20),
+  aqpb073fcest     DATE,
+  aqpb073cuov      NUMBER(8),
+  aqpb073ncer      VARCHAR2(50),
+  aqpb073chon      VARCHAR2(50),
+  aqpb073ccob2     VARCHAR2(20),
+  aqpb073nrccor    NUMBER(6),
+  aqpb073nrccac    NUMBER(6),
+  aqpb073ffinco    DATE,
+  aqpb073conhon    VARCHAR2(50)
+)
+;
+comment on table AQPB073
+  is 'Reporte FONDO CRECER - 3.Reporte de Actualización de saldos';
+comment on column AQPB073.aqpb073usur
+  is 'Usuario que genera el reporte';
+comment on column AQPB073.aqpb073tdoc
+  is '1. Tipo Documento (RUC) ';
+comment on column AQPB073.aqpb073ndoc
+  is '2. Número Documento (N° de Ruc)';
+comment on column AQPB073.aqpb073itsuc
+  is '21. Agencia, sucursal ';
+comment on column AQPB073.aqpb073cta
+  is '23. Nro. Cuenta';
+comment on column AQPB073.aqpb073ope
+  is '24. Nro. Operación';
+comment on column AQPB073.aqpb073esf
+  is '3. ESF (Caja Arequipa)';
+comment on column AQPB073.aqpb073ccob
+  is '4. Código Cobertura (COFIDE)';
+comment on column AQPB073.aqpb073fval
+  is '5. Fecha Desembolso';
+comment on column AQPB073.aqpb073sdoi
+  is '6. Saldo Insoluto';
+comment on column AQPB073.aqpb073mdad
+  is '7. Moneda ';
+comment on column AQPB073.aqpb073fcla
+  is '8. Fecha de clasificación SBS';
+comment on column AQPB073.aqpb073cnom
+  is '9. Calificación Normal';
+comment on column AQPB073.aqpb073ccpp
+  is '10. Calificación CPP';
+comment on column AQPB073.aqpb073cdef
+  is '11. Calificación Deficiente';
+comment on column AQPB073.aqpb073cdud
+  is '12. Calificación Dudoso';
+comment on column AQPB073.aqpb073cper
+  is '13. Calificación Perdida ';
+comment on column AQPB073.aqpb073dcon
+  is '14. Situación Contable ';
+comment on column AQPB073.aqpb073ncon
+  is '14.1 Situación Contable - Concepto ';
+comment on column AQPB073.aqpb073tasa
+  is '15. Tasa de Interés';
+comment on column AQPB073.aqpb073ntra
+  is '16. Número Trabajadores ';
+comment on column AQPB073.aqpb073nven
+  is '17. Nivel Ventas ';
+comment on column AQPB073.aqpb073expr
+  is '18. Exportaciones';
+comment on column AQPB073.aqpb073reg
+  is '19. Región';
+comment on column AQPB073.aqpb073nreg
+  is '19.1 Región - Nombre';
+comment on column AQPB073.aqpb073zon
+  is '20. Zona ';
+comment on column AQPB073.aqpb073nzon
+  is '20.1 Zona - Nombre';
+comment on column AQPB073.aqpb073nsuc
+  is '21.1 Agencia(Sucursal) - Nombre                        ';
+comment on column AQPB073.aqpb073ase
+  is '22. Analista';
+comment on column AQPB073.aqpb073tcre
+  is '25. Tipo crédito SBS';
+comment on column AQPB073.aqpb073ncre
+  is '25.1 Tipo crédito SBS - Concepto';
+comment on column AQPB073.aqpb073ciuu
+  is '26. CIUU';
+comment on column AQPB073.aqpb073actn
+  is '27. Actividad';
+comment on column AQPB073.aqpb073dmon
+  is '28. Monto desembolsado';
+comment on column AQPB073.aqpb073ncuo
+  is '29. Número de cuotas ';
+comment on column AQPB073.aqpb073pcuo
+  is '30. Número de cuotas pendientes de pago';
+comment on column AQPB073.aqpb073fvenuc
+  is '31. FECHA DE VENCIMIENTO DE LA ÚLTIMA CUOTA IMPAGA';
+comment on column AQPB073.aqpb073fvenup
+  is '32. FECHA DE VENCIMIENTO DE ÚLTIMA CUOTA PAGADA';
+comment on column AQPB073.aqpb073fpag
+  is '33. FECHA DE PAGO DE ÚLTIMA CUOTA PAGADA';
+comment on column AQPB073.aqpb073ncuop
+  is '34. NÚMERO DE CUOTAS PAGADAS';
+comment on column AQPB073.aqpb073mcuop
+  is '35. MONTO DE CUOTAS PAGADAS';
+comment on column AQPB073.aqpb073dpag
+  is '36. DISTRIBUCIÓN DE PAGO';
+comment on column AQPB073.aqpb073gas
+  is '36.a Seguros';
+comment on column AQPB073.aqpb073mor
+  is '36.b Interés Moratorio';
+comment on column AQPB073.aqpb073int
+  is '36.c Intereses';
+comment on column AQPB073.aqpb073cuo
+  is '36.d Capital';
+comment on column AQPB073.aqpb073icv
+  is '36.e Interés compensatorio';
+comment on column AQPB073.aqpb073pen
+  is '36.f Penalidad';
+comment on column AQPB073.aqpb073diat
+  is '37. Días de atraso';
+comment on column AQPB073.aqpb073vcuo
+  is '38. Vencimiento de cuota atrasada';
+comment on column AQPB073.aqpb073tasm
+  is '39. Tasa de interés moratoria';
+comment on column AQPB073.aqpb073pcob
+  is '40. % cobertura';
+comment on column AQPB073.aqpb073mcob
+  is '41. Monto de cobertura';
+comment on column AQPB073.aqpb073fini
+  is '42. Fecha inicio crédito';
+comment on column AQPB073.aqpb073ffin
+  is '43. Fecha fin crédito';
+comment on column AQPB073.aqpb073lrep
+  is '44. Flag de reprogramación';
+comment on column AQPB073.aqpb073nrep
+  is '45. Número de reprogramaciones';
+comment on column AQPB073.aqpb073frep
+  is '46. Fecha de reprogramación';
+comment on column AQPB073.aqpb073lamr
+  is '47. Flag de amortización';
+comment on column AQPB073.aqpb073famr
+  is '48. Fecha de la amortización ';
+comment on column AQPB073.aqpb073prel
+  is '49. Pago realizado (el pago total)';
+comment on column AQPB073.aqpb073camr
+  is '50. Principal Amortizado (capital amortizado)';
+comment on column AQPB073.aqpb073estd
+  is '51. Estado del crédito (vigente/cancelado)';
+comment on column AQPB073.aqpb073fcan
+  is '52. Fecha de cancelación';
+comment on column AQPB073.aqpb073scap
+  is '53. SALDO CAPITAL CANCELADO';
+comment on column AQPB073.aqpb073fcae
+  is '54. Fecha de cambio de estado contable';
+comment on column AQPB073.aqpb073dest
+  is '55. Destino del crédito';
+comment on column AQPB073.aqpb073inst
+  is 'Instancia';
+comment on column AQPB073.aqpb073eval
+  is 'Evaluación';
+comment on column AQPB073.aqpb073ciiuori
+  is 'CIIU Origen';
+comment on column AQPB073.aqpb073actnomori
+  is 'Actividad Económica Origen';
+comment on column AQPB073.aqpb073mhonr
+  is 'monto honrado';
+comment on column AQPB073.aqpb073fhonr
+  is 'fecha honramiento';
+comment on column AQPB073.aqpb073chonr
+  is 'es credito honrado S/N';
+comment on column AQPB073.aqpb073sdocap
+  is 'saldo capital';
+comment on column AQPB073.aqpb073sdohon
+  is 'Saldo honrado';
+comment on column AQPB073.aqpb073crehon
+  is 'Saldo credito honrado';
+comment on column AQPB073.aqpb073fclaa
+  is 'Fecha Clasificacion Caja';
+comment on column AQPB073.aqpb073cnoma
+  is 'Calificacion Caja Normal';
+comment on column AQPB073.aqpb073ccppa
+  is 'calificacion Caja CPP';
+comment on column AQPB073.aqpb073cdefa
+  is 'Calificacion caja Deficiente';
+comment on column AQPB073.aqpb073cduda
+  is 'Calificacion Caja Dudosa';
+comment on column AQPB073.aqpb073cpera
+  is 'Calificacion Caja Perdida';
+comment on column AQPB073.aqpb073rnom
+  is 'Nombre cliente';
+comment on column AQPB073.aqpb073codcob
+  is 'codigo cobertura';
+comment on column AQPB073.aqpb073fcest
+  is 'Fecha cambio estado';
+comment on column AQPB073.aqpb073cuov
+  is 'N° cuotas vencidas';
+comment on column AQPB073.aqpb073ncer
+  is 'Numero de Certificado';
+comment on column AQPB073.aqpb073chon
+  is 'Certificado de Honra';
+comment on column AQPB073.aqpb073ccob2
+  is 'Codigo de cobertura 2';
+comment on column AQPB073.aqpb073nrccor
+  is 'Numero de cuotas del cronograma original enviado a COFIDE';
+comment on column AQPB073.aqpb073nrccac
+  is 'Numero de cuotas de cronograma actual';
+comment on column AQPB073.aqpb073ffinco
+  is 'Fecha final del crédito original';
+comment on column AQPB073.aqpb073conhon
+  is 'Contrato de Honramiento';
+create index AQPB0732 on AQPB073 (AQPB073USUR);
+alter table AQPB073
+  add primary key (AQPB073USUR, AQPB073PAIS, AQPB073TDOC, AQPB073NDOC, AQPB073PGCOD, AQPB073MOD, AQPB073SUC, AQPB073MDA, AQPB073PAP, AQPB073CTA, AQPB073OPE, AQPB073SBOP, AQPB073TOPE);
+

@@ -1,0 +1,101 @@
+create table AQPD154
+(
+  aqpd154emp     NUMBER(3) not null,
+  aqpd154mod     NUMBER(3) not null,
+  aqpd154suc     NUMBER(3) not null,
+  aqpd154mda     NUMBER(4) not null,
+  aqpd154pap     NUMBER(4) not null,
+  aqpd154cta     NUMBER(9) not null,
+  aqpd154ope     NUMBER(9) not null,
+  aqpd154sbop    NUMBER(3) not null,
+  aqpd154tope    NUMBER(3) not null,
+  aqpd154anlreg  VARCHAR2(10),
+  aqpd154tasact  NUMBER(10,6),
+  aqpd154tredu   NUMBER(10,6),
+  aqpd154predu   NUMBER(10,6),
+  aqpd154desfin  NUMBER(17,6),
+  aqpd154capint  NUMBER(17,2),
+  aqpd154cate    VARCHAR2(30),
+  aqpd154usrpa   VARCHAR2(10),
+  aqpd154codus1  NUMBER(9),
+  aqpd154usap2   VARCHAR2(10),
+  aqpd154codus2  NUMBER(9),
+  aqpd154estreg  VARCHAR2(2) not null,
+  aqpd154cpinto  NUMBER(17,2),
+  aqpd154usrmdcp VARCHAR2(10),
+  aqpd154prdesc  NUMBER(10,6),
+  aqpd154fec     DATE,
+  aqpc154hor     VARCHAR2(10),
+  aqpd154fecmod  DATE,
+  aqpc154hormod  VARCHAR2(10),
+  aqpc154usrmod  VARCHAR2(10),
+  aqpd154mntcpe  VARCHAR2(1)
+)
+;
+comment on table AQPD154
+  is 'Tabla créditos refinanciados procesados a aprobar';
+comment on column AQPD154.aqpd154emp
+  is 'Clv credito Empresa';
+comment on column AQPD154.aqpd154mod
+  is 'Clv. credito modulo';
+comment on column AQPD154.aqpd154suc
+  is 'Clv. credito sucursal';
+comment on column AQPD154.aqpd154mda
+  is 'Clv. credito moneda';
+comment on column AQPD154.aqpd154pap
+  is 'Clv. credito papel';
+comment on column AQPD154.aqpd154cta
+  is 'Clv. credito cuenta';
+comment on column AQPD154.aqpd154ope
+  is 'Clv. credito operacion';
+comment on column AQPD154.aqpd154sbop
+  is 'Clv. credito sub operacion';
+comment on column AQPD154.aqpd154tope
+  is 'Clv. credito tipo de operacion';
+comment on column AQPD154.aqpd154anlreg
+  is 'Analista que registra porcentaje de descuento';
+comment on column AQPD154.aqpd154tasact
+  is 'Tasa Actual';
+comment on column AQPD154.aqpd154tredu
+  is 'Tasa de Reduccion - despues de calcular con el porcentaje';
+comment on column AQPD154.aqpd154predu
+  is 'Porcentaje de reduccion - lo que analista propone';
+comment on column AQPD154.aqpd154desfin
+  is 'Descuento Final';
+comment on column AQPD154.aqpd154capint
+  is 'Capitalizaciones de interes';
+comment on column AQPD154.aqpd154cate
+  is 'Categoria o Situacion de negocio';
+comment on column AQPD154.aqpd154usrpa
+  is 'Usuario Propuesto para aprobar reduccion de tasa';
+comment on column AQPD154.aqpd154codus1
+  is 'Codigo de usuario aprobador para reduccion de tasa';
+comment on column AQPD154.aqpd154usap2
+  is 'Usuario propuesto para aprobar descuento de capitalizacion';
+comment on column AQPD154.aqpd154codus2
+  is 'Codigo de usuario aprobador para descuento de capitalizacion';
+comment on column AQPD154.aqpd154estreg
+  is 'Estado de Registro';
+comment on column AQPD154.aqpd154cpinto
+  is 'Monto Capitalizacion Original';
+comment on column AQPD154.aqpd154usrmdcp
+  is 'Usuario que modifico el Monto Capitalización';
+comment on column AQPD154.aqpd154prdesc
+  is 'Porcentaje de descuento - lo que analista propone';
+comment on column AQPD154.aqpd154fec
+  is 'Fecha de insercion del registro';
+comment on column AQPD154.aqpc154hor
+  is 'Hora de insercion del registro';
+comment on column AQPD154.aqpd154fecmod
+  is 'Fecha de modificacion del registro';
+comment on column AQPD154.aqpc154hormod
+  is 'Fecha de modificacion del registro';
+comment on column AQPD154.aqpc154usrmod
+  is 'Usuario que modificó el registro';
+comment on column AQPD154.aqpd154mntcpe
+  is 'Monto de Capitalizacion si fue editado S = si, N = no';
+create index AQPD154A2 on AQPD154 (AQPD154EMP, AQPD154MOD, AQPD154SUC, AQPD154MDA, AQPD154PAP, AQPD154CTA, AQPD154OPE, AQPD154SBOP, AQPD154TOPE);
+create index AQPD154A3 on AQPD154 (AQPD154OPE, AQPD154ESTREG);
+alter table AQPD154
+  add constraint AQPD154A1 primary key (AQPD154EMP, AQPD154MOD, AQPD154SUC, AQPD154MDA, AQPD154PAP, AQPD154CTA, AQPD154OPE, AQPD154SBOP, AQPD154TOPE, AQPD154ESTREG);
+

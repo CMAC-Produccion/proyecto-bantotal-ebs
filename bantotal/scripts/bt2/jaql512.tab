@@ -1,0 +1,19 @@
+create table JAQL512
+(
+  jaql508coent  NUMBER(3) not null,
+  jaql509cotse  NUMBER(3) not null,
+  jaql511cotco  NUMBER(3) not null,
+  jaql512cocan  NUMBER(3) not null,
+  jaql512tival  CHAR(1),
+  jaql512vasol  NUMBER(11,2),
+  jaql512vadol  NUMBER(11,2),
+  jaql512poval  NUMBER(11,4),
+  jaql512esreg  CHAR(1),
+  jaql512mtomin NUMBER(8,2) default 0,
+  jaql512mtomax NUMBER(8,2) default 0
+)
+;
+create index JAQL51202 on JAQL512 (JAQL511COTCO);
+alter table JAQL512
+  add primary key (JAQL508COENT, JAQL509COTSE, JAQL511COTCO, JAQL512COCAN);
+

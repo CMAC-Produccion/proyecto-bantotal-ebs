@@ -1,0 +1,108 @@
+create table AQPC175
+(
+  aqpc175emp  NUMBER(3) not null,
+  aqpc175mod  NUMBER(3) not null,
+  aqpc175suc  NUMBER(3) not null,
+  aqpc175mda  NUMBER(4) not null,
+  aqpc175pap  NUMBER(4) not null,
+  aqpc175cta  NUMBER(9) not null,
+  aqpc175ope  NUMBER(9) not null,
+  aqpc175sbp  NUMBER(3) not null,
+  aqpc175top  NUMBER(3) not null,
+  aqpc175dni  VARCHAR2(12),
+  aqpc175trep VARCHAR2(50),
+  aqpc175titu VARCHAR2(50),
+  aqpc175aval VARCHAR2(2),
+  aqpc175scmo NUMBER(18,2),
+  aqpc175dtmo NUMBER(18,2),
+  aqpc175scmn NUMBER(18,2),
+  aqpc175dtmn NUMBER(18,2),
+  aqpc175ppro NUMBER(18,2),
+  aqpc175cal  VARCHAR2(100),
+  aqpc175dmor NUMBER(9),
+  aqpc175econ VARCHAR2(20),
+  aqpc175ecre VARCHAR2(30),
+  aqpc175anl  VARCHAR2(20),
+  aqpc175abo  VARCHAR2(50),
+  aqpc175fdem DATE,
+  aqpc175npro NUMBER(10),
+  aqpc175ngru NUMBER(10),
+  aqpc175tgar VARCHAR2(2),
+  aqpc175gins VARCHAR2(200),
+  aqpc175tfon VARCHAR2(50),
+  aqpc175hon  VARCHAR2(2),
+  aqpc175fem  DATE,
+  aqpc175fult DATE
+)
+;
+comment on table AQPC175
+  is 'AQPC175';
+comment on column AQPC175.aqpc175emp
+  is 'EMPRESA';
+comment on column AQPC175.aqpc175mod
+  is 'MODULO';
+comment on column AQPC175.aqpc175suc
+  is 'SUCURSAL';
+comment on column AQPC175.aqpc175mda
+  is 'MONEDA';
+comment on column AQPC175.aqpc175pap
+  is 'PAPEL';
+comment on column AQPC175.aqpc175cta
+  is 'CUENTA';
+comment on column AQPC175.aqpc175ope
+  is 'OPERACION';
+comment on column AQPC175.aqpc175sbp
+  is 'SUBOPERACION';
+comment on column AQPC175.aqpc175top
+  is 'TIPO DE OPERACION';
+comment on column AQPC175.aqpc175dni
+  is 'DNI';
+comment on column AQPC175.aqpc175trep
+  is 'TITULAR REPRESENTATIVO';
+comment on column AQPC175.aqpc175titu
+  is 'TITULARES';
+comment on column AQPC175.aqpc175aval
+  is 'AVALES';
+comment on column AQPC175.aqpc175scmo
+  is 'SALDO CAPITAL MO';
+comment on column AQPC175.aqpc175dtmo
+  is 'DEUDA TOTAL MO';
+comment on column AQPC175.aqpc175scmn
+  is 'SALDO CAPITAL MN';
+comment on column AQPC175.aqpc175dtmn
+  is 'DEUDA TOTAL MN';
+comment on column AQPC175.aqpc175ppro
+  is '% PROVISION';
+comment on column AQPC175.aqpc175cal
+  is 'CALIFICACION';
+comment on column AQPC175.aqpc175dmor
+  is 'DIAS MORA';
+comment on column AQPC175.aqpc175econ
+  is 'ESTADO CONTABLE';
+comment on column AQPC175.aqpc175ecre
+  is 'ESTADO CREDITO';
+comment on column AQPC175.aqpc175anl
+  is 'ANALISTA';
+comment on column AQPC175.aqpc175abo
+  is 'ABOGADO ASIGNADO';
+comment on column AQPC175.aqpc175fdem
+  is 'FECHA DEMANDA';
+comment on column AQPC175.aqpc175npro
+  is 'NUMERO DE PROPUESTA';
+comment on column AQPC175.aqpc175ngru
+  is 'NUMERO DE GRUPO';
+comment on column AQPC175.aqpc175tgar
+  is 'TIENE GARANTIA?';
+comment on column AQPC175.aqpc175gins
+  is 'GARANTIAS INSCRITAS';
+comment on column AQPC175.aqpc175tfon
+  is 'TIPO DE FONDO';
+comment on column AQPC175.aqpc175hon
+  is 'FUE HONRADO EL FONDO?';
+comment on column AQPC175.aqpc175fem
+  is 'FECHA DE EMISION DEL REPORTE';
+comment on column AQPC175.aqpc175fult
+  is 'FECHA DE ULTIMO PAGO';
+alter table AQPC175
+  add primary key (AQPC175EMP, AQPC175MOD, AQPC175SUC, AQPC175MDA, AQPC175PAP, AQPC175CTA, AQPC175OPE, AQPC175SBP, AQPC175TOP);
+

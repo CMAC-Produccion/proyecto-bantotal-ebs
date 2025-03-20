@@ -1,0 +1,14 @@
+create table JAQZ470
+(
+  fraleid   NUMBER(6) not null,
+  fraletext VARCHAR2(80),
+  fralecall VARCHAR2(500),
+  fraleuser CHAR(30),
+  fraletype CHAR(1),
+  fraledate DATE
+)
+;
+create index JAQZ47A3 on JAQZ470 (FRALEID, FRALEUSER, FRALETYPE, FRALEDATE);
+create index JAQZ4701 on JAQZ470 (FRALEID);
+create index JAQZ4702 on JAQZ470 (FRALEDATE);
+

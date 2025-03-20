@@ -1,0 +1,23 @@
+create table FCPG43
+(
+  cpg41empbt NUMBER(3) not null,
+  cpg41conv  NUMBER(8) not null,
+  cpg41serv  NUMBER(3) not null,
+  cpg41fpres DATE not null,
+  cpg41nenv  NUMBER(3) not null,
+  cpg42nlote NUMBER(3) not null,
+  cpg45cod   NUMBER(3) not null,
+  cpg43facre NUMBER(8),
+  cpg43cmov  NUMBER(10),
+  cpg43est   CHAR(3),
+  cpg43blq   CHAR(1),
+  cpg43inst  NUMBER(10)
+)
+;
+create index FCPG4302 on FCPG43 (CPG45COD);
+create index FCPG4304 on FCPG43 (CPG41EMPBT, CPG41FPRES);
+create index FCPG4305 on FCPG43 (CPG41EMPBT, CPG41CONV, CPG43FACRE, CPG43EST, CPG41NENV, CPG42NLOTE);
+create index FCPG4306 on FCPG43 (CPG41EMPBT, CPG43FACRE, CPG45COD, CPG41NENV, CPG42NLOTE);
+alter table FCPG43
+  add primary key (CPG41EMPBT, CPG41CONV, CPG41SERV, CPG41FPRES, CPG41NENV, CPG42NLOTE, CPG45COD);
+

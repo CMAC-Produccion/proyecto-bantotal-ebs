@@ -1,0 +1,35 @@
+create table FSH011
+(
+  spcod    NUMBER(3) not null,
+  spsuc    NUMBER(3) not null,
+  sprub    NUMBER(16) not null,
+  spmda    NUMBER(4) not null,
+  sppap    NUMBER(4) not null,
+  spanio   NUMBER(4) not null,
+  spmes    NUMBER(2) not null,
+  sptit    NUMBER(2),
+  spcap    NUMBER(1),
+  sppzo    NUMBER(1),
+  spgru    NUMBER(2),
+  spdiahab NUMBER(2),
+  spdiasdo NUMBER(2),
+  spsdor   NUMBER(17,2),
+  spsdus   NUMBER(17,2),
+  spsdmn   NUMBER(17,2),
+  spsdor2  NUMBER(17,2),
+  spsdus2  NUMBER(17,2),
+  spsdmn2  NUMBER(17,2),
+  spsdor3  NUMBER(17,2),
+  spsdus3  NUMBER(17,2),
+  spsdmn3  NUMBER(17,2)
+)
+;
+create index FSH01104 on FSH011 (SPMDA);
+create index FSH01105 on FSH011 (SPANIO, SPMES, SPCOD, SPSUC, SPRUB, SPMDA, SPPAP);
+create index FSH01106 on FSH011 (SPRUB, SPCOD, SPSUC, SPMDA, SPPAP, SPANIO, SPMES);
+create index FSH01107 on FSH011 (SPPAP);
+create index FSH01108 on FSH011 (SPCOD, SPANIO, SPMES);
+create index FSH01109 on FSH011 (SPCOD, SPRUB, SPANIO, SPMES);
+alter table FSH011
+  add primary key (SPCOD, SPSUC, SPRUB, SPMDA, SPPAP, SPANIO, SPMES);
+

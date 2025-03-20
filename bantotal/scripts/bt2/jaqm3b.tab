@@ -1,0 +1,73 @@
+create table JAQM3B
+(
+  jaqm3bins NUMBER(10) not null,
+  jaqm3busu CHAR(10) not null,
+  jaqm3bfec DATE not null,
+  jaqm3bcod VARCHAR2(50) not null,
+  jaqm3bcor NUMBER(5) not null,
+  jaqm3bhor CHAR(8),
+  jaqm3brut VARCHAR2(250),
+  jaqm3barc VARCHAR2(50),
+  jaqm3bext CHAR(10),
+  jaqm3ban1 NUMBER(9),
+  jaqm3ban2 NUMBER(9),
+  jaqm3ban3 NUMBER(9),
+  jaqm3bad1 DATE,
+  jaqm3bad2 DATE,
+  jaqm3bad3 DATE,
+  jaqm3bai1 NUMBER(17,2),
+  jaqm3bai2 NUMBER(17,2),
+  jaqm3bai3 NUMBER(17,2),
+  jaqm3bac1 CHAR(255),
+  jaqm3bac2 CHAR(255),
+  jaqm3bac3 CHAR(255)
+)
+;
+comment on table JAQM3B
+  is 'Log de documentos para subir expedientes digitales';
+comment on column JAQM3B.jaqm3bins
+  is 'Instancia';
+comment on column JAQM3B.jaqm3busu
+  is 'Usuario';
+comment on column JAQM3B.jaqm3bfec
+  is 'Fecha subida documento';
+comment on column JAQM3B.jaqm3bcod
+  is 'Codigo Unico de documento';
+comment on column JAQM3B.jaqm3bcor
+  is 'Correlativo';
+comment on column JAQM3B.jaqm3bhor
+  is 'Hora';
+comment on column JAQM3B.jaqm3brut
+  is 'Ruta documento';
+comment on column JAQM3B.jaqm3barc
+  is 'Nombre Archivo';
+comment on column JAQM3B.jaqm3bext
+  is 'Extencion archivo';
+comment on column JAQM3B.jaqm3ban1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM3B.jaqm3ban2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM3B.jaqm3ban3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM3B.jaqm3bad1
+  is 'Date Auxiliar 1';
+comment on column JAQM3B.jaqm3bad2
+  is 'Date Auxiliar 2';
+comment on column JAQM3B.jaqm3bad3
+  is 'Date Auxiliar 3';
+comment on column JAQM3B.jaqm3bai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM3B.jaqm3bai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM3B.jaqm3bai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM3B.jaqm3bac1
+  is 'Character Auxiliar 1';
+comment on column JAQM3B.jaqm3bac2
+  is 'Character Auxiliar 2';
+comment on column JAQM3B.jaqm3bac3
+  is 'Character Auxiliar 3';
+create index JAQM3BA2 on JAQM3B (JAQM3BUSU, JAQM3BFEC);
+alter table JAQM3B
+  add primary key (JAQM3BINS, JAQM3BUSU, JAQM3BFEC, JAQM3BCOD, JAQM3BCOR);
+

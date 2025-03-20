@@ -1,0 +1,27 @@
+create table AQPC353
+(
+  aqpc353user VARCHAR2(128),
+  aqpc353feho DATE,
+  aqpc353proc VARCHAR2(500),
+  aqpc353inst NUMBER(10),
+  aqpc353mod  NUMBER(3),
+  aqpc353tope NUMBER(3)
+)
+;
+comment on table AQPC353
+  is 'Log Ejecución de procesos ';
+comment on column AQPC353.aqpc353user
+  is 'Usuario ejecutor';
+comment on column AQPC353.aqpc353feho
+  is 'Fecha y hora de ejecución';
+comment on column AQPC353.aqpc353proc
+  is 'Procedimiento ejecutado';
+comment on column AQPC353.aqpc353inst
+  is 'Instancia';
+comment on column AQPC353.aqpc353mod
+  is 'Modulo';
+comment on column AQPC353.aqpc353tope
+  is 'Tipo operacion';
+create index AQPC353A2 on AQPC353 (AQPC353FEHO);
+create index AQPC353A3 on AQPC353 (AQPC353USER);
+

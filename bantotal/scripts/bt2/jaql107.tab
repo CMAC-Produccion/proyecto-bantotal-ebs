@@ -1,0 +1,42 @@
+create table JAQL107
+(
+  jaql107pgc NUMBER(3) not null,
+  jaql107mod NUMBER(3) not null,
+  jaql107suc NUMBER(3) not null,
+  jaql107mon NUMBER(4) not null,
+  jaql107pap NUMBER(4) not null,
+  jaql107cta NUMBER(9) not null,
+  jaql107ope NUMBER(9) not null,
+  jaql107sbo NUMBER(3) not null,
+  jaql107top NUMBER(3) not null,
+  jaql107fch DATE not null,
+  jaql107cor NUMBER(4) not null,
+  jaql107est NUMBER(2) not null,
+  jaql107dcd NUMBER(3),
+  jaql107dmo NUMBER(3),
+  jaql107dsu NUMBER(3),
+  jaql107dtr NUMBER(3),
+  jaql107dre NUMBER(4),
+  jaql107cco NUMBER(3),
+  jaql107imp NUMBER(17,2),
+  jaql107dfc DATE,
+  jaql107dor NUMBER(2),
+  jaql107dsb NUMBER(3),
+  jaql107dco CHAR(1),
+  jaql107a01 NUMBER(9),
+  jaql107a02 NUMBER(9),
+  jaql107a03 NUMBER(9),
+  jaql107a04 NUMBER(17,2),
+  jaql107a05 NUMBER(17,2),
+  jaql107a06 NUMBER(17,2),
+  jaql107a07 CHAR(50),
+  jaql107a08 CHAR(50),
+  jaql107a09 CHAR(50),
+  jaql107a10 DATE,
+  jaql107a11 DATE,
+  jaql107a12 DATE
+)
+;
+alter table JAQL107
+  add primary key (JAQL107PGC, JAQL107MOD, JAQL107SUC, JAQL107MON, JAQL107PAP, JAQL107CTA, JAQL107OPE, JAQL107SBO, JAQL107TOP, JAQL107FCH, JAQL107COR, JAQL107EST);
+

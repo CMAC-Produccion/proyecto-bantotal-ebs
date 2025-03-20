@@ -1,0 +1,13 @@
+create table SDN002
+(
+  sdnid      CHAR(10) not null,
+  sdnaddid   CHAR(10) not null,
+  sdnaddress CHAR(125),
+  sdncity    CHAR(30),
+  sdncountry CHAR(40),
+  sdnaddrem  CHAR(200)
+)
+;
+alter table SDN002
+  add primary key (SDNID, SDNADDID);
+

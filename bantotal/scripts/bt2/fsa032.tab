@@ -1,0 +1,25 @@
+create table FSA032
+(
+  sa032emp NUMBER(3) not null,
+  sa032tbl CHAR(10) not null,
+  sa032suc NUMBER(3) not null,
+  sa032rub NUMBER(16) not null,
+  sa032mda NUMBER(4) not null,
+  sa032pap NUMBER(4) not null,
+  sa032cta NUMBER(9) not null,
+  sa032ope NUMBER(9) not null,
+  sa032sbo NUMBER(3) not null,
+  sa032top NUMBER(3) not null,
+  sa032fch DATE not null,
+  sa032mod NUMBER(3),
+  sa032sda NUMBER(17,2),
+  sa032sdp NUMBER(17,2),
+  sa032dif NUMBER(17,2),
+  sa032aju CHAR(1),
+  sa032tpo CHAR(3)
+)
+;
+create index FSA03202 on FSA032 (SA032EMP, SA032SUC, SA032RUB);
+alter table FSA032
+  add primary key (SA032EMP, SA032TBL, SA032SUC, SA032RUB, SA032MDA, SA032PAP, SA032CTA, SA032OPE, SA032SBO, SA032TOP, SA032FCH);
+

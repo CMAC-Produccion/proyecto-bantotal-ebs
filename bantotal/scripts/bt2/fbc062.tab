@@ -1,0 +1,26 @@
+create table FBC062
+(
+  bcrut1 CHAR(10) not null,
+  bcope2 CHAR(30) not null,
+  bctip2 CHAR(1) not null,
+  bcrut2 CHAR(10) not null,
+  bctcr2 NUMBER(4) not null,
+  bcraz2 CHAR(50),
+  bcporc NUMBER(5,2),
+  bcfec2 DATE,
+  bcmto2 NUMBER(17,2),
+  bcmda2 NUMBER(3),
+  bccal2 NUMBER(3),
+  bctas2 NUMBER(5,2),
+  bcfvt2 DATE,
+  bcpla2 NUMBER(4),
+  bcimd1 NUMBER(17,2),
+  bcimd2 NUMBER(17,2),
+  bcimd3 NUMBER(17,2),
+  bcimd4 NUMBER(17,2),
+  bcfll2 CHAR(1)
+)
+;
+alter table FBC062
+  add primary key (BCRUT1, BCOPE2, BCTIP2, BCRUT2, BCTCR2);
+

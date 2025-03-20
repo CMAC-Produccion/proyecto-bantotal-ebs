@@ -1,0 +1,27 @@
+create table FREC52
+(
+  rec50nro NUMBER(6) not null,
+  rec51srv NUMBER(6) not null,
+  rec52fco DATE not null,
+  rec52hco CHAR(8) not null,
+  rec52cd  NUMBER(3) not null,
+  rec52mo  NUMBER(3) not null,
+  rec52su  NUMBER(3) not null,
+  rec52tr  NUMBER(3) not null,
+  rec52re  NUMBER(4) not null,
+  rec52fc  DATE not null,
+  rec52or  NUMBER(2) not null,
+  rec52so  NUMBER(3) not null,
+  rec52cfo NUMBER(9),
+  rec52da2 NUMBER(17,2),
+  rec52da3 CHAR(50),
+  rec52da4 CHAR(50),
+  rec52ire NUMBER(17,2),
+  rec52ico NUMBER(17,2),
+  rec52co  CHAR(1)
+)
+;
+create index FREC5203 on FREC52 (REC52CD, REC52MO, REC52SU, REC52TR, REC52RE, REC52FC, REC52OR, REC52SO);
+alter table FREC52
+  add primary key (REC50NRO, REC51SRV, REC52FCO, REC52HCO, REC52CD, REC52MO, REC52SU, REC52TR, REC52RE, REC52FC, REC52OR, REC52SO);
+

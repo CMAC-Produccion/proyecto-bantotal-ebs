@@ -1,0 +1,37 @@
+create table JAQL813B
+(
+  jaql813bnusec NUMBER(10) not null,
+  jaql813btireg CHAR(1) not null,
+  jaql813btiinf CHAR(2) not null,
+  jaql813bortrx CHAR(2) not null,
+  jaql813bfetrx CHAR(4) not null,
+  jaql813bnutra CHAR(6) not null,
+  jaql813bnuref VARCHAR2(12) not null,
+  jaql813bmaswi CHAR(1),
+  jaql813btimen CHAR(4),
+  jaql813binpre CHAR(1),
+  jaql813bnutar CHAR(19),
+  jaql813bcopro CHAR(6),
+  jaql813bmonto NUMBER(11,2),
+  jaql813bmobas NUMBER(11,2),
+  jaql813bhotrx CHAR(6),
+  jaql813bferec CHAR(4),
+  jaql813bfelog CHAR(4),
+  jaql813btiter CHAR(2),
+  jaql813bcores CHAR(3),
+  jaql813bcomon CHAR(3),
+  jaql813bcta01 VARCHAR2(29),
+  jaql813bcta02 VARCHAR2(29),
+  jaql813bmoext NUMBER(11,2),
+  jaql813bfecon CHAR(4),
+  jaql813bincom CHAR(1),
+  jaql813bnulot CHAR(5),
+  jaql813bnuter CHAR(8),
+  jaql813bsecue CHAR(8),
+  jaql813breser VARCHAR2(20),
+  jaql813bcoest CHAR(1)
+)
+;
+alter table JAQL813B
+  add primary key (JAQL813BNUSEC, JAQL813BTIREG, JAQL813BTIINF, JAQL813BORTRX, JAQL813BFETRX, JAQL813BNUTRA, JAQL813BNUREF);
+

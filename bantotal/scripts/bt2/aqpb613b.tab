@@ -1,0 +1,99 @@
+create table AQPB613B
+(
+  aqpb613bcorr   NUMBER(10) not null,
+  aqpb613bfec    DATE not null,
+  aqpb613bhora   CHAR(10) not null,
+  aqpb613bpais   NUMBER(9),
+  aqpb613btdoc   NUMBER(9),
+  aqpb613bndoc   VARCHAR2(12),
+  aqpb613btcamb  NUMBER(14,8),
+  aqpb613binst   NUMBER(12) not null,
+  aqpb613bpgcod  NUMBER(5),
+  aqpb613bmod    NUMBER(5),
+  aqpb613bsuc    NUMBER(5),
+  aqpb613bmda    NUMBER(5),
+  aqpb613bpap    NUMBER(5),
+  aqpb613bcta    NUMBER(10),
+  aqpb613bope    NUMBER(10),
+  aqpb613bsbop   NUMBER(10),
+  aqpb613btope   NUMBER(10),
+  aqpb613bperio  NUMBER(5),
+  aqpb613bnrcuo  NUMBER(5),
+  aqpb613btsoli  NUMBER(5),
+  aqpb613bflcj   VARCHAR2(2),
+  aqpb613bcuoimp NUMBER(17,2),
+  aqpb613bseguro NUMBER(17,2),
+  aqpb613bcapfc  NUMBER(17,2),
+  aqpb613bcaplin NUMBER(17,2),
+  aqpb613bcapcuo NUMBER(17,2),
+  aqpb613bindic  VARCHAR2(10),
+  aqpb613best    VARCHAR2(2),
+  aqpb613buser   VARCHAR2(10),
+  aqpb613bfeclog DATE,
+  aqpb613bhorlog VARCHAR2(15)
+)
+;
+comment on column AQPB613B.aqpb613bcorr
+  is 'Correlativo';
+comment on column AQPB613B.aqpb613bfec
+  is 'Fecha de Solicitud';
+comment on column AQPB613B.aqpb613bhora
+  is 'Hora del Registro';
+comment on column AQPB613B.aqpb613bpais
+  is 'Pais';
+comment on column AQPB613B.aqpb613btdoc
+  is 'Tipo de Documento';
+comment on column AQPB613B.aqpb613bndoc
+  is 'Numero de Documento';
+comment on column AQPB613B.aqpb613btcamb
+  is 'Tipo de Cambio';
+comment on column AQPB613B.aqpb613binst
+  is 'Instancia';
+comment on column AQPB613B.aqpb613bpgcod
+  is 'Pgcod';
+comment on column AQPB613B.aqpb613bmod
+  is 'Modulo';
+comment on column AQPB613B.aqpb613bsuc
+  is 'Sucursal';
+comment on column AQPB613B.aqpb613bmda
+  is 'Moneda';
+comment on column AQPB613B.aqpb613bpap
+  is 'Papel';
+comment on column AQPB613B.aqpb613bcta
+  is 'Cuenta';
+comment on column AQPB613B.aqpb613bope
+  is 'Operacion';
+comment on column AQPB613B.aqpb613bsbop
+  is 'Sub Operación';
+comment on column AQPB613B.aqpb613btope
+  is 'Tipo Operación';
+comment on column AQPB613B.aqpb613bperio
+  is 'Periodo del Credito';
+comment on column AQPB613B.aqpb613bnrcuo
+  is 'Nro de Cuotas';
+comment on column AQPB613B.aqpb613btsoli
+  is 'Tipo de Solicitud';
+comment on column AQPB613B.aqpb613bflcj
+  is 'Indicador de Flujo de Caja';
+comment on column AQPB613B.aqpb613bcuoimp
+  is 'Seguro del Credito';
+comment on column AQPB613B.aqpb613bseguro
+  is 'Capacidad de Flujo de Caja';
+comment on column AQPB613B.aqpb613bcapfc
+  is 'Capacidad de Linea';
+comment on column AQPB613B.aqpb613bcaplin
+  is 'FECHA DESMONTAJE';
+comment on column AQPB613B.aqpb613bcapcuo
+  is 'FECHA DEVOLUCION';
+comment on column AQPB613B.aqpb613bindic
+  is 'Indicador del Credito (CredVigent, CredVuelo, CredLinea)';
+comment on column AQPB613B.aqpb613best
+  is 'Estado del Registro (H Habil, I inhabilitado)';
+comment on column AQPB613B.aqpb613bfeclog
+  is 'Fecha Log';
+comment on column AQPB613B.aqpb613bhorlog
+  is 'Hora log ';
+create index AQPB613B2 on AQPB613B (AQPB613BINST, AQPB613BFEC, AQPB613BHORA);
+alter table AQPB613B
+  add primary key (AQPB613BINST, AQPB613BFEC, AQPB613BHORA, AQPB613BCORR);
+

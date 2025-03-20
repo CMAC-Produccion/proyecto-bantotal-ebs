@@ -1,0 +1,18 @@
+create table JFAW334
+(
+  jfaw334fef DATE not null,
+  jfaw334fec DATE,
+  jfaw334usu CHAR(10),
+  jfaw334wrk CHAR(12),
+  jfaw334cnt NUMBER(10),
+  jfaw334cnv NUMBER(10),
+  jfaw334ax1 NUMBER(5),
+  jfaw334ax2 DATE,
+  jfaw334ax3 CHAR(20),
+  jfaw334ax4 NUMBER(8)
+)
+;
+create index JFAW33402 on JFAW334 (JFAW334AX4);
+alter table JFAW334
+  add primary key (JFAW334FEF);
+

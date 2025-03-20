@@ -1,0 +1,81 @@
+create table AQPB527
+(
+  aqpb527codigo NUMBER(9) not null,
+  aqpb527creusr VARCHAR2(10) not null,
+  aqpb527cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb527estado VARCHAR2(1),
+  aqpb527codrec VARCHAR2(20),
+  aqpb527codres VARCHAR2(9),
+  aqpb527msgres VARCHAR2(600),
+  aqpb527errsql VARCHAR2(200),
+  aqpb527msfile BLOB,
+  aqpb527fecrec VARCHAR2(10),
+  aqpb527tipdoc VARCHAR2(20),
+  aqpb527numdoc VARCHAR2(12),
+  aqpb527tipper VARCHAR2(1),
+  aqpb527numcel VARCHAR2(20),
+  aqpb527cemail VARCHAR2(100),
+  aqpb527apepat VARCHAR2(30),
+  aqpb527apemat VARCHAR2(30),
+  aqpb527nombre VARCHAR2(70),
+  aqpb527envfex DATE,
+  aqpb527envfec VARCHAR2(10),
+  aqpb527envhor VARCHAR2(8),
+  aqpb527envres VARCHAR2(2),
+  aqpb527caning NUMBER(3),
+  aqpb527canind VARCHAR2(20)
+)
+;
+comment on table AQPB527
+  is 'Reclamos (LOG de ENVIO de Notificaciones)';
+comment on column AQPB527.aqpb527codigo
+  is 'Codigo';
+comment on column AQPB527.aqpb527creusr
+  is 'Usuario';
+comment on column AQPB527.aqpb527cretim
+  is 'Fecha';
+comment on column AQPB527.aqpb527estado
+  is 'Estado';
+comment on column AQPB527.aqpb527codrec
+  is 'Codigo de Reclamo';
+comment on column AQPB527.aqpb527codres
+  is 'Codigo de Respuesta';
+comment on column AQPB527.aqpb527msgres
+  is 'MSG de Respuesta';
+comment on column AQPB527.aqpb527errsql
+  is 'Error SQL';
+comment on column AQPB527.aqpb527msfile
+  is 'Archivo Enviado';
+comment on column AQPB527.aqpb527fecrec
+  is 'Fecha de Reclamo';
+comment on column AQPB527.aqpb527tipdoc
+  is 'Tipo de Documento';
+comment on column AQPB527.aqpb527numdoc
+  is 'NRO de Documento';
+comment on column AQPB527.aqpb527tipper
+  is 'Tipo de Persona';
+comment on column AQPB527.aqpb527numcel
+  is 'Celular';
+comment on column AQPB527.aqpb527cemail
+  is 'EMAIL';
+comment on column AQPB527.aqpb527apepat
+  is 'Apellido PAT';
+comment on column AQPB527.aqpb527apemat
+  is 'Apellido MAT';
+comment on column AQPB527.aqpb527nombre
+  is 'Nombre';
+comment on column AQPB527.aqpb527envfex
+  is 'Envio Fecha (DATE)';
+comment on column AQPB527.aqpb527envfec
+  is 'Envio Fecha';
+comment on column AQPB527.aqpb527envhor
+  is 'Envio Hora';
+comment on column AQPB527.aqpb527envres
+  is 'Envio Respuesta';
+comment on column AQPB527.aqpb527caning
+  is 'Canal de Ingreso COD';
+comment on column AQPB527.aqpb527canind
+  is 'Canal de Ingreso DESC';
+alter table AQPB527
+  add primary key (AQPB527CODIGO);
+

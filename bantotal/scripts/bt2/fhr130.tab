@@ -1,0 +1,17 @@
+create table FHR130
+(
+  pgcod      NUMBER(3) not null,
+  coehmod    NUMBER(3) not null,
+  coehoper   NUMBER(9) not null,
+  coehmodid  NUMBER(5) not null,
+  coehtopc   NUMBER(2) not null,
+  coehcopc   NUMBER(3) not null,
+  coehtopcds CHAR(20),
+  coehcopcds CHAR(25),
+  coeiaopcst CHAR(1),
+  coeipopcst CHAR(1)
+)
+;
+alter table FHR130
+  add primary key (PGCOD, COEHMOD, COEHOPER, COEHMODID, COEHTOPC, COEHCOPC);
+

@@ -1,0 +1,118 @@
+create table AQPB152
+(
+  aqpb152mdesmb DATE,
+  aqpb152cta    NUMBER(9),
+  aqpb152ope    NUMBER(9),
+  aqpb152tdoc   VARCHAR2(4000),
+  aqpb152ndoc   VARCHAR2(4000),
+  aqpb152region VARCHAR2(30),
+  aqpb152zona   VARCHAR2(40),
+  aqpb152agncia VARCHAR2(30),
+  aqpb152tcred  VARCHAR2(15),
+  aqpb152ref    NUMBER,
+  aqpb152saldod NUMBER(17,2),
+  aqpb152co1m   NUMBER(17,2),
+  aqpb152co2m   NUMBER(17,2),
+  aqpb152co3m   NUMBER(17,2),
+  aqpb152co4m   NUMBER(17,2),
+  aqpb152co5m   NUMBER(17,2),
+  aqpb152co6m   NUMBER(17,2),
+  aqpb152co7m   NUMBER(17,2),
+  aqpb152co8m   NUMBER(17,2),
+  aqpb152co9m   NUMBER(17,2),
+  aqpb152co10m  NUMBER(17,2),
+  aqpb152co11m  NUMBER(17,2),
+  aqpb152co12m  NUMBER(17,2),
+  aqpb152co13m  NUMBER(17,2),
+  aqpb152co14m  NUMBER(17,2),
+  aqpb152co15m  NUMBER(17,2),
+  aqpb152flagpy NUMBER,
+  aqpb152bcmod  NUMBER(3),
+  aqpb152segmnt VARCHAR2(21),
+  aqpb152score  VARCHAR2(10),
+  aqpb152pd     NUMBER,
+  aqpb152sgclpy VARCHAR2(100),
+  aqpb152sgclcn VARCHAR2(100),
+  aqpb152flagcm NUMBER(2),
+  aqpb152campan VARCHAR2(50),
+  aqpb152crcma  VARCHAR2(30)
+)
+;
+comment on table AQPB152
+  is 'Copia CROJAS_anx.Cos';
+comment on column AQPB152.aqpb152mdesmb
+  is 'MES_DESEM';
+comment on column AQPB152.aqpb152cta
+  is 'BCCTA';
+comment on column AQPB152.aqpb152ope
+  is 'BCOPER';
+comment on column AQPB152.aqpb152tdoc
+  is 'TIPDOC';
+comment on column AQPB152.aqpb152ndoc
+  is 'PENDOC';
+comment on column AQPB152.aqpb152region
+  is 'REGION';
+comment on column AQPB152.aqpb152zona
+  is 'ZONA';
+comment on column AQPB152.aqpb152agncia
+  is 'AGENCIA';
+comment on column AQPB152.aqpb152tcred
+  is 'TIPOCRED';
+comment on column AQPB152.aqpb152ref
+  is 'REF';
+comment on column AQPB152.aqpb152saldod
+  is 'SALDO_DESEM';
+comment on column AQPB152.aqpb152co1m
+  is 'CO1M';
+comment on column AQPB152.aqpb152co2m
+  is 'CO2M';
+comment on column AQPB152.aqpb152co3m
+  is 'CO3M';
+comment on column AQPB152.aqpb152co4m
+  is 'CO4M';
+comment on column AQPB152.aqpb152co5m
+  is 'CO5M';
+comment on column AQPB152.aqpb152co6m
+  is 'CO6M';
+comment on column AQPB152.aqpb152co7m
+  is 'CO7M';
+comment on column AQPB152.aqpb152co8m
+  is 'CO8M';
+comment on column AQPB152.aqpb152co9m
+  is 'CO9M';
+comment on column AQPB152.aqpb152co10m
+  is 'CO10M';
+comment on column AQPB152.aqpb152co11m
+  is 'CO11M';
+comment on column AQPB152.aqpb152co12m
+  is 'CO12M';
+comment on column AQPB152.aqpb152co13m
+  is 'CO13M';
+comment on column AQPB152.aqpb152co14m
+  is 'CO14M';
+comment on column AQPB152.aqpb152co15m
+  is 'CO15M';
+comment on column AQPB152.aqpb152flagpy
+  is 'FLAG_PYMEPREND';
+comment on column AQPB152.aqpb152bcmod
+  is 'BCMOD';
+comment on column AQPB152.aqpb152segmnt
+  is 'SEGMENTACION';
+comment on column AQPB152.aqpb152score
+  is 'SCORE';
+comment on column AQPB152.aqpb152pd
+  is 'PD';
+comment on column AQPB152.aqpb152sgclpy
+  is 'SEGCLI_PYME';
+comment on column AQPB152.aqpb152sgclcn
+  is 'SEGCLI_CONS';
+comment on column AQPB152.aqpb152flagcm
+  is 'FLAG_CAMP';
+comment on column AQPB152.aqpb152campan
+  is 'CAMPAÑA';
+comment on column AQPB152.aqpb152crcma
+  is 'Cargo del Comite Aprobador';
+create index AQPB152A2 on AQPB152 (AQPB152MDESMB, AQPB152CTA, AQPB152OPE);
+create index AQPB152A3 on AQPB152 (AQPB152MDESMB);
+create index AQPB152A4 on AQPB152 (AQPB152CTA, AQPB152OPE);
+

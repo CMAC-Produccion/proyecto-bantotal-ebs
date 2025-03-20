@@ -1,0 +1,22 @@
+create table CJS016
+(
+  cjs016eor NUMBER(3) not null,
+  cjs015acc CHAR(3) not null,
+  cjs016dsc CHAR(30),
+  cjs016edt NUMBER(3),
+  cjs016ax1 NUMBER(4),
+  cjs016ax2 CHAR(15),
+  cjs016mod NUMBER(3),
+  cjs016trn NUMBER(3),
+  cjs016co  CHAR(1),
+  cjs016imp NUMBER(9),
+  cjs016cdi NUMBER(3),
+  cjs016ant CHAR(1),
+  cjs016sec NUMBER(3)
+)
+;
+create index CJS01602 on CJS016 (CJS015ACC);
+create index CJS01603 on CJS016 (CJS016SEC);
+alter table CJS016
+  add primary key (CJS016EOR, CJS015ACC);
+

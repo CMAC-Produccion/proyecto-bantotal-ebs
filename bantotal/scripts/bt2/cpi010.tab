@@ -1,0 +1,14 @@
+create table CPI010
+(
+  cpipais NUMBER(3) not null,
+  cpitdoc NUMBER(2) not null,
+  cpindoc CHAR(12) not null,
+  cpimod  NUMBER(3) not null,
+  cpitope NUMBER(4) not null,
+  cpimda  NUMBER(4) not null,
+  cpidsc  VARCHAR2(250)
+)
+;
+alter table CPI010
+  add primary key (CPIPAIS, CPITDOC, CPINDOC, CPIMOD, CPITOPE, CPIMDA);
+

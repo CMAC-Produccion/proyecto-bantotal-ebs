@@ -1,0 +1,19 @@
+create table Z05509
+(
+  z05509cap NUMBER(4) not null,
+  z05509cba CHAR(5) not null,
+  z05509cor NUMBER(9) not null,
+  z05509irg CHAR(2),
+  z05509oin CHAR(8),
+  z05509din CHAR(8),
+  z05509prd CHAR(10),
+  z05509fpr DATE,
+  z05509hpr CHAR(4),
+  z05509nar CHAR(1),
+  z05509ver CHAR(1),
+  z05509fi1 CHAR(108)
+)
+;
+alter table Z05509
+  add primary key (Z05509CAP, Z05509CBA, Z05509COR);
+

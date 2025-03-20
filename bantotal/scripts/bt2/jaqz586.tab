@@ -1,0 +1,31 @@
+create table JAQZ586
+(
+  jaqz586cod    NUMBER(17) not null,
+  jaqz586coddoc NUMBER(10) not null,
+  jaqz586frente NUMBER(4) not null,
+  jaqz586au1    NUMBER(4) not null,
+  jaqz586nrofir NUMBER(4),
+  jaqz586fech   DATE,
+  jaqz586hora   CHAR(8),
+  jaqz586usu    VARCHAR2(12),
+  jaqz586pais   NUMBER(4),
+  jaqz586tdoc   NUMBER(4),
+  jaqz586ndoc   CHAR(12),
+  jaqz586nom    VARCHAR2(60),
+  jaqz586ccargo NUMBER(4),
+  jaqz586cargo  VARCHAR2(40),
+  jaqz586nomarc VARCHAR2(40),
+  jaqz586ruta   VARCHAR2(40),
+  jaqz586au2    NUMBER(16,2),
+  jaqz586au3    NUMBER(17),
+  jaqz586au4    VARCHAR2(40),
+  jaqz586au5    VARCHAR2(100),
+  jaqz586au6    CHAR(20),
+  jaqz586au7    CHAR(100),
+  jaqz586au8    DATE,
+  jaqz586au9    NUMBER(4)
+)
+;
+alter table JAQZ586
+  add primary key (JAQZ586COD, JAQZ586CODDOC, JAQZ586FRENTE, JAQZ586AU1);
+

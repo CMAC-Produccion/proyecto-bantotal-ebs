@@ -1,0 +1,19 @@
+create table JAQY260
+(
+  jaqy259nutar CHAR(19) not null,
+  jaqy260corre NUMBER(9) not null,
+  jaqy260habil CHAR(1),
+  jaqy260usafi CHAR(20),
+  jaqy260feafi DATE,
+  jaqy260hoafi CHAR(8),
+  jaqy260usdes CHAR(20),
+  jaqy260fedes DATE,
+  jaqy260hodes CHAR(8),
+  jaqy260titar CHAR(1)
+)
+;
+create index JAQY260_03 on JAQY260 (JAQY260FEAFI);
+create index JAQY260_04 on JAQY260 (JAQY260FEDES);
+alter table JAQY260
+  add primary key (JAQY259NUTAR, JAQY260CORRE);
+

@@ -1,0 +1,24 @@
+create table AQPB007G
+(
+  aqpb007fep   DATE not null,
+  aqpb007cor   NUMBER(9) not null,
+  aqpb007emp   NUMBER(3) not null,
+  aqpb007mod   NUMBER(3) not null,
+  aqpb007suc   NUMBER(3) not null,
+  aqpb007mda   NUMBER(4) not null,
+  aqpb007pap   NUMBER(4) not null,
+  aqpb007cta   NUMBER(9) not null,
+  aqpb007ope   NUMBER(9) not null,
+  aqpb007sbo   NUMBER(3) not null,
+  aqpb007top   NUMBER(3) not null,
+  aqpb007tip   VARCHAR2(8),
+  aqpb007fer   DATE,
+  aqpb007crr   NUMBER(9),
+  aqpb007est   NUMBER(3),
+  aqpb007intca NUMBER(18,2),
+  aqpb007inter NUMBER(18,2)
+)
+;
+alter table AQPB007G
+  add primary key (AQPB007FEP, AQPB007COR, AQPB007EMP, AQPB007MOD, AQPB007SUC, AQPB007MDA, AQPB007PAP, AQPB007CTA, AQPB007OPE, AQPB007SBO, AQPB007TOP);
+

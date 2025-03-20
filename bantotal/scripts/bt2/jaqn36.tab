@@ -1,0 +1,49 @@
+create table JAQN36
+(
+  jaqn36cod NUMBER(3) not null,
+  jaqn36mod NUMBER(3) not null,
+  jaqn36tcu NUMBER(3) not null,
+  jaqn36top NUMBER(3) not null,
+  jaqn36mon NUMBER(4) not null,
+  jaqn36pap NUMBER(4) not null,
+  jaqn36fvi DATE not null,
+  jaqn36mot NUMBER(17,2) not null,
+  jaqn36tip CHAR(1) not null,
+  jaqn36fin NUMBER(8),
+  jaqn36fdv CHAR(1),
+  jaqn36pcp NUMBER(5),
+  jaqn36pmo NUMBER(5)
+)
+;
+comment on table JAQN36
+  is 'Parámetros ahorros TTI';
+comment on column JAQN36.jaqn36cod
+  is 'Codigo empresa';
+comment on column JAQN36.jaqn36mod
+  is 'Modulo';
+comment on column JAQN36.jaqn36tcu
+  is 'Tipo curva';
+comment on column JAQN36.jaqn36top
+  is 'tipo operación';
+comment on column JAQN36.jaqn36mon
+  is 'Moneda';
+comment on column JAQN36.jaqn36pap
+  is 'Papel';
+comment on column JAQN36.jaqn36fvi
+  is 'Vigencia';
+comment on column JAQN36.jaqn36mot
+  is 'Monto';
+comment on column JAQN36.jaqn36tip
+  is 'Tipo de persona';
+comment on column JAQN36.jaqn36fin
+  is 'Plazo sup';
+comment on column JAQN36.jaqn36fdv
+  is 'Estado';
+comment on column JAQN36.jaqn36pcp
+  is 'Plazo curva';
+comment on column JAQN36.jaqn36pmo
+  is 'Plazo movil';
+create index JAQN362 on JAQN36 (JAQN36COD, JAQN36MOD, JAQN36TCU, JAQN36TOP, JAQN36MON, JAQN36PAP, JAQN36FIN, JAQN36MOT);
+alter table JAQN36
+  add primary key (JAQN36COD, JAQN36MOD, JAQN36TCU, JAQN36TOP, JAQN36MON, JAQN36PAP, JAQN36FVI, JAQN36MOT, JAQN36TIP);
+

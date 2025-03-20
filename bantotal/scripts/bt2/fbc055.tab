@@ -1,0 +1,30 @@
+create table FBC055
+(
+  bcempcm   NUMBER(3) not null,
+  bcsuccm   NUMBER(3) not null,
+  bcfeccm   DATE not null,
+  bcrubcm   NUMBER(16) not null,
+  bcmdacm   NUMBER(4) not null,
+  bcpapcm   NUMBER(4) not null,
+  bcctacm   NUMBER(9) not null,
+  bcopecm   NUMBER(9) not null,
+  bcsbopcm  NUMBER(3) not null,
+  bctopecm  NUMBER(3) not null,
+  bcpondcm  NUMBER(10,6) not null,
+  bcpartcm  CHAR(8) not null,
+  bcsdocm   NUMBER(17,2),
+  bcintcm   NUMBER(17,2),
+  bcprevcm  NUMBER(17,2),
+  bcrel42cm NUMBER(17,2),
+  bccatcm   NUMBER(16),
+  bcriecm   NUMBER(10,6),
+  bchaygcm  CHAR(1)
+)
+;
+create index FBC05502 on FBC055 (BCEMPCM, BCSUCCM, BCFECCM, BCRUBCM, BCCTACM);
+create index FBC05503 on FBC055 (BCEMPCM, BCFECCM, BCRUBCM, BCMDACM, BCPONDCM, BCRIECM, BCPARTCM);
+create index FBC05504 on FBC055 (BCEMPCM, BCFECCM, BCPARTCM, BCPONDCM);
+create index FBC05505 on FBC055 (BCEMPCM, BCPARTCM, BCRUBCM, BCSUCCM, BCMDACM, BCPAPCM, BCCTACM, BCOPECM, BCSBOPCM, BCTOPECM, BCFECCM);
+alter table FBC055
+  add primary key (BCEMPCM, BCSUCCM, BCFECCM, BCRUBCM, BCMDACM, BCPAPCM, BCCTACM, BCOPECM, BCSBOPCM, BCTOPECM, BCPONDCM, BCPARTCM);
+

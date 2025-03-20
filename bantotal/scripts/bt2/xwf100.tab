@@ -1,0 +1,10 @@
+create table XWF100
+(
+  xwffrmprcid   NUMBER(4) not null,
+  xwffrmtaskcod NUMBER(4) not null,
+  frmcod        NUMBER(3)
+)
+;
+alter table XWF100
+  add primary key (XWFFRMPRCID, XWFFRMTASKCOD);
+

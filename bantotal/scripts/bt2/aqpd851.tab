@@ -1,0 +1,61 @@
+create table AQPD851
+(
+  aqpd851cor    NUMBER(30) not null,
+  aqpd851cue    NUMBER(10),
+  aqpd851ope    NUMBER,
+  aqpd851usu    CHAR(10),
+  aqpd851ins    NUMBER(10),
+  aqpd851fec    DATE,
+  aqpd851hor    VARCHAR2(15),
+  aqpd851cli    VARCHAR2(50),
+  aqpd851are    VARCHAR2(20),
+  aqpd851seg    VARCHAR2(50),
+  aqpd851age    VARCHAR2(70),
+  aqpd851map    NUMBER(17,2),
+  aqpd851tea    NUMBER(12,6),
+  aqpd851paj    NUMBER(10,4),
+  aqpd851tpr    NUMBER(12,6),
+  aqpd851des    VARCHAR2(50),
+  aqpd851gar    VARCHAR2(40),
+  aqpd851mot    VARCHAR2(500),
+  aqpd851arc    VARCHAR2(200),
+  aqpd851est    VARCHAR2(5),
+  aqpd851opi    VARCHAR2(500),
+  aqpd851uop    VARCHAR2(30),
+  aqpd851fop    DATE,
+  aqpd851eha    VARCHAR2(10),
+  aqpd851hca    VARCHAR2(15),
+  aqpd851car    BLOB,
+  aqpd851ufi    VARCHAR2(30),
+  aqpd851ffi    DATE,
+  aqpd851hfi    VARCHAR2(15),
+  aqpd851sco    VARCHAR2(10),
+  aqpd851pdef   NUMBER(10,7),
+  aqpd851srsgo  VARCHAR2(10),
+  aqpd851anali  VARCHAR2(70),
+  aqpd851gerag  VARCHAR2(70),
+  aqpd851estr   VARCHAR2(2),
+  aqpd851u512   VARCHAR2(30),
+  aqpd851u517   VARCHAR2(30),
+  aqpd851papro  NUMBER(10,4),
+  aqpd851teapro NUMBER(12,6),
+  aqpd851opire  VARCHAR2(500),
+  aqpd851tipoo  NUMBER(9),
+  aqpd851prfpa  CHAR(10),
+  aqpd851cargo  NUMBER(3),
+  aqpd851usrpa  CHAR(10),
+  aqpd851cmtpa  VARCHAR2(250),
+  aqpd851fpapr  DATE,
+  aqpd851hpapr  CHAR(8),
+  aqpd851tpapr  NUMBER(10,6),
+  aqpd851ppapr  NUMBER(10,4)
+)
+;
+create index AQPD851A1 on AQPD851 (AQPD851FEC, AQPD851USU);
+create index AQPD851A3 on AQPD851 (AQPD851EHA, AQPD851EST, AQPD851FEC);
+create index AQPD851A4 on AQPD851 (AQPD851EHA, AQPD851FEC);
+create index AQPD851A5 on AQPD851 (AQPD851EST, AQPD851FEC);
+create index AQPD851A6 on AQPD851 (AQPD851FEC);
+alter table AQPD851
+  add primary key (AQPD851COR);
+

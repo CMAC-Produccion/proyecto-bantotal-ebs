@@ -1,0 +1,75 @@
+create table AQPA141B
+(
+  aqpa141bcor NUMBER(9) not null,
+  aqpa141bfec DATE,
+  aqpa141bhor CHAR(8),
+  aqpa141btip CHAR(1),
+  aqpa141bmod CHAR(2),
+  aqpa141basu VARCHAR2(400),
+  aqpa141bdes VARCHAR2(400),
+  aqpa141bcco VARCHAR2(400),
+  aqpa141bnom VARCHAR2(50),
+  aqpa141bbdy CLOB,
+  aqpa141barc BLOB,
+  aqpa141best CHAR(1),
+  aqpa141bmsg VARCHAR2(400),
+  aqpa141bax1 NUMBER(9),
+  aqpa141bax2 NUMBER(9),
+  aqpa141bax3 NUMBER(17,2),
+  aqpa141bax4 NUMBER(17,2),
+  aqpa141bax5 DATE,
+  aqpa141bax6 DATE,
+  aqpa141bax7 CHAR(100),
+  aqpa141bax8 CHAR(100),
+  aqpa141bax9 CHAR(100)
+)
+;
+comment on table AQPA141B
+  is 'LOG ENVIO DE CORREO PROCESOS RRHH';
+comment on column AQPA141B.aqpa141bcor
+  is 'CORRELATIVO';
+comment on column AQPA141B.aqpa141bfec
+  is 'FECHA DE ENVIO (SISTEMA NO REAL)';
+comment on column AQPA141B.aqpa141bhor
+  is 'HORA DE ENVIO';
+comment on column AQPA141B.aqpa141btip
+  is 'TIPO DE PROCESO';
+comment on column AQPA141B.aqpa141bmod
+  is 'MODO DE PROCESO';
+comment on column AQPA141B.aqpa141basu
+  is 'ASUNTO';
+comment on column AQPA141B.aqpa141bdes
+  is 'DESTINOS';
+comment on column AQPA141B.aqpa141bcco
+  is 'CC COPIA DEL CORREO';
+comment on column AQPA141B.aqpa141bnom
+  is 'NOMBRE DEL ARCHIVO ADJUNTO';
+comment on column AQPA141B.aqpa141bbdy
+  is 'CUERPO DEL MENSAJE HTML';
+comment on column AQPA141B.aqpa141barc
+  is 'ARCHIVO ADJUNTO';
+comment on column AQPA141B.aqpa141best
+  is 'ESTADO DEL ENVIO';
+comment on column AQPA141B.aqpa141bmsg
+  is 'RESPUESTA DEL ENVIO';
+comment on column AQPA141B.aqpa141bax1
+  is 'Auxiliar';
+comment on column AQPA141B.aqpa141bax2
+  is 'Auxiliar';
+comment on column AQPA141B.aqpa141bax3
+  is 'Auxiliar';
+comment on column AQPA141B.aqpa141bax4
+  is 'Auxiliar';
+comment on column AQPA141B.aqpa141bax5
+  is 'Auxiliar';
+comment on column AQPA141B.aqpa141bax6
+  is 'Auxiliar';
+comment on column AQPA141B.aqpa141bax7
+  is 'Auxiliar';
+comment on column AQPA141B.aqpa141bax8
+  is 'Auxiliar';
+comment on column AQPA141B.aqpa141bax9
+  is 'Auxiliar';
+alter table AQPA141B
+  add primary key (AQPA141BCOR);
+

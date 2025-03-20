@@ -1,0 +1,21 @@
+create table PPG012
+(
+  ppg012mod  NUMBER(3) not null,
+  ppg012top  NUMBER(3) not null,
+  ppg012mda  NUMBER(4) not null,
+  ppg012pap  NUMBER(4) not null,
+  ppg012cdat NUMBER(5) not null,
+  ppg012obl  CHAR(1),
+  ppg012cdpg NUMBER(3),
+  ppg012ena  CHAR(1),
+  ppg012au1  NUMBER(9),
+  ppg012au2  NUMBER(9),
+  ppg012au3  DATE,
+  ppg012au4  DATE,
+  ppg012au5  NUMBER(17,2),
+  ppg012au6  CHAR(30)
+)
+;
+alter table PPG012
+  add primary key (PPG012MOD, PPG012TOP, PPG012MDA, PPG012PAP, PPG012CDAT);
+

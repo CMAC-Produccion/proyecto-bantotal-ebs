@@ -1,0 +1,121 @@
+create table JAQN7B
+(
+  jaqn7bfec DATE not null,
+  jaqn7busu CHAR(10) not null,
+  jaqn7bcod NUMBER(9) not null,
+  jaqn7bcor NUMBER(9) not null,
+  jaqn7bemp NUMBER(3),
+  jaqn7bsuc NUMBER(3),
+  jaqn7bmod NUMBER(3),
+  jaqn7btrn NUMBER(4),
+  jaqn7brel NUMBER(4),
+  jaqn7bfco DATE,
+  jaqn7bhor CHAR(10),
+  jaqn7best CHAR(1),
+  jaqn7bobs VARCHAR2(255),
+  jaqn7bfor CHAR(20),
+  jaqn7bcta NUMBER(9),
+  jaqn7bmda NUMBER(4),
+  jaqn7bope NUMBER(9),
+  jaqn7bsbp NUMBER(9),
+  jaqn7borg CHAR(1),
+  jaqn7bmtv NUMBER(9),
+  jaqn7bctd NUMBER(9),
+  jaqn7bmdd NUMBER(4),
+  jaqn7bsud NUMBER(3),
+  jaqn7bopd NUMBER(9),
+  jaqn7bgls CHAR(100),
+  jaqn7bac1 VARCHAR2(255),
+  jaqn7bac2 VARCHAR2(255),
+  jaqn7bac3 VARCHAR2(255),
+  jaqn7ban1 NUMBER(9),
+  jaqn7ban2 NUMBER(9),
+  jaqn7ban3 NUMBER(9),
+  jaqn7baf1 DATE,
+  jaqn7baf2 DATE,
+  jaqn7baf3 DATE,
+  jaqn7bai1 NUMBER(17,2),
+  jaqn7bai2 NUMBER(17,2),
+  jaqn7bai3 NUMBER(17,2)
+)
+;
+comment on table JAQN7B
+  is 'Carga cancelación DPF';
+comment on column JAQN7B.jaqn7bfec
+  is 'Fecha de ingreso';
+comment on column JAQN7B.jaqn7busu
+  is 'Usuario que ejecuta';
+comment on column JAQN7B.jaqn7bcod
+  is 'Codigo de registro';
+comment on column JAQN7B.jaqn7bcor
+  is 'Correlativo de registro';
+comment on column JAQN7B.jaqn7bemp
+  is 'Empresa';
+comment on column JAQN7B.jaqn7bsuc
+  is 'Sucursal';
+comment on column JAQN7B.jaqn7bmod
+  is 'Modulo';
+comment on column JAQN7B.jaqn7btrn
+  is 'Transaccion';
+comment on column JAQN7B.jaqn7brel
+  is 'Numero de relación';
+comment on column JAQN7B.jaqn7bfco
+  is 'Fecha de contabilizacion';
+comment on column JAQN7B.jaqn7bhor
+  is 'Hora contabilizacion';
+comment on column JAQN7B.jaqn7best
+  is 'Estado';
+comment on column JAQN7B.jaqn7bobs
+  is 'Observacion';
+comment on column JAQN7B.jaqn7bfor
+  is 'Forma de pago';
+comment on column JAQN7B.jaqn7bcta
+  is 'Cuenta del cliente';
+comment on column JAQN7B.jaqn7bmda
+  is 'Moneda DPF';
+comment on column JAQN7B.jaqn7bope
+  is 'Numero de Operacion DPF';
+comment on column JAQN7B.jaqn7bsbp
+  is 'SubOperacion DPF';
+comment on column JAQN7B.jaqn7borg
+  is 'Origen cancelacion';
+comment on column JAQN7B.jaqn7bmtv
+  is 'Motivo cancelacion';
+comment on column JAQN7B.jaqn7bctd
+  is 'Cuenta destino';
+comment on column JAQN7B.jaqn7bmdd
+  is 'Moneda destino';
+comment on column JAQN7B.jaqn7bsud
+  is 'Sucursal destino';
+comment on column JAQN7B.jaqn7bopd
+  is 'Operación destino';
+comment on column JAQN7B.jaqn7bgls
+  is 'Glosa origen de los Fondos';
+comment on column JAQN7B.jaqn7bac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN7B.jaqn7bac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN7B.jaqn7bac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN7B.jaqn7ban1
+  is 'Auxiliar numerico 1';
+comment on column JAQN7B.jaqn7ban2
+  is 'Auxiliar numerico 2';
+comment on column JAQN7B.jaqn7ban3
+  is 'Auxiliar numerico 3';
+comment on column JAQN7B.jaqn7baf1
+  is 'Auxiliar fecha 1';
+comment on column JAQN7B.jaqn7baf2
+  is 'Auxiliar fecha 2';
+comment on column JAQN7B.jaqn7baf3
+  is 'Auxiliar fecha 3';
+comment on column JAQN7B.jaqn7bai1
+  is 'Auxiliar importe 1';
+comment on column JAQN7B.jaqn7bai2
+  is 'Auxiliar importe 2';
+comment on column JAQN7B.jaqn7bai3
+  is 'Auxiliar importe 3';
+create index JAQN7BA2 on JAQN7B (JAQN7BEMP, JAQN7BSUC, JAQN7BMOD, JAQN7BTRN, JAQN7BREL, JAQN7BFCO);
+alter table JAQN7B
+  add primary key (JAQN7BFEC, JAQN7BUSU, JAQN7BCOD, JAQN7BCOR);
+

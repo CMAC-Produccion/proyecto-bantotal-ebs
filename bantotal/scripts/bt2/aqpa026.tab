@@ -1,0 +1,48 @@
+create table AQPA026
+(
+  aqpa026vlta  NUMBER(10) not null,
+  aqpa026corr  NUMBER(10) not null,
+  aqpa026fech  DATE,
+  aqpa026hora  CHAR(8),
+  aqpa026pais  NUMBER(3),
+  aqpa026tdo   NUMBER(2),
+  aqpa026ndoc  CHAR(12),
+  aqpa026anco  CHAR(10),
+  aqpa026ancl  CHAR(10),
+  aqpa026rpta  NUMBER(2),
+  aqpa026canal NUMBER(5),
+  aqpa026tipo  CHAR(1),
+  aqpa026tcon  VARCHAR2(50)
+)
+;
+comment on column AQPA026.aqpa026vlta
+  is 'vuelta';
+comment on column AQPA026.aqpa026corr
+  is 'correlativo';
+comment on column AQPA026.aqpa026fech
+  is 'fecha';
+comment on column AQPA026.aqpa026hora
+  is 'hora';
+comment on column AQPA026.aqpa026pais
+  is 'pais';
+comment on column AQPA026.aqpa026tdo
+  is 'tipo documento';
+comment on column AQPA026.aqpa026ndoc
+  is 'numero documento';
+comment on column AQPA026.aqpa026anco
+  is 'analista consulta';
+comment on column AQPA026.aqpa026ancl
+  is 'analista cliente';
+comment on column AQPA026.aqpa026rpta
+  is '1 - no salta alerta. 0 - salta alerta';
+comment on column AQPA026.aqpa026canal
+  is 'canal';
+comment on column AQPA026.aqpa026tipo
+  is 'T titular - C conyuge';
+comment on column AQPA026.aqpa026tcon
+  is 'tipo consulta';
+create index AQPA0262 on AQPA026 (AQPA026FECH);
+create index AQPA0263 on AQPA026 (AQPA026PAIS, AQPA026TDO, AQPA026NDOC);
+alter table AQPA026
+  add primary key (AQPA026VLTA, AQPA026CORR);
+

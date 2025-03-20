@@ -1,0 +1,50 @@
+create table JAQM749
+(
+  jaqm749fch DATE not null,
+  jaqm749cor NUMBER(10) not null,
+  jaqm749hor CHAR(8) not null,
+  jaqm749ins NUMBER(10),
+  jaqm749nev NUMBER(10),
+  jaqm749pai NUMBER(3),
+  jaqm749tdo NUMBER(2),
+  jaqm749ndo CHAR(12),
+  jaqm749per CHAR(30),
+  jaqm749rel CHAR(20),
+  jaqm749rub VARCHAR2(14),
+  jaqm749est CHAR(2),
+  jaqm749ent VARCHAR2(200),
+  jaqm749tcr CHAR(30),
+  jaqm749mda NUMBER(4),
+  jaqm749lin CHAR(20),
+  jaqm749sde NUMBER(17,2),
+  jaqm749pzo NUMBER(9,6),
+  jaqm749tas NUMBER(9,6),
+  jaqm749ccl NUMBER(17,2),
+  jaqm749gfi NUMBER(17,2),
+  jaqm749tli NUMBER(17,2),
+  jaqm749uti NUMBER(17,2),
+  jaqm749frc DATE,
+  jaqm749dor CHAR(1),
+  jaqm749chk CHAR(1),
+  jaqm749fli VARCHAR2(1),
+  jaqm749cpt NUMBER(16,2),
+  jaqm749fa1 NUMBER(9,6),
+  jaqm749fa2 NUMBER(9,6),
+  jaqm749fa3 NUMBER(9,6),
+  jaqm749cnt VARCHAR2(10),
+  jaqm749ax1 NUMBER(10),
+  jaqm749ax2 NUMBER(17,2),
+  jaqm749ax3 CHAR(1),
+  jaqm749ax4 VARCHAR2(1),
+  jaqm749ax5 VARCHAR2(50),
+  jaqm749ax6 DATE,
+  jaqm749ax7 NUMBER(10),
+  jaqm749ax8 NUMBER(17,2),
+  jaqm749ax9 VARCHAR2(40)
+)
+;
+create index JAQM7492 on JAQM749 (JAQM749INS, JAQM749NEV, JAQM749PAI, JAQM749TDO, JAQM749NDO, JAQM749EST, JAQM749SDE, JAQM749PZO, JAQM749TAS, JAQM749CCL);
+create index JAQM7493 on JAQM749 (JAQM749NEV, JAQM749PAI, JAQM749TDO, JAQM749NDO, JAQM749EST);
+alter table JAQM749
+  add primary key (JAQM749FCH, JAQM749COR, JAQM749HOR);
+

@@ -1,0 +1,37 @@
+create table AUD_SNG225_AUDIT
+(
+  aud_old_sng224cod  NUMBER(3),
+  aud_new_sng224cod  NUMBER(3),
+  aud_old_sng225cod  NUMBER(3),
+  aud_new_sng225cod  NUMBER(3),
+  aud_old_sng225dc   CHAR(1),
+  aud_new_sng225dc   CHAR(1),
+  aud_old_sng225ddir VARCHAR2(400),
+  aud_new_sng225ddir VARCHAR2(400),
+  aud_old_sng225dds  CHAR(20),
+  aud_new_sng225dds  CHAR(20),
+  aud_old_sng225dsc  CHAR(40),
+  aud_new_sng225dsc  CHAR(40),
+  aud_old_sng225para CHAR(1),
+  aud_new_sng225para CHAR(1),
+  aud_old_sng225parb CHAR(1),
+  aud_new_sng225parb CHAR(1),
+  aud_old_sng225prog CHAR(10),
+  aud_new_sng225prog CHAR(10),
+  aud_old_sng225rep  NUMBER(10),
+  aud_new_sng225rep  NUMBER(10),
+  aud_sng225_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_sng225_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng225_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sng225_ubr     VARCHAR2(50) default ' ' not null,
+  aud_sng225_ubc     VARCHAR2(50) default ' ' not null,
+  aud_sng225_ubt     VARCHAR2(50) default ' ' not null,
+  aud_sng225_ubu     VARCHAR2(50) default USER not null,
+  aud_sng225_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng225_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng225_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng225_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sng225_uas     CHAR(1) default 'I' not null
+)
+;
+

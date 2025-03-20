@@ -1,0 +1,20 @@
+create table FSFF86
+(
+  dtyscoemp NUMBER(3) not null,
+  dtyscocon NUMBER(9) not null,
+  dtyscosco NUMBER(9) not null,
+  dtyscodes CHAR(40),
+  dtyscorub NUMBER(16),
+  dtyaux001 NUMBER(9),
+  dtyaux002 NUMBER(9),
+  dtyaux003 DATE,
+  dtyaux004 DATE,
+  dtyaux005 NUMBER(17,2),
+  dtyaux006 NUMBER(17,2),
+  dtyaux007 CHAR(35),
+  dtyaux008 CHAR(35)
+)
+;
+alter table FSFF86
+  add primary key (DTYSCOEMP, DTYSCOCON, DTYSCOSCO);
+

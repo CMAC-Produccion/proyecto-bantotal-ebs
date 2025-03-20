@@ -1,0 +1,76 @@
+create table Z05201
+(
+  z05201nrot CHAR(19) not null,
+  z05201nom  CHAR(24),
+  z05201pait NUMBER(3),
+  z05201ndot CHAR(12),
+  z05201tdot NUMBER(2),
+  z05201nomt CHAR(30),
+  z05201paiu NUMBER(3),
+  z05201ndou CHAR(12),
+  z05201tdou NUMBER(2),
+  z05201nomu CHAR(30),
+  z05201sori NUMBER(3),
+  z05201sorn CHAR(30),
+  z05202tipo CHAR(1),
+  z05203clas CHAR(1),
+  z05204codi CHAR(3),
+  z05205cod  NUMBER(3),
+  z05206cod  NUMBER(2),
+  z05201embo CHAR(24),
+  z05206lin4 CHAR(24),
+  z05201sucd NUMBER(3),
+  z05201sdn  CHAR(30),
+  z05201ctd  NUMBER(9),
+  z05201sctd NUMBER(3),
+  z05201modd NUMBER(3),
+  z05201mond NUMBER(4),
+  z05201papd NUMBER(4),
+  z05201oped NUMBER(9),
+  z05201topd NUMBER(3),
+  z05201sucv NUMBER(3),
+  z05201svn  CHAR(30),
+  z05201ctv  NUMBER(9),
+  z05201sctv NUMBER(3),
+  z05201modv NUMBER(3),
+  z05201monv NUMBER(4),
+  z05201papv NUMBER(4),
+  z05201opev NUMBER(9),
+  z05201topv NUMBER(3),
+  z05201usur CHAR(10),
+  z05201esta CHAR(1),
+  z05201pgco NUMBER(3),
+  z05209tipo NUMBER(5),
+  z05201stat NUMBER(2),
+  z05201tdom CHAR(1),
+  z05201cdom NUMBER(2),
+  z05201ctad NUMBER(9),
+  z05201acti NUMBER(1),
+  z05201cfme NUMBER(9,2),
+  z05201cree NUMBER(9,2),
+  z05201cemi NUMBER(9,2),
+  z05201ntnu NUMBER(18),
+  z05201fcam DATE,
+  z05201falt DATE,
+  z05201fbaj DATE,
+  z05201free DATE,
+  z05201fpin DATE,
+  z05201fult DATE,
+  z05201tenv CHAR(1),
+  z05201dire CHAR(30)
+)
+;
+create index Z0520102 on Z05201 (Z05206COD);
+create index Z0520103 on Z05201 (Z05205COD);
+create index Z0520104 on Z05201 (Z05204CODI);
+create index Z0520105 on Z05201 (Z05203CLAS);
+create index Z0520106 on Z05201 (Z05202TIPO);
+create index Z0520107 on Z05201 (Z05209TIPO);
+create index Z0520108 on Z05201 (Z05201NTNU);
+create index Z0520109 on Z05201 (Z05201NOMT);
+create index Z0520110 on Z05201 (Z05201NOMU);
+create index Z0520112 on Z05201 (Z05201SUCD, Z05201MOND, Z05201PAPD, Z05201CTD, Z05201OPED, Z05201SCTD, Z05201TOPD, Z05201MODD);
+create index Z0520113 on Z05201 (Z05201SUCV, Z05201MONV, Z05201PAPV, Z05201CTV, Z05201OPEV, Z05201SCTV, Z05201TOPV, Z05201MODV);
+alter table Z05201
+  add primary key (Z05201NROT);
+

@@ -1,0 +1,79 @@
+create table JAQA39
+(
+  jaqa39nco NUMBER(4) not null,
+  jaqa39fec DATE not null,
+  jaqa39cor NUMBER(9) not null,
+  jaqa39hor CHAR(8),
+  jaqa39mpg CHAR(25),
+  jaqa39dco NUMBER(9),
+  jaqa39dpa NUMBER(9),
+  jaqa39snd NUMBER(9),
+  jaqa39sct CHAR(1),
+  jaqa39mnd VARCHAR2(250),
+  jaqa39mct NUMBER(17,2),
+  jaqa39an1 NUMBER(9),
+  jaqa39an2 NUMBER(9),
+  jaqa39an3 NUMBER(9),
+  jaqa39ai1 NUMBER(17,2),
+  jaqa39ai2 NUMBER(17,2),
+  jaqa39ai3 NUMBER(17,2),
+  jaqa39ac1 CHAR(255),
+  jaqa39ac2 CHAR(255),
+  jaqa39ac3 CHAR(255),
+  jaqa39av1 VARCHAR2(255),
+  jaqa39av2 VARCHAR2(255),
+  jaqa39av3 VARCHAR2(255)
+)
+;
+comment on table JAQA39
+  is 'Monto de Cheque o Transferencia - Recojo de Cheque';
+comment on column JAQA39.jaqa39nco
+  is 'Numero de Convenio';
+comment on column JAQA39.jaqa39fec
+  is 'Fecha';
+comment on column JAQA39.jaqa39cor
+  is 'Correlativo';
+comment on column JAQA39.jaqa39hor
+  is 'Hora';
+comment on column JAQA39.jaqa39mpg
+  is 'Medio de pago C = Cheque / T = Transferencia';
+comment on column JAQA39.jaqa39dco
+  is 'Descuento Completo';
+comment on column JAQA39.jaqa39dpa
+  is 'Descuento Parcial';
+comment on column JAQA39.jaqa39snd
+  is 'Sin Descuento';
+comment on column JAQA39.jaqa39sct
+  is 'Sin Cheque o Transferencia';
+comment on column JAQA39.jaqa39mnd
+  is 'Motivo del No Descuento';
+comment on column JAQA39.jaqa39mct
+  is 'Monto de Cheque o Transferencia';
+comment on column JAQA39.jaqa39an1
+  is 'Auxiliar Numerico 1';
+comment on column JAQA39.jaqa39an2
+  is 'Auxiliar Numerico 2';
+comment on column JAQA39.jaqa39an3
+  is 'Auxiliar Numerico 3';
+comment on column JAQA39.jaqa39ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQA39.jaqa39ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQA39.jaqa39ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQA39.jaqa39ac1
+  is 'Auxiliar Character 1';
+comment on column JAQA39.jaqa39ac2
+  is 'Auxiliar Character 2';
+comment on column JAQA39.jaqa39ac3
+  is 'Auxiliar Character 3';
+comment on column JAQA39.jaqa39av1
+  is 'Auxiliar Varchar 1';
+comment on column JAQA39.jaqa39av2
+  is 'Auxiliar Varchar 2';
+comment on column JAQA39.jaqa39av3
+  is 'Auxiliar Varchar 3';
+create index JAQA39A2 on JAQA39 (JAQA39NCO, JAQA39COR);
+alter table JAQA39
+  add primary key (JAQA39NCO, JAQA39FEC, JAQA39COR);
+

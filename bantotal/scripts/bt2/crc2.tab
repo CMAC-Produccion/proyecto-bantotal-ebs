@@ -1,0 +1,27 @@
+create table CRC2
+(
+  crctipre2 CHAR(2) not null,
+  crccodif2 NUMBER(4) not null,
+  crcsucur2 NUMBER(3) not null,
+  crcpais2  CHAR(2) not null,
+  crctipdo2 CHAR(3) not null,
+  crcdocu2  CHAR(18) not null,
+  crcfigur2 CHAR(1) not null,
+  crcrubro2 NUMBER(6) not null,
+  crcmoned2 NUMBER(1) not null,
+  crcactiv2 NUMBER(5) not null,
+  crcimpor2 NUMBER(16,2),
+  crccalif2 NUMBER(1),
+  crcfalta2 CHAR(1),
+  crcentca2 CHAR(3),
+  crccalca2 CHAR(3),
+  crcposca2 CHAR(1),
+  crcfchca2 DATE,
+  crcmet2   CHAR(1)
+)
+;
+create index CRC202 on CRC2 (CRCRUBRO2, CRCMONED2);
+create index CRC203 on CRC2 (CRCPAIS2, CRCTIPDO2, CRCDOCU2);
+alter table CRC2
+  add primary key (CRCTIPRE2, CRCCODIF2, CRCSUCUR2, CRCPAIS2, CRCTIPDO2, CRCDOCU2, CRCFIGUR2, CRCRUBRO2, CRCMONED2, CRCACTIV2);
+

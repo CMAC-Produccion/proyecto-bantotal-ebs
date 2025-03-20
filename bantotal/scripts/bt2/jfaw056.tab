@@ -1,0 +1,42 @@
+create table JFAW056
+(
+  jfaw056pai NUMBER(3) not null,
+  jfaw056tdo NUMBER(2) not null,
+  jfaw056doc CHAR(12) not null,
+  jfaw056nm1 CHAR(25),
+  jfaw056nm2 CHAR(25),
+  jfaw056ap1 CHAR(30),
+  jfaw056ap2 CHAR(25),
+  jfaw056fna DATE,
+  jfaw056eci CHAR(1),
+  jfaw056sex CHAR(1),
+  jfaw056dom CHAR(35),
+  jfaw056dep NUMBER(5),
+  jfaw056loc NUMBER(5),
+  jfaw056bar NUMBER(9),
+  jfaw056te1 CHAR(20),
+  jfaw056te2 CHAR(20),
+  jfaw056cl1 CHAR(20),
+  jfaw056cl2 CHAR(20),
+  jfaw056ocu NUMBER(5),
+  jfaw056etr CHAR(50),
+  jfaw056fit DATE,
+  jfaw056ace NUMBER(9),
+  jfaw056cnh NUMBER(3),
+  jfaw056coy CHAR(75),
+  jfaw056pga NUMBER(17,2),
+  jfaw056ax1 NUMBER(17,2),
+  jfaw056ax2 NUMBER(17,2),
+  jfaw056ax3 NUMBER(17,2),
+  jfaw056ax4 NUMBER(17,2),
+  jfaw056ax5 CHAR(50),
+  jfaw056ax6 CHAR(50),
+  jfaw056ax7 CHAR(50),
+  jfaw056ax8 CHAR(50),
+  jfaw056ax9 DATE,
+  jfaw056a10 DATE
+)
+;
+alter table JFAW056
+  add primary key (JFAW056PAI, JFAW056TDO, JFAW056DOC);
+

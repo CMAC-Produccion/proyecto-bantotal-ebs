@@ -1,0 +1,12 @@
+create table JFAW359
+(
+  jfaw359pai NUMBER(3) not null,
+  jfaw359tdo NUMBER(2) not null,
+  jfaw359sdo CHAR(12) not null,
+  jfaw359fec DATE not null
+)
+;
+create index JFAW3592 on JFAW359 (JFAW359FEC);
+alter table JFAW359
+  add primary key (JFAW359PAI, JFAW359TDO, JFAW359SDO, JFAW359FEC);
+

@@ -1,0 +1,31 @@
+create table FCPG32
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg31paisb NUMBER(3) not null,
+  cpg31tdocb NUMBER(2) not null,
+  cpg31ndocb CHAR(25) not null,
+  cpg31anio  NUMBER(4) not null,
+  cpg06cod   NUMBER(3) not null,
+  cpg32mes1  NUMBER(17,2),
+  cpg32mes2  NUMBER(17,2),
+  cpg32mes3  NUMBER(17,2),
+  cpg32mes4  NUMBER(17,2),
+  cpg32mes5  NUMBER(17,2),
+  cpg32mes6  NUMBER(17,2),
+  cpg32mes7  NUMBER(17,2),
+  cpg32mes8  NUMBER(17,2),
+  cpg32mes9  NUMBER(17,2),
+  cpg32mes10 NUMBER(17,2),
+  cpg32mes11 NUMBER(17,2),
+  cpg32mes12 NUMBER(17,2),
+  cpg32est   CHAR(3),
+  cpg32blq   CHAR(1),
+  cpg32inst  NUMBER(10)
+)
+;
+create index FCPG3202 on FCPG32 (CPG15COD, CPG06COD);
+alter table FCPG32
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG31PAISB, CPG31TDOCB, CPG31NDOCB, CPG31ANIO, CPG06COD);
+

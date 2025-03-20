@@ -1,0 +1,75 @@
+create table JAQN5A
+(
+  jaqn5aemp NUMBER(3) not null,
+  jaqn5asuc NUMBER(3) not null,
+  jaqn5amod NUMBER(3) not null,
+  jaqn5atrn NUMBER(3) not null,
+  jaqn5arel NUMBER(4) not null,
+  jaqn5aord NUMBER(2) not null,
+  jaqn5asbo NUMBER(4) not null,
+  jaqn5afec DATE not null,
+  jaqn5acta NUMBER(9),
+  jaqn5aest CHAR(1),
+  jaqn5aan1 NUMBER(9),
+  jaqn5aan2 NUMBER(9),
+  jaqn5aan3 NUMBER(9),
+  jaqn5aaf1 DATE,
+  jaqn5aaf2 DATE,
+  jaqn5aaf3 DATE,
+  jaqn5aai1 NUMBER(17,2),
+  jaqn5aai2 NUMBER(17,2),
+  jaqn5aai3 NUMBER(17,2),
+  jaqn5aac1 CHAR(255),
+  jaqn5aac2 CHAR(255),
+  jaqn5aac3 CHAR(255)
+)
+;
+comment on table JAQN5A
+  is 'Exclusión de Autorización de Excepciones';
+comment on column JAQN5A.jaqn5aemp
+  is 'Empresa';
+comment on column JAQN5A.jaqn5asuc
+  is 'Sucursal';
+comment on column JAQN5A.jaqn5amod
+  is 'Modulo';
+comment on column JAQN5A.jaqn5atrn
+  is 'Transaccion';
+comment on column JAQN5A.jaqn5arel
+  is 'Relacion';
+comment on column JAQN5A.jaqn5aord
+  is 'Ordinal';
+comment on column JAQN5A.jaqn5asbo
+  is 'Subordinal';
+comment on column JAQN5A.jaqn5afec
+  is 'Fecha';
+comment on column JAQN5A.jaqn5acta
+  is 'Cuenta';
+comment on column JAQN5A.jaqn5aest
+  is 'Estado';
+comment on column JAQN5A.jaqn5aan1
+  is 'Auxiliar numerico 1';
+comment on column JAQN5A.jaqn5aan2
+  is 'Auxiliar numerico 2';
+comment on column JAQN5A.jaqn5aan3
+  is 'Auxiliar numerico 3';
+comment on column JAQN5A.jaqn5aaf1
+  is 'Auxiliar fecha 1';
+comment on column JAQN5A.jaqn5aaf2
+  is 'Auxiliar fecha 2';
+comment on column JAQN5A.jaqn5aaf3
+  is 'Auxiliar fecha 3';
+comment on column JAQN5A.jaqn5aai1
+  is 'Auxiliar importe 1';
+comment on column JAQN5A.jaqn5aai2
+  is 'Auxiliar importe 2';
+comment on column JAQN5A.jaqn5aai3
+  is 'Auxiliar importe 3';
+comment on column JAQN5A.jaqn5aac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN5A.jaqn5aac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN5A.jaqn5aac3
+  is 'Auxiliar caracter 3';
+alter table JAQN5A
+  add primary key (JAQN5AEMP, JAQN5ASUC, JAQN5AMOD, JAQN5ATRN, JAQN5AREL, JAQN5AORD, JAQN5ASBO, JAQN5AFEC);
+

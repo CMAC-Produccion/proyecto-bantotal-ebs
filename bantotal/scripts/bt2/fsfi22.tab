@@ -1,0 +1,39 @@
+create table FSFI22
+(
+  sfi22pap   NUMBER(4) not null,
+  sfi22cod   NUMBER(4) not null,
+  sfi22tip   CHAR(1),
+  sfi22emda  NUMBER(4),
+  sfi22ecoe  NUMBER(14,9),
+  sfi22ppap  NUMBER(4),
+  sfi22coefi NUMBER(14,9),
+  sfi22pcoe  NUMBER(14,9),
+  sfi22fchco DATE,
+  sfi22fchli DATE,
+  sfi22hab   CHAR(1),
+  sfi22a01   NUMBER(9),
+  sfi22a02   NUMBER(9),
+  sfi22a03   DATE,
+  sfi22a04   DATE,
+  sfi22a05   CHAR(20),
+  sfi22a06   CHAR(20),
+  sfi22coamo NUMBER(12,9),
+  sfi22a07   NUMBER(14,9),
+  sfi22a08   NUMBER(14,9),
+  sfi22ivaop CHAR(1),
+  sfi22car1  CHAR(1),
+  sfi22car2  CHAR(1),
+  sfi22car3  CHAR(1),
+  sfi22car4  CHAR(1),
+  sfi22car5  CHAR(1),
+  sfi22num1  NUMBER(9),
+  sfi22num2  NUMBER(9),
+  sfi22num3  NUMBER(9),
+  sfi22nuc1  NUMBER(14,8),
+  sfi22nuc2  NUMBER(14,8),
+  sfi22nuc3  NUMBER(14,8)
+)
+;
+alter table FSFI22
+  add primary key (SFI22PAP, SFI22COD);
+

@@ -1,0 +1,35 @@
+create table JAQL009
+(
+  jaql3cored NUMBER(10) not null,
+  jaql9nuele NUMBER(12) not null,
+  jaql4cocom CHAR(20),
+  jaql2coter CHAR(20),
+  jaql9cisoc CHAR(15),
+  jaql9cisot CHAR(8),
+  jaql9fealt DATE,
+  jaql9usalt CHAR(50),
+  jaql9febaj DATE,
+  jaql9usbaj CHAR(50),
+  jaql9estad NUMBER(1),
+  jaql9aux1  CHAR(50),
+  jaql9aux2  CHAR(50),
+  jaql9aux3  CHAR(50),
+  jaql9aux4  NUMBER(9),
+  jaql9aux5  NUMBER(9),
+  jaql9aux6  NUMBER(9),
+  jaql9aux7  NUMBER(9,2),
+  jaql9aux8  NUMBER(9,2),
+  jaql9aux9  NUMBER(9,2),
+  jaql9aux10 DATE,
+  jaql9aux11 DATE,
+  jaql9aux12 DATE
+)
+;
+create index JAQL0092 on JAQL009 (JAQL2COTER);
+create index JAQL0093 on JAQL009 (JAQL4COCOM);
+create index JAQL0095 on JAQL009 (JAQL3CORED, JAQL9CISOT);
+create index JAQL0096 on JAQL009 (JAQL3CORED, JAQL9CISOC, JAQL9CISOT);
+create index JAQL0097 on JAQL009 (JAQL3CORED, JAQL4COCOM);
+alter table JAQL009
+  add primary key (JAQL3CORED, JAQL9NUELE);
+

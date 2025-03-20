@@ -1,0 +1,37 @@
+create table AQPB617
+(
+  aqpb617cor  NUMBER(10) not null,
+  aqpb617cat  NUMBER(10),
+  aqpb617ncat VARCHAR2(50),
+  aqpb617tage CHAR(20),
+  aqpb617mope NUMBER(18),
+  aqpb617mmon NUMBER(18,2),
+  aqpb617ucar VARCHAR2(15),
+  aqpb617est  VARCHAR2(1),
+  aqpb617fcar DATE,
+  aqpb617hcar VARCHAR2(10)
+)
+;
+comment on table AQPB617
+  is 'Listado de metas y categorias ';
+comment on column AQPB617.aqpb617cor
+  is 'CORRELATIVO';
+comment on column AQPB617.aqpb617cat
+  is 'CATEGORIA';
+comment on column AQPB617.aqpb617ncat
+  is 'NOMBRE DE CATEGORIA';
+comment on column AQPB617.aqpb617tage
+  is 'TIPO DE AGENCIA';
+comment on column AQPB617.aqpb617mope
+  is 'META NÚMERO DE OPERACIONES';
+comment on column AQPB617.aqpb617mmon
+  is 'META MONTO DESEMBOLSADO';
+comment on column AQPB617.aqpb617ucar
+  is 'USUARIO DE CARGA';
+comment on column AQPB617.aqpb617est
+  is 'ESTADO';
+comment on column AQPB617.aqpb617fcar
+  is 'FECHA CARGA';
+alter table AQPB617
+  add primary key (AQPB617COR);
+

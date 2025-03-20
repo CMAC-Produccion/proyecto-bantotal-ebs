@@ -1,0 +1,18 @@
+create table JAQZ259C
+(
+  jaqz259ccod  CHAR(6) not null,
+  jaqz259crub  VARCHAR2(40),
+  jaqz259cdes  VARCHAR2(110),
+  jaqz259ccodg CHAR(5),
+  jaqz259ctip  CHAR(1),
+  jaqz259cform VARCHAR2(2000),
+  jaqz259csec  NUMBER(6),
+  jaqz259cusu  CHAR(10),
+  jaqz259cfec  DATE
+)
+;
+create index JAQZ259C_INX01 on JAQZ259C (JAQZ259CCODG, JAQZ259CSEC);
+create index JAQZ259C_INX02 on JAQZ259C (JAQZ259CCOD, JAQZ259CCODG);
+alter table JAQZ259C
+  add primary key (JAQZ259CCOD);
+

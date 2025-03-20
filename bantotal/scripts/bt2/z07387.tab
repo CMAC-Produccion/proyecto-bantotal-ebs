@@ -1,0 +1,36 @@
+create table Z07387
+(
+  z07387pg1 NUMBER(3) not null,
+  z07387ct1 NUMBER(9) not null,
+  z07387pg2 NUMBER(3) not null,
+  z07387ct2 NUMBER(9) not null,
+  z07356cod NUMBER(3) not null,
+  z07387fch DATE not null,
+  z07387hor CHAR(8) not null,
+  z07387fec DATE,
+  z07387bru NUMBER(9),
+  z07387liq NUMBER(9),
+  z07387ind CHAR(1),
+  z07387fpr DATE,
+  z07312cod NUMBER(3),
+  z07313cod NUMBER(3),
+  z07387des DATE,
+  z07314cod NUMBER(3),
+  z07387apl CHAR(1),
+  z07343cod NUMBER(3),
+  z07387est CHAR(2),
+  z07387cin CHAR(20),
+  z07387pap NUMBER(4),
+  z07387mon NUMBER(4)
+)
+;
+create index Z0738702 on Z07387 (Z07343COD);
+create index Z0738703 on Z07387 (Z07314COD);
+create index Z0738704 on Z07387 (Z07313COD);
+create index Z0738705 on Z07387 (Z07312COD);
+create index Z0738706 on Z07387 (Z07356COD);
+create index Z0738707 on Z07387 (Z07387PG2, Z07387CT2, Z07387FCH, Z07387HOR);
+create index Z0738708 on Z07387 (Z07387PG1, Z07387CT1, Z07387EST, Z07387FCH, Z07387HOR);
+alter table Z07387
+  add primary key (Z07387PG1, Z07387CT1, Z07387PG2, Z07387CT2, Z07356COD, Z07387FCH, Z07387HOR);
+

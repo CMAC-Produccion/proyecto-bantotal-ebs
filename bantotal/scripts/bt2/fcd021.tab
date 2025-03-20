@@ -1,0 +1,54 @@
+create table FCD021
+(
+  pgcod      NUMBER(3) not null,
+  lcimod     NUMBER(3) not null,
+  lcioper    NUMBER(9) not null,
+  lcisbop    NUMBER(3) not null,
+  liusuc     NUMBER(3),
+  liutipo    NUMBER(3),
+  liufemb    DATE,
+  liufrdoc   DATE,
+  liufvpag   DATE,
+  liufvalor  DATE,
+  liufvto    DATE,
+  liubcneg   NUMBER(9),
+  liurefneg  CHAR(20),
+  liubcree   NUMBER(9),
+  liucomage  NUMBER(17,2),
+  liugascor  NUMBER(17,2),
+  liumdagtoc CHAR(3),
+  liumdacoma CHAR(3),
+  liuintext  NUMBER(17,2),
+  liumdainte CHAR(3),
+  liuuser    CHAR(10),
+  liuws      CHAR(10),
+  liuaoimp   NUMBER(17,2),
+  liumda     NUMBER(4),
+  tzttas     NUMBER(1),
+  liutasa    NUMBER(10,6),
+  c021cd     NUMBER(3),
+  c021mo     NUMBER(3),
+  c021su     NUMBER(3),
+  c021tr     NUMBER(3),
+  c021re     NUMBER(4),
+  c021fc     DATE,
+  c021co     CHAR(1),
+  liugascord NUMBER(17,2),
+  liucomaged NUMBER(17,2),
+  liuintextd NUMBER(17,2),
+  liudeumda  NUMBER(4),
+  liudeumosw CHAR(3),
+  liudeucta  NUMBER(9),
+  liuimpvis  NUMBER(17,2),
+  liuimppla  NUMBER(17,2)
+)
+;
+create index FCD02103 on FCD021 (LIUMDA);
+create index FCD02104 on FCD021 (PGCOD, LIUBCNEG);
+create index FCD02105 on FCD021 (PGCOD, LIUBCREE);
+create index FCD02106 on FCD021 (TZTTAS);
+create index FCD02107 on FCD021 (PGCOD, LIUDEUCTA);
+create index FCD02108 on FCD021 (PGCOD, LIUSUC);
+alter table FCD021
+  add primary key (PGCOD, LCIMOD, LCIOPER, LCISBOP);
+

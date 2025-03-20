@@ -1,0 +1,13 @@
+create table FCW003
+(
+  cmxwlcco   CHAR(3) not null,
+  cmxwinst   NUMBER(2) not null,
+  cmxwinsdes CHAR(30),
+  cmxwinspvl CHAR(10),
+  cmxwinstvl NUMBER(2)
+)
+;
+create index FCW00302 on FCW003 (CMXWINST, CMXWLCCO);
+alter table FCW003
+  add primary key (CMXWLCCO, CMXWINST);
+

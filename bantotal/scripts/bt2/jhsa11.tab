@@ -1,0 +1,12 @@
+create table JHSA11
+(
+  jhsa11cod NUMBER(3) not null,
+  jhsa11mod NUMBER(3) not null,
+  jhsa11rep CHAR(50) not null,
+  jhsa11fch DATE,
+  jhsa11usu CHAR(10),
+  jhsa11hor CHAR(8)
+)
+;
+create unique index JHSA1101 on JHSA11 (JHSA11COD, JHSA11MOD, JHSA11REP);
+

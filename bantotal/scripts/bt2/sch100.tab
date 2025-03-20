@@ -1,0 +1,16 @@
+create table SCH100
+(
+  sch100tpo NUMBER(3) not null,
+  sch100cor NUMBER(2) not null,
+  sch100est NUMBER(3) not null,
+  sch100mod NUMBER(3),
+  sch100trn NUMBER(3),
+  sch100x1  NUMBER(9),
+  sch100x2  CHAR(20)
+)
+;
+create index SCH10002 on SCH100 (SCH100EST);
+create index SCH10003 on SCH100 (SCH100TPO, SCH100EST);
+alter table SCH100
+  add primary key (SCH100TPO, SCH100COR, SCH100EST);
+

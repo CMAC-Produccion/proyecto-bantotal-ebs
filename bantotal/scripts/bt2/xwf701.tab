@@ -1,0 +1,31 @@
+create table XWF701
+(
+  xwfinst NUMBER(10) not null,
+  xwfproc NUMBER(4) not null,
+  xwfpais NUMBER(3) not null,
+  xwftdoc NUMBER(2) not null,
+  xwfdoc  CHAR(12) not null,
+  xwftvin NUMBER(1),
+  xwfcta  NUMBER(9),
+  xwffini DATE,
+  xwfaxn1 NUMBER(17,2),
+  xwfaxn2 NUMBER(17,2),
+  xwfaxn3 NUMBER(17,2),
+  xwfaxn4 NUMBER(17,2),
+  xwfaxn5 NUMBER(17,2),
+  xwfaxc1 CHAR(50),
+  xwfaxc2 CHAR(50),
+  xwfaxc3 CHAR(50),
+  xwfaxc4 CHAR(50),
+  xwfaxc5 CHAR(50),
+  xwfaxf1 DATE,
+  xwfaxf2 DATE,
+  xwfaxf3 DATE,
+  xwfemp  NUMBER(3)
+)
+;
+create index XWF7012 on XWF701 (XWFPAIS, XWFTDOC, XWFDOC);
+create index XWF7013 on XWF701 (XWFCTA);
+alter table XWF701
+  add primary key (XWFINST, XWFPROC, XWFPAIS, XWFTDOC, XWFDOC);
+

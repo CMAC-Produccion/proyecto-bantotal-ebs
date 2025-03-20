@@ -1,0 +1,36 @@
+create table PRDP01
+(
+  prdp01emp  NUMBER(3) not null,
+  prdp01anio NUMBER(4) not null,
+  prdp01prod NUMBER(3) not null,
+  prdp01desc CHAR(40),
+  prdp01mod  NUMBER(3),
+  prdp01tope NUMBER(3),
+  prdp01mda  NUMBER(4),
+  prdp01pap  NUMBER(4),
+  prdp01fvti DATE,
+  prdp01fvtf DATE,
+  prdp01fipg DATE,
+  prdp01ffpg DATE,
+  prdp01fpag DATE,
+  prdp01dfle NUMBER(3),
+  prdp01icmi NUMBER(17,2),
+  prdp01icma NUMBER(17,2),
+  prdp01cntc NUMBER(4),
+  prdp01perc NUMBER(3),
+  prdp01tano CHAR(1),
+  prdp01tcuo CHAR(1),
+  prdp01dvto NUMBER(1),
+  prdp01cgra CHAR(1),
+  prdp01ccgr NUMBER(3),
+  prdp01idb  CHAR(1),
+  prdp01icr  CHAR(1),
+  prdp01fpc  DATE,
+  prdp01vig  CHAR(1),
+  prdp01fcre NUMBER(5,2)
+)
+;
+create index PRDP0102 on PRDP01 (PRDP01EMP, PRDP01ANIO, PRDP01PROD, PRDP01VIG);
+alter table PRDP01
+  add primary key (PRDP01EMP, PRDP01ANIO, PRDP01PROD);
+

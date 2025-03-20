@@ -1,0 +1,12 @@
+create table SNGC70
+(
+  sngc11pais NUMBER(3) not null,
+  sngc11tdoc NUMBER(2) not null,
+  sngc11ndoc CHAR(12) not null,
+  sngc70atr  CHAR(20) not null,
+  sngc70val  VARCHAR2(40)
+)
+;
+alter table SNGC70
+  add primary key (SNGC11PAIS, SNGC11TDOC, SNGC11NDOC, SNGC70ATR);
+

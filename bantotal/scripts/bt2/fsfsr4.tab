@@ -1,0 +1,15 @@
+create table FSFSR4
+(
+  sfst1merc  NUMBER(3) not null,
+  sfsd7msje  NUMBER(4) not null,
+  sfsd7flujo CHAR(1) not null,
+  sfsr1nro   NUMBER(4) not null,
+  sfsr2nro   NUMBER(2) not null,
+  sfsr4tip   CHAR(10) not null,
+  sfsr4pos   NUMBER(2) not null,
+  sfsr4desc  CHAR(40)
+)
+;
+alter table FSFSR4
+  add primary key (SFST1MERC, SFSD7MSJE, SFSD7FLUJO, SFSR1NRO, SFSR2NRO, SFSR4TIP, SFSR4POS);
+

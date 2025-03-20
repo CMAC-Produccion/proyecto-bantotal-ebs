@@ -1,0 +1,14 @@
+create table XCR003
+(
+  xcremp    NUMBER(3) not null,
+  xcrcta    NUMBER(9) not null,
+  xcrsbop   NUMBER(3) not null,
+  xcrmda    NUMBER(4) not null,
+  xcrorigen CHAR(2) not null,
+  xcrcorr   NUMBER(5),
+  xcrvinc   NUMBER(9)
+)
+;
+alter table XCR003
+  add primary key (XCREMP, XCRCTA, XCRSBOP, XCRMDA, XCRORIGEN);
+

@@ -1,0 +1,27 @@
+create table JCFCCO
+(
+  jcfccoemp  NUMBER(3) not null,
+  jcfccoitsu NUMBER(3) not null,
+  jcfccoitmo NUMBER(3) not null,
+  jcfccoittr NUMBER(3) not null,
+  jcfccoitnr NUMBER(4) not null,
+  jcfccofchc DATE not null,
+  jcfccocomi NUMBER(3) not null,
+  jcfccomod  NUMBER(3),
+  jcfccooper NUMBER(9),
+  jcfccosbop NUMBER(3),
+  jcfccocat  NUMBER(1),
+  jcfccoest  CHAR(1),
+  jcfccoimpg NUMBER(17,2),
+  jcfccofchp DATE,
+  jcfccosucp NUMBER(3),
+  jcfccomodp NUMBER(3),
+  jcfccotrnp NUMBER(3),
+  jcfccorelp NUMBER(4)
+)
+;
+create index JCFCCO02 on JCFCCO (JCFCCOEMP, JCFCCOEST, JCFCCOMOD, JCFCCOOPER, JCFCCOFCHC);
+create index JCFCCO03 on JCFCCO (JCFCCOEMP, JCFCCOMOD, JCFCCOOPER, JCFCCOFCHC, JCFCCOCOMI);
+alter table JCFCCO
+  add primary key (JCFCCOEMP, JCFCCOITSU, JCFCCOITMO, JCFCCOITTR, JCFCCOITNR, JCFCCOFCHC, JCFCCOCOMI);
+

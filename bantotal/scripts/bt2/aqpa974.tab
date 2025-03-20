@@ -1,0 +1,38 @@
+create table AQPA974
+(
+  aqpa974pgcod NUMBER(4) not null,
+  aqpa974mod   NUMBER(3) not null,
+  aqpa974suc   NUMBER(3) not null,
+  aqpa974mda   NUMBER(4) not null,
+  aqpa974pap   NUMBER(4) not null,
+  aqpa974cta   NUMBER(9) not null,
+  aqpa974oper  NUMBER(9) not null,
+  aqpa974sbop  NUMBER(3) not null,
+  aqpa974tope  NUMBER(3) not null,
+  aqpa974obop  NUMBER(3) not null,
+  aqpa974sgcod NUMBER(4) not null,
+  aqpa974vc    NUMBER(16,2),
+  aqpa974imp   NUMBER(16,2),
+  aqpa974porc  NUMBER(9,6),
+  aqpa974plus  NUMBER(9,6),
+  aqpa974part  NUMBER(9,6),
+  aqpa974veh   NUMBER(4),
+  aqpa974inm   NUMBER(4),
+  aqpa974end   CHAR(1),
+  aqpa974stat  CHAR(1),
+  aqpa974co    CHAR(1),
+  aqpa974aux1  NUMBER(16,2),
+  aqpa974aux2  NUMBER(9,6),
+  aqpa974aux3  DATE,
+  aqpa974aux4  NUMBER(16,2),
+  aqpa974aux5  CHAR(30),
+  aqpa974aux6  CHAR(1),
+  aqpa974aux7  CHAR(1)
+)
+;
+create index AQPA9742 on AQPA974 (AQPA974SGCOD);
+create index AQPA9743 on AQPA974 (AQPA974PGCOD, AQPA974MOD, AQPA974SUC, AQPA974MDA, AQPA974PAP, AQPA974CTA, AQPA974OPER, AQPA974SBOP, AQPA974TOPE, AQPA974SGCOD);
+create index AQPA9744 on AQPA974 (AQPA974PGCOD, AQPA974MOD, AQPA974SUC, AQPA974MDA, AQPA974PAP, AQPA974CTA, AQPA974OPER, AQPA974OBOP, AQPA974TOPE, AQPA974SGCOD);
+alter table AQPA974
+  add primary key (AQPA974PGCOD, AQPA974MOD, AQPA974SUC, AQPA974MDA, AQPA974PAP, AQPA974CTA, AQPA974OPER, AQPA974SBOP, AQPA974TOPE, AQPA974OBOP, AQPA974SGCOD);
+

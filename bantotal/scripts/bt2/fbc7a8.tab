@@ -1,0 +1,32 @@
+create table FBC7A8
+(
+  bc7a8emp  NUMBER(3) not null,
+  bc7a8fch  DATE not null,
+  bc7a8ent  NUMBER(3) not null,
+  bc7a8sub  CHAR(4) not null,
+  bc7a8codr NUMBER(4) not null,
+  bc7a8ctab NUMBER(17) not null,
+  bc7a8tpoo CHAR(1) not null,
+  bc7a8suc  NUMBER(4) not null,
+  bc7a8tran CHAR(2) not null,
+  bc7a8cods NUMBER(1) not null,
+  bc7a8corr NUMBER(4) not null,
+  bc7a8suci NUMBER(4),
+  bc7a8orig CHAR(1),
+  bc7a8cpai NUMBER(3),
+  bc7a8ctdo NUMBER(2),
+  bc7a8cruc CHAR(30),
+  bc7a8epai NUMBER(3),
+  bc7a8etdo NUMBER(2),
+  bc7a8eruc CHAR(30),
+  bc7a8usre CHAR(60),
+  bc7a8usca CHAR(60),
+  bc7a8sdo1 NUMBER(17,2)
+)
+;
+create index FBC7A802 on FBC7A8 (BC7A8EMP, BC7A8FCH, BC7A8ENT, BC7A8CODS, BC7A8SUB, BC7A8CODR, BC7A8CTAB, BC7A8TPOO, BC7A8TRAN, BC7A8SUC);
+create index FBC7A803 on FBC7A8 (BC7A8EMP, BC7A8FCH, BC7A8ENT, BC7A8CODS, BC7A8SUB, BC7A8CODR, BC7A8TPOO, BC7A8TRAN, BC7A8CTAB, BC7A8SUC);
+create index FBC7A804 on FBC7A8 (BC7A8EMP, BC7A8CODS, BC7A8CTAB, BC7A8CODR, BC7A8TPOO, BC7A8TRAN);
+alter table FBC7A8
+  add primary key (BC7A8EMP, BC7A8FCH, BC7A8ENT, BC7A8SUB, BC7A8CODR, BC7A8CTAB, BC7A8TPOO, BC7A8SUC, BC7A8TRAN, BC7A8CODS, BC7A8CORR);
+

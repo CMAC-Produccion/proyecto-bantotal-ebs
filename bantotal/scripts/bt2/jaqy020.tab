@@ -1,0 +1,26 @@
+create table JAQY020
+(
+  jaqy020cta NUMBER(9) not null,
+  jaqy020mda NUMBER(4) not null,
+  jaqy020pap NUMBER(4) not null,
+  jaqy020ope NUMBER(9) not null,
+  jaqy020sbo NUMBER(3) not null,
+  jaqy020mod NUMBER(3) not null,
+  jaqy020cod NUMBER(3) not null,
+  jaqy020cap NUMBER(17,2),
+  jaqy020mor NUMBER(17,2),
+  jaqy020int NUMBER(17,2),
+  jaqy020gas NUMBER(17,2),
+  jaqy020com NUMBER(17,2),
+  jaqy020seg NUMBER(17,2),
+  jaqy020est NUMBER(2),
+  jaqy020iex NUMBER(18,2),
+  jaqy020fec DATE not null,
+  jaqy020tmo NUMBER(3) not null,
+  jaqy020rel NUMBER(4) not null,
+  jaqy020tra NUMBER(3) not null
+)
+;
+alter table JAQY020
+  add primary key (JAQY020CTA, JAQY020MDA, JAQY020PAP, JAQY020OPE, JAQY020SBO, JAQY020MOD, JAQY020COD, JAQY020FEC, JAQY020TMO, JAQY020REL, JAQY020TRA);
+

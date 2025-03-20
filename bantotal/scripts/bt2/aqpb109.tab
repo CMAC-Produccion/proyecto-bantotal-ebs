@@ -1,0 +1,17 @@
+create table AQPB109
+(
+  aqpb109coent  CHAR(10) not null,
+  aqpb109idgrp  CHAR(6) not null,
+  aqpb109noent  VARCHAR2(60),
+  aqpb109cat    VARCHAR2(20),
+  aqpb109codcat CHAR(20),
+  aqpb109hor    VARCHAR2(10),
+  aqpb109fec    DATE,
+  aqpb109idcaj  NUMBER(6),
+  aqpb109esreg  CHAR(1),
+  aqpb109estven CHAR(1)
+)
+;
+alter table AQPB109
+  add primary key (AQPB109COENT, AQPB109IDGRP);
+

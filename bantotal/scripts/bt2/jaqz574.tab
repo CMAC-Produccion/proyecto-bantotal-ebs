@@ -1,0 +1,36 @@
+create table JAQZ574
+(
+  jaqz574year  NUMBER(4) not null,
+  jaqz574dni   CHAR(12) not null,
+  jaqz574fch   DATE,
+  jaqz574hrag  CHAR(8),
+  jaqz574fen   DATE,
+  jaqz574hrae  CHAR(8),
+  jaqz574mai   VARCHAR2(50),
+  jaqz574cue   CLOB,
+  jaqz574archi BLOB,
+  jaqz574archf BLOB,
+  jaqz574narch VARCHAR2(40),
+  jaqz574usr   VARCHAR2(10),
+  jaqz574use   VARCHAR2(10),
+  jaqz574est   CHAR(1),
+  jaqz574mot   VARCHAR2(400),
+  jaqz574err   VARCHAR2(400),
+  jaqz574uconf VARCHAR2(10),
+  jaqz574fconf DATE,
+  jaqz574hconf CHAR(8),
+  jaqz574ctrl  NUMBER(4),
+  jaqz574rep   CHAR(12),
+  jaqz574au1   NUMBER(4),
+  jaqz574au2   NUMBER(17),
+  jaqz574au3   CHAR(12),
+  jaqz574au4   CHAR(20),
+  jaqz574au5   VARCHAR2(40),
+  jaqz574au6   VARCHAR2(100),
+  jaqz574au7   DATE,
+  jaqz574au8   NUMBER(4)
+)
+;
+alter table JAQZ574
+  add primary key (JAQZ574YEAR, JAQZ574DNI);
+

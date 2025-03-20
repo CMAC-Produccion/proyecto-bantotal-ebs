@@ -1,0 +1,63 @@
+create table AQPC215
+(
+  aqpc215fec DATE not null,
+  aqpc215hor CHAR(8) not null,
+  aqpc215usu CHAR(10) not null,
+  aqpc215per DATE,
+  aqpc215coa CHAR(30),
+  aqpc215noa CHAR(30),
+  aqpc215car CHAR(30),
+  aqpc215tia CHAR(20),
+  aqpc215cla CHAR(20),
+  aqpc215cta CHAR(1),
+  aqpc215dta CHAR(20),
+  aqpc215cca NUMBER(3),
+  aqpc215cag CHAR(30),
+  aqpc215sat NUMBER(17,2),
+  aqpc215cos NUMBER(3),
+  aqpc215des CHAR(30),
+  aqpc215sal NUMBER(17,2),
+  aqpc215age CHAR(1)
+)
+;
+comment on table AQPC215
+  is 'AQPC215';
+comment on column AQPC215.aqpc215fec
+  is 'Fecha Registro';
+comment on column AQPC215.aqpc215hor
+  is 'Hora Registro';
+comment on column AQPC215.aqpc215usu
+  is 'Usuario Registro';
+comment on column AQPC215.aqpc215per
+  is 'Periodo de Busqueda';
+comment on column AQPC215.aqpc215coa
+  is 'Codigo Analista';
+comment on column AQPC215.aqpc215noa
+  is 'Nombre Analista';
+comment on column AQPC215.aqpc215car
+  is 'Cartera';
+comment on column AQPC215.aqpc215tia
+  is 'Tipo de Agencia';
+comment on column AQPC215.aqpc215cla
+  is 'Clasificación';
+comment on column AQPC215.aqpc215cta
+  is 'Codigo Tipo de Analista';
+comment on column AQPC215.aqpc215dta
+  is 'Descripción Tipo de Analista';
+comment on column AQPC215.aqpc215cca
+  is 'Código Categoria Analista';
+comment on column AQPC215.aqpc215cag
+  is 'Cargo';
+comment on column AQPC215.aqpc215sat
+  is 'Saldo Total';
+comment on column AQPC215.aqpc215cos
+  is 'Codigo Sucursal';
+comment on column AQPC215.aqpc215des
+  is 'Descripcion Sucursal';
+comment on column AQPC215.aqpc215sal
+  is 'Saldo';
+comment on column AQPC215.aqpc215age
+  is 'Agencia N-Nueva';
+alter table AQPC215
+  add primary key (AQPC215FEC, AQPC215HOR, AQPC215USU);
+

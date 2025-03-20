@@ -1,0 +1,39 @@
+create table JFCS01
+(
+  jfcs01nro  CHAR(19) not null,
+  jfcs01nrf  CHAR(17),
+  jfcs01ad   NUMBER(9),
+  jfcs01nem  NUMBER(3),
+  jfcs01fv   DATE,
+  jfcs01fr   DATE,
+  jfcs01ren  CHAR(1),
+  jfcs01ccr  CHAR(1),
+  jfcs01rep  CHAR(1),
+  jfcs01cem  CHAR(8),
+  jfcs01cod  NUMBER(3),
+  jfcs01op1  CHAR(1),
+  jfcs01op2  CHAR(1),
+  jfcs01op3  CHAR(1),
+  jfcs01nro1 NUMBER(9),
+  jfcs01nro2 NUMBER(9),
+  jfcs01nro3 NUMBER(9),
+  jfcs01imp1 NUMBER(17,2),
+  jfcs01imp2 NUMBER(17,2),
+  jfcs01imp3 NUMBER(17,2),
+  jfcs01txt1 CHAR(30),
+  jfcs01txt2 CHAR(30),
+  jfcs01txt3 CHAR(30),
+  jfcs01d1   DATE,
+  jfcs01d2   DATE,
+  jfcs01d3   DATE,
+  jfcs01pgc  NUMBER(3),
+  jfcs01est  CHAR(2)
+)
+;
+create index JFCS0102 on JFCS01 (JFCS01NRF, JFCS01NRO);
+create index JFCS0103 on JFCS01 (JFCS01NRF, JFCS01EST);
+create index JFCS0104 on JFCS01 (JFCS01NRF, JFCS01NEM);
+create index JFCS0106 on JFCS01 (JFCS01EST, JFCS01REP);
+alter table JFCS01
+  add primary key (JFCS01NRO);
+

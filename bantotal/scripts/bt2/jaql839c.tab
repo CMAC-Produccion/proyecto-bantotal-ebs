@@ -1,0 +1,21 @@
+create table JAQL839C
+(
+  jaql839ccpro NUMBER(3) not null,
+  jaql839ctpro NUMBER(3) not null,
+  jaql839ccpai NUMBER(4),
+  jaql839ctdoc NUMBER(3),
+  jaql839cndoc CHAR(12),
+  jaql839cflat CHAR(1),
+  jaql839ccage NUMBER(3),
+  jaql839cnreg NUMBER(9),
+  jaql839ccusu VARCHAR2(10),
+  jaql839ccubi VARCHAR2(6),
+  jaql839cddep VARCHAR2(100),
+  jaql839cdpro VARCHAR2(100),
+  jaql839cddis VARCHAR2(100),
+  jaql839cmcor NUMBER(3),
+  jaql839cmcod NUMBER(3)
+)
+;
+create index JAQL839C2 on JAQL839C (JAQL839CCPAI, JAQL839CTDOC, JAQL839CNDOC);
+

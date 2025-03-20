@@ -1,0 +1,48 @@
+create table E05501
+(
+  e55pgcod   NUMBER(3) not null,
+  e55nped    NUMBER(10) not null,
+  e55schsuc  NUMBER(3),
+  e55doctpo  NUMBER(3),
+  e55stscod  NUMBER(3),
+  e55t1id    CHAR(20),
+  e55t2id    CHAR(20),
+  e55t3id    CHAR(20),
+  e55t1nom   CHAR(30),
+  e55t2nom   CHAR(30),
+  e55t3nom   CHAR(30),
+  e55t1dom   CHAR(55),
+  e55doccnt  NUMBER(5),
+  e55fchped  DATE,
+  e55fchrec  DATE,
+  e55uscnf   CHAR(10),
+  e55using   CHAR(10),
+  e55ejcod   NUMBER(3),
+  e55sqsuc   NUMBER(3),
+  e55sqmod   NUMBER(3),
+  e55sqmda   NUMBER(4),
+  e55sqpap   NUMBER(4),
+  e55sqcta   NUMBER(9),
+  e55sqop    NUMBER(9),
+  e55sqsbop  NUMBER(3),
+  e55sqtope  NUMBER(3),
+  e55vintarj CHAR(16),
+  e55docdesc CHAR(30),
+  e55pers    CHAR(1),
+  e55chqini  NUMBER(9),
+  e55sqcd    NUMBER(3),
+  e55sqmo    NUMBER(3),
+  e55sqsu    NUMBER(3),
+  e55sqtr    NUMBER(3),
+  e55sqre    NUMBER(4),
+  e55sqfc    DATE,
+  e55sqor    NUMBER(2),
+  e55sqsb    NUMBER(3),
+  e55sqco    CHAR(1)
+)
+;
+create index E0550102 on E05501 (E55SQCD, E55SQMO, E55SQSU, E55SQTR, E55SQRE, E55SQFC, E55SQOR, E55SQSB);
+create index E0550103 on E05501 (E55PGCOD, E55SQMOD, E55SQSUC, E55SQMDA, E55SQPAP, E55SQCTA, E55SQOP, E55SQSBOP, E55SQTOPE);
+alter table E05501
+  add primary key (E55PGCOD, E55NPED);
+

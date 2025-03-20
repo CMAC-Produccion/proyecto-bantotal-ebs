@@ -1,0 +1,40 @@
+create table JAQA585
+(
+  jaqa585emp NUMBER(3) not null,
+  jaqa585suc NUMBER(3) not null,
+  jaqa585mod NUMBER(3) not null,
+  jaqa585trn NUMBER(3) not null,
+  jaqa585nrl NUMBER(4) not null,
+  jaqa585ord NUMBER(2) not null,
+  jaqa585sbo NUMBER(3) not null,
+  jaqa585fei DATE not null,
+  jaqa585fev DATE,
+  jaqa585dso CHAR(1),
+  jaqa585dva CHAR(1),
+  jaqa585nya CHAR(35),
+  jaqa585top CHAR(30),
+  jaqa585usu CHAR(10),
+  jaqa585mto NUMBER(17,2),
+  jaqa585pai NUMBER(3),
+  jaqa585tdo NUMBER(2),
+  jaqa585ndo CHAR(12),
+  jaqa585cor CHAR(65),
+  jaqa585nu1 NUMBER(9),
+  jaqa585nu2 NUMBER(9),
+  jaqa585nu3 NUMBER(9),
+  jaqa585im1 NUMBER(17,2),
+  jaqa585im2 NUMBER(17,2),
+  jaqa585im3 NUMBER(17,2),
+  jaqa585ch1 VARCHAR2(255),
+  jaqa585ch2 VARCHAR2(255),
+  jaqa585ch3 VARCHAR2(255),
+  jaqa585fe1 DATE,
+  jaqa585fe2 DATE,
+  jaqa585fe3 DATE
+)
+;
+create index JAQA5852 on JAQA585 (JAQA585PAI, JAQA585TDO, JAQA585NDO);
+create index JAQA5853 on JAQA585 (JAQA585EMP, JAQA585FEV, JAQA585DSO, JAQA585DVA);
+alter table JAQA585
+  add primary key (JAQA585EMP, JAQA585SUC, JAQA585MOD, JAQA585TRN, JAQA585NRL, JAQA585ORD, JAQA585SBO, JAQA585FEI);
+

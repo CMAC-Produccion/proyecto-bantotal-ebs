@@ -1,0 +1,75 @@
+create table JAQY290
+(
+  jaqy290emp NUMBER(3) not null,
+  jaqy290cod VARCHAR2(20) not null,
+  jaqy290age NUMBER(3),
+  jaqy290ani NUMBER(4),
+  jaqy290tri NUMBER(1),
+  jaqy290cor NUMBER(9),
+  jaqy290pac NUMBER(3),
+  jaqy290tdc NUMBER(2),
+  jaqy290ndc CHAR(12),
+  jaqy290usr CHAR(10),
+  jaqy290fcr DATE,
+  jaqy290usp CHAR(10),
+  jaqy290fcp DATE,
+  jaqy290usc CHAR(10),
+  jaqy290fcc DATE,
+  jaqy290ops VARCHAR2(10),
+  jaqy290mot NUMBER(3),
+  jaqy290esr NUMBER(3),
+  jaqy290flc CHAR(1),
+  jaqy290fld CHAR(1),
+  jaqy290cmr VARCHAR2(1000),
+  jaqy290cms VARCHAR2(500),
+  jaqy290est CHAR(1),
+  jaqy290vir NUMBER(3),
+  jaqy290epr NUMBER(3),
+  jaqy290num VARCHAR2(27),
+  jaqy290doc VARCHAR2(500),
+  jaqy290prc NUMBER(3),
+  jaqy290men CHAR(1),
+  jaqy290vrp NUMBER(3),
+  jaqy290tap NUMBER(3),
+  jaqy290paa NUMBER(3),
+  jaqy290tda NUMBER(4),
+  jaqy290nda CHAR(12),
+  jaqy290trc NUMBER(3),
+  jaqy290dir VARCHAR2(200),
+  jaqy290ref VARCHAR2(50),
+  jaqy290ubg VARCHAR2(8),
+  jaqy290web VARCHAR2(50),
+  jaqy290edt CHAR(1),
+  jaqy290eml VARCHAR2(60),
+  jaqy290tlf VARCHAR2(20),
+  jaqy290act NUMBER(3),
+  jaqy290car VARCHAR2(30),
+  jaqy290cel VARCHAR2(20),
+  jaqy290fda DATE,
+  jaqy290usa CHAR(10),
+  jaqy290ara VARCHAR2(50),
+  jaqy290aga NUMBER(3),
+  jaqy290fra DATE,
+  jaqy290rra VARCHAR2(50),
+  jaqy290daa VARCHAR2(20),
+  jaqy290cra VARCHAR2(500),
+  jaqy290hcr CHAR(8) default TO_CHAR(sysdate, 'HH24:MI:SS'),
+  jaqy290app CHAR(50),
+  jaqy290apm CHAR(50),
+  jaqy290nom CHAR(50),
+  jaqy290noj CHAR(50),
+  jaqy290hor CHAR(8),
+  jaqy290dlc CHAR(140),
+  jaqy290ubc VARCHAR2(8)
+)
+;
+create index JAQY29001 on JAQY290 (JAQY290EMP, JAQY290USR, JAQY290COD);
+create index JAQY29002 on JAQY290 (JAQY290EMP, JAQY290AGE, JAQY290COD);
+create index JAQY29003 on JAQY290 (JAQY290OPS, JAQY290MOT, JAQY290ESR);
+create index JAQY29004 on JAQY290 (JAQY290AGE, JAQY290USR, JAQY290EPR);
+create index JAQY29005 on JAQY290 (JAQY290EMP, JAQY290ANI, JAQY290TRI, JAQY290COR);
+create index JAQY29006 on JAQY290 (JAQY290PAC, JAQY290TDC, JAQY290NDC);
+create index JAQY29007 on JAQY290 (JAQY290EMP, JAQY290ANI, JAQY290COR);
+alter table JAQY290
+  add primary key (JAQY290EMP, JAQY290COD);
+

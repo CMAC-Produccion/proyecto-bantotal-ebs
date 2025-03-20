@@ -1,0 +1,11 @@
+create table FRLITOBJ
+(
+  frlitid  VARCHAR2(2000) not null,
+  frlitlg  VARCHAR2(4) not null,
+  frlitobj VARCHAR2(100) not null,
+  frlitobt VARCHAR2(2000)
+)
+;
+alter table FRLITOBJ
+  add primary key (FRLITID, FRLITLG, FRLITOBJ);
+

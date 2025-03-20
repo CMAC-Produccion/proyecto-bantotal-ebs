@@ -1,0 +1,45 @@
+create table AQPC715
+(
+  aqpc715itcod  NUMBER(3) not null,
+  aqpc715itsuc  NUMBER(3) not null,
+  aqpc715itmod  NUMBER(3) not null,
+  aqpc715ittran NUMBER(3) not null,
+  aqpc715itnrel NUMBER(4) not null,
+  aqpc715itord  NUMBER(2) not null,
+  aqpc715pqt    VARCHAR2(50),
+  aqpc715prd    VARCHAR2(50),
+  aqpc715peje   VARCHAR2(200) not null,
+  aqpc715err    VARCHAR2(10),
+  aqpc715msge   VARCHAR2(200),
+  aqpc715freg   TIMESTAMP(6) not null
+)
+;
+comment on table AQPC715
+  is 'TABLA LOG DE PROCESOS EJECUTADOS DEL RTE DE MENSAJES';
+comment on column AQPC715.aqpc715itcod
+  is 'CLV TRANSACCIÓN EMPRESA';
+comment on column AQPC715.aqpc715itsuc
+  is 'CLV TRANSACCIÓN SUCURSAL';
+comment on column AQPC715.aqpc715itmod
+  is 'CLV TRANSACCIÓN MODULO';
+comment on column AQPC715.aqpc715ittran
+  is 'CLV TRANSACCIÓN TRANSACCION';
+comment on column AQPC715.aqpc715itnrel
+  is 'CLV TRANSACCIÓN NRO RELACION';
+comment on column AQPC715.aqpc715itord
+  is 'CLV TRANSACCIÓN ORDINAL';
+comment on column AQPC715.aqpc715pqt
+  is 'PAQUETE EJECUTADO';
+comment on column AQPC715.aqpc715prd
+  is 'PROCEDIMIENTO EJECUTADO';
+comment on column AQPC715.aqpc715peje
+  is 'PROCESO COMPLETO EJECUTADO';
+comment on column AQPC715.aqpc715err
+  is 'COD. ERROR';
+comment on column AQPC715.aqpc715msge
+  is 'MSG ERROR';
+comment on column AQPC715.aqpc715freg
+  is 'FECHA Y HORA DE REGISTRO';
+alter table AQPC715
+  add primary key (AQPC715ITCOD, AQPC715ITSUC, AQPC715ITMOD, AQPC715ITTRAN, AQPC715ITNREL, AQPC715ITORD, AQPC715FREG, AQPC715PEJE);
+

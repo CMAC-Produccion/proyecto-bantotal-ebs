@@ -1,0 +1,21 @@
+create table FBC605
+(
+  bc604emp  NUMBER(3) not null,
+  bc604mod  NUMBER(3) not null,
+  bc604suc  NUMBER(3) not null,
+  bc604trn  NUMBER(3) not null,
+  bc604nrel NUMBER(4) not null,
+  bc604fch  DATE not null,
+  bc604ord  NUMBER(2) not null,
+  bc604sbo  NUMBER(3) not null,
+  bc605treg NUMBER(3) not null,
+  bc605pais NUMBER(3),
+  bc605tdoc NUMBER(2),
+  bc605ndoc CHAR(12)
+)
+;
+create unique index FBC60500_2 on FBC605 (BC604EMP, BC604MOD, BC604SUC, BC604TRN, BC604NREL, BC604FCH, BC604ORD, BC604SBO, BC605TREG);
+create index FBC60503_2 on FBC605 (BC604EMP, BC605PAIS, BC605TDOC, BC605NDOC, BC604FCH, BC604MOD, BC604SUC, BC604TRN, BC604NREL, BC604ORD, BC604SBO, BC605TREG);
+alter table FBC605
+  add constraint FBC605_PK3 primary key (BC604EMP, BC604MOD, BC604SUC, BC604TRN, BC604NREL, BC604FCH, BC604ORD, BC604SBO, BC605TREG);
+

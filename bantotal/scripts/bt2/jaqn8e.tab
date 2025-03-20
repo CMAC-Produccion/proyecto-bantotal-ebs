@@ -1,0 +1,195 @@
+create table JAQN8E
+(
+  jaqn8eemp NUMBER(3) not null,
+  jaqn8emod NUMBER(3) not null,
+  jaqn8esuc NUMBER(3) not null,
+  jaqn8emda NUMBER(4) not null,
+  jaqn8epap NUMBER(4) not null,
+  jaqn8ecta NUMBER(9) not null,
+  jaqn8eope NUMBER(9) not null,
+  jaqn8esbo NUMBER(3) not null,
+  jaqn8etop NUMBER(3) not null,
+  jaqn8efec DATE not null,
+  jaqn8ecor NUMBER(9) not null,
+  jaqn8eusc CHAR(10),
+  jaqn8ewka CHAR(12),
+  jaqn8eins NUMBER(10),
+  jaqn8eest CHAR(1),
+  jaqn8eces NUMBER(4),
+  jaqn8encu NUMBER(9),
+  jaqn8edac NUMBER(5),
+  jaqn8esit VARCHAR2(255),
+  jaqn8etip NUMBER(2),
+  jaqn8enau CHAR(2),
+  jaqn8epam NUMBER(10,6),
+  jaqn8eaut CHAR(1),
+  jaqn8etga CHAR(15),
+  jaqn8etre NUMBER(4),
+  jaqn8epca NUMBER(10,6),
+  jaqn8epin NUMBER(10,6),
+  jaqn8epma NUMBER(10,6),
+  jaqn8eppa NUMBER(10,6),
+  jaqn8epia NUMBER(10,6),
+  jaqn8epmc NUMBER(10,6),
+  jaqn8ecap NUMBER(17,2),
+  jaqn8emca NUMBER(17,2),
+  jaqn8eint NUMBER(17,2),
+  jaqn8eseg NUMBER(17,2),
+  jaqn8emor NUMBER(17,2),
+  jaqn8eicv NUMBER(17,2),
+  jaqn8epen NUMBER(17,2),
+  jaqn8ecaa NUMBER(17,2),
+  jaqn8eina NUMBER(17,2),
+  jaqn8emoa NUMBER(17,2),
+  jaqn8eica NUMBER(17,2),
+  jaqn8epea NUMBER(17,2),
+  jaqn8eamc NUMBER(17,2),
+  jaqn8etex NUMBER(17,2),
+  jaqn8efep DATE,
+  jaqn8eusp CHAR(10),
+  jaqn8ewkp CHAR(12),
+  jaqn8ecer NUMBER(5),
+  jaqn8eder VARCHAR2(255),
+  jaqn8eai1 NUMBER(17,2),
+  jaqn8eai2 NUMBER(17,2),
+  jaqn8ean1 NUMBER(9),
+  jaqn8ean2 NUMBER(9),
+  jaqn8eat1 VARCHAR2(255),
+  jaqn8eat2 VARCHAR2(255),
+  jaqn8eaf1 DATE,
+  jaqn8eaf2 DATE,
+  jaqn8ehum CHAR(8),
+  jaqn8efum DATE,
+  jaqn8efie DATE,
+  jaqn8etrp CHAR(100)
+)
+;
+comment on table JAQN8E
+  is 'Tabla de Refinanciado PJM';
+comment on column JAQN8E.jaqn8eemp
+  is 'Empresa';
+comment on column JAQN8E.jaqn8emod
+  is 'Modulo';
+comment on column JAQN8E.jaqn8esuc
+  is 'Sucursal';
+comment on column JAQN8E.jaqn8emda
+  is 'Moneda';
+comment on column JAQN8E.jaqn8epap
+  is 'Papel';
+comment on column JAQN8E.jaqn8ecta
+  is 'Cuenta';
+comment on column JAQN8E.jaqn8eope
+  is 'Operacion';
+comment on column JAQN8E.jaqn8esbo
+  is 'SubOperacion';
+comment on column JAQN8E.jaqn8etop
+  is 'Tipo de Operacion';
+comment on column JAQN8E.jaqn8efec
+  is 'Fecha de Carga';
+comment on column JAQN8E.jaqn8ecor
+  is 'Correlativo';
+comment on column JAQN8E.jaqn8eusc
+  is 'Usuario de Carga';
+comment on column JAQN8E.jaqn8ewka
+  is 'Workstation de Carga';
+comment on column JAQN8E.jaqn8eins
+  is 'Instancia';
+comment on column JAQN8E.jaqn8eest
+  is 'Estado Ingresado, Grabado, Contabilizado';
+comment on column JAQN8E.jaqn8eces
+  is 'Estado Credito';
+comment on column JAQN8E.jaqn8encu
+  is 'Numero Cuotas';
+comment on column JAQN8E.jaqn8edac
+  is 'Dias Atraso Congelados';
+comment on column JAQN8E.jaqn8esit
+  is 'Situacion';
+comment on column JAQN8E.jaqn8etip
+  is 'Tipo Exoneracion';
+comment on column JAQN8E.jaqn8enau
+  is 'Nivel de Autonomia';
+comment on column JAQN8E.jaqn8epam
+  is 'Porcentaje de Amortizacion';
+comment on column JAQN8E.jaqn8eaut
+  is '¿Tiene Autorizacion?';
+comment on column JAQN8E.jaqn8etga
+  is 'Condicion (Con/Sin Garantia)';
+comment on column JAQN8E.jaqn8etre
+  is 'Tipo de Reprogramación';
+comment on column JAQN8E.jaqn8epca
+  is 'Tipo de Reprogramacion Texto';
+comment on column JAQN8E.jaqn8epin
+  is 'Fecha Ingreso Exoneracion';
+comment on column JAQN8E.jaqn8epma
+  is 'Porcentaje Ajuste Capital';
+comment on column JAQN8E.jaqn8eppa
+  is 'Porcentaje Ajuste Interes';
+comment on column JAQN8E.jaqn8epia
+  is 'Porcentaje Ajuste Mora';
+comment on column JAQN8E.jaqn8epmc
+  is 'Porcentaje Ajuste Penalidad';
+comment on column JAQN8E.jaqn8ecap
+  is 'Porcentaje Ajuste ICV';
+comment on column JAQN8E.jaqn8emca
+  is 'Porcentaje Ajuste Monto Capitalizado';
+comment on column JAQN8E.jaqn8eint
+  is 'Capital Actual';
+comment on column JAQN8E.jaqn8eseg
+  is 'Monto Capitalizado Actual';
+comment on column JAQN8E.jaqn8emor
+  is 'Interes Actual';
+comment on column JAQN8E.jaqn8eicv
+  is 'Seguros Actual';
+comment on column JAQN8E.jaqn8epen
+  is 'Mora Actual';
+comment on column JAQN8E.jaqn8ecaa
+  is 'ICV Actual';
+comment on column JAQN8E.jaqn8eina
+  is 'Penalidad Actual';
+comment on column JAQN8E.jaqn8emoa
+  is 'Capital Ajustado';
+comment on column JAQN8E.jaqn8eica
+  is 'Interes Ajustado';
+comment on column JAQN8E.jaqn8epea
+  is 'Mora Ajustado';
+comment on column JAQN8E.jaqn8eamc
+  is 'ICV Ajustado';
+comment on column JAQN8E.jaqn8etex
+  is 'Penalidad Ajustado';
+comment on column JAQN8E.jaqn8efep
+  is 'Monto Capitalizado Ajustado';
+comment on column JAQN8E.jaqn8eusp
+  is 'Total Exoneracion';
+comment on column JAQN8E.jaqn8ewkp
+  is 'Fecha de Autorizacion';
+comment on column JAQN8E.jaqn8ecer
+  is 'Usuario de Autorizacion';
+comment on column JAQN8E.jaqn8eder
+  is 'Workstation Autorizacion';
+comment on column JAQN8E.jaqn8eai1
+  is 'Codigo Error';
+comment on column JAQN8E.jaqn8eai2
+  is 'Descripcion de Error';
+comment on column JAQN8E.jaqn8ean1
+  is 'Fecha Ultimo Movimiento';
+comment on column JAQN8E.jaqn8ean2
+  is 'Hora Ultimo Movimiento';
+comment on column JAQN8E.jaqn8eat1
+  is 'Auxiliar Importe 1';
+comment on column JAQN8E.jaqn8eat2
+  is 'Auxiliar Importe 2';
+comment on column JAQN8E.jaqn8eaf1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN8E.jaqn8eaf2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN8E.jaqn8ehum
+  is 'Auxiliar Texto 1';
+comment on column JAQN8E.jaqn8efum
+  is 'Auxiliar Texto 2';
+comment on column JAQN8E.jaqn8efie
+  is 'Auxiliar Fecha 2';
+comment on column JAQN8E.jaqn8etrp
+  is 'Auxiliar Fecha 1';
+alter table JAQN8E
+  add primary key (JAQN8EEMP, JAQN8EMOD, JAQN8ESUC, JAQN8EMDA, JAQN8EPAP, JAQN8ECTA, JAQN8EOPE, JAQN8ESBO, JAQN8ETOP, JAQN8EFEC, JAQN8ECOR);
+

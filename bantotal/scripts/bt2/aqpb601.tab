@@ -1,0 +1,135 @@
+create table AQPB601
+(
+  aqpb601cod  NUMBER(10),
+  aqpb601pais NUMBER(3),
+  aqpb601ptdc NUMBER(2),
+  aqpb601pnd  VARCHAR2(12),
+  aqpb601emp  NUMBER(4) not null,
+  aqpb601suc  NUMBER(3) not null,
+  aqpb601mda  NUMBER(4) not null,
+  aqpb601pap  NUMBER(4) not null,
+  aqpb601cta  NUMBER(9) not null,
+  aqpb601oper NUMBER(9) not null,
+  aqpb601sbop NUMBER(3) not null,
+  aqpb601top  NUMBER(3) not null,
+  aqpb601mod  NUMBER(3) not null,
+  aqpb601scap NUMBER(17,2),
+  aqpb601est  NUMBER(3) not null,
+  aqpb601estm VARCHAR2(30) not null,
+  aqpb601modm VARCHAR2(30) not null,
+  aqpb601topm VARCHAR2(30) not null,
+  aqpb601usrr VARCHAR2(10) not null,
+  aqpb601icon NUMBER(17,2),
+  aqpb601icv  NUMBER(17,2),
+  aqpb601mora NUMBER(17,2),
+  aqpb601pena NUMBER(17,2),
+  aqpb601otro NUMBER(17,2),
+  aqpb601segu NUMBER(17,2),
+  aqpb601dtot NUMBER(17,2),
+  aqpb601datr NUMBER(5),
+  aqpb601usra VARCHAR2(10),
+  aqpb601agen VARCHAR2(30),
+  aqpb601cpcp VARCHAR2(12),
+  aqpb601cven NUMBER(3),
+  aqpb601repr NUMBER(3),
+  aqpb601refi NUMBER(3),
+  aqpb601estc VARCHAR2(30),
+  aqpb601fecp DATE,
+  aqpb601fcas DATE,
+  aqpb601fenv DATE,
+  aqpb601fasi DATE,
+  aqpb601fdem DATE,
+  aqpb601fvca DATE,
+  aqpb601fide DATE,
+  aqpb601fecr TIMESTAMP(6),
+  aqpb601abog VARCHAR2(150)
+)
+;
+comment on column AQPB601.aqpb601cod
+  is 'Correlativo';
+comment on column AQPB601.aqpb601pais
+  is 'Pais del Documento';
+comment on column AQPB601.aqpb601ptdc
+  is 'Tipo de Documento';
+comment on column AQPB601.aqpb601pnd
+  is 'Nro. de Documento';
+comment on column AQPB601.aqpb601emp
+  is 'Clv. credito Cod. Empresa';
+comment on column AQPB601.aqpb601suc
+  is 'Clv. credito Sucursal';
+comment on column AQPB601.aqpb601mda
+  is 'Clv. credito Moneda';
+comment on column AQPB601.aqpb601pap
+  is 'Clv. credito Papel';
+comment on column AQPB601.aqpb601cta
+  is 'Clv. credito Cuenta';
+comment on column AQPB601.aqpb601oper
+  is 'Clv. credito Operacion';
+comment on column AQPB601.aqpb601sbop
+  is 'Clv. credito Suboperacion';
+comment on column AQPB601.aqpb601top
+  is 'Clv. credito Tipo de Operacion';
+comment on column AQPB601.aqpb601mod
+  is 'Clv. credito Modulo';
+comment on column AQPB601.aqpb601scap
+  is 'Saldo Capital';
+comment on column AQPB601.aqpb601est
+  is 'Estado de la reprogramacion';
+comment on column AQPB601.aqpb601estm
+  is 'Descripcion Estado de la reprogramacion';
+comment on column AQPB601.aqpb601modm
+  is 'Descripcion Clv. credito Modulo';
+comment on column AQPB601.aqpb601topm
+  is 'Descripcion Clv. credito Tipo de Operacion';
+comment on column AQPB601.aqpb601usrr
+  is 'Nombre Usuario';
+comment on column AQPB601.aqpb601icon
+  is 'Interes Compensatorio';
+comment on column AQPB601.aqpb601icv
+  is 'ICV';
+comment on column AQPB601.aqpb601mora
+  is 'Mora';
+comment on column AQPB601.aqpb601pena
+  is 'Penalidad';
+comment on column AQPB601.aqpb601otro
+  is 'Otros';
+comment on column AQPB601.aqpb601segu
+  is 'Seguros';
+comment on column AQPB601.aqpb601dtot
+  is 'Deuda Total';
+comment on column AQPB601.aqpb601datr
+  is 'Dias de Atraso';
+comment on column AQPB601.aqpb601usra
+  is 'Analista';
+comment on column AQPB601.aqpb601agen
+  is 'Agencia';
+comment on column AQPB601.aqpb601cpcp
+  is 'Cuotas Pagadas / Cuota Pactada';
+comment on column AQPB601.aqpb601cven
+  is 'Nro. Cuotas Vencidas';
+comment on column AQPB601.aqpb601repr
+  is 'Nro. de Reprogramaciones';
+comment on column AQPB601.aqpb601refi
+  is 'Nro. de Refinanciaciones';
+comment on column AQPB601.aqpb601estc
+  is 'Estado Contable';
+comment on column AQPB601.aqpb601fecp
+  is 'Ultima Fecha de Pago';
+comment on column AQPB601.aqpb601fcas
+  is 'Fecha de Castigado';
+comment on column AQPB601.aqpb601fenv
+  is 'Fecha Enviado a rl';
+comment on column AQPB601.aqpb601fasi
+  is 'Fecha de Asignacion de Abogado';
+comment on column AQPB601.aqpb601fdem
+  is 'Fecha de Demanda';
+comment on column AQPB601.aqpb601fvca
+  is 'Fecha de Venta de Cartera';
+comment on column AQPB601.aqpb601fide
+  is 'Fecha de Interposicion de Demanda';
+comment on column AQPB601.aqpb601fecr
+  is 'Fecha de Registro';
+comment on column AQPB601.aqpb601abog
+  is 'Abogado Externo';
+create index AQPB601A2 on AQPB601 (AQPB601COD);
+

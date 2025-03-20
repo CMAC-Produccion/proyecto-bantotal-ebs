@@ -1,0 +1,18 @@
+create table CNL011
+(
+  cnl000cod NUMBER(4) not null,
+  cnl011pgc NUMBER(3) not null,
+  cnl011mod NUMBER(3) not null,
+  cnl011suc NUMBER(3) not null,
+  cnl011trn NUMBER(3) not null,
+  cnl011rel NUMBER(4) not null,
+  cnl011ord NUMBER(2) not null,
+  cnl011sor NUMBER(3) not null,
+  cnl011fco DATE not null,
+  cnl011crr NUMBER(3) not null,
+  cnl011fil CHAR(255)
+)
+;
+alter table CNL011
+  add primary key (CNL000COD, CNL011PGC, CNL011MOD, CNL011SUC, CNL011TRN, CNL011REL, CNL011ORD, CNL011SOR, CNL011FCO, CNL011CRR);
+

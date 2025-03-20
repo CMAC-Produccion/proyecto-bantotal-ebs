@@ -1,0 +1,34 @@
+create table JAQZ551
+(
+  jaqz551pgc   NUMBER(3) not null,
+  jaqz551isuc1 NUMBER(3) not null,
+  jaqz551mod   NUMBER(3) not null,
+  jaqz551tran  NUMBER(3) not null,
+  jaqz551rel   NUMBER(4) not null,
+  jaqz551ord   NUMBER(3) not null,
+  jaqz551sord  NUMBER(3) not null,
+  jaqz551fech  DATE not null,
+  jaqz551hora  CHAR(10),
+  jaqz551mto   NUMBER(16,2),
+  jaqz551mda   CHAR(4),
+  jaqz551tasa  NUMBER(3,2),
+  jaqz551plz   NUMBER(4),
+  jaqz551usu   CHAR(10),
+  jaqz551cta   CHAR(32),
+  jaqz551ope   NUMBER(9),
+  jaqz551suc   CHAR(30),
+  jaqz551trax  VARCHAR2(40),
+  jaqz551a1    NUMBER(4),
+  jaqz551a2    NUMBER(16,2),
+  jaqz551a3    NUMBER(17),
+  jaqz551a4    CHAR(20),
+  jaqz551a5    CHAR(40),
+  jaqz551a6    DATE,
+  jaqz551a7    DATE,
+  jaqz551a8    NUMBER(4),
+  jaqz551a9    NUMBER(4)
+)
+;
+alter table JAQZ551
+  add primary key (JAQZ551PGC, JAQZ551ISUC1, JAQZ551MOD, JAQZ551TRAN, JAQZ551REL, JAQZ551ORD, JAQZ551SORD, JAQZ551FECH);
+

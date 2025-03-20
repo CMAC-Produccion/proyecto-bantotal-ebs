@@ -1,0 +1,12 @@
+create table FBC051
+(
+  pgcod      NUMBER(3) not null,
+  cicpo      CHAR(8) not null,
+  parrelcorr NUMBER(5) not null,
+  parrel     CHAR(16),
+  parreldsc  CHAR(50)
+)
+;
+alter table FBC051
+  add primary key (PGCOD, CICPO, PARRELCORR);
+

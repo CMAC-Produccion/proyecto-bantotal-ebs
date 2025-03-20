@@ -1,0 +1,25 @@
+create table JAQY222
+(
+  jaqy222cor NUMBER(4) not null,
+  jaqy222usu CHAR(10) not null,
+  jaqy222suc NUMBER(3),
+  jaqy222cn1 CHAR(120),
+  jaqy222cn2 CHAR(120),
+  jaqy222dir CHAR(160),
+  jaqy222dis CHAR(30),
+  jaqy222prv CHAR(30),
+  jaqy222dep CHAR(20),
+  jaqy222tcl CHAR(20),
+  jaqy222tem CHAR(20),
+  jaqy222cta VARCHAR2(27),
+  jaqy222tea CHAR(8),
+  jaqy222fdp DATE,
+  jaqy222fap DATE,
+  jaqy222msg CHAR(4),
+  jaqy222sdo NUMBER(18,2)
+)
+;
+create index IJAQY22201 on JAQY222 (JAQY222SUC, JAQY222CN1, JAQY222CN2);
+alter table JAQY222
+  add primary key (JAQY222COR, JAQY222USU);
+

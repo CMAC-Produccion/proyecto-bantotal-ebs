@@ -1,0 +1,21 @@
+create table JAQL589
+(
+  jaql589codzon NUMBER(3),
+  jaql589zon    VARCHAR2(50),
+  jaql589mes    NUMBER(2),
+  jaql589fact   NUMBER(7,4),
+  jaql589anio   NUMBER(5)
+)
+;
+comment on column JAQL589.jaql589codzon
+  is 'Código de Zona';
+comment on column JAQL589.jaql589zon
+  is 'Nombre de Zona';
+comment on column JAQL589.jaql589mes
+  is 'Número de mes (1-Ene, 2-Feb, 3-Mar...)';
+comment on column JAQL589.jaql589fact
+  is 'Factor del mes';
+comment on column JAQL589.jaql589anio
+  is 'Año (2016 - Productividad 2016)';
+create index JAQL589_1 on JAQL589 (JAQL589CODZON, JAQL589MES, JAQL589ANIO);
+

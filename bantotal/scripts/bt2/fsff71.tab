@@ -1,0 +1,14 @@
+create table FSFF71
+(
+  zpgcodr6 NUMBER(3) not null,
+  zctnror6 NUMBER(9) not null,
+  zdocodr6 NUMBER(2) not null,
+  zdoordr6 NUMBER(2) not null,
+  zdotelf  CHAR(20),
+  zdotlex  CHAR(25),
+  zdofax   CHAR(20)
+)
+;
+alter table FSFF71
+  add primary key (ZPGCODR6, ZCTNROR6, ZDOCODR6, ZDOORDR6);
+

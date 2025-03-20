@@ -1,0 +1,29 @@
+create table AUD_SNGU02_AUDIT
+(
+  aud_old_sngu01tip  NUMBER(2),
+  aud_new_sngu01tip  NUMBER(2),
+  aud_old_sngu02cod  NUMBER(5),
+  aud_new_sngu02cod  NUMBER(5),
+  aud_old_sngu02fin  DATE,
+  aud_new_sngu02fin  DATE,
+  aud_old_sngu02inh  CHAR(1),
+  aud_new_sngu02inh  CHAR(1),
+  aud_old_sngu02pgc  NUMBER(3),
+  aud_new_sngu02pgc  NUMBER(3),
+  aud_old_sngu02usr  CHAR(10),
+  aud_new_sngu02usr  CHAR(10),
+  aud_sngu02_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_sngu02_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sngu02_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_sngu02_ubr     VARCHAR2(50) default ' ' not null,
+  aud_sngu02_ubc     VARCHAR2(50) default ' ' not null,
+  aud_sngu02_ubt     VARCHAR2(50) default ' ' not null,
+  aud_sngu02_ubu     VARCHAR2(50) default USER not null,
+  aud_sngu02_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sngu02_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sngu02_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sngu02_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_sngu02_uas     CHAR(1) default 'I' not null
+)
+;
+

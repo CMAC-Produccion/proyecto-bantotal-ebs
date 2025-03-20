@@ -1,0 +1,24 @@
+create table JFAW582
+(
+  jfaw582emp NUMBER(3) not null,
+  jfaw582suc NUMBER(3) not null,
+  jfaw582mod NUMBER(3) not null,
+  jfaw582mda NUMBER(4) not null,
+  jfaw582pap NUMBER(4) not null,
+  jfaw582cta NUMBER(9) not null,
+  jfaw582ope NUMBER(9) not null,
+  jfaw582sub NUMBER(3) not null,
+  jfaw582top NUMBER(3) not null,
+  jfaw582cor NUMBER(9) not null,
+  jfaw582fin DATE,
+  jfaw582ten NUMBER(1),
+  jfaw582mai CHAR(50),
+  jfaw582cel CHAR(50),
+  jfaw582dir CHAR(100),
+  jfaw582tel CHAR(20),
+  jfaw582est NUMBER(1)
+)
+;
+alter table JFAW582
+  add primary key (JFAW582EMP, JFAW582SUC, JFAW582MOD, JFAW582MDA, JFAW582PAP, JFAW582CTA, JFAW582OPE, JFAW582SUB, JFAW582TOP, JFAW582COR);
+

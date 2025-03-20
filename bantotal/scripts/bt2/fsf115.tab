@@ -1,0 +1,16 @@
+create table FSF115
+(
+  lnpgcod NUMBER(3) not null,
+  lntrmod NUMBER(3) not null,
+  lntrnro NUMBER(3) not null,
+  lntrord NUMBER(2) not null,
+  lnidrng NUMBER(3) not null,
+  lnidpos NUMBER(3) not null,
+  lnidcod NUMBER(3),
+  lnidord NUMBER(3),
+  lnidtxt CHAR(30)
+)
+;
+alter table FSF115
+  add primary key (LNPGCOD, LNTRMOD, LNTRNRO, LNTRORD, LNIDRNG, LNIDPOS);
+

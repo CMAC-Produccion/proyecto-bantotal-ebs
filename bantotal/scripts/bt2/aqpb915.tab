@@ -1,0 +1,27 @@
+create table AQPB915
+(
+  aqpb915usr   VARCHAR2(10) not null,
+  aqpb915paic  NUMBER(3) not null,
+  aqpb915tdoc  NUMBER(2) not null,
+  aqpb915tndoc VARCHAR2(12) not null,
+  aqpb915calf  NUMBER(5),
+  aqpb915tcal  CHAR(1)
+)
+;
+comment on table AQPB915
+  is 'TABLA DE CALIFICACION DE SEGMENTACION MYCRO';
+comment on column AQPB915.aqpb915usr
+  is 'Usuario';
+comment on column AQPB915.aqpb915paic
+  is 'Codigo Pais';
+comment on column AQPB915.aqpb915tdoc
+  is 'Tipo Documento';
+comment on column AQPB915.aqpb915tndoc
+  is 'Numero Documento';
+comment on column AQPB915.aqpb915calf
+  is 'Calificacion';
+comment on column AQPB915.aqpb915tcal
+  is 'Tipo Calificacion';
+alter table AQPB915
+  add primary key (AQPB915PAIC, AQPB915TDOC, AQPB915TNDOC, AQPB915USR);
+

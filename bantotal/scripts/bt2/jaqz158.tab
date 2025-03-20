@@ -1,0 +1,28 @@
+create table JAQZ158
+(
+  jaqz158ide NUMBER(15) not null,
+  jaqz158tip CHAR(1),
+  jaqz158pge NUMBER(3),
+  jaqz158mod NUMBER(3),
+  jaqz158suc NUMBER(3),
+  jaqz158mda NUMBER(4),
+  jaqz158pap NUMBER(4),
+  jaqz158cta NUMBER(9),
+  jaqz158ope NUMBER(9),
+  jaqz158sbo NUMBER(3),
+  jaqz158tpo NUMBER(3),
+  jaqz158ax1 NUMBER(9),
+  jaqz158ax2 NUMBER(9),
+  jaqz158ax3 NUMBER(17,2),
+  jaqz158ax4 NUMBER(17,2),
+  jaqz158ax5 DATE,
+  jaqz158ax6 DATE,
+  jaqz158ax7 CHAR(100),
+  jaqz158ax8 CHAR(100),
+  jaqz158ax9 CHAR(100)
+)
+;
+create index JAQZ158IDX001 on JAQZ158 (JAQZ158PGE, JAQZ158MOD, JAQZ158SUC, JAQZ158MDA, JAQZ158PAP, JAQZ158CTA, JAQZ158OPE, JAQZ158SBO, JAQZ158TPO);
+alter table JAQZ158
+  add primary key (JAQZ158IDE);
+

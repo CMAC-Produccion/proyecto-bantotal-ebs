@@ -1,0 +1,18 @@
+create table FHR021
+(
+  pgcod      NUMBER(3) not null,
+  liuhmod    NUMBER(3) not null,
+  liuhoper   NUMBER(9) not null,
+  liuhsbop   NUMBER(3) not null,
+  liuhmodid  NUMBER(5) not null,
+  liuhtopc   NUMBER(2) not null,
+  liuhcopc   NUMBER(3) not null,
+  liuhtopcds CHAR(20),
+  liuhcopcds CHAR(25),
+  liuiaopcst CHAR(1),
+  liuipopcst CHAR(1)
+)
+;
+alter table FHR021
+  add primary key (PGCOD, LIUHMOD, LIUHOPER, LIUHSBOP, LIUHMODID, LIUHTOPC, LIUHCOPC);
+

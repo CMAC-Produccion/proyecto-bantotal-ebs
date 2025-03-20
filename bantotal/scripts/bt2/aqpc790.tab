@@ -1,0 +1,57 @@
+create table AQPC790
+(
+  aqpc790corr   NUMBER(17) not null,
+  aqpc790fhreg  DATE not null,
+  aqpc790hrreg  VARCHAR2(8) not null,
+  aqpc790anio   NUMBER(17,2),
+  aqpc790report NUMBER(17,2),
+  aqpc790subsis VARCHAR2(255),
+  aqpc790empsis VARCHAR2(255),
+  aqpc790codpai NUMBER(17,2),
+  aqpc790doi    VARCHAR2(255),
+  aqpc790tipdoi NUMBER(17,2),
+  aqpc790ays    VARCHAR2(255),
+  aqpc790cya    VARCHAR2(255),
+  aqpc790jcrla  VARCHAR2(255),
+  aqpc790mcrort VARCHAR2(255),
+  aqpc790moodys VARCHAR2(255),
+  aqpc790pcr    VARCHAR2(255)
+)
+;
+comment on table AQPC790
+  is 'Copia csayco_anx.dat_cuatro';
+comment on column AQPC790.aqpc790corr
+  is 'Correlativo';
+comment on column AQPC790.aqpc790fhreg
+  is 'Fecha de Registro';
+comment on column AQPC790.aqpc790hrreg
+  is 'Hora de Registro';
+comment on column AQPC790.aqpc790anio
+  is 'Optional';
+comment on column AQPC790.aqpc790report
+  is 'Reporte';
+comment on column AQPC790.aqpc790subsis
+  is 'Subsistema';
+comment on column AQPC790.aqpc790empsis
+  is 'Empresa';
+comment on column AQPC790.aqpc790codpai
+  is 'Optional';
+comment on column AQPC790.aqpc790doi
+  is 'Nro. Documento';
+comment on column AQPC790.aqpc790tipdoi
+  is 'Tipo de Documento';
+comment on column AQPC790.aqpc790ays
+  is 'Apoyo y Asociados Internacionales';
+comment on column AQPC790.aqpc790cya
+  is 'Class y Asociados S.A.';
+comment on column AQPC790.aqpc790jcrla
+  is 'JCR Latino América';
+comment on column AQPC790.aqpc790mcrort
+  is 'Optional';
+comment on column AQPC790.aqpc790moodys
+  is 'Moodys Local PE Clasificadora de Riesgo';
+comment on column AQPC790.aqpc790pcr
+  is 'PCR (Pacific Credit Rating)';
+alter table AQPC790
+  add primary key (AQPC790CORR, AQPC790FHREG, AQPC790HRREG);
+

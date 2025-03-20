@@ -1,0 +1,22 @@
+create table PQT004
+(
+  pqt4pgc NUMBER(3) not null,
+  pqt4cod NUMBER(5) not null,
+  pqt4mod NUMBER(3) not null,
+  pqt4top NUMBER(4) not null,
+  pqt4mon NUMBER(4) not null,
+  pqt4pap NUMBER(4) not null,
+  pqt4opc CHAR(1),
+  pqt4ax1 DATE,
+  pqt4ax2 DATE,
+  pqt4ax3 NUMBER(17,2),
+  pqt4ax4 NUMBER(17,2),
+  pqt4ax5 NUMBER(10),
+  pqt4ax6 NUMBER(10),
+  pqt4ax7 CHAR(30),
+  pqt4ax8 CHAR(30)
+)
+;
+alter table PQT004
+  add primary key (PQT4PGC, PQT4COD, PQT4MOD, PQT4TOP, PQT4MON, PQT4PAP);
+

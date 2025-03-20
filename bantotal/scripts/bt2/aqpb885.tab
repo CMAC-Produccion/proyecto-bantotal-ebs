@@ -1,0 +1,48 @@
+create table AQPB885
+(
+  aqpb885tabla VARCHAR2(128) not null,
+  aqpb885colt1 VARCHAR2(500),
+  aqpb885tdcl1 VARCHAR2(500),
+  aqpb885ldcl1 NUMBER,
+  aqpb885colt2 VARCHAR2(500),
+  aqpb885tdcl2 VARCHAR2(500),
+  aqpb885ldcl2 NUMBER,
+  aqpb885colt3 VARCHAR2(500),
+  aqpb885tdcl3 VARCHAR2(500),
+  aqpb885ldcl3 NUMBER,
+  aqpb885colt4 VARCHAR2(500),
+  aqpb885habil CHAR(1) default 'S',
+  aqpb885obser VARCHAR2(1000)
+)
+;
+comment on table AQPB885
+  is 'Tablas PCI para devolver datos';
+comment on column AQPB885.aqpb885tabla
+  is 'Nombre de Tabla';
+comment on column AQPB885.aqpb885colt1
+  is 'Columna pan de tabla';
+comment on column AQPB885.aqpb885tdcl1
+  is 'Tipo de dato de columna pan de tabla';
+comment on column AQPB885.aqpb885ldcl1
+  is 'Longitud de dato de columna pan de tabla';
+comment on column AQPB885.aqpb885colt2
+  is 'Columna pan de tabla';
+comment on column AQPB885.aqpb885tdcl2
+  is 'Tipo de dato de columna pan de tabla';
+comment on column AQPB885.aqpb885ldcl2
+  is 'Longitud de dato de columna pan de tabla';
+comment on column AQPB885.aqpb885colt3
+  is 'Columna pan de tabla';
+comment on column AQPB885.aqpb885tdcl3
+  is 'Tipo de dato de columna pan de tabla';
+comment on column AQPB885.aqpb885ldcl3
+  is 'Longitud de dato de columna pan de tabla';
+comment on column AQPB885.aqpb885colt4
+  is 'Columna fecha de tabla';
+comment on column AQPB885.aqpb885habil
+  is 'Flag habilitado';
+comment on column AQPB885.aqpb885obser
+  is 'Observaciones';
+alter table AQPB885
+  add primary key (AQPB885TABLA);
+

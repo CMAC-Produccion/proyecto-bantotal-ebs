@@ -1,0 +1,40 @@
+create table AQPC798
+(
+  aqpc798corr NUMBER(17) not null,
+  aqpc798ndoc VARCHAR2(12) not null,
+  aqpc798ninf VARCHAR2(20) not null,
+  aqpc798nrel NUMBER(17) not null,
+  aqpc798fclf DATE,
+  aqpc798calf VARCHAR2(30),
+  aqpc798csbs NUMBER(10),
+  aqpc798comt VARCHAR2(255),
+  aqpc798datr NUMBER(10),
+  aqpc798rctf VARCHAR2(255)
+)
+;
+comment on table AQPC798
+  is 'Informe de Rectificación - Detalle';
+comment on column AQPC798.aqpc798corr
+  is 'Correlativo';
+comment on column AQPC798.aqpc798ndoc
+  is 'Nro. Documento';
+comment on column AQPC798.aqpc798ninf
+  is 'Nro. Informe';
+comment on column AQPC798.aqpc798nrel
+  is 'Nro. Relación';
+comment on column AQPC798.aqpc798fclf
+  is 'Fecha Calificación';
+comment on column AQPC798.aqpc798calf
+  is 'Calificación';
+comment on column AQPC798.aqpc798csbs
+  is 'Código SBS';
+comment on column AQPC798.aqpc798comt
+  is 'Comentarios';
+comment on column AQPC798.aqpc798datr
+  is 'Días Atraso';
+comment on column AQPC798.aqpc798rctf
+  is 'Rectificación';
+create index AQPC798A2 on AQPC798 (AQPC798NDOC, AQPC798NINF, AQPC798NREL, AQPC798FCLF);
+alter table AQPC798
+  add primary key (AQPC798CORR, AQPC798NDOC, AQPC798NINF, AQPC798NREL);
+

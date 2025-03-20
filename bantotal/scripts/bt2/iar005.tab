@@ -1,0 +1,15 @@
+create table IAR005
+(
+  iar005c1  NUMBER(11) not null,
+  iar005c3  NUMBER(6) not null,
+  iar005c4  NUMBER(6) not null,
+  iar005cbu CHAR(22) not null,
+  iar005imp NUMBER(17,2),
+  iar005c2  CHAR(45),
+  iar005c5  NUMBER(1),
+  iar005c6  NUMBER(3)
+)
+;
+alter table IAR005
+  add primary key (IAR005C1, IAR005C3, IAR005C4, IAR005CBU);
+

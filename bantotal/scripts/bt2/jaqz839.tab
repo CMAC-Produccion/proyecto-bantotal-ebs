@@ -1,0 +1,36 @@
+create table JAQZ839
+(
+  jaqz839pgcod    NUMBER(10) not null,
+  jaqz839analst   VARCHAR2(10) not null,
+  jaqz839rating   VARCHAR2(30) not null,
+  jaqz839prctcump NUMBER(12,2) not null,
+  jaqz839user     VARCHAR2(10),
+  jaqz839fch      DATE not null,
+  jaqz839hora     CHAR(8) not null,
+  jaqz839auxn1    NUMBER(10,2),
+  jaqz839auxc1    VARCHAR2(50),
+  jaqz839auxn2    NUMBER(10,2),
+  jaqz839auxc2    VARCHAR2(50),
+  jaqz839auxn3    NUMBER(10,2),
+  jaqz839auxc3    VARCHAR2(50),
+  jaqz839auxn4    NUMBER(10,2),
+  jaqz839auxc4    VARCHAR2(50),
+  jaqz839auxn5    NUMBER(10,2),
+  jaqz839auxc5    VARCHAR2(50),
+  jaqz839auxn6    NUMBER(10,2),
+  jaqz839auxc6    VARCHAR2(50),
+  jaqz839auxn7    NUMBER(10,2),
+  jaqz839auxc7    VARCHAR2(50),
+  jaqz839auxn8    NUMBER(10,2),
+  jaqz839auxc8    VARCHAR2(50),
+  jaqz839auxn9    NUMBER(10,2),
+  jaqz839auxc9    VARCHAR2(50),
+  jaqz839auxn10   NUMBER(10,2),
+  jaqz839auxc10   VARCHAR2(50)
+)
+;
+create index JAQZ839IDX002 on JAQZ839 (JAQZ839PGCOD, JAQZ839ANALST, JAQZ839RATING, JAQZ839PRCTCUMP);
+create index JAQZ839IDX003 on JAQZ839 (JAQZ839ANALST);
+alter table JAQZ839
+  add constraint JAQZ839IDX001 primary key (JAQZ839PGCOD, JAQZ839ANALST, JAQZ839RATING, JAQZ839PRCTCUMP, JAQZ839FCH, JAQZ839HORA);
+

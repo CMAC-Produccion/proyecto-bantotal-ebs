@@ -1,0 +1,28 @@
+create table FSFI73
+(
+  sfi70emp   NUMBER(3) not null,
+  sfi73papel NUMBER(4) not null,
+  sfi73num   NUMBER(9) not null,
+  sfi70evtip NUMBER(3),
+  sfi71ctgcd NUMBER(5),
+  sfi73infec DATE,
+  sfi73inhor CHAR(8),
+  sfi73lifec DATE,
+  sfi73lihor CHAR(8),
+  sfi73liclf DATE,
+  sfi73liclh CHAR(8),
+  sfi73descr CHAR(50),
+  sfi72stscd CHAR(1),
+  sfi73user  CHAR(10),
+  sfi73rgfec DATE,
+  sfi73rghor CHAR(8),
+  sfi73rgwst CHAR(10),
+  sfi73vig   CHAR(1)
+)
+;
+create index FSFI7302 on FSFI73 (SFI70EMP, SFI71CTGCD);
+create index FSFI7303 on FSFI73 (SFI70EMP, SFI70EVTIP);
+create index FSFI7304 on FSFI73 (SFI70EMP, SFI72STSCD);
+alter table FSFI73
+  add primary key (SFI70EMP, SFI73PAPEL, SFI73NUM);
+

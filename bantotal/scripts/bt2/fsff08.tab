@@ -1,0 +1,26 @@
+create table FSFF08
+(
+  kdocoraux NUMBER(9) not null,
+  kdocor    NUMBER(9) not null,
+  kdorubx   NUMBER(16) not null,
+  kdomda    NUMBER(4) not null,
+  kdopap    NUMBER(4) not null,
+  kdocta    NUMBER(9) not null,
+  kdovto    DATE not null,
+  kdoneg    NUMBER(9),
+  kdonomcta CHAR(40),
+  kdosdo    NUMBER(17,2),
+  kdoval    DATE,
+  kdopzo    NUMBER(5),
+  kdoope    NUMBER(9),
+  kdosub    NUMBER(3),
+  kdotop    NUMBER(3),
+  kdosdo2   NUMBER(17,2),
+  kdosdo3   NUMBER(17,2),
+  kdosdo4   NUMBER(17,2),
+  kdosdo5   NUMBER(17,2)
+)
+;
+alter table FSFF08
+  add primary key (KDOCORAUX, KDOCOR, KDORUBX, KDOMDA, KDOPAP, KDOCTA, KDOVTO);
+

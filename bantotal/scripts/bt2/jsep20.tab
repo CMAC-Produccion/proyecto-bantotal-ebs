@@ -1,0 +1,27 @@
+create table JSEP20
+(
+  jsep20pgc NUMBER(3) not null,
+  jsep20mod NUMBER(3) not null,
+  jsep20top NUMBER(3) not null,
+  jsep20mda NUMBER(4) not null,
+  jsep20pap NUMBER(4) not null,
+  jsep20pzi NUMBER(5),
+  jsep20pzx NUMBER(5),
+  jsep20tpo CHAR(1),
+  jsep20tpd NUMBER(1),
+  jsep20ajv CHAR(1),
+  jsep20imi NUMBER(17,2),
+  jsep20imx NUMBER(17,2),
+  jsep20rub NUMBER(16),
+  jsep20pra CHAR(1),
+  jsep20ax1 NUMBER(17,2),
+  jsep20ax2 CHAR(40),
+  jsep20ax3 DATE,
+  jsep20ax4 NUMBER(17,2),
+  jsep20ax5 CHAR(15),
+  jsep20ax6 DATE
+)
+;
+alter table JSEP20
+  add primary key (JSEP20PGC, JSEP20MOD, JSEP20TOP, JSEP20MDA, JSEP20PAP);
+

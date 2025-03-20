@@ -1,0 +1,12 @@
+create table JBXIL0
+(
+  jbxil0pai NUMBER(3) not null,
+  jbxil0td  NUMBER(2) not null,
+  jbxil0nd  CHAR(12) not null,
+  jbxil0pin CHAR(64),
+  jbxil0ifa NUMBER(2),
+  jbxil0ult DATE
+)
+;
+create unique index JBXIL001 on JBXIL0 (JBXIL0PAI, JBXIL0TD, JBXIL0ND);
+

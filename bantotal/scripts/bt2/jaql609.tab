@@ -1,0 +1,42 @@
+create table JAQL609
+(
+  jaql546serial NUMBER(10) not null,
+  jaql609secue  NUMBER(6) not null,
+  jaql609ferpt  DATE,
+  jaql609feven  DATE,
+  jaql609mtimp  NUMBER(13,2),
+  jaql609coent  VARCHAR2(100),
+  jaql609crgmo  VARCHAR2(100),
+  jaql609tippe  VARCHAR2(100),
+  jaql609tideu  VARCHAR2(100),
+  jaql609nocom  VARCHAR2(100),
+  jaql609direc  VARCHAR2(100),
+  jaql609codis  VARCHAR2(100),
+  jaql609nodis  VARCHAR2(100),
+  jaql609codep  VARCHAR2(100),
+  jaql609nodep  VARCHAR2(100),
+  jaql609tidoc  VARCHAR2(100),
+  jaql609codeu  VARCHAR2(100),
+  jaql609fecre  DATE,
+  jaql609feact  DATE,
+  jaql609facts  DATE,
+  jaql609tidet  CHAR(2),
+  jaql609timon  VARCHAR2(40),
+  jaql609dven   NUMBER(10),
+  jaql609concod VARCHAR2(16),
+  jaql609creusr VARCHAR2(10),
+  jaql609cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL609.jaql609dven
+  is 'Dias Vencidos';
+comment on column JAQL609.jaql609concod
+  is 'Código de Consulta';
+comment on column JAQL609.jaql609creusr
+  is 'Usuario Creación';
+comment on column JAQL609.jaql609cretim
+  is 'Fecha Hora Registro';
+create index JAQL609A2 on JAQL609 (JAQL546SERIAL, JAQL609COENT);
+alter table JAQL609
+  add primary key (JAQL546SERIAL, JAQL609SECUE);
+

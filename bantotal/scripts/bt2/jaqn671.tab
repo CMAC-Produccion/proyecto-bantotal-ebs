@@ -1,0 +1,28 @@
+create table JAQN671
+(
+  jaqn671emp NUMBER(3) not null,
+  jaqn671mod NUMBER(3) not null,
+  jaqn671tip NUMBER(2) not null,
+  jaqn671mda NUMBER(4) not null,
+  jaqn671pap NUMBER(4) not null,
+  jaqn671fei DATE not null,
+  jaqn671mto NUMBER(17,2) not null,
+  jaqn671plz NUMBER(9) not null,
+  jaqn671tas NUMBER(10,6),
+  jaqn671an1 NUMBER(9),
+  jaqn671an2 NUMBER(9),
+  jaqn671an3 NUMBER(9),
+  jaqn671ai1 NUMBER(17,2),
+  jaqn671ai2 NUMBER(17,2),
+  jaqn671ai3 NUMBER(17,2),
+  jaqn671ac1 VARCHAR2(255),
+  jaqn671ac2 VARCHAR2(255),
+  jaqn671ac3 VARCHAR2(255),
+  jaqn671af1 DATE,
+  jaqn671af2 DATE,
+  jaqn671af3 DATE
+)
+;
+alter table JAQN671
+  add primary key (JAQN671EMP, JAQN671MOD, JAQN671TIP, JAQN671MDA, JAQN671PAP, JAQN671FEI, JAQN671MTO, JAQN671PLZ);
+

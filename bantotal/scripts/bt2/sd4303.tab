@@ -1,0 +1,18 @@
+create table SD4303
+(
+  sd03coddis NUMBER(4) not null,
+  sd03codent NUMBER(5) not null,
+  sd03fchinf NUMBER(6) not null,
+  sd03fanrea NUMBER(10),
+  sd03fanrb1 NUMBER(10),
+  sd03fanrb2 NUMBER(10),
+  sd03fanrs1 NUMBER(10),
+  sd03fanrs2 NUMBER(10),
+  sd03sitsre NUMBER(2),
+  sd03rectif CHAR(1),
+  sd03sinuso CHAR(19)
+)
+;
+alter table SD4303
+  add primary key (SD03CODDIS, SD03CODENT, SD03FCHINF);
+

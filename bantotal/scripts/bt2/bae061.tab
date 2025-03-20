@@ -1,0 +1,29 @@
+create table BAE061
+(
+  bae061usu CHAR(10) not null,
+  bae061cor NUMBER(4) not null,
+  bae061pgc NUMBER(3) not null,
+  bae061rub NUMBER(16) not null,
+  bae061tot CHAR(1),
+  bae061niv NUMBER(1),
+  bae061nom CHAR(40),
+  bae061m1  NUMBER(17,2),
+  bae061m2  NUMBER(17,2),
+  bae061m3  NUMBER(17,2),
+  bae061m4  NUMBER(17,2),
+  bae061m5  NUMBER(17,2),
+  bae061m6  NUMBER(17,2),
+  bae061m7  NUMBER(17,2),
+  bae061m8  NUMBER(17,2),
+  bae061m9  NUMBER(17,2),
+  bae061m10 NUMBER(17,2),
+  bae061m11 NUMBER(17,2),
+  bae061m12 NUMBER(17,2),
+  bae061est CHAR(1)
+)
+;
+create index BAE06102 on BAE061 (BAE061USU, BAE061COR, BAE061PGC, BAE061TOT, BAE061RUB);
+create index BAE06103 on BAE061 (BAE061USU, BAE061EST, BAE061COR);
+alter table BAE061
+  add primary key (BAE061USU, BAE061COR, BAE061PGC, BAE061RUB);
+

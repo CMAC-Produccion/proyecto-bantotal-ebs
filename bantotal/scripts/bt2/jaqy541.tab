@@ -1,0 +1,46 @@
+create table JAQY541
+(
+  jaqy541_pais    NUMBER(3) not null,
+  jaqy541_tdoc    NUMBER(2) not null,
+  jaqy541_ndoc    VARCHAR2(12) not null,
+  jaqy541_fch     DATE,
+  jaqy541_penom   CHAR(200),
+  jaqy541_dir     CHAR(200),
+  jaqy541_tel     CHAR(20),
+  jaqy541_anopro  NUMBER(5),
+  jaqy541_mespro  NUMBER(3),
+  jaqy541_cta     NUMBER(9),
+  jaqy541_suc     NUMBER(3),
+  jaqy541_summto  NUMBER(17,2),
+  jaqy541_credeje NUMBER(3),
+  jaqy541_dist    CHAR(50),
+  jaqy541_prov    CHAR(30),
+  jaqy541_dep     CHAR(20),
+  jaqy541_tipo    CHAR(5),
+  jaqy541_asesor  VARCHAR2(10),
+  jaqy541_usureg  VARCHAR2(10),
+  jaqy541_usuver  VARCHAR2(10),
+  jaqy541_usures  VARCHAR2(10),
+  jaqy541_fecrep  DATE,
+  jaqy541_fecver  DATE,
+  jaqy541_fecven  DATE,
+  jaqy541_fecult  DATE,
+  jaqy541_ok      CHAR(1),
+  jaqy541_hora    CHAR(8),
+  jaqy541_resul   VARCHAR2(1000),
+  jaqy541_com     VARCHAR2(250),
+  jaqy541_cenlab  CHAR(50),
+  jaqy541_cargo   CHAR(30),
+  jaqy541_ts      NUMBER(4),
+  jaqy541_ocu     CHAR(30),
+  jaqy541_ing     NUMBER(17,2),
+  jaqy541_act     CHAR(60),
+  jaqy541_sect    CHAR(60),
+  jaqy541_fecaux  DATE
+)
+;
+create index JAQY54101 on JAQY541 (JAQY541_FECREP, JAQY541_SUC, JAQY541_PENOM);
+create index JAQY54102 on JAQY541 (JAQY541_SUC, JAQY541_FECREP);
+alter table JAQY541
+  add primary key (JAQY541_PAIS, JAQY541_TDOC, JAQY541_NDOC);
+

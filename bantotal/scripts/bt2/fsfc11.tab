@@ -1,0 +1,19 @@
+create table FSFC11
+(
+  kg11emp NUMBER(3) not null,
+  kg11cla NUMBER(2) not null,
+  kg11mda NUMBER(4) not null,
+  kg11pap NUMBER(4) not null,
+  kg11tta NUMBER(1) not null,
+  kg11fde DATE not null,
+  kg11mrg NUMBER(17,2),
+  kg11inv NUMBER(8),
+  kg11des CHAR(30),
+  kg11imp NUMBER(17,2),
+  kg11val NUMBER(9)
+)
+;
+create index FSFC1102 on FSFC11 (KG11EMP, KG11CLA, KG11MDA, KG11PAP, KG11TTA, KG11INV);
+alter table FSFC11
+  add primary key (KG11EMP, KG11CLA, KG11MDA, KG11PAP, KG11TTA, KG11FDE);
+

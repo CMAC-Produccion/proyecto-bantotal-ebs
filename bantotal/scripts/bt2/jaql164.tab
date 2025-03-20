@@ -1,0 +1,12 @@
+create table JAQL164
+(
+  jaql162codpre NUMBER(2) not null,
+  jaql163codcon NUMBER(2) not null,
+  jaql164ordafe NUMBER(2)
+)
+;
+create index IJAQL1641 on JAQL164 (JAQL163CODCON);
+create index JAQL164001 on JAQL164 (JAQL162CODPRE, JAQL164ORDAFE);
+alter table JAQL164
+  add primary key (JAQL162CODPRE, JAQL163CODCON);
+

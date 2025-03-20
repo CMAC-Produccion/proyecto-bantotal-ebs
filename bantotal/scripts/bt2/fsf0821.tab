@@ -1,0 +1,12 @@
+create table FSF0821
+(
+  pais      NUMBER(3) not null,
+  depcod    NUMBER(5) not null,
+  lqfcodciu NUMBER(3) not null,
+  lqfbarcod NUMBER(3) not null,
+  lqfbarnom CHAR(40)
+)
+;
+alter table FSF0821
+  add primary key (PAIS, DEPCOD, LQFCODCIU, LQFBARCOD);
+

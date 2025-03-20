@@ -1,0 +1,20 @@
+create table FSFF63
+(
+  xpepaisd5  NUMBER(3) not null,
+  xpetdocd5  NUMBER(2) not null,
+  xpendocd5  CHAR(12) not null,
+  xdocodz    NUMBER(2) not null,
+  xdocallp   CHAR(35),
+  xdonrop    NUMBER(5),
+  xdoaparp   CHAR(6),
+  xdociudp   CHAR(20),
+  xdodeptp   CHAR(15),
+  xdopaisp   NUMBER(3),
+  xdocposp   CHAR(8),
+  xdoccorp   NUMBER(5),
+  xdodepcodp NUMBER(5)
+)
+;
+alter table FSFF63
+  add primary key (XPEPAISD5, XPETDOCD5, XPENDOCD5, XDOCODZ);
+

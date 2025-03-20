@@ -1,0 +1,23 @@
+create table JAQZ309
+(
+  jaqz309coddep NUMBER(18) not null,
+  jaqz309numcel VARCHAR2(20) not null,
+  jaqz309numdni VARCHAR2(20) not null,
+  jaqz309nomage VARCHAR2(100),
+  jaqz309mondep NUMBER(17,2),
+  jaqz309codmon NUMBER(3),
+  jaqz309indefe CHAR(1),
+  jaqz309fecdep DATE,
+  jaqz309esreg  CHAR(1),
+  jaqz309hordep VARCHAR2(10),
+  jaqz309codusu VARCHAR2(15),
+  jaqz309suc    NUMBER(3),
+  jaqz309mod    NUMBER(3),
+  jaqz309tran   NUMBER(3),
+  jaqz309nrel   NUMBER(4),
+  jaqz309cta    NUMBER(4)
+)
+;
+alter table JAQZ309
+  add primary key (JAQZ309CODDEP, JAQZ309NUMCEL, JAQZ309NUMDNI);
+

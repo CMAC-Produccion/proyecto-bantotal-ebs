@@ -1,0 +1,19 @@
+create table AQPA997
+(
+  aqpa997usu  CHAR(10) not null,
+  aqpa997emp  NUMBER(3) not null,
+  aqpa997mod  NUMBER(4) not null,
+  aqpa997suc  NUMBER(3) not null,
+  aqpa997mda  NUMBER(4) not null,
+  aqpa997pap  NUMBER(4) not null,
+  aqpa997cta  NUMBER(9) not null,
+  aqpa997ope  NUMBER(9) not null,
+  aqpa997sbop NUMBER(3) not null,
+  aqpa997tope NUMBER(3) not null,
+  aqpa997ndoc CHAR(12),
+  aqpa997nomc VARCHAR2(150)
+)
+;
+alter table AQPA997
+  add primary key (AQPA997USU, AQPA997EMP, AQPA997MOD, AQPA997SUC, AQPA997MDA, AQPA997PAP, AQPA997CTA, AQPA997OPE, AQPA997SBOP, AQPA997TOPE);
+

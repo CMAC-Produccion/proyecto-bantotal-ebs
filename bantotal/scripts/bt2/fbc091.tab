@@ -1,0 +1,22 @@
+create table FBC091
+(
+  bc091emp   NUMBER(3) not null,
+  bc091inf   CHAR(10) not null,
+  bc091fch   DATE not null,
+  bc091conc  NUMBER(2) not null,
+  bc091codta CHAR(3) not null,
+  bc091mda   NUMBER(2) not null,
+  bc091pzo   NUMBER(5) not null,
+  bc091sdeb  NUMBER(17,2),
+  bc091sdt   NUMBER(17,2),
+  bc091mpd   NUMBER(5),
+  bc091shab  NUMBER(17,2),
+  bc091sht   NUMBER(17,2),
+  bc091mph   NUMBER(5),
+  bc091prdeb NUMBER(6,3),
+  bc091prhab NUMBER(6,3)
+)
+;
+alter table FBC091
+  add primary key (BC091EMP, BC091INF, BC091FCH, BC091CONC, BC091CODTA, BC091MDA, BC091PZO);
+

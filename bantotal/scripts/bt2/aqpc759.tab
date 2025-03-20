@@ -1,0 +1,247 @@
+create table AQPC759
+(
+  aqpc759corr    NUMBER(17) not null,
+  aqpc759fhreg   DATE not null,
+  aqpc759hrreg   VARCHAR2(8) not null,
+  aqpc759inst    NUMBER(10),
+  aqpc759emp     NUMBER(3),
+  aqpc759mod     NUMBER(3),
+  aqpc759suc     NUMBER(3),
+  aqpc759mda     NUMBER(4),
+  aqpc759pap     NUMBER(4),
+  aqpc759cta     NUMBER(9),
+  aqpc759oper    NUMBER(9),
+  aqpc759sbop    NUMBER(3),
+  aqpc759tope    NUMBER(3),
+  aqpc759tpfond  VARCHAR2(25),
+  aqpc759tpsbs   VARCHAR2(25),
+  aqpc759categ   VARCHAR2(25),
+  aqpc759sdo     NUMBER(17,2),
+  aqpc759diferi  NUMBER(17,2),
+  aqpc759sdocon  NUMBER(17,2),
+  aqpc759provis  NUMBER(17,2),
+  aqpc759sdocncc NUMBER(17,2),
+  aqpc759sdocnsc NUMBER(17,2),
+  aqpc759nrocrd  VARCHAR2(25),
+  aqpc759codcli  NUMBER(9),
+  aqpc759codsbs  VARCHAR2(25),
+  aqpc759tipcrd  VARCHAR2(100),
+  aqpc759produc  VARCHAR2(30),
+  aqpc759lincof  VARCHAR2(30),
+  aqpc759nomcli  VARCHAR2(100),
+  aqpc759calisbs NUMBER(17,2),
+  aqpc759normal  NUMBER(9),
+  aqpc759cpp     NUMBER(9),
+  aqpc759defic   NUMBER(9),
+  aqpc759dudoso  NUMBER(9),
+  aqpc759perdid  NUMBER(9),
+  aqpc759nroena  NUMBER(9),
+  aqpc759mdapre  VARCHAR2(25),
+  aqpc759mtodes  NUMBER(17,2),
+  aqpc759sdotor  NUMBER(17,2),
+  aqpc759sdotot  NUMBER(17,2),
+  aqpc759faccob  NUMBER(9),
+  aqpc759provsn  NUMBER(17,2),
+  aqpc759prvprc  NUMBER(17,2),
+  aqpc759prvtot  NUMBER(17,2),
+  aqpc759sdovec  NUMBER(17,2),
+  aqpc759tipper  VARCHAR2(25),
+  aqpc759sexo    VARCHAR2(25),
+  aqpc759fcnacc  DATE,
+  aqpc759direcc  VARCHAR2(150),
+  aqpc759distri  VARCHAR2(150),
+  aqpc759provin  VARCHAR2(150),
+  aqpc759depart  VARCHAR2(150),
+  aqpc759pais    VARCHAR2(30),
+  aqpc759tipdoc  VARCHAR2(25),
+  aqpc759nrodoc  VARCHAR2(12),
+  aqpc759codciiu NUMBER(9),
+  aqpc759desciiu VARCHAR2(100),
+  aqpc759tea     NUMBER(10,6),
+  aqpc759fcapro  DATE,
+  aqpc759fcdesm  DATE,
+  aqpc759fcvenc  DATE,
+  aqpc759sitcon  VARCHAR2(100),
+  aqpc759reprog  VARCHAR2(100),
+  aqpc759totcuo  NUMBER(9),
+  aqpc759cuopag  NUMBER(9),
+  aqpc759cuopen  NUMBER(9),
+  aqpc759cuoven  NUMBER(9),
+  aqpc759tipgrt  VARCHAR2(500),
+  aqpc759import  NUMBER(17,2),
+  aqpc759nrofic  VARCHAR2(500),
+  aqpc759repln   VARCHAR2(100),
+  aqpc759replc   VARCHAR2(100),
+  aqpc759repltd  VARCHAR2(100),
+  aqpc759replnd  VARCHAR2(100),
+  aqpc759replsx  VARCHAR2(100),
+  aqpc759ventas  NUMBER(17,2),
+  aqpc759perven  DATE,
+  aqpc759cobefo  VARCHAR2(100)
+)
+;
+comment on table AQPC759
+  is 'Información Adicional Anexo 5D';
+comment on column AQPC759.aqpc759corr
+  is 'Correlativo';
+comment on column AQPC759.aqpc759fhreg
+  is 'Fecha de Registro';
+comment on column AQPC759.aqpc759hrreg
+  is 'Hora de Registro';
+comment on column AQPC759.aqpc759inst
+  is 'Instancia';
+comment on column AQPC759.aqpc759emp
+  is 'Empresa Crédito';
+comment on column AQPC759.aqpc759mod
+  is 'Módulo Crédito';
+comment on column AQPC759.aqpc759suc
+  is 'Sucursal Crédito';
+comment on column AQPC759.aqpc759mda
+  is 'Moneda Crédito';
+comment on column AQPC759.aqpc759pap
+  is 'Papel Crédito';
+comment on column AQPC759.aqpc759cta
+  is 'Cuenta Crédito';
+comment on column AQPC759.aqpc759oper
+  is 'Operación Crédito';
+comment on column AQPC759.aqpc759sbop
+  is 'Suboperación Crédito';
+comment on column AQPC759.aqpc759tope
+  is 'Tipo Operación Crédito';
+comment on column AQPC759.aqpc759tpfond
+  is 'Tipo de Fondo';
+comment on column AQPC759.aqpc759tpsbs
+  is 'Tipo SBS';
+comment on column AQPC759.aqpc759categ
+  is 'Categoría';
+comment on column AQPC759.aqpc759sdo
+  is 'Saldo';
+comment on column AQPC759.aqpc759diferi
+  is 'Diferido';
+comment on column AQPC759.aqpc759sdocon
+  is 'Saldo Consolidado';
+comment on column AQPC759.aqpc759provis
+  is 'Provisión';
+comment on column AQPC759.aqpc759sdocncc
+  is 'Saldo Capital Neto Con Cobertura';
+comment on column AQPC759.aqpc759sdocnsc
+  is 'Saldo Capital Neto Sin Cobertura';
+comment on column AQPC759.aqpc759nrocrd
+  is 'Nro. Crédito';
+comment on column AQPC759.aqpc759codcli
+  is 'Código Cliente';
+comment on column AQPC759.aqpc759codsbs
+  is 'Código SBS';
+comment on column AQPC759.aqpc759tipcrd
+  is 'Tipo Crédito';
+comment on column AQPC759.aqpc759produc
+  is 'Producto';
+comment on column AQPC759.aqpc759lincof
+  is 'Línea Cofide';
+comment on column AQPC759.aqpc759nomcli
+  is 'Nombre del Cliente';
+comment on column AQPC759.aqpc759calisbs
+  is 'Calificación SBS';
+comment on column AQPC759.aqpc759normal
+  is 'Normal';
+comment on column AQPC759.aqpc759cpp
+  is 'CPP';
+comment on column AQPC759.aqpc759defic
+  is 'Deficiente';
+comment on column AQPC759.aqpc759dudoso
+  is 'Dudoso';
+comment on column AQPC759.aqpc759perdid
+  is 'Perdida';
+comment on column AQPC759.aqpc759nroena
+  is 'Nro. Entidades Actual';
+comment on column AQPC759.aqpc759mdapre
+  is 'Moneda Préstamo';
+comment on column AQPC759.aqpc759mtodes
+  is 'Monto Desembolsado Total S/';
+comment on column AQPC759.aqpc759sdotor
+  is 'Saldo Total (Moneda Original)';
+comment on column AQPC759.aqpc759sdotot
+  is 'Saldo Total S/';
+comment on column AQPC759.aqpc759faccob
+  is 'Factor de Cobertura';
+comment on column AQPC759.aqpc759provsn
+  is 'Provisión S/';
+comment on column AQPC759.aqpc759prvprc
+  is 'Provisión Procíclica S/';
+comment on column AQPC759.aqpc759prvtot
+  is 'Provisión Total S/';
+comment on column AQPC759.aqpc759sdovec
+  is 'Saldo Vencido S/';
+comment on column AQPC759.aqpc759tipper
+  is 'Tipo de Persona';
+comment on column AQPC759.aqpc759sexo
+  is 'Sexo';
+comment on column AQPC759.aqpc759fcnacc
+  is 'Fecha Nacimiento - Constitución';
+comment on column AQPC759.aqpc759direcc
+  is 'Dirección';
+comment on column AQPC759.aqpc759distri
+  is 'Distrito';
+comment on column AQPC759.aqpc759provin
+  is 'Provincia';
+comment on column AQPC759.aqpc759depart
+  is 'Departamento';
+comment on column AQPC759.aqpc759pais
+  is 'Nombre País';
+comment on column AQPC759.aqpc759tipdoc
+  is 'Tipo de Documento';
+comment on column AQPC759.aqpc759nrodoc
+  is 'Nro. Documento';
+comment on column AQPC759.aqpc759codciiu
+  is 'Código CIIU';
+comment on column AQPC759.aqpc759desciiu
+  is 'Descripción CIIU';
+comment on column AQPC759.aqpc759tea
+  is 'Tasa de Interés (TEA)';
+comment on column AQPC759.aqpc759fcapro
+  is 'Fecha de Aprobación';
+comment on column AQPC759.aqpc759fcdesm
+  is 'Fecha de Desembolso';
+comment on column AQPC759.aqpc759fcvenc
+  is 'Fecha de Vencimiento';
+comment on column AQPC759.aqpc759sitcon
+  is 'Situación Contable';
+comment on column AQPC759.aqpc759reprog
+  is 'Reprogramado';
+comment on column AQPC759.aqpc759totcuo
+  is 'Total Cuotas';
+comment on column AQPC759.aqpc759cuopag
+  is 'Cuotas Pagadas';
+comment on column AQPC759.aqpc759cuopen
+  is 'Cuotas Pendientes';
+comment on column AQPC759.aqpc759cuoven
+  is 'Cuotas Vencidas';
+comment on column AQPC759.aqpc759tipgrt
+  is 'Tipos Garantías';
+comment on column AQPC759.aqpc759import
+  is 'Importe';
+comment on column AQPC759.aqpc759nrofic
+  is 'Nro. Ficha';
+comment on column AQPC759.aqpc759repln
+  is 'Representante Legal Nombre';
+comment on column AQPC759.aqpc759replc
+  is 'Representante Legal Cargo';
+comment on column AQPC759.aqpc759repltd
+  is 'Representante Legal Tipo Documento';
+comment on column AQPC759.aqpc759replnd
+  is 'Representante Legal Nro. Documento';
+comment on column AQPC759.aqpc759replsx
+  is 'Representante Legal Sexo';
+comment on column AQPC759.aqpc759ventas
+  is 'Ventas';
+comment on column AQPC759.aqpc759perven
+  is 'Periodo de Ventas';
+comment on column AQPC759.aqpc759cobefo
+  is 'Cobertura Fondo';
+create index AQPC759A2 on AQPC759 (AQPC759FHREG, AQPC759INST);
+create index AQPC759A3 on AQPC759 (AQPC759INST);
+create index AQPC759A4 on AQPC759 (AQPC759CTA, AQPC759OPER, AQPC759FHREG);
+create index AQPC759A5 on AQPC759 (AQPC759EMP, AQPC759MOD, AQPC759SUC, AQPC759MDA, AQPC759PAP, AQPC759OPER, AQPC759SBOP, AQPC759TOPE, AQPC759FHREG);
+alter table AQPC759
+  add primary key (AQPC759CORR, AQPC759FHREG, AQPC759HRREG);
+

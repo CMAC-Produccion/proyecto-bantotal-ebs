@@ -1,0 +1,16 @@
+create table FCNV32
+(
+  cnv30pgcod NUMBER(3) not null,
+  cnv30ctnro NUMBER(9) not null,
+  cnv30exfec DATE not null,
+  cnv05teval NUMBER(3) not null,
+  cnv32urfec DATE,
+  cnv32ucorr NUMBER(9),
+  cnv32stsac CHAR(1),
+  cnv32fecav DATE
+)
+;
+create index FCNV3202 on FCNV32 (CNV05TEVAL);
+alter table FCNV32
+  add primary key (CNV30PGCOD, CNV30CTNRO, CNV30EXFEC, CNV05TEVAL);
+

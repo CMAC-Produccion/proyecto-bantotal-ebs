@@ -1,0 +1,23 @@
+create table FBRD32
+(
+  brd32emp  NUMBER(3) not null,
+  brd32pais NUMBER(3) not null,
+  brd32tdoc NUMBER(2) not null,
+  brd32ndoc CHAR(12) not null,
+  brd32suc  NUMBER(3) not null,
+  brd32rub  NUMBER(16) not null,
+  brd32mda  NUMBER(4) not null,
+  brd32pap  NUMBER(4) not null,
+  brd32cta  NUMBER(9) not null,
+  brd32op   NUMBER(9) not null,
+  brd32sop  NUMBER(3) not null,
+  brd32top  NUMBER(3) not null,
+  brd32reg  NUMBER(5) not null,
+  brd32aux  CHAR(10)
+)
+;
+create index FBRD3202 on FBRD32 (BRD32EMP, BRD32SUC, BRD32RUB, BRD32MDA, BRD32PAP, BRD32CTA, BRD32OP, BRD32SOP, BRD32TOP, BRD32REG);
+create index FBRD3203 on FBRD32 (BRD32REG, BRD32EMP, BRD32CTA, BRD32SUC, BRD32RUB, BRD32MDA, BRD32PAP, BRD32OP, BRD32SOP, BRD32TOP);
+alter table FBRD32
+  add primary key (BRD32EMP, BRD32PAIS, BRD32TDOC, BRD32NDOC, BRD32SUC, BRD32RUB, BRD32MDA, BRD32PAP, BRD32CTA, BRD32OP, BRD32SOP, BRD32TOP, BRD32REG);
+

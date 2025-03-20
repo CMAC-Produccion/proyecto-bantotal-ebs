@@ -1,0 +1,19 @@
+create table FST211
+(
+  pgcod  NUMBER(3) not null,
+  catcta NUMBER(9) not null,
+  categ1 NUMBER(2),
+  categ2 NUMBER(2),
+  categ3 NUMBER(2),
+  categ4 NUMBER(2),
+  cat4fa DATE,
+  cat4fb DATE,
+  cat2f  DATE,
+  cat3f  DATE,
+  ctpais NUMBER(3)
+)
+;
+create index FST21102 on FST211 (CTPAIS);
+alter table FST211
+  add primary key (PGCOD, CATCTA);
+

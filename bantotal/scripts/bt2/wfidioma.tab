@@ -1,0 +1,11 @@
+create table WFIDIOMA
+(
+  wfidmid  NUMBER(4) not null,
+  wfidmdsc CHAR(20),
+  wfidmsts CHAR(1)
+)
+;
+create index UWFIDIOM on WFIDIOMA (WFIDMSTS);
+alter table WFIDIOMA
+  add primary key (WFIDMID);
+

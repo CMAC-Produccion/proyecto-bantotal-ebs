@@ -1,0 +1,111 @@
+create table JAQN68
+(
+  jaqn68cod VARCHAR2(50) not null,
+  jaqn68suc NUMBER(3),
+  jaqn68mod NUMBER(3),
+  jaqn68top NUMBER(3),
+  jaqn68mda NUMBER(4),
+  jaqn68pap NUMBER(4),
+  jaqn68cta NUMBER(9),
+  jaqn68ope NUMBER(9),
+  jaqn68bsu NUMBER(3),
+  jaqn68sbp NUMBER(4),
+  jaqn68bmo NUMBER(3),
+  jaqn68bto NUMBER(3),
+  jaqn68bmd NUMBER(4),
+  jaqn68bpa NUMBER(4),
+  jaqn68bct NUMBER(9),
+  jaqn68bop NUMBER(9),
+  jaqn68bsp NUMBER(4),
+  jaqn68est VARCHAR2(255),
+  jaqn68fbl DATE,
+  jaqn68fds DATE,
+  jaqn68mnt NUMBER(17,2),
+  jaqn68an1 NUMBER(9),
+  jaqn68an2 NUMBER(9),
+  jaqn68an3 NUMBER(9),
+  jaqn68ac1 VARCHAR2(255),
+  jaqn68ac2 VARCHAR2(255),
+  jaqn68ac3 VARCHAR2(255),
+  jaqn68ai1 NUMBER(17,2),
+  jaqn68ai2 NUMBER(17,2),
+  jaqn68ai3 NUMBER(17,2),
+  jaqn68af1 DATE,
+  jaqn68af2 DATE,
+  jaqn68af3 DATE
+)
+;
+comment on table JAQN68
+  is 'Cuenta Asignada';
+comment on column JAQN68.jaqn68cod
+  is 'Codigo entrega premio';
+comment on column JAQN68.jaqn68suc
+  is 'Sucursal bloqueo';
+comment on column JAQN68.jaqn68mod
+  is 'Modulo bloqueo';
+comment on column JAQN68.jaqn68top
+  is 'Tipo operacion bloqueo';
+comment on column JAQN68.jaqn68mda
+  is 'Moneda bloqueo';
+comment on column JAQN68.jaqn68pap
+  is 'Papel bloqueo';
+comment on column JAQN68.jaqn68cta
+  is 'Cuenta bloqueo';
+comment on column JAQN68.jaqn68ope
+  is 'Operacion bloqueo';
+comment on column JAQN68.jaqn68bsu
+  is 'Sucursal minimo saldo';
+comment on column JAQN68.jaqn68sbp
+  is 'Suboperacion bloqueo';
+comment on column JAQN68.jaqn68bmo
+  is 'Modulo minimo saldo';
+comment on column JAQN68.jaqn68bto
+  is 'Tipo operacion minimo saldo';
+comment on column JAQN68.jaqn68bmd
+  is 'Moneda minimo saldo';
+comment on column JAQN68.jaqn68bpa
+  is 'Papel minimo saldo';
+comment on column JAQN68.jaqn68bct
+  is 'Cuenta minimo saldo';
+comment on column JAQN68.jaqn68bop
+  is 'Operacion minimo saldo';
+comment on column JAQN68.jaqn68bsp
+  is 'Suboperacion minimo saldo';
+comment on column JAQN68.jaqn68est
+  is 'Estado';
+comment on column JAQN68.jaqn68fbl
+  is 'Fecha bloqueo';
+comment on column JAQN68.jaqn68fds
+  is 'Fecha desbloqueo';
+comment on column JAQN68.jaqn68mnt
+  is 'Monto minimo bloqueo';
+comment on column JAQN68.jaqn68an1
+  is 'Auxiliar numerico 1';
+comment on column JAQN68.jaqn68an2
+  is 'Auxiliar numerico 2';
+comment on column JAQN68.jaqn68an3
+  is 'Auxiliar numerico 3';
+comment on column JAQN68.jaqn68ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN68.jaqn68ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN68.jaqn68ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN68.jaqn68ai1
+  is 'Auxiliar importe 1';
+comment on column JAQN68.jaqn68ai2
+  is 'Auxiliar importe 2';
+comment on column JAQN68.jaqn68ai3
+  is 'Auxiliar importe 3';
+comment on column JAQN68.jaqn68af1
+  is 'Auxiliar fecha 1';
+comment on column JAQN68.jaqn68af2
+  is 'Auxiliar fecha 2';
+comment on column JAQN68.jaqn68af3
+  is 'Auxiliar fecha 3';
+create index JAQN68A2 on JAQN68 (JAQN68MOD, JAQN68TOP, JAQN68MDA, JAQN68PAP, JAQN68CTA, JAQN68OPE, JAQN68SBP);
+create index JAQN68A3 on JAQN68 (JAQN68BMO, JAQN68BTO, JAQN68BMD, JAQN68BPA, JAQN68BCT, JAQN68BOP, JAQN68BSP);
+create index JAQN68A4 on JAQN68 (JAQN68COD, JAQN68FBL, JAQN68FDS);
+alter table JAQN68
+  add primary key (JAQN68COD);
+

@@ -1,0 +1,21 @@
+create table JCFC01
+(
+  jcfc01emp  NUMBER(3) not null,
+  jcfc01mod  NUMBER(3) not null,
+  jcfc01oper NUMBER(9) not null,
+  jcfc01cfx  CHAR(13),
+  jcfc01cfa  CHAR(13),
+  jcfc01ccos NUMBER(9),
+  jcfc01ejco NUMBER(9),
+  jcfc01ejnm CHAR(65),
+  jcfc01prod CHAR(6),
+  jcfc01uorg CHAR(5),
+  jcfc01uorn CHAR(60),
+  jcfc01pasw CHAR(2),
+  jcfc01sdo  NUMBER(17,2),
+  jcfc01ftop DATE
+)
+;
+alter table JCFC01
+  add primary key (JCFC01EMP, JCFC01MOD, JCFC01OPER);
+

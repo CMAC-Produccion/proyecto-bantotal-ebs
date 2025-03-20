@@ -1,0 +1,34 @@
+create table JAQZ857
+(
+  jaqz857emp   NUMBER(3) not null,
+  jaqz857mod   NUMBER(3) not null,
+  jaqz857suc   NUMBER(3) not null,
+  jaqz857mda   NUMBER(4) not null,
+  jaqz857pap   NUMBER(4) not null,
+  jaqz857cta   NUMBER(9) not null,
+  jaqz857ope   NUMBER(9) not null,
+  jaqz857sbo   NUMBER(3) not null,
+  jaqz857top   NUMBER(3) not null,
+  jaqz857pzo   NUMBER(4),
+  jaqz857est   NUMBER(2),
+  jaqz857ind   VARCHAR2(2),
+  jaqz857grp   NUMBER(4),
+  jaqz857rub   NUMBER(16),
+  jaqz857sdo   NUMBER(16,2),
+  jaqz857pdi   NUMBER(4),
+  jaqz857fep   DATE,
+  jaqz857modt  NUMBER(4),
+  jaqz857suct  NUMBER(4),
+  jaqz857trat  NUMBER(4),
+  jaqz857relt  NUMBER(4),
+  jaqz857cont  CHAR(1),
+  jaqz857fect  DATE,
+  jaqz857sdo11 NUMBER(16,2),
+  jaqz857rev   CHAR(1)
+)
+;
+create index ID_JAQZ857_I on JAQZ857 (JAQZ857CTA);
+create index ID_JAQZ857_II on JAQZ857 (JAQZ857MODT, JAQZ857TRAT, JAQZ857SUCT, JAQZ857RELT, JAQZ857FECT, JAQZ857CONT);
+alter table JAQZ857
+  add primary key (JAQZ857EMP, JAQZ857MOD, JAQZ857SUC, JAQZ857MDA, JAQZ857PAP, JAQZ857CTA, JAQZ857OPE, JAQZ857SBO, JAQZ857TOP);
+

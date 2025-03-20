@@ -1,0 +1,10 @@
+create table JBXI1B
+(
+  jbxi1bmon CHAR(3) not null,
+  jbxi1bmda NUMBER(4),
+  jbxi1bdsc CHAR(30)
+)
+;
+create unique index JBXI1B01 on JBXI1B (JBXI1BMON);
+create index JBXI1B02 on JBXI1B (JBXI1BMDA);
+

@@ -1,0 +1,27 @@
+create table CTDFIRM
+(
+  ctdfirmpai NUMBER(3) not null,
+  ctdfirmtdo NUMBER(2) not null,
+  ctdfirmndo CHAR(25) not null,
+  ctdfirmcor NUMBER(9) not null,
+  ctdfirmusi CHAR(10),
+  ctdfirmusc CHAR(10),
+  ctdfirmfci DATE,
+  ctdfirmfcc DATE,
+  ctdfirmhri CHAR(8),
+  ctdfirmhrc CHAR(8),
+  ctdfirmpgm CHAR(10),
+  ctdfirmest CHAR(1),
+  ctdfirmtip CHAR(1),
+  ctdfirmsca CHAR(1),
+  ctdfirmsel CHAR(1),
+  ctdfirmau1 NUMBER(9),
+  ctdfirmau2 DATE,
+  ctdfirmau3 CHAR(255)
+)
+;
+create index CTDFIR02 on CTDFIRM (CTDFIRMEST, CTDFIRMUSI, CTDFIRMTIP, CTDFIRMPAI, CTDFIRMTDO, CTDFIRMNDO, CTDFIRMCOR);
+create index CTDFIR03 on CTDFIRM (CTDFIRMEST, CTDFIRMPAI, CTDFIRMTDO, CTDFIRMNDO);
+alter table CTDFIRM
+  add primary key (CTDFIRMPAI, CTDFIRMTDO, CTDFIRMNDO, CTDFIRMCOR);
+

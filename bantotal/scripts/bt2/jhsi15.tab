@@ -1,0 +1,31 @@
+create table JHSI15
+(
+  jhsi15bcoo CHAR(4) not null,
+  jhsi15fbco NUMBER(8) not null,
+  jhsi15hbco NUMBER(6) not null,
+  jhsi15refe CHAR(13) not null,
+  jhsi15rebo CHAR(4),
+  jhsi15sebo CHAR(7),
+  jhsi15cope CHAR(4),
+  jhsi15ccid CHAR(20),
+  jhsi15imp  NUMBER(17,2),
+  jhsi15obs  CHAR(80),
+  jhsi15firm CHAR(64),
+  jhsi15modo CHAR(1),
+  jhsi15orig CHAR(1),
+  jhsi15free CHAR(26),
+  jhsi15cod  NUMBER(3),
+  jhsi15suc  NUMBER(3),
+  jhsi15mod  NUMBER(3),
+  jhsi15mda  NUMBER(4),
+  jhsi15pap  NUMBER(4),
+  jhsi15cta  NUMBER(9),
+  jhsi15oper NUMBER(9),
+  jhsi15scta NUMBER(3),
+  jhsi15tope NUMBER(3),
+  jhsi15ccim CHAR(20)
+)
+;
+create unique index JHSI1501 on JHSI15 (JHSI15BCOO, JHSI15FBCO, JHSI15HBCO, JHSI15REFE);
+create index JHSI1502 on JHSI15 (JHSI15COD, JHSI15SUC, JHSI15MOD, JHSI15MDA, JHSI15CTA, JHSI15OPER, JHSI15SCTA, JHSI15TOPE);
+

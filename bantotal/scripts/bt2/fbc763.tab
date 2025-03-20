@@ -1,0 +1,30 @@
+create table FBC763
+(
+  bc761nde CHAR(16) not null,
+  bc763npa NUMBER(5) not null,
+  bc763mon NUMBER(4),
+  bc763tot NUMBER(17,2),
+  bc763dpg NUMBER(3),
+  bc763dsu NUMBER(3),
+  bc763dmo NUMBER(3),
+  bc763dmn NUMBER(4),
+  bc763dpa NUMBER(4),
+  bc763dct NUMBER(9),
+  bc763dso NUMBER(3),
+  bc763dop NUMBER(9),
+  bc763top NUMBER(3),
+  bc763pgc NUMBER(3),
+  bc763suc NUMBER(3),
+  bc763mod NUMBER(3),
+  bc763trn NUMBER(1),
+  bc763rel NUMBER(4),
+  bc763fco DATE,
+  bc763cmn NUMBER(5),
+  bc763txt CHAR(65),
+  bc763cop NUMBER(2)
+)
+;
+create index FBC76303 on FBC763 (BC763PGC, BC763SUC, BC763MOD, BC763TRN, BC763REL, BC763FCO);
+alter table FBC763
+  add primary key (BC761NDE, BC763NPA);
+

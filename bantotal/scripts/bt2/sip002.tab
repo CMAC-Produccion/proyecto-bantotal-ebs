@@ -1,0 +1,16 @@
+create table SIP002
+(
+  sip002emp NUMBER(3) not null,
+  sip002mod NUMBER(3) not null,
+  sip002top NUMBER(3) not null,
+  sip002crr NUMBER(3) not null,
+  sip002md  NUMBER(3),
+  sip002trn NUMBER(3),
+  sip002ax1 DATE,
+  sip002ax2 CHAR(30),
+  sip003ax3 NUMBER(17,2)
+)
+;
+alter table SIP002
+  add primary key (SIP002EMP, SIP002MOD, SIP002TOP, SIP002CRR);
+

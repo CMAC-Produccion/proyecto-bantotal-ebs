@@ -1,0 +1,21 @@
+create table XWFD01
+(
+  xwfddocins NUMBER(10) not null,
+  xwfddoctit CHAR(200),
+  xwfddulver NUMBER(6),
+  xwfddest   CHAR(1),
+  xwfddures  CHAR(10),
+  xwfddudel  CHAR(10),
+  xwfddfres  DATE,
+  xwfddfdel  DATE,
+  xwfddfemi  DATE,
+  xwfddfvto  DATE,
+  xwfddfpale DATE,
+  xwfddfaler DATE,
+  xwfdocid   NUMBER(10)
+)
+;
+create index XWFD0102 on XWFD01 (XWFDOCID);
+alter table XWFD01
+  add primary key (XWFDDOCINS);
+

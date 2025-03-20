@@ -1,0 +1,40 @@
+create table FSF055
+(
+  lacod      CHAR(15) not null,
+  lamodrub   NUMBER(16) not null,
+  ladesc     CHAR(40),
+  laacumula  CHAR(1),
+  lanivel    NUMBER(2),
+  laanalisis NUMBER(2),
+  laimp      NUMBER(17,2),
+  laimp2     NUMBER(17,2),
+  laimp3     NUMBER(17,2),
+  laimp4     NUMBER(17,2),
+  laimp5     NUMBER(17,2),
+  laimp6     NUMBER(17,2),
+  laimp7     NUMBER(17,2),
+  laimp8     NUMBER(17,2),
+  laimp9     NUMBER(17,2),
+  laimp10    NUMBER(17,2),
+  laporc     NUMBER(8,4),
+  laporc2    NUMBER(8,4),
+  laporc3    NUMBER(8,4),
+  laporc4    NUMBER(8,4),
+  laporc5    NUMBER(8,4),
+  laporc6    NUMBER(8,4),
+  laporc7    NUMBER(8,4),
+  laporc8    NUMBER(8,4),
+  laporc9    NUMBER(8,4),
+  laporc10   NUMBER(8,4),
+  lahab      CHAR(1),
+  lacar1     CHAR(1),
+  lacar2     CHAR(1),
+  lacar3     CHAR(1),
+  laimpaux1  NUMBER(17,2),
+  laimpaux2  NUMBER(17,2),
+  laimpaux3  NUMBER(17,2)
+)
+;
+alter table FSF055
+  add primary key (LACOD, LAMODRUB);
+

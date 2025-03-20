@@ -1,0 +1,33 @@
+create table FBC786
+(
+  bc786emp   NUMBER(3) not null,
+  bc786fch   DATE not null,
+  bc786refdi CHAR(3) not null,
+  bc786refa  CHAR(4) not null,
+  bc786refre CHAR(2) not null,
+  bc786refco CHAR(6) not null,
+  bc786refve CHAR(1) not null,
+  bc786expor CHAR(1),
+  bc786ccomp CHAR(2),
+  bc786doctr CHAR(13),
+  bc786fetrn DATE,
+  bc786pais  NUMBER(3),
+  bc786tdoc  NUMBER(2),
+  bc786idcli CHAR(13),
+  bc786tscli CHAR(1),
+  bc786vafob NUMBER(17,2),
+  bc786rasoc CHAR(60),
+  bc786deviv CHAR(1),
+  bc786tcome CHAR(2),
+  bc786valco NUMBER(17,2),
+  bc786comve CHAR(3),
+  bc786comvp CHAR(3),
+  bc786compv CHAR(7),
+  bc786fecov DATE,
+  bc786autco CHAR(10),
+  bc786feemi DATE
+)
+;
+alter table FBC786
+  add primary key (BC786EMP, BC786FCH, BC786REFDI, BC786REFA, BC786REFRE, BC786REFCO, BC786REFVE);
+

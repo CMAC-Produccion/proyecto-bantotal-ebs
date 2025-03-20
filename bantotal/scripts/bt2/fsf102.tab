@@ -1,0 +1,43 @@
+create table FSF102
+(
+  lptrmod  NUMBER(3) not null,
+  lptrnro  NUMBER(3) not null,
+  lptrnom  CHAR(30),
+  lptrtdef CHAR(20),
+  lptrtext CHAR(1),
+  lptrmn   CHAR(1),
+  lptrme   CHAR(1),
+  lptralba CHAR(1),
+  lptrreco CHAR(1),
+  lptrporc NUMBER(2),
+  lptrsorc NUMBER(2),
+  lptropau CHAR(1),
+  lptropep CHAR(1),
+  lptrcors CHAR(1),
+  lptromlm CHAR(1),
+  lptrimpr CHAR(1),
+  lptrcej  CHAR(1),
+  lptrincr CHAR(1),
+  lptrbjpa CHAR(1),
+  lptrbjan CHAR(1),
+  lptrtafe CHAR(1),
+  lptranhi CHAR(1),
+  lptrcbcu CHAR(1),
+  lptrccla CHAR(1),
+  lptrnetp CHAR(1),
+  lptrcomi NUMBER(3),
+  lptrgts  CHAR(1),
+  lptriva  CHAR(1),
+  lptrivme CHAR(1),
+  lptrswif NUMBER(3),
+  lptrccos CHAR(1),
+  lptridoc CHAR(1),
+  lptrhabt CHAR(1),
+  lptrdtpo CHAR(1),
+  lppftcod NUMBER(5),
+  lptrconf CHAR(1)
+)
+;
+alter table FSF102
+  add primary key (LPTRMOD, LPTRNRO);
+

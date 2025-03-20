@@ -1,0 +1,21 @@
+create table FSFF12
+(
+  kdobgru  NUMBER(2) not null,
+  kdobcor  NUMBER(9) not null,
+  kdobdsc  CHAR(55),
+  kdobusr  CHAR(10),
+  kdobwrk  CHAR(10),
+  kdobdia  DATE,
+  kdobhor  CHAR(8),
+  kdobcls  CHAR(1),
+  kdobfec  DATE,
+  kdobmes  NUMBER(2),
+  kdobano  NUMBER(4),
+  kdobpart CHAR(1),
+  kdobdsc2 CHAR(50),
+  kdobcons CHAR(1)
+)
+;
+alter table FSFF12
+  add primary key (KDOBGRU, KDOBCOR);
+

@@ -1,0 +1,84 @@
+create table JAQA53
+(
+  jaqa53cod NUMBER(3) not null,
+  jaqa53mod NUMBER(3) not null,
+  jaqa53suc NUMBER(3) not null,
+  jaqa53mda NUMBER(4) not null,
+  jaqa53pap NUMBER(4) not null,
+  jaqa53cta NUMBER(9) not null,
+  jaqa53ope NUMBER(9) not null,
+  jaqa53sbo NUMBER(3) not null,
+  jaqa53top NUMBER(3) not null,
+  jaqa53cor NUMBER(9) not null,
+  jaqa53fee DATE not null,
+  jaqa53coe NUMBER(9) not null,
+  jaqa53evt NUMBER(2),
+  jaqa53fec DATE,
+  jaqa53fev DATE,
+  jaqa53tta NUMBER(1),
+  jaqa53tas NUMBER(10,6),
+  jaqa53est CHAR(1),
+  jaqa53ai1 NUMBER(17,2),
+  jaqa53ai2 NUMBER(17,2),
+  jaqa53ai3 NUMBER(17,2),
+  jaqa53ac1 VARCHAR2(255),
+  jaqa53ac2 VARCHAR2(255),
+  jaqa53ac3 VARCHAR2(255),
+  jaqa53fe1 DATE,
+  jaqa53fe2 DATE,
+  jaqa53fe3 DATE
+)
+;
+comment on table JAQA53
+  is 'Tabla de Cambio de Estado.';
+comment on column JAQA53.jaqa53cod
+  is 'Empresa';
+comment on column JAQA53.jaqa53mod
+  is 'Modulo';
+comment on column JAQA53.jaqa53suc
+  is 'Sucursal';
+comment on column JAQA53.jaqa53mda
+  is 'Moneda';
+comment on column JAQA53.jaqa53pap
+  is 'Papel';
+comment on column JAQA53.jaqa53cta
+  is 'Cuenta';
+comment on column JAQA53.jaqa53ope
+  is 'Operacion';
+comment on column JAQA53.jaqa53sbo
+  is 'Sub-Operacion';
+comment on column JAQA53.jaqa53top
+  is 'Tipo de Operación';
+comment on column JAQA53.jaqa53cor
+  is 'Correlativo de evento';
+comment on column JAQA53.jaqa53fee
+  is 'Fecha de eliminación';
+comment on column JAQA53.jaqa53coe
+  is 'Correlativo de eliminación';
+comment on column JAQA53.jaqa53evt
+  is 'Tipo de evento';
+comment on column JAQA53.jaqa53est
+  is 'Estado';
+comment on column JAQA53.jaqa53ai1
+  is 'Auxiliar numerico 1';
+comment on column JAQA53.jaqa53ai2
+  is 'Auxiliar numerico 2';
+comment on column JAQA53.jaqa53ai3
+  is 'Auxiliar numerico 3';
+comment on column JAQA53.jaqa53ac1
+  is 'Auxiliar character 1';
+comment on column JAQA53.jaqa53ac2
+  is 'Auxiliar character 2';
+comment on column JAQA53.jaqa53ac3
+  is 'Auxiliar character 3';
+comment on column JAQA53.jaqa53fe1
+  is 'Auxiliar fecha 1';
+comment on column JAQA53.jaqa53fe2
+  is 'Auxiliar fecha 2';
+comment on column JAQA53.jaqa53fe3
+  is 'Auxliar fecha 3';
+create index JAQA53A2 on JAQA53 (JAQA53FEE, JAQA53COE);
+create index JAQA53A3 on JAQA53 (JAQA53COR, JAQA53FEE, JAQA53COE);
+alter table JAQA53
+  add primary key (JAQA53COD, JAQA53MOD, JAQA53SUC, JAQA53MDA, JAQA53PAP, JAQA53CTA, JAQA53OPE, JAQA53SBO, JAQA53TOP, JAQA53COR, JAQA53FEE, JAQA53COE);
+

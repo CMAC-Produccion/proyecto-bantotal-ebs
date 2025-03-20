@@ -1,0 +1,26 @@
+create table JBXIH6
+(
+  jbxih6fec DATE not null,
+  jbxih6emp NUMBER(3) not null,
+  jbxih6mod NUMBER(3) not null,
+  jbxih6suc NUMBER(3) not null,
+  jbxih6mda NUMBER(4) not null,
+  jbxih6pap NUMBER(4) not null,
+  jbxih6cta NUMBER(9) not null,
+  jbxih6ope NUMBER(9) not null,
+  jbxih6sbo NUMBER(3) not null,
+  jbxih6top NUMBER(3) not null,
+  jbxih6pai NUMBER(3) not null,
+  jbxih6tdo NUMBER(2) not null,
+  jbxih6ndo CHAR(12) not null,
+  jbxih6nce CHAR(13) not null,
+  jbxih6fus DATE,
+  jbxih6mus NUMBER(17,2),
+  jbxih6cvt CHAR(15),
+  jbxih6cba CHAR(15),
+  jbxih6mba CHAR(15),
+  jbxih6cpq CHAR(15)
+)
+;
+create unique index JBXIH601 on JBXIH6 (JBXIH6FEC, JBXIH6EMP, JBXIH6MOD, JBXIH6SUC, JBXIH6MDA, JBXIH6PAP, JBXIH6CTA, JBXIH6OPE, JBXIH6SBO, JBXIH6TOP, JBXIH6PAI, JBXIH6TDO, JBXIH6NDO, JBXIH6NCE);
+

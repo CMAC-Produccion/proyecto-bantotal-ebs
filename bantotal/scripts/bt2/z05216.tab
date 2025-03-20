@@ -1,0 +1,19 @@
+create table Z05216
+(
+  z05215tipo CHAR(3) not null,
+  z05215nro  NUMBER(12) not null,
+  z05216sucu NUMBER(3) not null,
+  z05216mone NUMBER(4) not null,
+  z05216pape NUMBER(4) not null,
+  z05216cuen NUMBER(9) not null,
+  z05216oper NUMBER(9) not null,
+  z05216scue NUMBER(3) not null,
+  z05216tope NUMBER(3) not null,
+  z05216modu NUMBER(3) not null,
+  z05216sdo  NUMBER(9,2),
+  z05216impa NUMBER(9,2)
+)
+;
+alter table Z05216
+  add primary key (Z05215TIPO, Z05215NRO, Z05216SUCU, Z05216MONE, Z05216PAPE, Z05216CUEN, Z05216OPER, Z05216SCUE, Z05216TOPE, Z05216MODU);
+

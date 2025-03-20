@@ -1,0 +1,21 @@
+create table FSFI61
+(
+  sfi61fech  DATE not null,
+  sfi60id    NUMBER(12) not null,
+  sfi61event CHAR(3) not null,
+  sfi61atrib NUMBER(4) not null,
+  sffi61corr NUMBER(4) not null,
+  sfi61valan CHAR(50),
+  sfi61valnu CHAR(50),
+  sfi61usrge CHAR(10),
+  sfi61horge CHAR(8),
+  sfi61usrco CHAR(10),
+  sfi61fecco DATE,
+  sfi61horco CHAR(8),
+  sfi61stat  CHAR(3)
+)
+;
+create index FSFI6102 on FSFI61 (SFI60ID);
+alter table FSFI61
+  add primary key (SFI61FECH, SFI60ID, SFI61EVENT, SFI61ATRIB, SFFI61CORR);
+

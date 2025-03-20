@@ -1,0 +1,22 @@
+create table JMBMT2
+(
+  jmbmt1ins  NUMBER(10) not null,
+  jmbmt2cor  NUMBER(3) not null,
+  jmbmt2ite  NUMBER(10),
+  jmbmt2usr  CHAR(10),
+  jmbmt2tasa NUMBER(10,6),
+  jmbmt2tast NUMBER(10,6),
+  jmbmt2tasp NUMBER(10,6),
+  jmbmt2com  VARCHAR2(400),
+  jmbmt2aut  NUMBER(10),
+  jmbmt2res  CHAR(1),
+  jmbmt2tase NUMBER(10,6),
+  jmbmt2stat NUMBER(1),
+  jmbmt2int1 NUMBER(4),
+  jmbmt2int2 NUMBER(10),
+  jmbmt2impa NUMBER(4)
+)
+;
+alter table JMBMT2
+  add primary key (JMBMT1INS, JMBMT2COR);
+

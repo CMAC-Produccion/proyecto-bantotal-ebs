@@ -1,0 +1,28 @@
+create table AQPA122B
+(
+  aqpa122bfec DATE not null,
+  aqpa122bsuc NUMBER(3) not null,
+  aqpa122bfin DATE,
+  aqpa122bffi DATE,
+  aqpa122bust CHAR(10),
+  aqpa122buss CHAR(10),
+  aqpa122bhor CHAR(8),
+  aqpa122best CHAR(1),
+  aqpa122bmsg VARCHAR2(400),
+  aqpa122bnom CHAR(50),
+  aqpa122barc BLOB,
+  aqpa122bcue CLOB,
+  aqpa122bax1 NUMBER(9),
+  aqpa122bax2 NUMBER(9),
+  aqpa122bax3 NUMBER(17,2),
+  aqpa122bax4 NUMBER(17,2),
+  aqpa122bax5 DATE,
+  aqpa122bax6 DATE,
+  aqpa122bax7 CHAR(100),
+  aqpa122bax8 CHAR(100),
+  aqpa122bax9 CHAR(100)
+)
+;
+alter table AQPA122B
+  add primary key (AQPA122BFEC, AQPA122BSUC);
+

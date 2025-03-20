@@ -1,0 +1,12 @@
+create table AQPA422
+(
+  aqpa422inst NUMBER(10) not null,
+  aqpa422fech DATE not null,
+  aqpa422hora CHAR(8) not null,
+  aqpa422grup NUMBER(4) not null,
+  aqpa422fact NUMBER(9,6)
+)
+;
+alter table AQPA422
+  add primary key (AQPA422INST, AQPA422FECH, AQPA422HORA, AQPA422GRUP);
+

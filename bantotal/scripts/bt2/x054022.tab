@@ -1,0 +1,15 @@
+create table X054022
+(
+  pgcod      NUMBER(3) not null,
+  xlloprccod NUMBER(9) not null,
+  xlloevmodu NUMBER(3) not null,
+  xlloevtope NUMBER(3) not null,
+  xlloevest  NUMBER(9) not null,
+  xllonewsts NUMBER(9) not null,
+  xllotxtcod NUMBER(3) not null
+)
+;
+create index X0540222 on X054022 (XLLOTXTCOD);
+alter table X054022
+  add primary key (PGCOD, XLLOPRCCOD, XLLOEVMODU, XLLOEVTOPE, XLLOEVEST, XLLONEWSTS, XLLOTXTCOD);
+

@@ -1,0 +1,29 @@
+create table WFINSTPR
+(
+  wfinsprcid NUMBER(10) not null,
+  wfprcid    NUMBER(4),
+  wfinsprcsu CHAR(40),
+  wfinsprcdo CHAR(40),
+  wfinsprcul NUMBER(4),
+  wfinsprcin DATE,
+  wfinsprcen DATE,
+  wfinsprcpr NUMBER(1),
+  wfinsprcow CHAR(30),
+  wfinsprcst CHAR(1),
+  wfinsprcos NUMBER(1),
+  wfinsprcsb CHAR(1),
+  wfinsprcpa NUMBER(10),
+  wfinsprcts NUMBER(10),
+  wfinsprcne CHAR(1),
+  wfinsprcur LONG,
+  wfinsprcwa CHAR(1),
+  wfinsprcwr DATE,
+  wfinsprcdl DATE,
+  msgnro     NUMBER(6)
+)
+;
+create index UWFINS2 on WFINSTPR (WFINSPRCIN);
+create index UWFSTS1 on WFINSTPR (WFINSPRCOS);
+alter table WFINSTPR
+  add primary key (WFINSPRCID);
+

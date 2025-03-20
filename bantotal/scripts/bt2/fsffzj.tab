@@ -1,0 +1,26 @@
+create table FSFFZJ
+(
+  fsffzecod NUMBER(3) not null,
+  fsffzesuc NUMBER(3) not null,
+  fsffzemod NUMBER(3) not null,
+  fsffzemda NUMBER(4) not null,
+  fsffzepap NUMBER(4) not null,
+  fsffzecta NUMBER(9) not null,
+  fsffzeope NUMBER(9) not null,
+  fsffzesbo NUMBER(3) not null,
+  fsffzetop NUMBER(3) not null,
+  fsffzjcor NUMBER(5) not null,
+  fsffzjfec DATE,
+  fsffzfcod NUMBER(3),
+  fsffzgcod NUMBER(3),
+  fsffzhcod NUMBER(3),
+  fsffzicod NUMBER(3),
+  fsffzjtxt LONG,
+  fsffzjabo NUMBER(5),
+  fsffzjsup NUMBER(5)
+)
+;
+create index FSFFZJ02 on FSFFZJ (FSFFZFCOD, FSFFZGCOD, FSFFZHCOD, FSFFZICOD);
+alter table FSFFZJ
+  add primary key (FSFFZECOD, FSFFZESUC, FSFFZEMOD, FSFFZEMDA, FSFFZEPAP, FSFFZECTA, FSFFZEOPE, FSFFZESBO, FSFFZETOP, FSFFZJCOR);
+

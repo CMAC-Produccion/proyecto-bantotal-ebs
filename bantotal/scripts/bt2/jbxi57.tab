@@ -1,0 +1,28 @@
+create table JBXI57
+(
+  jbxi57apl NUMBER(4) not null,
+  jbxi57ban CHAR(8) not null,
+  jbxi57env NUMBER(9) not null,
+  jbxi57cor NUMBER(9) not null,
+  jbxi57fec DATE,
+  jbxi57tar CHAR(19),
+  jbxi57sec NUMBER(3),
+  jbxi57mod NUMBER(3),
+  jbxi57suc NUMBER(3),
+  jbxi57cta NUMBER(9),
+  jbxi57sct NUMBER(3),
+  jbxi57mda NUMBER(3),
+  jbxi57est NUMBER(1),
+  jbxi57sdo NUMBER(12,2),
+  jbxi57acu NUMBER(12,2),
+  jbxi57int NUMBER(12,2),
+  jbxi57ax1 CHAR(30),
+  jbxi57ax2 CHAR(30),
+  jbxi57ax3 CHAR(30),
+  jbxi57ax4 NUMBER(17,2),
+  jbxi57ax5 NUMBER(17,2),
+  jbxi57ax6 NUMBER(17,2)
+)
+;
+create unique index JBXI5701 on JBXI57 (JBXI57APL, JBXI57BAN, JBXI57ENV, JBXI57COR);
+

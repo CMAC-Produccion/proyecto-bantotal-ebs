@@ -1,0 +1,16 @@
+create table FST134
+(
+  pgcod NUMBER(3) not null,
+  trmod NUMBER(3) not null,
+  trnro NUMBER(3) not null,
+  trord NUMBER(2) not null,
+  idrng NUMBER(3) not null,
+  idpos NUMBER(3) not null,
+  idcod NUMBER(3),
+  idord NUMBER(3),
+  idtxt CHAR(30)
+)
+;
+alter table FST134
+  add primary key (PGCOD, TRMOD, TRNRO, TRORD, IDRNG, IDPOS);
+

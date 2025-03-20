@@ -1,0 +1,21 @@
+create table FSFF81
+(
+  dtuhab    CHAR(1) not null,
+  dtuemp    NUMBER(3) not null,
+  dtupgm    CHAR(10) not null,
+  dtubtn    CHAR(20) not null,
+  dtuprf    CHAR(10) not null,
+  dtuusr    CHAR(10) not null,
+  dtuusring CHAR(10),
+  dtuuswksi CHAR(10),
+  dtuhoring CHAR(8),
+  dtufecing DATE,
+  dtuusraut CHAR(10),
+  dtuuswksa CHAR(10),
+  dtuhoraut CHAR(8),
+  dtufecaut DATE
+)
+;
+alter table FSFF81
+  add primary key (DTUHAB, DTUEMP, DTUPGM, DTUBTN, DTUPRF, DTUUSR);
+

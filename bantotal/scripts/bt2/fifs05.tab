@@ -1,0 +1,17 @@
+create table FIFS05
+(
+  ifs05cap NUMBER(4) not null,
+  ifs05cba CHAR(5) not null,
+  ifs05num NUMBER(9) not null,
+  ifs05reg NUMBER(1) not null,
+  ifs05fec DATE,
+  ifs05cui NUMBER(11),
+  ifs05mes NUMBER(2),
+  ifs05ano NUMBER(4),
+  ifs05sum NUMBER(13),
+  ifs05tot NUMBER(7)
+)
+;
+alter table FIFS05
+  add primary key (IFS05CAP, IFS05CBA, IFS05NUM, IFS05REG);
+

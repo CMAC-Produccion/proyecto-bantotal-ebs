@@ -1,0 +1,29 @@
+create table PLS034
+(
+  pls034cod  NUMBER(3) not null,
+  pls034suc  NUMBER(3) not null,
+  pls034mod  NUMBER(3) not null,
+  pls034trn  NUMBER(3) not null,
+  pls034nrel NUMBER(4) not null,
+  pls034ord  NUMBER(2) not null,
+  pls034sbor NUMBER(3) not null,
+  pls034proc CHAR(1),
+  pls034succ NUMBER(3),
+  pls034rub  NUMBER(16),
+  pls034mda  NUMBER(4),
+  pls034pap  NUMBER(4),
+  pls034cta  NUMBER(9),
+  pls034oper NUMBER(9),
+  pls034sbop NUMBER(3),
+  pls034tope NUMBER(3),
+  pls034modc NUMBER(3),
+  pls034fcon DATE,
+  pls034fval DATE,
+  pls034fvto DATE,
+  pls034plzo NUMBER(2),
+  pls034sdo  NUMBER(17,2)
+)
+;
+alter table PLS034
+  add primary key (PLS034COD, PLS034SUC, PLS034MOD, PLS034TRN, PLS034NREL, PLS034ORD, PLS034SBOR);
+

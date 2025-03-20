@@ -1,0 +1,28 @@
+create table AQPC554
+(
+  aqpc554corr NUMBER not null,
+  aqpc554codi VARCHAR2(40),
+  aqpc554inst NUMBER(20) not null,
+  aqpc554fech DATE,
+  aqpc554hora VARCHAR2(15),
+  aqpc554user VARCHAR2(10),
+  aqpc554rpta VARCHAR2(2)
+)
+;
+comment on column AQPC554.aqpc554corr
+  is 'Correlativo';
+comment on column AQPC554.aqpc554codi
+  is 'Codigo Generado';
+comment on column AQPC554.aqpc554inst
+  is 'Instancia';
+comment on column AQPC554.aqpc554fech
+  is 'Fecha de Insercion';
+comment on column AQPC554.aqpc554hora
+  is 'Hora de Insercion';
+comment on column AQPC554.aqpc554user
+  is 'Usuario que Inserto';
+comment on column AQPC554.aqpc554rpta
+  is 'Respuesta S:Se inserto, N:No se inserto';
+alter table AQPC554
+  add primary key (AQPC554INST);
+

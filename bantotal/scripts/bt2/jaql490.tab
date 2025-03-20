@@ -1,0 +1,17 @@
+create table JAQL490
+(
+  jaql490pgc NUMBER(3) not null,
+  jaql490suc NUMBER(3) not null,
+  jaql490mod NUMBER(3) not null,
+  jaql490trx NUMBER(3) not null,
+  jaql490rel NUMBER(4) not null,
+  jaql490fec DATE not null,
+  jaql490ini DATE,
+  jaql490fin DATE,
+  jaql490mco NUMBER(17,2),
+  jaql490nmo NUMBER(9)
+)
+;
+alter table JAQL490
+  add constraint PK_JAQL490 primary key (JAQL490PGC, JAQL490SUC, JAQL490MOD, JAQL490TRX, JAQL490REL, JAQL490FEC);
+

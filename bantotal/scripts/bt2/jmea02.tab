@@ -1,0 +1,16 @@
+create table JMEA02
+(
+  jmea01emp CHAR(20) not null,
+  jmea02mut CHAR(20) not null,
+  jmea02dsc CHAR(50),
+  jmea02au1 NUMBER(9),
+  jmea02au2 NUMBER(9),
+  jmea02au3 DATE,
+  jmea02au4 NUMBER(17,2),
+  jmea02au5 CHAR(30),
+  jmea02au6 CHAR(30)
+)
+;
+alter table JMEA02
+  add primary key (JMEA01EMP, JMEA02MUT);
+

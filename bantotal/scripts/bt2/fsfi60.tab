@@ -1,0 +1,44 @@
+create table FSFI60
+(
+  sfi60id    NUMBER(12) not null,
+  sfi60boc   CHAR(1),
+  sfi60cot   CHAR(1),
+  sfi60emp   NUMBER(3),
+  sfi60cta   NUMBER(9),
+  sfi60desc  CHAR(50),
+  sfi60mer   NUMBER(3),
+  sfi60tiop  NUMBER(3),
+  sfi60grpro NUMBER(2),
+  sfi60prod  NUMBER(4),
+  sfi60swift CHAR(50),
+  sfi60fax   CHAR(50),
+  sfi60fcc   CHAR(50),
+  sfi60clear CHAR(50),
+  sfi60ctclb NUMBER(9),
+  sfi60ctacl CHAR(50),
+  sfi60ref1  CHAR(80),
+  sfi60ref2  CHAR(80),
+  sfi60ref3  CHAR(80),
+  sfi60estad CHAR(3),
+  sfi60usrin CHAR(10),
+  sfi60usrco CHAR(10),
+  sfi60swcl  CHAR(50),
+  sfi60inter CHAR(50),
+  sfi60swint CHAR(50),
+  sfi60fpag  NUMBER(3),
+  sfi60fpcta NUMBER(9),
+  sfi60num1  NUMBER(9),
+  sfi60num2  NUMBER(9),
+  sfi60num3  NUMBER(9),
+  sfi60car1  CHAR(1),
+  sfi60car2  CHAR(1),
+  sfi60car3  CHAR(1),
+  sfi60txt1  CHAR(20),
+  sfi60txt2  CHAR(20),
+  sfi60txt3  CHAR(20)
+)
+;
+create index FSFI6002 on FSFI60 (SFI60EMP, SFI60CTA, SFI60TIOP, SFI60MER, SFI60GRPRO, SFI60PROD, SFI60FPAG, SFI60FPCTA);
+alter table FSFI60
+  add primary key (SFI60ID);
+

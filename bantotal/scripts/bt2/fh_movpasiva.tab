@@ -1,0 +1,52 @@
+create table FH_MOVPASIVA
+(
+  hsucor NUMBER(3) not null,
+  hfvc   DATE,
+  hcmod  NUMBER(3) not null,
+  htran  NUMBER(3) not null,
+  hnrel  NUMBER(4) not null,
+  hcimp1 NUMBER(17,2),
+  pgcod  NUMBER(3) not null,
+  hsucur NUMBER(3),
+  hmodul NUMBER(3),
+  hmda   NUMBER(4),
+  hpap   NUMBER(4),
+  hcta   NUMBER(9),
+  hoper  NUMBER(9),
+  hsubop NUMBER(3),
+  htoper NUMBER(3)
+)
+;
+comment on table FH_MOVPASIVA
+  is 'Movimientos Pasivas para ETL';
+comment on column FH_MOVPASIVA.hsucor
+  is 'HSUCOR';
+comment on column FH_MOVPASIVA.hfvc
+  is 'HFVC ';
+comment on column FH_MOVPASIVA.hcmod
+  is 'HCMOD ';
+comment on column FH_MOVPASIVA.htran
+  is 'HTRAN ';
+comment on column FH_MOVPASIVA.hnrel
+  is 'HNREL ';
+comment on column FH_MOVPASIVA.hcimp1
+  is 'HCIMP1';
+comment on column FH_MOVPASIVA.pgcod
+  is 'PGCOD ';
+comment on column FH_MOVPASIVA.hsucur
+  is 'HSUCUR';
+comment on column FH_MOVPASIVA.hmodul
+  is 'HMODUL';
+comment on column FH_MOVPASIVA.hmda
+  is 'HMDA ';
+comment on column FH_MOVPASIVA.hpap
+  is 'HPAP ';
+comment on column FH_MOVPASIVA.hcta
+  is 'HCTA ';
+comment on column FH_MOVPASIVA.hoper
+  is 'HOPER ';
+comment on column FH_MOVPASIVA.hsubop
+  is 'HSUBOP';
+comment on column FH_MOVPASIVA.htoper
+  is 'HTOPER';
+

@@ -1,0 +1,33 @@
+create table FSR015
+(
+  r3cod    NUMBER(3) not null,
+  r3suc    NUMBER(3) not null,
+  r3mod    NUMBER(3) not null,
+  r3mda    NUMBER(4) not null,
+  r3pap    NUMBER(4) not null,
+  r3cta    NUMBER(9) not null,
+  r3oper   NUMBER(9) not null,
+  r3sbop   NUMBER(3) not null,
+  r3tope   NUMBER(3) not null,
+  r3orden  NUMBER(3) not null,
+  cobcod   CHAR(1) not null,
+  r4cod    NUMBER(3),
+  r4suc    NUMBER(3),
+  r4mod    NUMBER(3),
+  r4mda    NUMBER(4),
+  r4pap    NUMBER(4),
+  r4cta    NUMBER(9),
+  r4oper   NUMBER(9),
+  r4sbop   NUMBER(3),
+  r4tope   NUMBER(3),
+  r4limit  NUMBER(17,2),
+  r3limit  NUMBER(17,2),
+  r3limit1 NUMBER(17,2),
+  r4limit1 NUMBER(17,2)
+)
+;
+create index FSR01502 on FSR015 (R3COD, R3CTA, R3SUC, R3MOD, R3MDA, R3PAP, R3OPER, R3SBOP, R3TOPE, R3ORDEN);
+create index FSR01503 on FSR015 (R4COD, R4SUC, R4MOD, R4MDA, R4PAP, R4CTA, R4OPER, R4SBOP, R4TOPE);
+alter table FSR015
+  add primary key (R3COD, R3SUC, R3MOD, R3MDA, R3PAP, R3CTA, R3OPER, R3SBOP, R3TOPE, R3ORDEN, COBCOD);
+

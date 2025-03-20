@@ -1,0 +1,95 @@
+create table JAQM5C
+(
+  jaqm5ccod NUMBER(3) not null,
+  jaqm5cfec DATE not null,
+  jaqm5cusu CHAR(10) not null,
+  jaqm5csuo NUMBER(3) not null,
+  jaqm5csud NUMBER(3) not null,
+  jaqm5ccor NUMBER(5) not null,
+  jaqm5cest CHAR(3),
+  jaqm5cjeo CHAR(10),
+  jaqm5cjed CHAR(10),
+  jaqm5ccaj NUMBER(3),
+  jaqm5cfei DATE,
+  jaqm5choi CHAR(10),
+  jaqm5cusi CHAR(10),
+  jaqm5cusa CHAR(10),
+  jaqm5cwks CHAR(12),
+  jaqm5cai1 NUMBER(17,2),
+  jaqm5cai2 NUMBER(17,2),
+  jaqm5cai3 NUMBER(17,2),
+  jaqm5can1 NUMBER(9),
+  jaqm5can2 NUMBER(9),
+  jaqm5can3 NUMBER(9),
+  jaqm5cac1 VARCHAR2(255),
+  jaqm5cac2 VARCHAR2(255),
+  jaqm5cac3 VARCHAR2(255),
+  jaqm5caf1 DATE,
+  jaqm5caf2 DATE,
+  jaqm5caf3 DATE
+)
+;
+comment on table JAQM5C
+  is 'Traslado de Usuarios RS y JP Volante';
+comment on column JAQM5C.jaqm5ccod
+  is 'Empresa';
+comment on column JAQM5C.jaqm5cfec
+  is 'Fecha de Ingreso';
+comment on column JAQM5C.jaqm5cusu
+  is 'Usuario traslado';
+comment on column JAQM5C.jaqm5csuo
+  is 'Sucursal Origen';
+comment on column JAQM5C.jaqm5csud
+  is 'Sucursal Destino';
+comment on column JAQM5C.jaqm5ccor
+  is 'Correlativo';
+comment on column JAQM5C.jaqm5cest
+  is 'Estado';
+comment on column JAQM5C.jaqm5cjeo
+  is 'Jefe Origen';
+comment on column JAQM5C.jaqm5cjed
+  is 'Jefe Destino';
+comment on column JAQM5C.jaqm5ccaj
+  is 'Caja';
+comment on column JAQM5C.jaqm5cfei
+  is 'Fecha de Inicio';
+comment on column JAQM5C.jaqm5choi
+  is 'Hora de Inicio';
+comment on column JAQM5C.jaqm5cusi
+  is 'Usuario de Ingreso';
+comment on column JAQM5C.jaqm5cusa
+  is 'Usuario de Aprobación';
+comment on column JAQM5C.jaqm5cwks
+  is 'Workstation Aprobación';
+comment on column JAQM5C.jaqm5cai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM5C.jaqm5cai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM5C.jaqm5cai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM5C.jaqm5can1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM5C.jaqm5can2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM5C.jaqm5can3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM5C.jaqm5cac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM5C.jaqm5cac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM5C.jaqm5cac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM5C.jaqm5caf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM5C.jaqm5caf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM5C.jaqm5caf3
+  is 'Auxiliar Fecha 3';
+create index JAQM5CA2 on JAQM5C (JAQM5CFEC);
+create index JAQM5CA3 on JAQM5C (JAQM5CUSU, JAQM5CFEC);
+create index JAQM5CA4 on JAQM5C (JAQM5CSUO, JAQM5CFEC);
+create index JAQM5CA5 on JAQM5C (JAQM5CSUD, JAQM5CFEC);
+create index JAQM5CA6 on JAQM5C (JAQM5CUSI, JAQM5CFEC);
+alter table JAQM5C
+  add primary key (JAQM5CCOD, JAQM5CFEC, JAQM5CUSU, JAQM5CSUO, JAQM5CSUD, JAQM5CCOR);
+

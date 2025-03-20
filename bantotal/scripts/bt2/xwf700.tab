@@ -1,0 +1,32 @@
+create table XWF700
+(
+  xwfempresa   NUMBER(3) not null,
+  xwfsucursal  NUMBER(3) not null,
+  xwfmodulo    NUMBER(3) not null,
+  xwfmoneda    NUMBER(4) not null,
+  xwfpapel     NUMBER(4) not null,
+  xwfcuenta    NUMBER(9) not null,
+  xwfoperacion NUMBER(9) not null,
+  xwfsubope    NUMBER(3) not null,
+  xwftipope    NUMBER(3) not null,
+  xwfprcins    NUMBER(10) not null,
+  xwfmonto1    NUMBER(17,2),
+  xwfmonto2    NUMBER(17,2),
+  xwfplazo1    NUMBER(5),
+  xwfplazo2    NUMBER(5),
+  xwfcar1      CHAR(30),
+  xwfcar2      CHAR(30),
+  xwffec1      DATE,
+  xwffec2      DATE,
+  xwfemp1      NUMBER(3),
+  xwfcta1      NUMBER(9),
+  xwfcar3      CHAR(1)
+)
+;
+create index XWF700C1 on XWF700 (XWFPRCINS, XWFEMPRESA);
+create index XWF70002 on XWF700 (XWFPRCINS);
+create index XWF70003 on XWF700 (XWFEMPRESA, XWFCUENTA, XWFPRCINS);
+create index XWF70004 on XWF700 (XWFEMP1, XWFCTA1, XWFPRCINS);
+alter table XWF700
+  add primary key (XWFEMPRESA, XWFSUCURSAL, XWFMODULO, XWFMONEDA, XWFPAPEL, XWFCUENTA, XWFOPERACION, XWFSUBOPE, XWFTIPOPE, XWFPRCINS);
+

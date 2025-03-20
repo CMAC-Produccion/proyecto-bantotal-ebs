@@ -1,0 +1,79 @@
+create table JAQL968
+(
+  jaql968fec  DATE not null,
+  jaql968reg  NUMBER(3) not null,
+  jaql968cod  NUMBER(3) not null,
+  jaql968ana  VARCHAR2(20) not null,
+  jaql968cor  NUMBER(10) not null,
+  jaql968ren  CHAR(40),
+  jaql968age  CHAR(30),
+  jaql968sal  NUMBER(17,2),
+  jaql968salj NUMBER(17,2),
+  jaql968ncl  NUMBER(10),
+  jaql968ncr  NUMBER(10),
+  jaql968s15  NUMBER(17,2),
+  jaql968p15  NUMBER(17,2),
+  jaql968s30  NUMBER(17,2),
+  jaql968p30  NUMBER(17,2),
+  jaql968sju  NUMBER(17,2),
+  jaql968sve  NUMBER(17,2),
+  jaql968sre  NUMBER(17,2),
+  jaql968crju NUMBER(10),
+  jaql968crve NUMBER(10),
+  jaql968crre NUMBER(10),
+  jaql968clju NUMBER(10),
+  jaql968clve NUMBER(10),
+  jaql968clre NUMBER(10),
+  jaql968tip  NUMBER(3),
+  jaql968sca  NUMBER(17,2),
+  jaql968svi  NUMBER(17,2),
+  jaql968scat NUMBER(17,2),
+  jaql968scac NUMBER(17,2),
+  jaql968scvp NUMBER(17,2),
+  jaql968scvn NUMBER(17,2),
+  jaql968scvr NUMBER(17,2),
+  jaql968gru  NUMBER(2),
+  jaql968sbs  VARCHAR2(30),
+  jaql968coz  NUMBER(3),
+  jaql968noz  VARCHAR2(50),
+  jaql968pmr  NUMBER(17,2),
+  jaql968scpv NUMBER(17,2),
+  jaql968scp1 NUMBER(17,2),
+  jaql968scca NUMBER(17,2)
+)
+;
+comment on column JAQL968.jaql968svi
+  is 'saldo vigente';
+comment on column JAQL968.jaql968scat
+  is 'Saldo Cartera Atrasada';
+comment on column JAQL968.jaql968scac
+  is 'Saldo Cartera Atrasada con Castigos';
+comment on column JAQL968.jaql968scvp
+  is 'saldo capital vencido prendario';
+comment on column JAQL968.jaql968scvn
+  is 'saldo capital vencido normal';
+comment on column JAQL968.jaql968scvr
+  is 'saldo capital vencido refinanciado';
+comment on column JAQL968.jaql968gru
+  is 'Producto SBS';
+comment on column JAQL968.jaql968sbs
+  is 'Descripcion Producto SBS ';
+comment on column JAQL968.jaql968coz
+  is 'Codigo Region CMAC-Zona ';
+comment on column JAQL968.jaql968noz
+  is 'Region CMAC-Zona  ';
+comment on column JAQL968.jaql968pmr
+  is 'Porcentaje Mora Contable';
+comment on column JAQL968.jaql968scpv
+  is 'Saldo Vencido Proyeccion ';
+comment on column JAQL968.jaql968scp1
+  is 'Saldo Vencido Proyeccion un dia';
+comment on column JAQL968.jaql968scca
+  is 'Saldo Cartera Atrasada ';
+create index IDX_JAQL968_1 on JAQL968 (JAQL968FEC, JAQL968TIP, JAQL968REG, JAQL968ANA);
+create index IDX_JAQL968_2 on JAQL968 (JAQL968FEC, JAQL968TIP, JAQL968COD, JAQL968ANA);
+create index IDX_JAQL968_3 on JAQL968 (JAQL968FEC, JAQL968TIP, JAQL968REG, JAQL968COD, JAQL968ANA);
+create index IDX_JAQL968_4 on JAQL968 (JAQL968FEC, JAQL968TIP, JAQL968COZ, JAQL968REG, JAQL968COD, JAQL968ANA);
+alter table JAQL968
+  add primary key (JAQL968FEC, JAQL968REG, JAQL968COD, JAQL968ANA, JAQL968COR);
+

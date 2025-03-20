@@ -1,0 +1,23 @@
+create table PAS003
+(
+  hisfchpas  NUMBER(6) not null,
+  hisbentpod NUMBER(2) not null,
+  hisbennrod NUMBER(9) not null,
+  hispago    CHAR(1),
+  hismodcob  CHAR(2),
+  hisagepas  NUMBER(4),
+  hiscajapas NUMBER(1),
+  hisimppas  NUMBER(8,2),
+  hisfchcar  DATE,
+  hisnrel    NUMBER(4),
+  histran    NUMBER(3),
+  hismod     NUMBER(3),
+  hisapopais NUMBER(3),
+  hisapotdoc NUMBER(2),
+  hisapondoc CHAR(12),
+  hisbenef   CHAR(1)
+)
+;
+alter table PAS003
+  add primary key (HISFCHPAS, HISBENTPOD, HISBENNROD);
+

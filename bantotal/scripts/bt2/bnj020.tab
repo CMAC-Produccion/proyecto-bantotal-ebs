@@ -1,0 +1,12 @@
+create table BNJ020
+(
+  bnjemp    NUMBER(3) not null,
+  bnjcod    NUMBER(4) not null,
+  bnjsucpar NUMBER(3) not null,
+  bnjparcli CHAR(1),
+  bnjlote   NUMBER(5)
+)
+;
+alter table BNJ020
+  add primary key (BNJEMP, BNJCOD, BNJSUCPAR);
+

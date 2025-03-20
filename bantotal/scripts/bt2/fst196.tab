@@ -1,0 +1,16 @@
+create table FST196
+(
+  rmpais   NUMBER(3) not null,
+  rmmoneda NUMBER(4) not null,
+  rmzoncod NUMBER(3) not null,
+  rmsist   NUMBER(3),
+  rmaux1   CHAR(1),
+  rmaux2   CHAR(30),
+  rmaux3   DATE,
+  rmaux4   NUMBER(9),
+  rmaux5   NUMBER(17,2)
+)
+;
+alter table FST196
+  add primary key (RMPAIS, RMMONEDA, RMZONCOD);
+

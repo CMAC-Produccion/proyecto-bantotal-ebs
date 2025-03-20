@@ -1,0 +1,24 @@
+create table AQPB955
+(
+  aqpb955cod NUMBER(10) not null,
+  aqpb955reg VARCHAR2(40) not null,
+  aqpb955des VARCHAR2(250) not null,
+  aqpb955usr VARCHAR2(10) not null,
+  aqpb955cor NUMBER(10)
+)
+;
+comment on table AQPB955
+  is 'Tabla temporal para generar las reglas de control';
+comment on column AQPB955.aqpb955cod
+  is 'Instancia del Crédito';
+comment on column AQPB955.aqpb955reg
+  is 'Variable de la Regla';
+comment on column AQPB955.aqpb955des
+  is 'Descripcion de la Regla';
+comment on column AQPB955.aqpb955usr
+  is 'Usuario de Genera Reglas';
+comment on column AQPB955.aqpb955cor
+  is 'Correlativo';
+alter table AQPB955
+  add primary key (AQPB955COD, AQPB955REG, AQPB955USR);
+

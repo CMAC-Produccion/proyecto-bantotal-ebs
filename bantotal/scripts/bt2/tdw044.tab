@@ -1,0 +1,14 @@
+create table TDW044
+(
+  tdw044ttd CHAR(1) not null,
+  tdw044mar CHAR(1) not null,
+  tdw044bin CHAR(6) not null,
+  tdw044cat NUMBER(5) not null,
+  tdw044ser CHAR(3) not null,
+  tdw044fec DATE not null,
+  tdw044sal NUMBER(9)
+)
+;
+alter table TDW044
+  add primary key (TDW044TTD, TDW044MAR, TDW044BIN, TDW044CAT, TDW044SER, TDW044FEC);
+

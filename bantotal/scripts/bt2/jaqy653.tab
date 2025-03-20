@@ -1,0 +1,22 @@
+create table JAQY653
+(
+  jaqy653pai NUMBER(3) not null,
+  jaqy653tdo NUMBER(2) not null,
+  jaqy653ndo CHAR(12) not null,
+  jaqy653nom CHAR(30),
+  jaqy653suc NUMBER(9),
+  jaqy653cla CHAR(1),
+  jaqy653sal NUMBER(16,2),
+  jaqy653asi NUMBER(2),
+  jaqy653fec DATE,
+  jaqy653usu CHAR(10),
+  jaqy653ono VARCHAR2(1),
+  jaqy653ven VARCHAR2(1)
+)
+;
+create index IJAQY65310001 on JAQY653 (JAQY653NOM, JAQY653USU);
+create index IJAQY65310002 on JAQY653 (JAQY653CLA, JAQY653NOM, JAQY653SAL);
+create index IJAQY65310003 on JAQY653 (JAQY653USU, JAQY653ASI);
+alter table JAQY653
+  add primary key (JAQY653PAI, JAQY653TDO, JAQY653NDO);
+

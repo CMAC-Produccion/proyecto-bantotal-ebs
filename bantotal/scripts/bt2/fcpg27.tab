@@ -1,0 +1,30 @@
+create table FCPG27
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg27fval  DATE,
+  cpg27fvto  DATE,
+  cpg27depmt CHAR(1),
+  cpg27compc CHAR(1),
+  cpg27compp CHAR(1),
+  cpg27maxpr NUMBER(3),
+  cpg27ultfc DATE,
+  cpg27cent  CHAR(1),
+  cpg27undep CHAR(1),
+  cpg27turac NUMBER(1),
+  cpg27cani  NUMBER(3),
+  cpg27fmtnm NUMBER(2),
+  cpg27fmtm  NUMBER(2),
+  cpg27pacr  NUMBER(2),
+  cpg27actm  CHAR(1),
+  cpg27calac CHAR(1),
+  cpg27est   CHAR(3),
+  cpg27blq   CHAR(1),
+  cpg27inst  NUMBER(10)
+)
+;
+create index FCPG2702 on FCPG27 (CPG15COD);
+alter table FCPG27
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD);
+

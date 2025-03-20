@@ -1,0 +1,22 @@
+create table JAQZ240
+(
+  jaqz240serial NUMBER(10) not null,
+  jaqz240nuobl  VARCHAR2(30) not null,
+  jaqz240ferep  DATE,
+  jaqz240coent  VARCHAR2(30),
+  jaqz240noent  VARCHAR2(50),
+  jaqz240ticta  VARCHAR2(10),
+  jaqz240moned  VARCHAR2(10),
+  jaqz240causa  VARCHAR2(10),
+  jaqz240feinis DATE,
+  jaqz240tipla  VARCHAR2(10),
+  jaqz240fefis  DATE,
+  jaqz240fepub  DATE,
+  jaqz240nupub  VARCHAR2(10),
+  jaqz240fecre  DATE,
+  jaqz240tidet  CHAR(2)
+)
+;
+alter table JAQZ240
+  add primary key (JAQZ240SERIAL, JAQZ240NUOBL);
+

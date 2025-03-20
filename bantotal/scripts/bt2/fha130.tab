@@ -1,0 +1,15 @@
+create table FHA130
+(
+  pgcod      NUMBER(3) not null,
+  coehmod    NUMBER(3) not null,
+  coehoper   NUMBER(9) not null,
+  coehmodid  NUMBER(5) not null,
+  coehfecwid NUMBER(2) not null,
+  coehfecwds CHAR(30),
+  coehafecwf DATE,
+  coehpfecwf DATE
+)
+;
+alter table FHA130
+  add primary key (PGCOD, COEHMOD, COEHOPER, COEHMODID, COEHFECWID);
+

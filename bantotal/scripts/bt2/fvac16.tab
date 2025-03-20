@@ -1,0 +1,19 @@
+create table FVAC16
+(
+  vac14emp NUMBER(3) not null,
+  vac16eco NUMBER(3) not null,
+  vac16nom CHAR(30),
+  vac16pri NUMBER(3),
+  vac16tpa CHAR(1),
+  vac16fco NUMBER(2),
+  vac16sdo NUMBER(17,2),
+  vac16lim NUMBER(17,2),
+  vac16mda NUMBER(4),
+  vac16rub NUMBER(16),
+  vac16cta NUMBER(9),
+  vac16bco NUMBER(3)
+)
+;
+alter table FVAC16
+  add primary key (VAC14EMP, VAC16ECO);
+

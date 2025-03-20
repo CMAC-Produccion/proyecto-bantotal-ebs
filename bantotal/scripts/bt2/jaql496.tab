@@ -1,0 +1,234 @@
+create table JAQL496
+(
+  jaql496corr  NUMBER(18) not null,
+  jaql4963507  VARCHAR2(14),
+  jaql4963545  VARCHAR2(4),
+  jaql4963501  VARCHAR2(6),
+  jaql4963505  NUMBER(5),
+  jaql4963614  VARCHAR2(4),
+  jaql4963546  NUMBER(3),
+  jaql4963502  VARCHAR2(2),
+  jaql4963566  VARCHAR2(3),
+  jaql4963548  VARCHAR2(11),
+  jaql4963527  NUMBER(4),
+  jaql4963532  VARCHAR2(1),
+  jaql4963511  VARCHAR2(1),
+  jaql4963509  NUMBER(8),
+  jaql4963510  NUMBER(6),
+  jaql4963516  VARCHAR2(3),
+  jaql4963508  NUMBER(15,2),
+  jaql4963518  VARCHAR2(20),
+  jaql4963567  NUMBER(15,2),
+  jaql4963549  NUMBER(15,2),
+  jaql4963550  NUMBER(15,2),
+  jaql4963540  VARCHAR2(27),
+  jaql4963670  VARCHAR2(27),
+  jaql4963671  VARCHAR2(15),
+  jaql4963672  NUMBER(8,4),
+  jaql4963673  VARCHAR2(1),
+  jaql4963674  VARCHAR2(1),
+  jaql4963675  NUMBER(8),
+  jaql4963676  NUMBER(8),
+  jaql4963677  VARCHAR2(20),
+  jaql4963678  VARCHAR2(20),
+  jaql4963503  VARCHAR2(3),
+  jaql4963515  VARCHAR2(1),
+  jaql4963538  VARCHAR2(1),
+  jaql4963640  VARCHAR2(15),
+  jaql4963544  VARCHAR2(1),
+  jaql4963517  VARCHAR2(1),
+  jaql4963597  VARCHAR2(1),
+  jaql4963521  NUMBER(14,2),
+  jaql4963520  VARCHAR2(30),
+  jaql4963533  NUMBER(8),
+  jaql4963681  NUMBER(8),
+  jaql4963519  VARCHAR2(15),
+  jaql4963522  VARCHAR2(12),
+  jaql4963539  VARCHAR2(12),
+  jaql4963537  NUMBER(5),
+  jaql4963596  NUMBER(5),
+  jaql4963615  VARCHAR2(4),
+  jaql4963536  VARCHAR2(12),
+  jaql4963554  VARCHAR2(2),
+  jaql4963556  VARCHAR2(15),
+  jaql4963523  VARCHAR2(40),
+  jaql4963524  VARCHAR2(40),
+  jaql4963557  VARCHAR2(35),
+  jaql4963558  VARCHAR2(12),
+  jaql4963559  VARCHAR2(12),
+  jaql4963560  VARCHAR2(12),
+  jaql4963561  VARCHAR2(40),
+  jaql4963535  NUMBER(8),
+  jaql4963620  NUMBER(4),
+  jaql4963563  VARCHAR2(20),
+  jaql4963576  VARCHAR2(10),
+  jaql4963579  VARCHAR2(1),
+  jaql4963598  VARCHAR2(14),
+  jaql4963529  VARCHAR2(1),
+  jaql4963530  NUMBER(3),
+  jaql4963534  VARCHAR2(15),
+  jaql4963641  NUMBER(8),
+  jaql4963506  VARCHAR2(30),
+  jaql4963750  VARCHAR2(30),
+  jaql4963751  VARCHAR2(30),
+  jaql4963752  NUMBER(14,2),
+  jaql4963753  NUMBER(14,2),
+  jaql4963754  NUMBER(14,2),
+  jaql496corr2 NUMBER(18)
+)
+;
+comment on table JAQL496
+  is 'IFM REGISTRO 347 - TRANSACCIONES DE CUENTAS DE DEPÓSITOS A PLAZOS';
+comment on column JAQL496.jaql496corr
+  is 'Correlativo de tabla PK';
+comment on column JAQL496.jaql4963507
+  is 'Número de Identificación Personal del Cliente (Cédula, Pasaporte, NIT, RUT,etc.) ';
+comment on column JAQL496.jaql4963545
+  is 'Número de Empresa, Compañía o Entidad';
+comment on column JAQL496.jaql4963501
+  is 'Código que identifica la Transacción que se esta realizando (Deposito, Retiro, Transferencia, etc.)';
+comment on column JAQL496.jaql4963505
+  is 'Número de Agencia, Oficina o Sucursal donde se esta realizando la Transacción';
+comment on column JAQL496.jaql4963614
+  is 'Código del Tipo de Sucursal donde se esta realizando la Transacción.';
+comment on column JAQL496.jaql4963546
+  is 'Segmentación Geográfica, Institucional, etc. De las sucursales dentro de la Institución ';
+comment on column JAQL496.jaql4963502
+  is 'Código que identifica cual es el producto asociado a la Cuenta Origen de la Transacción';
+comment on column JAQL496.jaql4963566
+  is 'Código que identifica una sub agrupación del Producto.';
+comment on column JAQL496.jaql4963548
+  is 'Número de Operación o Transacción que le asigna el Host Central de la Institución.';
+comment on column JAQL496.jaql4963527
+  is 'Identifica si la transacción fue Aprobada o Rechazada por el Sistema Central de la Institución';
+comment on column JAQL496.jaql4963532
+  is 'Identifica el Tipo de Persona del Cliente (J = Jurídico, N = Natural)';
+comment on column JAQL496.jaql4963511
+  is 'Flag que identifica si la transacción es un Reverso (S = Si, N =  No)';
+comment on column JAQL496.jaql4963509
+  is 'Fecha de la Realización de la Transacción en formato AAAAMMDD';
+comment on column JAQL496.jaql4963510
+  is 'Hora de la Realización de la Transacción en formato HHMMSS';
+comment on column JAQL496.jaql4963516
+  is 'Código de la Moneda con la que se realizo la Transacción';
+comment on column JAQL496.jaql4963508
+  is 'Monto Total en Moneda que se realizo la Transacción';
+comment on column JAQL496.jaql4963518
+  is 'Código de Usuario que realiza la Transacción.';
+comment on column JAQL496.jaql4963567
+  is 'Monto Total del Efectivo que fue utilizado en la Transacción';
+comment on column JAQL496.jaql4963549
+  is 'Monto Total en Cheques Propios que fue utilizado en la Transacción';
+comment on column JAQL496.jaql4963550
+  is 'Monto Total en Cheques de Bancos Ajenos que fue utilizado en la Transacción';
+comment on column JAQL496.jaql4963540
+  is 'Numero de la Cuenta que Origino la Transacción.';
+comment on column JAQL496.jaql4963670
+  is 'Número de Cuenta donde se Acreditan los intereses';
+comment on column JAQL496.jaql4963671
+  is 'Número de Identificación Personal del Beneficiario (Cédula, Pasaporte, NIT, RUT,etc.) ';
+comment on column JAQL496.jaql4963672
+  is 'Tasa de Interés que se esta Calculando para el Documento.';
+comment on column JAQL496.jaql4963673
+  is 'Flag que Indica si la Renovación del Documento es de forma automática  1=Si, 2=No.';
+comment on column JAQL496.jaql4963674
+  is 'Campo que indica la forma con la cual se pagan los Interés (1=Mensual, 2=Trimestral, 3=Al finalizar, etc.)';
+comment on column JAQL496.jaql4963675
+  is 'Fecha de Vencimiento del Documento.  En Formato AAAAMMDD';
+comment on column JAQL496.jaql4963676
+  is 'Numero de Plazo que tiene el Documento en Días.  30, 60, 90 días., etc.';
+comment on column JAQL496.jaql4963677
+  is 'Código del Promotor o Ejecutivo de la Cuenta.';
+comment on column JAQL496.jaql4963678
+  is 'Numero de Forma o Folio de Seguridad del Documento.';
+comment on column JAQL496.jaql4963503
+  is 'Canal o Medio donde se origino la Transacción';
+comment on column JAQL496.jaql4963515
+  is 'Flag que identifica si la Cuenta Origen de la Transacción es una Cuenta de Empleado  (S= Si, N= No)';
+comment on column JAQL496.jaql4963538
+  is 'Flag que identifica si la Cuenta Destino de la Transacción es una Cuenta de Empleado  (S= Si, N= No)';
+comment on column JAQL496.jaql4963640
+  is 'Número de Identificación Personal del Empleado (Cédula, Pasaporte, NIT, RUT,etc.) ';
+comment on column JAQL496.jaql4963544
+  is 'Identifica si la Transacción es un Debito / Crédito u otra operación realizada (D= Debito, C=Crédito, O=Otras)';
+comment on column JAQL496.jaql4963517
+  is 'Estado de la Cuenta  (A=Activo, C=Cancelado, I=Inactivo, etc.)';
+comment on column JAQL496.jaql4963597
+  is 'Signo del Saldo Disponible  (+= Positivo, -= Negativo)';
+comment on column JAQL496.jaql4963521
+  is 'Valor Absoluto del Saldo Disponible de la Cuenta Origen';
+comment on column JAQL496.jaql4963520
+  is 'Localidad donde se realizo la Transacción';
+comment on column JAQL496.jaql4963533
+  is 'Fecha cuando se Aperturo la Cuenta Origen o nueva reapertura';
+comment on column JAQL496.jaql4963681
+  is 'Fecha cuando se Aperturo Originalmente el Plazo.';
+comment on column JAQL496.jaql4963519
+  is 'Identificación de la Terminal donde se origino la Transacción';
+comment on column JAQL496.jaql4963522
+  is 'Código interno Origen que identifica al Cliente en la Institución';
+comment on column JAQL496.jaql4963539
+  is 'Código interno Destino que identifica al Cliente en la Institución';
+comment on column JAQL496.jaql4963537
+  is 'Número de Agencia, Oficina o Sucursal donde se aperturo la Cuenta Origen';
+comment on column JAQL496.jaql4963596
+  is 'Número de Agencia, Oficina o Sucursal donde se aperturo la Cuenta Destino';
+comment on column JAQL496.jaql4963615
+  is 'Si la Cuenta que se esta Afectando es de un Empleado que tipo de Empleado es (Funcionario, Gerente, Director, etc.)';
+comment on column JAQL496.jaql4963536
+  is 'Código de Funcionario o Empleado que Autoriza la Transacción.';
+comment on column JAQL496.jaql4963554
+  is 'Flag que Identifica si la Cuenta Origen es una Cuenta Calificada como VIP.';
+comment on column JAQL496.jaql4963556
+  is 'Dirección IP o Caller ID donde fue realizada la Transacción.';
+comment on column JAQL496.jaql4963523
+  is 'Nombre Completo del Cliente Titular de la Cuenta Origen';
+comment on column JAQL496.jaql4963524
+  is 'Nombre Completo del Cliente Titular de la Cuenta Destino';
+comment on column JAQL496.jaql4963557
+  is 'Dirección Completa del domicilio del Cliente Origen';
+comment on column JAQL496.jaql4963558
+  is 'Número de Teléfono de la Residencia del Cliente Origen';
+comment on column JAQL496.jaql4963559
+  is 'Número de Teléfono de la Oficina o lugar de Trabajo del Cliente Origen';
+comment on column JAQL496.jaql4963560
+  is 'Número de Teléfono del Celular u Otro del Cliente Origen';
+comment on column JAQL496.jaql4963561
+  is 'Correo Electrónico o Email del Cliente Origen';
+comment on column JAQL496.jaql4963535
+  is 'Fecha e Vinculación del Cliente Origen a la Institución';
+comment on column JAQL496.jaql4963620
+  is 'Código de Segmentación Institucional de los Clientes.';
+comment on column JAQL496.jaql4963563
+  is 'Numero de Referencia para la Transacción';
+comment on column JAQL496.jaql4963576
+  is 'Código de Usuario que Confirma la Transacción';
+comment on column JAQL496.jaql4963579
+  is 'Código que indica una Agrupación de las Transacciones';
+comment on column JAQL496.jaql4963598
+  is 'Número de Identificación Personal del Cliente Destino (Cedula, Pasaporte, Etc.)';
+comment on column JAQL496.jaql4963529
+  is 'Flag o Indicador que indica que la Transacción es un Fraude (1=Fraude, 0=Normal)';
+comment on column JAQL496.jaql4963530
+  is 'Indica de donde se origino la Alerta si la Transacción ya fue Marcada como Fraude.';
+comment on column JAQL496.jaql4963534
+  is 'Número o Valor de Identificación de la Transacción de Fraude.';
+comment on column JAQL496.jaql4963641
+  is 'Fecha del Ultimo Movimiento de la Cuenta  ( Formato AAAAMMDD).';
+comment on column JAQL496.jaql4963506
+  is 'Campo Alfanumérico para Uso Futuro';
+comment on column JAQL496.jaql4963750
+  is 'Campo Alfanumérico para Uso Futuro';
+comment on column JAQL496.jaql4963751
+  is 'Campo Alfanumérico para Uso Futuro';
+comment on column JAQL496.jaql4963752
+  is 'Campo Numérico para Uso Futuro';
+comment on column JAQL496.jaql4963753
+  is 'Campo Numérico para Uso Futuro';
+comment on column JAQL496.jaql4963754
+  is 'Campo Numérico para Uso Futuro';
+comment on column JAQL496.jaql496corr2
+  is 'Correlativo 2 de tabla para Monitor Plus';
+alter table JAQL496
+  add primary key (JAQL496CORR);
+

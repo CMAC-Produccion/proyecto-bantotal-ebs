@@ -1,0 +1,41 @@
+create table JAQL057
+(
+  jaql57fpro DATE not null,
+  jaql57pgco NUMBER(3) not null,
+  jaql57sucu NUMBER(3) not null,
+  jaql57sean CHAR(1),
+  jaql57senu CHAR(1),
+  jaql57nuop NUMBER(12),
+  jaql57prop NUMBER(12,2),
+  jaql57poop NUMBER(5,2),
+  jaql57clop CHAR(1),
+  jaql57nuca NUMBER(12),
+  jaql57poca NUMBER(5,2),
+  jaql57clca CHAR(1),
+  jaql57saca NUMBER(17,2),
+  jaql57posa NUMBER(5,2),
+  jaql57clsa CHAR(1),
+  jaql57satt NUMBER(17,2),
+  jaql57pott NUMBER(5,2),
+  jaql57cltt CHAR(1),
+  jaql57au01 CHAR(50),
+  jaql57au02 CHAR(50),
+  jaql57au03 CHAR(50),
+  jaql57au04 NUMBER(17,2),
+  jaql57au05 NUMBER(17,2),
+  jaql57au06 NUMBER(17,2),
+  jaql57au07 NUMBER(9),
+  jaql57au08 NUMBER(9),
+  jaql57au09 NUMBER(9),
+  jaql57au10 DATE,
+  jaql57au11 DATE,
+  jaql57au12 DATE
+)
+;
+create index JAQL057100002 on JAQL057 (JAQL57FPRO, JAQL57POCA);
+create index JAQL057100003 on JAQL057 (JAQL57FPRO, JAQL57POOP);
+create index JAQL057100004 on JAQL057 (JAQL57FPRO, JAQL57POSA);
+create index JAQL057100005 on JAQL057 (JAQL57FPRO, JAQL57POTT);
+alter table JAQL057
+  add primary key (JAQL57FPRO, JAQL57PGCO, JAQL57SUCU);
+

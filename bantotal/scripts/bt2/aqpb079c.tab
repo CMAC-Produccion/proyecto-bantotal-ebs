@@ -1,0 +1,44 @@
+create table AQPB079C
+(
+  aqpb079ctxtrub  NUMBER(16),
+  aqpb079cpgcod   NUMBER(3) not null,
+  aqpb079chcmod   NUMBER(3) not null,
+  aqpb079chsucor  NUMBER(3) not null,
+  aqpb079chtran   NUMBER(3) not null,
+  aqpb079chnrel   NUMBER(4) not null,
+  aqpb079chfcon   DATE not null,
+  aqpb079cdoid    NUMBER(15),
+  aqpb079ccpcod   NUMBER(5) not null,
+  aqpb079cvnro    NUMBER(10),
+  aqpb079cvchr    CHAR(50),
+  aqpb079cvfch    TIMESTAMP(6),
+  aqpb079cvimp    NUMBER(17) not null,
+  aqpb079cvtas    NUMBER(10),
+  aqpb079cserie   CHAR(4) not null,
+  aqpb079cnro     NUMBER not null,
+  aqpb079cemp     NUMBER(3),
+  aqpb079cmod     NUMBER(3),
+  aqpb079csuc     NUMBER(3),
+  aqpb079cmda     NUMBER(4),
+  aqpb079cpap     NUMBER(4),
+  aqpb079ccta     NUMBER(9),
+  aqpb079cope     NUMBER(9),
+  aqpb079csbo     NUMBER(3),
+  aqpb079ctop     NUMBER(3),
+  aqpb079chip     CHAR(2),
+  aqpb079ctxtord  CHAR(65),
+  aqpb079ctxoren  NUMBER(3),
+  aqpb079cpgcode  NUMBER(3),
+  aqpb079chcmode  NUMBER(3),
+  aqpb079chsucore NUMBER(3),
+  aqpb079chtrane  NUMBER(3),
+  aqpb079chnrele  NUMBER(4),
+  aqpb079chfcone  DATE
+)
+;
+comment on table AQPB079C
+  is 'Referencia AQPA464';
+create index AQPB079C2 on AQPB079C (AQPB079CPGCOD, AQPB079CHCMOD, AQPB079CHSUCOR, AQPB079CHTRAN, AQPB079CHNREL, AQPB079CHFCON, AQPB079CDOID);
+alter table AQPB079C
+  add primary key (AQPB079CPGCOD, AQPB079CHCMOD, AQPB079CHSUCOR, AQPB079CHTRAN, AQPB079CHNREL, AQPB079CHFCON, AQPB079CSERIE, AQPB079CNRO, AQPB079CCPCOD, AQPB079CVIMP);
+

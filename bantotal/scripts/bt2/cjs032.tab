@@ -1,0 +1,20 @@
+create table CJS032
+(
+  cjs032cod NUMBER(3) not null,
+  cjs032suc NUMBER(3) not null,
+  cjs032cjs NUMBER(9) not null,
+  cjs032cta NUMBER(9) not null,
+  cjs032cor NUMBER(9) not null,
+  cjs032fpa DATE not null,
+  cjs032pag NUMBER(9) not null,
+  cjs032sec NUMBER(3),
+  cjs032ax1 DATE,
+  cjs032ax2 CHAR(20),
+  cjs032ax3 CHAR(1),
+  cjs032ax4 NUMBER(9),
+  cjs032ax5 NUMBER(17,2)
+)
+;
+alter table CJS032
+  add primary key (CJS032COD, CJS032SUC, CJS032CJS, CJS032CTA, CJS032COR, CJS032FPA, CJS032PAG);
+

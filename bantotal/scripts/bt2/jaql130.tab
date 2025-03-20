@@ -1,0 +1,24 @@
+create table JAQL130
+(
+  jaql130cbas NUMBER(2) not null,
+  jaql130cact NUMBER(2) not null,
+  jaql130dbas VARCHAR2(100),
+  jaql130axn1 NUMBER,
+  jaql130axn2 NUMBER,
+  jaql130axn3 NUMBER,
+  jaql130axd1 DATE,
+  jaql130axd2 DATE,
+  jaql130axc1 VARCHAR2(100),
+  jaql130axc2 VARCHAR2(100),
+  jaql130axc3 VARCHAR2(100)
+)
+;
+comment on table JAQL130
+  is 'Bases de Agenda Comercial';
+comment on column JAQL130.jaql130cbas
+  is 'CODIGO DE BASE';
+comment on column JAQL130.jaql130cact
+  is 'CODIGO ACTIVIDAD BASE';
+comment on column JAQL130.jaql130dbas
+  is 'DESCRIPCION DE BASE';
+

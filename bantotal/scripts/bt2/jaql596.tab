@@ -1,0 +1,49 @@
+create table JAQL596
+(
+  jaql596cat  NUMBER(3) not null,
+  jaql596csal NUMBER(18,2),
+  jaql596msal NUMBER(18,2),
+  jaql596ccli NUMBER(4) not null,
+  jaql596mcli NUMBER(18,2) not null,
+  jaql596ret  NUMBER(4) not null,
+  jaql596mret NUMBER(18,2) not null,
+  jaql596tip  CHAR(1) not null,
+  jaql596ant  CHAR(1),
+  jaql596se1  NUMBER(18,2),
+  jaql596se2  NUMBER(18,2),
+  jaql596ce1  NUMBER(4),
+  jaql596ce2  NUMBER(4),
+  jaql596est  CHAR(1)
+)
+;
+comment on table JAQL596
+  is 'Tabla Metas Saldos Productividad';
+comment on column JAQL596.jaql596cat
+  is 'CODIGO CATEGORIA ANALISTA';
+comment on column JAQL596.jaql596csal
+  is 'CRECIMIENTO SALDO';
+comment on column JAQL596.jaql596msal
+  is 'MONTO POR CUMPLIMIENTO SALDO';
+comment on column JAQL596.jaql596ccli
+  is 'CRECIMIENTO CLIENTES';
+comment on column JAQL596.jaql596mcli
+  is 'MONTO POR CUMPLIMIENTO CLIENTES';
+comment on column JAQL596.jaql596ret
+  is 'PORCENTAJE PARA RETENCION';
+comment on column JAQL596.jaql596mret
+  is 'MONTO POR CUMPLIMIENT DE RETENCION';
+comment on column JAQL596.jaql596tip
+  is 'TIPO ANALISTA P/C';
+comment on column JAQL596.jaql596ant
+  is 'ANTIGUEDAD ANALISTA A - ANTIGUO / N - NUEVO';
+comment on column JAQL596.jaql596se1
+  is 'PORCENTAJE SALDO EXCEDENTE 1 EXCEDENTE 101% -200%';
+comment on column JAQL596.jaql596se2
+  is 'PORCENTAJE SALDO EXCEDENTE 2 SUPERIOR 200%';
+comment on column JAQL596.jaql596ce1
+  is 'MONTO CLIENTE EXCEDENTE 2  EXCEDENTE 101% -200%';
+comment on column JAQL596.jaql596ce2
+  is 'MONTO CLIENTE EXCEDENTE 2 SUPERIOR 200%';
+comment on column JAQL596.jaql596est
+  is 'ESTADO%';
+

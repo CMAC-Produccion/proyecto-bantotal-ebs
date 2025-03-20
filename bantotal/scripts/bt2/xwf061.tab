@@ -1,0 +1,14 @@
+create table XWF061
+(
+  xwfprcid   NUMBER(4) not null,
+  xwfgrpdid  NUMBER(4) not null,
+  xwfgrpddsc CHAR(50),
+  xwfgrpdpga CHAR(10),
+  xwfgrpdexp NUMBER(10),
+  xwfgrpdpge CHAR(10),
+  xwfgrpdret VARCHAR2(40)
+)
+;
+alter table XWF061
+  add primary key (XWFPRCID, XWFGRPDID);
+

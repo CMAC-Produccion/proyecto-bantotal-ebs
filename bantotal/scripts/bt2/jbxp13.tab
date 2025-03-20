@@ -1,0 +1,13 @@
+create table JBXP13
+(
+  jbxp13cod NUMBER(3) not null,
+  jbxp13nro NUMBER(9) not null,
+  jbxp13usu CHAR(10) not null,
+  jbxp13fec DATE not null,
+  jbxp13hor CHAR(8) not null,
+  jbxp13fap DATE,
+  jbxp13acc CHAR(3)
+)
+;
+create unique index JBXP1301 on JBXP13 (JBXP13COD, JBXP13NRO, JBXP13USU, JBXP13FEC, JBXP13HOR);
+

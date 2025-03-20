@@ -1,0 +1,11 @@
+create table FSD231
+(
+  paisbt  NUMBER(3) not null,
+  panombt CHAR(30),
+  paiscrc CHAR(2)
+)
+;
+create index FSD23102 on FSD231 (PAISCRC);
+alter table FSD231
+  add primary key (PAISBT);
+

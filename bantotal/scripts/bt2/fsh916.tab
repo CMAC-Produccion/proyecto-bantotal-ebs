@@ -1,0 +1,28 @@
+create table FSH916
+(
+  sh916pgcod NUMBER(3) not null,
+  sh916itfco DATE not null,
+  sh916itsuc NUMBER(3) not null,
+  sh916itmod NUMBER(3) not null,
+  sh916ittra NUMBER(3) not null,
+  sh916itnre NUMBER(4) not null,
+  sh916itord NUMBER(2) not null,
+  sh916itsbo NUMBER(3) not null,
+  sh916rubro NUMBER(16),
+  sh916ctnro NUMBER(9),
+  sh916itope NUMBER(9),
+  sh916modul NUMBER(3),
+  sh916itimp NUMBER(17,2),
+  sh916papel NUMBER(4),
+  sh916itsub NUMBER(3),
+  sh916scsuc NUMBER(3),
+  sh916scmda NUMBER(4),
+  sh916sctop NUMBER(3),
+  sh916itdbh NUMBER(1)
+)
+;
+create index FSH91602 on FSH916 (SH916PGCOD, SH916ITFCO, SH916ITSUC, SH916RUBRO, SH916SCMDA, SH916PAPEL, SH916CTNRO, SH916ITOPE, SH916ITSUB, SH916SCTOP);
+create index FSH91603 on FSH916 (SH916PGCOD, SH916ITFCO, SH916CTNRO, SH916RUBRO);
+alter table FSH916
+  add primary key (SH916PGCOD, SH916ITFCO, SH916ITSUC, SH916ITMOD, SH916ITTRA, SH916ITNRE, SH916ITORD, SH916ITSBO);
+

@@ -1,0 +1,10 @@
+create table PEGEXC
+(
+  peggrpid  CHAR(80) not null,
+  pegexctpo CHAR(3) not null,
+  pegexcid  VARCHAR2(512) not null
+)
+;
+alter table PEGEXC
+  add primary key (PEGGRPID, PEGEXCTPO, PEGEXCID);
+

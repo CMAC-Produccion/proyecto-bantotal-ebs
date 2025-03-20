@@ -1,0 +1,21 @@
+create table FSFF52
+(
+  dtiemp NUMBER(3) not null,
+  dticod NUMBER(5) not null,
+  dtipin NUMBER(3),
+  dtipfi NUMBER(3),
+  dtical CHAR(1),
+  dtipct NUMBER(10,6),
+  dtia01 NUMBER(9),
+  dtia02 NUMBER(9),
+  dtia03 NUMBER(14,2),
+  dtia04 NUMBER(14,2),
+  dtia05 CHAR(1),
+  dtia06 CHAR(1),
+  dtia07 DATE,
+  dtia08 DATE
+)
+;
+alter table FSFF52
+  add primary key (DTIEMP, DTICOD);
+

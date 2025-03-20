@@ -1,0 +1,27 @@
+create table JBVX91
+(
+  jbvx91emp  NUMBER(3) not null,
+  jbvx91mod  NUMBER(3) not null,
+  jbvx91suc  NUMBER(3) not null,
+  jbvx91mda  NUMBER(4) not null,
+  jbvx91pap  NUMBER(4) not null,
+  jbvx91cta  NUMBER(9) not null,
+  jbvx91ope  NUMBER(9) not null,
+  jbvx91sbo  NUMBER(3) not null,
+  jbvx91top  NUMBER(3) not null,
+  jbvx91tpoa NUMBER(2) not null,
+  jbvx91coda NUMBER(3) not null,
+  jbvx91val  NUMBER(3),
+  jbvx91fval DATE,
+  jbvx91fec  DATE,
+  jbvx91hor  CHAR(8),
+  jbvx91usr  CHAR(10),
+  jbvx91ws   CHAR(10),
+  jbvx91txt  VARCHAR2(250)
+)
+;
+create index JBVX9102 on JBVX91 (JBVX91OPE, JBVX91CTA, JBVX91TPOA, JBVX91CODA);
+create index JBVX9103 on JBVX91 (JBVX91TPOA, JBVX91CODA, JBVX91MOD, JBVX91TOP, JBVX91CTA);
+alter table JBVX91
+  add primary key (JBVX91EMP, JBVX91MOD, JBVX91SUC, JBVX91MDA, JBVX91PAP, JBVX91CTA, JBVX91OPE, JBVX91SBO, JBVX91TOP, JBVX91TPOA, JBVX91CODA);
+

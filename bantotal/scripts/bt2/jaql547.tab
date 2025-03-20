@@ -1,0 +1,39 @@
+create table JAQL547
+(
+  jaql546serial NUMBER(10) not null,
+  jaql547secue  NUMBER(6) not null,
+  jaql547ferep  DATE not null,
+  jaql547copuc  VARCHAR2(20) not null,
+  jaql547coent  CHAR(5) not null,
+  jaql547tidet  CHAR(2),
+  jaql547feact  DATE,
+  jaql547saldo  NUMBER(17,2),
+  jaql547tobli  VARCHAR2(2),
+  jaql547calif  CHAR(1),
+  jaql547condi  CHAR(4),
+  jaql547noent  VARCHAR2(100) not null,
+  jaql547indle  CHAR(1),
+  jaql547descr  VARCHAR2(150),
+  jaql547dven   NUMBER(10),
+  jaql547regu   VARCHAR2(2),
+  jaql547concod VARCHAR2(16),
+  jaql547creusr VARCHAR2(10),
+  jaql547cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL547.jaql547descr
+  is 'Descripción de Cuenta Contable';
+comment on column JAQL547.jaql547dven
+  is 'Dias Vencidos';
+comment on column JAQL547.jaql547regu
+  is 'Regulada/No Regulada';
+comment on column JAQL547.jaql547concod
+  is 'Código de Consulta';
+comment on column JAQL547.jaql547creusr
+  is 'Usuario Creación';
+comment on column JAQL547.jaql547cretim
+  is 'Fecha Hora Registro';
+create index JAQL547A2 on JAQL547 (JAQL546SERIAL, JAQL547COPUC, JAQL547FEACT);
+alter table JAQL547
+  add primary key (JAQL546SERIAL, JAQL547SECUE, JAQL547FEREP, JAQL547COPUC, JAQL547COENT, JAQL547NOENT);
+

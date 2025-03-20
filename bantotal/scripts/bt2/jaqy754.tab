@@ -1,0 +1,41 @@
+create table JAQY754
+(
+  jaqy754cupon  NUMBER(15) not null,
+  jaqy754pg     NUMBER(3),
+  jaqy754mod    NUMBER(3),
+  jaqy754suc    NUMBER(3),
+  jaqy754mda    NUMBER(4),
+  jaqy754pap    NUMBER(4),
+  jaqy754cta    NUMBER(9),
+  jaqy754ope    NUMBER(9),
+  jaqy754sbo    NUMBER(3),
+  jaqy754top    NUMBER(3),
+  jaqy754cre    VARCHAR2(27),
+  jaqy754fec    DATE,
+  jaqy754fop    DATE,
+  jaqy754estd   CHAR(1),
+  jaqy754usr    CHAR(10),
+  jaqy754age    NUMBER(3),
+  jaqy754dpt    CHAR(15),
+  jaqy754ant    CHAR(1),
+  jaqy754atr    NUMBER(10),
+  jaqy754cal    NUMBER(10),
+  jaqy754tip    CHAR(1),
+  jaqy754tsuc   NUMBER(3),
+  jaqy754tmod   NUMBER(3),
+  jaqy754ttran  NUMBER(3),
+  jaqy754tnrel  NUMBER(4),
+  jaqy754tord   NUMBER(2),
+  jaqy754tsbord NUMBER(3),
+  jaqy754nump   NUMBER(9),
+  jaqy754exto   CHAR(1),
+  jaqy754foper  DATE,
+  jaqy754numcup NUMBER(10),
+  jaqy754opc    NUMBER(3)
+)
+;
+create index JAQY75401 on JAQY754 (JAQY754PG, JAQY754MOD, JAQY754SUC, JAQY754MDA, JAQY754PAP, JAQY754CTA, JAQY754OPE, JAQY754SBO, JAQY754TOP, JAQY754FOP);
+create index JAQY75402 on JAQY754 (JAQY754FOP);
+alter table JAQY754
+  add primary key (JAQY754CUPON);
+

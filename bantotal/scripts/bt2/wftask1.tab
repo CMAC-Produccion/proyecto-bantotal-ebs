@@ -1,0 +1,12 @@
+create table WFTASK1
+(
+  wfprcid   NUMBER(4) not null,
+  wftaskcod NUMBER(4) not null,
+  wfrolcod  NUMBER(4) not null
+)
+;
+create index IWFTASK3 on WFTASK1 (WFROLCOD);
+create index UWFTASK11 on WFTASK1 (WFROLCOD, WFPRCID, WFTASKCOD);
+alter table WFTASK1
+  add primary key (WFPRCID, WFTASKCOD, WFROLCOD);
+

@@ -1,0 +1,40 @@
+create table JAQL967
+(
+  jaql967fec  DATE not null,
+  jaql967reg  NUMBER(3) not null,
+  jaql967ren  CHAR(40),
+  jaql967cod  NUMBER(3) not null,
+  jaql967age  CHAR(30),
+  jaql967ana  VARCHAR2(4000),
+  jaql967mod  NUMBER(3) not null,
+  jaql967suc  NUMBER(3) not null,
+  jaql967mda  NUMBER(4) not null,
+  jaql967pap  NUMBER(4) not null,
+  jaql967cta  NUMBER(9) not null,
+  jaql967oper NUMBER(9) not null,
+  jaql967sbop NUMBER(3) not null,
+  jaql967top  NUMBER(3) not null,
+  jaql967tdoc NUMBER(2) not null,
+  jaql967ndoc CHAR(12) not null,
+  jaql967salj NUMBER(18,2),
+  jaql967ncl  NUMBER(18,2),
+  jaql967ncr  NUMBER(18,2),
+  jaql967s15  NUMBER(18,2),
+  jaql967s30  NUMBER(18,2),
+  jaql967sju  NUMBER(18,2),
+  jaql967sve  NUMBER(18,2),
+  jaql967sre  NUMBER(18,2),
+  jaql967crju NUMBER(18,2),
+  jaql967crve NUMBER(18,2),
+  jaql967crre NUMBER(18,2),
+  jaql967clju NUMBER(18,2),
+  jaql967clve NUMBER(18,2),
+  jaql967clre NUMBER(18,2),
+  jaql967svi  NUMBER(18,2)
+)
+;
+comment on column JAQL967.jaql967svi
+  is 'saldo vigente';
+create index ID_JAQL967_I on JAQL967 (JAQL967FEC, JAQL967REG, JAQL967COD, JAQL967ANA);
+create index ID_JAQL967_2 on JAQL967 (JAQL967FEC, JAQL967MOD, JAQL967SUC, JAQL967MDA, JAQL967PAP, JAQL967CTA, JAQL967OPER, JAQL967SBOP, JAQL967TOP, JAQL967TDOC, JAQL967NDOC);
+

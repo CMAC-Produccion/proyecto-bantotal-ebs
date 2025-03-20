@@ -1,0 +1,43 @@
+create table JBVA09
+(
+  jbva09pgco NUMBER(3) not null,
+  jbva09mod  NUMBER(3) not null,
+  jbva09suc  NUMBER(3) not null,
+  jbva09mda  NUMBER(4) not null,
+  jbva09pap  NUMBER(4) not null,
+  jbva09cta  NUMBER(9) not null,
+  jbva09oper NUMBER(9) not null,
+  jbva09sbop NUMBER(3) not null,
+  jbva09tope NUMBER(3) not null,
+  jbva09sgco NUMBER(9) not null,
+  jbva09fini DATE,
+  jbva09fvto DATE,
+  jbva09mtoa NUMBER(17,2),
+  jbva09mtop NUMBER(17,2),
+  jbva09nrop CHAR(16),
+  jbva09pera CHAR(40),
+  jbva09corr CHAR(40),
+  jbva09frec NUMBER(4),
+  jbva09cod1 NUMBER(5),
+  jbva09cod2 NUMBER(5),
+  jbva09cod3 NUMBER(5),
+  jbva09fch1 DATE,
+  jbva09fch2 DATE,
+  jbva09fch3 DATE,
+  jbva09imp1 NUMBER(17,2),
+  jbva09imp2 NUMBER(17,2),
+  jbva09imp3 NUMBER(17,2),
+  jbva09txt1 CHAR(30),
+  jbva09txt2 CHAR(30),
+  jbva09txt3 CHAR(30),
+  jbva09est1 CHAR(1),
+  jbva09est2 CHAR(1),
+  jbva09est3 CHAR(1),
+  jbva09por1 NUMBER(10,6),
+  jbva09por2 NUMBER(10,6),
+  jbva09por3 NUMBER(10,6)
+)
+;
+create unique index JBVA0901 on JBVA09 (JBVA09PGCO, JBVA09MOD, JBVA09SUC, JBVA09MDA, JBVA09PAP, JBVA09CTA, JBVA09OPER, JBVA09SBOP, JBVA09TOPE, JBVA09SGCO);
+create index JBVA0902 on JBVA09 (JBVA09SGCO);
+

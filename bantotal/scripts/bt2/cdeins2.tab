@@ -1,0 +1,18 @@
+create table CDEINS2
+(
+  cdeinsid   NUMBER(18) not null,
+  cdeinsptip NUMBER(4) not null,
+  cdeinsodel NUMBER(18) not null,
+  cdeinspcod NUMBER(18) not null,
+  cdeinspvco NUMBER(18) not null,
+  cdeinspfch DATE,
+  cdeinspusu CHAR(10),
+  cdeinspwst CHAR(10),
+  cdeinspvca CHAR(80),
+  cdeinspvnu NUMBER(18),
+  cdeinspesx CHAR(1)
+)
+;
+alter table CDEINS2
+  add primary key (CDEINSID, CDEINSPTIP, CDEINSODEL, CDEINSPCOD, CDEINSPVCO);
+

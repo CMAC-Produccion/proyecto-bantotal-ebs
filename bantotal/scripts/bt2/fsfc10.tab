@@ -1,0 +1,19 @@
+create table FSFC10
+(
+  kg10cod  NUMBER(3) not null,
+  kg10fch  DATE not null,
+  kg10pzo  NUMBER(5) not null,
+  kg10val  NUMBER(17,2),
+  kg10inv  NUMBER(8),
+  kg10val1 NUMBER(17,2),
+  kg10val2 NUMBER(17,2),
+  kg10fec1 DATE,
+  kg10fec2 DATE,
+  kg10des1 CHAR(25),
+  kg10des2 CHAR(25)
+)
+;
+create index FSFC1002 on FSFC10 (KG10COD, KG10INV);
+alter table FSFC10
+  add primary key (KG10COD, KG10FCH, KG10PZO);
+

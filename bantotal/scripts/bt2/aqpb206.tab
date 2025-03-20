@@ -1,0 +1,46 @@
+create table AQPB206
+(
+  aqpb206idl NUMBER(12) not null,
+  aqpb206usu VARCHAR2(10),
+  aqpb206cdo NUMBER(2),
+  aqpb206tdo NUMBER(2),
+  aqpb206ndo VARCHAR2(12),
+  aqpb206cmo NUMBER(4),
+  aqpb206ins NUMBER(10),
+  aqpb206emp NUMBER(3),
+  aqpb206suc NUMBER(3),
+  aqpb206mod NUMBER(3),
+  aqpb206mda NUMBER(4),
+  aqpb206pap NUMBER(4),
+  aqpb206cta NUMBER(9),
+  aqpb206ope NUMBER(9),
+  aqpb206sbo NUMBER(3),
+  aqpb206top NUMBER(3),
+  aqpb206com VARCHAR2(100),
+  aqpb206lat NUMBER(15,8),
+  aqpb206lon NUMBER(15,8),
+  aqpb206fec DATE,
+  aqpb206hor VARCHAR2(10),
+  aqpb206tst DATE,
+  aqpb206trc VARCHAR2(20),
+  aqpb206nfo NUMBER(5),
+  aqpb206dir VARCHAR2(140),
+  aqpb206cre VARCHAR2(5),
+  aqpb206dre VARCHAR2(100),
+  aqpb206an1 NUMBER(9),
+  aqpb206an2 NUMBER(9),
+  aqpb206ac1 CHAR(1),
+  aqpb206ac2 CHAR(1),
+  aqpb206af1 DATE,
+  aqpb206af2 DATE,
+  aqpb206at1 VARCHAR2(100),
+  aqpb206at2 VARCHAR2(100)
+)
+;
+create index AQPB2062 on AQPB206 (AQPB206USU, AQPB206FEC, AQPB206HOR, AQPB206CDO, AQPB206TDO, AQPB206NDO);
+create index AQPB2063 on AQPB206 (AQPB206TRC);
+create index AQPB2064 on AQPB206 (AQPB206EMP, AQPB206SUC, AQPB206MOD, AQPB206MDA, AQPB206PAP, AQPB206CTA, AQPB206OPE, AQPB206SBO, AQPB206TOP);
+create index AQPB2065 on AQPB206 (AQPB206TST, AQPB206SUC, AQPB206CTA);
+alter table AQPB206
+  add primary key (AQPB206IDL);
+

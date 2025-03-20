@@ -1,0 +1,29 @@
+create table FSW017
+(
+  pgcod     NUMBER(3) not null,
+  impnro    NUMBER(9) not null,
+  wsborep   NUMBER(3) not null,
+  wsucurs   NUMBER(3),
+  wmod      NUMBER(3),
+  wtran     NUMBER(3),
+  wrel      NUMBER(4),
+  wnimp     NUMBER(3),
+  wfecha    DATE,
+  wcalidad  CHAR(1),
+  wstatus   CHAR(1),
+  wprinter  CHAR(40),
+  wprinter2 CHAR(40),
+  wcopias   NUMBER(9),
+  wmncod    NUMBER(5),
+  whimnar   NUMBER(8),
+  wctnro    NUMBER(9),
+  wtipo     CHAR(1)
+)
+;
+create index FSW01702 on FSW017 (IMPNRO);
+create index FSW01704 on FSW017 (PGCOD, WCTNRO);
+create index FSW01705 on FSW017 (PGCOD, WFECHA, WSUCURS, WMOD, WTRAN, WREL, WNIMP);
+create index FSW01706 on FSW017 (PGCOD, WSUCURS, WSTATUS, WCALIDAD, WTIPO, IMPNRO, WSBOREP);
+alter table FSW017
+  add primary key (PGCOD, IMPNRO, WSBOREP);
+

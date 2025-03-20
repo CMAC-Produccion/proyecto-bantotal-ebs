@@ -1,0 +1,39 @@
+create table JAQY971
+(
+  jaqy971fecr DATE not null,
+  jaqy971corr NUMBER(15) not null,
+  jaqy971pgco NUMBER(3),
+  jaqy971mod  NUMBER(3),
+  jaqy971sucu NUMBER(3),
+  jaqy971mda  NUMBER(4),
+  jaqy971pape NUMBER(4),
+  jaqy971ncta NUMBER(9),
+  jaqy971oper NUMBER(9),
+  jaqy971sbop NUMBER(3),
+  jaqy971tope NUMBER(3),
+  jaqy971esta CHAR(1),
+  jaqy971habi CHAR(1),
+  jaqy971fect DATE,
+  jaqy971pgtr NUMBER(4),
+  jaqy971modt NUMBER(4),
+  jaqy971suct NUMBER(3),
+  jaqy971tran NUMBER(4),
+  jaqy971relt NUMBER(4),
+  jaqy971usur CHAR(15),
+  jaqy971sucr NUMBER(3),
+  jaqy971usud CHAR(15),
+  jaqy971fecd DATE,
+  jaqy971sucd NUMBER(3),
+  jaqy971mtop NUMBER(17,2),
+  jaqy971scap NUMBER(17,2),
+  jaqy971stat NUMBER(2),
+  jaqy971tipo CHAR(1),
+  jaqy971dtop NUMBER(10)
+)
+;
+create index JAQY971_INX_01 on JAQY971 (JAQY971PGCO, JAQY971MOD, JAQY971SUCU, JAQY971MDA, JAQY971PAPE, JAQY971NCTA, JAQY971OPER, JAQY971SBOP, JAQY971TOPE, JAQY971FECR);
+create index JAQY971_INX_02 on JAQY971 (JAQY971PGTR, JAQY971MODT, JAQY971TRAN, JAQY971SUCT, JAQY971RELT, JAQY971FECT, JAQY971CORR);
+create index JAQY971_INX_03 on JAQY971 (JAQY971NCTA, JAQY971OPER, JAQY971SBOP);
+alter table JAQY971
+  add primary key (JAQY971FECR, JAQY971CORR);
+

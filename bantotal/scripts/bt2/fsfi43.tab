@@ -1,0 +1,21 @@
+create table FSFI43
+(
+  sfi43emp   NUMBER(3) not null,
+  sfi43cus   NUMBER(9) not null,
+  sfi43dep   NUMBER(9) not null,
+  sfi42cod   NUMBER(3) not null,
+  sfi43com   NUMBER(3) not null,
+  sfi43mod   NUMBER(3),
+  sfi43dsc   CHAR(30),
+  sfi43hab   CHAR(1),
+  sfi43au1   CHAR(1),
+  sfi43au2   CHAR(1),
+  sfi43au3   NUMBER(9),
+  sfi43au4   NUMBER(9),
+  sfi43lugim NUMBER(3)
+)
+;
+create index FSFI4302 on FSFI43 (SFI42COD);
+alter table FSFI43
+  add primary key (SFI43EMP, SFI43CUS, SFI43DEP, SFI42COD, SFI43COM);
+

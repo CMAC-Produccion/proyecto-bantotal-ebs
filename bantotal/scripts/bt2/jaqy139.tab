@@ -1,0 +1,85 @@
+create table JAQY139
+(
+  jaqy139corr     NUMBER(10) not null,
+  jaqy139fproc    DATE,
+  jaqy139suc      NUMBER(10) not null,
+  jaqy139nsuc     VARCHAR2(75),
+  jaqy139cta      NUMBER(10) not null,
+  jaqy139ope      NUMBER(10) not null,
+  jaqy139mda      NUMBER(4) not null,
+  jaqy139pap      NUMBER(4) not null,
+  jaqy139mod      NUMBER(4) not null,
+  jaqy139sbop     NUMBER(10) not null,
+  jaqy139top      NUMBER(10) not null,
+  jaqy139usu      VARCHAR2(50),
+  jaqy139ins      NUMBER(12),
+  jaqy139pai      NUMBER(3),
+  jaqy139tid      NUMBER(3),
+  jaqy139doc      CHAR(12),
+  jaqy139tit      VARCHAR2(350),
+  jaqy139sac      NUMBER(16,2),
+  jaqy139atrmax   NUMBER(10),
+  jaqy139scap     NUMBER(16,2),
+  jaqy139tcont    VARCHAR2(45),
+  jaqy139tcred    VARCHAR2(45),
+  jaqy139cuoimp   NUMBER(10,2),
+  jaqy139fultpag  DATE,
+  jaqy139diaatr   NUMBER(10),
+  jaqy139mora     NUMBER(16,2),
+  jaqy139cuopag   NUMBER(4),
+  jaqy139dirleg   VARCHAR2(500),
+  jaqy139refdir   VARCHAR2(500),
+  jaqy139disdir   VARCHAR2(200),
+  jaqy139tlfn     VARCHAR2(50),
+  jaqy139dirgest  VARCHAR2(500),
+  jaqy139refgest  VARCHAR2(500),
+  jaqy139disgest  VARCHAR2(200),
+  jaqy139tlfgest  VARCHAR2(50),
+  jaqy139activ    VARCHAR2(300),
+  jaqy139dirneg   VARCHAR2(500),
+  jaqy139disneg   VARCHAR2(200),
+  jaqy139nroaval  NUMBER(9),
+  jaqy139aval     VARCHAR2(350),
+  jaqy139diraval  VARCHAR2(500),
+  jaqy139refaval  VARCHAR2(500),
+  jaqy139disaval  VARCHAR2(200),
+  jaqy139entid    NUMBER(9),
+  jaqy139fultgest DATE,
+  jaqy139ultreacc VARCHAR2(1500),
+  jaqy139usuario  CHAR(12),
+  jaqy139estado   VARCHAR2(50),
+  jaqy139nrocre   NUMBER(3),
+  jaqy139icv      NUMBER(16,2),
+  jaqy139pen      NUMBER(16,2),
+  jaqy139sbbp     NUMBER(18,2),
+  jaqy139ibbp     NUMBER(18,2),
+  jaqy139spbp     NUMBER(18,2),
+  jaqy139ipbp     NUMBER(18,2),
+  jaqy139atrc     NUMBER(10),
+  jaqy139sbms     NUMBER(18,2),
+  jaqy139ibms     NUMBER(18,2),
+  jaqy139sbfh     NUMBER(18,2),
+  jaqy139ibfh     NUMBER(18,2)
+)
+;
+comment on column JAQY139.jaqy139icv
+  is 'ICV';
+comment on column JAQY139.jaqy139pen
+  is 'Penalidad';
+comment on column JAQY139.jaqy139sbbp
+  is 'Saldo Bono Buen Pagador';
+comment on column JAQY139.jaqy139ibbp
+  is 'Interes Bono Buen Pagador';
+comment on column JAQY139.jaqy139spbp
+  is 'Saldo Premio Buen Pagador';
+comment on column JAQY139.jaqy139ipbp
+  is 'Interes Premio Buen Pagador';
+comment on column JAQY139.jaqy139atrc
+  is 'Dias Atraso COV19';
+comment on column JAQY139.jaqy139sbms
+  is 'Saldo Mi vivienda Techo Propio';
+comment on column JAQY139.jaqy139ibms
+  is 'Interes Mi Vivienda Techo Propio';
+alter table JAQY139
+  add primary key (JAQY139CORR, JAQY139MOD, JAQY139SUC, JAQY139MDA, JAQY139PAP, JAQY139CTA, JAQY139OPE, JAQY139SBOP, JAQY139TOP);
+

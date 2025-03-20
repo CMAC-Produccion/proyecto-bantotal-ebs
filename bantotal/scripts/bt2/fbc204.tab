@@ -1,0 +1,16 @@
+create table FBC204
+(
+  bc201emp  NUMBER(3) not null,
+  bc201ecid NUMBER(3) not null,
+  bc203tcid NUMBER(3) not null,
+  bc204fch  DATE not null,
+  bc204nro  NUMBER(10) not null,
+  bc202caid CHAR(5)
+)
+;
+create index FBC20402 on FBC204 (BC201EMP, BC201ECID, BC202CAID);
+create index FBC20403 on FBC204 (BC201EMP, BC203TCID);
+create index FBC20404 on FBC204 (BC201EMP, BC201ECID, BC203TCID, BC204NRO, BC204FCH);
+alter table FBC204
+  add primary key (BC201EMP, BC201ECID, BC203TCID, BC204FCH, BC204NRO);
+

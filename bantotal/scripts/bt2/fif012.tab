@@ -1,0 +1,14 @@
+create table FIF012
+(
+  if012ban CHAR(5) not null,
+  if012cta CHAR(17) not null,
+  if012fch CHAR(6) not null,
+  if012sdo NUMBER(17,2),
+  if012dec CHAR(1),
+  if012deb NUMBER(17,2),
+  if012cre NUMBER(17,2)
+)
+;
+alter table FIF012
+  add primary key (IF012BAN, IF012CTA, IF012FCH);
+

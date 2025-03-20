@@ -1,0 +1,15 @@
+create table FOC015
+(
+  foc015id   NUMBER(9) not null,
+  foc015nom  CHAR(65),
+  foc015dir  CHAR(60),
+  foc015ciu  CHAR(30),
+  foc015pai  CHAR(30),
+  foc015tdoc CHAR(20),
+  foc015ndoc CHAR(20)
+)
+;
+create index FOC01502 on FOC015 (FOC015NOM);
+alter table FOC015
+  add primary key (FOC015ID);
+

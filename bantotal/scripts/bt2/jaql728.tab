@@ -1,0 +1,19 @@
+create table JAQL728
+(
+  jaql728user CHAR(10) not null,
+  jaql728fein DATE not null,
+  jaql728fefi DATE not null,
+  jaql728dias NUMBER(6),
+  jaql728tasa NUMBER(10,6),
+  jaql728capi NUMBER(17,2),
+  jaql728inte NUMBER(17,2),
+  jaql728reso NUMBER(17,2),
+  jaql728rere NUMBER(17,2),
+  jaql728care NUMBER(17,2),
+  jaql728inre NUMBER(17,2),
+  jaql728tire CHAR(1)
+)
+;
+alter table JAQL728
+  add primary key (JAQL728USER, JAQL728FEIN, JAQL728FEFI);
+

@@ -1,0 +1,14 @@
+create table PLS016
+(
+  pls016code NUMBER(3) not null,
+  pls016guia NUMBER(3) not null,
+  pls016nro1 NUMBER(4),
+  pls016txt1 CHAR(255),
+  pls016txt2 CHAR(255),
+  pls016imp1 NUMBER(17,2),
+  pls016dsc  CHAR(30)
+)
+;
+alter table PLS016
+  add primary key (PLS016CODE, PLS016GUIA);
+

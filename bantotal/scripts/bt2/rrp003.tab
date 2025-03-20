@@ -1,0 +1,36 @@
+create table RRP003
+(
+  rrp003emp NUMBER(3) not null,
+  rrp003pai NUMBER(3) not null,
+  rrp003cli NUMBER(5) not null,
+  rrp003cod NUMBER(5) not null,
+  rrp003id1 NUMBER(15) not null,
+  rrp003id2 NUMBER(15) not null,
+  rrp003id3 NUMBER(15) not null,
+  rrp003id4 CHAR(15) not null,
+  rrp003tex VARCHAR2(1900)
+)
+;
+comment on table RRP003
+  is 'Maestro de Tablas BC';
+comment on column RRP003.rrp003emp
+  is 'Empresa';
+comment on column RRP003.rrp003pai
+  is 'Pais';
+comment on column RRP003.rrp003cli
+  is 'Cliente';
+comment on column RRP003.rrp003cod
+  is 'Codigo';
+comment on column RRP003.rrp003id1
+  is 'Identificador 1';
+comment on column RRP003.rrp003id2
+  is 'Identificador 2';
+comment on column RRP003.rrp003id3
+  is 'Identificador 3';
+comment on column RRP003.rrp003id4
+  is 'Identificador 4';
+comment on column RRP003.rrp003tex
+  is 'Texto';
+alter table RRP003
+  add primary key (RRP003EMP, RRP003PAI, RRP003CLI, RRP003COD, RRP003ID1, RRP003ID2, RRP003ID3, RRP003ID4);
+

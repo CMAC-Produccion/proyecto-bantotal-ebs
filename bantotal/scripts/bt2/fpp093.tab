@@ -1,0 +1,34 @@
+create table FPP093
+(
+  pp93pepais NUMBER(3) not null,
+  pp93petdoc NUMBER(2) not null,
+  pp93pendoc CHAR(12) not null,
+  pp93nom1   CHAR(25),
+  pp93nom2   CHAR(25),
+  pp93ape1   CHAR(30),
+  pp93ape2   CHAR(30),
+  pp93sexo   CHAR(1),
+  pp93falta  DATE,
+  pp93ctbt   NUMBER(9),
+  pp93estado CHAR(1),
+  pp93cderr  NUMBER(3),
+  pp93aux1   NUMBER(9),
+  pp93aux2   NUMBER(9),
+  pp93aux3   NUMBER(9),
+  pp93aux4   NUMBER(17,2),
+  pp93aux5   CHAR(30),
+  pp93aux6   CHAR(30),
+  pp93aux7   CHAR(30),
+  pp93aux8   CHAR(30),
+  pp93aux9   DATE,
+  pp93aux10  DATE,
+  pp93aux11  DATE,
+  pp93suc    NUMBER(3),
+  pp93ejct   NUMBER(3),
+  pp93cdact  NUMBER(9),
+  pp93ccli   NUMBER(4)
+)
+;
+alter table FPP093
+  add primary key (PP93PEPAIS, PP93PETDOC, PP93PENDOC);
+

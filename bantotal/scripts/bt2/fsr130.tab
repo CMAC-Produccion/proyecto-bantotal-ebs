@@ -1,0 +1,16 @@
+create table FSR130
+(
+  pgcod    NUMBER(3) not null,
+  ctnro    NUMBER(9) not null,
+  faccod   NUMBER(3) not null,
+  ctfaccor NUMBER(3) not null,
+  ctfecdes DATE not null,
+  pfpai2   NUMBER(3) not null,
+  pftdo2   NUMBER(2) not null,
+  pfndo2   CHAR(12) not null
+)
+;
+create index IFSR130 on FSR130 (FACCOD);
+alter table FSR130
+  add primary key (PGCOD, CTNRO, FACCOD, CTFACCOR, CTFECDES, PFPAI2, PFTDO2, PFNDO2);
+

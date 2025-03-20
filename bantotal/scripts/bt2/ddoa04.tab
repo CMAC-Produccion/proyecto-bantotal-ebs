@@ -1,0 +1,13 @@
+create table DDOA04
+(
+  ddo04nfac  CHAR(13) not null,
+  ddo04vto   DATE not null,
+  ddo04imp   NUMBER(17,2),
+  ddo04nom   CHAR(50),
+  ddo04cuit  CHAR(11),
+  ddo04domic CHAR(80)
+)
+;
+alter table DDOA04
+  add primary key (DDO04NFAC, DDO04VTO);
+

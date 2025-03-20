@@ -1,0 +1,29 @@
+create table AQPB260C
+(
+  aqpb260csdi NUMBER(18,2) not null,
+  aqpb260csdf NUMBER(18,2) not null,
+  aqpb260ccui NUMBER(4) not null,
+  aqpb260ccuf NUMBER(4) not null,
+  aqpb260cpla NUMBER(4) not null,
+  aqpb260cfec DATE not null,
+  aqpb260cest VARCHAR2(1) not null
+)
+;
+comment on table AQPB260C
+  is 'Tabla Parametros Plazos Reprogramacion Caja Lineas';
+comment on column AQPB260C.aqpb260csdi
+  is 'saldo inicial';
+comment on column AQPB260C.aqpb260csdf
+  is 'saldo final';
+comment on column AQPB260C.aqpb260ccui
+  is 'cuota inicial';
+comment on column AQPB260C.aqpb260ccuf
+  is 'cuota final';
+comment on column AQPB260C.aqpb260cpla
+  is 'plazo';
+comment on column AQPB260C.aqpb260cfec
+  is 'fecha';
+comment on column AQPB260C.aqpb260cest
+  is 'estado';
+create index AQPB260CA2 on AQPB260C (AQPB260CSDI, AQPB260CSDF, AQPB260CCUI, AQPB260CCUF, AQPB260CEST);
+

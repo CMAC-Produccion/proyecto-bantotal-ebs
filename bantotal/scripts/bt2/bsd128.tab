@@ -1,0 +1,21 @@
+create table BSD128
+(
+  bsccpa  NUMBER(3) not null,
+  bsctid  NUMBER(2) not null,
+  bscnud  CHAR(12) not null,
+  bscdig  NUMBER(1),
+  bscsig  CHAR(20),
+  bscnju  NUMBER(2),
+  bscacci NUMBER(9),
+  bscagrp NUMBER(2),
+  bscctam CHAR(15),
+  bscmda  NUMBER(4),
+  bsctrf  CHAR(1),
+  bscvinc NUMBER(2),
+  bsccont CHAR(50),
+  bscrel  CHAR(3)
+)
+;
+alter table BSD128
+  add primary key (BSCCPA, BSCTID, BSCNUD);
+

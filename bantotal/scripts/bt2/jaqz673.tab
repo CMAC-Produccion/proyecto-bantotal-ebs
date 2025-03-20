@@ -1,0 +1,58 @@
+create table JAQZ673
+(
+  jaqz673fech  DATE not null,
+  jaqz673pais  NUMBER(3) not null,
+  jaqz673tdoc  NUMBER(2) not null,
+  jaqz673ndoc  CHAR(12) not null,
+  jaqz673hora  CHAR(8),
+  jaqz083ccal  NUMBER(5),
+  jaqz673var1  VARCHAR2(100),
+  jaqz673var2  VARCHAR2(100),
+  jaqz673var3  VARCHAR2(100),
+  jaqz673var4  VARCHAR2(100),
+  jaqz673var5  VARCHAR2(100),
+  jaqz673var6  VARCHAR2(100),
+  jaqz673var7  VARCHAR2(100),
+  jaqz673var8  VARCHAR2(100),
+  jaqz673var9  VARCHAR2(100),
+  jaqz673var10 VARCHAR2(100),
+  jaqz673var11 VARCHAR2(100),
+  jaqz673var12 VARCHAR2(100),
+  jaqz673var13 VARCHAR2(100),
+  jaqz673var14 VARCHAR2(100),
+  jaqz673var15 VARCHAR2(100),
+  jaqz673var16 VARCHAR2(100),
+  jaqz673var17 VARCHAR2(100),
+  jaqz673var18 VARCHAR2(100),
+  jaqz673var19 VARCHAR2(100),
+  jaqz673var20 VARCHAR2(100),
+  jaqz673var21 VARCHAR2(100),
+  jaqz673var22 VARCHAR2(100),
+  jaqz673var23 VARCHAR2(100),
+  jaqz673var24 VARCHAR2(100),
+  jaqz673var25 VARCHAR2(100),
+  jaqz673var26 VARCHAR2(100),
+  jaqz673var27 VARCHAR2(100),
+  jaqz673var28 VARCHAR2(100),
+  jaqz673var29 VARCHAR2(100),
+  jaqz673var30 VARCHAR2(100),
+  jaqz673var31 VARCHAR2(100),
+  jaqz673var32 VARCHAR2(100),
+  jaqz673var33 VARCHAR2(100),
+  jaqz673var34 VARCHAR2(100),
+  jaqz673var35 VARCHAR2(100),
+  jaqz673var36 VARCHAR2(100),
+  jaqz673var37 VARCHAR2(100),
+  jaqz673var38 VARCHAR2(100),
+  jaqz673var39 VARCHAR2(100),
+  jaqz673var40 VARCHAR2(100),
+  jaqz673usr   VARCHAR2(10) not null,
+  jaqz673nume  NUMBER(5)
+)
+;
+comment on column JAQZ673.jaqz673nume
+  is 'AGRUPACION DIGITO';
+create index JAQZ6731 on JAQZ673 (JAQZ673FECH, JAQZ673USR);
+alter table JAQZ673
+  add primary key (JAQZ673PAIS, JAQZ673TDOC, JAQZ673NDOC, JAQZ673USR, JAQZ673FECH);
+

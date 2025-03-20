@@ -1,0 +1,32 @@
+create table AQPB168
+(
+  aqpb168segmrisk VARCHAR2(10) not null,
+  aqpb168ciiu     NUMBER(19) not null,
+  aqpb168coddpto  NUMBER(8) not null,
+  aqpb168dpto     VARCHAR2(30) not null,
+  aqpb168sgm960   VARCHAR2(15) not null,
+  aqpb168fecha    DATE not null,
+  aqpb168hora     VARCHAR2(8)
+)
+;
+comment on table AQPB168
+  is 'Tabla Log mmallaupom_anx.SEGMENTACION960';
+comment on column AQPB168.aqpb168segmrisk
+  is 'SEGMENTACION_RIESGOS';
+comment on column AQPB168.aqpb168ciiu
+  is 'CIIU';
+comment on column AQPB168.aqpb168coddpto
+  is 'CODIGO DPTO';
+comment on column AQPB168.aqpb168dpto
+  is 'DPTO';
+comment on column AQPB168.aqpb168sgm960
+  is 'SEGMENTACION_960';
+comment on column AQPB168.aqpb168fecha
+  is 'Fecha de Registro';
+comment on column AQPB168.aqpb168hora
+  is 'Hora de Registro';
+create index AQPB168A2 on AQPB168 (AQPB168FECHA);
+create index AQPB168A3 on AQPB168 (AQPB168FECHA, AQPB168SEGMRISK, AQPB168CIIU, AQPB168CODDPTO);
+alter table AQPB168
+  add primary key (AQPB168SEGMRISK, AQPB168CIIU, AQPB168CODDPTO, AQPB168DPTO, AQPB168SGM960, AQPB168FECHA);
+

@@ -1,0 +1,20 @@
+create table JAQL664
+(
+  jaql664pcod NUMBER(3) not null,
+  jaql664corr NUMBER(5) not null,
+  jaql664ano  NUMBER(4),
+  jaql664mes  CHAR(2),
+  jaql664tval CHAR(3),
+  jaql664csbs CHAR(1),
+  jaql664csec CHAR(2),
+  jaql664cr01 CHAR(5),
+  jaql664cr02 CHAR(5),
+  jaql664cr03 NUMBER(11,2),
+  jaql664cr04 NUMBER(11,2),
+  jaql664vdat NUMBER(11,5),
+  jaql664est  CHAR(1)
+)
+;
+alter table JAQL664
+  add primary key (JAQL664PCOD, JAQL664CORR);
+

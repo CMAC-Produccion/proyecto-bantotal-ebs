@@ -1,0 +1,33 @@
+create table JBXIX5
+(
+  jbxix5cod  NUMBER(3) not null,
+  jbxix5nrot NUMBER(17) not null,
+  jbxix5cor  NUMBER(3) not null,
+  jbxix5nros NUMBER(9),
+  jbxix5ln1  CHAR(25),
+  jbxix5ln2  CHAR(25),
+  jbxix5tpot CHAR(1),
+  jbxix5fvg  DATE,
+  jbxix5fvn  DATE,
+  jbxix5cod2 CHAR(2),
+  jbxix5cod3 NUMBER(3),
+  jbxix5rsc  CHAR(1),
+  jbxix5sue  NUMBER(3),
+  jbxix5cod4 CHAR(2),
+  jbxix5cod5 CHAR(1),
+  jbxix5cod6 NUMBER(2),
+  jbxix5cod7 CHAR(2),
+  jbxix5sol  NUMBER(6),
+  jbxix5cod8 NUMBER(1),
+  jbxix5fmd  DATE,
+  jbxix5umd  CHAR(10),
+  jbxix5fau  DATE,
+  jbxix5uau  CHAR(10),
+  jbxix5est  CHAR(2),
+  jbxix5fem  DATE
+)
+;
+create index JBXIX502 on JBXIX5 (JBXIX5NROS);
+alter table JBXIX5
+  add primary key (JBXIX5COD, JBXIX5NROT, JBXIX5COR);
+

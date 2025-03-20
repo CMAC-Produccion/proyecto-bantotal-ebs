@@ -1,0 +1,22 @@
+create table FSFF21
+(
+  kdogguia NUMBER(5) not null,
+  kdogcorr NUMBER(9) not null,
+  kdognro1 NUMBER(9),
+  kdognro2 NUMBER(9),
+  kdognro3 NUMBER(9),
+  kdogdesc CHAR(30),
+  kdogimp1 NUMBER(17,2),
+  kdogimp2 NUMBER(17,2),
+  kdogimp3 NUMBER(17,2),
+  kdogfec1 DATE,
+  kdogfec2 DATE,
+  kdogfec3 DATE,
+  kdogrub1 NUMBER(16),
+  kdogrub2 NUMBER(16),
+  kdogrub3 NUMBER(16)
+)
+;
+alter table FSFF21
+  add primary key (KDOGGUIA, KDOGCORR);
+

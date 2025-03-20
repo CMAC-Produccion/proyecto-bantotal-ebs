@@ -1,0 +1,37 @@
+create table JHSN100
+(
+  jhsn100pgc NUMBER(3) not null,
+  jhsn100mod NUMBER(3) not null,
+  jhsn100suc NUMBER(3) not null,
+  jhsn100mda NUMBER(4) not null,
+  jhsn100pap NUMBER(4) not null,
+  jhsn100cta NUMBER(9) not null,
+  jhsn100ope NUMBER(9) not null,
+  jhsn100sbo NUMBER(3) not null,
+  jhsn100top NUMBER(3) not null,
+  jhsn100itm NUMBER(3) not null,
+  jhsn100tra NUMBER(3) not null,
+  jhsn100itr NUMBER(4) not null,
+  jhsn100itf DATE not null,
+  jhsn100pai NUMBER(3),
+  jhsn100tdo NUMBER(2),
+  jhsn100ndo CHAR(12),
+  jhsn100tpo CHAR(1),
+  jhsn100res CHAR(1),
+  jhsn100nom CHAR(80),
+  jhsn100fna DATE,
+  jhsn100dom CHAR(80),
+  jhsn100loc CHAR(40),
+  jhsn100pad NUMBER(3),
+  jhsn100its NUMBER(3),
+  jhsn100nfa CHAR(40),
+  jhsn100con CHAR(1),
+  jhsn100au1 NUMBER(9),
+  jhsn100au2 CHAR(70),
+  jhsn100au3 DATE,
+  jhsn100au4 NUMBER(17,2)
+)
+;
+create unique index JHSN101 on JHSN100 (JHSN100PGC, JHSN100MOD, JHSN100SUC, JHSN100MDA, JHSN100PAP, JHSN100CTA, JHSN100OPE, JHSN100SBO, JHSN100TOP, JHSN100ITM, JHSN100TRA, JHSN100ITR, JHSN100ITF);
+create index JHSN102 on JHSN100 (JHSN100PGC, JHSN100ITS, JHSN100ITM, JHSN100TRA, JHSN100ITR, JHSN100ITF);
+

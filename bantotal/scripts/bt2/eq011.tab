@@ -1,0 +1,32 @@
+create table EQ011
+(
+  eq11tpr   CHAR(3) not null,
+  eq11prd   CHAR(12) not null,
+  eq11sbp   CHAR(12) not null,
+  eq11suc   NUMBER(3) not null,
+  eq11id1   NUMBER(14) not null,
+  eq11id2   NUMBER(14) not null,
+  eq11id3   CHAR(25) not null,
+  eq11bemp  NUMBER(3),
+  eq11bmod  NUMBER(3),
+  eq11bsuc  NUMBER(3),
+  eq11bmda  NUMBER(4),
+  eq11bpap  NUMBER(4),
+  eq11bcta  NUMBER(9),
+  eq11bope  NUMBER(9),
+  eq11bsop  NUMBER(3),
+  eq11btop  NUMBER(3),
+  eq011cbuv CHAR(22),
+  eq011cbun CHAR(22),
+  eq011ccta NUMBER(8)
+)
+;
+create unique index EQ01101 on EQ011 (EQ11TPR, EQ11PRD, EQ11SBP, EQ11SUC, EQ11ID1, EQ11ID2, EQ11ID3);
+create index EQ01102 on EQ011 (EQ11BEMP, EQ11BMOD, EQ11BSUC, EQ11BMDA, EQ11BPAP, EQ11BCTA, EQ11BOPE, EQ11BSOP, EQ11BTOP);
+create index EQ01103 on EQ011 (EQ11BEMP, EQ11BMOD, EQ11BCTA, EQ11BOPE, EQ11BSOP);
+create index EQ01104 on EQ011 (EQ11BSUC, EQ11ID1, EQ11ID2, EQ11ID3);
+create index EQ01105 on EQ011 (EQ11ID1, EQ11ID2, EQ11ID3);
+create index EQ01106 on EQ011 (EQ011CBUV);
+create index EQ01107 on EQ011 (EQ011CBUN);
+create index EQ01108 on EQ011 (EQ011CCTA);
+

@@ -1,0 +1,16 @@
+create table FXD892
+(
+  pgcodt     NUMBER(3) not null,
+  numtipt    NUMBER(2) not null,
+  msgnumt    NUMBER(9) not null,
+  swtcodt    NUMBER(5) not null,
+  swtrelt    NUMBER(2) not null,
+  msgtcposec NUMBER(3) not null,
+  swttcpo    NUMBER(2) not null,
+  swttcpofmt CHAR(1) not null
+)
+;
+create index FXD89202 on FXD892 (SWTCODT, SWTRELT, SWTTCPO, SWTTCPOFMT);
+alter table FXD892
+  add primary key (PGCODT, NUMTIPT, MSGNUMT, SWTCODT, SWTRELT, MSGTCPOSEC, SWTTCPO, SWTTCPOFMT);
+

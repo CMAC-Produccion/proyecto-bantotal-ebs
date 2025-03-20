@@ -1,0 +1,14 @@
+create table JHSS25
+(
+  jhss25file CHAR(10) not null,
+  jhss25key  CHAR(40) not null,
+  jhss25path CHAR(100) not null,
+  jhss25line NUMBER(5) not null,
+  jhss25data CHAR(100),
+  jhss25name CHAR(20)
+)
+;
+create unique index JHSS2501 on JHSS25 (JHSS25FILE, JHSS25KEY, JHSS25PATH, JHSS25LINE);
+create index JHSS2502 on JHSS25 (JHSS25KEY, JHSS25NAME, JHSS25LINE);
+create index JHSS2503 on JHSS25 (JHSS25FILE, JHSS25PATH);
+

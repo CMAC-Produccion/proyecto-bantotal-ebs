@@ -1,0 +1,20 @@
+create table FBC211
+(
+  bc211rub  NUMBER(6) not null,
+  bc211pap  NUMBER(4) not null,
+  bc211cesp NUMBER(4),
+  bc211cval CHAR(5),
+  bc211finc DATE,
+  bc211num1 NUMBER(16),
+  bc211num2 NUMBER(16),
+  bc211chr1 CHAR(20),
+  bc211chr2 CHAR(30),
+  bc211fch1 DATE,
+  bc211fch2 DATE,
+  bc211imp1 NUMBER(17,2),
+  bc211imp2 NUMBER(17,2)
+)
+;
+alter table FBC211
+  add primary key (BC211RUB, BC211PAP);
+

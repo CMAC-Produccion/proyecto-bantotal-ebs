@@ -1,0 +1,10 @@
+create table MSG402
+(
+  estmcod    NUMBER(5) not null,
+  frmcodgrid NUMBER(3) not null,
+  atrkeynom  CHAR(10) not null
+)
+;
+alter table MSG402
+  add primary key (ESTMCOD, FRMCODGRID, ATRKEYNOM);
+

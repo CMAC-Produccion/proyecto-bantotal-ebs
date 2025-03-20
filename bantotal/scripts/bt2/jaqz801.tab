@@ -1,0 +1,58 @@
+create table JAQZ801
+(
+  jaqz801corr       NUMBER(10) not null,
+  jaqz801fchprc     DATE not null,
+  jaqz801nidebas    NUMBER(10),
+  jaqz801nidepro    NUMBER(4),
+  jaqz801ncoding    NUMBER(2),
+  jaqz801ncodact    NUMBER(2),
+  jaqz801ncodbas    NUMBER(2),
+  jaqz801cestado    CHAR(1),
+  jaqz801cusuing    VARCHAR2(10),
+  jaqz801ncodpri    NUMBER(10),
+  jaqz801pais       NUMBER(3),
+  jaqz801petdoc     NUMBER(3),
+  jaqz801ndoc       VARCHAR2(12),
+  jaqz801pgcod      NUMBER(3),
+  jaqz801mod        NUMBER(3),
+  jaqz801suc        NUMBER(3),
+  jaqz801mda        NUMBER(3),
+  jaqz801pap        NUMBER(3),
+  jaqz801cta        NUMBER(10),
+  jaqz801oper       NUMBER(10),
+  jaqz801sbop       NUMBER(3),
+  jaqz801tope       NUMBER(3),
+  jaqz801inst       NUMBER(10),
+  jaqz801mntprbi    NUMBER(17,2),
+  jaqz801mnadicbi   NUMBER(17,2),
+  jaqz801mnactfbi   NUMBER(17,2),
+  jaqz801mnacf12bi  NUMBER(17,2),
+  jaqz801captrabbi  NUMBER(17,2),
+  jaqz801fevalua    DATE,
+  jaqz801fdesmb     DATE,
+  jaqz801ultsegmnt  NUMBER,
+  jaqz801dactual    NUMBER(17,2),
+  jaqz801ddesemb    NUMBER(17,2),
+  jaqz801resneto    NUMBER(17,2),
+  jaqz801ratio      NUMBER(17,6),
+  jaqz801mntprp     NUMBER(17,2),
+  jaqz801mntactf    NUMBER(17,2),
+  jaqz801mntactf12  NUMBER(17,2),
+  jaqz801captrabj   NUMBER(17,2),
+  jaqz801descsegm   VARCHAR2(50),
+  jaqz801sexo       VARCHAR2(50),
+  jaqz801mntsupmujr NUMBER,
+  jaqz801mntcrdpntl NUMBER,
+  jaqz801mntcrdofic NUMBER,
+  jaqz801tipviv     NUMBER,
+  jaqz801dtipviv    VARCHAR2(50),
+  jaqz801capcaja    NUMBER,
+  jaqz801sldext     NUMBER
+)
+;
+create index JAQZ801IDX001 on JAQZ801 (JAQZ801PAIS, JAQZ801PETDOC, JAQZ801NDOC);
+create index JAQZ801IDX002 on JAQZ801 (JAQZ801PGCOD, JAQZ801MOD, JAQZ801SUC, JAQZ801MDA, JAQZ801PAP, JAQZ801CTA, JAQZ801OPER, JAQZ801SBOP, JAQZ801TOPE);
+create index JAQZ801IDX003 on JAQZ801 (JAQZ801INST);
+alter table JAQZ801
+  add primary key (JAQZ801CORR, JAQZ801FCHPRC);
+

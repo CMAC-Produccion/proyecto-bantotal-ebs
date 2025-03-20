@@ -1,0 +1,15 @@
+create table FSF093
+(
+  pgcod    NUMBER(3) not null,
+  lqmtipo  CHAR(1) not null,
+  lqmejcod NUMBER(3) not null,
+  finro    NUMBER(3) not null,
+  lqmfchde DATE not null,
+  lqmfchha DATE not null,
+  lqmcomis NUMBER(10,6)
+)
+;
+create index FSF09302 on FSF093 (PGCOD, FINRO);
+alter table FSF093
+  add primary key (PGCOD, LQMTIPO, LQMEJCOD, FINRO, LQMFCHDE, LQMFCHHA);
+

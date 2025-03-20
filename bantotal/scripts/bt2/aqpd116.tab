@@ -1,0 +1,54 @@
+create table AQPD116
+(
+  aqpd116ord    NUMBER(5) not null,
+  aqpd116codrow NUMBER(5) not null,
+  aqpd116fec    DATE not null,
+  aqpd116desrow VARCHAR2(500),
+  aqpd116col1   NUMBER(12,2),
+  aqpd116col2   NUMBER(12,2),
+  aqpd116col3   NUMBER(12,2),
+  aqpd116col4   NUMBER(12,2),
+  aqpd116col5   NUMBER(12,2),
+  aqpd116col6   NUMBER(12,2),
+  aqpd116desgru VARCHAR2(500),
+  aqpd116codanx VARCHAR2(10) not null,
+  aqpd116codsuc VARCHAR2(5),
+  aqpd116fecreg DATE default SYSTIMESTAMP,
+  aqpd116ana    VARCHAR2(10)
+)
+;
+comment on table AQPD116
+  is 'TABLA REPORTE - ANEXO 5 - 5A';
+comment on column AQPD116.aqpd116ord
+  is 'Orden de filas para impresion';
+comment on column AQPD116.aqpd116codrow
+  is 'Codigo de fila';
+comment on column AQPD116.aqpd116fec
+  is 'Fecha de datos del reporte';
+comment on column AQPD116.aqpd116desrow
+  is 'Descripcion del ítem de la fila';
+comment on column AQPD116.aqpd116col1
+  is 'Importe de la columna 1';
+comment on column AQPD116.aqpd116col2
+  is 'Importe de la columna 2';
+comment on column AQPD116.aqpd116col3
+  is 'Importe de la columna 3';
+comment on column AQPD116.aqpd116col4
+  is 'Importe de la columna 4';
+comment on column AQPD116.aqpd116col5
+  is 'Importe de la columna 5';
+comment on column AQPD116.aqpd116col6
+  is 'Importe de la columna 6';
+comment on column AQPD116.aqpd116desgru
+  is 'Descripcion de grupo de items';
+comment on column AQPD116.aqpd116codanx
+  is 'Codigo de Anexo';
+comment on column AQPD116.aqpd116codsuc
+  is 'Codigo de fila de Sucave';
+comment on column AQPD116.aqpd116fecreg
+  is 'FECHA REGISTRO';
+comment on column AQPD116.aqpd116ana
+  is 'ANALISTA';
+alter table AQPD116
+  add primary key (AQPD116FEC, AQPD116CODANX, AQPD116ORD, AQPD116CODROW);
+

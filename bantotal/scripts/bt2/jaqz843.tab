@@ -1,0 +1,76 @@
+create table JAQZ843
+(
+  jaqz843corr    NUMBER(10) not null,
+  jaqz843fec     DATE not null,
+  jaqz843hora    CHAR(10) not null,
+  jaqz843pais    NUMBER(9),
+  jaqz843tdoc    NUMBER(9),
+  jaqz843ndoc    VARCHAR2(12),
+  jaqz843tcamb   NUMBER(14,8),
+  jaqz843inst    NUMBER(12),
+  jaqz843pgcod   NUMBER(5),
+  jaqz843mod     NUMBER(5),
+  jaqz843suc     NUMBER(5),
+  jaqz843mda     NUMBER(5),
+  jaqz843pap     NUMBER(5),
+  jaqz843cta     NUMBER(10),
+  jaqz843ope     NUMBER(10),
+  jaqz843sbop    NUMBER(10),
+  jaqz843tope    NUMBER(10),
+  jaqz843fchvnc  DATE,
+  jaqz843saldcap NUMBER(10,2),
+  jaqz843indic   VARCHAR2(12),
+  jaqz843indpasv VARCHAR2(25),
+  jaqz843est     VARCHAR2(2)
+)
+;
+comment on column JAQZ843.jaqz843corr
+  is 'Correlativo por Instancia y Fecha';
+comment on column JAQZ843.jaqz843fec
+  is 'Fecha de Bantotal';
+comment on column JAQZ843.jaqz843hora
+  is 'Hora de Ejecucion';
+comment on column JAQZ843.jaqz843pais
+  is 'Pais de Documento Titular';
+comment on column JAQZ843.jaqz843tdoc
+  is 'Tipo de Documento';
+comment on column JAQZ843.jaqz843ndoc
+  is 'Nro de Documento';
+comment on column JAQZ843.jaqz843tcamb
+  is 'Tipo de Cambio 0.0';
+comment on column JAQZ843.jaqz843inst
+  is 'Nro de Instancia';
+comment on column JAQZ843.jaqz843pgcod
+  is 'PgCod del Credito';
+comment on column JAQZ843.jaqz843mod
+  is 'Modulo del Credito';
+comment on column JAQZ843.jaqz843suc
+  is 'Sucursal del Credito';
+comment on column JAQZ843.jaqz843mda
+  is 'Moneda del Credito';
+comment on column JAQZ843.jaqz843pap
+  is 'Papel del Credito';
+comment on column JAQZ843.jaqz843cta
+  is 'Cuenta del Credito';
+comment on column JAQZ843.jaqz843ope
+  is 'Operacion del Credito';
+comment on column JAQZ843.jaqz843sbop
+  is 'SubOperacion del Credito';
+comment on column JAQZ843.jaqz843tope
+  is 'Tipo de Operacion del Credito';
+comment on column JAQZ843.jaqz843fchvnc
+  is 'Fecha de Vencimiento del Credito';
+comment on column JAQZ843.jaqz843saldcap
+  is 'Saldo Capital del Credito';
+comment on column JAQZ843.jaqz843indic
+  is 'Indicador del Credito';
+comment on column JAQZ843.jaqz843indpasv
+  is 'Ind de Pasivo Corriente y No Corriente';
+comment on column JAQZ843.jaqz843est
+  is 'Estado H habilitado I inhabilitado';
+create index JAQZ843IDX002 on JAQZ843 (JAQZ843PGCOD, JAQZ843MOD, JAQZ843SUC, JAQZ843MDA, JAQZ843PAP, JAQZ843CTA, JAQZ843OPE, JAQZ843SBOP, JAQZ843TOPE);
+create index JAQZ843IDX003 on JAQZ843 (JAQZ843FEC, JAQZ843PAIS, JAQZ843TDOC, JAQZ843NDOC, JAQZ843INST);
+create index JAQZ843IDX004 on JAQZ843 (JAQZ843INST, JAQZ843PGCOD, JAQZ843MOD, JAQZ843SUC, JAQZ843MDA, JAQZ843PAP, JAQZ843CTA, JAQZ843OPE, JAQZ843SBOP, JAQZ843TOPE);
+alter table JAQZ843
+  add primary key (JAQZ843CORR, JAQZ843FEC, JAQZ843HORA);
+

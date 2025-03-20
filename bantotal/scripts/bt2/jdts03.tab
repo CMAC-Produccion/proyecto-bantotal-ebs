@@ -1,0 +1,20 @@
+create table JDTS03
+(
+  jdts03tct CHAR(4) not null,
+  jdts03dsc CHAR(40),
+  jdts03cap CHAR(2),
+  jdts03tac CHAR(1),
+  jdts03ax1 NUMBER(9),
+  jdts03ax2 NUMBER(9),
+  jdts03ax3 NUMBER(9),
+  jdts03ax4 NUMBER(17,2),
+  jdts03ax5 NUMBER(17,2),
+  jdts03ax6 CHAR(30),
+  jdts03ax7 CHAR(30),
+  jdts03ax8 DATE,
+  jdts03ax9 DATE
+)
+;
+alter table JDTS03
+  add primary key (JDTS03TCT);
+

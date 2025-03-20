@@ -1,0 +1,20 @@
+create table FSFSD4
+(
+  sfsd4emp  NUMBER(3) not null,
+  sfst1merc NUMBER(3) not null,
+  sfsd4prpr CHAR(1) not null,
+  sfsd4fec  DATE not null,
+  sfsd4sec  NUMBER(5) not null,
+  sfsd4est  CHAR(1),
+  sfsd4ses  NUMBER(6),
+  sfsd4nro  NUMBER(16),
+  sfsd4usu  CHAR(10),
+  sfsd4fecg DATE,
+  sfsd4hora CHAR(8)
+)
+;
+create index FSFSD402 on FSFSD4 (SFST1MERC);
+create index FSFSD403 on FSFSD4 (SFSD4EMP, SFST1MERC, SFSD4PRPR, SFSD4NRO);
+alter table FSFSD4
+  add primary key (SFSD4EMP, SFST1MERC, SFSD4PRPR, SFSD4FEC, SFSD4SEC);
+

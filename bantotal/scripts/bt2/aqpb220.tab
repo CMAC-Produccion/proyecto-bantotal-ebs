@@ -1,0 +1,33 @@
+create table AQPB220
+(
+  aqpb220idl NUMBER(10) not null,
+  aqpb220pai NUMBER(3),
+  aqpb220tdo NUMBER(2),
+  aqpb220ndo CHAR(12),
+  aqpb220met VARCHAR2(20),
+  aqpb220fei DATE,
+  aqpb220hoi CHAR(8),
+  aqpb220tex VARCHAR2(10),
+  aqpb220req CLOB,
+  aqpb220res CLOB,
+  aqpb220cer CHAR(10),
+  aqpb220mer VARCHAR2(200),
+  aqpb220ced CHAR(10),
+  aqpb220med VARCHAR2(200),
+  aqpb220pgm CHAR(10),
+  aqpb220est CHAR(5),
+  aqpb220trn VARCHAR2(40),
+  aqpb220rco VARCHAR2(10),
+  aqpb220rlg VARCHAR2(20),
+  aqpb220rmt VARCHAR2(100),
+  aqpb220opl NUMBER(10),
+  aqpb220an1 NUMBER(9),
+  aqpb220ac1 CHAR(1),
+  aqpb220af1 DATE,
+  aqpb220at1 VARCHAR2(100)
+)
+;
+create index AQPB2202 on AQPB220 (AQPB220OPL, AQPB220IDL);
+alter table AQPB220
+  add primary key (AQPB220IDL);
+

@@ -1,0 +1,11 @@
+create table CDCSQL3
+(
+  cdcsqlid   NUMBER(18) not null,
+  cdcsqlinid NUMBER(18) not null,
+  cdcsqltrid CHAR(10) not null,
+  cdcsqlgbyc CHAR(30) not null
+)
+;
+alter table CDCSQL3
+  add primary key (CDCSQLID, CDCSQLINID, CDCSQLTRID, CDCSQLGBYC);
+

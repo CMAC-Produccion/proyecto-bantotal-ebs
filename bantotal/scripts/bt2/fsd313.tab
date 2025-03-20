@@ -1,0 +1,30 @@
+create table FSD313
+(
+  pgcod     NUMBER(3) not null,
+  dvmod     NUMBER(3) not null,
+  dvmda     NUMBER(4) not null,
+  dvpap     NUMBER(4) not null,
+  dvcta     NUMBER(9) not null,
+  dvsuc     NUMBER(3) not null,
+  dvoper    NUMBER(9) not null,
+  dvsbop    NUMBER(3) not null,
+  dvtope    NUMBER(3) not null,
+  dvtint    NUMBER(16,4),
+  dvtintcte NUMBER(16,4),
+  dvfultdev DATE,
+  dvrubdev  NUMBER(16),
+  dvrubcte  NUMBER(16),
+  dvimpax1  NUMBER(16,4),
+  dvimpax2  NUMBER(16,4),
+  dvimpax3  NUMBER(16,4),
+  dvfecax1  DATE,
+  dvfecax2  DATE,
+  dvaux1    CHAR(1),
+  dvaux2    CHAR(1),
+  dvnum1    NUMBER(1),
+  dvnum2    NUMBER(3)
+)
+;
+alter table FSD313
+  add primary key (PGCOD, DVMOD, DVMDA, DVPAP, DVCTA, DVSUC, DVOPER, DVSBOP, DVTOPE);
+

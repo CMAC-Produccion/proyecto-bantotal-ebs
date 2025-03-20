@@ -1,0 +1,45 @@
+create table FSD181
+(
+  t181pgcod  NUMBER(3) not null,
+  t181cod    NUMBER(5) not null,
+  d181nro    NUMBER(9) not null,
+  d181ref    CHAR(40),
+  d181fec    DATE,
+  d181hora   CHAR(8),
+  d181user   CHAR(10),
+  d181ws     CHAR(10),
+  d181ufecej DATE,
+  d181uhorej CHAR(8),
+  d181uusrej CHAR(10),
+  d181uvista CHAR(1),
+  d181sts    CHAR(1),
+  d181sfecde DATE,
+  d181sfecha DATE,
+  d181saosuc NUMBER(3),
+  d181saomod NUMBER(3),
+  d181saotop NUMBER(3),
+  d181saomda NUMBER(4),
+  d181saopap NUMBER(4),
+  d181saocta NUMBER(9),
+  d181saoope NUMBER(9),
+  d181saosbo NUMBER(3),
+  d181srubro NUMBER(16),
+  d181canop  NUMBER(9),
+  d181canmov NUMBER(9),
+  d181auxc1  CHAR(20),
+  d181auxn1  NUMBER(3),
+  d181auxn2  NUMBER(9),
+  d181auxn3  NUMBER(9),
+  d181auxn4  NUMBER(16),
+  d181auxi1  NUMBER(17,2),
+  d181auxi2  NUMBER(17,2),
+  d181auxi3  NUMBER(17,2),
+  d181auxf1  DATE,
+  d181auxf2  DATE,
+  d181coef1  NUMBER(14,8),
+  d181coef2  NUMBER(14,8)
+)
+;
+alter table FSD181
+  add primary key (T181PGCOD, T181COD, D181NRO);
+

@@ -1,0 +1,27 @@
+create table FCPG47
+(
+  cpg26empbt NUMBER(3) not null,
+  cpg26conv  NUMBER(8) not null,
+  cpg15cod   NUMBER(3) not null,
+  cpg47coddp NUMBER(5) not null,
+  cpg47depem CHAR(15),
+  cpg47nom   CHAR(40),
+  cpg47calle CHAR(35),
+  cpg47pta   CHAR(5),
+  cpg47piso  CHAR(3),
+  cpg47uni   CHAR(3),
+  cpg47local CHAR(30),
+  cpg47cp    CHAR(8),
+  cpg47tdep  CHAR(3),
+  cpg47cben  NUMBER(6),
+  cpg47est   CHAR(3),
+  cpg47blq   CHAR(1),
+  cpg47inst  NUMBER(10)
+)
+;
+create index FCPG4704 on FCPG47 (CPG47INST);
+create index FCPG4705 on FCPG47 (CPG47DEPEM);
+create index FCPG4706 on FCPG47 (CPG26EMPBT, CPG26CONV, CPG15COD, CPG47DEPEM);
+alter table FCPG47
+  add primary key (CPG26EMPBT, CPG26CONV, CPG15COD, CPG47CODDP);
+

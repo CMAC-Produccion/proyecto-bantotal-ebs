@@ -1,0 +1,19 @@
+create table JAQL559
+(
+  jaql559pcod NUMBER(3) not null,
+  jaql559usu  CHAR(10) not null,
+  jaql559suc  NUMBER(3) not null,
+  jaql559nro1 NUMBER(4),
+  jaql559nro2 NUMBER(4),
+  jaql559nro3 NUMBER(4),
+  jaql559ch1  CHAR(20),
+  jaql559ch2  CHAR(40),
+  jaql559ch3  CHAR(60),
+  jaql559fh1  DATE,
+  jaql559fh2  DATE,
+  jaql559fh3  DATE
+)
+;
+alter table JAQL559
+  add primary key (JAQL559PCOD, JAQL559USU, JAQL559SUC);
+

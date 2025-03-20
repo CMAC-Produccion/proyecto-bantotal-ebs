@@ -1,0 +1,16 @@
+create table CAJ001
+(
+  cajpgcod   NUMBER(3) not null,
+  cajusuario CHAR(10) not null,
+  cajlimite  NUMBER(14,2),
+  cajnum1    NUMBER(14,2),
+  cajnum2    NUMBER(9),
+  cajfec1    DATE,
+  cajfec2    DATE,
+  cajcar1    CHAR(10),
+  cajcar2    CHAR(1)
+)
+;
+alter table CAJ001
+  add primary key (CAJPGCOD, CAJUSUARIO);
+

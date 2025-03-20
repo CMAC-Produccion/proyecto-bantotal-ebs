@@ -1,0 +1,39 @@
+create table JAQL982V
+(
+  jaql982vfec  DATE,
+  jaql982vind  CHAR(1),
+  jaql982vscap NUMBER(17,2),
+  jaql982vscan NUMBER(17,2),
+  jaql982vscar NUMBER(17,2),
+  jaql982vscav NUMBER(17,2),
+  jaql982vscvp NUMBER(17,2),
+  jaql982vscvn NUMBER(17,2),
+  jaql982vscvr NUMBER(17,2),
+  jaql982vscaj NUMBER(17,2),
+  jaql982vscac NUMBER(17,2),
+  jaql982vscpv NUMBER(17,2),
+  jaql982vscp1 NUMBER(17,2)
+)
+;
+comment on column JAQL982V.jaql982vscap
+  is 'Saldo Capital ';
+comment on column JAQL982V.jaql982vscan
+  is 'Saldo Capital Normal';
+comment on column JAQL982V.jaql982vscar
+  is 'Saldo Capital Refinanciado';
+comment on column JAQL982V.jaql982vscav
+  is 'Saldo Capital Vencido ';
+comment on column JAQL982V.jaql982vscvp
+  is 'Saldo Capital Vencido Prendario';
+comment on column JAQL982V.jaql982vscvn
+  is 'Saldo Capital Vencido Normal';
+comment on column JAQL982V.jaql982vscvr
+  is 'Saldo Capital Vencido Refinanciado';
+comment on column JAQL982V.jaql982vscaj
+  is 'Saldo Capital Judicial';
+comment on column JAQL982V.jaql982vscac
+  is 'Saldo Capital Castigado';
+comment on column JAQL982V.jaql982vscpv
+  is 'Saldo Vencido Proyeccion ';
+create index JAQL982VA2 on JAQL982V (JAQL982VFEC, JAQL982VIND);
+

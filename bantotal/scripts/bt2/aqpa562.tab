@@ -1,0 +1,340 @@
+create table AQPA562
+(
+  aqpa562cod    NUMBER(4) not null,
+  aqpa562mod    NUMBER(3) not null,
+  aqpa562suc    NUMBER(3) not null,
+  aqpa562mda    NUMBER(4) not null,
+  aqpa562pap    NUMBER(4) not null,
+  aqpa562cta    NUMBER(9) not null,
+  aqpa562ope    NUMBER(9) not null,
+  aqpa562sbo    NUMBER(3) not null,
+  aqpa562tip    NUMBER(3) not null,
+  aqpa562fec    DATE,
+  aqpa562mov    VARCHAR2(3),
+  aqpa562canal  NUMBER(4),
+  aqpa562cpro   NUMBER(4),
+  aqpa562corr   NUMBER(17),
+  aqpa562apat   CHAR(50),
+  aqpa562amat   CHAR(50),
+  aqpa562nom    CHAR(50),
+  aqpa562rsoc   CHAR(150),
+  aqpa562ndo    CHAR(12),
+  aqpa562tdo    CHAR(3),
+  aqpa562mail   CHAR(50),
+  aqpa562eciv   CHAR(1),
+  aqpa562sexo   CHAR(1),
+  aqpa562fnac   CHAR(8),
+  aqpa562cel    CHAR(50),
+  aqpa562ocup   CHAR(50),
+  aqpa562ubig   CHAR(10),
+  aqpa562dire   CHAR(100),
+  aqpa562ncert  CHAR(30),
+  aqpa562nsol   CHAR(30),
+  aqpa562cage   NUMBER(3),
+  aqpa562ades   CHAR(100),
+  aqpa562func   CHAR(10),
+  aqpa562plan   NUMBER,
+  aqpa562cost   NUMBER(17,2),
+  aqpa562prim   NUMBER(17,2),
+  aqpa562tasa   NUMBER(10,6),
+  aqpa562stas   NUMBER(10,6),
+  aqpa562tcta   CHAR(3),
+  aqpa562ncred  CHAR(30),
+  aqpa562ntar   CHAR(16),
+  aqpa562finpa  CHAR(8),
+  aqpa562fafil  CHAR(8),
+  aqpa562fdes   CHAR(8),
+  aqpa562hdes   CHAR(8),
+  aqpa562fven   CHAR(8),
+  aqpa562fcan   CHAR(8),
+  aqpa562cimp   NUMBER(17,2),
+  aqpa562mone   CHAR(3),
+  aqpa562ctmov  CHAR(1),
+  aqpa562cant   CHAR(30),
+  aqpa562hlegal CHAR(1),
+  aqpa562depat  CHAR(50),
+  aqpa562demat  CHAR(50),
+  aqpa562denom  CHAR(50),
+  aqpa562dendoc CHAR(11),
+  aqpa562detdoc CHAR(3),
+  aqpa562deeciv CHAR(1),
+  aqpa562desex  CHAR(1),
+  aqpa562defnac CHAR(8),
+  aqpa562depare CHAR(1),
+  aqpa562deplan NUMBER(3),
+  aqpa562decost NUMBER(17,2),
+  aqpa562deprim NUMBER(17,2),
+  aqpa562detasa NUMBER(10,6),
+  aqpa562destas NUMBER(10,6),
+  aqpa562bepat  CHAR(50),
+  aqpa562bemat  CHAR(50),
+  aqpa562benom  CHAR(50),
+  aqpa562bendoc CHAR(11),
+  aqpa562betdoc CHAR(3),
+  aqpa562beeciv CHAR(1),
+  aqpa562besex  CHAR(1),
+  aqpa562befnac CHAR(8),
+  aqpa562bepare CHAR(1),
+  aqpa562bepors NUMBER(4),
+  aqpa562befreg CHAR(8),
+  aqpa562befbaj CHAR(8),
+  aqpa562dtinm  CHAR(1),
+  aqpa562dtvia  CHAR(1),
+  aqpa562dcneg  NUMBER(10),
+  aqpa562dgneg  CHAR(300),
+  aqpa562ddir   CHAR(300),
+  aqpa562dnum   CHAR(10),
+  aqpa562ddpto  CHAR(10),
+  aqpa562dmz    CHAR(10),
+  aqpa562dpizo  NUMBER(10),
+  aqpa562dkm    CHAR(8),
+  aqpa562dubige CHAR(8),
+  aqpa562dcate  NUMBER(10),
+  aqpa562dmate  CHAR(1),
+  aqpa562dtedi  NUMBER(10),
+  aqpa562dmter  NUMBER(17,2),
+  aqpa562dmedif NUMBER(17,2),
+  aqpa562dnpiso NUMBER(10),
+  aqpa562dnsota NUMBER(10),
+  aqpa562dfabri NUMBER(10),
+  aqpa562dcont  CHAR(1500),
+  aqpa562dsase  CHAR(20),
+  aqpa562dsaedi CHAR(20),
+  aqpa562dsacon CHAR(20),
+  aqpa562pai    NUMBER(4),
+  aqpa562cseg   NUMBER(3),
+  aqpa562a1     NUMBER(4),
+  aqpa562a2     NUMBER(4),
+  aqpa562a3     CHAR(20),
+  aqpa562a4     VARCHAR2(40),
+  aqpa562a5     DATE,
+  aqpa562a6     CHAR(100),
+  aqpa562a7     CHAR(100)
+)
+;
+comment on table AQPA562
+  is 'Tabla de Cobros del Seguro Desempleo';
+comment on column AQPA562.aqpa562cod
+  is 'Empresa';
+comment on column AQPA562.aqpa562mod
+  is 'Modulo';
+comment on column AQPA562.aqpa562suc
+  is 'Sucursal';
+comment on column AQPA562.aqpa562mda
+  is 'Moneda';
+comment on column AQPA562.aqpa562pap
+  is 'Papel';
+comment on column AQPA562.aqpa562cta
+  is 'Cuenta';
+comment on column AQPA562.aqpa562ope
+  is 'Operacion';
+comment on column AQPA562.aqpa562sbo
+  is 'Sub operacion';
+comment on column AQPA562.aqpa562tip
+  is 'Tipo Operacion';
+comment on column AQPA562.aqpa562fec
+  is 'Fecha ejecucion';
+comment on column AQPA562.aqpa562mov
+  is 'Movimiento ''A'' alta, ''B'' baja, ''C'' Cancelacion';
+comment on column AQPA562.aqpa562canal
+  is 'Canal';
+comment on column AQPA562.aqpa562cpro
+  is 'Codigo Producto';
+comment on column AQPA562.aqpa562corr
+  is 'Correlativo';
+comment on column AQPA562.aqpa562apat
+  is 'Apellido Paterno';
+comment on column AQPA562.aqpa562amat
+  is 'Apellido Materno';
+comment on column AQPA562.aqpa562nom
+  is 'Nombres';
+comment on column AQPA562.aqpa562rsoc
+  is 'Razón Social';
+comment on column AQPA562.aqpa562ndo
+  is 'Nro documento Cliente';
+comment on column AQPA562.aqpa562tdo
+  is 'Tipo documento cliente';
+comment on column AQPA562.aqpa562mail
+  is 'Mail';
+comment on column AQPA562.aqpa562eciv
+  is 'EStado Civil';
+comment on column AQPA562.aqpa562sexo
+  is 'Sexo';
+comment on column AQPA562.aqpa562fnac
+  is 'Fecha Nacimiento';
+comment on column AQPA562.aqpa562cel
+  is 'Celular';
+comment on column AQPA562.aqpa562ocup
+  is 'Ocupacion';
+comment on column AQPA562.aqpa562ubig
+  is 'Ubigeo';
+comment on column AQPA562.aqpa562dire
+  is 'Direccion';
+comment on column AQPA562.aqpa562ncert
+  is 'Numero Certificado';
+comment on column AQPA562.aqpa562nsol
+  is 'Numero Solicitud';
+comment on column AQPA562.aqpa562cage
+  is 'Codigo Agencia';
+comment on column AQPA562.aqpa562ades
+  is 'Descripción de Agencia';
+comment on column AQPA562.aqpa562func
+  is 'Funcionario';
+comment on column AQPA562.aqpa562plan
+  is 'Plan Seguro';
+comment on column AQPA562.aqpa562cost
+  is 'Costo Total';
+comment on column AQPA562.aqpa562prim
+  is 'Monto Prima';
+comment on column AQPA562.aqpa562tasa
+  is 'Tasa';
+comment on column AQPA562.aqpa562stas
+  is 'SobreTasa';
+comment on column AQPA562.aqpa562tcta
+  is 'Tipo cuenta';
+comment on column AQPA562.aqpa562ncred
+  is 'Numero de Credito';
+comment on column AQPA562.aqpa562ntar
+  is 'Numero de Tarjeta';
+comment on column AQPA562.aqpa562finpa
+  is 'Fecha Fin de Pago';
+comment on column AQPA562.aqpa562fafil
+  is 'Fecha Afiliacion';
+comment on column AQPA562.aqpa562fdes
+  is 'Fecha Desembolso';
+comment on column AQPA562.aqpa562hdes
+  is 'Hora Desembolso';
+comment on column AQPA562.aqpa562fven
+  is 'Fecha Vencimiento Credito';
+comment on column AQPA562.aqpa562fcan
+  is 'FEcha Cancelacion';
+comment on column AQPA562.aqpa562cimp
+  is 'Importe';
+comment on column AQPA562.aqpa562mone
+  is 'descripcion Moneda';
+comment on column AQPA562.aqpa562ctmov
+  is 'Credito tipo movimiento';
+comment on column AQPA562.aqpa562cant
+  is 'Credito Anterior';
+comment on column AQPA562.aqpa562hlegal
+  is 'Herederos Legales';
+comment on column AQPA562.aqpa562depat
+  is 'Dependiente ape paterno';
+comment on column AQPA562.aqpa562demat
+  is 'Dependiente ape materno';
+comment on column AQPA562.aqpa562denom
+  is 'Dependiente nombre';
+comment on column AQPA562.aqpa562dendoc
+  is 'Dependiente nro documento';
+comment on column AQPA562.aqpa562detdoc
+  is 'Depe_TipoDocumento';
+comment on column AQPA562.aqpa562deeciv
+  is 'Depe_EstadoCivil';
+comment on column AQPA562.aqpa562desex
+  is 'Depe_Sexo';
+comment on column AQPA562.aqpa562defnac
+  is 'Depe_FecNac';
+comment on column AQPA562.aqpa562depare
+  is 'Depe_Parentesco';
+comment on column AQPA562.aqpa562deplan
+  is 'Depe_Plan';
+comment on column AQPA562.aqpa562decost
+  is 'Depe_Costo';
+comment on column AQPA562.aqpa562deprim
+  is 'Depe_Prima';
+comment on column AQPA562.aqpa562detasa
+  is 'Depe_Tasa';
+comment on column AQPA562.aqpa562destas
+  is 'Depe_Sobretasa';
+comment on column AQPA562.aqpa562bepat
+  is 'Bene_Paterno';
+comment on column AQPA562.aqpa562bemat
+  is 'Bene_Materno';
+comment on column AQPA562.aqpa562benom
+  is 'Bene_Nombre';
+comment on column AQPA562.aqpa562bendoc
+  is 'Bene_NroDocumento';
+comment on column AQPA562.aqpa562betdoc
+  is 'Bene_TipoDocumento';
+comment on column AQPA562.aqpa562beeciv
+  is 'Bene_EstadoCivil';
+comment on column AQPA562.aqpa562besex
+  is 'Bene_Sexo';
+comment on column AQPA562.aqpa562befnac
+  is 'Bene_FecNac';
+comment on column AQPA562.aqpa562bepare
+  is 'Bene_Parentesco';
+comment on column AQPA562.aqpa562bepors
+  is 'Bene_Porsentaje';
+comment on column AQPA562.aqpa562befreg
+  is 'Bene_FecRegistro';
+comment on column AQPA562.aqpa562befbaj
+  is 'Bene_FecBaja';
+comment on column AQPA562.aqpa562dtinm
+  is 'Domi_TipoInmueble';
+comment on column AQPA562.aqpa562dtvia
+  is 'Domi_TipoVia';
+comment on column AQPA562.aqpa562dcneg
+  is 'Domi_CodGiroNegocio';
+comment on column AQPA562.aqpa562dgneg
+  is 'Domi_GiroNegocio';
+comment on column AQPA562.aqpa562ddir
+  is 'Domi_Direccion';
+comment on column AQPA562.aqpa562dnum
+  is 'Domi_Numero';
+comment on column AQPA562.aqpa562ddpto
+  is 'Domi_Dpto';
+comment on column AQPA562.aqpa562dmz
+  is 'Domi_Mz';
+comment on column AQPA562.aqpa562dpizo
+  is 'Domi_Piso';
+comment on column AQPA562.aqpa562dkm
+  is 'Domi_Km';
+comment on column AQPA562.aqpa562dubige
+  is 'Domi_Ubigeo';
+comment on column AQPA562.aqpa562dcate
+  is 'Domi_Categoria';
+comment on column AQPA562.aqpa562dmate
+  is 'Domi_Material';
+comment on column AQPA562.aqpa562dtedi
+  is 'Domi_TipoEdificacion';
+comment on column AQPA562.aqpa562dmter
+  is 'Domi_MtsTerreno';
+comment on column AQPA562.aqpa562dmedif
+  is 'Domi_Mts Edificacion';
+comment on column AQPA562.aqpa562dnpiso
+  is 'Domi_NroPisos';
+comment on column AQPA562.aqpa562dnsota
+  is 'Domi_NroSotanos';
+comment on column AQPA562.aqpa562dfabri
+  is 'Domi_AñoFabricacion';
+comment on column AQPA562.aqpa562dcont
+  is 'Domi_Contenido';
+comment on column AQPA562.aqpa562dsase
+  is 'Domi_SumaAsegurada';
+comment on column AQPA562.aqpa562dsaedi
+  is 'Domi_SumaAseguradaEdificacion';
+comment on column AQPA562.aqpa562dsacon
+  is 'Domi_SumaAseguradaContenido';
+comment on column AQPA562.aqpa562pai
+  is 'pais';
+comment on column AQPA562.aqpa562cseg
+  is 'Codigo Seguro';
+comment on column AQPA562.aqpa562a1
+  is 'Auxiliar 1';
+comment on column AQPA562.aqpa562a2
+  is 'Auxiliar 2';
+comment on column AQPA562.aqpa562a3
+  is 'Auxiliar 3';
+comment on column AQPA562.aqpa562a4
+  is 'Auxiliar 4';
+comment on column AQPA562.aqpa562a5
+  is 'Auxiliar 5';
+comment on column AQPA562.aqpa562a6
+  is 'Auxiliar 6';
+comment on column AQPA562.aqpa562a7
+  is 'Auxiliar 7';
+create index AQPA562A2 on AQPA562 (AQPA562PAI, AQPA562TDO, AQPA562NDO);
+alter table AQPA562
+  add primary key (AQPA562COD, AQPA562MOD, AQPA562SUC, AQPA562MDA, AQPA562PAP, AQPA562CTA, AQPA562OPE, AQPA562SBO, AQPA562TIP);
+

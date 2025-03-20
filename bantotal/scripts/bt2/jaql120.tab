@@ -1,0 +1,47 @@
+create table JAQL120
+(
+  ccl      VARCHAR2(20),
+  csbs     VARCHAR2(10),
+  tid      VARCHAR2(1),
+  nid      VARCHAR2(15),
+  ncl      VARCHAR2(100),
+  ccr      NUMBER,
+  mon      NUMBER,
+  morg     NUMBER,
+  cal      VARCHAR2(1),
+  calint   VARCHAR2(1),
+  kvi      NUMBER,
+  ccvi     VARCHAR2(40),
+  kre      NUMBER,
+  ccre     VARCHAR2(40),
+  krf      NUMBER,
+  ccrf     VARCHAR2(40),
+  kve      NUMBER,
+  ccve     VARCHAR2(40),
+  kju      NUMBER,
+  ccju     VARCHAR2(40),
+  kco      NUMBER,
+  ccco     VARCHAR2(40),
+  fcc      VARCHAR2(1),
+  fveg     DATE,
+  tpr      VARCHAR2(30),
+  cage     NUMBER,
+  csec     CHAR(10),
+  tea      NUMBER,
+  d_fecpro DATE,
+  bcmod    NUMBER(3),
+  bcemp    NUMBER(1),
+  bcpap    NUMBER(3),
+  bccta    NUMBER(9),
+  bcsbop   NUMBER(3),
+  bctop    NUMBER(3),
+  bcprod   NUMBER(3),
+  n_instan NUMBER,
+  bcrubr   NUMBER,
+  aotmor   NUMBER,
+  aofval   DATE
+)
+;
+create index XN_OPERACION_1 on JAQL120 (BCEMP, CAGE, BCMOD, MON, BCPAP, BCCTA, CCR, BCSBOP, BCTOP);
+create index XN_SUCURSAL_1 on JAQL120 (CAGE);
+

@@ -1,0 +1,29 @@
+create table JMBN43
+(
+  jmbn43falt DATE not null,
+  jmbn43corr NUMBER(9) not null,
+  jmbn43ncta NUMBER(9),
+  jmbn43nomc CHAR(30),
+  jmbn43cov  CHAR(1),
+  jmbn43tc   NUMBER(17,6),
+  jmbn43mdao NUMBER(4),
+  jmbn43mtoo NUMBER(17,2),
+  jmbn43mtod NUMBER(17,2),
+  jmbn43fvig DATE,
+  jmbn43come CHAR(65),
+  jmbn43co2  CHAR(65),
+  jmbn43co3  CHAR(65),
+  jmbn43esta NUMBER(1),
+  jmbn43pgco NUMBER(3),
+  jmbn43itsu NUMBER(3),
+  jmbn43itmo NUMBER(3),
+  jmbn43ittr NUMBER(3),
+  jmbn43itne NUMBER(4),
+  jmbn43user CHAR(10),
+  jmbn43fcon DATE
+)
+;
+create index JMBN4302 on JMBN43 (JMBN43PGCO, JMBN43ITSU, JMBN43ITMO, JMBN43ITTR, JMBN43ITNE, JMBN43FCON);
+alter table JMBN43
+  add primary key (JMBN43FALT, JMBN43CORR);
+

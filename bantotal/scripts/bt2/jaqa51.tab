@@ -1,0 +1,100 @@
+create table JAQA51
+(
+  jaqa51emp NUMBER(3) not null,
+  jaqa51sus NUMBER(3) not null,
+  jaqa51naf CHAR(50) not null,
+  jaqa51fch DATE not null,
+  jaqa51cor NUMBER(3) not null,
+  jaqa51usu CHAR(10),
+  jaqa51usa CHAR(10),
+  jaqa51est CHAR(1),
+  jaqa51fcb DATE,
+  jaqa51hrb CHAR(8),
+  jaqa51fca DATE,
+  jaqa51hra CHAR(8),
+  jaqa51cou VARCHAR2(50),
+  jaqa51coa VARCHAR2(50),
+  jaqa51mta VARCHAR2(255),
+  jaqa51ai1 NUMBER(17,2),
+  jaqa51ai2 NUMBER(17,2),
+  jaqa51ai3 NUMBER(17,2),
+  jaqa51ad1 DATE,
+  jaqa51ad2 DATE,
+  jaqa51ad3 DATE,
+  jaqa51an1 NUMBER(9),
+  jaqa51an2 NUMBER(9),
+  jaqa51an3 NUMBER(9),
+  jaqa51ac1 CHAR(255),
+  jaqa51ac2 CHAR(255),
+  jaqa51ac3 CHAR(255),
+  jaqa51ae1 CHAR(1),
+  jaqa51ae2 CHAR(1),
+  jaqa51ae3 CHAR(1)
+)
+;
+comment on table JAQA51
+  is 'Autorizaciones de baja seguro pasiva';
+comment on column JAQA51.jaqa51emp
+  is 'Empresa';
+comment on column JAQA51.jaqa51sus
+  is 'Usuario sucursal';
+comment on column JAQA51.jaqa51naf
+  is 'Nro de afiliacion';
+comment on column JAQA51.jaqa51fch
+  is 'Fecha de solicitud';
+comment on column JAQA51.jaqa51cor
+  is 'Correlativo';
+comment on column JAQA51.jaqa51usu
+  is 'Usuario que da de baja ';
+comment on column JAQA51.jaqa51usa
+  is 'Usuario que autoriza';
+comment on column JAQA51.jaqa51est
+  is 'Estado: P: pendiente, A: autorizado R: rechazado';
+comment on column JAQA51.jaqa51fcb
+  is 'Fecha de baja (eliminacion)';
+comment on column JAQA51.jaqa51hrb
+  is 'Hora de baja (eliminacion)';
+comment on column JAQA51.jaqa51fca
+  is 'Fecha de autorizacion/rechazo';
+comment on column JAQA51.jaqa51hra
+  is 'Hora de autorizacion/rechazo';
+comment on column JAQA51.jaqa51cou
+  is 'Correo de usuario que solicita baja';
+comment on column JAQA51.jaqa51coa
+  is 'Coreo de usuario que autoriza';
+comment on column JAQA51.jaqa51mta
+  is 'Motivo de anulacion';
+comment on column JAQA51.jaqa51ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA51.jaqa51ai2
+  is 'Auxiliar importe 2';
+comment on column JAQA51.jaqa51ai3
+  is 'Auxiliar importe 3';
+comment on column JAQA51.jaqa51ad1
+  is 'Auxiliar fecha 1';
+comment on column JAQA51.jaqa51ad2
+  is 'Auxiliar fecha 2';
+comment on column JAQA51.jaqa51ad3
+  is 'Auxiliar fecha 3';
+comment on column JAQA51.jaqa51an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA51.jaqa51an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA51.jaqa51an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA51.jaqa51ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA51.jaqa51ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA51.jaqa51ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQA51.jaqa51ae1
+  is 'Auxiliar texto 1';
+comment on column JAQA51.jaqa51ae2
+  is 'Auxiliar texto 2';
+comment on column JAQA51.jaqa51ae3
+  is 'Auxiliar texto 3';
+create index JAQA512 on JAQA51 (JAQA51EMP, JAQA51SUS, JAQA51NAF, JAQA51FCH, JAQA51EST);
+alter table JAQA51
+  add primary key (JAQA51EMP, JAQA51SUS, JAQA51NAF, JAQA51FCH, JAQA51COR);
+

@@ -1,0 +1,27 @@
+create table CLE102
+(
+  cle101fch  DATE not null,
+  cle101hra  CHAR(8) not null,
+  cle101prd  NUMBER(3) not null,
+  cle101bol  NUMBER(15) not null,
+  cle101chq  NUMBER(15) not null,
+  cle102cor  NUMBER(3) not null,
+  cle102igt  CHAR(1),
+  cle102pais NUMBER(3),
+  cle102tdoc NUMBER(2),
+  cle102ndoc CHAR(12),
+  cle102bcod NUMBER(3),
+  cle102sbcd NUMBER(12),
+  cle102fvt  DATE,
+  cle102lote NUMBER(9),
+  cle102ax1  CHAR(1),
+  cle102ax2  CHAR(12),
+  cle102ax3  NUMBER(17,2),
+  cle102ax4  NUMBER(17,2),
+  cle102ax5  DATE
+)
+;
+create index CLE10203 on CLE102 (CLE101FCH, CLE101HRA, CLE101PRD, CLE102BCOD, CLE102SBCD, CLE101CHQ);
+alter table CLE102
+  add primary key (CLE101FCH, CLE101HRA, CLE101PRD, CLE101BOL, CLE101CHQ, CLE102COR);
+

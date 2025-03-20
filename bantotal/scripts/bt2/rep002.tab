@@ -1,0 +1,23 @@
+create table REP002
+(
+  rep001cod     NUMBER(10) not null,
+  rep002cons    NUMBER(10) not null,
+  rep002dsc     CHAR(20),
+  rep002prg     CHAR(10),
+  rep002exp     NUMBER(10),
+  rep002top     NUMBER(4),
+  rep002from    VARCHAR2(2000),
+  rep002join    VARCHAR2(200),
+  rep002where   VARCHAR2(200),
+  rep002orderby VARCHAR2(200),
+  rep002groupby VARCHAR2(200),
+  rep002having  VARCHAR2(200),
+  rep002ver     NUMBER(4),
+  rep002cnom    CHAR(20),
+  rep002cdsc    CHAR(35),
+  rep002cayu    CHAR(100)
+)
+;
+alter table REP002
+  add primary key (REP001COD, REP002CONS);
+

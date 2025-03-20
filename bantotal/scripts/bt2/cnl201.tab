@@ -1,0 +1,15 @@
+create table CNL201
+(
+  cnl000cod NUMBER(4) not null,
+  cnl200cod NUMBER(4) not null,
+  cnl201cor NUMBER(2) not null,
+  cnl201val CHAR(10),
+  cnl201len NUMBER(2),
+  cnl201tpo CHAR(1),
+  cnl201txt CHAR(10)
+)
+;
+create index CNL20102 on CNL201 (CNL000COD, CNL200COD);
+alter table CNL201
+  add primary key (CNL000COD, CNL200COD, CNL201COR);
+

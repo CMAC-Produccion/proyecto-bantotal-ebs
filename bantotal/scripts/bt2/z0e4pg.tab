@@ -1,0 +1,24 @@
+create table Z0E4PG
+(
+  z0e4pgemp  NUMBER(3) not null,
+  z0e4pgcta  NUMBER(9) not null,
+  z0e4p1cc   NUMBER(2) not null,
+  z0e4pgnum  NUMBER(1) not null,
+  z0e4pgfch  DATE not null,
+  z0e4pghor  CHAR(8) not null,
+  z0e4pgctar CHAR(3),
+  z0e4pg4lin CHAR(24),
+  z0e4pgr1   CHAR(15),
+  z0e4pgr2   CHAR(15),
+  z0e4pgtno  CHAR(3),
+  z0e4pgfmd  DATE,
+  z0e4pgumd  CHAR(10),
+  z0e4pgfau  DATE,
+  z0e4pguau  CHAR(10),
+  z0e4pgest  CHAR(2)
+)
+;
+create index Z0E4PG02 on Z0E4PG (Z0E4P1CC);
+alter table Z0E4PG
+  add primary key (Z0E4PGEMP, Z0E4PGCTA, Z0E4P1CC, Z0E4PGNUM, Z0E4PGFCH, Z0E4PGHOR);
+

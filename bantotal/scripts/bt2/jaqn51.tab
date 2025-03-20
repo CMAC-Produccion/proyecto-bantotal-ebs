@@ -1,0 +1,38 @@
+create table JAQN51
+(
+  jaqn51em NUMBER(3) not null,
+  jaqn51mo NUMBER(3) not null,
+  jaqn51su NUMBER(3) not null,
+  jaqn51md NUMBER(4) not null,
+  jaqn51pa NUMBER(4) not null,
+  jaqn51ct NUMBER(9) not null,
+  jaqn51op NUMBER(9) not null,
+  jaqn51so NUMBER(3) not null,
+  jaqn51to NUMBER(3) not null,
+  jaqn51fs DATE not null,
+  jaqn51cl NUMBER(3) not null,
+  jaqn51pl NUMBER(5),
+  jaqn51fa DATE,
+  jaqn51ta NUMBER(10,6),
+  jaqn51co NUMBER(17,2),
+  jaqn51fr DATE,
+  jaqn51cr NUMBER(17,2),
+  jaqn51tr NUMBER(10,6),
+  jaqn51tm NUMBER(10,6),
+  jaqn51am NUMBER(3),
+  jaqn51um CHAR(10),
+  jaqn51ua CHAR(10),
+  jaqn51et CHAR(1),
+  jaqn51pr CHAR(1),
+  jaqn51lg CHAR(100)
+)
+;
+create index JAQN5103 on JAQN51 (JAQN51FS, JAQN51CT, JAQN51ET, JAQN51PR);
+create index JAQN5105 on JAQN51 (JAQN51FS, JAQN51UM, JAQN51AM, JAQN51ET);
+create index JAQN5106 on JAQN51 (JAQN51UM);
+create index JAQN5107 on JAQN51 (JAQN51AM);
+create index JAQN5108 on JAQN51 (JAQN51ET);
+create index JAQN5109 on JAQN51 (JAQN51PR);
+alter table JAQN51
+  add primary key (JAQN51EM, JAQN51MO, JAQN51SU, JAQN51MD, JAQN51PA, JAQN51CT, JAQN51OP, JAQN51SO, JAQN51TO, JAQN51FS, JAQN51CL);
+

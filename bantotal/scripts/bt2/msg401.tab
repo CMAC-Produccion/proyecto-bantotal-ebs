@@ -1,0 +1,11 @@
+create table MSG401
+(
+  estmcod    NUMBER(5) not null,
+  frmcodgrid NUMBER(3) not null,
+  atrnom     CHAR(10) not null
+)
+;
+create index MSG40102 on MSG401 (ESTMCOD, ATRNOM);
+alter table MSG401
+  add primary key (ESTMCOD, FRMCODGRID, ATRNOM);
+

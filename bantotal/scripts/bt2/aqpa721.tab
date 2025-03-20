@@ -1,0 +1,16 @@
+create table AQPA721
+(
+  aqpa721id     NUMBER(9) not null,
+  aqpa721numtar CHAR(19),
+  aqpa721tipope CHAR(1),
+  aqpa721codres CHAR(2),
+  aqpa721msjres VARCHAR2(100),
+  aqpa721fecreg DATE,
+  aqpa721horreg VARCHAR2(10),
+  aqpa721canal  NUMBER(4)
+)
+;
+create index AQPA7212 on AQPA721 (AQPA721NUMTAR);
+alter table AQPA721
+  add primary key (AQPA721ID);
+

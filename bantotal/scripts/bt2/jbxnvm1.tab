@@ -1,0 +1,13 @@
+create table JBXNVM1
+(
+  jbxnvm1usu CHAR(10) not null,
+  jbxnvm1emp NUMBER(3) not null,
+  jbxnvm1rub NUMBER(16) not null,
+  jbxnvm1sma NUMBER(17,2),
+  jbxnvm1sal NUMBER(17,2),
+  jbxnvm1pro NUMBER(17,2),
+  jbxnvm1cnt NUMBER(4)
+)
+;
+create unique index JBXNVM11 on JBXNVM1 (JBXNVM1USU, JBXNVM1EMP, JBXNVM1RUB);
+

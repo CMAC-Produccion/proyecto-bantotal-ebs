@@ -1,0 +1,17 @@
+create table JSBC04
+(
+  jsbc01pg   NUMBER(3) not null,
+  jsbc01ope  NUMBER(9) not null,
+  jsbc04lfec DATE not null,
+  jsbc04lhor CHAR(8) not null,
+  jsbc05cest CHAR(4),
+  jsbc04lusr CHAR(10),
+  jsbc04lnom CHAR(40),
+  jsbc04lobs VARCHAR2(40),
+  jsbc04lciu NUMBER(3)
+)
+;
+create index JSBC0402 on JSBC04 (JSBC05CEST);
+alter table JSBC04
+  add primary key (JSBC01PG, JSBC01OPE, JSBC04LFEC, JSBC04LHOR);
+

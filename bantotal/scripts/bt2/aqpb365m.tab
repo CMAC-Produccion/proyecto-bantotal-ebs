@@ -1,0 +1,19 @@
+create table AQPB365M
+(
+  aqpb365mfech1 DATE not null,
+  aqpb365mhora1 CHAR(8) not null,
+  aqpb365minst  NUMBER(10) not null,
+  aqpb365mcsbs  VARCHAR2(10) not null,
+  aqpb365mcemp  CHAR(5) not null,
+  aqpb365mcuen  CHAR(14) not null,
+  aqpb365msald  NUMBER(17,2),
+  aqpb365msalc  NUMBER(17,2),
+  aqpb365msaln  NUMBER(17,2),
+  aqpb365mbfpre DATE,
+  aqpb365mfech  DATE,
+  aqpb365mhora  CHAR(8)
+)
+;
+alter table AQPB365M
+  add primary key (AQPB365MFECH1, AQPB365MHORA1, AQPB365MINST, AQPB365MCSBS, AQPB365MCEMP, AQPB365MCUEN);
+

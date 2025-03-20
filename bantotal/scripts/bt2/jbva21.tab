@@ -1,0 +1,45 @@
+create table JBVA21
+(
+  jbva21emp  NUMBER(3) not null,
+  jbva21mod  NUMBER(3) not null,
+  jbva21suc  NUMBER(3) not null,
+  jbva21mda  NUMBER(4) not null,
+  jbva21pap  NUMBER(4) not null,
+  jbva21cta  NUMBER(9) not null,
+  jbva21oper NUMBER(9) not null,
+  jbva21sbop NUMBER(3) not null,
+  jbva21tope NUMBER(3) not null,
+  jbva21fpag NUMBER(5),
+  jbva21cod1 NUMBER(5),
+  jbva21cod2 NUMBER(5),
+  jbva21cod3 NUMBER(5),
+  jbva21fch1 DATE,
+  jbva21fch2 DATE,
+  jbva21fch3 DATE,
+  jbva21imp1 NUMBER(17,2),
+  jbva21imp2 NUMBER(17,2),
+  jbva21imp3 NUMBER(17,2),
+  jbva21txt1 CHAR(30),
+  jbva21txt2 CHAR(30),
+  jbva21txt3 CHAR(30),
+  jbva21est1 CHAR(1),
+  jbva21est2 CHAR(1),
+  jbva21est3 CHAR(1),
+  jbva21por1 NUMBER(10,6),
+  jbva21por2 NUMBER(10,6),
+  jbva21por3 NUMBER(10,6),
+  jbva21cd   NUMBER(3),
+  jbva21mo   NUMBER(3),
+  jbva21su   NUMBER(3),
+  jbva21tr   NUMBER(3),
+  jbva21re   NUMBER(4),
+  jbva21fc   DATE,
+  jbva21or   NUMBER(2),
+  jbva21sb   NUMBER(3),
+  jbva21co   CHAR(1)
+)
+;
+create unique index JBVA2101 on JBVA21 (JBVA21EMP, JBVA21MOD, JBVA21SUC, JBVA21MDA, JBVA21PAP, JBVA21CTA, JBVA21OPER, JBVA21SBOP, JBVA21TOPE);
+create index JBVA2102 on JBVA21 (JBVA21CD, JBVA21MO, JBVA21SU, JBVA21TR, JBVA21RE, JBVA21OR, JBVA21SB, JBVA21CO);
+create index JBVA2103 on JBVA21 (JBVA21EMP, JBVA21FPAG, JBVA21CO);
+

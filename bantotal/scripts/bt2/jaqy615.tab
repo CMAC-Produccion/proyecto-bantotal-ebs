@@ -1,0 +1,16 @@
+create table JAQY615
+(
+  jaqy615nro NUMBER(10) not null,
+  jaqy615cod NUMBER(3) not null,
+  jaqy615fei DATE,
+  jaqy615fef DATE,
+  jaqy615est CHAR(1),
+  jaqy615hof CHAR(8),
+  jaqy615hoi CHAR(8),
+  jaqy615cnt NUMBER(17)
+)
+;
+create index JAQY615_INX1 on JAQY615 (JAQY615NRO);
+alter table JAQY615
+  add primary key (JAQY615NRO, JAQY615COD);
+

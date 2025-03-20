@@ -1,0 +1,31 @@
+create table AQPA123A
+(
+  aqpa123afec DATE not null,
+  aqpa123acor NUMBER(9) not null,
+  aqpa123asol CHAR(10),
+  aqpa123atpo CHAR(20),
+  aqpa123anro CHAR(20),
+  aqpa123anom CHAR(100),
+  aqpa123aapp CHAR(100),
+  aqpa123aapm CHAR(100),
+  aqpa123arem CHAR(50),
+  aqpa123afin CHAR(50),
+  aqpa123affi CHAR(50),
+  aqpa123anre CHAR(20),
+  aqpa123araz CHAR(150),
+  aqpa123aest CHAR(1),
+  aqpa123aax1 NUMBER(9),
+  aqpa123aax2 NUMBER(9),
+  aqpa123aax3 NUMBER(17,2),
+  aqpa123aax4 NUMBER(17,2),
+  aqpa123aax5 DATE,
+  aqpa123aax6 DATE,
+  aqpa123aax7 CHAR(100),
+  aqpa123aax8 CHAR(100),
+  aqpa123aax9 CHAR(100)
+)
+;
+create index AQPA123A2 on AQPA123A (AQPA123ATPO, AQPA123ANRO, AQPA123AFIN);
+alter table AQPA123A
+  add primary key (AQPA123AFEC, AQPA123ACOR);
+

@@ -1,0 +1,43 @@
+create table JAQL601
+(
+  jaql546serial NUMBER(10) not null,
+  jaql601feprt  DATE not null,
+  jaql601nusec  VARCHAR2(20) not null,
+  jaql601secue  NUMBER(6) not null,
+  jaql601nubol  VARCHAR2(10),
+  jaql601tidoc  VARCHAR2(10),
+  jaql601notdo  VARCHAR2(20),
+  jaql601moned  VARCHAR2(10),
+  jaql601demda  VARCHAR2(20),
+  jaql601monto  NUMBER(17,2),
+  jaql601emdoc  VARCHAR2(30),
+  jaql601notar  VARCHAR2(10),
+  jaql601nonot  VARCHAR2(50),
+  jaql601feven  DATE,
+  jaql601fereg  DATE,
+  jaql601femod  DATE,
+  jaql601tireg  VARCHAR2(10),
+  jaql601notre  VARCHAR2(30),
+  jaql601proce  VARCHAR2(10),
+  jaql601nutiv  VARCHAR2(50),
+  jaql601feact  DATE,
+  jaql601tidet  CHAR(2),
+  jaql601dven   NUMBER(10),
+  jaql601concod VARCHAR2(16),
+  jaql601creusr VARCHAR2(10),
+  jaql601cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL601.jaql601dven
+  is 'Dias Vencidos';
+comment on column JAQL601.jaql601concod
+  is 'Código de Consulta';
+comment on column JAQL601.jaql601creusr
+  is 'Usuario Creación';
+comment on column JAQL601.jaql601cretim
+  is 'Fecha Hora Registro';
+create index JAQL601A2 on JAQL601 (JAQL546SERIAL, JAQL601TIDET, JAQL601FEPRT);
+create unique index JAQL60100 on JAQL601 (JAQL546SERIAL, JAQL601FEPRT, JAQL601NUSEC, JAQL601SECUE);
+alter table JAQL601
+  add constraint JAQL601_P1 primary key (JAQL546SERIAL, JAQL601FEPRT, JAQL601NUSEC, JAQL601SECUE);
+

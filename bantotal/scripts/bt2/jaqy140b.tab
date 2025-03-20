@@ -1,0 +1,59 @@
+create table JAQY140B
+(
+  jaqy140corr    NUMBER(10) not null,
+  jaqy140pais    NUMBER(9) not null,
+  jaqy140tdoc    NUMBER(9) not null,
+  jaqy140ndoc    VARCHAR2(12) not null,
+  jaqy140tcamb   NUMBER(14,8),
+  jaqy140inst    NUMBER(12) not null,
+  jaqy140fec     DATE not null,
+  jaqy140hora    CHAR(8) not null,
+  jaqy140capcaja NUMBER(17,2),
+  jaqy140sldext  NUMBER(17,2),
+  jaqy140resnet  NUMBER(17,2),
+  jaqy140ccontg  NUMBER(17,2),
+  jaqy140cpoten  NUMBER(17,2),
+  jaqy140ratio   NUMBER(17,6),
+  jaqy140ind     VARCHAR2(2),
+  jaqy140est     VARCHAR2(2),
+  jaqy140user    VARCHAR2(10),
+  jaqy140indme   VARCHAR2(5),
+  jaqy140instcrd NUMBER(10),
+  jaqy140evalme  NUMBER(10)
+)
+;
+comment on column JAQY140B.jaqy140corr
+  is 'Correlativo';
+comment on column JAQY140B.jaqy140pais
+  is 'Pais de Documento';
+comment on column JAQY140B.jaqy140tdoc
+  is 'Tipo de Documento';
+comment on column JAQY140B.jaqy140ndoc
+  is 'Nro de Documento';
+comment on column JAQY140B.jaqy140tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column JAQY140B.jaqy140inst
+  is 'Instancia';
+comment on column JAQY140B.jaqy140fec
+  is 'Fecha de Proceso';
+comment on column JAQY140B.jaqy140capcaja
+  is 'Capacidad en la Caja';
+comment on column JAQY140B.jaqy140sldext
+  is 'Saldo Externo - Sistema Financiero';
+comment on column JAQY140B.jaqy140resnet
+  is 'Resultado Neto';
+comment on column JAQY140B.jaqy140ratio
+  is 'Ratio Cuota Resultado';
+comment on column JAQY140B.jaqy140ind
+  is 'Indicador P pyme';
+comment on column JAQY140B.jaqy140indme
+  is 'Indicador si mantiene evaluacion S/N';
+comment on column JAQY140B.jaqy140instcrd
+  is 'Nro de Instancia de la que mantiene evaluacion';
+comment on column JAQY140B.jaqy140evalme
+  is 'Nro de Evaluacion,mantiene evaluacion';
+create index JAQY140B2 on JAQY140B (JAQY140CORR, JAQY140FEC, JAQY140HORA);
+create index JAQY140B3 on JAQY140B (JAQY140INST);
+alter table JAQY140B
+  add primary key (JAQY140CORR, JAQY140PAIS, JAQY140TDOC, JAQY140NDOC, JAQY140INST, JAQY140FEC, JAQY140HORA);
+

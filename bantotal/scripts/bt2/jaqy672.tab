@@ -1,0 +1,69 @@
+create table JAQY672
+(
+  jaqy672cor   NUMBER(10) not null,
+  jaqy672fch   DATE,
+  jaqy672fen   TIMESTAMP(6),
+  jaqy672dni   VARCHAR2(12),
+  jaqy672mai   VARCHAR2(50),
+  jaqy672cue   CLOB,
+  jaqy672usr   VARCHAR2(10),
+  jaqy672use   VARCHAR2(10),
+  jaqy672est   CHAR(1),
+  jaqy672mot   VARCHAR2(400),
+  jaqy672err   VARCHAR2(400),
+  jaqy672ax1   VARCHAR2(50),
+  jaqy672hrg   CHAR(8),
+  jaqy672hre   CHAR(8),
+  jaqy672uconf VARCHAR2(10),
+  jaqy672fconf DATE,
+  jaqy672hconf VARCHAR2(10),
+  jaqy672ctrl  NUMBER,
+  jaqy672rep   VARCHAR2(12)
+)
+;
+comment on table JAQY672
+  is 'TABLA DE REGISTRO FAMILIARES';
+comment on column JAQY672.jaqy672cor
+  is 'CORRELATIVO DE TABLA';
+comment on column JAQY672.jaqy672fch
+  is 'FECHA DE GENERACION';
+comment on column JAQY672.jaqy672fen
+  is 'FECHA DE ENVIO';
+comment on column JAQY672.jaqy672dni
+  is 'DNI DEL TRABAJADOR';
+comment on column JAQY672.jaqy672mai
+  is 'MAIL DEL TRABAJADOR';
+comment on column JAQY672.jaqy672cue
+  is 'CUERPO DEL MENSAJE';
+comment on column JAQY672.jaqy672usr
+  is 'USUARIO QUE GENERO ';
+comment on column JAQY672.jaqy672use
+  is 'USUARIO QUE ENVIO ';
+comment on column JAQY672.jaqy672est
+  is 'ESTADO DE ENVIO S=ENVIADO, N=NO ENVIADO';
+comment on column JAQY672.jaqy672mot
+  is 'MOTIVO DEL NO ENVIO';
+comment on column JAQY672.jaqy672err
+  is 'MOTIVODE ERROR DE GENERACION';
+comment on column JAQY672.jaqy672ax1
+  is 'AUXILIAR 1';
+comment on column JAQY672.jaqy672hrg
+  is 'HORA GENERACION';
+comment on column JAQY672.jaqy672hre
+  is 'HORA ENVIO';
+comment on column JAQY672.jaqy672uconf
+  is 'USUARIO CONFIRMACION';
+comment on column JAQY672.jaqy672fconf
+  is 'FECHA CONFIRMACION';
+comment on column JAQY672.jaqy672hconf
+  is 'HORA CONFIRMACION';
+comment on column JAQY672.jaqy672ctrl
+  is 'CONTROL 1/0 ';
+comment on column JAQY672.jaqy672rep
+  is 'DATO REPORTE';
+create index JAQY6721 on JAQY672 (JAQY672MAI, JAQY672REP, JAQY672CTRL);
+create index JAQY6722 on JAQY672 (JAQY672DNI);
+create index JAQY6723 on JAQY672 (JAQY672FCH, JAQY672DNI, JAQY672USR);
+alter table JAQY672
+  add primary key (JAQY672COR);
+

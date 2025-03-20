@@ -1,0 +1,39 @@
+create table FBC896
+(
+  fbc896emp  NUMBER(3) not null,
+  fbc896fec  DATE not null,
+  fbc896suc  NUMBER(3) not null,
+  fbc896rub  NUMBER(16) not null,
+  fbc896mda  NUMBER(4) not null,
+  fbc896pap  NUMBER(4) not null,
+  fbc896cta  NUMBER(9) not null,
+  fbc896oper NUMBER(9) not null,
+  fbc896sbop NUMBER(3) not null,
+  fbc896tope NUMBER(3) not null,
+  fbc896pais NUMBER(3) not null,
+  fbc896tdoc NUMBER(2) not null,
+  fbc896ndoc CHAR(12) not null,
+  fbc896clin CHAR(11),
+  fbc896ibli CHAR(1),
+  fbc896tlin CHAR(2),
+  fbc896rubc CHAR(14),
+  fbc896mnda CHAR(3),
+  fbc896rlin CHAR(1),
+  fbc896cuni CHAR(1),
+  fbc896mtoa NUMBER(17,2),
+  fbc896mtou NUMBER(17,2),
+  fbc896aux1 NUMBER(16),
+  fbc896aux2 NUMBER(16),
+  fbc896aux3 NUMBER(16),
+  fbc896aux4 NUMBER(17,2),
+  fbc896aux5 NUMBER(17,2),
+  fbc896aux6 NUMBER(17,2),
+  fbc896aux7 CHAR(50),
+  fbc896aux8 CHAR(50),
+  fbc896aux9 CHAR(50)
+)
+;
+create index FBC89602 on FBC896 (FBC896EMP, FBC896FEC, FBC896PAIS, FBC896TDOC, FBC896NDOC);
+alter table FBC896
+  add primary key (FBC896EMP, FBC896FEC, FBC896SUC, FBC896RUB, FBC896MDA, FBC896PAP, FBC896CTA, FBC896OPER, FBC896SBOP, FBC896TOPE, FBC896PAIS, FBC896TDOC, FBC896NDOC);
+

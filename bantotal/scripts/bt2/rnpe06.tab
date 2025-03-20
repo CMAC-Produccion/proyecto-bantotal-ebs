@@ -1,0 +1,48 @@
+create table RNPE06
+(
+  rnpe06emp NUMBER(3) not null,
+  rnpe06fch DATE not null,
+  rnpe06inf CHAR(25) not null,
+  rnpe06pai NUMBER(3) not null,
+  rnpe06tdc NUMBER(4) not null,
+  rnpe06ndc CHAR(25) not null,
+  rnpe06cta NUMBER(9) not null,
+  rnpe06id1 NUMBER(9) not null,
+  rnpe06id2 NUMBER(9) not null,
+  rnpe06id3 NUMBER(5) not null,
+  rnpe06ciu NUMBER(11),
+  rnpe06ims NUMBER(17,2),
+  rnpe06imn NUMBER(17,2),
+  rnpe06ime NUMBER(17,2),
+  rnpe06rak CHAR(1),
+  rnpe06a01 NUMBER(9),
+  rnpe06a02 NUMBER(9),
+  rnpe06a03 NUMBER(9),
+  rnpe06a04 VARCHAR2(150),
+  rnpe06a05 VARCHAR2(150),
+  rnpe06a06 VARCHAR2(150),
+  rnpe06a07 NUMBER(17,2),
+  rnpe06a08 NUMBER(17,2),
+  rnpe06a09 NUMBER(17,2),
+  rnpe06a10 DATE,
+  rnpe06a11 DATE,
+  rnpe06a12 DATE,
+  rnpe06a13 CHAR(1),
+  rnpe06a14 CHAR(1),
+  rnpe06a15 CHAR(1),
+  rnpe06a16 NUMBER(10,6),
+  rnpe06a17 NUMBER(10,6),
+  rnpe06a18 NUMBER(10,6)
+)
+compress;
+create index RNPE06A21 on RNPE06 (RNPE06EMP, RNPE06FCH, RNPE06INF, RNPE06CIU)
+  compress;
+create index RNPE06A31 on RNPE06 (RNPE06EMP, RNPE06FCH, RNPE06INF, RNPE06IMS)
+  compress;
+create index RNPE06A41 on RNPE06 (RNPE06EMP, RNPE06FCH, RNPE06INF, RNPE06CTA)
+  compress;
+create unique index RNPE06001 on RNPE06 (RNPE06EMP, RNPE06FCH, RNPE06INF, RNPE06PAI, RNPE06TDC, RNPE06NDC, RNPE06CTA, RNPE06ID1, RNPE06ID2, RNPE06ID3)
+  compress 9;
+alter table RNPE06
+  add constraint RNPE06_P1 primary key (RNPE06EMP, RNPE06FCH, RNPE06INF, RNPE06PAI, RNPE06TDC, RNPE06NDC, RNPE06CTA, RNPE06ID1, RNPE06ID2, RNPE06ID3);
+

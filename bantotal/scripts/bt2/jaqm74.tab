@@ -1,0 +1,75 @@
+create table JAQM74
+(
+  jaqm74fec DATE not null,
+  jaqm74hor CHAR(8) not null,
+  jaqm74ipa CHAR(20) not null,
+  jaqm74usr CHAR(10) not null,
+  jaqm74suc NUMBER(3) not null,
+  jaqm74doc VARCHAR2(50) not null,
+  jaqm74pai NUMBER(3),
+  jaqm74tdo NUMBER(2),
+  jaqm74ndo CHAR(12),
+  jaqm74pan CHAR(10),
+  jaqm74ai1 NUMBER(17,2),
+  jaqm74ai2 NUMBER(17,2),
+  jaqm74ai3 NUMBER(17,2),
+  jaqm74ad1 DATE,
+  jaqm74ad2 DATE,
+  jaqm74ad3 DATE,
+  jaqm74an1 NUMBER(9),
+  jaqm74an2 NUMBER(9),
+  jaqm74an3 NUMBER(9),
+  jaqm74ac1 CHAR(255),
+  jaqm74ac2 CHAR(255),
+  jaqm74ac3 CHAR(255)
+)
+;
+comment on table JAQM74
+  is 'Log de descarga de documentos';
+comment on column JAQM74.jaqm74fec
+  is 'Fecha';
+comment on column JAQM74.jaqm74hor
+  is 'Hora';
+comment on column JAQM74.jaqm74ipa
+  is 'Direccion IP';
+comment on column JAQM74.jaqm74usr
+  is 'Usuario';
+comment on column JAQM74.jaqm74suc
+  is 'Sucursal de Usuario';
+comment on column JAQM74.jaqm74doc
+  is 'Documento Consultado';
+comment on column JAQM74.jaqm74pai
+  is 'Pais';
+comment on column JAQM74.jaqm74tdo
+  is 'Tipo de Documento';
+comment on column JAQM74.jaqm74ndo
+  is 'Numero de documento';
+comment on column JAQM74.jaqm74pan
+  is 'Panel de Consulta';
+comment on column JAQM74.jaqm74ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM74.jaqm74ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM74.jaqm74ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM74.jaqm74ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM74.jaqm74ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM74.jaqm74ad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM74.jaqm74an1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM74.jaqm74an2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM74.jaqm74an3
+  is 'Auxilair Numerico 3';
+comment on column JAQM74.jaqm74ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM74.jaqm74ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM74.jaqm74ac3
+  is 'Auxiliar Caracter 3';
+alter table JAQM74
+  add primary key (JAQM74FEC, JAQM74HOR, JAQM74IPA, JAQM74USR, JAQM74SUC, JAQM74DOC);
+

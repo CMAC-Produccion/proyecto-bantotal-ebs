@@ -1,0 +1,75 @@
+create table JAQM5L
+(
+  jaqm5lfec DATE not null,
+  jaqm5lidr NUMBER(4) not null,
+  jaqm5lcor NUMBER(5) not null,
+  jaqm5lmod CHAR(3),
+  jaqm5lhor CHAR(10),
+  jaqm5lusu CHAR(10),
+  jaqm5lfep DATE,
+  jaqm5lhop CHAR(10),
+  jaqm5lusp CHAR(10),
+  jaqm5lest NUMBER(3),
+  jaqm5lai1 NUMBER(17,2),
+  jaqm5lai2 NUMBER(17,2),
+  jaqm5lai3 NUMBER(17,2),
+  jaqm5lan1 NUMBER(9),
+  jaqm5lan2 NUMBER(9),
+  jaqm5lan3 NUMBER(9),
+  jaqm5lac1 VARCHAR2(255),
+  jaqm5lac2 VARCHAR2(255),
+  jaqm5lac3 VARCHAR2(255),
+  jaqm5laf1 DATE,
+  jaqm5laf2 DATE,
+  jaqm5laf3 DATE
+)
+;
+comment on table JAQM5L
+  is 'Maestro de Importación de Plantilla BCR';
+comment on column JAQM5L.jaqm5lfec
+  is 'Fecha de Importación';
+comment on column JAQM5L.jaqm5lidr
+  is 'Id de Tabla de Importación';
+comment on column JAQM5L.jaqm5lcor
+  is 'Correlativo de Importación';
+comment on column JAQM5L.jaqm5lmod
+  is 'Tipo de funcionalidad de importación';
+comment on column JAQM5L.jaqm5lhor
+  is 'Hora de Importación';
+comment on column JAQM5L.jaqm5lusu
+  is 'Usuario de Importación';
+comment on column JAQM5L.jaqm5lfep
+  is 'Fecha de Procesamiento';
+comment on column JAQM5L.jaqm5lhop
+  is 'Hora de Procesamiento';
+comment on column JAQM5L.jaqm5lusp
+  is 'Usuario de Procesamiento';
+comment on column JAQM5L.jaqm5lest
+  is 'Estado de Procesamiento';
+comment on column JAQM5L.jaqm5lai1
+  is 'Auxiliar de Importe 1';
+comment on column JAQM5L.jaqm5lai2
+  is 'Auxiliar de Importe 2';
+comment on column JAQM5L.jaqm5lai3
+  is 'Auxiliar de Importe 3';
+comment on column JAQM5L.jaqm5lan1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM5L.jaqm5lan2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM5L.jaqm5lan3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM5L.jaqm5lac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM5L.jaqm5lac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM5L.jaqm5lac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM5L.jaqm5laf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM5L.jaqm5laf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM5L.jaqm5laf3
+  is 'Auxiliar Fecha 3';
+alter table JAQM5L
+  add primary key (JAQM5LFEC, JAQM5LIDR, JAQM5LCOR);
+

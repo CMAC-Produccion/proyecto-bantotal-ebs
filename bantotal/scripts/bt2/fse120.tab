@@ -1,0 +1,18 @@
+create table FSE120
+(
+  tccodpto NUMBER(3) not null,
+  tcmdapto NUMBER(4) not null,
+  tcimppto NUMBER(17,2) not null,
+  tccpapto NUMBER(14,8),
+  tcvtapto NUMBER(14,8),
+  tctocpto NUMBER(10,8),
+  tctovpto NUMBER(10,8),
+  tcarcpto NUMBER(14,8),
+  tcarvpto NUMBER(14,8),
+  tcartpto NUMBER(10,8),
+  tcarlpto NUMBER(14,8)
+)
+;
+alter table FSE120
+  add primary key (TCCODPTO, TCMDAPTO, TCIMPPTO);
+

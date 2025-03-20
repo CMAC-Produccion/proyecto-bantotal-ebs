@@ -1,0 +1,17 @@
+create table AQPA001
+(
+  aqpa001instan NUMBER(10) not null,
+  aqpa001tarea  NUMBER(5) not null,
+  aqpa001estad  VARCHAR2(1),
+  aqpa001fechi  DATE,
+  aqpa001horai  CHAR(8),
+  aqpa001usuai  CHAR(10),
+  aqpa001fechm  DATE,
+  aqpa001horam  CHAR(8),
+  aqpa001usuam  CHAR(10),
+  aqpa001can    NUMBER(5)
+)
+;
+alter table AQPA001
+  add primary key (AQPA001INSTAN, AQPA001TAREA);
+

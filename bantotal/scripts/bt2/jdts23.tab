@@ -1,0 +1,39 @@
+create table JDTS23
+(
+  jdts23apl  NUMBER(4) not null,
+  jdts23ban  CHAR(5) not null,
+  jdts23env  NUMBER(9) not null,
+  jdts23pgco NUMBER(3) not null,
+  jdts23scmo NUMBER(4) not null,
+  jdts23scmd NUMBER(4) not null,
+  jdts23scpa NUMBER(4) not null,
+  jdts23scct NUMBER(9) not null,
+  jdts23scsu NUMBER(3) not null,
+  jdts23scop NUMBER(9) not null,
+  jdts23scsb NUMBER(3) not null,
+  jdts23scto NUMBER(3) not null,
+  jdts23corr NUMBER(9),
+  jdts23cta  CHAR(25),
+  jdts23cli  CHAR(100),
+  jdts23sdo_ NUMBER(17,2),
+  jdts23sdo3 NUMBER(17,2),
+  jdts23sdo6 NUMBER(17,2),
+  jdts23sdo9 NUMBER(17,2),
+  jdts23sdom NUMBER(17,2),
+  jdts23est  CHAR(1),
+  jdts23obs  VARCHAR2(2000),
+  jdts23fecv DATE,
+  jdts23desc VARCHAR2(50),
+  jdts23ds30 VARCHAR2(50),
+  jdts23ds60 VARCHAR2(50),
+  jdts23ds90 VARCHAR2(50),
+  jdts23dsdo VARCHAR2(50),
+  jdts23opt_ CHAR(1),
+  jdts23deut NUMBER(17,2),
+  jdts23ci   CHAR(15),
+  jdts23tipo CHAR(1)
+)
+;
+alter table JDTS23
+  add primary key (JDTS23APL, JDTS23BAN, JDTS23ENV, JDTS23PGCO, JDTS23SCMO, JDTS23SCMD, JDTS23SCPA, JDTS23SCCT, JDTS23SCSU, JDTS23SCOP, JDTS23SCSB, JDTS23SCTO);
+

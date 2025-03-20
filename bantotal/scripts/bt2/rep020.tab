@@ -1,0 +1,12 @@
+create table REP020
+(
+  rep020cod  NUMBER(4) not null,
+  rep020nom  CHAR(20),
+  rep020idio CHAR(2),
+  rep022cod  NUMBER(4)
+)
+;
+create index REP02002 on REP020 (REP022COD);
+alter table REP020
+  add primary key (REP020COD);
+

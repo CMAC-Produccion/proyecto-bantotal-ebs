@@ -1,0 +1,42 @@
+create table FSFT04
+(
+  ktpgcod2 NUMBER(3) not null,
+  ktsuc    NUMBER(3) not null,
+  ktrub    NUMBER(16) not null,
+  ktmda    NUMBER(4) not null,
+  ktpap    NUMBER(4) not null,
+  ktctnro  NUMBER(9) not null,
+  sft71dep NUMBER(9) not null,
+  ktsubcta NUMBER(9) not null,
+  ktoper   NUMBER(9) not null,
+  ktsbop   NUMBER(3) not null,
+  kttope   NUMBER(3) not null,
+  ktidt    CHAR(15) not null,
+  ktidn    NUMBER(18) not null,
+  ktdis    CHAR(1),
+  ktimp    NUMBER(17,2),
+  ktvallam NUMBER(17,2),
+  ktsucing NUMBER(3),
+  ktmoding NUMBER(3),
+  kttrning NUMBER(3),
+  ktreling NUMBER(4),
+  ktfching DATE,
+  ktsucsal NUMBER(3),
+  ktmodsal NUMBER(3),
+  kttrnsal NUMBER(3),
+  ktrelsal NUMBER(4),
+  ktfchsal DATE,
+  ktimpres NUMBER(17,2),
+  ktgar    NUMBER(9),
+  ktaux001 NUMBER(9),
+  ktaux002 NUMBER(9),
+  ktaux003 NUMBER(17,2),
+  ktaux004 NUMBER(17,2),
+  ktaux005 CHAR(35),
+  ktaux006 CHAR(35)
+)
+;
+create index FSFT0402 on FSFT04 (KTPGCOD2, KTCTNRO, SFT71DEP, KTSUBCTA);
+alter table FSFT04
+  add primary key (KTPGCOD2, KTSUC, KTRUB, KTMDA, KTPAP, KTCTNRO, SFT71DEP, KTSUBCTA, KTOPER, KTSBOP, KTTOPE, KTIDT, KTIDN);
+

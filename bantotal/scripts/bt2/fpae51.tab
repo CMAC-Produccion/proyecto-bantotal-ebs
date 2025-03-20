@@ -1,0 +1,20 @@
+create table FPAE51
+(
+  pae51eva   NUMBER(3) not null,
+  pae51dsc   CHAR(40),
+  pae50tme   NUMBER(2),
+  pae51his   CHAR(1),
+  pae51kte1  NUMBER(14,8),
+  pae51kte2  NUMBER(14,8),
+  pae51kte3  NUMBER(14,8),
+  pae51res   CHAR(40),
+  pae51tipre CHAR(1),
+  pae51cont  NUMBER(10),
+  pae91cod   NUMBER(3)
+)
+;
+create index FPAE5102 on FPAE51 (PAE50TME);
+create index FPAE5103 on FPAE51 (PAE91COD);
+alter table FPAE51
+  add primary key (PAE51EVA);
+

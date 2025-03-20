@@ -1,0 +1,12 @@
+create table JMB023
+(
+  jmb023tgco NUMBER(2) not null,
+  jmb023grnr NUMBER(7) not null,
+  jmb020tvic NUMBER(2),
+  jmb023code CHAR(8)
+)
+;
+create index JMB02302 on JMB023 (JMB020TVIC);
+alter table JMB023
+  add primary key (JMB023TGCO, JMB023GRNR);
+

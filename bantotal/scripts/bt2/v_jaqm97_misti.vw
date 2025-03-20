@@ -1,0 +1,36 @@
+create or replace force view v_jaqm97_misti as
+select
+a.jaqm97fech,
+a.jaqm97hor,
+a.jaqm97cuen,
+a.jaqm97nuop,
+a.jaqm97anal,
+a.jaqm97clie,
+--a.jaqm97cal,
+a.jaqm97calp,
+a.jaqm97seg,
+a.jaqm97tili,
+a.jaqm97pout,
+a.jaqm97mont,
+a.jaqm97sald,
+a.jaqm97ulfe,
+a.jaqm97cony,
+a.jaqm97tise,
+a.jaqm97nu1,
+a.jaqm97nu2,
+a.jaqm97nu3,
+a.jaqm97m1,
+a.jaqm97m2,
+a.jaqm97m3,
+a.jaqm97chi1,
+a.jaqm97chi2,
+a.jaqm97chi3,
+a.jaqm97va1,
+a.jaqm97va2,
+a.jaqm97va3,
+a.jaqm97fe1,
+a.jaqm97fe2,
+a.jaqm97fe3
+from JAQM97 a
+;
+

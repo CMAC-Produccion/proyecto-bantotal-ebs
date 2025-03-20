@@ -1,0 +1,28 @@
+create table FSFI32
+(
+  sfi32emp   NUMBER(3) not null,
+  sfi32mer   NUMBER(3) not null,
+  sfi32pro   NUMBER(3) not null,
+  sfi32mon1  NUMBER(4) not null,
+  sfi32mon2  NUMBER(4) not null,
+  sfi31codv  NUMBER(3) not null,
+  sfi32des   CHAR(15),
+  sfi32hab   CHAR(1),
+  sfi32prg   CHAR(15),
+  sfi32aux1  NUMBER(3),
+  sfi32aux2  NUMBER(3),
+  sfi32aux3  NUMBER(4),
+  sfi32aux4  NUMBER(4),
+  sfi32aux5  NUMBER(9),
+  sfi32aux6  NUMBER(9),
+  sfi32aux7  CHAR(1),
+  sfi32aux8  CHAR(1),
+  sfi32aux9  CHAR(15),
+  sfi32aux10 CHAR(15),
+  sfi32aux11 DATE,
+  sfi32aux12 DATE
+)
+;
+alter table FSFI32
+  add primary key (SFI32EMP, SFI32MER, SFI32PRO, SFI32MON1, SFI32MON2, SFI31CODV);
+

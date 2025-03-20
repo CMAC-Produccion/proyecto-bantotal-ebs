@@ -1,0 +1,82 @@
+create table AQPB609B
+(
+  aqpb609bpgcod  NUMBER(3) not null,
+  aqpb609bmod    NUMBER(3) not null,
+  aqpb609bsuc    NUMBER(3) not null,
+  aqpb609bmon    NUMBER(4) not null,
+  aqpb609bpap    NUMBER(4) not null,
+  aqpb609bncta   NUMBER(9) not null,
+  aqpb609bnope   NUMBER(9) not null,
+  aqpb609bsope   NUMBER(3) not null,
+  aqpb609btope   NUMBER(3) not null,
+  aqpb609bins    NUMBER(10),
+  aqpb609bfimp   VARCHAR2(1),
+  aqpb609bpgcodt NUMBER(3),
+  aqpb609bsuct   NUMBER(3),
+  aqpb609bmodt   NUMBER(3),
+  aqpb609btrant  NUMBER(3),
+  aqpb609brelt   NUMBER(4),
+  aqpb609bfcon   DATE,
+  aqpb609bf608   VARCHAR2(1),
+  aqpb609bpais   NUMBER(3),
+  aqpb609btdoc   NUMBER(2),
+  aqpb609bndoc   VARCHAR2(12),
+  aqpb609bflst   DATE not null,
+  aqpb609bulst   VARCHAR2(10) not null,
+  aqpb609bmerr   VARCHAR2(250),
+  aqpb609bhora   VARCHAR2(10)
+)
+;
+comment on column AQPB609B.aqpb609bpgcod
+  is 'PGCOD';
+comment on column AQPB609B.aqpb609bmod
+  is 'MODULO';
+comment on column AQPB609B.aqpb609bsuc
+  is 'SUCURSAL';
+comment on column AQPB609B.aqpb609bmon
+  is 'MONEDA';
+comment on column AQPB609B.aqpb609bpap
+  is 'PAPEL';
+comment on column AQPB609B.aqpb609bncta
+  is 'NRO CUENTA';
+comment on column AQPB609B.aqpb609bnope
+  is 'OPERACIÓN';
+comment on column AQPB609B.aqpb609bsope
+  is 'SUB OPERACIÓN ';
+comment on column AQPB609B.aqpb609btope
+  is 'TIPO OPERACIÓN';
+comment on column AQPB609B.aqpb609bins
+  is 'INSTANCIA';
+comment on column AQPB609B.aqpb609bfimp
+  is 'FLAG IMPRESIÓN';
+comment on column AQPB609B.aqpb609bpgcodt
+  is 'PGCOD TRANSACCIÓN';
+comment on column AQPB609B.aqpb609bsuct
+  is 'SUCURSAL TRANSACCIÓN';
+comment on column AQPB609B.aqpb609bmodt
+  is 'MODULO TRANSACCIÓN';
+comment on column AQPB609B.aqpb609btrant
+  is 'TRANSACCIÓN';
+comment on column AQPB609B.aqpb609brelt
+  is 'RELACION TRANSACCIÓN';
+comment on column AQPB609B.aqpb609bfcon
+  is 'FECHA CONTABLE TRANSACCIÓN';
+comment on column AQPB609B.aqpb609bf608
+  is 'FLAG AQPB608';
+comment on column AQPB609B.aqpb609bpais
+  is 'PAIS';
+comment on column AQPB609B.aqpb609btdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB609B.aqpb609bndoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPB609B.aqpb609bflst
+  is 'FECHA LISTADO';
+comment on column AQPB609B.aqpb609bulst
+  is 'USUARIO LISTADO';
+comment on column AQPB609B.aqpb609bmerr
+  is 'MENSAJE DE ERROR';
+comment on column AQPB609B.aqpb609bhora
+  is 'HORA DE LA TRANSACCION';
+alter table AQPB609B
+  add primary key (AQPB609BPGCOD, AQPB609BMOD, AQPB609BSUC, AQPB609BMON, AQPB609BPAP, AQPB609BNCTA, AQPB609BNOPE, AQPB609BSOPE, AQPB609BTOPE, AQPB609BFLST, AQPB609BULST);
+

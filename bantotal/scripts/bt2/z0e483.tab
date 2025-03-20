@@ -1,0 +1,80 @@
+create table Z0E483
+(
+  z0e483nro CHAR(19) not null,
+  z0e483fch DATE not null,
+  z0e483hor CHAR(8) not null,
+  z0e483tip CHAR(1),
+  z0e483suc NUMBER(3),
+  z0e483cte NUMBER(9),
+  z0e483ctt NUMBER(9),
+  z0e483thp NUMBER(3),
+  z0e483tht NUMBER(2),
+  z0e483thd CHAR(12),
+  z0e483cdo NUMBER(2),
+  z0e468cod CHAR(1),
+  z0e469cod CHAR(3),
+  z0e462cod NUMBER(2),
+  z0e461cod CHAR(3),
+  z0e465cod NUMBER(2),
+  z0e483pes NUMBER(7,2),
+  z0e483nom CHAR(24),
+  z0e483lin CHAR(24),
+  z0e466cod NUMBER(3),
+  z0e477cod NUMBER(3),
+  z0e483tcd CHAR(1),
+  z0e483ctd CHAR(19),
+  z0e483dsu NUMBER(3),
+  z0e483dcd NUMBER(9),
+  z0e483dsc NUMBER(3),
+  z0e483dmo NUMBER(3),
+  z0e483dmn NUMBER(4),
+  z0e483dpa NUMBER(4),
+  z0e483dto NUMBER(3),
+  z0e483dop NUMBER(9),
+  z0e483nr1 NUMBER(9),
+  z0e483nr2 NUMBER(9),
+  z0e463cod NUMBER(1),
+  z0e483fmd DATE,
+  z0e483umd CHAR(10),
+  z0e483fau DATE,
+  z0e483uau CHAR(10),
+  z0e483est CHAR(2),
+  z0e483tnv CHAR(3),
+  z0e483csa NUMBER(3),
+  z0e483pgc NUMBER(3),
+  z0e483pla CHAR(15),
+  z0e483pls NUMBER(3),
+  z0e483res CHAR(1),
+  z0e483aut CHAR(1),
+  z0e483usr CHAR(10),
+  z0e483fuu DATE,
+  z0e483fep DATE,
+  z0e483frp DATE,
+  z0e483ceo CHAR(3),
+  z0e483tti CHAR(19),
+  z0e483adi CHAR(1),
+  z0e483lco NUMBER(3),
+  z0e483fvt DATE,
+  td13cod   NUMBER(5),
+  z0e483lex NUMBER(3),
+  z0e483seg CHAR(1),
+  z0e483fas DATE,
+  z0e483fbs DATE,
+  z0e483sde NUMBER(3)
+)
+;
+create index Z0E48302 on Z0E483 (Z0E463COD);
+create index Z0E48303 on Z0E483 (Z0E477COD);
+create index Z0E48304 on Z0E483 (Z0E466COD);
+create index Z0E48305 on Z0E483 (Z0E465COD);
+create index Z0E48306 on Z0E483 (Z0E461COD);
+create index Z0E48307 on Z0E483 (Z0E462COD);
+create index Z0E48308 on Z0E483 (Z0E469COD);
+create index Z0E48309 on Z0E483 (Z0E468COD);
+create index Z0E48310 on Z0E483 (Z0E483TTI);
+create index Z0E48311 on Z0E483 (TD13COD);
+create index Z0E48312 on Z0E483 (Z0E483SUC, Z0E483TNV, Z0E483FCH, Z0E483NRO);
+create index Z0E48313 on Z0E483 (Z0E483NRO, Z0E483TNV, Z0E483FCH, Z0E483HOR);
+alter table Z0E483
+  add primary key (Z0E483NRO, Z0E483FCH, Z0E483HOR);
+

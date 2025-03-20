@@ -1,0 +1,25 @@
+create table SNGG01
+(
+  sngg01cod  NUMBER(4) not null,
+  sngg01mod  NUMBER(3) not null,
+  sngg01suc  NUMBER(4) not null,
+  sngg01mda  NUMBER(4) not null,
+  sngg01pap  NUMBER(4) not null,
+  sngg01cta  NUMBER(9) not null,
+  sngg01ope  NUMBER(9) not null,
+  sngg01sbop NUMBER(4) not null,
+  sngg01tope NUMBER(3) not null,
+  sngg01ins  NUMBER(10) not null,
+  sngg01cor  NUMBER(6) not null,
+  sngg01sdo  NUMBER(17,2),
+  sngg01sdom NUMBER(17,2),
+  sngg01sdoe NUMBER(17,2),
+  sngg01fchv DATE,
+  sngg01sdod NUMBER(17,2)
+)
+;
+create index SNGG0102 on SNGG01 (SNGG01COD, SNGG01MOD, SNGG01SUC, SNGG01MDA, SNGG01PAP, SNGG01CTA, SNGG01OPE, SNGG01SBOP, SNGG01TOPE, SNGG01COR, SNGG01FCHV);
+create index SNGG0103 on SNGG01 (SNGG01COD, SNGG01SUC, SNGG01MDA, SNGG01PAP, SNGG01CTA, SNGG01SBOP, SNGG01MOD, SNGG01TOPE, SNGG01COR);
+alter table SNGG01
+  add primary key (SNGG01COD, SNGG01MOD, SNGG01SUC, SNGG01MDA, SNGG01PAP, SNGG01CTA, SNGG01OPE, SNGG01SBOP, SNGG01TOPE, SNGG01INS, SNGG01COR);
+

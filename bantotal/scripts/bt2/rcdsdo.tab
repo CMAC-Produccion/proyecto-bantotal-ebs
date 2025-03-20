@@ -1,0 +1,34 @@
+create table RCDSDO
+(
+  rcdsemp   NUMBER(3) not null,
+  rcdsinfo  CHAR(10) not null,
+  rcdsfech  DATE not null,
+  rcdsvia   NUMBER(3) not null,
+  rcdspais  NUMBER(3) not null,
+  rcdstdoc  NUMBER(2) not null,
+  rcdsndoc  CHAR(12) not null,
+  rcdssuc   NUMBER(4) not null,
+  rcdstcre  CHAR(2) not null,
+  rcdscdia  CHAR(4) not null,
+  rcdscdis  CHAR(2) not null,
+  rcdscesc  CHAR(2) not null,
+  rcdsfcc   CHAR(2) not null,
+  rcdsstm   CHAR(5) not null,
+  rcdsrubi  CHAR(14) not null,
+  rcdscorr  NUMBER(16) not null,
+  rcdsimp   NUMBER(17,2),
+  rcdsrubr  NUMBER(16),
+  rcdsofic  CHAR(4),
+  rcdsubge  CHAR(6),
+  rcdsope   NUMBER(9),
+  rcdinsecu NUMBER(8),
+  rcdaux3   CHAR(20),
+  rcdaux2   NUMBER(17,2),
+  rcdaux1   NUMBER(17,2)
+)
+compress;
+create unique index RCDSDO_00 on RCDSDO (RCDSEMP, RCDSINFO, RCDSFECH, RCDSVIA, RCDSPAIS, RCDSTDOC, RCDSNDOC, RCDSSUC, RCDSTCRE, RCDSCDIA, RCDSCDIS, RCDSCESC, RCDSFCC, RCDSSTM, RCDSRUBI, RCDSCORR)
+  compress 15;
+alter table RCDSDO
+  add constraint RCDSDO_PK primary key (RCDSEMP, RCDSINFO, RCDSFECH, RCDSVIA, RCDSPAIS, RCDSTDOC, RCDSNDOC, RCDSSUC, RCDSTCRE, RCDSCDIA, RCDSCDIS, RCDSCESC, RCDSFCC, RCDSSTM, RCDSRUBI, RCDSCORR);
+

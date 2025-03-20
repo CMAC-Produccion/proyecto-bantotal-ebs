@@ -1,0 +1,21 @@
+create table FBC780
+(
+  bc780emp   NUMBER(3) not null,
+  bc780fch   DATE not null,
+  bc780pais  NUMBER(3) not null,
+  bc780tdoc  NUMBER(2) not null,
+  bc780ndoc  CHAR(12) not null,
+  bc780nroop CHAR(22) not null,
+  bc780tipot NUMBER(2),
+  bc780focan CHAR(2),
+  bc780fchc  DATE,
+  bc780calif CHAR(1),
+  bc780aux1  CHAR(20),
+  bc780aux2  DATE,
+  bc780aux3  NUMBER(17,2)
+)
+;
+create index FBC78002 on FBC780 (BC780EMP, BC780PAIS, BC780TDOC, BC780NDOC, BC780FCH, BC780NROOP);
+alter table FBC780
+  add primary key (BC780EMP, BC780FCH, BC780PAIS, BC780TDOC, BC780NDOC, BC780NROOP);
+

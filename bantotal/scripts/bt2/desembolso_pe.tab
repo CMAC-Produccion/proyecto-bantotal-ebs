@@ -1,0 +1,218 @@
+create table DESEMBOLSO_PE
+(
+  segclie               NUMBER,
+  fecnac                DATE,
+  feccon                DATE,
+  tasa                  NUMBER(5),
+  plazo                 NUMBER(10),
+  cod_reg               NUMBER(3),
+  nom_reg               VARCHAR2(40),
+  tipo_cli              VARCHAR2(500),
+  codigo_sbs            VARCHAR2(4000),
+  cuenta_cliente        NUMBER(9),
+  codigo_ciiu           NUMBER,
+  operacion             NUMBER(9),
+  fecha_desembolso      DATE not null,
+  importe_desembolso_mo NUMBER(17,2),
+  importe_desembolso_mn NUMBER,
+  cuota                 NUMBER,
+  codigo_moneda         NUMBER(4),
+  codigo_producto       NUMBER(3),
+  producto              CHAR(30),
+  des_producto          CHAR(30),
+  codigo_rubro          NUMBER(16),
+  desrubro              CHAR(40),
+  codigo_tipo_credito   NUMBER,
+  tipo_sbs              CHAR(60),
+  modulo_transaccion    NUMBER(3) not null,
+  codigo_transaccion    NUMBER(3) not null,
+  nro_instancia         NUMBER,
+  tipo_doc              NUMBER(2) not null,
+  num_doc               CHAR(12) not null,
+  pais                  NUMBER(3) not null,
+  pgcod                 NUMBER(3) not null,
+  htoper                NUMBER(3),
+  hpap                  NUMBER(4),
+  hsucur                NUMBER(3),
+  hsubop                NUMBER(3),
+  totcred               NUMBER(3),
+  salcredant            NUMBER(17,2),
+  ocup                  VARCHAR2(4000),
+  eval                  NUMBER,
+  sal_bru_tit           NUMBER,
+  sal_bru_cony          NUMBER,
+  otros_ing             NUMBER,
+  total_ing             NUMBER,
+  total_activo          NUMBER,
+  total_patri           NUMBER,
+  total_ven             NUMBER,
+  tot_otro_ing          NUMBER,
+  util_net              NUMBER,
+  tot_gas_fam           NUMBER,
+  res_neto              NUMBER,
+  exc_men               NUMBER,
+  feceval               DATE,
+  tip_viv               VARCHAR2(100),
+  ent                   NUMBER,
+  salcapprov_12         NUMBER,
+  salcapprov_9          NUMBER,
+  salcapprov_6          NUMBER,
+  salcapprov_3          NUMBER,
+  salcapprov            NUMBER,
+  saldomes              NUMBER,
+  mto_gar               NUMBER,
+  tip_gar               VARCHAR2(1000),
+  califrcc              VARCHAR2(1),
+  califrcc3             VARCHAR2(1),
+  califrcc6             VARCHAR2(1),
+  califrcc9             VARCHAR2(1),
+  califrcc12            VARCHAR2(1),
+  grupo                 NUMBER,
+  grupo1                NUMBER
+)
+;
+comment on table DESEMBOLSO_PE
+  is 'DESEMBOLSO_PE PQ_CARGA_DATA_RIE_CAMPAÑA';
+comment on column DESEMBOLSO_PE.segclie
+  is 'SEGCLIE        ';
+comment on column DESEMBOLSO_PE.fecnac
+  is 'FECNAC         ';
+comment on column DESEMBOLSO_PE.feccon
+  is 'FECCON         ';
+comment on column DESEMBOLSO_PE.tasa
+  is 'TASA           ';
+comment on column DESEMBOLSO_PE.plazo
+  is 'PLAZO          ';
+comment on column DESEMBOLSO_PE.cod_reg
+  is 'COD_REG        ';
+comment on column DESEMBOLSO_PE.nom_reg
+  is 'NOM_REG        ';
+comment on column DESEMBOLSO_PE.tipo_cli
+  is 'TIPO_CLI       ';
+comment on column DESEMBOLSO_PE.codigo_sbs
+  is 'CODIGO_SBS     ';
+comment on column DESEMBOLSO_PE.cuenta_cliente
+  is 'CUENTA_CLIENTE ';
+comment on column DESEMBOLSO_PE.codigo_ciiu
+  is 'CODIGO_CIIU    ';
+comment on column DESEMBOLSO_PE.operacion
+  is 'OPERACION      ';
+comment on column DESEMBOLSO_PE.fecha_desembolso
+  is 'FECHA_DESEMBOLSO      ';
+comment on column DESEMBOLSO_PE.importe_desembolso_mo
+  is 'IMPORTE_DESEMBOLSO_MO ';
+comment on column DESEMBOLSO_PE.importe_desembolso_mn
+  is 'IMPORTE_DESEMBOLSO_MN ';
+comment on column DESEMBOLSO_PE.cuota
+  is 'CUOTA                 ';
+comment on column DESEMBOLSO_PE.codigo_moneda
+  is 'CODIGO_MONEDA         ';
+comment on column DESEMBOLSO_PE.codigo_producto
+  is 'CODIGO_PRODUCTO       ';
+comment on column DESEMBOLSO_PE.producto
+  is 'PRODUCTO              ';
+comment on column DESEMBOLSO_PE.des_producto
+  is 'DES_PRODUCTO          ';
+comment on column DESEMBOLSO_PE.codigo_rubro
+  is 'CODIGO_RUBRO          ';
+comment on column DESEMBOLSO_PE.desrubro
+  is 'DESRUBRO              ';
+comment on column DESEMBOLSO_PE.codigo_tipo_credito
+  is 'CODIGO_TIPO_CREDITO   ';
+comment on column DESEMBOLSO_PE.tipo_sbs
+  is 'TIPO_SBS              ';
+comment on column DESEMBOLSO_PE.modulo_transaccion
+  is 'MODULO_TRANSACCION    ';
+comment on column DESEMBOLSO_PE.codigo_transaccion
+  is 'CODIGO_TRANSACCION    ';
+comment on column DESEMBOLSO_PE.nro_instancia
+  is 'NRO_INSTANCIA         ';
+comment on column DESEMBOLSO_PE.tipo_doc
+  is 'TIPO_DOC    ';
+comment on column DESEMBOLSO_PE.num_doc
+  is 'NUM_DOC     ';
+comment on column DESEMBOLSO_PE.pais
+  is 'PAIS        ';
+comment on column DESEMBOLSO_PE.pgcod
+  is 'PGCOD       ';
+comment on column DESEMBOLSO_PE.htoper
+  is 'HTOPER      ';
+comment on column DESEMBOLSO_PE.hpap
+  is 'HPAP        ';
+comment on column DESEMBOLSO_PE.hsucur
+  is 'HSUCUR      ';
+comment on column DESEMBOLSO_PE.hsubop
+  is 'HSUBOP      ';
+comment on column DESEMBOLSO_PE.totcred
+  is 'TOTCRED     ';
+comment on column DESEMBOLSO_PE.salcredant
+  is 'SALCREDANT  ';
+comment on column DESEMBOLSO_PE.ocup
+  is 'OCUP        ';
+comment on column DESEMBOLSO_PE.eval
+  is 'EVAL        ';
+comment on column DESEMBOLSO_PE.sal_bru_tit
+  is 'SAL_BRU_TIT ';
+comment on column DESEMBOLSO_PE.sal_bru_cony
+  is 'SAL_BRU_CONY';
+comment on column DESEMBOLSO_PE.otros_ing
+  is 'OTROS_ING   ';
+comment on column DESEMBOLSO_PE.total_ing
+  is 'TOTAL_ING   ';
+comment on column DESEMBOLSO_PE.total_activo
+  is 'TOTAL_ACTIVO';
+comment on column DESEMBOLSO_PE.total_patri
+  is 'TOTAL_PATRI ';
+comment on column DESEMBOLSO_PE.total_ven
+  is 'TOTAL_VEN   ';
+comment on column DESEMBOLSO_PE.tot_otro_ing
+  is 'TOT_OTRO_ING ';
+comment on column DESEMBOLSO_PE.util_net
+  is 'UTIL_NET     ';
+comment on column DESEMBOLSO_PE.tot_gas_fam
+  is 'TOT_GAS_FAM  ';
+comment on column DESEMBOLSO_PE.res_neto
+  is 'RES_NETO     ';
+comment on column DESEMBOLSO_PE.exc_men
+  is 'EXC_MEN      ';
+comment on column DESEMBOLSO_PE.feceval
+  is 'FECEVAL      ';
+comment on column DESEMBOLSO_PE.tip_viv
+  is 'TIP_VIV      ';
+comment on column DESEMBOLSO_PE.ent
+  is 'ENT          ';
+comment on column DESEMBOLSO_PE.salcapprov_12
+  is 'SALCAPPROV_12';
+comment on column DESEMBOLSO_PE.salcapprov_9
+  is 'SALCAPPROV_9 ';
+comment on column DESEMBOLSO_PE.salcapprov_6
+  is 'SALCAPPROV_6 ';
+comment on column DESEMBOLSO_PE.salcapprov_3
+  is 'SALCAPPROV_3 ';
+comment on column DESEMBOLSO_PE.salcapprov
+  is 'SALCAPPROV   ';
+comment on column DESEMBOLSO_PE.saldomes
+  is 'SALDOMES     ';
+comment on column DESEMBOLSO_PE.mto_gar
+  is 'MTO_GAR      ';
+comment on column DESEMBOLSO_PE.tip_gar
+  is 'TIP_GAR      ';
+comment on column DESEMBOLSO_PE.califrcc
+  is 'CALIFRCC     ';
+comment on column DESEMBOLSO_PE.califrcc3
+  is 'CALIFRCC3    ';
+comment on column DESEMBOLSO_PE.califrcc6
+  is 'CALIFRCC6    ';
+comment on column DESEMBOLSO_PE.califrcc9
+  is 'CALIFRCC9    ';
+comment on column DESEMBOLSO_PE.califrcc12
+  is 'CALIFRCC12   ';
+comment on column DESEMBOLSO_PE.grupo
+  is 'GRUPO        ';
+comment on column DESEMBOLSO_PE.grupo1
+  is 'GRUPO1       ';
+create index INDEX_DPE01 on DESEMBOLSO_PE (NRO_INSTANCIA);
+create index INDEX_DPE02 on DESEMBOLSO_PE (PAIS, TIPO_DOC, NUM_DOC);
+create index INDEX_DPE03 on DESEMBOLSO_PE (CODIGO_SBS);
+create index INDEX_DPE04 on DESEMBOLSO_PE (PGCOD, HSUCUR, CODIGO_PRODUCTO, CODIGO_MONEDA, HPAP, CUENTA_CLIENTE, OPERACION, HSUBOP, HTOPER);
+

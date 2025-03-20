@@ -1,0 +1,13 @@
+create table CACONBLOB
+(
+  caconid     NUMBER(10) not null,
+  caconlng    CHAR(3) not null,
+  caconvers   NUMBER(6) not null,
+  caconblobid NUMBER(4) not null,
+  caconblob   BLOB,
+  caconflenme CHAR(254)
+)
+;
+alter table CACONBLOB
+  add primary key (CACONID, CACONLNG, CACONVERS, CACONBLOBID);
+

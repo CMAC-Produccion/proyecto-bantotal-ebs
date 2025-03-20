@@ -1,0 +1,45 @@
+create table FPP065
+(
+  pp065sgcod NUMBER(3) not null,
+  pp065forma NUMBER(2),
+  pp065mesa  NUMBER(5),
+  pp065end   CHAR(1),
+  pp065tipo1 NUMBER(3),
+  pp065tipo2 NUMBER(3),
+  pp065tipo3 NUMBER(3),
+  pp065tipo4 NUMBER(3),
+  pp065tipo5 NUMBER(3),
+  pp065pzo1  NUMBER(5),
+  pp065pzo2  NUMBER(5),
+  pp065pzo3  NUMBER(5),
+  pp065op1   CHAR(1),
+  pp065op2   CHAR(1),
+  pp065op3   CHAR(1),
+  pp065op4   CHAR(1),
+  pp065op5   CHAR(1),
+  pp065por1  NUMBER(10,6),
+  pp065por2  NUMBER(10,6),
+  pp065por3  NUMBER(10,6),
+  pp065por4  NUMBER(10,6),
+  pp065por5  NUMBER(10,6),
+  pp065imp1  NUMBER(17,2),
+  pp065imp2  NUMBER(17,2),
+  pp065imp3  NUMBER(17,2),
+  pp065imp4  NUMBER(17,2),
+  pp065imp5  NUMBER(17,2),
+  pp065rub   NUMBER(16),
+  pp065pgm1  CHAR(10),
+  pp065pgm2  CHAR(10),
+  pp065cocod NUMBER(3),
+  pp065tpiz  NUMBER(2),
+  pp065clas  NUMBER(2),
+  pp065aux1  CHAR(30),
+  pp065aux2  DATE,
+  pp065aux3  NUMBER(9),
+  pp065aux4  NUMBER(9),
+  pp065aux5  CHAR(100)
+)
+;
+alter table FPP065
+  add primary key (PP065SGCOD);
+

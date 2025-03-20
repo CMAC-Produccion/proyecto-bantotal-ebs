@@ -1,0 +1,21 @@
+create table FSFLO2
+(
+  kg082emp   NUMBER(3) not null,
+  kg082fhoy  DATE not null,
+  kg082hora  CHAR(8) not null,
+  kg082key   CHAR(150) not null,
+  kg082usui  CHAR(10),
+  kg082sti   CHAR(10),
+  kg082usuc  CHAR(10),
+  kg082stc   CHAR(10),
+  kg082horac CHAR(8),
+  kg082est   NUMBER(3),
+  kg082dlt   CHAR(1),
+  kg082aux1  NUMBER(9),
+  kg082aux2  NUMBER(9),
+  kg082aux3  CHAR(30)
+)
+;
+alter table FSFLO2
+  add primary key (KG082EMP, KG082FHOY, KG082HORA, KG082KEY);
+

@@ -1,0 +1,27 @@
+create table AUD_FST201_AUDIT
+(
+  aud_old_modulo     NUMBER(3),
+  aud_new_modulo     NUMBER(3),
+  aud_old_opmcod     NUMBER(5),
+  aud_new_opmcod     NUMBER(5),
+  aud_old_opmtxt     CHAR(30),
+  aud_new_opmtxt     CHAR(30),
+  aud_old_opmval     CHAR(1),
+  aud_new_opmval     CHAR(1),
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_fst201_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst201_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst201_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst201_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst201_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst201_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst201_ubu     VARCHAR2(50) default USER not null,
+  aud_fst201_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst201_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst201_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst201_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst201_uas     CHAR(1) default 'I' not null
+)
+;
+

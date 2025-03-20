@@ -1,0 +1,42 @@
+create table CSMT002
+(
+  csmt002cod NUMBER(4) not null,
+  csmt002des CHAR(40),
+  csmt002blq NUMBER(2),
+  csmt002flm NUMBER(3),
+  csmt002cpl NUMBER(3),
+  csmt002cln NUMBER(3),
+  csmt002cmd NUMBER(3),
+  csmt002cco NUMBER(3),
+  csmt002npl NUMBER(9),
+  csmt002mco CHAR(1),
+  csmt002pmo NUMBER(3),
+  csmt002ptr NUMBER(3),
+  csmt002bmo NUMBER(3),
+  csmt002btr NUMBER(3),
+  csmt002amo NUMBER(3),
+  csmt002atr NUMBER(3),
+  csmt002omo NUMBER(3),
+  csmt002otr NUMBER(3),
+  csmt002ext CHAR(1),
+  csmt002dup CHAR(1),
+  csmt002pmx NUMBER(17,2),
+  csmt002mda NUMBER(4),
+  csmt002lmx NUMBER(17,2),
+  csmt002deb CHAR(1),
+  csmt002pco CHAR(1),
+  csmt002ori CHAR(1),
+  csmt002aux CHAR(10),
+  csmt010cod NUMBER(3),
+  csmt011cod NUMBER(3),
+  csmt002dfd CHAR(1),
+  csmt002dfi CHAR(1),
+  csmt002apd CHAR(1),
+  csmt002api CHAR(1),
+  csmt002cab CHAR(1)
+)
+;
+create index CSMT0022 on CSMT002 (CSMT010COD, CSMT011COD);
+alter table CSMT002
+  add primary key (CSMT002COD);
+

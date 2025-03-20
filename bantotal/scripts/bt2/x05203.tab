@@ -1,0 +1,24 @@
+create table X05203
+(
+  hc03cdcbar NUMBER(2) not null,
+  hc03cdrgin NUMBER(4) not null,
+  hc03entdeb NUMBER(4),
+  hc03sucdeb NUMBER(4),
+  hc03codpos CHAR(6),
+  hc03nrochq NUMBER(13),
+  hc03ctadeb NUMBER(17),
+  hc03import NUMBER(10,2),
+  hc03fchpro DATE,
+  hc03cletpo CHAR(2),
+  hc03tippro CHAR(1),
+  hc03motrec NUMBER(2),
+  hc03rech   CHAR(1),
+  hc03ctamda NUMBER(4),
+  hc03status CHAR(1),
+  hc03contab CHAR(1),
+  hc03inssct NUMBER(3)
+)
+;
+alter table X05203
+  add primary key (HC03CDCBAR, HC03CDRGIN);
+

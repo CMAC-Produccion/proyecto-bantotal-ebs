@@ -1,0 +1,18 @@
+create table SNG222
+(
+  sng224cod NUMBER(3) not null,
+  sng225cod NUMBER(3) not null,
+  sng226cod NUMBER(3) not null,
+  sng222id  NUMBER(1) not null,
+  sng222prg CHAR(10),
+  sng222rep NUMBER(10),
+  sng222mot NUMBER(3),
+  sng222acc NUMBER(3),
+  sng222cie CHAR(1),
+  sng222prc NUMBER(4),
+  sng222tas NUMBER(4)
+)
+;
+alter table SNG222
+  add primary key (SNG224COD, SNG225COD, SNG226COD, SNG222ID);
+

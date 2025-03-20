@@ -1,0 +1,16 @@
+create table FSR207
+(
+  ordcodcli  NUMBER(3) not null,
+  ordnrocli  NUMBER(11) not null,
+  ordtespcli CHAR(1) not null,
+  ordcoddlr  NUMBER(3) not null,
+  ordnrodlr  NUMBER(11) not null,
+  ordtespdlr CHAR(1) not null,
+  ordcntadj  NUMBER(14,2),
+  ordpreadj  NUMBER(14,8)
+)
+;
+create index FSR20702 on FSR207 (ORDCODDLR, ORDNRODLR, ORDTESPDLR);
+alter table FSR207
+  add primary key (ORDCODCLI, ORDNROCLI, ORDTESPCLI, ORDCODDLR, ORDNRODLR, ORDTESPDLR);
+

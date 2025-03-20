@@ -1,0 +1,21 @@
+create table JHSA10
+(
+  jhsa10cod NUMBER(3) not null,
+  jhsa10pai NUMBER(3) not null,
+  jhsa10fch DATE not null,
+  jhsa10mda NUMBER(4) not null,
+  jhsa10pap NUMBER(4) not null,
+  jhsa10imp NUMBER(17,2),
+  jhsa10au1 NUMBER(9),
+  jhsa10au2 NUMBER(9),
+  jhsa10au3 NUMBER(17,2),
+  jhsa10au4 NUMBER(17,2),
+  jhsa10au5 DATE,
+  jhsa10au6 DATE,
+  jhsa10au7 CHAR(30),
+  jhsa10au8 CHAR(30)
+)
+;
+create unique index JHSA1001 on JHSA10 (JHSA10COD, JHSA10PAI, JHSA10FCH, JHSA10MDA, JHSA10PAP);
+create index JHSA1002 on JHSA10 (JHSA10COD, JHSA10FCH, JHSA10MDA, JHSA10PAP);
+

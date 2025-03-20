@@ -1,0 +1,11 @@
+CREATE OR REPLACE FORCE VIEW V_SNG057_USRGESTPERS AS
+SELECT
+sng055emp,
+sng057usr,
+sng055car,
+sng057sup,
+sng057ini,
+sng057fin,
+sng057jef
+FROM SNG057;
+

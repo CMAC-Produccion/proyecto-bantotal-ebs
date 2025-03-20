@@ -1,0 +1,13 @@
+create table FIF015
+(
+  if014apl NUMBER(4) not null,
+  if014ban CHAR(5) not null,
+  if014env NUMBER(9) not null,
+  if014crr NUMBER(5) not null,
+  if015hoj NUMBER(2) not null,
+  if015txt CHAR(78)
+)
+;
+alter table FIF015
+  add primary key (IF014APL, IF014BAN, IF014ENV, IF014CRR, IF015HOJ);
+

@@ -1,0 +1,75 @@
+create table JAQZ844
+(
+  jaqz844pais    NUMBER(5),
+  jaqz844tdoc    NUMBER(5),
+  jaqz844ndoc    VARCHAR2(12),
+  jaqz844nomb    VARCHAR2(150),
+  jaqz844pgcod   NUMBER(5) not null,
+  jaqz844suc     NUMBER(5) not null,
+  jaqz844rub     NUMBER(16) not null,
+  jaqz844mda     NUMBER(5) not null,
+  jaqz844pap     NUMBER(5) not null,
+  jaqz844cta     NUMBER(10) not null,
+  jaqz844ope     NUMBER(10) not null,
+  jaqz844sbop    NUMBER(10) not null,
+  jaqz844tope    NUMBER(10) not null,
+  jaqz844mod     NUMBER(5) not null,
+  jaqz844saldcap NUMBER(10,2),
+  jaqz844est     NUMBER(2),
+  jaqz844grup    NUMBER(5),
+  jaqz844mntmor1 NUMBER(10,2),
+  jaqz844mntmor2 NUMBER(10,2),
+  jaqz844diatr   NUMBER(5),
+  jaqz844aux1    VARCHAR2(50),
+  jaqz844aux2    VARCHAR2(50),
+  jaqz844aux3    VARCHAR2(50)
+)
+;
+comment on column JAQZ844.jaqz844pais
+  is 'PAIS CLIENTE';
+comment on column JAQZ844.jaqz844tdoc
+  is 'TIP DOC CLIENTE';
+comment on column JAQZ844.jaqz844ndoc
+  is 'NRO DOC CLIENTE';
+comment on column JAQZ844.jaqz844nomb
+  is 'NOMBRE CLIENTE';
+comment on column JAQZ844.jaqz844pgcod
+  is 'PGCOD';
+comment on column JAQZ844.jaqz844suc
+  is 'SUCURSAL';
+comment on column JAQZ844.jaqz844rub
+  is 'RUBRO';
+comment on column JAQZ844.jaqz844mda
+  is 'MONEDA';
+comment on column JAQZ844.jaqz844pap
+  is 'PAPEL';
+comment on column JAQZ844.jaqz844cta
+  is 'CUENTA';
+comment on column JAQZ844.jaqz844ope
+  is 'OPERACION';
+comment on column JAQZ844.jaqz844sbop
+  is 'SUB OPERACION';
+comment on column JAQZ844.jaqz844tope
+  is 'TIPO OPERACION';
+comment on column JAQZ844.jaqz844mod
+  is 'MODULO';
+comment on column JAQZ844.jaqz844saldcap
+  is 'SALDO CAPITAL';
+comment on column JAQZ844.jaqz844est
+  is 'ESTADO';
+comment on column JAQZ844.jaqz844mntmor1
+  is 'MONT MORA JAQL964';
+comment on column JAQZ844.jaqz844mntmor2
+  is 'MONT MORA ANDREA';
+comment on column JAQZ844.jaqz844diatr
+  is 'DIA ATRASO';
+comment on column JAQZ844.jaqz844aux1
+  is 'AUXILIAR 1';
+comment on column JAQZ844.jaqz844aux2
+  is 'AUXILIAR 2';
+comment on column JAQZ844.jaqz844aux3
+  is 'AUXILIAR 3';
+create index INX_02_JAQZ844 on JAQZ844 (JAQZ844AUX1);
+alter table JAQZ844
+  add primary key (JAQZ844PGCOD, JAQZ844MOD, JAQZ844SUC, JAQZ844MDA, JAQZ844PAP, JAQZ844CTA, JAQZ844OPE, JAQZ844SBOP, JAQZ844TOPE, JAQZ844RUB);
+

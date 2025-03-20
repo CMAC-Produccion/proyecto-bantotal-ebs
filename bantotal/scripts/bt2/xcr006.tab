@@ -1,0 +1,23 @@
+create table XCR006
+(
+  xcrremp    NUMBER(3) not null,
+  xcrrcta    NUMBER(9) not null,
+  xcrrsbop   NUMBER(3) not null,
+  xcrrmda    NUMBER(4) not null,
+  xcrrnumc   NUMBER(9) not null,
+  xcrrvemp   NUMBER(3) not null,
+  xcrrvnumtr CHAR(16) not null,
+  xcrrvcta   NUMBER(9) not null,
+  xcrrvsbop  NUMBER(3) not null,
+  xcrrvmda   NUMBER(4) not null,
+  xcrrvstatn NUMBER(5) not null,
+  xcrrvstats NUMBER(5) not null,
+  xcrrvorige CHAR(2) not null,
+  xcrrvlinea NUMBER(5) not null,
+  xcrrvaux   CHAR(10)
+)
+;
+create index XCR00603 on XCR006 (XCRRVEMP, XCRRVNUMTR, XCRRVCTA, XCRRVSBOP, XCRRVMDA, XCRRVSTATN, XCRRVSTATS, XCRRVORIGE, XCRRVLINEA);
+alter table XCR006
+  add primary key (XCRREMP, XCRRCTA, XCRRSBOP, XCRRMDA, XCRRNUMC, XCRRVEMP, XCRRVNUMTR, XCRRVCTA, XCRRVSBOP, XCRRVMDA, XCRRVSTATN, XCRRVSTATS, XCRRVORIGE, XCRRVLINEA);
+

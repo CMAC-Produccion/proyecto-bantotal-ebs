@@ -1,0 +1,13 @@
+create table FTD16
+(
+  td16caj    CHAR(16) not null,
+  td16fch    DATE not null,
+  td16sdoupe NUMBER(17,2),
+  td16sdoudo NUMBER(17,2),
+  td16sdobpe NUMBER(17,2),
+  td16sdobdo NUMBER(17,2)
+)
+;
+alter table FTD16
+  add primary key (TD16CAJ, TD16FCH);
+

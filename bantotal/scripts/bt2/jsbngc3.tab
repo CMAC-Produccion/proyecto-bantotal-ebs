@@ -1,0 +1,22 @@
+create table JSBNGC3
+(
+  jsbngc3usu CHAR(10) not null,
+  jsbngc3pgc NUMBER(3) not null,
+  jsbngc3reg NUMBER(3) not null,
+  jsbngc3suc NUMBER(3) not null,
+  jsbngc3rub NUMBER(16) not null,
+  jsbngc3fvc DATE not null,
+  jsbngc3mod NUMBER(3) not null,
+  jsbngc3tra NUMBER(3) not null,
+  jsbngc3tcb NUMBER(14,8),
+  jsbngc3pap NUMBER(4),
+  jsbngc3mda NUMBER(4),
+  jsbngc3dpe NUMBER(17,2),
+  jsbngc3dip NUMBER(17,2),
+  jsbngc3hpe NUMBER(17,2),
+  jsbngc3hor NUMBER(17,2)
+)
+;
+alter table JSBNGC3
+  add primary key (JSBNGC3USU, JSBNGC3PGC, JSBNGC3REG, JSBNGC3SUC, JSBNGC3RUB, JSBNGC3FVC, JSBNGC3MOD, JSBNGC3TRA);
+

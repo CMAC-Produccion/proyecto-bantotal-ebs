@@ -1,0 +1,10 @@
+create table JDTM02
+(
+  jdtm01tpbn NUMBER(4) not null,
+  jdtm02marc NUMBER(5) not null
+)
+;
+create index JDTM0203 on JDTM02 (JDTM02MARC);
+alter table JDTM02
+  add primary key (JDTM01TPBN, JDTM02MARC);
+

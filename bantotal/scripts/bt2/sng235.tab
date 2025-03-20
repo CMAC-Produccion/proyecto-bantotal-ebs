@@ -1,0 +1,13 @@
+create table SNG235
+(
+  sng229corr NUMBER(10) not null,
+  sng230corr NUMBER(10) not null,
+  sng235desc VARCHAR2(400) not null,
+  sng235fcha DATE,
+  sng235resa CHAR(60),
+  sng235ress CHAR(60)
+)
+;
+alter table SNG235
+  add primary key (SNG229CORR, SNG230CORR, SNG235DESC);
+

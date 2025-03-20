@@ -1,0 +1,45 @@
+create table JAQL534
+(
+  c_codmsg VARCHAR2(3) not null,
+  n_codtra NUMBER(9) not null,
+  n_regide NUMBER(18) not null,
+  n_movide NUMBER(5) not null,
+  c_coding VARCHAR2(2),
+  c_codres VARCHAR2(2),
+  d_fecini DATE,
+  c_horini VARCHAR2(10),
+  d_fecfin DATE,
+  c_horfin VARCHAR2(10),
+  c_codatm VARCHAR2(4),
+  c_codtra VARCHAR2(6),
+  c_numtra VARCHAR2(12),
+  n_timout NUMBER(1),
+  c_numtar VARCHAR2(16),
+  c_numcta VARCHAR2(17),
+  d_fecmov DATE,
+  c_codmon VARCHAR2(1),
+  n_monmov NUMBER(11,2),
+  n_monimp NUMBER(11,2),
+  n_salcue NUMBER(11,2),
+  c_codest VARCHAR2(1),
+  n_codtrf NUMBER(18),
+  c_menpro VARCHAR2(400),
+  c_numtrf VARCHAR2(12),
+  n_codmsg NUMBER(4),
+  c_tippro VARCHAR2(1),
+  c_ubiatm VARCHAR2(100)
+)
+;
+create index JAQL534_03 on JAQL534 (D_FECINI, C_NUMTRA);
+create index JAQL534_04 on JAQL534 (D_FECINI, C_CODATM);
+create index JAQL534_05 on JAQL534 (N_CODTRA);
+create index JAQL534_06 on JAQL534 (C_NUMTRA, C_CODMSG, N_CODTRA);
+create index JAQL534_07 on JAQL534 (C_NUMCTA);
+create index JAQL534_08 on JAQL534 (D_FECMOV);
+create index JAQL534_09 on JAQL534 (C_CODMON);
+create index JAQL534_10 on JAQL534 (N_CODTRF);
+create index JAQL534_11 on JAQL534 (C_NUMTAR);
+create index JAQL534_12 on JAQL534 (C_CODATM);
+alter table JAQL534
+  add primary key (C_CODMSG, N_CODTRA, N_REGIDE, N_MOVIDE);
+

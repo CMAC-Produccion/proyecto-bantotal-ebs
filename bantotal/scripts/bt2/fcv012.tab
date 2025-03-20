@@ -1,0 +1,24 @@
+create table FCV012
+(
+  cv012emp NUMBER(3) not null,
+  cv012suc NUMBER(3) not null,
+  cv012mon NUMBER(4) not null,
+  cv012cta NUMBER(9) not null,
+  cv012top NUMBER(3) not null,
+  cv012sop NUMBER(3) not null,
+  cv012mod NUMBER(3) not null,
+  cv012imp NUMBER(17,2),
+  cv012ax1 DATE,
+  cv012ax2 DATE,
+  cv012ax3 NUMBER(17,2),
+  cv012ax4 NUMBER(9),
+  cv012ax5 CHAR(200),
+  cv012ax6 CHAR(1),
+  cv012ax7 NUMBER(17,2),
+  cv012ax8 NUMBER(3),
+  cv012ax9 CHAR(20)
+)
+;
+alter table FCV012
+  add primary key (CV012EMP, CV012SUC, CV012MON, CV012CTA, CV012TOP, CV012SOP, CV012MOD);
+

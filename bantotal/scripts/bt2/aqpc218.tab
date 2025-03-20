@@ -1,0 +1,167 @@
+create table AQPC218
+(
+  aqpc218fec DATE not null,
+  aqpc218hor VARCHAR2(8) not null,
+  aqpc218usu VARCHAR2(10) not null,
+  aqpc218con NUMBER(17) not null,
+  aqpc218reg VARCHAR2(30),
+  aqpc218zon VARCHAR2(30),
+  aqpc218suc VARCHAR2(30),
+  aqpc218cta NUMBER(9),
+  aqpc218ope NUMBER(9),
+  aqpc218mod NUMBER(3),
+  aqpc218mda VARCHAR2(30),
+  aqpc218top NUMBER(3),
+  aqpc218sbo NUMBER(3),
+  aqpc218daa NUMBER(5),
+  aqpc218eca NUMBER(2),
+  aqpc218tit VARCHAR2(100),
+  aqpc218tdo VARCHAR2(30),
+  aqpc218ndo VARCHAR2(12),
+  aqpc218eac VARCHAR2(30),
+  aqpc218fea DATE,
+  aqpc218mem VARCHAR2(25),
+  aqpc218des VARCHAR2(40),
+  aqpc218obs VARCHAR2(500),
+  aqpc218cuo VARCHAR2(1000),
+  aqpc218cap NUMBER(17,2),
+  aqpc218int NUMBER(17,2),
+  aqpc218mor NUMBER(17,2),
+  aqpc218pen NUMBER(17,2),
+  aqpc218icv NUMBER(17,2),
+  aqpc218seg NUMBER(17,2),
+  aqpc218otr NUMBER(17,2),
+  aqpc218det NUMBER(17,2),
+  aqpc218moi NUMBER(17,2),
+  aqpc218mot NUMBER(17,2),
+  aqpc218ptc NUMBER(17,2),
+  aqpc218pto NUMBER(17,2),
+  aqpc218dif NUMBER(17,2),
+  aqpc218fup DATE,
+  aqpc218upc NUMBER(17,2),
+  aqpc218upt NUMBER(17,2),
+  aqpc218sca NUMBER(17,2),
+  aqpc218dat NUMBER(17),
+  aqpc218ecr VARCHAR2(30),
+  aqpc218sex CHAR(1),
+  aqpc218pca NUMBER(10,6),
+  aqpc218pin NUMBER(10,6),
+  aqpc218pia NUMBER(10,6),
+  aqpc218pma NUMBER(10,6),
+  aqpc218ppa NUMBER(10,6),
+  aqpc218pmc NUMBER(10,6),
+  aqpc218caa NUMBER(17,2),
+  aqpc218ina NUMBER(17,2),
+  aqpc218ica NUMBER(17,2),
+  aqpc218moa NUMBER(17,2),
+  aqpc218pea NUMBER(17,2),
+  aqpc218amc NUMBER(17,2),
+  aqpc218usc CHAR(10),
+  aqpc218sua CHAR(10)
+)
+;
+comment on table AQPC218
+  is 'Log Reporte Recuperaciones';
+comment on column AQPC218.aqpc218fec
+  is 'Fecha Registro';
+comment on column AQPC218.aqpc218hor
+  is 'Hora Registro';
+comment on column AQPC218.aqpc218usu
+  is 'Usuario Registro';
+comment on column AQPC218.aqpc218con
+  is 'Contador';
+comment on column AQPC218.aqpc218reg
+  is 'Región';
+comment on column AQPC218.aqpc218zon
+  is 'Zona';
+comment on column AQPC218.aqpc218suc
+  is 'Sucursal';
+comment on column AQPC218.aqpc218cta
+  is 'Cuenta';
+comment on column AQPC218.aqpc218ope
+  is 'Operación';
+comment on column AQPC218.aqpc218mod
+  is 'Módulo';
+comment on column AQPC218.aqpc218mda
+  is 'Moneda';
+comment on column AQPC218.aqpc218top
+  is 'Tipo de Operación';
+comment on column AQPC218.aqpc218sbo
+  is 'Sub Operación';
+comment on column AQPC218.aqpc218daa
+  is 'Dias Atraso';
+comment on column AQPC218.aqpc218eca
+  is 'Estado Crédito - Acuerdo';
+comment on column AQPC218.aqpc218tit
+  is 'Titular';
+comment on column AQPC218.aqpc218tdo
+  is 'Tipo Documento';
+comment on column AQPC218.aqpc218ndo
+  is 'Número Documento';
+comment on column AQPC218.aqpc218eac
+  is 'Estado Acuerdo';
+comment on column AQPC218.aqpc218fea
+  is 'Fecha de Acuerdo';
+comment on column AQPC218.aqpc218mem
+  is 'Memorando';
+comment on column AQPC218.aqpc218des
+  is 'Descripcion';
+comment on column AQPC218.aqpc218obs
+  is 'Observación';
+comment on column AQPC218.aqpc218cuo
+  is 'Cuotas';
+comment on column AQPC218.aqpc218cap
+  is 'Capital';
+comment on column AQPC218.aqpc218int
+  is 'Intereses';
+comment on column AQPC218.aqpc218mor
+  is 'Moratorio';
+comment on column AQPC218.aqpc218pen
+  is 'Penalidad';
+comment on column AQPC218.aqpc218icv
+  is 'ICV';
+comment on column AQPC218.aqpc218seg
+  is 'Seguros';
+comment on column AQPC218.aqpc218otr
+  is 'Otros';
+comment on column AQPC218.aqpc218det
+  is 'Deuda Total';
+comment on column AQPC218.aqpc218moi
+  is 'Monto Inicial';
+comment on column AQPC218.aqpc218mot
+  is 'Monto Total';
+comment on column AQPC218.aqpc218ptc
+  is 'Pago Total de Capital';
+comment on column AQPC218.aqpc218sex
+  is 'ES CON EXONERACION';
+comment on column AQPC218.aqpc218pca
+  is '%CAPEX';
+comment on column AQPC218.aqpc218pin
+  is '%INTEX';
+comment on column AQPC218.aqpc218pia
+  is '%ICVEX';
+comment on column AQPC218.aqpc218pma
+  is '%MOREX';
+comment on column AQPC218.aqpc218ppa
+  is '%PENEX';
+comment on column AQPC218.aqpc218pmc
+  is '%CAPITALIZACIONEX';
+comment on column AQPC218.aqpc218caa
+  is 'CAPEX';
+comment on column AQPC218.aqpc218ina
+  is 'INTEX';
+comment on column AQPC218.aqpc218ica
+  is 'ICVEX';
+comment on column AQPC218.aqpc218moa
+  is 'MOREX';
+comment on column AQPC218.aqpc218pea
+  is 'PENEX';
+comment on column AQPC218.aqpc218amc
+  is 'CAPITALIZACIONEX';
+comment on column AQPC218.aqpc218usc
+  is 'USUARIO EXONERACION';
+comment on column AQPC218.aqpc218sua
+  is 'USUARIO ACUERDO';
+alter table AQPC218
+  add primary key (AQPC218FEC, AQPC218HOR, AQPC218USU, AQPC218CON);
+

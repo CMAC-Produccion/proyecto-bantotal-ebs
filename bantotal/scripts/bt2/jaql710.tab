@@ -1,0 +1,39 @@
+create table JAQL710
+(
+  jaql710fepr DATE not null,
+  jaql710sucu NUMBER(3) not null,
+  jaql710colo NUMBER(17,2),
+  jaql710capt NUMBER(17,2),
+  jaql710inte NUMBER(8,2),
+  jaql710tope NUMBER(8,2),
+  jaql710tiin CHAR(1),
+  jaql710part NUMBER(7,4),
+  jaql710paac NUMBER(7,4),
+  jaql710tipa CHAR(1),
+  jaql710peca NUMBER(3),
+  jaql710prod NUMBER(17,2),
+  jaql710secu NUMBER(8,2),
+  jaql710tipr CHAR(1),
+  jaql710nucl NUMBER(9),
+  jaql710clie NUMBER(7,4),
+  jaql710clac NUMBER(7,4),
+  jaql710ticl CHAR(1),
+  jaql710tipo CHAR(1),
+  jaql710au01 NUMBER(9),
+  jaql710au02 NUMBER(9),
+  jaql710au03 NUMBER(9),
+  jaql710au04 NUMBER(17,2),
+  jaql710au05 NUMBER(17,2),
+  jaql710au06 NUMBER(17,2),
+  jaql710au07 CHAR(50),
+  jaql710au08 CHAR(50),
+  jaql710au09 CHAR(50),
+  jaql710au10 DATE,
+  jaql710au11 DATE,
+  jaql710au12 DATE
+)
+;
+create index IDX_JAQL710_01 on JAQL710 (JAQL710SUCU);
+alter table JAQL710
+  add primary key (JAQL710FEPR, JAQL710SUCU);
+

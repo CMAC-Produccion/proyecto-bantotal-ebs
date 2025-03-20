@@ -1,0 +1,21 @@
+create table Z99914
+(
+  z99913cap NUMBER(4) not null,
+  z99913cba CHAR(5) not null,
+  z99914cor NUMBER(9) not null,
+  z99914fcr DATE,
+  z99914hcr CHAR(8),
+  z99914ucr CHAR(10),
+  z99914fen DATE,
+  z99914hen CHAR(8),
+  z99914uen CHAR(10),
+  z99914fau DATE,
+  z99914hau CHAR(8),
+  z99914uau CHAR(10),
+  z99914est CHAR(2)
+)
+;
+create index Z9991404 on Z99914 (Z99913CAP, Z99913CBA, Z99914FCR);
+alter table Z99914
+  add primary key (Z99913CAP, Z99913CBA, Z99914COR);
+

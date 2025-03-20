@@ -1,0 +1,15 @@
+create table FTD15
+(
+  td15fchvig DATE not null,
+  td15horcom DATE,
+  td15horfin DATE,
+  td15usu    CHAR(10),
+  td15est    NUMBER(4)
+)
+;
+create index FTD1502 on FTD15 (TD15EST, TD15FCHVIG);
+create index FTD1503 on FTD15 (TD15USU, TD15FCHVIG);
+create index FTD1504 on FTD15 (TD15FCHVIG, TD15EST);
+alter table FTD15
+  add primary key (TD15FCHVIG);
+

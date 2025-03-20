@@ -1,0 +1,21 @@
+create table JAQZ237
+(
+  jaqz237serial NUMBER(10) not null,
+  jaqz237secue  NUMBER(6) not null,
+  jaqz237ferep  DATE not null,
+  jaqz237copuc  VARCHAR2(20) not null,
+  jaqz237coent  CHAR(5) not null,
+  jaqz237tidet  CHAR(2),
+  jaqz237feact  DATE,
+  jaqz237saldo  NUMBER(17,2),
+  jaqz237tobli  VARCHAR2(2),
+  jaqz237calif  CHAR(1),
+  jaqz237condi  CHAR(4),
+  jaqz237noent  VARCHAR2(100),
+  jaqz237indle  CHAR(1)
+)
+;
+create unique index JAQZ237_PK2 on JAQZ237 (JAQZ237SERIAL, JAQZ237SECUE, JAQZ237FEREP, JAQZ237COPUC, JAQZ237COENT);
+alter table JAQZ237
+  add primary key (JAQZ237SERIAL, JAQZ237SECUE, JAQZ237FEREP, JAQZ237COPUC, JAQZ237COENT);
+

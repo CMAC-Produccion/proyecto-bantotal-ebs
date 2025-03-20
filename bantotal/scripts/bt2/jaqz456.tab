@@ -1,0 +1,19 @@
+create table JAQZ456
+(
+  jaqz456fpro    DATE,
+  jaqz456itemid  NUMBER(10),
+  jaqz456insprci NUMBER(10) not null,
+  jaqz456init    DATE,
+  jaqz456stsact  NUMBER(1),
+  jaqz456p1      CHAR(1),
+  jaqz456p2      CHAR(1),
+  jaqz456p3      CHAR(1),
+  jaqz456dias    NUMBER(10),
+  jaqz456diagar  NUMBER(10)
+)
+;
+alter table JAQZ456
+  add constraint IDX_JAQZ4561 primary key (JAQZ456INSPRCI);
+alter table JAQZ456
+  add constraint IDX_JAQZ4562 unique (JAQZ456FPRO, JAQZ456INSPRCI);
+

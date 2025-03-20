@@ -1,0 +1,32 @@
+create table JAQL481
+(
+  jaql481cct NUMBER(4) not null,
+  jaql481ctr CHAR(10),
+  jaql481pgc NUMBER(3),
+  jaql481com NUMBER(3),
+  jaql481coc NUMBER(3),
+  jaql481cma NUMBER(4),
+  jaql481fei DATE,
+  jaql481fef DATE,
+  jaql481fec DATE,
+  jaql481fem DATE,
+  jaql481usc CHAR(10),
+  jaql481usm CHAR(10),
+  jaql481hcr CHAR(8),
+  jaql481hmo CHAR(8),
+  jaql481ax1 NUMBER(9),
+  jaql481ax2 NUMBER(9),
+  jaql481ax3 NUMBER(16,2),
+  jaql481ax4 NUMBER(16,2),
+  jaql481ax5 DATE,
+  jaql481ax6 DATE,
+  jaql481ax7 CHAR(200),
+  jaql481ax8 CHAR(200),
+  jaql481ax9 CHAR(200)
+)
+;
+create index JAQL481IDX001 on JAQL481 (JAQL481PGC, JAQL481COM, JAQL481COC, JAQL481CMA);
+create index JAQL481IDX002 on JAQL481 (JAQL481CTR);
+alter table JAQL481
+  add primary key (JAQL481CCT);
+

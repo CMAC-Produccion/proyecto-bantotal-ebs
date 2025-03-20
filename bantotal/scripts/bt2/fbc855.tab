@@ -1,0 +1,62 @@
+create table FBC855
+(
+  fbc855emp  NUMBER(4) not null,
+  fbc855pais NUMBER(3) not null,
+  fbc855tdoc NUMBER(2) not null,
+  fbc855doc  CHAR(12) not null,
+  fbc855tper CHAR(1) not null,
+  fbc855cta  NUMBER(18),
+  fbc855tcli CHAR(2),
+  fbc855tdin CHAR(2),
+  fbc855tide CHAR(2),
+  fbc855cide CHAR(12),
+  fbc855tico CHAR(2),
+  fbc855icom CHAR(40),
+  fbc855ptip CHAR(1),
+  fbc855tcem CHAR(2),
+  fbc855mgem CHAR(1),
+  fbc855apat CHAR(40),
+  fbc855amat CHAR(40),
+  fbc855acas CHAR(40),
+  fbc855pnom CHAR(40),
+  fbc855snom CHAR(40),
+  fbc855fnac DATE,
+  fbc855gene CHAR(1),
+  fbc855eciv CHAR(1),
+  fbc855tres CHAR(1),
+  fbc855pres CHAR(2),
+  fbc855pnac CHAR(2),
+  fbc855ubge CHAR(6),
+  fbc855czre NUMBER(5),
+  fbc855core NUMBER(5),
+  fbc855npar NUMBER(15),
+  fbc855seec CHAR(4),
+  fbc855cres CHAR(1),
+  fbc855care CHAR(1),
+  fbc855vinc CHAR(1),
+  fbc855rlab CHAR(1),
+  fbc855irie CHAR(3),
+  fbc855cmra NUMBER(3),
+  fbc855raso CHAR(10),
+  fbc855rcov CHAR(10),
+  fbc855fera DATE,
+  fbc855iclm CHAR(2),
+  fbc855cocm CHAR(2),
+  fbc855ccal CHAR(1),
+  fbc855crmo NUMBER(10),
+  fbc855num1 NUMBER(17,2),
+  fbc855num2 NUMBER(17,2),
+  fbc855txt1 CHAR(50),
+  fbc855txt2 CHAR(50),
+  fbc855fec1 DATE,
+  fbc855fec2 DATE,
+  fbc855log1 CHAR(1),
+  fbc855log2 CHAR(1)
+)
+;
+create index FBC85502 on FBC855 (FBC855EMP, FBC855TPER, FBC855PAIS, FBC855TDOC, FBC855DOC);
+create index FBC85503 on FBC855 (FBC855EMP, FBC855TPER, FBC855CTA, FBC855PAIS, FBC855TDOC, FBC855DOC);
+create index FBC85504 on FBC855 (FBC855EMP, FBC855CTA, FBC855TPER);
+alter table FBC855
+  add primary key (FBC855EMP, FBC855PAIS, FBC855TDOC, FBC855DOC, FBC855TPER);
+

@@ -1,0 +1,23 @@
+create table CDEINS8
+(
+  cdeinsid   NUMBER(18) not null,
+  cdcinscorr NUMBER(18) not null,
+  cdeins8via NUMBER(4) not null,
+  cdeins8d1  NUMBER(18),
+  cdeins8d2  NUMBER(18),
+  cdeins8d3  NUMBER(18),
+  cdeins8d4  NUMBER(18),
+  cdeins8d5  NUMBER(18),
+  cdeins8d6  NUMBER(18),
+  cdeins8h1  NUMBER(18),
+  cdeins8h2  NUMBER(18),
+  cdeins8h3  NUMBER(18),
+  cdeins8h4  NUMBER(18),
+  cdeins8h5  NUMBER(18),
+  cdeins8h6  NUMBER(18),
+  cdeins8vfs NUMBER(18)
+)
+;
+alter table CDEINS8
+  add primary key (CDEINSID, CDCINSCORR, CDEINS8VIA);
+

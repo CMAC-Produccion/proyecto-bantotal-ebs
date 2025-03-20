@@ -1,0 +1,14 @@
+create table FSFSD2
+(
+  sfsd1emp  NUMBER(3) not null,
+  sfst1merc NUMBER(3) not null,
+  sfsd1prpr CHAR(1) not null,
+  sfsd1nro  NUMBER(16) not null,
+  sfsd2reng NUMBER(6) not null,
+  sfsd2txt  CHAR(250),
+  sfsd2est  CHAR(1)
+)
+;
+alter table FSFSD2
+  add primary key (SFSD1EMP, SFST1MERC, SFSD1PRPR, SFSD1NRO, SFSD2RENG);
+

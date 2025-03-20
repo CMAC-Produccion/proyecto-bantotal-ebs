@@ -1,0 +1,24 @@
+create table JAQY349
+(
+  jaqy349pai NUMBER(3) not null,
+  jaqy349tdo NUMBER(2) not null,
+  jaqy349ndo CHAR(12) not null,
+  jaqy349fec DATE not null,
+  jaqy349con NUMBER(10),
+  jaqy349his CHAR(1)
+)
+;
+comment on column JAQY349.jaqy349pai
+  is 'Pais';
+comment on column JAQY349.jaqy349tdo
+  is 'Tipo de documento';
+comment on column JAQY349.jaqy349ndo
+  is 'Numero de documento';
+comment on column JAQY349.jaqy349fec
+  is 'Fecha de Proceso';
+comment on column JAQY349.jaqy349con
+  is 'Historial en Meses';
+comment on column JAQY349.jaqy349his
+  is 'Historial en Variable';
+create index IDX_JAQY349_01 on JAQY349 (JAQY349PAI, JAQY349TDO, JAQY349NDO, JAQY349FEC);
+

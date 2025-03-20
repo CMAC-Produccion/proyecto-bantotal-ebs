@@ -1,0 +1,30 @@
+create table CSW012
+(
+  csw012pgc NUMBER(3) not null,
+  csw012usu CHAR(10) not null,
+  csw012fec DATE not null,
+  csw012wst CHAR(10) not null,
+  csw012hor CHAR(8) not null,
+  csw012inf CHAR(10) not null,
+  csw012cip CHAR(8) not null,
+  csw012det NUMBER(1) not null,
+  csw012cor NUMBER(15) not null,
+  csw012ope NUMBER(9),
+  csw012suo NUMBER(3),
+  csw012tio NUMBER(3),
+  csw012suc NUMBER(3),
+  csw012feo DATE,
+  csw012pap NUMBER(4),
+  csw012mon NUMBER(4),
+  csw012sig CHAR(4),
+  csw012esc CHAR(1),
+  csw012sdo NUMBER(17,2),
+  csw012arb NUMBER(7,5),
+  csw012sdd NUMBER(17,2),
+  csw012mod NUMBER(3),
+  csw012rub NUMBER(16)
+)
+;
+alter table CSW012
+  add primary key (CSW012PGC, CSW012USU, CSW012FEC, CSW012WST, CSW012HOR, CSW012INF, CSW012CIP, CSW012DET, CSW012COR);
+

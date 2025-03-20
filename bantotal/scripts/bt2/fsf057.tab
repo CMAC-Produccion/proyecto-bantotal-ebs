@@ -1,0 +1,15 @@
+create table FSF057
+(
+  lhmoneda  NUMBER(4) not null,
+  lhcofdes  DATE not null,
+  lhcomdiv  CHAR(1),
+  lhcotcbi  NUMBER(14,8),
+  lhcotcbv  NUMBER(14,8),
+  lhcotcbi1 NUMBER(14,8),
+  lhcotcbv1 NUMBER(14,8)
+)
+;
+create index FSF05702 on FSF057 (LHCOFDES, LHMONEDA);
+alter table FSF057
+  add primary key (LHMONEDA, LHCOFDES);
+

@@ -1,0 +1,10 @@
+create table JDTM03
+(
+  jdtm01tpbn NUMBER(4) not null,
+  jdtm03tmod NUMBER(3) not null,
+  jdtm03desc CHAR(40)
+)
+;
+alter table JDTM03
+  add primary key (JDTM01TPBN, JDTM03TMOD);
+

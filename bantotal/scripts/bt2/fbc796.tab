@@ -1,0 +1,35 @@
+create table FBC796
+(
+  bc796emp  NUMBER(3) not null,
+  bc796fch  DATE not null,
+  bc796idcl NUMBER(2) not null,
+  bc796cage NUMBER(10) not null,
+  bc796corr NUMBER(9) not null,
+  bc796tdid NUMBER(4),
+  bc796ndid CHAR(15),
+  bc796nomb CHAR(90),
+  bc796fnac DATE,
+  bc796lnac CHAR(40),
+  bc796eciv NUMBER(4),
+  bc796ciuu NUMBER(6),
+  bc796prof NUMBER(4),
+  bc796dird CHAR(90),
+  bc796telf CHAR(40),
+  bc796plaa NUMBER(4),
+  bc796agea NUMBER(4),
+  bc796cref NUMBER(4),
+  bc796rseg NUMBER(6),
+  bc796tper NUMBER(2),
+  bc796carg CHAR(40),
+  bc796empl CHAR(40),
+  bc796edo  CHAR(1),
+  bc796imp1 NUMBER(17,2),
+  bc796imp2 NUMBER(17,2),
+  bc796chr1 CHAR(20),
+  bc796chr2 CHAR(20),
+  bc796fech DATE
+)
+;
+alter table FBC796
+  add primary key (BC796EMP, BC796FCH, BC796IDCL, BC796CAGE, BC796CORR);
+

@@ -1,0 +1,37 @@
+create table TI0011
+(
+  tihpgcod   NUMBER(3) not null,
+  tifchcont  DATE not null,
+  tihsuc     NUMBER(3) not null,
+  tihmod     NUMBER(3) not null,
+  tihtrn     NUMBER(3) not null,
+  tihrel     NUMBER(4) not null,
+  tihord     NUMBER(2) not null,
+  tihsbor    NUMBER(3) not null,
+  tihpais    NUMBER(3),
+  tihtdoc    NUMBER(2),
+  tihndoc    CHAR(12),
+  tihfecha   DATE,
+  tihcuenta  NUMBER(9),
+  tihimpcod  NUMBER(3),
+  tihimpcorr NUMBER(3),
+  tihmnto    NUMBER(17,2),
+  tihimpcob  NUMBER(17,2),
+  tihfchdev  DATE,
+  tihcapdev  NUMBER(17,2),
+  tihopemod  NUMBER(3),
+  tihopesuc  NUMBER(3),
+  tihopemda  NUMBER(4),
+  tihopepap  NUMBER(4),
+  tihopecta  NUMBER(9),
+  tihopeoper NUMBER(9),
+  tihopesbop NUMBER(3),
+  tihopetope NUMBER(3),
+  tihrubro   NUMBER(16)
+)
+;
+create index TI001102 on TI0011 (TIHPAIS, TIHTDOC, TIHNDOC, TIHIMPCOD, TIHFECHA);
+create index TI001103 on TI0011 (TIHCUENTA, TIHIMPCOD, TIHFECHA);
+alter table TI0011
+  add primary key (TIHPGCOD, TIFCHCONT, TIHSUC, TIHMOD, TIHTRN, TIHREL, TIHORD, TIHSBOR);
+

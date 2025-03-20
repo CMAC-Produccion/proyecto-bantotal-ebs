@@ -1,0 +1,13 @@
+create table CDCEXP5
+(
+  cdcexpid   NUMBER(18) not null,
+  cdcexpinsi NUMBER(18) not null,
+  cdcexppcor NUMBER(18) not null,
+  cdcexpptip NUMBER(4),
+  cdcexppesp CHAR(1),
+  cdcexppnom CHAR(20)
+)
+;
+alter table CDCEXP5
+  add primary key (CDCEXPID, CDCEXPINSI, CDCEXPPCOR);
+

@@ -1,0 +1,17 @@
+create table FHR140
+(
+  pgcod      NUMBER(3) not null,
+  rehmod     NUMBER(3) not null,
+  rehoper    NUMBER(9) not null,
+  rehmodid   NUMBER(5) not null,
+  rehtopc    NUMBER(2) not null,
+  rehcopc    NUMBER(3) not null,
+  rehtopcds  CHAR(20),
+  rehcopcds  CHAR(25),
+  reiaopcsts CHAR(1),
+  reipopcsts CHAR(1)
+)
+;
+alter table FHR140
+  add primary key (PGCOD, REHMOD, REHOPER, REHMODID, REHTOPC, REHCOPC);
+

@@ -1,0 +1,11 @@
+create table FSFI70
+(
+  sfi70emp   NUMBER(3) not null,
+  sfi70evtip NUMBER(3) not null,
+  sfi70evnom CHAR(40),
+  sfi70vig   CHAR(1)
+)
+;
+alter table FSFI70
+  add primary key (SFI70EMP, SFI70EVTIP);
+

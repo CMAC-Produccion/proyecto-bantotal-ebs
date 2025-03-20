@@ -1,0 +1,54 @@
+create table JAQL548
+(
+  jaql546serial NUMBER(10) not null,
+  jaql548codsu  VARCHAR2(10) not null,
+  jaql548ultac  DATE not null,
+  jaql548numer  VARCHAR2(10) not null,
+  jaql548entid  VARCHAR2(75) not null,
+  jaql548estado CHAR(2),
+  jaql548est48  CHAR(2),
+  jaql548fecap  DATE,
+  jaql548fecve  DATE,
+  jaql548compor VARCHAR2(50),
+  jaql548ampar  VARCHAR2(10),
+  jaql548forpa  VARCHAR2(2),
+  jaql548bloqu  VARCHAR2(10),
+  jaql548emora  CHAR(3),
+  jaql548indbo  CHAR(1),
+  jaql548cupo   NUMBER(17,2),
+  jaql548salac  NUMBER(17,2),
+  jaql548salmo  NUMBER(17,2),
+  jaql548cuota  NUMBER(17,2),
+  jaql548ticta  VARCHAR2(10),
+  jaql548garan  CHAR(2),
+  jaql548valin  NUMBER(17,2),
+  jaql548cuoca  NUMBER(17,2),
+  jaql548tocuo  NUMBER(17,2),
+  jaql548maxmo  NUMBER(17,2),
+  jaql548tidet  CHAR(2),
+  jaql548secue  NUMBER(10),
+  jaql548fmxmor DATE,
+  jaql548regu   VARCHAR2(2),
+  jaql548concod VARCHAR2(16),
+  jaql548creusr VARCHAR2(10),
+  jaql548cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL548.jaql548secue
+  is 'Correlativo Secuencial';
+comment on column JAQL548.jaql548fmxmor
+  is 'Fecha Máxima Mora';
+comment on column JAQL548.jaql548regu
+  is 'Regulada/No Regulada';
+comment on column JAQL548.jaql548concod
+  is 'Código de Consulta';
+comment on column JAQL548.jaql548creusr
+  is 'Usuario Creación';
+comment on column JAQL548.jaql548cretim
+  is 'Fecha Hora Registro';
+create index JAQL548A2 on JAQL548 (JAQL546SERIAL, JAQL548INDBO, JAQL548ENTID, JAQL548TICTA);
+create index JAQL548A3 on JAQL548 (JAQL546SERIAL, JAQL548ENTID, JAQL548ULTAC DESC, JAQL548FECVE);
+create index JAQL548A4 on JAQL548 (JAQL546SERIAL, JAQL548ENTID, JAQL548INDBO, JAQL548NUMER);
+alter table JAQL548
+  add primary key (JAQL546SERIAL, JAQL548CODSU, JAQL548ULTAC, JAQL548NUMER, JAQL548ENTID);
+

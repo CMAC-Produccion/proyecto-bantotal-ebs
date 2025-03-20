@@ -1,0 +1,22 @@
+create table JAQL705
+(
+  jaql705banc NUMBER(3) not null,
+  jaql705tita CHAR(4) not null,
+  jaql705au01 CHAR(50),
+  jaql705au02 CHAR(50),
+  jaql705au03 CHAR(50),
+  jaql705au04 NUMBER(9),
+  jaql705au05 NUMBER(9),
+  jaql705au06 NUMBER(9),
+  jaql705au07 NUMBER(17,2),
+  jaql705au08 NUMBER(17,2),
+  jaql705au09 NUMBER(17,2),
+  jaql705au10 DATE,
+  jaql705au11 DATE,
+  jaql705au12 DATE,
+  jaql705fein DATE not null
+)
+;
+alter table JAQL705
+  add primary key (JAQL705BANC, JAQL705TITA, JAQL705FEIN);
+

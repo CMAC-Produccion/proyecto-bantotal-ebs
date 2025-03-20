@@ -1,0 +1,102 @@
+create table AQPC451
+(
+  aqpc451cor NUMBER(15) not null,
+  aqpc451doc CHAR(12),
+  aqpc451age NUMBER(3),
+  aqpc451can CHAR(50),
+  aqpc451fec DATE,
+  aqpc451hor CHAR(8),
+  aqpc451eve CHAR(100),
+  aqpc451pge NUMBER(3),
+  aqpc451mod NUMBER(3),
+  aqpc451suc NUMBER(3),
+  aqpc451mda NUMBER(4),
+  aqpc451pap NUMBER(4),
+  aqpc451cta NUMBER(9),
+  aqpc451ope NUMBER(9),
+  aqpc451sbo NUMBER(3),
+  aqpc451tpo NUMBER(3),
+  aqpc451ant CHAR(1),
+  aqpc451new CHAR(1),
+  aqpc451cat NUMBER(9),
+  aqpc451cnw NUMBER(9),
+  aqpc451mat CHAR(65),
+  aqpc451mnw CHAR(65),
+  aqpc451ax1 NUMBER(9),
+  aqpc451ax2 NUMBER(9),
+  aqpc451ax3 NUMBER(17,2),
+  aqpc451ax4 NUMBER(17,2),
+  aqpc451ax5 DATE,
+  aqpc451ax6 DATE,
+  aqpc451ax7 CHAR(100),
+  aqpc451ax8 CHAR(100),
+  aqpc451ax9 CHAR(100)
+)
+;
+comment on table AQPC451
+  is 'TABLA LOG AFILIACIONES A NOTIFICACIONES TDV';
+comment on column AQPC451.aqpc451cor
+  is 'CORRELATIVO PK';
+comment on column AQPC451.aqpc451doc
+  is 'DOCUMENTO TITULAR';
+comment on column AQPC451.aqpc451age
+  is 'AGENCIA DE USUARIO';
+comment on column AQPC451.aqpc451can
+  is 'CANAL';
+comment on column AQPC451.aqpc451fec
+  is 'FECHA REGISTRO';
+comment on column AQPC451.aqpc451hor
+  is 'HORA REGISTRO';
+comment on column AQPC451.aqpc451eve
+  is 'DESCRIPCCION DEL EVENTO';
+comment on column AQPC451.aqpc451pge
+  is 'EMPRESA';
+comment on column AQPC451.aqpc451mod
+  is 'MODULO';
+comment on column AQPC451.aqpc451suc
+  is 'SUCURSAL';
+comment on column AQPC451.aqpc451mda
+  is 'MONEDA';
+comment on column AQPC451.aqpc451pap
+  is 'PAPEL';
+comment on column AQPC451.aqpc451cta
+  is 'CUENTA';
+comment on column AQPC451.aqpc451ope
+  is 'OPERACION';
+comment on column AQPC451.aqpc451sbo
+  is 'SUB OPERACION';
+comment on column AQPC451.aqpc451tpo
+  is 'TIPO DE OPERACION';
+comment on column AQPC451.aqpc451ant
+  is 'ESTADO ANTERIOR';
+comment on column AQPC451.aqpc451new
+  is 'NUEVO ESTADO';
+comment on column AQPC451.aqpc451cat
+  is 'CELULAR ANTERIOR';
+comment on column AQPC451.aqpc451cnw
+  is 'NUEVO CELULAR';
+comment on column AQPC451.aqpc451mat
+  is 'MAIL ANTERIOR';
+comment on column AQPC451.aqpc451mnw
+  is 'NUEVO MAIL';
+comment on column AQPC451.aqpc451ax1
+  is 'AUXILIAR';
+comment on column AQPC451.aqpc451ax2
+  is 'AUXILIAR';
+comment on column AQPC451.aqpc451ax3
+  is 'AUXILIAR';
+comment on column AQPC451.aqpc451ax4
+  is 'AUXILIAR';
+comment on column AQPC451.aqpc451ax5
+  is 'AUXILIAR';
+comment on column AQPC451.aqpc451ax6
+  is 'AUXILIAR';
+comment on column AQPC451.aqpc451ax7
+  is 'AUXILIAR';
+comment on column AQPC451.aqpc451ax8
+  is 'AUXILIAR';
+comment on column AQPC451.aqpc451ax9
+  is 'AUXILIAR';
+alter table AQPC451
+  add primary key (AQPC451COR);
+

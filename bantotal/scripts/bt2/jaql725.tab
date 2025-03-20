@@ -1,0 +1,28 @@
+create table JAQL725
+(
+  jaql725idco VARCHAR2(20),
+  jaql725user VARCHAR2(10),
+  jaql725corr NUMBER(5),
+  jaql725mone NUMBER(4),
+  jaql725modu NUMBER(3),
+  jaql725tope NUMBER(3),
+  jaql725va01 VARCHAR2(20),
+  jaql725va02 VARCHAR2(20),
+  jaql725va03 VARCHAR2(20),
+  jaql725va04 VARCHAR2(20),
+  jaql725va05 VARCHAR2(20),
+  jaql725va06 VARCHAR2(20),
+  jaql725va07 VARCHAR2(20),
+  jaql725va08 VARCHAR2(20),
+  jaql725va09 VARCHAR2(20),
+  jaql725va10 VARCHAR2(20),
+  jaql725va11 VARCHAR2(20),
+  jaql725va12 VARCHAR2(20),
+  jaql725segm NUMBER(1),
+  jaql725cali NUMBER(5)
+)
+;
+comment on table JAQL725
+  is 'Oferta Comercial - Resultado Oferta';
+create index IDX_JAQL725_001 on JAQL725 (JAQL725IDCO, JAQL725USER, JAQL725MONE, JAQL725MODU, JAQL725TOPE, JAQL725CORR);
+

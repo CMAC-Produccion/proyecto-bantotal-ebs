@@ -1,0 +1,17 @@
+create table SNG103
+(
+  sng102gnro NUMBER(9) not null,
+  sng103emp  NUMBER(3) not null,
+  sng103cta  NUMBER(9) not null,
+  sng103idal CHAR(20),
+  sng101ticd NUMBER(3),
+  sng103sts  CHAR(1),
+  sng103fins DATE,
+  sng103fdlt DATE
+)
+;
+create index SNG10303 on SNG103 (SNG101TICD);
+create index SNG10304 on SNG103 (SNG103FINS, SNG102GNRO);
+alter table SNG103
+  add primary key (SNG102GNRO, SNG103EMP, SNG103CTA);
+

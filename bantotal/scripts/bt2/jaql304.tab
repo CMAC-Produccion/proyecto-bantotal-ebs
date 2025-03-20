@@ -1,0 +1,39 @@
+create table JAQL304
+(
+  jaql304pgcod NUMBER(3) not null,
+  jaql304ubuse CHAR(10) not null,
+  jaql304pgfap DATE not null,
+  jaql304corre NUMBER(18) not null,
+  jaql304tmodu NUMBER(3),
+  jaql304itran NUMBER(3),
+  jaql304scnom CHAR(30),
+  jaql304trnom CHAR(30),
+  jaql304tfcon DATE,
+  jaql304monon CHAR(30),
+  jaql304itimp NUMBER(17,2),
+  jaql304cargo NUMBER(17,2),
+  jaql304igvim NUMBER(17,2),
+  jaql304itfim NUMBER(17,2),
+  jaql304totim NUMBER(17,2),
+  jaql304ubnom CHAR(30),
+  jaql304scsdo NUMBER(17,2),
+  jaql304nucta VARCHAR2(27),
+  jaql304rubro NUMBER(16),
+  jaql304nctar VARCHAR2(27),
+  jaql304impor NUMBER(17,2),
+  jaql304fconr DATE,
+  jaql304auxc1 CHAR(30),
+  jaql304auxc2 CHAR(30),
+  jaql304auxc3 CHAR(30),
+  jaql304auxn1 NUMBER(17,2),
+  jaql304auxn2 NUMBER(17,2),
+  jaql304auxn3 NUMBER(17,2),
+  jaql304auxd1 DATE,
+  jaql304auxd2 DATE,
+  jaql304auxd3 DATE
+)
+;
+create index JAQL3042 on JAQL304 (JAQL304SCNOM, JAQL304TFCON);
+alter table JAQL304
+  add primary key (JAQL304PGCOD, JAQL304UBUSE, JAQL304PGFAP, JAQL304CORRE);
+

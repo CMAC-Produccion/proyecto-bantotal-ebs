@@ -1,0 +1,10 @@
+create table FST027
+(
+  txcod NUMBER(3) not null,
+  txnom CHAR(30)
+)
+;
+create index FST02702 on FST027 (TXNOM);
+alter table FST027
+  add primary key (TXCOD);
+

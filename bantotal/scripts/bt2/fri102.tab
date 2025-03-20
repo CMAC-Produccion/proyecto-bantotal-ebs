@@ -1,0 +1,49 @@
+create table FRI102
+(
+  ri102hilo  NUMBER(4) not null,
+  ri102did   NUMBER(16) not null,
+  ri102dcod  NUMBER(3),
+  ri102dsuc  NUMBER(3),
+  ri102drub  NUMBER(16),
+  ri102dmda  NUMBER(4),
+  ri102dpap  NUMBER(4),
+  ri102dcta  NUMBER(9),
+  ri102dope  NUMBER(9),
+  ri102dsbop NUMBER(3),
+  ri102dtope NUMBER(3),
+  ri102gcod  NUMBER(3),
+  ri102gsuc  NUMBER(3),
+  ri102grub  NUMBER(16),
+  ri102gmda  NUMBER(4),
+  ri102gpap  NUMBER(4),
+  ri102gcta  NUMBER(9),
+  ri102gope  NUMBER(9),
+  ri102gsbop NUMBER(3),
+  ri102gtope NUMBER(3),
+  ri102gid   NUMBER(10),
+  ri102impd  NUMBER(17,2),
+  ri102arbd  NUMBER(14,8),
+  ri102impg  NUMBER(17,2),
+  ri102arbg  NUMBER(14,8),
+  ri102impas NUMBER(17,2),
+  ri102aux1  NUMBER(15),
+  ri102aux2  NUMBER(15),
+  ri102aux3  NUMBER(15),
+  ri102aux4  NUMBER(17,2),
+  ri102aux5  NUMBER(17,2),
+  ri102aux6  NUMBER(17,2),
+  ri102aux7  DATE,
+  ri102aux8  DATE,
+  ri102aux9  DATE,
+  ri102aux10 CHAR(30),
+  ri102aux11 CHAR(30),
+  ri102aux12 CHAR(30),
+  ri102dmod  NUMBER(3),
+  ri102gmod  NUMBER(3)
+)
+;
+create index FRI10202 on FRI102 (RI102DCOD, RI102DSUC, RI102DRUB, RI102DMDA, RI102DPAP, RI102DCTA, RI102DOPE, RI102DSBOP, RI102DTOPE);
+create index FRI10203 on FRI102 (RI102GCOD, RI102GSUC, RI102GRUB, RI102GMDA, RI102GPAP, RI102GCTA, RI102GOPE, RI102GSBOP, RI102GTOPE);
+alter table FRI102
+  add primary key (RI102HILO, RI102DID);
+

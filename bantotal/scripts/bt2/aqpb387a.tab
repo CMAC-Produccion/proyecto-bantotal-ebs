@@ -1,0 +1,42 @@
+create table AQPB387A
+(
+  aqpb387acod NUMBER(3) not null,
+  aqpb387afec DATE not null,
+  aqpb387acor NUMBER(10) not null,
+  aqpb387aprc NUMBER(4,2),
+  aqpb387aest VARCHAR2(1),
+  aqpb387ausr VARCHAR2(10),
+  aqpb387afcr VARCHAR2(10),
+  aqpb387ahcr VARCHAR2(10),
+  aqpb387ausd VARCHAR2(10),
+  aqpb387afed VARCHAR2(10),
+  aqpb387ahed VARCHAR2(10)
+)
+;
+comment on table AQPB387A
+  is 'Tabla control limite global porcentaje';
+comment on column AQPB387A.aqpb387acod
+  is 'Empresa';
+comment on column AQPB387A.aqpb387afec
+  is 'Fecha';
+comment on column AQPB387A.aqpb387acor
+  is 'Correlativo';
+comment on column AQPB387A.aqpb387aprc
+  is 'Porcentaje Patrimonio';
+comment on column AQPB387A.aqpb387aest
+  is 'Estado';
+comment on column AQPB387A.aqpb387ausr
+  is 'Usuario Creacion';
+comment on column AQPB387A.aqpb387afcr
+  is 'Fecha Creacion';
+comment on column AQPB387A.aqpb387ahcr
+  is 'Hora Creacion';
+comment on column AQPB387A.aqpb387ausd
+  is 'Usuario Modificacion';
+comment on column AQPB387A.aqpb387afed
+  is 'Fecha Modificacion';
+comment on column AQPB387A.aqpb387ahed
+  is 'Hora Modificacion';
+alter table AQPB387A
+  add primary key (AQPB387ACOD, AQPB387AFEC, AQPB387ACOR);
+

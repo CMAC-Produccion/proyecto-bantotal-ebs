@@ -1,0 +1,18 @@
+create table JSEP21
+(
+  jsep21pgc NUMBER(3) not null,
+  jsep21mod NUMBER(3) not null,
+  jsep21top NUMBER(3) not null,
+  jsep21mda NUMBER(4) not null,
+  jsep21pap NUMBER(4) not null,
+  jsep20pgc NUMBER(3) not null,
+  jsep20mod NUMBER(3) not null,
+  jsep20top NUMBER(3) not null,
+  jsep20mda NUMBER(4) not null,
+  jsep20pap NUMBER(4) not null
+)
+;
+create index JSEP2102 on JSEP21 (JSEP20PGC, JSEP20MOD, JSEP20TOP, JSEP20MDA, JSEP20PAP);
+alter table JSEP21
+  add primary key (JSEP21PGC, JSEP21MOD, JSEP21TOP, JSEP21MDA, JSEP21PAP, JSEP20PGC, JSEP20MOD, JSEP20TOP, JSEP20MDA, JSEP20PAP);
+

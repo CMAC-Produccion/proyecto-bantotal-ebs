@@ -1,0 +1,32 @@
+create table JHSI32
+(
+  jhsi32prd  NUMBER(3) not null,
+  jhsi32sol  NUMBER(8) not null,
+  jhsi32rgn  NUMBER(2),
+  jhsi32agn  NUMBER(5),
+  jhsi32nom  CHAR(30),
+  jhsi32nac  DATE,
+  jhsi32pro  CHAR(4),
+  jhsi32doc  CHAR(13),
+  jhsi32ruc  NUMBER(15),
+  jhsi32sec  CHAR(3),
+  jhsi32crel NUMBER(16),
+  jhsi32numc NUMBER(16),
+  jhsi32apec DATE,
+  jhsi32vtoc DATE,
+  jhsi32bloc CHAR(1),
+  jhsi32fbc  DATE,
+  jhsi32numt NUMBER(16),
+  jhsi32apet DATE,
+  jhsi32blot CHAR(1),
+  jhsi32fbt  DATE,
+  jhsi32vtot DATE,
+  jhsi32ind  CHAR(1),
+  jhsi32fact DATE
+)
+;
+create unique index JHSI3201 on JHSI32 (JHSI32PRD, JHSI32SOL);
+create index JHSI3202 on JHSI32 (JHSI32NUMT, JHSI32NUMC, JHSI32CREL);
+create index JHSI3203 on JHSI32 (JHSI32CREL, JHSI32NUMC, JHSI32NUMT);
+create index JHSI3204 on JHSI32 (JHSI32NUMC);
+

@@ -1,0 +1,52 @@
+create table AQPB158
+(
+  aqpb158corr  NUMBER(10) not null,
+  aqpb158inst  NUMBER(10) not null,
+  aqpb158fech  DATE not null,
+  aqpb158hora  CHAR(8) not null,
+  aqpb158usu   VARCHAR2(10),
+  aqpb158pais  NUMBER(3) not null,
+  aqpb158tdoc  NUMBER(3) not null,
+  aqpb158ndoc  VARCHAR2(12) not null,
+  aqpb158suc   NUMBER(4),
+  aqpb158afec  VARCHAR2(30),
+  aqpb158meval NUMBER,
+  aqpb158ciuu  NUMBER(9),
+  aqpb158cven  VARCHAR2(5),
+  aqpb158est   VARCHAR2(5)
+)
+;
+comment on table AQPB158
+  is 'Tabla Validacion de Afectaciones por CIUU y Cred Vencidos';
+comment on column AQPB158.aqpb158corr
+  is 'Correlativo';
+comment on column AQPB158.aqpb158inst
+  is 'Instancia';
+comment on column AQPB158.aqpb158fech
+  is 'Fecha de Registro';
+comment on column AQPB158.aqpb158hora
+  is 'Hora de Registro';
+comment on column AQPB158.aqpb158pais
+  is 'Pais';
+comment on column AQPB158.aqpb158tdoc
+  is 'Tipo de Documento';
+comment on column AQPB158.aqpb158ndoc
+  is 'Nro de Documento';
+comment on column AQPB158.aqpb158suc
+  is 'Sucursal Credito';
+comment on column AQPB158.aqpb158afec
+  is 'Afectacion';
+comment on column AQPB158.aqpb158meval
+  is 'Modelo de evaluacion';
+comment on column AQPB158.aqpb158ciuu
+  is 'Actividad economica';
+comment on column AQPB158.aqpb158cven
+  is 'Ind Credito Vencido';
+comment on column AQPB158.aqpb158est
+  is 'Estado';
+create index AQPB158A2 on AQPB158 (AQPB158INST, AQPB158EST);
+create index AQPB158A3 on AQPB158 (AQPB158PAIS, AQPB158TDOC, AQPB158NDOC);
+create index AQPB158A4 on AQPB158 (AQPB158INST, AQPB158FECH);
+alter table AQPB158
+  add primary key (AQPB158CORR, AQPB158INST, AQPB158FECH, AQPB158HORA, AQPB158PAIS, AQPB158TDOC, AQPB158NDOC);
+

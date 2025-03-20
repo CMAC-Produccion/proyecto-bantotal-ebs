@@ -1,0 +1,46 @@
+create table AQPA381
+(
+  aqpa381corr  NUMBER(10) not null,
+  aqpa381fproc DATE not null,
+  aqpa381pais  NUMBER(9) not null,
+  aqpa381tdoc  NUMBER(9) not null,
+  aqpa381ndoc  VARCHAR2(12) not null,
+  aqpa381flim  DATE not null,
+  aqpa381naux1 NUMBER(17,2),
+  aqpa381naux2 NUMBER(17,2),
+  aqpa381vaux1 VARCHAR2(25),
+  aqpa381vaux2 VARCHAR2(25),
+  aqpa381daux1 DATE,
+  aqpa381daux2 DATE
+)
+;
+comment on column AQPA381.aqpa381corr
+  is 'Correlativo por fecha';
+comment on column AQPA381.aqpa381fproc
+  is 'Fecha de Proceso';
+comment on column AQPA381.aqpa381pais
+  is 'Pais de Documento';
+comment on column AQPA381.aqpa381tdoc
+  is 'Tipo de Documento';
+comment on column AQPA381.aqpa381ndoc
+  is 'Nro de Documento';
+comment on column AQPA381.aqpa381flim
+  is 'Fecha Limite de Desembolso';
+comment on column AQPA381.aqpa381naux1
+  is 'Campo Numerico Auxiliar 1';
+comment on column AQPA381.aqpa381naux2
+  is 'Campo Numerico Auxiliar 2';
+comment on column AQPA381.aqpa381vaux1
+  is 'Campo Varchar Auxiliar 1';
+comment on column AQPA381.aqpa381vaux2
+  is 'Campo Varchar Auxiliar 2';
+comment on column AQPA381.aqpa381daux1
+  is 'Campo Fecha Auxiliar 1';
+comment on column AQPA381.aqpa381daux2
+  is 'Campo Fecha Auxiliar 2';
+create index AQPA3812 on AQPA381 (AQPA381PAIS, AQPA381TDOC, AQPA381NDOC);
+create index AQPA3813 on AQPA381 (AQPA381FPROC);
+create index AQPA3814 on AQPA381 (AQPA381FPROC, AQPA381PAIS, AQPA381TDOC, AQPA381NDOC);
+alter table AQPA381
+  add primary key (AQPA381CORR, AQPA381FPROC, AQPA381PAIS, AQPA381TDOC, AQPA381NDOC, AQPA381FLIM);
+

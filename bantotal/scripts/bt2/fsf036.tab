@@ -1,0 +1,29 @@
+create table FSF036
+(
+  lfcod      NUMBER(3) not null,
+  lfcomcod   NUMBER(2) not null,
+  lffinro    NUMBER(3) not null,
+  lfanio     NUMBER(4) not null,
+  lfmes      NUMBER(2) not null,
+  lfctnro    NUMBER(9) not null,
+  lfcorrel   NUMBER(3) not null,
+  lfejcod    NUMBER(3),
+  lfrpcod    NUMBER(3),
+  lfimpprom  NUMBER(17,2),
+  lfimpcom   NUMBER(17,2),
+  lfporcomis NUMBER(10,6),
+  lfnropago  NUMBER(3),
+  lffecproc  DATE,
+  lfsaldoact NUMBER(17,2),
+  lfnpagodif NUMBER(2),
+  lftejerep  CHAR(1)
+)
+;
+create index FSF03603 on FSF036 (LFCOMCOD);
+create index FSF03604 on FSF036 (LFCOD, LFANIO, LFMES, LFTEJEREP, LFEJCOD);
+create index FSF03605 on FSF036 (LFCOD, LFANIO, LFMES, LFTEJEREP, LFRPCOD);
+create index FSF03606 on FSF036 (LFCOD, LFANIO, LFMES, LFCTNRO, LFFINRO);
+create index FSF03607 on FSF036 (LFCOD, LFCTNRO, LFANIO, LFMES, LFFINRO, LFCOMCOD);
+alter table FSF036
+  add primary key (LFCOD, LFCOMCOD, LFFINRO, LFANIO, LFMES, LFCTNRO, LFCORREL);
+

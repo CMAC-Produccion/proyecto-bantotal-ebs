@@ -1,0 +1,103 @@
+create table AQPA271
+(
+  aqpa271corr   NUMBER(18) not null,
+  aqpa271fec    DATE not null,
+  aqpa271hora   CHAR(10) not null,
+  aqpa271pais   NUMBER(9) not null,
+  aqpa271tdoc   NUMBER(9) not null,
+  aqpa271ndoc   VARCHAR2(12) not null,
+  aqpa271tcamb  NUMBER(14,8),
+  aqpa271inst   NUMBER(12) not null,
+  aqpa271pgcod  NUMBER(5),
+  aqpa271mod    NUMBER(5),
+  aqpa271suc    NUMBER(5),
+  aqpa271mda    NUMBER(5),
+  aqpa271pap    NUMBER(5),
+  aqpa271cta    NUMBER(10),
+  aqpa271ope    NUMBER(10),
+  aqpa271sbop   NUMBER(10),
+  aqpa271tope   NUMBER(10),
+  aqpa271perio  NUMBER(5),
+  aqpa271nrcuo  NUMBER(5),
+  aqpa271tsoli  NUMBER(5),
+  aqpa271flcj   VARCHAR2(2),
+  aqpa271cuoimp NUMBER(18,6),
+  aqpa271seguro NUMBER(18,6),
+  aqpa271capfc  NUMBER(18,6),
+  aqpa271caplin NUMBER(18,6),
+  aqpa271capcuo NUMBER(18,6),
+  aqpa271indic  VARCHAR2(10),
+  aqpa271est    VARCHAR2(2),
+  aqpa271user   VARCHAR2(10),
+  aqpa271ipgcod NUMBER(3) not null,
+  aqpa271itsuc  NUMBER(3) not null,
+  aqpa271itmod  NUMBER(3) not null,
+  aqpa271ittran NUMBER(3) not null,
+  aqpa271itnrel NUMBER(4) not null,
+  aqpa271itord  NUMBER(2) not null,
+  aqpa271itsbor NUMBER(3) not null
+)
+;
+comment on column AQPA271.aqpa271corr
+  is 'Correlativo';
+comment on column AQPA271.aqpa271fec
+  is 'Fecha de Solicitud';
+comment on column AQPA271.aqpa271hora
+  is 'Hora del Registro';
+comment on column AQPA271.aqpa271pais
+  is 'Pais';
+comment on column AQPA271.aqpa271tdoc
+  is 'Tipo de Documento';
+comment on column AQPA271.aqpa271ndoc
+  is 'Numero de Documento';
+comment on column AQPA271.aqpa271tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column AQPA271.aqpa271inst
+  is 'Nro de Solicitud';
+comment on column AQPA271.aqpa271pgcod
+  is 'Pgcod';
+comment on column AQPA271.aqpa271mod
+  is 'Modulo';
+comment on column AQPA271.aqpa271suc
+  is 'Sucursal';
+comment on column AQPA271.aqpa271mda
+  is 'Moneda';
+comment on column AQPA271.aqpa271pap
+  is 'Papel';
+comment on column AQPA271.aqpa271cta
+  is 'Cuenta';
+comment on column AQPA271.aqpa271ope
+  is 'Operacion';
+comment on column AQPA271.aqpa271sbop
+  is 'Sub Operacion';
+comment on column AQPA271.aqpa271tope
+  is 'Tipo de Operacion';
+comment on column AQPA271.aqpa271perio
+  is 'Periodo del Credito';
+comment on column AQPA271.aqpa271nrcuo
+  is 'Nro de Cuotas';
+comment on column AQPA271.aqpa271tsoli
+  is 'Tipo de Solicitud';
+comment on column AQPA271.aqpa271flcj
+  is 'Indicador de Flujo de Caja';
+comment on column AQPA271.aqpa271cuoimp
+  is 'Monto de la Maxima Cuota Pendiente de Pago';
+comment on column AQPA271.aqpa271seguro
+  is 'Seguro del Credito';
+comment on column AQPA271.aqpa271capfc
+  is 'Capacidad de Flujode Caja';
+comment on column AQPA271.aqpa271caplin
+  is 'Capacidad de Linea';
+comment on column AQPA271.aqpa271capcuo
+  is 'Capacidad de la Cuota';
+comment on column AQPA271.aqpa271indic
+  is 'Indicador del Credito (CredVigent, CredVuelo, CredLinea)';
+comment on column AQPA271.aqpa271est
+  is 'Estado del Registro (H Habil, I inhabilitado)';
+create index AQPA271IDX002 on AQPA271 (AQPA271PGCOD, AQPA271MOD, AQPA271SUC, AQPA271MDA, AQPA271PAP, AQPA271CTA, AQPA271OPE, AQPA271SBOP, AQPA271TOPE);
+create index AQPA271IDX003 on AQPA271 (AQPA271FEC, AQPA271PAIS, AQPA271TDOC, AQPA271NDOC, AQPA271INST);
+create index AQPA271IDX004 on AQPA271 (AQPA271INST, AQPA271PGCOD, AQPA271MOD, AQPA271SUC, AQPA271MDA, AQPA271PAP, AQPA271CTA, AQPA271OPE, AQPA271SBOP, AQPA271TOPE);
+create index AQPA271IDX005 on AQPA271 (AQPA271IPGCOD, AQPA271ITSUC, AQPA271ITMOD, AQPA271ITTRAN, AQPA271ITNREL, AQPA271ITORD, AQPA271ITSBOR);
+alter table AQPA271
+  add primary key (AQPA271CORR, AQPA271FEC, AQPA271PAIS, AQPA271TDOC, AQPA271NDOC, AQPA271INST, AQPA271HORA, AQPA271IPGCOD, AQPA271ITSUC, AQPA271ITMOD, AQPA271ITTRAN, AQPA271ITNREL, AQPA271ITORD, AQPA271ITSBOR);
+

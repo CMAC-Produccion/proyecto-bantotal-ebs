@@ -1,0 +1,20 @@
+create table JBXI79
+(
+  jbxi79cui CHAR(11) not null,
+  jbxi79fap DATE not null,
+  jbxi79fin DATE not null,
+  jbxi79fig CHAR(1) not null,
+  jbxi79fpr DATE not null,
+  jbxi79map NUMBER(11) not null,
+  jbxi79nau CHAR(20) not null,
+  jbxi79nde CHAR(20),
+  jbxi79nop NUMBER(11),
+  jbxi79nre NUMBER(11),
+  jbxi79cod NUMBER(1),
+  jbxi79nco CHAR(20),
+  jbxi79fem NUMBER(8),
+  jbxi79cno NUMBER(1)
+)
+;
+create unique index JBXI7901 on JBXI79 (JBXI79CUI, JBXI79FAP, JBXI79FIN, JBXI79FIG, JBXI79FPR, JBXI79MAP, JBXI79NAU);
+

@@ -1,0 +1,24 @@
+create table JAQL078
+(
+  jaql78usje CHAR(10) not null,
+  jaql78usas CHAR(10) not null,
+  jaql78fech DATE,
+  jaql78esta CHAR(1),
+  jaql78au01 CHAR(50),
+  jaql78au02 CHAR(50),
+  jaql78au03 CHAR(50),
+  jaql78au04 NUMBER(9),
+  jaql78au05 NUMBER(9),
+  jaql78au06 NUMBER(9),
+  jaql78au07 NUMBER(17,2),
+  jaql78au08 NUMBER(17,2),
+  jaql78au09 NUMBER(17,2),
+  jaql78au10 DATE,
+  jaql78au11 DATE,
+  jaql78au12 DATE
+)
+;
+create index JAQL7810001 on JAQL078 (JAQL78USJE, JAQL78ESTA);
+alter table JAQL078
+  add primary key (JAQL78USJE, JAQL78USAS);
+

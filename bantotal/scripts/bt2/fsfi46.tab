@@ -1,0 +1,20 @@
+create table FSFI46
+(
+  sfi46emp NUMBER(3) not null,
+  sfi46mer NUMBER(3) not null,
+  sfi46pro NUMBER(3) not null,
+  sfi46cus NUMBER(9),
+  sfi46dep NUMBER(9),
+  sfi46com NUMBER(9),
+  sfi46au1 NUMBER(9),
+  sfi46au2 NUMBER(9),
+  sfi46au3 CHAR(1),
+  sfi46au4 NUMBER(1),
+  sfi46au5 CHAR(20),
+  sfi46au6 CHAR(20)
+)
+;
+create index FSFI4602 on FSFI46 (SFI46EMP, SFI46CUS, SFI46DEP, SFI46COM);
+alter table FSFI46
+  add primary key (SFI46EMP, SFI46MER, SFI46PRO);
+

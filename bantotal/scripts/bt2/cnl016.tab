@@ -1,0 +1,21 @@
+create table CNL016
+(
+  cnl001pad NUMBER(3) not null,
+  cnl001tad NUMBER(2) not null,
+  cnl001dad CHAR(64) not null,
+  cnl016num NUMBER(5) not null,
+  cnl016cbu CHAR(22),
+  cnl016ben CHAR(65),
+  cnl016tdo NUMBER(2),
+  cnl016doc CHAR(12),
+  cnl016mai CHAR(65),
+  cnl016mod NUMBER(4),
+  cnl032cod NUMBER(3),
+  cnl016ext NUMBER(4),
+  cnl202cod NUMBER(2),
+  cnl202dsc CHAR(60)
+)
+;
+alter table CNL016
+  add primary key (CNL001PAD, CNL001TAD, CNL001DAD, CNL016NUM);
+

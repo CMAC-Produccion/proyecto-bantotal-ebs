@@ -1,0 +1,13 @@
+create table JAQL161
+(
+  jaql161pgcod  NUMBER(4) not null,
+  jaql161fecasi DATE not null,
+  jaql161origen NUMBER(4) not null,
+  jaql161numimp NUMBER(4),
+  jaql161estado CHAR(1),
+  jaql161fecval DATE
+)
+;
+alter table JAQL161
+  add primary key (JAQL161PGCOD, JAQL161FECASI, JAQL161ORIGEN);
+

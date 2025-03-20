@@ -1,0 +1,48 @@
+create table JBXI53
+(
+  jbxi53apl NUMBER(4) not null,
+  jbxi53ban CHAR(5) not null,
+  jbxi53env NUMBER(9) not null,
+  jbxi53cor NUMBER(9) not null,
+  jbxi53per DATE,
+  jbxi53car CHAR(8),
+  jbxi53tip NUMBER(1),
+  jbxi53coe NUMBER(3),
+  jbxi53fop DATE,
+  jbxi53fne DATE,
+  jbxi53ntr NUMBER(6),
+  jbxi53cte CHAR(16),
+  jbxi53top NUMBER(4),
+  jbxi53hop CHAR(8),
+  jbxi53tar CHAR(19),
+  jbxi53mon NUMBER(4),
+  jbxi53imp NUMBER(13),
+  jbxi53sop CHAR(1),
+  jbxi53ali NUMBER(3),
+  jbxi53ide NUMBER(13),
+  jbxi53sde CHAR(1),
+  jbxi53cde CHAR(19),
+  jbxi53cbt NUMBER(9),
+  jbxi53sub NUMBER(3),
+  jbxi53suc NUMBER(3),
+  jbxi53mod NUMBER(3),
+  jbxi53tde NUMBER(2),
+  jbxi53cui NUMBER(11),
+  jbxi53nco CHAR(22),
+  jbxi53cex NUMBER(2),
+  jbxi53est CHAR(2),
+  jbxi53pgc NUMBER(3),
+  jbxi53trm NUMBER(3),
+  jbxi53tra NUMBER(3),
+  jbxi53rel NUMBER(4),
+  jbxi53fco DATE,
+  jbxi53mnc NUMBER(5)
+)
+;
+create index JBXI5302 on JBXI53 (JBXI53PER, JBXI53CAR);
+create index JBXI5303 on JBXI53 (JBXI53EST, JBXI53CDE);
+create index JBXI5304 on JBXI53 (JBXI53SUC, JBXI53CBT, JBXI53SUB, JBXI53MOD, JBXI53MON, JBXI53ALI, JBXI53EST);
+create index JBXI5306 on JBXI53 (JBXI53EST, JBXI53CBT, JBXI53SUC, JBXI53SUB, JBXI53MOD, JBXI53MON, JBXI53ALI);
+alter table JBXI53
+  add primary key (JBXI53APL, JBXI53BAN, JBXI53ENV, JBXI53COR);
+

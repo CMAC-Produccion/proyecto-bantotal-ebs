@@ -1,0 +1,13 @@
+create table FSFL15
+(
+  fsfl15emp NUMBER(3) not null,
+  fsfl15cod NUMBER(3) not null,
+  fsfl15pds NUMBER(5),
+  fsfl15phs NUMBER(5),
+  fsfl15pon NUMBER(17,2)
+)
+;
+create index FSFL1502 on FSFL15 (FSFL15EMP, FSFL15PDS, FSFL15PHS);
+alter table FSFL15
+  add primary key (FSFL15EMP, FSFL15COD);
+

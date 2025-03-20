@@ -1,0 +1,26 @@
+create table FSH003
+(
+  fsh003pais NUMBER(3) not null,
+  fsh003tdoc NUMBER(2) not null,
+  fsh003ndoc CHAR(12) not null,
+  fsh003paif NUMBER(3) not null,
+  fsh003tdof NUMBER(2) not null,
+  fsh003ndof CHAR(12) not null,
+  fsh003fch  DATE not null,
+  fsh003corr NUMBER(4) not null,
+  fsh003user CHAR(10),
+  fsh003hor  CHAR(8),
+  fsh003cvin NUMBER(2),
+  fsh003part NUMBER(7,4),
+  fsh003car1 CHAR(1),
+  fsh003car2 CHAR(65),
+  fsh003fch1 DATE,
+  fsh003fch2 DATE,
+  fsh003num1 NUMBER(3),
+  fsh003num2 NUMBER(14,2)
+)
+;
+create index FSH00302 on FSH003 (FSH003PAIS, FSH003TDOC, FSH003NDOC, FSH003FCH);
+alter table FSH003
+  add primary key (FSH003PAIS, FSH003TDOC, FSH003NDOC, FSH003PAIF, FSH003TDOF, FSH003NDOF, FSH003FCH, FSH003CORR);
+

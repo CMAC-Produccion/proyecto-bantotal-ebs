@@ -1,0 +1,21 @@
+create table FSFC04L
+(
+  kgl04pgcod NUMBER(3) not null,
+  kgl04cod   NUMBER(3) not null,
+  kmlc04fing DATE not null,
+  kmlc04hing CHAR(8) not null,
+  kmlc04ok   CHAR(1),
+  kmlc04adu  CHAR(1),
+  kgl04dsc   CHAR(50),
+  kmlc04uing CHAR(10),
+  kmlc04wing CHAR(10),
+  kmlc04fcnf DATE,
+  kmlc04hcnf CHAR(8),
+  kmlc04ucnf CHAR(10),
+  kmlc04wcnf CHAR(10)
+)
+;
+create index FSFC04L2 on FSFC04L (KGL04PGCOD, KGL04COD, KMLC04OK);
+alter table FSFC04L
+  add primary key (KGL04PGCOD, KGL04COD, KMLC04FING, KMLC04HING);
+

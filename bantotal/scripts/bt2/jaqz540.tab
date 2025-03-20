@@ -1,0 +1,26 @@
+create table JAQZ540
+(
+  jaqz540pai NUMBER(3),
+  jaqz540tdo NUMBER(2),
+  jaqz540ndo CHAR(12),
+  jaqz540ani NUMBER(4),
+  jaqz540mes NUMBER(2),
+  jaqz540fep DATE,
+  jaqz540his NUMBER(5),
+  jaqz540fcn DATE,
+  jaqz540est NUMBER(2),
+  jaqz540pgc NUMBER(3),
+  jaqz540mod NUMBER(3),
+  jaqz540suc NUMBER(3),
+  jaqz540mda NUMBER(4),
+  jaqz540pap NUMBER(4),
+  jaqz540cta NUMBER(9),
+  jaqz540ope NUMBER(9),
+  jaqz540sbo NUMBER(3),
+  jaqz540top NUMBER(3),
+  jaqz540fec DATE
+)
+;
+create index IDX_TJAQZ540_01 on JAQZ540 (JAQZ540PAI, JAQZ540TDO, JAQZ540NDO);
+create index IDX_TJAQZ540_02 on JAQZ540 (JAQZ540FEP);
+

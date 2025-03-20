@@ -1,0 +1,30 @@
+create table CNL069
+(
+  cnl000cod NUMBER(4) not null,
+  cnl001adm CHAR(30) not null,
+  cnl001usu CHAR(30) not null,
+  cnl999tin NUMBER(3) not null,
+  cnl069num NUMBER(9) not null,
+  cnl069fec DATE,
+  cnl069pla NUMBER(1),
+  cnl069mda NUMBER(4),
+  cnl069env CHAR(64),
+  cnl069lit NUMBER(9),
+  cnl069est CHAR(1),
+  cnl069us1 CHAR(30),
+  cnl069ac1 CHAR(10),
+  cnl069fe1 DATE,
+  cnl069us2 CHAR(30),
+  cnl069ac2 CHAR(10),
+  cnl069fe2 DATE,
+  cnl069us3 CHAR(30),
+  cnl069ac3 CHAR(10),
+  cnl069fe3 DATE
+)
+;
+create index CNL06903 on CNL069 (CNL000COD, CNL001ADM, CNL001USU, CNL069PLA, CNL069FEC, CNL999TIN, CNL069NUM);
+create index CNL06904 on CNL069 (CNL000COD, CNL999TIN, CNL069NUM);
+create index CNL06905 on CNL069 (CNL069FEC, CNL000COD, CNL999TIN, CNL069NUM);
+alter table CNL069
+  add primary key (CNL000COD, CNL001ADM, CNL001USU, CNL999TIN, CNL069NUM);
+

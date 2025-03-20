@@ -1,0 +1,21 @@
+create table FSFSR5
+(
+  sfst1merc  NUMBER(3) not null,
+  sfsd7msje  NUMBER(4) not null,
+  sfsd7flujo CHAR(1) not null,
+  sfsr1nro   NUMBER(4) not null,
+  sfsr2nro   NUMBER(2) not null,
+  sfsr5emp   NUMBER(3) not null,
+  sfsr5prpr  CHAR(1) not null,
+  sfsr5num   NUMBER(16) not null,
+  sfsr5fch   DATE,
+  sfsr5stat  CHAR(3),
+  sfsr5fchms DATE,
+  sfsr5secms NUMBER(5),
+  sfsr5horms CHAR(6)
+)
+;
+create index FSFSR503 on FSFSR5 (SFSR5EMP, SFST1MERC, SFSR5STAT, SFSR5FCHMS, SFSR5SECMS);
+alter table FSFSR5
+  add primary key (SFST1MERC, SFSD7MSJE, SFSD7FLUJO, SFSR1NRO, SFSR2NRO, SFSR5EMP, SFSR5PRPR, SFSR5NUM);
+

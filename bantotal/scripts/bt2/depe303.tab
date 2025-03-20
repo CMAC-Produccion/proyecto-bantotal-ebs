@@ -1,0 +1,25 @@
+create table DEPE303
+(
+  depe303fec DATE not null,
+  depe303hra CHAR(8) not null,
+  depe303mda NUMBER(4) not null,
+  depe303usu CHAR(10),
+  depe303hab CHAR(1),
+  depe303fac NUMBER(10,6),
+  depe303an1 NUMBER(9),
+  depe303an2 NUMBER(9),
+  depe303an3 NUMBER(9),
+  depe303ai1 NUMBER(17,2),
+  depe303ai2 NUMBER(17,2),
+  depe303ai3 NUMBER(17,2),
+  depe303ad1 DATE,
+  depe303ad2 DATE,
+  depe303ad3 DATE,
+  depe303ac1 VARCHAR2(200),
+  depe303ac2 VARCHAR2(200),
+  depe303ac3 VARCHAR2(200)
+)
+;
+alter table DEPE303
+  add primary key (DEPE303FEC, DEPE303HRA, DEPE303MDA);
+

@@ -1,0 +1,18 @@
+create table JAQZ516
+(
+  jaqz516eval NUMBER(10) not null,
+  jaqz516pdoc NUMBER(3),
+  jaqz516tdoc NUMBER(2),
+  jaqz516ndoc CHAR(12),
+  jaqz516fec  DATE,
+  jaqz516usu  CHAR(10),
+  jaqz516sol  NUMBER(10),
+  jaqz516tmod NUMBER(4),
+  jaqz516eeff DATE
+)
+;
+create index IDX_JAQZ516_01 on JAQZ516 (JAQZ516PDOC, JAQZ516TDOC, JAQZ516NDOC, JAQZ516EVAL);
+create index IDX_JAQZ516_02 on JAQZ516 (JAQZ516SOL);
+alter table JAQZ516
+  add primary key (JAQZ516EVAL);
+

@@ -1,0 +1,59 @@
+create table FSE001
+(
+  d511pais NUMBER(3) not null,
+  d511tdoc NUMBER(2) not null,
+  d511ndoc CHAR(12) not null,
+  d511suco NUMBER(3),
+  captura  CHAR(1),
+  d511prov CHAR(1),
+  calinter CHAR(2),
+  depclte  NUMBER(9),
+  d511situ CHAR(1),
+  d511est  CHAR(1),
+  d511fhih DATE,
+  solven   CHAR(1),
+  rgindnac NUMBER(11),
+  vtorgnac DATE,
+  importa  CHAR(1),
+  impnreg  NUMBER(11),
+  impfinsc DATE,
+  exporta  CHAR(1),
+  expnins  NUMBER(11),
+  expfins  DATE,
+  paiscon  NUMBER(3),
+  ninstcod CHAR(2),
+  rgpubcno NUMBER(11),
+  rgpubfch DATE,
+  rgpubjur NUMBER(2),
+  rgpublbl CHAR(5),
+  rgpubtmo NUMBER(3),
+  rgpubfol CHAR(5),
+  cierreb  CHAR(5),
+  coopera  CHAR(1),
+  coonins  NUMBER(11),
+  coofins  DATE,
+  mutual   CHAR(1),
+  mutninsc NUMBER(11),
+  mutfinsc DATE,
+  dstcod   NUMBER(5),
+  isellcnd CHAR(1),
+  selljuri NUMBER(2),
+  igancnd  CHAR(1),
+  tpoaltac NUMBER(3),
+  ninscod  NUMBER(3),
+  ocucod   NUMBER(5),
+  grvigan  CHAR(1),
+  d511faux DATE,
+  d511naux NUMBER(10)
+)
+;
+create index FSE00102 on FSE001 (SELLJURI);
+create index FSE00103 on FSE001 (RGPUBJUR);
+create index FSE00104 on FSE001 (NINSTCOD);
+create index FSE00105 on FSE001 (OCUCOD);
+create index FSE00106 on FSE001 (NINSCOD);
+create index FSE00107 on FSE001 (TPOALTAC);
+create index FSE00108 on FSE001 (DSTCOD);
+alter table FSE001
+  add primary key (D511PAIS, D511TDOC, D511NDOC);
+

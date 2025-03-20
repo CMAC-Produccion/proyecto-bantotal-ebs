@@ -1,0 +1,10 @@
+create table WFACTIONS
+(
+  wfactapp   CHAR(20) not null,
+  wfactlblid CHAR(20) not null,
+  wfactobj   CHAR(254) not null
+)
+;
+alter table WFACTIONS
+  add primary key (WFACTAPP, WFACTLBLID, WFACTOBJ);
+

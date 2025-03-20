@@ -1,0 +1,13 @@
+create table X95P55
+(
+  ciupais  NUMBER(3) not null,
+  ciudepto NUMBER(5) not null,
+  ciucod   NUMBER(4) not null,
+  ciudesc  CHAR(20),
+  ciuaux1  CHAR(1),
+  ciuaux2  NUMBER(9)
+)
+;
+alter table X95P55
+  add primary key (CIUPAIS, CIUDEPTO, CIUCOD);
+

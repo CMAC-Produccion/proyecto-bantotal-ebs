@@ -1,0 +1,20 @@
+create table JBVA14
+(
+  jbva14cbi  NUMBER(4) not null,
+  jbva14dca  CHAR(40) not null,
+  jbva14au1  NUMBER(9),
+  jbva14au2  NUMBER(9),
+  jbva14au3  NUMBER(9),
+  jbva14au4  CHAR(30),
+  jbva14au5  CHAR(30),
+  jbva14au6  CHAR(30),
+  jbva14au7  NUMBER(17,2),
+  jbva14au8  NUMBER(17,2),
+  jbva14au9  NUMBER(17,2),
+  jbva14au10 DATE,
+  jbva14au11 DATE,
+  jbva14au12 DATE
+)
+;
+create unique index JBVA1401 on JBVA14 (JBVA14CBI, JBVA14DCA);
+

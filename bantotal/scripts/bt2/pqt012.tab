@@ -1,0 +1,22 @@
+create table PQT012
+(
+  pqt12cod NUMBER(3) not null,
+  pqt12usu CHAR(10) not null,
+  pqt12suc NUMBER(3) not null,
+  pqt12mod NUMBER(3) not null,
+  pqt12mda NUMBER(4) not null,
+  pqt12pap NUMBER(4) not null,
+  pqt12ope NUMBER(9) not null,
+  pqt12sbo NUMBER(3) not null,
+  pqt12top NUMBER(3) not null,
+  pqt12pqt NUMBER(5) not null,
+  pqt12cta NUMBER(9) not null,
+  pqt12nue CHAR(1),
+  pqt12ax1 CHAR(1),
+  pqt12ax2 CHAR(1),
+  pqt12ax3 DATE
+)
+;
+alter table PQT012
+  add primary key (PQT12COD, PQT12USU, PQT12SUC, PQT12MOD, PQT12MDA, PQT12PAP, PQT12OPE, PQT12SBO, PQT12TOP, PQT12PQT, PQT12CTA);
+

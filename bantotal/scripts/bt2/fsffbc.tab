@@ -1,0 +1,20 @@
+create table FSFFBC
+(
+  fsffbcemp  NUMBER(3) not null,
+  fsffbcnro  NUMBER(9) not null,
+  fsffbccorr NUMBER(9) not null,
+  fsffbctas  NUMBER(10,6),
+  fsffbcent  NUMBER(9),
+  fsffbccon  CHAR(65),
+  fsffbccie  CHAR(1),
+  fsffbca01  NUMBER(9),
+  fsffbca02  NUMBER(9),
+  fsffbca03  DATE,
+  fsffbca04  DATE,
+  fsffbca05  NUMBER(17,2),
+  fsffbca06  NUMBER(17,2)
+)
+;
+alter table FSFFBC
+  add primary key (FSFFBCEMP, FSFFBCNRO, FSFFBCCORR);
+

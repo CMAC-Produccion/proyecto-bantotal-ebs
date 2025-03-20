@@ -1,0 +1,19 @@
+create table FCPG67
+(
+  cpg60cod   NUMBER(10) not null,
+  cpg62serv  NUMBER(3) not null,
+  cpg67cod   NUMBER(3) not null,
+  cpg67cntml NUMBER(6),
+  cpg67icmex NUMBER(17,2),
+  cpg67pcmex NUMBER(4,2),
+  cpg67compm CHAR(1),
+  cpg67mccnt NUMBER(6),
+  cpg67est   CHAR(3),
+  cpg67blq   CHAR(1),
+  cpg67inst  NUMBER(10)
+)
+;
+create index FCPG6703 on FCPG67 (CPG67INST);
+alter table FCPG67
+  add primary key (CPG60COD, CPG62SERV, CPG67COD);
+

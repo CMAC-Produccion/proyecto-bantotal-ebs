@@ -1,0 +1,45 @@
+create table AQPB515J
+(
+  aqpb515jserial NUMBER(10) not null,
+  aqpb515jsecue  NUMBER(6) not null,
+  aqpb515jfepre  DATE,
+  aqpb515jnuope  NUMBER(10),
+  aqpb515jtofob  NUMBER(16,2),
+  aqpb515jfofls  NUMBER(16,2),
+  aqpb515jcopao  VARCHAR2(100),
+  aqpb515jtidet  CHAR(2),
+  aqpb515jnpai   NUMBER(3),
+  aqpb515jconcod VARCHAR2(16) not null,
+  aqpb515jcreusr VARCHAR2(30) not null,
+  aqpb515jcretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB515J
+  is 'COMERCIO EXTERIOR IMPORTRACIONES - EQUIFAX';
+comment on column AQPB515J.aqpb515jserial
+  is 'SERIAL';
+comment on column AQPB515J.aqpb515jsecue
+  is 'SECUENCIA';
+comment on column AQPB515J.aqpb515jfepre
+  is 'FECHA';
+comment on column AQPB515J.aqpb515jnuope
+  is 'NUMERO DE OPERACIONES';
+comment on column AQPB515J.aqpb515jtofob
+  is 'VALOR TOTAL FOB';
+comment on column AQPB515J.aqpb515jfofls
+  is 'VALOR TOTAL FLOG FSEG';
+comment on column AQPB515J.aqpb515jcopao
+  is 'CODIGO PAIS ORIGEN';
+comment on column AQPB515J.aqpb515jtidet
+  is 'TIPO DETALLE';
+comment on column AQPB515J.aqpb515jnpai
+  is 'NRO PAISES IMPORTACION';
+comment on column AQPB515J.aqpb515jconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515J.aqpb515jcreusr
+  is 'CONSULTA - USUARIO CREACION';
+comment on column AQPB515J.aqpb515jcretim
+  is 'CONSULTA - FECHA HORA DE CREACION';
+alter table AQPB515J
+  add primary key (AQPB515JSERIAL, AQPB515JSECUE, AQPB515JCONCOD, AQPB515JCREUSR);
+

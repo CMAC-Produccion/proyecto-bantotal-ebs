@@ -1,0 +1,50 @@
+create table FCV311
+(
+  cv311cod   NUMBER(3) not null,
+  cv311mod   NUMBER(3) not null,
+  cv311mda   NUMBER(4) not null,
+  cv311pap   NUMBER(4) not null,
+  cv311cta   NUMBER(9) not null,
+  cv311suc   NUMBER(3) not null,
+  cv311oper  NUMBER(9) not null,
+  cv311sbop  NUMBER(3) not null,
+  cv311tope  NUMBER(3) not null,
+  cv311fdes  DATE not null,
+  cv311fhas  DATE,
+  cv311fval  DATE,
+  cv311porc  NUMBER(10,6),
+  cv311impmx NUMBER(17,2),
+  cv311sdo   NUMBER(17,2),
+  cv311imput NUMBER(17,2),
+  cv311sts   NUMBER(2),
+  cv311nradh NUMBER(9),
+  cv311oplin NUMBER(9),
+  cv311mvsuc NUMBER(3),
+  cv311mvmod NUMBER(3),
+  cv311mvtrn NUMBER(3),
+  cv311mvfec DATE,
+  cv311mvnre NUMBER(4),
+  cv311mvord NUMBER(2),
+  cv311mvsor NUMBER(3),
+  cv311mvco  CHAR(1),
+  cv311aux01 NUMBER(17,2),
+  cv311aux02 NUMBER(17,2),
+  cv311aux03 NUMBER(17,2),
+  cv311aux04 DATE,
+  cv311aux05 DATE,
+  cv311aux06 CHAR(20),
+  cv311aux07 CHAR(50),
+  cv311aux08 CHAR(100),
+  cv311aux09 NUMBER(10),
+  cv311aux10 NUMBER(9),
+  cv311aux11 NUMBER(9),
+  cv311aux12 NUMBER(5),
+  cv311aux13 NUMBER(3)
+)
+;
+create index FCV31102 on FCV311 (CV311COD, CV311CTA, CV311MOD, CV311FDES);
+create index FCV31103 on FCV311 (CV311COD, CV311STS, CV311MOD, CV311MDA, CV311PAP, CV311CTA, CV311OPER, CV311SBOP, CV311SUC, CV311TOPE);
+create index FCV31104 on FCV311 (CV311COD, CV311MVSUC, CV311MVMOD, CV311MVTRN, CV311MVFEC, CV311MVNRE, CV311MVORD, CV311MVSOR, CV311AUX01);
+alter table FCV311
+  add primary key (CV311COD, CV311MOD, CV311MDA, CV311PAP, CV311CTA, CV311SUC, CV311OPER, CV311SBOP, CV311TOPE, CV311FDES);
+

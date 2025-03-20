@@ -1,0 +1,21 @@
+create table JAQZ563
+(
+  jaqz563corr NUMBER(10) not null,
+  jaqz563fecc DATE not null,
+  jaqz563grup NUMBER(10) not null,
+  jaqz563pais NUMBER(3),
+  jaqz563tdoc NUMBER(2),
+  jaqz563ndoc CHAR(12) not null,
+  jaqz563idre CHAR(26),
+  jaqz563au1  NUMBER(4),
+  jaqz563au2  NUMBER(16,2),
+  jaqz563au3  CHAR(20),
+  jaqz563au4  VARCHAR2(40),
+  jaqz563au5  DATE,
+  jaqz563au6  VARCHAR2(200)
+)
+;
+create index IDX_JAQZ563_01 on JAQZ563 (JAQZ563GRUP);
+alter table JAQZ563
+  add primary key (JAQZ563CORR, JAQZ563FECC, JAQZ563GRUP, JAQZ563NDOC);
+

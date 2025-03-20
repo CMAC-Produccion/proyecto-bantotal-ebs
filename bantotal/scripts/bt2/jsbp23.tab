@@ -1,0 +1,27 @@
+create table JSBP23
+(
+  jsbp23bco  NUMBER(3) not null,
+  jsbp23chq  NUMBER(9) not null,
+  jsbp23cta  CHAR(25) not null,
+  jsbp23fec  DATE not null,
+  jsbp23reg  NUMBER(4),
+  jsbp23mda  NUMBER(4),
+  jsbp23imp  NUMBER(17,2),
+  jsbp23modd NUMBER(3),
+  jsbp23ctad NUMBER(9),
+  jsbp23mdad NUMBER(4),
+  jsbp23papd NUMBER(4),
+  jsbp23sbod NUMBER(3),
+  jsbp23oper NUMBER(9),
+  jsbp23sbop NUMBER(3),
+  jsbp23suc  NUMBER(3),
+  jsbp23nrel NUMBER(4),
+  jsbp23hora CHAR(8),
+  jsbp23uing CHAR(10),
+  jsbp23usu  CHAR(10)
+)
+;
+create index JSBP2302 on JSBP23 (JSBP23REG, JSBP23SUC, JSBP23BCO, JSBP23MDA, JSBP23CHQ);
+alter table JSBP23
+  add primary key (JSBP23BCO, JSBP23CHQ, JSBP23CTA, JSBP23FEC);
+

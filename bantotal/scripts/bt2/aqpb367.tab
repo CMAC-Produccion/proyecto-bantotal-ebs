@@ -1,0 +1,48 @@
+create table AQPB367
+(
+  aqpb367usr     CHAR(10) not null,
+  aqpb367emp     NUMBER(3) not null,
+  aqpb367mod     NUMBER(3) not null,
+  aqpb367suc     NUMBER(3) not null,
+  aqpb367mda     NUMBER(4) not null,
+  aqpb367pap     NUMBER(4) not null,
+  aqpb367cta     NUMBER(9) not null,
+  aqpb367ope     NUMBER(9) not null,
+  aqpb367sbo     NUMBER(3) not null,
+  aqpb367top     NUMBER(3) not null,
+  aqpb367empg    NUMBER(3),
+  aqpb367modg    NUMBER(3),
+  aqpb367sucg    NUMBER(3),
+  aqpb367mdag    NUMBER(4),
+  aqpb367papg    NUMBER(4),
+  aqpb367ctag    NUMBER(9),
+  aqpb367opeg    NUMBER(9),
+  aqpb367sbog    NUMBER(3),
+  aqpb367topg    NUMBER(3),
+  aqpb367estg    NUMBER(2),
+  aqpb367estgde  CHAR(30),
+  aqpb367faltg   DATE,
+  aqpb367mtoog   NUMBER(18,2),
+  aqpb367mtoag   NUMBER(18,2),
+  aqpb367sdocap  NUMBER(18,2),
+  aqpb367estc    NUMBER(2),
+  aqpb367estcde  CHAR(30),
+  aqpb367nrocp   NUMBER(4),
+  aqpb367itcod   NUMBER(3) not null,
+  aqpb367itmod   NUMBER(3) not null,
+  aqpb367itsuc   NUMBER(3) not null,
+  aqpb367ittran  NUMBER(3) not null,
+  aqpb367itnrel  NUMBER(4) not null,
+  aqpb367itfcon  DATE not null,
+  aqpb367ithor   CHAR(8),
+  aqpb367itucnf  CHAR(10),
+  aqpb367usuact  CHAR(10),
+  aqpb367fecact  DATE,
+  aqpb367sucdes  CHAR(30),
+  aqpb367sucgdes CHAR(30)
+)
+;
+create index AQPB3672 on AQPB367 (AQPB367USR);
+alter table AQPB367
+  add primary key (AQPB367USR, AQPB367EMP, AQPB367MOD, AQPB367SUC, AQPB367MDA, AQPB367PAP, AQPB367CTA, AQPB367OPE, AQPB367SBO, AQPB367TOP, AQPB367ITCOD, AQPB367ITMOD, AQPB367ITSUC, AQPB367ITTRAN, AQPB367ITNREL, AQPB367ITFCON);
+

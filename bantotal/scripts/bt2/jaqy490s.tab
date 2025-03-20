@@ -1,0 +1,128 @@
+create table JAQY490S
+(
+  jaqy490fec DATE not null,
+  jaqy490pai NUMBER(3) not null,
+  jaqy490tdo NUMBER(3) not null,
+  jaqy490ndo CHAR(12) not null,
+  jaqy490seg CHAR(1),
+  jaqy490sin NUMBER(1),
+  jaqy490ins NUMBER(9),
+  jaqy490nev NUMBER(9),
+  jaqy490fev DATE,
+  jaqy490fsb DATE,
+  jaqy490sbs VARCHAR2(10),
+  jaqy490cca NUMBER(12,2),
+  jaqy490csf NUMBER(12,2),
+  jaqy490tin NUMBER(17,2),
+  jaqy490ulc NUMBER(20,5),
+  jaqy490vsd NUMBER(20,5),
+  jaqy490vne NUMBER(20,5),
+  jaqy490ens NUMBER(20,5),
+  jaqy490cpo NUMBER(20,5),
+  jaqy490ven NUMBER(17,2),
+  jaqy490oin NUMBER(17,2),
+  jaqy490une NUMBER(17,2),
+  jaqy490rne NUMBER(17,2),
+  jaqy490dto NUMBER(20,5),
+  jaqy490pas NUMBER(17,2),
+  jaqy490pat NUMBER(17,2),
+  jaqy490coc NUMBER(20,5),
+  jaqy490foi NUMBER(1),
+  jaqy490cr1 NUMBER(1),
+  jaqy490cr2 NUMBER(1),
+  jaqy490cr3 NUMBER(1),
+  jaqy490cr4 NUMBER(1),
+  jaqy490sob NUMBER(1),
+  jaqy490mtc NUMBER(20,5),
+  jaqy490nen NUMBER(20,5),
+  jaqy490nre NUMBER(10),
+  jaqy490pac NUMBER(3),
+  jaqy490tdc NUMBER(3),
+  jaqy490ndc VARCHAR2(12),
+  jaqy490sbc VARCHAR2(10),
+  jaqy490ccc NUMBER(12,2),
+  jaqy490csc NUMBER(20,5),
+  jaqy490cpc NUMBER(20,5),
+  jaqy490exc NUMBER(17,2),
+  jaqy490cex NUMBER(17,2),
+  jaqy490cec NUMBER(17,2),
+  jaqy490cuc NUMBER(17,2)
+)
+;
+comment on table JAQY490S
+  is 'Identificación de sobre enceudamiento - seguimiento';
+comment on column JAQY490S.jaqy490fec
+  is 'Fecha de proceso';
+comment on column JAQY490S.jaqy490pai
+  is 'Código de país';
+comment on column JAQY490S.jaqy490tdo
+  is 'Código de tipo de documento';
+comment on column JAQY490S.jaqy490ndo
+  is 'Número de documento';
+comment on column JAQY490S.jaqy490seg
+  is 'Segmento de mercado del deudor 1=Indep./2=Depend./3=Deped.Convenio';
+comment on column JAQY490S.jaqy490sin
+  is 'Segmento de dedudor por ingreso bruto 1/2/3';
+comment on column JAQY490S.jaqy490ins
+  is 'Número de instancia (solicitud)';
+comment on column JAQY490S.jaqy490nev
+  is 'Número de evaluación';
+comment on column JAQY490S.jaqy490fev
+  is 'Fecha de la evaluación';
+comment on column JAQY490S.jaqy490fsb
+  is 'Fecha de archivo RCC';
+comment on column JAQY490S.jaqy490sbs
+  is 'Código SBS del deudor';
+comment on column JAQY490S.jaqy490cca
+  is 'Importe cuota propuesta Caja AQP';
+comment on column JAQY490S.jaqy490csf
+  is 'Importe de cuotas del sistema financiero';
+comment on column JAQY490S.jaqy490tin
+  is 'Importe total ingresos';
+comment on column JAQY490S.jaqy490ulc
+  is 'Importe utilización de líneas en tarjetas en sistema financiero';
+comment on column JAQY490S.jaqy490vsd
+  is 'Variación de saldos deudores en sistema financiero';
+comment on column JAQY490S.jaqy490vne
+  is 'varición de nro. de entidades acreedoras sistema financiero';
+comment on column JAQY490S.jaqy490ens
+  is 'Nro. entidades acreedoras cons saldo mayor a S/.100';
+comment on column JAQY490S.jaqy490cpo
+  is 'Importe de cuota potencial';
+comment on column JAQY490S.jaqy490ven
+  is 'Importe de ventas (neto S/.)';
+comment on column JAQY490S.jaqy490oin
+  is 'Importe otros ingresos (neto S/.)';
+comment on column JAQY490S.jaqy490une
+  is 'Importe utilidad neta';
+comment on column JAQY490S.jaqy490rne
+  is 'Importe resultado neto';
+comment on column JAQY490S.jaqy490dto
+  is 'Importe deuda total sistema financiero';
+comment on column JAQY490S.jaqy490pas
+  is 'Importe total pasivo';
+comment on column JAQY490S.jaqy490pat
+  is 'Importe total patrimonio';
+comment on column JAQY490S.jaqy490coc
+  is 'Importe cuota otors convenios sistema financiero';
+comment on column JAQY490S.jaqy490foi
+  is 'Flag otros ingresos';
+comment on column JAQY490S.jaqy490cr1
+  is 'Indicador del criterio 1  1=activado/0= No activado';
+comment on column JAQY490S.jaqy490cr2
+  is 'Indicador del criterio 2  1=activado/0= No activado';
+comment on column JAQY490S.jaqy490cr3
+  is 'Indicador del criterio 3  1=activado/0= No activado';
+comment on column JAQY490S.jaqy490cr4
+  is 'Indicador del criterio 4  1=activado/0= No activado';
+comment on column JAQY490S.jaqy490sob
+  is 'Identifiación de cliente sobre endeudado  1=Identificado/0= No Identificado';
+comment on column JAQY490S.jaqy490mtc
+  is 'Monto líneas tarjeta de crédito en sistema financiero';
+comment on column JAQY490S.jaqy490nen
+  is 'Nro. de entidades acreedoras';
+create index IX_JAQY490S_1 on JAQY490S (JAQY490PAI, JAQY490TDO, JAQY490NDO);
+create index IX_JAQY490S_2 on JAQY490S (JAQY490NRE);
+alter table JAQY490S
+  add constraint PK_JAQY490S primary key (JAQY490FEC, JAQY490PAI, JAQY490TDO, JAQY490NDO);
+

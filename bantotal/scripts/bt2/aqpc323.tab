@@ -1,0 +1,69 @@
+create table AQPC323
+(
+  aqpc323idcamp NUMBER(10) not null,
+  aqpc323nombre VARCHAR2(90),
+  aqpc323fecini DATE,
+  aqpc323fecfin DATE,
+  aqpc323porcbk NUMBER(4,2),
+  aqpc323maxcbk NUMBER(9,2),
+  aqpc323numcmp NUMBER(4),
+  aqpc323moncmp NUMBER(17,2),
+  aqpc323blscam NUMBER(17,2),
+  aqpc323lote01 VARCHAR2(9),
+  aqpc323lote02 VARCHAR2(9),
+  aqpc323pochre NUMBER(4,2),
+  aqpc323mxcbre NUMBER(9,2),
+  aqpc323usureg CHAR(10),
+  aqpc323fecreg DATE,
+  aqpc323horreg CHAR(8),
+  aqpc323estado CHAR(1),
+  aqpc323usumod CHAR(10),
+  aqpc323fecmod DATE,
+  aqpc323hormod CHAR(8)
+)
+;
+comment on table AQPC323
+  is 'Campañas Cashback, Cashback de Referidos';
+comment on column AQPC323.aqpc323idcamp
+  is 'Codigo de campaña';
+comment on column AQPC323.aqpc323nombre
+  is 'Nombre de campaña';
+comment on column AQPC323.aqpc323fecini
+  is 'Fecha de inicio';
+comment on column AQPC323.aqpc323fecfin
+  is 'Fecha de fin';
+comment on column AQPC323.aqpc323porcbk
+  is 'Porcentaje de devolucion';
+comment on column AQPC323.aqpc323maxcbk
+  is 'Monto maximo de devolucion';
+comment on column AQPC323.aqpc323numcmp
+  is 'Número de compras';
+comment on column AQPC323.aqpc323moncmp
+  is 'Monto de compras';
+comment on column AQPC323.aqpc323blscam
+  is 'Bolsa de campaña';
+comment on column AQPC323.aqpc323lote01
+  is 'Lote de tarjetas 1';
+comment on column AQPC323.aqpc323lote02
+  is 'Lote de tarjetas 2';
+comment on column AQPC323.aqpc323pochre
+  is 'Porcentaje de devolucion al referidor';
+comment on column AQPC323.aqpc323mxcbre
+  is 'Monto maximo de devolucion al referidor';
+comment on column AQPC323.aqpc323usureg
+  is 'Usuario que registra';
+comment on column AQPC323.aqpc323fecreg
+  is 'Fecha de registro';
+comment on column AQPC323.aqpc323horreg
+  is 'Hora de registro';
+comment on column AQPC323.aqpc323estado
+  is 'Habilitado / Deshabilitado (S/N)';
+comment on column AQPC323.aqpc323usumod
+  is 'Usuario que modifica';
+comment on column AQPC323.aqpc323fecmod
+  is 'Fecha de modificacion';
+comment on column AQPC323.aqpc323hormod
+  is 'Hora de modificacion';
+alter table AQPC323
+  add primary key (AQPC323IDCAMP);
+

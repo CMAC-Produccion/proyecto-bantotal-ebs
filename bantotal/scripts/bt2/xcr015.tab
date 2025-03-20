@@ -1,0 +1,24 @@
+create table XCR015
+(
+  xcrhemp    NUMBER(3) not null,
+  xcrhcta    NUMBER(9) not null,
+  xcrhsbop   NUMBER(3) not null,
+  xcrhmda    NUMBER(4) not null,
+  xcrhnumc   NUMBER(9) not null,
+  xcrhvemp   NUMBER(3) not null,
+  xcrhvnumtr CHAR(16) not null,
+  xcrhvcta   NUMBER(9) not null,
+  xcrhvsbop  NUMBER(3) not null,
+  xcrhvmda   NUMBER(4) not null,
+  xcrhvstatn NUMBER(5) not null,
+  xcrhvstats NUMBER(5) not null,
+  xcrhvorige CHAR(2) not null,
+  xcrhvlinea NUMBER(5) not null,
+  xcrhvaux   CHAR(10),
+  xcrhvloc   CHAR(1)
+)
+;
+create index XCR01503 on XCR015 (XCRHVEMP, XCRHVNUMTR, XCRHVCTA, XCRHVSBOP, XCRHVMDA, XCRHVSTATN, XCRHVSTATS, XCRHVORIGE, XCRHVLINEA);
+alter table XCR015
+  add primary key (XCRHEMP, XCRHCTA, XCRHSBOP, XCRHMDA, XCRHNUMC, XCRHVEMP, XCRHVNUMTR, XCRHVCTA, XCRHVSBOP, XCRHVMDA, XCRHVSTATN, XCRHVSTATS, XCRHVORIGE, XCRHVLINEA);
+

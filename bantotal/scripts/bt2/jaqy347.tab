@@ -1,0 +1,68 @@
+create table JAQY347
+(
+  jaqy347pai NUMBER(3),
+  jaqy347tdo NUMBER(3) not null,
+  jaqy347ndo VARCHAR2(12) not null,
+  jaqy347fec DATE not null,
+  jaqy347pat NUMBER(17,2),
+  jaqy347rcc NUMBER(17,2),
+  jaqy347ban NUMBER(17,2),
+  jaqy347cen NUMBER(17,2),
+  jaqy347res NUMBER(17,2),
+  jaqy347cba NUMBER(17,2),
+  jaqy347cpa NUMBER(17,2),
+  jaqy347sdt NUMBER(17,2),
+  jaqy347cal NUMBER(10,5),
+  jaqy347cas NUMBER(10,5),
+  jaqy347ent NUMBER(10),
+  jaqy347sbs VARCHAR2(12),
+  jaqy347hip NUMBER(17,2),
+  jaqy347con NUMBER(17,2),
+  jaqy347pym NUMBER(17,2),
+  jaqy347eto NUMBER(10)
+)
+;
+comment on column JAQY347.jaqy347pai
+  is 'Pais';
+comment on column JAQY347.jaqy347tdo
+  is 'Tipo de documento';
+comment on column JAQY347.jaqy347ndo
+  is 'Numero de documento';
+comment on column JAQY347.jaqy347fec
+  is 'Fecha de proceso';
+comment on column JAQY347.jaqy347pat
+  is 'Patrimonio Evaluacion';
+comment on column JAQY347.jaqy347rcc
+  is 'Deuda rcc Pyme';
+comment on column JAQY347.jaqy347ban
+  is 'Deuda Bantotal';
+comment on column JAQY347.jaqy347cen
+  is 'Capacidad de endeudamiento';
+comment on column JAQY347.jaqy347res
+  is 'Resultado Neto';
+comment on column JAQY347.jaqy347cba
+  is 'Cuota Bantotal';
+comment on column JAQY347.jaqy347cpa
+  is 'Capacidad de pago';
+comment on column JAQY347.jaqy347sdt
+  is 'Deuda externa total';
+comment on column JAQY347.jaqy347cal
+  is 'Calificacion ultimo RCC';
+comment on column JAQY347.jaqy347cas
+  is 'Calificacion ultimos 6 meses RCC';
+comment on column JAQY347.jaqy347ent
+  is 'Numero de entidades';
+comment on column JAQY347.jaqy347sbs
+  is 'Codigo SBS';
+comment on column JAQY347.jaqy347hip
+  is 'Saldo hipotecario';
+comment on column JAQY347.jaqy347con
+  is 'Saldo Consumo';
+comment on column JAQY347.jaqy347pym
+  is 'Saldo Pyme';
+comment on column JAQY347.jaqy347eto
+  is 'Numero de entidades totales';
+create index IDX_JAQY347_01 on JAQY347 (JAQY347PAI, JAQY347TDO, JAQY347NDO);
+create index IDX_JAQY347_02 on JAQY347 (JAQY347NDO);
+create index IDX_JAQY347_03 on JAQY347 (JAQY347SBS);
+

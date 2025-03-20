@@ -1,0 +1,88 @@
+create table AQPC553
+(
+  aqpc553emp  NUMBER(3),
+  aqpc553mod  NUMBER(3),
+  aqpc553suc  NUMBER(3),
+  aqpc553mda  NUMBER(4),
+  aqpc553pap  NUMBER(4),
+  aqpc553cta  NUMBER(9),
+  aqpc553ope  NUMBER(9),
+  aqpc553sbo  NUMBER(3),
+  aqpc553top  NUMBER(3),
+  aqpc553tcod NUMBER(3),
+  aqpc553tmod NUMBER(3),
+  aqpc553tpiz NUMBER(3),
+  aqpc553tcta NUMBER(9),
+  aqpc553tmda NUMBER(4),
+  aqpc553tpap NUMBER(4),
+  aqpc553tfde DATE,
+  aqpc553tmto NUMBER(17,2),
+  aqpc553ttas NUMBER(1),
+  aqpc553tpfi NUMBER(8),
+  aqpc553tpvi CHAR(1),
+  aqpc553esta CHAR(1),
+  aqpc553fecr TIMESTAMP(6),
+  aqpc553usur CHAR(30),
+  aqpc553tipr NUMBER(3),
+  aqpc553tipi VARCHAR2(2),
+  aqpc553fecm TIMESTAMP(6),
+  aqpc553msgi VARCHAR2(250),
+  aqpc553msgr VARCHAR2(250)
+)
+;
+comment on table AQPC553
+  is 'TABLA LOG DE PANEL DE REDUCCION DE TASA';
+comment on column AQPC553.aqpc553emp
+  is 'Clv. del Credito Empresa';
+comment on column AQPC553.aqpc553mod
+  is 'Clv. del Credito Modulo';
+comment on column AQPC553.aqpc553suc
+  is 'Clv. del Credito Sucursal';
+comment on column AQPC553.aqpc553mda
+  is 'Clv. del Credito Moneda';
+comment on column AQPC553.aqpc553pap
+  is 'Clv. del Credito Papel';
+comment on column AQPC553.aqpc553cta
+  is 'Clv. del Credito Cuenta';
+comment on column AQPC553.aqpc553ope
+  is 'Clv. del Credito Operacion';
+comment on column AQPC553.aqpc553sbo
+  is 'Clv. del Credito SubOperacion';
+comment on column AQPC553.aqpc553top
+  is 'Clv. del Credito Tipo de Operacion';
+comment on column AQPC553.aqpc553tcod
+  is 'Fsd027 - Codigo';
+comment on column AQPC553.aqpc553tmod
+  is 'Fsd027 - Modulo';
+comment on column AQPC553.aqpc553tpiz
+  is 'Fsd027 - Pizarra';
+comment on column AQPC553.aqpc553tcta
+  is 'Fsd027 - Cuenta';
+comment on column AQPC553.aqpc553tmda
+  is 'Fsd027 - Moneda';
+comment on column AQPC553.aqpc553tpap
+  is 'Fsd027 - Papel';
+comment on column AQPC553.aqpc553tfde
+  is 'Fsd027 - Fecha';
+comment on column AQPC553.aqpc553tmto
+  is 'Fsd027 - Monto';
+comment on column AQPC553.aqpc553ttas
+  is 'Fsd027 - Tipo Tasa';
+comment on column AQPC553.aqpc553tpfi
+  is 'Fsd027 - Documento';
+comment on column AQPC553.aqpc553tpvi
+  is 'Fsd027 - Vigencia';
+comment on column AQPC553.aqpc553esta
+  is 'Fsd027 - Estado';
+comment on column AQPC553.aqpc553fecr
+  is 'Fecha de Registro de la tasa en pizarra';
+comment on column AQPC553.aqpc553usur
+  is 'Usuario que Registro la tasa';
+comment on column AQPC553.aqpc553fecm
+  is 'Fecha de Retiro de la tasa en pizarra';
+comment on column AQPC553.aqpc553msgi
+  is 'Mensaje de error en el Ingreso';
+comment on column AQPC553.aqpc553msgr
+  is 'Mensaje de error en el retiro';
+create index AQPC553A2 on AQPC553 (AQPC553EMP, AQPC553MOD, AQPC553SUC, AQPC553MDA, AQPC553PAP, AQPC553CTA, AQPC553OPE, AQPC553SBO, AQPC553TOP);
+

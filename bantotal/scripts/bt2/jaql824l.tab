@@ -1,0 +1,40 @@
+create table JAQL824L
+(
+  jaql824apl  NUMBER(3) not null,
+  jaql824ban  CHAR(4) not null,
+  jaql824env  NUMBER(9) not null,
+  jaql824lreg NUMBER(9) not null,
+  jaql824ltre CHAR(1),
+  jaql824lcem CHAR(14),
+  jaql824lcse NUMBER(3),
+  jaql824lcus CHAR(15),
+  jaql824lnre CHAR(15),
+  jaql824lnus CHAR(20),
+  jaql824lmco NUMBER(4),
+  jaql824lic1 NUMBER(11,2),
+  jaql824lic2 NUMBER(11,2),
+  jaql824lic3 NUMBER(11,2),
+  jaql824lic4 NUMBER(11,2),
+  jaql824lic5 NUMBER(11,2),
+  jaql824lic6 NUMBER(11,2),
+  jaql824lfve DATE,
+  jaql824lfpa DATE,
+  jaql824lipa CHAR(1),
+  jaql824lmpa CHAR(1),
+  jaql824lnop CHAR(13),
+  jaql824lrco CHAR(30),
+  jaql824lhpa CHAR(8),
+  jaql824lfrp DATE,
+  jaql824lcan CHAR(2),
+  jaql824lfre CHAR(1),
+  jaql824lfla NUMBER(1),
+  jaql824ldpr CHAR(200),
+  jaql824lrel NUMBER(4),
+  jaql824lsuc NUMBER(3),
+  jaql824ltrn NUMBER(3),
+  jaql824lmod NUMBER(3)
+)
+;
+alter table JAQL824L
+  add primary key (JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824LREG);
+

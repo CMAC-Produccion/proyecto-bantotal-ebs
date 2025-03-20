@@ -1,0 +1,29 @@
+create table JHSI26
+(
+  jhsi26apl  NUMBER(4) not null,
+  jhsi26band CHAR(5) not null,
+  jhsi26env  NUMBER(9) not null,
+  jhsi26cor  NUMBER(9) not null,
+  jhsi26reg  CHAR(1),
+  jhsi26tdoc NUMBER(3),
+  jhsi26ndoc CHAR(15),
+  jhsi26tdom CHAR(1),
+  jhsi26call CHAR(40),
+  jhsi26nro  CHAR(5),
+  jhsi26piso CHAR(5),
+  jhsi26dpto CHAR(5),
+  jhsi26prov NUMBER(3),
+  jhsi26loc  CHAR(30),
+  jhsi26pais NUMBER(3),
+  jhsi26ad   CHAR(117),
+  jhsi26idcl CHAR(20),
+  jhsi26petd NUMBER(2),
+  jhsi26pend CHAR(12)
+)
+;
+create unique index JHSI2601 on JHSI26 (JHSI26APL, JHSI26BAND, JHSI26ENV, JHSI26COR);
+create index JHSI2602 on JHSI26 (JHSI26PAIS, JHSI26TDOC, JHSI26NDOC, JHSI26APL, JHSI26BAND, JHSI26ENV, JHSI26COR);
+create index JHSI2603 on JHSI26 (JHSI26IDCL, JHSI26APL, JHSI26BAND, JHSI26ENV, JHSI26COR);
+create index JHSI2604 on JHSI26 (JHSI26TDOM, JHSI26APL, JHSI26BAND, JHSI26ENV, JHSI26COR);
+create index JHSI2605 on JHSI26 (JHSI26PAIS, JHSI26PETD, JHSI26PEND, JHSI26TDOM, JHSI26APL, JHSI26BAND, JHSI26ENV);
+

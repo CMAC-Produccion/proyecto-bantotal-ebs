@@ -1,0 +1,48 @@
+create table FHE020
+(
+  lcixhpgcod NUMBER(3) not null,
+  lcixhmod   NUMBER(3) not null,
+  lcixhoper  NUMBER(9) not null,
+  lcixhmodid NUMBER(5) not null,
+  lcixhmodnr NUMBER(5),
+  lcixhactab NUMBER(9),
+  lcixhpctab NUMBER(9),
+  lcixhacta2 NUMBER(9),
+  lcixhpcta2 NUMBER(9),
+  lcixhacta3 NUMBER(9),
+  lcixhpcta3 NUMBER(9),
+  lcixhafch1 DATE,
+  lcixhpfch1 DATE,
+  lcixhafch2 DATE,
+  lcixhpfch2 DATE,
+  lcixhafch3 DATE,
+  lcixhpfch3 DATE,
+  lcixhaimp1 NUMBER(17,2),
+  lcixhpimp1 NUMBER(17,2),
+  lcixhaimp2 NUMBER(17,2),
+  lcixhpimp2 NUMBER(17,2),
+  lcixhaimp3 NUMBER(17,2),
+  lcixhpimp3 NUMBER(17,2),
+  lcixhanum1 NUMBER(16),
+  lcixhpnum1 NUMBER(16),
+  lcixhanum2 NUMBER(16),
+  lcixhpnum2 NUMBER(16),
+  lcixhanum3 NUMBER(16),
+  lcixhpnum3 NUMBER(16),
+  lcixhastr1 CHAR(35),
+  lcixhpstr1 CHAR(35),
+  lcixhastr2 CHAR(35),
+  lcixhpstr2 CHAR(35),
+  lcixhastr3 CHAR(35),
+  lcixhpstr3 CHAR(35),
+  lcixhapte1 NUMBER(7,4),
+  lcixhppte1 NUMBER(7,4),
+  lcixhapte2 NUMBER(7,4),
+  lcixhppte2 NUMBER(7,4),
+  lcixhapte3 NUMBER(7,4),
+  lcixhppte3 NUMBER(7,4)
+)
+;
+alter table FHE020
+  add primary key (LCIXHPGCOD, LCIXHMOD, LCIXHOPER, LCIXHMODID);
+

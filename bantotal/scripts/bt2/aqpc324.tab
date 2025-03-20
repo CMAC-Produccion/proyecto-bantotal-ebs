@@ -1,0 +1,72 @@
+create table AQPC324
+(
+  aqpc324numera NUMBER(5) not null,
+  aqpc324pgcod  NUMBER(3),
+  aqpc324hcmod  NUMBER(3),
+  aqpc324hsucor NUMBER(3),
+  aqpc324htran  NUMBER(3),
+  aqpc324hnrel  NUMBER(4),
+  aqpc324hfcon  DATE,
+  aqpc324hcord  NUMBER(2),
+  aqpc324hcsubo NUMBER(3),
+  aqpc324hmodul NUMBER(3),
+  aqpc324htoper NUMBER(3),
+  aqpc324hsucur NUMBER(3),
+  aqpc324hmda   NUMBER(4),
+  aqpc324hpap   NUMBER(4),
+  aqpc324hcta   NUMBER(9),
+  aqpc324hoper  NUMBER(9),
+  aqpc324hsubop NUMBER(3),
+  aqpc324hfval  DATE,
+  aqpc324hcimp1 NUMBER(17,2),
+  aqpc324hcref  CHAR(18),
+  aqpc324motivo VARCHAR2(100)
+)
+;
+comment on table AQPC324
+  is 'Compras candidatas Cashback, Cashback de Referidos';
+comment on column AQPC324.aqpc324numera
+  is 'Numerador';
+comment on column AQPC324.aqpc324pgcod
+  is 'Código empresa';
+comment on column AQPC324.aqpc324hcmod
+  is 'Modulo';
+comment on column AQPC324.aqpc324hsucor
+  is 'Sucursal';
+comment on column AQPC324.aqpc324htran
+  is 'Transaccion';
+comment on column AQPC324.aqpc324hnrel
+  is 'Nro. relacion';
+comment on column AQPC324.aqpc324hfcon
+  is 'Fecha de contabilizado';
+comment on column AQPC324.aqpc324hcord
+  is 'Ordinal';
+comment on column AQPC324.aqpc324hcsubo
+  is 'Subordinal';
+comment on column AQPC324.aqpc324hmodul
+  is 'Modulo';
+comment on column AQPC324.aqpc324htoper
+  is 'Tipo operacion';
+comment on column AQPC324.aqpc324hsucur
+  is 'Sucursal';
+comment on column AQPC324.aqpc324hmda
+  is 'Moneda';
+comment on column AQPC324.aqpc324hpap
+  is 'Papel';
+comment on column AQPC324.aqpc324hcta
+  is 'Cuenta';
+comment on column AQPC324.aqpc324hoper
+  is 'Operacion';
+comment on column AQPC324.aqpc324hsubop
+  is 'Sub. operacion';
+comment on column AQPC324.aqpc324hfval
+  is 'Fecha valor';
+comment on column AQPC324.aqpc324hcimp1
+  is 'Importe contable';
+comment on column AQPC324.aqpc324hcref
+  is 'Hcref (Número de Tarjeta)';
+comment on column AQPC324.aqpc324motivo
+  is 'No elegible para cashback';
+alter table AQPC324
+  add primary key (AQPC324NUMERA);
+

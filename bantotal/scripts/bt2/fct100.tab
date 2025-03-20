@@ -1,0 +1,36 @@
+create table FCT100
+(
+  modulo     NUMBER(3) not null,
+  instcod    NUMBER(2) not null,
+  bpitem     NUMBER(3) not null,
+  bpides     CHAR(30),
+  bpitant    NUMBER(3),
+  bpipgm     CHAR(10),
+  bpitip     NUMBER(2),
+  bpiamsg    NUMBER(5),
+  bpiarel    NUMBER(2),
+  bpiacpo    NUMBER(2),
+  bpiacpof   CHAR(1),
+  bpibmsg    NUMBER(5),
+  bpibrel    NUMBER(2),
+  bpibcpo    NUMBER(2),
+  bpibcpof   CHAR(1),
+  bpiemp     NUMBER(3),
+  bpimod     NUMBER(3),
+  bpitran    NUMBER(3),
+  bpiimpreso NUMBER(3),
+  bpipgmif   CHAR(10),
+  bpiifsino  CHAR(1),
+  bpiiftip   NUMBER(2),
+  bpiupd     CHAR(1),
+  bpidsp     CHAR(1),
+  bpicls     CHAR(1),
+  bpitopc    NUMBER(2),
+  bpiopc     NUMBER(3),
+  bpifecw    NUMBER(2),
+  bpiumail   CHAR(40)
+)
+;
+alter table FCT100
+  add primary key (MODULO, INSTCOD, BPITEM);
+

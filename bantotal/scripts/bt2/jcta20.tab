@@ -1,0 +1,44 @@
+create table JCTA20
+(
+  jct20pgcod NUMBER(3) not null,
+  jct20mod   NUMBER(3) not null,
+  jct20suc   NUMBER(3) not null,
+  jct20mda   NUMBER(4) not null,
+  jct20pap   NUMBER(4) not null,
+  jct20cta   NUMBER(9) not null,
+  jct20ope   NUMBER(9) not null,
+  jct20sbo   NUMBER(3) not null,
+  jct20top   NUMBER(3) not null,
+  jct20fvto  DATE not null,
+  jct20corrp NUMBER(10) not null,
+  jct20fproc DATE,
+  jct20sts   CHAR(1),
+  jct20bhnid CHAR(20),
+  jct20imp1  NUMBER(17,2),
+  jct20imp2  NUMBER(17,2),
+  jct20imp3  NUMBER(17,2),
+  jct20imp4  NUMBER(17,2),
+  jct20pais  NUMBER(3),
+  jct20tdoc  CHAR(3),
+  jct20ndoc  CHAR(12),
+  jct20fejec DATE,
+  jct20hejec CHAR(8),
+  jct20usr   CHAR(10),
+  jct20fec1  DATE,
+  jct20str1  CHAR(30),
+  jct20ccod  NUMBER(3),
+  jct20cmod  NUMBER(3),
+  jct20csuc  NUMBER(3),
+  jct20ctrn  NUMBER(3),
+  jct20crel  NUMBER(4),
+  jct20cfec  DATE,
+  jct20cord  NUMBER(2),
+  jct20csbo  NUMBER(3),
+  jct20ccon  CHAR(1)
+)
+;
+create index JCTA2002 on JCTA20 (JCT20CCOD, JCT20CMOD, JCT20CSUC, JCT20CTRN, JCT20CREL, JCT20CFEC);
+create index JCTA2003 on JCTA20 (JCT20PGCOD, JCT20MOD, JCT20TOP, JCT20CCON, JCT20FPROC, JCT20STS);
+alter table JCTA20
+  add primary key (JCT20PGCOD, JCT20MOD, JCT20SUC, JCT20MDA, JCT20PAP, JCT20CTA, JCT20OPE, JCT20SBO, JCT20TOP, JCT20FVTO, JCT20CORRP);
+

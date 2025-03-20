@@ -1,0 +1,20 @@
+create table JMBI04
+(
+  jmbi04nro  CHAR(19) not null,
+  jmbi04fec  DATE not null,
+  jmbi04hora CHAR(8) not null,
+  jmbi04thp  NUMBER(3),
+  jmbi04tht  NUMBER(2),
+  jmbi04thn  CHAR(12),
+  jmbi04nom  CHAR(35),
+  jmbi04suc  NUMBER(3),
+  jmbi04usu  CHAR(10),
+  jmbi04nroc NUMBER(3),
+  jmbi04ws   CHAR(10),
+  jmbi04cant NUMBER(3),
+  jmbi04res  CHAR(1)
+)
+;
+alter table JMBI04
+  add primary key (JMBI04NRO, JMBI04FEC, JMBI04HORA);
+

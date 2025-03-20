@@ -1,0 +1,24 @@
+create table SNG308
+(
+  sng308inst NUMBER(10) not null,
+  sng308cod  NUMBER(3) not null,
+  sng308corr NUMBER(3) not null,
+  sng300cod  NUMBER(3),
+  sng308impd NUMBER(17,2),
+  sng308comi NUMBER(3),
+  sng308impc NUMBER(17,2),
+  sng308emp  NUMBER(3),
+  sng308mod  NUMBER(3),
+  sng308suc  NUMBER(3),
+  sng308mda  NUMBER(4),
+  sng308pap  NUMBER(4),
+  sng308cta  NUMBER(9),
+  sng308ope  NUMBER(9),
+  sng308sop  NUMBER(3),
+  sng308top  NUMBER(3)
+)
+;
+create index SNG30802 on SNG308 (SNG300COD);
+alter table SNG308
+  add primary key (SNG308INST, SNG308COD, SNG308CORR);
+

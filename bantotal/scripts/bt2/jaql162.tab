@@ -1,0 +1,10 @@
+create table JAQL162
+(
+  jaql162codpre NUMBER(2) not null,
+  jaql162nompre CHAR(30)
+)
+;
+create index JAQL162001 on JAQL162 (JAQL162CODPRE, JAQL162NOMPRE);
+alter table JAQL162
+  add primary key (JAQL162CODPRE);
+

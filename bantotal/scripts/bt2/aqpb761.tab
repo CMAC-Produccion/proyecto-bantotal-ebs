@@ -1,0 +1,75 @@
+create table AQPB761
+(
+  aqpb761fep   DATE not null,
+  aqpb761cor   NUMBER(9) not null,
+  aqpb761emp   NUMBER(3) not null,
+  aqpb761mod   NUMBER(3) not null,
+  aqpb761suc   NUMBER(3) not null,
+  aqpb761mda   NUMBER(4) not null,
+  aqpb761pap   NUMBER(4) not null,
+  aqpb761cta   NUMBER(9) not null,
+  aqpb761ope   NUMBER(9) not null,
+  aqpb761sbo   NUMBER(3) not null,
+  aqpb761top   NUMBER(3) not null,
+  aqpb761des   VARCHAR2(150),
+  aqpb761efe   CHAR(2),
+  aqpb761scex  NUMBER(17,2),
+  aqpb761suext NUMBER(3),
+  aqpb761sucxt VARCHAR2(150),
+  aqpb761fext  DATE,
+  aqpb761hext  CHAR(8),
+  aqpb761usext VARCHAR2(10),
+  aqpb761mail  VARCHAR2(150),
+  aqpb761tlfn  VARCHAR2(20),
+  aqpb761usrpt VARCHAR2(10)
+)
+;
+comment on column AQPB761.aqpb761fep
+  is 'FECHA DE REPROGRAMACION';
+comment on column AQPB761.aqpb761cor
+  is 'CORRELATIVO DE REPROGRAMACION';
+comment on column AQPB761.aqpb761emp
+  is 'EMPRESA';
+comment on column AQPB761.aqpb761mod
+  is 'MODULO';
+comment on column AQPB761.aqpb761suc
+  is 'SUCURSAL';
+comment on column AQPB761.aqpb761mda
+  is 'MONEDA';
+comment on column AQPB761.aqpb761pap
+  is 'PAPEL';
+comment on column AQPB761.aqpb761cta
+  is 'CTA DE CREDITO';
+comment on column AQPB761.aqpb761ope
+  is 'OPERACION DE CREDITO';
+comment on column AQPB761.aqpb761sbo
+  is 'SUBOPERACION';
+comment on column AQPB761.aqpb761top
+  is 'TIPO OPERACION';
+comment on column AQPB761.aqpb761des
+  is 'DESCRIPCION';
+comment on column AQPB761.aqpb761efe
+  is 'MUEVE EFECTIVO?';
+comment on column AQPB761.aqpb761scex
+  is 'SALDO CAPITAL EXTORNADO';
+comment on column AQPB761.aqpb761suext
+  is 'SUCURSAL DE EXTORNO';
+comment on column AQPB761.aqpb761sucxt
+  is 'DESCRIPCION DE SUCURSAL DE EXTORNO';
+comment on column AQPB761.aqpb761fext
+  is 'FECHA DE EXTORNO';
+comment on column AQPB761.aqpb761hext
+  is 'HORA DE EXTORNO';
+comment on column AQPB761.aqpb761usext
+  is 'USUARIO DE EXTORNO';
+comment on column AQPB761.aqpb761mail
+  is 'MAIL DEL CLIENTE SOLICITANTE';
+comment on column AQPB761.aqpb761tlfn
+  is 'TLEFONO DEL CLIENTE SOLICITANTE';
+comment on column AQPB761.aqpb761usrpt
+  is 'USUARIO QUE SACO EL REPORTE';
+create index AQPB7612 on AQPB761 (AQPB761SUEXT);
+create index AQPB7613 on AQPB761 (AQPB761FEXT);
+alter table AQPB761
+  add primary key (AQPB761FEP, AQPB761COR, AQPB761EMP, AQPB761MOD, AQPB761SUC, AQPB761MDA, AQPB761PAP, AQPB761CTA, AQPB761OPE, AQPB761SBO, AQPB761TOP);
+

@@ -1,0 +1,12 @@
+create table SNG408
+(
+  sng400cod  NUMBER(3) not null,
+  sng400evto NUMBER(10) not null,
+  sng408tcat NUMBER(5) not null,
+  sng408cat  CHAR(15) not null,
+  sng408inex CHAR(1)
+)
+;
+alter table SNG408
+  add primary key (SNG400COD, SNG400EVTO, SNG408TCAT, SNG408CAT);
+

@@ -1,0 +1,16 @@
+create table FSF073
+(
+  lqbpgcod   NUMBER(3) not null,
+  lqbmod     NUMBER(3) not null,
+  lqbtran    NUMBER(3) not null,
+  lqbord     NUMBER(2) not null,
+  lqbnro     NUMBER(2) not null,
+  lqbconcept CHAR(30),
+  lqbmod1    NUMBER(3),
+  lqbtran1   NUMBER(3),
+  lqbord1    NUMBER(2)
+)
+;
+alter table FSF073
+  add primary key (LQBPGCOD, LQBMOD, LQBTRAN, LQBORD, LQBNRO);
+

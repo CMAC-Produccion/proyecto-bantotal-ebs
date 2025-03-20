@@ -1,0 +1,74 @@
+create table AQPB175A
+(
+  aqpb175acor   NUMBER(10) not null,
+  aqpb175afecha DATE not null,
+  aqpb175ahora  VARCHAR2(10) not null,
+  aqpb175apais  NUMBER(3) not null,
+  aqpb175atdoc  NUMBER(3) not null,
+  aqpb175andoc  VARCHAR2(12) not null,
+  aqpb175aemp   NUMBER(10) not null,
+  aqpb175amod   NUMBER(5) not null,
+  aqpb175asuc   NUMBER(5) not null,
+  aqpb175amda   NUMBER(3) not null,
+  aqpb175apap   NUMBER(3) not null,
+  aqpb175acta   NUMBER(10) not null,
+  aqpb175aope   NUMBER(10) not null,
+  aqpb175asubp  NUMBER(3) not null,
+  aqpb175atope  NUMBER(3) not null,
+  aqpb175agrupo NUMBER(5) not null,
+  aqpb175aestr  VARCHAR2(5),
+  aqpb175aestc  NUMBER(5),
+  aqpb175arefcj VARCHAR2(5),
+  aqpb175asolv  VARCHAR2(5),
+  aqpb175ainst  NUMBER(10)
+)
+;
+comment on table AQPB175A
+  is 'Tabla Temporal Carga Refinanciados';
+comment on column AQPB175A.aqpb175acor
+  is 'Correlativo';
+comment on column AQPB175A.aqpb175afecha
+  is 'Fecha';
+comment on column AQPB175A.aqpb175ahora
+  is 'Hora';
+comment on column AQPB175A.aqpb175apais
+  is 'Pais';
+comment on column AQPB175A.aqpb175atdoc
+  is 'Tipo de Documento';
+comment on column AQPB175A.aqpb175andoc
+  is 'Nro de Documento';
+comment on column AQPB175A.aqpb175aemp
+  is 'Empresa';
+comment on column AQPB175A.aqpb175amod
+  is 'Modulo';
+comment on column AQPB175A.aqpb175asuc
+  is 'Sucursal';
+comment on column AQPB175A.aqpb175amda
+  is 'Moneda';
+comment on column AQPB175A.aqpb175apap
+  is 'Papel';
+comment on column AQPB175A.aqpb175acta
+  is 'Cuenta';
+comment on column AQPB175A.aqpb175aope
+  is 'Operacion';
+comment on column AQPB175A.aqpb175asubp
+  is 'SubOperacion';
+comment on column AQPB175A.aqpb175atope
+  is 'Tipo de Operacion';
+comment on column AQPB175A.aqpb175agrupo
+  is 'Grupo';
+comment on column AQPB175A.aqpb175aestr
+  is 'Estado Registro S vigente, N no vigente';
+comment on column AQPB175A.aqpb175aestc
+  is 'Estado Credito';
+comment on column AQPB175A.aqpb175arefcj
+  is 'Indicadore Refinancia Caja JAQN870 I,X,P';
+comment on column AQPB175A.aqpb175asolv
+  is 'Indicador si tiene una solicitud en Vuelo';
+comment on column AQPB175A.aqpb175ainst
+  is 'Instancia de vuelo anulada';
+create index AQPB175AA2 on AQPB175A (AQPB175APAIS, AQPB175ATDOC, AQPB175ANDOC);
+create index AQPB175AA3 on AQPB175A (AQPB175AEMP, AQPB175AMOD, AQPB175ASUC, AQPB175AMDA, AQPB175APAP, AQPB175ACTA, AQPB175AOPE, AQPB175ASUBP, AQPB175ATOPE);
+alter table AQPB175A
+  add primary key (AQPB175ACOR, AQPB175AFECHA, AQPB175AHORA, AQPB175APAIS, AQPB175ATDOC, AQPB175ANDOC, AQPB175AEMP, AQPB175AMOD, AQPB175ASUC, AQPB175AMDA, AQPB175APAP, AQPB175ACTA, AQPB175AOPE, AQPB175ASUBP, AQPB175ATOPE, AQPB175AGRUPO);
+

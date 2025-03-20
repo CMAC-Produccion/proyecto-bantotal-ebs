@@ -1,0 +1,80 @@
+create table AQPC816
+(
+  aqpc816codopi  NUMBER(10) not null,
+  aqpc816corr    NUMBER(10) not null,
+  aqpc816fecreg  DATE not null,
+  aqpc816horreg  VARCHAR2(10) not null,
+  aqpc816instan  NUMBER(10),
+  aqpc816est     VARCHAR2(1),
+  aqpc816pgcod   NUMBER(5),
+  aqpc816mod     NUMBER(5),
+  aqpc816suc     NUMBER(5),
+  aqpc816mda     NUMBER(5),
+  aqpc816pap     NUMBER(5),
+  aqpc816cta     NUMBER(10),
+  aqpc816ope     NUMBER(10),
+  aqpc816sbop    NUMBER(5),
+  aqpc816tope    NUMBER(5),
+  aqpc816nomcli  VARCHAR2(50),
+  aqpc816saldo   NUMBER(17,2),
+  aqpc816mntotg  NUMBER(17,2),
+  aqpc816modali  VARCHAR2(200),
+  aqpc816prmatra NUMBER(6,2),
+  aqpc816totcuo  VARCHAR2(30),
+  aqpc816cuota   NUMBER(17,2),
+  aqpc816tasa    NUMBER(10,2)
+)
+;
+comment on table AQPC816
+  is 'Tabla de creditos avalados opinion de riesgos';
+comment on column AQPC816.aqpc816codopi
+  is 'Cod. Opinion';
+comment on column AQPC816.aqpc816corr
+  is 'correlativo';
+comment on column AQPC816.aqpc816fecreg
+  is 'fecha registro ';
+comment on column AQPC816.aqpc816horreg
+  is 'Hora registro';
+comment on column AQPC816.aqpc816instan
+  is 'Nro. Solicitud';
+comment on column AQPC816.aqpc816est
+  is 'Estado';
+comment on column AQPC816.aqpc816pgcod
+  is 'Pgcod';
+comment on column AQPC816.aqpc816mod
+  is 'Modulo';
+comment on column AQPC816.aqpc816suc
+  is 'Sucursal';
+comment on column AQPC816.aqpc816mda
+  is 'Moneda';
+comment on column AQPC816.aqpc816pap
+  is 'Papel';
+comment on column AQPC816.aqpc816cta
+  is 'Cuenta';
+comment on column AQPC816.aqpc816ope
+  is 'Operación';
+comment on column AQPC816.aqpc816sbop
+  is 'Suboperación';
+comment on column AQPC816.aqpc816tope
+  is 'Tipo Operación';
+comment on column AQPC816.aqpc816nomcli
+  is 'Nombre cliente';
+comment on column AQPC816.aqpc816saldo
+  is 'Saldo';
+comment on column AQPC816.aqpc816mntotg
+  is 'Monto otorgado';
+comment on column AQPC816.aqpc816modali
+  is 'Modalidad';
+comment on column AQPC816.aqpc816prmatra
+  is 'Promedio atraso';
+comment on column AQPC816.aqpc816totcuo
+  is 'Total Cuotas';
+comment on column AQPC816.aqpc816cuota
+  is 'Cuota';
+comment on column AQPC816.aqpc816tasa
+  is 'Tasa';
+create index AQPC816A2 on AQPC816 (AQPC816CODOPI, AQPC816INSTAN, AQPC816EST);
+create index AQPC816A3 on AQPC816 (AQPC816CODOPI, AQPC816EST);
+alter table AQPC816
+  add primary key (AQPC816CODOPI, AQPC816CORR, AQPC816FECREG, AQPC816HORREG);
+

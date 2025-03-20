@@ -1,0 +1,14 @@
+create table AQPA024N
+(
+  aqpa024nfech1 DATE not null,
+  aqpa024nhora1 CHAR(8) not null,
+  aqpa024ninst  NUMBER(10) not null,
+  aqpa024nfech  DATE not null,
+  aqpa024nhora  CHAR(8) not null,
+  aqpa024ngrup  NUMBER(4) not null,
+  aqpa024nfact  NUMBER(9,6)
+)
+;
+alter table AQPA024N
+  add primary key (AQPA024NFECH1, AQPA024NHORA1, AQPA024NINST, AQPA024NFECH, AQPA024NHORA, AQPA024NGRUP);
+

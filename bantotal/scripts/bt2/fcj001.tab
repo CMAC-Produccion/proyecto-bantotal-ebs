@@ -1,0 +1,12 @@
+create table FCJ001
+(
+  fcj001empr NUMBER(3) not null,
+  fcj001mod  NUMBER(3) not null,
+  fcj001oper NUMBER(9) not null,
+  foc015id   NUMBER(9)
+)
+;
+create index FCJ00102 on FCJ001 (FOC015ID);
+alter table FCJ001
+  add primary key (FCJ001EMPR, FCJ001MOD, FCJ001OPER);
+

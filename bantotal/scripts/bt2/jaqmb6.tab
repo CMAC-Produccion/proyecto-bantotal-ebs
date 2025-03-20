@@ -1,0 +1,69 @@
+create table JAQMB6
+(
+  jaqmb6agen VARCHAR2(30) not null,
+  jaqmb6comi VARCHAR2(2000) not null,
+  jaqmb6cacl NUMBER(10),
+  jaqmb6msbs NUMBER(17,2),
+  jaqmb6fein DATE,
+  jaqmb6num1 NUMBER(10),
+  jaqmb6num2 NUMBER(10),
+  jaqmb6imp1 NUMBER(17,2),
+  jaqmb6imp2 NUMBER(17,2),
+  jaqmb6var1 VARCHAR2(255),
+  jaqmb6var2 VARCHAR2(255),
+  jaqmb6fec1 DATE,
+  jaqmb6fec2 DATE,
+  jaqmb6fec3 DATE,
+  jaqmb6var3 VARCHAR2(255),
+  jaqmb6imp3 NUMBER(17,2),
+  jaqmb6num3 NUMBER(10),
+  jaqmb6ccma NUMBER(10),
+  jaqmb6mmma NUMBER(17,2),
+  jaqmb6pmma NUMBER(17,2)
+)
+;
+comment on table JAQMB6
+  is 'Mora SBS - Comite';
+comment on column JAQMB6.jaqmb6agen
+  is 'AGENCIA';
+comment on column JAQMB6.jaqmb6comi
+  is 'COMITE';
+comment on column JAQMB6.jaqmb6cacl
+  is 'CANTIDAD DE CLIENTES';
+comment on column JAQMB6.jaqmb6msbs
+  is 'MORA SBS ACTUAL';
+comment on column JAQMB6.jaqmb6fein
+  is 'FECHA DE INGRESO';
+comment on column JAQMB6.jaqmb6num1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQMB6.jaqmb6num2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQMB6.jaqmb6imp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQMB6.jaqmb6imp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQMB6.jaqmb6var1
+  is 'AUXILIAR VARCHAR 1';
+comment on column JAQMB6.jaqmb6var2
+  is 'AUXILIAR VARCHAR 2';
+comment on column JAQMB6.jaqmb6fec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQMB6.jaqmb6fec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQMB6.jaqmb6fec3
+  is 'AUXILIAR FECHA 3';
+comment on column JAQMB6.jaqmb6var3
+  is 'AUXILIAR VARCHAR 3';
+comment on column JAQMB6.jaqmb6imp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQMB6.jaqmb6num3
+  is 'AUXILIAR NUMERICO 3';
+comment on column JAQMB6.jaqmb6ccma
+  is 'CANTIDAD DE CLIENTES MES ANTERIOR';
+comment on column JAQMB6.jaqmb6mmma
+  is 'MONTO MORA MES ANTERIOR';
+comment on column JAQMB6.jaqmb6pmma
+  is 'PORCENTAJE MORA MES ANTERIOR';
+alter table JAQMB6
+  add primary key (JAQMB6AGEN, JAQMB6COMI);
+

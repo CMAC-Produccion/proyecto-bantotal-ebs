@@ -1,0 +1,29 @@
+create table AQPB260
+(
+  aqpb260sdi NUMBER(18,2) not null,
+  aqpb260sdf NUMBER(18,2) not null,
+  aqpb260cui NUMBER(4) not null,
+  aqpb260cuf NUMBER(4) not null,
+  aqpb260pla NUMBER(4) not null,
+  aqpb260fec DATE not null,
+  aqpb260est VARCHAR2(1) not null
+)
+;
+comment on table AQPB260
+  is 'Tabla Plazo Maximo- Reprogramacion Caja';
+comment on column AQPB260.aqpb260sdi
+  is 'SALDO INICIAL';
+comment on column AQPB260.aqpb260sdf
+  is 'SALDO FINAL';
+comment on column AQPB260.aqpb260cui
+  is 'CUOTA INICIAL';
+comment on column AQPB260.aqpb260cuf
+  is 'CUOTA FINAL';
+comment on column AQPB260.aqpb260pla
+  is 'PLAZO';
+comment on column AQPB260.aqpb260fec
+  is 'FECHA';
+comment on column AQPB260.aqpb260est
+  is 'ESTADO';
+create index AQPB2602 on AQPB260 (AQPB260SDI, AQPB260SDF, AQPB260CUI, AQPB260CUF, AQPB260EST);
+

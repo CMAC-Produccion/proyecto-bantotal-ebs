@@ -1,0 +1,40 @@
+create table JMBME1
+(
+  jmbme1inst NUMBER(10) not null,
+  jmbme1task CHAR(10) not null,
+  jmbme1tast NUMBER(10,6),
+  jmbme1tvto NUMBER(5),
+  jmbme1tgra CHAR(2),
+  jmbme1cntp NUMBER(5),
+  jmbme1tapl NUMBER(1),
+  jmbme1mesg CHAR(12),
+  jmbme1oper NUMBER(9),
+  jmbme1sbop NUMBER(3),
+  jmbme1endp NUMBER(17,2),
+  jmbme1psct NUMBER(17,2),
+  jmbme1ctet NUMBER(17,2),
+  jmbme1ctem NUMBER(17,2),
+  jmbme1cumc NUMBER(17,2),
+  jmbme1mcro NUMBER(17,2),
+  jmbme1rsgv NUMBER(17,2),
+  jmbme1rsgp NUMBER(17,2),
+  jmbme1rsgu NUMBER(17,2),
+  jmbme1rsgt NUMBER(17,2),
+  jmbme1rsgd NUMBER(17,2),
+  jmbme1prom NUMBER(5),
+  jmbme1maxm NUMBER(5),
+  jmbme1tban NUMBER(2),
+  jmbme1csbs NUMBER(2),
+  jmbme1chr1 CHAR(3),
+  jmbme1chr2 CHAR(10),
+  jmbme1sint NUMBER(4),
+  jmbme1inta NUMBER(9),
+  jmbme1impa NUMBER(17,2),
+  jmbme1imp2 NUMBER(17,2),
+  jmbme1deca NUMBER(14,8),
+  jmbme1vara VARCHAR2(400)
+)
+;
+alter table JMBME1
+  add primary key (JMBME1INST, JMBME1TASK);
+

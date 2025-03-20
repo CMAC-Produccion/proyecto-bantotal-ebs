@@ -1,0 +1,18 @@
+create table BTATR
+(
+  pccodatr  NUMBER(9) not null,
+  pcnombre  CHAR(35),
+  pcnomlgo  CHAR(60),
+  pcclase   CHAR(5),
+  pcord     CHAR(1),
+  pctipo    CHAR(1),
+  pcidioma  CHAR(1),
+  pcexterno CHAR(1),
+  pcxprg    CHAR(10),
+  pcxcall   NUMBER(2)
+)
+;
+create index BTATR02 on BTATR (PCNOMLGO, PCNOMBRE);
+alter table BTATR
+  add primary key (PCCODATR);
+

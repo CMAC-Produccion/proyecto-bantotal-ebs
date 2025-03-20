@@ -1,0 +1,49 @@
+create table JAQZ440
+(
+  qz440codre NUMBER(4) not null,
+  qz440desc  CHAR(50),
+  qz440sts   CHAR(20),
+  qz440au1   NUMBER(9),
+  qz440au2   NUMBER(9),
+  qz440au3   NUMBER(17,2),
+  qz440au4   NUMBER(17,2),
+  qz440au5   DATE,
+  qz440au6   DATE,
+  qz440au7   CHAR(30),
+  qz440au8   CHAR(30),
+  qz440usr   CHAR(20),
+  qz440ufec  TIMESTAMP(6),
+  qz440nip   VARCHAR2(16)
+)
+;
+comment on column JAQZ440.qz440codre
+  is 'Codigo de Remate';
+comment on column JAQZ440.qz440desc
+  is 'Descripcion del Remate';
+comment on column JAQZ440.qz440sts
+  is 'Estado del Remate ';
+comment on column JAQZ440.qz440au1
+  is 'Dato Auxiliar 1';
+comment on column JAQZ440.qz440au2
+  is 'Dato Auxiliar 2';
+comment on column JAQZ440.qz440au3
+  is 'Dato Auxiliar 3';
+comment on column JAQZ440.qz440au4
+  is 'Dato Auxiliar 4';
+comment on column JAQZ440.qz440au5
+  is 'Dato Auxiliar 5';
+comment on column JAQZ440.qz440au6
+  is 'Dato Auxiliar 6';
+comment on column JAQZ440.qz440au7
+  is 'Dato Auxiliar 7';
+comment on column JAQZ440.qz440au8
+  is 'Dato Auxiliar 8';
+comment on column JAQZ440.qz440usr
+  is 'Usuario que Registra';
+comment on column JAQZ440.qz440ufec
+  is 'Fecha de Registro';
+comment on column JAQZ440.qz440nip
+  is 'Numero de IP';
+alter table JAQZ440
+  add primary key (QZ440CODRE);
+

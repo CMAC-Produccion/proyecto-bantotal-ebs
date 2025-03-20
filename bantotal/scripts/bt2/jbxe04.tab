@@ -1,0 +1,11 @@
+create table JBXE04
+(
+  jbx4aaaamm CHAR(6) not null,
+  jbx4nom    CHAR(120) not null,
+  jbx4tipoid CHAR(2) not null,
+  jbx4ident  CHAR(11) not null,
+  jbx4obs    CHAR(1)
+)
+;
+create unique index JBXE0401 on JBXE04 (JBX4AAAAMM, JBX4NOM, JBX4TIPOID, JBX4IDENT);
+

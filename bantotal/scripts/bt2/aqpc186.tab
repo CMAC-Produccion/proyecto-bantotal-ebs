@@ -1,0 +1,176 @@
+create table AQPC186
+(
+  aqpc186emp    NUMBER(3) not null,
+  aqpc186mod    NUMBER(3) not null,
+  aqpc186suc    NUMBER(3) not null,
+  aqpc186mda    NUMBER(4) not null,
+  aqpc186pap    NUMBER(4) not null,
+  aqpc186cta    NUMBER(9) not null,
+  aqpc186ope    NUMBER(9) not null,
+  aqpc186sbo    NUMBER(3) not null,
+  aqpc186top    NUMBER(3) not null,
+  aqpc186fec    DATE,
+  aqpc186mpa    NUMBER(17,2),
+  aqpc186map    NUMBER(17,2),
+  aqpc186fei    DATE,
+  aqpc186fef    DATE,
+  aqpc186num    NUMBER(10),
+  aqpc186tas    NUMBER(17,6),
+  aqpc186mpr    NUMBER(17,6),
+  aqpc186sca    NUMBER(17,2),
+  aqpc186gru    NUMBER(2),
+  aqpc186pla    CHAR(30),
+  aqpc186pai    NUMBER(3),
+  aqpc186tdo    NUMBER(2),
+  aqpc186ndo    CHAR(12),
+  aqpc186tpe    CHAR(1),
+  aqpc186sex    CHAR(1),
+  aqpc186fna    DATE,
+  aqpc186apt    CHAR(30),
+  aqpc186apm    CHAR(30),
+  aqpc186nom    CHAR(50),
+  aqpc186rzo    CHAR(70),
+  aqpc186nuc    CHAR(25),
+  aqpc186imp    NUMBER(17,2),
+  aqpc186fva    DATE,
+  aqpc186dga    NUMBER(9),
+  aqpc186per    NUMBER(5),
+  aqpc186mca    NUMBER(17,2),
+  aqpc186paj    NUMBER(3),
+  aqpc186tdj    NUMBER(2),
+  aqpc186ndj    CHAR(12),
+  aqpc186sej    CHAR(1),
+  aqpc186noj    CHAR(140),
+  aqpc186fve    DATE,
+  aqpc186est    NUMBER(2),
+  aqpc186fpr    DATE,
+  aqpc186tlf    CHAR(100),
+  aqpc186mail   CHAR(100),
+  aqpc186age    NUMBER(3),
+  aqpc186nomsuc VARCHAR2(30),
+  aqpc186tipmnd VARCHAR2(30),
+  aqpc186tipdoc VARCHAR2(20),
+  aqpc186fecrec DATE,
+  aqpc186esrepg VARCHAR2(1),
+  aqpc186aux1   NUMBER(17),
+  aqpc186aux2   CHAR(100),
+  aqpc186aux3   VARCHAR2(100),
+  aqpc186aux4   VARCHAR2(200),
+  aqpc186aux5   NUMBER(4)
+)
+;
+comment on table AQPC186
+  is 'Tabla de Log de rep. seguros desgravamen';
+comment on column AQPC186.aqpc186emp
+  is 'Código de empresa';
+comment on column AQPC186.aqpc186mod
+  is 'Modulo';
+comment on column AQPC186.aqpc186suc
+  is 'Sucursal';
+comment on column AQPC186.aqpc186mda
+  is 'Moneda';
+comment on column AQPC186.aqpc186pap
+  is 'Papel';
+comment on column AQPC186.aqpc186cta
+  is 'Cuenta';
+comment on column AQPC186.aqpc186ope
+  is 'Operación';
+comment on column AQPC186.aqpc186sbo
+  is 'Suboperación';
+comment on column AQPC186.aqpc186top
+  is 'Tipo de operación';
+comment on column AQPC186.aqpc186fec
+  is 'Monto mpa';
+comment on column AQPC186.aqpc186map
+  is 'Prima total seguro';
+comment on column AQPC186.aqpc186fei
+  is 'Fecha vig inicio';
+comment on column AQPC186.aqpc186fef
+  is 'Fecha vig fin';
+comment on column AQPC186.aqpc186num
+  is 'Nro poliza';
+comment on column AQPC186.aqpc186tas
+  is 'Tasa Neta';
+comment on column AQPC186.aqpc186mpr
+  is 'Prima Total';
+comment on column AQPC186.aqpc186sca
+  is 'AQPC186SCA';
+comment on column AQPC186.aqpc186gru
+  is 'AQPC186GRU';
+comment on column AQPC186.aqpc186pla
+  is 'Plan';
+comment on column AQPC186.aqpc186pai
+  is 'Pais';
+comment on column AQPC186.aqpc186tdo
+  is 'Tip. doc';
+comment on column AQPC186.aqpc186ndo
+  is 'Nro. doc';
+comment on column AQPC186.aqpc186tpe
+  is 'Tip0 persona';
+comment on column AQPC186.aqpc186sex
+  is 'Genero';
+comment on column AQPC186.aqpc186fna
+  is 'Fec. Nac.';
+comment on column AQPC186.aqpc186apt
+  is 'Ape. Pat';
+comment on column AQPC186.aqpc186apm
+  is 'Ape. Mat';
+comment on column AQPC186.aqpc186nom
+  is 'Nombres';
+comment on column AQPC186.aqpc186rzo
+  is 'Razón Social';
+comment on column AQPC186.aqpc186nuc
+  is 'AQPC186NUC';
+comment on column AQPC186.aqpc186imp
+  is 'Sum asegurd';
+comment on column AQPC186.aqpc186fva
+  is 'AQPC186FVA';
+comment on column AQPC186.aqpc186dga
+  is 'Dias gracia';
+comment on column AQPC186.aqpc186per
+  is 'AQPC186PER';
+comment on column AQPC186.aqpc186paj
+  is 'AQPC186PAJ';
+comment on column AQPC186.aqpc186tdj
+  is 'AQPC186TDJ';
+comment on column AQPC186.aqpc186ndj
+  is 'AQPC186NDJ';
+comment on column AQPC186.aqpc186sej
+  is 'AQPC186SEJ';
+comment on column AQPC186.aqpc186noj
+  is 'AQPC186NOJ';
+comment on column AQPC186.aqpc186fve
+  is 'AQPC186FVE';
+comment on column AQPC186.aqpc186est
+  is 'Estado cred.';
+comment on column AQPC186.aqpc186fpr
+  is 'AQPC186FPR';
+comment on column AQPC186.aqpc186tlf
+  is 'Telefono';
+comment on column AQPC186.aqpc186mail
+  is 'mail';
+comment on column AQPC186.aqpc186age
+  is 'agencia';
+comment on column AQPC186.aqpc186nomsuc
+  is 'nom. agencia';
+comment on column AQPC186.aqpc186tipmnd
+  is 'Tipo moneda';
+comment on column AQPC186.aqpc186tipdoc
+  is 'Tipo doc.';
+comment on column AQPC186.aqpc186fecrec
+  is 'AQPC186FECREC';
+comment on column AQPC186.aqpc186esrepg
+  is 'Es reprog.';
+comment on column AQPC186.aqpc186aux1
+  is 'AQPC186AUX1';
+comment on column AQPC186.aqpc186aux2
+  is 'AQPC186AUX2';
+comment on column AQPC186.aqpc186aux3
+  is 'AQPC186AUX3';
+comment on column AQPC186.aqpc186aux4
+  is 'AQPC186AUX4';
+comment on column AQPC186.aqpc186aux5
+  is 'AQPC186AUX5';
+alter table AQPC186
+  add primary key (AQPC186EMP, AQPC186MOD, AQPC186SUC, AQPC186MDA, AQPC186PAP, AQPC186CTA, AQPC186OPE, AQPC186SBO, AQPC186TOP);
+

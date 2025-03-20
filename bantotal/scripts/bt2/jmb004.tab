@@ -1,0 +1,13 @@
+create table JMB004
+(
+  jmb001id   NUMBER(3) not null,
+  jmb002id   NUMBER(3) not null,
+  jmb003id   NUMBER(3) not null,
+  jmb004id   NUMBER(3) not null,
+  jmb004dsc  CHAR(35),
+  jmb004deex CHAR(80)
+)
+;
+alter table JMB004
+  add primary key (JMB001ID, JMB002ID, JMB003ID, JMB004ID);
+

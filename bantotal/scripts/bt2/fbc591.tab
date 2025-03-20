@@ -1,0 +1,12 @@
+create table FBC591
+(
+  bc591emp NUMBER(3) not null,
+  bc591inf CHAR(10) not null,
+  bc591fch DATE not null,
+  bc591id1 CHAR(10) not null,
+  bc591id2 CHAR(950)
+)
+;
+alter table FBC591
+  add primary key (BC591EMP, BC591INF, BC591FCH, BC591ID1);
+

@@ -1,0 +1,28 @@
+create table FBC604
+(
+  bc604emp   NUMBER(3) not null,
+  bc604mod   NUMBER(3) not null,
+  bc604suc   NUMBER(3) not null,
+  bc604trn   NUMBER(3) not null,
+  bc604nrel  NUMBER(4) not null,
+  bc604fch   DATE not null,
+  bc604ord   NUMBER(2) not null,
+  bc604sbo   NUMBER(3) not null,
+  bc604co    CHAR(1),
+  bc604efe   CHAR(1),
+  bc604cor   NUMBER(13),
+  bc604mda   NUMBER(4),
+  bc604hor   CHAR(8),
+  bc604usid  CHAR(10),
+  bc604imp1  NUMBER(17,2),
+  bc604ttrn  NUMBER(2),
+  bc604oefe  CHAR(70),
+  bc604impmo NUMBER(17,2),
+  bc604cta   NUMBER(9),
+  bc604sbop  NUMBER(3),
+  bc604modul NUMBER(3)
+)
+;
+alter table FBC604
+  add primary key (BC604EMP, BC604MOD, BC604SUC, BC604TRN, BC604NREL, BC604FCH, BC604ORD, BC604SBO);
+

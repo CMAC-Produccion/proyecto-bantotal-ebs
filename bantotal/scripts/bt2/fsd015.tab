@@ -1,0 +1,24 @@
+create table FSD015
+(
+  pgcod  NUMBER(3) not null,
+  itsuc  NUMBER(3) not null,
+  itmod  NUMBER(3) not null,
+  ittran NUMBER(3) not null,
+  itnrel NUMBER(4) not null,
+  itfcon DATE,
+  itfvc  DATE,
+  itcorr NUMBER(5),
+  ituing CHAR(10),
+  itwing CHAR(10),
+  itucnf CHAR(10),
+  itwcnf CHAR(10),
+  ithora CHAR(8),
+  itcont CHAR(1),
+  itcaja NUMBER(3),
+  itxcaj CHAR(1)
+)
+;
+create unique index FSD015_UK on FSD015 (PGCOD, ITSUC, ITMOD, ITTRAN, ITNREL);
+create index FSD01502 on FSD015 (PGCOD, ITMOD, ITSUC, ITTRAN, ITCONT, ITNREL);
+create index FSD01504 on FSD015 (ITMOD);
+

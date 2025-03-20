@@ -1,0 +1,11 @@
+create table JMB010
+(
+  jmb010pais NUMBER(3) not null,
+  jmb010tdoc NUMBER(2) not null,
+  jmb010ndoc CHAR(12) not null,
+  jmb010sdt  LONG
+)
+;
+alter table JMB010
+  add primary key (JMB010PAIS, JMB010TDOC, JMB010NDOC);
+

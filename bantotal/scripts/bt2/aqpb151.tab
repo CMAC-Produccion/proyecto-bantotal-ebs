@@ -1,0 +1,63 @@
+create table AQPB151
+(
+  aqpa151corr   NUMBER(10) not null,
+  aqpb151inst   NUMBER(10) not null,
+  aqpb151fec    DATE,
+  aqpb151hora   CHAR(8),
+  aqpb151maxdes NUMBER(17,2),
+  aqpb151pgcod  NUMBER(3),
+  aqpb151mod    NUMBER(3),
+  aqpb151suc    NUMBER(3),
+  aqpb151mda    NUMBER(3),
+  aqpb151pap    NUMBER(3),
+  aqpb151cta    NUMBER(10),
+  aqpb151ope    VARCHAR2(10),
+  aqpb151sbop   VARCHAR2(3),
+  aqpb151top    VARCHAR2(3),
+  aqpb151fdes   DATE,
+  aqpb151mntdes NUMBER(17,2),
+  aqpa151tcred  VARCHAR2(25),
+  aqpa151est    VARCHAR2(5)
+)
+;
+comment on table AQPB151
+  is 'log de desembolso digital';
+comment on column AQPB151.aqpa151corr
+  is 'Correlativo';
+comment on column AQPB151.aqpb151inst
+  is 'Instancia';
+comment on column AQPB151.aqpb151fec
+  is 'Fecha de proceso';
+comment on column AQPB151.aqpb151hora
+  is 'Hora de proceso';
+comment on column AQPB151.aqpb151maxdes
+  is 'Max desembolso del producto';
+comment on column AQPB151.aqpb151pgcod
+  is 'Pgcod';
+comment on column AQPB151.aqpb151mod
+  is 'Modulo';
+comment on column AQPB151.aqpb151suc
+  is 'Sucursal';
+comment on column AQPB151.aqpb151mda
+  is 'Moneda';
+comment on column AQPB151.aqpb151pap
+  is 'Papel';
+comment on column AQPB151.aqpb151cta
+  is 'Cuenta';
+comment on column AQPB151.aqpb151ope
+  is 'Operacion';
+comment on column AQPB151.aqpb151sbop
+  is 'SubOperacion';
+comment on column AQPB151.aqpb151top
+  is 'Tipo de Operacion';
+comment on column AQPB151.aqpb151fdes
+  is 'Fecha Desembolso';
+comment on column AQPB151.aqpb151mntdes
+  is 'Monto Desembolsado';
+comment on column AQPB151.aqpa151tcred
+  is 'Tipo de Credito, Vigente o En Vuelo';
+comment on column AQPB151.aqpa151est
+  is 'Estado';
+alter table AQPB151
+  add primary key (AQPA151CORR, AQPB151INST);
+

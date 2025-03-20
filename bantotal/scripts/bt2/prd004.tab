@@ -1,0 +1,19 @@
+create table PRD004
+(
+  pgcod      NUMBER(3) not null,
+  modulo     NUMBER(3) not null,
+  totope     NUMBER(3) not null,
+  moneda     NUMBER(4) not null,
+  papel      NUMBER(4) not null,
+  cmcod      NUMBER(3) not null,
+  prd4aplpon CHAR(1),
+  prd4cntla  NUMBER(17,2),
+  prd4cntlm  NUMBER(17,2),
+  prd4aux1   CHAR(1),
+  prd4aux2   NUMBER(9)
+)
+;
+create index PRD00402 on PRD004 (CMCOD);
+alter table PRD004
+  add primary key (PGCOD, MODULO, TOTOPE, MONEDA, PAPEL, CMCOD);
+

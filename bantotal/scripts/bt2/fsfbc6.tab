@@ -1,0 +1,22 @@
+create table FSFBC6
+(
+  xfi07pap  NUMBER(4) not null,
+  xfi01emp  NUMBER(3) not null,
+  xfi01mer  NUMBER(3) not null,
+  xfi07cod  CHAR(10),
+  xfi07car1 CHAR(1),
+  xfi07car2 CHAR(1),
+  xfi07car3 CHAR(1),
+  xfi07car4 CHAR(1),
+  xfi07dsc  CHAR(20),
+  xfi07txt1 CHAR(50),
+  xfi07num1 NUMBER(9),
+  xfi07num2 NUMBER(9),
+  sfbc6est  CHAR(1)
+)
+;
+create index FSFBC603 on FSFBC6 (XFI01EMP, XFI01MER, XFI07PAP);
+create index FSFBC604 on FSFBC6 (XFI01EMP, XFI01MER, XFI07COD);
+alter table FSFBC6
+  add primary key (XFI07PAP, XFI01EMP, XFI01MER);
+

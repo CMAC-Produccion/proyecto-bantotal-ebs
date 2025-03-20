@@ -1,0 +1,18 @@
+create table FSFF55
+(
+  dtlemp NUMBER(3) not null,
+  dtlcod NUMBER(1) not null,
+  dtldes NUMBER(5),
+  dtla01 NUMBER(9),
+  dtla02 NUMBER(9),
+  dtla03 CHAR(5),
+  dtla04 CHAR(5),
+  dtla05 NUMBER(14,2),
+  dtla06 NUMBER(14,2),
+  dtla07 DATE,
+  dtla08 DATE
+)
+;
+alter table FSFF55
+  add primary key (DTLEMP, DTLCOD);
+

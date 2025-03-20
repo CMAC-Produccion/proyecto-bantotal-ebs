@@ -1,0 +1,16 @@
+create table CNL043
+(
+  cnl000cod NUMBER(4) not null,
+  cnl001adm CHAR(30) not null,
+  cnl001usu CHAR(30) not null,
+  cnl043fec DATE not null,
+  cnl043hor CHAR(8) not null,
+  cnl042ccl NUMBER(2) not null,
+  cnl043cla CHAR(64),
+  cnl043csc CHAR(1)
+)
+;
+create index CNL04302 on CNL043 (CNL042CCL);
+alter table CNL043
+  add primary key (CNL000COD, CNL001ADM, CNL001USU, CNL043FEC, CNL043HOR, CNL042CCL);
+

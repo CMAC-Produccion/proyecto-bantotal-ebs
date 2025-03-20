@@ -1,0 +1,19 @@
+create table FST404
+(
+  prdmodid  NUMBER(3) not null,
+  prdtopid  NUMBER(3) not null,
+  limmodid  NUMBER(3) not null,
+  limtopid  NUMBER(3) not null,
+  limrevolv CHAR(1),
+  limportol NUMBER(7,4),
+  limrelrub NUMBER(3),
+  limrelope NUMBER(3),
+  limespe01 CHAR(1),
+  limespe02 CHAR(1),
+  limotmda  CHAR(1),
+  limexgtia CHAR(1)
+)
+;
+alter table FST404
+  add primary key (PRDMODID, PRDTOPID, LIMMODID, LIMTOPID);
+

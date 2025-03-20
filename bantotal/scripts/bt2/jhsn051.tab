@@ -1,0 +1,11 @@
+create table JHSN051
+(
+  jhsn050pgc NUMBER(3) not null,
+  jhsn051grp NUMBER(5) not null,
+  jhsn050mod NUMBER(3) not null,
+  jhsn050top NUMBER(3) not null
+)
+;
+create unique index JHSN0511 on JHSN051 (JHSN050PGC, JHSN051GRP, JHSN050MOD, JHSN050TOP);
+create index JHSN0522 on JHSN051 (JHSN050PGC, JHSN050MOD, JHSN050TOP);
+

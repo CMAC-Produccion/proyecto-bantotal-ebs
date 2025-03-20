@@ -1,0 +1,20 @@
+create table X999761
+(
+  x761emp NUMBER(3) not null,
+  x761mod NUMBER(3) not null,
+  x761mda NUMBER(4) not null,
+  x761pap NUMBER(4) not null,
+  x761cta NUMBER(9) not null,
+  x761suc NUMBER(3) not null,
+  x761ope NUMBER(9) not null,
+  x761sbo NUMBER(3) not null,
+  x761top NUMBER(3) not null,
+  x761fch DATE,
+  x761sts CHAR(1),
+  x761imp NUMBER(14,2)
+)
+;
+create index X9997612 on X999761 (X761EMP, X761CTA);
+alter table X999761
+  add primary key (X761EMP, X761MOD, X761MDA, X761PAP, X761CTA, X761SUC, X761OPE, X761SBO, X761TOP);
+

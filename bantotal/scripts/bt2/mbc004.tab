@@ -1,0 +1,14 @@
+create table MBC004
+(
+  mbccemp NUMBER(3) not null,
+  mbccsuc NUMBER(3) not null,
+  mbccusu CHAR(10) not null,
+  mbcccaj NUMBER(3) not null,
+  mbccfch DATE not null,
+  mbcchra CHAR(8) not null,
+  mbccest CHAR(1)
+)
+;
+alter table MBC004
+  add primary key (MBCCEMP, MBCCSUC, MBCCUSU, MBCCCAJ, MBCCFCH, MBCCHRA);
+

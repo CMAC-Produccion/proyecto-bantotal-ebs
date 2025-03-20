@@ -1,0 +1,15 @@
+create table SNGEP1
+(
+  sngep1ite  NUMBER(10) not null,
+  sngep1fec  TIMESTAMP(6),
+  sngep1wst  CHAR(10),
+  sngep1ins  NUMBER(10),
+  sngep1tsk  NUMBER(4),
+  sngep1inta NUMBER(9),
+  sngep1vara VARCHAR2(400)
+)
+;
+create index SNGEP101 on SNGEP1 (SNGEP1INS, SNGEP1ITE);
+alter table SNGEP1
+  add primary key (SNGEP1ITE);
+

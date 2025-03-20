@@ -1,0 +1,14 @@
+create table CNLPRC
+(
+  cnlprocess CHAR(60) not null,
+  cnltask    CHAR(60) not null,
+  x9996acnco NUMBER(3),
+  x9996bopco NUMBER(5),
+  x9996cvart NUMBER(3),
+  cnltasktyp CHAR(1)
+)
+;
+create index CNLPRC02 on CNLPRC (X9996ACNCO, X9996BOPCO, X9996CVART);
+alter table CNLPRC
+  add primary key (CNLPROCESS, CNLTASK);
+

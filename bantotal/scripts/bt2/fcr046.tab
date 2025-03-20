@@ -1,0 +1,15 @@
+create table FCR046
+(
+  pgcod     NUMBER(3) not null,
+  ubuser    CHAR(10) not null,
+  modulo    NUMBER(3) not null,
+  instcod   NUMBER(2) not null,
+  usinstupd CHAR(1),
+  usinstqry CHAR(1),
+  usinstaut CHAR(1)
+)
+;
+create index FCR04602 on FCR046 (MODULO, INSTCOD);
+alter table FCR046
+  add primary key (PGCOD, UBUSER, MODULO, INSTCOD);
+

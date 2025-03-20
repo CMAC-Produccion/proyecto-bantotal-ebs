@@ -1,0 +1,12 @@
+create table LTNL04
+(
+  ltnl04cor  NUMBER(10) not null,
+  ltnl04cor1 NUMBER(10) not null,
+  ltnm03bsor NUMBER(10),
+  ltnm04xml  VARCHAR2(2000)
+)
+;
+create index LTNL0402 on LTNL04 (LTNM03BSOR);
+alter table LTNL04
+  add primary key (LTNL04COR, LTNL04COR1);
+

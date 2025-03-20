@@ -1,0 +1,38 @@
+create table JAQY753
+(
+  jaqy753pgcod  NUMBER(3) not null,
+  jaqy753mod    NUMBER(3) not null,
+  jaqy753suc    NUMBER(3) not null,
+  jaqy753mda    NUMBER(4) not null,
+  jaqy753pap    NUMBER(4) not null,
+  jaqy753cta    NUMBER(9) not null,
+  jaqy753oper   NUMBER(9) not null,
+  jaqy753sbop   NUMBER(3) not null,
+  jaqy753tope   NUMBER(3) not null,
+  jaqy753sgcod  NUMBER(9) not null,
+  jaqy753vc     NUMBER(17,2),
+  jaqy753imp    NUMBER(17,2),
+  jaqy753porc   NUMBER(10,6),
+  jaqy753plus   NUMBER(10,6),
+  jaqy753part   NUMBER(10,6),
+  jaqy753veh    NUMBER(4),
+  jaqy753inm    NUMBER(4),
+  jaqy753end    CHAR(1),
+  jaqy753stat   CHAR(1),
+  jaqy753co     CHAR(1),
+  jaqy753aux1   NUMBER(17,2),
+  jaqy753aux2   NUMBER(10,6),
+  jaqy753aux3   DATE,
+  jaqy753aux4   NUMBER(17,2),
+  jaqy753aux5   CHAR(30),
+  jaqy753aux6   CHAR(1),
+  jaqy753aux7   CHAR(1),
+  jaqy753fsist  DATE,
+  jaqy753hrasis CHAR(8)
+)
+;
+create index JAQY75301 on JAQY753 (JAQY753SGCOD);
+create index JAQY75302 on JAQY753 (JAQY753PGCOD, JAQY753MOD, JAQY753SUC, JAQY753MDA, JAQY753PAP, JAQY753CTA, JAQY753OPER, JAQY753SBOP, JAQY753TOPE, JAQY753FSIST);
+alter table JAQY753
+  add primary key (JAQY753PGCOD, JAQY753MOD, JAQY753SUC, JAQY753MDA, JAQY753PAP, JAQY753CTA, JAQY753OPER, JAQY753SBOP, JAQY753TOPE, JAQY753SGCOD);
+

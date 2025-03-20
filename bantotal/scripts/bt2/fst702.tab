@@ -1,0 +1,10 @@
+create table FST702
+(
+  mnidiom CHAR(2) not null,
+  mncod   NUMBER(5) not null,
+  mntxt   CHAR(65)
+)
+;
+alter table FST702
+  add primary key (MNIDIOM, MNCOD);
+

@@ -1,0 +1,13 @@
+create table JAQY561
+(
+  jaqy561coent NUMBER(3) not null,
+  jaqy561cotse NUMBER(3) not null,
+  jaqy561nrcon VARCHAR2(20) not null,
+  jaqy561clien VARCHAR2(150),
+  jaqy561flag  VARCHAR2(1),
+  jaqy561fecha DATE
+)
+;
+alter table JAQY561
+  add primary key (JAQY561COENT, JAQY561COTSE, JAQY561NRCON);
+

@@ -1,0 +1,20 @@
+create table AQPA170
+(
+  aqpa170cotra  NUMBER(10) not null,
+  aqpa170nrvta  NUMBER(3) not null,
+  aqpa170trareq CLOB,
+  aqpa170trares CLOB,
+  aqpa170fecreg DATE,
+  aqpa170horreg VARCHAR2(10),
+  aqpa170coope  VARCHAR2(10),
+  aqpa170nrocon VARCHAR2(40),
+  aqpa170timexe VARCHAR2(10),
+  aqpa170msjres VARCHAR2(500),
+  aqpa170codres CHAR(5),
+  aqpa170codser NUMBER(3),
+  aqpa170codent NUMBER(3)
+)
+;
+alter table AQPA170
+  add primary key (AQPA170COTRA, AQPA170NRVTA);
+

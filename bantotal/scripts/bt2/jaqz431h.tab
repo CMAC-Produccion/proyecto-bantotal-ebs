@@ -1,0 +1,28 @@
+create table JAQZ431H
+(
+  jaqz431hcod NUMBER(4) not null,
+  jaqz431hins NUMBER(12) not null,
+  jaqz431hpps NUMBER(3) not null,
+  jaqz431hptd NUMBER(2) not null,
+  jaqz431hpnd CHAR(12) not null,
+  jaqz431hfec DATE not null,
+  jaqz431hhra VARCHAR2(8) not null,
+  jaqz431husr CHAR(10) not null,
+  jaqz431htpl CHAR(1),
+  jaqz431hmnt NUMBER(17,2),
+  jaqz431hsuc NUMBER(3),
+  jaqz431hmod NUMBER(3),
+  jaqz431hmnd NUMBER(4),
+  jaqz431hpap NUMBER(4),
+  jaqz431hcta NUMBER(9),
+  jaqz431hope NUMBER(9),
+  jaqz431hsop NUMBER(3),
+  jaqz431htop NUMBER(3),
+  jaqz431hip  CHAR(20),
+  jaqz431hfa  DATE
+)
+;
+create index JAQZ431H_1 on JAQZ431H (JAQZ431HCOD, JAQZ431HSUC, JAQZ431HMOD, JAQZ431HMND, JAQZ431HPAP, JAQZ431HCTA, JAQZ431HOPE, JAQZ431HSOP, JAQZ431HTOP);
+create index JAQZ431H_2 on JAQZ431H (JAQZ431HINS);
+create index JAQZ431H_3 on JAQZ431H (JAQZ431HCOD, JAQZ431HSUC, JAQZ431HFEC);
+

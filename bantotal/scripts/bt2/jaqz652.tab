@@ -1,0 +1,22 @@
+create table JAQZ652
+(
+  jaqz652fecp DATE not null,
+  jaqz652fecc DATE not null,
+  jaqz652pai  NUMBER(3),
+  jaqz652tdoc NUMBER(2),
+  jaqz652ndoc VARCHAR2(12) not null,
+  jaqz652nomt CHAR(60),
+  jaqz652est  CHAR(1),
+  jaqz652cal0 NUMBER(5,2),
+  jaqz652cal1 NUMBER(5,2),
+  jaqz652cal2 NUMBER(5,2),
+  jaqz652cal3 NUMBER(5,2),
+  jaqz652cal4 NUMBER(5,2)
+)
+;
+create index JAQZ60202 on JAQZ652 (JAQZ652FECP);
+create index JAQZ60203 on JAQZ652 (JAQZ652FECC);
+create index JAQZ60204 on JAQZ652 (JAQZ652NDOC);
+alter table JAQZ652
+  add constraint JAQZ60201 primary key (JAQZ652FECP, JAQZ652FECC, JAQZ652NDOC);
+

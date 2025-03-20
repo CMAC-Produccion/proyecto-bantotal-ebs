@@ -1,0 +1,14 @@
+create table JAQL831P
+(
+  jaql831cpro  NUMBER(9) not null,
+  jaql831dncta NUMBER(9) not null,
+  jaql831dnope NUMBER(9) not null,
+  jaql831pproc DATE,
+  jaql831pmont NUMBER(13,2),
+  jaql831pconc VARCHAR2(30),
+  jaql831pccal VARCHAR2(10)
+)
+;
+create index JAQL831P_01 on JAQL831P (JAQL831CPRO, JAQL831DNCTA, JAQL831DNOPE, JAQL831PPROC);
+create index JAQL831P_02 on JAQL831P (JAQL831DNCTA, JAQL831DNOPE, JAQL831PPROC);
+

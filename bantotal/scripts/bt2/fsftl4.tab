@@ -1,0 +1,12 @@
+create table FSFTL4
+(
+  sftl1nro NUMBER(6) not null,
+  sftl4col NUMBER(2) not null,
+  sftl3cpo NUMBER(6),
+  sftl4tot CHAR(1)
+)
+;
+create index FSFTL402 on FSFTL4 (SFTL3CPO);
+alter table FSFTL4
+  add primary key (SFTL1NRO, SFTL4COL);
+

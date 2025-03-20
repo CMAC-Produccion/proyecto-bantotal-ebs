@@ -1,0 +1,14 @@
+create table JAQL613
+(
+  jaql613idrep NUMBER(18) not null,
+  jaql613sndba VARCHAR2(64) not null,
+  jaql613rcvba VARCHAR2(64) not null,
+  jaql613sndam NUMBER(17,2),
+  jaql613rcvam NUMBER(17,2),
+  jaql613diffe NUMBER(17,2),
+  jaql613curre VARCHAR2(3)
+)
+;
+alter table JAQL613
+  add primary key (JAQL613IDREP, JAQL613SNDBA, JAQL613RCVBA);
+

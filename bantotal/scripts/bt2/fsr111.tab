@@ -1,0 +1,40 @@
+create table FSR111
+(
+  i1cod  NUMBER(3) not null,
+  i1mod  NUMBER(3) not null,
+  i1suc  NUMBER(3) not null,
+  i1mda  NUMBER(4) not null,
+  i1pap  NUMBER(4) not null,
+  i1cta  NUMBER(9) not null,
+  i1oper NUMBER(9) not null,
+  i1sbop NUMBER(3) not null,
+  i1tope NUMBER(3) not null,
+  inscod NUMBER(3) not null,
+  i1rub  NUMBER(16),
+  i2cod  NUMBER(3),
+  i2mod  NUMBER(3),
+  i2suc  NUMBER(3),
+  i2mda  NUMBER(4),
+  i2pap  NUMBER(4),
+  i2cta  NUMBER(9),
+  i2oper NUMBER(9),
+  i2sbop NUMBER(3),
+  i2tope NUMBER(3),
+  i2rub  NUMBER(16),
+  r111cd NUMBER(3),
+  r111mo NUMBER(3),
+  r111su NUMBER(3),
+  r111tr NUMBER(3),
+  r111re NUMBER(4),
+  r111fc DATE,
+  r111or NUMBER(2),
+  r111sb NUMBER(3),
+  r111co CHAR(1)
+)
+;
+create index FSR11102 on FSR111 (INSCOD);
+create index FSR11103 on FSR111 (R111CD, R111MO, R111SU, R111TR, R111RE, R111FC, R111OR, R111SB);
+create index FSR11104 on FSR111 (I2COD, I2MOD, I2SUC, I2MDA, I2PAP, I2CTA, I2OPER, I2SBOP, I2TOPE, INSCOD, I1COD, I1MOD, I1MDA, I1PAP, I1CTA, I1OPER);
+alter table FSR111
+  add primary key (I1COD, I1MOD, I1SUC, I1MDA, I1PAP, I1CTA, I1OPER, I1SBOP, I1TOPE, INSCOD);
+

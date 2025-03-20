@@ -1,0 +1,15 @@
+create table FCR399
+(
+  cmxtcod  NUMBER(3) not null,
+  cmxtmod  NUMBER(3) not null,
+  cmxtoper NUMBER(9) not null,
+  cmxtsbop NUMBER(3) not null,
+  cmxwinst NUMBER(2) not null,
+  bpwitem  NUMBER(3) not null,
+  bpwistst CHAR(1),
+  bpwiusrt CHAR(10)
+)
+;
+alter table FCR399
+  add primary key (CMXTCOD, CMXTMOD, CMXTOPER, CMXTSBOP, CMXWINST, BPWITEM);
+

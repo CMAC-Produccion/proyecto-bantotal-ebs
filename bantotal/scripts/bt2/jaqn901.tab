@@ -1,0 +1,28 @@
+create table JAQN901
+(
+  jaqn901emp NUMBER(3) not null,
+  jaqn901mod NUMBER(3) not null,
+  jaqn901tip NUMBER(2) not null,
+  jaqn901mda NUMBER(4) not null,
+  jaqn901pap NUMBER(4) not null,
+  jaqn901fei DATE not null,
+  jaqn901fef DATE not null,
+  jaqn901mto NUMBER(17,2) not null,
+  jaqn901plz NUMBER(9) not null,
+  jaqn901tas NUMBER(10,6),
+  jaqn901ai1 NUMBER(17,2),
+  jaqn901ai2 NUMBER(17,2),
+  jaqn901ai3 NUMBER(17,2),
+  jaqn901an1 NUMBER(9),
+  jaqn901an2 NUMBER(9),
+  jaqn901an3 NUMBER(9),
+  jaqn901ac1 VARCHAR2(255),
+  jaqn901ac2 VARCHAR2(255),
+  jaqn901ac3 VARCHAR2(255),
+  jaqn901af1 DATE,
+  jaqn901af2 DATE,
+  jaqn901af3 DATE
+)
+;
+create unique index JAQN9011 on JAQN901 (JAQN901EMP, JAQN901MOD, JAQN901TIP, JAQN901MDA, JAQN901PAP, JAQN901FEI, JAQN901FEF, JAQN901MTO, JAQN901PLZ);
+

@@ -1,0 +1,42 @@
+create table AQPB011_611C
+(
+  pgcod   NUMBER(3) not null,
+  ppmod   NUMBER(3) not null,
+  ppsuc   NUMBER(3) not null,
+  ppmda   NUMBER(4) not null,
+  pppap   NUMBER(4) not null,
+  ppcta   NUMBER(9) not null,
+  ppoper  NUMBER(9) not null,
+  ppsbop  NUMBER(3) not null,
+  pptope  NUMBER(3) not null,
+  ppfpag  DATE not null,
+  pptipo  CHAR(1) not null,
+  ppexte  NUMBER(3) not null,
+  ppimp1  NUMBER(17,2),
+  ppimp2  NUMBER(17,2),
+  ppimp3  NUMBER(17,2),
+  ppimp4  NUMBER(17,2),
+  ppimp5  NUMBER(17,2),
+  ppimp6  NUMBER(17,2),
+  ppimp7  NUMBER(17,2),
+  ppimp8  NUMBER(17,2),
+  ppimp9  NUMBER(17,2),
+  ppimp10 NUMBER(17,2),
+  ppimp11 NUMBER(17,2),
+  ppimp12 NUMBER(17,2),
+  ppimp13 NUMBER(17,2),
+  ppimp14 NUMBER(17,2),
+  ppimp15 NUMBER(17,2),
+  ppimp16 NUMBER(17,2),
+  ppimp17 NUMBER(17,2),
+  ppimp18 NUMBER(17,2),
+  ppimp19 NUMBER(17,2),
+  ppimp20 NUMBER(17,2),
+  fec     DATE not null,
+  cor     NUMBER(9) not null
+)
+;
+create index AQPB011_611C2 on AQPB011_611C (FEC, COR);
+alter table AQPB011_611C
+  add primary key (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPFPAG, PPTIPO, PPEXTE, FEC, COR);
+

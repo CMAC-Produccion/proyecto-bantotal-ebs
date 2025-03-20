@@ -1,0 +1,37 @@
+create table AUD_FST047_AUDIT
+(
+  aud_old_modulo     NUMBER(3),
+  aud_new_modulo     NUMBER(3),
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_old_ubconf     CHAR(1),
+  aud_new_ubconf     CHAR(1),
+  aud_old_ubing      CHAR(1),
+  aud_new_ubing      CHAR(1),
+  aud_old_ubprod     CHAR(1),
+  aud_new_ubprod     CHAR(1),
+  aud_old_ubsn1      CHAR(1),
+  aud_new_ubsn1      CHAR(1),
+  aud_old_ubsn2      CHAR(1),
+  aud_new_ubsn2      CHAR(1),
+  aud_old_ubsn3      CHAR(1),
+  aud_new_ubsn3      CHAR(1),
+  aud_old_ubsup      CHAR(1),
+  aud_new_ubsup      CHAR(1),
+  aud_old_ubuser     CHAR(10),
+  aud_new_ubuser     CHAR(10),
+  aud_fst047_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst047_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst047_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst047_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst047_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst047_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst047_ubu     VARCHAR2(50) default USER not null,
+  aud_fst047_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst047_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst047_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst047_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst047_uas     CHAR(1) default 'I' not null
+)
+;
+

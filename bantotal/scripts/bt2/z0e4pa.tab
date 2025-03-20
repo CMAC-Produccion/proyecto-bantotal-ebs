@@ -1,0 +1,12 @@
+create table Z0E4PA
+(
+  z0e4p1cc NUMBER(2) not null,
+  z0e4patr NUMBER(1) not null,
+  z0e4pamd NUMBER(3) not null,
+  z0e4paru NUMBER(16)
+)
+;
+create index Z0E4PA03 on Z0E4PA (Z0E4PARU);
+alter table Z0E4PA
+  add primary key (Z0E4P1CC, Z0E4PATR, Z0E4PAMD);
+

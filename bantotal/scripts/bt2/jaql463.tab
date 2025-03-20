@@ -1,0 +1,44 @@
+create table JAQL463
+(
+  jaql463pai NUMBER(3) not null,
+  jaql463tdo NUMBER(2) not null,
+  jaql463ndo CHAR(12) not null,
+  jaql463dco NUMBER(2) not null,
+  jaql463co1 NUMBER(3),
+  jaql463co2 NUMBER(3),
+  jaql463co3 NUMBER(3),
+  jaql463co4 NUMBER(3),
+  jaql463co5 NUMBER(3),
+  jaql463co6 NUMBER(3),
+  jaql463ds1 CHAR(30),
+  jaql463ds2 CHAR(30),
+  jaql463ds3 CHAR(30),
+  jaql463ds4 CHAR(30),
+  jaql463ds5 CHAR(30),
+  jaql463ds6 CHAR(30),
+  jaql463ugo CHAR(6),
+  jaql463dep NUMBER(5),
+  jaql463pro NUMBER(5),
+  jaql463dis NUMBER(9),
+  jaql463dir CHAR(140),
+  jaql463ref VARCHAR2(200),
+  jaql463fea DATE,
+  jaql463fei DATE,
+  jaql463usa CHAR(10),
+  jaql463usi CHAR(10),
+  jaql463mid CHAR(1),
+  jaql463age NUMBER(3),
+  jaql463inv CHAR(1),
+  jaql463tca CHAR(1),
+  jaql463tcl CHAR(1),
+  jaql463udg CHAR(10),
+  jaql463no2 CHAR(25),
+  jaql463no1 CHAR(25),
+  jaql463apm CHAR(30),
+  jaql463app CHAR(30)
+)
+;
+create index JAQL463IDX001 on JAQL463 (JAQL463AGE, JAQL463DCO, JAQL463INV);
+alter table JAQL463
+  add primary key (JAQL463PAI, JAQL463TDO, JAQL463NDO, JAQL463DCO);
+

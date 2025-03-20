@@ -1,0 +1,127 @@
+create table AQPA032
+(
+  aqpa032corr  NUMBER(10) not null,
+  aqpa032fech  DATE not null,
+  aqpa032hora  CHAR(8) not null,
+  aqpa032inst  NUMBER(10),
+  aqpa032neva  NUMBER(10),
+  aqpa032pais  NUMBER(3),
+  aqpa032tdoc  NUMBER(2),
+  aqpa032ndoc  CHAR(12),
+  aqpa032rubr  VARCHAR2(14),
+  aqpa032esta  CHAR(2),
+  aqpa032enti  VARCHAR2(200),
+  aqpa032tcre  CHAR(30),
+  aqpa032sdeu  NUMBER(17,2),
+  aqpa032plaz  NUMBER(9,6),
+  aqpa032taza  NUMBER(9,6),
+  aqpa032ccalc NUMBER(17,2),
+  aqpa032gfin  NUMBER(17,2),
+  aqpa032frcc  DATE,
+  aqpa032dori  CHAR(1),
+  aqpa032chek  CHAR(1),
+  aqpa032pers  CHAR(30),
+  aqpa032rela  CHAR(20),
+  aqpa032line  CHAR(20),
+  aqpa032aux1  NUMBER(10),
+  aqpa032aux2  NUMBER(17,2),
+  aqpa032aux3  CHAR(1),
+  aqpa032aux4  VARCHAR2(1),
+  aqpa032aux5  VARCHAR2(50),
+  aqpa032aux6  DATE,
+  aqpa032aux7  NUMBER(10),
+  aqpa032aux8  NUMBER(17,2),
+  aqpa032aux9  VARCHAR2(40),
+  aqpa032mda   NUMBER(4),
+  aqpa032tlin  NUMBER(17,2),
+  aqpa032util  NUMBER(17,2),
+  aqpa032flin  VARCHAR2(1),
+  aqpa032cptn  NUMBER(17,2),
+  aqpa032fac1  NUMBER(10,6),
+  aqpa032fac2  NUMBER(10,6),
+  aqpa032fac3  NUMBER(10,6),
+  aqpa032cent  VARCHAR2(10)
+)
+;
+comment on column AQPA032.aqpa032corr
+  is 'Correlativo';
+comment on column AQPA032.aqpa032fech
+  is 'Fecha Proceso';
+comment on column AQPA032.aqpa032hora
+  is 'Hora Registro';
+comment on column AQPA032.aqpa032inst
+  is 'Instancia / Solicitud';
+comment on column AQPA032.aqpa032neva
+  is 'Evaluacion';
+comment on column AQPA032.aqpa032pais
+  is 'Pais';
+comment on column AQPA032.aqpa032tdoc
+  is 'Tipo Documento';
+comment on column AQPA032.aqpa032ndoc
+  is 'Num Documento';
+comment on column AQPA032.aqpa032rubr
+  is 'Rubro';
+comment on column AQPA032.aqpa032esta
+  is 'Estado S/N';
+comment on column AQPA032.aqpa032enti
+  is 'Entidad Finan';
+comment on column AQPA032.aqpa032tcre
+  is 'Tipo Credito';
+comment on column AQPA032.aqpa032sdeu
+  is 'Saldo Deudor';
+comment on column AQPA032.aqpa032plaz
+  is 'Plazo';
+comment on column AQPA032.aqpa032taza
+  is 'Taza';
+comment on column AQPA032.aqpa032ccalc
+  is 'Cuota Calculada';
+comment on column AQPA032.aqpa032gfin
+  is 'Gasto Financiero';
+comment on column AQPA032.aqpa032frcc
+  is 'Fecha RCC';
+comment on column AQPA032.aqpa032dori
+  is 'Datos Origen';
+comment on column AQPA032.aqpa032chek
+  is 'Vigente';
+comment on column AQPA032.aqpa032pers
+  is 'Nombre Per';
+comment on column AQPA032.aqpa032rela
+  is 'Relacion Per';
+comment on column AQPA032.aqpa032line
+  is 'Tipo de Deuda';
+comment on column AQPA032.aqpa032aux1
+  is 'Tarea de ejecucion';
+comment on column AQPA032.aqpa032aux3
+  is 'Flag Ratio R/ '' ''';
+comment on column AQPA032.aqpa032aux4
+  is 'Flag Compra de Deuda';
+comment on column AQPA032.aqpa032aux5
+  is 'Usuario de Registro';
+comment on column AQPA032.aqpa032aux8
+  is 'Monto de No Uso';
+comment on column AQPA032.aqpa032aux9
+  is 'Descripcion del Credito';
+comment on column AQPA032.aqpa032mda
+  is 'Moneda';
+comment on column AQPA032.aqpa032tlin
+  is 'Monto Total Linea';
+comment on column AQPA032.aqpa032util
+  is 'Monto Utilizacion';
+comment on column AQPA032.aqpa032flin
+  is 'Flag Tipo de deuda L/P';
+comment on column AQPA032.aqpa032cptn
+  is 'Monto Cuota Potencial';
+comment on column AQPA032.aqpa032fac1
+  is 'Factor Calculo Uso';
+comment on column AQPA032.aqpa032fac2
+  is 'Factor Calculo No Uso';
+comment on column AQPA032.aqpa032fac3
+  is 'Factor Calculo Prestamo';
+comment on column AQPA032.aqpa032cent
+  is 'Codigo Entidad';
+create index AQPA0322 on AQPA032 (AQPA032INST, AQPA032NEVA, AQPA032PAIS, AQPA032TDOC, AQPA032NDOC);
+create index AQPA0323 on AQPA032 (AQPA032INST, AQPA032NEVA, AQPA032PAIS, AQPA032TDOC, AQPA032NDOC, AQPA032ESTA, AQPA032SDEU, AQPA032PLAZ, AQPA032TAZA, AQPA032CCALC);
+create index AQPA0324 on AQPA032 (AQPA032INST);
+alter table AQPA032
+  add primary key (AQPA032FECH, AQPA032CORR, AQPA032HORA);
+

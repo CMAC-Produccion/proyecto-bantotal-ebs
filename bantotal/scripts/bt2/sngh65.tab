@@ -1,0 +1,18 @@
+create table SNGH65
+(
+  sngh65aut  NUMBER(10) not null,
+  sngh65cord NUMBER(4) not null,
+  sngh65who  NUMBER(3),
+  sngh65usra CHAR(10),
+  sngh65cara NUMBER(3),
+  sngh65user CHAR(10),
+  sngh65carg NUMBER(3),
+  sngh65usrd CHAR(10),
+  sngh65wrks CHAR(10),
+  sngh65time DATE,
+  sngh65pgmd CHAR(10)
+)
+;
+alter table SNGH65
+  add primary key (SNGH65AUT, SNGH65CORD);
+

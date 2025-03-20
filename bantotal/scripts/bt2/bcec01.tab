@@ -1,0 +1,20 @@
+create table BCEC01
+(
+  bcec01pgc NUMBER(3) not null,
+  bcec01fec DATE not null,
+  bcec01ctl NUMBER(6) not null,
+  bcec01tid CHAR(1) not null,
+  bcec01idi NUMBER(13) not null,
+  bcec01tin NUMBER(2) not null,
+  bcec01cen NUMBER(2),
+  bcec01cri NUMBER(1),
+  bcec01lun NUMBER(15,8),
+  bcec01mar NUMBER(15,8),
+  bcec01mie NUMBER(15,8),
+  bcec01jue NUMBER(15,8),
+  bcec01vie NUMBER(15,8)
+)
+;
+alter table BCEC01
+  add primary key (BCEC01PGC, BCEC01FEC, BCEC01CTL, BCEC01TID, BCEC01IDI, BCEC01TIN);
+

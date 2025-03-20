@@ -1,0 +1,48 @@
+create table JAQM60
+(
+  jaqm60cana VARCHAR2(2000) not null,
+  jaqm60coan CHAR(10) not null,
+  jaqm60cacl NUMBER(10),
+  jaqm60mont NUMBER(17,2),
+  jaqm60fein DATE,
+  jaqm60num1 NUMBER(10),
+  jaqm60num2 NUMBER(10),
+  jaqm60imp1 NUMBER(17,2),
+  jaqm60imp2 NUMBER(17,2),
+  jaqm60var1 VARCHAR2(255),
+  jaqm60var2 VARCHAR2(255),
+  jaqm60fec1 DATE,
+  jaqm60fec2 DATE
+)
+;
+comment on table JAQM60
+  is 'Creditos por desembolsar - Analista';
+comment on column JAQM60.jaqm60cana
+  is 'COMITE DEL ANALISTA';
+comment on column JAQM60.jaqm60coan
+  is 'CODIGO ANALISTA';
+comment on column JAQM60.jaqm60cacl
+  is 'CANTIDAD DE CLIENTES';
+comment on column JAQM60.jaqm60mont
+  is 'MONTOS';
+comment on column JAQM60.jaqm60fein
+  is 'FECHA DE INGRESO';
+comment on column JAQM60.jaqm60num1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQM60.jaqm60num2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQM60.jaqm60imp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM60.jaqm60imp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM60.jaqm60var1
+  is 'AUXILIAR VARCHAR 1';
+comment on column JAQM60.jaqm60var2
+  is 'AUXILIAR VARCHAR 2';
+comment on column JAQM60.jaqm60fec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM60.jaqm60fec2
+  is 'AUXILIAR FECHA 2';
+alter table JAQM60
+  add primary key (JAQM60CANA, JAQM60COAN);
+

@@ -1,0 +1,39 @@
+create table AQPB762A
+(
+  aqpb762acod NUMBER not null,
+  aqpb762afec DATE not null,
+  aqpb762acor NUMBER(8) not null,
+  aqpb762aest CHAR(1),
+  aqpb762ausr CHAR(10),
+  aqpb762afcr VARCHAR2(10),
+  aqpb762ahcr VARCHAR2(10),
+  aqpb762ausd CHAR(10),
+  aqpb762afed VARCHAR2(10),
+  aqpb762ahed VARCHAR2(10)
+)
+;
+comment on table AQPB762A
+  is 'Tabla para registrar la cabecera de archivos cargados';
+comment on column AQPB762A.aqpb762acod
+  is 'Código de empresa';
+comment on column AQPB762A.aqpb762afec
+  is 'Fecha de carga del archivo';
+comment on column AQPB762A.aqpb762acor
+  is 'Correlativo del archivo cargado';
+comment on column AQPB762A.aqpb762aest
+  is 'Estado del archivo';
+comment on column AQPB762A.aqpb762ausr
+  is 'Usuario de creación';
+comment on column AQPB762A.aqpb762afcr
+  is 'Fecha de creación';
+comment on column AQPB762A.aqpb762ahcr
+  is 'Hora de creación';
+comment on column AQPB762A.aqpb762ausd
+  is 'Usuario de edición';
+comment on column AQPB762A.aqpb762afed
+  is 'Fecha de edición';
+comment on column AQPB762A.aqpb762ahed
+  is 'Hora de edición';
+alter table AQPB762A
+  add primary key (AQPB762ACOD, AQPB762AFEC, AQPB762ACOR);
+

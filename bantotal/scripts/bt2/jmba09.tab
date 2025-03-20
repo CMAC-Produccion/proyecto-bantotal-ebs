@@ -1,0 +1,47 @@
+create table JMBA09
+(
+  jmba09emp  NUMBER(3) not null,
+  jmba09mod  NUMBER(3) not null,
+  jmba09suc  NUMBER(3) not null,
+  jmba09mda  NUMBER(4) not null,
+  jmba09pap  NUMBER(4) not null,
+  jmba09cta  NUMBER(9) not null,
+  jmba09oper NUMBER(9) not null,
+  jmba09sbop NUMBER(3) not null,
+  jmba09tope NUMBER(3) not null,
+  jmba09corr NUMBER(4) not null,
+  jmba09com  NUMBER(3),
+  jmba09imp  NUMBER(17,2),
+  jmba09fch  DATE,
+  jmba09hor  CHAR(8),
+  jmba09usr  CHAR(10),
+  jmba09est  CHAR(1),
+  jmba09cd   NUMBER(3),
+  jmba09mo   NUMBER(3),
+  jmba09su   NUMBER(3),
+  jmba09tr   NUMBER(3),
+  jmba09re   NUMBER(4),
+  jmba09fc   DATE,
+  jmba09or   NUMBER(2),
+  jmba09sb   NUMBER(3),
+  jmba09co   CHAR(1),
+  jmba09imp1 NUMBER(17,2),
+  jmba09imp2 NUMBER(17,2),
+  jmba09imp3 NUMBER(17,2),
+  jmba09cod1 NUMBER(3),
+  jmba09cod2 NUMBER(3),
+  jmba09cod3 NUMBER(3),
+  jmba09txt1 CHAR(30),
+  jmba09txt2 CHAR(30),
+  jmba09txt3 CHAR(30),
+  jmba09fch1 DATE,
+  jmba09fch2 DATE,
+  jmba09fch3 DATE,
+  jmba09sts1 CHAR(1),
+  jmba09sts2 CHAR(1),
+  jmba09sts3 CHAR(1)
+)
+;
+create unique index JMBA0901 on JMBA09 (JMBA09EMP, JMBA09MOD, JMBA09SUC, JMBA09MDA, JMBA09PAP, JMBA09CTA, JMBA09OPER, JMBA09SBOP, JMBA09TOPE, JMBA09CORR);
+create index JMBA0902 on JMBA09 (JMBA09CD, JMBA09MO, JMBA09SU, JMBA09TR, JMBA09RE, JMBA09FC, JMBA09OR, JMBA09SB);
+

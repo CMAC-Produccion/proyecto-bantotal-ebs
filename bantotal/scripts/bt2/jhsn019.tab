@@ -1,0 +1,12 @@
+create table JHSN019
+(
+  jhsn19ps NUMBER(3) not null,
+  jhsn19td NUMBER(2) not null,
+  jhsn19nd CHAR(12) not null,
+  jhsn19cr NUMBER(10) not null,
+  jhsn19vc CHAR(40)
+)
+;
+create unique index JHSN0191 on JHSN019 (JHSN19PS, JHSN19TD, JHSN19ND, JHSN19CR);
+create index JHSN0193 on JHSN019 (JHSN19VC);
+

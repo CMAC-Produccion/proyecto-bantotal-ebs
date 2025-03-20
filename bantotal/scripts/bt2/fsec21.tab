@@ -1,0 +1,24 @@
+create table FSEC21
+(
+  sec01pgcod NUMBER(3) not null,
+  sec15lgid  CHAR(10) not null,
+  sec15lgfec DATE not null,
+  sec15lgnro NUMBER(9) not null,
+  sec03mod   NUMBER(3) not null,
+  sec03tope  NUMBER(3) not null,
+  sec19mda   NUMBER(4) not null,
+  sec19pap   NUMBER(4) not null,
+  sec19emcta NUMBER(9) not null,
+  sec21pzomr NUMBER(5) not null,
+  sec21sdobr NUMBER(17,2),
+  sec21intdf NUMBER(17,2),
+  sec21imp01 NUMBER(17,2),
+  sec21imp02 NUMBER(17,2),
+  sec21imp03 NUMBER(17,2),
+  sec21fec01 DATE
+)
+;
+create index FSEC2103 on FSEC21 (SEC01PGCOD, SEC15LGID, SEC15LGFEC, SEC15LGNRO, SEC21PZOMR, SEC19MDA, SEC19PAP, SEC03MOD, SEC03TOPE);
+alter table FSEC21
+  add primary key (SEC01PGCOD, SEC15LGID, SEC15LGFEC, SEC15LGNRO, SEC03MOD, SEC03TOPE, SEC19MDA, SEC19PAP, SEC19EMCTA, SEC21PZOMR);
+

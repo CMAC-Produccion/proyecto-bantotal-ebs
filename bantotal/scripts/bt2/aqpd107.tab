@@ -1,0 +1,56 @@
+create table AQPD107
+(
+  aqpd107fec    DATE not null,
+  aqpd107ord    NUMBER(5) not null,
+  aqpd107codrow NUMBER(5) not null,
+  aqpd107rubrow VARCHAR2(200),
+  aqpd107desrow VARCHAR2(250),
+  aqpd107factor NUMBER(7,3),
+  aqpd107tipcam NUMBER(7,3),
+  aqpd107col1   NUMBER(12,2),
+  aqpd107col2   NUMBER(12,2),
+  aqpd107col3   NUMBER(12,2),
+  aqpd107col4   NUMBER(12,2),
+  aqpd107col5   NUMBER(12,2),
+  aqpd107col6   NUMBER(12,2),
+  aqpd107col7   NUMBER(12,2),
+  aqpd107col8   NUMBER(12,2),
+  aqpd107tipo   NUMBER(3)
+)
+;
+comment on table AQPD107
+  is 'TABLA REPORTE 15B';
+comment on column AQPD107.aqpd107fec
+  is 'FECHA';
+comment on column AQPD107.aqpd107ord
+  is 'ORDEN';
+comment on column AQPD107.aqpd107codrow
+  is 'CODIGO FILA';
+comment on column AQPD107.aqpd107rubrow
+  is 'RUBRO FILA';
+comment on column AQPD107.aqpd107desrow
+  is 'DESCRIPCION FILA';
+comment on column AQPD107.aqpd107factor
+  is 'FACTOR';
+comment on column AQPD107.aqpd107tipcam
+  is 'TIPO CAMBIO';
+comment on column AQPD107.aqpd107col1
+  is 'COLUMNA 1';
+comment on column AQPD107.aqpd107col2
+  is 'COLUMNA 2';
+comment on column AQPD107.aqpd107col3
+  is 'COLUMNA 3';
+comment on column AQPD107.aqpd107col4
+  is 'COLUMNA 4';
+comment on column AQPD107.aqpd107col5
+  is 'COLUMNA 5';
+comment on column AQPD107.aqpd107col6
+  is 'COLUMNA 6';
+comment on column AQPD107.aqpd107col7
+  is 'COLUMNA 7';
+comment on column AQPD107.aqpd107col8
+  is 'COLUMNA 8';
+create index AQPD1072 on AQPD107 (AQPD107FEC);
+alter table AQPD107
+  add primary key (AQPD107FEC, AQPD107ORD, AQPD107CODROW);
+

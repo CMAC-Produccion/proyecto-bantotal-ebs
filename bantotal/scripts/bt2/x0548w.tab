@@ -1,0 +1,17 @@
+create table X0548W
+(
+  x0548rfch CHAR(6) not null,
+  x0548rhra NUMBER(4) not null,
+  x0548widr NUMBER(1) not null,
+  x0548wclo NUMBER(6),
+  x0548wblo NUMBER(6),
+  x0548wcon NUMBER(8),
+  x0548wtot NUMBER(10),
+  x0548wdeb NUMBER(12),
+  x0548wcre NUMBER(12),
+  x0548wres CHAR(39)
+)
+;
+alter table X0548W
+  add primary key (X0548RFCH, X0548RHRA, X0548WIDR);
+

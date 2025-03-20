@@ -1,0 +1,61 @@
+create table JAQM23
+(
+  jaqm23cuem CHAR(20) not null,
+  jaqm23cate NUMBER(12) not null,
+  jaqm23nom  CHAR(50),
+  jaqm23ruta VARCHAR2(250),
+  jaqm23pcat NUMBER(12),
+  jaqm23an1  NUMBER(4),
+  jaqm23an2  NUMBER(4),
+  jaqm23an3  NUMBER(4),
+  jaqm23ai1  NUMBER(17,2),
+  jaqm23ai2  NUMBER(17,2),
+  jaqm23ai3  NUMBER(17,2),
+  jaqm23ac1  CHAR(255),
+  jaqm23ac2  CHAR(255),
+  jaqm23ac3  CHAR(255),
+  jaqm23af1  DATE,
+  jaqm23af2  DATE,
+  jaqm23af3  DATE
+)
+;
+comment on table JAQM23
+  is 'Categoría Expediente Maestro Oracle';
+comment on column JAQM23.jaqm23cuem
+  is 'Código único Expediente Maestro';
+comment on column JAQM23.jaqm23cate
+  is 'Código de Categoría';
+comment on column JAQM23.jaqm23nom
+  is 'Nombre';
+comment on column JAQM23.jaqm23ruta
+  is 'Ruta de Categoría';
+comment on column JAQM23.jaqm23pcat
+  is 'Código Padre Categoría';
+comment on column JAQM23.jaqm23an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM23.jaqm23an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM23.jaqm23an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM23.jaqm23ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM23.jaqm23ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM23.jaqm23ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM23.jaqm23ac1
+  is 'Auxiliar Character 1';
+comment on column JAQM23.jaqm23ac2
+  is 'Auxiliar Character 2';
+comment on column JAQM23.jaqm23ac3
+  is 'Auxiliar Character 3';
+comment on column JAQM23.jaqm23af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM23.jaqm23af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM23.jaqm23af3
+  is 'Auxiliar Fecha 3';
+create index JAQM23A2 on JAQM23 (JAQM23CUEM, JAQM23CATE, JAQM23PCAT);
+alter table JAQM23
+  add primary key (JAQM23CUEM, JAQM23CATE);
+

@@ -1,0 +1,156 @@
+create table AQPB617B
+(
+  aqpb617bcorr   NUMBER,
+  aqpb617bfpro   DATE not null,
+  aqpb617pais    NUMBER(4),
+  aqpb617tdoc    NUMBER(3),
+  aqpb617ndoc    VARCHAR2(12),
+  aqpb617csbs    VARCHAR2(12),
+  aqpb617bana    CHAR(10) not null,
+  aqpb617bnomana VARCHAR2(50),
+  aqpb617bnuope  NUMBER(18),
+  aqpb617bmntde  NUMBER(18,2),
+  aqpb617bmntre  NUMBER(18,2),
+  aqpb617bmope   NUMBER(10),
+  aqpb617bmdes   NUMBER(18,2),
+  aqpb617bnana   VARCHAR2(30),
+  aqpb617bcreg   NUMBER(9),
+  aqpb617bnreg   CHAR(30),
+  aqpb617bczon   NUMBER(3),
+  aqpb617bnzon   CHAR(40),
+  aqpb617bcage   NUMBER(3),
+  aqpb617bnage   VARCHAR2(50),
+  aqpb617btage   VARCHAR2(30),
+  aqpb617bcata   NUMBER(10),
+  aqpb617bcara   VARCHAR2(100),
+  aqpb617bcnor   NUMBER(18,2),
+  aqpb617bccpp   NUMBER(18,2),
+  aqpb617bcdef   NUMBER(18,2),
+  aqpb617bcdud   NUMBER(18,2),
+  aqpb617bcper   NUMBER(18,2),
+  aqpb617bcatp   NUMBER(10),
+  aqpb617bcarp   VARCHAR2(100),
+  aqpb617bfasc   DATE,
+  aqpb617bmper   NUMBER(18),
+  aqpb617brope   NUMBER(18),
+  aqpb617brmnt   NUMBER(18,2),
+  aqpb617bdsus   NUMBER(18),
+  aqpb617bres1   CHAR(1),
+  aqpb617bres2   CHAR(1),
+  aqpb617bres3   CHAR(1),
+  aqpb617best    VARCHAR2(1),
+  aqpb617bfec    DATE,
+  aqpb617bhor    VARCHAR2(15) not null,
+  aqpb617bcom1   CHAR(1),
+  aqpb617bcom2   CHAR(1),
+  aqpb617bcom3   CHAR(1),
+  aqpb617bcom4   CHAR(20),
+  aqpb617bcom5   CHAR(20),
+  aqpb617bres4   CHAR(1),
+  aqpb617bcodt   CHAR(11),
+  aqpb617bcanca  NUMBER(18)
+)
+;
+comment on table AQPB617B
+  is 'Tabla resumen de categorización';
+comment on column AQPB617B.aqpb617bcorr
+  is 'Correlativo';
+comment on column AQPB617B.aqpb617bfpro
+  is 'Fecha Proceso';
+comment on column AQPB617B.aqpb617pais
+  is 'Pais';
+comment on column AQPB617B.aqpb617tdoc
+  is 'Tipo doc';
+comment on column AQPB617B.aqpb617ndoc
+  is 'Num doc';
+comment on column AQPB617B.aqpb617csbs
+  is 'codigo SBS Analista';
+comment on column AQPB617B.aqpb617bana
+  is 'codigo Analista';
+comment on column AQPB617B.aqpb617bnomana
+  is 'Nombre Analista';
+comment on column AQPB617B.aqpb617bnuope
+  is 'Numero Operaciones';
+comment on column AQPB617B.aqpb617bmntde
+  is 'Monto Desembolsado';
+comment on column AQPB617B.aqpb617bmntre
+  is 'Monto Recibido';
+comment on column AQPB617B.aqpb617bmope
+  is 'Meta Operaciones';
+comment on column AQPB617B.aqpb617bmdes
+  is 'Meta Desenbolso';
+comment on column AQPB617B.aqpb617bnana
+  is 'Nivel Analista';
+comment on column AQPB617B.aqpb617bcreg
+  is 'codigo Region';
+comment on column AQPB617B.aqpb617bnreg
+  is 'nombre Region';
+comment on column AQPB617B.aqpb617bczon
+  is 'codigo zona';
+comment on column AQPB617B.aqpb617bnzon
+  is 'nombre zona';
+comment on column AQPB617B.aqpb617bcage
+  is 'codigo Agencia';
+comment on column AQPB617B.aqpb617bnage
+  is 'nombre Agencia';
+comment on column AQPB617B.aqpb617btage
+  is 'Tipo de Agencia';
+comment on column AQPB617B.aqpb617bcata
+  is 'Codigo Categoria Actual';
+comment on column AQPB617B.aqpb617bcara
+  is 'Cargo Actual';
+comment on column AQPB617B.aqpb617bcnor
+  is 'Calificación Normal';
+comment on column AQPB617B.aqpb617bccpp
+  is 'Calificación CPP';
+comment on column AQPB617B.aqpb617bcdef
+  is 'Calificación Deficiente';
+comment on column AQPB617B.aqpb617bcdud
+  is 'Calificación Dudoso';
+comment on column AQPB617B.aqpb617bcper
+  is 'Calificación Perdida';
+comment on column AQPB617B.aqpb617bcatp
+  is 'Codigo Categoria Propuesta';
+comment on column AQPB617B.aqpb617bcarp
+  is 'Cargo Propuesto ';
+comment on column AQPB617B.aqpb617bfasc
+  is 'Fecha Ascenso';
+comment on column AQPB617B.aqpb617bmper
+  is 'MeseS de Permanecia';
+comment on column AQPB617B.aqpb617brope
+  is 'Resumen/Total Operacion';
+comment on column AQPB617B.aqpb617brmnt
+  is 'Resumen/Total Monto';
+comment on column AQPB617B.aqpb617bdsus
+  is 'Dias de Suspension';
+comment on column AQPB617B.aqpb617bres1
+  is 'Resultado 1 A(apto)/N(no apto)';
+comment on column AQPB617B.aqpb617bres2
+  is 'Resultado 2 A(apto)/N(no apto)';
+comment on column AQPB617B.aqpb617bres3
+  is 'Resultado 3 A(apto)/N(no apto)';
+comment on column AQPB617B.aqpb617best
+  is 'Estado';
+comment on column AQPB617B.aqpb617bfec
+  is 'Fecha';
+comment on column AQPB617B.aqpb617bhor
+  is 'Hora';
+comment on column AQPB617B.aqpb617bcom1
+  is 'Indicador Comision 1';
+comment on column AQPB617B.aqpb617bcom2
+  is 'Indicador Comision 2';
+comment on column AQPB617B.aqpb617bcom3
+  is 'Indicador Comision 3';
+comment on column AQPB617B.aqpb617bcom4
+  is 'Indicador Comision 4';
+comment on column AQPB617B.aqpb617bcom5
+  is 'Indicador Comision 5';
+comment on column AQPB617B.aqpb617bres4
+  is 'Resultado 4 - comision';
+comment on column AQPB617B.aqpb617bcodt
+  is 'Codigo Trabajador';
+comment on column AQPB617B.aqpb617bcanca
+  is 'Cantidad Clientes Activos';
+alter table AQPB617B
+  add primary key (AQPB617BANA, AQPB617BFPRO, AQPB617BHOR);
+

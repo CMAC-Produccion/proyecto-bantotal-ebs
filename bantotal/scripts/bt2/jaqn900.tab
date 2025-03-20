@@ -1,0 +1,28 @@
+create table JAQN900
+(
+  jaqn900emp NUMBER(3) not null,
+  jaqn900mod NUMBER(3) not null,
+  jaqn900tip NUMBER(2) not null,
+  jaqn900mda NUMBER(4) not null,
+  jaqn900pap NUMBER(4) not null,
+  jaqn900fei DATE not null,
+  jaqn900fef DATE not null,
+  jaqn900mto NUMBER(17,2) not null,
+  jaqn900tta NUMBER(4),
+  jaqn900est NUMBER(4),
+  jaqn900ai1 NUMBER(17,2),
+  jaqn900ai2 NUMBER(17,2),
+  jaqn900ai3 NUMBER(17,2),
+  jaqn900an1 NUMBER(9),
+  jaqn900an2 NUMBER(9),
+  jaqn900an3 NUMBER(9),
+  jaqn900ac1 VARCHAR2(255),
+  jaqn900ac2 VARCHAR2(255),
+  jaqn900ac3 VARCHAR2(255),
+  jaqn900af1 DATE,
+  jaqn900af2 DATE,
+  jaqn900af3 DATE
+)
+;
+create unique index JAQN9001 on JAQN900 (JAQN900EMP, JAQN900MOD, JAQN900TIP, JAQN900MDA, JAQN900PAP, JAQN900FEI, JAQN900FEF, JAQN900MTO);
+

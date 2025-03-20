@@ -1,0 +1,48 @@
+create table FLAV02
+(
+  lav00tlist NUMBER(4) not null,
+  lav00curl  NUMBER(3) not null,
+  lav02corr  NUMBER(10) not null,
+  lav02nom1  CHAR(250),
+  lav02nom2  CHAR(250),
+  lav02nom3  CHAR(250),
+  lav02nom4  CHAR(250),
+  lav02nom5  CHAR(250),
+  lav02nom6  CHAR(250),
+  lav02pais  CHAR(30),
+  lav02nac   CHAR(100),
+  lav02ndoc1 CHAR(100),
+  lav02ndoc2 CHAR(100),
+  lav02ndoc3 CHAR(100),
+  lav02ndoc4 CHAR(100),
+  lav02ndoc5 CHAR(100),
+  lav02ndoc6 CHAR(100),
+  lav02tper  CHAR(1),
+  lav02dir1  CHAR(255),
+  lav02dir2  CHAR(255),
+  lav02dir3  CHAR(255),
+  lav02dir4  CHAR(255),
+  lav02dir5  CHAR(255),
+  lav02dir6  CHAR(255),
+  lav02prof  CHAR(100),
+  lav02fnac  DATE,
+  lav02info  CLOB,
+  lav02reg   CLOB
+)
+;
+create index FLAV0203 on FLAV02 (LAV02NOM1);
+create index FLAV0204 on FLAV02 (LAV02NOM2);
+create index FLAV0205 on FLAV02 (LAV02NOM3);
+create index FLAV0206 on FLAV02 (LAV02NOM4);
+create index FLAV0207 on FLAV02 (LAV02NOM5);
+create index FLAV0208 on FLAV02 (LAV02NOM6);
+create index FLAV0209 on FLAV02 (LAV02NOM1, LAV02NOM2, LAV02NOM3, LAV02NOM4, LAV02NOM5, LAV02NOM6);
+create index FLAV0210 on FLAV02 (LAV02NDOC1);
+create index FLAV0211 on FLAV02 (LAV02NDOC2);
+create index FLAV0212 on FLAV02 (LAV02NDOC3);
+create index FLAV0213 on FLAV02 (LAV02NDOC4);
+create index FLAV0214 on FLAV02 (LAV02NDOC5);
+create index FLAV0215 on FLAV02 (LAV02NDOC6);
+alter table FLAV02
+  add primary key (LAV00TLIST, LAV00CURL, LAV02CORR);
+

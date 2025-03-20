@@ -1,0 +1,31 @@
+create table AQPC702
+(
+  aqpc702cor   NUMBER(17) not null,
+  aqpc702anno  NUMBER(4) not null,
+  aqpc702ord   NUMBER(3) not null,
+  aqpc702cpe   NUMBER(17) not null,
+  aqpc702var   VARCHAR2(20) not null,
+  aqpc702tdato VARCHAR2(20),
+  aqpc702valor VARCHAR2(300)
+)
+;
+comment on table AQPC702
+  is 'Tabla JSON del Bot Para disgregar variables';
+comment on column AQPC702.aqpc702cor
+  is 'Correlativo general del bot se obtiene de la aqpc565';
+comment on column AQPC702.aqpc702anno
+  is 'Año de ejecución, sirve para reiniciar contador';
+comment on column AQPC702.aqpc702ord
+  is 'Orden del correlativo, en caso de presentar mas de 3 variables para indicar cual es el orden de las varibles';
+comment on column AQPC702.aqpc702cpe
+  is 'Codigo del proceso al que pertenecen las variables aqpc565';
+comment on column AQPC702.aqpc702var
+  is 'Variable del proceso';
+comment on column AQPC702.aqpc702tdato
+  is 'Tipo de dato del proceso';
+comment on column AQPC702.aqpc702valor
+  is 'Valor de la varible del proceso a ejecutar en la automatización.';
+create index AQPC702A2 on AQPC702 (AQPC702COR);
+alter table AQPC702
+  add primary key (AQPC702COR, AQPC702ANNO, AQPC702ORD, AQPC702CPE, AQPC702VAR);
+

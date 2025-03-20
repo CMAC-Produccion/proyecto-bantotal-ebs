@@ -1,0 +1,30 @@
+create table FSARCO
+(
+  fsarcofcor CHAR(8) not null,
+  fsarcotipo CHAR(1) not null,
+  fsarcoid   CHAR(13) not null,
+  fsarconom  CHAR(60) not null,
+  fsarcoent  CHAR(4) not null,
+  fsarcocv   CHAR(3) not null,
+  fsarcotr   CHAR(1) not null,
+  fsarcotc   CHAR(1) not null,
+  fsarcocal  CHAR(1),
+  fsarcosv   NUMBER(17,2),
+  fsarcond   NUMBER(17,2),
+  fsarcov1   NUMBER(17,2),
+  fsarcov2   NUMBER(17,2),
+  fsarcov3   NUMBER(17,2),
+  fsarcov4   NUMBER(17,2),
+  fsarcov5   NUMBER(17,2),
+  fsarcov6   NUMBER(17,2),
+  fsarcov7   NUMBER(17,2),
+  fsarcov8   NUMBER(17,2),
+  fsarcodj   NUMBER(17,2),
+  fsarcocc   NUMBER(17,2),
+  fsarcoat   CHAR(1)
+)
+;
+create index FSARCO02 on FSARCO (FSARCOID, FSARCOTIPO, FSARCOTR, FSARCOENT);
+alter table FSARCO
+  add primary key (FSARCOFCOR, FSARCOTIPO, FSARCOID, FSARCONOM, FSARCOENT, FSARCOCV, FSARCOTR, FSARCOTC);
+

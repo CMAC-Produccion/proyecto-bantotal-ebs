@@ -1,0 +1,13 @@
+create table CNL045
+(
+  cnl000cod NUMBER(4) not null,
+  cnl045lnk NUMBER(5) not null,
+  cnl045url CHAR(200),
+  cnl045dsc CHAR(35),
+  cnl038lit NUMBER(9),
+  cnl045tnv CHAR(3)
+)
+;
+alter table CNL045
+  add primary key (CNL000COD, CNL045LNK);
+

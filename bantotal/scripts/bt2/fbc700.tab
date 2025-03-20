@@ -1,0 +1,15 @@
+create table FBC700
+(
+  bc700emp  NUMBER(3) not null,
+  bc700cpo  CHAR(8) not null,
+  bc700mod  NUMBER(3) not null,
+  bc700trn  NUMBER(3) not null,
+  bc700tpoc NUMBER(3),
+  bc700conc CHAR(1),
+  bc700sdod CHAR(1),
+  bc700sdoa CHAR(1)
+)
+;
+alter table FBC700
+  add primary key (BC700EMP, BC700CPO, BC700MOD, BC700TRN);
+

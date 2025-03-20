@@ -1,0 +1,16 @@
+create table FSFC14
+(
+  sfc14emp   NUMBER(3) not null,
+  sfc14mod   NUMBER(3) not null,
+  sfc14trn   NUMBER(3) not null,
+  sfc14ord   NUMBER(2) not null,
+  sfc14subor NUMBER(3) not null,
+  sfc14id    NUMBER(5) not null,
+  sfc14desc  CHAR(40),
+  sfc14hab   CHAR(1)
+)
+;
+create index FSFC1402 on FSFC14 (SFC14EMP, SFC14ID, SFC14MOD, SFC14TRN, SFC14ORD, SFC14SUBOR);
+alter table FSFC14
+  add primary key (SFC14EMP, SFC14MOD, SFC14TRN, SFC14ORD, SFC14SUBOR, SFC14ID);
+

@@ -1,0 +1,25 @@
+create table FSH104
+(
+  fsh104fchb DATE not null,
+  fsh104suc  NUMBER(3) not null,
+  fsh104mod  NUMBER(3) not null,
+  fsh104trn  NUMBER(3) not null,
+  fsh104nrel NUMBER(4) not null,
+  fsh104ord  NUMBER(2) not null,
+  fsh104sbor NUMBER(3) not null,
+  fsh104emp  NUMBER(3) not null,
+  fsh104dh   NUMBER(1),
+  fsh104fchc DATE,
+  fsh104rubr NUMBER(16),
+  fsh104cuen NUMBER(9),
+  fsh104oper NUMBER(9),
+  fsh104mda  NUMBER(4),
+  fsh104imp  NUMBER(17,2),
+  fsh104mnco NUMBER(5),
+  fsh104mnds CHAR(65),
+  fsh104orde NUMBER(2)
+)
+;
+alter table FSH104
+  add primary key (FSH104FCHB, FSH104SUC, FSH104MOD, FSH104TRN, FSH104NREL, FSH104ORD, FSH104SBOR, FSH104EMP);
+

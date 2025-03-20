@@ -1,0 +1,12 @@
+create table JAQZ146A
+(
+  jaqz146apais   NUMBER(3),
+  jaqz146atipdoc NUMBER(2),
+  jaqz146anrodoc CHAR(25),
+  jaqz146aubu    VARCHAR2(50) not null,
+  jaqz146afec    DATE,
+  jaqz146ahor    VARCHAR2(8)
+)
+;
+create index JAQZ146A2 on JAQZ146A (JAQZ146APAIS, JAQZ146ATIPDOC, JAQZ146ANRODOC);
+

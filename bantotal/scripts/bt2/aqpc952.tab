@@ -1,0 +1,76 @@
+create table AQPC952
+(
+  aqpc952fecc   DATE,
+  aqpc952horc   VARCHAR2(8),
+  aqpc952region VARCHAR2(50),
+  aqpc952zona   VARCHAR2(50),
+  aqpc952sucur  VARCHAR2(50),
+  aqpc952comite VARCHAR2(50),
+  aqpc952codana VARCHAR2(10),
+  aqpc952cta    NUMBER(9),
+  aqpc952oper   NUMBER(9),
+  aqpc952pendoc VARCHAR2(12),
+  aqpc952nombre VARCHAR2(50),
+  aqpc952saldo  NUMBER(17,2),
+  aqpc952mntven NUMBER(17,2),
+  aqpc952atrcvd NUMBER(10),
+  aqpc952diaatr NUMBER(10),
+  aqpc952refina VARCHAR2(2),
+  aqpc952reprog VARCHAR2(2),
+  aqpc952rating VARCHAR2(30),
+  aqpc952deucon NUMBER(17,2),
+  aqpc952nrpgs  VARCHAR2(2),
+  aqpc952aprob  VARCHAR2(30),
+  aqpc952reqopi VARCHAR2(2)
+)
+;
+comment on table AQPC952
+  is 'Copia USRREPBI.REP_308_REPROGRAMACIONES_VENCIDOS';
+comment on column AQPC952.aqpc952fecc
+  is 'Fecha de Carga';
+comment on column AQPC952.aqpc952horc
+  is 'Hora de Carga';
+comment on column AQPC952.aqpc952region
+  is 'Region';
+comment on column AQPC952.aqpc952zona
+  is 'Zona';
+comment on column AQPC952.aqpc952sucur
+  is 'Sucursal';
+comment on column AQPC952.aqpc952comite
+  is 'Comite';
+comment on column AQPC952.aqpc952codana
+  is 'Analista';
+comment on column AQPC952.aqpc952cta
+  is 'Cuenta';
+comment on column AQPC952.aqpc952oper
+  is 'Operación';
+comment on column AQPC952.aqpc952pendoc
+  is 'Documento';
+comment on column AQPC952.aqpc952nombre
+  is 'Nombre';
+comment on column AQPC952.aqpc952saldo
+  is 'Saldo';
+comment on column AQPC952.aqpc952mntven
+  is 'Monto Venta';
+comment on column AQPC952.aqpc952atrcvd
+  is 'Atraso CVD';
+comment on column AQPC952.aqpc952diaatr
+  is 'Dias de Atraso';
+comment on column AQPC952.aqpc952refina
+  is 'Fue Refinanciado';
+comment on column AQPC952.aqpc952reprog
+  is 'Fue Reprogramado';
+comment on column AQPC952.aqpc952rating
+  is 'Rating de Agencia';
+comment on column AQPC952.aqpc952deucon
+  is 'Deuda Consolida';
+comment on column AQPC952.aqpc952nrpgs
+  is 'N° de Reprogramaciones';
+comment on column AQPC952.aqpc952aprob
+  is 'Aprobador';
+comment on column AQPC952.aqpc952reqopi
+  is 'Requiere Opinión de Riesgos';
+create index AQPC952A2 on AQPC952 (AQPC952FECC, AQPC952HORC, AQPC952CTA, AQPC952OPER, AQPC952PENDOC);
+create index AQPC952A3 on AQPC952 (AQPC952FECC, AQPC952HORC, AQPC952REQOPI);
+create index AQPC952A4 on AQPC952 (AQPC952FECC, AQPC952HORC, AQPC952APROB);
+

@@ -1,0 +1,24 @@
+create table FSFFC2
+(
+  fsfe8reg  NUMBER(2) not null,
+  fsfe8cod  NUMBER(3) not null,
+  fsfe8scod NUMBER(3) not null,
+  fsfe8ndoc CHAR(12) not null,
+  fsfe8tdoc NUMBER(2) not null,
+  fsfe8pais NUMBER(3) not null,
+  fsfe8neg  NUMBER(9) not null,
+  fsfe8imp1 NUMBER(17,2),
+  fsfe8imp2 NUMBER(17,2),
+  fsfe8imp3 NUMBER(17,2),
+  fsfe8imp4 NUMBER(17,2),
+  fsfe8imp5 NUMBER(17,2),
+  fsfe8imp6 NUMBER(17,2),
+  fsfe8num1 NUMBER(9),
+  fsfe8num2 NUMBER(9),
+  fsfe8num3 NUMBER(16),
+  fsfe8num4 NUMBER(16)
+)
+;
+alter table FSFFC2
+  add primary key (FSFE8REG, FSFE8COD, FSFE8SCOD, FSFE8NDOC, FSFE8TDOC, FSFE8PAIS, FSFE8NEG);
+

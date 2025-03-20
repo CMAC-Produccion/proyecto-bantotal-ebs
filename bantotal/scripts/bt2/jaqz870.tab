@@ -1,0 +1,27 @@
+create table JAQZ870
+(
+  jaqz870corr NUMBER(10) not null,
+  jaqz870fecp DATE not null,
+  jaqz870horp CHAR(8) not null,
+  jaqz870inst NUMBER(10) not null,
+  jaqz870usep VARCHAR2(50),
+  jaqz870user VARCHAR2(50),
+  jaqz870segi VARCHAR2(50),
+  jaqz870segf VARCHAR2(50),
+  jaqz870tipc VARCHAR2(20),
+  jaqz870esta CHAR(1),
+  jaqz870aux1 NUMBER(10),
+  jaqz870aux2 NUMBER(10),
+  jaqz870aux3 NUMBER(10),
+  jaqz870aux4 NUMBER(10),
+  jaqz870aux5 NUMBER(10),
+  jaqz870aux6 VARCHAR2(50),
+  jaqz870aux7 VARCHAR2(50),
+  jaqz870aux8 VARCHAR2(50),
+  jaqz870aux9 VARCHAR2(50)
+)
+;
+create index JAQZ870_INX_01 on JAQZ870 (JAQZ870INST);
+alter table JAQZ870
+  add primary key (JAQZ870CORR, JAQZ870FECP, JAQZ870HORP, JAQZ870INST);
+

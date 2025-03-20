@@ -1,0 +1,42 @@
+create table AQPB863
+(
+  aqpb863ta     CHAR(60) not null,
+  aqpb863pr     CHAR(32) not null,
+  aqpb863rt     CHAR(200),
+  aqpb863fr     DATE,
+  aqpb863hr     CHAR(10),
+  aqpb863devcid VARCHAR2(20),
+  aqpb863modelo VARCHAR2(20),
+  aqpb863stmope VARCHAR2(20),
+  aqpb863latitd VARCHAR2(20),
+  aqpb863longtd VARCHAR2(20),
+  aqpb863accion VARCHAR2(20)
+)
+;
+comment on table AQPB863
+  is 'Preguntas y respuestas secretas del cliente CajaMovil';
+comment on column AQPB863.aqpb863ta
+  is 'Tarjeta del usuario.';
+comment on column AQPB863.aqpb863pr
+  is 'Identificador de pregunta.';
+comment on column AQPB863.aqpb863rt
+  is 'Respuesta de la pregunta.';
+comment on column AQPB863.aqpb863fr
+  is 'Fecha de registro.';
+comment on column AQPB863.aqpb863hr
+  is 'Hora de registro.';
+comment on column AQPB863.aqpb863devcid
+  is 'Ddeviceid';
+comment on column AQPB863.aqpb863modelo
+  is 'Modelo del dispositivo';
+comment on column AQPB863.aqpb863stmope
+  is 'Sistema Operativo';
+comment on column AQPB863.aqpb863latitd
+  is 'Latitud';
+comment on column AQPB863.aqpb863longtd
+  is 'Longitud';
+comment on column AQPB863.aqpb863accion
+  is 'Tipo de accion REGISTRO';
+alter table AQPB863
+  add primary key (AQPB863TA, AQPB863PR);
+

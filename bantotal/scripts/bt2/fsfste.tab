@@ -1,0 +1,11 @@
+create table FSFSTE
+(
+  sfst1merc NUMBER(3) not null,
+  sfstecmda CHAR(1) not null,
+  sfstemda  NUMBER(4)
+)
+;
+create index FSFSTE03 on FSFSTE (SFST1MERC, SFSTEMDA);
+alter table FSFSTE
+  add primary key (SFST1MERC, SFSTECMDA);
+

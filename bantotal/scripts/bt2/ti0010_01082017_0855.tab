@@ -1,0 +1,28 @@
+create table TI0010_01082017_0855
+(
+  tipgcod    NUMBER(3) not null,
+  tiscsuc    NUMBER(3) not null,
+  tiscmod    NUMBER(3) not null,
+  tiscmda    NUMBER(4) not null,
+  tiscpap    NUMBER(4) not null,
+  tisccta    NUMBER(9) not null,
+  tiscoper   NUMBER(9) not null,
+  tiscsbop   NUMBER(3) not null,
+  tisctope   NUMBER(3) not null,
+  tiimpucod  NUMBER(3) not null,
+  tidimcorr  NUMBER(3) not null,
+  tioprub    NUMBER(16),
+  tiopcoef   NUMBER(3),
+  tiopmnto   NUMBER(17,2),
+  tiopmin    NUMBER(17,2),
+  tiopminbas NUMBER(17,2),
+  tiopminfor NUMBER(17,2),
+  tiopimpmax NUMBER(17,2),
+  tiopcai    NUMBER(3)
+)
+;
+comment on table TI0010_01082017_0855
+  is 'Tabla histórica de TI0010';
+create index TI001002 on TI0010_01082017_0855 (TIIMPUCOD);
+create index TI001003 on TI0010_01082017_0855 (TIPGCOD, TISCSUC, TISCMOD, TISCTOPE, TISCMDA, TISCCTA, TISCOPER, TISCSBOP, TIIMPUCOD, TIDIMCORR);
+

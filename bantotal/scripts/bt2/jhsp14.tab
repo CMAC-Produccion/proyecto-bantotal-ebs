@@ -1,0 +1,20 @@
+create table JHSP14
+(
+  jhsp14fec DATE not null,
+  jhsp14hor CHAR(8) not null,
+  jhsp14tre CHAR(1) not null,
+  jhsp14mon NUMBER(4) not null,
+  jhsp14nch CHAR(8) not null,
+  jhsp14bgi NUMBER(2) not null,
+  jhsp14dgi NUMBER(3),
+  jhsp14cta CHAR(10),
+  jhsp14bre NUMBER(2),
+  jhsp14imp NUMBER(13),
+  jhsp14pro NUMBER(1),
+  jhsp14fse NUMBER(8),
+  jhsp14cde CHAR(1),
+  jhsp14est CHAR(1)
+)
+;
+create unique index JHSP1401 on JHSP14 (JHSP14FEC, JHSP14HOR, JHSP14TRE, JHSP14MON, JHSP14NCH, JHSP14BGI);
+

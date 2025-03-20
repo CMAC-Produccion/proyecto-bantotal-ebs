@@ -1,0 +1,32 @@
+create table JFAW354
+(
+  jfaw354emp NUMBER(3) not null,
+  jfaw354suc NUMBER(3) not null,
+  jfaw354mod NUMBER(3) not null,
+  jfaw354mda NUMBER(4) not null,
+  jfaw354pap NUMBER(4) not null,
+  jfaw354cta NUMBER(9) not null,
+  jfaw354ope NUMBER(9) not null,
+  jfaw354sub NUMBER(3) not null,
+  jfaw354top NUMBER(3) not null,
+  jfaw354ins NUMBER(10) not null,
+  jfaw354ven NUMBER(9),
+  jfaw354coo NUMBER(9),
+  jfaw354est CHAR(1),
+  jfaw354ax1 NUMBER(9),
+  jfaw354ax2 NUMBER(9),
+  jfaw354ax3 NUMBER(9),
+  jfaw354ax4 CHAR(50),
+  jfaw354ax5 CHAR(50),
+  jfaw354ax6 CHAR(50),
+  jfaw354ax7 DATE,
+  jfaw354ax8 DATE,
+  jfaw354ax9 DATE
+)
+;
+create index JFAW3542 on JFAW354 (JFAW354VEN);
+create index JFAW3543 on JFAW354 (JFAW354AX9, JFAW354COO, JFAW354VEN);
+create index JFAW3544 on JFAW354 (JFAW354INS);
+alter table JFAW354
+  add primary key (JFAW354EMP, JFAW354SUC, JFAW354MOD, JFAW354MDA, JFAW354PAP, JFAW354CTA, JFAW354OPE, JFAW354SUB, JFAW354TOP, JFAW354INS);
+

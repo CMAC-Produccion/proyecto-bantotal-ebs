@@ -1,0 +1,31 @@
+create table AUD_FSR006_AUDIT
+(
+  aud_old_ctnro      NUMBER(9),
+  aud_new_ctnro      NUMBER(9),
+  aud_old_docod      NUMBER(2),
+  aud_new_docod      NUMBER(2),
+  aud_old_dofax      CHAR(20),
+  aud_new_dofax      CHAR(20),
+  aud_old_doord      NUMBER(2),
+  aud_new_doord      NUMBER(2),
+  aud_old_dotelf     CHAR(20),
+  aud_new_dotelf     CHAR(20),
+  aud_old_dotlex     CHAR(25),
+  aud_new_dotlex     CHAR(25),
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_fsr006_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fsr006_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsr006_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsr006_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fsr006_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fsr006_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fsr006_ubu     VARCHAR2(50) default USER not null,
+  aud_fsr006_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsr006_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsr006_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsr006_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsr006_uas     CHAR(1) default 'I' not null
+)
+;
+

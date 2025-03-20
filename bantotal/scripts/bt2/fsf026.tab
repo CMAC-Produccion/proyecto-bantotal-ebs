@@ -1,0 +1,12 @@
+create table FSF026
+(
+  vhtoper NUMBER(3) not null,
+  vhcta   NUMBER(9) not null,
+  vcodmov NUMBER(2) not null,
+  vhmda   NUMBER(4) not null,
+  vhcimp1 NUMBER(17,2)
+)
+;
+alter table FSF026
+  add primary key (VHTOPER, VHCTA, VCODMOV, VHMDA);
+

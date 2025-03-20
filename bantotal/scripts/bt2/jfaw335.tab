@@ -1,0 +1,17 @@
+create table JFAW335
+(
+  jfaw334fef DATE not null,
+  jfaw335for CHAR(8) not null,
+  jfaw335fac CHAR(8),
+  jfaw335fec DATE,
+  jfaw335usu CHAR(10),
+  jfaw335wst CHAR(12),
+  jfaw335est CHAR(1)
+)
+;
+create index JFAW33503 on JFAW335 (JFAW335FOR);
+create index JFAW33504 on JFAW335 (JFAW334FEF, JFAW335FAC);
+create index JFAW33505 on JFAW335 (JFAW335FAC);
+alter table JFAW335
+  add primary key (JFAW334FEF, JFAW335FOR);
+

@@ -1,0 +1,16 @@
+create table FCR300
+(
+  cmxwcod  NUMBER(3) not null,
+  cmxwmod  NUMBER(3) not null,
+  cmxwope  NUMBER(9) not null,
+  cmxwsbop NUMBER(3) not null,
+  cmxwinst NUMBER(2) not null,
+  bpwitem  NUMBER(3) not null,
+  bpwists  CHAR(1),
+  bpwiusr  CHAR(10)
+)
+;
+create index FCR30002 on FCR300 (CMXWMOD, CMXWINST, BPWITEM);
+alter table FCR300
+  add primary key (CMXWCOD, CMXWMOD, CMXWOPE, CMXWSBOP, CMXWINST, BPWITEM);
+

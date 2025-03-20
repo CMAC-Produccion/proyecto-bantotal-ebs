@@ -1,0 +1,13 @@
+create table FEX004
+(
+  expgcod  NUMBER(3) not null,
+  exinprg  CHAR(10) not null,
+  exinreng NUMBER(2) not null,
+  exintxt1 CHAR(64),
+  exintxt2 CHAR(64),
+  exintxt3 CHAR(70)
+)
+;
+alter table FEX004
+  add primary key (EXPGCOD, EXINPRG, EXINRENG);
+

@@ -1,0 +1,44 @@
+create table JHSI21
+(
+  jhsi21apl  NUMBER(4) not null,
+  jhsi21ban  CHAR(5) not null,
+  jhsi21env  NUMBER(9) not null,
+  jhsi21cor  NUMBER(9) not null,
+  jhsi21cod  NUMBER(9),
+  jhsi21tipo CHAR(1),
+  jhsi21fvto DATE,
+  jhsi21mnda NUMBER(4),
+  jhsi21linc NUMBER(10,2),
+  jhsi21sdod NUMBER(10,2),
+  jhsi21vald CHAR(1),
+  jhsi21sdoc NUMBER(10,2),
+  jhsi21valc CHAR(1),
+  jhsi21sdoi NUMBER(10,2),
+  jhsi21tna  NUMBER(6,4),
+  jhsi21tea  NUMBER(6,4),
+  jhsi21pgco NUMBER(3),
+  jhsi21itsu NUMBER(3),
+  jhsi21itmo NUMBER(3),
+  jhsi21ittr NUMBER(3),
+  jhsi21itnr NUMBER(4),
+  jhsi21mnco NUMBER(5),
+  jhsi21pgfa DATE,
+  jhsi21codc CHAR(19),
+  jhsi21cicf NUMBER(2),
+  jhsi21deup CHAR(1),
+  jhsi21nivm NUMBER(2),
+  auxchar1   CHAR(30),
+  auxchar2   CHAR(30),
+  auxchar3   CHAR(30),
+  auxchar4   CHAR(30),
+  auxchar5   CHAR(30),
+  auxnum1    NUMBER(17,6),
+  auxnum2    NUMBER(17,6),
+  auxnum3    NUMBER(17,6),
+  auxnum4    NUMBER(17,6),
+  auxnum5    NUMBER(17,6)
+)
+;
+create unique index JHSI2101 on JHSI21 (JHSI21APL, JHSI21BAN, JHSI21ENV, JHSI21COR);
+create index JHSI2102 on JHSI21 (JHSI21APL, JHSI21BAN, JHSI21ENV, JHSI21TIPO, JHSI21MNDA);
+

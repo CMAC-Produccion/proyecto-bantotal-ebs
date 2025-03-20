@@ -1,0 +1,12 @@
+create table FSF081
+(
+  lqepgcod NUMBER(3) not null,
+  lqefinro NUMBER(3) not null,
+  lqeanio  NUMBER(4) not null,
+  lqemes   NUMBER(2) not null,
+  lqerel   NUMBER(3)
+)
+;
+alter table FSF081
+  add primary key (LQEPGCOD, LQEFINRO, LQEANIO, LQEMES);
+

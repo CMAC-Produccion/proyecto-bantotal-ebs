@@ -1,0 +1,84 @@
+create table JAQN574
+(
+  jaqn574fec DATE not null,
+  jaqn574cod NUMBER(4) not null,
+  jaqn574nro NUMBER(4) not null,
+  jaqn574tas NUMBER(10,6) not null,
+  jaqn574tra NUMBER(4) not null,
+  jaqn574sec NUMBER(4) not null,
+  jaqn574tva VARCHAR2(21) not null,
+  jaqn574tit VARCHAR2(20),
+  jaqn574cof VARCHAR2(18),
+  jaqn574fed DATE,
+  jaqn574fev DATE,
+  jaqn574ntd VARCHAR2(10),
+  jaqn574pnd VARCHAR2(12),
+  jaqn574prz VARCHAR2(100),
+  jaqn574tem NUMBER(4),
+  jaqn574nmo VARCHAR2(10),
+  jaqn574mde NUMBER(17,2),
+  jaqn574mpe NUMBER(17,2),
+  jaqn574por NUMBER(10,6),
+  jaqn574per NUMBER(5),
+  jaqn574tai NUMBER(10,6),
+  jaqn574ges NUMBER(3),
+  jaqn574gge NUMBER(3),
+  jaqn574loc VARCHAR2(200)
+)
+;
+comment on table JAQN574
+  is 'Tabla Archivo Anterior';
+comment on column JAQN574.jaqn574fec
+  is 'Fecha de Carga';
+comment on column JAQN574.jaqn574cod
+  is 'Código de Entidad Participante';
+comment on column JAQN574.jaqn574nro
+  is 'Número de operacióm';
+comment on column JAQN574.jaqn574tas
+  is 'tasa_adjudicada_negoc';
+comment on column JAQN574.jaqn574tra
+  is 'num_tramo';
+comment on column JAQN574.jaqn574sec
+  is 'número de Secuencia';
+comment on column JAQN574.jaqn574tva
+  is 'Título de Valor';
+comment on column JAQN574.jaqn574tit
+  is 'Tipo de Título';
+comment on column JAQN574.jaqn574cof
+  is 'Certificado Cofide ';
+comment on column JAQN574.jaqn574fed
+  is 'Fecha de Desembolso';
+comment on column JAQN574.jaqn574fev
+  is 'Fecha de Vencimiento';
+comment on column JAQN574.jaqn574ntd
+  is 'Nombre de Documento';
+comment on column JAQN574.jaqn574pnd
+  is 'Númeo de Documento';
+comment on column JAQN574.jaqn574prz
+  is 'Razón Social';
+comment on column JAQN574.jaqn574tem
+  is 'Tamaño de Empresa';
+comment on column JAQN574.jaqn574nmo
+  is 'Nombre de Moneda';
+comment on column JAQN574.jaqn574mde
+  is 'Monto desembolsado';
+comment on column JAQN574.jaqn574mpe
+  is 'Monto Pendiente';
+comment on column JAQN574.jaqn574por
+  is 'Porcentaje de Cobertura';
+comment on column JAQN574.jaqn574per
+  is 'Periodo de Gracia';
+comment on column JAQN574.jaqn574tai
+  is 'Tasa Interna';
+comment on column JAQN574.jaqn574ges
+  is 'Garantía Específica';
+comment on column JAQN574.jaqn574gge
+  is 'Garantía Genérica';
+comment on column JAQN574.jaqn574loc
+  is 'Localización documento';
+create index JAQN574A2 on JAQN574 (JAQN574COF);
+create index JAQN574A3 on JAQN574 (JAQN574NRO, JAQN574NTD);
+create index JAQN574A4 on JAQN574 (JAQN574TVA);
+alter table JAQN574
+  add primary key (JAQN574FEC, JAQN574COD, JAQN574NRO, JAQN574TAS, JAQN574TRA, JAQN574SEC, JAQN574TVA);
+

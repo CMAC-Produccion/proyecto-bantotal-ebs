@@ -1,0 +1,21 @@
+create table FBC007
+(
+  pgcod  NUMBER(3) not null,
+  axtit  NUMBER(2) not null,
+  axcap  NUMBER(1) not null,
+  axgru  NUMBER(2) not null,
+  axrub  NUMBER(3) not null,
+  axpzo  NUMBER(1) not null,
+  axsub  NUMBER(2) not null,
+  axsubs NUMBER(2) not null,
+  axmda  NUMBER(4) not null,
+  axsdo1 NUMBER(17,2),
+  axsdo2 NUMBER(17,2),
+  axsdo3 NUMBER(17,2),
+  axsdo4 NUMBER(17,2),
+  axsdo5 NUMBER(17,2)
+)
+;
+alter table FBC007
+  add primary key (PGCOD, AXTIT, AXCAP, AXGRU, AXRUB, AXPZO, AXSUB, AXSUBS, AXMDA);
+

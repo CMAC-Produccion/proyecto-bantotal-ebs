@@ -1,0 +1,18 @@
+create table FSFF17
+(
+  kdopcod   NUMBER(3) not null,
+  kdoppre   NUMBER(6) not null,
+  kdoprub   NUMBER(16) not null,
+  kdoppmda  NUMBER(4) not null,
+  kdoppaa   NUMBER(4) not null,
+  kdoppmm   NUMBER(2) not null,
+  kdommimp  NUMBER(17,2),
+  kdoppimp2 NUMBER(17,2),
+  kdoppimp3 NUMBER(17,2)
+)
+;
+create index FSFF1702 on FSFF17 (KDOPRUB);
+create index FSFF1704 on FSFF17 (KDOPCOD, KDOPPRE, KDOPPAA, KDOPPMM, KDOPPMDA, KDOPRUB);
+alter table FSFF17
+  add primary key (KDOPCOD, KDOPPRE, KDOPRUB, KDOPPMDA, KDOPPAA, KDOPPMM);
+

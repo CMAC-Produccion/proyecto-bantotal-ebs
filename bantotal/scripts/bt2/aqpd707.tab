@@ -1,0 +1,26 @@
+create table AQPD707
+(
+  aqpd707doc  CHAR(12) not null,
+  aqpd707tit  VARCHAR2(100),
+  aqpd707cta  NUMBER(9) not null,
+  aqpd707ope  NUMBER(9) not null,
+  aqpd707sao  NUMBER(16,2),
+  aqpd707cup  NUMBER(17,2),
+  aqpd707tas  NUMBER(10,6),
+  aqpd707dia  NUMBER(9),
+  aqpd707ana  VARCHAR2(30),
+  aqpd707suc  NUMBER(4) not null,
+  aqpd707zcod NUMBER(2),
+  aqpd707zdes VARCHAR2(50),
+  aqpd707rcod NUMBER(3),
+  aqpd707rdes VARCHAR2(40),
+  aqpd707snom VARCHAR2(30)
+)
+;
+create index AQPD707A2 on AQPD707 (AQPD707RCOD, AQPD707ZCOD);
+create index AQPD707A3 on AQPD707 (AQPD707RCOD, AQPD707ZCOD, AQPD707SUC);
+create index AQPD707A4 on AQPD707 (AQPD707CTA);
+create index AQPD7076A1 on AQPD707 (AQPD707RCOD);
+alter table AQPD707
+  add primary key (AQPD707DOC, AQPD707CTA, AQPD707OPE, AQPD707SUC);
+

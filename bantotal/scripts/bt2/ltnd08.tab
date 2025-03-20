@@ -1,0 +1,14 @@
+create table LTND08
+(
+  ltnm03bsor NUMBER(10) not null,
+  ltnd01corr NUMBER(10) not null,
+  ltnd08corr NUMBER(10) not null,
+  ltnd08fec  DATE,
+  ltnd08acc  CHAR(3),
+  ltnd08wrk  CHAR(15),
+  ltnd08usu  CHAR(10)
+)
+;
+alter table LTND08
+  add primary key (LTNM03BSOR, LTND01CORR, LTND08CORR);
+

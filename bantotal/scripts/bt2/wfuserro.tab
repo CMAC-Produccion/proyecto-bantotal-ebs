@@ -1,0 +1,12 @@
+create table WFUSERRO
+(
+  wfrolcod   NUMBER(4) not null,
+  wfusrcod   CHAR(30) not null,
+  wfrstcod   CHAR(10) not null,
+  wfrstvalue CHAR(30) not null
+)
+;
+create index IWFUSER3 on WFUSERRO (WFUSRCOD, WFRSTCOD, WFRSTVALUE);
+alter table WFUSERRO
+  add primary key (WFROLCOD, WFUSRCOD, WFRSTCOD, WFRSTVALUE);
+

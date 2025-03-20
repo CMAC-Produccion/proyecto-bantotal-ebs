@@ -1,0 +1,127 @@
+create table JAQA42
+(
+  jaqa42emp NUMBER(3) not null,
+  jaqa42suc NUMBER(3) not null,
+  jaqa42nro CHAR(50) not null,
+  jaqa42cor NUMBER(3) not null,
+  jaqa42nom CHAR(100),
+  jaqa42tdo NUMBER(2),
+  jaqa42ndo CHAR(12),
+  jaqa42nac CHAR(20),
+  jaqa42pai NUMBER(3),
+  jaqa42fen DATE,
+  jaqa42sex CHAR(1),
+  jaqa42tlf CHAR(20),
+  jaqa42cro CHAR(250),
+  jaqa42par CHAR(20),
+  jaqa42enf CHAR(1),
+  jaqa42des VARCHAR2(250),
+  jaqa42pas NUMBER(5,2),
+  jaqa42usu CHAR(10),
+  jaqa42fei DATE,
+  jaqa42tip CHAR(3),
+  jaqa42hle CHAR(1),
+  jaqa42est CHAR(1),
+  jaqa42jso VARCHAR2(2000),
+  jaqa42an1 NUMBER(9),
+  jaqa42an2 NUMBER(9),
+  jaqa42an3 NUMBER(9),
+  jaqa42ai1 NUMBER(17,2),
+  jaqa42ai2 NUMBER(17,2),
+  jaqa42ai3 NUMBER(17,2),
+  jaqa42af1 DATE,
+  jaqa42af2 DATE,
+  jaqa42af3 DATE,
+  jaqa42ac1 CHAR(1),
+  jaqa42ac2 CHAR(1),
+  jaqa42ac3 CHAR(1),
+  jaqa42at1 VARCHAR2(250),
+  jaqa42at2 VARCHAR2(250),
+  jaqa42at3 VARCHAR2(250),
+  jaqa42cpa NUMBER(2)
+)
+;
+comment on table JAQA42
+  is 'Detalle beneficiario nuevo modulo seguro pasiva';
+comment on column JAQA42.jaqa42emp
+  is 'Empresa';
+comment on column JAQA42.jaqa42suc
+  is 'Sucursal';
+comment on column JAQA42.jaqa42nro
+  is 'Nro Afiliacion ';
+comment on column JAQA42.jaqa42cor
+  is 'Correlativo';
+comment on column JAQA42.jaqa42nom
+  is 'Nombres y Apellidos';
+comment on column JAQA42.jaqa42tdo
+  is 'Tipo de documento';
+comment on column JAQA42.jaqa42ndo
+  is 'Numero de documento';
+comment on column JAQA42.jaqa42nac
+  is 'Nacionalidad';
+comment on column JAQA42.jaqa42pai
+  is 'Pais';
+comment on column JAQA42.jaqa42fen
+  is 'Fecha de nacimiento';
+comment on column JAQA42.jaqa42sex
+  is 'Sexo';
+comment on column JAQA42.jaqa42tlf
+  is 'Telefono';
+comment on column JAQA42.jaqa42cro
+  is 'Correo';
+comment on column JAQA42.jaqa42par
+  is 'Parentesco';
+comment on column JAQA42.jaqa42enf
+  is 'Enfermdad S: si, N :no ';
+comment on column JAQA42.jaqa42des
+  is 'Descripción Enfermedad';
+comment on column JAQA42.jaqa42pas
+  is 'Porcentaje Asigando';
+comment on column JAQA42.jaqa42usu
+  is 'Usuario';
+comment on column JAQA42.jaqa42fei
+  is 'Fecha de Ingreso';
+comment on column JAQA42.jaqa42tip
+  is 'Tipo de Beneficiacion (TIT: Titular, BEN: Beneficiario)';
+comment on column JAQA42.jaqa42hle
+  is 'Heredero Legal (S: si , N: no)';
+comment on column JAQA42.jaqa42est
+  is 'Estado H: Habilitado E: Eliminado';
+comment on column JAQA42.jaqa42jso
+  is 'Json embevido';
+comment on column JAQA42.jaqa42an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA42.jaqa42an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA42.jaqa42an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA42.jaqa42ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA42.jaqa42ai2
+  is 'Auxiliar importe 2';
+comment on column JAQA42.jaqa42ai3
+  is 'Auxiliar importe 3';
+comment on column JAQA42.jaqa42af1
+  is 'Auxiliar fecha 1';
+comment on column JAQA42.jaqa42af2
+  is 'Auxiliar fecha 2';
+comment on column JAQA42.jaqa42af3
+  is 'Auxiliar fecha 3';
+comment on column JAQA42.jaqa42ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA42.jaqa42ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA42.jaqa42ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQA42.jaqa42at1
+  is 'Auxiliar texto 1';
+comment on column JAQA42.jaqa42at2
+  is 'Auxiliar texto 2';
+comment on column JAQA42.jaqa42at3
+  is 'Auxiliar texto 3';
+comment on column JAQA42.jaqa42cpa
+  is 'Cod parentesco';
+create index JAQA422 on JAQA42 (JAQA42EMP, JAQA42SUC, JAQA42NRO, JAQA42EST);
+alter table JAQA42
+  add primary key (JAQA42EMP, JAQA42SUC, JAQA42NRO, JAQA42COR);
+

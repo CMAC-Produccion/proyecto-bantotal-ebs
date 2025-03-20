@@ -1,0 +1,17 @@
+create table FSR025
+(
+  pgcod  NUMBER(3) not null,
+  tamod  NUMBER(3) not null,
+  tpizar NUMBER(3) not null,
+  tamda  NUMBER(4) not null,
+  tapap  NUMBER(4) not null,
+  tafdes DATE not null,
+  tamto  NUMBER(17,2) not null,
+  tapzo  NUMBER(5) not null,
+  tatol  NUMBER(7,4),
+  tatasa NUMBER(10,6)
+)
+;
+alter table FSR025
+  add primary key (PGCOD, TAMOD, TPIZAR, TAMDA, TAPAP, TAFDES, TAMTO, TAPZO);
+

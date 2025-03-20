@@ -1,0 +1,46 @@
+create table AQPA187
+(
+  aqpa187id      NUMBER(10) not null,
+  aqpa187tipdoc  NUMBER(4),
+  aqpa187numdoc  CHAR(12),
+  aqpa187paidoc  NUMBER(3),
+  aqpa187correo  VARCHAR2(100),
+  aqpa187numcel  VARCHAR2(20),
+  aqpa187tipcli  CHAR(1),
+  aqpa187lisneg  CHAR(1),
+  aqpa187prinom  VARCHAR2(100),
+  aqpa187segnom  VARCHAR2(100),
+  aqpa187priape  VARCHAR2(100),
+  aqpa187segape  VARCHAR2(100),
+  aqpa187fecnac  DATE,
+  aqpa187rucemp  VARCHAR2(20),
+  aqpa187ruccli  VARCHAR2(20),
+  aqpa187valsco  NUMBER(5),
+  aqpa187rucemph CHAR(1),
+  aqpa187rucclih CHAR(1),
+  aqpa187nroent  NUMBER(5),
+  aqpa187hiscal  VARCHAR2(100),
+  aqpa187monsol  NUMBER(17,2),
+  aqpa187plasol  NUMBER(10),
+  aqpa187dirdom  VARCHAR2(100),
+  aqpa187ubidom  VARCHAR2(10),
+  aqpa187fecing  DATE,
+  aqpa187telemp  VARCHAR2(20),
+  aqpa187ingdec  NUMBER(17,2),
+  aqpa187tiping  CHAR(1),
+  aqpa187tippag  CHAR(1),
+  aqpa187valida  VARCHAR2(200),
+  aqpa187fecreg  DATE,
+  aqpa187horreg  VARCHAR2(10),
+  aqpa187acnco   NUMBER(4),
+  aqpa187drqsv   NUMBER(10),
+  aqpa187codres  CHAR(5),
+  aqpa187msjres  VARCHAR2(200),
+  aqpa187usureg  CHAR(10),
+  aqpa187numdep  NUMBER(5),
+  aqpa187clipep  CHAR(1)
+)
+;
+alter table AQPA187
+  add primary key (AQPA187ID);
+

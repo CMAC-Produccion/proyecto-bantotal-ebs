@@ -1,0 +1,200 @@
+create table AQPC419
+(
+  aqpc419ag     VARCHAR2(30),
+  aqpc419an     VARCHAR2(4000),
+  aqpc419tit    VARCHAR2(30),
+  aqpc419cta    NUMBER(9) not null,
+  aqpc419ope    NUMBER(9) not null,
+  aqpc419tct    VARCHAR2(20),
+  aqpc419tipsbs VARCHAR2(30),
+  aqpc419mon    VARCHAR2(4),
+  aqpc419sdo    NUMBER(17,2),
+  aqpc419fup    DATE,
+  aqpc419dtr    NUMBER(5),
+  aqpc419cup    NUMBER(5),
+  aqpc419dirl   VARCHAR2(140),
+  aqpc419refl   VARCHAR2(140),
+  aqpc419disl   VARCHAR2(30),
+  aqpc419tell   VARCHAR2(50),
+  aqpc419dirg   VARCHAR2(140),
+  aqpc419refg   VARCHAR2(140),
+  aqpc419disg   VARCHAR2(30),
+  aqpc419telg   VARCHAR2(20),
+  aqpc419act    VARCHAR2(60),
+  aqpc419dirn   VARCHAR2(140),
+  aqpc419disn   VARCHAR2(30),
+  aqpc419nav    NUMBER(4),
+  aqpc419noma   VARCHAR2(30),
+  aqpc419dira   VARCHAR2(140),
+  aqpc419refa   VARCHAR2(140),
+  aqpc419disa   VARCHAR2(30),
+  aqpc419tipd   VARCHAR2(20),
+  aqpc419nrod   VARCHAR2(12),
+  aqpc419tipda  VARCHAR2(20),
+  aqpc419nroda  VARCHAR2(12),
+  aqpc419tela   VARCHAR2(20),
+  aqpc419codsbs VARCHAR2(10),
+  aqpc419fecdes DATE,
+  aqpc419mtodes NUMBER(17,2),
+  aqpc419intm   NUMBER(17,2),
+  aqpc419intc   NUMBER(17,2),
+  aqpc419icv    NUMBER(17,2),
+  aqpc419seg    NUMBER(17,2),
+  aqpc419pen    NUMBER(17,2),
+  aqpc419oro    NUMBER(17,2),
+  aqpc419tot    NUMBER(18,2),
+  aqpc419csbs   VARCHAR2(15),
+  aqpc419prov   NUMBER(14,8),
+  aqpc419fecij  DATE,
+  aqpc419fecing DATE,
+  aqpc419ref    VARCHAR2(1),
+  aqpc419tipg1  VARCHAR2(50),
+  aqpc419mtog1  NUMBER(17,2),
+  aqpc419tipg2  VARCHAR2(50),
+  aqpc419mtog2  NUMBER(17,2),
+  aqpc419tipg3  VARCHAR2(50),
+  aqpc419mtog3  NUMBER(17,2),
+  aqpc419tipg4  VARCHAR2(50),
+  aqpc419mtog4  NUMBER(17,2),
+  aqpc419tipg5  VARCHAR2(50),
+  aqpc419mtog5  NUMBER(17,2),
+  aqpc419tipg6  VARCHAR2(50),
+  aqpc419mtog6  NUMBER(17,2),
+  aqpc419ubg    VARCHAR2(6),
+  aqpc419dep    VARCHAR2(20),
+  aqpc419pro    VARCHAR2(30),
+  aqpc419dis    VARCHAR2(30)
+)
+;
+comment on table AQPC419
+  is 'Tabla del reporte de lista de compradores';
+comment on column AQPC419.aqpc419ag
+  is 'AGENCIA';
+comment on column AQPC419.aqpc419an
+  is 'ANALISTA';
+comment on column AQPC419.aqpc419tit
+  is 'TITULAR';
+comment on column AQPC419.aqpc419cta
+  is 'CUENTA';
+comment on column AQPC419.aqpc419ope
+  is 'OPERACION';
+comment on column AQPC419.aqpc419tct
+  is 'TIPO_CONTABLE';
+comment on column AQPC419.aqpc419tipsbs
+  is 'TIP_SBS';
+comment on column AQPC419.aqpc419mon
+  is 'MONEDAito';
+comment on column AQPC419.aqpc419sdo
+  is 'SALDO_CAPITALedito';
+comment on column AQPC419.aqpc419fup
+  is 'FEC_ULT_PAG';
+comment on column AQPC419.aqpc419dtr
+  is 'DIAS_ATRASO';
+comment on column AQPC419.aqpc419cup
+  is 'CUO_PAG';
+comment on column AQPC419.aqpc419dirl
+  is 'DIR_LEGAL';
+comment on column AQPC419.aqpc419refl
+  is 'REF_LEGAL';
+comment on column AQPC419.aqpc419disl
+  is 'DIS_LEGAL';
+comment on column AQPC419.aqpc419tell
+  is 'TEL_TIT';
+comment on column AQPC419.aqpc419dirg
+  is 'DIR_GES';
+comment on column AQPC419.aqpc419refg
+  is 'REF_GES';
+comment on column AQPC419.aqpc419disg
+  is 'DIS_GES';
+comment on column AQPC419.aqpc419telg
+  is 'TEL_GES';
+comment on column AQPC419.aqpc419act
+  is 'ACTIVIDAD';
+comment on column AQPC419.aqpc419dirn
+  is 'DIR_NEG';
+comment on column AQPC419.aqpc419disn
+  is 'DIS_NEG';
+comment on column AQPC419.aqpc419nav
+  is 'NRO_AVALES';
+comment on column AQPC419.aqpc419noma
+  is 'NOM_AVAL';
+comment on column AQPC419.aqpc419dira
+  is 'DIR_AVAL';
+comment on column AQPC419.aqpc419refa
+  is 'REF_AVAL';
+comment on column AQPC419.aqpc419disa
+  is 'DIS_AVAL';
+comment on column AQPC419.aqpc419tipd
+  is 'TIP_DOC_TIT';
+comment on column AQPC419.aqpc419nrod
+  is 'NRO_DOC_TIT';
+comment on column AQPC419.aqpc419tipda
+  is 'TIP_DOC_AVAL';
+comment on column AQPC419.aqpc419nroda
+  is 'NRO_DOC_AVAL';
+comment on column AQPC419.aqpc419tela
+  is 'TEL_AVAL';
+comment on column AQPC419.aqpc419codsbs
+  is 'COD_SBS';
+comment on column AQPC419.aqpc419fecdes
+  is 'FEC_DES';
+comment on column AQPC419.aqpc419mtodes
+  is 'MTO_DES';
+comment on column AQPC419.aqpc419intm
+  is 'INT_MORATORIO';
+comment on column AQPC419.aqpc419intc
+  is 'INT_COMP';
+comment on column AQPC419.aqpc419icv
+  is 'ICV';
+comment on column AQPC419.aqpc419seg
+  is 'SEGUROS';
+comment on column AQPC419.aqpc419pen
+  is 'PENALIDAD';
+comment on column AQPC419.aqpc419oro
+  is 'OTROS_RUBROS';
+comment on column AQPC419.aqpc419tot
+  is 'TOT_DEUDA';
+comment on column AQPC419.aqpc419csbs
+  is 'CAL_SBS';
+comment on column AQPC419.aqpc419prov
+  is 'PROVISION';
+comment on column AQPC419.aqpc419fecij
+  is 'FEC_ING_JUD';
+comment on column AQPC419.aqpc419fecing
+  is 'FEC_ING_CAS';
+comment on column AQPC419.aqpc419ref
+  is 'REFINANCIADO';
+comment on column AQPC419.aqpc419tipg1
+  is 'TIP_GAR1';
+comment on column AQPC419.aqpc419mtog1
+  is 'MTO_GAR1';
+comment on column AQPC419.aqpc419tipg2
+  is 'TIP_GAR2';
+comment on column AQPC419.aqpc419mtog2
+  is 'MTO_GAR2';
+comment on column AQPC419.aqpc419tipg3
+  is 'TIP_GAR3';
+comment on column AQPC419.aqpc419mtog3
+  is 'MTO_GAR3';
+comment on column AQPC419.aqpc419tipg4
+  is 'TIP_GAR4';
+comment on column AQPC419.aqpc419mtog4
+  is 'MTO_GAR4';
+comment on column AQPC419.aqpc419tipg5
+  is 'TIP_GAR5';
+comment on column AQPC419.aqpc419mtog5
+  is 'MTO_GAR5';
+comment on column AQPC419.aqpc419tipg6
+  is 'TIP_GAR6';
+comment on column AQPC419.aqpc419mtog6
+  is 'MTO_GAR6';
+comment on column AQPC419.aqpc419ubg
+  is 'UBIGEO';
+comment on column AQPC419.aqpc419dep
+  is 'DEPARTAMENTO';
+comment on column AQPC419.aqpc419pro
+  is 'PROVINCIA';
+comment on column AQPC419.aqpc419dis
+  is 'DISTRITO';
+create index AQPC419A2 on AQPC419 (AQPC419CTA, AQPC419OPE);
+

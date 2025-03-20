@@ -1,0 +1,23 @@
+create table FBC736
+(
+  bc736emp  NUMBER(3) not null,
+  bc736fch  DATE not null,
+  bc736ruta CHAR(10) not null,
+  bc736rute CHAR(10) not null,
+  bc736codc CHAR(10) not null,
+  bc736nump CHAR(10),
+  bc736orim CHAR(1),
+  bc736morm CHAR(1),
+  bc736ncta NUMBER(3),
+  bc736nmes NUMBER(3),
+  bc736monm NUMBER(17,2),
+  bc736intm NUMBER(17,2),
+  bc736ream NUMBER(17,2),
+  bc736aux1 DATE,
+  bc736aux2 CHAR(30),
+  bc736aux3 NUMBER(17,2)
+)
+;
+alter table FBC736
+  add primary key (BC736EMP, BC736FCH, BC736RUTA, BC736RUTE, BC736CODC);
+

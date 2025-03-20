@@ -1,0 +1,12 @@
+create table FSA501
+(
+  s12tmod   NUMBER(3) not null,
+  s12ttran  NUMBER(3) not null,
+  s12trub   NUMBER(3) not null,
+  s12ttiptr NUMBER(2),
+  s12torig  NUMBER(2)
+)
+;
+alter table FSA501
+  add primary key (S12TMOD, S12TTRAN, S12TRUB);
+

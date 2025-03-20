@@ -1,0 +1,33 @@
+create table FPP017
+(
+  pp010prd   NUMBER(3) not null,
+  pp017par   NUMBER(4) not null,
+  pp017tit   CHAR(30),
+  pp017dsc   CHAR(40),
+  pp017tip   CHAR(1),
+  pp017lar   NUMBER(2),
+  pp017dec   NUMBER(1),
+  pp017clas  CHAR(1),
+  pp017prgl  CHAR(10),
+  pp017tipd  CHAR(1),
+  pp017prgd  CHAR(10),
+  pp017nul   CHAR(1),
+  pp017prgc  CHAR(10),
+  prp017prgp CHAR(10),
+  pp017tipos CHAR(1),
+  pp017ptipo CHAR(1),
+  pp017dom   NUMBER(3),
+  pp017pres  CHAR(1),
+  pp017codu  CHAR(1),
+  pp017tabb  NUMBER(4),
+  pp017lisp  NUMBER(4),
+  pp017neg   CHAR(1),
+  pp017aux1  CHAR(1),
+  pp017aux2  CHAR(1),
+  pp017aux3  CHAR(50),
+  pp017aux4  NUMBER(9)
+)
+;
+alter table FPP017
+  add primary key (PP010PRD, PP017PAR);
+

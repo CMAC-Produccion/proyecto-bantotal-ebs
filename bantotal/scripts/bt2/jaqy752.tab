@@ -1,0 +1,44 @@
+create table JAQY752
+(
+  jaqy752clie   VARCHAR2(100),
+  jaqy752tdoc   VARCHAR2(100),
+  jaqy752ndoc   CHAR(12),
+  jaqy752cta    NUMBER(9),
+  jaqy752oper   NUMBER(9),
+  jaqy752fchsis DATE,
+  jaqy752horsis CHAR(8),
+  jaqy752estcrd NUMBER(2),
+  jaqy752inde   CHAR(1),
+  jaqy752contsg NUMBER(3),
+  jaqy752fchpg  DATE,
+  jaqy752estpg  CHAR(1),
+  jaqy752indr   CHAR(1)
+)
+;
+comment on column JAQY752.jaqy752clie
+  is 'Nombre del cliente';
+comment on column JAQY752.jaqy752tdoc
+  is 'Tipo de documento';
+comment on column JAQY752.jaqy752ndoc
+  is 'Numero de documento';
+comment on column JAQY752.jaqy752cta
+  is 'Cuenta';
+comment on column JAQY752.jaqy752oper
+  is 'Operacion';
+comment on column JAQY752.jaqy752fchsis
+  is 'Fecha del sistema';
+comment on column JAQY752.jaqy752horsis
+  is 'Hora del sistema';
+comment on column JAQY752.jaqy752estcrd
+  is 'Estado del credito';
+comment on column JAQY752.jaqy752inde
+  is 'Indicador de eliminacion - E';
+comment on column JAQY752.jaqy752contsg
+  is 'Numero de seguros';
+comment on column JAQY752.jaqy752fchpg
+  is 'Fecha de pago maxima del calendario';
+comment on column JAQY752.jaqy752estpg
+  is 'Estado de la cuota maxima del calendario';
+comment on column JAQY752.jaqy752indr
+  is 'Indicador de revertir data - R';
+

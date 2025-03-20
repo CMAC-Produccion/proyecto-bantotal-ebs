@@ -1,0 +1,111 @@
+create table AQPD006
+(
+  aqpd006corr   NUMBER(12) not null,
+  aqpd006fact   DATE,
+  aqpd006hoact  VARCHAR2(10),
+  aqpd006fetra  DATE,
+  aqpd006sucor  NUMBER(3),
+  aqpd006modor  NUMBER(3),
+  aqpd006traor  NUMBER(3),
+  aqpd006relor  NUMBER(4),
+  aqpd006tipac  CHAR(1),
+  aqpd006abnsuc NUMBER(3),
+  aqpd006abnmod NUMBER(3),
+  aqpd006abntra NUMBER(3),
+  aqpd006abnrel NUMBER(4),
+  aqpd006abnord NUMBER(3),
+  aqpd006abnsor NUMBER(3),
+  aqpd006mon    NUMBER(16,2),
+  aqpd006ctasuc NUMBER(3),
+  aqpd006ctamon NUMBER(4),
+  aqpd006cta    NUMBER(9),
+  aqpd006ctasop NUMBER(3),
+  aqpd006ctatop NUMBER(3),
+  aqpd006ctamod NUMBER(3),
+  aqpd006coderr CHAR(5),
+  aqpd006msgerr VARCHAR2(200),
+  aqpd006cel    CHAR(9),
+  aqpd006msgcel VARCHAR2(200),
+  aqpd006rescel VARCHAR2(150),
+  aqpd006mail   VARCHAR2(50),
+  aqpd006msgma  VARCHAR2(500),
+  aqpd006resmai VARCHAR2(150),
+  aqpd006push   VARCHAR2(50),
+  aqpd006msgpus VARCHAR2(200),
+  aqpd006respus VARCHAR2(150),
+  aqpd006est    CHAR(1)
+)
+;
+comment on table AQPD006
+  is 'Registro de operaciones a Extornar o Abonar';
+comment on column AQPD006.aqpd006corr
+  is 'Correlativo Identificador';
+comment on column AQPD006.aqpd006fact
+  is 'Fecha Actual';
+comment on column AQPD006.aqpd006hoact
+  is 'Hora Actual';
+comment on column AQPD006.aqpd006fetra
+  is 'Fecha de la OPERACIÓN';
+comment on column AQPD006.aqpd006sucor
+  is 'Sucursal de la OPERACIÓN';
+comment on column AQPD006.aqpd006modor
+  is 'Módulo de la OPERACIÓN';
+comment on column AQPD006.aqpd006traor
+  is 'Transacción de la OPERACIÓN';
+comment on column AQPD006.aqpd006relor
+  is 'Relación de la OPERACIÓN';
+comment on column AQPD006.aqpd006tipac
+  is 'Acción a realizar X: Extornar Operación| A: Abonar a cuenta';
+comment on column AQPD006.aqpd006abnsuc
+  is 'Sucursal de ABONO';
+comment on column AQPD006.aqpd006abnmod
+  is 'Módulo de ABONO';
+comment on column AQPD006.aqpd006abntra
+  is 'Transacción de ABONO';
+comment on column AQPD006.aqpd006abnrel
+  is 'Relación de ABONO';
+comment on column AQPD006.aqpd006abnord
+  is 'Ordinal de ABONO';
+comment on column AQPD006.aqpd006abnsor
+  is 'Subordinal de ABONO';
+comment on column AQPD006.aqpd006mon
+  is 'Monto para ABONO';
+comment on column AQPD006.aqpd006ctasuc
+  is 'Sucursal Cuenta Destino para ABONO';
+comment on column AQPD006.aqpd006ctamon
+  is 'Moneda Cuenta Destino para ABONO';
+comment on column AQPD006.aqpd006cta
+  is 'Cuenta Destino para ABONO';
+comment on column AQPD006.aqpd006ctasop
+  is 'Sub Operación Cuenta Destino para ABONO';
+comment on column AQPD006.aqpd006ctatop
+  is 'Tipo Operación Cuenta Destino para ABONO';
+comment on column AQPD006.aqpd006ctamod
+  is 'Modulo Cuenta Destino para ABONO';
+comment on column AQPD006.aqpd006coderr
+  is 'Código Respuesta';
+comment on column AQPD006.aqpd006msgerr
+  is 'Mensaje respuesta';
+comment on column AQPD006.aqpd006cel
+  is 'Celular Notificación';
+comment on column AQPD006.aqpd006msgcel
+  is 'Texto para Mensaje SMS';
+comment on column AQPD006.aqpd006rescel
+  is 'Respuesta del Envío SMS';
+comment on column AQPD006.aqpd006mail
+  is 'Correo Notificación';
+comment on column AQPD006.aqpd006msgma
+  is 'Texto para Mensaje MAIL';
+comment on column AQPD006.aqpd006resmai
+  is 'Respuesta del Envío MAIL';
+comment on column AQPD006.aqpd006push
+  is 'Token Firebase';
+comment on column AQPD006.aqpd006msgpus
+  is 'Texto para Mensaje PUSH';
+comment on column AQPD006.aqpd006respus
+  is 'Respuesta del Envío PUSH';
+comment on column AQPD006.aqpd006est
+  is 'Estado N: No Procesado| P: Procesado|E: Error durante el proceso';
+alter table AQPD006
+  add primary key (AQPD006CORR);
+

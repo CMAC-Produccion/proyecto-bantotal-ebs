@@ -1,0 +1,25 @@
+create table FCPG13
+(
+  cpg10embt  NUMBER(3) not null,
+  cpg10pais  NUMBER(3) not null,
+  cpg10tdoc  NUMBER(2) not null,
+  cpg10doc   CHAR(25) not null,
+  cpg10sube  NUMBER(3) not null,
+  cpg12cod   NUMBER(5) not null,
+  cpg13cod   NUMBER(2) not null,
+  cpg13desc  CHAR(40),
+  cpg13pais  NUMBER(3),
+  cpg13tdoc  NUMBER(2),
+  cpg13doc   CHAR(25),
+  cpg13rgemp NUMBER(3),
+  cpg13tel   CHAR(25),
+  cpg13email CHAR(45),
+  cpg13est   CHAR(3),
+  cpg13blq   CHAR(1),
+  cpg13inst  NUMBER(10)
+)
+;
+create index FCPG1303 on FCPG13 (CPG13INST);
+alter table FCPG13
+  add primary key (CPG10EMBT, CPG10PAIS, CPG10TDOC, CPG10DOC, CPG10SUBE, CPG12COD, CPG13COD);
+

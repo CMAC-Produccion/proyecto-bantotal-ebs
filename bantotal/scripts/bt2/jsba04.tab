@@ -1,0 +1,11 @@
+create table JSBA04
+(
+  jsba04tipo NUMBER(4) not null,
+  jsba04fvig DATE not null,
+  jsba04pre  NUMBER(17,2),
+  jsba04mda  NUMBER(4)
+)
+;
+alter table JSBA04
+  add primary key (JSBA04TIPO, JSBA04FVIG);
+

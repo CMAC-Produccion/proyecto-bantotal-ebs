@@ -1,0 +1,14 @@
+create table FCNV33
+(
+  cnv30pgcod NUMBER(3) not null,
+  cnv30ctnro NUMBER(9) not null,
+  cnv30exfec DATE not null,
+  cnv05teval NUMBER(3) not null,
+  cnv31kcorr NUMBER(9) not null,
+  cnv33kcorr NUMBER(3) not null,
+  cnv33txt   VARCHAR2(255)
+)
+;
+alter table FCNV33
+  add primary key (CNV30PGCOD, CNV30CTNRO, CNV30EXFEC, CNV05TEVAL, CNV31KCORR, CNV33KCORR);
+

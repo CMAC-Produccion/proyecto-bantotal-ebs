@@ -1,0 +1,43 @@
+create table AQPB096H
+(
+  aqpb096husur  CHAR(10) not null,
+  aqpb096hpgcod NUMBER(3),
+  aqpb096hmod   NUMBER(3),
+  aqpb096hsuc   NUMBER(3),
+  aqpb096hmda   NUMBER(4),
+  aqpb096hpap   NUMBER(4),
+  aqpb096hcta   NUMBER(9),
+  aqpb096hope   NUMBER(9),
+  aqpb096hsbop  NUMBER(3),
+  aqpb096htope  NUMBER(3),
+  aqpb096hndoc  CHAR(12),
+  aqpb096hncer  VARCHAR2(20),
+  aqpb096hmone  CHAR(3),
+  aqpb096hsdoi  NUMBER(17,2),
+  aqpb096hmpre  NUMBER(17,2),
+  aqpb096hfproc DATE,
+  aqpb096hstat  NUMBER(2),
+  aqpb096hfe99  DATE,
+  aqpb096hfcr   VARCHAR2(10),
+  aqpb096hhcr   VARCHAR2(10)
+)
+;
+comment on table AQPB096H
+  is 'Reporte Programa COVID';
+comment on column AQPB096H.aqpb096husur
+  is 'Usuario que genera el reporte';
+comment on column AQPB096H.aqpb096hndoc
+  is '1. Numero Documento';
+comment on column AQPB096H.aqpb096hncer
+  is '2. N° Certificado';
+comment on column AQPB096H.aqpb096hmone
+  is '3. Moneda';
+comment on column AQPB096H.aqpb096hsdoi
+  is '4. Saldo Insoluto';
+comment on column AQPB096H.aqpb096hmpre
+  is '5. Monto Prestamo reprogramado';
+comment on column AQPB096H.aqpb096hfproc
+  is 'Fecha de procesamiento';
+create index AQPB096H2 on AQPB096H (AQPB096HUSUR, AQPB096HFPROC);
+create index AQPB096H3 on AQPB096H (AQPB096HUSUR, AQPB096HPGCOD, AQPB096HMOD, AQPB096HSUC, AQPB096HMDA, AQPB096HPAP, AQPB096HCTA, AQPB096HOPE, AQPB096HSBOP, AQPB096HTOPE, AQPB096HFPROC);
+

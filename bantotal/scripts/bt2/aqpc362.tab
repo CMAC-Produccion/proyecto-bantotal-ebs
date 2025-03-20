@@ -1,0 +1,60 @@
+create table AQPC362
+(
+  aqpc362usur   CHAR(10) not null,
+  aqpc362fproc  DATE not null,
+  aqpc362cta    NUMBER(9) not null,
+  aqpc362ope    NUMBER(9) not null,
+  aqpc362cban   VARCHAR2(10),
+  aqpc362ncer   VARCHAR2(30),
+  aqpc362ndoc   VARCHAR2(20),
+  aqpc362sdoins NUMBER(17,2),
+  aqpc362intdev NUMBER(17,2),
+  aqpc362pricob NUMBER(17,2),
+  aqpc362intcob NUMBER(17,2),
+  aqpc362intsus NUMBER(17,2),
+  aqpc362fpago  DATE,
+  aqpc362fdepo  DATE,
+  aqpc362clacre VARCHAR2(20),
+  aqpc362fcre   VARCHAR2(10),
+  aqpc362hcre   VARCHAR2(10)
+)
+;
+comment on table AQPC362
+  is 'Tabla reactiva COFIDE';
+comment on column AQPC362.aqpc362usur
+  is 'Usuario';
+comment on column AQPC362.aqpc362fproc
+  is 'Fecha de proceso';
+comment on column AQPC362.aqpc362cta
+  is 'Cuenta';
+comment on column AQPC362.aqpc362ope
+  is 'Operacion';
+comment on column AQPC362.aqpc362cban
+  is 'Codigo de Banco';
+comment on column AQPC362.aqpc362ncer
+  is 'Numero de Certificado de Fideicomiso';
+comment on column AQPC362.aqpc362ndoc
+  is 'Numero de Documento';
+comment on column AQPC362.aqpc362sdoins
+  is 'Saldo Insoluto';
+comment on column AQPC362.aqpc362intdev
+  is 'Interes Devengado';
+comment on column AQPC362.aqpc362pricob
+  is 'Principal Cobrado';
+comment on column AQPC362.aqpc362intcob
+  is 'Interes Cobrado';
+comment on column AQPC362.aqpc362intsus
+  is 'Interes en suspenso';
+comment on column AQPC362.aqpc362fpago
+  is 'Fecha de Pago';
+comment on column AQPC362.aqpc362fdepo
+  is 'Fecha de Deposito';
+comment on column AQPC362.aqpc362clacre
+  is 'Clasificacion crediticia';
+comment on column AQPC362.aqpc362fcre
+  is 'Fecha Creacion';
+comment on column AQPC362.aqpc362hcre
+  is 'Hora creacion';
+create index AQPC362A2 on AQPC362 (AQPC362USUR);
+create index AQPC362A3 on AQPC362 (AQPC362USUR, AQPC362FPROC);
+

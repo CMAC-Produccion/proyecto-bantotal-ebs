@@ -1,0 +1,78 @@
+create table AQPB609L
+(
+  aqpb609lpgcod  NUMBER(3),
+  aqpb609lmod    NUMBER(3),
+  aqpb609lsuc    NUMBER(3),
+  aqpb609lmon    NUMBER(4),
+  aqpb609lpap    NUMBER(4),
+  aqpb609lncta   NUMBER(9),
+  aqpb609lnope   NUMBER(9),
+  aqpb609lsope   NUMBER(3),
+  aqpb609ltope   NUMBER(3),
+  aqpb609lins    NUMBER(10),
+  aqpb609lfimp   VARCHAR2(1),
+  aqpb609lpgcodt NUMBER(3),
+  aqpb609lsuct   NUMBER(3),
+  aqpb609lmodt   NUMBER(3),
+  aqpb609ltrant  NUMBER(3),
+  aqpb609lrelt   NUMBER(4),
+  aqpb609lfcon   DATE,
+  aqpb609lf608   VARCHAR2(1),
+  aqpb609lpais   NUMBER(3),
+  aqpb609ltdoc   NUMBER(2),
+  aqpb609lndoc   VARCHAR2(12),
+  aqpb609lflst   DATE,
+  aqpb609lulst   VARCHAR2(10),
+  aqpb609lmerr   VARCHAR2(250)
+)
+;
+comment on column AQPB609L.aqpb609lpgcod
+  is 'PGCOD';
+comment on column AQPB609L.aqpb609lmod
+  is 'MODULO';
+comment on column AQPB609L.aqpb609lsuc
+  is 'SUCURSAL';
+comment on column AQPB609L.aqpb609lmon
+  is 'MONEDA';
+comment on column AQPB609L.aqpb609lpap
+  is 'PAPEL';
+comment on column AQPB609L.aqpb609lncta
+  is 'NRO CUENTA';
+comment on column AQPB609L.aqpb609lnope
+  is 'OPERACIÓN';
+comment on column AQPB609L.aqpb609lsope
+  is 'SUB OPERACIÓN ';
+comment on column AQPB609L.aqpb609ltope
+  is 'TIPO OPERACIÓN';
+comment on column AQPB609L.aqpb609lins
+  is 'INSTANCIA';
+comment on column AQPB609L.aqpb609lfimp
+  is 'FLAG IMPRESIÓN';
+comment on column AQPB609L.aqpb609lpgcodt
+  is 'PGCOD TRANSACCIÓN';
+comment on column AQPB609L.aqpb609lsuct
+  is 'SUCURSAL TRANSACCIÓN';
+comment on column AQPB609L.aqpb609lmodt
+  is 'MODULO TRANSACCIÓN';
+comment on column AQPB609L.aqpb609ltrant
+  is 'TRANSACCIÓN';
+comment on column AQPB609L.aqpb609lrelt
+  is 'RELACION TRANSACCIÓN';
+comment on column AQPB609L.aqpb609lfcon
+  is 'FECHA CONTABLE TRANSACCIÓN';
+comment on column AQPB609L.aqpb609lf608
+  is 'FLAG AQPB608';
+comment on column AQPB609L.aqpb609lpais
+  is 'PAIS';
+comment on column AQPB609L.aqpb609ltdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB609L.aqpb609lndoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPB609L.aqpb609lflst
+  is 'FECHA LISTADO';
+comment on column AQPB609L.aqpb609lulst
+  is 'USUARIO LISTADO';
+comment on column AQPB609L.aqpb609lmerr
+  is 'MENSAJE DE ERROR';
+create index AQPB609LA2 on AQPB609L (AQPB609LPGCOD, AQPB609LMOD, AQPB609LSUC, AQPB609LMON, AQPB609LPAP, AQPB609LNCTA, AQPB609LNOPE, AQPB609LSOPE, AQPB609LTOPE, AQPB609LFLST, AQPB609LULST);
+

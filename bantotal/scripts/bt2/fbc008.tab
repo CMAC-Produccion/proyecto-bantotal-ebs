@@ -1,0 +1,11 @@
+create table FBC008
+(
+  paisbant  NUMBER(3) not null,
+  panombant CHAR(30),
+  paissib   NUMBER(3)
+)
+;
+create index FBC00802 on FBC008 (PAISSIB);
+alter table FBC008
+  add primary key (PAISBANT);
+

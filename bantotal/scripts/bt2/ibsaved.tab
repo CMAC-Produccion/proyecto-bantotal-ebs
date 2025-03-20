@@ -1,0 +1,13 @@
+create table IBSAVED
+(
+  ibproject  CHAR(60) not null,
+  ibprocess  CHAR(60) not null,
+  ibtask     CHAR(60) not null,
+  iblang     CHAR(2) not null,
+  ibsaved    CHAR(1) not null,
+  ibsavedxml VARCHAR2(4000) not null
+)
+;
+create unique index IBSAVED01 on IBSAVED (IBPROJECT, IBPROCESS, IBTASK, IBLANG);
+create index IBSAVED02 on IBSAVED (IBPROJECT, IBPROCESS, IBTASK);
+

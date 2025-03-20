@@ -1,0 +1,23 @@
+create table FSD120
+(
+  tccod    NUMBER(3) not null,
+  tcmda    NUMBER(4) not null,
+  tcimp    NUMBER(17,2) not null,
+  tcfch    DATE not null,
+  tchor    CHAR(8) not null,
+  tccpa    NUMBER(14,8),
+  tcvta    NUMBER(14,8),
+  tctolc   NUMBER(10,8),
+  tctolv   NUMBER(10,8),
+  tcarbcpa NUMBER(14,8),
+  tcarbvta NUMBER(14,8),
+  tcarbtol NUMBER(10,8),
+  tcarbcnt NUMBER(14,8),
+  tcfhinv  NUMBER(14)
+)
+;
+create index FSD12003 on FSD120 (TCCOD, TCMDA, TCIMP, TCFHINV);
+create index FSD12004 on FSD120 (TCCOD, TCMDA, TCFHINV, TCIMP);
+alter table FSD120
+  add primary key (TCCOD, TCMDA, TCIMP, TCFCH, TCHOR);
+

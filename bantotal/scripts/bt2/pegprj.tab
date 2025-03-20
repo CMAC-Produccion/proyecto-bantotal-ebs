@@ -1,0 +1,12 @@
+create table PEGPRJ
+(
+  pegprjid  CHAR(80) not null,
+  pegprjnam CHAR(160),
+  pegprjdsc VARCHAR2(512),
+  pegdltid  CHAR(3),
+  pegdlpid  NUMBER(4)
+)
+;
+alter table PEGPRJ
+  add primary key (PEGPRJID);
+

@@ -1,0 +1,113 @@
+create table AQPB999
+(
+  aqpb999emp     NUMBER(3) not null,
+  aqpb999mod     NUMBER(3) not null,
+  aqpb999suc     NUMBER(3) not null,
+  aqpb999mda     NUMBER(4) not null,
+  aqpb999pap     NUMBER(4) not null,
+  aqpb999cta     NUMBER(9) not null,
+  aqpb999ope     NUMBER(9) not null,
+  aqpb999sbo     NUMBER(3) not null,
+  aqpb999top     NUMBER(3) not null,
+  aqpb999fecr    DATE not null,
+  aqpb999tip     NUMBER(1),
+  aqpb999rub     NUMBER(16),
+  aqpb999ins     NUMBER(10),
+  aqpb999est     CHAR(1),
+  aqpb999ehab    CHAR(1),
+  aqpb999usrg    CHAR(10),
+  aqpb999itcod   NUMBER(3),
+  aqpb999itmod   NUMBER(3),
+  aqpb999itsuc   NUMBER(3),
+  aqpb999ittran  NUMBER(3),
+  aqpb999itnrel  NUMBER(4),
+  aqpb999itfcon  DATE,
+  aqpb999ithor   CHAR(8),
+  aqpb999itucnf  CHAR(10),
+  aqpb999fecext  DATE,
+  aqpb999capital NUMBER(17,2),
+  aqpb999tasa    NUMBER(14,8),
+  aqpb999mora    NUMBER(14,3),
+  aqpb999icv     NUMBER(14,3),
+  aqpb999aux01   NUMBER(18,2),
+  aqpb999aux02   NUMBER(18,2),
+  aqpb999aux03   NUMBER(18,2),
+  aqpb999aux04   NUMBER(18,2),
+  aqpb999pena    NUMBER(14,3)
+)
+;
+comment on column AQPB999.aqpb999emp
+  is 'Empresa';
+comment on column AQPB999.aqpb999mod
+  is 'Modulo';
+comment on column AQPB999.aqpb999suc
+  is 'Sucursal';
+comment on column AQPB999.aqpb999mda
+  is 'Moneda';
+comment on column AQPB999.aqpb999pap
+  is 'Papel';
+comment on column AQPB999.aqpb999cta
+  is 'Cuenta';
+comment on column AQPB999.aqpb999ope
+  is 'Operacion';
+comment on column AQPB999.aqpb999sbo
+  is 'SubOperacion';
+comment on column AQPB999.aqpb999top
+  is 'Tipo de Operacion';
+comment on column AQPB999.aqpb999fecr
+  is 'Fecha de Registro';
+comment on column AQPB999.aqpb999tip
+  is 'Tipo de Proceso';
+comment on column AQPB999.aqpb999rub
+  is 'Rubro';
+comment on column AQPB999.aqpb999ins
+  is 'Instancia del credito';
+comment on column AQPB999.aqpb999est
+  is 'Estado, S en Solicitud, C Contabilizado, E Extornado';
+comment on column AQPB999.aqpb999ehab
+  is 'Habilitado H / Inhabilitado I';
+comment on column AQPB999.aqpb999usrg
+  is 'Usuario que Registro';
+comment on column AQPB999.aqpb999itcod
+  is 'Cod Empresa Transaccion de Alta';
+comment on column AQPB999.aqpb999itmod
+  is 'Modulo de Alta de transaccion desembolso';
+comment on column AQPB999.aqpb999itsuc
+  is 'Sucursal de Alta de transaccion  desembolso';
+comment on column AQPB999.aqpb999ittran
+  is 'Transaccion de Alta de transaccion  desembolso';
+comment on column AQPB999.aqpb999itnrel
+  is 'Relacion de Alta de transaccion  desembolso';
+comment on column AQPB999.aqpb999itfcon
+  is 'Fecha Contable de Alta de transaccion  desembolso';
+comment on column AQPB999.aqpb999ithor
+  is 'Hora de Alta de transaccion  desembolso';
+comment on column AQPB999.aqpb999itucnf
+  is 'Alta de Transaccion  desembolso';
+comment on column AQPB999.aqpb999fecext
+  is 'Fecha de Extorno de transaccion  desembolso';
+comment on column AQPB999.aqpb999capital
+  is 'Capital del Credito  desembolso';
+comment on column AQPB999.aqpb999tasa
+  is 'Tasa del Credito  desembolso';
+comment on column AQPB999.aqpb999mora
+  is 'Mora Total con la que se da de Alta la transaccion';
+comment on column AQPB999.aqpb999icv
+  is 'ICV Total con la que se da de Alta de la transaccion';
+comment on column AQPB999.aqpb999aux01
+  is 'Campo Auxiliar 1';
+comment on column AQPB999.aqpb999aux02
+  is 'Campo Auxiliar 2';
+comment on column AQPB999.aqpb999aux03
+  is 'Campo Auxiliar 3';
+comment on column AQPB999.aqpb999aux04
+  is 'Campo Auxiliar 4';
+comment on column AQPB999.aqpb999pena
+  is 'Penalidad';
+create index AQPB9992 on AQPB999 (AQPB999ITCOD, AQPB999ITMOD, AQPB999ITSUC, AQPB999ITTRAN, AQPB999ITNREL, AQPB999ITFCON);
+create index AQPB9993 on AQPB999 (AQPB999CTA, AQPB999FECR, AQPB999TIP, AQPB999EST);
+create index AQPB9994 on AQPB999 (AQPB999EMP, AQPB999MOD, AQPB999SUC, AQPB999MDA, AQPB999PAP, AQPB999CTA, AQPB999OPE, AQPB999SBO, AQPB999TOP);
+create index AQPB9995 on AQPB999 (AQPB999CTA, AQPB999TIP, AQPB999EST);
+alter table AQPB999
+  add primary key (AQPB999EMP, AQPB999MOD, AQPB999SUC, AQPB999MDA, AQPB999PAP, AQPB999CTA, AQPB999OPE, AQPB999SBO, AQPB999TOP, AQPB999FECR);
+

@@ -1,0 +1,21 @@
+create table FSFC07L
+(
+  kgl07pgcod    NUMBER(3) not null,
+  kgl07causno   NUMBER(2) not null,
+  kglc07fing    DATE not null,
+  kglc07hing    CHAR(8) not null,
+  kglc07ok      CHAR(1),
+  kglc07adu     CHAR(1),
+  kglc07uing    CHAR(10),
+  kglc07wing    CHAR(10),
+  kglc07fcnf    DATE,
+  kglc07hcnf    CHAR(10),
+  kglc07ucnf    CHAR(10),
+  kglc07wcnf    CHAR(10),
+  kglc07causdsc CHAR(35)
+)
+;
+create index FSFC07L2 on FSFC07L (KGL07PGCOD, KGL07CAUSNO, KGLC07OK);
+alter table FSFC07L
+  add primary key (KGL07PGCOD, KGL07CAUSNO, KGLC07FING, KGLC07HING);
+

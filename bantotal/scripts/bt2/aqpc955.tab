@@ -1,0 +1,128 @@
+create table AQPC955
+(
+  aqpc955ferg  DATE not null,
+  aqpc955horg  VARCHAR2(8) not null,
+  aqpc955usrg  VARCHAR2(10) not null,
+  aqpc955pais  NUMBER(4),
+  aqpc955tdoc  NUMBER(4),
+  aqpc955ndoc  VARCHAR2(12),
+  aqpc955corr  NUMBER(10) not null,
+  aqpc955emp   NUMBER(3) not null,
+  aqpc955mod   NUMBER(3) not null,
+  aqpc955suc   NUMBER(3) not null,
+  aqpc955mda   NUMBER(4) not null,
+  aqpc955pap   NUMBER(4) not null,
+  aqpc955cta   NUMBER(9) not null,
+  aqpc955oper  NUMBER(9) not null,
+  aqpc955sbop  NUMBER(3) not null,
+  aqpc955tope  NUMBER(4) not null,
+  aqpc955fep   DATE not null,
+  aqpc955cor   NUMBER(10),
+  aqpc955ins   NUMBER(10),
+  aqpc955esta  VARCHAR2(2),
+  aqpc955cont  VARCHAR2(50),
+  aqpc955tipo  VARCHAR2(50),
+  aqpc955modo  VARCHAR2(50),
+  aqpc955subt  VARCHAR2(50),
+  aqpc955trxd  VARCHAR2(50),
+  aqpc955imp1  NUMBER(17,2),
+  aqpc955imp2  NUMBER(17,2),
+  aqpc955mont  NUMBER(17,2),
+  aqpc955ehab  VARCHAR2(2) not null,
+  aqpc955aux1  NUMBER(17,2),
+  aqpc955aux2  NUMBER(17,2),
+  aqpc955aux3  NUMBER(17,2),
+  aqpc955aux4  NUMBER(17,2),
+  aqpc955aux5  VARCHAR2(100),
+  aqpc955aux6  VARCHAR2(100),
+  aqpc955aux7  VARCHAR2(100),
+  aqpc955aux8  VARCHAR2(100),
+  aqpc955aux9  DATE,
+  aqpc955aux10 DATE
+)
+;
+comment on table AQPC955
+  is 'LOG DE MONTO CAPITALIZADO REPROGRAMACIONES/REFINANCIACIONES CONTABLES/NO CONTABLES';
+comment on column AQPC955.aqpc955ferg
+  is 'FECHA DE REGISTRO';
+comment on column AQPC955.aqpc955horg
+  is 'HORA DE REGISTRO';
+comment on column AQPC955.aqpc955usrg
+  is 'USUARIO DE REGISTRO';
+comment on column AQPC955.aqpc955pais
+  is 'PAIS';
+comment on column AQPC955.aqpc955tdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column AQPC955.aqpc955ndoc
+  is 'NRO DE DOCUMENTO';
+comment on column AQPC955.aqpc955corr
+  is 'CORRELATIVO';
+comment on column AQPC955.aqpc955emp
+  is 'CODIGO EMPRESA';
+comment on column AQPC955.aqpc955mod
+  is 'MODULO';
+comment on column AQPC955.aqpc955suc
+  is 'SUCURSAL';
+comment on column AQPC955.aqpc955mda
+  is 'MONEDA';
+comment on column AQPC955.aqpc955pap
+  is 'PAPEL';
+comment on column AQPC955.aqpc955cta
+  is 'CUENTA';
+comment on column AQPC955.aqpc955oper
+  is 'OPERACIÓN';
+comment on column AQPC955.aqpc955sbop
+  is 'SUB OPERACIÓN';
+comment on column AQPC955.aqpc955tope
+  is 'TIPO OPERACIÓN';
+comment on column AQPC955.aqpc955fep
+  is 'FECHA DE PROCESO';
+comment on column AQPC955.aqpc955cor
+  is 'CORRELATIVO PROCESO';
+comment on column AQPC955.aqpc955ins
+  is 'INSTANCIA';
+comment on column AQPC955.aqpc955esta
+  is 'ESTADO PROCESO';
+comment on column AQPC955.aqpc955cont
+  is 'CONTABLE/NO CONTABLE';
+comment on column AQPC955.aqpc955tipo
+  is 'TIPO REPROGRAMACION/REFINANCIACION';
+comment on column AQPC955.aqpc955modo
+  is 'MODO INDIVIDUAL/MASIVA';
+comment on column AQPC955.aqpc955subt
+  is 'SUB TIPO - TABLA FUENTE/TRANSACCION';
+comment on column AQPC955.aqpc955trxd
+  is 'TRANSACCION DESCRIPCION';
+comment on column AQPC955.aqpc955imp1
+  is 'IMPORTE ORDINAL 1';
+comment on column AQPC955.aqpc955imp2
+  is 'IMPORTE ORDINAL 2';
+comment on column AQPC955.aqpc955mont
+  is 'MONTO CAPITALIZADO';
+comment on column AQPC955.aqpc955ehab
+  is 'ESTADO HABILITADO/INHABILITADO';
+comment on column AQPC955.aqpc955aux1
+  is 'AUXILIAR 1';
+comment on column AQPC955.aqpc955aux2
+  is 'AUXILIAR 2';
+comment on column AQPC955.aqpc955aux3
+  is 'AUXILIAR 3';
+comment on column AQPC955.aqpc955aux4
+  is 'AUXILIAR 4';
+comment on column AQPC955.aqpc955aux5
+  is 'AUXILIAR 5';
+comment on column AQPC955.aqpc955aux6
+  is 'AUXILIAR 6';
+comment on column AQPC955.aqpc955aux7
+  is 'AUXILIAR 7';
+comment on column AQPC955.aqpc955aux8
+  is 'AUXILIAR 8';
+comment on column AQPC955.aqpc955aux9
+  is 'AUXILIAR 9';
+comment on column AQPC955.aqpc955aux10
+  is 'AUXILIAR 10';
+create index AQPC955A2 on AQPC955 (AQPC955USRG, AQPC955CTA, AQPC955OPER);
+create index AQPC955A3 on AQPC955 (AQPC955USRG, AQPC955CTA, AQPC955OPER, AQPC955FEP, AQPC955MONT, AQPC955EHAB);
+alter table AQPC955
+  add primary key (AQPC955FERG, AQPC955HORG, AQPC955USRG, AQPC955CORR, AQPC955EMP, AQPC955MOD, AQPC955SUC, AQPC955MDA, AQPC955PAP, AQPC955CTA, AQPC955OPER, AQPC955SBOP, AQPC955TOPE, AQPC955FEP, AQPC955EHAB);
+

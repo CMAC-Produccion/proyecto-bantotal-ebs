@@ -1,0 +1,17 @@
+create table SNG420
+(
+  sng400cod  NUMBER(3) not null,
+  sng400evto NUMBER(10) not null,
+  sng420flog DATE not null,
+  sng420corr NUMBER(10) not null,
+  sng420fexe DATE,
+  sng420hexe CHAR(8),
+  sng420lchr VARCHAR2(40),
+  sng420lnro NUMBER(9),
+  sng420lnr2 NUMBER(9),
+  sng420sts  CHAR(1)
+)
+;
+alter table SNG420
+  add primary key (SNG400COD, SNG400EVTO, SNG420FLOG, SNG420CORR);
+

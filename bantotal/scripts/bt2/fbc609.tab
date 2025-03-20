@@ -1,0 +1,35 @@
+create table FBC609
+(
+  bc609emp   NUMBER(3) not null,
+  bc609feci  DATE not null,
+  bc609rubro CHAR(16) not null,
+  bc609corr  NUMBER(9) not null,
+  bc609codn  CHAR(15),
+  bc609pza   CHAR(15),
+  bc609emis  CHAR(50),
+  bc609sbs   CHAR(10),
+  bc609pais  CHAR(4),
+  bc609desc  CHAR(6),
+  bc609clas  CHAR(1),
+  bc609cod   CHAR(3),
+  bc609tc    NUMBER(7,4),
+  bc609fcon  CHAR(8),
+  bc609can   NUMBER(14,4),
+  bc609vnom  NUMBER(14,4),
+  bc609contr CHAR(50),
+  bc609fecp  CHAR(8),
+  bc609fecu  CHAR(8),
+  bc609cos   NUMBER(14,2),
+  bc609vall  NUMBER(14,2),
+  bc609valc  NUMBER(14,4),
+  bc609vale  NUMBER(14,4),
+  bc609valm  NUMBER(14,4),
+  bc609fuen  CHAR(50),
+  bc609prov  NUMBER(14,2),
+  bc609cus   CHAR(50),
+  bc609sub   CHAR(1)
+)
+;
+alter table FBC609
+  add primary key (BC609EMP, BC609FECI, BC609RUBRO, BC609CORR);
+

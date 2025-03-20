@@ -1,0 +1,94 @@
+create table JAQN573
+(
+  jaqn573fec DATE not null,
+  jaqn573cen VARCHAR2(10) not null,
+  jaqn573nor VARCHAR2(10) not null,
+  jaqn573tan NUMBER(17,2) not null,
+  jaqn573ntr VARCHAR2(10) not null,
+  jaqn573pai NUMBER(3) not null,
+  jaqn573tdo NUMBER(2) not null,
+  jaqn573num CHAR(12) not null,
+  jaqn573ttd VARCHAR2(10),
+  jaqn573ncf VARCHAR2(50),
+  jaqn573rzs VARCHAR2(255),
+  jaqn573tem NUMBER(9),
+  jaqn573cmo NUMBER(4),
+  jaqn573mon VARCHAR2(10),
+  jaqn573mod NUMBER(17,2),
+  jaqn573poc NUMBER(17,2),
+  jaqn573ai1 NUMBER(17,2),
+  jaqn573ai2 NUMBER(17,2),
+  jaqn573ai3 NUMBER(17,2),
+  jaqn573an1 NUMBER(9),
+  jaqn573an2 NUMBER(9),
+  jaqn573an3 NUMBER(9),
+  jaqn573ac1 VARCHAR2(255),
+  jaqn573ac2 VARCHAR2(255),
+  jaqn573ac3 VARCHAR2(255),
+  jaqn573af1 DATE,
+  jaqn573af2 DATE,
+  jaqn573af3 DATE
+)
+;
+comment on table JAQN573
+  is 'Tabla Certificado Cofide';
+comment on column JAQN573.jaqn573fec
+  is 'Fecha de Carga';
+comment on column JAQN573.jaqn573cen
+  is 'Código de Entidad Participante';
+comment on column JAQN573.jaqn573nor
+  is 'Número de operacióm';
+comment on column JAQN573.jaqn573tan
+  is 'tasa_adjudicada_negoc';
+comment on column JAQN573.jaqn573ntr
+  is 'num_tramo';
+comment on column JAQN573.jaqn573pai
+  is 'País';
+comment on column JAQN573.jaqn573tdo
+  is 'Tipo de Documento';
+comment on column JAQN573.jaqn573num
+  is 'Número de Documento';
+comment on column JAQN573.jaqn573ttd
+  is 'Tipo de documetno Texto ';
+comment on column JAQN573.jaqn573ncf
+  is 'Número de Certificado Cofide';
+comment on column JAQN573.jaqn573rzs
+  is 'Razón Social';
+comment on column JAQN573.jaqn573tem
+  is 'Tamaño de Empresa';
+comment on column JAQN573.jaqn573cmo
+  is 'Código de Moneda';
+comment on column JAQN573.jaqn573mon
+  is 'Moneda Texto';
+comment on column JAQN573.jaqn573mod
+  is 'Monto desembolsado Crédito';
+comment on column JAQN573.jaqn573poc
+  is 'Porcentaje de Cobertura Gobierno';
+comment on column JAQN573.jaqn573ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN573.jaqn573ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN573.jaqn573ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN573.jaqn573an1
+  is 'Auxiliar Númerica 1';
+comment on column JAQN573.jaqn573an2
+  is 'Auxiliar Númerica 2';
+comment on column JAQN573.jaqn573an3
+  is 'Auxiliar Númerica 3';
+comment on column JAQN573.jaqn573ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQN573.jaqn573ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQN573.jaqn573ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQN573.jaqn573af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN573.jaqn573af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN573.jaqn573af3
+  is 'Auxiliar Fecha 3';
+create index JAQN573A2 on JAQN573 (JAQN573TDO, JAQN573NUM);
+alter table JAQN573
+  add primary key (JAQN573FEC, JAQN573CEN, JAQN573NOR, JAQN573TAN, JAQN573NTR, JAQN573PAI, JAQN573TDO, JAQN573NUM);
+

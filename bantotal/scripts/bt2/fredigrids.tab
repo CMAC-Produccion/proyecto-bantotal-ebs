@@ -1,0 +1,17 @@
+create table FREDIGRIDS
+(
+  frgrises       CHAR(30) not null,
+  frgriprc       NUMBER(5) not null,
+  frgriste       NUMBER(5) not null,
+  frgrinam       CHAR(20) not null,
+  frgrireckey    CHAR(60) not null,
+  frgrirectyp    NUMBER(1) not null,
+  frgrirecnewpos NUMBER(4) not null,
+  frgrirecdel    NUMBER(1),
+  frgrirec       VARCHAR2(2000),
+  frgritimsta    DATE
+)
+;
+alter table FREDIGRIDS
+  add primary key (FRGRISES, FRGRIPRC, FRGRISTE, FRGRINAM, FRGRIRECKEY, FRGRIRECTYP, FRGRIRECNEWPOS);
+

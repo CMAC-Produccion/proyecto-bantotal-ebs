@@ -1,0 +1,147 @@
+create table AQPB607
+(
+  aqpb607corr    NUMBER(10) not null,
+  aqpb607paid    NUMBER(5) not null,
+  aqpb607tipd    NUMBER(5) not null,
+  aqpb607numd    VARCHAR2(12) not null,
+  aqpb607fecc    DATE not null,
+  aqpb607horc    VARCHAR2(15) not null,
+  aqpb607pgco    NUMBER(5) not null,
+  aqpb607mod     NUMBER(5) not null,
+  aqpb607suc     NUMBER(5) not null,
+  aqpb607mon     NUMBER(5) not null,
+  aqpb607pap     NUMBER(5) not null,
+  aqpb607cta     NUMBER(10) not null,
+  aqpb607ope     NUMBER(10) not null,
+  aqpb607sope    NUMBER(10) not null,
+  aqpb607tipo    NUMBER(10) not null,
+  aqpb607pgcoc   NUMBER(5),
+  aqpb607modc    NUMBER(5),
+  aqpb607succ    NUMBER(5),
+  aqpb607monc    NUMBER(5),
+  aqpb607papc    NUMBER(5),
+  aqpb607ctac    NUMBER(10),
+  aqpb607opec    NUMBER(10),
+  aqpb607sopec   NUMBER(10),
+  aqpb607tipoc   NUMBER(10),
+  aqpb607pgcot   NUMBER(5),
+  aqpb607itsuc   NUMBER(5),
+  aqpb607itmod   NUMBER(5),
+  aqpb607ittran  NUMBER(5),
+  aqpb607itnrel  NUMBER(5),
+  aqpb607itfcon  DATE,
+  aqpb607tipc    NUMBER(10),
+  aqpb607tasa    NUMBER(17,2),
+  aqpb607salc    NUMBER(17,2),
+  aqpb607rat     NUMBER(10,6),
+  aqpb607mntprop NUMBER(17,2),
+  aqpb607mond    NUMBER(17,2),
+  aqpb607nroc    NUMBER(5),
+  aqpb607est     VARCHAR2(5),
+  aqpb607fec1    DATE,
+  aqpb607fecd    DATE,
+  aqpb607hord    VARCHAR2(15),
+  aqpb607ana     CHAR(30),
+  aqpb607tcarg   CHAR(1),
+  aqpb607ins     NUMBER(9),
+  aqpb607cuo     NUMBER(17,2),
+  aqpb607ofert   VARCHAR2(5)
+)
+;
+comment on column AQPB607.aqpb607paid
+  is 'PAIS DEL DOCUMENTO';
+comment on column AQPB607.aqpb607tipd
+  is 'TIPO DE DOCUMENTO';
+comment on column AQPB607.aqpb607numd
+  is 'NRO DE DOCUMENTO';
+comment on column AQPB607.aqpb607fecc
+  is 'FECHA DE CARGA';
+comment on column AQPB607.aqpb607horc
+  is 'HORA DE CARGA';
+comment on column AQPB607.aqpb607pgco
+  is 'PGCOD DE LA CUENTA';
+comment on column AQPB607.aqpb607mod
+  is 'MODULO DE LA CUENTA';
+comment on column AQPB607.aqpb607suc
+  is 'SUCURSAL DE LA CUENTA';
+comment on column AQPB607.aqpb607mon
+  is 'MONEDA DE LA CUENTA';
+comment on column AQPB607.aqpb607pap
+  is 'PAPEL DE LA CUENTA';
+comment on column AQPB607.aqpb607cta
+  is 'CUENTA DE LA CUENTA';
+comment on column AQPB607.aqpb607ope
+  is 'OPERACIÓN DE LA CUENTA';
+comment on column AQPB607.aqpb607sope
+  is 'SUBOPERACION DE LA CUENTA';
+comment on column AQPB607.aqpb607tipo
+  is 'TIPO DE OPERACIÓN DE LA CUENTA';
+comment on column AQPB607.aqpb607pgcoc
+  is 'PGCOD DEL CREDITO';
+comment on column AQPB607.aqpb607modc
+  is 'MODULO DEL CREDITO';
+comment on column AQPB607.aqpb607succ
+  is 'SUCURSAL DEL CREDITO';
+comment on column AQPB607.aqpb607monc
+  is 'MONEDA DEL CREDITO';
+comment on column AQPB607.aqpb607papc
+  is 'PAPEL DEL CREDITO';
+comment on column AQPB607.aqpb607ctac
+  is 'CUENTA DEL CREDITO';
+comment on column AQPB607.aqpb607opec
+  is 'OPERACIÓN DEL CREDITO';
+comment on column AQPB607.aqpb607sopec
+  is 'SUBOPERACION DEL CREDITO';
+comment on column AQPB607.aqpb607tipoc
+  is 'TIPO DE OPERACIÓN DEL CREDITO';
+comment on column AQPB607.aqpb607pgcot
+  is 'PGCOD DE LA TRANSACCION';
+comment on column AQPB607.aqpb607itsuc
+  is 'SUCURSAL DE LA TRANSACCION';
+comment on column AQPB607.aqpb607itmod
+  is 'MODULO DE LA TRANSACCION';
+comment on column AQPB607.aqpb607ittran
+  is 'TRANSACCION DE LA TRANSACCION';
+comment on column AQPB607.aqpb607itnrel
+  is 'ITNREL DE LA TRANSACCION';
+comment on column AQPB607.aqpb607itfcon
+  is 'ITFCON DE LA TRANSACCION';
+comment on column AQPB607.aqpb607tipc
+  is 'TIPO DE CLIENTE';
+comment on column AQPB607.aqpb607tasa
+  is '% TASA';
+comment on column AQPB607.aqpb607salc
+  is 'SALDO CONSOLIDADO';
+comment on column AQPB607.aqpb607rat
+  is 'RATIO';
+comment on column AQPB607.aqpb607mntprop
+  is 'Monto propuesto por sueldo';
+comment on column AQPB607.aqpb607mond
+  is 'MONTO DESEMBOLSADO';
+comment on column AQPB607.aqpb607nroc
+  is 'NRO DE CUOTAS';
+comment on column AQPB607.aqpb607est
+  is 'ESTADO';
+comment on column AQPB607.aqpb607fec1
+  is 'FECHA 1ERA CUOTA';
+comment on column AQPB607.aqpb607fecd
+  is 'FECHA DESEMBOLSO';
+comment on column AQPB607.aqpb607hord
+  is 'HORA DESEMBOLSO';
+comment on column AQPB607.aqpb607ana
+  is 'ANALISTA';
+comment on column AQPB607.aqpb607tcarg
+  is 'Tipo de Carga';
+comment on column AQPB607.aqpb607ins
+  is 'INSTANCIA';
+comment on column AQPB607.aqpb607cuo
+  is 'MONTO CUOTA APP';
+comment on column AQPB607.aqpb607ofert
+  is 'Estado de la Oferta H no la tomaron I ya usaron la oferta';
+create index AQPB607A4 on AQPB607 (AQPB607EST, AQPB607FECC);
+create index AQPB607A5 on AQPB607 (AQPB607FECC, AQPB607CORR);
+create index AQPB60702 on AQPB607 (AQPB607PAID, AQPB607TIPD, AQPB607NUMD);
+create index AQPB60703 on AQPB607 (AQPB607PGCO, AQPB607MOD, AQPB607SUC, AQPB607MON, AQPB607PAP, AQPB607CTA, AQPB607OPE, AQPB607SOPE, AQPB607TIPO);
+alter table AQPB607
+  add primary key (AQPB607CORR, AQPB607PAID, AQPB607TIPD, AQPB607NUMD, AQPB607PGCO, AQPB607MOD, AQPB607SUC, AQPB607MON, AQPB607PAP, AQPB607CTA, AQPB607OPE, AQPB607SOPE, AQPB607TIPO, AQPB607FECC, AQPB607HORC);
+

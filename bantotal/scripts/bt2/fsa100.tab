@@ -1,0 +1,14 @@
+create table FSA100
+(
+  sixemp     NUMBER(3) not null,
+  sixusuario CHAR(20) not null,
+  sixinf     CHAR(10) not null,
+  sixcol     NUMBER(4) not null,
+  sixcampo   CHAR(8) not null,
+  sixfecha   DATE not null,
+  siximp     NUMBER(14,2)
+)
+;
+alter table FSA100
+  add primary key (SIXEMP, SIXUSUARIO, SIXINF, SIXCOL, SIXCAMPO, SIXFECHA);
+

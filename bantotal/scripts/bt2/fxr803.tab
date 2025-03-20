@@ -1,0 +1,26 @@
+create table FXR803
+(
+  pgcod  NUMBER(3) not null,
+  scmod  NUMBER(3) not null,
+  scmda  NUMBER(4) not null,
+  scpap  NUMBER(4) not null,
+  sccta  NUMBER(9) not null,
+  scsuc  NUMBER(3) not null,
+  scoper NUMBER(9) not null,
+  scsbop NUMBER(3) not null,
+  sctope NUMBER(3) not null,
+  numtip NUMBER(2) not null,
+  msgnum NUMBER(9) not null,
+  swtcod NUMBER(5) not null,
+  swtrel NUMBER(2) not null
+)
+;
+create index FXR80302 on FXR803 (PGCOD, SCSUC);
+create index FXR80303 on FXR803 (PGCOD, SCCTA);
+create index FXR80304 on FXR803 (SCPAP);
+create index FXR80305 on FXR803 (SCMDA);
+create index FXR80306 on FXR803 (SCMOD);
+create index FXR80307 on FXR803 (PGCOD, NUMTIP, MSGNUM, SWTCOD, SWTREL);
+alter table FXR803
+  add primary key (PGCOD, SCMOD, SCMDA, SCPAP, SCCTA, SCSUC, SCOPER, SCSBOP, SCTOPE, NUMTIP, MSGNUM, SWTCOD, SWTREL);
+

@@ -1,0 +1,131 @@
+create table JAQM4M
+(
+  jaqm4mccta NUMBER(9) not null,
+  jaqm4mnope NUMBER(9) not null,
+  jaqm4mnins NUMBER(10) not null,
+  jaqm4mfein DATE not null,
+  jaqm4mregi VARCHAR2(30),
+  jaqm4mzona VARCHAR2(40),
+  jaqm4magen VARCHAR2(30),
+  jaqm4mcomi VARCHAR2(10),
+  jaqm4mcana VARCHAR2(50),
+  jaqm4mnana VARCHAR2(30),
+  jaqm4mncli VARCHAR2(114),
+  jaqm4mtdoc NUMBER(2),
+  jaqm4mndoc VARCHAR2(12),
+  jaqm4mdcli VARCHAR2(140),
+  jaqm4mccli VARCHAR2(2000),
+  jaqm4mnava VARCHAR2(144),
+  jaqm4mdava VARCHAR2(2000),
+  jaqm4mcava VARCHAR2(2000),
+  jaqm4mscap NUMBER(17,2),
+  jaqm4mdatr NUMBER(10),
+  jaqm4mmapr NUMBER(17,2),
+  jaqm4mvcuo NUMBER(17,2),
+  jaqm4mcpag VARCHAR2(81),
+  jaqm4mupag NUMBER(17,2),
+  jaqm4mtpag VARCHAR2(8),
+  jaqm4mfupa DATE,
+  jaqm4mvtpm NUMBER(17,2),
+  jaqm4mnum1 NUMBER(9),
+  jaqm4mnum2 NUMBER(9),
+  jaqm4mnum3 NUMBER(9),
+  jaqm4mimp1 NUMBER(17,2),
+  jaqm4mimp2 NUMBER(17,2),
+  jaqm4mimp3 NUMBER(17,2),
+  jaqm4mcha1 VARCHAR2(255),
+  jaqm4mcha2 VARCHAR2(255),
+  jaqm4mcha3 VARCHAR2(255),
+  jaqm4mfec1 DATE,
+  jaqm4mfec2 DATE,
+  jaqm4mfec3 DATE
+)
+;
+comment on table JAQM4M
+  is 'INCREMENTO PATRIMONIAL > 50%';
+comment on column JAQM4M.jaqm4mccta
+  is 'CÓDIGO DE CUENTA';
+comment on column JAQM4M.jaqm4mnope
+  is 'CÓDIGO DE OPERACIÓN';
+comment on column JAQM4M.jaqm4mnins
+  is 'NÚMERO DE INSTANCIA';
+comment on column JAQM4M.jaqm4mfein
+  is 'FECHA DE INGRESO DE DATA';
+comment on column JAQM4M.jaqm4mregi
+  is 'REGIÓN';
+comment on column JAQM4M.jaqm4mzona
+  is 'ZONA';
+comment on column JAQM4M.jaqm4magen
+  is 'AGENCIA';
+comment on column JAQM4M.jaqm4mcomi
+  is 'COMITE';
+comment on column JAQM4M.jaqm4mcana
+  is 'CÓDIGO DE ANALISTA';
+comment on column JAQM4M.jaqm4mnana
+  is 'NOMBRE DEL ANALISTA';
+comment on column JAQM4M.jaqm4mncli
+  is 'NOMBRE DEL CLIENTE';
+comment on column JAQM4M.jaqm4mtdoc
+  is 'TIPO DE DOCUMENTO';
+comment on column JAQM4M.jaqm4mndoc
+  is 'NÚMERO DE DOCUMENTO';
+comment on column JAQM4M.jaqm4mdcli
+  is 'DIRECCIÓN DE CLIENTE';
+comment on column JAQM4M.jaqm4mccli
+  is 'CELULAR DE CLIENTE';
+comment on column JAQM4M.jaqm4mnava
+  is 'NOMBRE DEL AVAL';
+comment on column JAQM4M.jaqm4mdava
+  is 'DIRECCIÓN DEL AVAL';
+comment on column JAQM4M.jaqm4mcava
+  is 'CELULAR DEL AVAL';
+comment on column JAQM4M.jaqm4mscap
+  is 'SALDO CAPITAL';
+comment on column JAQM4M.jaqm4mdatr
+  is 'DIAS ATRASO CALENDARIO';
+comment on column JAQM4M.jaqm4mmapr
+  is 'MONTO APROBADO';
+comment on column JAQM4M.jaqm4mvcuo
+  is 'VALOR DE LA CUOTA';
+comment on column JAQM4M.jaqm4mcpag
+  is 'CUOTAS PAGADAS';
+comment on column JAQM4M.jaqm4mupag
+  is 'ÚLTIMO PAGO';
+comment on column JAQM4M.jaqm4mtpag
+  is 'TIPO DE PAGO';
+comment on column JAQM4M.jaqm4mfupa
+  is 'FECHA DE ÚLTIMO PAGO';
+comment on column JAQM4M.jaqm4mvtpm
+  is 'VALOR TOTAL DE PATRIMONIO';
+comment on column JAQM4M.jaqm4mnum1
+  is 'AUXILIAR NUMÉRICO 1';
+comment on column JAQM4M.jaqm4mnum2
+  is 'AUXILIAR NUMÉRICO 2';
+comment on column JAQM4M.jaqm4mnum3
+  is 'AUXILIAR NUMÉRICO 3';
+comment on column JAQM4M.jaqm4mimp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM4M.jaqm4mimp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM4M.jaqm4mimp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQM4M.jaqm4mcha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM4M.jaqm4mcha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM4M.jaqm4mcha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM4M.jaqm4mfec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM4M.jaqm4mfec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM4M.jaqm4mfec3
+  is 'AUXILIAR FECHA 3';
+create index JAQM4MA2 on JAQM4M (JAQM4MFEIN);
+create index JAQM4MA3 on JAQM4M (JAQM4MNINS);
+create index JAQM4MA4 on JAQM4M (JAQM4MREGI, JAQM4MZONA, JAQM4MAGEN, JAQM4MCCTA, JAQM4MNOPE, JAQM4MNINS, JAQM4MFEIN);
+create index JAQM4MA5 on JAQM4M (JAQM4MFEIN, JAQM4MAGEN);
+create index JAQM4MA6 on JAQM4M (JAQM4MFEIN, JAQM4MCCTA, JAQM4MNOPE);
+alter table JAQM4M
+  add primary key (JAQM4MCCTA, JAQM4MNOPE, JAQM4MNINS, JAQM4MFEIN);
+

@@ -1,0 +1,28 @@
+create table FSFI94
+(
+  sfi91emp   NUMBER(3) not null,
+  sfi91mer   NUMBER(3) not null,
+  sfi91fliq  NUMBER(3) not null,
+  sfi94mon   NUMBER(4) not null,
+  sfi94cta   NUMBER(9) not null,
+  sfi94op    NUMBER(9),
+  sfi94subop NUMBER(3),
+  sfi94tipop NUMBER(3),
+  sfi94suc   NUMBER(3),
+  sfi94hab   CHAR(1),
+  sfi94ctaau NUMBER(9),
+  sfi94aux1  CHAR(1),
+  sfi94aux2  CHAR(1),
+  sfi94aux3  CHAR(1),
+  sfi94aux4  CHAR(20),
+  sfi94aux5  NUMBER(9),
+  sfi94aux6  NUMBER(4),
+  sfi94aux7  NUMBER(4),
+  sfi94aux8  NUMBER(3),
+  sfi94aux9  NUMBER(3),
+  sfi94aux10 NUMBER(4)
+)
+;
+alter table FSFI94
+  add primary key (SFI91EMP, SFI91MER, SFI91FLIQ, SFI94MON, SFI94CTA);
+

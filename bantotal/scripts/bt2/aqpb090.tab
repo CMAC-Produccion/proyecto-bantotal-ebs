@@ -1,0 +1,56 @@
+create table AQPB090
+(
+  aqpb090fec   DATE,
+  aqpb090cta   NUMBER(9),
+  aqpb090oper  NUMBER(9),
+  aqpb090sbop  NUMBER,
+  aqpb090tdoc  NUMBER,
+  aqpb090ndoc  CHAR(12),
+  aqpb090mont  NUMBER,
+  aqpb090tipo  VARCHAR2(10),
+  aqpb090pdi   NUMBER,
+  aqpb090sol   VARCHAR2(2),
+  aqpb090rere  VARCHAR2(10),
+  aqpb090ext   VARCHAR2(17),
+  aqpb090cptl  VARCHAR2(10),
+  aqpb090fex   DATE,
+  aqpb090tabla VARCHAR2(50)
+)
+;
+comment on table AQPB090
+  is 'Tabla origen USRREPBI.REP_TOT_REPRO_2020';
+comment on column AQPB090.aqpb090fec
+  is '1. Fecha reprogramacion';
+comment on column AQPB090.aqpb090cta
+  is '2. Cuenta';
+comment on column AQPB090.aqpb090oper
+  is '3. Operación';
+comment on column AQPB090.aqpb090sbop
+  is '4. Suboperación';
+comment on column AQPB090.aqpb090tdoc
+  is '5. Tipo de documento';
+comment on column AQPB090.aqpb090ndoc
+  is '6. Número de documento';
+comment on column AQPB090.aqpb090mont
+  is '7. Monto';
+comment on column AQPB090.aqpb090tipo
+  is '8. Tipo';
+comment on column AQPB090.aqpb090pdi
+  is '9. PDI';
+comment on column AQPB090.aqpb090sol
+  is '10. Solicito';
+comment on column AQPB090.aqpb090rere
+  is '11. Rere';
+comment on column AQPB090.aqpb090ext
+  is '12. Extorno';
+comment on column AQPB090.aqpb090cptl
+  is '13.con_cptlzcn';
+comment on column AQPB090.aqpb090fex
+  is '14. Fecha de extorno';
+comment on column AQPB090.aqpb090tabla
+  is '15. Tabla de origen';
+create index AQPB0903 on AQPB090 (AQPB090CTA, AQPB090OPER, AQPB090SBOP, AQPB090FEC);
+create index AQPB0904 on AQPB090 (AQPB090TABLA, AQPB090EXT);
+create index AQPB0905 on AQPB090 (AQPB090FEC, AQPB090CTA, AQPB090OPER, AQPB090SBOP, AQPB090TABLA);
+create index IDX_AQPB090 on AQPB090 (AQPB090CTA, AQPB090OPER);
+

@@ -1,0 +1,37 @@
+create table TI0019
+(
+  tipgcod    NUMBER(3) not null,
+  tipsuc     NUMBER(3) not null,
+  timodt     NUMBER(3) not null,
+  titrn      NUMBER(3) not null,
+  tifchc     DATE not null,
+  tinrel     NUMBER(4) not null,
+  tifordi    NUMBER(2) not null,
+  ticorrt    NUMBER(3) not null,
+  tiordo     NUMBER(2),
+  tisbororig NUMBER(3),
+  tisbordest NUMBER(3),
+  tiordd     NUMBER(2),
+  timontoimp NUMBER(14,2),
+  ticorrelai NUMBER(5),
+  ticodmov   NUMBER(3),
+  timda      NUMBER(4),
+  tiimportet NUMBER(14,2),
+  tihsccta   NUMBER(9),
+  tihscoper  NUMBER(9),
+  tihscsuc   NUMBER(3),
+  tihsctope  NUMBER(3),
+  tihscsbop  NUMBER(3),
+  tihscmod   NUMBER(3),
+  tihscmda   NUMBER(4),
+  tihscpap   NUMBER(4),
+  ticodhisto NUMBER(3),
+  ticontabil CHAR(1),
+  tifval     DATE,
+  tidbha     NUMBER(1)
+)
+;
+create index TI00199 on TI0019 (TIPGCOD, TIHSCCTA, TIHSCOPER, TIHSCSUC, TIHSCTOPE, TIHSCSBOP, TIHSCMOD, TIHSCMDA, TIHSCPAP, TIFCHC, TICODHISTO);
+alter table TI0019
+  add primary key (TIPGCOD, TIPSUC, TIMODT, TITRN, TIFCHC, TINREL, TIFORDI, TICORRT);
+

@@ -1,0 +1,47 @@
+create table AQPC821
+(
+  aqpc821codopi   NUMBER(10) not null,
+  aqpc821corr     NUMBER(10) not null,
+  aqpc821fecpro   DATE not null,
+  aqpc821entfin   VARCHAR2(200),
+  aqpc821montrlf  VARCHAR2(20),
+  aqpc821plzorlf  VARCHAR2(15),
+  aqpc821cuotrlf  VARCHAR2(20),
+  aqpc821sdorlf   VARCHAR2(20),
+  aqpc821cuocan   VARCHAR2(20),
+  aqpc821tearlf   VARCHAR2(20),
+  aqpc821clasfrlf VARCHAR2(30),
+  aqpc821horareg  VARCHAR2(8),
+  aqpc821estad    VARCHAR2(1)
+)
+;
+comment on table AQPC821
+  is 'Tabla temporal de relaciones financieras de rep. opinion de riesgos crm';
+comment on column AQPC821.aqpc821codopi
+  is 'Cod. Opinion riesgo';
+comment on column AQPC821.aqpc821corr
+  is 'Correlativo';
+comment on column AQPC821.aqpc821fecpro
+  is 'fecha de carga';
+comment on column AQPC821.aqpc821entfin
+  is 'Entidad financiera';
+comment on column AQPC821.aqpc821montrlf
+  is 'monto otorgado ';
+comment on column AQPC821.aqpc821plzorlf
+  is 'Plazo original';
+comment on column AQPC821.aqpc821cuotrlf
+  is 'cuota';
+comment on column AQPC821.aqpc821sdorlf
+  is 'saldo capital';
+comment on column AQPC821.aqpc821cuocan
+  is 'cuotas canceladas';
+comment on column AQPC821.aqpc821tearlf
+  is 'TEA';
+comment on column AQPC821.aqpc821clasfrlf
+  is 'clasificación';
+comment on column AQPC821.aqpc821horareg
+  is 'Hora Registro';
+create index AQPC821A2 on AQPC821 (AQPC821CODOPI, AQPC821ESTAD);
+alter table AQPC821
+  add primary key (AQPC821CODOPI, AQPC821CORR, AQPC821FECPRO);
+

@@ -1,0 +1,13 @@
+create table FVAC10
+(
+  vac13pai  NUMBER(3) not null,
+  vac10zna  NUMBER(3) not null,
+  vac10dsc  CHAR(30),
+  vac10elec CHAR(1),
+  vac10ax1  CHAR(10),
+  vac10ax2  NUMBER(5)
+)
+;
+alter table FVAC10
+  add primary key (VAC13PAI, VAC10ZNA);
+

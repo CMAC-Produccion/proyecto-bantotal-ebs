@@ -1,0 +1,21 @@
+create table FBC792
+(
+  bc792emp  NUMBER(4) not null,
+  bc792fch  DATE not null,
+  bc792morg NUMBER(4) not null,
+  bc792nopr CHAR(20) not null,
+  bc792plaz NUMBER(6) not null,
+  bc792cage NUMBER(12) not null,
+  bc792idcl NUMBER(2) not null,
+  bc792corr NUMBER(9) not null,
+  bc792tusr NUMBER(4),
+  bc792imp1 NUMBER(17,2),
+  bc792imp2 NUMBER(17,2),
+  bc792chr1 CHAR(20),
+  bc792chr2 CHAR(20),
+  bc792fech DATE
+)
+;
+alter table FBC792
+  add primary key (BC792EMP, BC792FCH, BC792MORG, BC792NOPR, BC792PLAZ, BC792CAGE, BC792IDCL, BC792CORR);
+

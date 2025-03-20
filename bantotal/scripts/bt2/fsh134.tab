@@ -1,0 +1,18 @@
+create table FSH134
+(
+  sh134emp NUMBER(3) not null,
+  sh134suc NUMBER(3) not null,
+  sh134mod NUMBER(3) not null,
+  sh134trn NUMBER(3) not null,
+  sh134rel NUMBER(4) not null,
+  sh134fch DATE not null,
+  sh134ord NUMBER(2) not null,
+  sh134sbo NUMBER(3) not null,
+  sh134rng NUMBER(3) not null,
+  sh134txt CHAR(132)
+)
+;
+create index FSH13402 on FSH134 (SH134EMP, SH134FCH, SH134SUC, SH134MOD, SH134TRN, SH134REL);
+alter table FSH134
+  add primary key (SH134EMP, SH134SUC, SH134MOD, SH134TRN, SH134REL, SH134FCH, SH134ORD, SH134SBO, SH134RNG);
+

@@ -1,0 +1,21 @@
+create table FSFL14
+(
+  fsfl14cli NUMBER(9) not null,
+  fsfl14lim CHAR(4) not null,
+  fsfl14ope NUMBER(9),
+  fsfl14nom CHAR(30),
+  fsfl14asg NUMBER(17,2),
+  fsfl14dsp NUMBER(17,2),
+  fsfl14exc NUMBER(17,2),
+  fsfl14utl NUMBER(17,2),
+  fsfl14est CHAR(15),
+  fsfl14fal DATE,
+  fsfl14fvc DATE,
+  fsfl14uin CHAR(10),
+  fsfl14ucf CHAR(10)
+)
+;
+create index FSFL1402 on FSFL14 (FSFL14LIM);
+alter table FSFL14
+  add primary key (FSFL14CLI, FSFL14LIM);
+

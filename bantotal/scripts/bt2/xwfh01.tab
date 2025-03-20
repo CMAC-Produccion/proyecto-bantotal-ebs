@@ -1,0 +1,14 @@
+create table XWFH01
+(
+  xwfh01wi NUMBER(10) not null,
+  xwfh01at CHAR(50) not null,
+  xwfh01wk CHAR(20),
+  xwfh01us CHAR(10),
+  xwfh01va CHAR(30),
+  xwfh01in NUMBER(10)
+)
+;
+create index XWFH0102 on XWFH01 (XWFH01IN, XWFH01AT, XWFH01WI);
+alter table XWFH01
+  add primary key (XWFH01WI, XWFH01AT);
+

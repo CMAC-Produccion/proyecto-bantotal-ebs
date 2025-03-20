@@ -1,0 +1,11 @@
+create table WFPROJOBJECTS
+(
+  wfprjname     CHAR(50) not null,
+  wfprjobjtyp   CHAR(1) not null,
+  wfprjobjname  CHAR(60) not null,
+  wfprjobjgloid NUMBER(10)
+)
+;
+alter table WFPROJOBJECTS
+  add primary key (WFPRJNAME, WFPRJOBJTYP, WFPRJOBJNAME);
+

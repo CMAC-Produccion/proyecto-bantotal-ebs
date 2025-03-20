@@ -1,0 +1,35 @@
+create or replace force view v_aqpa729_precon as
+select
+a.aqpa729id,
+a.aqpa729tipope,
+--a.aqpa729numtar,
+substr(a.aqpa729numtar,0,6)||'******'||substr(a.aqpa729numtar,13,4) aqpa729numtar,
+a.aqpa729fecreg,
+a.aqpa729horreg,
+a.aqpa729nomtar,
+a.aqpa729reqid,
+a.aqpa729inscod,
+a.aqpa729vauide,
+a.aqpa729wallid,
+a.aqpa729tokreqid,
+a.aqpa729tokrefid,
+a.aqpa729panrefid,
+a.aqpa729procid,
+a.aqpa729uselan,
+a.aqpa729source,
+a.aqpa729toktyp,
+a.aqpa729tokreqnam,
+a.aqpa729recdec,
+a.aqpa729recdeccod,
+a.aqpa729returncod,
+a.aqpa729errdes,
+a.aqpa729errint,
+a.aqpa729train,
+a.aqpa729traout,
+a.aqpa729numaux2,
+a.aqpa729numaux1,
+a.aqpa729varaux2,
+a.aqpa729varaux1
+from AQPA729 a
+;
+

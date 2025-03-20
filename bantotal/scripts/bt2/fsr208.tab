@@ -1,0 +1,15 @@
+create table FSR208
+(
+  fsremp  NUMBER(3) not null,
+  fsrncta NUMBER(9) not null,
+  fsrpais NUMBER(3) not null,
+  fsrtdoc NUMBER(2) not null,
+  fsrndoc CHAR(12) not null,
+  fsrcodt NUMBER(2),
+  fsrest  CHAR(1)
+)
+;
+create index FSR2082 on FSR208 (FSRCODT);
+alter table FSR208
+  add primary key (FSREMP, FSRNCTA, FSRPAIS, FSRTDOC, FSRNDOC);
+

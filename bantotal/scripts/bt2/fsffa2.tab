@@ -1,0 +1,13 @@
+create table FSFFA2
+(
+  kgaprocod NUMBER(5) not null,
+  kgaactcod NUMBER(5) not null,
+  kgaactdsc CHAR(35),
+  kgafuncod NUMBER(5),
+  kgaactmin NUMBER(5)
+)
+;
+create index FSFFA204 on FSFFA2 (KGAFUNCOD, KGAPROCOD, KGAACTCOD);
+alter table FSFFA2
+  add primary key (KGAPROCOD, KGAACTCOD);
+

@@ -1,0 +1,48 @@
+create table AQPC199
+(
+  aqpc199corr   NUMBER(9) not null,
+  aqpc199placa  VARCHAR2(30) not null,
+  aqpc199pais   NUMBER(3),
+  aqpc199tipdoc NUMBER(2),
+  aqpc199nrodoc VARCHAR2(12),
+  aqpc199nomcli VARCHAR2(100),
+  aqpc199unidad VARCHAR2(100),
+  aqpc199sede   VARCHAR2(100),
+  aqpc199fecarg DATE,
+  aqpc199usrc   VARCHAR2(10),
+  aqpc199estado VARCHAR2(1),
+  aqpc199aux1   NUMBER(9),
+  aqpc199aux2   VARCHAR2(100),
+  aqpc199aux3   DATE,
+  aqpc199aux4   NUMBER(18,6)
+)
+;
+comment on table AQPC199
+  is 'Tabla relación para excluir trabajadores de venta de motos';
+comment on column AQPC199.aqpc199corr
+  is 'Nro. carga';
+comment on column AQPC199.aqpc199placa
+  is 'Placa';
+comment on column AQPC199.aqpc199pais
+  is 'Pais';
+comment on column AQPC199.aqpc199tipdoc
+  is 'Tipo documento';
+comment on column AQPC199.aqpc199nrodoc
+  is 'Nro. documento';
+comment on column AQPC199.aqpc199nomcli
+  is 'Nombres Cliente';
+comment on column AQPC199.aqpc199unidad
+  is 'Unidad';
+comment on column AQPC199.aqpc199sede
+  is 'Sede';
+comment on column AQPC199.aqpc199fecarg
+  is 'Fecha de carga';
+comment on column AQPC199.aqpc199usrc
+  is 'Usuario de carga';
+comment on column AQPC199.aqpc199estado
+  is 'Estado E=no vigente S = lista vigente ';
+create index AQPC199A2 on AQPC199 (AQPC199PLACA);
+create index AQPC199A3 on AQPC199 (AQPC199PAIS, AQPC199TIPDOC, AQPC199NRODOC);
+alter table AQPC199
+  add primary key (AQPC199CORR, AQPC199PLACA);
+

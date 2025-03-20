@@ -1,0 +1,12 @@
+create table WFDOC
+(
+  wfprcid    NUMBER(4) not null,
+  wfdocappid NUMBER(2) not null,
+  wfdocid    NUMBER(10) not null,
+  wfdocprop  CHAR(1)
+)
+;
+create index IWFDOCUMENTS1 on WFDOC (WFDOCAPPID, WFDOCID);
+alter table WFDOC
+  add primary key (WFPRCID, WFDOCAPPID, WFDOCID);
+

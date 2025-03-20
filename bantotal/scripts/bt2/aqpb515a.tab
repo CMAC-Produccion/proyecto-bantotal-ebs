@@ -1,0 +1,65 @@
+create table AQPB515A
+(
+  aqpb515aserial NUMBER(10) not null,
+  aqpb515asecue  NUMBER(6) not null,
+  aqpb515aferep  DATE not null,
+  aqpb515acopuc  VARCHAR2(20) not null,
+  aqpb515acoent  VARCHAR2(15) not null,
+  aqpb515anocnt  VARCHAR2(50),
+  aqpb515adescr  VARCHAR2(150),
+  aqpb515atidet  CHAR(2),
+  aqpb515afeact  DATE,
+  aqpb515asaldo  NUMBER(17,2),
+  aqpb515atobli  VARCHAR2(2),
+  aqpb515acalif  VARCHAR2(10),
+  aqpb515acondi  VARCHAR2(4),
+  aqpb515anoent  VARCHAR2(100),
+  aqpb515aindle  CHAR(1),
+  aqpb515aconcod VARCHAR2(16) not null,
+  aqpb515acreusr VARCHAR2(30) not null,
+  aqpb515acretim TIMESTAMP(6)
+)
+compress;
+comment on table AQPB515A
+  is 'RCC - EQUIFAX';
+comment on column AQPB515A.aqpb515aserial
+  is 'SERIAL';
+comment on column AQPB515A.aqpb515asecue
+  is 'SECUENCIA';
+comment on column AQPB515A.aqpb515aferep
+  is 'FECHA REPOTE';
+comment on column AQPB515A.aqpb515acopuc
+  is 'CODIGO PUC';
+comment on column AQPB515A.aqpb515acoent
+  is 'CODIGO DE ENTIDAD';
+comment on column AQPB515A.aqpb515anocnt
+  is 'NOMBRE CUENTA';
+comment on column AQPB515A.aqpb515adescr
+  is 'DESCRIPCION CUENTA';
+comment on column AQPB515A.aqpb515atidet
+  is 'TIPO DETALLE';
+comment on column AQPB515A.aqpb515afeact
+  is 'FECHA ACTUALIZACION';
+comment on column AQPB515A.aqpb515asaldo
+  is 'SALDO';
+comment on column AQPB515A.aqpb515atobli
+  is 'TIPO OBLIGACION';
+comment on column AQPB515A.aqpb515acalif
+  is 'CALIFICACION';
+comment on column AQPB515A.aqpb515acondi
+  is 'CONDICION';
+comment on column AQPB515A.aqpb515anoent
+  is 'NOMBRE ENTIDAD';
+comment on column AQPB515A.aqpb515aindle
+  is 'INDICADOR';
+comment on column AQPB515A.aqpb515aconcod
+  is 'CONSULTA - CODIGO INTERNO';
+comment on column AQPB515A.aqpb515acreusr
+  is 'CONSULTA - USUARIO';
+comment on column AQPB515A.aqpb515acretim
+  is 'CONSULTA - TIMESTAMP';
+create unique index AQPB515A00 on AQPB515A (AQPB515ASERIAL, AQPB515ASECUE, AQPB515AFEREP, AQPB515ACOPUC, AQPB515ACOENT, AQPB515ACONCOD, AQPB515ACREUSR)
+  compress 6;
+alter table AQPB515A
+  add constraint AQPB515APK primary key (AQPB515ASERIAL, AQPB515ASECUE, AQPB515AFEREP, AQPB515ACOPUC, AQPB515ACOENT, AQPB515ACONCOD, AQPB515ACREUSR);
+

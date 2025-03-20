@@ -1,0 +1,19 @@
+create table FIF550
+(
+  if550pgcod NUMBER(3) not null,
+  if550mod   NUMBER(3) not null,
+  if550tope  NUMBER(3) not null,
+  if550mda   NUMBER(4) not null,
+  if550pap   NUMBER(4) not null,
+  if550est   NUMBER(2) not null,
+  if550cnco  NUMBER(3) not null,
+  if550opco  NUMBER(5),
+  if550vart  NUMBER(3),
+  if550aux1  NUMBER(5),
+  if550aux2  CHAR(1),
+  if550aux3  NUMBER(8)
+)
+;
+alter table FIF550
+  add primary key (IF550PGCOD, IF550MOD, IF550TOPE, IF550MDA, IF550PAP, IF550EST, IF550CNCO);
+

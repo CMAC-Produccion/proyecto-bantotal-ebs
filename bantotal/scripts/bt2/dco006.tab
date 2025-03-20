@@ -1,0 +1,16 @@
+create table DCO006
+(
+  dco006pais NUMBER(3) not null,
+  dco006tdoc NUMBER(2) not null,
+  dco006ndoc CHAR(12) not null,
+  dco000id   NUMBER(10) not null,
+  dco006pres CHAR(1),
+  dco006fpre DATE,
+  dco006fven DATE,
+  dco006txt  CHAR(30)
+)
+;
+create index DCO00602 on DCO006 (DCO000ID);
+alter table DCO006
+  add primary key (DCO006PAIS, DCO006TDOC, DCO006NDOC, DCO000ID);
+

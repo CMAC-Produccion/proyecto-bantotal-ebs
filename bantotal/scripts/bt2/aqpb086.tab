@@ -1,0 +1,31 @@
+create table AQPB086
+(
+  aqpb086eval NUMBER(10) not null,
+  aqpb086cod  NUMBER(4) not null,
+  aqpb086lin  NUMBER(3) not null,
+  aqpb086mto1 NUMBER(17,2),
+  aqpb086mto2 NUMBER(17,2),
+  aqpb086mto3 NUMBER(17,2),
+  aqpb086mto4 NUMBER(17,2),
+  aqpb086mda1 NUMBER(4),
+  aqpb086mda2 NUMBER(4),
+  aqpb086mda3 NUMBER(4),
+  aqpb086mda4 NUMBER(4),
+  aqpb086txt1 CHAR(40),
+  aqpb086txt2 CHAR(40),
+  aqpb086txt3 CHAR(40),
+  aqpb086con1 CHAR(10),
+  aqpb086con2 CHAR(12),
+  aqpb086con3 CHAR(10),
+  aqpb086can1 NUMBER(10,3),
+  aqpb086can2 NUMBER(10,3),
+  aqpb086can3 NUMBER(10,3),
+  aqpb086can4 NUMBER(10,3),
+  aqpb086txl1 CHAR(50),
+  aqpb086txl2 CHAR(50),
+  aqpb086txl3 CHAR(50)
+)
+;
+alter table AQPB086
+  add primary key (AQPB086EVAL, AQPB086COD, AQPB086LIN);
+

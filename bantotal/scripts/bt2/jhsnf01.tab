@@ -1,0 +1,28 @@
+create table JHSNF01
+(
+  jhsnf01usr CHAR(10) not null,
+  jhsnf01mod CHAR(3) not null,
+  jhsnf01pgc NUMBER(3) not null,
+  jhsnf01mdl NUMBER(3) not null,
+  jhsnf01suc NUMBER(3) not null,
+  jhsnf01mda NUMBER(4) not null,
+  jhsnf01pap NUMBER(4) not null,
+  jhsnf01cta NUMBER(9) not null,
+  jhsnf01ope NUMBER(9) not null,
+  jhsnf01sop NUMBER(3) not null,
+  jhsnf01top NUMBER(3) not null,
+  jhsnf01cor NUMBER(9) not null,
+  jhsnf01tpo NUMBER(2),
+  jhsnf01fva DATE,
+  jhsnf01tta NUMBER(1),
+  jhsnf01tas NUMBER(10,6),
+  jhsnf01inv NUMBER(9),
+  jhsnf01per NUMBER(3),
+  jhsnf01pre NUMBER(14,8),
+  jhsnf0112f DATE,
+  jhsnf0112c CHAR(1),
+  jhsnf0ori  CHAR(10)
+)
+;
+create unique index JHSNF011 on JHSNF01 (JHSNF01USR, JHSNF01MOD, JHSNF01PGC, JHSNF01MDL, JHSNF01SUC, JHSNF01MDA, JHSNF01PAP, JHSNF01CTA, JHSNF01OPE, JHSNF01SOP, JHSNF01TOP, JHSNF01COR);
+

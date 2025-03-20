@@ -1,0 +1,14 @@
+create table JBXIMO
+(
+  jbximoapl CHAR(10) not null,
+  jbximosol NUMBER(9) not null,
+  jbximopas NUMBER(3) not null,
+  jbximotdo NUMBER(2) not null,
+  jbximondo CHAR(12) not null,
+  jbximoimp NUMBER(3) not null,
+  jbximocon NUMBER(3)
+)
+;
+alter table JBXIMO
+  add primary key (JBXIMOAPL, JBXIMOSOL, JBXIMOPAS, JBXIMOTDO, JBXIMONDO, JBXIMOIMP);
+

@@ -1,0 +1,42 @@
+create table AQPA141
+(
+  aqpa141cod VARCHAR2(11) not null,
+  aqpa141fag DATE,
+  aqpa141ax1 NUMBER(9),
+  aqpa141ax2 NUMBER(9),
+  aqpa141ax3 NUMBER(17,2),
+  aqpa141ax4 NUMBER(17,2),
+  aqpa141ax5 DATE,
+  aqpa141ax6 DATE,
+  aqpa141ax7 CHAR(100),
+  aqpa141ax8 CHAR(100),
+  aqpa141ax9 CHAR(100)
+)
+;
+comment on table AQPA141
+  is 'TABLA MAESTRO ROTACION DE TRABAJADORES';
+comment on column AQPA141.aqpa141cod
+  is 'Código de trabajador';
+comment on column AQPA141.aqpa141fag
+  is 'fecha de ingreso a agencia';
+comment on column AQPA141.aqpa141ax1
+  is 'Auxiliar';
+comment on column AQPA141.aqpa141ax2
+  is 'Auxiliar';
+comment on column AQPA141.aqpa141ax3
+  is 'Auxiliar';
+comment on column AQPA141.aqpa141ax4
+  is 'Auxiliar';
+comment on column AQPA141.aqpa141ax5
+  is 'Auxiliar';
+comment on column AQPA141.aqpa141ax6
+  is 'Auxiliar';
+comment on column AQPA141.aqpa141ax7
+  is 'Auxiliar';
+comment on column AQPA141.aqpa141ax8
+  is 'Auxiliar';
+comment on column AQPA141.aqpa141ax9
+  is 'Auxiliar';
+alter table AQPA141
+  add primary key (AQPA141COD);
+

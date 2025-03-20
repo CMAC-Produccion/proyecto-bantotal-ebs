@@ -1,0 +1,67 @@
+create table JAQM79
+(
+  jaqm79emp NUMBER(3) not null,
+  jaqm79mod NUMBER(3) not null,
+  jaqm79suc NUMBER(3) not null,
+  jaqm79mda NUMBER(4) not null,
+  jaqm79pap NUMBER(4) not null,
+  jaqm79cta NUMBER(9) not null,
+  jaqm79ope NUMBER(9) not null,
+  jaqm79sbo NUMBER(3) not null,
+  jaqm79top NUMBER(3) not null,
+  jaqm79fec DATE not null,
+  jaqm79cor NUMBER(4) not null,
+  jaqm79pai NUMBER(3),
+  jaqm79tdo NUMBER(2),
+  jaqm79ndo CHAR(25),
+  jaqm79tid CHAR(10),
+  jaqm79idf CHAR(50),
+  jaqm79tok CHAR(250),
+  jaqm79lin VARCHAR2(2000),
+  jaqm79lou LONG
+)
+;
+comment on table JAQM79
+  is 'Envio Correos Contratacion Digital CA';
+comment on column JAQM79.jaqm79emp
+  is 'Empresa';
+comment on column JAQM79.jaqm79mod
+  is 'Modulo';
+comment on column JAQM79.jaqm79suc
+  is 'Sucursal';
+comment on column JAQM79.jaqm79mda
+  is 'Moneda';
+comment on column JAQM79.jaqm79pap
+  is 'Papel';
+comment on column JAQM79.jaqm79cta
+  is 'Cuenta';
+comment on column JAQM79.jaqm79ope
+  is 'Operacion';
+comment on column JAQM79.jaqm79sbo
+  is 'Sub Operacion';
+comment on column JAQM79.jaqm79top
+  is 'Tipo de Operacion';
+comment on column JAQM79.jaqm79fec
+  is 'Fecha';
+comment on column JAQM79.jaqm79cor
+  is 'Correlativo';
+comment on column JAQM79.jaqm79pai
+  is 'Pais';
+comment on column JAQM79.jaqm79tdo
+  is 'Tipo de documento';
+comment on column JAQM79.jaqm79ndo
+  is 'Numero Documento';
+comment on column JAQM79.jaqm79tid
+  is 'Tipo Documento Enviando Digital';
+comment on column JAQM79.jaqm79idf
+  is 'Id Documento Firmado';
+comment on column JAQM79.jaqm79tok
+  is 'Token';
+comment on column JAQM79.jaqm79lin
+  is 'Log Entrada';
+comment on column JAQM79.jaqm79lou
+  is 'Log Respuesta';
+create index JAQM79A2 on JAQM79 (JAQM79PAI, JAQM79TDO, JAQM79NDO);
+alter table JAQM79
+  add primary key (JAQM79EMP, JAQM79MOD, JAQM79SUC, JAQM79MDA, JAQM79PAP, JAQM79CTA, JAQM79OPE, JAQM79SBO, JAQM79TOP, JAQM79FEC, JAQM79COR);
+

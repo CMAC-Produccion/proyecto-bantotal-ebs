@@ -1,0 +1,15 @@
+create table JAQL824G
+(
+  jaql824apl  NUMBER(3) not null,
+  jaql824ban  CHAR(4) not null,
+  jaql824env  NUMBER(9) not null,
+  jaql824greg NUMBER(9) not null,
+  jaql824gtre CHAR(2),
+  jaql824gtim NUMBER(18,2),
+  jaql824gtin NUMBER(18,2),
+  jaql824gdad CHAR(18)
+)
+;
+alter table JAQL824G
+  add primary key (JAQL824APL, JAQL824BAN, JAQL824ENV, JAQL824GREG);
+

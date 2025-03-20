@@ -1,0 +1,18 @@
+create table FSFSD9
+(
+  sfst1merc  NUMBER(3) not null,
+  sfsd7msje  NUMBER(4) not null,
+  sfsd7flujo CHAR(1) not null,
+  sfsd8bloq  NUMBER(2) not null,
+  sfsd9sec   NUMBER(3) not null,
+  sfsd9desc  CHAR(35),
+  sfsd6id    CHAR(10),
+  sfsd9ini   NUMBER(4),
+  sfsd9prel  NUMBER(4)
+)
+;
+create index FSFSD902 on FSFSD9 (SFST1MERC, SFSD6ID);
+create index FSFSD904 on FSFSD9 (SFST1MERC, SFSD7MSJE, SFSD6ID);
+alter table FSFSD9
+  add primary key (SFST1MERC, SFSD7MSJE, SFSD7FLUJO, SFSD8BLOQ, SFSD9SEC);
+

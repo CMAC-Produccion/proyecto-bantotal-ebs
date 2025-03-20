@@ -1,0 +1,11 @@
+create table FSC002
+(
+  opecod  NUMBER(1) not null,
+  opelin  NUMBER(3) not null,
+  openum  NUMBER(17,2),
+  opeoper CHAR(1)
+)
+;
+alter table FSC002
+  add primary key (OPECOD, OPELIN);
+

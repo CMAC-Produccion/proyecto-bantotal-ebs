@@ -1,0 +1,14 @@
+create table X999TD3
+(
+  x999td3pa NUMBER(3) not null,
+  x999td3td NUMBER(2) not null,
+  x999td3nd CHAR(12) not null,
+  x999td3ti CHAR(19) not null,
+  x999td3co NUMBER(3) not null,
+  x999td3ad CHAR(19),
+  x999td3es CHAR(2)
+)
+;
+alter table X999TD3
+  add primary key (X999TD3PA, X999TD3TD, X999TD3ND, X999TD3TI, X999TD3CO);
+

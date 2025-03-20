@@ -1,0 +1,20 @@
+create table SNG304
+(
+  sng304cod NUMBER(3) not null,
+  sng304mod NUMBER(3) not null,
+  sng304suc NUMBER(3) not null,
+  sng304mda NUMBER(4) not null,
+  sng304pap NUMBER(4) not null,
+  sng304cta NUMBER(9) not null,
+  sng304ope NUMBER(9) not null,
+  sng304sop NUMBER(3) not null,
+  sng304top NUMBER(3) not null,
+  sng303cod NUMBER(3) not null,
+  sng304cor NUMBER(3) not null,
+  sng304xml LONG
+)
+;
+create index SNG30402 on SNG304 (SNG303COD);
+alter table SNG304
+  add primary key (SNG304COD, SNG304MOD, SNG304SUC, SNG304MDA, SNG304PAP, SNG304CTA, SNG304OPE, SNG304SOP, SNG304TOP, SNG303COD, SNG304COR);
+

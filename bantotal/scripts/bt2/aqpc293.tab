@@ -1,0 +1,18 @@
+create table AQPC293
+(
+  aqpc293codreg NUMBER(3) not null,
+  aqpc293codzon NUMBER(3) not null,
+  aqpc293nomzon VARCHAR2(60)
+)
+;
+comment on table AQPC293
+  is 'Lista de Zonas';
+comment on column AQPC293.aqpc293codreg
+  is 'Codigo Region';
+comment on column AQPC293.aqpc293codzon
+  is 'Codigo Zona';
+comment on column AQPC293.aqpc293nomzon
+  is 'Nombre Zona';
+alter table AQPC293
+  add primary key (AQPC293CODREG, AQPC293CODZON);
+

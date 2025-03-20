@@ -1,0 +1,39 @@
+create table JAQL735
+(
+  jaql735fepr DATE not null,
+  jaql735pgco NUMBER(3) not null,
+  jaql735scsu NUMBER(3) not null,
+  jaql735scct NUMBER(9) not null,
+  jaql735scmd NUMBER(4) not null,
+  jaql735scmo NUMBER(3) not null,
+  jaql735scto NUMBER(3) not null,
+  jaql735scsb NUMBER(3) not null,
+  jaql735oper NUMBER(9) not null,
+  jaql735such NUMBER(3) not null,
+  jaql735banc CHAR(3) not null,
+  jaql735agen CHAR(3) not null,
+  jaql735cheq CHAR(9) not null,
+  jaql735cuen CHAR(10) not null,
+  jaql735tico CHAR(1) not null,
+  jaql735mone NUMBER(4),
+  jaql735impo NUMBER(17,2),
+  jaql735comi NUMBER(17,2),
+  jaql735esta CHAR(1),
+  jaql735feac DATE,
+  jaql735itsu NUMBER(3),
+  jaql735itmo NUMBER(3),
+  jaql735ittr NUMBER(3),
+  jaql735itre NUMBER(4),
+  jaql735au01 CHAR(50),
+  jaql735au02 CHAR(50),
+  jaql735au03 NUMBER(15),
+  jaql735au04 NUMBER(15),
+  jaql735au05 NUMBER(17,2),
+  jaql735au06 NUMBER(18),
+  jaql735au07 DATE,
+  jaql735au08 DATE
+)
+;
+alter table JAQL735
+  add primary key (JAQL735FEPR, JAQL735PGCO, JAQL735SCSU, JAQL735SCCT, JAQL735SCMD, JAQL735SCMO, JAQL735SCTO, JAQL735SCSB, JAQL735OPER, JAQL735SUCH, JAQL735BANC, JAQL735AGEN, JAQL735CHEQ, JAQL735CUEN, JAQL735TICO);
+

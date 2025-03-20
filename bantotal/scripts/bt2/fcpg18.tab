@@ -1,0 +1,19 @@
+create table FCPG18
+(
+  cpg18empbt NUMBER(3) not null,
+  cpg18cod   NUMBER(3) not null,
+  cpg18desc  CHAR(40),
+  cpg18tpo   CHAR(2),
+  cpg18cta   NUMBER(9),
+  cpg18pian  NUMBER(3),
+  cpg18cdeu  CHAR(1),
+  cpg18ecta  CHAR(1),
+  cpg18est   CHAR(3),
+  cpg18blq   CHAR(1),
+  cpg18inst  NUMBER(10)
+)
+;
+create index FCPG1802 on FCPG18 (CPG18INST);
+alter table FCPG18
+  add primary key (CPG18EMPBT, CPG18COD);
+

@@ -1,0 +1,36 @@
+create table JAQL592
+(
+  jaql592codana CHAR(20),
+  jaql592mes    NUMBER(2),
+  jaql592metsdo NUMBER(17,2),
+  jaql592metcli NUMBER(10),
+  jaql592anio   NUMBER(5),
+  jaql592age    NUMBER(3),
+  jaql592fec    DATE,
+  jaql592zon    NUMBER(3),
+  jaql592est    CHAR(1),
+  jaql592fpro   DATE
+)
+;
+comment on column JAQL592.jaql592codana
+  is 'Código de Analista o Usuario';
+comment on column JAQL592.jaql592mes
+  is 'Mes de Proceso de Productividad';
+comment on column JAQL592.jaql592metsdo
+  is 'Meta Saldo del analista luego de aplicarle los Factores';
+comment on column JAQL592.jaql592metcli
+  is 'Meta Cliente del analista luego de aplicarle los Factores';
+comment on column JAQL592.jaql592anio
+  is 'Año de Productividad (2016)';
+comment on column JAQL592.jaql592age
+  is 'Codigo de Agencia';
+comment on column JAQL592.jaql592fec
+  is 'Fecha de Proceso';
+comment on column JAQL592.jaql592zon
+  is 'Codigo de Zona';
+comment on column JAQL592.jaql592est
+  is 'Estado S-Vigente / N-No Vigente';
+comment on column JAQL592.jaql592fpro
+  is 'Fecha de Backup-Historico';
+create index JAQL592_1 on JAQL592 (JAQL592CODANA, JAQL592AGE, JAQL592MES, JAQL592ANIO);
+

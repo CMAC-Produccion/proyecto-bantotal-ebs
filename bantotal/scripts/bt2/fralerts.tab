@@ -1,0 +1,15 @@
+create table FRALERTS
+(
+  fraleid   NUMBER(6) not null,
+  fraletext VARCHAR2(80),
+  fralecall VARCHAR2(500),
+  fraleuser CHAR(30),
+  fraletype CHAR(1),
+  fraledate DATE
+)
+;
+create index FRALEDAT on FRALERTS (FRALEDATE);
+create index FRALEUSE on FRALERTS (FRALEUSER, FRALEDATE);
+alter table FRALERTS
+  add primary key (FRALEID);
+

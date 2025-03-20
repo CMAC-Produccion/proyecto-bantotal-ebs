@@ -1,0 +1,19 @@
+create table JAQL358
+(
+  jaql358tireg CHAR(1) not null,
+  jaql358ormov CHAR(4) not null,
+  jaql358produ CHAR(2) not null,
+  jaql358fearc CHAR(8) not null,
+  jaql358fetxr DATE not null,
+  jaql358corr  NUMBER(9) not null,
+  jaql358toreg CHAR(7),
+  jaql358trext CHAR(7),
+  jaql358trloc CHAR(7),
+  jaql358montx NUMBER(14,2),
+  jaql358moloc NUMBER(14,2),
+  jaql358coest CHAR(1)
+)
+;
+alter table JAQL358
+  add primary key (JAQL358TIREG, JAQL358ORMOV, JAQL358PRODU, JAQL358FEARC, JAQL358FETXR, JAQL358CORR);
+

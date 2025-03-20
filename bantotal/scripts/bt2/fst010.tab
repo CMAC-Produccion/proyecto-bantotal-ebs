@@ -1,0 +1,15 @@
+create table FST010
+(
+  pgcod    NUMBER(3) not null,
+  ejcod    NUMBER(3) not null,
+  ejnom    CHAR(30),
+  ejci     CHAR(20),
+  ejfching DATE,
+  rpcod    NUMBER(3)
+)
+;
+create index FST01002 on FST010 (PGCOD, RPCOD);
+create index FST01003 on FST010 (EJNOM);
+alter table FST010
+  add primary key (PGCOD, EJCOD);
+

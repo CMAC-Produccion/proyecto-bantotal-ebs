@@ -1,0 +1,10 @@
+create table FPP012
+(
+  pp010prd NUMBER(3) not null,
+  pp012niv NUMBER(2) not null,
+  pp012dsc CHAR(30)
+)
+;
+alter table FPP012
+  add primary key (PP010PRD, PP012NIV);
+

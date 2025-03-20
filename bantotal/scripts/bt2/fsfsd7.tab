@@ -1,0 +1,13 @@
+create table FSFSD7
+(
+  sfst1merc  NUMBER(3) not null,
+  sfsd7msje  NUMBER(4) not null,
+  sfsd7flujo CHAR(1) not null,
+  sfsd7desc  CHAR(35),
+  sfsd7baja  CHAR(1),
+  sfsd7hab   CHAR(1)
+)
+;
+alter table FSFSD7
+  add primary key (SFST1MERC, SFSD7MSJE, SFSD7FLUJO);
+

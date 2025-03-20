@@ -1,0 +1,10 @@
+create table WFUSRVISPREFGRP
+(
+  wfusrcod    CHAR(30) not null,
+  wfprefgrpid NUMBER(4) not null
+)
+;
+create index IWFUSRVISPREFGRP1 on WFUSRVISPREFGRP (WFPREFGRPID);
+alter table WFUSRVISPREFGRP
+  add primary key (WFUSRCOD, WFPREFGRPID);
+

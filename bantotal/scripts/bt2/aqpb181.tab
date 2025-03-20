@@ -1,0 +1,43 @@
+create table AQPB181
+(
+  aqpb181cor    NUMBER(10) not null,
+  aqpb181inst   NUMBER(10) not null,
+  aqpb181fecha  DATE not null,
+  aqpb181hora   VARCHAR2(10) not null,
+  aqpb181sldvig NUMBER(17,2),
+  aqpb181insdes NUMBER(10),
+  aqpb181slcdes NUMBER(17,2),
+  aqpb181mntlin NUMBER(17,2),
+  aqpb181sldant NUMBER(17,2),
+  aqpb181avance NUMBER(17,2),
+  aqpb181est    VARCHAR2(5)
+)
+;
+comment on table AQPB181
+  is 'Tabla Log de % de Avance para escalonamiento';
+comment on column AQPB181.aqpb181cor
+  is 'Correlativo';
+comment on column AQPB181.aqpb181inst
+  is 'Instancia';
+comment on column AQPB181.aqpb181fecha
+  is 'Fecha';
+comment on column AQPB181.aqpb181hora
+  is 'Hora';
+comment on column AQPB181.aqpb181sldvig
+  is 'Saldo Vigente';
+comment on column AQPB181.aqpb181insdes
+  is 'Instancia Desembolsada';
+comment on column AQPB181.aqpb181slcdes
+  is 'Saldo Consolidado Desembolsado';
+comment on column AQPB181.aqpb181mntlin
+  is 'Monto Linea de Instancia Desembolsada';
+comment on column AQPB181.aqpb181sldant
+  is 'Saldo Consolidado Final';
+comment on column AQPB181.aqpb181avance
+  is 'Porcentaje de Avance';
+comment on column AQPB181.aqpb181est
+  is 'Estado';
+create index AQPB181A2 on AQPB181 (AQPB181INST);
+alter table AQPB181
+  add primary key (AQPB181COR, AQPB181INST, AQPB181FECHA, AQPB181HORA);
+

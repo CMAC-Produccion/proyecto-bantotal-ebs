@@ -1,0 +1,51 @@
+create table AQPB177
+(
+  aqpb177cor     NUMBER(10) not null,
+  aqpb177fecha   DATE not null,
+  aqpb177hora    VARCHAR2(10) not null,
+  aqpb177gestor  VARCHAR2(30) not null,
+  aqpb177identf  VARCHAR2(30),
+  aqpb177user    VARCHAR2(15) not null,
+  aqpb177cargusu NUMBER(5),
+  aqpb177sucori  NUMBER(5),
+  aqpb177sucdes  NUMBER(5),
+  aqpb177supl    VARCHAR2(15),
+  aqpb177cargsp  NUMBER(5),
+  aqpb177fchini  DATE,
+  aqpb177fchfin  DATE,
+  aqpb177est     VARCHAR2(5)
+)
+;
+comment on column AQPB177.aqpb177cor
+  is 'Correlativo';
+comment on column AQPB177.aqpb177fecha
+  is 'Fecha';
+comment on column AQPB177.aqpb177hora
+  is 'Hora';
+comment on column AQPB177.aqpb177gestor
+  is 'Gestor';
+comment on column AQPB177.aqpb177identf
+  is 'Identificador';
+comment on column AQPB177.aqpb177user
+  is 'Usuario a Gestionar';
+comment on column AQPB177.aqpb177cargusu
+  is 'Cargo del Usuario';
+comment on column AQPB177.aqpb177sucori
+  is 'Sucursal Origen';
+comment on column AQPB177.aqpb177sucdes
+  is 'Sucural destino';
+comment on column AQPB177.aqpb177supl
+  is 'Usuario Suplente';
+comment on column AQPB177.aqpb177cargsp
+  is 'Cargo Suplente';
+comment on column AQPB177.aqpb177fchini
+  is 'Fecha Inicio Suplencia';
+comment on column AQPB177.aqpb177fchfin
+  is 'Fecha Fin Suplencia';
+comment on column AQPB177.aqpb177est
+  is 'Estado';
+create index AQPB177A2 on AQPB177 (AQPB177USER);
+create index AQPB177A3 on AQPB177 (AQPB177GESTOR);
+alter table AQPB177
+  add primary key (AQPB177COR, AQPB177FECHA, AQPB177HORA, AQPB177GESTOR, AQPB177USER);
+

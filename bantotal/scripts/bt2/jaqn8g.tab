@@ -1,0 +1,97 @@
+create table JAQN8G
+(
+  jaqn8gemp NUMBER(3) not null,
+  jaqn8gtex NUMBER(4) not null,
+  jaqn8gfec DATE not null,
+  jaqn8garm NUMBER(3) not null,
+  jaqn8gcti NUMBER(3) not null,
+  jaqn8gamo NUMBER(10,6) not null,
+  jaqn8gaut NUMBER(3),
+  jaqn8gauo NUMBER(3),
+  jaqn8gcap NUMBER(10,6),
+  jaqn8gcao NUMBER(10,6),
+  jaqn8gcpi NUMBER(10,6),
+  jaqn8gcpo NUMBER(10,6),
+  jaqn8gint NUMBER(10,6),
+  jaqn8gino NUMBER(10,6),
+  jaqn8gmor NUMBER(10,6),
+  jaqn8gmoo NUMBER(10,6),
+  jaqn8gicv NUMBER(10,6),
+  jaqn8gico NUMBER(10,6),
+  jaqn8gpen NUMBER(10,6),
+  jaqn8gpeo NUMBER(10,6),
+  jaqn8gdes CHAR(100),
+  jaqn8gan1 NUMBER(9),
+  jaqn8gan2 NUMBER(9),
+  jaqn8gai1 NUMBER(17,2),
+  jaqn8gai2 NUMBER(17,2),
+  jaqn8gat1 VARCHAR2(255),
+  jaqn8gat2 VARCHAR2(255),
+  jaqn8gaf1 DATE,
+  jaqn8gaf2 DATE
+)
+;
+comment on table JAQN8G
+  is 'Topes de Exoneración Cartera Castigada';
+comment on column JAQN8G.jaqn8gemp
+  is 'Empresa';
+comment on column JAQN8G.jaqn8gtex
+  is 'Tipo Exoneracion';
+comment on column JAQN8G.jaqn8gfec
+  is 'Fecha de Ingreso';
+comment on column JAQN8G.jaqn8garm
+  is 'Armadas Cancelaciones';
+comment on column JAQN8G.jaqn8gcti
+  is 'Condicion tiempo de permanenci';
+comment on column JAQN8G.jaqn8gamo
+  is 'Porcentaje Amortizacion';
+comment on column JAQN8G.jaqn8gaut
+  is 'Nivel de Autonomia Sin Autorizacion';
+comment on column JAQN8G.jaqn8gauo
+  is 'Nivel de Autonomia Con Autorizacion';
+comment on column JAQN8G.jaqn8gcap
+  is 'Porcentaje Exoneracion Capital';
+comment on column JAQN8G.jaqn8gcao
+  is 'Porcentaje Exoneracion Capital ';
+comment on column JAQN8G.jaqn8gcpi
+  is 'Porcentaje Exoneracion Monto Capitalizado';
+comment on column JAQN8G.jaqn8gcpo
+  is 'Porcentaje Exoneracion Monto Capitalizado ';
+comment on column JAQN8G.jaqn8gint
+  is 'Porcentaje Exoneracion Interes';
+comment on column JAQN8G.jaqn8gino
+  is 'Porcentaje Exoneracion Interes ';
+comment on column JAQN8G.jaqn8gmor
+  is 'Porcentaje Exoneracion Mora';
+comment on column JAQN8G.jaqn8gmoo
+  is 'Porcentaje Exoneracion Mora ';
+comment on column JAQN8G.jaqn8gicv
+  is 'Porcentaje Exoneracion ICV';
+comment on column JAQN8G.jaqn8gico
+  is 'Porcentaje Exoneracion ICV ';
+comment on column JAQN8G.jaqn8gpen
+  is 'Porcentaje Exoneracion Penalidad';
+comment on column JAQN8G.jaqn8gpeo
+  is 'Porcentaje Exoneracion Penalidad ';
+comment on column JAQN8G.jaqn8gdes
+  is 'Descripción Concepto';
+comment on column JAQN8G.jaqn8gan1
+  is 'Auxiliar Numerico';
+comment on column JAQN8G.jaqn8gan2
+  is 'Auxiliar Numerico';
+comment on column JAQN8G.jaqn8gai1
+  is 'Auxiliar Importe';
+comment on column JAQN8G.jaqn8gai2
+  is 'Auxiliar Importe';
+comment on column JAQN8G.jaqn8gat1
+  is 'Auxiliar Texto';
+comment on column JAQN8G.jaqn8gat2
+  is 'Auxiliar Texto';
+comment on column JAQN8G.jaqn8gaf1
+  is 'Auxiliar Fecha';
+comment on column JAQN8G.jaqn8gaf2
+  is 'Auxiliar Fecha';
+create index JAQN8GA2 on JAQN8G (JAQN8GEMP, JAQN8GTEX, JAQN8GARM, JAQN8GCTI, JAQN8GAMO, JAQN8GFEC);
+alter table JAQN8G
+  add primary key (JAQN8GEMP, JAQN8GTEX, JAQN8GFEC, JAQN8GARM, JAQN8GCTI, JAQN8GAMO);
+

@@ -1,0 +1,17 @@
+create table WFSESSIO
+(
+  wfusrcod   CHAR(30) not null,
+  wfusrsh    CHAR(40),
+  wfusrexpti DATE,
+  wfusrlstco DATE,
+  wfusrname  CHAR(30),
+  wfusremail CHAR(40),
+  wfusrpwd   CHAR(30),
+  wfcalid    NUMBER(4),
+  wfusrprcca CHAR(1),
+  wfusraccle NUMBER(1)
+)
+;
+alter table WFSESSIO
+  add primary key (WFUSRCOD);
+

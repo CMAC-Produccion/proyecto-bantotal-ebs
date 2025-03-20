@@ -1,0 +1,33 @@
+create table FBC851
+(
+  bc851emp   NUMBER(3) not null,
+  bc851inf   CHAR(10) not null,
+  bc851fch   DATE not null,
+  bc851suc   NUMBER(3) not null,
+  bc851rub   NUMBER(16) not null,
+  bc851cta   NUMBER(9) not null,
+  bc851mda   NUMBER(4) not null,
+  bc851pap   NUMBER(4) not null,
+  bc851oper  NUMBER(9) not null,
+  bc851sbop  NUMBER(3) not null,
+  bc851top   NUMBER(3) not null,
+  bc851pais  NUMBER(3) not null,
+  bc851tdoc  NUMBER(2) not null,
+  bc851ndoc  CHAR(12) not null,
+  bc851sdo   NUMBER(17,2),
+  bc851ptipo CHAR(1),
+  bc851pzo   NUMBER(5),
+  bc851ntit  NUMBER(4),
+  bc851tdep  CHAR(2),
+  bc851fval  DATE,
+  bc851aux1  CHAR(1),
+  bc851aux2  NUMBER(1),
+  bc851aux3  NUMBER(17,2),
+  bc851aux4  CHAR(8),
+  bc851ticu  CHAR(1)
+)
+;
+create index FBC85102 on FBC851 (BC851EMP, BC851INF, BC851FCH, BC851PAIS, BC851TDOC, BC851NDOC);
+alter table FBC851
+  add primary key (BC851EMP, BC851INF, BC851FCH, BC851SUC, BC851RUB, BC851CTA, BC851MDA, BC851PAP, BC851OPER, BC851SBOP, BC851TOP, BC851PAIS, BC851TDOC, BC851NDOC);
+

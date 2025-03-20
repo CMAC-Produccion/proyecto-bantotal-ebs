@@ -1,0 +1,21 @@
+create table SNGP11
+(
+  sngp10pgc  NUMBER(3) not null,
+  sngp10mod  NUMBER(3) not null,
+  sngp10tope NUMBER(3) not null,
+  sngp09cod  NUMBER(3) not null,
+  sngp11modr NUMBER(3) not null,
+  sngp11topr NUMBER(3) not null,
+  sngp11chr1 CHAR(1),
+  sngp11chr2 CHAR(1),
+  sngp11ltco NUMBER(5),
+  sngp11sint NUMBER(4),
+  sngp11intv NUMBER(9),
+  sngp11pgm1 CHAR(10),
+  sngp11porc NUMBER(10,6),
+  sngp11co14 NUMBER(4)
+)
+;
+alter table SNGP11
+  add primary key (SNGP10PGC, SNGP10MOD, SNGP10TOPE, SNGP09COD, SNGP11MODR, SNGP11TOPR);
+

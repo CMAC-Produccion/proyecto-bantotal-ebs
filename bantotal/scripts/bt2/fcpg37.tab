@@ -1,0 +1,63 @@
+create table FCPG37
+(
+  cpg36empbt NUMBER(3) not null,
+  cpg36conv  NUMBER(8) not null,
+  cpg36serv  NUMBER(3) not null,
+  cpg36frec  DATE not null,
+  cpg36nenv  NUMBER(3) not null,
+  cpg07cod   NUMBER(3) not null,
+  cpg37corrd NUMBER(10) not null,
+  cpg37paisb NUMBER(3),
+  cpg37tdocb NUMBER(3),
+  cpg37docb  CHAR(25),
+  cpg37cidb  NUMBER(3),
+  cpg37nidb  CHAR(25),
+  cpg37ape   CHAR(30),
+  cpg37nom   CHAR(35),
+  cpg37nac   CHAR(1),
+  cpg37fnac  NUMBER(8),
+  cpg37sex   CHAR(1),
+  cpg37eciv  CHAR(1),
+  cpg37paisn NUMBER(3),
+  cpg37tdocn NUMBER(3),
+  cpg37ndocn CHAR(25),
+  cpg37fing  NUMBER(8),
+  cpg37depp  CHAR(15),
+  cpg37rango CHAR(15),
+  cpg37calle CHAR(35),
+  cpg37npta  NUMBER(5),
+  cpg37piso  CHAR(2),
+  cpg37unid  CHAR(6),
+  cpg37loc   CHAR(30),
+  cpg37cpost CHAR(8),
+  cpg37telpf NUMBER(8),
+  cpg37telc  NUMBER(8),
+  cpg37teln  NUMBER(10),
+  cpg37pbco  NUMBER(3),
+  cpg37psuc  NUMBER(4),
+  cpg37pdv1  CHAR(1),
+  cpg37ptpct CHAR(3),
+  cpg37pcta  NUMBER(9),
+  cpg37psbct NUMBER(2),
+  cpg37pdv2  CHAR(1),
+  cpg37cta   CHAR(11),
+  cpg37clte  CHAR(17),
+  cpg37est   CHAR(3),
+  cpg37blq   CHAR(1),
+  cpg37inst  NUMBER(10),
+  cpg37prov  NUMBER(2),
+  cpg37tcsol NUMBER(1),
+  cpg37leg   CHAR(20),
+  cpg37ingn  NUMBER(5),
+  cpg37prvnv NUMBER(2),
+  cpg37pend  NUMBER(1),
+  cpg37bcoa  CHAR(3),
+  cpg37succa CHAR(5)
+)
+;
+create index FCPG3703 on FCPG37 (CPG37INST);
+create index FCPG3704 on FCPG37 (CPG36EMPBT, CPG36CONV, CPG36SERV, CPG36FREC, CPG36NENV, CPG07COD, CPG37PAISB, CPG37TDOCB, CPG37DOCB);
+create index FCPG3705 on FCPG37 (CPG36EMPBT, CPG36CONV, CPG36SERV, CPG36FREC, CPG36NENV, CPG07COD, CPG37PAISN, CPG37TDOCN, CPG37NDOCN);
+alter table FCPG37
+  add primary key (CPG36EMPBT, CPG36CONV, CPG36SERV, CPG36FREC, CPG36NENV, CPG07COD, CPG37CORRD);
+

@@ -1,0 +1,88 @@
+create table JAQN10
+(
+  jaqn10emp NUMBER(3) not null,
+  jaqn10mod NUMBER(3) not null,
+  jaqn10suc NUMBER(3) not null,
+  jaqn10tra NUMBER(3) not null,
+  jaqn10rel NUMBER(4) not null,
+  jaqn10fco DATE not null,
+  jaqn10ord NUMBER(2) not null,
+  jaqn10sbo NUMBER(3) not null,
+  jaqn10use CHAR(10),
+  jaqn10usa CHAR(10),
+  jaqn10caj NUMBER(3),
+  jaqn10fec DATE,
+  jaqn10hor CHAR(8),
+  jaqn10pti CHAR(1),
+  jaqn10an1 NUMBER(9),
+  jaqn10an2 NUMBER(9),
+  jaqn10an3 NUMBER(9),
+  jaqn10ac1 CHAR(255),
+  jaqn10ac2 CHAR(255),
+  jaqn10ac3 CHAR(255),
+  jaqn10af1 DATE,
+  jaqn10af2 DATE,
+  jaqn10af3 DATE,
+  jaqn10ai1 NUMBER(17,2),
+  jaqn10ai2 NUMBER(17,2),
+  jaqn10ai3 NUMBER(17,2)
+)
+;
+comment on table JAQN10
+  is 'Log Arqueo Sopresivo de Caja';
+comment on column JAQN10.jaqn10emp
+  is 'Empresa';
+comment on column JAQN10.jaqn10mod
+  is 'Modulo';
+comment on column JAQN10.jaqn10suc
+  is 'Sucursal';
+comment on column JAQN10.jaqn10tra
+  is 'Transaccion';
+comment on column JAQN10.jaqn10rel
+  is 'Numero de Relación';
+comment on column JAQN10.jaqn10fco
+  is 'Fecha Contabilización';
+comment on column JAQN10.jaqn10ord
+  is 'Ordinal';
+comment on column JAQN10.jaqn10sbo
+  is 'Subordinal';
+comment on column JAQN10.jaqn10use
+  is 'Usuario Solicitante';
+comment on column JAQN10.jaqn10usa
+  is 'Usuario Autorizante';
+comment on column JAQN10.jaqn10caj
+  is 'Caja';
+comment on column JAQN10.jaqn10fec
+  is 'Fecha';
+comment on column JAQN10.jaqn10hor
+  is 'Hora';
+comment on column JAQN10.jaqn10pti
+  is 'Tipo Reporte (RMBC008)';
+comment on column JAQN10.jaqn10an1
+  is 'Auxiliar Númerico 1';
+comment on column JAQN10.jaqn10an2
+  is 'Auxiliar Númerico 2';
+comment on column JAQN10.jaqn10an3
+  is 'Auxiliar Númerico 3';
+comment on column JAQN10.jaqn10ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQN10.jaqn10ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQN10.jaqn10ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQN10.jaqn10af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN10.jaqn10af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN10.jaqn10af3
+  is 'Auxliar Fecha 3';
+comment on column JAQN10.jaqn10ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN10.jaqn10ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN10.jaqn10ai3
+  is 'Auxiliar Importe 3';
+create index JAQN10A2 on JAQN10 (JAQN10EMP, JAQN10SUC, JAQN10USE, JAQN10CAJ, JAQN10FEC, JAQN10HOR, JAQN10PTI);
+alter table JAQN10
+  add primary key (JAQN10EMP, JAQN10MOD, JAQN10SUC, JAQN10TRA, JAQN10REL, JAQN10FCO, JAQN10ORD, JAQN10SBO);
+

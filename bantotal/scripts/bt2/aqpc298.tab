@@ -1,0 +1,98 @@
+create table AQPC298
+(
+  aqpc298correla NUMBER(9) not null,
+  aqpc298codregi NUMBER(3),
+  aqpc298nomregi VARCHAR2(40),
+  aqpc298codzona NUMBER(2),
+  aqpc298nomzona VARCHAR2(50),
+  aqpc298codsucu NUMBER(3),
+  aqpc298nomsucu VARCHAR2(30),
+  aqpc298codases VARCHAR2(10),
+  aqpc298nomases VARCHAR2(30),
+  aqpc298codconv NUMBER(4),
+  aqpc298nomconv VARCHAR2(50),
+  aqpc298mesregi VARCHAR2(50),
+  aqpc298datenvl NUMBER(5),
+  aqpc298datrecl NUMBER(5),
+  aqpc298datrecc NUMBER(5),
+  aqpc298medpago VARCHAR2(25),
+  aqpc298mntochq NUMBER(17,2),
+  aqpc298descuoc NUMBER(9),
+  aqpc298descuop NUMBER(9),
+  aqpc298sindesc NUMBER(9),
+  aqpc298sincheq VARCHAR2(250),
+  aqpc298diapago NUMBER(5),
+  aqpc298fhrepag NUMBER(5),
+  aqpc298pagcuoc NUMBER(5),
+  aqpc298pagcuop NUMBER(5),
+  aqpc298clisinp NUMBER(5),
+  aqpc298usuejec VARCHAR2(10) not null,
+  aqpc298fchejec DATE,
+  aqpc298horejec VARCHAR2(8)
+)
+;
+comment on table AQPC298
+  is 'Reporte de Seguimiento';
+comment on column AQPC298.aqpc298correla
+  is 'Correlativo';
+comment on column AQPC298.aqpc298codregi
+  is 'Código Region';
+comment on column AQPC298.aqpc298nomregi
+  is 'Nombre Region';
+comment on column AQPC298.aqpc298codzona
+  is 'Código Zona';
+comment on column AQPC298.aqpc298nomzona
+  is 'Nombre Zona';
+comment on column AQPC298.aqpc298codsucu
+  is 'Código Sucursal';
+comment on column AQPC298.aqpc298nomsucu
+  is 'Nombre Sucursal';
+comment on column AQPC298.aqpc298codases
+  is 'Código Asesor';
+comment on column AQPC298.aqpc298nomases
+  is 'Nombre Asesor';
+comment on column AQPC298.aqpc298codconv
+  is 'Código Convenio';
+comment on column AQPC298.aqpc298nomconv
+  is 'Nombre Convenio';
+comment on column AQPC298.aqpc298mesregi
+  is 'Mes Registro';
+comment on column AQPC298.aqpc298datenvl
+  is 'Días Atraso Envió Lista';
+comment on column AQPC298.aqpc298datrecl
+  is 'Días Atraso Recojo Lista';
+comment on column AQPC298.aqpc298datrecc
+  is 'Días Atraso Recojo Cheque';
+comment on column AQPC298.aqpc298medpago
+  is 'Medio Pago';
+comment on column AQPC298.aqpc298mntochq
+  is 'Monto Cheque o Transferencia';
+comment on column AQPC298.aqpc298descuoc
+  is 'Descuento Cuota Completa';
+comment on column AQPC298.aqpc298descuop
+  is 'Descuento Cuota Parcial';
+comment on column AQPC298.aqpc298sindesc
+  is 'Sin Descuento';
+comment on column AQPC298.aqpc298sincheq
+  is 'Sin Cheque o Transferencia';
+comment on column AQPC298.aqpc298diapago
+  is 'Día Pago';
+comment on column AQPC298.aqpc298fhrepag
+  is 'Fecha Real Día Pago';
+comment on column AQPC298.aqpc298pagcuoc
+  is 'Pagos Cuota Completa';
+comment on column AQPC298.aqpc298pagcuop
+  is 'Pagos Cuota Parcial';
+comment on column AQPC298.aqpc298clisinp
+  is 'Cliente Sin Pago Sin Descuento';
+comment on column AQPC298.aqpc298usuejec
+  is 'Usuario Ejecuto';
+comment on column AQPC298.aqpc298fchejec
+  is 'Fecha Ejecución';
+comment on column AQPC298.aqpc298horejec
+  is 'Hora Ejecución';
+create index AQPC298A2 on AQPC298 (AQPC298CODCONV);
+create index AQPC298A3 on AQPC298 (AQPC298USUEJEC, AQPC298CORRELA);
+alter table AQPC298
+  add primary key (AQPC298CORRELA, AQPC298USUEJEC);
+

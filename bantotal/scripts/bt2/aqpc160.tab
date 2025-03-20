@@ -1,0 +1,79 @@
+create table AQPC160
+(
+  aqpc160codopi  NUMBER(10) not null,
+  aqpc160corr    NUMBER(10) not null,
+  aqpc160fecpro  DATE,
+  aqpc160sldvig  NUMBER(18,2),
+  aqpc160modvig  VARCHAR2(200),
+  aqpc160mntotg  NUMBER(18,2),
+  aqpc160mondcr  VARCHAR2(10),
+  aqpc160cuotg   NUMBER(18,2),
+  aqpc160cuovig  VARCHAR2(30),
+  aqpc160tasavig NUMBER(17,2),
+  aqpc160tipsol  VARCHAR2(2),
+  aqpc160prmatra NUMBER(17,2),
+  aqpc160horareg VARCHAR2(8),
+  aqpc160emp     NUMBER(3),
+  aqpc160modu    NUMBER(3),
+  aqpc160suc     NUMBER(3),
+  aqpc160mda     NUMBER(4),
+  aqpc160pap     NUMBER(4),
+  aqpc160cta     NUMBER(9),
+  aqpc160oper    NUMBER(9),
+  aqpc160sbop    NUMBER(3),
+  aqpc160tope    NUMBER(3),
+  aqpc160estad   VARCHAR2(1)
+)
+;
+comment on table AQPC160
+  is 'Tabla temporal creditos vigentes de rep. opinion de riesgos';
+comment on column AQPC160.aqpc160codopi
+  is 'Cod. Opinion riesgo';
+comment on column AQPC160.aqpc160corr
+  is 'Correlativo';
+comment on column AQPC160.aqpc160fecpro
+  is 'fecha de carga';
+comment on column AQPC160.aqpc160sldvig
+  is 'saldo vigente';
+comment on column AQPC160.aqpc160modvig
+  is 'modalidad vigente';
+comment on column AQPC160.aqpc160mntotg
+  is 'Monto Otorgado';
+comment on column AQPC160.aqpc160mondcr
+  is 'moneda credito';
+comment on column AQPC160.aqpc160cuotg
+  is 'Cuota';
+comment on column AQPC160.aqpc160cuovig
+  is 'cuota vigente';
+comment on column AQPC160.aqpc160tasavig
+  is 'tasa vigente';
+comment on column AQPC160.aqpc160tipsol
+  is 'Tipo Solicitud A = ampliación, RF = refinanciacion';
+comment on column AQPC160.aqpc160prmatra
+  is 'Promedio Dias Atraso 6 meses';
+comment on column AQPC160.aqpc160horareg
+  is 'Hora Registro';
+comment on column AQPC160.aqpc160emp
+  is 'Empresa';
+comment on column AQPC160.aqpc160modu
+  is 'Modulo';
+comment on column AQPC160.aqpc160suc
+  is 'Sucursal';
+comment on column AQPC160.aqpc160mda
+  is 'Moneda';
+comment on column AQPC160.aqpc160pap
+  is 'Papel';
+comment on column AQPC160.aqpc160cta
+  is 'Cuenta';
+comment on column AQPC160.aqpc160oper
+  is 'Operación';
+comment on column AQPC160.aqpc160sbop
+  is 'Suboperación';
+comment on column AQPC160.aqpc160tope
+  is 'Tipo Operación';
+comment on column AQPC160.aqpc160estad
+  is 'Estado de registro I - Inhabilitado; H - Habilitado';
+create index AQPC160A2 on AQPC160 (AQPC160CODOPI, AQPC160ESTAD);
+alter table AQPC160
+  add primary key (AQPC160CODOPI, AQPC160CORR);
+

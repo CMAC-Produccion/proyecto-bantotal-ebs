@@ -1,0 +1,46 @@
+create table JAQY766
+(
+  jaqy766hind   NUMBER(9) not null,
+  jaqy766hasocn VARCHAR2(100),
+  jaqy766hsucu  NUMBER(4),
+  jaqy766hubig  VARCHAR2(100),
+  jaqy766hfchcg DATE,
+  jaqy766hpres  VARCHAR2(40),
+  jaqy766hasocs NUMBER(9),
+  jaqy766hfchst DATE,
+  jaqy766hhrast CHAR(8),
+  jaqy766huser  CHAR(10),
+  jaqy766afchst DATE not null,
+  jaqy766ahrast CHAR(8) not null,
+  jaqy766auser  CHAR(10)
+)
+;
+comment on column JAQY766.jaqy766hind
+  is 'Codigo unico para cada asociación de la tabla jaqy763';
+comment on column JAQY766.jaqy766hasocn
+  is 'Nombre de la asociación de la tabla jaqy763';
+comment on column JAQY766.jaqy766hsucu
+  is 'Sucursal que pertenece la asociación de la tabla jaqy763';
+comment on column JAQY766.jaqy766hubig
+  is 'Direccion de la asociación de la tabla jaqy763';
+comment on column JAQY766.jaqy766hfchcg
+  is 'Fecha de la ultima carga de la tabla jaqy763';
+comment on column JAQY766.jaqy766hpres
+  is 'Nombre del presidente de la asociación de la tabla jaqy763';
+comment on column JAQY766.jaqy766hasocs
+  is 'Número de asociados de la tabla jaqy763';
+comment on column JAQY766.jaqy766hfchst
+  is 'fecha del sistema de la tabla jaqy763';
+comment on column JAQY766.jaqy766hhrast
+  is 'Hora del sistema de la tabla jaqy763';
+comment on column JAQY766.jaqy766huser
+  is 'Ususario del BT de la tabla jaqy763';
+comment on column JAQY766.jaqy766afchst
+  is 'fecha del sistema actual';
+comment on column JAQY766.jaqy766ahrast
+  is 'Hora del sistema actual';
+comment on column JAQY766.jaqy766auser
+  is 'Ususario del BT actual';
+alter table JAQY766
+  add primary key (JAQY766HIND, JAQY766AFCHST, JAQY766AHRAST);
+

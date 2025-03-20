@@ -1,0 +1,53 @@
+create table AQPC118
+(
+  aqpc118id  NUMBER(10) not null,
+  aqpc118tar CHAR(19),
+  aqpc118met VARCHAR2(20),
+  aqpc118fei DATE,
+  aqpc118hoi CHAR(8),
+  aqpc118trc NUMBER(6),
+  aqpc118est CHAR(3),
+  aqpc118tex VARCHAR2(10),
+  aqpc118cer CHAR(5),
+  aqpc118mer VARCHAR2(500),
+  aqpc118req VARCHAR2(4000),
+  aqpc118res VARCHAR2(4000),
+  aqpc118ced CHAR(5),
+  aqpc118med VARCHAR2(200),
+  aqpc118pgm CHAR(10)
+)
+;
+comment on column AQPC118.aqpc118id
+  is 'ID de Log';
+comment on column AQPC118.aqpc118tar
+  is 'Número de tarjeta';
+comment on column AQPC118.aqpc118met
+  is 'Método';
+comment on column AQPC118.aqpc118fei
+  is 'Fecha Ingreso';
+comment on column AQPC118.aqpc118hoi
+  is 'Hora Ingreso';
+comment on column AQPC118.aqpc118trc
+  is 'Trace';
+comment on column AQPC118.aqpc118est
+  is 'Estado';
+comment on column AQPC118.aqpc118tex
+  is 'Tiempo de Ejecución';
+comment on column AQPC118.aqpc118cer
+  is 'Código de Error';
+comment on column AQPC118.aqpc118mer
+  is 'Mensaje de Error';
+comment on column AQPC118.aqpc118req
+  is 'Trama Request';
+comment on column AQPC118.aqpc118res
+  is 'Trama Response';
+comment on column AQPC118.aqpc118ced
+  is 'Código de Error Devuelto';
+comment on column AQPC118.aqpc118med
+  is 'Mensaje de Error Devuelto';
+comment on column AQPC118.aqpc118pgm
+  is 'Programa';
+create unique index AQPC11800 on AQPC118 (AQPC118ID);
+alter table AQPC118
+  add constraint AQPC118_PK primary key (AQPC118ID);
+

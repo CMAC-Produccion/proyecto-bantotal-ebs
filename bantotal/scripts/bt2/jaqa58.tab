@@ -1,0 +1,63 @@
+create table JAQA58
+(
+  jaqa58pais NUMBER(3) not null,
+  jaqa58tdoc NUMBER(2) not null,
+  jaqa58ndoc CHAR(12) not null,
+  jaqa58cocn NUMBER(4),
+  jaqa58nocn VARCHAR2(30),
+  jaqa58feve DATE,
+  jaqa58imp1 NUMBER(17,2),
+  jaqa58imp2 NUMBER(17,2),
+  jaqa58imp3 NUMBER(17,2),
+  jaqa58num1 NUMBER(9),
+  jaqa58num2 NUMBER(9),
+  jaqa58num3 NUMBER(9),
+  jaqa58fec1 DATE,
+  jaqa58fec2 DATE,
+  jaqa58fec3 DATE,
+  jaqa58var1 VARCHAR2(255),
+  jaqa58var2 VARCHAR2(255),
+  jaqa58var3 VARCHAR2(255)
+)
+;
+comment on table JAQA58
+  is 'Datos Auxiliares para Consumo';
+comment on column JAQA58.jaqa58pais
+  is 'Código País';
+comment on column JAQA58.jaqa58tdoc
+  is 'Tipo de Documento';
+comment on column JAQA58.jaqa58ndoc
+  is 'Número de Documento';
+comment on column JAQA58.jaqa58cocn
+  is 'Código de la Condición';
+comment on column JAQA58.jaqa58nocn
+  is 'Nombre de la Condición';
+comment on column JAQA58.jaqa58feve
+  is 'Fecha de Vencimiento';
+comment on column JAQA58.jaqa58imp1
+  is 'Auxiliar Importe 1';
+comment on column JAQA58.jaqa58imp2
+  is 'Auxiliar Importe 2';
+comment on column JAQA58.jaqa58imp3
+  is 'Auxiliar Importe 3';
+comment on column JAQA58.jaqa58num1
+  is 'Auxiliar Numérico 1';
+comment on column JAQA58.jaqa58num2
+  is 'Auxiliar Numérico 2';
+comment on column JAQA58.jaqa58num3
+  is 'Auxiliar Numérico 3';
+comment on column JAQA58.jaqa58fec1
+  is 'Auxiliar Fecha 1';
+comment on column JAQA58.jaqa58fec2
+  is 'Auxiliar Fecha 2';
+comment on column JAQA58.jaqa58fec3
+  is 'Auxiliar Fecha 3';
+comment on column JAQA58.jaqa58var1
+  is 'Auxiliar Varchar 1';
+comment on column JAQA58.jaqa58var2
+  is 'Auxiliar Varchar 2';
+comment on column JAQA58.jaqa58var3
+  is 'Auxiliar Varchar 3';
+alter table JAQA58
+  add primary key (JAQA58PAIS, JAQA58TDOC, JAQA58NDOC);
+

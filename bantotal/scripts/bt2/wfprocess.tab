@@ -1,0 +1,36 @@
+create table WFPROCESS
+(
+  wfprcid       NUMBER(4) not null,
+  wfprcname     CHAR(50),
+  wfprcdsc      CHAR(254),
+  wfprccreated  DATE,
+  wfprcupdated  DATE,
+  wfprcauthor   CHAR(30),
+  wfprcapp      CHAR(1),
+  wfprcprd      CHAR(1),
+  wfprctimunt   CHAR(1),
+  wfprcfcy      NUMBER(7,1),
+  wfprcestdur   NUMBER(10),
+  wfprcenb      CHAR(1),
+  wfprcmain     CHAR(1),
+  wfprcpathobj  CHAR(254),
+  wfprcdead     CHAR(1),
+  wfprcsbmcal   CHAR(1),
+  wfprcwrn      NUMBER(7,1),
+  wfprcdln      NUMBER(7,1),
+  wfprcincpty   NUMBER(1),
+  wfprcnotdln   CHAR(1),
+  wfprcnotown   CHAR(1),
+  wfprcuid      CHAR(40),
+  wfcalid       NUMBER(4),
+  wfprcabortapp CHAR(254),
+  wfprcverid    NUMBER(4),
+  wfprcxml      CLOB,
+  wfprcprjname  CHAR(50)
+)
+;
+create index IWFPROC1 on WFPROCESS (WFCALID);
+create unique index UWFPRC1 on WFPROCESS (WFPRCNAME, WFPRCVERID);
+alter table WFPROCESS
+  add primary key (WFPRCID);
+

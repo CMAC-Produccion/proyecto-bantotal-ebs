@@ -1,0 +1,42 @@
+create table AQPC801
+(
+  aqpc801corr   NUMBER(10) not null,
+  aqpc801codopi NUMBER(10) not null,
+  aqpc801fech   DATE,
+  aqpc801hor    VARCHAR2(8),
+  aqpc801codeta NUMBER(2),
+  aqpc801etapa  VARCHAR2(50),
+  aqpc801estda  VARCHAR2(2),
+  aqpc801usrej  VARCHAR2(20),
+  aqpc801nivl   NUMBER(2),
+  aqpc801aux1   NUMBER(17,2),
+  aqpc801aux2   VARCHAR2(50)
+)
+;
+comment on table AQPC801
+  is 'Tabla temporal estados de opinion de riesgos';
+comment on column AQPC801.aqpc801corr
+  is 'Correlativo';
+comment on column AQPC801.aqpc801codopi
+  is 'Cod opinion';
+comment on column AQPC801.aqpc801fech
+  is 'Fecha';
+comment on column AQPC801.aqpc801hor
+  is 'Hora';
+comment on column AQPC801.aqpc801codeta
+  is 'Cod. Etapa Actual';
+comment on column AQPC801.aqpc801etapa
+  is 'Etapa Actual';
+comment on column AQPC801.aqpc801estda
+  is 'Estado Actual';
+comment on column AQPC801.aqpc801usrej
+  is 'Usuario';
+comment on column AQPC801.aqpc801nivl
+  is 'Nivel Autorización';
+comment on column AQPC801.aqpc801aux1
+  is 'Auxiliar1';
+comment on column AQPC801.aqpc801aux2
+  is 'Auxiliar2';
+alter table AQPC801
+  add primary key (AQPC801CORR, AQPC801CODOPI);
+

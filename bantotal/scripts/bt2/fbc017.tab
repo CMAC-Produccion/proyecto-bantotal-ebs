@@ -1,0 +1,20 @@
+create table FBC017
+(
+  bcpnrodoc  CHAR(20) not null,
+  bcpnomcli  CHAR(40) not null,
+  bcptipdeu  NUMBER(10) not null,
+  bcpcateg   CHAR(15),
+  bcpsuc     NUMBER(3),
+  bcpcapvig  NUMBER(17,2),
+  bcpcapvdo  NUMBER(17,2),
+  bcpintvig  NUMBER(17,2),
+  bcpintvdo  NUMBER(17,2),
+  bcpconting NUMBER(17,2),
+  bcpgtias   NUMBER(17,2),
+  bcpprevvig NUMBER(17,2),
+  bcpprevvdo NUMBER(17,2)
+)
+;
+alter table FBC017
+  add primary key (BCPNRODOC, BCPNOMCLI, BCPTIPDEU);
+

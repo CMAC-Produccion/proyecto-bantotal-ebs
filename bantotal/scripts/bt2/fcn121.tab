@@ -1,0 +1,15 @@
+create table FCN121
+(
+  pgcod     NUMBER(3) not null,
+  lcemod    NUMBER(3) not null,
+  lceoper   NUMBER(9) not null,
+  lcesbop   NUMBER(3) not null,
+  semod     NUMBER(3) not null,
+  seoper    NUMBER(9) not null,
+  lcedaoimp NUMBER(17,2)
+)
+;
+create index FCN12102 on FCN121 (PGCOD, SEMOD, SEOPER);
+alter table FCN121
+  add primary key (PGCOD, LCEMOD, LCEOPER, LCESBOP, SEMOD, SEOPER);
+

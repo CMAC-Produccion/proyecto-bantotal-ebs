@@ -1,0 +1,26 @@
+create table FSA210
+(
+  auxuser   CHAR(10) not null,
+  pgcod     NUMBER(3) not null,
+  auxsuc    NUMBER(3) not null,
+  auxmda    NUMBER(4) not null,
+  auxpap    NUMBER(4) not null,
+  auxtit    NUMBER(2) not null,
+  auxcap    NUMBER(1) not null,
+  auxgru    NUMBER(2) not null,
+  auxrubro  NUMBER(16) not null,
+  auxrubr   NUMBER(5) not null,
+  auxpzo    NUMBER(5) not null,
+  auxsub    NUMBER(5) not null,
+  auxsubsub NUMBER(5) not null,
+  auxsdmo   NUMBER(17,2),
+  auxsdus   NUMBER(17,2),
+  auxsdmn   NUMBER(17,2),
+  auxsdh    NUMBER(17,2)
+)
+;
+create index FSA21002 on FSA210 (PGCOD);
+create index FSA21003 on FSA210 (AUXUSER, PGCOD, AUXTIT, AUXCAP, AUXGRU, AUXRUBRO, AUXMDA);
+alter table FSA210
+  add primary key (AUXUSER, PGCOD, AUXSUC, AUXMDA, AUXPAP, AUXTIT, AUXCAP, AUXGRU, AUXRUBRO, AUXRUBR, AUXPZO, AUXSUB, AUXSUBSUB);
+

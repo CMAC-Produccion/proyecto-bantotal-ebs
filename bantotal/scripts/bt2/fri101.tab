@@ -1,0 +1,42 @@
+create table FRI101
+(
+  ri101cod   NUMBER(3) not null,
+  ri101suc   NUMBER(3) not null,
+  ri101rub   NUMBER(16) not null,
+  ri101mda   NUMBER(4) not null,
+  ri101pap   NUMBER(4) not null,
+  ri101cta   NUMBER(9) not null,
+  ri101ope   NUMBER(9) not null,
+  ri101sbop  NUMBER(3) not null,
+  ri101tope  NUMBER(3) not null,
+  ri101id    NUMBER(10) not null,
+  ri101mod   NUMBER(3),
+  ri101arb   NUMBER(14,8),
+  ri101imp   NUMBER(17,2),
+  ri101impus NUMBER(17,2),
+  ri101nocom NUMBER(17,2),
+  ri101elim  NUMBER(17,2),
+  ri101sdo   NUMBER(17,2),
+  ri101tgar  CHAR(2),
+  ri101aliq  CHAR(2),
+  ri101iddeu NUMBER(10),
+  ri101pior  NUMBER(4),
+  ri101lazo  NUMBER(15),
+  ri101aux1  NUMBER(15),
+  ri101aux2  NUMBER(15),
+  ri101aux3  NUMBER(15),
+  ri101aux4  NUMBER(17,2),
+  ri101aux5  NUMBER(17,2),
+  ri101aux6  NUMBER(17,2),
+  ri101aux7  DATE,
+  ri101aux8  DATE,
+  ri101aux9  DATE,
+  ri101aux10 CHAR(30),
+  ri101aux11 CHAR(30),
+  ri101aux12 CHAR(30)
+)
+;
+create index FRI10102 on FRI101 (RI101COD, RI101CTA, RI101ID);
+alter table FRI101
+  add primary key (RI101COD, RI101SUC, RI101RUB, RI101MDA, RI101PAP, RI101CTA, RI101OPE, RI101SBOP, RI101TOPE, RI101ID);
+

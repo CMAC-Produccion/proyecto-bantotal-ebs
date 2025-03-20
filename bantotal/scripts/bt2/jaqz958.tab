@@ -1,0 +1,14 @@
+create table JAQZ958
+(
+  jaqz958cod CHAR(1) not null,
+  jaqz958dsc CHAR(30) not null,
+  jaqz958nro CHAR(19) not null,
+  jaqz958thp NUMBER(3) not null,
+  jaqz958thd CHAR(12) not null,
+  jaqz958nom CHAR(24) not null,
+  jaqz958imp CHAR(20)
+)
+;
+alter table JAQZ958
+  add constraint JAQZ958 primary key (JAQZ958NRO, JAQZ958COD, JAQZ958DSC);
+

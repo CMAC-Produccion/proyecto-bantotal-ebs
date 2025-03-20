@@ -1,0 +1,14 @@
+create table FCA121
+(
+  pgcod      NUMBER(3) not null,
+  lcemod     NUMBER(3) not null,
+  lceoper    NUMBER(9) not null,
+  lcesbop    NUMBER(3) not null,
+  fecwid     NUMBER(2) not null,
+  leufecwfch DATE
+)
+;
+create index FCA12102 on FCA121 (PGCOD, LCEMOD, LCEOPER, FECWID);
+alter table FCA121
+  add primary key (PGCOD, LCEMOD, LCEOPER, LCESBOP, FECWID);
+

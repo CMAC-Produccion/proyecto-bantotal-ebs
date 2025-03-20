@@ -1,0 +1,29 @@
+create table WFPROCES
+(
+  wfprcid    NUMBER(4) not null,
+  wfprcname  CHAR(20),
+  wfprcdsc   CHAR(254),
+  wfprcapp   CHAR(1),
+  wfprcprd   CHAR(1),
+  wfprctimun CHAR(1),
+  wfprcfcy   NUMBER(7,1),
+  wfprcestdu NUMBER(7,1),
+  wfprcenb   CHAR(1),
+  wfprcenboa NUMBER(1),
+  wfprcpatho CHAR(254),
+  wfprcdead  CHAR(1),
+  wfprcsbmca CHAR(1),
+  wfprcwrn   NUMBER(7,1),
+  wfprcdln   NUMBER(7,1),
+  wfprcsndem CHAR(1),
+  wfcalid    NUMBER(4),
+  xwfprctest NUMBER(1),
+  estmcod    NUMBER(5),
+  xwfprctatr NUMBER(1),
+  xwfatrnomi CHAR(15)
+)
+;
+create index IWFPROC2 on WFPROCES (WFCALID);
+alter table WFPROCES
+  add primary key (WFPRCID);
+

@@ -1,0 +1,16 @@
+create table CDEINSE
+(
+  cdeinsecor NUMBER(18) not null,
+  cdeinsid   NUMBER(18),
+  cdeinsepro CHAR(30),
+  cdeinseorr NUMBER(18),
+  cdeinsefin DATE,
+  cdeinseffi DATE,
+  cdeinsenre NUMBER(4),
+  cdeinsecre NUMBER(4)
+)
+;
+create index CDEINSE2 on CDEINSE (CDEINSID);
+alter table CDEINSE
+  add primary key (CDEINSECOR);
+

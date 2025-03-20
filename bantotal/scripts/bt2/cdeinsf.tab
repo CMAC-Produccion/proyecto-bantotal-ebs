@@ -1,0 +1,13 @@
+create table CDEINSF
+(
+  cdeinsid   NUMBER(18) not null,
+  cdcinscorr NUMBER(18) not null,
+  cdeins8via NUMBER(4) not null,
+  cdeinsccor NUMBER(4) not null,
+  cdeinsflin NUMBER(18) not null,
+  cdeinsftxt CHAR(255)
+)
+;
+alter table CDEINSF
+  add primary key (CDEINSID, CDCINSCORR, CDEINS8VIA, CDEINSCCOR, CDEINSFLIN);
+

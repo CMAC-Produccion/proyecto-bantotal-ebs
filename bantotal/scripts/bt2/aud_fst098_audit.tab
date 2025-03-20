@@ -1,0 +1,29 @@
+create table AUD_FST098_AUDIT
+(
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_old_tpcod      NUMBER(5),
+  aud_new_tpcod      NUMBER(5),
+  aud_old_tpcorr     NUMBER(3),
+  aud_new_tpcorr     NUMBER(3),
+  aud_old_tpdesc     CHAR(30),
+  aud_new_tpdesc     CHAR(30),
+  aud_old_tpimp      NUMBER(17,2),
+  aud_new_tpimp      NUMBER(17,2),
+  aud_old_tpnro      NUMBER(9),
+  aud_new_tpnro      NUMBER(9),
+  aud_fst098_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fst098_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst098_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fst098_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fst098_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fst098_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fst098_ubu     VARCHAR2(50) default USER not null,
+  aud_fst098_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst098_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst098_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst098_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fst098_uas     CHAR(1) default 'I' not null
+)
+;
+

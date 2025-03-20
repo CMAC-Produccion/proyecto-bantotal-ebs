@@ -1,0 +1,21 @@
+create table IBSERVICES
+(
+  ibproject  CHAR(60) not null,
+  ibprocess  CHAR(60) not null,
+  ibtask     CHAR(60) not null,
+  ibservcrr  NUMBER(3) not null,
+  ibservexec CHAR(1) not null,
+  ibservtexe CHAR(1) not null,
+  ibservsav  CHAR(1) not null,
+  ibprogram  CHAR(60) not null,
+  ibprogws   CHAR(20) not null,
+  ibprogbnj  CHAR(20) not null,
+  x9996acnco NUMBER(3) not null,
+  x9996bopco NUMBER(5) not null,
+  x9996cvart NUMBER(3) not null
+)
+;
+create unique index IBSERVICES01 on IBSERVICES (IBPROJECT, IBPROCESS, IBTASK, IBSERVCRR, IBSERVEXEC);
+create index IBSERVICES02 on IBSERVICES (X9996ACNCO, X9996BOPCO, X9996CVART);
+create index IBSERVICES03 on IBSERVICES (IBPROJECT, IBPROCESS, IBTASK);
+

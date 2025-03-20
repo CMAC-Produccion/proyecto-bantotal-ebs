@@ -1,0 +1,24 @@
+create table AQPB214R
+(
+  aqpb214rtip    CHAR(20) not null,
+  aqpb214rnumdoc CHAR(12) not null,
+  aqpb214rcant   NUMBER(4),
+  aqpb214rfecreg DATE,
+  aqpb214rhorreg CHAR(10)
+)
+;
+comment on table AQPB214R
+  is 'Tabla de conteo consultas celular Interoperabilidad';
+comment on column AQPB214R.aqpb214rtip
+  is 'Tipo Billetera YELLOW o CCE';
+comment on column AQPB214R.aqpb214rnumdoc
+  is 'Numero documento';
+comment on column AQPB214R.aqpb214rcant
+  is 'Cantidad de consultas';
+comment on column AQPB214R.aqpb214rfecreg
+  is 'Fecha registro';
+comment on column AQPB214R.aqpb214rhorreg
+  is 'Hora registro';
+alter table AQPB214R
+  add primary key (AQPB214RTIP, AQPB214RNUMDOC);
+

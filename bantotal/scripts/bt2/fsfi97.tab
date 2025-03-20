@@ -1,0 +1,26 @@
+create table FSFI97
+(
+  sfi97emp  NUMBER(3) not null,
+  sfi97piz  NUMBER(3) not null,
+  sfi97esp  NUMBER(4) not null,
+  sfi97fec  DATE not null,
+  sfi97pap  NUMBER(14,8),
+  sfi97pci  NUMBER(14,8),
+  sfi97pmin NUMBER(14,8),
+  sfi97pmax NUMBER(14,8),
+  sfi97volo NUMBER(17,2),
+  sfi97finv CHAR(8),
+  sfi97aux1 CHAR(1),
+  sii97aux2 CHAR(1),
+  si97pre1  NUMBER(14,8),
+  sfi97pre2 NUMBER(14,8),
+  sfi97pre3 NUMBER(14,8),
+  sfi97pre4 NUMBER(14,8),
+  sfi97imp1 NUMBER(17,2),
+  sfi97imp2 NUMBER(17,2)
+)
+;
+create index FSFI9702 on FSFI97 (SFI97EMP, SFI97PIZ, SFI97ESP, SFI97FINV);
+alter table FSFI97
+  add primary key (SFI97EMP, SFI97PIZ, SFI97ESP, SFI97FEC);
+

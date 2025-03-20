@@ -1,0 +1,20 @@
+create table JAQZ170
+(
+  jaqz170dni    INTEGER not null,
+  jaqz170codigo CHAR(12) not null,
+  jaqz170ubnom  CHAR(50) not null,
+  jaqz170ubuser CHAR(10) not null,
+  jaqz170psswrd CHAR(20) not null,
+  jaqz170usrsbs CHAR(14),
+  jaqz170pwdsbs INTEGER,
+  jaqz170usrebs CHAR(10),
+  jaqz170pwdebs CHAR(20),
+  jaqz170userha CHAR(10),
+  jaqz170pc     CHAR(30),
+  jaqz170feccre DATE not null,
+  jaqz170fecent DATE not null
+)
+;
+alter table JAQZ170
+  add primary key (JAQZ170DNI);
+

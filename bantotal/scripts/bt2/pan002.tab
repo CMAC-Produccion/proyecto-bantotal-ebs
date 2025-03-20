@@ -1,0 +1,26 @@
+create table PAN002
+(
+  pn2pais   NUMBER(3) not null,
+  pn2tdoc   NUMBER(2) not null,
+  pn2ndoc   CHAR(12) not null,
+  pn2ocup   CHAR(20),
+  pn2empl   CHAR(25),
+  pn2cargo  CHAR(20),
+  pn2fuente CHAR(20),
+  pn2nacio  CHAR(20),
+  pn2verdom CHAR(1),
+  pn2med    CHAR(20),
+  pn2capsoc NUMBER(17,2),
+  pn2insen  CHAR(20),
+  pn2fvrneg CHAR(20),
+  pn2pvrneg CHAR(20),
+  pn2001    NUMBER(15),
+  pn2002    CHAR(30),
+  pn2003    DATE,
+  pn2004    CHAR(1)
+)
+;
+create index PAN00202 on PAN002 (PN2PAIS, PN2TDOC, PN2INSEN);
+alter table PAN002
+  add primary key (PN2PAIS, PN2TDOC, PN2NDOC);
+

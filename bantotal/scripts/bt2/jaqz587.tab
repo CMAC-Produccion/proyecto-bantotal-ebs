@@ -1,0 +1,49 @@
+create table JAQZ587
+(
+  jaqz587cod    NUMBER(17) not null,
+  jaqz587fech   DATE,
+  jaqz587hora   CHAR(20),
+  jaqz587dni    CHAR(12),
+  jaqz587nom    CHAR(60),
+  jaqz587opsofi CHAR(10),
+  jaqz587uteso  CHAR(10),
+  jaqz587ent    CHAR(60),
+  jaqz587tipop  CHAR(20),
+  jaqz587mda    CHAR(20),
+  jaqz587imps   NUMBER(16,2),
+  jaqz587impd   NUMBER(16,2),
+  jaqz587tcp    NUMBER(9,6),
+  jaqz587tcpre  NUMBER(9,6),
+  jaqz587usu    CHAR(10),
+  jaqz587au1    NUMBER(10),
+  jaqz587au2    NUMBER(10),
+  jaqz587au3    NUMBER(10),
+  jaqz587au4    NUMBER(10),
+  jaqz587au5    NUMBER(10),
+  jaqz587au6    VARCHAR2(100),
+  jaqz587au7    VARCHAR2(200),
+  jaqz587au8    CHAR(20),
+  jaqz587au9    DATE,
+  jaqz587opemod NUMBER(3),
+  jaqz587opetra NUMBER(3),
+  jaqz587operel NUMBER(4),
+  jaqz587opetrx VARCHAR2(20),
+  jaqz587ctao10 NUMBER(9),
+  jaqz587ctao35 NUMBER(9)
+)
+;
+comment on column JAQZ587.jaqz587opemod
+  is 'Operación - Módulo';
+comment on column JAQZ587.jaqz587opetra
+  is 'Operación - Transacción';
+comment on column JAQZ587.jaqz587operel
+  is 'Operación - Relación';
+comment on column JAQZ587.jaqz587opetrx
+  is 'Operación - Modulo y Transacción';
+comment on column JAQZ587.jaqz587ctao10
+  is 'Cuenta Cliente Ordinal 10';
+comment on column JAQZ587.jaqz587ctao35
+  is 'Cuenta Cliente Ordinal 35';
+alter table JAQZ587
+  add primary key (JAQZ587COD);
+

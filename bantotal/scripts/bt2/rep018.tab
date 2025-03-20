@@ -1,0 +1,16 @@
+create table REP018
+(
+  rep001cod  NUMBER(10) not null,
+  rep018nroe NUMBER(10) not null,
+  rep018wfin NUMBER(10),
+  rep018wfwi NUMBER(10),
+  rep018user CHAR(10),
+  rep018time DATE,
+  rep018blob BLOB,
+  rep015impc NUMBER(10)
+)
+;
+create index REP01802 on REP018 (REP015IMPC);
+alter table REP018
+  add primary key (REP001COD, REP018NROE);
+

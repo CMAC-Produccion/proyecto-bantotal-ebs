@@ -1,0 +1,39 @@
+create table PPF004
+(
+  ppf004cod NUMBER(3) not null,
+  ppf004con NUMBER(9) not null,
+  ppf004usu CHAR(10),
+  ppf004fec DATE,
+  ppf004mli NUMBER(17,2),
+  ppf004mut NUMBER(17,2),
+  ppf004sdi NUMBER(17,2),
+  ppf004inf VARCHAR2(500),
+  ppf004au1 NUMBER(9),
+  ppf004au2 NUMBER(9),
+  ppf004au3 NUMBER(9),
+  ppf004au4 NUMBER(17,2),
+  ppf004au5 NUMBER(17,2),
+  ppf004au6 NUMBER(17,2),
+  ppf004au7 DATE,
+  ppf004au8 DATE,
+  ppf004au9 DATE,
+  ppf004a10 CHAR(30),
+  ppf004a11 CHAR(30),
+  ppf004a12 CHAR(30),
+  ppf004emp NUMBER(3),
+  ppf004suc NUMBER(3),
+  ppf004mod NUMBER(3),
+  ppf004tra NUMBER(3),
+  ppf004rel NUMBER(4),
+  ppf004fco DATE,
+  ppf004ord NUMBER(2),
+  ppf004sbo NUMBER(3),
+  ppf004cdo CHAR(1)
+)
+;
+create index PPF00402 on PPF004 (PPF004COD, PPF004FEC);
+create index PPF00403 on PPF004 (PPF004CON, PPF004FEC);
+create index PPF00404 on PPF004 (PPF004EMP, PPF004SUC, PPF004MOD, PPF004TRA, PPF004REL, PPF004FCO, PPF004ORD, PPF004SBO, PPF004CDO);
+alter table PPF004
+  add primary key (PPF004COD, PPF004CON);
+

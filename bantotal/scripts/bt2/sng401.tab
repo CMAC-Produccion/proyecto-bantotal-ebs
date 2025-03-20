@@ -1,0 +1,11 @@
+create table SNG401
+(
+  sng400cod  NUMBER(3) not null,
+  sng400evto NUMBER(10) not null,
+  sng401mod  NUMBER(3) not null,
+  sng401top  NUMBER(3) not null
+)
+;
+alter table SNG401
+  add primary key (SNG400COD, SNG400EVTO, SNG401MOD, SNG401TOP);
+

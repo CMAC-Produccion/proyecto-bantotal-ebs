@@ -1,0 +1,18 @@
+create table WFNET1
+(
+  wfnetprcid   NUMBER(4) not null,
+  wfnettaskcod NUMBER(4) not null,
+  wfnspty      CHAR(1) not null,
+  wfnsprcid    NUMBER(4) not null,
+  wfnstaskcod  NUMBER(4) not null,
+  wfnslab      CHAR(50),
+  wfnscndprg   CHAR(254),
+  wfnscndcode  NUMBER(4)
+)
+;
+create index IWFNET12 on WFNET1 (WFNSPRCID, WFNSTASKCOD);
+create index UWFNET11 on WFNET1 (WFNETPRCID, WFNETTASKCOD, WFNSPTY, WFNSCNDPRG, WFNSCNDCODE);
+create index UWFNET12 on WFNET1 (WFNETPRCID, WFNETTASKCOD, WFNSPRCID, WFNSTASKCOD);
+alter table WFNET1
+  add primary key (WFNETPRCID, WFNETTASKCOD, WFNSPTY, WFNSPRCID, WFNSTASKCOD);
+

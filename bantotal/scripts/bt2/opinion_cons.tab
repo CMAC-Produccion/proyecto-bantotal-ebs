@@ -1,0 +1,17 @@
+create table OPINION_CONS
+(
+  pepais      NUMBER(3),
+  petdoc      NUMBER(2),
+  pendoc      CHAR(12),
+  tdnom       CHAR(20),
+  tipo_cambio NUMBER,
+  nro_credito VARCHAR2(30),
+  monto_soles NUMBER(17,2),
+  monto_dol   NUMBER(17,2),
+  penom       VARCHAR2(200),
+  valor_comp  NUMBER
+)
+;
+comment on table OPINION_CONS
+  is 'Tabla temporal de llenado para tipificación - PQ_DATOS_FIN_MES';
+

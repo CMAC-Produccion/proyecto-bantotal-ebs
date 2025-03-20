@@ -1,0 +1,42 @@
+create table FSH017
+(
+  pgcod  NUMBER(3) not null,
+  sucurs NUMBER(3) not null,
+  rubro  NUMBER(16) not null,
+  moneda NUMBER(4) not null,
+  papel  NUMBER(4) not null,
+  escta  NUMBER(9) not null,
+  esoper NUMBER(9) not null,
+  essbop NUMBER(3) not null,
+  estop  NUMBER(3) not null,
+  esanio NUMBER(4) not null,
+  esmes  NUMBER(2) not null,
+  esmod  NUMBER(3),
+  esprom NUMBER(17,2),
+  esprsb NUMBER(17,2),
+  essmay NUMBER(17,2),
+  essmen NUMBER(17,2),
+  esssma NUMBER(17,2),
+  escdeb NUMBER(5),
+  esccre NUMBER(5),
+  esdsob NUMBER(3),
+  estmax NUMBER(10,6),
+  estmin NUMBER(10,6),
+  estpro NUMBER(10,6),
+  esdpro NUMBER(3),
+  escmov NUMBER(6,2),
+  estdeb NUMBER(17,2),
+  estcre NUMBER(17,2),
+  esrdeb NUMBER(12,4),
+  esrcre NUMBER(12,4)
+)
+;
+create index FSH01703 on FSH017 (RUBRO);
+create index FSH01704 on FSH017 (MONEDA);
+create index FSH01705 on FSH017 (PAPEL);
+create index FSH01706 on FSH017 (PGCOD, SUCURS, ESMOD, MONEDA, PAPEL, ESCTA, ESOPER, ESSBOP, ESANIO, ESMES);
+create index FSH01707 on FSH017 (PGCOD, SUCURS, ESANIO, ESMES);
+create index FSH01708 on FSH017 (PGCOD, ESCTA, ESANIO, ESMES, RUBRO);
+alter table FSH017
+  add primary key (PGCOD, SUCURS, RUBRO, MONEDA, PAPEL, ESCTA, ESOPER, ESSBOP, ESTOP, ESANIO, ESMES);
+

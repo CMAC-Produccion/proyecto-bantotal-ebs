@@ -1,0 +1,21 @@
+create table JFAW512
+(
+  jfaw512em NUMBER(3) not null,
+  jfaw512md NUMBER(3) not null,
+  jfaw512sc NUMBER(3) not null,
+  jfaw512mn NUMBER(4) not null,
+  jfaw512pa NUMBER(4) not null,
+  jfaw512ct NUMBER(9) not null,
+  jfaw512op NUMBER(9) not null,
+  jfaw512sb NUMBER(3) not null,
+  jfaw512tp NUMBER(3) not null,
+  jfaw512fc DATE,
+  jfaw512cn NUMBER(3),
+  jfaw512co NUMBER(9),
+  jfaw512im NUMBER(17,2),
+  jfaw512es CHAR(1)
+)
+;
+alter table JFAW512
+  add primary key (JFAW512EM, JFAW512MD, JFAW512SC, JFAW512MN, JFAW512PA, JFAW512CT, JFAW512OP, JFAW512SB, JFAW512TP);
+

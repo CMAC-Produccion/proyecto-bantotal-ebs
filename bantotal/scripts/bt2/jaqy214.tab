@@ -1,0 +1,21 @@
+create table JAQY214
+(
+  jaqy214nim NUMBER(12) not null,
+  jaqy214cor NUMBER(4) not null,
+  jaqy214usu CHAR(10) not null,
+  jaqy214frt DATE,
+  jaqy214tdc CHAR(20),
+  jaqy214doc CHAR(12),
+  jaqy214cli CHAR(30),
+  jaqy214dir CHAR(140),
+  jaqy214cta VARCHAR2(27),
+  jaqy214mem NUMBER(17,2),
+  jaqy214sds NUMBER(17,2),
+  jaqy214ope NUMBER(4),
+  jaqy214ent CHAR(30),
+  jaqy214mot CHAR(65)
+)
+;
+alter table JAQY214
+  add primary key (JAQY214NIM, JAQY214COR, JAQY214USU);
+

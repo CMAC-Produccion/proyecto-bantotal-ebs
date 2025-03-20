@@ -1,0 +1,69 @@
+create table JAQA50
+(
+  jaqa50ide NUMBER(18) not null,
+  jaqa50usu CHAR(10) not null,
+  jaqa50fec DATE not null,
+  jaqa50hor CHAR(8) not null,
+  jaqa50esd NUMBER(9),
+  jaqa50esh NUMBER(9),
+  jaqa50esa NUMBER(9),
+  jaqa50ai1 NUMBER(17,2),
+  jaqa50ai2 NUMBER(17,2),
+  jaqa50ai3 NUMBER(17,2),
+  jaqa50an1 NUMBER(9),
+  jaqa50an2 NUMBER(9),
+  jaqa50an3 NUMBER(9),
+  jaqa50ac1 CHAR(255),
+  jaqa50ac2 CHAR(255),
+  jaqa50ac3 CHAR(255),
+  jaqa50ad1 DATE,
+  jaqa50ad2 DATE,
+  jaqa50ad3 DATE,
+  jaqa50est CHAR(1)
+)
+;
+comment on table JAQA50
+  is 'Log Siniestros';
+comment on column JAQA50.jaqa50ide
+  is 'Cód Siniestros';
+comment on column JAQA50.jaqa50usu
+  is 'Usuario';
+comment on column JAQA50.jaqa50fec
+  is 'Fecha';
+comment on column JAQA50.jaqa50hor
+  is 'Hora';
+comment on column JAQA50.jaqa50esd
+  is 'Estado Nivel';
+comment on column JAQA50.jaqa50esh
+  is 'Estado Hr';
+comment on column JAQA50.jaqa50esa
+  is 'Estado Actual';
+comment on column JAQA50.jaqa50ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQA50.jaqa50ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQA50.jaqa50ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQA50.jaqa50an1
+  is 'Auxiliar Numerico 1';
+comment on column JAQA50.jaqa50an2
+  is 'Auxiliar Numerico 2';
+comment on column JAQA50.jaqa50an3
+  is 'Auxiliar Numerico 3';
+comment on column JAQA50.jaqa50ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQA50.jaqa50ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQA50.jaqa50ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQA50.jaqa50ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQA50.jaqa50ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQA50.jaqa50ad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQA50.jaqa50est
+  is 'N: No vigente S:Vigente';
+alter table JAQA50
+  add primary key (JAQA50IDE, JAQA50USU, JAQA50FEC, JAQA50HOR);
+

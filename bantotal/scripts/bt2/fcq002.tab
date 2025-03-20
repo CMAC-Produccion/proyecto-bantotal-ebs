@@ -1,0 +1,12 @@
+create table FCQ002
+(
+  fcq001emp  NUMBER(3) not null,
+  fcq001mod  NUMBER(3) not null,
+  fcq002usr  CHAR(10) not null,
+  fcq002niv  NUMBER(1),
+  fcq002ansu CHAR(1)
+)
+;
+alter table FCQ002
+  add primary key (FCQ001EMP, FCQ001MOD, FCQ002USR);
+

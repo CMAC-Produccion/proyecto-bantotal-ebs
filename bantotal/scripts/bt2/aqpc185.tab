@@ -1,0 +1,70 @@
+create table AQPC185
+(
+  aqpc185emp      NUMBER(3) not null,
+  aqpc185mod      NUMBER(3) not null,
+  aqpc185suc      NUMBER(3) not null,
+  aqpc185cta      NUMBER(9) not null,
+  aqpc185ope      NUMBER(9) not null,
+  aqpc185mda      NUMBER(4) not null,
+  aqpc185pap      NUMBER(4) not null,
+  aqpc185sbop     NUMBER(3) not null,
+  aqpc185tope     NUMBER(3) not null,
+  aqpc185fecrprg  DATE,
+  aqpc185dni      VARCHAR2(12),
+  aqpc185mntprim  NUMBER(17,6),
+  aqpc185prmcum   NUMBER(17,6),
+  aqpc185tipmon   VARCHAR2(30),
+  aqpc185fecprpag DATE,
+  aqpc185peridgr  NUMBER(17,2),
+  aqpc185aux1     NUMBER(9),
+  aqpc185aux2     DATE,
+  aqpc185aux3     VARCHAR2(100),
+  aqpc185aux4     NUMBER(17,2)
+)
+;
+comment on table AQPC185
+  is 'AQPC185 - REP. SEG VIDA CAJ';
+comment on column AQPC185.aqpc185emp
+  is 'EMPRESA';
+comment on column AQPC185.aqpc185mod
+  is 'MODULO';
+comment on column AQPC185.aqpc185suc
+  is 'SUCURSAL';
+comment on column AQPC185.aqpc185cta
+  is 'CUENTA';
+comment on column AQPC185.aqpc185ope
+  is 'OPERACION';
+comment on column AQPC185.aqpc185mda
+  is 'MONEDA';
+comment on column AQPC185.aqpc185pap
+  is 'PAPEL';
+comment on column AQPC185.aqpc185sbop
+  is 'SUBOPERACION';
+comment on column AQPC185.aqpc185tope
+  is 'TIPO DE OPERACION';
+comment on column AQPC185.aqpc185fecrprg
+  is 'FECHA REPROG';
+comment on column AQPC185.aqpc185dni
+  is 'DNI';
+comment on column AQPC185.aqpc185mntprim
+  is 'MONTO PRIMA';
+comment on column AQPC185.aqpc185prmcum
+  is 'PRIMA ACUMULADA';
+comment on column AQPC185.aqpc185tipmon
+  is 'TIPO MONEDA';
+comment on column AQPC185.aqpc185fecprpag
+  is 'FECHA PRIMER PAGO';
+comment on column AQPC185.aqpc185peridgr
+  is 'PERIODO DE GRACIA';
+comment on column AQPC185.aqpc185aux1
+  is 'AQPC185AUX1';
+comment on column AQPC185.aqpc185aux2
+  is 'AQPC185AUX2';
+comment on column AQPC185.aqpc185aux3
+  is 'AQPC185AUX3';
+comment on column AQPC185.aqpc185aux4
+  is 'AQPC185AUX4';
+create index AQPC185A2 on AQPC185 (AQPC185FECRPRG);
+alter table AQPC185
+  add primary key (AQPC185EMP, AQPC185MOD, AQPC185SUC, AQPC185MDA, AQPC185PAP, AQPC185CTA, AQPC185OPE, AQPC185SBOP, AQPC185TOPE);
+

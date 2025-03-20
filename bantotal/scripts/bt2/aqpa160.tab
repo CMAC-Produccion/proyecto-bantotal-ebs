@@ -1,0 +1,18 @@
+create table AQPA160
+(
+  aqpa160tipdoc    NUMBER(2) not null,
+  aqpa160numdoc    CHAR(12) not null,
+  aqpa160detcre    CLOB,
+  aqpa160detpag    CLOB,
+  aqpa160detofe    CLOB,
+  aqpa160resjson   CLOB,
+  aqpa160flgatr    CHAR(1),
+  aqpa160fecreg    DATE,
+  aqpa160horreg    VARCHAR2(10),
+  aqpa160usureg    CHAR(10),
+  aqpa160documento VARCHAR2(50)
+)
+;
+alter table AQPA160
+  add primary key (AQPA160TIPDOC, AQPA160NUMDOC);
+

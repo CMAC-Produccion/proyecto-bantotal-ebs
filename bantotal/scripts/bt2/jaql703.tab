@@ -1,0 +1,32 @@
+create table JAQL703
+(
+  jaql703fepr DATE not null,
+  jaql703fein DATE not null,
+  jaql703fefi DATE not null,
+  jaql703user CHAR(10) not null,
+  jaql703perf CHAR(10),
+  jaql703sucu NUMBER(3),
+  jaql703mtpy NUMBER(17,2),
+  jaql703mtot NUMBER(17,2),
+  jaql703nucn NUMBER(4),
+  jaql703nucr NUMBER(4),
+  jaql703comt NUMBER(17,2),
+  jaql703cocl NUMBER(17,2),
+  jaql703toco NUMBER(17,2),
+  jaql703au01 CHAR(50),
+  jaql703au02 CHAR(50),
+  jaql703au03 CHAR(50),
+  jaql703au04 NUMBER(9),
+  jaql703au05 NUMBER(9),
+  jaql703au06 NUMBER(9),
+  jaql703au07 NUMBER(17,2),
+  jaql703au08 NUMBER(17,2),
+  jaql703au09 NUMBER(17,2),
+  jaql703au10 DATE,
+  jaql703au11 DATE,
+  jaql703au12 DATE
+)
+;
+alter table JAQL703
+  add primary key (JAQL703FEPR, JAQL703FEIN, JAQL703FEFI, JAQL703USER);
+

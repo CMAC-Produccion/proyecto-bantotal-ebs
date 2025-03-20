@@ -1,0 +1,18 @@
+create table AQPD555
+(
+  aqpd555idcor   NUMBER(10) not null,
+  aqpd555fecproc DATE,
+  aqpd555fecinic DATE,
+  aqpd555fecfin  DATE,
+  aqpd555nomarch VARCHAR2(60),
+  aqpd555numreg  NUMBER(5),
+  aqpd555user    CHAR(10),
+  aqpd555hraproc VARCHAR2(8),
+  aqpd555rtaarch VARCHAR2(200),
+  aqpd555corfec  NUMBER(8),
+  aqpd555flgdes  CHAR(1)
+)
+;
+alter table AQPD555
+  add primary key (AQPD555IDCOR);
+

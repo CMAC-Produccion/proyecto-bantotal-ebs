@@ -1,0 +1,18 @@
+create table IAR400
+(
+  iar400cb   NUMBER(3) not null,
+  iar400cbu  CHAR(22) not null,
+  iar400cuit NUMBER(11) not null,
+  iar400rsoc CHAR(45) not null,
+  iar400jur  NUMBER(3) not null,
+  iar400anio NUMBER(4) not null,
+  iar400mes  NUMBER(2) not null,
+  iar400tram NUMBER(1),
+  iar400impo NUMBER(17,2),
+  iar400imtr NUMBER(17,2),
+  iar400tcue NUMBER(1)
+)
+;
+alter table IAR400
+  add primary key (IAR400CB, IAR400CBU, IAR400CUIT, IAR400RSOC, IAR400JUR, IAR400ANIO, IAR400MES);
+

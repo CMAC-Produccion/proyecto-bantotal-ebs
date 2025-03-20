@@ -1,0 +1,16 @@
+create table FSD215
+(
+  impucod  NUMBER(3) not null,
+  rimptcli NUMBER(3) not null,
+  rimpcorr NUMBER(3) not null,
+  rimprub  NUMBER(16),
+  rimpcoe  NUMBER(3),
+  rimpmto  NUMBER(17,2),
+  rimpmin  NUMBER(17,2),
+  rimpcom  CHAR(1),
+  rimprcod NUMBER(3)
+)
+;
+alter table FSD215
+  add primary key (IMPUCOD, RIMPTCLI, RIMPCORR);
+

@@ -1,0 +1,29 @@
+create table JHSA238
+(
+  jhsa238cod NUMBER(3) not null,
+  jhsa238suc NUMBER(3) not null,
+  jhsa238rub NUMBER(16) not null,
+  jhsa238mon NUMBER(4) not null,
+  jhsa238pap NUMBER(4) not null,
+  jhsa238cta NUMBER(9) not null,
+  jhsa238opr NUMBER(9) not null,
+  jhsa238spr NUMBER(3) not null,
+  jhsa238tpr NUMBER(3) not null,
+  jhsa238cor NUMBER(3) not null,
+  jhsa238fid CHAR(40),
+  jhsa238ci  CHAR(1),
+  jhsa238cf  CHAR(40),
+  jhsa238cd  NUMBER(3),
+  jhsa238sc  NUMBER(3),
+  jhsa238md  NUMBER(3),
+  jhsa238tra NUMBER(3),
+  jhsa238rel NUMBER(4),
+  jhsa238ord NUMBER(2),
+  jhsa238sod NUMBER(3),
+  jhsa238fec DATE,
+  jhsa238est CHAR(1)
+)
+;
+create unique index JHSA2381 on JHSA238 (JHSA238COD, JHSA238SUC, JHSA238RUB, JHSA238MON, JHSA238PAP, JHSA238CTA, JHSA238OPR, JHSA238SPR, JHSA238TPR, JHSA238COR);
+create index JHSA2382 on JHSA238 (JHSA238CD, JHSA238SC, JHSA238MD, JHSA238TRA, JHSA238REL, JHSA238ORD, JHSA238SOD, JHSA238FEC);
+

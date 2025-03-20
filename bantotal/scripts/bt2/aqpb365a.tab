@@ -1,0 +1,19 @@
+create table AQPB365A
+(
+  aqpb365ainst NUMBER(10) not null,
+  aqpb365acsbs VARCHAR2(10) not null,
+  aqpb365acuen CHAR(14) not null,
+  aqpb365agrup NUMBER(4),
+  aqpb365atipo NUMBER(4),
+  aqpb365asald NUMBER(17,2),
+  aqpb365acont NUMBER(5),
+  aqpb365afpre DATE,
+  aqpb365atdoc NUMBER(3),
+  aqpb365andoc CHAR(12),
+  aqpb365afech DATE,
+  aqpb365ahora CHAR(8)
+)
+;
+alter table AQPB365A
+  add primary key (AQPB365AINST, AQPB365ACSBS, AQPB365ACUEN);
+

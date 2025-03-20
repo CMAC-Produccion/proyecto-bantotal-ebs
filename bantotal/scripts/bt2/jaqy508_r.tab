@@ -1,0 +1,39 @@
+create table JAQY508_R
+(
+  jaqy508pgcod     NUMBER(10) not null,
+  jaqy508hcmod     NUMBER(10) not null,
+  jaqy508hsucor    NUMBER(10) not null,
+  jaqy508htran     NUMBER(10),
+  jaqy508hnrel     NUMBER(10) not null,
+  jaqy508hfcon     DATE not null,
+  jaqy508hcord     NUMBER(10) not null,
+  jaqy508hcsubo    NUMBER(10) not null,
+  jaqy508hmodul    NUMBER(10),
+  jaqy508htoper    NUMBER(10),
+  jaqy508hsucur    NUMBER(10),
+  jaqy508hrubro    NUMBER(30),
+  jaqy508hmda      NUMBER(10),
+  jaqy508hpap      NUMBER(10),
+  jaqy508hcta      NUMBER(20),
+  jaqy508hoper     NUMBER(20),
+  jaqy508hsubop    NUMBER(10),
+  jaqy508hcimp1    NUMBER(17,2),
+  jaqy508hcodmo    NUMBER(10),
+  jaqy508hora      CHAR(30),
+  jaqy508agencia   CHAR(100),
+  jaqy508nrocuenta VARCHAR2(50),
+  jaqy508tipdoc    VARCHAR2(50),
+  jaqy508pendoc    CHAR(50),
+  jaqy508penom     VARCHAR2(200),
+  jaqy508nomope    CHAR(50),
+  jaqy508husing    CHAR(50),
+  jaqy508petdoc    NUMBER(10),
+  jaqy508pepais    NUMBER(10),
+  jaqy508saldo     NUMBER(17,2),
+  jaqy508cons      VARCHAR2(10),
+  jaqy508trans     VARCHAR2(2)
+)
+;
+create index XN_JAQY508_R_01 on JAQY508_R (JAQY508HSUCOR);
+create index XN_JAQY508_R_02 on JAQY508_R (JAQY508HSUCOR, JAQY508HFCON);
+

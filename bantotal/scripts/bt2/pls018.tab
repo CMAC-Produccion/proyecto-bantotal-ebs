@@ -1,0 +1,19 @@
+create table PLS018
+(
+  pls018cli  NUMBER(9) not null,
+  pls018fcha DATE not null,
+  pls018ref  CHAR(15) not null,
+  pls018cbu1 CHAR(8) not null,
+  pls018cbu2 CHAR(14) not null,
+  pls018corm NUMBER(10),
+  pls018conv NUMBER(8),
+  pls018serv NUMBER(3),
+  pls018nenv NUMBER(3),
+  pls018nlot NUMBER(3),
+  pls018cod  NUMBER(3),
+  pls018fchp DATE
+)
+;
+alter table PLS018
+  add primary key (PLS018CLI, PLS018FCHA, PLS018REF, PLS018CBU1, PLS018CBU2);
+

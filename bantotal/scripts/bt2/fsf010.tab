@@ -1,0 +1,15 @@
+create table FSF010
+(
+  pgcod    NUMBER(3) not null,
+  finro    NUMBER(3) not null,
+  ccanimes NUMBER(6) not null,
+  fiaccod  NUMBER(3) not null,
+  ccvalor  NUMBER(17,2),
+  ccporc   NUMBER(7,4)
+)
+;
+create index FSF01003 on FSF010 (FIACCOD);
+create index FSF01004 on FSF010 (PGCOD, FINRO, FIACCOD, CCANIMES);
+alter table FSF010
+  add primary key (PGCOD, FINRO, CCANIMES, FIACCOD);
+

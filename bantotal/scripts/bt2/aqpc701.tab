@@ -1,0 +1,78 @@
+create table AQPC701
+(
+  aqpc701pepais NUMBER(3),
+  aqpc701tdoc   NUMBER(2),
+  aqpc701ndoc   VARCHAR2(12),
+  aqpc701emp    NUMBER(3) not null,
+  aqpc701suc    NUMBER(3) not null,
+  aqpc701mod    NUMBER(3) not null,
+  aqpc701mda    NUMBER(4) not null,
+  aqpc701pap    NUMBER(4) not null,
+  aqpc701cta    NUMBER(9) not null,
+  aqpc701ope    NUMBER(9) not null,
+  aqpc701sbo    NUMBER(3) not null,
+  aqpc701top    NUMBER(3) not null,
+  aqpc701ind    CHAR(1) not null,
+  aqpc701fecr   DATE default TRUNC(SYSDATE) not null,
+  aqpc701horr   CHAR(8) default TO_CHAR(SYSDATE,'HH24:MI:SS'),
+  aqpc701usur   CHAR(10),
+  aqpc701est    CHAR(1) not null,
+  aqpc701fcar   DATE,
+  aqpc701mor    NUMBER(17,6),
+  aqpc701icv    NUMBER(17,6),
+  aqpc701pen    NUMBER(17,6),
+  aqpc701corr   NUMBER(10)
+)
+;
+comment on table AQPC701
+  is 'Tabla Cred Alinea Interno Flujo Express';
+comment on column AQPC701.aqpc701pepais
+  is 'Pais';
+comment on column AQPC701.aqpc701tdoc
+  is 'Tipo de documento';
+comment on column AQPC701.aqpc701ndoc
+  is 'Numero de documento';
+comment on column AQPC701.aqpc701emp
+  is 'Empresa';
+comment on column AQPC701.aqpc701suc
+  is 'Sucursal';
+comment on column AQPC701.aqpc701mod
+  is 'Modulo';
+comment on column AQPC701.aqpc701mda
+  is 'Moneda';
+comment on column AQPC701.aqpc701pap
+  is 'Papel';
+comment on column AQPC701.aqpc701cta
+  is 'Cuenta';
+comment on column AQPC701.aqpc701ope
+  is 'Operacion';
+comment on column AQPC701.aqpc701sbo
+  is 'SubOperacion';
+comment on column AQPC701.aqpc701top
+  is 'Tipo de Operacion';
+comment on column AQPC701.aqpc701ind
+  is 'Indicador        A - Ancla,   N - No Ancla';
+comment on column AQPC701.aqpc701fecr
+  is 'Fecha de Registro';
+comment on column AQPC701.aqpc701horr
+  is 'Hora de Registro';
+comment on column AQPC701.aqpc701usur
+  is 'Usuario de Registro';
+comment on column AQPC701.aqpc701est
+  is 'Estado si esta "H" Habilitado o no el Registro   "I" Inhabilitado';
+comment on column AQPC701.aqpc701fcar
+  is 'Fecha de Carga de BI';
+comment on column AQPC701.aqpc701mor
+  is 'Mora';
+comment on column AQPC701.aqpc701icv
+  is 'ICV';
+comment on column AQPC701.aqpc701pen
+  is 'Penalidad';
+comment on column AQPC701.aqpc701corr
+  is 'Correlativo';
+create index AQPC701A3 on AQPC701 (AQPC701PEPAIS, AQPC701TDOC, AQPC701NDOC, AQPC701IND, AQPC701FECR, AQPC701EST);
+create index AQPC701A4 on AQPC701 (AQPC701FECR, AQPC701IND, AQPC701EST);
+create index AQPC701A5 on AQPC701 (AQPC701EMP, AQPC701CTA, AQPC701EST);
+alter table AQPC701
+  add primary key (AQPC701EMP, AQPC701SUC, AQPC701MOD, AQPC701MDA, AQPC701PAP, AQPC701CTA, AQPC701OPE, AQPC701SBO, AQPC701TOP, AQPC701IND, AQPC701FECR, AQPC701EST);
+

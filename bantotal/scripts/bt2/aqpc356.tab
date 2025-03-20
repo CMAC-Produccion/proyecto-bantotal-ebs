@@ -1,0 +1,53 @@
+create table AQPC356
+(
+  aqpc356corr   NUMBER(10) not null,
+  aqpc356pgcod  NUMBER(10),
+  aqpc356analst CHAR(10),
+  aqpc356codrat NUMBER(3),
+  aqpc356rating VARCHAR2(30),
+  aqpc356prccum NUMBER(12,2),
+  aqpc356usecre CHAR(10),
+  aqpc356fchcre DATE,
+  aqpc356horcre CHAR(8),
+  aqpc356useedi CHAR(10),
+  aqpc356fchedi DATE,
+  aqpc356horedi CHAR(8),
+  aqpc356est    CHAR(1),
+  aqpc356aut    CHAR(1)
+)
+;
+comment on table AQPC356
+  is 'Tabla Rating Analistas';
+comment on column AQPC356.aqpc356corr
+  is 'Correlativo';
+comment on column AQPC356.aqpc356pgcod
+  is 'Empresa';
+comment on column AQPC356.aqpc356analst
+  is 'Analista';
+comment on column AQPC356.aqpc356codrat
+  is 'Codigo Rating';
+comment on column AQPC356.aqpc356rating
+  is 'Rating';
+comment on column AQPC356.aqpc356prccum
+  is 'Porcentaje Cumplimiento';
+comment on column AQPC356.aqpc356usecre
+  is 'Usuario Creacion';
+comment on column AQPC356.aqpc356fchcre
+  is 'Fecha Creacion';
+comment on column AQPC356.aqpc356horcre
+  is 'Hora Creacion';
+comment on column AQPC356.aqpc356useedi
+  is 'Usuario Edicion';
+comment on column AQPC356.aqpc356fchedi
+  is 'Fecha Edicion';
+comment on column AQPC356.aqpc356horedi
+  is 'Hora Edicion';
+comment on column AQPC356.aqpc356est
+  is 'Estado (S/N)';
+comment on column AQPC356.aqpc356aut
+  is 'Backup Autonomia (S/N)';
+create index AQPC356IDX002 on AQPC356 (AQPC356ANALST);
+create index AQPC356IDX003 on AQPC356 (AQPC356ANALST, AQPC356CODRAT);
+alter table AQPC356
+  add constraint AQPC356IDX001 primary key (AQPC356CORR);
+

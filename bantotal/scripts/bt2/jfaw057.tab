@@ -1,0 +1,43 @@
+create table JFAW057
+(
+  j57pais NUMBER(9) not null,
+  j57tdoc NUMBER(9) not null,
+  j57doc  CHAR(12) not null,
+  j57baja CHAR(1),
+  j57nom1 CHAR(25),
+  j57nom2 CHAR(25),
+  j57ape1 CHAR(30),
+  j57ape2 CHAR(30),
+  j57fena DATE,
+  j57esci NUMBER(2),
+  j57sexo NUMBER(2),
+  j57domi CHAR(150),
+  j57dept NUMBER(9),
+  j57loc  NUMBER(9),
+  j57barr NUMBER(9),
+  j57tel1 CHAR(20),
+  j57tel2 CHAR(20),
+  j57cel1 CHAR(20),
+  j57cel2 CHAR(20),
+  j57ocup NUMBER(9),
+  j57etr  CHAR(50),
+  j57fint DATE,
+  j57acec NUMBER(9),
+  j57cnhi NUMBER(3),
+  j57cony CHAR(50),
+  j57prga NUMBER(17,2),
+  j57ax1  NUMBER(17,2),
+  j57ax2  NUMBER(17,2),
+  j57ax3  NUMBER(17,2),
+  j57ax4  NUMBER(17,2),
+  j57ax5  CHAR(50),
+  j57ax6  CHAR(50),
+  j57ax7  CHAR(50),
+  j57ax8  CHAR(50),
+  j57ax9  DATE,
+  j57ax10 DATE
+)
+;
+alter table JFAW057
+  add primary key (J57PAIS, J57TDOC, J57DOC);
+

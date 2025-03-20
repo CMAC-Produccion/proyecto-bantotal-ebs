@@ -1,0 +1,23 @@
+create table JAQM50
+(
+  jaqm50pgco NUMBER(3) not null,
+  jaqm50mod  NUMBER(3) not null,
+  jaqm50suc  NUMBER(3) not null,
+  jaqm50mda  NUMBER(4) not null,
+  jaqm50pap  NUMBER(4) not null,
+  jaqm50cta  NUMBER(9) not null,
+  jaqm50oper NUMBER(9) not null,
+  jaqm50sbop NUMBER(3) not null,
+  jaqm50tope NUMBER(3) not null,
+  jaqm50fech DATE,
+  jaqm50conv NUMBER(4),
+  jaqm50ifin NUMBER(9),
+  jaqm50imp  NUMBER(17,2)
+)
+;
+create index JAQM5002 on JAQM50 (JAQM50CONV, JAQM50FECH, JAQM50IFIN);
+create index JAQM5003 on JAQM50 (JAQM50FECH);
+create index JAQM5004 on JAQM50 (JAQM50IFIN);
+alter table JAQM50
+  add primary key (JAQM50PGCO, JAQM50MOD, JAQM50SUC, JAQM50MDA, JAQM50PAP, JAQM50CTA, JAQM50OPER, JAQM50SBOP, JAQM50TOPE);
+

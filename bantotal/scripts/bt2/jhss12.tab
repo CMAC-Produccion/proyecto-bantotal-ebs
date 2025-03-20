@@ -1,0 +1,9 @@
+create table JHSS12
+(
+  jhss11cod  CHAR(1) not null,
+  jhss12serv CHAR(1) not null,
+  jhss12des  VARCHAR2(40)
+)
+;
+create unique index JHSS1201 on JHSS12 (JHSS11COD, JHSS12SERV);
+

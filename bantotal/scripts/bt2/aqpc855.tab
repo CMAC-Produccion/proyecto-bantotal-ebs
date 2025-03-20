@@ -1,0 +1,39 @@
+create table AQPC855
+(
+  aqpc855inst    NUMBER(10),
+  aqpc855usur    VARCHAR2(10),
+  aqpc855est     VARCHAR2(2),
+  aqpc855tdoc    VARCHAR2(2),
+  aqpc855tdesc   VARCHAR2(30),
+  aqpc855fech    DATE,
+  aqpc855hora    VARCHAR2(8),
+  aqpc855auxnum  NUMBER(10),
+  aqpc855auxdesc VARCHAR2(30),
+  aqpc855auxfech DATE
+)
+;
+comment on table AQPC855
+  is 'TABLA AUTOMATIZACION DE LLENADO DE PRE IMPRESOS';
+comment on column AQPC855.aqpc855inst
+  is 'instancia';
+comment on column AQPC855.aqpc855usur
+  is 'usuario';
+comment on column AQPC855.aqpc855est
+  is 'estado';
+comment on column AQPC855.aqpc855tdoc
+  is 'tipo documento';
+comment on column AQPC855.aqpc855tdesc
+  is 'tipo descripcion';
+comment on column AQPC855.aqpc855fech
+  is 'fecha';
+comment on column AQPC855.aqpc855hora
+  is 'hora';
+comment on column AQPC855.aqpc855auxnum
+  is 'numero auxiliar';
+comment on column AQPC855.aqpc855auxdesc
+  is 'descripcion auxiliar';
+comment on column AQPC855.aqpc855auxfech
+  is 'fecha auxiliar';
+create index AQPC855A2 on AQPC855 (AQPC855INST);
+create index AQPC855A3 on AQPC855 (AQPC855INST, AQPC855TDOC, AQPC855EST);
+

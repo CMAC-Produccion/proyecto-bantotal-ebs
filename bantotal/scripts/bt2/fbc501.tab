@@ -1,0 +1,13 @@
+create table FBC501
+(
+  bc501emp NUMBER(3) not null,
+  bc501inf CHAR(10) not null,
+  bc501fch TIMESTAMP(6) not null,
+  bc501id1 CHAR(10) not null,
+  bc501id2 CHAR(500) not null
+)
+;
+create unique index FBC50100_2 on FBC501 (BC501EMP, BC501INF, BC501FCH, BC501ID1, BC501ID2);
+alter table FBC501
+  add constraint FBC501_PK2 primary key (BC501EMP, BC501INF, BC501FCH, BC501ID1, BC501ID2);
+

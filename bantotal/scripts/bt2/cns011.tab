@@ -1,0 +1,21 @@
+create table CNS011
+(
+  cnswrk  CHAR(10) not null,
+  cnscod  NUMBER(3) not null,
+  cnssuc  NUMBER(3) not null,
+  cnsrub  NUMBER(16) not null,
+  cnsmda  NUMBER(4) not null,
+  cnspap  NUMBER(4) not null,
+  cnscta  NUMBER(9) not null,
+  cnsoper NUMBER(9) not null,
+  cnssbop NUMBER(3) not null,
+  cnstope NUMBER(3) not null,
+  cnsmod  NUMBER(3),
+  cnssdo  NUMBER(17,2)
+)
+;
+create index CNS01102 on CNS011 (CNSWRK, CNSCOD, CNSCTA, CNSMOD, CNSMDA, CNSPAP);
+create index CNS01103 on CNS011 (CNSWRK, CNSCOD, CNSCTA, CNSRUB, CNSMDA, CNSPAP);
+alter table CNS011
+  add primary key (CNSWRK, CNSCOD, CNSSUC, CNSRUB, CNSMDA, CNSPAP, CNSCTA, CNSOPER, CNSSBOP, CNSTOPE);
+

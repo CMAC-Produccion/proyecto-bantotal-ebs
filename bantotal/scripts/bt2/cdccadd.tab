@@ -1,0 +1,12 @@
+create table CDCCADD
+(
+  cdccadid   NUMBER(18) not null,
+  cdccadinst NUMBER(18) not null,
+  cdccaddcad NUMBER(18) not null,
+  cdccaddtip NUMBER(4),
+  cdccaddfid CHAR(100)
+)
+;
+alter table CDCCADD
+  add primary key (CDCCADID, CDCCADINST, CDCCADDCAD);
+

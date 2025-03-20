@@ -1,0 +1,18 @@
+create table FSF086
+(
+  lqhpgcod NUMBER(3) not null,
+  lqhfinro NUMBER(3) not null,
+  lqhfecha DATE not null,
+  lqhcam01 NUMBER(17,2),
+  lqhcam02 NUMBER(17,2),
+  lqhcam03 NUMBER(17,2),
+  lqhcam04 NUMBER(17,2),
+  lqhcam05 NUMBER(9),
+  lqhcam06 NUMBER(9),
+  lqhcam07 NUMBER(9),
+  lqhcam08 NUMBER(9)
+)
+;
+alter table FSF086
+  add primary key (LQHPGCOD, LQHFINRO, LQHFECHA);
+

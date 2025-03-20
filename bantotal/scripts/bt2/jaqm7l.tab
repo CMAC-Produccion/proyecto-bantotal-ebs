@@ -1,0 +1,99 @@
+create table JAQM7L
+(
+  jaqm7lpai NUMBER(3) not null,
+  jaqm7ltdo NUMBER(2) not null,
+  jaqm7lndo CHAR(12) not null,
+  jaqm7lfec DATE not null,
+  jaqm7lcor NUMBER(5) not null,
+  jaqm7lhor CHAR(10),
+  jaqm7lusu CHAR(10),
+  jaqm7lwrk CHAR(12),
+  jaqm7lnom VARCHAR2(30),
+  jaqm7ltcl VARCHAR2(30),
+  jaqm7lmto NUMBER(17,2),
+  jaqm7lana CHAR(10),
+  jaqm7lage NUMBER(3),
+  jaqm7lcoa NUMBER(9),
+  jaqm7lnro CHAR(12),
+  jaqm7ldes VARCHAR2(100),
+  jaqm7lmod CHAR(3),
+  jaqm7lai1 NUMBER(17,2),
+  jaqm7lai2 NUMBER(17,2),
+  jaqm7lai3 NUMBER(17,2),
+  jaqm7lan1 NUMBER(9),
+  jaqm7lan2 NUMBER(9),
+  jaqm7lan3 NUMBER(9),
+  jaqm7lac1 VARCHAR2(255),
+  jaqm7lac2 VARCHAR2(255),
+  jaqm7lac3 VARCHAR2(255),
+  jaqm7laf1 DATE,
+  jaqm7laf2 DATE,
+  jaqm7laf3 DATE
+)
+;
+comment on table JAQM7L
+  is 'Tabla para mantenimiento de listado creditos Semilla';
+comment on column JAQM7L.jaqm7lpai
+  is 'pais';
+comment on column JAQM7L.jaqm7ltdo
+  is 'tipo doc';
+comment on column JAQM7L.jaqm7lndo
+  is 'numero documento';
+comment on column JAQM7L.jaqm7lfec
+  is 'fecha';
+comment on column JAQM7L.jaqm7lcor
+  is 'correlativo';
+comment on column JAQM7L.jaqm7lhor
+  is 'hora';
+comment on column JAQM7L.jaqm7lusu
+  is 'usuario';
+comment on column JAQM7L.jaqm7lwrk
+  is 'ip';
+comment on column JAQM7L.jaqm7lnom
+  is 'nombre';
+comment on column JAQM7L.jaqm7ltcl
+  is 'tipo';
+comment on column JAQM7L.jaqm7lmto
+  is 'monto';
+comment on column JAQM7L.jaqm7lana
+  is 'analista';
+comment on column JAQM7L.jaqm7lage
+  is 'agencia';
+comment on column JAQM7L.jaqm7lcoa
+  is 'codigo agencia';
+comment on column JAQM7L.jaqm7lnro
+  is 'nro';
+comment on column JAQM7L.jaqm7ldes
+  is 'desembolso';
+comment on column JAQM7L.jaqm7lmod
+  is 'modulo';
+comment on column JAQM7L.jaqm7lai1
+  is 'auxiliar 1';
+comment on column JAQM7L.jaqm7lai2
+  is 'auxiliar 2';
+comment on column JAQM7L.jaqm7lai3
+  is 'auxiliar 3';
+comment on column JAQM7L.jaqm7lan1
+  is 'auxiliar num 1';
+comment on column JAQM7L.jaqm7lan2
+  is 'auxiliar num 2';
+comment on column JAQM7L.jaqm7lan3
+  is 'auxiliar num 3';
+comment on column JAQM7L.jaqm7lac1
+  is 'auxiliar car 1';
+comment on column JAQM7L.jaqm7lac2
+  is 'auxiliar car 2';
+comment on column JAQM7L.jaqm7lac3
+  is 'auxiliar car 3';
+comment on column JAQM7L.jaqm7laf1
+  is 'auxiliar fecha 1';
+comment on column JAQM7L.jaqm7laf2
+  is 'auxiliar fecha 2';
+comment on column JAQM7L.jaqm7laf3
+  is 'auxiliar fecha 3';
+create index JAQM7LA2 on JAQM7L (JAQM7LFEC, JAQM7LCOR);
+create index JAQM7LA3 on JAQM7L (JAQM7LAGE);
+create index JAQM7LA4 on JAQM7L (JAQM7LANA);
+alter table JAQM7L
+  add primary key (JAQM7LPAI, JAQM7LTDO, JAQM7LNDO, JAQM7LFEC, JAQM7LCOR);
+

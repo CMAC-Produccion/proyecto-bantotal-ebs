@@ -1,0 +1,19 @@
+create table FSEC09
+(
+  sec01pgcod NUMBER(3) not null,
+  sec01ptcta NUMBER(9) not null,
+  sec09kext  NUMBER(3) not null,
+  sec09cdexp NUMBER(10),
+  sec09cdpae NUMBER(3),
+  sec09cdeve NUMBER(10),
+  sec09sts   CHAR(1),
+  sec09cda01 NUMBER(10),
+  sec09cda02 NUMBER(10),
+  sec09cdc01 CHAR(20),
+  sec09fec01 DATE,
+  sec09fec02 DATE
+)
+;
+alter table FSEC09
+  add primary key (SEC01PGCOD, SEC01PTCTA, SEC09KEXT);
+

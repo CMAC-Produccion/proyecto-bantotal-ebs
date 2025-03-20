@@ -1,0 +1,11 @@
+create table WFERRO1
+(
+  wferrcod NUMBER(4) not null,
+  wflngid  CHAR(3) not null,
+  wferrmsg CHAR(80)
+)
+;
+create index IWFERRO2 on WFERRO1 (WFLNGID);
+alter table WFERRO1
+  add primary key (WFERRCOD, WFLNGID);
+

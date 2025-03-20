@@ -1,0 +1,19 @@
+create table JFAW20
+(
+  jfaw20nro  NUMBER(10) not null,
+  jfaw20cta  NUMBER(9),
+  jfaw20emp  NUMBER(3),
+  jfaw20suc  NUMBER(3),
+  jfaw20mod  NUMBER(3),
+  jfaw20tope NUMBER(3),
+  jfaw20ope  NUMBER(9),
+  jfaw20sbop NUMBER(3),
+  jfaw20mda  NUMBER(4),
+  jfaw20pap  NUMBER(4),
+  jfaw20cic  NUMBER(3)
+)
+;
+create index JFAW2002 on JFAW20 (JFAW20EMP, JFAW20MOD, JFAW20SUC, JFAW20MDA, JFAW20PAP, JFAW20CTA, JFAW20OPE, JFAW20SBOP, JFAW20TOPE);
+alter table JFAW20
+  add primary key (JFAW20NRO);
+

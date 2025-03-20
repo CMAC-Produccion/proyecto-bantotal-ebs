@@ -1,0 +1,11 @@
+create table FSFL51
+(
+  sfl51emp NUMBER(3) not null,
+  sfl51prd NUMBER(3) not null,
+  sfl51vnc NUMBER(3) not null,
+  sfl51hab CHAR(1)
+)
+;
+alter table FSFL51
+  add primary key (SFL51EMP, SFL51PRD, SFL51VNC);
+

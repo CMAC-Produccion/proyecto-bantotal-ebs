@@ -1,0 +1,12 @@
+create table JHSW27
+(
+  jhsw27appl CHAR(10) not null,
+  jhsw27id   CHAR(20) not null,
+  jhsw27io   CHAR(3) not null,
+  jhsw27data VARCHAR2(2000),
+  jhsw27time DATE
+)
+;
+alter table JHSW27
+  add primary key (JHSW27APPL, JHSW27ID, JHSW27IO);
+

@@ -1,0 +1,43 @@
+create table JBXI50
+(
+  jbxi50pro NUMBER(3) not null,
+  jbxi50tar NUMBER(10) not null,
+  jbxi50tip CHAR(30),
+  jbxi50lic NUMBER(14,2),
+  jbxi50lif NUMBER(14,2),
+  jbxi50lcc NUMBER(14,2),
+  jbxi50pam NUMBER(14,2),
+  jbxi50pmi NUMBER(14,2),
+  jbxi50add NUMBER(14,2),
+  jbxi50adp NUMBER(14,2),
+  jbxi50cod NUMBER(14,2),
+  jbxi50cop NUMBER(14,2),
+  jbxi50ajd NUMBER(14,2),
+  jbxi50ajp NUMBER(14,2),
+  jbxi50pad NUMBER(14,2),
+  jbxi50pap NUMBER(14,2),
+  jbxi50ppp NUMBER(14,2),
+  jbxi50pdp NUMBER(14,2),
+  jbxi50tic CHAR(30),
+  jbxi50est CHAR(30),
+  jbxi50fci NUMBER(8),
+  jbxi50fvt NUMBER(8),
+  jbxi50fac NUMBER(8),
+  jbxi50fup NUMBER(8),
+  jbxi50ulp NUMBER(14,2),
+  jbxi50uld NUMBER(14,2),
+  jbxi50ccp NUMBER(14,2),
+  jbxi50ccd NUMBER(14,2),
+  jbxi50suc NUMBER(3),
+  jbxi50tcu CHAR(2),
+  jbxi50im1 NUMBER(17,2),
+  jbxi50im2 NUMBER(17,2),
+  jbxi50im3 NUMBER(17,2),
+  jbxi50fc1 DATE,
+  jbxi50fc2 DATE,
+  jbxi50fc3 DATE
+)
+;
+alter table JBXI50
+  add primary key (JBXI50PRO, JBXI50TAR);
+

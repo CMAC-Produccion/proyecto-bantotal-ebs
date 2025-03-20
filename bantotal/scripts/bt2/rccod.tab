@@ -1,0 +1,29 @@
+create table RCCOD
+(
+  rcemp  NUMBER(3) not null,
+  rcfch  DATE not null,
+  rcnint NUMBER(9) not null,
+  rcnsbs NUMBER(10),
+  rcpais NUMBER(3),
+  rctdoc NUMBER(2),
+  rcndoc CHAR(12),
+  rcnsec NUMBER(8),
+  rctinf NUMBER(1),
+  rctdtr NUMBER(4),
+  rcndtr NUMBER(11),
+  rctdid CHAR(1),
+  rctfor NUMBER(1),
+  rcndid CHAR(12),
+  rctcod CHAR(2),
+  rcsdo  NUMBER(17,2),
+  rcnax1 NUMBER(17,2),
+  rcnax2 NUMBER(17,2),
+  rccax1 CHAR(60),
+  rccax2 CHAR(60),
+  rcfax1 DATE,
+  rcfax2 DATE
+)
+;
+alter table RCCOD
+  add primary key (RCEMP, RCFCH, RCNINT);
+

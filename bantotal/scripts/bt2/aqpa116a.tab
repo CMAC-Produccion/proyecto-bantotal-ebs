@@ -1,0 +1,32 @@
+create table AQPA116A
+(
+  aqpa116apai NUMBER(3) not null,
+  aqpa116atpo NUMBER(2) not null,
+  aqpa116anum CHAR(12) not null,
+  aqpa116afec DATE not null,
+  aqpa116acor NUMBER(3) not null,
+  aqpa116afpr DATE,
+  aqpa116alib NUMBER(17,2),
+  aqpa116adis NUMBER(17,2),
+  aqpa116aint NUMBER(17,2),
+  aqpa116aest CHAR(1),
+  aqpa116apgc NUMBER(3),
+  aqpa116asuc NUMBER(3),
+  aqpa116amod NUMBER(3),
+  aqpa116atrx NUMBER(3),
+  aqpa116arel NUMBER(4),
+  aqpa116afco DATE,
+  aqpa116aax1 NUMBER(9),
+  aqpa116aax2 NUMBER(9),
+  aqpa116aax3 NUMBER(17,2),
+  aqpa116aax4 NUMBER(17,2),
+  aqpa116aax5 DATE,
+  aqpa116aax6 DATE,
+  aqpa116aax7 CHAR(100),
+  aqpa116aax8 CHAR(100),
+  aqpa116aax9 CHAR(100)
+)
+;
+alter table AQPA116A
+  add primary key (AQPA116APAI, AQPA116ATPO, AQPA116ANUM, AQPA116AFEC, AQPA116ACOR);
+

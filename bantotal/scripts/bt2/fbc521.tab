@@ -1,0 +1,24 @@
+create table FBC521
+(
+  bcemp      NUMBER(3) not null,
+  bcinfor    CHAR(10) not null,
+  bcfinf     DATE not null,
+  bcpepais   NUMBER(3) not null,
+  bcpetdoc   NUMBER(2) not null,
+  bcpendoc   CHAR(12) not null,
+  bc21cpo    CHAR(8) not null,
+  bc21mda    NUMBER(4) not null,
+  bc21nroop  NUMBER(12),
+  bc21cap    NUMBER(17,2),
+  bc21int    NUMBER(17,2),
+  bc21otr    NUMBER(17,2),
+  bc21cont   NUMBER(17,2),
+  bc21prov   NUMBER(17,2),
+  bc21gar    NUMBER(17,2),
+  bc21tipgar NUMBER(2),
+  bc21fecav  DATE
+)
+;
+alter table FBC521
+  add primary key (BCEMP, BCINFOR, BCFINF, BCPEPAIS, BCPETDOC, BCPENDOC, BC21CPO, BC21MDA);
+

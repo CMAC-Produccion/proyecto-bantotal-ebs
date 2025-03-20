@@ -1,0 +1,58 @@
+create table AQPB012_012
+(
+  pgcod   NUMBER(3) not null,
+  aomod   NUMBER(3) not null,
+  aosuc   NUMBER(3) not null,
+  aomda   NUMBER(4) not null,
+  aopap   NUMBER(4) not null,
+  aocta   NUMBER(9) not null,
+  aooper  NUMBER(9) not null,
+  aosbop  NUMBER(3) not null,
+  aotope  NUMBER(3) not null,
+  evcorr  NUMBER(9) not null,
+  evtipo  NUMBER(2),
+  evfval  DATE,
+  evfvto  DATE,
+  evimp   NUMBER(17,2),
+  evttas  NUMBER(1),
+  evtasa  NUMBER(10,6),
+  evcap   NUMBER(17,2),
+  evint   NUMBER(17,2),
+  evmor   NUMBER(17,2),
+  evscap  NUMBER(17,2),
+  evsint  NUMBER(17,2),
+  evsmor  NUMBER(17,2),
+  evintc  NUMBER(17,2),
+  evmorc  NUMBER(17,2),
+  evcd01  NUMBER(2),
+  evcd02  CHAR(1),
+  evinv   NUMBER(9),
+  evper   NUMBER(3),
+  evtcbi  NUMBER(14,8),
+  evtcbi1 NUMBER(14,8),
+  evarb   NUMBER(14,8),
+  evarb1  NUMBER(14,8),
+  evmd    CHAR(1),
+  evmd1   CHAR(1),
+  evpre   NUMBER(14,8),
+  evpre1  NUMBER(14,8),
+  d012cd  NUMBER(3),
+  d012mo  NUMBER(3),
+  d012su  NUMBER(3),
+  d012tr  NUMBER(3),
+  d012re  NUMBER(4),
+  d012fc  DATE,
+  d012or  NUMBER(2),
+  d012sb  NUMBER(3),
+  d012co  CHAR(1),
+  fec     DATE not null,
+  cor     NUMBER(9) not null
+)
+;
+create index AQPB012_0122 on AQPB012_012 (D012CD, D012MO, D012SU, D012TR, D012RE, D012FC, D012OR, D012SB);
+create index AQPB012_0123 on AQPB012_012 (PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, AOCTA, AOOPER, AOSBOP, AOTOPE, EVINV);
+create index AQPB012_0124 on AQPB012_012 (PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, AOCTA, AOOPER, AOSBOP, AOTOPE, EVTIPO, EVINV);
+create index AQPB012_0125 on AQPB012_012 (PGCOD, AOMOD, AOSUC, AOTOPE, D012CO, EVFVTO);
+alter table AQPB012_012
+  add primary key (PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, AOCTA, AOOPER, AOSBOP, AOTOPE, EVCORR, FEC, COR);
+

@@ -1,0 +1,36 @@
+create table PPG000
+(
+  ppg000pgc NUMBER(3) not null,
+  ppg000mod NUMBER(4) not null,
+  ppg000suc NUMBER(3) not null,
+  ppg000mda NUMBER(4) not null,
+  ppg000pap NUMBER(4) not null,
+  ppg000cta NUMBER(9) not null,
+  ppg000ope NUMBER(9) not null,
+  ppg000sbo NUMBER(3) not null,
+  ppg000top NUMBER(3) not null,
+  ppg000cor NUMBER(3) not null,
+  ppg000frm NUMBER(3) not null,
+  ppg000tpg NUMBER(3),
+  ppg000tsc NUMBER(3),
+  ppg000tmd NUMBER(3),
+  ppg000ttr NUMBER(3),
+  ppg000tnr NUMBER(4),
+  ppg000tfc DATE,
+  ppg000tor NUMBER(2),
+  ppg000tso NUMBER(3),
+  ppg000tco CHAR(1),
+  ppg000au1 NUMBER(9),
+  ppg000au2 NUMBER(9),
+  ppg000au3 NUMBER(17,2),
+  ppg000au4 DATE,
+  ppg000au5 DATE,
+  ppg000au6 CHAR(30),
+  ppg000au7 CHAR(30)
+)
+;
+create index PPG00002 on PPG000 (PPG000PGC, PPG000MOD, PPG000MDA, PPG000PAP, PPG000TOP);
+create index PPG00003 on PPG000 (PPG000TPG, PPG000TSC, PPG000TMD, PPG000TTR, PPG000TNR, PPG000TFC, PPG000TOR, PPG000TSO);
+alter table PPG000
+  add primary key (PPG000PGC, PPG000MOD, PPG000SUC, PPG000MDA, PPG000PAP, PPG000CTA, PPG000OPE, PPG000SBO, PPG000TOP, PPG000COR, PPG000FRM);
+

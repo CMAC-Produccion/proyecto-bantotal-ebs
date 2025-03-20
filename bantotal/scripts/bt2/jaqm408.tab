@@ -1,0 +1,18 @@
+create table JAQM408
+(
+  jaqm408ins NUMBER(10) not null,
+  jaqm408fec DATE not null,
+  jaqm408cod NUMBER(4) not null,
+  jaqm408lin NUMBER(3) not null,
+  jaqm408fe1 DATE,
+  jaqm408fe2 DATE,
+  jaqm408fe3 DATE,
+  jaqm408de1 NUMBER(14,4),
+  jaqm408de2 NUMBER(14,4),
+  jaqm408de3 NUMBER(15),
+  jaqm408com VARCHAR2(144)
+)
+;
+alter table JAQM408
+  add primary key (JAQM408INS, JAQM408FEC, JAQM408COD, JAQM408LIN);
+

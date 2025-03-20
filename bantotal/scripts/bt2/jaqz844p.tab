@@ -1,0 +1,25 @@
+create table JAQZ844P
+(
+  jaqz844ppais    NUMBER(5),
+  jaqz844ptdoc    NUMBER(5),
+  jaqz844pndoc    VARCHAR2(12),
+  jaqz844pnomb    VARCHAR2(150),
+  jaqz844ppgcod   NUMBER(5) not null,
+  jaqz844psuc     NUMBER(5) not null,
+  jaqz844prub     NUMBER(16) not null,
+  jaqz844pmda     NUMBER(5) not null,
+  jaqz844ppap     NUMBER(5) not null,
+  jaqz844pcta     NUMBER(10) not null,
+  jaqz844pope     NUMBER(10) not null,
+  jaqz844psbop    NUMBER(10) not null,
+  jaqz844ptope    NUMBER(10) not null,
+  jaqz844pmod     NUMBER(5) not null,
+  jaqz844psaldcap NUMBER(10,2),
+  jaqz844pest     NUMBER(2),
+  jaqz844pmtopag  NUMBER(17,2),
+  jaqz844paux1    VARCHAR2(50)
+)
+;
+alter table JAQZ844P
+  add primary key (JAQZ844PPGCOD, JAQZ844PMOD, JAQZ844PSUC, JAQZ844PMDA, JAQZ844PPAP, JAQZ844PCTA, JAQZ844POPE, JAQZ844PSBOP, JAQZ844PTOPE, JAQZ844PRUB);
+

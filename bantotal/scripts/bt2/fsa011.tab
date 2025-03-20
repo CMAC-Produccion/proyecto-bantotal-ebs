@@ -1,0 +1,29 @@
+create table FSA011
+(
+  pgcod  NUMBER(3) not null,
+  axsuc  NUMBER(3) not null,
+  axrubr NUMBER(16) not null,
+  axmda  NUMBER(4) not null,
+  axpap  NUMBER(4) not null,
+  axcta  NUMBER(9) not null,
+  axoper NUMBER(9) not null,
+  axsbop NUMBER(3) not null,
+  axtope NUMBER(3) not null,
+  axmod  NUMBER(3),
+  axfcon DATE,
+  axfval DATE,
+  axfvto DATE,
+  axpzo  NUMBER(1),
+  axsdo  NUMBER(17,2),
+  axsdoh NUMBER(17,2),
+  axsegm NUMBER(2),
+  axfunc NUMBER(2),
+  axcc   NUMBER(3),
+  axtasa NUMBER(10,6)
+)
+;
+create index FSA01102 on FSA011 (PGCOD, AXCTA);
+create index FSA01103 on FSA011 (AXRUBR);
+alter table FSA011
+  add primary key (PGCOD, AXSUC, AXRUBR, AXMDA, AXPAP, AXCTA, AXOPER, AXSBOP, AXTOPE);
+

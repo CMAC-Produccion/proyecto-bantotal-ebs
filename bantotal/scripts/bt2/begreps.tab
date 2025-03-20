@@ -1,0 +1,107 @@
+create global temporary table BEGREPS
+(
+  c_descri1  VARCHAR2(100),
+  c_descri2  VARCHAR2(100),
+  c_descri3  VARCHAR2(100),
+  c_descri4  VARCHAR2(100),
+  c_descri5  VARCHAR2(100),
+  c_descri6  VARCHAR2(100),
+  c_descri7  VARCHAR2(100),
+  c_descri8  VARCHAR2(100),
+  c_descri9  VARCHAR2(100),
+  c_descri10 VARCHAR2(100),
+  c_descri11 VARCHAR2(100),
+  c_descri12 VARCHAR2(100),
+  c_descri13 VARCHAR2(100),
+  c_descri14 VARCHAR2(100),
+  c_descri15 VARCHAR2(100),
+  n_monto1   NUMBER(12,2),
+  n_monto2   NUMBER(12,2),
+  n_monto3   NUMBER(12,2),
+  n_monto4   NUMBER(12,2),
+  n_monto5   NUMBER(12,2),
+  d_fecha1   DATE,
+  d_fecha2   DATE,
+  c_descri16 VARCHAR2(100),
+  c_descri17 VARCHAR2(100),
+  c_descri18 VARCHAR2(100),
+  c_descri19 VARCHAR2(100),
+  c_descri20 VARCHAR2(100),
+  c_descri21 VARCHAR2(100),
+  c_descri22 VARCHAR2(100),
+  c_descri23 VARCHAR2(100),
+  c_descri24 VARCHAR2(100),
+  c_descri25 VARCHAR2(100),
+  n_monto6   NUMBER(12,2),
+  n_monto7   NUMBER(12,2),
+  n_monto8   NUMBER(12,2),
+  n_monto9   NUMBER(12,2),
+  n_monto10  NUMBER(13,2) default (0),
+  c_descri26 VARCHAR2(100) default (0)
+)
+on commit preserve rows;
+comment on table BEGREPS
+  is 'TEMPORAL PARA REPORTE DE BANCA ELECTRÓNICA';
+comment on column BEGREPS.c_descri1
+  is 'DESCRIPCION 1';
+comment on column BEGREPS.c_descri2
+  is 'DESCRIPCION 2';
+comment on column BEGREPS.c_descri3
+  is 'DESCRIPCION 3';
+comment on column BEGREPS.c_descri4
+  is 'DESCRIPCION 4';
+comment on column BEGREPS.c_descri5
+  is 'DESCRIPCION 5';
+comment on column BEGREPS.c_descri6
+  is 'DESCRIPCION 6';
+comment on column BEGREPS.c_descri7
+  is 'DESCRIPCION 7';
+comment on column BEGREPS.c_descri8
+  is 'DESCRIPCION 8';
+comment on column BEGREPS.c_descri9
+  is 'DESCRIPCION 9';
+comment on column BEGREPS.c_descri10
+  is 'DESCRIPCION 10';
+comment on column BEGREPS.c_descri11
+  is 'DESCRIPCION 11';
+comment on column BEGREPS.c_descri12
+  is 'DESCRIPCION 12';
+comment on column BEGREPS.c_descri13
+  is 'DESCRIPCION 13';
+comment on column BEGREPS.c_descri14
+  is 'DESCRIPCION 14';
+comment on column BEGREPS.c_descri15
+  is 'DESCRIPCION 15';
+comment on column BEGREPS.n_monto1
+  is 'MONTO 1';
+comment on column BEGREPS.n_monto2
+  is 'MONTO 2';
+comment on column BEGREPS.n_monto3
+  is 'MONTO 3';
+comment on column BEGREPS.n_monto4
+  is 'MONTO 4';
+comment on column BEGREPS.n_monto5
+  is 'MONTO 5';
+comment on column BEGREPS.d_fecha1
+  is 'FECHA 1';
+comment on column BEGREPS.d_fecha2
+  is 'FECHA 2';
+comment on column BEGREPS.n_monto6
+  is 'MONTO 6';
+comment on column BEGREPS.n_monto7
+  is 'MONTO 7';
+comment on column BEGREPS.n_monto8
+  is 'N_MONTO8';
+comment on column BEGREPS.n_monto9
+  is 'N_MONTO9';
+comment on column BEGREPS.n_monto10
+  is 'N_MONTO10';
+comment on column BEGREPS.c_descri26
+  is 'DESCRIPCION 26';
+create index XN_BEGREPS_01 on BEGREPS (C_DESCRI2, D_FECHA1, C_DESCRI4);
+create index XN_BEGREPS_02 on BEGREPS (C_DESCRI6, C_DESCRI12, D_FECHA1);
+create index XN_BEGREPS_04 on BEGREPS (N_MONTO1, D_FECHA1, C_DESCRI12);
+create index XN_BEGREPS_05 on BEGREPS (N_MONTO1);
+create index XN_BEGREPS_09 on BEGREPS (C_DESCRI13);
+create index XN_BEGREPS_10 on BEGREPS (C_DESCRI8);
+

@@ -1,0 +1,10 @@
+create table JFIN001
+(
+  jfin001rub NUMBER(16) not null,
+  jfin001mda NUMBER(4) not null,
+  jfin001imp NUMBER(17,2)
+)
+;
+alter table JFIN001
+  add primary key (JFIN001RUB, JFIN001MDA);
+

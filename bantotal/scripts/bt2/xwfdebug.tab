@@ -1,0 +1,18 @@
+create table XWFDEBUG
+(
+  xwfdebid  NUMBER(10) not null,
+  xwfdebprg CHAR(20),
+  xwfdebdat NUMBER(10),
+  xwfdebusr CHAR(10),
+  xwfdebfap DATE,
+  xwfdebtme CHAR(8),
+  xwfdebtyp CHAR(1),
+  xwfdebmsg LONG
+)
+;
+create index XWFDEBUG02 on XWFDEBUG (XWFDEBPRG, XWFDEBUSR);
+create index XWFDEBUG03 on XWFDEBUG (XWFDEBPRG, XWFDEBFAP);
+create index XWFDEBUG04 on XWFDEBUG (XWFDEBDAT);
+alter table XWFDEBUG
+  add primary key (XWFDEBID);
+

@@ -1,0 +1,28 @@
+create table XCR230
+(
+  xcr230cod  NUMBER(3) not null,
+  xcr230mod  NUMBER(3) not null,
+  xcr230suc  NUMBER(3) not null,
+  xcr230mda  NUMBER(4) not null,
+  xcr230pap  NUMBER(4) not null,
+  xcr230cta  NUMBER(9) not null,
+  xcr230ope  NUMBER(9) not null,
+  xcr230sbo  NUMBER(4) not null,
+  xcr230top  NUMBER(3) not null,
+  xcr230ini  NUMBER(9) not null,
+  xcr230est  CHAR(1),
+  xcr230sude NUMBER(3),
+  xcr230fede DATE,
+  xcr230usde CHAR(10),
+  xcr230feac DATE,
+  xcr230usac CHAR(10),
+  xcr230com  CHAR(120),
+  xcr230fea1 DATE,
+  xcr230ima1 NUMBER(17,2),
+  xcr230cha1 CHAR(20),
+  xcr230nua1 NUMBER(9)
+)
+;
+alter table XCR230
+  add primary key (XCR230COD, XCR230MOD, XCR230SUC, XCR230MDA, XCR230PAP, XCR230CTA, XCR230OPE, XCR230SBO, XCR230TOP, XCR230INI);
+

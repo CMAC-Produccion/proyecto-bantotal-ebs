@@ -1,0 +1,48 @@
+create table AQPB396
+(
+  aqpb396usur    CHAR(10) not null,
+  aqpb396ase     CHAR(10) not null,
+  aqpb396fproc   DATE not null,
+  aqpb396fcr     CHAR(10) not null,
+  aqpb396hcr     CHAR(10) not null,
+  aqpb396dest    VARCHAR2(100),
+  aqpb396destcc  VARCHAR2(100),
+  aqpb396destbcc VARCHAR2(100),
+  aqpb396mens    VARCHAR2(200),
+  aqpb396coderr  VARCHAR2(3),
+  aqpb396deserr  VARCHAR2(100),
+  aqpb396mailg   VARCHAR2(100),
+  aqpb396correl  NUMBER(14)
+)
+;
+comment on table AQPB396
+  is 'Tabla log envio correo sobreendeudamiento';
+comment on column AQPB396.aqpb396usur
+  is 'Usuario';
+comment on column AQPB396.aqpb396ase
+  is 'Analista';
+comment on column AQPB396.aqpb396fproc
+  is 'Fecha de proceso';
+comment on column AQPB396.aqpb396fcr
+  is 'Fecha creacion';
+comment on column AQPB396.aqpb396hcr
+  is 'Hora creacion';
+comment on column AQPB396.aqpb396dest
+  is 'Destinatarios';
+comment on column AQPB396.aqpb396destcc
+  is 'Destinatarios CC';
+comment on column AQPB396.aqpb396destbcc
+  is 'Destinatarios BCC';
+comment on column AQPB396.aqpb396mens
+  is 'Mensaje';
+comment on column AQPB396.aqpb396coderr
+  is 'Codigo error';
+comment on column AQPB396.aqpb396deserr
+  is 'Descripcion error';
+comment on column AQPB396.aqpb396mailg
+  is 'Correo gerente';
+comment on column AQPB396.aqpb396correl
+  is 'Correlativo envio';
+alter table AQPB396
+  add primary key (AQPB396USUR, AQPB396ASE, AQPB396FPROC, AQPB396FCR, AQPB396HCR);
+

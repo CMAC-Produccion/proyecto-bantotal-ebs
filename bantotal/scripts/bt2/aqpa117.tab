@@ -1,0 +1,23 @@
+create table AQPA117
+(
+  aqpa117pgc NUMBER(3) not null,
+  aqpa117mod NUMBER(3) not null,
+  aqpa117suc NUMBER(3) not null,
+  aqpa117mda NUMBER(4) not null,
+  aqpa117pap NUMBER(4) not null,
+  aqpa117cta NUMBER(9) not null,
+  aqpa117ope NUMBER(9) not null,
+  aqpa117sbo NUMBER(3) not null,
+  aqpa117tpo NUMBER(3) not null,
+  aqpa117fec DATE not null,
+  aqpa117rem NUMBER(17,2),
+  aqpa117cod VARCHAR2(400),
+  aqpa117msg VARCHAR2(400),
+  aqpa117fsi DATE,
+  aqpa117hor CHAR(8),
+  aqpa117usr CHAR(10)
+)
+;
+alter table AQPA117
+  add primary key (AQPA117PGC, AQPA117MOD, AQPA117SUC, AQPA117MDA, AQPA117PAP, AQPA117CTA, AQPA117OPE, AQPA117SBO, AQPA117TPO, AQPA117FEC);
+

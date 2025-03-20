@@ -1,0 +1,20 @@
+create table FIF002
+(
+  if002pgcod NUMBER(3) not null,
+  if002ori   NUMBER(3) not null,
+  if002nro   NUMBER(9) not null,
+  if002asi   NUMBER(9) not null,
+  if002fch   DATE,
+  if002suc   NUMBER(3),
+  if002mod   NUMBER(3),
+  if002trn   NUMBER(3),
+  if002rel   NUMBER(4),
+  if002orde  NUMBER(2),
+  if002sboe  NUMBER(3),
+  if002mncod NUMBER(5),
+  if002ref   CHAR(18)
+)
+;
+alter table FIF002
+  add primary key (IF002PGCOD, IF002ORI, IF002NRO, IF002ASI);
+

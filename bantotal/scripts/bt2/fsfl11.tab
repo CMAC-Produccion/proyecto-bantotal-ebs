@@ -1,0 +1,14 @@
+create table FSFL11
+(
+  fsfl11pgc NUMBER(3) not null,
+  fsfl11leg NUMBER(3) not null,
+  fsfl11nom CHAR(20),
+  fsfl11usu CHAR(10),
+  fsfl11fec DATE,
+  fsfl11lim NUMBER(17,2),
+  fsfl11est CHAR(1)
+)
+;
+alter table FSFL11
+  add primary key (FSFL11PGC, FSFL11LEG);
+

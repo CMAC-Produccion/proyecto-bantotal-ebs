@@ -1,0 +1,33 @@
+create table JAQY470F
+(
+  jaqy470fcodtra NUMBER(5) not null,
+  jaqy470fnomadq CHAR(70),
+  jaqy470ftipdoc NUMBER(2),
+  jaqy470fnumdoc CHAR(12),
+  jaqy470fmodtra NUMBER(3),
+  jaqy470fclaadq CHAR(35),
+  jaqy470freladq NUMBER(3),
+  jaqy470ffectra DATE,
+  jaqy470fcorsbs NUMBER(3),
+  jaqy470fressbs VARCHAR2(15),
+  jaqy470ftiprep NUMBER(3),
+  jaqy470ffec    DATE,
+  jaqy470fusu    CHAR(10),
+  jaqy470fnumdeu NUMBER(15),
+  jaqy470fpreven NUMBER(17,2),
+  jaqy470fcodadq NUMBER(5),
+  jaqy470fmre    NUMBER(18,2),
+  jaqy470ffvlm   DATE,
+  jaqy470ftiprec NUMBER(4)
+)
+;
+comment on column JAQY470F.jaqy470fmre
+  is 'Monto de Recaudación';
+comment on column JAQY470F.jaqy470ffvlm
+  is 'Fecha de Vencimiento de Logro de Meta';
+comment on column JAQY470F.jaqy470ftiprec
+  is 'Tipo de Recaudo';
+create index JAQY470F_INX_01 on JAQY470F (JAQY470FCODADQ, JAQY470FCODTRA);
+alter table JAQY470F
+  add primary key (JAQY470FCODTRA);
+

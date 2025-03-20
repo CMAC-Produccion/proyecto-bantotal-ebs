@@ -1,0 +1,13 @@
+create table JAQY728
+(
+  jaqy728fec   DATE not null,
+  jaqy728hor   CHAR(8) not null,
+  jaqy728inst  NUMBER(9) not null,
+  jaqy728nuope NUMBER(10)
+)
+;
+create index JAQY7282 on JAQY728 (JAQY728NUOPE);
+create index JAQY7283 on JAQY728 (JAQY728NUOPE, JAQY728HOR);
+alter table JAQY728
+  add primary key (JAQY728FEC, JAQY728HOR, JAQY728INST);
+

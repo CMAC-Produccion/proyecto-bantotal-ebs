@@ -1,0 +1,14 @@
+create table PRFP00
+(
+  pgcod      NUMBER(3) not null,
+  prfgcod    CHAR(10) not null,
+  prgnom     CHAR(8) not null,
+  prfpfecalt DATE,
+  prfpfecvto DATE,
+  prfpuser   CHAR(10)
+)
+;
+create index PRFP0002 on PRFP00 (PRGNOM);
+alter table PRFP00
+  add primary key (PGCOD, PRFGCOD, PRGNOM);
+

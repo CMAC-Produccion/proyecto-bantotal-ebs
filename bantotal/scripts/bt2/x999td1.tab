@@ -1,0 +1,20 @@
+create table X999TD1
+(
+  x999td1pa NUMBER(3) not null,
+  x999td1td NUMBER(2) not null,
+  x999td1nd CHAR(12) not null,
+  x999td1tn CHAR(3),
+  x999td1a1 CHAR(30),
+  x999td1a2 CHAR(30),
+  x999td1n1 CHAR(25),
+  x999td1n2 CHAR(25),
+  x999td1au DATE,
+  x999td1ui CHAR(10),
+  x999td1fa DATE,
+  x999td1ua CHAR(10),
+  x999td1es CHAR(3)
+)
+;
+alter table X999TD1
+  add primary key (X999TD1PA, X999TD1TD, X999TD1ND);
+

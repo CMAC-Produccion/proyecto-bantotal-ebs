@@ -1,0 +1,30 @@
+create table JAQY960
+(
+  jaqy960fec CHAR(6) not null,
+  jaqy960gru NUMBER(10) not null,
+  jaqy960nro NUMBER(10) not null,
+  jaqy960pgc NUMBER(3) not null,
+  jaqy960suv NUMBER(4) not null,
+  jaqy960cta NUMBER(9) not null,
+  jaqy960ope NUMBER(9) not null,
+  jaqy960mda NUMBER(3) not null,
+  jaqy960fca DATE,
+  jaqy960usu CHAR(10),
+  jaqy960suc NUMBER(3),
+  jaqy960sda NUMBER(17,2),
+  jaqy960sdf NUMBER(17,2),
+  jaqy960mov NUMBER(17,2),
+  jaqy960obs VARCHAR2(50),
+  jaqy960pgt NUMBER(3),
+  jaqy960sut NUMBER(3),
+  jaqy960mot NUMBER(3),
+  jaqy960trt NUMBER(3),
+  jaqy960ret NUMBER(4),
+  jaqy960fet DATE,
+  jaqy960itc CHAR(1)
+)
+;
+create index INX_JAQY960_01 on JAQY960 (JAQY960FEC, JAQY960GRU, JAQY960NRO, JAQY960CTA, JAQY960OPE, JAQY960MDA);
+alter table JAQY960
+  add primary key (JAQY960FEC, JAQY960GRU, JAQY960NRO, JAQY960PGC, JAQY960SUV, JAQY960CTA, JAQY960OPE, JAQY960MDA);
+

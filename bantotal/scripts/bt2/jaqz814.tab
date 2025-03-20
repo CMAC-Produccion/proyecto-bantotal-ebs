@@ -1,0 +1,17 @@
+create table JAQZ814
+(
+  jaqz814corr       NUMBER(10) not null,
+  jaqz814instancia  NUMBER(10) not null,
+  jaqz814usuario    VARCHAR2(30) not null,
+  jaqz814codflujo   NUMBER(17) not null,
+  jaqz814fechaflujo DATE,
+  jaqz814fecharcc   DATE,
+  jaqz814fecha      DATE
+)
+;
+create index JAQZ814IDX001 on JAQZ814 (JAQZ814CORR, JAQZ814INSTANCIA, JAQZ814USUARIO, JAQZ814CODFLUJO, JAQZ814FECHAFLUJO);
+create index JAQZ814IDX002 on JAQZ814 (JAQZ814INSTANCIA, JAQZ814CODFLUJO);
+create index JAQZ8143 on JAQZ814 (JAQZ814FECHA);
+alter table JAQZ814
+  add constraint JAQZ814IDX000 primary key (JAQZ814INSTANCIA, JAQZ814CODFLUJO, JAQZ814USUARIO);
+

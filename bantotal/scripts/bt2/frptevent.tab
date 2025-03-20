@@ -1,0 +1,11 @@
+create table FRPTEVENT
+(
+  frprcid       NUMBER(6) not null,
+  frtskid       NUMBER(6) not null,
+  frptevntyp    NUMBER(1) not null,
+  frptevnprgnam VARCHAR2(40)
+)
+;
+alter table FRPTEVENT
+  add primary key (FRPRCID, FRTSKID, FRPTEVNTYP);
+

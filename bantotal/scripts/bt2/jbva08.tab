@@ -1,0 +1,65 @@
+create table JBVA08
+(
+  jbva08emp  NUMBER(3) not null,
+  jbva08mod  NUMBER(3) not null,
+  jbva08suc  NUMBER(3) not null,
+  jbva08mda  NUMBER(4) not null,
+  jbva08pap  NUMBER(4) not null,
+  jbva08cta  NUMBER(9) not null,
+  jbva08ope  NUMBER(9) not null,
+  jbva08sbo  NUMBER(3) not null,
+  jbva08top  NUMBER(3) not null,
+  jbva08tcr  CHAR(1),
+  jbva08prom NUMBER(5),
+  jbva08proy NUMBER(5),
+  jbva08age  NUMBER(5),
+  jbva08ven  NUMBER(5),
+  jbva08ges  NUMBER(5),
+  jbva08cod1 NUMBER(5),
+  jbva08cod2 NUMBER(5),
+  jbva08cod3 NUMBER(5),
+  jbva08cod4 NUMBER(5),
+  jmba08cod5 NUMBER(5),
+  jbva08fch1 DATE,
+  jbva08fch2 DATE,
+  jbva08fch3 DATE,
+  jbva08fch4 DATE,
+  jbva08fch5 DATE,
+  jbva08imp1 NUMBER(17,2),
+  jbva08imp2 NUMBER(17,2),
+  jbva08imp3 NUMBER(17,2),
+  jbva08imp4 NUMBER(17,2),
+  jbva08imp5 NUMBER(17,2),
+  jbva08txt1 CHAR(30),
+  jbva08txt2 CHAR(30),
+  jbva08txt3 CHAR(30),
+  jbva08txt4 CHAR(30),
+  jbva08txt5 CHAR(30),
+  jbva08est1 CHAR(1),
+  jbva08est2 CHAR(1),
+  jbva08est3 CHAR(1),
+  jbva08est4 CHAR(1),
+  jbva08est5 CHAR(1),
+  jbva08tas1 NUMBER(10,6),
+  jbva08tas2 NUMBER(10,6),
+  jbva08tas3 NUMBER(10,6),
+  jbva08tas4 NUMBER(10,6),
+  jbva08tas5 NUMBER(10,6),
+  jbva08cd   NUMBER(3),
+  jbva08mo   NUMBER(3),
+  jbva08su   NUMBER(3),
+  jbva08tr   NUMBER(3),
+  jbva08re   NUMBER(4),
+  jbva08fc   DATE,
+  jbva08or   NUMBER(2),
+  jbva08sb   NUMBER(3),
+  jbva08co   CHAR(1)
+)
+;
+create unique index JBVA0801 on JBVA08 (JBVA08EMP, JBVA08MOD, JBVA08SUC, JBVA08MDA, JBVA08PAP, JBVA08CTA, JBVA08OPE, JBVA08SBO, JBVA08TOP);
+create index JBVA0802 on JBVA08 (JBVA08EMP, JBVA08CTA);
+create index JBVA0803 on JBVA08 (JBVA08EMP, JBVA08SUC);
+create index JBVA0804 on JBVA08 (JBVA08EMP, JBVA08TCR);
+create index JBVA0805 on JBVA08 (JBVA08EMP, JBVA08MOD, JBVA08MDA, JBVA08PAP, JBVA08CTA, JBVA08SUC, JBVA08OPE, JBVA08SBO);
+create index JBVA0806 on JBVA08 (JBVA08CD, JBVA08MO, JBVA08SU, JBVA08TR, JBVA08RE, JBVA08FC, JBVA08OR, JBVA08SB);
+

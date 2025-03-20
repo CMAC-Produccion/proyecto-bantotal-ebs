@@ -1,0 +1,99 @@
+create table JAQZ461
+(
+  jaqz461pano  NUMBER(4),
+  jaqz461pmes  NUMBER(2),
+  jaqz461cor   NUMBER(15),
+  jaqz461pais  NUMBER(4),
+  jaqz461nom   CHAR(30),
+  jaqz461sbs   VARCHAR2(10),
+  jaqz461tcli  VARCHAR2(3),
+  jaqz461dcli  CHAR(20),
+  jaqz461ndoc  CHAR(12),
+  jaqz461dirc  VARCHAR2(300),
+  jaqz461rleg  VARCHAR2(30),
+  jaqz461deuc  NUMBER(17,2),
+  jaqz461paiv  NUMBER(4),
+  jaqz461nomv  CHAR(30),
+  jaqz461sbsv  VARCHAR2(10),
+  jaqz461tcliv VARCHAR2(3),
+  jaqz461dcliv CHAR(20),
+  jaqz461ndocv CHAR(12),
+  jaqz461dirv  VARCHAR2(300),
+  jaqz461acci  NUMBER,
+  jaqz461car1  NUMBER,
+  jaqz461car2  NUMBER,
+  jaqz461deuv  NUMBER,
+  jaqz461ges   VARCHAR2(2),
+  jaqz461fdes  DATE,
+  jaqz461auxc  VARCHAR2(300),
+  jaqz461auxn  NUMBER(17,2),
+  jaqz461auxf  DATE,
+  jaqz461cta   NUMBER(9),
+  jaqz461ope   NUMBER(9)
+)
+;
+comment on table JAQZ461
+  is 'reporte Riesgo Unico';
+comment on column JAQZ461.jaqz461pano
+  is 'Año';
+comment on column JAQZ461.jaqz461pmes
+  is 'Mes';
+comment on column JAQZ461.jaqz461cor
+  is 'Correlativo ';
+comment on column JAQZ461.jaqz461pais
+  is 'Pais';
+comment on column JAQZ461.jaqz461nom
+  is 'Nombre Cliente';
+comment on column JAQZ461.jaqz461sbs
+  is 'Codigo SBS';
+comment on column JAQZ461.jaqz461tcli
+  is 'Tipo Cliente';
+comment on column JAQZ461.jaqz461dcli
+  is 'Documento Cliente';
+comment on column JAQZ461.jaqz461ndoc
+  is 'Numero Documento Cliente';
+comment on column JAQZ461.jaqz461dirc
+  is 'Direccion Cliente';
+comment on column JAQZ461.jaqz461rleg
+  is 'Representante Legal';
+comment on column JAQZ461.jaqz461deuc
+  is 'Deuda Cliente';
+comment on column JAQZ461.jaqz461paiv
+  is 'Pais Vinculado';
+comment on column JAQZ461.jaqz461nomv
+  is 'Nombre Cliente';
+comment on column JAQZ461.jaqz461sbsv
+  is 'Codigo SBS';
+comment on column JAQZ461.jaqz461tcliv
+  is 'Tipo Cliente Vinculado';
+comment on column JAQZ461.jaqz461dcliv
+  is 'Documento Vinculado';
+comment on column JAQZ461.jaqz461ndocv
+  is 'Numero Documento Vinculado';
+comment on column JAQZ461.jaqz461dirv
+  is 'Direccion Vinculado';
+comment on column JAQZ461.jaqz461acci
+  is 'Accionista';
+comment on column JAQZ461.jaqz461car1
+  is 'Cargo';
+comment on column JAQZ461.jaqz461car2
+  is 'Otro Cargo';
+comment on column JAQZ461.jaqz461deuv
+  is 'Deuda Vinculado';
+comment on column JAQZ461.jaqz461ges
+  is 'Gestion';
+comment on column JAQZ461.jaqz461fdes
+  is 'Fecha Ultimo Desembolso';
+comment on column JAQZ461.jaqz461auxc
+  is 'Campo Auxiliar 1- varchar';
+comment on column JAQZ461.jaqz461auxn
+  is 'Campo Auxiliar 2- numerico';
+comment on column JAQZ461.jaqz461auxf
+  is 'Campo Auxiliar 3- fecha';
+comment on column JAQZ461.jaqz461cta
+  is 'Cuenta';
+comment on column JAQZ461.jaqz461ope
+  is 'Operacion';
+create index JAQZ461_IDX1 on JAQZ461 (JAQZ461PANO, JAQZ461PMES);
+create index JAQZ4612 on JAQZ461 (JAQZ461PANO, JAQZ461PMES, JAQZ461NDOC);
+

@@ -1,0 +1,12 @@
+create table WFDOCROL
+(
+  wfprcid      NUMBER(4) not null,
+  wfdocappid   NUMBER(2) not null,
+  wfdocid      NUMBER(10) not null,
+  wfdocrrolcod NUMBER(4) not null
+)
+;
+create index IWFDOCROL1 on WFDOCROL (WFDOCRROLCOD);
+alter table WFDOCROL
+  add primary key (WFPRCID, WFDOCAPPID, WFDOCID, WFDOCRROLCOD);
+

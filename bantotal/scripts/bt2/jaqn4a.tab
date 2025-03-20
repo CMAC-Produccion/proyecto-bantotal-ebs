@@ -1,0 +1,72 @@
+create table JAQN4A
+(
+  jaqn4atip  CHAR(15) not null,
+  jaqn4amod  NUMBER(3) not null,
+  jaqn4atrn  NUMBER(4) not null,
+  jaqn4asuc  NUMBER(3) not null,
+  jaqn4apgm  CHAR(10) not null,
+  jaqn4aest  CHAR(10),
+  jaqn4acorr CHAR(1),
+  jaqn4atelf CHAR(1),
+  jaqn4aan1  NUMBER(9),
+  jaqn4aan2  NUMBER(9),
+  jaqn4aan3  NUMBER(9),
+  jaqn4aaf1  DATE,
+  jaqn4aaf2  DATE,
+  jaqn4aaf3  DATE,
+  jaqn4aac1  VARCHAR2(255),
+  jaqn4aac2  VARCHAR2(255),
+  jaqn4aac3  VARCHAR2(255),
+  jaqn4aai1  NUMBER(17,2),
+  jaqn4aai2  NUMBER(17,2),
+  jaqn4aai3  NUMBER(17,2)
+)
+;
+comment on table JAQN4A
+  is 'Parametria Doble Validación';
+comment on column JAQN4A.jaqn4atip
+  is 'Tipo de parametrizacion';
+comment on column JAQN4A.jaqn4amod
+  is 'Modulo';
+comment on column JAQN4A.jaqn4atrn
+  is 'Transaccion';
+comment on column JAQN4A.jaqn4asuc
+  is 'Sucursal';
+comment on column JAQN4A.jaqn4apgm
+  is 'Programa';
+comment on column JAQN4A.jaqn4aest
+  is 'Estado';
+comment on column JAQN4A.jaqn4acorr
+  is 'Correo';
+comment on column JAQN4A.jaqn4atelf
+  is 'Telefono';
+comment on column JAQN4A.jaqn4aan1
+  is 'Auxiliar numerico 1';
+comment on column JAQN4A.jaqn4aan2
+  is 'Auxiliar numerico 2';
+comment on column JAQN4A.jaqn4aan3
+  is 'Auxiliar numerico 3';
+comment on column JAQN4A.jaqn4aaf1
+  is 'Auxiliar fecha 1';
+comment on column JAQN4A.jaqn4aaf2
+  is 'Auxiliar fecha 2';
+comment on column JAQN4A.jaqn4aaf3
+  is 'Auxiliar fecha 3';
+comment on column JAQN4A.jaqn4aac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN4A.jaqn4aac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN4A.jaqn4aac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN4A.jaqn4aai1
+  is 'Auxiliar importe 1';
+comment on column JAQN4A.jaqn4aai2
+  is 'Auxiliar importe 2';
+comment on column JAQN4A.jaqn4aai3
+  is 'Auxiliar importe 3';
+create index JAQN4AA2 on JAQN4A (JAQN4ASUC, JAQN4APGM, JAQN4AEST);
+create index JAQN4AA3 on JAQN4A (JAQN4ASUC, JAQN4AMOD, JAQN4ATRN, JAQN4AEST);
+create index JAQN4AA4 on JAQN4A (JAQN4ASUC, JAQN4APGM, JAQN4AMOD, JAQN4ATRN, JAQN4AEST);
+alter table JAQN4A
+  add primary key (JAQN4ATIP, JAQN4AMOD, JAQN4ATRN, JAQN4ASUC, JAQN4APGM);
+

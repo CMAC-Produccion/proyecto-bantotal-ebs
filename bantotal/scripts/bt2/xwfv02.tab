@@ -1,0 +1,11 @@
+create table XWFV02
+(
+  estmcod       NUMBER(5) not null,
+  xwfv02parmcod NUMBER(5) not null,
+  xwfv02correl  NUMBER(5) not null,
+  xwfv02val     VARCHAR2(250)
+)
+;
+alter table XWFV02
+  add primary key (ESTMCOD, XWFV02PARMCOD, XWFV02CORREL);
+

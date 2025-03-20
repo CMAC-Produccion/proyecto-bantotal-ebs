@@ -1,0 +1,23 @@
+create table FBC718
+(
+  bc718emp  NUMBER(3) not null,
+  bc718fch  NUMBER(6) not null,
+  bc718cta  NUMBER(9) not null,
+  bc718pdoc NUMBER(3) not null,
+  bc718tdoc NUMBER(2) not null,
+  bc718ndoc CHAR(12) not null,
+  bc718codc CHAR(8) not null,
+  bc718deno CHAR(50),
+  bc718call CHAR(20),
+  bc718nrop CHAR(5),
+  bc718codp CHAR(8),
+  bc718loca CHAR(50),
+  bc718pais CHAR(2),
+  bc718coda NUMBER(3)
+)
+;
+create index FBC71802 on FBC718 (BC718EMP, BC718FCH, BC718CODC);
+create index FBC71803 on FBC718 (BC718EMP, BC718FCH, BC718PDOC, BC718TDOC, BC718NDOC);
+alter table FBC718
+  add primary key (BC718EMP, BC718FCH, BC718CTA, BC718PDOC, BC718TDOC, BC718NDOC, BC718CODC);
+

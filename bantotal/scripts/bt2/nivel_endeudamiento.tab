@@ -1,0 +1,13 @@
+create table NIVEL_ENDEUDAMIENTO
+(
+  tip_doc       NUMBER(2) not null,
+  nro_documento CHAR(12) not null,
+  codigo_sbs    VARCHAR2(10),
+  tipo_per      CHAR(1),
+  nro_credito   VARCHAR2(27)
+)
+;
+comment on table NIVEL_ENDEUDAMIENTO
+  is 'Proceso de generación de estructura de endeudamiento ACL';
+create index IX_NIVEL_ENDEUDAMIENTO on NIVEL_ENDEUDAMIENTO (TIP_DOC, TIPO_PER, CODIGO_SBS, NRO_DOCUMENTO, NRO_CREDITO);
+

@@ -1,0 +1,23 @@
+create table JAQM473
+(
+  jaqm473emp NUMBER(3) not null,
+  jaqm473fec DATE not null,
+  jaqm473suc NUMBER(3) not null,
+  jaqm473mod NUMBER(3) not null,
+  jaqm473tra NUMBER(3) not null,
+  jaqm473rel NUMBER(4) not null,
+  jaqm473cor NUMBER(4) not null,
+  jaqm473pai NUMBER(3),
+  jaqm473tdo NUMBER(2),
+  jaqm473ndo CHAR(25),
+  jaqm473tid CHAR(10),
+  jaqm473idf CHAR(50),
+  jaqm473tok CHAR(250),
+  jaqm473lin VARCHAR2(2000),
+  jaqm473lou LONG
+)
+;
+create index JAQM4732 on JAQM473 (JAQM473PAI, JAQM473TDO, JAQM473NDO);
+alter table JAQM473
+  add primary key (JAQM473EMP, JAQM473FEC, JAQM473SUC, JAQM473MOD, JAQM473TRA, JAQM473REL, JAQM473COR);
+

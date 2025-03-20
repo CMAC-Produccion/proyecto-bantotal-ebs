@@ -1,0 +1,11 @@
+create table FCT058
+(
+  mdasw1 CHAR(3) not null,
+  pais   NUMBER(3),
+  mdasw2 CHAR(3)
+)
+;
+create index FCT05802 on FCT058 (PAIS);
+alter table FCT058
+  add primary key (MDASW1);
+

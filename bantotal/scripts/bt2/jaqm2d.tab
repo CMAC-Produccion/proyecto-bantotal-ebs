@@ -1,0 +1,130 @@
+create table JAQM2D
+(
+  jaqm2dcod CHAR(50) not null,
+  jaqm2dins NUMBER(10) not null,
+  jaqm2dcta NUMBER(9),
+  jaqm2dnom CHAR(35),
+  jaqm2dest CHAR(1),
+  jaqm2dmon NUMBER(17,2),
+  jaqm2dnct NUMBER(3),
+  jaqm2dogr CHAR(70),
+  jaqm2dana CHAR(10),
+  jaqm2dfre NUMBER(9),
+  jaqm2dfec DATE,
+  jaqm2dhra CHAR(8),
+  jaqm2dai1 NUMBER(17,2),
+  jaqm2dai2 NUMBER(17,2),
+  jaqm2dai3 NUMBER(17,2),
+  jaqm2dad1 DATE,
+  jaqm2dad2 DATE,
+  jaqm2dad3 DATE,
+  jaqm2dan1 NUMBER(9),
+  jaqm2dan2 NUMBER(9),
+  jaqm2dan3 NUMBER(9),
+  jaqm2dac1 CHAR(250),
+  jaqm2dac2 CHAR(250),
+  jaqm2dac3 CHAR(250),
+  jaqm2dmod NUMBER(3),
+  jaqm2dtop NUMBER(3),
+  jaqm2dsbo NUMBER(3),
+  jaqm2dope NUMBER(9),
+  jaqm2dpap NUMBER(4),
+  jaqm2dmda NUMBER(4),
+  jaqm2dsuc NUMBER(3),
+  jaqm2dcti NUMBER(4),
+  jaqm2dein CHAR(1),
+  jaqm2dcmt NUMBER(2),
+  jaqm2dmtv CHAR(100),
+  jaqm2dcom VARCHAR2(250),
+  jaqm2dumt CHAR(10),
+  jaqm2dexp CHAR(1),
+  jaqm2dcon CHAR(30),
+  jaqm2dscr CHAR(1)
+)
+;
+comment on table JAQM2D
+  is 'Instancias Acta de Credito';
+comment on column JAQM2D.jaqm2dcod
+  is 'Codigo Unico';
+comment on column JAQM2D.jaqm2dins
+  is 'Instancia';
+comment on column JAQM2D.jaqm2dcta
+  is 'Cuenta Cliente';
+comment on column JAQM2D.jaqm2dnom
+  is 'Nombre de Cuenta';
+comment on column JAQM2D.jaqm2dest
+  is 'Estado (Apro - A, Obse - O, Pend - P, Rech - R)';
+comment on column JAQM2D.jaqm2dmon
+  is 'Monto de Credito';
+comment on column JAQM2D.jaqm2dnct
+  is 'Numero de Cuotas';
+comment on column JAQM2D.jaqm2dogr
+  is 'Operacion de Garantia';
+comment on column JAQM2D.jaqm2dana
+  is 'Analista de Credito';
+comment on column JAQM2D.jaqm2dfre
+  is 'Frecuencia';
+comment on column JAQM2D.jaqm2dfec
+  is 'Fecha';
+comment on column JAQM2D.jaqm2dhra
+  is 'Hora';
+comment on column JAQM2D.jaqm2dai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM2D.jaqm2dai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM2D.jaqm2dai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM2D.jaqm2dad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM2D.jaqm2dad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM2D.jaqm2dad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM2D.jaqm2dan1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM2D.jaqm2dan2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM2D.jaqm2dan3
+  is 'Auxiliar Numerico 3';
+comment on column JAQM2D.jaqm2dac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM2D.jaqm2dac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM2D.jaqm2dac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM2D.jaqm2dmod
+  is 'Modulo cuenta';
+comment on column JAQM2D.jaqm2dtop
+  is 'Tipo operacion cuenta';
+comment on column JAQM2D.jaqm2dsbo
+  is 'Sub-operac cuenta';
+comment on column JAQM2D.jaqm2dope
+  is 'Operacion cuenta';
+comment on column JAQM2D.jaqm2dpap
+  is 'Papel cuenta';
+comment on column JAQM2D.jaqm2dmda
+  is 'Moneda cuenta';
+comment on column JAQM2D.jaqm2dsuc
+  is 'Sucursal cuenta';
+comment on column JAQM2D.jaqm2dcti
+  is 'Codigo de tarea de la instancia al crear el comite';
+comment on column JAQM2D.jaqm2dein
+  is 'Estado Inicial al crear comite P: en proceso, C: completo, A: asignado, D: delegado';
+comment on column JAQM2D.jaqm2dcmt
+  is 'Codigo motivo';
+comment on column JAQM2D.jaqm2dmtv
+  is 'Motivo de estado pendiente';
+comment on column JAQM2D.jaqm2dcom
+  is 'Comentario del ingreso del motivo';
+comment on column JAQM2D.jaqm2dumt
+  is 'Usuario que ingreso motivo';
+comment on column JAQM2D.jaqm2dexp
+  is 'Exposicion de la instancia';
+comment on column JAQM2D.jaqm2dcon
+  is 'Condición instancia';
+comment on column JAQM2D.jaqm2dscr
+  is 'Score instancia';
+create index JAQM2DA2 on JAQM2D (JAQM2DCOD, JAQM2DINS, JAQM2DCTA);
+alter table JAQM2D
+  add primary key (JAQM2DCOD, JAQM2DINS);
+

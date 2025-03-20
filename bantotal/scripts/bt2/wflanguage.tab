@@ -1,0 +1,11 @@
+create table WFLANGUAGE
+(
+  wflngid  CHAR(3) not null,
+  wflngdsc CHAR(50),
+  wflngsts CHAR(1)
+)
+;
+create index UWFLNG1 on WFLANGUAGE (WFLNGSTS);
+alter table WFLANGUAGE
+  add primary key (WFLNGID);
+

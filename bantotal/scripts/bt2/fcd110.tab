@@ -1,0 +1,36 @@
+create table FCD110
+(
+  pgcod    NUMBER(3) not null,
+  semod    NUMBER(3) not null,
+  seoper   NUMBER(9) not null,
+  sesuc    NUMBER(3),
+  semda    NUMBER(4),
+  semocsw1 CHAR(3),
+  setipo   NUMBER(3),
+  sepap    NUMBER(4),
+  secta    NUMBER(9),
+  sefing   DATE,
+  sefvto   DATE,
+  sefval   DATE,
+  seuser   CHAR(10),
+  sews     CHAR(10),
+  idioma   NUMBER(2),
+  seaoimp  NUMBER(17,2),
+  sembcod  NUMBER(2),
+  c011cd   NUMBER(3),
+  c011mo   NUMBER(3),
+  c011su   NUMBER(3),
+  c011tr   NUMBER(3),
+  c011re   NUMBER(4),
+  c011fc   DATE,
+  c011co   CHAR(1)
+)
+;
+create index FCD11002 on FCD110 (IDIOMA);
+create index FCD11003 on FCD110 (PGCOD, SECTA);
+create index FCD11004 on FCD110 (SEMOD);
+create index FCD11005 on FCD110 (SEMDA);
+create index FCD11006 on FCD110 (SEMBCOD);
+alter table FCD110
+  add primary key (PGCOD, SEMOD, SEOPER);
+

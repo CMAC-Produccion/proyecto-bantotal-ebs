@@ -1,0 +1,26 @@
+create table AQPA109F
+(
+  aqpa109ftar NUMBER(9) not null,
+  aqpa109fmod NUMBER(3) not null,
+  aqpa109ftrx NUMBER(3) not null,
+  aqpa109ford NUMBER(3) not null,
+  aqpa109ffer DATE,
+  aqpa109fusr CHAR(10),
+  aqpa109fagr NUMBER(3),
+  aqpa109ffem DATE,
+  aqpa109fusm CHAR(10),
+  aqpa109fagm NUMBER(3),
+  aqpa109fax1 NUMBER(9),
+  aqpa109fax2 NUMBER(9),
+  aqpa109fax3 NUMBER(17,2),
+  aqpa109fax4 NUMBER(17,2),
+  aqpa109fax5 DATE,
+  aqpa109fax6 DATE,
+  aqpa109fax7 CHAR(100),
+  aqpa109fax8 CHAR(100),
+  aqpa109fax9 CHAR(100)
+)
+;
+alter table AQPA109F
+  add primary key (AQPA109FTAR, AQPA109FMOD, AQPA109FTRX, AQPA109FORD);
+

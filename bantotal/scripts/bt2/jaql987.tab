@@ -1,0 +1,76 @@
+create table JAQL987
+(
+  jaql987fec  DATE not null,
+  jaql987reg  NUMBER(3) not null,
+  jaql987cod  NUMBER(3) not null,
+  jaql987ana  VARCHAR2(20) not null,
+  jaql987cor  NUMBER(10) not null,
+  jaql987ren  CHAR(40),
+  jaql987age  CHAR(30),
+  jaql987sal  NUMBER(17,2),
+  jaql987salj NUMBER(17,2),
+  jaql987ncl  NUMBER(10),
+  jaql987ncr  NUMBER(10),
+  jaql987s15  NUMBER(17,2),
+  jaql987p15  NUMBER(17,2),
+  jaql987s30  NUMBER(17,2),
+  jaql987p30  NUMBER(17,2),
+  jaql987sju  NUMBER(17,2),
+  jaql987sve  NUMBER(17,2),
+  jaql987sre  NUMBER(17,2),
+  jaql987crju NUMBER(10),
+  jaql987crve NUMBER(10),
+  jaql987crre NUMBER(10),
+  jaql987clju NUMBER(10),
+  jaql987clve NUMBER(10),
+  jaql987clre NUMBER(10),
+  jaql987tip  NUMBER(3) not null,
+  jaql987sca  NUMBER(17,2),
+  jaql987svi  NUMBER(17,2),
+  jaql987scat NUMBER(17,2),
+  jaql987scac NUMBER(17,2),
+  jaql987scvp NUMBER(17,2),
+  jaql987scvn NUMBER(17,2),
+  jaql987scvr NUMBER(17,2),
+  jaql987gru  NUMBER(2),
+  jaql987sbs  VARCHAR2(30) not null,
+  jaql987pmr  NUMBER(17,2),
+  jaql987coz  NUMBER(3) not null,
+  jaql987noz  VARCHAR2(50),
+  jaql987scpv NUMBER(17,2),
+  jaql987scp1 NUMBER(17,2),
+  jaql987scca NUMBER(17,2)
+)
+;
+comment on column JAQL987.jaql987svi
+  is 'saldo vigente';
+comment on column JAQL987.jaql987scat
+  is 'Saldo Cartera Atrasada';
+comment on column JAQL987.jaql987scac
+  is 'Saldo Cartera Atrasada con Castigos';
+comment on column JAQL987.jaql987scvp
+  is 'saldo capital vencido prendario';
+comment on column JAQL987.jaql987scvn
+  is 'saldo capital vencido normal';
+comment on column JAQL987.jaql987scvr
+  is 'saldo capital vencido refinanciado';
+comment on column JAQL987.jaql987gru
+  is 'Producto SBS';
+comment on column JAQL987.jaql987sbs
+  is 'Descripcion Producto SBS ';
+comment on column JAQL987.jaql987pmr
+  is 'Porcentaje Mora Contable ';
+comment on column JAQL987.jaql987coz
+  is 'Codigo Region CMAC-Zona ';
+comment on column JAQL987.jaql987noz
+  is 'Region CMAC-Zona  ';
+comment on column JAQL987.jaql987scpv
+  is 'Saldo Proyeccion por Plazo';
+comment on column JAQL987.jaql987scp1
+  is 'Saldo Vencido Proyeccion un dia';
+comment on column JAQL987.jaql987scca
+  is 'Saldo Cartera Atrasada ';
+create index IDX_JAQL987_5 on JAQL987 (JAQL987FEC, JAQL987TIP, JAQL987SBS, JAQL987COZ, JAQL987REG, JAQL987COD, JAQL987ANA);
+alter table JAQL987
+  add primary key (JAQL987FEC, JAQL987TIP, JAQL987SBS, JAQL987COZ, JAQL987REG, JAQL987COD, JAQL987ANA, JAQL987COR);
+

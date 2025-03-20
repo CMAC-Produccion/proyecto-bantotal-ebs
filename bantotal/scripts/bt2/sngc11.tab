@@ -1,0 +1,33 @@
+create table SNGC11
+(
+  sngc11pais NUMBER(3) not null,
+  sngc11tdoc NUMBER(2) not null,
+  sngc11ndoc CHAR(12) not null,
+  sngc11acas CHAR(30),
+  sngc11ugeo CHAR(6),
+  sngc11nest CHAR(50),
+  sngc11conp NUMBER(3),
+  sngc11cotd NUMBER(2),
+  sngc11cond CHAR(12),
+  sngc11co1n CHAR(30),
+  sngc11dpto NUMBER(5),
+  sngc11prov NUMBER(5),
+  sngc11dist NUMBER(9),
+  sngc11aux  CHAR(60),
+  sngc11nreg NUMBER(15),
+  sngc11caps NUMBER(17,2),
+  sngc11tpa2 NUMBER(12),
+  sngc11act2 NUMBER(9),
+  sngc11txt1 CHAR(60),
+  sngc11txt2 CHAR(60),
+  sngc11cmb1 NUMBER(4),
+  sngc11cmb2 NUMBER(4),
+  sngc11dat1 DATE,
+  sngc11dat2 DATE,
+  sngc11num1 NUMBER(9),
+  sngc11num2 NUMBER(9)
+)
+;
+alter table SNGC11
+  add primary key (SNGC11PAIS, SNGC11TDOC, SNGC11NDOC);
+

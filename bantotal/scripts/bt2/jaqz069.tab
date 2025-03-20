@@ -1,0 +1,17 @@
+create table JAQZ069
+(
+  jaqz069nco NUMBER(10),
+  jaqz069fen DATE,
+  jaqz069hoe CHAR(8),
+  jaqz069suc NUMBER(3),
+  jaqz069int VARCHAR2(40),
+  jaqz069tdo NUMBER(3),
+  jaqz069ndo CHAR(12),
+  jaqz069acc VARCHAR2(15),
+  jaqz069ins NUMBER(10),
+  jaqz069tar NUMBER(4)
+)
+;
+create index IDX_JAQZ069_01 on JAQZ069 (JAQZ069NCO);
+create index IDX_JAQZ069_02 on JAQZ069 (JAQZ069TDO, JAQZ069NDO, JAQZ069INT);
+

@@ -1,0 +1,13 @@
+create table SNG003
+(
+  sng001inst NUMBER(10) not null,
+  sng003pgc  NUMBER(3) not null,
+  sng003cta  NUMBER(9) not null,
+  sng003cor  NUMBER(3) not null,
+  sng003tpo  NUMBER(2)
+)
+;
+create index ISNG00301 on SNG003 (SNG003CTA);
+alter table SNG003
+  add primary key (SNG001INST, SNG003PGC, SNG003CTA, SNG003COR);
+

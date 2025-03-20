@@ -1,0 +1,23 @@
+create table FST951
+(
+  cdcod  NUMBER(3) not null,
+  cadcod NUMBER(5) not null,
+  cdnsec NUMBER(5) not null,
+  cdproc CHAR(10),
+  cddesc CHAR(30),
+  cdest  CHAR(1),
+  cdexcp CHAR(1),
+  cdejec CHAR(1),
+  cdper  CHAR(1),
+  cdret  CHAR(1),
+  cdfini DATE,
+  cdhini CHAR(8),
+  cdffin DATE,
+  cdhfin CHAR(8),
+  cdparm CHAR(1),
+  cdcpar NUMBER(1)
+)
+;
+alter table FST951
+  add primary key (CDCOD, CADCOD, CDNSEC);
+

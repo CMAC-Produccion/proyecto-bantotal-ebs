@@ -1,0 +1,13 @@
+create table FBC177
+(
+  pgcod    NUMBER(3) not null,
+  sucurs   NUMBER(3) not null,
+  bcdepcod NUMBER(2) not null,
+  bcciucod NUMBER(3) not null,
+  bczoncod NUMBER(2) not null
+)
+;
+create index FBC17702 on FBC177 (BCDEPCOD, BCCIUCOD, BCZONCOD);
+alter table FBC177
+  add primary key (PGCOD, SUCURS, BCDEPCOD, BCCIUCOD, BCZONCOD);
+

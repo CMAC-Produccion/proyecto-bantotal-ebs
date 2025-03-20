@@ -1,0 +1,81 @@
+create table JAQN1C
+(
+  jaqn1cfec DATE not null,
+  jaqn1cusu CHAR(10) not null,
+  jaqn1ccod NUMBER(9) not null,
+  jaqn1ccor NUMBER(9) not null,
+  jaqn1ctre CHAR(16) not null,
+  jaqn1cstr CHAR(16) not null,
+  jaqn1cpai NUMBER(3) not null,
+  jaqn1ctdo NUMBER(2) not null,
+  jaqn1cndo CHAR(12) not null,
+  jaqn1cnuv CHAR(1),
+  jaqn1cest CHAR(1),
+  jaqn1cobs CHAR(64),
+  jaqn1can1 NUMBER(9),
+  jaqn1can2 NUMBER(9),
+  jaqn1can3 NUMBER(9),
+  jaqn1cac1 VARCHAR2(255),
+  jaqn1cac2 VARCHAR2(255),
+  jaqn1cac3 VARCHAR2(255),
+  jaqn1caf1 DATE,
+  jaqn1caf2 DATE,
+  jaqn1caf3 DATE,
+  jaqn1cai1 NUMBER(17,2),
+  jaqn1cai2 NUMBER(17,2),
+  jaqn1cai3 NUMBER(17,2)
+)
+;
+comment on table JAQN1C
+  is 'Apertura y Cancelacion Masiva DPF personas';
+comment on column JAQN1C.jaqn1cfec
+  is 'Fecha de ingreso';
+comment on column JAQN1C.jaqn1cusu
+  is 'Usuario que ejecuta';
+comment on column JAQN1C.jaqn1ccod
+  is 'Codigo de Registro';
+comment on column JAQN1C.jaqn1ccor
+  is 'Correlativo de Registro';
+comment on column JAQN1C.jaqn1ctre
+  is 'Tipo de Registro';
+comment on column JAQN1C.jaqn1cstr
+  is 'Sub Tipo de Registro';
+comment on column JAQN1C.jaqn1cpai
+  is 'Pais';
+comment on column JAQN1C.jaqn1ctdo
+  is 'Tipo de Documento';
+comment on column JAQN1C.jaqn1cndo
+  is 'Numero de Documento';
+comment on column JAQN1C.jaqn1cnuv
+  is '¿Es Nuevo? (S/N)';
+comment on column JAQN1C.jaqn1cest
+  is 'Estado';
+comment on column JAQN1C.jaqn1cobs
+  is 'Observaciones';
+comment on column JAQN1C.jaqn1can1
+  is 'Auxiliar numerico 1';
+comment on column JAQN1C.jaqn1can2
+  is 'Auxiliar numerico 2';
+comment on column JAQN1C.jaqn1can3
+  is 'Auxiliar numerico 3';
+comment on column JAQN1C.jaqn1cac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN1C.jaqn1cac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN1C.jaqn1cac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN1C.jaqn1caf1
+  is 'Auxiliar fecha 1';
+comment on column JAQN1C.jaqn1caf2
+  is 'Auxiliar fecha 2';
+comment on column JAQN1C.jaqn1caf3
+  is 'Auxiliar fecha 3';
+comment on column JAQN1C.jaqn1cai1
+  is 'Auxiliar importe 1';
+comment on column JAQN1C.jaqn1cai2
+  is 'Auxiliar importe 2';
+comment on column JAQN1C.jaqn1cai3
+  is 'Auxiliar importe 3';
+alter table JAQN1C
+  add primary key (JAQN1CFEC, JAQN1CUSU, JAQN1CCOD, JAQN1CCOR, JAQN1CTRE, JAQN1CSTR, JAQN1CPAI, JAQN1CTDO, JAQN1CNDO);
+

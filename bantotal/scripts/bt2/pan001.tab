@@ -1,0 +1,40 @@
+create table PAN001
+(
+  pn1emp   NUMBER(3) not null,
+  pn1cta   NUMBER(9) not null,
+  pn1prpor CHAR(35),
+  pn1btr   NUMBER(15),
+  pn1conpr CHAR(35),
+  pn1clipr CHAR(35),
+  pn1clim  NUMBER(9),
+  pn1pm    NUMBER(3),
+  pn1sola  CHAR(1),
+  pn1poda  CHAR(1),
+  pn1apod  CHAR(1),
+  pn1fec   DATE,
+  pn1pcsoc CHAR(1),
+  pn1recf  CHAR(1),
+  pn1meds  CHAR(1),
+  pn1infax CHAR(1),
+  pn1incar CHAR(1),
+  pn1renre CHAR(1),
+  pn1ref   CHAR(1),
+  pn1cfdo  CHAR(1),
+  pn1copi  CHAR(1),
+  pn1tarf  CHAR(1),
+  pn1pais  NUMBER(3),
+  pn1user  CHAR(10),
+  pn1fultm DATE,
+  pn1hultm CHAR(8),
+  pn1tipo  NUMBER(3),
+  pn1max   NUMBER(17,2),
+  pn1aux1  CHAR(1),
+  pn1aux2  NUMBER(9),
+  pn1aux3  CHAR(30),
+  pn1aux4  NUMBER(17,2)
+)
+;
+create index PAN00102 on PAN001 (PN1PAIS, PN1EMP, PN1CTA);
+alter table PAN001
+  add primary key (PN1EMP, PN1CTA);
+

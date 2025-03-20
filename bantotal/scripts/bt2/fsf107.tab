@@ -1,0 +1,17 @@
+create table FSF107
+(
+  lnpgcod  NUMBER(3) not null,
+  lntrmod  NUMBER(3) not null,
+  lntrnro  NUMBER(3) not null,
+  lntrord  NUMBER(2) not null,
+  lntrsbor NUMBER(3) not null,
+  lntrrubr NUMBER(16),
+  lntrmodu NUMBER(3),
+  lntrrcod NUMBER(3),
+  lntrcres CHAR(1),
+  lntrrord NUMBER(2)
+)
+;
+alter table FSF107
+  add primary key (LNPGCOD, LNTRMOD, LNTRNRO, LNTRORD, LNTRSBOR);
+

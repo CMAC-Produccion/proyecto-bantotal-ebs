@@ -1,0 +1,23 @@
+create table FBRH32
+(
+  brh32emp  NUMBER(3) not null,
+  brh32pais NUMBER(3) not null,
+  brh32tdoc NUMBER(2) not null,
+  brh32ndoc CHAR(12) not null,
+  brh32suc  NUMBER(3) not null,
+  brh32rub  NUMBER(16) not null,
+  brh32mda  NUMBER(4) not null,
+  brh32pap  NUMBER(4) not null,
+  brh32cta  NUMBER(9) not null,
+  brh32op   NUMBER(9) not null,
+  brh32sop  NUMBER(3) not null,
+  brh32top  NUMBER(3) not null,
+  brh32reg  NUMBER(5) not null,
+  brh32fch  DATE not null,
+  brh32hra  CHAR(8) not null,
+  brh32usu  CHAR(10)
+)
+;
+alter table FBRH32
+  add primary key (BRH32EMP, BRH32PAIS, BRH32TDOC, BRH32NDOC, BRH32SUC, BRH32RUB, BRH32MDA, BRH32PAP, BRH32CTA, BRH32OP, BRH32SOP, BRH32TOP, BRH32REG, BRH32FCH, BRH32HRA);
+

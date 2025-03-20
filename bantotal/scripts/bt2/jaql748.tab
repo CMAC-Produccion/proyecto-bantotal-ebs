@@ -1,0 +1,24 @@
+create table JAQL748
+(
+  jaql748segm NUMBER(5) not null,
+  jaql748dseg VARCHAR2(200),
+  jaql748prio NUMBER(5),
+  jaql748au01 VARCHAR2(250),
+  jaql748au02 VARCHAR2(250)
+)
+;
+comment on table JAQL748
+  is 'Maestro segmentación';
+comment on column JAQL748.jaql748segm
+  is 'Segmento';
+comment on column JAQL748.jaql748dseg
+  is 'Desc Segmento';
+comment on column JAQL748.jaql748prio
+  is 'Prioridad';
+comment on column JAQL748.jaql748au01
+  is 'Auxiliar';
+comment on column JAQL748.jaql748au02
+  is 'Auxiliar';
+alter table JAQL748
+  add primary key (JAQL748SEGM);
+

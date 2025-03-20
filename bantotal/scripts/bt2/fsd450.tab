@@ -1,0 +1,32 @@
+create table FSD450
+(
+  cbieemp  NUMBER(3) not null,
+  cbiemod  NUMBER(3) not null,
+  cbiesuc  NUMBER(3) not null,
+  cbiemda  NUMBER(4) not null,
+  cbiepap  NUMBER(4) not null,
+  cbiecta  NUMBER(9) not null,
+  cbieope  NUMBER(9) not null,
+  cbiesub  NUMBER(3) not null,
+  cbietop  NUMBER(3) not null,
+  cbiefec  DATE not null,
+  cbierel  NUMBER(5) not null,
+  cbieant  NUMBER(2),
+  cbietxt1 CHAR(60),
+  cbietxt2 CHAR(60),
+  cbietxt3 CHAR(60),
+  pgcod    NUMBER(3),
+  hcmod    NUMBER(3),
+  hsucor   NUMBER(3),
+  htran    NUMBER(3),
+  hnrel    NUMBER(4),
+  hfcont   DATE,
+  hcord    NUMBER(2),
+  hcsubo   NUMBER(3),
+  excod    NUMBER(2)
+)
+;
+create index FSD45002 on FSD450 (PGCOD, HCMOD, HSUCOR, HTRAN, HNREL, HFCONT, HCORD, HCSUBO, EXCOD);
+alter table FSD450
+  add primary key (CBIEEMP, CBIEMOD, CBIESUC, CBIEMDA, CBIEPAP, CBIECTA, CBIEOPE, CBIESUB, CBIETOP, CBIEFEC, CBIEREL);
+

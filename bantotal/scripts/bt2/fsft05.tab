@@ -1,0 +1,19 @@
+create table FSFT05
+(
+  ktpgcod2 NUMBER(3) not null,
+  ktctnro  NUMBER(9) not null,
+  sft71dep NUMBER(9) not null,
+  ktsubcta NUMBER(9) not null,
+  ktctacli NUMBER(9),
+  ktbco    CHAR(1),
+  ktestado CHAR(2),
+  ktcomhab CHAR(1),
+  ktaux5   CHAR(1),
+  ktaux6   CHAR(1),
+  ktaux12  CHAR(30)
+)
+;
+create index FSFT0503 on FSFT05 (KTPGCOD2, KTCTACLI, KTCTNRO, SFT71DEP, KTSUBCTA);
+alter table FSFT05
+  add primary key (KTPGCOD2, KTCTNRO, SFT71DEP, KTSUBCTA);
+

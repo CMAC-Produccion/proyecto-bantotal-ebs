@@ -1,0 +1,11 @@
+create table SNG031
+(
+  sng001inst NUMBER(10) not null,
+  sng027cod  NUMBER(2) not null,
+  sng031txt  VARCHAR2(400)
+)
+;
+create index SNG03102 on SNG031 (SNG027COD);
+alter table SNG031
+  add primary key (SNG001INST, SNG027COD);
+

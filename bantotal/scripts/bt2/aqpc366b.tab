@@ -1,0 +1,108 @@
+create table AQPC366B
+(
+  aqpc366bcod    NUMBER(3) not null,
+  aqpc366bfec    DATE not null,
+  aqpc366bcor    NUMBER(8) not null,
+  aqpc366blin    NUMBER(8) not null,
+  aqpc366bcta    NUMBER(9) not null,
+  aqpc366bope    NUMBER(9) not null,
+  aqpc366bmoncof NUMBER(17,2),
+  aqpc366bprccof NUMBER(6,2),
+  aqpc366bfdes   DATE,
+  aqpc366bncer   VARCHAR2(50),
+  aqpc366bnsol   VARCHAR2(50),
+  aqpc366bcodgar VARCHAR2(50),
+  aqpc366bcodcob VARCHAR2(50),
+  aqpc366bcodsub VARCHAR2(50),
+  aqpc366bidcof  VARCHAR2(20),
+  aqpc366bfinc   DATE,
+  aqpc366bffnc   DATE,
+  aqpc366btdest  VARCHAR2(20),
+  aqpc366borifon VARCHAR2(50),
+  aqpc366bncerch VARCHAR2(50),
+  aqpc366bcertrn VARCHAR2(50),
+  aqpc366bcobren VARCHAR2(50),
+  aqpc366best    CHAR(1),
+  aqpc366busu    VARCHAR2(10),
+  aqpc366bfedi   VARCHAR2(10),
+  aqpc366bhedi   VARCHAR2(10),
+  aqpc366bestp   VARCHAR2(1),
+  aqpc366bperio  NUMBER(9),
+  aqpc366bpgra   NUMBER(9),
+  aqpc366bncuo   NUMBER(6),
+  aqpc366btea    NUMBER(12,6),
+  aqpc366btamemp VARCHAR2(20)
+)
+;
+comment on table AQPC366B
+  is 'Tabla detalle Impulso Peru';
+comment on column AQPC366B.aqpc366bcod
+  is 'Código de empresa';
+comment on column AQPC366B.aqpc366bfec
+  is 'Fecha de proceso';
+comment on column AQPC366B.aqpc366bcor
+  is 'Correlativo';
+comment on column AQPC366B.aqpc366blin
+  is 'Linea de Carga';
+comment on column AQPC366B.aqpc366bcta
+  is 'Cuenta ';
+comment on column AQPC366B.aqpc366bope
+  is 'Operacion';
+comment on column AQPC366B.aqpc366bmoncof
+  is 'Monto cofide';
+comment on column AQPC366B.aqpc366bprccof
+  is 'Porcentaje Cobertura COFIDE';
+comment on column AQPC366B.aqpc366bfdes
+  is 'Fecha de desembolso';
+comment on column AQPC366B.aqpc366bncer
+  is 'N° de certificado';
+comment on column AQPC366B.aqpc366bnsol
+  is 'Código solicitud - Cofide';
+comment on column AQPC366B.aqpc366bcodgar
+  is 'Código de garantia';
+comment on column AQPC366B.aqpc366bcodcob
+  is 'Código de cobertura';
+comment on column AQPC366B.aqpc366bcodsub
+  is 'Código de subasta';
+comment on column AQPC366B.aqpc366bidcof
+  is 'ID COFIDE';
+comment on column AQPC366B.aqpc366bfinc
+  is 'Fecha de inicio de crédito original - Cofide ';
+comment on column AQPC366B.aqpc366bffnc
+  is 'Fecha de fin de crédito original - Cofide ';
+comment on column AQPC366B.aqpc366btdest
+  is 'Tipo de Destino';
+comment on column AQPC366B.aqpc366borifon
+  is 'Origen de fondos';
+comment on column AQPC366B.aqpc366bncerch
+  is 'N° de certificado de credito honrado';
+comment on column AQPC366B.aqpc366bcertrn
+  is 'Certificado de renovación/reprogramación';
+comment on column AQPC366B.aqpc366bcobren
+  is 'Cobertura de renovación/reprogramación';
+comment on column AQPC366B.aqpc366best
+  is 'Estado';
+comment on column AQPC366B.aqpc366busu
+  is 'Usuario';
+comment on column AQPC366B.aqpc366bfedi
+  is 'Fecha Edicion';
+comment on column AQPC366B.aqpc366bhedi
+  is 'Hora Edicion';
+comment on column AQPC366B.aqpc366bestp
+  is 'Estado de alta de garantía A=Cancelado C=Contabilizado y H=Honrado';
+comment on column AQPC366B.aqpc366bperio
+  is 'Periodo Total del credito';
+comment on column AQPC366B.aqpc366bpgra
+  is 'Periodo de Gracia';
+comment on column AQPC366B.aqpc366bncuo
+  is 'Numero de Cuotas';
+comment on column AQPC366B.aqpc366btea
+  is 'Tamaño empresa';
+create index AQPC366BA2 on AQPC366B (AQPC366BCOD, AQPC366BCTA);
+create index AQPC366BA3 on AQPC366B (AQPC366BFEC, AQPC366BCOR, AQPC366BCOD, AQPC366BCTA);
+create index AQPC366BA4 on AQPC366B (AQPC366BCOD, AQPC366BCTA, AQPC366BFEC, AQPC366BEST);
+create index AQPC366BA5 on AQPC366B (AQPC366BCTA, AQPC366BEST);
+create index AQPC366BA6 on AQPC366B (AQPC366BCTA);
+alter table AQPC366B
+  add primary key (AQPC366BCOD, AQPC366BFEC, AQPC366BCOR, AQPC366BCTA, AQPC366BOPE);
+

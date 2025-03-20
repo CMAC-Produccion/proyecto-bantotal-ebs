@@ -1,0 +1,36 @@
+create table FSFF09
+(
+  kdoiusr   CHAR(10) not null,
+  kdoiwrkst CHAR(10) not null,
+  kdoisuc   NUMBER(3) not null,
+  kdoimda   NUMBER(4) not null,
+  kdoipap   NUMBER(4) not null,
+  kdoisist  NUMBER(3) not null,
+  kdoimod   NUMBER(3) not null,
+  kdoicta   NUMBER(9) not null,
+  kdoirub   NUMBER(16) not null,
+  kdoifvto  DATE not null,
+  kdoiope   NUMBER(9) not null,
+  kdoisub   NUMBER(3) not null,
+  kdoitop   NUMBER(3) not null,
+  kdoineg   NUMBER(9) not null,
+  kdoifcont DATE,
+  kdoifval  DATE,
+  kdoipzo   NUMBER(5),
+  kdoittas  NUMBER(1),
+  kdoitasvi NUMBER(10,6),
+  kdoitasmo NUMBER(10,6),
+  kdoittaco NUMBER(1),
+  kdoitasco NUMBER(10,6),
+  kdoitipan NUMBER(1),
+  kdoicodac NUMBER(9),
+  kdoitaspl NUMBER(10,6),
+  kdoisdo   NUMBER(17,2),
+  kdoisalar NUMBER(17,2),
+  kdoivalpa NUMBER(10)
+)
+;
+create index FSFF0902 on FSFF09 (KDOISUC, KDOISIST, KDOIFVTO, KDOIMDA, KDOICTA, KDOIRUB);
+alter table FSFF09
+  add primary key (KDOIUSR, KDOIWRKST, KDOISUC, KDOIMDA, KDOIPAP, KDOISIST, KDOIMOD, KDOICTA, KDOIRUB, KDOIFVTO, KDOIOPE, KDOISUB, KDOITOP, KDOINEG);
+

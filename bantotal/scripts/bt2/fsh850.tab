@@ -1,0 +1,23 @@
+create table FSH850
+(
+  pgcod    NUMBER(3) not null,
+  palfech  DATE not null,
+  palpgm   CHAR(10) not null,
+  paltreg  NUMBER(9),
+  paltpart NUMBER(2),
+  palfini  DATE,
+  palffin  DATE,
+  palhini  CHAR(8),
+  palhfin  CHAR(8),
+  palusr   CHAR(10),
+  palwrk   CHAR(10),
+  palsts   CHAR(1),
+  palaux1  CHAR(1),
+  palaux2  NUMBER(3),
+  palaux3  NUMBER(15)
+)
+;
+create index FSH85002 on FSH850 (PGCOD, PALPGM);
+alter table FSH850
+  add primary key (PGCOD, PALFECH, PALPGM);
+

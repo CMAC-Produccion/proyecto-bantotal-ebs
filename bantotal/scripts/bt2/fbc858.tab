@@ -1,0 +1,35 @@
+create table FBC858
+(
+  fbc858emp  NUMBER(3) not null,
+  fbc858fec  DATE not null,
+  fbc858suc  NUMBER(3) not null,
+  fbc858rub  NUMBER(16) not null,
+  fbc858mda  NUMBER(4) not null,
+  fbc858pap  NUMBER(4) not null,
+  fbc858cta  NUMBER(9) not null,
+  fbc858oper NUMBER(9) not null,
+  fbc858sbop NUMBER(3) not null,
+  fbc858tope NUMBER(3) not null,
+  fbc858cgar CHAR(40) not null,
+  fbc858tgar CHAR(1),
+  fbc858fecg DATE,
+  fbc858motg CHAR(2),
+  fbc858valg NUMBER(17,2),
+  fbc858gasa NUMBER(17,2),
+  fbc858valv NUMBER(17,2),
+  fbc858gasv NUMBER(17,2),
+  fbc858modv CHAR(1),
+  fbc858codo CHAR(40),
+  fbc858num1 NUMBER(17,2),
+  fbc858num2 NUMBER(17,2),
+  fbc858txt1 CHAR(50),
+  fbc858txt2 CHAR(50),
+  fbc858fec1 DATE,
+  fbc858fec2 DATE,
+  fbc858log1 CHAR(1),
+  fbc858log2 CHAR(1)
+)
+;
+alter table FBC858
+  add primary key (FBC858EMP, FBC858FEC, FBC858SUC, FBC858RUB, FBC858MDA, FBC858PAP, FBC858CTA, FBC858OPER, FBC858SBOP, FBC858TOPE, FBC858CGAR);
+

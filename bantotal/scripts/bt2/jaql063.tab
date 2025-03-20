@@ -1,0 +1,31 @@
+create table JAQL063
+(
+  jaql63ch01 CHAR(50) not null,
+  jaql63ch02 CHAR(50) not null,
+  jaql63ch03 CHAR(50) not null,
+  jaql63ch04 CHAR(50) not null,
+  jaql63ch05 CHAR(50) not null,
+  jaql63nu01 NUMBER(9) not null,
+  jaql63nu02 NUMBER(9) not null,
+  jaql63nu03 NUMBER(9) not null,
+  jaql63nu04 NUMBER(9) not null,
+  jaql63nu05 NUMBER(9) not null,
+  jaql63de01 NUMBER(17,2) not null,
+  jaql63de02 NUMBER(17,2) not null,
+  jaql63de03 NUMBER(17,2) not null,
+  jaql63de04 NUMBER(17,2) not null,
+  jaql63de05 NUMBER(17,2) not null,
+  jaql63da01 DATE not null,
+  jaql63da02 DATE not null,
+  jaql63da03 DATE not null,
+  jaql63da04 DATE not null,
+  jaql63da05 DATE not null,
+  jaql63lo01 LONG
+)
+;
+create index IJAQL063100001 on JAQL063 (JAQL63CH04, JAQL63DE01);
+create index IJAQL06310002 on JAQL063 (JAQL63CH01, JAQL63NU05);
+create index IJAQL06310003 on JAQL063 (JAQL63NU05);
+alter table JAQL063
+  add primary key (JAQL63CH01, JAQL63CH02, JAQL63CH03, JAQL63CH04, JAQL63CH05, JAQL63NU01, JAQL63NU02, JAQL63NU03, JAQL63NU04, JAQL63NU05, JAQL63DE01, JAQL63DE02, JAQL63DE03, JAQL63DE04, JAQL63DE05, JAQL63DA01, JAQL63DA02, JAQL63DA03, JAQL63DA04, JAQL63DA05);
+

@@ -1,0 +1,84 @@
+create table JAQN42
+(
+  jaqn42fes DATE not null,
+  jaqn42per NUMBER(2) not null,
+  jaqn42anp NUMBER(4) not null,
+  jaqn42pai NUMBER(3) not null,
+  jaqn42tdd NUMBER(2) not null,
+  jaqn42ndd CHAR(12) not null,
+  jaqn42cor NUMBER(3) not null,
+  jaqn42hrs CHAR(8),
+  jaqn42sus NUMBER(3),
+  jaqn42usu CHAR(10),
+  jaqn42nu1 NUMBER(9),
+  jaqn42nu2 NUMBER(9),
+  jaqn42nu3 NUMBER(9),
+  jaqn42im1 NUMBER(17,2),
+  jaqn42im2 NUMBER(17,2),
+  jaqn42im3 NUMBER(17,2),
+  jaqn42fe1 DATE,
+  jaqn42fe2 DATE,
+  jaqn42fe3 DATE,
+  jaqn42ch1 CHAR(1),
+  jaqn42ch2 CHAR(1),
+  jaqn42ch3 CHAR(1),
+  jaqn42va1 VARCHAR2(255),
+  jaqn42va2 VARCHAR2(255),
+  jaqn42va3 VARCHAR2(255)
+)
+;
+comment on table JAQN42
+  is 'LOG Consultas realizadas a SUNAT por persona';
+comment on column JAQN42.jaqn42fes
+  is 'Fecha de Solicitud';
+comment on column JAQN42.jaqn42per
+  is 'Periodo Requerido - Mes';
+comment on column JAQN42.jaqn42anp
+  is 'Periodo Requerido - Año';
+comment on column JAQN42.jaqn42pai
+  is 'Solicitante Doc - Pais';
+comment on column JAQN42.jaqn42tdd
+  is 'Solicitante Doc - Tipo Doc';
+comment on column JAQN42.jaqn42ndd
+  is 'Solicitante Doc - Nro Doc';
+comment on column JAQN42.jaqn42cor
+  is 'Correlativo por DOI y Periodo';
+comment on column JAQN42.jaqn42hrs
+  is 'Hora de Solicitud';
+comment on column JAQN42.jaqn42sus
+  is 'Uuario - Sucursal';
+comment on column JAQN42.jaqn42usu
+  is 'Uuario - Codigo';
+comment on column JAQN42.jaqn42nu1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN42.jaqn42nu2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN42.jaqn42nu3
+  is 'Auxiliar Numerico 3';
+comment on column JAQN42.jaqn42im1
+  is 'Auxiliar Importe 1';
+comment on column JAQN42.jaqn42im2
+  is 'Auxiliar Importe 2';
+comment on column JAQN42.jaqn42im3
+  is 'Auxiliar Importe 3';
+comment on column JAQN42.jaqn42fe1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN42.jaqn42fe2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN42.jaqn42fe3
+  is 'Auxiliar Fecha 3';
+comment on column JAQN42.jaqn42ch1
+  is 'Auxiliar Booleano 1';
+comment on column JAQN42.jaqn42ch2
+  is 'Auxiliar Booleano 2';
+comment on column JAQN42.jaqn42ch3
+  is 'Auxiliar Booleano 3';
+comment on column JAQN42.jaqn42va1
+  is 'Auxiliar Varchar 1';
+comment on column JAQN42.jaqn42va2
+  is 'Auxiliar Varchar 2';
+comment on column JAQN42.jaqn42va3
+  is 'Auxiliar Varchar 3';
+alter table JAQN42
+  add primary key (JAQN42FES, JAQN42PER, JAQN42ANP, JAQN42PAI, JAQN42TDD, JAQN42NDD, JAQN42COR);
+

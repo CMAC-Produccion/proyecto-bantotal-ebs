@@ -1,0 +1,14 @@
+create table CDEINS9
+(
+  cdeinsid   NUMBER(18) not null,
+  cdcinscorr NUMBER(18) not null,
+  cdeins9cor NUMBER(18) not null,
+  cdeins9exp NUMBER(18),
+  cdeins9ret NUMBER(4),
+  cdeins9tip NUMBER(4),
+  cdeins9anu CHAR(1)
+)
+;
+alter table CDEINS9
+  add primary key (CDEINSID, CDCINSCORR, CDEINS9COR);
+

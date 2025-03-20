@@ -1,0 +1,28 @@
+create table FSFT59
+(
+  sft59emp   NUMBER(3) not null,
+  sft59suc   NUMBER(3) not null,
+  sft59rub   NUMBER(16) not null,
+  sft59pap   NUMBER(4) not null,
+  sft59cta   NUMBER(9) not null,
+  sft59oper  NUMBER(9) not null,
+  sft59subop NUMBER(3) not null,
+  sft59tipop NUMBER(3) not null,
+  sft59caseg NUMBER(9),
+  sft59otbco CHAR(1),
+  sft59tibco CHAR(1),
+  sft59banco CHAR(15),
+  sft59tidep CHAR(4),
+  sft59mdacs CHAR(3),
+  sft59idcod CHAR(4),
+  sft59espe  NUMBER(4),
+  sft59emis  DATE,
+  sft59fvto  DATE,
+  sft59imp   NUMBER(17,2),
+  sft59stat  CHAR(2),
+  sft59idde  CHAR(20)
+)
+;
+alter table FSFT59
+  add primary key (SFT59EMP, SFT59SUC, SFT59RUB, SFT59PAP, SFT59CTA, SFT59OPER, SFT59SUBOP, SFT59TIPOP);
+

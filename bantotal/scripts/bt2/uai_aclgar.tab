@@ -1,0 +1,33 @@
+create table UAI_ACLGAR
+(
+  n_emp_bcemp            NUMBER(3) not null,
+  n_mod_bcmod            NUMBER(3),
+  n_suc_bcsuc            NUMBER(3) not null,
+  n_mda_bcmda            NUMBER(4) not null,
+  n_pap_bcpap            NUMBER(4) not null,
+  n_cta_bccta            NUMBER(9) not null,
+  n_ope_bcoper           NUMBER(9) not null,
+  n_sbop_bcsbop          NUMBER(3) not null,
+  n_tip_bctop            NUMBER(3) not null,
+  n_emp_r2cod            NUMBER(3),
+  n_mod_r2mod            NUMBER(3),
+  n_suc_r2suc            NUMBER(3),
+  n_mda_r2mda            NUMBER(4),
+  n_pap_r2pap            NUMBER(4),
+  n_cta_r2cta            NUMBER(9),
+  n_ope_r2oper           NUMBER(9),
+  n_sbo_r2sbop           NUMBER(3),
+  n_tip_r2tope           NUMBER(3),
+  n_rubr_bcrubr          NUMBER(16),
+  n_salcon_bcsdmo        NUMBER(17,2),
+  n_mtogar_sng122mtou    NUMBER(17,2),
+  n_priori_sng122prio    NUMBER,
+  n_instancia_sng122inst NUMBER
+)
+;
+comment on table UAI_ACLGAR
+  is 'Tabla procesamiento de data ACL para UAI';
+create index XN_UAI_ACLGAR_01 on UAI_ACLGAR (N_SUC_BCSUC);
+create index XN_UAI_ACLGAR_02 on UAI_ACLGAR (N_SUC_BCSUC, N_RUBR_BCRUBR);
+create index XN_UAI_ACLGAR_03 on UAI_ACLGAR (N_EMP_R2COD, N_MOD_R2MOD, N_SUC_R2SUC, N_MDA_R2MDA, N_PAP_R2PAP, N_CTA_R2CTA, N_OPE_R2OPER, N_SBO_R2SBOP, N_TIP_R2TOPE);
+

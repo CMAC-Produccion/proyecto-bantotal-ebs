@@ -1,0 +1,13 @@
+create table JAQY209
+(
+  jaqy209nim NUMBER(12) not null,
+  jaqy209usu CHAR(10) not null,
+  jaqy209cor NUMBER(4) not null,
+  jaqy209mod NUMBER(3),
+  jaqy209top NUMBER(3)
+)
+;
+create index IJAQY20901 on JAQY209 (JAQY209COR);
+alter table JAQY209
+  add primary key (JAQY209NIM, JAQY209USU, JAQY209COR);
+

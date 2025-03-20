@@ -1,0 +1,20 @@
+create table FSA030
+(
+  sa030emp NUMBER(3) not null,
+  sa030fej DATE not null,
+  sa030suc NUMBER(3) not null,
+  sa030rub NUMBER(16) not null,
+  sa030fch DATE not null,
+  sa030sda NUMBER(17,2),
+  sa030deb NUMBER(17,2),
+  sa030cre NUMBER(17,2),
+  sa030sdp NUMBER(17,2),
+  sa030dif NUMBER(17,2),
+  sa030cnm NUMBER(5)
+)
+;
+create index FSA03002 on FSA030 (SA030EMP, SA030FEJ, SA030FCH, SA030RUB, SA030SUC);
+create index FSA03003 on FSA030 (SA030EMP, SA030FEJ, SA030RUB);
+alter table FSA030
+  add primary key (SA030EMP, SA030FEJ, SA030SUC, SA030RUB, SA030FCH);
+

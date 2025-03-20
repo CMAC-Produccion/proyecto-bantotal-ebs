@@ -1,0 +1,21 @@
+create table FBC744
+(
+  bc744emp  NUMBER(3) not null,
+  bc744suc  NUMBER(3) not null,
+  bc744mod  NUMBER(3) not null,
+  bc744trn  NUMBER(3) not null,
+  bc744rel  NUMBER(4) not null,
+  bc744ord  NUMBER(2) not null,
+  bc744sbo  NUMBER(3) not null,
+  bc744fch  DATE not null,
+  bc744nbol CHAR(20) not null,
+  bc744anul CHAR(1),
+  bc744ctpe CHAR(1),
+  bc744rect CHAR(1)
+)
+;
+create index FBC74402 on FBC744 (BC744EMP, BC744NBOL);
+create index FBC74403 on FBC744 (BC744EMP, BC744FCH, BC744RECT);
+alter table FBC744
+  add primary key (BC744EMP, BC744SUC, BC744MOD, BC744TRN, BC744REL, BC744ORD, BC744SBO, BC744FCH, BC744NBOL);
+

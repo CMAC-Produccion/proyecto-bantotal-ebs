@@ -1,0 +1,12 @@
+create table FBC715
+(
+  bc715emp  NUMBER(3) not null,
+  bc715reg  NUMBER(5) not null,
+  bc715desc CHAR(40),
+  bc715mart NUMBER(17,2),
+  bc715ajus CHAR(1)
+)
+;
+alter table FBC715
+  add primary key (BC715EMP, BC715REG);
+

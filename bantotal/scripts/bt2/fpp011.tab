@@ -1,0 +1,11 @@
+create table FPP011
+(
+  pp010prd NUMBER(3) not null,
+  pp017par NUMBER(4) not null,
+  pp011ord NUMBER(4) not null,
+  pp011par NUMBER(4)
+)
+;
+alter table FPP011
+  add primary key (PP010PRD, PP017PAR, PP011ORD);
+

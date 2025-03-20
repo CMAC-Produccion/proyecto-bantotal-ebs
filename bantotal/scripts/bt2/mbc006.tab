@@ -1,0 +1,25 @@
+create table MBC006
+(
+  mbcemp   NUMBER(3) not null,
+  mbcsuc   NUMBER(3) not null,
+  mbcrub   NUMBER(16) not null,
+  mbccfch  DATE not null,
+  mbcchra  CHAR(8) not null,
+  mbccmon  NUMBER(4) not null,
+  mbccval  NUMBER(17,2) not null,
+  mbcctpo  CHAR(1) not null,
+  mbccini  NUMBER(9),
+  mbciniin NUMBER(9),
+  mbccing  NUMBER(9),
+  mbcingin NUMBER(9),
+  mbccegr  NUMBER(9),
+  mbcegrin NUMBER(9),
+  mbccusu  CHAR(10),
+  mbccaj   NUMBER(3),
+  mbc6aux1 CHAR(20),
+  mbc6aux2 NUMBER(17,2)
+)
+;
+alter table MBC006
+  add primary key (MBCEMP, MBCSUC, MBCRUB, MBCCFCH, MBCCHRA, MBCCMON, MBCCVAL, MBCCTPO);
+

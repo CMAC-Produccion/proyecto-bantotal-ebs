@@ -1,0 +1,19 @@
+create table SNG069
+(
+  sng069auti NUMBER(10) not null,
+  sng069cor  NUMBER(2) not null,
+  sng069ver  NUMBER(6),
+  sng069ord  NUMBER(3),
+  sng069usri CHAR(10),
+  sng069sta  CHAR(10),
+  sng069fec  DATE,
+  sng069noma VARCHAR2(40),
+  sng069ext  CHAR(3),
+  sng069doc  BLOB,
+  sng069tipd NUMBER(6),
+  sng069wfid NUMBER(10)
+)
+;
+alter table SNG069
+  add primary key (SNG069AUTI, SNG069COR);
+

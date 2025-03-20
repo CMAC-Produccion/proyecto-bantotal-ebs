@@ -1,0 +1,20 @@
+create table FBC862
+(
+  bc862emp   NUMBER(3) not null,
+  bc862usr   CHAR(10) not null,
+  bc862cargo NUMBER(3),
+  bc862cta   NUMBER(9),
+  bc862cempl CHAR(15),
+  bc862obs   CHAR(65),
+  bc862fch1  DATE,
+  bc862fch2  DATE,
+  bc862num1  NUMBER(17,2),
+  bc862num2  NUMBER(17,2),
+  bc862chr1  CHAR(65),
+  bc862chr2  CHAR(65)
+)
+;
+create index FBC86202 on FBC862 (BC862EMP, BC862CARGO);
+alter table FBC862
+  add primary key (BC862EMP, BC862USR);
+

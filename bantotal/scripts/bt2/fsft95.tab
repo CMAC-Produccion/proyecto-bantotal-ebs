@@ -1,0 +1,26 @@
+create table FSFT95
+(
+  sft95emp   NUMBER(3) not null,
+  sft95espe  NUMBER(4) not null,
+  sft95reduc NUMBER(4) not null,
+  sft95porc  NUMBER(9,6),
+  sft95inici DATE,
+  sft95fin   DATE,
+  sft95hab   CHAR(1),
+  sft95auxn1 NUMBER(9,6),
+  sft95auxn2 NUMBER(9,6),
+  sft95auxf1 DATE,
+  sft95auxf2 DATE,
+  sft95auxn3 NUMBER(17,7),
+  sft95auxn4 NUMBER(17,7),
+  sft95auxn5 NUMBER(17,2),
+  sft95auxn6 NUMBER(17,2),
+  sft95auxc1 CHAR(1),
+  sft95auxc2 CHAR(1),
+  sft95auxc3 CHAR(1),
+  sft95auxc4 CHAR(1)
+)
+;
+alter table FSFT95
+  add primary key (SFT95EMP, SFT95ESPE, SFT95REDUC);
+

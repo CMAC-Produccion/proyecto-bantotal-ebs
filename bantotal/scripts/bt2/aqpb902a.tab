@@ -1,0 +1,72 @@
+create table AQPB902A
+(
+  aqpb902acod  NUMBER(3),
+  aqpb902amod  NUMBER(3),
+  aqpb902asuc  NUMBER(3),
+  aqpb902amda  NUMBER(4),
+  aqpb902apap  NUMBER(4),
+  aqpb902acta  NUMBER(9),
+  aqpb902aoper NUMBER(9),
+  aqpb902asbop NUMBER(3),
+  aqpb902atope NUMBER(3),
+  aqpb902ainst NUMBER(10),
+  aqpb902aemis VARCHAR2(40),
+  aqpb902adest VARCHAR2(150),
+  aqpb902acopi VARCHAR2(150),
+  aqpb902amesg LONG,
+  aqpb902aasun VARCHAR2(70),
+  aqpb902addig NUMBER(1),
+  aqpb902aerro VARCHAR2(5),
+  aqpb902aermg VARCHAR2(500),
+  aqpb902ausur CHAR(10),
+  aqpb902afecr DATE,
+  aqpb902ahora VARCHAR2(15)
+)
+;
+comment on table AQPB902A
+  is 'LOG DE ENVIO DE CORREOS POST-APROBACION PARA DESEMBOLSO DIGITAL';
+comment on column AQPB902A.aqpb902acod
+  is 'CODIGO EMPRESA';
+comment on column AQPB902A.aqpb902amod
+  is 'MODULO';
+comment on column AQPB902A.aqpb902asuc
+  is 'SUCURSAL';
+comment on column AQPB902A.aqpb902amda
+  is 'MONEDA';
+comment on column AQPB902A.aqpb902apap
+  is 'PAPEL';
+comment on column AQPB902A.aqpb902acta
+  is 'CUENTA';
+comment on column AQPB902A.aqpb902aoper
+  is 'OPERACIÓN';
+comment on column AQPB902A.aqpb902asbop
+  is 'SUB OPERACIÓN';
+comment on column AQPB902A.aqpb902atope
+  is 'TIPO OPERACIÓN';
+comment on column AQPB902A.aqpb902ainst
+  is 'INSTANCIA';
+comment on column AQPB902A.aqpb902aemis
+  is 'EMISOR';
+comment on column AQPB902A.aqpb902adest
+  is 'DESTINATARIO';
+comment on column AQPB902A.aqpb902acopi
+  is 'DESTINATARIO COPIA';
+comment on column AQPB902A.aqpb902amesg
+  is 'MENSAJE';
+comment on column AQPB902A.aqpb902aasun
+  is 'ASUNTO';
+comment on column AQPB902A.aqpb902addig
+  is 'D.DIGITAL 1=SI APLICA/0=NO APLICA';
+comment on column AQPB902A.aqpb902aerro
+  is 'COD. ERROR';
+comment on column AQPB902A.aqpb902aermg
+  is 'MENSAJE ERROR';
+comment on column AQPB902A.aqpb902ausur
+  is 'USUARIO';
+comment on column AQPB902A.aqpb902afecr
+  is 'FECHA';
+comment on column AQPB902A.aqpb902ahora
+  is 'HORA';
+create index AQPB902AA2 on AQPB902A (AQPB902ACOD, AQPB902AMOD, AQPB902ASUC, AQPB902AMDA, AQPB902APAP, AQPB902ACTA, AQPB902AOPER, AQPB902ASBOP, AQPB902ATOPE);
+create index AQPB902AA3 on AQPB902A (AQPB902AFECR, AQPB902AHORA, AQPB902AUSUR);
+

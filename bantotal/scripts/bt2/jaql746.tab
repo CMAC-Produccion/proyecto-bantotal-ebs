@@ -1,0 +1,33 @@
+create table JAQL746
+(
+  jaql746pgco NUMBER(3) not null,
+  jaql746scsu NUMBER(3) not null,
+  jaql746scmo NUMBER(3) not null,
+  jaql746scmd NUMBER(4) not null,
+  jaql746scpa NUMBER(4) not null,
+  jaql746scct NUMBER(9) not null,
+  jaql746scop NUMBER(9) not null,
+  jaql746scsb NUMBER(3) not null,
+  jaql746scto NUMBER(3) not null,
+  jaql746esib CHAR(1),
+  jaql746escm CHAR(1),
+  jaql746esvt CHAR(1),
+  jaql746escc CHAR(1),
+  jaql746esat CHAR(1),
+  jaql746user CHAR(10),
+  jaql746fech DATE,
+  jaql746hora CHAR(8),
+  jaql746au01 NUMBER(11,2),
+  jaql746au02 NUMBER(11,2),
+  jaql746au03 NUMBER(11,2),
+  jaql746au04 VARCHAR2(100),
+  jaql746au05 VARCHAR2(100),
+  jaql746au06 VARCHAR2(100),
+  jaql746au07 DATE,
+  jaql746au08 DATE,
+  jaql746au09 DATE
+)
+;
+alter table JAQL746
+  add primary key (JAQL746PGCO, JAQL746SCSU, JAQL746SCMO, JAQL746SCMD, JAQL746SCPA, JAQL746SCCT, JAQL746SCOP, JAQL746SCSB, JAQL746SCTO);
+

@@ -1,0 +1,53 @@
+create table SCH007
+(
+  sch007emp NUMBER(3) not null,
+  sch007ped NUMBER(10) not null,
+  sch007ctl CHAR(1),
+  sch007cnt NUMBER(5),
+  sch007ttl CHAR(1),
+  sch007tch CHAR(1),
+  sch007pai NUMBER(3),
+  sch007tdo NUMBER(2),
+  sch007ndo CHAR(12),
+  sch007per CHAR(55),
+  sch007dom NUMBER(2),
+  sch007sec NUMBER(3),
+  sch007ser CHAR(2),
+  sch007nom CHAR(120),
+  sch007uin CHAR(10),
+  sch007win CHAR(10),
+  sch007fin DATE,
+  sch007hin CHAR(8),
+  sch007uau CHAR(10),
+  sch007wau CHAR(10),
+  sch007fau DATE,
+  sch007hau CHAR(8),
+  sch007ucn CHAR(10),
+  sch007wcn CHAR(10),
+  sch007fcn DATE,
+  sch007hcn CHAR(8),
+  sch007ax1 DATE,
+  sch007ax2 DATE,
+  sch007ax3 NUMBER(17,2),
+  sch007ax4 NUMBER(9),
+  sch007ax5 CHAR(200),
+  sch007ax6 CHAR(1),
+  sch007ax7 NUMBER(17,2),
+  sch007ax8 NUMBER(3),
+  sch007ax9 CHAR(20),
+  sch007niv NUMBER(2),
+  sch007chf NUMBER(9),
+  sch007ndt CHAR(12),
+  sch007tdt NUMBER(2),
+  sch007pat NUMBER(3),
+  sch007can NUMBER(2)
+)
+;
+create index SCH00702 on SCH007 (SCH007PAI, SCH007TDO, SCH007NDO);
+create index SCH00703 on SCH007 (SCH007EMP, SCH007AX1);
+create index SCH00704 on SCH007 (SCH007EMP, SCH007AX2);
+create index SCH00705 on SCH007 (SCH007EMP, SCH007AX4);
+create index SCH00706 on SCH007 (SCH007EMP, SCH007AX9);
+alter table SCH007
+  add primary key (SCH007EMP, SCH007PED);
+

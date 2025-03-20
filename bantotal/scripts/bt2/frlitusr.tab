@@ -1,0 +1,10 @@
+create table FRLITUSR
+(
+  frlitus CHAR(10) not null,
+  frlitlg VARCHAR2(20)
+)
+;
+create index FRLITU2 on FRLITUSR (FRLITLG);
+alter table FRLITUSR
+  add primary key (FRLITUS);
+

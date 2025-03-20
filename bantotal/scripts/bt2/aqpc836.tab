@@ -1,0 +1,39 @@
+create table AQPC836
+(
+  aqpc836fepro  DATE,
+  aqpc836inst   NUMBER(10),
+  aqpc836asesor VARCHAR2(10),
+  aqpc836flgblq VARCHAR2(1),
+  aqpc836cantle NUMBER(6),
+  aqpc836usurej CHAR(10),
+  aqpc836fecr   DATE,
+  aqpc836hora   VARCHAR2(15),
+  aqpc836aux1   NUMBER(17,2),
+  aqpc836aux2   VARCHAR2(100),
+  aqpc834aux3   DATE
+)
+;
+comment on table AQPC836
+  is 'Log resolutor para analistas que necesitan gestionar leads y no contar con atrasados.';
+comment on column AQPC836.aqpc836fepro
+  is 'Fecha';
+comment on column AQPC836.aqpc836inst
+  is 'solicitud';
+comment on column AQPC836.aqpc836asesor
+  is 'asesor';
+comment on column AQPC836.aqpc836flgblq
+  is 'flg bloqueo';
+comment on column AQPC836.aqpc836cantle
+  is 'cantidad';
+comment on column AQPC836.aqpc836usurej
+  is 'USUARIO';
+comment on column AQPC836.aqpc836fecr
+  is 'fecha registro';
+comment on column AQPC836.aqpc836hora
+  is 'hora';
+comment on column AQPC836.aqpc836aux1
+  is 'AQPC836AUX3';
+create index AQPC836A2 on AQPC836 (AQPC836INST, AQPC836FEPRO);
+create index AQPC836A3 on AQPC836 (AQPC836FECR, AQPC836HORA, AQPC836USUREJ);
+create index AQPC836A4 on AQPC836 (AQPC836FEPRO);
+

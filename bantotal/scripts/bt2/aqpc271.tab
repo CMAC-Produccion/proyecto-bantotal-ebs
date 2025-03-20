@@ -1,0 +1,42 @@
+create table AQPC271
+(
+  aqpc271ucrg VARCHAR2(10) not null,
+  aqpc271fcrg DATE not null,
+  aqpc271hcrg VARCHAR2(8) not null,
+  aqpc271fpro DATE not null,
+  aqpc271cdag NUMBER(3),
+  aqpc271age  VARCHAR2(30),
+  aqpc271ana  VARCHAR2(10),
+  aqpc271retc NUMBER(5),
+  aqpc271basr NUMBER(5),
+  aqpc271cnte NUMBER(17,2),
+  aqpc271basc NUMBER(17,2)
+)
+;
+comment on table AQPC271
+  is 'Carga Temporal';
+comment on column AQPC271.aqpc271ucrg
+  is 'Usuario Carga';
+comment on column AQPC271.aqpc271fcrg
+  is 'Fecha Carga';
+comment on column AQPC271.aqpc271hcrg
+  is 'Hora Carga';
+comment on column AQPC271.aqpc271fpro
+  is 'Fecha Proceso';
+comment on column AQPC271.aqpc271cdag
+  is 'Codigo Agencia';
+comment on column AQPC271.aqpc271age
+  is 'Nombre Agencia';
+comment on column AQPC271.aqpc271ana
+  is 'Codigo Analista';
+comment on column AQPC271.aqpc271retc
+  is 'Retencion Clientes';
+comment on column AQPC271.aqpc271basr
+  is 'Base Retencion';
+comment on column AQPC271.aqpc271cnte
+  is 'Contenido';
+comment on column AQPC271.aqpc271basc
+  is 'Base Contencion';
+alter table AQPC271
+  add primary key (AQPC271UCRG, AQPC271FCRG, AQPC271HCRG, AQPC271FPRO);
+

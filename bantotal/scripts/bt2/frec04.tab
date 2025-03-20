@@ -1,0 +1,50 @@
+create table FREC04
+(
+  rec02cod   NUMBER(9) not null,
+  rec03cod   NUMBER(3) not null,
+  rec04fpag  DATE not null,
+  rec04corr  NUMBER(4) not null,
+  rec04cb1   CHAR(30),
+  rec04cb2   CHAR(30),
+  rec04fch1  DATE,
+  rec04fch2  DATE,
+  rec04fch3  DATE,
+  rec04fch4  DATE,
+  rec04ref1  CHAR(30),
+  rec04ref2  CHAR(30),
+  rec04ref3  CHAR(30),
+  rec04ref4  CHAR(30),
+  rec04imp1  NUMBER(17,2),
+  rec04imp2  NUMBER(17,2),
+  rec04imp3  NUMBER(17,2),
+  rec04imp4  NUMBER(17,2),
+  rec04difi1 NUMBER(17,2),
+  rec04difi2 NUMBER(17,2),
+  rec04difi3 NUMBER(17,2),
+  rec04difi4 NUMBER(17,2),
+  rec04dias1 NUMBER(3),
+  rec04dias2 NUMBER(3),
+  rec04dias3 NUMBER(3),
+  rec04dias4 NUMBER(3),
+  rec04tasa1 NUMBER(7,4),
+  rec04tasa2 NUMBER(4),
+  rec04tasa3 NUMBER(7,4),
+  rec04tasa4 NUMBER(7,4),
+  rec04emp   NUMBER(3),
+  rec04suc   NUMBER(3),
+  rec04mod   NUMBER(3),
+  rec04tran  NUMBER(3),
+  rec04nrel  NUMBER(4),
+  rec04cont  CHAR(1),
+  rec04est   CHAR(1),
+  rec04rec   NUMBER(9),
+  rec04mpago NUMBER(1),
+  rec04mda   NUMBER(4),
+  rec04usu   CHAR(10)
+)
+;
+create index FREC0403 on FREC04 (REC04EMP, REC04SUC, REC04MOD, REC04TRAN, REC04NREL, REC04FPAG);
+create index FREC0404 on FREC04 (REC04CONT, REC04EMP, REC04SUC, REC04MOD, REC04TRAN, REC04NREL);
+alter table FREC04
+  add primary key (REC02COD, REC03COD, REC04FPAG, REC04CORR);
+

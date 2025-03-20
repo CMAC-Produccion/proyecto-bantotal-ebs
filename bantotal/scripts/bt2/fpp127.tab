@@ -1,0 +1,43 @@
+create table FPP127
+(
+  pp127cod  NUMBER(3) not null,
+  pp127mod  NUMBER(3) not null,
+  pp127suc  NUMBER(3) not null,
+  pp127mda  NUMBER(4) not null,
+  pp127pap  NUMBER(4) not null,
+  pp127cta  NUMBER(9) not null,
+  pp127oper NUMBER(9) not null,
+  pp127sbop NUMBER(3) not null,
+  pp127tope NUMBER(3) not null,
+  pp127grp  NUMBER(9),
+  pp127id   CHAR(15),
+  pp127cod1 NUMBER(5),
+  pp127cod2 NUMBER(5),
+  pp127imp1 NUMBER(17,2),
+  pp127imp2 NUMBER(17,2),
+  pp127fch1 DATE,
+  pp127fch2 DATE,
+  pp127txt1 CHAR(35),
+  pp127txt2 CHAR(35),
+  pp127tas1 NUMBER(10,6),
+  pp127tas2 NUMBER(10,6),
+  pp127aux1 CHAR(1),
+  pp127aux2 CHAR(1),
+  pp127cd   NUMBER(3),
+  pp127mo   NUMBER(3),
+  pp127su   NUMBER(3),
+  pp127tr   NUMBER(3),
+  pp127re   NUMBER(4),
+  pp127fc   DATE,
+  pp127or   NUMBER(2),
+  pp127sb   NUMBER(3),
+  pp127co   CHAR(1)
+)
+;
+create index FPP12702 on FPP127 (PP127COD, PP127GRP);
+create index FPP12703 on FPP127 (PP127CO, PP127MO, PP127SU, PP127TR, PP127RE, PP127FC, PP127OR, PP127SB);
+create index FPP12704 on FPP127 (PP127COD, PP127ID);
+create index FPP12705 on FPP127 (PP127COD, PP127CTA, PP127OPER, PP127TOPE);
+alter table FPP127
+  add primary key (PP127COD, PP127MOD, PP127SUC, PP127MDA, PP127PAP, PP127CTA, PP127OPER, PP127SBOP, PP127TOPE);
+

@@ -1,0 +1,23 @@
+create table TI0000
+(
+  tiimpucod  NUMBER(3) not null,
+  tiimpcorr  NUMBER(3) not null,
+  tiimpcodsc CHAR(30),
+  tiimpa_suc CHAR(1),
+  tiimpa_mod CHAR(1),
+  tiimpa_pzo CHAR(1),
+  tiimpa_per CHAR(1),
+  tiimpa_top CHAR(1),
+  tiimpa_ope CHAR(1),
+  tiimpa_act CHAR(1),
+  tiimpa_01  CHAR(1),
+  tiimpa_02  CHAR(1),
+  tiimpa_03  CHAR(1),
+  tiimpa_04  CHAR(1),
+  tiimpa_05  CHAR(1),
+  tiimpaux   CHAR(10)
+)
+;
+alter table TI0000
+  add primary key (TIIMPUCOD, TIIMPCORR);
+

@@ -1,0 +1,60 @@
+create table JAQM5P
+(
+  jaqm5pregi VARCHAR2(30) not null,
+  jaqm5pfein DATE,
+  jaqm5pgpdd NUMBER(16,5),
+  jaqm5ppedd NUMBER(16,5),
+  jaqm5pigdp NUMBER(16,5),
+  jaqm5pnum1 NUMBER(9),
+  jaqm5pnum2 NUMBER(9),
+  jaqm5pnum3 NUMBER(9),
+  jaqm5pimp1 NUMBER(17,2),
+  jaqm5pimp2 NUMBER(17,2),
+  jaqm5pimp3 NUMBER(17,2),
+  jaqm5pcha1 VARCHAR2(255),
+  jaqm5pcha2 VARCHAR2(255),
+  jaqm5pcha3 VARCHAR2(255),
+  jaqm5pfec1 DATE,
+  jaqm5pfec2 DATE,
+  jaqm5pfec3 DATE
+)
+;
+comment on table JAQM5P
+  is 'Tabla de Gasto de Provisión - Región';
+comment on column JAQM5P.jaqm5pregi
+  is 'REGIÓN';
+comment on column JAQM5P.jaqm5pfein
+  is 'FECHA INGRESO DE DATA';
+comment on column JAQM5P.jaqm5pgpdd
+  is 'GASTO PROVISIÓN DEL DÍA';
+comment on column JAQM5P.jaqm5ppedd
+  is 'PROVISIÓN ESPERADA DEL DÍA';
+comment on column JAQM5P.jaqm5pigdp
+  is 'INCREMENTO GASTO DE PROVISIÓN';
+comment on column JAQM5P.jaqm5pnum1
+  is 'AUXILIAR NUMERICO 1';
+comment on column JAQM5P.jaqm5pnum2
+  is 'AUXILIAR NUMERICO 2';
+comment on column JAQM5P.jaqm5pnum3
+  is 'AUXILIAR NUMERICO 3';
+comment on column JAQM5P.jaqm5pimp1
+  is 'AUXILIAR IMPORTE 1';
+comment on column JAQM5P.jaqm5pimp2
+  is 'AUXILIAR IMPORTE 2';
+comment on column JAQM5P.jaqm5pimp3
+  is 'AUXILIAR IMPORTE 3';
+comment on column JAQM5P.jaqm5pcha1
+  is 'AUXILIAR CARACTER 1';
+comment on column JAQM5P.jaqm5pcha2
+  is 'AUXILIAR CARACTER 2';
+comment on column JAQM5P.jaqm5pcha3
+  is 'AUXILIAR CARACTER 3';
+comment on column JAQM5P.jaqm5pfec1
+  is 'AUXILIAR FECHA 1';
+comment on column JAQM5P.jaqm5pfec2
+  is 'AUXILIAR FECHA 2';
+comment on column JAQM5P.jaqm5pfec3
+  is 'AUXILIAR FECHA 3';
+alter table JAQM5P
+  add primary key (JAQM5PREGI);
+

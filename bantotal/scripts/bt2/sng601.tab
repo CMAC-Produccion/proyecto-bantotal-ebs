@@ -1,0 +1,47 @@
+create table SNG601
+(
+  sng600cods NUMBER(9) not null,
+  sng601tipo NUMBER(2) not null,
+  sng601corr NUMBER(4) not null,
+  sng601inst NUMBER(10),
+  sng601cor  NUMBER(3),
+  sng601pgc  NUMBER(3),
+  sng601mod  NUMBER(3),
+  sng601suc  NUMBER(3),
+  sng601mda  NUMBER(4),
+  sng601pap  NUMBER(4),
+  sng601cta  NUMBER(9),
+  sng601oper NUMBER(9),
+  sng601sbop NUMBER(3),
+  sng601tope NUMBER(3),
+  sng601pri  NUMBER(3),
+  sng601tip  CHAR(3),
+  sng601sdog NUMBER(17,2),
+  sng601mtou NUMBER(17,2),
+  sng601fape DATE,
+  sng601mtod NUMBER(17,2),
+  sng601poco NUMBER(10,6),
+  sng601tcbi NUMBER(14,8),
+  sng601auxc CHAR(3),
+  sng601au1  NUMBER(9),
+  sng601au2  NUMBER(9),
+  sng601au3  NUMBER(9),
+  sng601au4  NUMBER(9),
+  sng601au5  DATE,
+  sng601au6  DATE,
+  sng601au7  DATE,
+  sng601au8  DATE,
+  sng601au9  CHAR(30),
+  sng601au10 CHAR(30),
+  sng601au11 CHAR(30),
+  sng601au12 NUMBER(17,2),
+  sng601au13 NUMBER(17,2),
+  sng601au14 NUMBER(17,2),
+  sng601au15 NUMBER(17,2)
+)
+;
+create index SNG60103 on SNG601 (SNG600CODS, SNG601INST, SNG601PRI);
+create index SNG60104 on SNG601 (SNG601PGC, SNG601MOD, SNG601SUC, SNG601MDA, SNG601PAP, SNG601CTA, SNG601OPER, SNG601SBOP, SNG601TOPE);
+alter table SNG601
+  add primary key (SNG600CODS, SNG601TIPO, SNG601CORR);
+

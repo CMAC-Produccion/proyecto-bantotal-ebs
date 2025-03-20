@@ -1,0 +1,63 @@
+create table Z0E4GE
+(
+  z0e4getar CHAR(19) not null,
+  z0e4gefec DATE not null,
+  z0e4gehor CHAR(8) not null,
+  z0e4gemen NUMBER(2) not null,
+  z0e4geter CHAR(20) not null,
+  z0e4gecor NUMBER(9) not null,
+  z0e4gefne DATE,
+  z0e4getop CHAR(2),
+  z0e4gedpg NUMBER(3),
+  z0e4gedsu NUMBER(3),
+  z0e4gedmd NUMBER(3),
+  z0e4gedmo NUMBER(4),
+  z0e4gedpa NUMBER(4),
+  z0e4gedct NUMBER(9),
+  z0e4gedsc NUMBER(3),
+  z0e4gedto NUMBER(3),
+  z0e4gedop NUMBER(9),
+  z0e4gecpg NUMBER(3),
+  z0e4gecsu NUMBER(3),
+  z0e4gecmd NUMBER(3),
+  z0e4gecmo NUMBER(4),
+  z0e4gecpa NUMBER(4),
+  z0e4gecct NUMBER(9),
+  z0e4gecsc NUMBER(3),
+  z0e4gecto NUMBER(3),
+  z0e4gecop NUMBER(9),
+  z0e4geimd NUMBER(17,2),
+  z0e4geimc NUMBER(17,2),
+  z0e4gesdd NUMBER(17,2),
+  z0e4gecot NUMBER(17,2),
+  z0e4gemda NUMBER(4),
+  z0e4geemp NUMBER(3),
+  z0e4gesuc NUMBER(3),
+  z0e4gemod NUMBER(3),
+  z0e4getrn NUMBER(3),
+  z0e4gerel NUMBER(4),
+  z0e4geest CHAR(2),
+  z0e4getxt CHAR(100),
+  z0e4gemnc NUMBER(5),
+  z0e4gecnl NUMBER(3),
+  z0e4geope NUMBER(5),
+  z0e4gevar NUMBER(3),
+  z0e4gefsv DATE,
+  z0e4gehsv CHAR(8),
+  z0e4gersv NUMBER(10),
+  z0e4gensb CHAR(5),
+  z0e4geori CHAR(1),
+  z0e4getdd CHAR(1),
+  z0e4gesec NUMBER(10),
+  z0e4gefim DATE,
+  z0e4gered NUMBER(4)
+)
+;
+create index IDX_Z0E4GE06_2 on Z0E4GE (Z0E4GEEMP, Z0E4GESUC, Z0E4GEMOD, Z0E4GETRN, Z0E4GEREL, Z0E4GEFSV);
+create index Z0E4GE02_2 on Z0E4GE (Z0E4GEFIM, Z0E4GEEST);
+create index Z0E4GE03_2 on Z0E4GE (Z0E4GEFNE, Z0E4GETOP);
+create index Z0E4GE04_2 on Z0E4GE (Z0E4GEFEC, Z0E4GEHOR, Z0E4GETOP, Z0E4GENSB);
+create index Z0E4GE05_2 on Z0E4GE (Z0E4GEDCT, Z0E4GEDMD, Z0E4GEDSU, Z0E4GEDMO, Z0E4GEDPA, Z0E4GEDOP, Z0E4GEDSC, Z0E4GEDTO, Z0E4GEFEC, Z0E4GEHOR);
+alter table Z0E4GE
+  add primary key (Z0E4GETAR, Z0E4GEFEC, Z0E4GEHOR, Z0E4GEMEN, Z0E4GETER, Z0E4GECOR);
+

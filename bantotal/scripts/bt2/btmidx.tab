@@ -1,0 +1,14 @@
+create table BTMIDX
+(
+  btmtblnam VARCHAR2(255) not null,
+  btmidxnam VARCHAR2(255) not null,
+  btmidxuni CHAR(1),
+  btmidxusr CHAR(1),
+  btmidxinc CHAR(1),
+  btmidxsh  VARCHAR2(512),
+  btmidxsi  VARCHAR2(512)
+)
+;
+alter table BTMIDX
+  add primary key (BTMTBLNAM, BTMIDXNAM);
+

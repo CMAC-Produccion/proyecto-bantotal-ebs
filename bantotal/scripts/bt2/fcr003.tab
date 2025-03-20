@@ -1,0 +1,11 @@
+create table FCR003
+(
+  modulo     NUMBER(3) not null,
+  instcod    NUMBER(2) not null,
+  instandkey NUMBER(2) not null,
+  instandcod NUMBER(2)
+)
+;
+alter table FCR003
+  add primary key (MODULO, INSTCOD, INSTANDKEY);
+

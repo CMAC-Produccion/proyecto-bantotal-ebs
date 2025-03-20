@@ -1,0 +1,78 @@
+create table UAI_ACLPRE
+(
+  n_emp_bcemp             NUMBER(3) not null,
+  n_mod_bcmod             NUMBER(3),
+  n_suc_bcsuc             NUMBER(3) not null,
+  n_mda_bcmda             NUMBER(4) not null,
+  n_pap_bcpap             NUMBER(4) not null,
+  n_cta_bccta             NUMBER(9) not null,
+  n_oper_bcoper           NUMBER(9) not null,
+  n_sbop_bcsbop           NUMBER(3) not null,
+  n_tope_bctop            NUMBER(3) not null,
+  n_rubr_bcrubr           NUMBER(16) not null,
+  n_pais_pepais           NUMBER(3) not null,
+  n_tdoc_petdoc           NUMBER(2) not null,
+  c_ndoc_pendoc           CHAR(12) not null,
+  c_numsor_bnj096sor      CHAR(17),
+  n_mtodes_aoimp          NUMBER(17,2),
+  n_period_aoperiod       NUMBER,
+  n_estad_aostat          NUMBER,
+  d_fecval_bcfval         DATE,
+  d_fecproxven_ppfpag     DATE,
+  n_intcuo_ppint          NUMBER(17,2),
+  n_cuopag_ppfpag         NUMBER,
+  n_mtopag_pp1cap         NUMBER(17,2),
+  d_fecultpag_pp1fech     DATE,
+  c_numcre                VARCHAR2(30),
+  d_fecref_bcfval         DATE,
+  d_fecven_bcfvto         DATE,
+  n_codcont_bcgpo         NUMBER,
+  c_tipdes_bcmod          VARCHAR2(20),
+  n_codlincred            NUMBER,
+  n_codcond_bcprod        NUMBER,
+  n_plazo_bcpzo           NUMBER,
+  n_rubrant_bcrubr        NUMBER(16),
+  n_mtointe_dif_bcsdmo    NUMBER(17,2),
+  n_mtogar_bcsdmo         NUMBER(17,2),
+  n_mtolinnout_bcsdmo     NUMBER(17,2),
+  n_mtodeuind_bcsdmo      NUMBER(17,2),
+  n_mtodeudir_bcsdmo      NUMBER(17,2),
+  n_salcap_bcsdmo         NUMBER(17,2),
+  n_fecultrcc_tpnro       NUMBER,
+  n_diasmora              NUMBER,
+  n_diasmoraref           NUMBER,
+  c_neg_sngc60nome        CHAR(50),
+  n_act_sngc60acte        NUMBER(11),
+  n_instancia_xwfprcins   NUMBER,
+  d_fecpro_bcfech         DATE,
+  n_salmn_bcsdmn          NUMBER(17,2),
+  n_tipcorp               NUMBER(4),
+  n_tasarefin             NUMBER(10,6),
+  n_mtotot                NUMBER(17,2),
+  n_mtocap                NUMBER(17,2),
+  n_mtoint                NUMBER(17,2),
+  n_mtomor                NUMBER(17,2),
+  n_mtoseg                NUMBER(17,2),
+  n_mtocom                NUMBER(17,2),
+  n_motxt                 NUMBER(3),
+  n_suctxt                NUMBER(3),
+  n_trttxt                NUMBER(3),
+  n_reltxt                NUMBER(4),
+  d_fectxt                DATE,
+  n_morault               NUMBER(10),
+  c_usutran               CHAR(10),
+  c_deshora               CHAR(8),
+  n_porfon                NUMBER(5,2),
+  c_fondo                 VARCHAR2(30),
+  d_fecproxven_ppfpag_bdc DATE
+)
+;
+comment on table UAI_ACLPRE
+  is 'Tabla procesamiento de data ACL para UAI';
+create index XN_UAI_ACLPRE_01 on UAI_ACLPRE (N_SUC_BCSUC);
+create index XN_UAI_ACLPRE_02 on UAI_ACLPRE (N_INSTANCIA_XWFPRCINS);
+create index XN_UAI_ACLPRE_03 on UAI_ACLPRE (N_SUC_BCSUC, N_RUBR_BCRUBR);
+create index XN_UAI_ACLPRE_04 on UAI_ACLPRE (N_PAIS_PEPAIS, N_TDOC_PETDOC, C_NDOC_PENDOC);
+create index XN_UAI_ACLPRE_05 on UAI_ACLPRE (N_EMP_BCEMP, N_MOD_BCMOD);
+create index XN_UAI_ACLPRE_06 on UAI_ACLPRE (N_EMP_BCEMP, N_MOD_BCMOD, N_SUC_BCSUC, N_MDA_BCMDA, N_PAP_BCPAP, N_CTA_BCCTA, N_OPER_BCOPER, N_SBOP_BCSBOP, N_TOPE_BCTOP);
+

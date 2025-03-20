@@ -1,0 +1,113 @@
+create table JAQN2A
+(
+  jaqn2apai  NUMBER(3) not null,
+  jaqn2atdoc NUMBER(2) not null,
+  jaqn2andoc CHAR(12) not null,
+  jaqn2acor  NUMBER(3) not null,
+  jaqn2afeg  DATE not null,
+  jaqn2atipv CHAR(1) not null,
+  jaqn2ahog  CHAR(10),
+  jaqn2ausu  CHAR(10),
+  jaqn2asuc  NUMBER(3),
+  jaqn2atok  VARCHAR2(100),
+  jaqn2aest  CHAR(15),
+  jaqn2apgm  CHAR(10),
+  jaqn2afvec DATE,
+  jaqn2ahvec CHAR(10),
+  jaqn2afval DATE,
+  jaqn2ahval CHAR(10),
+  jaqn2acorr VARCHAR2(100),
+  jaqn2acot  CHAR(5),
+  jaqn2atelf CHAR(15),
+  jaqn2ades  VARCHAR2(100),
+  jaqn2ainf  VARCHAR2(500),
+  jaqn2avigt DATE,
+  jaqn2aan1  NUMBER(9),
+  jaqn2aan2  NUMBER(9),
+  jaqn2aan3  NUMBER(9),
+  jaqn2aaf1  DATE,
+  jaqn2aaf2  DATE,
+  jaqn2aaf3  DATE,
+  jaqn2aac1  VARCHAR2(255),
+  jaqn2aac2  VARCHAR2(255),
+  jaqn2aac3  VARCHAR2(255),
+  jaqn2aai1  NUMBER(17,2),
+  jaqn2aai2  NUMBER(17,2),
+  jaqn2aai3  NUMBER(17,2)
+)
+;
+comment on table JAQN2A
+  is 'Registro Token';
+comment on column JAQN2A.jaqn2apai
+  is 'Pais';
+comment on column JAQN2A.jaqn2atdoc
+  is 'Tipo de documento';
+comment on column JAQN2A.jaqn2andoc
+  is 'Nro de documento';
+comment on column JAQN2A.jaqn2acor
+  is 'Correlativo';
+comment on column JAQN2A.jaqn2afeg
+  is 'Fecha generacion';
+comment on column JAQN2A.jaqn2atipv
+  is 'Tipo validacion (T/C)';
+comment on column JAQN2A.jaqn2ahog
+  is 'Hora generacion';
+comment on column JAQN2A.jaqn2ausu
+  is 'Usuario';
+comment on column JAQN2A.jaqn2asuc
+  is 'Sucursal';
+comment on column JAQN2A.jaqn2atok
+  is 'Token';
+comment on column JAQN2A.jaqn2aest
+  is 'Estado';
+comment on column JAQN2A.jaqn2apgm
+  is 'Nombre programa';
+comment on column JAQN2A.jaqn2afvec
+  is 'Fecha vencimiento';
+comment on column JAQN2A.jaqn2ahvec
+  is 'Hora vencimiento';
+comment on column JAQN2A.jaqn2afval
+  is 'Fecha validacion';
+comment on column JAQN2A.jaqn2ahval
+  is 'Hora validacion';
+comment on column JAQN2A.jaqn2acorr
+  is 'Correo';
+comment on column JAQN2A.jaqn2acot
+  is 'Codigo pais telefono';
+comment on column JAQN2A.jaqn2atelf
+  is 'Numero de telefono';
+comment on column JAQN2A.jaqn2ades
+  is 'Descripcion error';
+comment on column JAQN2A.jaqn2ainf
+  is 'Informacion adicional';
+comment on column JAQN2A.jaqn2avigt
+  is 'Vigencia Token';
+comment on column JAQN2A.jaqn2aan1
+  is 'Auxiliar numerico 1';
+comment on column JAQN2A.jaqn2aan2
+  is 'Auxiliar numerico 2';
+comment on column JAQN2A.jaqn2aan3
+  is 'Auxiliar numerico 3';
+comment on column JAQN2A.jaqn2aaf1
+  is 'Auxiliar fecha 1';
+comment on column JAQN2A.jaqn2aaf2
+  is 'Auxiliar fecha 2';
+comment on column JAQN2A.jaqn2aaf3
+  is 'Auxiliar fecha 3';
+comment on column JAQN2A.jaqn2aac1
+  is 'Auxiliarcaracter 1';
+comment on column JAQN2A.jaqn2aac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN2A.jaqn2aac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN2A.jaqn2aai1
+  is 'Auxiliar importe 1';
+comment on column JAQN2A.jaqn2aai2
+  is 'Auxiliar importe 2';
+comment on column JAQN2A.jaqn2aai3
+  is 'Auxiliar importe 3';
+create index JAQN2AA2 on JAQN2A (JAQN2APAI, JAQN2ATDOC, JAQN2ANDOC, JAQN2ATIPV, JAQN2ACOR, JAQN2AFEG);
+create index JAQN2AA4 on JAQN2A (JAQN2ATOK);
+alter table JAQN2A
+  add primary key (JAQN2APAI, JAQN2ATDOC, JAQN2ANDOC, JAQN2ACOR, JAQN2AFEG, JAQN2ATIPV);
+

@@ -1,0 +1,33 @@
+create table FST305
+(
+  dncod    NUMBER(5) not null,
+  dntxt    CHAR(30),
+  dnsign   CHAR(10),
+  dnsbor   NUMBER(3),
+  dnpems   CHAR(1),
+  dnfems   NUMBER(5),
+  dnpmda   CHAR(1),
+  dnfmda   NUMBER(4),
+  dnpind   CHAR(1),
+  dnfind   NUMBER(4),
+  dntvto   CHAR(1),
+  dntpzo   NUMBER(1),
+  dntano   NUMBER(1),
+  dntint   CHAR(1),
+  dnttas   NUMBER(1),
+  dncltcod NUMBER(2),
+  dnsn01   NUMBER(9),
+  dnsn02   NUMBER(9),
+  dnsn03   NUMBER(9),
+  dnsn04   NUMBER(14,2),
+  dnsn05   NUMBER(14,2),
+  dncd01   CHAR(1),
+  dncd02   CHAR(1),
+  dncd03   CHAR(1),
+  dncd04   CHAR(1),
+  dncd05   CHAR(1)
+)
+;
+alter table FST305
+  add primary key (DNCOD);
+

@@ -1,0 +1,27 @@
+create table JAQY325
+(
+  jaqy325inst NUMBER(10) not null,
+  jaqy325corr NUMBER(3) not null,
+  jaqy325pgc  NUMBER(3),
+  jaqy325mod  NUMBER(3),
+  jaqy325suc  NUMBER(3),
+  jaqy325mda  NUMBER(4),
+  jaqy325pap  NUMBER(4),
+  jaqy325cta  NUMBER(9),
+  jaqy325oper NUMBER(9),
+  jaqy325sbop NUMBER(3),
+  jaqy325tope NUMBER(3),
+  jaqy325pri  NUMBER(3),
+  jaqy325tipo CHAR(3),
+  jaqy325sdog NUMBER(17,2),
+  jaqy325mtou NUMBER(17,2),
+  jaqy325fape DATE,
+  jaqy325mtod NUMBER(17,2),
+  jaqy325poco NUMBER(10,6),
+  jaqy325tcbi NUMBER(14,8),
+  jaqy325auxc CHAR(3)
+)
+;
+alter table JAQY325
+  add primary key (JAQY325INST, JAQY325CORR);
+

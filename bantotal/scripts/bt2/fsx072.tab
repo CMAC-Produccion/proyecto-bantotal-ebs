@@ -1,0 +1,24 @@
+create table FSX072
+(
+  fsx072pgc NUMBER(3) not null,
+  fsx072co1 NUMBER(2) not null,
+  fsx072co2 NUMBER(2) not null,
+  fsx072co3 NUMBER(2) not null,
+  fsx072co4 NUMBER(2) not null,
+  fsx072tip CHAR(1) not null,
+  fsx072suc NUMBER(3) not null,
+  fsx072mod NUMBER(3) not null,
+  fsx072trn NUMBER(3) not null,
+  fsx072rel NUMBER(4) not null,
+  fsx072fco DATE not null,
+  fsx072ord NUMBER(2),
+  fsx072sbo NUMBER(3),
+  fsx072mda NUMBER(4),
+  fsx072imp NUMBER(17,2)
+)
+;
+create index FSX07202 on FSX072 (FSX072PGC, FSX072SUC, FSX072MOD, FSX072TRN, FSX072REL, FSX072FCO);
+create index FSX07203 on FSX072 (FSX072PGC, FSX072FCO, FSX072MDA, FSX072TIP, FSX072CO1, FSX072CO2, FSX072CO3, FSX072CO4);
+alter table FSX072
+  add primary key (FSX072PGC, FSX072CO1, FSX072CO2, FSX072CO3, FSX072CO4, FSX072TIP, FSX072SUC, FSX072MOD, FSX072TRN, FSX072REL, FSX072FCO);
+

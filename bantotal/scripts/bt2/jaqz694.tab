@@ -1,0 +1,68 @@
+create table JAQZ694
+(
+  jaqz694ins NUMBER(10) not null,
+  jaqz694eva NUMBER(10),
+  jaqz694mt1 NUMBER(17,2),
+  jaqz694mt2 NUMBER(17,2),
+  jaqz694mt3 NUMBER(17,2),
+  jaqz694mtf NUMBER(17,2),
+  jaqz694seg NUMBER(5),
+  jaqz694plz NUMBER(5),
+  jaqz694nrc NUMBER(10),
+  jaqz694rcc DATE,
+  jaqz694fep DATE,
+  jaqz694usr CHAR(10),
+  jaqz694sbs NUMBER(5),
+  jaqz694fvt DATE,
+  jaqz694fv1 DATE,
+  jaqz694au1 DATE,
+  jaqz694au2 NUMBER(10),
+  jaqz694au3 NUMBER(17,2),
+  jaqz694au4 CHAR(30),
+  jaqz694au5 CHAR(1)
+)
+;
+comment on column JAQZ694.jaqz694ins
+  is 'Instancia';
+comment on column JAQZ694.jaqz694eva
+  is 'Numero de evaluacion';
+comment on column JAQZ694.jaqz694mt1
+  is 'Monto 50% de desembolso';
+comment on column JAQZ694.jaqz694mt2
+  is 'Monto Nivel Ventas';
+comment on column JAQZ694.jaqz694mt3
+  is 'Monto Máximo a otorgar según segmentación';
+comment on column JAQZ694.jaqz694mtf
+  is 'Monto Final';
+comment on column JAQZ694.jaqz694seg
+  is 'Segmentacion';
+comment on column JAQZ694.jaqz694plz
+  is 'Plazo 90 o 180';
+comment on column JAQZ694.jaqz694nrc
+  is 'Numero de credito vigentes';
+comment on column JAQZ694.jaqz694rcc
+  is 'Fecha de RCC';
+comment on column JAQZ694.jaqz694fep
+  is 'Fecha de Proceso';
+comment on column JAQZ694.jaqz694usr
+  is 'Usuario de Proceso';
+comment on column JAQZ694.jaqz694sbs
+  is 'Tipologia SBS';
+comment on column JAQZ694.jaqz694fvt
+  is 'Fecha de vencimiento de primera cuota';
+comment on column JAQZ694.jaqz694fv1
+  is 'Fecha de vencimiento de primera cuota mas 1';
+comment on column JAQZ694.jaqz694au1
+  is 'Campo auxiliar1';
+comment on column JAQZ694.jaqz694au2
+  is 'Campo auxiliar2';
+comment on column JAQZ694.jaqz694au3
+  is 'Campo auxiliar3';
+comment on column JAQZ694.jaqz694au4
+  is 'Campo auxiliar4';
+comment on column JAQZ694.jaqz694au5
+  is 'Campo auxiliar5';
+create index JAQZ6942 on JAQZ694 (JAQZ694FEP);
+alter table JAQZ694
+  add primary key (JAQZ694INS);
+

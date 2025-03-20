@@ -1,0 +1,22 @@
+create table FSFC27
+(
+  sfc27emp NUMBER(3) not null,
+  sfc27mod NUMBER(3) not null,
+  sfc27trn NUMBER(3) not null,
+  sfc27suc NUMBER(3) not null,
+  sfc27mda NUMBER(4) not null,
+  sfc27hrf CHAR(5),
+  sfc27hab CHAR(1),
+  sfc27a01 NUMBER(9),
+  sfc27a02 NUMBER(9),
+  sfc27a03 NUMBER(17,2),
+  sfc27a04 NUMBER(17,2),
+  sfc27a05 DATE,
+  sfc27a06 DATE,
+  sfc27a07 CHAR(65),
+  sfc27a08 CHAR(65)
+)
+;
+alter table FSFC27
+  add primary key (SFC27EMP, SFC27MOD, SFC27TRN, SFC27SUC, SFC27MDA);
+

@@ -1,0 +1,20 @@
+create table FCPG98
+(
+  cpg98insi  NUMBER(10) not null,
+  cpg98witi  NUMBER(10) not null,
+  cpg98tabi  CHAR(10) not null,
+  cpg98corri NUMBER(8) not null,
+  cpg98insd  NUMBER(10) not null,
+  cpg98witd  NUMBER(10) not null,
+  cpg98tabd  CHAR(10) not null,
+  cpg98corrd NUMBER(8) not null,
+  cpg98ax1   NUMBER(8),
+  cpg98ax2   CHAR(1),
+  cpg98ax3   NUMBER(1)
+)
+;
+create index FCPG9802 on FCPG98 (CPG98INSD, CPG98WITD, CPG98TABD, CPG98CORRD, CPG98INSI, CPG98WITI, CPG98TABI, CPG98CORRI);
+create index FCPG9803 on FCPG98 (CPG98INSI, CPG98TABI, CPG98CORRI, CPG98TABD);
+alter table FCPG98
+  add primary key (CPG98INSI, CPG98WITI, CPG98TABI, CPG98CORRI, CPG98INSD, CPG98WITD, CPG98TABD, CPG98CORRD);
+

@@ -1,0 +1,46 @@
+create table AQPA010F
+(
+  aqpa010fhpgcod  NUMBER(3) not null,
+  aqpa010fhmodul  NUMBER(3) not null,
+  aqpa010fhtoper  NUMBER(3) not null,
+  aqpa010fhsucur  NUMBER(3) not null,
+  aqpa010fhmda    NUMBER(4) not null,
+  aqpa010fhpap    NUMBER(4) not null,
+  aqpa010fhcta    NUMBER(9) not null,
+  aqpa010fhoper   NUMBER(9) not null,
+  aqpa010fhsubop  NUMBER(3) not null,
+  aqpa010fmcapitd NUMBER(16,2),
+  aqpa010fmsegud  NUMBER(16,2),
+  aqpa010fmotrod  NUMBER(16,2),
+  aqpa010fmpenad  NUMBER(16,2),
+  aqpa010fminmod  NUMBER(16,2),
+  aqpa010fmicvd   NUMBER(16,2),
+  aqpa010fmincod  NUMBER(16,2),
+  aqpa010fhrubroc NUMBER(16),
+  aqpa010fmseguc  NUMBER(16,2),
+  aqpa010fmotroc  NUMBER(16,2),
+  aqpa010fmpenac  NUMBER(16,2),
+  aqpa010fminmoc  NUMBER(16,2),
+  aqpa010fmicvc   NUMBER(16,2),
+  aqpa010fmincoc  NUMBER(16,2),
+  aqpa010fmcapitc NUMBER(16,2),
+  aqpa010fmsumac  NUMBER(16,2),
+  aqpa010fstatc   NUMBER(3),
+  aqpa010ftipcre  VARCHAR2(2),
+  aqpa010fdiaatr  NUMBER(5),
+  aqpa010ffecint  DATE,
+  aqpa010fnroexp  CHAR(20),
+  aqpa010facupag  CHAR(1),
+  aqpa010fdacupag VARCHAR2(50),
+  aqpa010fcanesp  VARCHAR2(200),
+  aqpa010ffecext  DATE,
+  aqpa010fest     CHAR(1),
+  aqpa010fmgasc   NUMBER(16,2),
+  aqpa010fmgasd   NUMBER(16,2),
+  aqpa010fcorr    NUMBER(3) not null,
+  aqpa010fhopro   CHAR(8) not null
+)
+;
+alter table AQPA010F
+  add primary key (AQPA010FHPGCOD, AQPA010FHMODUL, AQPA010FHTOPER, AQPA010FHSUCUR, AQPA010FHMDA, AQPA010FHPAP, AQPA010FHCTA, AQPA010FHOPER, AQPA010FHSUBOP, AQPA010FHOPRO, AQPA010FCORR);
+

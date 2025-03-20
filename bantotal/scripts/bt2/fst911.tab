@@ -1,0 +1,24 @@
+create table FST911
+(
+  fst911co NUMBER(3) not null,
+  fst911pe NUMBER(3) not null,
+  fst911fi DATE,
+  fst911ff DATE,
+  fst911tx CHAR(80),
+  fst911es NUMBER(1),
+  fst911fa DATE,
+  fst911fm DATE,
+  fst911n1 NUMBER(3),
+  fst911n2 NUMBER(9),
+  fst911f1 DATE,
+  fst911f2 DATE,
+  fst911ua CHAR(10),
+  fst911um CHAR(10),
+  fst911pc NUMBER(5,2),
+  fst911im NUMBER(17,2),
+  fst911tp NUMBER(1)
+)
+;
+alter table FST911
+  add primary key (FST911CO, FST911PE);
+

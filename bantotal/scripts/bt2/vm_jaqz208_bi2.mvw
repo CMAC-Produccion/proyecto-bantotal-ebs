@@ -1,0 +1,27 @@
+create materialized view VM_JAQZ208_BI2
+refresh force on demand
+as
+select /*+all_rows parallel(a,20) parallel(b,20)*/
+a.jaqz208seint,
+a.jaqz208fetra,
+a.jaqz208hotra,
+a.jaqz208cores,
+a.jaqz208feits,
+a.jaqz208hoits,
+decode(b.z0e478thd, null, null, b.Z0E478THP) Z0E478THP,
+decode(b.z0e478thd, null, null, b.Z0E478THT) Z0E478THT,
+decode(b.z0e478thd, null, null, b.z0e478thd) z0e478thd,
+a.jaqz208cotra,
+a.jaqz208fefts,
+a.jaqz208hofts,
+a.jaqz208sefec,
+a.jaqz208sehor,
+a.jaqz208secre,
+a.jaqz208secrs,
+a.JAQZ208CANAL, 
+ a.JAQZ208DETALLE
+  from JAQZ208 a
+  left outer join Z0E478 b
+    on a.jaqz208nutar = b.Z0E478NRO
+where A.JAQZ208FETRA BETWEEN TRUNC(TRUNC(TO_DATE('20250318','YYYYMMDD'),'MM')-1,'MM') AND TRUNC(SYSDATE-1);
+

@@ -1,0 +1,22 @@
+create table FSFFC7
+(
+  fsfg5emp   NUMBER(3) not null,
+  fsfg5anio  NUMBER(4) not null,
+  fsfg5mes   NUMBER(2) not null,
+  fsfg1nivc  NUMBER(2) not null,
+  fsfg2nivc  NUMBER(2) not null,
+  fsfg3nivc  NUMBER(2) not null,
+  fsfg5obs   CLOB,
+  fsfg5aux1  CHAR(1),
+  fsfg5aux2  CHAR(20),
+  fsfg5aux3  NUMBER(16),
+  fsfg5aux4  NUMBER(16),
+  fsfg5tipo  NUMBER(2),
+  fsfg5txt   CLOB,
+  fsfg5prems NUMBER(2)
+)
+;
+create index FSFFC702 on FSFFC7 (FSFG1NIVC, FSFG2NIVC, FSFG3NIVC);
+alter table FSFFC7
+  add primary key (FSFG5EMP, FSFG5ANIO, FSFG5MES, FSFG1NIVC, FSFG2NIVC, FSFG3NIVC);
+

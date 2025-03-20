@@ -1,0 +1,106 @@
+create table JAQM9L
+(
+  jaqm9lfec DATE not null,
+  jaqm9lcod VARCHAR2(10) not null,
+  jaqm9lnop VARCHAR2(10) not null,
+  jaqm9lntr VARCHAR2(10) not null,
+  jaqm9ltne NUMBER(17,2) not null,
+  jaqm9lnce VARCHAR2(50) not null,
+  jaqm9lfem DATE not null,
+  jaqm9lcor NUMBER(5) not null,
+  jaqm9ltdo VARCHAR2(10),
+  jaqm9lndo VARCHAR2(12),
+  jaqm9lnem VARCHAR2(300),
+  jaqm9ltem NUMBER(4),
+  jaqm9lmda VARCHAR2(10),
+  jaqm9lmon NUMBER(17,5),
+  jaqm9lpco NUMBER(17,2),
+  jaqm9lcso NUMBER(1),
+  jaqm9lmod CHAR(3),
+  jaqm9lhor CHAR(10),
+  jaqm9lusu CHAR(10),
+  jaqm9lwrk CHAR(12),
+  jaqm9lai1 NUMBER(17,2),
+  jaqm9lai2 NUMBER(17,2),
+  jaqm9lai3 NUMBER(17,2),
+  jaqm9lan1 NUMBER(9),
+  jaqm9lan2 NUMBER(9),
+  jaqm9lan3 NUMBER(9),
+  jaqm9lac1 VARCHAR2(255),
+  jaqm9lac2 VARCHAR2(255),
+  jaqm9lac3 VARCHAR2(255),
+  jaqm9laf1 DATE,
+  jaqm9laf2 DATE,
+  jaqm9laf3 DATE
+)
+;
+comment on table JAQM9L
+  is 'Log y Temporal de AQPB709';
+comment on column JAQM9L.jaqm9lfec
+  is 'Fecha de Carga';
+comment on column JAQM9L.jaqm9lcod
+  is 'Código de Entidad Participante';
+comment on column JAQM9L.jaqm9lnop
+  is 'Número de Operación Reporte';
+comment on column JAQM9L.jaqm9lntr
+  is 'Número de Tramo';
+comment on column JAQM9L.jaqm9ltne
+  is 'Tasa Adjudicada Negocio';
+comment on column JAQM9L.jaqm9lnce
+  is 'Número de Certificado Cofide';
+comment on column JAQM9L.jaqm9lfem
+  is 'Fecha de Insercion Modificacion';
+comment on column JAQM9L.jaqm9lcor
+  is 'Correlativo';
+comment on column JAQM9L.jaqm9ltdo
+  is 'Tipo de Documento Deudor';
+comment on column JAQM9L.jaqm9lndo
+  is 'Número de Documento Deudor';
+comment on column JAQM9L.jaqm9lnem
+  is 'Razon Social';
+comment on column JAQM9L.jaqm9ltem
+  is 'Tamaño de Empresa';
+comment on column JAQM9L.jaqm9lmda
+  is 'Nombre Moneda';
+comment on column JAQM9L.jaqm9lmon
+  is 'Monto Desembolsado Crédito';
+comment on column JAQM9L.jaqm9lpco
+  is 'Porcentaje de Cobertura Gob';
+comment on column JAQM9L.jaqm9lcso
+  is 'Código de Solicitud';
+comment on column JAQM9L.jaqm9lmod
+  is 'Tipo de alteración en registro';
+comment on column JAQM9L.jaqm9lhor
+  is 'Hora';
+comment on column JAQM9L.jaqm9lusu
+  is 'Usuario';
+comment on column JAQM9L.jaqm9lwrk
+  is 'WorkStation';
+comment on column JAQM9L.jaqm9lai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM9L.jaqm9lai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM9L.jaqm9lai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM9L.jaqm9lan1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM9L.jaqm9lan2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM9L.jaqm9lan3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM9L.jaqm9lac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM9L.jaqm9lac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM9L.jaqm9lac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM9L.jaqm9laf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM9L.jaqm9laf2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM9L.jaqm9laf3
+  is 'Auxiliar Fecha 3';
+create index JAQM9LA2 on JAQM9L (JAQM9LFEM, JAQM9LCOR);
+alter table JAQM9L
+  add primary key (JAQM9LFEC, JAQM9LCOD, JAQM9LNOP, JAQM9LNTR, JAQM9LTNE, JAQM9LNCE, JAQM9LFEM, JAQM9LCOR);
+

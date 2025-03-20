@@ -1,0 +1,23 @@
+create table PLS003
+(
+  pls003emp  NUMBER(3) not null,
+  pls003conv NUMBER(8) not null,
+  pls003sec  NUMBER(5) not null,
+  pls002tcom NUMBER(3) not null,
+  pls003ccom NUMBER(3),
+  pls003est  CHAR(1),
+  pls003cta  NUMBER(9),
+  pls003sbct NUMBER(3),
+  pls003pap  NUMBER(4),
+  pls003mda  NUMBER(4),
+  pls003fdes DATE,
+  pls003tasa NUMBER(10,6),
+  pls003comi NUMBER(17,2),
+  pls003coma NUMBER(17,2),
+  pls003mtof NUMBER(17,2)
+)
+;
+create index PLS00302 on PLS003 (PLS003EMP, PLS002TCOM, PLS003CCOM);
+alter table PLS003
+  add primary key (PLS003EMP, PLS003CONV, PLS003SEC, PLS002TCOM);
+

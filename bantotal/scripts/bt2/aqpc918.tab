@@ -1,0 +1,123 @@
+create table AQPC918
+(
+  aqpc918id     NUMBER(10) not null,
+  aqpc918fecpro DATE,
+  aqpc918moneda VARCHAR2(20),
+  aqpc918tiptra VARCHAR2(20),
+  aqpc918banori VARCHAR2(20),
+  aqpc918bandes VARCHAR2(20),
+  aqpc918cciori CHAR(20),
+  aqpc918ccides CHAR(20),
+  aqpc918impo   NUMBER(17,2),
+  aqpc918comi   NUMBER(17,2),
+  aqpc918sigcom CHAR(1),
+  aqpc918canal  CHAR(2),
+  aqpc918fectra VARCHAR2(20),
+  aqpc918trace  VARCHAR2(6),
+  aqpc918idcce  CHAR(50),
+  aqpc918codpro VARCHAR2(10),
+  aqpc918estado CHAR(1),
+  aqpc918tipope NUMBER(3),
+  aqpc918sccta  NUMBER(9),
+  aqpc918suc    NUMBER(3),
+  aqpc918mod    NUMBER(3),
+  aqpc918trans  NUMBER(3),
+  aqpc918rel    NUMBER(4),
+  aqpc918resop  CHAR(50),
+  aqpc918fecope VARCHAR2(20),
+  aqpc918moned  VARCHAR2(20),
+  aqpc918impor  NUMBER(17,2),
+  aqpc918fecliq DATE,
+  aqpc918impliq NUMBER(17,2),
+  aqpc918tdori  NUMBER(3),
+  aqpc918ndori  CHAR(12),
+  aqpc918nomori CHAR(24),
+  aqpc918tddes  NUMBER(3),
+  aqpc918nddes  CHAR(12),
+  aqpc918nomdes CHAR(24),
+  aqpc918tracbt VARCHAR2(6),
+  aqpc918ctaaux NUMBER(9),
+  aqpc918fecaux DATE
+)
+;
+comment on table AQPC918
+  is 'Registros cuadre Archivo CCE';
+comment on column AQPC918.aqpc918id
+  is 'ID de Registro';
+comment on column AQPC918.aqpc918fecpro
+  is 'Fecha de proceso';
+comment on column AQPC918.aqpc918moneda
+  is 'Moneda';
+comment on column AQPC918.aqpc918tiptra
+  is 'Tipo de Transacción';
+comment on column AQPC918.aqpc918banori
+  is 'Banco Origen';
+comment on column AQPC918.aqpc918bandes
+  is 'Banco Destino';
+comment on column AQPC918.aqpc918cciori
+  is 'CCI Origen';
+comment on column AQPC918.aqpc918ccides
+  is 'CCI Destino';
+comment on column AQPC918.aqpc918impo
+  is 'Importe';
+comment on column AQPC918.aqpc918comi
+  is 'Comision';
+comment on column AQPC918.aqpc918sigcom
+  is 'Signo Comision';
+comment on column AQPC918.aqpc918canal
+  is 'Canal';
+comment on column AQPC918.aqpc918fectra
+  is 'Fecha Transacción';
+comment on column AQPC918.aqpc918trace
+  is 'Trace';
+comment on column AQPC918.aqpc918idcce
+  is 'ID CCE';
+comment on column AQPC918.aqpc918codpro
+  is 'Codigo Proceso';
+comment on column AQPC918.aqpc918estado
+  is 'Estado';
+comment on column AQPC918.aqpc918tipope
+  is 'Tipo de Operación';
+comment on column AQPC918.aqpc918sccta
+  is 'Cuenta';
+comment on column AQPC918.aqpc918suc
+  is 'Sucursal';
+comment on column AQPC918.aqpc918mod
+  is 'Modulo';
+comment on column AQPC918.aqpc918trans
+  is 'Transacción';
+comment on column AQPC918.aqpc918rel
+  is 'Relación';
+comment on column AQPC918.aqpc918resop
+  is 'Resultado Operación';
+comment on column AQPC918.aqpc918fecope
+  is 'Fecha Operación';
+comment on column AQPC918.aqpc918moned
+  is 'Moneda BT';
+comment on column AQPC918.aqpc918impor
+  is 'Importe BT';
+comment on column AQPC918.aqpc918fecliq
+  is 'Fecha Liquidación';
+comment on column AQPC918.aqpc918impliq
+  is 'Importe Liquidación';
+comment on column AQPC918.aqpc918tdori
+  is 'Tipo de Documento Origen';
+comment on column AQPC918.aqpc918ndori
+  is 'Numero de Documento Origen';
+comment on column AQPC918.aqpc918nomori
+  is 'Nombre de cliente Origen';
+comment on column AQPC918.aqpc918tddes
+  is 'Tipo de Documento Destino';
+comment on column AQPC918.aqpc918nddes
+  is 'Numero de Documento Destino';
+comment on column AQPC918.aqpc918nomdes
+  is 'Nombre de Documento Destino';
+comment on column AQPC918.aqpc918tracbt
+  is 'Trace BT';
+comment on column AQPC918.aqpc918ctaaux
+  is 'Cta Auxiliar';
+comment on column AQPC918.aqpc918fecaux
+  is 'Fecha Transacción Auxiliar';
+alter table AQPC918
+  add primary key (AQPC918ID);
+

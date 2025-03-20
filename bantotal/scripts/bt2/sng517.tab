@@ -1,0 +1,27 @@
+create table SNG517
+(
+  sng517tpob NUMBER(2) not null,
+  sng517opbt CHAR(1),
+  sng517mod  NUMBER(4),
+  sng517tpoo NUMBER(3),
+  sng517desc CHAR(30),
+  sng517te   NUMBER(2),
+  sng517cc   NUMBER(2),
+  sng517sold CHAR(1),
+  sng517su   CHAR(1),
+  sng517seg  CHAR(1),
+  sng517soli CHAR(1),
+  sng517prog CHAR(10),
+  sng517sola CHAR(1),
+  sng517poco NUMBER(7,4),
+  sng517reve CHAR(1),
+  sng517com  CHAR(1),
+  sng517con  CHAR(1),
+  sng517valc NUMBER(4),
+  sng517rel  NUMBER(5)
+)
+;
+create index SNG51702 on SNG517 (SNG517TE);
+alter table SNG517
+  add primary key (SNG517TPOB);
+

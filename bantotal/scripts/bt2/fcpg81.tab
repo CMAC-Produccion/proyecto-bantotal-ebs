@@ -1,0 +1,21 @@
+create table FCPG81
+(
+  cpg18empbt NUMBER(3) not null,
+  cpg18cod   NUMBER(3) not null,
+  cpg19fcal  NUMBER(2) not null,
+  cpg19mda   NUMBER(4) not null,
+  cpg19fval  DATE not null,
+  cpg81mto   NUMBER(17,2) not null,
+  cpg81impf  NUMBER(17,2),
+  cpg81porc  NUMBER(10,6),
+  cpg81imin  NUMBER(17,2),
+  cpg81imax  NUMBER(17,2),
+  cpg81est   CHAR(3),
+  cpg81blq   CHAR(1),
+  cpg81inst  NUMBER(10)
+)
+;
+create index FCPG8103 on FCPG81 (CPG81INST);
+alter table FCPG81
+  add primary key (CPG18EMPBT, CPG18COD, CPG19FCAL, CPG19MDA, CPG19FVAL, CPG81MTO);
+

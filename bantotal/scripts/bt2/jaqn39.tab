@@ -1,0 +1,21 @@
+create table JAQN39
+(
+  jaqn39cod NUMBER(4) not null,
+  jaqn39coe NUMBER(4) not null,
+  jaqn39ccf NUMBER(9) not null,
+  jaqn39mcf NUMBER(17,2)
+)
+;
+comment on table JAQN39
+  is 'Carta Fianza asociada a producto inmobiliario';
+comment on column JAQN39.jaqn39cod
+  is 'Codigo del Proyecto';
+comment on column JAQN39.jaqn39coe
+  is 'Codigo de la Etapa';
+comment on column JAQN39.jaqn39ccf
+  is 'Codigo Carta Fianza';
+comment on column JAQN39.jaqn39mcf
+  is 'Monto Carta Fianza';
+alter table JAQN39
+  add primary key (JAQN39COD, JAQN39COE, JAQN39CCF);
+

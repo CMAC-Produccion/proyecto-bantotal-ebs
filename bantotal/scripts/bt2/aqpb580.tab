@@ -1,0 +1,23 @@
+create table AQPB580
+(
+  aqpb580fecca  DATE not null,
+  aqpb580hora   CHAR(8),
+  aqpb580pgc    NUMBER(3),
+  aqpb580mod    NUMBER(3),
+  aqpb580suc    NUMBER(3),
+  aqpb580mda    NUMBER(4),
+  aqpb580pap    NUMBER(4),
+  aqpb580cta    NUMBER(9),
+  aqpb580ope    NUMBER(9),
+  aqpb580sbo    NUMBER(3),
+  aqpb580top    NUMBER(3),
+  aqpb580txtcod NUMBER(3),
+  aqpb580texto  CHAR(60),
+  aqpb580fch    DATE,
+  aqpb580sqlc   NUMBER(10),
+  aqpb580sqle   VARCHAR2(250)
+)
+;
+create index AQPB5802 on AQPB580 (AQPB580PGC, AQPB580MOD, AQPB580SUC, AQPB580MDA, AQPB580PAP, AQPB580CTA, AQPB580OPE, AQPB580SBO, AQPB580TOP, AQPB580TEXTO);
+create index AQPB5803 on AQPB580 (AQPB580FECCA);
+

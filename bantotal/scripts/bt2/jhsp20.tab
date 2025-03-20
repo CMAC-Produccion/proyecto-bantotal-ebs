@@ -1,0 +1,15 @@
+create table JHSP20
+(
+  jhsp20fec DATE not null,
+  jhsp20hor CHAR(8) not null,
+  jhsp20tre CHAR(1) not null,
+  jhsp20bgi NUMBER(2) not null,
+  jhsp20mon NUMBER(1) not null,
+  jhsp20pro NUMBER(1) not null,
+  jhsp20fse NUMBER(8),
+  jhsp20cch NUMBER(6),
+  jhsp20sim NUMBER(18)
+)
+;
+create unique index JHSP2001 on JHSP20 (JHSP20FEC, JHSP20HOR, JHSP20TRE, JHSP20BGI, JHSP20MON, JHSP20PRO);
+

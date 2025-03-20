@@ -1,0 +1,30 @@
+create table AQPB529A
+(
+  aqpb529areccod VARCHAR2(20) not null,
+  aqpb529areccta VARCHAR2(30) not null,
+  aqpb529anrotrj VARCHAR2(20),
+  aqpb529aopenom VARCHAR2(30),
+  aqpb529acreusr VARCHAR2(10),
+  aqpb529acresuc NUMBER(3),
+  aqpb529acretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on table AQPB529A
+  is 'Reclamos - Cuentas Op. No reconocidas';
+comment on column AQPB529A.aqpb529areccod
+  is 'Reclamo Codigo';
+comment on column AQPB529A.aqpb529areccta
+  is 'Reclamo Cuenta';
+comment on column AQPB529A.aqpb529anrotrj
+  is 'Nro de Tarjeta';
+comment on column AQPB529A.aqpb529aopenom
+  is 'Operacion';
+comment on column AQPB529A.aqpb529acreusr
+  is 'Usuario';
+comment on column AQPB529A.aqpb529acresuc
+  is 'Sucursal';
+comment on column AQPB529A.aqpb529acretim
+  is 'Campo de Auditoria';
+alter table AQPB529A
+  add primary key (AQPB529ARECCOD, AQPB529ARECCTA);
+

@@ -1,0 +1,38 @@
+create table JMBI01
+(
+  mbi01peran CHAR(15) not null,
+  mbi01tipop CHAR(1),
+  mbi01apepa CHAR(20),
+  mbi01apema CHAR(20),
+  mbi01nombr CHAR(20),
+  mbi01docum CHAR(20),
+  mbi01fecna DATE,
+  mbi01sexo  CHAR(1),
+  mbi01estci CHAR(1),
+  mbi01direc CHAR(80),
+  mbi01estad CHAR(1),
+  mbi01codpu CHAR(10),
+  mbi01ccost CHAR(10),
+  mbi01despu CHAR(50),
+  mbi01flagc CHAR(1),
+  mbi01flagd NUMBER(4),
+  mbi01sigla CHAR(2),
+  mbi01fecin DATE,
+  mbi01fecce DATE,
+  mbi01fecmo DATE,
+  mbi01emp   NUMBER(3),
+  mbi01cargo CHAR(10),
+  mbi01usuar CHAR(10),
+  mbi01cta   NUMBER(9),
+  mbi01func  CHAR(10),
+  mbi01prom  NUMBER(6)
+)
+;
+create index JMBI0102 on JMBI01 (MBI01EMP, MBI01CARGO);
+create index JMBI0103 on JMBI01 (MBI01EMP, MBI01CTA);
+create index JMBI0104 on JMBI01 (MBI01EMP, MBI01USUAR);
+create index JMBI0105 on JMBI01 (MBI01FUNC);
+create index JMBI0106 on JMBI01 (MBI01PROM);
+alter table JMBI01
+  add primary key (MBI01PERAN);
+

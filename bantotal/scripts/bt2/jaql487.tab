@@ -1,0 +1,31 @@
+create table JAQL487
+(
+  jaql487cor NUMBER(10) not null,
+  jaql487fch DATE,
+  jaql487hrg CHAR(8),
+  jaql487per DATE,
+  jaql487fre NUMBER(2),
+  jaql487med CHAR(1),
+  jaql487pgo NUMBER(3),
+  jaql487suc NUMBER(3),
+  jaql487mod NUMBER(3),
+  jaql487mda NUMBER(4),
+  jaql487pap NUMBER(4),
+  jaql487cta NUMBER(9),
+  jaql487ope NUMBER(9),
+  jaql487sub NUMBER(3),
+  jaql487top NUMBER(3),
+  jaql487mto NUMBER(15,2),
+  jaql487usu CHAR(10),
+  jaql487rel NUMBER(4),
+  jaql487trn NUMBER(3),
+  jaql487mdo NUMBER(3),
+  jaql487cte VARCHAR2(27),
+  jaql487ubs NUMBER(3),
+  jaql487fva DATE
+)
+;
+create index JAQL487IDX001 on JAQL487 (JAQL487FCH, JAQL487CTE, JAQL487USU);
+alter table JAQL487
+  add primary key (JAQL487COR);
+

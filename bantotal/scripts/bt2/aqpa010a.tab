@@ -1,0 +1,41 @@
+create table AQPA010A
+(
+  aqpa010apgcod   NUMBER(3) not null,
+  aqpa010appmod   NUMBER(3) not null,
+  aqpa010appsuc   NUMBER(3) not null,
+  aqpa010appmda   NUMBER(4) not null,
+  aqpa010apppap   NUMBER(4) not null,
+  aqpa010appcta   NUMBER(9) not null,
+  aqpa010appoper  NUMBER(9) not null,
+  aqpa010appsbop  NUMBER(3) not null,
+  aqpa010apptope  NUMBER(3) not null,
+  aqpa010acuota   NUMBER(3) not null,
+  aqpa010afecuo   DATE,
+  aqpa010acapitd  NUMBER(16,2),
+  aqpa010ainterd  NUMBER(16,2),
+  aqpa010asegurd  NUMBER(16,2),
+  aqpa010aicvd    NUMBER(16,2),
+  aqpa010aintmord NUMBER(16,2),
+  aqpa010apend    NUMBER(16,2),
+  aqpa010amontod  NUMBER(16,2),
+  aqpa010acapit   NUMBER(16,2),
+  aqpa010ainter   NUMBER(16,2),
+  aqpa010asegur   NUMBER(16,2),
+  aqpa010aicv     NUMBER(16,2),
+  aqpa010aintmor  NUMBER(16,2),
+  aqpa010apen     NUMBER(16,2),
+  aqpa010amonto   NUMBER(16,2),
+  aqpa010adiatr   NUMBER(5),
+  aqpa010acuot    NUMBER(5),
+  aqpa010afeult   DATE,
+  aqpa010afvto    DATE,
+  aqpa010aest     VARCHAR2(1),
+  aqpa010agast    NUMBER(16,2),
+  aqpa010aotro    NUMBER(16,2),
+  aqpa010agasd    NUMBER(16,2),
+  aqpa010aotrd    NUMBER(16,2)
+)
+;
+alter table AQPA010A
+  add primary key (AQPA010APGCOD, AQPA010APPMOD, AQPA010APPSUC, AQPA010APPMDA, AQPA010APPPAP, AQPA010APPCTA, AQPA010APPOPER, AQPA010APPSBOP, AQPA010APPTOPE, AQPA010ACUOTA);
+

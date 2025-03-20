@@ -1,0 +1,36 @@
+create table AQPB162
+(
+  aqpb162grupo    VARCHAR2(4000) not null,
+  aqpb162bcsuc    NUMBER(9) not null,
+  aqpb162nrocli   NUMBER(9),
+  aqpb162mnto     NUMBER(17,2),
+  aqpb162saldprom NUMBER(17,2),
+  aqpb162morasbs  NUMBER(17,6),
+  aqpb162fecreg   DATE not null,
+  aqpb162horar    VARCHAR2(8) not null
+)
+;
+comment on table AQPB162
+  is 'Tabla Log cargada por BI para Opinion de Riesgos';
+comment on column AQPB162.aqpb162grupo
+  is 'GRUPO ';
+comment on column AQPB162.aqpb162bcsuc
+  is 'SUCURSAL';
+comment on column AQPB162.aqpb162nrocli
+  is 'NRO DE CLIENTES';
+comment on column AQPB162.aqpb162mnto
+  is 'MONTO';
+comment on column AQPB162.aqpb162saldprom
+  is 'SALDO PROMEDIO';
+comment on column AQPB162.aqpb162morasbs
+  is 'MORA SBS';
+comment on column AQPB162.aqpb162fecreg
+  is 'Fecha de Insercion del registro';
+comment on column AQPB162.aqpb162horar
+  is 'Hora de Insercion del registro';
+create index AQPB162A2 on AQPB162 (AQPB162FECREG, AQPB162HORAR);
+create index AQPB162A3 on AQPB162 (AQPB162FECREG, AQPB162HORAR, AQPB162GRUPO);
+create index AQPB162A4 on AQPB162 (AQPB162FECREG);
+alter table AQPB162
+  add primary key (AQPB162FECREG, AQPB162HORAR, AQPB162GRUPO, AQPB162BCSUC);
+

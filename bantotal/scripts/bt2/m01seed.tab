@@ -1,0 +1,11 @@
+create table M01SEED
+(
+  numtar CHAR(19) not null,
+  idtar  VARCHAR2(200) not null
+)
+;
+comment on table M01SEED
+  is 'Semilla para generacion de tokens';
+alter table M01SEED
+  add constraint NUMTAR_PK primary key (NUMTAR);
+

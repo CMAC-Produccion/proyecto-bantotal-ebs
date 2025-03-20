@@ -1,0 +1,19 @@
+create table XWFA02
+(
+  xwfa02pnom CHAR(50) not null,
+  xwfa02rcod NUMBER(4) not null,
+  xwfa02taut NUMBER(4) not null,
+  xwfa02mda  NUMBER(4) not null,
+  xwfa02lim  NUMBER(17,2),
+  xwfa02fdes DATE,
+  xwfa02fhas DATE,
+  xwfa02esc  CHAR(1),
+  xwfa02n01  NUMBER(10),
+  xwfa02c01  VARCHAR2(100),
+  xwfa02d01  DATE,
+  xwfa02i01  NUMBER(17,2)
+)
+;
+alter table XWFA02
+  add primary key (XWFA02PNOM, XWFA02RCOD, XWFA02TAUT, XWFA02MDA);
+

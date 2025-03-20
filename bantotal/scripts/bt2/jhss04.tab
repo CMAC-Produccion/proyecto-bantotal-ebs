@@ -1,0 +1,31 @@
+create table JHSS04
+(
+  jhss04apl  NUMBER(3) not null,
+  jhss04ban  CHAR(5) not null,
+  jhss04env  NUMBER(9) not null,
+  jhss04rep  CHAR(10) not null,
+  jhss04cont NUMBER(9) not null,
+  jhss04mda  NUMBER(4),
+  jhss04conc NUMBER(1),
+  jhss04scon NUMBER(1),
+  jhss04mem  CHAR(1),
+  jhss04serv CHAR(1),
+  jhss04clat NUMBER(2),
+  jhss04codt NUMBER(2),
+  jhss04tr   CHAR(2),
+  jhss04nexo NUMBER(8),
+  jhss04cab  CHAR(1),
+  jhss04imp  NUMBER(17,4),
+  jhss04mda2 NUMBER(4),
+  jhss04imp2 NUMBER(17,4),
+  jhss04conv CHAR(1),
+  jhss04tarj CHAR(19),
+  jhss04ex   CHAR(1)
+)
+;
+create unique index JHSS0401 on JHSS04 (JHSS04APL, JHSS04BAN, JHSS04ENV, JHSS04REP, JHSS04CONT);
+create index JHSS0402 on JHSS04 (JHSS04APL, JHSS04BAN, JHSS04ENV, JHSS04MDA, JHSS04CONC, JHSS04SCON, JHSS04MEM, JHSS04SERV, JHSS04CLAT, JHSS04CODT);
+create index JHSS0403 on JHSS04 (JHSS04APL, JHSS04BAN, JHSS04ENV, JHSS04CONV, JHSS04MDA2, JHSS04CODT);
+create index JHSS0404 on JHSS04 (JHSS04APL, JHSS04BAN, JHSS04ENV, JHSS04REP, JHSS04EX, JHSS04TARJ);
+create index JHSS0405 on JHSS04 (JHSS04APL, JHSS04BAN, JHSS04ENV, JHSS04REP, JHSS04CLAT, JHSS04CODT, JHSS04TARJ);
+

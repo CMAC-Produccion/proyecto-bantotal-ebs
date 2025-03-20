@@ -1,0 +1,30 @@
+create table FSA016
+(
+  sa16empcod NUMBER(3) not null,
+  sa16modcod NUMBER(3) not null,
+  sa16sucur  NUMBER(3) not null,
+  sa16trnnro NUMBER(3) not null,
+  sa16relnro NUMBER(4) not null,
+  sa16fchcon DATE not null,
+  sa16regcod NUMBER(3) not null,
+  sa16rubcod NUMBER(16),
+  sa16ctacod NUMBER(9),
+  sa16fchvco DATE,
+  sa16fchaux DATE,
+  sa16opernr NUMBER(9),
+  sa16subope NUMBER(3),
+  sa16fchval DATE,
+  sa16fchvto DATE,
+  sa16tpotas NUMBER(1),
+  sa16tasa   NUMBER(10,6),
+  sa16imp1   NUMBER(17,2),
+  sa16codmo  NUMBER(1),
+  sa16cref   CHAR(18),
+  sa16cheq   NUMBER(9)
+)
+;
+create index FSA01602 on FSA016 (SA16EMPCOD, SA16REGCOD, SA16FCHVCO, SA16SUCUR);
+create index FSA01603 on FSA016 (SA16FCHVCO, SA16SUCUR);
+alter table FSA016
+  add primary key (SA16EMPCOD, SA16MODCOD, SA16SUCUR, SA16TRNNRO, SA16RELNRO, SA16FCHCON, SA16REGCOD);
+

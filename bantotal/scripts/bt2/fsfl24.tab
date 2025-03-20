@@ -1,0 +1,29 @@
+create table FSFL24
+(
+  fsfl24emp  NUMBER(3) not null,
+  fsfl24cta  NUMBER(9) not null,
+  fsfl24succ NUMBER(3) not null,
+  fsfl24modc NUMBER(3) not null,
+  fsfl24trnc NUMBER(3) not null,
+  fsfl24nrec NUMBER(4) not null,
+  fsfl24fcoc DATE not null,
+  fsfl24sucv NUMBER(3) not null,
+  fsfl24modv NUMBER(3) not null,
+  fsfl24trnv NUMBER(3) not null,
+  fsfl24nrev NUMBER(4) not null,
+  fsfl24fcov DATE not null,
+  fsfl24fcum DATE,
+  fsfl24opc  NUMBER(9),
+  fsfl24opv  NUMBER(9),
+  fsfl24mto  NUMBER(17,2),
+  fsfl24tcc  NUMBER(14,8),
+  fsfl24tcv  NUMBER(14,8),
+  fsfl24stat CHAR(1),
+  fsfl24maux NUMBER(17,2)
+)
+;
+create index FSFL2403 on FSFL24 (FSFL24EMP, FSFL24FCUM, FSFL24CTA);
+create index FSFL2404 on FSFL24 (FSFL24EMP, FSFL24CTA, FSFL24SUCV, FSFL24MODV, FSFL24TRNV, FSFL24NREV, FSFL24FCOV);
+alter table FSFL24
+  add primary key (FSFL24EMP, FSFL24CTA, FSFL24SUCC, FSFL24MODC, FSFL24TRNC, FSFL24NREC, FSFL24FCOC, FSFL24SUCV, FSFL24MODV, FSFL24TRNV, FSFL24NREV, FSFL24FCOV);
+

@@ -1,0 +1,14 @@
+create table FCN130
+(
+  pgcod     NUMBER(3) not null,
+  coemod    NUMBER(3) not null,
+  coeoper   NUMBER(9) not null,
+  semod     NUMBER(3) not null,
+  seoper    NUMBER(9) not null,
+  coedaoimp NUMBER(17,2)
+)
+;
+create index FCN13002 on FCN130 (PGCOD, SEMOD, SEOPER);
+alter table FCN130
+  add primary key (PGCOD, COEMOD, COEOPER, SEMOD, SEOPER);
+

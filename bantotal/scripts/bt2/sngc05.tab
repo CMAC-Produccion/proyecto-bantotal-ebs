@@ -1,0 +1,14 @@
+create table SNGC05
+(
+  sngc01id   NUMBER(3) not null,
+  sngc02id   NUMBER(3) not null,
+  sngc03id   NUMBER(3) not null,
+  sngc04id   NUMBER(3) not null,
+  sngc05id   NUMBER(3) not null,
+  sngc05dsc  CHAR(35),
+  sngc05deex CHAR(80)
+)
+;
+alter table SNGC05
+  add primary key (SNGC01ID, SNGC02ID, SNGC03ID, SNGC04ID, SNGC05ID);
+

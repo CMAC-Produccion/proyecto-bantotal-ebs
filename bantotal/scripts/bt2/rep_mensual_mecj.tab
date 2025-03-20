@@ -1,0 +1,25 @@
+create table REP_MENSUAL_MECJ
+(
+  cta_pres         NUMBER(9) not null,
+  ope_pres         NUMBER(9) not null,
+  subop_pres       NUMBER(3) not null,
+  mod_pres         NUMBER(3),
+  tip_pres         NUMBER(3) not null,
+  suc_pres         NUMBER(3) not null,
+  rub_pres         NUMBER(16) not null,
+  saldo_pres       NUMBER(17,2),
+  estado_pres      NUMBER(2),
+  cta_interes      NUMBER(9) not null,
+  ope_interes      NUMBER(9) not null,
+  subop_interes    NUMBER(3) not null,
+  mod_interes      NUMBER(3),
+  tip_interes      NUMBER(3) not null,
+  suc_interes      NUMBER(3) not null,
+  rub_interes      NUMBER(16) not null,
+  saldo_interes    NUMBER(17,2),
+  rub_int_correcto NUMBER(16)
+)
+;
+comment on table REP_MENSUAL_MECJ
+  is 'Reporte_Conta_Reclasifica_Interes_Judicial_Tipificacion';
+

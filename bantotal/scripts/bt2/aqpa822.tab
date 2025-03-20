@@ -1,0 +1,21 @@
+create table AQPA822
+(
+  aqpa822emp    NUMBER(3) not null,
+  aqpa822mod    NUMBER(3) not null,
+  aqpa822top    NUMBER(3) not null,
+  aqpa822mda    NUMBER(4) not null,
+  aqpa822est    CHAR(1) not null,
+  aqpa822mtomin NUMBER(18,2),
+  aqpa822mtomax NUMBER(18,2),
+  aqpa822plzmin NUMBER(5),
+  aqpa822plzmax NUMBER(5),
+  aqpa822cuomin NUMBER(3),
+  aqpa822cuomax NUMBER(3),
+  aqpa822usu    CHAR(10),
+  aqpa822fecact DATE
+)
+;
+create index AQPA8222 on AQPA822 (AQPA822EMP, AQPA822MOD, AQPA822TOP, AQPA822MDA);
+alter table AQPA822
+  add primary key (AQPA822EMP, AQPA822MOD, AQPA822TOP, AQPA822MDA, AQPA822EST);
+

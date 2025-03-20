@@ -1,0 +1,40 @@
+create table JAQL655
+(
+  jaql655corre NUMBER(10) not null,
+  jaql655pgcod NUMBER(3) not null,
+  jaql655sucur NUMBER(3) not null,
+  jaql655modul NUMBER(3) not null,
+  jaql655trans NUMBER(3) not null,
+  jaql655relac NUMBER(4) not null,
+  jaql655fecvc DATE not null,
+  jaql655ctamo NUMBER(10),
+  jaql655monto NUMBER(17,2),
+  jaql655moned NUMBER(4),
+  jaql655femov DATE,
+  jaql655vouch CHAR(10),
+  jaql655cajco CHAR(3),
+  jaql655tesco CHAR(10),
+  jaql655tipop CHAR(12),
+  jaql655mvite NUMBER(10),
+  jaql655faper DATE,
+  jaql655buser CHAR(10),
+  jaql655asiet VARCHAR2(20),
+  jaql655rbant VARCHAR2(20),
+  jaql655auxc1 CHAR(60),
+  jaql655auxc2 CHAR(60),
+  jaql655auxc3 CHAR(60),
+  jaql655auxc4 NUMBER(4),
+  jaql655auxn1 NUMBER(17,2),
+  jaql655auxn2 NUMBER(17,2),
+  jaql655auxn3 NUMBER(17,2),
+  jaql655auxd1 DATE,
+  jaql655auxd2 DATE,
+  jaql655auxd3 DATE,
+  jaql655ctacl NUMBER(4)
+)
+;
+create index JAQL6551 on JAQL655 (JAQL655BUSER, JAQL655FAPER, JAQL655PGCOD);
+create index JAQL6552 on JAQL655 (JAQL655FAPER);
+alter table JAQL655
+  add primary key (JAQL655CORRE, JAQL655PGCOD, JAQL655SUCUR, JAQL655MODUL, JAQL655TRANS, JAQL655RELAC, JAQL655FECVC);
+

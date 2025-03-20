@@ -1,0 +1,19 @@
+create table JBXNG02
+(
+  jbxng2pgco NUMBER(3) not null,
+  jbxng2mod  NUMBER(3) not null,
+  jbxng2tpiz NUMBER(2) not null,
+  jbxng2mda  NUMBER(4) not null,
+  jbxng2pap  NUMBER(4) not null,
+  jbxng2fech DATE not null,
+  jbxng2mont NUMBER(17,2) not null,
+  jbxng2plaz NUMBER(5) not null,
+  jbxng2t1pu NUMBER(10,6),
+  jbxng2t2pu NUMBER(10,6),
+  jbxng2t4ta NUMBER(7,4),
+  jbxng2t3ta NUMBER(7,4)
+)
+;
+alter table JBXNG02
+  add primary key (JBXNG2PGCO, JBXNG2MOD, JBXNG2TPIZ, JBXNG2MDA, JBXNG2PAP, JBXNG2FECH, JBXNG2MONT, JBXNG2PLAZ);
+

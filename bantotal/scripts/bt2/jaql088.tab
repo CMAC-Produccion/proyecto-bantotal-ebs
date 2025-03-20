@@ -1,0 +1,42 @@
+create table JAQL088
+(
+  jaql88pgco NUMBER(3) not null,
+  jaql88scsu NUMBER(3) not null,
+  jaql88scmo NUMBER(3) not null,
+  jaql88scmd NUMBER(4) not null,
+  jaql88scpa NUMBER(4) not null,
+  jaql88scct NUMBER(9) not null,
+  jaql88scop NUMBER(9) not null,
+  jaql88scsb NUMBER(3) not null,
+  jaql88scto NUMBER(3) not null,
+  jaql88coin CHAR(20) not null,
+  jaql88copa CHAR(20) not null,
+  jaql88esre CHAR(1),
+  jaql88dini NUMBER(2),
+  jaql88dfin NUMBER(2),
+  jaql88mmax NUMBER(17,2),
+  jaql88feaf DATE,
+  jaql88usaf CHAR(10),
+  jaql88fede DATE,
+  jaql88usde CHAR(10),
+  jaql88fepr DATE,
+  jaql88espr CHAR(1),
+  jaql88depr CHAR(150),
+  jaql88au01 CHAR(50),
+  jaql88au02 CHAR(50),
+  jaql88au03 CHAR(50),
+  jaql88au04 NUMBER(9),
+  jaql88au05 NUMBER(9),
+  jaql88au06 NUMBER(9),
+  jaql88au07 NUMBER(17,2),
+  jaql88au08 NUMBER(17,2),
+  jaql88au09 NUMBER(17,2),
+  jaql88au10 DATE,
+  jaql88au11 DATE,
+  jaql88au12 DATE
+)
+;
+create index JAQL088IDX1 on JAQL088 (JAQL88AU04, JAQL88FEAF);
+alter table JAQL088
+  add primary key (JAQL88PGCO, JAQL88SCSU, JAQL88SCMO, JAQL88SCMD, JAQL88SCPA, JAQL88SCCT, JAQL88SCOP, JAQL88SCSB, JAQL88SCTO, JAQL88COIN, JAQL88COPA);
+

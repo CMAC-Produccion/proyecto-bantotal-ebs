@@ -1,0 +1,13 @@
+create table FSFFAN
+(
+  fsfaaemp1 NUMBER(3) not null,
+  fsfaarub  NUMBER(16) not null,
+  fsfaacta  NUMBER(9) not null,
+  fsfaaop   NUMBER(9) not null,
+  fsfaamda  NUMBER(4) not null,
+  fsfaarep  CHAR(30)
+)
+;
+alter table FSFFAN
+  add primary key (FSFAAEMP1, FSFAARUB, FSFAACTA, FSFAAOP, FSFAAMDA);
+

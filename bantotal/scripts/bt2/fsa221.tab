@@ -1,0 +1,20 @@
+create table FSA221
+(
+  fsa221td NUMBER(3) not null,
+  fsa221nd CHAR(14) not null,
+  fsa221na CHAR(100) not null,
+  fsa221ap CHAR(100) not null,
+  fsa221fc DATE,
+  fsa221tc NUMBER(3),
+  fsa221nc NUMBER(6),
+  fsa221dj CHAR(80),
+  fsa221do CHAR(50),
+  fsa221me CHAR(150),
+  fsa221ab CHAR(1),
+  fsa221ni CHAR(50)
+)
+;
+create index FSA22102 on FSA221 (FSA221NA, FSA221AP);
+alter table FSA221
+  add primary key (FSA221TD, FSA221ND, FSA221NA, FSA221AP);
+

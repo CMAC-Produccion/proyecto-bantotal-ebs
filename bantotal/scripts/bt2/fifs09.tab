@@ -1,0 +1,12 @@
+create table FIFS09
+(
+  ifs09imp NUMBER(3) not null,
+  ifs09cbt NUMBER(3) not null,
+  ifs09cod NUMBER(3) not null,
+  ifs09des CHAR(35)
+)
+;
+create index FIFS0902 on FIFS09 (IFS09CBT);
+alter table FIFS09
+  add primary key (IFS09IMP, IFS09CBT, IFS09COD);
+

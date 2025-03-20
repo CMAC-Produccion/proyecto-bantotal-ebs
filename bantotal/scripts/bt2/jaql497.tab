@@ -1,0 +1,126 @@
+create table JAQL497
+(
+  jaql497corr  NUMBER(18) not null,
+  jaql4979000  VARCHAR2(18),
+  jaql4979001  VARCHAR2(3),
+  jaql4979002  VARCHAR2(15),
+  jaql4979017  VARCHAR2(70),
+  jaql4979067  VARCHAR2(15),
+  jaql4979115  NUMBER(10),
+  jaql4979116  NUMBER(3),
+  jaql4979117  NUMBER(8),
+  jaql4979118  VARCHAR2(27),
+  jaql4979119  NUMBER(5),
+  jaql4979010  VARCHAR2(20),
+  jaql4979121  VARCHAR2(20),
+  jaql4979122  NUMBER(8),
+  jaql4979123  NUMBER(6),
+  jaql4979124  VARCHAR2(2),
+  jaql4979089  VARCHAR2(1),
+  jaql4979125  VARCHAR2(1),
+  jaql4979126  VARCHAR2(15),
+  jaql4979127  VARCHAR2(10),
+  jaql4979128  VARCHAR2(1),
+  jaql4979129  VARCHAR2(3),
+  jaql4979130  VARCHAR2(20),
+  jaql4979180  NUMBER(4),
+  jaql4979181  VARCHAR2(1),
+  jaql4979152  VARCHAR2(1),
+  jaql4979155  VARCHAR2(1),
+  jaql4979184  NUMBER(2),
+  jaql4979198  VARCHAR2(40),
+  jaql4979199  VARCHAR2(40),
+  jaql4979200  VARCHAR2(40),
+  jaql4979201  VARCHAR2(40),
+  jaql4979202  VARCHAR2(40),
+  jaql4979203  NUMBER(14,2),
+  jaql4979204  NUMBER(14,2),
+  jaql4979205  NUMBER(14,2),
+  jaql4979206  NUMBER(14,2),
+  jaql4979207  NUMBER(14,2),
+  jaql497corr2 NUMBER(18)
+)
+;
+comment on table JAQL497
+  is 'IFM REGISTRO 919 - SOLICITUD DE CHEQUERA';
+comment on column JAQL497.jaql497corr
+  is 'Correlativo de tabla PK';
+comment on column JAQL497.jaql4979000
+  is 'Tipo Identificación del Cliente mas el No. De Identificación del Cliente';
+comment on column JAQL497.jaql4979001
+  is 'Tipo de Identificación del Cliente (001-Cedula, 002-Pasaporte, 003-Nit, etc.)';
+comment on column JAQL497.jaql4979002
+  is 'No. De Identificación del Cliente (Ced., Pas, NIT, RUT, etc.)';
+comment on column JAQL497.jaql4979017
+  is 'Nombre del Cliente o Nombre de la Razón Social';
+comment on column JAQL497.jaql4979067
+  is 'Código de Cliente dentro de la Institución';
+comment on column JAQL497.jaql4979115
+  is 'No. De Solicitud';
+comment on column JAQL497.jaql4979116
+  is 'No. De Chequeras que Solicita el Cliente';
+comment on column JAQL497.jaql4979117
+  is 'Fecha de Apertura de la Cuenta';
+comment on column JAQL497.jaql4979118
+  is 'No. De la Cuenta';
+comment on column JAQL497.jaql4979119
+  is 'Sucursal o Oficina donde se realizo la solicitud de Chequera';
+comment on column JAQL497.jaql4979010
+  is 'Usuario o Funcionario que Recibió la solicitud de Chequera';
+comment on column JAQL497.jaql4979121
+  is 'Ciudad de la Sucursal donde se solicito la Chequerarelativo';
+comment on column JAQL497.jaql4979122
+  is 'Fecha de Solicitud de la Chequera';
+comment on column JAQL497.jaql4979123
+  is 'Hora de la Solicitud de la Chequera';
+comment on column JAQL497.jaql4979124
+  is 'Tipo de la Cuenta (Vip, Oro, etc.)';
+comment on column JAQL497.jaql4979089
+  is 'Es Cuenta de Empleado S/N';
+comment on column JAQL497.jaql4979125
+  is 'Tipo de Chequera';
+comment on column JAQL497.jaql4979126
+  is 'Terminal del Usuario o Funcionario que recibió la chequera, Dirección IP si fue por Internet';
+comment on column JAQL497.jaql4979127
+  is 'Medio o Canal donde se solicito la Chequera';
+comment on column JAQL497.jaql4979128
+  is 'Solicitud fue Reversada   S/N';
+comment on column JAQL497.jaql4979129
+  is 'Código de Moneda de la Cuenta.';
+comment on column JAQL497.jaql4979130
+  is 'Usuario del Cliente si la solicitud de chequera se hizo por medio de Internet';
+comment on column JAQL497.jaql4979180
+  is 'No. de Cheques que tiene disponible el cliente en el Sistema de la Institución';
+comment on column JAQL497.jaql4979181
+  is 'Flag que indica si hubo validación de Firma previa';
+comment on column JAQL497.jaql4979152
+  is 'Flag que indica si el Cliente es VIP dentro de la Institución';
+comment on column JAQL497.jaql4979155
+  is 'Flag que indica si el Cliente es Foráneo';
+comment on column JAQL497.jaql4979184
+  is 'Numero de Chequeras que tiene el Cliente';
+comment on column JAQL497.jaql4979198
+  is 'Campo Reservado para cualquier valor adicional del Cliente ALFA 1';
+comment on column JAQL497.jaql4979199
+  is 'Campo Reservado para cualquier valor adicional del Cliente ALFA 2';
+comment on column JAQL497.jaql4979200
+  is 'Campo Reservado para cualquier valor adicional del Cliente ALFA 3';
+comment on column JAQL497.jaql4979201
+  is 'Campo Reservado para cualquier valor adicional del Cliente ALFA 4';
+comment on column JAQL497.jaql4979202
+  is 'Campo Reservado para cualquier valor adicional del Cliente ALFA 5';
+comment on column JAQL497.jaql4979203
+  is 'Campo Reservado para cualquier valor adicional del Cliente NUM 1';
+comment on column JAQL497.jaql4979204
+  is 'Campo Reservado para cualquier valor adicional del Cliente NUM 2';
+comment on column JAQL497.jaql4979205
+  is 'Campo Reservado para cualquier valor adicional del Cliente NUM 3';
+comment on column JAQL497.jaql4979206
+  is 'Campo Reservado para cualquier valor adicional del Cliente NUM 4';
+comment on column JAQL497.jaql4979207
+  is 'Campo Reservado para cualquier valor adicional del Cliente NUM 5';
+comment on column JAQL497.jaql497corr2
+  is 'Correlativo 2 de tabla para Monitor Plus';
+alter table JAQL497
+  add primary key (JAQL497CORR);
+

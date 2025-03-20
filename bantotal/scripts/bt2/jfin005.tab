@@ -1,0 +1,12 @@
+create table JFIN005
+(
+  jfin005pgc NUMBER(3) not null,
+  jfin005suc NUMBER(4) not null,
+  jfin005mod NUMBER(3) not null,
+  jfin005trn NUMBER(3) not null,
+  jfin005rel NUMBER(4) not null
+)
+;
+alter table JFIN005
+  add primary key (JFIN005PGC, JFIN005SUC, JFIN005MOD, JFIN005TRN, JFIN005REL);
+

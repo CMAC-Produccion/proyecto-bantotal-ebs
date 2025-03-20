@@ -1,0 +1,19 @@
+create table FSFC26
+(
+  sfc26emp NUMBER(3) not null,
+  sfc26tip CHAR(1) not null,
+  sfc26bpr NUMBER(3) not null,
+  sfc26fch DATE not null,
+  sfc26bse NUMBER(3) not null,
+  sfc26por NUMBER(11,8),
+  sfc26a01 NUMBER(9),
+  sfc26a02 NUMBER(9),
+  sfc26a03 DATE,
+  sfc26a04 DATE,
+  sfc26a05 NUMBER(17,2),
+  sfc26a06 NUMBER(14,8)
+)
+;
+alter table FSFC26
+  add primary key (SFC26EMP, SFC26TIP, SFC26BPR, SFC26FCH, SFC26BSE);
+

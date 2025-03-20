@@ -1,0 +1,18 @@
+create table JHSP16
+(
+  jhsp16fec DATE not null,
+  jhsp16hor CHAR(8) not null,
+  jhsp16tre CHAR(1) not null,
+  jhsp16bre NUMBER(2) not null,
+  jhsp16mon NUMBER(1) not null,
+  jhsp16pro NUMBER(1) not null,
+  jhsp16fse NUMBER(8),
+  jhsp16cch NUMBER(6),
+  jhsp16scb NUMBER(18),
+  jhsp16ccb NUMBER(4),
+  jhsp16scu NUMBER(18),
+  jhsp16aju CHAR(1)
+)
+;
+create unique index JHSP1601 on JHSP16 (JHSP16FEC, JHSP16HOR, JHSP16TRE, JHSP16BRE, JHSP16MON, JHSP16PRO);
+

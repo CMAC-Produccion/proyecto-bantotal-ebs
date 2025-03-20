@@ -1,0 +1,42 @@
+create table AQPC812
+(
+  aqpc812codopi  NUMBER(10) not null,
+  aqpc812correl  NUMBER(10) not null,
+  aqpc812codent  VARCHAR2(10),
+  aqpc812desent  VARCHAR2(200),
+  aqpc812codmda  NUMBER(3),
+  aqpc812moneda  VARCHAR2(10),
+  aqpc812evarec  NUMBER(17,2),
+  aqpc812evaant  NUMBER(17,2),
+  aqpc812tcre    VARCHAR2(30),
+  aqpc812fechreg DATE,
+  aqpc812horareg VARCHAR2(8)
+)
+;
+comment on table AQPC812
+  is 'Tabla Detalle de Pasivos según Panel de Saldo Deudor';
+comment on column AQPC812.aqpc812codopi
+  is 'Cod. Opinion riesgo';
+comment on column AQPC812.aqpc812correl
+  is 'Correlativo';
+comment on column AQPC812.aqpc812codent
+  is 'Cod. Entidad';
+comment on column AQPC812.aqpc812desent
+  is 'Descripcion Entidad';
+comment on column AQPC812.aqpc812codmda
+  is 'Cod. Moneda';
+comment on column AQPC812.aqpc812moneda
+  is 'Descripcion Moneda';
+comment on column AQPC812.aqpc812evarec
+  is 'Evaluacion Reciente';
+comment on column AQPC812.aqpc812evaant
+  is 'Evaluacion Anterior';
+comment on column AQPC812.aqpc812tcre
+  is 'Tipo Crédito';
+comment on column AQPC812.aqpc812fechreg
+  is 'Fecha Registro';
+comment on column AQPC812.aqpc812horareg
+  is 'Hora Registro';
+alter table AQPC812
+  add primary key (AQPC812CODOPI, AQPC812CORREL);
+

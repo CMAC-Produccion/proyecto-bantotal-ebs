@@ -1,0 +1,34 @@
+create table JAQY121
+(
+  jaqy121corr   NUMBER(4) not null,
+  jaqy121emp    NUMBER(4) not null,
+  jaqy121suc    NUMBER(4) not null,
+  jaqy121mda    NUMBER(4) not null,
+  jaqy121pap    NUMBER(4) not null,
+  jaqy121cta    NUMBER(9) not null,
+  jaqy121ope    NUMBER(9) not null,
+  jaqy121sbo    NUMBER(3) not null,
+  jaqy121top    NUMBER(3) not null,
+  jaqy121mod    NUMBER(3) not null,
+  jaqy121fec    DATE,
+  jaqy121codpre NUMBER(2),
+  jaqy121com    CHAR(1),
+  jaqy121tex    VARCHAR2(200),
+  jaqy121usr    CHAR(10),
+  jaqy121hor    CHAR(8),
+  jaqy121imp    NUMBER(17,2),
+  jaqy121imo    NUMBER(17,2),
+  jaqy121nar    NUMBER(15),
+  jaqy121sur    NUMBER(4),
+  jaqy121mor    NUMBER(3),
+  jaqy121tra    NUMBER(3),
+  jaqy121rel    NUMBER(4),
+  jaqy121fco    DATE,
+  jaqy121rub    NUMBER(16),
+  jaqy121mto    NUMBER(16,2),
+  jaqy121sta    NUMBER(2)
+)
+;
+alter table JAQY121
+  add constraint PK_JAQY121 primary key (JAQY121CORR, JAQY121EMP, JAQY121SUC, JAQY121MDA, JAQY121PAP, JAQY121CTA, JAQY121OPE, JAQY121SBO, JAQY121TOP, JAQY121MOD);
+

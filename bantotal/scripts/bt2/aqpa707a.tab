@@ -1,0 +1,29 @@
+create table AQPA707A
+(
+  aqpa707acodusu VARCHAR2(20) not null,
+  aqpa707acorr   NUMBER(10) not null,
+  aqpa707afecini DATE,
+  aqpa707afecfin DATE,
+  aqpa707afecreg DATE,
+  aqpa707ahorreg VARCHAR2(10),
+  aqpa707anumope VARCHAR2(20),
+  aqpa707atipope VARCHAR2(50),
+  aqpa707anumtar VARCHAR2(20),
+  aqpa707anumcta VARCHAR2(50),
+  aqpa707aimpope NUMBER(17,2),
+  aqpa707amodulo NUMBER(4),
+  aqpa707atransa NUMBER(4),
+  aqpa707aauxn2  NUMBER(17,2),
+  aqpa707aauxn3  NUMBER(17,2),
+  aqpa707aauxc1  VARCHAR2(100),
+  aqpa707aauxc2  VARCHAR2(100),
+  aqpa707arelaci NUMBER(4),
+  aqpa707aauxn1  NUMBER(4),
+  aqpa707asucurs NUMBER(4),
+  aqpa707atotal  NUMBER(6),
+  aqpa707aflag   CHAR(1)
+)
+;
+alter table AQPA707A
+  add primary key (AQPA707ACODUSU, AQPA707ACORR);
+

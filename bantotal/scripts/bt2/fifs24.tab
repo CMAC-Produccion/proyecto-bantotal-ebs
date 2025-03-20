@@ -1,0 +1,12 @@
+create table FIFS24
+(
+  ifs24int NUMBER(3) not null,
+  ifs24tpo NUMBER(3) not null,
+  ifs24fec DATE not null,
+  ifs24hra CHAR(8) not null,
+  ifs24nro NUMBER(9)
+)
+;
+alter table FIFS24
+  add primary key (IFS24INT, IFS24TPO, IFS24FEC, IFS24HRA);
+

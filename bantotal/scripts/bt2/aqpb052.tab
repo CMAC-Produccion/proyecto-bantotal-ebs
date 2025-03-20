@@ -1,0 +1,104 @@
+create table AQPB052
+(
+  aqpb052tcomf  VARCHAR2(2) not null,
+  aqpb052seri   VARCHAR2(4) not null,
+  aqpb052num    NUMBER(8) not null,
+  aqpb052mone   VARCHAR2(3) not null,
+  aqpb052tipope VARCHAR2(4) not null,
+  aqpb052tdoc   VARCHAR2(1) not null,
+  aqpb052nruc   VARCHAR2(15) not null,
+  aqpb052rasoc  VARCHAR2(1500) not null,
+  aqpb052incuo  NUMBER(15,2),
+  aqpb052inmor  NUMBER(15,2),
+  aqpb052segfac NUMBER(15,2),
+  aqpb052otrcon NUMBER(15,2),
+  aqpb052opina  NUMBER(15,2),
+  aqpb052opexa  NUMBER(15,2),
+  aqpb052impt   NUMBER(15,2),
+  aqpb052tdref  VARCHAR2(2),
+  aqpb052nsref  VARCHAR2(4),
+  aqpb052ndref  NUMBER(10),
+  aqpb052fotrc  DATE,
+  aqpb052mcred  NUMBER(15,2),
+  aqpb052ncon   VARCHAR2(50),
+  aqpb052npol   VARCHAR2(50),
+  aqpb052ficob  DATE,
+  aqpb052ffcob  DATE,
+  aqpb052tseg   VARCHAR2(1),
+  aqpb052scob   NUMBER(15,2),
+  aqpb052pgc    NUMBER(3),
+  aqpb052mod    NUMBER(3),
+  aqpb052suc    NUMBER(3),
+  aqpb052trx    NUMBER(3),
+  aqpb052rel    NUMBER(4),
+  aqpb052femi   DATE not null,
+  aqpb052cod    NUMBER(8) not null,
+  aqpb052pgce   NUMBER(3),
+  aqpb052mode   NUMBER(3),
+  aqpb052suce   NUMBER(3),
+  aqpb052trxe   NUMBER(3),
+  aqpb052rele   NUMBER(4),
+  aqpb052fcone  DATE
+)
+;
+comment on table AQPB052
+  is 'Tabla para la generación de la trama a enviar por el aplicativo SEE Empresas Supervisadas';
+comment on column AQPB052.aqpb052tcomf
+  is 'C3: Codigo del Tipo de Comprobante Datos del Comprobante';
+comment on column AQPB052.aqpb052seri
+  is 'C4: Serie del comprobante.  Datos del Comprobante';
+comment on column AQPB052.aqpb052num
+  is 'C5: Numero Correlativo del comprobante. Datos del Comprobante';
+comment on column AQPB052.aqpb052mone
+  is 'C6: Codigo del Tipo de Moneda Datos del Comprobante';
+comment on column AQPB052.aqpb052tipope
+  is 'C7: Tipo de operación no gravada';
+comment on column AQPB052.aqpb052tdoc
+  is 'C8: Codigo del tipo de documento de identificaci?n del Receptor Datos del Comprobante';
+comment on column AQPB052.aqpb052nruc
+  is 'C9: N?mero de documento de identificaci?n Datos del Comprobante';
+comment on column AQPB052.aqpb052rasoc
+  is 'C10: Apellidos y nombres o denominaci?n o raz?n social Datos del Comprobante';
+comment on column AQPB052.aqpb052incuo
+  is 'C11: Monto del interes de la cuota (interes compensatorio) en el caso de los bancos/ monto de la prima facturada (en el caso de seguros)';
+comment on column AQPB052.aqpb052inmor
+  is 'C12: Monto del interés moratorio de corresponder';
+comment on column AQPB052.aqpb052segfac
+  is 'C13: Monto total de seguros facturados';
+comment on column AQPB052.aqpb052otrcon
+  is 'C14: Monto total de otros conceptos facturados';
+comment on column AQPB052.aqpb052opina
+  is 'C15: Total valor de venta - operaciones inafectas';
+comment on column AQPB052.aqpb052opexa
+  is 'C16: Total valor de venta - operaciones exoneradas';
+comment on column AQPB052.aqpb052impt
+  is 'C17: Total valor de venta - operaciones exoneradas';
+comment on column AQPB052.aqpb052tdref
+  is 'C18: Tipo de documento que se modifica';
+comment on column AQPB052.aqpb052nsref
+  is 'C19: Número de serie del documento que se modifica';
+comment on column AQPB052.aqpb052ndref
+  is 'C20: Número correlativo del documento que se modifica';
+comment on column AQPB052.aqpb052mcred
+  is 'C21: Monto del crédito otorgado (capital)';
+comment on column AQPB052.aqpb052ncon
+  is 'C22: Número de contrato';
+comment on column AQPB052.aqpb052npol
+  is 'C23: Número de póliza';
+comment on column AQPB052.aqpb052ficob
+  is 'C24: Fecha de inicio de vigencia de cobertura';
+comment on column AQPB052.aqpb052ffcob
+  is 'C25: Fecha de término de vigencia de cobertura';
+comment on column AQPB052.aqpb052tseg
+  is 'C26: Tipo de seguro';
+comment on column AQPB052.aqpb052scob
+  is 'C27: Suma asegurada / alcance de cobertura o monto';
+comment on column AQPB052.aqpb052femi
+  is 'C1: Fecha de otorgamiento del crédito/Linea de crédito';
+comment on column AQPB052.aqpb052cod
+  is 'C2: Correlativo del documento de envio';
+create index AQPB0522 on AQPB052 (AQPB052FEMI, AQPB052COD, AQPB052TCOMF, AQPB052SERI, AQPB052NUM);
+create index AQPB0523 on AQPB052 (AQPB052PGC, AQPB052MOD, AQPB052SUC, AQPB052TRX, AQPB052REL, AQPB052FEMI);
+alter table AQPB052
+  add primary key (AQPB052TCOMF, AQPB052SERI, AQPB052NUM);
+

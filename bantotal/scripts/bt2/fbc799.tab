@@ -1,0 +1,11 @@
+create table FBC799
+(
+  fbc799pgco NUMBER(3) not null,
+  fbc799nbol CHAR(20) not null,
+  fbc799pemb CHAR(16) not null,
+  fbc799impo NUMBER(17,2)
+)
+;
+alter table FBC799
+  add primary key (FBC799PGCO, FBC799NBOL, FBC799PEMB);
+

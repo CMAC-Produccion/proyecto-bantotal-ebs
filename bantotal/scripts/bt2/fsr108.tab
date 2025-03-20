@@ -1,0 +1,21 @@
+create table FSR108
+(
+  fircod  NUMBER(3) not null,
+  fircta  NUMBER(9) not null,
+  firpais NUMBER(3) not null,
+  firtdoc NUMBER(2) not null,
+  firndoc CHAR(12) not null,
+  fircate CHAR(1),
+  firsn01 CHAR(1),
+  firsn02 CHAR(1),
+  firsn03 CHAR(1),
+  firsn04 CHAR(1),
+  firsn05 CHAR(1),
+  fircd01 NUMBER(9),
+  fircd02 NUMBER(9),
+  fircd03 NUMBER(9)
+)
+;
+alter table FSR108
+  add primary key (FIRCOD, FIRCTA, FIRPAIS, FIRTDOC, FIRNDOC);
+

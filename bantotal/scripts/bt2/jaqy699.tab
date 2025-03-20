@@ -1,0 +1,29 @@
+create table JAQY699
+(
+  jaqy699cod  NUMBER(17) not null,
+  jaqy699suc  NUMBER(4),
+  jaqy699snom CHAR(30),
+  jaqy699fech DATE,
+  jaqy699cta  NUMBER(9),
+  jaqy699tran CHAR(20),
+  jaqy699mda  CHAR(20),
+  jaqy699imp  NUMBER(16,2),
+  jaqy699pre  NUMBER(9,6),
+  jaqy699piz  NUMBER(9,6),
+  jaqy699au1  NUMBER(4),
+  jaqy699au2  NUMBER(17),
+  jaqy699au3  NUMBER(16,2),
+  jaqy699au4  CHAR(20),
+  jaqy699au5  CHAR(20),
+  jaqy699au6  CHAR(200),
+  jaqy699au7  VARCHAR2(20),
+  jaqy699au8  VARCHAR2(200),
+  jaqy699au9  DATE,
+  jaqy699au10 VARCHAR2(100),
+  jaqy699usu  CHAR(12)
+)
+;
+create index IJAQY699_002 on JAQY699 (JAQY699FECH, JAQY699TRAN);
+alter table JAQY699
+  add primary key (JAQY699COD);
+

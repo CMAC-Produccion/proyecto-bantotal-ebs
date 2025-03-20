@@ -1,0 +1,23 @@
+create table CTD002
+(
+  ctd000ntbl CHAR(10) not null,
+  ctd002keyr CHAR(255) not null,
+  ctd002corr NUMBER(18) not null,
+  ctd002esta CHAR(1),
+  ctd002usui CHAR(10),
+  ctd002usua CHAR(10),
+  ctd002fech DATE,
+  ctd002tipo CHAR(1),
+  ctd002hora CHAR(8),
+  ctd002pgm  CHAR(10),
+  ctd002faut DATE,
+  ctd002haut CHAR(8)
+)
+;
+create index CTD00203 on CTD002 (CTD000NTBL, CTD002CORR);
+create index CTD00204 on CTD002 (CTD002USUI, CTD000NTBL, CTD002CORR);
+create index CTD00205 on CTD002 (CTD002ESTA);
+create index CTD00206 on CTD002 (CTD000NTBL, CTD002ESTA, CTD002KEYR);
+alter table CTD002
+  add primary key (CTD000NTBL, CTD002KEYR, CTD002CORR);
+

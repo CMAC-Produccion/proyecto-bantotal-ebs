@@ -1,0 +1,50 @@
+create table AQPB411
+(
+  aqpb411cod     NUMBER(3) not null,
+  aqpb411mod     NUMBER(3) not null,
+  aqpb411suc     NUMBER(3) not null,
+  aqpb411mda     NUMBER(4) not null,
+  aqpb411pap     NUMBER(4) not null,
+  aqpb411cta     NUMBER(9) not null,
+  aqpb411ope     NUMBER(9) not null,
+  aqpb411sbo     NUMBER(3) not null,
+  aqpb411tpo     NUMBER(3) not null,
+  aqpb411est     CHAR(1),
+  aqpb411usuact  CHAR(10),
+  aqpb411fecact  DATE,
+  aqpb411aux01   NUMBER(18,2),
+  aqpb411aux02   NUMBER(18,2),
+  aqpb411fecext  DATE,
+  aqpb411tipo    CHAR(1),
+  aqpb411fecamor DATE,
+  aqpb411com     VARCHAR2(100),
+  aqpb411coml    VARCHAR2(10),
+  aqpb411pgcod   NUMBER(3),
+  aqpb411itsuc   NUMBER(3),
+  aqpb411itmod   NUMBER(3),
+  aqpb411itran   NUMBER(3),
+  aqpb411itnrel  NUMBER(4),
+  aqpb411fcont   DATE
+)
+;
+comment on column AQPB411.aqpb411coml
+  is 'Indicador que viene de una línea. colocar descripcion de Linea';
+comment on column AQPB411.aqpb411pgcod
+  is 'Empresa transac.';
+comment on column AQPB411.aqpb411itsuc
+  is 'Sucursal transac.';
+comment on column AQPB411.aqpb411itmod
+  is 'Modulo transac.';
+comment on column AQPB411.aqpb411itran
+  is 'Trx. transac. 2';
+comment on column AQPB411.aqpb411itnrel
+  is 'Nro relación transac.';
+comment on column AQPB411.aqpb411fcont
+  is 'Fec Contb transac.';
+create index AQPB41102 on AQPB411 (AQPB411CTA);
+create index AQPB41103 on AQPB411 (AQPB411CTA, AQPB411EST);
+create index AQPB41104 on AQPB411 (AQPB411PGCOD, AQPB411ITSUC, AQPB411ITMOD, AQPB411ITRAN, AQPB411ITNREL, AQPB411FCONT);
+create index AQPB4112 on AQPB411 (AQPB411COD, AQPB411MOD, AQPB411SUC, AQPB411MDA, AQPB411PAP, AQPB411CTA, AQPB411OPE, AQPB411SBO, AQPB411TPO, AQPB411EST);
+alter table AQPB411
+  add primary key (AQPB411COD, AQPB411MOD, AQPB411SUC, AQPB411MDA, AQPB411PAP, AQPB411CTA, AQPB411OPE, AQPB411SBO, AQPB411TPO);
+

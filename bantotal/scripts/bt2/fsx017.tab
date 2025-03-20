@@ -1,0 +1,24 @@
+create table FSX017
+(
+  sicod     NUMBER(3) not null,
+  simod     NUMBER(3) not null,
+  sitran    NUMBER(3) not null,
+  sinimp    NUMBER(3) not null,
+  sinom     CHAR(30),
+  sisubord  NUMBER(2),
+  sisubcont NUMBER(2),
+  siform    CHAR(4),
+  siimpr    CHAR(1),
+  sisubsbor NUMBER(3),
+  sicd01    CHAR(1),
+  sicd02    CHAR(1),
+  sicd03    CHAR(1),
+  sisn01    NUMBER(9),
+  sisn02    NUMBER(9),
+  sisn03    NUMBER(9)
+)
+;
+create index FSX01703 on FSX017 (SIFORM);
+alter table FSX017
+  add primary key (SICOD, SIMOD, SITRAN, SINIMP);
+

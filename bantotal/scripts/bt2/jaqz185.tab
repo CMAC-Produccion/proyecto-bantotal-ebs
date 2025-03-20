@@ -1,0 +1,24 @@
+create table JAQZ185
+(
+  jaqz185cor NUMBER(15) not null,
+  jaqz185fec DATE,
+  jaqz185hor CHAR(8),
+  jaqz185usr CHAR(10),
+  jaqz185age NUMBER(3),
+  jaqz185cod CHAR(100),
+  jaqz185msg CHAR(255),
+  jaqz185ax1 NUMBER(9),
+  jaqz185ax2 NUMBER(9),
+  jaqz185ax3 NUMBER(17,2),
+  jaqz185ax4 NUMBER(17,2),
+  jaqz185ax5 DATE,
+  jaqz185ax6 DATE,
+  jaqz185ax7 CHAR(100),
+  jaqz185ax8 CHAR(100),
+  jaqz185ax9 CHAR(100)
+)
+;
+create index JAQZ1851 on JAQZ185 (JAQZ185FEC);
+alter table JAQZ185
+  add primary key (JAQZ185COR);
+

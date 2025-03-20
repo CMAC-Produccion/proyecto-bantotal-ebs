@@ -1,0 +1,18 @@
+create table FBRH23
+(
+  brh23inst  NUMBER(10) not null,
+  brh23cli   NUMBER(9) not null,
+  brh23tarea CHAR(50) not null,
+  brh23est   CHAR(1),
+  brh23fch   DATE,
+  brh23com   CHAR(250),
+  brh23sev   CHAR(1),
+  brh23pais  NUMBER(3),
+  brh23tdoc  NUMBER(2),
+  brh23ndoc  CHAR(12)
+)
+;
+create index FBRH2302 on FBRH23 (BRH23INST, BRH23PAIS, BRH23TDOC, BRH23NDOC, BRH23TAREA);
+alter table FBRH23
+  add primary key (BRH23INST, BRH23CLI, BRH23TAREA);
+

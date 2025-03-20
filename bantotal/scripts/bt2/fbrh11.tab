@@ -1,0 +1,26 @@
+create table FBRH11
+(
+  brh11emp  NUMBER(3) not null,
+  brh11fcha NUMBER(4) not null,
+  brh11fchm NUMBER(2) not null,
+  brh11fchd NUMBER(2) not null,
+  brh11tbl  CHAR(10) not null,
+  brh11cpt  NUMBER(5) not null,
+  brh11cta  NUMBER(9) not null,
+  brh11corr NUMBER(10) not null,
+  brh11mda  NUMBER(4) not null,
+  brh11acmo NUMBER(17,2),
+  brh11acmn NUMBER(17,2),
+  brh11acme NUMBER(17,2),
+  brh11cntr NUMBER(12),
+  brh11amnt NUMBER(17,2),
+  brh11amot NUMBER(17,2),
+  brh11amet NUMBER(17,2)
+)
+;
+create index FBRH1102 on FBRH11 (BRH11EMP, BRH11TBL, BRH11CPT, BRH11CTA, BRH11FCHA, BRH11FCHM, BRH11FCHD);
+create index FBRH1103 on FBRH11 (BRH11CTA);
+create index FBRH1104 on FBRH11 (BRH11EMP, BRH11TBL, BRH11CPT, BRH11FCHA, BRH11FCHM, BRH11FCHD, BRH11CTA);
+alter table FBRH11
+  add primary key (BRH11EMP, BRH11FCHA, BRH11FCHM, BRH11FCHD, BRH11TBL, BRH11CPT, BRH11CTA, BRH11CORR, BRH11MDA);
+

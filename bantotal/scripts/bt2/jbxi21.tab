@@ -1,0 +1,12 @@
+create table JBXI21
+(
+  jbxi21pro CHAR(41) not null,
+  jbxi21ilc NUMBER(17) not null,
+  jbxi21prd CHAR(41),
+  jbxi21rol CHAR(3),
+  jbxi21emp CHAR(1)
+)
+;
+create unique index JBXI2101 on JBXI21 (JBXI21PRO, JBXI21ILC);
+create index JBXI2102 on JBXI21 (JBXI21ILC, JBXI21ROL);
+

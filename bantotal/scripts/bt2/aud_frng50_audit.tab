@@ -1,0 +1,27 @@
+create table AUD_FRNG50_AUDIT
+(
+  aud_old_rng49cod   NUMBER(10),
+  aud_new_rng49cod   NUMBER(10),
+  aud_old_rng50grp   NUMBER(3),
+  aud_new_rng50grp   NUMBER(3),
+  aud_old_rng50ord   NUMBER(3),
+  aud_new_rng50ord   NUMBER(3),
+  aud_old_rng50ret   VARCHAR2(400),
+  aud_new_rng50ret   VARCHAR2(400),
+  aud_old_rng50ult   NUMBER(3),
+  aud_new_rng50ult   NUMBER(3),
+  aud_frng50_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_frng50_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_frng50_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_frng50_ubr     VARCHAR2(50) default ' ' not null,
+  aud_frng50_ubc     VARCHAR2(50) default ' ' not null,
+  aud_frng50_ubt     VARCHAR2(50) default ' ' not null,
+  aud_frng50_ubu     VARCHAR2(50) default USER not null,
+  aud_frng50_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_frng50_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_frng50_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_frng50_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_frng50_uas     CHAR(1) default 'I' not null
+)
+;
+

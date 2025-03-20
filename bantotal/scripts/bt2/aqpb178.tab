@@ -1,0 +1,289 @@
+create table AQPB178
+(
+  aqpb178fep      DATE not null,
+  aqpb178cor      NUMBER(9) not null,
+  aqpb178pai      NUMBER(3) not null,
+  aqpb178tdo      NUMBER(2) not null,
+  aqpb178ndo      VARCHAR2(12) not null,
+  aqpb178suc      NUMBER(3),
+  aqpb178mda      NUMBER(4),
+  aqpb178cta      NUMBER(9),
+  aqpb178mod      NUMBER(3),
+  aqpb178top      NUMBER(3),
+  aqpb178ase      VARCHAR2(10),
+  aqpb178mto      NUMBER(17,2),
+  aqpb178frec     NUMBER(5),
+  aqpb178cuo      NUMBER(10),
+  aqpb178moe      NUMBER(4),
+  aqpb178tasa     NUMBER(14,6),
+  aqpb178fprpg    DATE,
+  aqpb178tflu     VARCHAR2(1),
+  aqpb178des      VARCHAR2(100),
+  aqpb178apr      VARCHAR2(1),
+  aqpb178mseg     VARCHAR2(20),
+  aqpb178codcl    VARCHAR2(50),
+  aqpb178codcr    VARCHAR2(50),
+  aqpb178fchdcdk  DATE,
+  aqpb178mntdcdk  NUMBER(17,2),
+  aqpb178scapcdk  NUMBER(17,2),
+  aqpb178ncorcdk  NUMBER(5),
+  aqpb178ncpgcdk  NUMBER(5),
+  aqpb178mcucdk   NUMBER(17,2),
+  aqpb178fch750   DATE,
+  aqpb178reg750   NUMBER,
+  aqpb178ins      NUMBER(10),
+  aqpb178eva      NUMBER(10),
+  aqpb178pgtx     NUMBER(3),
+  aqpb178modtx    NUMBER(3),
+  aqpb178suctx    NUMBER(3),
+  aqpb178tran     NUMBER(3),
+  aqpb178reltx    NUMBER(4),
+  aqpb178fcontx   DATE,
+  aqpb178pgcod    NUMBER(3),
+  aqpb178modcr    NUMBER(3),
+  aqpb178succr    NUMBER(3),
+  aqpb178mdacr    NUMBER(3),
+  aqpb178papcr    NUMBER(3),
+  aqpb178ctacr    NUMBER(9),
+  aqpb178opecr    NUMBER(9),
+  aqpb178sbopcr   NUMBER(4),
+  aqpb178topecr   NUMBER(4),
+  aqpb178aux1     VARCHAR2(50),
+  aqpb178aux2     VARCHAR2(50),
+  aqpb178aux3     VARCHAR2(50),
+  aqpb178auxn1    NUMBER(17,2),
+  aqpb178auxn2    NUMBER(17,2),
+  aqpb178auxn3    NUMBER(17,2),
+  aqpb178auxn4    NUMBER(17,2),
+  aqpb178auxn5    NUMBER(17,2),
+  aqpb178auxn6    NUMBER(17,2),
+  aqpb178nroconv  NUMBER(5),
+  aqpb178pggar1   NUMBER(5),
+  aqpb178modgar1  NUMBER(5),
+  aqpb178sucgar1  NUMBER(5),
+  aqpb178mdagar1  NUMBER(5),
+  aqpb178papgar1  NUMBER(5),
+  aqpb178ctagar1  NUMBER(10),
+  aqpb178opegar1  NUMBER(10),
+  aqpb178sbopgar1 NUMBER(5),
+  aqpb178topegar1 NUMBER(5),
+  aqpb178prcgar1  NUMBER(10,6),
+  aqpb178pgrcdk1  NUMBER(10,6),
+  aqpb178pggar2   NUMBER(5),
+  aqpb178modgar2  NUMBER(5),
+  aqpb178sucgar2  NUMBER(5),
+  aqpb178mdagar2  NUMBER(5),
+  aqpb178papgar2  NUMBER(5),
+  aqpb178ctagar2  NUMBER(10),
+  aqpb178opegar2  NUMBER(10),
+  aqpb178sbopgar2 NUMBER(5),
+  aqpb178topegar2 NUMBER(5),
+  aqpb178prcgar2  NUMBER(10,6),
+  aqpb178pgrcdk2  NUMBER(10,6),
+  aqpb178pggar3   NUMBER(5),
+  aqpb178modgar3  NUMBER(5),
+  aqpb178sucgar3  NUMBER(5),
+  aqpb178mdagar3  NUMBER(5),
+  aqpb178papgar3  NUMBER(5),
+  aqpb178ctagar3  NUMBER(10),
+  aqpb178opegar3  NUMBER(10),
+  aqpb178sbopgar3 NUMBER(5),
+  aqpb178topegar3 NUMBER(5),
+  aqpb178prcgar3  NUMBER(10,6),
+  aqpb178pgrcdk3  NUMBER(10,6)
+)
+;
+comment on table AQPB178
+  is 'Ofertas de Campaña Credinka Flujo Express';
+comment on column AQPB178.aqpb178fep
+  is 'Fecha de Carga';
+comment on column AQPB178.aqpb178cor
+  is 'Correlativo';
+comment on column AQPB178.aqpb178pai
+  is 'Pais de Documento';
+comment on column AQPB178.aqpb178tdo
+  is 'Tipo de Documento';
+comment on column AQPB178.aqpb178ndo
+  is 'Nro de Documento';
+comment on column AQPB178.aqpb178suc
+  is 'Sucursal Oferta';
+comment on column AQPB178.aqpb178mda
+  is 'Moneda Oferta';
+comment on column AQPB178.aqpb178cta
+  is 'Cuenta Oferta';
+comment on column AQPB178.aqpb178mod
+  is 'Modulo Oferta';
+comment on column AQPB178.aqpb178top
+  is 'Tipo de Operacion Oferta';
+comment on column AQPB178.aqpb178ase
+  is 'Analista';
+comment on column AQPB178.aqpb178mto
+  is 'Monto Oferta';
+comment on column AQPB178.aqpb178frec
+  is 'Frecuencia Oferta';
+comment on column AQPB178.aqpb178cuo
+  is 'Nro de Cuotas Oferta';
+comment on column AQPB178.aqpb178moe
+  is 'Modelo de Evaluacion';
+comment on column AQPB178.aqpb178tasa
+  is 'Tasa de Credito';
+comment on column AQPB178.aqpb178fprpg
+  is 'Fecha de Primer Pago';
+comment on column AQPB178.aqpb178tflu
+  is 'Tipo de Flujo: N (Flujo Express), P (Procesado), D(Desembolsado)';
+comment on column AQPB178.aqpb178des
+  is 'Descripcion';
+comment on column AQPB178.aqpb178apr
+  is 'Indicador A Aprobado, N No Aprobado';
+comment on column AQPB178.aqpb178mseg
+  is 'Monto de Seguro';
+comment on column AQPB178.aqpb178codcl
+  is 'Codigo Cliente Credinka';
+comment on column AQPB178.aqpb178codcr
+  is 'Codigo Credito Credinka';
+comment on column AQPB178.aqpb178fchdcdk
+  is 'Fecha de Desembolso Credinka';
+comment on column AQPB178.aqpb178mntdcdk
+  is 'Monto Desembolsado Credinka';
+comment on column AQPB178.aqpb178scapcdk
+  is 'Saldo Capital Credinka';
+comment on column AQPB178.aqpb178ncorcdk
+  is 'Numero de Cuotas Original Credinka';
+comment on column AQPB178.aqpb178ncpgcdk
+  is 'Numero de Cuotas Pagadas Credinka';
+comment on column AQPB178.aqpb178mcucdk
+  is 'Monto de Cuota Credinka';
+comment on column AQPB178.aqpb178fch750
+  is 'Fecha JAQM750';
+comment on column AQPB178.aqpb178reg750
+  is 'Nro Registro JAQM750';
+comment on column AQPB178.aqpb178ins
+  is 'Nro de Instancia generada';
+comment on column AQPB178.aqpb178eva
+  is 'Nro de Evaluacion';
+comment on column AQPB178.aqpb178pgtx
+  is 'PgCod Transaccion';
+comment on column AQPB178.aqpb178modtx
+  is 'Modulo Transaccion';
+comment on column AQPB178.aqpb178suctx
+  is 'Sucursal Transaccion';
+comment on column AQPB178.aqpb178tran
+  is 'Transaccion';
+comment on column AQPB178.aqpb178reltx
+  is 'Relacion Transaccion';
+comment on column AQPB178.aqpb178fcontx
+  is 'Fecha Transaccion';
+comment on column AQPB178.aqpb178pgcod
+  is 'Pgcod del Credito';
+comment on column AQPB178.aqpb178modcr
+  is 'Modulo del Credito';
+comment on column AQPB178.aqpb178succr
+  is 'Sucursal del Credito';
+comment on column AQPB178.aqpb178mdacr
+  is 'Moneda del Credito';
+comment on column AQPB178.aqpb178papcr
+  is 'Papel del Credito';
+comment on column AQPB178.aqpb178ctacr
+  is 'Cuenta del Credito';
+comment on column AQPB178.aqpb178opecr
+  is 'Operacion del Credito';
+comment on column AQPB178.aqpb178sbopcr
+  is 'SubOperacion del Credito';
+comment on column AQPB178.aqpb178topecr
+  is 'Tipo de Operacion del Credito';
+comment on column AQPB178.aqpb178aux1
+  is 'Campo Auxiliar';
+comment on column AQPB178.aqpb178aux2
+  is 'Campo Auxiliar';
+comment on column AQPB178.aqpb178aux3
+  is 'Campo Auxiliar';
+comment on column AQPB178.aqpb178auxn1
+  is 'Cuenta Aval 1';
+comment on column AQPB178.aqpb178auxn2
+  is 'Cuenta Aval 2';
+comment on column AQPB178.aqpb178auxn3
+  is 'Cuenta Aval 3';
+comment on column AQPB178.aqpb178auxn4
+  is 'Cuenta Aval 4';
+comment on column AQPB178.aqpb178auxn5
+  is 'Cuenta Aval 5';
+comment on column AQPB178.aqpb178auxn6
+  is 'Tasa Moratoria CDK';
+comment on column AQPB178.aqpb178nroconv
+  is 'Nro de Convenio';
+comment on column AQPB178.aqpb178pggar1
+  is 'Pgcod Garantia 1';
+comment on column AQPB178.aqpb178modgar1
+  is 'Modulo Garantia 1';
+comment on column AQPB178.aqpb178sucgar1
+  is 'Sucursal  Garantia 1';
+comment on column AQPB178.aqpb178mdagar1
+  is 'Modulo Garantia 1';
+comment on column AQPB178.aqpb178papgar1
+  is 'Papel Garantia 1';
+comment on column AQPB178.aqpb178ctagar1
+  is 'Cuenta Garantia 1';
+comment on column AQPB178.aqpb178opegar1
+  is 'Operacion Garantia 1';
+comment on column AQPB178.aqpb178sbopgar1
+  is 'SubOperacion Garantia 1';
+comment on column AQPB178.aqpb178topegar1
+  is 'Tipo de Operacion Garantia 1';
+comment on column AQPB178.aqpb178prcgar1
+  is 'Porcentaje Cobertura Garantia 1';
+comment on column AQPB178.aqpb178pgrcdk1
+  is 'Porcentaje Cobertura Garantia Credinka 1';
+comment on column AQPB178.aqpb178pggar2
+  is 'Pgcod Garantia 2';
+comment on column AQPB178.aqpb178modgar2
+  is 'Modulo Garantia 2';
+comment on column AQPB178.aqpb178sucgar2
+  is 'Sucursal  Garantia 2';
+comment on column AQPB178.aqpb178mdagar2
+  is 'Modulo Garantia 2';
+comment on column AQPB178.aqpb178papgar2
+  is 'Papel Garantia 2';
+comment on column AQPB178.aqpb178ctagar2
+  is 'Cuenta Garantia 2';
+comment on column AQPB178.aqpb178opegar2
+  is 'Operacion Garantia 2';
+comment on column AQPB178.aqpb178sbopgar2
+  is 'SubOperacion Garantia 2';
+comment on column AQPB178.aqpb178topegar2
+  is 'Tipo de Operacion Garantia 2';
+comment on column AQPB178.aqpb178prcgar2
+  is 'Porcentaje Cobertura Garantia 2';
+comment on column AQPB178.aqpb178pgrcdk2
+  is 'Porcentaje Cobertura Garantia Credinka 2';
+comment on column AQPB178.aqpb178pggar3
+  is 'Pgcod Garantia 3';
+comment on column AQPB178.aqpb178modgar3
+  is 'Modulo Garantia 3';
+comment on column AQPB178.aqpb178sucgar3
+  is 'Sucursal  Garantia 3';
+comment on column AQPB178.aqpb178mdagar3
+  is 'Modulo Garantia 3';
+comment on column AQPB178.aqpb178papgar3
+  is 'Papel Garantia 3';
+comment on column AQPB178.aqpb178ctagar3
+  is 'Cuenta Garantia 3';
+comment on column AQPB178.aqpb178opegar3
+  is 'Operacion Garantia 3';
+comment on column AQPB178.aqpb178sbopgar3
+  is 'SubOperacion Garantia 3';
+comment on column AQPB178.aqpb178topegar3
+  is 'Tipo de Operacion Garantia 3';
+comment on column AQPB178.aqpb178prcgar3
+  is 'Porcentaje Cobertura Garantia 3';
+comment on column AQPB178.aqpb178pgrcdk3
+  is 'Porcentaje Cobertura Garantia Credinka 3';
+create index AQPB178A2 on AQPB178 (AQPB178FEP DESC);
+create index AQPB178A3 on AQPB178 (AQPB178FEP, AQPB178SUC, AQPB178MDA, AQPB178CTA, AQPB178MOD, AQPB178TOP);
+create index AQPB178A4 on AQPB178 (AQPB178NDO, AQPB178MTO, AQPB178FREC);
+create index AQPB178A5 on AQPB178 (AQPB178PAI, AQPB178TDO, AQPB178NDO);
+create index AQPB178A6 on AQPB178 (AQPB178ASE);
+create index AQPB178A7 on AQPB178 (AQPB178CTACR, AQPB178OPECR, AQPB178TFLU);
+create index AQPB178A8 on AQPB178 (AQPB178INS);
+alter table AQPB178
+  add primary key (AQPB178FEP, AQPB178COR, AQPB178PAI, AQPB178TDO, AQPB178NDO);
+

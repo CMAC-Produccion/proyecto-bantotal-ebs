@@ -1,0 +1,51 @@
+create table JAQL072
+(
+  jaql72nuim NUMBER(9) not null,
+  jaql72pgco NUMBER(3) not null,
+  jaql72scsu NUMBER(3) not null,
+  jaql72scmo NUMBER(3) not null,
+  jaql72scmd NUMBER(4) not null,
+  jaql72scpa NUMBER(4) not null,
+  jaql72scct NUMBER(9) not null,
+  jaql72scop NUMBER(9) not null,
+  jaql72scsb NUMBER(3) not null,
+  jaql72scto NUMBER(3) not null,
+  jaql72mone NUMBER(4),
+  jaql72impo NUMBER(17,2),
+  jaql72itcd NUMBER(3),
+  jaql72itsu NUMBER(3),
+  jaql72itmo NUMBER(3),
+  jaql72ittr NUMBER(3),
+  jaql72itre NUMBER(4),
+  jaql72itor NUMBER(2),
+  jaql72itsb NUMBER(3),
+  jaql72itfc DATE,
+  jaql72au01 CHAR(50),
+  jaql72au02 CHAR(50),
+  jaql72au03 CHAR(50),
+  jaql72au04 NUMBER(9),
+  jaql72au05 NUMBER(9),
+  jaql72au06 NUMBER(9),
+  jaql72au07 NUMBER(17,2),
+  jaql72au08 NUMBER(17,2),
+  jaql72au09 NUMBER(17,2),
+  jaql72au10 DATE,
+  jaql72au11 DATE,
+  jaql72au12 DATE,
+  jaql72mosu NUMBER(4),
+  jaql72mtsu NUMBER(17,2),
+  jaql72ax01 NUMBER(9),
+  jaql72ax02 NUMBER(9),
+  jaql72ax03 NUMBER(17,2),
+  jaql72ax04 NUMBER(17,2),
+  jaql72ax05 DATE,
+  jaql72ax06 DATE,
+  jaql72ax07 CHAR(50),
+  jaql72ax08 CHAR(50),
+  jaql72ax09 CHAR(50)
+)
+;
+create index JAQL0720002 on JAQL072 (JAQL72NUIM, JAQL72AU01);
+alter table JAQL072
+  add primary key (JAQL72NUIM, JAQL72PGCO, JAQL72SCSU, JAQL72SCMO, JAQL72SCMD, JAQL72SCPA, JAQL72SCCT, JAQL72SCOP, JAQL72SCSB, JAQL72SCTO);
+

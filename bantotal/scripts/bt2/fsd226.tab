@@ -1,0 +1,18 @@
+create table FSD226
+(
+  cosemp  NUMBER(3) not null,
+  cosmod  NUMBER(3) not null,
+  coscod  NUMBER(3) not null,
+  coscta  NUMBER(9) not null,
+  cossop  NUMBER(3) not null,
+  cosmda  NUMBER(4) not null,
+  cospap  NUMBER(4) not null,
+  cosfech DATE not null,
+  cosfin  NUMBER(8),
+  cosvig  CHAR(1)
+)
+;
+create index FSD22602 on FSD226 (COSEMP, COSMOD, COSCOD, COSCTA, COSSOP, COSMDA, COSPAP, COSFIN);
+alter table FSD226
+  add primary key (COSEMP, COSMOD, COSCOD, COSCTA, COSSOP, COSMDA, COSPAP, COSFECH);
+

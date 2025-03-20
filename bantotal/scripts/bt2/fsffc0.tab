@@ -1,0 +1,25 @@
+create table FSFFC0
+(
+  fsfe6reg  NUMBER(2) not null,
+  fsfe6cod  NUMBER(3) not null,
+  fsfe6scod NUMBER(3) not null,
+  fsfe6dsc  CHAR(35),
+  fsfe6det  CHAR(1),
+  fsfe6tinf NUMBER(2),
+  fsfe6tipo NUMBER(2),
+  fsfe6sub  NUMBER(3),
+  fsfe6hab  CHAR(1),
+  fsfe6inv1 CHAR(1),
+  fsfe6inv2 CHAR(1),
+  fsfe6inv3 CHAR(1),
+  fsfe6topp NUMBER(5,2),
+  fsfe6top1 NUMBER(17,2),
+  fsfe6top2 NUMBER(17,2),
+  fsfe6au1  CHAR(1),
+  fsfe6au2  CHAR(20),
+  fsfe6au3  NUMBER(16)
+)
+;
+alter table FSFFC0
+  add primary key (FSFE6REG, FSFE6COD, FSFE6SCOD);
+

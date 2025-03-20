@@ -1,0 +1,25 @@
+create table FXBVS1
+(
+  fxbvs1cod  NUMBER(3) not null,
+  fxbvs1numt NUMBER(2) not null,
+  fxbvs1nmsj NUMBER(9) not null,
+  fxbvs1scod NUMBER(5) not null,
+  fxbvs1srel NUMBER(2) not null,
+  fxbvs1rmur CHAR(16) not null,
+  fxbvs1tliq CHAR(1),
+  fxbvs1codc CHAR(3),
+  fxbvs1arch CHAR(40),
+  fxbvs1proc CHAR(1),
+  fxbvs1fchi DATE,
+  fxbvs1hrai CHAR(8),
+  fxbvs1coes CHAR(2),
+  fxbvs1cose CHAR(4)
+)
+;
+create index FXBVS102 on FXBVS1 (FXBVS1RMUR);
+create index FXBVS103 on FXBVS1 (FXBVS1COD, FXBVS1FCHI, FXBVS1HRAI, FXBVS1SCOD);
+create index FXBVS104 on FXBVS1 (FXBVS1NUMT, FXBVS1PROC);
+create index FXBVS105 on FXBVS1 (FXBVS1COD, FXBVS1FCHI, FXBVS1NUMT, FXBVS1SCOD, FXBVS1HRAI);
+alter table FXBVS1
+  add primary key (FXBVS1COD, FXBVS1NUMT, FXBVS1NMSJ, FXBVS1SCOD, FXBVS1SREL, FXBVS1RMUR);
+

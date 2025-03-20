@@ -1,0 +1,14 @@
+create table WFROLES1
+(
+  wfrolcod    NUMBER(4) not null,
+  wfusrcod    CHAR(30) not null,
+  wfusrrolsub CHAR(1),
+  wfurusrsub  CHAR(30)
+)
+;
+create index IWFROLE2 on WFROLES1 (WFUSRCOD);
+create index UWFROL1 on WFROLES1 (WFURUSRSUB);
+create index UWFROL2 on WFROLES1 (WFUSRCOD, WFROLCOD);
+alter table WFROLES1
+  add primary key (WFROLCOD, WFUSRCOD);
+

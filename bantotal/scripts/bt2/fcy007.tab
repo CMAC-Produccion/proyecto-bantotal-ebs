@@ -1,0 +1,15 @@
+create table FCY007
+(
+  modulo     NUMBER(3) not null,
+  mopctipo   NUMBER(2) not null,
+  mopccod    NUMBER(3) not null,
+  idioma     NUMBER(2) not null,
+  idextopcva CHAR(1) not null,
+  idopcdscrn NUMBER(2) not null,
+  idopcdscex CHAR(65)
+)
+;
+create index FCY00702 on FCY007 (IDIOMA);
+alter table FCY007
+  add primary key (MODULO, MOPCTIPO, MOPCCOD, IDIOMA, IDEXTOPCVA, IDOPCDSCRN);
+

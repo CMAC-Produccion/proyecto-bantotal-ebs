@@ -1,0 +1,23 @@
+create table JAQA201
+(
+  jaqa201nca  NUMBER(4) not null,
+  jaqa201rle  CHAR(100),
+  jaqa201are  NUMBER(3),
+  jaqa201mem  CHAR(100),
+  jaqa201au1  NUMBER(9),
+  jaqa201au2  NUMBER(9),
+  jaqa201au3  DATE,
+  jaqa201au4  DATE,
+  jaqa201au5  NUMBER(17,2),
+  jaqa201au6  NUMBER(17,2),
+  jaqa201au7  CHAR(100),
+  jaqa201au8  CHAR(100),
+  jaqa201au9  CHAR(100),
+  jaqa201dpag NUMBER(2)
+)
+;
+comment on column JAQA201.jaqa201dpag
+  is 'Dia de pago de convenio';
+alter table JAQA201
+  add primary key (JAQA201NCA);
+

@@ -1,0 +1,17 @@
+create table AQPA741
+(
+  aqpa741id     NUMBER(10) not null,
+  aqpa741numdoc CHAR(12),
+  aqpa741fecreg DATE,
+  aqpa741horreg VARCHAR2(10),
+  aqpa741tipope VARCHAR2(20),
+  aqpa741coderr CHAR(5),
+  aqpa741msgerr VARCHAR2(200),
+  aqpa741deterr VARCHAR2(200),
+  aqpa741celreq VARCHAR2(20),
+  aqpa741trares CLOB
+)
+;
+alter table AQPA741
+  add primary key (AQPA741ID);
+

@@ -1,0 +1,120 @@
+create table JAQA68
+(
+  jaqa68fei  DATE not null,
+  jaqa68tpai NUMBER(3) not null,
+  jaqa68tdoc NUMBER(2) not null,
+  jaqa68tndo CHAR(12) not null,
+  jaqa68bpai NUMBER(3) not null,
+  jaqa68bdoc NUMBER(2) not null,
+  jaqa68bndo CHAR(12) not null,
+  jaqa68suc  NUMBER(3) not null,
+  jaqa68tse  NUMBER(9) not null,
+  jaqa68nom  CHAR(100),
+  jaqa68nac  CHAR(20),
+  jaqa68fen  DATE,
+  jaqa68sex  CHAR(1),
+  jaqa68tlf  CHAR(20),
+  jaqa68cro  CHAR(250),
+  jaqa68par  CHAR(20),
+  jaqa68cpa  NUMBER(2),
+  jaqa68enf  CHAR(1),
+  jaqa68des  VARCHAR2(255),
+  jaqa68pas  NUMBER(5,2),
+  jaqa68usu  CHAR(10),
+  jaqa68tip  CHAR(3),
+  jaqa68hle  CHAR(1),
+  jaqa68est  CHAR(1),
+  jaqa68jso  VARCHAR2(2000),
+  jaqa68an1  NUMBER(9),
+  jaqa68an2  NUMBER(9),
+  jaqa68an3  NUMBER(9),
+  jaqa68ai1  NUMBER(17,2),
+  jaqa68ai2  NUMBER(17,2),
+  jaqa68ai3  NUMBER(17,2),
+  jaqa68af1  DATE,
+  jaqa68af2  DATE,
+  jaqa68af3  DATE,
+  jaqa68ac1  VARCHAR2(255),
+  jaqa68ac2  VARCHAR2(255),
+  jaqa68ac3  VARCHAR2(255)
+)
+;
+comment on table JAQA68
+  is 'Asociación de Asegurado Plan Oncológico';
+comment on column JAQA68.jaqa68fei
+  is 'Fecha de ingreso';
+comment on column JAQA68.jaqa68tpai
+  is 'Pais titular';
+comment on column JAQA68.jaqa68tdoc
+  is 'Tipo de documento titular';
+comment on column JAQA68.jaqa68tndo
+  is 'Numero de documento titular';
+comment on column JAQA68.jaqa68bpai
+  is 'Pais beneficiario';
+comment on column JAQA68.jaqa68bdoc
+  is 'Tipo de documento beneficiario';
+comment on column JAQA68.jaqa68bndo
+  is 'Numero de documento beneficiario';
+comment on column JAQA68.jaqa68suc
+  is 'Sucursal';
+comment on column JAQA68.jaqa68tse
+  is 'Tipo de seguro';
+comment on column JAQA68.jaqa68nom
+  is 'Nombres y apellidos';
+comment on column JAQA68.jaqa68nac
+  is 'Nacionalidad';
+comment on column JAQA68.jaqa68fen
+  is 'Fecha de nacimiento';
+comment on column JAQA68.jaqa68sex
+  is 'Sexo';
+comment on column JAQA68.jaqa68tlf
+  is 'Telefono';
+comment on column JAQA68.jaqa68cro
+  is 'Correo';
+comment on column JAQA68.jaqa68par
+  is 'Parentesco';
+comment on column JAQA68.jaqa68cpa
+  is 'Codigo parentesco';
+comment on column JAQA68.jaqa68enf
+  is 'Enfermedad (S/N)';
+comment on column JAQA68.jaqa68des
+  is 'Descripcion enfermedad';
+comment on column JAQA68.jaqa68pas
+  is 'Porcentaje asignado';
+comment on column JAQA68.jaqa68usu
+  is 'Usuario';
+comment on column JAQA68.jaqa68tip
+  is 'Tipo beneficiario (TIT :Titular, BEN: Beneficiario)';
+comment on column JAQA68.jaqa68hle
+  is 'Heredero legal (S: si, N: no)';
+comment on column JAQA68.jaqa68est
+  is 'Estado H: Habilitado E: Eliminado';
+comment on column JAQA68.jaqa68jso
+  is 'Json embevido';
+comment on column JAQA68.jaqa68an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA68.jaqa68an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA68.jaqa68an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA68.jaqa68ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA68.jaqa68ai2
+  is 'Auxiliar importe 2';
+comment on column JAQA68.jaqa68ai3
+  is 'Auxiliar importe 3';
+comment on column JAQA68.jaqa68af1
+  is 'Auxiliar fecha 1';
+comment on column JAQA68.jaqa68af2
+  is 'Auxiliar fecha 2';
+comment on column JAQA68.jaqa68af3
+  is 'Auxiliar fecha 3';
+comment on column JAQA68.jaqa68ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA68.jaqa68ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA68.jaqa68ac3
+  is 'Auxiliar caracter 3';
+alter table JAQA68
+  add primary key (JAQA68FEI, JAQA68TPAI, JAQA68TDOC, JAQA68TNDO, JAQA68BPAI, JAQA68BDOC, JAQA68BNDO, JAQA68SUC, JAQA68TSE);
+

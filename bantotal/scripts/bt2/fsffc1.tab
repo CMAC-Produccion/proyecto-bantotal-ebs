@@ -1,0 +1,19 @@
+create table FSFFC1
+(
+  fsfe6reg  NUMBER(2) not null,
+  fsfe6cod  NUMBER(3) not null,
+  fsfe6scod NUMBER(3) not null,
+  fsfe7rub1 NUMBER(16) not null,
+  fsfe7rub2 NUMBER(16) not null,
+  fsfe7rub3 NUMBER(16) not null,
+  fsfe7inv1 CHAR(1),
+  fsfe7inv2 CHAR(1),
+  fsfe7inv3 CHAR(1),
+  fsfe7au1  CHAR(1),
+  fsfe7au2  CHAR(20),
+  fsfe7au3  NUMBER(16)
+)
+;
+alter table FSFFC1
+  add primary key (FSFE6REG, FSFE6COD, FSFE6SCOD, FSFE7RUB1, FSFE7RUB2, FSFE7RUB3);
+

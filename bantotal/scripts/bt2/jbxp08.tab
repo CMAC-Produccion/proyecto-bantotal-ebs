@@ -1,0 +1,24 @@
+create table JBXP08
+(
+  bxp8cod  NUMBER(3) not null,
+  bxp8mod  NUMBER(3) not null,
+  bxp8suc  NUMBER(3) not null,
+  bxp8mda  NUMBER(4) not null,
+  bxp8pap  NUMBER(4) not null,
+  bxp8cta  NUMBER(9) not null,
+  bxp8oper NUMBER(3) not null,
+  bxp8sbop NUMBER(3) not null,
+  bxp8tope NUMBER(3) not null,
+  bxp8fech DATE not null,
+  bxp8sdo  NUMBER(17,2),
+  bxp8acvi NUMBER(17,2),
+  bxp8blq  NUMBER(17,2),
+  bxp8chac NUMBER(17,2),
+  bxp8com  NUMBER(17,2),
+  bxp8cseg NUMBER(2),
+  bxp8dseg CHAR(30)
+)
+;
+create unique index JBXP0801 on JBXP08 (BXP8COD, BXP8MOD, BXP8SUC, BXP8MDA, BXP8PAP, BXP8CTA, BXP8OPER, BXP8SBOP, BXP8TOPE, BXP8FECH);
+create index JBXP0802 on JBXP08 (BXP8COD, BXP8CTA, BXP8SBOP, BXP8MOD, BXP8FECH);
+

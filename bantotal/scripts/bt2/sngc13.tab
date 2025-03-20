@@ -1,0 +1,48 @@
+create table SNGC13
+(
+  sngc13pais NUMBER(3) not null,
+  sngc13tdoc NUMBER(2) not null,
+  sngc13ndoc CHAR(12) not null,
+  docod      NUMBER(2) not null,
+  sngc13corr NUMBER(3) not null,
+  sngc13pdoc NUMBER(3),
+  sngc12vivc CHAR(1),
+  sngc01id   NUMBER(3),
+  sngc02id   NUMBER(3),
+  sngc03id   NUMBER(3),
+  sngc04id   NUMBER(3),
+  sngc05id   NUMBER(3),
+  sngc06id   NUMBER(3),
+  sngc13dsc2 CHAR(30),
+  sngc13dsc3 CHAR(30),
+  sngc13dsc1 CHAR(30),
+  sngc13dsc4 CHAR(30),
+  sngc13dsc5 CHAR(30),
+  sngc13dsc6 CHAR(30),
+  sngc13ugeo CHAR(6),
+  sngc13dpto NUMBER(5),
+  sngc13prov NUMBER(5),
+  sngc13dist NUMBER(9),
+  sngc13cneg CHAR(1),
+  sngc13ref  VARCHAR2(140),
+  sngc13ref1 VARCHAR2(200),
+  sngc13dir  CHAR(140),
+  sngc13rdes DATE,
+  sngc13arr  CHAR(50),
+  sngc13atel CHAR(50),
+  sngc13fhab DATE,
+  sngc13est  CHAR(1),
+  sngc13dest NUMBER(1),
+  sngc13fdir DATE,
+  sngc13user CHAR(10),
+  sngc13col  NUMBER(9),
+  sngc13tas  NUMBER(3)
+)
+;
+create index SNGC1302 on SNGC13 (SNGC01ID, SNGC02ID, SNGC03ID, SNGC04ID, SNGC05ID, SNGC06ID);
+create index SNGC1303 on SNGC13 (SNGC12VIVC);
+create index SNGC1304 on SNGC13 (DOCOD);
+create index SNGC1305 on SNGC13 (SNGC13PDOC, SNGC13TDOC, SNGC13NDOC);
+alter table SNGC13
+  add primary key (SNGC13PAIS, SNGC13TDOC, SNGC13NDOC, DOCOD, SNGC13CORR);
+

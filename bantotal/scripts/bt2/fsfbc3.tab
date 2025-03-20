@@ -1,0 +1,20 @@
+create table FSFBC3
+(
+  xpapel    NUMBER(4) not null,
+  xpacup    NUMBER(3) not null,
+  xpafch1   DATE,
+  xpafch2   DATE,
+  xpatasa   NUMBER(10,6),
+  xpavres   NUMBER(7,4),
+  xpacapi   NUMBER(7,4),
+  xpamort   NUMBER(7,4),
+  xpacoef   NUMBER(14,9),
+  xpapint   CHAR(1),
+  xpacltcod NUMBER(2),
+  xpaplus   NUMBER(10,6),
+  sfbc3est  CHAR(1)
+)
+;
+alter table FSFBC3
+  add primary key (XPAPEL, XPACUP);
+

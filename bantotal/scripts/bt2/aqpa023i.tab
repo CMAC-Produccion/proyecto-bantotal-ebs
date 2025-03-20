@@ -1,0 +1,14 @@
+create table AQPA023I
+(
+  aqpa023ifech  DATE not null,
+  aqpa023ieva   NUMBER(3) not null,
+  aqpa023iejec  NUMBER(10) not null,
+  aqpa023icorre NUMBER(9) not null,
+  aqpa023iinst  NUMBER(10),
+  aqpa023iinst2 NUMBER(10)
+)
+;
+create index AQPA023I2 on AQPA023I (AQPA023IINST2);
+alter table AQPA023I
+  add primary key (AQPA023IFECH, AQPA023IEVA, AQPA023IEJEC, AQPA023ICORRE);
+

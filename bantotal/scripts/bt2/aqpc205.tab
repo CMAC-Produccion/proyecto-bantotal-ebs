@@ -1,0 +1,51 @@
+create table AQPC205
+(
+  aqpc205emp NUMBER(3) not null,
+  aqpc205mod NUMBER(3) not null,
+  aqpc205suc NUMBER(3) not null,
+  aqpc205mda NUMBER(4) not null,
+  aqpc205pap NUMBER(4) not null,
+  aqpc205cta NUMBER(9) not null,
+  aqpc205ope NUMBER(9) not null,
+  aqpc205sbo NUMBER(3) not null,
+  aqpc205top NUMBER(3) not null,
+  aqpc205fec DATE not null,
+  aqpc205hor VARCHAR2(8) not null,
+  aqpc205usu VARCHAR2(10) not null,
+  aqpc205des VARCHAR2(100),
+  aqpc205exn VARCHAR2(100)
+)
+;
+comment on table AQPC205
+  is 'AQPC205';
+comment on column AQPC205.aqpc205emp
+  is 'Empresa';
+comment on column AQPC205.aqpc205mod
+  is 'Módulo';
+comment on column AQPC205.aqpc205suc
+  is 'Sucursal';
+comment on column AQPC205.aqpc205mda
+  is 'Moneda';
+comment on column AQPC205.aqpc205pap
+  is 'Papel';
+comment on column AQPC205.aqpc205cta
+  is 'Cuenta';
+comment on column AQPC205.aqpc205ope
+  is 'Operación';
+comment on column AQPC205.aqpc205sbo
+  is 'SubOperación';
+comment on column AQPC205.aqpc205top
+  is 'Tipo Operación';
+comment on column AQPC205.aqpc205fec
+  is 'Fecha Registro';
+comment on column AQPC205.aqpc205hor
+  is 'Hora Registro';
+comment on column AQPC205.aqpc205usu
+  is 'Usuario Registro';
+comment on column AQPC205.aqpc205des
+  is 'Descripción';
+comment on column AQPC205.aqpc205exn
+  is 'Exoneración';
+alter table AQPC205
+  add primary key (AQPC205EMP, AQPC205MOD, AQPC205SUC, AQPC205MDA, AQPC205PAP, AQPC205CTA, AQPC205OPE, AQPC205SBO, AQPC205TOP, AQPC205FEC, AQPC205HOR, AQPC205USU);
+

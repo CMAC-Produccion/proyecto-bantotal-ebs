@@ -1,0 +1,33 @@
+create table JAQL084
+(
+  jaql84coin CHAR(20) not null,
+  jaql84copa CHAR(20) not null,
+  jaql84fepa DATE not null,
+  jaql84cobt NUMBER(9) not null,
+  jaql84pgco NUMBER(3) not null,
+  jaql84scsu NUMBER(3) not null,
+  jaql84scmo NUMBER(3) not null,
+  jaql84scmd NUMBER(4) not null,
+  jaql84scpa NUMBER(4) not null,
+  jaql84scct NUMBER(9) not null,
+  jaql84scop NUMBER(9) not null,
+  jaql84scsb NUMBER(3) not null,
+  jaql84scto NUMBER(3) not null,
+  jaql84mtop NUMBER(17,2),
+  jaql84au01 CHAR(50),
+  jaql84au02 CHAR(50),
+  jaql84au03 CHAR(50),
+  jaql84au04 NUMBER(9),
+  jaql84au05 NUMBER(9),
+  jaql84au06 NUMBER(9),
+  jaql84au07 NUMBER(17,2),
+  jaql84au08 NUMBER(17,2),
+  jaql84au09 NUMBER(17,2),
+  jaql84au10 DATE,
+  jaql84au11 DATE,
+  jaql84au12 DATE
+)
+;
+alter table JAQL084
+  add primary key (JAQL84COIN, JAQL84COPA, JAQL84FEPA, JAQL84COBT, JAQL84PGCO, JAQL84SCSU, JAQL84SCMO, JAQL84SCMD, JAQL84SCPA, JAQL84SCCT, JAQL84SCOP, JAQL84SCSB, JAQL84SCTO);
+

@@ -1,0 +1,11 @@
+create table FACH02
+(
+  ach02empr NUMBER(5) not null,
+  ach02desc CHAR(30),
+  ach02cta  NUMBER(9)
+)
+;
+create unique index FACH0202 on FACH02 (ACH02CTA);
+alter table FACH02
+  add primary key (ACH02EMPR);
+

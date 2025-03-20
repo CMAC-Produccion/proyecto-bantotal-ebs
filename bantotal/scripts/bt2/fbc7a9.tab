@@ -1,0 +1,18 @@
+create table FBC7A9
+(
+  bc7a9emp  NUMBER(3) not null,
+  bc7a9fch  DATE not null,
+  bc7a9ent  NUMBER(3) not null,
+  bc7a9sub  CHAR(4) not null,
+  bc7a9ttas CHAR(1) not null,
+  bc7a9rubt NUMBER(2) not null,
+  bc7a9tper NUMBER(2) not null,
+  bc7a9prom NUMBER(10),
+  bc7a9tasp NUMBER(17,2),
+  bc7a9tasm NUMBER(17,2),
+  bc7a9sdo1 NUMBER(17,2)
+)
+;
+alter table FBC7A9
+  add primary key (BC7A9EMP, BC7A9FCH, BC7A9ENT, BC7A9SUB, BC7A9TTAS, BC7A9RUBT, BC7A9TPER);
+

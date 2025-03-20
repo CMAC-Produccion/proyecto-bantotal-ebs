@@ -1,0 +1,40 @@
+create table JAQM900
+(
+  jaqm900cnl NUMBER(2) not null,
+  jaqm900lot NUMBER(9) not null,
+  jaqm900tip CHAR(1),
+  jaqm900fei DATE,
+  jaqm900hri CHAR(8),
+  jaqm900usi CHAR(10),
+  jaqm900wki CHAR(10),
+  jaqm900fec DATE,
+  jaqm900hrc CHAR(8),
+  jaqm900usc CHAR(10),
+  jaqm900wkc CHAR(10),
+  jaqm900fee DATE,
+  jaqm900hre CHAR(8),
+  jaqm900use CHAR(10),
+  jaqm900wke CHAR(10),
+  jaqm900est CHAR(1),
+  jaqm900obs CHAR(100),
+  jaqm900ai1 NUMBER(17,2),
+  jaqm900ai2 NUMBER(17,2),
+  jaqm900ai3 NUMBER(17,2),
+  jaqm900an1 NUMBER(9),
+  jaqm900an2 NUMBER(9),
+  jaqm900an3 NUMBER(9),
+  jaqm900ac1 CHAR(1),
+  jaqm900ac2 CHAR(1),
+  jaqm900ac3 CHAR(1),
+  jaqm900av1 VARCHAR2(255),
+  jaqm900av2 VARCHAR2(255),
+  jaqm900av3 VARCHAR2(255),
+  jaqm900af1 DATE,
+  jaqm900af2 DATE,
+  jaqm900af3 DATE
+)
+;
+create index JAQM9002 on JAQM900 (JAQM900CNL, JAQM900TIP, JAQM900EST);
+alter table JAQM900
+  add primary key (JAQM900CNL, JAQM900LOT);
+

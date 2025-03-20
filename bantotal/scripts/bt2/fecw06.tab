@@ -1,0 +1,48 @@
+create table FECW06
+(
+  ecw06usu  CHAR(10) not null,
+  ecw06opcd NUMBER(3) not null,
+  ecw06opsu NUMBER(3) not null,
+  ecw06opmo NUMBER(3) not null,
+  ecw06opmd NUMBER(4) not null,
+  ecw06oppa NUMBER(4) not null,
+  ecw06opct NUMBER(9) not null,
+  ecw06opop NUMBER(9) not null,
+  ecw06opso NUMBER(3) not null,
+  ecw06opto NUMBER(3) not null,
+  ecw06ndet NUMBER(6) not null,
+  ecw06desc CHAR(10),
+  ecw06trcd NUMBER(3),
+  ecw06trmo NUMBER(3),
+  ecw06trtr NUMBER(3),
+  ecw06trsu NUMBER(3),
+  ecw06trre NUMBER(4),
+  ecw06trfc DATE,
+  ecw06tror NUMBER(2),
+  ecw06trsb NUMBER(3),
+  ecw06mfvc DATE,
+  ecw06mfva DATE,
+  ecw06mdh  NUMBER(1),
+  ecw06mimp NUMBER(17,2),
+  ecw06mcod NUMBER(3),
+  ecw06schq CHAR(1),
+  ecw06nchq NUMBER(9),
+  ecw06refe CHAR(20),
+  ecw06conc CHAR(70),
+  ecw06fmsy DATE,
+  ecw06hmsy CHAR(8),
+  ecw06iax1 NUMBER(17,2),
+  ecw06iax2 NUMBER(17,2),
+  ecw06sax1 CHAR(20),
+  ecw06sax2 CHAR(20),
+  ecw06fax1 DATE,
+  ecw06fax2 DATE,
+  ecw06nax1 NUMBER(9),
+  ecw06nax2 NUMBER(15)
+)
+;
+create index FECW0602 on FECW06 (ECW06USU, ECW06OPCD, ECW06OPSU, ECW06OPMO, ECW06OPMD, ECW06OPPA, ECW06OPCT, ECW06OPOP, ECW06OPSO, ECW06OPTO, ECW06NDET, ECW06MFVA, ECW06FMSY, ECW06HMSY);
+create index FECW0603 on FECW06 (ECW06USU, ECW06OPCD, ECW06OPSU, ECW06OPMO, ECW06OPMD, ECW06OPPA, ECW06OPCT, ECW06OPOP, ECW06OPSO, ECW06OPTO, ECW06NDET, ECW06MFVC, ECW06FMSY, ECW06HMSY);
+alter table FECW06
+  add primary key (ECW06USU, ECW06OPCD, ECW06OPSU, ECW06OPMO, ECW06OPMD, ECW06OPPA, ECW06OPCT, ECW06OPOP, ECW06OPSO, ECW06OPTO, ECW06NDET);
+

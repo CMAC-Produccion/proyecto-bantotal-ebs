@@ -1,0 +1,34 @@
+create table JAQL604
+(
+  jaql546serial NUMBER(10) not null,
+  jaql604secue  NUMBER(6) not null,
+  jaql604mtode  NUMBER(16,2),
+  jaql604perio  VARCHAR2(100) not null,
+  jaql604feinp  DATE,
+  jaql604entid  VARCHAR2(100),
+  jaql604fenua  DATE,
+  jaql604tidet  CHAR(2),
+  jaql604descr  VARCHAR2(100),
+  jaql604dven   NUMBER(10),
+  jaql604aux1   NUMBER(10),
+  jaql604concod VARCHAR2(16),
+  jaql604creusr VARCHAR2(10),
+  jaql604cretim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+comment on column JAQL604.jaql604descr
+  is 'Descripcion de Entidad';
+comment on column JAQL604.jaql604dven
+  is 'Dias Vencidos';
+comment on column JAQL604.jaql604aux1
+  is 'Auxiliar 1';
+comment on column JAQL604.jaql604concod
+  is 'Código de Consulta';
+comment on column JAQL604.jaql604creusr
+  is 'Usuario Creación';
+comment on column JAQL604.jaql604cretim
+  is 'Fecha Hora Registro';
+create index JAQL604A2 on JAQL604 (JAQL546SERIAL, JAQL604TIDET, JAQL604AUX1);
+alter table JAQL604
+  add primary key (JAQL546SERIAL, JAQL604SECUE, JAQL604PERIO);
+

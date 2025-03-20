@@ -1,0 +1,59 @@
+create table AQPD203
+(
+  aqpd203emp    NUMBER(3) not null,
+  aqpd203mod    NUMBER(3) not null,
+  aqpd203suc    NUMBER(3) not null,
+  aqpd203mda    NUMBER(4) not null,
+  aqpd203pap    NUMBER(4) not null,
+  aqpd203cta    NUMBER(9) not null,
+  aqpd203oper   NUMBER(9) not null,
+  aqpd203sbop   NUMBER(3) not null,
+  aqpd203top    NUMBER(3) not null,
+  aqpd203fec    DATE not null,
+  aqpd203tip    VARCHAR2(300),
+  aqpd203sbtip  VARCHAR2(300),
+  aqpd203sdmo   NUMBER(17,2),
+  aqpd203aplext CHAR(1),
+  aqpd203fecbi  DATE
+)
+;
+comment on table AQPD203
+  is 'Tabla  espejo AQPB436';
+comment on column AQPD203.aqpd203emp
+  is 'empresa';
+comment on column AQPD203.aqpd203mod
+  is 'módulo ';
+comment on column AQPD203.aqpd203suc
+  is 'sucursal';
+comment on column AQPD203.aqpd203mda
+  is 'moneda';
+comment on column AQPD203.aqpd203pap
+  is 'papel';
+comment on column AQPD203.aqpd203cta
+  is 'cuenta';
+comment on column AQPD203.aqpd203oper
+  is 'operación';
+comment on column AQPD203.aqpd203sbop
+  is 'suboperación';
+comment on column AQPD203.aqpd203top
+  is 'tipo de operación';
+comment on column AQPD203.aqpd203fec
+  is 'fecha de reprogramación';
+comment on column AQPD203.aqpd203tip
+  is 'Tipo';
+comment on column AQPD203.aqpd203sbtip
+  is 'Subtipo';
+comment on column AQPD203.aqpd203sdmo
+  is 'saldo';
+comment on column AQPD203.aqpd203aplext
+  is 'aplica extorno';
+comment on column AQPD203.aqpd203fecbi
+  is 'fecha actualziación BI';
+create index AQPD203A2 on AQPD203 (AQPD203CTA, AQPD203OPER);
+create index AQPD203A3 on AQPD203 (AQPD203CTA, AQPD203OPER, AQPD203SBOP, AQPD203FEC);
+create index AQPD203A4 on AQPD203 (AQPD203FEC, AQPD203CTA, AQPD203OPER, AQPD203SBOP);
+create index AQPD203A5 on AQPD203 (AQPD203EMP, AQPD203MOD, AQPD203SUC, AQPD203MDA, AQPD203PAP, AQPD203CTA, AQPD203OPER, AQPD203SBOP, AQPD203TOP);
+create index AQPD203A6 on AQPD203 (AQPD203FEC);
+alter table AQPD203
+  add primary key (AQPD203EMP, AQPD203MOD, AQPD203SUC, AQPD203MDA, AQPD203PAP, AQPD203CTA, AQPD203OPER, AQPD203SBOP, AQPD203TOP, AQPD203FEC);
+

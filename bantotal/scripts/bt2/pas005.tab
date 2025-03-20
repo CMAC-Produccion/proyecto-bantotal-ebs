@@ -1,0 +1,14 @@
+create table PAS005
+(
+  chqfchpas  NUMBER(6) not null,
+  chqbentpod NUMBER(2) not null,
+  chqbennrod NUMBER(9) not null,
+  chqbenstat CHAR(1),
+  chqbenorde CHAR(35),
+  chqbenimp  NUMBER(8,2),
+  chqbenimpt CHAR(130)
+)
+;
+alter table PAS005
+  add primary key (CHQFCHPAS, CHQBENTPOD, CHQBENNROD);
+

@@ -1,0 +1,22 @@
+create table JSEN004
+(
+  jsen004tli NUMBER(4) not null,
+  jsen004fch DATE not null,
+  jsen004pai NUMBER(3) not null,
+  jsen004tdo NUMBER(2) not null,
+  jsen004ndo CHAR(25) not null,
+  vicod      NUMBER(2) not null,
+  jsen004pvi NUMBER(3) not null,
+  jsen004tdv NUMBER(2) not null,
+  jsen004ndv CHAR(25) not null,
+  jsen003cod CHAR(4),
+  jsen004est NUMBER(1),
+  jsen004obs CHAR(50),
+  jsen004fal DATE
+)
+;
+create index JSEN0042 on JSEN004 (JSEN003COD);
+create index JSEN0043 on JSEN004 (VICOD);
+alter table JSEN004
+  add primary key (JSEN004TLI, JSEN004FCH, JSEN004PAI, JSEN004TDO, JSEN004NDO, VICOD, JSEN004PVI, JSEN004TDV, JSEN004NDV);
+

@@ -1,0 +1,12 @@
+create table FBRD08
+(
+  brd08licod CHAR(1) not null,
+  brd08licta NUMBER(9) not null,
+  brd08lirgo CHAR(1),
+  brd08lifin DATE,
+  brd08liest CHAR(1)
+)
+;
+alter table FBRD08
+  add primary key (BRD08LICOD, BRD08LICTA);
+

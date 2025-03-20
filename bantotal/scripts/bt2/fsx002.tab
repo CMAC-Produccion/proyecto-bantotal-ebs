@@ -1,0 +1,17 @@
+create table FSX002
+(
+  fsx002pgco NUMBER(3) not null,
+  fsx002sucu NUMBER(3) not null,
+  fsx002codc NUMBER(3),
+  fsx002code NUMBER(3),
+  fsx002fchc DATE,
+  fsx002fche DATE,
+  fsx002char CHAR(30),
+  fsx002num  NUMBER(17,2),
+  fsx002lng  NUMBER(17,14),
+  fsx002lat  NUMBER(17,14)
+)
+;
+alter table FSX002
+  add primary key (FSX002PGCO, FSX002SUCU);
+

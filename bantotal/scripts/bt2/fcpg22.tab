@@ -1,0 +1,19 @@
+create table FCPG22
+(
+  cpg21empbt NUMBER(3) not null,
+  cpg21cod   NUMBER(3) not null,
+  cpg22fcalc NUMBER(2) not null,
+  cpg22mda   NUMBER(4) not null,
+  cpg22fdes  DATE not null,
+  cpg22perio CHAR(1),
+  cpg22cntd  NUMBER(3),
+  cpg22codmv NUMBER(3),
+  cpg22est   CHAR(3),
+  cpg22blq   CHAR(1),
+  cpg22inst  NUMBER(10)
+)
+;
+create index FCPG2203 on FCPG22 (CPG22INST);
+alter table FCPG22
+  add primary key (CPG21EMPBT, CPG21COD, CPG22FCALC, CPG22MDA, CPG22FDES);
+

@@ -1,0 +1,25 @@
+create table JAQM251
+(
+  jaqm251pgc INTEGER not null,
+  jaqm251mod INTEGER not null,
+  jaqm251suc INTEGER not null,
+  jaqm251mda INTEGER not null,
+  jaqm251pap INTEGER not null,
+  jaqm251cta INTEGER not null,
+  jaqm251ope INTEGER not null,
+  jaqm251sbo INTEGER not null,
+  jaqm251top INTEGER not null,
+  jaqm251sgc INTEGER not null,
+  jaqm251fec DATE,
+  jaqm251hoc CHAR(8),
+  jaqm251upr CHAR(10),
+  jaqm251uca CHAR(10),
+  jaqm251ac1 VARCHAR2(255),
+  jaqm251ac2 VARCHAR2(255),
+  jaqm251an1 INTEGER,
+  jaqm251an2 INTEGER
+)
+;
+alter table JAQM251
+  add constraint JAQM251_PK primary key (JAQM251PGC, JAQM251MOD, JAQM251SUC, JAQM251MDA, JAQM251PAP, JAQM251CTA, JAQM251OPE, JAQM251SBO, JAQM251TOP, JAQM251SGC);
+

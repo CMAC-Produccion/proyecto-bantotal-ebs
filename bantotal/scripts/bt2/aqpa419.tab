@@ -1,0 +1,19 @@
+create table AQPA419
+(
+  aqpa419inst   NUMBER(10) not null,
+  aqpa419fech   DATE not null,
+  aqpa419hora   CHAR(8) not null,
+  aqpa419grup   NUMBER(4) not null,
+  aqpa419fact   NUMBER(9,6),
+  aqpa419pgcod  NUMBER(3) not null,
+  aqpa419itsuc  NUMBER(3) not null,
+  aqpa419itmod  NUMBER(3) not null,
+  aqpa419ittran NUMBER(3) not null,
+  aqpa419itfcon DATE not null,
+  aqpa419ituing VARCHAR2(20),
+  aqpa419itnrel NUMBER(4) not null
+)
+;
+alter table AQPA419
+  add primary key (AQPA419INST, AQPA419FECH, AQPA419HORA, AQPA419GRUP, AQPA419PGCOD, AQPA419ITSUC, AQPA419ITMOD, AQPA419ITTRAN, AQPA419ITFCON, AQPA419ITNREL);
+

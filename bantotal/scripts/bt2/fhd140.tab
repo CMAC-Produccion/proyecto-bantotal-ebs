@@ -1,0 +1,33 @@
+create table FHD140
+(
+  pgcod      NUMBER(3) not null,
+  rehmod     NUMBER(3) not null,
+  rehoper    NUMBER(9) not null,
+  rehmodid   NUMBER(5) not null,
+  rehmodnro  NUMBER(5),
+  rehintern  CHAR(1),
+  rehsuc     NUMBER(3),
+  reiamda    NUMBER(4),
+  reipmda    NUMBER(4),
+  reiamocsw1 CHAR(3),
+  reipmocsw1 CHAR(3),
+  rehpap     NUMBER(4),
+  reiacta    NUMBER(1),
+  reipcta    NUMBER(9),
+  rehfing    DATE,
+  reiafvto   DATE,
+  reipfvto   DATE,
+  rehfval    DATE,
+  reiauser   CHAR(10),
+  reipuser   CHAR(10),
+  reiaws     CHAR(10),
+  reipws     CHAR(10),
+  reiaaoimp  NUMBER(17,2),
+  reipaoimp  NUMBER(17,2),
+  reiasaldo  NUMBER(17,2),
+  reipsaldo  NUMBER(17,2)
+)
+;
+alter table FHD140
+  add primary key (PGCOD, REHMOD, REHOPER, REHMODID);
+

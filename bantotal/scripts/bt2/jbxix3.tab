@@ -1,0 +1,47 @@
+create table JBXIX3
+(
+  jbxix3cod  NUMBER(3) not null,
+  jbxix3nrot NUMBER(16) not null,
+  jbxix3cor  NUMBER(3) not null,
+  jbxix3nrov NUMBER(10),
+  jbxix3pdc  NUMBER(3),
+  jbxix3tdc  NUMBER(2),
+  jbxix3ndc  CHAR(12),
+  jbxix3tpot CHAR(1),
+  jbxix3ln1  CHAR(19),
+  jbxix3ln2  CHAR(19),
+  jbxix3fvg  DATE,
+  jbxix3fvn  DATE,
+  jbxix3npr  NUMBER(6),
+  jbxix3ebz  DATE,
+  jbxix3cod1 CHAR(2),
+  jbxix3cod2 NUMBER(3),
+  jbxix3rsc  CHAR(1),
+  jbxix3sue  NUMBER(3),
+  jbxix3cod3 CHAR(2),
+  jbxix3cod4 CHAR(1),
+  jbxix3sol  NUMBER(6),
+  jbxix3bem  CHAR(2),
+  jbxix3cbe  CHAR(2),
+  jbxix3cod5 NUMBER(2),
+  jbxix3cod6 NUMBER(2),
+  jbxix3cod7 NUMBER(2),
+  jbxix3pl1  NUMBER(5,2),
+  jbxix3pl2  NUMBER(5,2),
+  jbxix3pl3  NUMBER(5,2),
+  jbxix3il1  NUMBER(14,2),
+  jbxix3il2  NUMBER(14,2),
+  jbxix3il3  NUMBER(14,2),
+  jbxix3cod8 CHAR(2),
+  jbxix3fmd  DATE,
+  jbxix3umd  CHAR(10),
+  jbxix3fau  DATE,
+  jbxix3uau  CHAR(10),
+  jbxix3est  CHAR(2),
+  jbxix3sec  CHAR(11)
+)
+;
+create index JBXIX302 on JBXIX3 (JBXIX3NROV);
+alter table JBXIX3
+  add primary key (JBXIX3COD, JBXIX3NROT, JBXIX3COR);
+

@@ -1,0 +1,17 @@
+create table CRCH
+(
+  tip_doc CHAR(3) not null,
+  nrodoc  CHAR(15) not null,
+  proano  NUMBER(4) not null,
+  promes  NUMBER(2) not null,
+  bcocat  NUMBER(1),
+  siscat  NUMBER(1),
+  bcodeu  NUMBER(15),
+  sisdeu  NUMBER(15),
+  bcocod  NUMBER(15),
+  siscod  NUMBER(15)
+)
+;
+alter table CRCH
+  add primary key (TIP_DOC, NRODOC, PROANO, PROMES);
+

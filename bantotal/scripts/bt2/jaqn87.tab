@@ -1,0 +1,91 @@
+create table JAQN87
+(
+  jaqn87cid VARCHAR2(25) not null,
+  jaqn87fch DATE,
+  jaqn87fen DATE,
+  jaqn87mde VARCHAR2(50),
+  jaqn87use VARCHAR2(10),
+  jaqn87cue VARCHAR2(500),
+  jaqn87mre VARCHAR2(50),
+  jaqn87dir VARCHAR2(500),
+  jaqn87asu VARCHAR2(200),
+  jaqn87adj VARCHAR2(500),
+  jaqn87cer NUMBER(10),
+  jaqn87err VARCHAR2(400),
+  jaqn87est CHAR(1),
+  jaqn87hrg CHAR(8),
+  jaqn87hre CHAR(8),
+  jaqn87ai1 NUMBER(17,2),
+  jaqn87ai2 NUMBER(17,2),
+  jaqn87ai3 NUMBER(17,2),
+  jaqn87ad1 DATE,
+  jaqn87ad2 DATE,
+  jaqn87ad3 DATE,
+  jaqn87an1 NUMBER(9),
+  jaqn87an2 NUMBER(9),
+  jaqn87an3 NUMBER(9),
+  jaqn87ac1 CHAR(255),
+  jaqn87ac2 CHAR(255),
+  jaqn87ac3 CHAR(255)
+)
+;
+comment on table JAQN87
+  is 'Log correo electronico reportes DPF cancelados';
+comment on column JAQN87.jaqn87cid
+  is 'Correlativo Numérico Identificador Único';
+comment on column JAQN87.jaqn87fch
+  is 'Fecha Gestión';
+comment on column JAQN87.jaqn87fen
+  is 'Fecha Envío';
+comment on column JAQN87.jaqn87mde
+  is 'Mail Destinatario';
+comment on column JAQN87.jaqn87use
+  is 'Usuario Destinatario';
+comment on column JAQN87.jaqn87cue
+  is 'Cuerpo Mensaje';
+comment on column JAQN87.jaqn87mre
+  is 'Mail Remitente';
+comment on column JAQN87.jaqn87dir
+  is 'Directorio';
+comment on column JAQN87.jaqn87asu
+  is 'Asunto';
+comment on column JAQN87.jaqn87adj
+  is 'Archivo Adjunto';
+comment on column JAQN87.jaqn87cer
+  is 'Código de Error';
+comment on column JAQN87.jaqn87err
+  is 'Error';
+comment on column JAQN87.jaqn87est
+  is 'Estado';
+comment on column JAQN87.jaqn87hrg
+  is 'Hora de Gestión';
+comment on column JAQN87.jaqn87hre
+  is 'Hora de Envío';
+comment on column JAQN87.jaqn87ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN87.jaqn87ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN87.jaqn87ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQN87.jaqn87ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN87.jaqn87ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQN87.jaqn87ad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQN87.jaqn87an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQN87.jaqn87an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQN87.jaqn87an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQN87.jaqn87ac1
+  is 'Auxiliar Carácter 1';
+comment on column JAQN87.jaqn87ac2
+  is 'Auxiliar Carácter 2';
+comment on column JAQN87.jaqn87ac3
+  is 'Auxiliar Carácter 3';
+create index JAQN87A2 on JAQN87 (JAQN87FCH);
+alter table JAQN87
+  add primary key (JAQN87CID);
+

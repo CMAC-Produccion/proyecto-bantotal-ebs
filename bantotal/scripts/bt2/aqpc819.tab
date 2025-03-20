@@ -1,0 +1,128 @@
+create table AQPC819
+(
+  aqpc819codopi  NUMBER(10) not null,
+  aqpc819corr    NUMBER(10) not null,
+  aqpc819usur    VARCHAR2(10) not null,
+  aqpc819fecpro  DATE,
+  aqpc819inst    NUMBER(10),
+  aqpc819cargo   VARCHAR2(100),
+  aqpc819ancneg  VARCHAR2(4000),
+  aqpc819anvic   VARCHAR2(4000),
+  aqpc819fcn     VARCHAR2(4000),
+  aqpc819aesfcc  VARCHAR2(4000),
+  aqpc819rdcln   VARCHAR2(4000),
+  aqpc819ancp    VARCHAR2(4000),
+  aqpc819ancpg   VARCHAR2(4000),
+  aqpc819dandc   VARCHAR2(4000),
+  aqpc819dgcor   VARCHAR2(4000),
+  aqpc819rancneg VARCHAR2(4000),
+  aqpc819mtrep   VARCHAR2(4000),
+  aqpc819raesfcc VARCHAR2(4000),
+  aqpc819ancprf  VARCHAR2(4000),
+  aqpc819anvpg   VARCHAR2(4000),
+  aqpc819degv    VARCHAR2(4000),
+  aqpc819rfancne VARCHAR2(4000),
+  aqpc819mtrefn  VARCHAR2(4000),
+  aqpc819rfaesfc VARCHAR2(4000),
+  aqpc819rfancpr VARCHAR2(4000),
+  aqpc819rfanvpg VARCHAR2(4000),
+  aqpc819rfdegv  VARCHAR2(4000),
+  aqpc819usurar  VARCHAR2(10),
+  aqpc819comen   VARCHAR2(4000),
+  aqpc819resol   VARCHAR2(4000),
+  aqpc819conrec  VARCHAR2(4000),
+  aqpc819argreco VARCHAR2(4000),
+  aqpc819anacome VARCHAR2(4000),
+  aqpc819resolre VARCHAR2(4000),
+  aqpc819condrec VARCHAR2(4000),
+  aqpc819horareg VARCHAR2(8),
+  aqpc819estad   VARCHAR2(1),
+  aqpc819motobsv VARCHAR2(4000)
+)
+;
+comment on table AQPC819
+  is 'Tabla temporal de comentarios de opinion de riesgos crm';
+comment on column AQPC819.aqpc819codopi
+  is 'Cod. Opinion riesgo';
+comment on column AQPC819.aqpc819corr
+  is 'Correlativo';
+comment on column AQPC819.aqpc819usur
+  is 'Usuario analista creditos';
+comment on column AQPC819.aqpc819fecpro
+  is 'Fecha Carga';
+comment on column AQPC819.aqpc819inst
+  is 'Instancia';
+comment on column AQPC819.aqpc819cargo
+  is 'Cargo';
+comment on column AQPC819.aqpc819ancneg
+  is 'Antecedentes del Cliente y del Negocio AC -GA';
+comment on column AQPC819.aqpc819anvic
+  is 'Analisis de Vinculados  AC -GA';
+comment on column AQPC819.aqpc819fcn
+  is 'Fortalezas del Cliente y del Negocio  AC -GA';
+comment on column AQPC819.aqpc819aesfcc
+  is 'Analisis del Endeudamiento en el Sistema Financiero y Calificación Crediticia AC - GA';
+comment on column AQPC819.aqpc819rdcln
+  is 'Riesgos y Debilidades del Cliente y del Negocio  AC -GA';
+comment on column AQPC819.aqpc819ancp
+  is 'Análisis de la Nueva Capacidad de Pago  AC -GA';
+comment on column AQPC819.aqpc819ancpg
+  is 'Análisis de Ratios Financieros y Principales Variaciones en EEFF  AC -GA';
+comment on column AQPC819.aqpc819dandc
+  is 'Detalle y Análisis del Destino del Crédito  AC -GA';
+comment on column AQPC819.aqpc819dgcor
+  is 'Detalle de la Garantía y Cobertura  AC -GA';
+comment on column AQPC819.aqpc819rancneg
+  is 'Antecedentes del Cliente y del Negocio REPR';
+comment on column AQPC819.aqpc819mtrep
+  is 'Motivo de la Reprogramación REPR';
+comment on column AQPC819.aqpc819raesfcc
+  is 'Analisis del Endeudamiento en el Sistema Financiero y Calificación Crediticia REPR';
+comment on column AQPC819.aqpc819ancprf
+  is 'Análisis de la Nueva Capacidad de Pago y Principales Ratios Financieros REPR';
+comment on column AQPC819.aqpc819anvpg
+  is 'Análisis de la Voluntad de Pago REPR';
+comment on column AQPC819.aqpc819degv
+  is 'Detalle de la Garantía Vigente REPR';
+comment on column AQPC819.aqpc819rfancne
+  is 'Antecedentes del Cliente y del Negocio REF';
+comment on column AQPC819.aqpc819mtrefn
+  is 'Motivo de la Refinanciación REF';
+comment on column AQPC819.aqpc819rfaesfc
+  is 'Analisis del Endeudamiento en el Sistema Financiero y Calificación Crediticia REF';
+comment on column AQPC819.aqpc819rfancpr
+  is 'Análisis de la Nueva Capacidad de Pago y Principales Ratios Financieros REF';
+comment on column AQPC819.aqpc819rfanvpg
+  is 'Análisis de la Voluntad de Pago REF';
+comment on column AQPC819.aqpc819rfdegv
+  is 'Detalle de la Garantía Vigente REF';
+comment on column AQPC819.aqpc819usurar
+  is 'Usuario de Analista de riesgos';
+comment on column AQPC819.aqpc819comen
+  is 'Comentario de Unidad de riesgos';
+comment on column AQPC819.aqpc819resol
+  is 'Resolución';
+comment on column AQPC819.aqpc819conrec
+  is 'Condiciones / Recomendaciones';
+comment on column AQPC819.aqpc819argreco
+  is 'Argumentos de Reconsideración';
+comment on column AQPC819.aqpc819anacome
+  is 'Análisis y Comentarios - Reconsideración';
+comment on column AQPC819.aqpc819resolre
+  is 'Resolución - Reconsideración';
+comment on column AQPC819.aqpc819condrec
+  is 'Condiciones / Recomendaciones - Reconsideración';
+comment on column AQPC819.aqpc819horareg
+  is 'Hora Registro';
+comment on column AQPC819.aqpc819estad
+  is 'Estado del registro I - Inhabilitado;H - Habilitado';
+comment on column AQPC819.aqpc819motobsv
+  is 'Motivo de observación';
+create index AQPC819A2 on AQPC819 (AQPC819CODOPI, AQPC819USUR, AQPC819FECPRO, AQPC819CORR);
+create index AQPC819A3 on AQPC819 (AQPC819CODOPI, AQPC819INST);
+create index AQPC819A5 on AQPC819 (AQPC819CODOPI, AQPC819ESTAD);
+alter table AQPC819
+  add primary key (AQPC819CODOPI, AQPC819CORR, AQPC819USUR);
+alter table AQPC819
+  add constraint AQPC819A4 unique (AQPC819CODOPI, AQPC819CORR, AQPC819INST);
+

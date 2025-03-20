@@ -1,0 +1,23 @@
+create table FSFQPM
+(
+  fsfqpmpg NUMBER(3) not null,
+  fsfqpmic NUMBER(9) not null,
+  fsfqpmtp CHAR(1) not null,
+  fsfqpmpm NUMBER(3) not null,
+  fsfqpmme NUMBER(3) not null,
+  fsfqpmha CHAR(1),
+  fsfqpmc1 CHAR(1),
+  fsfqpmc2 CHAR(1),
+  fsfqpmc3 CHAR(10),
+  fsfqpmc4 CHAR(10),
+  fsfqpmc5 CHAR(10),
+  fsfqpmn1 NUMBER(9),
+  fsfqpmn2 NUMBER(9),
+  fsfqpmn3 NUMBER(9),
+  fsfqpmd1 DATE,
+  fsfqpmd2 DATE
+)
+;
+alter table FSFQPM
+  add primary key (FSFQPMPG, FSFQPMIC, FSFQPMTP, FSFQPMPM, FSFQPMME);
+

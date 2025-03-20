@@ -1,0 +1,13 @@
+create table FXT012
+(
+  attmdtid   NUMBER(5) not null,
+  attmdtdsc  CHAR(40),
+  attmdtpgm  CHAR(10),
+  attmdttipo NUMBER(1),
+  attmdtsel  CHAR(10)
+)
+;
+create index FXT01220 on FXT012 (ATTMDTDSC);
+alter table FXT012
+  add primary key (ATTMDTID);
+

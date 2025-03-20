@@ -1,0 +1,27 @@
+create table IBLOGS
+(
+  ibproject   CHAR(60) not null,
+  ibprocess   CHAR(60) not null,
+  ibtask      CHAR(60) not null,
+  iblognum    NUMBER(10) not null,
+  ibloginout  CHAR(3) not null,
+  iblogtad    NUMBER(2) not null,
+  iblogpad    NUMBER(3) not null,
+  iblogdad    CHAR(64) not null,
+  iblogadh    NUMBER(3) not null,
+  iblogip     CHAR(30),
+  iblogdate   DATE not null,
+  iblogtime   CHAR(8) not null,
+  iblogdateu  DATE,
+  iblogtimeu  CHAR(8),
+  iblogsuss   CHAR(100) not null,
+  cnl001usu   CHAR(30) not null,
+  iblogdebug  CLOB not null,
+  iblogcodret CHAR(10),
+  iblogtdiff  NUMBER(6)
+)
+;
+create unique index IBLOGS01 on IBLOGS (IBPROJECT, IBPROCESS, IBTASK, IBLOGNUM, IBLOGINOUT, IBLOGTAD, IBLOGPAD, IBLOGDAD, IBLOGADH);
+create index IBLOGS02 on IBLOGS (IBPROJECT, IBPROCESS, IBTASK);
+create index IBLOGS03 on IBLOGS (IBLOGNUM, IBLOGTAD, IBLOGPAD, IBLOGDAD, IBLOGADH);
+

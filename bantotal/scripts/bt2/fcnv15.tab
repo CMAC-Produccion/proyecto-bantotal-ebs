@@ -1,0 +1,16 @@
+create table FCNV15
+(
+  cnv05teval NUMBER(3) not null,
+  cnv15prcid NUMBER(5) not null,
+  cnv15cdfrm NUMBER(3) not null,
+  cnv15cdgrd NUMBER(3) not null,
+  cnv15attid CHAR(10) not null,
+  cnv15apins CHAR(1),
+  cnv15apupd CHAR(1),
+  cnv15pgm   CHAR(10),
+  cnv15pgma  CHAR(10)
+)
+;
+alter table FCNV15
+  add primary key (CNV05TEVAL, CNV15PRCID, CNV15CDFRM, CNV15CDGRD, CNV15ATTID);
+

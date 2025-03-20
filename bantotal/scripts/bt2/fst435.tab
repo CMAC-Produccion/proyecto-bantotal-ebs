@@ -1,0 +1,14 @@
+create table FST435
+(
+  codtxtor NUMBER(3) not null,
+  modtxtor NUMBER(3) not null,
+  trntxtor NUMBER(3) not null,
+  ordtxtor NUMBER(2) not null,
+  lugtxtor NUMBER(3) not null,
+  txctxtor NUMBER(3) not null,
+  ecttxtor CHAR(1)
+)
+;
+alter table FST435
+  add primary key (CODTXTOR, MODTXTOR, TRNTXTOR, ORDTXTOR, LUGTXTOR, TXCTXTOR);
+

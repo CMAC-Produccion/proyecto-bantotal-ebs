@@ -1,0 +1,18 @@
+create table FSFT68
+(
+  sft60emp   NUMBER(3) not null,
+  sft68cust  NUMBER(9) not null,
+  sft68dep   NUMBER(9) not null,
+  sft68cccus NUMBER(3) not null,
+  sft68comi  NUMBER(3) not null,
+  sft60id    NUMBER(9) not null,
+  sft68nmod  NUMBER(3),
+  sft68ncom  NUMBER(3),
+  sft68hab   CHAR(1),
+  sft68selec CHAR(1)
+)
+;
+create index FSFT6802 on FSFT68 (SFT60EMP, SFT60ID);
+alter table FSFT68
+  add primary key (SFT60EMP, SFT68CUST, SFT68DEP, SFT68CCCUS, SFT68COMI, SFT60ID);
+

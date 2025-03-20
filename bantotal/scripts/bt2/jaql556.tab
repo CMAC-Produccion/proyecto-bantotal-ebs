@@ -1,0 +1,25 @@
+create table JAQL556
+(
+  jaql556pais NUMBER(3) not null,
+  jaql556tdo  NUMBER(2) not null,
+  jaql556ndo  CHAR(12) not null,
+  jaql556id1  NUMBER(3) not null,
+  jaql556id2  NUMBER(3) not null,
+  jaql556id3  NUMBER(3) not null,
+  jaql556ubg  CHAR(6) not null,
+  jaql556dir  CHAR(140),
+  jaql556per  CHAR(30),
+  jaql556ch1  CHAR(20),
+  jaql556ch2  CHAR(40),
+  jaql556ch3  CHAR(60),
+  jaql556nr1  NUMBER(4),
+  jaql556nr2  NUMBER(4),
+  jaql556nr3  NUMBER(4),
+  jaql556fh1  DATE,
+  jaql556fh2  DATE,
+  jaql556fh3  DATE
+)
+;
+alter table JAQL556
+  add primary key (JAQL556PAIS, JAQL556TDO, JAQL556NDO, JAQL556ID1, JAQL556ID2, JAQL556ID3, JAQL556UBG);
+

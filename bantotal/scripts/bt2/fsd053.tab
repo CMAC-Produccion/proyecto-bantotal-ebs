@@ -1,0 +1,48 @@
+create table FSD053
+(
+  chdcod    NUMBER(3) not null,
+  chdmod    NUMBER(3) not null,
+  chdsuc    NUMBER(3) not null,
+  chdmda    NUMBER(4) not null,
+  chdpap    NUMBER(4) not null,
+  chdcta    NUMBER(9) not null,
+  chdoper   NUMBER(9) not null,
+  chdsbop   NUMBER(3) not null,
+  chdtope   NUMBER(3) not null,
+  chdnro    NUMBER(9) not null,
+  chdfecdev DATE,
+  chdfecpre DATE,
+  chdimp    NUMBER(17,2),
+  chdfecemi DATE,
+  chdnomfir CHAR(30),
+  chdvtopre DATE,
+  chdgtocob NUMBER(17,2),
+  chdavi    CHAR(1),
+  chdinfsus CHAR(1),
+  dvnro     NUMBER(3),
+  chdc0101  CHAR(1),
+  chdc0102  CHAR(1),
+  chdc0103  CHAR(1),
+  chdbco    NUMBER(3),
+  chdpza    NUMBER(3),
+  chdn0303  NUMBER(3),
+  chdn0304  NUMBER(3),
+  chdn0305  NUMBER(3),
+  chdnroavi NUMBER(9),
+  chdfpag   DATE,
+  chdc001   DATE,
+  chdc002   CHAR(1),
+  chdc003   CHAR(1),
+  chdc004   NUMBER(9),
+  chdc005   NUMBER(9),
+  chdimpcob NUMBER(17,2),
+  chdimpmul NUMBER(17,2)
+)
+;
+create index FSD05302 on FSD053 (DVNRO);
+create index FSD05303 on FSD053 (CHDFECDEV);
+create index FSD05304 on FSD053 (CHDFECPRE);
+create index FSD05305 on FSD053 (CHDCOD, CHDSUC, CHDFECDEV, CHDCTA);
+alter table FSD053
+  add primary key (CHDCOD, CHDMOD, CHDSUC, CHDMDA, CHDPAP, CHDCTA, CHDOPER, CHDSBOP, CHDTOPE, CHDNRO);
+

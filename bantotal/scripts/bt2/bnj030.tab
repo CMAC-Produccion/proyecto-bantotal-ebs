@@ -1,0 +1,14 @@
+create table BNJ030
+(
+  bnjemp    NUMBER(3) not null,
+  bnjpas    NUMBER(3) not null,
+  bnjpassec NUMBER(3) not null,
+  bnjsrv    NUMBER(1),
+  bnjpgm    CHAR(8),
+  bnjhaybnj CHAR(1)
+)
+;
+create index BNJ03002 on BNJ030 (BNJSRV);
+alter table BNJ030
+  add primary key (BNJEMP, BNJPAS, BNJPASSEC);
+

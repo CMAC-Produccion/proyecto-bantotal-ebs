@@ -1,0 +1,13 @@
+create table JDTMD3
+(
+  jdtmd1ins NUMBER(10) not null,
+  jdtmd1cor NUMBER(3) not null,
+  jdtm08cod NUMBER(5) not null,
+  jdtmd3mto NUMBER(17,2),
+  jdtmd3cta NUMBER(9)
+)
+;
+create index JDTMD302 on JDTMD3 (JDTM08COD);
+alter table JDTMD3
+  add primary key (JDTMD1INS, JDTMD1COR, JDTM08COD);
+

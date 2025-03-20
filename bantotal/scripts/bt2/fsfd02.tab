@@ -1,0 +1,19 @@
+create table FSFD02
+(
+  kdbpgcod2 NUMBER(3) not null,
+  kdbpap    NUMBER(4) not null,
+  kdbfdes   DATE not null,
+  kdbprem   NUMBER(14,8),
+  kdbaux1   NUMBER(14,8),
+  kdbaux2   NUMBER(14,8),
+  kdbnum11  NUMBER(9),
+  kdbnum12  NUMBER(9),
+  kdbcar11  CHAR(1),
+  kdbcar12  CHAR(1),
+  kdbprfinv NUMBER(8)
+)
+;
+create index FSFD0203 on FSFD02 (KDBPGCOD2, KDBPAP, KDBPRFINV);
+alter table FSFD02
+  add primary key (KDBPGCOD2, KDBPAP, KDBFDES);
+

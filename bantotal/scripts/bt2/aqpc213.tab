@@ -1,0 +1,112 @@
+create table AQPC213
+(
+  aqpc213fes DATE not null,
+  aqpc213hos CHAR(8) not null,
+  aqpc213uss CHAR(10) not null,
+  aqpc213cod NUMBER(3) not null,
+  aqpc213mod NUMBER(3) not null,
+  aqpc213suc NUMBER(3) not null,
+  aqpc213mda NUMBER(4) not null,
+  aqpc213pap NUMBER(4) not null,
+  aqpc213cta NUMBER(9) not null,
+  aqpc213ope NUMBER(9) not null,
+  aqpc213sbo NUMBER(3) not null,
+  aqpc213top NUMBER(3) not null,
+  aqpc213fpr DATE not null,
+  aqpc213tip CHAR(1),
+  aqpc213num NUMBER(9),
+  aqpc213fad DATE,
+  aqpc2136cd NUMBER(3),
+  aqpc2136mo NUMBER(3),
+  aqpc2136su NUMBER(3),
+  aqpc2136tr NUMBER(3),
+  aqpc2136re NUMBER(4),
+  aqpc2136fc DATE,
+  aqpc2136or NUMBER(2),
+  aqpc2136sb NUMBER(3),
+  aqpc213dag CHAR(30),
+  aqpc213dao CHAR(30),
+  aqpc213cre CHAR(22),
+  aqpc213nom CHAR(100),
+  aqpc213est CHAR(30),
+  aqpc213fve DATE,
+  aqpc213mon CHAR(30),
+  aqpc213sdo NUMBER(17,2),
+  aqpc213hor CHAR(8),
+  aqpc213ana CHAR(10)
+)
+;
+comment on table AQPC213
+  is 'Log Reporte de pagos adelantados';
+comment on column AQPC213.aqpc213fes
+  is 'Fecha Sistema';
+comment on column AQPC213.aqpc213hos
+  is 'Hora Sistema';
+comment on column AQPC213.aqpc213uss
+  is 'Usuario Sistema';
+comment on column AQPC213.aqpc213cod
+  is 'Código de Empresa ';
+comment on column AQPC213.aqpc213mod
+  is 'Modulo';
+comment on column AQPC213.aqpc213suc
+  is 'Sucursal';
+comment on column AQPC213.aqpc213mda
+  is 'Moneda';
+comment on column AQPC213.aqpc213pap
+  is 'Papel';
+comment on column AQPC213.aqpc213cta
+  is 'Cuenta';
+comment on column AQPC213.aqpc213ope
+  is 'Operacíon';
+comment on column AQPC213.aqpc213sbo
+  is 'Sub Operación ';
+comment on column AQPC213.aqpc213top
+  is 'Tipo de Operación';
+comment on column AQPC213.aqpc213fpr
+  is 'Fecha de Pago Prevista';
+comment on column AQPC213.aqpc213tip
+  is 'Tipo';
+comment on column AQPC213.aqpc213num
+  is 'Número Cuota';
+comment on column AQPC213.aqpc213fad
+  is 'Fecha de Pago Adelantado';
+comment on column AQPC213.aqpc2136cd
+  is 'Código de Empresa Contabilizo';
+comment on column AQPC213.aqpc2136mo
+  is 'Modulo Contabilizo  ';
+comment on column AQPC213.aqpc2136su
+  is 'Sucursal Contabilizo';
+comment on column AQPC213.aqpc2136tr
+  is 'Transacción Contabilizo';
+comment on column AQPC213.aqpc2136re
+  is 'Relación Contabilizo';
+comment on column AQPC213.aqpc2136fc
+  is 'Fecha';
+comment on column AQPC213.aqpc2136or
+  is 'Ordinal';
+comment on column AQPC213.aqpc2136sb
+  is 'Sub Ordinal';
+comment on column AQPC213.aqpc213dag
+  is 'Descripción Agencia';
+comment on column AQPC213.aqpc213dao
+  is 'Descripción Agencia Operación';
+comment on column AQPC213.aqpc213cre
+  is 'Crédito';
+comment on column AQPC213.aqpc213nom
+  is 'Nombre Cliente';
+comment on column AQPC213.aqpc213est
+  is 'Estado';
+comment on column AQPC213.aqpc213fve
+  is 'Fecha de Vencimiento del Credito';
+comment on column AQPC213.aqpc213mon
+  is 'Descripción Moneda';
+comment on column AQPC213.aqpc213sdo
+  is 'Saldo Capital';
+comment on column AQPC213.aqpc213hor
+  is 'Hora de Pago Adelantado';
+comment on column AQPC213.aqpc213ana
+  is 'Analista';
+create index AQPC213A2 on AQPC213 (AQPC213FAD, AQPC213HOR, AQPC213FES, AQPC213HOS, AQPC213USS);
+alter table AQPC213
+  add primary key (AQPC213FES, AQPC213HOS, AQPC213USS, AQPC213COD, AQPC213MOD, AQPC213SUC, AQPC213MDA, AQPC213PAP, AQPC213CTA, AQPC213OPE, AQPC213SBO, AQPC213TOP, AQPC213FPR);
+

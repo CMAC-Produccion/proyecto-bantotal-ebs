@@ -1,0 +1,46 @@
+create table AQPB423
+(
+  aqpb423emp    NUMBER(3) not null,
+  aqpb423suc    NUMBER(3) not null,
+  aqpb423mod    NUMBER(3) not null,
+  aqpb423mda    NUMBER(4) not null,
+  aqpb423pap    NUMBER(4) not null,
+  aqpb423cta    NUMBER(9) not null,
+  aqpb423ope    NUMBER(9) not null,
+  aqpb423sbo    NUMBER(3) not null,
+  aqpb423top    NUMBER(3) not null,
+  aqpb423ins    NUMBER(10),
+  aqpb423sdo    NUMBER(18,2),
+  aqpb423mtoa   NUMBER(18,2),
+  aqpb423pcj    NUMBER(5,2),
+  aqpb423tip    NUMBER(2),
+  aqpb423empg   NUMBER(3),
+  aqpb423sucg   NUMBER(3),
+  aqpb423modg   NUMBER(3),
+  aqpb423mdag   NUMBER(4),
+  aqpb423papg   NUMBER(4),
+  aqpb423ctag   NUMBER(9),
+  aqpb423opeg   NUMBER(9),
+  aqpb423sbog   NUMBER(3),
+  aqpb423topg   NUMBER(3),
+  aqpb423est    CHAR(1),
+  aqpb423itcod  NUMBER(3) not null,
+  aqpb423itmod  NUMBER(3) not null,
+  aqpb423itsuc  NUMBER(3) not null,
+  aqpb423ittran NUMBER(3) not null,
+  aqpb423itnrel NUMBER(4) not null,
+  aqpb423itfcon DATE not null,
+  aqpb423ithor  CHAR(8),
+  aqpb423itucnf CHAR(10),
+  aqpb423usuact CHAR(10),
+  aqpb423fecact DATE
+)
+;
+create index AQPB4232 on AQPB423 (AQPB423ITCOD, AQPB423ITMOD, AQPB423ITSUC, AQPB423ITTRAN, AQPB423ITNREL, AQPB423ITFCON);
+create index AQPB4233 on AQPB423 (AQPB423CTA, AQPB423EST);
+create index AQPB4234 on AQPB423 (AQPB423EMP, AQPB423SUC, AQPB423MOD, AQPB423MDA, AQPB423PAP, AQPB423CTA, AQPB423OPE, AQPB423SBO, AQPB423TOP);
+create index AQPB4235 on AQPB423 (AQPB423EMPG, AQPB423SUCG, AQPB423MODG, AQPB423MDAG, AQPB423PAPG, AQPB423CTAG, AQPB423OPEG, AQPB423SBOG, AQPB423TOPG);
+create index AQPB4236 on AQPB423 (AQPB423CTAG, AQPB423EST);
+alter table AQPB423
+  add primary key (AQPB423EMP, AQPB423SUC, AQPB423MOD, AQPB423MDA, AQPB423PAP, AQPB423CTA, AQPB423OPE, AQPB423SBO, AQPB423TOP, AQPB423ITCOD, AQPB423ITMOD, AQPB423ITSUC, AQPB423ITTRAN, AQPB423ITNREL, AQPB423ITFCON);
+

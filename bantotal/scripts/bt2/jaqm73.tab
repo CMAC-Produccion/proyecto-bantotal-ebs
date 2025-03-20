@@ -1,0 +1,61 @@
+create table JAQM73
+(
+  jaqm73ins NUMBER(10) not null,
+  jaqm73fec DATE not null,
+  jaqm73cor NUMBER(4) not null,
+  jaqm73hor CHAR(8),
+  jaqm73est CHAR(1),
+  jaqm73ai1 NUMBER(17,2),
+  jaqm73ai2 NUMBER(17,2),
+  jaqm73ai3 NUMBER(17,2),
+  jaqm73ad1 DATE,
+  jaqm73ad2 DATE,
+  jaqm73ad3 DATE,
+  jaqm73an1 NUMBER(9),
+  jaqm73an2 NUMBER(9),
+  jaqm73an3 NUMBER(9),
+  jaqm73ac1 CHAR(255),
+  jaqm73ac2 CHAR(255),
+  jaqm73ac3 CHAR(255)
+)
+;
+comment on table JAQM73
+  is 'Prevalidación Contratación Digital';
+comment on column JAQM73.jaqm73ins
+  is 'Instancia';
+comment on column JAQM73.jaqm73fec
+  is 'Fecha';
+comment on column JAQM73.jaqm73cor
+  is 'Correlativo';
+comment on column JAQM73.jaqm73hor
+  is 'Hora';
+comment on column JAQM73.jaqm73est
+  is 'Estado';
+comment on column JAQM73.jaqm73ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM73.jaqm73ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM73.jaqm73ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM73.jaqm73ad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM73.jaqm73ad2
+  is 'Auxiliar Fecha 2';
+comment on column JAQM73.jaqm73ad3
+  is 'Auxiliar Fecha 3';
+comment on column JAQM73.jaqm73an1
+  is 'Auxiliar Numérico 1';
+comment on column JAQM73.jaqm73an2
+  is 'Auxiliar Numérico 2';
+comment on column JAQM73.jaqm73an3
+  is 'Auxiliar Numérico 3';
+comment on column JAQM73.jaqm73ac1
+  is 'Auxiliar Carácter 1';
+comment on column JAQM73.jaqm73ac2
+  is 'Auxiliar Carácter 2';
+comment on column JAQM73.jaqm73ac3
+  is 'Auxiliar Carácter 3';
+create index JAQM73A2 on JAQM73 (JAQM73INS, JAQM73FEC, JAQM73COR, JAQM73EST);
+alter table JAQM73
+  add primary key (JAQM73INS, JAQM73FEC, JAQM73COR);
+

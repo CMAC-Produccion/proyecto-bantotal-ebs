@@ -1,0 +1,25 @@
+create table JMB011
+(
+  jmb011pais NUMBER(3) not null,
+  jmb011tdoc NUMBER(2) not null,
+  jmb011ndoc CHAR(12) not null,
+  jmb011apec CHAR(30),
+  jmb011ubic CHAR(6),
+  jmb011nome CHAR(50),
+  jmb011conp NUMBER(3),
+  jmb011cont NUMBER(2),
+  jmb011conn CHAR(12),
+  jmb011con1 CHAR(30),
+  jmb011dpto NUMBER(5),
+  jmb011prov NUMBER(5),
+  jmb011dist NUMBER(9),
+  jmb011aux  CHAR(60),
+  jmb011nror NUMBER(15),
+  jmb011caps NUMBER(17,2),
+  jmb011tpac NUMBER(12),
+  jmb011act2 NUMBER(9)
+)
+;
+alter table JMB011
+  add primary key (JMB011PAIS, JMB011TDOC, JMB011NDOC);
+

@@ -1,0 +1,10 @@
+create table PEGPRG
+(
+  pegprjid CHAR(80) not null,
+  peggrpid CHAR(80) not null
+)
+;
+create index PEGPRG02 on PEGPRG (PEGGRPID);
+alter table PEGPRG
+  add primary key (PEGPRJID, PEGGRPID);
+

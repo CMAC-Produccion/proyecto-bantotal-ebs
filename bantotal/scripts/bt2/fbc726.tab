@@ -1,0 +1,24 @@
+create table FBC726
+(
+  bc726emp   NUMBER(3) not null,
+  bc726cpo   CHAR(8) not null,
+  bc726pais  NUMBER(3) not null,
+  bc726tdoc  NUMBER(2) not null,
+  bc726ndoc  CHAR(12) not null,
+  bc726cod   CHAR(2),
+  bc726sbcod CHAR(2),
+  bc726imp1  NUMBER(17,2),
+  bc726imp2  NUMBER(17,2),
+  bc726imp3  NUMBER(17,2),
+  bc726imp4  NUMBER(17,2),
+  bc726info  CHAR(1),
+  bc726ting  CHAR(1),
+  bc726paisa NUMBER(3),
+  bc726tdoca NUMBER(2),
+  bc726ndoca CHAR(12)
+)
+;
+create index FBC72602 on FBC726 (BC726EMP, BC726PAISA, BC726TDOCA, BC726NDOCA, BC726CPO);
+alter table FBC726
+  add primary key (BC726EMP, BC726CPO, BC726PAIS, BC726TDOC, BC726NDOC);
+

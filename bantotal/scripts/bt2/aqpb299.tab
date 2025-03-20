@@ -1,0 +1,54 @@
+create table AQPB299
+(
+  aqpb299doc   CHAR(12) not null,
+  aqpb299emp   NUMBER(3) not null,
+  aqpb299suc   NUMBER(3) not null,
+  aqpb299mod   NUMBER(3) not null,
+  aqpb299mda   NUMBER(4) not null,
+  aqpb299pap   NUMBER(4) not null,
+  aqpb299cta   NUMBER(9) not null,
+  aqpb299oper  NUMBER(9) not null,
+  aqpb299sbop  NUMBER(3) not null,
+  aqpb299top   NUMBER(3) not null,
+  aqpb299dia   NUMBER(3) not null,
+  aqpb299ind   VARCHAR2(20),
+  aqpb299pais  NUMBER(3),
+  aqpb299tdoc  NUMBER(2),
+  aqpb299ancla VARCHAR2(8)
+)
+;
+comment on table AQPB299
+  is 'Tabla riesgos AQPB299';
+comment on column AQPB299.aqpb299doc
+  is 'Numdoc';
+comment on column AQPB299.aqpb299emp
+  is 'pgcod';
+comment on column AQPB299.aqpb299suc
+  is 'sucursal';
+comment on column AQPB299.aqpb299mod
+  is 'modulo';
+comment on column AQPB299.aqpb299mda
+  is 'moneda';
+comment on column AQPB299.aqpb299pap
+  is 'papel';
+comment on column AQPB299.aqpb299cta
+  is 'cuenta';
+comment on column AQPB299.aqpb299oper
+  is 'operacion';
+comment on column AQPB299.aqpb299sbop
+  is 'suboperacion';
+comment on column AQPB299.aqpb299top
+  is 'tipooperacion';
+comment on column AQPB299.aqpb299dia
+  is 'dias atraso';
+comment on column AQPB299.aqpb299ind
+  is 'indicador viabilidad';
+comment on column AQPB299.aqpb299pais
+  is 'pais';
+comment on column AQPB299.aqpb299tdoc
+  is 'tipo doc';
+comment on column AQPB299.aqpb299ancla
+  is 'Identificador Cred Ancla';
+alter table AQPB299
+  add primary key (AQPB299DOC, AQPB299EMP, AQPB299SUC, AQPB299MOD, AQPB299MDA, AQPB299PAP, AQPB299CTA, AQPB299OPER, AQPB299SBOP, AQPB299TOP);
+

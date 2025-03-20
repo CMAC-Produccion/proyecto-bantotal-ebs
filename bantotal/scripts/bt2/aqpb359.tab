@@ -1,0 +1,31 @@
+create table AQPB359
+(
+  aqpb359eval NUMBER(10) not null,
+  aqpb359cod  NUMBER(4) not null,
+  aqpb359lin  NUMBER(3) not null,
+  aqpb359mto1 NUMBER(17,2),
+  aqpb359mto2 NUMBER(17,2),
+  aqpb359mto3 NUMBER(17,2),
+  aqpb359mto4 NUMBER(17,2),
+  aqpb359mda1 NUMBER(4),
+  aqpb359mda2 NUMBER(4),
+  aqpb359mda3 NUMBER(4),
+  aqpb359mda4 NUMBER(4),
+  aqpb359txt1 CHAR(40),
+  aqpb359txt2 CHAR(40),
+  aqpb359txt3 CHAR(40),
+  aqpb359con1 CHAR(10),
+  aqpb359con2 CHAR(12),
+  aqpb359con3 CHAR(10),
+  aqpb359can1 NUMBER(10,3),
+  aqpb359can2 NUMBER(10,3),
+  aqpb359can3 NUMBER(10,3),
+  aqpb359can4 NUMBER(10,3),
+  aqpb359txl1 CHAR(50),
+  aqpb359txl2 CHAR(50),
+  aqpb359txl3 CHAR(50)
+)
+;
+alter table AQPB359
+  add primary key (AQPB359EVAL, AQPB359COD, AQPB359LIN);
+

@@ -1,0 +1,25 @@
+create table JMBS01
+(
+  jmbs01atm CHAR(4) not null,
+  jmbs01f01 CHAR(4) not null,
+  jmbs0120s CHAR(4) not null,
+  jmbs01f02 CHAR(4) not null,
+  jmbs0150s CHAR(4) not null,
+  jmbs01f03 CHAR(4) not null,
+  jmbs0199s CHAR(4) not null,
+  jmbs01f04 CHAR(4) not null,
+  jmbs0120d CHAR(4) not null,
+  jmbs01f05 CHAR(4) not null,
+  jmbs01fec CHAR(10) not null,
+  jmbs01f06 CHAR(4) not null,
+  jmbs01pan CHAR(40) not null,
+  jmbs01f07 CHAR(4) not null,
+  jmbs01tim CHAR(14) not null,
+  jmbs01f08 CHAR(4) not null,
+  jmbs01tra CHAR(5) not null,
+  jmbs01f09 CHAR(4) not null,
+  jmbs01amo CHAR(10) not null
+)
+;
+create unique index JMBS0100 on JMBS01 (JMBS01ATM, JMBS01F01, JMBS0120S, JMBS01F02, JMBS0150S, JMBS01F03, JMBS0199S, JMBS01F04, JMBS0120D, JMBS01F05, JMBS01FEC, JMBS01F06, JMBS01PAN, JMBS01F07, JMBS01TIM, JMBS01F08, JMBS01TRA, JMBS01F09, JMBS01AMO);
+

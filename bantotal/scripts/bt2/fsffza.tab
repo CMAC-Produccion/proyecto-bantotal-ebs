@@ -1,0 +1,14 @@
+create table FSFFZA
+(
+  fsffzacod  NUMBER(5) not null,
+  fsffzausu  CHAR(10),
+  fsffzanom  CHAR(50),
+  fsffzatel1 CHAR(15),
+  fsffzatel2 CHAR(15),
+  fsffzamail CHAR(50)
+)
+;
+create index FSFFZA02 on FSFFZA (FSFFZAUSU);
+alter table FSFFZA
+  add primary key (FSFFZACOD);
+

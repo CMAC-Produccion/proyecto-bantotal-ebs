@@ -1,0 +1,18 @@
+create table SNW006
+(
+  snw006japg NUMBER(3) not null,
+  snw006jact NUMBER(9) not null,
+  snw006j0co CHAR(10) not null,
+  snw006jjco NUMBER(1) not null,
+  snw006jbco CHAR(10) not null,
+  snw006jbid CHAR(22) not null,
+  snw006ext  CHAR(1),
+  snw006per  NUMBER(4),
+  snw006come NUMBER(3),
+  snw006coma NUMBER(3),
+  snw006fue  DATE
+)
+;
+alter table SNW006
+  add primary key (SNW006JAPG, SNW006JACT, SNW006J0CO, SNW006JJCO, SNW006JBCO, SNW006JBID);
+

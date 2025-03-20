@@ -1,0 +1,38 @@
+create table FBRH02
+(
+  brh01rqemp NUMBER(3) not null,
+  brh01rqcor NUMBER(10) not null,
+  brh02excor NUMBER(5) not null,
+  brh02extbl CHAR(10),
+  brh02exdsc CHAR(50),
+  brh02nro01 NUMBER(5),
+  brh02nro02 NUMBER(5),
+  brh02nro03 NUMBER(5),
+  brh02nro04 NUMBER(5),
+  brh02nro05 NUMBER(5),
+  brh02nro06 NUMBER(10),
+  brh02nro07 NUMBER(10),
+  brh02nro08 NUMBER(10),
+  brh02nro09 NUMBER(16),
+  brh02nro10 NUMBER(16),
+  brh02imp01 NUMBER(17,2),
+  brh02imp02 NUMBER(17,2),
+  brh02imp03 NUMBER(17,2),
+  brh02imp04 NUMBER(17,2),
+  brh02imp05 NUMBER(17,2),
+  brh02chr01 CHAR(50),
+  brh02chr02 CHAR(50),
+  brh02chr03 CHAR(50),
+  brh02chr04 CHAR(50),
+  brh02chr05 CHAR(50),
+  brh02fch01 DATE,
+  brh02fch02 DATE,
+  brh02fch03 DATE,
+  brh02fch04 DATE,
+  brh02fch05 DATE
+)
+;
+create index FBRH0203 on FBRH02 (BRH01RQEMP, BRH02EXCOR, BRH02NRO01, BRH02NRO02, BRH02NRO03, BRH02NRO04, BRH02NRO05, BRH02NRO06, BRH02NRO07, BRH02NRO08, BRH02NRO09, BRH02NRO10);
+alter table FBRH02
+  add primary key (BRH01RQEMP, BRH01RQCOR, BRH02EXCOR);
+

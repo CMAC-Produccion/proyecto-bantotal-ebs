@@ -1,0 +1,14 @@
+create table SNGU02
+(
+  sngu02pgc NUMBER(3) not null,
+  sngu02usr CHAR(10) not null,
+  sngu01tip NUMBER(2),
+  sngu02cod NUMBER(5),
+  sngu02inh CHAR(1),
+  sngu02fin DATE
+)
+;
+create index SNGU0202 on SNGU02 (SNGU01TIP);
+alter table SNGU02
+  add primary key (SNGU02PGC, SNGU02USR);
+

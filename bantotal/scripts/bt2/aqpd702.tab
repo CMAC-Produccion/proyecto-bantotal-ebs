@@ -1,0 +1,73 @@
+create table AQPD702
+(
+  aqpd702ins   NUMBER(10) not null,
+  aqpd702pais  NUMBER(3),
+  aqpd702tdoc  NUMBER(2),
+  aqpd702ndoc  CHAR(12),
+  aqpd702user  VARCHAR2(10),
+  aqpd702fechc DATE,
+  aqpd702horac VARCHAR2(8),
+  aqpd702annoc NUMBER(4),
+  aqpd702mes1  NUMBER(17,2),
+  aqpd702mes2  NUMBER(17,2),
+  aqpd702mes3  NUMBER(17,2),
+  aqpd702mes4  NUMBER(17,2),
+  aqpd702mes5  NUMBER(17,2),
+  aqpd702mes6  NUMBER(17,2),
+  aqpd702mes7  NUMBER(17,2),
+  aqpd702mes8  NUMBER(17,2),
+  aqpd702mes9  NUMBER(17,2),
+  aqpd702mes10 NUMBER(17,2),
+  aqpd702mes11 NUMBER(17,2),
+  aqpd702mes12 NUMBER(17,2)
+)
+;
+comment on table AQPD702
+  is 'Tabla de matriz';
+comment on column AQPD702.aqpd702ins
+  is 'Instancia';
+comment on column AQPD702.aqpd702pais
+  is 'Pais del cliente';
+comment on column AQPD702.aqpd702tdoc
+  is 'Tipo de documento del cliente';
+comment on column AQPD702.aqpd702ndoc
+  is 'Documento del cliente';
+comment on column AQPD702.aqpd702user
+  is 'Usuario';
+comment on column AQPD702.aqpd702fechc
+  is 'Fecha de consulta';
+comment on column AQPD702.aqpd702horac
+  is 'Hora de consulta';
+comment on column AQPD702.aqpd702annoc
+  is 'Año de consulta';
+comment on column AQPD702.aqpd702mes1
+  is 'Mes de enero';
+comment on column AQPD702.aqpd702mes2
+  is 'Mes de febrero';
+comment on column AQPD702.aqpd702mes3
+  is 'Mes de marzo';
+comment on column AQPD702.aqpd702mes4
+  is 'Mes de abril';
+comment on column AQPD702.aqpd702mes5
+  is 'Mes de mayo';
+comment on column AQPD702.aqpd702mes6
+  is 'Mes de junio';
+comment on column AQPD702.aqpd702mes7
+  is 'Mes de julio';
+comment on column AQPD702.aqpd702mes8
+  is 'Mes de agosto';
+comment on column AQPD702.aqpd702mes9
+  is 'Mes de septiembre';
+comment on column AQPD702.aqpd702mes10
+  is 'Mes de octubre';
+comment on column AQPD702.aqpd702mes11
+  is 'Mes de noviembre';
+comment on column AQPD702.aqpd702mes12
+  is 'Mes de diciembre';
+create index AQPD702A1 on AQPD702 (AQPD702INS);
+create index AQPD702A2 on AQPD702 (AQPD702INS, AQPD702USER);
+create index AQPD702A3 on AQPD702 (AQPD702INS, AQPD702FECHC);
+create index AQPD702A4 on AQPD702 (AQPD702PAIS, AQPD702TDOC, AQPD702NDOC);
+alter table AQPD702
+  add primary key (AQPD702INS);
+

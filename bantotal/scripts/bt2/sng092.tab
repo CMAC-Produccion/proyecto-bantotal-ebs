@@ -1,0 +1,22 @@
+create table SNG092
+(
+  sng092cod  NUMBER(10) not null,
+  sng092wrki NUMBER(10),
+  sng092pgc  NUMBER(3),
+  sng092mod  NUMBER(3),
+  sng092suc  NUMBER(3),
+  sng092trn  NUMBER(3),
+  sng092rel  NUMBER(4),
+  sng092fec  DATE,
+  sng092ord  NUMBER(2),
+  sng092sbo  NUMBER(3),
+  sng092pqt  NUMBER(10),
+  sng092stat CHAR(1),
+  sng092ncor NUMBER(4),
+  sng092ins  NUMBER(10)
+)
+;
+create index SNG09291 on SNG092 (SNG092WRKI, SNG092INS);
+alter table SNG092
+  add primary key (SNG092COD);
+

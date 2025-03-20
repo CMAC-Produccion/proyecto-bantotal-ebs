@@ -1,0 +1,12 @@
+create table JAQZ220
+(
+  jaqz220usu CHAR(10) not null,
+  jaqz220fec DATE not null,
+  jaqz220hor CHAR(8) not null,
+  jaqz220tok NUMBER(10),
+  jaqz220fet DATE
+)
+;
+alter table JAQZ220
+  add primary key (JAQZ220USU, JAQZ220FEC, JAQZ220HOR);
+

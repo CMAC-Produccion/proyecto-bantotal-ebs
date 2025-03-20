@@ -1,0 +1,19 @@
+create table AQPB084A
+(
+  aqpb084ainst NUMBER(10) not null,
+  aqpb084acsbs VARCHAR2(10) not null,
+  aqpb084acuen CHAR(14) not null,
+  aqpb084agrup NUMBER(4),
+  aqpb084atipo NUMBER(4),
+  aqpb084asald NUMBER(17,2),
+  aqpb084acont NUMBER(5),
+  aqpb084afpre DATE,
+  aqpb084atdoc NUMBER(3),
+  aqpb084andoc CHAR(12),
+  aqpb084afech DATE,
+  aqpb084ahora CHAR(8)
+)
+;
+alter table AQPB084A
+  add primary key (AQPB084AINST, AQPB084ACSBS, AQPB084ACUEN);
+

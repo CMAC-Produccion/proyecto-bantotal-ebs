@@ -1,0 +1,20 @@
+create table JAQY966
+(
+  jaqy966pgcod NUMBER(3) not null,
+  jaqy966mod   NUMBER(3) not null,
+  jaqy966suc   NUMBER(3) not null,
+  jaqy966mda   NUMBER(4) not null,
+  jaqy966pap   NUMBER(4) not null,
+  jaqy966cta   NUMBER(9) not null,
+  jaqy966oper  NUMBER(9) not null,
+  jaqy966sbop  NUMBER(3) not null,
+  jaqy966tope  NUMBER(3) not null,
+  jaqy966fec   DATE not null,
+  jaqy966imp1  NUMBER(16,2),
+  jaqy966imp2  NUMBER(16,2),
+  jaqy966est   CHAR(1)
+)
+;
+alter table JAQY966
+  add primary key (JAQY966PGCOD, JAQY966MOD, JAQY966SUC, JAQY966MDA, JAQY966PAP, JAQY966CTA, JAQY966OPER, JAQY966SBOP, JAQY966TOPE, JAQY966FEC);
+

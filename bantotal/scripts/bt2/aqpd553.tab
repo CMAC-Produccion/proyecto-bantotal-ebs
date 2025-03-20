@@ -1,0 +1,27 @@
+create table AQPD553
+(
+  aqpd553nutar    CHAR(19) not null,
+  aqpd553nutra    VARCHAR2(12) not null,
+  aqpd553coter    VARCHAR2(20),
+  aqpd553imptrans NUMBER(8,2),
+  aqpd553fetra    DATE,
+  aqpd553nrodoc   CHAR(12)
+)
+;
+comment on table AQPD553
+  is 'Tabla reporte de transacciones ATM';
+comment on column AQPD553.aqpd553nutar
+  is 'Numero tarjeta';
+comment on column AQPD553.aqpd553nutra
+  is 'Numero trace';
+comment on column AQPD553.aqpd553coter
+  is 'Numero ATM';
+comment on column AQPD553.aqpd553imptrans
+  is 'Importe transaccion';
+comment on column AQPD553.aqpd553fetra
+  is 'Fecha transaccion';
+comment on column AQPD553.aqpd553nrodoc
+  is 'Numero de dcoumento';
+alter table AQPD553
+  add primary key (AQPD553NUTAR, AQPD553NUTRA);
+

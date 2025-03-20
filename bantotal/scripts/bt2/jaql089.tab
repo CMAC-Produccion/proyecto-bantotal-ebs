@@ -1,0 +1,26 @@
+create table JAQL089
+(
+  jaql89fepr DATE not null,
+  jaql89coin CHAR(20) not null,
+  jaql89copa CHAR(20) not null,
+  jaql89mone NUMBER(3) not null,
+  jaql89au04 NUMBER(9) not null,
+  jaql89au10 DATE not null,
+  jaql89mtop NUMBER(17,2),
+  jaql89esta CHAR(1),
+  jaql89deta CHAR(250),
+  jaql89au01 CHAR(50),
+  jaql89au02 CHAR(50),
+  jaql89au03 CHAR(50),
+  jaql89au05 NUMBER(9),
+  jaql89au06 NUMBER(9),
+  jaql89au07 NUMBER(17,2),
+  jaql89au08 NUMBER(17,2),
+  jaql89au09 NUMBER(17,2),
+  jaql89au11 DATE,
+  jaql89au12 DATE
+)
+;
+alter table JAQL089
+  add primary key (JAQL89FEPR, JAQL89COIN, JAQL89COPA, JAQL89MONE, JAQL89AU04, JAQL89AU10);
+

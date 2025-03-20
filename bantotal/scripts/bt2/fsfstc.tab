@@ -1,0 +1,19 @@
+create table FSFSTC
+(
+  sfst1merc NUMBER(3) not null,
+  sfstccod  NUMBER(3) not null,
+  sfstcden  CHAR(10),
+  sfstcraz  CHAR(30),
+  sfstcdir  CHAR(30),
+  sfstcloc  CHAR(15),
+  sfstccp   NUMBER(5),
+  sfstcres  CHAR(30),
+  sfstctel  CHAR(20),
+  sfstcfax  CHAR(20),
+  sfstcest  CHAR(1),
+  sfstccta  NUMBER(9)
+)
+;
+alter table FSFSTC
+  add primary key (SFST1MERC, SFSTCCOD);
+

@@ -1,0 +1,14 @@
+create table FCR110
+(
+  pgcod    NUMBER(3) not null,
+  semod    NUMBER(3) not null,
+  seoper   NUMBER(9) not null,
+  mopctipo NUMBER(2) not null,
+  mopccod  NUMBER(3) not null,
+  seopcsts CHAR(1)
+)
+;
+create index FCR11003 on FCR110 (SEMOD, MOPCTIPO, MOPCCOD);
+alter table FCR110
+  add primary key (PGCOD, SEMOD, SEOPER, MOPCTIPO, MOPCCOD);
+

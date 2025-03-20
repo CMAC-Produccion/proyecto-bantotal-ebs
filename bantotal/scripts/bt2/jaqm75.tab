@@ -1,0 +1,65 @@
+create table JAQM75
+(
+  jaqm75mod NUMBER(3) not null,
+  jaqm75top NUMBER(3) not null,
+  jaqm75cui VARCHAR2(50) not null,
+  jaqm75agr NUMBER(4),
+  jaqm75tip CHAR(1),
+  jaqm75min NUMBER(4),
+  jaqm75ai1 NUMBER(17,2),
+  jaqm75ai2 NUMBER(17,2),
+  jaqm75ai3 NUMBER(17,2),
+  jaqm75ad1 DATE,
+  jaqm75ad2 DATE,
+  jaqm75ad3 DATE,
+  jaqm75an1 NUMBER(9),
+  jaqm75an2 NUMBER(9),
+  jaqm75an3 NUMBER(9),
+  jaqm75ac1 CHAR(255),
+  jaqm75ac2 CHAR(255),
+  jaqm75ac3 CHAR(255)
+)
+;
+comment on table JAQM75
+  is 'Documentos de Validacion por Expediente';
+comment on column JAQM75.jaqm75mod
+  is 'Modulo';
+comment on column JAQM75.jaqm75top
+  is 'Tipo de Operacion ';
+comment on column JAQM75.jaqm75cui
+  is 'Codigo Unico Interno';
+comment on column JAQM75.jaqm75agr
+  is 'Agrupador';
+comment on column JAQM75.jaqm75tip
+  is 'Tipo (B - Obligatorio, P - Opcional )';
+comment on column JAQM75.jaqm75min
+  is 'Cantidad minima';
+comment on column JAQM75.jaqm75ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM75.jaqm75ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM75.jaqm75ai3
+  is 'Auxiliar importe 3';
+comment on column JAQM75.jaqm75ad1
+  is 'Auxiliar fecha 1';
+comment on column JAQM75.jaqm75ad2
+  is 'Auxiliar fecha 2';
+comment on column JAQM75.jaqm75ad3
+  is 'Auxiliar fecha 3';
+comment on column JAQM75.jaqm75an1
+  is 'Auxiliar numerico 1 ';
+comment on column JAQM75.jaqm75an2
+  is 'Auxiliar numerico 2';
+comment on column JAQM75.jaqm75an3
+  is 'Auxiliar numerico 3';
+comment on column JAQM75.jaqm75ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM75.jaqm75ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM75.jaqm75ac3
+  is 'Auxiliar Caracter 3';
+create index JAQM75A2 on JAQM75 (JAQM75CUI);
+create index JAQM75A3 on JAQM75 (JAQM75AGR);
+alter table JAQM75
+  add primary key (JAQM75MOD, JAQM75TOP, JAQM75CUI);
+

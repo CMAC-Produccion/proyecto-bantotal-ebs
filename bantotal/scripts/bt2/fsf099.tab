@@ -1,0 +1,10 @@
+create table FSF099
+(
+  pgcod     NUMBER(3) not null,
+  ltdpgmnom CHAR(8) not null,
+  ltddocnom CHAR(200) not null
+)
+;
+alter table FSF099
+  add primary key (PGCOD, LTDPGMNOM, LTDDOCNOM);
+

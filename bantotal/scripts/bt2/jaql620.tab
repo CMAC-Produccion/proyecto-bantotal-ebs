@@ -1,0 +1,16 @@
+create table JAQL620
+(
+  jaql620retyp  VARCHAR2(20) not null,
+  jaql620trxid  VARCHAR2(50) not null,
+  jaql620trxda  DATE,
+  jaql620otrid  VARCHAR2(50),
+  jaql620orecei VARCHAR2(100),
+  jaql620oamou  NUMBER(17,2),
+  jaql620messa  VARCHAR2(256),
+  jaql620hora   VARCHAR2(8),
+  jaql620estgen CHAR(1)
+)
+;
+alter table JAQL620
+  add primary key (JAQL620RETYP, JAQL620TRXID);
+

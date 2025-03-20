@@ -1,0 +1,16 @@
+create table JFAW066
+(
+  jfaw066paa NUMBER(9) not null,
+  jfaw66dpa  NUMBER(9) not null,
+  jfaw066loa NUMBER(9) not null,
+  jfaw066baa NUMBER(9) not null,
+  jfaw066pai NUMBER(3),
+  jfaw066dep NUMBER(5),
+  jfaw066loc NUMBER(5),
+  jfaw066bar NUMBER(9)
+)
+;
+create index JFAW0662 on JFAW066 (JFAW066PAI, JFAW066DEP, JFAW066LOC, JFAW066BAR);
+alter table JFAW066
+  add primary key (JFAW066PAA, JFAW66DPA, JFAW066LOA, JFAW066BAA);
+

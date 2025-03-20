@@ -1,0 +1,20 @@
+create table PRD003
+(
+  pgcod     NUMBER(3) not null,
+  modulo    NUMBER(3) not null,
+  totope    NUMBER(3) not null,
+  moneda    NUMBER(4) not null,
+  papel     NUMBER(4) not null,
+  cocod     NUMBER(3) not null,
+  prd3porc  NUMBER(10,6),
+  prd3impte NUMBER(17,2),
+  prd3tpop  CHAR(1),
+  prd3pgma  CHAR(10),
+  prd3aux1  NUMBER(1),
+  prd3aux2  DATE
+)
+;
+create index PRD00302 on PRD003 (COCOD);
+alter table PRD003
+  add primary key (PGCOD, MODULO, TOTOPE, MONEDA, PAPEL, COCOD);
+

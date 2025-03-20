@@ -1,0 +1,13 @@
+create table Z05115
+(
+  z05115apl NUMBER(4) not null,
+  z05115bnd CHAR(5) not null,
+  z05115cor NUMBER(9) not null,
+  z05115nli NUMBER(9) not null,
+  z05115txt CHAR(250),
+  z05115est CHAR(2)
+)
+;
+alter table Z05115
+  add primary key (Z05115APL, Z05115BND, Z05115COR, Z05115NLI);
+

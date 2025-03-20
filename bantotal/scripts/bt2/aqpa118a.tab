@@ -1,0 +1,45 @@
+create table AQPA118A
+(
+  aqpa118aseq NUMBER(9) not null,
+  aqpa118acor NUMBER(9) not null,
+  aqpa118atpo CHAR(20),
+  aqpa118anro CHAR(20),
+  aqpa118aapa CHAR(60),
+  aqpa118anom CHAR(50),
+  aqpa118atel CHAR(20),
+  aqpa118amai CHAR(65),
+  aqpa118afec CHAR(50),
+  aqpa118aafp CHAR(100),
+  aqpa118acci CHAR(20),
+  aqpa118aubi CHAR(6),
+  aqpa118arpt VARCHAR2(20),
+  aqpa118apgc NUMBER(3),
+  aqpa118amod NUMBER(3),
+  aqpa118asuc NUMBER(3),
+  aqpa118amda NUMBER(4),
+  aqpa118apap NUMBER(4),
+  aqpa118acta NUMBER(9),
+  aqpa118aope NUMBER(9),
+  aqpa118asbo NUMBER(3),
+  aqpa118atop NUMBER(3),
+  aqpa118aacu NUMBER(17,2),
+  aqpa118atde NUMBER(17,2),
+  aqpa118afde DATE,
+  aqpa118atre NUMBER(17,2),
+  aqpa118afre DATE,
+  aqpa118aax1 NUMBER(9),
+  aqpa118aax2 NUMBER(9),
+  aqpa118aax3 NUMBER(17,2),
+  aqpa118aax4 NUMBER(17,2),
+  aqpa118aax5 DATE,
+  aqpa118aax6 DATE,
+  aqpa118aax7 CHAR(100),
+  aqpa118aax8 CHAR(100),
+  aqpa118aax9 CHAR(100)
+)
+;
+create index AQPA118A2 on AQPA118A (AQPA118APGC, AQPA118AMOD, AQPA118ASUC, AQPA118AMDA, AQPA118APAP, AQPA118ACTA, AQPA118AOPE, AQPA118ASBO, AQPA118ATOP);
+create index AQPA118A3 on AQPA118A (AQPA118APGC, AQPA118AMOD, AQPA118AMDA, AQPA118ACTA, AQPA118ATDE, AQPA118AFDE);
+alter table AQPA118A
+  add primary key (AQPA118ASEQ, AQPA118ACOR);
+

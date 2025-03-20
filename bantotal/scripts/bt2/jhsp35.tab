@@ -1,0 +1,56 @@
+create table JHSP35
+(
+  sp35ctadni CHAR(12) not null,
+  sp35fecha  DATE not null,
+  sp35hora   CHAR(8) not null,
+  sp35empruc CHAR(12),
+  sp35tottrf NUMBER(17,2),
+  sp35totint NUMBER(17,2),
+  sp35totjud NUMBER(17,2),
+  sp35secuen NUMBER(6),
+  sp35mdanom CHAR(15),
+  sp35dispon NUMBER(17,2),
+  sp35abonos NUMBER(17,2),
+  sp35retiro NUMBER(17,2),
+  sp35dl650  NUMBER(17,2),
+  sp35dl127  NUMBER(17,2),
+  sp35ctaori CHAR(20),
+  sp35usoviv DATE,
+  sp35chqger CHAR(20),
+  sp35empraz CHAR(70),
+  sp35empdir CHAR(140),
+  sp35emptel CHAR(20),
+  sp35clinom CHAR(110),
+  sp35clifna DATE,
+  sp35clidir CHAR(140),
+  sp35clieje NUMBER(3),
+  sp35moneda NUMBER(4),
+  sp35ctabt  NUMBER(9),
+  sp35sctabt NUMBER(3),
+  sp35saldo  NUMBER(17,2),
+  sp35empok  NUMBER(1),
+  sp35cliok  NUMBER(1),
+  sp35ctaok  NUMBER(1),
+  sp35prook  NUMBER(1),
+  sp35estado NUMBER(1),
+  sp35observ CHAR(100),
+  sp35txncod NUMBER(3),
+  sp35txnsuc NUMBER(3),
+  sp35txnmod NUMBER(3),
+  sp35txntrn NUMBER(3),
+  sp35txnnre NUMBER(4),
+  sp35txnfvc DATE,
+  sp35txnsel CHAR(1),
+  sp35txnliq NUMBER(9),
+  sp35txnusr CHAR(10),
+  sp35dupcli CHAR(1),
+  sp35codcrt CHAR(1)
+)
+;
+create unique index JHSP3501 on JHSP35 (SP35CTADNI, SP35FECHA, SP35HORA);
+create index JHSP3502 on JHSP35 (SP35FECHA, SP35HORA, SP35CTADNI);
+create index JHSP3503 on JHSP35 (SP35ESTADO, SP35FECHA, SP35HORA, SP35CTADNI);
+create index JHSP3504 on JHSP35 (SP35CODCRT, SP35FECHA, SP35HORA, SP35CTADNI);
+create index JHSP3505 on JHSP35 (SP35FECHA, SP35HORA, SP35MONEDA, SP35MDANOM, SP35CTADNI);
+create index JHSP3506 on JHSP35 (SP35TXNCOD, SP35TXNSUC, SP35TXNMOD, SP35TXNTRN, SP35TXNNRE, SP35TXNFVC);
+

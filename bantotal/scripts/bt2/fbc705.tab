@@ -1,0 +1,21 @@
+create table FBC705
+(
+  bc705emp  NUMBER(3) not null,
+  bc705suc  NUMBER(3) not null,
+  bc705mod  NUMBER(3) not null,
+  bc705trn  NUMBER(3) not null,
+  bc705rel  NUMBER(4) not null,
+  bc705ord  NUMBER(2) not null,
+  bc705sbo  NUMBER(3) not null,
+  bc705fch  DATE not null,
+  bc705otpo CHAR(3),
+  bc705omda NUMBER(4),
+  bc705oimp NUMBER(11),
+  bc705ccor CHAR(12),
+  bc705cins NUMBER(2)
+)
+;
+create index FBC70502 on FBC705 (BC705EMP, BC705OTPO, BC705OMDA, BC705FCH);
+alter table FBC705
+  add primary key (BC705EMP, BC705SUC, BC705MOD, BC705TRN, BC705REL, BC705ORD, BC705SBO, BC705FCH);
+

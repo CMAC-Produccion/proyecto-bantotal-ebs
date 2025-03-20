@@ -1,0 +1,23 @@
+create table JSENGB1
+(
+  jsengb1pgc NUMBER(3) not null,
+  jsengb1fec DATE not null,
+  jsengb1inf NUMBER(2) not null,
+  jsengb1seg NUMBER(2) not null,
+  jsengb1nve NUMBER(2) not null,
+  jsengb1col NUMBER(4) not null,
+  jsengb2mod NUMBER(3) not null,
+  jsengb2top NUMBER(3) not null,
+  jsengb2suc NUMBER(3) not null,
+  jsengb2mda NUMBER(4) not null,
+  jsnegb2pap NUMBER(4) not null,
+  jsengb1cap NUMBER(17,2),
+  jsengb1int NUMBER(17,2),
+  jsengb1mor NUMBER(17,2),
+  jsengb1pde NUMBER(18),
+  jsengb1pha NUMBER(18)
+)
+;
+alter table JSENGB1
+  add primary key (JSENGB1PGC, JSENGB1FEC, JSENGB1INF, JSENGB1SEG, JSENGB1NVE, JSENGB1COL, JSENGB2MOD, JSENGB2TOP, JSENGB2SUC, JSENGB2MDA, JSNEGB2PAP);
+

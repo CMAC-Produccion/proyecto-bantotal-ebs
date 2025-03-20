@@ -1,0 +1,93 @@
+create table JAQN3A
+(
+  jaqn3apai  NUMBER(3) not null,
+  jaqn3atdoc NUMBER(2) not null,
+  jaqn3andoc CHAR(12) not null,
+  jaqn3atipv CHAR(1) not null,
+  jaqn3afeg  DATE not null,
+  jaqn3ahog  CHAR(10) not null,
+  jaqn3avig  CHAR(1),
+  jaqn3acor  NUMBER(3),
+  jaqn3afval DATE,
+  jaqn3ahval CHAR(10),
+  jaqn3atok  VARCHAR2(100),
+  jaqn3ainf1 VARCHAR2(100),
+  jaqn3ainf2 VARCHAR2(100),
+  jaqn3ainf3 VARCHAR2(100),
+  jaqn3afvec DATE,
+  jaqn3ahvec CHAR(10),
+  jaqn3aan1  NUMBER(9),
+  jaqn3aan2  NUMBER(9),
+  jaqn3aan3  NUMBER(9),
+  jaqn3aaf1  DATE,
+  jaqn3aaf2  DATE,
+  jaqn3aaf3  DATE,
+  jaqn3aac1  VARCHAR2(255),
+  jaqn3aac2  VARCHAR2(255),
+  jaqn3aac3  VARCHAR2(255),
+  jaqn3aai1  NUMBER(17,2),
+  jaqn3aai3  NUMBER(17,2),
+  jaqn3aai2  NUMBER(17,2)
+)
+;
+comment on table JAQN3A
+  is 'Dato validado';
+comment on column JAQN3A.jaqn3apai
+  is 'Pais';
+comment on column JAQN3A.jaqn3atdoc
+  is 'Tipo de documento';
+comment on column JAQN3A.jaqn3andoc
+  is 'Numero de documento';
+comment on column JAQN3A.jaqn3atipv
+  is 'Tipo de validacion';
+comment on column JAQN3A.jaqn3afeg
+  is 'Fecha generacion';
+comment on column JAQN3A.jaqn3ahog
+  is 'Hora generacion';
+comment on column JAQN3A.jaqn3avig
+  is 'Vigencia';
+comment on column JAQN3A.jaqn3acor
+  is 'Correlativo token';
+comment on column JAQN3A.jaqn3afval
+  is 'Fecha validacion';
+comment on column JAQN3A.jaqn3ahval
+  is 'Hora validacion';
+comment on column JAQN3A.jaqn3atok
+  is 'Token';
+comment on column JAQN3A.jaqn3ainf1
+  is 'Informacion 1';
+comment on column JAQN3A.jaqn3ainf2
+  is 'Informacion 2';
+comment on column JAQN3A.jaqn3ainf3
+  is 'Informacion 3';
+comment on column JAQN3A.jaqn3afvec
+  is 'Fecha vencimiento';
+comment on column JAQN3A.jaqn3ahvec
+  is 'Hora vencimiento';
+comment on column JAQN3A.jaqn3aan1
+  is 'Auxiliar numerico 1';
+comment on column JAQN3A.jaqn3aan2
+  is 'Auxiliar numerico 2';
+comment on column JAQN3A.jaqn3aan3
+  is 'Auxiliar numerico 3';
+comment on column JAQN3A.jaqn3aaf1
+  is 'Auxiliar fecha 1';
+comment on column JAQN3A.jaqn3aaf2
+  is 'Auxiliar fecha 2';
+comment on column JAQN3A.jaqn3aaf3
+  is 'Auxiliar fecha 3';
+comment on column JAQN3A.jaqn3aac1
+  is 'Auxiliar caracter 1';
+comment on column JAQN3A.jaqn3aac2
+  is 'Auxiliar caracter 2';
+comment on column JAQN3A.jaqn3aac3
+  is 'Auxiliar caracter 3';
+comment on column JAQN3A.jaqn3aai1
+  is 'Auxiliar importe 1';
+comment on column JAQN3A.jaqn3aai3
+  is 'Auxiliar importe 3';
+comment on column JAQN3A.jaqn3aai2
+  is 'Auxiliar importe 2';
+alter table JAQN3A
+  add primary key (JAQN3APAI, JAQN3ATDOC, JAQN3ANDOC, JAQN3ATIPV, JAQN3AFEG, JAQN3AHOG);
+

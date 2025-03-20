@@ -1,0 +1,58 @@
+create table JAQL157
+(
+  jaql157ani NUMBER(4) not null,
+  jaql157mes NUMBER(2) not null,
+  jaql157pai NUMBER(3) not null,
+  jaql157tdo NUMBER(2) not null,
+  jaql157ndo CHAR(12) not null,
+  jaql157fch DATE,
+  jaql157tac NUMBER(12),
+  jaql157suc NUMBER(3),
+  jalq157tpe CHAR(1),
+  jaql157sbs CHAR(10),
+  jaql157seg NUMBER(2),
+  jaql157cal NUMBER(1),
+  jaql157int NUMBER(17,2),
+  jaql157pat NUMBER(17,2),
+  jaql157res NUMBER(17,2),
+  jaql157sal NUMBER(17,2),
+  jaql157dev NUMBER(17,2),
+  jaql157rev NUMBER(17,2),
+  jaql157caf NUMBER(17,2),
+  jaql157nrv NUMBER(17,2),
+  jaql157exr NUMBER(17,2),
+  jaql157cdi NUMBER(17,2),
+  jaql157idv NUMBER(17,2),
+  jaql157cfi NUMBER(17,2),
+  jaql157lnu NUMBER(17,2),
+  jaql157ccr NUMBER(17,2),
+  jaql157avo NUMBER(17,2),
+  jaql157acb NUMBER(17,2),
+  jaql157ent NUMBER(3),
+  jaql157hip NUMBER(17,2),
+  jaql157apr NUMBER(17,2),
+  jaql157dth NUMBER(17,2),
+  jaql157dts NUMBER(17,2),
+  jaql157dp0 NUMBER(17,2),
+  jaql157dgc NUMBER(17,2),
+  jaql157dgh NUMBER(17,2),
+  jaql157dgs NUMBER(17,2),
+  jaql157dph NUMBER(17,2),
+  jaql157dps NUMBER(17,2),
+  jaql157dia NUMBER(5),
+  jaql157sob CHAR(1),
+  jaql157par NUMBER(11,5),
+  jaql157anp NUMBER(4),
+  jaql157mep NUMBER(2),
+  jaql157tvl CHAR(4),
+  jaql157csf NUMBER(17,2),
+  jaql157cma NUMBER(17,2),
+  jaql157rat NUMBER(17,2),
+  jaql157ren NUMBER(17,2)
+)
+;
+create index JAQL157002 on JAQL157 (JAQL157PAI, JAQL157TDO, JAQL157NDO, JAQL157FCH);
+create index JAQL15701 on JAQL157 (JAQL157MES, JAQL157ANI);
+alter table JAQL157
+  add primary key (JAQL157ANI, JAQL157MES, JAQL157PAI, JAQL157TDO, JAQL157NDO);
+

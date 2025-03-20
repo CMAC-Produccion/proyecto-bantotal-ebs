@@ -1,0 +1,16 @@
+create table FST551
+(
+  tgtmod     NUMBER(3) not null,
+  tgtcod     NUMBER(3) not null,
+  tgtsbtip   NUMBER(3) not null,
+  tgtsbdesc  CHAR(30),
+  cgcod      NUMBER(3),
+  rrcod      NUMBER(3),
+  tgtporccub NUMBER(14,9)
+)
+;
+create index FST55102 on FST551 (RRCOD);
+create index FST55104 on FST551 (CGCOD);
+alter table FST551
+  add primary key (TGTMOD, TGTCOD, TGTSBTIP);
+

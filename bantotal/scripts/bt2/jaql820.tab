@@ -1,0 +1,18 @@
+create table JAQL820
+(
+  jaql820num VARCHAR2(19) not null,
+  jaql820est VARCHAR2(1),
+  jaql820fes DATE not null,
+  jaql820fre DATE,
+  jaql820rel NUMBER(4) not null,
+  jaql820tra NUMBER(3) not null,
+  jaql820mod NUMBER(3) not null,
+  jaql820suc NUMBER(3) not null,
+  jaql820usu VARCHAR2(10),
+  jaql820hor VARCHAR2(8),
+  jaql820mot VARCHAR2(20)
+)
+;
+alter table JAQL820
+  add primary key (JAQL820NUM, JAQL820FES, JAQL820REL, JAQL820TRA, JAQL820MOD, JAQL820SUC);
+

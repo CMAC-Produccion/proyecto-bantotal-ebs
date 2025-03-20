@@ -1,0 +1,27 @@
+create table JBXIJN
+(
+  jbxijnapl  CHAR(10) not null,
+  jbxijnfar  DATE not null,
+  jbxijnhor  CHAR(6) not null,
+  jbxijnsol  NUMBER(9) not null,
+  jbxijnpas  NUMBER(3) not null,
+  jbxijntdo  NUMBER(2) not null,
+  jbxijnndo  CHAR(12) not null,
+  jbxijndom  NUMBER(2) not null,
+  jbxijncall CHAR(35),
+  jbxijnnum  NUMBER(5),
+  jbxijnapt  CHAR(15),
+  jbxijnpis  CHAR(6),
+  jbxijnpai  NUMBER(3),
+  jbxijnloc  NUMBER(5),
+  jbxijnprv  NUMBER(5),
+  jbxijncpo  CHAR(8),
+  jbxijncp2  CHAR(8),
+  jbxijntel  CHAR(20),
+  jbxijnte2  CHAR(20),
+  jbxijncrr  CHAR(50)
+)
+;
+alter table JBXIJN
+  add primary key (JBXIJNAPL, JBXIJNFAR, JBXIJNHOR, JBXIJNSOL, JBXIJNPAS, JBXIJNTDO, JBXIJNNDO, JBXIJNDOM);
+

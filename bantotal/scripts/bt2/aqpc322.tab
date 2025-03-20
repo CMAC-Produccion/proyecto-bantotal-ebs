@@ -1,0 +1,54 @@
+create table AQPC322
+(
+  aqpc322numtar CHAR(19) not null,
+  aqpc322pepais NUMBER(3) not null,
+  aqpc322petdoc NUMBER(2) not null,
+  aqpc322pendoc CHAR(12) not null,
+  aqpc322codref CHAR(10) not null,
+  aqpc322pairef NUMBER(3) not null,
+  aqpc322tdoref NUMBER(2) not null,
+  aqpc322docref CHAR(12) not null,
+  aqpc322usrafi CHAR(10),
+  aqpc322fecafi DATE,
+  aqpc322horafi CHAR(8),
+  aqpc322estado CHAR(1),
+  aqpc322usrdes CHAR(10),
+  aqpc322fecdes DATE,
+  aqpc322hordes CHAR(8)
+)
+;
+comment on table AQPC322
+  is 'Afiliacion / Desafiliacion Cashback de Referidos';
+comment on column AQPC322.aqpc322numtar
+  is 'Número de tarjeta';
+comment on column AQPC322.aqpc322pepais
+  is 'Pais del documento del referido';
+comment on column AQPC322.aqpc322petdoc
+  is 'Tipo del documento del referido';
+comment on column AQPC322.aqpc322pendoc
+  is 'Número de documento del referido';
+comment on column AQPC322.aqpc322codref
+  is 'Código de referido';
+comment on column AQPC322.aqpc322pairef
+  is 'Pais del documento del referidor';
+comment on column AQPC322.aqpc322tdoref
+  is 'Tipo del documento del referidor';
+comment on column AQPC322.aqpc322docref
+  is 'Número de documento del referidor';
+comment on column AQPC322.aqpc322usrafi
+  is 'Usuario que afilia';
+comment on column AQPC322.aqpc322fecafi
+  is 'Fecha de afiliacion';
+comment on column AQPC322.aqpc322horafi
+  is 'Hora de afiliacion';
+comment on column AQPC322.aqpc322estado
+  is 'Habilitado / Deshabilitado (S/N)';
+comment on column AQPC322.aqpc322usrdes
+  is 'Usuario que desafilia';
+comment on column AQPC322.aqpc322fecdes
+  is 'Fecha de desafiliacion';
+comment on column AQPC322.aqpc322hordes
+  is 'Hora de desafiliacion';
+alter table AQPC322
+  add primary key (AQPC322PEPAIS, AQPC322PETDOC, AQPC322PENDOC, AQPC322PAIREF, AQPC322TDOREF, AQPC322DOCREF);
+

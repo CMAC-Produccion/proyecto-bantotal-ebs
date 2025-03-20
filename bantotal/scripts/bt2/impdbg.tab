@@ -1,0 +1,13 @@
+create table IMPDBG
+(
+  idgdate DATE not null,
+  idgtime CHAR(8) not null,
+  idgsec  NUMBER(9) not null,
+  idgprg  CHAR(20),
+  idgdsc1 CHAR(100),
+  idgdsc2 CHAR(100)
+)
+;
+alter table IMPDBG
+  add primary key (IDGDATE, IDGTIME, IDGSEC);
+

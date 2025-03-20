@@ -1,0 +1,28 @@
+create table FBRD33
+(
+  brd33emp   NUMBER(3) not null,
+  brd33pais  NUMBER(3) not null,
+  brd33tdoc  NUMBER(2) not null,
+  brd33ndoc  CHAR(12) not null,
+  brd33suc   NUMBER(3) not null,
+  brd33rub   NUMBER(16) not null,
+  brd33mda   NUMBER(4) not null,
+  brd33pap   NUMBER(4) not null,
+  brd33cta   NUMBER(9) not null,
+  brd33op    NUMBER(9) not null,
+  brd33sop   NUMBER(3) not null,
+  brd33top   NUMBER(3) not null,
+  brd33reg   NUMBER(5) not null,
+  brd33cparm NUMBER(3) not null,
+  brd33nrod  NUMBER(16),
+  brd33nroh  NUMBER(16),
+  brd33chh   CHAR(30),
+  brd33chd   CHAR(30),
+  brd33fchd  DATE,
+  brd33fchh  DATE
+)
+;
+create index FBRD3302 on FBRD33 (BRD33REG, BRD33EMP, BRD33SUC, BRD33RUB, BRD33MDA, BRD33PAP, BRD33CTA, BRD33OP, BRD33SOP, BRD33TOP, BRD33CPARM);
+alter table FBRD33
+  add primary key (BRD33EMP, BRD33PAIS, BRD33TDOC, BRD33NDOC, BRD33SUC, BRD33RUB, BRD33MDA, BRD33PAP, BRD33CTA, BRD33OP, BRD33SOP, BRD33TOP, BRD33REG, BRD33CPARM);
+

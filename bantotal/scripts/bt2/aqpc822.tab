@@ -1,0 +1,68 @@
+create table AQPC822
+(
+  aqpc822codopi  NUMBER(10) not null,
+  aqpc822corr    NUMBER(10) not null,
+  aqpc822fecpro  DATE,
+  aqpc822tipgar  VARCHAR2(100),
+  aqpc822desgar  VARCHAR2(200),
+  aqpc822prop    VARCHAR2(100),
+  aqpc822ftasa   DATE,
+  aqpc822tasd    VARCHAR2(100),
+  aqpc822vgcom   VARCHAR2(20),
+  aqpc822vreagar VARCHAR2(20),
+  aqpc822vgrav   VARCHAR2(20),
+  aqpc822vgobert VARCHAR2(20),
+  aqpc822modu    NUMBER(3),
+  aqpc822tope    NUMBER(3),
+  aqpc822tipbide VARCHAR2(100),
+  aqpc822fecdecl DATE,
+  aqpc822valgarn VARCHAR2(30),
+  aqpc822aux1    NUMBER(17,2),
+  aqpc822horareg VARCHAR2(8),
+  aqpc822estad   VARCHAR2(1)
+)
+;
+comment on table AQPC822
+  is 'Tabla temporal de garantías de rep. opinion de riesgos';
+comment on column AQPC822.aqpc822codopi
+  is 'Cod. Opinion riesgo';
+comment on column AQPC822.aqpc822corr
+  is 'Correlativo';
+comment on column AQPC822.aqpc822fecpro
+  is 'fecha de carga';
+comment on column AQPC822.aqpc822tipgar
+  is 'tipo de garantia';
+comment on column AQPC822.aqpc822desgar
+  is 'descp. garantia';
+comment on column AQPC822.aqpc822prop
+  is 'propietario';
+comment on column AQPC822.aqpc822ftasa
+  is 'fecha tasación';
+comment on column AQPC822.aqpc822tasd
+  is 'tasador';
+comment on column AQPC822.aqpc822vgcom
+  is 'valor comercial';
+comment on column AQPC822.aqpc822vreagar
+  is 'valor realización';
+comment on column AQPC822.aqpc822vgrav
+  is 'valor gravamen';
+comment on column AQPC822.aqpc822vgobert
+  is 'valor cobertura';
+comment on column AQPC822.aqpc822modu
+  is 'Modulo';
+comment on column AQPC822.aqpc822tope
+  is 'Tipo Operación';
+comment on column AQPC822.aqpc822tipbide
+  is 'Tipo de bien declarado';
+comment on column AQPC822.aqpc822fecdecl
+  is 'Fecha de declaración';
+comment on column AQPC822.aqpc822valgarn
+  is 'Valor de Garantia';
+comment on column AQPC822.aqpc822horareg
+  is 'Hora Registro';
+comment on column AQPC822.aqpc822estad
+  is 'Estado de registro I - Inhabilitado; H - Habilitado';
+create index AQPC822A2 on AQPC822 (AQPC822CODOPI, AQPC822ESTAD);
+alter table AQPC822
+  add primary key (AQPC822CODOPI, AQPC822CORR);
+

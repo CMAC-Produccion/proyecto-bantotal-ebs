@@ -1,0 +1,21 @@
+create table JAQL970
+(
+  jaql970cta  NUMBER(9) not null,
+  jaql970oper NUMBER(9) not null,
+  jaql970inst NUMBER,
+  jaql970ase  CHAR(10),
+  jaql970fec  DATE
+)
+;
+comment on column JAQL970.jaql970cta
+  is 'CUENTA';
+comment on column JAQL970.jaql970oper
+  is 'OPERACION';
+comment on column JAQL970.jaql970inst
+  is 'INSTANCIA';
+comment on column JAQL970.jaql970ase
+  is 'ANALISTA';
+comment on column JAQL970.jaql970fec
+  is 'FECHA INICIO';
+create unique index PK_JAQL970_01 on JAQL970 (JAQL970CTA, JAQL970OPER, JAQL970ASE);
+

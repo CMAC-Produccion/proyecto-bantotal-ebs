@@ -1,0 +1,22 @@
+create table FPP048
+(
+  xllpgcod   NUMBER(3) not null,
+  xllaomod   NUMBER(3) not null,
+  xllaosuc   NUMBER(3) not null,
+  xllaomda   NUMBER(4) not null,
+  xllaopap   NUMBER(4) not null,
+  xllaocta   NUMBER(9) not null,
+  xllaooper  NUMBER(9) not null,
+  xllaosbop  NUMBER(3) not null,
+  xllaotop   NUMBER(3) not null,
+  xllaococod NUMBER(3) not null,
+  pp048timp  NUMBER(3) not null,
+  pp048imp   NUMBER(17,2),
+  pp048aux1  CHAR(1),
+  pp048aux2  CHAR(1),
+  pp048aux3  NUMBER(17,2)
+)
+;
+alter table FPP048
+  add primary key (XLLPGCOD, XLLAOMOD, XLLAOSUC, XLLAOMDA, XLLAOPAP, XLLAOCTA, XLLAOOPER, XLLAOSBOP, XLLAOTOP, XLLAOCOCOD, PP048TIMP);
+

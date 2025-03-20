@@ -1,0 +1,14 @@
+create table PREFCAT
+(
+  prfemp    NUMBER(3) not null,
+  prfmod    NUMBER(3) not null,
+  prftrn    NUMBER(3) not null,
+  prfcat    NUMBER(3) not null,
+  prfcattit CHAR(50),
+  prfcathab CHAR(1),
+  prfcatord NUMBER(2)
+)
+;
+alter table PREFCAT
+  add primary key (PRFEMP, PRFMOD, PRFTRN, PRFCAT);
+

@@ -1,0 +1,24 @@
+create table FSFC11L
+(
+  kgl11emp NUMBER(3) not null,
+  kgl11cla NUMBER(2) not null,
+  kgl11mda NUMBER(4) not null,
+  kgl11pap NUMBER(4) not null,
+  kgl11tta NUMBER(1) not null,
+  kgl11fde DATE not null,
+  kgl11fig DATE not null,
+  kgl11hig CHAR(8) not null,
+  kgl11rok CHAR(1),
+  kgl11trg CHAR(1),
+  kgl11uig CHAR(10),
+  kgl11wig CHAR(10),
+  kgl11fcf DATE,
+  kgl11hcf CHAR(8),
+  kgl11ucf CHAR(10),
+  kgl11wcf CHAR(10),
+  kgl11mrg NUMBER(17,2)
+)
+;
+alter table FSFC11L
+  add primary key (KGL11EMP, KGL11CLA, KGL11MDA, KGL11PAP, KGL11TTA, KGL11FDE, KGL11FIG, KGL11HIG);
+

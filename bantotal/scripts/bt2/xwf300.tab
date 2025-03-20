@@ -1,0 +1,11 @@
+create table XWF300
+(
+  xwfastprcid   NUMBER(4) not null,
+  xwfasttaskcod NUMBER(4) not null,
+  astcod        NUMBER(3)
+)
+;
+create index UXWF300 on XWF300 (ASTCOD);
+alter table XWF300
+  add primary key (XWFASTPRCID, XWFASTTASKCOD);
+

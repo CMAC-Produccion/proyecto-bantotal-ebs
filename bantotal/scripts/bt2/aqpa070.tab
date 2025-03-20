@@ -1,0 +1,24 @@
+create table AQPA070
+(
+  aqpa070cod  NUMBER(3) not null,
+  aqpa070suc  NUMBER(3) not null,
+  aqpa070mod  NUMBER(3) not null,
+  aqpa070trn  NUMBER(3) not null,
+  aqpa070nrel NUMBER(4) not null,
+  aqpa070fcon DATE not null,
+  aqpa070fvc  DATE,
+  aqpa070corr NUMBER(5),
+  aqpa070uing CHAR(10),
+  aqpa070wing CHAR(10),
+  aqpa070ucnf CHAR(10),
+  aqpa070wcnf CHAR(10),
+  aqpa070hora CHAR(8),
+  aqpa070cont CHAR(1),
+  aqpa070caja NUMBER(3),
+  aqpa070xcaj CHAR(1)
+)
+;
+create index IJAQZ070_01 on AQPA070 (AQPA070FCON, AQPA070XCAJ);
+alter table AQPA070
+  add primary key (AQPA070COD, AQPA070SUC, AQPA070MOD, AQPA070TRN, AQPA070NREL, AQPA070FCON);
+

@@ -1,0 +1,53 @@
+create table JBXIX2
+(
+  jbxix2cod  NUMBER(3) not null,
+  jbxix2nro  NUMBER(10) not null,
+  jbxix2tca  CHAR(1),
+  jbxix2pgc  NUMBER(3),
+  jbxix2cta  NUMBER(9),
+  jbxix2sua  NUMBER(3),
+  jbxix2cod1 CHAR(1),
+  jbxix2sol  CHAR(6),
+  jbxix2dom  NUMBER(2),
+  jbxix2nom  CHAR(40),
+  jbxix2fap  DATE,
+  jbxix2fvn  DATE,
+  jbxix2cco  CHAR(3),
+  jbxix2cod2 NUMBER(2),
+  jbxix2cod3 CHAR(2),
+  jbxix2sue  NUMBER(3),
+  jbxix2cod4 NUMBER(5),
+  jbxix2cod5 CHAR(5),
+  jbxix2sc1  CHAR(1),
+  jbxix2sc2  CHAR(1),
+  jbxix2sc3  CHAR(1),
+  jbxix2cod6 CHAR(6),
+  jbxix2atm  CHAR(1),
+  jbxix2cod7 CHAR(2),
+  jbxix2sud  NUMBER(3),
+  jbxix2mnd  NUMBER(4),
+  jbxix2scd  NUMBER(3),
+  jbxix2tcd  CHAR(2),
+  jbxix2ctd  CHAR(14),
+  jbxix2pgt  CHAR(1),
+  jbxix2cod8 CHAR(2),
+  jbxix2cod9 NUMBER(3),
+  jbxix2coda NUMBER(1),
+  jbxix2bem  CHAR(1),
+  jbxix2pbe  CHAR(2),
+  jbxix2cbe  CHAR(2),
+  jbxix2dpr  CHAR(1),
+  jbxix2agr  CHAR(2),
+  jbxix2codb CHAR(2),
+  jbxix2codc CHAR(2),
+  jbxix2fmd  DATE,
+  jbxix2umd  CHAR(10),
+  jbxix2fau  DATE,
+  jbxix2uau  CHAR(10),
+  jbxix2est  CHAR(2)
+)
+;
+create index JBXIX202 on JBXIX2 (JBXIX2CTA);
+alter table JBXIX2
+  add primary key (JBXIX2COD, JBXIX2NRO);
+

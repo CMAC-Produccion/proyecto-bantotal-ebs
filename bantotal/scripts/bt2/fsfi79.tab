@@ -1,0 +1,47 @@
+create table FSFI79
+(
+  sfi79emp   NUMBER(3) not null,
+  sfi79esp   NUMBER(4) not null,
+  sfi79cus   NUMBER(9) not null,
+  sfi79dep   NUMBER(9) not null,
+  sfi79com   NUMBER(9) not null,
+  sfi79ide   NUMBER(2) not null,
+  sfi79comov NUMBER(2) not null,
+  sfi79num   NUMBER(9) not null,
+  sfi79vno   NUMBER(17,2),
+  sfi79vre   NUMBER(17,7),
+  sfi79sig   CHAR(1),
+  sfi79tip   CHAR(10),
+  sfi79est   CHAR(2),
+  sfi79sut   NUMBER(3),
+  sfi79mot   NUMBER(3),
+  sfi79trn   NUMBER(3),
+  sfi79rel   NUMBER(4),
+  sfi79fco   DATE,
+  sfi79ord   NUMBER(3),
+  sfi79cta   NUMBER(9),
+  sfi79sus   NUMBER(3),
+  sfi79mos   NUMBER(3),
+  sfi79nop   NUMBER(9),
+  sfi79top   NUMBER(3),
+  sfi79nma   NUMBER(9),
+  sfi79conc  DATE,
+  sfi79liqu  DATE,
+  sfi79ofi   CHAR(15),
+  sfi79auim1 NUMBER(17,2),
+  sfi79auim2 NUMBER(17,2),
+  sfi79aunu1 NUMBER(9),
+  sfi79aunu2 NUMBER(9),
+  sfi79autx1 CHAR(20),
+  sfi79autx2 CHAR(20),
+  sfi79usu   CHAR(10),
+  sfi79hora  CHAR(8),
+  sfi79wrkst CHAR(10)
+)
+;
+create index FSFI7902 on FSFI79 (SFI79EMP, SFI79SUS, SFI79MOS, SFI79NOP, SFI79TOP);
+create index FSFI7903 on FSFI79 (SFI79EMP, SFI79ESP, SFI79CUS, SFI79DEP, SFI79COM, SFI79IDE, SFI79COMOV, SFI79LIQU);
+create index FSFI7904 on FSFI79 (SFI79EMP, SFI79SUT, SFI79FCO, SFI79MOT, SFI79TRN, SFI79REL, SFI79ORD);
+alter table FSFI79
+  add primary key (SFI79EMP, SFI79ESP, SFI79CUS, SFI79DEP, SFI79COM, SFI79IDE, SFI79COMOV, SFI79NUM);
+

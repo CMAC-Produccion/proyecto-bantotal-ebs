@@ -1,0 +1,33 @@
+create table CSMD009
+(
+  csmd001cod NUMBER(9) not null,
+  csmt002cod NUMBER(4) not null,
+  csmd009cor NUMBER(4) not null,
+  csmd009pgc NUMBER(3),
+  csmd009mod NUMBER(3),
+  csmd009suc NUMBER(3),
+  csmd009mda NUMBER(4),
+  csmd009pap NUMBER(4),
+  csmd009cta NUMBER(9),
+  csmd009ope NUMBER(9),
+  csmd009sbo NUMBER(3),
+  csmd009top NUMBER(3),
+  csmd009ord NUMBER(4),
+  csmd009com CHAR(1),
+  csmt001cod NUMBER(4),
+  csmd009trn CHAR(20),
+  csmd009sdi CHAR(20),
+  csmd009sba CHAR(20),
+  csmd009bdr CHAR(20),
+  csmd009bct CHAR(20),
+  csmd009cpa NUMBER(3),
+  csmd009cti NUMBER(2),
+  csmd009cnr CHAR(12),
+  csmd009est CHAR(1)
+)
+;
+create index CSMD0093 on CSMD009 (CSMD001COD, CSMT002COD, CSMD009ORD);
+create index CSMD0094 on CSMD009 (CSMT002COD, CSMT001COD);
+alter table CSMD009
+  add primary key (CSMD001COD, CSMT002COD, CSMD009COR);
+

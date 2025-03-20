@@ -1,0 +1,17 @@
+create table CAP003
+(
+  cap003pgco NUMBER(3) not null,
+  cap003sec  NUMBER(5) not null,
+  cap003sql  CHAR(255),
+  cap003camp NUMBER(4),
+  cap003max1 NUMBER(18),
+  cap003max2 NUMBER(18),
+  cap003max3 NUMBER(18),
+  cap003max4 NUMBER(18),
+  cap003max5 NUMBER(18),
+  cap003max6 NUMBER(18)
+)
+;
+alter table CAP003
+  add primary key (CAP003PGCO, CAP003SEC);
+

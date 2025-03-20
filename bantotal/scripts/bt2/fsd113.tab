@@ -1,0 +1,22 @@
+create table FSD113
+(
+  aptit  NUMBER(2) not null,
+  apcap  NUMBER(1) not null,
+  apppzo NUMBER(1) not null,
+  apgru  NUMBER(2) not null,
+  aprub  NUMBER(3) not null,
+  appzo  NUMBER(1) not null,
+  apsub  NUMBER(2) not null,
+  ap6900 CHAR(1),
+  ap6100 CHAR(1),
+  ap6200 CHAR(1),
+  ap6300 CHAR(1),
+  ap6400 CHAR(1),
+  ap6500 CHAR(1),
+  ap6600 CHAR(1),
+  ap6700 CHAR(1)
+)
+;
+alter table FSD113
+  add primary key (APTIT, APCAP, APPPZO, APGRU, APRUB, APPZO, APSUB);
+

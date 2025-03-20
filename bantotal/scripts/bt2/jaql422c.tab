@@ -1,0 +1,17 @@
+create table JAQL422C
+(
+  jaql422ccod  NUMBER(3) not null,
+  jaql422csbs  NUMBER(3),
+  jaql422cdes  VARCHAR2(500),
+  jaql422cest  VARCHAR2(1),
+  jaql422cfini DATE,
+  jaql422cffin DATE
+)
+;
+comment on column JAQL422C.jaql422cfini
+  is 'Vigencia de Opcion (Fecha Inicio)';
+comment on column JAQL422C.jaql422cffin
+  is 'Vigencia de Opcion (Fecha Fin)';
+alter table JAQL422C
+  add constraint JAQL422C00 primary key (JAQL422CCOD);
+

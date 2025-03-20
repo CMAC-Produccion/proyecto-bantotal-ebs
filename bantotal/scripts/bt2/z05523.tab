@@ -1,0 +1,23 @@
+create table Z05523
+(
+  z05502apl NUMBER(4) not null,
+  z05502bnd CHAR(5) not null,
+  z05502cor NUMBER(9) not null,
+  z05523cor NUMBER(9) not null,
+  z05523fv2 DATE,
+  z05523im2 NUMBER(17,2),
+  z05523fv3 DATE,
+  z05523im3 NUMBER(17,2),
+  z05523nro NUMBER(10),
+  z05523nrm NUMBER(10),
+  z05523ax1 CHAR(1),
+  z05523ax2 CHAR(10),
+  z05523ax3 CHAR(30),
+  z05523ax4 NUMBER(10),
+  z05523ax5 NUMBER(17,2),
+  z05523ax6 DATE
+)
+;
+alter table Z05523
+  add primary key (Z05502APL, Z05502BND, Z05502COR, Z05523COR);
+

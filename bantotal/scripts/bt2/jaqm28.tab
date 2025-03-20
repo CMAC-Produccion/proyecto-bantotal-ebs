@@ -1,0 +1,28 @@
+create table JAQM28
+(
+  jaqm33pgc  NUMBER(3) not null,
+  jaqm33mod  NUMBER(3) not null,
+  jaqm33suc  NUMBER(3) not null,
+  jaqm33mda  NUMBER(4) not null,
+  jaqm33pap  NUMBER(4) not null,
+  jaqm33cta  NUMBER(9) not null,
+  jaqm33oper NUMBER(9) not null,
+  jaqm33sbop NUMBER(3) not null,
+  jaqm33tope NUMBER(3) not null,
+  jaqm28corr NUMBER(4) not null,
+  jaqm28fact DATE,
+  jaqm28opab CHAR(50),
+  jaqm28obs  CHAR(50),
+  jaqm28usu  CHAR(10),
+  jaqm28stat NUMBER(2),
+  jaqm28n1   NUMBER(18),
+  jaqm28n2   NUMBER(18),
+  jaqm28c1   CHAR(255),
+  jaqm28c2   CHAR(255),
+  jaqm28d1   DATE,
+  jaqm28d2   DATE
+)
+;
+alter table JAQM28
+  add primary key (JAQM33PGC, JAQM33MOD, JAQM33SUC, JAQM33MDA, JAQM33PAP, JAQM33CTA, JAQM33OPER, JAQM33SBOP, JAQM33TOPE, JAQM28CORR);
+

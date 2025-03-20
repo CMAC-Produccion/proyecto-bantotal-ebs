@@ -1,0 +1,41 @@
+create table JAQZ210
+(
+  jaqz210inst  NUMBER(10) not null,
+  jaqz210fech  DATE,
+  jaqz210hora  CHAR(8),
+  jaqz210acda  CHAR(1),
+  jaqz210foto  BLOB,
+  jaqz210fot1  BLOB,
+  jaqz210fot2  BLOB,
+  jaqz210fot3  BLOB,
+  jaqz210fot4  BLOB,
+  jaqz210fot5  BLOB,
+  jaqz210fot6  BLOB,
+  jaqz210digi  VARCHAR2(5),
+  jaqz210esta  CHAR(1),
+  jaqz210anal  CHAR(10),
+  jaqz210oper  CHAR(10),
+  jaqz210pgco  NUMBER(4),
+  jaqz210modu  NUMBER(3),
+  jaqz210tran  NUMBER(3),
+  jaqz210sucu  NUMBER(3),
+  jaqz210rela  NUMBER(4),
+  jaqz210fcon  DATE,
+  jaqz210imei  VARCHAR2(100),
+  jaqz210ipcl  VARCHAR2(100),
+  jaqz210glos  VARCHAR2(100),
+  jaqz210aun1  NUMBER(17,2),
+  jaqz210aun2  NUMBER(17,2),
+  jaqz210aun3  NUMBER(17,2),
+  jaqz210aux1  VARCHAR2(100),
+  jaqz210aux2  VARCHAR2(100),
+  jaqz210aux3  VARCHAR2(100),
+  jaqz210mserr VARCHAR2(1000),
+  jaqz210coerr CHAR(4),
+  jaqz210hoac  CHAR(8),
+  jaqz210bkoff CHAR(10)
+)
+;
+alter table JAQZ210
+  add primary key (JAQZ210INST);
+

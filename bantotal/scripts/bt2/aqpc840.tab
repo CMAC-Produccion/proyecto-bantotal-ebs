@@ -1,0 +1,16 @@
+create table AQPC840
+(
+  aqpc840corr    NUMBER(5) not null,
+  aqpc840descent VARCHAR2(300)
+)
+;
+comment on table AQPC840
+  is 'Tabla de entidades que no se cargan de las consultas de Buro';
+comment on column AQPC840.aqpc840corr
+  is 'Correlativo';
+comment on column AQPC840.aqpc840descent
+  is 'Descripción Entidad';
+create index AQPC840A2 on AQPC840 (AQPC840DESCENT);
+alter table AQPC840
+  add primary key (AQPC840CORR);
+

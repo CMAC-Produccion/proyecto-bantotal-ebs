@@ -1,0 +1,13 @@
+create table CHU010
+(
+  chipais NUMBER(3) not null,
+  chitdoc NUMBER(2) not null,
+  chindoc CHAR(12) not null,
+  chinom  CHAR(30),
+  chifvto DATE
+)
+;
+create index CHU01002 on CHU010 (CHINOM);
+alter table CHU010
+  add primary key (CHIPAIS, CHITDOC, CHINDOC);
+

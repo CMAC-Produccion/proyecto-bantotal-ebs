@@ -1,0 +1,14 @@
+create table FMR030
+(
+  pgcod      NUMBER(3) not null,
+  coimmod    NUMBER(3) not null,
+  coimoper   NUMBER(9) not null,
+  mopctipo   NUMBER(2) not null,
+  mopccod    NUMBER(3) not null,
+  coimopcsts CHAR(1)
+)
+;
+create index FMR03003 on FMR030 (COIMMOD, MOPCTIPO, MOPCCOD);
+alter table FMR030
+  add primary key (PGCOD, COIMMOD, COIMOPER, MOPCTIPO, MOPCCOD);
+

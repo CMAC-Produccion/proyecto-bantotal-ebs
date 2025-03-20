@@ -1,0 +1,13 @@
+create table JHSP50
+(
+  jhsp50usu CHAR(10) not null,
+  jhsp50ter CHAR(10) not null,
+  jhsp50bco NUMBER(3) not null,
+  jhsp50che NUMBER(9) not null,
+  jhsp50mda NUMBER(4),
+  jhsp50cta NUMBER(15),
+  jhsp50imp NUMBER(17,2)
+)
+;
+create unique index JHSP5001 on JHSP50 (JHSP50USU, JHSP50TER, JHSP50BCO, JHSP50CHE);
+

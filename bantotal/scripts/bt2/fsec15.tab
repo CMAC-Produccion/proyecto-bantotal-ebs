@@ -1,0 +1,43 @@
+create table FSEC15
+(
+  sec01pgcod NUMBER(3) not null,
+  sec15lgid  CHAR(10) not null,
+  sec15lgfec DATE not null,
+  sec15lgnro NUMBER(9) not null,
+  sec01ptcta NUMBER(9),
+  sec15tipro CHAR(1),
+  sec15stat  CHAR(1),
+  sec15capsl NUMBER(17,2),
+  sec15pctol NUMBER(14,8),
+  sec15intsl NUMBER(17,2),
+  sec15capcf NUMBER(17,2),
+  sec15intcf NUMBER(17,2),
+  sec15pcpen NUMBER(14,8),
+  sec15stres NUMBER(1),
+  sec15txt   CHAR(60),
+  sec15pzoan NUMBER(5),
+  sec15maxcu NUMBER(5),
+  sec15fvttp DATE,
+  sec15pzomo NUMBER(5),
+  sec15adecu NUMBER(3),
+  sec15penpc NUMBER(14,8),
+  sec15sucie CHAR(1),
+  sec15morem NUMBER(17,2),
+  sec15cudif NUMBER(17,2),
+  sec15prepg NUMBER(17,2),
+  sec15imp01 NUMBER(17,2),
+  sec15imp02 NUMBER(17,2),
+  sec15imp03 NUMBER(17,2),
+  sec15pc01  NUMBER(14,8),
+  sec15pc02  NUMBER(14,8),
+  sec15pc03  NUMBER(14,8),
+  sec15fecv  DATE,
+  sec15horav CHAR(8),
+  sec15diacm NUMBER(2)
+)
+;
+create index FSEC1502 on FSEC15 (SEC01PGCOD, SEC01PTCTA);
+create index FSEC1503 on FSEC15 (SEC01PGCOD, SEC15STAT);
+alter table FSEC15
+  add primary key (SEC01PGCOD, SEC15LGID, SEC15LGFEC, SEC15LGNRO);
+

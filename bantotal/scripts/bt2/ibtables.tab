@@ -1,0 +1,18 @@
+create table IBTABLES
+(
+  ibproject CHAR(60) not null,
+  ibprocess CHAR(60) not null,
+  ibtask    CHAR(60) not null,
+  ibtblid   CHAR(20),
+  ibtblcol  CHAR(20),
+  ibtblcrr  NUMBER(4),
+  ibtblvis  CHAR(1),
+  ibtblgrp  VARCHAR2(60),
+  ibtblcolv CHAR(1),
+  ibtblcole CHAR(1),
+  ibtblcoll NUMBER(9),
+  ibtbldom  VARCHAR2(20)
+)
+;
+create index IBTABLES02 on IBTABLES (IBPROJECT, IBPROCESS, IBTASK);
+

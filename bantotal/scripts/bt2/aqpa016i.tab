@@ -1,0 +1,22 @@
+create table AQPA016I
+(
+  aqpa016icor    NUMBER(9) not null,
+  aqpa016icod    NUMBER(9),
+  aqpa016inom    VARCHAR2(150),
+  aqpa016ifec    DATE,
+  aqpa016idni    CHAR(12),
+  aqpa016icrel   NUMBER(2),
+  aqpa016irel    CHAR(30),
+  aqpa016inomf   VARCHAR2(150),
+  aqpa016idnif   CHAR(12),
+  aqpa016ibccta  NUMBER(9),
+  aqpa016ibcoper NUMBER(9),
+  aqpa016ibcsbop NUMBER(3),
+  aqpa016ibctop  NUMBER(3),
+  aqpa016ibcmod  NUMBER(3),
+  aqpa016isaldo  NUMBER(17,2)
+)
+;
+alter table AQPA016I
+  add primary key (AQPA016ICOR);
+

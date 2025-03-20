@@ -1,0 +1,81 @@
+create table JAQM2A
+(
+  jaqm2acop  CHAR(50) not null,
+  jaqm2acod  NUMBER(9) not null,
+  jaqm2apai  NUMBER(3) not null,
+  jaqm2atdoc NUMBER(2) not null,
+  jaqm2andoc CHAR(12) not null,
+  jaqm2acoe  NUMBER(5) not null,
+  jaqm2abin  BLOB,
+  jaqm2afec  DATE,
+  jaqm2ahor  CHAR(8),
+  jaqm2ausu  CHAR(10),
+  jaqm2alug  VARCHAR2(255),
+  jaqm2anom  VARCHAR2(255),
+  jaqm2aan1  NUMBER(9),
+  jaqm2aan2  NUMBER(9),
+  jaqm2aan3  NUMBER(9),
+  jaqm2aac1  VARCHAR2(255),
+  jaqm2aac2  VARCHAR2(255),
+  jaqm2aac3  VARCHAR2(255),
+  jaqm2aaf1  DATE,
+  jaqm2aaf2  DATE,
+  jaqm2aaf3  DATE,
+  jaqm2aai1  NUMBER(17,2),
+  jaqm2aai2  NUMBER(17,2),
+  jaqm2aai3  NUMBER(17,2)
+)
+;
+comment on table JAQM2A
+  is 'Módulo de Poderes Vigencia Tabla de alojamiento de documentos ';
+comment on column JAQM2A.jaqm2acop
+  is 'Código de Proceso';
+comment on column JAQM2A.jaqm2acod
+  is 'Código de documento';
+comment on column JAQM2A.jaqm2apai
+  is 'País';
+comment on column JAQM2A.jaqm2atdoc
+  is 'Tipo de documento';
+comment on column JAQM2A.jaqm2andoc
+  is 'Nro de documento';
+comment on column JAQM2A.jaqm2acoe
+  is 'Código de etapa';
+comment on column JAQM2A.jaqm2abin
+  is 'Archivo binario';
+comment on column JAQM2A.jaqm2afec
+  is 'Fecha';
+comment on column JAQM2A.jaqm2ahor
+  is 'Hora';
+comment on column JAQM2A.jaqm2ausu
+  is 'Usuario';
+comment on column JAQM2A.jaqm2alug
+  is 'Lugar guardado';
+comment on column JAQM2A.jaqm2anom
+  is 'Nombre documento';
+comment on column JAQM2A.jaqm2aan1
+  is 'Auxiliar numerico 1';
+comment on column JAQM2A.jaqm2aan2
+  is 'Auxiliar numerico 2';
+comment on column JAQM2A.jaqm2aan3
+  is 'Auxiliar numerico 3';
+comment on column JAQM2A.jaqm2aac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM2A.jaqm2aac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM2A.jaqm2aac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM2A.jaqm2aaf1
+  is 'Auxiliar fecha 1';
+comment on column JAQM2A.jaqm2aaf2
+  is 'Auxiliar fecha 2';
+comment on column JAQM2A.jaqm2aaf3
+  is 'Auxiliar fecha 3';
+comment on column JAQM2A.jaqm2aai1
+  is 'Auxiliar importe 1';
+comment on column JAQM2A.jaqm2aai2
+  is 'Auxiliar importe 2';
+comment on column JAQM2A.jaqm2aai3
+  is 'Auxiliar importe 3';
+alter table JAQM2A
+  add primary key (JAQM2ACOP, JAQM2ACOD, JAQM2APAI, JAQM2ATDOC, JAQM2ANDOC, JAQM2ACOE);
+

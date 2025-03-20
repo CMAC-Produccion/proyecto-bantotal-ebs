@@ -1,0 +1,44 @@
+create table SNG524
+(
+  sng501bien NUMBER(10) not null,
+  sng524cor  NUMBER(3) not null,
+  sng524maa  NUMBER(4),
+  sng524maep VARCHAR2(30),
+  sng524maff DATE,
+  sng524mamo CHAR(15),
+  sng524maof CHAR(15),
+  sng524mc   NUMBER(15),
+  sng524mcse CHAR(15),
+  sng524mdes VARCHAR2(200),
+  sng524mis  CHAR(15),
+  sng524mm   CHAR(15),
+  sng524mod  LONG,
+  sng524mpu  NUMBER(17,2),
+  sng524mum  CHAR(15),
+  sng524vcav CHAR(1),
+  sng524vfcg DATE,
+  sng524vggv NUMBER(1),
+  sng524vhcl NUMBER(1),
+  sng524rua  CHAR(30),
+  sng524v    CHAR(30),
+  sng524vcil NUMBER(8),
+  sng524vhc  CHAR(15),
+  sng524vhnc CHAR(25),
+  sng524vhp  CHAR(15),
+  sng524vhsm CHAR(20),
+  sng524vht  CHAR(15),
+  sng524cav  CHAR(25),
+  sng524ogfp DATE,
+  sng524ogp  NUMBER(17,2),
+  sng524gnp  CHAR(15),
+  sng524ogrl CHAR(20),
+  sng524ogrp CHAR(25),
+  sng524bvp  NUMBER(17,2),
+  sng524fc   DATE,
+  sng524cede CHAR(30),
+  sng524ogfc DATE
+)
+;
+alter table SNG524
+  add primary key (SNG501BIEN, SNG524COR);
+

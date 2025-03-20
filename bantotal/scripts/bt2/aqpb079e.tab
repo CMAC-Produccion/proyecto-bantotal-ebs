@@ -1,0 +1,69 @@
+create table AQPB079E
+(
+  aqpb079etco VARCHAR2(2) not null,
+  aqpb079eser VARCHAR2(4) not null,
+  aqpb079enum NUMBER(8) not null,
+  aqpb079efem DATE not null,
+  aqpb079epgc NUMBER(3) not null,
+  aqpb079emod NUMBER(3) not null,
+  aqpb079esuc NUMBER(3) not null,
+  aqpb079etrx NUMBER(3) not null,
+  aqpb079erel NUMBER(4) not null,
+  aqpb079efco DATE not null,
+  aqpb079etce CHAR(2),
+  aqpb079esee VARCHAR2(50),
+  aqpb079enro NUMBER(20),
+  aqpb079epge NUMBER(3),
+  aqpb079emoe NUMBER(3),
+  aqpb079esue NUMBER(3),
+  aqpb079etre NUMBER(3),
+  aqpb079eree NUMBER(4),
+  aqpb079efce DATE
+)
+;
+comment on table AQPB079E
+  is 'Tabla para almacenamiento del comprobante luego de la impresión';
+comment on column AQPB079E.aqpb079etco
+  is 'Tipo de documento';
+comment on column AQPB079E.aqpb079eser
+  is 'Serie del documento';
+comment on column AQPB079E.aqpb079enum
+  is 'Número del documento';
+comment on column AQPB079E.aqpb079efem
+  is 'Fecha del documento';
+comment on column AQPB079E.aqpb079epgc
+  is 'Código Empresa';
+comment on column AQPB079E.aqpb079emod
+  is 'Módulo';
+comment on column AQPB079E.aqpb079esuc
+  is 'Sucursal';
+comment on column AQPB079E.aqpb079etrx
+  is 'Transacción';
+comment on column AQPB079E.aqpb079erel
+  is 'Relación';
+comment on column AQPB079E.aqpb079efco
+  is 'Fecha';
+comment on column AQPB079E.aqpb079etce
+  is 'Tipo de documento referenciado';
+comment on column AQPB079E.aqpb079esee
+  is 'Serie del documento referenciado';
+comment on column AQPB079E.aqpb079enro
+  is 'Número del documento referenciado';
+comment on column AQPB079E.aqpb079epge
+  is 'Código empresa referenciado';
+comment on column AQPB079E.aqpb079emoe
+  is 'Módulo referenciado';
+comment on column AQPB079E.aqpb079esue
+  is 'Sucursal referenciado';
+comment on column AQPB079E.aqpb079etre
+  is 'Transacción referenciado';
+comment on column AQPB079E.aqpb079eree
+  is 'Relación referenciado';
+comment on column AQPB079E.aqpb079efce
+  is 'Fecha referenciada';
+create index AQPB079E2 on AQPB079E (AQPB079EPGC, AQPB079EMOD, AQPB079ESUC, AQPB079ETRX, AQPB079EREL, AQPB079EFCO);
+create index AQPB079E3 on AQPB079E (AQPB079EPGE, AQPB079EMOE, AQPB079ESUE, AQPB079ETRE, AQPB079EREE, AQPB079EFCE);
+create index AQPB079E4 on AQPB079E (AQPB079EFEM);
+alter table AQPB079E
+  add primary key (AQPB079ETCO, AQPB079ESER, AQPB079ENUM);
+

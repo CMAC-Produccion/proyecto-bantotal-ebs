@@ -1,0 +1,32 @@
+create table JAQY322
+(
+  jaqy322cor     NUMBER(17) not null,
+  jaqy321fec     DATE not null,
+  jaqy321suc     NUMBER(3) not null,
+  jaqy321cor     NUMBER(17) not null,
+  jaqy322pgc     NUMBER(3),
+  jaqy322mod     NUMBER(3),
+  jaqy322suc     NUMBER(3),
+  jaqy322mda     NUMBER(4),
+  jaqy322pap     NUMBER(4),
+  jaqy322cta     NUMBER(9),
+  jaqy322ope     NUMBER(9),
+  jaqy322sop     NUMBER(3),
+  jaqy322top     NUMBER(3),
+  jaqy322est     NUMBER(2),
+  jaqy322fpr     DATE,
+  jaqy322imp     NUMBER(17,2),
+  jaqy322etd     CHAR(1),
+  jaqy322pg5     NUMBER(3),
+  jaqy322it5     NUMBER(3),
+  jaqy322mo5     NUMBER(3),
+  jaqy322tr5     NUMBER(3),
+  jaqy322nr5     NUMBER(4),
+  jaqy322fc5     DATE,
+  jaqy322eslinea CHAR(1)
+)
+;
+create index IJAQY3221 on JAQY322 (JAQY321FEC, JAQY321SUC, JAQY321COR);
+alter table JAQY322
+  add primary key (JAQY322COR, JAQY321FEC, JAQY321SUC, JAQY321COR);
+

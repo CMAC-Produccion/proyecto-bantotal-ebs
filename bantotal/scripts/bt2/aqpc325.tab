@@ -1,0 +1,122 @@
+create table AQPC325
+(
+  aqpc325idlcbk NUMBER(10) not null,
+  aqpc325usrprc CHAR(10),
+  aqpc325fecprc DATE not null,
+  aqpc325horprc CHAR(8),
+  aqpc325numtar CHAR(19),
+  aqpc325pepais NUMBER(3) not null,
+  aqpc325petdoc NUMBER(2) not null,
+  aqpc325pendoc CHAR(12) not null,
+  aqpc325pgcod  NUMBER(3),
+  aqpc325itsuc  NUMBER(3),
+  aqpc325itmod  NUMBER(3),
+  aqpc325ittran NUMBER(3),
+  aqpc325itnrel NUMBER(4),
+  aqpc325itfcon DATE,
+  aqpc325moncbk NUMBER(17,2),
+  aqpc325scsuc  NUMBER(3),
+  aqpc325scmod  NUMBER(3),
+  aqpc325scmda  NUMBER(4),
+  aqpc325scpap  NUMBER(4),
+  aqpc325sccta  NUMBER(9),
+  aqpc325scoper NUMBER(9),
+  aqpc325scsbop NUMBER(3),
+  aqpc325sctope NUMBER(3),
+  aqpc325hcmod  NUMBER(3),
+  aqpc325hsucor NUMBER(3),
+  aqpc325htran  NUMBER(3),
+  aqpc325hnrel  NUMBER(4),
+  aqpc325hfcon  DATE,
+  aqpc325pairef NUMBER(3) not null,
+  aqpc325tdoref NUMBER(2) not null,
+  aqpc325docref CHAR(12) not null,
+  aqpc325moncmp NUMBER(17,2),
+  aqpc325idcamp NUMBER(5),
+  aqpc325porcbk NUMBER(3,2),
+  aqpc325tipcbk CHAR(1),
+  aqpc325errcon NUMBER(5),
+  aqpc325msjcon VARCHAR2(200)
+)
+;
+comment on table AQPC325
+  is 'log Cashback, Cashback de Referidos';
+comment on column AQPC325.aqpc325idlcbk
+  is 'Id / Correlativo';
+comment on column AQPC325.aqpc325usrprc
+  is 'Usuario que procesa';
+comment on column AQPC325.aqpc325fecprc
+  is 'Fecha de proceso';
+comment on column AQPC325.aqpc325horprc
+  is 'Hora de proceso';
+comment on column AQPC325.aqpc325numtar
+  is 'Número de tarjeta';
+comment on column AQPC325.aqpc325pepais
+  is 'Pais del documento';
+comment on column AQPC325.aqpc325petdoc
+  is 'Tipo del documento';
+comment on column AQPC325.aqpc325pendoc
+  is 'Número del documento';
+comment on column AQPC325.aqpc325pgcod
+  is 'Código empresa';
+comment on column AQPC325.aqpc325itsuc
+  is 'Sucursal';
+comment on column AQPC325.aqpc325itmod
+  is 'Modulo';
+comment on column AQPC325.aqpc325ittran
+  is 'Transaccion';
+comment on column AQPC325.aqpc325itnrel
+  is 'Nro. relacion';
+comment on column AQPC325.aqpc325itfcon
+  is 'Fecha de contabilizacion';
+comment on column AQPC325.aqpc325moncbk
+  is 'Monto devuelto';
+comment on column AQPC325.aqpc325scsuc
+  is 'Sucursal';
+comment on column AQPC325.aqpc325scmod
+  is 'Modulo';
+comment on column AQPC325.aqpc325scmda
+  is 'Moneda';
+comment on column AQPC325.aqpc325scpap
+  is 'Papel';
+comment on column AQPC325.aqpc325sccta
+  is 'Cuenta';
+comment on column AQPC325.aqpc325scoper
+  is 'Operacion';
+comment on column AQPC325.aqpc325scsbop
+  is 'Sub. operacion';
+comment on column AQPC325.aqpc325sctope
+  is 'Tipo operacion';
+comment on column AQPC325.aqpc325hcmod
+  is 'Modulo';
+comment on column AQPC325.aqpc325hsucor
+  is 'Sucursal';
+comment on column AQPC325.aqpc325htran
+  is 'Transaccion';
+comment on column AQPC325.aqpc325hnrel
+  is 'Nro. relacion';
+comment on column AQPC325.aqpc325hfcon
+  is 'Fecha de contabilizado';
+comment on column AQPC325.aqpc325pairef
+  is 'Pais del documento del referido';
+comment on column AQPC325.aqpc325tdoref
+  is 'Tipo del documento del referido';
+comment on column AQPC325.aqpc325docref
+  is 'Número de documento del referido';
+comment on column AQPC325.aqpc325moncmp
+  is 'Monto de la compra';
+comment on column AQPC325.aqpc325idcamp
+  is 'Código de la campaña';
+comment on column AQPC325.aqpc325porcbk
+  is 'Porcentaje de devolucion';
+comment on column AQPC325.aqpc325tipcbk
+  is 'Titular / Referido (T/R)';
+comment on column AQPC325.aqpc325errcon
+  is 'Error contabilizacion';
+comment on column AQPC325.aqpc325msjcon
+  is 'Mensaje contabilizacion';
+create index AQPC325A2 on AQPC325 (AQPC325FECPRC, AQPC325PEPAIS, AQPC325PETDOC, AQPC325PENDOC);
+create index AQPC325A3 on AQPC325 (AQPC325FECPRC, AQPC325PAIREF, AQPC325TDOREF, AQPC325DOCREF);
+alter table AQPC325
+  add primary key (AQPC325IDLCBK);
+

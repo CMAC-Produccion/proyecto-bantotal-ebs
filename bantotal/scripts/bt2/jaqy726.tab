@@ -1,0 +1,17 @@
+create table JAQY726
+(
+  jaqy726cod  NUMBER(3) not null,
+  jaqy726cta  NUMBER(9) not null,
+  jaqy726ope  NUMBER(9) not null,
+  jaqy726mod  NUMBER(3),
+  jaqy726suc  NUMBER(3),
+  jaqy726mon  NUMBER(4),
+  jaqy726pap  NUMBER(4),
+  jaqy726sbop NUMBER(4),
+  jaqy726top  NUMBER(4),
+  jaqy726fdes DATE
+)
+;
+alter table JAQY726
+  add primary key (JAQY726COD, JAQY726CTA, JAQY726OPE);
+

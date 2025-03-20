@@ -1,0 +1,96 @@
+create table AQPB544
+(
+  aqpb544codigo VARCHAR2(30) not null,
+  aqpb544creusr VARCHAR2(10) not null,
+  aqpb544cretim TIMESTAMP(6) default CURRENT_TIMESTAMP not null,
+  aqpb544codact NUMBER(3) not null,
+  aqpb544icod   NUMBER(3) not null,
+  aqpb544isuc   NUMBER(3) not null,
+  aqpb544imod   NUMBER(3) not null,
+  aqpb544itran  NUMBER(3) not null,
+  aqpb544inrel  NUMBER(4) not null,
+  aqpb544cbicta NUMBER(9) not null,
+  aqpb544iord   NUMBER(2),
+  aqpb544isbor  NUMBER(3),
+  aqpb544iidcod NUMBER(3),
+  aqpb544idord  NUMBER(3),
+  aqpb544iatrib VARCHAR2(690),
+  aqpb544ierror VARCHAR2(1),
+  aqpb544iptxt  VARCHAR2(30),
+  aqpb544cbiemp NUMBER(3),
+  aqpb544cbimod NUMBER(3),
+  aqpb544cbisuc NUMBER(3),
+  aqpb544cbimda NUMBER(4),
+  aqpb544cbipap NUMBER(4),
+  aqpb544cbiope NUMBER(9),
+  aqpb544cbisub NUMBER(3),
+  aqpb544cbitop NUMBER(3),
+  aqpb544cbifec DATE,
+  aqpb544cbiant NUMBER(4),
+  aqpb544action VARCHAR2(20),
+  aqpb544result VARCHAR2(9)
+)
+;
+comment on table AQPB544
+  is 'LOG de Activacion';
+comment on column AQPB544.aqpb544codigo
+  is 'Codigo';
+comment on column AQPB544.aqpb544creusr
+  is 'Usuario';
+comment on column AQPB544.aqpb544cretim
+  is 'Fecha y Hora';
+comment on column AQPB544.aqpb544codact
+  is 'Codigo de Paso';
+comment on column AQPB544.aqpb544icod
+  is 'Empresa';
+comment on column AQPB544.aqpb544isuc
+  is 'Sucursal';
+comment on column AQPB544.aqpb544imod
+  is 'Modulo';
+comment on column AQPB544.aqpb544itran
+  is 'Transaccion';
+comment on column AQPB544.aqpb544inrel
+  is 'Relacion';
+comment on column AQPB544.aqpb544cbicta
+  is 'Cuenta';
+comment on column AQPB544.aqpb544iord
+  is 'Ordinal';
+comment on column AQPB544.aqpb544isbor
+  is 'Sub Ordinal';
+comment on column AQPB544.aqpb544iidcod
+  is 'ID';
+comment on column AQPB544.aqpb544idord
+  is 'ID2';
+comment on column AQPB544.aqpb544iatrib
+  is 'Atributo';
+comment on column AQPB544.aqpb544ierror
+  is 'Error MSG';
+comment on column AQPB544.aqpb544iptxt
+  is 'Texto';
+comment on column AQPB544.aqpb544cbiemp
+  is 'FSD450 - Empresa';
+comment on column AQPB544.aqpb544cbimod
+  is 'FSD450 - Modulo';
+comment on column AQPB544.aqpb544cbisuc
+  is 'FSD450 - Sucursal';
+comment on column AQPB544.aqpb544cbimda
+  is 'FSD450 - Moneda';
+comment on column AQPB544.aqpb544cbipap
+  is 'FSD450 - Papel';
+comment on column AQPB544.aqpb544cbiope
+  is 'FSD450 - Operacion';
+comment on column AQPB544.aqpb544cbisub
+  is 'FSD450 - Sub Operacion';
+comment on column AQPB544.aqpb544cbitop
+  is 'FSD450 - Tipo de Operacion';
+comment on column AQPB544.aqpb544cbifec
+  is 'FSD450 - Fecha';
+comment on column AQPB544.aqpb544cbiant
+  is 'FSD450 - Estado Anterior';
+comment on column AQPB544.aqpb544action
+  is 'FSD450 - Accion';
+comment on column AQPB544.aqpb544result
+  is 'FSD450 - Resultado';
+alter table AQPB544
+  add primary key (AQPB544CODIGO, AQPB544CREUSR, AQPB544CRETIM, AQPB544CODACT, AQPB544ICOD, AQPB544ISUC, AQPB544IMOD, AQPB544ITRAN, AQPB544INREL, AQPB544CBICTA);
+

@@ -1,0 +1,19 @@
+create table FCPG53
+(
+  cpg52cod   NUMBER(3) not null,
+  cpg53corr  NUMBER(3) not null,
+  cpg53mda   NUMBER(4) not null,
+  cpg53cntml NUMBER(6),
+  cpg53icmex NUMBER(17,2),
+  cpg53pcmex NUMBER(4,2),
+  cpg53compm CHAR(1),
+  cpg53mccnt NUMBER(6),
+  cpg53blq   CHAR(1),
+  cpg53inst  NUMBER(10)
+)
+;
+create index FCPG5303 on FCPG53 (CPG53INST);
+create index FCPG5304 on FCPG53 (CPG53CORR, CPG52COD);
+alter table FCPG53
+  add primary key (CPG52COD, CPG53CORR, CPG53MDA);
+

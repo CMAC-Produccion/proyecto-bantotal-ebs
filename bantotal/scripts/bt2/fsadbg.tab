@@ -1,0 +1,17 @@
+create table FSADBG
+(
+  sadbgemp NUMBER(3) not null,
+  sadbgcor NUMBER(10) not null,
+  sadbgprg CHAR(10),
+  sadbgfch DATE,
+  sadbghor CHAR(8),
+  sadbgusu CHAR(10),
+  sadbgtxt CHAR(100),
+  sadbgtpo CHAR(1)
+)
+;
+create index FSADBG02 on FSADBG (SADBGEMP, SADBGPRG, SADBGFCH, SADBGCOR);
+create index FSADBG03 on FSADBG (SADBGEMP, SADBGFCH, SADBGCOR);
+alter table FSADBG
+  add primary key (SADBGEMP, SADBGCOR);
+

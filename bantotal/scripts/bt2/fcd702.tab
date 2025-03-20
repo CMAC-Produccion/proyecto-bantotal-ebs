@@ -1,0 +1,50 @@
+create table FCD702
+(
+  fcd701pgco NUMBER(3) not null,
+  fcd701pemb CHAR(16) not null,
+  fcd702corr NUMBER(3) not null,
+  fcd702cpto NUMBER(4) not null,
+  fcd702iapl NUMBER(17,2),
+  fcd702mfob NUMBER(17,2),
+  fcd702mfle NUMBER(17,2),
+  fcd702mseg NUMBER(17,2),
+  fcd702inco CHAR(3),
+  fcd702fneg DATE,
+  fcd702swav CHAR(11),
+  fcd702opav CHAR(30),
+  fct702ins  NUMBER(5),
+  fct703posa CHAR(15),
+  fcd702obs  CHAR(65),
+  fcd702vent CHAR(50),
+  fcd702inst CHAR(50),
+  fcd702mod  NUMBER(3),
+  fcd702oper NUMBER(9),
+  fcd702sope NUMBER(3),
+  fcd702tpoc NUMBER(14,8),
+  fcd702swco NUMBER(5),
+  fcd702swre NUMBER(2),
+  fcd702nmsg NUMBER(9),
+  fcd702envm CHAR(1),
+  fcd702est  CHAR(1),
+  fcd702aspg NUMBER(3),
+  fcd702assu NUMBER(3),
+  fcd702asmo NUMBER(3),
+  fcd702astr NUMBER(3),
+  fcd702asre NUMBER(4),
+  fcd702asfc DATE,
+  fcd702falt DATE,
+  fcd702fvto DATE,
+  fcd702cdto NUMBER(1),
+  fcd702fau1 DATE,
+  fcd702fau2 DATE,
+  fcd702iau1 NUMBER(17,2),
+  fcd702iau2 NUMBER(17,2),
+  fcd702tau1 CHAR(60),
+  fcd702tau2 CHAR(60)
+)
+;
+create index FCD70203 on FCD702 (FCT703POSA);
+create index FCD70204 on FCD702 (FCT702INS);
+alter table FCD702
+  add primary key (FCD701PGCO, FCD701PEMB, FCD702CORR, FCD702CPTO);
+

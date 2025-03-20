@@ -1,0 +1,39 @@
+create table AQPC154
+(
+  aqpc154pgc NUMBER(3) not null,
+  aqpc154mod NUMBER(3) not null,
+  aqpc154suc NUMBER(3) not null,
+  aqpc154mda NUMBER(4) not null,
+  aqpc154pap NUMBER(4) not null,
+  aqpc154cta NUMBER(9) not null,
+  aqpc154ope NUMBER(9) not null,
+  aqpc154sbp NUMBER(3) not null,
+  aqpc154top NUMBER(3) not null,
+  aqpc154flg CHAR(1)
+)
+;
+comment on table AQPC154
+  is 'Tabla de Verificación de Saldos Pendientes de Pago';
+comment on column AQPC154.aqpc154pgc
+  is 'Código de empresa';
+comment on column AQPC154.aqpc154mod
+  is 'Módulo';
+comment on column AQPC154.aqpc154suc
+  is 'Sucursal';
+comment on column AQPC154.aqpc154mda
+  is 'Moneda';
+comment on column AQPC154.aqpc154pap
+  is 'Papel';
+comment on column AQPC154.aqpc154cta
+  is 'Cuenta';
+comment on column AQPC154.aqpc154ope
+  is 'Operación';
+comment on column AQPC154.aqpc154sbp
+  is 'Suboperación';
+comment on column AQPC154.aqpc154top
+  is 'Tipo de operación';
+comment on column AQPC154.aqpc154flg
+  is 'S/N (Activo/Inactivo)';
+alter table AQPC154
+  add primary key (AQPC154PGC, AQPC154MOD, AQPC154SUC, AQPC154MDA, AQPC154PAP, AQPC154CTA, AQPC154OPE, AQPC154SBP, AQPC154TOP);
+

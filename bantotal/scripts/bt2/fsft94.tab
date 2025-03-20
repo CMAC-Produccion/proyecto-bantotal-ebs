@@ -1,0 +1,24 @@
+create table FSFT94
+(
+  sft94emp  NUMBER(3) not null,
+  sft94esp  NUMBER(4) not null,
+  sft94cus  NUMBER(9) not null,
+  sft94rub  NUMBER(16),
+  sft94rub2 NUMBER(16),
+  sft94rub3 NUMBER(16),
+  sft94rel  NUMBER(3),
+  sft94c1   CHAR(1),
+  sft94c2   CHAR(1),
+  sft94c3   CHAR(1),
+  sft94n1   NUMBER(9),
+  sft94n2   NUMBER(9),
+  sft94n3   NUMBER(9),
+  sft94t1   CHAR(20),
+  sft942t2  CHAR(20),
+  sft94t3   CHAR(20)
+)
+;
+create index FSFT9402 on FSFT94 (SFT94EMP, SFT94CUS, SFT94ESP);
+alter table FSFT94
+  add primary key (SFT94EMP, SFT94ESP, SFT94CUS);
+

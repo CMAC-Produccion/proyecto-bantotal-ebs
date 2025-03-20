@@ -1,0 +1,18 @@
+create table FXT811
+(
+  swtcod    NUMBER(5) not null,
+  swtrel    NUMBER(2) not null,
+  swtcpo    NUMBER(2) not null,
+  swtcpofmt CHAR(1) not null,
+  fmtout    NUMBER(1) not null,
+  swtsubcpo NUMBER(2) not null,
+  cpotxtcor NUMBER(3) not null,
+  cpotxtsug CHAR(65),
+  cpotxtpr  CHAR(1)
+)
+;
+create index FXT81102 on FXT811 (FMTOUT);
+create index FXT81110 on FXT811 (SWTCOD, SWTREL, FMTOUT, SWTCPO, SWTCPOFMT);
+alter table FXT811
+  add primary key (SWTCOD, SWTREL, SWTCPO, SWTCPOFMT, FMTOUT, SWTSUBCPO, CPOTXTCOR);
+

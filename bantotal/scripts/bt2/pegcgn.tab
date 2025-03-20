@@ -1,0 +1,13 @@
+create table PEGCGN
+(
+  pegid   CHAR(20) not null,
+  peguid  VARCHAR2(36),
+  pegnam  CHAR(160),
+  pegpas  VARCHAR2(200),
+  pegdmst CHAR(1),
+  pegdmtk NUMBER(6)
+)
+;
+alter table PEGCGN
+  add primary key (PEGID);
+

@@ -1,0 +1,25 @@
+create table FST037
+(
+  pgcod  NUMBER(3) not null,
+  trmod  NUMBER(3) not null,
+  trnro  NUMBER(3) not null,
+  trord  NUMBER(2) not null,
+  inscod NUMBER(3) not null,
+  insord NUMBER(2) not null,
+  insmod NUMBER(3),
+  insrub NUMBER(16),
+  insobl CHAR(1),
+  incodm NUMBER(3),
+  inscom NUMBER(3),
+  insper NUMBER(3),
+  insapl CHAR(1),
+  inscta CHAR(1)
+)
+;
+create index FST03703 on FST037 (INSCOD);
+create index FST03704 on FST037 (INSMOD);
+create index FST03705 on FST037 (INSRUB);
+create index FST03706 on FST037 (INSCOM);
+alter table FST037
+  add primary key (PGCOD, TRMOD, TRNRO, TRORD, INSCOD, INSORD);
+

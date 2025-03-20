@@ -1,0 +1,27 @@
+create table FSFL34
+(
+  fsfl34emp NUMBER(3) not null,
+  fsfl34suc NUMBER(3) not null,
+  fsfl34rub NUMBER(16) not null,
+  fsfl34mda NUMBER(4) not null,
+  fsfl34pap NUMBER(4) not null,
+  fsfl34cta NUMBER(9) not null,
+  fsfl34ope NUMBER(9) not null,
+  fsfl34sbo NUMBER(3) not null,
+  fsfl34top NUMBER(3) not null,
+  fsfl34tlm CHAR(4) not null,
+  fsfl34crr NUMBER(5) not null,
+  fsfl34mnt NUMBER(17,2),
+  fsfl34mre NUMBER(17,2),
+  fsfl34fch DATE,
+  fsfl34scs NUMBER(3),
+  fsfl34mod NUMBER(3),
+  fsfl34trn NUMBER(3),
+  fsfl34rel NUMBER(4)
+)
+;
+create index FSFL3402 on FSFL34 (FSFL34EMP, FSFL34SUC, FSFL34RUB, FSFL34MDA, FSFL34PAP, FSFL34CTA, FSFL34OPE, FSFL34SBO, FSFL34TOP, FSFL34CRR, FSFL34TLM);
+create index FSFL3403 on FSFL34 (FSFL34EMP, FSFL34CTA, FSFL34TLM, FSFL34CRR);
+alter table FSFL34
+  add primary key (FSFL34EMP, FSFL34SUC, FSFL34RUB, FSFL34MDA, FSFL34PAP, FSFL34CTA, FSFL34OPE, FSFL34SBO, FSFL34TOP, FSFL34TLM, FSFL34CRR);
+

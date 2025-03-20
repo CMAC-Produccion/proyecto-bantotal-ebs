@@ -1,0 +1,80 @@
+create table AQPB296
+(
+  aqpb296feca  DATE not null,
+  aqpb296pais  NUMBER(3),
+  aqpb296tdoc  NUMBER(2) not null,
+  aqpb296ndoc  CHAR(12) not null,
+  aqpb296tipol CHAR(1),
+  aqpb296est   CHAR(1),
+  aqpb296desc  VARCHAR2(50),
+  aqpb296mto1  NUMBER(17,2),
+  aqpb296mto2  NUMBER(17,2),
+  aqpb296mto3  NUMBER(17,2),
+  aqpb296usu1  CHAR(10),
+  aqpb296usu2  CHAR(10),
+  aqpb296usu3  CHAR(10),
+  aqpb296fech1 DATE,
+  aqpb296fech2 DATE,
+  aqpb296fech3 DATE,
+  aqpb296var1  VARCHAR2(120),
+  aqpb296var2  VARCHAR2(120),
+  aqpb296var3  VARCHAR2(120),
+  aqpb296hora  VARCHAR2(50),
+  aqpb296age   NUMBER(3),
+  aqpb296zon   NUMBER(3),
+  aqpb296reg   NUMBER(3)
+)
+;
+comment on table AQPB296
+  is 'Base Listado Clientes Campania';
+comment on column AQPB296.aqpb296feca
+  is 'Fecha carga';
+comment on column AQPB296.aqpb296pais
+  is 'pais';
+comment on column AQPB296.aqpb296tdoc
+  is 'tipo documento';
+comment on column AQPB296.aqpb296ndoc
+  is 'numero documento';
+comment on column AQPB296.aqpb296tipol
+  is 'tipo 0 / 1';
+comment on column AQPB296.aqpb296est
+  is 'estado S - vigente / N no vigente';
+comment on column AQPB296.aqpb296desc
+  is 'Registrado';
+comment on column AQPB296.aqpb296mto1
+  is 'Monto ';
+comment on column AQPB296.aqpb296mto2
+  is 'Monto 2';
+comment on column AQPB296.aqpb296mto3
+  is 'Monto 3';
+comment on column AQPB296.aqpb296usu1
+  is 'Usuario';
+comment on column AQPB296.aqpb296usu2
+  is 'Usuario 2';
+comment on column AQPB296.aqpb296usu3
+  is 'Usuario 3';
+comment on column AQPB296.aqpb296fech1
+  is 'Fecha ';
+comment on column AQPB296.aqpb296fech2
+  is 'Fecha 2';
+comment on column AQPB296.aqpb296fech3
+  is 'Fecha 3';
+comment on column AQPB296.aqpb296var1
+  is 'Nombre Cliente';
+comment on column AQPB296.aqpb296var2
+  is 'Mensaje';
+comment on column AQPB296.aqpb296var3
+  is 'Codigo SBS';
+comment on column AQPB296.aqpb296hora
+  is 'hora';
+comment on column AQPB296.aqpb296age
+  is 'Sucursal';
+comment on column AQPB296.aqpb296zon
+  is 'Zona';
+comment on column AQPB296.aqpb296reg
+  is 'Region';
+create index AQPB296A2 on AQPB296 (AQPB296VAR3);
+create index AQPB296A3 on AQPB296 (AQPB296FECA, AQPB296NDOC);
+alter table AQPB296
+  add primary key (AQPB296FECA, AQPB296TDOC, AQPB296NDOC);
+

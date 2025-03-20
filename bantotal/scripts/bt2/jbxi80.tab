@@ -1,0 +1,25 @@
+create table JBXI80
+(
+  jbxi80mda CHAR(3) not null,
+  jbxi80cui CHAR(11) not null,
+  jbxi80dae CHAR(55) not null,
+  jbxi80dee CHAR(55) not null,
+  jbxi80efn NUMBER(5) not null,
+  jbxi80faf DATE not null,
+  jbxi80fei DATE not null,
+  jbxi80fin CHAR(1) not null,
+  jbxi80fdi DATE not null,
+  jbxi80fpr DATE not null,
+  jbxi80mpa NUMBER(17,2) not null,
+  jbxi80mpc NUMBER(17,2) not null,
+  jbxi80nbo CHAR(20) not null,
+  jbxi80nie CHAR(20),
+  jbxi80nop CHAR(11),
+  jbxi80pre CHAR(2),
+  jbxi80tas NUMBER(10,6),
+  jbxi80tac CHAR(1),
+  jbxi80top CHAR(1)
+)
+;
+create unique index JBXI8001 on JBXI80 (JBXI80MDA, JBXI80CUI, JBXI80DAE, JBXI80DEE, JBXI80EFN, JBXI80FAF, JBXI80FEI, JBXI80FIN, JBXI80FDI, JBXI80FPR, JBXI80MPA, JBXI80MPC, JBXI80NBO);
+

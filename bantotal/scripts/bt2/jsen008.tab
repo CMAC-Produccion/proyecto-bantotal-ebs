@@ -1,0 +1,17 @@
+create table JSEN008
+(
+  jsen008tpo NUMBER(9) not null,
+  jsen008grp CHAR(7) not null,
+  jsen008emp NUMBER(4) not null,
+  jsen008nom CHAR(35),
+  jsen007cod CHAR(2),
+  jsen008fcr DATE,
+  jsen008ffi DATE,
+  jsen008pat NUMBER(17,2),
+  jsen008fac DATE
+)
+;
+create index JSEN0082 on JSEN008 (JSEN007COD);
+alter table JSEN008
+  add primary key (JSEN008TPO, JSEN008GRP, JSEN008EMP);
+

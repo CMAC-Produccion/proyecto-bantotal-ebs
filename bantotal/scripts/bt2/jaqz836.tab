@@ -1,0 +1,80 @@
+create table JAQZ836
+(
+  jaqz836corr   NUMBER(10) not null,
+  jaqz836fec    DATE not null,
+  jaqz836hora   CHAR(10) not null,
+  jaqz836pais   NUMBER(9) not null,
+  jaqz836tdoc   NUMBER(9) not null,
+  jaqz836ndoc   VARCHAR2(12) not null,
+  jaqz836tcamb  NUMBER(14,8),
+  jaqz836inst   NUMBER(12) not null,
+  jaqz836pgcod  NUMBER(5),
+  jaqz836mod    NUMBER(5),
+  jaqz836suc    NUMBER(5),
+  jaqz836mda    NUMBER(5),
+  jaqz836pap    NUMBER(5),
+  jaqz836cta    NUMBER(10),
+  jaqz836ope    NUMBER(10),
+  jaqz836sbop   NUMBER(10),
+  jaqz836tope   NUMBER(10),
+  jaqz836perio  NUMBER(5),
+  jaqz836nrcuo  NUMBER(5),
+  jaqz836cuoimp NUMBER(17,2),
+  jaqz836capcuo NUMBER(17,2),
+  jaqz836indic  VARCHAR2(10),
+  jaqz836est    VARCHAR2(2),
+  jaqz836user   VARCHAR2(10)
+)
+;
+comment on column JAQZ836.jaqz836corr
+  is 'Correlativo';
+comment on column JAQZ836.jaqz836fec
+  is 'Fecha de Solicitud';
+comment on column JAQZ836.jaqz836hora
+  is 'Hora del Registro';
+comment on column JAQZ836.jaqz836pais
+  is 'Pais';
+comment on column JAQZ836.jaqz836tdoc
+  is 'Tipo de Documento';
+comment on column JAQZ836.jaqz836ndoc
+  is 'Numero de Documento';
+comment on column JAQZ836.jaqz836tcamb
+  is 'Tipo de Cambio de la Solicitud';
+comment on column JAQZ836.jaqz836inst
+  is 'Nro de Solicitud';
+comment on column JAQZ836.jaqz836pgcod
+  is 'Pgcod';
+comment on column JAQZ836.jaqz836mod
+  is 'Modulo';
+comment on column JAQZ836.jaqz836suc
+  is 'Sucursal';
+comment on column JAQZ836.jaqz836mda
+  is 'Moneda';
+comment on column JAQZ836.jaqz836pap
+  is 'Papel';
+comment on column JAQZ836.jaqz836cta
+  is 'Cuenta';
+comment on column JAQZ836.jaqz836ope
+  is 'Operacion';
+comment on column JAQZ836.jaqz836sbop
+  is 'Sub Operacion';
+comment on column JAQZ836.jaqz836tope
+  is 'Tipo de Operacion';
+comment on column JAQZ836.jaqz836perio
+  is 'Periodo del Credito';
+comment on column JAQZ836.jaqz836nrcuo
+  is 'Nro de Cuotas';
+comment on column JAQZ836.jaqz836cuoimp
+  is 'Monto de la Maxima Cuota Pendiente de Pago';
+comment on column JAQZ836.jaqz836capcuo
+  is 'Capacidad de la Cuota';
+comment on column JAQZ836.jaqz836indic
+  is 'Indicador del Credito (CredVigent, CredVuelo)';
+comment on column JAQZ836.jaqz836est
+  is 'Estado del Registro (H Habil, I inhabilitado)';
+create index JAQZ8362 on JAQZ836 (JAQZ836PGCOD, JAQZ836MOD, JAQZ836SUC, JAQZ836MDA, JAQZ836PAP, JAQZ836CTA, JAQZ836OPE, JAQZ836SBOP, JAQZ836TOPE, JAQZ836EST);
+create index JAQZ8363 on JAQZ836 (JAQZ836FEC, JAQZ836PAIS, JAQZ836TDOC, JAQZ836NDOC, JAQZ836INST, JAQZ836EST);
+create index JAQZ8364 on JAQZ836 (JAQZ836INST, JAQZ836PGCOD, JAQZ836MOD, JAQZ836SUC, JAQZ836MDA, JAQZ836PAP, JAQZ836CTA, JAQZ836OPE, JAQZ836SBOP, JAQZ836TOPE);
+alter table JAQZ836
+  add primary key (JAQZ836CORR, JAQZ836FEC, JAQZ836HORA, JAQZ836PAIS, JAQZ836TDOC, JAQZ836NDOC, JAQZ836INST);
+

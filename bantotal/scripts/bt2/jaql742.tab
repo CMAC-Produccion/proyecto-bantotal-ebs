@@ -1,0 +1,38 @@
+create table JAQL742
+(
+  jaql742fepr DATE not null,
+  jaql742fein DATE not null,
+  jaql742fefi DATE not null,
+  jaql742pgco NUMBER(3) not null,
+  jaql742scsu NUMBER(3) not null,
+  jaql742scmo NUMBER(3) not null,
+  jaql742scmd NUMBER(4) not null,
+  jaql742scpa NUMBER(4) not null,
+  jaql742scct NUMBER(9) not null,
+  jaql742scop NUMBER(9) not null,
+  jaql742scsb NUMBER(3) not null,
+  jaql742scto NUMBER(3) not null,
+  jaql742hora CHAR(8),
+  jaql742sapn NUMBER(17,2),
+  jaql742sain NUMBER(17,2),
+  jaql742sapr NUMBER(17,2),
+  jaql742tean NUMBER(5,2),
+  jaql742inpa NUMBER(17,2),
+  jaql742inca NUMBER(17,2),
+  jaql742fneg DATE,
+  jaql742itsu NUMBER(3),
+  jaql742itmo NUMBER(3),
+  jaql742ittr NUMBER(3),
+  jaql742itre NUMBER(4),
+  jaql742itfc DATE,
+  jaql742au01 VARCHAR2(100),
+  jaql742au02 VARCHAR2(100),
+  jaql742au03 NUMBER(17,2),
+  jaql742au04 NUMBER(17,2),
+  jaql742au05 DATE,
+  jaql742au06 DATE
+)
+;
+alter table JAQL742
+  add primary key (JAQL742FEPR, JAQL742FEIN, JAQL742FEFI, JAQL742PGCO, JAQL742SCSU, JAQL742SCMO, JAQL742SCMD, JAQL742SCPA, JAQL742SCCT, JAQL742SCOP, JAQL742SCSB, JAQL742SCTO);
+

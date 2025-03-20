@@ -1,0 +1,15 @@
+create table FHA120
+(
+  pgcod      NUMBER(3) not null,
+  lcehmod    NUMBER(3) not null,
+  lcehoper   NUMBER(9) not null,
+  lcehmodid  NUMBER(5) not null,
+  lcehfecwid NUMBER(2) not null,
+  lcehfecwds CHAR(30),
+  lcehafecwf DATE,
+  lcehpfecwf DATE
+)
+;
+alter table FHA120
+  add primary key (PGCOD, LCEHMOD, LCEHOPER, LCEHMODID, LCEHFECWID);
+

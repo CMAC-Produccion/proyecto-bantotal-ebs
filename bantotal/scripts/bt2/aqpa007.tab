@@ -1,0 +1,42 @@
+create table AQPA007
+(
+  aqpa007cod    NUMBER(3) not null,
+  aqpa007mod    NUMBER(3) not null,
+  aqpa007suc    NUMBER(3) not null,
+  aqpa007mda    NUMBER(4) not null,
+  aqpa007pap    NUMBER(4) not null,
+  aqpa007cta    NUMBER(9) not null,
+  aqpa007oper   NUMBER(9) not null,
+  aqpa007sbop   NUMBER(3) not null,
+  aqpa007tope   NUMBER(3) not null,
+  aqpa007fpag   DATE not null,
+  aqpa007tipo   CHAR(1) not null,
+  aqpa007exte   NUMBER(3) not null,
+  aqpa007imp1   NUMBER(17,2),
+  aqpa007imp2   NUMBER(17,2),
+  aqpa007imp3   NUMBER(17,2),
+  aqpa007imp4   NUMBER(17,2),
+  aqpa007imp5   NUMBER(17,2),
+  aqpa007imp6   NUMBER(17,2),
+  aqpa007imp7   NUMBER(17,2),
+  aqpa007imp8   NUMBER(17,2),
+  aqpa007imp9   NUMBER(17,2),
+  aqpa007imp10  NUMBER(17,2),
+  aqpa007imp11  NUMBER(17,2),
+  aqpa007imp12  NUMBER(17,2),
+  aqpa007imp13  NUMBER(17,2),
+  aqpa007imp14  NUMBER(17,2),
+  aqpa007imp15  NUMBER(17,2),
+  aqpa007imp16  NUMBER(17,2),
+  aqpa007imp17  NUMBER(17,2),
+  aqpa007imp18  NUMBER(17,2),
+  aqpa007imp19  NUMBER(17,2),
+  aqpa007imp20  NUMBER(17,2),
+  aqpa007fecpro DATE not null,
+  aqpa007horpro CHAR(8) not null,
+  aqpa007cor    NUMBER(9) default 1 not null
+)
+;
+alter table AQPA007
+  add primary key (AQPA007COD, AQPA007MOD, AQPA007SUC, AQPA007MDA, AQPA007PAP, AQPA007CTA, AQPA007OPER, AQPA007SBOP, AQPA007TOPE, AQPA007FPAG, AQPA007TIPO, AQPA007EXTE, AQPA007FECPRO, AQPA007HORPRO, AQPA007COR);
+

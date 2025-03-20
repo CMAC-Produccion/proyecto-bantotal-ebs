@@ -1,0 +1,51 @@
+create table JAQM6Z
+(
+  jaqm6zcor NUMBER(4) not null,
+  jaqm6zsen CHAR(250),
+  jaqm6ztbl CHAR(50),
+  jaqm6zcmp CHAR(50),
+  jaqm6zai1 NUMBER(17,2),
+  jaqm6zai2 NUMBER(17,2),
+  jaqm6zan1 NUMBER(4),
+  jaqm6zan2 NUMBER(4),
+  jaqm6zac1 CHAR(100),
+  jaqm6zac2 CHAR(100),
+  jaqm6zat1 CHAR(255),
+  jaqm6zat2 CHAR(255),
+  jaqm6zad1 DATE,
+  jaqm6zad2 DATE
+)
+;
+comment on table JAQM6Z
+  is 'Sentencias Maxima Fecha';
+comment on column JAQM6Z.jaqm6zcor
+  is 'Correlativo';
+comment on column JAQM6Z.jaqm6zsen
+  is 'Sentencia';
+comment on column JAQM6Z.jaqm6ztbl
+  is 'Tabla';
+comment on column JAQM6Z.jaqm6zcmp
+  is 'Campo';
+comment on column JAQM6Z.jaqm6zai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM6Z.jaqm6zai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM6Z.jaqm6zan1
+  is 'Auxiliar Numerico 1';
+comment on column JAQM6Z.jaqm6zan2
+  is 'Auxiliar Numerico 2';
+comment on column JAQM6Z.jaqm6zac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM6Z.jaqm6zac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM6Z.jaqm6zat1
+  is 'Auxiliar Texto 1';
+comment on column JAQM6Z.jaqm6zat2
+  is 'Auxiliar Texto 2';
+comment on column JAQM6Z.jaqm6zad1
+  is 'Auxiliar Fecha 1';
+comment on column JAQM6Z.jaqm6zad2
+  is 'Auxiliar Fecha 2';
+alter table JAQM6Z
+  add primary key (JAQM6ZCOR);
+

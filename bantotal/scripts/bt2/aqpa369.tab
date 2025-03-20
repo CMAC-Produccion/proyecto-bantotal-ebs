@@ -1,0 +1,42 @@
+create table AQPA369
+(
+  aqpa369corr  NUMBER(10) not null,
+  aqpa369fec   DATE not null,
+  aqpa369hora  CHAR(10) not null,
+  aqpa369userl VARCHAR2(10) not null,
+  aqpa369useru VARCHAR2(10) not null,
+  aqpa369emp   NUMBER(5),
+  aqpa369usr   CHAR(10),
+  aqpa369car   NUMBER(5),
+  aqpa369aut   CHAR(10),
+  aqpa369sup   CHAR(10),
+  aqpa369ini   DATE,
+  aqpa369fin   DATE,
+  aqpa369jef   CHAR(10),
+  aqpa369wkf   CHAR(10),
+  aqpa369prc   NUMBER(10),
+  aqpa369tsk   NUMBER(10),
+  aqpa369est   VARCHAR2(10),
+  aqpa369naux1 NUMBER(17,2),
+  aqpa369naux2 NUMBER(17,2),
+  aqpa369naux3 NUMBER(17,2),
+  aqpa369naux4 NUMBER(17,2),
+  aqpa369naux5 NUMBER(17,2),
+  aqpa369vaux1 VARCHAR2(40),
+  aqpa369vaux2 VARCHAR2(40),
+  aqpa369vaux3 VARCHAR2(40),
+  aqpa369vaux4 VARCHAR2(40),
+  aqpa369vaux5 VARCHAR2(40),
+  aqpa369daux1 DATE,
+  aqpa369daux2 DATE,
+  aqpa369daux3 DATE
+)
+;
+create index AQPA369A5 on AQPA369 (AQPA369USERU);
+create index AQPA369A6 on AQPA369 (AQPA369FEC, AQPA369USERL, AQPA369USERU);
+create index AQPA3692 on AQPA369 (AQPA369EMP, AQPA369USR);
+create index AQPA3693 on AQPA369 (AQPA369USERL);
+create index AQPA3694 on AQPA369 (AQPA369USR, AQPA369CAR);
+alter table AQPA369
+  add primary key (AQPA369CORR, AQPA369FEC, AQPA369HORA, AQPA369USERL, AQPA369USERU);
+

@@ -1,0 +1,39 @@
+create table AQPB180
+(
+  aqpb180nreg   NUMBER(10) not null,
+  aqpb180fcorr  DATE not null,
+  aqpb180corr   NUMBER(10) not null,
+  aqpb180pai    NUMBER(5) not null,
+  aqpb180tdoc   NUMBER(5) not null,
+  aqpb180ndoc   VARCHAR2(30) not null,
+  aqpb180fproc  DATE,
+  aqpb180hproc  VARCHAR2(15),
+  aqpb180tcam   NUMBER(10,8),
+  aqpb180user   VARCHAR2(10),
+  aqpb180pgcocr NUMBER(10) not null,
+  aqpb180modcr  NUMBER(10) not null,
+  aqpb180succr  NUMBER(10) not null,
+  aqpb180mdacr  NUMBER(10) not null,
+  aqpb180papcr  NUMBER(10) not null,
+  aqpb180ctacr  NUMBER(10) not null,
+  aqpb180opecr  NUMBER(10) not null,
+  aqpb180sopecr NUMBER(10) not null,
+  aqpb180topecr NUMBER(10) not null,
+  aqpb180percre NUMBER(5),
+  aqpb180numcou NUMBER(5),
+  aqpb180tipsol NUMBER(5),
+  aqpb180flucaj VARCHAR2(2),
+  aqpb180maxpen NUMBER(17,2),
+  aqpb180segcre NUMBER(17,2),
+  aqpb180capfcj NUMBER(17,2),
+  aqpb180caplin NUMBER(17,2),
+  aqpb180capcuo NUMBER(17,2),
+  aqpb180indcre VARCHAR2(15),
+  aqpb180est    VARCHAR2(5),
+  aqpb180tcarg  VARCHAR2(10)
+)
+;
+create index AQPB180A2 on AQPB180 (AQPB180FCORR, AQPB180CORR);
+alter table AQPB180
+  add primary key (AQPB180NREG, AQPB180FCORR, AQPB180CORR, AQPB180PAI, AQPB180TDOC, AQPB180NDOC, AQPB180PGCOCR, AQPB180MODCR, AQPB180SUCCR, AQPB180MDACR, AQPB180PAPCR, AQPB180CTACR, AQPB180OPECR, AQPB180SOPECR, AQPB180TOPECR);
+

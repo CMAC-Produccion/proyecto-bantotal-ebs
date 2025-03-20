@@ -1,0 +1,20 @@
+create table FSD205
+(
+  acccod  NUMBER(4) not null,
+  accfch  DATE not null,
+  acctpo  CHAR(1) not null,
+  accporc NUMBER(14,9),
+  acccd01 NUMBER(17,2),
+  acccd02 NUMBER(17,2),
+  acccd03 NUMBER(9),
+  accsn01 CHAR(1),
+  accsn02 CHAR(1),
+  accsn03 CHAR(1),
+  accnrod NUMBER(9),
+  accfchl DATE,
+  accfact NUMBER(14,9)
+)
+;
+alter table FSD205
+  add primary key (ACCCOD, ACCFCH, ACCTPO);
+

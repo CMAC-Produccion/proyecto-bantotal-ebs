@@ -1,0 +1,38 @@
+create table FSFT75
+(
+  sft75num   NUMBER(9) not null,
+  sft75tip   CHAR(1),
+  sft75eor   CHAR(1),
+  sft75ticu  CHAR(1),
+  sft75tide  CHAR(1),
+  sft75cus1  NUMBER(9),
+  sft75cus2  NUMBER(9),
+  sft75dep1  NUMBER(9),
+  sft75dep2  NUMBER(9),
+  sft75com1  NUMBER(9),
+  sft75com2  NUMBER(9),
+  sft75valn  NUMBER(17,2),
+  sft75espe  NUMBER(4),
+  sft75ide1  NUMBER(2),
+  sft75cpc1  CHAR(12),
+  sft75ide2  NUMBER(2),
+  sft75cpc2  CHAR(12),
+  sft75conc  DATE,
+  sft75stat  CHAR(1),
+  sft75vare  NUMBER(17,7),
+  sft75user  CHAR(10),
+  sft75wkst  CHAR(10),
+  sft75hora  CHAR(8),
+  sft75fliq  DATE,
+  sft75empa  NUMBER(3),
+  sft75suca  NUMBER(3),
+  sft75moda  NUMBER(3),
+  sft75trna  NUMBER(3),
+  sft75rela  NUMBER(4),
+  sft75fcona DATE
+)
+;
+create index FSFT7502 on FSFT75 (SFT75EMPA, SFT75SUCA, SFT75MODA, SFT75TRNA, SFT75RELA, SFT75FCONA);
+alter table FSFT75
+  add primary key (SFT75NUM);
+

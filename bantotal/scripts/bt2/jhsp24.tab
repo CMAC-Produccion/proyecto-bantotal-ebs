@@ -1,0 +1,20 @@
+create table JHSP24
+(
+  jhsp24proc CHAR(3) not null,
+  jhsp24pais NUMBER(3) not null,
+  jhsp24tdoc NUMBER(2) not null,
+  jhsp24ndoc CHAR(12) not null,
+  jhsp24per  NUMBER(6) not null,
+  jhsp24seqd NUMBER(2) not null,
+  jhsp24mda  NUMBER(4) not null,
+  jhsp24fpro DATE not null,
+  jhsp24hpro CHAR(8) not null,
+  jhsp24user CHAR(10) not null,
+  jhsp24wrks CHAR(10),
+  jhsp24opc  CHAR(1),
+  jhsp24totr NUMBER(10),
+  jhsp24timp NUMBER(17,2)
+)
+;
+create unique index JHSP2401 on JHSP24 (JHSP24PROC, JHSP24PAIS, JHSP24TDOC, JHSP24NDOC, JHSP24PER, JHSP24SEQD, JHSP24MDA, JHSP24FPRO, JHSP24HPRO, JHSP24USER);
+

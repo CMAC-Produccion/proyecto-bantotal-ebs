@@ -1,0 +1,26 @@
+create table JAQL091
+(
+  jaql91tita CHAR(1) not null,
+  jaql91scmo NUMBER(3) not null,
+  jaql91scmd NUMBER(4) not null,
+  jaql91scto NUMBER(3) not null,
+  jaql91mtmi NUMBER(17,2) not null,
+  jaql91au10 DATE not null,
+  jaql91mtma NUMBER(17,2),
+  jaql91tasa NUMBER(9,7),
+  jaql91au01 CHAR(50),
+  jaql91au02 CHAR(50),
+  jaql91au03 CHAR(50),
+  jaql91au04 NUMBER(9),
+  jaql91au05 NUMBER(9),
+  jaql91au06 NUMBER(9),
+  jaql91au07 NUMBER(17,2),
+  jaql91au08 NUMBER(17,2),
+  jaql91au09 NUMBER(17,2),
+  jaql91au11 DATE,
+  jaql91au12 DATE
+)
+;
+alter table JAQL091
+  add primary key (JAQL91TITA, JAQL91SCMO, JAQL91SCMD, JAQL91SCTO, JAQL91MTMI, JAQL91AU10);
+

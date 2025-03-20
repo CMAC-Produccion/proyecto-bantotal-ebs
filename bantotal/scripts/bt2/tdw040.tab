@@ -1,0 +1,11 @@
+create table TDW040
+(
+  tdw040pro CHAR(10) not null,
+  tdw040nom CHAR(30),
+  tdw040suc NUMBER(3)
+)
+;
+create index TDW04002 on TDW040 (TDW040SUC, TDW040PRO);
+alter table TDW040
+  add primary key (TDW040PRO);
+

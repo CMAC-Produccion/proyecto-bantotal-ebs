@@ -1,0 +1,45 @@
+create table FBC511
+(
+  bc511emp   NUMBER(3) not null,
+  bc511inf   CHAR(10) not null,
+  bc511pais  NUMBER(3) not null,
+  bc511tdoc  NUMBER(2) not null,
+  bc511ndoc  CHAR(25) not null,
+  bc511nom   CHAR(50),
+  bc511ape   CHAR(50),
+  bc511dir   CHAR(50),
+  bc511tel   CHAR(20),
+  bc511codp  CHAR(8),
+  bc511fchn  DATE,
+  bc511sexo  CHAR(1),
+  bc511fch1  DATE,
+  bc511fch2  DATE,
+  bc511nro1  NUMBER(15),
+  bc511nro2  NUMBER(15),
+  bc511chr1  CHAR(50),
+  bc511chr2  CHAR(50),
+  bc511ptipo CHAR(1),
+  bc511resi  CHAR(1),
+  bc511paisr NUMBER(3),
+  bc511tclav NUMBER(2),
+  bc511clave CHAR(11),
+  bc511calle CHAR(35),
+  bc511nro   NUMBER(6),
+  bc511piso  NUMBER(3),
+  bc511apart CHAR(6),
+  bc511depto NUMBER(5),
+  bc511ciuda NUMBER(5),
+  bc511imp1  NUMBER(17,2),
+  bc511imp2  NUMBER(17,2),
+  bc511imp3  NUMBER(17,2),
+  bc511chr3  CHAR(30),
+  bc511chr4  CHAR(30),
+  bc511chr5  CHAR(30),
+  bc511fch3  DATE
+)
+;
+create index FBC51102 on FBC511 (BC511PAIS, BC511TDOC, BC511NDOC);
+create index FBC51103 on FBC511 (BC511TCLAV, BC511CLAVE);
+alter table FBC511
+  add primary key (BC511EMP, BC511INF, BC511PAIS, BC511TDOC, BC511NDOC);
+

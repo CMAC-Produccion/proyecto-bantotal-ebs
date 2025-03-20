@@ -1,0 +1,13 @@
+create table FST045
+(
+  pgcod  NUMBER(3) not null,
+  inprg  CHAR(10) not null,
+  innom  CHAR(40),
+  cied   CHAR(1),
+  cifreq CHAR(1)
+)
+;
+create index FST04503 on FST045 (CIFREQ);
+alter table FST045
+  add primary key (PGCOD, INPRG);
+

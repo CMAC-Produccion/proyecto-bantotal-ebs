@@ -1,0 +1,14 @@
+create table CNL009
+(
+  cnl009cod NUMBER(9) not null,
+  cnl009cor NUMBER(9) not null,
+  cnl009dsc CHAR(30),
+  cnl009val CLOB,
+  cnl009tva CHAR(1),
+  cnl009tnv CHAR(3),
+  ibproject CHAR(60)
+)
+;
+alter table CNL009
+  add constraint CNL00903 unique (CNL009COD, CNL009COR, IBPROJECT);
+

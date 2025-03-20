@@ -1,0 +1,29 @@
+create table FBC170
+(
+  bcempr   NUMBER(3) not null,
+  bcinfor  CHAR(10) not null,
+  bcfinf   DATE not null,
+  bcsuc    NUMBER(3) not null,
+  bcmda    NUMBER(4) not null,
+  bccolu   NUMBER(2) not null,
+  bcunid   NUMBER(2) not null,
+  bcreng   NUMBER(4) not null,
+  bcpcu    NUMBER(16),
+  bccicpo  CHAR(8),
+  bcnomcta CHAR(70),
+  bcsdoex1 NUMBER(16,2),
+  bcsdoex2 NUMBER(16,2),
+  bcsdoex3 NUMBER(16,2),
+  bcsdoex4 NUMBER(16,2),
+  bcsdoex5 NUMBER(16,2),
+  bcsdon1  NUMBER(16,2),
+  bcsdon2  NUMBER(16,2),
+  bcsdon3  NUMBER(16,2),
+  bcsdon4  NUMBER(16,2),
+  bcsdon5  NUMBER(16,2)
+)
+;
+create index FBC17002 on FBC170 (BCEMPR, BCINFOR, BCFINF, BCUNID, BCRENG, BCCOLU);
+alter table FBC170
+  add primary key (BCEMPR, BCINFOR, BCFINF, BCSUC, BCMDA, BCCOLU, BCUNID, BCRENG);
+

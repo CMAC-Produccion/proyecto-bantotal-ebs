@@ -1,0 +1,30 @@
+create table FSC017
+(
+  impnro   NUMBER(9) not null,
+  impcod15 NUMBER(3),
+  impsuc15 NUMBER(3),
+  impmod15 NUMBER(3),
+  imptrn15 NUMBER(3),
+  imprel15 NUMBER(4),
+  impnimp  NUMBER(3),
+  impusu   CHAR(10),
+  impterm  CHAR(10),
+  impcod10 NUMBER(3),
+  impmod10 NUMBER(3),
+  impsuc10 NUMBER(3),
+  impmda10 NUMBER(4),
+  imppap10 NUMBER(4),
+  impcta10 NUMBER(9),
+  impope10 NUMBER(9),
+  impsop10 NUMBER(3),
+  imptop10 NUMBER(3),
+  impmncod NUMBER(5),
+  imphecho CHAR(1)
+)
+;
+create index FSC01702 on FSC017 (IMPSUC15, IMPCOD15, IMPCTA10);
+create index FSC01703 on FSC017 (IMPCOD15, IMPCTA10);
+create index FSC01704 on FSC017 (IMPMOD15, IMPTRN15, IMPREL15, IMPUSU, IMPNRO);
+alter table FSC017
+  add primary key (IMPNRO);
+

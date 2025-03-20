@@ -1,0 +1,13 @@
+create table SD4380
+(
+  sd80coddis NUMBER(4) not null,
+  sd80codent NUMBER(5) not null,
+  sd80fchinf NUMBER(6) not null,
+  sd80secuen NUMBER(2) not null,
+  sd80descr  CHAR(127) not null,
+  sd80rectif CHAR(1)
+)
+;
+alter table SD4380
+  add primary key (SD80CODDIS, SD80CODENT, SD80FCHINF, SD80SECUEN, SD80DESCR);
+

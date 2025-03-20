@@ -1,0 +1,27 @@
+create table FRAC003
+(
+  rac003cod NUMBER(3) not null,
+  rac003mod NUMBER(3) not null,
+  rac003top NUMBER(3) not null,
+  rac003mda NUMBER(4) not null,
+  rac003pap NUMBER(4) not null,
+  rac003suc NUMBER(3) not null,
+  rac003sbo NUMBER(3) not null,
+  rac003cor NUMBER(4) not null,
+  rac003fch DATE not null,
+  rac003cta NUMBER(9) not null,
+  rac003opv NUMBER(9) not null,
+  rac003opn NUMBER(9),
+  rac003acp CHAR(1),
+  rac003est NUMBER(2),
+  rac003fre DATE,
+  rac003ax1 DATE,
+  rac003ax2 NUMBER(17,2),
+  rac003ax3 CHAR(20)
+)
+;
+create index FRAC0032 on FRAC003 (RAC003SUC, RAC003FCH, RAC003ACP, RAC003EST);
+create index FRAC0033 on FRAC003 (RAC003COD, RAC003MOD, RAC003TOP, RAC003MDA, RAC003PAP, RAC003ACP, RAC003SUC, RAC003SBO, RAC003FCH, RAC003CTA);
+alter table FRAC003
+  add primary key (RAC003COD, RAC003MOD, RAC003TOP, RAC003MDA, RAC003PAP, RAC003SUC, RAC003SBO, RAC003COR, RAC003FCH, RAC003CTA, RAC003OPV);
+

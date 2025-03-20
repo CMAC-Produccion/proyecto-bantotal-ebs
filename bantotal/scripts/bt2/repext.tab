@@ -1,0 +1,38 @@
+create table REPEXT
+(
+  jaqy254pgctr   NUMBER(4),
+  jaqy254suctr   NUMBER(4),
+  jaqy254modtr   NUMBER(4),
+  jaqy254codtr   NUMBER(4),
+  jaqy254reltr   NUMBER(4),
+  jaqy254fetra   DATE,
+  jaqy254feneg   DATE,
+  jaqy254feini   DATE,
+  jaqy254fefin   DATE,
+  jaqy254comsg   CHAR(2),
+  trac           NUMBER(9) not null,
+  tarjeta        CHAR(19),
+  fecha          DATE,
+  hora           CHAR(8),
+  operacion      VARCHAR2(7),
+  moneda_trx     NUMBER(4),
+  monto_trx      NUMBER(17,2),
+  lugar          VARCHAR2(100),
+  estado         VARCHAR2(9),
+  motivo_rechazo VARCHAR2(100),
+  cta            NUMBER,
+  oper           NUMBER,
+  toper          NUMBER,
+  modul          NUMBER,
+  mda            NUMBER,
+  pepais         NUMBER,
+  petdoc         NUMBER,
+  pendoc         VARCHAR2(15),
+  penom          VARCHAR2(200),
+  imp1           NUMBER(17,2),
+  oper_h16       VARCHAR2(30)
+)
+;
+comment on table REPEXT
+  is 'Tabla reporte extornos';
+

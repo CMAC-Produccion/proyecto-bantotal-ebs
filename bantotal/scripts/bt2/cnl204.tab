@@ -1,0 +1,18 @@
+create table CNL204
+(
+  pgcod     NUMBER(3) not null,
+  itsuc     NUMBER(3) not null,
+  itmod     NUMBER(3) not null,
+  ittran    NUMBER(3) not null,
+  itnrel    NUMBER(4) not null,
+  cnl204key CHAR(30) not null,
+  cnl204fch CHAR(8) not null,
+  cnl204cor NUMBER(4) not null,
+  cnl205cod NUMBER(2) not null,
+  cnl203val CHAR(20) not null,
+  cnl204txt CHAR(200) not null
+)
+;
+create unique index CNL20401 on CNL204 (PGCOD, ITSUC, ITMOD, ITTRAN, ITNREL, CNL204KEY, CNL204FCH, CNL204COR);
+create index CNL20402 on CNL204 (PGCOD, ITSUC, ITMOD, ITTRAN, ITNREL);
+

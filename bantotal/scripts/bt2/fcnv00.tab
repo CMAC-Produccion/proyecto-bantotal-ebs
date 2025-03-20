@@ -1,0 +1,25 @@
+create table FCNV00
+(
+  cnv00jqnom CHAR(20) not null,
+  cnv00jqdes CHAR(60),
+  cnv00ape02 CHAR(1),
+  cnv00ape70 CHAR(1),
+  cnv00apwf  CHAR(1),
+  cnv00tnum1 NUMBER(3),
+  cnv00tnum2 NUMBER(3),
+  cnv00pgm1  CHAR(10),
+  cnv00pgm2  CHAR(10),
+  cnv00vig   CHAR(1),
+  cnv00fec01 DATE,
+  cnv00fec02 DATE,
+  cnv00cdn01 NUMBER(5),
+  cnv00cdn02 NUMBER(10),
+  cnv00cdc01 CHAR(10),
+  cnv00cdc02 CHAR(20),
+  cnv00cdc03 CHAR(30),
+  cnv00user  CHAR(10)
+)
+;
+alter table FCNV00
+  add primary key (CNV00JQNOM);
+

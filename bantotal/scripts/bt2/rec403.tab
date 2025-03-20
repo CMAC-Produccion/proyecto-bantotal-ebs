@@ -1,0 +1,44 @@
+create table REC403
+(
+  rec403rec  NUMBER(9) not null,
+  rec403emp  NUMBER(3) not null,
+  rec403suc  NUMBER(3) not null,
+  rec403mod  NUMBER(3) not null,
+  rec403trn  NUMBER(3) not null,
+  rec403nrel NUMBER(4) not null,
+  rec403fcon DATE not null,
+  rec403cor  NUMBER(9) not null,
+  rec403cont CHAR(1),
+  rec403ctar NUMBER(9),
+  rec403oper NUMBER(9),
+  rec403subr NUMBER(3),
+  rec403topr NUMBER(3),
+  rec403mdar NUMBER(4),
+  rec403sucr NUMBER(3),
+  rec403ctap NUMBER(9),
+  rec403opep NUMBER(9),
+  rec403subp NUMBER(3),
+  rec403topp NUMBER(3),
+  rec403mdap NUMBER(4),
+  rec403sucp NUMBER(3),
+  rec403vto  DATE,
+  rec403ttar NUMBER(1),
+  rec403chq  NUMBER(9),
+  rec403tpag NUMBER(14,2),
+  rec403canj NUMBER(14,2),
+  rec403efec NUMBER(14,2),
+  rec403dbto NUMBER(14,2),
+  rec403tarj NUMBER(14,2),
+  rec403cajr NUMBER(3),
+  rec403dia  DATE,
+  rec403hora CHAR(8),
+  rec403ref1 CHAR(25),
+  rec403ref2 CHAR(25)
+)
+;
+create index REC40302 on REC403 (REC403EMP, REC403SUC, REC403MOD, REC403TRN, REC403NREL, REC403FCON);
+create index REC40303 on REC403 (REC403FCON);
+create index REC40304 on REC403 (REC403REC, REC403EMP, REC403SUC, REC403CAJR, REC403FCON);
+alter table REC403
+  add primary key (REC403REC, REC403EMP, REC403SUC, REC403MOD, REC403TRN, REC403NREL, REC403FCON, REC403COR);
+

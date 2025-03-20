@@ -1,0 +1,12 @@
+create table JAQZ503
+(
+  jaqz503paic  NUMBER(3) not null,
+  jaqz503tdoc  NUMBER(2) not null,
+  jaqz503tndoc VARCHAR2(12) not null,
+  jaqz503calf  NUMBER(5),
+  jaqz503usr   VARCHAR2(10) not null
+)
+;
+alter table JAQZ503
+  add primary key (JAQZ503PAIC, JAQZ503TDOC, JAQZ503TNDOC, JAQZ503USR);
+

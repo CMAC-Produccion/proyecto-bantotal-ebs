@@ -1,0 +1,15 @@
+create table CONTBL
+(
+  contbl VARCHAR2(255) not null,
+  conid  NUMBER(10) not null,
+  connam VARCHAR2(255),
+  contpo CHAR(3),
+  confds VARCHAR2(255),
+  conatc NUMBER(3),
+  conash VARCHAR2(512)
+)
+;
+create index CONTBL02 on CONTBL (CONNAM);
+alter table CONTBL
+  add primary key (CONTBL, CONID);
+

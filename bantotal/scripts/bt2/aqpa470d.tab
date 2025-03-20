@@ -1,0 +1,16 @@
+create table AQPA470D
+(
+  aqpa470ddoc  CHAR(12) not null,
+  aqpa470tdocr CHAR(2) not null
+)
+;
+comment on table AQPA470D
+  is 'Documentos para consulta comprobante facturacion';
+comment on column AQPA470D.aqpa470ddoc
+  is 'Numero Documento';
+comment on column AQPA470D.aqpa470tdocr
+  is 'Tipo Documento';
+create index AQPA470A2 on AQPA470D (AQPA470DDOC);
+alter table AQPA470D
+  add primary key (AQPA470DDOC, AQPA470TDOCR);
+

@@ -1,0 +1,22 @@
+create table JAQZ454
+(
+  jaqz454cta   NUMBER(9),
+  jaqz454oper  NUMBER(9),
+  jaqz454fpro  DATE not null,
+  jaqz454fcon  DATE not null,
+  jaqz454mda   NUMBER(4),
+  jaqz454imp1  NUMBER(17,2),
+  jaqz454sucu  NUMBER(3),
+  jaqz454cod   NUMBER(3) not null,
+  jaqz454mod   NUMBER(3) not null,
+  jaqz454sucor NUMBER(3) not null,
+  jaqz454tran  NUMBER(3) not null,
+  jaqz454nrel  NUMBER(4) not null,
+  jaqz454ase   CHAR(10),
+  jaqz454pro   CHAR(2),
+  jaqz454rubro NUMBER(16)
+)
+;
+create index IDJAQZ454_01 on JAQZ454 (JAQZ454CTA, JAQZ454OPER, JAQZ454FPRO);
+create index IDX_JAQZ454_1 on JAQZ454 (JAQZ454FPRO);
+

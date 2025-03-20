@@ -1,0 +1,20 @@
+create table SD4308
+(
+  sd08coddis NUMBER(4) not null,
+  sd08codent NUMBER(5) not null,
+  sd08fchinf NUMBER(6) not null,
+  sd08tpoid  NUMBER(2) not null,
+  sd08nroid  CHAR(11) not null,
+  sd08finan1 NUMBER(10),
+  sd08finan2 NUMBER(10),
+  sd08finan3 NUMBER(10),
+  sd08finan4 NUMBER(10),
+  sd08finan5 NUMBER(10),
+  sd08sitsr  NUMBER(2),
+  sd08rectif CHAR(1),
+  sd08sinuso CHAR(89)
+)
+;
+alter table SD4308
+  add primary key (SD08CODDIS, SD08CODENT, SD08FCHINF, SD08TPOID, SD08NROID);
+

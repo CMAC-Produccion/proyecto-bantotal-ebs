@@ -1,0 +1,21 @@
+create table Z0E4DX
+(
+  z0e4dxcod NUMBER(4) not null,
+  z0e4dxtip CHAR(5) not null,
+  z0e4dxnev NUMBER(9) not null,
+  z0e4dxcor NUMBER(9) not null,
+  z0e4dxreg CHAR(2),
+  z0e4dxarc CHAR(10),
+  z0e4dxban NUMBER(3),
+  z0e4dxfec NUMBER(8),
+  z0e4dxhor NUMBER(10),
+  z0e4dxfi1 CHAR(250),
+  z0e4dxfi2 CHAR(250),
+  z0e4dxfi3 CHAR(27),
+  z0e4dxest CHAR(2),
+  z0e4dxtex CHAR(50)
+)
+;
+alter table Z0E4DX
+  add primary key (Z0E4DXCOD, Z0E4DXTIP, Z0E4DXNEV, Z0E4DXCOR);
+

@@ -1,0 +1,13 @@
+create table FXR830
+(
+  swtcod  NUMBER(5) not null,
+  swtrel  NUMBER(2) not null,
+  swttrel NUMBER(2) not null,
+  swtrcod NUMBER(5) not null,
+  swtrrel NUMBER(2) not null
+)
+;
+create index FXR83003 on FXR830 (SWTTREL);
+alter table FXR830
+  add primary key (SWTCOD, SWTREL, SWTTREL, SWTRCOD, SWTRREL);
+

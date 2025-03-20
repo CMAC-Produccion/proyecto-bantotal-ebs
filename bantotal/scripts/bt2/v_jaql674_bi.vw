@@ -1,0 +1,41 @@
+create or replace force view v_jaql674_bi as
+select
+/*decode(a.jaql674nutar,b.Z0E478NRO,substr(a.jaql674nutar,0,6)||'******'||substr(a.jaql674nutar,13,4),a.jaql674nutar) jaql674nutar,
+decode(b.z0e478thd,null,null,'****'||substr(trim(b.z0e478thd),5,length(trim(b.z0e478thd))-4)) z0e478thd,
+*/
+a.JAQL674FETRA,
+a.JAQL674COTRA,
+a.JAQL674INADQ,
+a.JAQL674CISOC,
+a.JAQL674CISOT,
+a.JAQL674COMOT,
+a.JAQL674COMTB,
+a.JAQL674IMPTR,
+a.JAQL674COD01,
+a.JAQL674MOD01,
+a.JAQL674SUC01,
+a.JAQL674MDA01,
+a.JAQL674PAP01,
+a.JAQL674CTA01,
+a.JAQL674OPE01,
+a.JAQL674SBO01,
+a.JAQL674TOP01,
+a.JAQL674IMP01,
+a.JAQL674COD02,
+a.JAQL674MOD02,
+a.JAQL674SUC02,
+a.JAQL674MDA02,
+a.JAQL674PAP02,
+a.JAQL674CTA02,
+a.JAQL674OPE02,
+a.JAQL674SBO02,
+a.JAQL674TOP02,
+a.JAQL674IMP02,
+a.JAQL674SECAN,
+a.JAQL674SEOPE,
+a.JAQL674SEFEC,
+a.JAQL674MOREC,
+a.JAQL674GINEG
+from jaql674 a /*left outer join Z0E478 b
+  on a.jaql674nutar=b.Z0E478NRO;*/;
+

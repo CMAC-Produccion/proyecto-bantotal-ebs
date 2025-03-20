@@ -1,0 +1,34 @@
+create table FSH115
+(
+  pgcod    NUMBER(3) not null,
+  hsucor   NUMBER(3) not null,
+  hcmod    NUMBER(3) not null,
+  htran    NUMBER(3) not null,
+  hnrel    NUMBER(4) not null,
+  hfcon    DATE not null,
+  ubuser   CHAR(10) not null,
+  hhing    CHAR(8),
+  hhret    CHAR(8),
+  hhconf   CHAR(8),
+  huconf   CHAR(10),
+  hmanu    CHAR(1),
+  h115au1  CHAR(8),
+  h115au2  CHAR(8),
+  h115au3  CHAR(8),
+  h115au4  CHAR(8),
+  h115au5  CHAR(8),
+  h115au6  CHAR(8),
+  h115au7  CHAR(20),
+  h115au8  CHAR(20),
+  h115au9  CHAR(20),
+  h115au10 NUMBER(9),
+  h115au11 NUMBER(9),
+  h115au12 NUMBER(9)
+)
+;
+create index FSH11502 on FSH115 (PGCOD, UBUSER, HCMOD);
+create index FSH11503 on FSH115 (PGCOD, HCMOD, HSUCOR, HTRAN, HNREL, HFCON);
+create index FSH11504 on FSH115 (HFCON, UBUSER, HCMOD, HTRAN, HNREL);
+alter table FSH115
+  add primary key (PGCOD, HSUCOR, HCMOD, HTRAN, HNREL, HFCON, UBUSER);
+

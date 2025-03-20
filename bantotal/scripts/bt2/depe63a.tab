@@ -1,0 +1,22 @@
+create table DEPE63A
+(
+  depe63aapl NUMBER(9) not null,
+  depe63aban CHAR(5) not null,
+  depe63aenv NUMBER(9) not null,
+  depe63afen DATE,
+  depe63afar DATE,
+  depe63afco DATE,
+  depe63afor VARCHAR2(255),
+  depe63afos VARCHAR2(255),
+  depe63ahsh CHAR(32),
+  depe63auin CHAR(10),
+  depe63auco CHAR(10),
+  depe63amod NUMBER(4),
+  depe63atrn NUMBER(4),
+  depe63arel NUMBER(4),
+  depe63aest CHAR(3)
+)
+;
+alter table DEPE63A
+  add primary key (DEPE63AAPL, DEPE63ABAN, DEPE63AENV);
+

@@ -1,0 +1,31 @@
+create table AQPA034
+(
+  aqpa034eval NUMBER(10) not null,
+  aqpa034cod  NUMBER(4) not null,
+  aqpa034lin  NUMBER(3) not null,
+  aqpa034mto1 NUMBER(17,2),
+  aqpa034mto2 NUMBER(17,2),
+  aqpa034mto3 NUMBER(17,2),
+  aqpa034mto4 NUMBER(17,2),
+  aqpa034mda1 NUMBER(4),
+  aqpa034mda2 NUMBER(4),
+  aqpa034mda3 NUMBER(4),
+  aqpa034mda4 NUMBER(4),
+  aqpa034txt1 CHAR(40),
+  aqpa034txt2 CHAR(40),
+  aqpa034txt3 CHAR(40),
+  aqpa034con1 CHAR(10),
+  aqpa034con2 CHAR(12),
+  aqpa034con3 CHAR(10),
+  aqpa034can1 NUMBER(10,3),
+  aqpa034can2 NUMBER(10,3),
+  aqpa034can3 NUMBER(10,3),
+  aqpa034can4 NUMBER(10,3),
+  aqpa034txl1 CHAR(50),
+  aqpa034txl2 CHAR(50),
+  aqpa034txl3 CHAR(50)
+)
+;
+alter table AQPA034
+  add primary key (AQPA034EVAL, AQPA034COD, AQPA034LIN);
+

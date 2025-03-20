@@ -1,0 +1,24 @@
+create table JAQY123
+(
+  jaqy123pgcod NUMBER(4) not null,
+  jaqy123modu  NUMBER(4) not null,
+  jaqy123tope  NUMBER(4) not null,
+  jaqy123sucd  NUMBER(4) not null,
+  jaqy123mone  NUMBER(4) not null,
+  jaqy123pape  NUMBER(4) not null,
+  jaqy123ctro  NUMBER(9) not null,
+  jaqy123oper  NUMBER(9) not null,
+  jaqy123subo  NUMBER(3) not null,
+  jaqy123rubr  NUMBER(15) not null,
+  jaqy123tord  NUMBER(2) not null,
+  jaqy123sbor  NUMBER(4) not null,
+  jaqy123fval  DATE,
+  jaqy123tmod  NUMBER(4),
+  jaqy123tsuc  NUMBER(4),
+  jaqy123tran  NUMBER(4),
+  jaqy123nrel  NUMBER(4)
+)
+;
+alter table JAQY123
+  add constraint PK_JAQY123 primary key (JAQY123PGCOD, JAQY123MODU, JAQY123TOPE, JAQY123SUCD, JAQY123MONE, JAQY123PAPE, JAQY123CTRO, JAQY123OPER, JAQY123SUBO, JAQY123RUBR, JAQY123TORD, JAQY123SBOR);
+

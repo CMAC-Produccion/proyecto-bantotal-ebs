@@ -1,0 +1,23 @@
+create table SNG107
+(
+  sng107tgcd NUMBER(3) not null,
+  sng107gnro NUMBER(9) not null,
+  sng107emp  NUMBER(3) not null,
+  sng107cta  NUMBER(9) not null,
+  sng107cid  NUMBER(2) not null,
+  sng107sec1 NUMBER(9) not null,
+  sng107sec2 NUMBER(9) not null,
+  sng107inmi NUMBER(5),
+  sng107inma NUMBER(5),
+  sng107port NUMBER(5,2),
+  sng107momi NUMBER(17,2),
+  sng107moma NUMBER(17,2),
+  sng107plmi NUMBER(9),
+  sng107plma NUMBER(9),
+  sng107plex NUMBER(1),
+  sng107porc NUMBER(5,2)
+)
+;
+alter table SNG107
+  add primary key (SNG107TGCD, SNG107GNRO, SNG107EMP, SNG107CTA, SNG107CID, SNG107SEC1, SNG107SEC2);
+

@@ -1,0 +1,16 @@
+create table FTD22
+(
+  td22nrop NUMBER(3) not null,
+  td22pais NUMBER(3) not null,
+  td22tdoc NUMBER(2) not null,
+  td22ndoc CHAR(12) not null,
+  td23coda NUMBER(3),
+  td22ccli NUMBER(17,2),
+  td22cbco NUMBER(17,2),
+  td22codm NUMBER(4)
+)
+;
+create index FTD2202 on FTD22 (TD23CODA);
+alter table FTD22
+  add primary key (TD22NROP, TD22PAIS, TD22TDOC, TD22NDOC);
+

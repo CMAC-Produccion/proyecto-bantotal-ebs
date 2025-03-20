@@ -1,0 +1,34 @@
+create table FBC560
+(
+  bc560emp NUMBER(3) not null,
+  bc560inf CHAR(10) not null,
+  bc560fch DATE not null,
+  bc560tit NUMBER(1) not null,
+  bc560cap NUMBER(1) not null,
+  bc560pla NUMBER(1) not null,
+  bc560grp NUMBER(2) not null,
+  bc560mda NUMBER(1) not null,
+  bc560gr1 NUMBER(2) not null,
+  bc560gr2 NUMBER(1) not null,
+  bc560gr3 NUMBER(2) not null,
+  bc560gr4 NUMBER(2) not null,
+  bc560suc NUMBER(3) not null,
+  bc560reg NUMBER(3) not null,
+  bc560rub NUMBER(16),
+  bc560dsc CHAR(40),
+  bc560im1 NUMBER(17,2),
+  bc560im2 NUMBER(17,2),
+  bc560im3 NUMBER(17,2),
+  bc560im4 NUMBER(17,2),
+  bc560im5 NUMBER(17,2),
+  bc560ax1 NUMBER(4),
+  bc560ax2 NUMBER(4),
+  bc560ax3 NUMBER(4),
+  bc560ds1 CHAR(40),
+  bc560ds2 CHAR(5),
+  bc560fc1 DATE
+)
+;
+alter table FBC560
+  add primary key (BC560EMP, BC560INF, BC560FCH, BC560TIT, BC560CAP, BC560PLA, BC560GRP, BC560MDA, BC560GR1, BC560GR2, BC560GR3, BC560GR4, BC560SUC, BC560REG);
+

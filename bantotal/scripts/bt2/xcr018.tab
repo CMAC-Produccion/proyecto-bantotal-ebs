@@ -1,0 +1,11 @@
+create table XCR018
+(
+  xcrcodofi  NUMBER(3) not null,
+  xcrofimod  NUMBER(3) not null,
+  xcrofitran NUMBER(3) not null
+)
+;
+create index XCR01803 on XCR018 (XCROFIMOD, XCROFITRAN, XCRCODOFI);
+alter table XCR018
+  add primary key (XCRCODOFI, XCROFIMOD, XCROFITRAN);
+

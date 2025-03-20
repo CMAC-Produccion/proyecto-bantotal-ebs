@@ -1,0 +1,28 @@
+create table FSH110
+(
+  fsh110pgco NUMBER(3) not null,
+  fsh110itfc DATE not null,
+  fsh110itmo NUMBER(3) not null,
+  fsh110itsu NUMBER(3) not null,
+  fsh110ittr NUMBER(3) not null,
+  fsh110itnr NUMBER(4) not null,
+  fsh110itor NUMBER(2) not null,
+  fsh110itsb NUMBER(3) not null,
+  fsh110imin NUMBER(17,2),
+  fsh110impr NUMBER(17,2),
+  fsh110co   CHAR(1),
+  fsh110ct   NUMBER(9),
+  fsh110itfo DATE,
+  fsh110modo NUMBER(3),
+  fsh110trno NUMBER(3),
+  fsh110suco NUMBER(3),
+  fsh110nror NUMBER(4),
+  fsh110mone NUMBER(4),
+  fsh110oror NUMBER(2),
+  fsh110sboo NUMBER(3)
+)
+;
+create index FSH11002 on FSH110 (FSH110CO, FSH110CT, FSH110ITFC);
+alter table FSH110
+  add primary key (FSH110PGCO, FSH110ITFC, FSH110ITMO, FSH110ITSU, FSH110ITTR, FSH110ITNR, FSH110ITOR, FSH110ITSB);
+

@@ -1,0 +1,28 @@
+create table JAQM472
+(
+  jaqm472emp NUMBER(3) not null,
+  jaqm472fec DATE not null,
+  jaqm472suc NUMBER(3) not null,
+  jaqm472mod NUMBER(3) not null,
+  jaqm472tra NUMBER(3) not null,
+  jaqm472rel NUMBER(4) not null,
+  jaqm472cor NUMBER(4) not null,
+  jaqm472con CHAR(1),
+  jaqm472tid CHAR(10),
+  jaqm472tok CHAR(250),
+  jaqm472tip CHAR(1),
+  jaqm472pai NUMBER(3),
+  jaqm472tdo NUMBER(2),
+  jaqm472ndo CHAR(25),
+  jaqm472idf CHAR(25),
+  jaqm472lin VARCHAR2(2000),
+  jaqm472lou LONG
+)
+;
+create index JAQM4722 on JAQM472 (JAQM472PAI, JAQM472TDO, JAQM472NDO);
+create index JAQM4723 on JAQM472 (JAQM472EMP, JAQM472FEC, JAQM472SUC, JAQM472MOD, JAQM472TRA, JAQM472REL, JAQM472PAI, JAQM472TDO, JAQM472NDO);
+create index JAQM4724 on JAQM472 (JAQM472TID);
+create index JAQM4726 on JAQM472 (JAQM472EMP, JAQM472FEC, JAQM472SUC, JAQM472MOD, JAQM472TRA, JAQM472REL, JAQM472IDF);
+alter table JAQM472
+  add primary key (JAQM472EMP, JAQM472FEC, JAQM472SUC, JAQM472MOD, JAQM472TRA, JAQM472REL, JAQM472COR);
+

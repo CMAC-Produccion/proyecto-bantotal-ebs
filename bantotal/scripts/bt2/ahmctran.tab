@@ -1,0 +1,54 @@
+create table AHMCTRAN
+(
+  c_canal  VARCHAR2(2) not null,
+  c_tiptra VARCHAR2(6),
+  c_destip VARCHAR2(100),
+  c_codtra VARCHAR2(6) not null,
+  c_destra VARCHAR2(100),
+  aufecins DATE default SYSDATE,
+  auusuins VARCHAR2(30) default USER,
+  auterins VARCHAR2(64) default SUBSTR(SYS_CONTEXT('USERENV', 'host'),1,20),
+  auipinse VARCHAR2(15) default SUBSTR(SYS_CONTEXT('USERENV','IP_ADDRESS'),1,20),
+  auusoins VARCHAR2(30) default SUBSTR(SYS_CONTEXT('USERENV','OS_USER'),1,20),
+  aufecmod DATE default SYSDATE,
+  auusumod VARCHAR2(30) default USER,
+  autermod VARCHAR2(64) default SUBSTR(SYS_CONTEXT('USERENV', 'host'),1,20),
+  auipmodi VARCHAR2(15) default SUBSTR(SYS_CONTEXT('USERENV','IP_ADDRESS'),1,20),
+  auusomod VARCHAR2(30) default SUBSTR(SYS_CONTEXT('USERENV','OS_USER'),1,20)
+)
+;
+comment on table AHMCTRAN
+  is 'Tipos de transacciones de canales';
+comment on column AHMCTRAN.c_canal
+  is 'CÓDIGO DEL CANAL AT: ATMS, HB: HOMEBANCKING, CC: CAJEROS CORRESPONSALES';
+comment on column AHMCTRAN.c_tiptra
+  is 'TIPO DE TRANSACCION';
+comment on column AHMCTRAN.c_destip
+  is 'DESCRIPCION DEL TIPO DE TRANSACCION';
+comment on column AHMCTRAN.c_codtra
+  is 'CODIGO DE TRANSACCION';
+comment on column AHMCTRAN.c_destra
+  is 'DESCRIPCION DEL CODIGO DE TRANSACCION';
+comment on column AHMCTRAN.aufecins
+  is 'Fecha Inserción';
+comment on column AHMCTRAN.auusuins
+  is 'Usuario Inserción';
+comment on column AHMCTRAN.auterins
+  is 'Terminal Inserción';
+comment on column AHMCTRAN.auipinse
+  is 'IP inserción';
+comment on column AHMCTRAN.auusoins
+  is 'Usuario SO inserción';
+comment on column AHMCTRAN.aufecmod
+  is 'Fecha Inserción';
+comment on column AHMCTRAN.auusumod
+  is 'Usuario Inserción';
+comment on column AHMCTRAN.autermod
+  is 'Terminal Inserción';
+comment on column AHMCTRAN.auipmodi
+  is 'IP inserción';
+comment on column AHMCTRAN.auusomod
+  is 'Usuario SO inserción';
+alter table AHMCTRAN
+  add constraint PK_AHMCTRAN primary key (C_CANAL, C_CODTRA);
+

@@ -1,0 +1,76 @@
+create table JAQA72
+(
+  jaqa72cco NUMBER(9) not null,
+  jaqa72pgr CHAR(15) not null,
+  jaqa72cor NUMBER(10) not null,
+  jaqa72mod CHAR(3),
+  jaqa72dst CHAR(100),
+  jaqa72prs VARCHAR2(20),
+  jaqa72tag VARCHAR2(50),
+  jaqa72an1 NUMBER(9),
+  jaqa72an2 NUMBER(9),
+  jaqa72an3 NUMBER(9),
+  jaqa72ai1 NUMBER(17,2),
+  jaqa72ai2 NUMBER(17,2),
+  jaqa72ai3 NUMBER(17,2),
+  jaqa72ac1 CHAR(255),
+  jaqa72ac2 CHAR(255),
+  jaqa72ac3 CHAR(255),
+  jaqa72av1 VARCHAR2(255),
+  jaqa72av2 VARCHAR2(255),
+  jaqa72av3 VARCHAR2(255),
+  jaqa72af1 DATE,
+  jaqa72af2 DATE,
+  jaqa72af3 DATE
+)
+;
+comment on table JAQA72
+  is 'Detalle de Envío de Correo - Parametria';
+comment on column JAQA72.jaqa72cco
+  is 'Codigo de Correo';
+comment on column JAQA72.jaqa72pgr
+  is 'Programa donde se usa';
+comment on column JAQA72.jaqa72cor
+  is 'Correlativo del Correo';
+comment on column JAQA72.jaqa72mod
+  is 'Modo del correo';
+comment on column JAQA72.jaqa72dst
+  is 'Destinatario';
+comment on column JAQA72.jaqa72prs
+  is 'Programa Resolutor';
+comment on column JAQA72.jaqa72tag
+  is 'Tag Resolutor';
+comment on column JAQA72.jaqa72an1
+  is 'Auxiliar Numerico 1';
+comment on column JAQA72.jaqa72an2
+  is 'Auxiliar Numerico 2';
+comment on column JAQA72.jaqa72an3
+  is 'Auxiliar Numerico 3';
+comment on column JAQA72.jaqa72ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQA72.jaqa72ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQA72.jaqa72ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQA72.jaqa72ac1
+  is 'Auxiliar Character 1';
+comment on column JAQA72.jaqa72ac2
+  is 'Auxiliar Character 2';
+comment on column JAQA72.jaqa72ac3
+  is 'Auxiliar Character 3';
+comment on column JAQA72.jaqa72av1
+  is 'Auxiliar Varchar 1';
+comment on column JAQA72.jaqa72av2
+  is 'Auxiliar Varchar 2';
+comment on column JAQA72.jaqa72av3
+  is 'Auxiliar Varchar 3';
+comment on column JAQA72.jaqa72af1
+  is 'Auxiliar Fecha 1';
+comment on column JAQA72.jaqa72af2
+  is 'Auxiliar Fecha 2';
+comment on column JAQA72.jaqa72af3
+  is 'Auxiliar Fecha 3';
+create index JAQA72A3 on JAQA72 (JAQA72CCO, JAQA72MOD);
+alter table JAQA72
+  add primary key (JAQA72CCO, JAQA72PGR, JAQA72COR);
+

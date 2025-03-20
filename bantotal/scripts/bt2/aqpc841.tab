@@ -1,0 +1,70 @@
+create table AQPC841
+(
+  aqpc841fec     DATE not null,
+  aqpc841ins     NUMBER(10) not null,
+  aqpc841cor     NUMBER(10) not null,
+  aqpc841usu     VARCHAR2(10) not null,
+  aqpc841ases    VARCHAR2(10),
+  aqpc841regi    VARCHAR2(40),
+  aqpc841zona    VARCHAR2(40),
+  aqpc841agen    VARCHAR2(40),
+  aqpc841nomcli  VARCHAR2(200),
+  aqpc841ctacli  NUMBER(9),
+  aqpc841montcre NUMBER(17,2),
+  aqpc841plazo   NUMBER(7),
+  aqpc841sustent VARCHAR2(500),
+  aqpc841par     VARCHAR2(150),
+  aqpc841ccc     VARCHAR2(150),
+  aqpc841ger     VARCHAR2(10),
+  aqpc841men     CLOB,
+  aqpc841err     VARCHAR2(6),
+  aqpc841deserr  VARCHAR2(1500),
+  aqpc841hora    VARCHAR2(10)
+)
+;
+comment on table AQPC841
+  is 'Log envio notificación a gerencia de créditos ';
+comment on column AQPC841.aqpc841fec
+  is 'Fecha Registro';
+comment on column AQPC841.aqpc841ins
+  is 'Instancia';
+comment on column AQPC841.aqpc841cor
+  is 'Correlativo';
+comment on column AQPC841.aqpc841usu
+  is 'Usuario Registro';
+comment on column AQPC841.aqpc841ases
+  is 'Asesor';
+comment on column AQPC841.aqpc841regi
+  is 'Region';
+comment on column AQPC841.aqpc841zona
+  is 'Zona';
+comment on column AQPC841.aqpc841agen
+  is 'Agencia';
+comment on column AQPC841.aqpc841nomcli
+  is 'Nombre cliente';
+comment on column AQPC841.aqpc841ctacli
+  is 'Cuenta cliente';
+comment on column AQPC841.aqpc841montcre
+  is 'Monto crédito';
+comment on column AQPC841.aqpc841plazo
+  is 'Plazo';
+comment on column AQPC841.aqpc841sustent
+  is 'Sustento';
+comment on column AQPC841.aqpc841par
+  is 'Para';
+comment on column AQPC841.aqpc841ccc
+  is 'Copia';
+comment on column AQPC841.aqpc841ger
+  is 'Gerente de Créditos';
+comment on column AQPC841.aqpc841men
+  is 'Mensaje';
+comment on column AQPC841.aqpc841err
+  is 'Error';
+comment on column AQPC841.aqpc841deserr
+  is 'Descripción Error';
+comment on column AQPC841.aqpc841hora
+  is 'Hora de Registro';
+create index AQPC841A2 on AQPC841 (AQPC841FEC, AQPC841INS, AQPC841USU);
+alter table AQPC841
+  add primary key (AQPC841FEC, AQPC841INS, AQPC841COR, AQPC841USU);
+

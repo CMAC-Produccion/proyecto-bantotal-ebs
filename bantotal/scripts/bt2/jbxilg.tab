@@ -1,0 +1,44 @@
+create table JBXILG
+(
+  jbxilgcdf NUMBER(2) not null,
+  jbxilgide CHAR(7) not null,
+  jbxilgncl NUMBER(13),
+  jbxilgpre CHAR(3),
+  jbxilgcae CHAR(5),
+  jbxilgcaa CHAR(3),
+  jbxilgnut CHAR(4),
+  jbxilgape CHAR(20),
+  jbxilgnom CHAR(30),
+  jbxilgemp NUMBER(2),
+  jbxilgmon NUMBER(2),
+  jbxilggan NUMBER(3),
+  jbxilgpau CHAR(1),
+  jbxilgusr CHAR(10),
+  jbxilgfec NUMBER(8),
+  jbxilghor NUMBER(6),
+  jbxilgusm CHAR(10),
+  jbxilgfem NUMBER(8),
+  jbxilghom NUMBER(6),
+  jbxilgcls NUMBER(13),
+  jbxilgori CHAR(10),
+  jbxilgtip NUMBER(2),
+  jbxilgsub NUMBER(2),
+  jbxilgpro NUMBER(2),
+  jbxilgnes NUMBER(2),
+  jbxilgfes NUMBER(1),
+  jbxilgtso NUMBER(2),
+  jbxilgcat NUMBER(2),
+  jbxilgfi1 NUMBER(15,2),
+  jbxilgfi2 NUMBER(7),
+  jbxilgfi3 CHAR(10),
+  jbxilgfi4 CHAR(10),
+  jbxilgpai NUMBER(3),
+  jbxilgtdo NUMBER(2),
+  jbxilgndo CHAR(12)
+)
+;
+create index JBXILG02 on JBXILG (JBXILGPAI, JBXILGTDO, JBXILGNDO);
+create index JBXILG03 on JBXILG (JBXILGNDO);
+alter table JBXILG
+  add primary key (JBXILGCDF, JBXILGIDE);
+

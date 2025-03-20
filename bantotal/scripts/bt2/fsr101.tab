@@ -1,0 +1,28 @@
+create table FSR101
+(
+  pbcod    NUMBER(3) not null,
+  pbnsec   NUMBER(5) not null,
+  pbthread NUMBER(3) not null,
+  pbpath   CHAR(100),
+  pbimpr   CHAR(100),
+  pbd1     NUMBER(16),
+  pbh1     NUMBER(16),
+  pbd2     NUMBER(16),
+  pbh2     NUMBER(16),
+  pbd3     NUMBER(16),
+  pbh3     NUMBER(16),
+  pbd4     NUMBER(16),
+  pbh4     NUMBER(16),
+  pbd5     NUMBER(16),
+  pbh5     NUMBER(16),
+  pbd6     NUMBER(16),
+  pbh6     NUMBER(16),
+  pbd7     CHAR(30),
+  pbh7     CHAR(30),
+  pbd8     CHAR(30),
+  pbh8     CHAR(30)
+)
+;
+alter table FSR101
+  add primary key (PBCOD, PBNSEC, PBTHREAD);
+

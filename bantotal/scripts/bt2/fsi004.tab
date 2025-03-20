@@ -1,0 +1,11 @@
+create table FSI004
+(
+  pgcod  NUMBER(3) not null,
+  inprg  CHAR(10) not null,
+  innom  CHAR(30),
+  infreq CHAR(1)
+)
+;
+alter table FSI004
+  add primary key (PGCOD, INPRG);
+

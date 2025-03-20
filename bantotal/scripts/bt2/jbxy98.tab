@@ -1,0 +1,46 @@
+create table JBXY98
+(
+  jemp      NUMBER(3) not null,
+  jsuc      NUMBER(3) not null,
+  jcta      NUMBER(9) not null,
+  joper     NUMBER(9) not null,
+  jcod      NUMBER(3),
+  jcltcod   NUMBER(2),
+  jtasa     NUMBER(10,6),
+  jfvto     DATE,
+  jcuofici  NUMBER(3),
+  jpcnunum  NUMBER(4),
+  jpnucarte NUMBER(3),
+  jpcotasa  NUMBER(3),
+  jppotasa  NUMBER(10,6),
+  jpsptasa  NUMBER(10,6),
+  jpmisprea NUMBER(10,6),
+  jpmasprea NUMBER(10,6),
+  jpgcod    NUMBER(3),
+  jaomod    NUMBER(3),
+  jaosuc    NUMBER(3),
+  jaomda    NUMBER(4),
+  jaopap    NUMBER(4),
+  jaocta    NUMBER(9),
+  jaooper   NUMBER(9),
+  jasbop    NUMBER(3),
+  jaotope   NUMBER(3),
+  jaostat   NUMBER(2),
+  jaofval   DATE,
+  jaofvto   DATE,
+  jaofnum   DATE,
+  jaodrev   NUMBER(5),
+  jfchproc  DATE,
+  jestproc  CHAR(1),
+  aux1      NUMBER(4),
+  aux2      CHAR(30),
+  aux3      DATE,
+  aux4      CHAR(1),
+  aux5      NUMBER(10,6)
+)
+;
+create unique index JBXY9801 on JBXY98 (JEMP, JSUC, JCTA, JOPER);
+create index JBXY9802 on JBXY98 (JEMP, JCTA, JOPER);
+create index JBXY9803 on JBXY98 (JPGCOD, JAOMOD, JAOSUC, JAOMDA, JAOPAP, JAOCTA, JAOOPER, JASBOP, JAOTOPE);
+create index JBXY9804 on JBXY98 (JEMP, JFCHPROC);
+

@@ -1,0 +1,16 @@
+create table JAQL836S
+(
+  jaql836sncta NUMBER(9) not null,
+  jaql836sfpro DATE not null,
+  jaql836shpro VARCHAR2(8),
+  jaql836scest NUMBER(1),
+  jaql836sctip CHAR(1) not null,
+  jaql836sfenv DATE,
+  jaql836snana VARCHAR2(30),
+  jaql836sfana VARCHAR2(12),
+  jaql836sccli VARCHAR2(21)
+)
+;
+alter table JAQL836S
+  add primary key (JAQL836SNCTA, JAQL836SFPRO, JAQL836SCTIP);
+

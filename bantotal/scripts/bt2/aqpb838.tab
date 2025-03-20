@@ -1,0 +1,148 @@
+create table AQPB838
+(
+  aqpb838cod1   NUMBER(3) not null,
+  aqpb838mod1   NUMBER(3) not null,
+  aqpb838suc1   NUMBER(3) not null,
+  aqpb838mda1   NUMBER(4) not null,
+  aqpb838pap1   NUMBER(4) not null,
+  aqpb838cta1   NUMBER(9) not null,
+  aqpb838oper1  NUMBER(9) not null,
+  aqpb838sbop1  NUMBER(3) not null,
+  aqpb838tope1  NUMBER(3) not null,
+  aqpb838rub1   NUMBER(16),
+  aqpb838rel    NUMBER(3) not null,
+  aqpb838mod2   NUMBER(3) not null,
+  aqpb838cta2   NUMBER(9) not null,
+  aqpb838oper2  NUMBER(9) not null,
+  aqpb838sbop2  NUMBER(3) not null,
+  aqpb838cod2   NUMBER(3),
+  aqpb838suc2   NUMBER(3),
+  aqpb838mda2   NUMBER(4),
+  aqpb838pap2   NUMBER(4),
+  aqpb838tope2  NUMBER(3),
+  aqpb838rub2   NUMBER(16),
+  aqpb838cd     NUMBER(3),
+  aqpb838mo     NUMBER(3),
+  aqpb838su     NUMBER(3),
+  aqpb838tr     NUMBER(3),
+  aqpb838re     NUMBER(4),
+  aqpb838fc     DATE,
+  aqpb838or     NUMBER(2),
+  aqpb838sb     NUMBER(3),
+  aqpb838co     CHAR(1),
+  aqpb838cap    NUMBER(18,2),
+  aqpb838int    NUMBER(18,2),
+  aqpb838mor    NUMBER(18,2),
+  aqpb838seg    NUMBER(18,2),
+  aqpb838icv    NUMBER(18,2),
+  aqpb838pen    NUMBER(18,2),
+  aqpb838ncap   NUMBER(18,2),
+  aqpb838tipo   VARCHAR2(50),
+  aqpb838ind    VARCHAR2(50),
+  aqpb838usu    CHAR(10) not null,
+  aqpb838cred   VARCHAR2(40) not null,
+  aqpb838corr   NUMBER(18) not null,
+  aqpb838fecc   DATE,
+  aqpb838horc   CHAR(8),
+  aqpb838intdeu NUMBER(17,2),
+  aqpb838mtod   NUMBER(17,2)
+)
+;
+comment on table AQPB838
+  is 'TABLA DE CAMBIOS DE CREDITOS ';
+comment on column AQPB838.aqpb838cod1
+  is 'empresa 1';
+comment on column AQPB838.aqpb838mod1
+  is 'modulo 1';
+comment on column AQPB838.aqpb838suc1
+  is 'sucursal 1';
+comment on column AQPB838.aqpb838mda1
+  is 'moneda 1';
+comment on column AQPB838.aqpb838pap1
+  is 'papel 1 ';
+comment on column AQPB838.aqpb838cta1
+  is 'cuenta 1';
+comment on column AQPB838.aqpb838oper1
+  is 'operacion 1';
+comment on column AQPB838.aqpb838sbop1
+  is 'suboperacion 1';
+comment on column AQPB838.aqpb838tope1
+  is 'tipo de operacion 1';
+comment on column AQPB838.aqpb838rub1
+  is 'rubro 1';
+comment on column AQPB838.aqpb838rel
+  is 'relacion ';
+comment on column AQPB838.aqpb838mod2
+  is 'modulo 2';
+comment on column AQPB838.aqpb838cta2
+  is 'cuenta 2';
+comment on column AQPB838.aqpb838oper2
+  is 'operacion 2';
+comment on column AQPB838.aqpb838sbop2
+  is 'suboperacion 2';
+comment on column AQPB838.aqpb838cod2
+  is 'codigo 2';
+comment on column AQPB838.aqpb838suc2
+  is 'sucursal 2 ';
+comment on column AQPB838.aqpb838mda2
+  is 'moneda 2';
+comment on column AQPB838.aqpb838pap2
+  is 'papel 2';
+comment on column AQPB838.aqpb838tope2
+  is 'tipo de operacion 2';
+comment on column AQPB838.aqpb838rub2
+  is 'rubro 2';
+comment on column AQPB838.aqpb838cd
+  is 'empresa transaccion';
+comment on column AQPB838.aqpb838mo
+  is 'modulo transaccion';
+comment on column AQPB838.aqpb838su
+  is 'susursaldo transaccion';
+comment on column AQPB838.aqpb838tr
+  is 'transaccion ';
+comment on column AQPB838.aqpb838re
+  is 'relacion transaccion';
+comment on column AQPB838.aqpb838fc
+  is 'fecha transaccion';
+comment on column AQPB838.aqpb838or
+  is 'ordinal';
+comment on column AQPB838.aqpb838sb
+  is 'subordinal';
+comment on column AQPB838.aqpb838co
+  is 'estado ';
+comment on column AQPB838.aqpb838cap
+  is 'Capital';
+comment on column AQPB838.aqpb838int
+  is 'Interes';
+comment on column AQPB838.aqpb838mor
+  is 'Mora';
+comment on column AQPB838.aqpb838seg
+  is 'Seguros';
+comment on column AQPB838.aqpb838icv
+  is 'ICV';
+comment on column AQPB838.aqpb838pen
+  is 'Penalidad';
+comment on column AQPB838.aqpb838ncap
+  is 'Capital Negativo';
+comment on column AQPB838.aqpb838tipo
+  is 'Tipo Reprogramacion/Refinanciacion';
+comment on column AQPB838.aqpb838ind
+  is 'Indicador';
+comment on column AQPB838.aqpb838usu
+  is 'Usuario que gerera el reporte ';
+comment on column AQPB838.aqpb838cred
+  is 'Credito concatenado';
+comment on column AQPB838.aqpb838corr
+  is 'Correlativo';
+comment on column AQPB838.aqpb838fecc
+  is 'Fecha de ultimo cambio';
+comment on column AQPB838.aqpb838horc
+  is 'hora de ultimo cambio';
+comment on column AQPB838.aqpb838intdeu
+  is 'Interes Deudor';
+comment on column AQPB838.aqpb838mtod
+  is 'Monto desembolsado';
+create index AQPB838A2 on AQPB838 (AQPB838USU, AQPB838CRED, AQPB838CORR, AQPB838COD1, AQPB838MOD1, AQPB838SUC1, AQPB838MDA1, AQPB838PAP1, AQPB838CTA1, AQPB838OPER1, AQPB838SBOP1, AQPB838TOPE1, AQPB838REL, AQPB838MOD2, AQPB838CTA2, AQPB838OPER2, AQPB838SBOP2, AQPB838COD2, AQPB838SUC2, AQPB838MDA2, AQPB838PAP2, AQPB838TOPE2);
+alter table AQPB838
+  add primary key (AQPB838USU, AQPB838CRED, AQPB838CORR);
+

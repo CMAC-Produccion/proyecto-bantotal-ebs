@@ -1,0 +1,30 @@
+create table PXFPCBZF
+(
+  cbsior CHAR(2) not null,
+  cbsuag NUMBER(4) not null,
+  cbnuax NUMBER(9) not null,
+  cbnuor NUMBER(2) not null,
+  cbncuo NUMBER(4) not null,
+  cbfvto DATE not null,
+  cbfcob DATE,
+  cbfpro DATE,
+  cbcomp NUMBER(6),
+  cbcapc NUMBER(14,2),
+  cbintc NUMBER(14,2),
+  cbcomc NUMBER(14,2),
+  cbpunc NUMBER(14,2),
+  cbinbc NUMBER(14,2),
+  cbcobc NUMBER(14,2),
+  cbpubc NUMBER(14,2),
+  cbecpa CHAR(7),
+  cbnfid NUMBER(7),
+  cbmone CHAR(3),
+  cbloca CHAR(20),
+  cbprov CHAR(20),
+  cbgasc NUMBER(14,2),
+  cbanul NUMBER(1)
+)
+;
+alter table PXFPCBZF
+  add primary key (CBSIOR, CBSUAG, CBNUAX, CBNUOR, CBNCUO, CBFVTO);
+

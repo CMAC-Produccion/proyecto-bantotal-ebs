@@ -1,0 +1,46 @@
+create table FSFI03
+(
+  sfi01emp   NUMBER(3) not null,
+  sfi01mer   NUMBER(3) not null,
+  sfi02pro   NUMBER(3) not null,
+  sfi03cod   NUMBER(2) not null,
+  sfi03dsc   CHAR(25),
+  sfi03mod   NUMBER(3),
+  sfi03trn   NUMBER(3),
+  sfi03amod  NUMBER(3),
+  sfi03atrn  NUMBER(3),
+  sfi03pcus  CHAR(1),
+  sfi03pfp   CHAR(1),
+  sfi03tpre  CHAR(1),
+  sfi03ngtip NUMBER(3),
+  sfi03orpag NUMBER(2),
+  sfi03pcla  CHAR(1),
+  sfi03fimoc NUMBER(3),
+  sfi03fitrc NUMBER(3),
+  sfi03fimop NUMBER(3),
+  sfi03fitrp NUMBER(3),
+  sfi03cpvt  CHAR(1),
+  sfi03aux1  CHAR(1),
+  sfi03aux2  CHAR(1),
+  sfi03aux3  NUMBER(9),
+  sfi03aux4  NUMBER(9),
+  sfi03cucod NUMBER(2),
+  sfi03orpa2 NUMBER(2),
+  sfi03pcon  CHAR(1),
+  sfi03conob CHAR(1),
+  sfi03parfo CHAR(1),
+  sfi03parte CHAR(1),
+  sfi03cubco CHAR(1),
+  sfi03cugri CHAR(1),
+  sfi03cogri CHAR(1),
+  sfi03au01  CHAR(1),
+  sfi03au02  CHAR(1),
+  sfi03au03  NUMBER(9),
+  sfi03au04  NUMBER(9),
+  sfi03fpsgi CHAR(1)
+)
+;
+create index FSFI0304 on FSFI03 (SFI01EMP, SFI02PRO, SFI01MER, SFI03COD);
+alter table FSFI03
+  add primary key (SFI01EMP, SFI01MER, SFI02PRO, SFI03COD);
+

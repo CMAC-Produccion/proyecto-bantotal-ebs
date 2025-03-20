@@ -1,0 +1,113 @@
+create table AQPB904
+(
+  aqpb904corr  NUMBER(10) not null,
+  aqpb904ins   NUMBER(10),
+  aqpb904cod   NUMBER(3),
+  aqpb904mod   NUMBER(3),
+  aqpb904suc   NUMBER(3),
+  aqpb904mda   NUMBER(4),
+  aqpb904pap   NUMBER(4),
+  aqpb904cta   NUMBER(9),
+  aqpb904oper  NUMBER(9),
+  aqpb904sbop  NUMBER(3),
+  aqpb904tope  NUMBER(3),
+  aqpb904pais  NUMBER(3),
+  aqpb904tdoc  NUMBER(2),
+  aqpb904docu  VARCHAR2(12),
+  aqpb904nomb  VARCHAR2(50),
+  aqpb904situ  VARCHAR2(100),
+  aqpb904esta  VARCHAR2(1),
+  aqpb904ehab  VARCHAR2(1),
+  aqpb904prap  NUMBER(10,6),
+  aqpb904tori  NUMBER(10,6),
+  aqpb904tred  NUMBER(10,6),
+  aqpb904mntd  NUMBER(17,6),
+  aqpb904cfaci NUMBER(4),
+  aqpb904faci  VARCHAR2(100),
+  aqpb904imp   NUMBER(17,2),
+  aqpb904mcap  NUMBER(17,2),
+  aqpb904deut  NUMBER(17,2),
+  aqpb904scapt NUMBER(17,2),
+  aqpb904carg  NUMBER(4),
+  aqpb904usur  VARCHAR2(10),
+  aqpb904fecr  DATE,
+  aqpb904hora  VARCHAR2(15),
+  aqpb904grup  NUMBER(4),
+  aqpb904deutf NUMBER(17,2),
+  aqpb904fecm  DATE
+)
+;
+comment on table AQPB904
+  is 'TABLA DE PANEL REPROGRAMA CAJA';
+comment on column AQPB904.aqpb904corr
+  is 'CORRELATIVO';
+comment on column AQPB904.aqpb904ins
+  is 'INSTANCIA';
+comment on column AQPB904.aqpb904cod
+  is 'CODIGO EMPRESA';
+comment on column AQPB904.aqpb904mod
+  is 'MODULO';
+comment on column AQPB904.aqpb904suc
+  is 'SUCURSAL';
+comment on column AQPB904.aqpb904mda
+  is 'MONEDA';
+comment on column AQPB904.aqpb904pap
+  is 'PAPEL';
+comment on column AQPB904.aqpb904cta
+  is 'CUENTA';
+comment on column AQPB904.aqpb904oper
+  is 'OPERACION';
+comment on column AQPB904.aqpb904sbop
+  is 'SUB OPERACION';
+comment on column AQPB904.aqpb904tope
+  is 'TIPO OPERACION';
+comment on column AQPB904.aqpb904pais
+  is 'PAIS';
+comment on column AQPB904.aqpb904tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB904.aqpb904docu
+  is 'NRO DOCUMENTO';
+comment on column AQPB904.aqpb904nomb
+  is 'NOMBRE CLIENTE';
+comment on column AQPB904.aqpb904situ
+  is 'SITUACIÓN DEL CLIENTE';
+comment on column AQPB904.aqpb904esta
+  is 'ESTADO G=GESTIONADO/P=PENDIENTE';
+comment on column AQPB904.aqpb904ehab
+  is 'H=HABILITADO/I=INHABILITADO';
+comment on column AQPB904.aqpb904prap
+  is 'PORCENTAJE DE REDUCCION APROBADA';
+comment on column AQPB904.aqpb904tori
+  is 'TASA ORIGINAL';
+comment on column AQPB904.aqpb904tred
+  is 'TASA REDUCIDA';
+comment on column AQPB904.aqpb904mntd
+  is 'MONTO DE REDUCCION';
+comment on column AQPB904.aqpb904cfaci
+  is 'CODIGO DE FACILIDAD';
+comment on column AQPB904.aqpb904faci
+  is 'FACILIDAD';
+comment on column AQPB904.aqpb904imp
+  is 'SALDO CAPITAL';
+comment on column AQPB904.aqpb904mcap
+  is 'MONTO DE CAPITALIZACION';
+comment on column AQPB904.aqpb904deut
+  is 'DEUDA TOTAL';
+comment on column AQPB904.aqpb904scapt
+  is 'SALDO CAPITAL TOTAL';
+comment on column AQPB904.aqpb904carg
+  is 'CODIGO DE CARGO';
+comment on column AQPB904.aqpb904usur
+  is 'USUARIO DE REGISTRO';
+comment on column AQPB904.aqpb904fecr
+  is 'FECHA DE REGISTRO';
+comment on column AQPB904.aqpb904hora
+  is 'HORA DE REGISTRO';
+comment on column AQPB904.aqpb904deutf
+  is 'DEUDA TOTAL A LA FECHA';
+comment on column AQPB904.aqpb904fecm
+  is 'FECHA DE ULTIMA MODIFICACION';
+create index AQPB904I2 on AQPB904 (AQPB904COD, AQPB904MOD, AQPB904SUC, AQPB904MDA, AQPB904PAP, AQPB904CTA, AQPB904OPER, AQPB904SBOP, AQPB904TOPE);
+alter table AQPB904
+  add primary key (AQPB904CORR);
+

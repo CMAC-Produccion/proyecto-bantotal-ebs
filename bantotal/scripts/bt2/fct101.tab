@@ -1,0 +1,13 @@
+create table FCT101
+(
+  modulo    NUMBER(3) not null,
+  instcod   NUMBER(2) not null,
+  bpitem    NUMBER(3) not null,
+  bpisecalt NUMBER(2) not null,
+  bpimsgalt NUMBER(5),
+  bpirelalt NUMBER(2)
+)
+;
+alter table FCT101
+  add primary key (MODULO, INSTCOD, BPITEM, BPISECALT);
+

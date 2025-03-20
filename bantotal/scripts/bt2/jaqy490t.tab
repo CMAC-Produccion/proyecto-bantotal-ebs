@@ -1,0 +1,123 @@
+create table JAQY490T
+(
+  numreg NUMBER(10),
+  bcfech DATE,
+  pepais NUMBER(3),
+  petdoc NUMBER(3),
+  pendoc CHAR(12),
+  ocucod NUMBER(2),
+  segcod NUMBER(1),
+  bcemp  NUMBER(3),
+  bcmod  NUMBER(3),
+  bcsuc  NUMBER(3),
+  bcmda  NUMBER(4),
+  bcpap  NUMBER(3),
+  bccta  NUMBER(9),
+  bcoper NUMBER(9),
+  bcsbop NUMBER(3),
+  bctop  NUMBER(3),
+  bcfval DATE,
+  bcfvto DATE,
+  bcprod NUMBER(3),
+  bcrubr NUMBER(13),
+  bcsdmn NUMBER(12,2),
+  bcticu CHAR(1),
+  bcgpo  NUMBER(3),
+  numins NUMBER(9),
+  gardep NUMBER(1),
+  numeva NUMBER(9),
+  feceva DATE,
+  tipcam NUMBER(7,3),
+  modeva NUMBER(2),
+  toting NUMBER(17,2),
+  ingven NUMBER(17,2),
+  otring NUMBER(17,2),
+  utinet NUMBER(17,2),
+  resnet NUMBER(17,2),
+  totpas NUMBER(17,2),
+  totpat NUMBER(17,2),
+  mtocuo NUMBER(12,2),
+  tcames NUMBER(7,3),
+  numcuo NUMBER(5),
+  fecpag DATE,
+  fecdes DATE,
+  ndiacu NUMBER(10),
+  nmescu NUMBER(10),
+  excmen NUMBER(17,2)
+)
+;
+comment on table JAQY490T
+  is 'Detalle de créditos para proceso de sobre endeudamiento seguimiento';
+comment on column JAQY490T.bcfech
+  is 'Fecha de proceso';
+comment on column JAQY490T.pepais
+  is 'Código de pais';
+comment on column JAQY490T.petdoc
+  is 'Código tipo de documento';
+comment on column JAQY490T.pendoc
+  is 'Código número de documento';
+comment on column JAQY490T.ocucod
+  is 'Código de ocupación';
+comment on column JAQY490T.segcod
+  is 'Código de segmento de mercado del deudor';
+comment on column JAQY490T.bcemp
+  is 'Código de empresa';
+comment on column JAQY490T.bcmod
+  is 'Codigo de modulo';
+comment on column JAQY490T.bcsuc
+  is 'Codigo de sucursal';
+comment on column JAQY490T.bcmda
+  is 'Código de moneda';
+comment on column JAQY490T.bcpap
+  is 'Código de papel';
+comment on column JAQY490T.bccta
+  is 'Código de cuenta cliente';
+comment on column JAQY490T.bcoper
+  is 'Código de operación';
+comment on column JAQY490T.bcsbop
+  is 'Código de suboperación';
+comment on column JAQY490T.bctop
+  is 'Código de tipo de operación';
+comment on column JAQY490T.bcfval
+  is 'Fecha valor';
+comment on column JAQY490T.bcfvto
+  is 'Fecha de vencimiento';
+comment on column JAQY490T.bcprod
+  is 'Código de estado';
+comment on column JAQY490T.bcrubr
+  is 'Rubro';
+comment on column JAQY490T.bcsdmn
+  is 'Saldo capital exp. moneda nacional';
+comment on column JAQY490T.bcticu
+  is 'Tipo de persona';
+comment on column JAQY490T.numins
+  is 'Número de instancia-solicitud';
+comment on column JAQY490T.gardep
+  is 'Identificador de garantía de depósito';
+comment on column JAQY490T.numeva
+  is 'Código de evaluación';
+comment on column JAQY490T.feceva
+  is 'Fecha de evaluación';
+comment on column JAQY490T.tipcam
+  is 'Tipo de cambio de la evaluación';
+comment on column JAQY490T.modeva
+  is 'Modo de la evaluación';
+comment on column JAQY490T.mtocuo
+  is 'Monto de cuota';
+comment on column JAQY490T.tcames
+  is 'Tipo de cambio del mes';
+comment on column JAQY490T.numcuo
+  is 'Cantidad de cuotas de pago';
+comment on column JAQY490T.fecpag
+  is 'Primera fecha de pago del cronograma';
+comment on column JAQY490T.fecdes
+  is 'Fecha de desembolso';
+comment on column JAQY490T.ndiacu
+  is 'Cantidad de días entre la primera fecha de pago y la fecha de desembolso';
+comment on column JAQY490T.nmescu
+  is 'Cantidad de meses entre la primera fecha de pago y la fecha de desembolso';
+create index IX_JAQY490T_1 on JAQY490T (NUMREG);
+create index IX_JAQY490T_2 on JAQY490T (BCFECH, PEPAIS, PETDOC, PENDOC);
+create index IX_JAQY490T_3 on JAQY490T (BCFECH, PEPAIS, PETDOC, PENDOC, NUMEVA, FECEVA);
+create index IX_JAQY490T_4 on JAQY490T (BCFECH, PEPAIS, PETDOC, PENDOC, BCGPO, BCRUBR);
+

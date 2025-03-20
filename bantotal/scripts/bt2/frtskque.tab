@@ -1,0 +1,13 @@
+create table FRTSKQUE
+(
+  frtskqueid NUMBER(6) not null,
+  frtskqueti DATE,
+  frprcid    NUMBER(6),
+  frtskid    NUMBER(6)
+)
+;
+create index FRTSKQ02 on FRTSKQUE (FRPRCID, FRTSKID);
+create index FRTSKQ03 on FRTSKQUE (FRTSKQUETI);
+alter table FRTSKQUE
+  add primary key (FRTSKQUEID);
+

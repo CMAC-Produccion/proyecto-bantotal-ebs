@@ -1,0 +1,15 @@
+create table JAQZ213A
+(
+  jaqz213afecha DATE not null,
+  jaqz213ahora  CHAR(8) not null,
+  jaqz213ainst  NUMBER(10) not null,
+  jaqz213atocke NUMBER(5),
+  jaqz213afereg DATE,
+  jaqz213ahoreg CHAR(8),
+  jaqz213ausreg CHAR(10),
+  jaqz213auslo  CHAR(10)
+)
+;
+alter table JAQZ213A
+  add primary key (JAQZ213AFECHA, JAQZ213AHORA, JAQZ213AINST);
+

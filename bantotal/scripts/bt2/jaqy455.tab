@@ -1,0 +1,41 @@
+create table JAQY455
+(
+  jaqy455emp       NUMBER(3) not null,
+  jaqy455mod       NUMBER(3) not null,
+  jaqy455suc       NUMBER(3) not null,
+  jaqy455trn       NUMBER(3) not null,
+  jaqy455nrel      NUMBER(4) not null,
+  jaqy455fch       DATE not null,
+  jaqy455nomope    CHAR(30),
+  jaqy455nrotran   VARCHAR2(160),
+  jaqy455hmodul    NUMBER(3),
+  jaqy455mdaope    NUMBER(4),
+  jaqy455scnomope  CHAR(30),
+  jaqy455mdatran   VARCHAR2(3),
+  jaqy455mto       NUMBER(17,2),
+  jaqy455origfon   CHAR(70),
+  jaqy455fec       DATE not null,
+  jaqy455usu       CHAR(10),
+  jaqy455pais      NUMBER(3),
+  jaqy455tdoc      NUMBER(2),
+  jaqy455ndoc      CHAR(12),
+  jaqy455cta       NUMBER,
+  jaqy455ope       NUMBER,
+  jaqy455top       NUMBER,
+  jaqy455succta    CHAR(30),
+  jaqy455penom     CHAR(140),
+  jaqy455ndoctra   CHAR(12),
+  jaqy455tdoctra   CHAR(20),
+  jaqy455penomtra  CHAR(30),
+  jaqy455tramnocte CHAR(140),
+  jaqy455tipperneg VARCHAR2(100),
+  jaqy455hora      CHAR(8),
+  jaqy455extord    CHAR(1),
+  jaqy455entfin    CHAR(1),
+  jaqy455sbop      NUMBER,
+  jaqy455ubuser    CHAR(10)
+)
+;
+create index XN_JAQY455_01 on JAQY455 (JAQY455UBUSER);
+create index XN_JAQY455_02 on JAQY455 (JAQY455MOD, JAQY455SUC, JAQY455TRN, JAQY455USU, JAQY455NREL, JAQY455ORIGFON, JAQY455OPE, JAQY455MTO, JAQY455PENOMTRA, JAQY455NDOCTRA, JAQY455NDOC, JAQY455PENOM, JAQY455CTA, JAQY455NROTRAN, JAQY455HORA);
+

@@ -1,0 +1,19 @@
+create table JBVNG2
+(
+  jbvng1suc  NUMBER(3) not null,
+  jbvng1anme CHAR(6) not null,
+  jbvng2tit  NUMBER(2) not null,
+  jbvng2cap  NUMBER(2) not null,
+  jbvng2gru  NUMBER(2) not null,
+  jbvng1rubr NUMBER(16) not null,
+  jbvng1sbop NUMBER(3) not null,
+  jbvng2pro  NUMBER(17,2),
+  jbvng2impd NUMBER(17,2),
+  jbvng2tdeb NUMBER(17,2),
+  jbvng2tcre NUMBER(17,2),
+  jbvng2esto CHAR(1),
+  jbvng2sant NUMBER(17,2)
+)
+;
+create unique index JBVNG21 on JBVNG2 (JBVNG1SUC, JBVNG1ANME, JBVNG2TIT, JBVNG2CAP, JBVNG2GRU, JBVNG1RUBR, JBVNG1SBOP);
+

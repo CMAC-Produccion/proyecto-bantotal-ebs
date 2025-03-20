@@ -1,0 +1,13 @@
+create table FMR140
+(
+  pgcod     NUMBER(3) not null,
+  remmod    NUMBER(3) not null,
+  remoper   NUMBER(9) not null,
+  mopctipo  NUMBER(2) not null,
+  mopccod   NUMBER(3) not null,
+  remopcsts CHAR(1)
+)
+;
+alter table FMR140
+  add primary key (PGCOD, REMMOD, REMOPER, MOPCTIPO, MOPCCOD);
+

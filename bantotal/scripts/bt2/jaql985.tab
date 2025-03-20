@@ -1,0 +1,32 @@
+create table JAQL985
+(
+  jaql985fec DATE,
+  jaql985cor NUMBER,
+  jaql985cod VARCHAR2(10),
+  jaql985num VARCHAR2(10),
+  jaql985des VARCHAR2(100),
+  jaql985fin DATE,
+  jaql985ffi DATE,
+  jaql985da1 VARCHAR2(100)
+)
+;
+comment on table JAQL985
+  is 'Historico de JOBs - JAQL983';
+comment on column JAQL985.jaql985fec
+  is 'Fecha Proceso';
+comment on column JAQL985.jaql985cor
+  is 'Correlativo';
+comment on column JAQL985.jaql985cod
+  is 'Codigo de JOB';
+comment on column JAQL985.jaql985num
+  is 'Numero de JOB-Regcod ';
+comment on column JAQL985.jaql985des
+  is 'Descripcion';
+comment on column JAQL985.jaql985fin
+  is 'Fecha Inicio';
+comment on column JAQL985.jaql985ffi
+  is 'Fecha Fin';
+comment on column JAQL985.jaql985da1
+  is 'Datos Adicionales';
+create index JAQL985_ID1 on JAQL985 (JAQL985FEC, JAQL985COR, JAQL985COD, JAQL985NUM);
+

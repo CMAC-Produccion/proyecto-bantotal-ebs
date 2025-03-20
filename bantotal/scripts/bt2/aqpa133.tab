@@ -1,0 +1,88 @@
+create table AQPA133
+(
+  aqpa133tip NUMBER(2) not null,
+  aqpa133val VARCHAR2(100) not null,
+  aqpa133est CHAR(1),
+  aqpa133moa VARCHAR2(200),
+  aqpa133fac DATE,
+  aqpa133hac CHAR(8),
+  aqpa133mod VARCHAR2(200),
+  aqpa133fde DATE,
+  aqpa133hde CHAR(8),
+  aqpa133fre DATE,
+  aqpa133hre CHAR(8),
+  aqpa133ure CHAR(10),
+  aqpa133are NUMBER(3),
+  aqpa133fmo DATE,
+  aqpa133hmo CHAR(8),
+  aqpa133umo CHAR(10),
+  aqpa133amo NUMBER(3),
+  aqpa133ax1 NUMBER(9),
+  aqpa133ax2 NUMBER(9),
+  aqpa133ax3 NUMBER(17,2),
+  aqpa133ax4 NUMBER(17,2),
+  aqpa133ax5 DATE,
+  aqpa133ax6 DATE,
+  aqpa133ax7 CHAR(100),
+  aqpa133ax8 CHAR(100),
+  aqpa133ax9 CHAR(100)
+)
+;
+comment on table AQPA133
+  is 'TABLA DE BASE NEGATIVA DE DATOS PERSONALES';
+comment on column AQPA133.aqpa133tip
+  is 'TIPO DE DATO';
+comment on column AQPA133.aqpa133val
+  is 'VALOR DEL DATO';
+comment on column AQPA133.aqpa133est
+  is 'ESTADO';
+comment on column AQPA133.aqpa133moa
+  is 'MOTIVO DE ACTIVACION';
+comment on column AQPA133.aqpa133fac
+  is 'FECHA DE ACTIVACION';
+comment on column AQPA133.aqpa133hac
+  is 'HORA DE ACTIVACION';
+comment on column AQPA133.aqpa133mod
+  is 'MOTIVO INACTIVACION';
+comment on column AQPA133.aqpa133fde
+  is 'FECHA INACTIVACION';
+comment on column AQPA133.aqpa133hde
+  is 'HORA INACTIVACION';
+comment on column AQPA133.aqpa133fre
+  is 'FECHA DE REGISTRO';
+comment on column AQPA133.aqpa133hre
+  is 'HORA DE REGISTRO';
+comment on column AQPA133.aqpa133ure
+  is 'USUARIO DE REGISTRO';
+comment on column AQPA133.aqpa133are
+  is 'AGENCIA DE REGISTRO';
+comment on column AQPA133.aqpa133fmo
+  is 'FECHA DE MODIFICACION';
+comment on column AQPA133.aqpa133hmo
+  is 'HORA DE MODIFICACION';
+comment on column AQPA133.aqpa133umo
+  is 'USUARIO DE MODIFICACION';
+comment on column AQPA133.aqpa133amo
+  is 'AGENCIA DE MODIFICACION';
+comment on column AQPA133.aqpa133ax1
+  is 'AUXILIAR';
+comment on column AQPA133.aqpa133ax2
+  is 'AUXILIAR';
+comment on column AQPA133.aqpa133ax3
+  is 'AUXILIAR';
+comment on column AQPA133.aqpa133ax4
+  is 'AUXILIAR';
+comment on column AQPA133.aqpa133ax5
+  is 'AUXILIAR';
+comment on column AQPA133.aqpa133ax6
+  is 'AUXILIAR';
+comment on column AQPA133.aqpa133ax7
+  is 'AUXILIAR';
+comment on column AQPA133.aqpa133ax8
+  is 'AUXILIAR';
+comment on column AQPA133.aqpa133ax9
+  is 'AUXILIAR';
+create index AQPA133A2 on AQPA133 (AQPA133FRE, AQPA133HRE);
+alter table AQPA133
+  add primary key (AQPA133TIP, AQPA133VAL);
+

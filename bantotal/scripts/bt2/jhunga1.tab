@@ -1,0 +1,12 @@
+create table JHUNGA1
+(
+  jhunga1pna NUMBER(3) not null,
+  jhunga1pre NUMBER(3) not null,
+  jhunga1pap NUMBER(4) not null,
+  jhunga1fvi DATE not null,
+  jhunga1tas NUMBER(10,6),
+  jhunga1dsc CHAR(30)
+)
+;
+create unique index JHUNGA11 on JHUNGA1 (JHUNGA1PNA, JHUNGA1PRE, JHUNGA1PAP, JHUNGA1FVI);
+

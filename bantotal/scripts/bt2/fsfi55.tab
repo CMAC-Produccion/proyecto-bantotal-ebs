@@ -1,0 +1,23 @@
+create table FSFI55
+(
+  sfi01emp  NUMBER(3) not null,
+  sfi01mer  NUMBER(3) not null,
+  sfi02pro  NUMBER(3) not null,
+  sfi41com  NUMBER(3) not null,
+  sfi52mod  NUMBER(3) not null,
+  sfi52trn  NUMBER(3) not null,
+  sfi55cla  NUMBER(2) not null,
+  sfi55aux1 NUMBER(9),
+  sfi55aux2 NUMBER(9),
+  sfi55aux3 NUMBER(17,2),
+  sfi55aux4 CHAR(20),
+  sfi55aux5 CHAR(20),
+  sfi55aux6 CHAR(20),
+  sfi55aux7 NUMBER(17,2),
+  sfi55aux8 DATE,
+  sfi55aux9 DATE
+)
+;
+alter table FSFI55
+  add primary key (SFI01EMP, SFI01MER, SFI02PRO, SFI41COM, SFI52MOD, SFI52TRN, SFI55CLA);
+

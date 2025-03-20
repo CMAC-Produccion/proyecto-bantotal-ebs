@@ -1,0 +1,12 @@
+create table FSFI72
+(
+  sfi70emp   NUMBER(3) not null,
+  sfi72stscd CHAR(1) not null,
+  sfi72stsds CHAR(25),
+  sfi72habev CHAR(1),
+  sfi72vig   CHAR(1)
+)
+;
+alter table FSFI72
+  add primary key (SFI70EMP, SFI72STSCD);
+

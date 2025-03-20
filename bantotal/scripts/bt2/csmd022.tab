@@ -1,0 +1,22 @@
+create table CSMD022
+(
+  csmd022pai NUMBER(3) not null,
+  csmd022tdo NUMBER(2) not null,
+  csmd022nro CHAR(12) not null,
+  csmd022rzn CHAR(100),
+  csmd022dep NUMBER(5),
+  csmd022prv NUMBER(5),
+  csmd022dis NUMBER(9),
+  csmd022urb CHAR(50),
+  csmd022cal CHAR(50),
+  csmd022pis NUMBER(3),
+  csmd022num CHAR(50),
+  csmd022ax1 CHAR(30),
+  csmd022ax2 CHAR(30),
+  csmd022ax3 NUMBER(9),
+  csmd022ax4 NUMBER(9)
+)
+;
+alter table CSMD022
+  add primary key (CSMD022PAI, CSMD022TDO, CSMD022NRO);
+

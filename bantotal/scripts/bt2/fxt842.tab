@@ -1,0 +1,24 @@
+create table FXT842
+(
+  swtcod     NUMBER(5) not null,
+  swtrel     NUMBER(2) not null,
+  swtcpo     NUMBER(2) not null,
+  swtcpofmt  CHAR(1) not null,
+  swtsubsec2 NUMBER(3) not null,
+  swtcpo2    NUMBER(2),
+  swtcpofmt2 CHAR(1),
+  swtcpo3    NUMBER(2),
+  swtcpofmt3 CHAR(1),
+  swtcposec2 NUMBER(3),
+  swtcpopan2 CHAR(1),
+  swtcporep2 NUMBER(2),
+  swtcodref2 NUMBER(5),
+  swtrelref2 NUMBER(2),
+  swtcpomcp2 NUMBER(2),
+  swtcpomfm2 CHAR(1)
+)
+;
+create index FXT84203 on FXT842 (SWTCOD, SWTREL, SWTCPO2, SWTCPOFMT2, SWTCPOSEC2, SWTSUBSEC2);
+alter table FXT842
+  add primary key (SWTCOD, SWTREL, SWTCPO, SWTCPOFMT, SWTSUBSEC2);
+

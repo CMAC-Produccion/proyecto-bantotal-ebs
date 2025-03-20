@@ -1,0 +1,19 @@
+create table FXD805
+(
+  swmtpgco NUMBER(3) not null,
+  swmtswco NUMBER(5) not null,
+  swmtswre NUMBER(2) not null,
+  swmtctnr NUMBER(9) not null,
+  swmttipo NUMBER(5) not null,
+  swmtfmou NUMBER(1),
+  swmtusri CHAR(10),
+  swmtusra CHAR(10),
+  swmtfchi DATE,
+  swmtfcha DATE
+)
+;
+create index FXD80502 on FXD805 (SWMTPGCO, SWMTTIPO);
+create index FXD80503 on FXD805 (SWMTPGCO, SWMTCTNR, SWMTTIPO, SWMTSWCO, SWMTSWRE);
+alter table FXD805
+  add primary key (SWMTPGCO, SWMTSWCO, SWMTSWRE, SWMTCTNR, SWMTTIPO);
+

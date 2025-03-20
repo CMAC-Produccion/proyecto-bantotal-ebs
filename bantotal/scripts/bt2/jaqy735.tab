@@ -1,0 +1,100 @@
+create table JAQY735
+(
+  jaqy735pais    NUMBER(3) not null,
+  jaqy735tdoc    NUMBER(2) not null,
+  jaqy735ndoc    CHAR(12) not null,
+  jaqy735docod   NUMBER(2) not null,
+  jaqy735corr    NUMBER(3) not null,
+  jaqy735dpto    NUMBER(5),
+  jaqy735prov    NUMBER(5),
+  jaqy735dist    NUMBER(9),
+  jaqy735dir     CHAR(140),
+  jaqy735txt15   CHAR(100),
+  jaqy735txt14   CHAR(100),
+  jaqy735txt13   CHAR(100),
+  jaqy735txt12   CHAR(100),
+  jaqy735txt11   CHAR(100),
+  jaqy735txt10   CHAR(100),
+  jaqy735txt9    CHAR(100),
+  jaqy735txt8    CHAR(100),
+  jaqy735txt7    CHAR(100),
+  jaqy735txt6    CHAR(100),
+  jaqy735txt5    CHAR(100),
+  jaqy735txt4    CHAR(100),
+  jaqy735txt3    CHAR(100),
+  jaqy735txt2    CHAR(100),
+  jaqy735txt1    CHAR(100),
+  jaqy735ugeo    CHAR(6),
+  jaqy735est     CHAR(1),
+  jaqy735medagua CHAR(100),
+  jaqy735medluz  CHAR(100)
+)
+partition by range (JAQY735DPTO)
+(
+  partition JAQY735_0 values less than (1)
+    tablespace BANTPROD_B,
+  partition JAQY735_1 values less than (2)
+    tablespace BANTPROD_B,
+  partition JAQY735_2 values less than (3)
+    tablespace BANTPROD_B,
+  partition JAQY735_3 values less than (4)
+    tablespace BANTPROD_B,
+  partition JAQY735_4 values less than (5)
+    tablespace BANTPROD_B,
+  partition JAQY735_5 values less than (6)
+    tablespace BANTPROD_B,
+  partition JAQY735_6 values less than (7)
+    tablespace BANTPROD_B,
+  partition JAQY735_7 values less than (8)
+    tablespace BANTPROD_B,
+  partition JAQY735_8 values less than (9)
+    tablespace BANTPROD_B,
+  partition JAQY735_9 values less than (10)
+    tablespace BANTPROD_B,
+  partition JAQY735_10 values less than (11)
+    tablespace BANTPROD_B,
+  partition JAQY735_11 values less than (12)
+    tablespace BANTPROD_B,
+  partition JAQY735_12 values less than (13)
+    tablespace BANTPROD_B,
+  partition JAQY735_13 values less than (14)
+    tablespace BANTPROD_B,
+  partition JAQY735_14 values less than (15)
+    tablespace BANTPROD_B,
+  partition JAQY735_15 values less than (16)
+    tablespace BANTPROD_B,
+  partition JAQY735_16 values less than (17)
+    tablespace BANTPROD_B,
+  partition JAQY735_17 values less than (18)
+    tablespace BANTPROD_B,
+  partition JAQY735_18 values less than (19)
+    tablespace BANTPROD_B,
+  partition JAQY735_19 values less than (20)
+    tablespace BANTPROD_B,
+  partition JAQY735_20 values less than (21)
+    tablespace BANTPROD_B,
+  partition JAQY735_21 values less than (22)
+    tablespace BANTPROD_B,
+  partition JAQY735_22 values less than (23)
+    tablespace BANTPROD_B,
+  partition JAQY735_23 values less than (24)
+    tablespace BANTPROD_B,
+  partition JAQY735_24 values less than (25)
+    tablespace BANTPROD_B,
+  partition JAQY735_25 values less than (26)
+    tablespace BANTPROD_B
+);
+create unique index IJAQY735_PK on JAQY735 (JAQY735PAIS, JAQY735TDOC, JAQY735NDOC, JAQY735DOCOD, JAQY735CORR);
+create index IJAQY735_01 on JAQY735 (JAQY735DPTO, JAQY735PROV, JAQY735DIST)
+  nologging  local;
+create index IJAQY735_02 on JAQY735 (JAQY735DPTO, JAQY735DOCOD)
+  nologging  local;
+create index IJAQY735_03 on JAQY735 (JAQY735DPTO, JAQY735PROV, JAQY735UGEO, JAQY735EST)
+  nologging  local;
+create index IJAQY735_04 on JAQY735 (JAQY735DPTO, JAQY735MEDAGUA)
+  nologging  local;
+create index IJAQY735_05 on JAQY735 (JAQY735DPTO, JAQY735MEDLUZ)
+  nologging  local;
+alter table JAQY735
+  add constraint JAQY735_PK primary key (JAQY735PAIS, JAQY735TDOC, JAQY735NDOC, JAQY735DOCOD, JAQY735CORR);
+

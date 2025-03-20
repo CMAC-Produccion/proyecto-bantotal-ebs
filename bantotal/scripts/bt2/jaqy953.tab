@@ -1,0 +1,70 @@
+create table JAQY953
+(
+  jaqy952nro  NUMBER(10) not null,
+  jaqy953emp  NUMBER(3) not null,
+  jaqy953suc  NUMBER(3) not null,
+  jaqy953cta  NUMBER(9) not null,
+  jaqy953pap  NUMBER(4) not null,
+  jaqy953ope  NUMBER(9) not null,
+  jaqy953sbo  NUMBER(3) not null,
+  jaqy953mda  NUMBER(4) not null,
+  jaqy953mod  NUMBER(3) not null,
+  jaqy953top  NUMBER(3) not null,
+  jaqy953sta  NUMBER(2),
+  jaqy953atr  NUMBER(10),
+  jaqy953cap  NUMBER(17,2),
+  jaqy953int  NUMBER(17,2),
+  jaqy953mor  NUMBER(17,2),
+  jaqy953otr  NUMBER(17,2),
+  jaqy953smn  NUMBER(17,2),
+  jaqy953fpr  DATE,
+  jaqy953its  NUMBER(3),
+  jaqy953itm  NUMBER(3),
+  jaqy953itr  NUMBER(4),
+  jaqy953itc  CHAR(1),
+  jaqy953usr  CHAR(10),
+  jaqy953hor  CHAR(8),
+  jaqy953pais NUMBER(3),
+  jaqy953ndoc CHAR(12),
+  jaqy953tdoc NUMBER(2),
+  jaqy953tpro CHAR(1),
+  jaqy953usv  CHAR(10),
+  jaqy953fev  DATE,
+  jaqy953hrv  CHAR(8),
+  jaqy953tca  NUMBER(14,8),
+  jaqy953dto  NUMBER(17,2),
+  jaqy953dtn  NUMBER(17,2),
+  jaqy953cav  NUMBER(17,2),
+  jaqy953inv  NUMBER(17,2),
+  jaqy953mov  NUMBER(17,2),
+  jaqy953otv  NUMBER(17,2),
+  jaqy953mnv  NUMBER(17,2),
+  jaqy953tov  NUMBER(17,2),
+  jaqy953itt  NUMBER(3),
+  jaqy953pgt  NUMBER(4),
+  jaqy953pgar CHAR(1),
+  jaqy953tgar CHAR(1),
+  jaqy953pseg CHAR(1),
+  jaqy953tseg CHAR(1),
+  jaqy953fet  DATE,
+  jaqy953vig  CHAR(1),
+  jaqy953rub  NUMBER(16),
+  jaqy953icvv NUMBER(17,2),
+  jaqy953segv NUMBER(17,2),
+  jaqy953penv NUMBER(17,2),
+  jaqy953orov NUMBER(17,2),
+  jaqy953icv  NUMBER(17,2),
+  jaqy953seg  NUMBER(17,2),
+  jaqy953pen  NUMBER(17,2),
+  jaqy953oro  NUMBER(17,2)
+)
+;
+create index INX_JAQY953_01 on JAQY953 (JAQY953PAIS, JAQY953TDOC, JAQY953NDOC);
+create index INX_JAQY953_02 on JAQY953 (JAQY953FEV, JAQY953PGT, JAQY953ITS, JAQY953ITM, JAQY953ITT, JAQY953ITR);
+create index INX_JAQY953_03 on JAQY953 (JAQY952NRO, JAQY953CTA);
+create index INX_JAQY953_04 on JAQY953 (JAQY952NRO, JAQY953SUC, JAQY953CTA, JAQY953OPE, JAQY953MDA, JAQY953MOD, JAQY953SBO, JAQY953TOP, JAQY953PAP);
+create index INX_JAQY953_05 on JAQY953 (JAQY953EMP, JAQY953CTA, JAQY953OPE, JAQY953PAP, JAQY953MDA, JAQY953MOD, JAQY953TOP, JAQY953SBO, JAQY953SUC);
+create index JAQY953A6 on JAQY953 (JAQY952NRO, JAQY953SUC, JAQY953CTA);
+alter table JAQY953
+  add primary key (JAQY952NRO, JAQY953EMP, JAQY953SUC, JAQY953CTA, JAQY953PAP, JAQY953OPE, JAQY953SBO, JAQY953MDA, JAQY953MOD, JAQY953TOP);
+

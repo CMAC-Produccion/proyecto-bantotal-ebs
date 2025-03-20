@@ -1,0 +1,75 @@
+create table AQPA376
+(
+  aqpa376corr  NUMBER not null,
+  aqpa376pais  NUMBER,
+  aqpa376tdoc  NUMBER,
+  aqpa376ndoc  CHAR(12),
+  aqpa376nomb  VARCHAR2(150),
+  aqpa376pgcod NUMBER,
+  aqpa376mod   NUMBER,
+  aqpa376suc   NUMBER,
+  aqpa376mda   NUMBER,
+  aqpa376pap   NUMBER,
+  aqpa376cta   NUMBER not null,
+  aqpa376ope   NUMBER not null,
+  aqpa376sbo   NUMBER,
+  aqpa376top   NUMBER,
+  aqpa376age   VARCHAR2(50),
+  aqpa376frep  DATE,
+  aqpa376corre NUMBER,
+  aqpa376mora  VARCHAR2(5),
+  aqpa376fctrl DATE,
+  aqpa376fori  DATE,
+  aqpa376finsr DATE,
+  aqpa376hinsr CHAR(8)
+)
+;
+comment on column AQPA376.aqpa376corr
+  is 'Correlativo de insert por cuenta y operacion';
+comment on column AQPA376.aqpa376pais
+  is 'Pais de documento';
+comment on column AQPA376.aqpa376tdoc
+  is 'Tipo de documento';
+comment on column AQPA376.aqpa376ndoc
+  is 'Nro de documento';
+comment on column AQPA376.aqpa376nomb
+  is 'Nombre del cliente';
+comment on column AQPA376.aqpa376pgcod
+  is 'Pgcod';
+comment on column AQPA376.aqpa376mod
+  is 'Modulo';
+comment on column AQPA376.aqpa376suc
+  is 'Sucursal';
+comment on column AQPA376.aqpa376mda
+  is 'Moneda';
+comment on column AQPA376.aqpa376pap
+  is 'Papel';
+comment on column AQPA376.aqpa376cta
+  is 'Cuenta';
+comment on column AQPA376.aqpa376ope
+  is 'Operacion';
+comment on column AQPA376.aqpa376sbo
+  is 'SubOperacion';
+comment on column AQPA376.aqpa376top
+  is 'Tipo de Operacion';
+comment on column AQPA376.aqpa376age
+  is 'Nombre de sucursal';
+comment on column AQPA376.aqpa376frep
+  is 'Fecha de Reprogramacion';
+comment on column AQPA376.aqpa376corre
+  is 'Correlativo de reprogramacion';
+comment on column AQPA376.aqpa376mora
+  is 'Indicador de mora';
+comment on column AQPA376.aqpa376fctrl
+  is 'Fecha de control';
+comment on column AQPA376.aqpa376fori
+  is 'Fecha origen';
+comment on column AQPA376.aqpa376finsr
+  is 'Fecha de insercion';
+comment on column AQPA376.aqpa376hinsr
+  is 'Hora de insercion';
+create index AQPA3762 on AQPA376 (AQPA376CTA, AQPA376OPE);
+create index AQPA3763 on AQPA376 (AQPA376PAIS, AQPA376TDOC, AQPA376NDOC);
+alter table AQPA376
+  add primary key (AQPA376CORR, AQPA376CTA, AQPA376OPE);
+

@@ -1,0 +1,12 @@
+create table JDTS21
+(
+  jdts21tar  NUMBER(16) not null,
+  jdts21corr NUMBER(9) not null,
+  jdts21ente NUMBER(4) not null,
+  jdts21cta  CHAR(18)
+)
+;
+create index JDTS2102 on JDTS21 (JDTS21ENTE, JDTS21TAR, JDTS21CORR);
+alter table JDTS21
+  add primary key (JDTS21TAR, JDTS21CORR, JDTS21ENTE);
+

@@ -1,0 +1,35 @@
+create table AUD_X054029_AUDIT
+(
+  aud_old_pgcod       NUMBER(3),
+  aud_new_pgcod       NUMBER(3),
+  aud_old_xprecobra   CHAR(1),
+  aud_new_xprecobra   CHAR(1),
+  aud_old_xprecocod   NUMBER(3),
+  aud_new_xprecocod   NUMBER(3),
+  aud_old_xprecoimp   NUMBER(17,2),
+  aud_new_xprecoimp   NUMBER(17,2),
+  aud_old_xpremod     NUMBER(3),
+  aud_new_xpremod     NUMBER(3),
+  aud_old_xpremodif   CHAR(1),
+  aud_new_xpremodif   CHAR(1),
+  aud_old_xpremoneda  NUMBER(4),
+  aud_new_xpremoneda  NUMBER(4),
+  aud_old_xprepapel   NUMBER(4),
+  aud_new_xprepapel   NUMBER(4),
+  aud_old_xpretope    NUMBER(3),
+  aud_new_xpretope    NUMBER(3),
+  aud_x054029_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_x054029_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_x054029_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_x054029_ubr     VARCHAR2(50) default ' ' not null,
+  aud_x054029_ubc     VARCHAR2(50) default ' ' not null,
+  aud_x054029_ubt     VARCHAR2(50) default ' ' not null,
+  aud_x054029_ubu     VARCHAR2(50) default USER not null,
+  aud_x054029_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_x054029_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_x054029_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_x054029_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_x054029_uas     CHAR(1) default 'I' not null
+)
+;
+

@@ -1,0 +1,45 @@
+create table FSD001
+(
+  pepais     NUMBER(3) not null,
+  petdoc     NUMBER(2) not null,
+  pendoc     CHAR(12) not null,
+  petipo     CHAR(1),
+  penom      CHAR(30),
+  pedgi      CHAR(14),
+  pefpdg     DATE,
+  pefvdg     DATE,
+  pebps      CHAR(14),
+  pefpbp     DATE,
+  pefvbp     DATE,
+  pejui      CHAR(1),
+  pefjui     DATE,
+  peemb      CHAR(1),
+  pefemb     DATE,
+  pefalt     DATE,
+  pefbaj     DATE,
+  pepres     NUMBER(3),
+  peexento   CHAR(1),
+  peresinsc  CHAR(1),
+  peresnoins CHAR(1),
+  penorespon CHAR(1),
+  peconsfin  CHAR(1),
+  pebceajinf CHAR(1),
+  peingbruto CHAR(1),
+  peimpinter CHAR(1),
+  penrobruto NUMBER(10),
+  penrointer NUMBER(10),
+  perg3125   CHAR(1),
+  perg3337   CHAR(1),
+  perg2784   CHAR(1),
+  petipoempr NUMBER(2),
+  pesn01     CHAR(1),
+  pesn02     CHAR(1),
+  pesn03     CHAR(1)
+)
+;
+create index FSD00103 on FSD001 (PETDOC);
+create index FSD00104 on FSD001 (PENOM);
+create index FSD00105 on FSD001 (PENDOC);
+alter table FSD001
+  add primary key (PEPAIS, PETDOC, PENDOC);
+

@@ -1,0 +1,21 @@
+create table FST160
+(
+  paqemp  NUMBER(3) not null,
+  paqcod  NUMBER(3) not null,
+  paqdesc CHAR(40),
+  paqcom  NUMBER(3),
+  cntchql NUMBER(3),
+  cntboll NUMBER(3),
+  paqvig  CHAR(1),
+  paqalta CHAR(1),
+  paqdvto NUMBER(5),
+  paqordv CHAR(1),
+  paqnum  NUMBER(3),
+  paqstr  CHAR(1),
+  paqfec  DATE
+)
+;
+create index FST16003 on FST160 (PAQCOM);
+alter table FST160
+  add primary key (PAQEMP, PAQCOD);
+

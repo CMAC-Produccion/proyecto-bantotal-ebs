@@ -1,0 +1,23 @@
+create table FST153
+(
+  pgcod     NUMBER(3) not null,
+  ejcodext  NUMBER(3) not null,
+  secccod   NUMBER(5),
+  nivcod    NUMBER(3),
+  ejsupl    NUMBER(3),
+  ejsuplfch DATE,
+  ejmtoaut  NUMBER(17,2),
+  ejsn01    CHAR(1),
+  ejsn02    CHAR(1),
+  ejsn03    CHAR(1),
+  ejsn04    CHAR(1),
+  ejcd01    NUMBER(9),
+  ejcd02    NUMBER(9),
+  ejcd03    NUMBER(17,2),
+  ejcd04    NUMBER(17,2)
+)
+;
+create index FST15302 on FST153 (PGCOD, SECCCOD, NIVCOD);
+alter table FST153
+  add primary key (PGCOD, EJCODEXT);
+

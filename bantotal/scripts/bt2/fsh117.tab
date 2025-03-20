@@ -1,0 +1,28 @@
+create table FSH117
+(
+  sh117cod   NUMBER(3) not null,
+  sh117fec   DATE not null,
+  sh117suc   NUMBER(3) not null,
+  sh117mod   NUMBER(3) not null,
+  sh117rub   NUMBER(16) not null,
+  sh117mda   NUMBER(4) not null,
+  sh117pap   NUMBER(4) not null,
+  sh117cta   NUMBER(9) not null,
+  sh117oper  NUMBER(9) not null,
+  sh117sbop  NUMBER(3) not null,
+  sh117tope  NUMBER(3) not null,
+  sh117imp   NUMBER(17,2),
+  sh117gare  NUMBER(17,2),
+  sh117gareg NUMBER(17,2),
+  sh117garg  NUMBER(17,2),
+  sh117singa NUMBER(17,2),
+  sh117aux1  NUMBER(17,2),
+  sh117aux2  NUMBER(17,2),
+  sh117tpo   CHAR(1)
+)
+;
+create index FSH11702 on FSH117 (SH117COD, SH117MOD, SH117SUC, SH117MDA, SH117PAP, SH117CTA, SH117OPER, SH117SBOP, SH117TOPE, SH117FEC);
+create index FSH11703 on FSH117 (SH117COD, SH117FEC, SH117RUB, SH117CTA);
+alter table FSH117
+  add primary key (SH117COD, SH117FEC, SH117SUC, SH117MOD, SH117RUB, SH117MDA, SH117PAP, SH117CTA, SH117OPER, SH117SBOP, SH117TOPE);
+

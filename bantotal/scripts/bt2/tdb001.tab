@@ -1,0 +1,21 @@
+create table TDB001
+(
+  tdbpgcod  NUMBER(3) not null,
+  tdbmod    NUMBER(3) not null,
+  tdbtrn    NUMBER(3) not null,
+  tdbhorad  CHAR(8) not null,
+  tdbhorah  CHAR(8) not null,
+  tdbestado CHAR(1),
+  tdbaux1   CHAR(1),
+  tdbaux2   CHAR(1),
+  tdbaux3   CHAR(1),
+  tdbaux4   NUMBER(17,2),
+  tdbaux5   NUMBER(17,2),
+  tdbaux6   CHAR(35),
+  tdbaux7   DATE,
+  tdbaux8   CHAR(10)
+)
+;
+alter table TDB001
+  add primary key (TDBPGCOD, TDBMOD, TDBTRN, TDBHORAD, TDBHORAH);
+

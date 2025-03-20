@@ -1,0 +1,16 @@
+create table FSF009
+(
+  pgcod    NUMBER(3) not null,
+  finro    NUMBER(3) not null,
+  fifecdes DATE not null,
+  fittas   NUMBER(1),
+  fitasa   NUMBER(10,6),
+  fitano   NUMBER(1),
+  fitint   CHAR(1),
+  fitdia   NUMBER(1),
+  fitvto   CHAR(1)
+)
+;
+alter table FSF009
+  add primary key (PGCOD, FINRO, FIFECDES);
+

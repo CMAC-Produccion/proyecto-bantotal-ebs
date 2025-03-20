@@ -1,0 +1,44 @@
+create table XCR012
+(
+  xcrhemp    NUMBER(3) not null,
+  xcrhnumtra CHAR(16) not null,
+  xcrhcta    NUMBER(9) not null,
+  xcrhsbop   NUMBER(3) not null,
+  xcrhmda    NUMBER(4) not null,
+  xcrhstatnu NUMBER(5) not null,
+  xcrhstatse NUMBER(5) not null,
+  xcrhorigen CHAR(2) not null,
+  xcrhfecha  DATE not null,
+  xcrhapdc   CHAR(1),
+  xcrhapfec  CHAR(6),
+  xcrhapmda  CHAR(3),
+  xcrhapimp  NUMBER(17,2),
+  xcrhcidc   CHAR(1),
+  xcrhclfec  CHAR(6),
+  xcrhclmda  CHAR(3),
+  xcrhclimp  NUMBER(17,2),
+  xcrhnumtip NUMBER(2),
+  xcrhmsgnum NUMBER(9),
+  xcrhswtcod NUMBER(5),
+  xcrhswtrel NUMBER(2),
+  xcrhswtfec DATE,
+  xcrhusring CHAR(10),
+  xcrhfching DATE,
+  xcrhhorain CHAR(8),
+  xcrhusraut CHAR(10),
+  xcrhfchaut DATE,
+  xcrhhoraau CHAR(8),
+  xcrhda1    DATE,
+  xcrhca1    VARCHAR2(40),
+  xcrhna2    NUMBER(9),
+  xcrhna1    NUMBER(17,2),
+  xcrhtoper  NUMBER(3)
+)
+;
+create index XCR01202 on XCR012 (XCRHEMP, XCRHFECHA);
+create index XCR01203 on XCR012 (XCRHEMP, XCRHCTA, XCRHSBOP, XCRHMDA, XCRHAPFEC);
+create index XCR01204 on XCR012 (XCRHEMP, XCRHCTA, XCRHSBOP, XCRHMDA, XCRHFCHAUT);
+create index XCR01205 on XCR012 (XCRHEMP, XCRHCTA, XCRHSBOP, XCRHMDA, XCRHTOPER, XCRHFECHA);
+alter table XCR012
+  add primary key (XCRHEMP, XCRHNUMTRA, XCRHCTA, XCRHSBOP, XCRHMDA, XCRHSTATNU, XCRHSTATSE, XCRHORIGEN, XCRHFECHA);
+

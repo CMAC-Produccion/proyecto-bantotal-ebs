@@ -1,0 +1,43 @@
+create table FRI105
+(
+  ri105cod   NUMBER(3) not null,
+  ri105suc   NUMBER(3) not null,
+  ri105mod   NUMBER(3) not null,
+  ri105rub   NUMBER(16) not null,
+  ri105mda   NUMBER(4) not null,
+  ri105pap   NUMBER(4) not null,
+  ri105cta   NUMBER(9) not null,
+  ri105oper  NUMBER(9) not null,
+  ri105sbop  NUMBER(3) not null,
+  ri105tope  NUMBER(3) not null,
+  ri105imp   NUMBER(17,2),
+  ri105gare  NUMBER(17,2),
+  ri105gareg NUMBER(17,2),
+  ri105garg  NUMBER(17,2),
+  ri105saldo NUMBER(17,2),
+  ri105coef  NUMBER(14,8),
+  ri105prev  NUMBER(17,2),
+  ri105cat   NUMBER(16),
+  ri105tipo  CHAR(1),
+  ri105aux1  NUMBER(17,2),
+  ri105aux2  NUMBER(17,2),
+  ri105aux3  NUMBER(14,2),
+  ri105aux4  NUMBER(14,2),
+  ri105aux5  CHAR(30),
+  ri105aux6  CHAR(30),
+  ri105aux7  DATE,
+  ri105aux8  DATE,
+  ri105nue01 NUMBER(17,2),
+  ri105nue02 NUMBER(17,2),
+  ri105nue03 NUMBER(17,2),
+  ri105nue04 NUMBER(17,2),
+  ri105nue05 NUMBER(17,2),
+  ri105nue06 NUMBER(17,2)
+)
+;
+create index FRI1052 on FRI105 (RI105COD, RI105CTA, RI105OPER, RI105SBOP);
+create index FRI1053 on FRI105 (RI105COD, RI105SUC, RI105MOD, RI105MDA, RI105PAP, RI105CTA, RI105OPER, RI105SBOP, RI105TOPE);
+create index FRI1054 on FRI105 (RI105COD, RI105MDA, RI105PAP, RI105RUB);
+alter table FRI105
+  add primary key (RI105COD, RI105SUC, RI105MOD, RI105RUB, RI105MDA, RI105PAP, RI105CTA, RI105OPER, RI105SBOP, RI105TOPE);
+

@@ -1,0 +1,40 @@
+create table Z0E4GH
+(
+  z0e4ghatm CHAR(20) not null,
+  z0e4ghsec NUMBER(10) not null,
+  z0e4ghfet DATE not null,
+  z0e4ghhor CHAR(8) not null,
+  z0e4ghfen DATE,
+  z0e4ghaju NUMBER(2),
+  z0e4ghino NUMBER(5),
+  z0e4ghind NUMBER(5),
+  z0e4ghtar CHAR(19),
+  z0e4ghpgc NUMBER(3),
+  z0e4ghsuc NUMBER(3),
+  z0e4ghcta NUMBER(9),
+  z0e4ghmod NUMBER(4),
+  z0e4ghmda NUMBER(4),
+  z0e4ghpap NUMBER(4),
+  z0e4ghope NUMBER(9),
+  z0e4ghtop NUMBER(3),
+  z0e4ghsct NUMBER(3),
+  z0e4ghvao NUMBER(2),
+  z0e4ghcue CHAR(19),
+  z0e4ghmoo NUMBER(4),
+  z0e4ghimo NUMBER(12,2),
+  z0e4ghvac NUMBER(2),
+  z0e4ghmoc NUMBER(4),
+  z0e4ghimc NUMBER(12,2),
+  z0e4ghobs CHAR(30),
+  z0e4ghusi CHAR(10),
+  z0e4ghusa CHAR(10),
+  z0e4ghfei DATE,
+  z0e4ghfea DATE,
+  z0e4ghest CHAR(2),
+  z0e4ghtex CHAR(50)
+)
+;
+create index Z0E4GH02 on Z0E4GH (Z0E4GHEST);
+alter table Z0E4GH
+  add primary key (Z0E4GHATM, Z0E4GHSEC, Z0E4GHFET, Z0E4GHHOR);
+

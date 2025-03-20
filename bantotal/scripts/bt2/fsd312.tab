@@ -1,0 +1,33 @@
+create table FSD312
+(
+  dpgcod     NUMBER(3) not null,
+  dcatcta    NUMBER(9) not null,
+  dcatcod    NUMBER(5) not null,
+  dcatfchdes DATE not null,
+  did        NUMBER(10) not null,
+  destado    CHAR(4),
+  dcatcateg  CHAR(15),
+  dcatold    CHAR(15),
+  dpdiact    NUMBER(9,8),
+  dpdiold    NUMBER(9,8),
+  dpiaact    NUMBER(7,6),
+  dpiaold    NUMBER(7,6),
+  dpibact    NUMBER(7,6),
+  dpibold    NUMBER(7,6),
+  dmodo      CHAR(3),
+  dusuaini   CHAR(10),
+  dusuafin   CHAR(10),
+  fechaini   DATE,
+  fechafin   DATE,
+  destacini  CHAR(20),
+  destacfin  CHAR(20),
+  daux1      NUMBER(14,2),
+  daux2      NUMBER(10),
+  daux3      CHAR(30),
+  daux4      DATE
+)
+;
+create index FSD31202 on FSD312 (DID);
+alter table FSD312
+  add primary key (DPGCOD, DCATCTA, DCATCOD, DCATFCHDES, DID);
+

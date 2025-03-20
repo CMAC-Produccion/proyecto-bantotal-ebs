@@ -1,0 +1,32 @@
+create table JFJM500
+(
+  jfjm500emp NUMBER(3) not null,
+  jfjm500suc NUMBER(3) not null,
+  jfjm500mod NUMBER(3) not null,
+  jfjm500mda NUMBER(5) not null,
+  jfjm500pap NUMBER(5) not null,
+  jfjm500cta NUMBER(9) not null,
+  jfjm500ope NUMBER(9) not null,
+  jfjm500sub NUMBER(3) not null,
+  jfjm500top NUMBER(3) not null,
+  jfjm500rap CHAR(15) not null,
+  jfjm500crr NUMBER(9) not null,
+  jfjm500tfd NUMBER(3),
+  jfjm500eap NUMBER(3),
+  jfjm500slp NUMBER(3),
+  jfjm500mop NUMBER(3),
+  jfjm500map NUMBER(5),
+  jfjm500plp NUMBER(5),
+  jfjm500cap NUMBER(9),
+  jfjm500onp NUMBER(9),
+  jfjm500snp NUMBER(3),
+  jfjm500tnp NUMBER(3),
+  jfjm500fch CHAR(8),
+  jfjm500hra CHAR(8),
+  jfjm500usr CHAR(10),
+  jfjm500trm CHAR(10)
+)
+;
+alter table JFJM500
+  add primary key (JFJM500EMP, JFJM500SUC, JFJM500MOD, JFJM500MDA, JFJM500PAP, JFJM500CTA, JFJM500OPE, JFJM500SUB, JFJM500TOP, JFJM500RAP, JFJM500CRR);
+

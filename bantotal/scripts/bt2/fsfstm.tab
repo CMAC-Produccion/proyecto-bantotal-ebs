@@ -1,0 +1,17 @@
+create table FSFSTM
+(
+  sfstmemp   NUMBER(3) not null,
+  sfstmcta   NUMBER(9) not null,
+  sfstmmda   NUMBER(4) not null,
+  sfstmrubro NUMBER(16),
+  sfstmmod   NUMBER(3),
+  sfstmoper  NUMBER(9),
+  sfstmsucu  NUMBER(3),
+  sfstmtope  NUMBER(3),
+  sfstmsubo  NUMBER(3),
+  sfstmcuen  NUMBER(9)
+)
+;
+alter table FSFSTM
+  add primary key (SFSTMEMP, SFSTMCTA, SFSTMMDA);
+

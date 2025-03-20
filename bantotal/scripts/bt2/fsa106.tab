@@ -1,0 +1,11 @@
+create table FSA106
+(
+  pgcod    NUMBER(3) not null,
+  inprg    CHAR(10) not null,
+  bcpro    NUMBER(3) not null,
+  bcpronom CHAR(30)
+)
+;
+alter table FSA106
+  add primary key (PGCOD, INPRG, BCPRO);
+

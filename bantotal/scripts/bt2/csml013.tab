@@ -1,0 +1,16 @@
+create table CSML013
+(
+  csml013cod NUMBER(10) not null,
+  csml013nli NUMBER(9) not null,
+  csml013cor NUMBER(3) not null,
+  csml013ori NUMBER(3),
+  csml013err NUMBER(5),
+  csml013msj CHAR(100),
+  csml013fec TIMESTAMP(6),
+  csml013hor CHAR(8),
+  csml013usr CHAR(10)
+)
+;
+alter table CSML013
+  add primary key (CSML013COD, CSML013NLI, CSML013COR);
+

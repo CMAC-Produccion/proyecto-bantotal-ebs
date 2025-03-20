@@ -1,0 +1,20 @@
+create table FSD101
+(
+  exclpais   NUMBER(3) not null,
+  excltdoc   NUMBER(2) not null,
+  exclndoc   CHAR(12) not null,
+  exclimpcod NUMBER(3) not null,
+  exclfini   DATE not null,
+  exclffin   DATE,
+  exclporc   NUMBER(7,4),
+  exclcod    NUMBER(3),
+  exclndgi   NUMBER(9),
+  exclaux1   NUMBER(9),
+  exclaux2   NUMBER(17,2),
+  exclaux3   CHAR(1),
+  exclaux4   DATE
+)
+;
+alter table FSD101
+  add primary key (EXCLPAIS, EXCLTDOC, EXCLNDOC, EXCLIMPCOD, EXCLFINI);
+

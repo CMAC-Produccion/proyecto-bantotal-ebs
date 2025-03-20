@@ -1,0 +1,16 @@
+create table FXT821
+(
+  swtcpo     NUMBER(2) not null,
+  swtcpofmt  CHAR(1) not null,
+  swtcponom  CHAR(35),
+  swtcpotip  CHAR(1),
+  swtcpolon  NUMBER(2),
+  swtcpolin  NUMBER(3),
+  swtcporef  CHAR(1),
+  swtcpoctrl CHAR(1)
+)
+;
+create index FXT82102 on FXT821 (SWTCPOLON);
+alter table FXT821
+  add primary key (SWTCPO, SWTCPOFMT);
+

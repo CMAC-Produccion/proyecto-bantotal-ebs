@@ -1,0 +1,13 @@
+create table JAQL594
+(
+  jaql594pcod NUMBER(4) not null,
+  jaql594nrec NUMBER(15) not null,
+  jaql594nweb NUMBER(10),
+  jaql594tipo CHAR(3),
+  jaql594age  CHAR(20),
+  jaql594dir  VARCHAR2(50)
+)
+;
+alter table JAQL594
+  add primary key (JAQL594PCOD, JAQL594NREC);
+

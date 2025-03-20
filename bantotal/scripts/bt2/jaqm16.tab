@@ -1,0 +1,136 @@
+create table JAQM16
+(
+  jaqm16emp NUMBER(3) not null,
+  jaqm16mod NUMBER(3) not null,
+  jaqm16tra NUMBER(3) not null,
+  jaqm16suc NUMBER(3) not null,
+  jaqm16mda NUMBER(4) not null,
+  jaqm16pap NUMBER(4) not null,
+  jaqm16cta NUMBER(9) not null,
+  jaqm16ope NUMBER(9) not null,
+  jaqm16sbo NUMBER(3) not null,
+  jaqm16top NUMBER(3) not null,
+  jaqm16ord NUMBER(2) not null,
+  jaqm16sor NUMBER(3) not null,
+  jaqm16ins NUMBER(10) not null,
+  jaqm16ain CHAR(50) not null,
+  jaqm16tfl CHAR(20) not null,
+  jaqm16fch DATE not null,
+  jaqm16cor NUMBER(4) not null,
+  jaqm16con CHAR(1),
+  jaqm16tid CHAR(10),
+  jaqm16tok CHAR(250),
+  jaqm16tip CHAR(1),
+  jaqm16pai NUMBER(3),
+  jaqm16tdo NUMBER(2),
+  jaqm16ndo CHAR(25),
+  jaqm16idf CHAR(25),
+  jaqm16err VARCHAR2(500),
+  jaqm16lin VARCHAR2(30),
+  jaqm16lou VARCHAR2(30),
+  jaqm16cdu VARCHAR2(50),
+  jaqm16an1 NUMBER(9),
+  jaqm16an2 NUMBER(9),
+  jaqm16an3 NUMBER(9),
+  jaqm16ad1 DATE,
+  jaqm16ad2 DATE,
+  jaqm16ad3 DATE,
+  jaqm16ai1 NUMBER(17,2),
+  jaqm16ai2 NUMBER(17,2),
+  jaqm16ai3 NUMBER(17,2),
+  jaqm16ac1 CHAR(255),
+  jaqm16ac2 CHAR(255),
+  jaqm16ac3 CHAR(255)
+)
+;
+comment on table JAQM16
+  is 'Firma Contratacion Digital Creditos';
+comment on column JAQM16.jaqm16emp
+  is 'Empresa';
+comment on column JAQM16.jaqm16mod
+  is 'Modulo';
+comment on column JAQM16.jaqm16tra
+  is 'Transaccion';
+comment on column JAQM16.jaqm16suc
+  is 'Sucursal';
+comment on column JAQM16.jaqm16mda
+  is 'Moneda';
+comment on column JAQM16.jaqm16pap
+  is 'Papel';
+comment on column JAQM16.jaqm16cta
+  is 'Cuenta';
+comment on column JAQM16.jaqm16ope
+  is 'Operacion';
+comment on column JAQM16.jaqm16sbo
+  is 'Sub Operacion';
+comment on column JAQM16.jaqm16top
+  is 'Tipo de operacion ';
+comment on column JAQM16.jaqm16ord
+  is 'Ordinal';
+comment on column JAQM16.jaqm16sor
+  is 'Subordinal';
+comment on column JAQM16.jaqm16ins
+  is 'Instancia';
+comment on column JAQM16.jaqm16ain
+  is 'Auxiliar para mayor informacion';
+comment on column JAQM16.jaqm16tfl
+  is 'Tipo de flujo';
+comment on column JAQM16.jaqm16fch
+  is 'Fecha';
+comment on column JAQM16.jaqm16cor
+  is 'Correlativo';
+comment on column JAQM16.jaqm16con
+  is 'Contabilizo';
+comment on column JAQM16.jaqm16tid
+  is 'Tipo de documento Enviado Digital';
+comment on column JAQM16.jaqm16tok
+  is 'Token';
+comment on column JAQM16.jaqm16tip
+  is 'Tipo Tratamiento (T-todos, I - Individual)';
+comment on column JAQM16.jaqm16pai
+  is 'Pais';
+comment on column JAQM16.jaqm16tdo
+  is 'Tipo de Documento';
+comment on column JAQM16.jaqm16ndo
+  is 'Numero de documento';
+comment on column JAQM16.jaqm16idf
+  is 'Id Documentador Firmado';
+comment on column JAQM16.jaqm16err
+  is 'Descripcion Error';
+comment on column JAQM16.jaqm16lin
+  is 'Log Entrada';
+comment on column JAQM16.jaqm16lou
+  is 'Log Respuesta';
+comment on column JAQM16.jaqm16cdu
+  is 'Codigo Unico Documental Oracle';
+comment on column JAQM16.jaqm16an1
+  is 'Numeric Auxiliar 1';
+comment on column JAQM16.jaqm16an2
+  is 'Numeric Auxiliar 2';
+comment on column JAQM16.jaqm16an3
+  is 'Numeric Auxiliar 3';
+comment on column JAQM16.jaqm16ad1
+  is 'Date Auxiliar 1';
+comment on column JAQM16.jaqm16ad2
+  is 'Date Auxiliar 2';
+comment on column JAQM16.jaqm16ad3
+  is 'Date Auxiliar 3';
+comment on column JAQM16.jaqm16ai1
+  is 'Importe Auxiliar 1';
+comment on column JAQM16.jaqm16ai2
+  is 'Importe Auxiliar 2';
+comment on column JAQM16.jaqm16ai3
+  is 'Importe Auxiliar 3';
+comment on column JAQM16.jaqm16ac1
+  is 'Character Auxiliar 1';
+comment on column JAQM16.jaqm16ac2
+  is 'Character Auxiliar 2';
+comment on column JAQM16.jaqm16ac3
+  is 'Character Auxiliar 3';
+create index JAQM16A2 on JAQM16 (JAQM16PAI, JAQM16TDO, JAQM16NDO);
+create index JAQM16A3 on JAQM16 (JAQM16TID);
+create index JAQM16A4 on JAQM16 (JAQM16EMP, JAQM16MOD, JAQM16TRA, JAQM16SUC, JAQM16MDA, JAQM16PAP, JAQM16CTA, JAQM16OPE, JAQM16SBO, JAQM16TOP, JAQM16ORD, JAQM16SOR, JAQM16INS, JAQM16AIN, JAQM16TFL, JAQM16FCH, JAQM16IDF);
+create index JAQM16A5 on JAQM16 (JAQM16INS, JAQM16AN2);
+alter table JAQM16
+  add primary key (JAQM16EMP, JAQM16MOD, JAQM16TRA, JAQM16SUC, JAQM16MDA, JAQM16PAP, JAQM16CTA, JAQM16OPE, JAQM16SBO, JAQM16TOP, JAQM16ORD, JAQM16SOR, JAQM16INS, JAQM16AIN, JAQM16TFL, JAQM16FCH, JAQM16COR);
+

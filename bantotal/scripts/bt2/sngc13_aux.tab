@@ -1,0 +1,20 @@
+create table SNGC13_AUX
+(
+  sngc13id    NUMBER(10) not null,
+  sngc13pais  NUMBER(3) not null,
+  sngc13tdoc  NUMBER(2) not null,
+  sngc13ndoc  CHAR(12) not null,
+  sngc13cli   VARCHAR2(300),
+  sngc13dir   VARCHAR2(300),
+  sngc13ref   VARCHAR2(140) default '0',
+  sngc13ref1  VARCHAR2(200) default '0',
+  sngc13fgpro INTEGER default 0,
+  sngc13tim   NUMBER(10,5) default 0,
+  sngc13res   VARCHAR2(100) default ''
+)
+;
+comment on table SNGC13_AUX
+  is 'Tabla auxiliar en PQ_CLIENTE_DIRECCIONES';
+alter table SNGC13_AUX
+  add primary key (SNGC13ID);
+

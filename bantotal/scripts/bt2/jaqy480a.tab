@@ -1,0 +1,15 @@
+create table JAQY480A
+(
+  jqy480afec DATE not null,
+  jqy480asec NUMBER(7) not null,
+  jqy480acta NUMBER(9),
+  jqy480acod CHAR(1),
+  jqy480aide CHAR(476),
+  jqy480apai NUMBER(3),
+  jqy480atdi NUMBER(2),
+  jqy480andi VARCHAR2(12)
+)
+;
+create index INX_JAQY480A_01 on JAQY480A (JQY480AFEC, JQY480ASEC);
+create index INX_JAQY480A_02 on JAQY480A (JQY480AFEC, JQY480ACTA);
+

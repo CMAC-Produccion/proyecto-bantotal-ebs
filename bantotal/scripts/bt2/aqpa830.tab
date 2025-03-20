@@ -1,0 +1,52 @@
+create table AQPA830
+(
+  aqpa830fep       DATE not null,
+  aqpa830emp       NUMBER(3) not null,
+  aqpa830mod       NUMBER(3) not null,
+  aqpa830suc       NUMBER(3) not null,
+  aqpa830mda       NUMBER(4) not null,
+  aqpa830pap       NUMBER(4) not null,
+  aqpa830cta       NUMBER(9) not null,
+  aqpa830ope       NUMBER(9) not null,
+  aqpa830sbo       NUMBER(3) not null,
+  aqpa830tpo       NUMBER(3) not null,
+  aqpa830tdoc      NUMBER(2),
+  aqpa830ndoc      CHAR(12),
+  aqpa830mto       NUMBER(18,2),
+  aqpa830tip       VARCHAR2(10),
+  aqpa830pdi       NUMBER(4),
+  aqpa830sol       VARCHAR2(2),
+  aqpa830rer       VARCHAR2(10),
+  aqpa830ext       VARCHAR2(10),
+  aqpa830con       VARCHAR2(10),
+  aqpa830fece      DATE,
+  aqpa830tabo      VARCHAR2(50),
+  aqpa830fecact    DATE,
+  aqpa830usuact    CHAR(10),
+  aqpa830est       CHAR(1),
+  aqpa830redcuo    CHAR(1),
+  aqpa830numcuop   NUMBER(3),
+  aqpa830pagcap    CHAR(1),
+  aqpa830perio     NUMBER(5),
+  aqpa830numcuopti NUMBER(3),
+  aqpa830salact    NUMBER(18,2)
+)
+;
+comment on column AQPA830.aqpa830est
+  is 'S se ejecuta, N ya no le correponde las cuentas de orden';
+comment on column AQPA830.aqpa830redcuo
+  is '''s'' si tieen reducción de cuota';
+comment on column AQPA830.aqpa830numcuop
+  is 'cuotas pagadas desde la fecha de reprogramacion por covid';
+comment on column AQPA830.aqpa830pagcap
+  is '''s'' si pago mas del 20 prociento capital';
+comment on column AQPA830.aqpa830perio
+  is 'periocidad del crédito';
+comment on column AQPA830.aqpa830numcuopti
+  is 'cuotas pagadas del cálculo de TI';
+create index AQPA8302 on AQPA830 (AQPA830EMP, AQPA830MOD, AQPA830SUC, AQPA830MDA, AQPA830PAP, AQPA830CTA, AQPA830OPE, AQPA830SBO, AQPA830TPO);
+create index AQPA8303 on AQPA830 (AQPA830CTA, AQPA830OPE, AQPA830SBO);
+create index AQPA8304 on AQPA830 (AQPA830SUC);
+alter table AQPA830
+  add primary key (AQPA830FEP, AQPA830EMP, AQPA830MOD, AQPA830SUC, AQPA830MDA, AQPA830PAP, AQPA830CTA, AQPA830OPE, AQPA830SBO, AQPA830TPO);
+

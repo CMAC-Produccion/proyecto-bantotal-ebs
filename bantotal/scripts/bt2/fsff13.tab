@@ -1,0 +1,19 @@
+create table FSFF13
+(
+  kdobcor NUMBER(9) not null,
+  kdobmda NUMBER(4) not null,
+  kdobpap NUMBER(4) not null,
+  kdobtit NUMBER(2) not null,
+  kdobcap NUMBER(2) not null,
+  kdobpzo NUMBER(2) not null,
+  kdobgrp NUMBER(2) not null,
+  kdobrub NUMBER(16) not null,
+  kdobsmo NUMBER(17,2),
+  kdobsus NUMBER(17,2),
+  kdobsmn NUMBER(17,2),
+  kdobsdh NUMBER(17,2)
+)
+;
+alter table FSFF13
+  add primary key (KDOBCOR, KDOBMDA, KDOBPAP, KDOBTIT, KDOBCAP, KDOBPZO, KDOBGRP, KDOBRUB);
+

@@ -1,0 +1,177 @@
+create table AQPB118
+(
+  aqpb118fetra  DATE not null,
+  aqpb118hotra  CHAR(8) not null,
+  aqpb118seint  NUMBER(12) not null,
+  aqpb118coing  CHAR(2),
+  aqpb118cores  CHAR(2),
+  aqpb118feits  DATE,
+  aqpb118hoits  CHAR(8),
+  aqpb118fefts  DATE,
+  aqpb118hofts  CHAR(8),
+  aqpb118texti  VARCHAR2(1150),
+  aqpb118nutar  CHAR(19),
+  aqpb118comen  CHAR(4),
+  aqpb118descme VARCHAR2(100),
+  aqpb118seiso  CHAR(12),
+  aqpb118cotra  CHAR(6),
+  aqpb118destra VARCHAR2(100),
+  aqpb118fehot  CHAR(10),
+  aqpb118feneg  DATE,
+  aqpb118honeg  CHAR(8),
+  aqpb118inadq  CHAR(11),
+  aqpb118inemi  CHAR(11),
+  aqpb118cored  NUMBER(10),
+  aqpb118nuele  NUMBER(12),
+  aqpb118cisot  CHAR(8),
+  aqpb118cisoc  CHAR(15),
+  aqpb118secan  NUMBER(3),
+  aqpb118seope  NUMBER(5),
+  aqpb118sevar  NUMBER(3),
+  aqpb118sefec  DATE,
+  aqpb118sehor  CHAR(8),
+  aqpb118secre  NUMBER(10),
+  aqpb118secrs  CHAR(5),
+  aqpb118gineg  CHAR(4),
+  aqpb118coaut  CHAR(6),
+  aqpb118texto  VARCHAR2(1150),
+  aqpb118tiout  NUMBER(1),
+  aqpb118tidtr  NUMBER(12),
+  aqpb118coire  CHAR(3),
+  aqpb118aux1   CHAR(50),
+  aqpb118aux2   CHAR(50),
+  aqpb118aux3   CHAR(50),
+  aqpb118aux4   CHAR(30),
+  aqpb118aux5   CHAR(30),
+  aqpb118aux6   CHAR(30),
+  aqpb118aux7   CHAR(1),
+  aqpb118aux8   CHAR(1),
+  aqpb118aux9   CHAR(1),
+  aqpb118aux10  NUMBER(17,2),
+  aqpb118aux11  NUMBER(17,2),
+  aqpb118aux12  NUMBER(17,2),
+  aqpb118aux13  NUMBER(9),
+  aqpb118aux14  NUMBER(9),
+  aqpb118aux15  NUMBER(9),
+  aqpb118aux16  DATE,
+  aqpb118aux17  DATE,
+  aqpb118aux18  DATE
+)
+;
+comment on table AQPB118
+  is 'Tabla Log de Operaciones NIUBIZ';
+comment on column AQPB118.aqpb118fetra
+  is 'Fecha transaccion';
+comment on column AQPB118.aqpb118hotra
+  is 'Hora transaccion';
+comment on column AQPB118.aqpb118seint
+  is 'Secuencial Interno';
+comment on column AQPB118.aqpb118coing
+  is 'Codigo Ingreso transaccion';
+comment on column AQPB118.aqpb118cores
+  is 'Codigo respuesta transaccion';
+comment on column AQPB118.aqpb118feits
+  is 'Fecha Inicio transaccion servidor';
+comment on column AQPB118.aqpb118hoits
+  is 'Hora Inicio transaccion Servidor';
+comment on column AQPB118.aqpb118fefts
+  is 'Fecha Fin transaccion Servidor';
+comment on column AQPB118.aqpb118hofts
+  is 'Hora Fin transaccion servidor';
+comment on column AQPB118.aqpb118texti
+  is 'Texto entrada';
+comment on column AQPB118.aqpb118nutar
+  is 'Numero tarjeta';
+comment on column AQPB118.aqpb118comen
+  is 'Codigo mensaje';
+comment on column AQPB118.aqpb118descme
+  is 'Descripcion Codigo Mensaje';
+comment on column AQPB118.aqpb118seiso
+  is 'Secuencial ISO';
+comment on column AQPB118.aqpb118cotra
+  is 'Codigo transaccion';
+comment on column AQPB118.aqpb118destra
+  is 'Descripcion Codigo Transaccion';
+comment on column AQPB118.aqpb118fehot
+  is 'Fecha hora transmision';
+comment on column AQPB118.aqpb118feneg
+  is 'Fecha de Negocio';
+comment on column AQPB118.aqpb118honeg
+  is 'Hora de negocio';
+comment on column AQPB118.aqpb118inadq
+  is 'Institucion adquiriente';
+comment on column AQPB118.aqpb118inemi
+  is 'Institucion emisor requerimiento';
+comment on column AQPB118.aqpb118cored
+  is 'Codigo Red';
+comment on column AQPB118.aqpb118nuele
+  is 'Numero de elemento';
+comment on column AQPB118.aqpb118cisot
+  is 'Codigo terminal ISO';
+comment on column AQPB118.aqpb118cisoc
+  is 'Codigo comercio ISO';
+comment on column AQPB118.aqpb118secan
+  is 'Canal servicio';
+comment on column AQPB118.aqpb118seope
+  is 'Operacion servicio';
+comment on column AQPB118.aqpb118sevar
+  is 'Variante servicio';
+comment on column AQPB118.aqpb118sefec
+  is 'Fecha servicio';
+comment on column AQPB118.aqpb118sehor
+  is 'Hora servicio';
+comment on column AQPB118.aqpb118secre
+  is 'Codigo requerimiento servicio';
+comment on column AQPB118.aqpb118secrs
+  is 'Codigo resultado servicio';
+comment on column AQPB118.aqpb118gineg
+  is 'Giro de negocio';
+comment on column AQPB118.aqpb118coaut
+  is 'Codigo de autorizacion';
+comment on column AQPB118.aqpb118texto
+  is 'Texto salida';
+comment on column AQPB118.aqpb118tiout
+  is 'TimeOut';
+comment on column AQPB118.aqpb118tidtr
+  is 'Tiempo demora transaccion';
+comment on column AQPB118.aqpb118coire
+  is 'Codigo informacion Red';
+comment on column AQPB118.aqpb118aux1
+  is 'Dato reserva Texto';
+comment on column AQPB118.aqpb118aux2
+  is 'Dato reserva Texto';
+comment on column AQPB118.aqpb118aux3
+  is 'Dato reserva Texto';
+comment on column AQPB118.aqpb118aux4
+  is 'Dato reserva Texto';
+comment on column AQPB118.aqpb118aux5
+  is 'Dato reserva Texto';
+comment on column AQPB118.aqpb118aux6
+  is 'Dato reserva Texto';
+comment on column AQPB118.aqpb118aux7
+  is 'Dato reserva Texto';
+comment on column AQPB118.aqpb118aux8
+  is 'Dato reserva Texto';
+comment on column AQPB118.aqpb118aux9
+  is 'Dato reserva Texto';
+comment on column AQPB118.aqpb118aux10
+  is 'Dato reserva Numero';
+comment on column AQPB118.aqpb118aux11
+  is 'Dato reserva Numero';
+comment on column AQPB118.aqpb118aux12
+  is 'Dato reserva Numero';
+comment on column AQPB118.aqpb118aux13
+  is 'Dato reserva Numero';
+comment on column AQPB118.aqpb118aux14
+  is 'Dato reserva Numero';
+comment on column AQPB118.aqpb118aux15
+  is 'Dato reserva Numero';
+comment on column AQPB118.aqpb118aux16
+  is 'Dato reserva Fecha';
+comment on column AQPB118.aqpb118aux17
+  is 'Dato reserva Fecha';
+comment on column AQPB118.aqpb118aux18
+  is 'Dato reserva Fecha';
+alter table AQPB118
+  add primary key (AQPB118FETRA, AQPB118HOTRA, AQPB118SEINT);
+

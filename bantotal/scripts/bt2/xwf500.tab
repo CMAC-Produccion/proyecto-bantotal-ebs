@@ -1,0 +1,11 @@
+create table XWF500
+(
+  xwftrprcid   NUMBER(4) not null,
+  xwftrtaskcod NUMBER(4) not null,
+  ltrcod       NUMBER(3)
+)
+;
+create index UXWF500 on XWF500 (LTRCOD);
+alter table XWF500
+  add primary key (XWFTRPRCID, XWFTRTASKCOD);
+

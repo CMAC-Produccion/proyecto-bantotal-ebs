@@ -1,0 +1,19 @@
+create table Z07331
+(
+  z07331pgc NUMBER(3) not null,
+  z07331cta NUMBER(9) not null,
+  z07331cod NUMBER(2) not null,
+  z07309cod NUMBER(3),
+  z07331nom CHAR(50),
+  z07339reg NUMBER(3),
+  z07385pro NUMBER(3),
+  z07310com NUMBER(4),
+  z07331cas CHAR(10),
+  z07331cla CHAR(10),
+  z07331pre CHAR(1),
+  z07331ubi CHAR(250)
+)
+;
+alter table Z07331
+  add primary key (Z07331PGC, Z07331CTA, Z07331COD);
+

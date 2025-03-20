@@ -1,0 +1,19 @@
+create table PRD100
+(
+  pgcod   NUMBER(3) not null,
+  modulo  NUMBER(3) not null,
+  totope  NUMBER(3) not null,
+  moneda  NUMBER(4) not null,
+  papel   NUMBER(4) not null,
+  sucurs  NUMBER(3) not null,
+  prdaux1 DATE,
+  prdaux2 CHAR(1),
+  prdaux3 CHAR(65),
+  prdaux4 NUMBER(9),
+  prdaux5 NUMBER(17,2)
+)
+;
+create index PRD10002 on PRD100 (PGCOD, SUCURS);
+alter table PRD100
+  add primary key (PGCOD, MODULO, TOTOPE, MONEDA, PAPEL, SUCURS);
+

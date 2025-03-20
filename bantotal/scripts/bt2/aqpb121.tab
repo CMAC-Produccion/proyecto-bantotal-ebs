@@ -1,0 +1,120 @@
+create table AQPB121
+(
+  aqpb121fearc   DATE not null,
+  aqpb121tireg   CHAR(2) not null,
+  aqpb121corr    NUMBER(8),
+  aqpb121taxid   NUMBER(12) not null,
+  aqpb121codage  NUMBER(9) not null,
+  aqpb121traid   NUMBER(6) not null,
+  aqpb121tratip  CHAR(6) not null,
+  aqpb121desctra VARCHAR2(100),
+  aqpb121tragrp  CHAR(15) not null,
+  aqpb121tippag  CHAR(20) not null,
+  aqpb121feope   DATE not null,
+  aqpb121hoope   CHAR(10) not null,
+  aqpb121codcaj  CHAR(10),
+  aqpb121nomcaj  VARCHAR2(100),
+  aqpb121nomage  VARCHAR2(100),
+  aqpb121nomtie  VARCHAR2(100),
+  aqpb121user    VARCHAR2(100),
+  aqpb121fepro   DATE,
+  aqpb121monto   NUMBER(13,2),
+  aqpb121comcorr NUMBER(13,2),
+  aqpb121comsage NUMBER(13,2),
+  aqpb121comage  NUMBER(13,2),
+  aqpb121tipdoc  CHAR(20),
+  aqpb121nrodoc  CHAR(20),
+  aqpb121est     VARCHAR2(20),
+  aqpb121coderr  CHAR(3),
+  aqpb121descerr VARCHAR2(40),
+  aqpb121codes   CHAR(1),
+  aqpb121auxc1   VARCHAR2(100),
+  aqpb121auxc2   VARCHAR2(100),
+  aqpb121auxc3   VARCHAR2(100),
+  aqpb121auxn1   NUMBER(17,2),
+  aqpb121auxn2   NUMBER(17,2),
+  aqpb121auxn3   NUMBER(17,2),
+  aqpb121auxd1   DATE,
+  aqpb121auxd2   DATE,
+  aqpb121auxd3   DATE
+)
+;
+comment on table AQPB121
+  is 'Tabla Detalle Conciliacion NIUBIZ';
+comment on column AQPB121.aqpb121fearc
+  is 'Fecha de archivo';
+comment on column AQPB121.aqpb121tireg
+  is 'Tipo de registro';
+comment on column AQPB121.aqpb121corr
+  is 'Correlativo de operacion';
+comment on column AQPB121.aqpb121taxid
+  is 'Identificador fiscal';
+comment on column AQPB121.aqpb121codage
+  is 'COdigo del agente';
+comment on column AQPB121.aqpb121traid
+  is 'Id transaccion';
+comment on column AQPB121.aqpb121tratip
+  is 'Tipo de transaccion';
+comment on column AQPB121.aqpb121desctra
+  is 'Descripcion transccion';
+comment on column AQPB121.aqpb121tragrp
+  is 'Grupo de transaccion';
+comment on column AQPB121.aqpb121tippag
+  is 'Tipo de pago';
+comment on column AQPB121.aqpb121feope
+  is 'Fecha de operacion';
+comment on column AQPB121.aqpb121hoope
+  is 'Hora de operacion';
+comment on column AQPB121.aqpb121codcaj
+  is 'Codigo institucion financiera';
+comment on column AQPB121.aqpb121nomcaj
+  is 'Nombre institucion financiera';
+comment on column AQPB121.aqpb121nomage
+  is 'Nombre del agente';
+comment on column AQPB121.aqpb121nomtie
+  is 'Nombre de tienda';
+comment on column AQPB121.aqpb121user
+  is 'Usuario que realizo operacion';
+comment on column AQPB121.aqpb121fepro
+  is 'Fecha de proceso';
+comment on column AQPB121.aqpb121monto
+  is 'Monto de la operacion';
+comment on column AQPB121.aqpb121comcorr
+  is 'Monto de comision corresponsalia';
+comment on column AQPB121.aqpb121comsage
+  is 'Monto comision super agente';
+comment on column AQPB121.aqpb121comage
+  is 'Monto comision agente';
+comment on column AQPB121.aqpb121tipdoc
+  is 'Tipo de documento';
+comment on column AQPB121.aqpb121nrodoc
+  is 'Numero de documento';
+comment on column AQPB121.aqpb121est
+  is 'Estado de la operacion';
+comment on column AQPB121.aqpb121coderr
+  is 'Codigo de respuesta';
+comment on column AQPB121.aqpb121descerr
+  is 'Descripcion de respuesta';
+comment on column AQPB121.aqpb121codes
+  is 'Codigo Match entre Niubiz y Caja Arquipa';
+comment on column AQPB121.aqpb121auxc1
+  is 'Dato Reserva texto';
+comment on column AQPB121.aqpb121auxc2
+  is 'Dato Reserva texto';
+comment on column AQPB121.aqpb121auxc3
+  is 'Dato Reserva texto';
+comment on column AQPB121.aqpb121auxn1
+  is 'Dato Reserva numero';
+comment on column AQPB121.aqpb121auxn2
+  is 'Dato Reserva numero';
+comment on column AQPB121.aqpb121auxn3
+  is 'Dato Reserva numero';
+comment on column AQPB121.aqpb121auxd1
+  is 'Dato Reserva fecha';
+comment on column AQPB121.aqpb121auxd2
+  is 'Dato Reserva fecha';
+comment on column AQPB121.aqpb121auxd3
+  is 'Dato Reserva fecha';
+alter table AQPB121
+  add primary key (AQPB121FEARC, AQPB121TIREG, AQPB121TAXID, AQPB121CODAGE, AQPB121TRAID, AQPB121TRATIP, AQPB121TRAGRP, AQPB121TIPPAG, AQPB121FEOPE, AQPB121HOOPE);
+

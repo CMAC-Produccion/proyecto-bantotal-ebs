@@ -1,0 +1,123 @@
+create table AQPC366D
+(
+  pgcod      NUMBER(3) not null,
+  ppmod      NUMBER(3) not null,
+  ppsuc      NUMBER(3) not null,
+  ppmda      NUMBER(4) not null,
+  pppap      NUMBER(4) not null,
+  ppcta      NUMBER(9) not null,
+  ppoper     NUMBER(9) not null,
+  ppsbop     NUMBER(3) not null,
+  pptope     NUMBER(3) not null,
+  ppfpag     DATE not null,
+  pptipo     CHAR(1) not null,
+  pp1nump    NUMBER(9) not null,
+  pp1fech    DATE,
+  pp1cap     NUMBER(17,2),
+  pp1int     NUMBER(17,2),
+  pp1intmex  NUMBER(17,2),
+  pp1intm    NUMBER(17,2),
+  pp1intmmex NUMBER(17,2),
+  pp1icap    NUMBER(17,2),
+  pp1iint    NUMBER(17,2),
+  pp1iintm   NUMBER(17,2),
+  pp1salcap  NUMBER(17,2),
+  pp1salint  NUMBER(17,2),
+  pp1salade  NUMBER(17,2),
+  pp1salmor  NUMBER(17,2),
+  pp1stat    CHAR(1),
+  pp1salintm NUMBER(17,2),
+  pp1salmorm NUMBER(17,2),
+  pp1saladem NUMBER(17,2),
+  d602cd     NUMBER(3),
+  d602mo     NUMBER(3),
+  d602su     NUMBER(3),
+  d602tr     NUMBER(3),
+  d602re     NUMBER(4),
+  d602fc     DATE,
+  d602or     NUMBER(2),
+  d602sb     NUMBER(3),
+  d602co     CHAR(1)
+)
+;
+comment on table AQPC366D
+  is 'TABLA PAGOS EQUIVALENTE FSD602';
+comment on column AQPC366D.pgcod
+  is 'pgcod';
+comment on column AQPC366D.ppmod
+  is 'modulo';
+comment on column AQPC366D.ppsuc
+  is 'sucursal';
+comment on column AQPC366D.ppmda
+  is 'moneda';
+comment on column AQPC366D.pppap
+  is 'papel';
+comment on column AQPC366D.ppcta
+  is 'cuenta';
+comment on column AQPC366D.ppoper
+  is 'operacion';
+comment on column AQPC366D.ppsbop
+  is 'suboperacion';
+comment on column AQPC366D.pptope
+  is 'tipo operacion';
+comment on column AQPC366D.ppfpag
+  is 'fecha pago';
+comment on column AQPC366D.pptipo
+  is 'tipo';
+comment on column AQPC366D.pp1nump
+  is 'numero';
+comment on column AQPC366D.pp1fech
+  is 'pp1fech';
+comment on column AQPC366D.pp1cap
+  is 'capital';
+comment on column AQPC366D.pp1int
+  is 'interes';
+comment on column AQPC366D.pp1intmex
+  is 'pp1intmex';
+comment on column AQPC366D.pp1intm
+  is 'mora';
+comment on column AQPC366D.pp1intmmex
+  is 'pp1intmmex';
+comment on column AQPC366D.pp1icap
+  is 'pp1icap';
+comment on column AQPC366D.pp1iint
+  is 'pp1iint';
+comment on column AQPC366D.pp1iintm
+  is 'pp1iintm';
+comment on column AQPC366D.pp1salcap
+  is 'pp1salcap';
+comment on column AQPC366D.pp1salint
+  is 'pp1salint';
+comment on column AQPC366D.pp1salade
+  is 'pp1salade';
+comment on column AQPC366D.pp1salmor
+  is 'pp1salmor';
+comment on column AQPC366D.pp1stat
+  is 'pp1stat';
+comment on column AQPC366D.pp1salintm
+  is 'pp1salintm';
+comment on column AQPC366D.pp1salmorm
+  is 'pp1salmorm';
+comment on column AQPC366D.pp1saladem
+  is 'pp1saladem';
+comment on column AQPC366D.d602cd
+  is 'pgcod';
+comment on column AQPC366D.d602mo
+  is 'modulo';
+comment on column AQPC366D.d602su
+  is 'sucursal';
+comment on column AQPC366D.d602tr
+  is 'transaccion';
+comment on column AQPC366D.d602re
+  is 'relacion';
+comment on column AQPC366D.d602fc
+  is 'fecha contabilizacion';
+comment on column AQPC366D.d602or
+  is 'ordinal';
+comment on column AQPC366D.d602sb
+  is 'subordinal';
+comment on column AQPC366D.d602co
+  is 'contabilizado';
+alter table AQPC366D
+  add primary key (PGCOD, PPMOD, PPSUC, PPMDA, PPPAP, PPCTA, PPOPER, PPSBOP, PPTOPE, PPFPAG, PPTIPO, PP1NUMP);
+

@@ -1,0 +1,29 @@
+create table AQPC796
+(
+  aqpc796nreg  NUMBER(17) not null,
+  aqpc796fhreg DATE not null,
+  aqpc796horeg VARCHAR2(10) not null,
+  aqpc796fhcrg DATE,
+  aqpc796corr  NUMBER(17),
+  aqpc796ind   VARCHAR2(5)
+)
+;
+comment on table AQPC796
+  is 'Log Tabla BT Puente Actualización Estado Carga Campaña';
+comment on column AQPC796.aqpc796nreg
+  is 'Nro. de Registro';
+comment on column AQPC796.aqpc796fhreg
+  is 'Fecha de Registro';
+comment on column AQPC796.aqpc796horeg
+  is 'Hora de Registro';
+comment on column AQPC796.aqpc796fhcrg
+  is 'Fecha de Carga';
+comment on column AQPC796.aqpc796corr
+  is 'Correlativo';
+comment on column AQPC796.aqpc796ind
+  is 'Identificador';
+create index AQPC796A2 on AQPC796 (AQPC796CORR, AQPC796FHREG, AQPC796HOREG);
+create index AQPC796A3 on AQPC796 (AQPC796FHREG);
+alter table AQPC796
+  add primary key (AQPC796NREG, AQPC796FHREG, AQPC796HOREG);
+

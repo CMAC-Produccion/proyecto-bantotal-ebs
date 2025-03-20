@@ -1,0 +1,14 @@
+create table FBRH20
+(
+  brh20empl NUMBER(3) not null,
+  brh20regl NUMBER(5) not null,
+  brh20fchl DATE not null,
+  brh20horl CHAR(8) not null,
+  brh20dsc  CHAR(50),
+  brh20tipo CHAR(1),
+  brh20usu  CHAR(10)
+)
+;
+alter table FBRH20
+  add primary key (BRH20EMPL, BRH20REGL, BRH20FCHL, BRH20HORL);
+

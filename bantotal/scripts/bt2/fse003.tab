@@ -1,0 +1,14 @@
+create table FSE003
+(
+  pjxpais NUMBER(3) not null,
+  pjxtdoc NUMBER(2) not null,
+  pjxndoc CHAR(12) not null,
+  pjxing  NUMBER(17,2),
+  pjxegr  NUMBER(17,2),
+  pjxact  NUMBER(17,2),
+  pjxpas  NUMBER(17,2)
+)
+;
+alter table FSE003
+  add primary key (PJXPAIS, PJXTDOC, PJXNDOC);
+

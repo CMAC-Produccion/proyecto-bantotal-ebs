@@ -1,0 +1,13 @@
+create table MSGA00
+(
+  msga00id NUMBER(7) not null,
+  msga00ds VARCHAR2(40),
+  msga01id NUMBER(4),
+  msga00rp NUMBER(10),
+  msga00md VARCHAR2(40)
+)
+;
+create index MSGA0002 on MSGA00 (MSGA01ID);
+alter table MSGA00
+  add primary key (MSGA00ID);
+

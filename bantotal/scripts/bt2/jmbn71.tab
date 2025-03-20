@@ -1,0 +1,22 @@
+create table JMBN71
+(
+  jmbn70pgco NUMBER(3) not null,
+  jmbn70thr  NUMBER(3) not null,
+  jmbn70fhas DATE not null,
+  jmbn70corr NUMBER(10) not null,
+  jmbn70nrel NUMBER(4),
+  jmbn70tran NUMBER(3),
+  jmbn70mod  NUMBER(3),
+  jmbn70suc  NUMBER(3),
+  jmbn70fcon DATE,
+  jmbn70fvc  DATE,
+  jmbn70comp NUMBER(17,2),
+  jmbn70paga NUMBER(17,2),
+  jmbn70imps NUMBER(17,2),
+  jmbn70impo NUMBER(17,2)
+)
+;
+create index JMBN715 on JMBN71 (JMBN70PGCO, JMBN70MOD, JMBN70TRAN, JMBN70FCON, JMBN70NREL);
+alter table JMBN71
+  add primary key (JMBN70PGCO, JMBN70THR, JMBN70FHAS, JMBN70CORR);
+

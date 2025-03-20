@@ -1,0 +1,20 @@
+create table JAQL535
+(
+  jaql535suc NUMBER(3) not null,
+  jaql535mda NUMBER(4) not null,
+  jaql535pap NUMBER(4) not null,
+  jaql535cta NUMBER(9) not null,
+  jaql535ope NUMBER(9) not null,
+  jaql535sub NUMBER(3) not null,
+  jaql535mod NUMBER(3) not null,
+  jaql535top NUMBER(3) not null,
+  jaql535sor CHAR(17) not null
+)
+;
+create index JAQL535_02 on JAQL535 (JAQL535SOR);
+create index JAQL53503 on JAQL535 (JAQL535SOR, JAQL535CTA);
+create index JAQL53504 on JAQL535 (JAQL535CTA);
+create index JAQL53505 on JAQL535 (JAQL535MOD, JAQL535SUC, JAQL535CTA);
+alter table JAQL535
+  add primary key (JAQL535SUC, JAQL535MDA, JAQL535PAP, JAQL535CTA, JAQL535OPE, JAQL535SUB, JAQL535MOD, JAQL535TOP, JAQL535SOR);
+

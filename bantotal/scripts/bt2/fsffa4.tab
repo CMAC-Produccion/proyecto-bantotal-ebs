@@ -1,0 +1,17 @@
+create table FSFFA4
+(
+  kgaaloemp NUMBER(3) not null,
+  kgaaloaa  NUMBER(4) not null,
+  kgaalomm  NUMBER(2) not null,
+  kgaalofg  CHAR(1) not null,
+  kgaalofun NUMBER(5) not null,
+  kgaalon1  NUMBER(2) not null,
+  kgaalocc  NUMBER(3) not null,
+  kgaprocod NUMBER(5) not null,
+  kgaalopje NUMBER(5,2)
+)
+;
+create index FSFFA402 on FSFFA4 (KGAPROCOD);
+alter table FSFFA4
+  add primary key (KGAALOEMP, KGAALOAA, KGAALOMM, KGAALOFG, KGAALOFUN, KGAALON1, KGAALOCC, KGAPROCOD);
+

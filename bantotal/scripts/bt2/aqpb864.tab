@@ -1,0 +1,30 @@
+create table AQPB864
+(
+  aqpb864fec DATE not null,
+  aqpb864tar CHAR(60) not null,
+  aqpb864hor CHAR(10) not null,
+  aqpb864mod VARCHAR2(100),
+  aqpb864did VARCHAR2(255),
+  aqpb864can NUMBER(5),
+  aqpb864det VARCHAR2(255)
+)
+;
+comment on table AQPB864
+  is 'Log Preguntas secretas del cliente CajaMovil';
+comment on column AQPB864.aqpb864fec
+  is 'Fecha de registro.';
+comment on column AQPB864.aqpb864tar
+  is 'Tarjeta del usuario.';
+comment on column AQPB864.aqpb864hor
+  is 'Hora de registro.';
+comment on column AQPB864.aqpb864mod
+  is 'Modelo del equipo del cliente.';
+comment on column AQPB864.aqpb864did
+  is 'Device Id del equipo del cliente.';
+comment on column AQPB864.aqpb864can
+  is 'Canal de registro.';
+comment on column AQPB864.aqpb864det
+  is 'Detalles.';
+alter table AQPB864
+  add primary key (AQPB864FEC, AQPB864TAR, AQPB864HOR);
+

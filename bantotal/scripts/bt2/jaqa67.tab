@@ -1,0 +1,72 @@
+create table JAQA67
+(
+  jaqa67fei  DATE not null,
+  jaqa67pai  NUMBER(3) not null,
+  jaqa67tdoc NUMBER(2) not null,
+  jaqa67ndoc CHAR(12) not null,
+  jaqa67suc  NUMBER(3) not null,
+  jaqa67tip  NUMBER(9) not null,
+  jaqa67seg  NUMBER(9) not null,
+  jaqa67coa  NUMBER(9) not null,
+  jaqa67nro  CHAR(50),
+  jaqa67an1  NUMBER(9),
+  jaqa67an2  NUMBER(9),
+  jaqa67an3  NUMBER(9),
+  jaqa67ac1  VARCHAR2(255),
+  jaqa67ac2  VARCHAR2(255),
+  jaqa67ac3  VARCHAR2(255),
+  jaqa67af1  DATE,
+  jaqa67af2  DATE,
+  jaqa67af3  DATE,
+  jaqa67ai1  NUMBER(17,2),
+  jaqa67ai2  NUMBER(17,2),
+  jaqa67ai3  NUMBER(17,2)
+)
+;
+comment on table JAQA67
+  is 'Asociacion de Asistentes Plan Asistencias ';
+comment on column JAQA67.jaqa67fei
+  is 'Fecha de ingreso';
+comment on column JAQA67.jaqa67pai
+  is 'Pais';
+comment on column JAQA67.jaqa67tdoc
+  is 'Tipo de documento';
+comment on column JAQA67.jaqa67ndoc
+  is 'Numero de documento';
+comment on column JAQA67.jaqa67suc
+  is 'Sucursal';
+comment on column JAQA67.jaqa67tip
+  is 'Tipo de seguro';
+comment on column JAQA67.jaqa67seg
+  is 'Seguro';
+comment on column JAQA67.jaqa67coa
+  is 'Código de asistente';
+comment on column JAQA67.jaqa67nro
+  is 'Numero de afiliación';
+comment on column JAQA67.jaqa67an1
+  is 'Auxiliar numerico 1';
+comment on column JAQA67.jaqa67an2
+  is 'Auxiliar numerico 2';
+comment on column JAQA67.jaqa67an3
+  is 'Auxiliar numerico 3';
+comment on column JAQA67.jaqa67ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQA67.jaqa67ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQA67.jaqa67ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQA67.jaqa67af1
+  is 'Auxiliar fecha 1';
+comment on column JAQA67.jaqa67af2
+  is 'Auxiliar fecha 2';
+comment on column JAQA67.jaqa67af3
+  is 'Auxiliar fecha 3';
+comment on column JAQA67.jaqa67ai1
+  is 'Auxiliar importe 1';
+comment on column JAQA67.jaqa67ai2
+  is 'Auxiliar importe 2';
+comment on column JAQA67.jaqa67ai3
+  is 'Auxiliar importe 3';
+alter table JAQA67
+  add primary key (JAQA67FEI, JAQA67PAI, JAQA67TDOC, JAQA67NDOC, JAQA67SUC, JAQA67TIP, JAQA67SEG, JAQA67COA);
+

@@ -1,0 +1,39 @@
+create table AQPB542B
+(
+  aqpb542bcarcod VARCHAR2(30) not null,
+  aqpb542bpepais NUMBER(3) not null,
+  aqpb542bpetdoc NUMBER(2) not null,
+  aqpb542bpendoc CHAR(12) not null,
+  aqpb542bdocod  NUMBER(2) not null,
+  aqpb542bdoordp NUMBER(2) not null,
+  aqpb542bdotelf CHAR(20),
+  aqpb542bdotlex CHAR(25),
+  aqpb542bdofaxp CHAR(20),
+  aqpb542bcretim TIMESTAMP(6) default SYSDATE
+)
+;
+comment on table AQPB542B
+  is 'LOG de Tabla FSR005';
+comment on column AQPB542B.aqpb542bcarcod
+  is 'Codigo de Carga';
+comment on column AQPB542B.aqpb542bpepais
+  is 'Pais';
+comment on column AQPB542B.aqpb542bpetdoc
+  is 'Tipo de Documento';
+comment on column AQPB542B.aqpb542bpendoc
+  is 'Nro. de Documento';
+comment on column AQPB542B.aqpb542bdocod
+  is 'LOG FSR005 - Campo del mismo sufijo';
+comment on column AQPB542B.aqpb542bdoordp
+  is 'LOG FSR005 - Campo del mismo sufijo';
+comment on column AQPB542B.aqpb542bdotelf
+  is 'LOG FSR005 - Campo del mismo sufijo';
+comment on column AQPB542B.aqpb542bdotlex
+  is 'LOG FSR005 - Campo del mismo sufijo';
+comment on column AQPB542B.aqpb542bdofaxp
+  is 'LOG FSR005 - Campo del mismo sufijo';
+comment on column AQPB542B.aqpb542bcretim
+  is 'Campo de Auditoria';
+alter table AQPB542B
+  add primary key (AQPB542BCARCOD, AQPB542BPEPAIS, AQPB542BPETDOC, AQPB542BPENDOC, AQPB542BDOCOD, AQPB542BDOORDP);
+

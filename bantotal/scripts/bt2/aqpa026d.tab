@@ -1,0 +1,19 @@
+create table AQPA026D
+(
+  aqpa026dvlta NUMBER(10) not null,
+  aqpa026dcorr NUMBER(10) not null,
+  aqpa026dinst NUMBER(10) not null,
+  aqpa026danal CHAR(10)
+)
+;
+comment on column AQPA026D.aqpa026dvlta
+  is 'vuelta';
+comment on column AQPA026D.aqpa026dcorr
+  is 'correlativo';
+comment on column AQPA026D.aqpa026dinst
+  is 'instancia';
+comment on column AQPA026D.aqpa026danal
+  is 'analista instancia';
+alter table AQPA026D
+  add primary key (AQPA026DVLTA, AQPA026DCORR, AQPA026DINST);
+

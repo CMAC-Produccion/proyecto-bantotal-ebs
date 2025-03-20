@@ -1,0 +1,3 @@
+CREATE OR REPLACE PROCEDURE AUD_COPY_ALL_AUDIT IS tablename VARCHAR2(50); stmt VARCHAR2(256); CURSOR tables_cursor IS SELECT AUDTblNam FROM BANTPROD.AUD001 G JOIN BANTPROD.AUD002 T ON G.AUDGrpNam = T.AUDGrpNam WHERE AUDGrpEna = 'S' AND AUDTblEna = 'S' AND AUDTblSts IN ('C' ,'R' , 'E') AND G.AUDGrpNam = 'BANTOTAL'; BEGIN OPEN tables_cursor; LOOP      FETCH tables_cursor INTO tablename;    EXIT WHEN tables_cursor%NOTFOUND;   BEGIN    stmt := 'CALL BANTPROD.AUD_C_' || TRIM(tablename) || '_AUDIT()';    EXECUTE IMMEDIATE stmt;    EXCEPTION       WHEN OTHERS THEN          dbms_output.put_line('ERROR CALL  BANTPROD.AUD_C_' || TRIM(tablename) || '_AUDIT');    END; END LOOP; CLOSE tables_cursor;  COMMIT; END;
+/
+

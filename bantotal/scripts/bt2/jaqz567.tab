@@ -1,0 +1,23 @@
+create table JAQZ567
+(
+  jaqz567cod  NUMBER(17) not null,
+  jaqz567csbs VARCHAR2(10),
+  jaqz567emp  VARCHAR2(5),
+  jaqz567dese VARCHAR2(150),
+  jaqz567tipo VARCHAR2(30),
+  jaqz567ctac VARCHAR2(15),
+  jaqz567desc VARCHAR2(40),
+  jaqz567atr  NUMBER(10),
+  jaqz567sald NUMBER(17,2),
+  jaqz567cali VARCHAR2(30),
+  jaqz567au1  NUMBER(4),
+  jaqz567au2  NUMBER(18),
+  jaqz567au3  VARCHAR2(100),
+  jaqz567au4  VARCHAR2(50),
+  jaqz567au5  DATE
+)
+;
+create index JAQZ567_001 on JAQZ567 (JAQZ567CSBS, JAQZ567EMP);
+alter table JAQZ567
+  add primary key (JAQZ567COD);
+

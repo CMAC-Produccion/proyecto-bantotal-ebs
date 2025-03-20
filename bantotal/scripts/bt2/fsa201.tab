@@ -1,0 +1,17 @@
+create table FSA201
+(
+  sa201emp  NUMBER(3) not null,
+  sa201proc CHAR(10) not null,
+  sa201fch  DATE not null,
+  sa201cnvi NUMBER(3) not null,
+  sa201corr NUMBER(16) not null,
+  sa201cmp  CHAR(10) not null,
+  sa201vacd CHAR(30),
+  sa201vand NUMBER(17,2),
+  sa201vach CHAR(30),
+  sa201vanh NUMBER(17,2)
+)
+;
+alter table FSA201
+  add primary key (SA201EMP, SA201PROC, SA201FCH, SA201CNVI, SA201CORR, SA201CMP);
+

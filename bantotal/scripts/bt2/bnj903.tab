@@ -1,0 +1,14 @@
+create table BNJ903
+(
+  bnj903pgc NUMBER(3) not null,
+  bnj903pgm CHAR(8) not null,
+  bnj903nro CHAR(19) not null,
+  bnj903err NUMBER(5) not null,
+  bnj903fch DATE,
+  bnj903hor CHAR(8),
+  bnj903cod NUMBER(4)
+)
+;
+alter table BNJ903
+  add primary key (BNJ903PGC, BNJ903PGM, BNJ903NRO, BNJ903ERR);
+

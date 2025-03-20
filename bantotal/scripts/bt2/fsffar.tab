@@ -1,0 +1,30 @@
+create table FSFFAR
+(
+  fsfaemp  NUMBER(3) not null,
+  fsfaanio NUMBER(4) not null,
+  fsfames  NUMBER(2) not null,
+  fsfapais NUMBER(3) not null,
+  fsfatdoc NUMBER(2) not null,
+  fsfadoc  CHAR(12) not null,
+  fsfbpais NUMBER(3) not null,
+  fsfbtdoc NUMBER(2) not null,
+  fsfbdoc  CHAR(12) not null,
+  fsfcpais NUMBER(3) not null,
+  fsfctdoc NUMBER(2) not null,
+  fsfcdoc  CHAR(12) not null,
+  fsfctcap NUMBER(2),
+  fsfcacc1 NUMBER(15),
+  fsfcacc2 NUMBER(15),
+  fsfcacc3 NUMBER(15),
+  fsfcnum1 NUMBER(15),
+  fsfcnum2 NUMBER(15),
+  fsfctxt1 CHAR(30),
+  fsfctxt2 CHAR(30),
+  fsfcciiu NUMBER(4),
+  fsfctinv NUMBER(2),
+  fsfcporc NUMBER(5,2)
+)
+;
+alter table FSFFAR
+  add primary key (FSFAEMP, FSFAANIO, FSFAMES, FSFAPAIS, FSFATDOC, FSFADOC, FSFBPAIS, FSFBTDOC, FSFBDOC, FSFCPAIS, FSFCTDOC, FSFCDOC);
+

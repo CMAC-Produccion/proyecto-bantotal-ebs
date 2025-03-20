@@ -1,0 +1,11 @@
+create table FST810
+(
+  pgcod  NUMBER(3) not null,
+  regcod NUMBER(3) not null,
+  regnom CHAR(40)
+)
+;
+create index ID_IDX$$_01340002_EXA on FST810 (REGCOD);
+alter table FST810
+  add primary key (PGCOD, REGCOD);
+

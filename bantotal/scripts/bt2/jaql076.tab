@@ -1,0 +1,28 @@
+create table JAQL076
+(
+  jaql76time NUMBER(4) not null,
+  jaql76sucu NUMBER(3) not null,
+  jaql76fein DATE not null,
+  jaql76fefi DATE not null,
+  jaql76modu NUMBER(3) not null,
+  jaql76tope NUMBER(3) not null,
+  jaql76perf CHAR(10) not null,
+  jaql76mont NUMBER(17,2),
+  jaql76au01 CHAR(50),
+  jaql76au02 CHAR(50),
+  jaql76au03 CHAR(50),
+  jaql76au04 NUMBER(9),
+  jaql76au05 NUMBER(9),
+  jaql76au06 NUMBER(9),
+  jaql76au07 NUMBER(17,2),
+  jaql76au08 NUMBER(17,2),
+  jaql76au09 NUMBER(17,2),
+  jaql76au10 DATE,
+  jaql76au11 DATE,
+  jaql76au12 DATE
+)
+;
+create index JAQL07610001 on JAQL076 (JAQL76FEIN, JAQL76FEFI);
+alter table JAQL076
+  add primary key (JAQL76TIME, JAQL76SUCU, JAQL76FEIN, JAQL76FEFI, JAQL76MODU, JAQL76TOPE, JAQL76PERF);
+

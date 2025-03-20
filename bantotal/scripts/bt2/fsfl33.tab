@@ -1,0 +1,22 @@
+create table FSFL33
+(
+  fsfl33usr  CHAR(10) not null,
+  fsfl33num  NUMBER(5) not null,
+  fsfl33grup NUMBER(3),
+  fsfl33mda  CHAR(4),
+  fsfl33dia  DATE,
+  fsfl33hora CHAR(8),
+  fsfl33posd NUMBER(17,2),
+  fsfl33posg NUMBER(17,2),
+  fsfl33exce NUMBER(17,2),
+  fsfl33limg NUMBER(17,2),
+  fsfl33com1 CHAR(35),
+  fsfl33com2 CHAR(35),
+  fsfl33com3 CHAR(35),
+  fsfl33marc CHAR(1)
+)
+;
+create index FSFL3302 on FSFL33 (FSFL33USR, FSFL33GRUP, FSFL33MDA, FSFL33DIA, FSFL33HORA);
+alter table FSFL33
+  add primary key (FSFL33USR, FSFL33NUM);
+

@@ -1,0 +1,28 @@
+create table MSG002
+(
+  estmcod        NUMBER(5) not null,
+  atrnom         CHAR(10) not null,
+  atrdsc         VARCHAR2(100),
+  atrrep         CHAR(3),
+  atrtpo         CHAR(1),
+  atrlar         NUMBER(3),
+  atrdec         NUMBER(2),
+  atrtsig        CHAR(1),
+  atrmas         CHAR(30),
+  atrrng         VARCHAR2(80),
+  atrtpoctrl     CHAR(1),
+  atrlstval      CLOB,
+  atrlstatr      CHAR(15),
+  atrestatr      CLOB,
+  atraltacodrep  NUMBER(10),
+  atraltacodsql  NUMBER(10),
+  atraltapgmname CHAR(20),
+  atrvalcodrep   NUMBER(10),
+  atrvalcodsql   NUMBER(10),
+  atrvalpgmname  CHAR(20),
+  atrvalmsg      VARCHAR2(200)
+)
+;
+alter table MSG002
+  add primary key (ESTMCOD, ATRNOM);
+

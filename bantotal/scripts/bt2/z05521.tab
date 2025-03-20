@@ -1,0 +1,17 @@
+create table Z05521
+(
+  z05501cod CHAR(10) not null,
+  z05501prs CHAR(10) not null,
+  z05501spr CHAR(10) not null,
+  z05521cvi NUMBER(3) not null,
+  z05521cmo NUMBER(3),
+  z05521ax1 DATE,
+  z05521ax2 NUMBER(17,2),
+  z05521ax3 NUMBER(10),
+  z05521ax4 CHAR(30),
+  z05521ax5 CHAR(1)
+)
+;
+alter table Z05521
+  add primary key (Z05501COD, Z05501PRS, Z05501SPR, Z05521CVI);
+

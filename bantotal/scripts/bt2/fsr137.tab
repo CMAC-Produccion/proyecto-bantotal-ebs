@@ -1,0 +1,11 @@
+create table FSR137
+(
+  dvnro    NUMBER(3) not null,
+  dvmotcod NUMBER(3) not null,
+  dvmotdsc CHAR(30),
+  dvmotbc  CHAR(10)
+)
+;
+alter table FSR137
+  add primary key (DVNRO, DVMOTCOD);
+

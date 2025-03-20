@@ -1,0 +1,14 @@
+create table FSDEJP
+(
+  ejpfch  DATE not null,
+  ejphor  CHAR(8) not null,
+  ejpusu  CHAR(10) not null,
+  ejphfin CHAR(8),
+  ejppgm  CHAR(10),
+  ejpwrk  CHAR(10)
+)
+;
+create index FSDEJP02 on FSDEJP (EJPUSU, EJPFCH, EJPHOR);
+alter table FSDEJP
+  add primary key (EJPFCH, EJPHOR, EJPUSU);
+

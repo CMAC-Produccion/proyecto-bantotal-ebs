@@ -1,0 +1,72 @@
+create table X999JD
+(
+  x999japgc NUMBER(3) not null,
+  x999jacta NUMBER(9) not null,
+  x999j0cod CHAR(10) not null,
+  x999jjcod NUMBER(1) not null,
+  x999jbcod CHAR(10) not null,
+  x999jbidc CHAR(22) not null,
+  x999jcfvn DATE not null,
+  x999jcrfd CHAR(15) not null,
+  x999jdcor NUMBER(3) not null,
+  x999jdcof DATE,
+  x999jdcoh CHAR(8),
+  x999jdtrc NUMBER(2),
+  x999jdtri NUMBER(2),
+  x999jdmon NUMBER(4),
+  x999jdimp NUMBER(10,2),
+  x999jdctd NUMBER(17),
+  x999jdrc1 CHAR(3),
+  x999jdrc2 CHAR(3),
+  x999jdobs CHAR(80),
+  x999jdusu CHAR(10),
+  x999jdwst CHAR(10),
+  x999jd1pg NUMBER(3),
+  x999jd1su NUMBER(3),
+  x999jd1md NUMBER(3),
+  x999jd1tr NUMBER(3),
+  x999jd1rl NUMBER(4),
+  x999jd1fc DATE,
+  x999jd1ct CHAR(1),
+  x999jd1or NUMBER(2),
+  x999jd1sb NUMBER(3),
+  x999jd2di NUMBER(10),
+  x999jd2oi NUMBER(10),
+  x999jd2pf DATE,
+  x999jd2ph CHAR(8),
+  x999jd2ia CHAR(1),
+  x999jd2cr NUMBER(15),
+  x999jd3tr CHAR(5),
+  x999jd3lt NUMBER(9),
+  x999jd3cr NUMBER(9),
+  x999jd4ap NUMBER(4),
+  x999jd4ba CHAR(5),
+  x999jd4cr NUMBER(9),
+  x999jd4cl NUMBER(9),
+  x999jd4ci NUMBER(9),
+  x999jdfal DATE,
+  x999jdfcp DATE,
+  x999jdfbj DATE,
+  x999jdest CHAR(2),
+  x999jdfv2 DATE,
+  x999jdfv3 DATE,
+  x999jdim2 NUMBER(10,2),
+  x999jdim3 NUMBER(10,2),
+  x999jddbp NUMBER(2),
+  x999jdper NUMBER(3)
+)
+;
+create index X999JD03 on X999JD (X999JCFVN);
+create index X999JD04 on X999JD (X999JD1FC);
+create index X999JD05 on X999JD (X999JD1PG, X999JD1SU, X999JD1MD, X999JD1TR, X999JD1RL, X999JD1FC, X999JD1OR, X999JD1SB);
+create index X999JD07 on X999JD (X999J0COD, X999JD3TR, X999JD3LT, X999JDTRC, X999JDTRI, X999JD3CR);
+create index X999JD08 on X999JD (X999JDFAL);
+create index X999JD09 on X999JD (X999JDFCP);
+create index X999JD10 on X999JD (X999JDFBJ);
+create index X999JD11 on X999JD (X999JDEST);
+create index X999JD15 on X999JD (X999JAPGC, X999JACTA, X999J0COD, X999JJCOD, X999JBCOD, X999JDEST);
+create index X999JD16 on X999JD (X999JD4AP, X999JD4BA, X999JD4CR, X999JD4CL, X999JD4CI);
+create index X999JD17 on X999JD (X999JAPGC, X999JDFCP, X999JACTA);
+alter table X999JD
+  add primary key (X999JAPGC, X999JACTA, X999J0COD, X999JJCOD, X999JBCOD, X999JBIDC, X999JCFVN, X999JCRFD, X999JDCOR);
+

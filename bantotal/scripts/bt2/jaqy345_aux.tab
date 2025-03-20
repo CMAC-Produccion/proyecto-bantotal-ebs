@@ -1,0 +1,11 @@
+create table JAQY345_AUX
+(
+  jaqy345pai NUMBER(3),
+  jaqy345tdo NUMBER(2),
+  jaqy345ndo CHAR(12),
+  jaqy345dig VARCHAR2(2),
+  ln_salcap  NUMBER(17,2)
+)
+;
+create index IDX_JAQY345_AUX_01 on JAQY345_AUX (JAQY345DIG);
+

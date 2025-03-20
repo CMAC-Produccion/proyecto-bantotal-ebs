@@ -1,0 +1,13 @@
+create table JBXI91
+(
+  jbxi91emp  CHAR(4) not null,
+  jbxi91fin  DATE not null,
+  jbxi91cbu  CHAR(22) not null,
+  jbxi91cuil CHAR(11) not null,
+  jbxi91cuit CHAR(11) not null,
+  jbxi91tct  CHAR(1),
+  jbxi91imp  NUMBER(17,2)
+)
+;
+create unique index JBXI9101 on JBXI91 (JBXI91EMP, JBXI91FIN, JBXI91CBU, JBXI91CUIL, JBXI91CUIT);
+

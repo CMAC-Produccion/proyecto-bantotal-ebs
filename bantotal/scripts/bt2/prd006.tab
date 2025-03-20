@@ -1,0 +1,28 @@
+create table PRD006
+(
+  pgcod      NUMBER(3) not null,
+  modulo     NUMBER(3) not null,
+  totope     NUMBER(3) not null,
+  moneda     NUMBER(4) not null,
+  papel      NUMBER(4) not null,
+  prd6modac  NUMBER(3) not null,
+  prd6tpoac  NUMBER(3) not null,
+  prd6mdaac  NUMBER(4) not null,
+  prd6papac  NUMBER(4) not null,
+  prd6tasac  NUMBER(10,6),
+  tzttas     NUMBER(1),
+  prd6pzoac  NUMBER(5),
+  prd6impac  NUMBER(17,2),
+  prd6trtts1 NUMBER(3,2),
+  prd6trtts2 NUMBER(3,2),
+  prd6vig    CHAR(1),
+  prd6aux1   NUMBER(17,2),
+  prd6aux2   CHAR(1),
+  prd6aux3   NUMBER(3),
+  prd6aux4   DATE
+)
+;
+create index PRD00602 on PRD006 (TZTTAS);
+alter table PRD006
+  add primary key (PGCOD, MODULO, TOTOPE, MONEDA, PAPEL, PRD6MODAC, PRD6TPOAC, PRD6MDAAC, PRD6PAPAC);
+

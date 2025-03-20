@@ -1,0 +1,37 @@
+create table JAQA700
+(
+  jaqa700emp NUMBER(3) not null,
+  jaqa700mod NUMBER(3) not null,
+  jaqa700suc NUMBER(3) not null,
+  jaqa700mon NUMBER(4) not null,
+  jaqa700pap NUMBER(4) not null,
+  jaqa700cta NUMBER(9) not null,
+  jaqa700ope NUMBER(9) not null,
+  jaqa700sbo NUMBER(3) not null,
+  jaqa700top NUMBER(3) not null,
+  jaqa700cor NUMBER(9) not null,
+  jaqa700fdp DATE not null,
+  jaqa700est CHAR(1),
+  jaqa700plz NUMBER(5),
+  jaqa700ncm NUMBER(5),
+  jaqa700imp NUMBER(17,2),
+  jaqa700mot VARCHAR2(255),
+  jaqa700usr CHAR(10),
+  jaqa700ch1 VARCHAR2(255),
+  jaqa700ch2 VARCHAR2(255),
+  jaqa700ch3 VARCHAR2(255),
+  jaqa700nu1 NUMBER(9),
+  jaqa700nu2 NUMBER(9),
+  jaqa700nu3 NUMBER(9),
+  jaqa700im1 NUMBER(17,2),
+  jaqa700im2 NUMBER(17,2),
+  jaqa700im3 NUMBER(17,2),
+  jaqa700fe1 DATE,
+  jaqa700fe2 DATE,
+  jaqa700fe3 DATE
+)
+;
+create index JAQA7002 on JAQA700 (JAQA700EMP, JAQA700MON, JAQA700PAP, JAQA700CTA, JAQA700EST, JAQA700FDP);
+alter table JAQA700
+  add primary key (JAQA700EMP, JAQA700MOD, JAQA700SUC, JAQA700MON, JAQA700PAP, JAQA700CTA, JAQA700OPE, JAQA700SBO, JAQA700TOP, JAQA700COR, JAQA700FDP);
+

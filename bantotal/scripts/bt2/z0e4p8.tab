@@ -1,0 +1,20 @@
+create table Z0E4P8
+(
+  z0e4p0emp  NUMBER(3) not null,
+  z0e4p0cta  NUMBER(9) not null,
+  z0e4p1cc   NUMBER(2) not null,
+  z0e4p8fdes DATE not null,
+  z0e4p8can  NUMBER(4) not null,
+  z0e4p8por  NUMBER(5,2),
+  z0e4p8tno  CHAR(3),
+  z0e4p8fmd  DATE,
+  z0e4p8umd  CHAR(10),
+  z0e4p8fau  DATE,
+  z0e4p8uau  CHAR(10),
+  z0e4p8est  CHAR(2)
+)
+;
+create index Z0E4P803 on Z0E4P8 (Z0E4P8EST);
+alter table Z0E4P8
+  add primary key (Z0E4P0EMP, Z0E4P0CTA, Z0E4P1CC, Z0E4P8FDES, Z0E4P8CAN);
+

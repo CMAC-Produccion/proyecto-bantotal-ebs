@@ -1,0 +1,18 @@
+create table FST164
+(
+  arprod  NUMBER(3) not null,
+  arprdsc CHAR(40),
+  arprmda NUMBER(4),
+  arprrub NUMBER(16),
+  arprmod NUMBER(3),
+  arprfch DATE,
+  arprnum NUMBER(9),
+  arpraux CHAR(1)
+)
+;
+create index FST16402 on FST164 (ARPRMOD);
+create index FST16403 on FST164 (ARPRRUB);
+create index FST16404 on FST164 (ARPRMDA);
+alter table FST164
+  add primary key (ARPROD);
+

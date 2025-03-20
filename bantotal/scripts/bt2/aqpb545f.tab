@@ -1,0 +1,71 @@
+create table AQPB545F
+(
+  aqpb545fcod NUMBER(9) not null,
+  aqpb545fsbs NUMBER(9),
+  aqpb545fnom VARCHAR2(300),
+  aqpb545fest VARCHAR2(1),
+  aqpb545ford NUMBER(9),
+  aqpb545fvid DATE,
+  aqpb545fvih DATE,
+  aqpb545ftim TIMESTAMP(6),
+  aqpb545fai1 NUMBER(17,2),
+  aqpb545fai2 NUMBER(17,2),
+  aqpb545fai3 NUMBER(17,2),
+  aqpb545fad1 DATE,
+  aqpb545fad2 DATE,
+  aqpb545fad3 DATE,
+  aqpb545fan1 NUMBER(9),
+  aqpb545fan2 NUMBER(9),
+  aqpb545fan3 NUMBER(9),
+  aqpb545fac1 VARCHAR2(300),
+  aqpb545fac2 VARCHAR2(300),
+  aqpb545fac3 VARCHAR2(300)
+)
+;
+comment on table AQPB545F
+  is 'Reclamos - Master Sub Motivos';
+comment on column AQPB545F.aqpb545fcod
+  is 'Codigo CAQP';
+comment on column AQPB545F.aqpb545fsbs
+  is 'Codigo Submotivo SBS';
+comment on column AQPB545F.aqpb545fnom
+  is 'Nombre SBS';
+comment on column AQPB545F.aqpb545fest
+  is 'Estado';
+comment on column AQPB545F.aqpb545ford
+  is 'Orden en Pantalla';
+comment on column AQPB545F.aqpb545fvid
+  is 'Vigencia Desde';
+comment on column AQPB545F.aqpb545fvih
+  is 'Vigencia Hasta';
+comment on column AQPB545F.aqpb545ftim
+  is 'Creacion';
+comment on column AQPB545F.aqpb545fai1
+  is 'Auxiliar IMP1';
+comment on column AQPB545F.aqpb545fai2
+  is 'Auxiliar IMP2';
+comment on column AQPB545F.aqpb545fai3
+  is 'Auxiliar IMP3';
+comment on column AQPB545F.aqpb545fad1
+  is 'Auxiliar FEC1';
+comment on column AQPB545F.aqpb545fad2
+  is 'Auxiliar FEC2';
+comment on column AQPB545F.aqpb545fad3
+  is 'Auxiliar FEC3';
+comment on column AQPB545F.aqpb545fan1
+  is 'Auxiliar NUM1';
+comment on column AQPB545F.aqpb545fan2
+  is 'Auxiliar NUM2';
+comment on column AQPB545F.aqpb545fan3
+  is 'Auxiliar NUM3';
+comment on column AQPB545F.aqpb545fac1
+  is 'Auxiliar STR1';
+comment on column AQPB545F.aqpb545fac2
+  is 'Auxiliar STR2';
+comment on column AQPB545F.aqpb545fac3
+  is 'Auxiliar STR3';
+create index AQPB545F01 on AQPB545F (AQPB545FSBS);
+create index AQPB545F02 on AQPB545F (AQPB545FEST);
+alter table AQPB545F
+  add primary key (AQPB545FCOD);
+

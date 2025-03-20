@@ -1,0 +1,22 @@
+create table FSF028
+(
+  vpgcod   NUMBER(3) not null,
+  vfinro   NUMBER(3) not null,
+  vcont    NUMBER(9) not null,
+  vcheque  NUMBER(9),
+  vctnro   NUMBER(9),
+  vvto     DATE,
+  vnomtit  CHAR(50),
+  vnomaut  CHAR(50),
+  vcedtit  CHAR(12),
+  vcedaut  CHAR(12),
+  vdirent  CHAR(65),
+  vcoddpto NUMBER(5),
+  vlocent  CHAR(20),
+  vtelent  CHAR(20),
+  vobserv  CHAR(65)
+)
+;
+alter table FSF028
+  add primary key (VPGCOD, VFINRO, VCONT);
+

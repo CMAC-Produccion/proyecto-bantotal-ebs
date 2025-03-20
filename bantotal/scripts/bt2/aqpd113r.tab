@@ -1,0 +1,78 @@
+create table AQPD113R
+(
+  aqpd113rper   NUMBER(8) not null,
+  aqpd113rcol1  NUMBER(10) not null,
+  aqpd113rcol2  VARCHAR2(200),
+  aqpd113rcol3  NUMBER(5) not null,
+  aqpd113rcol4  VARCHAR2(20),
+  aqpd113rcol5  VARCHAR2(40) not null,
+  aqpd113rcol6  NUMBER(5),
+  aqpd113rcol7  VARCHAR2(200),
+  aqpd113rcol8  VARCHAR2(200),
+  aqpd113rcol9  VARCHAR2(200),
+  aqpd113rcol10 VARCHAR2(200),
+  aqpd113rcol11 VARCHAR2(200),
+  aqpd113rcol12 NUMBER(5),
+  aqpd113rcol13 VARCHAR2(20),
+  aqpd113rcol14 NUMBER(5),
+  aqpd113rcol15 VARCHAR2(20),
+  aqpd113rcol16 NUMBER(5),
+  aqpd113rcol17 VARCHAR2(8),
+  aqpd113rcol18 NUMBER(5),
+  aqpd113rcol19 NUMBER(5),
+  aqpd113rcol20 NUMBER(5),
+  aqpd113rcol21 NUMBER(5),
+  aqpd113rfpro  DATE default sysdate
+)
+;
+comment on table AQPD113R
+  is 'TABLA REPORTE 29';
+comment on column AQPD113R.aqpd113rper
+  is 'PERIODO';
+comment on column AQPD113R.aqpd113rcol1
+  is 'COL_1';
+comment on column AQPD113R.aqpd113rcol2
+  is 'COL_2';
+comment on column AQPD113R.aqpd113rcol3
+  is 'COL_3';
+comment on column AQPD113R.aqpd113rcol4
+  is 'COL_4';
+comment on column AQPD113R.aqpd113rcol5
+  is 'COL_5';
+comment on column AQPD113R.aqpd113rcol6
+  is 'COL_6';
+comment on column AQPD113R.aqpd113rcol7
+  is 'COL_7';
+comment on column AQPD113R.aqpd113rcol8
+  is 'COL_8';
+comment on column AQPD113R.aqpd113rcol9
+  is 'COL_9';
+comment on column AQPD113R.aqpd113rcol10
+  is 'COL_10';
+comment on column AQPD113R.aqpd113rcol11
+  is 'COL_11';
+comment on column AQPD113R.aqpd113rcol12
+  is 'COL_12';
+comment on column AQPD113R.aqpd113rcol13
+  is 'COL_13';
+comment on column AQPD113R.aqpd113rcol14
+  is 'COL_14';
+comment on column AQPD113R.aqpd113rcol15
+  is 'COL_15';
+comment on column AQPD113R.aqpd113rcol16
+  is 'COL_16';
+comment on column AQPD113R.aqpd113rcol17
+  is 'COL_17';
+comment on column AQPD113R.aqpd113rcol18
+  is 'COL_18';
+comment on column AQPD113R.aqpd113rcol19
+  is 'COL_19';
+comment on column AQPD113R.aqpd113rcol20
+  is 'COL_20';
+comment on column AQPD113R.aqpd113rcol21
+  is 'COL_21';
+comment on column AQPD113R.aqpd113rfpro
+  is 'FECPRO';
+alter table AQPD113R
+  add primary key (AQPD113RPER, AQPD113RCOL1, AQPD113RCOL3, AQPD113RCOL5);
+

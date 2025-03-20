@@ -1,0 +1,37 @@
+create table PLS020
+(
+  pls019emp  NUMBER(3) not null,
+  pls019conv NUMBER(8) not null,
+  pls019sect NUMBER(3) not null,
+  pls019fpre DATE not null,
+  pls019nord NUMBER(3) not null,
+  pls019nlot NUMBER(3) not null,
+  pls019part NUMBER(3) not null,
+  pls019oper NUMBER(9) not null,
+  pls020corr NUMBER(5) not null,
+  pls020temp NUMBER(3),
+  pls020tsuc NUMBER(3),
+  pls020tmod NUMBER(3),
+  pls020ttrn NUMBER(3),
+  pls020tnre NUMBER(4),
+  pls020tord NUMBER(2),
+  pls020tsbo NUMBER(3),
+  pls020fcon DATE,
+  pls020cimp NUMBER(17,2),
+  pls020imp1 NUMBER(17,2),
+  pls020cmo1 NUMBER(3),
+  pls020imp2 NUMBER(17,2),
+  pls020cmo2 NUMBER(3),
+  pls020imp3 NUMBER(17,2),
+  pls020cmo3 NUMBER(3),
+  pls020aux1 NUMBER(9),
+  pls020aux2 CHAR(1),
+  pls020aux3 DATE,
+  pls020aux4 NUMBER(17,2),
+  pls020aux5 NUMBER(17,2),
+  pls020aux6 CHAR(50)
+)
+;
+alter table PLS020
+  add primary key (PLS019EMP, PLS019CONV, PLS019SECT, PLS019FPRE, PLS019NORD, PLS019NLOT, PLS019PART, PLS019OPER, PLS020CORR);
+

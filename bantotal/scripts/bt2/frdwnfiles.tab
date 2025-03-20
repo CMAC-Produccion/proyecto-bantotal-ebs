@@ -1,0 +1,15 @@
+create table FRDWNFILES
+(
+  frfilid     NUMBER(6) not null,
+  frfilsee    NUMBER(7),
+  frfiltyp    NUMBER(2),
+  frfildat    DATE,
+  frfilpat    VARCHAR2(2000),
+  frfilsavnam VARCHAR2(255),
+  frfilusrnam VARCHAR2(40),
+  frfilwrkst  VARCHAR2(20)
+)
+;
+alter table FRDWNFILES
+  add primary key (FRFILID);
+

@@ -1,0 +1,12 @@
+create table SNG093
+(
+  sng092cod NUMBER(10) not null,
+  sng093cor NUMBER(4) not null,
+  sng093pol NUMBER(5),
+  sng093msg CHAR(80),
+  sng093res CHAR(1)
+)
+;
+alter table SNG093
+  add primary key (SNG092COD, SNG093COR);
+

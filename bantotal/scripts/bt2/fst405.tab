@@ -1,0 +1,18 @@
+create table FST405
+(
+  limmodid  NUMBER(3) not null,
+  limtopid  NUMBER(3) not null,
+  gtamodid  NUMBER(3) not null,
+  gtatopid  NUMBER(3) not null,
+  gtarevolv CHAR(1),
+  gtaportol NUMBER(7,4),
+  gtarelrub NUMBER(3),
+  gtarelope NUMBER(3),
+  gtaespe01 CHAR(1),
+  gtaespe02 CHAR(1),
+  gtaotmda  CHAR(1)
+)
+;
+alter table FST405
+  add primary key (LIMMODID, LIMTOPID, GTAMODID, GTATOPID);
+

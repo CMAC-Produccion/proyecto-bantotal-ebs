@@ -1,0 +1,14 @@
+create table FSFX10
+(
+  sfx10num NUMBER(15) not null,
+  sfx10cor NUMBER(9) not null,
+  sfx10ln1 CHAR(250),
+  sfx10ln2 CHAR(250),
+  sfx10ln3 CHAR(250),
+  sfx10ln4 CHAR(250),
+  sfx10ln5 CHAR(250)
+)
+;
+alter table FSFX10
+  add primary key (SFX10NUM, SFX10COR);
+

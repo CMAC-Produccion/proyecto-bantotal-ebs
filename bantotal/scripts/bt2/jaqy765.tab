@@ -1,0 +1,29 @@
+create table JAQY765
+(
+  jaqy765numcon NUMBER(10) not null,
+  jaqy765integr VARCHAR2(40) not null,
+  jaqy765fchsis DATE,
+  jaqy765tipers CHAR(2),
+  jaqy765tipcre NUMBER(3),
+  jaqy765mod    NUMBER(3),
+  jaqy765reg    NUMBER(3),
+  jaqy765loc    NUMBER(3),
+  jaqy765ticli  VARCHAR2(40),
+  jaqy765tdoc   NUMBER(3),
+  jaqy765ndoc   CHAR(12),
+  jaqy765ape    VARCHAR2(20),
+  jaqy765estciv VARCHAR2(40),
+  jaqy765aux2   VARCHAR2(40),
+  jaqy765aux3   VARCHAR2(40),
+  jaqy765aux4   VARCHAR2(40),
+  jaqy765aux5   VARCHAR2(40),
+  jaqy765sec    NUMBER(3)
+)
+;
+create index JAQY76501 on JAQY765 (JAQY765AUX2, JAQY765FCHSIS);
+create index JAQY76502 on JAQY765 (JAQY765INTEGR, JAQY765FCHSIS, JAQY765TIPCRE, JAQY765SEC, JAQY765TDOC, JAQY765NDOC);
+create index JAQY76503 on JAQY765 (JAQY765NUMCON);
+create index JAQY7654 on JAQY765 (JAQY765NUMCON, JAQY765FCHSIS);
+alter table JAQY765
+  add primary key (JAQY765NUMCON, JAQY765INTEGR);
+

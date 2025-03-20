@@ -1,0 +1,31 @@
+create table FSD233
+(
+  cchqemp    NUMBER(3) not null,
+  cchqmod    NUMBER(3) not null,
+  cchqsuc    NUMBER(3) not null,
+  cchqmda    NUMBER(4) not null,
+  cchqpap    NUMBER(4) not null,
+  cchqcta    NUMBER(9) not null,
+  cchqoper   NUMBER(9) not null,
+  cchqsbop   NUMBER(3) not null,
+  cchqtop    NUMBER(3) not null,
+  cchqnro    NUMBER(9) not null,
+  cchqfech   DATE not null,
+  cchqrel    NUMBER(3) not null,
+  cchqestant CHAR(1),
+  cchqmot    NUMBER(3),
+  cchqaux1   CHAR(35),
+  cchqaux2   NUMBER(9),
+  cchqpgcod  NUMBER(3),
+  cchqhcsuc  NUMBER(3),
+  cchqhcmod  NUMBER(3),
+  cchqhctrn  NUMBER(3),
+  cchqhcnrel NUMBER(4),
+  cchqhfcont DATE,
+  cchqhcord  NUMBER(2),
+  cchqhcsubo NUMBER(3)
+)
+;
+alter table FSD233
+  add primary key (CCHQEMP, CCHQMOD, CCHQSUC, CCHQMDA, CCHQPAP, CCHQCTA, CCHQOPER, CCHQSBOP, CCHQTOP, CCHQNRO, CCHQFECH, CCHQREL);
+

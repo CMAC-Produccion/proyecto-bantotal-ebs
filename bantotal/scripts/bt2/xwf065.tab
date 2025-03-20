@@ -1,0 +1,13 @@
+create table XWF065
+(
+  xwfdocid   NUMBER(10) not null,
+  xwfcacappi NUMBER(2) not null,
+  xwfcactypi NUMBER(10) not null,
+  xwf065hab  CHAR(1),
+  xwf065ax1  NUMBER(10),
+  xwf065ax2  VARCHAR2(100)
+)
+;
+alter table XWF065
+  add primary key (XWFDOCID, XWFCACAPPI, XWFCACTYPI);
+

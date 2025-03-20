@@ -1,0 +1,98 @@
+create table AQPA143
+(
+  aqpa143pge NUMBER(3) not null,
+  aqpa143its NUMBER(3) not null,
+  aqpa143itm NUMBER(3) not null,
+  aqpa143itx NUMBER(3) not null,
+  aqpa143itr NUMBER(4) not null,
+  aqpa143fec DATE not null,
+  aqpa143pgc NUMBER(3),
+  aqpa143suc NUMBER(3),
+  aqpa143mod NUMBER(3),
+  aqpa143mda NUMBER(4),
+  aqpa143pap NUMBER(4),
+  aqpa143cta NUMBER(9),
+  aqpa143ope NUMBER(9),
+  aqpa143sbo NUMBER(3),
+  aqpa143tpo NUMBER(3),
+  aqpa143mto NUMBER(17,2),
+  aqpa143hor CHAR(8),
+  aqpa143tca NUMBER(14,8),
+  aqpa143usu CHAR(10),
+  aqpa143ax1 NUMBER(9),
+  aqpa143ax2 NUMBER(9),
+  aqpa143ax3 NUMBER(17,2),
+  aqpa143ax4 NUMBER(17,2),
+  aqpa143ax5 DATE,
+  aqpa143ax6 DATE,
+  aqpa143ax7 CHAR(100),
+  aqpa143ax8 CHAR(100),
+  aqpa143ax9 CHAR(100),
+  aqpa143ord NUMBER(2) not null
+)
+;
+comment on table AQPA143
+  is 'TABLA LOG OPERACIONES POR ENCIMA DEL LIMITE OPERATIVO';
+comment on column AQPA143.aqpa143pge
+  is 'EMPRESA';
+comment on column AQPA143.aqpa143its
+  is 'SUCURSAL CONTA';
+comment on column AQPA143.aqpa143itm
+  is 'MODULO CONTA';
+comment on column AQPA143.aqpa143itx
+  is 'TRANSACCION CONTA';
+comment on column AQPA143.aqpa143itr
+  is 'RELACION';
+comment on column AQPA143.aqpa143fec
+  is 'FECHA CONTA';
+comment on column AQPA143.aqpa143pgc
+  is 'EMPRESA';
+comment on column AQPA143.aqpa143suc
+  is 'SUCURSAL';
+comment on column AQPA143.aqpa143mod
+  is 'MODULO';
+comment on column AQPA143.aqpa143mda
+  is 'MONEDA';
+comment on column AQPA143.aqpa143pap
+  is 'PAPEL';
+comment on column AQPA143.aqpa143cta
+  is 'CUENTA';
+comment on column AQPA143.aqpa143ope
+  is 'OPERACION';
+comment on column AQPA143.aqpa143sbo
+  is 'SUB OPERACION';
+comment on column AQPA143.aqpa143tpo
+  is 'TIPO DE OPERACION';
+comment on column AQPA143.aqpa143mto
+  is 'MONTO';
+comment on column AQPA143.aqpa143hor
+  is 'HORA';
+comment on column AQPA143.aqpa143tca
+  is 'TIPO DE CAMBIO';
+comment on column AQPA143.aqpa143usu
+  is 'USUARIO';
+comment on column AQPA143.aqpa143ax1
+  is 'AUXILIAR';
+comment on column AQPA143.aqpa143ax2
+  is 'AUXILIAR';
+comment on column AQPA143.aqpa143ax3
+  is 'AUXILIAR';
+comment on column AQPA143.aqpa143ax4
+  is 'AUXILIAR';
+comment on column AQPA143.aqpa143ax5
+  is 'AUXILIAR';
+comment on column AQPA143.aqpa143ax6
+  is 'AUXILIAR';
+comment on column AQPA143.aqpa143ax7
+  is 'AUXILIAR';
+comment on column AQPA143.aqpa143ax8
+  is 'AUXILIAR';
+comment on column AQPA143.aqpa143ax9
+  is 'AUXILIAR';
+comment on column AQPA143.aqpa143ord
+  is 'ORDINAL';
+create index AQPA143A2 on AQPA143 (AQPA143ITS, AQPA143FEC, AQPA143CTA, AQPA143SBO, AQPA143HOR);
+create index AQPA143A3 on AQPA143 (AQPA143FEC, AQPA143CTA, AQPA143SBO, AQPA143HOR);
+alter table AQPA143
+  add primary key (AQPA143PGE, AQPA143ITS, AQPA143ITM, AQPA143ITX, AQPA143ITR, AQPA143FEC, AQPA143ORD);
+

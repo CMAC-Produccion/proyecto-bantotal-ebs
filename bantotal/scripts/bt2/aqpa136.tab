@@ -1,0 +1,87 @@
+create table AQPA136
+(
+  aqpa136pgo NUMBER(3) not null,
+  aqpa136itm NUMBER(3) not null,
+  aqpa136its NUMBER(3) not null,
+  aqpa136itt NUMBER(3) not null,
+  aqpa136itr NUMBER(4) not null,
+  aqpa136fec DATE not null,
+  aqpa136cor NUMBER(9) not null,
+  aqpa136txo NUMBER(3),
+  aqpa136pgc NUMBER(3),
+  aqpa136mod NUMBER(3),
+  aqpa136suc NUMBER(3),
+  aqpa136mda NUMBER(4),
+  aqpa136pap NUMBER(3),
+  aqpa136cta NUMBER(9),
+  aqpa136ope NUMBER(9),
+  aqpa136sub NUMBER(3),
+  aqpa136tpo NUMBER(3),
+  aqpa136inr NUMBER(1),
+  aqpa136tat NUMBER(11,6),
+  aqpa136tap NUMBER(11,6),
+  aqpa136fea DATE,
+  aqpa136usu CHAR(10),
+  aqpa136des CHAR(400),
+  aqpa136cue CLOB,
+  aqpa136est CHAR(1),
+  aqpa136msg VARCHAR2(4000)
+)
+;
+comment on table AQPA136
+  is 'LOG NOTIFICACION TASA DIFERENTE A TARIFARIO';
+comment on column AQPA136.aqpa136pgo
+  is 'EMPRESA';
+comment on column AQPA136.aqpa136itm
+  is 'MODULO';
+comment on column AQPA136.aqpa136its
+  is 'SUCURSAL';
+comment on column AQPA136.aqpa136itt
+  is 'TRANSACCION';
+comment on column AQPA136.aqpa136itr
+  is 'RELACION';
+comment on column AQPA136.aqpa136fec
+  is 'FECHA';
+comment on column AQPA136.aqpa136cor
+  is 'CORRELATIVO';
+comment on column AQPA136.aqpa136txo
+  is 'CODIGO DE TEXTO';
+comment on column AQPA136.aqpa136pgc
+  is 'EMPRESA';
+comment on column AQPA136.aqpa136mod
+  is 'MODULO';
+comment on column AQPA136.aqpa136suc
+  is 'SUCURSAL';
+comment on column AQPA136.aqpa136mda
+  is 'MONEDA';
+comment on column AQPA136.aqpa136pap
+  is 'PAPEL';
+comment on column AQPA136.aqpa136cta
+  is 'CUENTA';
+comment on column AQPA136.aqpa136ope
+  is 'OPERACION';
+comment on column AQPA136.aqpa136sub
+  is 'SUB OPERACION';
+comment on column AQPA136.aqpa136tpo
+  is 'TIPO DE OPERACION';
+comment on column AQPA136.aqpa136inr
+  is 'INDICADOR EJECUCION';
+comment on column AQPA136.aqpa136tat
+  is 'TASA DE TARIFARIO';
+comment on column AQPA136.aqpa136tap
+  is 'TSA DEL PRODUCTO';
+comment on column AQPA136.aqpa136fea
+  is 'FECHA DE ALTA';
+comment on column AQPA136.aqpa136usu
+  is 'USUARIO';
+comment on column AQPA136.aqpa136des
+  is 'DESTINATARIO';
+comment on column AQPA136.aqpa136cue
+  is 'CUERPO DEL CORREO';
+comment on column AQPA136.aqpa136est
+  is 'ESTADO';
+comment on column AQPA136.aqpa136msg
+  is 'MENSAJE DE ENVIO';
+alter table AQPA136
+  add primary key (AQPA136PGO, AQPA136ITM, AQPA136ITS, AQPA136ITT, AQPA136ITR, AQPA136FEC, AQPA136COR);
+

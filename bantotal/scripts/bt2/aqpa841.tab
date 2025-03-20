@@ -1,0 +1,46 @@
+create table AQPA841
+(
+  aqpa841emp    NUMBER(3) not null,
+  aqpa841mod    NUMBER(3) not null,
+  aqpa841suc    NUMBER(3) not null,
+  aqpa841mda    NUMBER(4) not null,
+  aqpa841pap    NUMBER(4) not null,
+  aqpa841cta    NUMBER(9) not null,
+  aqpa841ope    NUMBER(9) not null,
+  aqpa841sbo    NUMBER(3) not null,
+  aqpa841top    NUMBER(3) not null,
+  aqpa841ins    NUMBER(10),
+  aqpa841sdo    NUMBER(18,2),
+  aqpa841mtoa   NUMBER(18,2),
+  aqpa841pcj    NUMBER(5,2),
+  aqpa841tip    NUMBER(2),
+  aqpa841empg   NUMBER(3),
+  aqpa841modg   NUMBER(3),
+  aqpa841sucg   NUMBER(3),
+  aqpa841mdag   NUMBER(4),
+  aqpa841papg   NUMBER(4),
+  aqpa841ctag   NUMBER(9),
+  aqpa841opeg   NUMBER(9),
+  aqpa841sbog   NUMBER(3),
+  aqpa841topg   NUMBER(3),
+  aqpa841est    CHAR(1),
+  aqpa841itcod  NUMBER(3) not null,
+  aqpa841itmod  NUMBER(3) not null,
+  aqpa841itsuc  NUMBER(3) not null,
+  aqpa841ittran NUMBER(3) not null,
+  aqpa841itnrel NUMBER(4) not null,
+  aqpa841itfcon DATE not null,
+  aqpa841ithor  CHAR(8),
+  aqpa841itucnf CHAR(10),
+  aqpa841usuact CHAR(10),
+  aqpa841fecact DATE
+)
+;
+create index AQPA8412 on AQPA841 (AQPA841ITCOD, AQPA841ITMOD, AQPA841ITSUC, AQPA841ITTRAN, AQPA841ITNREL, AQPA841ITFCON);
+create index AQPA8413 on AQPA841 (AQPA841EST);
+create index AQPA8414 on AQPA841 (AQPA841EMP, AQPA841SUC, AQPA841MOD, AQPA841MDA, AQPA841PAP, AQPA841CTA, AQPA841OPE, AQPA841SBO, AQPA841TOP);
+create index AQPA8415 on AQPA841 (AQPA841EMPG, AQPA841SUCG, AQPA841MODG, AQPA841MDAG, AQPA841PAPG, AQPA841CTAG, AQPA841OPEG, AQPA841SBOG, AQPA841TOPG);
+create index AQPA8416 on AQPA841 (AQPA841CTAG, AQPA841EST);
+alter table AQPA841
+  add primary key (AQPA841EMP, AQPA841SUC, AQPA841MOD, AQPA841MDA, AQPA841PAP, AQPA841CTA, AQPA841OPE, AQPA841SBO, AQPA841TOP, AQPA841ITCOD, AQPA841ITMOD, AQPA841ITSUC, AQPA841ITTRAN, AQPA841ITNREL, AQPA841ITFCON);
+

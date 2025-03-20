@@ -1,0 +1,48 @@
+create table AQPB215
+(
+  aqpb215nro CHAR(19) not null,
+  aqpb215pce VARCHAR2(5),
+  aqpb215nce VARCHAR2(20),
+  aqpb215fal DATE,
+  aqpb215hal CHAR(8),
+  aqpb215ide VARCHAR2(50),
+  aqpb215gui VARCHAR2(50),
+  aqpb215an1 NUMBER(9),
+  aqpb215an2 NUMBER(9),
+  aqpb215ac1 CHAR(1),
+  aqpb215ac2 CHAR(1),
+  aqpb215top NUMBER(3),
+  aqpb215ope NUMBER(9),
+  aqpb215cta NUMBER(9),
+  aqpb215mda NUMBER(4),
+  aqpb215suc NUMBER(3),
+  aqpb215mod NUMBER(3),
+  aqpb215pgc NUMBER(3),
+  aqpb215est CHAR(5),
+  aqpb215mai VARCHAR2(50),
+  aqpb215aty VARCHAR2(10),
+  aqpb215pap NUMBER(4),
+  aqpb215sbo NUMBER(3),
+  aqpb215lna VARCHAR2(30),
+  aqpb215fna VARCHAR2(30),
+  aqpb215pai NUMBER(3),
+  aqpb215tdo NUMBER(2),
+  aqpb215ndo CHAR(12),
+  aqpb215nkn VARCHAR2(50),
+  aqpb215uqr VARCHAR2(250),
+  aqpb215usr CHAR(10),
+  aqpb215fup DATE,
+  aqpb215hup CHAR(8)
+)
+;
+comment on column AQPB215.aqpb215usr
+  is 'Usuario Baja';
+comment on column AQPB215.aqpb215fup
+  is 'Fecha Baja';
+comment on column AQPB215.aqpb215hup
+  is 'Hora Baja';
+create index AQPB2152 on AQPB215 (AQPB215PAI, AQPB215TDO, AQPB215NDO);
+create index AQPB2153 on AQPB215 (AQPB215PCE, AQPB215NCE, AQPB215EST);
+alter table AQPB215
+  add primary key (AQPB215NRO);
+

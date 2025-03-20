@@ -1,0 +1,32 @@
+create table JAQM405
+(
+  jaqm405ins NUMBER(10) not null,
+  jaqm405fec DATE not null,
+  jaqm405cod NUMBER(4) not null,
+  jaqm405lin NUMBER(3) not null,
+  jaqm405mt1 NUMBER(17,2),
+  jaqm405mt2 NUMBER(17,2),
+  jaqm405mt3 NUMBER(17,2),
+  jaqm405mt4 NUMBER(17,2),
+  jaqm405ca1 NUMBER(10,3),
+  jaqm405ca2 NUMBER(10,3),
+  jaqm405ca3 NUMBER(10,3),
+  jaqm405ca4 NUMBER(4),
+  jaqm405md1 NUMBER(4),
+  jaqm405md2 NUMBER(4),
+  jaqm405md3 NUMBER(4),
+  jaqm405md4 NUMBER(4),
+  jaqm405tx1 CHAR(40),
+  jaqm405tx2 CHAR(40),
+  jaqm405tx3 CHAR(40),
+  jaqm405co1 CHAR(10),
+  jaqm405co2 CHAR(10),
+  jaqm405co3 CHAR(10),
+  jaqm405tl1 CHAR(50),
+  jaqm405tl2 CHAR(50),
+  jaqm405tl3 CHAR(50)
+)
+;
+alter table JAQM405
+  add primary key (JAQM405INS, JAQM405FEC, JAQM405COD, JAQM405LIN);
+

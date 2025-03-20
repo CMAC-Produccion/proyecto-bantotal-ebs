@@ -1,0 +1,27 @@
+create table FSFFAS
+(
+  fsffasusu CHAR(10) not null,
+  fsffascrr NUMBER(9) not null,
+  fsffasren NUMBER(9) not null,
+  fsffasfvt DATE,
+  fsffasope NUMBER(9),
+  fsffascon CHAR(1),
+  fsffasciv NUMBER(17,2),
+  fsffasint NUMBER(17,2),
+  fsffastim NUMBER(17,2),
+  fsffasoco NUMBER(17,2),
+  fsffasndo NUMBER(9),
+  fsffasax1 NUMBER(9),
+  fsffasax2 NUMBER(9),
+  fsffasax3 NUMBER(17,2),
+  fsffasax4 NUMBER(17,2),
+  fsffasax5 DATE,
+  fsffasax6 DATE,
+  fsffasax7 CHAR(1),
+  fsffasax8 CHAR(1)
+)
+;
+create index FSFFAS02 on FSFFAS (FSFFASUSU, FSFFASCRR, FSFFASFVT, FSFFASOPE);
+alter table FSFFAS
+  add primary key (FSFFASUSU, FSFFASCRR, FSFFASREN);
+

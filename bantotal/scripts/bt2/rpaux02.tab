@@ -1,0 +1,14 @@
+create table RPAUX02
+(
+  rpaux01usr  CHAR(10) not null,
+  rpaux01rep  NUMBER(10) not null,
+  rpaux01cons NUMBER(10) not null,
+  rpaux02fil  NUMBER(10) not null,
+  rpaux01col  NUMBER(4) not null,
+  rpaux02val  VARCHAR2(200)
+)
+;
+create index RPAUX022 on RPAUX02 (RPAUX01USR, RPAUX01REP, RPAUX01CONS, RPAUX01COL);
+alter table RPAUX02
+  add primary key (RPAUX01USR, RPAUX01REP, RPAUX01CONS, RPAUX02FIL, RPAUX01COL);
+

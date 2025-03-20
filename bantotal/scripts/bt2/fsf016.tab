@@ -1,0 +1,24 @@
+create table FSF016
+(
+  ypgcod    NUMBER(3) not null,
+  yfinro    NUMBER(3) not null,
+  ynumero   NUMBER(9) not null,
+  ynombre   CHAR(60),
+  yimporte  NUMBER(17,2),
+  ycheque   NUMBER(9),
+  yrettotal CHAR(1),
+  ymod      NUMBER(3),
+  ysuc      NUMBER(3),
+  ytran     NUMBER(3),
+  ynrel     NUMBER(4),
+  yfcon     DATE,
+  yord      NUMBER(2),
+  ysubo     NUMBER(3),
+  yimprime  CHAR(1),
+  yestado   CHAR(1)
+)
+;
+create index FSF01602 on FSF016 (YPGCOD, YFINRO, YCHEQUE);
+alter table FSF016
+  add primary key (YPGCOD, YFINRO, YNUMERO);
+

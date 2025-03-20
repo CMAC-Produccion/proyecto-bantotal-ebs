@@ -1,0 +1,31 @@
+create table AQPA106A
+(
+  aqpa106apai NUMBER(3) not null,
+  aqpa106atpo NUMBER(2) not null,
+  aqpa106anum CHAR(12) not null,
+  aqpa106acor NUMBER(9) not null,
+  aqpa106atip CHAR(1),
+  aqpa106aest CHAR(1),
+  aqpa106afec DATE,
+  aqpa106ahor CHAR(8),
+  aqpa106ausr CHAR(10),
+  aqpa106aage NUMBER(3),
+  aqpa106adat CHAR(100),
+  aqpa106aax1 NUMBER(9),
+  aqpa106aax2 NUMBER(9),
+  aqpa106aax3 NUMBER(17,2),
+  aqpa106aax4 NUMBER(17,2),
+  aqpa106aax5 DATE,
+  aqpa106aax6 DATE,
+  aqpa106aax7 CHAR(100),
+  aqpa106aax8 CHAR(100),
+  aqpa106aax9 CHAR(100),
+  aqpa106afor CHAR(30),
+  aqpa106anom CHAR(19),
+  aqpa106aarc BLOB
+)
+;
+create index AQPA106A2 on AQPA106A (AQPA106APAI, AQPA106ATPO, AQPA106ANUM, AQPA106ADAT);
+alter table AQPA106A
+  add primary key (AQPA106APAI, AQPA106ATPO, AQPA106ANUM, AQPA106ACOR);
+

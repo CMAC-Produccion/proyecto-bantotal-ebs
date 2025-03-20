@@ -1,0 +1,29 @@
+create table FBC016
+(
+  bcremp    NUMBER(3) not null,
+  bcrinf    CHAR(10) not null,
+  bcrfech   DATE not null,
+  bcrcpo    CHAR(8) not null,
+  bcrcodcpo NUMBER(10) not null,
+  bcrpais   NUMBER(3) not null,
+  bcrtdoc   NUMBER(2) not null,
+  bcrndoc   CHAR(12) not null,
+  bcrsuc    NUMBER(3) not null,
+  bcrcta    NUMBER(9) not null,
+  bcrmda    NUMBER(4) not null,
+  bcrrubr   NUMBER(16) not null,
+  bcroper   NUMBER(9) not null,
+  bcrsbop   NUMBER(3) not null,
+  bcrtope   NUMBER(3) not null,
+  bcrsdomn  NUMBER(17,2),
+  bcrsdoor  NUMBER(17,2),
+  bcrsdous  NUMBER(17,2),
+  bcrtasa   NUMBER(10,6),
+  bcrpzo    NUMBER(5),
+  bcrfval   DATE,
+  bcrfvto   DATE
+)
+;
+alter table FBC016
+  add primary key (BCREMP, BCRINF, BCRFECH, BCRCPO, BCRCODCPO, BCRPAIS, BCRTDOC, BCRNDOC, BCRSUC, BCRCTA, BCRMDA, BCRRUBR, BCROPER, BCRSBOP, BCRTOPE);
+

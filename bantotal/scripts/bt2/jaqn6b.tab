@@ -1,0 +1,121 @@
+create table JAQN6B
+(
+  jaqn6bfec DATE not null,
+  jaqn6busu CHAR(10) not null,
+  jaqn6bcod NUMBER(9) not null,
+  jaqn6bcor NUMBER(9) not null,
+  jaqn6bemp NUMBER(3),
+  jaqn6bsuc NUMBER(3),
+  jaqn6bmod NUMBER(3),
+  jaqn6btrn NUMBER(3),
+  jaqn6brel NUMBER(4),
+  jaqn6bfco DATE,
+  jaqn6bhor CHAR(10),
+  jaqn6best CHAR(1),
+  jaqn6bobs VARCHAR2(255),
+  jaqn6bcta NUMBER(9),
+  jaqn6bmda NUMBER(4),
+  jaqn6bcap NUMBER(17,2),
+  jaqn6bplz NUMBER(5),
+  jaqn6btas NUMBER(10,6),
+  jaqn6bctb NUMBER(9),
+  jaqn6bmdb NUMBER(4),
+  jaqn6bsub NUMBER(3),
+  jaqn6bnot NUMBER(9),
+  jaqn6bins NUMBER(4),
+  jaqn6bgls CHAR(100),
+  jaqn6btip CHAR(1),
+  jaqn6ban1 NUMBER(9),
+  jaqn6ban2 NUMBER(9),
+  jaqn6ban3 NUMBER(9),
+  jaqn6bac1 VARCHAR2(255),
+  jaqn6bac2 VARCHAR2(255),
+  jaqn6bac3 VARCHAR2(255),
+  jaqn6baf1 DATE,
+  jaqn6baf2 DATE,
+  jaqn6baf3 DATE,
+  jaqn6bai1 NUMBER(17,2),
+  jaqn6bai2 NUMBER(17,2),
+  jaqn6bai3 NUMBER(17,2)
+)
+;
+comment on table JAQN6B
+  is 'Carga masiva de alta DPF';
+comment on column JAQN6B.jaqn6bfec
+  is 'Date';
+comment on column JAQN6B.jaqn6busu
+  is 'Character';
+comment on column JAQN6B.jaqn6bcod
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bcor
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bemp
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bsuc
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bmod
+  is 'Numeric';
+comment on column JAQN6B.jaqn6btrn
+  is 'Numeric';
+comment on column JAQN6B.jaqn6brel
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bfco
+  is 'Date';
+comment on column JAQN6B.jaqn6bhor
+  is 'Character';
+comment on column JAQN6B.jaqn6best
+  is 'Character';
+comment on column JAQN6B.jaqn6bobs
+  is 'VarChar';
+comment on column JAQN6B.jaqn6bcta
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bmda
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bcap
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bplz
+  is 'Numeric';
+comment on column JAQN6B.jaqn6btas
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bctb
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bmdb
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bsub
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bnot
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bins
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bgls
+  is 'Character';
+comment on column JAQN6B.jaqn6btip
+  is 'Character';
+comment on column JAQN6B.jaqn6ban1
+  is 'Numeric';
+comment on column JAQN6B.jaqn6ban2
+  is 'Numeric';
+comment on column JAQN6B.jaqn6ban3
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bac1
+  is 'VarChar';
+comment on column JAQN6B.jaqn6bac2
+  is 'VarChar';
+comment on column JAQN6B.jaqn6bac3
+  is 'VarChar';
+comment on column JAQN6B.jaqn6baf1
+  is 'Date';
+comment on column JAQN6B.jaqn6baf2
+  is 'Date';
+comment on column JAQN6B.jaqn6baf3
+  is 'Date';
+comment on column JAQN6B.jaqn6bai1
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bai2
+  is 'Numeric';
+comment on column JAQN6B.jaqn6bai3
+  is 'Numeric';
+create index JAQN6BA2 on JAQN6B (JAQN6BEMP, JAQN6BSUC, JAQN6BMOD, JAQN6BTRN, JAQN6BREL, JAQN6BFCO);
+alter table JAQN6B
+  add primary key (JAQN6BFEC, JAQN6BUSU, JAQN6BCOD, JAQN6BCOR);
+

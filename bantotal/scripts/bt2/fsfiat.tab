@@ -1,0 +1,23 @@
+create table FSFIAT
+(
+  sfiatemp   NUMBER(3) not null,
+  sfiatcod   NUMBER(3) not null,
+  sfiatdesc  CHAR(35),
+  sfiathab   CHAR(1),
+  sfiataux1  CHAR(1),
+  sfiataux2  CHAR(1),
+  sfiataux3  CHAR(1),
+  sfiataux4  CHAR(1),
+  sfiataux5  CHAR(1),
+  sfiataux6  CHAR(1),
+  sfiataux7  CHAR(1),
+  sfiataux8  CHAR(1),
+  sfiataux9  NUMBER(3),
+  sfiataux10 NUMBER(3),
+  sfiataux11 NUMBER(9),
+  sfiaaux12  NUMBER(9)
+)
+;
+alter table FSFIAT
+  add primary key (SFIATEMP, SFIATCOD);
+

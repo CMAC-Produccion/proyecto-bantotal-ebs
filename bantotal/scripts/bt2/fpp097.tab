@@ -1,0 +1,30 @@
+create table FPP097
+(
+  pp97emp  CHAR(20) not null,
+  pp97mut  CHAR(20) not null,
+  pp97pgc  NUMBER(3),
+  pp97mod  NUMBER(3),
+  pp97suc  NUMBER(3),
+  pp97mda  NUMBER(4),
+  pp97pap  NUMBER(4),
+  pp97cta  NUMBER(9),
+  pp97ope  NUMBER(9),
+  pp97sbo  NUMBER(3),
+  pp97top  NUMBER(3),
+  pp97au1  NUMBER(9),
+  pp97au2  NUMBER(9),
+  pp97au3  NUMBER(9),
+  pp97au4  CHAR(30),
+  pp97au5  CHAR(30),
+  pp97au6  CHAR(30),
+  pp97au7  NUMBER(17,2),
+  pp97au8  NUMBER(17,2),
+  pp97au9  NUMBER(17,2),
+  pp97au10 DATE,
+  pp97au11 DATE,
+  pp97au12 DATE
+)
+;
+alter table FPP097
+  add primary key (PP97EMP, PP97MUT);
+

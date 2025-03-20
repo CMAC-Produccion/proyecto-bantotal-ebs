@@ -1,0 +1,12 @@
+create table JAQY052T
+(
+  jaqy052tpais  NUMBER(3) not null,
+  jaqy052ttdoc  NUMBER(2) not null,
+  jaqly052tndoc VARCHAR2(40) not null,
+  jaqy052tcod   NUMBER(18)
+)
+;
+create index JAQY052T01 on JAQY052T (JAQY052TCOD);
+alter table JAQY052T
+  add primary key (JAQY052TPAIS, JAQY052TTDOC, JAQLY052TNDOC);
+

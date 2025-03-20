@@ -1,0 +1,82 @@
+create table AQPB543
+(
+  aqpb543creusu VARCHAR2(10) not null,
+  aqpb543codigo NUMBER(9) not null,
+  aqpb543cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb543ctacod NUMBER(3),
+  aqpb543ctamod NUMBER(3),
+  aqpb543ctasuc NUMBER(3),
+  aqpb543ctamda NUMBER(4),
+  aqpb543ctapap NUMBER(4),
+  aqpb543ctacli NUMBER(9),
+  aqpb543ctaope NUMBER(9),
+  aqpb543ctasop NUMBER(3),
+  aqpb543ctatop NUMBER(3),
+  aqpb543ctaval DATE,
+  aqpb543ctavto DATE,
+  aqpb543ctapzo NUMBER(5),
+  aqpb543ctatas NUMBER(10,6),
+  aqpb543entnom VARCHAR2(30),
+  aqpb543impcap NUMBER(17,2),
+  aqpb543impint NUMBER(17,2),
+  aqpb543imptot NUMBER(17,2),
+  aqpb543ofinom VARCHAR2(30),
+  aqpb543regnom VARCHAR2(30),
+  aqpb543errcod VARCHAR2(3),
+  aqpb543errmsg VARCHAR2(600)
+)
+;
+comment on table AQPB543
+  is 'Reporte DPF Tesoreria';
+comment on column AQPB543.aqpb543creusu
+  is 'Usuario';
+comment on column AQPB543.aqpb543codigo
+  is 'Codigo';
+comment on column AQPB543.aqpb543cretim
+  is 'Campo de Auditoria';
+comment on column AQPB543.aqpb543ctacod
+  is 'Empresa';
+comment on column AQPB543.aqpb543ctamod
+  is 'Modulo';
+comment on column AQPB543.aqpb543ctasuc
+  is 'Sucursal';
+comment on column AQPB543.aqpb543ctamda
+  is 'Moneda';
+comment on column AQPB543.aqpb543ctapap
+  is 'Papel';
+comment on column AQPB543.aqpb543ctacli
+  is 'Cuenta Cliente';
+comment on column AQPB543.aqpb543ctaope
+  is 'Operacion';
+comment on column AQPB543.aqpb543ctasop
+  is 'Sub Operacion';
+comment on column AQPB543.aqpb543ctatop
+  is 'Tipo de Operacion';
+comment on column AQPB543.aqpb543ctaval
+  is 'Fecha Apertura';
+comment on column AQPB543.aqpb543ctavto
+  is 'Fecha Vencimiento';
+comment on column AQPB543.aqpb543ctapzo
+  is 'Plazo';
+comment on column AQPB543.aqpb543ctatas
+  is 'Tasa';
+comment on column AQPB543.aqpb543entnom
+  is 'Nombre Entidad';
+comment on column AQPB543.aqpb543impcap
+  is 'Capital';
+comment on column AQPB543.aqpb543impint
+  is 'Interes';
+comment on column AQPB543.aqpb543imptot
+  is 'Total';
+comment on column AQPB543.aqpb543ofinom
+  is 'Oficina';
+comment on column AQPB543.aqpb543regnom
+  is 'Region';
+comment on column AQPB543.aqpb543errcod
+  is 'Campo de Auditoria';
+comment on column AQPB543.aqpb543errmsg
+  is 'Campo de Auditoria';
+create index AQPB543A2 on AQPB543 (AQPB543ENTNOM);
+alter table AQPB543
+  add primary key (AQPB543CREUSU, AQPB543CODIGO);
+

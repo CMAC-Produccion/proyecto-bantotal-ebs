@@ -1,0 +1,19 @@
+create table SNG434
+(
+  sng400cod  NUMBER(3) not null,
+  sng400evto NUMBER(10) not null,
+  sng402cr   NUMBER(4) not null,
+  sng434cr   NUMBER(4) not null,
+  sng434mdes NUMBER(17,2),
+  sng434mhas NUMBER(17,2),
+  sng434mda  NUMBER(4),
+  sng434ddes NUMBER(5),
+  sng434dhas NUMBER(5),
+  sng434tasi NUMBER(2),
+  sng434exp  NUMBER(10),
+  sng434ord  NUMBER(2)
+)
+;
+alter table SNG434
+  add primary key (SNG400COD, SNG400EVTO, SNG402CR, SNG434CR);
+

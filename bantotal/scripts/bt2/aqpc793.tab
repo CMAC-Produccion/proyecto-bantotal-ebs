@@ -1,0 +1,79 @@
+create table AQPC793
+(
+  aqpc793corr   NUMBER(17) not null,
+  aqpc793fhreg  DATE not null,
+  aqpc793horeg  VARCHAR2(8) not null,
+  aqpc793pgm    VARCHAR2(500) not null,
+  aqpc793codusu VARCHAR2(500),
+  aqpc793dtpara VARCHAR2(4000),
+  aqpc793dtcc   VARCHAR2(4000),
+  aqpc793dtbcc  VARCHAR2(4000),
+  aqpc793asunto VARCHAR2(500),
+  aqpc793emisor VARCHAR2(500),
+  aqpc793mensje CLOB,
+  aqpc793envio  VARCHAR2(1),
+  aqpc793coderr VARCHAR2(500),
+  aqpc793msgerr VARCHAR2(4000),
+  aqpc793aux1n  NUMBER(17,2),
+  aqpc793aux2n  NUMBER(17,2),
+  aqpc793aux3n  NUMBER(17,2),
+  aqpc793aux4t  VARCHAR2(4000),
+  aqpc793aux5t  VARCHAR2(4000),
+  aqpc793aux6t  VARCHAR2(4000),
+  aqpc793aux7d  DATE,
+  aqpc793aux8d  DATE,
+  aqpc793aux9d  DATE
+)
+;
+comment on table AQPC793
+  is 'Log Envió de Correos';
+comment on column AQPC793.aqpc793corr
+  is 'Correlativo';
+comment on column AQPC793.aqpc793fhreg
+  is 'Fecha de Registro';
+comment on column AQPC793.aqpc793horeg
+  is 'Hora de Registro';
+comment on column AQPC793.aqpc793pgm
+  is 'Programa';
+comment on column AQPC793.aqpc793codusu
+  is 'Código de Usuario';
+comment on column AQPC793.aqpc793dtpara
+  is 'Destinatario Para';
+comment on column AQPC793.aqpc793dtcc
+  is 'Destinatario CC';
+comment on column AQPC793.aqpc793dtbcc
+  is 'Destinatario BCC';
+comment on column AQPC793.aqpc793asunto
+  is 'Asunto';
+comment on column AQPC793.aqpc793emisor
+  is 'Emisor';
+comment on column AQPC793.aqpc793mensje
+  is 'Mensaje';
+comment on column AQPC793.aqpc793envio
+  is 'Envió el Correo ?';
+comment on column AQPC793.aqpc793coderr
+  is 'Código de Error';
+comment on column AQPC793.aqpc793msgerr
+  is 'Mensaje de Error';
+comment on column AQPC793.aqpc793aux1n
+  is 'Auxiliar Numérico';
+comment on column AQPC793.aqpc793aux2n
+  is 'Auxiliar Numérico';
+comment on column AQPC793.aqpc793aux3n
+  is 'Auxiliar Numérico';
+comment on column AQPC793.aqpc793aux4t
+  is 'Auxiliar Texto';
+comment on column AQPC793.aqpc793aux5t
+  is 'Auxiliar Texto';
+comment on column AQPC793.aqpc793aux6t
+  is 'Auxiliar Texto';
+comment on column AQPC793.aqpc793aux7d
+  is 'Auxiliar Fecha';
+comment on column AQPC793.aqpc793aux8d
+  is 'Auxiliar Fecha';
+comment on column AQPC793.aqpc793aux9d
+  is 'Auxiliar Fecha';
+create index AQPC793A2 on AQPC793 (AQPC793PGM, AQPC793FHREG, AQPC793ENVIO);
+alter table AQPC793
+  add primary key (AQPC793CORR, AQPC793FHREG, AQPC793HOREG, AQPC793PGM);
+

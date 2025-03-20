@@ -1,0 +1,20 @@
+create table FSE005
+(
+  fse005pai NUMBER(3) not null,
+  fse005tdo NUMBER(2) not null,
+  fse005ndo CHAR(12) not null,
+  fse005cod NUMBER(2) not null,
+  fse005pac NUMBER(3),
+  fse005rec NUMBER(3),
+  fse005dec NUMBER(5),
+  fse005loc NUMBER(5),
+  fse005col NUMBER(9),
+  fse005re1 CHAR(75),
+  fse005re2 CHAR(75),
+  fse005nap CHAR(6),
+  fse005ubp CHAR(30)
+)
+;
+alter table FSE005
+  add primary key (FSE005PAI, FSE005TDO, FSE005NDO, FSE005COD);
+

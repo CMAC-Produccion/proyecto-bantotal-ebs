@@ -1,0 +1,57 @@
+create table JAQY254
+(
+  jaqy254cotra NUMBER(9) not null,
+  jaqy254nutar CHAR(19),
+  jaqy254titra CHAR(2),
+  jaqy254cocan NUMBER(2),
+  jaqy254fetra DATE,
+  jaqy254hotra CHAR(8),
+  jaqy254feneg DATE,
+  jaqy254feini DATE,
+  jaqy254fefin DATE,
+  jaqy254hoini CHAR(8),
+  jaqy254hofin CHAR(8),
+  jaqy254noter CHAR(20),
+  jaqy254imdeb NUMBER(17,2),
+  jaqy254moned NUMBER(4),
+  jaqy254comsg CHAR(2),
+  jaqy254gesec NUMBER(10),
+  jaqy254cocms NUMBER(2),
+  jaqy254cored NUMBER(4),
+  jaqy254ubtra CHAR(100),
+  jaqy254pgc01 NUMBER(3),
+  jaqy254suc01 NUMBER(3),
+  jaqy254cta01 NUMBER(9),
+  jaqy254sct01 NUMBER(3),
+  jaqy254mod01 NUMBER(3),
+  jaqy254mon01 NUMBER(4),
+  jaqy254pap01 NUMBER(4),
+  jaqy254top01 NUMBER(3),
+  jaqy254ope01 NUMBER(9),
+  jaqy254pgc02 NUMBER(3),
+  jaqy254suc02 NUMBER(3),
+  jaqy254cta02 NUMBER(9),
+  jaqy254sct02 NUMBER(4),
+  jaqy254mod02 NUMBER(3),
+  jaqy254mon02 NUMBER(4),
+  jaqy254pap02 NUMBER(4),
+  jaqy254top02 NUMBER(3),
+  jaqy254ope02 NUMBER(9),
+  jaqy254pgctr NUMBER(4),
+  jaqy254suctr NUMBER(4),
+  jaqy254modtr NUMBER(4),
+  jaqy254codtr NUMBER(4),
+  jaqy254reltr NUMBER(4),
+  jaqy254aux01 VARCHAR2(100),
+  jaqy254aux02 VARCHAR2(100),
+  jaqy254aux03 VARCHAR2(100),
+  jaqy254aux04 NUMBER(9),
+  jaqy254aux05 NUMBER(9),
+  jaqy254aux06 NUMBER(9)
+)
+;
+create index JAQY2541 on JAQY254 (JAQY254NUTAR, JAQY254FEINI);
+create index JAQY2542 on JAQY254 (JAQY254PGCTR, JAQY254SUCTR, JAQY254MODTR, JAQY254CODTR, JAQY254RELTR);
+alter table JAQY254
+  add primary key (JAQY254COTRA);
+

@@ -1,0 +1,24 @@
+create table BTI019
+(
+  btinom           VARCHAR2(40) not null,
+  btisrvnom        VARCHAR2(40) not null,
+  btisrvver        VARCHAR2(40) not null,
+  btimtdnom        VARCHAR2(40) not null,
+  btisrvparposi    NUMBER(5) not null,
+  btisrvparnom     VARCHAR2(40) not null,
+  btisrvparnomjava VARCHAR2(40) not null,
+  btisrvpardir     CHAR(1) not null,
+  btisrvvartipo    VARCHAR2(40) not null,
+  btisrvparittipo  VARCHAR2(40) not null,
+  btisrvparvalor   CLOB,
+  btisrvcatit      CHAR(1),
+  btisrvcat        CHAR(1),
+  btisrvsdtver     VARCHAR2(40),
+  btisrvparlargo   NUMBER(4),
+  btisrvparlval    CLOB,
+  btisrvparitnom   VARCHAR2(40)
+)
+;
+alter table BTI019
+  add primary key (BTINOM, BTISRVNOM, BTISRVVER, BTIMTDNOM, BTISRVPARPOSI);
+

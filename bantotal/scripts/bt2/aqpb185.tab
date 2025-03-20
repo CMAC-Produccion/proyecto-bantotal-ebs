@@ -1,0 +1,32 @@
+create table AQPB185
+(
+  aqpb185cor      NUMBER(10) not null,
+  aqpb185fch      DATE not null,
+  aqpb185hora     VARCHAR2(10) not null,
+  aqpb185ins      NUMBER(10) not null,
+  aqpb185neval    NUMBER(10),
+  aqpb185meval    NUMBER(5),
+  aqpb185chkeval  VARCHAR2(15),
+  aqpb185gfmsorl  NUMBER(17,2),
+  aqpb185gfmsobt  NUMBER(17,2),
+  aqpb185gfmdorl  NUMBER(17,2),
+  aqpb185gfmdobt  NUMBER(17,2),
+  aqpb185gffmsorl NUMBER(17,2),
+  aqpb185gffmsobt NUMBER(17,2),
+  aqpb185gffmdorl NUMBER(17,2),
+  aqpb185gffmdobt NUMBER(17,2),
+  aqpb185gffnsorl NUMBER(17,2),
+  aqpb185gffnsobt NUMBER(17,2),
+  aqpb185gffndorl NUMBER(17,2),
+  aqpb185gffndobt NUMBER(17,2),
+  aqpb185difisrat NUMBER(17,2),
+  aqpb185gfinsobt NUMBER(17,2),
+  aqpb185gfindobt NUMBER(17,2),
+  aqpb185gfinto   NUMBER(17,2),
+  aqpb185est      VARCHAR2(5)
+)
+;
+create index AQPB185A2 on AQPB185 (AQPB185INS);
+alter table AQPB185
+  add primary key (AQPB185COR, AQPB185FCH, AQPB185HORA, AQPB185INS);
+

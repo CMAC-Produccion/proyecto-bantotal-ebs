@@ -1,0 +1,10 @@
+create table MBC001
+(
+  mbcmon NUMBER(4) not null,
+  mbcval NUMBER(17,2) not null,
+  mbctpo CHAR(1) not null
+)
+;
+alter table MBC001
+  add primary key (MBCMON, MBCVAL, MBCTPO);
+

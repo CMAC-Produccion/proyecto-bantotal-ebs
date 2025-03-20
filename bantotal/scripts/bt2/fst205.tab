@@ -1,0 +1,45 @@
+create table FST205
+(
+  papel  NUMBER(4) not null,
+  papnom CHAR(30),
+  pasign CHAR(5),
+  pamda  NUMBER(4),
+  patcpr NUMBER(8,6),
+  patvta NUMBER(8,6),
+  pais   NUMBER(3),
+  emicod NUMBER(2),
+  emscod NUMBER(5),
+  patemi NUMBER(15),
+  gpacod NUMBER(2),
+  clpcod NUMBER(2),
+  patano NUMBER(1),
+  patint CHAR(1),
+  patdia NUMBER(1),
+  patvto CHAR(1),
+  pattas NUMBER(1),
+  padvga CHAR(1),
+  painco CHAR(1),
+  pared  NUMBER(1),
+  pastr  CHAR(20),
+  pacd01 CHAR(1),
+  pacd02 CHAR(1),
+  pacd03 CHAR(1),
+  pacd04 CHAR(1),
+  pacd05 CHAR(1),
+  pasn01 NUMBER(5),
+  pasn02 NUMBER(5),
+  pasn03 NUMBER(5),
+  pasn04 NUMBER(5),
+  pasn05 NUMBER(5)
+)
+;
+create index FST20502 on FST205 (PAIS);
+create index FST20503 on FST205 (EMICOD);
+create index FST20504 on FST205 (EMSCOD);
+create index FST20505 on FST205 (GPACOD);
+create index FST20506 on FST205 (CLPCOD);
+create index FST20507 on FST205 (PATTAS);
+create index FST20508 on FST205 (PAPNOM);
+alter table FST205
+  add primary key (PAPEL);
+

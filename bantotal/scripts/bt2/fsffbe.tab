@@ -1,0 +1,23 @@
+create table FSFFBE
+(
+  fsffbeemp NUMBER(3) not null,
+  fsffbetct NUMBER(2) not null,
+  fsffbetcc NUMBER(4) not null,
+  fsffbeeof CHAR(1) not null,
+  fsffbeent NUMBER(9) not null,
+  fsffbecta NUMBER(9) not null,
+  fsffbesoc NUMBER(3) not null,
+  fsffbefon NUMBER(9) not null,
+  fsffbeenc NUMBER(9) not null,
+  fsffbesoe NUMBER(3) not null,
+  fsffbea01 NUMBER(9),
+  fsffbea02 NUMBER(9),
+  fsffbea03 DATE,
+  fsffbea04 DATE,
+  fsffbea05 NUMBER(17,2),
+  fsffbea06 NUMBER(17,2)
+)
+;
+alter table FSFFBE
+  add primary key (FSFFBEEMP, FSFFBETCT, FSFFBETCC, FSFFBEEOF, FSFFBEENT, FSFFBECTA, FSFFBESOC, FSFFBEFON, FSFFBEENC, FSFFBESOE);
+

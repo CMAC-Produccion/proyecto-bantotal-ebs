@@ -1,0 +1,15 @@
+create table JMBA02
+(
+  jmba02emp  NUMBER(3) not null,
+  jmba02mod  NUMBER(3) not null,
+  jmba02top  NUMBER(4) not null,
+  jmba02mda  NUMBER(4) not null,
+  jmba02pap  NUMBER(4) not null,
+  jmba02per  NUMBER(3),
+  jmba02vto  NUMBER(4),
+  jmba02imin NUMBER(17,2)
+)
+;
+alter table JMBA02
+  add primary key (JMBA02EMP, JMBA02MOD, JMBA02TOP, JMBA02MDA, JMBA02PAP);
+

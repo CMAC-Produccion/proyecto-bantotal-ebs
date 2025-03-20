@@ -1,0 +1,66 @@
+create table AQPB157A
+(
+  aqpb157acorr   NUMBER(10) not null,
+  aqpb157apais   NUMBER(3) not null,
+  aqpb157atdoc   NUMBER(3) not null,
+  aqpb157andoc   VARCHAR2(12) not null,
+  aqpb157afecha  DATE not null,
+  aqpb157ahora   CHAR(8) not null,
+  aqpb157apgcod  NUMBER(3),
+  aqpb157amod    NUMBER(3),
+  aqpb157asuc    NUMBER(3),
+  aqpb157amda    NUMBER(3),
+  aqpb157apap    NUMBER(3),
+  aqpb157acta    NUMBER(10),
+  aqpb157aope    VARCHAR2(10),
+  aqpb157asbop   VARCHAR2(3),
+  aqpb157atop    VARCHAR2(3),
+  aqpb157amntdes NUMBER(17,2),
+  aqpb157atasa   NUMBER(10,6),
+  aqpb157amtpon  NUMBER(17,2),
+  aqpb157aest    VARCHAR2(5)
+)
+;
+comment on table AQPB157A
+  is 'Detalle tasa ponderada';
+comment on column AQPB157A.aqpb157acorr
+  is 'Correlativo';
+comment on column AQPB157A.aqpb157apais
+  is 'Pais documento';
+comment on column AQPB157A.aqpb157atdoc
+  is 'tipo de documento';
+comment on column AQPB157A.aqpb157andoc
+  is 'Nro de Documento';
+comment on column AQPB157A.aqpb157afecha
+  is 'Fecha de registro';
+comment on column AQPB157A.aqpb157ahora
+  is 'Hora de registro';
+comment on column AQPB157A.aqpb157apgcod
+  is 'pgcod cred vinculado';
+comment on column AQPB157A.aqpb157amod
+  is 'mod cred vinculado';
+comment on column AQPB157A.aqpb157asuc
+  is 'suc cred vinculado';
+comment on column AQPB157A.aqpb157amda
+  is 'mda cred vinculado';
+comment on column AQPB157A.aqpb157apap
+  is 'pap cred vinculado';
+comment on column AQPB157A.aqpb157acta
+  is 'cuenta cred vinculado';
+comment on column AQPB157A.aqpb157aope
+  is 'operacion cred vinculado';
+comment on column AQPB157A.aqpb157asbop
+  is 'sub ope cred vinculado';
+comment on column AQPB157A.aqpb157atop
+  is 'tipo de opera cred vinculado';
+comment on column AQPB157A.aqpb157amntdes
+  is 'Monto desembolsado cred vinculado';
+comment on column AQPB157A.aqpb157atasa
+  is 'tasa cred vinculado';
+comment on column AQPB157A.aqpb157amtpon
+  is 'Monto ponderado de cred vinculado';
+comment on column AQPB157A.aqpb157aest
+  is 'Estado del registro';
+alter table AQPB157A
+  add primary key (AQPB157ACORR, AQPB157APAIS, AQPB157ATDOC, AQPB157ANDOC, AQPB157AFECHA, AQPB157AHORA);
+

@@ -1,0 +1,13 @@
+create table XWF201
+(
+  xwfncndprcid   NUMBER(4) not null,
+  xwfncndtaskcod NUMBER(4) not null,
+  xwfncgrpid     NUMBER(3) not null,
+  xwfncgrpord    NUMBER(3),
+  xwfnccndcode   NUMBER(3)
+)
+;
+create index UXWF201 on XWF201 (XWFNCNDPRCID, XWFNCNDTASKCOD, XWFNCGRPORD);
+alter table XWF201
+  add primary key (XWFNCNDPRCID, XWFNCNDTASKCOD, XWFNCGRPID);
+

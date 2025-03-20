@@ -1,0 +1,47 @@
+create table FSFSR1
+(
+  sfst1merc  NUMBER(3) not null,
+  sfsd7msje  NUMBER(4) not null,
+  sfsd7flujo CHAR(1) not null,
+  sfsr1nro   NUMBER(4) not null,
+  sfsr1desc  CHAR(35),
+  sfsr1cmm   CHAR(1),
+  sfsr1cage  NUMBER(3),
+  sfsr1cfec  CHAR(1),
+  sfsr1dto   CHAR(1),
+  sfsr1doo   CHAR(1),
+  sfsr1dod   CHAR(1),
+  sfsr1dci   CHAR(1),
+  sfsr1dtl   CHAR(1),
+  sfsr1del   CHAR(1),
+  sfsr1desp  CHAR(1),
+  sfsr1dmda  CHAR(1),
+  sfsr1dcup  CHAR(1),
+  sfsr1dage  NUMBER(3),
+  sfsr1dmc   CHAR(1),
+  sfsr1drue  CHAR(4),
+  sfsr1ddem  CHAR(1),
+  sfsr1rcon  NUMBER(4),
+  sfsr1rres  CHAR(1),
+  sfsr1rrec  CHAR(2),
+  sfsr1xto   CHAR(1),
+  sfsr1xoo   CHAR(1),
+  sfsr1xod   CHAR(1),
+  sfsr1xci   CHAR(1),
+  sfsr1xtl   CHAR(1),
+  sfsr1xel   CHAR(1),
+  sfsr1xesp  CHAR(1),
+  sfsr1xmda  CHAR(1),
+  sfsr1xage  CHAR(1),
+  sfsr1xmc   CHAR(1),
+  sfsr1xrue  CHAR(1),
+  sfsr1xdem  CHAR(1),
+  sfsr1xcon  CHAR(1),
+  sfsr1xres  CHAR(1),
+  sfsr1xrec  CHAR(1),
+  sfsr1cxage CHAR(1)
+)
+;
+alter table FSFSR1
+  add primary key (SFST1MERC, SFSD7MSJE, SFSD7FLUJO, SFSR1NRO);
+

@@ -1,0 +1,89 @@
+create table AQPB095B
+(
+  aqpb095bcod   NUMBER not null,
+  aqpb095bfec   DATE not null,
+  aqpb095bcor   NUMBER(8) not null,
+  aqpb095bmod   NUMBER(3),
+  aqpb095bsuc   NUMBER(3),
+  aqpb095bmda   NUMBER(4),
+  aqpb095bpap   NUMBER(4),
+  aqpb095bcta   NUMBER(9) not null,
+  aqpb095bope   NUMBER(9) not null,
+  aqpb095bsbo   NUMBER(3),
+  aqpb095btop   NUMBER(3),
+  aqpb095bncer  VARCHAR2(20),
+  aqpb095bfdes  DATE,
+  aqpb095bmon   NUMBER(17,2),
+  aqpb095btea   NUMBER(10,6),
+  aqpb095bpgra  NUMBER(10),
+  aqpb095bfini  DATE,
+  aqpb095bffin  DATE,
+  aqpb095best   VARCHAR2(1),
+  aqpb095busd   VARCHAR2(10),
+  aqpb095bfed   VARCHAR2(10),
+  aqpb095bhed   VARCHAR2(10),
+  aqpb095bprcof NUMBER(10,6),
+  aqpb095bccob  VARCHAR2(50),
+  aqpb095bcren  VARCHAR2(50),
+  aqpb095bcobr  VARCHAR2(50),
+  aqpb095bchon  VARCHAR2(50)
+)
+;
+comment on table AQPB095B
+  is 'Tabla para registrar la cabecera de archivos cargados';
+comment on column AQPB095B.aqpb095bcod
+  is 'Código de empresa';
+comment on column AQPB095B.aqpb095bfec
+  is 'Fecha de proceso';
+comment on column AQPB095B.aqpb095bcor
+  is 'Correlativo';
+comment on column AQPB095B.aqpb095bmod
+  is 'Módulo';
+comment on column AQPB095B.aqpb095bsuc
+  is 'Sucursal';
+comment on column AQPB095B.aqpb095bmda
+  is 'Moneda';
+comment on column AQPB095B.aqpb095bpap
+  is 'Papel';
+comment on column AQPB095B.aqpb095bcta
+  is 'Cuenta';
+comment on column AQPB095B.aqpb095bope
+  is 'Operación';
+comment on column AQPB095B.aqpb095bsbo
+  is 'Suboperación';
+comment on column AQPB095B.aqpb095btop
+  is 'Tipo de operación';
+comment on column AQPB095B.aqpb095bncer
+  is 'Nro de Certificado';
+comment on column AQPB095B.aqpb095bfdes
+  is 'Fecha Desembolso COFIDE';
+comment on column AQPB095B.aqpb095bmon
+  is 'Monto Desembolso COFIDE';
+comment on column AQPB095B.aqpb095btea
+  is 'Tea Reprogramada Enviada a COFIDE';
+comment on column AQPB095B.aqpb095bpgra
+  is 'Período de Gracia Enviado a COFIDE';
+comment on column AQPB095B.aqpb095bfini
+  is 'Fecha de Inicio Según COFIDE';
+comment on column AQPB095B.aqpb095bffin
+  is 'Fecha de Fin Según COFIDE';
+comment on column AQPB095B.aqpb095best
+  is 'Estado del archivo';
+comment on column AQPB095B.aqpb095bprcof
+  is 'Porcentaje reduccion enviado a COFIDE';
+comment on column AQPB095B.aqpb095bccob
+  is 'Codigo de Cobertura';
+comment on column AQPB095B.aqpb095bcren
+  is 'Certificado de Renovacion';
+comment on column AQPB095B.aqpb095bcobr
+  is 'Cobertura de Renovacion';
+comment on column AQPB095B.aqpb095bchon
+  is 'Certificado de Honra';
+create index AQPB095A5 on AQPB095B (AQPB095BCOD, AQPB095BMDA, AQPB095BPAP, AQPB095BCTA, AQPB095BOPE);
+create index AQPB095A6 on AQPB095B (AQPB095BFEC, AQPB095BEST);
+create index AQPB095B2 on AQPB095B (AQPB095BCOD, AQPB095BMOD, AQPB095BSUC, AQPB095BMDA, AQPB095BPAP, AQPB095BCTA, AQPB095BOPE, AQPB095BSBO, AQPB095BTOP);
+create index AQPB095B3 on AQPB095B (AQPB095BFEC, AQPB095BCOR, AQPB095BCOD, AQPB095BMOD, AQPB095BSUC, AQPB095BMDA, AQPB095BPAP, AQPB095BCTA, AQPB095BOPE, AQPB095BSBO, AQPB095BTOP);
+create index AQPB095B4 on AQPB095B (AQPB095BCOD, AQPB095BFEC, AQPB095BCOR);
+alter table AQPB095B
+  add primary key (AQPB095BCOD, AQPB095BFEC, AQPB095BCOR, AQPB095BCTA, AQPB095BOPE);
+

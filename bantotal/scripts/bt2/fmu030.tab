@@ -1,0 +1,16 @@
+create table FMU030
+(
+  pgcod      NUMBER(3) not null,
+  coimmod    NUMBER(3) not null,
+  coimoper   NUMBER(9) not null,
+  coimcuonro NUMBER(2) not null,
+  coimcuovto DATE,
+  coimcuoimp NUMBER(17,2),
+  coimcuoint NUMBER(17,2),
+  coimcuoobs CHAR(40)
+)
+;
+create index FMU03020 on FMU030 (PGCOD, COIMMOD, COIMOPER, COIMCUOVTO);
+alter table FMU030
+  add primary key (PGCOD, COIMMOD, COIMOPER, COIMCUONRO);
+

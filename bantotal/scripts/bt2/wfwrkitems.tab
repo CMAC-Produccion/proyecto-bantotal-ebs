@@ -1,0 +1,29 @@
+create table WFWRKITEMS
+(
+  wfitemid      NUMBER(10) not null,
+  wfinsprcid    NUMBER(10),
+  wfitemusrcod  CHAR(30),
+  wfitemrolcod  NUMBER(4),
+  wftaskcod     NUMBER(4),
+  wfiteminit    DATE,
+  wfitemend     DATE,
+  wfstscod      CHAR(1),
+  wfitemstsact  NUMBER(1),
+  wfitemwrn     CHAR(1),
+  wfitemdln     CHAR(1),
+  wfitemwrntime DATE,
+  wfitemdlntime DATE,
+  wfitemprcurn  NUMBER(10),
+  wfitemprvsta  CHAR(1),
+  wfitemprvtask NUMBER(4),
+  wfitempty     NUMBER(1),
+  wfprcid       NUMBER(4)
+)
+;
+create index IWFWRKITEMS2 on WFWRKITEMS (WFINSPRCID);
+create index IWFWRKI1 on WFWRKITEMS (WFITEMUSRCOD);
+create index UWFWRK1 on WFWRKITEMS (WFITEMSTSACT, WFITEMUSRCOD);
+create index UWFWRK2 on WFWRKITEMS (WFSTSCOD, WFITEMROLCOD, WFPRCID, WFTASKCOD);
+alter table WFWRKITEMS
+  add primary key (WFITEMID);
+

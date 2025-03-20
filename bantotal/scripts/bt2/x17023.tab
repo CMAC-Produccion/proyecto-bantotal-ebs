@@ -1,0 +1,11 @@
+create table X17023
+(
+  x17023tip  NUMBER(2) not null,
+  x17023pzo  NUMBER(5) not null,
+  x17023desc CHAR(30),
+  x17023porc NUMBER(6,2)
+)
+;
+alter table X17023
+  add primary key (X17023TIP, X17023PZO);
+

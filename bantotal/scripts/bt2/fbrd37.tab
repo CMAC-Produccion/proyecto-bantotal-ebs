@@ -1,0 +1,44 @@
+create table FBRD37
+(
+  brd37emp   NUMBER(3) not null,
+  brd37fch   DATE not null,
+  brd37hra   CHAR(8) not null,
+  brd37pais  NUMBER(3) not null,
+  brd37tdoc  NUMBER(2) not null,
+  brd37ndoc  CHAR(12) not null,
+  brd37reg   NUMBER(5) not null,
+  brd37suc   NUMBER(3) not null,
+  brd37rub   NUMBER(16) not null,
+  brd37mda   NUMBER(4) not null,
+  brd37pap   NUMBER(4) not null,
+  brd37cta   NUMBER(9) not null,
+  brd37op    NUMBER(9) not null,
+  brd37sop   NUMBER(3) not null,
+  brd37top   NUMBER(3) not null,
+  brd37corr  NUMBER(15) not null,
+  brd37estma CHAR(1),
+  brd37estsm CHAR(1),
+  brd37fema  DATE,
+  brd37hema  CHAR(8),
+  brd37fesm  DATE,
+  brd37hesm  CHAR(8),
+  brd37dmail CHAR(70),
+  brd37cel   CHAR(20),
+  brd37cnia  CHAR(4),
+  brd37sms   CHAR(255),
+  brd37mail  CHAR(255),
+  brd37gatid CHAR(25),
+  brd37gatec CHAR(50),
+  brd37smsid CHAR(30),
+  brd37rnd   NUMBER(3),
+  brd37fsal  DATE,
+  brd37hsal  CHAR(8)
+)
+;
+create index FBRD3702 on FBRD37 (BRD37PAIS, BRD37TDOC, BRD37NDOC, BRD37FCH, BRD37REG);
+create index FBRD3703 on FBRD37 (BRD37EMP, BRD37CTA, BRD37SUC, BRD37RUB, BRD37MDA, BRD37PAP, BRD37OP, BRD37SOP, BRD37TOP, BRD37REG);
+create index FBRD3704 on FBRD37 (BRD37EMP, BRD37ESTMA, BRD37RND);
+create index FBRD3705 on FBRD37 (BRD37EMP, BRD37ESTSM, BRD37RND);
+alter table FBRD37
+  add primary key (BRD37EMP, BRD37FCH, BRD37HRA, BRD37PAIS, BRD37TDOC, BRD37NDOC, BRD37REG, BRD37SUC, BRD37RUB, BRD37MDA, BRD37PAP, BRD37CTA, BRD37OP, BRD37SOP, BRD37TOP, BRD37CORR);
+

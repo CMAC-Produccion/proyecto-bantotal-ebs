@@ -1,0 +1,22 @@
+create table JAQY644
+(
+  jaqy644fec DATE not null,
+  jaqy644suc NUMBER(3) not null,
+  jaqy644usu CHAR(10) not null,
+  jaqy644cor NUMBER(17) not null,
+  jaqy644erc NUMBER(9),
+  jaqy644fet DATE,
+  jaqy644ret NUMBER(4),
+  jaqy644trt NUMBER(3),
+  jaqy644mot NUMBER(3),
+  jaqy644sut NUMBER(3),
+  jaqy644pgt NUMBER(3),
+  jaqy644id  NUMBER(15),
+  jaqy644con CHAR(1)
+)
+;
+create index JAQY644_INX_01 on JAQY644 (JAQY644ID);
+create index JAQY644_INX_02 on JAQY644 (JAQY644PGT, JAQY644SUT, JAQY644MOT, JAQY644TRT, JAQY644RET, JAQY644FET);
+alter table JAQY644
+  add primary key (JAQY644FEC, JAQY644SUC, JAQY644USU, JAQY644COR);
+

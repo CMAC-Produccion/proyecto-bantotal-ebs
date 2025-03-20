@@ -1,0 +1,37 @@
+create table JBXIGH
+(
+  jbxighfec DATE not null,
+  jbxightar CHAR(19) not null,
+  jbxighpai NUMBER(3),
+  jbxightdo NUMBER(2),
+  jbxighndo CHAR(12),
+  jbxighmie CHAR(1),
+  jbxighfat DATE,
+  jbxighfbt DATE,
+  jbxighfvt DATE,
+  jbxighest CHAR(15),
+  jbxighcpc CHAR(15),
+  jbxighcse NUMBER(2),
+  jbxighntt CHAR(24),
+  jbxighcof CHAR(15),
+  jbxigheca NUMBER(3),
+  jbxighmca NUMBER(3),
+  jbxighsca NUMBER(3),
+  jbxighmdc NUMBER(4),
+  jbxighpca NUMBER(4),
+  jbxighnca NUMBER(9),
+  jbxighoca NUMBER(9),
+  jbxighsba NUMBER(3),
+  jbxightca NUMBER(3),
+  jbxighseg CHAR(15),
+  jbxightta CHAR(2),
+  jbxighntr NUMBER(16),
+  jbxighcvt CHAR(15),
+  jbxighcbj CHAR(15),
+  jbxighmbj CHAR(15),
+  jbxighmtb NUMBER(1)
+)
+;
+create unique index JBXIGH01 on JBXIGH (JBXIGHFEC, JBXIGHTAR);
+create index JBXIGH02 on JBXIGH (JBXIGHTAR);
+

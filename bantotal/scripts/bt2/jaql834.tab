@@ -1,0 +1,15 @@
+create table JAQL834
+(
+  jaql834cpro NUMBER(9) not null,
+  jaql834fpro DATE not null,
+  jaql834epro VARCHAR2(1),
+  jaql834hini VARCHAR2(8),
+  jaql834hfin VARCHAR2(8),
+  jaql834nreg NUMBER(4),
+  jaql834fsis DATE,
+  jaql834fcon DATE not null
+)
+;
+alter table JAQL834
+  add primary key (JAQL834CPRO, JAQL834FPRO, JAQL834FCON);
+

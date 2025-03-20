@@ -1,0 +1,15 @@
+create table FSR005
+(
+  pepais  NUMBER(3) not null,
+  petdoc  NUMBER(2) not null,
+  pendoc  CHAR(12) not null,
+  docod   NUMBER(2) not null,
+  doordp  NUMBER(2) not null,
+  dotelfp CHAR(20),
+  dotlexp CHAR(25),
+  dofaxp  CHAR(20)
+)
+;
+alter table FSR005
+  add primary key (PEPAIS, PETDOC, PENDOC, DOCOD, DOORDP);
+

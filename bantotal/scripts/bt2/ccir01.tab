@@ -1,0 +1,11 @@
+create table CCIR01
+(
+  ccir01pgco NUMBER(3) not null,
+  ccir01cuen NUMBER(9) not null,
+  ccir01fech DATE not null,
+  ccir01esta CHAR(1)
+)
+;
+alter table CCIR01
+  add primary key (CCIR01PGCO, CCIR01CUEN, CCIR01FECH);
+

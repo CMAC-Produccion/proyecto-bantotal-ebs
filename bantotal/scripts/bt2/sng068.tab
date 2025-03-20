@@ -1,0 +1,13 @@
+create table SNG068
+(
+  sng049cod NUMBER(10) not null,
+  sng068cod NUMBER(3) not null,
+  sng068atr CHAR(10),
+  sng068dsc CHAR(30),
+  sng068tda CHAR(1)
+)
+;
+create index SNG06803 on SNG068 (SNG049COD, SNG068ATR);
+alter table SNG068
+  add primary key (SNG049COD, SNG068COD);
+

@@ -1,0 +1,14 @@
+create table XCR007
+(
+  xcremp    NUMBER(3) not null,
+  xcrcta    NUMBER(9) not null,
+  xcrsbop   NUMBER(3) not null,
+  xcrmda    NUMBER(4) not null,
+  xcrcorpol NUMBER(3) not null,
+  xcrcodpol NUMBER(3) not null
+)
+;
+create index XCR00703 on XCR007 (XCRCODPOL);
+alter table XCR007
+  add primary key (XCREMP, XCRCTA, XCRSBOP, XCRMDA, XCRCORPOL, XCRCODPOL);
+

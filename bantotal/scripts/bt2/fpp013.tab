@@ -1,0 +1,27 @@
+create table FPP013
+(
+  pp010prd   NUMBER(3) not null,
+  pp017par   NUMBER(4) not null,
+  pp012niv   NUMBER(2) not null,
+  pp013modi  CHAR(1),
+  pp013vis   CHAR(1),
+  pp013mtop  CHAR(1),
+  pp013vtop  CHAR(1),
+  pp013ras   CHAR(1),
+  pp013aux1  CHAR(1),
+  pp013aux2  CHAR(1),
+  pp013aux3  CHAR(1),
+  pp013aux4  CHAR(1),
+  pp013aux5  CHAR(50),
+  pp013aux6  CHAR(10),
+  pp013aux7  CHAR(10),
+  pp013tabb  NUMBER(4),
+  pp013guia2 NUMBER(9),
+  pp013guia  NUMBER(5),
+  pp013cpo   CHAR(8)
+)
+;
+create index FPP01302 on FPP013 (PP010PRD, PP012NIV);
+alter table FPP013
+  add primary key (PP010PRD, PP017PAR, PP012NIV);
+

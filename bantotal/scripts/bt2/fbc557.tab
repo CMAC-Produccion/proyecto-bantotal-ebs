@@ -1,0 +1,29 @@
+create table FBC557
+(
+  fbc556dte  DATE not null,
+  fbc556tbl  CHAR(10) not null,
+  fbc556corr NUMBER(16) not null,
+  fbc557att  CHAR(20) not null,
+  fbc557cold CHAR(100),
+  fbc557cnew CHAR(100),
+  fbc557nold NUMBER(17,2),
+  fbc557nnew NUMBER(17,2),
+  fbc557dold DATE,
+  fbc557dnew DATE,
+  fbc557a12  NUMBER(9),
+  fbc557a11  NUMBER(9),
+  fbc557a10  NUMBER(9),
+  fbc557a09  NUMBER(17,2),
+  fbc557a08  NUMBER(17,2),
+  fbc557a07  NUMBER(17,2),
+  fbc557a06  DATE,
+  fbc557a05  DATE,
+  fbc557a04  DATE,
+  fbc557a03  CHAR(30),
+  fbc557a02  CHAR(30),
+  fbc557a01  CHAR(30)
+)
+;
+alter table FBC557
+  add primary key (FBC556DTE, FBC556TBL, FBC556CORR, FBC557ATT);
+

@@ -1,0 +1,123 @@
+create table AQPB611
+(
+  aqpb611corr      NUMBER(10) not null,
+  aqpb611pai       NUMBER(5) not null,
+  aqpb611tdoc      NUMBER(5) not null,
+  aqpb611ndoc      VARCHAR2(30) not null,
+  aqpb611pgcod     NUMBER(5) not null,
+  aqpb611mod       NUMBER(10) not null,
+  aqpb611suc       NUMBER(10) not null,
+  aqpb611mda       NUMBER(10) not null,
+  aqpb611pap       NUMBER(10) not null,
+  aqpb611cta       NUMBER(10) not null,
+  aqpb611ope       NUMBER(10) not null,
+  aqpb611sope      NUMBER(10) not null,
+  aqpb611tope      NUMBER(10) not null,
+  aqpb611tcam      NUMBER(10,8),
+  aqpb611fproc     DATE,
+  aqpb611hproc     VARCHAR2(15),
+  aqpb611user      VARCHAR2(10),
+  aqpb611pgcodcr   NUMBER(10),
+  aqpb611modcr     NUMBER(10),
+  aqpb611succr     NUMBER(10),
+  aqpb611mdacr     NUMBER(10),
+  aqpb611papcr     NUMBER(10),
+  aqpb611ctacr     NUMBER(10),
+  aqpb611opecr     NUMBER(10),
+  aqpb611sopecr    NUMBER(10),
+  aqpb611topecr    NUMBER(10),
+  aqpb611percre    NUMBER(5),
+  aqpb611numcou    NUMBER(5),
+  aqpb611tipsol    NUMBER(5),
+  aqpb611indflucaj VARCHAR2(2),
+  aqpb611mntmaxpen NUMBER(17,2),
+  aqpb611segcre    NUMBER(17,2),
+  aqpb611capflucaj NUMBER(17,2),
+  aqpb611caplin    NUMBER(17,2),
+  aqpb611capcuo    NUMBER(17,2),
+  aqpb611indcre    VARCHAR2(15),
+  aqpb611est       VARCHAR2(5),
+  aqpb611tcarg     VARCHAR2(10)
+)
+;
+comment on column AQPB611.aqpb611corr
+  is 'CORRELATIVO';
+comment on column AQPB611.aqpb611pai
+  is 'PAIS';
+comment on column AQPB611.aqpb611tdoc
+  is 'TIPO DOCUMENTO';
+comment on column AQPB611.aqpb611ndoc
+  is 'NUMERO DOCUMENTO';
+comment on column AQPB611.aqpb611pgcod
+  is 'PGCOD';
+comment on column AQPB611.aqpb611mod
+  is 'MODULO';
+comment on column AQPB611.aqpb611suc
+  is 'SUCURSAL';
+comment on column AQPB611.aqpb611mda
+  is 'MONEDA';
+comment on column AQPB611.aqpb611pap
+  is 'PAPEL';
+comment on column AQPB611.aqpb611cta
+  is 'CUENTA';
+comment on column AQPB611.aqpb611ope
+  is 'OPERACIÓN';
+comment on column AQPB611.aqpb611sope
+  is 'SUBOPERACION';
+comment on column AQPB611.aqpb611tope
+  is 'TIPO OPERACIÓN';
+comment on column AQPB611.aqpb611tcam
+  is 'TIPO DE CAMBIO';
+comment on column AQPB611.aqpb611fproc
+  is 'FECHA PROCESO';
+comment on column AQPB611.aqpb611hproc
+  is 'HORA DE PROCESO ';
+comment on column AQPB611.aqpb611user
+  is 'USUARIO';
+comment on column AQPB611.aqpb611pgcodcr
+  is 'PGCOD DEL CREDITO EN REVISION';
+comment on column AQPB611.aqpb611modcr
+  is 'MODULO DEL CREDITO EN REVISION';
+comment on column AQPB611.aqpb611succr
+  is 'SUCURSAL DEL CREDITO EN REVISION';
+comment on column AQPB611.aqpb611mdacr
+  is 'MONEDA DEL CREDITO EN REVISION';
+comment on column AQPB611.aqpb611papcr
+  is 'PAPEL DEL CREDITO EN REVISION';
+comment on column AQPB611.aqpb611ctacr
+  is 'CUENTA DEL CREDITO EN REVISION';
+comment on column AQPB611.aqpb611opecr
+  is 'OPERACIÓN DEL CREDITO EN REVISION';
+comment on column AQPB611.aqpb611sopecr
+  is 'SUBOPERACION DEL CREDITO EN REVISION';
+comment on column AQPB611.aqpb611topecr
+  is 'TIPO OPERACIÓN DEL CREDITO EN REVISION';
+comment on column AQPB611.aqpb611percre
+  is 'PERIODO DEL CREDITO ';
+comment on column AQPB611.aqpb611numcou
+  is 'NUMERO DE CUOTAS';
+comment on column AQPB611.aqpb611tipsol
+  is 'TIPO DE SOLICITUD';
+comment on column AQPB611.aqpb611indflucaj
+  is 'INDICADOR DE FLUJO DE CAJA';
+comment on column AQPB611.aqpb611mntmaxpen
+  is 'MONTO MAXIMO PENDIENTE DE PAGO';
+comment on column AQPB611.aqpb611segcre
+  is 'SEG DEL CREDITO';
+comment on column AQPB611.aqpb611capflucaj
+  is 'CAPACIDAD DE FLUJO DE CAJA';
+comment on column AQPB611.aqpb611caplin
+  is 'CAPACIDAD DE LINEA';
+comment on column AQPB611.aqpb611capcuo
+  is 'CAPPACIDAD DE CUOTA';
+comment on column AQPB611.aqpb611indcre
+  is 'INDICADOR DEL CREDITO';
+comment on column AQPB611.aqpb611est
+  is 'ESTADO';
+comment on column AQPB611.aqpb611tcarg
+  is 'TIPO DE CARGA MASIVA O CAJAMOVIL';
+create index AQPB611A2 on AQPB611 (AQPB611PGCOD, AQPB611MOD, AQPB611SUC, AQPB611MDA, AQPB611PAP, AQPB611CTA, AQPB611OPE, AQPB611SOPE, AQPB611TOPE, AQPB611TCARG);
+create index AQPB61102 on AQPB611 (AQPB611CORR, AQPB611PAI, AQPB611TDOC, AQPB611NDOC, AQPB611PGCOD, AQPB611MOD, AQPB611SUC, AQPB611MDA, AQPB611PAP, AQPB611CTA, AQPB611OPE, AQPB611SOPE, AQPB611TOPE);
+alter table AQPB611
+  add primary key (AQPB611CORR, AQPB611PAI, AQPB611TDOC, AQPB611NDOC, AQPB611PGCOD, AQPB611MOD, AQPB611SUC, AQPB611MDA, AQPB611PAP, AQPB611CTA, AQPB611OPE, AQPB611SOPE, AQPB611TOPE);
+

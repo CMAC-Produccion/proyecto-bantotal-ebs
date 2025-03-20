@@ -1,0 +1,39 @@
+create table JAQN31
+(
+  jaqn31cod NUMBER(3) not null,
+  jaqn31mod NUMBER(3) not null,
+  jaqn31tcu NUMBER(3) not null,
+  jaqn31top NUMBER(3) not null,
+  jaqn31mon NUMBER(4) not null,
+  jaqn31pap NUMBER(4) not null,
+  jaqn31fvi DATE not null,
+  jaqn31mto NUMBER(17,2) not null,
+  jaqn31pla NUMBER(5) not null,
+  jaqn31cur NUMBER(10,6)
+)
+;
+comment on table JAQN31
+  is 'Detalle Curvas por tipo op';
+comment on column JAQN31.jaqn31cod
+  is 'Codigo empresa';
+comment on column JAQN31.jaqn31mod
+  is 'Modulo';
+comment on column JAQN31.jaqn31tcu
+  is 'Tipo curva';
+comment on column JAQN31.jaqn31top
+  is 'tipo operación';
+comment on column JAQN31.jaqn31mon
+  is 'Moneda';
+comment on column JAQN31.jaqn31pap
+  is 'Papel';
+comment on column JAQN31.jaqn31fvi
+  is 'Vigencia';
+comment on column JAQN31.jaqn31mto
+  is 'Monto';
+comment on column JAQN31.jaqn31pla
+  is 'Plazo';
+comment on column JAQN31.jaqn31cur
+  is 'Curva';
+alter table JAQN31
+  add primary key (JAQN31COD, JAQN31MOD, JAQN31TCU, JAQN31TOP, JAQN31MON, JAQN31PAP, JAQN31FVI, JAQN31MTO, JAQN31PLA);
+

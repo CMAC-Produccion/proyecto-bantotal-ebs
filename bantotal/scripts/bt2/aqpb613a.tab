@@ -1,0 +1,73 @@
+create table AQPB613A
+(
+  aqpb613acorr    NUMBER(10),
+  aqpb613apais    NUMBER(9),
+  aqpb613atdoc    NUMBER(9),
+  aqpb613andoc    VARCHAR2(12),
+  aqpb613atcamb   NUMBER(14,8),
+  aqpb613ainst    NUMBER(12) not null,
+  aqpb613afec     DATE not null,
+  aqpb613ahora    CHAR(8) not null,
+  aqpb613acapcaja NUMBER(17,2),
+  aqpb613asldext  NUMBER(17,2),
+  aqpb613aresnet  NUMBER(17,2),
+  aqpb613accontg  NUMBER(17,2),
+  aqpb613acpoten  NUMBER(17,2),
+  aqpb613aratio   NUMBER(17,6),
+  aqpb613aind     VARCHAR2(2),
+  aqpb613aest     VARCHAR2(2),
+  aqpb613auser    VARCHAR2(10),
+  aqpb613aindme   VARCHAR2(5),
+  aqpb613ainstcrd NUMBER(10),
+  aqpb613aevalme  NUMBER(10),
+  aqpb613afeclog  DATE,
+  aqpb613ahorlog  VARCHAR2(15)
+)
+;
+comment on column AQPB613A.aqpb613acorr
+  is 'CORRELATIVO';
+comment on column AQPB613A.aqpb613apais
+  is 'REGION';
+comment on column AQPB613A.aqpb613atdoc
+  is 'AGENCIA';
+comment on column AQPB613A.aqpb613andoc
+  is 'TIP DOC';
+comment on column AQPB613A.aqpb613atcamb
+  is 'NRO DOC';
+comment on column AQPB613A.aqpb613ainst
+  is 'FEC NAC';
+comment on column AQPB613A.aqpb613afec
+  is 'SEXO';
+comment on column AQPB613A.aqpb613ahora
+  is 'INGESO MENSUAL';
+comment on column AQPB613A.aqpb613acapcaja
+  is 'NOM CLIENTE';
+comment on column AQPB613A.aqpb613asldext
+  is 'DEPARTAMENTO';
+comment on column AQPB613A.aqpb613aresnet
+  is 'PROVINCIA';
+comment on column AQPB613A.aqpb613accontg
+  is 'DISTRITO';
+comment on column AQPB613A.aqpb613acpoten
+  is 'DIRECCION ';
+comment on column AQPB613A.aqpb613aratio
+  is 'TELEFONO';
+comment on column AQPB613A.aqpb613aind
+  is 'CORREOS ';
+comment on column AQPB613A.aqpb613aest
+  is 'CCELULAR';
+comment on column AQPB613A.aqpb613auser
+  is 'ANALISTA DESEMBOLSO';
+comment on column AQPB613A.aqpb613aindme
+  is 'FEC DESEMBOLSO';
+comment on column AQPB613A.aqpb613ainstcrd
+  is 'MONTO DESEMBOLSO';
+comment on column AQPB613A.aqpb613aevalme
+  is 'VALOR TASACION';
+comment on column AQPB613A.aqpb613afeclog
+  is 'NRO RENOVACIONES';
+comment on column AQPB613A.aqpb613ahorlog
+  is 'SALDO CAPITA';
+alter table AQPB613A
+  add primary key (AQPB613AINST, AQPB613AFEC, AQPB613AHORA);
+

@@ -1,0 +1,22 @@
+create table CDCMEP4
+(
+  cdcmepid   NUMBER(18) not null,
+  cdcmepinst NUMBER(18) not null,
+  cdcmep4nvi NUMBER(18) not null,
+  cdcmep4d1  NUMBER(18),
+  cdcmep4d2  NUMBER(18),
+  cdcmep4d3  NUMBER(18),
+  cdcmep4d4  NUMBER(18),
+  cdcmep4d5  NUMBER(18),
+  cdcmep4d6  NUMBER(18),
+  cdcmep4h1  NUMBER(18),
+  cdcmep4h2  NUMBER(18),
+  cdcmep4h3  NUMBER(18),
+  cdcmep4h4  NUMBER(18),
+  cdcmep4h5  NUMBER(18),
+  cdcmep4h6  NUMBER(18)
+)
+;
+alter table CDCMEP4
+  add primary key (CDCMEPID, CDCMEPINST, CDCMEP4NVI);
+

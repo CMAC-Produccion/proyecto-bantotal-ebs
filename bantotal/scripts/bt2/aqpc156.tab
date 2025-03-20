@@ -1,0 +1,253 @@
+create table AQPC156
+(
+  aqpc156codopi  NUMBER(10) not null,
+  aqpc156fecpro  DATE not null,
+  aqpc156instan  NUMBER(10),
+  aqpc156a       VARCHAR2(200),
+  aqpc156de      VARCHAR2(200),
+  aqpc156asunt   VARCHAR2(200),
+  aqpc156texcom  VARCHAR2(200),
+  aqpc156clien   VARCHAR2(400),
+  aqpc156dni     VARCHAR2(400),
+  aqpc156analis  VARCHAR2(10),
+  aqpc156agenc   VARCHAR2(30),
+  aqpc156zona    VARCHAR2(30),
+  aqpc156regio   VARCHAR2(30),
+  aqpc156ratgana VARCHAR2(20),
+  aqpc156ratagen VARCHAR2(20),
+  aqpc156sldcana NUMBER(18,2),
+  aqpc156sldcage NUMBER(18,2),
+  aqpc156sldczon NUMBER(18,2),
+  aqpc156sldcreg NUMBER(18,2),
+  aqpc156ncliana NUMBER(10),
+  aqpc156ncliage NUMBER(10),
+  aqpc156nclizon NUMBER(10),
+  aqpc156nclireg NUMBER(10),
+  aqpc156nmorag  VARCHAR2(10),
+  aqpc156nmoran  VARCHAR2(10),
+  aqpc156nmorzo  VARCHAR2(10),
+  aqpc156nmoreg  VARCHAR2(10),
+  aqpc156nvriesg VARCHAR2(30),
+  aqpc156activid VARCHAR2(60),
+  aqpc156pdana   NUMBER(18,2),
+  aqpc156pdage   NUMBER(18,2),
+  aqpc156pdzon   NUMBER(18,2),
+  aqpc156pdreg   NUMBER(18,2),
+  aqpc156coh4ana NUMBER(18,2),
+  aqpc156coh4age NUMBER(18,2),
+  aqpc156coh4zon NUMBER(18,2),
+  aqpc156coh4reg NUMBER(18,2),
+  aqpc156coh6ana NUMBER(18,2),
+  aqpc156coh6age NUMBER(18,2),
+  aqpc156coh6zon NUMBER(18,2),
+  aqpc156coh6reg NUMBER(18,2),
+  aqpc156solic   NUMBER(10),
+  aqpc156ctnro   NUMBER(9),
+  aqpc156calif   VARCHAR2(30),
+  aqpc156prodsbs VARCHAR2(30),
+  aqpc156feceeff DATE,
+  aqpc156fecinfc DATE,
+  aqpc156codtpro NUMBER(8,2),
+  aqpc156tippro  VARCHAR2(30),
+  aqpc156resptot NUMBER(18,2),
+  aqpc156sldprop NUMBER(18,2),
+  aqpc156modprp  VARCHAR2(200),
+  aqpc156cuotas  NUMBER(17,2),
+  aqpc156cuoprp  VARCHAR2(20),
+  aqpc156tasprp  NUMBER(17,2),
+  aqpc156tipsol  NUMBER(3),
+  aqpc156detisol VARCHAR2(50),
+  aqpc156estop   CHAR(2),
+  aqpc156horrg   VARCHAR2(10) not null,
+  aqpc156usureg  VARCHAR2(10),
+  aqpc156grage   VARCHAR2(10),
+  aqpc156anserig VARCHAR2(10),
+  aqpc156usrder  VARCHAR2(10),
+  aqpc156fecdel  DATE,
+  aqpc156nivel   NUMBER(2),
+  aqpc156aux1    NUMBER(17,2),
+  aqpc156aux2    VARCHAR2(100),
+  aqpc156aux3    DATE,
+  aqpc156aux4    NUMBER(5),
+  aqpc156actcont VARCHAR2(1),
+  aqpc156supadmi VARCHAR2(10),
+  aqpc156jefadmi VARCHAR2(10),
+  aqpc156gerries VARCHAR2(10),
+  aqpc156nrecons NUMBER(17,2),
+  aqpc156esrecon VARCHAR2(1),
+  aqpc156corr    NUMBER(10) not null,
+  aqpc156estad   VARCHAR2(1),
+  aqpc156tcamb   NUMBER(10,6),
+  aqpc156mdaprop NUMBER(4)
+)
+;
+comment on table AQPC156
+  is 'Tabla temporal cabecera de repor. opinion de riesgos';
+comment on column AQPC156.aqpc156codopi
+  is 'Cod. opinion';
+comment on column AQPC156.aqpc156fecpro
+  is 'Fec. Proceso';
+comment on column AQPC156.aqpc156instan
+  is 'Solicitud';
+comment on column AQPC156.aqpc156a
+  is 'A';
+comment on column AQPC156.aqpc156de
+  is 'De';
+comment on column AQPC156.aqpc156asunt
+  is 'Asunto';
+comment on column AQPC156.aqpc156texcom
+  is 'Text Comentario';
+comment on column AQPC156.aqpc156clien
+  is 'Cliente';
+comment on column AQPC156.aqpc156dni
+  is 'Dni titulares';
+comment on column AQPC156.aqpc156analis
+  is 'Anlaista';
+comment on column AQPC156.aqpc156agenc
+  is 'Agencia';
+comment on column AQPC156.aqpc156zona
+  is 'Zona';
+comment on column AQPC156.aqpc156regio
+  is 'Region';
+comment on column AQPC156.aqpc156ratgana
+  is 'Rating Analista';
+comment on column AQPC156.aqpc156ratagen
+  is 'Rating Agencia';
+comment on column AQPC156.aqpc156sldcana
+  is 'SaldAnalista';
+comment on column AQPC156.aqpc156sldcage
+  is 'SaldoAgencia';
+comment on column AQPC156.aqpc156sldczon
+  is 'SaldoZona';
+comment on column AQPC156.aqpc156sldcreg
+  is 'SaldoRegion';
+comment on column AQPC156.aqpc156ncliana
+  is 'Nro Cliente Analista';
+comment on column AQPC156.aqpc156ncliage
+  is 'Nro Cliente Agencia';
+comment on column AQPC156.aqpc156nclizon
+  is 'Nro Cliente Zona';
+comment on column AQPC156.aqpc156nclireg
+  is 'Nro Cliente Region';
+comment on column AQPC156.aqpc156nmorag
+  is 'Nivel Mora Agencia';
+comment on column AQPC156.aqpc156nmoran
+  is 'Nivel Mora Analista';
+comment on column AQPC156.aqpc156nmorzo
+  is 'Nivel Mora Zona';
+comment on column AQPC156.aqpc156nmoreg
+  is 'Nivel Mora Region';
+comment on column AQPC156.aqpc156nvriesg
+  is 'Nivel Riesgo';
+comment on column AQPC156.aqpc156activid
+  is 'Actividad';
+comment on column AQPC156.aqpc156pdana
+  is 'PD ANALISTA';
+comment on column AQPC156.aqpc156pdage
+  is 'PD agencia';
+comment on column AQPC156.aqpc156pdzon
+  is 'PD Zona';
+comment on column AQPC156.aqpc156pdreg
+  is 'PD Reg';
+comment on column AQPC156.aqpc156coh4ana
+  is 'COH4ANA';
+comment on column AQPC156.aqpc156coh4age
+  is 'COH4AGE';
+comment on column AQPC156.aqpc156coh4zon
+  is 'COH4ZON';
+comment on column AQPC156.aqpc156coh4reg
+  is 'COH4REG';
+comment on column AQPC156.aqpc156coh6ana
+  is 'COH6ANA';
+comment on column AQPC156.aqpc156coh6age
+  is 'COH6AGE';
+comment on column AQPC156.aqpc156coh6zon
+  is 'COH6ZON';
+comment on column AQPC156.aqpc156coh6reg
+  is 'COH6REG';
+comment on column AQPC156.aqpc156solic
+  is 'Solicitud';
+comment on column AQPC156.aqpc156ctnro
+  is 'Cuenta';
+comment on column AQPC156.aqpc156calif
+  is 'CALIF   ';
+comment on column AQPC156.aqpc156prodsbs
+  is 'PRODSBS ';
+comment on column AQPC156.aqpc156feceeff
+  is 'FECEEFF ';
+comment on column AQPC156.aqpc156fecinfc
+  is 'FECINFC ';
+comment on column AQPC156.aqpc156codtpro
+  is 'CODTPRO ';
+comment on column AQPC156.aqpc156tippro
+  is 'TIPPRO  ';
+comment on column AQPC156.aqpc156resptot
+  is 'RESPTOT ';
+comment on column AQPC156.aqpc156sldprop
+  is 'SLDPROP ';
+comment on column AQPC156.aqpc156modprp
+  is 'MODPRP  ';
+comment on column AQPC156.aqpc156cuotas
+  is 'CUOTAS  ';
+comment on column AQPC156.aqpc156cuoprp
+  is 'CUOPRP  ';
+comment on column AQPC156.aqpc156tasprp
+  is 'TASPRP  ';
+comment on column AQPC156.aqpc156tipsol
+  is 'TIP SOLicitud  ';
+comment on column AQPC156.aqpc156detisol
+  is 'DEscripción TISOLicitud ';
+comment on column AQPC156.aqpc156estop
+  is 'Estado de opinión P - Pendiente, V - viable, D- Devuelto, O -Observado, NV - No viable y T - Culminado';
+comment on column AQPC156.aqpc156horrg
+  is 'HORRG   ';
+comment on column AQPC156.aqpc156usureg
+  is 'USUREG  ';
+comment on column AQPC156.aqpc156grage
+  is 'GRAGE   ';
+comment on column AQPC156.aqpc156anserig
+  is 'ANSERIG ';
+comment on column AQPC156.aqpc156usrder
+  is 'USRDER  ';
+comment on column AQPC156.aqpc156fecdel
+  is 'Fecha de delegación';
+comment on column AQPC156.aqpc156nivel
+  is 'NIVEL   ';
+comment on column AQPC156.aqpc156aux1
+  is 'AUX1    ';
+comment on column AQPC156.aqpc156aux2
+  is 'AUX2    ';
+comment on column AQPC156.aqpc156aux3
+  is 'AUX3    ';
+comment on column AQPC156.aqpc156aux4
+  is 'AUX4    ';
+comment on column AQPC156.aqpc156actcont
+  is 'Flag Analisis de credito contador';
+comment on column AQPC156.aqpc156supadmi
+  is 'Usuario de Supervisor de Admision';
+comment on column AQPC156.aqpc156jefadmi
+  is 'Usuario de Jefe de admisión';
+comment on column AQPC156.aqpc156gerries
+  is 'Usuario de Gerente riesgo corporativo';
+comment on column AQPC156.aqpc156nrecons
+  is 'Nro de Reconsideración a iniciar';
+comment on column AQPC156.aqpc156esrecon
+  is 'Tiene reconsideración';
+comment on column AQPC156.aqpc156corr
+  is 'Correlativo';
+comment on column AQPC156.aqpc156estad
+  is 'Estado del registro I - Inhabilitado;H - Habilitado';
+comment on column AQPC156.aqpc156tcamb
+  is 'Tipo de Cambio';
+comment on column AQPC156.aqpc156mdaprop
+  is 'Moneda Cred. Propuesto';
+create index AQPC156A2 on AQPC156 (AQPC156CODOPI, AQPC156FECPRO);
+create index AQPC156A3 on AQPC156 (AQPC156INSTAN, AQPC156ESTOP);
+create index AQPC156A4 on AQPC156 (AQPC156CODOPI, AQPC156INSTAN);
+create index AQPC156A5 on AQPC156 (AQPC156CODOPI, AQPC156ESTAD);
+create index AQPC156A6 on AQPC156 (AQPC156CODOPI, AQPC156INSTAN, AQPC156ESTAD);
+create index AQPC156A7 on AQPC156 (AQPC156ESTOP, AQPC156ESTAD);
+create index AQPC156A8 on AQPC156 (AQPC156INSTAN, AQPC156ESTAD);
+alter table AQPC156
+  add primary key (AQPC156CODOPI, AQPC156CORR, AQPC156FECPRO, AQPC156HORRG);
+

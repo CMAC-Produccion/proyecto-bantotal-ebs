@@ -1,0 +1,48 @@
+create table AQPA008
+(
+  aqpa008cod      NUMBER(3) not null,
+  aqpa008mod      NUMBER(3) not null,
+  aqpa008suc      NUMBER(3) not null,
+  aqpa008mda      NUMBER(4) not null,
+  aqpa008pap      NUMBER(4) not null,
+  aqpa008cta      NUMBER(9) not null,
+  aqpa008oper     NUMBER(9) not null,
+  aqpa008sbop     NUMBER(3) not null,
+  aqpa008tope     NUMBER(3) not null,
+  aqpa008fpag     DATE not null,
+  aqpa008tipo     CHAR(1) not null,
+  aqpa0081nump    NUMBER(9) not null,
+  aqpa0081fech    DATE,
+  aqpa0081cap     NUMBER(17,2),
+  aqpa0081int     NUMBER(17,2),
+  aqpa0081intmex  NUMBER(17,2),
+  aqpa0081intm    NUMBER(17,2),
+  aqpa0081intmmex NUMBER(17,2),
+  aqpa0081icap    NUMBER(17,2),
+  aqpa0081iint    NUMBER(17,2),
+  aqpa0081iintm   NUMBER(17,2),
+  aqpa0081salcap  NUMBER(17,2),
+  aqpa0081salint  NUMBER(17,2),
+  aqpa0081salade  NUMBER(17,2),
+  aqpa0081salmor  NUMBER(17,2),
+  aqpa0081stat    CHAR(1),
+  aqpa0081salintm NUMBER(17,2),
+  aqpa0081salmorm NUMBER(17,2),
+  aqpa0081saladem NUMBER(17,2),
+  aqpa008cd       NUMBER(3),
+  aqpa008mo       NUMBER(3),
+  aqpa008su       NUMBER(3),
+  aqpa008tr       NUMBER(3),
+  aqpa008re       NUMBER(4),
+  aqpa008fc       DATE,
+  aqpa008or       NUMBER(2),
+  aqpa008sb       NUMBER(3),
+  aqpa008co       CHAR(1),
+  aqpa008fecpro   DATE not null,
+  aqpa008horpro   CHAR(8) not null,
+  aqpa008cor      NUMBER(9) default 1 not null
+)
+;
+alter table AQPA008
+  add primary key (AQPA008COD, AQPA008MOD, AQPA008SUC, AQPA008MDA, AQPA008PAP, AQPA008CTA, AQPA008OPER, AQPA008SBOP, AQPA008TOPE, AQPA008FPAG, AQPA008TIPO, AQPA0081NUMP, AQPA008FECPRO, AQPA008HORPRO, AQPA008COR);
+

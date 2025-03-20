@@ -1,0 +1,14 @@
+create table CDCREP01
+(
+  cdcrepid   NUMBER(18) not null,
+  cdcrepinst NUMBER(18) not null,
+  cdcrepiuse CHAR(10),
+  cdcreppfec DATE,
+  cdcrepinti NUMBER(4),
+  cdcreptire NUMBER(4),
+  cdcreppgme CHAR(10)
+)
+;
+alter table CDCREP01
+  add primary key (CDCREPID, CDCREPINST);
+

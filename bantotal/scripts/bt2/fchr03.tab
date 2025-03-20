@@ -1,0 +1,26 @@
+create table FCHR03
+(
+  chr02cod NUMBER(3) not null,
+  chr02mod NUMBER(3) not null,
+  chr02suc NUMBER(3) not null,
+  chr02mda NUMBER(4) not null,
+  chr02pap NUMBER(4) not null,
+  chr02cta NUMBER(9) not null,
+  chr02ope NUMBER(9) not null,
+  chr02sbo NUMBER(3) not null,
+  chr02top NUMBER(3) not null,
+  chr02nro NUMBER(9) not null,
+  chr02fec DATE not null,
+  chr02hor CHAR(8) not null,
+  chr03pai NUMBER(3) not null,
+  chr03tdo NUMBER(2) not null,
+  chr03ndo CHAR(12) not null,
+  chr03mmo NUMBER(3),
+  chr03fmf DATE,
+  chr03sts CHAR(1)
+)
+;
+create index FCHR0303 on FCHR03 (CHR03PAI, CHR03TDO, CHR03NDO, CHR02FEC, CHR02HOR);
+alter table FCHR03
+  add primary key (CHR02COD, CHR02MOD, CHR02SUC, CHR02MDA, CHR02PAP, CHR02CTA, CHR02OPE, CHR02SBO, CHR02TOP, CHR02NRO, CHR02FEC, CHR02HOR, CHR03PAI, CHR03TDO, CHR03NDO);
+

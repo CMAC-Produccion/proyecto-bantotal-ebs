@@ -1,0 +1,21 @@
+create table FCPG11
+(
+  cpg10embt  NUMBER(3) not null,
+  cpg10pais  NUMBER(3) not null,
+  cpg10tdoc  NUMBER(2) not null,
+  cpg10doc   CHAR(25) not null,
+  cpg10sube  NUMBER(3) not null,
+  cpg11nro   NUMBER(2) not null,
+  cpg11desc  CHAR(40),
+  cpg11pais  NUMBER(3),
+  cpg11tdoc  NUMBER(2),
+  cpg11doc   CHAR(25),
+  cpg11rgemp NUMBER(3),
+  cpg11est   CHAR(3),
+  cpg11blq   CHAR(1),
+  cpg11inst  NUMBER(10)
+)
+;
+alter table FCPG11
+  add primary key (CPG10EMBT, CPG10PAIS, CPG10TDOC, CPG10DOC, CPG10SUBE, CPG11NRO);
+

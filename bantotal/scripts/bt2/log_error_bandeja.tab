@@ -1,0 +1,20 @@
+create table LOG_ERROR_BANDEJA
+(
+  n_nro    NUMBER(9),
+  c_codbdj VARCHAR2(50),
+  c_deserr VARCHAR2(300),
+  d_fecerr DATE
+)
+compress;
+comment on table LOG_ERROR_BANDEJA
+  is 'Log de errores en carga - PQ_CR_JAQL114_FM';
+comment on column LOG_ERROR_BANDEJA.n_nro
+  is 'Correlativo';
+comment on column LOG_ERROR_BANDEJA.c_codbdj
+  is 'Código de Bandeja';
+comment on column LOG_ERROR_BANDEJA.c_deserr
+  is 'Descripción Error';
+comment on column LOG_ERROR_BANDEJA.d_fecerr
+  is 'Fecha Error';
+create index IDX$$_009F0001 on LOG_ERROR_BANDEJA (D_FECERR, C_DESERR, C_CODBDJ);
+

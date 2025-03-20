@@ -1,0 +1,34 @@
+create table Z07325
+(
+  z07325pgc NUMBER(3) not null,
+  z07325cta NUMBER(9) not null,
+  z07325cas CHAR(1),
+  z07325tot NUMBER(5),
+  z07325age NUMBER(3),
+  z07325ope NUMBER(3),
+  z07325can NUMBER(5),
+  z07304cod NUMBER(3),
+  z07325blo CHAR(1),
+  z07325afi NUMBER(3),
+  z07325pro NUMBER(3),
+  z07313cod NUMBER(3),
+  z07325mig NUMBER(3),
+  z07308cod NUMBER(3),
+  z07314cod NUMBER(3),
+  z07325pap NUMBER(4),
+  z07325mon NUMBER(4),
+  z07325imp NUMBER(17,2),
+  z07325upe CHAR(6),
+  z07307cod NUMBER(5),
+  z07321cod CHAR(8),
+  z07325sin NUMBER(2),
+  z07325web CHAR(70),
+  z07303cod NUMBER(3),
+  z07349cod NUMBER(3)
+)
+;
+create index Z0732505 on Z07325 (Z07314COD);
+create index Z0732507 on Z07325 (Z07313COD);
+alter table Z07325
+  add primary key (Z07325PGC, Z07325CTA);
+

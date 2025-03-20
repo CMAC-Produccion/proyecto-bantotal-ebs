@@ -1,0 +1,23 @@
+create table FIF029
+(
+  if029apl   NUMBER(4) not null,
+  if029ban   CHAR(5) not null,
+  if029env   NUMBER(9) not null,
+  if029crr   NUMBER(5) not null,
+  if029bco   NUMBER(3),
+  if029cta   CHAR(17),
+  if029impe  CHAR(1),
+  if029codm  CHAR(3),
+  if029numv  CHAR(10),
+  if029nume  CHAR(23),
+  if029emib  CHAR(29),
+  if029mont  NUMBER(14,2),
+  if029girl  CHAR(29),
+  if029fill  CHAR(35),
+  if029arc   CHAR(6),
+  if029marac CHAR(1)
+)
+;
+alter table FIF029
+  add primary key (IF029APL, IF029BAN, IF029ENV, IF029CRR);
+

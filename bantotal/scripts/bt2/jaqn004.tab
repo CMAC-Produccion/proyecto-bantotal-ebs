@@ -1,0 +1,33 @@
+create table JAQN004
+(
+  jaqn004pc  NUMBER(3) not null,
+  jaqn004sc  NUMBER(3) not null,
+  jaqn004usi CHAR(10) not null,
+  jaqn004usa CHAR(10) not null,
+  jaqn004fec DATE not null,
+  jaqn004cor NUMBER(10) not null,
+  jaqn004mod NUMBER(3),
+  jaqn004trn NUMBER(3),
+  jaqn004rel NUMBER(4),
+  jaqn004des CHAR(60),
+  jaqn004ord NUMBER(2),
+  jaqn004sbd NUMBER(3),
+  jaqn004an1 NUMBER(9),
+  jaqn004an2 NUMBER(9),
+  jaqn004an3 NUMBER(9),
+  jaqn004ad1 DATE,
+  jaqn004ad2 DATE,
+  jaqn004ad3 DATE,
+  jaqn004ai1 NUMBER(17,2),
+  jaqn004ai2 NUMBER(17,2),
+  jaqn004ai3 NUMBER(17,2),
+  jaqn004ac1 CHAR(255),
+  jaqn004ac2 CHAR(255),
+  jaqn004ac3 CHAR(255)
+)
+;
+create index JAQN0044 on JAQN004 (JAQN004PC, JAQN004SC, JAQN004USA);
+create index JAQN0045 on JAQN004 (JAQN004PC, JAQN004SC, JAQN004FEC);
+alter table JAQN004
+  add primary key (JAQN004PC, JAQN004SC, JAQN004USI, JAQN004USA, JAQN004FEC, JAQN004COR);
+

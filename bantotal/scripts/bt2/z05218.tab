@@ -1,0 +1,11 @@
+create table Z05218
+(
+  z05218fech DATE not null,
+  z05218eve  NUMBER(2) not null,
+  z05218desc CHAR(30),
+  z05218esta CHAR(1)
+)
+;
+alter table Z05218
+  add primary key (Z05218FECH, Z05218EVE);
+

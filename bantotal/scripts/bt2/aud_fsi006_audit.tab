@@ -1,0 +1,29 @@
+create table AUD_FSI006_AUDIT
+(
+  aud_old_cicpo      CHAR(8),
+  aud_new_cicpo      CHAR(8),
+  aud_old_cipzod     NUMBER(5),
+  aud_new_cipzod     NUMBER(5),
+  aud_old_cipzoh     NUMBER(5),
+  aud_new_cipzoh     NUMBER(5),
+  aud_old_cipzot     CHAR(1),
+  aud_new_cipzot     CHAR(1),
+  aud_old_pgcod      NUMBER(3),
+  aud_new_pgcod      NUMBER(3),
+  aud_old_rubro      NUMBER(16),
+  aud_new_rubro      NUMBER(16),
+  aud_fsi006_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_fsi006_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsi006_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_fsi006_ubr     VARCHAR2(50) default ' ' not null,
+  aud_fsi006_ubc     VARCHAR2(50) default ' ' not null,
+  aud_fsi006_ubt     VARCHAR2(50) default ' ' not null,
+  aud_fsi006_ubu     VARCHAR2(50) default USER not null,
+  aud_fsi006_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsi006_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsi006_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsi006_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_fsi006_uas     CHAR(1) default 'I' not null
+)
+compress;
+

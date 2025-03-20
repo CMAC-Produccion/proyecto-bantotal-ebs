@@ -1,0 +1,15 @@
+create table CNL309
+(
+  x9996acnco NUMBER(3) not null,
+  x9996bopco NUMBER(5) not null,
+  x9996cvart NUMBER(3) not null,
+  cnl009cod  NUMBER(9) not null,
+  cnl009cor  NUMBER(9) not null,
+  cnl309lis  CHAR(1),
+  cnl309sep  CHAR(1)
+)
+;
+create index CNL30902 on CNL309 (CNL009COD, CNL009COR);
+alter table CNL309
+  add primary key (X9996ACNCO, X9996BOPCO, X9996CVART, CNL009COD, CNL009COR);
+

@@ -1,0 +1,141 @@
+create table AQPA138B
+(
+  aqpa138bseq NUMBER(9) not null,
+  aqpa138bcor NUMBER(9) not null,
+  aqpa138bpai NUMBER(3),
+  aqpa138btpo NUMBER(2),
+  aqpa138bnum CHAR(12),
+  aqpa138bcod NUMBER(9),
+  aqpa138bnom CHAR(120),
+  aqpa138bcar CHAR(120),
+  aqpa138bfin DATE,
+  aqpa138bfam CHAR(1),
+  aqpa138bsbs VARCHAR2(10),
+  aqpa138bfe1 DATE,
+  aqpa138bca1 NUMBER(3),
+  aqpa138bsa1 NUMBER(17,2),
+  aqpa138bc01 NUMBER(5,2),
+  aqpa138bc11 NUMBER(5,2),
+  aqpa138bc21 NUMBER(5,2),
+  aqpa138bc31 NUMBER(5,2),
+  aqpa138bc41 NUMBER(5,2),
+  aqpa138bfe2 DATE,
+  aqpa138bca2 NUMBER(3),
+  aqpa138bsa2 NUMBER(17,2),
+  aqpa138bc02 NUMBER(5,2),
+  aqpa138bc12 NUMBER(5,2),
+  aqpa138bc22 NUMBER(5,2),
+  aqpa138bc32 NUMBER(5,2),
+  aqpa138bc42 NUMBER(5,2),
+  aqpa138bfe3 DATE,
+  aqpa138bca3 NUMBER(3),
+  aqpa138bsa3 NUMBER(17,2),
+  aqpa138bc03 NUMBER(5,2),
+  aqpa138bc13 NUMBER(5,2),
+  aqpa138bc23 NUMBER(5,2),
+  aqpa138bc33 NUMBER(5,2),
+  aqpa138bc43 NUMBER(5,2),
+  aqpa138bax1 NUMBER(9),
+  aqpa138bax2 NUMBER(9),
+  aqpa138bax3 NUMBER(17,2),
+  aqpa138bax4 NUMBER(17,2),
+  aqpa138bax5 DATE,
+  aqpa138bax6 DATE,
+  aqpa138bax7 CHAR(100),
+  aqpa138bax8 CHAR(100),
+  aqpa138bax9 CHAR(100)
+)
+;
+comment on table AQPA138B
+  is 'TABLA RESULTADO DE CONSULTA CENTRAL DE RIESGO';
+comment on column AQPA138B.aqpa138bseq
+  is 'IMPORTACION';
+comment on column AQPA138B.aqpa138bcor
+  is 'CORRELATIVO';
+comment on column AQPA138B.aqpa138bpai
+  is 'PAIS';
+comment on column AQPA138B.aqpa138btpo
+  is 'TIPO DOCUMENTO';
+comment on column AQPA138B.aqpa138bnum
+  is 'DOCUMENTO';
+comment on column AQPA138B.aqpa138bcod
+  is 'CODIGO TRABAJADOR';
+comment on column AQPA138B.aqpa138bnom
+  is 'NOMBRE';
+comment on column AQPA138B.aqpa138bcar
+  is 'CARGO';
+comment on column AQPA138B.aqpa138bfin
+  is 'FECHA INGRESO';
+comment on column AQPA138B.aqpa138bfam
+  is 'INDICADOR DE FAMILIARES';
+comment on column AQPA138B.aqpa138bsbs
+  is 'CODIGO SBS';
+comment on column AQPA138B.aqpa138bfe1
+  is 'FECHA PROCESO 1';
+comment on column AQPA138B.aqpa138bca1
+  is 'CANTIDAD DE INSTITUCIONES 1';
+comment on column AQPA138B.aqpa138bsa1
+  is 'SALDO CAPITAL 1';
+comment on column AQPA138B.aqpa138bc01
+  is 'CALIFICACION NORMAL 1';
+comment on column AQPA138B.aqpa138bc11
+  is 'CALIFICACION CPP 1';
+comment on column AQPA138B.aqpa138bc21
+  is 'CALIFICACION DEFICIENTE 1';
+comment on column AQPA138B.aqpa138bc31
+  is 'CALIFICACION DUDOSO 1';
+comment on column AQPA138B.aqpa138bc41
+  is 'CALIFICACION PERDIDA 1';
+comment on column AQPA138B.aqpa138bfe2
+  is 'FECHA PROCESO 2';
+comment on column AQPA138B.aqpa138bca2
+  is 'CANTIDAD DE INSTITUCIONES 2';
+comment on column AQPA138B.aqpa138bsa2
+  is 'SALDO CAPITAL 2';
+comment on column AQPA138B.aqpa138bc02
+  is 'CALIFICACION NORMAL 2';
+comment on column AQPA138B.aqpa138bc12
+  is 'CALIFICACION CPP 2';
+comment on column AQPA138B.aqpa138bc22
+  is 'CALIFICACION DEFICIENTE 2';
+comment on column AQPA138B.aqpa138bc32
+  is 'CALIFICACION DUDOSO 2';
+comment on column AQPA138B.aqpa138bc42
+  is 'CALIFICACION PERDIDA 2';
+comment on column AQPA138B.aqpa138bfe3
+  is 'FECHA PROCESO 3';
+comment on column AQPA138B.aqpa138bca3
+  is 'CANTIDAD DE INSTITUCIONES 3';
+comment on column AQPA138B.aqpa138bsa3
+  is 'SALDO CAPITAL 3';
+comment on column AQPA138B.aqpa138bc03
+  is 'CALIFICACION NORMAL 3';
+comment on column AQPA138B.aqpa138bc13
+  is 'CALIFICACION CPP 3';
+comment on column AQPA138B.aqpa138bc23
+  is 'CALIFICACION DEFICIENTE 3';
+comment on column AQPA138B.aqpa138bc33
+  is 'CALIFICACION DUDOSO 3';
+comment on column AQPA138B.aqpa138bc43
+  is 'CALIFICACION PERDIDA 3';
+comment on column AQPA138B.aqpa138bax1
+  is 'AUXILIAR';
+comment on column AQPA138B.aqpa138bax2
+  is 'AUXILIAR';
+comment on column AQPA138B.aqpa138bax3
+  is 'AUXILIAR';
+comment on column AQPA138B.aqpa138bax4
+  is 'AUXILIAR';
+comment on column AQPA138B.aqpa138bax5
+  is 'AUXILIAR';
+comment on column AQPA138B.aqpa138bax6
+  is 'AUXILIAR';
+comment on column AQPA138B.aqpa138bax7
+  is 'AUXILIAR';
+comment on column AQPA138B.aqpa138bax8
+  is 'AUXILIAR';
+comment on column AQPA138B.aqpa138bax9
+  is 'AUXILIAR';
+alter table AQPA138B
+  add primary key (AQPA138BSEQ, AQPA138BCOR);
+

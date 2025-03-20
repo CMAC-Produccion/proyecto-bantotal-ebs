@@ -1,0 +1,14 @@
+create table SIP004
+(
+  sip004com  NUMBER(3) not null,
+  sip004rub  NUMBER(16),
+  sip004aux1 CHAR(1),
+  sip004aux2 DATE,
+  sip004aux3 NUMBER(17,2),
+  sip004aux4 CHAR(30)
+)
+;
+create index SIP0042 on SIP004 (SIP004RUB);
+alter table SIP004
+  add primary key (SIP004COM);
+

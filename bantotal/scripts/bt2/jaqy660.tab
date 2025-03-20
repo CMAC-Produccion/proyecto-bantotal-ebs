@@ -1,0 +1,40 @@
+create table JAQY660
+(
+  jaqy660pgo  NUMBER(3) not null,
+  jaqy660suc  NUMBER(3) not null,
+  jaqy660mod  NUMBER(3) not null,
+  jaqy660mda  NUMBER(4) not null,
+  jaqy660cta  NUMBER(9) not null,
+  jaqy660pap  NUMBER(4) not null,
+  jaqy660ope  NUMBER(9) not null,
+  jaqy660sub  NUMBER(3) not null,
+  jaqy660top  NUMBER(3) not null,
+  jaqy660fch  DATE,
+  jaqy660usu  CHAR(10),
+  jaqy660tpr  CHAR(1),
+  jaqy660tme  CHAR(1),
+  jaqy660afi  CHAR(65),
+  jaqy660fde  DATE,
+  jaqy660ude  CHAR(10),
+  jaqy660aux1 NUMBER(10),
+  jaqy660aux2 CHAR(27),
+  jaqy660aux3 NUMBER(17),
+  jaqy660aux4 DATE,
+  jaqy660hra  CHAR(8),
+  jaqy660hrd  CHAR(8),
+  jaqy660saf  NUMBER(3),
+  jaqy660sde  NUMBER(3),
+  jaqy660aux5 DATE,
+  jaqy660aux6 CHAR(100),
+  jaqy660aux7 CHAR(100),
+  jaqy660aux8 CHAR(100),
+  jaqy660aux9 NUMBER(10),
+  jaqy660tip  CHAR(1) not null
+)
+;
+create index JAQY660_IDX_001 on JAQY660 (JAQY660FCH, JAQY660USU, JAQY660SAF, JAQY660TME);
+create index JAQY660_IDX_002 on JAQY660 (JAQY660SAF, JAQY660FCH);
+create index JAQY660_IDX_003 on JAQY660 (JAQY660FDE, JAQY660HRD, JAQY660UDE, JAQY660SDE);
+alter table JAQY660
+  add primary key (JAQY660TIP, JAQY660PGO, JAQY660SUC, JAQY660MOD, JAQY660MDA, JAQY660CTA, JAQY660PAP, JAQY660OPE, JAQY660SUB, JAQY660TOP);
+

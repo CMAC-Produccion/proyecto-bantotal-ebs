@@ -1,0 +1,25 @@
+create table JAQZ232
+(
+  jaqz232numcon NUMBER(10) not null,
+  jaqz232integr VARCHAR2(40) not null,
+  jaqz232tipers CHAR(2),
+  jaqz232tipcre NUMBER(3),
+  jaqz232mod    NUMBER(3),
+  jaqz232reg    NUMBER(3),
+  jaqz232ticli  VARCHAR2(40),
+  jaqz232tdoc   NUMBER(3),
+  jaqz232ndoc   CHAR(12),
+  jaqz232ape    VARCHAR2(20),
+  jaqz232estciv VARCHAR2(40),
+  jaqz232aux2   VARCHAR2(40),
+  jaqz232aux3   VARCHAR2(40),
+  jaqz232aux4   VARCHAR2(40),
+  jaqz232aux5   VARCHAR2(40),
+  jaqz232sec    NUMBER(3),
+  jaqz232loc    NUMBER(3),
+  jaqz232fchsis DATE
+)
+;
+alter table JAQZ232
+  add primary key (JAQZ232NUMCON, JAQZ232INTEGR);
+

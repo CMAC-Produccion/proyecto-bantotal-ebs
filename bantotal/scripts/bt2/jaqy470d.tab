@@ -1,0 +1,20 @@
+create table JAQY470D
+(
+  jqy470dfev DATE not null,
+  jqy470dnro NUMBER(10) not null,
+  jqy470demp NUMBER(3) not null,
+  jqy470dsuc NUMBER(3) not null,
+  jqy470dcta NUMBER(9) not null,
+  jqy470dpap NUMBER(4) not null,
+  jqy470dope NUMBER(9) not null,
+  jqy470dsbo NUMBER(3) not null,
+  jqy470dmda NUMBER(4) not null,
+  jqy470dmod NUMBER(3) not null,
+  jqy470dtop NUMBER(3) not null,
+  jqy470datr NUMBER(9)
+)
+;
+create index INX_JAQY470D_01 on JAQY470D (JQY470DFEV, JQY470DNRO, JQY470DEMP, JQY470DSUC, JQY470DCTA, JQY470DOPE, JQY470DMDA);
+alter table JAQY470D
+  add primary key (JQY470DFEV, JQY470DNRO, JQY470DEMP, JQY470DSUC, JQY470DCTA, JQY470DPAP, JQY470DOPE, JQY470DSBO, JQY470DMDA, JQY470DMOD, JQY470DTOP);
+

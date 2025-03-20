@@ -1,0 +1,63 @@
+create table AQPC922
+(
+  aqpc922id     NUMBER(9) not null,
+  aqpc922fecreg DATE,
+  aqpc922horreg CHAR(8),
+  aqpc922nutar  CHAR(19),
+  aqpc922paidoc NUMBER(3),
+  aqpc922tipdoc NUMBER(3),
+  aqpc922numdoc CHAR(12),
+  aqpc922ingre  NUMBER(7,2),
+  aqpc922codpro NUMBER(4),
+  aqpc922prof   CHAR(30),
+  aqpc922codocu NUMBER(4),
+  aqpc922ocup   CHAR(30),
+  aqpc922device VARCHAR2(20),
+  aqpc922modelo VARCHAR2(20),
+  aqpc922dso    VARCHAR2(20),
+  aqpc922dlat   VARCHAR2(20),
+  aqpc922long   VARCHAR2(20),
+  aqpc922canal  VARCHAR2(20)
+)
+;
+comment on table AQPC922
+  is 'Log de actualizacion de datos complementarios';
+comment on column AQPC922.aqpc922id
+  is 'Identificador Correlativo';
+comment on column AQPC922.aqpc922fecreg
+  is 'Fecha Registro';
+comment on column AQPC922.aqpc922horreg
+  is 'Hora Registro';
+comment on column AQPC922.aqpc922nutar
+  is 'Numero Tarjeta';
+comment on column AQPC922.aqpc922paidoc
+  is 'Pais del documento';
+comment on column AQPC922.aqpc922tipdoc
+  is 'Tipo del documento';
+comment on column AQPC922.aqpc922numdoc
+  is 'Numero del documento';
+comment on column AQPC922.aqpc922ingre
+  is 'Ingreso del cliente';
+comment on column AQPC922.aqpc922codpro
+  is 'Codigo Profesión';
+comment on column AQPC922.aqpc922prof
+  is 'Descripción de Profesión';
+comment on column AQPC922.aqpc922codocu
+  is 'Codigo Ocupación';
+comment on column AQPC922.aqpc922ocup
+  is 'Descripción Ocupación';
+comment on column AQPC922.aqpc922device
+  is 'Device';
+comment on column AQPC922.aqpc922modelo
+  is 'Modelo';
+comment on column AQPC922.aqpc922dso
+  is 'Sistema Operativo';
+comment on column AQPC922.aqpc922dlat
+  is 'Latitud';
+comment on column AQPC922.aqpc922long
+  is 'Logitud';
+comment on column AQPC922.aqpc922canal
+  is 'Canal';
+alter table AQPC922
+  add primary key (AQPC922ID);
+

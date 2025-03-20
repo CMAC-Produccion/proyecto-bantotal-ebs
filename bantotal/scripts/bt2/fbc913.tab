@@ -1,0 +1,25 @@
+create table FBC913
+(
+  bc913emp NUMBER(3) not null,
+  bc913suc NUMBER(3) not null,
+  bc913mod NUMBER(3) not null,
+  bc913trn NUMBER(3) not null,
+  bc913nre NUMBER(4) not null,
+  bc913ord NUMBER(2) not null,
+  bc913sbo NUMBER(3) not null,
+  bc913fch DATE not null,
+  bc913sts CHAR(1),
+  bc913imp NUMBER(17,2),
+  bc913usr CHAR(10),
+  bc913prf CHAR(10),
+  bc913ori CHAR(2),
+  bc913ax1 NUMBER(9),
+  bc913ax2 CHAR(30),
+  bc913ax3 DATE,
+  bc913ax4 NUMBER(17,2)
+)
+;
+create index FBC91302 on FBC913 (BC913FCH, BC913ORI, BC913STS);
+alter table FBC913
+  add primary key (BC913EMP, BC913SUC, BC913MOD, BC913TRN, BC913NRE, BC913ORD, BC913SBO, BC913FCH);
+

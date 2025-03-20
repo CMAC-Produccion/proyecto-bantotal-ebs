@@ -1,0 +1,20 @@
+create table AQPB153
+(
+  aqpb153fecha DATE,
+  aqpb153cta   NUMBER(9),
+  aqpb153ope   NUMBER(9),
+  aqpb153base  VARCHAR2(50)
+)
+;
+comment on table AQPB153
+  is 'Copia MBARRIOSM_ANX.CAMPAÑASVF';
+comment on column AQPB153.aqpb153fecha
+  is 'FECHA';
+comment on column AQPB153.aqpb153cta
+  is 'CUENTA';
+comment on column AQPB153.aqpb153ope
+  is 'OPERACION';
+comment on column AQPB153.aqpb153base
+  is 'BASE';
+create index AQPB153A2 on AQPB153 (AQPB153CTA, AQPB153OPE);
+

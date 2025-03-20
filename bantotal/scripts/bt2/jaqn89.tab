@@ -1,0 +1,51 @@
+create table JAQN89
+(
+  jaqn89emp NUMBER(3) not null,
+  jaqn89nta CHAR(19) not null,
+  jaqn89tta CHAR(1) not null,
+  jaqn89suc NUMBER(3) not null,
+  jaqn89pai NUMBER(3) not null,
+  jaqn89tdo NUMBER(2) not null,
+  jaqn89nro CHAR(12) not null,
+  jaqn89fec DATE not null,
+  jaqn89cor NUMBER(4) not null,
+  jaqn89tdi CHAR(10),
+  jaqn89ido CHAR(25),
+  jaqn89tok CHAR(250),
+  jaqn89lin VARCHAR2(2000),
+  jaqn89lou VARCHAR2(2000)
+)
+;
+comment on table JAQN89
+  is 'Correos Contratacion Digital Tarjetas TDV';
+comment on column JAQN89.jaqn89emp
+  is 'Empresa';
+comment on column JAQN89.jaqn89nta
+  is 'Numero Tarjeta';
+comment on column JAQN89.jaqn89tta
+  is 'Tipo Tarjeta';
+comment on column JAQN89.jaqn89suc
+  is 'Sucursal';
+comment on column JAQN89.jaqn89pai
+  is 'Pais';
+comment on column JAQN89.jaqn89tdo
+  is 'Tipo Documento';
+comment on column JAQN89.jaqn89nro
+  is 'Numero Documento';
+comment on column JAQN89.jaqn89fec
+  is 'Fecha';
+comment on column JAQN89.jaqn89cor
+  is 'Correlativo';
+comment on column JAQN89.jaqn89tdi
+  is 'Tipo Documento Digital';
+comment on column JAQN89.jaqn89ido
+  is 'ID Documento';
+comment on column JAQN89.jaqn89tok
+  is 'Token';
+comment on column JAQN89.jaqn89lin
+  is 'Log Entrada';
+comment on column JAQN89.jaqn89lou
+  is 'Log Salida';
+alter table JAQN89
+  add primary key (JAQN89EMP, JAQN89NTA, JAQN89TTA, JAQN89SUC, JAQN89PAI, JAQN89TDO, JAQN89NRO, JAQN89FEC, JAQN89COR);
+

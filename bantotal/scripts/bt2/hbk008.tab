@@ -1,0 +1,17 @@
+create table HBK008
+(
+  hbk008pgc NUMBER(3) not null,
+  hbk008mod NUMBER(3) not null,
+  hbk008mda NUMBER(4) not null,
+  hbk008pap NUMBER(4) not null,
+  hbk008cta NUMBER(9) not null,
+  hbk008suc NUMBER(3) not null,
+  hbk008ope NUMBER(9) not null,
+  hbk008sbo NUMBER(3) not null,
+  hbk008top NUMBER(3) not null,
+  hbk008hab CHAR(1)
+)
+;
+alter table HBK008
+  add primary key (HBK008PGC, HBK008MOD, HBK008MDA, HBK008PAP, HBK008CTA, HBK008SUC, HBK008OPE, HBK008SBO, HBK008TOP);
+

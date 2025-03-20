@@ -1,0 +1,15 @@
+create table FSA151
+(
+  mn1emp  NUMBER(3) not null,
+  mn1cod  CHAR(12) not null,
+  mn2prg  CHAR(12) not null,
+  mn2corr NUMBER(4),
+  mn2desc CHAR(40),
+  mn2par  CHAR(1),
+  mn2niv  NUMBER(1)
+)
+;
+create index FSA15103 on FSA151 (MN1EMP, MN1COD, MN2CORR);
+alter table FSA151
+  add primary key (MN1EMP, MN1COD, MN2PRG);
+

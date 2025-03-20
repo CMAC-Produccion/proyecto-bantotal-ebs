@@ -1,0 +1,39 @@
+create table MSG101
+(
+  estmcod        NUMBER(5) not null,
+  frmcod         NUMBER(3) not null,
+  atrnom         CHAR(10) not null,
+  frmaord        NUMBER(3),
+  frmamos        CHAR(1),
+  frmaped        CHAR(1),
+  frmatdef       CHAR(1),
+  frmadef        VARCHAR2(254),
+  frmatrng       CHAR(1),
+  frmarng        VARCHAR2(80),
+  frmactratr     CHAR(1),
+  frmatpoctrl    CHAR(1),
+  frmalstval     CLOB,
+  frmaautodim    CHAR(1),
+  frmaautoaju    CHAR(1),
+  frmaalto       NUMBER(2),
+  frmaancho      NUMBER(2),
+  frmcodfrmabm   NUMBER(4),
+  frmaltacodrep  NUMBER(10),
+  frmcodgrid     NUMBER(3),
+  frmaltacodsql  NUMBER(10),
+  frmaltapgmname CHAR(20),
+  frmvalcodrep   NUMBER(10),
+  frmvalcodsql   NUMBER(10),
+  frmvalpgmname  CHAR(20),
+  frmvalmsg      VARCHAR2(200),
+  frmatrfuncs    CLOB,
+  frmaocuins     CHAR(1),
+  frmaocuupd     CHAR(1),
+  frmaocudel     CHAR(1)
+)
+;
+create index IMSG1011 on MSG101 (ESTMCOD, FRMCODGRID, ATRNOM);
+create index UMSG101 on MSG101 (ESTMCOD, FRMCOD, FRMAORD);
+alter table MSG101
+  add primary key (ESTMCOD, FRMCOD, ATRNOM);
+

@@ -1,0 +1,15 @@
+create table JAQN25
+(
+  jaqn25tpcu NUMBER(3) not null,
+  jaqn25nocu CHAR(50)
+)
+;
+comment on table JAQN25
+  is 'Tipo de curvas';
+comment on column JAQN25.jaqn25tpcu
+  is 'Tipo curva';
+comment on column JAQN25.jaqn25nocu
+  is 'Descripcion';
+alter table JAQN25
+  add primary key (JAQN25TPCU);
+

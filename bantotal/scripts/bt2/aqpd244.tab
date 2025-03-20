@@ -1,0 +1,12 @@
+create table AQPD244
+(
+  aqpd244cod    NUMBER(18) not null,
+  aqpd244codg   NUMBER(18) not null,
+  aqpd244des    VARCHAR2(100) not null,
+  aqpd244est    CHAR(1),
+  aqpd244usuact CHAR(10),
+  aqpd244fecact DATE
+)
+;
+create index AQPD244A2 on AQPD244 (AQPD244CODG);
+

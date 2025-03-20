@@ -1,0 +1,17 @@
+create table CDEINSD
+(
+  cdeinsid   NUMBER(18) not null,
+  cdeinsdmid NUMBER(18) not null,
+  cdeinsdfen DATE,
+  cdeinsdfto DATE,
+  cdeinsdest NUMBER(4),
+  cdeinsdmsg LONG,
+  cdeinsdcor NUMBER(18),
+  cdeinsddli CHAR(255),
+  cdeinsdpll NUMBER(18),
+  cdeinsdlid NUMBER(18)
+)
+;
+alter table CDEINSD
+  add primary key (CDEINSID, CDEINSDMID);
+

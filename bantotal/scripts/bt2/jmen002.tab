@@ -1,0 +1,25 @@
+create table JMEN002
+(
+  jmen002pgc NUMBER(3) not null,
+  jmen002usr CHAR(10) not null,
+  jmen002cta NUMBER(9) not null,
+  jmen002pap NUMBER(4) not null,
+  jmen002mda NUMBER(4) not null,
+  jmen002rub NUMBER(16) not null,
+  jmen002suc NUMBER(3) not null,
+  jmen002ope NUMBER(9) not null,
+  jmen002sub NUMBER(3) not null,
+  jmen002top NUMBER(3) not null,
+  jmen002pai NUMBER(3) not null,
+  jmen002tdo NUMBER(2) not null,
+  jmen002ndo CHAR(25) not null,
+  jmen002mod NUMBER(4),
+  jmen002ttc NUMBER(2),
+  jmen002aux DATE,
+  jmen002ax1 CHAR(70)
+)
+;
+create index JMEN0022 on JMEN002 (JMEN002USR, JMEN002PAI, JMEN002TDO, JMEN002NDO, JMEN002CTA, JMEN002PAP, JMEN002MDA, JMEN002RUB, JMEN002SUC, JMEN002OPE, JMEN002SUB, JMEN002TOP);
+alter table JMEN002
+  add primary key (JMEN002PGC, JMEN002USR, JMEN002CTA, JMEN002PAP, JMEN002MDA, JMEN002RUB, JMEN002SUC, JMEN002OPE, JMEN002SUB, JMEN002TOP, JMEN002PAI, JMEN002TDO, JMEN002NDO);
+

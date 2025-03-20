@@ -1,0 +1,15 @@
+create table FOC602
+(
+  foc601emp  NUMBER(3) not null,
+  foc601tpo  CHAR(1) not null,
+  foc601oper NUMBER(9) not null,
+  foc602sec  NUMBER(3) not null,
+  foc602cpo  NUMBER(2) not null,
+  foc602fmt  CHAR(1) not null,
+  foc602lin  NUMBER(3) not null,
+  foc602txt  CHAR(65)
+)
+;
+alter table FOC602
+  add primary key (FOC601EMP, FOC601TPO, FOC601OPER, FOC602SEC, FOC602CPO, FOC602FMT, FOC602LIN);
+

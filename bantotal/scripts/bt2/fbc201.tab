@@ -1,0 +1,11 @@
+create table FBC201
+(
+  bc201emp  NUMBER(3) not null,
+  bc201ecid NUMBER(3) not null,
+  bc201ecno CHAR(35),
+  bc201ecpa NUMBER(3)
+)
+;
+alter table FBC201
+  add primary key (BC201EMP, BC201ECID);
+

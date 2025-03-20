@@ -1,0 +1,17 @@
+create table AUD003
+(
+  audgrpnam  CHAR(20) not null,
+  audtblnam  VARCHAR2(255) not null,
+  audcolnam  VARCHAR2(255) not null,
+  audcolkey  CHAR(1),
+  audcoltyp  VARCHAR2(255),
+  audcollen  NUMBER(5),
+  audcolprec NUMBER(5),
+  audcolscal NUMBER(3),
+  audcolena  CHAR(1),
+  audcolsen  CHAR(1)
+)
+;
+alter table AUD003
+  add primary key (AUDGRPNAM, AUDTBLNAM, AUDCOLNAM);
+

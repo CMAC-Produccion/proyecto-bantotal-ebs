@@ -1,0 +1,21 @@
+create table JBXP07
+(
+  jbxp07cod  NUMBER(3) not null,
+  jbxp07pqt  NUMBER(5) not null,
+  jbxp07cta  NUMBER(9) not null,
+  jbxp07fch  CHAR(1),
+  jbxp07fnu  NUMBER(2),
+  jbxp07ret  CHAR(1),
+  jbxp07pos  CHAR(8),
+  jbxp07emi  CHAR(20),
+  jbxp07modj NUMBER(3),
+  jbxp07sucj NUMBER(3),
+  jbxp07mdaj NUMBER(4),
+  jbxp07papj NUMBER(4),
+  jbxp07opej NUMBER(9),
+  jbxp07sbpj NUMBER(3),
+  jbxp07topj NUMBER(3)
+)
+;
+create unique index JBXP0701 on JBXP07 (JBXP07COD, JBXP07PQT, JBXP07CTA);
+

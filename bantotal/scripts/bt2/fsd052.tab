@@ -1,0 +1,13 @@
+create table FSD052
+(
+  cspais NUMBER(3) not null,
+  cstdoc NUMBER(2) not null,
+  csndoc CHAR(12) not null,
+  csnom  CHAR(70),
+  cscbcu CHAR(15),
+  cssts  CHAR(1)
+)
+;
+alter table FSD052
+  add primary key (CSPAIS, CSTDOC, CSNDOC);
+

@@ -1,0 +1,38 @@
+create table FBC075
+(
+  bc75inf    CHAR(10) not null,
+  bc75emp    NUMBER(3) not null,
+  bc75suc    NUMBER(3) not null,
+  bc75rubr   NUMBER(16) not null,
+  bc75mda    NUMBER(4) not null,
+  bc75pap    NUMBER(4) not null,
+  bc75cta    NUMBER(9) not null,
+  bc75oper   NUMBER(9) not null,
+  bc75sbop   NUMBER(3) not null,
+  bc75top    NUMBER(3) not null,
+  bc75cuo    NUMBER(9) not null,
+  bc75unid   NUMBER(2),
+  bc75reng   NUMBER(4),
+  bc75col    NUMBER(2),
+  bc75cpo    CHAR(8),
+  bc75sdo    NUMBER(17,2),
+  bc75int    NUMBER(17,2),
+  bc75fvto   DATE,
+  bc75frep   DATE,
+  bc75fgrab  DATE,
+  bc75pzo    NUMBER(5),
+  bc75sdo1   NUMBER(17,2),
+  bc75sdo2   NUMBER(17,2),
+  bc75sdo3   NUMBER(17,2),
+  bc75sdo4   NUMBER(17,2),
+  bc75sdo5   NUMBER(17,2),
+  bc75tasori NUMBER(10,6),
+  bc75tascon NUMBER(10,6),
+  bc75dur    NUMBER(16,2)
+)
+;
+create index FBC07502 on FBC075 (BC75INF, BC75EMP, BC75UNID, BC75RENG, BC75COL);
+create index FBC07503 on FBC075 (BC75INF, BC75EMP, BC75CPO, BC75UNID, BC75RENG, BC75COL);
+alter table FBC075
+  add primary key (BC75INF, BC75EMP, BC75SUC, BC75RUBR, BC75MDA, BC75PAP, BC75CTA, BC75OPER, BC75SBOP, BC75TOP, BC75CUO);
+

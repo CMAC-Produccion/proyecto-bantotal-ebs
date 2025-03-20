@@ -1,0 +1,25 @@
+create table JAQY618
+(
+  jaqy618pgco NUMBER(4) not null,
+  jaqy618modu NUMBER(4) not null,
+  jaqy618tope NUMBER(4) not null,
+  jaqy618sucd NUMBER(4) not null,
+  jaqy618mone NUMBER(4) not null,
+  jaqy618pape NUMBER(4) not null,
+  jaqy618ctro NUMBER(9) not null,
+  jaqy618oper NUMBER(9) not null,
+  jaqy618subo NUMBER(3) not null,
+  jaqy618rubr NUMBER(15) not null,
+  jaqy618tord NUMBER(2) not null,
+  jaqy618sbor NUMBER(4) not null,
+  jaqy618fval DATE not null,
+  jaqy618tmod NUMBER(4),
+  jaqy618tsuc NUMBER(4),
+  jaqy618tran NUMBER(4),
+  jaqy618nrel NUMBER(4),
+  jaqy618est  CHAR(1)
+)
+;
+create index JAQY618_INX_02 on JAQY618 (JAQY618PGCO, JAQY618FVAL, JAQY618CTRO);
+create unique index PK_JAQY618NN_01 on JAQY618 (JAQY618PGCO, JAQY618MODU, JAQY618TOPE, JAQY618SUCD, JAQY618MONE, JAQY618PAPE, JAQY618CTRO, JAQY618OPER, JAQY618SUBO, JAQY618RUBR, JAQY618TORD, JAQY618SBOR, JAQY618FVAL);
+

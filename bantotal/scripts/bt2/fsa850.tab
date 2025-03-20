@@ -1,0 +1,20 @@
+create table FSA850
+(
+  axipgcod  NUMBER(3) not null,
+  axipgma   CHAR(10) not null,
+  axicorr   NUMBER(15) not null,
+  axisuc    NUMBER(3),
+  axirub    NUMBER(16),
+  aximda    NUMBER(4),
+  axipap    NUMBER(4),
+  axicta    NUMBER(9),
+  axiitmod  NUMBER(3),
+  axiittran NUMBER(3),
+  axiitsuc  NUMBER(3),
+  axinrel   NUMBER(4),
+  axitot    NUMBER(9)
+)
+;
+alter table FSA850
+  add primary key (AXIPGCOD, AXIPGMA, AXICORR);
+

@@ -1,0 +1,14 @@
+create table JBXW03
+(
+  jbx02pais  NUMBER(3) not null,
+  jbx02tdoc  NUMBER(2) not null,
+  jbx02ndoc  CHAR(12) not null,
+  jbx03bco   NUMBER(3) not null,
+  jbx03bcoag NUMBER(3) not null,
+  jbx03bcoct CHAR(20)
+)
+;
+create index JBXW0303 on JBXW03 (JBX03BCO, JBX03BCOAG, JBX03BCOCT);
+alter table JBXW03
+  add primary key (JBX02PAIS, JBX02TDOC, JBX02NDOC, JBX03BCO, JBX03BCOAG);
+

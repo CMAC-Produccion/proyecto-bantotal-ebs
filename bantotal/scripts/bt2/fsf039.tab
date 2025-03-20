@@ -1,0 +1,13 @@
+create table FSF039
+(
+  lfcod      NUMBER(3) not null,
+  lfexcep    NUMBER(3) not null,
+  lfdesde    NUMBER(3),
+  lfhasta    NUMBER(3),
+  lfimporte  NUMBER(17,2),
+  lfvalespec NUMBER(9)
+)
+;
+alter table FSF039
+  add primary key (LFCOD, LFEXCEP);
+

@@ -1,0 +1,25 @@
+create table X0548Y
+(
+  x0548yfec CHAR(6) not null,
+  x0548ysis CHAR(3) not null,
+  x0548yapl CHAR(3) not null,
+  x0548yprd CHAR(3) not null,
+  x0548yhor NUMBER(4) not null,
+  x0548ynid NUMBER(15) not null,
+  x0548yem1 NUMBER(3),
+  x0548ysu1 NUMBER(3),
+  x0548ymo1 NUMBER(3),
+  x0548ytr1 NUMBER(3),
+  x0548ynr1 NUMBER(4),
+  x0548yimp NUMBER(17,2),
+  x0548yem2 NUMBER(3),
+  x0548ysu2 NUMBER(3),
+  x0548ymo2 NUMBER(3),
+  x0548ytr2 NUMBER(3),
+  x0548ynr2 NUMBER(4),
+  x0548yfe2 DATE
+)
+;
+alter table X0548Y
+  add primary key (X0548YFEC, X0548YSIS, X0548YAPL, X0548YPRD, X0548YHOR, X0548YNID);
+

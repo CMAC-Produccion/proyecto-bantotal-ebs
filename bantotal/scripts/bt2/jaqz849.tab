@@ -1,0 +1,27 @@
+create table JAQZ849
+(
+  jaqz849fproc   DATE not null,
+  jaqz849hora    CHAR(8) not null,
+  jaqz849pgcod   NUMBER(5) not null,
+  jaqz849ctnro   NUMBER(10) not null,
+  jaqz849itoper  NUMBER(10) not null,
+  jaqz849itsubo  NUMBER(5) not null,
+  jaqz849itsucd  NUMBER(5) not null,
+  jaqz849ittope  NUMBER(5) not null,
+  jaqz849modulo  NUMBER(5) not null,
+  jaqz849moneda  NUMBER(5) not null,
+  jaqz849papel   NUMBER(5) not null,
+  jaqz849cta     NUMBER(10) not null,
+  jaqz849pais    NUMBER(5) not null,
+  jaqz849tdoc    NUMBER(5) not null,
+  jaqz849ndoc    VARCHAR2(12) not null,
+  jaqz849nomb    VARCHAR2(150),
+  jaqz849indicad VARCHAR2(25),
+  jaqz849tipcta  VARCHAR2(20),
+  jaqz849parte   VARCHAR2(25) not null
+)
+;
+create index INX_03_JAQZ849 on JAQZ849 (JAQZ849PGCOD, JAQZ849CTNRO, JAQZ849ITOPER, JAQZ849ITSUBO, JAQZ849ITSUCD, JAQZ849ITTOPE, JAQZ849MODULO, JAQZ849MONEDA, JAQZ849PAPEL);
+alter table JAQZ849
+  add primary key (JAQZ849FPROC, JAQZ849HORA, JAQZ849PGCOD, JAQZ849CTNRO, JAQZ849ITOPER, JAQZ849ITSUBO, JAQZ849ITSUCD, JAQZ849ITTOPE, JAQZ849MODULO, JAQZ849MONEDA, JAQZ849PAPEL, JAQZ849CTA, JAQZ849PAIS, JAQZ849TDOC, JAQZ849NDOC, JAQZ849PARTE);
+

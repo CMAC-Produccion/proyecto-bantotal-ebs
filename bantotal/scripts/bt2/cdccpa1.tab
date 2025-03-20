@@ -1,0 +1,13 @@
+create table CDCCPA1
+(
+  cdccpaid   NUMBER(18) not null,
+  cdccpainst NUMBER(18) not null,
+  cdccpauser CHAR(10),
+  cdccpafec  DATE,
+  cdccpaitip NUMBER(4),
+  cdccpavmax NUMBER(18)
+)
+;
+alter table CDCCPA1
+  add primary key (CDCCPAID, CDCCPAINST);
+

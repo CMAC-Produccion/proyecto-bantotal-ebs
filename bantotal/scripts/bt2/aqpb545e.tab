@@ -1,0 +1,71 @@
+create table AQPB545E
+(
+  aqpb545ecod NUMBER(9) not null,
+  aqpb545esbs NUMBER(9),
+  aqpb545enom VARCHAR2(300),
+  aqpb545eest VARCHAR2(1),
+  aqpb545eord NUMBER(9),
+  aqpb545evid DATE,
+  aqpb545evih DATE,
+  aqpb545etim TIMESTAMP(6),
+  aqpb545eai1 NUMBER(17,2),
+  aqpb545eai2 NUMBER(17,2),
+  aqpb545eai3 NUMBER(17,2),
+  aqpb545ead1 DATE,
+  aqpb545ead2 DATE,
+  aqpb545ead3 DATE,
+  aqpb545ean1 NUMBER(9),
+  aqpb545ean2 NUMBER(9),
+  aqpb545ean3 NUMBER(9),
+  aqpb545eac1 VARCHAR2(300),
+  aqpb545eac2 VARCHAR2(300),
+  aqpb545eac3 VARCHAR2(300)
+)
+;
+comment on table AQPB545E
+  is 'Reclamos - Master Motivos de Banca Seguros';
+comment on column AQPB545E.aqpb545ecod
+  is 'Codigo CAQP';
+comment on column AQPB545E.aqpb545esbs
+  is 'Codigo SBS';
+comment on column AQPB545E.aqpb545enom
+  is 'Nombre SBS';
+comment on column AQPB545E.aqpb545eest
+  is 'Estado';
+comment on column AQPB545E.aqpb545eord
+  is 'Orden en Pantalla';
+comment on column AQPB545E.aqpb545evid
+  is 'Vigencia Desde';
+comment on column AQPB545E.aqpb545evih
+  is 'Vigencia Hasta';
+comment on column AQPB545E.aqpb545etim
+  is 'Creacion';
+comment on column AQPB545E.aqpb545eai1
+  is 'Auxiliar IMP1';
+comment on column AQPB545E.aqpb545eai2
+  is 'Auxiliar IMP2';
+comment on column AQPB545E.aqpb545eai3
+  is 'Auxiliar IMP3';
+comment on column AQPB545E.aqpb545ead1
+  is 'Auxiliar FEC1';
+comment on column AQPB545E.aqpb545ead2
+  is 'Auxiliar FEC2';
+comment on column AQPB545E.aqpb545ead3
+  is 'Auxiliar FEC3';
+comment on column AQPB545E.aqpb545ean1
+  is 'Auxiliar NUM1';
+comment on column AQPB545E.aqpb545ean2
+  is 'Auxiliar NUM2';
+comment on column AQPB545E.aqpb545ean3
+  is 'Auxiliar NUM3';
+comment on column AQPB545E.aqpb545eac1
+  is 'Auxiliar STR1';
+comment on column AQPB545E.aqpb545eac2
+  is 'Auxiliar STR2';
+comment on column AQPB545E.aqpb545eac3
+  is 'Auxiliar STR3';
+create index AQPB545E01 on AQPB545E (AQPB545ESBS);
+create index AQPB545E02 on AQPB545E (AQPB545EEST);
+alter table AQPB545E
+  add primary key (AQPB545ECOD);
+

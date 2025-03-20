@@ -1,0 +1,72 @@
+create table JAQA62
+(
+  jaqa62pro VARCHAR2(50) not null,
+  jaqa62nra CHAR(50) not null,
+  jaqa62cor CHAR(1) not null,
+  jaqa62nrt VARCHAR2(255),
+  jaqa62eca CHAR(3),
+  jaqa62mca CHAR(3),
+  jaqa62sca CHAR(3),
+  jaqa62moc CHAR(4),
+  jaqa62pca CHAR(4),
+  jaqa62cca VARCHAR2(30),
+  jaqa62oca CHAR(9),
+  jaqa62scc CHAR(3),
+  jaqa62toc CHAR(3),
+  jaqa62fea CHAR(20),
+  jaqa62usa CHAR(10),
+  jaqa62est VARCHAR2(1),
+  jaqa62fee DATE,
+  jaqa62hoe CHAR(10),
+  jaqa62fem DATE,
+  jaqa62esm CHAR(1),
+  jaqa62erd VARCHAR2(255)
+)
+;
+comment on table JAQA62
+  is 'Tabla puente de la tabla TMP_SisDataTarjetaCta"@SISRETAIL';
+comment on column JAQA62.jaqa62pro
+  is 'Producto';
+comment on column JAQA62.jaqa62nra
+  is 'Numero de Afiliación';
+comment on column JAQA62.jaqa62cor
+  is 'Correlativo';
+comment on column JAQA62.jaqa62nrt
+  is 'Numero de Tarjeta';
+comment on column JAQA62.jaqa62eca
+  is 'Empesa Cuenta de Ahorro';
+comment on column JAQA62.jaqa62mca
+  is 'ModuloCuenta de Ahorro';
+comment on column JAQA62.jaqa62sca
+  is 'Sucursal Cuenta de Ahorro';
+comment on column JAQA62.jaqa62moc
+  is 'Moneda Cuenta de Ahorro';
+comment on column JAQA62.jaqa62pca
+  is 'Papel Cuenta de Ahorro';
+comment on column JAQA62.jaqa62cca
+  is 'Cuenta cuenta Ahorro';
+comment on column JAQA62.jaqa62oca
+  is 'Operacion Cuenta Ahorro';
+comment on column JAQA62.jaqa62scc
+  is 'Subcuenta Cuenta Ahorro';
+comment on column JAQA62.jaqa62toc
+  is 'Tipo de Operacion cuenta ahorro';
+comment on column JAQA62.jaqa62fea
+  is 'Fecha de Asociacion';
+comment on column JAQA62.jaqa62usa
+  is 'Usuario de Asociacion';
+comment on column JAQA62.jaqa62est
+  is 'Estado';
+comment on column JAQA62.jaqa62fee
+  is 'Fecha de ejecucion';
+comment on column JAQA62.jaqa62hoe
+  is 'Hora de ejecucion';
+comment on column JAQA62.jaqa62fem
+  is 'Fecha de migracion';
+comment on column JAQA62.jaqa62esm
+  is 'Estado de la migracion';
+comment on column JAQA62.jaqa62erd
+  is 'Descripcion del error';
+alter table JAQA62
+  add primary key (JAQA62PRO, JAQA62NRA, JAQA62COR);
+

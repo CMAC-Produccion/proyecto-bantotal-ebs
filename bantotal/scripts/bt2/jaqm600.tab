@@ -1,0 +1,18 @@
+create table JAQM600
+(
+  jaqm600cod NUMBER(3) not null,
+  jaqm600nca NUMBER(9) not null,
+  jaqm600hab CHAR(1),
+  jaqm600fca DATE,
+  jaqm600fin DATE,
+  jaqm600ffi DATE,
+  jaqm600usc CHAR(10),
+  jaqm600fdh DATE,
+  jaqm600hdh CHAR(8),
+  jaqm600usd CHAR(10)
+)
+;
+create index JAQM6003 on JAQM600 (JAQM600COD, JAQM600FIN);
+alter table JAQM600
+  add primary key (JAQM600COD, JAQM600NCA);
+

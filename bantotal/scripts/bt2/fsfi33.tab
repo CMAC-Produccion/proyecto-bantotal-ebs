@@ -1,0 +1,28 @@
+create table FSFI33
+(
+  sfi33emp   NUMBER(3) not null,
+  sfi33tipv  NUMBER(3) not null,
+  sfi33dsc   CHAR(20),
+  sfi33prg   CHAR(10),
+  sfi33cont  CHAR(1),
+  sfi33aui   CHAR(1),
+  sfi33sa    CHAR(1),
+  sfi33code  NUMBER(2),
+  sfi33hab   CHAR(1),
+  sfi33txa   CHAR(30),
+  sfi33txn   CHAR(30),
+  sfi33aux1  DATE,
+  sfi33aux2  DATE,
+  sfi33aux3  CHAR(1),
+  sfi33aux4  CHAR(1),
+  sfi33aux5  NUMBER(17,2),
+  sfi33aux6  NUMBER(17,2),
+  sfi33aux7  NUMBER(9),
+  sfi33aux8  CHAR(1),
+  sfi33aux9  CHAR(1),
+  sfi33aux10 CHAR(1)
+)
+;
+alter table FSFI33
+  add primary key (SFI33EMP, SFI33TIPV);
+

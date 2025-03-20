@@ -1,0 +1,68 @@
+create table X999JU
+(
+  x999jupgc NUMBER(3) not null,
+  x999jucta NUMBER(9) not null,
+  x999jufac DATE not null,
+  x999jueor CHAR(10) not null,
+  x999juidc CHAR(22) not null,
+  x999jurfc CHAR(15) not null,
+  x999jusec NUMBER(3) not null,
+  x999jutrc NUMBER(2),
+  x999jutri NUMBER(2),
+  x999jusnt CHAR(3),
+  x999juenm CHAR(16),
+  x999juedv CHAR(1),
+  x999jufal DATE,
+  x999jufcp DATE,
+  x999jumon NUMBER(4),
+  x999juimp NUMBER(10,2),
+  x999jucb1 CHAR(8),
+  x999jucb2 CHAR(14),
+  x999jucb3 CHAR(8),
+  x999jucb4 CHAR(14),
+  x999jupvo NUMBER(3),
+  x999jupvd NUMBER(3),
+  x999juopr CHAR(3),
+  x999juct2 NUMBER(9),
+  x999jurtd NUMBER(2),
+  x999jurnd CHAR(11),
+  x999jurnm CHAR(30),
+  x999juax1 CHAR(1),
+  x999juax2 CHAR(2),
+  x999juins NUMBER(2),
+  x999juusu CHAR(10),
+  x999juwst CHAR(10),
+  x999ju1pg NUMBER(3),
+  x999ju1su NUMBER(3),
+  x999ju1md NUMBER(3),
+  x999ju1tr NUMBER(3),
+  x999ju1rl NUMBER(4),
+  x999ju1fc DATE,
+  x999ju1ct CHAR(1),
+  x999ju1or NUMBER(2),
+  x999ju1sb NUMBER(3),
+  x999ju2di NUMBER(10),
+  x999ju2oi NUMBER(10),
+  x999ju2pf DATE,
+  x999ju2ph CHAR(8),
+  x999ju2ia CHAR(1),
+  x999ju2cr NUMBER(15),
+  x999ju3tr CHAR(5),
+  x999ju3lt NUMBER(9),
+  x999ju3cr NUMBER(9),
+  x999ju4ap NUMBER(4),
+  x999ju4ba CHAR(5),
+  x999ju4cr NUMBER(9),
+  x999ju4cl NUMBER(9),
+  x999ju4ci NUMBER(9),
+  x999juest CHAR(2)
+)
+;
+create index X999JU02 on X999JU (X999JUTRC, X999JUTRI, X999JUSNT, X999JUCB1, X999JUCB2, X999JUEST, X999JUFCP);
+create index X999JU03 on X999JU (X999JU1PG, X999JU1SU, X999JU1MD, X999JU1TR, X999JU1RL, X999JU1FC, X999JU1OR, X999JU1SB);
+create index X999JU04 on X999JU (X999JUEOR, X999JU3TR, X999JU3LT, X999JUTRC, X999JUTRI, X999JU3CR);
+create index X999JU05 on X999JU (X999JU4AP, X999JU4BA, X999JU4CR, X999JU4CL, X999JU4CI);
+create index X999JU06 on X999JU (X999JUFCP, X999JUSNT, X999JUTRC, X999JUTRI);
+alter table X999JU
+  add primary key (X999JUPGC, X999JUCTA, X999JUFAC, X999JUEOR, X999JUIDC, X999JURFC, X999JUSEC);
+

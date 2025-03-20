@@ -1,0 +1,12 @@
+create table JBXNG01
+(
+  jbxng1tcco NUMBER(3) not null,
+  jbxng1tcmd NUMBER(4) not null,
+  jbxng1vta1 NUMBER(10,8),
+  jbxng1vta2 NUMBER(10,8),
+  jbxng1cpa1 NUMBER(10,8),
+  jbxng1cpa2 NUMBER(10,8)
+)
+;
+create unique index JBXNG011 on JBXNG01 (JBXNG1TCCO, JBXNG1TCMD);
+

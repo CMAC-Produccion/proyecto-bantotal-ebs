@@ -1,0 +1,22 @@
+create table AQPA842
+(
+  aqpa842emp    NUMBER(3) not null,
+  aqpa842mod    NUMBER(3) not null,
+  aqpa842suc    NUMBER(3) not null,
+  aqpa842mda    NUMBER(4) not null,
+  aqpa842pap    NUMBER(4) not null,
+  aqpa842cta    NUMBER(9) not null,
+  aqpa842ope    NUMBER(9) not null,
+  aqpa842sbo    NUMBER(3) not null,
+  aqpa842top    NUMBER(3) not null,
+  aqpa842fecupd DATE not null,
+  aqpa842mtoi   NUMBER(18,2),
+  aqpa842tasa   NUMBER(14,8),
+  aqpa842aux01  NUMBER(18,2),
+  aqpa842aux02  NUMBER(18,2)
+)
+;
+create index AQPA8422 on AQPA842 (AQPA842FECUPD);
+alter table AQPA842
+  add primary key (AQPA842EMP, AQPA842MOD, AQPA842SUC, AQPA842MDA, AQPA842PAP, AQPA842CTA, AQPA842OPE, AQPA842SBO, AQPA842TOP, AQPA842FECUPD);
+

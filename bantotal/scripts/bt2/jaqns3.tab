@@ -1,0 +1,79 @@
+create table JAQNS3
+(
+  jaqns3empr NUMBER(3) not null,
+  jaqns3sucu NUMBER(3) not null,
+  jaqns3mone NUMBER(4) not null,
+  jaqns3pape NUMBER(4) not null,
+  jaqns3cuen NUMBER(9) not null,
+  jaqns3oper NUMBER(9) not null,
+  jaqns3sbop NUMBER(3) not null,
+  jaqns3tope NUMBER(3) not null,
+  jaqns3modu NUMBER(3) not null,
+  jaqns3sdmn NUMBER(17,2),
+  jaqns3roid VARCHAR2(20),
+  jaqns3num1 NUMBER(10),
+  jaqns3num2 NUMBER(10),
+  jaqns3num3 NUMBER(10),
+  jaqns3imp1 NUMBER(17,2),
+  jaqns3imp2 NUMBER(17,2),
+  jaqns3imp3 NUMBER(17,2),
+  jaqns3var1 VARCHAR2(255),
+  jaqns3var2 VARCHAR2(255),
+  jaqns3var3 VARCHAR2(255),
+  jaqns3fec1 DATE,
+  jaqns3fec2 DATE,
+  jaqns3fec3 DATE
+)
+;
+comment on table JAQNS3
+  is 'Totalizado de la tabal de historicos para el dia anterior ';
+comment on column JAQNS3.jaqns3empr
+  is 'Empresa';
+comment on column JAQNS3.jaqns3sucu
+  is 'Sucursal';
+comment on column JAQNS3.jaqns3mone
+  is 'Moneda';
+comment on column JAQNS3.jaqns3pape
+  is 'Papel';
+comment on column JAQNS3.jaqns3cuen
+  is 'Cuenta';
+comment on column JAQNS3.jaqns3oper
+  is 'Operacion';
+comment on column JAQNS3.jaqns3sbop
+  is 'SubOperacion';
+comment on column JAQNS3.jaqns3tope
+  is 'Tipo de operacion';
+comment on column JAQNS3.jaqns3modu
+  is 'Modulo';
+comment on column JAQNS3.jaqns3sdmn
+  is 'Saldo en M/N';
+comment on column JAQNS3.jaqns3roid
+  is 'Columna ';
+comment on column JAQNS3.jaqns3num1
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3num2
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3num3
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3imp1
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3imp2
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3imp3
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3var1
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3var2
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3var3
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3fec1
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3fec2
+  is 'Auxiliar ';
+comment on column JAQNS3.jaqns3fec3
+  is 'Auxiliar ';
+create index JAQNS3A3 on JAQNS3 (JAQNS3EMPR, JAQNS3MODU, JAQNS3CUEN, JAQNS3OPER, JAQNS3SBOP);
+alter table JAQNS3
+  add primary key (JAQNS3EMPR, JAQNS3SUCU, JAQNS3MONE, JAQNS3PAPE, JAQNS3CUEN, JAQNS3OPER, JAQNS3SBOP, JAQNS3TOPE, JAQNS3MODU);
+

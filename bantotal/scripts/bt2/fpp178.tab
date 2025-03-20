@@ -1,0 +1,24 @@
+create table FPP178
+(
+  pp174cod   NUMBER(9) not null,
+  pp177codd  NUMBER(4) not null,
+  pp178dnum  NUMBER(9),
+  pp178dsal  NUMBER(17,2),
+  pp178dcoef NUMBER(10,3),
+  pp178dfec  DATE,
+  pp178dtext CHAR(50),
+  pp178dcom  VARCHAR2(250),
+  pp178au1   NUMBER(9),
+  pp178au2   NUMBER(9),
+  pp178au3   NUMBER(17,2),
+  pp178au4   NUMBER(17,2),
+  pp178au5   DATE,
+  pp178au6   DATE,
+  pp178au7   CHAR(50),
+  pp178au8   CHAR(50)
+)
+;
+create index FPP17802 on FPP178 (PP177CODD);
+alter table FPP178
+  add primary key (PP174COD, PP177CODD);
+

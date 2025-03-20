@@ -1,0 +1,15 @@
+create table CNL086
+(
+  cnl000cod  NUMBER(4) not null,
+  cnl001adm  CHAR(30) not null,
+  cnl001usu  CHAR(30) not null,
+  cnl005cod  NUMBER(6) not null,
+  cnl086cfex NUMBER(8) not null,
+  cnl086csfe NUMBER(3) not null,
+  cnl086dsc  CHAR(30),
+  cnl086hab  CHAR(1)
+)
+;
+alter table CNL086
+  add primary key (CNL000COD, CNL001ADM, CNL001USU, CNL005COD, CNL086CFEX, CNL086CSFE);
+

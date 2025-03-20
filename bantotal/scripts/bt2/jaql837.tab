@@ -1,0 +1,22 @@
+create table JAQL837
+(
+  jaql837coage NUMBER(3) not null,
+  jaql837coatm NUMBER(4) not null,
+  jaql837fereg DATE not null,
+  jaql837comon NUMBER(3) not null,
+  jaql837cousu VARCHAR2(10),
+  jaql837horeg VARCHAR2(8),
+  jaql837mocon NUMBER(13,2),
+  jaql837mosob NUMBER(13,2),
+  jaql837mofal NUMBER(13,2),
+  jaql837refis NUMBER(13,2),
+  jaql837cord  NUMBER(4),
+  jaql837ccta  NUMBER(9),
+  jaql837crel  NUMBER(4),
+  jaql837ctra  NUMBER(3),
+  jaql837cmod  NUMBER(4)
+)
+;
+alter table JAQL837
+  add primary key (JAQL837COAGE, JAQL837COATM, JAQL837FEREG, JAQL837COMON);
+

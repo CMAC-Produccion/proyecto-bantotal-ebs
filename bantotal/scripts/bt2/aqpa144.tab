@@ -1,0 +1,101 @@
+create table AQPA144
+(
+  aqpa144use CHAR(10) not null,
+  aqpa144pge NUMBER(3) not null,
+  aqpa144its NUMBER(3) not null,
+  aqpa144itm NUMBER(3) not null,
+  aqpa144itx NUMBER(3) not null,
+  aqpa144itr NUMBER(4) not null,
+  aqpa144fec DATE not null,
+  aqpa144pgc NUMBER(3),
+  aqpa144suc NUMBER(3),
+  aqpa144mod NUMBER(3),
+  aqpa144mda NUMBER(4),
+  aqpa144pap NUMBER(4),
+  aqpa144cta NUMBER(9),
+  aqpa144ope NUMBER(9),
+  aqpa144sbo NUMBER(3),
+  aqpa144tpo NUMBER(3),
+  aqpa144mto NUMBER(17,2),
+  aqpa144hor CHAR(8),
+  aqpa144tca NUMBER(14,8),
+  aqpa144usu CHAR(10),
+  aqpa144ax1 NUMBER(9),
+  aqpa144ax2 NUMBER(9),
+  aqpa144ax3 NUMBER(17,2),
+  aqpa144ax4 NUMBER(17,2),
+  aqpa144ax5 DATE,
+  aqpa144ax6 DATE,
+  aqpa144ax7 CHAR(100),
+  aqpa144ax8 CHAR(100),
+  aqpa144ax9 CHAR(100),
+  aqpa144ord NUMBER(2) not null
+)
+;
+comment on table AQPA144
+  is 'TABLA REPORTE OPERACIONES POR ENCIMA DEL LIMITE OPERATIVO';
+comment on column AQPA144.aqpa144use
+  is 'USUARIO QUE GENERA EL REPORTE';
+comment on column AQPA144.aqpa144pge
+  is 'EMPRESA';
+comment on column AQPA144.aqpa144its
+  is 'SUCURSAL CONTA';
+comment on column AQPA144.aqpa144itm
+  is 'MODULO CONTA';
+comment on column AQPA144.aqpa144itx
+  is 'TRANSACCION CONTA';
+comment on column AQPA144.aqpa144itr
+  is 'RELACION';
+comment on column AQPA144.aqpa144fec
+  is 'FECHA CONTA';
+comment on column AQPA144.aqpa144pgc
+  is 'EMPRESA';
+comment on column AQPA144.aqpa144suc
+  is 'SUCURSAL';
+comment on column AQPA144.aqpa144mod
+  is 'MODULO';
+comment on column AQPA144.aqpa144mda
+  is 'MONEDA';
+comment on column AQPA144.aqpa144pap
+  is 'PAPEL';
+comment on column AQPA144.aqpa144cta
+  is 'CUENTA';
+comment on column AQPA144.aqpa144ope
+  is 'OPERACION';
+comment on column AQPA144.aqpa144sbo
+  is 'SUB OPERACION';
+comment on column AQPA144.aqpa144tpo
+  is 'TIPO DE OPERACION';
+comment on column AQPA144.aqpa144mto
+  is 'MONTO';
+comment on column AQPA144.aqpa144hor
+  is 'HORA';
+comment on column AQPA144.aqpa144tca
+  is 'TIPO DE CAMBIO';
+comment on column AQPA144.aqpa144usu
+  is 'USUARIO';
+comment on column AQPA144.aqpa144ax1
+  is 'AUXILIAR';
+comment on column AQPA144.aqpa144ax2
+  is 'AUXILIAR';
+comment on column AQPA144.aqpa144ax3
+  is 'AUXILIAR';
+comment on column AQPA144.aqpa144ax4
+  is 'AUXILIAR';
+comment on column AQPA144.aqpa144ax5
+  is 'AUXILIAR';
+comment on column AQPA144.aqpa144ax6
+  is 'AUXILIAR';
+comment on column AQPA144.aqpa144ax7
+  is 'AUXILIAR';
+comment on column AQPA144.aqpa144ax8
+  is 'AUXILIAR';
+comment on column AQPA144.aqpa144ax9
+  is 'AUXILIAR';
+comment on column AQPA144.aqpa144ord
+  is 'ORDINAL';
+create index AQPA144A2 on AQPA144 (AQPA144USE, AQPA144ITS, AQPA144FEC, AQPA144CTA, AQPA144SBO, AQPA144HOR);
+create index AQPA144A3 on AQPA144 (AQPA144USE, AQPA144FEC, AQPA144CTA, AQPA144SBO, AQPA144HOR);
+alter table AQPA144
+  add primary key (AQPA144USE, AQPA144PGE, AQPA144ITS, AQPA144ITM, AQPA144ITX, AQPA144ITR, AQPA144FEC, AQPA144ORD);
+

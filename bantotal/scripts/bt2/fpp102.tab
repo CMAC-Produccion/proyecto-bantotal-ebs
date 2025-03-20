@@ -1,0 +1,44 @@
+create table FPP102
+(
+  pp102ncart NUMBER(4) not null,
+  pp102cod   NUMBER(3) not null,
+  pp102mod   NUMBER(3) not null,
+  pp102suc   NUMBER(3) not null,
+  pp102mda   NUMBER(4) not null,
+  pp102pap   NUMBER(4) not null,
+  pp102cta   NUMBER(9) not null,
+  pp102ope   NUMBER(9) not null,
+  pp102sbo   NUMBER(3) not null,
+  pp102top   NUMBER(3) not null,
+  pp102hab   CHAR(1),
+  pp102tcd   NUMBER(3),
+  pp102tsu   NUMBER(3),
+  pp102tmo   NUMBER(3),
+  pp102ttr   NUMBER(3),
+  pp102tnr   NUMBER(4),
+  pp102tfc   TIMESTAMP(6),
+  pp102tor   NUMBER(2),
+  pp102tsb   NUMBER(3),
+  pp102tco   CHAR(1),
+  pp102aux1  NUMBER(9),
+  pp102aux2  NUMBER(9),
+  pp102aux3  NUMBER(17),
+  pp102aux4  NUMBER(17),
+  pp102aux5  NUMBER(17),
+  pp102aux6  NUMBER(17),
+  pp102aux7  NUMBER(17),
+  pp102aux8  NUMBER(17),
+  pp102aux9  NUMBER(17),
+  pp102aux10 CHAR(30),
+  pp102aux11 CHAR(30),
+  pp102aux12 TIMESTAMP(6),
+  pp102aux13 TIMESTAMP(6),
+  pp102aux14 TIMESTAMP(6),
+  pp102aux15 CHAR(1),
+  pp102aux16 CHAR(1)
+)
+;
+create index FPP10202 on FPP102 (PP102COD, PP102MOD, PP102SUC, PP102MDA, PP102PAP, PP102CTA, PP102OPE, PP102SBO, PP102TOP);
+alter table FPP102
+  add primary key (PP102NCART, PP102COD, PP102MOD, PP102SUC, PP102MDA, PP102PAP, PP102CTA, PP102OPE, PP102SBO, PP102TOP);
+

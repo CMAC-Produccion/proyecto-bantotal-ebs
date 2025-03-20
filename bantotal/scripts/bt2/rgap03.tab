@@ -1,0 +1,19 @@
+create table RGAP03
+(
+  rgap03pgc NUMBER(3) not null,
+  rgap03suc NUMBER(3) not null,
+  rgap03mod NUMBER(4) not null,
+  rgap03cta NUMBER(9) not null,
+  rgap03mda NUMBER(4) not null,
+  rgap03pap NUMBER(4) not null,
+  rgap03sct NUMBER(3) not null,
+  rgap03ope NUMBER(9) not null,
+  rgap03top NUMBER(3) not null,
+  rgap03fua DATE,
+  rgap03mov NUMBER(4),
+  rgap03est NUMBER(1)
+)
+;
+alter table RGAP03
+  add primary key (RGAP03PGC, RGAP03SUC, RGAP03MOD, RGAP03CTA, RGAP03MDA, RGAP03PAP, RGAP03SCT, RGAP03OPE, RGAP03TOP);
+

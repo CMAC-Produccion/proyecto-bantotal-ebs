@@ -1,0 +1,22 @@
+create table FSFFAZ
+(
+  fsfe2emp  NUMBER(3) not null,
+  fsfe2fec  DATE not null,
+  fsfe2pais NUMBER(3) not null,
+  fsfe2tdoc NUMBER(2) not null,
+  fsfe2ndoc CHAR(12) not null,
+  fsfe2porc NUMBER(11,8),
+  fsfe2uni  NUMBER(17,8),
+  fsfe2bau1 CHAR(1),
+  fsfe2bau2 CHAR(1),
+  fsfe2bau3 CHAR(1),
+  fsfe2bau4 NUMBER(9),
+  fsfe2bau5 NUMBER(9),
+  fsfe2bau6 NUMBER(16),
+  fsfe2bau7 CHAR(30),
+  fsfe2bau8 DATE
+)
+;
+alter table FSFFAZ
+  add primary key (FSFE2EMP, FSFE2FEC, FSFE2PAIS, FSFE2TDOC, FSFE2NDOC);
+

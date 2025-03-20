@@ -1,0 +1,12 @@
+create table CACTYPMD
+(
+  cactypappid NUMBER(2) not null,
+  cactypid    NUMBER(10) not null,
+  camtappid   NUMBER(2) not null,
+  camtid      CHAR(30) not null
+)
+;
+create index ICACTYPMD1 on CACTYPMD (CAMTAPPID, CAMTID);
+alter table CACTYPMD
+  add primary key (CACTYPAPPID, CACTYPID, CAMTAPPID, CAMTID);
+

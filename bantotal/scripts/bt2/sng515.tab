@@ -1,0 +1,15 @@
+create table SNG515
+(
+  sng515cod  NUMBER(3) not null,
+  sng515emp  NUMBER(3) not null,
+  sng515desc CHAR(60),
+  sng515tipo NUMBER(2),
+  sng515fchi DATE,
+  sng515fchb DATE,
+  sng515exp  NUMBER(10),
+  sng515est  NUMBER(1)
+)
+;
+alter table SNG515
+  add primary key (SNG515COD, SNG515EMP);
+

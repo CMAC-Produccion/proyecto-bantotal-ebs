@@ -1,0 +1,17 @@
+create table AQPB884
+(
+  aqpb884user VARCHAR2(128),
+  aqpb884feho DATE,
+  aqpb884proc VARCHAR2(500)
+)
+;
+comment on table AQPB884
+  is 'Log Ejecución de procesos de depuracion PCI';
+comment on column AQPB884.aqpb884user
+  is 'Usuario ejecutor';
+comment on column AQPB884.aqpb884feho
+  is 'Fecha y hora de ejecución';
+comment on column AQPB884.aqpb884proc
+  is 'Procedimiento ejecutado';
+create index AQPB884A2 on AQPB884 (AQPB884FEHO);
+

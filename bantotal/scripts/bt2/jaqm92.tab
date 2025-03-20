@@ -1,0 +1,34 @@
+create table JAQM92
+(
+  jaqm92fech DATE not null,
+  jaqm92hor  CHAR(8) not null,
+  jaqm92anal CHAR(20),
+  jaqm92clie VARCHAR2(255),
+  jaqm92calp NUMBER(4),
+  jaqm92cal  VARCHAR2(100),
+  jaqm92seg  VARCHAR2(100),
+  jaqm92moca NUMBER(17,2),
+  jaqm92nu1  NUMBER(9),
+  jaqm92nu2  NUMBER(9),
+  jaqm92nu3  NUMBER(9),
+  jaqm92m1   NUMBER(17,2),
+  jaqm92m2   NUMBER(17,2),
+  jaqm92m3   NUMBER(17,2),
+  jaqm92chi1 CHAR(1),
+  jaqm92chi2 CHAR(1),
+  jaqm92chi3 CHAR(1),
+  jaqm92va1  VARCHAR2(255),
+  jaqm92va2  VARCHAR2(255),
+  jaqm92va3  VARCHAR2(255),
+  jaqm92fe1  DATE,
+  jaqm92fe2  DATE,
+  jaqm92fe3  DATE,
+  jaqm92pais NUMBER(3) not null,
+  jaqm92tdoc NUMBER(2) not null,
+  jaqm92ndoc CHAR(12) not null
+)
+;
+create index JAQM9202 on JAQM92 (JAQM92FECH, JAQM92ANAL);
+alter table JAQM92
+  add primary key (JAQM92FECH, JAQM92HOR, JAQM92PAIS, JAQM92TDOC, JAQM92NDOC);
+

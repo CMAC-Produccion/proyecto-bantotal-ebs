@@ -1,0 +1,75 @@
+create table JAQM3F
+(
+  jaqm3fcod NUMBER(3) not null,
+  jaqm3ffec DATE not null,
+  jaqm3fsuc NUMBER(3) not null,
+  jaqm3fcor NUMBER(3) not null,
+  jaqm3fjec CHAR(10),
+  jaqm3fest CHAR(1),
+  jaqm3ffei DATE,
+  jaqm3fusi CHAR(10),
+  jaqm3fhoi CHAR(8),
+  jaqm3fwki CHAR(12),
+  jaqm3fai1 NUMBER(17,2),
+  jaqm3fai2 NUMBER(17,2),
+  jaqm3fai3 NUMBER(17,2),
+  jaqm3fan1 NUMBER(9),
+  jaqm3fan2 NUMBER(9),
+  jaqm3fan3 NUMBER(9),
+  jaqm3fac1 VARCHAR2(255),
+  jaqm3fac2 VARCHAR2(255),
+  jaqm3fac3 VARCHAR2(255),
+  jaqm3faf1 DATE,
+  jaqm3faf2 DATE,
+  jaqm3faf3 DATE
+)
+;
+comment on table JAQM3F
+  is 'Cabecera preaprobación comités';
+comment on column JAQM3F.jaqm3fcod
+  is 'Empresa';
+comment on column JAQM3F.jaqm3ffec
+  is 'Fecha';
+comment on column JAQM3F.jaqm3fsuc
+  is 'Sucursal';
+comment on column JAQM3F.jaqm3fcor
+  is 'Correlativo';
+comment on column JAQM3F.jaqm3fjec
+  is 'Jefe de Comité';
+comment on column JAQM3F.jaqm3fest
+  is 'Estado';
+comment on column JAQM3F.jaqm3ffei
+  is 'Fecha de Ingreso';
+comment on column JAQM3F.jaqm3fusi
+  is 'Usuario de Ingreso';
+comment on column JAQM3F.jaqm3fhoi
+  is 'Hora de Ingreso';
+comment on column JAQM3F.jaqm3fwki
+  is 'WorkStation de Ingreso';
+comment on column JAQM3F.jaqm3fai1
+  is 'Auxiliar de Importe 1';
+comment on column JAQM3F.jaqm3fai2
+  is 'Auxiliar de Importe 2';
+comment on column JAQM3F.jaqm3fai3
+  is 'Auxiliar de Importe 3';
+comment on column JAQM3F.jaqm3fan1
+  is 'Auxiliar de Numerico 1';
+comment on column JAQM3F.jaqm3fan2
+  is 'Auxiliar de Numerico 2';
+comment on column JAQM3F.jaqm3fan3
+  is 'Auxiliar de Numerico 3';
+comment on column JAQM3F.jaqm3fac1
+  is 'Auxiliar de Caracter 1';
+comment on column JAQM3F.jaqm3fac2
+  is 'Auxiliar de Caracter 2';
+comment on column JAQM3F.jaqm3fac3
+  is 'Auxiliar de Caracter 3';
+comment on column JAQM3F.jaqm3faf1
+  is 'Auxiliar de Fecha 1';
+comment on column JAQM3F.jaqm3faf2
+  is 'Auxiliar de Fecha 2';
+comment on column JAQM3F.jaqm3faf3
+  is 'Auxiliar de Fecha 3';
+alter table JAQM3F
+  add primary key (JAQM3FCOD, JAQM3FFEC, JAQM3FSUC, JAQM3FCOR);
+

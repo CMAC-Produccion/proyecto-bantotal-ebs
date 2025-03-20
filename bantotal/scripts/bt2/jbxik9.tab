@@ -1,0 +1,36 @@
+create table JBXIK9
+(
+  jbxik9inf CHAR(10) not null,
+  jbxik9fec DATE not null,
+  jbxik9fin DATE not null,
+  jbxik9tif CHAR(1) not null,
+  jbxik9cta CHAR(4) not null,
+  jbxik9tit NUMBER(9) not null,
+  jbxik9ope CHAR(15) not null,
+  jbxik9pzo NUMBER(5) not null,
+  jbxik9cor NUMBER(9) not null,
+  jbxik9org NUMBER(2),
+  jbxik9tti NUMBER(2),
+  jbxik9gru CHAR(5),
+  jbxik9ent NUMBER(3),
+  jbxik9cas NUMBER(5),
+  jbxik9pes NUMBER(17,2),
+  jbxik9trn NUMBER(2),
+  jbxik9dol NUMBER(17,2),
+  jbxik9sdo NUMBER(17,2),
+  jbxik9sdx NUMBER(17,2),
+  jbxik9tno NUMBER(10,6),
+  jbxik9tta CHAR(2),
+  jbxik9mda CHAR(4),
+  jbxik9rub NUMBER(16),
+  jbxik9des CHAR(3),
+  jbxik9prv NUMBER(5),
+  jbxik9act CHAR(12),
+  jbxik9sit CHAR(4),
+  jbxik9tva CHAR(5),
+  jbxik9ult NUMBER(9)
+)
+;
+alter table JBXIK9
+  add primary key (JBXIK9INF, JBXIK9FEC, JBXIK9FIN, JBXIK9TIF, JBXIK9CTA, JBXIK9TIT, JBXIK9OPE, JBXIK9PZO, JBXIK9COR);
+

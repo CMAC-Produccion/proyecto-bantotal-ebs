@@ -1,0 +1,48 @@
+create table CNL070
+(
+  cnl000cod  NUMBER(4) not null,
+  cnl001adm  CHAR(30) not null,
+  cnl001usu  CHAR(30) not null,
+  cnl999tin  NUMBER(3) not null,
+  cnl069num  NUMBER(9) not null,
+  cnl070tra  NUMBER(9) not null,
+  cnl070lin  CHAR(255),
+  cnl070ref  NUMBER(9),
+  cnl070cta  CHAR(65),
+  cnl070treg NUMBER(1),
+  cnl070uno  NUMBER(1),
+  cnl070mde  NUMBER(4),
+  cnl070imp  NUMBER(17,2),
+  cnl070deb  NUMBER(17,2),
+  cnl070pgc  NUMBER(3),
+  cnl070suc  NUMBER(3),
+  cnl070mod  NUMBER(3),
+  cnl070mda  NUMBER(4),
+  cnl070pap  NUMBER(4),
+  cnl070cli  NUMBER(9),
+  cnl070op   NUMBER(9),
+  cnl070sbo  NUMBER(3),
+  cnl070top  NUMBER(3),
+  cnl070npr  CHAR(70),
+  cnl070pai  NUMBER(3),
+  cnl070tdo  NUMBER(2),
+  cnl070ndo  CHAR(12),
+  cnl070fac  CHAR(40),
+  cnl070vto  DATE,
+  cnl070us1  CHAR(30),
+  cnl070ac1  CHAR(10),
+  cnl070fe1  DATE,
+  cnl070us2  CHAR(30),
+  cnl070ac2  CHAR(10),
+  cnl070fe2  DATE,
+  cnl070apl  CHAR(30),
+  cnl070fap  DATE,
+  cnl070lit  NUMBER(9),
+  cnl070est  CHAR(1)
+)
+;
+create index CNL07003 on CNL070 (CNL000COD, CNL001ADM, CNL001USU, CNL070REF);
+create index CNL07004 on CNL070 (CNL000COD, CNL999TIN, CNL069NUM);
+alter table CNL070
+  add primary key (CNL000COD, CNL001ADM, CNL001USU, CNL999TIN, CNL069NUM, CNL070TRA);
+

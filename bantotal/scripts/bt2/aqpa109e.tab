@@ -1,0 +1,32 @@
+create table AQPA109E
+(
+  aqpa109etar NUMBER(9) not null,
+  aqpa109ecct NUMBER(9),
+  aqpa109emod NUMBER(3),
+  aqpa109etop NUMBER(3),
+  aqpa109emda NUMBER(4),
+  aqpa109eage NUMBER(3),
+  aqpa109etpr NUMBER(9),
+  aqpa109efer DATE,
+  aqpa109eusr CHAR(10),
+  aqpa109eagr NUMBER(3),
+  aqpa109efem DATE,
+  aqpa109eusm CHAR(10),
+  aqpa109eagm NUMBER(3),
+  aqpa109eax1 NUMBER(9),
+  aqpa109eax2 NUMBER(9),
+  aqpa109eax3 NUMBER(17,2),
+  aqpa109eax4 NUMBER(17,2),
+  aqpa109eax5 DATE,
+  aqpa109eax6 DATE,
+  aqpa109eax7 CHAR(100),
+  aqpa109eax8 CHAR(100),
+  aqpa109eax9 CHAR(100)
+)
+;
+create index AQPA109E2 on AQPA109E (AQPA109ECCT);
+create index AQPA109E3 on AQPA109E (AQPA109ETPR);
+create index AQPA109E4 on AQPA109E (AQPA109ECCT, AQPA109EMOD, AQPA109ETOP, AQPA109EMDA, AQPA109EAGE);
+alter table AQPA109E
+  add primary key (AQPA109ETAR);
+

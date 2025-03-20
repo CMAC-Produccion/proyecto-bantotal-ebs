@@ -1,0 +1,57 @@
+create table JAQM37
+(
+  jaqm37cui VARCHAR2(50) not null,
+  jaqm37cue CHAR(20),
+  jaqm37mod NUMBER(3),
+  jaqm37tra NUMBER(3),
+  jaqm37an1 NUMBER(9),
+  jaqm37an2 NUMBER(9),
+  jaqm37an3 NUMBER(9),
+  jaqm37ai1 NUMBER(17,2),
+  jaqm37ai2 NUMBER(17,2),
+  jaqm37ai3 NUMBER(17,2),
+  jaqm37ac1 CHAR(1),
+  jaqm37ac2 CHAR(1),
+  jaqm37ac3 CHAR(1),
+  jaqm37at1 VARCHAR2(255),
+  jaqm37at2 VARCHAR2(255),
+  jaqm37at3 VARCHAR2(255)
+)
+;
+comment on table JAQM37
+  is 'Configuración Transacción Control Documentario';
+comment on column JAQM37.jaqm37cui
+  is 'Código Unico Identificador';
+comment on column JAQM37.jaqm37cue
+  is 'Código Expediente Maestro JAQM20';
+comment on column JAQM37.jaqm37mod
+  is 'Módulo Operacion';
+comment on column JAQM37.jaqm37tra
+  is 'Transacción Operacion';
+comment on column JAQM37.jaqm37an1
+  is 'Auxiliar Númerico 1';
+comment on column JAQM37.jaqm37an2
+  is 'Auxilar Númerico 2';
+comment on column JAQM37.jaqm37an3
+  is 'Auxiliar Númerico 3';
+comment on column JAQM37.jaqm37ai1
+  is 'Auxiliar Importe 1';
+comment on column JAQM37.jaqm37ai2
+  is 'Auxiliar Importe 2';
+comment on column JAQM37.jaqm37ai3
+  is 'Auxiliar Importe 3';
+comment on column JAQM37.jaqm37ac1
+  is 'Auxiliar Caracter 1';
+comment on column JAQM37.jaqm37ac2
+  is 'Auxiliar Caracter 2';
+comment on column JAQM37.jaqm37ac3
+  is 'Auxiliar Caracter 3';
+comment on column JAQM37.jaqm37at1
+  is 'Auxiliar Texto 1';
+comment on column JAQM37.jaqm37at2
+  is 'Auxiliar Texto 2';
+comment on column JAQM37.jaqm37at3
+  is 'Auxiliar Texto 3';
+alter table JAQM37
+  add primary key (JAQM37CUI);
+

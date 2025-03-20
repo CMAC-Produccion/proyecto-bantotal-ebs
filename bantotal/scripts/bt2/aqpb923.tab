@@ -1,0 +1,73 @@
+create table AQPB923
+(
+  aqpb923cod  NUMBER(3),
+  aqpb923tsuc NUMBER(3),
+  aqpb923tmod NUMBER(3),
+  aqpb923tran NUMBER(3),
+  aqpb923nrel NUMBER(3),
+  aqpb923tord NUMBER(4),
+  aqpb923fcon DATE,
+  aqpb923flcl VARCHAR2(2),
+  aqpb923fimp VARCHAR2(2),
+  aqpb923doc  VARCHAR2(15),
+  aqpb923mod  NUMBER(5),
+  aqpb923suc  NUMBER(4),
+  aqpb923mda  NUMBER(4),
+  aqpb923pap  NUMBER(4),
+  aqpb923cta  NUMBER(9),
+  aqpb923ope  NUMBER(9),
+  aqpb923sbo  NUMBER(4),
+  aqpb923top  NUMBER(5),
+  aqpb923obs  VARCHAR2(1500),
+  aqpb923fec  DATE,
+  aqpb923hor  VARCHAR2(8),
+  aqpb923usr  VARCHAR2(10)
+)
+;
+comment on table AQPB923
+  is 'TABLA LOG DE IMPRESION DE VOUCHER';
+comment on column AQPB923.aqpb923cod
+  is 'Empresa';
+comment on column AQPB923.aqpb923tsuc
+  is 'Sucursal Transaccion';
+comment on column AQPB923.aqpb923tmod
+  is 'Modulo Transaccion';
+comment on column AQPB923.aqpb923tran
+  is 'Trasaccion';
+comment on column AQPB923.aqpb923nrel
+  is 'Relacional';
+comment on column AQPB923.aqpb923tord
+  is 'Ordinal';
+comment on column AQPB923.aqpb923fcon
+  is 'Fecha Contabilizacion';
+comment on column AQPB923.aqpb923flcl
+  is 'Flag de cancelacion total S/N';
+comment on column AQPB923.aqpb923fimp
+  is 'Flag de impresión S/N';
+comment on column AQPB923.aqpb923doc
+  is 'Documento';
+comment on column AQPB923.aqpb923mod
+  is 'Modulo';
+comment on column AQPB923.aqpb923suc
+  is 'Sucursal';
+comment on column AQPB923.aqpb923mda
+  is 'Moneda';
+comment on column AQPB923.aqpb923pap
+  is 'Papel';
+comment on column AQPB923.aqpb923cta
+  is 'Cuenta';
+comment on column AQPB923.aqpb923ope
+  is 'Operacion';
+comment on column AQPB923.aqpb923sbo
+  is 'Sub operacion';
+comment on column AQPB923.aqpb923top
+  is 'Tipo operacion';
+comment on column AQPB923.aqpb923fec
+  is 'Fecha registro';
+comment on column AQPB923.aqpb923hor
+  is 'Hora registro';
+comment on column AQPB923.aqpb923usr
+  is 'Usuario registro';
+create index AQPB923A2 on AQPB923 (AQPB923COD, AQPB923SUC, AQPB923MOD, AQPB923TRAN, AQPB923NREL, AQPB923FCON);
+create index AQPB923A3 on AQPB923 (AQPB923FEC, AQPB923HOR, AQPB923USR);
+

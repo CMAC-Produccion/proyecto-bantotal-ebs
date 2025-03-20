@@ -1,0 +1,20 @@
+create table JAQY144
+(
+  jaqy144corr   NUMBER(10) not null,
+  jaqy144pgcod  NUMBER(5) not null,
+  jaqy144mod    NUMBER(4) not null,
+  jaqy144suc    NUMBER(10) not null,
+  jaqy144mda    NUMBER(4) not null,
+  jaqy144pap    NUMBER(4) not null,
+  jaqy144cta    NUMBER(10) not null,
+  jaqy144ope    NUMBER(10) not null,
+  jaqy144sbop   NUMBER(10) not null,
+  jaqy144top    NUMBER(10) not null,
+  jaqy144fchpag DATE,
+  jaqy144fval   DATE
+)
+;
+create index JAQY144_IDX2 on JAQY144 (JAQY144PGCOD, JAQY144MOD, JAQY144SUC, JAQY144MDA, JAQY144PAP, JAQY144CTA, JAQY144OPE, JAQY144SBOP, JAQY144TOP);
+alter table JAQY144
+  add constraint JAQY144_IDX1 primary key (JAQY144CORR, JAQY144PGCOD, JAQY144MOD, JAQY144SUC, JAQY144MDA, JAQY144PAP, JAQY144CTA, JAQY144OPE, JAQY144SBOP, JAQY144TOP);
+

@@ -1,0 +1,16 @@
+create table FSD429
+(
+  vcosemp  NUMBER(3) not null,
+  vcosmod  NUMBER(3) not null,
+  vcoscod  NUMBER(3) not null,
+  vcoscta  NUMBER(9) not null,
+  vcossop  NUMBER(3) not null,
+  vcosmda  NUMBER(4) not null,
+  vcospap  NUMBER(4) not null,
+  vcosfdes DATE not null,
+  vcosfvto DATE
+)
+;
+alter table FSD429
+  add primary key (VCOSEMP, VCOSMOD, VCOSCOD, VCOSCTA, VCOSSOP, VCOSMDA, VCOSPAP, VCOSFDES);
+

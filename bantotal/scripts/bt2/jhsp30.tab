@@ -1,0 +1,16 @@
+create table JHSP30
+(
+  jhsp30fprc DATE not null,
+  jhsp30emp  NUMBER(3) not null,
+  jhsp30suc  NUMBER(3) not null,
+  jhsp30mod  NUMBER(3) not null,
+  jhsp30mda  NUMBER(4) not null,
+  jhsp30cta  NUMBER(9) not null,
+  jhsp30sbop NUMBER(3) not null,
+  jhsp30tope NUMBER(3) not null,
+  jhsp30imp  NUMBER(17,2),
+  jhsp30cc   NUMBER(3)
+)
+;
+create unique index JHSP3001 on JHSP30 (JHSP30FPRC, JHSP30EMP, JHSP30SUC, JHSP30MOD, JHSP30MDA, JHSP30CTA, JHSP30SBOP, JHSP30TOPE);
+

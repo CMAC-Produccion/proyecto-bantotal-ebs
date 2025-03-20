@@ -1,0 +1,22 @@
+create table FSFFB4
+(
+  fsfe4inf  NUMBER(5) not null,
+  fsfe4anio NUMBER(4) not null,
+  fsfe4n1c  NUMBER(3) not null,
+  fsfe4n2c  NUMBER(3) not null,
+  fsfe4n2d  CHAR(55),
+  fsfe4det2 CHAR(1),
+  fsfe4inv2 CHAR(1),
+  fsfe4bau1 CHAR(1),
+  fsfe4bau2 CHAR(1),
+  fsfe4bau3 CHAR(1),
+  fsfe4bau4 NUMBER(9),
+  fsfe4bau5 NUMBER(9),
+  fsfe4bau6 NUMBER(16),
+  fsfe4bau7 CHAR(30),
+  fsfe4bau8 DATE
+)
+;
+alter table FSFFB4
+  add primary key (FSFE4INF, FSFE4ANIO, FSFE4N1C, FSFE4N2C);
+

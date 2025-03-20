@@ -1,0 +1,22 @@
+create table TI0200
+(
+  typgcod   NUMBER(3) not null,
+  tyimpucod NUMBER(3) not null,
+  tydimcorr NUMBER(3) not null,
+  tydcai    NUMBER(3) not null,
+  tydsuc    NUMBER(3) not null,
+  tydpzo    NUMBER(5) not null,
+  tydmod    NUMBER(3) not null,
+  tydtope   NUMBER(3) not null,
+  tydcodact NUMBER(9) not null,
+  tycai     NUMBER(3),
+  tysuc     NUMBER(3),
+  typzo     NUMBER(5),
+  tymod     NUMBER(3),
+  tytope    NUMBER(3),
+  tycodact  NUMBER(9)
+)
+;
+alter table TI0200
+  add primary key (TYPGCOD, TYIMPUCOD, TYDIMCORR, TYDCAI, TYDSUC, TYDPZO, TYDMOD, TYDTOPE, TYDCODACT);
+

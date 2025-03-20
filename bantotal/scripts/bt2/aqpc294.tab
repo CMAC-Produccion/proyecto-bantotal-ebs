@@ -1,0 +1,21 @@
+create table AQPC294
+(
+  aqpc294codreg NUMBER(3) not null,
+  aqpc294codzon NUMBER(3) not null,
+  aqpc294codsuc NUMBER(3) not null,
+  aqpc294nomsuc VARCHAR2(60)
+)
+;
+comment on table AQPC294
+  is 'Lista de Sucursales';
+comment on column AQPC294.aqpc294codreg
+  is 'Codigo Region';
+comment on column AQPC294.aqpc294codzon
+  is 'Codigo Zona';
+comment on column AQPC294.aqpc294codsuc
+  is 'Codigo Sucursal';
+comment on column AQPC294.aqpc294nomsuc
+  is 'Nombre Sucursal';
+alter table AQPC294
+  add primary key (AQPC294CODREG, AQPC294CODZON, AQPC294CODSUC);
+

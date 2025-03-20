@@ -1,0 +1,16 @@
+create table FSER03
+(
+  fser03pais NUMBER(3) not null,
+  fser03tdoc NUMBER(2) not null,
+  fser03ndoc CHAR(25) not null,
+  fser03noco CHAR(50),
+  fser03paco NUMBER(3),
+  fser03aux  DATE,
+  fser03aux1 NUMBER(10),
+  fser03aux2 CHAR(70),
+  fser03aux3 NUMBER(17,2)
+)
+;
+alter table FSER03
+  add primary key (FSER03PAIS, FSER03TDOC, FSER03NDOC);
+

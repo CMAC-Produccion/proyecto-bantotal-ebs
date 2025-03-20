@@ -1,0 +1,13 @@
+create table AQPB112
+(
+  aqpb112copsv NUMBER(10) not null,
+  aqpb112pefac VARCHAR2(10) not null,
+  aqpb112nudoc VARCHAR2(20) not null,
+  aqpb112mocob NUMBER(11,2),
+  aqpb112esreg CHAR(1),
+  aqpb112esenv CHAR(1)
+)
+;
+alter table AQPB112
+  add primary key (AQPB112COPSV, AQPB112PEFAC, AQPB112NUDOC);
+

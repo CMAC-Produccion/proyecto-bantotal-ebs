@@ -1,0 +1,28 @@
+create table JHSI10
+(
+  jhsi10falt DATE not null,
+  jhsi10corr NUMBER(9) not null,
+  jhsi10ncta NUMBER(9),
+  jhsi10nomc CHAR(30),
+  jhsi10cov  CHAR(1),
+  jhsi10tc   NUMBER(17,6),
+  jhsi10mdao NUMBER(4),
+  jhsi10mtoo NUMBER(17,2),
+  jhsi10mtod NUMBER(17,2),
+  jhsi10fvig DATE,
+  jhsi10come CHAR(65),
+  jhsi10co2  CHAR(65),
+  jhsi10co3  CHAR(65),
+  jhsi10esta NUMBER(1),
+  jhsi10pgco NUMBER(3),
+  jhsi10itsu NUMBER(3),
+  jhsi10itmo NUMBER(3),
+  jhsi10ittr NUMBER(3),
+  jhsi10itne NUMBER(4),
+  jhsi10user CHAR(10),
+  jhsi10fcon DATE
+)
+;
+create unique index JHSI1001 on JHSI10 (JHSI10FALT, JHSI10CORR);
+create index JHSI1002 on JHSI10 (JHSI10PGCO, JHSI10ITSU, JHSI10ITMO, JHSI10ITTR, JHSI10ITNE, JHSI10FCON);
+

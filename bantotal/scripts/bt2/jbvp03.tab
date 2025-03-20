@@ -1,0 +1,14 @@
+create table JBVP03
+(
+  jbvp03emp NUMBER(3) not null,
+  jbvp03ped NUMBER(10) not null,
+  jbvp03no1 CHAR(40),
+  jbvp03no2 CHAR(40),
+  jbvp03no3 CHAR(40),
+  jbvp03ax1 NUMBER(9),
+  jbvp03ax2 DATE,
+  jbvp03ax3 CHAR(40)
+)
+;
+create unique index JBVP0301 on JBVP03 (JBVP03EMP, JBVP03PED);
+

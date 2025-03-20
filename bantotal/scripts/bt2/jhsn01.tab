@@ -1,0 +1,11 @@
+create table JHSN01
+(
+  jhsn01rubn NUMBER(16) not null,
+  jhsn01nomr CHAR(40),
+  jhsn01impu CHAR(1),
+  jhsn01ruba NUMBER(16)
+)
+;
+create unique index JHSN0101 on JHSN01 (JHSN01RUBN);
+create index JHSN0102 on JHSN01 (JHSN01RUBA);
+

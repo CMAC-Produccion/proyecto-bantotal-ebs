@@ -1,0 +1,16 @@
+create table JAQL510
+(
+  jaql508coent NUMBER(3) not null,
+  jaql509cotse NUMBER(3) not null,
+  jaql510corre NUMBER(3) not null,
+  jaql510desde NUMBER(12),
+  jaql510hasta NUMBER(12),
+  jaql510monto NUMBER(11,2),
+  jaql510porce NUMBER(11,4),
+  jaql510esran CHAR(1)
+)
+;
+create index JAQL51003 on JAQL510 (JAQL510CORRE);
+alter table JAQL510
+  add primary key (JAQL508COENT, JAQL509COTSE, JAQL510CORRE);
+

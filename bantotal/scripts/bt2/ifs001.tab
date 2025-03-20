@@ -1,0 +1,14 @@
+create table IFS001
+(
+  ifs001pan CHAR(10) not null,
+  ifs001pnw CHAR(10) not null,
+  ifs001dsc CHAR(40),
+  ifs001niv NUMBER(4),
+  ifs001tip CHAR(1),
+  ifs001for CHAR(1),
+  ifs001pos NUMBER(2)
+)
+;
+alter table IFS001
+  add primary key (IFS001PAN, IFS001PNW);
+

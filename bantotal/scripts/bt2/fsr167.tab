@@ -1,0 +1,31 @@
+create table FSR167
+(
+  paqempb   NUMBER(3) not null,
+  paqctab   NUMBER(9) not null,
+  paqcodb   NUMBER(3) not null,
+  paqcorrb  NUMBER(2) not null,
+  paqfchb   DATE not null,
+  arprodb   NUMBER(3) not null,
+  prodcorb  NUMBER(2) not null,
+  modprodb  NUMBER(3),
+  mdaprodb  NUMBER(4),
+  papprodb  NUMBER(4),
+  ctaprodb  NUMBER(9),
+  sucprodb  NUMBER(3),
+  opeprodb  NUMBER(9),
+  sboprodb  NUMBER(3),
+  tpoprodb  NUMBER(3),
+  ctrmovlb  NUMBER(3),
+  ntrjprodb CHAR(20),
+  strjprodb NUMBER(12),
+  ftrjvtob  DATE,
+  ftrjauxb  DATE,
+  trjaux1b  CHAR(1),
+  trjaux2b  NUMBER(9)
+)
+;
+create index FSR16703 on FSR167 (PAQEMPB, PAQCTAB, PAQCODB, PAQCORRB, ARPRODB, PRODCORB);
+create index FSR16704 on FSR167 (PAQEMPB, PAQFCHB, PAQCODB, PAQCTAB, ARPRODB);
+alter table FSR167
+  add primary key (PAQEMPB, PAQCTAB, PAQCODB, PAQCORRB, PAQFCHB, ARPRODB, PRODCORB);
+

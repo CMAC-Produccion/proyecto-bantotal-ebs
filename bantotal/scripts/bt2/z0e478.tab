@@ -1,0 +1,94 @@
+create table Z0E478
+(
+  z0e478nro CHAR(19) not null,
+  z0e478tip CHAR(1),
+  z0e478suc NUMBER(3),
+  z0e478cte NUMBER(9),
+  z0e478ctt NUMBER(9),
+  z0e478thp NUMBER(3),
+  z0e478tht NUMBER(2),
+  z0e478thd CHAR(12),
+  z0e478cdo NUMBER(2),
+  z0e468cod CHAR(1),
+  z0e469cod CHAR(3),
+  z0e462cod NUMBER(2),
+  z0e461cod CHAR(3),
+  z0e465cod NUMBER(2),
+  z0e478pes NUMBER(7,2),
+  z0e478nom CHAR(24),
+  z0e478lin CHAR(24),
+  z0e466cod NUMBER(3),
+  z0e477cod NUMBER(3),
+  z0e478tcd CHAR(1),
+  z0e478ctd CHAR(19),
+  z0e478dsu NUMBER(3),
+  z0e478dcd NUMBER(9),
+  z0e478dsc NUMBER(3),
+  z0e478dmo NUMBER(3),
+  z0e478dmn NUMBER(4),
+  z0e478dpa NUMBER(4),
+  z0e478dto NUMBER(3),
+  z0e478dop NUMBER(9),
+  z0e478nr1 NUMBER(9),
+  z0e478nr2 NUMBER(9),
+  z0e463cod NUMBER(1),
+  z0e478fmd DATE,
+  z0e478umd CHAR(10),
+  z0e478fau DATE,
+  z0e478uau CHAR(10),
+  z0e478est CHAR(2),
+  z0e478tnv CHAR(3),
+  z0e478csa NUMBER(3),
+  z0e478pla CHAR(15),
+  z0e478pls NUMBER(3),
+  z0e478pgc NUMBER(3),
+  z0e478res CHAR(1),
+  z0e478aut CHAR(1),
+  z0e478usr CHAR(10),
+  z0e478fuu DATE,
+  z0e478fep DATE,
+  z0e478frp DATE,
+  z0e478ceo CHAR(3),
+  z0e478fal DATE,
+  z0e478fbj DATE,
+  z0e478hba CHAR(1),
+  z0e478fah DATE,
+  z0e478fph DATE,
+  z0e478fuh DATE,
+  z0e478tti CHAR(19),
+  z0e478adi CHAR(1),
+  z0e478cli NUMBER(3),
+  z0e478fvt DATE,
+  z0e478can NUMBER(5),
+  z0e478lex NUMBER(3),
+  z0e478seg CHAR(1),
+  z0e478fas DATE,
+  z0e478fbs DATE,
+  z0e478sde NUMBER(3)
+)
+;
+create index Z0E47802 on Z0E478 (Z0E463COD);
+create index Z0E47803 on Z0E478 (Z0E477COD);
+create index Z0E47804 on Z0E478 (Z0E466COD);
+create index Z0E47805 on Z0E478 (Z0E465COD);
+create index Z0E47806 on Z0E478 (Z0E461COD);
+create index Z0E47807 on Z0E478 (Z0E462COD);
+create index Z0E47808 on Z0E478 (Z0E469COD);
+create index Z0E47809 on Z0E478 (Z0E468COD);
+create index Z0E47810 on Z0E478 (Z0E478PLA, Z0E478FEP);
+create index Z0E47811 on Z0E478 (Z0E478FEP, Z0E478PLA);
+create index Z0E47812 on Z0E478 (Z0E478DSU, Z0E478DCD, Z0E478DMO, Z0E478DMN, Z0E478DPA, Z0E478DSC, Z0E478DOP, Z0E478DTO);
+create index Z0E47813 on Z0E478 (Z0E478CTE, Z0E478TIP);
+create index Z0E47814 on Z0E478 (Z0E478SUC, Z0E478THP, Z0E478THT, Z0E478THD, Z0E478NRO);
+create index Z0E47815 on Z0E478 (Z0E478SUC, Z0E478NRO);
+create index Z0E47816 on Z0E478 (Z0E478SUC, Z0E466COD, Z0E463COD);
+create index Z0E47817 on Z0E478 (Z0E478PLA, Z0E478EST, Z0E478DCD);
+create index Z0E47818 on Z0E478 (Z0E478PLA, Z0E478EST, Z0E478NRO);
+create index Z0E47819 on Z0E478 (Z0E478PLA, Z0E478EST, Z0E478NOM);
+create index Z0E47820 on Z0E478 (Z0E478NOM);
+create index Z0E47821 on Z0E478 (Z0E478THP, Z0E478THT, Z0E478THD);
+create index Z0E47822 on Z0E478 (Z0E478CAN);
+create index Z0E47823 on Z0E478 (Z0E478SEG, Z0E463COD, Z0E478EST);
+alter table Z0E478
+  add primary key (Z0E478NRO);
+

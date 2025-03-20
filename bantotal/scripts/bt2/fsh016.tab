@@ -1,0 +1,85 @@
+create table FSH016
+(
+  pgcod    NUMBER(3) not null,
+  hcmod    NUMBER(3) not null,
+  hsucor   NUMBER(3) not null,
+  htran    NUMBER(3) not null,
+  hnrel    NUMBER(4) not null,
+  hfcon    DATE not null,
+  hcord    NUMBER(2) not null,
+  hcsubo   NUMBER(3) not null,
+  hmodul   NUMBER(3),
+  htoper   NUMBER(3),
+  hsucur   NUMBER(3),
+  hrubro   NUMBER(16),
+  hmda     NUMBER(4),
+  hpap     NUMBER(4),
+  hcta     NUMBER(9),
+  hoper    NUMBER(9),
+  hsubop   NUMBER(3),
+  hfval    DATE,
+  hfvto    DATE,
+  hcpzo    NUMBER(5),
+  hcper    NUMBER(5),
+  hcttas   NUMBER(1),
+  hctasa   NUMBER(10,6),
+  hctmor   NUMBER(10,6),
+  hctdia   NUMBER(1),
+  hctvto   CHAR(1),
+  hctano   NUMBER(1),
+  hctint   CHAR(1),
+  hcarb    NUMBER(14,8),
+  hcarb1   NUMBER(14,8),
+  hctcbi   NUMBER(14,8),
+  hctcbi1  NUMBER(14,8),
+  hcmd     CHAR(1),
+  hcmd1    CHAR(1),
+  hcpre    NUMBER(14,8),
+  hcpre1   NUMBER(14,8),
+  hcdrev   NUMBER(5),
+  hcafiv   CHAR(1),
+  hcafgt   CHAR(1),
+  hcplus   NUMBER(10,6),
+  hcmcod   NUMBER(3),
+  hcser    CHAR(1),
+  hccheq   NUMBER(9),
+  hcimp1   NUMBER(17,2),
+  hcimp2   NUMBER(17,2),
+  hcimp3   NUMBER(17,2),
+  hcimp4   NUMBER(17,2),
+  hcimp5   NUMBER(17,2),
+  hcimp6   NUMBER(17,2),
+  hcimpo   NUMBER(17,2),
+  hcmdao   NUMBER(4),
+  hcodmo   NUMBER(1),
+  hcncor   NUMBER(9),
+  hcbbtt   CHAR(1),
+  hfunc    NUMBER(2),
+  hsegm    NUMBER(2),
+  hccos    NUMBER(3),
+  hccbcu   NUMBER(3),
+  hcccli   NUMBER(4),
+  hcref    CHAR(18),
+  hfvco    DATE,
+  hdepur   CHAR(1),
+  hlist    CHAR(1),
+  hccltcod NUMBER(2)
+)
+;
+create unique index FSH01600 on FSH016 (PGCOD, HCMOD, HSUCOR, HTRAN, HNREL, HFCON, HCORD, HCSUBO);
+create index FSH01603 on FSH016 (PGCOD, HCTA);
+create index FSH01605 on FSH016 (HRUBRO);
+create index FSH01606 on FSH016 (HMDA);
+create index FSH01607 on FSH016 (HPAP);
+create index FSH01608 on FSH016 (PGCOD, HSUCUR, HRUBRO, HMDA, HPAP, HFVCO);
+create index FSH01609 on FSH016 (PGCOD, HSUCUR, HRUBRO, HMDA, HPAP, HCTA, HFVCO);
+create index FSH01610 on FSH016 (PGCOD, HSUCUR, HMODUL, HMDA, HPAP, HCTA, HOPER, HSUBOP, HTOPER, HFVAL);
+create index FSH01611 on FSH016 (PGCOD, HSUCUR, HRUBRO, HFVCO);
+create index FSH01612 on FSH016 (PGCOD, HSUCUR, HMODUL, HMDA, HPAP, HCTA, HOPER, HSUBOP, HTOPER, HFVCO);
+create index FSH01613 on FSH016 (PGCOD, HMODUL, HOPER, HSUBOP, HTRAN);
+create index FSH01614 on FSH016 (PGCOD, HSUCUR, HRUBRO, HMDA, HCTA, HOPER, HSUBOP, HFCON);
+create index FSH01615 on FSH016 (PGCOD, HRUBRO, HMDA, HPAP, HFVCO);
+create index FSH01616 on FSH016 (PGCOD, HRUBRO, HMDA, HPAP, HCTA, HFVCO);
+alter table FSH016
+  add constraint FSH016_PK_3 primary key (PGCOD, HCMOD, HSUCOR, HTRAN, HNREL, HFCON, HCORD, HCSUBO);
+

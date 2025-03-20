@@ -1,0 +1,20 @@
+create table JAQY052
+(
+  jaqy051pano NUMBER(4) not null,
+  jaqy051pmes NUMBER(2) not null,
+  jaqy051corr NUMBER(15) not null,
+  jaqy052corr NUMBER(15) not null,
+  jaqy052pais NUMBER(3),
+  jaqy052tdoc NUMBER(2),
+  jaqy052ndoc CHAR(12),
+  jaqy052npro NUMBER(4),
+  jaqy052erel NUMBER(4),
+  jaqy052esre VARCHAR2(1)
+)
+;
+create index IJAQY052001 on JAQY052 (JAQY052PAIS, JAQY052TDOC, JAQY052NDOC);
+create index IJAQY05211 on JAQY052 (JAQY051CORR);
+create index IJAQY052111 on JAQY052 (JAQY052CORR);
+alter table JAQY052
+  add primary key (JAQY051PANO, JAQY051PMES, JAQY051CORR, JAQY052CORR);
+

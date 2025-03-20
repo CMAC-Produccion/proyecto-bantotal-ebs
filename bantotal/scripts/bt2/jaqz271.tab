@@ -1,0 +1,25 @@
+create table JAQZ271
+(
+  jaqz271inst   NUMBER(10) not null,
+  jaqz271con    CHAR(1),
+  jaqz271cta    NUMBER(9),
+  jaqz271ope    NUMBER(9),
+  jaqz271fgen   DATE,
+  jaqz271hgen   CHAR(8),
+  jaqz271suc    NUMBER(3),
+  jaqz271pais   NUMBER(3),
+  jaqz271tdoc   NUMBER(2),
+  jaqz271ndoc   CHAR(12),
+  jaqz271ana    CHAR(10),
+  jaqz271usuban CHAR(10),
+  jaqz271opi    CHAR(2),
+  jaqz271ususel CHAR(10),
+  jaqz271fecsel DATE,
+  jaqz271usulib CHAR(10),
+  jaqz271feclib DATE not null
+)
+;
+create index JAQZ271_INX01 on JAQZ271 (JAQZ271INST);
+alter table JAQZ271
+  add primary key (JAQZ271INST, JAQZ271FECLIB);
+

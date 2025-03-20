@@ -1,0 +1,43 @@
+create table AQPC318
+(
+  aqpc318id     NUMBER(10) not null,
+  aqpc318metodo VARCHAR2(30),
+  aqpc318fecreg DATE,
+  aqpc318horreg VARCHAR2(8),
+  aqpc318tmpeje VARCHAR2(10),
+  aqpc318coderr VARCHAR2(5),
+  aqpc318msjerr VARCHAR2(250),
+  aqpc318trmreq VARCHAR2(2000),
+  aqpc318trmres VARCHAR2(2000),
+  aqpc318codusr CHAR(10),
+  aqpc318pgmcal CHAR(10)
+)
+;
+comment on table AQPC318
+  is 'Log Sign On, Sign Off - SIX/STI';
+comment on column AQPC318.aqpc318id
+  is 'Id / Correlativo';
+comment on column AQPC318.aqpc318metodo
+  is 'Metodo';
+comment on column AQPC318.aqpc318fecreg
+  is 'Fecha Registro';
+comment on column AQPC318.aqpc318horreg
+  is 'Hora Registro';
+comment on column AQPC318.aqpc318tmpeje
+  is 'Tiempo de ejecución';
+comment on column AQPC318.aqpc318coderr
+  is 'Codigo Error';
+comment on column AQPC318.aqpc318msjerr
+  is 'Mensaje Error';
+comment on column AQPC318.aqpc318trmreq
+  is 'Trama Request';
+comment on column AQPC318.aqpc318trmres
+  is 'Trama Response';
+comment on column AQPC318.aqpc318codusr
+  is 'Código Usuario';
+comment on column AQPC318.aqpc318pgmcal
+  is 'Programa Ejecución';
+create index AQPC318A2 on AQPC318 (AQPC318FECREG);
+alter table AQPC318
+  add primary key (AQPC318ID);
+

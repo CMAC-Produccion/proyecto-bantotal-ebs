@@ -1,0 +1,64 @@
+create table JAQM54
+(
+  jaqm54cop  CHAR(50) not null,
+  jaqm54pai  NUMBER(3) not null,
+  jaqm54tdoc NUMBER(2) not null,
+  jaqm54ndoc CHAR(12) not null,
+  jaqm54nom  VARCHAR2(200),
+  jaqm54car  CHAR(50),
+  jaqm54an1  NUMBER(9),
+  jaqm54an2  NUMBER(9),
+  jaqm54an3  NUMBER(9),
+  jaqm54ac1  VARCHAR2(255),
+  jaqm54ac2  VARCHAR2(255),
+  jaqm54ac3  VARCHAR2(255),
+  jaqm54af1  DATE,
+  jaqm54af2  DATE,
+  jaqm54af3  DATE,
+  jaqm54ai1  NUMBER(17,2),
+  jaqm54ai2  NUMBER(17,2),
+  jaqm54ai3  NUMBER(17,2)
+)
+;
+comment on table JAQM54
+  is 'Módulo de Poderes Tabla de Apoderado ';
+comment on column JAQM54.jaqm54cop
+  is 'Código de Proceso';
+comment on column JAQM54.jaqm54pai
+  is 'País';
+comment on column JAQM54.jaqm54tdoc
+  is 'Tipo de documento del apoderado';
+comment on column JAQM54.jaqm54ndoc
+  is 'Nro de documento del apoderado';
+comment on column JAQM54.jaqm54nom
+  is 'Nombre del apoderado';
+comment on column JAQM54.jaqm54car
+  is 'Cargo del apoderado';
+comment on column JAQM54.jaqm54an1
+  is 'Auxiliar numérico 1';
+comment on column JAQM54.jaqm54an2
+  is 'Auxiliar numérico 2';
+comment on column JAQM54.jaqm54an3
+  is 'Auxiliar numérico 3';
+comment on column JAQM54.jaqm54ac1
+  is 'Auxiliar caracter 1';
+comment on column JAQM54.jaqm54ac2
+  is 'Auxiliar caracter 2';
+comment on column JAQM54.jaqm54ac3
+  is 'Auxiliar caracter 3';
+comment on column JAQM54.jaqm54af1
+  is 'Auxiliar fecha 1';
+comment on column JAQM54.jaqm54af2
+  is 'Auxiliar fecha 2';
+comment on column JAQM54.jaqm54af3
+  is 'Auxiliar fecha 3';
+comment on column JAQM54.jaqm54ai1
+  is 'Auxiliar importe 1';
+comment on column JAQM54.jaqm54ai2
+  is 'Auxiliar importe 2';
+comment on column JAQM54.jaqm54ai3
+  is 'Auxiliar importe 3';
+create index JAQM54A2 on JAQM54 (JAQM54PAI, JAQM54TDOC, JAQM54NDOC);
+alter table JAQM54
+  add primary key (JAQM54COP, JAQM54PAI, JAQM54TDOC, JAQM54NDOC);
+

@@ -1,0 +1,19 @@
+create table JAQZ456I
+(
+  jaqz456ipai NUMBER(3) not null,
+  jaqz456itdo NUMBER(2) not null,
+  jaqz456idoc CHAR(12) not null,
+  jaqz456iins NUMBER(10),
+  jaqz456ifec DATE not null,
+  jaqz456imod NUMBER(3),
+  jaqz456itop NUMBER(3),
+  jaqz456imda NUMBER(4),
+  jaqz456iite NUMBER(10),
+  jaqz456ipro NUMBER(4) not null,
+  jaqz456iusu CHAR(10) not null,
+  jaqz456ihor CHAR(8) not null
+)
+;
+alter table JAQZ456I
+  add primary key (JAQZ456IPAI, JAQZ456ITDO, JAQZ456IDOC, JAQZ456IFEC, JAQZ456IHOR, JAQZ456IPRO, JAQZ456IUSU);
+

@@ -1,0 +1,49 @@
+create table FSD011_LOG
+(
+  pgcod  NUMBER(3) not null,
+  scsuc  NUMBER(3) not null,
+  scrub  NUMBER(16) not null,
+  scmda  NUMBER(4) not null,
+  scpap  NUMBER(4) not null,
+  sccta  NUMBER(9) not null,
+  scoper NUMBER(9) not null,
+  scsbop NUMBER(3) not null,
+  sctope NUMBER(3) not null,
+  scsdo  NUMBER(17,2),
+  scstat NUMBER(2),
+  estado NUMBER,
+  tipo   VARCHAR2(10),
+  fecpro DATE
+)
+;
+comment on table FSD011_LOG
+  is 'LOG FSD001 de proceso SP_PARCHE_TIPIFICA';
+comment on column FSD011_LOG.pgcod
+  is 'PGCOD ';
+comment on column FSD011_LOG.scsuc
+  is 'SCSUC ';
+comment on column FSD011_LOG.scrub
+  is 'SCRUB ';
+comment on column FSD011_LOG.scmda
+  is 'SCMDA ';
+comment on column FSD011_LOG.scpap
+  is 'SCPAP ';
+comment on column FSD011_LOG.sccta
+  is 'SCCTA ';
+comment on column FSD011_LOG.scoper
+  is 'SCOPER';
+comment on column FSD011_LOG.scsbop
+  is 'SCSBOP';
+comment on column FSD011_LOG.sctope
+  is 'SCTOPE';
+comment on column FSD011_LOG.scsdo
+  is 'SCSDO ';
+comment on column FSD011_LOG.scstat
+  is 'SCSTAT';
+comment on column FSD011_LOG.estado
+  is 'ESTADO';
+comment on column FSD011_LOG.tipo
+  is 'TIPO  ';
+comment on column FSD011_LOG.fecpro
+  is 'FECPRO';
+

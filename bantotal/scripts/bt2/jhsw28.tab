@@ -1,0 +1,42 @@
+create table JHSW28
+(
+  jhsw28id   CHAR(20) not null,
+  jhsw28tipo CHAR(1) not null,
+  jhsw28sbid NUMBER(4) not null,
+  jhsw28dt   DATE,
+  jhsw28usr  CHAR(20),
+  jhsw28sec  CHAR(20),
+  jhsw28prod CHAR(20),
+  jhsw28ape1 CHAR(30),
+  jhsw28ape2 CHAR(30),
+  jhsw28nom  CHAR(30),
+  jhsw28tdoc CHAR(5),
+  jhsw28ndoc CHAR(12),
+  jhsw28rsoc CHAR(20),
+  jhsw28dir  CHAR(200),
+  jhsw28ubg  CHAR(6),
+  jhsw28tlf  CHAR(20),
+  jhsw28uprx CHAR(100),
+  jhsw28msg  CHAR(100),
+  jhsw28vnm  CHAR(100),
+  jhsw28vdir CHAR(200),
+  jhsw28vfh  CHAR(10),
+  jhsw28vrc  CHAR(1),
+  jhsw28vt   DATE,
+  jhsw28sflg CHAR(1),
+  jhsw28res  CHAR(30),
+  jhsw28t    DATE,
+  jhsw28rnom CHAR(100),
+  jhsw28rtip CHAR(20),
+  jhsw28rdir CHAR(200),
+  jhsw28rubg CHAR(6),
+  jhsw28rest CHAR(30),
+  jhsw28rhab CHAR(3),
+  jhsw28rt   DATE,
+  jhsw28sts  CHAR(5)
+)
+;
+create index JHSS2802 on JHSW28 (JHSW28STS);
+alter table JHSW28
+  add primary key (JHSW28ID, JHSW28TIPO, JHSW28SBID);
+

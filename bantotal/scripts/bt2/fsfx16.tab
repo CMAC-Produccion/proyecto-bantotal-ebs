@@ -1,0 +1,19 @@
+create table FSFX16
+(
+  sfx16num NUMBER(15) not null,
+  sfx16aga CHAR(50) not null,
+  sfx16pr1 NUMBER(14,8),
+  sfx16pr2 NUMBER(14,8),
+  sfx16fec DATE,
+  sfx16hor CHAR(8),
+  sfx16ax1 CHAR(70),
+  sfx16ax2 CHAR(70),
+  sfx16ax3 CHAR(70),
+  sfx16ax4 CHAR(70),
+  sfx16ax5 NUMBER(18),
+  sfx16ax6 NUMBER(18)
+)
+;
+alter table FSFX16
+  add primary key (SFX16NUM, SFX16AGA);
+

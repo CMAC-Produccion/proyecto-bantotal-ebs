@@ -1,0 +1,19 @@
+create table FBC021
+(
+  exliemp  NUMBER(3) not null,
+  exlipais NUMBER(3) not null,
+  exlitdoc NUMBER(2) not null,
+  exlindoc CHAR(12) not null,
+  exlinom  CHAR(30),
+  exlitipo CHAR(20),
+  exlisdo  NUMBER(17,2),
+  exlilim  NUMBER(17,2),
+  exliexc  NUMBER(17,2),
+  exligar  NUMBER(17,2),
+  exlirub  NUMBER(16),
+  exlidesc CHAR(40)
+)
+;
+alter table FBC021
+  add primary key (EXLIEMP, EXLIPAIS, EXLITDOC, EXLINDOC);
+

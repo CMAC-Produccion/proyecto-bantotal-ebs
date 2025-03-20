@@ -1,0 +1,14 @@
+create table JFAW118
+(
+  jfaw118lot NUMBER(9) not null,
+  jfaw118cor NUMBER(9) not null,
+  jfaw118ins NUMBER(10),
+  jfaw118wit NUMBER(10),
+  jfaw118est NUMBER(2)
+)
+;
+create index JFAW1182 on JFAW118 (JFAW118INS);
+create index JFAW1183 on JFAW118 (JFAW118WIT);
+alter table JFAW118
+  add primary key (JFAW118LOT, JFAW118COR);
+

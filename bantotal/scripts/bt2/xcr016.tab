@@ -1,0 +1,21 @@
+create table XCR016
+(
+  xcrhemp    NUMBER(3) not null,
+  xcrhnumtra CHAR(16) not null,
+  xcrhcta    NUMBER(9) not null,
+  xcrhsbop   NUMBER(3) not null,
+  xcrhmda    NUMBER(4) not null,
+  xcrhstatnu NUMBER(5) not null,
+  xcrhstatse NUMBER(5) not null,
+  xcrhorigen CHAR(2) not null,
+  xcrhfecha  DATE not null,
+  xcrhlinea  NUMBER(5) not null,
+  xcrhcortxt NUMBER(5) not null,
+  xcrhfch    DATE,
+  xcrhusr    CHAR(10),
+  xcrhtxt    CHAR(65)
+)
+;
+alter table XCR016
+  add primary key (XCRHEMP, XCRHNUMTRA, XCRHCTA, XCRHSBOP, XCRHMDA, XCRHSTATNU, XCRHSTATSE, XCRHORIGEN, XCRHFECHA, XCRHLINEA, XCRHCORTXT);
+

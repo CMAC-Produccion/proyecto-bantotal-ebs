@@ -1,0 +1,26 @@
+create table FPP104
+(
+  pp104ncart NUMBER(4) not null,
+  pp104tipof NUMBER(2) not null,
+  pp104corr  NUMBER(4) not null,
+  pp104val1  CHAR(20),
+  pp104val2  CHAR(20),
+  pp104val3  CHAR(20),
+  pp104val4  CHAR(20),
+  pp104cond1 CHAR(5),
+  pp104cond2 CHAR(5),
+  pp104aux1  NUMBER(9),
+  pp104aux2  CHAR(20),
+  pp104aux3  CHAR(20),
+  pp104aux4  CHAR(20),
+  pp104aux5  CHAR(20),
+  pp104aux6  TIMESTAMP(6),
+  pp104aux7  TIMESTAMP(6),
+  pp104aux8  TIMESTAMP(6),
+  pp104aux9  NUMBER(17),
+  pp104aux10 NUMBER(17)
+)
+;
+alter table FPP104
+  add primary key (PP104NCART, PP104TIPOF, PP104CORR);
+

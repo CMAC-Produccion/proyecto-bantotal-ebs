@@ -1,0 +1,23 @@
+create table PPF003
+(
+  ppf003cod NUMBER(3) not null,
+  ppf003cpr NUMBER(9) not null,
+  ppf003doc CHAR(15) not null,
+  ppf003occ CHAR(15),
+  ppf003fem DATE,
+  ppf003pzo NUMBER(5),
+  ppf003fve DATE,
+  ppf003cde NUMBER(9),
+  ppf003imp NUMBER(17,2),
+  ppf003ian NUMBER(17,2),
+  ppf003au1 NUMBER(9),
+  ppf003au2 NUMBER(17,2),
+  ppf003au3 DATE,
+  ppf003au4 CHAR(20)
+)
+;
+create index PPF00303 on PPF003 (PPF003CDE, PPF003FVE);
+create index PPF00304 on PPF003 (PPF003CPR, PPF003FVE, PPF003DOC);
+alter table PPF003
+  add primary key (PPF003COD, PPF003CPR, PPF003DOC);
+

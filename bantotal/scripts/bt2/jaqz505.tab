@@ -1,0 +1,80 @@
+create table JAQZ505
+(
+  jaqz505emp NUMBER(3),
+  jaqz505mod NUMBER(3),
+  jaqz505suc NUMBER(3),
+  jaqz505mda NUMBER(4),
+  jaqz505pap NUMBER(4),
+  jaqz505cta NUMBER(9),
+  jaqz505ope NUMBER(9),
+  jaqz505sbo NUMBER(3),
+  jaqz505top NUMBER(3),
+  jaqz505ins NUMBER(10),
+  jaqz505fec DATE,
+  jaqz505lto NUMBER(18,2),
+  jaqz505ldi NUMBER(18,2),
+  jaqz505lut NUMBER(18,2),
+  jaqz505fev DATE,
+  jaqz505pen CHAR(1),
+  jaqz505dpe VARCHAR2(200),
+  jaqz505pai NUMBER(3),
+  jaqz505tdo NUMBER(2),
+  jaqz505ndo CHAR(12),
+  jaqz505dis NUMBER(9),
+  jaqz505pro NUMBER(5),
+  jaqz505dto NUMBER(5),
+  jaqz505ana CHAR(12)
+)
+;
+comment on column JAQZ505.jaqz505emp
+  is 'Empresa';
+comment on column JAQZ505.jaqz505mod
+  is 'Modulo';
+comment on column JAQZ505.jaqz505suc
+  is 'Sucursal';
+comment on column JAQZ505.jaqz505mda
+  is 'Moneda';
+comment on column JAQZ505.jaqz505pap
+  is 'Papel';
+comment on column JAQZ505.jaqz505cta
+  is 'Cuenta';
+comment on column JAQZ505.jaqz505ope
+  is 'Operacion';
+comment on column JAQZ505.jaqz505sbo
+  is 'Suboperacion';
+comment on column JAQZ505.jaqz505top
+  is 'Tipo de operacion';
+comment on column JAQZ505.jaqz505ins
+  is 'Instancia';
+comment on column JAQZ505.jaqz505fec
+  is 'Fecha de Alta';
+comment on column JAQZ505.jaqz505lto
+  is 'Linea total';
+comment on column JAQZ505.jaqz505ldi
+  is 'Linea disponible';
+comment on column JAQZ505.jaqz505lut
+  is 'Linea utilizada';
+comment on column JAQZ505.jaqz505fev
+  is 'Fecha de vencimiento de la linea';
+comment on column JAQZ505.jaqz505pen
+  is 'Tiene Penalidad';
+comment on column JAQZ505.jaqz505dpe
+  is 'Descripcion de Penalidad';
+comment on column JAQZ505.jaqz505pai
+  is 'Pais';
+comment on column JAQZ505.jaqz505tdo
+  is 'Tipo de documento';
+comment on column JAQZ505.jaqz505ndo
+  is 'Nro. documento';
+comment on column JAQZ505.jaqz505dis
+  is 'Distrito';
+comment on column JAQZ505.jaqz505pro
+  is 'Provincia';
+comment on column JAQZ505.jaqz505dto
+  is 'Departamento';
+create index IDX_JAQZ505_01 on JAQZ505 (JAQZ505EMP, JAQZ505MOD, JAQZ505SUC, JAQZ505MDA, JAQZ505PAP, JAQZ505CTA, JAQZ505OPE, JAQZ505SBO, JAQZ505TOP);
+create index IDX_JAQZ505_02 on JAQZ505 (JAQZ505PAI, JAQZ505TDO, JAQZ505NDO);
+create index IDX_JAQZ505_03 on JAQZ505 (JAQZ505CTA);
+create index IDX_JAQZ505_05 on JAQZ505 (JAQZ505DIS, JAQZ505ANA);
+create index IDX_JAQZ505_06 on JAQZ505 (JAQZ505INS);
+

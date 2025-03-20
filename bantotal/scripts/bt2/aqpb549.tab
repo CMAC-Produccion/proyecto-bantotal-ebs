@@ -1,0 +1,25 @@
+create table AQPB549
+(
+  aqpb549creusu VARCHAR2(10) not null,
+  aqpb549cretim TIMESTAMP(6),
+  aqpb549tipsbs VARCHAR2(1) not null,
+  aqpb549ops    NUMBER(9) not null,
+  aqpb549qty    NUMBER(9)
+)
+;
+comment on table AQPB549
+  is 'REP Estadistica - BASE';
+comment on column AQPB549.aqpb549creusu
+  is 'Usuario de Creacion';
+comment on column AQPB549.aqpb549cretim
+  is 'Time';
+comment on column AQPB549.aqpb549tipsbs
+  is 'Tipo SBS (V: Normal - S: Banca de Seguros)';
+comment on column AQPB549.aqpb549ops
+  is 'Operacion/ Producto/ Servicio';
+comment on column AQPB549.aqpb549qty
+  is 'Cantidad';
+create index AQPB54901 on AQPB549 (AQPB549QTY);
+alter table AQPB549
+  add primary key (AQPB549CREUSU, AQPB549TIPSBS, AQPB549OPS);
+

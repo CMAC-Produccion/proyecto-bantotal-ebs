@@ -1,0 +1,25 @@
+create table JBXIJ3
+(
+  jbxij3cod NUMBER(3) not null,
+  jbxij3tmo NUMBER(3) not null,
+  jbxij3trn NUMBER(3) not null,
+  jbxij3rub NUMBER(16) not null,
+  jbxij3mda NUMBER(4) not null,
+  jbxij3lis NUMBER(5) not null,
+  jbxij3tpo CHAR(3) not null,
+  jbxij3mdo NUMBER(3) not null,
+  jbxij3mov NUMBER(3) not null,
+  jbxij3snt NUMBER(1) not null,
+  jbxij3usu CHAR(10) not null,
+  jbxij3cbt NUMBER(9),
+  jbxij3ibt NUMBER(17,2),
+  jbxij3clv NUMBER(9),
+  jbxij3ilv NUMBER(17,2),
+  jbxij3fec DATE
+)
+;
+create index JBXIJ302 on JBXIJ3 (JBXIJ3COD, JBXIJ3LIS, JBXIJ3TPO, JBXIJ3USU);
+create index JBXIJ303 on JBXIJ3 (JBXIJ3COD, JBXIJ3LIS, JBXIJ3TMO, JBXIJ3TRN, JBXIJ3RUB, JBXIJ3MDA, JBXIJ3CBT);
+alter table JBXIJ3
+  add primary key (JBXIJ3COD, JBXIJ3TMO, JBXIJ3TRN, JBXIJ3RUB, JBXIJ3MDA, JBXIJ3LIS, JBXIJ3TPO, JBXIJ3MDO, JBXIJ3MOV, JBXIJ3SNT, JBXIJ3USU);
+

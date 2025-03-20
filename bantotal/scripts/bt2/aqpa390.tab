@@ -1,0 +1,39 @@
+create table AQPA390
+(
+  aqpa390corr  NUMBER not null,
+  aqpa390cart  NUMBER not null,
+  aqpa390conv  VARCHAR2(100) not null,
+  aqpa390tconv VARCHAR2(20) not null,
+  aqpa390sect  VARCHAR2(30) not null,
+  aqpa390tent  VARCHAR2(15) not null,
+  aqpa390tea   NUMBER(10,2),
+  aqpa390acci  VARCHAR2(15),
+  aqpa390subl  VARCHAR2(20)
+)
+;
+comment on table AQPA390
+  is 'Tabla de Campaña Convenio';
+comment on column AQPA390.aqpa390corr
+  is 'Correlativo';
+comment on column AQPA390.aqpa390cart
+  is 'Cartera';
+comment on column AQPA390.aqpa390conv
+  is 'Desc de cartera';
+comment on column AQPA390.aqpa390tconv
+  is 'Tipo de convenio';
+comment on column AQPA390.aqpa390sect
+  is 'Sector';
+comment on column AQPA390.aqpa390tent
+  is 'Tipo de Entidad';
+comment on column AQPA390.aqpa390tea
+  is 'TEA minima';
+comment on column AQPA390.aqpa390acci
+  is 'Acciones';
+comment on column AQPA390.aqpa390subl
+  is 'Nomb SubLinea';
+create index AQPA390A2 on AQPA390 (AQPA390CART);
+create index AQPA390A3 on AQPA390 (AQPA390TCONV);
+create index AQPA390A4 on AQPA390 (AQPA390SECT);
+alter table AQPA390
+  add primary key (AQPA390CORR, AQPA390CART, AQPA390CONV, AQPA390TCONV, AQPA390SECT, AQPA390TENT);
+

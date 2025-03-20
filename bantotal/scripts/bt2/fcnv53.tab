@@ -1,0 +1,11 @@
+create table FCNV53
+(
+  cnv50num NUMBER(10) not null,
+  cnv53id  NUMBER(5) not null,
+  cnv53cor NUMBER(2) not null,
+  cnv53obs CHAR(255)
+)
+;
+alter table FCNV53
+  add primary key (CNV50NUM, CNV53ID, CNV53COR);
+

@@ -1,0 +1,64 @@
+create table AQPB942
+(
+  aqpb942nucon NUMBER(17) not null,
+  aqpb942anio  NUMBER(4),
+  aqpb942fech  DATE,
+  aqpb942hora  VARCHAR2(15),
+  aqpb942user  VARCHAR2(10),
+  aqpb942usuc  NUMBER(5),
+  aqpb942tdoc  NUMBER(2),
+  aqpb942ndoc  VARCHAR2(12),
+  aqpb942file  VARCHAR2(70),
+  aqpb942blob  BLOB,
+  aqpb942cerr  NUMBER(2),
+  aqpb942merr  VARCHAR2(150),
+  aqpb942auxn1 NUMBER(5),
+  aqpb942auxn2 NUMBER(5),
+  aqpb942auxv3 VARCHAR2(30),
+  aqpb942auxv4 VARCHAR2(30),
+  aqpb942auxd5 DATE,
+  aqpb942auxd6 DATE
+)
+;
+comment on table AQPB942
+  is 'TABLA LOG DE CONSULTA CRU - REPORTE RRHH';
+comment on column AQPB942.aqpb942nucon
+  is 'Codigo de Seguimiento/Consulta';
+comment on column AQPB942.aqpb942anio
+  is 'Año de Consulta';
+comment on column AQPB942.aqpb942fech
+  is 'Fecha de Consulta';
+comment on column AQPB942.aqpb942hora
+  is 'Hora de Consulta';
+comment on column AQPB942.aqpb942user
+  is 'Usuario de Consulta';
+comment on column AQPB942.aqpb942usuc
+  is 'Sucursal del Usuario de Consulta';
+comment on column AQPB942.aqpb942tdoc
+  is 'Tipo de Documento del Integrante';
+comment on column AQPB942.aqpb942ndoc
+  is 'Numero de Documento del Integrante';
+comment on column AQPB942.aqpb942file
+  is 'Nombre del Archivo';
+comment on column AQPB942.aqpb942blob
+  is 'BLOB PDF';
+comment on column AQPB942.aqpb942cerr
+  is 'Codigo de Error (1:OK /0:Error)';
+comment on column AQPB942.aqpb942merr
+  is 'Mensaje de Error';
+comment on column AQPB942.aqpb942auxn1
+  is 'Auxiliar Numeric 1';
+comment on column AQPB942.aqpb942auxn2
+  is 'Auxiliar Numeric 1';
+comment on column AQPB942.aqpb942auxv3
+  is 'Auxiliar Varchar 1';
+comment on column AQPB942.aqpb942auxv4
+  is 'Auxiliar Varchar 2';
+comment on column AQPB942.aqpb942auxd5
+  is 'Auxiliar Date 3';
+comment on column AQPB942.aqpb942auxd6
+  is 'Auxiliar Date 1';
+create index AQPB942A2 on AQPB942 (AQPB942NUCON, AQPB942ANIO, AQPB942TDOC, AQPB942NDOC);
+create index AQPB942A3 on AQPB942 (AQPB942TDOC, AQPB942NDOC);
+create index AQPB942A4 on AQPB942 (AQPB942FECH, AQPB942USER, AQPB942USUC);
+

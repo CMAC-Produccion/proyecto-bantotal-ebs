@@ -1,0 +1,101 @@
+create table AQPC434B
+(
+  aqpc434bfep       DATE not null,
+  aqpc434bemp       NUMBER(3) not null,
+  aqpc434bmod       NUMBER(3) not null,
+  aqpc434bsuc       NUMBER(3) not null,
+  aqpc434bmda       NUMBER(4) not null,
+  aqpc434bpap       NUMBER(4) not null,
+  aqpc434bcta       NUMBER(9) not null,
+  aqpc434bope       NUMBER(9) not null,
+  aqpc434bsbo       NUMBER(3) not null,
+  aqpc434btpo       NUMBER(3) not null,
+  aqpc434btdoc      NUMBER(2),
+  aqpc434bndoc      CHAR(12),
+  aqpc434bmto       NUMBER(18,2),
+  aqpc434btip       VARCHAR2(300),
+  aqpc434bpdi       NUMBER(4),
+  aqpc434bsol       VARCHAR2(2),
+  aqpc434brer       VARCHAR2(10),
+  aqpc434bext       VARCHAR2(10),
+  aqpc434bcon       VARCHAR2(10),
+  aqpc434bfece      DATE,
+  aqpc434btabo      VARCHAR2(50),
+  aqpc434bfecact    DATE not null,
+  aqpc434busuact    CHAR(10),
+  aqpc434best       CHAR(1),
+  aqpc434bredcuo    CHAR(1),
+  aqpc434bnumcuop   NUMBER(3),
+  aqpc434bpagcap    CHAR(1),
+  aqpc434bperio     NUMBER(5),
+  aqpc434bnumcuopti NUMBER(3),
+  aqpc434bsalact    NUMBER(18,2)
+)
+;
+comment on table AQPC434B
+  is 'Tabla de los reprogramados por estado de emergencia';
+comment on column AQPC434B.aqpc434bfep
+  is 'fecha de reprogrmación';
+comment on column AQPC434B.aqpc434bemp
+  is 'empresa';
+comment on column AQPC434B.aqpc434bmod
+  is 'módulo';
+comment on column AQPC434B.aqpc434bsuc
+  is 'sucursal';
+comment on column AQPC434B.aqpc434bmda
+  is 'moneda';
+comment on column AQPC434B.aqpc434bpap
+  is 'papel';
+comment on column AQPC434B.aqpc434bcta
+  is 'cuenta';
+comment on column AQPC434B.aqpc434bope
+  is 'operación';
+comment on column AQPC434B.aqpc434bsbo
+  is 'sub operación';
+comment on column AQPC434B.aqpc434btpo
+  is 'tipo de operación';
+comment on column AQPC434B.aqpc434btdoc
+  is 'tipo de doc';
+comment on column AQPC434B.aqpc434bndoc
+  is 'nro de doc';
+comment on column AQPC434B.aqpc434bmto
+  is 'monto';
+comment on column AQPC434B.aqpc434btip
+  is 'tipo';
+comment on column AQPC434B.aqpc434bpdi
+  is 'AQPC434Bpdi';
+comment on column AQPC434B.aqpc434bsol
+  is 'AQPC434Bsol';
+comment on column AQPC434B.aqpc434brer
+  is 'AQPC434Brer';
+comment on column AQPC434B.aqpc434bext
+  is 'AQPC434Bext ';
+comment on column AQPC434B.aqpc434bcon
+  is 'AQPC434Bcon ';
+comment on column AQPC434B.aqpc434bfece
+  is 'Fecha de extorno';
+comment on column AQPC434B.aqpc434btabo
+  is 'Tabla de donde procede';
+comment on column AQPC434B.aqpc434bfecact
+  is 'Fecha de actualización del registro';
+comment on column AQPC434B.aqpc434busuact
+  is 'usuario de actualización';
+comment on column AQPC434B.aqpc434best
+  is 'Estado';
+comment on column AQPC434B.aqpc434bredcuo
+  is 'Tiene reducción de cuota';
+comment on column AQPC434B.aqpc434bnumcuop
+  is 'Número de cuotas pagados Riesgos';
+comment on column AQPC434B.aqpc434bpagcap
+  is 'Pagó Capital el 20%';
+comment on column AQPC434B.aqpc434bperio
+  is 'Periodo';
+comment on column AQPC434B.aqpc434bnumcuopti
+  is 'Número de cuotas pagadas segun TI';
+comment on column AQPC434B.aqpc434bsalact
+  is 'Saldo capital a la fecha de ejecución';
+create index AQPC434BA2 on AQPC434B (AQPC434BCTA, AQPC434BOPE, AQPC434BSBO);
+create index AQPC434BA3 on AQPC434B (AQPC434BSUC);
+alter table AQPC434B
+  add primary key (AQPC434BFEP, AQPC434BEMP, AQPC434BMOD, AQPC434BSUC, AQPC434BMDA, AQPC434BPAP, AQPC434BCTA, AQPC434BOPE, AQPC434BSBO, AQPC434BTPO, AQPC434BFECACT);
+

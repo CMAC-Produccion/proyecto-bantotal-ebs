@@ -1,0 +1,53 @@
+create table JAQM59
+(
+  jaqm59empa NUMBER(3) not null,
+  jaqm59moda NUMBER(3) not null,
+  jaqm59suca NUMBER(3) not null,
+  jaqm59trna NUMBER(3) not null,
+  jaqm59nrea NUMBER(4) not null,
+  jaqm59fcoa DATE not null,
+  jaqm59empp NUMBER(3),
+  jaqm59modp NUMBER(3),
+  jaqm59sucp NUMBER(3),
+  jaqm59mdap NUMBER(4),
+  jaqm59papp NUMBER(4),
+  jaqm59ctap NUMBER(9),
+  jaqm59opep NUMBER(9),
+  jaqm59sbop NUMBER(3),
+  jaqm59topp NUMBER(3),
+  jaqm59im1  NUMBER(17,2),
+  jaqm59im2  NUMBER(17,2),
+  jaqm59im3  NUMBER(17,2),
+  jaqm59im4  NUMBER(17,2),
+  jaqm59im5  NUMBER(17,2),
+  jaqm59im6  NUMBER(17,2),
+  jaqm59im7  NUMBER(17,2),
+  jaqm59im8  NUMBER(17,2),
+  jaqm59im9  NUMBER(17,2),
+  jaqm59im10 NUMBER(17,2),
+  jaqm59im11 NUMBER(17,2),
+  jaqm59im12 NUMBER(17,2),
+  jaqm59im13 NUMBER(17,2),
+  jaqm59im14 NUMBER(17,2),
+  jaqm59im15 NUMBER(17,2),
+  jaqm59im16 NUMBER(17,2),
+  jaqm59im17 NUMBER(17,2),
+  jaqm59im18 NUMBER(17,2),
+  jaqm59im19 NUMBER(17,2),
+  jaqm59im20 NUMBER(17,2),
+  jaqm59im21 NUMBER(17,2),
+  jaqm59im22 NUMBER(17,2),
+  jaqm59im23 NUMBER(17,2),
+  jaqm59im24 NUMBER(17,2),
+  jaqm59im25 NUMBER(17,2),
+  jaqm59im26 NUMBER(17,2),
+  jaqm59im27 NUMBER(17,2),
+  jaqm59im28 NUMBER(17,2),
+  jaqm59im29 NUMBER(17,2),
+  jaqm59im30 NUMBER(17,2)
+)
+;
+create index JAQM5902 on JAQM59 (JAQM59EMPP, JAQM59MODP, JAQM59SUCP, JAQM59MDAP, JAQM59PAPP, JAQM59CTAP, JAQM59OPEP, JAQM59SBOP, JAQM59TOPP);
+alter table JAQM59
+  add primary key (JAQM59EMPA, JAQM59MODA, JAQM59SUCA, JAQM59TRNA, JAQM59NREA, JAQM59FCOA);
+

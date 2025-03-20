@@ -1,0 +1,26 @@
+create table JDTS04
+(
+  jdts04ntr CHAR(19) not null,
+  jdts01ser CHAR(4) not null,
+  jdts05cen CHAR(2) not null,
+  jdts04nct CHAR(18) not null,
+  jdts04nrg NUMBER(3) not null,
+  jdts03tct CHAR(4),
+  jdts04est CHAR(20),
+  jdts04ax1 NUMBER(9),
+  jdts04ax2 NUMBER(9),
+  jdts04ax3 NUMBER(9),
+  jdts04ax4 NUMBER(17,2),
+  jdts04ax5 NUMBER(17,2),
+  jdts04ax6 CHAR(30),
+  jdts04ax7 CHAR(30),
+  jdts04ax8 DATE,
+  jdts04ax9 DATE
+)
+;
+create index JDTS0402 on JDTS04 (JDTS03TCT);
+create index JDTS0403 on JDTS04 (JDTS01SER, JDTS05CEN);
+create index JDTS0404 on JDTS04 (JDTS04NTR, JDTS03TCT, JDTS04EST, JDTS04NRG);
+alter table JDTS04
+  add primary key (JDTS04NTR, JDTS01SER, JDTS05CEN, JDTS04NCT, JDTS04NRG);
+

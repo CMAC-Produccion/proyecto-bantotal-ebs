@@ -1,0 +1,17 @@
+create table SNGC23
+(
+  sngc23pais NUMBER(3) not null,
+  sngc23tdoc NUMBER(2) not null,
+  sngc23ndoc CHAR(12) not null,
+  sngc23pvin NUMBER(3) not null,
+  sngc23tvin NUMBER(2) not null,
+  sngc23nvin CHAR(12) not null,
+  sngc23vinc NUMBER(2),
+  sngc23aux1 NUMBER(9),
+  sngc23a2ux NUMBER(4),
+  sngc23a3ux NUMBER(4)
+)
+;
+alter table SNGC23
+  add primary key (SNGC23PAIS, SNGC23TDOC, SNGC23NDOC, SNGC23PVIN, SNGC23TVIN, SNGC23NVIN);
+

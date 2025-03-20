@@ -1,0 +1,58 @@
+create table AQPC912
+(
+  aqpc912id       NUMBER(9) not null,
+  aqpc912trama    CHAR(20),
+  aqpc912fecreg   DATE,
+  aqpc912horreg   VARCHAR2(8),
+  aqpc912tipdis   VARCHAR2(20),
+  aqpc912imei     VARCHAR2(20),
+  aqpc912nrotar   CHAR(19),
+  aqpc912paidoc   NUMBER(3),
+  aqpc912tipdoc   NUMBER(3),
+  aqpc912numdoc   CHAR(12),
+  aqpc912claatm   CHAR(12),
+  aqpc912so       VARCHAR2(20),
+  aqpc912modelo   VARCHAR2(20),
+  aqpc912deviceid VARCHAR2(20),
+  aqpc912lat      VARCHAR2(20),
+  aqpc912long     VARCHAR2(20)
+)
+;
+comment on table AQPC912
+  is 'Log histórico de Afiliacion Canales Digitales';
+comment on column AQPC912.aqpc912id
+  is 'ID de Log';
+comment on column AQPC912.aqpc912trama
+  is 'Tipo Trama';
+comment on column AQPC912.aqpc912fecreg
+  is 'Fecha de Registro';
+comment on column AQPC912.aqpc912horreg
+  is 'Hora de Registro';
+comment on column AQPC912.aqpc912tipdis
+  is 'Canal';
+comment on column AQPC912.aqpc912imei
+  is 'IMEI';
+comment on column AQPC912.aqpc912nrotar
+  is 'Nro de Tarjeta';
+comment on column AQPC912.aqpc912paidoc
+  is 'Pais del documento';
+comment on column AQPC912.aqpc912tipdoc
+  is 'Tipo del documento';
+comment on column AQPC912.aqpc912numdoc
+  is 'Numero del documento';
+comment on column AQPC912.aqpc912claatm
+  is 'Confirmación Clave';
+comment on column AQPC912.aqpc912so
+  is 'Sistema Operativo';
+comment on column AQPC912.aqpc912modelo
+  is 'Modelo Dispositivo';
+comment on column AQPC912.aqpc912deviceid
+  is 'ID Dispositivo';
+comment on column AQPC912.aqpc912lat
+  is 'Latitud';
+comment on column AQPC912.aqpc912long
+  is 'Longitud';
+create index AQPC912A2 on AQPC912 (AQPC912PAIDOC, AQPC912TIPDOC, AQPC912NUMDOC);
+alter table AQPC912
+  add primary key (AQPC912ID);
+

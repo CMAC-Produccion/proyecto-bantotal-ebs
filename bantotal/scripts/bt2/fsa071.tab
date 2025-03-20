@@ -1,0 +1,33 @@
+create table FSA071
+(
+  sa071emp   NUMBER(3) not null,
+  sa071usu   CHAR(10) not null,
+  sa071inf   CHAR(10) not null,
+  sa071fch   DATE not null,
+  sa071id1   NUMBER(16) not null,
+  sa071id2   NUMBER(16) not null,
+  sa071id3   NUMBER(16) not null,
+  sa071id4   NUMBER(16) not null,
+  sa071id5   NUMBER(16) not null,
+  sa071id6   NUMBER(16) not null,
+  sa071imp01 NUMBER(17,2),
+  sa071imp02 NUMBER(17,2),
+  sa071imp03 NUMBER(17,2),
+  sa071imp04 NUMBER(17,2),
+  sa071imp05 NUMBER(17,2),
+  sa071imp06 NUMBER(17,2),
+  sa071imp07 NUMBER(17,2),
+  sa071imp08 NUMBER(17,2),
+  sa071imp09 NUMBER(17,2),
+  sa071imp10 NUMBER(17,2),
+  sa071imp11 NUMBER(17,2),
+  sa071imp12 NUMBER(17,2),
+  sa071dep   CHAR(1),
+  sa071thr   NUMBER(3)
+)
+;
+create index FSA07102 on FSA071 (SA071EMP, SA071USU, SA071INF, SA071ID1, SA071ID2, SA071ID3, SA071ID4, SA071ID5, SA071ID6, SA071FCH);
+create index FSA07103 on FSA071 (SA071EMP, SA071DEP, SA071THR, SA071INF, SA071FCH, SA071USU);
+alter table FSA071
+  add primary key (SA071EMP, SA071USU, SA071INF, SA071FCH, SA071ID1, SA071ID2, SA071ID3, SA071ID4, SA071ID5, SA071ID6);
+

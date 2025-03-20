@@ -1,0 +1,20 @@
+create table CNL044
+(
+  cnl000cod NUMBER(4) not null,
+  cnl044fij NUMBER(1) not null,
+  cnl044cbu CHAR(1),
+  cnl044vbu NUMBER(3),
+  cnl044cbi CHAR(1),
+  cnl044vbi NUMBER(3),
+  cnl044cin CHAR(1),
+  cnl044vin NUMBER(4),
+  cnl044pad CHAR(1),
+  cnl044dco CHAR(1),
+  cnl044cuc CHAR(1),
+  cnl044vuc NUMBER(3),
+  cnl044apr CHAR(1)
+)
+;
+alter table CNL044
+  add primary key (CNL000COD, CNL044FIJ);
+

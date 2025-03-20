@@ -1,0 +1,23 @@
+create table JDTA23
+(
+  jdta23emp NUMBER(3) not null,
+  jdta23bie NUMBER(4) not null,
+  jdta23tip NUMBER(3) not null,
+  jdta23mar NUMBER(5) not null,
+  jdta23uso NUMBER(3) not null,
+  jdta23con NUMBER(3) not null,
+  jdta23ani NUMBER(4) not null,
+  jdta23por NUMBER(9,2),
+  jdta23au1 NUMBER(17,2),
+  jdta23au2 NUMBER(17,2),
+  jdta23au3 NUMBER(14,2),
+  jdta23au4 NUMBER(14,2),
+  jdta23au5 CHAR(30),
+  jdta23au6 CHAR(30),
+  jdta23au7 DATE,
+  jdta23au8 DATE
+)
+;
+alter table JDTA23
+  add primary key (JDTA23EMP, JDTA23BIE, JDTA23TIP, JDTA23MAR, JDTA23USO, JDTA23CON, JDTA23ANI);
+

@@ -1,0 +1,12 @@
+create table FSFT61
+(
+  sft60emp NUMBER(3) not null,
+  sft60id  NUMBER(9) not null,
+  sft61esp NUMBER(4) not null,
+  sft61hab CHAR(1),
+  sft61sel CHAR(1)
+)
+;
+alter table FSFT61
+  add primary key (SFT60EMP, SFT60ID, SFT61ESP);
+

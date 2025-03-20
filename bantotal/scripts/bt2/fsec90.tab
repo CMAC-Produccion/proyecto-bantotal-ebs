@@ -1,0 +1,16 @@
+create table FSEC90
+(
+  sec90pgcod NUMBER(3) not null,
+  sec90itmod NUMBER(3) not null,
+  sec90itsuc NUMBER(3) not null,
+  sec90ittrn NUMBER(3) not null,
+  sec90nrel  NUMBER(4) not null,
+  sec90stat  CHAR(1),
+  sec90num1  NUMBER(10),
+  sec90num2  NUMBER(10),
+  sec90num3  NUMBER(10)
+)
+;
+alter table FSEC90
+  add primary key (SEC90PGCOD, SEC90ITMOD, SEC90ITSUC, SEC90ITTRN, SEC90NREL);
+

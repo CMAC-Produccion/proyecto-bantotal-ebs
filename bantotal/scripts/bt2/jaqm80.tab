@@ -1,0 +1,32 @@
+create table JAQM80
+(
+  jaqm80id NUMBER(10) not null,
+  jaqm80fc DATE,
+  jaqm80or NUMBER(2),
+  jaqm80pa NUMBER(3),
+  jaqm80td NUMBER(2),
+  jaqm80nd CHAR(12),
+  jaqm80ct NUMBER(9),
+  jaqm80ts NUMBER(4),
+  jaqm80su NUMBER(3),
+  jaqm80mo NUMBER(3),
+  jaqm80tp NUMBER(3),
+  jaqm80mn NUMBER(4),
+  jaqm80pp NUMBER(4),
+  jaqm80cn NUMBER(4),
+  jaqm80pe NUMBER(4),
+  jaqm80im NUMBER(17,2),
+  jaqm80ta NUMBER(10,6),
+  jaqm80as CHAR(10),
+  jaqm80og NUMBER(4),
+  jaqm80es CHAR(1),
+  jaqm80so NUMBER(10),
+  jaqm80ds CHAR(60)
+)
+;
+create index JAQM8002 on JAQM80 (JAQM80ES);
+create index JAQM8003 on JAQM80 (JAQM80CT, JAQM80MO, JAQM80SU, JAQM80MN, JAQM80TP);
+create index JAQM8004 on JAQM80 (JAQM80SO);
+alter table JAQM80
+  add primary key (JAQM80ID);
+

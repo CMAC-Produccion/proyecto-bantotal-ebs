@@ -1,0 +1,33 @@
+create table AUD_AUD002_AUDIT
+(
+  aud_old_audgrpnam  CHAR(20),
+  aud_new_audgrpnam  CHAR(20),
+  aud_old_audtbldlt  CHAR(1),
+  aud_new_audtbldlt  CHAR(1),
+  aud_old_audtblena  CHAR(1),
+  aud_new_audtblena  CHAR(1),
+  aud_old_audtblins  CHAR(1),
+  aud_new_audtblins  CHAR(1),
+  aud_old_audtblnam  VARCHAR2(255),
+  aud_new_audtblnam  VARCHAR2(255),
+  aud_old_audtblsts  CHAR(1),
+  aud_new_audtblsts  CHAR(1),
+  aud_old_audtbltbl  VARCHAR2(255),
+  aud_new_audtbltbl  VARCHAR2(255),
+  aud_old_audtblupd  CHAR(1),
+  aud_new_audtblupd  CHAR(1),
+  aud_aud002_guidkey VARCHAR2(40) default SYS_GUID() not null,
+  aud_aud002_uon     TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_aud002_ut      TIMESTAMP(0) default SYSTIMESTAMP not null,
+  aud_aud002_ubr     VARCHAR2(50) default ' ' not null,
+  aud_aud002_ubc     VARCHAR2(50) default ' ' not null,
+  aud_aud002_ubt     VARCHAR2(50) default ' ' not null,
+  aud_aud002_ubu     VARCHAR2(50) default USER not null,
+  aud_aud002_uba     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_aud002_ubs     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_aud002_ubp     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_aud002_ubm     VARCHAR2(50) default 'UNDEFINED' not null,
+  aud_aud002_uas     CHAR(1) default 'I' not null
+)
+;
+

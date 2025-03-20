@@ -1,0 +1,115 @@
+create table AQPA563H
+(
+  aqpa563codh   NUMBER(4) not null,
+  aqpa563such   NUMBER(4) not null,
+  aqpa563mdah   NUMBER(4) not null,
+  aqpa563paph   NUMBER(4) not null,
+  aqpa563ctah   NUMBER(9) not null,
+  aqpa563operh  NUMBER(9) not null,
+  aqpa563sboph  NUMBER(3) not null,
+  aqpa563topeh  NUMBER(3) not null,
+  aqpa563modh   NUMBER(4) not null,
+  aqpa563fechh  DATE not null,
+  aqpa563fproh  DATE,
+  aqpa563monh   NUMBER(16,2),
+  aqpa563tsuch  NUMBER(3),
+  aqpa563tmodh  NUMBER(3),
+  aqpa563ttranh NUMBER(3),
+  aqpa563tnrelh NUMBER(4),
+  aqpa563rubh   NUMBER(16),
+  aqpa563usuh   VARCHAR2(12),
+  aqpa563psuch  NUMBER(4),
+  aqpa563pmodh  NUMBER(4),
+  aqpa563ptranh NUMBER(4),
+  aqpa563prelh  NUMBER(4),
+  aqpa563pfechh DATE,
+  aqpa563dnih   CHAR(12),
+  aqpa563nomh   CHAR(100),
+  aqpa563ageh   CHAR(30),
+  aqpa563funh   CHAR(10),
+  aqpa563horah  CHAR(8),
+  aqpa563au1h   NUMBER(4),
+  aqpa563au2h   NUMBER(16,2),
+  aqpa563au3h   NUMBER(16,2),
+  aqpa563au4h   VARCHAR2(40),
+  aqpa563au5h   VARCHAR2(50),
+  aqpa563au6h   CHAR(20),
+  aqpa563au7h   DATE
+)
+;
+comment on table AQPA563H
+  is 'Tabla Historica de transferencia de Rubro Sagricola a OT';
+comment on column AQPA563H.aqpa563codh
+  is 'Codigo Empresa';
+comment on column AQPA563H.aqpa563such
+  is 'Sucursal';
+comment on column AQPA563H.aqpa563mdah
+  is 'Moneda';
+comment on column AQPA563H.aqpa563paph
+  is 'PaPel';
+comment on column AQPA563H.aqpa563ctah
+  is 'Cuenta';
+comment on column AQPA563H.aqpa563operh
+  is 'Operacion';
+comment on column AQPA563H.aqpa563sboph
+  is 'Sub Operacion';
+comment on column AQPA563H.aqpa563topeh
+  is 'Tipo Operacion';
+comment on column AQPA563H.aqpa563modh
+  is 'Modulo';
+comment on column AQPA563H.aqpa563fechh
+  is 'Fecha';
+comment on column AQPA563H.aqpa563fproh
+  is 'FEcha Proceso';
+comment on column AQPA563H.aqpa563monh
+  is 'Monto';
+comment on column AQPA563H.aqpa563tsuch
+  is 'Transaccion sucursal';
+comment on column AQPA563H.aqpa563tmodh
+  is 'Transaccion moneda';
+comment on column AQPA563H.aqpa563ttranh
+  is 'Transaccion Transaccopm';
+comment on column AQPA563H.aqpa563tnrelh
+  is 'Transaccion Relacion';
+comment on column AQPA563H.aqpa563rubh
+  is 'Rubro';
+comment on column AQPA563H.aqpa563usuh
+  is 'Usuario';
+comment on column AQPA563H.aqpa563psuch
+  is 'Sucursal Proceso';
+comment on column AQPA563H.aqpa563pmodh
+  is 'Modulo Proceso';
+comment on column AQPA563H.aqpa563ptranh
+  is 'Transacion Proceso';
+comment on column AQPA563H.aqpa563prelh
+  is 'Relacion Proceso';
+comment on column AQPA563H.aqpa563pfechh
+  is 'Fecha Proceso';
+comment on column AQPA563H.aqpa563dnih
+  is 'DNI';
+comment on column AQPA563H.aqpa563nomh
+  is 'Nombres';
+comment on column AQPA563H.aqpa563ageh
+  is 'Agencia';
+comment on column AQPA563H.aqpa563funh
+  is 'Funcionario';
+comment on column AQPA563H.aqpa563horah
+  is 'Hora';
+comment on column AQPA563H.aqpa563au1h
+  is 'Auxiliar 1';
+comment on column AQPA563H.aqpa563au2h
+  is 'Auxiliar 2';
+comment on column AQPA563H.aqpa563au3h
+  is 'Auxiliar 3';
+comment on column AQPA563H.aqpa563au4h
+  is 'Auxiliar 4';
+comment on column AQPA563H.aqpa563au5h
+  is 'Auxiliar 5';
+comment on column AQPA563H.aqpa563au6h
+  is 'Auxiliar 6';
+comment on column AQPA563H.aqpa563au7h
+  is 'Auxiliar 7';
+create index AQPA563HA2 on AQPA563H (AQPA563AGEH, AQPA563FECHH, AQPA563HORAH);
+alter table AQPA563H
+  add primary key (AQPA563CODH, AQPA563SUCH, AQPA563MDAH, AQPA563PAPH, AQPA563CTAH, AQPA563OPERH, AQPA563SBOPH, AQPA563TOPEH, AQPA563MODH, AQPA563FECHH);
+

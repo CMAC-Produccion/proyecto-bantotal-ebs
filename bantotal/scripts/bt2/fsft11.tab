@@ -1,0 +1,45 @@
+create table FSFT11
+(
+  kt6ngnum NUMBER(9) not null,
+  kt6pgcod NUMBER(3) not null,
+  kt6suc   NUMBER(3) not null,
+  kt6rub   NUMBER(16) not null,
+  kt6mda   NUMBER(4) not null,
+  kt6pap   NUMBER(4) not null,
+  kt6cta   NUMBER(9) not null,
+  kt6oper  NUMBER(9) not null,
+  kt6sbop  NUMBER(3) not null,
+  kt6tope  NUMBER(3) not null,
+  kt6mod   NUMBER(3),
+  kt6fcon  DATE,
+  kt6fval  DATE,
+  kt6fvto  DATE,
+  kt6fulm  DATE,
+  kt6pzo   NUMBER(5),
+  kt6sdo   NUMBER(17,2),
+  kt6sdoh  NUMBER(17,2),
+  kt6segm  NUMBER(2),
+  kt6func  NUMBER(2),
+  kt6stat  NUMBER(2),
+  kt6cc    NUMBER(3),
+  kt6tit   NUMBER(2),
+  kt6cap   NUMBER(1),
+  kt6plzo  NUMBER(1),
+  kt6gru   NUMBER(2),
+  kt6auxn1 NUMBER(9),
+  kt6auxn2 NUMBER(9),
+  kt6auxn3 NUMBER(3),
+  kt6auxn4 NUMBER(3),
+  kt6auxc1 CHAR(1),
+  kt6auxc2 CHAR(1),
+  kt6auxn5 NUMBER(17,2),
+  kt6auxn6 NUMBER(17,2)
+)
+;
+create index FSFT1102 on FSFT11 (KT6NGNUM, KT6PGCOD, KT6SUC, KT6TOPE, KT6OPER, KT6PAP);
+create index FSFT1103 on FSFT11 (KT6NGNUM, KT6PGCOD, KT6SUC, KT6TOPE, KT6CTA, KT6OPER);
+create index FSFT1104 on FSFT11 (KT6NGNUM, KT6PGCOD, KT6AUXN1, KT6AUXC1, KT6OPER);
+create index FSFT1105 on FSFT11 (KT6NGNUM, KT6PGCOD, KT6CTA, KT6OPER, KT6FVTO);
+alter table FSFT11
+  add primary key (KT6NGNUM, KT6PGCOD, KT6SUC, KT6RUB, KT6MDA, KT6PAP, KT6CTA, KT6OPER, KT6SBOP, KT6TOPE);
+

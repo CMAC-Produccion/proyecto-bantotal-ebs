@@ -1,0 +1,28 @@
+create table FME020
+(
+  lcixmpgcod NUMBER(3) not null,
+  lcixmmod   NUMBER(3) not null,
+  lcixmoper  NUMBER(9) not null,
+  lcixmctabn NUMBER(9),
+  lcixmcta2  NUMBER(9),
+  lcixmcta3  NUMBER(9),
+  lcixmfch1  DATE,
+  lcixmfch2  DATE,
+  lcixmfch3  DATE,
+  lcixmimp1  NUMBER(17,2),
+  lcixmimp2  NUMBER(17,2),
+  lcixmimp3  NUMBER(17,2),
+  lcixmnum1  NUMBER(16),
+  lcixmnum2  NUMBER(16),
+  lcixmnum3  NUMBER(16),
+  lcixmstr1  CHAR(35),
+  lcixmstr2  CHAR(35),
+  lcixmstr3  CHAR(35),
+  lcixmpte1  NUMBER(7,4),
+  lcixmpte2  NUMBER(7,4),
+  lcixmpte3  NUMBER(7,4)
+)
+;
+alter table FME020
+  add primary key (LCIXMPGCOD, LCIXMMOD, LCIXMOPER);
+

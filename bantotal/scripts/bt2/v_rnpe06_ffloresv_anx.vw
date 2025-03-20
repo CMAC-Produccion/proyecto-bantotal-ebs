@@ -1,0 +1,36 @@
+create or replace force view v_rnpe06_ffloresv_anx as
+select
+rnpe06emp,
+rnpe06fch,
+rnpe06inf,
+rnpe06pai,
+rnpe06cta,
+rnpe06id1,
+rnpe06id2,
+rnpe06id3,
+rnpe06ciu,
+rnpe06ims,
+rnpe06imn,
+rnpe06ime,
+rnpe06rak,
+rnpe06a01,
+rnpe06a02,
+rnpe06a03,
+rnpe06a04,
+rnpe06a05,
+rnpe06a06,
+rnpe06a07,
+rnpe06a08,
+rnpe06a09,
+rnpe06a10,
+rnpe06a11,
+rnpe06a12,
+rnpe06a13,
+rnpe06a14,
+rnpe06a15,
+rnpe06a16,
+rnpe06a17,
+rnpe06a18
+from RNPE06
+ /* GOLDENGATE_DDL_REPLICATION */;
+

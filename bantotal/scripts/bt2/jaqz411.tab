@@ -1,0 +1,20 @@
+create table JAQZ411
+(
+  jaqz411pps  NUMBER(3),
+  jaqz411ptd  NUMBER(2),
+  jaqz411pdc  CHAR(12),
+  jaqz411pnm  CHAR(50),
+  jaqz411emp  NUMBER(3),
+  jaqz411mod  NUMBER(3),
+  jaqz411suc  NUMBER(3),
+  jaqz411mda  NUMBER(4),
+  jaqz411pap  NUMBER(4),
+  jaqz411cta  NUMBER(9),
+  jaqz411ope  NUMBER(9),
+  jaqz411sope NUMBER(3),
+  jaqz411tpo  NUMBER(3),
+  jaqz411fpr  DATE
+)
+;
+create index IDX_JAQZ411_01 on JAQZ411 (JAQZ411EMP, JAQZ411MOD, JAQZ411SUC, JAQZ411MDA, JAQZ411PAP, JAQZ411CTA, JAQZ411OPE, JAQZ411SOPE, JAQZ411TPO);
+

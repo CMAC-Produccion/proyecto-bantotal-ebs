@@ -1,0 +1,141 @@
+create table JAQA17
+(
+  jaqa17emd NUMBER(3) not null,
+  jaqa17mod NUMBER(3) not null,
+  jaqa17sud NUMBER(3) not null,
+  jaqa17mdd NUMBER(4) not null,
+  jaqa17pad NUMBER(4) not null,
+  jaqa17ctd NUMBER(9) not null,
+  jaqa17opd NUMBER(9) not null,
+  jaqa17sbd NUMBER(3) not null,
+  jaqa17tod NUMBER(3) not null,
+  jaqa17rel NUMBER(3) not null,
+  jaqa17fed DATE,
+  jaqa17est CHAR(1),
+  jaqa17emv NUMBER(3),
+  jaqa17mov NUMBER(3),
+  jaqa17suv NUMBER(3),
+  jaqa17mdv NUMBER(4),
+  jaqa17pav NUMBER(4),
+  jaqa17ctv NUMBER(9),
+  jaqa17opv NUMBER(9),
+  jaqa17sbv NUMBER(3),
+  jaqa17tov NUMBER(3),
+  jaqa17ruv NUMBER(16),
+  jaqa17emt NUMBER(3),
+  jaqa17mot NUMBER(3),
+  jaqa17sut NUMBER(3),
+  jaqa17trt NUMBER(3),
+  jaqa17ret NUMBER(4),
+  jaqa17fct DATE,
+  jaqa17ort NUMBER(2),
+  jaqa17sbt NUMBER(3),
+  jaqa17cot CHAR(1),
+  jaqa17nu1 NUMBER(9),
+  jaqa17nu2 NUMBER(9),
+  jaqa17nu3 NUMBER(9),
+  jaqa17im1 NUMBER(17,2),
+  jaqa17im2 NUMBER(17,2),
+  jaqa17im3 NUMBER(17,2),
+  jaqa17fe1 DATE,
+  jaqa17fe2 DATE,
+  jaqa17fe3 DATE,
+  jaqa17ca1 VARCHAR2(255),
+  jaqa17ca2 VARCHAR2(255),
+  jaqa17ca3 VARCHAR2(255)
+)
+;
+comment on table JAQA17
+  is 'Tabla DLYA JAQA17';
+comment on column JAQA17.jaqa17emd
+  is 'Codigo Empresa D';
+comment on column JAQA17.jaqa17mod
+  is 'Modulo D';
+comment on column JAQA17.jaqa17sud
+  is 'Sucursal D';
+comment on column JAQA17.jaqa17mdd
+  is 'Moneda D';
+comment on column JAQA17.jaqa17pad
+  is 'Papel D';
+comment on column JAQA17.jaqa17ctd
+  is 'Cuenta D';
+comment on column JAQA17.jaqa17opd
+  is 'Operacion D';
+comment on column JAQA17.jaqa17sbd
+  is 'Sub Operacion D';
+comment on column JAQA17.jaqa17tod
+  is 'Tipo Operacion D';
+comment on column JAQA17.jaqa17rel
+  is 'Relacion';
+comment on column JAQA17.jaqa17fed
+  is 'Fecha D';
+comment on column JAQA17.jaqa17est
+  is 'Estado';
+comment on column JAQA17.jaqa17emv
+  is 'Codigo Empresa V';
+comment on column JAQA17.jaqa17mov
+  is 'Modulo V';
+comment on column JAQA17.jaqa17suv
+  is 'Sucursal V';
+comment on column JAQA17.jaqa17mdv
+  is 'Moneda V';
+comment on column JAQA17.jaqa17pav
+  is 'Papel V';
+comment on column JAQA17.jaqa17ctv
+  is 'Cuenta V';
+comment on column JAQA17.jaqa17opv
+  is 'Operacion V';
+comment on column JAQA17.jaqa17sbv
+  is 'Sub Operacion V';
+comment on column JAQA17.jaqa17tov
+  is 'Tipo Operacion V';
+comment on column JAQA17.jaqa17ruv
+  is 'Rubro V';
+comment on column JAQA17.jaqa17emt
+  is 'Codigo Empresa T';
+comment on column JAQA17.jaqa17mot
+  is 'Modulo T';
+comment on column JAQA17.jaqa17sut
+  is 'Sucursal T';
+comment on column JAQA17.jaqa17trt
+  is 'Transaccion T';
+comment on column JAQA17.jaqa17ret
+  is 'Relacion T';
+comment on column JAQA17.jaqa17fct
+  is 'Fecha contabilizacion T';
+comment on column JAQA17.jaqa17ort
+  is 'Ordinal T';
+comment on column JAQA17.jaqa17sbt
+  is 'Sub Ordinal T';
+comment on column JAQA17.jaqa17cot
+  is 'Contabilizo T';
+comment on column JAQA17.jaqa17nu1
+  is 'Numero Uno';
+comment on column JAQA17.jaqa17nu2
+  is 'Numero Dos';
+comment on column JAQA17.jaqa17nu3
+  is 'Numero Tres';
+comment on column JAQA17.jaqa17im1
+  is 'Importe uno';
+comment on column JAQA17.jaqa17im2
+  is 'Importe dos';
+comment on column JAQA17.jaqa17im3
+  is 'Importe tres';
+comment on column JAQA17.jaqa17fe1
+  is 'Fecha uno';
+comment on column JAQA17.jaqa17fe2
+  is 'Fecha dos';
+comment on column JAQA17.jaqa17fe3
+  is 'Fecha tres';
+comment on column JAQA17.jaqa17ca1
+  is 'Char uno';
+comment on column JAQA17.jaqa17ca2
+  is 'Char dos';
+comment on column JAQA17.jaqa17ca3
+  is 'Char tres';
+create index JAQA17A2 on JAQA17 (JAQA17EMV, JAQA17MOV, JAQA17SUV, JAQA17MDV, JAQA17PAV, JAQA17CTV, JAQA17OPV, JAQA17SBV, JAQA17TOV);
+create index JAQA17A3 on JAQA17 (JAQA17EMT, JAQA17MOT, JAQA17SUT, JAQA17TRT, JAQA17RET, JAQA17FCT);
+create index JAQA17A4 on JAQA17 (JAQA17EMD, JAQA17FED, JAQA17CTD);
+alter table JAQA17
+  add primary key (JAQA17EMD, JAQA17MOD, JAQA17SUD, JAQA17MDD, JAQA17PAD, JAQA17CTD, JAQA17OPD, JAQA17SBD, JAQA17TOD, JAQA17REL);
+

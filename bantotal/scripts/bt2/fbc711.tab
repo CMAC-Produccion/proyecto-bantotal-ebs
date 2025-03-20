@@ -1,0 +1,11 @@
+create table FBC711
+(
+  bc711pais NUMBER(3) not null,
+  bc711tdoc NUMBER(2) not null,
+  bc711ndoc CHAR(25) not null,
+  bc711nomb CHAR(80)
+)
+;
+alter table FBC711
+  add primary key (BC711PAIS, BC711TDOC, BC711NDOC);
+

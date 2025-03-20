@@ -1,0 +1,31 @@
+create table CNL700
+(
+  pgcod700   NUMBER(3) not null,
+  scsuc700   NUMBER(3) not null,
+  scrub700   NUMBER(16) not null,
+  scmda700   NUMBER(4) not null,
+  scpap700   NUMBER(4) not null,
+  sccta700   NUMBER(9) not null,
+  scoper700  NUMBER(9) not null,
+  scsbop700  NUMBER(3) not null,
+  sctope700  NUMBER(3) not null,
+  cnl700ord  NUMBER(4) not null,
+  scmod700   NUMBER(3),
+  cnl700oper NUMBER(9),
+  cnl700fval DATE,
+  cnl700fvto DATE,
+  cnl700nchq NUMBER(9),
+  cnl700imp  NUMBER(13,2),
+  cnl700pza  NUMBER(3),
+  cnl700dias NUMBER(2),
+  cnl700bco  NUMBER(3),
+  cnl700bnm  CHAR(30),
+  cnl700sbco NUMBER(12),
+  cnl700snm  CHAR(30),
+  cnl700bol  NUMBER(9),
+  cnl700ins  CHAR(41)
+)
+;
+alter table CNL700
+  add primary key (PGCOD700, SCSUC700, SCRUB700, SCMDA700, SCPAP700, SCCTA700, SCOPER700, SCSBOP700, SCTOPE700, CNL700ORD);
+

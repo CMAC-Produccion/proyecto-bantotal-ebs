@@ -1,0 +1,13 @@
+create table FCPG51
+(
+  cpg51porc NUMBER(10,6) not null,
+  cpg51mda  NUMBER(4) not null,
+  cpg51prec NUMBER(17,2),
+  cpg51blq  CHAR(1),
+  cpg51inst NUMBER(10)
+)
+;
+create index FCPG5102 on FCPG51 (CPG51INST);
+alter table FCPG51
+  add primary key (CPG51PORC, CPG51MDA);
+

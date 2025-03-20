@@ -1,0 +1,26 @@
+create table AQPA722
+(
+  aqpa722id      NUMBER(9) not null,
+  aqpa722numtar  CHAR(19),
+  aqpa722imei    VARCHAR2(100),
+  aqpa722modelo  VARCHAR2(100),
+  aqpa722token   VARCHAR2(200),
+  aqpa722fecreg  DATE,
+  aqpa722horreg  VARCHAR2(10),
+  aqpa722tipreg  VARCHAR2(40),
+  aqpa722varaux1 VARCHAR2(100),
+  aqpa722varaux2 VARCHAR2(100),
+  aqpa722varaux3 VARCHAR2(100)
+)
+;
+comment on column AQPA722.aqpa722tipreg
+  is 'Tipo Registro: REGISTRO|ACTUALIZACION';
+comment on column AQPA722.aqpa722varaux1
+  is 'Variable Auxiliar';
+comment on column AQPA722.aqpa722varaux2
+  is 'Variable Auxiliar';
+comment on column AQPA722.aqpa722varaux3
+  is 'Variable Auxiliar';
+alter table AQPA722
+  add primary key (AQPA722ID);
+

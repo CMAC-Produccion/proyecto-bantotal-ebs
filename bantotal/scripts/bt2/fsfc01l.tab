@@ -1,0 +1,23 @@
+create table FSFC01L
+(
+  kmlcod     NUMBER(3) not null,
+  kmlcodpzo  NUMBER(3) not null,
+  kmlc01fing DATE not null,
+  kmlc01hing CHAR(8) not null,
+  kmlc01ok   CHAR(1),
+  kmlc01adu  CHAR(1),
+  kmldsc     CHAR(30),
+  kmldiasext NUMBER(5),
+  kmldiasloc NUMBER(5),
+  kmlc01uing CHAR(10),
+  kmlc01wing CHAR(10),
+  kmlc01fcnf DATE,
+  kmlc01hcnf CHAR(8),
+  kmlc01ucnf CHAR(10),
+  kmlc01wcnf CHAR(10)
+)
+;
+create index FSFC01L2 on FSFC01L (KMLCOD, KMLCODPZO, KMLC01OK);
+alter table FSFC01L
+  add primary key (KMLCOD, KMLCODPZO, KMLC01FING, KMLC01HING);
+

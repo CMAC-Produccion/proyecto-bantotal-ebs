@@ -1,0 +1,17 @@
+create table HUB008
+(
+  hub005cod NUMBER(5) not null,
+  hub003cod NUMBER(5) not null,
+  hub008hab CHAR(1),
+  hub008ax1 NUMBER(9),
+  hub008ax2 NUMBER(9),
+  hub008ax3 CHAR(50),
+  hub008ax4 NUMBER(4),
+  hub008ax5 DATE,
+  hub008ax6 DATE
+)
+;
+create index HUB00802 on HUB008 (HUB003COD);
+alter table HUB008
+  add primary key (HUB005COD, HUB003COD);
+

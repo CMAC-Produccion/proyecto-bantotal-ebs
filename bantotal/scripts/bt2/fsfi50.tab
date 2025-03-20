@@ -1,0 +1,39 @@
+create table FSFI50
+(
+  sfi50emp   NUMBER(3) not null,
+  sfi50esp   NUMBER(4) not null,
+  sfi50cus   NUMBER(9) not null,
+  sfi50dep   NUMBER(9) not null,
+  sfi50com   NUMBER(9) not null,
+  sfi50ide   NUMBER(2) not null,
+  sfi50div   NUMBER(4) not null,
+  sfi50inv   NUMBER(4) not null,
+  sfi50corr  NUMBER(4),
+  sfi50cta   NUMBER(9),
+  sfi50asuc  NUMBER(3),
+  sfi50amod  NUMBER(3),
+  sfi50atrn  NUMBER(3),
+  sfi50anrel NUMBER(4),
+  sfi50afco  DATE,
+  sfi50est   CHAR(1),
+  sfi50imp1  NUMBER(17,2),
+  sfi50imp2  NUMBER(17,2),
+  sfi50imp3  NUMBER(17,2),
+  sfi50imp4  NUMBER(17,2),
+  sfi50imp5  NUMBER(17,2),
+  sfi50au01  NUMBER(9),
+  sfi50au02  NUMBER(9),
+  sfi50au03  DATE,
+  sfi50au04  DATE,
+  sfi50au05  CHAR(20),
+  sfi50au06  CHAR(20),
+  sfi50au07  NUMBER(17,2),
+  sfi50au08  NUMBER(17,2)
+)
+;
+create index FSFI5002 on FSFI50 (SFI50EMP, SFI50CUS, SFI50ESP, SFI50CTA, SFI50DEP, SFI50COM, SFI50IDE);
+create index FSFI5003 on FSFI50 (SFI50EMP, SFI50ASUC, SFI50AMOD, SFI50ATRN, SFI50ANREL, SFI50AFCO);
+create index FSFI5004 on FSFI50 (SFI50EMP, SFI50ESP, SFI50DIV, SFI50CUS, SFI50DEP, SFI50COM);
+alter table FSFI50
+  add primary key (SFI50EMP, SFI50ESP, SFI50CUS, SFI50DEP, SFI50COM, SFI50IDE, SFI50DIV, SFI50INV);
+

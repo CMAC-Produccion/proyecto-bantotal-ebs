@@ -1,0 +1,79 @@
+create table JAQM39
+(
+  jaqm39reg NUMBER(3) not null,
+  jaqm39zon NUMBER(3) not null,
+  jaqm39age NUMBER(3) not null,
+  jaqm39com CHAR(50) not null,
+  jaqm39fec DATE not null,
+  jaqm39cus CHAR(10) not null,
+  jaqm39fau DATE,
+  jaqm39hau CHAR(8),
+  jaqm39est CHAR(1),
+  jaqm39im1 NUMBER(17,2),
+  jaqm39im2 NUMBER(17,2),
+  jaqm39im3 NUMBER(17,2),
+  jaqm39fe1 DATE,
+  jaqm39fe2 DATE,
+  jaqm39fe3 DATE,
+  jaqm39nu1 NUMBER(9),
+  jaqm39nu2 NUMBER(9),
+  jaqm39nu3 NUMBER(9),
+  jaqm39ch1 CHAR(255),
+  jaqm39ch2 CHAR(255),
+  jaqm39ch3 CHAR(255),
+  jaqm39cac NUMBER(9),
+  jaqm39asc CHAR(10)
+)
+;
+comment on table JAQM39
+  is 'Tabla Log Acta de Creditos Automatizada';
+comment on column JAQM39.jaqm39reg
+  is 'REGION';
+comment on column JAQM39.jaqm39zon
+  is 'ZONA';
+comment on column JAQM39.jaqm39age
+  is 'AGENCIA';
+comment on column JAQM39.jaqm39com
+  is 'COMITE';
+comment on column JAQM39.jaqm39fec
+  is 'FECHA';
+comment on column JAQM39.jaqm39cus
+  is 'USUARIO';
+comment on column JAQM39.jaqm39fau
+  is 'FECHA FIRMA';
+comment on column JAQM39.jaqm39hau
+  is 'HORA FIRMA';
+comment on column JAQM39.jaqm39est
+  is 'ESTADO P-PENDIENTE/ F-FIRMA';
+comment on column JAQM39.jaqm39im1
+  is 'IMPORTE AUXILIAR 1';
+comment on column JAQM39.jaqm39im2
+  is 'IMPORTE AUXILIAR 2';
+comment on column JAQM39.jaqm39im3
+  is 'IMPORTE AUXILIAR 3';
+comment on column JAQM39.jaqm39fe1
+  is 'FECHA AUXILIAR 1';
+comment on column JAQM39.jaqm39fe2
+  is 'FECHA AUXILIAR 2';
+comment on column JAQM39.jaqm39fe3
+  is 'FECHA AUXILIAR 3';
+comment on column JAQM39.jaqm39nu1
+  is 'NUMERO AUXILIAR 1';
+comment on column JAQM39.jaqm39nu2
+  is 'NUMERO AUXILIAR 2';
+comment on column JAQM39.jaqm39nu3
+  is 'NUMERO AUXILIAR 3';
+comment on column JAQM39.jaqm39ch1
+  is 'CARACTER AUXILIAR 1';
+comment on column JAQM39.jaqm39ch2
+  is 'CARACTER AUXILIAR 2';
+comment on column JAQM39.jaqm39ch3
+  is 'CARACTER AUXILIAR 3';
+comment on column JAQM39.jaqm39cac
+  is 'CODIGO ACTA';
+comment on column JAQM39.jaqm39asc
+  is 'SENIOR COMITE';
+create index JAQM39A2 on JAQM39 (JAQM39REG, JAQM39ZON, JAQM39AGE, JAQM39COM, JAQM39FEC, JAQM39CUS, JAQM39EST, JAQM39FAU);
+alter table JAQM39
+  add primary key (JAQM39REG, JAQM39ZON, JAQM39AGE, JAQM39COM, JAQM39FEC, JAQM39CUS);
+

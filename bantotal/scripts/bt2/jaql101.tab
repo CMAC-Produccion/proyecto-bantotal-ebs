@@ -1,0 +1,32 @@
+create table JAQL101
+(
+  jaql101pgc NUMBER(3) not null,
+  jaql101mod NUMBER(3) not null,
+  jaql101suc NUMBER(3) not null,
+  jaql101mon NUMBER(4) not null,
+  jaql101pap NUMBER(4) not null,
+  jaql101cta NUMBER(9) not null,
+  jaql101ope NUMBER(9) not null,
+  jaql101sop NUMBER(3) not null,
+  jaql101top NUMBER(3) not null,
+  jaql101fch DATE not null,
+  jaql101cor NUMBER(9) not null,
+  jaql101scl NUMBER(3),
+  jaql101a01 NUMBER(4),
+  jaql101a02 NUMBER(4),
+  jaql101a03 NUMBER(4),
+  jaql101a04 NUMBER(4),
+  jaql101a05 NUMBER(4),
+  jaql101a06 NUMBER(17,2),
+  jaql101a07 CHAR(30),
+  jaql101a08 CHAR(30),
+  jaql101a09 CHAR(30),
+  jaql101a10 DATE,
+  jaql101a11 DATE,
+  jaql101a12 DATE
+)
+;
+create index JAQL101_ID1 on JAQL101 (JAQL101PGC, JAQL101CTA, JAQL101OPE, JAQL101FCH);
+alter table JAQL101
+  add primary key (JAQL101PGC, JAQL101MOD, JAQL101SUC, JAQL101MON, JAQL101PAP, JAQL101CTA, JAQL101OPE, JAQL101SOP, JAQL101TOP, JAQL101FCH, JAQL101COR);
+

@@ -1,0 +1,12 @@
+create table FBC592
+(
+  bc592emp NUMBER(3) not null,
+  bc592inf CHAR(10) not null,
+  bc592fch DATE not null,
+  bc592id1 CHAR(10) not null,
+  bc592id2 CLOB
+)
+;
+alter table FBC592
+  add primary key (BC592EMP, BC592INF, BC592FCH, BC592ID1);
+

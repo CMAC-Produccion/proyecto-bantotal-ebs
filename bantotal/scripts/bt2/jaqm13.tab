@@ -1,0 +1,60 @@
+create table JAQM13
+(
+  jaqm13cui VARCHAR2(50) not null,
+  jaqm13cup VARCHAR2(50),
+  jaqm13usu CHAR(10),
+  jaqm13per CHAR(10),
+  jaqm13an1 NUMBER(9),
+  jaqm13an2 NUMBER(9),
+  jaqm13an3 NUMBER(9),
+  jaqm13ai1 NUMBER(17,2),
+  jaqm13ai2 NUMBER(17,2),
+  jaqm13ai3 NUMBER(17,2),
+  jaqm13ac1 CHAR(255),
+  jaqm13ac2 CHAR(255),
+  jaqm13ac3 CHAR(255),
+  jaqm13ad1 DATE,
+  jaqm13ad2 DATE,
+  jaqm13ad3 DATE
+)
+;
+comment on table JAQM13
+  is 'Autorizaciones Repositorios Digitales';
+comment on column JAQM13.jaqm13cui
+  is 'Código unico identificador';
+comment on column JAQM13.jaqm13cup
+  is 'Código unico permisos jaqm14';
+comment on column JAQM13.jaqm13usu
+  is 'Usuario';
+comment on column JAQM13.jaqm13per
+  is 'Perfil';
+comment on column JAQM13.jaqm13an1
+  is 'Auxilar Númerico 1';
+comment on column JAQM13.jaqm13an2
+  is 'Auxilar Númerico 2';
+comment on column JAQM13.jaqm13an3
+  is 'Auxilar Númerico 3';
+comment on column JAQM13.jaqm13ai1
+  is 'Auxilar Importe 1';
+comment on column JAQM13.jaqm13ai2
+  is 'Auxilar Importe 2';
+comment on column JAQM13.jaqm13ai3
+  is 'Auxilar Importe 3';
+comment on column JAQM13.jaqm13ac1
+  is 'Auxilar Caracter 1';
+comment on column JAQM13.jaqm13ac2
+  is 'Auxilar Caracter 2';
+comment on column JAQM13.jaqm13ac3
+  is 'Auxilar Caracter 3';
+comment on column JAQM13.jaqm13ad1
+  is 'Auxilar Fecha 1';
+comment on column JAQM13.jaqm13ad2
+  is 'Auxilar Fecha 2';
+comment on column JAQM13.jaqm13ad3
+  is 'Auxilar Fecha 3';
+create index JAQM13A2 on JAQM13 (JAQM13CUP);
+create index JAQM13A3 on JAQM13 (JAQM13PER);
+create index JAQM13A4 on JAQM13 (JAQM13USU);
+alter table JAQM13
+  add primary key (JAQM13CUI);
+

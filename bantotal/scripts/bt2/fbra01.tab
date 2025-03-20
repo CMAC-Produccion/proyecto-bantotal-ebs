@@ -1,0 +1,17 @@
+create table FBRA01
+(
+  fbra01pais NUMBER(3) not null,
+  fbra01petd NUMBER(2) not null,
+  fbra01pend CHAR(12) not null,
+  fbra01cta  NUMBER(9) not null,
+  fbra01mod  NUMBER(3) not null,
+  fbra01mda  NUMBER(4) not null,
+  fbra01sbop NUMBER(3) not null,
+  fbra01oper NUMBER(9) not null,
+  fbra01sdo  NUMBER(17,2)
+)
+;
+create index FBRA0102 on FBRA01 (FBRA01PETD, FBRA01PEND, FBRA01PAIS, FBRA01MOD, FBRA01MDA);
+alter table FBRA01
+  add primary key (FBRA01PAIS, FBRA01PETD, FBRA01PEND, FBRA01CTA, FBRA01MOD, FBRA01MDA, FBRA01SBOP, FBRA01OPER);
+

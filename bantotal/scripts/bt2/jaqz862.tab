@@ -1,0 +1,127 @@
+create table JAQZ862
+(
+  jaqz862corr  NUMBER(10) not null,
+  jaqz862fech  DATE not null,
+  jaqz862hora  CHAR(8) not null,
+  jaqz862inst  NUMBER(10),
+  jaqz862neva  NUMBER(10),
+  jaqz862pais  NUMBER(3),
+  jaqz862tdoc  NUMBER(2),
+  jaqz862ndoc  CHAR(12),
+  jaqz862rubr  VARCHAR2(14),
+  jaqz862esta  CHAR(2),
+  jaqz862enti  VARCHAR2(200),
+  jaqz862tcre  CHAR(30),
+  jaqz862sdeu  NUMBER(17,2),
+  jaqz862plaz  NUMBER(9,6),
+  jaqz862taza  NUMBER(9,6),
+  jaqz862ccalc NUMBER(17,2),
+  jaqz862gfin  NUMBER(17,2),
+  jaqz862frcc  DATE,
+  jaqz862dori  CHAR(1),
+  jaqz862chek  CHAR(1),
+  jaqz862pers  CHAR(30),
+  jaqz862rela  CHAR(20),
+  jaqz862line  CHAR(20),
+  jaqz862aux1  NUMBER(10),
+  jaqz862aux2  NUMBER(17,2),
+  jaqz862aux3  CHAR(1),
+  jaqz862aux4  VARCHAR2(1),
+  jaqz862aux5  VARCHAR2(50),
+  jaqz862aux6  DATE,
+  jaqz862aux7  NUMBER(10),
+  jaqz862aux8  NUMBER(17,2),
+  jaqz862aux9  VARCHAR2(40),
+  jaqz862mda   NUMBER(4),
+  jaqz862tlin  NUMBER(17,2),
+  jaqz862util  NUMBER(17,2),
+  jaqz862flin  VARCHAR2(1),
+  jaqz862cptn  NUMBER(17,2),
+  jaqz862fac1  NUMBER(10,6),
+  jaqz862fac2  NUMBER(10,6),
+  jaqz862fac3  NUMBER(10,6),
+  jaqz862cent  VARCHAR2(10)
+)
+;
+comment on column JAQZ862.jaqz862corr
+  is 'Correlativo';
+comment on column JAQZ862.jaqz862fech
+  is 'Fecha Proceso';
+comment on column JAQZ862.jaqz862hora
+  is 'Hora Registro';
+comment on column JAQZ862.jaqz862inst
+  is 'Instancia / Solicitud';
+comment on column JAQZ862.jaqz862neva
+  is 'Evaluacion';
+comment on column JAQZ862.jaqz862pais
+  is 'Pais';
+comment on column JAQZ862.jaqz862tdoc
+  is 'Tipo Documento';
+comment on column JAQZ862.jaqz862ndoc
+  is 'Num Documento';
+comment on column JAQZ862.jaqz862rubr
+  is 'Rubro';
+comment on column JAQZ862.jaqz862esta
+  is 'Estado S/N';
+comment on column JAQZ862.jaqz862enti
+  is 'Entidad Finan';
+comment on column JAQZ862.jaqz862tcre
+  is 'Tipo Credito';
+comment on column JAQZ862.jaqz862sdeu
+  is 'Saldo Deudor';
+comment on column JAQZ862.jaqz862plaz
+  is 'Plazo';
+comment on column JAQZ862.jaqz862taza
+  is 'Taza';
+comment on column JAQZ862.jaqz862ccalc
+  is 'Cuota Calculada';
+comment on column JAQZ862.jaqz862gfin
+  is 'Gasto Financiero';
+comment on column JAQZ862.jaqz862frcc
+  is 'Fecha RCC';
+comment on column JAQZ862.jaqz862dori
+  is 'Datos Origen';
+comment on column JAQZ862.jaqz862chek
+  is 'Vigente';
+comment on column JAQZ862.jaqz862pers
+  is 'Nombre Per';
+comment on column JAQZ862.jaqz862rela
+  is 'Relacion Per';
+comment on column JAQZ862.jaqz862line
+  is 'Tipo de Deuda';
+comment on column JAQZ862.jaqz862aux1
+  is 'Tarea de ejecucion';
+comment on column JAQZ862.jaqz862aux3
+  is 'Flag Ratio R/ '' ''';
+comment on column JAQZ862.jaqz862aux4
+  is 'Flag Compra de Deuda';
+comment on column JAQZ862.jaqz862aux5
+  is 'Usuario de Registro';
+comment on column JAQZ862.jaqz862aux8
+  is 'Monto de No Uso';
+comment on column JAQZ862.jaqz862aux9
+  is 'Descripcion del Credito';
+comment on column JAQZ862.jaqz862mda
+  is 'Moneda';
+comment on column JAQZ862.jaqz862tlin
+  is 'Monto Total Linea';
+comment on column JAQZ862.jaqz862util
+  is 'Monto Utilizacion';
+comment on column JAQZ862.jaqz862flin
+  is 'Flag Tipo de deuda L/P';
+comment on column JAQZ862.jaqz862cptn
+  is 'Monto Cuota Potencial';
+comment on column JAQZ862.jaqz862fac1
+  is 'Factor Calculo Uso';
+comment on column JAQZ862.jaqz862fac2
+  is 'Factor Calculo No Uso';
+comment on column JAQZ862.jaqz862fac3
+  is 'Factor Calculo Prestamo';
+comment on column JAQZ862.jaqz862cent
+  is 'Codigo Entidad';
+create index SYS_JAQZ862_01 on JAQZ862 (JAQZ862INST, JAQZ862NEVA, JAQZ862PAIS, JAQZ862TDOC, JAQZ862NDOC);
+create index SYS_JAQZ862_02 on JAQZ862 (JAQZ862INST, JAQZ862NEVA, JAQZ862PAIS, JAQZ862TDOC, JAQZ862NDOC, JAQZ862ESTA, JAQZ862SDEU, JAQZ862PLAZ, JAQZ862TAZA, JAQZ862CCALC);
+create index SYS_JAQZ862_03 on JAQZ862 (JAQZ862INST);
+alter table JAQZ862
+  add primary key (JAQZ862FECH, JAQZ862CORR, JAQZ862HORA);
+

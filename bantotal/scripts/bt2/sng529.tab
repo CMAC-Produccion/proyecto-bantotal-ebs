@@ -1,0 +1,15 @@
+create table SNG529
+(
+  sng501bien NUMBER(10) not null,
+  sng529cor  NUMBER(3) not null,
+  sng529cod  NUMBER(9),
+  sng529scs  NUMBER(9),
+  sng529sfv  DATE,
+  sng529sfvp DATE,
+  sng529snp  CHAR(15),
+  sng529svp  NUMBER(17,2)
+)
+;
+alter table SNG529
+  add primary key (SNG501BIEN, SNG529COR);
+

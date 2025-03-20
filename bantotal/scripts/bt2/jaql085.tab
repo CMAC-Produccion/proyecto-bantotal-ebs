@@ -1,0 +1,23 @@
+create table JAQL085
+(
+  jaql85user CHAR(10) not null,
+  jaql85coin CHAR(10) not null,
+  jaql85cpag CHAR(10) not null,
+  jaql85cont NUMBER(4) not null,
+  jaql85mone CHAR(10) not null,
+  jaql85copa CHAR(10),
+  jaql85depa CHAR(94),
+  jaql85coti CHAR(10),
+  jaql85deti CHAR(80),
+  jaql85cuen CHAR(20),
+  jaql85peri CHAR(20),
+  jaql85fecv DATE,
+  jaql85mont NUMBER(17,2),
+  jaql85prio NUMBER(4),
+  jaql85sele CHAR(1),
+  jaql85sbpe CHAR(20)
+)
+;
+alter table JAQL085
+  add primary key (JAQL85USER, JAQL85COIN, JAQL85CPAG, JAQL85CONT, JAQL85MONE);
+

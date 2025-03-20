@@ -1,0 +1,11 @@
+create table FBRT04
+(
+  brt03pacod NUMBER(5) not null,
+  brt04vacod CHAR(8) not null,
+  brt04vadsc CHAR(50),
+  brt04vadsa CHAR(10)
+)
+;
+alter table FBRT04
+  add primary key (BRT03PACOD, BRT04VACOD);
+

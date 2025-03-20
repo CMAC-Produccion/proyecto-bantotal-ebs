@@ -1,0 +1,16 @@
+create table FBRE02
+(
+  brd02rgemp NUMBER(3) not null,
+  brd02rgcod NUMBER(5) not null,
+  bre01pacod NUMBER(3) not null,
+  bre02padnr NUMBER(16),
+  bre02pahnr NUMBER(16),
+  bre02padch CHAR(30),
+  bre02pahch CHAR(30),
+  bre02padfc DATE,
+  bre02pahfc DATE
+)
+;
+alter table FBRE02
+  add primary key (BRD02RGEMP, BRD02RGCOD, BRE01PACOD);
+

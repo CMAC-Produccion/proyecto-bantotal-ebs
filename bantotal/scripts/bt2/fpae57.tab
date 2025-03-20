@@ -1,0 +1,22 @@
+create table FPAE57
+(
+  pae51eva  NUMBER(3) not null,
+  pae52ite  NUMBER(5) not null,
+  pae57corr NUMBER(3) not null,
+  pae57desn NUMBER(18),
+  pae57desc CHAR(30),
+  pae57desd DATE,
+  pae57hasn NUMBER(18),
+  pae57hasc CHAR(30),
+  pae57hasd DATE,
+  pae57scv  NUMBER(17,9),
+  pae57pol  CHAR(1),
+  pae57msg  CHAR(80),
+  pae90pol  NUMBER(5),
+  pae57res  CHAR(1)
+)
+;
+create index FPAE5703 on FPAE57 (PAE90POL);
+alter table FPAE57
+  add primary key (PAE51EVA, PAE52ITE, PAE57CORR);
+

@@ -1,0 +1,49 @@
+create table UAI_ACLSOL
+(
+  n_emp_bcemp             NUMBER(3) not null,
+  n_mod_bcmod             NUMBER(3),
+  n_suc_bcsuc             NUMBER(3) not null,
+  n_mda_bcmda             NUMBER(4) not null,
+  n_pap_bcpap             NUMBER(4) not null,
+  n_cta_bccta             NUMBER(9) not null,
+  n_ope_bcoper            NUMBER(9) not null,
+  n_sbop_bcsbop           NUMBER(3) not null,
+  n_tope_bctop            NUMBER(3) not null,
+  n_rubr_bcrubr           NUMBER(16),
+  c_ana_sng001ase         CHAR(10),
+  d_fecosl_sng001fin      DATE,
+  c_tipcred_sng001tpcr    VARCHAR2(20),
+  d_fecresol_sng120fval   DATE,
+  d_fecdig_fecdig         DATE,
+  c_usudesem_wfitemusrcod CHAR(30),
+  c_usudig_wfitemusrcod   CHAR(30),
+  c_tipcal_xllotexto      CHAR(30),
+  n_diagrac               NUMBER,
+  n_cuotas_xllcantcuo     NUMBER,
+  n_cuotascal             NUMBER,
+  n_mtoapr_xllcapital     NUMBER(17,2),
+  n_valcuo_xllvalcuo      NUMBER(17,2),
+  n_val_calen             NUMBER(17,2),
+  n_instancia_xwfprcins   NUMBER,
+  d_fecpri                DATE,
+  c_anaeval_wfitemusrcod  CHAR(30),
+  c_indriesg_wfattsval    CHAR(30),
+  n_shock_wfattsval       CHAR(30),
+  n_aoimp_mtolinea        NUMBER(17,2),
+  n_mtodisp               NUMBER(17,2),
+  n_ori_tipsol            NUMBER(2),
+  c_cuopar                CHAR(1),
+  n_mto_apr               NUMBER(17,2),
+  c_promotor              CHAR(10),
+  d_fectran_lin           DATE,
+  c_usuapro               CHAR(30),
+  d_fecapro               DATE,
+  c_tipocredito           CHAR(30)
+)
+;
+comment on table UAI_ACLSOL
+  is 'Tabla procesamiento de data ACL para UAI';
+create index XN_UAI_ACLSOL_01 on UAI_ACLSOL (N_SUC_BCSUC);
+create index XN_UAI_ACLSOL_02 on UAI_ACLSOL (N_INSTANCIA_XWFPRCINS);
+create index XN_UAI_ACLSOL_03 on UAI_ACLSOL (N_SUC_BCSUC, N_RUBR_BCRUBR);
+

@@ -1,0 +1,30 @@
+create table FBC608
+(
+  bc608emp   NUMBER(3) not null,
+  bc608fcont DATE not null,
+  bc608nvou  CHAR(26) not null,
+  bc608trep  CHAR(1) not null,
+  bc608femi  DATE,
+  bc608tdoc  NUMBER(2),
+  bc608ncomp CHAR(30),
+  bc608ndoc  CHAR(12),
+  bc608rsoc  CHAR(70),
+  bc608bimpd NUMBER(17,2),
+  bc608tcbio NUMBER(14,8),
+  bc608bimps NUMBER(17,2),
+  bc608impt  NUMBER(17,2),
+  bc608imps  NUMBER(17,2),
+  bc608impg  NUMBER(17,2),
+  bc608otrib NUMBER(17,2),
+  bc608impc  NUMBER(17,2),
+  bc608conc  CHAR(30),
+  bc608aux1  NUMBER(17,2),
+  bc608aux2  NUMBER(17,2),
+  bc608aux3  DATE,
+  bc608aux4  CHAR(30)
+)
+;
+create index FBC60802 on FBC608 (BC608EMP, BC608TDOC, BC608FCONT);
+alter table FBC608
+  add primary key (BC608EMP, BC608FCONT, BC608NVOU, BC608TREP);
+

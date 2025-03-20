@@ -1,0 +1,19 @@
+create table AQPA030M
+(
+  aqpa030mfech1 DATE not null,
+  aqpa030mhora1 CHAR(8) not null,
+  aqpa030minst  NUMBER(10) not null,
+  aqpa030mcsbs  VARCHAR2(10) not null,
+  aqpa030mcemp  CHAR(5) not null,
+  aqpa030mcuen  CHAR(14) not null,
+  aqpa030msald  NUMBER(17,2),
+  aqpa030msalc  NUMBER(17,2),
+  aqpa030msaln  NUMBER(17,2),
+  aqpa030mbfpre DATE,
+  aqpa030mfech  DATE,
+  aqpa030mhora  CHAR(8)
+)
+;
+alter table AQPA030M
+  add primary key (AQPA030MFECH1, AQPA030MHORA1, AQPA030MINST, AQPA030MCSBS, AQPA030MCEMP, AQPA030MCUEN);
+

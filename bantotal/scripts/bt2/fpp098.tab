@@ -1,0 +1,42 @@
+create table FPP098
+(
+  pp98nlote  NUMBER(5) not null,
+  pp98emp    CHAR(20) not null,
+  pp98mut    CHAR(20) not null,
+  pp98opo    CHAR(18) not null,
+  pp98pepais NUMBER(3) not null,
+  pp98petdoc NUMBER(2) not null,
+  pp98pendoc CHAR(12) not null,
+  pp98pgc    NUMBER(3),
+  pp98mod    NUMBER(3),
+  pp98suc    NUMBER(3),
+  pp98mda    NUMBER(4),
+  pp98pap    NUMBER(4),
+  pp98cta    NUMBER(9),
+  pp98ope    NUMBER(9),
+  pp98sbo    NUMBER(3),
+  pp98top    NUMBER(3),
+  pp98tcd    NUMBER(3),
+  pp98tmd    NUMBER(3),
+  pp98tsu    NUMBER(3),
+  pp98ttr    NUMBER(3),
+  pp98tre    NUMBER(4),
+  pp98tfc    DATE,
+  pp98tor    NUMBER(2),
+  pp98tso    NUMBER(3),
+  pp98tco    CHAR(1),
+  pp98au1    NUMBER(9),
+  pp98au2    NUMBER(9),
+  pp98au3    DATE,
+  pp98au4    DATE,
+  pp98au5    CHAR(30),
+  pp98au6    CHAR(30),
+  pp98au7    CHAR(30),
+  pp98au8    NUMBER(17,2),
+  pp98au9    NUMBER(17,2)
+)
+;
+create index FPP09802 on FPP098 (PP98PGC, PP98MOD, PP98SUC, PP98MDA, PP98PAP, PP98CTA, PP98OPE, PP98SBO, PP98TOP);
+alter table FPP098
+  add primary key (PP98NLOTE, PP98EMP, PP98MUT, PP98OPO, PP98PEPAIS, PP98PETDOC, PP98PENDOC);
+

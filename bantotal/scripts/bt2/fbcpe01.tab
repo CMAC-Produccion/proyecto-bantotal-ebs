@@ -1,0 +1,32 @@
+create table FBCPE01
+(
+  bcpe01emp  NUMBER(3) not null,
+  bcpe01suc  NUMBER(3) not null,
+  bcpe01mod  NUMBER(3) not null,
+  bcpe01trn  NUMBER(3) not null,
+  bcpe01rel  NUMBER(4) not null,
+  bcpe01fch  DATE not null,
+  bcpe01ord  NUMBER(2) not null,
+  bcpe01sbo  NUMBER(3) not null,
+  bcpe01fvc  DATE,
+  bcpe01rub  NUMBER(16),
+  bcpe01mdao NUMBER(4),
+  bcpe01mtoo NUMBER(17,2),
+  bcpe01tcb  NUMBER(14,8),
+  bcpe01cp01 CHAR(8),
+  bcpe01cp02 CHAR(29),
+  bcpe01cp03 CHAR(2),
+  bcpe01cp04 CHAR(20),
+  bcpe01cp05 CHAR(10),
+  bcpe01cp06 CHAR(80),
+  bcpe01cp07 NUMBER(17,2),
+  bcpe01cp08 NUMBER(17,2),
+  bcpe01cp09 CHAR(1),
+  bcpe01sep  CHAR(1)
+)
+;
+create index FBCPE012 on FBCPE01 (BCPE01EMP, BCPE01FVC, BCPE01RUB);
+create index FBCPE013 on FBCPE01 (BCPE01EMP, BCPE01RUB, BCPE01FVC);
+alter table FBCPE01
+  add primary key (BCPE01EMP, BCPE01SUC, BCPE01MOD, BCPE01TRN, BCPE01REL, BCPE01FCH, BCPE01ORD, BCPE01SBO);
+

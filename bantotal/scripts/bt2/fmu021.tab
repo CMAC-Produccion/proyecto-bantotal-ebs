@@ -1,0 +1,17 @@
+create table FMU021
+(
+  pgcod      NUMBER(3) not null,
+  liummod    NUMBER(3) not null,
+  liumoper   NUMBER(9) not null,
+  liumsbop   NUMBER(3) not null,
+  liumcuonro NUMBER(2) not null,
+  liumcuovto DATE,
+  liumcuoimp NUMBER(17,2),
+  liumcuoint NUMBER(17,2),
+  liumcuoobs CHAR(40)
+)
+;
+create index FMU02120 on FMU021 (PGCOD, LIUMMOD, LIUMOPER, LIUMSBOP, LIUMCUOVTO);
+alter table FMU021
+  add primary key (PGCOD, LIUMMOD, LIUMOPER, LIUMSBOP, LIUMCUONRO);
+

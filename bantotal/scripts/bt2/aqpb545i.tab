@@ -1,0 +1,72 @@
+create table AQPB545I
+(
+  aqpb545iemp NUMBER(3) not null,
+  aqpb545ipai NUMBER(3) not null,
+  aqpb545itdc NUMBER(2) not null,
+  aqpb545indc CHAR(12) not null,
+  aqpb545irec VARCHAR2(20),
+  aqpb545icre VARCHAR2(44) not null,
+  aqpb545itip VARCHAR2(1) not null,
+  aqpb545ipro VARCHAR2(44),
+  aqpb545itim TIMESTAMP(6) not null,
+  aqpb545iai1 NUMBER(17,2),
+  aqpb545iai2 NUMBER(17,2),
+  aqpb545iai3 NUMBER(17,2),
+  aqpb545iad1 DATE,
+  aqpb545iad2 DATE,
+  aqpb545iad3 DATE,
+  aqpb545ian1 NUMBER(9),
+  aqpb545ian2 NUMBER(9),
+  aqpb545ian3 NUMBER(9),
+  aqpb545iac1 VARCHAR2(300),
+  aqpb545iac2 VARCHAR2(300),
+  aqpb545iac3 VARCHAR2(300)
+)
+;
+comment on table AQPB545I
+  is 'Reclamos - Operaciones de Creditos/Seguros';
+comment on column AQPB545I.aqpb545iemp
+  is 'Empresa';
+comment on column AQPB545I.aqpb545ipai
+  is 'Pais';
+comment on column AQPB545I.aqpb545itdc
+  is 'Tipo de Documento';
+comment on column AQPB545I.aqpb545indc
+  is 'Nro. de Documento';
+comment on column AQPB545I.aqpb545irec
+  is 'Reclamo';
+comment on column AQPB545I.aqpb545icre
+  is 'Nro. Credito/Seguro';
+comment on column AQPB545I.aqpb545itip
+  is 'Tipo Credito:C/Seguro:S';
+comment on column AQPB545I.aqpb545ipro
+  is 'Nombre del Producto';
+comment on column AQPB545I.aqpb545itim
+  is 'Creacion';
+comment on column AQPB545I.aqpb545iai1
+  is 'Auxiliar IMP1';
+comment on column AQPB545I.aqpb545iai2
+  is 'Auxiliar IMP2';
+comment on column AQPB545I.aqpb545iai3
+  is 'Auxiliar IMP3';
+comment on column AQPB545I.aqpb545iad1
+  is 'Auxiliar FEC1';
+comment on column AQPB545I.aqpb545iad2
+  is 'Auxiliar FEC2';
+comment on column AQPB545I.aqpb545iad3
+  is 'Auxiliar FEC3';
+comment on column AQPB545I.aqpb545ian1
+  is 'Auxiliar NUM1';
+comment on column AQPB545I.aqpb545ian2
+  is 'Auxiliar NUM2';
+comment on column AQPB545I.aqpb545ian3
+  is 'Auxiliar NUM3';
+comment on column AQPB545I.aqpb545iac1
+  is 'Auxiliar STR1';
+comment on column AQPB545I.aqpb545iac2
+  is 'Auxiliar STR2';
+comment on column AQPB545I.aqpb545iac3
+  is 'Auxiliar STR3';
+alter table AQPB545I
+  add primary key (AQPB545IEMP, AQPB545IPAI, AQPB545ITDC, AQPB545INDC, AQPB545ICRE, AQPB545ITIP, AQPB545ITIM);
+

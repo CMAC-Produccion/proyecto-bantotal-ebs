@@ -1,0 +1,15 @@
+create table JAQZ566
+(
+  jaqz566fech DATE not null,
+  jaqz566ent  VARCHAR2(100) not null,
+  jaqz566aux2 VARCHAR2(30) not null,
+  jaqz566ciu  VARCHAR2(30),
+  jaqz566cant NUMBER(4),
+  jaqz566aux1 NUMBER(4),
+  jaqz566aux3 VARCHAR2(40)
+)
+;
+create index IJAQZ566_001 on JAQZ566 (JAQZ566AUX2, JAQZ566FECH);
+alter table JAQZ566
+  add primary key (JAQZ566FECH, JAQZ566ENT, JAQZ566AUX2);
+

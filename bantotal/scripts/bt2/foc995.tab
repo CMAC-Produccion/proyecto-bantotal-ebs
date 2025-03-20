@@ -1,0 +1,19 @@
+create table FOC995
+(
+  foc995emp  NUMBER(3) not null,
+  foc995oper NUMBER(9) not null,
+  foc995cv   CHAR(1) not null,
+  foc995corr NUMBER(12) not null,
+  foc995imp  NUMBER(17,2),
+  foc995aord CHAR(60),
+  foc995mot  CHAR(100),
+  foc995aux1 DATE,
+  foc995aux2 NUMBER(4),
+  foc995aux3 NUMBER(17,2),
+  foc995aux4 CHAR(1),
+  foc995aux5 CHAR(60)
+)
+;
+alter table FOC995
+  add primary key (FOC995EMP, FOC995OPER, FOC995CV, FOC995CORR);
+

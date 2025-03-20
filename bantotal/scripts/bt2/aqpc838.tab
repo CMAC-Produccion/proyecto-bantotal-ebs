@@ -1,0 +1,47 @@
+create table AQPC838
+(
+  aqpc838fepro  DATE not null,
+  aqpc838inst   NUMBER(10) not null,
+  aqpc838usuar  VARCHAR2(10) not null,
+  aqpc838tabla  VARCHAR2(20),
+  aqpc838aplic  VARCHAR2(1),
+  aqpc838ratio  NUMBER(11,6),
+  aqpc838coderr VARCHAR2(4),
+  aqpc838msgerr VARCHAR2(150),
+  aqpc838hora   VARCHAR2(10) not null,
+  aqpc838aux1   NUMBER(17,2),
+  aqpc838aux2   VARCHAR2(100),
+  aqpc834aux3   DATE
+)
+;
+comment on table AQPC838
+  is 'Log para controles de Memo 132 convertir de unilateral a consensuado';
+comment on column AQPC838.aqpc838fepro
+  is 'Fecha';
+comment on column AQPC838.aqpc838inst
+  is 'solicitud';
+comment on column AQPC838.aqpc838usuar
+  is 'USUARIO';
+comment on column AQPC838.aqpc838tabla
+  is 'Tabla de masivo o individual';
+comment on column AQPC838.aqpc838aplic
+  is 'FLG APLICA CONTROL';
+comment on column AQPC838.aqpc838ratio
+  is 'valor ratio calculado';
+comment on column AQPC838.aqpc838coderr
+  is 'cod. error';
+comment on column AQPC838.aqpc838msgerr
+  is 'mensaje error';
+comment on column AQPC838.aqpc838hora
+  is 'hora';
+comment on column AQPC838.aqpc838aux1
+  is 'AQPC838AUX1';
+comment on column AQPC838.aqpc838aux2
+  is 'AQPC838AUX2';
+comment on column AQPC838.aqpc834aux3
+  is 'AQPC838AUX3';
+create index AQPC838A2 on AQPC838 (AQPC838FEPRO, AQPC838INST);
+create index AQPC838A3 on AQPC838 (AQPC838INST);
+alter table AQPC838
+  add primary key (AQPC838FEPRO, AQPC838INST, AQPC838USUAR, AQPC838HORA);
+

@@ -1,0 +1,14 @@
+create table SCH004
+(
+  sch001tpo NUMBER(3) not null,
+  sch004cor NUMBER(2) not null,
+  sch002est NUMBER(3) not null,
+  sch004prf CHAR(10),
+  sch004niv NUMBER(1)
+)
+;
+create index SCH00402 on SCH004 (SCH002EST);
+create index SCH00404 on SCH004 (SCH001TPO, SCH002EST);
+alter table SCH004
+  add primary key (SCH001TPO, SCH004COR, SCH002EST);
+

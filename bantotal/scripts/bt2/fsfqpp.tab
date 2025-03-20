@@ -1,0 +1,25 @@
+create table FSFQPP
+(
+  fsfqpppg NUMBER(3) not null,
+  fsfqppic NUMBER(9) not null,
+  fsfqpptp CHAR(1) not null,
+  fsfqpppp NUMBER(3) not null,
+  fsfqpppo NUMBER(3) not null,
+  fsfqppha CHAR(1),
+  fsfqpppl NUMBER(10,6),
+  fsfqpppa NUMBER(10,6),
+  fsfqppc1 CHAR(1),
+  fsfqppc2 CHAR(1),
+  fsfqppc3 CHAR(10),
+  fsfqppc4 CHAR(10),
+  fsfqppc5 CHAR(10),
+  fsfqppn1 NUMBER(9),
+  fsfqppn2 NUMBER(9),
+  fsfqppn3 NUMBER(9),
+  fsfqppd1 DATE,
+  fsfqppd2 DATE
+)
+;
+alter table FSFQPP
+  add primary key (FSFQPPPG, FSFQPPIC, FSFQPPTP, FSFQPPPP, FSFQPPPO);
+

@@ -1,0 +1,11 @@
+create table FTDLOD
+(
+  tdlodcod NUMBER(3) not null,
+  tdlodtop CHAR(2) not null,
+  tdlodmda NUMBER(4),
+  tdlodlim NUMBER(3)
+)
+;
+alter table FTDLOD
+  add primary key (TDLODCOD, TDLODTOP);
+

@@ -1,0 +1,18 @@
+create table TDW004
+(
+  tdw004pqt  NUMBER(5) not null,
+  tdw004niv  NUMBER(2) not null,
+  tdw004agr  NUMBER(3) not null,
+  tdw004cml  NUMBER(3),
+  tdw004cme  NUMBER(3),
+  tdw004imp  NUMBER(17,2),
+  tdw004aux1 NUMBER(3),
+  tdw004aux2 CHAR(20),
+  tdw004aux3 CHAR(1),
+  tdw004aux4 NUMBER(3),
+  tdw004aux5 NUMBER(17,2)
+)
+;
+alter table TDW004
+  add primary key (TDW004PQT, TDW004NIV, TDW004AGR);
+

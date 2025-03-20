@@ -1,0 +1,22 @@
+create table FSFX15
+(
+  sfx15num NUMBER(15) not null,
+  sfx15pap NUMBER(4) not null,
+  sfx01fid CHAR(12) not null,
+  sfx15cnf CHAR(2),
+  sfx15cdt DATE,
+  sfx15ctm CHAR(8),
+  sfx15cus CHAR(10),
+  sfx15ax1 CHAR(70),
+  sfx15ax2 CHAR(70),
+  sfx15ax3 CHAR(70),
+  sfx15ax4 CHAR(70),
+  sfx15ax5 NUMBER(4),
+  sfx15ax6 NUMBER(4),
+  sfx15dat CHAR(250)
+)
+;
+create index FSFX152 on FSFX15 (SFX01FID);
+alter table FSFX15
+  add primary key (SFX15NUM, SFX15PAP, SFX01FID);
+

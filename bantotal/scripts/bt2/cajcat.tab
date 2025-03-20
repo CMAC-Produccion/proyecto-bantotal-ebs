@@ -1,0 +1,11 @@
+create table CAJCAT
+(
+  cajpgcod  NUMBER(3) not null,
+  cajcateg  NUMBER(3) not null,
+  cajcattit CHAR(40),
+  cajcathab CHAR(1)
+)
+;
+alter table CAJCAT
+  add primary key (CAJPGCOD, CAJCATEG);
+

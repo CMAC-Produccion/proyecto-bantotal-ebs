@@ -1,0 +1,26 @@
+create table JAQL064
+(
+  jaql64coca NUMBER(4) not null,
+  jaql64tipe NUMBER(4) not null,
+  jaql64modu NUMBER(3) not null,
+  jaql64tiop NUMBER(3) not null,
+  jaql64mone NUMBER(4) not null,
+  jaql64mtod NUMBER(17,2),
+  jaql64mtoh NUMBER(17,2),
+  jaql64au01 CHAR(50),
+  jaql64au02 CHAR(50),
+  jaql64au03 CHAR(50),
+  jaql64au04 NUMBER(9),
+  jaql64au05 NUMBER(9),
+  jaql64au06 NUMBER(9),
+  jaql64au07 NUMBER(17,2),
+  jaql64au08 NUMBER(17,2),
+  jaql64au09 NUMBER(17,2),
+  jaql64au10 DATE,
+  jaql64au11 DATE,
+  jaql64au12 DATE
+)
+;
+alter table JAQL064
+  add primary key (JAQL64COCA, JAQL64TIPE, JAQL64MODU, JAQL64TIOP, JAQL64MONE);
+

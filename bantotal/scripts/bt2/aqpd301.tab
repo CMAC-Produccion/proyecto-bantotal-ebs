@@ -1,0 +1,180 @@
+create table AQPD301
+(
+  aqpd301creusu CHAR(10) not null,
+  aqpd301cretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpd301rownum NUMBER(9) not null,
+  aqpd301acccod NUMBER(3),
+  aqpd301accdes VARCHAR2(30),
+  aqpd301tipcop NUMBER(3),
+  aqpd301tipdep VARCHAR2(30),
+  aqpd301usuing VARCHAR2(10),
+  aqpd301recfcr DATE,
+  aqpd301fecasi DATE,
+  aqpd301horasi VARCHAR2(8),
+  aqpd301reccod VARCHAR2(20),
+  aqpd301agecod NUMBER(3),
+  aqpd301agenom VARCHAR2(30),
+  aqpd301caninc NUMBER(9),
+  aqpd301canind VARCHAR2(30),
+  aqpd301nrotar VARCHAR2(30),
+  aqpd301recpai NUMBER(3),
+  aqpd301rectdo NUMBER(2),
+  aqpd301tdodes VARCHAR2(20),
+  aqpd301recndo CHAR(12),
+  aqpd301clinom VARCHAR2(40),
+  aqpd301clicaj VARCHAR2(30),
+  aqpd301segaho VARCHAR2(60),
+  aqpd301segneg VARCHAR2(60),
+  aqpd301recdet VARCHAR2(4000),
+  aqpd301cuenta VARCHAR2(40),
+  aqpd301produc VARCHAR2(500),
+  aqpd301reccel VARCHAR2(20),
+  aqpd301receml VARCHAR2(90),
+  aqpd301trxfec DATE,
+  aqpd301trxhor VARCHAR2(8),
+  aqpd301trxmon NUMBER(9,2),
+  aqpd301trxmnd VARCHAR2(20),
+  aqpd301trxnom VARCHAR2(40),
+  aqpd301establ VARCHAR2(40),
+  aqpd301codaut VARCHAR2(20),
+  aqpd301tcanal VARCHAR2(40),
+  aqpd301pagorc NUMBER(3),
+  aqpd301pagora VARCHAR2(2),
+  aqpd301devpoc NUMBER(3),
+  aqpd301devpor VARCHAR2(30),
+  aqpd301tieseg VARCHAR2(2),
+  aqpd301concod NUMBER(3),
+  aqpd301condes VARCHAR2(30),
+  aqpd301tipcod NUMBER(3),
+  aqpd301tipdes VARCHAR2(30),
+  aqpd301analis VARCHAR2(1000),
+  aqpd301fecres DATE,
+  aqpd301respon VARCHAR2(10),
+  aqpd301modcod NUMBER(3),
+  aqpd301moddes VARCHAR2(100),
+  aqpd301tipolc NUMBER(3),
+  aqpd301tipold VARCHAR2(30),
+  aqpd301acctom VARCHAR2(60),
+  aqpd301recfcc DATE,
+  aqpd301recres VARCHAR2(1000),
+  aqpd301usures VARCHAR2(10),
+  aqpd301gesasi VARCHAR2(50)
+)
+;
+comment on table AQPD301
+  is 'Reporte de Reclamos de PyC';
+comment on column AQPD301.aqpd301creusu
+  is 'Creacion Usuario';
+comment on column AQPD301.aqpd301cretim
+  is 'Time';
+comment on column AQPD301.aqpd301rownum
+  is 'Nro. de Fila';
+comment on column AQPD301.aqpd301acccod
+  is 'Accion - Codigo';
+comment on column AQPD301.aqpd301accdes
+  is 'Accion - Desc';
+comment on column AQPD301.aqpd301usuing
+  is 'Usuario de Ingreso';
+comment on column AQPD301.aqpd301recfcr
+  is 'Fecha Ingreso';
+comment on column AQPD301.aqpd301fecasi
+  is 'Fecha Asignacion';
+comment on column AQPD301.aqpd301horasi
+  is 'Hora Asignacion';
+comment on column AQPD301.aqpd301reccod
+  is 'Codigo de Reclamo';
+comment on column AQPD301.aqpd301agecod
+  is 'Codigo de Agencia';
+comment on column AQPD301.aqpd301agenom
+  is 'Agencia';
+comment on column AQPD301.aqpd301caninc
+  is 'Canal de Ingreso - Codigo';
+comment on column AQPD301.aqpd301canind
+  is 'Canal de Ingreso - Desc';
+comment on column AQPD301.aqpd301nrotar
+  is 'Nro. de Tarjeta';
+comment on column AQPD301.aqpd301recpai
+  is 'Cliente - Pais';
+comment on column AQPD301.aqpd301rectdo
+  is 'Cliente - Tipo Doc';
+comment on column AQPD301.aqpd301tdodes
+  is 'Tipo de Documento';
+comment on column AQPD301.aqpd301recndo
+  is 'Cliente - Nro. Doc';
+comment on column AQPD301.aqpd301clinom
+  is 'Cliente - Nombre';
+comment on column AQPD301.aqpd301clicaj
+  is 'Cliente Caja';
+comment on column AQPD301.aqpd301segaho
+  is 'Segmento Ahorros';
+comment on column AQPD301.aqpd301segneg
+  is 'Segmento Negocios';
+comment on column AQPD301.aqpd301recdet
+  is 'Reclamo - Detalle';
+comment on column AQPD301.aqpd301cuenta
+  is 'Cuenta';
+comment on column AQPD301.aqpd301produc
+  is 'Producto';
+comment on column AQPD301.aqpd301reccel
+  is 'Reclamo - Celular';
+comment on column AQPD301.aqpd301receml
+  is 'Reclamo - Email';
+comment on column AQPD301.aqpd301trxfec
+  is 'Transacción - Fecha';
+comment on column AQPD301.aqpd301trxhor
+  is 'Transacción - Hora';
+comment on column AQPD301.aqpd301trxmon
+  is 'Transacción - Monto';
+comment on column AQPD301.aqpd301trxmnd
+  is 'Transacción - Moneda';
+comment on column AQPD301.aqpd301trxnom
+  is 'Transacción - Nombre';
+comment on column AQPD301.aqpd301establ
+  is 'Establecimiento';
+comment on column AQPD301.aqpd301codaut
+  is 'Código de Autorización';
+comment on column AQPD301.aqpd301tcanal
+  is 'Canal';
+comment on column AQPD301.aqpd301pagorc
+  is 'Pago Rapido - Código';
+comment on column AQPD301.aqpd301pagora
+  is 'Pago Rapido?';
+comment on column AQPD301.aqpd301devpor
+  is 'Devuelto Por';
+comment on column AQPD301.aqpd301tieseg
+  is 'Tiene Seguro?';
+comment on column AQPD301.aqpd301concod
+  is 'Conclusión - Código';
+comment on column AQPD301.aqpd301condes
+  is 'Conclusión - Descripción';
+comment on column AQPD301.aqpd301tipcod
+  is 'Tipología - Código PyC';
+comment on column AQPD301.aqpd301tipdes
+  is 'Tipología - Descripción PyC';
+comment on column AQPD301.aqpd301analis
+  is 'Análisis';
+comment on column AQPD301.aqpd301fecres
+  is 'Fecha de Respuesta PyC';
+comment on column AQPD301.aqpd301respon
+  is 'Responsable';
+comment on column AQPD301.aqpd301modcod
+  is 'Modalidad - Código';
+comment on column AQPD301.aqpd301moddes
+  is 'Modalidad - Descripción';
+comment on column AQPD301.aqpd301tipolc
+  is 'Tipología - Código';
+comment on column AQPD301.aqpd301tipold
+  is 'Tipología - Descripción';
+comment on column AQPD301.aqpd301acctom
+  is 'Acciones Tomadas';
+comment on column AQPD301.aqpd301recfcc
+  is 'Fecha de Respuesta';
+comment on column AQPD301.aqpd301recres
+  is 'Carta de Respuesta';
+comment on column AQPD301.aqpd301usures
+  is 'Usuario de Respuesta';
+comment on column AQPD301.aqpd301gesasi
+  is 'Gestor Asignado';
+alter table AQPD301
+  add primary key (AQPD301CREUSU, AQPD301ROWNUM);
+

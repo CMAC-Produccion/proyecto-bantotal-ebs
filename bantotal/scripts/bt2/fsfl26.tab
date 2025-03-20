@@ -1,0 +1,23 @@
+create table FSFL26
+(
+  fsfl26emp  NUMBER(3) not null,
+  fsfl26suc  NUMBER(3) not null,
+  fsfl26rub  NUMBER(16) not null,
+  fsfl26mda  NUMBER(4) not null,
+  fsfl26pap  NUMBER(4) not null,
+  fsfl26cta  NUMBER(9) not null,
+  fsfl26ope  NUMBER(9) not null,
+  fsfl26sbo  NUMBER(3) not null,
+  fsfl26top  NUMBER(3) not null,
+  fsfl26lim  CHAR(4) not null,
+  fsfl26mto  NUMBER(17,2),
+  fsfl26car  CHAR(1),
+  fsfl26op2  NUMBER(9),
+  fsfl26mtax NUMBER(17,2)
+)
+;
+create index FSFL2602 on FSFL26 (FSFL26EMP, FSFL26OP2);
+create index FSFL2603 on FSFL26 (FSFL26EMP, FSFL26CTA, FSFL26LIM);
+alter table FSFL26
+  add primary key (FSFL26EMP, FSFL26SUC, FSFL26RUB, FSFL26MDA, FSFL26PAP, FSFL26CTA, FSFL26OPE, FSFL26SBO, FSFL26TOP, FSFL26LIM);
+

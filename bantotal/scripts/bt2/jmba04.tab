@@ -1,0 +1,42 @@
+create table JMBA04
+(
+  jmba04emp  NUMBER(3) not null,
+  jmba04mod  NUMBER(3) not null,
+  jmba04suc  NUMBER(3) not null,
+  jmba04mda  NUMBER(4) not null,
+  jmba04pap  NUMBER(4) not null,
+  jmba04cta  NUMBER(9) not null,
+  jmba04ope  NUMBER(9) not null,
+  jmba04sop  NUMBER(3) not null,
+  jmba04top  NUMBER(3) not null,
+  jmba04fcor DATE not null,
+  jmba04fmov DATE not null,
+  jmba04hora CHAR(8) not null,
+  jmba04corr NUMBER(3) not null,
+  jmba04fpro DATE,
+  jmba04det  CHAR(80),
+  jmba04imp  NUMBER(17,2),
+  jmba04cod1 NUMBER(5),
+  jmba04cod2 NUMBER(5),
+  jmba04cod3 NUMBER(5),
+  jmba04tas1 NUMBER(10,6),
+  jmba04tas2 NUMBER(10,6),
+  jmba04tas3 NUMBER(10,6),
+  jmba04txt1 CHAR(30),
+  jmba04txt2 CHAR(30),
+  jmba04txt3 CHAR(30),
+  jmba04est1 CHAR(1),
+  jmba04est2 CHAR(1),
+  jmba04est3 CHAR(1),
+  jmba04imp1 NUMBER(17,2),
+  jmba04imp2 NUMBER(17,2),
+  jmba04imp3 NUMBER(17,2),
+  jmba04fch1 DATE,
+  jmba04fch2 DATE,
+  jmba04fch3 DATE
+)
+;
+create index JMBA0402 on JMBA04 (JMBA04EMP, JMBA04MOD, JMBA04SUC, JMBA04MDA, JMBA04PAP, JMBA04CTA, JMBA04OPE, JMBA04SOP, JMBA04TOP, JMBA04FCOR, JMBA04COD1, JMBA04COD2);
+alter table JMBA04
+  add primary key (JMBA04EMP, JMBA04MOD, JMBA04SUC, JMBA04MDA, JMBA04PAP, JMBA04CTA, JMBA04OPE, JMBA04SOP, JMBA04TOP, JMBA04FCOR, JMBA04FMOV, JMBA04HORA, JMBA04CORR);
+

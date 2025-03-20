@@ -1,0 +1,19 @@
+create table FCPG86
+(
+  cpg71empbt NUMBER(3) not null,
+  cpg49cod   NUMBER(3) not null,
+  cpg71prod  NUMBER(3) not null,
+  cpg71marc  NUMBER(3) not null,
+  cpg71atr   NUMBER(3) not null,
+  cpg86imph  NUMBER(17,2) not null,
+  cpg86camp1 NUMBER(17,2),
+  cpg86camp2 CHAR(25),
+  cpg86blq   CHAR(1),
+  cpg86inst  NUMBER(10),
+  cpg86camp3 NUMBER(10,6)
+)
+;
+create index FCPG8603 on FCPG86 (CPG86INST);
+alter table FCPG86
+  add primary key (CPG71EMPBT, CPG49COD, CPG71PROD, CPG71MARC, CPG71ATR, CPG86IMPH);
+

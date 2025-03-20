@@ -1,0 +1,32 @@
+create table Z0E4I3
+(
+  z0e4i3usu CHAR(10) not null,
+  z0e4i3ter CHAR(10) not null,
+  z0e4i3zon NUMBER(3) not null,
+  z0e4i3suc NUMBER(3) not null,
+  z0e4i3cli CHAR(12) not null,
+  z0e4i3nom CHAR(30),
+  z0e4i3tar CHAR(19),
+  z0e4i3tel CHAR(25),
+  z0e4i3sex CHAR(1),
+  z0e4i3nac DATE,
+  z0e4i3dni CHAR(12),
+  z0e4i3cal CHAR(25),
+  z0e4i3nro CHAR(5),
+  z0e4i3pis CHAR(5),
+  z0e4i3dep CHAR(3),
+  z0e4i3loc CHAR(25),
+  z0e4i3pos CHAR(5),
+  z0e4i3alt DATE,
+  z0e4i3ult DATE,
+  z0e4i3alc DATE,
+  z0e4i3hob CHAR(35)
+)
+;
+create index Z0E4I302 on Z0E4I3 (Z0E4I3USU, Z0E4I3TER, Z0E4I3SUC, Z0E4I3CLI);
+create index Z0E4I303 on Z0E4I3 (Z0E4I3USU, Z0E4I3TER, Z0E4I3SUC, Z0E4I3NOM, Z0E4I3CLI);
+create index Z0E4I304 on Z0E4I3 (Z0E4I3USU, Z0E4I3TER, Z0E4I3ZON, Z0E4I3SUC, Z0E4I3NOM, Z0E4I3CLI);
+create index Z0E4I305 on Z0E4I3 (Z0E4I3USU, Z0E4I3TER, Z0E4I3NOM, Z0E4I3CLI);
+alter table Z0E4I3
+  add primary key (Z0E4I3USU, Z0E4I3TER, Z0E4I3ZON, Z0E4I3SUC, Z0E4I3CLI);
+

@@ -1,0 +1,47 @@
+create table JAQZ445
+(
+  qz440codre NUMBER(4) not null,
+  pp174cod   NUMBER(9) not null,
+  qz444cdcmp NUMBER(9) not null,
+  qz445cmp   VARCHAR2(100),
+  qz445mnt   NUMBER(16,2),
+  qz445sucr  NUMBER(3),
+  qz445est   CHAR(1),
+  qz445tpc   CHAR(1),
+  qz445usr   CHAR(20),
+  qz445ufec  DATE,
+  qz445nip   VARCHAR2(16),
+  qz445aux1  NUMBER(9),
+  qz445aux2  VARCHAR2(50)
+)
+;
+comment on column JAQZ445.qz440codre
+  is 'Codigo de Remate';
+comment on column JAQZ445.pp174cod
+  is 'Codigo de Lote ';
+comment on column JAQZ445.qz444cdcmp
+  is 'Codigo del Comprador';
+comment on column JAQZ445.qz445cmp
+  is 'Nombre del comprador';
+comment on column JAQZ445.qz445mnt
+  is 'Monto con la que realizo la compra del Lote el comprador';
+comment on column JAQZ445.qz445sucr
+  is 'Sucursal donde realiza la compra';
+comment on column JAQZ445.qz445est
+  is 'Estado del comprador';
+comment on column JAQZ445.qz445tpc
+  is 'Tipo de compra del comprador';
+comment on column JAQZ445.qz445usr
+  is 'Usuario que realiza el registro';
+comment on column JAQZ445.qz445ufec
+  is 'Fecha del registro';
+comment on column JAQZ445.qz445nip
+  is 'Numero de ip del que realizo el registro';
+comment on column JAQZ445.qz445aux1
+  is 'Campo Auxiliar de tipo Numerico';
+comment on column JAQZ445.qz445aux2
+  is 'Campo Auxiliar de tipo Varchar';
+create index IJAQZ4451 on JAQZ445 (QZ440CODRE, QZ444CDCMP);
+alter table JAQZ445
+  add primary key (QZ440CODRE, PP174COD, QZ444CDCMP);
+

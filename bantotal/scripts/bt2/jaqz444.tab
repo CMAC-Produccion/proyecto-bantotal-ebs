@@ -1,0 +1,40 @@
+create table JAQZ444
+(
+  qz440codre NUMBER(4) not null,
+  qz444cdcmp NUMBER(9) not null,
+  qz444cmp   VARCHAR2(100),
+  qz444pps   NUMBER(3),
+  qz444ptd   NUMBER(2),
+  qz444pnd   CHAR(12),
+  qz444usr   CHAR(10),
+  qz444fec   TIMESTAMP(6),
+  qz444nip   VARCHAR2(16),
+  qz444est   CHAR(1),
+  qz444aux   VARCHAR2(200)
+)
+;
+comment on column JAQZ444.qz440codre
+  is 'Codigo del Remate';
+comment on column JAQZ444.qz444cdcmp
+  is 'Codigo del comprador';
+comment on column JAQZ444.qz444cmp
+  is 'Nombre del comprador';
+comment on column JAQZ444.qz444pps
+  is 'Pais del comprador';
+comment on column JAQZ444.qz444ptd
+  is 'Tipo de documento del comprador';
+comment on column JAQZ444.qz444pnd
+  is 'Numero de documento del comprador';
+comment on column JAQZ444.qz444usr
+  is 'Usuario que registro al comprador';
+comment on column JAQZ444.qz444fec
+  is 'Fecha de registro';
+comment on column JAQZ444.qz444nip
+  is 'Numero de ip del equipo del que registro al comprador';
+comment on column JAQZ444.qz444est
+  is 'Estado del Comprador';
+comment on column JAQZ444.qz444aux
+  is 'Campo Auxiliar para la tabla de tipo varchar';
+alter table JAQZ444
+  add primary key (QZ440CODRE, QZ444CDCMP);
+

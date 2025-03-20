@@ -1,0 +1,44 @@
+create table FSA006
+(
+  pgcod   NUMBER(3) not null,
+  a6sucur NUMBER(3) not null,
+  a6rubro NUMBER(16) not null,
+  a6mda   NUMBER(4) not null,
+  a6pap   NUMBER(4) not null,
+  a6cta   NUMBER(9) not null,
+  a6oper  NUMBER(9) not null,
+  a6subop NUMBER(3) not null,
+  a6toper NUMBER(3) not null,
+  a6fval  DATE not null,
+  a6codmo NUMBER(1) not null,
+  a6cmod  NUMBER(3),
+  a6sucor NUMBER(3),
+  a6tran  NUMBER(3),
+  a6nrel  NUMBER(4),
+  a6fcont DATE,
+  a6cord  NUMBER(2),
+  a6csubo NUMBER(3),
+  a6modul NUMBER(3),
+  a6ctope NUMBER(3),
+  a6fvto  DATE,
+  a6cmcod NUMBER(3),
+  a6cser  CHAR(1),
+  a6cnref CHAR(18),
+  a6saldo NUMBER(17,2),
+  a6cimp2 NUMBER(17,2),
+  a6cimp3 NUMBER(17,2),
+  a6cncor NUMBER(9),
+  a6cbbtt CHAR(1),
+  a6cimpo NUMBER(17,2),
+  a6cmdao NUMBER(4),
+  a6segm  NUMBER(2),
+  a6func  NUMBER(2),
+  a6list  CHAR(1),
+  a6depur CHAR(1),
+  a6ccos  NUMBER(3),
+  a6tasa  NUMBER(10,6)
+)
+;
+alter table FSA006
+  add primary key (PGCOD, A6SUCUR, A6RUBRO, A6MDA, A6PAP, A6CTA, A6OPER, A6SUBOP, A6TOPER, A6FVAL, A6CODMO);
+

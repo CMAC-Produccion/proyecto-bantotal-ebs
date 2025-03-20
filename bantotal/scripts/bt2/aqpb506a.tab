@@ -1,0 +1,22 @@
+create table AQPB506A
+(
+  aqpb506aempcod NUMBER(3) not null,
+  aqpb506anroope NUMBER(3) not null,
+  aqpb506anrosus NUMBER(3),
+  aqpb506acodcar VARCHAR2(16) not null,
+  aqpb506aest    CHAR(1) not null,
+  aqpb506acrefec DATE not null,
+  aqpb506acrehor CHAR(8) not null,
+  aqpb506acreusr VARCHAR2(30) not null,
+  aqpb506acresuc NUMBER(3) not null,
+  aqpb506acretim TIMESTAMP(6) default CURRENT_TIMESTAMP,
+  aqpb506amodfec DATE not null,
+  aqpb506amodhor CHAR(8) not null,
+  aqpb506amodusr VARCHAR2(30) not null,
+  aqpb506amodsuc NUMBER(3) not null,
+  aqpb506amodtim TIMESTAMP(6) default CURRENT_TIMESTAMP
+)
+;
+alter table AQPB506A
+  add primary key (AQPB506AEMPCOD, AQPB506ANROOPE);
+

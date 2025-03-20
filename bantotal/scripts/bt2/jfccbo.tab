@@ -1,0 +1,40 @@
+create table JFCCBO
+(
+  jfccboemp  NUMBER(3) not null,
+  jfccbobol  NUMBER(9) not null,
+  jfccbosuc  NUMBER(3),
+  jfccbomod  NUMBER(3),
+  jfccbotrn  NUMBER(3),
+  jfccborel  NUMBER(4),
+  jfccboord  NUMBER(2),
+  jfccbosbo  NUMBER(3),
+  jfccbofch  DATE,
+  jfccbohr   CHAR(8),
+  jfccbocta  NUMBER(9),
+  jfccbonom  CHAR(65),
+  jfccbopais NUMBER(3),
+  jfccbotdoc NUMBER(2),
+  jfccbondoc CHAR(12),
+  jfccbocaj  NUMBER(3),
+  jfccboope  CHAR(20),
+  jfccbomotr CHAR(3),
+  jfccboiotr NUMBER(17,2),
+  jfccbomdbc CHAR(3),
+  jfccboidbc NUMBER(17,2),
+  jfccbomche CHAR(3),
+  jfccboiche NUMBER(17,2),
+  jfccbomefe CHAR(3),
+  jfccboiefe NUMBER(17,2),
+  jfccboest  CHAR(1),
+  jfccbotim  NUMBER(15),
+  jfccbopto  CHAR(6),
+  jfccbonfac NUMBER(9),
+  jfccboucaj CHAR(10),
+  jfccboiva5 NUMBER(17,2),
+  jfccboiva1 NUMBER(17,2)
+)
+;
+create index JFCCBO10 on JFCCBO (JFCCBOEMP, JFCCBOSUC, JFCCBOMOD, JFCCBOTRN, JFCCBOREL, JFCCBOORD, JFCCBOSBO, JFCCBOFCH);
+alter table JFCCBO
+  add primary key (JFCCBOEMP, JFCCBOBOL);
+

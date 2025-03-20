@@ -1,0 +1,19 @@
+create table FSD128
+(
+  agrup      NUMBER(16) not null,
+  agrvhasta  NUMBER(10,6) not null,
+  destecocod NUMBER(3) not null,
+  totope     NUMBER(3) not null,
+  candig     NUMBER(2),
+  agrpon     NUMBER(10,6),
+  nroimp8    NUMBER(2),
+  valmertas  CHAR(1),
+  aux1       NUMBER(10),
+  aux2       CHAR(20),
+  aux3       NUMBER(17,2)
+)
+;
+create index FSD12802 on FSD128 (DESTECOCOD);
+alter table FSD128
+  add primary key (AGRUP, AGRVHASTA, DESTECOCOD, TOTOPE);
+

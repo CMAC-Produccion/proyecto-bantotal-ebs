@@ -1,0 +1,38 @@
+create table FSE150
+(
+  se150emp   NUMBER(3) not null,
+  se150mod   NUMBER(3) not null,
+  se150suc   NUMBER(3) not null,
+  se150mda   NUMBER(4) not null,
+  se150pap   NUMBER(4) not null,
+  se150cta   NUMBER(9) not null,
+  se150oper  NUMBER(9) not null,
+  se150sbop  NUMBER(3) not null,
+  se150tope  NUMBER(3) not null,
+  se150rub   NUMBER(16),
+  se150ogar  CHAR(1),
+  se150dgar  VARCHAR2(30),
+  se150norg  VARCHAR2(3),
+  se150vlib  NUMBER(14,2),
+  se150fula  DATE,
+  se150usrc  VARCHAR2(10),
+  se150fcre  DATE,
+  se150usrm  VARCHAR2(10),
+  se150fmod  DATE,
+  se150aux1  NUMBER(9),
+  se150aux2  NUMBER(9),
+  se150aux3  NUMBER(9),
+  se150aux4  NUMBER(14,2),
+  se150aux5  NUMBER(14,2),
+  se150aux6  NUMBER(14,2),
+  se150aux7  VARCHAR2(30),
+  se150aux8  VARCHAR2(30),
+  se150aux9  VARCHAR2(30),
+  se150aux10 DATE,
+  se150aux11 DATE,
+  se150aux12 DATE
+)
+;
+alter table FSE150
+  add primary key (SE150EMP, SE150MOD, SE150SUC, SE150MDA, SE150PAP, SE150CTA, SE150OPER, SE150SBOP, SE150TOPE);
+

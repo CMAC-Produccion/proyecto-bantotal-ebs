@@ -1,0 +1,21 @@
+create table FSH005
+(
+  moneda  NUMBER(4) not null,
+  cofdes  DATE not null,
+  comdiv  CHAR(1),
+  cotcbi  NUMBER(14,8),
+  cotcbv  NUMBER(14,8),
+  coarbc  NUMBER(14,8),
+  coarb   NUMBER(14,8),
+  cofinv  NUMBER(8),
+  cotcbi1 NUMBER(14,8),
+  cotcbv1 NUMBER(14,8),
+  cotcbi2 NUMBER(14,8),
+  cotcbv2 NUMBER(14,8)
+)
+;
+create index FSH00503 on FSH005 (COFDES, MONEDA);
+create index FSH00504 on FSH005 (MONEDA, COFINV);
+alter table FSH005
+  add primary key (MONEDA, COFDES);
+

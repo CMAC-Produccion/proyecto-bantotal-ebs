@@ -1,0 +1,11 @@
+create table BTSIC00
+(
+  btsic00id  NUMBER(10) not null,
+  btsic00emp NUMBER(3),
+  btsic00cta NUMBER(9)
+)
+;
+create unique index BTSIC0002 on BTSIC00 (BTSIC00EMP, BTSIC00CTA);
+alter table BTSIC00
+  add primary key (BTSIC00ID);
+

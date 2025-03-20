@@ -1,0 +1,21 @@
+create table SNGU06
+(
+  sngu02pgc NUMBER(3) not null,
+  sngu02usr CHAR(10) not null,
+  sngu06dep NUMBER(9) not null,
+  sngu06loc NUMBER(5) not null,
+  sngu06col NUMBER(9) not null,
+  sngu06au1 NUMBER(9),
+  sngu06au2 NUMBER(9),
+  sngu06au3 DATE,
+  sngu06au4 DATE,
+  sngu06au5 NUMBER(17,2),
+  sngu06au6 NUMBER(17,2),
+  sngu06au7 CHAR(30),
+  sngu06au8 CHAR(30)
+)
+;
+create index SNGU0603 on SNGU06 (SNGU06DEP, SNGU06LOC, SNGU06COL);
+alter table SNGU06
+  add primary key (SNGU02PGC, SNGU02USR, SNGU06DEP, SNGU06LOC, SNGU06COL);
+

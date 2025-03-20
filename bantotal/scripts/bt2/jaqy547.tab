@@ -1,0 +1,16 @@
+create table JAQY547
+(
+  bcemp     NUMBER(3) not null,
+  bcmod     NUMBER(3),
+  bcsuc     NUMBER(3) not null,
+  bcmda     NUMBER(4) not null,
+  bcpap     NUMBER(4) not null,
+  bccta     NUMBER(9) not null,
+  bcoper    NUMBER(9) not null,
+  bcsbop    NUMBER(3) not null,
+  bctop     NUMBER(3) not null,
+  dias_mora NUMBER
+)
+;
+create index XN_JAQY547_01 on JAQY547 (BCEMP, BCMOD, BCSUC, BCMDA, BCPAP, BCCTA, BCOPER, BCSBOP, BCTOP);
+

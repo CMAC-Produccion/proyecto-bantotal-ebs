@@ -1,0 +1,39 @@
+create table AQPB542C
+(
+  aqpb542ccarcod VARCHAR2(30) not null,
+  aqpb542cpepais NUMBER(3) not null,
+  aqpb542cpetdoc NUMBER(2) not null,
+  aqpb542cpendoc CHAR(12) not null,
+  aqpb542ctxcod  NUMBER(3) not null,
+  aqpb542cpexren NUMBER(5) not null,
+  aqpb542cpextxt CHAR(65),
+  aqpb542cpexusu CHAR(10),
+  aqpb542cpexfch DATE,
+  aqpb542ccretim TIMESTAMP(6) default SYSDATE
+)
+;
+comment on table AQPB542C
+  is 'LOG de Tabla FSX001';
+comment on column AQPB542C.aqpb542ccarcod
+  is 'Codigo de Carga';
+comment on column AQPB542C.aqpb542cpepais
+  is 'Pais';
+comment on column AQPB542C.aqpb542cpetdoc
+  is 'Tipo de Documento';
+comment on column AQPB542C.aqpb542cpendoc
+  is 'Nro. de Documento';
+comment on column AQPB542C.aqpb542ctxcod
+  is 'LOG FSX001 - Campo del mismo sufijo';
+comment on column AQPB542C.aqpb542cpexren
+  is 'LOG FSX001 - Campo del mismo sufijo';
+comment on column AQPB542C.aqpb542cpextxt
+  is 'LOG FSX001 - Campo del mismo sufijo';
+comment on column AQPB542C.aqpb542cpexusu
+  is 'LOG FSX001 - Campo del mismo sufijo';
+comment on column AQPB542C.aqpb542cpexfch
+  is 'LOG FSX001 - Campo del mismo sufijo';
+comment on column AQPB542C.aqpb542ccretim
+  is 'Campo de Auditoria';
+alter table AQPB542C
+  add primary key (AQPB542CCARCOD, AQPB542CPEPAIS, AQPB542CPETDOC, AQPB542CPENDOC, AQPB542CTXCOD, AQPB542CPEXREN);
+

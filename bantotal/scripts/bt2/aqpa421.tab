@@ -1,0 +1,26 @@
+create table AQPA421
+(
+  aqpa421corr  NUMBER(10) not null,
+  aqpa421inst  NUMBER(10) not null,
+  aqpa421fpro  DATE not null,
+  aqpa421hora  CHAR(8) not null,
+  aqpa421csbs  VARCHAR2(30),
+  aqpa421ndoc  VARCHAR2(30),
+  aqpa421frcc  DATE,
+  aqpa421rubro VARCHAR2(20),
+  aqpa421enti  VARCHAR2(200),
+  aqpa421cent  VARCHAR2(50),
+  aqpa421gast  NUMBER(17,2),
+  aqpa421moda  CHAR(1),
+  aqpa421tipo  CHAR(2),
+  aqpa421aux1  VARCHAR2(6),
+  aqpa421aux2  NUMBER(10),
+  aqpa421aux3  DATE,
+  aqpa421aux4  CHAR(20),
+  aqpa421fact  NUMBER(9,6),
+  aqpa421cptn  NUMBER(17,2)
+)
+;
+alter table AQPA421
+  add primary key (AQPA421CORR, AQPA421INST, AQPA421FPRO, AQPA421HORA);
+

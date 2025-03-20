@@ -1,0 +1,15 @@
+create table FIF010
+(
+  if010tcd CHAR(2) not null,
+  if010moi CHAR(1) not null,
+  if010bco CHAR(1) not null,
+  if010dof CHAR(1) not null,
+  if010doc CHAR(1) not null,
+  if010min CHAR(1) not null,
+  if010tcb NUMBER(3),
+  if010des CHAR(30)
+)
+;
+alter table FIF010
+  add primary key (IF010TCD, IF010MOI, IF010BCO, IF010DOF, IF010DOC, IF010MIN);
+

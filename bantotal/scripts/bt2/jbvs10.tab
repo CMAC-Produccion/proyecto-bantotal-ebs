@@ -1,0 +1,18 @@
+create table JBVS10
+(
+  jbvs10pgc  NUMBER(3) not null,
+  jbvs10mod  NUMBER(3) not null,
+  jbvs10mda  NUMBER(4) not null,
+  jbvs10pap  NUMBER(4) not null,
+  jbvs10cta  NUMBER(9) not null,
+  jbvs10suc  NUMBER(3) not null,
+  jbvs10oper NUMBER(9) not null,
+  jbvs10sbop NUMBER(3) not null,
+  jbvs10tope NUMBER(4) not null,
+  jbvs10rub  NUMBER(16),
+  jbvs10nom  CHAR(35)
+)
+;
+create unique index JBVS1001 on JBVS10 (JBVS10PGC, JBVS10MOD, JBVS10MDA, JBVS10PAP, JBVS10CTA, JBVS10SUC, JBVS10OPER, JBVS10SBOP, JBVS10TOPE);
+create index JBVS1002 on JBVS10 (JBVS10PGC, JBVS10SUC, JBVS10RUB, JBVS10MDA, JBVS10PAP, JBVS10CTA, JBVS10OPER, JBVS10SBOP, JBVS10TOPE);
+

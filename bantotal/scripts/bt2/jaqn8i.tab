@@ -1,0 +1,140 @@
+create table JAQN8I
+(
+  jaqn8iemp NUMBER(3) not null,
+  jaqn8imod NUMBER(3) not null,
+  jaqn8isuc NUMBER(3) not null,
+  jaqn8imda NUMBER(4) not null,
+  jaqn8ipap NUMBER(4) not null,
+  jaqn8icta NUMBER(9) not null,
+  jaqn8iope NUMBER(9) not null,
+  jaqn8isbo NUMBER(3) not null,
+  jaqn8itop NUMBER(3) not null,
+  jaqn8ifec DATE not null,
+  jaqn8icor NUMBER(9) not null,
+  jaqn8iusc CHAR(10),
+  jaqn8iwka CHAR(12),
+  jaqn8iins NUMBER(10),
+  jaqn8iest CHAR(1),
+  jaqn8ices NUMBER(4),
+  jaqn8incu NUMBER(9),
+  jaqn8idac NUMBER(5),
+  jaqn8isit VARCHAR2(255),
+  jaqn8itip NUMBER(2),
+  jaqn8inau CHAR(2),
+  jaqn8itga CHAR(15),
+  jaqn8itrp CHAR(100),
+  jaqn8ifie DATE,
+  jaqn8ipta NUMBER(10,6),
+  jaqn8itac NUMBER(10,6),
+  jaqn8itaa NUMBER(10,6),
+  jaqn8ifep DATE,
+  jaqn8iusp CHAR(10),
+  jaqn8iwkp CHAR(12),
+  jaqn8icco CHAR(1),
+  jaqn8icer NUMBER(5),
+  jaqn8ider VARCHAR2(255),
+  jaqn8ifum DATE,
+  jaqn8ihum CHAR(8),
+  jaqn8iai1 NUMBER(10,6),
+  jaqn8iai2 NUMBER(17,2),
+  jaqn8ian1 NUMBER(9),
+  jaqn8ian2 NUMBER(9),
+  jaqn8iat1 VARCHAR2(255),
+  jaqn8iat2 VARCHAR2(255),
+  jaqn8iaf1 DATE,
+  jaqn8iaf2 DATE
+)
+;
+comment on table JAQN8I
+  is 'Bandeja Exoneración de Tasas Cartera Judicial';
+comment on column JAQN8I.jaqn8iemp
+  is 'Empresa';
+comment on column JAQN8I.jaqn8imod
+  is 'Modulo';
+comment on column JAQN8I.jaqn8isuc
+  is 'Sucursal';
+comment on column JAQN8I.jaqn8imda
+  is 'Moneda';
+comment on column JAQN8I.jaqn8ipap
+  is 'Papel';
+comment on column JAQN8I.jaqn8icta
+  is 'Cuenta';
+comment on column JAQN8I.jaqn8iope
+  is 'Operacion';
+comment on column JAQN8I.jaqn8isbo
+  is 'SubOperacion';
+comment on column JAQN8I.jaqn8itop
+  is 'Tipo de Operacion';
+comment on column JAQN8I.jaqn8ifec
+  is 'Fecha de carga';
+comment on column JAQN8I.jaqn8icor
+  is 'Correlativo';
+comment on column JAQN8I.jaqn8iusc
+  is 'Usuario de carga';
+comment on column JAQN8I.jaqn8iwka
+  is 'Workstation de carga';
+comment on column JAQN8I.jaqn8iins
+  is 'Instancia';
+comment on column JAQN8I.jaqn8iest
+  is 'Estado ingresado, grabado, contabilizado, rechazado';
+comment on column JAQN8I.jaqn8ices
+  is 'Estado de credito';
+comment on column JAQN8I.jaqn8incu
+  is 'Numero de cuotas';
+comment on column JAQN8I.jaqn8idac
+  is 'Dias Atraso congelados';
+comment on column JAQN8I.jaqn8isit
+  is 'Situacion';
+comment on column JAQN8I.jaqn8itip
+  is 'Tipo Exoneracion';
+comment on column JAQN8I.jaqn8inau
+  is 'Nivel de Autonomia';
+comment on column JAQN8I.jaqn8itga
+  is 'Condicion (Con/Sin Garantia)';
+comment on column JAQN8I.jaqn8itrp
+  is 'Tipo de Reprogramacion';
+comment on column JAQN8I.jaqn8ifie
+  is 'Fecha Ingreso Exoneracion';
+comment on column JAQN8I.jaqn8ipta
+  is 'Porcentaje Tasa';
+comment on column JAQN8I.jaqn8itac
+  is 'Tasa Actual';
+comment on column JAQN8I.jaqn8itaa
+  is 'Tasa Ajustado';
+comment on column JAQN8I.jaqn8ifep
+  is 'Fecha de Autorizacion';
+comment on column JAQN8I.jaqn8iusp
+  is 'Usuario Autorizacion';
+comment on column JAQN8I.jaqn8iwkp
+  is 'Workstation Autorizacion';
+comment on column JAQN8I.jaqn8icco
+  is 'Estado Contabilizacion';
+comment on column JAQN8I.jaqn8icer
+  is 'Codigo Error';
+comment on column JAQN8I.jaqn8ider
+  is 'Descripción de Error';
+comment on column JAQN8I.jaqn8ifum
+  is 'Fecha Ultino Movimiento';
+comment on column JAQN8I.jaqn8ihum
+  is 'Hora Ultimo Movimiento';
+comment on column JAQN8I.jaqn8iai1
+  is 'Auxiliar Importe 1';
+comment on column JAQN8I.jaqn8iai2
+  is 'Auxiliar Importe 2';
+comment on column JAQN8I.jaqn8ian1
+  is 'Auxiliar Numerico 1';
+comment on column JAQN8I.jaqn8ian2
+  is 'Auxiliar Numerico 2';
+comment on column JAQN8I.jaqn8iat1
+  is 'Auxiliar Texto 1';
+comment on column JAQN8I.jaqn8iat2
+  is 'Auxiliar Texto 2';
+comment on column JAQN8I.jaqn8iaf1
+  is 'Auxiliar Fecha 1';
+comment on column JAQN8I.jaqn8iaf2
+  is 'Auxiliar Fecha 2';
+create index JAQN8IA3 on JAQN8I (JAQN8IEST);
+create index JAQN8IA5 on JAQN8I (JAQN8IEMP, JAQN8ICTA, JAQN8IOPE, JAQN8IFEC, JAQN8IEST);
+alter table JAQN8I
+  add primary key (JAQN8IEMP, JAQN8IMOD, JAQN8ISUC, JAQN8IMDA, JAQN8IPAP, JAQN8ICTA, JAQN8IOPE, JAQN8ISBO, JAQN8ITOP, JAQN8IFEC, JAQN8ICOR);
+

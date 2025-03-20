@@ -1,0 +1,21 @@
+create table JAQY577
+(
+  jaqy577nro CHAR(19) not null,
+  jaqy577nom CHAR(24),
+  jaqy577fmd DATE,
+  jaqy577hor CHAR(8),
+  jaqy577umd CHAR(10),
+  jaqy577suc NUMBER(3),
+  jaqy577dsc CHAR(30),
+  jaqy577cmo NUMBER(5),
+  jaqy577dmo CHAR(40),
+  jaqy577uau CHAR(10),
+  jaqy577mbl CHAR(10),
+  jaqy577est CHAR(10),
+  jaqy577tta CHAR(30)
+)
+;
+create index JAQY577_02 on JAQY577 (JAQY577SUC);
+alter table JAQY577
+  add primary key (JAQY577NRO);
+

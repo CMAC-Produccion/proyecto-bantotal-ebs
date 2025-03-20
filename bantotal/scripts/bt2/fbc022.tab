@@ -1,0 +1,21 @@
+create table FBC022
+(
+  bc022emp  NUMBER(3) not null,
+  bc022rub  NUMBER(16) not null,
+  bc022mda  NUMBER(4) not null,
+  bc022cod  NUMBER(2) not null,
+  bc022tit  NUMBER(2) not null,
+  bc022cap  NUMBER(1) not null,
+  bc022pzo  NUMBER(1) not null,
+  bc022gru  NUMBER(1) not null,
+  bc022rie  NUMBER(1) not null,
+  bc022sdo1 NUMBER(17,2),
+  bc022sdo2 NUMBER(17,2),
+  bc022desc CHAR(40)
+)
+;
+create index FBC02202 on FBC022 (BC022EMP, BC022TIT, BC022CAP, BC022PZO, BC022GRU, BC022RIE, BC022RUB, BC022MDA);
+create index FBC02203 on FBC022 (BC022EMP, BC022TIT, BC022CAP, BC022PZO, BC022GRU, BC022RIE, BC022SDO2, BC022MDA);
+alter table FBC022
+  add primary key (BC022EMP, BC022RUB, BC022MDA, BC022COD, BC022TIT, BC022CAP, BC022PZO, BC022GRU, BC022RIE);
+

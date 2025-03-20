@@ -1,0 +1,16 @@
+create table J13108
+(
+  j131dpdoc NUMBER(3) not null,
+  j131dtdoc NUMBER(2) not null,
+  j131dndoc CHAR(12) not null,
+  j131dcod  NUMBER(2) not null,
+  j131dcorr NUMBER(3) not null,
+  j131dtele CHAR(25),
+  j131dcelu CHAR(25),
+  j131dmail CHAR(35),
+  j131dfax  CHAR(25)
+)
+;
+alter table J13108
+  add primary key (J131DPDOC, J131DTDOC, J131DNDOC, J131DCOD, J131DCORR);
+

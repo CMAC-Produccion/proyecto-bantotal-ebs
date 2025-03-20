@@ -1,0 +1,108 @@
+create table JAQA12
+(
+  jaqa12emp NUMBER(3) not null,
+  jaqa12mod NUMBER(3) not null,
+  jaqa12suc NUMBER(3) not null,
+  jaqa12mda NUMBER(4) not null,
+  jaqa12pap NUMBER(4) not null,
+  jaqa12cta NUMBER(9) not null,
+  jaqa12ope NUMBER(9) not null,
+  jaqa12sbo NUMBER(3) not null,
+  jaqa12top NUMBER(3) not null,
+  jaqa12est CHAR(3),
+  jaqa12sal NUMBER(17,2),
+  jaqa12fce DATE,
+  jaqa12fva DATE,
+  jaqa12fei DATE,
+  jaqa12usu CHAR(10),
+  jaqa12hor CHAR(10),
+  jaqa12wks CHAR(12),
+  jaqa12an1 NUMBER(9),
+  jaqa12an2 NUMBER(9),
+  jaqa12an3 NUMBER(9),
+  jaqa12ai1 NUMBER(17,2),
+  jaqa12ai2 NUMBER(17,2),
+  jaqa12ai3 NUMBER(17,2),
+  jaqa12ac1 CHAR(100),
+  jaqa12ac2 CHAR(100),
+  jaqa12ac3 CHAR(100),
+  jaqa12at1 CHAR(250),
+  jaqa12at2 CHAR(250),
+  jaqa12at3 CHAR(250),
+  jaqa12af1 DATE,
+  jaqa12af2 DATE,
+  jaqa12af3 DATE
+)
+;
+comment on table JAQA12
+  is 'Garantías Preferidas Autoliquidables Certificadas';
+comment on column JAQA12.jaqa12emp
+  is 'Empresa del crédito';
+comment on column JAQA12.jaqa12mod
+  is 'modulo del credito';
+comment on column JAQA12.jaqa12suc
+  is 'sucursal del credito';
+comment on column JAQA12.jaqa12mda
+  is 'Moneda del credito';
+comment on column JAQA12.jaqa12pap
+  is 'papel del credito';
+comment on column JAQA12.jaqa12cta
+  is 'cuenta del credito';
+comment on column JAQA12.jaqa12ope
+  is 'operacion del credito';
+comment on column JAQA12.jaqa12sbo
+  is 'suboperacion del credito';
+comment on column JAQA12.jaqa12top
+  is 'tipo operacion del credito';
+comment on column JAQA12.jaqa12est
+  is 'Estado';
+comment on column JAQA12.jaqa12sal
+  is 'Saldo';
+comment on column JAQA12.jaqa12fce
+  is 'Fecha de certificación ';
+comment on column JAQA12.jaqa12fva
+  is 'Fecha de Valor';
+comment on column JAQA12.jaqa12fei
+  is 'Fecha de Ingreso';
+comment on column JAQA12.jaqa12usu
+  is 'Usuario';
+comment on column JAQA12.jaqa12hor
+  is 'Hora';
+comment on column JAQA12.jaqa12wks
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12an1
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12an2
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12an3
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12ai1
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12ai2
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12ai3
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12ac1
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12ac2
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12ac3
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12at1
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12at2
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12at3
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12af1
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12af2
+  is 'Auxiliar';
+comment on column JAQA12.jaqa12af3
+  is 'Auxiliar';
+create index JAQA12A2 on JAQA12 (JAQA12FCE);
+create index JAQA12A3 on JAQA12 (JAQA12FEI);
+create index JAQA12A4 on JAQA12 (JAQA12EST, JAQA12EMP, JAQA12MOD, JAQA12SUC, JAQA12MDA, JAQA12PAP, JAQA12CTA, JAQA12OPE, JAQA12SBO, JAQA12TOP);
+alter table JAQA12
+  add primary key (JAQA12EMP, JAQA12MOD, JAQA12SUC, JAQA12MDA, JAQA12PAP, JAQA12CTA, JAQA12OPE, JAQA12SBO, JAQA12TOP);
+

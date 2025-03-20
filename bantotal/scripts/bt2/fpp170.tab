@@ -1,0 +1,17 @@
+create table FPP170
+(
+  pp170cbien NUMBER(4) not null,
+  pp170desc  CHAR(50),
+  pp170au1   NUMBER(9),
+  pp170au2   NUMBER(9),
+  pp170au3   CHAR(30),
+  pp170au4   CHAR(30),
+  pp170au5   DATE,
+  pp170au6   DATE,
+  pp170au7   NUMBER(17,2),
+  pp170au8   NUMBER(17,2)
+)
+;
+alter table FPP170
+  add primary key (PP170CBIEN);
+

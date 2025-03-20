@@ -1,0 +1,24 @@
+create table CRC1
+(
+  crctipre1 CHAR(2) not null,
+  crccodif1 NUMBER(4) not null,
+  crcpais1  CHAR(2) not null,
+  crctipdo1 CHAR(3) not null,
+  crcdocu1  CHAR(18) not null,
+  crctippe1 CHAR(1),
+  crcresid1 CHAR(1),
+  crcactiv1 NUMBER(5),
+  crctipem1 CHAR(1),
+  crcsexo1  CHAR(1),
+  crcfecna1 DATE,
+  crcape111 CHAR(20),
+  crcape112 CHAR(20),
+  crcnombr1 CHAR(40),
+  crcsigla1 CHAR(20),
+  crcrazso1 CHAR(80),
+  crcnomco1 CHAR(50)
+)
+;
+alter table CRC1
+  add primary key (CRCTIPRE1, CRCCODIF1, CRCPAIS1, CRCTIPDO1, CRCDOCU1);
+

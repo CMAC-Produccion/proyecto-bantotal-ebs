@@ -1,0 +1,70 @@
+create table JAQM14
+(
+  jaqm14cui VARCHAR2(50) not null,
+  jaqm14cud VARCHAR2(50),
+  jaqm14sub CHAR(1),
+  jaqm14baj CHAR(1),
+  jaqm14eli CHAR(1),
+  jaqm14rev CHAR(1),
+  jaqm14act CHAR(1),
+  jaqm14ssr CHAR(1),
+  jaqm14an1 NUMBER(9),
+  jaqm14an2 NUMBER(9),
+  jaqm14an3 NUMBER(9),
+  jaqm14ai1 NUMBER(17,2),
+  jaqm14ai2 NUMBER(17,2),
+  jaqm14ai3 NUMBER(17,2),
+  jaqm14ac1 CHAR(255),
+  jaqm14ac2 CHAR(255),
+  jaqm14ac3 CHAR(255),
+  jaqm14ad1 DATE,
+  jaqm14ad2 DATE,
+  jaqm14ad3 DATE
+)
+;
+comment on table JAQM14
+  is 'Permisos por archivos';
+comment on column JAQM14.jaqm14cui
+  is 'Código unico identificador';
+comment on column JAQM14.jaqm14cud
+  is 'Código unico documentario';
+comment on column JAQM14.jaqm14sub
+  is 'Permite Subir Archivo S: Si N: No';
+comment on column JAQM14.jaqm14baj
+  is 'Permite Bajar Archivo S: Si N: No';
+comment on column JAQM14.jaqm14eli
+  is 'Permite Eliminar Archivo S: Si N: No';
+comment on column JAQM14.jaqm14rev
+  is 'Permite Revisar Archivo S: Si N: No';
+comment on column JAQM14.jaqm14act
+  is 'Permite Actualizar Archivo S: Si N: No';
+comment on column JAQM14.jaqm14ssr
+  is 'Permite Subir Sin Autorizar S: Si N:No';
+comment on column JAQM14.jaqm14an1
+  is 'Auxilar Númerico 1';
+comment on column JAQM14.jaqm14an2
+  is 'Auxilar Númerico 2';
+comment on column JAQM14.jaqm14an3
+  is 'Auxilar Númerico 3';
+comment on column JAQM14.jaqm14ai1
+  is 'Auxilar Importe 1';
+comment on column JAQM14.jaqm14ai2
+  is 'Auxilar Importe 2';
+comment on column JAQM14.jaqm14ai3
+  is 'Auxilar Importe 3';
+comment on column JAQM14.jaqm14ac1
+  is 'Auxilar Caracter 1';
+comment on column JAQM14.jaqm14ac2
+  is 'Auxilar Caracter 2';
+comment on column JAQM14.jaqm14ac3
+  is 'Auxilar Caracter 3';
+comment on column JAQM14.jaqm14ad1
+  is 'Auxilar Fecha 1';
+comment on column JAQM14.jaqm14ad2
+  is 'Auxilar Fecha 2';
+comment on column JAQM14.jaqm14ad3
+  is 'Auxilar Fecha 3';
+create index JAQM14A2 on JAQM14 (JAQM14CUD);
+alter table JAQM14
+  add primary key (JAQM14CUI);
+

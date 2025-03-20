@@ -1,0 +1,17 @@
+create table JHSI24
+(
+  jhsi24apl  NUMBER(4) not null,
+  jhsi24band CHAR(5) not null,
+  jhsi24env  NUMBER(9) not null,
+  jhsi24cor  NUMBER(9) not null,
+  jhsi24regi CHAR(1),
+  jhsi24code CHAR(5),
+  jhsi24fch  NUMBER(8),
+  jhsi24tipo CHAR(1),
+  jhsi24cant NUMBER(10),
+  jhsi24hora CHAR(8),
+  jhsi24fill CHAR(217)
+)
+;
+create unique index JHSI2401 on JHSI24 (JHSI24APL, JHSI24BAND, JHSI24ENV, JHSI24COR);
+

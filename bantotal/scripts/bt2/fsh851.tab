@@ -1,0 +1,41 @@
+create table FSH851
+(
+  pgcod     NUMBER(3) not null,
+  palfech   DATE not null,
+  palpgm    CHAR(10) not null,
+  palcorpar NUMBER(2) not null,
+  paldes1   NUMBER(16),
+  palhas1   NUMBER(16),
+  paldes2   NUMBER(16),
+  palhas2   NUMBER(16),
+  paldes3   NUMBER(16),
+  palhas3   NUMBER(16),
+  paldes4   NUMBER(16),
+  palhas4   NUMBER(16),
+  palnreg   NUMBER(9),
+  palhaux1  CHAR(1),
+  palhaux2  NUMBER(9),
+  palhaux3  NUMBER(15),
+  palhfini  DATE,
+  palhffin  DATE,
+  palhhini  CHAR(8),
+  palhhfin  CHAR(8),
+  palhsts   CHAR(1),
+  paldes5   NUMBER(16),
+  palhas5   NUMBER(16),
+  paldes6   NUMBER(16),
+  palhas6   NUMBER(16),
+  paldes7   NUMBER(16),
+  palhas7   NUMBER(16),
+  paldes8   NUMBER(16),
+  palhas8   NUMBER(16),
+  paldes9   NUMBER(16),
+  palhas9   NUMBER(16),
+  paldes10  NUMBER(16),
+  palhas10  NUMBER(16)
+)
+;
+create index FSH85103 on FSH851 (PGCOD, PALPGM, PALFECH);
+alter table FSH851
+  add primary key (PGCOD, PALFECH, PALPGM, PALCORPAR);
+

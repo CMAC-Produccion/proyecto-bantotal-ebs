@@ -1,0 +1,11 @@
+create table FRPROEXEPTIONS
+(
+  frproid      CHAR(6) not null,
+  frproexetyp  NUMBER(2) not null,
+  frproexetval VARCHAR2(40) not null,
+  frproexeval  VARCHAR2(40)
+)
+;
+alter table FRPROEXEPTIONS
+  add primary key (FRPROID, FRPROEXETYP, FRPROEXETVAL);
+

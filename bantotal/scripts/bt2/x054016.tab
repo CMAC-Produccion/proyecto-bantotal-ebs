@@ -1,0 +1,17 @@
+create table X054016
+(
+  pgcod      NUMBER(3) not null,
+  xlloprccod NUMBER(9) not null,
+  xlloevmodu NUMBER(3) not null,
+  xlloevtope NUMBER(3) not null,
+  xlloevest  NUMBER(9) not null,
+  xllonewsts NUMBER(9) not null,
+  relcod     NUMBER(3) not null,
+  reldes     CHAR(20),
+  mismacta   CHAR(1)
+)
+;
+create index X0540162 on X054016 (RELCOD);
+alter table X054016
+  add primary key (PGCOD, XLLOPRCCOD, XLLOEVMODU, XLLOEVTOPE, XLLOEVEST, XLLONEWSTS, RELCOD);
+

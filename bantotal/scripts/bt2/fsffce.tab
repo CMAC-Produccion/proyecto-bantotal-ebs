@@ -1,0 +1,16 @@
+create table FSFFCE
+(
+  fsfg6emp  NUMBER(3) not null,
+  fsfg6anio NUMBER(4) not null,
+  fsfg6mes  NUMBER(2) not null,
+  fsfg6inf  NUMBER(5) not null,
+  fsfg6key  CHAR(50) not null,
+  fsfg6rub  NUMBER(16) not null,
+  fsfg6au1  CHAR(1),
+  fsfg6au2  NUMBER(16),
+  fsfg6au3  CHAR(25)
+)
+;
+alter table FSFFCE
+  add primary key (FSFG6EMP, FSFG6ANIO, FSFG6MES, FSFG6INF, FSFG6KEY, FSFG6RUB);
+

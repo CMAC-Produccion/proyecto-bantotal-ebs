@@ -1,0 +1,38 @@
+create table FBC787
+(
+  bc787emp   NUMBER(3) not null,
+  bc787fch   DATE not null,
+  bc787tides CHAR(2) not null,
+  bc787idest CHAR(13) not null,
+  bc787tcomp CHAR(2) not null,
+  bc787recap CHAR(15) not null,
+  bc787fecpa DATE not null,
+  bc787codtc CHAR(2) not null,
+  bc787fece  DATE,
+  bc787conta CHAR(12),
+  bc787congr NUMBER(17,2),
+  bc787totco NUMBER(17,2),
+  bc787moniv NUMBER(17,2),
+  bc787comis NUMBER(17,2),
+  bc787vouem NUMBER(17,2),
+  bc787moivb NUMBER(17,2),
+  bc787poriv NUMBER(1),
+  bc787reivb NUMBER(17,2),
+  bc787moivs NUMBER(17,2),
+  bc787poivs NUMBER(1),
+  bc787reivs NUMBER(17,2),
+  bc787reimr CHAR(5),
+  bc787basre NUMBER(17,2),
+  bc787porer NUMBER(5),
+  bc787morer NUMBER(17,2),
+  bc787cores CHAR(3),
+  bc787corem CHAR(3),
+  bc787nuser CHAR(7),
+  bc787fecre DATE,
+  bc787aucre CHAR(10),
+  bc787feemc DATE
+)
+;
+alter table FBC787
+  add primary key (BC787EMP, BC787FCH, BC787TIDES, BC787IDEST, BC787TCOMP, BC787RECAP, BC787FECPA, BC787CODTC);
+

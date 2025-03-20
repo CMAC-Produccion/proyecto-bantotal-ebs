@@ -1,0 +1,30 @@
+create table AQPB003
+(
+  aqpb003fech   DATE not null,
+  aqpb003hpgcod NUMBER(3) not null,
+  aqpb003hmodul NUMBER(3) not null,
+  aqpb003htoper NUMBER(3) not null,
+  aqpb003hsucur NUMBER(3) not null,
+  aqpb003hmda   NUMBER(4) not null,
+  aqpb003hpap   NUMBER(4) not null,
+  aqpb003hcta   NUMBER(9) not null,
+  aqpb003hoper  NUMBER(9) not null,
+  aqpb003hsubop NUMBER(3) not null,
+  aqpb003hrubro NUMBER(16),
+  aqpb003inst   NUMBER,
+  aqpb003ase    CHAR(10),
+  aqpb003sdmn   NUMBER,
+  aqpb003sdmo   NUMBER,
+  aqpb003datr   NUMBER,
+  aqpb003fval   DATE,
+  aqpb003fvto   DATE,
+  aqpb003pais   NUMBER(3),
+  aqpb003tdoc   NUMBER(2),
+  aqpb003ndoc   CHAR(12),
+  aqpb003tcrd   CHAR(20),
+  aqpb003sect   NUMBER,
+  aqpb003stat   NUMBER
+)
+;
+create index AQPB0032 on AQPB003 (AQPB003HCTA, AQPB003HOPER, AQPB003HSUBOP, AQPB003HTOPER, AQPB003HMODUL, AQPB003FECH);
+

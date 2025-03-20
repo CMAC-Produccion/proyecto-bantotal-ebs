@@ -1,0 +1,39 @@
+create table JAQL004
+(
+  jaql4cocom CHAR(20) not null,
+  jaql4nocom CHAR(150),
+  jaql4pais  NUMBER(3),
+  jaql4depar NUMBER(5),
+  jaql4provi NUMBER(5),
+  jaql4distr NUMBER(9),
+  jaql4ubige CHAR(6),
+  jaql4direc CHAR(150),
+  jaql4diref CHAR(150),
+  jaql4nuruc CHAR(12),
+  jaql4corre CHAR(100),
+  jaql4telef CHAR(100),
+  jaql4parep NUMBER(3),
+  jaql4tdrep NUMBER(2),
+  jaql4ndrep CHAR(12),
+  jaql4repre CHAR(150),
+  jaql4dopag CHAR(1),
+  jaql4estad NUMBER(1),
+  jaql4nucom NUMBER(10),
+  jaql4aux1  CHAR(50),
+  jaql4aux2  CHAR(50),
+  jaql4aux3  CHAR(50),
+  jaql4aux4  NUMBER(9),
+  jaql4aux5  NUMBER(9),
+  jaql4aux6  NUMBER(9),
+  jaql4aux7  NUMBER(10,2),
+  jaql4aux8  NUMBER(10,2),
+  jaql4aux9  NUMBER(10,2),
+  jaql4aux10 DATE,
+  jaql4aux11 DATE,
+  jaql4aux12 DATE
+)
+;
+create index JAQL0042 on JAQL004 (JAQL4NUCOM);
+alter table JAQL004
+  add primary key (JAQL4COCOM);
+

@@ -1,0 +1,31 @@
+create table FSFT43
+(
+  dtgcod   NUMBER(3) not null,
+  dtgsuc   NUMBER(3) not null,
+  dtgmod   NUMBER(3) not null,
+  dtgtrn   NUMBER(3) not null,
+  dtgrel   NUMBER(4) not null,
+  dtgfch   DATE not null,
+  dtgpap   NUMBER(4) not null,
+  dtgidt   CHAR(15) not null,
+  dtgidn   NUMBER(18) not null,
+  dtgcus   NUMBER(9),
+  dtgcta   NUMBER(9),
+  dtgope   NUMBER(3),
+  dtgval   NUMBER(17,2),
+  dtgtoi   NUMBER(16),
+  dtgaux01 NUMBER(9),
+  dtgaux02 NUMBER(9),
+  dtgaux03 NUMBER(17,2),
+  dtgaux04 NUMBER(17,2),
+  dtgaux05 CHAR(35),
+  dtgaux06 CHAR(35),
+  dtgaux07 NUMBER(14,8),
+  dtgaux08 NUMBER(14,8),
+  dtgaux09 DATE,
+  dtgaux10 DATE
+)
+;
+alter table FSFT43
+  add primary key (DTGCOD, DTGSUC, DTGMOD, DTGTRN, DTGREL, DTGFCH, DTGPAP, DTGIDT, DTGIDN);
+

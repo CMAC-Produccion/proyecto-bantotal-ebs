@@ -1,0 +1,30 @@
+create table JAQN73
+(
+  jaqn73empr NUMBER(3) not null,
+  jaqn73sucu NUMBER(3) not null,
+  jaqn73modu NUMBER(3) not null,
+  jaqn73tran NUMBER(3) not null,
+  jaqn73rela NUMBER(4) not null,
+  jaqn73itfc DATE not null,
+  jaqn73itho CHAR(8) not null
+)
+;
+comment on table JAQN73
+  is 'Traza de la tabla FSD015';
+comment on column JAQN73.jaqn73empr
+  is 'Empresa';
+comment on column JAQN73.jaqn73sucu
+  is 'Sucursal';
+comment on column JAQN73.jaqn73modu
+  is 'Modulo';
+comment on column JAQN73.jaqn73tran
+  is 'Transaccion';
+comment on column JAQN73.jaqn73rela
+  is 'Relacion';
+comment on column JAQN73.jaqn73itfc
+  is 'Fecha de Contabilizacion';
+comment on column JAQN73.jaqn73itho
+  is 'Hora';
+alter table JAQN73
+  add primary key (JAQN73EMPR, JAQN73SUCU, JAQN73MODU, JAQN73TRAN, JAQN73RELA, JAQN73ITFC, JAQN73ITHO);
+

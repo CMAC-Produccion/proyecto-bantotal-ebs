@@ -1,0 +1,22 @@
+create table UBT80
+(
+  ubtemp    NUMBER(3) not null,
+  ubtusr    CHAR(10) not null,
+  ubtsecd   NUMBER(3),
+  ubtcacd   NUMBER(3),
+  ubttel    CHAR(20),
+  ubttein   NUMBER(4),
+  ubthoen   CHAR(5),
+  ubthosa   CHAR(5),
+  ubtpicnom VARCHAR2(30),
+  ubtcom    VARCHAR2(250),
+  ubtdocp   NUMBER(3),
+  ubtdoct   NUMBER(2),
+  ubtdocn   CHAR(25)
+)
+;
+create index UBT8003 on UBT80 (UBTCACD);
+create index UBT8004 on UBT80 (UBTSECD, UBTCACD);
+alter table UBT80
+  add primary key (UBTEMP, UBTUSR);
+

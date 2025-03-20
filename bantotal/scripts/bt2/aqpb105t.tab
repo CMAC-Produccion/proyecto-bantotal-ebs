@@ -1,0 +1,18 @@
+create table AQPB105T
+(
+  aqpb105tfec DATE not null,
+  aqpb105tacc VARCHAR2(999),
+  aqpb105tref VARCHAR2(999),
+  aqpb105treq CLOB,
+  aqpb105tres CLOB,
+  aqpb105thor VARCHAR2(10) not null,
+  aqpb105ttip CHAR(3),
+  aqpb105ttim VARCHAR2(10),
+  aqpb105tcod CHAR(5),
+  aqpb105tmen VARCHAR2(500),
+  aqpb105tcan NUMBER(2)
+)
+;
+alter table AQPB105T
+  add primary key (AQPB105TFEC, AQPB105THOR);
+
