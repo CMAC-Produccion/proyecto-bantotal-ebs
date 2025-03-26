@@ -1,0 +1,2 @@
+insert into fst101 (PBCOD, PBNSEC, PBPROC, PBDESC, PBEST, PBEXCP, PBEJEC, PBPER, PBRET, PBFINI, PBHINI, PBFFIN, PBHFIN, PBPARM, PBCPAR)
+values (1, 50019, 'PAQPC343A ', 'Bloqueo tarjetas sin cuentas  ', 'P', 'S', ' ', 'D', 'N', null, '        ', null, '        ', ' ', 0);

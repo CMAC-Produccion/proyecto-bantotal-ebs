@@ -15,7 +15,10 @@ create or replace package PQ_CR_SCORE_RCC is
   -- Fecha de Modificación      : 04/02/2025
   -- Autor de la Modificación   : MPOSTIGOC
   -- Descripción de Modificación: Se cambio el rango de extraccion para la variable de Score de 1 a 2 espacios.
-
+  -- Fecha de Modificación      : 24/03/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se cambio la logica para considerar el mayor score de clientes que tengan más de un reg
+  --                              para la misma fecha de carga.
   -- *****************************************************************
 
   procedure sp_cr_score(vi_instancia in number,
@@ -42,8 +45,8 @@ create or replace package PQ_CR_SCORE_RCC is
                            ln_PDCal      out number,
                            lc_tabla      out varchar2,
                            ld_fchscore   out date /*,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   lc_scoreabr   out varchar2,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   lc_NewScore   out Varchar2*/);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     lc_scoreabr   out varchar2,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     lc_NewScore   out Varchar2*/);
   -------------------------------------------------------------------
   procedure sp_cr_scoreDNI_II(ln_inst       in number,
                               ln_tdoc       in number,
@@ -93,7 +96,6 @@ create or replace package PQ_CR_SCORE_RCC is
 
 end PQ_CR_SCORE_RCC;
 /
-
 create or replace package body PQ_CR_SCORE_RCC is
 
   --------------------
@@ -733,8 +735,8 @@ create or replace package body PQ_CR_SCORE_RCC is
                            ln_PDCal      out number,
                            lc_tabla      out varchar2,
                            ld_fchscore   out date /*,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 lc_scoreabr   out varchar2,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 lc_NewScore   out Varchar2*/) is
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   lc_scoreabr   out varchar2,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   lc_NewScore   out Varchar2*/) is
   
     ln_fchsist       date;
     ln_MaxFch640     date;
@@ -1075,6 +1077,20 @@ create or replace package body PQ_CR_SCORE_RCC is
                               lc_scoreabr   out varchar2,
                               lc_NewScore   out Varchar2) is
   
+    cursor lista_639(lc_ndoc varchar2, ln_MaxFch639 date) is
+    
+      select j.jaql639pdcns,
+             j.jaql639pdmy,
+             j.jaql639ricns,
+             j.jaql639rimy,
+             j.jaql639calmyp,
+             j.jaql639calcns,
+             j.jaql639segmyp,
+             j.jaql639segcon
+        from jaql639 j
+       where j.jaql639nuide = lc_ndoc
+         and j.jaql639fepre = ln_MaxFch639;
+  
     ln_fchsist       date;
     ln_MaxFch640     date;
     ln_MaxFch639     date;
@@ -1087,6 +1103,11 @@ create or replace package body PQ_CR_SCORE_RCC is
     lc_SegmRiesgocns varchar2(10);
     lc_SegmRiesgopym varchar2(10);
     ln_GrupoSco      number;
+    ln_NroReg639     number := 0;
+    ln_probalAux     number;
+    lc_scoreAux      varchar2(10);
+    lc_SegmRiesgoAux varchar2(10);
+    ln_PDCalAux      number;
   
   begin
   
@@ -1124,7 +1145,7 @@ create or replace package body PQ_CR_SCORE_RCC is
          and tp1corr3 = 2; --JAQL640
     exception
       when others then
-        null;
+        ln_MaxFch640 := null;
     end;
   
     begin
@@ -1138,8 +1159,13 @@ create or replace package body PQ_CR_SCORE_RCC is
          and tp1corr3 = 1; --JAQL639
     exception
       when others then
-        null;
+        ln_MaxFch639 := null;
     end;
+  
+    ln_probal     := 0;
+    lc_score      := null;
+    lc_SegmRiesgo := null;
+    ln_PDCal      := 0;
   
     begin
       begin
@@ -1172,7 +1198,7 @@ create or replace package body PQ_CR_SCORE_RCC is
              and j.jaql640fepre = ln_MaxFch640;
         exception
           when others then
-            null;
+            lc_score := null;
         end;
       
         if lc_score is not null then
@@ -1216,56 +1242,127 @@ create or replace package body PQ_CR_SCORE_RCC is
     if lc_score = 'SIN SCORE' and ln_tdoc in (21, 2, 5) then
     
       begin
-        select j.jaql639pdcns,
-               j.jaql639pdmy,
-               j.jaql639ricns,
-               j.jaql639rimy,
-               j.jaql639calmyp,
-               j.jaql639calcns,
-               j.jaql639segmyp,
-               j.jaql639segcon
-          into ln_probalauxcns,
-               ln_probalauxpym,
-               lc_scorecns,
-               lc_scorepym,
-               ln_PDCalcns,
-               ln_PDCalpym,
-               lc_SegmRiesgocns,
-               lc_SegmRiesgopym
+        select count(*)
+          into ln_NroReg639
           from jaql639 j
          where j.jaql639nuide = lc_ndoc
            and j.jaql639fepre = ln_MaxFch639;
       exception
         when others then
-          lc_score := 'SIN SCORE';
+          ln_NroReg639 := 0;
       end;
     
-      if ln_probalauxcns > 0 and ln_probalauxpym > 0 then
-        if ln_probalauxcns < ln_probalauxpym then
-        
-          ln_probal     := ln_probalauxcns;
-          lc_score      := lc_scorecns;
-          lc_SegmRiesgo := lc_SegmRiesgocns;
-          ln_PDCal      := ln_PDCalcns;
-          lc_tabla      := 'JAQL639';
-        
-        else
-          if ln_probalauxcns >= ln_probalauxpym then
+      if ln_NroReg639 < 2 then
+      
+        begin
+          select j.jaql639pdcns,
+                 j.jaql639pdmy,
+                 j.jaql639ricns,
+                 j.jaql639rimy,
+                 j.jaql639calcns,
+                 j.jaql639calmyp,
+                 j.jaql639segcon,
+                 j.jaql639segmyp
+            into ln_probalauxcns,
+                 ln_probalauxpym,
+                 lc_scorecns,
+                 lc_scorepym,
+                 ln_PDCalcns,
+                 ln_PDCalpym,
+                 lc_SegmRiesgocns,
+                 lc_SegmRiesgopym
+            from jaql639 j
+           where j.jaql639nuide = lc_ndoc
+             and j.jaql639fepre = ln_MaxFch639;
+        exception
+          when others then
+            lc_score         := 'SIN SCORE';
+            ln_probalauxcns  := null;
+            ln_probalauxpym  := null;
+            lc_scorecns      := null;
+            lc_scorepym      := null;
+            ln_PDCalcns      := null;
+            ln_PDCalpym      := null;
+            lc_SegmRiesgocns := null;
+            lc_SegmRiesgopym := null;
+        end;
+      
+        if ln_probalauxcns > 0 and ln_probalauxpym > 0 then
+          if ln_probalauxcns < ln_probalauxpym then
           
-            ln_probal     := ln_probalauxpym;
-            lc_score      := lc_scorepym;
-            lc_SegmRiesgo := lc_SegmRiesgopym;
-            ln_PDCal      := ln_PDCalpym;
+            ln_probal     := ln_probalauxcns;
+            lc_score      := lc_scorecns;
+            lc_SegmRiesgo := lc_SegmRiesgocns;
+            ln_PDCal      := ln_PDCalcns;
             lc_tabla      := 'JAQL639';
+          
+          else
+            if ln_probalauxcns >= ln_probalauxpym then
+            
+              ln_probal     := ln_probalauxpym;
+              lc_score      := lc_scorepym;
+              lc_SegmRiesgo := lc_SegmRiesgopym;
+              ln_PDCal      := ln_PDCalpym;
+              lc_tabla      := 'JAQL639';
+            end if;
           end if;
+        else
+          lc_score      := 'SIN SCORE';
+          ln_probal     := null;
+          lc_SegmRiesgo := null;
+          ln_PDCal      := null;
+          lc_tabla      := null;
         end if;
       else
-        lc_score      := 'SIN SCORE';
-        ln_probal     := null;
-        lc_SegmRiesgo := null;
-        ln_PDCal      := null;
-        lc_tabla      := null;
-      
+        if ln_NroReg639 >= 2 then
+          for l in lista_639(lc_ndoc, ln_MaxFch639) loop
+            if l.jaql639pdcns > 0 and l.jaql639pdmy > 0 then
+              if l.jaql639pdcns < l.jaql639pdmy then
+              
+                ln_probalAux     := l.jaql639pdcns;
+                lc_scoreAux      := l.jaql639ricns;
+                lc_SegmRiesgoAux := l.jaql639segcon;
+                ln_PDCalAux      := l.jaql639calcns;
+                lc_tabla         := 'JAQL639';
+              
+              else
+                if l.jaql639pdcns >= l.jaql639pdmy then
+                
+                  ln_probalAux     := l.jaql639pdmy;
+                  lc_scoreAux      := l.jaql639rimy;
+                  lc_SegmRiesgoAux := l.jaql639segmyp;
+                  ln_PDCalAux      := l.jaql639calmyp;
+                  lc_tabla         := 'JAQL639';
+                end if;
+              end if;
+            
+              if lc_score = 'SIN SCORE' then
+              
+                ln_probal     := ln_probalAux;
+                lc_score      := lc_scoreAux;
+                lc_SegmRiesgo := lc_SegmRiesgoAux;
+                ln_PDCal      := ln_PDCalAux;
+              
+              else
+                if lc_score < lc_scoreAux then
+                
+                  ln_probal     := ln_probalAux;
+                  lc_score      := lc_scoreAux;
+                  lc_SegmRiesgo := lc_SegmRiesgoAux;
+                  ln_PDCal      := ln_PDCalAux;
+                
+                end if;
+              end if;
+            
+            else
+              lc_score      := 'SIN SCORE';
+              ln_probal     := null;
+              lc_SegmRiesgo := null;
+              ln_PDCal      := null;
+              lc_tabla      := null;
+            end if;
+          end loop;
+        end if;
       end if;
     
     else
@@ -1825,4 +1922,3 @@ create or replace package body PQ_CR_SCORE_RCC is
 
 end PQ_CR_SCORE_RCC;
 /
-

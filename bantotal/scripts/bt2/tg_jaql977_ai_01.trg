@@ -26,6 +26,12 @@ CREATE OR REPLACE TRIGGER TG_JAQL977_AI_01
     -- Fecha de Modificación      : 13/09/2024
     -- Autor de la Modificación   : Yrving Lozada
     -- Modificación               : Se cambio estado a P en ichannel alert    
+    -- Fecha de Modificación      : 13/02/2025
+    -- Autor de la Modificación   : Yrving Lozada
+    -- Modificación               : Se adicionaron nuevos campos a la tabla aqpa147    
+    -- Fecha de Modificación      : 06/03/2025
+    -- Autor de la Modificación   : Renzo Cuadros
+    -- Modificación               : Se cambió de donde se obtiene la sucursal
     -- *****************************************************************      
 declare
    cursor c_notifica is
@@ -206,6 +212,23 @@ begin
            when others then 
              lv_PUSH_TOKEN := null; 
            end;
+           
+           --OBTENEMOS LA SUCURSAL
+            BEGIN
+              SELECT TRIM(tp1desc) tp1desc
+                INTO lv_ubigueo
+                FROM fst198
+               WHERE tp1cod1 = 11143
+                 AND tp1corr1 = 15
+                 AND tp1corr2 = 1
+                 AND tp1corr3 > 0
+                 AND tp1nro1 = :new.JAQL977MOD
+                 AND tp1nro2 = :new.JAQL977TRA;
+            EXCEPTION
+              WHEN NO_DATA_FOUND THEN
+                NULL;
+            END;
+            
            --SI TIENE PUSH
            if lv_PUSH_TOKEN is not null then
                if lc_sex = 'M' then
@@ -229,10 +252,16 @@ begin
                                    AQPA147mon,
                                    AQPA147top,
                                    AQPA147nop,
-                                   AQPA147est
+                                   AQPA147est,
+                                   AQPA147SUC,
+                                   AQPA147MOD,
+                                   AQPA147TRA,
+                                   AQPA147REL,
+                                   AQPA147FCO                                   
                                    )                               
                              values(SQ_AH_ID_PUSH.NEXTVAL,
-                                   to_date(to_char(:new.jaql97787507), 'rrrr/mm/dd'),
+                                   --to_date(to_char(:new.jaql97787507), 'rrrr/mm/dd'),
+                                   TRUNC(SYSDATE),
                                    lv_hora,
                                    'PUSH',
                                    'BANTOTAL',
@@ -245,7 +274,12 @@ begin
                                    ln_MONTO,
                                    lv_OPERACION,
                                    null,--TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')
-                                   'N'
+                                   'N',
+                                   :new.JAQL977SUC,
+                                   :new.JAQL977MOD,
+                                   :new.JAQL977TRA,
+                                   :new.JAQL977REL,
+                                   :new.JAQL977FCO
                                    );
              exception
              when others then  
@@ -285,10 +319,16 @@ begin
                                      AQPA147mon,
                                      AQPA147top,
                                      AQPA147nop,
-                                     AQPA147est
+                                     AQPA147est,
+                                     AQPA147SUC,
+                                     AQPA147MOD,
+                                     AQPA147TRA,
+                                     AQPA147REL,
+                                     AQPA147FCO                                      
                                      )                               
                                values(SQ_AH_ID_PUSH.NEXTVAL,
-                                     to_date(to_char(:new.jaql97787507), 'rrrr/mm/dd'),
+                                     --to_date(to_char(:new.jaql97787507), 'rrrr/mm/dd'),
+                                     TRUNC(SYSDATE),
                                      lv_hora,
                                      'CORREO',
                                      'BANTOTAL',
@@ -300,8 +340,13 @@ begin
                                      lc_numdoc,                                     
                                      ln_MONTO,
                                      lv_OPERACION,
-                                     null,
-                                     'N'--TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0')                              
+                                     null,--TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0')                              
+                                     'N',
+                                     :new.JAQL977SUC,
+                                     :new.JAQL977MOD,
+                                     :new.JAQL977TRA,
+                                     :new.JAQL977REL,
+                                     :new.JAQL977FCO                                     
                                      );
                exception
                when others then  
@@ -342,10 +387,16 @@ begin
                                      AQPA147mon,
                                      AQPA147top,
                                      AQPA147nop,
-                                     AQPA147est
+                                     AQPA147est,
+                                     AQPA147SUC,
+                                     AQPA147MOD,
+                                     AQPA147TRA,
+                                     AQPA147REL,
+                                     AQPA147FCO                                      
                                      )                               
                                values(SQ_AH_ID_PUSH.NEXTVAL,
-                                     to_date(to_char(:new.jaql97787507), 'rrrr/mm/dd'),
+                                     --to_date(to_char(:new.jaql97787507), 'rrrr/mm/dd'),
+                                     TRUNC(SYSDATE),
                                      lv_hora,
                                      'CORREO',
                                      'BANTOTAL',
@@ -358,7 +409,12 @@ begin
                                      ln_MONTO,
                                      lv_OPERACION,
                                      null,--TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0')                              
-                                     'N'
+                                     'N',
+                                     :new.JAQL977SUC,
+                                     :new.JAQL977MOD,
+                                     :new.JAQL977TRA,
+                                     :new.JAQL977REL,
+                                     :new.JAQL977FCO                                     
                                      );
                exception
                when others then  
@@ -389,10 +445,16 @@ begin
                                      AQPA147mon,
                                      AQPA147top,
                                      AQPA147nop,
-                                     AQPA147est
+                                     AQPA147est,
+                                     AQPA147SUC,
+                                     AQPA147MOD,
+                                     AQPA147TRA,
+                                     AQPA147REL,
+                                     AQPA147FCO                                      
                                      )                               
                                values(SQ_AH_ID_PUSH.NEXTVAL,
-                                     to_date(to_char(:new.jaql97787507), 'rrrr/mm/dd'),
+                                     --to_date(to_char(:new.jaql97787507), 'rrrr/mm/dd'),
+                                     TRUNC(SYSDATE),
                                      lv_hora,
                                      'CELULAR',
                                      'BANTOTAL',
@@ -405,7 +467,12 @@ begin
                                      ln_MONTO,
                                      lv_OPERACION,
                                      null,--TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0')                              
-                                     'N'
+                                     'N',
+                                     :new.JAQL977SUC,
+                                     :new.JAQL977MOD,
+                                     :new.JAQL977TRA,
+                                     :new.JAQL977REL,
+                                     :new.JAQL977FCO                                     
                                      );
                 exception
                 when others then  
@@ -420,4 +487,3 @@ exception
      null;    
 end TG_JAQL977_AI_01;
 /
-

@@ -1,6 +1,6 @@
-CREATE OR REPLACE PROCEDURE "SP_MIGRAR_AQPA147" AS
+CREATE OR REPLACE PROCEDURE sp_migrar_aqpa147 AS
   -- ------------------------------------------------------------------------------------------------
-  -- Nombre                : Procedimiento para el pase a historicos de la tabla aqpa147
+  -- Nombre                : sp_migrar_aqpa147
   -- Sistema               : BANTOTAL
   -- Módulo                : BANTOTAL
   -- Versión               : 1.0
@@ -9,6 +9,9 @@ CREATE OR REPLACE PROCEDURE "SP_MIGRAR_AQPA147" AS
   -- Uso                   : Enviar notificaciones a histotico
   -- Estado                : Activo
   -- Acceso                : Público
+  -- Fecha de Modificación : 24/02/2025
+  -- Autor de Modificación : Renzo Cuadros
+  -- Descripción Modific.  : Se adicionó campos de asientos contables
   -- Fecha de Modificación : 
   -- Autor de Modificación : 
   -- Descripción Modific.  : 
@@ -34,13 +37,15 @@ begin
     (aqpa147HCOR, aqpa147HFEC, aqpa147HHOR, aqpa147HMED, aqpa147HORI, 
      aqpa147HMSG, aqpa147HDES, aqpa147HCTA, aqpa147HPAI, aqpa147HTPO, 
      aqpa147HNUM, aqpa147HMON, aqpa147HTOP, aqpa147HNOP, aqpa147HEST, 
-     aqpa147HFPR, aqpa147HHPR, aqpa147HRPT)
+     aqpa147HFPR, aqpa147HHPR, aqpa147HRPT, aqpa147HSUC, aqpa147HMOD,
+     aqpa147HTRA, aqpa147HREL, aqpa147HFCO) --rcuadros 24/02/2025
     values (
 
      i.aqpa147COR, i.aqpa147FEC, i.aqpa147HOR, i.aqpa147MED, i.aqpa147ORI, 
      i.aqpa147MSG, i.aqpa147DES, i.aqpa147CTA, i.aqpa147PAI, i.aqpa147TPO, 
      i.aqpa147NUM, i.aqpa147MON, i.aqpa147TOP, i.aqpa147NOP, i.aqpa147EST, 
-     i.aqpa147FPR, i.aqpa147HPR, i.aqpa147RPT);
+     i.aqpa147FPR, i.aqpa147HPR, i.aqpa147RPT, i.aqpa147SUC, i.aqpa147MOD, 
+     i.aqpa147TRA, i.aqpa147REL, i.aqpa147FCO); --rcuadros 24/02/2025
 
     commit;
     ln_contad := ln_contad + 1;
@@ -54,7 +59,7 @@ begin
                sys_context('USERENV', 'INSTANCE_NAME')||CHR(13)||CHR(13)||
                'ERROR en ejecución del procedimiento sp_migrar_jaql635'||CHR(13)||
                p_c_msgerr);
-        sys.sp_sy_enviamail('kcabrerac@cajaarequipa.pe','kcabrerac@cajaarequipa.pe',
+        sys.sp_sy_enviamail('mblas@cajaarequipa.pe','mblas@cajaarequipa.pe',
                'ERROR en ejecución del procedimiento sp_migrar_jaql635',
                'BD='||sys_context('USERENV', 'DB_NAME')||CHR(13)||'INSTANCIA='||
                sys_context('USERENV', 'INSTANCE_NAME')||CHR(13)||CHR(13)||
@@ -78,7 +83,7 @@ exception
                sys_context('USERENV', 'INSTANCE_NAME')||CHR(13)||CHR(13)||
                'ERROR en ejecución del procedimiento sp_migrar_aqpa147'||CHR(13)||
                p_c_msgerr);
-   sys.sp_sy_enviamail('kcabrerac@cajaarequipa.pe','kcabrerac@cajaarequipa.pe',
+   sys.sp_sy_enviamail('mblas@cajaarequipa.pe','mblas@cajaarequipa.pe',
                'ERROR en ejecución del procedimiento sp_migrar_aqpa147',
                'BD='||sys_context('USERENV', 'DB_NAME')||CHR(13)||'INSTANCIA='||
                sys_context('USERENV', 'INSTANCE_NAME')||CHR(13)||CHR(13)||
@@ -86,6 +91,4 @@ exception
                p_c_msgerr);
      
 end sp_migrar_aqpa147;
- /* GOLDENGATE_DDL_REPLICATION */
 /
-

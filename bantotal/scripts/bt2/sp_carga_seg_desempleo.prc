@@ -1,13 +1,15 @@
 create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
+
 -- Modificacion : SMARQUEZ 23/12/2024 carga servicio controles de duplicados
 -- Modificacion : SMARQUEZ 27/12/2024 modificacion de codigo de producto de DESEMPLEO
 -- Modificacion : SMARQUEZ 23/01/2025, modificacion para carga incompleta
--- Modificacion : SMARQUEZ 13/03/2025, Modificación error linea 439
+-- Modificacion : SMARQUEZ 19/03/2025, modificacion too_many_rows
 
   CURSOR CUENTAS IS
-      select a.*, b.itfcon fechacont, b.ithora hora
+      select a.*, b.itfcon fechacont, b.ithora hora, c.jaqm66ins ins
       from fsd016 a,
-           fsd015 b      
+           fsd015 b,
+           jaqm66 c      
      where a.pgcod = 1
        and a.itmod =30 
        and a.ittran =441
@@ -19,7 +21,12 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
        and b.ittran = a.ittran
        and b.itnrel = a.itnrel
        and b.itcorr = 0
-       and b.itcont ='S';
+       and b.itcont ='S'
+     --------- SMA.19032
+       and c.jaqm66cta = a.CTNRO --SMA.190325
+       and c.jaqm66fea = b.ITFCON       
+       and c.JAQM66HOR = b.ithora
+       ;
 
    /* CURSOR bajas IS
           null;*/
@@ -298,7 +305,8 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
           into periodo, plazo1, fechaxwf, operacion, mod1, suc1, subop1,tipo1,mda1, instancia, CTASA, saldoasegurado, costo,plandes
           from jaqm65 ja, xwf700 jc, jaqm66 jb --,
          where ja.jaqm65tad = 2
-           and ja.jaqm65ac1 = 'C'           
+           and ja.jaqm65ac1 = 'C'   
+           and ja.jaqm65ins = a.ins        
            and jb.jaqm66ins = ja.jaqm65ins
            and jb.jaqm66fea = a.fechacont   --sma 19102023       
            and substr(jb.jaqm66hor,1,5) = substr(a.hora,1,5)
@@ -680,4 +688,3 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
 end SP_CARGA_SEG_DESEMPLEO;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-

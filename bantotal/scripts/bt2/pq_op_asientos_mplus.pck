@@ -10,9 +10,12 @@ create or replace package PQ_OP_ASIENTOS_MPLUS is
     -- Uso                        : OBTENER MOVIMIENTOS PARA SISTEMA ANTIFRAUDES -MPUS
     -- Estado                     : Activo
     -- Acceso                     : Público
+    -- Fecha de Modificación      : 2025.02.24
+    -- Autor de la Modificación   : RCUADROS
+    -- Descripción de Modificación: Se adicionaron nuevos campos a la tabla JAQL977
     -- Fecha de Modificación      : 
     -- Autor de la Modificación   :  
-    -- Descripción de Modificación: 
+    -- Descripción de Modificación:     
     -- *****************************************************************
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_ah_trx_ori_off(pn_hcmod    in number,
@@ -478,7 +481,6 @@ create or replace package PQ_OP_ASIENTOS_MPLUS is
   FUNCTION hex2dec (hexnum IN CHAR) RETURN NUMBER;
 end PQ_OP_ASIENTOS_MPLUS;
 /
-
 create or replace package body PQ_OP_ASIENTOS_MPLUS is
     -- *****************************************************************
     -- Nombre                     : PQ_OP_ASIENTOS_MPLUS
@@ -490,6 +492,9 @@ create or replace package body PQ_OP_ASIENTOS_MPLUS is
     -- Uso                        : CARGA DATOS PARA REPORTE VARIACION DE SALDOS
     -- Estado                     : Activo
     -- Acceso                     : Público
+    -- Fecha de Modificación      : 2025.02.24
+    -- Autor de la Modificación   : RCUADROS
+    -- Descripción de Modificación: Se adicionaron nuevos campos a la tabla JAQL977
     -- Fecha de Modificación      : 
     -- Autor de la Modificación   : 
     -- Descripción de Modificación: 
@@ -3539,7 +3544,7 @@ create or replace package body PQ_OP_ASIENTOS_MPLUS is
       jaql97787580,
       jaql97787583,       
       jaql97787536,      
-      jaql97787575,     
+      jaql97787575,
       jaql97787576,    
       jaql97787577,       
       jaql97787578,            
@@ -3552,7 +3557,12 @@ create or replace package body PQ_OP_ASIENTOS_MPLUS is
       jaql97787713,       
       jaql97787714,
       jaql97787527,
-      JAQL97787716          
+      JAQL97787716,
+      JAQL977SUC, -- RCUADROS 2025.02.24
+      JAQL977MOD,
+      JAQL977TRA,
+      JAQL977REL,
+      JAQL977FCO
       )
    values
       ( pn_cor, 
@@ -3618,7 +3628,12 @@ create or replace package body PQ_OP_ASIENTOS_MPLUS is
         lc_jaql97787713,       
         lc_jaql97787714,
         ln_jaql97787527,
-        LC_JAQL97787716                               
+        LC_JAQL97787716,
+        pn_hcmod, -- RCUADROS 2025.02.24
+        pn_hsucor,
+        pn_htran,
+        pn_hnrel,
+        pd_fecpro
       );
      
       End If;
@@ -8185,4 +8200,3 @@ create or replace package body PQ_OP_ASIENTOS_MPLUS is
   END hex2dec;                       
 end PQ_OP_ASIENTOS_MPLUS;
 /
-
