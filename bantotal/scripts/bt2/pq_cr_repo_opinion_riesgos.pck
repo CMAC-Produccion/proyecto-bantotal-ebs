@@ -67,7 +67,11 @@ create or replace package pq_cr_repo_opinion_riesgos is
   -- Descripción de Modificación: Modificacion de arbol de aprobacion y autonomias  
   -- Fecha de Modificación      : 11/02/2025
   -- Autor de Modificación      : IGS_RCASTRO
-  -- Descripción de Modificación: Modificacion de delegacion y arbol                  
+  -- Descripción de Modificación: Modificacion de delegacion y arbol   
+  -- Fecha de Modificación      : 11/03/2025
+  -- Autor de Modificación      : IGS_RCASTRO
+  -- Descripción de Modificación: Modificacion de correos en copia en aprobacion y valid. vigencia 
+  --                              de solicitud.                 
   -- *****************************************************************
   -----------------------------------------------------------------------
 
@@ -1855,7 +1859,6 @@ create or replace package pq_cr_repo_opinion_riesgos is
   PROCEDURE sp_valid_duplic_Panel_Derivar(usuario varchar2, nivelPerfil number, flgDuplNoLis out varchar2);
 end pq_cr_repo_opinion_riesgos;
 /
-
 create or replace package body pq_cr_repo_opinion_riesgos is
 
   procedure sp_nomclientes(codOpinion number, --07112023
@@ -11846,16 +11849,16 @@ create or replace package body pq_cr_repo_opinion_riesgos is
       auxint := r.aqpc156instan;
     
       --Validar si instancia está vigente  31072023
-      /*flgSolicActivo := 'N';
+      flgSolicActivo := 'N'; --11/03/2025
       BEGIN
         pq_cr_repo_opinion_riesgos.sp_validar_vigent_solic(auxint,
                                                            flgSolicActivo);
       EXCEPTION
         WHEN OTHERS THEN
           flgSolicActivo := 'N';
-      END;*/
+      END;
     
-     -- IF flgSolicActivo = 'S' THEN
+      IF flgSolicActivo = 'S' THEN
         BEGIN
           SELECT B.XWFMODULO,
                  B.XWFTIPOPE,
@@ -12051,8 +12054,8 @@ create or replace package body pq_cr_repo_opinion_riesgos is
         END;
      /* ELSE
         flgcrg194 := 'La solicitud ' || to_char(auxint) ||
-                     ' no está vigente'; --01042024
-      END IF;*/
+                     ' no está vigente'; --01042024 */
+      END IF;
     END LOOP;
   END;
 
@@ -18861,10 +18864,12 @@ create or replace package body pq_cr_repo_opinion_riesgos is
   corrNvlApr3 varchar2(50);
   corrNvlApr4 varchar2(50);
   corrNvlApr5 varchar2(50);
-  corrNvlApr6 varchar2(50);  
+  corrNvlApr6 varchar2(50); 
+  XcorreoAnom varchar2(50); 
+  contNroCorre number(4);
     
   BEGIN
-  
+      
       BEGIN
          pq_cr_repo_opinion_riesgos.sp_obtnUsuariosAprobad(flujo,
                                                            CodOpinion,
@@ -18884,6 +18889,14 @@ create or replace package body pq_cr_repo_opinion_riesgos is
       END;  
       
       --OBTENER CORREO USUARIO DERIVAR
+      contNroCorre := 1;
+      IF corrUsuIngre is not null then                  
+         correosCopia := trim(corrUsuIngre);
+      end if;
+      
+      correosCopia := nvl(correosCopia, null);
+      
+      
       begin
         select WFUSREMAIL
           into corrUsuDerivado
@@ -18891,83 +18904,149 @@ create or replace package body pq_cr_repo_opinion_riesgos is
          WHERE WFUSRCOD = RPAD(usuDerivar, 30, ' ');
       exception
         when others then
-          corrUsuDerivado := ' ';
-      end;
+          corrUsuDerivado := null;
+      end;            
   
        begin
         select WFUSREMAIL
-          into corrNvlApr1
+          into XcorreoAnom
           from wFusers
          WHERE WFUSRCOD = RPAD(usuNivelAprb1, 30, ' ');
       exception
         when others then
-          corrNvlApr1 := ' ';
+          XcorreoAnom := null;
       end;  
+      
+      XcorreoAnom := nvl(XcorreoAnom, null);
+      
+      IF NivelAproba > contNroCorre and XcorreoAnom is not null then
+         contNroCorre := contNroCorre + 1;
+         if correosCopia is null then
+            correosCopia := XcorreoAnom;
+         else 
+            correosCopia := correosCopia || ';' || trim(XcorreoAnom);
+         end if;
+      else 
+        contNroCorre := contNroCorre + 1;
+      End if;
+      
 
        begin
         select WFUSREMAIL
-          into corrNvlApr2
+          into XcorreoAnom --corrNvlApr2
           from wFusers
          WHERE WFUSRCOD = RPAD(usuNivelAprb2, 30, ' ');
       exception
         when others then
-          corrNvlApr2 := ' ';
+          XcorreoAnom := null;
       end; 
+      
+      XcorreoAnom := nvl(XcorreoAnom, null);
+      
+      IF NivelAproba > contNroCorre and XcorreoAnom is not null then
+         contNroCorre := contNroCorre + 1;
+         if correosCopia is null then
+            correosCopia := XcorreoAnom;
+         else 
+            correosCopia := correosCopia || ';' || trim(XcorreoAnom);
+         end if;
+      else 
+        contNroCorre := contNroCorre + 1;         
+      End if;      
       
        begin
         select WFUSREMAIL
-          into corrNvlApr3
+          into XcorreoAnom -- corrNvlApr3
           from wFusers
          WHERE WFUSRCOD = RPAD(usuNivelAprb3, 30, ' ');
       exception
         when others then
-          corrNvlApr3 := ' ';
-      end;      
+          XcorreoAnom := null;
+      end;     
+      
+      XcorreoAnom := nvl(XcorreoAnom, null);
+      
+      IF NivelAproba > contNroCorre and XcorreoAnom is not null then
+         contNroCorre := contNroCorre + 1;
+         if correosCopia is null then
+            correosCopia := XcorreoAnom;
+         else 
+            correosCopia := correosCopia || ';' || trim(XcorreoAnom);
+         end if;
+      else 
+        contNroCorre := contNroCorre + 1;         
+      End if;        
       
        begin
         select WFUSREMAIL
-          into corrNvlApr4
+          into XcorreoAnom --corrNvlApr4
           from wFusers
          WHERE WFUSRCOD = RPAD(usuNivelAprb4, 30, ' ');
       exception
         when others then
-          corrNvlApr4 := ' ';
-      end;                 
+          XcorreoAnom := null;
+      end;     
+      
+      XcorreoAnom := nvl(XcorreoAnom, null);
+      
+      IF NivelAproba > contNroCorre and XcorreoAnom is not null then
+         contNroCorre := contNroCorre + 1;
+         if correosCopia is null then
+            correosCopia := XcorreoAnom;
+         else 
+            correosCopia := correosCopia || ';' || trim(XcorreoAnom);
+         end if;
+      else 
+        contNroCorre := contNroCorre + 1;         
+      End if;                  
       
        begin
         select WFUSREMAIL
-          into corrNvlApr5
+          into XcorreoAnom --corrNvlApr5
           from wFusers
          WHERE WFUSRCOD = RPAD(usuNivelAprb5, 30, ' ');
       exception
         when others then
-          corrNvlApr5 := ' ';
-      end;      
+          XcorreoAnom := null;
+      end;   
+      
+      XcorreoAnom := nvl(XcorreoAnom, null);
+      
+      IF NivelAproba > contNroCorre and XcorreoAnom is not null then
+         contNroCorre := contNroCorre + 1;
+         if correosCopia is null then
+            correosCopia := XcorreoAnom;
+         else 
+            correosCopia := correosCopia || ';' || trim(XcorreoAnom);
+         end if;
+      else 
+        contNroCorre := contNroCorre + 1;         
+      End if;         
       
        begin
         select WFUSREMAIL
-          into corrNvlApr6
+          into XcorreoAnom --corrNvlApr6
           from wFusers
          WHERE WFUSRCOD = RPAD(usuNivelAprb6, 30, ' ');
       exception
         when others then
-          corrNvlApr6 := ' ';
-      end;        
+          XcorreoAnom := null;
+      end;      
+      
+      XcorreoAnom := nvl(XcorreoAnom, null);
+      
+      IF NivelAproba > contNroCorre and XcorreoAnom is not null then
+         contNroCorre := contNroCorre + 1;
+         if correosCopia is null then
+            correosCopia := XcorreoAnom;
+         else 
+            correosCopia := correosCopia || ';' || trim(XcorreoAnom);
+         end if;
+      else 
+        contNroCorre := contNroCorre + 1;         
+      End if;             
             
-      correosPara := correosPara || corrUsuDerivado; 
-       CASE 
-         WHEN NivelAproba = 3 THEN                                         
-              correosCopia := corrUsuIngre || ';' || corrNvlApr1 || ';' || corrNvlApr2;
-         WHEN NivelAproba = 4 THEN    
-              correosCopia := corrUsuIngre|| ';'  || corrNvlApr1|| ';'  || corrNvlApr2|| ';'  || corrNvlApr3 ;     
-         WHEN NivelAproba = 5 THEN 
-              correosCopia := corrUsuIngre|| ';'  || corrNvlApr1|| ';'  || corrNvlApr2|| ';'  || corrNvlApr3 || ';' || corrNvlApr4 ;   
-         WHEN NivelAproba = 6 THEN               
-              correosCopia := corrUsuIngre|| ';'  || corrNvlApr1|| ';'  || corrNvlApr2|| ';'  || corrNvlApr3 || ';' || corrNvlApr4 || usuNivelAprb5 ;  
-       ELSE 
-         correosPara  := ''; 
-         correosCopia  :=  '';                       
-       END CASE; 
+      correosPara := trim(corrUsuDerivado);       
   END;
   
   PROCEDURE sp_analis_gestio_opi(codOpinion number, p_usuarioGestio out varchar2, p_nivelUsuGestion out number) is---10/01/2025
@@ -19108,4 +19187,3 @@ create or replace package body pq_cr_repo_opinion_riesgos is
 
 end pq_cr_repo_opinion_riesgos;
 /
-

@@ -2,7 +2,6 @@ create or replace package PQ_CN_RECLAMOS is
   procedure sp_envio_correo(pc_codrec IN VARCHAR2, pc_coderr OUT VARCHAR2, pc_msjerr OUT VARCHAR2);
 end PQ_CN_RECLAMOS;
 /
-
 create or replace package body PQ_CN_RECLAMOS is procedure sp_envio_correo(pc_codrec IN VARCHAR2, pc_coderr OUT VARCHAR2, pc_msjerr OUT VARCHAR2) is
   -- ------------------------------------------------------------------------------------------------
   -- Nombre                : PQ_CN_RECLAMOS
@@ -14,9 +13,12 @@ create or replace package body PQ_CN_RECLAMOS is procedure sp_envio_correo(pc_co
   -- Uso                   : Envio de constancia de registro de reclamo por la web
   -- Estado                : Activo
   -- Acceso                : Público
+  -- Fecha de Modificación : 25/03/2025
+  -- Autor de Modificación : Renzo Cuadros Salazar
+  -- Descripción Modific.  : Se agrego funcionalidad de reenvio de correo
   -- Fecha de Modificación : 
-  -- Autor de Creación     : 
-  -- Descripción Modific.  : 
+  -- Autor de Modificación : 
+  -- Descripción Modific.  :   
   -- ------------------------------------------------------------------------------------------------
 
   ll_mensaje    CLOB;
@@ -173,11 +175,67 @@ create or replace package body PQ_CN_RECLAMOS is procedure sp_envio_correo(pc_co
             pc_msjerr := 'Envio Satisfactorio';
             update jaql420 set jaql420rptenv = pc_msjerr, jaql420fecenv = lc_fecenvio, jaql420horenv = lc_horenvio where jaql420cod = lc_codrec;
             commit;
-          end if;          
+          end if;
       exception
         when others then
-           pc_coderr := '00x';
-           pc_msjerr := sqlerrm;
+            pc_coderr := '993';
+            pc_msjerr := 'Se reenviara el correo en el transcurso del dia...';
+            begin
+                insert into aqpa145(aqpa145cor,
+                                    aqpa145cod,
+                                    aqpa145fer,
+                                    aqpa145hre,
+                                    aqpa145asu,
+                                    aqpa145par,
+                                    aqpa145pcc,
+                                    aqpa145cco,
+                                    aqpa145msg,
+                                    aqpa145rem,
+                                    aqpa145dir,
+                                    aqpa145adj,
+                                    aqpa145est,
+                                    aqpa145nro,
+                                    aqpa145ax1,
+                                    aqpa145ax2,
+                                    aqpa145ax3,
+                                    aqpa145ax4,
+                                    aqpa145ax5,
+                                    aqpa145ax6,
+                                    aqpa145ax7,
+                                    aqpa145ax8,
+                                    aqpa145ax9
+                                   )
+                values(SQ_AH_ID_RENVIO_MAIL.NEXTVAL,
+                       991,
+                       TRUNC(SYSDATE),
+                       TO_CHAR(SYSDATE,'HH24:MI:SS'),
+                       lc_asunto,
+                       lc_destinos,
+                       lc_destinoscc,
+                       '',
+                       ll_mensaje,
+                       lc_remitente,
+                       lc_directorio,
+                       lc_nomarch,
+                       'P',
+                       0,
+                       null,
+                       null,
+                       null,
+                       null,
+                       null,
+                       null,
+                       null,
+                       null,
+                       null
+                      );
+                      commit;
+            exception
+              when others then
+                rollback;
+                pc_coderr := '992';
+                pc_msjerr := sqlerrm;
+            end;
       end;
       dbms_lob.freetemporary(ll_mensaje);
                                    
@@ -185,4 +243,3 @@ create or replace package body PQ_CN_RECLAMOS is procedure sp_envio_correo(pc_co
   
 end PQ_CN_RECLAMOS;
 /
-

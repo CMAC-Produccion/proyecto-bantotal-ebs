@@ -1,0 +1,7 @@
+-- 2 REGISTROS - insert fst198
+insert into fst198 (TP1COD, TP1COD1, TP1CORR1, TP1CORR2, TP1CORR3, TP1NRO1, TP1NRO2, TP1NRO3, TP1DESC, TP1IMP1, TP1IMP2, TP1IMP3)
+values (1, 11170, 2, 5, 0, 0, 0, 0, 'Activar Val. Monto total', 0.00, 0.00, 0.00);
+
+insert into fst198 (TP1COD, TP1COD1, TP1CORR1, TP1CORR2, TP1CORR3, TP1NRO1, TP1NRO2, TP1NRO3, TP1DESC, TP1IMP1, TP1IMP2, TP1IMP3)
+values (1, 11170, 2, 5, 1, 0, 0, 0, 'N                             ', 0.00, 0.00, 0.00);
+

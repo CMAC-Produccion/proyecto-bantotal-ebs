@@ -1,0 +1,10 @@
+--PROGRAMA PARTICULAR
+INSERT INTO FST900
+(PGCOD, PGMNOM, PGMDES, PGMCALL, PGMCD1, PGMCD2)
+VALUES(1, 'PGUARLOGEL', 'Graba log de eliminación de tasa con usu. autoriz.', 'PJAQA551  ', 0, '          ');
+
+--GUIA ESPECIAL DE PROCESOS
+--Con Perfil de ejemplo "SCRE01", cambiar por el requerido. 
+INSERT INTO FST198
+(TP1COD, TP1COD1, TP1CORR1, TP1CORR2, TP1CORR3, TP1NRO1, TP1NRO2, TP1NRO3, TP1DESC, TP1IMP1, TP1IMP2, TP1IMP3)
+VALUES(1, 12053, 1, 1, 1, 0, 0, 0, 'SCRE01                        ', 0, 0, 0);
