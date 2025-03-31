@@ -1,4 +1,18 @@
 CREATE OR REPLACE PROCEDURE SP_BI_MATERIALIZED_VIEWS IS
+  -- ---------------------------------------------------------------------------
+  -- Nombre                   : SP_BI_MATERIALIZED_VIEWS
+  -- Sistema                  : BANTOTAL
+  -- Módulo                   : BANTOTAL
+  -- Versión                  : 1.0
+  -- Fecha de Creación        : 2025.03.19
+  -- Autor de Creación        : Erika V. Hidalgo Málaga
+  -- Uso                      : Creación de Vistas materializadas para BI
+  -- Estado                   : Activo
+  -- Acceso                   : Público
+  -- Fecha de Modificación    : 
+  -- Autor de Modificación    : 
+  -- Descripción Modificación : 
+  -- ---------------------------------------------------------------------------
   FECPRO_RRRRMMDD VARCHAR2(8) := to_char(sysdate-1,'RRRRMMDD');
 BEGIN
 
@@ -125,4 +139,3 @@ execute immediate 'create or replace synonym USRPROCBI.jaqz208_bi2 for bantprod.
 
 END SP_BI_MATERIALIZED_VIEWS;
 /
-

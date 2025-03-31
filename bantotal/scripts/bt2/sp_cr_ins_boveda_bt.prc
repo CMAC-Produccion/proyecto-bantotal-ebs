@@ -12,6 +12,9 @@ CREATE OR REPLACE PROCEDURE "SP_CR_INS_BOVEDA_BT" IS
     -- Fecha de Modificación      : 03/10/2024
     -- Autor de la Modificación   : EHIDALGOM/LCARPIO
     -- Descripción de Modificación: Diferencia de fechas en notifs o EECC por proceso offline
+    -- Fecha de Modificación      : 26/03/2025
+    -- Autor de la Modificación   : EHIDALGOM/LCARPIO/ACARDENAS
+    -- Descripción de Modificación: Parametrización Carga Legal
     -- *****************************************************************
  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   N_CONT1 NUMBER := 0;
@@ -23,8 +26,16 @@ CREATE OR REPLACE PROCEDURE "SP_CR_INS_BOVEDA_BT" IS
   my_array_mails string_array := string_array('ehidalgom@cajaarequipa.pe', 'kcabrerac@cajaarequipa.pe', 'lcarpio@cajaarequipa.pe', 
                                         'jsanchez@cajaarequipa.pe', 'lchumbilla@cajaarequipa.pe','jcespedese@cajaarequipa.pe',
                                         'phuarza@cajaarequipa.pe','eaguilarf@cajaarequipa.pe','jmezacr@cajaarequipa.pe');
-
+  my_array_mails_param string_array := string_array('ehidalgom@cajaarequipa.pe', 'kcabrerac@cajaarequipa.pe', 'lcarpio@cajaarequipa.pe', 
+                                        'acardenas@cajaarequipa.pe');
+  v_filas_insertadas1 NUMBER :=0;
+  v_filas_insertadas2 NUMBER :=0;
+  v_filas_eliminadas3 NUMBER :=0;
+  v_filas_insertadas4 NUMBER :=0;
+  C_FECHA  VARCHAR(100);
+  v_email_body VARCHAR(4000) :='';
 BEGIN
+  C_FECHA := to_char(sysdate,'RRRR-MM-DD');
   SELECT HOST_NAME INTO V_HOSTNAME FROM V$INSTANCE;
   update FST746--LuisC 20240313
     set UBFECH=trunc(sysdate)
@@ -277,7 +288,165 @@ BEGIN
     END LOOP;
   END IF;
 
+
+---Adiciona carga legal Parametrización
+  BEGIN
+---inserto nuevas sucursales
+    INSERT INTO FST198
+      SELECT 1,
+             10821,
+             1,
+             1,
+             (SELECT MAX(TP1CORR3)
+                FROM FST198 A
+               WHERE TP1COD = 1
+                 AND TP1COD1 = 10821
+                 AND TP1CORR1 = 1) + ROWNUM,
+             X.SUCURS,
+             0,
+             0,
+             X.TP1DESC,
+             0,
+             0,
+             0
+        FROM (SELECT SUCURS, TP1DESC
+                FROM FST198 A, FST001 B
+               WHERE TP1COD = 1
+                 AND TP1COD1 = 10821
+                 AND TP1CORR1 = 1
+                 AND TP1NRO1 = 1
+                 AND A.TP1COD = 1
+                 AND (B.SUCURS < 800 OR B.SUCURS = 904)
+              MINUS
+              SELECT TP1NRO1, TP1DESC
+                FROM FST198 A
+               WHERE TP1COD = 1
+                 AND TP1COD1 = 10821
+                 AND TP1CORR1 = 1) X;
+    v_filas_insertadas1 := SQL%ROWCOUNT;
+    commit;
+  END;
+
+  BEGIN
+    --inserto nuevos usuarios
+    INSERT INTO FST198
+    SELECT 1,
+           10821,
+           1,
+           1,
+           (SELECT MAX(TP1CORR3)
+              FROM FST198 A
+             WHERE TP1COD = 1
+               AND TP1COD1 = 10821
+               AND TP1CORR1 = 1) + ROWNUM,
+           X.SUCURS,
+           0,
+           0,
+           X.CAMPO,
+           0,
+           0,
+           0
+      FROM (SELECT B.SUCURS, RPAD(TRIM(A.UBUSER), 10, ' ') || '/L' CAMPO
+              FROM PRFU00 A, FST001 B
+             WHERE A.PGCOD = 1
+               AND PRFGCOD = 'ALEG00'
+               AND A.PGCOD = B.PGCOD
+               AND (SUCURS < 800 OR SUCURS = 904)
+            MINUS
+            SELECT TP1NRO1, TRIM(TP1DESC)
+              FROM FST198
+             WHERE TP1COD = 1
+               AND TP1COD1 = 10821
+               AND TP1CORR1 = 1) X;
+    v_filas_insertadas2 := SQL%ROWCOUNT;
+    commit;
+  END;
+
+  BEGIN
+    --depuro usuarios
+    DELETE FROM FST198 A
+     WHERE TP1COD = 1
+       AND TP1COD1 = 10821
+       AND TP1CORR1 = 1
+       AND TP1CORR2 = 1
+       AND (TP1NRO1, TRIM(TP1DESC)) IN
+           (SELECT TP1NRO1, TRIM(TP1DESC) CAMPO
+              FROM FST198
+             WHERE TP1COD = 1
+               AND TP1COD1 = 10821
+               AND TP1CORR1 = 1
+            MINUS
+            SELECT B.SUCURS, RPAD(TRIM(A.UBUSER), 10, ' ') || '/L'
+              FROM PRFU00 A, FST001 B
+             WHERE A.PGCOD = 1
+               AND PRFGCOD = 'ALEG00'
+               AND A.PGCOD = B.PGCOD
+               AND (SUCURS < 800 OR SUCURS = 904));
+    v_filas_eliminadas3 := SQL%ROWCOUNT;
+    commit;
+  END;
+
+  DECLARE
+    CA1      NUMBER(17, 0);
+    VA1      NUMBER(17, 0);
+    CANTIDAD NUMBER(17, 0);
+
+    CURSOR BASE IS
+      SELECT *
+        FROM FST198
+       WHERE TP1COD = 1
+         AND TP1COD1 = 10821
+         AND TP1CORR1 = 1
+       ORDER BY TP1CORR3;
+  BEGIN
+    CANTIDAD := 1;
+    VA1      := 0;
+    FOR I IN BASE LOOP
+      CA1 := I.TP1CORR3;
+      IF CA1 <> CANTIDAD THEN
+        UPDATE FST198
+           SET TP1CORR3 = CANTIDAD
+         WHERE TP1COD = 1
+           AND TP1COD1 = 10821
+           AND TP1CORR1 = 1
+           AND TP1CORR2 = 1
+           AND TP1CORR3 = CA1;
+        COMMIT;
+        VA1 := VA1 + 1;
+      END IF;
+      CANTIDAD := CANTIDAD + 1;
+    END LOOP;
+    v_filas_insertadas4 := VA1;
+  END;
+
+  IF V_FILAS_INSERTADAS1 > 0 or V_FILAS_INSERTADAS2 > 0 or V_FILAS_ELIMINADAS3 > 0 or V_FILAS_INSERTADAS4 > 0 THEN
+     IF v_filas_insertadas1>0 then
+        v_email_body:= v_email_body || 'Se inserto '||v_filas_insertadas1||' registros en agencias.' ||CHR(13);
+     END IF;
+     IF v_filas_insertadas2>0 then
+        v_email_body:= v_email_body || 'Se inserto '||v_filas_insertadas2||' registros por usuarios.' ||CHR(13);
+     END IF;
+     IF v_filas_eliminadas3>0 then
+        v_email_body:= v_email_body || 'Se elimino '||v_filas_eliminadas3||' registros de usuarios.' ||CHR(13);
+     END IF;
+     IF v_filas_insertadas4>0 then
+        v_email_body:= v_email_body || 'Se reenumero '||v_filas_insertadas4||' alertas.' ||CHR(13);
+     END IF;
+
+     FOR i in 1..my_array_mails_param.COUNT LOOP
+        sys.SP_SY_ENVIAMAIL('adicionaparametrizacion@cajaarequipa.pe',
+                              my_array_mails_param(i),--'ehidalgom@cajaarequipa.pe',
+                              'Parametriza1: Adiciona carga legal - ' ||
+                              sys_context('USERENV', 'DB_NAME')||' - '||C_FECHA,
+                              'BD=' || sys_context('USERENV', 'DB_NAME') || CHR(13) ||
+                              'HOSTNAME=' || V_HOSTNAME || CHR(13) ||CHR(13) ||
+                              /*'Se inserto '||v_filas_insertadas1||' registros en agencias.' ||CHR(13) ||
+                              'Se inserto '||v_filas_insertadas2||' registros por usuarios.' ||CHR(13) ||
+                              'Se elimino '||v_filas_eliminadas3||' registros de usuarios.' ||CHR(13) ||
+                              'Se reenumero '||v_filas_insertadas4||' alertas.' ||CHR(13)*/v_email_body);
+     END LOOP;
+  END IF;
+
 END SP_CR_INS_BOVEDA_BT;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-
