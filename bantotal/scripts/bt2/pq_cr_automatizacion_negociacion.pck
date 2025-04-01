@@ -30,7 +30,12 @@ create or replace package PQ_CR_AUTOMATIZACION_NEGOCIACION is
     -- Fecha de Modificación      : 2025.03.14 
     -- Autor de la Modificación   : ENINAH
     -- Descripción de Modificación: Se modificó bloqueante cuando existe un cambio de segmento
-  
+    -- Fecha de Modificación      : 2025.03.19
+    -- Autor de la Modificación   : ENINAH
+    -- Descripción de Modificación: Optimización de envio de correos
+    -- Fecha de Modificación      : 2025.03.28
+    -- Autor de la Modificación   : ENINAH
+    -- Descripción de Modificación: Se agregó mas exception nulls para que no se muestre el error de status 500 cuando se envían correos
   *************************************************************************************************************/
   procedure sp_validar_calificacion_normal(instancia       in number,
                                            ln_cuenta       out number,
@@ -289,7 +294,6 @@ create or replace package PQ_CR_AUTOMATIZACION_NEGOCIACION is
                                          p_resultado OUT varchar2);
 end PQ_CR_AUTOMATIZACION_NEGOCIACION;
 /
-
 create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
   -- *****************************************************************
   -- Nombre                     : PQ_CR_AUTOMATIZACION_NEGOCIACION 
@@ -318,6 +322,12 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
   -- Fecha de Modificación      : 2025.03.14 
   -- Autor de la Modificación   : ENINAH
   -- Descripción de Modificación: Se modificó bloqueante cuando existe un cambio de segmento
+  -- Fecha de Modificación      : 2025.03.19
+  -- Autor de la Modificación   : ENINAH
+  -- Descripción de Modificación: Optimización de envio de correos
+  -- Fecha de Modificación      : 2025.03.28
+  -- Autor de la Modificación   : ENINAH
+  -- Descripción de Modificación: Se agregó mas exception nulls para que no se muestre el error de status 500 cuando se envían correos
   -- *****************************************************************
   -----------------------------------------------------------------------
   procedure sp_validar_calificacion_normal(instancia       in number,
@@ -1923,81 +1933,46 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
                                        p_ArchivosAdjuntos  => lv_archivos,
                                        p_c_coderr          => cod_error, --000
                                        p_c_deserr          => cod_des); --riesgo
+      dbms_lob.freetemporary(ll_mensaje);
     exception
       when others then
         cod_error := '1446-';
         cod_des   := SUBSTR(sqlerrm, 1, 500);
     END;
-    --eninah 17/02/2025
-    dbms_lob.freetemporary(ll_mensaje);
   
-    -- cambios en el if eninah 03/08/2023
-    if cod_error != '' or cod_error != '000' then
-      vs_respuesta := 'Si hubo errores - ' || cod_error || cod_des;
-      contador     := 1;
-      segundos     := 5;
-      LOOP
-        -- Tu código aquí
-        BEGIN
-          INSERT INTO AQPC852
-            (AQPC852COR,
-             AQPC852REM,
-             AQPC852DES,
-             AQPC852CC,
-             AQPC852CCO,
-             AQPC852ASU,
-             AQPC852MEN,
-             AQPC852FEC,
-             AQPC852USR,
-             AQPC852ERROR)
-          VALUES
-            (lv_COR,
-             lv_remitente,
-             lv_DESTINATARIO,
-             lv_CC,
-             DestinatariosBcc,
-             lv_ASUNTO,
-             ll_mensaje,
-             sysdate,
-             ve_usuario,
-             vs_respuesta);
-          COMMIT;
-        EXCEPTION
-          WHEN OTHERS THEN
-            NULL;
-        END;
-        DBMS_LOCK.SLEEP(segundos); -- continua el proceso en el intervalo de segundos.
-        --Hace de nuevo el llamado al programa que envía correos.
-        begin
-          pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DESTINATARIO, --'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', --
-                                           p_DestinatariosCC   => lv_CC, --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
-                                           p_DestinatariosBcc  => LTRIM(DestinatariosBcc,
-                                                                        ';'), --- 'aangles@cajaarequipa.pe', --
-                                           p_Mensaje           => ll_mensaje,
-                                           p_Remitente         => lv_remitente,
-                                           p_Asunto            => 'Gestión para negociación de Tasa - ' ||
-                                                                  lv_ASUNTO ||
-                                                                  ve_instancia,
-                                           p_TipoMensaje       => 'HTML',
-                                           p_Directorio        => lv_nomrep,
-                                           p_ArchivosAdjuntos  => lv_archivos,
-                                           p_c_coderr          => cod_error, --000
-                                           p_c_deserr          => cod_des); --riesgo
-        exception
-          when others then
-            cod_error := '1502-';
-            cod_des   := SUBSTR(sqlerrm, 1, 500);
-        end;
-        -------eninah 17/02/2025----------
+    -- Se agregó modificacion cuando falla el envio de correo eninah 18/03/2025  
+    if cod_error <> '000' then
+      begin
+        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --“DESCRIPCCION DE TU PROCESO” colocar el codigo de tu proceso númerico
+                                                  P_C_ASUNTO => 'Gestión para negociación de Tasa - ' ||
+                                                                lv_ASUNTO ||
+                                                                ve_instancia, --ASUNTO
+                                                  p_c_despar => lv_DESTINATARIO, --PARA
+                                                  p_c_descoc => lv_CC, --CC
+                                                  p_c_descco => LTRIM(DestinatariosBcc,
+                                                                      ';'), --CCO
+                                                  p_c_mensaj => ll_mensaje, --MENSAJE EN HTML CLOB
+                                                  p_c_remite => lv_remitente, --REMITENTE
+                                                  p_c_direct => lv_nomrep, --DIRECTORIO
+                                                  p_c_adjunt => lv_archivos, --LISTADO DE ADJUNTOS
+                                                  p_n_aux001 => 0,
+                                                  p_n_aux002 => 0,
+                                                  p_n_aux003 => 0,
+                                                  p_n_aux004 => 0,
+                                                  p_d_aux005 => ld_pgfape,
+                                                  p_d_aux006 => TO_DATE('01/01/0001',
+                                                                        'DD/MM/YYYY'),
+                                                  p_c_aux007 => 'Intento fallido de emvio de correo',
+                                                  p_c_aux008 => '',
+                                                  p_c_aux009 => '',
+                                                  p_c_coderr => cod_error,
+                                                  p_c_msgerr => cod_des);
         dbms_lob.freetemporary(ll_mensaje);
-        -----------------------------------
-        IF contador > 4 or cod_error = '000' THEN
-          EXIT; -- Salir del bucle cuando se cumpla la condición
-        END IF;
-        contador := contador + 1;
-      END LOOP;
-    
-    Else
+      exception
+        when others then
+          null;
+      end;
+    else
       vs_respuesta := 'No hubo errores';
       BEGIN
         INSERT INTO AQPC852
@@ -2027,8 +2002,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         WHEN OTHERS THEN
           NULL;
       END;
-    End if;
-  
+    end if;
   end sp_enviar_correo;
 
   procedure sp_enviar_correo_gerente(ve_usuario   in varchar2, -- RECHAZO
@@ -2757,79 +2731,45 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
                                        p_ArchivosAdjuntos  => '',
                                        p_c_coderr          => cod_error, --000
                                        p_c_deserr          => cod_des); --riesgo
+      dbms_lob.freetemporary(ll_mensaje);
     exception
       when others then
         cod_error := '2285-';
         cod_des   := SUBSTR(sqlerrm, 1, 500);
     END;
-    -------eninah 17/02/2025----------
-    dbms_lob.freetemporary(ll_mensaje);
-    -----------------------------------
-  
-    -- cambios en el if eninah 03/08/2023
-    if cod_error != '' or cod_error != '000' then
-      vs_respuesta := 'Si hubo errores - ' || cod_error || cod_des;
-      contador     := 1;
-      segundos     := 5;
-      LOOP
-        BEGIN
-          INSERT INTO AQPC852
-            (AQPC852COR,
-             AQPC852REM,
-             AQPC852DES,
-             AQPC852CC,
-             AQPC852CCO,
-             AQPC852ASU,
-             AQPC852MEN,
-             AQPC852FEC,
-             AQPC852USR,
-             AQPC852ERROR)
-          VALUES
-            (lv_COR,
-             lv_remitente,
-             lv_DES,
-             lv_DESTINATARIO,
-             DestinatariosBcc,
-             lv_ASUNTO,
-             ll_mensaje,
-             sysdate,
-             ve_usuario,
-             vs_respuesta);
-          COMMIT;
-        EXCEPTION
-          WHEN OTHERS THEN
-            NULL;
-        END;
-        DBMS_LOCK.SLEEP(segundos); -- continua el proceso en el intervalo de segundos.
-        --Hace de nuevo el llamado al programa que envía correos.
-        begin
-          pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, -- 'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', -- 
-                                           p_DestinatariosCC   => lv_DESTINATARIO, -- 'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', -- 
-                                           p_DestinatariosBcc  => LTRIM(DestinatariosBcc,
-                                                                        ';'), -- 'aangles@cajaarequipa.pe', -- 
-                                           p_Mensaje           => ll_mensaje,
-                                           p_Remitente         => lv_remitente,
-                                           p_Asunto            => lv_ASUNTO ||
-                                                                  ve_instancia,
-                                           p_TipoMensaje       => 'HTML',
-                                           p_Directorio        => lv_nomrep,
-                                           p_ArchivosAdjuntos  => '',
-                                           p_c_coderr          => cod_error, --000
-                                           p_c_deserr          => cod_des); --riesgo
-        exception
-          when others then
-            cod_error := '2340-';
-            cod_des   := SUBSTR(sqlerrm, 1, 500);
-        END;
-        -------eninah 17/02/2025----------
+    -- Se agregó modificacion cuando falla el envio de correo eninah 18/03/2025  
+    if cod_error <> '000' then
+      begin
+        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --“DESCRIPCCION DE TU PROCESO” colocar el codigo de tu proceso númerico
+                                                  P_C_ASUNTO => lv_ASUNTO ||
+                                                                ve_instancia, --ASUNTO
+                                                  p_c_despar => lv_DES, --PARA
+                                                  p_c_descoc => lv_DESTINATARIO, --CC
+                                                  p_c_descco => LTRIM(DestinatariosBcc,
+                                                                      ';'), --CCO
+                                                  p_c_mensaj => ll_mensaje, --MENSAJE EN HTML CLOB
+                                                  p_c_remite => lv_remitente, --REMITENTE
+                                                  p_c_direct => lv_nomrep, --DIRECTORIO
+                                                  p_c_adjunt => lv_archivos, --LISTADO DE ADJUNTOS
+                                                  p_n_aux001 => 0,
+                                                  p_n_aux002 => 0,
+                                                  p_n_aux003 => 0,
+                                                  p_n_aux004 => 0,
+                                                  p_d_aux005 => TO_DATE('01/01/0001',
+                                                                        'DD/MM/YYYY'),
+                                                  p_d_aux006 => TO_DATE('01/01/0001',
+                                                                        'DD/MM/YYYY'),
+                                                  p_c_aux007 => '',
+                                                  p_c_aux008 => 'Intento fallido de envio de correo',
+                                                  p_c_aux009 => '',
+                                                  p_c_coderr => cod_error,
+                                                  p_c_msgerr => cod_des);
         dbms_lob.freetemporary(ll_mensaje);
-        -----------------------------------
-        IF contador > 4 or cod_error = '000' THEN
-          EXIT; -- Salir del bucle cuando se cumpla la condición
-        END IF;
-        contador := contador + 1;
-      END LOOP;
-    Else
+      exception
+        when others then
+          null;
+      end;
+    else
       vs_respuesta := 'No hubo errores';
       BEGIN
         INSERT INTO AQPC852
@@ -2859,12 +2799,10 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         WHEN OTHERS THEN
           NULL;
       END;
-    End if;
+    end if;
   
   end sp_enviar_correo_gerente;
-  ---------------------------------------------------------------
-
-  ---------------------------------------------------------------
+  ---------------------------------------------------------------------------------------------------------
 
   procedure sp_enviar_correo_aprobacion_gerente(ve_usuario   in varchar2, --APROBACION
                                                 ve_cuenta    in number,
@@ -3659,79 +3597,46 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
                                        p_ArchivosAdjuntos  => '',
                                        p_c_coderr          => cod_error, --000
                                        p_c_deserr          => cod_des); --riesgo
+      dbms_lob.freetemporary(ll_mensaje);
     exception
       when others then
         cod_error := '3123-';
         cod_des   := SUBSTR(sqlerrm, 1, 500);
     END;
-    -------eninah 17/02/2025----------
-    dbms_lob.freetemporary(ll_mensaje);
-    -----------------------------------
   
-    -- cambios en el if eninah 03/08/2023
-    if cod_error != '' or cod_error != '000' then
-      vs_respuesta := 'Si hubo errores - ' || cod_error || cod_des;
-      contador     := 1;
-      segundos     := 5;
-      LOOP
-        BEGIN
-          INSERT INTO AQPC852
-            (AQPC852COR,
-             AQPC852REM,
-             AQPC852DES,
-             AQPC852CC,
-             AQPC852CCO,
-             AQPC852ASU,
-             AQPC852MEN,
-             AQPC852FEC,
-             AQPC852USR,
-             AQPC852ERROR)
-          VALUES
-            (lv_COR,
-             lv_remitente,
-             lv_DES,
-             lv_DESTINATARIO,
-             DestinatariosBcc,
-             lv_ASUNTO,
-             ll_mensaje,
-             sysdate,
-             ve_usuario,
-             vs_respuesta);
-          COMMIT;
-        EXCEPTION
-          WHEN OTHERS THEN
-            NULL;
-        END;
-        DBMS_LOCK.SLEEP(segundos); -- continua el proceso en el intervalo de segundos.
-        --Hace de nuevo el llamado al programa que envía correos.
-        begin
-          pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, --'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', --
-                                           p_DestinatariosCC   => lv_DESTINATARIO, --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
-                                           p_DestinatariosBcc  => LTRIM(DestinatariosBcc,
-                                                                        ';'), --'aangles@cajaarequipa.pe', --
-                                           p_Mensaje           => ll_mensaje,
-                                           p_Remitente         => lv_remitente,
-                                           p_Asunto            => lv_ASUNTO ||
-                                                                  ve_instancia,
-                                           p_TipoMensaje       => 'HTML',
-                                           p_Directorio        => lv_nomrep,
-                                           p_ArchivosAdjuntos  => '',
-                                           p_c_coderr          => cod_error, --000
-                                           p_c_deserr          => cod_des); --riesgo
-        exception
-          when others then
-            cod_error := '3178-';
-            cod_des   := SUBSTR(sqlerrm, 1, 500);
-        END;
-        -------eninah 17/02/2025----------
+    -- Se agregó modificacion cuando falla el envio de correo eninah 18/03/2025  
+    if cod_error <> '000' then
+      begin
+        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --“DESCRIPCCION DE TU PROCESO” colocar el codigo de tu proceso númerico
+                                                  P_C_ASUNTO => lv_ASUNTO ||
+                                                                ve_instancia, --ASUNTO
+                                                  p_c_despar => lv_DES, --PARA
+                                                  p_c_descoc => lv_DESTINATARIO, --CC
+                                                  p_c_descco => LTRIM(DestinatariosBcc,
+                                                                      ';'), --CCO
+                                                  p_c_mensaj => ll_mensaje, --MENSAJE EN HTML CLOB
+                                                  p_c_remite => lv_remitente, --REMITENTE
+                                                  p_c_direct => lv_nomrep, --DIRECTORIO
+                                                  p_c_adjunt => lv_archivos, --LISTADO DE ADJUNTOS
+                                                  p_n_aux001 => 0,
+                                                  p_n_aux002 => 0,
+                                                  p_n_aux003 => 0,
+                                                  p_n_aux004 => 0,
+                                                  p_d_aux005 => TO_DATE('01/01/0001',
+                                                                        'DD/MM/YYYY'),
+                                                  p_d_aux006 => TO_DATE('01/01/0001',
+                                                                        'DD/MM/YYYY'),
+                                                  p_c_aux007 => '',
+                                                  p_c_aux008 => 'Intento fallido de envio de correo',
+                                                  p_c_aux009 => '',
+                                                  p_c_coderr => cod_error,
+                                                  p_c_msgerr => cod_des);
         dbms_lob.freetemporary(ll_mensaje);
-        -----------------------------------
-        IF contador > 4 or cod_error = '000' THEN
-          EXIT; -- Salir del bucle cuando se cumpla la condición
-        END IF;
-        contador := contador + 1;
-      END LOOP;
-    Else
+      exception
+        when others then
+          null;
+      end;
+    else
       vs_respuesta := 'No hubo errores';
       BEGIN
         INSERT INTO AQPC852
@@ -3761,7 +3666,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         WHEN OTHERS THEN
           NULL;
       END;
-    End if;
+    end if;
   
   end sp_enviar_correo_aprobacion_gerente;
 
@@ -5190,78 +5095,44 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
                                        p_ArchivosAdjuntos  => lv_archivos,
                                        p_c_coderr          => cod_error, --000
                                        p_c_deserr          => cod_des); --riesgo
+      dbms_lob.freetemporary(ll_mensaje);
     exception
       when others then
         cod_error := '3717-';
         cod_des   := SUBSTR(sqlerrm, 1, 500);
     END;
-    -------eninah 17/02/2025----------
-    dbms_lob.freetemporary(ll_mensaje);
-    -----------------------------------
   
-    -- cambios en el if eninah 03/08/2023
-    if cod_error != '' or cod_error != '000' then
-      vs_respuesta := 'Si hubo errores - ' || cod_error || cod_des;
-      contador     := 1;
-      segundos     := 5;
-    
-      LOOP
-        BEGIN
-          INSERT INTO AQPC852
-            (AQPC852COR,
-             AQPC852REM,
-             AQPC852DES,
-             AQPC852CC,
-             AQPC852CCO,
-             AQPC852ASU,
-             AQPC852MEN,
-             AQPC852FEC,
-             AQPC852USR,
-             AQPC852ERROR)
-          VALUES
-            (lv_COR,
-             lv_remitente,
-             conc_correos_gerente_creditos,
-             '',
-             '',
-             lv_ASUNTO,
-             ll_mensaje,
-             sysdate,
-             ve_usuario,
-             vs_respuesta);
-          COMMIT;
-        EXCEPTION
-          WHEN OTHERS THEN
-            NULL;
-        END;
-        DBMS_LOCK.SLEEP(segundos); -- continua el proceso en el intervalo de segundos.
-        --Hace de nuevo el llamado al programa que envía correos.
-        begin
-          pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => conc_correos_gerente_creditos, --'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', --
-                                           p_DestinatariosCC   => '', --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
-                                           p_DestinatariosBcc  => '', --'aangles@cajaarequipa.pe', --
-                                           p_Mensaje           => ll_mensaje,
-                                           p_Remitente         => lv_remitente,
-                                           p_Asunto            => lv_ASUNTO,
-                                           p_TipoMensaje       => 'HTML',
-                                           p_Directorio        => lv_nomrep,
-                                           p_ArchivosAdjuntos  => lv_archivos,
-                                           p_c_coderr          => cod_error, --000
-                                           p_c_deserr          => cod_des); --riesgo
-        exception
-          when others then
-            cod_error := '3772-';
-            cod_des   := SUBSTR(sqlerrm, 1, 500);
-        END;
-        -------eninah 17/02/2025----------
+    -- Se agregó modificacion cuando falla el envio de correo eninah 18/03/2025  
+    if cod_error <> '000' then
+      begin
+        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --“DESCRIPCCION DE TU PROCESO” colocar el codigo de tu proceso númerico
+                                                  P_C_ASUNTO => lv_ASUNTO, --ASUNTO
+                                                  p_c_despar => conc_correos_gerente_creditos, --PARA
+                                                  p_c_descoc => '', --CC
+                                                  p_c_descco => '', --CCO
+                                                  p_c_mensaj => ll_mensaje, --MENSAJE EN HTML CLOB
+                                                  p_c_remite => lv_remitente, --REMITENTE
+                                                  p_c_direct => lv_nomrep, --DIRECTORIO
+                                                  p_c_adjunt => lv_archivos, --LISTADO DE ADJUNTOS
+                                                  p_n_aux001 => 0,
+                                                  p_n_aux002 => 0,
+                                                  p_n_aux003 => 0,
+                                                  p_n_aux004 => 0,
+                                                  p_d_aux005 => TO_DATE('01/01/0001',
+                                                                        'DD/MM/YYYY'),
+                                                  p_d_aux006 => TO_DATE('01/01/0001',
+                                                                        'DD/MM/YYYY'),
+                                                  p_c_aux007 => '',
+                                                  p_c_aux008 => 'Intento fallido de envio de correo',
+                                                  p_c_aux009 => '',
+                                                  p_c_coderr => cod_error,
+                                                  p_c_msgerr => cod_des);
         dbms_lob.freetemporary(ll_mensaje);
-        -----------------------------------
-        IF contador > 4 or cod_error = '000' THEN
-          EXIT; -- Salir del bucle cuando se cumpla la condición
-        END IF;
-        contador := contador + 1;
-      END LOOP;
-    Else
+      exception
+        when others then
+          null;
+      end;
+    else
       vs_respuesta := 'No hubo errores';
       BEGIN
         INSERT INTO AQPC852
@@ -5278,7 +5149,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         VALUES
           (lv_COR,
            lv_remitente,
-           vi_correoa,
+           conc_correos_gerente_creditos,
            '',
            '',
            lv_ASUNTO,
@@ -5291,7 +5162,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         WHEN OTHERS THEN
           NULL;
       END;
-    End if;
+    end if;
   
   end sp_enviar_correo_aprobacion_gerente_creditos;
 
@@ -8304,8 +8175,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
                                          p_resultado OUT varchar2) is
   BEGIN
     -- Convertimos la cadena a mayúsculas para evitar problemas de mayúsculas/minúsculas
-    IF INSTR(UPPER(p_cadena), 'NUEVO') > 0 OR
-       UPPER(p_cadena) = 'BRONCE' THEN
+    IF INSTR(UPPER(p_cadena), 'NUEVO') > 0 OR UPPER(p_cadena) = 'BRONCE' THEN
       p_resultado := 'S';
     ELSE
       p_resultado := 'N';
@@ -8314,4 +8184,3 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
 
 end PQ_CR_AUTOMATIZACION_NEGOCIACION;
 /
-

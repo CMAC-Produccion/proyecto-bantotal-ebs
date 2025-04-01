@@ -14,7 +14,6 @@ create or replace package "PQ_SERVICIO_RECAUDACION" is
 end PQ_SERVICIO_RECAUDACION;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-
 create or replace package body PQ_SERVICIO_RECAUDACION is
   -- *****************************************************************
   -- Nombre                     : PQ_SERVICIO_RECAUDACION
@@ -76,6 +75,9 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
   -- Fecha de Modificación      : 27/11/2024
   -- Autor de la Modificación   : FPINTO
   -- Descripción de Modificación: Se añade Colegio Buen Pastor
+  -- Fecha de Modificación      : 14/03/2025
+  -- Autor de la Modificación   : FPINTO
+  -- Descripción de Modificación: Se añade variable nueva para empresas online estandar 
   -- *****************************************************************
 
   procedure sp_enviar_correo(p_c_CodEnt number,
@@ -388,7 +390,8 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
     PIPELINED is
     rec pagos_filas;
 	CorEst  number;  --Correlativo Estandar	
-  Conexion varchar(5);								   
+  Conexion varchar(5);
+  flgEstandar number; --fpinto 14/03/2025 se añade variable nueva para empresas online estandar 								   
   BEGIN
    
     select nvl(max(Tp1Imp1), 0) into CorEst from fst198 where Tp1cod = 1
@@ -398,7 +401,20 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
     and Tp1corr3 = 0;
     
     select jaql509conex into Conexion from jaql509 where jaql508coent = p_c_CodEnt and rownum= 1;
+    --fpinto 14/03/2025 se añade obtencion de variables cuando empresa online standar con  trace propio
+    begin
+      select tp1imp1 into flgEstandar from fst198 where Tp1cod = 1
+      and Tp1cod1 = 11143
+      and Tp1corr1 = 16                          
+      and Tp1corr2 = 1 
+      and TP1NRO1 = p_c_CodEnt;
+    exception
+      WHEN NO_DATA_FOUND THEN
+        flgEstandar :=0;
+    end;
+    
     If p_c_CodEnt = 56 then
+      
       --SafetyPay
       for e in (select '     ' || case
                          when a.jaql515cotca = 1 then
@@ -672,9 +688,11 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
       end loop;
     end if;
     /*Empresas Estandar Online*/
-     If CorEst > 0 or p_c_CodEnt in (414, 413, 466, 470, 686, 690,691,700) then --ESTANDAR --fpinto 21/04/2022 se aumenta empresas LCC a formato estandar
+     If CorEst > 0 or flgEstandar=1 then
+       --14/03/2025 se comenta listado de empresas y se cambia a una variable
+       --p_c_CodEnt in (414, 413, 466, 470, 686, 690,691,700, 706) then --ESTANDAR --fpinto 21/04/2022 se aumenta empresas LCC a formato estandar
                                                          --fpinto 22/09/2023 se aumenta COMBOPLAY  19/03/2024 UPEU fpinto 24/06/2024 se aumenta CBPPUNO y SJBDELASALLE 
-                                                         --fpinto 27/11/2024 se agrega colegio Buen Pastor
+                                                         --fpinto 27/11/2024 colegio Buen Pastor 
         for e in (
           select 'T' ||','|| p_c_CodEnt ||','|| to_char(p_c_FecEnv, 'YYYY/MM/DD')||','|| count(1) ||','|| trim(to_char(sum(b.jaql516mocob), '9999999.99'))||',' fila
             from jaql515 a
@@ -1154,4 +1172,3 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
 
 end PQ_SERVICIO_RECAUDACION;
 /
-
