@@ -26,6 +26,9 @@ create or replace package "PQ_AH_ENVIODIGITAL" is
     -- Fecha de Modificación      : 16/12/2024
     -- Autor de la Modificación   : Yrving Lozada
     -- Descripción de Modificación: Se adicionó envio mail migracion saldos AHORROS ex CREDINKA    
+    -- Fecha de Modificación      : 02/04/2025
+    -- Autor de la Modificación   : Yrving Lozada
+    -- Descripción de Modificación: Se comentó procedimiento CREDINKA
     -- *****************************************************************    
 
   -- Public function and procedure declarations
@@ -250,13 +253,14 @@ Procedure sp_ah_notifica_ape_jpla(P_N_PGCOD  IN NUMBER,
                                 p_c_coderr out VARCHAR2,
                                 p_c_deserr out VARCHAR2         
                                 );  
+/*                                
   Procedure sp_ah_envio_migah_cdk(p_c_coderr out VARCHAR2,
                                   p_c_deserr out VARCHAR2         
-                                 );                                                               
+                                 );                                                              
+*/                                 
 end PQ_AH_ENVIODIGITAL;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-
 create or replace package body "PQ_AH_ENVIODIGITAL" is
 
   Procedure sp_ah_envio_ape(P_D_FECPRO IN DATE,
@@ -3982,7 +3986,8 @@ Procedure sp_ah_notifica_jpla(P_D_FECPRO IN DATE,
   when others then   
     p_c_coderr := sqlcode;
     p_c_deserr := sqlerrm;                                                                     
-  end sp_ah_envio_sal_cdk;                                                                                                                                                                    
+  end sp_ah_envio_sal_cdk;      
+  /*                                                                                                                                                              
   Procedure sp_ah_envio_migah_cdk(p_c_coderr out VARCHAR2,
                                   p_c_deserr out VARCHAR2         
                                  ) is
@@ -4203,7 +4208,7 @@ Procedure sp_ah_notifica_jpla(P_D_FECPRO IN DATE,
     p_c_coderr := sqlcode;
     p_c_deserr := sqlerrm;                                                                     
   end sp_ah_envio_migah_cdk;  
+  */
 end PQ_AH_ENVIODIGITAL;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-

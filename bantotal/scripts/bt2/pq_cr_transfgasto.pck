@@ -47,7 +47,6 @@ create or replace package PQ_CR_TRANSFGASTO is
 
 end PQ_CR_TRANSFGASTO;
 /
-
 create or replace package body PQ_CR_TRANSFGASTO is
   -- Author  : SMARQUEZ
   -- Created : 23/09/2020 3:40:10 p. m.
@@ -55,6 +54,8 @@ create or replace package body PQ_CR_TRANSFGASTO is
   -- Modificacion: Integracion de Datos para el Reporte de control
   -- Fecha Modificacion: 16/11/2020 11:58 a.m.
   -- Modificación: SMARQUEZ 16/09/2024 Optimización proceso de estado 64 Judiciales
+  -- Modificación: SMARQUEZ 25/03/2025 Eliminacion de el paso a gasto 
+  -- de los solidarios negativoas negativos
   
   procedure SP_CargaDatos is
     cursor DATOS is     ---Prejudicial Menor
@@ -88,7 +89,16 @@ create or replace package body PQ_CR_TRANSFGASTO is
 
           
    cursor DATOS1 is ---Judiciales
-       select b.*,253 sgcod,a.scrub, a.scsdo,a.scfulm
+       select b.*,(select sgcod from fpp001 
+                    where aocta = a.sccta 
+                      and aooper = a.scoper 
+                      and sgcod in (select sgcod from fst300 where SGSN02 =5) 
+                      and aosbop = (select max(aosbop) from fpp001 
+                                     where aocta = a.sccta 
+                                       and aooper = a.scoper 
+                                       AND aosbop <> 609 )
+                      and rownum = 1) sgcod,
+         a.scrub, a.scsdo,a.scfulm
          from fsd010 b,  fsd011 a 
          where b.aomod in (select modulo from fst111 where dscod =50 ) 
           and b.aostat in(select tp1nro1
@@ -99,6 +109,7 @@ create or replace package body PQ_CR_TRANSFGASTO is
                              and tp1corr2 = 3)      
           and a.pgcod =  b.pgcod
           and a.scsuc = b.aosuc
+          and a.sccta <> 999999999
           and a.scrub = 2514020000005
           and a.scsdo <0
           and a.scmod = 260
@@ -240,10 +251,12 @@ create or replace package body PQ_CR_TRANSFGASTO is
           when dup_Val_on_index then
             null;
         end;
-      end if;
+      
+        end if;
+      
     end loop;
      For reg1 in datos1 loop
-      ln_diaatra := ld_pgfape - reg1.scfulm;
+    --  ln_diaatra := ld_pgfape - reg1.scfulm;
      /* lc_reprog := FN_Reprogramado(reg1.pgcod,
                                    reg1.aomod,
                                    reg1.aosuc,
@@ -253,7 +266,7 @@ create or replace package body PQ_CR_TRANSFGASTO is
                                    reg1.aooper,
                                    reg1.aosbop,
                                    reg1.aotope);*/
-      if  ln_diaatra > diaatraso then ---and lc_reprog ='N' then
+    --  if  ln_diaatra > diaatraso then ---and lc_reprog ='N' then
         --------------------- Adicion de Optimizacion -----------------  
           --  dbms_output.put_line(a.jaqz592cta||' '||a.jaqz592ope);
            Begin
@@ -339,7 +352,7 @@ create or replace package body PQ_CR_TRANSFGASTO is
           end;
       
         ---------------------------------------------------------------
-       /* begin
+        begin
           ln_monto1 := ABS(reg1.scsdo);
           --modulo||' '||suboper||' '||tope||' '||Existe||' '||seguro);
           insert into jaqz592(jaqz592pgc,
@@ -414,8 +427,8 @@ create or replace package body PQ_CR_TRANSFGASTO is
         exception
           when dup_Val_on_index then
             null;
-        end;*/
-      end if;
+        end;
+     -- end if;
     end loop;    
 
   end SP_CargaDatos;
@@ -699,4 +712,3 @@ create or replace package body PQ_CR_TRANSFGASTO is
   end SP_DATOS_TRANSGASTO;
 end PQ_CR_TRANSFGASTO;
 /
-
