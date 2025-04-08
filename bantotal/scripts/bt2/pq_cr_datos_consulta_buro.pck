@@ -35,6 +35,11 @@ CREATE OR REPLACE PACKAGE PQ_CR_DATOS_CONSULTA_BURO IS
   --                               - SP_CR_OBTENER_TPDOC_RCC
   --                               - SP_CR_OBTENER_ANTIG_RCC
   -- ====================================================================================================
+  -- FECHA DE MODIFICACION       : 28/03/2025
+  -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
+  -- DESCRIPCION DE MODIFICACION : SE MODIFICO EL PROCEDIMIENTO:
+  --                               - SP_CR_OBTENER_TPDOC_RCC
+  -- ====================================================================================================
 
    
   PROCEDURE SP_CR_BUSQUEDA_CONSULTA_BURO(PN_CORREL IN NUMBER,
@@ -214,7 +219,6 @@ CREATE OR REPLACE PACKAGE PQ_CR_DATOS_CONSULTA_BURO IS
   
 END PQ_CR_DATOS_CONSULTA_BURO;
 /
-
 CREATE OR REPLACE PACKAGE BODY PQ_CR_DATOS_CONSULTA_BURO IS
 
    PROCEDURE SP_CR_BUSQUEDA_CONSULTA_BURO(PN_CORREL IN NUMBER,
@@ -1849,13 +1853,14 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_DATOS_CONSULTA_BURO IS
   -- ESTADO                      : ACTIVO
   -- ACCESO                      : PUBLICO
   -- ====================================================================================================
-  -- FECHA DE MODIFICACION       : 
-  -- AUTOR DE LA MODIFICACION    : 
-  -- DESCRIPCION DE MODIFICACION : 
+  -- FECHA DE MODIFICACION       : 28/03/2025
+  -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
+  -- DESCRIPCION DE MODIFICACION : SE AGREGO EL RETORNO DEL VALOR DEL TIPO DOCUMENTO RCC
   -- ====================================================================================================
     
     V_TPDOC_RCC VARCHAR2(1) := NULL;
   BEGIN
+    -- OBTENER TIPO DOCUMENTO RCC --
     BEGIN
       SELECT TRIM(TO_CHAR(TP1NRO2))
         INTO V_TPDOC_RCC
@@ -1870,6 +1875,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_DATOS_CONSULTA_BURO IS
       WHEN OTHERS THEN
         NULL;
     END;
+    
+    P_TPDOC_RCC := V_TPDOC_RCC;
     
   END SP_CR_OBTENER_TPDOC_RCC;
   
@@ -1980,4 +1987,3 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_DATOS_CONSULTA_BURO IS
 
 END PQ_CR_DATOS_CONSULTA_BURO;
 /
-

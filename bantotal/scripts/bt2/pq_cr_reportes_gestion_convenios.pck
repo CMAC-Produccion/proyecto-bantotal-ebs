@@ -32,6 +32,11 @@ CREATE OR REPLACE PACKAGE PQ_CR_REPORTES_GESTION_CONVENIOS IS
    --                               - SP_CR_REPORTE_SEGUIMIENTO_DETALLE
    --                               - SP_CR_REPORTE_CANJE_PUBLICITARIO
    -- *****************************************************************
+   -- FECHA DE MODIFICACION       : 11/03/2025
+   -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN 
+   -- DESCRIPCION DE MODIFICACION : SE MODIFICARON EL SIGUIENTE PROCEDIMIENTO:
+   --                               - SP_CR_REPORTE_SEGUIMIENTO_DETALLE
+   -- *****************************************************************
 
    PROCEDURE SP_CR_REPORTE_SEGUIMIENTO(P_CODIGO_CONVENIO   IN NUMBER,
                                        P_CODIGO_REGION     IN NUMBER,
@@ -88,7 +93,6 @@ CREATE OR REPLACE PACKAGE PQ_CR_REPORTES_GESTION_CONVENIOS IS
 
 END PQ_CR_REPORTES_GESTION_CONVENIOS;
 /
-
 CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
    
    PROCEDURE SP_CR_REPORTE_SEGUIMIENTO(P_CODIGO_CONVENIO IN NUMBER,
@@ -129,6 +133,11 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
       -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
       -- DESCRIPCION DE MODIFICACION : - SE MODIFICO LA VALIDACION DE LOS CREDITOS
       --                                 VIGENTES POR CONVENIO.
+      -- *****************************************************************
+      -- FECHA DE MODIFICACION       : 01/04/2025
+      -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
+      -- DESCRIPCION DE MODIFICACION : - SE MODIFICO LA OBTENCION DEL MAXIMO CORRELATIVO
+      --                                 DE LA TABLA JAQA38 Y JAQA39           
       -- *****************************************************************
    
       FECHA_SISTEMA              DATE;
@@ -264,12 +273,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                             FROM JAQA38
                            WHERE JAQA38NCO = B.JAQA38NCO
                              AND JAQA38COD = B.JAQA38COD
-                             AND JAQA38FCH =
-                                 (SELECT MAX(JAQA38FCH)
-                                    FROM JAQA38
-                                   WHERE JAQA38NCO = B.JAQA38NCO
-                                     AND JAQA38COD = B.JAQA38COD
-                                     AND JAQA38FCH BETWEEN FECHA_INICIO AND FECHA_FIN));
+                             AND JAQA38FCH = B.JAQA38FCH);
                EXCEPTION
                   WHEN NO_DATA_FOUND THEN
                      BEGIN
@@ -317,12 +321,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                             FROM JAQA38
                            WHERE JAQA38NCO = B.JAQA38NCO
                              AND JAQA38COD = B.JAQA38COD
-                             AND JAQA38FCH =
-                                 (SELECT MAX(JAQA38FCH)
-                                    FROM JAQA38
-                                   WHERE JAQA38NCO = B.JAQA38NCO
-                                     AND JAQA38COD = B.JAQA38COD
-                                     AND JAQA38FCH BETWEEN FECHA_INICIO AND FECHA_FIN));
+                             AND JAQA38FCH = B.JAQA38FCH);
                EXCEPTION
                   WHEN NO_DATA_FOUND THEN
                      BEGIN
@@ -353,7 +352,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                          (SELECT MAX(JAQA39COR)
                             FROM JAQA39
                            WHERE JAQA39NCO = D.JAQA39NCO
-                             AND JAQA39FEC BETWEEN FECHA_INICIO AND FECHA_FIN);
+                             AND JAQA39FEC = D.JAQA39FEC);
                EXCEPTION
                   WHEN NO_DATA_FOUND THEN
                      BEGIN
@@ -383,7 +382,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                       (SELECT MAX(JAQA39COR)
                          FROM JAQA39
                         WHERE JAQA39NCO = D.JAQA39NCO
-                          AND JAQA39FEC BETWEEN FECHA_INICIO AND FECHA_FIN);
+                          AND JAQA39FEC = D.JAQA39FEC);
             EXCEPTION
                WHEN OTHERS THEN
                   NULL;
@@ -778,6 +777,12 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
       -- DESCRIPCION DE MODIFICACION : - SE MODIFICO LA CONSULTA QUE OBTIENE
       --                                 EL DIA DE PAGO.                             
       -- *****************************************************************
+      -- FECHA DE MODIFICACION       : 01/04/2025
+      -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
+      -- DESCRIPCION DE MODIFICACION : - SE MODIFICO LA CONSULTA QUE VALIDA SI TIENE "PAGO CASILLERO"
+      --                               - SE MODIFICO LA OBTENCION DEL MAXIMO CORRELATIVO
+      --                                 DE LA TABLA JAQA38 Y JAQA39             
+      -- *****************************************************************
                                             
       FECHA_SISTEMA               DATE;
       HORA_SISTEMA                VARCHAR2(8);
@@ -943,12 +948,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                             FROM JAQA38
                            WHERE JAQA38NCO = B.JAQA38NCO
                              AND JAQA38COD = B.JAQA38COD
-                             AND JAQA38FCH =
-                                 (SELECT MAX(JAQA38FCH)
-                                    FROM JAQA38
-                                   WHERE JAQA38NCO = B.JAQA38NCO
-                                     AND JAQA38COD = B.JAQA38COD
-                                     AND JAQA38FCH BETWEEN FECHA_INICIO AND FECHA_FIN));
+                             AND JAQA38FCH = B.JAQA38FCH);
                EXCEPTION
                   WHEN OTHERS THEN
                      BEGIN
@@ -977,12 +977,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                          FROM JAQA38
                         WHERE JAQA38NCO = A.JAQA38NCO
                           AND JAQA38COD = A.JAQA38COD
-                          AND JAQA38FCH =
-                              (SELECT MAX(JAQA38FCH)
-                                 FROM JAQA38
-                                WHERE JAQA38NCO = A.JAQA38NCO
-                                  AND JAQA38COD = A.JAQA38COD
-                                  AND JAQA38FCH BETWEEN FECHA_INICIO AND FECHA_FIN))
+                          AND JAQA38FCH = A.JAQA38FCH)
                    AND A.JAQA38COD = (SELECT TP1NRO1 
                                         FROM FST198 
                                        WHERE TP1COD   = 1 
@@ -1038,12 +1033,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                             FROM JAQA38
                            WHERE JAQA38NCO = A.JAQA38NCO
                              AND JAQA38COD = A.JAQA38COD
-                             AND JAQA38FCH =
-                                 (SELECT MAX(JAQA38FCH)
-                                    FROM JAQA38
-                                   WHERE JAQA38NCO = J.PP101NCART
-                                     AND JAQA38COD = A.JAQA38COD
-                                     AND JAQA38FCH BETWEEN FECHA_INICIO AND FECHA_FIN));
+                             AND JAQA38FCH = A.JAQA38FCH);
                EXCEPTION
                   WHEN OTHERS THEN
                      BEGIN
@@ -1078,12 +1068,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                          FROM JAQA38
                         WHERE JAQA38NCO = J.PP101NCART
                           AND JAQA38COD = A.JAQA38COD
-                          AND JAQA38FCH =
-                              (SELECT MAX(JAQA38FCH)
-                                 FROM JAQA38
-                                WHERE JAQA38NCO = J.PP101NCART
-                                  AND JAQA38COD = A.JAQA38COD
-                                  AND JAQA38FCH BETWEEN FECHA_INICIO AND FECHA_FIN));
+                          AND JAQA38FCH = A.JAQA38FCH);
             EXCEPTION
                WHEN OTHERS THEN
                   NULL;
@@ -1107,7 +1092,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                          (SELECT MAX(JAQA39COR)
                             FROM JAQA39
                            WHERE JAQA39NCO = J.PP101NCART
-                             AND JAQA39FEC BETWEEN FECHA_INICIO AND FECHA_FIN);
+                             AND JAQA39FEC = A.JAQA39FEC);
                EXCEPTION
                   WHEN OTHERS THEN
                      BEGIN
@@ -1136,12 +1121,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                          FROM JAQA38
                         WHERE JAQA38NCO = J.PP101NCART
                           AND JAQA38COD = A.JAQA38COD
-                          AND JAQA38FCH =
-                              (SELECT MAX(JAQA38FCH)
-                                 FROM JAQA38
-                                WHERE JAQA38NCO = J.PP101NCART
-                                  AND JAQA38COD = A.JAQA38COD
-                                  AND JAQA38FCH BETWEEN FECHA_INICIO AND FECHA_FIN))
+                          AND JAQA38FCH = A.JAQA38FCH)
                    AND A.JAQA38COD = (SELECT TP1NRO1 
                                         FROM FST198 
                                        WHERE TP1COD   = 1 
@@ -1169,7 +1149,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                       (SELECT MAX(JAQA39COR)
                          FROM JAQA39
                         WHERE JAQA39NCO = J.PP101NCART
-                          AND JAQA39FEC BETWEEN FECHA_INICIO AND FECHA_FIN);
+                          AND JAQA39FEC = A.JAQA39FEC);
             EXCEPTION
                WHEN OTHERS THEN
                   NULL;
@@ -1493,7 +1473,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                  FROM JAQA31
                 WHERE JAQA31NCO = J.PP101NCART
                   AND JAQA31TPC IS NOT NULL
-                  AND (JAQA31TPC <> 0 OR JAQA31TPC <> 99);
+                  AND JAQA31TPC NOT IN (0, 99);
             EXCEPTION
                WHEN OTHERS THEN
                   PAGO_CASILLERO := 'NO';
@@ -1835,6 +1815,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                   V_JAQA31VPC := '';
                   V_JAQA31CAL := '';
                   X_PAGO_CASILLERO := 'NO';
+                       WHEN OTHERS THEN
+                  NULL;
               END;
               
               BEGIN -- JAQA33
@@ -1861,6 +1843,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                   V_JAQA33AAC := '';
                   V_JAQA33ANA := '';
                   V_JAQA33FRG := '';
+                       WHEN OTHERS THEN
+                  NULL;
               END;
 
               BEGIN
@@ -1869,10 +1853,16 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                   INTO 
                   X_JAQA33MPC -- MONTO DE CHEQUE O TRANSFERENCIA
                   FROM JAQA39 WHERE JAQA39NCO =  I.PP101NCART
-                   AND TO_CHAR(JAQA39FEC,'MMRRRR') = TO_CHAR(FECHA_INICIO,'MMRRRR');
+                   AND TO_CHAR(JAQA39FEC,'MMRRRR') = TO_CHAR(FECHA_INICIO,'MMRRRR') AND 
+                   JAQA39COR = (SELECT   
+                  MAX(JAQA39COR)
+                  FROM JAQA39 WHERE JAQA39NCO =  I.PP101NCART
+                   AND TO_CHAR(JAQA39FEC,'MMRRRR') = TO_CHAR(FECHA_INICIO,'MMRRRR'));-- OBTIENE EL MAXIMO CORRELATIVO
               EXCEPTION
                    WHEN NO_DATA_FOUND THEN
                 V_JAQA33MPC := '';
+                                       WHEN OTHERS THEN
+                  NULL;
               END;
               
               BEGIN
@@ -2045,6 +2035,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                   V_JAQA31VPC := '';
                   V_JAQA31CAL := '';
                   X_PAGO_CASILLERO := 'NO';
+                       WHEN OTHERS THEN
+                  NULL;
               END;
 
               BEGIN -- JAQA33
@@ -2072,6 +2064,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                   V_JAQA33AAC := '';
                   V_JAQA33ANA := '';
                   V_JAQA33FRG := '';
+                       WHEN OTHERS THEN
+                  NULL;
               END;
              
               BEGIN
@@ -2080,10 +2074,16 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
                   INTO 
                   X_JAQA33MPC -- MONTO DE CHEQUE O TRANSFERENCIA
                   FROM JAQA39 WHERE JAQA39NCO =  I.PP101NCART
-                  AND TO_CHAR(JAQA39FEC,'MMRRRR') = TO_CHAR(FECHA_INICIO,'MMRRRR');
+                   AND TO_CHAR(JAQA39FEC,'MMRRRR') = TO_CHAR(FECHA_INICIO,'MMRRRR') AND 
+                   JAQA39COR = (SELECT   
+                  MAX(JAQA39COR)
+                  FROM JAQA39 WHERE JAQA39NCO =  I.PP101NCART
+                   AND TO_CHAR(JAQA39FEC,'MMRRRR') = TO_CHAR(FECHA_INICIO,'MMRRRR'));-- OBTIENE EL MAXIMO CORRELATIVO                  
               EXCEPTION
                    WHEN NO_DATA_FOUND THEN
                 V_JAQA33MPC := '';
+                     WHEN OTHERS THEN
+                  NULL;
               END;
               
               BEGIN
@@ -2112,4 +2112,3 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_REPORTES_GESTION_CONVENIOS IS
 
 END PQ_CR_REPORTES_GESTION_CONVENIOS;
 /
-

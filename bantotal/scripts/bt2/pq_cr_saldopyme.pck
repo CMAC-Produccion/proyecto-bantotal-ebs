@@ -11,6 +11,10 @@ create or replace package PQ_CR_SALDOPYME is
       -- Autor de la Modificación   : Maria Caridad Postigo Condori
       -- Descripción de Modificación: Se creo un nuevo procedimiento sp_cuentasPasivoII
       --                              que extrae los pasivos corriente y no corriente solo de creditos vigentes
+      -- Versión                    : 3.0
+      -- Fecha de Modificación      : 29/11/2023
+      -- Autor de la Modificación   : Maria Caridad Postigo Condori
+      -- Descripción de Modificación: se modifico apra grabar log de ejecuciones por tarea y permite procesar por etapas guardando log
       --
   * *************************************************************************************************************/
 
@@ -114,6 +118,7 @@ create or replace package PQ_CR_SALDOPYME is
                          lc_fgRefLin in varchar2,
                          lc_IndCred  in varchar2,
                          lc_flgprg   in varchar2,
+                         ln_tarea    in number,
                          ln_saldocap out number);
   -------------------------------------------------------------
   procedure sp_resolutorvuelo(ln_Pepais    in number,
@@ -135,6 +140,7 @@ create or replace package PQ_CR_SALDOPYME is
                               lc_fgRefLin  in varchar2,
                               lc_IndCred   in varchar2,
                               lc_flgprg    in varchar2,
+                              ln_tarea     in number,
                               ln_saldocap  out number);
   --------------------------------------------------------
   procedure sp_resolutorPasivo(ln_Pepais   in number,
@@ -247,6 +253,7 @@ create or replace package PQ_CR_SALDOPYME is
                               ln_tope10    in number,
                               lc_IndCred   in varchar2,
                               lc_flgprg    in varchar2,
+                              ln_tarea     in number,
                               ln_capacidad out number);
 
   --------------------------------------------------
@@ -270,7 +277,8 @@ create or replace package PQ_CR_SALDOPYME is
                            SaldExter     in number,
                            CapTotal      in number,
                            lc_indicador  in varchar2,
-                           lc_flgprg     in varchar2);
+                           lc_flgprg     in varchar2,
+                           ln_tarea      in number);
   -----------------------------------------------------
   procedure sp_cr_LogCuentas(lnPepais   in number,
                              lnPetdoc   in number,
@@ -289,7 +297,8 @@ create or replace package PQ_CR_SALDOPYME is
                              ln_TOPE    in number,
                              ln_SALDCAP in number,
                              lc_IndCred IN VARCHAR2,
-                             lc_flgprg  in varchar2);
+                             lc_flgprg  in varchar2,
+                             ln_tarea   in number);
   ----------------------------------------------------------------
   procedure sp_cr_LogPasivo(ln_Pepais in number,
                             ln_Petdoc in number,
@@ -325,7 +334,6 @@ create or replace package PQ_CR_SALDOPYME is
 
 end PQ_CR_SALDOPYME;
 /
-
 create or replace package body PQ_CR_SALDOPYME is
 
   /* ************************************************************************************************************
@@ -339,6 +347,10 @@ create or replace package body PQ_CR_SALDOPYME is
       -- Autor de la Modificación   : Maria Caridad Postigo Condori
       -- Descripción de Modificación: Se creo un nuevo procedimiento sp_cuentasPasivoII
       --                              que extrae los pasivos corriente y no corriente solo de creditos vigentes
+      -- Versión                    : 3.0
+      -- Fecha de Modificación      : 29/11/2023
+      -- Autor de la Modificación   : Maria Caridad Postigo Condori
+      -- Descripción de Modificación: se modifico apra grabar log de ejecuciones por tarea y permite procesar por etapas guardando log
       --
   * *************************************************************************************************************/
 
@@ -400,6 +412,7 @@ create or replace package body PQ_CR_SALDOPYME is
         into ln_captotcaja, ln_Patrimonio, ln_SaldExt, ln_RatioEndPatr
         from jaqy147 j
        where j.jaqy147inst = ln_Instancia
+         and j.jaqy147tarea = 7
          and j.jaqy147est = 'H';
     exception
       when others then
@@ -562,7 +575,7 @@ create or replace package body PQ_CR_SALDOPYME is
              x.xwfsubope    ln_sbop10,
              x.xwftipope    ln_tope10,
              x.xwfprcins /*,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             max(s.sng120per) ln_peri10*/
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       max(s.sng120per) ln_peri10*/
         from xwf700 x /*, sng120 s*/
        where x.xwfempresa = 1
          and x.xwfcuenta in (select Ctnro
@@ -623,7 +636,7 @@ create or replace package body PQ_CR_SALDOPYME is
              x.xwfsubope    ln_sbop10,
              x.xwftipope    ln_tope10,
              x.xwfprcins /*,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             max(s.sng120per) ln_peri10*/
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       max(s.sng120per) ln_peri10*/
         from xwf700 x /*, sng120 s,*/, fsr002 c, fsr008 a
       
        where c.pepais = ln_Pepais
@@ -740,11 +753,22 @@ create or replace package body PQ_CR_SALDOPYME is
     ln_NroEval      number := 0;
     lc_TieneInfoPSD varchar2(2) := 'S';
     lc_VerfEval     varchar2(2) := 'S';
-    lc_EstActEP     varchar2(2) := 'N';
+    ln_tarea        number;
   
   begin
   
     ln_captotcaja := 0;
+  
+    begin
+      select w.wftaskcod
+        into ln_tarea
+        from wfwrkitems w
+       where w.wfinsprcid = Instancia
+         and w.wfitemstsact = 1;
+    exception
+      when others then
+        ln_tarea := 0;
+    end;
   
     begin
       select 'S'
@@ -754,7 +778,7 @@ create or replace package body PQ_CR_SALDOPYME is
          and f.tp1cod1 = 10899
          and f.tp1corr1 = 13
          and f.tp1corr2 = 5
-         and f.tp1corr3 = 1
+         and f.tp1nro3 = ln_tarea
          and trim(f.tp1desc) = trim(lc_prgm);
     exception
       when others then
@@ -778,30 +802,18 @@ create or replace package body PQ_CR_SALDOPYME is
     
     end if;
   
-    begin
-    
-      select 'S'
-        into lc_EstActEP
-        from wfwrkitems w
-       where w.wfinsprcid = Instancia
-         and w.wftaskcod = 7
-         and w.wfitemstsact = 1;
-    exception
-      when others then
-        lc_EstActEP := 'N';
-      
-    end;
-  
-    if lc_flgprg = 'S' and lc_EstActEP = 'S' then
+    if lc_flgprg = 'S' then
     
       update jaqy147 j
          set j.jaqy147est = 'I'
        where j.jaqy147inst = Instancia
+         and j.jaqy147tarea = ln_tarea
          and j.jaqy147est = 'H';
     
       UPDATE JAQY148 j
          set j.JAQY148est = 'I'
        where j.JAQY148inst = Instancia
+         and j.jaqy148tarea = ln_tarea
          and j.JAQY148est = 'H';
       commit;
     
@@ -896,6 +908,7 @@ create or replace package body PQ_CR_SALDOPYME is
                                      lc_fgRefLin,
                                      lc_IndCred,
                                      lc_flgprg,
+                                     ln_tarea,
                                      ln_capacidad);
       
         ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0);
@@ -972,6 +985,7 @@ create or replace package body PQ_CR_SALDOPYME is
                                      lc_fgRefLin,
                                      lc_IndCred,
                                      lc_flgprg,
+                                     ln_tarea,
                                      ln_capacidad);
       
         ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0);
@@ -1001,6 +1015,7 @@ create or replace package body PQ_CR_SALDOPYME is
                                         lc_fgRefLin,
                                         lc_IndCred,
                                         lc_flgprg,
+                                        ln_tarea,
                                         ln_capacidad);
     
       ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0);
@@ -1104,6 +1119,7 @@ create or replace package body PQ_CR_SALDOPYME is
                                           j.ln_tope10,
                                           lc_IndCred,
                                           lc_flgprg,
+                                          ln_tarea,
                                           ln_capacidad);
       
         ln_captotcaja := nvl(ln_captotcaja, 0) + nvl(ln_capacidad, 0);
@@ -1188,7 +1204,7 @@ create or replace package body PQ_CR_SALDOPYME is
   
     ln_captotal := nvl(ln_captotal1, 0);
   
-    if (lc_flgprg = 'S' or lc_flgprg = 'R') and lc_EstActEP = 'S' then
+    if lc_flgprg = 'S' or lc_flgprg = 'R' then
     
       pq_cr_saldopyme.sp_cr_LogRatio(ln_Pepais,
                                      ln_Petdoc,
@@ -1201,7 +1217,8 @@ create or replace package body PQ_CR_SALDOPYME is
                                      saldo_externo,
                                      ln_captotal,
                                      'SP',
-                                     lc_flgprg);
+                                     lc_flgprg,
+                                     ln_tarea);
     end if;
   
   end sp_cuentasRatio;
@@ -1423,7 +1440,7 @@ create or replace package body PQ_CR_SALDOPYME is
              x.xwfsubope    ln_sbop10,
              x.xwftipope    ln_tope10,
              x.xwfprcins /*,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             max(s.sng120per) ln_peri10*/
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       max(s.sng120per) ln_peri10*/
         from xwf700 x /*sng120 s*/
        where x.xwfempresa = 1
          and x.xwfcuenta in (select Ctnro
@@ -1484,7 +1501,7 @@ create or replace package body PQ_CR_SALDOPYME is
              x.xwfsubope    ln_sbop10,
              x.xwftipope    ln_tope10,
              x.xwfprcins /*,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             max(s.sng120per) ln_peri10*/
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       max(s.sng120per) ln_peri10*/
         from xwf700 x, /*sng120 s,*/ fsr002 c, fsr008 a
       
        where c.pepais = ln_Pepais
@@ -2778,6 +2795,7 @@ create or replace package body PQ_CR_SALDOPYME is
                          lc_fgRefLin in varchar2,
                          lc_IndCred  in varchar2,
                          lc_flgprg   in varchar2,
+                         ln_tarea    in number,
                          ln_saldocap out number) is
   
   begin
@@ -2826,7 +2844,8 @@ create or replace package body PQ_CR_SALDOPYME is
                                        ln_tope10,
                                        ln_saldocap,
                                        lc_IndCred,
-                                       lc_flgprg);
+                                       lc_flgprg,
+                                       ln_tarea);
     end if;
   
   end sp_resolutor;
@@ -2850,6 +2869,7 @@ create or replace package body PQ_CR_SALDOPYME is
                               lc_fgRefLin  in varchar2,
                               lc_IndCred   in varchar2,
                               lc_flgprg    in varchar2,
+                              ln_tarea     in number,
                               ln_saldocap  out number) is
   
   begin
@@ -2898,7 +2918,8 @@ create or replace package body PQ_CR_SALDOPYME is
                                        ln_tope10,
                                        ln_saldocap,
                                        lc_IndCred,
-                                       lc_flgprg);
+                                       lc_flgprg,
+                                       ln_tarea);
     end if;
   
   end sp_resolutorvuelo;
@@ -2921,6 +2942,7 @@ create or replace package body PQ_CR_SALDOPYME is
                               ln_tope10    in number,
                               lc_IndCred   in varchar2,
                               lc_flgprg    in varchar2,
+                              ln_tarea     in number,
                               ln_capacidad out number) is
     ln_saldocap number(17, 2);
     -- ln_parciales  number;
@@ -3032,7 +3054,8 @@ create or replace package body PQ_CR_SALDOPYME is
                                            i.ln_tope10,
                                            ln_saldocap,
                                            lc_IndCred,
-                                           lc_flgprg);
+                                           lc_flgprg,
+                                           ln_tarea);
         end if;
       
         ln_capacidad := nvl(ln_capacidad, 0) + nvl(ln_saldocap, 0);
@@ -3647,7 +3670,8 @@ create or replace package body PQ_CR_SALDOPYME is
                            SaldExter     in number,
                            CapTotal      in number,
                            lc_indicador  in varchar2,
-                           lc_flgprg     in varchar2) is
+                           lc_flgprg     in varchar2,
+                           ln_tarea      in number) is
   
     ln_corr   number;
     lc_IndEst varchar2(2) := 'O';
@@ -3702,7 +3726,8 @@ create or replace package body PQ_CR_SALDOPYME is
          JAQY147EST,
          jaqy147patrim,
          JAQY147SLDEXT,
-         JAQY147RATIO)
+         JAQY147RATIO,
+         jaqy147tarea)
       values
         (ln_corr + 1,
          ln_Pepais,
@@ -3717,7 +3742,8 @@ create or replace package body PQ_CR_SALDOPYME is
          lc_IndEst,
          Patrimonio,
          SaldExter,
-         CapTotal);
+         CapTotal,
+         ln_tarea);
       commit;
     end;
   
@@ -3741,7 +3767,8 @@ create or replace package body PQ_CR_SALDOPYME is
                              ln_TOPE    in number,
                              ln_SALDCAP in number,
                              lc_IndCred IN VARCHAR2,
-                             lc_flgprg  in varchar2) is
+                             lc_flgprg  in varchar2,
+                             ln_tarea   in number) is
   
     ln_corr   number;
     lc_IndEst varchar2(2);
@@ -3788,7 +3815,6 @@ create or replace package body PQ_CR_SALDOPYME is
   
     begin
       insert into JAQY148
-      
         (JAQY148corr,
          JAQY148fec,
          JAQY148hora,
@@ -3808,7 +3834,8 @@ create or replace package body PQ_CR_SALDOPYME is
          JAQY148tope,
          JAQY148SALDCAP,
          JAQY148INDIC,
-         JAQY148est)
+         JAQY148est,
+         jaqy148tarea)
       values
         (ln_corr + 1,
          pd_fecpro,
@@ -3829,8 +3856,8 @@ create or replace package body PQ_CR_SALDOPYME is
          ln_TOPE,
          ln_SALDCAP,
          lc_IndCred,
-         lc_IndEst);
-    
+         lc_IndEst,
+         ln_tarea);
       commit;
     
     end;
@@ -4032,4 +4059,3 @@ create or replace package body PQ_CR_SALDOPYME is
   --------------------------------------------
 end PQ_CR_SALDOPYME;
 /
-

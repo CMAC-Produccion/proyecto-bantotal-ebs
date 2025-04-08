@@ -8,6 +8,7 @@ create or replace package PQ_CR_SEGM_MENS_MYPE22 is
     -- Autor de Creación          : RCASTRO
     -- Descripción de Modificación: 26/12/2024 MHUAMANIA Se añadió una nueva variable REL_CREDI_MAS_CDK
     --                            : 15/01/2025 MHUAMANIA Se incluyó el código credinka 
+    --                            : 31/03/2025 MHUAMANIA Se cambió el código credinka     
     -- *****************************************************************
   Procedure Sp_cr_Resolutores(pn_pai        in number,
                               pn_tdo        in number,
@@ -64,7 +65,6 @@ create or replace package PQ_CR_SEGM_MENS_MYPE22 is
 
 end PQ_CR_SEGM_MENS_MYPE22;
 /
-
 create or replace package body PQ_CR_SEGM_MENS_MYPE22 is
   -- *****************************************************************
     -- Nombre                     : PQ_CR_SEGM_MENS_MYPE22
@@ -75,7 +75,7 @@ create or replace package body PQ_CR_SEGM_MENS_MYPE22 is
     -- Autor de Creación          : RCASTRO
     -- Descripción de Modificación: 26/12/2024 MHUAMANIA Se añadió una nueva variable REL_CREDI_MAS_CDK
     --                            : 15/01/2025 MHUAMANIA Se incluyó el código credinka 
-    
+    --                            : 31/03/2025 MHUAMANIA Se cambió el código credinka  
     -- *****************************************************************
   Procedure Sp_cr_Resolutores(pn_pai        in number,
                               pn_tdo        in number,
@@ -962,14 +962,15 @@ create or replace package body PQ_CR_SEGM_MENS_MYPE22 is
         from CLDRCCS
        Where C_CODSBS = lc_CodSbs
         -- and C_CODEMP <> '00104'
-         and (C_CODEMP <> '00104' and C_CODEMP <> '00230') --mhuamani 19/12/2024 se incluye codigo credinka
+         --and (C_CODEMP <> '00104' and C_CODEMP <> '00230') --mhuamani 15/01/2025 se incluye codigo credinka
+         and (C_CODEMP <> '00104' and C_CODEMP <> '00526') --mhuamani 31/03/2025 cambio código credinka
          and (C_CUENTA like '14_1%' Or C_CUENTA like '14_2%' Or
              C_CUENTA like '14_3%' Or C_CUENTA like '14_4%' Or
              C_CUENTA like '14_5%' Or C_CUENTA like '14_6%' Or
              C_CUENTA like '71_1%' Or C_CUENTA like '71_2%' Or
              C_CUENTA like '71_3%' Or C_CUENTA like '71_4%' Or
              C_CUENTA like '81_302%')
-         and D_FECPRE = pd_fecRcc
+        and D_FECPRE = pd_fecRcc
          and C_CRETIP not in (select tp1nro1
                                 from fst198 a
                                Where Tp1cod = 1
@@ -1992,4 +1993,3 @@ create or replace package body PQ_CR_SEGM_MENS_MYPE22 is
 
 end PQ_CR_SEGM_MENS_MYPE22;
 /
-

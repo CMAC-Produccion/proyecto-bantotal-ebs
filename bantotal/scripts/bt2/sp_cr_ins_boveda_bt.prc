@@ -15,6 +15,9 @@ CREATE OR REPLACE PROCEDURE "SP_CR_INS_BOVEDA_BT" IS
     -- Fecha de Modificación      : 26/03/2025
     -- Autor de la Modificación   : EHIDALGOM/LCARPIO/ACARDENAS
     -- Descripción de Modificación: Parametrización Carga Legal
+    -- Fecha de Modificación      : 07/04/2025
+    -- Autor de la Modificación   : EHIDALGOM/LCARPIO
+    -- Descripción de Modificación: Operaciones monto cero y menores - Ro
     -- *****************************************************************
  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   N_CONT1 NUMBER := 0;
@@ -446,6 +449,63 @@ BEGIN
                               'Se reenumero '||v_filas_insertadas4||' alertas.' ||CHR(13)*/v_email_body);
      END LOOP;
   END IF;
+
+-------Operaciones monto cero y menores - Ro
+
+  UPDATE FBC604 A
+     SET BC604MDA  =
+         (SELECT HMDA
+            FROM FSH016 H
+           WHERE H.PGCOD = 1
+             AND H.HCMOD = BC604MOD
+             AND HTRAN = BC604TRN
+             AND HSUCOR = A.BC604SUC
+             AND HNREL = A.BC604NREL
+             AND HFCON = A.BC604FCH
+             AND H.HCORD = A.BC604ORD),
+         BC604IMP1 =
+         (SELECT ROUND(HCIMP1 *
+                       DECODE(HMDA,
+                              0,
+                              1 / ((SELECT MAX(TCCPA)
+                                      FROM FSD120
+                                     WHERE TCFCH >= TRUNC(SYSDATE - 1, 'MM')
+                                       AND TCFCH <= TRUNC(LAST_DAY(SYSDATE - 1))
+                                       AND TCCOD = 999)),
+                              1),
+                       2)
+            FROM FSH016 H
+           WHERE H.PGCOD = 1
+             AND H.HCMOD = BC604MOD
+             AND HTRAN = BC604TRN
+             AND HSUCOR = A.BC604SUC
+             AND HNREL = A.BC604NREL
+             AND HFCON = A.BC604FCH
+             AND H.HCORD = A.BC604ORD),
+         BC604TTRN  = 3,
+         BC604IMPMO =
+         (SELECT HCIMP1
+            FROM FSH016 H
+           WHERE H.PGCOD = 1
+             AND H.HCMOD = BC604MOD
+             AND HTRAN = BC604TRN
+             AND HSUCOR = A.BC604SUC
+             AND HNREL = A.BC604NREL
+             AND HFCON = A.BC604FCH
+             AND H.HCORD = A.BC604ORD)
+   WHERE A.BC604EMP = 1
+     AND BC604FCH = TRUNC(SYSDATE - 1)
+     AND BC604IMP1 = 0;
+  COMMIT;
+
+  UPDATE FBC604 Y
+     SET BC604TTRN = 1
+   WHERE Y.BC604EMP = 1
+     AND Y.BC604FCH = TRUNC(SYSDATE - 1)
+     AND BC604MOD = 18
+     AND BC604IMP1 < 2500
+     AND BC604TTRN = 3;
+  COMMIT;
 
 END SP_CR_INS_BOVEDA_BT;
  /* GOLDENGATE_DDL_REPLICATION */
