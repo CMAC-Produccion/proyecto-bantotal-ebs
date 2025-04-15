@@ -125,8 +125,9 @@ create or replace package agecombt.PQ_AC_CONSULTAS_AGECOM is
                             ps_conca0 out varchar2,ps_conca1 out varchar2,ps_conca2 out varchar2,
                             ps_conca3 out varchar2,ps_conca4 out varchar2,ps_conent out varchar2,
                             ps_fecrcc out varchar2,ps_conrcc out varchar2,ps_linusu out varchar2,
-                            ps_conusu out varchar2,ps_coderr out char,ps_msgerr out varchar2);                   
-     procedure SP_AC_EVACLI2(ps_tipper varchar2,pn_codpai number,pn_tipdoc number,ps_numdoc varchar2,ps_tiprol varchar2,
+                            ps_conusu out varchar2,ps_coderr out char,ps_msgerr out varchar2); 
+                            
+    procedure SP_AC_EVACLI2(ps_tipper varchar2,pn_codpai number,pn_tipdoc number,ps_numdoc varchar2,ps_tiprol varchar2,
                      ps_codrol varchar2,
                      ps_indcon out varchar2,ps_paicon out varchar2, ps_tipcon out varchar2,
                      ps_doccon out varchar2,ps_sbscli out varchar2, ps_sbscon out varchar2,
@@ -154,10 +155,10 @@ create or replace package agecombt.PQ_AC_CONSULTAS_AGECOM is
                      ps_despro out varchar2,ps_nomage out varchar2,ps_solvig out varchar2,
                      ps_coderr out char,ps_msgerr out varchar2);
                      
-       procedure SP_AC_CLIREC2(ps_numdoc in varchar2, ps_tipdoc in varchar2,pd_fecpro in date,
+    procedure SP_AC_CLIREC2(ps_numdoc in varchar2, ps_tipdoc in varchar2,pd_fecpro in date,
                      ps_codrol varchar2, ps_tipcli out char, ps_numina out integer,
-                     ps_estrec out varchar2,ps_desrec out varchar2);         
-                                                                                                                              
+                     ps_estrec out varchar2,ps_desrec out varchar2);  
+                                                                                                           
 end PQ_AC_CONSULTAS_AGECOM;
 /
 create or replace package body agecombt.PQ_AC_CONSULTAS_AGECOM is
@@ -2713,12 +2714,12 @@ procedure SP_AC_CLIREC2(ps_numdoc in varchar2, ps_tipdoc in varchar2,pd_fecpro i
     end;
     
    if ps_codrol = '101' or ps_codrol='105' then
-       if ln_crevig = 0 and  ln_crecan>0 and pd_fecpro - ld_feccan >=30 then
+       if ln_crevig = 0 and  ln_crecan>0 and pd_fecpro - ld_feccan >30 then
           ps_tipcli:= '3';
           ps_numina:= pd_fecpro - ld_feccan;
           ps_estrec:= 'N';
           ps_desrec:= 'I';
-       elsif ln_crevig = 0 and  ln_crecan>0 and pd_fecpro - ld_feccan<30 then
+       elsif ln_crevig = 0 and  ln_crecan>0 and pd_fecpro - ld_feccan<=30 then
           ps_tipcli:= '2';
           ps_numina:= pd_fecpro - ld_feccan;
           ps_estrec:= 'S';
@@ -2735,12 +2736,12 @@ procedure SP_AC_CLIREC2(ps_numdoc in varchar2, ps_tipdoc in varchar2,pd_fecpro i
           ps_desrec:= 'R';
        end if;
     else
-      if ln_crevig = 0 and  ln_crecan>0 and pd_fecpro - ld_feccan >=90 then
+      if ln_crevig = 0 and  ln_crecan>0 and pd_fecpro - ld_feccan >90 then
           ps_tipcli:= '3';
           ps_numina:= pd_fecpro - ld_feccan;
           ps_estrec:= 'N';
           ps_desrec:= 'I';
-      elsif ln_crevig = 0 and  ln_crecan>0 and pd_fecpro - ld_feccan<90 then
+      elsif ln_crevig = 0 and  ln_crecan>0 and pd_fecpro - ld_feccan<=90 then
           ps_tipcli:= '2';
           ps_numina:= pd_fecpro - ld_feccan;
           ps_estrec:= 'S';

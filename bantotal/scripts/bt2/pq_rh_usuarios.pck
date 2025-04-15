@@ -1,8 +1,20 @@
 create or replace package "PQ_RH_USUARIOS" is
+  -- **************************************************************************************
+  -- NOMBRE                      : PQ_RH_USUARIOS
+  -- SISTEMA                     : BANTOTAL
+  -- MODULO                      : GESTION ACCESOS
+  -- VERSION                     : 1.0
+  -- FECHA DE CREACION           : 26/01/2017
+  -- AUTOR DE CREACION           : EHIDALGOM
+  -- ESTADO                      : ACTIVO
+  -- ACCESO                      : PUBLICO
+  -- Purpose                     : CESE DE USUARIOS
+  -----------------------------------------------------------------------------------------
+  -- FECHA DE MODIFICACION       : 2025/04/14
+  -- AUTOR DE LA MODIFICACION    : EHIDALGOM
+  -- DESCRIPCION DE MODIFICACION : CESE AUTONOMIA BT Y CESE DATAWH
+  -- **************************************************************************************
 
-  -- Author  : EHIDALGOM
-  -- Created : 26/01/2017
-  -- Purpose : Cese usuarios
 
   PROCEDURE sp_rh_cese_usuario_bt(P_C_USERCES  IN CHAR,
                                P_C_NUMDOC IN varCHAR2,
@@ -14,6 +26,7 @@ create or replace package "PQ_RH_USUARIOS" is
   PROCEDURE SP_RH_BLOQUEA_USER_BD_EBS(P_C_USERCES  IN CHAR);
   PROCEDURE SP_RH_BLOQUEA_USER_BD_FTS(P_C_USERCES  IN CHAR);  
   PROCEDURE SP_RH_BLOQUEA_USER_BD_SIX(P_C_USERCES  IN CHAR);    
+  PROCEDURE SP_RH_BLOQUEA_USER_BD_DATAWH(P_C_USERCES  IN CHAR);  
                                    
   PROCEDURE sp_rh_cese_usuario_ebs(P_C_USERCES  IN VARCHAR2,
                                P_C_NUMDOC IN varCHAR2,
@@ -33,8 +46,23 @@ create or replace package "PQ_RH_USUARIOS" is
 end pq_rh_usuarios;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-
 create or replace package body "PQ_RH_USUARIOS" is
+  -- **************************************************************************************
+  -- NOMBRE                      : PQ_RH_USUARIOS
+  -- SISTEMA                     : BANTOTAL
+  -- MODULO                      : GESTION ACCESOS
+  -- VERSION                     : 1.0
+  -- FECHA DE CREACION           : 26/01/2017
+  -- AUTOR DE CREACION           : EHIDALGOM
+  -- ESTADO                      : ACTIVO
+  -- ACCESO                      : PUBLICO
+  -- Purpose                     : CESE DE USUARIOS
+  -----------------------------------------------------------------------------------------
+  -- FECHA DE MODIFICACION       : 2025/04/14
+  -- AUTOR DE LA MODIFICACION    : EHIDALGOM
+  -- DESCRIPCION DE MODIFICACION : CESE AUTONOMIA BT Y CESE DATAWH
+  -- **************************************************************************************
+
   PROCEDURE sp_rh_cese_usuario_bt(P_C_USERCES  IN CHAR, P_C_NUMDOC IN varCHAR2, P_D_FECCES in date, P_OK OUT CHAR) is
   LVCCAD VARCHAR2(2000);
   V_HOSTNAME  VARCHAR2(100);
@@ -49,10 +77,16 @@ create or replace package body "PQ_RH_USUARIOS" is
 --    INSERT INTO PRFU00 (PGCOD,PRFGCOD, UBUSER, PRFUFECALT, PRFUFECVTO,PRFUUSER, PRFUTPO) VALUES(1,'CESADO',P_C_USERCES,P_D_FECCES/**/,'31/12/2040','JOB_CESE'/*???*/,0);
 --28.02.2017 en fecha alta colocar fecha actual, no fecha de cese
     INSERT INTO PRFU00 (PGCOD,PRFGCOD, UBUSER, PRFUFECALT, PRFUFECVTO,PRFUUSER, PRFUTPO) VALUES(1,'CESADO',P_C_USERCES,trunc(sysdate)/*P_D_FECCES*/,'31/12/2040','JOB_CESE'/*???*/,0);
-    UPDATE FST046 SET PGCOD=1,UBUSER=P_C_USERCES,UBSUC=904/**/, UBCAJ='N', UBNCAJ=0, UBNIV=0, UBMNU='MINSTAL', UBPRD=0 where Ubuser=P_C_USERCES;
+--    UPDATE FST046 SET PGCOD=1,UBUSER=P_C_USERCES,UBSUC=904/**/, UBCAJ='N', UBNCAJ=0, UBNIV=0, UBMNU='MINSTAL', UBPRD=0 where Ubuser=P_C_USERCES;
+--2025.04.14 autonomía GA
+    UPDATE FST046 SET PGCOD=1,UBUSER=P_C_USERCES,UBSUC=909/**/, UBCAJ='N', UBNCAJ=0, UBNIV=0, UBMNU='MINSTAL', UBPRD=0 where Ubuser=P_C_USERCES;
+
     UPDATE MBC009 SET MBC9SUC=904/**/,MBC9NCAJ=0,MBC9CAJH='N',MBC9CAJ='N',MBC9TES='N' WHERE MBC9USU=P_C_USERCES;
     DELETE FROM fst056 WHERE UBUSER=P_C_USERCES;
-    UPDATE SNG057 SET SNG057JEF=' ' where SNG057USR=P_C_USERCES;
+--    UPDATE SNG057 SET SNG057JEF=' ' where SNG057USR=P_C_USERCES;
+--2025.04.14 autonomía GA
+    UPDATE SNG057 SET SNG057AUT='N', SNG057JEF=' ' WHERE SNG057USR=P_C_USERCES;
+
 
 --    UPDATE SNGU02 SET SNGU02INH ='S', SNGU02FIN=P_D_FECCES/**/  WHERE SNGU02USR=P_C_USERCES;
 --01.03.2017 en fecha colocar fecha actual, no fecha de cese   
@@ -125,6 +159,13 @@ create or replace package body "PQ_RH_USUARIOS" is
     
     BEGIN
       SP_RH_BLOQUEA_USER_BD_SIX(P_C_USERCES);
+    EXCEPTION 
+      WHEN OTHERS THEN
+        NULL;
+    END;
+    --2025.04.14
+    BEGIN
+      SP_RH_BLOQUEA_USER_BD_DATAWH(P_C_USERCES);
     EXCEPTION 
       WHEN OTHERS THEN
         NULL;
@@ -519,6 +560,83 @@ create or replace package body "PQ_RH_USUARIOS" is
           null;
       end;                                           
   END SP_RH_BLOQUEA_USER_BD_SIX;
+  ---------------------------------------------------------
+
+  ---------------------------------------------------------
+  PROCEDURE SP_RH_BLOQUEA_USER_BD_DATAWH(P_C_USERCES  IN CHAR) is
+  LVCCAD VARCHAR2(2000);
+  V_HOSTNAME  VARCHAR(100);
+  usuario VARCHAR(100);
+  Begin
+     select username 
+     into usuario
+     from systabrep.sy_users_dw@DWUSERS
+     where rpad(upper(replace(correo, '@cajaarequipa.pe', '')),10,' ')=P_C_USERCES and habilitado='S';
+
+     SP_SY_BLOQUEA_USER@DWUSERS(usuario);
+     
+     update systabrep.sy_users_dw@DWUSERS
+       set habilitado='N',fechabloqueo=sysdate
+      where username=usuario and habilitado='S';
+     commit;
+
+     begin
+       sys.sp_sy_enviamail('ehidalgom@cajaarequipa.pe',
+                      'ehidalgom@cajaarequipa.pe',
+                      'Usuario Bloqueado de BD DATAWH ' ||
+                      sys_context('USERENV', 'DB_NAME') || ' HOST ' ||
+                      V_HOSTNAME,
+                      'BD=' || sys_context('USERENV', 'DB_NAME') || CHR(13) ||
+                      'INSTANCIA=' || sys_context('USERENV', 'INSTANCE_NAME') ||
+                      CHR(13) || 'Hora Actual en Servidor : ' ||
+                      to_char(sysdate, 'HH24:MI:SS') || CHR(13) || CHR(13) ||
+                      'Se bloqueó al usuario de BD DATAWH : '||P_C_USERCES||'-'||CHR(13));
+       sys.sp_sy_enviamail('kcabrerac@cajaarequipa.pe',
+                      'kcabrerac@cajaarequipa.pe',
+                      'Usuario Bloqueado de BD DATAWH ' ||
+                      sys_context('USERENV', 'DB_NAME') || ' HOST ' ||
+                      V_HOSTNAME,
+                      'BD=' || sys_context('USERENV', 'DB_NAME') || CHR(13) ||
+                      'INSTANCIA=' || sys_context('USERENV', 'INSTANCE_NAME') ||
+                      CHR(13) || 'Hora Actual en Servidor : ' ||
+                      to_char(sysdate, 'HH24:MI:SS') || CHR(13) || CHR(13) ||
+                      'Se bloqueó al usuario de BD DATAWH : '||P_C_USERCES||'-'||CHR(13));                                       
+    exception
+        when others then
+          null;
+    end;  
+  exception
+    when no_data_found then
+      null;
+    when others then 
+      LVCCAD := TO_CHAR('PQ_RH_USUARIOS-SP_RH_BLOQUEA_USER_BD_DATAWH: '||SQLCODE||' - '||SQLERRM);
+      ROLLBACK;
+      begin
+        sys.sp_sy_enviamail('ceseusuarios@cajaarequipa.pe',
+                      'ehidalgom@cajaarequipa.pe',
+                      'Error SP_RH_BLOQUEA_USER_BD_DATAWH ' ||
+                      sys_context('USERENV', 'DB_NAME') || ' HOST ' ||
+                      V_HOSTNAME,
+                      'BD=' || sys_context('USERENV', 'DB_NAME') || CHR(13) ||
+                      'INSTANCIA=' || sys_context('USERENV', 'INSTANCE_NAME') ||
+                      CHR(13) || 'Hora Actual en Servidor : ' ||
+                      to_char(sysdate, 'HH24:MI:SS') || CHR(13) || CHR(13) ||
+                      'Error al procesar: '||P_C_USERCES||'-'||CHR(13)||LVCCAD);                          
+        sys.sp_sy_enviamail('ceseusuarios@cajaarequipa.pe',
+                      'kcabrerac@cajaarequipa.pe',
+                      'Error SP_RH_BLOQUEA_USER_BD_DATAWH ' ||
+                      sys_context('USERENV', 'DB_NAME') || ' HOST ' ||
+                      V_HOSTNAME,
+                      'BD=' || sys_context('USERENV', 'DB_NAME') || CHR(13) ||
+                      'INSTANCIA=' || sys_context('USERENV', 'INSTANCE_NAME') ||
+                      CHR(13) || 'Hora Actual en Servidor : ' ||
+                      to_char(sysdate, 'HH24:MI:SS') || CHR(13) || CHR(13) ||
+                      'Error al procesar: '||P_C_USERCES||'-'||CHR(13)||LVCCAD);  
+      exception
+        when others then
+          null;
+      end;                                           
+  END SP_RH_BLOQUEA_USER_BD_DATAWH;
   ---------------------------------------------------------
   
   PROCEDURE sp_rh_cese_usuario_ebs(P_C_USERCES  IN VARCHAR2, P_C_NUMDOC IN varCHAR2, P_D_FECCES in date, P_OK OUT CHAR) is
@@ -1173,4 +1291,3 @@ SELECT count(*) into v_found
 end pq_rh_usuarios;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-

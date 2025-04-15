@@ -11,6 +11,8 @@ CREATE OR REPLACE PROCEDURE SP_CO_INSCTACLI(V_NROASIENTO /*IF003TEXL*/ CHAR,
     -- Uso                        : Inserta Cuenta Cliente FIF003
     -- Estado                     : Activo
     -- Acceso                     : Carmen Sosa y Producción
+    -- Fecha de Modificación      : 09/04/2025
+    -- Autor de Modificación      : ERIKA HIDALGO 
     -- *****************************************************************
  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   N_CONT NUMBER;
@@ -27,8 +29,8 @@ BEGIN
     EXECUTE IMMEDIATE 'create table operador.FIF003_' ||
                       TO_CHAR(SYSTIMESTAMP, 'RRMMDD_HH24MISSFF3') ||
                       SUBSTR(USER, 1, 3) ||
-                      ' as select * from FIF003 where IF002PGCOD = 1 AND IF002ORI >= 20 AND IF003TEXL=' ||
-                      V_NROASIENTO || ' AND IF003RUBRO=' || N_IF003RUBRO;
+                      ' as select * from FIF003 where IF002PGCOD = 1 AND IF002ORI >= 20 AND IF003TEXL=''' ||
+                      V_NROASIENTO || ''' AND IF003RUBRO=' || N_IF003RUBRO;
     UPDATE FIF003
        SET IF003CTNRO = N_IF003CTNRO
      WHERE IF002PGCOD = 1
