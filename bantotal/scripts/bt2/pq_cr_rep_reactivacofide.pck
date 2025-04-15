@@ -13,6 +13,9 @@ create or replace package pq_cr_rep_reactivacofide is
   -- Fecha de Modificación        : 30/01/2024
   -- Autor de Modificación        : rmontesr
   -- Descripción de Modificación  : Modificacion calculo principal cobrado
+  -- Fecha de Modificación        : 11/03/2025
+  -- Autor de Modificación        : Mhuamania
+  -- Descripción de Modificación  : Modificacion en las tablas aqpc362 y aqpc362h
   --
   -- *****************************************************************
 
@@ -34,7 +37,6 @@ create or replace package pq_cr_rep_reactivacofide is
                                   pn_usuario in varchar2);
 end pq_cr_rep_reactivacofide;
 /
-
 create or replace package body pq_cr_rep_reactivacofide is
   -------------------------------------------------------------------------
   function fn_get_val_reactiva(pn_cta   in number,
@@ -270,6 +272,7 @@ create or replace package body pq_cr_rep_reactivacofide is
     return t_resp;
   end;
   ------------------------------------------------------------------------
+  
   procedure sp_cr_genera_data(pd_fecpro  in date,
                               pn_modcta  in number,
                               pn_usuario in varchar2) is
@@ -295,9 +298,18 @@ create or replace package body pq_cr_rep_reactivacofide is
          aqpc362intsus,
          aqpc362fpago,
          aqpc362fdepo,
-         aqpc362clacre,
+         aqpc362clacre,--MHUAMANI 30/12/2024
          aqpc362fcre,
-         aqpc362hcre)
+         aqpc362hcre,
+         aqpc362emp,
+         aqpc362suc,
+         aqpc362mod,
+         aqpc362mda,
+         aqpc362pap,
+         aqpc362sbop,
+         aqpc362top,
+         aqpc362ncre,
+         aqpc362tcre)
         select pn_usuario,
                pd_fecpro,
                a.aqpb065haocta,
@@ -306,7 +318,13 @@ create or replace package body pq_cr_rep_reactivacofide is
                a.aqpb065hncer,
                a.aqpb065hndoc,
                a.aqpb065hsdoins,
-               case when substr(b.v_clacre,1,1) = '3' or substr(b.v_clacre,1,1) = '4' then 0 else nvl(b.v_intdev, 0) end,
+               case
+                 when substr(b.v_clacre, 1, 1) = '3' or
+                      substr(b.v_clacre, 1, 1) = '4' then
+                  0
+                 else
+                  nvl(b.v_intdev, 0)
+               end,
                nvl(b.v_pricob, 0),
                nvl(b.v_intcob, 0),
                nvl(b.v_intsus, 0),
@@ -314,7 +332,16 @@ create or replace package body pq_cr_rep_reactivacofide is
                null,
                b.v_clacre,
                to_char(sysdate, 'DD/MM/YYYY'),
-               to_char(sysdate, 'HH24:MI:SS')
+               to_char(sysdate, 'HH24:MI:SS'),
+               a.aqpb065hpgcod,
+               a.aqpb065haosuc,
+               a.aqpb065haomod,
+               a.aqpb065haomda,
+               a.aqpb065haopap,
+               a.aqpb065haosbop,
+               a.aqpb065haotope,
+               a.aqpb065HNCRE,
+               a.aqpb065HTCRE
           from aqpb065h a
           left join table(pq_cr_rep_reactivacofide.fn_get_val_reactiva(a.aqpb065haocta, a.aqpb065haooper, pd_fecpro, a.aqpb065hstat)) b
             on 1 = 1
@@ -364,8 +391,18 @@ create or replace package body pq_cr_rep_reactivacofide is
          aqpc362hfpago,
          aqpc362hfdepo,
          aqpc362hclacre,
-         aqpc362hfcre,
-         aqpc362hhcre)
+         aqpc362hfcre,--MHUAMANI 30/12/2024
+         aqpc362hhcre,
+         aqpc362hemp,
+         aqpc362hsuc,
+         aqpc362hmod,
+         aqpc362hmda,
+         aqpc362hpap,
+         aqpc362hsbop,
+         aqpc362htop,
+         aqpc362hncre,
+         aqpc362htcre
+         )
         select aqpc362usur,
                aqpc362fproc,
                aqpc362cta,
@@ -379,10 +416,19 @@ create or replace package body pq_cr_rep_reactivacofide is
                aqpc362intcob,
                aqpc362intsus,
                aqpc362fpago,
-               aqpc362fdepo,
+               aqpc362fdepo, 
                aqpc362clacre,
                aqpc362fcre,
-               aqpc362hcre
+               aqpc362hcre,
+               aqpc362emp,
+               aqpc362suc,
+               aqpc362mod,
+               aqpc362mda,
+               aqpc362pap,
+               aqpc362sbop,
+               aqpc362top,
+               aqpc362ncre,
+               aqpc362tcre
           from aqpc362
          where aqpc362usur = pn_usuario;
     
@@ -491,8 +537,7 @@ create or replace package body pq_cr_rep_reactivacofide is
                         next_date => sysdate,
                         interval  => null,
                         no_parse  => false,
-                        --instance  => 2, 16/01/2024
-                        instance  => 1,
+                        instance  => 2,
                         force     => false);
       
       Else
@@ -554,4 +599,3 @@ create or replace package body pq_cr_rep_reactivacofide is
   end sp_cr_sch_reactcofide;
 end pq_cr_rep_reactivacofide;
 /
-

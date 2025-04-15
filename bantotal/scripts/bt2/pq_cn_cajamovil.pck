@@ -21,6 +21,12 @@ create or replace package PQ_CN_CAJAMOVIL is
   -- Fecha de Modificación : 27/06/2024
   -- Autor de Creación     : Renzo Cuadros Salazar
   -- Descripción Modific.  : Afiliacion / Desafiliacion codigo de referido - NeoCaja P51
+  -- Fecha de Modificación : 02/02/2025
+  -- Autor de Creación     : Frank Pinto Carpio
+  -- Descripción Modific.  : Amortizacion de creditos
+  -- Fecha de Modificación : 26/03/2025
+  -- Autor de Creación     : Renzo Cuadros Salazar
+  -- Descripción Modific.  : Se agregaron procedientos para obtener fecha y hora del tipo de cambio
   -- ------------------------------------------------------------------------------------------------
   
   -- Public function and procedure declarations
@@ -126,10 +132,24 @@ Procedure sp_guardar_log_envio(p_fectra date,
                                p_asunto           VARCHAR2,
                                p_c_coderr         NUMBER,
                                p_c_deserr         VARCHAR2, 
-                               p_canal            VARCHAR2);                                  
+                               p_canal            VARCHAR2);     
+  -- rcuadros 26/03/2025
+  PROCEDURE sp_cn_obtener_tc(pn_pizarr IN NUMBER,
+                             pd_pgfape IN DATE,
+                             pn_tccomp OUT NUMBER,
+                             pn_tcvent OUT NUMBER,
+                             pd_tcfech OUT DATE,
+                             pc_tchora OUT VARCHAR2
+                            );
+  -- rcuadros 26/03/2025
+  PROCEDURE sp_cn_calcular_tc(pn_pizarr IN NUMBER,
+                              pd_tcfech IN DATE,
+                              pc_tchora IN VARCHAR2,
+                              pn_tccomp OUT NUMBER,
+                              pn_tcvent OUT NUMBER
+                             );
 end PQ_CN_CAJAMOVIL;
 /
-
 create or replace package body PQ_CN_CAJAMOVIL is
 
     
@@ -1047,6 +1067,7 @@ create or replace package body PQ_CN_CAJAMOVIL is
       '<br>' ||
       '<span style="font-family:Calibri; font-size:12px"><strong>Caja Arequipa<strong></span>';
       
+      lv_correo := lv_mensaje;
       lv_mensaje := pq_ah_email_trx.fn_ah_replace_tildes(lv_mensaje);
       dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
     
@@ -1119,6 +1140,48 @@ create or replace package body PQ_CN_CAJAMOVIL is
          
          lv_mensaje := pq_ah_email_trx.fn_ah_replace_tildes(lv_mensaje);
          dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
+    WHEN L_AQPA705TIPOPE = 'M' THEN -- Fpinto 02/02/2025 - Amortizacion de creditos
+        lv_asunto     := 'ENVIO AUTOMATICO - CONFIRMACION DE AMORTIZACION DE CREDITO - ' || TRIM(lv_canal);
+        lv_directorio := 'DTPUMP_PR_EMAIL';
+        lv_contacto   := PQ_CN_CAJAMOVIL.fn_ah_nombre_per(L_AQPA705PDOC, L_AQPA705TDOC, L_AQPA705NDOC);
+        dbms_lob.createtemporary(ll_mensaje, TRUE);
+        
+        lv_mensaje := 
+        '<div style="background-color:#002753; width:100%; padding: 5px 0px; margin-bottom: 5px;font-family:Calibri; font-size: 24px; color:#FFFFFF; font-weight:lighter;">Caja Arequipa</div>'||
+        '<b style="font-family:Calibri; font-size:14px">CONSTANCIA DE AMORTIZACION DE CREDITO, REDUCCION DE '||TRIM(L_AQPA705AUXV2)||' - ' || TRIM(lv_canal) || '</b>'||
+        '<hr>' ||
+        '<table>'||
+        
+        '<tr style="font-family:Calibri; font-size:14px"><td>Titular</td><td> </td><td>' || lv_contacto || '</td></tr>' ||
+        '<tr style="font-family:Calibri; font-size:14px"><td>Nro. de crédito</td><td> </td><td>' || TRIM(L_AQPA705CTADES) || '</td></tr>'||
+        '<tr style="font-family:Calibri; font-size:14px"><td>Fecha y hora</td><td> </td><td>' ||  TRIM(lc_fecope) || '</td></tr>' ||
+        '<tr style="font-family:Calibri; font-size:14px"><td>Número de transacción</td><td> </td><td>' || TRIM(L_AQPA705AUXV3) || '</td></tr>' ||
+        '<tr style="font-family:Calibri; font-size:14px"><td>Monto Amortizado</td><td> </td><td>'||TRIM(lv_monsim)||TRIM(TO_CHAR(L_AQPA705MONOPE, '9999,999.99'))||'</td></tr>' ||
+        '<tr><td colspan="3">&nbsp;</td></tr>';
+        lv_mensaje := lv_mensaje || '</table>';
+        lv_mensaje := pq_ah_email_trx.fn_ah_replace_tildes(lv_mensaje);
+        dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
+        
+        lv_mensaje := '<b style="font-family:Calibri; font-size:14px">NUEVA INFORMACION DE PAGO DE CREDITO</b><hr>'||
+        '<table>'||
+        '<tr style="font-family:Calibri; font-size:14px"><td>Producto</td><td> </td><td>' || TRIM(L_AQPA705AUXV4) || '</td></tr>' ||
+        '<tr style="font-family:Calibri; font-size:14px"><td>'||SUBSTR(L_AQPA705AUXV5, 4, 16)||'</td><td> </td><td>'||SUBSTR(L_AQPA705AUXV5, 1, 2)||'</td></tr>' ||
+        '<tr style="font-family:Calibri; font-size:14px"><td>'||SUBSTR(L_AQPA705AUXV6, 1, 21)||'</td><td> </td><td>'||SUBSTR(L_AQPA705AUXV6, 23, 10)||'</td></tr>' ||
+        '<tr style="font-family:Calibri; font-size:14px"><td>Nuevo monto de cuota</td><td> </td><td>'||TRIM(lv_monsim)||TRIM(TO_CHAR(L_AQPA705AUXN1, '9999,999.99'))||'</td></tr>';
+        lv_mensaje := lv_mensaje || '<tr><td colspan="3">&nbsp;</td></tr></table>';       
+        lv_mensaje := lv_mensaje ||
+        '<hr><span style="font-family:Calibri; font-size:12px">De cancelar la última cuota de su crédito y no tener otras obligaciones pendientes con Caja Arequipa, puedes descargar tu Certificado de No Adeudo en la sección "Ayuda" de la página principal. www.cajaarequipa.pe o directamente en: https://productos.cajaarequipa.pe/CNA/</span>';
+        lv_mensaje := pq_ah_email_trx.fn_ah_replace_tildes(lv_mensaje);
+        dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
+        
+        lv_mensaje :=
+        '<br><br>' ||
+        '<span style="font-family:Calibri; font-size:12px">Cordialmente</span>'||
+        '<br>' ||
+        '<span style="font-family:Calibri; font-size:12px"><strong>Caja Arequipa<strong></span>';
+        
+        lv_mensaje := pq_ah_email_trx.fn_ah_replace_tildes(lv_mensaje);
+        dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
     Else
       null;
     End Case;
@@ -2487,8 +2550,60 @@ Procedure sp_guardar_log_envio(p_fectra date,
               p_canal);
               commit;
 
-  end sp_guardar_log_envio;  
-                                              
+  end sp_guardar_log_envio;
+  
+  -- rcuadros 26/03/2025
+  PROCEDURE sp_cn_obtener_tc(
+      pn_pizarr IN NUMBER,
+      pd_pgfape IN DATE,
+      pn_tccomp OUT NUMBER,
+      pn_tcvent OUT NUMBER,
+      pd_tcfech OUT DATE,
+      pc_tchora OUT VARCHAR2
+  ) IS
+
+  BEGIN
+      SELECT TCCPA, TCVTA, TCFCH, TCHOR
+        INTO pn_tccomp, pn_tcvent, pd_tcfech, pc_tchora
+        FROM (SELECT TCCPA, TCVTA, TCFCH, TCHOR
+                FROM FSD120
+               WHERE TCCOD = pn_pizarr
+                 AND TCMDA = 101
+                 AND TCFCH <= pd_pgfape
+                 AND TCCPA > 0
+                 AND TCVTA > 0
+              ORDER BY TCFCH DESC, TCHOR DESC, TCIMP DESC)
+       WHERE ROWNUM = 1;
+  EXCEPTION
+    WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error en sp_cn_obtener_tc: ' || SQLERRM);
+  END sp_cn_obtener_tc;
+  
+  -- rcuadros 26/03/2025
+  PROCEDURE sp_cn_calcular_tc(
+      pn_pizarr IN NUMBER,
+      pd_tcfech IN DATE,
+      pc_tchora IN VARCHAR2,
+      pn_tccomp OUT NUMBER,
+      pn_tcvent OUT NUMBER
+  ) IS
+
+  BEGIN
+      SELECT TCCPA, TCVTA
+        INTO pn_tccomp, pn_tcvent
+        FROM (SELECT TCCPA, TCVTA
+                FROM FSD120
+               WHERE TCCOD = pn_pizarr
+                 AND TCMDA = 101
+                 AND TCFCH = pd_tcfech
+                 AND TCCPA > 0
+                 AND TCVTA > 0
+              ORDER BY TCFCH DESC, TCHOR DESC, TCIMP DESC)
+       WHERE ROWNUM = 1;
+  EXCEPTION
+    WHEN OTHERS THEN
+      DBMS_OUTPUT.PUT_LINE('Error en sp_cn_calcular_tc: ' || SQLERRM);
+  END sp_cn_calcular_tc;
+
 end PQ_CN_CAJAMOVIL;
 /
-

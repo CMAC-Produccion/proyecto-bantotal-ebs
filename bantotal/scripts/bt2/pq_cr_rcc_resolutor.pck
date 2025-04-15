@@ -2,25 +2,30 @@ create or replace package PQ_CR_RCC_Resolutor is
 
   -- Author  : HSUAREZ
   -- Created : 05/10/2020 10:42:13 a. m.
-  -- Purpose : 
-
+  -- Purpose :    
   -- Public type declarations
-
+  -- Modificacion: MHUAMANI 10/04/2025 ADICION DE LOG PARA CONTROL DE CAMBIOS
   procedure sp_cr_maximo_monto(ln_Instancia      in number,
                                ve_DeudaRCCMaxima out number);
-                               --ve_FechaRCCMaxima out date);
+  --ve_FechaRCCMaxima out date);
   -------------------------------------------------------
   function fn_equivalenviaDoc(p_tdoc in number) return varchar2;
   -------------------------------------------------------
+  PROCEDURE SP_GRABAR_LOG_ERRORES2(VE_INSTANCIA IN NUMBER,
+                                   VE_PROGRAMA  IN VARCHAR,
+                                   VE_PAQUETE   IN VARCHAR,
+                                   VE_PROCED    IN VARCHAR,
+                                   VE_PEJE      IN VARCHAR,
+                                   VE_ERR       IN VARCHAR,
+                                   VE_MSG       IN VARCHAR);
 end PQ_CR_RCC_Resolutor;
 /
-
 create or replace package body PQ_CR_RCC_Resolutor is
 
   -----------------------------------------------------
-   procedure sp_cr_maximo_monto(ln_Instancia      in number,
-                                 ve_DeudaRCCMaxima out number) is
-                                 --ve_FechaRCCMaxima out date) is
+  procedure sp_cr_maximo_monto(ln_Instancia      in number,
+                               ve_DeudaRCCMaxima out number) is
+    --ve_FechaRCCMaxima out date) is
   
     cursor Lista_CredRCC(ln_CodSBS varchar2, ld_FchRCCDesemb date) is
     
@@ -29,24 +34,24 @@ create or replace package body PQ_CR_RCC_Resolutor is
        where s.c_codsbs = ln_CodSBS
          and s.d_fecpre = ld_FchRCCDesemb;
   
-    ln_pais         number;
-    ln_tdoc         number;
-    lc_ndoc         varchar2(12);
-    ld_FchRCCDesemb date;
-    ln_CodSBS       varchar2(10);
-    lc_subcuenta    varchar2(10);
-    lc_subcuenta2   varchar2(10);
-    lc_subcuenta3   varchar2(10);
-    lc_subcuenta4   varchar2(10);
-    ld_FchRCC       date;
-    ln_DeudaRCCAct  number(17,2);
+    ln_pais           number;
+    ln_tdoc           number;
+    lc_ndoc           varchar2(12);
+    ld_FchRCCDesemb   date;
+    ln_CodSBS         varchar2(10);
+    lc_subcuenta      varchar2(10);
+    lc_subcuenta2     varchar2(10);
+    lc_subcuenta3     varchar2(10);
+    lc_subcuenta4     varchar2(10);
+    ld_FchRCC         date;
+    ln_DeudaRCCAct    number(17, 2);
     ve_FechaRCCMaxima date;
-    vi_meses        number;
-    vi_tdoc         number;
+    vi_meses          number;
+    vi_tdoc           number;
   begin
   
     ln_DeudaRCCAct := 0;
-    vi_meses := 12;
+    vi_meses       := 12;
     begin
       select s.sng001pais, s.sng001tdoc, s.sng001ndoc
         into ln_pais, ln_tdoc, lc_ndoc
@@ -96,7 +101,7 @@ create or replace package body PQ_CR_RCC_Resolutor is
       end if;
     
     end if;
-    
+  
     --comentario
     ve_DeudaRCCMaxima := 0;
     begin
@@ -111,40 +116,40 @@ create or replace package body PQ_CR_RCC_Resolutor is
     end;
     --codigo propio
     if ln_CodSBS is not null then
-    for i IN 0..vi_meses LOOP --PARA RECCORRE LOS ULTIMOS X MESES
-      --dbms_output.put_line('ANTES:'||ld_FchRCC);
-      SELECT ADD_MONTHS(ld_FchRCC,-1)
-      INTO ld_FchRCC
-      FROM DUAL;
-      --dbms_output.put_line('DESPUES:'||ld_FchRCC);
-      for l in Lista_CredRCC(ln_CodSBS, ld_FchRCC) loop
-      
-        lc_subcuenta  := SUBSTR(l.ln_rubrorcc, 1, 4);
-        lc_subcuenta2 := SUBSTR(l.ln_rubrorcc, 1, 6);
-        lc_subcuenta3 := SUBSTR(l.ln_rubrorcc, 7, 2);
-        lc_subcuenta4 := SUBSTR(l.ln_rubrorcc, 5, 2);
-        If ((lc_subcuenta = '1411') Or (lc_subcuenta = '1413') Or
-            (lc_subcuenta = '1414') Or (lc_subcuenta = '1415') Or
-            (lc_subcuenta = '1416') Or (lc_subcuenta = '1421') Or
-            (lc_subcuenta = '1423') Or (lc_subcuenta = '1424') Or
-            (lc_subcuenta = '1425') Or (lc_subcuenta = '1426') Or
-            (lc_subcuenta = '8113') Or (lc_subcuenta = '8123') Or
-            (lc_subcuenta = '7112') Or (lc_subcuenta = '7122') OR
-            (lc_subcuenta2 = '811302') Or (lc_subcuenta2 = '812302')) AND lc_subcuenta4<>'03' then
+      for i IN 0 .. vi_meses LOOP
+        --PARA RECCORRE LOS ULTIMOS X MESES
+        --dbms_output.put_line('ANTES:'||ld_FchRCC);
+        SELECT ADD_MONTHS(ld_FchRCC, -1) INTO ld_FchRCC FROM DUAL;
+        --dbms_output.put_line('DESPUES:'||ld_FchRCC);
+        for l in Lista_CredRCC(ln_CodSBS, ld_FchRCC) loop
         
-          ln_DeudaRCCAct := ln_DeudaRCCAct + l.ln_DeudaRCCAct;        
+          lc_subcuenta  := SUBSTR(l.ln_rubrorcc, 1, 4);
+          lc_subcuenta2 := SUBSTR(l.ln_rubrorcc, 1, 6);
+          lc_subcuenta3 := SUBSTR(l.ln_rubrorcc, 7, 2);
+          lc_subcuenta4 := SUBSTR(l.ln_rubrorcc, 5, 2);
+          If ((lc_subcuenta = '1411') Or (lc_subcuenta = '1413') Or
+             (lc_subcuenta = '1414') Or (lc_subcuenta = '1415') Or
+             (lc_subcuenta = '1416') Or (lc_subcuenta = '1421') Or
+             (lc_subcuenta = '1423') Or (lc_subcuenta = '1424') Or
+             (lc_subcuenta = '1425') Or (lc_subcuenta = '1426') Or
+             (lc_subcuenta = '8113') Or (lc_subcuenta = '8123') Or
+             (lc_subcuenta = '7112') Or (lc_subcuenta = '7122') OR
+             (lc_subcuenta2 = '811302') Or (lc_subcuenta2 = '812302')) AND
+             lc_subcuenta4 <> '03' then
+          
+            ln_DeudaRCCAct := ln_DeudaRCCAct + l.ln_DeudaRCCAct;
+          end if;
+        end loop;
+        ln_DeudaRCCAct := nvl(ln_DeudaRCCAct, 0);
+        --dbms_output.put_line('DESPUES:'||ln_DeudaRCCAct);
+        if ve_DeudaRCCMaxima < ln_DeudaRCCAct then
+          ve_DeudaRCCMaxima := ln_DeudaRCCAct;
+          ve_FechaRCCMaxima := ld_FchRCC;
+          --dbms_output.put_line('ve_DeudaRCCMaxima:'||ve_DeudaRCCMaxima);
+          --dbms_output.put_line('ve_FechaRCCMaxima:'||ve_FechaRCCMaxima);
         end if;
-      end loop;    
-      ln_DeudaRCCAct := nvl(ln_DeudaRCCAct, 0);
-      --dbms_output.put_line('DESPUES:'||ln_DeudaRCCAct);
-      if ve_DeudaRCCMaxima<ln_DeudaRCCAct then
-        ve_DeudaRCCMaxima :=ln_DeudaRCCAct;
-        ve_FechaRCCMaxima :=ld_FchRCC;
-         --dbms_output.put_line('ve_DeudaRCCMaxima:'||ve_DeudaRCCMaxima);
-         --dbms_output.put_line('ve_FechaRCCMaxima:'||ve_FechaRCCMaxima);
-      end if;
-      ln_DeudaRCCAct:=0;
-    END LOOP; -- FONfin del recorrido de consulta
+        ln_DeudaRCCAct := 0;
+      END LOOP; -- FONfin del recorrido de consulta
     ELSE
       ln_DeudaRCCAct := 0;
     END IF;
@@ -169,8 +174,48 @@ create or replace package body PQ_CR_RCC_Resolutor is
     end loop;
     respc := to_char(resp);
     return respc;
-  end fn_equivalenviaDoc; 
+  end fn_equivalenviaDoc;
   -------------------------------------------------------
+  PROCEDURE SP_GRABAR_LOG_ERRORES2(VE_INSTANCIA IN NUMBER,
+                                   VE_PROGRAMA  IN VARCHAR,
+                                   VE_PAQUETE   IN VARCHAR,
+                                   VE_PROCED    IN VARCHAR,
+                                   VE_PEJE      IN VARCHAR,
+                                   VE_ERR       IN VARCHAR,
+                                   VE_MSG       IN VARCHAR) IS
+    VI_FECHA DATE;
+  BEGIN
+    BEGIN
+      VI_FECHA := TO_DATE(SYSDATE, 'DD/MM/RRRR');
+    
+      INSERT INTO AQPD759
+        (AQPD759COR,
+         AQPD759FECR,
+         AQPD759inst,
+         AQPD759prg,
+         AQPD759pqt,
+         AQPD759prd,
+         AQPD759peje,
+         AQPD759err,
+         AQPD759msge)
+      VALUES
+        (SEQ_AQPD759.NEXTVAL,
+         VI_FECHA,
+         VE_INSTANCIA,
+         VE_PROGRAMA,
+         VE_PAQUETE,
+         VE_PROCED,
+         VE_PEJE,
+         VE_ERR,
+         VE_MSG);
+    
+      COMMIT;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
+    --INSERT INTO PRUEBA_LOG(MSG)VALUES(VI_FECHA||'-'||VE_INSTANCIA||'-'||VE_PROGRAMA||'-'||VE_PAQUETE||'-'||VE_PROCED||'-'||VE_PEJE||'-'||VE_ERR||'-'||VE_MSG);
+  
+  END;
 end PQ_CR_RCC_Resolutor;
 /
-

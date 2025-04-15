@@ -11,9 +11,9 @@ create or replace package PQ_CR_VERF_RELAC_CRU is
   -- Estado                     : Activo
   -- Acceso                     : Público
   -- Parámetros de Entrada      :
-  -- Fecha de Modificación      : 
-  -- Autor de la Modificación   : 
-  -- Descripción de Modificación:   
+  -- Fecha de Modificación      : 2025.04.14
+  -- Autor de la Modificación   : DCASTRO
+  -- Descripción de Modificación: Se modificó sp_Cr_Verf_RelaCRU se creo guia de proceso especial 10872 coor1 200 y se agregó codigo de relacion.
   -- *****************************************************************
 
   -- Public type declarations
@@ -23,7 +23,6 @@ create or replace package PQ_CR_VERF_RELAC_CRU is
 
 end PQ_CR_VERF_RELAC_CRU;
 /
-
 create or replace package body PQ_CR_VERF_RELAC_CRU is
 
   procedure sp_Cr_Verf_RelaCRU(ln_instancia in number,
@@ -87,11 +86,40 @@ create or replace package body PQ_CR_VERF_RELAC_CRU is
             into ln_NroRelac
             from JAQL602
            Where JAQL546Serial = ln_Experian
-             and JAQL602Tidet in ('33');
+             and JAQL602Tidet in --('33');
+                 (select f.tp1nro1
+                    from fst198 f
+                   where f.tp1cod = 1
+                     and f.tp1cod1 = 10872
+                     and f.tp1corr1 = 200
+                     and f.tp1corr2 = 1
+                     and f.tp1corr3 > 0); --2025.04.08 dcastro se agrego guia especial para incluir codigo 33 y 38
         exception
           when others then
             ln_NroRelac := 0;
         end;
+      
+        if ln_NroRelac = 0 then
+        
+          begin
+            select count(*)
+              into ln_NroRelac
+              from JAQL602
+             Where JAQL546Serial = ln_Sentinel
+               and JAQL602Tidet in --('33');
+                   (select f.tp1nro1
+                      from fst198 f
+                     where f.tp1cod = 1
+                       and f.tp1cod1 = 10872
+                       and f.tp1corr1 = 200
+                       and f.tp1corr2 = 1
+                       and f.tp1corr3 > 0); --2025.04.08 dcastro se agrego guia especial para incluir codigo 33 y 38
+          exception
+            when others then
+              ln_NroRelac := 0;
+          end;
+        
+        end if;
       
       Else
         If ln_EstEqui = 1 then
@@ -102,7 +130,15 @@ create or replace package body PQ_CR_VERF_RELAC_CRU is
               into ln_NroRelac
               from AQPB515F
              Where AQPB515FSERIAL = ln_Equifax
-               and AQPB515FTIDET in ('33');
+               and AQPB515FTIDET in --('33');
+                   (select f.tp1nro1
+                      from fst198 f
+                     where f.tp1cod = 1
+                       and f.tp1cod1 = 10872
+                       and f.tp1corr1 = 200
+                       and f.tp1corr2 = 1
+                       and f.tp1corr3 > 0); --2025.04.08 dcastro se agrego guia especial para incluir codigo 33 y 38
+          
           exception
             when others then
               ln_NroRelac := 0;
@@ -118,4 +154,3 @@ create or replace package body PQ_CR_VERF_RELAC_CRU is
 
 end PQ_CR_VERF_RELAC_CRU;
 /
-
