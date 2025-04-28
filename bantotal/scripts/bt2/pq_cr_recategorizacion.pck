@@ -18,7 +18,7 @@ create or replace package PQ_CR_RECATEGORIZACION is
   --                              2024.04.24 dcastro se modificó procedimiento sp_generar_recate
   --                              2024.05.09 dcastro se modificó procedimiento sp_generar_recate
   --                              2024.06.05 dcastro se modificó procedimiento fn_get_cantope, fn_get_mntdesem se modifico condicion de fecha
-
+  --                              2025.04.15 dcastro se modificó procedimiento sp_nivel_analista
   -- *****************************************************************
 
   ------------------------------------------------------------------------------  
@@ -97,7 +97,6 @@ procedure sp_generar_recate1(pd_fpro     in date,
  ------------------------------------------------------------------------------            
 end PQ_CR_RECATEGORIZACION;
 /
-
 create or replace package body PQ_CR_RECATEGORIZACION is
   ------------------------------------------------------------------------------
   function fn_get_cantope(pv_codana in varchar2,
@@ -416,6 +415,8 @@ create or replace package body PQ_CR_RECATEGORIZACION is
   ------------------------------------------------------------------------------  
   procedure sp_nivel_analista(pv_codana   in varchar2,
                               pv_nivelAna out varchar2) is
+  --2025.04.15 dcastro se cambio rating trimestral por rating mensual                              
+  
     my_errm VARCHAR2(32000);
   begin
   
@@ -433,7 +434,8 @@ create or replace package body PQ_CR_RECATEGORIZACION is
       -- Rating Analista  
     pv_nivelAna := ' ';
     BEGIN
-      SELECT substr(a.AQPB883RAT, 3, 11) -- 2023.08.21 dcastro
+      SELECT --substr(a.AQPB883RAT, 3, 11) -- 2023.08.21 dcastro
+        substr(a.AQPB883RAM, 3, 11) -- 2025.04.15 dcastro se cambio por rating mensual
         into pv_nivelAna
         FROM AQPB883 a
        WHERE AQPB883ANA = UPPER(TRIM(pv_codana))
@@ -3473,4 +3475,3 @@ end PQ_CR_RECATEGORIZACION;
     end if;
   end sp_generar_recate;*/
 /
-
