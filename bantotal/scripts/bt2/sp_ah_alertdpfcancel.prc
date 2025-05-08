@@ -32,6 +32,9 @@ create or replace procedure SP_AH_ALERTDPFCANCEL(P_N_PGCOD  IN number,
     -- Fecha de Modificación      : 02/05/2025
     -- Autor de la Modificación   : Yrving Lozada  
     -- Modificación               : Se adicionó notificaciones para operaciones de Ahorros
+    -- Fecha de Modificación      : 07/05/2025
+    -- Autor de la Modificación   : Yrving Lozada  
+    -- Modificación               : Se corrigió variable usuario
     -- *****************************************************************                                                    
                                                  
 CUENTA   CHAR(32);
@@ -45,9 +48,8 @@ lv_motivo  varchar2(100) := '';
 l_crlf     char(2) := Chr(13)||Chr(10);
 NOMBRE     CHAR(30);
 PLAZO      number;
-moneda     char(4):= '';
+moneda     VARCHAR(5):= '';
 tranx      varchar2(40);
-lv_user    char(10):='';
 lc_fecape  char(10);
 lv_coderr  VARCHAR2(4000):='000'; 
 lv_deserr  VARCHAR2(4000):='';
@@ -195,8 +197,8 @@ begin
         END;    
             
         BEGIN
-          Select yy.aqpa134usr
-            into lv_user
+          Select trim(trim(lower(yy.aqpa134usr))||'@cajaarequipa.pe')
+            into CORREO
             from (Select xx.*
                     from (Select x.aqpa134fer,
                                  x.aqpa134pai,
@@ -222,18 +224,15 @@ begin
            where rownum = 1;
         EXCEPTION
         WHEN OTHERS THEN
-          lv_user := null;
+          CORREO := '0';
         END;  
               
-        if lv_user is not null then     
-            usuario1  := lv_user;
-            CORREO    := trim(trim(lower(lv_user))||'@cajaarequipa.pe');
-               
+        if CORREO = '0' then                    
             BEGIN
               SELECT UBNOM 
                 into NOMBRE 
                 FROM FST746 
-               WHERE UBUSER = lv_user;
+               WHERE UBUSER = usuario1;
             EXCEPTION
               WHEN NO_DATA_FOUND THEN
                 NOMBRE := '';     
@@ -262,6 +261,11 @@ begin
         End if;         
       End if;
       
+      if P_N_SCMDA = 0 then
+        moneda := 'S./ ';
+      else
+        moneda :='U$./ ';
+      end if;      
       --
       -- ARMAMOS EL CUERPO DEL MENSAJE PARA EL MAIL
       --   
@@ -347,7 +351,7 @@ begin
            lv_mensaje := lv_mensaje ||'Operacion: '||tranx||l_crlf;
            lv_mensaje := lv_mensaje ||'Fecha '||trim(lc_tipo)||':'||trim(to_char(P_D_FECCAN,'dd/mm/rrrr'))||l_crlf;
            lv_mensaje := lv_mensaje ||'Hora '||trim(lc_tipo)||':'||HORA||l_crlf;
-           lv_mensaje := lv_mensaje ||'Monto '||trim(lc_tipo)||':'||' Mayor a S/ '||trim(to_char(ln_limite,'99,999,990.90'))||l_crlf;
+           lv_mensaje := lv_mensaje ||'Monto '||trim(lc_tipo)||':'||' Mayor a '||MONEDA||trim(to_char(ln_limite,'99,999,990.90'))||l_crlf;
            lv_mensaje := lv_mensaje ||'TEA asignada:'||trim(TO_CHAR(ln_Tasa,'999.90'))||'%'||l_crlf;
            lv_mensaje := lv_mensaje ||'Operador de '||trim(lc_tipo)||':'||OPERADOR||l_crlf;
            lv_mensaje := lv_mensaje ||'Agencia '||trim(lc_tipo)||':'||AGENCIA||l_crlf;
@@ -402,11 +406,7 @@ begin
              End If;                                                                        
                                            
              BEGIN
-                if P_N_SCMDA = 0 then
-                  moneda := 'S./';
-                else
-                  moneda :='U$./';
-                end if;
+
                 
                 --
                 --LOG DE ENVIO DE CORREO
