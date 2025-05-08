@@ -21,6 +21,7 @@ create or replace package PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2024.04.24 dcastro sp_cr_meses_age, se modifico conteo de meses por calculo diario
   --                              2024.07.11 dcastro sp_cr_inserta_traslados se modificó condición para cancelados y creditos de otra agencia
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
+  --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario y sp_cr_SaldosTraslados
   -- *****************************************************************
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
   procedure sp_cr_inserta_cartera(pd_fecpro in date);
@@ -188,6 +189,7 @@ create or replace package PQ_CR_PRODUCTIVIDAD_NUEVA is
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   Procedure sp_cr_SaldosTraslados(pc_analista IN varchar2,
                                   pd_fecpro   in date,
+                                  pd_feccal   in date,                                  
                                   pn_saltot   out number,
                                   pn_salmor   out number);
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -444,7 +446,6 @@ procedure sp_cr_TipoAnalista(pc_analista IN varchar2,
  
 end PQ_CR_PRODUCTIVIDAD_NUEVA;
 /
-
 create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
   -- *****************************************************************
   -- Nombre                     : PQ_CR_PRODUCTIVIDAD_NUEVA
@@ -472,6 +473,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2024.05.21 dcastro sp_cr_carga_datos_ana, se modificó procedimiento
   --                              2024.09.09 dcastro se agregó excepcion en llamada a dbms_scheduler.set_attribute
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
+  --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -937,6 +939,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     --                              2014.06.04 DCASTRO - Se descomento modulo 33 para carga de jaql964           
     --                              2014.06.25 DCASTRO - se comento jaql965sec para agrupamiento.    
     --                              2018.01.09 DCASTRO - se habilito carga diaria
+    --                              2025.04.30 DCASTRO - se agrego -1 porque considera 1 dias mas en diario
     -- *****************************************************************
   
     cursor creditos(ld_fecpro in date) is
@@ -1071,7 +1074,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
                1, --V_JAQL964RUBR(i),
                i.JAQL964SAC,
                i.JAQL964SAO,
-               i.JAQL964DIA,
+               i.JAQL964DIA - 1,   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
                ld_fecval,
                ld_fecvto,
                i.JAQL964PAI,
@@ -2789,6 +2792,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     -- Autor de la Modificación   :
     -- Descripción de Modificación:
     --                              2023.11.22 dcastro se cambio trim por rpad en variable analista
+        
     -- *****************************************************************
   
     ln_salmor number := 0;
@@ -2798,7 +2802,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     begin
       select /*+parallel(j,2) */
        sum(case
-             when j.JAQL965DATR > 8 --15  2023.03.20 se actualizo saldo mora para dias ATraso >8
+             when j.JAQL965DATR  > 8  ---15  2023.03.20 se actualizo saldo mora para dias ATraso >8
              and j.JAQL965MOD not in (200, 33) then
               j.JAQL965SDMN
              else
@@ -2856,7 +2860,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     begin
       select /*+parallel(j,2) */
        sum(case
-             when j.JAQL965DATR > 8 --15 2023.03.20  se actualizo dias 8
+             when j.JAQL965DATR > 8  --15 2023.03.20  se actualizo dias 8
                and j.JAQL965MOD not in (200, 33) then
               j.JAQL965SDMN
              else
@@ -5490,6 +5494,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     begin
       PQ_CR_PRODUCTIVIDAD_NUEVA.sp_cr_saldostraslados(pc_analista,
                                                      pd_fecpro,
+                                                     pd_fechoy,
                                                      ln_saltoT,
                                                      ln_salmorT);
     end;
@@ -6928,6 +6933,7 @@ select HCTA,
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
   Procedure sp_cr_SaldosTraslados(pc_analista IN varchar2,
                                   pd_fecpro   in date,
+                                  pd_feccal   in date,
                                   pn_saltot   out number,
                                   pn_salmor   out number) is
     -- *****************************************************************
@@ -6961,25 +6967,39 @@ select HCTA,
     ld_fecini := to_date(to_char(ld_fecact, 'yyyymm') || '01', 'yyyymmdd');
   
     ---obtener meses de antiguedad en agencia
-    begin
-      select j.jaql600mant
-        into ln_nummes
-        from jaql600 j
-       where jaql600fpro = ld_fecact
-         and jaql600usu = pc_analista; --lc_analista;
-    exception
-      when no_Data_found then
-        ln_nummes := 0;
-    end;
+    if  pd_feccal = ld_fecact then 
+        begin
+          select j.jaql600mant
+            into ln_nummes
+            from jaql600 j
+           where jaql600fpro = ld_fecact
+             and jaql600usu = pc_analista; --lc_analista; --
+        exception
+          when no_Data_found then
+            ln_nummes := 0;
+        end;
+    else --si no es fin de mes considerar fecha de proceso de productividad pd_feccal
+         begin
+          select j.jaql600mant
+            into ln_nummes
+            from jaql600 j
+           where jaql600fpro = pd_feccal
+             and jaql600usu = pc_analista; --lc_analista; --
+        exception
+          when no_Data_found then
+            ln_nummes := 0;
+        end;          
+    end if;    
     --
     --si es = 1 entonces no considerar OTORGADO
-    if ln_nummes <> 1 then
+    --if ln_nummes <> 1 then
+    if ln_nummes > 1 then  --2025.04.30 dcastro se modifico condicion mayor a 1 en lugar <>1
     
       begin
       
         select sum(jaql965sdmn) total,
                sum(case
-                     when jaql965datr > 8--15 2023.03.20 se actualizo dias atraso 
+                     when jaql965datr  > 8 --15 2023.03.20 se actualizo dias atraso 
                        then
                       jaql965sdmn
                      else
@@ -7042,7 +7062,7 @@ select HCTA,
       
         select sum(jaql965sdmn) total,
                sum(case
-                     when jaql965datr > 8--15  2023.03.20 se actualizo dias atraso
+                     when jaql965datr  > 8--15  2023.03.20 se actualizo dias atraso
                         then
                       jaql965sdmn
                      else
@@ -7849,6 +7869,7 @@ select HCTA,
         begin
           PQ_CR_PRODUCTIVIDAD_NUEVA.sp_cr_saldostraslados(x.jaql600usu,
                                                          ld_fecIni,
+                                                         pd_fecpro, 
                                                          ln_saltoT,
                                                          ln_salmorT);
         end;
@@ -8665,7 +8686,7 @@ select HCTA,
   
     begin
       select sum(case
-                   when k.jaql965datr > 8 --15 2023.03.20 se actualizo dias atraso
+                   when k.jaql965datr  > 8 --15 2023.03.20 se actualizo dias atraso
                      then
                     k.jaql965sdmn
                    else
@@ -14380,4 +14401,3 @@ procedure sp_cr_inserta_desembolsos_SUC(pd_fecpro in date) is
   end sp_cr_Calculo_Mensual_O;  
 end PQ_CR_PRODUCTIVIDAD_NUEVA;
 /
-

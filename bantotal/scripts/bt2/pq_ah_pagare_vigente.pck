@@ -66,7 +66,6 @@ function Fecha_judicial(pn_emp in number,
 
 END PQ_AH_PAGARE_VIGENTE;
 /
-
 CREATE OR REPLACE PACKAGE BODY PQ_AH_PAGARE_VIGENTE  IS
 -----------------------------------------------------------------------
 -- Fecha Modificación : 09/01/2020
@@ -114,6 +113,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_PAGARE_VIGENTE  IS
 -- Autor              : Silvia Marquez Avendaño
 -- fecha              : 25/01/2023
 -- Modificacion       : SMARQUEZ 22/01/2025 correccion lineas 117
+-- Modificación       : SMARQUEZ 02/05/2025 modificacion credinka y  movil
 --------------------------------------------------------------
 
 Procedure SP_AH_GENERA_UNO (LN_SUCUR    IN NUMBER,
@@ -226,11 +226,11 @@ BEGIN
              LC_USUARIO usuariot,
              'N' flag
         FROM xwf070 c, xwf700 a, fsd011 f, fsh015 g -- sma 22052024
-       where g.pgcod = c.xwfpgcod 
-         and g.hcmod = c.xwftmod 
-         and g.hsucor = c.xwftsuc 
+       where g.pgcod = c.xwfpgcod
+         and g.hcmod = c.xwftmod
+         and g.hsucor = c.xwftsuc
          and g.htran = c.xwfttran
-         and g.hnrel = c.xwfnrel 
+         and g.hnrel = c.xwfnrel
          and g.hfcon = c.xwffcon
          and g.hccorr = 0
          and c.xwfpgcod = 1
@@ -263,8 +263,6 @@ BEGIN
          and f.SCSBOP = a.xwfsubope
          and f.SCTOPE = a.xwftipope
          AND f.Scpap = 0
---pruebas sma 041021
---and f.sccta = 1960046
          and f.scstat in (select tp1nro1
                             from fst198
                            where tp1cod = 1
@@ -272,7 +270,15 @@ BEGIN
                              AND TP1CORR1 = 5
                              AND TP1CORR2 = 2)
          AND f.scstat <> 99
-         and f.SCSUC <> c.xwftsuc;
+         and f.SCSUC <> c.xwftsuc
+         ---validacion credinka
+         and not exists(SELECT 1 
+                          FROM AQPB178 A 
+                         WHERE A.AQPB178TFLU = 'D' 
+                           and aqpb178ctacr = a.xwfcuenta	
+                           and aqpb178opecr = a.xwfoperacion
+                           and rownum = 1 )
+         ;
          commit;
 
 
@@ -334,8 +340,6 @@ BEGIN
                           AND tp1cod1 = 10884
                           AND TP1CORR1 = 5
                           AND TP1CORR2 = 2)
-----pruebas sma
---and sccta = 1960046
          AND Scstat <> 99
          and not exists (select 1
                                   from fsd601
@@ -349,9 +353,16 @@ BEGIN
                                    and ppsbop = 0
                                    and pptope = sctope
                                    and d601mo = 489
-                                   and rownum = 1);
-         
-      commit; 
+                                   and rownum = 1)
+          and not exists(SELECT 1 
+                            FROM AQPB178 A 
+                           WHERE A.AQPB178TFLU = 'D' 
+                             and aqpb178ctacr = sccta
+                             and aqpb178opecr = scoper
+                             and rownum = 1 )                           
+         ;
+
+      commit;
 --------------------------sma Lineas remotas 117 ------------------
    insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, v1scsbop, v1sctope, v1scfval, v1scstat,
                             v1scsdo, fecha_contable,fecha_inicial, estado, producto, cliente, moneda ,sucursal, transac, usuariot, flag )
@@ -401,7 +412,7 @@ BEGIN
                and d.pgcod = 1
                and d.hcmod = 117
                and d.hsucor <> LN_SUCUR  ---sma 250121
-               and d.htran = 10              
+               and d.htran = 10
                and f.PGCOD = c.PGCOD
                and f.AOMOD = c.HCMOD
                and f.AOSUC = c.hsucur
@@ -412,9 +423,7 @@ BEGIN
                and f.AOSBOP = c.HSUBOP
                and f.aotope = c.HTOPER
                and f.aomod = 117
-               and f.aostat <> 99      
-               
----pruebas     and f.aocta = 759833 --eliminar           
+               and f.aostat <> 99
                and not exists (  select 1
                                  from jaqz596_tem
                                 where usuariot = LC_USUARIO
@@ -590,7 +599,14 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                               and aooper = f.aooper
                               and aosbop <> 0
                               and aotope = f.aotope
-                              and aostat <> 99);
+                              and aostat <> 99)
+               and not exists(SELECT 1 
+                            FROM AQPB178 A 
+                           WHERE A.AQPB178TFLU = 'D' 
+                             and aqpb178ctacr = f.aocta
+                             and aqpb178opecr = f.aooper
+                             and rownum = 1 ) 
+              ;
            else
             insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, v1scsbop, v1sctope, v1scfval, v1scstat,
                                      v1scsdo, fecha_contable,fecha_inicial, estado, producto, cliente, moneda ,sucursal, transac, usuariot, flag )
@@ -633,11 +649,11 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                    LC_USUARIO usu,
                    'R' flag
               FROM xwf070 c, xwf700 a, fsd010 f, fsh015 g
-             where g.pgcod = c.xwfpgcod 
-               and g.hcmod = c.xwftmod 
-               and g.hsucor = c.xwftsuc 
+             where g.pgcod = c.xwfpgcod
+               and g.hcmod = c.xwftmod
+               and g.hsucor = c.xwftsuc
                and g.htran = c.xwfttran
-               and g.hnrel = c.xwfnrel 
+               and g.hnrel = c.xwfnrel
                and g.hfcon = c.xwffcon
                and g.hccorr = 0
                and c.xwfpgcod = 1
@@ -651,7 +667,7 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                AND f.PGCOD = a.xwfempresa --PGCOD, SCMOD, SCMDA, SCPAP, SCCTA, SCSUC, SCOPER, SCSBOP, SCTOPE
                and f.AOMOD = a.xwfmodulo
                AND f.AOmod = m.tp1nro1
-               and f.AOMDA = a.xwfmoneda          
+               and f.AOMDA = a.xwfmoneda
                and f.AOPAP = a.xwfpapel
                and f.AOCTA = a.xwfcuenta
                and f.AOSUC = a.xwfsucursal
@@ -672,7 +688,28 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                               and aooper = f.aooper
                               and aosbop <> 0
                               and aotope = f.aotope
-                              and aostat <> 99);
+                              and aostat <> 99)
+               and not exists (select 1
+                                  from fsd601
+                                 where pgcod = 1
+                                   and ppmod = f.aomod
+                                   and ppsuc = f.AOSUC
+                                   and ppmda = f.aomda
+                                   and pppap = f.aopap
+                                   and ppcta = f.aocta
+                                   and ppoper = f.aooper
+                                   and ppsbop = 0
+                                   and pptope = f.aotope
+                                   and d601mo = 489
+                                   and rownum = 1)
+               ---validacion credinka
+               and not exists(SELECT 1 
+                                FROM AQPB178 A 
+                               WHERE A.AQPB178TFLU = 'D' 
+                                 and aqpb178ctacr = f.aocta	
+                                 and aqpb178opecr = f.aooper
+                                 and rownum = 1 )
+             ;
         end if;
       end loop;
       commit;
@@ -2004,4 +2041,3 @@ begin
 end Fecha_judicial;
 END PQ_AH_PAGARE_VIGENTE;
 /
-

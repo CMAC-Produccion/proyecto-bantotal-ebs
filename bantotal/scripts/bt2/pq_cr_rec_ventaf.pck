@@ -2,7 +2,10 @@ create or replace package pq_cr_rec_ventaf is
 
   -- Author  : KVALENCIAC
   -- Created : 01/12/2022 
-  -- Purpose : proceso mensual para obtener los sadldos al cierre de cada mes de los crèditos de FOCMA  
+  -- Purpose : proceso mensual para obtener los sadldos al cierre de cada mes de los crèditos de FOCMA 
+    -- Author  : KVALENCIAC
+  -- Fecah Modificación : 02/05/2025 
+  -- Modificación : se adiconó exception
   --------------------------------------------------------------------------------------------
   procedure GeneraHilos( pn_propuesta number,pd_usuario char,pd_fecha date);
   --------------------------------------------------------------------------------------------
@@ -25,7 +28,6 @@ create or replace package pq_cr_rec_ventaf is
                                 P_C_HOSTNA IN VARCHAR2) return number;                                                                                                                                      
 end pq_cr_rec_ventaf;
 /
-
 create or replace package body pq_cr_rec_ventaf is
 procedure GeneraHilos(pn_propuesta number,pd_usuario char,pd_fecha date) is
     lc_variable2   varchar2(1000);
@@ -80,6 +82,9 @@ procedure GeneraHilos(pn_propuesta number,pd_usuario char,pd_fecha date) is
           begin
            -- dbms_scheduler.set_attribute(pi_vc2_nomjob, 'instance_id', 2);--  02/09/2020 kdvc
             dbms_scheduler.set_attribute(pi_vc2_nomjob, 'instance_id', n_inst);--  02/09/2020 kdvc
+          exception  --inicio 02/05/2025 kvalenciac
+                	 when others then 
+                   null;  --fin 02/05/2025 kvalenciac
           end;
        Else         
           dbms_scheduler.create_job(job_name   => pi_vc2_nomjob,
@@ -312,4 +317,3 @@ end sp_saldos;
 -------------------------------------------------------------------------------------------------
 end pq_cr_rec_ventaf;
 /
-
