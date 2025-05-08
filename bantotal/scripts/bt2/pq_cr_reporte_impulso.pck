@@ -18,6 +18,15 @@ create or replace package pq_cr_reporte_impulso is
   --                                02/09/2024 dcastro se agregó procedimiento sp_cr_carga_tablas para optimizar proceso sp_cr_impulsoBT
   --                                13/09/2024 dcastro se modificó procedimiento sp_cr_impulsoBT, sp_cr_carga_tablas
   --                                15/10/2024 dcastro se modificó procedmiento sp_Cr_impulsoBT , se modifico llamada a dias de atraso por fn_get_dias_atraso_IMP
+  
+  -- Fecha de Modificación        : 16/04/2025
+  -- Autor de Modificación        : calarconap
+  -- Descripción de Modificación  : Se agregó columnas(sp_columnas_extras_2025) 
+  --                                •	Tipo prepago
+  --                                •	Flag de amortización
+  --                                •	Fecha de amortización
+  --                                •	TCEA
+  --                                •	TEA  
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                 
   -- Registro de información en plantilla
   procedure sp_insertar_cabecera(pn_pgcod   in number,
@@ -93,10 +102,27 @@ create or replace package pq_cr_reporte_impulso is
                                    ) ;                              
      ------------------------------------------------------------------                                    
      procedure sp_cr_carga_tablas;
+     
+       procedure sp_columnas_extras_2025(
+                                    p_fecha_proceso in date,
+                                    p_xwfempresa in number,
+                                    p_xwfsucursal in number,
+                                    p_xwfmodulo in number,
+                                    p_xwfmoneda in number,
+                                    p_xwfpapel  in number,
+                                    p_xwfcuenta  in number,
+                                    p_xwfoperacion in number,
+                                    p_xwfsubope in number,
+                                    p_xwftipope in number,
+                                    
+                                    po_aqpc366tiprep out varchar2,
+                                    po_aqpc366flgamor out varchar2,
+                                    po_aqpc366fecamor out date,
+                                    po_aqpc366tcea out number,
+                                    po_aqpc366tea2 out number ) ;
 
 end pq_cr_reporte_impulso;
 /
-
 create or replace package body pq_cr_reporte_impulso is
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --          
@@ -1219,7 +1245,13 @@ create or replace package body pq_cr_reporte_impulso is
   aqpc366hvulcpa ,
   aqpc366hvcprve ,
   aqpc366hfuclpr ,
-  aqpc366hcuopc)
+  aqpc366hcuopc,
+  aqpc366htiprep,
+  aqpc366hflgamor,
+  aqpc366hfecamor,
+  aqpc366htcea,
+  aqpc366htea2  
+  )
           select   aqpc366usur   ,
   aqpc366fproc  ,
   aqpc366ncta   ,
@@ -1333,7 +1365,12 @@ create or replace package body pq_cr_reporte_impulso is
   aqpc366vulcpa ,
   aqpc366vcprve ,
   aqpc366fuclpr ,
-  aqpc366cuopc
+  aqpc366cuopc,
+  aqpc366tiprep,
+  aqpc366flgamor,
+  aqpc366fecamor,
+  aqpc366tcea,
+  aqpc366tea2  
  from aqpc366
 where aqpc366usur = pn_usuario;
 
@@ -2995,7 +3032,7 @@ procedure sp_cr_impulsoBT(pd_fecpro  in date,
                                   : 11/07/2024 DCASTRO  Se modificó el calculo de numero de cuotas de capital pagadas pq_cr_reporte_utilitarios.fn_get_cuota_pagoT (T38)
                                   : 15/10/2024 DCASTRO  Se modifico llamada a dias de atraso por fn_get_dias_atraso_IMP                                  
 * *************************************************************************************************************/
-   
+     
 cursor listado is
 select /*+all_rows*/ *                
     from aqpc366b t3 , fsd010 t1                    
@@ -3006,11 +3043,14 @@ select /*+all_rows*/ *
     and t1.aopap = 0
     and t1.aocta = t3.aqpc366bcta
     and t1.aooper = t3.aqpc366bope      
-/*    and t1.aocta = 3956568	
-    and t1.aooper = 15821555*/
-    and t1.aostat <>99
-    and t1.aofval <= pd_fecpro  ;                     
-        
+    --and t1.aocta = 3274640	
+    --and t1.aooper = 15926062
+    and t1.aostat <> 99
+    and t1.aofval <= pd_fecpro  
+    --and t3.aqpc366bcta = 4240549
+    --and t3.aqpc366bope = 19214691
+;
+     
 cursor listadoCA is
 select /*+all_rows*/ *                
     from aqpc366b t3 , fsd010 t1                    
@@ -3052,425 +3092,8 @@ select /*+all_rows*/ *
                              from fst111
                             where dscod = 50
                               and modulo not in (29, 120, 144)));
-
                      
- /*       and  t1.aofe99 =
-       (select max(h.aofe99)
-          from fsd010 h
-         where h.pgcod = t1.pgcod
-           --and h.aomod = t1.aomod
-              --and h.aosuc = t.aosuc -- jrodriguej 28.06.2021
-           and h.aosuc in (select sucurs from fst001 x where x.sucurs < 800) ---2024.09.14 dcastro se agrego sucursal
-           and h.aomda = t1.aomda
-           and h.aopap = t1.aopap
-           and h.aocta = t1.aocta
-           and h.aooper = t1.aooper
-              --and r.scsbop = t.aosbop
-              --and h.aotope = t.aotope
-           --and h.aofe99 <= pd_fecpro  
-              --and h.aomod <> 419
-           and h.aomod in (select modulo
-                             from fst111
-                            where dscod = 50
-                              and modulo not in (29, 120, 144)));*/      	  
-
-
-/*
-cursor creditos(lc_fmant in date) is
-select --rpad(trim(pn_usuario), 10, ' ') USUARIO, --usuario                                                                                                                   --1                                                                                                                                                                                 
-         --           pd_fecpro, --fecha proceso                                                                                                                                    --2
-                    t1.aocta, --cuenta                                                                                                                                            --3
-                    t1.aooper, --operacion                                                                                                                                        --4
-                    '20100209641' RUC,  --RUC caja                                                                                                                                    --5
-                    t3.aqpc366bncer, --numero certificado                                                                                                                         --6
-                    t3.aqpc366bnsol, --cod solicitud cofide                                                                                                                       --7
-                    t3.aqpc366bcodgar, --cod garantia                                                                                                                             --8
-                    t3.aqpc366bcodcob, --cod cobertura                                                                                                                            --9
-                    t3.aqpc366bcodsub, --cod subasta                                                                                                                              --10
-                    t3.aqpc366bidcof, --id cof                                                                                                                                    --11
-                    t3.aqpc366borifon, --orign fondos                                                                                                                             --12
-                    concat(lpad(to_char(t1.aocta), 9, '0'),concat(lpad(to_char(t1.aomda), 3, '0'),lpad(to_char(t1.aooper), 9, '0'))) PRESTAMO,-- --numero prestamo                         --13
-                    t1.aofval, --fecha desembolso                                                                                                                                 --14
-                    t36.v_finior, --fecha primera cuota                                                                                                                           --15
-                    t1.aofvto, --fecha fin credito, --fecha fin credito                                                                                                           --16
-                    t3.aqpc366bfinc,--fecha inicio cofide                                                                                                                         --17
-                    t3.aqpc366bffnc,-- fecha fin cofide                                                                                                                           --18
-                    t3.aqpc366btdest, --tipo destino                                                                                                                              --19
-                    case when t1.aomda = 0 then 'SOLES' else 'DOLARES' end MONEDA, --moneda desc                                                                                         --20
-                    t4.v_saldo_actual, --saldo capital                                                                                                                            --21
-                    t5.v_saldo_inso, --saldo insoluto                                                                                                                             --22
-                    t20.v_monto_prepago, --monto prepago                                                                                                                          --23
-                    t21.v_deccaj,--fecha clasificacion caja                                                                                                                       --24
-                    t21.v_califa0, --clasificacion  normal                                                                                                                        --25
-                    t21.v_califa1, --clasificacion  cpp                                                                                                                           --26
-                    t21.v_califa2, --clasificacion  deficiente                                                                                                                    --27
-                    t21.v_califa3, --clasificacion  dudoso                                                                                                                        --28
-                    t21.v_califa4
-                    , --clasificacion  perdida                                                                                                                       --29
-                    case when t1.aostat = 99 and t1.aofe99 <= pd_fecpro and t1.aofe99 != '01/01/0001' then 'CNC' when t1.aostat = 61 then 'RFN' when substr(t37.v_pcre, 1, 4) = '1411' then 'VGT' 
-                         when substr(t37.v_pcre, 1, 4) = '1421' then 'VGT' when substr(t37.v_pcre, 1, 4) = '1414' then 'RFN'                                                      
-                         when substr(t37.v_pcre, 1, 4) = '1424' then 'RFN' when substr(t37.v_pcre, 1, 4) = '1415' then 'VCD'                                                      
-                         when substr(t37.v_pcre, 1, 4) = '1425' then 'VCD' when substr(t37.v_pcre, 1, 4) = '1416' then 'JDC'                                                      
-                         when substr(t37.v_pcre, 1, 4) = '1426' then 'JDC' when substr(t37.v_pcre, 1, 2) = '81' then 'CTG'                                                        
-                         when substr(t37.v_pcre, 1, 4) = '1413' then 'RTR' when substr(t37.v_pcre, 1, 4) = '1423' then 'RTR'  else  '' end CONTABLE,--aqpb763scon, --situacion contable   --30
-                    t18.v_ncre,--aqpb763tpre, -- tipo de prestamo     --31                                                                                                            
-                    t15.v_diatr, --dias de atraso                     --32                                                                                                            
-                    t9.tp1desc, --region                              --33                                                                                                            
-                    t8.regnom, --zona                                 --34                                                                                                            
-                    t6.scnom, --agencia                               --35                                                                                                            
-                    t27.v_ase, --analista                             --36                                                                                                            
-                    t2.petdoc,--t2.petdoc, --tipo docuemnto           --37                                                                                                            
-                    t2.pendoc,--t2.pendoc, -- numero documneto        --38                                                                                                            
-                    trim(substr(t11.pjrazs,0,60)) RAZON, --razon social     --39                                                                                                            
-                    substr(concat(trim(t10.pfnom1), concat(' ', concat(trim(t10.pfnom2), concat(' ',concat(trim(t10.pfape1), concat(' ', t10.pfape2)))))),1,60) NOMCLI , --nombre del cliete --40
-                    t3.aqpc366btamemp, --tamaño empresa               --41                                                                                                                                         
-                    t1.aostat,                                        --42                                                                                                            
-                    t28.cenom,--estado del credito                    --43                                                                                                            
-                    case when t30.v_fcest > nvl(t1.aofe99,to_date('01/01/0001','DD/MM/YYYY')) then                                                                                
-                         (case when t30.v_fcest > nvl(t25.v_fech,to_date('01/01/0001','DD/MM/YYYY')) then t30.v_fcest else t25.v_fech end )                                       
-                         else (case when nvl(t25.v_fech,to_date('01/01/0001','DD/MM/YYYY')) > nvl(t1.aofe99,to_date('01/01/0001','DD/MM/YYYY')) then t25.v_fech else t1.aofe99 end)end FEC_CAMBIO, --fecha de cuando se realizo cambio de estado --44
-                    t3.AQPC366BMONCOF,--2024.04.15 dcastro t1.aoimp,-- monto desembolsado               --45                                                                          
-                    case when t3.aqpc366bperio is null then (case when t1.aoperiod = 0 then 0 else  round(floor(t1.aopzo/t1.aoperiod),2) end + t31.v_pgra/30) else t3.aqpc366bperio end PERIODO_TOT,--periodo total del crdito  --46
-                    case when t3.aqpc366bpgra is null then (t31.v_pgra/30) else t3.aqpc366bpgra end PERIODO_GRACIA, --periodo de gracia del desembolos    --47                                       
-                    case when t3.aqpc366bncuo is null then (case when t1.aoperiod = 0 then 0 else  round(floor(t1.aopzo/t1.aoperiod),2) end) else t3.aqpc366bncuo  end NUMERO_CUO,--numero decuotas del crdito --48
-                    t3.aqpc366bprccof, --% de cobertura                                                                                   --49                                        
-                    round(t5.v_saldo_inso*t3.aqpc366bprccof,2) MONTO_COB, --monto de cobertura (saldo isnoluto*%de cobertura)                       --50                                        
-                    case when t22.aqpb434fecr is null then 'N' else 'S' end HONRADO, --credito honrado(s/n)                                      --51                                        
-                    t22.aqpb434fecr, --fecha de honramiento                                                                               --52                                        
-                    t22.aqpb434mto,--aqpb763mhon, --monto honrado                                                                         --53                                        
-                    t4.v_saldo_actual saldo_Capital_Act, --saldo capital                                                                                    --54                                        
-                    t24.v_saldo_honrado,-- SALDO HONRADO                                                                                  --55                                        -
-                    t4.v_saldo_actual +t24.v_saldo_honrado SALDO_HONRADO, -- SALDO CREDITRO HONRADO = saldo actual +saldo honrado                       --56                                        
-                                                                                                                                                                                  
-                    t15.v_diatr DIA_ATRASO, --dias de atraso                                                                                         --57                                                                                                                
-                    t13.v_ncuopp,--numero de cuota pendientes de pago                                                                     --58                                        
-                    t14.v_fvenuc,--aqpb763fvnui,--fecha de vencimiento de ultima cuota impaga                                             --59                                        
-                    t12.v_fvenu,--aqpb763fvnup,--fecha de vencimiento de ultima cuota pagada                                              --60                                        
-                    t12.v_fpagu,--v_ufpago,--aqpb763fpup, --fecha de pago de ultmo pago                                                   --61                                        
-                    t13.v_ncuopa  aqpb763cuop,--aqpb763cuop, --numero de cuotas pagadas   --2024.07.11                                                              --62                                        
-                    t19.v_tsum,--aqpb763mcuop,--monto de cuotas pagadas     --2024.07.19                                                              --63                                        
-                    t19.v_cuo,--pago realizado - capital                    --2024.07.19                                                               --64                                        
-                    t19.v_icv, --pago realizado - interes compensatorio     --2024.07.19                                                               --65                                        
-                    t19.v_mor, --pago realizado - interese moratorio        --2024.07.19                                                               --66                                        
-                    t19.v_int, --pago realizado - interes                   --2024.07.19                                                               --67                                        
-                    t19.v_pen, --pago realizado - penalidad                 --2024.07.19                                                               --68                                        
-                    t19.v_gas,--pago realizado -seguros                     --2024.07.19                                                               --69                                        
-                    --ld_fecha_rcc,--aqpb763fcsbs,--fecha clasificacion sbs                                                                 --70                                        
-                    t16.v_calif0, --califiacion sbs normal                                                                                --71                                        
-                    t16.v_calif1, --califiacion sbs cpp                                                                                   --72                                        
-                    t16.v_calif2, --califiacion sbs deficiente                                                                            --73                                        
-                    t16.v_calif3, --califiacion sbs dudoso                                                                                --74                                        
-                    t16.v_calif4, --califiacion sbs perdida                                                                               --75                                        
-                    case when nvl(t3.aqpc366btea,0) = 0 then t1.aotasa else t3.aqpc366btea end TEA ,--aqpb763tea,  --tea                      --76                                        
-                    t30.v_tmor,--aqpb763team, --tasa moratoria                                                                            --77                                        
-                    case when t17.v_ciuu4 <> 0 then t17.v_ciuu4 else (case when t17.v_ciuu6 <> 0 then to_number(substr(to_char(t17.v_ciuu6), 1, 4)) else 0 end) end CIUU, -- ciuu    --78  
-                    case when t17.v_ciuu4 <> 0 then  substr(trim(t23.actnom1), 1, 60) else  '' end ACTIVIDAD_ECO, --actividad economica                                                       --79  
-                                                                                                                                                                                  
-                    t18.v_pcre,--aqpb763tcre, --tipo de crdito sbs                                                                        --80                                        
-                                                                                                                                                                                  
-                    substr(t25.v_flag,1,1) FLAG_REPRO,--aqpb763repro,--flag reprogramacion                                                                                                 --81                                        
-                    t25.v_fech,--aqpb763frpro,--fecha reprogramacion                                                                                                            --82  
-                    t25.v_nrep,--aqpb763nrpro,--numero de reprogramaciones                                                                                                      --83  
-                    t25.v_fpri,--aqpb763fprcr,--fecha de primera cuota reprogramacion                                                                                           --84  
-                    t25.v_fult,--aqpb763ffnpr,--fecha fin de credito posterior a reprogramacion                                                                                 --85  
-                    t25.v_ncuo,--aqpb763ncuor,--numero de cuotas posterior a reprogramacion                                                                                     --86  
-                    t25.v_peri,--aqpb763grac, --periodo de gracia posterior a reprogramacion                                                                                    --87  
-                    case when t17.v_ciuu4 <> 0 then t17.v_ciuu4 else (case when t17.v_ciuu6 <> 0 then to_number(substr(to_char(t17.v_ciuu6), 1, 4)) else 0 end) end CIU4, -- ciuu    --88  
-                    case when t17.v_ciuu4 <> 0 then  substr(trim(t23.actnom1), 1, 60) else  '' end ACTIVIDAD4, --actividad economica    --89                                                                     
-                    t1.pgcod, --pgcod                                                                                        --90                                                     
-                    t1.aomod, -- modulo                                                                                      --91                                                     
-                    t1.aosuc, --sucursal                                                                                     --92                                                     
-                    t1.aomda, --moneda                                                                                       --93                                                     
-                    t1.aopap, --papel                                                                                        --94                                                     
-                    t1.aosbop, --suboperacion                                                                                --95                                                     
-                    t1.aotope, --tipo operacion                                                                              --96                                                     
-                                                                                                                                                                                 
-                    to_char(sysdate, 'DD/MM/YYYY') FECHA,                                                                          --97                                                     
-                    to_char(sysdate, 'HH24:MI:SS') HORA,                                                                          --98                                                     
-                                                                                                                                                                                  
-                    t35.v_intcom,--aqpb394intcom,                                                                            --99                                                      
-                    t35.v_intmor,--aqpb394intmor,                                                                            --100                                                     
-                    t35.v_intcov,--aqpb394intcov,                                                                            --101                                                     
-                    t35.v_penali,--aqpb394penali,                                                                            --102                                                     
-                    --0,--aqpc360pen    ,                                                                                    
-                    t3.aqpc366bcertrn,--aqpc360certrn ,                                                                      --103
-                    t3.aqpc366bcobren,--aqpc360cobren                                                                        --104
-                    t33.v_saldo_inso SALDO_INSOLUTO, --saldo insoluto antes de prpago                                                       --105
-                    t19.v_cuo aqpb394prpago,--aqpb394prpago,                                                                               --106
-                    t35.v_pagrea,--aqpb394pagrea,                                                                            --107
-                    t35.v_pramrt,--aqpb394pramrt,                                                                            --108
-                    case when t3.aqpc366bperio is null then t35.v_nrccor else t3.aqpc366bperio end NRCCOR,--aqpb394nrccor,          --109
-                    t35.v_nrccac,--aqpb394nrccac,                                                                            --110                
-                    t35.v_vulcpa,--aqpb394vulcpa,                                                                            --111
-                    t35.v_vcprve,--aqpb394vcprve,                                                                            --112
-                    t35.v_fuclpr,--aqpb394fuclpr,                                                                            --113
- --20240711 numero cuotas pagadas capital                  case when (t13.v_ncuopa-(t31.v_pgra/30))< 0 then 0 else t13.v_ncuopa-(t31.v_pgra/30) end--numero de cuotas pagadas capital
-                    t38.v_ncuopa               ---20240711                                                                   --114                   
-                    from aqpc366b t3                     
-                    inner join fsd010 t1 on t3.aqpc366bcod = t1.pgcod and t3.aqpc366bcta = t1.aocta and t3.aqpc366bope = t1.aooper
---                    left join fsd011 t26 on t26.pgcod = t1.pgcod  and t26.scmda = t1.aomda and t26.scpap = t1.aopap and t26.sccta = t1.aocta and t26.scoper = t1.aooper and t26.scsbop = t1.aosbop and t26.sctope = t1.aotope and t26.scmod = t1.aomod
---                    inner join fsr008 t2 on t2.pgcod = t1.pgcod and t2.ctnro = t1.aocta and t2.cttfir = 'T'
-                    left join table(pq_cr_reporte_utilitarios.fn_get_saldo_actual(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t4 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_saldo_insoluto_imp(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro,5,t1.aostat,t1.aofe99)) t5 on 1=1
-                    left join fst001 t6 on t6.pgcod = t1.pgcod and t6.sucurs = t1.aosuc 
-                    left join fst811 t7 on t7.pgcod = t1.pgcod and t7.oficod = t1.aosuc and t7.regcod < 100 and t7.regcod <> 0
-                    left join fst810 t8 on t8.pgcod = t7.pgcod and t8.regcod = t7.regcod
-                    left join fst198 t9 on t9.tp1cod = 1 and t9.tp1cod1 = 10872 and t9.tp1corr1 = 11 and t9.tp1nro2 = t7.regcod
-                    left join fsd002 t10 on t10.pfpais = t2.pepais and t10.pftdoc = t2.petdoc and t10.pfndoc = t2.pendoc
-                    left join fsd003 t11 on t11.pjpais = t2.pepais and t11.pjtdoc = t2.petdoc and t11.pjndoc = t2.pendoc
-                    left join table(pq_cr_reporte_utilitarios.fn_get_fechas_pago(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t12 on 1=1
-left join table(pq_cr_reporte_utilitarios.fn_get_cuota_pago_IMP(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,t12.v_fpagu )) t13 on 1=1 --20240719 modificado
-left join table(pq_cr_reporte_utilitarios.fn_get_cuota_pagoT(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,t12.v_fpagu )) t38 on 1=1 ---20240719
-                    left join table(pq_cr_reporte_utilitarios.fn_get_fvcuo_impaga(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t14 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_dias_atraso(pd_fecpro,t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,t1.aofvto)) t15 on 1=1     --20240815 modificado        
-left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs_IMP(t2.petdoc,t2.pendoc,pd_fecpro)) t16 on 1=1                   
-                    left join table(pq_cr_reporte_utilitarios.fn_get_acti_eco(t2.pepais,t2.petdoc,t2.pendoc)) t17 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_tipo_credito_sbs_vig(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t18 on 1=1
-left join table(pq_cr_reporte_utilitarios.fn_get_distribuc_pago_IMP(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t19 on 1=1 --20240719 se agrego para impulsa
-                    left join table(pq_cr_reporte_utilitarios.fn_get_mprepago_IMP(t1.pgcod,t1.aomod,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aotope,pd_fecpro)) t20 on 1=1  --20240719 se agrego para impulsa
-                    left join table(pq_cr_reporte_utilitarios.fn_get_calf_caja(t1.aocta,pd_fecpro)) t21 on 1=1                      
-                    left join aqpb434 t22 on t22.aqpb434cod = t1.pgcod and t22.aqpb434cta = t1.aocta and t22.aqpb434ope = t1.aooper and t22.aqpb434est = 'C' 
-                    left join fst750 t23 on t23.actcod1 = t17.v_ciuu6 
-                    left join table(pq_cr_reporte_utilitarios.fn_get_saldo_honrado(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,9300082070000,pd_fecpro)) t24 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_repro_dato1(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t25 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_analista_credito(t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope)) t27 on 1=1
-                    left join fst026 t28 on t28.cecod = t1.aostat
-                    left join table(pq_cr_reporte_utilitarios.fn_get_fcamb_estado(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t30 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_pergracia_imp(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t31 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_mprepago_acum(t1.pgcod,t1.aomod,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aotope,pd_fecpro)) t32 on 1=1 
-                    left join table(pq_cr_reporte_utilitarios.fn_get_saldo_insoluto_imp(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,lc_fmant,5,t1.aostat,t1.aofe99)) t33 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_otros_repfondos_imp(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro,3)) t35 on 1=1 --20240815 modificado
-                    left join table(pq_cr_reporte_utilitarios.fn_get_fec_creorigen2(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope)) t36 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_rubro(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t37 on 1=1
-                    where t1.aomod in(101,102,200,33)
-                    and t1.aostat <>99
-                    and t3.aqpc366best <> 'D'
-                    and t1.aofval <= pd_fecpro   
-                    and t1.aosuc = pn_suc
-              -----  and t1.aoCTA in ( 3913480,1621440)  and t1.aooper in (16364712,15843595)
- UNION all
- select --rpad(trim(pn_usuario), 10, ' ') USUARIO, --usuario                                                                                                                   --1                                                                                                                                                                                 
-         --           pd_fecpro, --fecha proceso                                                                                                                                    --2
-                    t1.aocta, --cuenta                                                                                                                                            --3
-                    t1.aooper, --operacion                                                                                                                                        --4
-                    '20100209641' RUC,  --RUC caja                                                                                                                                    --5
-                    t3.aqpc366bncer, --numero certificado                                                                                                                         --6
-                    t3.aqpc366bnsol, --cod solicitud cofide                                                                                                                       --7
-                    t3.aqpc366bcodgar, --cod garantia                                                                                                                             --8
-                    t3.aqpc366bcodcob, --cod cobertura                                                                                                                            --9
-                    t3.aqpc366bcodsub, --cod subasta                                                                                                                              --10
-                    t3.aqpc366bidcof, --id cof                                                                                                                                    --11
-                    t3.aqpc366borifon, --orign fondos                                                                                                                             --12
-                    concat(lpad(to_char(t1.aocta), 9, '0'),concat(lpad(to_char(t1.aomda), 3, '0'),lpad(to_char(t1.aooper), 9, '0'))) PRESTAMO,-- --numero prestamo                         --13
-                    t1.aofval, --fecha desembolso                                                                                                                                 --14
-                    t36.v_finior, --fecha primera cuota                                                                                                                           --15
-                    t1.aofvto, --fecha fin credito, --fecha fin credito                                                                                                           --16
-                    t3.aqpc366bfinc,--fecha inicio cofide                                                                                                                         --17
-                    t3.aqpc366bffnc,-- fecha fin cofide                                                                                                                           --18
-                    t3.aqpc366btdest, --tipo destino                                                                                                                              --19
-                    case when t1.aomda = 0 then 'SOLES' else 'DOLARES' end MONEDA, --moneda desc                                                                                         --20
-                    t4.v_saldo_actual, --saldo capital                                                                                                                            --21
-                    t5.v_saldo_inso, --saldo insoluto                                                                                                                             --22
-                    t20.v_monto_prepago, --monto prepago                                                                                                                          --23
-                    t21.v_deccaj,--fecha clasificacion caja                                                                                                                       --24
-                    t21.v_califa0, --clasificacion  normal                                                                                                                        --25
-                    t21.v_califa1, --clasificacion  cpp                                                                                                                           --26
-                    t21.v_califa2, --clasificacion  deficiente                                                                                                                    --27
-                    t21.v_califa3, --clasificacion  dudoso                                                                                                                        --28
-                    t21.v_califa4
-                    , --clasificacion  perdida                                                                                                                       --29
-                    case when t1.aostat = 99 and t1.aofe99 <= pd_fecpro and t1.aofe99 != '01/01/0001' then 'CNC' when t1.aostat = 61 then 'RFN' when substr(t37.v_pcre, 1, 4) = '1411' then 'VGT' 
-                         when substr(t37.v_pcre, 1, 4) = '1421' then 'VGT' when substr(t37.v_pcre, 1, 4) = '1414' then 'RFN'                                                      
-                         when substr(t37.v_pcre, 1, 4) = '1424' then 'RFN' when substr(t37.v_pcre, 1, 4) = '1415' then 'VCD'                                                      
-                         when substr(t37.v_pcre, 1, 4) = '1425' then 'VCD' when substr(t37.v_pcre, 1, 4) = '1416' then 'JDC'                                                      
-                         when substr(t37.v_pcre, 1, 4) = '1426' then 'JDC' when substr(t37.v_pcre, 1, 2) = '81' then 'CTG'                                                        
-                         when substr(t37.v_pcre, 1, 4) = '1413' then 'RTR' when substr(t37.v_pcre, 1, 4) = '1423' then 'RTR'  else  '' end CONTABLE,--aqpb763scon, --situacion contable   --30
-                    t18.v_ncre,--aqpb763tpre, -- tipo de prestamo     --31                                                                                                            
-                    t15.v_diatr, --dias de atraso                     --32                                                                                                            
-                    t9.tp1desc, --region                              --33                                                                                                            
-                    t8.regnom, --zona                                 --34                                                                                                            
-                    t6.scnom, --agencia                               --35                                                                                                            
-                    t27.v_ase, --analista                             --36                                                                                                            
-                    t2.petdoc,--t2.petdoc, --tipo docuemnto           --37                                                                                                            
-                    t2.pendoc,--t2.pendoc, -- numero documneto        --38                                                                                                            
-                    trim(substr(t11.pjrazs,0,60)) RAZON, --razon social     --39                                                                                                            
-                    substr(concat(trim(t10.pfnom1), concat(' ', concat(trim(t10.pfnom2), concat(' ',concat(trim(t10.pfape1), concat(' ', t10.pfape2)))))),1,60) NOMCLI , --nombre del cliete --40
-                    t3.aqpc366btamemp, --tamaño empresa               --41                                                                                                                                         
-                    t1.aostat,                                        --42                                                                                                            
-                    t28.cenom,--estado del credito                    --43                                                                                                            
-                    case when t30.v_fcest > nvl(t1.aofe99,to_date('01/01/0001','DD/MM/YYYY')) then                                                                                
-                         (case when t30.v_fcest > nvl(t25.v_fech,to_date('01/01/0001','DD/MM/YYYY')) then t30.v_fcest else t25.v_fech end )                                       
-                         else (case when nvl(t25.v_fech,to_date('01/01/0001','DD/MM/YYYY')) > nvl(t1.aofe99,to_date('01/01/0001','DD/MM/YYYY')) then t25.v_fech else t1.aofe99 end)end FEC_CAMBIO, --fecha de cuando se realizo cambio de estado --44
-                    t3.AQPC366BMONCOF,--2024.04.15 dcastro t1.aoimp,-- monto desembolsado               --45                                                                          
-                    case when t3.aqpc366bperio is null then (case when t1.aoperiod = 0 then 0 else  round(floor(t1.aopzo/t1.aoperiod),2) end + t31.v_pgra/30) else t3.aqpc366bperio end PERIODO_TOT,--periodo total del crdito  --46
-                    case when t3.aqpc366bpgra is null then (t31.v_pgra/30) else t3.aqpc366bpgra end PERIODO_GRACIA, --periodo de gracia del desembolos    --47                                       
-                    case when t3.aqpc366bncuo is null then (case when t1.aoperiod = 0 then 0 else  round(floor(t1.aopzo/t1.aoperiod),2) end) else t3.aqpc366bncuo  end NUMERO_CUO,--numero decuotas del crdito --48
-                    t3.aqpc366bprccof, --% de cobertura                                                                                   --49                                        
-                    round(t5.v_saldo_inso*t3.aqpc366bprccof,2) MONTO_COB, --monto de cobertura (saldo isnoluto*%de cobertura)                       --50                                        
-                    case when t22.aqpb434fecr is null then 'N' else 'S' end HONRADO, --credito honrado(s/n)                                      --51                                        
-                    t22.aqpb434fecr, --fecha de honramiento                                                                               --52                                        
-                    t22.aqpb434mto,--aqpb763mhon, --monto honrado                                                                         --53                                        
-                    t4.v_saldo_actual saldo_Capital_Act, --saldo capital                                                                                    --54                                        
-                    t24.v_saldo_honrado,-- SALDO HONRADO                                                                                  --55                                        -
-                    t4.v_saldo_actual +t24.v_saldo_honrado SALDO_HONRADO, -- SALDO CREDITRO HONRADO = saldo actual +saldo honrado                       --56                                        
-                                                                                                                                                                                  
-                    t15.v_diatr DIA_ATRASO, --dias de atraso                                                                                         --57                                                                                                                
-                    t13.v_ncuopp,--numero de cuota pendientes de pago                                                                     --58                                        
-                    t14.v_fvenuc,--aqpb763fvnui,--fecha de vencimiento de ultima cuota impaga                                             --59                                        
-                    t12.v_fvenu,--aqpb763fvnup,--fecha de vencimiento de ultima cuota pagada                                              --60                                        
-                    t12.v_fpagu,--v_ufpago,--aqpb763fpup, --fecha de pago de ultmo pago                                                   --61                                        
-                    t13.v_ncuopa  aqpb763cuop,--aqpb763cuop, --numero de cuotas pagadas   --2024.07.11                                                              --62                                        
-                    t19.v_tsum,--aqpb763mcuop,--monto de cuotas pagadas     --2024.07.19                                                              --63                                        
-                    t19.v_cuo,--pago realizado - capital                    --2024.07.19                                                               --64                                        
-                    t19.v_icv, --pago realizado - interes compensatorio     --2024.07.19                                                               --65                                        
-                    t19.v_mor, --pago realizado - interese moratorio        --2024.07.19                                                               --66                                        
-                    t19.v_int, --pago realizado - interes                   --2024.07.19                                                               --67                                        
-                    t19.v_pen, --pago realizado - penalidad                 --2024.07.19                                                               --68                                        
-                    t19.v_gas,--pago realizado -seguros                     --2024.07.19                                                               --69                                        
-                    --ld_fecha_rcc,--aqpb763fcsbs,--fecha clasificacion sbs                                                                 --70                                        
-                    t16.v_calif0, --califiacion sbs normal                                                                                --71                                        
-                    t16.v_calif1, --califiacion sbs cpp                                                                                   --72                                        
-                    t16.v_calif2, --califiacion sbs deficiente                                                                            --73                                        
-                    t16.v_calif3, --califiacion sbs dudoso                                                                                --74                                        
-                    t16.v_calif4, --califiacion sbs perdida                                                                               --75                                        
-                    case when nvl(t3.aqpc366btea,0) = 0 then t1.aotasa else t3.aqpc366btea end TEA ,--aqpb763tea,  --tea                      --76                                        
-                    t30.v_tmor,--aqpb763team, --tasa moratoria                                                                            --77                                        
-                    case when t17.v_ciuu4 <> 0 then t17.v_ciuu4 else (case when t17.v_ciuu6 <> 0 then to_number(substr(to_char(t17.v_ciuu6), 1, 4)) else 0 end) end CIUU, -- ciuu    --78  
-                    case when t17.v_ciuu4 <> 0 then  substr(trim(t23.actnom1), 1, 60) else  '' end ACTIVIDAD_ECO, --actividad economica                                                       --79  
-                                                                                                                                                                                  
-                    t18.v_pcre,--aqpb763tcre, --tipo de crdito sbs                                                                        --80                                        
-                                                                                                                                                                                  
-                    substr(t25.v_flag,1,1) FLAG_REPRO,--aqpb763repro,--flag reprogramacion                                                                                                 --81                                        
-                    t25.v_fech,--aqpb763frpro,--fecha reprogramacion                                                                                                            --82  
-                    t25.v_nrep,--aqpb763nrpro,--numero de reprogramaciones                                                                                                      --83  
-                    t25.v_fpri,--aqpb763fprcr,--fecha de primera cuota reprogramacion                                                                                           --84  
-                    t25.v_fult,--aqpb763ffnpr,--fecha fin de credito posterior a reprogramacion                                                                                 --85  
-                    t25.v_ncuo,--aqpb763ncuor,--numero de cuotas posterior a reprogramacion                                                                                     --86  
-                    t25.v_peri,--aqpb763grac, --periodo de gracia posterior a reprogramacion                                                                                    --87  
-                    case when t17.v_ciuu4 <> 0 then t17.v_ciuu4 else (case when t17.v_ciuu6 <> 0 then to_number(substr(to_char(t17.v_ciuu6), 1, 4)) else 0 end) end CIU4, -- ciuu    --88  
-                    case when t17.v_ciuu4 <> 0 then  substr(trim(t23.actnom1), 1, 60) else  '' end ACTIVIDAD4, --actividad economica    --89                                                                     
-                    t1.pgcod, --pgcod                                                                                        --90                                                     
-                    t1.aomod, -- modulo                                                                                      --91                                                     
-                    t1.aosuc, --sucursal                                                                                     --92                                                     
-                    t1.aomda, --moneda                                                                                       --93                                                     
-                    t1.aopap, --papel                                                                                        --94                                                     
-                    t1.aosbop, --suboperacion                                                                                --95                                                     
-                    t1.aotope, --tipo operacion                                                                              --96                                                     
-                                                                                                                                                                                 
-                    to_char(sysdate, 'DD/MM/YYYY') FECHA,                                                                          --97                                                     
-                    to_char(sysdate, 'HH24:MI:SS') HORA,                                                                          --98                                                     
-                                                                                                                                                                                  
-                    t35.v_intcom,--aqpb394intcom,                                                                            --99                                                      
-                    t35.v_intmor,--aqpb394intmor,                                                                            --100                                                     
-                    t35.v_intcov,--aqpb394intcov,                                                                            --101                                                     
-                    t35.v_penali,--aqpb394penali,                                                                            --102                                                     
-                    --0,--aqpc360pen    ,                                                                                    
-                    t3.aqpc366bcertrn,--aqpc360certrn ,                                                                      --103
-                    t3.aqpc366bcobren,--aqpc360cobren                                                                        --104
-                    t33.v_saldo_inso SALDO_INSOLUTO, --saldo insoluto antes de prpago                                                       --105
-                    t19.v_cuo aqpb394prpago,--aqpb394prpago,                                                                               --106
-                    t35.v_pagrea,--aqpb394pagrea,                                                                            --107
-                    t35.v_pramrt,--aqpb394pramrt,                                                                            --108
-                    case when t3.aqpc366bperio is null then t35.v_nrccor else t3.aqpc366bperio end NRCCOR,--aqpb394nrccor,          --109
-                    t35.v_nrccac,--aqpb394nrccac,                                                                            --110                
-                    t35.v_vulcpa,--aqpb394vulcpa,                                                                            --111
-                    t35.v_vcprve,--aqpb394vcprve,                                                                            --112
-                    t35.v_fuclpr,--aqpb394fuclpr,                                                                            --113
- --20240711 numero cuotas pagadas capital                  case when (t13.v_ncuopa-(t31.v_pgra/30))< 0 then 0 else t13.v_ncuopa-(t31.v_pgra/30) end--numero de cuotas pagadas capital
-                    t38.v_ncuopa               ---20240711                                                                   --114                   
-                    --t16.v_csbs, --cod sbs 
-                    
-                    --t32.v_monto_prepago,--prepago total
-                    --case when t1.aofe99 > pd_fecpro then null else t1.aofe99 end, --fecha prepago total
-                    --CASE WHEN pd_fecpro <= t14.v_fvenuc THEN NULL ELSE t14.v_fvenuc END, --fecha de vencimiento pago mora
-                    
-                    from aqpc366b t3  
-                    inner join fsd010 t1 on t3.aqpc366bcod = t1.pgcod and t3.aqpc366bcta = t1.aocta and t3.aqpc366bope = t1.aooper
-                    left join fsd011 t26 on t26.pgcod = t1.pgcod  and t26.scmda = t1.aomda and t26.scpap = t1.aopap and t26.sccta = t1.aocta and t26.scoper = t1.aooper and t26.scsbop = t1.aosbop and t26.sctope = t1.aotope and t26.scmod = t1.aomod
-                    inner join fsr008 t2 on t2.pgcod = t1.pgcod and t2.ctnro = t1.aocta and t2.cttfir = 'T'
-                    left join table(pq_cr_reporte_utilitarios.fn_get_saldo_actual(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t4 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_saldo_insoluto_imp(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro,5,t1.aostat,t1.aofe99)) t5 on 1=1
-                    left join fst001 t6 on t6.pgcod = t1.pgcod and t6.sucurs = t1.aosuc 
-                    left join fst811 t7 on t7.pgcod = t1.pgcod and t7.oficod = t1.aosuc and t7.regcod < 100 and t7.regcod <> 0
-                    left join fst810 t8 on t8.pgcod = t7.pgcod and t8.regcod = t7.regcod
-                    left join fst198 t9 on t9.tp1cod = 1 and t9.tp1cod1 = 10872 and t9.tp1corr1 = 11 and t9.tp1nro2 = t7.regcod
-                    left join fsd002 t10 on t10.pfpais = t2.pepais and t10.pftdoc = t2.petdoc and t10.pfndoc = t2.pendoc
-                    left join fsd003 t11 on t11.pjpais = t2.pepais and t11.pjtdoc = t2.petdoc and t11.pjndoc = t2.pendoc
-                    left join table(pq_cr_reporte_utilitarios.fn_get_fechas_pago(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t12 on 1=1
---                    left join table(pq_cr_reporte_utilitarios.fn_get_cuota_pago(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,t12.v_fvenu)) t13 on 1=1 --20240711 original
-left join table(pq_cr_reporte_utilitarios.fn_get_cuota_pago_IMP(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,t12.v_fpagu)) t13 on 1=1 --20240719 modificado
- left join table(pq_cr_reporte_utilitarios.fn_get_cuota_pagoT(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,t12.v_fpagu )) t38 on 1=1 ---20240719
-                    left join table(pq_cr_reporte_utilitarios.fn_get_fvcuo_impaga(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t14 on 1=1
---                    left join table(pq_cr_reporte_utilitarios.fn_get_dias_atraso(pd_fecpro,t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,t1.aofvto)) t15 on 1=1   --20240816 original
-                    left join table(pq_cr_reporte_utilitarios.fn_get_dias_atraso_imp(pd_fecpro,t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,t1.aofvto)) t15 on 1=1     --20240815 modificado        
---                    left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs(t2.petdoc,t2.pendoc,pd_fecpro)) t16 on 1=1   --original
-left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs_IMP(t2.petdoc,t2.pendoc,pd_fecpro)) t16 on 1=1 -----20240719 modificado
-                    left join table(pq_cr_reporte_utilitarios.fn_get_acti_eco(t2.pepais,t2.petdoc,t2.pendoc)) t17 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_tipo_credito_sbs_vig(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t18 on 1=1
---                    left join table(pq_cr_reporte_utilitarios.fn_get_distribuc_pago(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t19 on 1=1 --se comento para impulsa
-                    left join table(pq_cr_reporte_utilitarios.fn_get_distribuc_pago_IMP(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t19 on 1=1 --20240719 se agrego para impulsa
---                    left join table(pq_cr_reporte_utilitarios.fn_get_mprepago(t1.pgcod,t1.aomod,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aotope,pd_fecpro)) t20 on 1=1 ---20240719 se comento para impulsa
-                    left join table(pq_cr_reporte_utilitarios.fn_get_mprepago_IMP(t1.pgcod,t1.aomod,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aotope,pd_fecpro)) t20 on 1=1  --20240719 se agrego para impulsa
-                    left join table(pq_cr_reporte_utilitarios.fn_get_calf_caja(t1.aocta,pd_fecpro)) t21 on 1=1                      
-                    left join aqpb434 t22 on t22.aqpb434cod = t1.pgcod and t22.aqpb434cta = t1.aocta and t22.aqpb434ope = t1.aooper and t22.aqpb434est = 'C' 
-                    left join fst750 t23 on t23.actcod1 = t17.v_ciuu6 
-                    left join table(pq_cr_reporte_utilitarios.fn_get_saldo_honrado(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,9300082070000,pd_fecpro)) t24 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_repro_dato1(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t25 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_analista_credito(t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope)) t27 on 1=1
-                    left join fst026 t28 on t28.cecod = t1.aostat
-                    left join table(pq_cr_reporte_utilitarios.fn_get_fcamb_estado(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t30 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_pergracia_imp(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t31 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_mprepago_acum(t1.pgcod,t1.aomod,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aotope,pd_fecpro)) t32 on 1=1 
-                    left join table(pq_cr_reporte_utilitarios.fn_get_saldo_insoluto_imp(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,lc_fmant,5,t1.aostat,t1.aofe99)) t33 on 1=1
---                  left join table(pq_cr_reporte_utilitarios.fn_get_otros_repfondos(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro,3)) t35 on 1=1 --20240815 original
-                    left join table(pq_cr_reporte_utilitarios.fn_get_otros_repfondos_imp(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro,3)) t35 on 1=1 --20240815 modificado
-                                        
-                    left join table(pq_cr_reporte_utilitarios.fn_get_fec_creorigen2(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope)) t36 on 1=1
-                    left join table(pq_cr_reporte_utilitarios.fn_get_rubro(t1.pgcod,t1.aomod,t1.aosuc,t1.aomda,t1.aopap,t1.aocta,t1.aooper,t1.aosbop,t1.aotope,pd_fecpro)) t37 on 1=1
-                    where t1.aomod in(101,102,200,33)
-                    --and t1.aotope in (356,357)
-                    and t1.aostat  = 99
-              ------ and t1.aoCTA in ( 3913480,1621440)  and t1.aooper in (16364712,15843595)
-                   and not exists
-                       (select 'x'
-                          from fsd010 l
-                         where l.pgcod = t1.pgcod
-                           and l.aomda = t1.aomda
-                           and l.aopap = t1.aopap
-                           and l.aocta = t1.aocta
-                           and l.aooper = t1.aooper
-                              --and l.aomod <> 419
-                           and l.aomod in (select modulo
-                                             from fst111
-                                            where dscod = 50
-                                              and modulo not in (29, 120, 144))
-                           and l.aostat <> 99)
-                      
-                       and  t1.aofe99 =
-                       (select max(h.aofe99)
-                          from fsd010 h
-                         where h.pgcod = t1.pgcod
-                           --and h.aomod = t1.aomod
-                              --and h.aosuc = t.aosuc -- jrodriguej 28.06.2021
-                           and h.aomda = t1.aomda
-                           and h.aopap = t1.aopap
-                           and h.aocta = t1.aocta
-                           and h.aooper = t1.aooper
-                              --and r.scsbop = t.aosbop
-                              --and h.aotope = t.aotope
-                           --and h.aofe99 <= pd_fecpro  
-                              --and h.aomod <> 419
-                           and h.aomod in (select modulo
-                                             from fst111
-                                            where dscod = 50
-                                              and modulo not in (29, 120, 144)))
-                            and t3.aqpc366best <> 'D'
-                            and t1.aofval <= pd_fecpro   
-                            and t1.aosuc = pn_suc
-                    ----    and t1.aoCTA in ( 3913480,1621440)  and t1.aooper in (16364712,15843595)
-                            ;                     
-                                    
-*/
+ ---COPIAR AQUI
 
   RUC varchar2(12);                            
   ld_fecha_rcc date;
@@ -3568,9 +3191,29 @@ left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs_IMP(t2.petdoc,t2.pend
   TEA number(6,2); 
   FECHA varchar2(10);                                                                          --97                                                     
   HORA char(8);
+  
+  vaqpc366tiprep varchar2(30);
+  vaqpc366flgamor varchar2(30);
+  vaqpc366fecamor date;
+  vaqpc366tcea number(17,2);
+  vaqpc366tea2 number(17,2);
+  
+  --vcantCuotasPagadas number;
+ --vultimaFechaPagoProgramado date;
+ --vCancelacionAdelantado number;
+ --vExisteOtroCredito number; 
  
-  begin
-    
+ vi_cuota_mes_flg char(1);
+vi_validar_pago char(2);
+vi_validar_pago_total char(1);
+vi_estado_cuota_mes char(1);
+vi_fecha_real_pago date;
+vi_fecha_pago_mes date;
+vi_existe_pago number(1);
+--pagos_adelantados number;
+
+begin
+  
    begin      
     select to_date(t.tpnro, 'DDMMYY')
       into ld_fecha_rcc
@@ -3611,11 +3254,56 @@ left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs_IMP(t2.petdoc,t2.pend
 
     --LISTADO VIGENTES    
     for i in listado loop
+      
         MONEDA := case when i.aomda = 0 then 'SOLES' else 'DOLARES' end ; --moneda desc          --20
         TEA    := case when nvl(i.aqpc366btea,0) = 0 then i.aotasa else i.aqpc366btea end;--aqpb763tea,  --tea                      --76 
         PRESTAMO := concat(lpad(to_char(i.aocta), 9, '0'),concat(lpad(to_char(i.aomda), 3, '0'),lpad(to_char(i.aooper), 9, '0'))) ;-- --numero prestamo                         --13
-        
-        
+            
+     --PT: Prepago total, cancelación de la totalidad del crédito.
+     
+     /*
+     --NO REALIZO NINGUN PAGO 
+     begin    
+
+       select count(1)
+         into vcantCuotasPagadas
+         from fsd602 b
+        where b.pgcod = 1
+          and b.ppcta = I.AQPC366BCTA
+          and b.ppoper = I.AQPC366BOPE;
+     
+       if vcantCuotasPagadas = 0 then
+         vaqpc366tiprep := '';
+       end if;
+     
+     EXCEPTION
+       WHEN OTHERS THEN
+         vaqpc366tiprep := 'ERROR NINGUN PAGO';
+     END;
+     */
+      --vaqpc366tiprep := 'gg';
+
+     -----------------------------------------------------------------------------
+                
+   pq_cr_reporte_impulso.sp_columnas_extras_2025(
+                                    p_fecha_proceso => pd_fecpro,
+                                    p_xwfempresa => i.PGCOD,
+                                    p_xwfsucursal => i.AOSUC,
+                                    p_xwfmodulo => i.AOMOD,
+                                    p_xwfmoneda => i.AOMDA,
+                                    p_xwfpapel => i.AOPAP,
+                                    p_xwfcuenta => i.AOCTA,
+                                    p_xwfoperacion => i.AOOPER,
+                                    p_xwfsubope => i.AOSBOP,
+                                    p_xwftipope => i.AOTOPE,                                    
+                                    po_aqpc366tiprep => vaqpc366tiprep,
+                                    po_aqpc366flgamor => vaqpc366flgamor,
+                                    po_aqpc366fecamor => vaqpc366fecamor,
+                                    po_aqpc366tcea => vaqpc366tcea,
+                                    po_aqpc366tea2 => vaqpc366tea2 ); 
+                                                                  
+     -----------------------------------------------------------------------------
+   
         --fsr008
         begin
           select t2.pepais ,
@@ -4163,6 +3851,12 @@ left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs_IMP(t2.petdoc,t2.pend
                                 aqpc366vcprve ,   --112
                                 aqpc366fuclpr ,   --113
                                 aqpc366cuopc      --114
+                                
+                                ,aqpc366tiprep ,   
+                                aqpc366flgamor ,   
+                                aqpc366fecamor ,  
+                                aqpc366tcea ,    
+                                aqpc366tea2                                    
                              )
                     values( 
                       rpad(trim(pn_usuario), 10, ' '), --usuario 
@@ -4278,7 +3972,12 @@ left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs_IMP(t2.petdoc,t2.pend
                       v_vulcpa,--aqpb394vulcpa,                                                                            --111
                       v_vcprve,--aqpb394vcprve,                                                                            --112
                       v_fuclpr,--aqpb394fuclpr,                                                                            --113
-                      v_ncuopa               ---20240711                                                                   --114                   
+                      v_ncuopa               ---20240711   
+                      ,vaqpc366tiprep ,   
+                                vaqpc366flgamor ,   
+                                vaqpc366fecamor ,  
+                                vaqpc366tcea ,    
+                                vaqpc366tea2                                                                   --114                   
                     ); 
                         commit;
        exception when others then null;
@@ -4286,7 +3985,30 @@ left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs_IMP(t2.petdoc,t2.pend
    end loop; --LISTADO VIGENTES
    
    --LISTADO CANCELADOS
-   for i in listadoCA loop
+   for i in listadoCA loop     
+   
+      -----------------------------------------------------------------------------
+                
+   pq_cr_reporte_impulso.sp_columnas_extras_2025(
+                                    p_fecha_proceso => pd_fecpro,
+                                    p_xwfempresa => i.PGCOD,
+                                    p_xwfsucursal => i.AOSUC,
+                                    p_xwfmodulo => i.AOMOD,
+                                    p_xwfmoneda => i.AOMDA,
+                                    p_xwfpapel => i.AOPAP,
+                                    p_xwfcuenta => i.AOCTA,
+                                    p_xwfoperacion => i.AOOPER,
+                                    p_xwfsubope => i.AOSBOP,
+                                    p_xwftipope => i.AOTOPE,                                    
+                                    po_aqpc366tiprep => vaqpc366tiprep,
+                                    po_aqpc366flgamor => vaqpc366flgamor,
+                                    po_aqpc366fecamor => vaqpc366fecamor,
+                                    po_aqpc366tcea => vaqpc366tcea,
+                                    po_aqpc366tea2 => vaqpc366tea2 );
+                                                                  
+     -----------------------------------------------------------------------------
+   
+   
         MONEDA := case when i.aomda = 0 then 'SOLES' else 'DOLARES' end ; --moneda desc          --20
         TEA    := case when nvl(i.aqpc366btea,0) = 0 then i.aotasa else i.aqpc366btea end;--aqpb763tea,  --tea                      --76 
                 PRESTAMO := concat(lpad(to_char(i.aocta), 9, '0'),concat(lpad(to_char(i.aomda), 3, '0'),lpad(to_char(i.aooper), 9, '0'))) ;-- --numero prestamo          
@@ -4835,6 +4557,11 @@ left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs_IMP(t2.petdoc,t2.pend
                                 aqpc366vcprve ,   --112
                                 aqpc366fuclpr ,   --113
                                 aqpc366cuopc      --114
+                                   ,aqpc366tiprep ,   
+                                aqpc366flgamor ,   
+                                aqpc366fecamor ,  
+                                aqpc366tcea ,    
+                                aqpc366tea2  
                              )
                     values( 
                       rpad(trim(pn_usuario), 10, ' '), --usuario 
@@ -4951,6 +4678,11 @@ left join table(pq_cr_reporte_utilitarios.fn_get_calif_sbs_IMP(t2.petdoc,t2.pend
                       v_vcprve,--aqpb394vcprve,                                                                            --112
                       v_fuclpr,--aqpb394fuclpr,                                                                            --113
                       v_ncuopa               ---20240711                                                                   --114                   
+                       ,vaqpc366tiprep ,   
+                                vaqpc366flgamor ,   
+                                vaqpc366fecamor ,  
+                                vaqpc366tcea ,    
+                                vaqpc366tea2  
                     ); 
                         commit;
        exception when others then null;
@@ -5012,9 +4744,9 @@ procedure sp_cr_sch_impulsoBT(pd_fecpro  in date,
   begin
   
   ---carga tablas
-  begin
-    pq_cr_reporte_impulso.sp_cr_carga_tablas;
-  end;
+ -- begin
+ --   pq_cr_reporte_impulso.sp_cr_carga_tablas;
+ -- end;
  
     ---CARGA TABLA FSD602, FSD611
     begin
@@ -5253,7 +4985,265 @@ begin
         end; 
         
 end sp_cr_carga_tablas;
--------------------------------------------------------------------
+
+
+  procedure sp_columnas_extras_2025(
+                                    p_fecha_proceso in date,
+                                    p_xwfempresa in number,
+                                    p_xwfsucursal in number,
+                                    p_xwfmodulo in number,
+                                    p_xwfmoneda in number,
+                                    p_xwfpapel  in number,
+                                    p_xwfcuenta  in number,
+                                    p_xwfoperacion in number,
+                                    p_xwfsubope in number,
+                                    p_xwftipope in number,                                    
+                                    po_aqpc366tiprep out varchar2,
+                                    po_aqpc366flgamor out varchar2,
+                                    po_aqpc366fecamor out date,
+                                    po_aqpc366tcea out number,
+                                    po_aqpc366tea2 out number ) is  
+                                    
+  -- Fecha de Creación            : 16/04/2025
+  -- Autor de Creación            : calarconap
+  -- Descripción                  : Se obtiene tipo reprogramacion, flag y fecha de amortiizacion, tcea y tca
+       
+
+  vCancelacionAdelantado number;
+  vExisteOtroCredito number;    
+  v_prepago_total char(2) := 'NO';
+  vi_fecha_pago_mes date;
+  v_prepago_adelantado number;
+  v_pago_cuota number;
+  v_primer_dia_mes date;
+  v_ultimo_dia_mes date;
+
+    begin
+      
+    po_aqpc366tiprep        := '';   
+
+    begin
+
+      select TRUNC(TO_DATE(p_fecha_proceso, 'DD/MM/RRRR'), 'MM'),
+             LAST_DAY(TO_DATE(p_fecha_proceso, 'DD/MM/RRRR'))
+        into v_primer_dia_mes, v_ultimo_dia_mes
+        from dual;
+
+    exception
+      when others then
+        v_primer_dia_mes  := null;
+        v_ultimo_dia_mes := null;
+    end;    
+        
+    --flag y fecha de amortizacion
+         BEGIN
+         
+           SELECT CASE WHEN COUNT(1) > 0 THEN 'S' ELSE 'N' END, CASE WHEN COUNT(1) > 0 THEN MAX(t.D012FC) ELSE NULL END  
+            INTO po_aqpc366flgamor, po_aqpc366fecamor
+             FROM fsd012 t
+            where t.pgcod = p_xwfempresa --pn_cod
+              and t.aomod = p_xwfmodulo --pn_mod
+                 --and t.aosuc = pn_suc jrodriguej 28.06.2021
+              and t.aomda = p_xwfmoneda--pn_mda
+              and t.aopap = p_xwfpapel --pn_pap
+              and t.aocta = p_xwfcuenta --pn_cta
+              and t.aooper = p_xwfoperacion --pn_ope
+                 --and t.aosbop = pn_sbo
+              and t.aotope = p_xwftipope --pn_top
+              and t.evtipo = 50
+              and t.d012co = 'S'
+             -- and t.d012fc <= I.AQPC366BFEC -- pn_fecha;
+            -- and t.d012fc <= p_fecha_proceso
+            and t.d012fc between v_primer_dia_mes and v_ultimo_dia_mes;
+                    
+         EXCEPTION
+           WHEN OTHERS THEN
+             po_aqpc366flgamor := 'N';
+             po_aqpc366fecamor := '';
+         END;
+         
+    --Tipo prepago
+    begin
+      --Busca si tiene otro credito
+      select count(1)
+        into vExisteOtroCredito
+        from XWF700 a
+       where a.xwfempresa = p_xwfempresa
+         and a.xwfsucursal = p_xwfsucursal
+         and a.xwfmodulo = p_xwfmodulo
+         and a.xwfmoneda = p_xwfmoneda
+         and a.xwfpapel = p_xwfpapel
+         and a.xwfcuenta = p_xwfcuenta
+         and a.xwfoperacion = p_xwfoperacion
+         and a.xwfsubope = p_xwfsubope
+         and a.xwftipope = p_xwftipope
+         and a.XWFCAR3 <> '1';
+    
+      if vExisteOtroCredito = 0 then
+      
+        select nvl(sum(case
+                         when AOFVTO >= AOFE99 and AOSTAT = 99 then
+                          1
+                         else
+                          0
+                       end) + sum(case
+                                    when AOSTAT <> 99 then
+                                     2
+                                    else
+                                     0
+                                  end),
+                   0)
+          into vCancelacionAdelantado
+          from fsd010 x, fst111 s
+         where x.pgcod = 1
+           and x.aomod = s.modulo
+           and dscod = 50
+           and x.aocta = p_xwfcuenta
+           and x.aooper = p_xwfoperacion
+           and x.aomod = p_xwfmodulo
+           and x.aosuc = p_xwfsucursal
+           and x.aomda = p_xwfmoneda
+           and x.aopap = p_xwfpapel
+           and x.aosbop = p_xwfsubope
+           and x.aotope = p_xwftipope;
+      
+        if vCancelacionAdelantado = 1 then
+          v_prepago_total  := 'SI';
+          po_aqpc366tiprep := 'PT';
+        end if;
+      
+      end if;
+    
+      if v_prepago_total = 'NO' then
+      
+        if po_aqpc366flgamor = 'S' THEN
+        
+          po_aqpc366tiprep := 'PP';
+        
+        END IF;
+      
+        begin
+          --primero obtener la fecha de la cuota del mes correspondiente al reporte generado (fin de mes)
+          select ppfpag
+            INTO vi_fecha_pago_mes
+            from fsd601 a
+           where a.pgcod = 1
+             and a.Ppcta = p_xwfcuenta
+             and a.ppoper = p_xwfoperacion
+             and a.ppmod = p_xwfmodulo
+             and a.ppsuc = p_xwfsucursal
+             and a.ppmda = p_xwfmoneda
+             and a.pppap = p_xwfpapel
+             and a.ppsbop = p_xwfsubope
+             and a.pptope = p_xwftipope --PPCAP>0
+                --AND A.PPFPAG <= v_ultimo_dia_mes
+             and ppfpag between v_primer_dia_mes and v_ultimo_dia_mes;
+        EXCEPTION
+          WHEN OTHERS THEN
+            vi_fecha_pago_mes := null;
+--            null;
+        end;
+      
+        begin
+          select count(1)
+            into v_prepago_adelantado
+            from fsd602 d
+           where d.pgcod = 1
+             and d.ppcta = p_xwfcuenta
+             and d.ppoper = p_xwfoperacion
+             and d.ppmod = p_xwfmodulo
+             and d.ppsuc = p_xwfsucursal
+             and d.ppmda = p_xwfmoneda
+             and d.pppap = p_xwfpapel
+             and d.ppsbop = p_xwfsubope
+             and d.pptope = p_xwftipope             
+             and TO_NUMBER(TO_CHAR(D.PPFPAG, 'YYYYMM')) >
+                 TO_NUMBER(TO_CHAR(D.PP1FECH, 'YYYYMM'))
+             and PP1FECH between v_primer_dia_mes and v_ultimo_dia_mes
+             AND D.D602CO = 'S'
+             AND D.PP1STAT = 'T' and d.PP1CAP>0;
+        EXCEPTION
+          WHEN OTHERS THEN
+            v_prepago_adelantado:= '';
+            --null;
+        end;
+      
+        begin
+          select COUNT(1)
+            INTO v_pago_cuota
+            from fsd602 d
+           where d.pgcod = 1
+             and d.ppcta = p_xwfcuenta
+             and d.ppoper = p_xwfoperacion
+             and d.ppmod = p_xwfmodulo
+             and d.ppsuc = p_xwfsucursal
+             and d.ppmda = p_xwfmoneda
+             and d.pppap = p_xwfpapel
+             and d.ppsbop = p_xwfsubope
+             and d.pptope = p_xwftipope    
+             and D.PPFPAG = vi_fecha_pago_mes
+             AND D602CO = 'S'
+             AND D.PP1STAT = 'T'
+             and d.PP1CAP > 0;
+        EXCEPTION
+          WHEN OTHERS THEN
+            v_pago_cuota := 0;
+            null;
+        end;
+      
+        if v_prepago_adelantado > 0 and vi_fecha_pago_mes is not null then
+          po_aqpc366tiprep := 'PA';
+        ELSIF v_pago_cuota > 0 and vi_fecha_pago_mes is not null then
+          po_aqpc366tiprep := 'PC';
+        end if;
+      
+      end if;
+    EXCEPTION
+      WHEN OTHERS THEN
+        --vaqpc366tiprep := 'ERROR TIPO PREPAGO';
+        po_aqpc366tiprep := '.';
+    end;  
+         
+   --TCEA                        
+    begin
+    
+      select b.aqpb161tceawf
+        into po_aqpc366tcea
+        from aqpb161a b
+       where b.aqpb161inst in (select min(x.xwfprcins)
+                                 from xwf700 x
+                                where -- x.xwfempresa = AQPC366HEMP
+                               --and x.xwfsucursal = AQPC366HSUC
+                               --and x.xwfmodulo = AQPC366HMOD
+                               -- and x.xwfmoneda = AQPC366HMNDA
+                               --  and x.xwfpapel = AQPC366HPAPL
+                               --and 
+                                x.xwfcuenta = p_xwfcuenta
+                            and x.xwfoperacion = p_xwfoperacion
+                            and x.xwfsubope = 0 --AQPC366HSBOP
+                               --and x.xwftipope = AQPC366HTOPE
+                            and x.xwfcar3 = '1')
+         and b.aqpb161est = 'H';
+    
+    exception
+      when others then
+        po_aqpc366tcea := 0;
+    end;
+
+    --TEA2         
+         begin
+         
+           select x.XLLTASAP
+             into po_aqpc366tea2
+             from x054023 x
+            where x.xllaocta = p_xwfcuenta
+              and x.xllaooper = p_xwfoperacion;
+         exception
+           when others then
+             po_aqpc366tea2 := 0;
+         end;
+
+      end sp_columnas_extras_2025;
+
 end pq_cr_reporte_impulso;
 /
-
