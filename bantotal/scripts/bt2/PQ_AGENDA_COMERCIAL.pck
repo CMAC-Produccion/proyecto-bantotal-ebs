@@ -19828,6 +19828,9 @@ end sp_repusuaccesos;
     -- Fecha Modificación         : 24/04/2025
     -- Autor de Modificación      : SGAMERO
     -- Descripcion Modificacion   : Se añade filtro de rol
+    -- Fecha Modificación         : 05/05/2025
+    -- Autor de Modificación      : SGAMERO
+    -- Descripcion Modificacion   : Se añade validación de sustento
     -- *****************************************************************                   
                       
     ln_codage  number;
@@ -19857,7 +19860,7 @@ end sp_repusuaccesos;
     
       select act.cnomact, bas.cnomact, eva.cusuing, tip.cdesatr || ' - ' || asi.cnumdoc as cnumdoc,
              eva.cclinom, ubi.cdespro || ' - ' || ubi.cdesdis as cdesdis, cal.cdesatr || ' - ' || to_char(trunc(eva.dfeceva),'DD/MM/YYYY'),
-             act.cnomact || ' ' || asi.cnumdoc as resdni, case when doc.cnumdoc is null then 'N' else doc.cestado end valdoc
+             act.cnomact || ' ' || asi.cnumdoc as resdni, case when doc.cnumdoc is null or DBMS_LOB.getlength(doc.ffile1) = 0 then 'N' else doc.cestado end valdoc
         from acdasig asi
        inner join acdatri tip
           on tip.ncodtab = 6
