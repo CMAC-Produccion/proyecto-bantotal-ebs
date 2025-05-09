@@ -22,6 +22,7 @@ create or replace package PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2024.07.11 dcastro sp_cr_inserta_traslados se modificó condición para cancelados y creditos de otra agencia
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
   --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario y sp_cr_SaldosTraslados
+  --                              2025.05.08 dcastro se modifico sp_cr_inserta_cartera_finmes y sp_cr_inserta_cartera_diario 
   -- *****************************************************************
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
   procedure sp_cr_inserta_cartera(pd_fecpro in date);
@@ -474,6 +475,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2024.09.09 dcastro se agregó excepcion en llamada a dbms_scheduler.set_attribute
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
   --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario
+  --                              2025.05.08 dcastro se modifico sp_cr_inserta_cartera_finmes y sp_cr_inserta_cartera_diario
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -546,9 +548,9 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     -- Uso                        : INSERTA CARTERA FIN DE MES A JAQL965
     -- Estado                     : Activo
     -- Acceso                     : Público
-    -- Fecha de Modificación      : 
-    -- Autor de la Modificación   : 
-    -- Descripción de Modificación: 
+    -- Fecha de Modificación      : 2025.05.08
+    -- Autor de la Modificación   : DCASTRO
+    -- Descripción de Modificación: Se agrego validacion si modulo es 200 e instancia es 0 para obtener instancia
     -- *****************************************************************
   
     TYPE tp_JAQL114FECH IS TABLE OF JAQL114.JAQL114FECH%type INDEX BY PLS_INTEGER;
@@ -609,6 +611,9 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     ln_indins  number := 0;
     ln_saldore number;
     ln_saldove number;
+    
+    ln_instancia number;
+    lc_asesor    char(10);
   
   begin
   
@@ -617,6 +622,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
       from JAQL114
      where JAQL114FECH = pd_fecpro -- CONSIDERAR LA CARTERA POR SUCURSAL
      and JAQL114SUC  = pn_codsuc;
+    
      --and JAQL114MOD not in (108/*, 33*/) and (JAQL114MOD <> 106 Or JAQL114TOP <> 30);
   
     select JAQL114FECH,
@@ -675,6 +681,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
       from JAQL114
      where JAQL114FECH = pd_fecpro
        and JAQL114SUC  = pn_codsuc; -- CONSIDERAR LA CARTERA POR SUCURSAL
+       
     --and JAQL114MOD not in (108/*, 33*/) and (JAQL114MOD <> 106 Or JAQL114TOP <> 30);
   
     --Elimina registros de historico del dia actual
@@ -695,7 +702,81 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
             ln_saldove := 0;
           end if;
         end if;
+
+        --2025.05.08  
+        ln_instancia := V_JAQL114INST(i);
+        lc_asesor := V_JAQL114ASE(i); 
+
+        --si modulo es 200 y no existe instancia
+        if V_JAQL114MOD(i) = 200 and ln_instancia = 0 then
+              begin        
+                    select max(xw2.xwfprcins)
+                      into ln_instancia
+                      From Fsr011 rel  join   xwf700 xw2 on xw2.xwfempresa = rel.r2cod  
+                                                      and xw2.xwfmodulo    = rel.r2mod  
+                                                      and xw2.xwfsucursal  = rel.r2suc  
+                                                      and xw2.xwfmoneda    = rel.r2mda  
+                                                      and xw2.xwfpapel     = rel.r2pap  
+                                                      and xw2.xwfcuenta    = rel.r2cta  
+                                                      and xw2.xwfoperacion = rel.r2oper  
+                                                      and xw2.xwfsubope    = rel.r2sbop  
+                                                      and xw2.xwftipope    = rel.r2tope 
+                                                      and rel.relcod       = 46     
+                                                      and xw2.xwfcar3      = '1'
+                     where rel.r1cod = 1
+                       and rel.r1mod = V_JAQL114MOD(i)
+                       and rel.r1suc = V_JAQL114SUC(i)
+                       and rel.r1mda = V_JAQL114MDA(i)
+                       and rel.r1pap = V_JAQL114PAP(i)
+                       and rel.r1cta = V_JAQL114CTA(i)
+                       and rel.r1oper= V_JAQL114OPER(i)
+                       and rel.r1sbop= V_JAQL114SBOP(i)
+                       and rel.r1tope= V_JAQL114TOP(i);
+                  --2016.08.09        
+                   if nvl(ln_instancia,0) = 0 then 
+                       begin        
+                            select max(xw2.xwfprcins)
+                              into ln_instancia
+                              From Fsr011 rel  join   xwf700 xw2 on xw2.xwfempresa   = rel.r2cod  
+                                                              and xw2.xwfmodulo    = rel.r2mod  
+                                                              and xw2.xwfsucursal  = rel.r2suc  
+                                                              and xw2.xwfmoneda    = rel.r2mda  
+                                                              and xw2.xwfpapel     = rel.r2pap  
+                                                              and xw2.xwfcuenta    = rel.r2cta  
+                                                              and xw2.xwfoperacion = rel.r2oper  
+                                                              and xw2.xwfsubope    = rel.r2sbop  
+                                                              and xw2.xwftipope    = rel.r2tope 
+                                                              and rel.relcod       = 46     
+                             where rel.r1cod = 1
+                               and rel.r1mod = V_JAQL114MOD(i)
+                               and rel.r1suc = V_JAQL114SUC(i)
+                               and rel.r1mda = V_JAQL114MDA(i)
+                               and rel.r1pap = V_JAQL114PAP(i)
+                               and rel.r1cta = V_JAQL114CTA(i)
+                               and rel.r1oper= V_JAQL114OPER(i)
+                               and rel.r1sbop= V_JAQL114SBOP(i)
+                               and rel.r1tope= V_JAQL114TOP(i);
+           
+                      exception when no_Data_found then
+                         ln_instancia := 0;       
+                       end;        
+                     end if;  
+               end; 
+               begin
+                 select s.sng001ase
+                     into lc_asesor
+                     from sng001 s
+                     where s.sng001inst = ln_instancia;
+                exception when others then
+                      lc_asesor := ''; 
+                end;
+                
+                
+
+        end if;
+       --2025.05.08
       
+        
         --IF  V_JAQL114MOD(i)= 33 or ( substr(V_JAQL114TCRD(i),1,11) <> 'CORPORATIVO' ) then  --CONSIDERAR CARTERA DIFERENTE DE CORPORATIVOS
         IF (V_JAQL114MOD(i) = 200 and V_JAQL114SDMN(i) = 0) or
            (V_JAQL114MOD(i) = 33 and V_JAQL114STAT(i) = 99) then
@@ -744,8 +825,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
                V_JAQL114OPER(i),
                V_JAQL114SBOP(i),
                V_JAQL114TOP(i),
-               V_JAQL114INST(i),
-               V_JAQL114ASE(i),
+               ln_instancia,--2025.05.08 V_JAQL114INST(i),
+               lc_asesor,--2025.05.08 V_JAQL114ASE(i),
                V_JAQL114RUBR(i),
                V_JAQL114SDMN(i),
                V_JAQL114SDMO(i),
@@ -940,6 +1021,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     --                              2014.06.25 DCASTRO - se comento jaql965sec para agrupamiento.    
     --                              2018.01.09 DCASTRO - se habilito carga diaria
     --                              2025.04.30 DCASTRO - se agrego -1 porque considera 1 dias mas en diario
+    --                              2025.08.08 DCASTRO -  Se agrego validacion si modulo es 200 e instancia es 0 para obtener instancia
     -- *****************************************************************
   
     cursor creditos(ld_fecpro in date) is
@@ -993,7 +1075,12 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     ld_fecval date;
     ld_fecvto date;
     ld_Fecpro date;
-  
+    
+    ln_instancia number;
+    lc_asesor    char(10); 
+    lc_coderr    varchar2(100);   
+    lc_msgerr    varchar2(1000);  
+
   begin
   
     ld_fecpro := pd_fecpro + 1;
@@ -1029,6 +1116,78 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
               ld_fecval := null;
               ld_fecvto := null;
           end;
+
+        --2025.05.08  
+        ln_instancia := i.JAQL964INS;
+        lc_asesor    := i.JAQL964USU; 
+
+        --si modulo es 200 y no existe instancia
+        if i.JAQL964MOD = 200 and ln_instancia = 0 then
+              begin        
+                    select max(xw2.xwfprcins)
+                      into ln_instancia
+                      From Fsr011 rel  join   xwf700 xw2 on xw2.xwfempresa = rel.r2cod  
+                                                      and xw2.xwfmodulo    = rel.r2mod  
+                                                      and xw2.xwfsucursal  = rel.r2suc  
+                                                      and xw2.xwfmoneda    = rel.r2mda  
+                                                      and xw2.xwfpapel     = rel.r2pap  
+                                                      and xw2.xwfcuenta    = rel.r2cta  
+                                                      and xw2.xwfoperacion = rel.r2oper  
+                                                      and xw2.xwfsubope    = rel.r2sbop  
+                                                      and xw2.xwftipope    = rel.r2tope 
+                                                      and rel.relcod       = 46     
+                                                      and xw2.xwfcar3      = '1'
+                     where rel.r1cod = 1
+                     and rel.r1mod = i.JAQL964MOD
+                     and rel.r1suc = i.JAQL964SUC
+                     and rel.r1mda = i.JAQL964MDA
+                     and rel.r1pap = 0
+                     and rel.r1cta = i.JAQL964CTA
+                     and rel.r1oper= i.JAQL964OPE
+                     and rel.r1sbop= i.JAQL964SOB
+                     and rel.r1tope= i.JAQL964TOP;
+                  --2016.08.09        
+                   if nvl(ln_instancia,0) = 0 then 
+                       begin        
+                            select max(xw2.xwfprcins)
+                              into ln_instancia
+                              From Fsr011 rel  join   xwf700 xw2 on xw2.xwfempresa   = rel.r2cod  
+                                                              and xw2.xwfmodulo    = rel.r2mod  
+                                                              and xw2.xwfsucursal  = rel.r2suc  
+                                                              and xw2.xwfmoneda    = rel.r2mda  
+                                                              and xw2.xwfpapel     = rel.r2pap  
+                                                              and xw2.xwfcuenta    = rel.r2cta  
+                                                              and xw2.xwfoperacion = rel.r2oper  
+                                                              and xw2.xwfsubope    = rel.r2sbop  
+                                                              and xw2.xwftipope    = rel.r2tope 
+                                                              and rel.relcod       = 46     
+                             where rel.r1cod = 1
+                               and rel.r1mod = i.JAQL964MOD
+                               and rel.r1suc = i.JAQL964SUC
+                               and rel.r1mda = i.JAQL964MDA
+                               and rel.r1pap = 0
+                               and rel.r1cta = i.JAQL964CTA
+                               and rel.r1oper= i.JAQL964OPE
+                               and rel.r1sbop= i.JAQL964SOB
+                               and rel.r1tope= i.JAQL964TOP;
+           
+                       exception when no_Data_found then
+                         ln_instancia := 0;       
+                       end;        
+                     end if;  
+               end; 
+               begin
+                 select s.sng001ase
+                     into lc_asesor
+                     from sng001 s
+                     where s.sng001inst = ln_instancia;
+                exception when others then
+                      lc_asesor := ''; 
+                end;
+                
+
+        end if;
+       --2025.05.08        
         
           begin
             --insertar diario
@@ -1069,8 +1228,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
                i.JAQL964OPE,
                i.JAQL964SOB,
                i.JAQL964TOP,
-               i.JAQL964INS,
-               i.JAQL964USU,
+               ln_instancia,  --2025.05.08 dcastro    i.JAQL964INS,
+               lc_asesor,     --2025.05.08 dcastro    i.JAQL964USU,
                1, --V_JAQL964RUBR(i),
                i.JAQL964SAC,
                i.JAQL964SAO,
@@ -1087,7 +1246,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
             commit;
           exception
             when others then
-              null;
+              lc_coderr := sqlcode;
+              lc_msgerr := sqlerrm;
           end;
           ln_indins := ln_indins + 1;
           if ln_indins >= 5000 then
@@ -6992,8 +7152,7 @@ select HCTA,
     end if;    
     --
     --si es = 1 entonces no considerar OTORGADO
-    --if ln_nummes <> 1 then
-    if ln_nummes > 1 then  --2025.04.30 dcastro se modifico condicion mayor a 1 en lugar <>1
+    if ln_nummes <> 1 then
     
       begin
       
@@ -7100,6 +7259,13 @@ select HCTA,
       end;
     
     end if;
+   
+    if pn_saltot < 0 then -- 2025.05.07 dcasro si saldo traslado o saldo mora es negativo el valor se considera como o.
+       pn_saltot := 0;
+    end if;   
+    if pn_salmor < 0 then
+          pn_salmor := 0;       
+    end if;   
   
     pn_saltot := nvl(pn_saltot, 0);
     pn_salmor := nvl(pn_salmor, 0);
