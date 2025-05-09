@@ -35,6 +35,9 @@ create or replace procedure SP_AH_ALERTDPFCANCEL(P_N_PGCOD  IN number,
     -- Fecha de Modificación      : 07/05/2025
     -- Autor de la Modificación   : Yrving Lozada  
     -- Modificación               : Se corrigió variable usuario
+    -- Fecha de Modificación      : 08/05/2025
+    -- Autor de la Modificación   : Yrving Lozada  
+    -- Modificación               : Se agregó validación de usuario    
     -- *****************************************************************                                                    
                                                  
 CUENTA   CHAR(32);
@@ -279,7 +282,7 @@ begin
            lv_mensaje := lv_mensaje ||'Fecha CANCELACION:'||trim(to_char(P_D_FECCAN,'dd/mm/rrrr'))||l_crlf;
            lv_mensaje := lv_mensaje ||'Hora CANCELACION:'||HORA||l_crlf;
            lv_mensaje := lv_mensaje ||'Monto CANCELACION:'||trim(TO_CHAR(P_N_MONTO,'99,999,990.90'))||l_crlf;
-           lv_mensaje := lv_mensaje ||'TEA asignada:'||trim(TO_CHAR(P_N_TASINT,'999.90'))||'%'||l_crlf;
+           lv_mensaje := lv_mensaje ||'TEA asignada:'||trim(TO_CHAR(P_N_TASINT,'990.90'))||'%'||l_crlf;
            lv_mensaje := lv_mensaje ||'Operador de CANCELACION:'||OPERADOR||l_crlf;
            lv_mensaje := lv_mensaje ||'Agencia CANCELACION:'||AGENCIA||l_crlf;
            lv_mensaje := lv_mensaje|| l_crlf;
@@ -313,7 +316,7 @@ begin
            lv_mensaje := lv_mensaje ||'Fecha CANCELACION:'||trim(to_char(P_D_FECCAN,'dd/mm/rrrr'))||l_crlf;
            lv_mensaje := lv_mensaje ||'Hora CANCELACION:'||HORA||l_crlf;
            lv_mensaje := lv_mensaje ||'Monto CANCELACION:'||trim(TO_CHAR(P_N_MONTO,'99,999,990.90'))||l_crlf;
-           lv_mensaje := lv_mensaje ||'TEA asignada:'||trim(TO_CHAR(ln_Tasa,'999.90'))||'%'||l_crlf;
+           lv_mensaje := lv_mensaje ||'TEA asignada:'||trim(TO_CHAR(ln_Tasa,'990.90'))||'%'||l_crlf;
            lv_mensaje := lv_mensaje ||'Operador de CANCELACION:'||OPERADOR||l_crlf;
            lv_mensaje := lv_mensaje ||'Agencia CANCELACION:'||AGENCIA||l_crlf;
            lv_mensaje := lv_mensaje|| l_crlf;
@@ -352,7 +355,7 @@ begin
            lv_mensaje := lv_mensaje ||'Fecha '||trim(lc_tipo)||':'||trim(to_char(P_D_FECCAN,'dd/mm/rrrr'))||l_crlf;
            lv_mensaje := lv_mensaje ||'Hora '||trim(lc_tipo)||':'||HORA||l_crlf;
            lv_mensaje := lv_mensaje ||'Monto '||trim(lc_tipo)||':'||' Mayor a '||MONEDA||trim(to_char(ln_limite,'99,999,990.90'))||l_crlf;
-           lv_mensaje := lv_mensaje ||'TEA asignada:'||trim(TO_CHAR(ln_Tasa,'999.90'))||'%'||l_crlf;
+           lv_mensaje := lv_mensaje ||'TEA asignada:'||trim(TO_CHAR(ln_Tasa,'990.90'))||'%'||l_crlf;
            lv_mensaje := lv_mensaje ||'Operador de '||trim(lc_tipo)||':'||OPERADOR||l_crlf;
            lv_mensaje := lv_mensaje ||'Agencia '||trim(lc_tipo)||':'||AGENCIA||l_crlf;
            lv_mensaje := lv_mensaje|| l_crlf;
@@ -362,7 +365,7 @@ begin
           End If;              
 
            --Correo:= 'ylozada@cajaarequipa.pe';
-           if correo <> '0' then                                         
+           if correo <> '0' and trim(usuario1) is not null then                                         
               pq_ah_planillas.p_sendmailattach(p_destinatariospara => Correo,
                                                p_destinatarioscc   => '',
                                                p_destinatariosbcc  => '',
