@@ -27,6 +27,7 @@ create or replace package pq_cr_control_criesgos is
      -- Fecha de Modificación      : 06/02/2020
      -- Autor de la Modificación   : Cinthya Liz Hernandez Ortega
      -- Descripción de Modificación: Se quitó la comparación con blanco cuando es cts dpf
+     -- Modificacion               : 14/05/2025 SMARQUEZ adicion de proceso para obtener variable MISTI
   * *************************************************************************************************************/
 
   procedure sp_valida_usuario(pv_usua varchar2, pn_rpta out number);
@@ -106,10 +107,15 @@ create or replace package pq_cr_control_criesgos is
                        pv_usua  varchar2,
                        pn_crpt  out varchar2,
                        pn_rpta  out varchar2);
-  function fn_valida_cargo(VE_usuario varchar,ve_sucursal number) return number;                       
+  function fn_valida_cargo(VE_usuario varchar,ve_sucursal number) return number;  
+  procedure SP_variable_MISTI(p_fecha in date,
+                              p_pais in number,
+                              p_tipo in number,
+                              p_ndoc in varchar2,
+                              p_misti out varchar2,
+                              p_usuario out varchar2);
 end pq_cr_control_criesgos;
 /
-
 create or replace package body pq_cr_control_criesgos is
 
   /*--------------------*/
@@ -1726,7 +1732,32 @@ procedure sp_valida_cartera_l(pn_pais   number,
           end if;             
     return 0;
   end;
-  
+  procedure SP_variable_MISTI(p_fecha in date,
+                              p_pais in number,
+                              p_tipo in number,
+                              p_ndoc in varchar2,
+                              p_misti out varchar2,
+                              p_usuario out varchar2) is
+  Documento char(12);                              
+  begin
+    Documento := p_ndoc;
+     select AQPA026TCON, aqpa026anco 
+       into p_misti, p_usuario
+       from aqpa026
+      where AQPA026FECH = P_fecha
+        and AQPA026PAIS = p_pais
+        and AQPA026TDO = p_tipo
+        and AQPA026NDOC = Documento
+        and aqpa026corr  = (select max(aqpa026corr)
+                              from aqpa026
+                              where AQPA026FECH = P_fecha
+                                and AQPA026PAIS = p_pais
+                                and AQPA026TDO = p_tipo
+                                and AQPA026NDOC = Documento);
+  exception
+    when others then
+      p_misti :='00';
+      p_usuario :=null;
+  end SP_variable_MISTI;                            
 end pq_cr_control_criesgos;
 /
-
