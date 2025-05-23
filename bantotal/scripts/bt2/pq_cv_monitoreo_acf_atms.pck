@@ -24,9 +24,9 @@ create or replace package PQ_CV_MONITOREO_ACF_ATMS is
   -- Fecha de Modificación : 18/05/2023
   -- Autor de Creación     : Renzo Cuadros Salazar
   -- Descripción Modific.  : Se ajusta función de índice 012, 041, 042, 043 para envío de tramas espejo
-  -- Fecha de Modificación : 
-  -- Autor de Creación     : 
-  -- Descripción Modific.  : 
+  -- Fecha de Modificación : 21/05/2025 
+  -- Autor de Creación     : Danny Manrique Callata 
+  -- Descripción Modific.  : se añade asignación a la variable  ' '  campo 14 y se añade el cod 420
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --// Entrada Principal 
@@ -158,7 +158,6 @@ create or replace package PQ_CV_MONITOREO_ACF_ATMS is
 
 end PQ_CV_MONITOREO_ACF_ATMS;
 /
-
 create or replace package body PQ_CV_MONITOREO_ACF_ATMS is
   -- ------------------------------------------------------------------------------------------------
   -- Nombre                : PQ_CV_MONITOREO_ACF_ATMS
@@ -188,9 +187,9 @@ create or replace package body PQ_CV_MONITOREO_ACF_ATMS is
   -- Fecha de Modificación : 08/09/2023
   -- Autor de Creación     : Dmanriquec
   -- Descripción Modific.  : Armado de cuenta origen en el indice 053
-  -- Fecha de Modificación : 
-  -- Autor de Creación     : 
-  -- Descripción Modific.  : 
+  -- Fecha de Modificación : 21/05/2025 
+  -- Autor de Creación     : Danny Manrique Callata 
+  -- Descripción Modific.  : se añade asignación a la variable  ' '  campo 14 y se añade el cod 420
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --//
@@ -1547,10 +1546,10 @@ create or replace package body PQ_CV_MONITOREO_ACF_ATMS is
 
   --// R 
   function fn_trama_indice014(pn_numtra in number) return varchar2 is
-    lc_cmp014 varchar2(100);
+    lc_cmp014 varchar2(100) := ' '; --21/05/2025 - dmanriquec se añade asignación a la variable  ' ' 
   begin
     --//
-    select decode(a1.jaql540comsj, 200, 'N', 400, 'S')
+    select decode(a1.jaql540comsj, 200, 'N', 400, 'S', '0420', 'S') --21/05/2025 - dmanriquec se añade codigo 420 en el decode)
       into lc_cmp014
       from jaql540 a1
      where a1.jaql540cotra = pn_numtra;
@@ -3470,7 +3469,7 @@ create or replace package body PQ_CV_MONITOREO_ACF_ATMS is
   end fn_trama_indice091;
 
   --//
-  procedure sp_parsearTrama(pn_codcan in varchar2,
+      procedure sp_parsearTrama(pn_codcan in varchar2,
                             pc_trmpar in varchar2,
                             pc_coderr out varchar2,
                             pc_msgerr out varchar2) is
@@ -3665,4 +3664,3 @@ create or replace package body PQ_CV_MONITOREO_ACF_ATMS is
 --//
 end PQ_CV_MONITOREO_ACF_ATMS;
 /
-
