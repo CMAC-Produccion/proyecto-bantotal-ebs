@@ -18,9 +18,12 @@ create or replace package PQ_CV_MONITOREO_ACF_GK is
   -- Fecha de Modificación : 24/11/2022
   -- Autor de Modificación : Julio Luna Flores
   -- Descripción Modific.  : Envío de saldo de cliente en índice 50
-  -- Fecha de Modificación : 
-  -- Autor de Creación     : 
-  -- Descripción Modific.  : 
+  -- Fecha de Modificación : 29/05/2023
+  -- Autor de Creación     : Danny Manrique Callata
+  -- Descripción Modific.  : Envio de cuenta origen en el indice 53
+  -- Fecha de Modificación : 21/05/2025 
+  -- Autor de Creación     : Danny Manrique Callata 
+  -- Descripción Modific.  : se añade asignación a la variable  ' '  campo 14 y se añade el cod 420
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --// Entrada Principal 
@@ -316,7 +319,6 @@ create or replace package PQ_CV_MONITOREO_ACF_GK is
 
 end PQ_CV_MONITOREO_ACF_GK;
 /
-
 create or replace package body PQ_CV_MONITOREO_ACF_GK is
   -- ------------------------------------------------------------------------------------------------
   -- Nombre                : PQ_CV_MONITOREO_ACF_GK
@@ -340,9 +342,9 @@ create or replace package body PQ_CV_MONITOREO_ACF_GK is
   -- Fecha de Modificación : 29/05/2023
   -- Autor de Creación     : Danny Manrique Callata
   -- Descripción Modific.  : Envio de cuenta origen en el indice 53
-  -- Fecha de Modificación : 
-  -- Autor de Creación     : 
-  -- Descripción Modific.  : 
+  -- Fecha de Modificación : 21/05/2025 
+  -- Autor de Creación     : Danny Manrique Callata 
+  -- Descripción Modific.  : se añade asignación a la variable  ' '  campo 14 y se añade el cod 420
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --//
@@ -1870,10 +1872,10 @@ create or replace package body PQ_CV_MONITOREO_ACF_GK is
   function fn_trama_indice014(pn_numtra in number,
                               pd_fectra in date,
                               pc_hortra in varchar2) return varchar2 is
-    lc_cmp014 varchar2(100);
+    lc_cmp014 varchar2(100):=  ' '; --21/05/2025 - dmanriquec se añade asignación a la variable  ' ' 
   begin
     --//    
-    select decode(a.jaql673comen, '0200', 'N', '0400', 'S')
+    select decode(a.jaql673comen, '0200', 'N', '0400', 'S', '0420', 'S') --21/05/2025 - dmanriquec se añade codigo 420 en el decode
       into lc_cmp014
       from jaql673 a
      where a.jaql673seint = pn_numtra
@@ -3950,4 +3952,3 @@ create or replace package body PQ_CV_MONITOREO_ACF_GK is
 --//
 end PQ_CV_MONITOREO_ACF_GK;
 /
-
