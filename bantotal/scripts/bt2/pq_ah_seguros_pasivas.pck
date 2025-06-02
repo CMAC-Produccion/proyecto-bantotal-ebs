@@ -57,6 +57,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
   -- Nuevo       : SMARQUEZ  18/03/2025 nuevo reporte
   -- Modificacion: SMARQUEZ 03/04/2025 Extraccion de telefono y correo fuera del query para 
   --               recuperar datos
+  -- Modificacion: SMARQUEZ 29/05/2025 Modificacion persona juridica
+  
   ---------------------------------------------------------------
   procedure Carga_SRetiroSeguro(p_fechapro in date) is
     cursor tran is
@@ -234,6 +236,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
     depto3     char(30);
     prov3     char(30);
     dist3      char(30);
+    tipopersona number;
 
   begin
     delete jaqz588;
@@ -291,9 +294,84 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
           when no_data_found then
             verif := 'N';
         end;
+        tipopersona := 0;
+        Begin
+          select petdoc 
+           into tipopersona
+           from fsr008
+            where ctnro = cuenta
+             and cttfir ='T';
+        exception
+          when others then
+            tipopersona := 0;
+        end;
 
         if verif = 'S' then
-          Begin
+          if tipopersona <> 9 then
+              Begin
+                dni1:=null;
+                nombre1 := null;
+                apepat1 :=null;
+                apemat1 :=null;
+                tipodoc1 :=null;
+                fechnac1 :=null;
+                ecivil1 :=null;
+                sexo1 :=null;
+                telefono1 := null;
+                correo1 :=null;
+                direccion1 :=null;
+                depto1 :=null;
+                prov1 :=null;
+                dist1 :=null;
+                select trim(s.pendoc),
+                       trim(d.pfnom1),
+                       trim(d.pfape1),
+                       trim(d.pfape2),
+                       (select TDNOM from FST014   WHERE TDOCUM = s.petdoc),
+                       d.pffnac,
+                       decode(d.pfeciv,'1','C','2','D','3','C','4','S','5','V','6','S'),
+                       d.pfcant,
+                       (select to_number(DOTELFP * 1) from fsr005
+                         where PEPAIS = s.pepais and PETDOC = s.petdoc and  PENDOC =s.pendoc
+                           and DOTELFp  not in ('null')
+                           and length(trim(DOTELFP)) <=10
+                           and rownum = 1),
+                       (select substr(trim(lower(substr(pextxt,1,(instr(pextxt,'\')-1)))),1,30)from fsx001 where pepais = s.pepais and petdoc = s.petdoc and pendoc = s.pendoc and txcod = 0 and pextxt <> 'SI' and pextxt Like '%@%'and rownum = 1),
+                        substr(e.sngc13dir,1,100),
+                       (select depnom from fst068 where pais =604 and depcod =e.sngc13dpto ),-- depto
+                       (select LOCNOM from fst070 where pais =604 and depcod = e.sngc13dpto and LOCCOD=e.sngc13prov ),--prov
+                       (select fst071dsc from fst071 where fst071pai = 604 and fst071dpt = e.sngc13dpto and fst071loc = e.sngc13prov and fst071col = e.sngc13dist )
+                  into dni1,nombre1, apepat1,apemat1,tipodoc1,fechnac1, ecivil1,sexo1, telefono1, correo1, direccion1,depto1,prov1,dist1
+                  from fsr008 s, fsd002 d, sngc13 e
+                 where s.pgcod = 1
+                   and s.ctnro = cuenta
+                   and s.ttcod = 1
+                   and s.cttfir = 'T'
+                   and d.pfpais = s.pepais
+                   and d.pftdoc = s.petdoc
+                   and d.pfndoc = s.pendoc
+                   and e.sngc13pais = d.pfpais
+                   and e.sngc13tdoc = d.pftdoc
+                   and e.sngc13ndoc = d.pfndoc
+                   and e.docod = 1
+                   and e.sngc13est = 'H'
+                   and e.SNGC13CORR = (select max(SNGC13CORR)
+                                       from sngc13
+                                      where sngc13pais = d.pfpais
+                                        and sngc13tdoc = d.pftdoc
+                                        and sngc13ndoc = d.pfndoc
+                                        and docod = 1
+                                        and sngc13est = 'H')
+                   and rownum = 1;
+              Exception
+                when no_data_found then
+                  dni    := ' ';
+                  nombre := ' ';
+                when others then
+                  dbms_output.put_line(cuenta);
+              End;
+          else
+            Begin
             dni1:=null;
             nombre1 := null;
             apepat1 :=null;
@@ -308,11 +386,11 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
             depto1 :=null;
             prov1 :=null;
             dist1 :=null;
-            select trim(s.pendoc),
+            select trim(o.pfndo1),
                    trim(d.pfnom1),
                    trim(d.pfape1),
                    trim(d.pfape2),
-                   (select TDNOM from FST014   WHERE TDOCUM = s.petdoc),
+                   (select TDNOM from FST014   WHERE TDOCUM = o.pftdo1),
                    d.pffnac,
                    decode(d.pfeciv,'1','C','2','D','3','C','4','S','5','V','6','S'),
                    d.pfcant,
@@ -327,14 +405,18 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                    (select LOCNOM from fst070 where pais =604 and depcod = e.sngc13dpto and LOCCOD=e.sngc13prov ),--prov
                    (select fst071dsc from fst071 where fst071pai = 604 and fst071dpt = e.sngc13dpto and fst071loc = e.sngc13prov and fst071col = e.sngc13dist )
               into dni1,nombre1, apepat1,apemat1,tipodoc1,fechnac1, ecivil1,sexo1, telefono1, correo1, direccion1,depto1,prov1,dist1
-              from fsr008 s, fsd002 d, sngc13 e
+              from fsr008 s, fsr003 o,fsd002 d, sngc13 e
              where s.pgcod = 1
                and s.ctnro = cuenta
                and s.ttcod = 1
                and s.cttfir = 'T'
-               and d.pfpais = s.pepais
-               and d.pftdoc = s.petdoc
-               and d.pfndoc = s.pendoc
+               and o.pjpais = s.pepais
+               and o.pjtdoc = s.petdoc
+               and o.pjndoc = s.pendoc
+               and o.vicod = 7
+               and d.pfpais = o.pfpai1
+               and d.pftdoc = o.pftdo1
+               and d.pfndoc = o.pfndo1               
                and e.sngc13pais = d.pfpais
                and e.sngc13tdoc = d.pftdoc
                and e.sngc13ndoc = d.pfndoc
@@ -355,6 +437,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
             when others then
               dbms_output.put_line(cuenta);
           End;
+          end if;
           dni2:=null;
           nombre2 := null;
           apepat2 :=null;

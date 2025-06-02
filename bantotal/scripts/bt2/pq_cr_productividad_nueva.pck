@@ -23,6 +23,7 @@ create or replace package PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
   --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario y sp_cr_SaldosTraslados
   --                              2025.05.08 dcastro se modifico sp_cr_inserta_cartera_finmes y sp_cr_inserta_cartera_diario 
+  --                              2025.05.28 dcastro se modifico sp_cr_inserta_cartera_diario - dias de atraso
   -- *****************************************************************
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
   procedure sp_cr_inserta_cartera(pd_fecpro in date);
@@ -476,6 +477,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
   --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario
   --                              2025.05.08 dcastro se modifico sp_cr_inserta_cartera_finmes y sp_cr_inserta_cartera_diario
+  --                              2025.05.28 dcastro se modifico sp_cr_inserta_cartera_diario - dias de atraso
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -1081,6 +1083,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     lc_coderr    varchar2(100);   
     lc_msgerr    varchar2(1000);  
 
+    ln_dia number; --2025.05.28
+    
   begin
   
     ld_fecpro := pd_fecpro + 1;
@@ -1188,6 +1192,14 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
 
         end if;
        --2025.05.08        
+       
+       --2025.05.28
+       if i.JAQL964DIA > 0 then
+           ln_dia := i.JAQL964DIA - 1;   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
+       else
+           ln_dia := nvl(i.JAQL964DIA,0); --
+       end if;
+       --2025.05.28
         
           begin
             --insertar diario
@@ -1233,7 +1245,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
                1, --V_JAQL964RUBR(i),
                i.JAQL964SAC,
                i.JAQL964SAO,
-               i.JAQL964DIA - 1,   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
+               ln_dia,--2025.05.28 i.JAQL964DIA - 1,   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
                ld_fecval,
                ld_fecvto,
                i.JAQL964PAI,

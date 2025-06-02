@@ -114,6 +114,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_PAGARE_VIGENTE  IS
 -- fecha              : 25/01/2023
 -- Modificacion       : SMARQUEZ 22/01/2025 correccion lineas 117
 -- Modificación       : SMARQUEZ 02/05/2025 modificacion credinka y  movil
+-- Modificacion       : SMARQUEZ 23/05/2025 modificacion Lineas remotas
 --------------------------------------------------------------
 
 Procedure SP_AH_GENERA_UNO (LN_SUCUR    IN NUMBER,
@@ -1058,8 +1059,34 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                                    End if;
                               exception
                                 when no_data_found then
-                                  agencia := reg.v1scsuc;
-                                  observacion := null;
+                                  Begin --SMA 23052025
+                                    select d601su
+                                      into agencia
+                                      from fsd601
+                                     where pgcod = 1
+                                       and ppmod = 116
+                                       and ppsuc = reg.v1scsuc
+                                       and ppmda = reg.v1scmda
+                                       and pppap = reg.v1scpap
+                                       and ppcta = reg.v1sccta
+                                       and ppoper = reg.v1scoper
+                                       and ppsbop = reg.v1scsbop
+                                       and pptope = reg.v1sctope
+                                       and d601mo  = 116
+                                       and d601tr  = 50
+                                       and d601fc  = reg.fecha_inicial
+                                       and d601co = 'S'
+                                       and rownum = 1;
+                                       if agencia <>  reg.v1scsuc then
+                                         observacion :='OTRA AGENCIA';
+                                       else
+                                         observacion := null;
+                                       End if;
+                                  exception
+                                    when no_data_found then
+                                      agencia := reg.v1scsuc;
+                                      observacion := null;
+                                  end;
                               end;
                           end;
                       end;
@@ -1382,8 +1409,34 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                                End if;
                               exception
                                 when no_data_found then
-                                  agencia := reg1.v1scsuc;
-                                  observacion := null;
+                                  begin --SMA 23/058/2025
+                                    select d601su
+                                      into agencia
+                                      from fsd601
+                                     where pgcod = 1
+                                       and ppmod = 116
+                                       and ppsuc = reg1.v1scsuc
+                                       and ppmda = reg1.v1scmda
+                                       and pppap = reg1.v1scpap
+                                       and ppcta = reg1.v1sccta
+                                       and ppoper = reg1.v1scoper
+                                       and ppsbop = reg1.v1scsbop
+                                       and pptope = reg1.v1sctope
+                                       and d601mo  = 116
+                                       and d601tr  = 50
+                                       and d601fc  = reg1.fecha_inicial
+                                       and d601co = 'S'
+                                       and rownum = 1;
+                                       if agencia <>  reg1.v1scsuc then
+                                         observacion :='OTRA AGENCIA';
+                                       else
+                                         observacion := null;
+                                       End if;
+                                  exception
+                                    when no_data_found then     
+                                      agencia := reg1.v1scsuc;
+                                      observacion := null;
+                                  end;
                               end;
                           end;
                           When too_many_rows then

@@ -4,7 +4,7 @@ create or replace package "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
   -- Created : 16/03/2023 10:49:30
   -- Purpose : Creacion de variables para el seguro de dESEMPLEO
   -- Modificacion: SMARQUEZ 02/09/2024 cambio de sucursal de cobro por sucursal de credito
-
+  -- Modificacion: SMARQUEZ 25/03/2025 PRoceso pra el Desembolso Digital /polizas desde APP
   Procedure Sp_seg_desempleo(pn_ins in number,
                              pn_tip out number,
                              pc_tsg out varchar2);
@@ -53,10 +53,19 @@ create or replace package "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
                               pc_flag out varchar2,
                               pc_periodo out varchar2);
 
+  Procedure Sp_DesempleoSeg_APP(pn_instancia in number,
+                                pc_tisegdes  out varchar2,
+                                pc_tisegagri out varchar2,
+                                pn_montosegD out number,
+                                pn_montosegA out number,
+                                pc_tiposegmento out varchar2);
+  Procedure Sp_segmento_desempleo(pn_instancia in number,
+                                 pc_tiposegmento out varchar2);
+
+
 end PQ_CR_RESOLUTOR_SEG_DESEMPLEO;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-
 create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
 
   -- Author  : SMARQUEZ
@@ -77,6 +86,7 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
   -- Modificacion: SMARQUEZ 02/09/2024 cambio de sucursal de cobro por sucursal de credito
   -- Modificacion: SMARQUEZ> 23/12/2024 control duplicados en seg desempleo
   -- Modificacion: SMARQUEZ 24/01/2025 cambio para evitar bloqueos con el truncate table aqpa560
+  -- Modificacion: SMARQUEZ 19/05/2025 PRoceso pra el Desembolso Digital /polizas desde APP
   Procedure Sp_seg_desempleo(pn_ins in number,
                              pn_tip out number,
                              pc_tsg out varchar2)is
@@ -333,12 +343,12 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
    --- execute truncate aqpa560;
    -- Execute immediate ('truncate table aqpa560');-- sma.24/01/2025
    DELETE   aqpa560;
-    /*+ INDEX(AQPA56001_IDX) */ 
+    /*+ INDEX(AQPA56001_IDX) */
     ---FROM aqpa560  WHERE AQPA560COD = pn_tipo and aqpa560a4 = pc_users;
    -- delete aqpa560 where aqpa560a4 = pc_users;
     commit;
-    
-    
+
+
     begin
     select pgfape into fecha from fst017 where pgcod = 1;
     exception
@@ -365,7 +375,7 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
                                 aqpa560a5,
                                 aqpa560age,
                                 aqpa560cfun,
-                                aqpa560dfun ,                               
+                                aqpa560dfun ,
                                 aqpa560a6)--dni
            select pn_tipo,
                   fecha,
@@ -402,8 +412,8 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
                   f5.itsuc, --COD SUC
                  (select sng001ase from sng001 where sng001inst = j6.jaqm66ins),
                  (select ( select WFUSRNAME from WFUSERS WHERE WFUSRCOD = sng001ase )
-                    from sng001 where sng001inst = j6.jaqm66ins), 
-                 (select XWFFEC1 from xwf700 where xwfprcins =  j6.jaqm66ins AND XWFCAR3 ='1')      
+                    from sng001 where sng001inst = j6.jaqm66ins),
+                 (select XWFFEC1 from xwf700 where xwfprcins =  j6.jaqm66ins AND XWFCAR3 ='1')
             from fsd015 f5,
                  fsd016 f6,
                  jaqm66 j6
@@ -913,7 +923,7 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
                          (select sng001ase from sng001 where sng001inst = j6.jaqm66ins),
                          (select ( select WFUSRNAME from WFUSERS WHERE WFUSRCOD = sng001ase )
                             from sng001 where sng001inst = j6.jaqm66ins),
-                         (select XWFFEC1 from xwf700 where xwfprcins =  j6.jaqm66ins AND XWFCAR3 ='1') 
+                         (select XWFFEC1 from xwf700 where xwfprcins =  j6.jaqm66ins AND XWFCAR3 ='1')
               from fsh015 f5,
                    fsh016 f6,
                    jaqm66 j6
@@ -1185,7 +1195,147 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
     when no_Data_found then
         null;
   end PlazoCuoata_meses2;
+  Procedure Sp_DesempleoSeg_APP(pn_instancia in number,
+                                pc_tisegdes  out varchar2,
+                                pc_tisegagri out varchar2,
+                                pn_montosegD out number,
+                                pn_montosegA out number,
+                                pc_tiposegmento out varchar2)is
+  ln_pais number(3);
+  ln_tdoc number(3);
+  lc_ndoc char(12);
+  Begin
+     pc_tisegdes := 'N';
+     pc_tisegagri:= 'N';
+     pn_montosegD := 0;
+     pn_montosegA := 0;
+     pc_tiposegmento :='I';
+     bEGIN
+       select 'S',a.JAQM66IME
+          into pc_tisegdes, pn_montosegD
+          from jaqm65 b , jaqm66 a
+         where b.jaqm65tad = 2
+           and b.jaqm65ins = pn_instancia
+           and a.jaqm66ins = b.jaqm65ins
+           and a.jaqm66est <>'E';
+    exception
+        when no_Data_found then
+          pc_tisegdes := 'N';
+          Begin
+            select 'S', a.JAQM66IME
+              into pc_tisegagri, pn_montosegA
+              from jaqm65 b , jaqm66 a
+             where b.jaqm65tad = 1
+               and b.jaqm65ins = pn_instancia
+               and a.jaqm66ins = b.jaqm65ins
+               and a.jaqm66est <>'E';
+          exception
+            when no_Data_found then
+              pc_tisegagri := 'N';
+          end;
+        when too_many_rows then
+          begin
+            select 'S',a.JAQM66IME
+              into pc_tisegdes, pn_montosegD
+              from jaqm65 b , jaqm66 a
+             where b.jaqm65tad = 2
+               and b.jaqm65ins = pn_instancia
+               and a.jaqm66ins = b.jaqm65ins
+               and a.jaqm66est <>'E'
+               and rownum = 1;
+          exception
+            when no_data_found then
+              null;
+          end;
+      END;
+        ---------------------segmento-----------------------
+         begin
+          select s.sng001pais, s.sng001tdoc, TRIM(s.sng001ndoc)
+            into ln_pais, ln_tdoc, lc_ndoc
+            from sng001 s
+           where s.sng001inst = pn_instancia;
+        exception when others then
+            ln_pais :=0;
+            ln_tdoc :=0;
+            lc_ndoc := null;
+        end;
+
+
+         BEgin
+            select DEcode(sngc60ocup, 1,'D',2,'D',8,'D',9,'D','I')
+              into pc_tiposegmento
+              from  sngc60
+             where sngc60pais = ln_pais
+               and sngc60tdoc = ln_tdoc
+               and sngc60ndoc = lc_ndoc
+               and sngc60corr = 0;
+        exception
+          when others then
+            pc_tiposegmento := 'I';
+        end;
+         /*   if segmento = 'I' then
+              codigocia:= 51;
+            else
+              codigocia :=50;
+           end if;
+                                   */
+  end Sp_DesempleoSeg_APP;
+  Procedure Sp_segmento_desempleo(pn_instancia in number,
+                                  pc_tiposegmento out varchar2)is
+  ln_pais number(3);
+  ln_tdoc number(3);
+  lc_ndoc char(12);
+  existe char(1);
+  Begin
+       ---------------------segmento-----------------------
+       begin
+         select 'S'
+           into existe
+           from jaqm65
+           where jaqm65ins = pn_instancia
+             and JAQM65TAD = 2;
+
+       exception
+         when others then
+           Existe :='N';         
+       end ;
+       if Existe = 'S' then
+           begin
+            select s.sng001pais, s.sng001tdoc, s.sng001ndoc
+              into ln_pais, ln_tdoc, lc_ndoc
+              from sng001 s
+             where s.sng001inst = pn_instancia;
+          exception when others then
+              ln_pais :=0;
+              ln_tdoc :=0;
+              lc_ndoc := null;
+          end;
+
+
+           BEgin
+              select DEcode(sngc60ocup, 1,'D',2,'D',8,'D',9,'D','I')
+                into pc_tiposegmento
+                from  sngc60
+               where sngc60pais = ln_pais
+                 and sngc60tdoc = ln_tdoc
+                 and sngc60ndoc = lc_ndoc
+                 and sngc60corr = 0;
+          exception
+            when others then
+              pc_tiposegmento := 'I';
+          end;      
+     else
+       pc_tiposegmento :='N';
+     end if; 
+         /*   if segmento = 'I' then
+              codigocia:= 51;
+            else
+              codigocia :=50;
+           end if;
+                                   */
+
+  end Sp_segmento_desempleo;
+
 end PQ_CR_RESOLUTOR_SEG_DESEMPLEO;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-

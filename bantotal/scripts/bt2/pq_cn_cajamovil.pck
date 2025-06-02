@@ -24,9 +24,13 @@ create or replace package PQ_CN_CAJAMOVIL is
   -- Fecha de Modificación : 02/02/2025
   -- Autor de Creación     : Frank Pinto Carpio
   -- Descripción Modific.  : Amortizacion de creditos
-  -- Fecha de Modificación : 26/03/2025
+  -- Fecha de Modificación : 05/05/2025
   -- Autor de Creación     : Renzo Cuadros Salazar
-  -- Descripción Modific.  : Se agregaron procedientos para obtener fecha y hora del tipo de cambio
+  -- Descripción Modific.  : Se agregaron procedimientos para obtener fecha y hora del tipo de cambio
+  -- Fecha de Modificación : 21/05/2025
+  -- Autor de Creación     : Frank Pinto Carpio
+  -- Descripción Modific.  : Se corrige variable de directorio de envio de cronograma nuevo tras amortizacion de credito
+
   -- ------------------------------------------------------------------------------------------------
   
   -- Public function and procedure declarations
@@ -133,7 +137,7 @@ Procedure sp_guardar_log_envio(p_fectra date,
                                p_c_coderr         NUMBER,
                                p_c_deserr         VARCHAR2, 
                                p_canal            VARCHAR2);     
-  -- rcuadros 26/03/2025
+  -- rcuadros 05/05/2025
   PROCEDURE sp_cn_obtener_tc(pn_pizarr IN NUMBER,
                              pd_pgfape IN DATE,
                              pn_tccomp OUT NUMBER,
@@ -141,7 +145,7 @@ Procedure sp_guardar_log_envio(p_fectra date,
                              pd_tcfech OUT DATE,
                              pc_tchora OUT VARCHAR2
                             );
-  -- rcuadros 26/03/2025
+  -- rcuadros 05/05/2025
   PROCEDURE sp_cn_calcular_tc(pn_pizarr IN NUMBER,
                               pd_tcfech IN DATE,
                               pc_tchora IN VARCHAR2,
@@ -1142,7 +1146,7 @@ create or replace package body PQ_CN_CAJAMOVIL is
          dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
     WHEN L_AQPA705TIPOPE = 'M' THEN -- Fpinto 02/02/2025 - Amortizacion de creditos
         lv_asunto     := 'ENVIO AUTOMATICO - CONFIRMACION DE AMORTIZACION DE CREDITO - ' || TRIM(lv_canal);
-        lv_directorio := 'DTPUMP_PR_EMAIL';
+        lv_directorio := 'DTPUMP_PR_EMAIL_DIG'; --fpinto 21/05/2025 se corrige variable de directorio.
         lv_contacto   := PQ_CN_CAJAMOVIL.fn_ah_nombre_per(L_AQPA705PDOC, L_AQPA705TDOC, L_AQPA705NDOC);
         dbms_lob.createtemporary(ll_mensaje, TRUE);
         
@@ -1207,7 +1211,7 @@ create or replace package body PQ_CN_CAJAMOVIL is
       end;      
       dbms_lob.freetemporary(ll_mensaje);  
       
-      If  L_AQPA705TIPOPE = 'G' OR L_AQPA705TIPOPE = 'B' OR L_AQPA705TIPOPE = 'I' OR L_AQPA705TIPOPE = 'N' THEN
+      IF L_AQPA705TIPOPE IN ('G', 'B', 'I', 'N') THEN
                 PQ_CN_CAJAMOVIL.sp_guardar_log_envio(p_fectra => L_AQPA705FECTRA,
                                    p_hortra                   => L_AQPA705HORTRA ,
                                    p_nutar                    => L_AQPA705NUTAR,
@@ -2552,7 +2556,7 @@ Procedure sp_guardar_log_envio(p_fectra date,
 
   end sp_guardar_log_envio;
   
-  -- rcuadros 26/03/2025
+  -- rcuadros 05/05/2025
   PROCEDURE sp_cn_obtener_tc(
       pn_pizarr IN NUMBER,
       pd_pgfape IN DATE,
@@ -2579,7 +2583,7 @@ Procedure sp_guardar_log_envio(p_fectra date,
       DBMS_OUTPUT.PUT_LINE('Error en sp_cn_obtener_tc: ' || SQLERRM);
   END sp_cn_obtener_tc;
   
-  -- rcuadros 26/03/2025
+  -- rcuadros 05/05/2025
   PROCEDURE sp_cn_calcular_tc(
       pn_pizarr IN NUMBER,
       pd_tcfech IN DATE,
@@ -2596,6 +2600,7 @@ Procedure sp_guardar_log_envio(p_fectra date,
                WHERE TCCOD = pn_pizarr
                  AND TCMDA = 101
                  AND TCFCH = pd_tcfech
+                 AND TCHOR = pc_tchora
                  AND TCCPA > 0
                  AND TCVTA > 0
               ORDER BY TCFCH DESC, TCHOR DESC, TCIMP DESC)

@@ -26,7 +26,11 @@ create or replace package pq_cr_reporte_impulso is
   --                                •	Flag de amortización
   --                                •	Fecha de amortización
   --                                •	TCEA
-  --                                •	TEA  
+  --                                •  TEA
+
+  -- Fecha de Modificación        : 29/05/2025
+  -- Autor de Modificación        : calarconap
+  -- Descripción de Modificación  : Se agrega regla para pagos de cuotas(PC) de meses anteriores (sp_columnas_extras_2025) 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                 
   -- Registro de información en plantilla
   procedure sp_insertar_cabecera(pn_pgcod   in number,
@@ -5015,6 +5019,7 @@ end sp_cr_carga_tablas;
   vi_fecha_pago_mes date;
   v_prepago_adelantado number;
   v_pago_cuota number;
+  v_pago_cuota_anteriores number; 
   v_primer_dia_mes date;
   v_ultimo_dia_mes date;
 
@@ -5120,7 +5125,7 @@ end sp_cr_carga_tablas;
         
           po_aqpc366tiprep := 'PP';
         
-        END IF;
+        else 
       
         begin
           --primero obtener la fecha de la cuota del mes correspondiente al reporte generado (fin de mes)
@@ -5141,7 +5146,6 @@ end sp_cr_carga_tablas;
         EXCEPTION
           WHEN OTHERS THEN
             vi_fecha_pago_mes := null;
---            null;
         end;
       
         begin
@@ -5164,10 +5168,10 @@ end sp_cr_carga_tablas;
              AND D.PP1STAT = 'T' and d.PP1CAP>0;
         EXCEPTION
           WHEN OTHERS THEN
-            v_prepago_adelantado:= '';
-            --null;
+            v_prepago_adelantado:= 0;
         end;
       
+        --Pago de mes
         begin
           select COUNT(1)
             INTO v_pago_cuota
@@ -5190,14 +5194,41 @@ end sp_cr_carga_tablas;
             v_pago_cuota := 0;
             null;
         end;
+        
+        --Pago cuota de un mes (puede ser mes o meses anteriores)
+        begin
+          select COUNT(1)
+            INTO v_pago_cuota_anteriores
+            from fsd602 d
+           where d.pgcod = 1
+             and d.ppcta = p_xwfcuenta
+             and d.ppoper = p_xwfoperacion
+             and d.ppmod = p_xwfmodulo
+             and d.ppsuc = p_xwfsucursal
+             and d.ppmda = p_xwfmoneda
+             and d.pppap = p_xwfpapel
+             and d.ppsbop = p_xwfsubope
+             and d.pptope = p_xwftipope --and D.PPFPAG = vi_fecha_pago_mes
+             and PP1FECH between v_primer_dia_mes and p_fecha_proceso --v_ultimo_dia_mes
+             AND D602CO = 'S'
+             AND D.PP1STAT = 'T'
+             and d.PP1CAP > 0;
+        EXCEPTION
+          WHEN OTHERS THEN
+            v_pago_cuota_anteriores := 0;
+            null;
+        end; 
       
         if v_prepago_adelantado > 0 and vi_fecha_pago_mes is not null then
           po_aqpc366tiprep := 'PA';
-        ELSIF v_pago_cuota > 0 and vi_fecha_pago_mes is not null then
+        ELSIF (v_pago_cuota > 0 and vi_fecha_pago_mes is not null) or v_pago_cuota_anteriores > 0 then
           po_aqpc366tiprep := 'PC';
         end if;
       
+      END IF;
+      
       end if;
+      
     EXCEPTION
       WHEN OTHERS THEN
         --vaqpc366tiprep := 'ERROR TIPO PREPAGO';

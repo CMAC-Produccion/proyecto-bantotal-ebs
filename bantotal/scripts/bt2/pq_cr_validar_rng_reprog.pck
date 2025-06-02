@@ -12,6 +12,9 @@ create or replace package pq_cr_validar_rng_reprog is
   -- Detalle:      Se agrego controles para habilitar o deshabilitar controles de Reprogramados por desastre natural.
   -- Modificacion: MCORDOVA - 2024.10.23
   -- Detalle:      Se agrega el llamado para validar ratios SP_CR_RATIOS_REPROGRAMADOS
+  -- Modificacion: CALARCONAP - 2025.01.03
+  -- Detalle:      Se modifica validacion de reprogramaciones por normalizacion
+  
   type reglas_excepcion is record(
     v_codigo      number(10),
     v_regla       varchar2(40),
@@ -205,7 +208,6 @@ PROCEDURE SP_VALIDAR_OPINION_RSG(
                                    V_MENSAJE_ERROR    out varchar2);									   
 end pq_cr_validar_rng_reprog;
 /
-
 create or replace package body pq_cr_validar_rng_reprog is
   -- Author  : HSUAREZ
   -- Created : 15/06/2021 22:50:51
@@ -219,7 +221,9 @@ create or replace package body pq_cr_validar_rng_reprog is
   -- Detalle:      Se agrego controles para habilitar o deshabilitar controles de Reprogramados por desastre natural.
   -- Modificacion: MCORDOVA - 2024.10.23
   -- Detalle:      Se agrega el llamado para validar ratios SP_CR_RATIOS_REPROGRAMADOS
-  procedure sp_cr_validarrng91(ve_pgcod     number,
+  -- Modificacion: CALARCONAP - 2025.01.03
+  -- Detalle:      Se modifica validacion de reprogramaciones por normalizacion
+ procedure sp_cr_validarrng91(ve_pgcod     number,
                                ve_scmod     number,
                                ve_scsuc     number,
                                ve_scmda     number,
@@ -663,6 +667,13 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                         VE_MENSAJE);
         END IF;
         IF VI_REGLA = 95 THEN
+          
+         PQ_CR_VALIDAR_RNG_RPSC.SP_VALIDAR_RNG_GENERAL(ve_instancia,
+                                                        VI_NRO,
+                                                        11,
+                                                        VI_USUARIO,
+                                                        VE_MENSAJE); 
+        /*
           IF LENGTH(TRIM(VE_MENSAJE)) > 0 and
              LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
             ve_mensaje := ve_mensaje ||
@@ -670,6 +681,7 @@ create or replace package body pq_cr_validar_rng_reprog is
           else
             ve_mensaje := ';RSC: Tipo de Reprogramacion no habilitada';
           end if;
+          */
         END IF;
       BEGIN
       pq_cr_validar_rng_reprog.SP_CR_RATIOS_REPROGRAMADOS(ve_instancia,
@@ -6084,4 +6096,3 @@ create or replace package body pq_cr_validar_rng_reprog is
    END;
 end pq_cr_validar_rng_reprog;
 /
-
