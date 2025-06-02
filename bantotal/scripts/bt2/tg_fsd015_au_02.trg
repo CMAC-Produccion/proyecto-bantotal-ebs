@@ -1,7 +1,7 @@
 CREATE OR REPLACE TRIGGER TG_FSD015_AU_02
-  after update on fsd015  
-  FOR EACH ROW  
-    
+  after update on fsd015
+  FOR EACH ROW
+
     -- *****************************************************************
     -- Nombre                     : Enviar correo sms push notificaciones
     -- Sistema                    : BANTOTAL
@@ -14,13 +14,13 @@ CREATE OR REPLACE TRIGGER TG_FSD015_AU_02
     -- Acceso                     : Público
     -- Parámetros de Entrada      :
     --
-    -- Retorno                    : 
+    -- Retorno                    :
     -- Fecha de Modificación      : 22/07/2024
     -- Autor de la Modificación   : Yrving Lozada
     -- Modificación               : Se agregó validación de estado al obtener la TDV
-    -- Fecha de Modificación      : 22/08/2024   
+    -- Fecha de Modificación      : 22/08/2024
     -- Autor de la Modificación   : Yrving Lozada
-    -- Modificación               : Se agregó notificación para cuentas de trabajadores TI    
+    -- Modificación               : Se agregó notificación para cuentas de trabajadores TI
     -- Fecha de Modificación      : 13/09/2024
     -- Autor de la Modificación   : Yrving Lozada
     -- Modificación               : Se cambio estado a P en ichannel alert
@@ -30,7 +30,22 @@ CREATE OR REPLACE TRIGGER TG_FSD015_AU_02
     -- Fecha de Modificación      : 06/03/2025
     -- Autor de la Modificación   : Renzo Cuadros
     -- Modificación               : Se cambió de donde se obtiene la sucursal
-    -- *****************************************************************      
+    -- Fecha de Modificación      : 15/04/2025
+    -- Autor de la Modificación   : Hernán Laqui
+    -- Modificación               : Se agrega logica para cuentas DPF (módulo 22)
+    -- Fecha de Modificación      : 23/04/2025
+    -- Autor de la Modificación   : Hernán Laqui
+    -- Modificación               : Se agrega logica el tipo de operacion DPF (módulo 22)
+    -- Fecha de Modificación      : 24/04/2025
+    -- Autor de la Modificación   : Hernán Laqui
+    -- Modificación               : Se agrega la consulta para la operacion (módulo 22)
+    -- Fecha de Modificación      : 02/05/2025
+    -- Autor de la Modificación   : Renzo Cuadros
+    -- Modificación               : Se agrega beneficiario para envio/abono en transferencias a contacto
+    -- Fecha de Modificación      : 23/05/2025
+    -- Autor de la Modificación   : Renzo Cuadros
+    -- Modificación               : Se agrega trim al campo push token para envitar errores en envios
+    -- *****************************************************************
 declare
    cursor c_notifica is
     select e.scnom ubigueo,
@@ -45,9 +60,16 @@ declare
            to_char(:old.itfcon, 'dd/mm/rrrr') fecha,
            :old.ithora hora,
            decode(b.moneda, 0, 'S/.', 'USD.') c_moneda,
-           lpad(b.ctnro, 9, '0') || lpad(b.modulo, 3, '0') ||
-           lpad(b.moneda, 3, '0') || lpad(b.itsubo, 2, '0') ||
-           lpad(b.ittope, 3, '0') CODIGO,
+           case when b.modulo = 21 then
+                lpad(b.ctnro, 9, '0') || lpad(b.modulo, 3, '0') ||
+                lpad(b.moneda, 3, '0') || lpad(b.itsubo, 2, '0') ||
+                lpad(b.ittope, 3, '0')
+           else
+                lpad(b.ctnro, 9, '0') || lpad('22',3, '0') ||
+                lpad(b.moneda, 3, '0') || lpad(b.itoper, 9, '0') ||
+                (select lpad(x.SCTOPE, 3, '0')  from fsd011 x where x.PGCOD=1 and x.SCCTA=b.ctnro and x.SCOPER=itoper and x.SCMOD=22 and x.SCMDA=b.moneda)
+           end
+            CODIGO,
            b.itimp1 monto,
            case
              when TP1IMP2 = 1 then
@@ -60,18 +82,24 @@ declare
                   ' hoy a las',
                   ' el ' || to_char(:old.itfcon, 'dd/mm')) || ' ' ||
            substr(:old.ithora, 1, 5) c4,
-           b.itsuc, 
-           b.itmod, 
+           b.itsuc,
+           b.itmod,
            b.ittran,
            b.itnrel,
            b.ctnro,
-           b.modulo,
+           --Hlaqui 23/04/2025
+           case when b.modulo = 21 then b.modulo else 22 end modulo,
            b.moneda,
            b.papel,
            b.itsubo,
-           b.ittope,
+           --Hlaqui 23/04/2025
+           case when b.modulo = 21 then
+                b.ittope
+           else
+                (select x.SCTOPE from fsd011 x where x.PGCOD=1 and x.SCCTA=b.ctnro and x.SCOPER=itoper and x.SCMOD=22 and x.SCMDA=b.moneda)
+           end ittope,
            b.itoper,
-           :old.itfcon itfcon                        
+           :old.itfcon itfcon
       from fsd016 b, fst198 c, fst001 e
      where b.itmod  = c.tp1nro1
        and b.ittran = c.tp1nro2
@@ -88,9 +116,10 @@ declare
        and b.itsuc  = :old.itsuc
        and b.itmod  = :old.itmod
        and b.ittran = :old.ittran
-       and b.itnrel = :old.itnrel;  
-       
-  lv_nombre_cliente VARCHAR2(25);       
+       and b.itnrel = :old.itnrel;
+
+  lv_recipient      VARCHAR2(100);
+  lv_nombre_cliente VARCHAR2(25);
   lv_OPERACION      VARCHAR2(50);
   lv_MONEDA         VARCHAR2(5);
   ln_MONTO          NUMBER(17,2);
@@ -107,10 +136,10 @@ declare
   lc_mail           char(1):='N';
   lc_cel            char(1):='N';
   ln_pais           number(3);
-  ln_tipdoc         number(2);        
+  ln_tipdoc         number(2);
   lc_numdoc         char(12);
   lc_sex            char(1);
-  ln_sucursal       number(3);  
+  ln_sucursal       number(3);
 begin
   if :new.ITCONT = 'S' and :old.itcorr= 0 then
      for i in c_notifica loop
@@ -122,22 +151,22 @@ begin
        lv_ubigueo   := trim(i.ubigueo);
        lv_c1        := trim(i.c1);
        lv_c4        := i.c4;
-       
+
        --VERIFICAMOS SI ESTA AFILIADO
        BEGIN
          select trim(x.mail_cliente),to_number('51'||trim(x.celular_cliente)),x.enviar_celular,x.enviar_mail
-           into lv_mail, ln_celular,lc_mail,lc_cel 
-           from ichannelalert.clientes_afiliados x 
-          where x.codigo_cliente = lv_codigo 
+           into lv_mail, ln_celular,lc_mail,lc_cel
+           from ichannelalert.clientes_afiliados x
+          where x.codigo_cliente = lv_codigo
             and (x.enviar_mail = 'P' or x.enviar_celular = 'P');
-            /*  and exists(select 1 
-                         from fst198 z 
-                        where z.tp1cod   = 1 
-                          and z.tp1cod1  = 10825 
+            /*  and exists(select 1
+                         from fst198 z
+                        where z.tp1cod   = 1
+                          and z.tp1cod1  = 10825
                           and z.tp1corr1 = 130
                           and z.tp1desc = rpad(x.codigo_cliente,30,' ')
                       );
-            and exists(select 1 
+            and exists(select 1
                          from fsr008 z,
                               fsd002 y
                         where z.pepais = y.pfpais
@@ -145,8 +174,8 @@ begin
                           and z.pendoc = y.pfndoc
                           and z.ctnro  = substr(x.codigo_cliente,1,9)
                           and y.pfebco = 'S'
-                      );      
-                      */          
+                      );
+                      */
             /*and x.codigo_cliente in ('00160398602100006001',
                                      '00051099202100001001',
                                      '00051099202100002006',
@@ -156,37 +185,37 @@ begin
                                      '00064962802100003006',
                                      '00064962802100022012',
                                      '00064962802100021012'
-                                     );   */         
+                                     );   */
        EXCEPTION
-       WHEN OTHERS THEN     
+       WHEN OTHERS THEN
          lv_mail    := null;
          ln_celular := null;
-       END;    
+       END;
        --SOLO SI ESTA AFILIADO HACEMOS ALGO SI NO SALIMOS
-       If lv_mail is not null or ln_celular is not null then    
-           --OBTENEMOS SUCURSAL DE LA CUENTA PARA OBTENER EL TOKEM         
+       If lv_mail is not null or ln_celular is not null then
+           --OBTENEMOS SUCURSAL DE LA CUENTA PARA OBTENER EL TOKEM
            begin
-             select z.scsuc 
+             select z.scsuc
                into ln_sucursal
-               from fsd011 z 
-              where z.pgcod  = 1 
-                and z.scmda  = i.moneda 
-                and z.scpap  = 0 
+               from fsd011 z
+              where z.pgcod  = 1
+                and z.scmda  = i.moneda
+                and z.scpap  = 0
                 and z.sccta  = ln_cuenta
-                and z.scoper = 0
+                and z.scoper = i.itoper --Hlaqui 24/04/2025 se reemplaza 0 por el valor de la Operacion
                 and z.scsbop = i.itsubo
                 and z.sctope = i.ittope
                 and z.scmod  = i.modulo;
            exception
-           when others then  
+           when others then
              ln_sucursal := null;
-           end;              
+           end;
            --OBTENEMOS NOMBRE DEL CLIENTE
            begin
              select trim(upper(a.pfnom1)),a.pfpais,a.pftdoc,a.pfndoc,a.pfcant
                into lv_nombre_cliente,ln_pais,ln_tipdoc,lc_numdoc,lc_sex
               from fsd002 a,
-                   fsr008 b 
+                   fsr008 b
               where a.pfpais = b.pepais
                 and a.pftdoc = b.petdoc
                 and a.pfndoc = b.pendoc
@@ -195,7 +224,7 @@ begin
                 and b.ttcod  = 1
                 and b.cttfir = 'T';
            exception
-           when others then  
+           when others then
              lv_nombre_cliente := null;
              ln_pais           := null;
              ln_tipdoc         := null;
@@ -205,7 +234,7 @@ begin
 
            -- VERIFICAMOS SI TIENE PUSH ACTIVO
            begin
-            select JAQZ205AUX2 
+            select JAQZ205AUX2
               into lv_PUSH_TOKEN
               from jaqz205
              where jaqz205nutar = (select z0e478nro
@@ -222,10 +251,10 @@ begin
                                       and rownum = 1
                                   );
            exception
-           when others then 
-             lv_PUSH_TOKEN := null; 
+           when others then
+             lv_PUSH_TOKEN := null;
            end;
-           
+
            --OBTENEMOS LA SUCURSAL
             BEGIN
               SELECT TRIM(tp1desc) tp1desc
@@ -242,13 +271,47 @@ begin
                 NULL;
             END;
             
+            --OBTENEMOS EL DESTINO / ORIGEN
+            -- rcuadros 02/05/2025
+            BEGIN
+              SELECT COALESCE(
+                -- JAQL706: envio
+                (SELECT ' para ' || TRIM(JAQL706NOBE)
+                 FROM JAQL706
+                 WHERE JAQL706ITCD = 1 + UID * 0
+                   AND JAQL706ITSU = i.itsuc
+                   AND JAQL706ITMO = i.itmod
+                   AND JAQL706ITTR = i.ittran
+                   AND JAQL706ITRE = i.itnrel
+                   AND JAQL706ITFC = i.itfcon
+                 FETCH FIRST 1 ROWS ONLY),
+                -- JAQL707: abono
+                (SELECT ' de ' || TRIM(JAQL707NOOR)
+                 FROM JAQL707
+                 WHERE JAQL707ITCD = 1 + UID * 0
+                   AND JAQL707ITSU = i.itsuc
+                   AND JAQL707ITMO = i.itmod
+                   AND JAQL707ITTR = i.ittran
+                   AND JAQL707ITRE = i.itnrel
+                   AND JAQL707ITFC = i.itfcon
+                 FETCH FIRST 1 ROWS ONLY)
+              )
+              INTO lv_recipient
+              FROM DUAL;
+            EXCEPTION
+              WHEN NO_DATA_FOUND THEN
+                lv_recipient := NULL;
+              WHEN OTHERS THEN
+                lv_recipient := NULL;
+            END;
+            
            --SI TIENE PUSH
-           if lv_PUSH_TOKEN is not null then
+           if TRIM(lv_PUSH_TOKEN) is not null then -- rcuadros 23/05/2025
               if lc_sex = 'M' then
-                 lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                 lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
               else
-                 lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;                 
-              End If;                                  
+                 lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+              End If;
              --REGISTRA NOTIFICACIÓN
              begin
                insert into AQPA147(AQPA147cor,
@@ -261,7 +324,7 @@ begin
                                    AQPA147cta,
                                    AQPA147pai,
                                    AQPA147tpo,
-                                   AQPA147num,                                   
+                                   AQPA147num,
                                    AQPA147mon,
                                    AQPA147top,
                                    AQPA147nop,
@@ -271,7 +334,7 @@ begin
                                    AQPA147TRA,
                                    AQPA147REL,
                                    AQPA147FCO
-                                   )                               
+                                   )
                              values(SQ_AH_ID_PUSH.NEXTVAL,
                                    --i.itfcon,
                                    TRUNC(SYSDATE),
@@ -281,12 +344,12 @@ begin
                                    lv_mensaje,
                                    lv_PUSH_TOKEN,
                                    lv_codigo,
-                                   ln_pais,  
+                                   ln_pais,
                                    ln_tipdoc,
-                                   lc_numdoc,                                   
+                                   lc_numdoc,
                                    ln_MONTO,
                                    lv_OPERACION,
-                                   TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0'),                              
+                                   TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0'),
                                    'N',
                                    i.itsuc,
                                    i.itmod,
@@ -295,26 +358,26 @@ begin
                                    i.itfcon
                                    );
              exception
-             when others then  
+             when others then
                null;
              end;
-                          
+
              If lv_mail is not null and lc_mail = 'P' then
                --REGISTRA NOTIFICACIÓN
                dbms_lob.createtemporary(ll_mensaje, TRUE);
                if lc_sex = 'M' then
-                  lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                  lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
                else
-                  lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;                 
-               End If;                                  
+                  lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+               End If;
                lv_mensaje := '<p "font-family: Arial, sans-serif; font-size: 14px;">'||lv_mensaje||'</p>';
-               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);          
-               
-               lv_mensaje :='<p "font-family: Arial, sans-serif; font-size: 14px;"><strong>Saludos cordiales,<br/>Caja Arequipa</strong></p>';                                          
-               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);     
-                     
-               lv_mensaje :='<p "font-family: Arial, sans-serif; font-size: 14px;"><strong>NOTA: NO RESPONDER A ESTE CORREO.</strong></p>';                                          
-               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);   
+               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
+
+               lv_mensaje :='<p "font-family: Arial, sans-serif; font-size: 14px;"><strong>Saludos cordiales,<br/>Caja Arequipa</strong></p>';
+               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
+
+               lv_mensaje :='<p "font-family: Arial, sans-serif; font-size: 14px;"><strong>NOTA: NO RESPONDER A ESTE CORREO.</strong></p>';
+               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
                begin
                  insert into AQPA147(AQPA147cor,
                                      AQPA147fec,
@@ -326,7 +389,7 @@ begin
                                      AQPA147cta,
                                      AQPA147pai,
                                      AQPA147tpo,
-                                     AQPA147num,                                      
+                                     AQPA147num,
                                      AQPA147mon,
                                      AQPA147top,
                                      AQPA147nop,
@@ -335,8 +398,8 @@ begin
                                      AQPA147MOD,
                                      AQPA147TRA,
                                      AQPA147REL,
-                                     AQPA147FCO                                     
-                                     )                               
+                                     AQPA147FCO
+                                     )
                                values(SQ_AH_ID_PUSH.NEXTVAL,
                                      --i.itfcon,
                                      TRUNC(SYSDATE),
@@ -346,77 +409,9 @@ begin
                                      ll_mensaje,
                                      lv_mail,
                                      lv_codigo,
-                                     ln_pais,  
+                                     ln_pais,
                                      ln_tipdoc,
-                                     lc_numdoc,                                     
-                                     ln_MONTO,
-                                     lv_OPERACION,
-                                     TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0'),                              
-                                     'N',
-                                     i.itsuc,
-                                     i.itmod,
-                                     i.ittran,
-                                     i.itnrel,
-                                     i.itfcon                                     
-                                     );
-               exception
-               when others then  
-                 null;
-               end;         
-               dbms_lob.freetemporary(ll_mensaje);        
-             end if;                           
-           else
-             --REGISTRA NOTIFICACIÓN MAIL
-             if lv_mail is not null and lc_mail = 'P' then
-               --REGISTRA NOTIFICACIÓN
-               dbms_lob.createtemporary(ll_mensaje, TRUE);
-               if lc_sex = 'M' then
-                  lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
-               else
-                  lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;                 
-               End If;                                  
-               lv_mensaje := '<p "font-family: Arial, sans-serif; font-size: 14px;">'||lv_mensaje||'</p>';
-               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);          
-               
-               lv_mensaje :='<p "font-family: Arial, sans-serif; font-size: 14px;"><strong>Saludos cordiales,<br/>Caja Arequipa</strong></p>';                                          
-               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);     
-                     
-               lv_mensaje :='<p "font-family: Arial, sans-serif; font-size: 14px;"><strong>NOTA: NO RESPONDER A ESTE CORREO.</strong></p>';                                          
-               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);   
-               begin
-                 insert into AQPA147(AQPA147cor,
-                                     AQPA147fec,
-                                     AQPA147hor,
-                                     AQPA147med,
-                                     AQPA147ori,
-                                     AQPA147msg,
-                                     AQPA147des,
-                                     AQPA147cta,
-                                     AQPA147pai,
-                                     AQPA147tpo,
-                                     AQPA147num,                                     
-                                     AQPA147mon,
-                                     AQPA147top,
-                                     AQPA147nop,
-                                     AQPA147est,
-                                     AQPA147SUC,
-                                     AQPA147MOD,
-                                     AQPA147TRA,
-                                     AQPA147REL,
-                                     AQPA147FCO                                     
-                                     )                               
-                               values(SQ_AH_ID_PUSH.NEXTVAL,
-                                     --i.itfcon,
-                                     TRUNC(SYSDATE),
-                                     i.hora,
-                                     'CORREO',
-                                     'BANTOTAL',
-                                     ll_mensaje,
-                                     lv_mail,
-                                     lv_codigo,
-                                     ln_pais,  
-                                     ln_tipdoc,
-                                     lc_numdoc,                                     
+                                     lc_numdoc,
                                      ln_MONTO,
                                      lv_OPERACION,
                                      TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0'),
@@ -425,21 +420,89 @@ begin
                                      i.itmod,
                                      i.ittran,
                                      i.itnrel,
-                                     i.itfcon                                                                    
+                                     i.itfcon
                                      );
                exception
-               when others then  
+               when others then
                  null;
-               end;         
-               dbms_lob.freetemporary(ll_mensaje);    
+               end;
+               dbms_lob.freetemporary(ll_mensaje);
+             end if;
+           else
+             --REGISTRA NOTIFICACIÓN MAIL
+             if lv_mail is not null and lc_mail = 'P' then
+               --REGISTRA NOTIFICACIÓN
+               dbms_lob.createtemporary(ll_mensaje, TRUE);
+               if lc_sex = 'M' then
+                  lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+               else
+                  lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+               End If;
+               lv_mensaje := '<p "font-family: Arial, sans-serif; font-size: 14px;">'||lv_mensaje||'</p>';
+               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
+
+               lv_mensaje :='<p "font-family: Arial, sans-serif; font-size: 14px;"><strong>Saludos cordiales,<br/>Caja Arequipa</strong></p>';
+               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
+
+               lv_mensaje :='<p "font-family: Arial, sans-serif; font-size: 14px;"><strong>NOTA: NO RESPONDER A ESTE CORREO.</strong></p>';
+               dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
+               begin
+                 insert into AQPA147(AQPA147cor,
+                                     AQPA147fec,
+                                     AQPA147hor,
+                                     AQPA147med,
+                                     AQPA147ori,
+                                     AQPA147msg,
+                                     AQPA147des,
+                                     AQPA147cta,
+                                     AQPA147pai,
+                                     AQPA147tpo,
+                                     AQPA147num,
+                                     AQPA147mon,
+                                     AQPA147top,
+                                     AQPA147nop,
+                                     AQPA147est,
+                                     AQPA147SUC,
+                                     AQPA147MOD,
+                                     AQPA147TRA,
+                                     AQPA147REL,
+                                     AQPA147FCO
+                                     )
+                               values(SQ_AH_ID_PUSH.NEXTVAL,
+                                     --i.itfcon,
+                                     TRUNC(SYSDATE),
+                                     i.hora,
+                                     'CORREO',
+                                     'BANTOTAL',
+                                     ll_mensaje,
+                                     lv_mail,
+                                     lv_codigo,
+                                     ln_pais,
+                                     ln_tipdoc,
+                                     lc_numdoc,
+                                     ln_MONTO,
+                                     lv_OPERACION,
+                                     TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0'),
+                                     'N',
+                                     i.itsuc,
+                                     i.itmod,
+                                     i.ittran,
+                                     i.itnrel,
+                                     i.itfcon
+                                     );
+               exception
+               when others then
+                 null;
+               end;
+               dbms_lob.freetemporary(ll_mensaje);
              End If;
              --REGISTRA NOTIFICACIÓN SMS
              if ln_celular is not null and lc_cel = 'P' then
                 if lc_sex = 'M' then
-                   lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                   lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
                 else
-                   lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;                 
-                End If;                                  
+                   lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                End If;
                 begin
                  insert into AQPA147(AQPA147cor,
                                      AQPA147fec,
@@ -451,7 +514,7 @@ begin
                                      AQPA147cta,
                                      AQPA147pai,
                                      AQPA147tpo,
-                                     AQPA147num,                                     
+                                     AQPA147num,
                                      AQPA147mon,
                                      AQPA147top,
                                      AQPA147nop,
@@ -460,8 +523,8 @@ begin
                                      AQPA147MOD,
                                      AQPA147TRA,
                                      AQPA147REL,
-                                     AQPA147FCO                                     
-                                     )                               
+                                     AQPA147FCO
+                                     )
                                values(SQ_AH_ID_PUSH.NEXTVAL,
                                      --i.itfcon,
                                      TRUNC(SYSDATE),
@@ -471,30 +534,30 @@ begin
                                      lv_mensaje,
                                      ln_celular,
                                      lv_codigo,
-                                     ln_pais,  
+                                     ln_pais,
                                      ln_tipdoc,
-                                     lc_numdoc,                                       
+                                     lc_numdoc,
                                      ln_MONTO,
                                      lv_OPERACION,
-                                     TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0'),                              
+                                     TO_CHAR(i.itfcon,'RRRRMMDD')||lpad(trim(to_char(i.itsuc)),3,'0')||lpad(trim(to_char(i.itmod)),3,'0')||lpad(trim(to_char(i.ittran)),3,'0')||lpad(trim(to_char(i.itnrel)),4,'0'),
                                      'N',
                                      i.itsuc,
                                      i.itmod,
                                      i.ittran,
                                      i.itnrel,
-                                     i.itfcon                                      
+                                     i.itfcon
                                      );
                 exception
-                when others then  
+                when others then
                   null;
-                end;              
-             End If;         
+                end;
+             End If;
            End If;
        End if;
      End loop;
   end if;
 exception
   when others then
-     null;    
+     null;
 end TG_FSD015_AU_02;
 /

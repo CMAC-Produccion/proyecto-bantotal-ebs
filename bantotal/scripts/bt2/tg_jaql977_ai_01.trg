@@ -32,6 +32,9 @@ CREATE OR REPLACE TRIGGER TG_JAQL977_AI_01
     -- Fecha de Modificación      : 06/03/2025
     -- Autor de la Modificación   : Renzo Cuadros
     -- Modificación               : Se cambió de donde se obtiene la sucursal
+    -- Fecha de Modificación      : 23/05/2025
+    -- Autor de la Modificación   : Renzo Cuadros
+    -- Modificación               : Se agrega trim al campo push token para envitar errores en envios    
     -- *****************************************************************      
 declare
    cursor c_notifica is
@@ -230,7 +233,7 @@ begin
             END;
             
            --SI TIENE PUSH
-           if lv_PUSH_TOKEN is not null then
+           if TRIM(lv_PUSH_TOKEN) is not null then -- rcuadros 23/05/2025
                if lc_sex = 'M' then
                   lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
                else

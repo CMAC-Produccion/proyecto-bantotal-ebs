@@ -21,9 +21,9 @@ create or replace package pq_cr_reprog_sin_cap is
   -- Fecha Modificacion:11/09/2024 12:52 
   -- Autor: HSUAREZ 
   -- Contenido: Se modifico paquete para validar los rechazos y actualizar guia.
-  -- Fecha Modificacion:26/09/2024 12:52 
-  -- Autor: HSUAREZ 
-  -- Contenido: Se modifico paquete para manejar mensaje de correos segun reprogramación.
+  -- Fecha Modificacion:10/01/2025 08:30 
+  -- Autor: MCHAVEZ 
+  -- Contenido: Se Agrega procedimiento SP_CR_MANT_ARBOL_APROB.
   type list_cred is record(
     n_cod    number(10), -- Codigo de Registro  
     n_dni    varchar(12), --DNI
@@ -295,30 +295,22 @@ create or replace package pq_cr_reprog_sin_cap is
                                       VIE_N_INSTANCE IN NUMBER,
                                       VOE_N_COD_TRPG OUT NUMBER,
                                       VOE_V_DSC_TRPG OUT VARCHAR
-                                    );                                                                                                                                                                                                                                                                                                                                      
+                                    );
+   /*===================================================================================================*/                                                                                                                                                                                                                                                                                                                                                                      
+   PROCEDURE SP_CR_MANT_ARBOL_APROB(P_MODO      IN VARCHAR2,
+                                    P_TPOREPROG IN NUMBER,
+                                    P_GRUPO     IN NUMBER,
+                                    P_NVLAPROB  IN NUMBER,
+                                    P_CGOAPROB  IN NUMBER,
+                                    P_PFLAPROB  IN VARCHAR2,
+                                    P_DEPAPROB  IN NUMBER,
+                                    P_USUREG    IN VARCHAR2,
+                                    P_IMPMIN    IN NUMBER,
+                                    P_IMPMAX    IN NUMBER,
+                                    P_APROBREQ  IN VARCHAR2);
 end pq_cr_reprog_sin_cap;
 /
-
 create or replace package body pq_cr_reprog_sin_cap is
-  -- Author  : HSUAREZ
-  -- Created : 29/01/2021 09:42:39
-  -- Purpose : Paquete para reprogramacion de creditos sin capitalizacion
-  -- MOdificacion: Hsuarez
-  -- Fecha Modificacion: 27/09/2023 12:52
-  -- Contenido: Se agrego un tipo de reprogramacion para los del listado de BI sin consultar a CRM.
-  -- Fecha Modificacion:23/01/2024 12:52
-  -- Contenido: Se modifico el arbol de aprobacion para reprogramados CAJA segun MEMO18-2024.
-  -- Fecha Modificacion:11/04/2024 12:52 
-  -- Autor: HSUAREZ 
-  -- Contenido: Se modifico el proceso para añadir arbol de aprobacion multinivel
-  -- Fecha Modificacion:11/06/2024 12:52 
-  -- Autor: HSUAREZ 
-  -- Contenido: Se modifico el proceso de Tipo de Reprogramacion, para inicializar el arbol multinivel, se mejoro el proceso obtner Aprobador.
-    -- Contenido: Se modifico el proceso para añadir arbol de aprobacion multinivel
-  -- Fecha Modificacion:14/06/2024 12:52 
-  -- Autor: HSUAREZ 
-  -- Contenido: Se agrego un proceso para manejar log de secuencias.
-  
   
   function sp_obtener_lista(ve_est  in varchar,
                             ve_cta  in varchar,
@@ -686,19 +678,19 @@ create or replace package body pq_cr_reprog_sin_cap is
                      NULL; 
                    END;                             
                  sp_cr_correo_aprobacion(p_n_pgcod =>  x.aqpb556emp,
-                                         p_n_scsuc => x.aqpb556suc,
-                                         p_n_scmda => x.aqpb556mda,
-                                         p_n_scpap => x.aqpb556pap,
-                                         p_n_sccta => x.aqpb556cta,
-                                         p_n_scoper => x.aqpb556opeR,
-                                         p_n_scsbop => x.aqpb556sbop,
-                                         p_n_sctope => x.aqpb556top,
-                                         p_n_scmod => x.aqpb556mod,
-                                         p_v_ubuser => ve_user,
-                                         p_v_tipo => 'T',
-                                         p_d_pgfape => vi_fecha,
-                                         p_n_coderr => vi_err,
-                                         p_c_msgerr => vi_merr);                             
+                                    p_n_scsuc => x.aqpb556suc,
+                                    p_n_scmda => x.aqpb556mda,
+                                    p_n_scpap => x.aqpb556pap,
+                                    p_n_sccta => x.aqpb556cta,
+                                    p_n_scoper => x.aqpb556opeR,
+                                    p_n_scsbop => x.aqpb556sbop,
+                                    p_n_sctope => x.aqpb556top,
+                                    p_n_scmod => x.aqpb556mod,
+                                    p_v_ubuser => ve_user,
+                                    p_v_tipo => 'T',
+                                    p_d_pgfape => vi_fecha,
+                                    p_n_coderr => vi_err,
+                                    p_c_msgerr => vi_merr);                             
            END LOOP;
            --ACTUALIZANDO EL ESTADO EN LA TABLA DE APROBACION
             UPDATE AQPB556 A
@@ -3484,6 +3476,131 @@ END;
             VOE_N_COD_TRPG := 'Reprogramación';
         END;     
    END;
+   
+   /*===================================================================================================*/
+      PROCEDURE SP_CR_MANT_ARBOL_APROB(P_MODO      IN VARCHAR2,
+                                       P_TPOREPROG IN NUMBER,
+                                       P_GRUPO     IN NUMBER,
+                                       P_NVLAPROB  IN NUMBER,
+                                       P_CGOAPROB  IN NUMBER,
+                                       P_PFLAPROB  IN VARCHAR2,
+                                       P_DEPAPROB  IN NUMBER,
+                                       P_USUREG    IN VARCHAR2,
+                                       P_IMPMIN    IN NUMBER,
+                                       P_IMPMAX    IN NUMBER,
+                                       P_APROBREQ  IN VARCHAR2) IS
+                                      
+   -- ====================================================================================================
+   -- NOMBRE                      : SP_CR_GRABAR_ARBOL_APROB
+   -- SISTEMA                     : BANTOTAL
+   -- MODULO                      : CREDITOS - ACTIVAS
+   -- VERSION                     : 1.0
+   -- FECHA DE CREACION           : 21/11/2024
+   -- AUTOR DE CREACION           : MAYCOL CHAVEZ CHUMAN
+   -- USO                         : MODIFICA, ELIMINA Y AGREGA UN REGISTRO DE LA TABLA AQPC722
+   -- PARAMETROS                  : - P_MODO      | VARCHAR2(3)
+   --                               - P_TPOREPROG | NUMBER(4)
+   --                               - P_GRUPO     | NUMBER(17)
+   --                               - P_NVLAPROB  | NUMBER(3)
+   --                               - P_CGOAPROB  | NUMBER(3)
+   --                               - P_PFLAPROB  | VARCHAR2(10)
+   --                               - P_USUREG    | VARCHAR2(10)
+   --                               - P_IMPMIN    | NUMBER(17, 2)
+   --                               - P_IMPMAX    | NUMBER(17, 2)
+   --                               - P_APROBREQ  | VARCHAR2(1)
+   -- ESTADO                      : ACTIVO
+   -- ACCESO                      : PUBLICO
+   -- ====================================================================================================
+   -- FECHA DE MODIFICACION       : 
+   -- AUTOR DE LA MODIFICACION    : 
+   -- DESCRIPCION DE MODIFICACION : 
+   -- ====================================================================================================                                   
+                                      
+      V_CORREL NUMBER(17) := 0;                                   
+   BEGIN
+      BEGIN
+         SELECT NVL(MAX(A1.AQPC722COR), 0) + 1
+           INTO V_CORREL
+           FROM AQPC722 A1
+          WHERE A1.AQPC722TPRG = P_TPOREPROG;
+      EXCEPTION
+         WHEN OTHERS THEN
+            NULL;
+      END;
+      
+      IF P_MODO = 'INS' THEN
+         BEGIN
+            INSERT INTO AQPC722(AQPC722COR,
+                                AQPC722TPRG,
+                                AQPC722CCARG,
+                                AQPC722PCARG,
+                                AQPC722NAPR,
+                                AQPC722NDAPR,
+                                AQPC722USRR,
+                                AQPC722FRG,
+                                AQPC722EST,
+                                AQPC722IMPMN,
+                                AQPC722IMPMAX,
+                                AQPC722REQ,
+                                AQPC722GRUPO)
+            VALUES(V_CORREL,
+                   P_TPOREPROG,
+                   P_CGOAPROB,
+                   P_PFLAPROB,
+                   P_NVLAPROB,
+                   P_DEPAPROB,
+                   P_USUREG,
+                   SYSDATE,
+                   'S',
+                   P_IMPMIN,
+                   P_IMPMAX,
+                   P_APROBREQ,
+                   P_GRUPO);
+            COMMIT;
+         EXCEPTION
+            WHEN OTHERS THEN
+               NULL;
+         END;
+      END IF;
+      
+      IF P_MODO = 'UPD' THEN
+         BEGIN
+            UPDATE AQPC722 A
+               SET A.AQPC722NDAPR  = P_DEPAPROB,
+                   A.AQPC722IMPMN  = P_IMPMIN,
+                   A.AQPC722IMPMAX = P_IMPMAX,
+                   A.AQPC722REQ    = P_APROBREQ,
+                   A.AQPC722USRM   = P_USUREG,
+                   A.AQPC722FMD    = SYSDATE
+              WHERE A.AQPC722TPRG = P_TPOREPROG
+                AND A.AQPC722EST  = 'S'
+                AND A.AQPC722GRUPO = P_GRUPO
+                AND A.AQPC722CCARG = P_CGOAPROB
+                AND A.AQPC722PCARG = RPAD(P_PFLAPROB, 10, ' ')
+                AND A.AQPC722NAPR  = P_NVLAPROB;
+            COMMIT;
+         EXCEPTION
+            WHEN OTHERS THEN
+               NULL;
+         END;
+      END IF;
+      
+      IF P_MODO = 'DEL' THEN
+         BEGIN
+            UPDATE AQPC722 A
+               SET A.AQPC722EST = 'N'
+              WHERE A.AQPC722TPRG   = P_TPOREPROG
+                AND A.AQPC722CCARG  = P_CGOAPROB
+                AND A.AQPC722NAPR   = P_NVLAPROB
+                AND A.AQPC722IMPMN  = P_IMPMIN
+                AND A.AQPC722IMPMAX = P_IMPMAX;
+            COMMIT;
+         EXCEPTION
+            WHEN OTHERS THEN
+               NULL;
+         END;
+      END IF;
+      
+   END SP_CR_MANT_ARBOL_APROB;
 end pq_cr_reprog_sin_cap;
 /
-

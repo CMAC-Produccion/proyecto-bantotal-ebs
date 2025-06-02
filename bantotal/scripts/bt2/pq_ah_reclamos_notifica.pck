@@ -77,7 +77,6 @@ CREATE OR REPLACE PACKAGE PQ_AH_RECLAMOS_NOTIFICA IS
 
 END PQ_AH_RECLAMOS_NOTIFICA;
 /
-
 CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
   -- ***************************************************************************************
   -- Nombre                     : PQ_AH_RECLAMOS_NOTIFICA
@@ -89,9 +88,9 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
   -- Uso                        : NOTIFICACIONES DEL MODULO DE RECLAMOS
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2024.12.06
+  -- Fecha de Modificación      : 2025.03.21
   -- Autor de Modificación      : CVILLON
-  -- Descripción                : Reenvio Notificación ONR
+  -- Descripción                : Notificacion con Copia a Area de Reclamos
   -- ***************************************************************************************
 
   PROCEDURE SP_AH_REC_NOTI_ONR(P_CREUSR IN VARCHAR,
@@ -607,6 +606,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
                                        P_C_ERRSQL OUT VARCHAR2) IS
   
     lv_destinos   varchar2(400) := '';
+    lv_destinocoo varchar2(100) := '';
     lv_archivo    varchar2(21) := '';
     lv_remitente  varchar2(100);
     lv_asunto     varchar2(100);
@@ -678,9 +678,11 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
     P_C_MSGRES := '';
     P_C_ERRSQL := '';
     ln_CODIGO  := 0;
-  
-    lv_archivo  := TRIM(P_C_CODREC) || '.pdf';
-    lv_destinos := '';
+    ---*** TEST
+    --lv_archivo := NULL;
+    lv_archivo    := TRIM(P_C_CODREC) || '.pdf';
+    lv_destinos   := '';
+    lv_destinocoo := '';
     ---***
     ln_CANING := 0;
     lv_CANIND := '';
@@ -688,7 +690,6 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
     ---***
     ---*** ORACLE NOMBRE FOLDER (DIRECTORIO)
     BEGIN
-      --SELECT * FROM FST198 WHERE TP1COD = 1 AND TP1COD1 = 11146 AND TP1CORR1 = 1 AND TP1CORR2 = 46 AND TP1CORR3 = 1;
       SELECT TRIM(TP1DESC)
         INTO lv_directorio
         FROM FST198
@@ -752,6 +753,25 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
       when others then
         lv_CANIND := 'DESCONOCIDO';
     END;
+    ---***
+    ---***
+    ---*** Correo CCO
+    BEGIN
+      SELECT TRIM(TP1DESC)
+        INTO lv_destinocoo
+        FROM FST198
+       WHERE TP1COD = 1
+         AND TP1COD1 = 11146
+         AND TP1CORR1 = 1
+         AND TP1CORR2 = 82
+         AND TP1CORR3 > 0
+         AND ROWNUM = 1;
+      lv_destinocoo := TRIM(lv_destinocoo) || '@cajaarequipa.pe';
+    exception
+      when others then
+        lv_destinocoo := 'areadereclamos@cajaarequipa.pe';
+    END;
+    ---***
     ---***
     ---***
     SELECT PGFAPE, TO_CHAR(PGFAPE, 'yyyy/MM/dd')
@@ -982,6 +1002,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
       P_C_REMITE := lv_remitente;
       P_C_ASUNTO := lv_asunto;
       P_C_DESPAR := lv_destinos;
+      P_C_DESCCO := lv_destinocoo;
       P_C_MENSAJ := ll_mensaje;
       P_C_DIRECT := lv_directorio;
       P_C_ADJUNT := lv_archivo;
@@ -990,10 +1011,13 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
       p_c_coderr := NULL;
       p_c_msgerr := NULL;
       ---***
-      -- Call the procedure
+      ---*** Call the procedure
+      --BEGIN
+      --DBMS_LOCK.SLEEP(1); -- Espera 1 segundo(s) antes de proceder
+      --END;
       pq_ah_planillas.p_sendmailattach(p_destinatariospara => lv_destinos,
                                        p_destinatarioscc   => '',
-                                       p_destinatariosbcc  => '',
+                                       p_destinatariosbcc  => lv_destinocoo,
                                        p_mensaje           => ll_mensaje,
                                        p_remitente         => lv_remitente,
                                        p_asunto            => lv_asunto,
@@ -1403,6 +1427,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
     lv_cuerpo1       VARCHAR(120);
     ---***
     lv_destinos   varchar2(400) := NULL;
+    lv_destinocoo varchar2(100) := NULL;
     lv_archivo    varchar2(100) := NULL;
     lv_remitente  varchar2(100);
     lv_asunto     varchar2(100);
@@ -1464,8 +1489,27 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
         RETURN;
     END;
     ---***
+    ---***
+    ---*** Correo CCO
     BEGIN
-      ---*** REPOSITORIO
+      SELECT TRIM(TP1DESC)
+        INTO lv_destinocoo
+        FROM FST198
+       WHERE TP1COD = 1
+         AND TP1COD1 = 11146
+         AND TP1CORR1 = 1
+         AND TP1CORR2 = 82
+         AND TP1CORR3 > 0
+         AND ROWNUM = 1;
+      lv_destinocoo := TRIM(lv_destinocoo) || '@cajaarequipa.pe';
+    exception
+      when others then
+        lv_destinocoo := 'areadereclamos@cajaarequipa.pe';
+    END;
+    ---***
+    ---***
+    ---*** REPOSITORIO
+    BEGIN
       SELECT TRIM(A.TP1DESC)
         INTO lv_directorio
         FROM FST198 A
@@ -1478,7 +1522,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
       WHEN OTHERS THEN
         lv_directorio := 'DTPUMP_PR_EMAIL';
     END;
-  
+    ---***
     --lv_directorio:= 'DTPUMP_PR_EMAIL';
     --lv_remitente  := 'cvillon@cajaarequipa.pe';
   
@@ -1650,6 +1694,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
       P_C_REMITE := lv_remitente;
       P_C_ASUNTO := lv_asunto;
       P_C_DESPAR := lv_destinos;
+      P_C_DESCCO := lv_destinocoo;
       P_C_MENSAJ := ll_mensaje;
       P_C_DIRECT := lv_directorio;
       P_C_ADJUNT := lv_archivo;
@@ -1659,9 +1704,12 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
       p_c_msgerr := NULL;
       ---***
       ---*** Call the procedure
+      --BEGIN
+      --DBMS_LOCK.SLEEP(1); -- Espera 1 segundo(s) antes de proceder
+      --END;
       pq_ah_planillas.p_sendmailattach(p_destinatariospara => lv_destinos,
                                        p_destinatarioscc   => '',
-                                       p_destinatariosbcc  => '',
+                                       p_destinatariosbcc  => lv_destinocoo,
                                        p_mensaje           => ll_mensaje,
                                        p_remitente         => lv_remitente,
                                        p_asunto            => lv_asunto,
@@ -2047,4 +2095,3 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_NOTIFICA IS
 
 END PQ_AH_RECLAMOS_NOTIFICA;
 /
-

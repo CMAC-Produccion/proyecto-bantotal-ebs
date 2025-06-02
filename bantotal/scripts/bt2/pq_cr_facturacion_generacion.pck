@@ -17,6 +17,7 @@ CREATE OR REPLACE PACKAGE pq_cr_facturacion_generacion is
   -- Fecha de Modificación        : 29/12/2020
   -- Autor de Modificación        : jrodriguej
   -- Descripción de Modificación  : Actualización para obtener el rubro desde la tabla aqpa463 al generar NCE  
+  --                              : 26/05/2025 dcastro se modifico fn_acondcionar_rsocial
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -203,7 +204,6 @@ CREATE OR REPLACE PACKAGE pq_cr_facturacion_generacion is
 
 end pq_cr_facturacion_generacion;
 /
-
 CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
   -- *****************************************************************
   -- Nombre                       : pq_cr_facturacion_generacion
@@ -224,6 +224,7 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
   -- Autor de Modificación        : jrodriguej
   -- Descripción de Modificación  : Actualización para obtener el rubro desde la tabla aqpa463 al generar NCE  
   --                                07/09/2023 dcastro se modifico sp_insertar_libro_ventas
+  --                                26/05/2025 dcastro se modifico fn_acondcionar_rsocial  
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -1424,7 +1425,8 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
                       ('05', '06', '07', '08', '09', '10') then
                   '2100'
                  else
-                  '0000'
+                  --'0000'  -- 
+                  '2100'  -- 
                end)
           into pn_tipope
           from fsd016 d
@@ -1476,7 +1478,8 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
                                    ('05', '06', '07', '08', '09', '10') then
                                '2100'
                               else
-                               '0000'
+                               --'0000'
+                               '2100'  -- 
                             end)
               into pn_tipope
               from fsd011 x
@@ -1513,7 +1516,8 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
                       ('05', '06', '07', '08', '09', '10') then
                   '2100'
                  else
-                  '0000'
+                  --'0000'
+                  '2100'  -- 
                end)
           into pn_tipope
           from fsh016 d
@@ -1551,7 +1555,8 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
                           ('05', '06', '07', '08', '09', '10') then
                       '2100'
                      else
-                      '0000'
+                      --'0000'
+                      '2100'  -- 
                    end)
               into pn_tipope
               from jaqz659 d
@@ -1606,7 +1611,8 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
                                        ('05', '06', '07', '08', '09', '10') then
                                    '2100'
                                   else
-                                   '0000'
+                                   --'0000'
+                                   '2100'  -- 
                                 end)
                   into pn_tipope
                   from fsh012 x
@@ -1872,9 +1878,11 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
   end fn_obtener_capital;
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   function fn_acondcionar_rsocial(pc_razon aqpa460.aqpa460rasoc%type)
+   --  20250425 dcastro se modifico para eliminar espacios en blanco duplicados consecutivos.
     return varchar2 is
   
     lc_razon_res aqpa460.aqpa460rasoc%type;
+    lc_razon_resI aqpa460.aqpa460rasoc%type;    
   
     cursor cur_caracteres is
     
@@ -1891,7 +1899,11 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
   
     begin
     
-      lc_razon_res := UPPER(pc_razon);
+     -- lc_razon_res := UPPER(pc_razon); --20250526 dcastro se comento
+     --20250526
+     lc_razon_resI :=  REGEXP_REPLACE(UPPER(pc_razon) , ' {2,}', ' ');
+     lc_razon_res  :=  lc_razon_resI;
+     --20250526 
     
       for p in cur_caracteres loop
         lc_razon_res := replace(lc_razon_res, p.incorrecto, p.correcto);
@@ -1899,10 +1911,8 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
     
     exception
       when others then
-      
-        lc_razon_res := UPPER(pc_razon);
-      
-    end;
+         lc_razon_res := UPPER(pc_razon);
+     end;
   
     return lc_razon_res;
   
@@ -9832,4 +9842,3 @@ procedure sp_cr_insertar_datos1(pd_fecpro    in date,
   
 end pq_cr_facturacion_generacion;
 /
-
