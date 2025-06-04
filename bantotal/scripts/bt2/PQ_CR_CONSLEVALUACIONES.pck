@@ -14,9 +14,9 @@ create or replace package PQ_CR_CONSLEVALUACIONES is
   -- Fecha de Modificación      : 15/05/2025
   -- Autor de la Modificación   : MPOSTIGOC
   -- Descripción de Modificación: Se agrego la visualizacion de Garantias, politicas y Ratios Financieros
-  -- Fecha de Modificación      : 
-  -- Autor de la Modificación   : 
-  -- Descripción de Modificación: 
+  -- Fecha de Modificación      : 03/06/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se agrego validaciones de ejecucion
   -- *****************************************************************  
 
   procedure sp_Cr_Inicio(ln_Instancia in number);
@@ -78,8 +78,10 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
 
   procedure sp_Cr_Inicio(ln_Instancia in number) is
   
-    ln_ModEva     number(5) := 0;
-    ln_Habilitado number(5) := 0;
+    ln_ModEva      number(5) := 0;
+    ln_Habilitado  number(5) := 0;
+    ln_RegConsEva  number := 0;
+    ln_RegRatFinan number := 0;
   
   begin
   
@@ -151,6 +153,27 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
       PQ_CR_CONSLEVALUACIONES.sp_Cr_Garantias(ln_Instancia => ln_Instancia);
     
       PQ_CR_CONSLEVALUACIONES.sp_Cr_Politicas(ln_Instancia => ln_Instancia);
+    
+      begin
+        select count(*)
+          into ln_RegConsEva
+          from aqpb195 a
+         where a.aqpb195inst = ln_Instancia
+           and a.aqpb195est = 'H';
+      exception
+        when others then
+          ln_RegConsEva := 0;
+      end;
+    
+      if ln_RegConsEva = 0 then
+      
+        PQ_CR_CONSLEVALUACIONES.sp_cr_Consolidado(ln_instancia => ln_Instancia,
+                                                  ln_ModEva    => ln_ModEva);
+      
+        PQ_CR_CONSLEVALUACIONES.sp_Cr_RatiosFinancieros(ln_instancia => ln_Instancia,
+                                                        ln_ModEva    => ln_ModEva);
+      
+      end if;
     
     end if;
   
@@ -710,7 +733,11 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
          lc_concpto,
          ln_mnt2,
          'H');
+    exception
+      when others then
+        null;
     end;
+    commit;
   end;
   -----------------------------------------------------------
   procedure sp_Cr_RatiosFinancieros(ln_instancia in number,
@@ -992,6 +1019,8 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
       when others then
         null;
     end;
+    commit;
+  
   end sp_cr_LogAQPB198;
   -----------------------------------------------------------
   procedure sp_Cr_Garantias(ln_Instancia in number) is
@@ -1143,6 +1172,7 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
       when others then
         null;
     end;
+    commit;
   
   end sp_Cr_LogAQPB197;
 
@@ -1304,6 +1334,7 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
         when others then
           null;
       end;
+      commit;
     end;
   
   end sp_cr_LogAQPB199;
