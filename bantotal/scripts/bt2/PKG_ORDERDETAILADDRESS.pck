@@ -1,0 +1,153 @@
+create or replace PACKAGE USRECOSISTEMAS.PKG_ORDERDETAILADDRESS is type FIN_CURSOR_ORDERDETAILADDRESS IS REF CURSOR;
+PROCEDURE ORDERDETAILADDRESS_INSERT(
+porderid IN NUMBER ,
+ptype NUMBER,
+puserId IN NUMBER,
+pdescription IN VARCHAR2,
+pdistrictid IN NUMBER,
+preference IN VARCHAR2,
+preceive IN NUMBER,
+pname IN VARCHAR2,
+plastname IN VARCHAR2,
+pdocumenttypeid  IN NUMBER,
+pdocumentnumber  IN VARCHAR2,
+pcellphone  IN VARCHAR2,
+pstatusid  IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER); 
+PROCEDURE ORDERDETAILADDRESS_UPDATE(
+pid IN NUMBER ,
+ptype NUMBER,
+pdescription IN VARCHAR2,
+pdistrictid IN NUMBER,
+ppreference IN VARCHAR2,
+preceive IN NUMBER,
+pname IN VARCHAR2,
+plastname IN VARCHAR2,
+pdocumenttypeid  IN NUMBER,
+pdocumentnumber  IN VARCHAR2,
+pcellphone  IN VARCHAR2,
+pstatusid  IN NUMBER,
+pupdatedby IN NUMBER,
+rowsOut out NUMBER); 
+PROCEDURE ORDERDETAILADDRESS_GET_BYORDERID(pid IN NUMBER, cursorOut OUT FIN_CURSOR_ORDERDETAILADDRESS);
+END PKG_ORDERDETAILADDRESS;
+/
+create or replace PACKAGE BODY USRECOSISTEMAS.PKG_ORDERDETAILADDRESS IS
+
+  PROCEDURE ORDERDETAILADDRESS_INSERT(
+porderid IN NUMBER ,
+ptype NUMBER,
+puserId IN NUMBER,
+pdescription IN VARCHAR2,
+pdistrictid IN NUMBER,
+preference IN VARCHAR2,
+preceive IN NUMBER,
+pname IN VARCHAR2,
+plastname IN VARCHAR2,
+pdocumenttypeid  IN NUMBER,
+pdocumentnumber  IN VARCHAR2,
+pcellphone  IN VARCHAR2,
+pstatusid  IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER) 
+IS
+BEGIN
+ INSERT INTO ORDERDETAILADDRESS (
+ORDERID,
+TYPE,
+USERID,
+DESCRIPTION,
+DISTRICTID,
+REFERENCE,
+RECEIVE,
+NAME,
+LASTNAME,
+DOCUMENTTYPEID,
+DOCUMENTNUMBER,
+CELLPHONE,  
+STATUSID,
+CREATEDBY,
+CREATEDDATE) 
+VALUES
+(porderid,
+ptype,
+puserId,
+pdescription,
+pdistrictid,
+preference,
+preceive,
+pname,
+plastname,
+pdocumenttypeid,
+pdocumentnumber,
+pcellphone,
+pstatusid,
+pcreatedby, 
+sysdate
+)
+  returning ID into IDOUT;
+COMMIT; 
+END ORDERDETAILADDRESS_INSERT;
+
+PROCEDURE ORDERDETAILADDRESS_UPDATE(
+pid IN NUMBER, 
+ptype NUMBER,
+pdescription IN VARCHAR2,
+pdistrictid IN NUMBER,
+ppreference IN VARCHAR2,
+preceive IN NUMBER,
+pname IN VARCHAR2,
+plastname IN VARCHAR2,
+pdocumenttypeid  IN NUMBER,
+pdocumentnumber  IN VARCHAR2,
+pcellphone  IN VARCHAR2,
+pstatusid  IN NUMBER,
+pupdatedby IN NUMBER,
+rowsOut out NUMBER) 
+IS
+BEGIN
+  UPDATE ORDERDETAILADDRESS
+  SET 
+  TYPE=ptype,
+  DESCRIPTION=pdescription,
+  DISTRICTID=pdistrictid,
+  REFERENCE=ppreference,
+  RECEIVE = preceive, 
+  NAME = pname, 
+  LASTNAME = plastname, 
+  DOCUMENTTYPEID = pdocumenttypeid, 
+  DOCUMENTNUMBER = pdocumentnumber, 
+  CELLPHONE = pcellphone, 
+  STATUSID = pstatusid, 
+  UPDATEDBY = pupdatedby, 
+  UPDATEDDATE = sysdate 
+  WHERE ID = pid;
+  rowsOut := SQL%rowcount;
+  COMMIT;
+  
+END ORDERDETAILADDRESS_UPDATE;
+PROCEDURE ORDERDETAILADDRESS_GET_BYORDERID(pid IN NUMBER, cursorOut OUT FIN_CURSOR_ORDERDETAILADDRESS)
+IS
+BEGIN
+  OPEN cursorOut FOR
+  select 
+  ORDERID,
+TYPE,
+USERID,
+DESCRIPTION,
+DISTRICTID,
+REFERENCE,
+RECEIVE,
+NAME,
+LASTNAME,
+DOCUMENTTYPEID,
+DOCUMENTNUMBER,
+CELLPHONE,
+STATUSID,
+CREATEDBY
+  from orderdetailaddress
+  WHERE ORDERID = pid and statusid = 1;
+END ORDERDETAILADDRESS_GET_BYORDERID;
+END PKG_ORDERDETAILADDRESS;
+/

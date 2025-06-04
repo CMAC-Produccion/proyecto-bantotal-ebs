@@ -1,0 +1,114 @@
+create or replace PACKAGE USRECOSISTEMAS.PKG_STORE_CATEGORY is
+
+PROCEDURE SEC_STORE_CATEGORY_INSERT(
+pidstore IN NUMBER,
+pidcategory IN NUMBER,
+pstatusid IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER);
+PROCEDURE SEC_STORE_CATEGORY_DELETE_BY_STORE(
+pidstore IN NUMBER,
+rowsOut out NUMBER);
+PROCEDURE SEC_STORE_CATEGORY_UPDATE_INSERT(
+pidstore IN NUMBER,
+pidcategory IN NUMBER,
+pstatusid IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER);
+PROCEDURE SEC_STORE_CATEGORY_INSERT_ADMIN(
+pidstore IN NUMBER,
+pidcategory IN NUMBER,
+pstatusid IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER);
+
+END PKG_STORE_CATEGORY;
+/
+create or replace PACKAGE BODY USRECOSISTEMAS.PKG_STORE_CATEGORY IS
+
+PROCEDURE SEC_STORE_CATEGORY_INSERT(
+pidstore IN NUMBER,
+pidcategory IN NUMBER,
+pstatusid IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER)
+IS
+BEGIN
+ INSERT INTO CATEGORYSTORE(
+ IDSTORE,
+ IDCATEGORY,
+ STATUSID,
+ CREATEDBY,
+ CREATEDDATE
+ )
+ VALUES(
+ pidstore,
+ pidcategory,
+ pstatusid,
+ pcreatedby,
+ sysdate)
+ returning ID into IDOUT;
+COMMIT; 
+END SEC_STORE_CATEGORY_INSERT;
+PROCEDURE SEC_STORE_CATEGORY_DELETE_BY_STORE(
+pidstore IN NUMBER,
+rowsOut out NUMBER)
+IS
+BEGIN
+DELETE FROM CATEGORYSTORE where IDSTORE = pidstore;
+rowsOut := SQL%rowcount; 
+COMMIT; 
+END SEC_STORE_CATEGORY_DELETE_BY_STORE;
+
+PROCEDURE SEC_STORE_CATEGORY_UPDATE_INSERT(
+pidstore IN NUMBER,
+pidcategory IN NUMBER,
+pstatusid IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER)
+IS
+BEGIN
+
+ update userperson set iscreatecategory = 1 where id = pcreatedby; 
+ INSERT INTO CATEGORYSTORE(
+ IDSTORE,
+ IDCATEGORY,
+ STATUSID,
+ CREATEDBY,
+ CREATEDDATE
+ )
+ VALUES(
+ pidstore,
+ pidcategory,
+ pstatusid,
+ pcreatedby,
+ sysdate)
+ returning ID into IDOUT;
+COMMIT; 
+END SEC_STORE_CATEGORY_UPDATE_INSERT;
+PROCEDURE SEC_STORE_CATEGORY_INSERT_ADMIN(
+pidstore IN NUMBER, 
+pidcategory IN NUMBER,
+pstatusid IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER)
+IS
+BEGIN
+ INSERT INTO CATEGORYSTORE(
+ IDSTORE,
+ IDCATEGORY,
+ STATUSID,
+ CREATEDBY,
+ CREATEDDATE
+ )
+ VALUES(
+ pidstore,
+ pidcategory,
+ pstatusid,
+ pcreatedby,
+ sysdate)
+ returning ID into IDOUT;
+COMMIT; 
+END SEC_STORE_CATEGORY_INSERT_ADMIN;
+END PKG_STORE_CATEGORY;
+/
