@@ -1,0 +1,63 @@
+create or replace package USRECOSISTEMAS.PKG_MOVEMENTHISTORY is
+type MVH_CURSOR_MOVEMENTHISTORY IS REF CURSOR;
+PROCEDURE MVH_MOVEMENTHISTORY_INSERT(
+ptypeoperation IN NUMBER,
+poperationid IN NUMBER,
+pstoreid IN NUMBER,
+pproductid IN NUMBER,
+pquantity IN NUMBER,
+pprice IN NUMBER,
+paction IN VARCHAR2,
+pstatusid IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER);
+end PKG_MOVEMENTHISTORY;
+
+
+/
+create or replace package body USRECOSISTEMAS.PKG_MOVEMENTHISTORY is
+PROCEDURE MVH_MOVEMENTHISTORY_INSERT( 
+ptypeoperation IN NUMBER,
+poperationid IN NUMBER,
+pstoreid IN NUMBER,
+pproductid IN NUMBER,
+pquantity IN NUMBER,
+pprice IN NUMBER,
+paction IN VARCHAR2,
+pstatusid IN NUMBER,
+pcreatedby IN NUMBER,
+IDOUT out NUMBER)
+IS
+
+BEGIN
+ INSERT INTO MOVEMENTHISTORY (
+TYPEOPERATION
+,OPERATIONID
+,STOREID
+,PRODUCTID
+,QUANTITY
+,PRICE
+,ACTION
+,STATUSID
+,CREATEDBY
+,CREATEDDATE
+)  
+VALUES
+(
+ptypeoperation
+,poperationid
+,pstoreid
+,pproductid
+,pquantity
+,pprice
+,paction
+,pstatusid
+,pcreatedby
+,SYSDATE
+)
+returning ID into IDOUT;
+COMMIT; 
+END MVH_MOVEMENTHISTORY_INSERT;
+end PKG_MOVEMENTHISTORY;
+
+/
