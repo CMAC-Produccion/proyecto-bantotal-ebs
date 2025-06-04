@@ -11,7 +11,8 @@ create or replace procedure SP_LINEAS_117(p_instancia in number,
 -- Estado                     : Activo
 -- Acceso                     : Público
 -- Modificación fecha motivo  : SMARQUEZ 12/06/2024 Validacion de persona juridica
--- Modificacion               : SMARQUEZ 16/10/2024 Valor de caracter documento
+-- Modificación               : SMARQUEZ 16/10/2024 Valor de caracter documento
+-- Modificación               : SMARQUEZ 02/06/2025 Status linea 72
 -- *****************************************************************
 
 cuenta number;
@@ -69,7 +70,11 @@ begin
       end;
     else
         Begin
-            select (select trunc(months_between(sysdate,pffnac)/12,0) edad from fsd002 where pfndoc = pendoc )
+            select (select trunc(months_between(sysdate, pffnac) / 12, 0) edad
+                      from fsd002
+                     where pfpais = pepais -- sma 02/06/2025
+                       and pftdoc = petdoc --
+                       and pfndoc = pendoc)
               into edad
               from fsr008
              where ctnro = cuenta
@@ -106,4 +111,3 @@ begin
 
 end SP_LINEAS_117;
 /
-

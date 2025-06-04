@@ -8,7 +8,11 @@ create or replace package pq_cr_caplineas_movil is
   -- Descripción de Modificación: se considero NVL para la variable de nro de cuotas en casos de flujo de caja
   -- Fecha de Modificación      : 15/03/2024
   -- Autor de la Modificación   :  Maria Postigo
-  -- Descripción de Modificación: Se descomento el monto de cuota potencial en el denominador de la formula  
+  -- Descripción de Modificación: Se descomento el monto de cuota potencial en el denominador de la formula
+  -- Fecha de Modificación      : 03/06/2025
+  -- Autor de la Modificación   :  Maria Postigo
+  -- Descripción de Modificación: En el procedimiento sp_Cr_resultadnetoyRCC se cambio los trim por RPAD 
+
   -----------------------------------------------------
 
   procedure sp_cuentas(pn_emp           in number,
@@ -385,7 +389,6 @@ create or replace package pq_cr_caplineas_movil is
 
 end pq_cr_caplineas_movil;
 /
-
 create or replace package body pq_cr_caplineas_movil is
   -- *****************************************************************
   -- Nombre                     : pq_cr_caplineas_movil
@@ -3648,7 +3651,7 @@ create or replace package body pq_cr_caplineas_movil is
        where x.xwfcont = 'S'
          and a.sng021pdoc = ln_pepais
          and a.sng021tdoc = ln_petdoc
-         and trim(a.sng021ndoc) = trim(lc_pendoc)
+         and a.sng021ndoc = rpad(lc_pendoc, 12, ' ')
          and a.sng021fec =
              (select max(a.sng021fec)
                 from sng021 a
@@ -3657,7 +3660,7 @@ create or replace package body pq_cr_caplineas_movil is
                where x.xwfcont = 'S'
                  and a.sng021pdoc = ln_pepais
                  and a.sng021tdoc = ln_petdoc
-                 and trim(a.sng021ndoc) = trim(lc_pendoc));
+                 and a.sng021ndoc = rpad(lc_pendoc, 12, ' '));
     exception
       when others then
         null;
@@ -3674,7 +3677,7 @@ create or replace package body pq_cr_caplineas_movil is
          where x.xwfcont = 'S'
            and a.sng021pdoc = ln_pepais
            and a.sng021tdoc = ln_petdoc
-           and trim(a.sng021ndoc) = trim(lc_pendoc)
+           and a.sng021ndoc = rpad(lc_pendoc, 12, ' ')
            and a.sng021fec =
                (select max(a.sng021fec)
                   from sng021 a
@@ -3683,7 +3686,7 @@ create or replace package body pq_cr_caplineas_movil is
                  where x.xwfcont = 'S'
                    and a.sng021pdoc = ln_pepais
                    and a.sng021tdoc = ln_petdoc
-                   and trim(a.sng021ndoc) = trim(lc_pendoc))
+                   and a.sng021ndoc = rpad(lc_pendoc, 12, ' '))
            AND rownum = 1;
       exception
         when others then
@@ -3700,7 +3703,7 @@ create or replace package body pq_cr_caplineas_movil is
        where x.xwfcont = 'S'
          and jaqz515.jaqz515pai = ln_pepais
          and jaqz515.jaqz515tdo = ln_petdoc
-         and trim(jaqz515.jaqz515ndo) = trim(lc_pendoc)
+         and jaqz515.jaqz515ndo = rpad(lc_pendoc, 12, ' ')
          and jaqz515.jaqz515fee =
              (select max(jaqz515.jaqz515fee)
                 from jaqz515
@@ -3709,7 +3712,7 @@ create or replace package body pq_cr_caplineas_movil is
                where x.xwfcont = 'S'
                  and jaqz515.jaqz515pai = ln_pepais
                  and jaqz515.jaqz515tdo = ln_petdoc
-                 and trim(jaqz515.jaqz515ndo) = trim(lc_pendoc))
+                 and jaqz515.jaqz515ndo = rpad(lc_pendoc, 12, ' '))
          AND rownum = 1;
     exception
       when others then
@@ -3727,7 +3730,7 @@ create or replace package body pq_cr_caplineas_movil is
          where x.xwfcont = 'S'
            and jaqz515.jaqz515pai = ln_pepais
            and jaqz515.jaqz515tdo = ln_petdoc
-           and trim(jaqz515.jaqz515ndo) = trim(lc_pendoc)
+           and jaqz515.jaqz515ndo = rpad(lc_pendoc, 12, ' ')
            and jaqz515.jaqz515fee =
                (select max(jaqz515.jaqz515fee)
                   from jaqz515
@@ -3736,7 +3739,7 @@ create or replace package body pq_cr_caplineas_movil is
                  where x.xwfcont = 'S'
                    and jaqz515.jaqz515pai = ln_pepais
                    and jaqz515.jaqz515tdo = ln_petdoc
-                   and trim(jaqz515.jaqz515ndo) = trim(lc_pendoc))
+                   and jaqz515.jaqz515ndo = rpad(lc_pendoc, 12, ' '))
            AND rownum = 1;
       exception
         when others then
@@ -5817,4 +5820,3 @@ create or replace package body pq_cr_caplineas_movil is
   ------------------------------------------------------------------  
 end pq_cr_caplineas_movil;
 /
-
