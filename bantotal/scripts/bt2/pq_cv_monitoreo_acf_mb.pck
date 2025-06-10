@@ -53,7 +53,10 @@ create or replace package "PQ_CV_MONITOREO_ACF_MB" is
   -- Descripción Modific.  : Cambio en la desc. en los campos 42 Transf PLIN - CONTACT
   -- Fecha de Modificación : 21/04/2025
   -- Autor de Modificación : Renzo Cuadros Salazar
-  -- Descripción Modific.  : Se agrega transaccion 70 (transferencias al exterior)  
+  -- Descripción Modific.  : Se agrega transaccion 70 (transferencias al exterior) 
+  -- Fecha de Modificación : 03/06/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se agrega transaccion 38 y 41 (copias de la 37 y 31 respectivamente)
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --// Entrada Principal 
@@ -752,6 +755,9 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
   -- Fecha de Modificación : 21/04/2025
   -- Autor de Modificación : Renzo Cuadros Salazar
   -- Descripción Modific.  : Se agrega transaccion 70 (transferencias al exterior)
+  -- Fecha de Modificación : 03/06/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se agrega transaccion 38 y 41 (copias de la 37 y 31 respectivamente)
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --//
@@ -2626,7 +2632,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
       -- jlunaf 28/03/2023 - Se añade transaccion 31 (TIN M/T)
       --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
       --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
-      when pn_ittran in (30, 31,32,33, 37) then 
+      --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+      when pn_ittran in (30, 31,32,33, 37,38,41) then 
         lc_cmp012 := '90'  ; --Transferencia interbancaria (inmediata)  
       when pn_ittran in (951, 360, 59, 61) then --jlunaf 16/05/2022 - Se añade transacciones de desembolso de crédito y línea
         --Desembolso credito normal 951
@@ -2718,7 +2725,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
        --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
        --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
        --rcuadros 21/04/2025 - Transferencias al exterior 70
-       when pn_ittran in (30,50,35,31,32,33,37,70) then --Transferencias Interb.
+       --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+       when pn_ittran in (30,50,35,31,32,33,37,70,38,41) then --Transferencias Interb.
             --Transferencia TIN Linea O/T 30
             --Transferencia TIN Linea M/T 31
             ln_ordaux := 20;
@@ -2778,7 +2786,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
        --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
        --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
        --rcuadros 21/04/2025 - Transferencias al exterior 70
-       when pn_ittran in (30,50,35,31,32,33,37,70) then --Transacciones --Hlaqui 14/03/2022 - Se agrega 35
+       --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+       when pn_ittran in (30,50,35,31,32,33,37,70,38,41) then --Transacciones --Hlaqui 14/03/2022 - Se agrega 35
             --Transferencia TIN Linea O/T 30
             --Transferencia TIN Linea M/T 31
             --efectivo movil 50
@@ -2839,7 +2848,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
        --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
        --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
        --rcuadros 21/04/2025 - Transferencias al exterior 70
-       when pn_ittran in (30,50,35,31,32,33,37,70) then --Transferencias Interb. --Hlaqui 14/03/2022 - Se agrega 35
+       --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+       when pn_ittran in (30,50,35,31,32,33,37,70,38,41) then --Transferencias Interb. --Hlaqui 14/03/2022 - Se agrega 35
             --Transferencia TIN Linea O/T 30
             --Transferencia TIN Linea M/T 31
             --efectivo movil 50
@@ -3445,7 +3455,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
       --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
       --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
       --rcuadros 21/04/2025 - Transferencias al exterior 70
-      when pn_ittran in (15,20,21,10,11,12,30,31,32,33,37,70) then 
+      --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+      when pn_ittran in (15,20,21,10,11,12,30,31,32,33,37,70,38,41) then 
           --Trans. internas 10, 11, 12
           --Trans. terceros CM 15
           --Transf CCE otro tit-CajaMovil 20
@@ -3600,7 +3611,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
       --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
       --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
       --rcuadros 21/04/2025 - Transferencias al exterior 70
-      when pn_ittran in (15,20,21,30,10,11,12,31,32,33,37,70) then
+      --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+      when pn_ittran in (15,20,21,30,10,11,12,31,32,33,37,70,38,41) then
           --Trans. internas 10, 11, 12
           --Trans. terceros CM 15
           --Transf CCE otro tit-CajaMovil 20
@@ -3643,11 +3655,11 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
                  lc_cmp042 := lc_cmp042 || 'DIF MT'; --diferidas Mismo Titular
             When pn_ittran in (20) then
                  lc_cmp042 := lc_cmp042 || 'DIF OT'; --diferidas Otro Titular
-            When pn_ittran in (31) then
+            When pn_ittran in (31,41) then
                  lc_cmp042 := lc_cmp042 || 'TIN MT'; -- INMEDIATAS Mismo Titular
             When pn_ittran in (30) then
                  lc_cmp042 := lc_cmp042 || 'TIN OT'; -- INMEDIATAS Otro Titular
-            When pn_ittran in (32,37) then
+            When pn_ittran in (32,37,38) then
                  lc_cmp042 := lc_cmp042 || 'CONTACT'; -- TRANSF A CONTACTO
             When pn_ittran in (33) then
                  lc_cmp042 := lc_cmp042 || 'CONTACT'; -- YP-PLIN
@@ -3896,7 +3908,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
        --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
        --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
        --rcuadros 21/04/2025 - Transferencias al exterior 70
-       when pn_ittran in (30,50,35,31,32,33,37,70) then --Transferencias Interb. --Hlaqui 14/03/2022 - Se agrega 35
+      --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+       when pn_ittran in (30,50,35,31,32,33,37,70,38,41) then --Transferencias Interb. --Hlaqui 14/03/2022 - Se agrega 35
             --Transferencia TIN Linea O/T 30
             --Transferencia TIN Linea M/T 31
             --efectivo movil 50
@@ -3952,7 +3965,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
        --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
        --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
        --rcuadros 21/04/2025 - Transferencias al exterior 70
-       when pn_ittran in (30,50,35,31,32,37,33,70) then --Transferencias Interb. --Hlaqui 14/03/2022 - Se agrega 35
+       --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+       when pn_ittran in (30,50,35,31,32,37,33,70,38,41) then --Transferencias Interb. --Hlaqui 14/03/2022 - Se agrega 35
             --Transferencia TIN Linea O/T 30
             --Transferencia TIN Linea O/T 31
             --efectivo movill 50
@@ -4102,7 +4116,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
        --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
        --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
        --rcuadros 21/04/2025 - Transferencias al exterior 70
-       when pn_ittran in (30,50,35,31,11,32,33,37,70) then --Transacciones --Hlaqui 14/03/2022  - Se agrega pago de tarjeta (35)
+       --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+       when pn_ittran in (30,50,35,31,11,32,33,37,70,38,41) then --Transacciones --Hlaqui 14/03/2022  - Se agrega pago de tarjeta (35)
             --Transferencia TIN Linea O/T 30
             --Transferencia TIN Linea O/T 31
             --Efectivo Movil 50
@@ -4172,7 +4187,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
     -- jlunaf 28/03/2023 - Se añade transaccion 31
     --dmanriquec 09/02/2024 - Se añade transaccion 32 (Transf. Cel)y 33(PLIN)
     --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
-    when pn_ittran in (30,31,32,33,37) then         
+    --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
+    when pn_ittran in (30,31,32,33,37,38,41) then         
          --Transferencia TIN Linea O/T 30
          --Transferencia TIN Linea M/T 31
          select trim(a.JAQL706CCID)                 
