@@ -17,6 +17,9 @@ create or replace package PQ_CR_CONSLEVALUACIONES is
   -- Fecha de Modificación      : 03/06/2025
   -- Autor de la Modificación   : MPOSTIGOC
   -- Descripción de Modificación: Se agrego validaciones de ejecucion
+  -- Fecha de Modificación      : 04/06/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se cambio el tipo de dato al nro de documento
   -- *****************************************************************  
 
   procedure sp_Cr_Inicio(ln_Instancia in number);
@@ -27,14 +30,14 @@ create or replace package PQ_CR_CONSLEVALUACIONES is
                              ln_cta       in number,
                              lc_cliente   in varchar2,
                              lc_analst    in varchar2,
-                             ln_insteval2 in number,
-                             ld_fcheval2  in date,
-                             ln_TipCamb2  in number,
+                             ln_insteval3 in number,
+                             ld_fcheval3  in date,
+                             ln_TipCamb3  in number,
                              ln_codgrup   in number,
                              lc_grupo     in varchar2,
                              lc_codconc   in varchar2,
                              lc_concpto   in varchar2,
-                             ln_mnt2      in number);
+                             ln_mnt3      in number);
   ----------------------------------------------------
   procedure sp_Cr_RatiosFinancieros(ln_instancia in number,
                                     ln_ModEva    in number);
@@ -229,7 +232,7 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
     ln_cuenta      number;
     ln_pais        number;
     ln_tdoc        number;
-    lc_Ndoc        number;
+    lc_Ndoc        varchar2(12);
     ln_NroEva      number;
     x              number := 2;
     ln_MntSoles    number(17, 2) := 0.00;
@@ -298,6 +301,79 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
         ln_TipoCamb := 1;
     end;
   
+    -- Solicitud en Proceso 
+  
+    begin
+      select s.sng021eval, s.sng021fec
+        into ln_NroEva, ld_FchEval
+        from sng021 s
+       where s.sng021sol = ln_instancia;
+    exception
+      when others then
+        ln_NroEva := 0;
+    end;
+  
+    begin
+      select s.sng120tcbi
+        into ln_TipoCamb
+        from sng120 s
+       where s.sng120ins = ln_instancia
+         and s.sng120tsk = 'EVALUACION';
+    exception
+      when others then
+        ln_TipoCamb := 1;
+    end;
+  
+    for g in grupos loop
+      for c in campos(g.grupo) loop
+        ln_MntSoles := 0;
+        ln_MntDolar := 0;
+        ln_MntTotal := 0;
+      
+        begin
+          select s.sng023mto
+            into ln_MntSoles
+            from sng023 s
+           where s.sng021eval = ln_NroEva
+             and s.sng026cod = c.codsoles;
+        exception
+          when others then
+            ln_MntSoles := 0;
+        end;
+      
+        begin
+          select s.sng023mto
+            into ln_MntDolar
+            from sng023 s
+           where s.sng021eval = ln_NroEva
+             and s.sng026cod = c.coddolar;
+        exception
+          when others then
+            ln_MntDolar := 0;
+        end;
+      
+        ln_MntSoles := nvl(ln_MntSoles, 0);
+        ln_MntDolar := nvl(ln_MntDolar, 0);
+        ln_MntTotal := ln_MntSoles + (ln_MntDolar * ln_TipoCamb);
+      
+        pq_Cr_conslevaluaciones.sp_cr_LogAQPB195(ln_inst      => ln_instancia,
+                                                 ln_cta       => ln_cuenta,
+                                                 lc_cliente   => lc_NombCli,
+                                                 lc_analst    => lc_Analista,
+                                                 ln_insteval3 => ln_instancia,
+                                                 ld_fcheval3  => ld_FchEval,
+                                                 ln_TipCamb3  => ln_TipoCamb,
+                                                 ln_codgrup   => g.grupo,
+                                                 lc_grupo     => g.descgrupo,
+                                                 lc_codconc   => c.codsoles || '-' ||
+                                                                 c.coddolar,
+                                                 lc_concpto   => c.concepto,
+                                                 ln_mnt3      => ln_MntTotal);
+      
+      end loop;
+      commit;
+    end loop;
+  
     for e in evaluaciones(ln_pais, ln_tdoc, lc_Ndoc) loop
     
       begin
@@ -356,111 +432,45 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
         
           if x = 2 then
           
-            pq_Cr_conslevaluaciones.sp_cr_LogAQPB195(ln_inst      => ln_instancia,
-                                                     ln_cta       => ln_cuenta,
-                                                     lc_cliente   => lc_NombCli,
-                                                     lc_analst    => lc_Analista,
-                                                     ln_insteval2 => e.sng021sol,
-                                                     ld_fcheval2  => e.sng021fec,
-                                                     ln_TipCamb2  => ln_TipoCamb,
-                                                     ln_codgrup   => g.grupo,
-                                                     lc_grupo     => g.descgrupo,
-                                                     lc_codconc   => c.codsoles || '-' ||
-                                                                     c.coddolar,
-                                                     lc_concpto   => c.concepto,
-                                                     ln_mnt2      => ln_MntTotal);
+            update aqpb195 a
+               set a.aqpb195mnt2      = ln_MntTotal,
+                   a.aqpb195insteval2 = e.sng021sol,
+                   a.aqpb195fcheval2  = e.sng021fec,
+                   a.aqpb195tcambeva2 = ln_TipoCamb
+             where a.aqpb195inst = ln_instancia
+               and a.aqpb195codgrup = g.grupo
+               and a.aqpb195codconc = c.codsoles || '-' || c.coddolar
+               and a.aqpb195est = 'H';
+          
+            /* pq_Cr_conslevaluaciones.sp_cr_LogAQPB195(ln_inst      => ln_instancia,
+            ln_cta       => ln_cuenta,
+            lc_cliente   => lc_NombCli,
+            lc_analst    => lc_Analista,
+            ln_insteval2 => e.sng021sol,
+            ld_fcheval2  => e.sng021fec,
+            ln_TipCamb2  => ln_TipoCamb,
+            ln_codgrup   => g.grupo,
+            lc_grupo     => g.descgrupo,
+            lc_codconc   => c.codsoles || '-' ||
+                            c.coddolar,
+            lc_concpto   => c.concepto,
+            ln_mnt2      => ln_MntTotal);*/
           
           end if;
         
           if x = 1 then
-          
             update aqpb195 a
                set a.aqpb195mnt1 = ln_MntTotal
              where a.aqpb195inst = ln_instancia
                and a.aqpb195codgrup = g.grupo
                and a.aqpb195codconc = c.codsoles || '-' || c.coddolar
                and a.aqpb195est = 'H';
-          
           end if;
         
         end loop;
         commit;
       end loop;
       x := x - 1;
-    end loop;
-  
-    -- Solicitud en Proceso  
-    begin
-      select s.sng021eval, s.sng021fec
-        into ln_NroEva, ld_FchEval
-        from sng021 s
-       where s.sng021sol = ln_instancia;
-    exception
-      when others then
-        ln_NroEva := 0;
-    end;
-  
-    begin
-      select s.sng120tcbi
-        into ln_TipoCamb
-        from sng120 s
-       where s.sng120ins = ln_instancia
-         and s.sng120tsk = 'EVALUACION';
-    exception
-      when others then
-        ln_TipoCamb := 1;
-    end;
-  
-    begin
-      update aqpb195 a
-         set a.aqpb195insteval3 = ln_instancia,
-             a.aqpb195fcheval3  = ld_FchEval,
-             a.aqpb195tcambeva3 = ln_TipoCamb
-       where a.aqpb195inst = ln_instancia
-         and a.aqpb195est = 'H';
-    end;
-  
-    for g in grupos loop
-      for c in campos(g.grupo) loop
-        ln_MntSoles := 0;
-        ln_MntDolar := 0;
-        ln_MntTotal := 0;
-      
-        begin
-          select s.sng023mto
-            into ln_MntSoles
-            from sng023 s
-           where s.sng021eval = ln_NroEva
-             and s.sng026cod = c.codsoles;
-        exception
-          when others then
-            ln_MntSoles := 0;
-        end;
-      
-        begin
-          select s.sng023mto
-            into ln_MntDolar
-            from sng023 s
-           where s.sng021eval = ln_NroEva
-             and s.sng026cod = c.coddolar;
-        exception
-          when others then
-            ln_MntDolar := 0;
-        end;
-      
-        ln_MntSoles := nvl(ln_MntSoles, 0);
-        ln_MntDolar := nvl(ln_MntDolar, 0);
-        ln_MntTotal := ln_MntSoles + (ln_MntDolar * ln_TipoCamb);
-      
-        update aqpb195 a
-           set a.aqpb195mnt3 = ln_MntTotal
-         where a.aqpb195inst = ln_instancia
-           and a.aqpb195codgrup = g.grupo
-           and a.aqpb195codconc = c.codsoles || '-' || c.coddolar
-           and a.aqpb195est = 'H';
-      
-      end loop;
-      commit;
     end loop;
   
     --  Vertical Activos
@@ -656,14 +666,14 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
                              ln_cta       in number,
                              lc_cliente   in varchar2,
                              lc_analst    in varchar2,
-                             ln_insteval2 in number,
-                             ld_fcheval2  in date,
-                             ln_TipCamb2  in number,
+                             ln_insteval3 in number,
+                             ld_fcheval3  in date,
+                             ln_TipCamb3  in number,
                              ln_codgrup   in number,
                              lc_grupo     in varchar2,
                              lc_codconc   in varchar2,
                              lc_concpto   in varchar2,
-                             ln_mnt2      in number) is
+                             ln_mnt3      in number) is
   
     lc_hora  varchar2(10) := '00:00:00';
     ld_fecha date;
@@ -707,14 +717,14 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
          aqpb195cta,
          aqpb195cliente,
          aqpb195analst,
-         aqpb195insteval2,
-         aqpb195fcheval2,
-         aqpb195tcambeva2,
+         aqpb195insteval3,
+         aqpb195fcheval3,
+         aqpb195tcambeva3,
          aqpb195codgrup,
          aqpb195grupo,
          aqpb195codconc,
          aqpb195concpto,
-         aqpb195mnt2,
+         aqpb195mnt3,
          aqpb195est)
       values
         (ln_cor + 1,
@@ -724,14 +734,14 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
          ln_cta,
          lc_cliente,
          lc_analst,
-         ln_insteval2,
-         ld_fcheval2,
-         ln_TipCamb2,
+         ln_insteval3,
+         ld_fcheval3,
+         ln_TipCamb3,
          ln_codgrup,
          lc_grupo,
          lc_codconc,
          lc_concpto,
-         ln_mnt2,
+         ln_mnt3,
          'H');
     exception
       when others then

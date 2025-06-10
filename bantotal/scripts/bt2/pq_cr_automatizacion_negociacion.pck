@@ -36,6 +36,10 @@ create or replace package PQ_CR_AUTOMATIZACION_NEGOCIACION is
     -- Fecha de Modificación      : 2025.03.28
     -- Autor de la Modificación   : ENINAH
     -- Descripción de Modificación: Se agregó mas exception nulls para que no se muestre el error de status 500 cuando se envían correos
+    -- Fecha de Modificación      : 2025.05.29
+    -- Autor de la Modificación   : MAYCOL CHAVEZ CHUMAN
+    -- Descripción de Modificación: SE MODIFICO EL PROCEDIMIENTO sp_inserta_aqpc501 PARA AGREGAR EL PARAMETRO DE
+    --                              PI_NOM_PANEL
   *************************************************************************************************************/
   procedure sp_validar_calificacion_normal(instancia       in number,
                                            ln_cuenta       out number,
@@ -144,6 +148,7 @@ create or replace package PQ_CR_AUTOMATIZACION_NEGOCIACION is
                                ve_delegado             in varchar,
                                ve_fechaVigenciaInicial in date,
                                ve_fechaVigenciaFinal   in date,
+                               PI_NOM_PANEL            IN VARCHAR2,
                                vs_respuesta            out varchar);
 
   procedure sp_actualizar_tasa(ve_instancia            in number,
@@ -1943,7 +1948,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     -- Se agregó modificacion cuando falla el envio de correo eninah 18/03/2025  
     if cod_error <> '000' then
       begin
-        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --“DESCRIPCCION DE TU PROCESO” colocar el codigo de tu proceso númerico
+        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --¿DESCRIPCCION DE TU PROCESO¿ colocar el codigo de tu proceso númerico
                                                   P_C_ASUNTO => 'Gestión para negociación de Tasa - ' ||
                                                                 lv_ASUNTO ||
                                                                 ve_instancia, --ASUNTO
@@ -2740,7 +2745,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     -- Se agregó modificacion cuando falla el envio de correo eninah 18/03/2025  
     if cod_error <> '000' then
       begin
-        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --“DESCRIPCCION DE TU PROCESO” colocar el codigo de tu proceso númerico
+        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --¿DESCRIPCCION DE TU PROCESO¿ colocar el codigo de tu proceso númerico
                                                   P_C_ASUNTO => lv_ASUNTO ||
                                                                 ve_instancia, --ASUNTO
                                                   p_c_despar => lv_DES, --PARA
@@ -3607,7 +3612,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     -- Se agregó modificacion cuando falla el envio de correo eninah 18/03/2025  
     if cod_error <> '000' then
       begin
-        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --“DESCRIPCCION DE TU PROCESO” colocar el codigo de tu proceso númerico
+        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --¿DESCRIPCCION DE TU PROCESO¿ colocar el codigo de tu proceso númerico
                                                   P_C_ASUNTO => lv_ASUNTO ||
                                                                 ve_instancia, --ASUNTO
                                                   p_c_despar => lv_DES, --PARA
@@ -5105,7 +5110,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     -- Se agregó modificacion cuando falla el envio de correo eninah 18/03/2025  
     if cod_error <> '000' then
       begin
-        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --“DESCRIPCCION DE TU PROCESO” colocar el codigo de tu proceso númerico
+        PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --¿DESCRIPCCION DE TU PROCESO¿ colocar el codigo de tu proceso númerico
                                                   P_C_ASUNTO => lv_ASUNTO, --ASUNTO
                                                   p_c_despar => conc_correos_gerente_creditos, --PARA
                                                   p_c_descoc => '', --CC
@@ -5172,6 +5177,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
                                ve_delegado             in varchar,
                                ve_fechaVigenciaInicial in date,
                                ve_fechaVigenciaFinal   in date,
+                               PI_NOM_PANEL            IN VARCHAR2,
                                vs_respuesta            out varchar) is
   
     validacion_usuario number;
@@ -5189,14 +5195,21 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
   
     if validacion_usuario = 0 then
       Begin
-        insert into aqpc501
+        insert into aqpc501(aqpc501emp,
+                            aqpc501usr,
+                            aqpc501car,
+                            aqpc501del,
+                            aqpc501ini,
+                            aqpc501fin,
+                            aqpc501panel)
         values
           (1,
            ve_usuario,
            ve_cargo,
            ve_delegado,
            ve_fechaVigenciaInicial,
-           ve_fechaVigenciaFinal);
+           ve_fechaVigenciaFinal,
+           PI_NOM_PANEL);
         commit;
         vs_respuesta := 'INSERTO';
       Exception
@@ -5206,8 +5219,9 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     Else
       begin
         update aqpc501
-           set aqpc501ini = ve_fechaVigenciaInicial,
-               aqpc501fin = ve_fechaVigenciaFinal
+           set aqpc501ini   = ve_fechaVigenciaInicial,
+               aqpc501fin   = ve_fechaVigenciaFinal,
+               aqpc501panel = PI_NOM_PANEL
          where aqpc501usr = rpad(ve_usuario, 10, ' ')
            and aqpc501del = rpad(ve_delegado, 10, ' ');
         commit;
