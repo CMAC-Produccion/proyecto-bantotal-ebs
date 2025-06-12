@@ -1,10 +1,15 @@
 create or replace package PQ_CR_RCC_Resolutor is
-
+  ---------------------------------------------------------------
   -- Author  : HSUAREZ
   -- Created : 05/10/2020 10:42:13 a. m.
-  -- Purpose :    
+  -- Purpose : 
   -- Public type declarations
-  -- Modificacion: MHUAMANI 10/04/2025 ADICION DE LOG PARA CONTROL DE CAMBIOS
+  -- Modificacion : SMARQUEZ 10/06/2025 Adicion de control de la 
+  --                segmentacion en MISTI
+  --------------------------------------------------------------
+  
+  
+
   procedure sp_cr_maximo_monto(ln_Instancia      in number,
                                ve_DeudaRCCMaxima out number);
   --ve_FechaRCCMaxima out date);
@@ -18,6 +23,12 @@ create or replace package PQ_CR_RCC_Resolutor is
                                    VE_PEJE      IN VARCHAR,
                                    VE_ERR       IN VARCHAR,
                                    VE_MSG       IN VARCHAR);
+  -----------------------------------------------------------------                                   
+  procedure SP_LIBERA_tabla (PN_PAIS    IN NUMBER,
+                             PN_TDOC    IN NUMBER,
+                             PC_NDOC    IN VARCHAR2,
+                             PC_USR     IN VARCHAR2); 
+  --------------------------------------------------------------------                                  
 end PQ_CR_RCC_Resolutor;
 /
 create or replace package body PQ_CR_RCC_Resolutor is
@@ -184,7 +195,9 @@ create or replace package body PQ_CR_RCC_Resolutor is
                                    VE_ERR       IN VARCHAR,
                                    VE_MSG       IN VARCHAR) IS
     VI_FECHA DATE;
+    VI_CORRE NUMBER;
   BEGIN
+    VI_CORRE  := SEQ_AQPD759.NEXTVAL;
     BEGIN
       VI_FECHA := TO_DATE(SYSDATE, 'DD/MM/RRRR');
     
@@ -212,10 +225,43 @@ create or replace package body PQ_CR_RCC_Resolutor is
       COMMIT;
     EXCEPTION
       WHEN OTHERS THEN
+       /* INSERT INTO AQPD759
+          (AQPD759COR,
+         AQPD759FECR,
+         AQPD759inst,
+         AQPD759prg,
+         AQPD759pqt,
+         AQPD759prd,
+         AQPD759peje,
+         AQPD759err,
+         AQPD759msge)
+        VALUES
+          (VI_CORRE,VI_FECHA, VE_INSTANCIA , VE_PROGRAMA ,
+           VE_PAQUETE , VE_PROCED , VE_PEJE ,
+           VE_ERR , VE_MSG);*/
         NULL;
     END;
     --INSERT INTO PRUEBA_LOG(MSG)VALUES(VI_FECHA||'-'||VE_INSTANCIA||'-'||VE_PROGRAMA||'-'||VE_PAQUETE||'-'||VE_PROCED||'-'||VE_PEJE||'-'||VE_ERR||'-'||VE_MSG);
   
   END;
+  procedure SP_LIBERA_tabla (PN_PAIS    IN NUMBER,
+                             PN_TDOC    IN NUMBER,
+                             PC_NDOC    IN VARCHAR2,
+                             PC_USR     IN VARCHAR2)is
+  documento char(12);
+  usuario   char(10);                             
+  begin
+    documento := trim(PC_NDOC);
+    usuario   := trim(PC_USR);
+    
+    delete JAQZ082 l
+       where l.jaqz082pais = PN_PAIS
+         and l.jaqz082tdoc = PN_TDOC
+         and l.jaqz082ndoc = PC_NDOC --documento
+         and l.jaqz082usr = PC_USR; --usuario;
+    commit;
+  
+    
+  end SP_LIBERA_tabla;
 end PQ_CR_RCC_Resolutor;
 /
