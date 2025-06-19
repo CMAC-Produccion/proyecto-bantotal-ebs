@@ -40,6 +40,10 @@ create or replace package PQ_CR_AUTOMATIZACION_NEGOCIACION is
     -- Autor de la Modificación   : MAYCOL CHAVEZ CHUMAN
     -- Descripción de Modificación: SE MODIFICO EL PROCEDIMIENTO sp_inserta_aqpc501 PARA AGREGAR EL PARAMETRO DE
     --                              PI_NOM_PANEL
+    -- Fecha de Modificación      : 2025.06.18
+    -- Autor de la Modificación   : ENINAH
+    -- Descripción de Modificación: Se modificó en todos los SP de envío de correos para que guarde en una tabla log si el proceso se ejecuta bien.
+    
   *************************************************************************************************************/
   procedure sp_validar_calificacion_normal(instancia       in number,
                                            ln_cuenta       out number,
@@ -333,7 +337,14 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
   -- Fecha de Modificación      : 2025.03.28
   -- Autor de la Modificación   : ENINAH
   -- Descripción de Modificación: Se agregó mas exception nulls para que no se muestre el error de status 500 cuando se envían correos
+  -- Fecha de Modificación      : 2025.05.29
+  -- Autor de la Modificación   : MAYCOL CHAVEZ CHUMAN
+  -- Descripción de Modificación: SE MODIFICO EL PROCEDIMIENTO sp_inserta_aqpc501 PARA AGREGAR EL PARAMETRO DE
+  --                              PI_NOM_PANEL
   -- *****************************************************************
+  -- Fecha de Modificación      : 2025.06.18
+  -- Autor de la Modificación   : ENINAH
+  -- Descripción de Modificación: Se modificó en todos los SP de envío de correos para que guarde en una tabla log si el proceso se ejecuta bien.
   -----------------------------------------------------------------------
   procedure sp_validar_calificacion_normal(instancia       in number,
                                            ln_cuenta       out number,
@@ -1311,7 +1322,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
       SELECT XWFSUCURSAL
         INTO lv_SUCURSAL
         FROM XWF700
-       WHERE XWFPRCINS = ve_instancia;
+       WHERE XWFPRCINS = ve_instancia
+         AND XWFCAR3 = '1'; -- ENINAH 13/06/2025
     exception
       when others then
         null;
@@ -1327,7 +1339,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
          and sng057aut = 'S'
          and f.ubsuc = lv_SUCURSAL
          and p.ubuser = f.ubuser
-         and prfgcod = 'GAGE01';
+         and prfgcod = 'GAGE01'
+         and rownum = 1; -- ENINAH 13/06/2025
     exception
       when others then
         NULL;
@@ -1922,6 +1935,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     END;
   
     --------------------------------------------------------------------------
+    vs_respuesta := 'No hubo errores';
     --DestinatariosBcc := '; eninah@cajaarequipa.pe';
     begin
       pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DESTINATARIO, --lv_DESTINATARIO 'katherine.perez@sesitdigital.com', 
@@ -1975,39 +1989,40 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         dbms_lob.freetemporary(ll_mensaje);
       exception
         when others then
-          null;
+          cod_error := '1986-';
+          cod_des   := SUBSTR(sqlerrm, 1, 500);
       end;
-    else
-      vs_respuesta := 'No hubo errores';
-      BEGIN
-        INSERT INTO AQPC852
-          (AQPC852COR,
-           AQPC852REM,
-           AQPC852DES,
-           AQPC852CC,
-           AQPC852CCO,
-           AQPC852ASU,
-           AQPC852MEN,
-           AQPC852FEC,
-           AQPC852USR,
-           AQPC852ERROR)
-        VALUES
-          (lv_COR,
-           lv_remitente,
-           lv_DESTINATARIO,
-           lv_CC,
-           DestinatariosBcc,
-           lv_ASUNTO,
-           ll_mensaje,
-           sysdate,
-           ve_usuario,
-           vs_respuesta);
-        COMMIT;
-      EXCEPTION
-        WHEN OTHERS THEN
-          NULL;
-      END;
+      vs_respuesta := 'Si hubo errores - ' || cod_error || cod_des;
     end if;
+  
+    BEGIN
+      INSERT INTO AQPC852
+        (AQPC852COR,
+         AQPC852REM,
+         AQPC852DES,
+         AQPC852CC,
+         AQPC852CCO,
+         AQPC852ASU,
+         AQPC852MEN,
+         AQPC852FEC,
+         AQPC852USR,
+         AQPC852ERROR)
+      VALUES
+        (lv_COR,
+         lv_remitente,
+         lv_DESTINATARIO,
+         lv_CC,
+         DestinatariosBcc,
+         lv_ASUNTO,
+         ll_mensaje,
+         sysdate,
+         ve_usuario,
+         vs_respuesta);
+      COMMIT;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
   end sp_enviar_correo;
 
   procedure sp_enviar_correo_gerente(ve_usuario   in varchar2, -- RECHAZO
@@ -2170,7 +2185,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
       SELECT XWFSUCURSAL
         INTO lv_SUCURSAL
         FROM XWF700
-       WHERE XWFPRCINS = ve_instancia;
+       WHERE XWFPRCINS = ve_instancia
+         AND XWFCAR3 = '1'; -- ENINAH 13/06/2025
     exception
       when others then
         null;
@@ -2186,7 +2202,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
          and sng057aut = 'S'
          and f.ubsuc = lv_SUCURSAL
          and p.ubuser = f.ubuser
-         and prfgcod = 'GAGE01';
+         and prfgcod = 'GAGE01'
+         and rownum = 1; -- ENINAH 13/06/2025
     exception
       when others then
         NULL;
@@ -2721,6 +2738,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
       lv_ASUNTO := 'Rechazo de Gestión para cambio de Tasa - Solicitud(Instancia): ';
     END;
     --------------------------------------------------------------------------
+    vs_respuesta := 'No hubo errores';
   
     begin
       pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, -- 'katherine.perez@sesitdigital.com', -- 
@@ -2774,37 +2792,37 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         when others then
           null;
       end;
-    else
-      vs_respuesta := 'No hubo errores';
-      BEGIN
-        INSERT INTO AQPC852
-          (AQPC852COR,
-           AQPC852REM,
-           AQPC852DES,
-           AQPC852CC,
-           AQPC852CCO,
-           AQPC852ASU,
-           AQPC852MEN,
-           AQPC852FEC,
-           AQPC852USR,
-           AQPC852ERROR)
-        VALUES
-          (lv_COR,
-           lv_remitente,
-           lv_DES,
-           lv_DESTINATARIO,
-           DestinatariosBcc,
-           lv_ASUNTO,
-           ll_mensaje,
-           sysdate,
-           ve_usuario,
-           vs_respuesta);
-        COMMIT;
-      EXCEPTION
-        WHEN OTHERS THEN
-          NULL;
-      END;
+      vs_respuesta := 'Si hubo errores - ' || cod_error || cod_des;
     end if;
+  
+    BEGIN
+      INSERT INTO AQPC852
+        (AQPC852COR,
+         AQPC852REM,
+         AQPC852DES,
+         AQPC852CC,
+         AQPC852CCO,
+         AQPC852ASU,
+         AQPC852MEN,
+         AQPC852FEC,
+         AQPC852USR,
+         AQPC852ERROR)
+      VALUES
+        (lv_COR,
+         lv_remitente,
+         lv_DES,
+         lv_DESTINATARIO,
+         DestinatariosBcc,
+         lv_ASUNTO,
+         ll_mensaje,
+         sysdate,
+         ve_usuario,
+         vs_respuesta);
+      COMMIT;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
   
   end sp_enviar_correo_gerente;
   ---------------------------------------------------------------------------------------------------------
@@ -3587,7 +3605,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
   
     lv_ASUNTO := 'Aprobación de Gestión para cambio de Tasa - Solicitud(Instancia): ';
     --------------------------------------------------------------------------
-  
+    vs_respuesta := 'No hubo errores';
     begin
       pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, --'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', --
                                        p_DestinatariosCC   => lv_DESTINATARIO, --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
@@ -3641,37 +3659,37 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         when others then
           null;
       end;
-    else
-      vs_respuesta := 'No hubo errores';
-      BEGIN
-        INSERT INTO AQPC852
-          (AQPC852COR,
-           AQPC852REM,
-           AQPC852DES,
-           AQPC852CC,
-           AQPC852CCO,
-           AQPC852ASU,
-           AQPC852MEN,
-           AQPC852FEC,
-           AQPC852USR,
-           AQPC852ERROR)
-        VALUES
-          (lv_COR,
-           lv_remitente,
-           lv_DES,
-           lv_DESTINATARIO,
-           DestinatariosBcc,
-           lv_ASUNTO,
-           ll_mensaje,
-           sysdate,
-           ve_usuario,
-           vs_respuesta);
-        COMMIT;
-      EXCEPTION
-        WHEN OTHERS THEN
-          NULL;
-      END;
+      vs_respuesta := 'Si hubo errores - ' || cod_error || cod_des;
     end if;
+  
+    BEGIN
+      INSERT INTO AQPC852
+        (AQPC852COR,
+         AQPC852REM,
+         AQPC852DES,
+         AQPC852CC,
+         AQPC852CCO,
+         AQPC852ASU,
+         AQPC852MEN,
+         AQPC852FEC,
+         AQPC852USR,
+         AQPC852ERROR)
+      VALUES
+        (lv_COR,
+         lv_remitente,
+         lv_DES,
+         lv_DESTINATARIO,
+         DestinatariosBcc,
+         lv_ASUNTO,
+         ll_mensaje,
+         sysdate,
+         ve_usuario,
+         vs_respuesta);
+      COMMIT;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
   
   end sp_enviar_correo_aprobacion_gerente;
 
@@ -5088,6 +5106,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     lv_ASUNTO := 'Aprobación de Gestión para cambio de Tasa - Instancia: ' ||
                  ve_instancia;
   
+    vs_respuesta := 'No hubo errores';
     begin
       pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => conc_correos_gerente_creditos, --'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', --
                                        p_DestinatariosCC   => '', --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
@@ -5137,37 +5156,37 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         when others then
           null;
       end;
-    else
-      vs_respuesta := 'No hubo errores';
-      BEGIN
-        INSERT INTO AQPC852
-          (AQPC852COR,
-           AQPC852REM,
-           AQPC852DES,
-           AQPC852CC,
-           AQPC852CCO,
-           AQPC852ASU,
-           AQPC852MEN,
-           AQPC852FEC,
-           AQPC852USR,
-           AQPC852ERROR)
-        VALUES
-          (lv_COR,
-           lv_remitente,
-           conc_correos_gerente_creditos,
-           '',
-           '',
-           lv_ASUNTO,
-           ll_mensaje,
-           sysdate,
-           ve_usuario,
-           vs_respuesta);
-        COMMIT;
-      EXCEPTION
-        WHEN OTHERS THEN
-          NULL;
-      END;
+      vs_respuesta := 'Si hubo errores - ' || cod_error || cod_des;
     end if;
+  
+    BEGIN
+      INSERT INTO AQPC852
+        (AQPC852COR,
+         AQPC852REM,
+         AQPC852DES,
+         AQPC852CC,
+         AQPC852CCO,
+         AQPC852ASU,
+         AQPC852MEN,
+         AQPC852FEC,
+         AQPC852USR,
+         AQPC852ERROR)
+      VALUES
+        (lv_COR,
+         lv_remitente,
+         conc_correos_gerente_creditos,
+         '',
+         '',
+         lv_ASUNTO,
+         ll_mensaje,
+         sysdate,
+         ve_usuario,
+         vs_respuesta);
+      COMMIT;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
   
   end sp_enviar_correo_aprobacion_gerente_creditos;
 
@@ -5195,13 +5214,14 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
   
     if validacion_usuario = 0 then
       Begin
-        insert into aqpc501(aqpc501emp,
-                            aqpc501usr,
-                            aqpc501car,
-                            aqpc501del,
-                            aqpc501ini,
-                            aqpc501fin,
-                            aqpc501panel)
+        insert into aqpc501
+          (aqpc501emp,
+           aqpc501usr,
+           aqpc501car,
+           aqpc501del,
+           aqpc501ini,
+           aqpc501fin,
+           aqpc501panel)
         values
           (1,
            ve_usuario,
