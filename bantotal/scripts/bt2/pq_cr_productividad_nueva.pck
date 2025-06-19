@@ -23,7 +23,6 @@ create or replace package PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
   --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario y sp_cr_SaldosTraslados
   --                              2025.05.08 dcastro se modifico sp_cr_inserta_cartera_finmes y sp_cr_inserta_cartera_diario 
-  --                              2025.05.28 dcastro se modifico sp_cr_inserta_cartera_diario - dias de atraso
   -- *****************************************************************
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
   procedure sp_cr_inserta_cartera(pd_fecpro in date);
@@ -477,7 +476,6 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
   --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario
   --                              2025.05.08 dcastro se modifico sp_cr_inserta_cartera_finmes y sp_cr_inserta_cartera_diario
-  --                              2025.05.28 dcastro se modifico sp_cr_inserta_cartera_diario - dias de atraso
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -1083,8 +1081,6 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     lc_coderr    varchar2(100);   
     lc_msgerr    varchar2(1000);  
 
-    ln_dia number; --2025.05.28
-    
   begin
   
     ld_fecpro := pd_fecpro + 1;
@@ -1192,14 +1188,6 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
 
         end if;
        --2025.05.08        
-       
-       --2025.05.28
-       if i.JAQL964DIA > 0 then
-           ln_dia := i.JAQL964DIA - 1;   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
-       else
-           ln_dia := nvl(i.JAQL964DIA,0); --
-       end if;
-       --2025.05.28
         
           begin
             --insertar diario
@@ -1245,7 +1233,7 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
                1, --V_JAQL964RUBR(i),
                i.JAQL964SAC,
                i.JAQL964SAO,
-               ln_dia,--2025.05.28 i.JAQL964DIA - 1,   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
+               i.JAQL964DIA - 1,   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
                ld_fecval,
                ld_fecvto,
                i.JAQL964PAI,
@@ -1680,7 +1668,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
 
     lc_coderr varchar2(1000);  --2023.11.13
     lc_deserr varchar2(1000);  
- 
+    ln_operaciones      number; --2025.06.13 dcastro
+     
   begin
   
     for i in creditos(pc_sucurs, pd_fecpro) loop
@@ -1873,6 +1862,20 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
         end if;
         --2023.11.13
   
+       --2025.06.13 numero operaciones BI
+        BEGIN
+          select j.JAQZ452OPRO
+             into ln_operaciones 
+             from JAQZ452O j
+            where j.JAQZ452OFEC = pd_fecpro
+              and j.JAQZ452OSUC = ln_agencia
+              and j.JAQZ452OANA = trim(i.jaql965ase);
+        EXCEPTION WHEN OTHERS THEN
+              ln_operaciones := 0;  
+        END;              
+        --2025.06.13
+  
+  
         
         begin     --2023.11.13
           insert into JAQL600
@@ -1956,7 +1959,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
              jaql600pagdi,
              jaql600porco,
              jaql600desag,
-             jaql600desca
+             jaql600desca,
+             jaql600nope ---2025.06.13
              )
           values
             (pd_fecpro,
@@ -2039,8 +2043,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
              0,
              ln_porconvenio,
              lc_desagencia,
-             lc_descategoria
-             
+             lc_descategoria,
+             ln_operaciones  ---2025.06.13
              );
         
           commit;
@@ -2131,6 +2135,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
   
     lc_coderr varchar2(1000);
     lc_deserr varchar2(1000); 
+    
+    ln_operaciones      number; --2025.06.13 dcastro
   
   begin
   
@@ -2325,6 +2331,20 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
         end if;
         --2023.11.13
         
+        --2025.06.13 numero operaciones BI
+        BEGIN
+          select j.JAQZ452OPRO
+             into ln_operaciones 
+             from JAQZ452O j
+            where j.JAQZ452OFEC = pd_fecpro
+              and j.JAQZ452OSUC = ln_agencia
+              and j.JAQZ452OANA = trim(i.jaql965ase);
+        EXCEPTION WHEN OTHERS THEN
+              ln_operaciones := 0;  
+        END;              
+        --2025.06.13
+        
+         
        begin ---2023.11.13 se agrego excepcion
             insert into JAQL600
               (JAQL600FPRO,
@@ -2407,7 +2427,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
                jaql600pagdi,
                jaql600porco,
                jaql600desag,
-               jaql600desca  
+               jaql600desca,
+               jaql600nope   ---2025.06.13
                )
             values
               (pd_fecpro,
@@ -2490,7 +2511,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
                0,
                ln_porconvenio,
                lc_desagencia,
-               lc_descategoria
+               lc_descategoria,
+               ln_operaciones  ---2025.06.13
                );
           
             commit;
@@ -11692,22 +11714,22 @@ BEGIN
      end;
         
      --excedente
-     if ln_porretencion1 >= ln_metret then
+     if nvl(ln_porretencion1,0) >= ln_metret then
               ln_pagret := ln_mtoret;
               
               ---si ln_porretencion1 > 100 cambiar porcentaje a 100
-              if ln_porretencion1 > 100 then
+              if nvl(ln_porretencion1,0) > 100 then
                 ln_porretencion1 := 100;
               end if;
               ---si ln_porretencion2 > 100 cambiar porcentaje a 100
-              if ln_porretencion2 > 100 then
+              if nvl(ln_porretencion2,0) > 100 then
                 ln_porretencion2 := 100;
               end if;      
 
                 
               --aplicar porcentaje al excedente
-              ln_retexcedente := ln_porretencion1 - ln_metret;
-              if ln_retexcedente > 0 then
+              ln_retexcedente := nvl(ln_porretencion1,0) - ln_metret;
+              if nvl(ln_retexcedente,0) > 0 then
                 ln_pagret_adi := round(ln_retexcedente * ln_excret, 2);
               else
                 ln_pagret_adi := 0;
@@ -11721,15 +11743,15 @@ BEGIN
   ELSIF pc_tipo = 'P'   then -- INICIO PYMEs/CONVENIO
     
       ---si ln_porretencion1 > 100 cambiar porcentaje a 100
-      if ln_porretencion1 > 100 then
+      if nvl(ln_porretencion1,0) > 100 then
         ln_porretencion1 := 100;
       end if;
       ---si ln_porretencion2 > 100 cambiar porcentaje a 100
-      if ln_porretencion2 > 100 then
+      if nvl(ln_porretencion2,0) > 100 then
         ln_porretencion2 := 100;
       end if;      
   
-      if ln_baseret1 >= ln_numret then  --si la base de retencion >=8 (guia)
+      if nvl(ln_baseret1,0) >= ln_numret then  --si la base de retencion >=8 (guia)
          
         /*IF ln_porretencion2 <= 65 then
            ln_porcentaje := 64.99;
@@ -11757,7 +11779,7 @@ BEGIN
                  
        ln_pagret := nvl(ln_mtoret,0);
        
-       IF ln_porretencion2 > 65 then --si % CAV >65 bono se duplica.
+       IF nvl(ln_porretencion2,0) > 65 then --si % CAV >65 bono se duplica.
           ln_pagret := ln_pagret * 2;
        end if;
                      

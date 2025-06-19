@@ -87,6 +87,7 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
   -- Modificacion: SMARQUEZ> 23/12/2024 control duplicados en seg desempleo
   -- Modificacion: SMARQUEZ 24/01/2025 cambio para evitar bloqueos con el truncate table aqpa560
   -- Modificacion: SMARQUEZ 19/05/2025 PRoceso pra el Desembolso Digital /polizas desde APP
+  -- Modificacion: SMARQUEZ 12/06/2025 Adecuacion para desmbolso Digital 
   Procedure Sp_seg_desempleo(pn_ins in number,
                              pn_tip out number,
                              pc_tsg out varchar2)is
@@ -1073,6 +1074,7 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
   Procedure desembolso_desempleo(pn_ins in number,
                                  pc_flag out varchar2) is
   segdesempleo char(1):='N';
+  sesion_u char(30);
   Begin
     BEgin
       select 'S'
@@ -1089,7 +1091,20 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
             and sng300cod = 10;
        exception
          when no_data_found then
-            pc_flag :='E';
+               ---------SMA 12062025
+            Begin
+              SELECT SYS_CONTEXT('USERENV', 'SESSION_USER')
+              into  sesion_u  ---Usuario de la sesión actual (normalmente quien se conectó).                    
+              FROM dual;
+              if trim(sesion_u) = 'NSBTUSER' then
+                pc_flag :='S';
+              else
+                pc_flag :='N';
+              end if;
+           exception
+              when no_Data_Found then
+                pc_flag :='E';
+           end;
        end;
 
      exception
@@ -1297,7 +1312,7 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
 
        exception
          when others then
-           Existe :='N';         
+           Existe :='N';
        end ;
        if Existe = 'S' then
            begin
@@ -1323,10 +1338,10 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
           exception
             when others then
               pc_tiposegmento := 'I';
-          end;      
+          end;
      else
        pc_tiposegmento :='N';
-     end if; 
+     end if;
          /*   if segmento = 'I' then
               codigocia:= 51;
             else
