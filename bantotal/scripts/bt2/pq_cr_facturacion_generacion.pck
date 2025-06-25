@@ -18,6 +18,7 @@ CREATE OR REPLACE PACKAGE pq_cr_facturacion_generacion is
   -- Autor de Modificación        : jrodriguej
   -- Descripción de Modificación  : Actualización para obtener el rubro desde la tabla aqpa463 al generar NCE  
   --                              : 26/05/2025 dcastro se modifico fn_acondcionar_rsocial
+  --                              : 24/06/2025 dcastro se agrego valor tipo operacion '2100' en caso no exista.
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -225,6 +226,7 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
   -- Descripción de Modificación  : Actualización para obtener el rubro desde la tabla aqpa463 al generar NCE  
   --                                07/09/2023 dcastro se modifico sp_insertar_libro_ventas
   --                                26/05/2025 dcastro se modifico fn_acondcionar_rsocial  
+  --                              : 24/06/2025 dcastro se modifico sp_cr_insertar_datos, sp_cr_insertar_datos1.  
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -474,7 +476,7 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
                                                                          t.aqpa460tcomf,
                                                                          t.aqpa460seri,
                                                                          t.aqpa460num),
-                          '0000') aqpb052tipope, --C5: Tipo de operación no gravada  --5
+                          '2100') aqpb052tipope, --C5: Tipo de operación no gravada  --5    --2025.06.24
                       t.aqpa460tdocr aqpb052tdoc, --C6: Tipo de documento de identidad del cliente --6
                       t.aqpa460nruc aqpb052nruc, --C7: Número de documento de Identidad del cliente --7
                       
@@ -9578,6 +9580,7 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
   -------------------------------------------------------------------------------
 procedure sp_cr_insertar_datos1(pd_fecpro    in date,
                                  pd_resultado out number) is
+ --  2025.06.24 dcastro se agrego valor tipo operacion '2100' en caso no exista.
   
     lc_limite number(18) := 0;
     lc_indice number(18) := 0;
@@ -9602,7 +9605,7 @@ procedure sp_cr_insertar_datos1(pd_fecpro    in date,
                                                                          t.aqpa460tcomf,
                                                                          t.aqpa460seri,
                                                                          t.aqpa460num),
-                          '0000') aqpb052tipope, --C5: Tipo de operación no gravada
+                          '2100') aqpb052tipope, --C5: Tipo de operación no gravada ---2025.06.24
                       t.aqpa460tdocr aqpb052tdoc, --C6: Tipo de documento de identidad del cliente
                       t.aqpa460nruc aqpb052nruc, --C7: Número de documento de Identidad del cliente
                       
