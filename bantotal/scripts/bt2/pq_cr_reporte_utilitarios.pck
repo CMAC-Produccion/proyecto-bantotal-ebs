@@ -19,6 +19,8 @@ create or replace package pq_cr_reporte_utilitarios is
   --                              : 2024/09/20 dcastro se agrego condicion fn_get_saldo_insoluto_imp
   --                              : 2024.10.03 dcastro se modifico para saldos honrados de capital fn_get_saldo_insoluto_imp, fn_get_mprepago_IMP, fn_get_mprepago_acum_IMP
   --                              : 2024.10.14 dcastro se descomento cambio 2024.10.03  para saldos honrados de capital fn_get_saldo_insoluto_imp, fn_get_mprepago_IMP, fn_get_mprepago_acum_IMP
+  --                              : 2025.06.11 calarconap se corrige calculo de saldo insoluto fn_get_saldo_insoluto y fn_get_saldo_insoluto_imp (se ajusta Where en calculo de capital )
+  --                              : 2025.06.24 dcastro se modificó fn_get_saldo_insoluto_imp
   -- *****************************************************************
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   -- Funcion obtener saldo actual
@@ -450,7 +452,6 @@ return type_table_otros_repfondos;
 -------------------------------------------------------------------------                                                                    
 end pq_cr_reporte_utilitarios;
 /
-
 create or replace package body pq_cr_reporte_utilitarios is
   -------------------------------------------------------------------------
   function fn_get_saldo_actual(pn_cod   in number,
@@ -993,7 +994,8 @@ create or replace package body pq_cr_reporte_utilitarios is
             
               from fsd602 t
              where t.pgcod = pn_cod
-               and t.ppmod = pn_mod
+                 and t.ppmod in ( select MODULO from fst111 a where a.dscod = 50 )
+               --and t.ppmod = pn_mod
                   --and t.ppsuc = pn_suc --  jrodriguej 28.06.2021
                and t.ppsuc in (select p.sucurs
                                  from fst001 p
@@ -1181,6 +1183,7 @@ create or replace package body pq_cr_reporte_utilitarios is
                                  pd_fe99  in date)
     -- 2024.09.20 dcastro se agrego condicion para estado cancelado    
     -- 2024.10.04 dcastro Se agregó guia 10876 para obtener ordinales de capital en trxs honrados
+    -- 2025.06.24 dcastro dcastro se comentó de acuerdo a lo indicado por negocio, si es cancelado saldo insoluto = 0
                              
     return type_table_saldo_insoluto is
     t_resp      type_table_saldo_insoluto;
@@ -1514,7 +1517,8 @@ create or replace package body pq_cr_reporte_utilitarios is
             
               from AQPC366D/*fsd602*/ t
              where t.pgcod = pn_cod
-               and t.ppmod = pn_mod
+             --and t.ppmod = pn_mod --(calarconaap: 11/06/2025 )
+                  and t.ppmod in (select MODULO from fst111 a where a.dscod = 50) 
                   --and t.ppsuc = pn_suc --  jrodriguej 28.06.2021
                and t.ppsuc in (select p.sucurs
                                  from fst001 p
@@ -1705,11 +1709,12 @@ create or replace package body pq_cr_reporte_utilitarios is
         end if;
       end if; -- fin lc_canc       
   
-      -- Verificación de estado del crédito
+/* 2025.06.24 dcastro se comentó de acuerdo a lo indicado por negocio
+     -- Verificación de estado del crédito
     if pn_stat = 99 and ld_fe99 <= pd_fecha and ld_fe99 != '01/01/0001' then
       ln_saldo := 0;
     end if;-- 2024.09.20 dcastro se agrego validacion por estado, si es cancelado saldo insoluto = 0.
-   
+*/   
     begin
       select type_saldo_inso(ln_saldo) bulk collect into t_resp from dual;
     exception
@@ -9093,4 +9098,3 @@ function fn_get_cuota_pago_IMP(pn_cod in number,
   
 end pq_cr_reporte_utilitarios;
 /
-

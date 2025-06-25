@@ -23,6 +23,7 @@ create or replace package PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
   --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario y sp_cr_SaldosTraslados
   --                              2025.05.08 dcastro se modifico sp_cr_inserta_cartera_finmes y sp_cr_inserta_cartera_diario 
+  --                              2025.06.20 dcastro se modifico sp_cr_SaldosTraslados
   -- *****************************************************************
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
   procedure sp_cr_inserta_cartera(pd_fecpro in date);
@@ -476,6 +477,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2025.01.15 dcastro se modificaron procesos para control de jobs
   --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario
   --                              2025.05.08 dcastro se modifico sp_cr_inserta_cartera_finmes y sp_cr_inserta_cartera_diario
+  --                              2025.05.28 dcastro se modifico sp_cr_inserta_cartera_diario - dias de atraso
+  --                              2025.06.20 dcastro se modifico sp_cr_SaldosTraslados
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -1081,6 +1084,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
     lc_coderr    varchar2(100);   
     lc_msgerr    varchar2(1000);  
 
+    ln_dia number; --2025.05.28
+
   begin
   
     ld_fecpro := pd_fecpro + 1;
@@ -1188,7 +1193,15 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
 
         end if;
        --2025.05.08        
-        
+
+       --2025.05.28
+       if i.JAQL964DIA > 0 then
+           ln_dia := i.JAQL964DIA - 1;   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
+       else
+           ln_dia := nvl(i.JAQL964DIA,0); --
+       end if;
+       --2025.05.28
+               
           begin
             --insertar diario
             insert into JAQL965
@@ -1233,7 +1246,8 @@ create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
                1, --V_JAQL964RUBR(i),
                i.JAQL964SAC,
                i.JAQL964SAO,
-               i.JAQL964DIA - 1,   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
+               --i.JAQL964DIA - 1,   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
+               ln_dia,--2025.05.28 i.JAQL964DIA - 1,   --2025.04.30 se agrego -1 porque considera 1 dias mas en diario
                ld_fecval,
                ld_fecvto,
                i.JAQL964PAI,
@@ -7145,6 +7159,7 @@ select HCTA,
     -- Fecha de Modificación      : 2017.06.05
     -- Autor de la Modificación   : Dcastro
     -- Descripción de Modificación: Para saldos otorgados se debe restar los saldos al porcentaje de mora (*-1)
+    --                              2025.06.20 se elimino condicion de saldo traslados y mora menor a 0
     -- *****************************************************************
     ln_saljud   number := 0;
     ld_fecini   date;
@@ -7294,12 +7309,7 @@ select HCTA,
     
     end if;
    
-    if pn_saltot < 0 then -- 2025.05.07 dcasro si saldo traslado o saldo mora es negativo el valor se considera como o.
-       pn_saltot := 0;
-    end if;   
-    if pn_salmor < 0 then
-          pn_salmor := 0;       
-    end if;   
+
   
     pn_saltot := nvl(pn_saltot, 0);
     pn_salmor := nvl(pn_salmor, 0);

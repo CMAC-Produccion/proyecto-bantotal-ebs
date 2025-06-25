@@ -18,6 +18,7 @@ create or replace package pq_cr_Factura_Electronica is
   --                              2020.11.01 JRODRIGUEJ se modificarón los procedimientos para la generación de comprobantes electrónicos
   --                              2020.12.08 JRODRIGUEJ se modificó el procedimiento para la generación del NCE mediante el rubro
   --                              2020.12.29 JRODRIGUEJ se agregó un procedimiento para reprocesar NCE's de un día posterior a la fecha de proceso
+  --                              2025.06.24 DCASTRO se agregó procedimiento  sp_cr_Comision_Gen para generar comprobantes comision  y se modificó rubro para comisiones         
   -- *****************************************************************
 
   procedure sp_Num_Documento(pn_cuenta in number,
@@ -627,9 +628,20 @@ procedure sp_cr_Detalle_Fact_CIGV(
   procedure sp_cr_Detalle_Factura_IGV0(pd_pgfape in date);
   procedure sp_cr_Cabecera_facturaIGV0(pd_pgfape in date);
 
+
+  ---------------
+  procedure sp_cr_Comision_Gen(p_pgcod  in number,
+                                p_hcmod  in number,
+                                p_hsucor in number,
+                                p_htran  in number,
+                                p_hnrel  in number,
+                                p_hfcon  in date,
+                                p_pcorr  out number) ;
+                                
+   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                               
+
 end pq_cr_Factura_Electronica;
 /
-
 create or replace package body pq_cr_Factura_Electronica is
   -- *****************************************************************
   -- Nombre                     : pq_cr_Factura_Electronica
@@ -644,6 +656,7 @@ create or replace package body pq_cr_Factura_Electronica is
   -- Autor de la Modificación   : ABERNEDO
   -- Descripción de Modificación: Se agrego procceso de IGV
   --                              2022.05.27 DCASTRO se modifico consulta a tabla para obtener nombre de cliente
+  --                              2025.06.24 DCASTRO se agregó procedimiento  sp_cr_Comision_Gen para generar comprobantes comision  y se modificó rubro para comisiones         
   -- *****************************************************************
   procedure sp_Num_Documento(pn_cuenta in number,
                              pn_pendoc out character,
@@ -11173,8 +11186,10 @@ create or replace package body pq_cr_Factura_Electronica is
               End if;
             
               --              if P.AQPA463HCMOD = 30 and P.AQPA463HTRAN in (977, 978) then  22/07/2021
-              if P.AQPA463HCMOD = 30 and
-                 P.AQPA463HTRAN in (977, 978, 405, 984, 986) then
+              if (P.AQPA463HCMOD = 30 and P.AQPA463HTRAN in (977, 978, 405, 984, 986))
+                 or
+                 (P.AQPA463HCMOD = 10 and P.AQPA463HTRAN =91)
+               then
                 ---30/405  22/07/2021
                 ---si es igv bantotal
                 lv_afecigv := 17; --se agrego concepto 978 26122018
@@ -33428,7 +33443,10 @@ procedure sp_cr_Detalle_Factura_IGV(pd_pgfape in date) is
            and f.hfcon = ld_fec
               --and f.HRUBRO like '52%';  -- 2023.06.24
            --and (f.HRUBRO like '52%_2' or f.HRUBRO like '56%_2'); -- 2023.06.24
-           and (f.hrubro like '52_229%'  or f.HRUBRO like '56_2%' or f.HRUBRO like '56_9%'); -- 2023.10.25 actualizar rubros
+           --and (f.hrubro like '52_229%'  or f.HRUBRO like '56_2%' or f.HRUBRO like '56_9%'); -- 2023.10.25 actualizar rubros
+           and (f.hrubro like '52_%'  or f.HRUBRO like '56_2%' or f.HRUBRO like '56_9%'); -- 2025.03.30 actualizar rubros
+           
+
       
       exception
         when others then
@@ -35819,7 +35837,8 @@ procedure sp_cr_Detalle_Factura_IGV(pd_pgfape in date) is
             --and a.hrubro like '52%'; -- 2023.06.24
 --         and (a.hrubro like '52%_2' or a.hrubro like '56%_2'); -- 2023.06.24
         -- and (a.hrubro like '52%_3' or a.hrubro like '52%_2' or a.hrubro like '56%_2' or a.hrubro like '56_9%'); -- 2023.09.20 ahorraton
-         and (a.hrubro like '52_229%'  or a.HRUBRO like '56_2%' or a.HRUBRO like '56_9%'); -- 2023.10.25 actualizar rubros
+         --and (a.hrubro like '52_229%'  or a.HRUBRO like '56_2%' or a.HRUBRO like '56_9%'); -- 2023.10.25 actualizar rubros
+          and (a.hrubro like '52_%'  or a.HRUBRO like '56_2%' or a.HRUBRO like '56_9%'); -- 2025.03.30 actualizar rubros
   
     ln_ordinal number;
     ln_con1    number;
@@ -40048,7 +40067,8 @@ procedure sp_cr_Detalle_Factura_IGV(pd_pgfape in date) is
               --and f.HRUBRO like '52%';-- 2023.06.24
           -- and (f.HRUBRO like '52%_2' or f.HRUBRO like '56%_2' ); -- 2023.06.24
           -- and (f.hrubro like '52%_3' or f.HRUBRO like '52%_2' or f.HRUBRO like '56%_2' or f.HRUBRO like '56_9%'); -- 2023.09.20 ahorraton
-                     and (f.hrubro like '52_229%'  or f.HRUBRO like '56_2%' or f.HRUBRO like '56_9%'); -- 2023.10.25 actualizar rubros
+           --and (f.hrubro like '52_229%'  or f.HRUBRO like '56_2%' or f.HRUBRO like '56_9%'); -- 2023.10.25 actualizar rubros
+          and (f.hrubro like '52_%'  or f.HRUBRO like '56_2%' or f.HRUBRO like '56_9%'); -- 2023.10.25 actualizar rubros
       
       exception
         when others then
@@ -41018,7 +41038,8 @@ procedure sp_cr_Detalle_Factura_IGV(pd_pgfape in date) is
             --and a.hrubro like '52%'; 2023.06.24
          --and (a.hrubro like '52%_2' or a.hrubro like '56%_2'); -- 2023.06.24
          --and (a.hrubro like '52%_3' or a.hrubro like '52%_2' or a.hrubro like '56%_2' or a.hrubro like '56_9%'); --2020.09.20 ahorraton
-         and (a.hrubro like '52_229%'  or a.HRUBRO like '56_2%' or a.HRUBRO like '56_9%'); -- 2023.10.25 actualizar rubros
+         --and (a.hrubro like '52_229%'  or a.HRUBRO like '56_2%' or a.HRUBRO like '56_9%'); -- 2023.10.25 actualizar rubros
+          and (a.hrubro like '52_%'  or a.HRUBRO like '56_2%' or a.HRUBRO like '56_9%'); -- 2025.03.30 actualizar rubros
          
          
     ln_ordinal number;
@@ -46543,7 +46564,631 @@ procedure sp_cr_Detalle_Factura_IGV0(pd_pgfape in date) is
     end;
   
   end sp_cr_Cabecera_facturaIGV0;                             
+
+
+
+  ---------------
+  procedure sp_cr_Comision_Gen(p_pgcod  in number,
+                                p_hcmod  in number,
+                                p_hsucor in number,
+                                p_htran  in number,
+                                p_hnrel  in number,
+                                p_hfcon  in date,
+                                p_pcorr  out number) is
+    --
+
+
+
+  pc_serie char(4);
+  pn_correlativo char(8);
+  pd_hfcon date;
+ 
+    lc_serie   char(4);
+    lc_corre   char(8);
+    ln_relant  number(4) := 0;
+    lc_hipo    char(2);
+    ln_emp     number(3);
+    ln_mod     number(3);
+    ln_suc     number(3);
+    ln_mda     number(4);
+    ln_pap     number(4);
+    ln_cta     number(9);
+    ln_ope     number(9);
+    ln_sbo     number(3);
+    ln_top     number(3);
+    lc_flg     char(1) := 'N'; 
+    pn_ordinal number(2);
+    lc_flg465  char(1) := 'N'; 
+  
+    ln_modulo number(3) := 0;
+    ln_tran   number(3) := 0;
+    ln_sucur  number(3) := 0;
+  
+    pn_pais   number(3);
+    pn_petdoc number(2);
+    pn_pendoc char(12);
+    ln_rubro  number;
+    lc_tipper char(1);
+  
+    lc_coderr varchar2(1000);
+    lc_msgerr varchar2(1000);
+  
+    lc_error char(1);
+  
+    ln_mod1  number;
+    ln_trx1  number;
+    
+    lc_indGratuita char(1);    
+    lc_NotaDebito  char(1);   
+                   
+    lv_desmda      varchar2(20);
+    lc_mda         varchar2(20);
+    lc_monto       varchar2(50);
+    ln_monto       number(18, 2);
+    ln_cant        number;
+    ln_pgcod       number;
+    ln_rel         number;
+    ld_fec         date;
+    ln_ot_comision number;
+    lc_moneda      varchar2(20); 
+    lc_tipcam      number(10, 6);
+    
+    lc_estado      char(1);
+          
+  cursor movimientos is
+      select a.PGCOD  pgcod,
+             a.HCMOD  hcmod,
+             a.HSUCOR hsucor,
+             a.HTRAN  htran,
+             a.HNREL  hnrel,
+             a.HFCON  hfcon,
+             a.hcord  ordinal,
+             a.HCODMO
+        from fsh016 a
+       where a.pgcod = p_pgcod
+         and a.hcmod = p_hcmod
+         and a.hsucor = p_hsucor
+         and a.htran = p_htran
+         and a.hnrel = p_hnrel
+         and a.hfcon = p_hfcon
+         and a.hcta <> 0
+         and rownum = 1;
+  
+    cursor transacciones(pn_pgcod  in number,
+                         pn_hcmod  in number,
+                         pn_hsucor in number,
+                         pn_htran  in number,
+                         pn_hnrel  in number,
+                         pd_hfcon  in date) is
+    
+      select a.PGCOD pgcod,
+             a.HCMOD hcmod,
+             a.HSUCOR hsucor,
+             a.HTRAN htran,
+             a.HNREL hnrel,
+             a.HFCON hfcon,
+             a.HCORD hcord,
+             a.HCTA,
+             a.HCODMO,
+             trim(to_char(a.hcimp1, '99999999999999999.99')) txtren
+        from fsh016 a
+       where a.pgcod = pn_pgcod
+         and a.hcmod = pn_hcmod
+         and a.hsucor = pn_hsucor
+         and a.htran = pn_htran
+         and a.hnrel = pn_hnrel
+         and a.hfcon = pd_hfcon
+         and (a.hrubro like '52_%'  or  a.hrubro like '52_229%'  or a.HRUBRO like '56_2%' or a.HRUBRO like '56_9%') -- 2025.06.24
+    ;   
+                
+      
+
+       
+    ln_ordinal number;
+    ln_con1    number;
+    ln_con2    number;
+    ln_con3    number;
+  
+    lc_tipotrx varchar2(10);
+  
+    ln_nrocta number;
+    lc_descta varchar2(50);
+  
+    lc_excluirdoc varchar2(1);
+    ld_fecpro     date;
+    pn_hfcon      date;
+  
+  begin
+  
+    lc_tipotrx := 'MOV'; --
+    
+   
+     
+          for x in movimientos loop
+            pn_hfcon := x.hfcon;
+
+                     
+         
+                for p in transacciones(x.pgcod,
+                                       x.hcmod,
+                                       x.hsucor,
+                                       x.htran,
+                                       x.hnrel,
+                                       x.hfcon) loop
+                  lc_flg465 := 'N';
+                
+                  lc_estado := 'S';  --2025
+                  if p.hcmod =  97 and p.htran = 52  then  -- 2025
+                     if  p.HCODMO = 2 then ---2025
+                       lc_estado := 'S';
+                     else
+                       lc_estado := 'N';
+                     end if;
+                  end if;
+                
+                  --obtener la cuenta de acuerdo a concepto
+                  ln_cta := p.hcta;
+                
+                  if lc_flg465 = 'N' then
+                    --
+                    lc_tipotrx := 'MOV';
+                    
+                    if lc_estado = 'S'  then --continuar 2025    
+                  
+                    begin
+                      pq_cr_factura_electronica.sp_cr_pk_credito(pc_aqpa465pgcod    => p.pgcod,
+                                                                 pc_aqpa465mod      => p.hcmod,
+                                                                 pc_aqpa465sucorend => p.hsucor,
+                                                                 pc_aqpa465tran     => p.htran,
+                                                                 pc_aqpa465rel      => p.hnrel,
+                                                                 pc_aqpa465ord      => p.hcord, --pn_ordinal,
+                                                                 pd_aqpa465con      => p.hfcon,
+                                                                 pn_cod             => ln_emp,
+                                                                 pn_mod             => ln_mod,
+                                                                 pn_suc             => ln_suc,
+                                                                 pn_mda             => ln_mda,
+                                                                 pn_pap             => ln_pap,
+                                                                 pn_cta             => ln_cta,
+                                                                 pn_ope             => ln_ope,
+                                                                 pn_sbo             => ln_sbo,
+                                                                 pn_top             => ln_top,
+                                                                 pc_flag            => lc_flg,
+                                                                 pn_rubro           => ln_rubro);
+                    
+                    exception
+                      when others then
+                        null;
+                    end;
+                  
+                    begin
+                      pq_cr_factura_electronica.sp_pa_cuenta(p_n_pgcod  => p.pgcod,
+                                                             p_n_itsuc  => p.hsucor,
+                                                             p_n_itmod  => p.hcmod,
+                                                             p_n_ittran => p.htran,
+                                                             p_n_itnrel => p.hnrel,
+                                                             p_n_itord  => p.hcord, --ln_ordinal, --p.ordinal,
+                                                             p_d_itfcon => p.hfcon,
+                                                             p_n_cuenta => ln_cta,
+                                                             p_n_moneda => ln_mda);
+                    
+                    end;
+                  
+                    if ln_cta = 0 then
+                      ln_ordinal := x.ordinal;
+                      begin
+                        select hcta
+                          into ln_cta
+                          from fsh016 f
+                         where f.pgcod = p.pgcod
+                           and f.hsucor = p.hsucor
+                           and f.hcmod = p.hcmod
+                           and f.htran = p.htran
+                           and f.hnrel = p.hnrel
+                           and f.hfcon = p.hfcon
+                           and f.hcord = ln_ordinal;
+                      exception
+                        when others then
+                          ln_cta := 0;
+                      end;
+                    
+                    end if;
+                  
+                    ln_rubro := 15;
+                  
+                    if ln_cta = 0 then
+                      ln_cta := p.hcta;
+                    end if;
+                  
+                    lc_flg := 'S'; 
+                  
+                    if lc_flg = 'S' then
+                    
+                      if ln_relant <> p.hnrel or p.hcmod <> ln_modulo or
+                         p.htran <> ln_tran or p.hsucor <> ln_sucur then
+                      
+                        if ln_cta = 999999999 or ln_cta = 0 --se agregó condición 
+                         then
+                          pn_pais   := null;
+                          pn_petdoc := null;
+                          pn_pendoc := null; 
+                        else
+                          begin
+                            ---se obtiene NDI/ TIPO de doc                  
+                            select a.pepais, a.petdoc, a.pendoc
+                              into pn_pais, pn_petdoc, pn_pendoc
+                              from fsr008 a
+                             where a.ctnro = ln_cta ---
+                               and a.cttfir = 'T';
+                          exception
+                            when others then
+                              pn_pais   := null;
+                              pn_petdoc := null;
+                              pn_pendoc := null;
+                          end;
+                        
+                          begin
+                            pq_cr_facturacion.sp_cr_tipo_cliente(pn_pais   => pn_pais,
+                                                                 pn_tipdoc => pn_petdoc,
+                                                                 pc_numdoc => pn_pendoc,
+                                                                 pc_tipper => lc_tipper);
+                          end;
+                        end if; --fin valida cuenta cliente
+                      
+                        if ln_cta <> 0 then
+                       
+                          begin
+                            pq_cr_facturacion.sp_cr_factura(pn_rubro       => ln_rubro,
+                                                            pc_tipcli      => lc_tipper,
+                                                            pc_tipo        => lc_tipotrx,
+                                                            pc_serie       => lc_serie,
+                                                            pc_correlativo => lc_corre);
+                          
+                          exception
+                            when others then
+                              null; ---
+                          end;
+                        end if; --- 
+                      end if;
+                    end if; ----relacion
+                  
+                    ln_relant := p.hnrel;
+                    ln_modulo := p.hcmod;
+                    ln_tran   := p.htran;
+                    ln_sucur  := p.hsucor;
+                  
+                    if lc_tipotrx = 'MOV' then
+                      --inicio insercion
+                    
+                      begin
+                        lc_error := 'N';
+                        insert into aqpa463
+                          (aqpa463txtrub,
+                           aqpa463pgcod,
+                           aqpa463hcmod,
+                           aqpa463hsucor,
+                           aqpa463htran,
+                           aqpa463hnrel,
+                           aqpa463hfcon,
+                           aqpa463hcord,
+                           aqpa463txoren,
+                           aqpa463txtord,
+                           aqpa463hcpcod,
+                           aqpa463hvnro,
+                           aqpa463hvchr,
+                           aqpa463serie,
+                           aqpa463corre,
+                           aqpa463emp,
+                           aqpa463mod,
+                           aqpa463suc,
+                           aqpa463mda,
+                           aqpa463pap,
+                           aqpa463cta,
+                           aqpa463ope,
+                           aqpa463sbo,
+                           aqpa463top,
+                           aqpa463hip
+                           
+                           )
+                        values
+                          (null, --p.txtrub,
+                           p.pgcod,
+                           p.hcmod,
+                           p.hsucor,
+                           p.htran,
+                           p.hnrel,
+                           p.hfcon,
+                           p.hcord,
+                           p.hcord, ---1,--p.txtren,--p.txoren,
+                           p.txtren, --p.txtord,
+                           p.hcord,
+                           null, --p.se170hvnro,
+                           'Cobro en efectivo', --p.se170hvchr,
+                           lc_serie,
+                           lc_corre,
+                           ln_emp,
+                           ln_mod,
+                           ln_suc,
+                           ln_mda,
+                           ln_pap,
+                           ln_cta,
+                           ln_ope,
+                           ln_sbo,
+                           ln_top,
+                           lc_hipo);
+                        commit;
+                      exception
+                        when others then
+                          lc_coderr := sqlcode;
+                          lc_msgerr := trim(sqlerrm);
+                          lc_error  := 'S';
+                        
+                          insert into aqpa460E
+                            (aqpa460eserie,
+                             aqpa460ecorr,
+                             aqpa460epgcod,
+                             aqpa460emod,
+                             aqpa460esucorend,
+                             aqpa460etran,
+                             aqpa460erel,
+                             aqpa460econ,
+                             aqpa460etip,
+                             Aqpa460eacoe,
+                             Aqpa460eamsge)
+                          values
+                            (lc_serie,
+                             lc_corre,
+                             p.pgcod,
+                             p.hcmod,
+                             p.hsucor,
+                             p.htran,
+                             p.hnrel,
+                             p.hfcon,
+                             'S',
+                             lc_coderr,
+                             lc_msgerr);
+                          commit;
+                        
+                      end;
+                    
+                    end if;
+                  
+                   end if; ---continuar 2025
+
+                  end if; 
+
+
+                  ln_ordinal := p.hcord;
+                  ln_mod1  := p.hcmod;
+                  ln_trx1  := p.htran;
+               
+                end loop;
+              
+                if lc_tipotrx = 'MOV' then
+                  if ln_cta <> 999999999 or ln_cta <> 0 then
+                     begin
+                      pq_cr_factura_electronica.sp_cr_Detalle_Fact_CO1(pn_hfcon,
+                                                                       lc_serie,
+                                                                       lc_corre,
+                                                                       ln_ordinal); --pn_concepto
+                    
+                    exception
+                      when others then
+                        null;
+                    end;
+                  
+                    begin
+                      update aqpa460 a
+                         set 
+                             a.aqpa460desc = 'Comision-Servicios'
+                       where a.aqpa460seri = lc_serie
+                         and a.aqpa460num = lc_corre;
+                    end;
+                    ----------------------------------------------total comision 1
+                       ln_monto := 0;
+                      ln_cant  := 0;
+                      
+                      pc_serie := lc_serie;
+                      pn_correlativo := lc_corre;
+                      pd_hfcon := p_hfcon;
+                      
+                      BEGIN
+                        select sum(a.AQPA460VVUN), count(*)
+                          into ln_monto, ln_cant
+                          from AQPA460 a
+                         where a.aqpa460seri = pc_serie
+                           and a.aqpa460num  = pn_correlativo;
+                      exception
+                        when others then
+                          ln_monto := 0;
+                      END;
+                    
+                      ---determinar monto total incluir OT por transferencia
+                      BEGIN
+                        select a.aqpa460pgc,
+                               a.aqpa460mod,
+                               a.aqpa460suc,
+                               a.aqpa460trx,
+                               a.aqpa460rel,
+                               a.aqpa460femi
+                          into ln_pgcod, ln_mod, ln_suc, ln_tran, ln_rel, ld_fec
+                          from AQPA460 a
+                         where a.aqpa460seri = pc_serie
+                           and a.aqpa460num = pn_correlativo
+                           and rownum = 1;
+                      exception
+                        when others then
+                          ln_pgcod := null;
+                          ln_mod   := null;
+                          ln_suc   := null;
+                          ln_tran  := null;
+                          ln_rel   := null;
+                          ld_fec   := null;
+                      END;
+                    
+                      begin
+                        select f.HCIMP1
+                          into ln_ot_comision
+                          from fsh016 f
+                         where f.PGCOD = ln_pgcod
+                           and f.HCMOD = ln_mod
+                           and f.HSUCOR = ln_suc
+                           and f.HTRAN = ln_tran
+                           and f.HNREL = ln_rel
+                           and f.hfcon = pd_hfcon --ld_fec
+                           and f.HRUBRO in --('2928070000122', '2918070000122');
+                               (select g.rubro
+                                  from fsd014 g
+                                 where g.rubro like '29_807000%'
+                                   and upper(g.pcnomr) like 'OT%COMISION%TRANS%');
+                      exception
+                        when others then
+                          ln_ot_comision := 0;
+                      end;
+                    
+                      ln_monto := ln_monto + ln_ot_comision;
+                      ----   
+                      BEGIN
+                        select distinct a.aqpa460mone
+                          into lc_mda
+                          from AQPA460 a
+                         where a.aqpa460seri = pc_serie
+                           and a.aqpa460num = pn_correlativo;
+                      exception
+                        when others then
+                          lc_mda := null;
+                      END;
+                    
+                      if lc_mda = 'PEN' then
+                        lv_desmda := 'SOLES';
+                      else
+                        lv_desmda := 'DOLARES';
+                      end if;
+                      --
+                      if ln_cant > 1 or ln_ot_comision > 0 --- 
+                       then
+                      
+                        lc_monto := trim(pq_cr_factura_electronica.dintex(ln_monto)) || ' ' || lv_desmda;
+                      
+                        --actualiza
+                        begin
+                          update AQPA460 a
+                             set a.AQPA460MTINF = ln_monto,
+                                 a.AQPA460IMPT  = ln_monto,
+                                 a.AQPA460SVITM = ln_monto,
+                                 a.AQPA460SPVI  = ln_monto,
+                                 a.AQPA460TELEY = lc_monto
+                           where a.aqpa460seri = pc_serie
+                             and a.aqpa460num = pn_correlativo;
+                        
+                          commit;
+                        exception
+                          when others then
+                            null;
+                        end;
+                      
+                        if ln_cant = 1 then
+                          -- se actualiza campos si solo existe 1 registro y importe <> total
+                          begin
+                            update AQPA460 a
+                               set a.AQPA460TOTAL = ln_monto,
+                                   a.AQPA460VVUN  = ln_monto,
+                                   a.AQPA460VVUIG = ln_monto,
+                                   a.AQPA460PRVIT = ln_monto,
+                                   a.AQPA460MBIM  = ln_monto
+                             where a.aqpa460seri = pc_serie
+                               and a.aqpa460num = pn_correlativo
+                               and a.AQPA460TOTAL <> a.AQPA460IMPT;
+                          
+                            commit;
+                          exception
+                            when others then
+                              null;
+                          end;
+                        
+                        end if; --  se actualiza campos si solo existe 1 registro y importe <> total
+                      
+                      end if;
+                      --obtener moneda del rubro de COMISION 
+                      if ln_cant = 1 then
+                        begin
+                          select decode(substr(f.HRUBRO, 3, 1), 1, 'SOLES', 'DOLARES'),
+                                 f.hctcbi
+                            into lc_moneda, lc_tipcam
+                            from fsh016 f
+                           where f.PGCOD = ln_pgcod
+                             and f.HCMOD = ln_mod
+                             and f.HSUCOR = ln_suc
+                             and f.HTRAN = ln_tran
+                             and f.HNREL = ln_rel
+                             and f.hfcon = pd_hfcon --ld_fec
+                             and (f.hrubro like '52_%'  or f.HRUBRO like '56_2%' or f.HRUBRO like '56_9%'); -- 
+                        
+                        exception
+                          when others then
+                            lc_moneda := null;
+                        end;
+                        if lc_moneda <> lv_desmda then
+                          if lc_moneda = 'SOLES' then
+                            ln_monto := trunc(ln_monto / lc_tipcam, 2);
+                          else
+                            ln_monto := trunc(ln_monto * lc_tipcam, 2);
+                          end if;
+                          lc_monto := trim(pq_cr_factura_electronica.dintex(ln_monto)) || ' ' ||
+                                      lv_desmda;
+                        
+                          begin
+                            update AQPA460 a
+                               set a.AQPA460MTINF = ln_monto,
+                                   a.AQPA460IMPT  = ln_monto,
+                                   a.AQPA460SVITM = ln_monto,
+                                   a.AQPA460SPVI  = ln_monto,
+                                   a.AQPA460TOTAL = ln_monto,
+                                   a.AQPA460VVUN  = ln_monto,
+                                   a.AQPA460VVUIG = ln_monto,
+                                   a.AQPA460PRVIT = ln_monto,
+                                   a.AQPA460MBIM  = ln_monto,
+                                   a.AQPA460TELEY = lc_monto,
+                                   a.aqpa460text4 = 'TipoCambio'
+                             where a.aqpa460seri = pc_serie
+                               and a.aqpa460num = pn_correlativo
+                               and a.aqpa460text4 is null;
+                          
+                            commit;
+                          exception
+                            when others then
+                              null;
+                          end;
+                        
+                        end if;
+                      end if;
+                            
+                    
+                    ---------------------------------------------total comision 1
+                    
+                  
+                    begin
+                      pq_cr_factura_electronica.sp_cr_cabecera_trx(pd_pgfape      => pn_hfcon,
+                                                                   pc_serie       => lc_serie,
+                                                                   pn_correlativo => lc_corre,
+                                                                   pn_concepto    => ln_ordinal );
+                    exception
+                      when others then
+                        null;
+                    end;
+                  
+                    p_pcorr := lc_corre;
+                  
+                  end if;
+                end if;
+             
+                
+          END LOOP;
+  
+
+          
+
+  end  sp_cr_Comision_Gen;
+------------------------------------------------------------------
   
 end pq_cr_Factura_Electronica;
 /
-
