@@ -20,9 +20,9 @@ CREATE OR REPLACE PROCEDURE SP_AH_REC_RECLASIFICA(P_EMP    IN NUMBER,
   -- Uso                        : RECLASIFICACIONES RECLAMO - QUEJA
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.03.21
+  -- Fecha de Modificación      : 2025.06.13
   -- Autor de Modificación      : CVILLON
-  -- Descripción                : Reclasificacion - Cambio de Código
+  -- Descripción                : Reclasificación - Cambio de Código (V2)
   -- ***************************************************************************************
   ---*********
   ln_SEQ    NUMBER;
@@ -70,6 +70,8 @@ BEGIN
     UPDATE JAQL420
        SET JAQL420COD    = lv_NEWCOD,
            JAQL420TRC    = P_TIPNEW,
+           JAQL420OPS    = P_RECOPS,
+           JAQL420MOT    = P_RECMOT,
            JAQL420QUERE1 = 'N',
            JAQL420QUERE2 = 'N',
            JAQL420QUERE3 = 'S'
