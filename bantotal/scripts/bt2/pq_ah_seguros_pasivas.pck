@@ -44,7 +44,7 @@ create or replace package PQ_AH_SEGUROS_PASIVAS is
                               P_V_OBSER  IN varchar2);
   procedure REPORTE_RetiroSeguro(p_fechaini in date,
                                  p_fechafin in date);
-  
+
 end PQ_AH_SEGUROS_PASIVAS;
 /
 create or replace package body PQ_AH_SEGUROS_PASIVAS is
@@ -53,12 +53,12 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
   -- Autor       : Silvia Marquez
   -- Fecha       : 25/02/2020
   -- Modificacion: SMARQUEZ 03/02/2025 ACTUALIZACION REPORTE Compilacion de campos correctos
-  -- Modificación: SMARQUEZ 03/03/2025 Error en conversión de numero linea 250
+  -- Modificaci n: SMARQUEZ 03/03/2025 Error en conversi n de numero linea 250
   -- Nuevo       : SMARQUEZ  18/03/2025 nuevo reporte
-  -- Modificacion: SMARQUEZ 03/04/2025 Extraccion de telefono y correo fuera del query para 
+  -- Modificacion: SMARQUEZ 03/04/2025 Extraccion de telefono y correo fuera del query para
   --               recuperar datos
   -- Modificacion: SMARQUEZ 29/05/2025 Modificacion persona juridica
-  
+  -- Modificacion: SMARQUEZ 01/07/2025 Modificacion error ora 1722 422
   ---------------------------------------------------------------
   procedure Carga_SRetiroSeguro(p_fechapro in date) is
     cursor tran is
@@ -70,7 +70,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
          and tp1corr2 = 1;
 
     cursor datos(fechaUno date, FechaDos date, mod1 number, trans1 number) is ---, ord1 number) is
-
+      --- soles
       select f5.pgcod,
              f5.hcmod,
              f5.hsucor,
@@ -79,7 +79,9 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
              f5.hfcon,
              f5.husing,
              f5.hhora,
-             f6.hrubro
+             f6.hrubro,
+             f6.hcta,
+             f6.hoper
         from fsh015 f5, fsh016 f6
        where f5.pgcod = 1
          and f5.hcmod = mod1
@@ -94,9 +96,9 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
          and f6.hfcon = f5.hfcon
          and f6.hrubro = 2514020000017
          and f6.hmodul = 260
-         
-      
-      --  and f6.hcord = ord1
+
+
+      --  dolares
       union
       select f5.pgcod,
              f5.hcmod,
@@ -106,7 +108,9 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
              f5.hfcon,
              f5.husing,
              f5.hhora,
-             f6.hrubro
+             f6.hrubro,
+             f6.hcta,
+             f6.hoper
         from fsh015 f5, fsh016 f6
        where f5.pgcod = 1
          and f5.hcmod = mod1
@@ -134,16 +138,19 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                    d.pffnac fenac,
                    decode(d.pfeciv,'1','C','2','D','3','C','4','S','5','V','6','S') estadoc,
                    d.pfcant sexo,
-                   (select to_number(DOTELFP * 1) from fsr005
+                  /* (select to_number(DOTELFP * 1) from fsr005
                      where PEPAIS = s.pepais and PETDOC = s.petdoc and  PENDOC =s.pendoc
                        and DOTELFp  not in ('null')
                        and length(trim(DOTELFP)) <=10
                        and rownum = 1) telefono,
-                   (select substr(trim(lower(substr(pextxt,1,(instr(pextxt,'\')-1)))),1,30)from fsx001 where pepais = s.pepais and petdoc = s.petdoc and pendoc = s.pendoc and txcod = 0 and pextxt <> 'SI' and pextxt Like '%@%'and rownum = 1) correo,
+                   (select NVL(substr(trim(lower(substr(pextxt,1,(instr(pextxt,'\')-1)))),1,30),'sindato@gmail.com' from fsx001 where pepais = s.pepais and petdoc = s.petdoc and pendoc = s.pendoc and txcod = 0 and pextxt <> 'SI' and pextxt Like '%@%'and rownum = 1) correo,*/
                     substr(e.sngc13dir,1,100) direc,
                    (select depnom from fst068 where pais =604 and depcod =e.sngc13dpto) depto,-- depto
                    (select LOCNOM from fst070 where pais =604 and depcod = e.sngc13dpto and LOCCOD=e.sngc13prov) prov,--prov
-                   (select fst071dsc from fst071 where fst071pai = 604 and fst071dpt = e.sngc13dpto and fst071loc = e.sngc13prov and fst071col = e.sngc13dist ) distrito
+                   (select fst071dsc from fst071 where fst071pai = 604 and fst071dpt = e.sngc13dpto and fst071loc = e.sngc13prov and fst071col = e.sngc13dist ) distrito,
+                   s.pepais pais,
+                   s.petdoc tdoc,
+                   s.pendoc ndoc
         --      into dni1,nombre1, apepat1,apemat1,tipodoc1,fechnac1, ecivil1,sexo1, telefono1, correo1, direccion1,depto1,prov1,dist1
               from fsr008 s, fsd002 d, sngc13 e
              where s.pgcod = 1
@@ -221,6 +228,9 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
     prov2      char(30);
     dist2      char(30);
     contador   number:=0;
+    telefononro2 number;
+    correonro2   char(30);
+    
     ---- tres
     dni3      char(12);
     nombre3   char(30);
@@ -237,6 +247,9 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
     prov3     char(30);
     dist3      char(30);
     tipopersona number;
+    telefononro3 number;
+    correonro3   char(30);
+    
 
   begin
     delete jaqz588;
@@ -296,7 +309,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
         end;
         tipopersona := 0;
         Begin
-          select petdoc 
+          select petdoc
            into tipopersona
            from fsr008
             where ctnro = cuenta
@@ -368,7 +381,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                   dni    := ' ';
                   nombre := ' ';
                 when others then
-                  dbms_output.put_line(cuenta);
+                  dbms_output.put_line('a'||' '||cuenta);
               End;
           else
             Begin
@@ -416,7 +429,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                and o.vicod = 7
                and d.pfpais = o.pfpai1
                and d.pftdoc = o.pftdo1
-               and d.pfndoc = o.pfndo1               
+               and d.pfndoc = o.pfndo1
                and e.sngc13pais = d.pfpais
                and e.sngc13tdoc = d.pftdoc
                and e.sngc13ndoc = d.pfndoc
@@ -435,7 +448,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
               dni    := ' ';
               nombre := ' ';
             when others then
-              dbms_output.put_line(cuenta);
+              dbms_output.put_line('b'||' '||cuenta);
           End;
           end if;
           dni2:=null;
@@ -468,8 +481,40 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
           dist3 :=null;
           contador := 0;
 
-          for k in integrantes(cuenta) loop
+          for k in integrantes(cuenta) loop 
+            dbms_output.put_line('c'||' '||cuenta);
             if contador = 0 then
+              telefonoNro2 := 0;
+              correonro2 := null;
+              BEgin ---SMA 01072025
+               select to_number(DOTELFP * 1) 
+                 into telefonoNro2
+                 from fsr005
+                     where PEPAIS = k.pais 
+                       and PETDOC = k.tdoc 
+                       and PENDOC = k.ndoc
+                       and DOTELFp  not in ('null')
+                       and length(trim(DOTELFP)) <=10
+                       and rownum = 1;
+              exception
+                when others then
+                  telefonoNro2 := 999999999;
+              end;
+              
+              Begin
+                 select substr(trim(lower(substr(pextxt,1,(instr(pextxt,'\')-1)))),1,30) 
+                  into correonro2
+                  from fsx001 
+                 where pepais = k.pais 
+                   and petdoc = k.tdoc 
+                   and pendoc = k.ndoc 
+                   and txcod = 0 
+                   and pextxt <> 'SI' 
+                   and pextxt Like '%@%'and rownum = 1;
+              exception
+                when others then
+                  correonro2 := 'sindato@gmail.com' ;
+              end;
               dni2     := k.dni;
               nombre2   := k.nombre;
               apepat2   := k.apepa;
@@ -478,8 +523,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
               fechnac2  := k.fenac;
               ecivil2   := k.estadoc;
               sexo2     := k.sexo;
-              telefono2 := k.telefono;
-              correo2   := k.correo;
+              telefono2 := telefonoNro2;---k.telefono;
+              correo2   := correonro2; ---k.correo;
               direccion2 := k.direc;
               depto2     := k.depto;
               prov2      := k.prov;
@@ -487,6 +532,37 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
               contador := contador + 1;
              else
                if contador = 1 then
+                 telefonoNro3 := 0;
+                  correonro3 := null;
+                  BEgin ---SMA 01072025
+                   select to_number(DOTELFP * 1) 
+                     into telefonoNro3
+                     from fsr005
+                         where PEPAIS = k.pais 
+                           and PETDOC = k.tdoc 
+                           and PENDOC = k.ndoc
+                           and DOTELFp  not in ('null')
+                           and length(trim(DOTELFP)) <=10
+                           and rownum = 1;
+                  exception
+                    when others then
+                      telefonoNro3 := 999999999;
+                  end;
+                  
+                  Begin
+                     select substr(trim(lower(substr(pextxt,1,(instr(pextxt,'\')-1)))),1,30) 
+                      into correonro3
+                      from fsx001 
+                     where pepais = k.pais 
+                       and petdoc = k.tdoc 
+                       and pendoc = k.ndoc 
+                       and txcod = 0 
+                       and pextxt <> 'SI' 
+                       and pextxt Like '%@%'and rownum = 1;
+                  exception
+                    when others then
+                      correonro3 := 'sindato@gmail.com' ;
+                  end;
                   dni3     := k.dni;
                   nombre3   := k.nombre;
                   apepat3   := k.apepa;
@@ -495,8 +571,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                   fechnac3  := k.fenac;
                   ecivil3   := k.estadoc;
                   sexo3     := k.sexo;
-                  telefono3 := k.telefono;
-                  correo3   := k.correo;
+                  telefono3 := telefonoNro3; --k.telefono;
+                  correo3   := correonro3; ---k.correo;
                   direccion3 := k.direc;
                   depto3     := k.depto;
                   prov3      := k.prov;
@@ -787,7 +863,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                                       P_C_TIPO   IN varchar2,
                                       P_C_RPTA   OUT varchar2) is
     ---------------------------------------------------------------
-    -- Proyecto: Campaña cliente de mi cliente
+    -- Proyecto: Campa a cliente de mi cliente
     -- Autor   : maraujo
     -- Fecha   : 07/04/2021
     ---------------------------------------------------------------
@@ -854,7 +930,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                                  P_D_FECPRO IN date,
                                  P_N_IMPO   OUT number) is
     ---------------------------------------------------------------
-    -- Proyecto: Campaña cliente de mi cliente
+    -- Proyecto: Campa a cliente de mi cliente
     -- Autor   : maraujo
     -- Fecha   : 07/04/2021
     ---------------------------------------------------------------
@@ -892,7 +968,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
   ------------------------------------------------------------------
   Procedure SP_HAY_PENDIENTES(P_N_PEND OUT number) is
     ---------------------------------------------------------------
-    -- Proyecto: Campaña cliente de mi cliente
+    -- Proyecto: Campa a cliente de mi cliente
     -- Autor   : maraujo
     -- Fecha   : 07/04/2021
     ---------------------------------------------------------------
@@ -924,7 +1000,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                               P_V_ESTA   IN varchar2,
                               P_V_OBSER  IN varchar2) is
     ---------------------------------------------------------------
-    -- Proyecto: Campaña cliente de mi cliente
+    -- Proyecto: Campa a cliente de mi cliente
     -- Autor   : maraujo
     -- Fecha   : 07/04/2021
     ---------------------------------------------------------------
@@ -1076,7 +1152,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
          and f6.itnrel = f5.itnrel   -- and f6.itfcon = f5.itfcon
          and f6.rubro = 2514020000017
          and f6.modulo = 260
-         
+
 
        union
           select f5.pgcod,
@@ -1125,10 +1201,10 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
               from  fsd002 d, sngc13 e
              where d.pfpais = pais
                and d.pftdoc = tdoc
-               and d.pfndoc = ndoc           
+               and d.pfndoc = ndoc
                and e.sngc13pais = d.pfpais
                and e.sngc13tdoc = d.pftdoc
-               and e.sngc13ndoc = d.pfndoc              
+               and e.sngc13ndoc = d.pfndoc
                and e.docod = 1
                and e.sngc13est = 'H'
                and e.SNGC13CORR = (select max(SNGC13CORR)
@@ -1282,12 +1358,12 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
           when no_data_found then
             verif := 'N';
         end;
-      ----------------Quien ejecutó el retiro---------------------------------
+      ----------------Quien ejecut  el retiro---------------------------------
         Begin
-          
+
            select JAQZ153DPA2,JAQZ153DTP2, JAQZ153DNU2, (select penom from fsd001  where pepais =JAQZ153DPA2
                                    and petdoc =JAQZ153DTP2 and pendoc =  JAQZ153DNU2
-                                   and rownum = 1)                                     
+                                   and rownum = 1)
              into pais,tipodoc, dni, nombre
              from JAQZ153D
             where JAQZ153DPGC = 1
@@ -1335,7 +1411,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                    (select depnom from fst068 where pais =604 and depcod =e.sngc13dpto ),-- depto
                    (select LOCNOM from fst070 where pais =604 and depcod = e.sngc13dpto and LOCCOD=e.sngc13prov ),--prov
                    (select fst071dsc from fst071 where fst071pai = 604 and fst071dpt = e.sngc13dpto and fst071loc = e.sngc13prov and fst071col = e.sngc13dist )
-              into dni1,nombre1, apepat1,apemat1,tipodoc1,fechnac1, ecivil1,sexo1, --telefono1, correo1, 
+              into dni1,nombre1, apepat1,apemat1,tipodoc1,fechnac1, ecivil1,sexo1, --telefono1, correo1,
                    direccion1,depto1,prov1,dist1
               from fsr008 s, fsd002 d, sngc13 e
              where s.pgcod = 1
@@ -1360,8 +1436,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                and rownum = 1;
           Exception
             when no_data_found then
-              Begin  
-                
+              Begin
+
                 select trim(d.pfndoc),
                        trim(d.pfnom1),
                        trim(d.pfape1),
@@ -1374,8 +1450,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                        (select depnom from fst068 where pais =604 and depcod =e.sngc13dpto ),-- depto
                        (select LOCNOM from fst070 where pais =604 and depcod = e.sngc13dpto and LOCCOD=e.sngc13prov ),--prov
                        (select fst071dsc from fst071 where fst071pai = 604 and fst071dpt = e.sngc13dpto and fst071loc = e.sngc13prov and fst071col = e.sngc13dist )
-                  into dni1,nombre1, apepat1,apemat1,tipodoc1,fechnac1, ecivil1,sexo1, --telefono1, correo1, 
-                       direccion1,depto1,prov1,dist1                  
+                  into dni1,nombre1, apepat1,apemat1,tipodoc1,fechnac1, ecivil1,sexo1, --telefono1, correo1,
+                       direccion1,depto1,prov1,dist1
                   from fsd002 d, sngc13 e
                  where d.pfpais = pais
                    and d.pftdoc = tipodoc
@@ -1393,7 +1469,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                                         and docod = 1
                                         and sngc13est = 'H')
                    and rownum = 1;
-              
+
               exception
                 when no_Data_found then
                   dni1    := ' ';
@@ -1402,15 +1478,15 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
           End;
           ---TELEFONO
           BEGIN
-            select to_number(DOTELFP * 1) 
+            select to_number(DOTELFP * 1)
               into telefono1 ---, correo1,
               from fsr005 f5, fsr008 f8
              where f8.pgcod = 1
                and f8.ctnro = cuenta
                and f8.ttcod = 1
                and f8.cttfir = 'T'
-               and f5.PEPAIS = f8.pepais 
-               and f5.PETDOC = f8.petdoc 
+               and f5.PEPAIS = f8.pepais
+               and f5.PETDOC = f8.petdoc
                and f5.PENDOC = f8.pendoc
                and f5.DOTELFP  not in ('null')
                and length(trim(f5.DOTELFP)) <=10
@@ -1420,7 +1496,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
               telefono1:= 0;
             WHEN others then
               telefono1:= 0;
-          END ;  
+          END ;
 
           --CORREO
           BEGIN
@@ -1431,17 +1507,17 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
               and fr.ctnro = cuenta
               and fr.ttcod = 1
               and fr.cttfir = 'T'
-              and fs.pepais = fr.pepais 
-              and fs.petdoc = fr.petdoc 
-              and fs.pendoc = fr.pendoc 
-              and fs.txcod = 0 
-              and fs.pextxt <> 'SI' 
+              and fs.pepais = fr.pepais
+              and fs.petdoc = fr.petdoc
+              and fs.pendoc = fr.pendoc
+              and fs.txcod = 0
+              and fs.pextxt <> 'SI'
               and fs.pextxt Like '%@%'
               and rownum = 1;
           EXCEPTION
             when no_Data_found then
               correo1 := null;
-          END ;  
+          END ;
           ------
           tipocuenta := null;
           dni2:=null;
@@ -1547,7 +1623,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
             For j in juridica(documentoj,dni1) loop
               contador := 0;
               if dni1 is not  null then
-                
+
                     For h in integra_juridica(j.pfpai1,j.pftdo1,j.pfndo1) loop
                       if contador = 0 then
                         dni2     := h.dni;
@@ -1909,11 +1985,11 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
               when no_data_found then
                 verif := 'N';
             end;
-             ----------------Quien ejecutó el retiro---------------------------------
+             ----------------Quien ejecut  el retiro---------------------------------
                 Begin
                   select JAQZ153DPA2,JAQZ153DTP2, JAQZ153DNU2, (select penom from fsd001  where pepais =JAQZ153DPA2
                                            and petdoc =JAQZ153DTP2 and pendoc =  JAQZ153DNU2
-                                           and rownum = 1)    
+                                           and rownum = 1)
                      into pais,tipodoc, dni, nombre
                      from JAQZ153D
                     where JAQZ153DPGC = 1
@@ -1928,12 +2004,12 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                   when no_data_found then
                     dni := null; --dni1;
                     nombre := null; --substr((trim(apepat1)||' '||trim(apemat1)||' '||trim(nombre)),1,100);
-                              
+
                 end;
             --------------------------------------------------------------------------
 
             if verif = 'S' then
-          
+
                 dni1:=null;
                 nombre1 := null;
                 apepat1 :=null;
@@ -2016,25 +2092,25 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                                             and docod = 1
                                             and sngc13est = 'H')
                        and rownum = 1;
-                    
+
                   exception
                     when no_Data_found then
                       dni1    := ' ';
                       nombre1 := ' ';
-                  end;    
+                  end;
               End;
-              
+
               ---TELEFONO
               BEGIN
-                select to_number(DOTELFP * 1) 
+                select to_number(DOTELFP * 1)
                   into telefono1 ---, correo1,
                   from fsr005 f5, fsr008 f8
                  where f8.pgcod = 1
                    and f8.ctnro = cuenta
                    and f8.ttcod = 1
                    and f8.cttfir = 'T'
-                   and f5.PEPAIS = f8.pepais 
-                   and f5.PETDOC = f8.petdoc 
+                   and f5.PEPAIS = f8.pepais
+                   and f5.PETDOC = f8.petdoc
                    and f5.PENDOC = f8.pendoc
                    and f5.DOTELFP  not in ('null')
                    and length(trim(f5.DOTELFP)) <=10
@@ -2044,7 +2120,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                   telefono1:= 0;
                 WHEN others then
                   telefono1:= 0;
-              END ;  
+              END ;
 
               --CORREO
               BEGIN
@@ -2055,17 +2131,17 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                   and fr.ctnro = cuenta
                   and fr.ttcod = 1
                   and fr.cttfir = 'T'
-                  and fs.pepais = fr.pepais 
-                  and fs.petdoc = fr.petdoc 
-                  and fs.pendoc = fr.pendoc 
-                  and fs.txcod = 0 
-                  and fs.pextxt <> 'SI' 
+                  and fs.pepais = fr.pepais
+                  and fs.petdoc = fr.petdoc
+                  and fs.pendoc = fr.pendoc
+                  and fs.txcod = 0
+                  and fs.pextxt <> 'SI'
                   and fs.pextxt Like '%@%'
                   and rownum = 1;
               EXCEPTION
                 when no_Data_found then
                   correo1 := null;
-              END ;  
+              END ;
               tipocuenta := null;
               dni2:=null;
               nombre2 := null;
@@ -2312,7 +2388,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
               if dni is null then
                 dni := dni1;
                 nombre:= substr((trim(apepat1)||' '||trim(apemat1)||' '||trim(nombre1)),1,100) ;
-              end if;              
+              end if;
               Begin
                 insert into aqpa571
                   (aqpa571cod,
