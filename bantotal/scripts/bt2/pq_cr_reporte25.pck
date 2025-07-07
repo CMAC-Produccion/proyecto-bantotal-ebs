@@ -14,7 +14,9 @@ create or replace package PQ_CR_REPORTE25 is
   --                              15/12/2021 yyampi se modifico para creditos castigados condonados que no tiene registro en el maestro de castigos 
   --                              16/12/2021 yyampi se agrego las guias de proceso en los grupos
   --                              14/10/2024 yyampi se optimizo el tiempo de proceso sp_cr_castigos, sp_cr_pagos_castigos, sp_cr_condonaciones, sp_cr_pagos_castigos_ext, sp_cr_venta
-  --                              03/03/2025 mhuamania se hizo el manejo de errores al eliminar tabla aqpb811
+  -- Fecha Modificacion         : 03/03/2025 mhuamania se hizo el manejo de errores al eliminar tabla aqpb811
+  -- Fecha Modificacion         : 02/04/2025 Mhuamania Se valida si este proceso se está ejecutando o no, para evitar bloqueos de usuarios
+    
   -- *****************************************************************
 
   procedure sp_cr_carga(pd_fecha  date,
@@ -96,7 +98,6 @@ create or replace package PQ_CR_REPORTE25 is
 
 end PQ_CR_REPORTE25;
 /
-
 create or replace package body PQ_CR_REPORTE25 is
 
   procedure sp_cr_carga(pd_fecha  date,
@@ -113,26 +114,34 @@ create or replace package body PQ_CR_REPORTE25 is
     -- Estado                     : Activo
     -- Acceso                     : Público
     -- Fecha Modificacion         : 15/12/2021 yyampi se cambio para que el tipo de cambio se obtenga de la tabla de tipos de cambios FsH005
+    -- Fecha Modificacion         : 03/03/2025 mhuamania se hizo el manejo de errores al eliminar tabla aqpb811
+    -- Fecha Modificacion         : 02/04/2025 Mhuamania Se valida si este proceso se está ejecutando o no, para evitar bloqueos de usuarios
+    
     -- *****************************************************************
   
-    pv_flagCAS  VARCHAR2(40) := 'S'; --MSG ERROR CASTIGO 
-    pv_flagPCAS VARCHAR2(40) := 'S'; --MSG ERROR PAGOS
-    pv_flagCCAS VARCHAR2(40) := 'S'; --MSG ERROR CONDONADOS 
-    pv_flagECAS VARCHAR2(40) := 'S'; --MSG ERROR EXTORNOS
-    pv_flagVCAS VARCHAR2(40) := 'S'; --MSG ERROR VENTA
-    ln_tipcam   NUMBER(14, 8);
-  
+    pv_flagCAS         VARCHAR2(40) := 'S'; --MSG ERROR CASTIGO 
+    pv_flagPCAS        VARCHAR2(40) := 'S'; --MSG ERROR PAGOS
+    pv_flagCCAS        VARCHAR2(40) := 'S'; --MSG ERROR CONDONADOS 
+    pv_flagECAS        VARCHAR2(40) := 'S'; --MSG ERROR EXTORNOS
+    pv_flagVCAS        VARCHAR2(40) := 'S'; --MSG ERROR VENTA
+    ln_tipcam          NUMBER(14, 8);
+    vi_FLAGfecha       VARCHAR2(50); -- FLAG PROCESANDO
+    vi_validafecha     VARCHAR2(50);
+    --vi_validafechadate DATE;
+    vi_tiempo          char(8);
+    vi_validaestado    number(2);
   begin
-  
     /*borrar la tabla*/
-    begin
-    delete from aqpb811;
+    /*begin
+      delete from aqpb811;
+      COMMIT;
     exception
       when others then
         rollback;
     end;
-   -- EXECUTE IMMEDIATE 'TRUNCATE TABLE aqpb811' ;
-    
+    */
+    -- EXECUTE IMMEDIATE 'TRUNCATE TABLE aqpb811' ;
+  
     /*obtener tipo de cambio segun fecha ingresada*/
     begin
       select e.cotcbi
@@ -145,25 +154,87 @@ create or replace package body PQ_CR_REPORTE25 is
         ln_tipcam := 0;
     end;
   
+    begin
+      select tp1nro1, tp1desc
+        into vi_validaestado, vi_validafecha
+        from fst198
+       where tp1cod = 1
+         and tp1cod1 = 11181
+         and tp1corr1 = 9
+         and tp1corr2 = 1
+         and tp1corr3 = 1;
+    
+      if vi_validaestado = 0 then
+      
+        begin
+          delete from aqpb811 ;
+          COMMIT;
+        exception
+          when others then
+            rollback;
+        end;
+        select to_char(sysdate, 'HH24:MI:SS') into vi_tiempo from dual;
+        vi_FLAGfecha := TO_CHAR(pd_fecha, 'DD/MM/YY');
+        vi_FLAGfecha := vi_FLAGfecha ||' ' || vi_tiempo;
+        UPDATE FST198 f
+           SET f.TP1DESC = vi_FLAGfecha, tp1nro1 = 1
+         WHERE tp1cod1 = 11181
+           and tp1corr1 = 9
+           and tp1corr2 = 1
+           and tp1corr3 = 1;
+        COMMIT;
+      else
+        if vi_validaestado = 1 then
+          RETURN;
+          DBMS_OUTPUT.PUT_LINE('Se está procesando datos desde: ' ||
+                               vi_FLAGfecha);
+        end if;
+      end if;
+    exception
+      when others then
+        vi_FLAGfecha := 'E';
+    end;
+  
     /*insertar data*/
   
     sp_cr_castigos(pd_fecha  => pd_fecha,
                    pn_tipcam => ln_tipcam,
                    pv_flag   => pv_flagCAS);
+    --COMMIT;
     sp_cr_pagos_castigos(pd_fecha  => pd_fecha,
                          pn_tipcam => ln_tipcam,
                          pv_flag   => pv_flagPCAS);
+    --COMMIT;
     sp_cr_condonaciones(pd_fecha  => pd_fecha,
                         pn_tipcam => ln_tipcam,
                         pv_flag   => pv_flagCCAS);
+    --COMMIT;
     sp_cr_pagos_castigos_ext(pd_fecha  => pd_fecha,
                              pn_tipcam => ln_tipcam,
                              pv_flag   => pv_flagECAS);
+    --COMMIT;
     sp_cr_venta(pd_fecha  => pd_fecha,
                 pn_tipcam => ln_tipcam,
                 pv_flag   => pv_flagVCAS);
     pv_flag := 'S';
     COMMIT;
+  
+    begin
+    
+      --select to_char(sysdate, 'HH24:MI:SS') into vi_tiempo from dual;
+      --vi_FLAGfecha := TO_CHAR(pd_fecha, 'DD/MM/YYYY');
+      --vi_FLAGfecha := vi_FLAGfecha || vi_tiempo; 
+      UPDATE FST198 f
+         SET f.TP1DESC = vi_FLAGfecha, f.tp1nro1 = 0
+       WHERE f.tp1cod1 = 11181
+         and f.tp1corr1 = 9
+         and f.tp1corr2 = 1
+         and f.tp1corr3 = 1;
+      COMMIT;
+    exception
+      when others then
+        vi_FLAGfecha := 'REPORTAR ERROR';
+    end;
   
   exception
     WHEN OTHERS THEN
@@ -487,21 +558,21 @@ create or replace package body PQ_CR_REPORTE25 is
                a.husing AQPB811UST,
                --2 AQPB811TIS,
                '' /*FN_CR_REPORTE25_TIPCRE(BNJ096SUC => B.HSUCUR,
-                                                                                                                                              BNJ096MDA => B.HMDA,
-                                                                                                                                              BNJ096PAP => B.HPAP,
-                                                                                                                                              BNJ096CTA => B.HCTA,
-                                                                                                                                              BNJ096OPE => B.HOPER,
-                                                                                                                                              BNJ096SUB => B.HCSUBO,
-                                                                                                                                              BNJ096MOD => B.HMODUL,
-                                                                                                                                              BNJ096TOP => B.HTOPER)*/ AQPB811TIS,
+                                                                                                                                                                                                                                                                                                                      BNJ096MDA => B.HMDA,
+                                                                                                                                                                                                                                                                                                                      BNJ096PAP => B.HPAP,
+                                                                                                                                                                                                                                                                                                                      BNJ096CTA => B.HCTA,
+                                                                                                                                                                                                                                                                                                                      BNJ096OPE => B.HOPER,
+                                                                                                                                                                                                                                                                                                                      BNJ096SUB => B.HCSUBO,
+                                                                                                                                                                                                                                                                                                                      BNJ096MOD => B.HMODUL,
+                                                                                                                                                                                                                                                                                                                      BNJ096TOP => B.HTOPER)*/ AQPB811TIS,
                '' /*sp_cr_tipsbs(pn_tipsbs => FN_CR_REPORTE25_TIPCRE(BNJ096SUC => B.HSUCUR,
-                                                                                                                                                                        BNJ096MDA => B.HMDA,
-                                                                                                                                                                        BNJ096PAP => B.HPAP,
-                                                                                                                                                                        BNJ096CTA => B.HCTA,
-                                                                                                                                                                        BNJ096OPE => B.HOPER,
-                                                                                                                                                                        BNJ096SUB => B.HCSUBO,
-                                                                                                                                                                        BNJ096MOD => B.HMODUL,
-                                                                                                                                                                        BNJ096TOP => B.HTOPER))*/ AQPB811SBN,
+                                                                                                                                                                                                                                                                                                                                                BNJ096MDA => B.HMDA,
+                                                                                                                                                                                                                                                                                                                                                BNJ096PAP => B.HPAP,
+                                                                                                                                                                                                                                                                                                                                                BNJ096CTA => B.HCTA,
+                                                                                                                                                                                                                                                                                                                                                BNJ096OPE => B.HOPER,
+                                                                                                                                                                                                                                                                                                                                                BNJ096SUB => B.HCSUBO,
+                                                                                                                                                                                                                                                                                                                                                BNJ096MOD => B.HMODUL,
+                                                                                                                                                                                                                                                                                                                                                BNJ096TOP => B.HTOPER))*/ AQPB811SBN,
                '2. PAGO CASTIGADO' AQPB811GRU,
                decode(b.hmda, 0, 1, pn_tipcam) * b.hcimp1 AQPB811MMN
         from fsh015 /*_r25*/ a,
@@ -2754,4 +2825,3 @@ create or replace package body PQ_CR_REPORTE25 is
 ----------------------------------------------------------------------------------------------
 end PQ_CR_REPORTE25;
 /
-

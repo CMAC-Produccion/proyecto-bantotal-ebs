@@ -1,9 +1,22 @@
 create or replace package PQ_CR_CTRL_SEGUI_RIESGO is
 
-  -- Author  : EFUENTES
-  -- Created : 17/05/2022 09:25:25
-  -- Purpose : PAQUETE PARA REGISTRAR CONTORL DE RIESGO
 
+  -- *****************************************************************
+  -- Sistema                    : BANTOTAL
+  -- Módulo                     : Créditos - Activas
+  -- Versión                    : 1.0
+  -- Author                     : EFUENTES
+  -- Created                    : 17/05/2022 09:25:25
+  -- Purpose                    : PAQUETE PARA REGISTRAR CONTORL DE RIESGO
+  -- Estado                     : Activo
+  -- Acceso                     : Público
+  -- Fecha de Modificación      : 10/06/2025
+  -- Autor de la Modificación   : rcastro
+  -- Detalle:                   : Se agrega campo puntaje de agencia supervisadas
+  -- Fecha de Modificación      : 13/06/2025
+  -- Autor de la Modificación   : rcastro
+  -- Detalle:                   : Se agrega sp_obtpuntaje 
+  -- *****************************************************************  
   ------------------------------------------------------------------------------ 
   procedure sp_control_riesgo(pn_cor     in number,
                               pn_pgcod   in number,
@@ -98,9 +111,16 @@ create or replace package PQ_CR_CTRL_SEGUI_RIESGO is
   ------------------------------------------------------------------------------  
   procedure sp_validar_eliminar(pv_analista in varchar,
                                 pv_flg      out varchar2);
+  ------------------------------------------------------------------------------  
+  procedure sp_calific_agencia(pe_codAgencia in number,
+                               ps_calificacion out varchar2);
+  ------------------------------------------------------------------------------                               
+  procedure sp_obtpuntaje(pe_tipoEvento in varchar2, 
+                          ps_puntaje out number);                               
+    
+                                 
 end PQ_CR_CTRL_SEGUI_RIESGO;
 /
-
 create or replace package body PQ_CR_CTRL_SEGUI_RIESGO is
   ------------------------------------------------------------------------------  
   procedure sp_control_riesgo(pn_cor     in number,
@@ -233,6 +253,8 @@ create or replace package body PQ_CR_CTRL_SEGUI_RIESGO is
     lc_NomReg char(30);
   
     lv_deseve char(50);
+    
+    lv_puntaje number;
   
   begin
     --hora
@@ -343,6 +365,15 @@ create or replace package body PQ_CR_CTRL_SEGUI_RIESGO is
         my_errm := SQLERRM;
         null;
     end;
+    
+    --validar puntaje 10062025
+    begin
+       SELECT TP1IMP1 into lv_puntaje FROM FST198 WHERE TP1COD = 1 AND TP1COD1  = 11152 AND TP1CORR1 = 306 and tp1corr2 = 1 and tp1corr3 > 0 and TP1DESC = rpad(pv_tipeve, 30, ' ');
+    exception
+      when others then
+        null;       
+    end;
+    lv_puntaje := nvl(lv_puntaje, 0);
   
     --insert registro
     begin
@@ -381,7 +412,8 @@ create or replace package body PQ_CR_CTRL_SEGUI_RIESGO is
          AQPB624RESR, --32 responsable de supervicion
          AQPB624FACT, --33 fecha actualizacion del evento
          AQPB624HACT, --34 hora actualizacion del evento
-         AQPB624USUA) --35 usuario de actualizacion
+         AQPB624USUA, --35 usuario de actualizacion
+         AQPB624AUX3) --36 puntaje
       values
         (ln_corr, --1 correlativo
          pn_pgcod, --2 empresa
@@ -417,7 +449,8 @@ create or replace package body PQ_CR_CTRL_SEGUI_RIESGO is
          pv_ressup, --32 responsable de supervicion
          pd_fecact, --33 fecha actualizacion del evento
          lv_hora, --34 hora actualizacion del evento
-         pd_usuact); --35 usuario de actualizacion
+         pd_usuact, --35 usuario de actualizacion,
+         lv_puntaje); --36 puntaje
       commit;
       pv_flgconf := 'S';
     exception
@@ -508,6 +541,7 @@ create or replace package body PQ_CR_CTRL_SEGUI_RIESGO is
     lc_NomReg char(30);
   
     lv_deseve char(50);
+    lv_puntaje number;
   
   begin
     --hora
@@ -580,6 +614,15 @@ create or replace package body PQ_CR_CTRL_SEGUI_RIESGO is
         my_errm := SQLERRM;
         null;
     end;
+    
+    --validar puntaje 10062025
+    begin
+       SELECT TP1IMP1 into lv_puntaje FROM FST198 WHERE TP1COD = 1 AND TP1COD1  = 11152 AND TP1CORR1 = 306 and tp1corr2 = 1 and tp1corr3 > 0 and TP1DESC = rpad(pv_tipeve, 30, ' ');
+    exception
+      when others then
+        null;       
+    end;
+    lv_puntaje := nvl(lv_puntaje, 0);    
   
     --insert registro
     begin
@@ -599,7 +642,8 @@ create or replace package body PQ_CR_CTRL_SEGUI_RIESGO is
              a.AQPB624RESR = pv_ressup,
              a.AQPB624FACT = pd_fecact,
              a.AQPB624HACT = lv_hora,
-             a.AQPB624USUA = pd_usuact
+             a.AQPB624USUA = pd_usuact,
+             a.aqpb624aux3 = lv_puntaje --10062025
        where a.AQPB624COR = pn_cor
          and AQPB624PGCOD = pn_pgcod
          and AQPB624MOD = pn_mod
@@ -648,7 +692,60 @@ create or replace package body PQ_CR_CTRL_SEGUI_RIESGO is
     end;
   
   end sp_validar_eliminar;
+  
+  ------------------------------------------------------------------------------  
+  procedure sp_calific_agencia(pe_codAgencia in number,
+                               ps_calificacion out varchar2) is
+  v_fechaActual date;  
+  v_sumPuntjEvnt number(17,2);    
+  v_califdesc varchar2(30);                       
+  begin
+      begin
+        select PGFAPE into v_fechaActual from fst017 where pgcod = 1;
+      exception
+        when others then
+          null;
+      end;
+      
+      begin
+       select SUM(AQPB624AUX3) INTO v_sumPuntjEvnt from aqpb624 where AQPB624AGES = pe_codAgencia AND AQPB624EST <> 'E';
+      exception
+        when others then
+          v_sumPuntjEvnt := 0;
+      end;    
+      
+      v_sumPuntjEvnt := nvl(v_sumPuntjEvnt, 0) ;
+      
+      begin
+        SELECT TP1DESC into v_califdesc FROM FST198 WHERE TP1COD = 1 AND TP1COD1  = 11152 AND TP1CORR1 = 306 and tp1corr2 = 2 and tp1corr3 > 0 and  
+        TP1IMP1 < v_sumPuntjEvnt and  TP1IMP2 >= v_sumPuntjEvnt;
+      exception
+        when others then
+          v_califdesc := null;
+      end;       
+      
+      If v_califdesc is not null and v_califdesc <> ' ' then
+         ps_calificacion := trim(v_califdesc); 
+      else 
+         ps_calificacion := '-';   
+      End If;
+      
+      
+        
+  end;  
+  
+  procedure sp_obtpuntaje(pe_tipoEvento in varchar2, 
+                          ps_puntaje out number) is
+  BEGIN
+       --validar puntaje 10062025
+    begin
+       SELECT TP1IMP1 into ps_puntaje FROM FST198 WHERE TP1COD = 1 AND TP1COD1  = 11152 AND TP1CORR1 = 306 and tp1corr2 = 1 and tp1corr3 > 0 and TP1DESC = rpad(pe_tipoEvento, 30, ' ');
+    exception
+      when others then
+        null;       
+    end;
+    ps_puntaje := nvl(ps_puntaje, 0.0);
+  END;                                                                                        
 
 end PQ_CR_CTRL_SEGUI_RIESGO;
 /
-
