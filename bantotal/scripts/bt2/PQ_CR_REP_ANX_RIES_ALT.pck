@@ -13,21 +13,33 @@ create or replace package PQ_CR_REP_ANX_RIES is
   -- Fecha de Modificación      : 22/09/2023 14:57:31
   -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas
   -- Fecha de Modificación      : 20/09/2024
+  -- Modificación               : Nuevos reportes normativos
   -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas  
   -- Modificación               : Mejoras a reportes normativos
   -- Fecha de Modificación      : 04/10/2024
   -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas  
   -- Modificación               : Correcciones a reportes normativos  
-  -- Fecha de Modificación      : 27/03/2025
-  -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas  
-  -- Modificación               : Correcciones a reportes normativos    
+  -- Fecha de Modificación      : 20/04/2025
+  -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas
+  -- Modificación               : Se agregar procesos para los 
+  --                              reportes 4A1/4B1/4C/4D/4F/13/2C2/19/20/21
+  --                              anexos 7A/7B
+  --                              Se modifican procesos de los
+  --                              anexos 15C/15A/16A/16B/16C
+  -- Fecha de Modificación      : 28/05/2025
+  -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas
+  -- Modificación               : Se agregaron columnas para la versión 2
+  --                              del Reporte 25-A en el proceso SP_25A_TRAER  
   -- *****************************************************************
   
-  -----------------------------------------------------
-  ---------- GENERAL ----------------------------------
+  ------------------------------------------------------
+  ------------------- GENERAL --------------------------
   ------------------------------------------------------
   FUNCTION FN_TIPO_CAMBIO_FIJO(P_FECHA in date) 
-  Return number; 
+  Return number;
+   
+  FUNCTION FN_REVISA_PARAMETROS(PD_FECHA In Date, PV_CODANX In Varchar2)
+  Return Number;
   ------------------------------------------------------
   ------------------ INICIO ANEXO 2A1 ------------------
   ------------------------------------------------------
@@ -202,27 +214,20 @@ create or replace package PQ_CR_REP_ANX_RIES is
   ------------------------------------------------------
   ------------------- INICIO REP 25A -------------------
   ------------------------------------------------------
-  procedure SP_25A_TRAER(pdFecha In Date, pdRpta out varchar2);
-
-  ------------------------------------------------------
+  procedure SP_25A_TRAER(pdFecha In Date, pcUser  In Varchar2, pdRpta out varchar2) ;
   procedure SP_25A_GENERAR(pdFecha In Date, pdRpta out varchar2);
-
-  ------------------------------------------------------
   Procedure SP_25A_OBTENER_ADQUIRIENTES(PD_FECHA IN Date, PN_RPTA OUT NUMBER);
   
   ------------------------------------------------------
   ------------------- INICIO REP 15B -------------------
   ------------------------------------------------------
-  procedure SP_15B_TRAER(pdFecha In Date, pdRpta out varchar2);
-  
-  ------------------------------------------------------
+  procedure SP_15B_TRAER(pdFecha In Date, pcUser  In Varchar2,pdRpta out varchar2);
   procedure SP_15B_GENERAR(pdFecha In Date, pdRpta out varchar2);
   
    ------------------------------------------------------
   ---------------- VALIDAR DATOS FSH012 ---------------
   ------------------------------------------------------
   procedure SP_VALIDAR_FSH012(pdFecha In Date, pdRpta out varchar2);
-  ------------------------------------------------------
   procedure SP_GENERAR_FSH012(pdFecha In Date, pdRpta out varchar2);
   
   ------------------------------------------------------
@@ -287,17 +292,22 @@ create or replace package PQ_CR_REP_ANX_RIES is
                          
   
   
-  /*
   ------------------------------------------------------
   ------------------- INICIO REP 16A -------------------
   ------------------------------------------------------
-  procedure SP_REP16A_REPORTE(pdFecha In Date, pdRpta out varchar2);
-
+  Procedure SP_ANEXO16A_REPORTE(pdFecha In Date, 
+                              pcUser  In Varchar2,
+                              pdRpta  out varchar2);
+                              
+  procedure SP_ANEXO16A_GENERAR(pdFecha in date,
+                              pcRpta  out varchar2);
   ------------------------------------------------------
+  /*
   procedure SP_16A_TRAER_CTAS_INV_DIS(pdFech in date,
                                       pcRpta out varchar2);
                                       
   ------------------------------------------------------
+  
   procedure SP_16A_UPDATE_FCVTO(pnPgcod in number,
                             pnSuc in number,
                             pnMda in number,
@@ -312,16 +322,215 @@ create or replace package PQ_CR_REP_ANX_RIES is
                             pdRpta out varchar2); 
                             
   ------------------------------------------------------
-  procedure SP_16A_GENERAR(pdFech in date,
-                           pcRpta out varchar2);
   */
+  ------------------------------------------------------
+  ------------------- INICIO ANEXO 16B -----------------
+  ------------------------------------------------------
+  Procedure SP_ANEXO16B_TRAER(pdFecha in date,
+                              pcUser  In Varchar2,
+                              pcRpta  out varchar2
+                             );
+  Procedure SP_ANEXO16B_GENERAR(pdFecha In Date, 
+                                pcRpta  out varchar2);                             
+  ------------------------------------------------------
+  ------------------- INICIO ANEXO 16C -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO16C_TRAER(pdFecha in date,
+                              pcUser  In Varchar2,
+                              pcRpta  out varchar2);
+  Procedure SP_ANEXO16C_GENERAR(pdFecha In Date,
+                                pcRpta  out varchar2);                              
+
+  ------------------------------------------------------
+  ------------------ INICIO REPORTE 2-C2 ---------------
+  ------------------------------------------------------
+  Procedure SP_REPORTE2C2_GENERAR(pdFecha In date,
+                                  pcRpta  Out varchar2);
+
+  ------------------------------------------------------ 
+  Procedure SP_REPORTE2C2_TRAER(pdFecha In date,
+                              pcUser  In Varchar2,  
+                              pcRpta  Out varchar2);
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 15-C -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO15C_TRAER(pdFecha In date,
+                              pcUser  In Varchar2,  
+                              pcRpta  Out varchar2);
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO15C_GENERAR(pdFechaIni In date,
+                                pdFechaFin In date,
+                                pcRpta  Out varchar2);
+  ---------------------------------------------------------
+  ------------------ INICIO REPORTE 4A-1 ------------------
+  ---------------------------------------------------------
+  Procedure SP_GENERAR_4A1(PD_FECHA In DATE,
+                           PV_RPTA Out VARCHAR2);
+  Procedure SP_TRAER_4A1(pdFecha In date,
+                         pcUser  In Varchar2,  
+                         pcRpta  Out varchar2);                           
+  ---------------------------------------------------------
+  ------------------ INICIO REPORTE 4B-1 ------------------
+  ---------------------------------------------------------                           
+  Procedure SP_GENERAR_4B1(PD_FECHA In DATE,
+                           PV_RPTA Out VARCHAR2);   
+  Procedure SP_TRAER_4B1(pdFecha In date,
+                         pcUser  In Varchar2,  
+                         pcRpta  Out varchar2);
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 15-A -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO15A_TRAER(pdFecha In date,
+                              pcUser  In Varchar2,  
+                              pcRpta  Out varchar2);
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO15A_GENERAR(pdFecha In date,
+                                pcRpta  Out varchar2);
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 4-C -----------------
+  ------------------------------------------------------ 
+  Procedure SP_TRAER_4C(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2);
+  Procedure SP_R4C_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2);                             
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 4-D -----------------
+  ------------------------------------------------------ 
+  Procedure SP_TRAER_4D(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2);
+  Procedure SP_R4D_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2);                             
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 4-F -----------------
+  ------------------------------------------------------ 
+  Procedure SP_TRAER_4F(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2);
+  Procedure SP_R4F_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2);                             
+  ------------------------------------------------------
+  ------------------ INICIO REPOTE 13 -----------------
+  ------------------------------------------------------ 
+  Procedure SP_REPORTE13_GENERAR(pdFecha In date,
+                                 pcRpta  Out varchar2);
+  Procedure SP_REPORTE13_TRAER(pdFecha In date,
+                               pcUser  In Varchar2,  
+                               pcRpta  Out varchar2);
+  ------------------------------------------------------
+  -------------- INICIO ANEXOA 7-A / 7-B ---------------
+  ------------------------------------------------------                                
+  Procedure SP_ANEXOS7_GENERAR(pdFecha In date,
+                               pcRpta  Out varchar2);
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 7-A -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO7A_TRAER(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2);
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 7-B -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO7B_TRAER(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2);
+  ---------------------------------------------------------
+  ------------------ INICIO REPORTE 1-A  ------------------
+  ---------------------------------------------------------
+  Procedure SP_ANX1A_GENERAR(PD_FECHA In DATE,
+                             PV_RPTA Out VARCHAR2);
+  Procedure SP_ANX1A_TRAER(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2); 
+  ---------------------------------------------------------
+  ------------------ INICIO REPORTE 1-B  ------------------
+  ---------------------------------------------------------
+  Procedure SP_ANX1B_GENERAR(PD_FECHA In DATE,
+                             PV_RPTA Out VARCHAR2);
+  Procedure SP_ANX1B_TRAER(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2); 
+  ---------------------------------------------------------    
+  ------------------ INICIO REPORTE 20  ------------------
+  ---------------------------------------------------------
+  Procedure SP_REP20_GENERAR(PD_FECHA In DATE,
+                             PV_RPTA Out VARCHAR2);
+  Procedure SP_REP20_TRAER(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2);     
+  ---------------------------------------------------------    
+  ------------------ INICIO REPORTE 21  ------------------
+  ---------------------------------------------------------
+  Procedure SP_REP21_GENERAR_PARTE_I(PD_FECHA In DATE,
+                                     pcUser  In Varchar2,
+                                     PV_RPTA Out VARCHAR2);
+                               
+  Procedure SP_REP21_GENERAR_PARTE_II(PD_FECHA In DATE,
+                             pcUser  In Varchar2, 
+                             PV_RPTA Out VARCHAR2);
+  Procedure SP_REP21_TRAER_PARTE_I(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2);  
+  Procedure SP_REP21_TRAER_PARTE_II(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2);                                    
+  ---------------------------------------------------------    
+  ---------------- INICIO REPORTE 2B1-1A  -----------------
+  ---------------------------------------------------------
+  Procedure SP_REP2B1_1A_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2);
+  Procedure SP_REP2B1_A1_TRAER(pdFecha In date,
+                                 pcUser  In Varchar2,  
+                                 pcRpta  Out varchar2);   
+  ---------------------------------------------------------    
+  ---------------- INICIO REPORTE 2B1-1B  -----------------
+  ---------------------------------------------------------
+  Procedure SP_REP2B1_1B_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2);
+  Procedure SP_REP2B1_1B_TRAER(pdFecha In date,
+                                 pcUser  In Varchar2,  
+                                 pcRpta  Out varchar2);     
+  ---------------------------------------------------------    
+  ---------------- INICIO REPORTE 2B1-1C  -----------------
+  ---------------------------------------------------------
+  Procedure SP_REP2B1_1C_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2);
+  Procedure SP_REP2B1_1C_TRAER(pdFecha In date,
+                                 pcUser  In Varchar2,  
+                                 pcRpta  Out varchar2);                                      
+  ------------------------------------------------------
+  ------------------ INICIO REPORTE 19 -----------------
+  ------------------------------------------------------ 
+  Procedure SP_R19_TRAER(pdFecha In date,
+                         pcUser  In Varchar2,  
+                         pcRpta  Out varchar2);
+  Procedure SP_R19_GENERAR(PD_FECHA In DATE,
+                           PC_USER In Varchar2,
+                           PV_RPTA Out VARCHAR2); 
+  --------------------------------------------------------- 
+  
 end PQ_CR_REP_ANX_RIES;
 /
-create or replace package body PQ_CR_REP_ANX_RIES
-is
+create or replace package body PQ_CR_REP_ANX_RIES is
   -----------------------------------------------------
   ---------- GENERAL ----------------------------------
   -----------------------------------------------------
+  FUNCTION FN_REVISA_PARAMETROS(PD_FECHA In Date, PV_CODANX In Varchar2)
+  Return Number
+  IS
+    nNumReg Number(10);
+    nPeriod Number(8) := to_number(to_char(PD_FECHA,'rrrrmm'));
+  BEGIN
+        Select count(*) Into nNumReg
+          From AQPD102 
+         Where aqpd102per = nPeriod 
+           and aqpd102anx = PV_CODANX; 
+        Return  nNumReg;
+  Exception When Others Then
+      Return  0;   
+  END FN_REVISA_PARAMETROS;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --     
   FUNCTION FN_TIPO_CAMBIO_FIJO(P_FECHA in date) 
   Return number 
   Is
@@ -341,7 +550,6 @@ is
     when others then
       return 0;
   END FN_TIPO_CAMBIO_FIJO;
-
   ------------------------------------------------------
   ------------------ INICIO ANEXO 2A1 ------------------
   ------------------------------------------------------
@@ -390,7 +598,6 @@ is
         v_error     := substr(SQLERRM, 1, 250);
         p_respuesta := 'N';
     end;
-
   end sp_generar_anexo2a1;
 
   ------------------------------------------------------
@@ -410,6 +617,13 @@ is
   
     --v_valorpro varchar2(2);
   begin
+    begin
+      p_respuesta := 'S';
+    exception
+      when others then
+        NULL;
+    end;
+
     --Cargamos el detalle 1 *****************************************************************************************************
     begin
       INSERT INTO AQPD101
@@ -1012,6 +1226,7 @@ is
       when others then
         null;
     end;
+    
     /*begin
       INSERT INTO AQPD101
         (AQPD101ORD,
@@ -1912,11 +2127,13 @@ is
             From AQPD102
            Where AQPD102PER = nPeriodo
              and AQPD102ANX = vAnexo
+             and AQPD102CTP = 7
              and nDIASRES between AQPD102VLN and AQPD102VLN2;  
         Exception When Others Then
            nPorRiesEqui := 0.1250;
-        End;  
-        /*        
+        End;    
+        
+        /*
         If nDIASRES < 0 then
           nPorRiesEqui := 0;
         ElsIf nDIASRES <= 30 then
@@ -1932,7 +2149,8 @@ is
         Else
           nPorRiesEqui := 0.1250; --12.25%
         End If;
-       */
+        */
+      
         --Riesgo equivalente =+C107 * $C$3 * AW107
         nRIEEQU := j.AQPD103MNTUSD * p_nTipCam * nPorRiesEqui;
       
@@ -2234,7 +2452,6 @@ is
       when others then
         p_vRespuesta := 'E';
         err_msg      := substr(SQLERRM, 1, 255);
-        null;
     end;
   
   end SP_A8_LLENAR_COM_VEN;
@@ -2255,6 +2472,7 @@ is
   begin
     p_vRespuesta := 'N';
     
+    --p_nTipCam := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.fn_tipo_cambio@DW(P_FECHA => p_dFecha);
     p_nTipCam := PQ_CR_REP_ANX_RIES.fn_tipo_cambio_fijo(P_FECHA => p_dFecha);    
     
     Begin
@@ -2402,7 +2620,6 @@ is
     exception
       when others then
         err_msg := substr(SQLERRM, 1, 255);
-        null;
     end;
   
   end SP_A8_CURVA_PIP;
@@ -2493,7 +2710,6 @@ is
       when others then
         p_vRespuesta := 'E';
         err_msg      := substr(SQLERRM, 1, 255);
-        null;
     end;
   
   end SP_A8_REPORTE;
@@ -2524,7 +2740,7 @@ is
     p_vRespuesta := 'N';
     cUsuario     := p_vUsuario;
    
-    for i in cur_validar_calif(nPeriodoAct) loop
+    /*for i in cur_validar_calif(nPeriodoAct) loop
       begin
         if i.calif = 'TC' OR i.calif = 'TCFWD' then
           select 'S'
@@ -2549,96 +2765,98 @@ is
       end;
       exit when vCurvasComp = 'N';
     End loop;
+    */
     
-    if vCurvasComp = 'S' then
-    Begin
-      select 1 into contador
-      from dwhouse.fact_ries_curvas@DW
-      where fecha = p_dFecha
-      and rownum = 1;
-    exception
-      when others then
-        null;
-    end;
-    
-    if contador is null then 
+    If vCurvasComp = 'S' then
+       -- Cantidad de curvas para la fecha de proceso
        Begin
-         Select max(fecha) into dFechaProcess
-           From dwhouse.fact_ries_curvas@DW
-          where fecha between add_months(p_dFecha,-15) and p_dFecha;
-       Exception When others then
-          null;
-       End;
-    end if;
+          select 1 into contador
+          from dwhouse.fact_ries_curvas@DW
+          where fecha = p_dFecha
+          and rownum = 1;
+        exception when others then
+            null;
+       end;
+       
+       -- Si no existen curvas: obtener ultima fecha de carga de curva
+       if contador is null then 
+           Begin
+             Select max(fecha) into dFechaProcess
+               From dwhouse.fact_ries_curvas@DW
+              where fecha between add_months(p_dFecha,-15) and p_dFecha;
+           Exception When others then
+              null;
+           End;      
+       End if;
    
-    p_nTipCam := PQ_CR_REP_ANX_RIES.FN_TIPO_CAMBIO_FIJO(P_FECHA => p_dFecha);
+       -- Tipo de cambio fijo 
+       p_nTipCam := PQ_CR_REP_ANX_RIES.FN_TIPO_CAMBIO_FIJO(P_FECHA => p_dFecha);
 
-    Begin
-      --DWHOUSE.PQ_RIES_ANEXOS_REPORTES.PR_A8_GEN_CURVAS_JOB@DW(pcFecha => cFecha);
-      DWHOUSE.PQ_RIES_ANEXOS_REPORTES.PR_A8_GEN_CURVAS_JOB_FECHA@DW(pcFecha => cFecha);
-    exception
-      when others then
-        p_vRespuesta := substr(SQLERRM, 1, 255);
-    end;
+       Begin
+         --DWHOUSE.PQ_RIES_ANEXOS_REPORTES.PR_A8_GEN_CURVAS_JOB@DW(pcFecha => cFecha);
+         DWHOUSE.PQ_RIES_ANEXOS_REPORTES.PR_A8_GEN_CURVAS_JOB_FECHA@DW(pcFecha => cFecha);
+       exception  when others then
+          p_vRespuesta := substr(SQLERRM, 1, 255);
+       End;
 
-    contador := null;
-    Begin
-      select 1
-      into contador
-      from aqpd102 p
-      where p.aqpd102anx = 'ANEXO8'
-      and p.aqpd102per = nPeriodoAct
-      and rownum = 1;
-    exception
-      when others then
-        nPeriodoAnt := to_char(add_months(p_dFecha, -1), 'yyyymm');
-        null;
-    end;
+       contador := null;
+       Begin
+          select 1
+          into contador
+          from aqpd102 p
+          where p.aqpd102anx = 'ANEXO8'
+          and p.aqpd102per = nPeriodoAct
+          and rownum = 1;
+       exception When others then
+            nPeriodoAnt := to_char(add_months(p_dFecha, -1), 'yyyymm');
+            null;
+       end;
     
-    if contador is null then
-      begin
-        insert into aqpd102
-        (aqpd102per, aqpd102anx, aqpd102ctp, aqpd102dtp, aqpd102cor, aqpd102cva, aqpd102val, aqpd102vln, aqpd102vlp, aqpd102vde, aqpd102dfe, aqpd102hoj, aqpd102ca1, aqpd102ca2, aqpd102ca3, aqpd102wh1, aqpd102ca4, aqpd102ca5, aqpd102ca6, aqpd102ca7, aqpd102ca8, aqpd102ca9, aqpd102ca10, aqpd102ca11, aqpd102ca12, aqpd102ca13, aqpd102ca14, aqpd102ca141, aqpd102ca15, aqpd102ca16, aqpd102ca17, aqpd102cvl1, aqpd102cvl2, aqpd102cvl3, aqpd102crep, aqpd102rpc1, aqpd102rpc2, aqpd102csbs, aqpd102usra, aqpd102feca, aqpd102hora, aqpd102aux1, aqpd102aux2, aqpd102aux3, aqpd102aux4, aqpd102aux5)
-        select
-        nPeriodoAct, AQPD102ANX, AQPD102CTP, AQPD102DTP, AQPD102COR, AQPD102CVA, AQPD102VAL, AQPD102VLN, AQPD102VLP, AQPD102VDE, AQPD102DFE, AQPD102HOJ, AQPD102CA1, AQPD102CA2, AQPD102CA3, AQPD102WH1, AQPD102CA4, AQPD102CA5, AQPD102CA6, AQPD102CA7, AQPD102CA8, AQPD102CA9, AQPD102CA10, AQPD102CA11, AQPD102CA12, AQPD102CA13, AQPD102CA14, AQPD102CA141, AQPD102CA15, AQPD102CA16, AQPD102CA17, AQPD102CVL1, AQPD102CVL2, AQPD102CVL3, AQPD102CREP, AQPD102RPC1, AQPD102RPC2, AQPD102CSBS, AQPD102USRA, AQPD102FECA, AQPD102HORA, AQPD102AUX1, AQPD102AUX2, AQPD102AUX3, AQPD102AUX4, AQPD102AUX5
-        from aqpd102 p
-        where p.aqpd102anx = 'ANEXO8'
-        and p.aqpd102per = nPeriodoAnt;
-      exception
-        when others then
-          null;
-      end;
-    end if;
-  
-    Begin
-      PQ_CR_REP_ANX_RIES.SP_A8_TRAER_FWD_TODO(pdfecha      => p_dFecha,
-                                              pdfechaPro   => dFechaProcess,
-                                              p_vUsuario   => cUsuario,
-                                              p_vRespuesta => p_vRespuesta);
-      if p_vRespuesta = 'S' then
-        p_vRespuesta := null;
-        PQ_CR_REP_ANX_RIES.SP_A8_TRAER_FORWARD(p_dFecha     => p_dFecha,
-                                               p_dFechaPro  => dFechaProcess,
-                                               p_vUsuario   => cUsuario,
-                                               p_vRespuesta => p_vRespuesta);
+        if contador is null then
+          begin
+            insert into aqpd102
+            (aqpd102per, aqpd102anx, aqpd102ctp, aqpd102dtp, aqpd102cor, aqpd102cva, aqpd102val, aqpd102vln, aqpd102vlp, aqpd102vde, aqpd102dfe, aqpd102hoj, aqpd102ca1, aqpd102ca2, aqpd102ca3, aqpd102wh1, aqpd102ca4, aqpd102ca5, aqpd102ca6, aqpd102ca7, aqpd102ca8, aqpd102ca9, aqpd102ca10, aqpd102ca11, aqpd102ca12, aqpd102ca13, aqpd102ca14, aqpd102ca141, aqpd102ca15, aqpd102ca16, aqpd102ca17, aqpd102cvl1, aqpd102cvl2, aqpd102cvl3, aqpd102crep, aqpd102rpc1, aqpd102rpc2, aqpd102csbs, aqpd102usra, aqpd102feca, aqpd102hora, aqpd102aux1, aqpd102aux2, aqpd102aux3, aqpd102aux4, aqpd102aux5)
+            select
+            nPeriodoAct, AQPD102ANX, AQPD102CTP, AQPD102DTP, AQPD102COR, AQPD102CVA, AQPD102VAL, AQPD102VLN, AQPD102VLP, AQPD102VDE, AQPD102DFE, AQPD102HOJ, AQPD102CA1, AQPD102CA2, AQPD102CA3, AQPD102WH1, AQPD102CA4, AQPD102CA5, AQPD102CA6, AQPD102CA7, AQPD102CA8, AQPD102CA9, AQPD102CA10, AQPD102CA11, AQPD102CA12, AQPD102CA13, AQPD102CA14, AQPD102CA141, AQPD102CA15, AQPD102CA16, AQPD102CA17, AQPD102CVL1, AQPD102CVL2, AQPD102CVL3, AQPD102CREP, AQPD102RPC1, AQPD102RPC2, AQPD102CSBS, AQPD102USRA, AQPD102FECA, AQPD102HORA, AQPD102AUX1, AQPD102AUX2, AQPD102AUX3, AQPD102AUX4, AQPD102AUX5
+            from aqpd102 p
+            where p.aqpd102anx = 'ANEXO8'
+            and p.aqpd102per = nPeriodoAnt;
+          exception
+            when others then
+              null;
+          end;
+        end if;
+    
+      Begin
+        PQ_CR_REP_ANX_RIES.SP_A8_TRAER_FWD_TODO(pdfecha      => p_dFecha,
+                                                pdfechaPro   => dFechaProcess,
+                                                p_vUsuario   => cUsuario,
+                                                p_vRespuesta => p_vRespuesta);
         if p_vRespuesta = 'S' then
           p_vRespuesta := null;
-          PQ_CR_REP_ANX_RIES.SP_A8_LLENAR_COM_VEN(p_dFecha     => p_dFecha,
-                                                  p_dFechaPro  => dFechaProcess,
-                                                  p_nTipCam    => p_nTipCam,
-                                                  p_vUsuario   => cUsuario,
-                                                  p_vRespuesta => p_vRespuesta);
+          PQ_CR_REP_ANX_RIES.SP_A8_TRAER_FORWARD(p_dFecha     => p_dFecha,
+                                                 p_dFechaPro  => dFechaProcess,
+                                                 p_vUsuario   => cUsuario,
+                                                 p_vRespuesta => p_vRespuesta);
+          if p_vRespuesta = 'S' then
+            p_vRespuesta := null;
+            PQ_CR_REP_ANX_RIES.SP_A8_LLENAR_COM_VEN(p_dFecha     => p_dFecha,
+                                                    p_dFechaPro  => dFechaProcess,
+                                                    p_nTipCam    => p_nTipCam,
+                                                    p_vUsuario   => cUsuario,
+                                                    p_vRespuesta => p_vRespuesta);
+          end if;
         end if;
-      end if;
-    exception
-      when others then
-        p_vRespuesta := substr(SQLERRM, 1, 255);
-    end;
-    else
+      exception
+        when others then
+          p_vRespuesta := substr(SQLERRM, 1, 255);
+      end;
+    
+    Else
       p_vRespuesta := 'C';
-    end if;
-  end SP_A8_ACTUALIZAR_FWD;
+    End if;
   
+  End SP_A8_ACTUALIZAR_FWD;
   ------------------------------------------------------
   procedure SP_A8_GENERAR(p_dFecha     in date,
                           p_vUsuario   in varchar2,
@@ -2665,15 +2883,16 @@ is
         null;
     end;
     
-    If contador is null then 
-      Begin
+    if contador is null then 
+       Begin
          Select max(fecha) into dFechaProcess
            From dwhouse.fact_ries_curvas@DW
           where fecha between add_months(p_dFecha,-15) and p_dFecha;
        Exception When others then
           null;
-       End;
-    End if;
+       End;   
+
+    end if;
    
     p_nTipCam := PQ_CR_REP_ANX_RIES.FN_TIPO_CAMBIO_FIJO(P_FECHA => p_dFecha);
     
@@ -3060,12 +3279,15 @@ is
         pvRpta := substr(SQLERRM, 1, 255);
     end;
   
-    begin
+    begin       
       insert into aqpd105
-        (aqpd105fec, aqpd105ord, aqpd105dsc1, aqpd105dsc2, aqpd105sld)
-        SELECT FECHA, ORDEN, DESC1, DESC2, SALDO
-          FROM DWHOUSE.FACT_RIES_REP37_CONSOL@DW
-         where FECHA = pdFecha;
+      (aqpd105fec, aqpd105ord, aqpd105dsc1, aqpd105dsc2, aqpd105sld, AQPD105TIPO,
+       aqpd105fecm1, aqpd105sldm1, aqpd105fecm2, aqpd105sldm2, aqpd105fecm3, aqpd105sldm3, AQPD105TREG, AQPD105USR)
+      SELECT 
+       FECHA, ORDEN, DESC1, DESC2, SALDO, TIPOCALC,
+       FECHAMES1, SALDOMES1, FECHAMES2, SALDOMES2, FECHAMES3, SALDOMES3, TIPREG, USERSO
+      FROM DWHOUSE.FACT_RIES_REP37_CONSOL@DW
+      where FECHA = pdFecha;
     
       COMMIT;
       pvRpta := 'S';
@@ -3180,91 +3402,84 @@ is
   ------------------------------------------------------
   ------------------- INICIO REP 25A -------------------
   ------------------------------------------------------
-  procedure SP_25A_TRAER(pdFecha In Date, pdRpta out varchar2) is
-    --err_msg    varchar2(255);
-    PD_FECHA_1 Date;
-    PD_FECHA_2 Date;
-    nPeriodo   number(10) := to_number(to_char(pdFecha, 'yyyymm'));
-    
-    cModalidadTrans VARCHAR2(10);
-    cRelacionAdq VARCHAR2(10);
-    cResolucion VARCHAR2(10);
-    cTipRep VARCHAR2(10);
-  begin
-    PD_FECHA_1 := trunc(add_months(pdFecha, -2), 'MM');
-    PD_FECHA_2 := last_day(pdFecha);
+  procedure SP_25A_TRAER(pdFecha In Date, pcUser  In Varchar2, pdRpta out varchar2) 
+  -- *****************************************************************Add commentMore actions
+  -- Nombre                     : SP_25A_TRAER
+  -- Sistema                    : BANTOTAL
+  -- Módulo                     : Normativo
+  -- Versión                    : 1.0
+  -- Fecha de Creación          : 20/12/2024
+  -- Autor de Creación          : LLATANPVARGAS Paola Vargas
+  -- Uso                        : Obtener los datos consolidados del Reporte 25-A
+  -- Estado                     : Activo
+  -- Acceso                     : Público
+  -- Parámetros de Entrada      : pdFecha - Fecha de proceso
+  --                              pcUser  - Usuario que ejecuta el proceso
+  -- Parámetros de Salida       : pcRpta - Resultado del proceso
+  -- *****************************************************************   
+  -- Modificación               : Se agregaron columnas para la versión 2
+  -- Fecha                      : 28/05/2025
+  -- Autor de Creación          : LLATANPVARGAS Paola Vargas
+  -- Uso                        : Obtener los datos consolidados del Reporte 25-A v2
+  -- *****************************************************************        
+  IS
+    err_msg    varchar2(255);
+      PD_FECHA_1 Date;
+      PD_FECHA_2 Date;
+      nPeriodo   number(10) := to_number(to_char(pdFecha, 'yyyymm'));
+      
+      cModalidadTrans VARCHAR2(10);
+      cRelacionAdq VARCHAR2(10);
+      cResolucion VARCHAR2(10);
+      cTipRep VARCHAR2(10);
+  Begin
+      PD_FECHA_1 := trunc(add_months(pdFecha, -2), 'MM');
+      PD_FECHA_2 := last_day(pdFecha);
 
-    pdRpta     := 'N';
-    begin
-      execute immediate 'truncate table aqpd106';
-    exception
-      when others then
-        null;
-    end;
-    
-    --NUEVO: PARAMETROS 
-    begin
-      select AQPD102VAL into cModalidadTrans
-      from aqpd102 p
-      where p.aqpd102anx = 'REP25A'
-      and p.aqpd102ctp = 1
-      and p.aqpd102cor = 1
-      AND p.aqpd102per = nPeriodo;
+      pdRpta     := 'N';
       
-      select AQPD102VAL into cRelacionAdq
-      from aqpd102 p
-      where p.aqpd102anx = 'REP25A'
-      and p.aqpd102ctp = 2
-      and p.aqpd102cor = 1
-      AND p.aqpd102per = nPeriodo;
+      Begin
+        Delete from AQPD106 Where AQPD106USR = pcUser;
+      Exception when others then
+         pdRpta := substr(SQLERRM, 1, 255);
+      end;
       
-      select AQPD102VAL into cResolucion
-      from aqpd102 p
-      where p.aqpd102anx = 'REP25A'
-      and p.aqpd102ctp = 3
-      and p.aqpd102cor = 1
-      AND p.aqpd102per = nPeriodo;
-      
-      select AQPD102VAL into cTipRep
-      from aqpd102 p
-      where p.aqpd102anx = 'REP25A'
-      and p.aqpd102ctp = 4
-      and p.aqpd102cor = 1
-      AND p.aqpd102per = nPeriodo;
-    exception
-      when others then 
-        null;
-    end;
-    
-    begin
-      insert into aqpd106
-        (aqpd106fec, aqpd106nro, aqpd106nomadq, aqpd106tipdoc, aqpd106nrodoc,
-        aqpd106modtra, aqpd106clasi, aqpd106reladq, aqpd106fectra, aqpd106coosbs,
-        aqpd106ressbs, aqpd106tiprep, aqpd106corgep, aqpd106medemp, aqpd106peqemp,
-        aqpd106micemp, aqpd106consu, aqpd106hipo, aqpd106imp1, aqpd106vig,
-        aqpd106ref, aqpd106venci, aqpd106jud, aqpd106cas, aqpd106imp2,
-        aqpd106carind, aqpd106dev, aqpd106sus, aqpd106pro, aqpd106venta,
-        aqpd106deudo, AQPD106FEC1, AQPD106FEC2)
-        select 
-        TRUNC(SYSDATE), nro, nomadq, tipdoc, nrodoc,
-        cModalidadTrans, clasi, cRelacionAdq, fectra, coosbs,
-        cResolucion, cTipRep, corp_ge, medemp, peqemp,
-        microemp, consumo, hipote, imp_tot_1, vigente,
-        refinan, vencida, judicial, castigada, imp_tot_2,
-        car_ind, deven, suspenso, prov, venta,
-        deudores, fecha1, fecha2
-          from DWHOUSE.fact_ries_25a@DW
-         where fecha = pdFecha;
-      COMMIT;
-      pdRpta := 'S';
-    exception
-      when others then
-        pdRpta := substr(SQLERRM, 1, 255);
-    end;
-    
-  
-  end SP_25A_TRAER;
-
+      -- Insert datos 
+      Begin
+            Insert into AQPD106
+                  (aqpd106fec, aqpd106nro, aqpd106nomadq, aqpd106tipdoc, aqpd106nrodoc, 
+                   aqpd106modtra, aqpd106clasi, aqpd106reladq, aqpd106fectra, aqpd106coosbs, 
+                   aqpd106ressbs, aqpd106tiprep, aqpd106corgep, aqpd106medemp, aqpd106peqemp, 
+                   aqpd106micemp, aqpd106consu, aqpd106hipo, aqpd106imp1, aqpd106vig, 
+                   aqpd106ref, aqpd106venci, aqpd106jud, aqpd106cas, aqpd106imp2, 
+                   aqpd106carind, aqpd106dev, aqpd106sus, aqpd106pro, aqpd106venta, 
+                   aqpd106deudo, aqpd106fec1, aqpd106fec2, aqpd106desrep, aqpd106corref, 
+                   aqpd106corven, aqpd106corjud, aqpd106medref, aqpd106medven, aqpd106medjud, 
+                   aqpd106peqref, aqpd106peqven, aqpd106peqjud, aqpd106micref, aqpd106micven, 
+                   aqpd106micjud, aqpd106conref, aqpd106conven, aqpd106conjud, aqpd106hipref, 
+                   aqpd106hipven, aqpd106hipjud, aqpd106sdoind, aqpd106ctacobdi, aqpd106ctacobin, 
+                   aqpd106provind, aqpd106garpre, aqpd106rencas, aqpd106usr
+                  )
+          Select fecha,nro, nomadq, tipdoc, nrodoc, 
+                  modtra, clasi, reladq, fectra, coosbs, 
+                  ressbs, tiprep, corp_ge, medemp, peqemp, 
+                  microemp, consumo, hipote, imp_tot_1, vigente, 
+                  refinan, vencida, judicial, castigada, imp_tot_2, 
+                  car_ind, deven, suspenso, prov, venta, 
+                  deudores, fecha1, fecha2,  tiporep, corref, 
+                  corven, corjud, medref, medven, medjud, 
+                  peqref, peqven, peqjud, micref, micven, 
+                  micjud, conref, conven, conjud, hipref, 
+                  hipven, hipjud, sdoind, ctacobdi, ctacobin, 
+                  provind, garpre, rencas, pcUser
+            From DWHOUSE.fact_ries_25a@DW
+           Where fecha = pdFecha;
+        COMMIT;
+        pdRpta := 'S';
+      exception  when others then
+          pdRpta := substr(SQLERRM, 1, 255);
+      end;
+  End SP_25A_TRAER;
   ------------------------------------------------------
   procedure SP_25A_GENERAR(pdFecha In Date, pdRpta out varchar2) is
     --err_msg varchar2(255);
@@ -3338,37 +3553,34 @@ is
   ------------------------------------------------------
   ------------------- INICIO REP 15B -------------------
   ------------------------------------------------------
-  procedure SP_15B_TRAER(pdFecha In Date, pdRpta out varchar2) is
+  procedure SP_15B_TRAER(pdFecha In Date,  pcUser  In Varchar2,  pdRpta out varchar2) is
   
   begin
     begin
-      execute immediate 'truncate table aqpd107';
-    exception
-      when others then
-        null;
+      Delete from AQPD107 Where aqpd107fec = pdFecha and aqpd107usr = pcUser;
+      Commit;
+    exception when others then
+       pdRpta := substr(SQLERRM, 1, 255);
     end;
   
     begin
-      insert into aqpd107
-        (aqpd107codrow, aqpd107ord, aqpd107fec,
-         aqpd107rubrow, aqpd107desrow,
-         aqpd107col1, aqpd107col2, aqpd107factor,
-         aqpd107col3, aqpd107col4, aqpd107col5,
-         aqpd107col6, aqpd107col7, aqpd107col8,
-         aqpd107tipcam, aqpd107tipo/*, AQPD107CODSUC*/)
-        select 
-         codrow, orden, fecha,
-         rubrow, desrow, 
-         col_1, col_2, d.factor / 100 factor,
-         col_3, col_4, col_5,
-         col_6, col_7, col_8,
-         d.tipcam, d.tipreg--, d.codsucave
-          from dwhouse.fact_ries_anexo15b_rep@DW d
-         where fecha = pdFecha
-         order by codrow, orden;
-      pdRpta := 'S';
-    exception
-      when others then
+        Insert into aqpd107
+              (aqpd107codrow, aqpd107ord, aqpd107fec,
+               aqpd107rubrow, aqpd107desrow,
+               aqpd107col1, aqpd107col2, aqpd107factor,
+               aqpd107col3, aqpd107col4, aqpd107col5,
+               aqpd107col6, aqpd107col7, aqpd107col8,
+               aqpd107tipcam, aqpd107tipo,aqpd107usr)
+        Select codrow, orden, fecha,
+               rubrow, desrow, 
+               col_1, col_2, d.factor / 100 factor,
+               col_3, col_4, col_5,
+               col_6, col_7, col_8,
+               d.tipcam, d.tipreg,pcUser
+          From dwhouse.fact_ries_anexo15b_rep@DW d
+         Where fecha = pdFecha;
+         pdRpta := 'S';
+    exception when others then
         pdRpta := substr(SQLERRM, 1, 255);
     end;
   
@@ -3403,7 +3615,7 @@ is
   
     pdRpta := 'S';
     nCount := 0;
-    
+
     -- un select a la fsh012 de dwhouse
     -- S: hay informacion, N: aun no hay informacion
     if dFinMes = pdFecha then
@@ -3426,6 +3638,7 @@ is
     else
       pdRpta := 'Debe seleccionar un fin de mes!';
     end if;
+
   end SP_VALIDAR_FSH012;
   
   ------------------------------------------------------
@@ -3454,30 +3667,21 @@ is
   ------------------------------------------------------
   ----------------- COPIAR PARAMETROS ------------------
   ------------------------------------------------------
+  --NUEVO: COPIAR PARAMETROS
   procedure SP_COPIAR_PARAMETROS(pnPeriodo In Number, 
                                  pcAnexo in varchar2, 
                                  pcUsuario in varchar2,
-                                 pdRpta out varchar2) 
-  -- Modificacion
-  -- Fecha: 2025.03.10
-  -- Autor: Paola Vargas
-  -- Cambio: Filto para copia de parámetros del Anexo15B
-  --         Si no existe mes anterior copiar de la última fecha
-     
-  is
-
-      cPeriodo varchar2(8);
-      dFecha date;
-      dFechaAnt date;
-      cPeriodoAnt varchar2(8);
-      nPeriodoAnt number(8);
-      dFechaRegistro date := sysdate;
-      vHora varchar2(8) := to_char(sysdate, 'HH24:MI:SS');
-      vQuery Varchar2(4000);
-      nNumReg Number(10);
-
-  Begin
-
+                                 pdRpta out varchar2) is
+    cPeriodo varchar2(8);
+    dFecha date;
+    dFechaAnt date;
+    cPeriodoAnt varchar2(8);
+    nPeriodoAnt number(8);
+    dFechaRegistro date := sysdate;
+    vHora varchar2(8) := to_char(sysdate, 'HH24:MI:SS');
+    vQuery Varchar2(4000);
+    nNumReg Number(10);
+  begin
     pdRpta := 'S';
     
     cPeriodo := to_char(pnPeriodo);
@@ -3525,7 +3729,7 @@ is
         pdRpta  := substr(SQLERRM, 1, 250);
       End;
   
-  End SP_COPIAR_PARAMETROS;
+  end SP_COPIAR_PARAMETROS;
   ------------------------------------------------------
   ----------- AQPD115 MIVIVIENDA-TECHOPROP -------------
   ------------------------------------------------------
@@ -3982,7 +4186,7 @@ is
                      nvl(col_5,0), nvl(col_6,0),pv_ana
                 From dwhouse.fact_ries_anexo5d_rep@DW
                Where fecha = pd_fecha
-                 and nvl(ntipsbs,-1) = 999;
+                 and nvl(ntipsbs,-1) <> 999;
                Commit;
          Exception When others then
              pv_rpta := 'No se pudo traer información del reporte';
@@ -3997,7 +4201,7 @@ is
       pvRpta := 'S';
       
       -- Revisar parámetros configurados para 4B2
-      nNumDat := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REVISA_PARAM@DW(pdfecha,'ANEXO5D');
+      nNumDat := PQ_CR_REP_ANX_RIES.FN_REVISA_PARAMETROS(pdfecha,'ANEXO5D');
       IF nNumDat = 0 Then
          pvRpta:= 'No existen parámetros configurados del Anexo N°5-D para el mes '||
                   to_char(pdfecha,'rrrr.mm.dd')||' Revise.';
@@ -4147,38 +4351,6 @@ is
   ------------------------------------------------------
   ------------------- INICIO REP 16A -------------------
   ------------------------------------------------------
-  procedure SP_REP16A_REPORTE(pdFecha In Date, pdRpta out varchar2) is
-
-  begin
-    begin
-      execute immediate 'truncate table aqpd110';
-    exception
-      when others then
-        null;
-    end;
-    
-    begin
-      insert into aqpd110
-      (AQPD110FEC, AQPD110TIP, AQPD110ORD, AQPD110DES, 
-       AQPD110B1, AQPD110B2, AQPD110B3, AQPD110B4, AQPD110B5, AQPD110B6, AQPD110B7, AQPD110B8, AQPD110B9, AQPD110B10, AQPD110B11, AQPD110TOT, 
-       AQPD110MND, AQPD110TDAT, AQPD110GTOT)
-      select 
-        FECHA, TIPO, ORDEN, DESCRIPCION,
-        MES01, MES02, MES03, MES04, MES05, MES06, MES7A9, MES10A12, MES1A2A, MES2A5A, MES5A, TOTAL,
-        MONEDA, TIPODATO, GRUPOTOTAL
-      from dwhouse.FACT_RIES_ANEXO16A_REP@DW d
-      where fecha = pdFecha;
-
-      commit;
-      pdRpta := 'S';
-    exception
-      when others then
-        pdRpta := substr(SQLERRM, 1, 255);
-    end;
-  
-  end SP_REP16A_REPORTE;
-
-  ------------------------------------------------------
   procedure SP_16A_TRAER_CTAS_INV_DIS(pdFech in date,
                                       pcRpta out varchar2) is
 
@@ -4266,5 +4438,1150 @@ is
   
   end SP_16A_GENERAR;
   */
+  ------------------------------------------------------
+  ------------------- INICIO REP 16A -------------------
+  ------------------------------------------------------
+  Procedure SP_ANEXO16A_REPORTE(pdFecha In Date, 
+                              pcUser  In Varchar2,
+                              pdRpta  out varchar2)
+  Is
+  Begin
+      -- Limpieza de tabla temporal
+      Begin
+        Delete from AQPD110 where AQPD110FEC = pdFecha
+          and AQPD110USR = pcUser;
+        Commit;  
+      Exception when others then
+          null;
+      end;
+    
+      Begin  
+        --- Reporte
+        Insert Into aqpd110
+              (aqpd110fec, aqpd110tip, aqpd110ord, aqpd110des,
+               aqpd110b1, aqpd110b2, aqpd110b3, aqpd110b4, aqpd110b5,
+               aqpd110b6, aqpd110b7, aqpd110b8, aqpd110b9, aqpd110b10,
+               aqpd110b11, aqpd110tot, aqpd110mnd,
+               aqpd110tdat, aqpd110gtot, aqpd110tcam,  
+               aqpd110freg, aqpd110usr)
+        Select FECHA, TIPO, ORDEN, DESCRIPCION,
+               sum(MES01), sum(MES02), sum(MES03), sum(MES04), sum(MES05),
+               sum(MES06), sum(MES7A9), sum(MES10A12), sum(MES1A2A), sum(MES2A5A),
+               sum(MES5A), sum(TOTAL), MONEDA,
+               TIPODATO, GRUPOTOTAL, TIPCAM, 
+               sysdate, pcUser
+          from dwhouse.fact_ries_anexo16a_rep@dw
+         Where fecha = pdFecha
+         Group By FECHA, MONEDA,TIPO, ORDEN, DESCRIPCION,TIPODATO, GRUPOTOTAL, TIPCAM;
+        
+        Commit;
+        pdRpta := 'S';
+      Exception When others then
+          pdRpta := substr(SQLERRM, 1, 255);
+      End;       
+      
+      -- Detalle de clientes
+      Begin
+          Delete from AQPD110I where aqpd110ifec = pdFecha and aqpd110iusr = pcUser;
+          Commit;  
+      Exception when others then
+          pdRpta := substr(SQLERRM, 1, 255);
+      end;
+            
+      Begin        
+            Insert Into AQPD110I
+                  (aqpd110ifec, aqpd110icodind, aqpd110idesind, aqpd110isldind, aqpd110iordrnk, 
+                   aqpd110ipai, aqpd110itdoc, aqpd110indoc, aqpd110inom, aqpd110itreg, 
+                   aqpd110icta, aqpd110igru, aqpd110isecind, aqpd110ifreg, aqpd110iusr
+                  )
+            Select fecha,codindic,desindic,sdoindmn,ordenrnk,pepais,petdoc,pendoc,trim(pennom),
+                   tipreg, ctanro,grunro,indsecc,sysdate, pcUser
+              From FACT_RIES_ANEXO16A_INDDET@DW 
+             Where fecha = pdFecha
+               and indsecc in ('CLI','IND');   
+            
+            Commit;
+            pdRpta := 'S';
+      Exception When others then
+        pdRpta := substr(SQLERRM, 1, 255);
+      End;   
+      
+      -- Detalle parámetros
+      Begin
+          Delete from AQPD110J where aqpd110jfec = pdFecha and aqpd110jusr = pcUser;
+          Commit;  
+      Exception when others then
+          pdRpta := substr(SQLERRM, 1, 255);
+      end;
+
+      Begin       
+          Insert Into AQPD110J
+                (aqpd110jfec, aqpd110jord,aqpd110jitm, aqpd110jcol1, aqpd110jcol2, 
+                 aqpd110jfreg, aqpd110jusr)
+          Select fecha,codindic,desindic,col1,col2,sysdate,pcUser
+            From FACT_RIES_ANEXO16A_INDDET@DW 
+           Where fecha = pdFecha
+             and indsecc = 'RIN';  
+          Commit;
+          pdRpta := 'S';
+      Exception When others then
+        pdRpta := substr(SQLERRM, 1, 255);
+      End;         
+       
+  End SP_ANEXO16A_REPORTE;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --    
+  Procedure SP_ANEXO16A_GENERAR(pdFecha in date,
+                                pcRpta  out varchar2)
+
+  Is
+  Begin
+       pcRpta := 'S';
+
+       pcRpta := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_A16A_REVISA@DW(pdFecha);
+       
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_A16A_GENERAR@DW(pdFecha);
+          
+       Exception When others then
+          pcRpta := substr(SQLERRM, 1, 255);
+       End;
+
+  End SP_ANEXO16A_GENERAR; 
+  ------------------------------------------------------
+  /*
+  procedure SP_16A_TRAER_CTAS_INV_DIS(pdFech in date,
+                                      pcRpta out varchar2);
+                                      
+  ------------------------------------------------------
+  
+  procedure SP_16A_UPDATE_FCVTO(pnPgcod in number,
+                            pnSuc in number,
+                            pnMda in number,
+                            pnPap in number,
+                            pnCta in number,
+                            pnOper in number,
+                            pnSbop in number,
+                            pnTop in number,
+                            pnMod in number,
+                            pdFech in date,
+                            pdFvto in date,
+                            pdRpta out varchar2); 
+                            
+  ------------------------------------------------------
+  */
+  ------------------------------------------------------
+  ------------------- INICIO ANEXO 16B -----------------
+  ------------------------------------------------------
+  Procedure SP_ANEXO16B_TRAER(pdFecha In date,
+                              pcUser  In Varchar2,
+                              pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd110b where aqpd110bfec = pdFecha
+        and aqpd110busr = pcUser;
+      Exception When others then
+        null;
+      End;
+      
+      Begin
+        insert into aqpd110b
+        (aqpd110bfec, aqpd110bord, aqpd110bdes, aqpd110bref, aqpd110btipr, aqpd110btipc, 
+         aqpd110bb1s, aqpd110bb1d, aqpd110bb2s, aqpd110bb2d, aqpd110bb3s, aqpd110bb3d, 
+         aqpd110bb4s, aqpd110bb4d, aqpd110bb5s, aqpd110bb5d, aqpd110bb6s, aqpd110bb6d, 
+         aqpd110bb7s, aqpd110bb7d, aqpd110bb8s, aqpd110bb8d, aqpd110bb9s, aqpd110bb9d, 
+         aqpd110btots, aqpd110btotd, aqpd110bcsec, aqpd110boimp, aqpd110bfpro, 
+         aqpd110bfreg, aqpd110busr)
+        Select
+        FECHA, ORDEN, DESCRIPCION, REFERENCIA, TIPO_REG, TIPO_CAL, 
+        BANDA1S, BANDA1D, BANDA2S, BANDA2D, BANDA3S, BANDA3D, 
+        BANDA4S, BANDA4D, BANDA5S, BANDA5D, BANDA6S, BANDA6D, 
+        BANDA7S, BANDA7D, BANDA8S, BANDA8D, BANDA9S, BANDA9D, 
+        TOTALS, TOTALD, CODSEC, ORDIMP, FECPRO,
+        SYSDATE, pcUser
+        from dwhouse.FACT_RIES_ANX16B_REPORTE@dw
+        where fecha = pdFecha;
+        
+        Commit;
+        pcRpta := 'S';
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_ANEXO16B_TRAER; 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                 
+  Procedure SP_ANEXO16B_GENERAR(pdFecha In Date,
+                                pcRpta out varchar2)
+  Is
+  Begin
+       pcRpta := 'S';
+       pcRpta := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_A16B_REVISA@DW(pdFecha);
+       
+       If pcRpta = 'S' Then
+          Begin
+             DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_A16B_GENERAR@DW(pdFecha);
+          Exception When others then
+            pcRpta := substr(SQLERRM, 1, 255);
+          End;
+       End If;  
+  End SP_ANEXO16B_GENERAR;                                                                
+  ------------------------------------------------------
+  ------------------- INICIO ANEXO 16C -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO16C_TRAER(pdFecha In date,
+                              pcUser  In Varchar2,  
+                              pcRpta  Out varchar2)
+  Is
+  Begin
+    pcRpta := 'S';
+    Begin
+      delete from aqpd110c where aqpd110cfec = pdFecha
+      and aqpd110cuseg = pcUser;
+    Exception When others then
+      null;
+    End;
+      
+    begin
+      insert into aqpd110c
+      (aqpd110cfec, aqpd110cord, aqpd110ccrow, aqpd110crrow, 
+       aqpd110cdrow, aqpd110cfac, aqpd110ctcam, 
+       aqpd110ccol1, aqpd110ccol2, aqpd110ccol3, 
+       aqpd110ccol4, aqpd110ccol5, aqpd110ccol6, 
+       aqpd110cnfec, aqpd110cfpro, aqpd110cuser, 
+       aqpd110cfecg, aqpd110cuseg)
+      select
+       FECHA, ORDEN, CODROW, RUBROW, 
+       DESROW, FACTOR, TIPCAM, 
+       COL_1, COL_2, COL_3, 
+       COL_4, COL_5, COL_6, 
+       NFECHA, FECPRO, USERSO,
+       sysdate, pcUser
+      from dwhouse.FACT_RIES_ANEXO16C_REP@dw 
+      where fecha = pdFecha;
+      
+      pcRpta := 'S';
+      COMMIT;
+    exception when others then
+      pcRpta := substr(SQLERRM, 1, 255);
+    end;
+  End SP_ANEXO16C_TRAER;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                                             
+  Procedure SP_ANEXO16C_GENERAR(pdFecha In Date, 
+                                pcRpta  out varchar2)
+  Is
+  Begin
+    pcRpta := 'S';
+
+    Begin
+      DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_FACT_RIES_ANEXO16C_EJEC@DW(pdFecha);
+    Exception When others then
+      pcRpta := substr(SQLERRM, 1, 255);
+    End;
+
+  End SP_ANEXO16C_GENERAR;
+
+  ------------------------------------------------------
+  ------------------ INICIO REPORTE 2-C2 ---------------
+  ------------------------------------------------------
+  Procedure SP_REPORTE2C2_GENERAR(pdFecha In date,
+                                  pcRpta  Out varchar2)
+  Is    
+  Begin
+    pcRpta := 'S';
+    begin
+      DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_R2C2_GENERAR@DW(pdFecha);
+    exception when others then
+      pcRpta := substr(SQLERRM, 1, 255);
+    end;
+  End SP_REPORTE2C2_GENERAR;
+  
+  ------------------------------------------------------
+  Procedure SP_REPORTE2C2_TRAER(pdFecha In date,
+                                pcUser  In Varchar2,  
+                                pcRpta  Out varchar2)
+  Is    
+  Begin
+    pcRpta := 'S';
+    begin
+      Delete from AQPD122
+      where AQPD122FEC = pdFecha
+      and AQPD122ANA = pcUser;
+    exception when others then
+      null;
+    end;
+    
+    begin
+      INSERT INTO AQPD122
+      (AQPD122FEC, AQPD122CSEC, AQPD122ORD, AQPD122CITM,
+       AQPD122ITEM1, AQPD122ITEM2, 
+       AQPD122COL1, AQPD122COL2, AQPD122COL3, AQPD122COL4,
+       AQPD122DCOL1, AQPD122DCOL2, AQPD122DCOL3,
+       AQPD122ANA)
+      select
+      fecha, codsec, orden, coditm, 
+      item1, item2,
+      ncol1, ncol2, ncol3, ncol4, 
+      descol1, descol2, descol3,
+      pcUser
+      from dwhouse.FACT_RIES_REP2C2_REP@DW
+      where fecha = pdFecha;
+      COMMIT;
+    exception when others then
+      pcRpta := substr(SQLERRM, 1, 255);
+    end;
+  End SP_REPORTE2C2_TRAER;
+
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 15-C -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO15C_TRAER(pdFecha In date,
+                              pcUser  In Varchar2,  
+                              pcRpta  Out varchar2)
+  Is    
+  Begin
+    pcRpta := 'S';
+    begin
+      delete from aqpd124 where aqpd124fec = pdFecha
+      and aqpd124ana = pcUser;
+      commit;
+    exception when others then
+      null;
+    end;
+    
+    begin
+      insert into aqpd124
+      (aqpd124fec, aqpd124mnd, aqpd124ord, aqpd124refi, aqpd124desi, 
+       aqpd124col1, aqpd124tipc, AQPD124FDIA, aqpd124dhab, aqpd124tipr,
+       aqpd124fpro, aqpd124usug, aqpd124freg, aqpd124ana)
+      select
+      FECHA, MONEDA, ORDEN, REFITEM, DESITEM, 
+      COL_D1, TIPCAM, FECSDO, DIAHAB, TIPREG, 
+      FECPRO, USERSO, sysdate, pcUser
+      from dwhouse.fact_ries_anexo15c_rep@dw
+      where fecha = pdFecha;
+      commit; 
+    exception when others then
+      pcRpta := substr(SQLERRM, 1, 255);
+    end;
+
+  End SP_ANEXO15C_TRAER;
+
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO15C_GENERAR(pdFechaIni In date,
+                                pdFechaFin In date,
+                                pcRpta  Out varchar2)
+  Is    
+  Begin
+    pcRpta := 'S';
+    
+    begin
+      pcRpta := dwhouse.PQ_RIES_ANEXOS_REPORTES.FN_VALIDA_ANEXO15C@DW(pdFechaIni);
+      If pcRpta is Null Then
+         pcRpta := 'S';
+         begin
+            dwhouse.PQ_RIES_ANEXOS_REPORTES.SP_EJE_ANEXO15C@DW(PD_FECINI => pdFechaIni,
+                                                               PD_FECFIN => pdFechaFin);
+         Exception when others then
+            pcRpta := substr(SQLERRM, 1, 255);
+         end;
+      End If;
+    exception
+      when others then
+        pcRpta := substr(SQLERRM, 1, 255);
+    end;
+    
+  End SP_ANEXO15C_GENERAR;
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 15-A -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO15A_TRAER(pdFecha In date,
+                              pcUser  In Varchar2,  
+                              pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd124a where aqpd124afec = pdFecha
+        and aqpd124auseg = pcUser;
+        Commit;
+      Exception When others then
+        null;
+      End;
+      
+      Begin
+        insert into aqpd124a
+        (aqpd124afec, aqpd124aord, aqpd124arefi, aqpd124adesi, aqpd124atipc, 
+         aqpd124acol1, aqpd124acol2, aqpd124atreg, aqpd124afpro, aqpd124auser, 
+         aqpd124afecg, aqpd124auseg)
+        Select
+         FECHA, ORDEN, REFITEM, DESITEM, TIPCAM, 
+         COL_1, COL_2, TIPREG, FECPRO, USERSO,
+         sysdate, pcUser
+        from dwhouse.fact_ries_anexo15a_rep@dw 
+        where fecha = pdFecha;
+        
+        pcRpta := 'S';
+        commit;
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_ANEXO15A_TRAER;
+  ---------------------------------------------------------      
+  Procedure SP_ANEXO15A_GENERAR(pdFecha In date,
+                                pcRpta  Out varchar2)
+  IS 
+  Begin
+      pcRpta := 'S';   
+      DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_EJE_ANEXO15A@DW(pdFecha);  
+  Exception When others then
+      pcRpta := substr(SQLERRM, 1, 250);                                                     
+  End SP_ANEXO15A_GENERAR;
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 4-C -----------------
+  ------------------------------------------------------ 
+  Procedure SP_TRAER_4C(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd104c 
+        where aqpd104cfec = pdFecha
+        and aqpd104cusr = pcUser;
+      Exception When others then
+        null;
+      End;
+      
+      Begin
+        insert into aqpd104c
+        (aqpd104cfec, aqpd104ccsec, aqpd104cord, aqpd104cditm, aqpd104ccol1, aqpd104ctreg, aqpd104cfpro, 
+         aqpd104cfreg, aqpd104cusr)
+        Select
+        FECHA, CODSEC, ORDEN, DITEM, NCOL1, TIPREG, FECPRO,
+        sysdate, pcUser
+        from dwhouse.FACT_RIES_REP4C_REP@dw
+        Where fecha = pdFecha;
+        
+        pcRpta := 'S';
+        commit;
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_TRAER_4C;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  Procedure SP_R4C_GENERAR(PD_FECHA In DATE,
+                           PV_RPTA Out VARCHAR2)
+  Is
+  Begin                           
+       PV_RPTA := 'S';
+
+       PV_RPTA := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP4C_REVISA@DW(PD_FECHA);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP4C_GENERAR@DW(PD_FECHA);
+       Exception When others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+       End;    
+  End SP_R4C_GENERAR;       
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 4-D -----------------
+  ------------------------------------------------------ 
+  Procedure SP_TRAER_4D(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd104d
+        where aqpd104dfec = pdFecha
+          and aqpd104dusr = pcUser;
+        Commit;  
+      Exception When others then
+         pcRpta := substr(SQLERRM, 1, 255);
+      End;
+      
+      Begin
+          Insert Into aqpd104d
+                 (aqpd104dfec, aqpd104dcsec, aqpd104dord, aqpd104dditm, aqpd104dcol1, 
+                  aqpd104dcol2, aqpd104dcreg, aqpd104dfreg, aqpd104dusr)
+           Select FECHA, CODSEC, ORDEN, DITEM, NCOL1, NCOL2, CODREG,sysdate, pcUser
+            from dwhouse.FACT_RIES_REP4D_REP@dw
+          Where fecha = pdFecha;
+          commit;
+          pcRpta := 'S';
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_TRAER_4D;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  
+  Procedure SP_R4D_GENERAR(PD_FECHA In DATE,
+                           PV_RPTA Out VARCHAR2)
+  Is
+  Begin                           
+       PV_RPTA := 'S';
+
+       PV_RPTA := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP4D_REVISA@DW(PD_FECHA);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP4D_GENERAR@DW(PD_FECHA);
+       Exception When others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+       End;    
+  End SP_R4D_GENERAR;   
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 4-F -----------------
+  ------------------------------------------------------ 
+  Procedure SP_TRAER_4F(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd104f where aqpd104ffec = pdFecha
+        and aqpd104fusr = pcUser;
+      Exception When others then
+        null;
+      End;
+      
+      Begin
+        insert into aqpd104f
+        (aqpd104ffec, aqpd104fcsec, aqpd104ford, aqpd104fditm, aqpd104fcol1, aqpd104fcol2, aqpd104ffpro,
+         aqpd104ffreg, aqpd104fusr)
+        Select
+        FECHA, CODSEC, ORDEN, DITEM, NCOL1, NCOL2, FECPRO,
+        sysdate, pcUser
+        from dwhouse.FACT_RIES_REP4F_REP@dw 
+        where fecha = pdFecha;
+        
+        pcRpta := 'S';
+        commit;
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_TRAER_4F;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  
+  Procedure SP_R4F_GENERAR(PD_FECHA In DATE,
+                           PV_RPTA Out VARCHAR2)
+  Is
+  Begin                           
+       PV_RPTA := 'S';
+
+       PV_RPTA := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP4F_REVISA@DW(PD_FECHA);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP4F_GENERAR@DW(PD_FECHA);
+       Exception When others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+       End;    
+  End SP_R4F_GENERAR;     
+  ------------------------------------------------------
+  ------------------ INICIO REPOTE 13 -----------------
+  ------------------------------------------------------ 
+  Procedure SP_REPORTE13_TRAER(pdFecha In date,
+                               pcUser  In Varchar2,  
+                               pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd125 
+        where aqpd125fec = pdFecha
+          and aqpd125usr = pcUser;
+      Exception When others then
+        null;
+      End;
+      
+      Begin
+        insert into aqpd125
+        (aqpd125fec, aqpd125csec, aqpd125ord, aqpd125ditm, aqpd125col1, aqpd125col2, aqpd125col3, aqpd125cont, aqpd125fpro, 
+         aqpd125freg, aqpd125usr)
+        Select
+        FECHA, CODSEC, ORDLIN, DITEM, NCOL1, NCOL2, NCOL3, CONTRAP, FECPRO,
+        sysdate, pcUser
+        from dwhouse.FACT_RIES_REP13_REP@dw
+        where fecha = pdFecha;
+        
+        pcRpta := 'S';
+        commit;
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_REPORTE13_TRAER;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  Procedure SP_REPORTE13_GENERAR(pdFecha In date,
+                                 pcRpta  Out varchar2)
+  Is 
+  Begin
+       pcRpta := 'S';
+
+       pcRpta := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP13_REVISA@DW(pdFecha);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP13_GENERAR@DW(pdFecha);
+       Exception When others then
+          pcRpta := substr(SQLERRM, 1, 255);
+       End;      
+  End SP_REPORTE13_GENERAR;                                    
+  ------------------------------------------------------
+  -------------- INICIO ANEXOA 7-A / 7-B ---------------
+  ------------------------------------------------------                                
+  Procedure SP_ANEXOS7_GENERAR(pdFecha In date,
+                               pcRpta  Out varchar2)
+  Is
+  Begin
+       pcRpta := 'S';
+
+       pcRpta := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_ANEXO7_REVISA@DW(pdFecha);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_ANEXO7_GENERAR@DW(pdFecha);
+       Exception When others then
+          pcRpta := substr(SQLERRM, 1, 255);
+       End;
+  End SP_ANEXOS7_GENERAR;                                       
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 7-A -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO7A_TRAER(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd126a 
+        where aqpd126afec = pdFecha
+        and aqpd126ausr = pcUser;
+      Exception When others then
+        null;
+      End;
+      
+      Begin
+        insert into aqpd126a
+        (aqpd126afec, aqpd126amnd, aqpd126acsec, aqpd126aord, aqpd126aditm, 
+         aqpd126acol1, aqpd126acol2, aqpd126acol3, aqpd126acol4, aqpd126acol5, aqpd126acol6, aqpd126acol7, aqpd126acol8, aqpd126acol9, 
+         aqpd126aanx, aqpd126afpro, 
+         aqpd126afreg, aqpd126ausr)
+        Select
+        FECHA, MONEDA, CODSEC, ORDEN, DITEM, 
+        NCOL1, NCOL2, NCOL3, NCOL4, NCOL5, NCOL6, NCOL7, NCOL8, NCOL9, CODANX, FECPRO,
+        sysdate, pcUser
+        from dwhouse.FACT_RIES_ANEXO7A_REP@dw 
+        where fecha = pdFecha;
+        
+        pcRpta := 'S';
+        commit;
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_ANEXO7A_TRAER;
+  ------------------------------------------------------
+  ------------------ INICIO ANEXO 7-B -----------------
+  ------------------------------------------------------ 
+  Procedure SP_ANEXO7B_TRAER(pdFecha In date,
+                             pcUser  In Varchar2,  
+                             pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd126b
+        where aqpd126bfec = pdFecha
+        and aqpd126busr = pcUser;
+      Exception When others then
+        null;
+      End;
+      
+      Begin
+        insert into aqpd126b
+        (aqpd126bfec, aqpd126bmnd, aqpd126bcsec, aqpd126bord, aqpd126bditm, 
+         aqpd126bcol1, aqpd126bcol2, aqpd126bcol3, aqpd126bcol4, aqpd126bcol5, aqpd126bcol6, aqpd126bcol7, aqpd126bcol8, 
+         aqpd126bcol9, aqpd126bcol10, aqpd126bcol11, aqpd126bcol12, aqpd126bcol13, aqpd126bcol14, aqpd126bcol15, aqpd126bcol16, 
+         aqpd126banx, aqpd126bfpro, aqpd126bfreg, aqpd126busr)
+        select
+        FECHA, MONEDA, CODSEC, ORDEN, DITEM, 
+        NCOL1, NCOL2, NCOL3, NCOL4, NCOL5, NCOL6, NCOL7, NCOL8, 
+        NCOL9, NCOL10, NCOL11, NCOL12, NCOL13, NCOL14, NCOL15, NCOL16, 
+        CODANX, FECPRO, sysdate, pcUser
+        from dwhouse.FACT_RIES_ANEXO7B_REP@dw
+        Where fecha = pdFecha;
+        
+        pcRpta := 'S';
+        commit;
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_ANEXO7B_TRAER;
+  ---------------------------------------------------------
+  ------------------ INICIO REPORTE 1-A  ------------------
+  ---------------------------------------------------------
+  Procedure SP_ANX1A_GENERAR(PD_FECHA In DATE,
+                             PV_RPTA Out VARCHAR2)
+  Is
+  Begin
+      PV_RPTA := 'S';
+      begin
+         DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_ANX1A_GENERAR@DW(PD_FECHA);
+      Exception when others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+      end;
+               
+  End SP_ANX1A_GENERAR;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                            
+  Procedure SP_ANX1A_TRAER(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2)
+  IS
+  Begin
+      Null;
+  End SP_ANX1A_TRAER;                             
+  ---------------------------------------------------------
+  ------------------ INICIO REPORTE 1-B  ------------------
+  ---------------------------------------------------------
+  Procedure SP_ANX1B_GENERAR(PD_FECHA In DATE,
+                             PV_RPTA Out VARCHAR2)
+  IS
+  Begin                             
+      PV_RPTA := 'S';
+      begin
+         DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_ANX1B_GENERAR@DW(PD_FECHA);
+      Exception when others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+      end;
+  End SP_ANX1B_GENERAR;   
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                                            
+  Procedure SP_ANX1B_TRAER(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2)
+  IS
+  Begin
+      Null;
+  End SP_ANX1B_TRAER;           
+  ---------------------------------------------------------    
+  ------------------ INICIO REPORTE 20  ------------------
+  ---------------------------------------------------------
+  Procedure SP_REP20_GENERAR(PD_FECHA In DATE,
+                             PV_RPTA Out VARCHAR2)
+  Is
+    nNumReg Number(10);
+    nAnio Number(5) := to_number(to_char(PD_FECHA,'rrrr'));
+    nMes Number(5) := to_number(to_char(PD_FECHA,'mm'));
+  Begin
+       PV_RPTA := 'S';
+       
+       -- Datos de Bantotal
+       Begin
+         Select count(*) Into nNumReg
+           From jaqz461
+          Where jaqz461pmes = nMes
+            and jaqz461pano = nAnio;
+       Exception When others then
+          nNumReg := 0;
+       End;            
+       
+       If nNumReg = 0 Then
+          PV_RPTA := 'Aun no hay datos generados en Bantotal (JAQZ461) para el período del reporte. Revisar.';
+       End If;  
+       
+       If PV_RPTA = 'S' Then
+          PV_RPTA := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP20_REVISA@DW(PD_FECHA);
+          Begin
+             DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP20_GENERAR@DW(PD_FECHA);
+          Exception When others then
+             PV_RPTA := substr(SQLERRM, 1, 255);
+          End;   
+       End If;
+       
+  End SP_REP20_GENERAR;                              
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                             
+  Procedure SP_REP20_TRAER(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+          Delete from AQPD120R where AQPD120Rfec = pdFecha
+             and AQPD120Rusr = pcUser;
+      Exception When others then
+          null;
+      End;
+      
+      Begin
+          Insert Into AQPD120R
+                (aqpd120rfec, aqpd120rani, aqpd120rmes, aqpd120rnco, aqpd120rpai, aqpd120rnmc, 
+                 aqpd120rsbc, aqpd120rnac, aqpd120rtdc, aqpd120rndc, aqpd120rdir, aqpd120rrep, 
+                 aqpd120rdec, aqpd120rpav, aqpd120rnmv, aqpd120rsbv, aqpd120rnav, aqpd120rtdv, 
+                 aqpd120rncv, aqpd120rdrv, aqpd120racc, aqpd120rcar, aqpd120roca, aqpd120rdev, 
+                 aqpd120rges, aqpd120rrnk, aqpd120rfre, aqpd120rusr
+                ) 
+          Select fecha, anio, mes, ncor, paisc, nombc, 
+                 csbsc, tnatc, tdocc, ndocc, direc, reple, 
+                 deudc, paisv, nombv, csbsv, tnatv, tdocv, 
+                 ndocv, direv, accio, cargo, otroc, deudv, 
+                 gestion, ranking, sysdate, pcUser
+            From dwhouse.fact_ries_rep20_rep@DW 
+           Where fecha = pdFecha;
+        
+          pcRpta := 'S';
+          commit;
+      Exception When others then
+          pcRpta := substr(SQLERRM, 1, 255);
+      End;
+
+  End SP_REP20_TRAER;                             
+  ---------------------------------------------------------    
+  ------------------ INICIO REPORTE 21  ------------------
+  ---------------------------------------------------------
+  Procedure SP_REP21_GENERAR_PARTE_I(PD_FECHA In DATE,
+                             pcUser  In Varchar2,
+                             PV_RPTA Out VARCHAR2)
+  Is
+    nperiod Number(10) := to_number(to_char(PD_FECHA,'rrrrmm'));
+  Begin     
+       
+       PV_RPTA := 'S';
+       PQ_CR_REP_ANX_RIES.SP_COPIAR_PARAMETROS(nperiod,'REP21',pcUser,PV_RPTA);
+       
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP21_GENERA_PARTEI@DW(PD_FECHA);
+       Exception When others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+       End; 
+              
+       
+  End SP_REP21_GENERAR_PARTE_I;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --       
+  Procedure SP_REP21_GENERAR_PARTE_II(PD_FECHA In DATE,
+                             pcUser  In Varchar2,
+                             PV_RPTA Out VARCHAR2)
+  Is
+    nperiod Number(10) := to_number(to_char(PD_FECHA,'rrrrmm'));
+  Begin     
+       PV_RPTA := 'S';
+       PQ_CR_REP_ANX_RIES.SP_COPIAR_PARAMETROS(nperiod,'REP21',pcUser,PV_RPTA);
+       
+       PV_RPTA := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP21_REVISA@DW(PD_FECHA);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP21_GENERAR@DW(PD_FECHA);
+       Exception When others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+       End;                              
+  End SP_REP21_GENERAR_PARTE_II;  
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                             
+  Procedure SP_REP21_TRAER_PARTE_I(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2)     
+  Is
+  Begin
+      Null;
+  End SP_REP21_TRAER_PARTE_I; 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                             
+  Procedure SP_REP21_TRAER_PARTE_II(pdFecha In date,
+                           pcUser  In Varchar2,  
+                           pcRpta  Out varchar2)     
+  Is
+  Begin
+      Null;
+  End SP_REP21_TRAER_PARTE_II;   
+  ---------------------------------------------------------    
+  ---------------- INICIO REPORTE 2B1-1A  -----------------
+  ---------------------------------------------------------
+  Procedure SP_REP2B1_1A_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2)
+  Is 
+  Begin                                
+       PV_RPTA := 'S';
+
+       PV_RPTA := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP_2B1_1A_REVISA@DW(PD_FECHA);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP2B1_1A_GENERAR@DW(PD_FECHA);
+       Exception When others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+       End;                              
+  End SP_REP2B1_1A_GENERAR;                                 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                  
+  Procedure SP_REP2B1_A1_TRAER(pdFecha In date,
+                                 pcUser  In Varchar2,  
+                                 pcRpta  Out varchar2)
+  Is
+  Begin
+      Null;
+  End SP_REP2B1_A1_TRAER;          
+  ---------------------------------------------------------    
+  ---------------- INICIO REPORTE 2B1-1B  -----------------
+  ---------------------------------------------------------
+  Procedure SP_REP2B1_1B_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2)
+  Is 
+  Begin                                
+       PV_RPTA := 'S';
+
+       PV_RPTA := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP_2B1_1B_REVISA@DW(PD_FECHA);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP_2B1_1B_GENERAR@DW(PD_FECHA);
+       Exception When others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+       End;                              
+  End SP_REP2B1_1B_GENERAR;                                
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                  
+  Procedure SP_REP2B1_1B_TRAER(pdFecha In date,
+                                 pcUser  In Varchar2,  
+                                 pcRpta  Out varchar2)
+  Is
+  Begin
+      Null;
+  End SP_REP2B1_1B_TRAER;                       
+  ---------------------------------------------------------    
+  ---------------- INICIO REPORTE 2B1-1C  -----------------
+  ---------------------------------------------------------
+  Procedure SP_REP2B1_1C_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2)
+  Is 
+  Begin                                
+       PV_RPTA := 'S';
+
+       PV_RPTA := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP_2B1_1C_REVISA@DW(PD_FECHA);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP_2B1_1C_GENERAR@DW(PD_FECHA);
+       Exception When others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+       End;                              
+  End SP_REP2B1_1C_GENERAR;                                
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                  
+  Procedure SP_REP2B1_1C_TRAER(pdFecha In date,
+                                 pcUser  In Varchar2,  
+                                 pcRpta  Out varchar2)
+  Is
+  Begin
+      Null;
+  End SP_REP2B1_1C_TRAER;                     
+  ---------------------------------------------------------    
+  ---------------- INICIO REPORTE 2B1-A3  -----------------
+  ---------------------------------------------------------
+  Procedure SP_REP2B1A3_GENERAR(PD_FECHA In DATE,
+                                PV_RPTA Out VARCHAR2)
+  Is 
+  Begin                                
+       PV_RPTA := 'S';
+
+       PV_RPTA := DWHOUSE.PQ_RIES_ANEXOS_REPORTES.FN_REP_2B1_A3_REVISA@DW(PD_FECHA);
+       Begin
+          DWHOUSE.PQ_RIES_ANEXOS_REPORTES.SP_REP_2B1_A3_GENERAR@DW(PD_FECHA);
+       Exception When others then
+          PV_RPTA := substr(SQLERRM, 1, 255);
+       End;                              
+  End SP_REP2B1A3_GENERAR;                                
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                  
+  Procedure SP_REP2B1A3_TRAER(pdFecha In date,
+                                 pcUser  In Varchar2,  
+                                 pcRpta  Out varchar2)
+  Is
+  Begin
+      Null;
+  End SP_REP2B1A3_TRAER;          
+  ---------------------------------------------------------
+  ------------------ INICIO REPORTE 4A-1 ------------------
+  ---------------------------------------------------------
+  Procedure SP_GENERAR_4A1(PD_FECHA In DATE,
+                           PV_RPTA Out VARCHAR2)
+  IS 
+    nNumDat Number(10);
+  Begin
+      PV_RPTA := 'N';
+      -- Revisar parámetros configurados para 4B2
+      nNumDat := PQ_CR_REP_ANX_RIES.FN_REVISA_PARAMETROS(PD_FECHA,'REP4A1');
+      IF nNumDat = 0 Then
+         PV_RPTA:= 'No existen parámetros para el Reporte N°4A-1 para el mes '||
+                  to_char(PD_FECHA,'rrrr.mm.dd')||' Revise.';
+      End If;
+      
+      If PV_RPTA = 'N' Then
+         --- Revisa datos fuente
+         dwhouse.PQ_RIES_ANEXOS_REPORTES.SP_REP4A1_VALIDAR@DW(PD_FECHA,PV_RPTA);
+         
+         If PV_RPTA = 'N' Then
+            -- PROCESO
+            Begin
+                dwhouse.PQ_RIES_ANEXOS_REPORTES.SP_REP4A1_GENERAR@DW(PD_FECHA); 
+            Exception When others then
+                PV_RPTA := substr(SQLERRM, 1, 255);
+            End;
+         End If;   
+      End If;                                                         
+
+  End SP_GENERAR_4A1;    
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  Procedure SP_TRAER_4A1(pdFecha In date,
+                         pcUser  In Varchar2,  
+                         pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd104a where aqpd104afec = pdFecha
+        and aqpd104aana = pcUser;
+      Exception When others then
+          null;
+      End;
+      
+      Begin
+        insert into aqpd104a
+        (aqpd104afec, aqpd104acod, aqpd104ades, aqpd104apondes, aqpd104aponnum, 
+         aqpd104acol1, aqpd104acol2, aqpd104acol3, aqpd104acol4, aqpd104acol5, 
+         aqpd104afpro, aqpd104ausug, aqpd104afreg, aqpd104aana)
+        select fecha, codigo, descri, vponde, nponde, 
+        col_1, col_2, col_3, col_4, col_5, fecpro, userso, sysdate, pcUser
+        from dwhouse.fact_ries_rep4a1_rep@DW
+        where fecha = pdFecha;
+        
+        pcRpta := 'S';
+        commit;
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_TRAER_4A1; 
+  ---------------------------------------------------------
+  ------------------ INICIO REPORTE 4B-1 ------------------
+  ---------------------------------------------------------      
+  Procedure SP_GENERAR_4B1(PD_FECHA In DATE,
+                           PV_RPTA Out VARCHAR2)
+  IS 
+    nNumDat Number(10);
+  Begin
+      PV_RPTA := 'N';
+      -- Revisar parámetros configurados para 4B2
+      nNumDat := PQ_CR_REP_ANX_RIES.FN_REVISA_PARAMETROS(PD_FECHA,'REP4B1');
+      IF nNumDat = 0 Then
+         PV_RPTA:= 'No existen parámetros para el Reporte N°4B-1 para el mes '||
+                  to_char(PD_FECHA,'rrrr.mm.dd')||' Revise.';
+      End If;
+      
+      If PV_RPTA = 'N' Then
+         --- Revisa datos fuente
+         dwhouse.PQ_RIES_ANEXOS_REPORTES.SP_REP4B1_VALIDAR@DW(PD_FECHA,PV_RPTA);
+         
+         If PV_RPTA = 'N' Then
+            -- PROCESO
+            Begin
+                dwhouse.PQ_RIES_ANEXOS_REPORTES.SP_REP4B1_GENERAR@DW(PD_FECHA); 
+            Exception When others then
+                PV_RPTA := substr(SQLERRM, 1, 255);
+            End;
+         End If;   
+      End If;                                                         
+  End SP_GENERAR_4B1;  
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  
+  Procedure SP_TRAER_4B1(pdFecha In date,
+                         pcUser  In Varchar2,  
+                         pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from aqpd104b where aqpd104bfec = pdFecha
+        and aqpd104bana = pcUser;
+      Exception When others then
+        null;
+      End;
+      
+      Begin
+        insert into aqpd104b
+        (aqpd104bfec, aqpd104bcodsec, aqpd104bord, aqpd104bitem, 
+         aqpd104bcol1, aqpd104bcol2, aqpd104bcol3, aqpd104bcol4, aqpd104bcol5, 
+         aqpd104bfpro, aqpd104busug, aqpd104bfreg, aqpd104bana)
+        select fecha, codsec, orden, item, 
+        col_1, col_2, col_3, col_4, col_5, 
+        fecpro, userso, sysdate, pcUser
+        from dwhouse.fact_ries_rep4b1_rep@DW
+        where fecha = pdFecha;
+        
+        pcRpta := 'S';
+        commit;
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_TRAER_4B1; 
+  ------------------------------------------------------------
+  ------------------ INICIO REPORTE 19 -----------------------
+  ------------------------------------------------------------ 
+  Procedure SP_R19_TRAER(pdFecha In date,
+                         pcUser  In Varchar2,  
+                         pcRpta  Out varchar2)
+  Is
+  Begin
+      pcRpta := 'S';
+      Begin
+        delete from AQPD118 d where aqpd118fec = pdFecha
+        and aqpd118ana = pcUser;
+      Exception When others then
+        null;
+      End;
+      
+      Begin
+            Insert Into AQPD118
+            (aqpd118fec, aqpd118reg, aqpd118etdoc, aqpd118endoc, 
+             aqpd118ent, aqpd118itdoc, aqpd118indoc, aqpd118nom, 
+             aqpd118nat, aqpd118pai, aqpd118nac, aqpd118por, 
+             aqpd118ciiu, aqpd118car, aqpd118ocar, aqpd118iso, 
+             aqpd118ubi, aqpd118dir, aqpd118secc, aqpd118freg, 
+             aqpd118ana
+            )
+            /*Insert into aqpd127
+            (aqpd127fec, aqpd127nreg, aqpd127tdoce, aqpd127ndoce, 
+             aqpd127razsoc, aqpd127tdoci, aqpd127ndoci, aqpd127nombi, 
+             aqpd127tperi, aqpd127paisre, aqpd127nacion, aqpd127ppari, 
+             aqpd127ciiutc, aqpd127ccarg1, aqpd127ccarg2, aqpd127cpaisi, 
+             aqpd127cubig, aqpd127direcc, aqpd127secrep, aqpd127fpro, 
+             aqpd127cusr
+            )*/
+            select fecha, numreg, ent_tipdoc, ent_numdoc, ent_razsoc, 
+                   int_tipdoc, int_numdoc, int_nombre, int_tipper, 
+                   des_paisre, des_nacion, int_porpar, cod_ciiutc, 
+                   cod_cargo1, cod_cargo2, cod_paisis, cod_ubigeo, 
+                   des_direcc, ind_seccre, sysdate, pcUser
+              from dwhouse.FACT_RIES_REP19_REP@DW
+              where fecha = pdFecha;
+        
+        pcRpta := 'S';
+        commit;
+      Exception When others then
+        pcRpta := substr(SQLERRM, 1, 255);
+      End;
+  End SP_R19_TRAER;                         
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                         
+  Procedure SP_R19_GENERAR(PD_FECHA In DATE,
+                           PC_USER In Varchar2,
+                           PV_RPTA Out VARCHAR2)
+  Is                           
+     nNumDat Number(10);
+     nPeriod Number(10) := to_number(to_char(PD_FECHA,'rrrrmm'));
+  Begin
+    
+      PV_RPTA := 'N';
+      -- Copia parámetros
+      PQ_CR_REP_ANX_RIES.SP_COPIAR_PARAMETROS(nPeriod,'REP19',PC_USER,PV_RPTA);
+      
+      -- Revisar parámetros configurados para REP19
+      nNumDat := PQ_CR_REP_ANX_RIES.FN_REVISA_PARAMETROS(PD_FECHA,'REP19');
+      IF nNumDat = 0 Then
+         PV_RPTA:= 'No existen parámetros para el Reporte N°19 para el mes '||
+                  to_char(PD_FECHA,'rrrr.mm.dd')||' Revise.';
+      End If;
+      
+      If PV_RPTA = 'N' Then
+         --- Revisa datos fuente
+         dwhouse.PQ_RIES_ANEXOS_REPORTES.SP_REP19_VALIDAR@DW(PD_FECHA,PV_RPTA);
+         
+         If PV_RPTA = 'N' Then
+            -- PROCESO
+            Begin
+                dwhouse.PQ_RIES_ANEXOS_REPORTES.SP_REP19_GENERAR@DW(PD_FECHA); 
+            Exception When others then
+                PV_RPTA := substr(SQLERRM, 1, 255);
+            End;
+         End If;   
+      End If;  
+  END SP_R19_GENERAR;                                        
+  -----------------------------------------------------------
+ 
 end PQ_CR_REP_ANX_RIES;
 /
