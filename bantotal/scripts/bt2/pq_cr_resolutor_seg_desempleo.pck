@@ -87,7 +87,8 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
   -- Modificacion: SMARQUEZ> 23/12/2024 control duplicados en seg desempleo
   -- Modificacion: SMARQUEZ 24/01/2025 cambio para evitar bloqueos con el truncate table aqpa560
   -- Modificacion: SMARQUEZ 19/05/2025 PRoceso pra el Desembolso Digital /polizas desde APP
-  -- Modificacion: SMARQUEZ 12/06/2025 Adecuacion para desmbolso Digital 
+  -- Modificacion: SMARQUEZ 12/06/2025 Adecuacion para desmbolso Digital
+  -- Modificacion: SMARQUEZ 04/07/2025 Optimizacion tiempo
   Procedure Sp_seg_desempleo(pn_ins in number,
                              pn_tip out number,
                              pc_tsg out varchar2)is
@@ -343,12 +344,10 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
   Begin
    --- execute truncate aqpa560;
    -- Execute immediate ('truncate table aqpa560');-- sma.24/01/2025
-   DELETE   aqpa560;
-    /*+ INDEX(AQPA56001_IDX) */
-    ---FROM aqpa560  WHERE AQPA560COD = pn_tipo and aqpa560a4 = pc_users;
-   -- delete aqpa560 where aqpa560a4 = pc_users;
-    commit;
-
+   execute immediate 'alter session set "_optimizer_batch_table_access_by_rowid" =false';
+   DELETE aqpa560    
+   WHERE AQPA560COD = pn_tipo and aqpa560a4 = pc_users;
+   commit;
 
     begin
     select pgfape into fecha from fst017 where pgcod = 1;
@@ -1094,7 +1093,7 @@ create or replace package body "PQ_CR_RESOLUTOR_SEG_DESEMPLEO" is
                ---------SMA 12062025
             Begin
               SELECT SYS_CONTEXT('USERENV', 'SESSION_USER')
-              into  sesion_u  ---Usuario de la sesión actual (normalmente quien se conectó).                    
+              into  sesion_u  ---Usuario de la sesión actual (normalmente quien se conectó).
               FROM dual;
               if trim(sesion_u) = 'NSBTUSER' then
                 pc_flag :='S';
