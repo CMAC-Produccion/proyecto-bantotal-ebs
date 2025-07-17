@@ -16,6 +16,9 @@ create or replace package PQ_CL_ALERTAS is
   -- Autor de Modificación      : Yrving Lozada
   -- Fecha de Modificación      : 19/07/2024 Se afinaron alertas y se adicionó control de datos personales
   -- Autor de Modificación      : Yrving Lozada  
+  -- Autor de Modificación      : Yrving Lozada
+  -- Fecha de Modificación      : 10/07/2025 Se creo la funcion para retornar logica de celular
+  -- Autor de Modificación      : Yrving Lozada    
   -- *****************************************************************  
 
   Procedure sp_genera_scheduler;
@@ -40,10 +43,17 @@ procedure sp_cl_alertas_cre(P_N_CODALE IN NUMBER,   --10 NOTIF. DESEMBOLSO,11 NO
                             P_C_VAAUX3 IN VARCHAR2  --CELULAR
                             );
 procedure sp_cl_genera_ren;
-                                                                                 
+Function FN_AH_CONCEL(P_N_PAIS   IN NUMBER,
+                      P_N_TIPDOC IN NUMBER,
+                      P_C_NUMDOC IN VARCHAR2
+                     ) return NUMBER;         
+Procedure SP_AH_MAIL(P_N_PAIS   IN NUMBER,
+                     P_N_TIPDOC IN NUMBER,
+                     P_C_NUMDOC IN VARCHAR2,    
+                     p_c_correo out varchar2
+                    );
 end PQ_CL_ALERTAS;
 /
-
 create or replace package body PQ_CL_ALERTAS is
 
   procedure sp_genera_scheduler is
@@ -126,7 +136,8 @@ create or replace package body PQ_CL_ALERTAS is
   ln_tipo       number(9):= 4;
   lc_msgerr     VARCHAR2(400);
   lc_msgerr2    VARCHAR2(400);
-  lv_prinom     varchar2(25):='';    
+  lv_prinom     varchar2(25):=''; 
+  ln_celular    number(9);   
   
   cursor c_personas(P_C_DIGITO1 in varchar2,P_C_DIGITO2 in varchar2) is
   Select x.pfpais pepais,
@@ -202,7 +213,7 @@ create or replace package body PQ_CL_ALERTAS is
             or a.aofe99 > add_months(trunc(sysdate),-6)
            )       
   order by 1;  
-  
+  /*
   cursor c_celulares(ln_pais in number, ln_tipdoc in number, lv_numdoc in varchar2,lv_tipo in varchar2) is
   select ww.* 
     from (
@@ -225,16 +236,11 @@ create or replace package body PQ_CL_ALERTAS is
                                and x.tp1corr1 = 126
                                and x.tp1corr2 = 5
                             )
-           and FN_AH_CONCEL(t.pepais,t.petdoc,t.pendoc,t.dotelfp) = lv_tipo /*in  (Select upper(Substr(trim(x.tp1desc),1,1))
-                                                                        from fst198 x
-                                                                       where x.tp1cod   = 1
-                                                                         and x.tp1cod1  = 10825
-                                                                         and x.tp1corr1 = 126
-                                                                         and x.tp1corr2 = 6
-                                                                      )*/
+           --and FN_AH_CONCEL(t.pepais,t.petdoc,t.pendoc,t.dotelfp) = lv_tipo 
+           and pq_cl_alertas.FN_AH_CONCEL(t.pepais,t.petdoc,t.pendoc) = to_number(trim(t.dotelfp))
            order by t.doordp desc
          ) ww where rownum = 1;                                                                          
-
+*/
   cursor c_mensaje(ln_codale in number,ln_edad in number) is
     Select x.tp1desc
       from fst198 x,
@@ -322,7 +328,9 @@ begin
           ln_cont := 0;          
           For w in c_prioridad loop
             if ln_cont = 0 or w.flag = 1 then
-                For k in c_celulares(i.pepais,i.petdoc,i.pendoc,w.tipo) loop
+                ln_celular := to_number(trim(pq_cl_alertas.FN_AH_CONCEL(i.pepais,i.petdoc,i.pendoc))); 
+                --For k in c_celulares(i.pepais,i.petdoc,i.pendoc,w.tipo) loop
+                if ln_celular is not null then
                    BEGIN                          
                         INSERT INTO ichannelalert.CLIENTES_AFILIADOS(codigo_cliente,
                                                                 nombre_cliente,
@@ -331,10 +339,10 @@ begin
                                                                 sexo_cliente,
                                                                 enviar_celular,
                                                                 enviar_mail)
-                                                         values('C@'||lpad(trim(to_char(i.pendoc)),12,'0')||lpad(trim(to_char(k.dotelfp)),9,'0'),--DNI + CELULAR
+                                                         values('C@'||lpad(trim(to_char(i.pendoc)),12,'0')||lpad(trim(to_char(ln_celular)),9,'0'),--DNI + CELULAR
                                                                 lc_nombre,
                                                                 '',
-                                                                to_number(trim(k.dotelfp)),
+                                                                ln_celular,
                                                                 lc_sexo,
                                                                 'S',
                                                                 'N'
@@ -375,7 +383,7 @@ begin
                                        i.pepais,
                                        i.petdoc,
                                        i.pendoc,
-                                       k.dotelfp,
+                                       ln_celular,
                                        to_char(sysdate,'HH24:mi:ss'),
                                        substr(lv_msg,1,160)                                
                                        );
@@ -401,7 +409,8 @@ begin
                    END; 
                    ln_cont := ln_cont + 1;  
                    commit;  
-                End loop; 
+                End If;   
+                --End loop; 
             End If;
           End loop; 
       END IF;
@@ -439,7 +448,12 @@ procedure sp_cl_alertas(P_N_NUMCTA IN NUMBER,
   lv_msg     varchar2(400):='';
   ln_tipo    number(9):=0;
   lv_prinom  varchar2(25):='';
-  
+  lv_fecpro  varchar2(8):='';
+  ln_tipcli1 number(9):=0;
+  ln_tipcli2 number(9):=0;
+  ln_tipcli3 number(9):=0;
+  ln_celular number(9);
+      
   cursor c_personas(ln_numcta in number) is
   Select * 
     from fsr008  x,
@@ -454,62 +468,68 @@ procedure sp_cl_alertas(P_N_NUMCTA IN NUMBER,
      and x.ctnro = ln_numcta;       
       
   cursor c_productos(ln_pais in number, ln_tipdoc in number, lv_numdoc in varchar2) is
-    Select a.scfval
-      from fsd011 a,
-           (Select distinct y.pgcod,y.ctnro 
-              from fsr008 y 
-             where y.pgcod  = 1 
-               and y.pepais = ln_pais  
-               and y.petdoc = ln_tipdoc
-               and y.pendoc = rpad(lv_numdoc,12,' ')
-           ) z
-     where a.pgcod = z.pgcod
-       and a.sccta = z.ctnro
-       and a.scmod = 21
-       and a.scpap = 0
-    union
-    Select a.aofval
-      from fsd010 a,
-           (Select distinct y.pgcod,y.ctnro 
-              from fsr008 y 
-             where y.pgcod  = 1 
-               and y.pepais = ln_pais  
-               and y.petdoc = ln_tipdoc
-               and y.pendoc = rpad(lv_numdoc,12,' ')
-           ) z      
-     where a.pgcod = z.pgcod
-       and a.aocta = z.ctnro
-       and a.aomod = 22
-    union
-    Select a.scfcon aofval
-      from fsd011 a,
-           (Select distinct y.pgcod,y.ctnro 
-              from fsr008 y 
-             where y.pgcod  = 1 
-               and y.pepais = ln_pais  
-               and y.petdoc = ln_tipdoc
-               and y.pendoc = rpad(lv_numdoc,12,' ')
-           ) z      
-     where a.pgcod = z.pgcod
-       and a.sccta = z.ctnro
-       and a.scmod = 122
-    union
-    Select a.aofval
-      from fsd010 a,
-           fst111 b,
-           (Select distinct y.pgcod,y.ctnro 
-              from fsr008 y 
-             where y.pgcod  = 1 
-               and y.pepais = ln_pais  
-               and y.petdoc = ln_tipdoc
-               and y.pendoc = rpad(lv_numdoc,12,' ')
-           ) z           
-     where a.pgcod = z.pgcod
-       and a.aocta = z.ctnro
-       and a.aomod = b.modulo
-       and b.dscod = 50 
-  order by 1;  
-  
+  select distinct zz.scfval, zz.ln_tipcli 
+    from (
+    Select a.scfval,1 ln_tipcli
+        from fsd011 a,
+             (Select distinct y.pgcod,y.ctnro 
+                from fsr008 y 
+               where y.pgcod  = 1 
+                 and y.pepais = ln_pais  
+                 and y.petdoc = ln_tipdoc
+                 and y.pendoc = rpad(lv_numdoc,12,' ')
+             ) z
+       where a.pgcod = z.pgcod
+         and a.sccta = z.ctnro
+         and a.scmod = 21
+         and a.scpap = 0          
+         and ((a.scfulm = to_date('1/01/0001','dd/mm/rrrr') and a.scstat <> 99)
+              or 
+              (a.scfulm is null and a.scstat <> 99)
+              or a.scfulm > add_months(trunc(sysdate),-6)
+             )
+             
+      union
+      Select a.aofval,1 ln_tipcli
+        from fsd010 a,
+             (Select distinct y.pgcod,y.ctnro 
+                from fsr008 y 
+               where y.pgcod  = 1 
+                 and y.pepais = ln_pais  
+                 and y.petdoc = ln_tipdoc
+                 and y.pendoc = rpad(lv_numdoc,12,' ')
+             ) z      
+       where a.pgcod = z.pgcod
+         and a.aocta = z.ctnro
+         and a.aomod = 22
+         and ((a.aofe99 = to_date('1/01/0001','dd/mm/rrrr') and a.aostat <> 99)
+              or 
+              (a.aofe99 is null and a.aostat <> 99)
+              or a.aofe99 > add_months(trunc(sysdate),-6)
+             )
+      union
+      Select a.aofval,2 ln_tipcli
+        from fsd010 a,
+             fst111 b,
+             (Select distinct y.pgcod,y.ctnro 
+                from fsr008 y 
+               where y.pgcod  = 1 
+                 and y.pepais = ln_pais  
+                 and y.petdoc = ln_tipdoc
+                 and y.pendoc = rpad(lv_numdoc,12,' ')
+             ) z           
+       where a.pgcod = z.pgcod
+         and a.aocta = z.ctnro
+         and a.aomod = b.modulo
+         and b.dscod = 50 
+         and ((a.aofe99 = to_date('1/01/0001','dd/mm/rrrr') and a.aostat <> 99)
+              or 
+              (a.aofe99 is null and a.aostat <> 99)
+              or a.aofe99 > add_months(trunc(sysdate),-6)
+             )  
+         ) zz         
+    order by 1,2 desc;  
+/*  
   cursor c_celulares(ln_pais in number, ln_tipdoc in number, lv_numdoc in varchar2, lv_tipo in varchar2) is
   select ww.* 
     from (
@@ -532,17 +552,40 @@ procedure sp_cl_alertas(P_N_NUMCTA IN NUMBER,
                                and x.tp1corr1 = 126
                                and x.tp1corr2 = 5
                             )
-           and FN_AH_CONCEL(t.pepais,t.petdoc,t.pendoc,t.dotelfp) = lv_tipo /*in  (Select upper(Substr(trim(x.tp1desc),1,1))
-                                                                        from fst198 x
-                                                                       where x.tp1cod   = 1
-                                                                         and x.tp1cod1  = 10825
-                                                                         and x.tp1corr1 = 126
-                                                                         and x.tp1corr2 = 6
-                                                                      )*/
+           --and FN_AH_CONCEL(t.pepais,t.petdoc,t.pendoc,t.dotelfp) = lv_tipo
+           and pq_cl_alertas.FN_AH_CONCEL(t.pepais,t.petdoc,t.pendoc) = to_number(trim(t.dotelfp))
            order by t.doordp desc
-         ) ww where rownum = 1;                                                                    
-                                       
-  cursor c_mensaje(ln_codale in number) is
+         ) ww where rownum = 1;    
+*/                                                                         
+  cursor c_mensaje_camp(ln_codale in number, ln_tipcli in number, lv_fecpro in varchar2) is
+      select B.TP1DESC 
+        from 
+              ( 
+                 Select x.*
+                    from fst198 x
+                   where x.tp1cod   = 1
+                     and x.tp1cod1  = 10825
+                     and x.tp1corr1 = 126
+                     and x.tp1corr2 = 9999
+                     and x.tp1nro1  = ln_codale
+                     and x.tp1imp2  = ln_tipcli --1 =Ahorro 2 = crédito
+                     and TO_DATE(lv_fecpro,'rrrrmmdd') between to_date(x.tp1nro2,'rrrrmmdd') and to_date(x.tp1nro3,'rrrrmmdd')
+              ) A,
+              (
+                  Select x.*
+                    from fst198 x
+                   where x.tp1cod   = 1
+                     and x.tp1cod1  = 10825
+                     and x.tp1corr1 = 126
+                     and x.tp1corr2 = 8888
+              )B       
+      WHERE A.TP1COD   = B.TP1COD
+        AND A.TP1COD1  = B.TP1COD1
+        AND A.TP1CORR1 = B.TP1CORR1     
+        AND A.TP1IMP1  = B.TP1NRO1  
+   ORDER BY B.TP1NRO2;
+                                         
+  cursor c_mensaje_gen(ln_codale in number) is
     Select x.tp1desc
       from fst198 x
      where x.tp1cod   = 1
@@ -585,6 +628,7 @@ begin
             Else
                ld_fecpri := j.scfval;
             End If;
+            ln_tipcli1 := j.ln_tipcli;
          End If;
          
          if ln_cont = 2 then
@@ -594,6 +638,7 @@ begin
             Else
                ld_fecseg := j.scfval;              
             End If;
+            ln_tipcli2 := j.ln_tipcli;
          End If;
          
          if ln_cont = 3 then
@@ -603,6 +648,7 @@ begin
             Else
                ld_fecter := j.scfval;              
             End If;
+            ln_tipcli3 := j.ln_tipcli;
          End If;                   
          if ln_cont > 3 then
            Exit;
@@ -615,24 +661,40 @@ begin
         ld_fecpri := P_D_FECPRO;
       End If;    */  
       
-      --Validamos cual de las 3 fechas corresponde para notificar      
+      --Validamos cual de las 3 fechas corresponde para notificar    
+      lv_fecpro := to_char(P_D_FECPRO,'rrrrmmdd');  
       if ld_fecpri = P_D_FECPRO then
           ln_tipo := 1;        
-          For z in c_mensaje(ln_tipo) loop
+          For z in c_mensaje_camp(ln_tipo,ln_tipcli1,lv_fecpro) loop
             lv_msg := lv_msg || z.tp1desc;
           End loop;
+          if lv_msg is null then
+            For z in c_mensaje_gen(ln_tipo) loop
+              lv_msg := lv_msg || z.tp1desc;
+            End loop;            
+          End If;  
       End If;
       if ld_fecseg = P_D_FECPRO then
           ln_tipo := 2;        
-          For z in c_mensaje(ln_tipo) loop
+          For z in c_mensaje_camp(ln_tipo,ln_tipcli2,lv_fecpro) loop
             lv_msg := lv_msg || z.tp1desc;
           End loop;
+          if lv_msg is null then
+            For z in c_mensaje_gen(ln_tipo) loop
+              lv_msg := lv_msg || z.tp1desc;
+            End loop;            
+          End If;            
       End If;
       if ld_fecter = P_D_FECPRO then
           ln_tipo := 3;        
-          For z in c_mensaje(ln_tipo) loop
+          For z in c_mensaje_camp(ln_tipo,ln_tipcli3,lv_fecpro) loop
             lv_msg := lv_msg || z.tp1desc;
           End loop;
+          if lv_msg is null then
+            For z in c_mensaje_gen(ln_tipo) loop
+              lv_msg := lv_msg || z.tp1desc;
+            End loop;            
+          End If;            
       End If;
       
       --SOLO SI APLICA PARA ALGUN PRODUCTO AFILIAMOS
@@ -673,7 +735,9 @@ begin
               --
               --afiliamos a ichannel       
               --
-              For k in c_celulares(i.pepais,i.petdoc,i.pendoc,w.tipo) loop
+              ln_celular := to_number(trim(pq_cl_alertas.FN_AH_CONCEL(i.pepais,i.petdoc,i.pendoc))); 
+              --For k in c_celulares(i.pepais,i.petdoc,i.pendoc,w.tipo) loop
+              if ln_celular is not null then  
                  BEGIN                          
                       INSERT INTO ichannelalert.CLIENTES_AFILIADOS(codigo_cliente,
                                                               nombre_cliente,
@@ -682,10 +746,10 @@ begin
                                                               sexo_cliente,
                                                               enviar_celular,
                                                               enviar_mail)
-                                                       values('A@'||lpad(trim(to_char(i.pendoc)),12,'0')||lpad(trim(to_char(k.dotelfp)),9,'0'),--DNI + CELULAR
+                                                       values('A@'||lpad(trim(to_char(i.pendoc)),12,'0')||lpad(trim(to_char(ln_celular)),9,'0'),--DNI + CELULAR
                                                               lc_nombre,
                                                               '',
-                                                              to_number(trim(k.dotelfp)),
+                                                              ln_celular,
                                                               lc_sexo,
                                                               'S',
                                                               'N'
@@ -713,7 +777,7 @@ begin
                                        i.pepais,
                                        i.petdoc,
                                        i.pendoc,
-                                       k.dotelfp,
+                                       ln_celular,
                                        to_char(sysdate,'HH24:mi:ss'),
                                        substr(lv_msg,1,160),
                                        P_C_TIPPRO,
@@ -725,8 +789,9 @@ begin
                    null;    
                  END;  
                  ln_cont := ln_cont + 1; 
-                 commit;  
-              End loop;
+                 commit;
+              end if;     
+              --End loop;
             End if;
           End loop;  
       END IF;
@@ -752,6 +817,7 @@ procedure sp_cl_alertas_cre(P_N_CODALE IN NUMBER,   --10 NOTIF. DESEMBOLSO,11 NO
   ln_cont    number(9):=0;
   lv_msg     varchar2(400):='';
   lv_prinom  varchar2(25):='';
+  ln_celular number(9);
                               
   cursor c_personas is
   Select * 
@@ -766,7 +832,7 @@ procedure sp_cl_alertas_cre(P_N_CODALE IN NUMBER,   --10 NOTIF. DESEMBOLSO,11 NO
      and x.ttcod = 1
      and x.cttfir = 'T';    
      
-  
+  /*
   cursor c_celulares(ln_pais in number, ln_tipdoc in number, lv_numdoc in varchar2, lv_tipo in varchar2) is
   select ww.* 
     from (
@@ -789,16 +855,11 @@ procedure sp_cl_alertas_cre(P_N_CODALE IN NUMBER,   --10 NOTIF. DESEMBOLSO,11 NO
                                and x.tp1corr1 = 126
                                and x.tp1corr2 = 5
                             )
-           and FN_AH_CONCEL(t.pepais,t.petdoc,t.pendoc,t.dotelfp) = lv_tipo /*in  (Select upper(Substr(trim(x.tp1desc),1,1))
-                                                                        from fst198 x
-                                                                       where x.tp1cod   = 1
-                                                                         and x.tp1cod1  = 10825
-                                                                         and x.tp1corr1 = 126
-                                                                         and x.tp1corr2 = 6
-                                                                      )*/
-          order by t.doordp desc
+           --and FN_AH_CONCEL(t.pepais,t.petdoc,t.pendoc,t.dotelfp) = lv_tipo 
+           and pq_cl_alertas.FN_AH_CONCEL(t.pepais,t.petdoc,t.pendoc) = to_number(trim(t.dotelfp))
+           order by t.doordp desc
          ) ww where rownum =1;    
-                                       
+          */                            
   cursor c_mensaje(ln_codale in number) is
     Select x.tp1desc
       from fst198 x
@@ -861,7 +922,9 @@ for i in c_personas loop
   ln_cont := 0;          
   For w in c_prioridad loop
     if ln_cont = 0 or w.flag = 1 then
-        For k in c_celulares(i.pepais,i.petdoc,i.pendoc,w.tipo) loop
+        ln_celular:= to_number(trim(pq_cl_alertas.FN_AH_CONCEL(i.pepais,i.petdoc,i.pendoc))); 
+        --For k in c_celulares(i.pepais,i.petdoc,i.pendoc,w.tipo) loop
+        if ln_celular is not null then
            BEGIN                          
                 INSERT INTO ichannelalert.CLIENTES_AFILIADOS(codigo_cliente,
                                                         nombre_cliente,
@@ -870,10 +933,10 @@ for i in c_personas loop
                                                         sexo_cliente,
                                                         enviar_celular,
                                                         enviar_mail)
-                                                 values(trim(to_char(P_N_CODALE))||'A@'||lpad(trim(to_char(i.pendoc)),12,'0')||lpad(trim(to_char(k.dotelfp)),9,'0'),--DNI + CELULAR
+                                                 values(trim(to_char(P_N_CODALE))||'A@'||lpad(trim(to_char(i.pendoc)),12,'0')||lpad(trim(to_char(ln_celular)),9,'0'),--DNI + CELULAR
                                                         lc_nombre,
                                                         '',
-                                                        to_number(trim(k.dotelfp)),
+                                                        ln_celular,
                                                         lc_sexo,
                                                         'S',
                                                         'N'
@@ -901,7 +964,7 @@ for i in c_personas loop
                                        i.pepais,
                                        i.petdoc,
                                        i.pendoc,
-                                       k.dotelfp,
+                                       ln_celular,
                                        to_char(sysdate,'HH24:mi:ss'),
                                        substr(lv_msg,1,160),
                                        P_C_TIPPRO,
@@ -914,7 +977,8 @@ for i in c_personas loop
            END; 
            ln_cont := ln_cont + 1;  
            commit;  
-        End loop; 
+        end if;
+        --End loop; 
     End If;
   End loop; 
 End Loop;
@@ -991,7 +1055,230 @@ when others then
      and g.c_codage = 'REN';
   commit;                           
 end sp_cl_genera_ren;    
-                        
+Function FN_AH_CONCEL(P_N_PAIS   IN NUMBER,
+                      P_N_TIPDOC IN NUMBER,
+                      P_C_NUMDOC IN VARCHAR2    
+                     ) return number is
+   -- *****************************************************************
+    -- Nombre                     : FN_AH_CONCEL
+    -- Sistema                    : BANTOTAL
+    -- Módulo                     : Ahorros - Pasivas
+    -- Versión                    : 1.0
+    -- Fecha de Creación          : 10/06/2025
+    -- Autor de Creación          : Yrving Lozada Bustamante
+    -- Uso                        : Consulta un celular si esta validado o no de acuerdo a la guia parametrizada
+    -- Estado                     : Activo
+    -- Acceso                     : Público
+    -- Parámetros de Entrada      : 
+    --
+    -- Retorno                    : 
+    -- Fecha de Modificación      : 
+    -- Autor de la Modificación   : 
+    -- Descripción de Modificación: 
+    -- *****************************************************************                                        
+
+  LN_NUMCEL NUMBER(9) := NULL;
+  begin
+    begin --si esta afiliado a canales digitales
+        select to_number(trim(a.jaqz205celul))
+          into LN_NUMCEL
+          from JAQZ205 a,
+               Z0E478  b
+         where a.jaqz205nutar = b.z0e478nro
+           and b.z0e478thp = P_N_PAIS
+           and b.z0e478tht = P_N_TIPDOC
+           and b.z0e478thd = RPAD(P_C_NUMDOC,12,' ')
+           and b.z0e463cod in (1,7)  -- tj activ
+           and a.jaqz205estok > 0
+           and rownum = 1;     
+    exception
+    when no_data_found then  
+        begin --si tiene celular x campaña         
+          select to_number(trim(z.AQPA105NEW))
+            into LN_NUMCEL
+            from (
+                select TO_NUMBER(TRIM(A.AQPA105NEW)) AQPA105NEW,a.AQPA105FEC 
+                  from aqpa105 a
+                 where a.aqpa105tpo = 2 
+                   and a.AQPA105PAI = P_N_PAIS
+                   and a.AQPA105TIP = P_N_TIPDOC
+                   and a.AQPA105NUM = RPAD(P_C_NUMDOC,65,' ')
+              order by a.AQPA105FEC desc
+                 ) z
+            where rownum = 1;
+        exception 
+        when no_data_found then  
+          begin--si tiene celular validado
+            select to_number(trim(z.jaqn2atelf)) 
+              into LN_NUMCEL  
+              from (   
+                  select x.jaqn2atelf,x.jaqn2afeg 
+                    from jaqn2a x, 
+                         jaqn3a y
+                   where x.jaqn2apai  = y.jaqn3apai
+                     and x.jaqn2atdoc = y.jaqn3atdoc
+                     and x.jaqn2andoc = y.jaqn3andoc
+                     and x.jaqn2acor  = y.jaqn3acor
+                     and x.jaqn2afeg  = y.jaqn3afeg
+                     and x.jaqn2atipv = y.jaqn3atipv
+                     and y.jaqn3avig  = 'S'
+                     and x.jaqn2apai  = P_N_PAIS
+                     and x.jaqn2atdoc = P_N_TIPDOC
+                     and x.jaqn2andoc = RPAD(P_C_NUMDOC,12,' ')
+                     and trim(x.jaqn2atelf) is not null
+                order by x.jaqn2afeg desc
+                   ) z
+             where rownum = 1;            
+          exception
+          when no_data_found then
+            begin --el ultimo celular x correlativo
+              select to_number(trim(w.dotelfp))
+                into LN_NUMCEL 
+                from (
+                      select x.* 
+                        from fsr005  x 
+                       where x.pepais = P_N_PAIS 
+                         and x.petdoc = P_N_TIPDOC 
+                         and x.pendoc = RPAD(P_C_NUMDOC,12,' ')
+                         and PQ_AH_ENVIODIGITAL.fn_ah_valida_celular(trim(x.dotelfp),1) = 'S'
+                         and x.docod in (Select x.tp1nro1
+                                           from fst198 x
+                                          where x.tp1cod   = 1
+                                            and x.tp1cod1  = 10825
+                                            and x.tp1corr1 = 126
+                                            and x.tp1corr2 = 5
+                                         )
+                    order by x.doordp desc
+                   ) w 
+              where rownum = 1;
+            exception 
+            when others then  
+              LN_NUMCEL := null; 
+            end;
+          when others then   
+            LN_NUMCEL := null; 
+          end;
+        when others then   
+          LN_NUMCEL := null; 
+        end; 
+     when others then
+      LN_NUMCEL := null;    
+     end;                     
+     return LN_NUMCEL;
+exception
+when others then
+  LN_NUMCEL := NULL;
+  return LN_NUMCEL;
+end FN_AH_CONCEL;       
+Procedure SP_AH_MAIL(P_N_PAIS   IN NUMBER,
+                     P_N_TIPDOC IN NUMBER,
+                     P_C_NUMDOC IN VARCHAR2,    
+                     p_c_correo out varchar2
+                    ) is    
+   -- *****************************************************************
+    -- Nombre                     : SP_AH_MAIL
+    -- Sistema                    : BANTOTAL
+    -- Módulo                     : Ahorros - Pasivas
+    -- Versión                    : 1.0
+    -- Fecha de Creación          : 10/06/2025
+    -- Autor de Creación          : Yrving Lozada Bustamante
+    -- Uso                        : Consulta un mail si esta validado o no de acuerdo a la guia parametrizada
+    -- Estado                     : Activo
+    -- Acceso                     : Público
+    -- Parámetros de Entrada      : 
+    --
+    -- Retorno                    : 
+    -- Fecha de Modificación      : 
+    -- Autor de la Modificación   : 
+    -- Descripción de Modificación: 
+    -- *****************************************************************                       
+  ln_nummai  number(9):=0;
+begin
+    begin
+    select count(distinct lower(trim(substr(x.pextxt,1,instr(x.pextxt,'\')-1))))
+      into ln_nummai 
+      from fsx001 x 
+     where x.pepais = P_N_PAIS   
+       and x.petdoc = P_N_TIPDOC
+       and x.pendoc = rpad(P_C_NUMDOC,12,' ')
+       and x.txcod = 0
+       and trim(x.pextxt) is not null
+       and pq_ah_enviodigital.fn_ah_valida_mail(trim(substr(x.pextxt,1,instr(x.pextxt,'\')-1))) = 'S';           
+   Exception
+   When others then       
+     ln_nummai := 0;
+   End;
+   
+   if ln_nummai = 0 then
+      p_c_correo := null;      
+   Else
+        begin--el log mas actual de campaña
+          select trim(lower(z.AQPA105NEW))
+            into p_c_correo
+            from (
+                select TRIM(A.AQPA105NEW) AQPA105NEW,a.AQPA105FEC 
+                  from aqpa105 a
+                 where a.aqpa105tpo = 1 
+                   and a.AQPA105PAI = P_N_PAIS
+                   and a.AQPA105TIP = P_N_TIPDOC
+                   and a.AQPA105NUM = RPAD(P_C_NUMDOC,65,' ')
+              order by a.AQPA105FEC desc
+                 ) z
+            where rownum = 1;  
+        Exception
+        When no_data_found then
+          begin--el ultimo validado
+            select trim(lower(z.jaqn2acorr))
+              into p_c_correo
+              from (   
+                  select x.jaqn2acorr,x.jaqn2afeg
+                    from jaqn2a x, 
+                         jaqn3a y
+                   where x.jaqn2apai  = y.jaqn3apai
+                     and x.jaqn2atdoc = y.jaqn3atdoc
+                     and x.jaqn2andoc = y.jaqn3andoc
+                     and x.jaqn2acor  = y.jaqn3acor
+                     and x.jaqn2afeg  = y.jaqn3afeg
+                     and x.jaqn2atipv = y.jaqn3atipv
+                     and y.jaqn3avig  = 'S'
+                     and x.jaqn2apai  = P_N_PAIS
+                     and x.jaqn2atdoc = P_N_TIPDOC
+                     and x.jaqn2andoc = RPAD(P_C_NUMDOC,12,' ')
+                     and trim(x.jaqn2acorr) is not null
+                order by x.jaqn2afeg desc
+                   ) z
+             where rownum = 1; 
+          exception
+          When no_data_found then 
+            begin
+              select trim(lower(w.pextxt)) 
+                into p_c_correo              
+                from (
+                      select distinct lower(trim(substr(x.pextxt,1,instr(x.pextxt,'\')-1))) pextxt,x.pexfch
+                        from fsx001 x 
+                       where x.pepais = P_N_PAIS   
+                         and x.petdoc = P_N_TIPDOC
+                         and x.pendoc = rpad(P_C_NUMDOC,12,' ')
+                         and x.txcod = 0
+                         and trim(x.pextxt) is not null
+                         and pq_ah_enviodigital.fn_ah_valida_mail(trim(substr(x.pextxt,1,instr(x.pextxt,'\')-1))) = 'S'
+                    order by x.pexfch desc
+                     ) w
+               where rownum = 1;                 
+            Exception
+            when others then  
+              p_c_correo := null;                   
+            end;
+          When others then
+            p_c_correo := null;           
+          end; 
+        When others then
+          p_c_correo := null;         
+        End;                     
+   End If;     
+exception
+when others then
+  p_c_correo := null;        
+end SP_AH_MAIL;                                 
 end PQ_CL_ALERTAS;
 /
-
