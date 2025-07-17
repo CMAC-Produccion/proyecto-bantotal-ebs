@@ -14,6 +14,9 @@ create or replace package pq_cr_controles_cartera_reprogramada is
   -- Fecha de Modificación      : 2024.06.24
   -- Autor de la Modificación   : ENINAH
   -- Descripción de Modificación: Se cambió el mensaje de la bloqueante.
+  -- Fecha de Modificación      : 2025.07.15
+  -- Autor de la Modificación   : RCASTRO
+  -- Descripción de Modificación: Se modifica sp_cr_cliente_validar_instancia 
   -- *****************************************************************
 
   procedure sp_cr_cliente_validar_cartera(vi_pgcod   in number,
@@ -30,7 +33,6 @@ create or replace package pq_cr_controles_cartera_reprogramada is
 
 end pq_cr_controles_cartera_reprogramada;
 /
-
 create or replace package body pq_cr_controles_cartera_reprogramada is
 
   procedure sp_cr_cliente_validar_cartera(vi_pgcod   in number,
@@ -191,7 +193,7 @@ create or replace package body pq_cr_controles_cartera_reprogramada is
     end;
   
     --Validar si el crédito se encuentra en la tabla. 
-    begin
+  /*  begin
       select count(*)
         into ln_flag
         from aqpd603 a
@@ -200,13 +202,27 @@ create or replace package body pq_cr_controles_cartera_reprogramada is
     exception
       when others then
         null;
-    end;
+    end;*/
+    
+    BEGIN
+    select count(1) 
+    INTO ln_flag
+      from aqpd603 a, xwf700 x  where
+       a.aqpd603cta = x.xwfcuenta
+       and a.aqpd603oper = x.xwfoperacion
+       and a.aqpd603sta = 'S' 
+       and a.aqpd603fecv >= fecha_sistema
+       and x.xwfprcins = vi_instancia
+       and x.xwfcar3 = '1';
+     EXCEPTION WHEN OTHERS THEN
+        ln_flag := 0;
+  END;
   
     -- Devolver Control
     if ln_flag > 0 then
       vo_control := 'S';
       vo_messa   := 'Crédito no está sujeto a Reprogramación, Memo 225, Sinceramiento.';
-      begin
+     /* begin
         select count(*)
           into ln_flag_2
           from aqpd603 a
@@ -222,7 +238,7 @@ create or replace package body pq_cr_controles_cartera_reprogramada is
       if ln_flag_2 > 0 then
         vo_control := 'N';
         vo_messa   := '';
-      end if;
+      end if; */
     else
       vo_control := 'N';
       vo_messa   := '';
@@ -232,4 +248,3 @@ create or replace package body pq_cr_controles_cartera_reprogramada is
 
 end pq_cr_controles_cartera_reprogramada;
 /
-

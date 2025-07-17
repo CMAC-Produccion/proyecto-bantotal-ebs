@@ -1,8 +1,19 @@
 create or replace package PQ_CR_ENVIO_CORREOS_PAGOS_CONSECUTIVOS is
 
-  -- Author  : APACHECOH
-  -- Created : 13/07/2022 12:30:31
-  -- Purpose : Envio de Alertas por Correo de Pagos Consecutivos
+-- *******************************************************************************************************
+-- Nombre                     : PQ_CR_ENVIO_CORREOS_PAGOS_CONSECUTIVOS
+-- Sistema                    : BANTOTAL
+-- Módulo                     : Créditos
+-- Versión                    : 1.0
+-- Fecha de Creación          : 13/07/2022 12:30:31
+-- Autor de Creación          : Alonso Pacheco Huachaca
+-- Uso                        : Envio de Alertas por Correo de Pagos Consecutivos 
+-- Estado                     : Activo
+-- Acceso                     : Público
+-- Fecha de Modificación      : 14/07/2025
+-- Autor de Modificación      : RCASTRO
+-- Descripción de Modificación: Modificacion de envio de correo se agrega log.
+-- ********************************************************************************************************  
   
 procedure sp_cr_envioanalista (vi_pgcod in number, vi_hcmod in number, vi_hsucor in number, vi_htran in number,
                                vi_hnrel in number, vi_hfcon in date, vi_ubuser in varchar2, vi_correl in number);
@@ -13,7 +24,6 @@ procedure sp_cr_obtener_trn_inst(vi_pgcod in number, vi_hcmod in number, vi_hsuc
                                             
 end PQ_CR_ENVIO_CORREOS_PAGOS_CONSECUTIVOS;
 /
-
 create or replace package body PQ_CR_ENVIO_CORREOS_PAGOS_CONSECUTIVOS is
 
 procedure sp_cr_envioanalista (vi_pgcod in number, vi_hcmod in number, vi_hsucor in number, vi_htran in number,
@@ -35,9 +45,9 @@ procedure sp_cr_envioanalista (vi_pgcod in number, vi_hcmod in number, vi_hsucor
     --                              vi_hfcon ( Fecha )
     --                              vi_ubuser ( Usuario )
     -- Parámetros de Salida       : --
-    -- Fecha de Modificación      : --
-    -- Autor de la Modificación   : --
-    -- Descripción de Modificación: --
+    -- Fecha de Modificación      : 14/07/2025
+    -- Autor de la Modificación   : RCASTRO
+    -- Descripción de Modificación: Modificacion de envio de correo se agrega log.
     -- *****************************************************************
       
        ln_pgcod number := 0;
@@ -82,7 +92,7 @@ procedure sp_cr_envioanalista (vi_pgcod in number, vi_hcmod in number, vi_hsucor
        lv_asunto  varchar2(150) := ''; 
        ll_mensaje long := '';
        p_c_coderr  varchar2(5);
-       p_c_msgerr  varchar2(200);
+       p_c_msgerr  varchar2(500);
 begin  
        --inicializa variables acorde si se envio toda la clave o solo la instancia                
        begin
@@ -208,6 +218,34 @@ begin
                                                    p_archivosadjuntos  => '',
                                                    p_c_coderr          => p_c_coderr,
                                                    p_c_deserr          => p_c_msgerr);
+             exception
+                 when others then
+                   null;
+             End;     
+             
+             IF p_c_coderr <> 0 AND p_c_msgerr IS NOT NULL THEN
+                 begin 
+                        p_c_coderr := '995';
+                        p_c_msgerr := substr(p_c_msgerr,1,250);
+                        begin
+                          INSERT INTO AQPB922L(aqpb922lfee,aqpb922lemp,aqpb922lsue,aqpb922lmoe,aqpb922ltre,aqpb922lree,
+                                   aqpb922lcta,aqpb922lope,aqpb922ldoc,aqpb922lnrc,aqpb922lnoc,aqpb922lntr,aqpb922lnco,
+                                   aqpb922lfve,aqpb922lmoc,aqpb922lmon,aqpb922lpar,aqpb922lsap,aqpb922lins,
+                                   aqpb922lemis,aqpb922ldest,aqpb922lcopi,aqpb922lmesg,aqpb922lasun,
+                                   aqpb922lflag,aqpb922lerro,aqpb922lermg,aqpb922lusur,aqpb922lfecr,aqpb922lhora,aqpb922lcorre) 
+                            VALUES(vi_hfcon,vi_pgcod,vi_hsucor,vi_hcmod,vi_htran,vi_hnrel,
+                                   ln_aqpb922cta,ln_aqpb922ope,lv_aqpb922doc,ln_aqpb922nrc,lv_aqpb922noc,lv_aqpb922ntr,lv_aqpb922nco, 
+                                   ld_aqpb922fve,ln_aqpb922moc,ln_aqpb922mon,ln_aqpb922par,ln_aqpb922sap,ln_instancia,
+                                   lv_emisor,lv_destino,lv_descopi,ll_mensaje,lv_asunto,1,p_c_coderr,p_c_msgerr,
+                                   vi_ubuser,TRUNC(SYSDATE),to_char(sysdate, 'HH24:MI:SS'),vi_correl); 
+                        exception              
+                          when others then
+                               null;
+                        end; 
+                 end; 
+             END IF;  
+             
+             begin                                               
                   --Grabar log de datos enviados en tabla  
                   INSERT INTO AQPB922L(aqpb922lfee,aqpb922lemp,aqpb922lsue,aqpb922lmoe,aqpb922ltre,aqpb922lree,
                                aqpb922lcta,aqpb922lope,aqpb922ldoc,aqpb922lnrc,aqpb922lnoc,aqpb922lntr,aqpb922lnco,
@@ -348,4 +386,3 @@ end;
                        
 end PQ_CR_ENVIO_CORREOS_PAGOS_CONSECUTIVOS;
 /
-

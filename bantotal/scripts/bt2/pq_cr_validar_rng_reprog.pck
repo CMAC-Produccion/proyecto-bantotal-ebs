@@ -12,9 +12,13 @@ create or replace package pq_cr_validar_rng_reprog is
   -- Detalle:      Se agrego controles para habilitar o deshabilitar controles de Reprogramados por desastre natural.
   -- Modificacion: MCORDOVA - 2024.10.23
   -- Detalle:      Se agrega el llamado para validar ratios SP_CR_RATIOS_REPROGRAMADOS
-  -- Modificacion: CALARCONAP - 2025.01.03
+  -- Modificacion: MCORDOVA - 2025.04.07
+  -- Detalle:      Se agrega control de opinion de riesgos segun MEMO
+  -- Modificacion: CALARCONAP - 2025.05.02
   -- Detalle:      Se modifica validacion de reprogramaciones por normalizacion
-  
+  -- Modificacion: MCORDOVA - 2025.05.19
+  -- Detalle:      Se agrega logica para control reprogramaciones gradientes
+
   type reglas_excepcion is record(
     v_codigo      number(10),
     v_regla       varchar2(40),
@@ -194,18 +198,21 @@ create or replace package pq_cr_validar_rng_reprog is
                                        FLAG      OUT VARCHAR,
                                        CODMSG    OUT VARCHAR2,
                                        DESMSG    OUT VARCHAR2);
-PROCEDURE SP_VALIDAR_OPINION_RSG(
-                                    VE_INSTANCE  IN NUMBER,   --INSTANCIA
-                                    VE_NRO       IN NUMBER,   --CORRELATIVO
-                                    VE_MENSAJE   OUT VARCHAR, --MENSAJE DEVUELTO
-                                    VO_CODERROR  OUT VARCHAR,
-                                    VO_MSGERROR  OUT VARCHAR
-                                  );  
-  PROCEDURE SP_CR_RATIOS_REPROGRAMADOS (V_INSTANCIA in number,
-                                   V_USUARIO   in varchar2,
-                                   V_FLAG out varchar2,
-                                   V_CODIGO_ERROR    out varchar2,
-                                   V_MENSAJE_ERROR    out varchar2);									   
+  PROCEDURE SP_VALIDAR_OPINION_RSG(VE_INSTANCE IN NUMBER, --INSTANCIA
+                                   VE_NRO      IN NUMBER, --CORRELATIVO
+                                   VE_MENSAJE  OUT VARCHAR, --MENSAJE DEVUELTO
+                                   VO_CODERROR OUT VARCHAR,
+                                   VO_MSGERROR OUT VARCHAR);
+  PROCEDURE SP_CR_RATIOS_REPROGRAMADOS(V_INSTANCIA     in number,
+                                       V_USUARIO       in varchar2,
+                                       V_FLAG          out varchar2,
+                                       V_CODIGO_ERROR  out varchar2,
+                                       V_MENSAJE_ERROR out varchar2);
+  PROCEDURE SP_BLOQUEO_CREDINKA(P_INSTANCIA IN NUMBER,
+                                P_USUARIO   IN VARCHAR2,
+                                P_RESPUESTA OUT VARCHAR2,
+                                P_COD_ERROR OUT VARCHAR2,
+                                P_MENSAJE   OUT VARCHAR2);
 end pq_cr_validar_rng_reprog;
 /
 create or replace package body pq_cr_validar_rng_reprog is
@@ -221,9 +228,13 @@ create or replace package body pq_cr_validar_rng_reprog is
   -- Detalle:      Se agrego controles para habilitar o deshabilitar controles de Reprogramados por desastre natural.
   -- Modificacion: MCORDOVA - 2024.10.23
   -- Detalle:      Se agrega el llamado para validar ratios SP_CR_RATIOS_REPROGRAMADOS
-  -- Modificacion: CALARCONAP - 2025.01.03
+  -- Modificacion: HSUAREZ - 2025.03.31
+  -- Detalle:      Se agrega una bloqueante general para creditos credinka, no se pueden reprogamar por este medio.
+  -- Modificacion: CALARCONAP - 2025.01.21
   -- Detalle:      Se modifica validacion de reprogramaciones por normalizacion
- procedure sp_cr_validarrng91(ve_pgcod     number,
+  -- Modificacion: MCORDOVA - 2025.05.20
+  -- Detalle:      Se agrega logica para control reprogramaciones gradientes
+  procedure sp_cr_validarrng91(ve_pgcod     number,
                                ve_scmod     number,
                                ve_scsuc     number,
                                ve_scmda     number,
@@ -264,11 +275,14 @@ create or replace package body pq_cr_validar_rng_reprog is
     vi_mensaje_crm        VARCHAR2(250);
     VE_RPTA_DESACTIVA_REG VARCHAR2(3);
     --
-    vo_excepcion VARCHAR2(3);
-    VO_CODERROR  VARCHAR(4);
-    VO_MSGERROR  VARCHAR(250);
-   VIO_RPTA_DESACTIVA_REG VARCHAR2(10);
-   VIO_EXCEPCION VARCHAR2(10);
+    vo_excepcion           VARCHAR2(3);
+    VO_CODERROR            VARCHAR(5);
+    VO_MSGERROR            VARCHAR(250);
+    VIO_RPTA_DESACTIVA_REG VARCHAR2(10);
+    VIO_EXCEPCION          VARCHAR2(10);
+    
+    VE_RPTAMSG             VARCHAR2(100); 
+    
     --apacheco 31.12.2021 bloqueo
     ve_mensaje_bloqueo varchar(250);
     cursor mensaje_bloqueo_fondos is
@@ -319,7 +333,43 @@ create or replace package body pq_cr_validar_rng_reprog is
       -----------------------------------------------------------------------------------
       -- VALIDAR TODAS LAS REGLAS
       -----------------------------------------------------------------------------------
-      ve_mensaje := '';
+      ve_mensaje := ''; 
+      ----15/07/2025
+       begin
+        ve_rptac := '';
+        pq_cr_controles_cartera_reprogramada.sp_cr_cliente_validar_instancia(VE_INSTANCIA,
+                                                                             VE_RPTAC,
+                                                                             VE_RPTAMSG);
+          
+        PQ_CR_VALIDAR_RNG_REPROG.SP_GRABAR_LOG_RNG(VI_NRO,
+                                                   'LISTNEGR_MEMO225', --variable
+                                                   VE_RPTAC, --valor
+                                                   91, --regla
+                                                   ve_instancia --instancia
+                                                   );
+          
+        PQ_CR_VALIDAR_RNG_REPROG.SP_DESACTIVAR_REGLA(VI_NRO,
+                                                     VE_INSTANCIA,
+                                                     'LISTNEGR_MEMO225',
+                                                     VE_RPTA_DESACTIVA_REG);
+          
+        IF trim(ve_rptac) <> 'S' OR VE_RPTA_DESACTIVA_REG = 'S' THEN
+          --VE_MENSAJE:= '';
+          NULL;
+        ELSE
+          IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+            VE_MENSAJE := VE_MENSAJE || ';' || 'RSC: ' || VE_RPTAMSG;
+          ELSE
+            ve_mensaje := 'RSC: ' || VE_RPTAMSG;
+          END IF;
+        END IF;
+        ve_rptac := '';
+      exception
+        when others then
+          null;
+      end;      
+       ----15/07/2025      
+      
       pq_cr_funciones_cho.sp_indicador_CRM_Caja(ve_instancia, VE_RPTAC);
       vi_tipo_reprog := VE_RPTAC;
       IF VE_RPTAC != 'N' THEN
@@ -633,25 +683,125 @@ create or replace package body pq_cr_validar_rng_reprog is
           WHEN OTHERS THEN
             NULL;
         END;
+        --BLOQUEO CREDINKA
         BEGIN
-              PQ_CR_VALIDAR_RNG_REPROG.SP_VALIDAR_OPINION_RSG(
-                                                                ve_instancia,
-                                                                VI_NRO,
-                                                                VI_MENSAJE,
-                                                                VO_CODERROR,
-                                                                VO_MSGERROR
-                                                              ); 
-              IF LENGTH(TRIM(VI_MENSAJE))>0 THEN
-                  IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
-                      VE_MENSAJE := VE_MENSAJE || ';' ||VI_MENSAJE;
-                  ELSE
-                      VE_MENSAJE := VI_MENSAJE;
-                  END IF; 
-              END IF;
+          BEGIN
+            PQ_CR_VALIDAR_RNG_REPROG.SP_BLOQUEO_CREDINKA(VE_INSTANCIA,
+                                                         '',
+                                                         VE_RPTAC,
+                                                         VO_CODERROR,
+                                                         VO_MSGERROR);
+          EXCEPTION
+            WHEN OTHERS THEN
+              VE_RPTAC    := '';
+              VO_CODERROR := '';
+              VO_MSGERROR := '';
+          END;
+          --
+          BEGIN
+            PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VI_NRO,
+                                                              VE_INSTANCIA,
+                                                              'BLQ_CRDINKA',
+                                                              (VE_RPTAC || '-' ||
+                                                              VO_MSGERROR),
+                                                              91,
+                                                              VIO_RPTA_DESACTIVA_REG,
+                                                              VIO_EXCEPCION);
+          EXCEPTION
+            WHEN OTHERS THEN
+              VIO_RPTA_DESACTIVA_REG := 'N';
+              VIO_EXCEPCION          := 'N';
+          END;
+          -----VALIDAR MENSAJE SI SALTA POLITICA
+          IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
+             VIO_EXCEPCION = 'S' THEN
+            --VE_MENSAJE:= 'ASDJLHSAKDLJHAS';
+            NULL;
+          ELSE
+            IF LENGTH(TRIM(VE_MENSAJE)) > 0 and
+               LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+              VE_MENSAJE := VE_MENSAJE || ';' ||
+                            'RSC:No esta permitido la reprogramación de Credinka, por este canal';
+            ELSE
+              ve_mensaje := 'RSC:No esta permitido la reprogramación de Credinka, por este canal;';
+            END IF;
+            RETURN;
+          END IF;
         EXCEPTION
-           WHEN OTHERS THEN
-             NULL;
+          WHEN OTHERS THEN
+            NULL;
         END;
+        -- OPINION DE RIESGOS LISTA NEGRA NO SE PUEDE REPROGRAMAR
+        BEGIN
+          PQ_CR_VALIDAR_RNG_REPROG.SP_VALIDAR_OPINION_RSG(ve_instancia,
+                                                          VI_NRO,
+                                                          VI_MENSAJE,
+                                                          VO_CODERROR,
+                                                          VO_MSGERROR);
+          IF LENGTH(TRIM(VI_MENSAJE)) > 0 THEN
+            IF LENGTH(TRIM(VE_MENSAJE)) > 0 and
+               LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+              VE_MENSAJE := VE_MENSAJE || ';' || VI_MENSAJE;
+            ELSE
+              VE_MENSAJE := VI_MENSAJE;
+            END IF;
+          END IF;
+        EXCEPTION
+          WHEN OTHERS THEN
+            NULL;
+        END;
+        --OPINION DE RIESGOS MEMO CON SCORE
+        --HASL@2025.04.04
+        BEGIN
+          BEGIN
+            PQ_CR_CTROL_OPI_RIE_REPROG_REFIN.SP_CNTROL_REPROG(VE_INSTANCIA,
+                                                              '',
+                                                              VE_RPTAC,
+                                                              VO_CODERROR,
+                                                              VO_MSGERROR);
+          EXCEPTION
+            WHEN OTHERS THEN
+              VE_RPTAC    := '';
+              VO_CODERROR := '';
+              VO_MSGERROR := '';
+          END;
+          --
+          BEGIN
+            PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VI_NRO,
+                                                              VE_INSTANCIA,
+                                                              'OPI_RSGO_M2025',
+                                                              (VE_RPTAC || '-' ||
+                                                              VO_MSGERROR),
+                                                              91,
+                                                              VIO_RPTA_DESACTIVA_REG,
+                                                              VIO_EXCEPCION);
+          EXCEPTION
+            WHEN OTHERS THEN
+              VIO_RPTA_DESACTIVA_REG := 'N';
+              VIO_EXCEPCION          := 'N';
+          END;
+          -----VALIDAR MENSAJE SI SALTA POLITICA
+          IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
+             VIO_EXCEPCION = 'S' THEN
+            --VE_MENSAJE:= 'ASDJLHSAKDLJHAS';
+            NULL;
+          ELSE
+            IF LENGTH(TRIM(VE_MENSAJE)) > 0 and
+               LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+              VE_MENSAJE := VE_MENSAJE || ';' ||
+                            'RSC: Requiere opinion de riesgos - ' ||
+                            VO_MSGERROR;
+            ELSE
+              ve_mensaje := 'RSC: Requiere opinion de riesgos - ' ||
+                            VO_MSGERROR;
+            END IF;
+            RETURN;
+          END IF;
+        EXCEPTION
+          WHEN OTHERS THEN
+            NULL;
+        END;
+      
         IF VI_REGLA = 93 THEN
           PQ_CR_VALIDAR_RNG_REPROG.SP_VALIDAR_RPDNATURAL_SINCRM(ve_instancia,
                                                                 VI_NRO,
@@ -667,13 +817,13 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                         VE_MENSAJE);
         END IF;
         IF VI_REGLA = 95 THEN
-          
-         PQ_CR_VALIDAR_RNG_RPSC.SP_VALIDAR_RNG_GENERAL(ve_instancia,
+        
+          PQ_CR_VALIDAR_RNG_RPSC.SP_VALIDAR_RNG_GENERAL(ve_instancia,
                                                         VI_NRO,
                                                         11,
                                                         VI_USUARIO,
-                                                        VE_MENSAJE); 
-        /*
+                                                        VE_MENSAJE);
+          /*
           IF LENGTH(TRIM(VE_MENSAJE)) > 0 and
              LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
             ve_mensaje := ve_mensaje ||
@@ -683,45 +833,45 @@ create or replace package body pq_cr_validar_rng_reprog is
           end if;
           */
         END IF;
-      BEGIN
-      pq_cr_validar_rng_reprog.SP_CR_RATIOS_REPROGRAMADOS(ve_instancia,
-                                 VI_USUARIO,
-                                 VE_RPTAC,
-                                 VO_CODERROR,
-                                 VO_MSGERROR);
-           EXCEPTION
-             WHEN OTHERS THEN
-               NULL;
-           END;                      
-          BEGIN
-      PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VI_NRO,
-                                                        VE_INSTANCIA,
-                                                        'RATIOS_RPG',
-                                                        (VE_RPTAC || '-' ||
-                                                        VO_MSGERROR),
-                                                        91,
-                                                        VIO_RPTA_DESACTIVA_REG,
-                                                        VIO_EXCEPCION);
-    EXCEPTION
-      WHEN OTHERS THEN
-        NULL;
-    END;
-    -----VALIDAR MENSAJE SI SALTA POLITICA
-    IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
-       VIO_EXCEPCION = 'S' THEN
-      --VE_MENSAJE:= 'ASDJLHSAKDLJHAS';
-      NULL;
-    ELSE
-      IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
-        VE_MENSAJE := VE_MENSAJE || ';' ||
-                      'RSC:Ratio capacidad de pago mayor al establecido.';
-      ELSE
-        ve_mensaje := 'RSC:Ratio capacidad de pago mayor al establecido.';
-      END IF;
-    END IF;
-
-                        	
-     
+        BEGIN
+          pq_cr_validar_rng_reprog.SP_CR_RATIOS_REPROGRAMADOS(ve_instancia,
+                                                              VI_USUARIO,
+                                                              VE_RPTAC,
+                                                              VO_CODERROR,
+                                                              VO_MSGERROR);
+        EXCEPTION
+          WHEN OTHERS THEN
+            NULL;
+        END;
+        BEGIN
+          PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VI_NRO,
+                                                            VE_INSTANCIA,
+                                                            'RATIOS_RPG',
+                                                            (VE_RPTAC || '-' ||
+                                                            VO_MSGERROR),
+                                                            91,
+                                                            VIO_RPTA_DESACTIVA_REG,
+                                                            VIO_EXCEPCION);
+        EXCEPTION
+          WHEN OTHERS THEN
+            NULL;
+        END;
+        --MCHIGS
+        -----VALIDAR MENSAJE SI SALTA POLITICA
+        IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
+           VIO_EXCEPCION = 'S' THEN
+          --VE_MENSAJE:= 'ASDJLHSAKDLJHAS';
+          NULL;
+        ELSE
+          IF LENGTH(TRIM(VE_MENSAJE)) > 0 and
+             LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+            VE_MENSAJE := VE_MENSAJE || ';' ||
+                          'RSC:Ratio capacidad de pago mayor al establecido.';
+          ELSE
+            ve_mensaje := 'RSC:Ratio capacidad de pago mayor al establecido.';
+          END IF;
+        END IF;
+      
       END IF; --FIN CONDICION GENERAL
     
       if length(vi_mensaje_caja) > 0 and vi_mensaje_caja is not null then
@@ -5773,15 +5923,16 @@ create or replace package body pq_cr_validar_rng_reprog is
     vo_gracia number(17);
     vo_monto  number(17, 2);
   BEGIN
-    --CONTROLES SOLICITADOS
-    --ATRASO 30 DIAS
-    -----VALIDAR DIAS DE ATRASO
-    PQ_CR_VALIDAR_RNG_REPROG.SP_CR_VALIDA_REPROGRAMADO_DIAS_ATRASO(VE_INSTANCE,
-                                                                   VE_RPTAC,
-                                                                   VO_CODERROR,
-                                                                   VO_MSGERROR);
-    -----VALIDAR SI ESTA EXCEPTUADO
+  
     BEGIN
+      --CONTROLES SOLICITADOS
+      --ATRASO 30 DIAS
+      -----VALIDAR DIAS DE ATRASO
+      PQ_CR_VALIDAR_RNG_REPROG.SP_CR_VALIDA_REPROGRAMADO_DIAS_ATRASO(VE_INSTANCE,
+                                                                     VE_RPTAC,
+                                                                     VO_CODERROR,
+                                                                     VO_MSGERROR);
+      -----VALIDAR SI ESTA EXCEPTUADO
       PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
                                                         VE_INSTANCE,
                                                         'ATRASO_RPDN',
@@ -5807,39 +5958,50 @@ create or replace package body pq_cr_validar_rng_reprog is
         ve_mensaje := 'RSC:Tiene mas de 30 dias de atraso.';
       END IF;
     END IF;
-    --PLAZO GRACIAS <= 6 MESES
-    ----VALIDAR GRACIA
-    /*
-    pq_cr_controles_memo24.sp_cr_control_periodio_gracia(VE_INSTANCE,
-                                                         vo_gracia,
-                                                         vo_monto,
-                                                         VE_RPTAC); */
-    PQ_CR_CALIFICAC_REPRG_DESAS_NATURAL.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
-                                                                              VE_RPTAC,
-                                                                              VO_CODERROR,
-                                                                              VO_MSGERROR);
-    ----VALIDAR SI ESTA EXCEPTUADO
-    PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
-                                                      VE_INSTANCE,
-                                                      'GRACIA_RPDN',
-                                                      (VE_RPTAC || '-' ||
-                                                      vo_gracia),
-                                                      93,
-                                                      VIO_RPTA_DESACTIVA_REG,
-                                                      VIO_EXCEPCION);
-    ----VALIDAR MENSAJE SI SALTA POLITICA
-    IF VE_RPTAC = 'S' or VIO_RPTA_DESACTIVA_REG = 'S' or
-       VIO_EXCEPCION = 'S' THEN
-      --VE_MENSAJE:= '';
-      NULL;
-    ELSE
-      IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
-        VE_MENSAJE := VE_MENSAJE || ';' ||
-                      'RSC:Gracia mayor a la permitida.';
+    BEGIN
+      --PLAZO GRACIAS <= 6 MESES
+      ----VALIDAR GRACIA
+      /*
+      pq_cr_controles_memo24.sp_cr_control_periodio_gracia(VE_INSTANCE,
+                                                           vo_gracia,
+                                                           vo_monto,
+                                                           VE_RPTAC); */
+      PQ_CR_CALIFICAC_REPRG_DESAS_NATURAL.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
+      VE_RPTAC,
+      VO_CODERROR,
+      VO_MSGERROR);
+      --DESCOMENTAR PARA PASE DE GRADIENTES
+      /*PQ_CR_GRADIENTE.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
+                                                            '',
+                                                            VE_RPTAC,
+                                                            VO_CODERROR,
+                                                            VO_MSGERROR);*/
+      ----VALIDAR SI ESTA EXCEPTUADO
+      PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
+                                                        VE_INSTANCE,
+                                                        'GRACIA_RPDN',
+                                                        (VE_RPTAC || '-' ||
+                                                        vo_gracia),
+                                                        93,
+                                                        VIO_RPTA_DESACTIVA_REG,
+                                                        VIO_EXCEPCION);
+      ----VALIDAR MENSAJE SI SALTA POLITICA
+      --IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or -- DESCOMENTAR PARA PASE DE GRADIENTES
+      IF VE_RPTAC = 'S' or VIO_RPTA_DESACTIVA_REG = 'S' or -- ELIMINAR PARA PASE DE GRADIENTES
+         VIO_EXCEPCION = 'S' THEN
+        NULL;
       ELSE
-        VE_MENSAJE := 'RSC:Gracia mayor a la permitida.';
+        IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+          VE_MENSAJE := VE_MENSAJE || ';' ||
+                        'RSC:Gracia mayor a la permitida.';
+        ELSE
+          VE_MENSAJE := 'RSC:Gracia mayor a la permitida.';
+        END IF;
       END IF;
-    END IF;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
     --NO APLICA OPERACIONES REFINANCIADAS
     BEGIN
       VE_RPTAC := 'S';
@@ -5965,7 +6127,6 @@ create or replace package body pq_cr_validar_rng_reprog is
       ----VALIDAR MENSAJE SI SALTA POLITICA
       IF VE_RPTAC = 'S' or VIO_RPTA_DESACTIVA_REG = 'S' or
          VIO_EXCEPCION = 'S' THEN
-        --VE_MENSAJE:= '';
         NULL;
       ELSE
         IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
@@ -5980,6 +6141,109 @@ create or replace package body pq_cr_validar_rng_reprog is
       WHEN OTHERS THEN
         NULL;
     END;
+  
+    --VALIDAR CUENTA GRADIENTE MENOS DEL 30%
+   /* BEGIN   
+      pq_cr_contrl_reprog_refin25.SP_CR_RP_GRADIENTE_CAJ_REPRGSINCAP(VE_INSTANCE,
+                                                                     '',
+                                                                     VE_RPTAC,
+                                                                     VO_CODERROR,
+                                                                     VO_MSGERROR);    
+      ----VALIDAR SI ESTA EXCEPTUADO
+      PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
+                                                        VE_INSTANCE,
+                                                        'CF_CRD_CUE_GRADIEN',
+                                                        (VE_RPTAC),
+                                                        93,
+                                                        VIO_RPTA_DESACTIVA_REG,
+                                                        VIO_EXCEPCION);
+      ----VALIDAR MENSAJE SI SALTA POLITICA
+      IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
+         VIO_EXCEPCION = 'S' THEN
+        --VE_MENSAJE:= '';
+        NULL;
+      ELSE
+        IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+          VE_MENSAJE := VE_MENSAJE || ';' ||
+                        'RNG:El capital representa menos del 30% del valor total de la cuota gradiente';
+        ELSE
+          VE_MENSAJE := 'RNG:El capital representa menos del 30% del valor total de la cuota gradiente';
+        END IF;
+      END IF;
+    
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;*/
+    --VALIDAR GRADIENTES NO PUEDEN SER MAS DE 25
+    /*BEGIN
+      PQ_CR_GRADIENTE.SP_CR_GRDNT_CRONOGR2(VE_INSTANCE,
+                                           '',
+                                           VE_RPTAC,
+                                           VO_CODERROR,
+                                           VO_MSGERROR);
+    
+      ----VALIDAR SI ESTA EXCEPTUADO
+      PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
+                                                        VE_INSTANCE,
+                                                        'CF_CRD_CUE_GRADIEN2',
+                                                        (VE_RPTAC),
+                                                        93,
+                                                        VIO_RPTA_DESACTIVA_REG,
+                                                        VIO_EXCEPCION);
+      ----VALIDAR MENSAJE SI SALTA POLITICA
+      IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
+         VIO_EXCEPCION = 'S' THEN
+        --VE_MENSAJE:= '';
+        NULL;
+      ELSE
+        IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+          VE_MENSAJE := VE_MENSAJE || ';' ||
+                        'RNG:El n° cuotas gradientes debe ser menor o igual al 25% del cronograma';
+        ELSE
+          VE_MENSAJE := 'RNG:El n° cuotas gradientes debe ser menor o igual al 25% del cronograma';
+        END IF;
+      END IF;
+    
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;*/
+ 
+    --VALIDAR ESTADO DE ACTA DIGITAL
+    BEGIN
+      PQ_CR_REGISTRO_ACTA_DIGITAL.SP_CR_VALIDA_ACTA_CERRADA(VE_INSTANCE,
+                                           '',
+                                           VE_RPTAC,
+                                           VO_CODERROR,
+                                           VO_MSGERROR);
+    
+      --VALIDAR SI ESTA EXCEPTUADO
+      PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
+                                                        VE_INSTANCE,
+                                                        'CF_CRD_VAL_ACT_DIG',
+                                                        (VE_RPTAC),
+                                                        93,
+                                                        VIO_RPTA_DESACTIVA_REG,
+                                                        VIO_EXCEPCION);
+      --VALIDAR MENSAJE SI SALTA POLITICA
+      IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
+         VIO_EXCEPCION = 'S' THEN
+        --VE_MENSAJE:= '';
+        NULL;
+      ELSE
+        IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+          VE_MENSAJE := VE_MENSAJE || ';' ||
+                        'RNG:No se completó la gestión del acta digital';
+        ELSE
+          VE_MENSAJE := 'RNG:No se completó la gestión del acta digital';
+        END IF;
+      END IF;
+    
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END; 
   EXCEPTION
     WHEN OTHERS THEN
       NULL;
@@ -6016,83 +6280,167 @@ create or replace package body pq_cr_validar_rng_reprog is
       END IF;
     END IF;
   END;
-  PROCEDURE SP_VALIDAR_OPINION_RSG(
-                                    VE_INSTANCE  IN NUMBER,   --INSTANCIA
-                                    VE_NRO       IN NUMBER,   --CORRELATIVO
-                                    VE_MENSAJE   OUT VARCHAR, --MENSAJE DEVUELTO
-                                    VO_CODERROR  OUT VARCHAR,
-                                    VO_MSGERROR  OUT VARCHAR
-                                  )IS
-  vi_requiereopinion    varchar(3);
-  vi_tieneOpinion       number(3);
-  vi_TipoOpinion        varchar(3);
-  vi_mensaje            varchar(250);
-  ve_rptac              varchar(150);
-  ve_rptar              varchar(150);
-  vi_tipo_reprog        varchar(1);
-  VI_DIAS               number(6, 2); --05.05.2022 - aumento el tamaño
-  VE_RPTA_DESACTIVA_REG VARCHAR(1);
-  vo_excepcion      varchar(1);    
+  PROCEDURE SP_VALIDAR_OPINION_RSG(VE_INSTANCE IN NUMBER, --INSTANCIA
+                                   VE_NRO      IN NUMBER, --CORRELATIVO
+                                   VE_MENSAJE  OUT VARCHAR, --MENSAJE DEVUELTO
+                                   VO_CODERROR OUT VARCHAR,
+                                   VO_MSGERROR OUT VARCHAR) IS
+    vi_requiereopinion    varchar(3);
+    vi_tieneOpinion       number(3);
+    vi_TipoOpinion        varchar(3);
+    vi_mensaje            varchar(250);
+    ve_rptac              varchar(150);
+    ve_rptar              varchar(150);
+    vi_tipo_reprog        varchar(1);
+    VI_DIAS               number(6, 2); --05.05.2022 - aumento el tamaño
+    VE_RPTA_DESACTIVA_REG VARCHAR(1);
+    vo_excepcion          varchar(1);
   BEGIN
-  ----DENTRO DEL GRUPO
-      BEGIN
-            --PROCESO PARA VALIDAR SI REQUIERE OPINION O NO.
-            PQ_CR_INST_VUELO_RP.SP_CR_VALIDAR_CTA_OPER(VE_INSTANCE,
-                                                        vi_requiereopinion);
-            --PROCESO PARA VALIDAR SI TIENE EXCEPCION
-            PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
-                                                              VE_INSTANCE,
-                                                              'REQ_OPI_SCRM',
-                                                              'OPI_RSCRM:'||vi_requiereopinion,
-                                                              91,
-                                                              VE_RPTA_DESACTIVA_REG,
-                                                              vo_excepcion);
-      EXCEPTION
-        WHEN OTHERS THEN
-          NULL;
-      end;
-      --VALIDAR SI INGRESARON OPINION      
-        pq_cr_reprogramaexo.sp_validaopinion(VE_INSTANCE,
-                                             vi_tieneOpinion,
-                                             vi_TipoOpinion,
-                                             vi_mensaje);                                                                     
-      --VALIDAR MENSAJE SI SALTA POLITICA
-        IF vi_requiereopinion = 'N' or VE_RPTA_DESACTIVA_REG = 'S' or
-           vo_excepcion = 'S' or (vi_tieneOpinion=1 and vi_TipoOpinion='V') THEN
-          --VE_MENSAJE:= '';
-          NULL;
-        ELSE                    
-          IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
-            VE_MENSAJE := VE_MENSAJE || ';' ||
-                          'RSC:Requiere Opinion de Riesgos'||'-'||VE_MENSAJE;
-          ELSE
-            ve_mensaje := 'RSC:Requiere Opinion de Riesgos'||'-'||VE_MENSAJE;
-          END IF;
-        END IF;
+    ----DENTRO DEL GRUPO
+    BEGIN
+      --PROCESO PARA VALIDAR SI REQUIERE OPINION O NO.
+      PQ_CR_INST_VUELO_RP.SP_CR_VALIDAR_CTA_OPER(VE_INSTANCE,
+                                                 vi_requiereopinion);
+      --PROCESO PARA VALIDAR SI TIENE EXCEPCION
+      PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
+                                                        VE_INSTANCE,
+                                                        'REQ_OPI_SCRM',
+                                                        'OPI_RSCRM:' ||
+                                                        vi_requiereopinion,
+                                                        91,
+                                                        VE_RPTA_DESACTIVA_REG,
+                                                        vo_excepcion);
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    end;
+    --VALIDAR SI INGRESARON OPINION      
+    pq_cr_reprogramaexo.sp_validaopinion(VE_INSTANCE,
+                                         vi_tieneOpinion,
+                                         vi_TipoOpinion,
+                                         vi_mensaje);
+    --VALIDAR MENSAJE SI SALTA POLITICA
+    IF vi_requiereopinion = 'N' or VE_RPTA_DESACTIVA_REG = 'S' or
+       vo_excepcion = 'S' or (vi_tieneOpinion = 1 and vi_TipoOpinion = 'V') THEN
+      --VE_MENSAJE:= '';
+      NULL;
+    ELSE
+      IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+        VE_MENSAJE := VE_MENSAJE || ';' ||
+                      'RSC:Requiere Opinion de Riesgos' || '-' ||
+                      VE_MENSAJE;
+      ELSE
+        ve_mensaje := 'RSC:Requiere Opinion de Riesgos' || '-' ||
+                      VE_MENSAJE;
+      END IF;
+    END IF;
   END;
-  
-  PROCEDURE SP_CR_RATIOS_REPROGRAMADOS (V_INSTANCIA in number,
-                                   V_USUARIO   in varchar2,
-                                   V_FLAG out varchar2,
-                                   V_CODIGO_ERROR    out varchar2,
-                                   V_MENSAJE_ERROR    out varchar2)
-   IS
-   V_SEGMENTO_ACTUAL NUMBER;
-   V_PGFAPE DATE;
-   RATIOP NUMBER;
-   RATIOC NUMBER;
-  -- V_RESPUESTA VARCHAR2(1);
-   BEGIN
-     BEGIN
-       SELECT PGFAPE INTO V_PGFAPE FROM FST017 WHERE PGCOD = 1;
-     EXCEPTION
-       WHEN OTHERS THEN NULL;
-     END;
-      pq_cr_ratios_reprocap.sp_cr_SegmntoActual(V_INSTANCIA,V_SEGMENTO_ACTUAL);
-      pq_cr_ratios_reprocap.sp_cr_inicio(V_INSTANCIA,V_PGFAPE,V_USUARIO,RATIOP,RATIOC);
-      pq_cr_ratios_reprocap.sp_cr_ratio(V_INSTANCIA,V_SEGMENTO_ACTUAL,V_FLAG);
-      V_MENSAJE_ERROR:= ' Segmento:' || V_SEGMENTO_ACTUAL || ' RatioP:' || TO_CHAR(RATIOP)
-      || ' RatioC:' || TO_CHAR(RATIOC) || ' Indicador:' || V_FLAG;
-   END;
+
+  PROCEDURE SP_CR_RATIOS_REPROGRAMADOS(V_INSTANCIA     in number,
+                                       V_USUARIO       in varchar2,
+                                       V_FLAG          out varchar2,
+                                       V_CODIGO_ERROR  out varchar2,
+                                       V_MENSAJE_ERROR out varchar2) IS
+    V_SEGMENTO_ACTUAL NUMBER;
+    V_PGFAPE          DATE;
+    RATIOP            NUMBER;
+    RATIOC            NUMBER;
+    -- V_RESPUESTA VARCHAR2(1);
+  BEGIN
+    BEGIN
+      SELECT PGFAPE INTO V_PGFAPE FROM FST017 WHERE PGCOD = 1;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
+    pq_cr_ratios_reprocap.sp_cr_SegmntoActual(V_INSTANCIA,
+                                              V_SEGMENTO_ACTUAL);
+    pq_cr_ratios_reprocap.sp_cr_inicio(V_INSTANCIA,
+                                       V_PGFAPE,
+                                       V_USUARIO,
+                                       RATIOP,
+                                       RATIOC);
+    pq_cr_ratios_reprocap.sp_cr_ratio(V_INSTANCIA,
+                                      V_SEGMENTO_ACTUAL,
+                                      V_FLAG);
+    V_MENSAJE_ERROR := ' Segmento:' || V_SEGMENTO_ACTUAL || ' RatioP:' ||
+                       TO_CHAR(RATIOP) || ' RatioC:' || TO_CHAR(RATIOC) ||
+                       ' Indicador:' || V_FLAG;
+  END;
+  PROCEDURE SP_BLOQUEO_CREDINKA(P_INSTANCIA IN NUMBER,
+                                P_USUARIO   IN VARCHAR2,
+                                P_RESPUESTA OUT VARCHAR2,
+                                P_COD_ERROR OUT VARCHAR2,
+                                P_MENSAJE   OUT VARCHAR2) IS
+    VI_C_EXISTE NUMBER(9) := 0;
+    VI_N_PGCOD  XWF700.XWFEMPRESA%TYPE;
+    VI_N_SUC    XWF700.XWFSUCURSAL%TYPE;
+    VI_N_MOD    XWF700.XWFMODULO%TYPE;
+    VI_N_MDA    XWF700.XWFMONEDA%TYPE;
+    VI_N_PAP    XWF700.XWFPAPEL%TYPE;
+    VI_N_CTA    XWF700.XWFCUENTA%TYPE;
+    VI_N_OPE    XWF700.XWFOPERACION%TYPE;
+    VI_N_SBO    XWF700.XWFSUBOPE%TYPE;
+    VI_N_TOP    XWF700.XWFTIPOPE%TYPE;
+  BEGIN
+    P_RESPUESTA := 'N';
+    P_COD_ERROR := '0000';
+    P_MENSAJE   := '';
+    --
+    -----OBTENER CLAVE DEL CREDITO
+    BEGIN
+      SELECT XWFEMPRESA,
+             XWFSUCURSAL,
+             XWFMODULO,
+             XWFMONEDA,
+             XWFPAPEL,
+             XWFCUENTA,
+             XWFOPERACION,
+             XWFSUBOPE,
+             XWFTIPOPE
+        INTO VI_N_PGCOD,
+             VI_N_SUC,
+             VI_N_MOD,
+             VI_N_MDA,
+             VI_N_PAP,
+             VI_N_CTA,
+             VI_N_OPE,
+             VI_N_SBO,
+             VI_N_TOP
+        FROM XWF700 X
+       WHERE X.XWFPRCINS = P_INSTANCIA
+         AND X.XWFCAR3 = '1'
+         AND ROWNUM = 1;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
+    --VALIDAR EN GUIA SI LA INSTANCIA TIENE EL SIGUIEN MODULO Y TIPO DE OPERACION
+    BEGIN
+      SELECT COUNT(*)
+        INTO VI_C_EXISTE
+        FROM FST198 F
+       WHERE F.TP1COD = 1
+         AND F.TP1COD1 = 11161
+         AND F.TP1CORR1 = 551
+         AND F.TP1CORR2 = 0
+         AND F.TP1NRO1 = VI_N_MOD --MODULO
+         AND F.TP1NRO2 = VI_N_TOP --TIPO_OPERACION
+         AND F.TP1NRO3 = 1;
+    EXCEPTION
+      WHEN OTHERS THEN
+        VI_C_EXISTE := 0;
+        P_COD_ERROR := '0001';
+        P_MENSAJE   := 'C01-No se logro procesar, contactar con el Administrador';
+    END;
+    --
+    IF VI_C_EXISTE > 0 THEN
+      P_RESPUESTA := 'S';
+    END IF;
+  EXCEPTION
+    WHEN OTHERS THEN
+      P_COD_ERROR := '0002';
+      P_MENSAJE   := 'C02-No se logro procesar, contactar con el Administrador';
+  END;
 end pq_cr_validar_rng_reprog;
 /
