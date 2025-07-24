@@ -15,9 +15,9 @@ CREATE OR REPLACE PROCEDURE SP_AH_RECLAMOS_ANEXO_1A(P_CREUSR IN VARCHAR,
   -- Uso                        : ANEXO 1A
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2024.07.16
+  -- Fecha de Modificación      : 2025.05.31
   -- Modificado                 : CVILLON
-  -- Desc                       : Ajustes al sub motivo
+  -- Desc                       : Ajustes a Banca de Seguros
   -- ***************************************************************************************
 
   ---*********
@@ -76,16 +76,17 @@ BEGIN
                         */
                       j.JAQL420UGPRPR AS X_AQPB546UGPRPR,
                       ---***
-                      j.JAQL420OPS AS X_AQPB546REOPSC,
-                      j421.JAQL421DES AS X_AQPB546REOPSD,
-                      j.JAQL420MOT AS X_AQPB546REMTVC,
-                      j422.JAQL422DES AS X_AQPB546REMTVD,
+                      j.JAQL420OPS       AS X_AQPB546REOPSC,
+                      j421.JAQL421DES    AS X_AQPB546REOPSD,
+                      j.JAQL420MOT       AS X_AQPB546REMTVC,
+                      j422.JAQL422DES    AS X_AQPB546REMTVD,
                       a545m.AQPB545MSCOD AS X_AQPB546RESUBC,
-                      a545f.AQPB545FNOM AS X_AQPB546RESUBD,
-                      j.JAQL420CMR AS X_AQPB546RECCMR,
-                      j.JAQL420FLD AS X_AQPB546RERESO,
-                      j.JAQL420RECRES AS X_AQPB546RECRES,
-                      j.JAQL420MPS AS X_AQPB546RECMPS,
+                      a545f.AQPB545FNOM  AS X_AQPB546RESUBD,
+                      j.JAQL420CMR       AS X_AQPB546RECCMR,
+                      j.JAQL420FLD       AS X_AQPB546RERESO,
+                      j.JAQL420RECRES    AS X_AQPB546RECRES,
+                      --j.JAQL420MPS AS X_AQPB546RECMPS,
+                      j.JAQL420MONREC AS X_AQPB546RECMPS,
                       a545j.AQPB545JNOM AS X_AQPB546PROCAJ,
                       j.JAQL420ESR AS X_AQPB546RECESR,
                       CASE j.JAQL420ESR
@@ -289,16 +290,20 @@ BEGIN
                         */
                       j.JAQL420UGPRPR AS X_AQPB546UGPRPR,
                       ---***
+                      ---***
                       NULL AS X_AQPB546REOPSC,
-                      NULL AS X_AQPB546REOPSD,
-                      NULL AS X_AQPB546REMTVC,
-                      NULL AS X_AQPB546REMTVD,
-                      NULL AS X_AQPB546RESUBC,
-                      NULL AS X_AQPB546RESUBD,
-                      j.JAQL420CMR AS X_AQPB546RECCMR,
-                      j.JAQL420FLD AS X_AQPB546RERESO,
+                      'Banca-Seguros(seguros vendidos en los canales del sistema financiero)' AS X_AQPB546REOPSD,
+                      j.JAQL420MOT AS X_AQPB546REMTVC,
+                      j422.JAQL422DES AS X_AQPB546REMTVD,
+                      a545m.AQPB545MSCOD AS X_AQPB546RESUBC,
+                      a545f.AQPB545FNOM AS X_AQPB546RESUBD,
+                      ---***
+                      ---***
+                      j.JAQL420CMR    AS X_AQPB546RECCMR,
+                      j.JAQL420FLD    AS X_AQPB546RERESO,
                       j.JAQL420RECRES AS X_AQPB546RECRES,
-                      j.JAQL420MPS AS X_AQPB546RECMPS,
+                      --j.JAQL420MPS AS X_AQPB546RECMPS,
+                      j.JAQL420MONREC AS X_AQPB546RECMPS,
                       a545j.AQPB545JNOM AS X_AQPB546PROCAJ,
                       j.JAQL420ESR AS X_AQPB546RECESR,
                       CASE j.JAQL420ESR
@@ -327,12 +332,20 @@ BEGIN
                       END AS X_AQPB546BANSEG,
                       a545d.AQPB545DSEGCOD AS X_AQPB546REOBSC,
                       --a545c.AQPB545CNOM AS X_AQPB546REOBSD,
-                      'BANCA DE SEGUROS' AS X_AQPB546REOBSD,
-                      j.JAQL420MOT AS X_AQPB546RMTBSC,
+                      --'Banca-Seguros(seguros vendidos en los canales del sistema financiero)' AS X_AQPB546REOBSD,
+                      p.AQPB545POPSNOM AS X_AQPB546REOBSD,
+                      --j.JAQL420MOT AS X_AQPB546RMTBSC,
+                      p.AQPB545PMOTSBS AS X_AQPB546RMTBSC,
+                      
                       --a545e.AQPB545ENOM AS X_AQPB546RMTBSD,
-                      j422.JAQL422DES    AS X_AQPB546RMTBSD,
-                      a545m.AQPB545MSCOD AS X_AQPB546RSMBSC,
-                      a545f.AQPB545FNOM  AS X_AQPB546RSMBSD
+                      --j422.JAQL422DES    AS X_AQPB546RMTBSD,
+                      p.AQPB545PMOTNOM AS X_AQPB546RMTBSD,
+                      
+                      --a545m.AQPB545MSCOD AS X_AQPB546RSMBSC,
+                      p.AQPB545PSMOSBS AS X_AQPB546RSMBSC,
+                      
+                      --a545f.AQPB545FNOM  AS X_AQPB546RSMBSD
+                      p.AQPB545PSMONOM AS X_AQPB546RSMBSD
                
                  FROM JAQL420 j
                  JOIN JAQL422C j422c
@@ -349,6 +362,11 @@ BEGIN
                       a545d.AQPB545DRECTIP = 'REC')
                --LEFT JOIN AQPB545C a545c
                --  ON (a545d.AQPB545DSEGCOD = a545c.AQPB545CCOD)
+               ---***
+                 LEFT JOIN AQPB545P p
+                   ON (j.JAQL420EMP = p.AQPB545PEMPCOD AND
+                      j.JAQL420COD = p.AQPB545PRECCOD)
+               ---***
                  LEFT JOIN AQPB546A a546a
                    ON (j.JAQL420EMP = a546a.AQPB546ARECEMP AND
                       j.JAQL420COD = a546a.AQPB546ARECCOD AND
@@ -480,4 +498,3 @@ EXCEPTION
     P_ERRMSG := sqlcode || '->' || sqlerrm;
 END SP_AH_RECLAMOS_ANEXO_1A;
 /
-
