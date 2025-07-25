@@ -6074,7 +6074,7 @@ create or replace package body pq_cr_validar_rng_reprog is
           VE_MENSAJE := VE_MENSAJE || ';' ||
                         'RSC:El plazo propuesto no puede ser mayor al plazo del producto';
         ELSE
-          VE_MENSAJE := 'RSC::El plazo propuesto no puede ser mayor al plazodel producto';
+          VE_MENSAJE := 'RSC::El plazo propuesto no puede ser mayor al plazo del producto';
         END IF;
       END If;
     EXCEPTION
@@ -6096,7 +6096,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                         VIO_RPTA_DESACTIVA_REG,
                                                         VIO_EXCEPCION);
       ----VALIDAR MENSAJE SI SALTA POLITICA
-      IF VE_RPTAC = 'S' or VIO_RPTA_DESACTIVA_REG = 'S' or
+      IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or -- MCORDOVA - 17/07/2025
+      --IF VE_RPTAC = 'S' or VIO_RPTA_DESACTIVA_REG = 'S' or 
          VIO_EXCEPCION = 'S' THEN
         --VE_MENSAJE:= '';
         NULL;
@@ -6212,7 +6213,7 @@ create or replace package body pq_cr_validar_rng_reprog is
  
     --VALIDAR ESTADO DE ACTA DIGITAL
     BEGIN
-      PQ_CR_REGISTRO_ACTA_DIGITAL.SP_CR_VALIDA_ACTA_CERRADA(VE_INSTANCE,
+      PQ_CR_REGISTRO_ACTA_DIGITAL.SP_CR_VALIDA_ACTA_CERRADA2(VE_INSTANCE,
                                            '',
                                            VE_RPTAC,
                                            VO_CODERROR,

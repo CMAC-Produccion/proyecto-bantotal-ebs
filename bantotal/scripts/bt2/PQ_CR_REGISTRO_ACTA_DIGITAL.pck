@@ -12,14 +12,14 @@ create or replace package PQ_CR_REGISTRO_ACTA_DIGITAL is
 -- Acceso   : Público
 -- *****************************************************************
                                        
-  PROCEDURE SP_CR_VALIDA_ACTA_CERRADA(
+  PROCEDURE SP_CR_VALIDA_ACTA_CERRADA2(
                                        PI_INSTANCIA IN NUMBER,
                                        PI_USUARIO   IN VARCHAR2,
                                        PO_RESULTADO OUT VARCHAR2,
                                        PO_COD_ERROR OUT VARCHAR2,
                                        PO_MSG_ERROR OUT VARCHAR2);
                                       
-  PROCEDURE SP_CR_VALIDA_ACTA_CERRADA2(
+  PROCEDURE SP_CR_VALIDA_ACTA_CERRADA(
                                        PI_ACTA IN CHAR,
                                        PI_INSTANCIA IN NUMBER,
                                        PO_RESULTADO OUT VARCHAR2,
@@ -63,13 +63,13 @@ create or replace package body PQ_CR_REGISTRO_ACTA_DIGITAL is
 -- Parámetros de Entrada        : 
 -- Retorno                      : 
 --------------------------------------------------------------------
--- Fecha de Modificación  : 
--- Autor de la Modificación : 
--- Descripción de Modificación  : 
+-- Fecha de Modificación  : 21/07/2025
+-- Autor de la Modificación : MCORDOVA
+-- Descripción de Modificación  : SE MODIFICA CONDICION DE INGRESO PARA VALIDAR ACTA DIGITAL
 -- *****************************************************************
 
    -- VALIDA SI EXISTE ACTA, INGRESANDO POR CLAVE DE CREDITO
-   PROCEDURE SP_CR_VALIDA_ACTA_CERRADA(
+   PROCEDURE SP_CR_VALIDA_ACTA_CERRADA2(
                                        PI_INSTANCIA IN NUMBER,
                                        PI_USUARIO   IN VARCHAR2,
                                        PO_RESULTADO OUT VARCHAR2,
@@ -78,22 +78,12 @@ create or replace package body PQ_CR_REGISTRO_ACTA_DIGITAL is
    IS
     ESTADO VARCHAR2(1);
    BEGIN
-    BEGIN
-      SELECT JAQM7CEST INTO ESTADO FROM JAQM7C WHERE 
-      JAQM7CCOD = (
-      SELECT JAQM2DCOD FROM XWF700 T1 JOIN JAQM2D T2 ON
-      1 = T1.XWFEMPRESA AND
-      T2.JAQM2DCTA = T1.XWFCUENTA AND
-      T2.JAQM2DMOD = T1.XWFMODULO AND
-      T2.JAQM2DSUC = T1.XWFSUCURSAL AND
-      T2.JAQM2DMDA = T1.XWFMONEDA AND
-      T2.JAQM2DPAP = T1.XWFPAPEL AND
-      T2.JAQM2DOPE = T1.XWFOPERACION AND
-      T2.JAQM2DSBO = T1.XWFSUBOPE AND
-      T2.JAQM2DTOP = T1.XWFTIPOPE 
-      WHERE T1.XWFPRCINS = PI_INSTANCIA AND XWFCAR3 = '1') AND 
-      JAQM7CTCR = 3;
-      --AND JAQM7CEST IN(SELECT TP1DESC FROM FST198 WHERE TP1COD = 1 AND TP1COD1 = 11153 AND TP1CORR1 = 30 AND TP1CORR2 = 1);    
+    BEGIN     
+      SELECT JAQM7CEST INTO ESTADO FROM JAQM7C T1 JOIN JAQM2D T2 ON
+      T1.JAQM7CCOD = T2.JAQM2DCOD WHERE
+      T1.JAQM7CTCR = 3 AND 
+      T1.Jaqm7cfec = (SELECT PGFAPE FROM FST017 WHERE PGCOD = 1) AND 
+      T2.JAQM2DINS = PI_INSTANCIA;  
     EXCEPTION
       WHEN OTHERS THEN NULL;   
     END;
@@ -118,13 +108,13 @@ create or replace package body PQ_CR_REGISTRO_ACTA_DIGITAL is
 -- Parámetros de Entrada        : 
 -- Retorno                      : 
 --------------------------------------------------------------------
--- Fecha de Modificación  : 
--- Autor de la Modificación : 
--- Descripción de Modificación  : 
+-- Fecha de Modificación  : 21/07/2025
+-- Autor de la Modificación : MCORDOVA
+-- Descripción de Modificación  : SE MODIFICA CONDICION DE INGRESO PARA VALIDAR ACTA DIGITAL
 -- *****************************************************************
    
    -- VALIDA SI EXISTE ACTA, INGRESANDO POR CODIGO ACTA
-   PROCEDURE SP_CR_VALIDA_ACTA_CERRADA2(
+   PROCEDURE SP_CR_VALIDA_ACTA_CERRADA(
                                        PI_ACTA IN CHAR,
                                        PI_INSTANCIA IN NUMBER,
                                        PO_RESULTADO OUT VARCHAR2,
@@ -133,21 +123,13 @@ create or replace package body PQ_CR_REGISTRO_ACTA_DIGITAL is
    IS
     ESTADO VARCHAR2(1);
    BEGIN
-    BEGIN
-      SELECT JAQM7CEST INTO ESTADO FROM JAQM7C WHERE 
-      JAQM7CCOD = (
-      SELECT JAQM2DCOD FROM XWF700 T1 JOIN JAQM2D T2 ON
-      1 = T1.XWFEMPRESA AND
-      T2.JAQM2DCTA = T1.XWFCUENTA AND
-      T2.JAQM2DMOD = T1.XWFMODULO AND
-      T2.JAQM2DSUC = T1.XWFSUCURSAL AND
-      T2.JAQM2DMDA = T1.XWFMONEDA AND
-      T2.JAQM2DPAP = T1.XWFPAPEL AND
-      T2.JAQM2DOPE = T1.XWFOPERACION AND
-      T2.JAQM2DSBO = T1.XWFSUBOPE AND
-      T2.JAQM2DTOP = T1.XWFTIPOPE 
-      WHERE XWFCAR3 = '1' AND JAQM2DCOD = PI_ACTA AND ROWNUM = 1) AND 
-      JAQM7CTCR = 3;         
+    BEGIN     
+      SELECT JAQM7CEST INTO ESTADO FROM JAQM7C T1 JOIN JAQM2D T2 ON
+      T1.JAQM7CCOD = T2.JAQM2DCOD WHERE
+      T1.JAQM7CTCR = 3 AND 
+      T1.Jaqm7cfec = (SELECT PGFAPE FROM FST017 WHERE PGCOD = 1 AND ROWNUM = 1) AND
+      T1.JAQM7CNAT = PI_ACTA AND
+      T2.JAQM2DINS = PI_INSTANCIA AND ROWNUM = 1;
     EXCEPTION
       WHEN OTHERS THEN NULL;   
     END;
