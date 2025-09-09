@@ -20,6 +20,9 @@ create or replace package PQ_CR_CONSLEVALUACIONES is
   -- Fecha de Modificación      : 04/06/2025
   -- Autor de la Modificación   : MPOSTIGOC
   -- Descripción de Modificación: Se cambio el tipo de dato al nro de documento
+  -- Fecha de Modificación      : 05/08/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se agrego el tipo de politicas Informativas y Alerta al reporte de Politicas en el consolidado.
   -- *****************************************************************  
 
   procedure sp_Cr_Inicio(ln_Instancia in number);
@@ -1212,9 +1215,10 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
         from fpae73 f
        where f.pae51eva = Etapa
          and f.pae70nro = ln_Nro
-         and f.pae73tip = 'E';
+         and f.pae73tip in ('I', 'A', 'E');
   
     lv_DescEtapa varchar2(25);
+    lv_Desctipo  varchar2(25);
   
   begin
   
@@ -1263,12 +1267,24 @@ create or replace package body PQ_CR_CONSLEVALUACIONES is
           end if;
         end if;
       
+        if e.pae73tip = 'E' then
+          lv_Desctipo := 'Bloqueante/Excepción';
+        else
+          if e.pae73tip = 'I' then
+            lv_Desctipo := 'Informativa';
+          else
+            if e.pae73tip = 'A' then
+              lv_Desctipo := 'Alerta';
+            end if;
+          end if;
+        end if;
+      
         pq_Cr_conslevaluaciones.sp_cr_LogAQPB199(ln_inst     => ln_Instancia,
                                                  lv_codetapa => e.pae51eva,
                                                  lv_detapa   => lv_DescEtapa,
                                                  ln_nropol   => e.pae73pol,
                                                  lv_despol   => e.lv_descpol,
-                                                 lv_tipo     => 'Bloqueante/Excepción');
+                                                 lv_tipo     => lv_Desctipo);
       
       end loop;
     end loop;

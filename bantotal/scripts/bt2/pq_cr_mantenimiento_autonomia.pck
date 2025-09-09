@@ -4,6 +4,24 @@ create or replace package PQ_CR_MANTENIMIENTO_AUTONOMIA is
   -- Created : 13/11/2019 11:34:24 a. m.
   -- Purpose : 
 
+  --*****************************************************************
+  -- Nombre                     : PQ_CR_MANTENIMIENTO_AUTONOMIA
+  -- Sistema                    : BANTOTAL
+  -- Módulo                     : Créditos - Activas
+  -- Versión                    : 1.0
+  -- Fecha de Creación          : 13/11/2019 11:34:24 a. m.
+  -- Autor de Creación          : MARIA POSTIGO
+  -- Uso                        : Proceso PQ_CR_MANTENIMIENTO_AUTONOMIA
+  -- Estado                     : Activo
+  -- Acceso                     : Público
+  -- Fecha de Modificación      : 25/07/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se optimizo la consulta que devuelve el nombre del cliente, obtencion de la clave del credito.
+  -- Fecha de Modificación      : 
+  -- Autor de la Modificación   : 
+  -- Descripción de Modificación: 
+  -- *****************************************************************
+
   procedure sp_cr_Inicio(lc_UsuLogin in varchar2,
                          lc_UsuUpdt  in varchar2,
                          lc_TipoUpdt in varchar2,
@@ -58,7 +76,6 @@ create or replace package PQ_CR_MANTENIMIENTO_AUTONOMIA is
 
 end PQ_CR_MANTENIMIENTO_AUTONOMIA;
 /
-
 create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
 
   procedure sp_cr_Inicio(lc_UsuLogin in varchar2,
@@ -264,10 +281,10 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
     cursor lista_todos is
       select s.sng001inst Instancia,
              s.sng091num Nro_Politica,
-             to_date(d.sng060now, 'DD/MM/YYYY') Fch_Originacion,
+             to_date(d.sng060now, 'DD/MM/YY') Fch_Originacion,
              to_char(d.sng060now, 'HH24:MI:SS') hra_Orign,
              g.sng065usr Autorizante,
-             to_date(g.sng065now, 'DD/MM/YYYY') Fch_Autorizacion,
+             to_date(g.sng065now, 'DD/MM/YY') Fch_Autorizacion,
              to_char(g.sng065now, 'HH24:MI:SS') hra_Autoriza,
              case
                when g.sng065res = 'A' THEN
@@ -293,10 +310,10 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
     cursor lista_filtro is
       select s.sng001inst Instancia,
              s.sng091num Nro_Politica,
-             to_date(d.sng060now, 'DD/MM/YYYY') Fch_Originacion,
+             to_date(d.sng060now, 'DD/MM/YY') Fch_Originacion,
              to_char(d.sng060now, 'HH24:MI:SS') hra_Orign,
              g.sng065usr Autorizante,
-             to_date(g.sng065now, 'DD/MM/YYYY') Fch_Autorizacion,
+             to_date(g.sng065now, 'DD/MM/YY') Fch_Autorizacion,
              to_char(g.sng065now, 'HH24:MI:SS') hra_Autoriza,
              case
                when g.sng065res = 'A' THEN
@@ -334,6 +351,7 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
     lc_Analista   varchar2(10);
     lc_NomTipProd varchar2(35);
     ln_MntSolic   number(17, 2);
+    ln_tdoc       number := 0;
   
   begin
   
@@ -387,6 +405,40 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
             null;
         end;
       
+        if ln_pgcod = 0 then
+        
+          begin
+            select x.xwfempresa,
+                   x.xwfsucursal,
+                   x.xwfmodulo,
+                   x.xwfmoneda,
+                   x.xwfpapel,
+                   x.xwfcuenta,
+                   x.xwfoperacion,
+                   x.xwfsubope,
+                   x.xwftipope
+              into ln_pgcod,
+                   ln_suc,
+                   ln_mod,
+                   ln_mda,
+                   ln_pap,
+                   ln_cta,
+                   ln_ope,
+                   ln_sbop,
+                   ln_tope
+              from xwf700 x
+             where x.xwfprcins = t.instancia
+               and x.xwfsubope =
+                   (select max(x.xwfsubope)
+                      from xwf700 x
+                     where x.xwfprcins = t.instancia);
+          exception
+            when others then
+              null;
+          end;
+        
+        end if;
+      
         begin
           select x.xllcapital
             into ln_MntSolic
@@ -407,18 +459,44 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
         end;
       
         begin
-          select trim(f.pfnom1) || ' ' || trim(f.pfnom2) || ' ' ||
-                 trim(f.pfape1) || ' ' || trim(f.pfape2)
-            into lc_NombClien
-            from sng001 s, fsd002 f
-           where s.sng001inst = t.instancia
-             and s.sng001pais = f.pfpais
-             and s.sng001tdoc = f.pftdoc
-             and s.sng001ndoc = f.pfndoc;
+          select s.sng001tdoc
+            into ln_tdoc
+            from sng001 s
+           where s.sng001inst = t.instancia;
         exception
           when others then
-            null;
+            ln_tdoc := 0;
         end;
+      
+        if ln_tdoc = 9 then
+          begin
+            select trim(f.pjrazs)
+              into lc_NombClien
+              from sng001 s, fsd003 f
+             where s.sng001inst = t.instancia
+               and s.sng001pais = f.pjpais
+               and s.sng001tdoc = f.pjtdoc
+               and s.sng001ndoc = f.pjndoc;
+          exception
+            when others then
+              null;
+          end;
+        
+        else
+          begin
+            select trim(f.pfnom1) || ' ' || trim(f.pfnom2) || ' ' ||
+                   trim(f.pfape1) || ' ' || trim(f.pfape2)
+              into lc_NombClien
+              from sng001 s, fsd002 f
+             where s.sng001inst = t.instancia
+               and s.sng001pais = f.pfpais
+               and s.sng001tdoc = f.pftdoc
+               and s.sng001ndoc = f.pfndoc;
+          exception
+            when others then
+              null;
+          end;
+        end if;
       
         begin
           select f.scnom
@@ -526,6 +604,40 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
               null;
           end;
         
+          if ln_pgcod = 0 then
+          
+            begin
+              select x.xwfempresa,
+                     x.xwfsucursal,
+                     x.xwfmodulo,
+                     x.xwfmoneda,
+                     x.xwfpapel,
+                     x.xwfcuenta,
+                     x.xwfoperacion,
+                     x.xwfsubope,
+                     x.xwftipope
+                into ln_pgcod,
+                     ln_suc,
+                     ln_mod,
+                     ln_mda,
+                     ln_pap,
+                     ln_cta,
+                     ln_ope,
+                     ln_sbop,
+                     ln_tope
+                from xwf700 x
+               where x.xwfprcins = f.instancia
+                 and x.xwfsubope =
+                     (select max(x.xwfsubope)
+                        from xwf700 x
+                       where x.xwfprcins = f.instancia);
+            exception
+              when others then
+                null;
+            end;
+          
+          end if;
+        
           begin
             select x.xllcapital
               into ln_MntSolic
@@ -545,18 +657,44 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
           end;
         
           begin
-            select trim(g.pfnom1) || ' ' || trim(g.pfnom2) || ' ' ||
-                   trim(g.pfape1) || ' ' || trim(g.pfape2)
-              into lc_NombClien
-              from sng001 s, fsd002 g
-             where s.sng001inst = f.instancia
-               and s.sng001pais = g.pfpais
-               and s.sng001tdoc = g.pftdoc
-               and s.sng001ndoc = g.pfndoc;
+            select s.sng001tdoc
+              into ln_tdoc
+              from sng001 s
+             where s.sng001inst = f.instancia;
           exception
             when others then
-              null;
+              ln_tdoc := 0;
           end;
+        
+          if ln_tdoc = 9 then
+            begin
+              select trim(f.pjrazs)
+                into lc_NombClien
+                from sng001 s, fsd003 f
+               where s.sng001inst = f.instancia
+                 and s.sng001pais = f.pjpais
+                 and s.sng001tdoc = f.pjtdoc
+                 and s.sng001ndoc = f.pjndoc;
+            exception
+              when others then
+                null;
+            end;
+          
+          else
+            begin
+              select trim(f.pfnom1) || ' ' || trim(f.pfnom2) || ' ' ||
+                     trim(f.pfape1) || ' ' || trim(f.pfape2)
+                into lc_NombClien
+                from sng001 s, fsd002 f
+               where s.sng001inst = f.instancia
+                 and s.sng001pais = f.pfpais
+                 and s.sng001tdoc = f.pftdoc
+                 and s.sng001ndoc = f.pfndoc;
+            exception
+              when others then
+                null;
+            end;
+          end if;
         
           begin
             select f.scnom
@@ -649,8 +787,8 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
   
     ln_corr number := 0;
     lc_hora character(8) := '00:00:00';
-    Region varchar(40);
-    Zona varchar(40);
+    Region  varchar(40);
+    Zona    varchar(40);
   
   begin
     begin
@@ -671,22 +809,15 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
     end;
     --------------------------------------------------
     Begin
-     select f.tp1desc ,          
-            t81.regnom 
-      into Region, Zona
-      from fst810 t81 , fst811 t80, fst198 f 
-      where t80.pgcod = t81.pgcod
-      and t80.regcod = t81.regcod
-      and t81.regcod = f.tp1nro2 
-      and  tp1cod = 1 and tp1cod1= 10872 and tp1corr1= 11
-      and  t81.regcod < 100
-      and  t80.regcod < 100  --; 
-      and  t80.oficod =  ln_suc;
+      select upper(r.regnom), upper(r.deszon)
+        into Region, Zona
+        from regsuc r
+       where r.sucurs = ln_suc;
     exception
       when no_data_found then
         Region := 'Desconoce';
-        Zona := 'Desconoce';
-    end ;
+        Zona   := 'Desconoce';
+    end;
     ---------------------------------------------------
     begin
       insert into aqpa370
@@ -747,9 +878,9 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
          region,
          zona);
     end;
+    commit;
   
   end sp_Cr_reporte;
 
 end PQ_CR_MANTENIMIENTO_AUTONOMIA;
 /
-
