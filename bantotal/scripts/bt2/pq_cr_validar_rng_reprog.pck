@@ -5960,23 +5960,21 @@ create or replace package body pq_cr_validar_rng_reprog is
     END IF;
     BEGIN
       --PLAZO GRACIAS <= 6 MESES
-      ----VALIDAR GRACIA
-      /*
-      pq_cr_controles_memo24.sp_cr_control_periodio_gracia(VE_INSTANCE,
+      --VALIDAR GRACIA
+      /*pq_cr_controles_memo24.sp_cr_control_periodio_gracia(VE_INSTANCE,
                                                            vo_gracia,
                                                            vo_monto,
-                                                           VE_RPTAC); */
+                                                           VE_RPTAC);*/
       PQ_CR_CALIFICAC_REPRG_DESAS_NATURAL.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
       VE_RPTAC,
       VO_CODERROR,
       VO_MSGERROR);
-      --DESCOMENTAR PARA PASE DE GRADIENTES
       /*PQ_CR_GRADIENTE.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
                                                             '',
                                                             VE_RPTAC,
                                                             VO_CODERROR,
                                                             VO_MSGERROR);*/
-      ----VALIDAR SI ESTA EXCEPTUADO
+      --VALIDAR SI ESTA EXCEPTUADO
       PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
                                                         VE_INSTANCE,
                                                         'GRACIA_RPDN',
@@ -5985,9 +5983,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                         93,
                                                         VIO_RPTA_DESACTIVA_REG,
                                                         VIO_EXCEPCION);
-      ----VALIDAR MENSAJE SI SALTA POLITICA
-      --IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or -- DESCOMENTAR PARA PASE DE GRADIENTES
-      IF VE_RPTAC = 'S' or VIO_RPTA_DESACTIVA_REG = 'S' or -- ELIMINAR PARA PASE DE GRADIENTES
+      --VALIDAR MENSAJE SI SALTA POLITICA
+      IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
          VIO_EXCEPCION = 'S' THEN
         NULL;
       ELSE
@@ -6144,7 +6141,7 @@ create or replace package body pq_cr_validar_rng_reprog is
     END;
   
     --VALIDAR CUENTA GRADIENTE MENOS DEL 30%
-   /* BEGIN   
+    /*BEGIN   
       pq_cr_contrl_reprog_refin25.SP_CR_RP_GRADIENTE_CAJ_REPRGSINCAP(VE_INSTANCE,
                                                                      '',
                                                                      VE_RPTAC,
@@ -6176,7 +6173,7 @@ create or replace package body pq_cr_validar_rng_reprog is
       WHEN OTHERS THEN
         NULL;
     END;*/
-    --VALIDAR GRADIENTES NO PUEDEN SER MAS DE 25
+    --VALIDAR GRADIENTES NO PUEDEN SER MAS DE 25%
     /*BEGIN
       PQ_CR_GRADIENTE.SP_CR_GRDNT_CRONOGR2(VE_INSTANCE,
                                            '',
@@ -6245,6 +6242,39 @@ create or replace package body pq_cr_validar_rng_reprog is
       WHEN OTHERS THEN
         NULL;
     END; 
+        --VALIDA LIMITES POR REGION - MILTON CORDOVA IGS
+    BEGIN
+      PQ_CR_LIMITES_RPG.SP_CR_VALIDA_LIMITE_REGION(VE_INSTANCE,
+                                                   '',
+                                                   VE_RPTAC,
+                                                   VO_CODERROR,
+                                                   VO_MSGERROR);
+    
+      ----VALIDAR SI ESTA EXCEPTUADO
+      PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
+                                                        VE_INSTANCE,
+                                                        'CF_CRD_VAL_LIM_REG',
+                                                        (VE_RPTAC),
+                                                        93,
+                                                        VIO_RPTA_DESACTIVA_REG,
+                                                        VIO_EXCEPCION);
+      ----VALIDAR MENSAJE SI SALTA POLITICA
+      IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
+         VIO_EXCEPCION = 'S' THEN
+        --VE_MENSAJE:= '';
+        NULL;
+      ELSE
+        IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+          VE_MENSAJE := VE_MENSAJE || ';' ||
+                        'RNG:Supero el monto límite de reprogramaciones para la región';
+        ELSE
+          VE_MENSAJE := 'RNG:Supero el monto límite de reprogramaciones para la región';
+        END IF;
+      END IF;   
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
   EXCEPTION
     WHEN OTHERS THEN
       NULL;

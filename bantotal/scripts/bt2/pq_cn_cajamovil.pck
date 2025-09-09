@@ -30,6 +30,12 @@ create or replace package PQ_CN_CAJAMOVIL is
   -- Fecha de Modificación : 21/05/2025
   -- Autor de Creación     : Frank Pinto Carpio
   -- Descripción Modific.  : Se corrige variable de directorio de envio de cronograma nuevo tras amortizacion de credito
+  -- Fecha de Modificación : 24/06/2025
+  -- Autor de Creación     : Hernan Laqui Jimenez
+  -- Descripción Modific.  : Se modifican para calcula el monto total de la cuota, procedimiento sp_consulta_credito
+  -- Fecha de Modificación : 07/07/2025
+  -- Autor de Creación     : Frank Pinto Carpio
+  -- Descripción Modific.  : Se modifica para agregar el canal 4 - Agentes Corresponsles
 
   -- ------------------------------------------------------------------------------------------------
   
@@ -757,7 +763,10 @@ create or replace package body PQ_CN_CAJAMOVIL is
          lv_remitente := 'cajeroautomatico@cajaarequipa.pe';   
     When L_AQPA705CANAL = 10 then --Hlaqui 15/06/2024 - Se agrega el Canal 10 NeoCaja - P51
          lv_canal := 'NEOCAJA P51';     
-         lv_remitente := 'p51@cajaarequipa.pe';           
+         lv_remitente := 'p51@cajaarequipa.pe';  
+    When L_AQPA705CANAL = 4 then --Fpinto 07/07/2025 - Se agrega el Canal 4 Agentes Corresponsales
+         lv_canal := 'AGENTES CORRESPONSALES';     
+         lv_remitente := 'agentecorresponsal@cajaarequipa.pe';           
     else
          lv_canal := 'CAJA MOVIL';
          lv_remitente := 'cajamovil@cajaarequipa.pe';  
@@ -1271,16 +1280,7 @@ create or replace package body PQ_CN_CAJAMOVIL is
                       '55',
                       'Desembolso') c_desest,
                trim(b.wfstscod) c_codtar,
-               /*decode(b.wfstscod,
-                      'A',
-                      'Asignada',
-                      'P',
-                      'Pendiente',
-                      'R',
-                      'En Proceso',
-                      'T',
-                      '????')*/ '' c_destar,
-               --to_char(b.wfiteminit, 'DD/MM/YYYY HH:MI:SS AM') d_fecins,               
+               '' c_destar,
                c.xwfmoneda n_codmda,               
                c.xwfmonto1 N_MTOAPR,
                c.xwfplazo1 n_placre,
@@ -1296,13 +1296,11 @@ create or replace package body PQ_CN_CAJAMOVIL is
                  when length(trim(s.sng001ndoc)) = 11 then
                   (select pjrazs from fsd003 where pjndoc = s.sng001ndoc)
                end c_nomcli,
-               --
                (select xlltasap
                   from x054023
                  where xllaocta = c.xwfcuenta
                    and xllaooper = c.xwfoperacion
-                   and rownum <= 1
-                --order by xllaocta, xllaooper, xllaosbop desc
+                   and rownum <= 1                
                 ) n_taspro,                
                     (
                      select to_char( min(ppfpag), 'dd/mm/yyyy')
@@ -1326,15 +1324,14 @@ create or replace package body PQ_CN_CAJAMOVIL is
                                                  from fsd611 a
                                                 where ppcta = g.ppcta
                                                   and ppoper = g.ppoper
-                                                  and a.ppfpag = g.ppfpag),
+                                                  and a.ppfpag = g.ppfpag
+                                                  and a.ppsbop = g.ppsbop
+                                                  ),
                                                0)
                   from fsd601 g
                  where g.ppcta = c.xwfcuenta
                    and g.ppoper = c.xwfoperacion
-                   and g.ppsbop = (select max(ppsbop)
-                                     from fsd601
-                                    where ppcta = c.xwfcuenta
-                                      and ppoper = c.xwfoperacion)
+                   and g.ppsbop = c.xwfsubope
                    and ppint>0
                    and rownum <= 1) n_cuomen,
               '' c_tipcuo,
@@ -1347,11 +1344,7 @@ create or replace package body PQ_CN_CAJAMOVIL is
                      fst003     d,
                      fst004     e,
                      fsd601     f
-               where s.sng001inst = b.wfinsprcid
-                 --and a.sng001inst = p_n_numins
-                 /*and s.sng001pais = P_N_CODPAI
-                 and s.sng001tdoc = P_N_TIPDOC
-                 and s.sng001ndoc = rpad(trim(P_C_NUMDOC),'12',' ')*/
+               where s.sng001inst = b.wfinsprcid                
                  and s.sng001cta  = P_N_NUMCTA
                  and b.wfinsprcid = c.xwfprcins
                  and s.sng001inst = c.xwfprcins
@@ -1362,7 +1355,6 @@ create or replace package body PQ_CN_CAJAMOVIL is
                  and c.xwfcar3 = '1'
                  and b.wftaskcod in ('55')
                  and b.wfitemstsact=1                 
-                    ---
                  and f.pgcod = c.xwfempresa
                  and f.ppmod = c.xwfmodulo
                  and f.ppsuc = c.xwfsucursal
@@ -1372,31 +1364,7 @@ create or replace package body PQ_CN_CAJAMOVIL is
                  and f.ppoper = c.xwfoperacion
                  and f.ppsbop = c.xwfsubope
                  and f.pptope = c.xwftipope
-                    --
-                 and f.ppsbop = (select max(ppsbop)
-                                   from fsd601
-                                  where ppcta = c.xwfcuenta
-                                    and ppoper = c.xwfoperacion)
-               /*order by d_fecins desc*/) x
-       /*inner join fst198 y on y.tp1cod=1 and y.tp1cod1=10801 and y.tp1corr1=65 and y.tp1corr2= x.N_CODMOD and y.tp1corr3=x.N_CODTOP
-       where N_MTOAPR <= (case when x.N_CODMDA = 0 then y.tp1imp1 else y.tp1imp2 end)
-       and (select count(1) from jaqm750 a, jaqz697 b where 
-            a.jaqm750pai=b.jaqz697pai
-            and a.jaqm750tdo=b.jaqz697tdo
-            and a.jaqm750ndo = b.jaqz697ndo
-            and a.jaqm750fch>=b.jaqz697fep
-            and a.jaqm750imp=b.jaqz697mto
-            and b.jaqz697au5='S'
-            and a.jaqm750mod=b.jaqz697mod
-            and a.jaqm750tip=b.jaqz697top
-            and a.jaqm750suc=b.jaqz697suc
-            and a.jaqm750mda=b.jaqz697mda
-            --and nvl(b.jaqz697apr,'R') ='R'
-            and (nvl(b.jaqz697apr,'R') ='R' or nvl(b.jaqz697apr,'N') ='N') --Se agrega filtro para no mostrar los de estado=N
-            and b.jaqz697fep = (select max(jaqz697fep) from jaqz697 )
-            and b.jaqz697tca = 'P'
-            and a.jaqm750ins=x.N_NUMINS
-            and a.jaqm750emp = 1) = 0*/
+                 ) x      
        where x.orden=1       
        ;
        

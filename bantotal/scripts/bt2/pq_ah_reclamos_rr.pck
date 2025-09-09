@@ -9,9 +9,9 @@ CREATE OR REPLACE PACKAGE PQ_AH_RECLAMOS_RR IS
   -- Uso                        : GENRACION DE REPORTES RR
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.02.17
+  -- Fecha de Modificación      : 2025.06.23
   -- Modificado                 : CVILLON
-  -- Descripción                : Tiempo Promedio de Absolución
+  -- Descripción                : Tiempo Promedio de Absolución (Redondeo)
   -- ***************************************************************************************
   ---*********
   PROCEDURE SP_AH_REP_RR1_GENERA_BASE(P_CREUSR IN VARCHAR,
@@ -177,7 +177,6 @@ CREATE OR REPLACE PACKAGE PQ_AH_RECLAMOS_RR IS
 END PQ_AH_RECLAMOS_RR;
 /* GOLDENGATE_DDL_REPLICATION */
 /
-
 CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_RR IS
   -- ***************************************************************************************
   -- Nombre                     : PQ_AH_RECLAMOS_RR
@@ -189,9 +188,9 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_RR IS
   -- Uso                        : GENRACION DE REPORTES RR
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.02.17
+  -- Fecha de Modificación      : 2025.06.23
   -- Modificado                 : CVILLON
-  -- Descripción                : Tiempo Promedio de Absolución
+  -- Descripción                : Tiempo Promedio de Absolución (Redondeo)
   -- ***************************************************************************************
   ---*********
   PROCEDURE SP_AH_REP_RR1_GENERA_BASE(P_CREUSR IN VARCHAR,
@@ -3498,18 +3497,18 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_RR IS
       FROM JAQL420
      WHERE JAQL420TRC = 1
        AND JAQL420EMP = 1
-       AND ((JAQL420FCR BETWEEN P_FECINI AND P_FECFIN) OR
-           (JAQL420FCCCLI BETWEEN P_FECINI AND P_FECFIN))
+       AND JAQL420FCCCLI BETWEEN P_FECINI AND P_FECFIN
        AND JAQL420ESR = 3
        AND JAQL420TIPSBS = 'V'
        AND JAQL420OPS <> ' '
        AND JAQL420COD NOT IN
            (SELECT AQPB545BCOD FROM AQPB545B WHERE AQPB545BRTIP = 'REI');
-  
+    ---***         
     ---***
     ln_TPAV := ln_DABSUM / ln_RECQTY;
     --ln_TPAR := FLOOR(ln_TPAV);
-    ln_TPAR := ROUND(ln_TPAV);
+    --ln_TPAR := ROUND(ln_TPAV);
+    ln_TPAR := CEIL(ln_TPAV);
     P_TPAV  := ln_TPAV;
     P_TPAR  := ln_TPAR;
     IF (P_TPAV = 0) THEN
@@ -4038,4 +4037,3 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_RR IS
 END PQ_AH_RECLAMOS_RR;
 /* GOLDENGATE_DDL_REPLICATION */
 /
-
