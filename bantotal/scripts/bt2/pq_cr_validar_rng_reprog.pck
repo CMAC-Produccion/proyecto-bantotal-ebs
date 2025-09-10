@@ -5965,15 +5965,15 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                            vo_gracia,
                                                            vo_monto,
                                                            VE_RPTAC);*/
-     /*PQ_CR_CALIFICAC_REPRG_DESAS_NATURAL.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
+      PQ_CR_CALIFICAC_REPRG_DESAS_NATURAL.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
       VE_RPTAC,
       VO_CODERROR,
-      VO_MSGERROR);*/
-      PQ_CR_GRADIENTE.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
+      VO_MSGERROR);
+      /*PQ_CR_GRADIENTE.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
                                                             '',
                                                             VE_RPTAC,
                                                             VO_CODERROR,
-                                                            VO_MSGERROR);
+                                                            VO_MSGERROR);*/
       --VALIDAR SI ESTA EXCEPTUADO
       PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
                                                         VE_INSTANCE,
@@ -6141,7 +6141,7 @@ create or replace package body pq_cr_validar_rng_reprog is
     END;
   
     --VALIDAR CUENTA GRADIENTE MENOS DEL 30%
-    BEGIN   
+    /*BEGIN   
       pq_cr_contrl_reprog_refin25.SP_CR_RP_GRADIENTE_CAJ_REPRGSINCAP(VE_INSTANCE,
                                                                      '',
                                                                      VE_RPTAC,
@@ -6172,9 +6172,9 @@ create or replace package body pq_cr_validar_rng_reprog is
     EXCEPTION
       WHEN OTHERS THEN
         NULL;
-    END;
+    END;*/
     --VALIDAR GRADIENTES NO PUEDEN SER MAS DE 25%
-    BEGIN
+    /*BEGIN
       PQ_CR_GRADIENTE.SP_CR_GRDNT_CRONOGR2(VE_INSTANCE,
                                            '',
                                            VE_RPTAC,
@@ -6206,7 +6206,7 @@ create or replace package body pq_cr_validar_rng_reprog is
     EXCEPTION
       WHEN OTHERS THEN
         NULL;
-    END;
+    END;*/
  
     --VALIDAR ESTADO DE ACTA DIGITAL
     BEGIN
@@ -6243,7 +6243,7 @@ create or replace package body pq_cr_validar_rng_reprog is
         NULL;
     END; 
         --VALIDA LIMITES POR REGION - MILTON CORDOVA IGS
-    /*BEGIN
+    BEGIN
       PQ_CR_LIMITES_RPG.SP_CR_VALIDA_LIMITE_REGION(VE_INSTANCE,
                                                    '',
                                                    VE_RPTAC,
@@ -6274,7 +6274,7 @@ create or replace package body pq_cr_validar_rng_reprog is
     EXCEPTION
       WHEN OTHERS THEN
         NULL;
-    END;*/
+    END;
   EXCEPTION
     WHEN OTHERS THEN
       NULL;

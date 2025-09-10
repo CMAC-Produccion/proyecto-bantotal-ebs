@@ -5,8 +5,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
 -- Modificacion : SMARQUEZ 23/01/2025, modificacion para carga incompleta
 -- Modificacion : SMARQUEZ 19/03/2025, modificacion too_many_rows
 -- Modificacion : SMARQUEZ 15/04/2025, Verifica Resagados
--- Modificacion : SMARQUEZ 02/07/2025, Adición de tipo de desembolso
--- Modificacion : SMARQUEZ 07/08/2025, Modificaciobn longitud telefono
+
   CURSOR CUENTAS IS
       select a.*, b.itfcon fechacont, b.ithora hora, c.jaqm66ins ins
       from fsd016 a,
@@ -36,8 +35,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
          where pepais = pais
            and petdoc = tdoc
            and pendoc = ndoc
-           and docod = 1
-           and rownum = 1;
+           and docod = 1;
 
       cursor correo (pais number,tdoc number,ndoc char) is
         select trim(lower(substr(pextxt,1,(instr(pextxt,'\')-1)))) mail
@@ -47,8 +45,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
            and pendoc = ndoc
            and txcod = 0 --x_08.txcod = 0
            and pextxt <> 'SI'
-           and pextxt Like '%@%'
-           and rownum = 1;
+           and pextxt Like '%@%';
            
       cursor resagados (fecha1 in date)is
        select sccta hcta, scsdo HCIMP1 
@@ -59,9 +56,9 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       CURSOR datos(cta in number) IS
        select jb.jaqm66per periodo, jc.xwfplazo1 plazo1, jc.xwffec1 fechaxwf, jc.xwfoperacion operacion, jc.xwfmodulo mod1, 
               jc.xwfsucursal suc1, jc.xwfsubope subop1, jc.xwftipope tipo1 ,jc.xwfmoneda mda1,jc.xwfprcins instancia,
-              (select jaqm64por  from jaqm64 where jaqm64tad =ja.jaqm65tad and jaqm64cod =  ja.jaqm65cod) CTASA,
-              jb.jaqm66imp saldoasegurado, jb.jaqm66ime costo,ja.jaqm65cod plan1,             
-              jb.jaqm66fec fecha
+               (select jaqm64por  from jaqm64 where jaqm64tad =ja.jaqm65tad and jaqm64cod =  ja.jaqm65cod) CTASA,
+                 jb.jaqm66imp saldoasegurado, jb.jaqm66ime costo,ja.jaqm65cod plan1              
+                
           from jaqm65 ja, 
                xwf700 jc, jaqm66 jb 
          where ja.jaqm65tad = 2
@@ -97,15 +94,18 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
   operacion number(9);
   ln_cont number:= 0;
   ln_cont1 number:=0;
+
   correlativo number(17):=0;
   certificado char(30);
   doctipo char(3);
+
   prima number(17,2):=0;
   dIRECCION_neg char(300);
   ubigeo_neg char(8);
   tasa number(10,6):=0;
   costo number(17,2):=0;
   nrocuota number:= 0;
+
   dirdomi char(300);
   ubidomi char(8);
   actdomi char(300);
@@ -144,9 +144,11 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
   nrocredito char(30);
   moneda varchar2(3);
   nro_cuotas  number;
-  plandes number;  
+  plandes number;
+  
   segmento char(1);
-  codigocia number;  
+  codigocia number;
+  
   ln_pgcod number;
   ln_grupo number;
   lc_plan  char(50);
@@ -154,7 +156,6 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
   ln_instancia number;
   tipocuenta char(3);
   fecha date;
-  tipodes char(16);
   begin
 
     Execute immediate ('truncate table aqpa562');
@@ -243,24 +244,26 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       lc_telefono := null;
       lc_correo := null;
       tele := null;
-      For t in celular(pais,tipodoc,numdoc)loop         
-          if length (t.fono) = 9 then
+      For t in celular(pais,tipodoc,numdoc)loop
+       --  if ln_cont = 0 then
             tele := trim(t.fono);
-            exit;
-          else
-            tele := rpad(t.fono,9,'0');
-            exit;
-          end if;         
-          
+         /* else
+            tele := trim(tele)||' '||trim(t.fono);
+          end if;
+         ln_cont := ln_cont + 1;*/
       end loop;
       if tele is null or tele =' ' then
-         lc_telefono := 111111111;
-      else
-         lc_telefono := substr(tele,1,9);
-      end if;         
-      
-      For c in correo(pais,tipodoc,numdoc)loop
+        tele :=111111111;
+      end if;
+      lc_telefono := substr(tele,1,15);
+       For c in correo(pais,tipodoc,numdoc)loop
+        --  if ln_cont1 = 0 then
             mail := trim(c.mail);
+          /*else
+            mail := substr((trim(mail)||' '||trim(c.mail)),1,50);
+          end if;
+
+         ln_cont1 := ln_cont1 + 1;*/
       end loop;
        if lc_correo is null then
          lc_correo:= 'sindato@gmail.com';
@@ -401,97 +404,9 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                                             A.CTNRO,
                                             operacion,
                                             subop1,
-                                            subop1);   
-     ------------------SMA 02072025----------------------
-      BEGIN
-         select 'Ventanilla'
-           into tipodes
-           from jaqy782 
-          where jaqy782pgc = 1 
-            and jaqy782mod = MOD1        
-            and jaqy782mda = MDA1
-            and jaqy782pap = 0
-            and jaqy782cta = A.CTNRO
-            and jaqy782ope = operacion          
-            and jaqy782fchdes = pfecha
-            and jaqy782est ='A'
-            and JAQY782HRASIS = (select max(JAQY782HRASIS)  
-                                   from jaqy782
-                                   where jaqy782pgc = 1    
-                                     and jaqy782mod = MOD1       
-                                     and jaqy782mda = MDA1
-                                     and jaqy782pap = 0
-                                     and jaqy782cta = A.CTNRO
-                                     and jaqy782ope = operacion
-                                     and jaqy782fchdes = pfecha
-                                     and jaqy782est ='A');
-       exception
-         when no_data_found then
-         Begin
-           select 'Biometria'
-             into tipodes
-             from jaqm1a
-            where jaqm1atem = 1
-              and jaqm1atfc = pfecha --fechades1
-              and jaqm1atmo = 30
-              and jaqm1attr in (951, 360)
-              and jaqm1amod = MOD1
-              and jaqm1amda = MDA1
-              and jaqm1apap = 0
-              and jaqm1acta = A.CTNRO
-              and jaqm1aope = operacion
-              and jaqm1aest = 'P';
-          exception
-            when no_Data_found then
-              Begin
-                select 'Aplicativo'
-                  into tipodes
-                  from  fsd016 a, fsd015 b
-                 where a.pgcod = 1
-                   and a.itmod =489
-                   and a.ittran in (951,360)
-                   and a.ctnro = A.CTNRO
-                   and a.itoper =  operacion
-                   and a.modulo = MOD1
-                   and a.ITTOPE = tipo1
-                   and b.PGCOD = a.pgcod
-                   and b.ITSUC = a.itsuc
-                   and b.ITMOD = a.ITMOD
-                   and b.ITtran = a.ITTRAN
-                   and b.ITNREL = a.ITNREL
-                   and b.ITCORR = 0
-                   and b.ITCONT = 'S';
-              exception
-                when no_data_found then
-                  begin
-                      select 'Aplicativo'
-                        into tipodes
-                        from fsh016 a, fsh015 b
-                       where a.pgcod = 1
-                         and a.hcmod =489
-                         and a.htran in (951,360)
-                         and a.hfcon = pfecha
-                         and a.hcta = A.CTNRO
-                         and a.hoper = operacion
-                         and a.hmodul = MOD1
-                         and a.htoper = tipo1
-                         and b.PGCOD = a.pgcod
-                         and b.hSUCor = a.hsucor
-                         and b.hcMOD = a.hcMOD
-                         and b.htran = a.hTRAN
-                         and b.hNREL = a.hNREL
-                         and b.hfcon = a.hfcon
-                         and b.hcCORR = 0;
-                  exception  
-                     when no_Data_found then
-                        tipodes := 'Ventanilla';
-                  end;
-             end;
-         end;
-      end;
-                                                                                                
+                                            subop1);                                                  
 
-     ----------------------plan--------------------------
+      ----plan
      
       begin
          select trim(substr(wfattsval, instr(wfattsval, ';', 1) + 1, 25))
@@ -751,7 +666,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                           0,----'Sobretasa'/*,
                           tipocuenta,-- sma07/11/2023 tipo cuenta                          
                           nrocredito,
-                          tipodes, --numero tarjeta
+                          null, --numero tarjeta
                           fechavto1, --ult pago
                           fechades1, --f afiliacion
                           fechades1,
@@ -783,7 +698,6 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                           nro_cuotas,
                           periodo,
                           lc_plan 
-                          
                          ); -- dirdomi, ubidomi, actdomi, ocudomi
                          COMMIT;
      exception
@@ -866,21 +780,12 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       lc_correo := null;
       tele := null;
       For t in celular(pais,tipodoc,numdoc)loop
-           if length (t.fono) = 9 then
-            tele := trim(t.fono);
-            exit;
-          else
-            tele := rpad(t.fono,9,'0');
-            exit;
-          end if;         
-          
+         tele := trim(t.fono);     
       end loop;
       if tele is null or tele =' ' then
-         lc_telefono := 111111111;
-      else
-         lc_telefono := substr(tele,1,9);
+        tele :=111111111;
       end if;
-      
+      lc_telefono := substr(tele,1,15);
       For c in correo(pais,tipodoc,numdoc)loop
          mail := trim(c.mail);      
       end loop;
@@ -996,7 +901,6 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       else
         moneda := '002';
       end if;
-      
        
       --- segmento persona /codigo servicio
       BEgin
@@ -1030,93 +934,6 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
              and ppoper = j.operacion
              and ppsbop = j.subop1
              and pptope = j.tipo1;
-           ------------------SMA 02072025----------------------
-            BEGIN
-               select 'Ventanilla'
-                 into tipodes
-                 from jaqy782 
-                where jaqy782pgc = 1 
-                  and jaqy782mod = j.mod1     
-                  and jaqy782mda = j.mda1
-                  and jaqy782pap = 0
-                  and jaqy782cta = r.hcta
-                  and jaqy782ope = j.operacion         
-                  and jaqy782fchdes = j.fecha
-                  and jaqy782est ='A'
-                  and JAQY782HRASIS = (select max(JAQY782HRASIS)  
-                                         from jaqy782
-                                         where jaqy782pgc = 1    
-                                           and jaqy782mod = j.mod1       
-                                           and jaqy782mda = j.mda1
-                                           and jaqy782pap = 0
-                                           and jaqy782cta = r.hcta
-                                           and jaqy782ope = j.operacion
-                                           and jaqy782fchdes = j.fecha
-                                           and jaqy782est ='A');
-             exception
-               when no_data_found then
-               Begin
-                 select 'Biometria'
-                   into tipodes
-                   from jaqm1a
-                  where jaqm1atem = 1
-                    and jaqm1atfc = j.fecha
-                    and jaqm1atmo = 30
-                    and jaqm1attr in (951, 360)
-                    and jaqm1amod = j.mod1
-                    and jaqm1amda = j.mda1
-                    and jaqm1apap = 0
-                    and jaqm1acta = r.hcta
-                    and jaqm1aope = j.operacion
-                    and jaqm1aest = 'P';
-                exception
-                  when no_Data_found then
-                    Begin
-                      select 'Aplicativo'
-                        into tipodes
-                        from  fsd016 a, fsd015 b
-                       where a.pgcod = 1
-                         and a.itmod =489
-                         and a.ittran in (951,360)
-                         and a.ctnro = r.hcta
-                         and a.itoper = j.operacion
-                         and a.modulo = j.mod1
-                         and a.ITTOPE = j.tipo1
-                         and b.PGCOD = a.pgcod
-                         and b.ITSUC = a.itsuc
-                         and b.ITMOD = a.ITMOD
-                         and b.ITtran = a.ITTRAN
-                         and b.ITNREL = a.ITNREL
-                         and b.ITCORR = 0
-                         and b.ITCONT = 'S';
-                    exception
-                      when no_data_found then
-                        begin
-                            select 'Aplicativo'
-                              into tipodes
-                              from fsh016 a, fsh015 b
-                             where a.pgcod = 1
-                               and a.hcmod =489
-                               and a.htran in (951,360)
-                               and a.hfcon = j.fecha
-                               and a.hcta = r.hcta
-                               and a.hoper = j.operacion
-                               and a.hmodul = j.mod1
-                               and a.htoper = j.tipo1
-                               and b.PGCOD = a.pgcod
-                               and b.hSUCor = a.hsucor
-                               and b.hcMOD = a.hcMOD
-                               and b.htran = a.hTRAN
-                               and b.hNREL = a.hNREL
-                               and b.hfcon = a.hfcon
-                               and b.hcCORR = 0;
-                        exception  
-                           when no_Data_found then
-                              tipodes := 'Ventanilla';
-                        end;
-                   end;
-               end;
-            end;  
            BEgin
             select to_char(aofval,'yyyymmdd'), to_char(aofvto,'yyyymmdd'), (lpad(aocta,9,'0') || lpad(aooper,9,'0')),
                   (select scnom from fst001 where sucurs = aosuc)
@@ -1252,7 +1069,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                           0,----'Sobretasa'/*,    
                           '016',    
                           nrocredito,   
-                          tipodes, --numero tarjeta    
+                          null, --numero tarjeta    
                           fechavto1, --ult pago   
                           fechades1, --f afiliacion   
                           fechades1,    
