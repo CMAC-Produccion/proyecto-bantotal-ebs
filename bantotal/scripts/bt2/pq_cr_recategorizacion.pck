@@ -19,6 +19,7 @@ create or replace package PQ_CR_RECATEGORIZACION is
   --                              2024.05.09 dcastro se modificó procedimiento sp_generar_recate
   --                              2024.06.05 dcastro se modificó procedimiento fn_get_cantope, fn_get_mntdesem se modifico condicion de fecha
   --                              2025.04.15 dcastro se modificó procedimiento sp_nivel_analista
+  --                              2025.08.01 dcastro se modificó procedimiento sp_califi_analista y sp_generar_recate 
   -- *****************************************************************
 
   ------------------------------------------------------------------------------  
@@ -136,6 +137,7 @@ create or replace package body PQ_CR_RECATEGORIZACION is
              and f.aooper = a17.AQPB617AOPER 
              and (a17.aqpb617aase = RPAD(pv_codana, 10, ' ') or a17.aqpb617aase = pv_codana )
              and a17.aqpb617afpro = fecha_concatenacion
+             and f.aosbop <> 999 --se agrego subope <>999 2025.08.01
              and (f.aostat <> 99 or (f.aostat = 99 and f.aofe99 > fecha_concatenacion) );
                
        exception when others then
@@ -163,6 +165,7 @@ create or replace package body PQ_CR_RECATEGORIZACION is
                  and f.aooper = a17.AQPB617AOPER 
                  and (a17.aqpb617aase = RPAD(pv_codana, 10, ' ') or a17.aqpb617aase = pv_codana )
                  and a17.aqpb617afpro = fecha_concatenacion
+                 and f.aosbop <> 999 --se agrego subope <>999 2025.08.01
                  and (f.aostat <> 99 or (f.aostat = 99 and f.aofe99 > fecha_concatenacion) );
            exception when others then
                  cantidad_operaciones := 0;  
@@ -227,6 +230,7 @@ create or replace package body PQ_CR_RECATEGORIZACION is
              and f.aofval between  fecha_inimes and  fecha_concatenacion 
              and (a17.aqpb617aase = RPAD(pv_codana, 10, ' ') or a17.aqpb617aase = pv_codana )
              and a17.aqpb617afpro = fecha_concatenacion
+             and f.aosbop <> 999 --se agrego subope <>999 2025.08.01
              and ( (f.aostat <>99 ) or (f.aostat = 99 and f.aofe99 > fecha_concatenacion) );
        exception when others then
           suma_operaciones := 0;   
@@ -255,6 +259,7 @@ create or replace package body PQ_CR_RECATEGORIZACION is
              and f.aofval between  fecha_inimes and  fecha_concatenacion 
              and (a17.aqpb617aase = RPAD(pv_codana, 10, ' ') or a17.aqpb617aase = pv_codana )
              and a17.aqpb617afpro = fecha_concatenacion
+             and f.aosbop <> 999 --se agrego subope <>999 2025.08.01             
              and ( (f.aostat <>99 ) or (f.aostat = 99 and f.aofe99 > fecha_concatenacion) );
        exception when others then
           suma_operaciones := 0;   
@@ -461,19 +466,30 @@ create or replace package body PQ_CR_RECATEGORIZACION is
                                pn_defici  out number,
                                pn_dudoso  out number,
                                pn_perdida out number) is
+  --                              2025.08.01 dcastro se modificó procedimiento sp_califi_analista para obtener rcc
+                                
     my_errm   VARCHAR2(32000);
     ld_inimes date;
     ld_finmes date;
   
   begin
     --fechas
-    begin
+    /* 2025.07.25 dcastro se comento para obtener fecha de ultimo rcc   
+     begin
       ld_inimes := TRUNC(pd_fecha, 'MM');
       ld_finmes := last_day(pd_fecha);
     exception
       when others then
         my_errm := SQLERRM;
         return;
+    end;*/
+    begin
+     select to_date(TPNRO,'DD/MM/YYYY') 
+       into ld_finmes --2025.07.25
+       from fst098 
+      where tpcod = 7647 and tpcorr =12;
+    exception when others then
+      ld_finmes := null;
     end;
   
     begin
@@ -481,7 +497,7 @@ create or replace package body PQ_CR_RECATEGORIZACION is
         into pn_normal, pn_cpp, pn_defici, pn_dudoso, pn_perdida
         from cldrcci c
        where c.c_codsbs = pv_codsbs
-         and c.d_fecpre between ld_inimes and ld_finmes;
+         and c.d_fecpre = ld_finmes;
     exception
       when no_data_found then
         pn_normal  := 100;
@@ -568,6 +584,7 @@ create or replace package body PQ_CR_RECATEGORIZACION is
   ---2024.01.18 dcastro se comento exit 
   ---2024.04.24 dcastro se modifico procedimiento para obtener fecha de ascenso.
   ---2024.05.29 dcastro se modifico condicion >= por > para dias de suspencion.
+  -- 2025.08.01 dcastro se modificó procedimiento sp_generar_recate   
   
     my_errm VARCHAR2(32000);
   
@@ -1042,12 +1059,12 @@ create or replace package body PQ_CR_RECATEGORIZACION is
 se comento 2024.04.24*/
 
        for x in cambio_cargo(lc_CodAna,ld_FecPer,ld_finmes) loop
-           if ln_CodCat_inicio != x.jaqy830codcat then
+          --2025.08.04 if ln_CodCat_inicio != x.jaqy830codcat then
                  validacion_cambio_cargo := 'S';
                  ld_FecPer_cambio_cargo := add_months(x.jaqy830fini,ln_nummes); -- se considera desde la fecha de ascenso
                  ln_FecAsc := add_months(x.jaqy830fini,ln_nummes); --- se agrego
                  exit; --2024.04.17 
-           end if;
+          --2025.07.04 end if;
         end loop;
 
 
