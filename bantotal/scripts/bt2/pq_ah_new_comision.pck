@@ -1,8 +1,20 @@
 create or replace package PQ_AH_NEW_COMISION is
-
-  -- Author  : YLOZADA
-  -- Created : 18/03/2020 9:30:22 a. m.
-  -- Purpose : 
+   -- *****************************************************************
+    -- Nombre                     : PQ_AH_NEW_COMISION
+    -- Sistema                    : BANTOTAL
+    -- Módulo                     : Ahorros - Pasivas
+    -- Versión                    : 1.0
+    -- Fecha de Creación          : 18/03/2020
+    -- Autor de Creación          : Yrving Lozada Bustamante
+    -- Uso                        : Paquete de cobro de comisones a cuentas de ahorro y DPF
+    -- Estado                     : Activo
+    -- Acceso                     : Público
+    -- Parámetros de Entrada      : 
+    -- Retorno                    : 
+    -- Fecha de Modificación      : 19/08/2025
+    -- Autor de la Modificación   : Yrving Lozada
+    -- Descripción de Modificación: Se adicionó control para exonerar clientes discapacitados.
+    -- *****************************************************************  
   
 
   Procedure sp_ah_cal_comision(P_N_PGCOD  IN NUMBER,
@@ -440,7 +452,6 @@ create or replace package PQ_AH_NEW_COMISION is
                              ) return varchar2;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 end PQ_AH_NEW_COMISION;
 /
-
 create or replace package body PQ_AH_NEW_COMISION is
   Procedure sp_ah_cal_comision(P_N_PGCOD  IN NUMBER,
                                P_N_ITSUC  IN NUMBER,
@@ -6388,41 +6399,88 @@ create or replace package body PQ_AH_NEW_COMISION is
                          P_D_FECINI IN DATE,
                          P_D_FECFIN IN DATE
                          ) return number is
-  ln_tothis number(10):=0;                        
+  ln_tothis number(10):=0;   
+  lv_ctaesp char(1):='N';                     
   begin
-     --historico
-      Begin                       
-        select nvl(count(1), 0)
-          into ln_tothis
-          from fsh016 f, fsh015 h, aqpa109f a
-         where f.pgcod = h.pgcod
-           and f.hsucor = h.hsucor
-           and f.hcmod = h.hcmod
-           and h.hcmod = a.aqpa109fmod
-           and f.htran = h.htran
-           and h.htran = a.aqpa109ftrx
-           and f.hnrel = h.hnrel
-           and h.hfcon = f.hfcon
-           and f.hfcon between P_D_FECINI and P_D_FECFIN
-           and f.hcord = a.aqpa109ford
-           and h.hccorr <> 99
-           and f.pgcod = P_N_PGCOD
-           and f.hcta = P_N_CTNRO
-           and f.hoper = P_N_ITOPER
-           and f.hsubop = P_N_ITSUBO
-           and f.hmodul = P_N_MODULO
-           and f.hsucur = P_N_SUCDES
-           and f.htoper = P_N_ITTOPE
-           and f.hmda = P_N_MONEDA
-           and f.hpap = P_N_PAPEL
-           and f.pgcod = 1
-           and h.pgcod = 1
-           and a.aqpa109ftar = P_N_CODTAR
-           and f.hcimp4 = P_N_NUMMOV;
+      begin
+        select 'S'
+          into lv_ctaesp
+          from fst198 a 
+         where a.tp1cod   = 1
+           and a.tp1cod1  = 10825 
+           and a.tp1corr1 = 135
+           and a.tp1corr2 = 1
+           and a.tp1corr3 = P_N_CTNRO
+           and a.tp1nro1  = P_N_ITOPER
+           and a.tp1nro2  = P_N_ITSUBO
+           and a.tp1nro3  = P_N_ITTOPE
+           and a.tp1imp1  = P_N_MODULO
+           and a.tp1imp2  = P_N_SUCDES
+           and a.tp1imp3  = P_N_MONEDA;
       Exception
-      When others then
-           ln_tothis := 0;         
-      End;    
+      when others then     
+        lv_ctaesp := 'N';
+      end;
+      
+      if lv_ctaesp = 'N' then
+         --historico
+          Begin                       
+            select nvl(count(1), 0)
+              into ln_tothis
+              from fsh016 f, fsh015 h, aqpa109f a
+             where f.pgcod = h.pgcod
+               and f.hsucor = h.hsucor
+               and f.hcmod = h.hcmod
+               and h.hcmod = a.aqpa109fmod
+               and f.htran = h.htran
+               and h.htran = a.aqpa109ftrx
+               and f.hnrel = h.hnrel
+               and h.hfcon = f.hfcon
+               and f.hfcon between P_D_FECINI and P_D_FECFIN
+               and f.hcord = a.aqpa109ford
+               and h.hccorr <> 99
+               and f.pgcod = P_N_PGCOD
+               and f.hcta = P_N_CTNRO
+               and f.hoper = P_N_ITOPER
+               and f.hsubop = P_N_ITSUBO
+               and f.hmodul = P_N_MODULO
+               and f.hsucur = P_N_SUCDES
+               and f.htoper = P_N_ITTOPE
+               and f.hmda = P_N_MONEDA
+               and f.hpap = P_N_PAPEL
+               and f.pgcod = 1
+               and h.pgcod = 1
+               and a.aqpa109ftar = P_N_CODTAR
+               and f.hcimp4 = P_N_NUMMOV;
+          Exception
+          When others then
+               ln_tothis := 0;         
+          End;   
+      Else
+         --TABLA ESPECIAL DE MOVIMIENTOS
+          Begin                       
+            select nvl(count(1), 0)
+              into ln_tothis
+              from AQPC452 f,  aqpa109f a
+             where f.AQPC452PGC  = P_N_PGCOD
+               and f.AQPC452MDO  = a.aqpa109fmod
+               and f.AQPC452TRA  = a.aqpa109ftrx
+               and f.AQPC452ORD  = a.aqpa109ford
+               and f.AQPC452CTA  = P_N_CTNRO
+               and f.AQPC452OPE  = P_N_ITOPER
+               and f.AQPC452SBO  = P_N_ITSUBO
+               and f.AQPC452MOD  = P_N_MODULO
+               and f.AQPC452SUC  = P_N_SUCDES
+               and f.AQPC452TPO  = P_N_ITTOPE
+               and f.AQPC452MDA  = P_N_MONEDA
+               and f.AQPC452PAP  = P_N_PAPEL
+               and a.aqpa109ftar = P_N_CODTAR
+               and f.AQPC452IMP  = P_N_NUMMOV;
+          Exception
+          When others then
+               ln_tothis := 0;         
+          End;          
+      End If; 
   return ln_tothis;    
   end fn_ah_mov_his;  
   Function fn_ah_verif_monto(monto   in number,
@@ -6572,6 +6630,12 @@ create or replace package body PQ_AH_NEW_COMISION is
                                       P_N_CODCOM IN NUMBER,   
                                       P_N_CODCAN IN NUMBER                                                      
                                      )return varchar2 is
+  cursor c_titulares is
+  select * 
+    from fsr008 
+   where pgcod = 1 
+     and ctnro = P_N_CTNRO;
+                                           
   lc_indcob  char(1):='S';
   v_tipo   number;   
   v_cuenta number;
@@ -6638,16 +6702,19 @@ create or replace package body PQ_AH_NEW_COMISION is
                       and JAQL485FEF >= P_D_FECPRO
                       and JAQL485AX2  = P_N_CODCAN
                       and rownum < 2;
-                      return lc_indcob; 
+                      --return lc_indcob; 
                 exception 
                 when others then  
-                  return lc_indcob;        
+                  --return lc_indcob;        
+                  null;
                 end;
               else
-                return lc_indcob;                   
+                --return lc_indcob;                   
+                null;
               end if; 
           else
-            return lc_indcob;  
+            --return lc_indcob;  
+            null;
           end If;
         else
           begin
@@ -6673,10 +6740,11 @@ create or replace package body PQ_AH_NEW_COMISION is
                 and JAQL485FEF >= P_D_FECPRO
                 and JAQL485AX2  = P_N_CODCAN
                 and rownum < 2;
-                return lc_indcob; 
+                --return lc_indcob; 
           exception 
           when others then  
-            return lc_indcob;        
+            --return lc_indcob;        
+            null;
           end;                                         
         end If;                              
     else
@@ -6703,12 +6771,37 @@ create or replace package body PQ_AH_NEW_COMISION is
             and JAQL485FEF >= P_D_FECPRO
             and JAQL485AX2  = P_N_CODCAN
             and rownum < 2;
-            return lc_indcob; 
+            --return lc_indcob; 
       exception 
       when others then  
-        return lc_indcob;        
+        --return lc_indcob;        
+        null;
       end;       
-    end if;    
+    end if;  
+    
+    --VALIDAMOS SI LA CUENTA CLIENTE ES DE DISCAPACITADOS PARA EXONERAR COBRO DE COMISIÓN
+    if P_N_CODCOM in (1,2,3,6,7) and lc_indcob = 'S' then --comisiones a validar  
+      for i in c_titulares loop
+        begin
+          SELECT decode(trim(x.sngc70val),'7','S','N') 
+            into lc_indcob
+            FROM sngc70 x
+           WHERE x.sngc70atr  = 'DISCAPACIDAD'
+             and x.sngc11pais = i.pepais
+             and x.sngc11tdoc = i.petdoc
+             and x.sngc11ndoc = i.pendoc;
+        exception
+        when no_data_found then
+          lc_indcob := 'S';    
+        end; 
+        --BASTA QUE ALGUN INTEGRANTE DE LA CUENTA NO SEA DISCAPACITADO SE COBRA COMISIÓN
+        if lc_indcob = 'S' then
+           exit;
+        End If;           
+      End loop;       
+    End If;
+    --FIN  
+    return lc_indcob; 
   exception 
   when others then  
     return lc_indcob;
@@ -7745,6 +7838,7 @@ create or replace package body PQ_AH_NEW_COMISION is
     return 'S';                             
   End fn_ah_exonera_trx;                                                               
                                                                                                                                                                                                                                                                 
-end PQ_AH_NEW_COMISION;
+end PQ_AH_NEW_COMISION;                                  
+                                                         
+                                                         
 /
-
