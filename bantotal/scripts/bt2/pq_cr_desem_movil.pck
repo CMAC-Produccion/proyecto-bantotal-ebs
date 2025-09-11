@@ -9,79 +9,107 @@ CREATE OR REPLACE PACKAGE PQ_CR_DESEM_MOVIL is
   -- Uso                        :
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      :
-  -- Autor de Modificación      :
-  -- Descripción de Modificación:
+  -- Fecha de Modificación      : 14/07/2025
+  -- Autor de la Modificación   : eninah 
+  -- Descripción de Modificación: Se agregaron más parametros para el llamado a un nuevo sp_cr_registrar_AQPD163
+  -- Fecha de Modificación      : 05/08/2025
+  -- Autor de la Modificación   : eninah 
+  -- Descripción de Modificación: Se validó el funcionamiento del paquete
   --
   --  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   --  AQPA963PGCOD NUMBER(3), AQPA963ITSUC NUMBER(3), AQPA963ITMOD NUMBER(3), AQPA963ITTRAN NUMBER(3), AQPA963ITNREL NUMBER(4), AQPA963ITFCON DATE,
 
-  Procedure sp_cr_registra(pn_pgcod   in number,
-                           pn_itsuc   in number,
-                           pn_itmod   in number,
-                           pn_ittran  in number,
-                           pn_itnrel  in number,
-                           pd_itfcon  in date,
-                           pn_idarc   in number,
-                           pv_ituing  in varchar2,
-                           pv_ithora  in varchar2,
-                           pd_fproc   in date,
-                           pn_emp     in number,
-                           pn_suc     in number,
-                           pn_mod     in number,
-                           pn_mda     in number,
-                           pn_pap     in number,
-                           pn_cta     in number,
-                           pn_ope     in number,
-                           pn_sbo     in number,
-                           pn_top     in number,
-                           pn_inst    in number,
-                           pn_pais    in number,
-                           pn_tdoc    in number,
-                           pv_ndoc    in varchar2,
-                           pn_esfc    in number,
-                           pv_nomarc  in varchar2,
-                           pv_ruta    in varchar2,
-                           PV_TIPO    IN VARCHAR2,
-                           p_c_coderr out varchar2,
-                           p_c_deserr out varchar2);
+  Procedure sp_cr_registra(pn_pgcod    in number, -- 1
+                           pn_itsuc    in number, -- 2
+                           pn_itmod    in number, -- 3
+                           pn_ittran   in number, -- 4
+                           pn_itnrel   in number, -- 5
+                           pd_itfcon   in date, -- 6
+                           pn_idarc    in number, -- 7
+                           pv_ituing   in varchar2, -- 8
+                           pv_ithora   in varchar2, -- 9
+                           pd_fproc    in date, -- 10 
+                           pn_emp      in number, -- 11
+                           pn_suc      in number, -- 12
+                           pn_mod      in number, -- 13
+                           pn_mda      in number, -- 14
+                           pn_pap      in number, -- 15
+                           pn_cta      in number, -- 16
+                           pn_ope      in number, -- 17
+                           pn_sbo      in number, -- 18
+                           pn_top      in number, -- 19
+                           pn_inst     in number, -- 20 instancia
+                           pn_pais     in number, -- 21
+                           pn_tdoc     in number, -- 22
+                           pv_ndoc     in varchar2, -- 23 número de documento
+                           pn_esfc     in number, -- 24
+                           pv_nomarc   in varchar2, -- 25
+                           pv_ruta     in varchar2, -- 26
+                           PV_TIPO     IN VARCHAR2, --27
+                           pv_modo     in varchar2, -- 28 modo
+                           pv_codora   in varchar2, -- 29 codigo oracle
+                           pv_codban   in varchar2, -- 30 codigo bantotal
+                           pv_codori   in varchar2, -- 31 codigo origen
+                           pv_rutcompl in varchar2, -- 32 ruta completa
+                           p_c_coderr  out varchar2, -- 33
+                           p_c_deserr  out varchar2); --34
+
+  procedure sp_cr_registrar_AQPD167(PGCOD   in number,
+                                    ITSUC   in number,
+                                    ITMOD   in number,
+                                    ITTRAN  in number,
+                                    ITNREL  in number,
+                                    ITFCON  in date,
+                                    IDARC   in number,
+                                    INST    in number,
+                                    NUMDOC  in varchar2,
+                                    RTARCHV in varchar2,
+                                    MODO    in varchar2,
+                                    CODORA  in varchar2,
+                                    CODBANT in varchar2,
+                                    ORGN    IN VARCHAR2);
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
 end PQ_CR_DESEM_MOVIL;
 /
-
 CREATE OR REPLACE PACKAGE BODY PQ_CR_DESEM_MOVIL is
 
-  Procedure sp_cr_registra(pn_pgcod   in number,
-                           pn_itsuc   in number,
-                           pn_itmod   in number,
-                           pn_ittran  in number,
-                           pn_itnrel  in number,
-                           pd_itfcon  in date,
-                           pn_idarc   in number,
-                           pv_ituing  in varchar2,
-                           pv_ithora  in varchar2,
-                           pd_fproc   in date,
-                           pn_emp     in number,
-                           pn_suc     in number,
-                           pn_mod     in number,
-                           pn_mda     in number,
-                           pn_pap     in number,
-                           pn_cta     in number,
-                           pn_ope     in number,
-                           pn_sbo     in number,
-                           pn_top     in number,
-                           pn_inst    in number,
-                           pn_pais    in number,
-                           pn_tdoc    in number,
-                           pv_ndoc    in varchar2,
-                           pn_esfc    in number,
-                           pv_nomarc  in varchar2,
-                           pv_ruta    in varchar2,
-                           PV_TIPO    IN VARCHAR2,
-                           p_c_coderr out varchar2,
-                           p_c_deserr out varchar2) is
+  Procedure sp_cr_registra(pn_pgcod    in number, -- 1
+                           pn_itsuc    in number, -- 2
+                           pn_itmod    in number, -- 3
+                           pn_ittran   in number, -- 4
+                           pn_itnrel   in number, -- 5
+                           pd_itfcon   in date, -- 6
+                           pn_idarc    in number, -- 7
+                           pv_ituing   in varchar2, -- 8
+                           pv_ithora   in varchar2, -- 9
+                           pd_fproc    in date, -- 10
+                           pn_emp      in number, -- 11
+                           pn_suc      in number, -- 12
+                           pn_mod      in number, -- 13
+                           pn_mda      in number, -- 14
+                           pn_pap      in number, -- 15
+                           pn_cta      in number, -- 16
+                           pn_ope      in number, -- 17  
+                           pn_sbo      in number, -- 18
+                           pn_top      in number, -- 19
+                           pn_inst     in number, -- 20 instancia
+                           pn_pais     in number, -- 21
+                           pn_tdoc     in number, -- 22
+                           pv_ndoc     in varchar2, -- 23 numero de documento
+                           pn_esfc     in number, -- 24
+                           pv_nomarc   in varchar2, -- 25
+                           pv_ruta     in varchar2, -- 26
+                           PV_TIPO     IN VARCHAR2, -- 27
+                           pv_modo     in varchar2, -- 28 modo
+                           pv_codora   in varchar2, -- 29 codigo oracle
+                           pv_codban   in varchar2, -- 30 codigo bantotal
+                           pv_codori   in varchar2, -- 31 codigo origen
+                           pv_rutcompl in varchar2, -- 32 ruta completa
+                           p_c_coderr  out varchar2, -- 33
+                           p_c_deserr  out varchar2) -- 34 
+   is
   
     -- ******************************************************************************************************
     -- Nombre                     :
@@ -95,9 +123,12 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_DESEM_MOVIL is
     -- Acceso                     : PÚBLICO
     -- Par¿metros de Entrada      :
     -- Par¿metros de Salida       :
-    -- Fecha de Modificaci¿n      :
-    -- Autor de la Modificaci¿n   :
-    -- Descripci¿n de Modificaci¿n:
+    -- Fecha de Modificación      : 03/06/2025
+    -- Autor de la Modificación   : eninah 
+    -- Descripción de Modificación: Se agregaron más parametros para el llamado a un nuevo SP
+    -- Fecha de Modificación      : 05/08/2025
+    -- Autor de la Modificación   : eninah 
+    -- Descripción de Modificación: Se validó el funcionamiento del paquete
     --
     -- ********************************************************************************************************
   
@@ -181,8 +212,92 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_DESEM_MOVIL is
         p_c_deserr := sqlerrm;
     end;
   
+    begin
+      pq_cr_desem_movil.sp_cr_registrar_AQPD167(PGCOD   => pn_pgcod,
+                                                ITSUC   => pn_itsuc,
+                                                ITMOD   => pn_itmod,
+                                                ITTRAN  => pn_ittran,
+                                                ITNREL  => pn_itnrel,
+                                                ITFCON  => pd_itfcon,
+                                                IDARC   => pn_idarc,
+                                                INST    => pn_inst,
+                                                NUMDOC  => pv_ndoc,
+                                                RTARCHV => pv_rutcompl,
+                                                MODO    => pv_modo,
+                                                CODORA  => pv_codora,
+                                                CODBANT => pv_codban,
+                                                ORGN    => pv_codori);
+    exception
+      when others then
+        null;
+    end;
+  
   end sp_cr_registra;
+
+  procedure sp_cr_registrar_AQPD167(PGCOD   in number,
+                                    ITSUC   in number,
+                                    ITMOD   in number,
+                                    ITTRAN  in number,
+                                    ITNREL  in number,
+                                    ITFCON  in date,
+                                    IDARC   in number,
+                                    INST    in number,
+                                    NUMDOC  in varchar2,
+                                    RTARCHV in varchar2,
+                                    MODO    in varchar2,
+                                    CODORA  in varchar2,
+                                    CODBANT in varchar2,
+                                    ORGN    IN VARCHAR2) is
+  
+    codigo_oracle   varchar2(20);
+    codigo_bantotal varchar2(30);
+    codigo_origen   varchar2(30);
+    estado          varchar2(1);
+  begin
+    codigo_oracle   := trim(CODORA);
+    codigo_bantotal := trim(CODBANT);
+    codigo_origen   := trim(ORGN);
+    estado          := 'P';
+    begin
+      insert into AQPD167
+        (AQPD167PGCOD,
+         AQPD167ITSUC,
+         AQPD167ITMOD,
+         AQPD167ITTRAN,
+         AQPD167ITNREL,
+         AQPD167ITFCON,
+         AQPD167IDARC,
+         AQPD167INST,
+         AQPD167NUMDOC,
+         AQPD167RTARCHV,
+         AQPD167MODO,
+         AQPD167CODORA,
+         AQPD167CODBANT,
+         AQPD167CODORI,
+         AQPD167EST)
+      values
+        (PGCOD,
+         ITSUC,
+         ITMOD,
+         ITTRAN,
+         ITNREL,
+         ITFCON,
+         IDARC,
+         INST,
+         NUMDOC,
+         RTARCHV,
+         MODO,
+         codigo_oracle,
+         codigo_bantotal,
+         codigo_origen,
+         estado);
+      commit;
+    exception
+      when others then
+        null;
+    end;
+  
+  end sp_cr_registrar_AQPD167;
 
 end PQ_CR_DESEM_MOVIL;
 /
-
