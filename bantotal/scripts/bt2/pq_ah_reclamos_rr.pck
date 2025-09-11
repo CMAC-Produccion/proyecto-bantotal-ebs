@@ -9,9 +9,9 @@ CREATE OR REPLACE PACKAGE PQ_AH_RECLAMOS_RR IS
   -- Uso                        : GENRACION DE REPORTES RR
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.06.23
+  -- Fecha de Modificación      : 2025.07.15
   -- Modificado                 : CVILLON
-  -- Descripción                : Tiempo Promedio de Absolución (Redondeo)
+  -- Descripción                : Tiempo Promedio de Absolución (Redondeo normal)
   -- ***************************************************************************************
   ---*********
   PROCEDURE SP_AH_REP_RR1_GENERA_BASE(P_CREUSR IN VARCHAR,
@@ -188,9 +188,9 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_RR IS
   -- Uso                        : GENRACION DE REPORTES RR
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.06.23
+  -- Fecha de Modificación      : 2025.07.15
   -- Modificado                 : CVILLON
-  -- Descripción                : Tiempo Promedio de Absolución (Redondeo)
+  -- Descripción                : Tiempo Promedio de Absolución (Redondeo normal)
   -- ***************************************************************************************
   ---*********
   PROCEDURE SP_AH_REP_RR1_GENERA_BASE(P_CREUSR IN VARCHAR,
@@ -3507,10 +3507,10 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_RECLAMOS_RR IS
     ---***
     ln_TPAV := ln_DABSUM / ln_RECQTY;
     --ln_TPAR := FLOOR(ln_TPAV);
-    --ln_TPAR := ROUND(ln_TPAV);
-    ln_TPAR := CEIL(ln_TPAV);
-    P_TPAV  := ln_TPAV;
-    P_TPAR  := ln_TPAR;
+    ln_TPAR := ROUND(ln_TPAV);
+    --ln_TPAR := CEIL(ln_TPAV);
+    P_TPAV := ln_TPAV;
+    P_TPAR := ln_TPAR;
     IF (P_TPAV = 0) THEN
       P_TPAV := 1;
     END IF;

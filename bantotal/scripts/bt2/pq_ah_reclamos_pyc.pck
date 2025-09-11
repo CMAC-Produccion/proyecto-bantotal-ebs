@@ -9,9 +9,9 @@ CREATE OR REPLACE PACKAGE "PQ_AH_RECLAMOS_PYC" IS
   -- Uso                        : P&C
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.01.09
+  -- Fecha de Modificación      : 2025.07.15
   -- Modificado                 : CVILLON
-  -- Descripción                : Exportar ONR - TRX según GUIA
+  -- Descripción                : Exportar ONR con TDV - TRX según GUIA
   -- ***************************************************************************************
   ---***
 
@@ -56,10 +56,29 @@ CREATE OR REPLACE PACKAGE "PQ_AH_RECLAMOS_PYC" IS
                                     P_ERRCOD OUT VARCHAR,
                                     P_ERRMSG OUT VARCHAR);
 
-END PQ_AH_RECLAMOS_PYC;
- /* GOLDENGATE_DDL_REPLICATION */
-/
+  ---*** Obtiene con que TDV se realizo una TRX                                 
+  PROCEDURE SP_AH_OBTENER_TDV_TRX(P_PGCOD  IN NUMBER,
+                                  P_SUC    IN NUMBER,
+                                  P_MOD    IN NUMBER,
+                                  P_TRAN   IN NUMBER,
+                                  P_NREL   IN NUMBER,
+                                  P_FECHA  IN DATE,
+                                  P_TARJET OUT VARCHAR,
+                                  P_ERRCOD OUT VARCHAR,
+                                  P_ERRMSG OUT VARCHAR);
 
+  ---*** Exporta ONR de Cuentas al Sector ONR de P&C (Nueva Version)
+  PROCEDURE SP_AH_RECLAMO_ONR_TDV_CREAR(P_PGCOD  IN NUMBER,
+                                        P_PAI    IN NUMBER,
+                                        P_TDC    IN NUMBER,
+                                        P_NDC    IN VARCHAR,
+                                        P_CREC   IN VARCHAR,
+                                        P_ERRCOD OUT VARCHAR,
+                                        P_ERRMSG OUT VARCHAR);
+
+END PQ_AH_RECLAMOS_PYC;
+/* GOLDENGATE_DDL_REPLICATION */
+/
 CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
   -- ***************************************************************************************
   -- Nombre                     : PROCEDURES PARA LOS RECLAMOS DE ONR (Prevencion & Control)
@@ -71,9 +90,9 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
   -- Uso                        : P&C
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.01.09
+  -- Fecha de Modificación      : 2025.07.15
   -- Modificado                 : CVILLON
-  -- Descripción                : Exportar ONR - TRX según GUIA
+  -- Descripción                : Exportar ONR con TDV - TRX según GUIA
   -- ***************************************************************************************
   ---***
 
@@ -1011,7 +1030,376 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
       ---***
   END SP_AH_RECLAMO_ONR_CREAR;
 
-END PQ_AH_RECLAMOS_PYC;
- /* GOLDENGATE_DDL_REPLICATION */
-/
+  ---*** Obtiene con que TDV se realizo una TRX                                 
+  PROCEDURE SP_AH_OBTENER_TDV_TRX(P_PGCOD  IN NUMBER,
+                                  P_SUC    IN NUMBER,
+                                  P_MOD    IN NUMBER,
+                                  P_TRAN   IN NUMBER,
+                                  P_NREL   IN NUMBER,
+                                  P_FECHA  IN DATE,
+                                  P_TARJET OUT VARCHAR,
+                                  P_ERRCOD OUT VARCHAR,
+                                  P_ERRMSG OUT VARCHAR) IS
+  
+    ---*********
+    ld_HOY DATE;
+    ---*********
+  
+  BEGIN
+    ---*** 
+    P_ERRCOD := '000';
+    P_ERRMSG := '';
+    ---***
+    BEGIN
+      SELECT PGFAPE INTO ld_HOY FROM FST017 WHERE PGCOD = 1;
+    EXCEPTION
+      WHEN OTHERS THEN
+        RETURN;
+    END;
+    ---***
+    P_TARJET := 'TRX-NF';
+    ---***
+  
+    --- 66 -> FSH016/FSD016
+    -- Debe ser P_FECHA < ld_HOY, Pero para DESA <>
+    IF (P_MOD = 66) THEN
+      IF (P_FECHA <> ld_HOY) THEN
+        BEGIN
+          SELECT SUBSTR(TRIM(HCREF), 0, 16)
+            INTO P_TARJET
+            FROM FSH016
+           WHERE PGCOD = P_PGCOD
+             AND HSUCOR = P_SUC
+             AND HCMOD = P_MOD
+             AND HTRAN = P_TRAN
+             AND HNREL = P_NREL
+             AND HFCON = P_FECHA
+             AND HCREF IS NOT NULL
+             AND HCREF <> ' '
+             AND HCREF LIKE '42%';
+        EXCEPTION
+          WHEN OTHERS THEN
+            P_TARJET := 'TDV-NF';
+        END;
+      END IF;
+      -- Diario 
+      IF (P_FECHA = ld_HOY) THEN
+        BEGIN
+          SELECT SUBSTR(TRIM(ITREF), 0, 16)
+            INTO P_TARJET
+            FROM FSD016
+           WHERE PGCOD = P_PGCOD
+             AND ITSUC = P_SUC
+             AND ITMOD = P_MOD
+             AND ITTRAN = P_TRAN
+             AND ITNREL = P_NREL
+             AND ITREF IS NOT NULL
+             AND ITREF <> ' '
+             AND ITREF LIKE '42%';
+        EXCEPTION
+          WHEN OTHERS THEN
+            P_TARJET := 'TDV-NF';
+        END;
+      END IF;
+    END IF;
+  
+    --- 489,140 -> FSX015
+    IF (P_MOD = 489 OR P_MOD = 140) THEN
+      BEGIN
+        SELECT SUBSTR(TRIM(TXTEXT), 0, 16)
+          INTO P_TARJET
+          FROM FSX015
+         WHERE PGCOD = P_PGCOD
+           AND HSUCOR = P_SUC
+           AND HCMOD = P_MOD
+           AND HTRAN = P_TRAN
+           AND HNREL = P_NREL
+           AND HFCON = P_FECHA
+           AND TXCOD = 100
+           AND TXTEXT IS NOT NULL
+           AND TXTEXT <> ' '
+           AND TXTEXT LIKE '42%'
+           AND ROWNUM = 1;
+      EXCEPTION
+        WHEN OTHERS THEN
+          P_TARJET := 'TDV-NF';
+      END;
+    END IF;
+  
+    --- 490 -> JAQL006
+    IF (P_MOD = 490) THEN
+      BEGIN
+        SELECT SUBSTR(TRIM(JAQL6NUTAR), 0, 16)
+          INTO P_TARJET
+          FROM JAQL006
+         WHERE JAQL6FETRA = P_FECHA
+           AND JAQL6CTCOD = P_PGCOD
+           AND JAQL6CTSUC = P_SUC
+           AND JAQL6CTMOD = P_MOD
+           AND JAQL6CTTRA = P_TRAN
+           AND JAQL6CTREL = P_NREL
+           AND JAQL6NUTAR IS NOT NULL
+           AND JAQL6NUTAR <> ' '
+           AND JAQL6NUTAR LIKE '42%'
+           AND ROWNUM = 1;
+      EXCEPTION
+        WHEN OTHERS THEN
+          P_TARJET := 'TDV-NF';
+      END;
+    END IF;
+  
+    --- 493 -> JAQL674
+    IF (P_MOD = 493) THEN
+      BEGIN
+        SELECT SUBSTR(TRIM(JAQL674NUTAR), 0, 16)
+          INTO P_TARJET
+          FROM JAQL674
+         WHERE JAQL674FETRA = P_FECHA
+           AND JAQL674CTCOD = P_PGCOD
+           AND JAQL674CTSUC = P_SUC
+           AND JAQL674CTMOD = P_MOD
+           AND JAQL674CTTRA = P_TRAN
+           AND JAQL674CTREL = P_NREL
+           AND JAQL674NUTAR IS NOT NULL
+           AND JAQL674NUTAR <> ' '
+           AND JAQL674NUTAR LIKE '42%'
+           AND ROWNUM = 1;
+      EXCEPTION
+        WHEN OTHERS THEN
+          P_TARJET := 'TDV-NF';
+      END;
+    END IF;
+  
+    --- 50 -> FSX016
+    IF (P_MOD = 50) THEN
+      BEGIN
+        SELECT SUBSTR(TRIM(TXTORD), 0, 16)
+          INTO P_TARJET
+          FROM FSX016
+         WHERE PGCOD = P_PGCOD
+           AND HSUCOR = P_SUC
+           AND HCMOD = P_MOD
+           AND HTRAN = P_TRAN
+           AND HNREL = P_NREL
+           AND HFCON = P_FECHA
+           AND TXTORD IS NOT NULL
+           AND TXTORD <> ' '
+           AND TXTORD LIKE '42%'
+           AND ROWNUM = 1;
+      EXCEPTION
+        WHEN OTHERS THEN
+          P_TARJET := 'TDV-NF';
+      END;
+    END IF;
+  
+  END SP_AH_OBTENER_TDV_TRX;
 
+  PROCEDURE SP_AH_RECLAMO_ONR_TDV_CREAR(P_PGCOD  IN NUMBER,
+                                        P_PAI    IN NUMBER,
+                                        P_TDC    IN NUMBER,
+                                        P_NDC    IN VARCHAR,
+                                        P_CREC   IN VARCHAR,
+                                        P_ERRCOD OUT VARCHAR,
+                                        P_ERRMSG OUT VARCHAR) IS
+    ---***
+    lc_NDC             CHAR(12);
+    ln_CheckTRX        NUMBER(3);
+    lv_Establecimiento VARCHAR(90);
+    lv_CODAUTH         VARCHAR(20);
+    lv_TARJET          VARCHAR(30);
+    ---***
+    ln_CANAL  NUMBER(3);
+    ln_ORD    NUMBER(2);
+    lv_ERRMSG VARCHAR(600);
+    ---***
+  BEGIN
+    ---***
+    P_ERRCOD  := '000';
+    P_ERRMSG  := '';
+    lc_NDC    := TRIM(P_NDC);
+    lv_ERRMSG := '-';
+    ---***
+    ---*** Eliminamos previamente posibles registros
+    DELETE FROM JAQZ759
+     WHERE JAQZ759PAI = P_PAI
+       AND JAQZ759TDC = P_TDC
+       AND JAQZ759NDC = lc_NDC
+       AND JAQZ759CREC = P_CREC;
+    COMMIT;
+    ---***
+    FOR XROW IN (SELECT *
+                   FROM AQPB545
+                  WHERE AQPB545PGCOD = P_PGCOD
+                    AND AQPB545PAI = P_PAI
+                    AND AQPB545TDC = P_TDC
+                    AND AQPB545NDC = lc_NDC
+                    AND AQPB545CREC = P_CREC) LOOP
+      ---***
+      ---*** SOLO SI LA OPERACION ESTA EN LA GUIA DE TRX CON TDV
+      ---***
+      ln_CANAL := 0;
+      ln_ORD   := 0;
+      ---***
+      BEGIN
+        SELECT TP1CORR1, TP1NRO3
+          INTO ln_CANAL, ln_ORD
+          FROM FST198
+         WHERE TP1COD = 1
+           AND TP1COD1 = 11009
+           AND TP1NRO1 = XROW.AQPB545MOD
+           AND TP1NRO2 = XROW.AQPB545TRAN
+           AND ROWNUM = 1;
+      EXCEPTION
+        WHEN OTHERS THEN
+          ln_CANAL := 0;
+      END;
+    
+      IF (ln_CANAL = 0) THEN
+        P_ERRCOD := '003';
+      
+        IF (NVL(TRIM(lv_ERRMSG), '-') = '-') THEN
+          lv_ERRMSG := '(ONR) TRX No Parametrizadas: ' || XROW.AQPB545MOD || '/' ||
+                       XROW.AQPB545TRAN;
+        ELSE
+          lv_ERRMSG := lv_ERRMSG || '; ' || XROW.AQPB545MOD || '/' ||
+                       XROW.AQPB545TRAN;
+        END IF;
+        ---***
+        CONTINUE;
+        ---***
+      ELSE
+        ---*** Tarjeta de la TRX
+        ---***
+        SP_AH_OBTENER_TDV_TRX(P_PGCOD,
+                              XROW.AQPB545SUCOR,
+                              XROW.AQPB545MOD,
+                              XROW.AQPB545TRAN,
+                              XROW.AQPB545NREL,
+                              XROW.AQPB545FCON,
+                              lv_TARJET,
+                              P_ERRCOD,
+                              P_ERRMSG);
+      
+        ---***
+        ---*** ESTABLECIMIENTO
+        BEGIN
+          SELECT TRIM(TXTORD)
+            INTO lv_Establecimiento
+            FROM FSX016
+           WHERE PGCOD = 1
+             AND Hcmod = XROW.AQPB545MOD
+             AND Hsucor = XROW.AQPB545SUCOR
+             AND Htran = XROW.AQPB545TRAN
+             AND Hnrel = XROW.AQPB545NREL
+             AND Hfcon = XROW.AQPB545FCON
+             AND Hcord = XROW.AQPB545ORD
+             AND Hcsubo = XROW.AQPB545SUBOP
+             AND Txcod = 173
+             AND Txoren = 1;
+        EXCEPTION
+          WHEN OTHERS THEN
+            lv_Establecimiento := '-';
+        END;
+        ---*** Cod Auth
+        BEGIN
+          SELECT TRIM(TXTORD)
+            INTO lv_CODAUTH
+            FROM FSX016
+           WHERE PGCOD = 1
+             AND Hcmod = XROW.AQPB545MOD
+             AND Hsucor = XROW.AQPB545SUCOR
+             AND Htran = XROW.AQPB545TRAN
+             AND Hnrel = XROW.AQPB545NREL
+             AND Hfcon = XROW.AQPB545FCON
+             AND Hcord = XROW.AQPB545ORD
+             AND Hcsubo = XROW.AQPB545SUBOP
+             AND Txcod = 174
+             AND Txoren = 1;
+        EXCEPTION
+          WHEN OTHERS THEN
+            lv_CODAUTH := '-';
+        END;
+      
+        INSERT INTO JAQZ759
+          (JAQZ759NTAR,
+           JAQZ759PAI,
+           JAQZ759TDC,
+           JAQZ759NDC,
+           JAQZ759CMOD,
+           JAQZ759SUCOR,
+           JAQZ759TRAN,
+           JAQZ759NREL,
+           JAQZ759CORD,
+           JAQZ759FCON,
+           JAQZ759CREC,
+           JAQZ759CIMP1,
+           JAQZ759MODUL,
+           JAQZ759OPER,
+           JAQZ759SCT,
+           JAQZ759CTA,
+           JAQZ759PAP,
+           JAQZ759MDA,
+           JAQZ759SUCUR,
+           JAQZ759TOPER,
+           JAQZ759MOD,
+           JAQZ759IMP,
+           JAQZ759EST,
+           JAQZ759CAN,
+           JAQZ759EXT,
+           JAQZ759HRC,
+           JAQZ759TIPOLO,
+           JAQZ759CODAUT,
+           JAQZ759ESTABL,
+           JAQZ759PAGORA,
+           JAQZ759DEVOLU,
+           JAQZ759VCTA)
+        VALUES
+          (lv_TARJET,
+           XROW.AQPB545PAI,
+           XROW.AQPB545TDC,
+           XROW.AQPB545NDC,
+           XROW.AQPB545MOD,
+           XROW.AQPB545SUCOR,
+           XROW.AQPB545TRAN,
+           XROW.AQPB545NREL,
+           ln_ORD,
+           XROW.AQPB545FCON,
+           XROW.AQPB545CREC,
+           XROW.AQPB545IMP1,
+           XROW.AQPB545MODUL,
+           XROW.AQPB545OPER,
+           XROW.AQPB545SUBOP,
+           XROW.AQPB545CTA,
+           XROW.AQPB545PAP,
+           XROW.AQPB545MDA,
+           XROW.AQPB545SUCUR,
+           XROW.AQPB545TOPER,
+           6,
+           0,
+           101,
+           ln_CANAL,
+           0,
+           XROW.AQPB545HORA,
+           14,
+           lv_CODAUTH,
+           lv_Establecimiento,
+           3,
+           1,
+           XROW.AQPB545AUCHA1);
+      END IF;
+    END LOOP;
+    ---***
+    P_ERRMSG := lv_ERRMSG;
+    ---***
+    COMMIT;
+    ---***
+  EXCEPTION
+    WHEN OTHERS THEN
+      ---***
+      P_ERRCOD := '001';
+      P_ERRMSG := sqlcode || ' ->>> ' || sqlerrm;
+      ---***
+  END SP_AH_RECLAMO_ONR_TDV_CREAR;
+
+END PQ_AH_RECLAMOS_PYC;
+/
