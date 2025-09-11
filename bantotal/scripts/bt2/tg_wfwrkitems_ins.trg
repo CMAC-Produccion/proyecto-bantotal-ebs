@@ -1,4 +1,4 @@
-CREATE OR REPLACE TRIGGER TG_WFWRKITEMS_INS
+CREATE OR REPLACE TRIGGER BANTPROD.TG_WFWRKITEMS_INS
   after insert on WFWRKITEMS
   for each row
 
@@ -17,9 +17,9 @@ CREATE OR REPLACE TRIGGER TG_WFWRKITEMS_INS
 -- Autor de Modificación      : Jeankharlo Pinto Espejo - CAJA AREQUIPA
 -- Descripción de Modificación: Se adicionó el analista al que pertenece el crédito al mensaje enviado por correo
 --								por requerimiento del Gerente Regional Arequipa y aprobacion de Eduardo Zanabria.
--- Fecha de Modificación      :
--- Autor de Modificación      :
--- Descripción de Modificación:
+-- Fecha de Modificación      : 04/09/2025
+-- Autor de Modificación      : Sergio Gamero
+-- Descripción de Modificación: Se eliminan trims que invalidan el uso del indice
 -- ********************************************************************************************************
 
 DECLARE
@@ -114,7 +114,7 @@ BEGIN
     select ubsuc
       into ln_usrsuc
       from fst046
-     where trim(upper(ubuser)) = upper(trim(lv_usrins));
+     where ubuser = rpad(upper(lv_usrins), 10);
 	exception
       when others then
         ln_usrsuc := 0;
@@ -125,7 +125,7 @@ BEGIN
     select sng055car
       into ln_carapr
       from sng057
-     where trim(upper(sng057usr)) = upper(trim(lv_usrins));
+     where sng057usr = rpad(upper(lv_usrins), 10);
 	exception
       when others then
         ln_carapr := 0;
@@ -213,4 +213,3 @@ exception
 
 END TG_WFWRKITEMS_INS;
 /
-

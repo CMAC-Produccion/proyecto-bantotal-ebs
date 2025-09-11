@@ -19,6 +19,8 @@ create or replace package PQ_CL_ALERTAS is
   -- Autor de Modificación      : Yrving Lozada
   -- Fecha de Modificación      : 10/07/2025 Se creo la funcion para retornar logica de celular
   -- Autor de Modificación      : Yrving Lozada    
+  -- Fecha de Modificación      : 18/08/2025 Se creo procedimiento para deshabilitar alugnos tipo de mensajes.
+  -- Autor de Modificación      : rcastro   
   -- *****************************************************************  
 
   Procedure sp_genera_scheduler;
@@ -52,6 +54,8 @@ Procedure SP_AH_MAIL(P_N_PAIS   IN NUMBER,
                      P_C_NUMDOC IN VARCHAR2,    
                      p_c_correo out varchar2
                     );
+                    
+PROCEDURE SP_CR_DESHAB_ENVIO_TIPOMSG(P_AQPA142TIM NUMBER, O_FLG_DESHABILT OUT VARCHAR2);                    
 end PQ_CL_ALERTAS;
 /
 create or replace package body PQ_CL_ALERTAS is
@@ -1279,6 +1283,31 @@ begin
 exception
 when others then
   p_c_correo := null;        
-end SP_AH_MAIL;                                 
+end SP_AH_MAIL;    
+
+PROCEDURE SP_CR_DESHAB_ENVIO_TIPOMSG(P_AQPA142TIM NUMBER, O_FLG_DESHABILT OUT VARCHAR2) IS
+BEGIN
+   BEGIN
+      SELECT 'S' INTO O_FLG_DESHABILT  FROM FST198 WHERE 
+      Tp1cod = 1           AND  
+      Tp1cod1 = 11152      AND
+      Tp1corr1 =  312 AND
+      Tp1corr2 = 1 AND
+      Tp1corr3 > 0 AND
+      TP1NRO1 = P_AQPA142TIM ;
+   EXCEPTION
+     WHEN OTHERS THEN
+       O_FLG_DESHABILT := 'N';   
+   END;
+   
+   O_FLG_DESHABILT := NVL(O_FLG_DESHABILT, 'N');
+
+EXCEPTION
+WHEN OTHERS THEN
+  NULL;  
+END;
+
+
+                             
 end PQ_CL_ALERTAS;
 /
