@@ -57,6 +57,9 @@ create or replace package "PQ_CV_MONITOREO_ACF_MB" is
   -- Fecha de Modificación : 03/06/2025
   -- Autor de Modificación : Danny Manrique Callata
   -- Descripción Modific.  : Se agrega transaccion 38 y 41 (copias de la 37 y 31 respectivamente)
+  -- Fecha de Modificación : 21/07/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se añade en campo 43 la descripción de transferencias a Celular
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --// Entrada Principal 
@@ -758,6 +761,9 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
   -- Fecha de Modificación : 03/06/2025
   -- Autor de Modificación : Danny Manrique Callata
   -- Descripción Modific.  : Se agrega transaccion 38 y 41 (copias de la 37 y 31 respectivamente)
+  -- Fecha de Modificación : 21/07/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se añade en campo 43 la descripción de transferencias a Celular
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --//
@@ -2624,7 +2630,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
         lc_cmp012 := '27'; -- Transferencia recibida
       -- rcuadros - FIN 18/05/2023
       -- jlunaf 28/03/2023 - Se añade transaccion 11, 12 (Transf. Tipo de Cambio)
-      when pn_ittran in (15, 10, 11, 12) then --jlunaf 16/05/2022 - Se añade transacción 10
+      --dmanriquec 25/07/2025 - se añade las transacciones 16 y 18 (Transferencias por contacto internas)
+      when pn_ittran in (15, 10, 11, 12,16,18) then --jlunaf 16/05/2022 - Se añade transacción 10
         lc_cmp012 := '40'  ; --Transferencia mismo banco (terceros)
       --rcuadros 21/04/2025 - Transferencias al exterior 70
       when pn_ittran in (20, 21, 70) then --Dmanriquec - 08/04/2024 - Se añade transaccion 21 - diferidas M/T
@@ -3456,7 +3463,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
       --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
       --rcuadros 21/04/2025 - Transferencias al exterior 70
       --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
-      when pn_ittran in (15,20,21,10,11,12,30,31,32,33,37,70,38,41) then 
+      --dmanriquec 25/07/2025 - se añade las transacciones 16 y 18 (Transferencias por contacto internas)
+      when pn_ittran in (15,20,21,10,11,12,30,31,32,33,37,70,38,41,16,18) then 
           --Trans. internas 10, 11, 12
           --Trans. terceros CM 15
           --Transf CCE otro tit-CajaMovil 20
@@ -3548,6 +3556,9 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
         Destino := 'produccion@cajaarequipa.pe';
         DestinoCC := 'dmanriquec@cajaarequipa.pe;hlaqui@cajaarequipa.pe;saybar@cajaarequipa.pe;ecarlos@cajaarequipa.pe';
         Emisor := 'alertamonitoreo@cajaarequipa.pe';
+        --Destino := 'rcuadros@cajaarequipa.pe';
+        --DestinoCC := 'dmanriquec@cajaarequipa.pe';
+        --Emisor := 'test@cajaarequipa.pe';
         Asunto := 'Revisar Monitoreo Unibanca - btprod';
         Mensaje := '<html>
                       <head><style type="text/css">p{margin:0;}</style></head>
@@ -3599,6 +3610,7 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
     Emisor varchar2(100);
     Asunto varchar2(100);
     Mensaje CLOB;
+    lc_titular varchar2(2);
   begin
     --Hlaqui 06/03/2022
     case 
@@ -3612,7 +3624,23 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
       --hlaqui 26/09/2024 - Se añade transaccion 37 (Transf. Cel)
       --rcuadros 21/04/2025 - Transferencias al exterior 70
       --dmanriquec 03/06/2025 - Se añade las transacciones 38 y 41(copias de la 37 y 31 respectivamente)
-      when pn_ittran in (15,20,21,30,10,11,12,31,32,33,37,70,38,41) then
+      --dmanriquec 25/07/2025 - se añade las transacciones 16 y 18 (Transferencias por contacto internas)
+      
+      /*when pn_ittran in (32,33,37,38) then --16,18 se quitan por que no hay como identificar si es MT/OT
+           --Buscar el tipo de transacción
+           select case
+                   when a.JAQL706CLAS = 'O' then 'OT' 
+                   else 'MT'
+                   end                  
+           into lc_titular 
+           from JAQL706 a 
+           where a.JAQL706ITCD = pn_pgcod 
+           and JAQL706ITSU  = pn_itsuc
+           and JAQL706ITMO  = pn_itmod
+           and JAQL706ITTR  = pn_ittran
+           and JAQL706ITRE  = pn_itnrel
+           and JAQL706ITFC  = ld_fectra; */
+      when pn_ittran in (15,20,21,30,10,11,12,31,32,33,37,70,38,41,16,18) then
           --Trans. internas 10, 11, 12
           --Trans. terceros CM 15
           --Transf CCE otro tit-CajaMovil 20
@@ -3635,7 +3663,21 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
              End If;
           End If;*/
           --KIOS 
-          
+          If pn_ittran in (32,33,37,38) then
+             select pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;  
+             select case
+                     when a.JAQL706CLAS = 'O' then 'OT' 
+                     else 'MT'
+                     end                  
+             into lc_titular 
+             from JAQL706 a 
+             where a.JAQL706ITCD = pn_pgcod 
+             and JAQL706ITSU  = pn_itsuc
+             and JAQL706ITMO  = pn_itmod
+             and JAQL706ITTR  = pn_ittran
+             and JAQL706ITRE  = pn_itnrel
+             and JAQL706ITFC  = ld_fectra; 
+          End If;
           case
             when pn_itmod = 489 then
               lc_cmp042 := 'AQPAPP ';
@@ -3660,11 +3702,13 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
             When pn_ittran in (30) then
                  lc_cmp042 := lc_cmp042 || 'TIN OT'; -- INMEDIATAS Otro Titular
             When pn_ittran in (32,37,38) then
-                 lc_cmp042 := lc_cmp042 || 'CONTACT'; -- TRANSF A CONTACTO
+                 lc_cmp042 := lc_cmp042 || 'CONTACT ' || lc_titular; -- TRANSF A CONTACTO
             When pn_ittran in (33) then
-                 lc_cmp042 := lc_cmp042 || 'CONTACT'; -- YP-PLIN
+                 lc_cmp042 := lc_cmp042 || 'CONTACT ' || lc_titular; -- YP-PLIN
             When pn_ittran in (70) then
                  lc_cmp042 := lc_cmp042 || 'TRF EXT'; -- Transferencia exterior
+            When pn_ittran in (16,18) then
+                 lc_cmp042 := lc_cmp042 || 'CONTACT ' || lc_titular; -- Contacto Internas (Se pone separado por si solicitan cambiar la descripción)
           end case;
           --dmanriquec 18/11/2024
           
@@ -3724,6 +3768,10 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
         Destino := 'produccion@cajaarequipa.pe';
         DestinoCC := 'dmanriquec@cajaarequipa.pe;hlaqui@cajaarequipa.pe;saybar@cajaarequipa.pe;ecarlos@cajaarequipa.pe';
         Emisor := 'alertamonitoreo@cajaarequipa.pe';
+        --Destino := 'rcuadros@cajaarequipa.pe';
+        --DestinoCC := 'dmanriquec@cajaarequipa.pe';
+        --Emisor := 'test@cajaarequipa.pe';
+        Asunto := 'Revisar Monitoreo Unibanca - btprod';
         Asunto := 'Revisar Monitoreo Unibanca - btprod';
         Mensaje := '<html>
                       <head><style type="text/css">p{margin:0;}</style></head>
@@ -3767,9 +3815,94 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
     lc_cmp043 varchar2(100) := 'PE';
     lc_paisdestino char(3) := '';
     ld_fectra date;
+    lc_modo char(3) := 'CON';
+    lc_BancoDestino number := 0;
+    lc_DescBanco Char(10):= '';
   begin
     --jlunaf 16/05/2022 - Se añade case para evualuar nuevas transacciones
+    select pgfape into ld_fectra from fst017 b1 where b1.pgcod = 1;  
     case
+        when pn_ittran in (31,41,30) then -- 31:TIN LINEA M/T 41:TIN LINEA M/T, TIN LINEA O/T 32-37-38:CELULAR  33:YPP
+             --Buscar el tipo de transacción
+             select case
+                     when a.JAQL706MTRX = 'CQR' then 'QR'
+                     when a.JAQL706MTRX = 'CCL' then 'CEL'
+                     else 'CCI'
+                     end                  
+             into lc_modo 
+             from JAQL706 a 
+             where a.JAQL706ITCD = pn_pgcod 
+             and JAQL706ITSU  = pn_itsuc
+             and JAQL706ITMO  = pn_itmod
+             and JAQL706ITTR  = pn_ittran
+             and JAQL706ITRE  = pn_itnrel
+             and JAQL706ITFC  = ld_fectra; 
+             --Buscar el tipo de transacción
+             select a.jaql706bcde                 
+             into lc_BancoDestino 
+             from JAQL706 a 
+             where a.JAQL706ITCD = pn_pgcod 
+             and JAQL706ITSU  = pn_itsuc
+             and JAQL706ITMO  = pn_itmod
+             and JAQL706ITTR  = pn_ittran
+             and JAQL706ITRE  = pn_itnrel
+             and JAQL706ITFC  = ld_fectra; 
+             
+             select trim(a.Tp1desc)
+             into lc_DescBanco
+             from FST198 a
+             Where a.tp1cod = 1
+             and a.tp1cod1 = 11170
+             and a.tp1corr1 = 25
+             and a.tp1corr2 = 1
+             and a.tp1corr3 = lc_BancoDestino;
+        
+             lc_cmp043 := lc_modo || ' ' || lc_DescBanco;
+             
+        when pn_ittran in (32,33,37,38) then -- 31:TIN LINEA M/T 41:TIN LINEA M/T, TIN LINEA O/T 32-37-38:CELULAR  33:YPP
+             --Buscar el tipo de transacción
+             select case
+                     when a.JAQL706DIR = 901 then 'YP'--YAPE
+                     when a.JAQL706DIR = 902 then 'PL'--PLIN
+                     when a.JAQL706DIR = 904 then 'BIM'--BIM
+                     when a.JAQL706DIR = 922 then 'DLE'--DALE
+                     else 'CCE'
+                     end                  
+             into lc_modo 
+             from JAQL706 a 
+             where a.JAQL706ITCD = pn_pgcod 
+             and JAQL706ITSU  = pn_itsuc
+             and JAQL706ITMO  = pn_itmod
+             and JAQL706ITTR  = pn_ittran
+             and JAQL706ITRE  = pn_itnrel
+             and JAQL706ITFC  = ld_fectra; 
+             --Buscar el tipo de transacción
+             select a.jaql706bcde                 
+             into lc_BancoDestino 
+             from JAQL706 a 
+             where a.JAQL706ITCD = pn_pgcod 
+             and JAQL706ITSU  = pn_itsuc
+             and JAQL706ITMO  = pn_itmod
+             and JAQL706ITTR  = pn_ittran
+             and JAQL706ITRE  = pn_itnrel
+             and JAQL706ITFC  = ld_fectra; 
+             
+             select trim(a.Tp1desc)
+             into lc_DescBanco
+             from FST198 a
+             Where a.tp1cod = 1
+             and a.tp1cod1 = 11170
+             and a.tp1corr1 = 25
+             and a.tp1corr2 = 1
+             and a.tp1corr3 = lc_BancoDestino;
+        
+             lc_cmp043 := lc_modo || ' ' || lc_DescBanco;
+        -- DMANRIQUEC inicio 07/08/2025
+        --dmanriquec 25/07/2025 - se añade las transacciones 16 y 18 (Transferencias por contacto internas)
+        when pn_ittran in (16) then
+             lc_cmp043 := 'CCE INT AQP';
+        when pn_ittran in (18) then  
+             lc_cmp043 := 'CCE INT PLIN';
         -- rcuadros inicio 18/05/2023
         when pn_ittran in (10, 15) and pn_itord = 20 then -- Transacciones: 10 - tranferencias propias, 15 - transf terceros
              If pn_itmod = 489 then

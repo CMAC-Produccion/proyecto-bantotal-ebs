@@ -14,9 +14,9 @@ create or replace package pq_cn_reportes is
   -- Descripcion Modificacion: Se añade reportes de transacción de ATM. 
   ----sp_reporte_transaccion_ATM: reporte Transacciones aprobadas en el Switch Transacional FTS sin confirmación de respuesta del ATM 	
   ----sp_reporte_transaccion_ATM_02: 	Reporte Transacciones aprobadas en el Switch Transaccional FTS con generación de código de error (fraude).
-  -- Autor Modificacion: 
-  -- Fecha Modificacion:
-  -- Descripcion:
+  -- Autor Modificacion: Frank Pinto Carpio
+  -- Fecha Modificacion: 13/08/2025
+  -- Descripcion: se aumenta en rteporte cajamovil el tipo de documento en subconsulta
   procedure sp_reporte_limites(p_c_Codusu varchar2, p_d_FecIni date, p_d_FecFin date, p_c_numtar varchar2, p_c_error out varchar2);
   procedure sp_reporte_cajamovil(pd_fecini in date, pd_fecfin in date, pn_tiprep in number);
   procedure sp_reporte_trama745(pd_fecha in date);
@@ -31,7 +31,6 @@ create or replace package pq_cn_reportes is
   procedure sp_reporte_transaccion_ATM_02(pd_fecha in date, pd_error out varchar2);
 end pq_cn_reportes;
 /
-
 create or replace package body pq_cn_reportes is
 
 procedure sp_reporte_limites(p_c_Codusu varchar2, p_d_FecIni date, p_d_FecFin date, p_c_numtar varchar2,p_c_error out varchar2) is
@@ -90,7 +89,7 @@ procedure sp_reporte_cajamovil(pd_fecini in date,
     
      cursor creditos is
         select itimp1 Monto, to_char(ittasa, 'FM9999.00') Tasa, z.sucurs codAgencia,z.scnom Agencia, x.moneda,x.ctnro cuenta, y.pendoc documento,  
-               (SELECT penom from fsd001 where pendoc=y.pendoc) Cliente, x.itfcon fecha_desembolso , x.ithora hora_desembolso,
+               (SELECT penom from fsd001 where pendoc=y.pendoc and petdoc=y.PETDOC) Cliente, x.itfcon fecha_desembolso , x.ithora hora_desembolso,
                 x.itoper operacion, x.modulo, x.ittope 
         from (
         select itsucd, ctnro, itoper, itsubo,itimp1, ittasa,a.itfcon, a.ithora, b.moneda, b.modulo, b.ittope from fsd015 a
@@ -114,7 +113,7 @@ procedure sp_reporte_cajamovil(pd_fecini in date,
     
      cursor lineas is
         select itimp1 Monto, to_char(ittasa, 'FM9999.00') Tasa, z.sucurs codAgencia,z.scnom Agencia, x.moneda,x.ctnro cuenta, y.pendoc documento,  
-          (SELECT penom from fsd001 where pendoc=y.pendoc) Cliente, x.itfcon fecha_desembolso , x.ithora hora_desembolso,
+          (SELECT penom from fsd001 where pendoc=y.pendoc and petdoc=y.PETDOC ) Cliente, x.itfcon fecha_desembolso , x.ithora hora_desembolso,
                   x.itoper operacion       
           from (
           select itsucd, ctnro, itoper, itsubo,itimp1, ittasa,a.itfcon, a.ithora, b.moneda from fsd015 a
@@ -138,7 +137,7 @@ procedure sp_reporte_cajamovil(pd_fecini in date,
      
      cursor dpf is
         select itimp1 Monto, itpzo Plazo, z.sucurs codAgencia,z.scnom Agencia, x.moneda,x.ctnro cuenta, y.pendoc documento,  
-          (SELECT penom from fsd001 where pendoc=y.pendoc) Cliente, x.itfcon fecha_apertura , x.ithora hora_apertura,
+          (SELECT penom from fsd001 where pendoc=y.pendoc and petdoc=y.PETDOC ) Cliente, x.itfcon fecha_apertura , x.ithora hora_apertura,
                 x.itoper operacion       
           from (
           select itsucd, ctnro, itoper, itsubo,itimp1, ittasa,a.itfcon, a.ithora, b.moneda,b.itpzo from fsd015 a
@@ -2302,4 +2301,3 @@ end sp_reporte_transaccion_ATM_02;
 
 end pq_cn_reportes;
 /
-
