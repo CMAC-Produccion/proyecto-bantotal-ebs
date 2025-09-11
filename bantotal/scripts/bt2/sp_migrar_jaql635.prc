@@ -12,9 +12,10 @@ CREATE OR REPLACE PROCEDURE "SP_MIGRAR_JAQL635" AS
   -- Fecha de Modificación : 10/03/2023
   -- Autor de Modificación : Julio Luna Flores
   -- Descripción Modific.  : Generación de trama disgregada de monitor en tabla AQPC116
-  -- Fecha de Modificación : 
-  -- Autor de Modificación : 
-  -- Descripción Modific.  : 
+  -- Fecha de Modificación : 18/08/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se añade las transacciones en estado P para que no sean eliminadas
+  
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   ln_contad number;
@@ -29,7 +30,7 @@ CREATE OR REPLACE PROCEDURE "SP_MIGRAR_JAQL635" AS
   -- jlunaf 10/03/2023 - FIN
 
   cursor c1 is 
-  select * from jaql635 where C_AUXVC1='S' order by 1 desc;
+  select * from jaql635 where C_AUXVC1 in ('S','P') order by 1 desc;
 
 begin
   --dbms_output.put_line('SP_MIGRAR_JAQL635 1');
@@ -204,4 +205,3 @@ exception
 end sp_migrar_jaql635;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-

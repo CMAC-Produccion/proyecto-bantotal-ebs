@@ -60,6 +60,9 @@ create or replace package "PQ_CV_MONITOREO_ACF_MB" is
   -- Fecha de Modificación : 21/07/2025
   -- Autor de Modificación : Danny Manrique Callata
   -- Descripción Modific.  : Se añade en campo 43 la descripción de transferencias a Celular
+  -- Fecha de Modificación : 11/08/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se añade en campo 38 DEVICEID
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --// Entrada Principal 
@@ -764,6 +767,9 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
   -- Fecha de Modificación : 21/07/2025
   -- Autor de Modificación : Danny Manrique Callata
   -- Descripción Modific.  : Se añade en campo 43 la descripción de transferencias a Celular
+  -- Fecha de Modificación : 11/08/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se añade en campo 38 DEVICEID
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --//
@@ -3341,8 +3347,19 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
     lc_cmp038 varchar2(100) := '00';
     ld_fectra date;
   begin
-    /*If pn_itmod in(489,140) then
-          select pgfape into ld_fectra from fst017 where pgcod = 1;
+      case
+        --10:TRANSFERENCIAS PROPIAS
+        --15:TRANSFERENCIAS TERCEROS
+        --30:TRANSFERENCIAS INMEDIATAS O/T
+        --31:TRANSFERENCIAS INMEDIATAS M/T
+        --41:TRANSFERENCIAS INMEDIATAS M/T
+        --20:TRANSFERENCIAS BATCH O/T
+        --21:TRANSFERENCIAS BATCH M/T
+        --982:PAGO DE SERVICIOS
+        --32,37,38,33: TRANSFERENCIAS POR CELULAR
+        --16,18: TRANSFERENCIAS POR CELULAR INTERNAS
+      when pn_ittran in(10,11,12,15,30,31,41,20,21,982,32,37,38,33) then
+         select pgfape into ld_fectra from fst017 where pgcod = 1;
          select TXTORD
           into lc_cmp038
           from fsx016 b
@@ -3354,7 +3371,7 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
            and b.hsucor = pn_itsuc
            and b.txcod = 179
            and b.txoren = 1;
-    End If;*/
+    end case;
     return lc_cmp038;
   exception
     when others then
@@ -3466,7 +3483,7 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
       --dmanriquec 25/07/2025 - se añade las transacciones 16 y 18 (Transferencias por contacto internas)
       when pn_ittran in (15,20,21,10,11,12,30,31,32,33,37,70,38,41,16,18) then 
           --Trans. internas 10, 11, 12
-          --Trans. terceros CM 15
+          --Trans. terceros CM 15 
           --Transf CCE otro tit-CajaMovil 20
           --Transferencia TIN Linea O/T 30
           --Transferencia TIN Linea M/T 31
@@ -3707,7 +3724,7 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
                  lc_cmp042 := lc_cmp042 || 'CONTACT ' || lc_titular; -- YP-PLIN
             When pn_ittran in (70) then
                  lc_cmp042 := lc_cmp042 || 'TRF EXT'; -- Transferencia exterior
-            When pn_ittran in (16,18) then
+            When pn_ittran in (16,18) then 
                  lc_cmp042 := lc_cmp042 || 'CONTACT ' || lc_titular; -- Contacto Internas (Se pone separado por si solicitan cambiar la descripción)
           end case;
           --dmanriquec 18/11/2024
