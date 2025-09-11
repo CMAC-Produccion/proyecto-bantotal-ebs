@@ -18,6 +18,13 @@ CREATE OR REPLACE PACKAGE PQ_CR_FORMULARIO_SEGMENTO IS
    -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
    -- DESCRIPCION DE MODIFICACION : SE MODIFICO EL PROCESO SP_CR_ENVIAR_CORREO
    -- *****************************************************************
+   -- FECHA DE MODIFICACION       : 28/08/2025
+   -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
+   -- DESCRIPCION DE MODIFICACION : SE MODIFICO LOS SIGUIENTES PROCEDIMIENTOS:
+   --                               - SP_CR_MOSTRAR_ULTIMO_REG
+   --                               - SP_CR_GRABAR_FORMULARIO
+   --                               - SP_CR_ENVIAR_CORREO
+   -- *****************************************************************
 
    PROCEDURE SP_CR_MOSTRAR_ULTIMO_REG(pINST        IN NUMBER,
                                       pFECP        OUT DATE,
@@ -36,6 +43,8 @@ CREATE OR REPLACE PACKAGE PQ_CR_FORMULARIO_SEGMENTO IS
                                       pCOND1       OUT VARCHAR2,
                                       pCODC2       OUT NUMBER,
                                       pCOND2       OUT VARCHAR2,
+                                      pCODC3       OUT NUMBER,
+                                      pCOND3       OUT VARCHAR2,
                                       P_COMENTARIO OUT VARCHAR2);
 
    PROCEDURE SP_CR_GRABAR_FORMULARIO(pINST        IN  NUMBER,
@@ -56,6 +65,8 @@ CREATE OR REPLACE PACKAGE PQ_CR_FORMULARIO_SEGMENTO IS
                                      pCOND1       IN  VARCHAR2,
                                      pCODC2       IN  NUMBER,
                                      pCOND2       IN  VARCHAR2,
+                                     pCODC3       IN  NUMBER,
+                                     pCOND3       IN  VARCHAR2,
                                      pMTO         IN  NUMBER,
                                      P_COMENTARIO IN VARCHAR2,
                                      pGUARDO      OUT VARCHAR2);
@@ -85,7 +96,6 @@ CREATE OR REPLACE PACKAGE PQ_CR_FORMULARIO_SEGMENTO IS
 
 END PQ_CR_FORMULARIO_SEGMENTO;
 /
-
 CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
 
    PROCEDURE SP_CR_MOSTRAR_ULTIMO_REG(pINST        IN NUMBER,
@@ -105,6 +115,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
                                       pCOND1       OUT VARCHAR2,
                                       pCODC2       OUT NUMBER,
                                       pCOND2       OUT VARCHAR2,
+                                      pCODC3       OUT NUMBER,
+                                      pCOND3       OUT VARCHAR2,
                                       P_COMENTARIO OUT VARCHAR2) IS
    
       -- *****************************************************************
@@ -119,10 +131,11 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
       -- ESTADO                      : ACTIVO
       -- ACCESO                      : PUBLICO
       --------------------------------------------------------------------
-      -- FECHA DE MODIFICACION       : 
-      -- AUTOR DE LA MODIFICACION    : 
-      -- DESCRIPCION DE MODIFICACION : 
-      --
+      -- FECHA DE MODIFICACION       : 28/08/2025
+      -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
+      -- DESCRIPCION DE MODIFICACION : SE AGREGARON LOS PARAMETROS:
+      --                               - pCODC3 | CODIGO CONDICION 3
+      --                               - pCOND3 | DESCRIPCION CONDICION 3
       -- *****************************************************************
    
    BEGIN
@@ -143,6 +156,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
                 AQPB947COND1,
                 AQPB947CODC2,
                 AQPB947COND2,
+                AQPB947CODC3,
+                AQPB947COND3,
                 AQPB947COMMT
            INTO pFECP,
                 pHORP,
@@ -160,6 +175,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
                 pCOND1,
                 pCODC2,
                 pCOND2,
+                pCODC3,
+                pCOND3,
                 P_COMENTARIO
            FROM AQPB947
           WHERE AQPB947INST1 = pINST
@@ -198,6 +215,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
                                      pCOND1       IN VARCHAR2,
                                      pCODC2       IN NUMBER,
                                      pCOND2       IN VARCHAR2,
+                                     pCODC3       IN NUMBER,
+                                     pCOND3       IN VARCHAR2,
                                      pMTO         IN NUMBER,
                                      P_COMENTARIO IN VARCHAR2,
                                      pGUARDO      OUT VARCHAR2) IS
@@ -214,10 +233,11 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
       -- ESTADO                      : ACTIVO
       -- ACCESO                      : PUBLICO
       --------------------------------------------------------------------
-      -- FECHA DE MODIFICACION       : 
-      -- AUTOR DE LA MODIFICACION    : 
-      -- DESCRIPCION DE MODIFICACION : 
-      --
+      -- FECHA DE MODIFICACION       : 28/08/2025
+      -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
+      -- DESCRIPCION DE MODIFICACION : SE AGREGARON LOS PARAMETROS:
+      --                               - pCODC3 | CODIGO CONDICION 3
+      --                               - pCOND3 | DESCRIPCION CONDICION 3
       -- *****************************************************************
    
       V_PAIS     NUMBER(3);
@@ -312,6 +332,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
              AQPB947COND1,
              AQPB947CODC2,
              AQPB947COND2,
+             AQPB947CODC3,
+             AQPB947COND3,
              AQPB947MONTO,
              AQPB947ESTCF,
              AQPB947FCONF,
@@ -344,6 +366,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
              pCOND1,
              pCODC2,
              pCOND2,
+             pCODC3,
+             pCOND3,
              pMTO,
              V_EST_CONF,
              pFCHP,
@@ -1250,6 +1274,11 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
       -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
       -- DESCRIPCION DE MODIFICACION : SE MODIFICO LA ESTRUCTURA DEL CORREO
       -- *****************************************************************
+      -- FECHA DE MODIFICACION       : 28/08/2025
+      -- AUTOR DE LA MODIFICACION    : MAYCOL CHAVEZ CHUMAN
+      -- DESCRIPCION DE MODIFICACION : - SE MODIFICO LA LONGITUD DE LA VARIABLE V_COMENTARIO DE 150 A 500
+      --                               - SE AGREGO LA VARIABLE CONDICION3 A LA ESTRUCTURA DEL CORREO
+      -- *****************************************************************
    
       V_PGFAPE            DATE;
       V_CODRES            NUMBER(3);
@@ -1272,7 +1301,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
       V_OUTMSGE2          VARCHAR2(500);
       CONDICION1          VARCHAR2(150);
       CONDICION2          VARCHAR2(150);
-      COMENTARIO          VARCHAR2(150);
+      CONDICION3          VARCHAR2(150);
+      COMENTARIO          VARCHAR2(500);
       BUSCAR_CARACTER     VARCHAR2(1);
       REEMPLAZAR_CARACTER VARCHAR2(30);
       
@@ -1349,8 +1379,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
       BEGIN
          SELECT AQPB947CODRE, AQPB947CTA,
                 TRIM(TO_CHAR(AQPB947MONTO, '99999999999G999G999D00', 'NLS_NUMERIC_CHARACTERS = ''.,''')),
-                TRIM(AQPB947COND1), TRIM(AQPB947COND2), TRIM(AQPB947COMMT)
-           INTO V_CODRES, V_CTA, V_MONTO, CONDICION1, CONDICION2, COMENTARIO
+                TRIM(AQPB947COND1), TRIM(AQPB947COND2), TRIM(AQPB947COND3), TRIM(AQPB947COMMT)
+           INTO V_CODRES, V_CTA, V_MONTO, CONDICION1, CONDICION2, CONDICION3, COMENTARIO
            FROM AQPB947
           WHERE AQPB947INST2 = pINST
             AND AQPB947CORR2 = pCORR;
@@ -1613,6 +1643,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
                                <li>Monto: ' || V_SIGNO_MDA || ' ' || V_MONTO || '</li>
                                <li>Condición 1: ' || CONDICION1 || '</li>
                                <li>Condición 2: ' || CONDICION2 || '</li>
+                               <li>Condición 3: ' || CONDICION3 || '</li>
                                <li>Comentario: ' || COMENTARIO || '</li>
                              </ul>
                              <p>Saludos,</p>
@@ -1854,4 +1885,3 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_FORMULARIO_SEGMENTO IS
 
 END PQ_CR_FORMULARIO_SEGMENTO;
 /
-
