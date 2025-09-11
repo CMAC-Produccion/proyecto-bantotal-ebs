@@ -9,9 +9,9 @@ create or replace package PQ_ENC_CALIDAD is
   -- Uso                        : GENRACION DE REPORTES EXPERIENCIA CLIENTE
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.01.17
+  -- Fecha de Modificación      : 2025.09.01
   -- Modificado                 : CVILLON
-  -- Descripción                : Reporte Multiusuario
+  -- Descripción                : Agencia de Desembolso
   -- ***************************************************************************************
 
   ------------ Declaracion de variables -----------
@@ -151,9 +151,20 @@ create or replace package PQ_ENC_CALIDAD is
   function fn_fecdes(pn_tipdoc number,
                      pn_codpai number,
                      ps_numdoc varchar2) return date;
+
+  procedure SP_AH_MONDES_SUC(PN_CODPAI IN NUMBER,
+                             PN_TIPDOC IN NUMBER,
+                             PV_NUMDOC IN VARCHAR2,
+                             PN_MONDES OUT NUMBER,
+                             PN_SUCCOD OUT NUMBER);
+
   function fn_mondes(pn_tipdoc number,
                      pn_codpai number,
                      ps_numdoc varchar2) return number;
+  function fn_sucdes(pn_tipdoc number,
+                     pn_codpai number,
+                     ps_numdoc varchar2) return number;
+
   function fn_prosbs(pn_tipdoc number,
                      pn_codpai number,
                      ps_numdoc varchar2) return varchar;
@@ -163,7 +174,6 @@ create or replace package PQ_ENC_CALIDAD is
 
 end PQ_ENC_CALIDAD;
 /
-
 create or replace package body PQ_ENC_CALIDAD is
   -- ***************************************************************************************
   -- Nombre                     : PQ_ENC_CALIDAD
@@ -175,9 +185,9 @@ create or replace package body PQ_ENC_CALIDAD is
   -- Uso                        : GENRACION DE REPORTES EXPERIENCIA CLIENTE
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.01.17
+  -- Fecha de Modificación      : 2025.09.01
   -- Modificado                 : CVILLON
-  -- Descripción                : Reporte Multiusuario
+  -- Descripción                : Agencia de Desembolso
   -- ***************************************************************************************
 
   function fn_ah_antiguedad_aho(pd_fecape DATE,
@@ -2481,7 +2491,7 @@ create or replace package body PQ_ENC_CALIDAD is
        inner join fst746 usu
           on trim(usu.ubuser) = trim(soli.sng001ase)
        where /*soli.sng001cta = '45685'
-                                                                                                                                                                             and */
+                                                                                                                                                                                                                                                                                                                                                                                               and */
       
        est.scmod in (select modulo from fst111 where dscod = 50)
        and est.scstat = 0
@@ -2671,7 +2681,8 @@ create or replace package body PQ_ENC_CALIDAD is
              0,
              '',
              '',
-             '');
+             '',
+             NULL);
           COMMIT;
         END IF;
       END LOOP;
@@ -3093,6 +3104,9 @@ create or replace package body PQ_ENC_CALIDAD is
     commit;
   end fn_insert_anal_tri;
 
+  ---***
+  ---***
+  ---***
   procedure fn_insercion_JAQY592(DDMMYYYY_FECHA_INICIO in character,
                                  DDMMYYYY_FECHA_FIN    in character,
                                  ps_coderr             out char) is
@@ -3241,7 +3255,10 @@ create or replace package body PQ_ENC_CALIDAD is
              '' d_fecnac,
              '' c_despro,
              PQ_ENC_CALIDAD.fn_segcli(g.petdoc, g.pepais, g.pendoc) c_desseg,
+             ---***
              PQ_ENC_CALIDAD.fn_mondes(g.petdoc, g.pepais, g.pendoc) n_mondes,
+             PQ_ENC_CALIDAD.fn_sucdes(g.petdoc, g.pepais, g.pendoc) n_sucdes,
+             ---***
              PQ_ENC_CALIDAD.fn_fecdes(g.petdoc, g.pepais, g.pendoc) d_fecdes,
              g.pepais ncodpai,
              g.petdoc ntipdoc,
@@ -3687,7 +3704,8 @@ create or replace package body PQ_ENC_CALIDAD is
              wn_antaho,
              wc_califi,
              wc_codrs,
-             wc_nomrs);
+             wc_nomrs,
+             c_cli1.n_sucdes);
           COMMIT;
         END IF;
       END LOOP;
@@ -4313,6 +4331,201 @@ create or replace package body PQ_ENC_CALIDAD is
     return ld_fecdes;
   end fn_fecdes;
 
+  ---********* SP_AH_MONDES_SUC
+  procedure SP_AH_MONDES_SUC(PN_CODPAI IN NUMBER,
+                             PN_TIPDOC IN NUMBER,
+                             PV_NUMDOC IN VARCHAR2,
+                             PN_MONDES OUT NUMBER,
+                             PN_SUCCOD OUT NUMBER) is
+  
+    ls_numdoc char(12);
+    ld_fecdes date;
+    ln_mondes number;
+    ---***
+    ln_HSUCOR NUMBER(3);
+    ln_PGCOD  NUMBER(3);
+    ln_AOCTA  NUMBER(9);
+    ln_AOOPER NUMBER(9);
+    ld_AOFVAL DATE;
+    ln_AOIMP  NUMBER(17, 2);
+    ---***
+  
+  begin
+  
+    ls_numdoc := PV_NUMDOC;
+  
+    begin
+      Select pgcod, aoimp, aocta, aooper, aofval, aoimp
+        into ln_PGCOD, ln_mondes, ln_AOCTA, ln_AOOPER, ld_AOFVAL, ln_AOIMP
+        from (select a.pgcod,
+                     aomod,
+                     aosuc,
+                     aomda,
+                     aopap,
+                     aocta,
+                     aooper,
+                     aosbop,
+                     aotope,
+                     aostat,
+                     aofval,
+                     aofe99,
+                     aoimp
+                from fsd010 a
+                join fsr008 r8
+                  on r8.pgcod = a.pgcod
+                 and r8.ctnro = a.aocta
+                 and r8.pepais = pn_codpai
+                 and r8.petdoc = pn_tipdoc
+                 and r8.pendoc = ls_numdoc
+                 and r8.ttcod = 1
+                 and r8.cttfir = 'T'
+               where a.aomod in (select modulo
+                                   from fst111
+                                  where dscod = 50
+                                    and modulo not in (29, 120)
+                                 union all
+                                 select 117
+                                   from dual)
+                 and a.aomod <> 120
+                 and a.aomod <> 108
+                 and a.aofval <= trunc(sysdate)
+               order by a.aofval desc)
+       WHERE rownum = 1;
+    exception
+      when others then
+        ln_mondes := 0;
+    END;
+  
+    ---***
+    IF (ln_mondes > 0) THEN
+      BEGIN
+        SELECT HSUCOR
+          INTO ln_HSUCOR
+          FROM FSH016 F
+         WHERE F.PGCOD = ln_PGCOD
+           AND F.HCTA = ln_AOCTA
+           AND F.HOPER = ln_AOOPER
+           AND F.HFCON = ld_AOFVAL
+           AND F.HCIMP1 = ln_AOIMP
+           AND ROWNUM = 1;
+      EXCEPTION
+        WHEN OTHERS THEN
+          ln_HSUCOR := 0;
+      END;
+    ELSE
+      ln_HSUCOR := 0;
+    END IF;
+    ---***
+    PN_MONDES := ln_mondes;
+    PN_SUCCOD := ln_HSUCOR;
+    ---***
+  
+  END SP_AH_MONDES_SUC;
+
+  ---*********
+
+  function fn_sucdes(pn_tipdoc number,
+                     pn_codpai number,
+                     ps_numdoc varchar2) return number is
+    -- *****************************************************************
+    -- Nombre                     : fn_sucdes
+    -- Sistema                    : BANTOTAL
+    -- Módulo                     : EXPERIENCIA AL CLIENTE
+    -- Versión                    : 1.0
+    -- Fecha de Creación          : 01/09/2025
+    -- Autor de Creación          : CVILLON
+    -- Uso                        : Retorna Sucursal de Desembolso por Cliente
+    -- Estado                     : Activo
+    -- Fecha Modificación         : 01/09/2025
+    -- Autor de Modificación      : CVILLON
+    -- Descripción Modificación   : Retorna Sucursal de Desembolso por Cliente
+    -- *****************************************************************
+    ---***  
+    ls_numdoc char(12);
+    ld_fecdes date;
+    ln_mondes number;
+    ---***
+    ln_HSUCOR NUMBER(4);
+    ln_PGCOD  NUMBER(3);
+    ln_AOCTA  NUMBER(9);
+    ln_AOOPER NUMBER(9);
+    ld_AOFVAL DATE;
+    ln_AOIMP  NUMBER(17, 2);
+    ---***
+  
+  begin
+  
+    ---***
+    ls_numdoc := ps_numdoc;
+    ---***
+  
+    begin
+      Select pgcod, aoimp, aocta, aooper, aofval, aoimp
+        into ln_PGCOD, ln_mondes, ln_AOCTA, ln_AOOPER, ld_AOFVAL, ln_AOIMP
+        from (select a.pgcod,
+                     aomod,
+                     aosuc,
+                     aomda,
+                     aopap,
+                     aocta,
+                     aooper,
+                     aosbop,
+                     aotope,
+                     aostat,
+                     aofval,
+                     aofe99,
+                     aoimp
+                from fsd010 a
+                join fsr008 r8
+                  on r8.pgcod = a.pgcod
+                 and r8.ctnro = a.aocta
+                 and r8.pepais = pn_codpai
+                 and r8.petdoc = pn_tipdoc
+                 and r8.pendoc = ls_numdoc
+                 and r8.ttcod = 1
+                 and r8.cttfir = 'T'
+               where a.aomod in (select modulo
+                                   from fst111
+                                  where dscod = 50
+                                    and modulo not in (29, 120)
+                                 union all
+                                 select 117
+                                   from dual)
+                 and a.aomod <> 120
+                 and a.aomod <> 108
+                 and a.aofval <= trunc(sysdate)
+               order by a.aofval desc)
+       WHERE rownum = 1;
+    exception
+      when others then
+        ln_mondes := 0;
+    END;
+  
+    ---***
+    IF (ln_mondes > 0) THEN
+      BEGIN
+        SELECT HSUCOR
+          INTO ln_HSUCOR
+          FROM FSH016 F
+         WHERE F.PGCOD = ln_PGCOD
+           AND F.HCTA = ln_AOCTA
+           AND F.HOPER = ln_AOOPER
+           AND F.HFCON = ld_AOFVAL
+           AND F.HCIMP1 = ln_AOIMP
+           AND ROWNUM = 1;
+      EXCEPTION
+        WHEN OTHERS THEN
+          ln_HSUCOR := 0;
+      END;
+    ELSE
+      ln_HSUCOR := 0;
+    END IF;
+    ---***
+    return ln_HSUCOR;
+    ---***
+  
+  end fn_sucdes;
+
   function fn_mondes(pn_tipdoc number,
                      pn_codpai number,
                      ps_numdoc varchar2) return number is
@@ -4526,4 +4739,3 @@ create or replace package body PQ_ENC_CALIDAD is
 
 END PQ_ENC_CALIDAD;
 /
-
