@@ -71,7 +71,10 @@ create or replace package pq_cr_repo_opinion_riesgos is
   -- Fecha de Modificación      : 11/03/2025
   -- Autor de Modificación      : IGS_RCASTRO
   -- Descripción de Modificación: Modificacion de correos en copia en aprobacion y valid. vigencia 
-  --                              de solicitud.                 
+  --                              de solicitud.          
+  -- Fecha de Modificación      : 18/08/2025
+  -- Autor de Modificación      : IGS_RCASTRO
+  -- Descripción de Modificación: Modificacion de ajuste en arbol de autonomias.             
   -- *****************************************************************
   -----------------------------------------------------------------------
 
@@ -19049,40 +19052,53 @@ create or replace package body pq_cr_repo_opinion_riesgos is
       correosPara := trim(corrUsuDerivado);       
   END;
   
-  PROCEDURE sp_analis_gestio_opi(codOpinion number, p_usuarioGestio out varchar2, p_nivelUsuGestion out number) is---10/01/2025
-  v_usuar varchar2(10);    
+  PROCEDURE SP_ANALIS_GESTIO_OPI(CODOPINION NUMBER, P_USUARIOGESTIO OUT VARCHAR2, P_NIVELUSUGESTION OUT NUMBER) IS---10/01/2025
+  V_USUAR VARCHAR2(10);    
   BEGIN
      BEGIN
-        SELECT AQPC801USREJ, AQPC801NIVL into v_usuar, p_nivelUsuGestion FROM AQPC801 WHERE AQPC801CODOPI = codOpinion AND AQPC801ESTDA <> 'O' AND AQPC801AUX1 = 1;
-      exception
-        when others then
-          v_usuar := '';  
-          p_nivelUsuGestion := 0;   
+        SELECT AQPC801USREJ, AQPC801NIVL INTO V_USUAR, P_NIVELUSUGESTION FROM AQPC801 WHERE AQPC801CODOPI = CODOPINION AND AQPC801ESTDA <> 'O' AND AQPC801AUX1 = 1;
+      EXCEPTION
+        WHEN OTHERS THEN
+          V_USUAR := '';  
+          P_NIVELUSUGESTION := 0;   
      END;  
-     p_usuarioGestio  := v_usuar;
-     p_nivelUsuGestion := nvl(p_nivelUsuGestion, 0);
      
-     IF p_nivelUsuGestion = 0 THEN
+     P_USUARIOGESTIO  := V_USUAR;
+     P_NIVELUSUGESTION := NVL(P_NIVELUSUGESTION, 0);          
+  
+    IF P_NIVELUSUGESTION = 0 THEN
         BEGIN
-          select AQPC156ANSERIG, AQPC156NIVEL  into v_usuar, p_nivelUsuGestion from aqpc156 where aqpc156codopi = codOpinion and  aqpc156estad = 'H';
-        exception
-        when others then
-          v_usuar := '';
-         END; 
-                  
-         p_usuarioGestio  := v_usuar;
-         p_nivelUsuGestion := nvl(p_nivelUsuGestion, 0);
-       
-         IF p_nivelUsuGestion = 0 THEN  --20022025
+          SELECT AQPC156ANSERIG --, AQPC156NIVEL   18/08/2025
+          INTO V_USUAR--, P_NIVELUSUGESTION 
+          FROM AQPC156 WHERE AQPC156CODOPI = CODOPINION AND  AQPC156ESTAD = 'H';
+        EXCEPTION
+        WHEN OTHERS THEN
+          V_USUAR := '';
+        END; 
+         
+         
+        IF V_USUAR IS NULL OR V_USUAR = '' THEN  --20022025
              BEGIN
-                select AQPC818ANSERIG, AQPC818NIVEL  into v_usuar, p_nivelUsuGestion from aqpc818 where aqpc818codopi = codOpinion and  aqpc818estad = 'H';
-             exception
-              when others then
-                v_usuar := '';
+                SELECT AQPC818ANSERIG  INTO V_USUAR FROM AQPC818 WHERE AQPC818CODOPI = CODOPINION AND  AQPC818ESTAD = 'H';
+             EXCEPTION
+              WHEN OTHERS THEN
+                V_USUAR := '';
                END;          
-             p_usuarioGestio  := v_usuar;
-             p_nivelUsuGestion := nvl(p_nivelUsuGestion, 0);
-        END IF;
+         END IF;
+       
+
+         --BUSCAR POR USUARIO EL NIVEL EN GUIA DE ARBOL DE AUTONOMIAS
+         BEGIN
+           SELECT TP1IMP1 INTO P_NIVELUSUGESTION FROM FST198 WHERE TP1COD = 1 AND TP1COD1  = 11152 AND TP1CORR1 = 11 
+           AND TP1CORR2 = 9 AND TP1CORR3 > 0 AND TP1DESC = RPAD(V_USUAR, 30, ' ');         
+          EXCEPTION
+          WHEN OTHERS THEN
+            P_NIVELUSUGESTION := 0;
+           END;  
+              
+         P_USUARIOGESTIO  := TRIM(V_USUAR);       
+         P_NIVELUSUGESTION := NVL(P_NIVELUSUGESTION, 0);
+        
      END IF;
      
     
