@@ -63,6 +63,9 @@ create or replace package "PQ_CV_MONITOREO_ACF_MB" is
   -- Fecha de Modificación : 11/08/2025
   -- Autor de Modificación : Danny Manrique Callata
   -- Descripción Modific.  : Se añade en campo 38 DEVICEID
+  -- Fecha de Modificación : 27/08/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se añade el envio de deviceID para pago de tarjeta de credito
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --// Entrada Principal 
@@ -770,6 +773,9 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
   -- Fecha de Modificación : 11/08/2025
   -- Autor de Modificación : Danny Manrique Callata
   -- Descripción Modific.  : Se añade en campo 38 DEVICEID
+  -- Fecha de Modificación : 27/08/2025
+  -- Autor de Modificación : Danny Manrique Callata
+  -- Descripción Modific.  : Se añade el envio de deviceID para pago de tarjeta de credito
   -- ------------------------------------------------------------------------------------------------------------------------------------------------------
 
   --//
@@ -3358,7 +3364,8 @@ create or replace package body "PQ_CV_MONITOREO_ACF_MB" is
         --982:PAGO DE SERVICIOS
         --32,37,38,33: TRANSFERENCIAS POR CELULAR
         --16,18: TRANSFERENCIAS POR CELULAR INTERNAS
-      when pn_ittran in(10,11,12,15,30,31,41,20,21,982,32,37,38,33) then
+        --35: PAGO TARJETA DE CREDITO
+      when pn_ittran in(10,11,12,15,30,31,41,20,21,982,32,37,38,33,35) then
          select pgfape into ld_fectra from fst017 where pgcod = 1;
          select TXTORD
           into lc_cmp038
