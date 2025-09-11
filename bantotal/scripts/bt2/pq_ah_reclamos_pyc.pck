@@ -9,9 +9,9 @@ CREATE OR REPLACE PACKAGE "PQ_AH_RECLAMOS_PYC" IS
   -- Uso                        : P&C
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.07.15
+  -- Fecha de Modificación      : 2025.08.26
   -- Modificado                 : CVILLON
-  -- Descripción                : Exportar ONR con TDV - TRX según GUIA
+  -- Descripción                : Exportar ONR con TDV - TRX según GUIA - Nueva TRX
   -- ***************************************************************************************
   ---***
 
@@ -90,9 +90,9 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
   -- Uso                        : P&C
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.07.15
+  -- Fecha de Modificación      : 2025.08.26
   -- Modificado                 : CVILLON
-  -- Descripción                : Exportar ONR con TDV - TRX según GUIA
+  -- Descripción                : Exportar ONR con TDV - TRX según GUIA - Nueva TRX
   -- ***************************************************************************************
   ---***
 
@@ -1076,7 +1076,8 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
              AND HFCON = P_FECHA
              AND HCREF IS NOT NULL
              AND HCREF <> ' '
-             AND HCREF LIKE '42%';
+             AND HCREF LIKE '42%'
+             AND ROWNUM = 1;
         EXCEPTION
           WHEN OTHERS THEN
             P_TARJET := 'TDV-NF';
@@ -1095,7 +1096,8 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
              AND ITNREL = P_NREL
              AND ITREF IS NOT NULL
              AND ITREF <> ' '
-             AND ITREF LIKE '42%';
+             AND ITREF LIKE '42%'
+             AND ROWNUM = 1;
         EXCEPTION
           WHEN OTHERS THEN
             P_TARJET := 'TDV-NF';

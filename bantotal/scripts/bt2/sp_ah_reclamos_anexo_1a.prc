@@ -15,9 +15,9 @@ CREATE OR REPLACE PROCEDURE SP_AH_RECLAMOS_ANEXO_1A(P_CREUSR IN VARCHAR,
   -- Uso                        : ANEXO 1A
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.05.31
+  -- Fecha de Modificación      : 2025.08.26
   -- Modificado                 : CVILLON
-  -- Desc                       : Ajustes a Banca de Seguros
+  -- Desc                       : Ajustes Nuevo Detalle Completo
   -- ***************************************************************************************
 
   ---*********
@@ -82,7 +82,7 @@ BEGIN
                       j422.JAQL422DES    AS X_AQPB546REMTVD,
                       a545m.AQPB545MSCOD AS X_AQPB546RESUBC,
                       a545f.AQPB545FNOM  AS X_AQPB546RESUBD,
-                      j.JAQL420CMR       AS X_AQPB546RECCMR,
+                      j.JAQL420CMRCLB    AS X_AQPB546CMRCLB,
                       j.JAQL420FLD       AS X_AQPB546RERESO,
                       j.JAQL420RECRES    AS X_AQPB546RECRES,
                       --j.JAQL420MPS AS X_AQPB546RECMPS,
@@ -202,7 +202,8 @@ BEGIN
        AQPB546RMTBSD,
        AQPB546RSMBSC,
        AQPB546RSMBSD,
-       AQPB546CRETIM)
+       AQPB546CRETIM,
+       AQPB546CMRCLB)
     
     VALUES
       (lc_CREUSR,
@@ -228,7 +229,7 @@ BEGIN
        XROW.X_AQPB546REMTVD,
        XROW.X_AQPB546RESUBC,
        XROW.X_AQPB546RESUBD,
-       XROW.X_AQPB546RECCMR,
+       NULL,
        XROW.X_AQPB546RERESO,
        XROW.X_AQPB546RECRES,
        XROW.X_AQPB546RECMPS,
@@ -243,7 +244,8 @@ BEGIN
        XROW.X_AQPB546RMTBSD,
        XROW.X_AQPB546RSMBSC,
        XROW.X_AQPB546RSMBSD,
-       SYSDATE);
+       SYSDATE,
+       XROW.X_AQPB546CMRCLB);
   
   --DBMS_OUTPUT.PUT_LINE('X_AQPB546RECCOD:= '||XROW.X_AQPB546RECCOD);
   
@@ -299,7 +301,7 @@ BEGIN
                       a545f.AQPB545FNOM AS X_AQPB546RESUBD,
                       ---***
                       ---***
-                      j.JAQL420CMR    AS X_AQPB546RECCMR,
+                      j.JAQL420CMRCLB AS X_AQPB546CMRCLB,
                       j.JAQL420FLD    AS X_AQPB546RERESO,
                       j.JAQL420RECRES AS X_AQPB546RECRES,
                       --j.JAQL420MPS AS X_AQPB546RECMPS,
@@ -441,7 +443,8 @@ BEGIN
        AQPB546RMTBSD,
        AQPB546RSMBSC,
        AQPB546RSMBSD,
-       AQPB546CRETIM)
+       AQPB546CRETIM,
+       AQPB546CMRCLB)
     
     VALUES
       (lc_CREUSR,
@@ -467,7 +470,7 @@ BEGIN
        XROW.X_AQPB546REMTVD,
        XROW.X_AQPB546RESUBC,
        XROW.X_AQPB546RESUBD,
-       XROW.X_AQPB546RECCMR,
+       NULL,
        XROW.X_AQPB546RERESO,
        XROW.X_AQPB546RECRES,
        XROW.X_AQPB546RECMPS,
@@ -482,7 +485,8 @@ BEGIN
        XROW.X_AQPB546RMTBSD,
        XROW.X_AQPB546RSMBSC,
        XROW.X_AQPB546RSMBSD,
-       SYSDATE);
+       SYSDATE,
+       XROW.X_AQPB546CMRCLB);
   
   --DBMS_OUTPUT.PUT_LINE('X_AQPB546RECCOD:= '||XROW.X_AQPB546RECCOD);
   
