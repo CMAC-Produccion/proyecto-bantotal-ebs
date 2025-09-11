@@ -5,12 +5,12 @@ create or replace package pq_cr_contrl_reprog_refin25 is
       -- Sistema                    : BANTOTAL
       -- Descripción                : paquete para resolutor de reprog y refinanciacion
       -- Versión                    : 1.0
-      -- Fecha de Creación          : 02/08/2025
+      -- Fecha de Creación          : 6/05/2025
       -- Autor de Creación          : RCASTRO
-      -- Versión                    : 
-      -- Fecha de Modificación      :
-      -- Autor de la Modificación   : 
-      -- Descripción de Modificación: 
+      -- Versión                    : 1.0
+      -- Fecha de Modificación      : 14/08/2025
+      -- Autor de la Modificación   : Rcastro
+      -- Descripción de Modificación: Se modifica validacion de gradiente 
       --
   * *************************************************************************************************************/
 
@@ -399,6 +399,8 @@ create or replace package body pq_cr_contrl_reprog_refin25 is
     val_porcertCuota     number(10, 2);
     val_MenorPorcGradien number(10, 2);
     porcMenorGradiente  number(10, 2);
+    
+    val_guia           number(10,2);
   
     CURSOR CRONOGRAMA_PRP(v_pgcod  number,
                           v_aomod  number,
@@ -696,8 +698,23 @@ create or replace package body pq_cr_contrl_reprog_refin25 is
     
   
     porcMenorGradiente := val_MenorPorcGradien;
+    
+    BEGIN
+      select TP1IMP1
+        INTO val_guia
+        from fst198
+       where tp1cod = 1
+         and tp1cod1 = 11152
+         and tp1corr1 = 302 
+         AND TP1CORR2 = 1
+         AND TP1CORR3 = 4;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;        
+    val_guia := nvl(val_guia, 0);
   
-    IF porcMenorGradiente < val_porcentPerm THEN
+    IF porcMenorGradiente < val_porcentPerm And porcMenorGradiente > val_guia  THEN --14/08/2025
       VO_RESULTADO := 'S';
     ELSE
       VO_RESULTADO := 'N';

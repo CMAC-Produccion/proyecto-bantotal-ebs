@@ -18,6 +18,8 @@ create or replace package pq_cr_validar_rng_reprog is
   -- Detalle:      Se modifica validacion de reprogramaciones por normalizacion
   -- Modificacion: MCORDOVA - 2025.05.19
   -- Detalle:      Se agrega logica para control reprogramaciones gradientes
+  -- Modificacion: MCORDOVA - 2025.08.14
+  -- Detalle:      Se modifica flag gradientes
 
   type reglas_excepcion is record(
     v_codigo      number(10),
@@ -234,6 +236,10 @@ create or replace package body pq_cr_validar_rng_reprog is
   -- Detalle:      Se modifica validacion de reprogramaciones por normalizacion
   -- Modificacion: MCORDOVA - 2025.05.20
   -- Detalle:      Se agrega logica para control reprogramaciones gradientes
+  -- Modificacion: MCORDOVA - 2025.08.08
+  -- Detalle:      Se modifica flag de periodo gracia
+  -- Modificacion: MCORDOVA - 2025.08.14
+  -- Detalle:      Se modifica flag gradientes
   procedure sp_cr_validarrng91(ve_pgcod     number,
                                ve_scmod     number,
                                ve_scsuc     number,
@@ -5965,15 +5971,15 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                            vo_gracia,
                                                            vo_monto,
                                                            VE_RPTAC);*/
-     /*PQ_CR_CALIFICAC_REPRG_DESAS_NATURAL.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
+     PQ_CR_CALIFICAC_REPRG_DESAS_NATURAL.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
       VE_RPTAC,
       VO_CODERROR,
-      VO_MSGERROR);*/
-      PQ_CR_GRADIENTE.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
+      VO_MSGERROR);
+      /*PQ_CR_GRADIENTE.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
                                                             '',
                                                             VE_RPTAC,
                                                             VO_CODERROR,
-                                                            VO_MSGERROR);
+                                                            VO_MSGERROR);*/
       --VALIDAR SI ESTA EXCEPTUADO
       PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
                                                         VE_INSTANCE,
@@ -5984,7 +5990,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                         VIO_RPTA_DESACTIVA_REG,
                                                         VIO_EXCEPCION);
       --VALIDAR MENSAJE SI SALTA POLITICA
-      IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
+      --IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
+      IF VE_RPTAC = 'S' or VIO_RPTA_DESACTIVA_REG = 'S' or
          VIO_EXCEPCION = 'S' THEN
         NULL;
       ELSE
@@ -6243,7 +6250,7 @@ create or replace package body pq_cr_validar_rng_reprog is
         NULL;
     END; 
         --VALIDA LIMITES POR REGION - MILTON CORDOVA IGS
-    /*BEGIN
+    BEGIN
       PQ_CR_LIMITES_RPG.SP_CR_VALIDA_LIMITE_REGION(VE_INSTANCE,
                                                    '',
                                                    VE_RPTAC,
@@ -6274,7 +6281,7 @@ create or replace package body pq_cr_validar_rng_reprog is
     EXCEPTION
       WHEN OTHERS THEN
         NULL;
-    END;*/
+    END;
   EXCEPTION
     WHEN OTHERS THEN
       NULL;
