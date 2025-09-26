@@ -6,24 +6,32 @@ create or replace package pq_cr_pcreditos is
   -- Modificado : KVALENCIAC
   -- Fecha : 26/11/2024
   -- Purpose : Se corrigió par aque devuelva bien para los créditos de líneas
+    -- Modificado : KVALENCIAC
+  -- Fecha : 05/09/2025
+  -- Purpose : Se corrigió para que devuelva correctamente los créditos que tienen garantía
   procedure sp_contador (vn_instancia in  number, vn_ncreditos out number);
 
 end pq_cr_pcreditos;
 /
-
 create or replace package body pq_cr_pcreditos is
 
 procedure sp_contador ( vn_instancia number, vn_ncreditos out number)
-is  
-cursor creditos is
+is 
+vn_pepais number(3); --04/09/2025 kvalenciac
+vn_petdoc number(2); --04/09/2025 kvalenciac
+vc_pendoc char(12);  --04/09/2025 kvalenciac 
+cursor creditos (p_pepais   NUMBER,
+                p_petdoc   NUMBER,
+
+                p_pendoc   CHAR) is
 select b.*
           from fsr008 a,fsd010 b,sng001 s
            where 
-              s.sng001inst=vn_instancia
-             and a.ctnro =s.sng001cta
---             and a.pepais = vn_pepais
---             and a.petdoc = vn_petdoc
---             and a.pendoc = vc_pendoc
+             -- s.sng001inst=vn_instancia and  --04/09/2025 kvalenciac
+              a.ctnro =s.sng001cta
+            and a.pepais = vn_pepais
+             and a.petdoc = vn_petdoc
+             and a.pendoc = vc_pendoc
              and b.pgcod = a.pgcod
              and b.aocta = a.ctnro
              and b.aostat<>99--no este cancelada
@@ -33,11 +41,11 @@ select b.*
 union                       
            select b.*
                 from fsr008 a,fsd010 b,fsr002 c,sng001 s
-               where  s.sng001inst=vn_instancia
-                 and a.ctnro =s.sng001cta
-                 --and c.pepais = vn_pepais
-                 --and c.petdoc = vn_petdoc
-                 --and c.pendoc = vc_pendoc
+               where  --s.sng001inst=vn_instancia and --04/09/2025 kvalenciac
+                  a.ctnro =s.sng001cta       
+                 and c.pepais = vn_pepais
+                 and c.petdoc = vn_petdoc
+                 and c.pendoc = vc_pendoc
                  and a.pepais = c.rppais
                  and a.petdoc = c.rptdoc
                  and a.pendoc = c.rpndoc
@@ -50,9 +58,6 @@ union
                  and b.aostat<>99; 
 
 vn_sng001cta number(10);
-vn_pepais number(3);
-vn_petdoc number(2);
-vc_pendoc char(12);
 vn_contcredT number(3);
 vn_contcredC number(3);
 vn_contcredTCG number(3);
@@ -119,7 +124,7 @@ begin
           --número de créditos con garantía no considerada
           vn_contcredTCG:=0;
           vn_contcredCCG:=0;
-          for k in creditos loop
+          for k in creditos(vn_pepais,vn_petdoc,vc_pendoc)  loop
             ln_existe:=0;
             if (k.aomod=116) then
                begin
@@ -243,4 +248,3 @@ end sp_contador;
 
 end pq_cr_pcreditos;
 /
-

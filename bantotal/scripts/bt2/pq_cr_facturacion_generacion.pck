@@ -19,6 +19,7 @@ CREATE OR REPLACE PACKAGE pq_cr_facturacion_generacion is
   -- Descripción de Modificación  : Actualización para obtener el rubro desde la tabla aqpa463 al generar NCE  
   --                              : 26/05/2025 dcastro se modifico fn_acondcionar_rsocial
   --                              : 24/06/2025 dcastro se agrego valor tipo operacion '2100' en caso no exista.
+  --                              : 25/08/2025 dcastro se agregaron sp_cr_facturae_REGU, sp_cr_nota_creditoe_REGU
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -202,6 +203,27 @@ CREATE OR REPLACE PACKAGE pq_cr_facturacion_generacion is
   procedure sp_cr_insertar_datos1(pd_fecpro    in date,
                                    pd_resultado out number);
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                                                                                                                                   
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                          
+  procedure sp_cr_facturae_REGU(pn_cod   in number,
+                                   pn_mod   in number,
+                                   pn_suc   in number,
+                                   pn_tran  in number,
+                                   pn_rel   in number,
+                                   pn_con   in date,
+                                   lc_tipo  out aqpb056.aqpb056tco%type,
+                                   lc_serie out aqpb056.aqpb056ser%type,
+                                   lc_corre out aqpb056.aqpb056num%type);
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --     
+  procedure sp_cr_nota_creditoe_REGU(ln_cod   in number,
+                                        ln_mod   in number,
+                                        ln_suc   in number,
+                                        ln_trx   in number,
+                                        ln_rel   in number,
+                                        ln_fcon  in date,
+                                        xn_tipo  out aqpb056.aqpb056tco%type,
+                                        xn_serie out aqpb056.aqpb056ser%type,
+                                        xn_corre out aqpb056.aqpb056num%type);
+----------------------------------------------------------------------------------
 
 end pq_cr_facturacion_generacion;
 /
@@ -227,6 +249,7 @@ CREATE OR REPLACE PACKAGE BODY pq_cr_facturacion_generacion is
   --                                07/09/2023 dcastro se modifico sp_insertar_libro_ventas
   --                                26/05/2025 dcastro se modifico fn_acondcionar_rsocial  
   --                              : 24/06/2025 dcastro se modifico sp_cr_insertar_datos, sp_cr_insertar_datos1.  
+  --                              : 25/08/2025 dcastro se agregaron sp_cr_facturae_REGU, sp_cr_nota_creditoe_REGU
   -- *****************************************************************
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -9842,6 +9865,1128 @@ procedure sp_cr_insertar_datos1(pd_fecpro    in date,
          pd_resultado := 0;*/
   end sp_cr_insertar_datos1;
   
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
+  procedure sp_cr_facturae_REGU(pn_cod   in number,
+                                   pn_mod   in number,
+                                   pn_suc   in number,
+                                   pn_tran  in number,
+                                   pn_rel   in number,
+                                   pn_con   in date,
+                                   lc_tipo  out aqpb056.aqpb056tco%type,
+                                   lc_serie out aqpb056.aqpb056ser%type,
+                                   lc_corre out aqpb056.aqpb056num%type) is
+  -----2025.08.25 para regularizacion DAE
   
+    ln_emp     number(3);
+    ln_mod     number(3);
+    ln_suc     number(3);
+    ln_mda     number(4);
+    ln_pap     number(4);
+    ln_cta     number(9);
+    ln_ope     number(9);
+    ln_sbo     number(3);
+    ln_top     number(3);
+    lc_flg     char(1) := 'N';
+    lc_flr     char(1);
+    ln_rubro   number;
+    pn_ordinal number(2);
+    lc_flgc    number;
+    lc_exis    char(1);
+  
+    pc_mod  number;
+    pc_suc  number;
+    pc_tran number;
+    pc_rel  number;
+    pc_con  date;
+  
+    lc_coderr char(100);
+    lc_msgerr varchar2(1000);
+    ln_flag   number;
+    pd_pgfape date;
+    lc_fverc  char(1);
+  
+    lc_flag_dae number;
+    lc_SERIE_DAE varchar2(4);
+    ln_NUM_DAE number;
+  
+  begin
+  
+    --1. Verificar fecha
+    begin
+      select pgfape into pd_pgfape from fst017 where pgcod = 1;
+    exception
+      when others then
+        null;
+    end;
+  
+    --2. Verificar estado de la comisión
+    begin
+      select c.tp1nro1
+        into ln_flag
+        from fst198 c
+       where c.tp1cod = 1
+         and c.tp1cod1 = 11120
+         and c.tp1corr1 = 7
+         and c.tp1corr2 = 1;
+    exception
+      when others then
+        null;
+      
+    end;
+  
+    -- verificar si se puede generar serie y correlativo DAE
+    begin
+      select t.tp1nro1
+        into lc_flag_dae
+        from fst198 t
+       where t.tp1cod = 1
+         and t.tp1cod1 = 11120
+         and t.tp1corr1 = 9
+         and t.tp1corr2 = 1
+         and t.tp1corr3 = 5;
+    exception
+      when others then
+        null;
+    end;
+  
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --   
+    -- !Importante
+    -- Validar activación del Flag para generar serie y correlativo
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+    if lc_flag_dae = 1 then
+      begin
+      
+        --validar concepto 
+        --11120 1 3 Codigos de conc no considerar 
+      
+        pc_mod  := pn_mod;
+        pc_suc  := pn_suc;
+        pc_tran := pn_tran;
+        pc_rel  := pn_rel;
+        pc_con  := pn_con;
+      
+        --3. validar concepto
+/*        if pd_pgfape = pc_con then
+          -- -- -- -- --
+          begin
+            SELECT count(*)
+              into lc_flgc
+              FROM fsd016 H, FSR171 F, FST171 G --, fsx016 x
+             WHERE H.pgcod = pn_cod
+               and h.itmod = pc_mod
+               and h.itsuc = pc_suc
+               and h.ittran = pc_tran ---401 --972--
+               and h.itnrel = pc_rel
+               AND H.Rubro NOT IN (4212290000007, 4222290000007)
+               and h.pgcod = F.SR171TREMP
+               AND h.itmod = F.SR171TRMOD
+               AND h.ittran = F.SR171TRNRO
+               AND h.itord = F.SR171TRORD
+               AND f.ST171CPCOD = G.ST171CPCOD
+                  ---filtro op no conc
+               and f.st171cpcod not in
+                   (select d.tp1nro1
+                      from fst198 d
+                     where d.tp1cod = 1
+                       and d.tp1cod1 = 11120
+                       and d.tp1corr1 = 1
+                       and d.tp1corr2 = 3
+                       and d.tp1corr3 >= 1)
+                  --- Validando existencia de transacciones en GP
+               and (h.itmod, h.ittran) in
+                   (select t.tp1nro1, t.tp1nro2
+                      from fst198 t
+                     where t.tp1cod = 1
+                       and t.tp1cod1 = 11120
+                       and t.tp1corr1 = 10
+                       and t.tp1corr2 = 1
+                       and t.tp1corr3 <> 0
+                       and t.tp1imp1 = 1);
+          exception
+            when others then
+              null;
+          end;
+          -- -- -- -- --
+        else
+          -- -- -- -- --
+          begin
+            SELECT count(*)
+              into lc_flgc
+              FROM FSH016 H, FSR171 F, FST171 G --, fsx016 x
+             WHERE H.PGCOD = pn_cod
+               and h.hcmod = pc_mod
+               and h.hsucor = pc_suc
+               and h.htran = pc_tran ---401 --972--
+               and h.hnrel = pc_rel
+               AND H.HFCON = pc_con
+               and (H.hcmod, H.htran) IN
+                   (SELECT A.TP1NRO1, A.TP1NRO2 ----TRX PROCESO BACH
+                      FROM FST198 A
+                     WHERE A.TP1COD = 1
+                       AND A.TP1COD1 = 11120
+                       AND A.TP1CORR1 = 4
+                       AND A.TP1NRO1 IS NOT NULL)
+               AND H.HRUBRO NOT IN (4212290000007, 4222290000007)
+               and h.PGCOD = F.SR171TREMP
+               AND h.HCMOD = F.SR171TRMOD
+               AND h.HTRAN = F.SR171TRNRO
+               AND h.HCORD = F.SR171TRORD
+               AND f.ST171CPCOD = G.ST171CPCOD
+                  ---filtro op no conc
+               and f.st171cpcod not in
+                   (select d.tp1nro1
+                      from fst198 d
+                     where d.tp1cod = 1
+                       and d.tp1cod1 = 11120
+                       and d.tp1corr1 = 1
+                       and d.tp1corr2 = 3
+                       and d.tp1corr3 >= 1)
+                  --- Validando existencia de transacciones en GP
+               and (h.hcmod, h.htran) in
+                   (select t.tp1nro1, t.tp1nro2
+                      from fst198 t
+                     where t.tp1cod = 1
+                       and t.tp1cod1 = 11120
+                       and t.tp1corr1 = 10
+                       and t.tp1corr2 = 1
+                       and t.tp1corr3 <> 0
+                       and t.tp1imp1 = 1);
+          exception
+            when others then
+              null;
+          end;
+          -- -- -- -- --
+        end if;
+*/      
+        --4. Validación del concepto
+        lc_flgc := 1;
+        if lc_flgc > 0 then
+        
+          --5. Ordinal
+          Begin
+          
+           /* select a.sr171trord
+              into pn_ordinal
+              from fsr171 a
+             where a.st171cpcod = 15
+               and a.sr171tremp = pn_cod --1
+               and a.sr171trmod = pc_mod --30
+               and a.sr171trnro = pc_tran; --100;   */
+               pn_ordinal := 10; -- ordinal de capital  15- Capital
+          exception
+            when others then
+              null;
+          end;
+        
+          --6. Rubro
+          begin
+            pq_cr_facturacion_generacion.sp_cr_pk_credito(pc_aqpa465pgcod    => pn_cod,
+                                                          pc_aqpa465mod      => pc_mod,
+                                                          pc_aqpa465sucorend => pc_suc,
+                                                          pc_aqpa465tran     => pc_tran,
+                                                          pc_aqpa465rel      => pc_rel,
+                                                          pc_aqpa465ord      => pn_ordinal,
+                                                          pd_aqpa465con      => pc_con,
+                                                          pn_cod             => ln_emp, ----out
+                                                          pn_mod             => ln_mod, ----out
+                                                          pn_suc             => ln_suc, ----out
+                                                          pn_mda             => ln_mda, ----out
+                                                          pn_pap             => ln_pap, ----out
+                                                          pn_cta             => ln_cta, ----out
+                                                          pn_ope             => ln_ope, ----out
+                                                          pn_sbo             => ln_sbo, ----out
+                                                          pn_top             => ln_top, ----out
+                                                          pc_flag            => lc_flg, ----out
+                                                          pn_rubro           => ln_rubro); ----out
+          
+          end;
+        
+          --dbms_output.put_line('Rubro: ' || ln_rubro);
+        
+          if lc_flg = 'S' then
+          
+            ---ln_flag: Comision 
+            -- 4: hipotecario
+            -- 3: consumo
+          
+            begin
+              select 'S'
+                into lc_flr
+                from fst198 t
+               where t.tp1cod = 1
+                 and t.tp1cod1 = 11120
+                 and t.tp1corr1 = 1
+                 and t.tp1corr2 = 23
+                 and t.tp1nro1 <> 0
+                 and t.tp1nro1 = ln_rubro;
+            exception
+              when others then
+                lc_flr := 'N';
+            end;
+          
+            if (ln_flag = 0 and lc_flr = 'S') or ln_flag = 1 then
+              --if (ln_flag = 0 and ln_rubro in (3, 4)) or ln_flag = 1 then
+            
+              lc_serie := null;
+              lc_corre := null;
+            
+              -- Validar rubros
+              begin
+                -- Call the function
+                lc_fverc := pq_cr_facturacion_generacion.fn_evaluar_conceptos(pn_pgc   => pn_cod,
+                                                                              pn_mod   => pn_mod,
+                                                                              pn_suc   => pn_suc,
+                                                                              pn_trx   => pc_tran,
+                                                                              pn_rel   => pn_rel,
+                                                                              pn_fecha => pc_con);
+              end;
+            
+              if lc_fverc = 'S' then
+                -- 7. Validación de existencia
+                Begin
+                  select 'S', a.aqpb056ser, a.aqpb056num
+                    into lc_exis, lc_SERIE_DAE, ln_NUM_DAE 
+                    from aqpb056 a
+                   where a.aqpb056pgc = pn_cod
+                     and a.aqpb056mod = pc_mod
+                     and a.aqpb056suc = pc_suc
+                     and a.aqpb056trx = pc_tran
+                     and a.aqpb056rel = pc_rel
+                     and a.aqpb056fco = pc_con;
+                
+                exception
+                  when others then
+                    lc_exis := 'N';
+                      lc_coderr := sqlcode;
+                      lc_msgerr := trim(sqlerrm);                    
+                end;
+              
+                -- 8. Si no existe el documento
+                if lc_exis = 'N' then
+                  -- -- -- -- --
+                
+                  -- 9. Obtener Serie, Numero            
+                  begin
+                    pq_cr_facturacion.sp_cr_factura_financiero(pn_rubro       => ln_rubro,
+                                                               pc_tipo        => 'MOV', --transaccion
+                                                               pc_serie       => lc_serie, ---out
+                                                               pc_correlativo => lc_corre); ---out
+                  
+                    --dbms_output.put_line('Tipo Documento: ' || lc_tipo);           
+                    --dbms_output.put_line('Serie: ' || lc_serie);
+                    --dbms_output.put_line('Número: ' || lc_corre);
+                  
+                  exception
+                    when others then
+                    
+                      lc_coderr := sqlcode;
+                      lc_msgerr := trim(sqlerrm);
+                    
+                  end;
+                
+                  -- 10.- Insertar comprobante
+                  begin
+                    lc_tipo := '13';
+                  
+                    insert into aqpb056
+                      (aqpb056tco,
+                       aqpb056ser,
+                       aqpb056num,
+                       aqpb056fem,
+                       aqpb056pgc,
+                       aqpb056mod,
+                       aqpb056suc,
+                       aqpb056trx,
+                       aqpb056rel,
+                       aqpb056fco)
+                    values
+                      (lc_tipo,
+                       lc_serie,
+                       lc_corre,
+                       pc_con, ---p.hfcon
+                       pn_cod, ---p.pgcod,
+                       pc_mod, ---p.hcmod,
+                       pc_suc, ---p.hsucor,
+                       pc_tran, ---p.htran,
+                       pc_rel, ---p.hnrel,
+                       pc_con ---p.hfcon
+                       );
+                    commit;
+                  exception
+                    when others then
+                    
+                      lc_coderr := sqlcode;
+                      lc_msgerr := trim(sqlerrm);
+                    
+                      insert into aqpa460E
+                        (aqpa460eserie,
+                         aqpa460ecorr,
+                         aqpa460epgcod,
+                         aqpa460emod,
+                         aqpa460esucorend,
+                         aqpa460etran,
+                         aqpa460erel,
+                         aqpa460econ,
+                         aqpa460etip,
+                         Aqpa460eacoe,
+                         Aqpa460eamsge)
+                      values
+                        (null,
+                         null,
+                         pn_cod,
+                         pc_mod,
+                         pc_suc,
+                         pc_tran,
+                         pc_rel,
+                         pc_con,
+                         'S',
+                         lc_coderr,
+                         lc_msgerr);
+                      commit;
+                  end;
+                  ----======
+                else
+                  lc_serie := lc_SERIE_DAE;  --retorna DAE en caso exista
+                  lc_corre := ln_NUM_DAE;
+                end if;
+              
+                --inserta en AQPB056Z tabla para identificar regularizacion
+                begin
+                  insert into aqpb056z
+                      (aqpb056zfec,
+                       aqpb056ztco,
+                       aqpb056zser,
+                       aqpb056znum,
+                       aqpb056zfem,
+                       aqpb056zpgc,
+                       aqpb056zmod,
+                       aqpb056zsuc,
+                       aqpb056ztrx,
+                       aqpb056zrel,
+                       aqpb056zfco,
+                       aqpb056zind
+                       )
+                    values
+                      (trunc(sysdate),
+                       lc_tipo,
+                       lc_serie,
+                       lc_corre,
+                       pc_con, ---p.hfcon
+                       pn_cod, ---p.pgcod,
+                       pc_mod, ---p.hcmod,
+                       pc_suc, ---p.hsucor,
+                       pc_tran, ---p.htran,
+                       pc_rel, ---p.hnrel,
+                       pc_con, ---p.hfcon
+                       'N'
+                       );
+                    commit;
+                  exception
+                    when others then
+                      null;
+                end;
+                
+                --fin de insercion en AQPB056Z
+              
+              end if;
+            end if;
+          
+            --end if;
+          
+          end if;
+        
+        end if;
+      
+      end;
+    
+    end if;
+  
+  end sp_cr_facturae_REGU;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+procedure sp_cr_nota_creditoe_REGU(ln_cod   in number,
+                                        ln_mod   in number,
+                                        ln_suc   in number,
+                                        ln_trx   in number,
+                                        ln_rel   in number,
+                                        ln_fcon  in date,
+                                        xn_tipo  out aqpb056.aqpb056tco%type,
+                                        xn_serie out aqpb056.aqpb056ser%type,
+                                        xn_corre out aqpb056.aqpb056num%type) is
+  -----2025.08.25 para regularizacion DAE
+                                          
+    lc_flag         number;
+    pn_NRO_RELACION number(5);
+    pd_FECHA_TX     date;
+    pn_hcmod2       number(5);
+    pn_pgcod        number(5);
+    pn_hcmod3       number(5);
+    pn_hsucor3      number(5);
+    pn_htran3       number(5);
+    pn_hnrel3       number(5);
+    pn_hfcon3       date;
+    --pn_esgrav char(1);
+  
+    ln_rubro        number;
+    lc_serieI       char(4);
+    lc_correlativoI char(8);
+    lc_comision     char(1);
+    --lv_tipocre      varchar2(2);
+    lv_codtipo char(2);
+    lv_doc_ori char(2);
+    ln_flag    number;
+    lc_exis    char(1);
+    pd_pgfape  date;
+    lc_coderr  char(100);
+    lc_msgerr  char(1000);
+    lc_fverc   char(1);
+    lc_trxe    char(1);
+  
+    lc_flag_dae number;
+    lc_flr      char(1);
+  
+  begin
+  
+    --1. Verificar fecha
+    begin
+      select pgfape into pd_pgfape from fst017 where pgcod = 1;
+    exception
+      when others then
+        null;
+    end;
+  
+    --2. Verificar comisión      
+    begin
+      select c.tp1nro1
+        into ln_flag
+        from fst198 c
+       where c.tp1cod = 1
+         and c.tp1cod1 = 11120
+         and c.tp1corr1 = 7
+         and c.tp1corr2 = 1;
+    exception
+      when others then
+        null;
+    end;
+  
+    -- verificar si se puede generar serie y correlativo DAE
+    begin
+      select t.tp1nro1
+        into lc_flag_dae
+        from fst198 t
+       where t.tp1cod = 1
+         and t.tp1cod1 = 11120
+         and t.tp1corr1 = 9
+         and t.tp1corr2 = 1
+         and t.tp1corr3 = 5;
+    exception
+      when others then
+        null;
+    end;
+  
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --   
+    -- !Importante
+    -- Validar activación del Flag para generar serie y correlativo
+    -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --   
+    if lc_flag_dae = 1 then
+      begin
+        lc_flag := 1; --2025.06.26
+        
+        ---2. Veririfcar que la transaccion exista    
+        --- Solo se evaluarán operaciones de extorno      
+  /*      if pd_pgfape = ln_fcon then
+          --diario
+          begin
+            select count(*)
+              into lc_flag
+              from fsx015 a, FSR170 b, fsd015 c
+             where a.hcmod = b.sr170trmod + 500
+               and a.htran = b.sr170trnro
+               and a.pgcod = 1
+               and a.hcmod > 499
+               and a.txcod = 0
+               and a.pgcod = c.pgcod
+               and a.hcmod = c.itmod
+               and a.hsucor = c.itsuc
+               and a.htran = c.ittran
+               and a.hnrel = c.itnrel
+               and a.hfcon = c.itfcon
+               and a.pgcod = ln_cod
+               and a.hcmod = ln_mod
+               and a.hsucor = ln_suc
+               and a.htran = ln_trx
+               and a.hnrel = ln_rel
+               and a.hfcon = ln_fcon
+               and (a.hcmod, a.htran) in
+                   (select (t.tp1nro1 + 500), t.tp1nro2
+                      from fst198 t
+                     where t.tp1cod = 1
+                       and t.tp1cod1 = 11120
+                       and t.tp1corr1 = 10
+                       and t.tp1corr2 = 1
+                       and t.tp1corr3 <> 0
+                       and t.tp1imp1 = 1);
+          exception
+            when others then
+              null;
+          end;
+        else
+          --histórico
+          begin
+            select count(*)
+              into lc_flag
+              from fsx015 a, FSR170 b, fsh015 c
+             where a.hcmod = b.sr170trmod + 500
+               and a.htran = b.sr170trnro
+               and a.pgcod = 1
+               and a.hcmod > 499
+               and a.txcod = 0
+                  
+               and a.pgcod = c.pgcod
+               and a.hcmod = c.hcmod
+               and a.hsucor = c.hsucor
+               and a.htran = c.htran
+               and a.hnrel = c.hnrel
+               and a.hfcon = c.hfcon
+                  
+               and a.pgcod = ln_cod
+               and a.hcmod = ln_mod
+               and a.hsucor = ln_suc
+               and a.htran = ln_trx
+               and a.hnrel = ln_rel
+               and a.hfcon = ln_fcon
+                  
+               and (a.hcmod, a.htran) in
+                   (select (t.tp1nro1 + 500), t.tp1nro2
+                      from fst198 t
+                     where t.tp1cod = 1
+                       and t.tp1cod1 = 11120
+                       and t.tp1corr1 = 10
+                       and t.tp1corr2 = 1
+                       and t.tp1corr3 <> 0
+                       and t.tp1imp1 = 1);
+          exception
+            when others then
+              null;
+          end;
+        end if;*/
+      
+        ----
+        begin
+        
+          if lc_flag > 0 then
+          
+            ---2. Obtener Nrel
+            begin
+              select f.txtext as NRO_RELACION
+                into pn_NRO_RELACION
+                from fsx015 f
+               where f.hfcon = ln_fcon
+                 and f.hcmod = ln_mod
+                 and f.htran = ln_trx
+                 and f.hnrel = ln_rel
+                 and f.hsucor = ln_suc
+                 and f.txcod = 0
+                 and f.txreng = 1;
+            
+            exception
+              --mod@abr 20180707
+              when too_many_rows then
+                begin
+                  select f.txtext as NRO_RELACION
+                    into pn_NRO_RELACION
+                    from fsx015 f
+                   where f.hfcon = ln_fcon
+                     and f.hcmod = ln_mod
+                     and f.htran = ln_trx
+                     and f.hnrel = ln_rel
+                     and f.hsucor = ln_suc
+                     and f.txcod = 0
+                     and f.txreng = 1
+                     and rownum = 1;
+                exception
+                  when others then
+                    pn_NRO_RELACION := null;
+                end;
+              when others then
+                pn_NRO_RELACION := null;
+              
+            end;
+            ---2. Fin
+          
+            begin
+              if pn_NRO_RELACION is not null then
+              
+                ----3. Obtener Fecha
+                begin
+                  select to_date(f.txtext, 'DD/MM/RR') as FECHA_TX
+                    into pd_FECHA_TX
+                    from fsx015 f
+                   where f.hfcon = ln_fcon
+                     and f.hcmod = ln_mod
+                     and f.htran = ln_trx
+                     and f.hnrel = ln_rel
+                     and f.hsucor = ln_suc
+                     and f.txcod = 0
+                     and f.txreng = 2;
+                exception
+                  when others then
+                    pd_FECHA_TX := null;
+                end;
+                -----3. Fin
+              
+                pn_hcmod2 := ln_mod - 500;
+              
+                -- 4. obtener transaccion original
+                -- 4.1 Verificar si la transacción tiene una excepcion
+                begin
+                  select 'S'
+                    into lc_trxe
+                    from fst198 t
+                   where t.tp1cod = 1
+                     and t.tp1cod1 = 11120
+                     and t.tp1corr1 = 10
+                     and t.tp1corr2 = 1
+                     and t.tp1corr3 <> 0
+                     and t.tp1nro1 = pn_hcmod2 --- mod
+                     and t.tp1nro2 = ln_trx -- trax
+                     and t.tp1imp3 = 1;
+                exception
+                  when others then
+                    lc_trxe := 'N';
+                end;
+              
+                if lc_trxe = 'N' then
+                
+                  begin
+                  
+                    select a.pgcod,
+                           a.hcmod,
+                           a.hsucor,
+                           a.htran,
+                           a.hnrel,
+                           a.hfcon
+                      into pn_pgcod,
+                           pn_hcmod3,
+                           pn_hsucor3,
+                           pn_htran3,
+                           pn_hnrel3,
+                           pn_hfcon3 --clave de transaccion
+                      from fsx016 a
+                     where a.hcmod = pn_hcmod2 --30
+                       and a.htran = ln_trx --100
+                       and a.hfcon = pd_FECHA_TX --to_date('20092017', 'ddmmyyyy')
+                       and a.hnrel = pn_NRO_RELACION --164
+                       and a.hsucor = ln_suc --mod@abr 20180707
+                       and rownum = 1;
+                  
+                  exception
+                    when others then
+                      pn_pgcod   := null;
+                      pn_hcmod3  := null;
+                      pn_hsucor3 := null;
+                      pn_htran3  := null;
+                      pn_hnrel3  := null;
+                      pn_hfcon3  := null;
+                    
+                  end;
+                
+                else
+                  pn_pgcod   := ln_cod;
+                  pn_hcmod3  := pn_hcmod2;
+                  pn_hsucor3 := ln_suc;
+                  pn_htran3  := ln_trx;
+                  pn_hnrel3  := pn_NRO_RELACION;
+                  pn_hfcon3  := pd_FECHA_TX;
+                
+                end if;
+                ----4. Fin
+              
+              end if;
+            
+            end;
+          
+            --determinar si el tipo de documento origen consideraba los conceptos de interes y/o seguros
+            -- Validar rubros
+            begin
+              -- Call the function
+              lc_fverc := pq_cr_facturacion_generacion.fn_evaluar_conceptos(pn_pgc   => pn_pgcod,
+                                                                            pn_mod   => pn_hcmod3,
+                                                                            pn_suc   => pn_hsucor3,
+                                                                            pn_trx   => pn_htran3,
+                                                                            pn_rel   => pn_hnrel3,
+                                                                            pn_fecha => pn_hfcon3);
+            end;
+          
+            if lc_fverc = 'S' then
+            
+              --determinar tipo del documento origen
+              begin
+                select distinct t.aqpb056tco, t.aqpb056ser, t.aqpb056num
+                  into lv_doc_ori, lc_serieI, lc_correlativoI
+                  from aqpb056 t
+                 where t.aqpb056pgc = pn_pgcod
+                   and t.aqpb056mod = pn_hcmod3
+                   and t.aqpb056suc = pn_hsucor3
+                   and t.aqpb056trx = pn_htran3
+                   and t.aqpb056rel = pn_hnrel3
+                   and t.aqpb056fco = pn_hfcon3
+                   and t.aqpb056tco = '13';
+              
+              exception
+                when no_data_found then
+                
+                  begin
+                    select distinct t.aqpb056htcomf,
+                                    t.aqpb056hseri,
+                                    t.aqpb056hnum
+                      into lv_doc_ori, lc_serieI, lc_correlativoI
+                      from aqpb056h t
+                     where t.aqpb056hpgc = pn_pgcod
+                       and t.aqpb056hmod = pn_hcmod3
+                       and t.aqpb056hsuc = pn_hsucor3
+                       and t.aqpb056htrx = pn_htran3
+                       and t.aqpb056hrel = pn_hnrel3
+                       and t.aqpb056hfcon = pn_hfcon3
+                       and t.aqpb056htcomf = '13';
+                  
+                  exception
+                    when no_data_found then
+                    
+                      lv_doc_ori      := null;
+                      lc_serieI       := null;
+                      lc_correlativoI := null;
+                  end;
+                
+              end;
+            
+              ---Validar si el tipo de documento 
+              ---origen es gravado o no gravado        
+            
+              if lv_doc_ori is not null then
+              
+                begin
+                
+                  lv_codtipo := '13';
+                  --lv_tipodocu := substr(lc_serieI, 1, 1);
+                  --lv_tipocre := substr(lc_serieI, 2, 1);
+                
+                  ---determinar el rubro
+                  begin
+                    --- Si la fecha de la NCE es igual a la fecha del DAE
+                    if pn_hfcon3 = pd_pgfape then
+                    
+                      begin
+                        select to_number(substr(m.rubro, 5, 2))
+                          into ln_rubro
+                          from fsd016 m, fsr171 aa
+                         where aa.st171cpcod = 15
+                           and aa.sr171tremp = 1 --1
+                           and aa.sr171trmod = m.itmod --30
+                           and aa.sr171trnro = m.ittran
+                           and m.PGCOD = pn_pgcod
+                           and m.ITSUC = pn_hsucor3
+                           and m.ITMOD = pn_hcmod3
+                           and m.ITTRAN = pn_htran3
+                           and m.ITNREL = pn_hnrel3
+                           and m.ITORD = aa.sr171trord
+                           and rownum = 1;
+                      exception
+                        when others then
+                          ln_rubro := null;
+                      end;
+                    else
+                      begin
+                        select to_number(substr(m.hrubro, 5, 2))
+                          into ln_rubro
+                          from fsh016 m, fsr171 aa
+                         where aa.st171cpcod = 15
+                           and aa.sr171tremp = 1 --1
+                           and aa.sr171trmod = m.hcmod --30
+                           and aa.sr171trnro = m.htran
+                           and m.PGCOD = pn_pgcod
+                           and m.hsucor = pn_hsucor3
+                           and m.hcmod = pn_hcmod3
+                           and m.htran = pn_htran3
+                           and m.hnrel = pn_hnrel3
+                           and m.hfcon = pn_hfcon3
+                           and m.hcord = aa.sr171trord
+                           and rownum = 1;
+                      exception
+                        when others then
+                          --ln_rubro := null;
+                        
+                          begin
+                          
+                            select distinct x.aqpa463tcre
+                              into ln_rubro
+                              from aqpa463 x
+                             where x.aqpa463pgcod = pn_pgcod
+                               and x.aqpa463hcmod = pn_hcmod3
+                               and x.aqpa463hsucor = pn_hsucor3
+                               and x.aqpa463htran = pn_htran3
+                               and x.aqpa463hnrel = pn_hnrel3
+                               and x.aqpa463hfcon = pn_hfcon3;
+                          
+                          exception
+                            when others then
+                              ln_rubro := null;
+                            
+                          end;
+                      end;
+                    end if;
+                  
+                  end;
+                
+                  --determinar si es comision
+                  begin
+                    select 'S'
+                      into lc_comision
+                      from fst198 h
+                     where h.tp1cod = 1
+                       and h.tp1cod1 = 11120
+                       and h.tp1corr1 = 3
+                       and h.tp1corr2 = 1
+                       and h.tp1nro1 = pn_hcmod3
+                       and h.tp1nro2 = pn_htran3
+                       and rownum = 1;
+                  exception
+                    when others then
+                      lc_comision := 'N';
+                  end;
+                
+                  if lc_comision = 'S' then
+                    ln_rubro := 1;
+                  end if;
+                
+                  -- b. Determinar si el rubro es considerado
+                  begin
+                    select 'S'
+                      into lc_flr
+                      from fst198 t
+                     where t.tp1cod = 1
+                       and t.tp1cod1 = 11120
+                       and t.tp1corr1 = 1
+                       and t.tp1corr2 = 23
+                       and t.tp1nro1 <> 0
+                       and t.tp1nro1 = ln_rubro;
+                  exception
+                    when others then
+                      lc_flr := 'N';
+                  end;
+                
+                  ---6. Obtener documentación para los hipotecarios
+                  --if (lv_tipocre in ('H', 'F') and ln_flag = 0) or ln_flag = 1 then
+                  if (lc_flr = 'S' and ln_flag = 0) or ln_flag = 1 then
+                  
+                    --Seleccionar tipo de documento    !!3
+                    --  lv_tipo_doc := '87';
+                  
+                    ---8. Obtener la serie y el número
+                    begin
+                      --if pn_esgrav='N' then
+                    
+                      -- 9. Verificar si existe
+                      Begin
+                        select 'S'
+                          into lc_exis
+                          from aqpb056 a
+                         where a.aqpb056pgc = ln_cod
+                           and a.aqpb056mod = ln_mod
+                           and a.aqpb056suc = ln_suc
+                           and a.aqpb056trx = ln_trx
+                           and a.aqpb056rel = ln_rel
+                           and a.aqpb056fco = ln_fcon;
+                      
+                      exception
+                        when others then
+                          lc_exis := 'N';
+                      end;
+                    
+                      --lc_exis := 'N';
+                      -- -- -- -- 
+                      if lc_exis = 'N' then
+                      
+                        PQ_CR_FACTURACION.sp_cr_factura_financiero(ln_rubro,
+                                                                   'NC',
+                                                                   xn_serie,
+                                                                   xn_corre);
+                      
+                        begin
+                        
+                          ---===========================                                            
+                          ---Resultado
+                          ---===========================
+                          xn_tipo := '87';
+                        
+                          ---Inserción de la NC
+                          insert into aqpb056
+                            (aqpb056tco,
+                             aqpb056ser,
+                             aqpb056num,
+                             aqpb056fem,
+                             
+                             aqpb056pgc,
+                             aqpb056mod,
+                             aqpb056suc,
+                             aqpb056trx,
+                             aqpb056rel,
+                             aqpb056fco,
+                             
+                             aqpb056tce,
+                             aqpb056see,
+                             aqpb056nro,
+                             
+                             aqpb056pge,
+                             aqpb056moe,
+                             aqpb056sue,
+                             aqpb056tre,
+                             aqpb056ree,
+                             aqpb056fce)
+                          values
+                            (xn_tipo,
+                             xn_serie,
+                             xn_corre,
+                             ln_fcon,
+                             
+                             ln_cod, ---aqpa460pgce,
+                             ln_mod, ---aqpa460mode,
+                             ln_suc, ---aqpa460suce,
+                             ln_trx, ---aqpa460trxe,
+                             ln_rel, ---aqpa460rele,
+                             ln_fcon, ---aqpa460fcone
+                             
+                             lv_codtipo,
+                             lc_serieI,
+                             lc_correlativoI,
+                             
+                             pn_pgcod, ---p.pgcod,
+                             pn_hcmod3, ---p.hcmod,
+                             pn_hsucor3, ---p.hsucor,
+                             pn_htran3, ---p.htran,
+                             pn_hnrel3, ---p.hnrel,
+                             pn_hfcon3 ---p.hfcon
+                             
+                             );
+                          commit;
+                        
+                        exception
+                          when others then
+                          
+                            lc_coderr := sqlcode;
+                            lc_msgerr := trim(sqlerrm);
+                          
+                            insert into aqpa460E
+                              (aqpa460eserie,
+                               aqpa460ecorr,
+                               aqpa460epgcod,
+                               aqpa460emod,
+                               aqpa460esucorend,
+                               aqpa460etran,
+                               aqpa460erel,
+                               aqpa460econ,
+                               aqpa460etip,
+                               Aqpa460eacoe,
+                               Aqpa460eamsge)
+                            values
+                              (null,
+                               null,
+                               ln_cod,
+                               ln_mod,
+                               ln_suc,
+                               ln_trx,
+                               ln_rel,
+                               ln_fcon,
+                               'S',
+                               lc_coderr,
+                               lc_msgerr);
+                            commit;
+                          
+                        end;
+                      
+                      end if;
+                      -- -- -- --                           
+                    
+                      -----inserta en AQPB056Z tabla para identificar regularizacion
+                                                ---Inserción de la NC
+                      begin
+                          insert into aqpb056z
+                            (aqpb056zfec,
+                             aqpb056ztco,
+                             aqpb056zser,
+                             aqpb056znum,
+                             aqpb056zfem,
+                             
+                             aqpb056zpgc,
+                             aqpb056zmod,
+                             aqpb056zsuc,
+                             aqpb056ztrx,
+                             aqpb056zrel,
+                             aqpb056zfco,
+                             
+                             aqpb056ztce,
+                             aqpb056zsee,
+                             aqpb056znro,
+                             
+                             aqpb056zpge,
+                             aqpb056zmoe,
+                             aqpb056zsue,
+                             aqpb056ztre,
+                             aqpb056zree,
+                             aqpb056zfce,
+                             aqpb056zind)
+                          values
+                            (trunc(sysdate),
+                             xn_tipo,
+                             xn_serie,
+                             xn_corre,
+                             ln_fcon,
+                             
+                             ln_cod, ---aqpa460pgce,
+                             ln_mod, ---aqpa460mode,
+                             ln_suc, ---aqpa460suce,
+                             ln_trx, ---aqpa460trxe,
+                             ln_rel, ---aqpa460rele,
+                             ln_fcon, ---aqpa460fcone
+                             
+                             lv_codtipo,
+                             lc_serieI,
+                             lc_correlativoI,
+                             
+                             pn_pgcod, ---p.pgcod,
+                             pn_hcmod3, ---p.hcmod,
+                             pn_hsucor3, ---p.hsucor,
+                             pn_htran3, ---p.htran,
+                             pn_hnrel3, ---p.hnrel,
+                             pn_hfcon3, ---p.hfcon
+                             'N'
+                             );
+                          commit;
+                      exception when others then
+                          null;  
+                      end;
+                      
+                      ----fin inserta AQPB056Z
+                    
+                    end;
+                    ---8. Fin
+                  
+                  end if;
+                  ---6. Fin           
+                end;
+              end if;
+            
+            end if;
+          
+          end if;
+        end;
+        ----    
+      
+      end;
+    
+    end if;
+  
+  end sp_cr_nota_creditoe_REGU;
+------------------------------------------------------------------    
 end pq_cr_facturacion_generacion;
 /
