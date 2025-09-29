@@ -14,10 +14,16 @@ CREATE OR REPLACE TRIGGER TG_AQPC341_AI_01
   -- Acceso                      : Público
   -- Fecha de Modificación       : 23/05/2025
   -- Autor de la Modificación    : Renzo Cuadros
-  -- Descripción la Modificación : Se agrega trim al campo push token para envitar errores en envios   
-  -- Fecha de la Modificación    :
-  -- Autor de la Modificación    :
-  -- Descripción la Modificación :
+  -- Descripción la Modificación : Se agrega trim al campo push token para envitar errores en envios
+  -- Fecha de Modificación       : 23/06/2025
+  -- Autor de la Modificación    : Renzo Cuadros
+  -- Descripción la Modificación : Se intercambian los flags de celular y mail
+  -- Fecha de Modificación       : 14/07/2025
+  -- Autor de la Modificación    : Renzo Cuadros
+  -- Descripción la modificación : Se toma en cuenta el flag en 's' para celular y correo
+  -- Fecha de modificación       : 22/09/2025
+  -- Autor de la modificación    : Renzo Cuadros
+  -- Descripción la modificación : Se obtiene datos del cliente juridico de la FSD001
   -- *****************************************************************
   
 DECLARE
@@ -36,7 +42,7 @@ DECLARE
   lc_mail       CHAR(1) := 'N';
   lc_cel        CHAR(1) := 'N';
   lc_sex        CHAR(1);
-  lv_aux1       VARCHAR2(10);
+  lv_aux1       VARCHAR2(100);
 BEGIN
 
   lv_codigo := LPAD(:new.AQPC341CTA, 9, '0') ||
@@ -64,19 +70,19 @@ BEGIN
   BEGIN
     SELECT TRIM(x.mail_cliente),
            TO_NUMBER('51' || TRIM(x.celular_cliente)),
-           x.enviar_celular,
-           x.enviar_mail
+           case when x.enviar_mail = 'S' then 'P' else x.enviar_mail end enviar_mail,
+           case when x.enviar_celular = 'S' then 'P' else x.enviar_celular end enviar_celular -- rcuadros 14/07/2025           
       INTO lv_correo, ln_celular, lc_mail, lc_cel
       FROM ichannelalert.clientes_afiliados x
      WHERE x.codigo_cliente = lv_codigo
-       AND (x.enviar_mail = 'P' OR x.enviar_celular = 'P');
+       AND (x.enviar_mail in ('P', 'S') OR x.enviar_celular in ('P', 'S')); -- rcuadros 23/06/2025
   
   EXCEPTION
     WHEN OTHERS THEN
       lv_correo  := NULL;
       ln_celular := NULL;
   END;
-
+  
   -- solo si esta afiliado hacemos algo si no salimos
   IF lv_correo IS NOT NULL OR ln_celular IS NOT NULL THEN
     -- obtenemos nombre del cliente
@@ -88,11 +94,23 @@ BEGIN
          AND a.pftdoc = :new.AQPC341TDO
          AND a.pfndoc = :new.AQPC341DOC;
     EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+        BEGIN
+          SELECT TRIM(UPPER(SUBSTR(a.penom, 1, 25))), 'N' -- rcuadros 22/09/2025
+            INTO lv_cliente, lc_sex
+            FROM FSD001 a
+           WHERE a.pepais = :new.AQPC341PAI
+             AND a.petdoc = :new.AQPC341TDO
+             AND a.pendoc = :new.AQPC341DOC;
+        EXCEPTION
+          WHEN OTHERS THEN
+            lv_cliente := NULL;
+            lc_sex     := NULL;
+        END;
       WHEN OTHERS THEN
         lv_cliente := NULL;
         lc_sex     := NULL;
     END;
-  
     -- verificamos si tiene push activo
     BEGIN
       SELECT JAQZ205AUX2
@@ -128,13 +146,15 @@ BEGIN
   
     -- si tiene fcm token
     IF TRIM(lv_fcm_token) IS NOT NULL THEN -- rcuadros 23/05/2025
-      IF lc_sex = 'M' THEN
-        lv_aux1 := 'Estimado ';
-      ELSE
-        lv_aux1 := 'Estimada ';
-      END IF;
-    
-      lv_mensaje := lv_aux1 || lv_cliente ||
+      CASE
+        WHEN lc_sex = 'M' THEN
+          lv_aux1 := 'Estimado ' || lv_cliente;
+        WHEN lc_sex = 'F' THEN
+          lv_aux1 := 'Estimada ' || lv_cliente;
+        ELSE
+          lv_aux1 := 'Estimado '; -- rcuadros 22/09/2025
+      END CASE;
+      lv_mensaje := lv_aux1 ||
                     ' Caja Arequipa le informa sobre la operación ' ||
                     lv_operacion || ' por ' || lv_moneda ||
                     TRIM(TO_CHAR(:new.AQPC341MOT, '9,999,999.90')) ||
@@ -144,26 +164,26 @@ BEGIN
       -- registra notificación
       BEGIN
         INSERT INTO AQPA147
-          (AQPA147cor,
-           AQPA147fec,
-           AQPA147hor,
-           AQPA147med,
-           AQPA147ori,
-           AQPA147msg,
-           AQPA147des,
-           AQPA147cta,
-           AQPA147pai,
-           AQPA147tpo,
-           AQPA147num,
-           AQPA147mon,
-           AQPA147top,
-           AQPA147nop,
-           AQPA147est,
-           AQPA147SUC,
-           AQPA147MOD,
-           AQPA147TRA,
-           AQPA147REL,
-           AQPA147FCO)
+          (aqpa147cor,
+           aqpa147fec,
+           aqpa147hor,
+           aqpa147med,
+           aqpa147ori,
+           aqpa147msg,
+           aqpa147des,
+           aqpa147cta,
+           aqpa147pai,
+           aqpa147tpo,
+           aqpa147num,
+           aqpa147mon,
+           aqpa147top,
+           aqpa147nop,
+           aqpa147est,
+           aqpa147suc,
+           aqpa147mod,
+           aqpa147tra,
+           aqpa147rel,
+           aqpa147fco)
         VALUES
           (SQ_AH_ID_PUSH.NEXTVAL,
            TRUNC(SYSDATE),
@@ -194,13 +214,15 @@ BEGIN
         lv_mensaje := '';
         -- registra notificación
         DBMS_LOB.CREATETEMPORARY(ll_mensaje, TRUE);
-        IF lc_sex = 'M' THEN
-          lv_aux1 := 'Estimado ';
-        ELSE
-          lv_aux1 := 'Estimada ';
-        END IF;
-      
-        lv_mensaje := lv_aux1 || lv_cliente ||
+        CASE
+          WHEN lc_sex = 'M' THEN
+            lv_aux1 := 'Estimado ' || lv_cliente;
+          WHEN lc_sex = 'F' THEN
+            lv_aux1 := 'Estimada ' || lv_cliente;
+          ELSE
+            lv_aux1 := 'Estimado '; -- rcuadros 22/09/2025
+        END CASE;
+        lv_mensaje := lv_aux1 ||
                       ' Caja Arequipa le informa sobre la operación ' ||
                       lv_operacion || ' por ' || lv_moneda ||
                       TRIM(TO_CHAR(:new.AQPC341MOT, '9,999,999.90')) ||
@@ -218,26 +240,26 @@ BEGIN
         DBMS_LOB.WRITEAPPEND(ll_mensaje, length(lv_mensaje), lv_mensaje);
         BEGIN
           INSERT INTO AQPA147
-            (AQPA147cor,
-             AQPA147fec,
-             AQPA147hor,
-             AQPA147med,
-             AQPA147ori,
-             AQPA147msg,
-             AQPA147des,
-             AQPA147cta,
-             AQPA147pai,
-             AQPA147tpo,
-             AQPA147num,
-             AQPA147mon,
-             AQPA147top,
-             AQPA147nop,
-             AQPA147est,
-             AQPA147SUC,
-             AQPA147MOD,
-             AQPA147TRA,
-             AQPA147REL,
-             AQPA147FCO)
+            (aqpa147cor,
+             aqpa147fec,
+             aqpa147hor,
+             aqpa147med,
+             aqpa147ori,
+             aqpa147msg,
+             aqpa147des,
+             aqpa147cta,
+             aqpa147pai,
+             aqpa147tpo,
+             aqpa147num,
+             aqpa147mon,
+             aqpa147top,
+             aqpa147nop,
+             aqpa147est,
+             aqpa147suc,
+             aqpa147mod,
+             aqpa147tra,
+             aqpa147rel,
+             aqpa147fco)
           VALUES
             (SQ_AH_ID_PUSH.NEXTVAL,
              TRUNC(SYSDATE),
@@ -270,13 +292,16 @@ BEGIN
       IF lv_correo IS NOT NULL AND lc_mail = 'P' THEN
         -- registra notificación
         dbms_lob.createtemporary(ll_mensaje, TRUE);
-        IF lc_sex = 'M' THEN
-          lv_aux1 := 'Estimado ';
-        ELSE
-          lv_aux1 := 'Estimada ';
-        END IF;
-      
-        lv_mensaje := lv_aux1 || lv_cliente ||
+        CASE
+          WHEN lc_sex = 'M' THEN
+            lv_aux1 := 'Estimado ' || lv_cliente;
+          WHEN lc_sex = 'F' THEN
+            lv_aux1 := 'Estimada ' || lv_cliente;
+          ELSE
+            lv_aux1 := 'Estimado '; -- rcuadros 22/09/2025
+        END CASE;
+        
+        lv_mensaje := lv_aux1 ||
                       ' Caja Arequipa le informa sobre la operación ' ||
                       lv_operacion || ' por ' || lv_MONEDA ||
                       TRIM(TO_CHAR(:new.AQPC341MOT, '9,999,999.90')) ||
@@ -293,26 +318,26 @@ BEGIN
         dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
         BEGIN
           INSERT INTO AQPA147
-            (AQPA147cor,
-             AQPA147fec,
-             AQPA147hor,
-             AQPA147med,
-             AQPA147ori,
-             AQPA147msg,
-             AQPA147des,
-             AQPA147cta,
-             AQPA147pai,
-             AQPA147tpo,
-             AQPA147num,
-             AQPA147mon,
-             AQPA147top,
-             AQPA147nop,
-             AQPA147est,
-             AQPA147SUC,
-             AQPA147MOD,
-             AQPA147TRA,
-             AQPA147REL,
-             AQPA147FCO)
+            (aqpa147cor,
+             aqpa147fec,
+             aqpa147hor,
+             aqpa147med,
+             aqpa147ori,
+             aqpa147msg,
+             aqpa147des,
+             aqpa147cta,
+             aqpa147pai,
+             aqpa147tpo,
+             aqpa147num,
+             aqpa147mon,
+             aqpa147top,
+             aqpa147nop,
+             aqpa147est,
+             aqpa147suc,
+             aqpa147mod,
+             aqpa147tra,
+             aqpa147rel,
+             aqpa147fco)
           VALUES
             (SQ_AH_ID_PUSH.NEXTVAL,
              TRUNC(SYSDATE),
@@ -343,13 +368,16 @@ BEGIN
     
       -- registra notificación sms
       IF ln_celular IS NOT NULL AND lc_cel = 'P' THEN
-        IF lc_sex = 'M' THEN
-          lv_aux1 := 'Estimado ';
-        ELSE
-          lv_aux1 := 'Estimada ';
-        END IF;
+        CASE
+          WHEN lc_sex = 'M' THEN
+            lv_aux1 := 'Estimado ' || lv_cliente;
+          WHEN lc_sex = 'F' THEN
+            lv_aux1 := 'Estimada ' || lv_cliente;
+          ELSE
+            lv_aux1 := 'Estimado '; -- rcuadros 22/09/2025
+        END CASE;
       
-        lv_mensaje := lv_aux1 || lv_cliente ||
+        lv_mensaje := lv_aux1 ||
                       ' Caja Arequipa le informa sobre la operación ' ||
                       lv_operacion || ' por ' || lv_MONEDA ||
                       TRIM(TO_CHAR(:new.AQPC341MOT, '9,999,999.90')) ||
@@ -357,26 +385,26 @@ BEGIN
                       lv_ubigueo;
         BEGIN
           INSERT INTO AQPA147
-            (AQPA147cor,
-             AQPA147fec,
-             AQPA147hor,
-             AQPA147med,
-             AQPA147ori,
-             AQPA147msg,
-             AQPA147des,
-             AQPA147cta,
-             AQPA147pai,
-             AQPA147tpo,
-             AQPA147num,
-             AQPA147mon,
-             AQPA147top,
-             AQPA147nop,
-             AQPA147est,
-             AQPA147SUC,
-             AQPA147MOD,
-             AQPA147TRA,
-             AQPA147REL,
-             AQPA147FCO)
+            (aqpa147cor,
+             aqpa147fec,
+             aqpa147hor,
+             aqpa147med,
+             aqpa147ori,
+             aqpa147msg,
+             aqpa147des,
+             aqpa147cta,
+             aqpa147pai,
+             aqpa147tpo,
+             aqpa147num,
+             aqpa147mon,
+             aqpa147top,
+             aqpa147nop,
+             aqpa147est,
+             aqpa147suc,
+             aqpa147mod,
+             aqpa147tra,
+             aqpa147rel,
+             aqpa147fco)
           VALUES
             (SQ_AH_ID_PUSH.NEXTVAL,
              TRUNC(SYSDATE),

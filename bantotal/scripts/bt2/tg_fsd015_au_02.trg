@@ -45,6 +45,15 @@ CREATE OR REPLACE TRIGGER TG_FSD015_AU_02
     -- Fecha de Modificación      : 23/05/2025
     -- Autor de la Modificación   : Renzo Cuadros
     -- Modificación               : Se agrega trim al campo push token para envitar errores en envios
+    -- Fecha de Modificación      : 23/06/2025
+    -- Autor de la Modificación   : Renzo Cuadros
+    -- Modificación               : Se intercambian los flags de celular y mail
+    -- Fecha de Modificación      : 14/07/2025
+    -- Autor de la Modificación   : Renzo Cuadros
+    -- Modificación               : Se toma en cuenta el flag en 'S' para celular y correo
+    -- Fecha de modificación      : 22/09/2025
+    -- Autor de la modificación   : Renzo Cuadros
+    -- Modificación               : Se obtiene datos del cliente juridico de la FSD001    
     -- *****************************************************************
 declare
    cursor c_notifica is
@@ -111,7 +120,7 @@ declare
        and c.TP1COD = 1
        and c.TP1COD1 = 10825
        and c.TP1CORR1 = 8
-       and c.TP1IMP1 = 1
+       and c.TP1IMP3 = 1 --Hlaqui 04/06/2025 - Se cambia TP1IMP1 por TP1IMP3
        and b.pgcod  = :old.pgcod
        and b.itsuc  = :old.itsuc
        and b.itmod  = :old.itmod
@@ -154,11 +163,13 @@ begin
 
        --VERIFICAMOS SI ESTA AFILIADO
        BEGIN
-         select trim(x.mail_cliente),to_number('51'||trim(x.celular_cliente)),x.enviar_celular,x.enviar_mail
+         select trim(x.mail_cliente),to_number('51'||trim(x.celular_cliente)),
+           case when x.enviar_mail = 'S' then 'P' else x.enviar_mail end enviar_mail,
+           case when x.enviar_celular = 'S' then 'P' else x.enviar_celular end enviar_celular -- rcuadros 23/06/2025
            into lv_mail, ln_celular,lc_mail,lc_cel
            from ichannelalert.clientes_afiliados x
           where x.codigo_cliente = lv_codigo
-            and (x.enviar_mail = 'P' or x.enviar_celular = 'P');
+            and (x.enviar_mail in ('P', 'S') or x.enviar_celular in ('P', 'S'));
             /*  and exists(select 1
                          from fst198 z
                         where z.tp1cod   = 1
@@ -225,11 +236,26 @@ begin
                 and b.cttfir = 'T';
            exception
            when others then
-             lv_nombre_cliente := null;
-             ln_pais           := null;
-             ln_tipdoc         := null;
-             lc_numdoc         := null;
-             lc_sex            := null;
+              -- rcuadros 22/09/2025
+              begin
+                  select trim(upper(SUBSTR(a.penom, 1, 25))), a.pepais, a.petdoc, a.pendoc, 'N'
+                  into lv_nombre_cliente, ln_pais, ln_tipdoc, lc_numdoc, lc_sex
+                  from fsd001 a, fsr008 b
+                  where a.pepais = b.pepais
+                    and a.petdoc = b.petdoc
+                    and a.pendoc = b.pendoc
+                    and b.ctnro  = ln_cuenta
+                    and b.pgcod  = 1
+                    and b.ttcod  = 1
+                    and b.cttfir = 'T';
+              exception
+              when others then
+                 lv_nombre_cliente := null;
+                 ln_pais           := null;
+                 ln_tipdoc         := null;
+                 lc_numdoc         := null;
+                 lc_sex            := null;
+               end;
            end;
 
            -- VERIFICAMOS SI TIENE PUSH ACTIVO
@@ -270,7 +296,7 @@ begin
               WHEN NO_DATA_FOUND THEN
                 NULL;
             END;
-            
+
             --OBTENEMOS EL DESTINO / ORIGEN
             -- rcuadros 02/05/2025
             BEGIN
@@ -304,14 +330,18 @@ begin
               WHEN OTHERS THEN
                 lv_recipient := NULL;
             END;
-            
+
            --SI TIENE PUSH
            if TRIM(lv_PUSH_TOKEN) is not null then -- rcuadros 23/05/2025
               if lc_sex = 'M' then
                  lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
               else
-                 lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
-              End If;
+                 if lc_sex = 'N' then -- rcuadros 22/09/2025
+                    lv_mensaje := 'Estimado cliente Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                 else
+                    lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                 end if;
+              end if;
              --REGISTRA NOTIFICACIÓN
              begin
                insert into AQPA147(AQPA147cor,
@@ -365,11 +395,15 @@ begin
              If lv_mail is not null and lc_mail = 'P' then
                --REGISTRA NOTIFICACIÓN
                dbms_lob.createtemporary(ll_mensaje, TRUE);
-               if lc_sex = 'M' then
-                  lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
-               else
-                  lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
-               End If;
+                if lc_sex = 'M' then
+                   lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                else
+                   if lc_sex = 'N' then -- rcuadros 22/09/2025
+                      lv_mensaje := 'Estimado cliente Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                   else
+                      lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                   end if;
+                end if;
                lv_mensaje := '<p "font-family: Arial, sans-serif; font-size: 14px;">'||lv_mensaje||'</p>';
                dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
 
@@ -433,11 +467,15 @@ begin
              if lv_mail is not null and lc_mail = 'P' then
                --REGISTRA NOTIFICACIÓN
                dbms_lob.createtemporary(ll_mensaje, TRUE);
-               if lc_sex = 'M' then
-                  lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
-               else
-                  lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
-               End If;
+                if lc_sex = 'M' then
+                   lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                else
+                   if lc_sex = 'N' then -- rcuadros 22/09/2025
+                      lv_mensaje := 'Estimado cliente Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                   else
+                      lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                   end if;
+                end if;
                lv_mensaje := '<p "font-family: Arial, sans-serif; font-size: 14px;">'||lv_mensaje||'</p>';
                dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
 
@@ -501,8 +539,12 @@ begin
                 if lc_sex = 'M' then
                    lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
                 else
-                   lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
-                End If;
+                   if lc_sex = 'N' then -- rcuadros 22/09/2025
+                      lv_mensaje := 'Estimado cliente Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                   else
+                      lv_mensaje := 'Estimada '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_recipient||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
+                   end if;
+                end if;
                 begin
                  insert into AQPA147(AQPA147cor,
                                      AQPA147fec,

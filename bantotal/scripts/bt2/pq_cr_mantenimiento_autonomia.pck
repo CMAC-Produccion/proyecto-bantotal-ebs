@@ -1,9 +1,4 @@
 create or replace package PQ_CR_MANTENIMIENTO_AUTONOMIA is
-
-  -- Author  : MPOSTIGOC
-  -- Created : 13/11/2019 11:34:24 a. m.
-  -- Purpose : 
-
   --*****************************************************************
   -- Nombre                     : PQ_CR_MANTENIMIENTO_AUTONOMIA
   -- Sistema                    : BANTOTAL
@@ -17,9 +12,9 @@ create or replace package PQ_CR_MANTENIMIENTO_AUTONOMIA is
   -- Fecha de Modificación      : 25/07/2025
   -- Autor de la Modificación   : MPOSTIGOC
   -- Descripción de Modificación: Se optimizo la consulta que devuelve el nombre del cliente, obtencion de la clave del credito.
-  -- Fecha de Modificación      : 
-  -- Autor de la Modificación   : 
-  -- Descripción de Modificación: 
+  -- Fecha de Modificación      : 23/09/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se cambio la numeracion del correlativo para la insercion por una secuencia
   -- *****************************************************************
 
   procedure sp_cr_Inicio(lc_UsuLogin in varchar2,
@@ -785,13 +780,13 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
                           lc_rpta       in varchar2,
                           lc_com        in varchar2) is
   
-    ln_corr number := 0;
+    -- ln_corr number := 0;
     lc_hora character(8) := '00:00:00';
     Region  varchar(40);
     Zona    varchar(40);
   
   begin
-    begin
+    /* begin
       select max(a.aqpa370corr)
         into ln_corr
         from aqpa370 a
@@ -801,8 +796,8 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
       when others then
         ln_corr := 0;
     end;
-  
-    ln_corr := nvl(ln_corr, 0);
+    
+    ln_corr := nvl(ln_corr, 0);*/
   
     begin
       select to_char(sysdate, 'HH24:MI:SS') into lc_hora from dual;
@@ -850,7 +845,7 @@ create or replace package body PQ_CR_MANTENIMIENTO_AUTONOMIA is
          aqpa370vaux3)
       
       values
-        (ln_corr + 1,
+        (SQ_CR_AQPA370.NEXTVAL,
          ld_fec,
          lc_hora,
          lc_user,
