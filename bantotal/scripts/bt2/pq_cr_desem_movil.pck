@@ -12,9 +12,9 @@ CREATE OR REPLACE PACKAGE PQ_CR_DESEM_MOVIL is
   -- Fecha de Modificación      : 14/07/2025
   -- Autor de la Modificación   : eninah 
   -- Descripción de Modificación: Se agregaron más parametros para el llamado a un nuevo sp_cr_registrar_AQPD163
-  -- Fecha de Modificación      : 05/08/2025
+  -- Fecha de Modificación      : 16/09/2025
   -- Autor de la Modificación   : eninah 
-  -- Descripción de Modificación: Se validó el funcionamiento del paquete
+  -- Descripción de Modificación: Se agregaron más parametros para el llamado a un nuevo SP
   --
   --  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   --  AQPA963PGCOD NUMBER(3), AQPA963ITSUC NUMBER(3), AQPA963ITMOD NUMBER(3), AQPA963ITTRAN NUMBER(3), AQPA963ITNREL NUMBER(4), AQPA963ITFCON DATE,
@@ -123,13 +123,9 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_DESEM_MOVIL is
     -- Acceso                     : PÚBLICO
     -- Par¿metros de Entrada      :
     -- Par¿metros de Salida       :
-    -- Fecha de Modificación      : 03/06/2025
+    -- Fecha de Modificación      : 16/09/2025
     -- Autor de la Modificación   : eninah 
     -- Descripción de Modificación: Se agregaron más parametros para el llamado a un nuevo SP
-    -- Fecha de Modificación      : 05/08/2025
-    -- Autor de la Modificación   : eninah 
-    -- Descripción de Modificación: Se validó el funcionamiento del paquete
-    --
     -- ********************************************************************************************************
   
     l_bfile   BFILE;
