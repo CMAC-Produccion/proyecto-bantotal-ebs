@@ -10,9 +10,9 @@ create or replace package PQ_CR_CNTRL_LIMITREPRO is
   -- Uso                        : Control en el Limite de reprogramaciones por region - Riesgos
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 
-  -- Autor de la Modificación   : 
-  -- Descripción de Modificación: 
+  -- Fecha de Modificación      : 25/09/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se agrego validacion de Control de Opinion de Riesgos
   -- Fecha de Modificación      : 
   -- Autor de la Modificación   : 
   -- Descripción de Modificación: 
@@ -30,7 +30,8 @@ create or replace package PQ_CR_CNTRL_LIMITREPRO is
                              ln_mntacumt  in number,
                              ln_mntdisp   in number,
                              ln_capcred   in number,
-                             lv_enlimt    in varchar2);
+                             lv_enlimt    in varchar2,
+                             lv_IndOR     in varchar2);
   ------------------------------------------------------------
   procedure sp_cr_RTE_UPDAQPD059(ln_pgcodt in number,
                                  ln_suct   in number,
@@ -60,6 +61,10 @@ create or replace package body PQ_CR_CNTRL_LIMITREPRO is
     ln_cuenta       number;
     ln_operacion    number;
     ln_NroReprog    number;
+    vi_tieneOpinion number;
+    vi_TipoOpinion  varchar2(5);
+    vi_mensaje      varchar(300);
+    Lv_IndOpRiesg   varchar2(5) := 'N';
   
   begin
   
@@ -179,7 +184,8 @@ create or replace package body PQ_CR_CNTRL_LIMITREPRO is
                                                   ln_mntacumt  => ln_MntAcuRepr,
                                                   ln_mntdisp   => ln_MaxSaldRepro,
                                                   ln_capcred   => ln_CapRepr,
-                                                  lv_enlimt    => lc_EstaLimi);
+                                                  lv_enlimt    => lc_EstaLimi,
+                                                  lv_IndOR     => Lv_IndOpRiesg);
         
         end if;
       end if;
@@ -269,6 +275,19 @@ create or replace package body PQ_CR_CNTRL_LIMITREPRO is
             lc_EstaLimi := 'N';
           end if;
         
+          if lc_EstaLimi = 'N' then
+            pq_cr_reprogramaexo.sp_validaopinion(ln_Instancia,
+                                                 vi_tieneOpinion,
+                                                 vi_TipoOpinion,
+                                                 vi_mensaje);
+          
+            If vi_tieneOpinion = 1 and TRIM(vi_TipoOpinion) = 'V' THEN
+              lc_EstaLimi   := 'S';
+              Lv_IndOpRiesg := 'S';
+            end if;
+          
+          end if;
+        
           pq_cr_cntrl_limitrepro.sp_Cr_LogAQPD059(ln_inst      => ln_Instancia,
                                                   ln_modali    => ln_Indicador,
                                                   ln_codreg    => ln_RegCred,
@@ -277,7 +296,8 @@ create or replace package body PQ_CR_CNTRL_LIMITREPRO is
                                                   ln_mntacumt  => ln_MntAcuRepr,
                                                   ln_mntdisp   => ln_MaxSaldRepro,
                                                   ln_capcred   => ln_CapRepr,
-                                                  lv_enlimt    => lc_EstaLimi);
+                                                  lv_enlimt    => lc_EstaLimi,
+                                                  lv_IndOR     => Lv_IndOpRiesg);
         end if;
       end if;
     end if;
@@ -292,7 +312,8 @@ create or replace package body PQ_CR_CNTRL_LIMITREPRO is
                              ln_mntacumt  in number,
                              ln_mntdisp   in number,
                              ln_capcred   in number,
-                             lv_enlimt    in varchar2) is
+                             lv_enlimt    in varchar2,
+                             lv_IndOR     in varchar2) is
   
     ln_cor     number := 0;
     lv_hora    varchar2(10) := '00:00:00';
@@ -341,7 +362,8 @@ create or replace package body PQ_CR_CNTRL_LIMITREPRO is
          aqpd059capcred,
          aqpd059enlimt,
          aqpd059desemb,
-         aqpd059est)
+         aqpd059est,
+         aqpd059indor)
       values
         (ln_cor + 1,
          ld_FchSist,
@@ -356,7 +378,8 @@ create or replace package body PQ_CR_CNTRL_LIMITREPRO is
          ln_capcred,
          lv_enlimt,
          'N',
-         'H');
+         'H',
+         lv_IndOR);
     exception
       when others then
         null;
