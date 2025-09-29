@@ -12,6 +12,9 @@ create or replace package agecom."PQ_AGENDA_COMERCIAL" is
   -- Fecha Modificación         : 02/12/2024
   -- Autor de Modificación      : Frank Pinto Carpio
   -- Descripcion Modificacion   : Se modifican sp lisage y se añaden reacciones de referidos
+  -- Fecha Modificación         : 01/09/2025
+  -- Autor de Modificación      : Frank Pinto Carpio
+  -- Descripcion Modificacion   : Se agrega SP para CRM
   -- Public type declarations
   TYPE lc_liscur IS REF CURSOR;
   procedure sp_lisasi(pc_codact varchar2,
@@ -687,6 +690,10 @@ procedure sp_listra3(ls_nomusu varchar2, ls_codsuc varchar2, ps_codrole varchar2
 --//fpinto 02/12/2024 Nuevas funciones para correccion datos referidos
 function fn_datovisitas(ps_dni varchar2) return varchar2;
 function fn_obtanalista(ps_dni varchar2) return varchar2;
+--//fpinto 01/09/2025 Procedimiento para CRM
+procedure sp_repseguiclientedetCRM(ps_fecini varchar2,ps_fecfin varchar2,
+                                ps_codact varchar2,ps_codbas varchar2,
+                                lc_liscur out types.cursor_type);
 end PQ_AGENDA_COMERCIAL;
  /* GOLDENGATE_DDL_REPLICATION */
 /
@@ -19908,6 +19915,149 @@ end sp_repusuaccesos;
         --and rol.ccodcar = coalesce(ls_rol, rol.ccodcar);
   
   end sp_listra3;
+procedure sp_repseguiclientedetCRM(ps_fecini varchar2,ps_fecfin varchar2,
+                                ps_codact varchar2,ps_codbas varchar2,
+                                lc_liscur out types.cursor_type) as
+-- *****************************************************************
+-- Nombre                     : sp_repseguiclientedetCRM
+-- Sistema                    : AGENDA COMERCIAL
+-- Módulo                     : CONSULTAS BANTOTAL
+-- Versión                    : 1.0
+-- Fecha de Creación          : 01/09/2025
+-- Autor de Creación          : Frank Pinto Carpio
+-- Uso                        : Reporte de Seguimiento de Clientes detallado para CRM, solo Valorres F/F
+-- Estado                     : Activo
+-- Fecha Modificación         : 
+-- Autor de Modificación      : 
+-- Descripcion Modificacion   : 
+-- Fecha Modificación         : 
+-- Autor de Modificación      : 
+-- Descripcion Modificacion   : 
+-- ***************************************************************** 
+ls_codusu varchar2(10);
+ls_fecini date;
+ls_fecfin date;
+ls_fectem date;
+ls_codbas number;
+begin
+   ls_fecini := to_date(ps_fecini, 'yyyy/mm/dd');
+   ls_fecfin := to_date(ps_fecfin, 'yyyy/mm/dd');
+   if ls_fecini > ls_fecfin then
+      ls_fectem := ls_fecfin;
+      ls_fecfin := ls_fecini;
+      ls_fecini := ls_fectem;
+   end if;
+   if ps_codbas = 'elige Base...' then
+      ls_codbas := null;
+   else
+      ls_codbas := ps_codbas;
+   end if;
+
+      open lc_liscur for
+      select distinct sucing.cnomsuc,coalesce(eva.cusuing, ' ') as cusuing,oping.cnomope,oping.ccodcar as ncodrol,
+             upper(regi.cnomreg) as reging,upper(regi.cdeszon) as zoning,' ' as DNI,
+             rolin.cdesrol,to_char(eva.dfeceva, 'dd/MM/yyyy HH:mi:ss') as dfecreg,eva.npaicli, eva.ntipdoc,eva.cnumdoc,
+             eva.cdoccon, eva.cconnom,eva.CDIRFIJ, eva.CDIRNEG, eva.CLISNEG,
+             eva.nidebas, eva.nidepro, eva.ncoding, eva.ncodact, eva.ncodbas,eva.csegcli,             
+             eva.cclinom,fn_resusuing(eva.npaicli, eva.ntipdoc, eva.cnumdoc,
+             eva.ncorcli, eva.cusuing) as ultresing,coalesce(trim(eva.ctelneg), 
+             trim(eva.ctelfij),trim(eva.ctelmov)) as telcli,eva.cmailcl,tip.cdesatr as tipcli,
+             eva.nmoneva, eva.CINDSOB, eva.CESCOSB,eva.NNUMENT,eva.CINDJUD,eva.CREFNEG,eva.CCALCLI,eva.CACTCLI,
+             eva.CINDCAS,eva.CTIPCNY,eva.CCALCON,eva.CSEGCON,eva.NNUMINA,eva.CDESTCRE,eva.CFECDES,
+             eva.COBSERV,eva.CZONFIJ, agen.ccodusu as acdagencodusu, to_char(agen.dfecest, 'YYYY-MM-DD')  as dfecest,
+             asi.ccodusu,resu.cnomres,to_char(rev.dfecvis, 'YYYY-MM-DD') as dfecvis,
+             coalesce(rev.cobserv, ' ') as cobserv,coalesce(desem.ctipcli, ' ') as ctipcli,
+             to_char(desem.dfecdes, 'YYYY-MM-DD') as dfecdes,upper(regd.cnomreg) as regdes,
+             upper(regd.cdeszon) as zondes,upper(regd.cnomsuc) as sucdes,desem.CNUMDOC,
+             desem.NAOCTA,desem.NAOOPER,desem.NNUMSOL,desem.CNOMANA,
+             case
+             when trim(desem.ncodmon) = '0' then 'SOLES'
+             when trim(desem.ncodmon) = '101' then 'DOLARES'
+             else ''
+             end as cmoneda,
+             desem.ncanimp,desem.cnompro,desem.aotasa, nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe
+        from (select *
+                from acdeval
+               where ncodact = ps_codact
+                 and ncodbas = coalesce(ls_codbas, ncodbas)
+                union
+              select *
+                from acheval
+               where ncodact = ps_codact
+                 and ncodbas = coalesce(ls_codbas, ncodbas)) eva
+      inner join actacti act
+          on act.ncodact = eva.ncodact
+      inner join actbase bas
+          on bas.ncodbas = eva.ncodbas
+         and bas.ncodact = eva.ncodact
+      left join acdatri cal
+          on cal.ncodtab = 5
+         and cal.ctipatr = 'D'
+         and cal.cestado = '1'
+         and cal.ccodatr = eva.ccodcal
+      left join acdasig asi
+          on asi.npaicli = eva.npaicli
+         and asi.ntipdoc = eva.ntipdoc
+         and asi.cnumdoc = eva.cnumdoc
+         and asi.ncodact = eva.ncodact
+      left join acdagus pau1
+          on pau1.ccodope = upper(trim(eva.cusuing))
+      left join acdagus pau
+          on pau.ccodope = upper(trim(asi.ccodusu))
+      left join acmsucu age
+          on age.ncodsuc = pau.ncodsuc
+      left join acdatri tip
+          on tip.ncodtab = 9
+         and tip.ctipatr = 'D'
+         and tip.ccodatr = eva.ctipcli
+         and tip.cestado = '1'
+      left join acdagen agen
+          on agen.npaicli = asi.npaicli
+         and agen.ntipdoc = asi.ntipdoc
+         and agen.cnumdoc = asi.cnumdoc
+         and agen.ncodact = asi.ncodact
+      left join acdrevi rev
+          on rev.npaicli = agen.npaicli
+         and rev.ntipdoc = agen.ntipdoc
+         and rev.cnumdoc = agen.cnumdoc
+         and rev.ncodact = agen.ncodact
+      left join acdrepu repu
+          on repu.nrespue = rev.nrespue
+      left join acdprre prre
+          on prre.npreres = repu.npreres
+      left join acdresu resu
+          on resu.ncodres = prre.ncodres
+      left join ACDDESE desem
+          on desem.ncorcli = eva.ncorcli
+      left join acdagus usin
+          on upper(trim(eva.cusuing)) = usin.ccodope
+         and usin.ccodest = '1'
+      left join acmsucu sucing
+          on sucing.ncodsuc = eva.NCODAGE
+      left join acmoper oping
+          on oping.ccodope = upper(trim(eva.cusuing))
+      left join acdrole rolin
+          on rolin.ncodrol = oping.ccodcar
+      left join actregi regi
+          on regi.ncodsuc = eva.NCODAGE
+      left join actregi regd
+          on regd.ncodsuc = desem.naosuc
+      left join fsd010 f1 
+            on f1.aocta = desem.naocta
+            and f1.aooper= desem.naooper
+            and f1.AOPERIOD >0
+      left join fst003 f2
+            on f2.modulo=f1.aomod
+      left join fst004 f3
+            on f3.modulo = f1.aomod
+            and f3.totope = f1.aotope
+       where eva.ncodact = ps_codact
+         and eva.ncodbas = coalesce(ls_codbas, asi.ncodbas)
+         and trunc(eva.dfeceva) between ls_fecini and ls_fecfin
+         and (repu.nrescod = 4 or repu.nrescod is null);
+
+
+end sp_repseguiclientedetCRM;
 
 end PQ_AGENDA_COMERCIAL;
  /* GOLDENGATE_DDL_REPLICATION */

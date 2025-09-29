@@ -36,6 +36,9 @@ create or replace procedure SP_AH_GENERA_PRODUCTO_AH(P_D_FECPRO IN DATE,
     -- Fecha de Modificación      : 12/04/2024
     -- Autor de la Modificación   : Yrving Lozada
     -- Descripción de Modificación: Se adicionó parametro en alerta de experiencia al cliente
+    -- Fecha de Modificación      : 15/09/2025
+    -- Autor de la Modificación   : Yrving Lozada
+    -- Descripción de Modificación: Se modificó el orden en los integrantes de la cuenta cliente
     -- *****************************************************************                                                    
                                                     
 cursor c_integrantes is
@@ -44,7 +47,7 @@ cursor c_integrantes is
     where a.pgcod = 1 
       and a.ctnro = P_N_CTACLI
       and a.ttcod = 1
- order by a.pepais,a.petdoc,a.pendoc;
+ order by a.cttfir desc;--a.pepais,a.petdoc,a.pendoc;
  
 cursor c_comisiones is
 Select * 
@@ -2072,4 +2075,3 @@ when others then
       return;
 end SP_AH_GENERA_PRODUCTO_AH;
 /
-
