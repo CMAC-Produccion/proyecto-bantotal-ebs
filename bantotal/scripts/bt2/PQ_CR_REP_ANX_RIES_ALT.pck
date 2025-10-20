@@ -12,24 +12,36 @@ create or replace package PQ_CR_REP_ANX_RIES is
   -- Parámetros de Entrada      :
   -- Fecha de Modificación      : 22/09/2023 14:57:31
   -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas
-  -- Fecha de Modificación      : 20/09/2024
+  -- Fecha de Modificación      : 2024.09.20 
   -- Modificación               : Nuevos reportes normativos
   -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas  
   -- Modificación               : Mejoras a reportes normativos
   -- Fecha de Modificación      : 04/10/2024
   -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas  
   -- Modificación               : Correcciones a reportes normativos  
-  -- Fecha de Modificación      : 20/04/2025
+  -- Fecha de Modificación      : 2025.04.20 
   -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas
   -- Modificación               : Se agregar procesos para los 
   --                              reportes 4A1/4B1/4C/4D/4F/13/2C2/19/20/21
   --                              anexos 7A/7B
   --                              Se modifican procesos de los
   --                              anexos 15C/15A/16A/16B/16C
-  -- Fecha de Modificación      : 28/05/2025
+  -- Fecha de Modificación      : 2025.05.28
   -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas
   -- Modificación               : Se agregaron columnas para la versión 2
   --                              del Reporte 25-A en el proceso SP_25A_TRAER  
+  -- Fecha de Modificación      : 2025.08.20
+  -- Autor de la modificacíon   : LLATANPVARGAS Paola Vargas
+  -- Modificación               : En el proceso SP_COPIAR_PARAMETROS se agrega
+  --                              la copia de 5 parámentros AQPD102CA19,AQPD102VLN2,
+  --                              AQPD102VAL4,AQPD102VLP2,AQPD102VLP3
+  -- Fecha de Modificación      : 2025.08.27
+  -- Autor de Modificación      : llatanpvargas
+  -- Cambio                     : Se eliminan los registros de la tabla AQPD116 por 
+  --                            : fecha y usuario. Proceso SP_TRAER_5_5A    
+    -- Fecha de Modificación      : 2025.09.25
+  -- Autor de Modificación      : llatanpvargas
+  -- Cambio                     : Modificación de Anexos
   -- *****************************************************************
   
   ------------------------------------------------------
@@ -3127,29 +3139,28 @@ create or replace package body PQ_CR_REP_ANX_RIES is
     
     Begin
       if vTipo = 'TC' then
-        select 1
-        into nContador
-        from dwhouse.FACT_RIES_CURVAS@DW
-        where tipo = vTipo
-        and fecha = dFecha
-        and nodo = nNodo;
+        select count(*) --1
+          into nContador
+          from dwhouse.FACT_RIES_CURVAS@DW
+         where tipo = vTipo
+           and fecha = dFecha;
       elsif vTipo = 'TCFWD' then
-        select 1
-        into nContador
-        from dwhouse.FACT_RIES_CURVAS@DW
-        where tipo = vTipo
-        and moneda = 'S'
-        and fecha = dFecha
-        and nodo = nNodo;
+        select count(*) 
+          into nContador
+          from dwhouse.FACT_RIES_CURVAS@DW
+         where tipo = vTipo
+           and moneda = 'S'
+           and fecha = dFecha
+           and nodo = nNodo;
       else
-        select 1
-        into nContador
-        from dwhouse.FACT_RIES_CURVAS@DW
-        where tipo = vTipo
-        and calif = vCalif
-        and moneda = vMoneda
-        and fecha = dFecha
-        and nodo = nNodo;
+        select count(*) --1
+          into nContador
+          from dwhouse.FACT_RIES_CURVAS@DW
+         where tipo = vTipo
+           and calif = vCalif
+           and moneda = vMoneda
+           and fecha = dFecha
+           and nodo = nNodo;
       end if;
     exception
       when others then
@@ -3439,7 +3450,7 @@ create or replace package body PQ_CR_REP_ANX_RIES is
       pdRpta     := 'N';
       
       Begin
-        Delete from AQPD106 Where AQPD106USR = pcUser;
+        Delete from AQPD106 Where AQPD106USR = pcUser and AQPD106FEC = pdFecha;
       Exception when others then
          pdRpta := substr(SQLERRM, 1, 255);
       end;
@@ -3668,6 +3679,11 @@ create or replace package body PQ_CR_REP_ANX_RIES is
   ----------------- COPIAR PARAMETROS ------------------
   ------------------------------------------------------
   --NUEVO: COPIAR PARAMETROS
+  -- Modificación --------------------------------------------------------------------------------------------
+  -- Fecha : 2025.08.20 
+  -- Autor : llatanpvargas
+  -- Cambio: Se agrega la copia de los parámentros AQPD102CA19,AQPD102VLN2,AQPD102VAL4,AQPD102VLP2,AQPD102VLP3
+  ------------------------------------------------------------------------------------------------------------
   procedure SP_COPIAR_PARAMETROS(pnPeriodo In Number, 
                                  pcAnexo in varchar2, 
                                  pcUsuario in varchar2,
@@ -3708,13 +3724,13 @@ create or replace package body PQ_CR_REP_ANX_RIES is
                  'AQPD102HOJ, AQPD102CA1, AQPD102CA2, AQPD102CA3, AQPD102WH1, AQPD102CA4, AQPD102CA5, AQPD102CA6, AQPD102CA7, AQPD102CA8, AQPD102CA9,'|| 
                  'AQPD102CA10, AQPD102CA11, AQPD102CA12, AQPD102CA13, AQPD102CA14, AQPD102CA141, AQPD102CA15, AQPD102CA16, AQPD102CA17, AQPD102CVL1,'|| 
                  'AQPD102CVL2, AQPD102CVL3, AQPD102CREP, AQPD102RPC1, AQPD102RPC2, AQPD102CSBS, AQPD102USRA, AQPD102FECA, aqpd102hora, AQPD102AUX1, '||
-                 'AQPD102AUX2, AQPD102AUX3, AQPD102AUX4, AQPD102AUX5) '||
+                 'AQPD102AUX2, AQPD102AUX3, AQPD102AUX4, AQPD102AUX5,AQPD102CA19,AQPD102VLN2,AQPD102VAL4,AQPD102VLP2,AQPD102VLP3) '||
                'Select :1, AQPD102ANX, AQPD102CTP, AQPD102DTP, AQPD102COR, AQPD102CVA, AQPD102VAL, AQPD102VLN, AQPD102VLP, AQPD102VDE, :2,'|| 
                  'AQPD102HOJ, AQPD102CA1, AQPD102CA2, AQPD102CA3, AQPD102WH1, AQPD102CA4, AQPD102CA5, AQPD102CA6, AQPD102CA7, AQPD102CA8, AQPD102CA9, '||
                  'AQPD102CA10, AQPD102CA11, AQPD102CA12, AQPD102CA13, AQPD102CA14, AQPD102CA141, AQPD102CA15, AQPD102CA16, AQPD102CA17, AQPD102CVL1, '||
                  'AQPD102CVL2, AQPD102CVL3, AQPD102CREP, AQPD102RPC1, AQPD102RPC2, AQPD102CSBS, :3, :4, :5, AQPD102AUX1, AQPD102AUX2, '||
-                 'AQPD102AUX3, AQPD102AUX4, AQPD102AUX5 '||
-                 'from aqpd102 p '||
+                 'AQPD102AUX3, AQPD102AUX4, AQPD102AUX5,AQPD102CA19,AQPD102VLN2,AQPD102VAL4,AQPD102VLP2,AQPD102VLP3 '||
+                 'from AQPD102 p '||
                  'where p.aqpd102anx = '''||pcAnexo||''' '||
                    'and p.aqpd102per = :6';
       
@@ -4075,18 +4091,25 @@ create or replace package body PQ_CR_REP_ANX_RIES is
         PD_RPTA := substr(SQLERRM, 1, 255);
     end;
   End SP_TRAER_REP29_PARTE_II;  
-  ------------------------------------------------------
-  ------------------ ANEXO 5 - 5A ----------------------
-  ------------------------------------------------------
+  ---------------------------------------------------------------------------------------
+  ------------------------------- ANEXO 5 - 5A ------------------------------------------
+  ---------------------------------------------------------------------------------------
   Procedure SP_TRAER_5_5A(pd_fecha IN Date,
                           pv_ana   IN Varchar2,
                           pv_rpta  OUT Varchar2)
+  ---------------------------------------------------------------------------------------
+  -- Fecha de Modificación: 2025.08.27
+  -- Autor de Modificación: llatanpvargas
+  -- Cambio               : Se eliminan los registros por fecha y usuario
+  ---------------------------------------------------------------------------------------
   IS 
   Begin
       pv_rpta := 'S';
     
       Begin
-           EXECUTE IMMEDIATE 'TRUNCATE TABLE aqpd116';
+           --EXECUTE IMMEDIATE 'TRUNCATE TABLE aqpd116';
+           Delete from AQPD116 where aqpd116fec = pd_fecha and aqpd116ana = pv_ana;
+           Commit;
       Exception When others then
            pv_rpta := 'No se pudo limpiar la tabla';
       End;

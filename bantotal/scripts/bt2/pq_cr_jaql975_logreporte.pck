@@ -15,6 +15,11 @@ create or replace package PQ_CR_JAQL975_LogReporte is
     -- Fecha de Modificaci¿n      : 
     -- Autor de la Modificaci¿n   : DCASTRO
     -- Descripci¿n de Modificaci¿n: se modifico fn_Cr_analista
+    -- Fecha de Modificacion      : 22/09/2025
+    -- Autor de la Modificaci¿n   : MCHAVEZ
+    -- Descripci¿n de Modificaci¿n: se agrego el procedimiento:
+    --                              - SP_CR_GRABAR_HISTORICO
+    --                              - PQ_CR_CONTADOR_INI
     -- *****************************************************************
 
  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
@@ -30,142 +35,262 @@ create or replace package PQ_CR_JAQL975_LogReporte is
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
  procedure pr_cr_contador(pn_numcor out number );
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+ PROCEDURE SP_CR_GRABAR_HISTORICO;
 
 ------------------------------------------         
 end PQ_CR_JAQL975_LogReporte;
 /
-
-create or replace package body PQ_CR_JAQL975_LogReporte is
+CREATE OR REPLACE PACKAGE BODY PQ_CR_JAQL975_LOGREPORTE IS
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
   
-  procedure pr_cr_contador_ini(pn_numcor out number ) is
+  PROCEDURE PR_CR_CONTADOR_INI(PN_NUMCOR OUT NUMBER ) IS
     
     -- *****************************************************************
-    -- Nombre                     : pr_cr_contador
-    -- Sistema                    : BANTOTAL
-    -- M¿dulo                     : Creditos - Activas
-    -- Versi¿n                    : 1.0
-    -- Fecha de Creaci¿n          : 2016.04.28
-    -- Autor de Creaci¿n          : DCASTRO
-    -- Uso                        : Retorna Maximo Correlativo Reporte
-    -- Estado                     : Activo
-    -- Acceso                     : Publico
-    -- Par¿metros de Entrada      :
+    -- NOMBRE                     : PR_CR_CONTADOR
+    -- SISTEMA                    : BANTOTAL
+    -- M¿DULO                     : CREDITOS - ACTIVAS
+    -- VERSI¿N                    : 1.0
+    -- FECHA DE CREACI¿N          : 2016.04.28
+    -- AUTOR DE CREACI¿N          : DCASTRO
+    -- USO                        : RETORNA MAXIMO CORRELATIVO REPORTE
+    -- ESTADO                     : ACTIVO
+    -- ACCESO                     : PUBLICO
+    -- PAR¿METROS DE ENTRADA      :
     --                              
-    -- Retorno                    : 
-    -- Fecha de Modificaci¿n      : 
-    -- Autor de la Modificaci¿n   : 
-    -- Descripci¿n de Modificaci¿n: 
+    -- RETORNO                    : 
+    -- FECHA DE MODIFICACI¿N      : 24/09/2025
+    -- AUTOR DE LA MODIFICACI¿N   : MCHAVEZ
+    -- DESCRIPCI¿N DE MODIFICACI¿N: SE AGREGO EL NVL PARA RETORNAR 0 EN CASO DE NULL
     --
     -- *****************************************************************
-    ln_numcor number;
+    LN_NUMCOR NUMBER;
     
-  begin
+  BEGIN
   
-   begin 
-    select max(jaql975cor) 
-      into ln_numcor
-      from jaql975;
-   end;
+   BEGIN 
+    SELECT NVL(MAX(JAQL975COR), 0)
+      INTO LN_NUMCOR
+      FROM JAQL975;
+   END;
   
-   pn_numcor := ln_numcor;                     
+   PN_NUMCOR := LN_NUMCOR;                     
       
-  end pr_cr_contador_ini;
+  END PR_CR_CONTADOR_INI;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
- procedure fn_cr_inserta(pc_nomrep in varchar2,
-                         pc_codusu in varchar2,
-                         pd_fecpro in date,
-                         pc_horini in varchar2,
-                         pc_horfin in varchar2           
-                        ) is
+ PROCEDURE FN_CR_INSERTA(PC_NOMREP IN VARCHAR2,
+                         PC_CODUSU IN VARCHAR2,
+                         PD_FECPRO IN DATE,
+                         PC_HORINI IN VARCHAR2,
+                         PC_HORFIN IN VARCHAR2           
+                        ) IS
 
     -- *****************************************************************
-    -- Nombre                     : fn_cr_inserta
-    -- Sistema                    : BANTOTAL
-    -- M¿dulo                     : Creditos - Activas
-    -- Versi¿n                    : 1.0
-    -- Fecha de Creaci¿n          : 2016.07.25
-    -- Autor de Creaci¿n          : DCASTRO
-    -- Uso                        : Inserta en tabla JAQL975 
-    -- Estado                     : Activo
-    -- Acceso                     : Publico
-    -- Par¿metros de Entrada      :
+    -- NOMBRE                     : FN_CR_INSERTA
+    -- SISTEMA                    : BANTOTAL
+    -- M¿DULO                     : CREDITOS - ACTIVAS
+    -- VERSI¿N                    : 1.0
+    -- FECHA DE CREACI¿N          : 2016.07.25
+    -- AUTOR DE CREACI¿N          : DCASTRO
+    -- USO                        : INSERTA EN TABLA JAQL975 
+    -- ESTADO                     : ACTIVO
+    -- ACCESO                     : PUBLICO
+    -- PAR¿METROS DE ENTRADA      :
     --                              
-    -- Retorno                    : 
-    -- Fecha de Modificaci¿n      : 
-    -- Autor de la Modificaci¿n   : 
-    -- Descripci¿n de Modificaci¿n: 
+    -- RETORNO                    : 
+    -- FECHA DE MODIFICACI¿N      : 
+    -- AUTOR DE LA MODIFICACI¿N   : 
+    -- DESCRIPCI¿N DE MODIFICACI¿N: 
     --
     -- *****************************************************************
 
- ln_numcor number;
- pc_coderr varchar2(1000);
- pc_msgerr varchar2(1000);
+ LN_NUMCOR NUMBER;
+ PC_CODERR VARCHAR2(1000);
+ PC_MSGERR VARCHAR2(1000);
  
- begin
+ BEGIN
  
-    pq_cr_jaql975_logReporte.pr_cr_contador(ln_numcor);
+    PQ_CR_JAQL975_LOGREPORTE.PR_CR_CONTADOR(LN_NUMCOR);
     
-    insert into jaql975(jaql975cor, jaql975nom, jaql975usr, jaql975fec, jaql975hin, jaql975hfi)    
-    values(ln_numcor + 1, pc_nomrep, pc_codusu, pd_fecpro, pc_horini, pc_horfin );        
+    INSERT INTO JAQL975(JAQL975COR, JAQL975NOM, JAQL975USR, JAQL975FEC, JAQL975HIN, JAQL975HFI)    
+    VALUES(LN_NUMCOR + 1, PC_NOMREP, PC_CODUSU, PD_FECPRO, PC_HORINI, PC_HORFIN );        
  
-    commit;
- exception when others then
-   pc_coderr := sqlcode;
-   pc_msgerr := sqlerrm;      
- end fn_cr_inserta;
+    COMMIT;
+ EXCEPTION WHEN OTHERS THEN
+   PC_CODERR := SQLCODE;
+   PC_MSGERR := SQLERRM;      
+ END FN_CR_INSERTA;
  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
- procedure pr_cr_contador(pn_numcor out number ) is
+ PROCEDURE PR_CR_CONTADOR(PN_NUMCOR OUT NUMBER ) IS
     
     -- *****************************************************************
-    -- Nombre                     : pr_cr_contador
-    -- Sistema                    : BANTOTAL
-    -- M¿dulo                     : Creditos - Activas
-    -- Versi¿n                    : 1.0
-    -- Fecha de Creaci¿n          : 2016.07.25
-    -- Autor de Creaci¿n          : DCASTRO
-    -- Uso                        : Retorna Maximo Correlativo por Fecha para genrar Reporte 
-    -- Estado                     : Activo
-    -- Acceso                     : Publico
-    -- Par¿metros de Entrada      :
+    -- NOMBRE                     : PR_CR_CONTADOR
+    -- SISTEMA                    : BANTOTAL
+    -- M¿DULO                     : CREDITOS - ACTIVAS
+    -- VERSI¿N                    : 1.0
+    -- FECHA DE CREACI¿N          : 2016.07.25
+    -- AUTOR DE CREACI¿N          : DCASTRO
+    -- USO                        : RETORNA MAXIMO CORRELATIVO POR FECHA PARA GENRAR REPORTE 
+    -- ESTADO                     : ACTIVO
+    -- ACCESO                     : PUBLICO
+    -- PAR¿METROS DE ENTRADA      :
     --                              
-    -- Retorno                    : 
-    -- Fecha de Modificaci¿n      : 
-    -- Autor de la Modificaci¿n   : 
-    -- Descripci¿n de Modificaci¿n: 
+    -- RETORNO                    : 
+    -- FECHA DE MODIFICACI¿N      : 
+    -- AUTOR DE LA MODIFICACI¿N   : 
+    -- DESCRIPCI¿N DE MODIFICACI¿N: 
     --
     -- *****************************************************************
-    ln_numcor number;
-    ld_fecha date;
-  begin
+    LN_NUMCOR NUMBER;
+    LD_FECHA DATE;
+  BEGIN
   
     
-    begin
-        select pgfape into ld_fecha from fst017 where pgcod = 1;
+    BEGIN
+        SELECT PGFAPE INTO LD_FECHA FROM FST017 WHERE PGCOD = 1;
     
-    end;
+    END;
     
     
-     begin 
-      select max(jaql975cor) 
-        into ln_numcor
-        from jaql975
-       where jaql975fec = ld_fecha;
-     exception when no_data_found then
-       ln_numcor := 0;          
-     end;
+     BEGIN 
+      SELECT MAX(JAQL975COR) 
+        INTO LN_NUMCOR
+        FROM JAQL975
+       WHERE JAQL975FEC = LD_FECHA;
+     EXCEPTION WHEN NO_DATA_FOUND THEN
+       LN_NUMCOR := 0;          
+     END;
     
-     if ln_numcor is null then
-        ln_numcor := 0;
-     end if;
-     pn_numcor := ln_numcor;                     
+     IF LN_NUMCOR IS NULL THEN
+        LN_NUMCOR := 0;
+     END IF;
+     PN_NUMCOR := LN_NUMCOR;                     
       
-  end pr_cr_contador;
+  END PR_CR_CONTADOR;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  PROCEDURE SP_CR_GRABAR_HISTORICO IS
+  -- ====================================================================================================
+  -- NOMBRE                      : SP_CR_GRABAR_HISTORICO
+  -- SISTEMA                     : BANTOTAL
+  -- MODULO                      : CREDITOS - ACTIVAS
+  -- VERSION                     : 1.0
+  -- FECHA DE CREACION           : 18/09/2025
+  -- AUTOR DE CREACION           : MAYCOL CHAVEZ CHUMAN
+  -- USO                         : GRABAR EN LA TABLA HISTORICO LOS DATOS DE LA TABLA JAQL975
+  -- PARAMETROS                  :
+  -- ESTADO                      : ACTIVO
+  -- ACCESO                      : PUBLICO
+  -- ====================================================================================================
+  -- FECHA DE MODIFICACION       : 
+  -- AUTOR DE LA MODIFICACION    : 
+  -- DESCRIPCION DE MODIFICACION : 
+  -- ====================================================================================================
+  
+    PE_FECHA    DATE;
+    PE_MES      NUMBER;
+    PE_ANIO     NUMBER;
+    SR_MES      CHAR(2);
+    SR_ANIO     CHAR(4);
+    SR_MES_SIG  CHAR(2);
+    SR_ANIO_SIG CHAR(4);
+    SR_MES_ACT  CHAR(2);
+    SR_ANIO_ACT CHAR(4);
+    STR_SQL     VARCHAR2(1000);
+    PC_FECHA    DATE;
+    
+  BEGIN
+     BEGIN
+      SELECT A.PGFCIE
+        INTO PC_FECHA
+        FROM FST017 A
+       WHERE A.PGCOD = 1;
+     EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+     END;
+      
+     PE_FECHA := PC_FECHA;
+     IF (LAST_DAY(PE_FECHA) - PE_FECHA) = 0 THEN
+        PE_FECHA := PE_FECHA - 1;
+      
+        PE_MES  := EXTRACT(MONTH FROM PE_FECHA);
+        PE_ANIO := EXTRACT(YEAR FROM PE_FECHA);
+    
+        SR_MES_ACT  := LPAD(TO_CHAR(PE_MES), 2, '0');
+        SR_ANIO_ACT := TO_CHAR(PE_ANIO);
+    
+        PE_MES := PE_MES + 1;
+    
+        IF PE_MES = 13 THEN
+          SR_MES      := LPAD(TO_CHAR(1), 2, '0');
+          SR_MES_SIG  := LPAD(TO_CHAR(2), 2, '0');
+          SR_ANIO     := TO_CHAR(PE_ANIO + 1);
+          SR_ANIO_SIG := TO_CHAR(PE_ANIO + 1);
+        ELSIF PE_MES = 12 THEN
+          SR_MES      := LPAD(TO_CHAR(PE_MES), 2, '0');
+          SR_MES_SIG  := LPAD(TO_CHAR(1), 2, '0');
+          SR_ANIO     := TO_CHAR(PE_ANIO);
+          SR_ANIO_SIG := TO_CHAR(PE_ANIO + 1);
+        ELSE
+          SR_MES      := LPAD(TO_CHAR(TO_CHAR(PE_MES)), 2, '0');
+          SR_MES_SIG  := LPAD(TO_CHAR(PE_MES + 1), 2, '0');
+          SR_ANIO     := TO_CHAR(PE_ANIO);
+          SR_ANIO_SIG := TO_CHAR(PE_ANIO);
+        END IF;
+      
+      BEGIN
+        STR_SQL := 'ALTER TABLE JAQL975H ADD PARTITION JAQL975H_' || SR_ANIO || '' ||
+                   SR_MES || ' VALUES LESS THAN (TO_DATE(''' || SR_ANIO_SIG || '-' ||
+                   SR_MES_SIG || '-01'',''YYYY-MM-DD''))';   
+        EXECUTE IMMEDIATE STR_SQL;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
+      
+      BEGIN
+        STR_SQL := 'ALTER TABLE JAQL975H TRUNCATE PARTITION (JAQL975H_' ||
+                   SR_ANIO_ACT || '' || SR_MES_ACT || ')';   
+        EXECUTE IMMEDIATE STR_SQL;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
+    END IF;
+    
+    -- GRABAR HISTORICO --
+      BEGIN
+        INSERT INTO JAQL975H
+          (JAQL975HCOR,
+           JAQL975HNOM,
+           JAQL975HUSR,
+           JAQL975HFEC,
+           JAQL975HHIN,
+           JAQL975HHFI)
+          SELECT A.JAQL975COR,
+                 A.JAQL975NOM,
+                 A.JAQL975USR,
+                 A.JAQL975FEC,
+                 A.JAQL975HIN,
+                 A.JAQL975HFI
+            FROM JAQL975 A;
+        COMMIT;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
+      
+      -- BORRAR DATA TABLA ORIGINAL JAQL975 --
+      BEGIN
+        STR_SQL := 'TRUNCATE TABLE JAQL975 DROP STORAGE';   
+        EXECUTE IMMEDIATE STR_SQL;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
+  END SP_CR_GRABAR_HISTORICO;
  
 ----------------------------------------------------------------------------------------
-end PQ_CR_JAQL975_LogReporte;
+END PQ_CR_JAQL975_LOGREPORTE;
 /
-

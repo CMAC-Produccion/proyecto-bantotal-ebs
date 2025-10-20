@@ -10,20 +10,20 @@ create or replace package PQ_CR_jaql964_cartera is
   -- Estado                     : Activo
   -- Acceso                     : P¿blico
   -- Par¿metros de Entrada      : P_D_FECPRO (FECHA De PROCESO)
-  --                              
-  -- Retorno                    : 
+  --
+  -- Retorno                    :
   -- Fecha de Modificaci¿n      : 2013.10.15
   -- Autor de la Modificaci¿n   : DCASTRO
   -- Descripci¿n de Modificaci¿n: se modifico fn_Cr_analista
   --                              2014.01.03 DCASTRO - Se modifico sp_cr_actualiza_analista_bulk
-  --                              2014.10.15 DCASTRO - Se modifico sp_cr_carga_datos para cartera refinanciada          
+  --                              2014.10.15 DCASTRO - Se modifico sp_cr_carga_datos para cartera refinanciada
   --                              2015.03.02 DCASTRO - Se modifico fn_tipo_credito_Desem
   --                              2015.05.12 DCASTRO - Se modifico SP_CR_CARGA_AVAL
   --                              2015.08.10 DCASTRO - Se modifico sp_cr_aogado, sp_cr_saldototal.
-  --                              2015.08.18 DCASTRO - Se modifico sp_cr_abogado    
+  --                              2015.08.18 DCASTRO - Se modifico sp_cr_abogado
   --                              2015.09.03 DCASTRO - Se modifico sp_cr_abogado.
-  --                              2015.09.22 DCASTRO - Se modifico sp_cr_abogado.    
-  --                              2015.09.29 DCASTRO - Se modifico sp_cr_abogado.        
+  --                              2015.09.22 DCASTRO - Se modifico sp_cr_abogado.
+  --                              2015.09.29 DCASTRO - Se modifico sp_cr_abogado.
   --                              2016.01.27 DCASTRO - Se modifico llamada a funcion fn_sector_credito de base.
   --                              2018.02.01 DCASTRO - Se modifico sp_cr_actualiza_analista_bulk, sp_cr_carga_aval, sp_cr_tit_representante
   --                              2021.05.02 DCASTRO - Se modifico sp_cr_analista
@@ -31,7 +31,7 @@ create or replace package PQ_CR_jaql964_cartera is
   --                              2024.02.20 DCASTRO - se modifico sp_cr_direccion, se inicializo variable vtelefono.
   -- Fecha de Modificación      : 2024.10.21
   -- Autor de la Modificación   :  MPOSTIGOC
-  -- Descripción de Modificación: PRY7090 - Se agrego a la tabla JAQL964 el campo del CIIU y 6 campos auxiliares, en el procedimiento 
+  -- Descripción de Modificación: PRY7090 - Se agrego a la tabla JAQL964 el campo del CIIU y 6 campos auxiliares, en el procedimiento
   --                              SP_cR_CARGA_AVAL se invoca al procedimiento del CIIU para la insercion del campo.
   -- Fecha de Modificación      : 2025.01.08
   -- Autor de la Modificación   :  MPOSTIGOC
@@ -44,18 +44,28 @@ create or replace package PQ_CR_jaql964_cartera is
   -- Fecha de Modificación      : 2025.03.03
   -- Autor de la Modificación   : MPOSTIGOC
   -- Descripción de Modificación: Se agrego al procedimiento sp_cr_carga_aval la ejecucion del procedimiento sp_Cr_CargaReconver
+  -- Fecha de Modificación      : 2025.04.30
+  -- Autor de la Modificación   : DCASTRO
+  -- Descripción de Modificación: Se modifico los parametros de entrada del procedimiento sp_cr_updatejaql964, se agrego al procedimiento sp_cr_carga_aval la ejecucion de los procedimientos;
+  --                              PQ_CR_EXPEDIENTE.fn_cr_Validacion, PQ_CR_EXPEDIENTE.fn_cr_Propuesta,PQ_CR_EXPEDIENTE.sp_cr_ValidaExpediente,PQ_CR_EXPEDIENTE.sp_cr_contratacion
+  -- Fecha de Modificación      : 2025.09.22
+  -- Autor de la Modificación   : MCHAVEZ
+  -- Descripción de Modificación: Se agrego al procedimiento sp_cr_verificar_fin_mes la exception a las particiones.
+
+
+
   -- *****************************************************************
 
   procedure sp_cr_carga_datos(P_D_FECPRO in varchar2,
                               P_N_TIPCAM in number,
                               P_C_ESTADO out varchar2);
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   procedure sp_cr_calculos(P_C_ESTADO out varchar2);
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_cr_actualiza_analista(P_D_FECPRO in varchar2,
                                      P_C_ESTADO out varchar2);
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   function fn_cr_analista(vjaql964mod in number,
                           vjaql964cta in number,
@@ -64,7 +74,7 @@ create or replace package PQ_CR_jaql964_cartera is
                           vjaql964top in number,
                           vjaql964suc in number,
                           vjaql964mda in number) return varchar2;
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_cr_analista(vjaql964mod  in number,
                            vjaql964cta  in number,
                            vjaql964ope  in number,
@@ -74,11 +84,11 @@ create or replace package PQ_CR_jaql964_cartera is
                            vjaql964mda  in number,
                            pc_analista  out varchar2,
                            pn_instancia out number);
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   procedure sp_cr_actualiza_dir(P_D_FECPRO in varchar2,
                                 P_C_ESTADO out varchar2);
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_cr_direccion(vjaql964cta in number,
                             vjaql964doc in char,
                             vtelefono   out varchar2,
@@ -126,7 +136,7 @@ create or replace package PQ_CR_jaql964_cartera is
                                vjaql964suc in number,
                                vjaql964mda in number,
                                vtipcon     out varchar2);
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   Procedure sp_cr_actualiza(P_D_FECPRO in date, P_C_ESTADO out varchar2);
   ---------------------------------------------------------------------------------------------
   function fn_cr_credito_sorfy(vjaql964cta in number,
@@ -149,7 +159,7 @@ create or replace package PQ_CR_jaql964_cartera is
   ---------------------------------------------------------------------------------------------
   Procedure sp_cr_actualiza_bulk(P_D_FECPRO in date,
                                  P_C_ESTADO out varchar2);
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                             
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   /*function fn_sector_credito(
     v_fecpro in date,
     v_pgcod  in number,
@@ -163,7 +173,7 @@ create or replace package PQ_CR_jaql964_cartera is
     v_Sctope in number,
     v_instancia in number
   ) return number;*/
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                                                          
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_cr_aval(P_N_INSTANCIA in number,
                        P_N_CUENTA    in number,
                        P_N_OPERACION in number,
@@ -189,7 +199,7 @@ create or replace package PQ_CR_jaql964_cartera is
                                P_N_PETDOC in number,
                                P_N_PENDOC in char) return varchar2;
   ----------------------------------------------------------------------------------------------
-  ---------------------------------------------------------------------------------------------     
+  ---------------------------------------------------------------------------------------------
   procedure sp_cr_direccion_aval(P_N_PEPAIS in number,
                                  P_N_PETDOC in number,
                                  P_N_PENDOC in char,
@@ -198,7 +208,7 @@ create or replace package PQ_CR_jaql964_cartera is
                                  P_C_refer1 out varchar2,
                                  P_C_ubigeo out char);
 
-  ---------------------------------------------------------------------------------------------   
+  ---------------------------------------------------------------------------------------------
   procedure sp_cr_carga_aval(P_N_INI in NUMBER, P_N_FIN in NUMBER);
 
   -------------------------------------------------------------------------------------------------
@@ -252,17 +262,17 @@ create or replace package PQ_CR_jaql964_cartera is
                                     P_N_FCAN   out varchar2);
   ---------------------------------------------------------------------
   procedure sp_cr_monto_aprobado(
-                                 -- P_N_AOMOD in number, 
+                                 -- P_N_AOMOD in number,
                                  P_N_PGCOD  in number,
                                  P_N_AOSUC  in number,
                                  P_N_AOMDA  in number,
                                  P_N_AOPAP  in number,
                                  P_N_AOCTA  in number,
                                  P_N_AOOPER in number,
-                                 --P_N_AOSBOP in number, 
+                                 --P_N_AOSBOP in number,
                                  -- P_N_AOTOPE in number,
                                  P_N_MAPRO out number
-                                 
+
                                  );
   ---------------------------------------------------------------------
   procedure sp_cr_provcali(P_N_RI105COD   in number,
@@ -278,18 +288,18 @@ create or replace package PQ_CR_jaql964_cartera is
                            P_N_PROV       out number,
                            P_N_CALF       out number,
                            P_N_DCALF      out varchar2
-                           
+
                            );
-  ---------------------------------------------------------------------  
+  ---------------------------------------------------------------------
   /*procedure sp_cr_otrosrubros (\*otros rubros*\
                               P_N_PGCOD in number, -- fsd011
-                              P_N_SCSUC in number, 
-                              P_N_SCRUB in number, 
-                              P_N_SCMDA in number, 
-                              P_N_SCPAP in number, 
-                              P_N_SCCTA in number, 
-                              P_N_SCOPER in number, 
-                              P_N_SCSBOP in number, 
+                              P_N_SCSUC in number,
+                              P_N_SCRUB in number,
+                              P_N_SCMDA in number,
+                              P_N_SCPAP in number,
+                              P_N_SCCTA in number,
+                              P_N_SCOPER in number,
+                              P_N_SCSBOP in number,
                               P_N_SCTOPE in number,
                               P_N_ORUB out number
   );*/
@@ -317,7 +327,7 @@ create or replace package PQ_CR_jaql964_cartera is
                                P_N_JAQL166SCTOP in number,
                                P_N_JAQL166EST   in number,
                                P_N_JAQL166SCFVL out varchar2
-                               
+
                                );
   ----------------------------------------------------------------------
   procedure sp_cr_interes_compextra( ---fsd011
@@ -330,7 +340,7 @@ create or replace package PQ_CR_jaql964_cartera is
                                     P_N_SCSBOP in number,
                                     P_N_SCTOPE in number,
                                     P_N_SCSDO  out number
-                                    
+
                                     );
   ----------------------------------------------------------------------
   procedure sp_cr_castigado(P_N_JAQL166PGCOD in number,
@@ -344,7 +354,7 @@ create or replace package PQ_CR_jaql964_cartera is
                             P_N_JAQL166SCTOP in number,
                             P_N_JAQL166EST   in number,
                             P_N_JAQL166CAST  out char
-                            
+
                             );
   --------------------------------------------------------------------------
   procedure sp_cr_updatejaql964(P_N_CUENTA         in number,
@@ -378,7 +388,14 @@ create or replace package PQ_CR_jaql964_cartera is
                                 P_C_ABOGADO        in varchar2,
                                 P_C_SOBREENDEUDADO in varchar2,
                                 P_N_PLAZO          in number,
-                                ln_ciiu            in number);
+                                ln_ciiu            in number,
+                                P_C_VALIDA_EXP     in varchar2,
+                                P_C_PROPUESTA_EXP  in varchar2,
+                                P_C_TIPEXPEDIENTE  in varchar2,
+                                P_C_TIPCONTRATO    in varchar2
+                                );
+
+
   ---------------------------------------------------------------------------
   procedure sp_cr_ftransabogado(P_N_SNG419PGC  in number,
                                 P_N_SNG419MOD  in number,
@@ -430,7 +447,7 @@ create or replace package PQ_CR_jaql964_cartera is
                                P_N_JAQL165MOD  in number,
                                P_N_JAQL165COM  out varchar2,
                                P_N_JAQL165DCOM out varchar2
-                               
+
                                );
   ----------------------------------------------------------------------
   procedure sp_cr_cancelacion_esp(
@@ -444,27 +461,27 @@ create or replace package PQ_CR_jaql964_cartera is
                                   P_N_JAQL165TOP in number,
                                   P_N_JAQL165MOD in number,
                                   P_N_JAQL165TEX out varchar2
-                                  
+
                                   );
 
   ----------------------------------------------------------------------
   procedure sp_cr_carga_971(P_N_INI in NUMBER, P_N_FIN in NUMBER);
-  ---------------------------------------------------------------------- 
+  ----------------------------------------------------------------------
   procedure sp_cr_job_carga;
   ----------------------------------------------------------------------
   procedure sp_cr_job_actualiza_analistab(P_D_FECPRO in date);
   ----------------------------------------------------------------------
   /*procedure sp_cr_job_carga_datos(P_D_FECPRO in date);*/
-  ---------------------------------------------------------------------- 
+  ----------------------------------------------------------------------
   procedure sp_cr_job_carga_971(P_D_FECPRO in varchar2);
   ----------------------------------------------------------------------
   Procedure sp_cr_actualiza_tipocontable(P_D_FECPRO in date,
                                          --P_C_ESTADO out varchar2,
                                          P_N_INI in NUMBER,
                                          P_N_FIN in NUMBER);
-  ---------------------------------------------------------------------- 
+  ----------------------------------------------------------------------
   --procedure sp_cr_job_tipocontable (P_D_FECPRO in date);
-  ----------------------------------------------------------------------  
+  ----------------------------------------------------------------------
 
   procedure sp_cr_abogado_1(P_N_PGCOD     in number,
                             P_N_MONEDA    in number,
@@ -496,7 +513,7 @@ create or replace package PQ_CR_jaql964_cartera is
   Procedure sp_cr_garantia( -- P_C_ESTADO out varchar2,
                            P_N_INI in NUMBER,
                            P_N_FIN in NUMBER);
-  -----------------------------------------------------------------------   
+  -----------------------------------------------------------------------
 
   procedure sp_cr_job_garantia(P_D_FECPRO in date);
   -------------------------------------------------
@@ -517,7 +534,7 @@ create or replace package PQ_CR_jaql964_cartera is
                                  P_C_ABOGADO      out varchar2,
                                  P_N_PLAZO        out number);
 
-  ---------------------------------------  
+  ---------------------------------------
   function fn_tipo_credito_desem(P_N_JAQL964PAI in number,
                                  P_N_JAQL964TID in number,
                                  P_N_JAQL964DOC in char,
@@ -536,7 +553,7 @@ create or replace package PQ_CR_jaql964_cartera is
   INTERESTOTAL out number,
   TOTALDEUDA out number);  */
 
-  --------------------------------------------      
+  --------------------------------------------
   procedure sp_cr_abogado(P_N_PGCOD     in number,
                           P_N_MONEDA    in number,
                           P_N_PAPEL     in number,
@@ -558,9 +575,9 @@ create or replace package PQ_CR_jaql964_cartera is
   --------------------------------------------
 
   /*function UpdateCampos_JAQL964 (P_N_INSTANCIA in number,
-  P_N_MONEDA in number, 
-  P_N_CUENTA in number, 
-  P_N_OPERACION in number, 
+  P_N_MONEDA in number,
+  P_N_CUENTA in number,
+  P_N_OPERACION in number,
   P_N_SUCURSAL in number,
   P_N_SUBOPER in number,
   P_N_TIPOPER in number,
@@ -585,17 +602,17 @@ create or replace package PQ_CR_jaql964_cartera is
                              pn_gastos out number, -- GASTOS
                              pn_otros  out number, --OTROS
                              pn_totdeu out number --TOTALDEUDA
-                             
+
                              );
   ---------------------------------------------------------
 
   procedure sp_cr_fectransabo(pa_ppcta        in number,
                               pa_ppoper       in number,
                               FechTransfAboga out varchar2 -- Fecha Transferencia Abogado
-                              
+
                               );
 
-  ------------------------------------------     
+  ------------------------------------------
   procedure sp_cr_Fec_Proximo_vto(pn_emp    in number,
                                   pn_mod    in number,
                                   pn_suc    in number,
@@ -617,7 +634,7 @@ create or replace package PQ_CR_jaql964_cartera is
                             vprovincia    out varchar2,
                             vdepartamento out varchar2);
 
-  ---------------------------------------------------------                            
+  ---------------------------------------------------------
   procedure sp_cr_DPTO_PROV_DIS(pc_ubigeo in char,
                                 pc_dpto   out char,
                                 pc_prov   out char,
@@ -637,10 +654,9 @@ create or replace package PQ_CR_jaql964_cartera is
   procedure sp_Cr_UpdAQPB183(ld_fecha in date);
   --------------------------------------------------------------------------------
   procedure sp_Cr_CargaReconver;
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 end PQ_CR_jaql964_cartera;
 /
-
 create or replace package body PQ_CR_jaql964_cartera is
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   ---------------------------------------
@@ -669,12 +685,12 @@ create or replace package body PQ_CR_jaql964_cartera is
     --                              DCASTRO 07092018 Se agregó condicion para excluir estado 99
     --
     -- *****************************************************************
-  
+
     cursor creditos(fecha varchar2, tc number) is
-    
+
     /*    select JAQL964REG,JAQL964REN,JAQL964SUC,JAQL964MOD,JAQL964MDA,
                                                                                                                                                                                                                                                                                                                                    JAQL964CTA,JAQL964OPE,JAQL964SOB,JAQL964TOP,JAQL964DOC,
-                                                                                                                                                                                                                                                                                                                                   sum(JAQL964SAO) JAQL964SAO, 
+                                                                                                                                                                                                                                                                                                                                   sum(JAQL964SAO) JAQL964SAO,
                                                                                                                                                                                                                                                                                                                                    sum(JAQL964SAC) JAQL964SAC, sum(jaql964sa4) jaql964sa4
                                                                                                                                                                                                                                                                                                                             from (  */
       select /*+parallel(a,2,1) (b,2,1) (r,2,1) (age,2,1) (r2,2,1) (pers,2,1)*/ --jflor 23.01.2014
@@ -690,7 +706,7 @@ create or replace package body PQ_CR_jaql964_cartera is
        a.bctop JAQL964TOP,
        pers.pendoc JAQL964DOC,
        sum(a.bcsdmo) JAQL964SAO,
-       --sum((decode(a.bcmda,0,a.bcsdmo,a.bcsdmo*tc))) JAQL964SAC,       
+       --sum((decode(a.bcmda,0,a.bcsdmo,a.bcsdmo*tc))) JAQL964SAC,
        sum(a.bcsdmn) JAQL964SAC,
        sum(case
              when substr(a.bcrubr, 1, 4) in (1416, 1426) then --decode(a.bcmda,0,a.bcsdmo,a.bcsdmo*TC)
@@ -724,7 +740,7 @@ create or replace package body PQ_CR_jaql964_cartera is
          else
           ' '
        END jaql964pro,
-       a.bcprod JAQL964EST, -- estado 
+       a.bcprod JAQL964EST, -- estado
        sum(case
              when substr(a.bcrubr, 1, 4) in (1414, 1424) and a.bcprod <> 33 then
               a.bcsdmn
@@ -759,7 +775,7 @@ create or replace package body PQ_CR_jaql964_cartera is
          and pers.ctnro = a.bccta
          and pers.ttcod = 1
          and pers.CTTFIR = 'T'
-         and a.bcprod <> 99 --07092018 SE agrego condicion de estado        
+         and a.bcprod <> 99 --07092018 SE agrego condicion de estado
        group by r2.regcod,
                 r2.RegNOM,
                 a.bcsuc,
@@ -795,8 +811,8 @@ create or replace package body PQ_CR_jaql964_cartera is
                    ' '
                 END,
                 a.bcprod;
-    -- );  
-  
+    -- );
+
     cursor castigados(fecha varchar2, tc number) is
       select /*+parallel(a,2,1) (b,2,1) (r,2,1) (age,2,1) (r2,2,1) (pers,2,1)*/ --jflor 23.01.2014
        r2.regcod JAQL964REG,
@@ -811,7 +827,7 @@ create or replace package body PQ_CR_jaql964_cartera is
        a.bctop JAQL964TOP,
        pers.pendoc JAQL964DOC,
        sum(a.bcsdmo) JAQL964SAO,
-       --sum((decode(a.bcmda,0,a.bcsdmo,a.bcsdmo*tc))) JAQL964SAC,       
+       --sum((decode(a.bcmda,0,a.bcsdmo,a.bcsdmo*tc))) JAQL964SAC,
        sum(a.bcsdmn) JAQL964SAC,
        0 jaql964sa4, --judicial
        (select substr(f1.penom, 1, 30)
@@ -842,8 +858,8 @@ create or replace package body PQ_CR_jaql964_cartera is
          else
           ' '
        END jaql964pro,
-       a.bcprod JAQL964EST -- estado 
-      
+       a.bcprod JAQL964EST -- estado
+
         from fsh012 a,
              fst001 b,
              fst811 r,
@@ -903,8 +919,8 @@ create or replace package body PQ_CR_jaql964_cartera is
                    ' '
                 END,
                 a.bcprod;
-    -- );          
-  
+    -- );
+
     cursor lineas(fecha varchar2, tc number) is
       SELECT /*+ parallel (t,2,1) (x,2,1) (s,2,1) (d,2,1)  */ --jflor 23.01.2014
       DISTINCT e.sucurs JAQL964SUC,
@@ -922,7 +938,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                    and f8.ctnro = x.sccta
                    and f8.ttcod = 1
                    and f8.cttfir = 'T') jaql964tit,
-               --decode (x.scmda,0,'Soles','Dolares') JAQL964MDA, 
+               --decode (x.scmda,0,'Soles','Dolares') JAQL964MDA,
                x.scmda JAQL964MDA,
                0 JAQL964SAO,
                0 JAQL964SAC,
@@ -973,7 +989,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                  else
                   ' '
                END jaql964pro,
-               X.SCSTAT jaql964est --esatdo          
+               X.SCSTAT jaql964est --esatdo
         FROM FSD011 X, SNG001 S, BNJ096 D, fst001 e, fst810 r2, fst811 r
        WHERE s.sng001cta = x.sccta
          AND X.SCSTAT = '0'
@@ -993,28 +1009,28 @@ create or replace package body PQ_CR_jaql964_cartera is
          and r2.regcod = r.regcod
          and r2.regcod < 100
          and x.scstat <> 99; --07092018 SE agrego condicion de estado;
-  
+
     ln_numero number := 0;
     ln_corr   number := 1;
     tc        number;
     fecha     varchar2(8);
     ln_Sector number := 0;
-  
+
   begin
     P_C_ESTADO := null;
     tc         := P_N_TIPCAM;
     fecha      := P_D_FECPRO;
-  
+
     -----Verificar si el día es el primero del mes
     pq_cr_jaql964_cartera.sp_cr_verificar_fin_mes(fecha);
     -----Insertar Histori
     pq_cr_jaql964_cartera.sp_cr_guardar_historico_1(fecha);
     -----
-  
+
     execute immediate 'truncate table jaql964';
-  
+
     for i in creditos(fecha, tc) loop
-    
+
       insert into jaql964
         (JAQL964COR,
          JAQL964REG,
@@ -1078,9 +1094,9 @@ create or replace package body PQ_CR_jaql964_cartera is
       select max(JAQL964COR) into ln_corr from jaql964;
     end;
     ln_corr := ln_corr + 1;
-    ----    
+    ----
     for i in lineas(fecha, tc) loop
-    
+
       insert into jaql964
         (JAQL964COR,
          JAQL964REG,
@@ -1146,10 +1162,10 @@ create or replace package body PQ_CR_jaql964_cartera is
       select max(JAQL964COR) into ln_corr from jaql964;
     end;
     ln_corr := ln_corr + 1;
-  
-    ----    
+
+    ----
     for i in castigados(fecha, tc) loop
-    
+
       insert into jaql964
         (JAQL964COR,
          JAQL964REG,
@@ -1194,18 +1210,18 @@ create or replace package body PQ_CR_jaql964_cartera is
         commit;
         ln_numero := 0;
       end if;
-    
+
     end loop;
     commit;
-  
+
     /* CALCULOS EJECUTAR DESPUES DE PARALELIZACION
     begin
       pq_cr_jaql964_cartera.sp_cr_calculos(P_C_ESTADO);
     end;*/
-  
+
   end sp_cr_carga_datos;
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   procedure sp_cr_calculos(P_C_ESTADO out varchar2) is
     -- *****************************************************************
@@ -1219,7 +1235,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
     -- Par¿metros de Entrada      : P_D_FECPRO (FECHA De PROCESO)
-    --                              
+    --
     -- Retorno                    : ESTADO
     -- Fecha de Modificaci¿n      :
     -- Autor de la Modificaci¿n   :
@@ -1245,7 +1261,7 @@ create or replace package body PQ_CR_jaql964_cartera is
        JAQL964TCC,
        JAQL964DIA
         from jaql964;
-  
+
     NumCre              number := 0;
     SaldoCap1_7         number := 0;
     NumCre1_7           number := 0;
@@ -1271,13 +1287,13 @@ create or replace package body PQ_CR_jaql964_cartera is
     ContCreJu           number := 0;
     SaldoCapJu          number := 0;
     ln_corr             number := 0;
-  
+
   begin
-  
+
     for i in cartera loop
-    
+
       if i.JAQL964TCC <> 'Judicial' then
-      
+
         case
           when i.JAQL964DIA >= 1 And i.JAQL964DIA < 8 then
             --ojo confirmar
@@ -1299,16 +1315,16 @@ create or replace package body PQ_CR_jaql964_cartera is
       else
         ContCreJu  := ContCreJu + 1;
         SaldoCapJu := SaldoCapJu + i.JAQL964SAC;
-      
+
       end if;
-    
+
       SaldoCapSinJu       := SaldoCapSinJu + (SaldoCap16_30 + SaldoCap30);
       NumCreSinJu         := NumCreSinJu + (NumCre16_30 + NumCre30);
       SaldoCapJudicialTot := SaldoCapJudicialTot +
                              (SaldoCapSinJu + SaldoCapJu);
       NumCreJudicialTot   := NumCreJudicialTot + (NumCreSinJu + ContCreJu);
       SaldoCapTot         := SaldoCapTot + SaldoCap;
-    
+
       update jaql964
          set jaql964NUM = NumCre,
              JAQL964NR1 = NumCre1_7, --//NRO CREDITO 1-7
@@ -1326,15 +1342,15 @@ create or replace package body PQ_CR_jaql964_cartera is
              JAQL964NR5 = ContCreJu, --//NRO CREDITO JUDICIALES
              JAQL964SA5 = SaldoCapJu, --//MONTO SALDO JUDICIALES
              JAQL964PO5 = 0, --//PROCENTAJE MORA JUDICIALES
-             JAQL964NR6 = NumCreJudicialTot, --//NRO CREDITO MORA + JUDICIAL   
-             JAQL964SA6 = SaldoCapJudicialTot, --//MONTO SALDO MORA + JUDICIAL   
-             JAQL964PO6 = 0, --//PROCENTAJE MORA MORA + JUDICIAL  
+             JAQL964NR6 = NumCreJudicialTot, --//NRO CREDITO MORA + JUDICIAL
+             JAQL964SA6 = SaldoCapJudicialTot, --//MONTO SALDO MORA + JUDICIAL
+             JAQL964PO6 = 0, --//PROCENTAJE MORA MORA + JUDICIAL
              JAQL964NR7 = NumCre30, --//NRO CREDITO 16-30
              JAQL964SA7 = SaldoCap30, --//MONTO SALDO 16-30
              JAQL964PO7 = 0 --//PROCENTAJE MORA 16-30
        where jaql964cta = i.jaql964cta
          and jaql964ope = i.jaql964ope;
-    
+
       --actualiza variables a 0
       SaldoCap1_7         := 0;
       NumCre1_7           := 0;
@@ -1359,16 +1375,16 @@ create or replace package body PQ_CR_jaql964_cartera is
       ContCreJu           := 0;
       SaldoCapJu          := 0;
       NumCre              := 0;
-    
+
       ln_corr := ln_corr + 1;
       if ln_corr = 5000 then
         commit;
         ln_corr := 0;
       end if;
-    
+
     end loop;
     commit;
-  
+
   end sp_cr_calculos;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -1397,7 +1413,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     --ln_numero number := 0;
     -- ln_instancia number := 0;
     -- lc_mod varchar2(10);
-  
+
     cursor cartera is
       select /*+parallel (j,2,1)*/ --jflor 23.01.2014
        jaql964mod,
@@ -1410,11 +1426,11 @@ create or replace package body PQ_CR_jaql964_cartera is
        j.jaql964usu
         from jaql964 j
        where jaql964usu is null;
-  
+
   begin
     P_C_ESTADO := null;
     for i in cartera loop
-    
+
       if trim(i.jaql964usu) is null then
         lc_analista := fn_analista_credito(i.jaql964mod,
                                            i.jaql964suc,
@@ -1424,13 +1440,13 @@ create or replace package body PQ_CR_jaql964_cartera is
                                            i.jaql964ope,
                                            i.jaql964sob,
                                            i.jaql964top);
-      
+
         /*if i.jaql964mod = 116 then
            lc_mod := 117;
         else
            lc_mod := i.jaql964mod;
         end if;
-        
+
         --encontrar instancia
         select
              max(xw2.xwfprcins) xwfprcins
@@ -1446,7 +1462,7 @@ create or replace package body PQ_CR_jaql964_cartera is
             and xw2.xwfmodulo    =  lc_mod--(case v_Scmod when 116 then 117 else v_Scmod end)
             and xw2.xwftipope    =  i.jaql964top;
             --and xw2.xwfcar3      = '1';
-        
+
          if ln_instancia is null then
             select
                  max(xw2.xwfprcins) xwfprcins
@@ -1473,7 +1489,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                 and rel.r1sbop       = i.jaql964sob
                 and rel.r1tope       = i.jaql964top;
           end if;
-        
+
           if ln_instancia is null then
           begin
              select
@@ -1486,11 +1502,11 @@ create or replace package body PQ_CR_jaql964_cartera is
                 and xw2.xwfcuenta    =  i.jaql964cta
                 and xw2.xwfmodulo    =  lc_mod;
            exception when no_data_found then
-                ln_instancia := null;          
+                ln_instancia := null;
            end;
-                
+
            end if;
-           
+
           begin
              select sng001ase
                into lc_analista
@@ -1500,22 +1516,22 @@ create or replace package body PQ_CR_jaql964_cartera is
                when no_data_found then
                     lc_analista := null;
            end;*/
-      
+
         update jaql964
            set jaql964usu = lc_analista
          where jaql964cta = i.jaql964cta
            and jaql964ope = i.jaql964ope
            and jaql964sob = i.jaql964sob
            and jaql964top = i.jaql964top;
-      
+
       end if;
-    
+
     end loop;
-  
+
   end sp_cr_actualiza_analista;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   function fn_cr_analista(vjaql964mod in number,
                           vjaql964cta in number,
@@ -1535,7 +1551,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
     -- Par¿metros de Entrada      :
-    --                              
+    --
     -- Retorno                    : Codigo de Analista
     -- Fecha de Modificaci¿n      : 2013.10.15
     -- Autor de la Modificaci¿n   : DCASTRO
@@ -1546,9 +1562,9 @@ create or replace package body PQ_CR_jaql964_cartera is
     --ln_numero number := 0;
     -- ln_instancia number := 0;
     -- lc_mod varchar2(10);
-  
+
   begin
-  
+
     lc_analista := fn_analista_credito(vjaql964mod,
                                        vjaql964suc,
                                        vjaql964mda,
@@ -1557,13 +1573,13 @@ create or replace package body PQ_CR_jaql964_cartera is
                                        vjaql964ope,
                                        vjaql964sob,
                                        vjaql964top);
-  
+
     return(lc_analista);
-  
+
   end fn_cr_analista;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   procedure sp_cr_analista(vjaql964mod  in number,
                            vjaql964cta  in number,
@@ -1585,10 +1601,10 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
     -- Par¿metros de Entrada      :
-    --                              
+    --
     -- Retorno                    : Codigo de Analista y Numero de Instancia
     -- Fecha de Modificaci¿n      : 02/05/2021
-    -- Autor de la Modificaci¿n   : DCASTRO 
+    -- Autor de la Modificaci¿n   : DCASTRO
     -- Descripci¿n de Modificaci¿n: Se modifico para obtener analista
     --
     -- *****************************************************************
@@ -1596,9 +1612,9 @@ create or replace package body PQ_CR_jaql964_cartera is
     --ln_numero    number := 0;
     ln_instancia number := 0;
     --lc_mod       varchar2(10);
-  
+
   begin
-  
+
     ln_instancia := fn_instancia_credito(vjaql964mod,
                                          vjaql964suc,
                                          vjaql964mda,
@@ -1608,8 +1624,8 @@ create or replace package body PQ_CR_jaql964_cartera is
                                          vjaql964sob,
                                          vjaql964top);
     if nvl(ln_instancia, 0) = 0 then
-      --02/05/2021                                 
-    
+      --02/05/2021
+
       lc_analista := fn_analista_credito(vjaql964mod,
                                          vjaql964suc,
                                          vjaql964mda,
@@ -1618,7 +1634,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                          vjaql964ope,
                                          vjaql964sob,
                                          vjaql964top);
-    
+
     else
       --02/05/2021
       begin
@@ -1630,17 +1646,17 @@ create or replace package body PQ_CR_jaql964_cartera is
         when no_data_found then
           lc_analista := null;
       end;
-    
+
     end if; --02/05/2021
-  
+
     pc_analista  := lc_analista;
     pn_instancia := ln_instancia;
-  
+
   end sp_cr_analista;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   procedure sp_cr_actualiza_dir(P_D_FECPRO in varchar2,
                                 P_C_ESTADO out varchar2) is
@@ -1670,13 +1686,13 @@ create or replace package body PQ_CR_jaql964_cartera is
     lc_departamento varchar2(50); --2018
     ln_pepais       number(3);
     ln_petdoc       number(2);
-  
+
     cursor cartera is
       select distinct jaql964doc, jaql964cta from jaql964 j;
-  
+
   begin
     P_C_ESTADO := null;
-  
+
     for i in cartera loop
       begin
         select pepais, petdoc
@@ -1691,14 +1707,14 @@ create or replace package body PQ_CR_jaql964_cartera is
           ---2024.02.12 dcastro se agrego excepcion
           ln_petdoc := null;
       end;
-    
-      ---2024.02.12 dcastro se agrego busqueda a funcion 
+
+      ---2024.02.12 dcastro se agrego busqueda a funcion
       begin
         lc_telefo := PQ_CR_jaql964_cartera.fn_cr_telefono_valido(P_N_PEPAIS => ln_pepais,
                                                                  P_N_PETDOC => ln_petdoc,
                                                                  P_N_PENDOC => i.jaql964doc);
       end;
-    
+
       if lc_telefo is null then
         ---2024.02.12 dcastro si variable telefono es nula realiza la bsuqeda tradicional
         begin
@@ -1713,9 +1729,9 @@ create or replace package body PQ_CR_jaql964_cartera is
           when NO_DATA_FOUND then
             lc_telefo := ' ';
         end;
-      
-      end if; --- 2024.02.12 dcastro 
-    
+
+      end if; --- 2024.02.12 dcastro
+
       --direccion
       begin
         select trim(sngc13dir), trim(f.fst071dsc)
@@ -1732,7 +1748,7 @@ create or replace package body PQ_CR_jaql964_cartera is
           lc_direc  := ' ';
           lc_distri := ' ';
       end;
-    
+
       --
       --actualiza telefono, direccion, distrito
       begin
@@ -1743,24 +1759,24 @@ create or replace package body PQ_CR_jaql964_cartera is
          where jaql964doc = i.jaql964doc
            and jaql964cta = i.jaql964cta;
       end;
-    
+
       ln_numero := ln_numero + 1;
       if ln_numero = 5000 then
         ln_numero := 0;
         commit;
       end if;
-    
+
       lc_telefo := null; ---2024.02.12 dcastro se agrego variables
       lc_direc  := null;
       lc_distri := null;
-    
+
     end loop;
-  
+
     commit;
-  
+
   end sp_cr_actualiza_dir;
 
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   procedure sp_cr_direccion(vjaql964cta in number,
                             vjaql964doc in char,
@@ -1781,7 +1797,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Par¿metros de Entrada      : P_D_FECPRO (FECHA De PROCESO)
     --                              P_N_TIPCAM
     -- Retorno                    : ESTADO
-    -- Fecha de Modificaci¿n      : 2024.02.20 
+    -- Fecha de Modificaci¿n      : 2024.02.20
     -- Autor de la Modificaci¿n   : dcastro
     -- Descripci¿n de Modificaci¿n: se agrego asignacion a variable
     --
@@ -1793,9 +1809,9 @@ create or replace package body PQ_CR_jaql964_cartera is
     ln_pepais number(3);
     ln_petdoc number(2);
     --lc_REFER  varchar2(200);
-  
+
   begin
-  
+
     begin
       select /*+choose*/
        pepais, petdoc
@@ -1810,17 +1826,17 @@ create or replace package body PQ_CR_jaql964_cartera is
         ln_pepais := null;
         ln_petdoc := null;
     end;
-  
-    ---2024.02.12 dcastro se agrego busqueda a funcion 
+
+    ---2024.02.12 dcastro se agrego busqueda a funcion
     begin
       lc_telefo := PQ_CR_jaql964_cartera.fn_cr_telefono_valido(P_N_PEPAIS => ln_pepais,
                                                                P_N_PETDOC => ln_petdoc,
                                                                P_N_PENDOC => vjaql964doc);
     end;
-    vtelefono := lc_telefo; --2024.02.20 dcastro, se agrego asignacion a variable  
+    vtelefono := lc_telefo; --2024.02.20 dcastro, se agrego asignacion a variable
     if lc_telefo is null then
       ---2024.02.12 dcastro si variable telefono es nula realiza la bsuqeda tradicional
-    
+
       begin
         select /*+choose*/
          trim(dotelfp)
@@ -1834,12 +1850,12 @@ create or replace package body PQ_CR_jaql964_cartera is
         when NO_DATA_FOUND then
           vtelefono := ' ';
       end;
-    
-    end if; ---2024.02.12 dcastro 
-  
+
+    end if; ---2024.02.12 dcastro
+
     --direccion
     begin
-    
+
       begin
         select /*+choose*/
          trim(sngc13dir), trim(f.fst071dsc), trim(sngc13ref1)
@@ -1859,14 +1875,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                                   and docod = 1
                                   and sngc13est = 'H')
            and rownum < 2;
-      
+
       exception
         when NO_DATA_FOUND then
           vdireccion  := ' ';
           vdistrito   := ' ';
           vreferencia := ' ';
       end;
-    
+
       if vdireccion is null then
         select /*+choose*/
          trim(s.sngc13dsc1)
@@ -1886,10 +1902,10 @@ create or replace package body PQ_CR_jaql964_cartera is
                                   and docod = 1
                                   and sngc13est = 'H')
            and rownum < 2;
-      
+
       end if;
     end;
-  
+
   end sp_cr_direccion;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -1897,7 +1913,7 @@ create or replace package body PQ_CR_jaql964_cartera is
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_cr_actualiza_monto(P_D_FECPRO in varchar2,
                                   P_C_ESTADO out varchar2) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_actualiza_monto
     -- Sistema                    : BANTOTAL
@@ -1915,8 +1931,8 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor cartera_cre is
       select /*+choose*/
        jaql964mod,
@@ -1929,7 +1945,7 @@ create or replace package body PQ_CR_jaql964_cartera is
        j.jaql964usu
         from jaql964 j
        where jaql964usu is null;
-  
+
     cursor garantia_jud(mod    in varchar2,
                         suc    in varchar2,
                         mon    in varchar2,
@@ -1951,7 +1967,7 @@ create or replace package body PQ_CR_jaql964_cartera is
          and rel.r2tope = tipope
          and rel.relcod in (33, 34, 35) --garantia
          and rel.r011co = 'S';
-  
+
     --lc_tipocontable varchar2(20);
     --lc_producto varchar(30);
     --ln_provision number(17,2);
@@ -1960,13 +1976,13 @@ create or replace package body PQ_CR_jaql964_cartera is
     --  ln_bcgpo number;
     ln_numero number := 0;
     --  lc_abogado varchar2(20);
-  
-    -- lc_garantia varchar2(300); 
+
+    -- lc_garantia varchar2(300);
     --  lc_tonom varchar2(30);
     --ln_cont number :=0;
     lc_mod   varchar2(10);
     ln_monto number := 0;
-  
+
     /*lR1MOD  fsr011.R1MOD%TYPE;
     lR1CTA  fsr011.R1CTA%TYPE;
     lR1OPER fsr011.R1OPER%TYPE;
@@ -1975,15 +1991,15 @@ create or replace package body PQ_CR_jaql964_cartera is
     lr1pap  fsr011.r1pap%TYPE;
     lr1tope fsr011.r1tope%TYPE;
     lr2tope fsr011.r1tope%TYPE;*/
-  
+
     --R1MOD, R1CTA, R1OPER, R1SBOP, r1suc, r1pap, r1tope ,r1mda
-  
+
   begin
-  
+
     for i in cartera_cre loop
-    
+
       if i.jaql964mod in (200, 33) then
-      
+
         for z in garantia_jud(i.jaql964mod, i.jaql964suc, i.jaql964mda, 0, i.jaql964cta, i.jaql964ope, i.jaql964sob, i.jaql964top) loop
           if z.r1mod = 116 then
             lc_mod := 117;
@@ -2005,12 +2021,12 @@ create or replace package body PQ_CR_jaql964_cartera is
             when no_data_found then
               ln_monto := 0;
             when too_many_rows then
-              --dbms_output.put_line('1 '||z.r1cta ||' '|| z.r1oper||' '||ln_monto||' '||lc_mod ) ;       
+              --dbms_output.put_line('1 '||z.r1cta ||' '|| z.r1oper||' '||ln_monto||' '||lc_mod ) ;
               ln_monto := 0;
           end;
-        
+
         end loop;
-      
+
       else
         begin
           select /*+parallel (x,2,1)*/ --jflor 23.01.2014
@@ -2026,30 +2042,30 @@ create or replace package body PQ_CR_jaql964_cartera is
           when no_data_found then
             ln_monto := 0;
           when too_many_rows then
-            --  dbms_output.put_line('1 '||i.cuenta ||' '|| i.operacion||' '||ln_monto||' '||i.modulo ) ;       
+            --  dbms_output.put_line('1 '||i.cuenta ||' '|| i.operacion||' '||ln_monto||' '||i.modulo ) ;
             ln_monto := 0;
         end;
-      
+
       end if;
-    
+
       update jaql964
          set jaql964mta = ln_monto
        where jaql964cta = i.jaql964cta
          and jaql964ope = i.jaql964ope;
-    
+
       ln_numero := ln_numero + 1;
       if ln_numero = 5000 then
         ln_numero := 0;
         commit;
       end if;
-    
-    --dbms_output.put_line(i.cuenta ||' '|| i.operacion||' '||ln_monto ) ;   
-    
+
+    --dbms_output.put_line(i.cuenta ||' '|| i.operacion||' '||ln_monto ) ;
+
     end loop;
-  
+
   end sp_cr_actualiza_monto;
 
-  ------------------------------------------------------------- 
+  -------------------------------------------------------------
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   function fn_cr_monto(vjaql964mod in number,
                        vjaql964cta in number,
@@ -2058,9 +2074,9 @@ create or replace package body PQ_CR_jaql964_cartera is
                        vjaql964top in number,
                        vjaql964suc in number,
                        vjaql964mda in number) return number is
-  
+
     -- *****************************************************************
-    -- Nombre                     : fn_cr_monto 
+    -- Nombre                     : fn_cr_monto
     -- Sistema                    : BANTOTAL
     -- M¿dulo                     : Cr¿ditos - Activas
     -- Versi¿n                    : 1.0
@@ -2069,15 +2085,15 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Retorna Monto Aprobado
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
+    -- Par¿metros de Entrada      :
+    --
     -- Retorno                    : Monto Aprobado
     -- Fecha de Modificaci¿n      :
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor garantia_jud(mod    in varchar2,
                         suc    in varchar2,
                         mon    in varchar2,
@@ -2099,7 +2115,7 @@ create or replace package body PQ_CR_jaql964_cartera is
          and rel.r2tope = tipope
          and rel.relcod in (33, 34, 35) --garantia
          and rel.r011co = 'S';
-  
+
     /* lc_tipocontable varchar2(20);
     lc_producto varchar(30);
       ln_provision number(17,2);
@@ -2108,13 +2124,13 @@ create or replace package body PQ_CR_jaql964_cartera is
       ln_bcgpo number;
       ln_numero number:=0;
       lc_abogado varchar2(20);*/
-  
-    --lc_garantia varchar2(300); 
+
+    --lc_garantia varchar2(300);
     --  lc_tonom varchar2(30);
     --  ln_cont number :=0;
     lc_mod   varchar2(10);
     ln_monto number := 0;
-  
+
     /*lR1MOD  fsr011.R1MOD%TYPE;
     lR1CTA  fsr011.R1CTA%TYPE;
     lR1OPER fsr011.R1OPER%TYPE;
@@ -2123,13 +2139,13 @@ create or replace package body PQ_CR_jaql964_cartera is
     lr1pap  fsr011.r1pap%TYPE;
     lr1tope fsr011.r1tope%TYPE;
     lr2tope fsr011.r1tope%TYPE;*/
-  
+
     --R1MOD, R1CTA, R1OPER, R1SBOP, r1suc, r1pap, r1tope ,r1mda
-  
+
   begin
-  
+
     if vjaql964mod in (200, 33) then
-    
+
       for z in garantia_jud(vjaql964mod, vjaql964suc, vjaql964mda, 0, vjaql964cta, vjaql964ope, vjaql964sob, vjaql964top) loop
         if z.r1mod = 116 then
           lc_mod := 117;
@@ -2151,12 +2167,12 @@ create or replace package body PQ_CR_jaql964_cartera is
           when no_data_found then
             ln_monto := 0;
           when too_many_rows then
-            --dbms_output.put_line('1 '||z.r1cta ||' '|| z.r1oper||' '||ln_monto||' '||lc_mod ) ;       
+            --dbms_output.put_line('1 '||z.r1cta ||' '|| z.r1oper||' '||ln_monto||' '||lc_mod ) ;
             ln_monto := 0;
         end;
-      
+
       end loop;
-    
+
     else
       begin
         select /*+parallel (x,2,1)*/ --jflor 23.01.2014
@@ -2172,16 +2188,16 @@ create or replace package body PQ_CR_jaql964_cartera is
         when no_data_found then
           ln_monto := 0;
         when too_many_rows then
-          --  dbms_output.put_line('1 '||i.cuenta ||' '|| i.operacion||' '||ln_monto||' '||i.modulo ) ;       
+          --  dbms_output.put_line('1 '||i.cuenta ||' '|| i.operacion||' '||ln_monto||' '||i.modulo ) ;
           ln_monto := 0;
       end;
-    
+
     end if;
-  
+
     return(ln_monto);
   end fn_cr_monto;
 
-  ------------------------------------------------------------- 
+  -------------------------------------------------------------
 
   function fn_cr_garantia(vjaql964mod in number,
                           vjaql964cta in number,
@@ -2190,7 +2206,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                           vjaql964top in number,
                           vjaql964suc in number,
                           vjaql964mda in number) return varchar2 is
-  
+
     -- *****************************************************************
     -- Nombre                     : fn_cr_garantia
     -- Sistema                    : BANTOTAL
@@ -2208,8 +2224,8 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor garantia(modulo    in number,
                     sucursal  in number,
                     moneda    in number,
@@ -2231,7 +2247,7 @@ create or replace package body PQ_CR_jaql964_cartera is
          and rel.r1tope = tipope
          and rel.relcod = 50 --garantia
          and rel.r011co = 'S';
-  
+
     cursor garantiaI(modulo    in number,
                      sucursal  in number,
                      moneda    in number,
@@ -2255,8 +2271,8 @@ create or replace package body PQ_CR_jaql964_cartera is
          and rel.relcod = 50 --garantia
          and rel.r011co = 'S';
     /*
-    
-    cursor garantia_jud (modulo in varchar2, sucursal in varchar2, moneda in varchar2, papel varchar2, 
+
+    cursor garantia_jud (modulo in varchar2, sucursal in varchar2, moneda in varchar2, papel varchar2,
                         cta varchar2, operacion varchar2, subope varchar2, tipope varchar2) is
                 select R1MOD, R1CTA, R1OPER, R1SBOP, r1suc, r1pap, r1tope ,r1mda
                  from Fsr011 rel
@@ -2271,7 +2287,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                   and rel.r2tope       = tipope
                   and rel.relcod        in (33,34,35) --garantia
                   and rel.r011co       = 'S';*/
-  
+
     --lc_tipocontable varchar2(20);
     --lc_producto varchar(30);
     --ln_provision number(17,2);
@@ -2280,12 +2296,12 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- ln_bcgpo number;
     -- ln_numero number:=0;
     -- lc_abogado varchar2(20);
-  
+
     lc_garantia varchar2(1000);
     lc_tonom    varchar2(30);
     ln_cont     number := 0;
     lc_mod      varchar2(10);
-  
+
     /*lR1MOD  fsr011.R1MOD%TYPE;
     lR1CTA  fsr011.R1CTA%TYPE;
     lR1OPER fsr011.R1OPER%TYPE;
@@ -2294,52 +2310,52 @@ create or replace package body PQ_CR_jaql964_cartera is
     lr1pap  fsr011.r1pap%TYPE;
     lr1tope fsr011.r1tope%TYPE;
     lr2tope fsr011.r1tope%TYPE;*/
-  
+
   begin
-    ---- 
+    ----
     --garantia
     lc_garantia := null;
     ln_cont     := 0;
-  
+
     if vjaql964mod = 116 then
       lc_mod := 117;
     else
       lc_mod := vjaql964mod;
     end if;
-  
+
     --dbms_output.put_line(i.cuenta ||' '|| i.operacion||' '||lc_garantia ||' '||length(trim(lc_garantia))) ;
     --dbms_output.put_line(i.cuenta ||' '|| i.operacion||' '||lc_garantia ||' '||length(trim(lc_garantia))) ;
     /*if lc_mod in ( 200, 33) then
         for z in garantia_jud(vjaql964mod, vjaql964suc, vjaql964mda, 0, vjaql964cta, vjaql964ope, vjaql964sob, vjaql964top) loop
-              if z.r1mod = 116 then                                                               
+              if z.r1mod = 116 then
                  lc_mod := 117;
-              else 
+              else
                  lc_mod := z.r1mod ;
               end if;
               begin
                   for y in garantia(z.r1mod, z.r1suc, z.R1mda, z.r1pap, z.R1CTA, z.R1OPER, z.R1SBOP\*,z.r1tope*\) loop
                     if y.r2tope is not null then
                       begin
-                         select trim(tonom) 
+                         select trim(tonom)
                            into lc_tonom
                            from fst004 where modulo = 70 and totope = y.r2tope;
                       exception when no_data_found then
-                        lc_tonom := null;             
-                      end;      
+                        lc_tonom := null;
+                      end;
                       if ln_cont < 10 then
-                         lc_garantia  :=  lc_garantia || lc_tonom||',';            
+                         lc_garantia  :=  lc_garantia || lc_tonom||',';
                          ln_cont := ln_cont + 1;
                       end if;
-                        
+
                     end if;
-                  
+
                   end loop;
                end;
-            
+
         end loop;
         -- dbms_output.put_line('2- ' ||i.cuenta ||' '|| i.operacion||' '|| lc_mod||' '||lc_garantia ||' '||length(trim(lc_garantia))) ;
     else*/
-  
+
     begin
       for y in garantia(vjaql964mod, vjaql964suc, vjaql964mda, 0, vjaql964cta, vjaql964ope, vjaql964sob, vjaql964top) loop
         if y.r2tope is not null then
@@ -2357,14 +2373,14 @@ create or replace package body PQ_CR_jaql964_cartera is
             lc_garantia := lc_garantia || lc_tonom || ',';
             ln_cont     := ln_cont + 1;
           end if;
-        
+
         end if;
-      
+
       end loop;
-    
+
       if lc_garantia is null then
         for j in garantiaI(vjaql964mod, vjaql964suc, vjaql964mda, 0, vjaql964cta, vjaql964ope, vjaql964sob, vjaql964top) loop
-        
+
           begin
             select trim(tonom)
               into lc_tonom
@@ -2379,18 +2395,18 @@ create or replace package body PQ_CR_jaql964_cartera is
             lc_garantia := lc_garantia || lc_tonom || ',';
             ln_cont     := ln_cont + 1;
           end if;
-        
+
         end loop;
       end if;
-    
+
     end;
-    --dbms_output.put_line('1- ' ||i.cuenta ||' '|| i.operacion||' '|| lc_mod||' '||lc_garantia ||' '||length(trim(lc_garantia))) ;    
-  
-    -- end if;   
+    --dbms_output.put_line('1- ' ||i.cuenta ||' '|| i.operacion||' '|| lc_mod||' '||lc_garantia ||' '||length(trim(lc_garantia))) ;
+
+    -- end if;
     lc_garantia := substr(lc_garantia, 1, 300);
-  
+
     return(lc_garantia);
-  
+
   end fn_cr_garantia;
   ---------------------------------------------------------------------------------------------
   function fn_cr_abogado(P_N_PGCOD     in number,
@@ -2402,7 +2418,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                          P_N_SUCURSAL  in number,
                          P_N_SUBOPER   in number,
                          P_N_TIPOPER   in number) return varchar2 is
-  
+
     -- *****************************************************************
     -- Nombre                     : fn_cr_abogado
     -- Sistema                    : BANTOTAL
@@ -2420,15 +2436,15 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     lc_abogado varchar2(50);
     lc_coderr  varchar2(100);
     lc_msgerr  varchar2(100);
-  
+
   begin
     BEGIN
-    
+
       SELECT distinct s.jaqm34nom
         into lc_abogado
         from jaqm35 t
@@ -2467,7 +2483,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                and t.jaqm35tcon='S'
       )*/
       ;
-    
+
     exception
       WHEN TOO_MANY_ROWS THEN
         begin
@@ -2486,7 +2502,7 @@ create or replace package body PQ_CR_jaql964_cartera is
              and t.jaqm35oper = f.aooper
              and t.jaqm35sbop = f.aosbop
              and t.jaqm35tope = f.aotope
-          
+
            where t.jaqm35pgco = P_N_PGCOD
              and t.jaqm35mda = P_N_MONEDA
              and t.jaqm35pap = P_N_PAPEL
@@ -2505,11 +2521,11 @@ create or replace package body PQ_CR_jaql964_cartera is
                      and t.jaqm35cta = P_N_CUENTA
                      and t.jaqm35oper = P_N_OPERACION
                      and t.jaqm35tcon = 'S');
-        
+
         exception
           when no_data_found then
             begin
-            
+
               select distinct s.jaqm34nom
                 into lc_abogado
                 from jaqm35 t
@@ -2565,15 +2581,15 @@ create or replace package body PQ_CR_jaql964_cartera is
                      and f.r2sbop = P_N_SUBOPER
                      and f.r2tope = P_N_TIPOPER
                      and f.relcod = 36;
-                
+
                 EXCEPTION
                   when others then
                     /*lc_coderr := sqlcode;
                     lc_msgerr := sqlerrm;*/
                     null;
-                  
+
                 end;
-              
+
               when others then
                 /*lc_coderr := sqlcode;
                 lc_msgerr := sqlerrm;*/
@@ -2593,9 +2609,9 @@ create or replace package body PQ_CR_jaql964_cartera is
         lc_msgerr := sqlerrm;*/
         null;
     end;
-  
+
     return(lc_abogado);
-  
+
   end fn_cr_abogado;
   ---------------------------------------------------------------------------------------------
   Procedure sp_cr_tipocontable(P_D_FECPRO  in date,
@@ -2607,7 +2623,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                vjaql964suc in number,
                                vjaql964mda in number,
                                vtipcon     out varchar2) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_tipocontable
     -- Sistema                    : BANTOTAL
@@ -2618,26 +2634,26 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Retorna Tipo Contable
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
+    -- Par¿metros de Entrada      :
+    --
     -- Retorno                    : Tipo Contable
     -- Fecha de Modificaci¿n      :
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
+    -- *****************************************************************
     lc_tipocontable varchar2(20);
     ln_rubro        number;
     ln_rub          number;
     STR_SQL         varchar2(1000);
     vfecpro         varchar2(10);
-  
+
   begin
     --' from FSH012  (FSH012_'||TO_CHAR(P_D_FECPRO,'YYYYMMDD')||') a'||
-  
+
     --tipo contable
     vfecpro := TO_CHAR(P_D_FECPRO, 'DD/MM/RRRR');
-  
+
     STR_SQL := ' select  ' || ' /*+ALL_ROWS */ ' || '  bcrubr  ' ||
                ' from FSH012  a' || ' where a.bcemp = 1 ' ||
                '  and a.bcsuc = ' || vjaql964suc || ' ' ||
@@ -2648,16 +2664,16 @@ create or replace package body PQ_CR_jaql964_cartera is
                '  and a.bcsbop = ' || vjaql964sob || ' ' ||
                '  and a.bctop = ' || vjaql964top || ' ' ||
                '  and a.bcfech = ''' || vfecpro || '''';
-  
+
     --|| TO_DATE('''||TO_CHAR(P_D_FECPRO)||''','''YYYY/MM/DD''') ;
-  
+
     --  TO_DATE('''||TO_CHAR(pd_fecape)||''',''DD/MM/RRRR'')
     BEGIN
       EXECUTE IMMEDIATE str_sql
         INTO ln_rubro;
     END;
     ln_rub := substr(ln_rubro, 4, 1);
-  
+
     if ln_rub = '1' then
       vtipcon := 'Normal';
     elsif ln_rub = '4' then
@@ -2671,13 +2687,13 @@ create or replace package body PQ_CR_jaql964_cartera is
     when others then
       vtipcon := ' ';
       --when others null
-  
+
   end sp_cr_tipocontable;
 
   ---------------------------------------------------------------------------------------------
   ---------------------------------------------------------------------------------------------
   Procedure sp_cr_actualiza(P_D_FECPRO in date, P_C_ESTADO out varchar2) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_actualiza
     -- Sistema                    : BANTOTAL
@@ -2688,15 +2704,15 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Actualiza campos de tabla jaql964
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
-    -- Retorno                    : 
+    -- Par¿metros de Entrada      :
+    --
+    -- Retorno                    :
     -- Fecha de Modificaci¿n      :
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor cartera is
       select /*+parallel (j,2,1)*/ --jflor 23.01.2014
        j.jaql964mod,
@@ -2710,7 +2726,7 @@ create or replace package body PQ_CR_jaql964_cartera is
        j.jaql964doc,
        j.jaql964pap
         from jaql964 j;
-  
+
     lc_tipocontable varchar2(20);
     lc_abogado      varchar2(50);
     lc_garantia     varchar2(300);
@@ -2727,14 +2743,14 @@ create or replace package body PQ_CR_jaql964_cartera is
     lc_credito      varchar2(20);
     lc_refer        varchar2(200);
     ln_pgcod        number := 1;
-  
+
   begin
-  
+
     for i in cartera loop
-    
+
       begin
         --analista
-      
+
         lc_analista := pq_cr_jaql964_cartera.fn_cr_analista(i.jaql964mod,
                                                             i.jaql964cta,
                                                             i.jaql964ope,
@@ -2743,7 +2759,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                             i.jaql964suc,
                                                             i.jaql964mda);
       end;
-    
+
       begin
         --abogado
         lc_abogado := pq_cr_jaql964_cartera.fn_cr_abogado(ln_pgcod,
@@ -2756,7 +2772,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                           i.jaql964sob,
                                                           i.jaql964top);
       end;
-    
+
       begin
         --garantia
         lc_garantia := pq_cr_jaql964_cartera.fn_cr_garantia(i.jaql964mod,
@@ -2767,10 +2783,10 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                             i.jaql964suc,
                                                             i.jaql964mda);
       end;
-    
+
       begin
         --direccion
-      
+
         pq_cr_jaql964_cartera.sp_cr_direccion(i.jaql964cta,
                                               i.jaql964doc,
                                               lc_telefo,
@@ -2778,7 +2794,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                               lc_distri,
                                               lc_refer);
       end;
-    
+
       begin
         --tipo contable
         pq_cr_jaql964_cartera.sp_cr_tipocontable(P_D_FECPRO,
@@ -2791,7 +2807,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                  i.jaql964mda,
                                                  lc_tipcon);
       end;
-    
+
       begin
         --monto aprobado
         ln_monto := pq_cr_jaql964_cartera.fn_cr_monto(i.jaql964mod,
@@ -2802,10 +2818,10 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                       i.jaql964suc,
                                                       i.jaql964mda);
       end;
-    
+
       begin
         --tipo credito
-      
+
         lc_tipocre := pq_cr_jaql964_cartera.fn_cr_tipocredito(i.jaql964mod,
                                                               i.jaql964cta,
                                                               i.jaql964ope,
@@ -2814,14 +2830,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                               i.jaql964suc,
                                                               i.jaql964mda);
       end;
-    
+
       begin
         --credito sorfy
         lc_credito := pq_cr_jaql964_cartera.fn_cr_credito_sorfy(i.jaql964mod,
                                                                 i.jaql964ope,
                                                                 i.jaql964mda);
       end;
-    
+
       update jaql964
          set jaql964usu = lc_analista,
              jaql964abo = lc_abogado,
@@ -2837,25 +2853,25 @@ create or replace package body PQ_CR_jaql964_cartera is
              jaql964red = lc_refer
        where jaql964cta = i.jaql964cta
          and jaql964ope = i.jaql964ope;
-    
+
       ln_numero := ln_numero + 1;
       if ln_numero = 10000 then
         ln_numero := 0;
         commit;
       end if;
-    
+
     ------------
-    
+
     end loop;
     P_C_ESTADO := 'S';
     commit;
-  
+
   end sp_cr_actualiza;
   ---------------------------------------------------------------------------------------------
   function fn_cr_credito_sorfy(vjaql964cta in number,
                                vjaql964ope in number,
                                vjaql964mda in number) return varchar2 is
-  
+
     -- *****************************************************************
     -- Nombre                     : fn_cr_abogado
     -- Sistema                    : BANTOTAL
@@ -2873,10 +2889,10 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     lc_bnj096sor varchar2(20);
-  
+
   begin
     --credito sorfy
     begin
@@ -2891,9 +2907,9 @@ create or replace package body PQ_CR_jaql964_cartera is
       when no_data_found then
         lc_bnj096sor := ' ';
     end;
-  
+
     return(lc_bnj096sor);
-  
+
   end fn_cr_credito_sorfy;
   ---------------------------------------------------------------------------------------------
 
@@ -2904,7 +2920,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                              vjaql964top in number,
                              vjaql964suc in number,
                              vjaql964mda in number) return varchar2 is
-  
+
     -- *****************************************************************
     -- Nombre                     : fn_cr_tipocredito
     -- Sistema                    : BANTOTAL
@@ -2915,17 +2931,17 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Tipo de Credito
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
-    -- Retorno                    : 
+    -- Par¿metros de Entrada      :
+    --
+    -- Retorno                    :
     -- Fecha de Modificaci¿n      :
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     lc_tipocredito varchar2(30);
-  
+
   begin
     --tipo credito
     if vjaql964mod = 108 then
@@ -2969,11 +2985,11 @@ create or replace package body PQ_CR_jaql964_cartera is
           lc_tipocredito := null;
       end;
     end if;
-  
+
     return(lc_tipocredito);
-  
+
   end fn_cr_tipocredito;
-  ---------------------------------------------------------------------------------------------     
+  ---------------------------------------------------------------------------------------------
 
   ---------------------------------------------------------------------------------------------
   /*
@@ -2987,7 +3003,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       FETCH c_fsd001 BULK COLLECT
         INTO l_fsd001 LIMIT l_limit;
       EXIT WHEN l_fsd001.count = 0;
-    
+
       FORALL i in l_fsd001.FIRST .. l_fsd001.LAST
         UPDATE FSD001 x
            SET Penom = (SELECT p2.Penom
@@ -2999,20 +3015,20 @@ create or replace package body PQ_CR_jaql964_cartera is
          where x.pepais = l_fsd001(i).pepais
            and x.petdoc = l_fsd001(i).petdoc
            and x.pendoc = l_fsd001(i).pendoc;
-           
+
       COMMIT;
     END LOOP;
     CLOSE c_fsd001;
-   
-  
-  
+
+
+
   */
   ---------------------------------------------------------------------------------------------
   Procedure sp_cr_actualiza_analista_bulk(P_D_FECPRO in date,
                                           -- P_C_ESTADO out varchar2,
                                           P_N_INI in NUMBER,
                                           P_N_FIN in NUMBER) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_actualiza
     -- Sistema                    : BANTOTAL
@@ -3023,15 +3039,15 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Actualiza campos de tabla jaql964
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
-    -- Retorno                    : 
+    -- Par¿metros de Entrada      :
+    --
+    -- Retorno                    :
     -- Fecha de Modificaci¿n      : 2014.01.03
     -- Autor de la Modificaci¿n   : DCASTRO
     -- Descripci¿n de Modificaci¿n: Se modifico actualizacion lc_analista
     --                              2018.02.02 DCASTRO se agrego procedimiento sp_cr_dpto_prov para actualizar provincia, departamento
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor cartera(P_N_INI in number, P_N_FIN in number) is
       select /*+parallel (j,2,1)*/ --jflor 23.01.2014
        j.jaql964cta,
@@ -3050,7 +3066,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         from jaql964 j /* where j.jaql964cta=159078;*/
        where j.jaql964cor >= P_N_INI
          and j.jaql964cor <= P_N_FIN;
-  
+
     TYPE Tp_jaql964mod IS TABLE OF jaql964.jaql964mod%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964cta IS TABLE OF jaql964.jaql964cta%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964ope IS TABLE OF jaql964.jaql964ope%TYPE INDEX BY PLS_INTEGER;
@@ -3064,7 +3080,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     TYPE Tp_jaql964cor IS TABLE OF jaql964.jaql964cor%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964pap IS TABLE OF jaql964.jaql964pap%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964est IS TABLE OF jaql964.jaql964est%TYPE INDEX BY PLS_INTEGER;
-  
+
     jaql964mod Tp_jaql964mod;
     jaql964cta Tp_jaql964cta;
     jaql964ope Tp_jaql964ope;
@@ -3078,7 +3094,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     jaql964cor Tp_jaql964cor;
     jaql964pap Tp_jaql964pap;
     jaql964est Tp_jaql964est;
-  
+
     --lc_tipocontable varchar2(20);
     lc_abogado  varchar2(50);
     lc_garantia varchar2(300);
@@ -3099,23 +3115,23 @@ create or replace package body PQ_CR_jaql964_cartera is
     ln_sector    number := 0;
     ln_tipsbs    number := 0;
     ln_pgcod     number := 1;
-  
+
     ln_papel number := 0;
     -- pf_asig date;
     -- pc_abrev varchar2(50);
     --  pf_deman date;
     --  pf_pasajud date;
     -- pf_trancart date;
-  
+
     lc_telava fsr005.dotelfp%TYPE;
     ln_ctaava fsd011.sccta%TYPE;
     lc_nomava fsd001.penom%TYPE;
     lc_dirava varchar2(180);
-  
+
     lc_provincia    varchar2(50);
     lc_departamento varchar2(50);
   begin
-  
+
     OPEN cartera(P_N_INI, P_N_FIN);
     LOOP
       FETCH cartera BULK COLLECT
@@ -3134,14 +3150,14 @@ create or replace package body PQ_CR_jaql964_cartera is
              jaql964est;
       IF jaql964cta.COUNT > 0 THEN
         FOR i IN jaql964cta.FIRST .. jaql964cta.LAST LOOP
-        
+
           /*begin--analista
             lc_analista := pq_cr_jaql964_cartera.fn_cr_analista(jaql964mod(i),jaql964cta(i),
                                                  jaql964ope(i),jaql964sob(i),jaql964top(i),
                                                  jaql964suc(i),jaql964mda(i));
           end;*/
           begin
-          
+
             pq_cr_jaql964_cartera.sp_cr_analista(jaql964mod(i),
                                                  jaql964cta(i),
                                                  jaql964ope(i),
@@ -3151,22 +3167,22 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                  jaql964mda(i),
                                                  lc_analista,
                                                  ln_instancia);
-          
+
           end;
-        
+
           ln_tipsbs := jaql964csb(i);
           if ln_tipsbs = 13 then
             /*begin
-            
+
             ln_sector :=  pq_cr_jaql964_cartera.fn_sector_credito(P_D_FECPRO,
                                                       1,jaql964mod(i),jaql964suc(i),
                                                       jaql964mda(i),0,jaql964cta(i),
                                                       jaql964ope(i),jaql964sob(i),
                                                       jaql964top(i),ln_instancia);
              end;*/
-          
+
             begin
-            
+
               ln_sector := fn_sector_credito(P_D_FECPRO,
                                              1,
                                              jaql964mod(i),
@@ -3178,7 +3194,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                              jaql964sob(i),
                                              jaql964top(i));
             end;
-          
+
           end if;
           begin
             --abogado
@@ -3192,17 +3208,17 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                               jaql964sob(i),
                                                               jaql964top(i));
           end;
-        
-          /*    
+
+          /*
           begin --garantia
            lc_garantia := pq_cr_jaql964_cartera.fn_cr_garantia(jaql964mod(i),jaql964cta(i),
                                                   jaql964ope(i),jaql964sob(i),jaql964top(i),
                                                   jaql964suc(i),jaql964mda(i));
           end;*/
-        
+
           begin
             --direccion
-          
+
             pq_cr_jaql964_cartera.sp_cr_direccion(jaql964cta(i),
                                                   jaql964doc(i),
                                                   lc_telefo,
@@ -3210,7 +3226,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                   lc_distri,
                                                   lc_refer);
           end;
-        
+
           /*begin --tipo contable
             pq_cr_jaql964_cartera.sp_cr_tipocontable(P_D_FECPRO,jaql964mod(i),jaql964cta(i),
                                                    jaql964ope(i),jaql964sob(i),jaql964top(i),
@@ -3219,10 +3235,10 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    lc_bcgpo,
                                                    lc_produc);
           end;*/
-        
+
           begin
             --tipo credito
-          
+
             lc_tipocre := pq_cr_jaql964_cartera.fn_cr_tipocredito(jaql964mod(i),
                                                                   jaql964cta(i),
                                                                   jaql964ope(i),
@@ -3231,14 +3247,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                   jaql964suc(i),
                                                                   jaql964mda(i));
           end;
-        
+
           begin
             --credito sorfy
             lc_credito := pq_cr_jaql964_cartera.fn_cr_credito_sorfy(jaql964cta(i),
                                                                     jaql964ope(i),
                                                                     jaql964mda(i));
           end;
-        
+
           ---aval , direccion aval
           begin
             pq_cr_jaql964_cartera.sp_cr_aval(p_n_instancia => ln_instancia,
@@ -3249,7 +3265,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                              p_c_telef     => lc_telava,
                                              p_c_direc     => lc_dirava);
           end;
-        
+
           --provincia - dpto  2018.02.02
           begin
             pq_cr_jaql964_cartera.sp_cr_dpto_prov(vjaql964cta   => jaql964cta(i),
@@ -3258,7 +3274,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                   vdepartamento => lc_departamento);
           end;
           --
-        
+
           update jaql964
              set jaql964usu   = trim(lc_analista),
                  jaql964tel   = lc_telefo,
@@ -3287,13 +3303,13 @@ create or replace package body PQ_CR_jaql964_cartera is
             ln_corr := 0;
           end if;
           --commit;
-        
+
         END LOOP;
       END IF;
       EXIT WHEN cartera%NOTFOUND;
     END LOOP;
     COMMIT;
-  
+
   end sp_cr_actualiza_analista_bulk;
 
   ---------------------------------------------------------------------------------------------
@@ -3301,7 +3317,7 @@ create or replace package body PQ_CR_jaql964_cartera is
   ---------------------------------------------------------------------------------------------
   Procedure sp_cr_actualiza_bulk(P_D_FECPRO in date,
                                  P_C_ESTADO out varchar2) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_actualiza
     -- Sistema                    : BANTOTAL
@@ -3312,15 +3328,15 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Actualiza campos de tabla jaql964
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
-    -- Retorno                    : 
+    -- Par¿metros de Entrada      :
+    --
+    -- Retorno                    :
     -- Fecha de Modificaci¿n      :
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor cartera is
       select /*+parallel (j,2,1)*/ --jflor 23.01.2014
        j.jaql964cta,
@@ -3335,7 +3351,7 @@ create or replace package body PQ_CR_jaql964_cartera is
        j.jaql964pap
         from jaql964 j /*where jaql964cta=150332 and jaql964ope=2109753*/
       ;
-  
+
     TYPE Tp_jaql964mod IS TABLE OF jaql964.jaql964mod%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964cta IS TABLE OF jaql964.jaql964cta%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964ope IS TABLE OF jaql964.jaql964ope%TYPE INDEX BY PLS_INTEGER;
@@ -3346,7 +3362,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     TYPE Tp_jaql964usu IS TABLE OF jaql964.jaql964usu%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964doc IS TABLE OF jaql964.jaql964doc%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964pap IS TABLE OF jaql964.jaql964pap%TYPE INDEX BY PLS_INTEGER;
-  
+
     jaql964mod Tp_jaql964mod;
     jaql964cta Tp_jaql964cta;
     jaql964ope Tp_jaql964ope;
@@ -3357,7 +3373,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     jaql964usu Tp_jaql964usu;
     jaql964doc Tp_jaql964doc;
     jaql964pap Tp_jaql964pap;
-  
+
     lc_tipocontable varchar2(20);
     lc_abogado      varchar2(50);
     lc_garantia     varchar2(300);
@@ -3375,9 +3391,9 @@ create or replace package body PQ_CR_jaql964_cartera is
     lc_refer        varchar2(200);
     ln_corr         number := 0;
     ln_pgcod        number := 1;
-  
+
   begin
-  
+
     OPEN cartera;
     LOOP
       FETCH cartera BULK COLLECT
@@ -3393,7 +3409,7 @@ create or replace package body PQ_CR_jaql964_cartera is
              jaql964pap;
       IF jaql964cta.COUNT > 0 THEN
         FOR i IN jaql964cta.FIRST .. jaql964cta.LAST LOOP
-        
+
           begin
             --analista
             lc_analista := pq_cr_jaql964_cartera.fn_cr_analista(jaql964mod(i),
@@ -3404,7 +3420,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                 jaql964suc(i),
                                                                 jaql964mda(i));
           end;
-        
+
           begin
             --abogado
             lc_abogado := pq_cr_jaql964_cartera.fn_cr_abogado(ln_pgcod,
@@ -3417,7 +3433,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                               jaql964sob(i),
                                                               jaql964top(i));
           end;
-        
+
           begin
             --garantia
             lc_garantia := pq_cr_jaql964_cartera.fn_cr_garantia(jaql964mod(i),
@@ -3428,10 +3444,10 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                 jaql964suc(i),
                                                                 jaql964mda(i));
           end;
-        
+
           begin
             --direccion
-          
+
             pq_cr_jaql964_cartera.sp_cr_direccion(jaql964cta(i),
                                                   jaql964doc(i),
                                                   lc_telefo,
@@ -3449,7 +3465,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    lc_produc);
           end;
            */
-        
+
           begin
             --monto aprobado
             ln_monto := pq_cr_jaql964_cartera.fn_cr_monto(jaql964mod(i),
@@ -3460,10 +3476,10 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                           jaql964suc(i),
                                                           jaql964mda(i));
           end;
-        
+
           begin
             --tipo credito
-          
+
             lc_tipocre := pq_cr_jaql964_cartera.fn_cr_tipocredito(jaql964mod(i),
                                                                   jaql964cta(i),
                                                                   jaql964ope(i),
@@ -3472,14 +3488,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                   jaql964suc(i),
                                                                   jaql964mda(i));
           end;
-        
+
           begin
             --credito sorfy
             lc_credito := pq_cr_jaql964_cartera.fn_cr_credito_sorfy(jaql964cta(i),
                                                                     jaql964ope(i),
                                                                     jaql964mda(i));
           end;
-        
+
           update jaql964
              set jaql964usu = lc_analista,
                  jaql964abo = lc_abogado,
@@ -3496,19 +3512,19 @@ create or replace package body PQ_CR_jaql964_cartera is
                  jaql964red = lc_refer
            where jaql964cta = jaql964cta(i)
              and jaql964ope = jaql964ope(i);
-        
+
           ln_corr := ln_corr + 1;
           if ln_corr = 5000 then
             commit;
             ln_corr := 0;
           end if;
-        
+
         END LOOP;
       END IF;
       EXIT WHEN cartera%NOTFOUND;
     END LOOP;
     COMMIT;
-  
+
   end sp_cr_actualiza_bulk;
 
   ---------------------------------------------------------------------------------------------
@@ -3525,14 +3541,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                                v_Sctope in number,
                                v_instancia in number
                              ) return number is
-  
+
       ln_sector jaql101.jaql101scl%type;
       ln_instancia number(10);
-      
-  
+
+
   begin
-  
-    begin  
+
+    begin
         select   JAQL101Scl
                  into ln_sector
         from
@@ -3554,19 +3570,19 @@ create or replace package body PQ_CR_jaql964_cartera is
     exception
       when no_data_found then
           begin
-  
+
              select trim(wv.WFAttSVal)
                into ln_sector
                from wfattsvalues wv
               where WFINSPRCID = v_instancia
                 and WFAttSId   = 'SECTOR';
-          exception     
+          exception
             when others then
                  ln_sector := null;
           end;
-     end;    
-     
-       
+     end;
+
+
     return ln_sector;
   end;*/
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -3577,7 +3593,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                        P_C_PENOM     out varchar2,
                        P_C_TELEF     out varchar2,
                        P_C_DIREC     out varchar2) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_actualiza_monto
     -- Sistema                    : BANTOTAL
@@ -3595,15 +3611,15 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     lc_tonom varchar2(30);
     ln_cont  number := 0;
     lc_mod   varchar2(10);
     ln_monto number := 0;
-  
+
     INSTANCIA number;
-  
+
     lc_telefono fsr005.dotelfp%TYPE;
     ln_cuenta   fsd011.sccta%TYPE;
     ln_pepais   fsr008.pepais%TYPE;
@@ -3611,11 +3627,11 @@ create or replace package body PQ_CR_jaql964_cartera is
     ln_pendoc   fsr008.pendoc%TYPE;
     lc_penom    fsd001.penom%TYPE;
     lc_direc    varchar2(180);
-  
+
     --R1MOD, R1CTA, R1OPER, R1SBOP, r1suc, r1pap, r1tope ,r1mda
-  
+
   begin
-  
+
     begin
       select s.sng003cta
         into ln_cuenta
@@ -3626,7 +3642,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when no_data_found then
         ln_cuenta := null;
     end;
-  
+
     begin
       select fs.penom, f8.pepais, f8.petdoc, f8.pendoc
         into lc_penom, ln_pepais, ln_petdoc, ln_pendoc
@@ -3645,17 +3661,17 @@ create or replace package body PQ_CR_jaql964_cartera is
         ln_petdoc := null;
         ln_pendoc := null;
     end;
-  
-    ---2024.02.12 dcastro se agrego busqueda a funcion 
+
+    ---2024.02.12 dcastro se agrego busqueda a funcion
     begin
       lc_telefono := PQ_CR_jaql964_cartera.fn_cr_telefono_valido(P_N_PEPAIS => ln_pepais,
                                                                  P_N_PETDOC => ln_petdoc,
                                                                  P_N_PENDOC => ln_pendoc);
     end;
-  
+
     if lc_telefono is null then
       ---2024.02.12 dcastro si variable telefono es nula realiza la bsuqeda tradicional
-    
+
       begin
         select trim(dotelfp)
           into lc_telefono
@@ -3668,9 +3684,9 @@ create or replace package body PQ_CR_jaql964_cartera is
         when NO_DATA_FOUND then
           lc_telefono := ' ';
       end;
-    
+
     end if; --- ---2024.02.12 dcastro
-  
+
     begin
       select trim(sngc13dir) || ' - ' || trim(f.fst071dsc)
         into lc_direc
@@ -3687,7 +3703,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when NO_DATA_FOUND then
         lc_direc := ' ';
     end;
-  
+
     if ln_cuenta is null then
       begin
         select XWFPRCINS
@@ -3712,7 +3728,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         when no_data_found then
           ln_cuenta := null;
       end;
-    
+
       begin
         select pepais, petdoc, pendoc
           into ln_pepais, ln_petdoc, ln_pendoc
@@ -3735,7 +3751,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         when others then
           null;
       end;
-    
+
       begin
         select trim(dotelfp)
           into lc_telefono
@@ -3748,7 +3764,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         when NO_DATA_FOUND then
           lc_telefono := ' ';
       end;
-    
+
       begin
         select trim(sngc13dir) || ' - ' || trim(f.fst071dsc)
           into lc_direc
@@ -3765,14 +3781,14 @@ create or replace package body PQ_CR_jaql964_cartera is
         when NO_DATA_FOUND then
           lc_direc := ' ';
       end;
-    
+
     end if;
-  
+
     P_N_CTAAVA := ln_cuenta;
     P_C_PENOM  := lc_penom;
     P_C_TELEF  := lc_telefono;
     P_C_DIREC  := lc_direc;
-  
+
   end sp_cr_aval;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -3787,16 +3803,16 @@ create or replace package body PQ_CR_jaql964_cartera is
                           ln_petdocaval out number,
                           ln_pendocaval out character,
                           correlativo out number) is
-  
+
   INSTANCIA number;
-  
-  begin 
+
+  begin
   if P_N_MODULO <> 200 then
-  
+
   cursor AVALES is
-  
+
       select s.sng003cta, f.pendoc, f.petdoc, f.pepais, d.penom
-   
+
         from sng003 s, fsr008 f, fsd001 d
        where s.sng001inst = ln_instancia
          and s.sng003cta = f.ctnro
@@ -3804,14 +3820,14 @@ create or replace package body PQ_CR_jaql964_cartera is
          and f.pendoc = d.pendoc
          and f.pepais = d.pepais
          and f.petdoc = d.petdoc;
-    
-         begin 
+
+         begin
              for i in AVALES loop
               pq_cr_jaql964_cartera.sp_cr_jaql971II();
               end loop;
          end;
-      /*  begin 
-        
+      /*  begin
+
         pq_cr_jaql964_cartera.sp_cr_jaql971II
         end;*/
 
@@ -3836,11 +3852,11 @@ create or replace package body PQ_CR_jaql964_cartera is
             into ln_cuentaaval
             from sng003 s
           where s.sng001inst = INSTANCIA
-            and rownum < 2;       
+            and rownum < 2;
       exception when no_data_found then
-          ln_cuentaaval := null;                    
+          ln_cuentaaval := null;
       end;
-  
+
     begin
       select pepais, petdoc, pendoc
         into ln_pepaisaval, ln_petdocaval, ln_pendocaval
@@ -3861,7 +3877,7 @@ create or replace package body PQ_CR_jaql964_cartera is
          and f.pendoc = ln_pendocaval;
           exception when others then null;
       end;
-      
+
    end if;
    end if;
   end sp_cr_aval971;*/
@@ -3871,52 +3887,52 @@ create or replace package body PQ_CR_jaql964_cartera is
   function fn_cr_telefono_aval(P_N_PEPAIS in number,
                                P_N_PETDOC in number,
                                P_N_PENDOC in char) return varchar2 is
-  
+
     -- *****************************************************************
     -- Nombre                     : fn_cr_telefono_aval
     -- Sistema                    : BANTOTAL
     -- M¿dulo                     : Cr¿ditos - Activas
     -- Versi¿n                    : 1.0
     -- Fecha de Creaci¿n          :
-    -- Autor de Creaci¿n          : 
+    -- Autor de Creaci¿n          :
     -- Uso                        : Telefono aval
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
-    -- Retorno                    : 
+    -- Par¿metros de Entrada      :
+    --
+    -- Retorno                    :
     -- Fecha de Modificaci¿n      :
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     lc_telefonos varchar2(200);
-  
+
     cursor tele is
       select trim(dotelfp) telefo
         from fsr005 f
        where pepais = P_N_PEPAIS
          and petdoc = P_N_PETDOC
          and pendoc = P_N_PENDOC;
-  
+
   begin
-  
+
     begin
-    
+
       for t in tele loop
         lc_telefonos := lc_telefonos || ' / ' || t.telefo;
       end loop;
-    
+
     exception
       when NO_DATA_FOUND then
         lc_telefonos := ' ';
     end;
-  
+
     return(lc_telefonos);
-  
+
   end fn_cr_telefono_aval;
-  ---------------------------------------------------------------------------------------------     
+  ---------------------------------------------------------------------------------------------
   procedure sp_cr_direccion_aval(P_N_PEPAIS in number,
                                  P_N_PETDOC in number,
                                  P_N_PENDOC in char,
@@ -3924,30 +3940,30 @@ create or replace package body PQ_CR_jaql964_cartera is
                                  P_C_distr  out varchar2,
                                  P_C_refer1 out varchar2,
                                  P_C_ubigeo out char) is
-  
+
     -- *****************************************************************
     -- Nombre                     : fn_cr_direccion_aval
     -- Sistema                    : BANTOTAL
     -- M¿dulo                     : Cr¿ditos - Activas
     -- Versi¿n                    : 1.0
     -- Fecha de Creaci¿n          :
-    -- Autor de Creaci¿n          : 
+    -- Autor de Creaci¿n          :
     -- Uso                        : direccion aval
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
-    -- Retorno                    : 
+    -- Par¿metros de Entrada      :
+    --
+    -- Retorno                    :
     -- Fecha de Modificaci¿n      : 2018.01.29
     -- Autor de la Modificaci¿n   : DCASTRO
     -- Descripci¿n de Modificaci¿n: Se agrego campo y variable para ubigeo p_c_ubigeo
     --
-    -- ***************************************************************** 
+    -- *****************************************************************
     lc_codmsg varchar2(100);
     lc_desmsg varchar2(1000);
-  
+
   begin
-  
+
     begin
       select trim(sngc13dir),
              trim(f.fst071dsc),
@@ -3963,7 +3979,7 @@ create or replace package body PQ_CR_jaql964_cartera is
          and s.docod = 1
          and s.sngc13est = 'H'
          and rownum < 2;
-    
+
     exception
       when others then
         P_C_direc  := ' ';
@@ -3972,13 +3988,13 @@ create or replace package body PQ_CR_jaql964_cartera is
         P_C_ubigeo := ' ';
         lc_codmsg  := sqlcode;
         lc_desmsg  := sqlerrm;
-      
+
     end;
-  
+
   end sp_cr_direccion_aval;
-  ---------------------------------------------------------------------------------------------   
+  ---------------------------------------------------------------------------------------------
   procedure sp_cr_carga_aval(P_N_INI in NUMBER, P_N_FIN in NUMBER) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_actualiza_monto
     -- Sistema                    : BANTOTAL
@@ -3992,12 +4008,10 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Par¿metros de Entrada      : P_D_FECPRO (FECHA De PROCESO)
     --                              P_N_TIPCAM
     -- Retorno                    : ESTADO
-    -- Fecha de Modificaci¿n      :
-    -- Autor de la Modificaci¿n   :
-    -- Descripci¿n de Modificaci¿n:
+    -- Fecha de Modificaci¿n      : 2025.04.30 DCASTRO se agregó funciones para obtener informacion de expediente y contratacion digital
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor cartera(P_N_INI in number, P_N_FIN in number) is
       select j.jaql964cor,
              j.jaql964ins,
@@ -4014,7 +4028,7 @@ create or replace package body PQ_CR_jaql964_cartera is
              j.jaql964doc,
              j.jaql964fec
         from jaql964 j
-      /* where j.jaql964cta=1545995  
+      /* where j.jaql964cta=1545995
       and j.jaql964ope=1268321;*/
        where j.jaql964cor >= P_N_INI
          and j.jaql964cor <= P_N_FIN;
@@ -4023,7 +4037,7 @@ create or replace package body PQ_CR_jaql964_cartera is
              from sng003 s, fsr008 f, fsd001 d
               where s.sng001inst = ln_instancia and s.sng003cta=f.ctnro
               and f.cttfir ='T' and f.pendoc=d.pendoc and f.pepais=d.pepais and f.petdoc=d.petdoc;*/
-  
+
     lc_tonom varchar2(30);
     ln_cont  number := 0;
     lc_mod   varchar2(10);
@@ -4041,11 +4055,11 @@ create or replace package body PQ_CR_jaql964_cartera is
     lc_fcastigo        varchar2(10);
     lc_fdemanda        varchar2(10);
     ln_icextracontable number;
-  
+
     ln_pgcod number := 1;
-  
+
     ln_papel number := 0;
-  
+
     lc_ftransferencia  varchar2(10);
     ln_descalificacion varchar2(15);
     lc_finterposicion  varchar2(10);
@@ -4063,23 +4077,30 @@ create or replace package body PQ_CR_jaql964_cartera is
     lc_abogado         varchar2(100);
     lc_sobreendeudado  varchar2(50);
     ln_plazo           number(5); -- 2016.10.07 @mpca
-  
+
     lc_telefono fsr005.dotelfp%TYPE;
     ln_cuenta   fsd011.sccta%TYPE;
     ln_pepais   fsr008.pepais%TYPE;
     ln_petdoc   fsr008.petdoc%TYPE;
     ln_pendoc   fsr008.pendoc%TYPE;
     lc_penom    fsd001.penom%TYPE;
-  
+
     lc_direc    varchar2(180);
     ln_contador number;
     ln_num      number := 1;
     ln_tipcre   number;
     ln_ciiu     number;
     ld_FchProc  date;
-  
+
+    --2025.04.30
+    lc_validacion varchar2(30);
+    lc_propuesta  varchar2(30);
+    lc_tip_cont   varchar2(50);
+    lc_tip_exp    varchar2(30);
+    --2025.04.30
+
   begin
-  
+
     for i in cartera(P_N_INI, P_N_FIN) loop
       PQ_CR_jaql964_cartera.sp_cr_fecha_cancelacion(P_N_PGCOD  => ln_pgcod,
                                                     P_N_AOMOD  => i.jaql964mod,
@@ -4091,7 +4112,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                     P_N_AOSBOP => i.jaql964sob,
                                                     P_N_AOTOPE => i.jaql964top,
                                                     P_N_FCAN   => lc_fcancelacion);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_provcali(P_N_RI105COD   => ln_pgcod,
                                            P_N_RI105SUC   => i.jaql964suc,
                                            P_N_RI105MOD   => i.jaql964mod,
@@ -4105,7 +4126,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                            P_N_PROV       => ln_provision,
                                            P_N_CALF       => ln_calificacion,
                                            P_N_DCALF      => ln_descalificacion);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_fidemanda(P_N_JAQM27PGC  => ln_pgcod,
                                             P_N_JAQM27MOD  => i.jaql964mod,
                                             P_N_JAQM27SUC  => i.jaql964suc,
@@ -4117,7 +4138,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                             P_N_JAQM27TOPE => i.jaql964top,
                                             P_N_JAQM33COR  => i.jaql964cor,
                                             P_N_JAQM33FDEM => lc_fdemanda);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_refinanciado(P_N_JAQL166PGCOD => ln_pgcod,
                                                P_N_JAQL166SCMOD => i.jaql964mod,
                                                P_N_JAQL166SCSUC => i.jaql964suc,
@@ -4129,7 +4150,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                P_N_JAQL166SCTOP => i.jaql964top,
                                                P_N_JAQL166EST   => i.jaql964est,
                                                P_N_JAQL166SCFVL => lc_frefinanciado);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_interes_compextra(P_N_PGCOD  => ln_pgcod,
                                                     P_N_SCSUC  => i.jaql964suc,
                                                     P_N_SCMDA  => i.jaql964mda,
@@ -4139,7 +4160,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                     P_N_SCSBOP => i.jaql964sob,
                                                     P_N_SCTOPE => i.jaql964top,
                                                     P_N_SCSDO  => ln_icextracontable);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_castigado(P_N_JAQL166PGCOD => ln_pgcod,
                                             P_N_JAQL166SCMOD => i.jaql964mod,
                                             P_N_JAQL166SCSUC => i.jaql964suc,
@@ -4151,7 +4172,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                             P_N_JAQL166SCTOP => i.jaql964top,
                                             P_N_JAQL166EST   => i.jaql964est,
                                             P_N_JAQL166CAST  => lc_fcastigo);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_ftransabogado(P_N_SNG419PGC  => ln_pgcod,
                                                 P_N_SNG419MOD  => i.jaql964mod,
                                                 P_N_SNG419SUC  => i.jaql964suc,
@@ -4162,7 +4183,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                 P_N_SNG419SBO  => i.jaql964sob,
                                                 P_N_SNG419TOP  => i.jaql964top,
                                                 P_N_SNG419FECT => lc_ftransferencia);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_finterposicion(P_N_JAQM27PGC  => ln_pgcod,
                                                  P_N_JAQM27MOD  => i.jaql964mod,
                                                  P_N_JAQM27SUC  => i.jaql964suc,
@@ -4175,7 +4196,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                  P_N_JAQM33COR  => i.jaql964cor,
                                                  P_N_JAQM33FINT => lc_finterposicion,
                                                  P_N_NROEXP     => lc_nroexpediente);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_faceptacion(P_N_JAQM27PGC  => ln_pgcod,
                                               P_N_JAQM27MOD  => i.jaql964mod,
                                               P_N_JAQM27SUC  => i.jaql964suc,
@@ -4187,7 +4208,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                               P_N_JAQM27TOPE => i.jaql964top,
                                               P_N_JAQM33COR  => i.jaql964cor,
                                               P_N_JAQM33FACT => lc_faceptacion);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_acuerdo_pago( /*P_N_JAQL165CORR => i.jaql964cor,*/P_N_JAQL165EMP  => ln_JAQL165EMP,
                                                P_N_JAQL165SUC  => i.jaql964suc,
                                                P_N_JAQL165MDA  => i.jaql964mda,
@@ -4199,7 +4220,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                P_N_JAQL165MOD  => i.jaql964mod,
                                                P_N_JAQL165COM  => lc_acuerdopago,
                                                P_N_JAQL165DCOM => lc_descripacuerdo);
-    
+
       PQ_CR_jaql964_cartera.sp_cr_cancelacion_esp(P_N_JAQL165EMP => ln_JAQL165EMP,
                                                   P_N_JAQL165SUC => i.jaql964suc,
                                                   P_N_JAQL165MDA => i.jaql964mda,
@@ -4210,7 +4231,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                   P_N_JAQL165TOP => i.jaql964top,
                                                   P_N_JAQL165MOD => i.jaql964mod,
                                                   P_N_JAQL165TEX => lc_cancespecial);
-    
+
       PQ_CR_jaql964_cartera.UpdateCampos_JAQL964(P_N_INSTANCIA    => i.jaql964ins,
                                                  P_N_MONEDA       => i.jaql964mda,
                                                  P_N_CUENTA       => i.jaql964cta,
@@ -4233,21 +4254,33 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                  ln_petdoc    => i.jaql964tid,
                                                  ln_pendoc    => i.jaql964doc,
                                                  lc_fgsob     => lc_sobreendeudado);
-    
+
       ln_tipcre := Pq_Cr_Jaql964_Cartera.fn_tipo_credito_desem(P_N_JAQL964PAI => i.jaql964pai,
                                                                P_N_JAQL964TID => i.jaql964tid,
                                                                P_N_JAQL964DOC => i.jaql964doc,
                                                                P_D_JAQL964FEC => to_date(lc_fdes,
                                                                                          'yyyy.mm.dd'),
                                                                P_N_JAQL964CTA => i.jaql964cta);
-    
-      -- MPOSTIGOC 21/10/2024 PRY7090                                                          
+
+      -- MPOSTIGOC 21/10/2024 PRY7090
       PQ_CR_MODULO_CAMPANIAS.sp_cr_ciuu(ln_pais => i.jaql964pai,
                                         ln_tdoc => i.jaql964tid,
                                         lc_ndoc => i.jaql964doc,
                                         ln_ciiu => ln_ciiu);
-    
+
       ------------------
+
+      ---2025.04.30 DCASTRO
+
+        lc_validacion := PQ_CR_EXPEDIENTE.fn_cr_Validacion(i.jaql964ins);
+        lc_propuesta  := PQ_CR_EXPEDIENTE.fn_cr_Propuesta(i.jaql964ins);
+        PQ_CR_EXPEDIENTE.sp_cr_ValidaExpediente(i.jaql964ins, lc_tip_exp);
+        PQ_CR_EXPEDIENTE.sp_cr_contratacion( i.jaql964cta, i.jaql964ope, i.jaql964ins, lc_tip_cont);
+
+
+
+      --2025.04.30 DCASTRO
+
       PQ_CR_jaql964_cartera.sp_cr_updatejaql964(P_N_CUENTA         => i.jaql964cta,
                                                 P_N_OPERACION      => i.jaql964ope,
                                                 P_N_SUBOPER        => i.jaql964sob,
@@ -4279,12 +4312,17 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                 P_C_ABOGADO        => lc_abogado,
                                                 P_C_SOBREENDEUDADO => lc_sobreendeudado,
                                                 P_N_PLAZO          => ln_plazo,
-                                                ln_ciiu            => ln_ciiu);
-    
+                                                ln_ciiu            => ln_ciiu,
+                                                P_C_VALIDA_EXP     => lc_validacion,
+                                                P_C_PROPUESTA_EXP  => lc_propuesta,
+                                                P_C_TIPEXPEDIENTE  => lc_tip_exp,
+                                                P_C_TIPCONTRATO    => lc_tip_cont
+                                                );
+
       ln_cont := 0;
       --commit;
     end loop;
-  
+
     -- MPOSTIGOC
     begin
       begin
@@ -4293,16 +4331,16 @@ create or replace package body PQ_CR_jaql964_cartera is
         when others then
           null;
       end;
-    
+
       Pq_Cr_Jaql964_Cartera.sp_Cr_UpdAQPB183(ld_fecha => ld_FchProc);
-    
+
     end;
-  
+
     begin
       -- Call the procedure
       PQ_CR_jaql964_cartera.sp_Cr_CargaReconver;
     end;
-  
+
   end sp_cr_carga_aval;
   ---------------------------------------------------------------------------------
   procedure sp_cr_inserta_aval(P_N_CORR964 NUMBER,
@@ -4367,9 +4405,9 @@ create or replace package body PQ_CR_jaql964_cartera is
                                     P_C_DIRNEG out varchar2,
                                     P_C_distr  out varchar2,
                                     P_C_refer1 out varchar2) is
-  
+
   begin
-  
+
     begin
       select trim(sngc13dir), trim(f.fst071dsc), sngc13ref1
         into P_C_DIRNEG, P_C_distr, P_C_refer1
@@ -4382,15 +4420,15 @@ create or replace package body PQ_CR_jaql964_cartera is
          and s.docod = 3
          and s.sngc13est = 'H'
          and rownum < 2;
-    
+
     exception
       when NO_DATA_FOUND then
         P_C_DIRNEG := ' ';
         P_C_distr  := ' ';
         P_C_refer1 := ' ';
-      
+
     end;
-  
+
   end sp_cr_direccion_negocio;
   ---------------------------------------------------------------------------------------------
   procedure sp_cr_update_aval(P_N_CORR964  number,
@@ -4408,11 +4446,11 @@ create or replace package body PQ_CR_jaql964_cartera is
                               P_C_ubigeo   in char,
                               P_C_DPTO     in varchar2,
                               P_C_PROV     in varchar2) iS
-    --2018.01.29 DCASTRO : Se agrego variable P_C_UBIGEO                              
+    --2018.01.29 DCASTRO : Se agrego variable P_C_UBIGEO
   BEGIN
-  
+
     IF P_N_POSICION = 2 then
-    
+
       UPDATE JAQL971
          set JAQL971CTA2    = P_N_CTAAVA,
              JAQL971NOM2    = P_C_PENOM,
@@ -4429,9 +4467,9 @@ create or replace package body PQ_CR_jaql964_cartera is
              JAQL971PROV2   = P_C_PROV
        where JAQL964COR = P_N_CORR964
          and JAQL971COR = 1;
-    
+
     elsif P_N_POSICION = 3 then
-    
+
       UPDATE JAQL971
          set JAQL971CTA3    = P_N_CTAAVA,
              JAQL971NOM3    = P_C_PENOM,
@@ -4448,9 +4486,9 @@ create or replace package body PQ_CR_jaql964_cartera is
              JAQL971PROV3   = P_C_PROV
        where JAQL964COR = P_N_CORR964
          and JAQL971COR = 1;
-    
+
     elsif P_N_POSICION = 4 then
-    
+
       UPDATE JAQL971
          set JAQL971CTA4    = P_N_CTAAVA,
              JAQL971NOM4    = P_C_PENOM,
@@ -4467,9 +4505,9 @@ create or replace package body PQ_CR_jaql964_cartera is
              JAQL971PROV4   = P_C_PROV
        where JAQL964COR = P_N_CORR964
          and JAQL971COR = 1;
-    
+
     elsif P_N_POSICION = 5 then
-    
+
       UPDATE JAQL971
          set JAQL971CTA5    = P_N_CTAAVA,
              JAQL971NOM5    = P_C_PENOM,
@@ -4486,9 +4524,9 @@ create or replace package body PQ_CR_jaql964_cartera is
              JAQL971PROV5   = P_C_PROV
        where JAQL964COR = P_N_CORR964
          and JAQL971COR = 1;
-    
+
     elsif P_N_POSICION = 6 then
-    
+
       UPDATE JAQL971
          set JAQL971CTA6    = P_N_CTAAVA,
              JAQL971NOM6    = P_C_PENOM,
@@ -4506,7 +4544,7 @@ create or replace package body PQ_CR_jaql964_cartera is
        where JAQL964COR = P_N_CORR964
          and JAQL971COR = 1;
     end if;
-  
+
   end sp_cr_update_aval;
 
   ---------------------------------------------------------------------------------------------
@@ -4521,12 +4559,12 @@ create or replace package body PQ_CR_jaql964_cartera is
                                     P_N_AOSBOP in number,
                                     P_N_AOTOPE in number,
                                     P_N_FCAN   out varchar2
-                                    
+
                                     ) is
     ld_fecha date;
   begin
     --fecha de cancelacion
-  
+
     begin
       select b.aofe99
         into ld_fecha
@@ -4541,24 +4579,24 @@ create or replace package body PQ_CR_jaql964_cartera is
          and b.aosbop = P_N_AOSBOP
          and b.aotope = P_N_AOTOPE
          and b.aostat = 99;
-    
+
     exception
       when others then
         NULL;
     end;
     P_N_FCAN := to_char(ld_fecha, 'yyyy.mm.dd');
-  
+
   end sp_cr_fecha_cancelacion;
   ---------------------------------------------------------------------------------------------
   procedure sp_cr_monto_aprobado(
-                                 -- P_N_AOMOD in number, 
+                                 -- P_N_AOMOD in number,
                                  P_N_PGCOD  in number,
                                  P_N_AOSUC  in number,
                                  P_N_AOMDA  in number,
                                  P_N_AOPAP  in number,
                                  P_N_AOCTA  in number,
                                  P_N_AOOPER in number,
-                                 -- P_N_AOSBOP in number, 
+                                 -- P_N_AOSBOP in number,
                                  -- P_N_AOTOPE in number,
                                  P_N_MAPRO out number) is
   begin
@@ -4602,13 +4640,13 @@ create or replace package body PQ_CR_jaql964_cartera is
                            P_N_PROV       out number,
                            P_N_CALF       out number,
                            P_N_DCALF      out varchar2
-                           
+
                            ) is
   begin
-  
+
     if P_N_JAQL964EST in (23, 25) then
       begin
-      
+
         select f.ri105coef * 100, f.ri105cat
           into P_N_PROV, P_N_CALF
           from fri105 f
@@ -4627,7 +4665,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       end;
     else
       begin
-      
+
         select f.ri105coef * 100, f.ri105cat
           into P_N_PROV, P_N_CALF
           from fri105 f
@@ -4647,7 +4685,7 @@ create or replace package body PQ_CR_jaql964_cartera is
           NULL;
       end;
     end if;
-  
+
     if P_N_CALF = 1 then
       P_N_DCALF := 'Normal';
     elsif P_N_CALF = 2 then
@@ -4661,21 +4699,21 @@ create or replace package body PQ_CR_jaql964_cartera is
     end if;
   end sp_cr_provcali;
   ---------------------------------------------------------------------------------------------
-  ---------------------------------------------------------------------  
+  ---------------------------------------------------------------------
   /*procedure sp_cr_otrosrubros (\*otros rubros*\
                               P_N_PGCOD in number, -- fsd011
-                              P_N_SCSUC in number, 
-                              P_N_SCRUB in number, 
-                              P_N_SCMDA in number, 
-                              P_N_SCPAP in number, 
-                              P_N_SCCTA in number, 
-                              P_N_SCOPER in number, 
-                              P_N_SCSBOP in number, 
+                              P_N_SCSUC in number,
+                              P_N_SCRUB in number,
+                              P_N_SCMDA in number,
+                              P_N_SCPAP in number,
+                              P_N_SCCTA in number,
+                              P_N_SCOPER in number,
+                              P_N_SCSBOP in number,
                               P_N_SCTOPE in number,
                               P_N_ORUB out number
        )is
         begin
-           begin 
+           begin
              select f.scsdo into P_N_ORUB from fsd011 f
              Where f.pgcod = P_N_PGCOD
              and f.scsuc = P_N_SCSUC
@@ -4686,8 +4724,8 @@ create or replace package body PQ_CR_jaql964_cartera is
              and f.scoper = P_N_SCOPER
              and f.scsbop = P_N_SCSBOP
              and f.sctope = P_N_SCTOPE;
-           end;   
-   
+           end;
+
   end sp_cr_otrosrubros;
   */
   ----------------------------------------------------------------------------------------------
@@ -4705,7 +4743,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                             P_N_JAQM33FDEM out varchar2) is
     ld_fecha DATE;
   begin
-  
+
     begin
       select t.jaqm33fact
         into ld_fecha
@@ -4720,13 +4758,13 @@ create or replace package body PQ_CR_jaql964_cartera is
          and j.jaqm27sbop = P_N_JAQM27SBOP
          and j.jaqm27tope = P_N_JAQM27TOPE
          and j.jaqm33cor = t.jaqm33cor;
-    
+
     exception
       when others then
         NULL;
     end;
     P_N_JAQM33FDEM := to_char(ld_fecha, 'yyyy.mm.dd');
-  
+
   end sp_cr_fidemanda;
   ---------------------------------------------------------------------------------------------
   procedure sp_cr_refinanciado( /*fecha castigo jaql166*/P_N_JAQL166PGCOD in number,
@@ -4742,7 +4780,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                P_N_JAQL166SCFVL out varchar2) is
     ld_fecha date;
   begin
-  
+
     begin
       /* select c.jaql166scfvl into ld_fecha from jaql166 c
       where c.jaql166pgcod= P_N_JAQL166PGCOD
@@ -4767,13 +4805,13 @@ create or replace package body PQ_CR_jaql964_cartera is
          and f.aosbop = P_N_JAQL166SCSBO
          and f.aotope = P_N_JAQL166SCTOP
          and f.aostat in (33, 34);
-    
+
     exception
       when others then
         NULL;
     end;
     P_N_JAQL166SCFVL := to_char(ld_fecha, 'yyyy.mm.dd');
-  
+
   end sp_cr_refinanciado;
   ----------------------------------------------------------------------------------------
   procedure sp_cr_interes_compextra( ---fsd011
@@ -4804,7 +4842,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         NULL;
     end;
-  
+
   end sp_cr_interes_compextra;
   ---------------------------------------------------------------------------------------
   procedure sp_cr_castigado(P_N_JAQL166PGCOD in number,
@@ -4818,11 +4856,11 @@ create or replace package body PQ_CR_jaql964_cartera is
                             P_N_JAQL166SCTOP in number,
                             P_N_JAQL166EST   in number,
                             P_N_JAQL166CAST  out char) is
-  
+
     ld_fecha date;
-  
+
   begin
-  
+
     begin
       select max(c.jaql166scfvl)
         into ld_fecha
@@ -4841,9 +4879,9 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         NULL;
     end;
-  
+
     P_N_JAQL166CAST := to_char(ld_fecha, 'yyyy.mm.dd');
-  
+
   end sp_cr_castigado;
 
   ---------------------------------------------------------------------------------------
@@ -4878,7 +4916,13 @@ create or replace package body PQ_CR_jaql964_cartera is
                                 P_C_ABOGADO        in varchar2,
                                 P_C_SOBREENDEUDADO in varchar2,
                                 P_N_PLAZO          in number,
-                                ln_ciiu            in number) is
+                                ln_ciiu            in number,
+                                P_C_VALIDA_EXP     in varchar2,
+                                P_C_PROPUESTA_EXP  in varchar2,
+                                P_C_TIPEXPEDIENTE  in varchar2,
+                                P_C_TIPCONTRATO    in varchar2
+                                ) is
+--                :2025.04.30 DCASTRO se agregaron campos de expediente y contratacion digital
   begin
     begin
       UPDATE JAQL964 j
@@ -4911,16 +4955,21 @@ create or replace package body PQ_CR_jaql964_cartera is
              j.jaql964abo   = P_C_ABOGADO,
              j.jaql964soben = P_C_SOBREENDEUDADO,
              j.jaql964pzo   = P_N_PLAZO,
-             j.jaql964ciiu  = ln_ciiu
+             j.jaql964ciiu  = ln_ciiu,
+             j.jaql964au1v  = trim(P_C_VALIDA_EXP)||'-'||trim(P_C_PROPUESTA_EXP),  --2025.04.30
+             j.jaql964au2v  = trim(P_C_TIPEXPEDIENTE),
+             j.jaql964au3v  = trim(P_C_TIPCONTRATO)
        WHERE J.JAQL964COR = P_N_CORRELATIVO;
-    
+
+
+
     exception
       when others then
         NULL;
-      
+
     end;
     commit;
-  
+
   end sp_cr_updatejaql964;
   ----------------------------------------------------------------------------------------------
   procedure sp_cr_ftransabogado(P_N_SNG419PGC  in number,
@@ -4936,7 +4985,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     ld_fecha date;
   begin
     begin
-    
+
       select max(sng419fect)
         into ld_fecha
         from sng419 s
@@ -4953,7 +5002,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     exception
       when others then
         NULL;
-      
+
     end;
     P_N_SNG419FECT := to_char(ld_fecha, 'yyyy.mm.dd');
   end sp_cr_ftransabogado;
@@ -4970,7 +5019,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                P_N_JAQL165MOD  in number,
                                P_N_JAQL165COM  out varchar2,
                                P_N_JAQL165DCOM out varchar2
-                               
+
                                ) is
   begin
     begin
@@ -4988,12 +5037,12 @@ create or replace package body PQ_CR_jaql964_cartera is
        and t.jaql165sbo = P_N_JAQL165SBO
        and t.jaql165top = P_N_JAQL165TOP
        and t.jaql165mod = P_N_JAQL165MOD;
-    
+
     exception
       when others then
         NULL;
     end;
-  
+
     if P_N_JAQL165COM = 'P' then
       P_N_JAQL165DCOM := 'Cancelacion Especial Parcial';
     elsif P_N_JAQL165COM = 'D' then
@@ -5016,7 +5065,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                   P_N_JAQL165TOP in number,
                                   P_N_JAQL165MOD in number,
                                   P_N_JAQL165TEX out varchar2
-                                  
+
                                   ) is
   begin
     begin
@@ -5035,17 +5084,17 @@ create or replace package body PQ_CR_jaql964_cartera is
        and t.jaql165top = P_N_JAQL165TOP
        and t.jaql165mod = P_N_JAQL165MOD
        and t.jaql165com in ('T', 'P');
-    
+
     exception
       when others then
         NULL;
     end;
-  
+
   end sp_cr_cancelacion_esp;
 
   ----------------------------------------------------------------------------------------
   procedure sp_cr_carga_971(P_N_INI in NUMBER, P_N_FIN in NUMBER) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_actualiza_monto
     -- Sistema                    : BANTOTAL
@@ -5062,10 +5111,10 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Fecha de Modificaci¿n      :03-06-2014
     -- Autor de la Modificaci¿n   : MPOSTIGOC
     -- Descripci¿n de Modificaci¿n: Se carga data en la tabla jaql971, informacion de los
-    --                              avales 
+    --                              avales
     --                              2018.01.29 DCASTRO se modifico procedimiento sp_cr_aval, se agrego variable ubigeo
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor cartera(P_N_INI in NUMBER, P_N_FIN in NUMBER) is
       select j.jaql964cor,
              j.jaql964ins,
@@ -5080,7 +5129,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         from jaql964 j /*where j.jaql964cta=79859*/
        where j.jaql964cor >= P_N_INI
          and j.jaql964cor <= P_N_FIN;
-  
+
     cursor aval(ln_instancia in number) is
       select s.sng003cta, f.pendoc, f.petdoc, f.pepais, d.penom
         from sng003 s, fsr008 f, fsd001 d
@@ -5090,7 +5139,7 @@ create or replace package body PQ_CR_jaql964_cartera is
          and f.pendoc = d.pendoc
          and f.pepais = d.pepais
          and f.petdoc = d.petdoc;
-  
+
     --lc_tonom           varchar2(30);
     ln_cont number := 0;
     --lc_mod             varchar2(10);
@@ -5117,26 +5166,26 @@ create or replace package body PQ_CR_jaql964_cartera is
     --ln_papel           number := 0;
     --lc_ftransferencia  varchar2(10);
     --ln_descalificacion varchar2(15);
-  
+
     --lc_telefono fsr005.dotelfp%TYPE;
     --ln_cuenta   fsd011.sccta%TYPE;
     --ln_pepais   fsr008.pepais%TYPE;
     --ln_petdoc   fsr008.petdoc%TYPE;
     --ln_pendoc   fsr008.pendoc%TYPE;
     --lc_penom    fsd001.penom%TYPE;
-  
+
     --lc_direc varchar2(180);
-  
+
     lc_ubigeo char(6); --2018.01.29
-  
+
     --R1MOD, R1CTA, R1OPER, R1SBOP, r1suc, r1pap, r1tope ,r1mda
-  
+
   begin
-  
+
     for i in cartera(P_N_INI, P_N_FIN) loop
       ln_cont := 0;
       for y in aval(i.jaql964ins) loop
-      
+
         PQ_CR_jaql964_cartera.sp_cr_direccion_aval(P_N_PEPAIS => y.pepais,
                                                    P_N_PETDOC => y.petdoc,
                                                    P_N_PENDOC => y.pendoc,
@@ -5144,31 +5193,31 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    P_C_distr  => lc_distrito,
                                                    P_C_refer1 => lc_referencia,
                                                    P_C_ubigeo => lc_ubigeo);
-      
+
         PQ_CR_jaql964_cartera.sp_cr_direccion_negocio(P_N_PEPAIS => y.pepais,
                                                       P_N_PETDOC => y.petdoc,
                                                       P_N_PENDOC => y.pendoc,
                                                       P_C_DIRNEG => lc_direcneg,
                                                       P_C_distr  => lc_distritoneg,
                                                       P_C_refer1 => lc_referenciaaval);
-      
+
         lc_telefonos := PQ_CR_jaql964_cartera.fn_cr_telefono_aval(P_N_PEPAIS => y.pepais,
                                                                   P_N_PETDOC => y.petdoc,
                                                                   P_N_PENDOC => y.pendoc);
-      
-        --2018                                                          
+
+        --2018
         begin
           pq_cr_jaql964_cartera.sp_cr_dpto_prov_dis(pc_ubigeo => lc_ubigeo,
                                                     pc_dpto   => lc_dpto,
                                                     pc_prov   => lc_prov,
                                                     pc_dist   => lc_dist);
         end;
-      
+
         --2018.01.29
         ln_cont := ln_cont + 1;
-      
+
         if ln_cont = 1 then
-        
+
           PQ_CR_jaql964_cartera.sp_cr_inserta_aval(p_n_corr964 => i.JAQL964COR,
                                                    P_N_CTAAVA  => y.sng003cta,
                                                    P_C_PENOM   => y.penom,
@@ -5183,9 +5232,9 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    P_C_ubigeo  => lc_ubigeo,
                                                    P_C_DPTO    => lc_dpto,
                                                    P_C_PROV    => lc_prov);
-        
+
         else
-        
+
           PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964  => I.JAQL964COR,
                                                   P_N_CTAAVA   => y.sng003cta,
                                                   P_C_PENOM    => y.penom,
@@ -5201,14 +5250,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                   P_C_ubigeo   => lc_ubigeo,
                                                   P_C_DPTO     => lc_dpto,
                                                   P_C_PROV     => lc_prov);
-        
+
         end if;
-      
+
       /*   2018.01.29
                                                                                                                                                                                                                                                                                                                                                                                                                                       ln_cont := ln_cont + 1;
-                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                                                                                                                                                                                                                                       if ln_cont = 1 then
-                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
                                                                                                                                                                                                                                                                                                                                                                                                                                         PQ_CR_jaql964_cartera.sp_cr_inserta_aval(p_n_corr964 => i.JAQL964COR,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  P_N_CTAAVA  => y.sng003cta,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  P_C_PENOM   => y.penom,
@@ -5221,11 +5270,11 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  P_C_DIRNEG  => lc_direcneg,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  P_N_PEPAIS  => y.pepais,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  P_C_ubigeo  => lc_ubigeo);
-                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
                                                                                                                                                                                                                                                                                                                                                                                                                                       end if;
-                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                                                                                                                                                                                                                                       if ln_cont = 2 then
-                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
                                                                                                                                                                                                                                                                                                                                                                                                                                         PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964  => I.JAQL964COR,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_CTAAVA   => y.sng003cta,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_C_PENOM    => y.penom,
@@ -5239,9 +5288,9 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_PEPAIS   => y.pepais,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_POSICION => 2,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_C_ubigeo  => lc_ubigeo);
-                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
                                                                                                                                                                                                                                                                                                                                                                                                                                       end if;
-                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                                                                                                                                                                                                                                       if ln_cont = 3 then
                                                                                                                                                                                                                                                                                                                                                                                                                                         PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964  => I.JAQL964COR,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_CTAAVA   => y.sng003cta,
@@ -5257,7 +5306,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_POSICION => 3,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_C_ubigeo  => lc_ubigeo);
                                                                                                                                                                                                                                                                                                                                                                                                                                       end if;
-                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                                                                                                                                                                                                                                       if ln_cont = 4 then
                                                                                                                                                                                                                                                                                                                                                                                                                                         PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964  => I.JAQL964COR,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_CTAAVA   => y.sng003cta,
@@ -5273,7 +5322,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_POSICION => 4,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_C_ubigeo  => lc_ubigeo);
                                                                                                                                                                                                                                                                                                                                                                                                                                       end if;
-                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                                                                                                                                                                                                                                       if ln_cont = 5 then
                                                                                                                                                                                                                                                                                                                                                                                                                                         PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964  => I.JAQL964COR,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_CTAAVA   => y.sng003cta,
@@ -5289,7 +5338,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_POSICION => 5,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_C_ubigeo  => lc_ubigeo);
                                                                                                                                                                                                                                                                                                                                                                                                                                       end if;
-                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
                                                                                                                                                                                                                                                                                                                                                                                                                                       if ln_cont = 6 then
                                                                                                                                                                                                                                                                                                                                                                                                                                         PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964  => I.JAQL964COR,
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_N_CTAAVA   => y.sng003cta,
@@ -5306,18 +5355,18 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 P_C_ubigeo  => lc_ubigeo);
                                                                                                                                                                                                                                                                                                                                                                                                                                       end if;
                                                                                                                                                                                                                                                                                                                                                                                                                                    */
-      
+
       end loop;
-    
+
       -- 2018.02.01
       begin
         pq_cr_jaql964_cartera.sp_cr_tit_representante(pn_corr => I.JAQL964COR);
       end;
       --2018.02.01
-    
+
       commit;
     end loop;
-  
+
   end sp_cr_carga_971;
   ----------------------------------------------------------------------
 
@@ -5327,43 +5376,43 @@ create or replace package body PQ_CR_jaql964_cartera is
                           ln_petdocaval in number,
                           ln_pendocaval in character,
                           correlativo in number)is
-                          
+
     lc_direccion varchar2(150);
     lc_referencia varchar2(200);
     lc_distrito varchar2(50);
     lc_direcneg varchar2(150);
     lc_telefonos varchar2(200);
     lc_telefono fsr005.dotelfp%TYPE;
-    
+
     ln_cont number :=0;
-    
+
   begin
-  
+
         PQ_CR_jaql964_cartera.sp_cr_direccion_aval(ln_pepaisaval ,
                                                    ln_petdocaval,
                                                    ln_pendocaval,
                                                    lc_direccion,
                                                    lc_distrito,
                                                    lc_referencia) ;
-            
+
          PQ_CR_jaql964_cartera.sp_cr_direccion_negocio(ln_pepaisaval ,
                                                         ln_petdocaval,
                                                          ln_pendocaval,
                                                        lc_direcneg,
                                                        lc_distrito,
                                                        lc_referencia) ;
-  
-                                                                                                                        
+
+
           lc_telefonos := PQ_CR_jaql964_cartera.fn_cr_telefono_aval(ln_pepaisaval ,
                                                         ln_petdocaval,
-                                                         ln_pendocaval);                                                       
-           
-         
+                                                         ln_pendocaval);
+
+
           ln_cont := ln_cont + 1;
-          
-          if ln_cont = 1 then 
-          
-  
+
+          if ln_cont = 1 then
+
+
             PQ_CR_jaql964_cartera.sp_cr_inserta_aval(p_n_corr964 => correlativo,
                                                    P_N_CTAAVA => ln_cuentaaval,
                                                    P_C_PENOM =>  lc_penomaval,
@@ -5375,11 +5424,11 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    P_C_TELEF =>  lc_telefonos,
                                                    P_C_DIRNEG => lc_direcneg,
                                                    P_N_PEPAIS => ln_pepaisaval);
-                                                    
-          end if; 
-          
-          if ln_cont = 2 then 
-           
+
+          end if;
+
+          if ln_cont = 2 then
+
            PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964 => correlativo,
                                                    P_N_CTAAVA => ln_cuentaaval,
                                                    P_C_PENOM =>  lc_penomaval,
@@ -5392,9 +5441,9 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    P_C_DIRNEG => lc_direcneg,
                                                    P_N_PEPAIS => ln_pepaisaval,
                                                    P_N_POSICION => 2);
-           
-          end if; 
-          
+
+          end if;
+
           if ln_cont = 3 then
             PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964 => correlativo,
                                                    P_N_CTAAVA => ln_cuentaaval,
@@ -5408,9 +5457,9 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    P_C_DIRNEG => lc_direcneg,
                                                    P_N_PEPAIS => ln_pepaisaval,
                                                    P_N_POSICION => 3);
-          end if; 
-          
-          if ln_cont = 4 then 
+          end if;
+
+          if ln_cont = 4 then
            PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964 => correlativo,
                                                    P_N_CTAAVA => ln_cuentaaval,
                                                    P_C_PENOM =>  lc_penomaval,
@@ -5423,9 +5472,9 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    P_C_DIRNEG => lc_direcneg,
                                                    P_N_PEPAIS => ln_pepaisaval,
                                                    P_N_POSICION=> 4);
-          end if; 
-          
-          if ln_cont = 5 then 
+          end if;
+
+          if ln_cont = 5 then
             PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964 => correlativo,
                                                    P_N_CTAAVA => ln_cuentaaval,
                                                    P_C_PENOM =>  lc_penomaval,
@@ -5438,9 +5487,9 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    P_C_DIRNEG => lc_direcneg,
                                                    P_N_PEPAIS => ln_pepaisaval,
                                                    P_N_POSICION=> 5);
-          end if; 
-          
-          if ln_cont = 6 then 
+          end if;
+
+          if ln_cont = 6 then
          PQ_CR_jaql964_cartera.sp_cr_update_aval(p_n_corr964 => correlativo,
                                                    P_N_CTAAVA => ln_cuentaaval,
                                                    P_C_PENOM =>  lc_penomaval,
@@ -5453,12 +5502,12 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                    P_C_DIRNEG => lc_direcneg,
                                                    P_N_PEPAIS => ln_pepaisaval,
                                                    P_N_POSICION => 6);
-          end if; 
-  
-  
+          end if;
+
+
   end sp_cr_jaql971II; */
   -------------------------------------------------------------------------------
-  procedure sp_cr_finterposicion( --fecha interposicion de demanda 
+  procedure sp_cr_finterposicion( --fecha interposicion de demanda
                                  P_N_JAQM27PGC  in number,
                                  P_N_JAQM27MOD  in number,
                                  P_N_JAQM27SUC  in number,
@@ -5473,7 +5522,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                  P_N_NROEXP     out varchar2) is
     ld_fecha DATE;
   begin
-  
+
     begin
       select t.jaqm33fint, t.jaqm33nexp
         into ld_fecha, P_N_NROEXP
@@ -5488,16 +5537,16 @@ create or replace package body PQ_CR_jaql964_cartera is
          and j.jaqm27sbop = P_N_JAQM27SBOP
          and j.jaqm27tope = P_N_JAQM27TOPE
          and j.jaqm33cor = t.jaqm33cor;
-    
+
     exception
       when others then
         NULL;
     end;
     P_N_JAQM33FINT := to_char(ld_fecha, 'yyyy.mm.dd');
-  
+
   end sp_cr_finterposicion;
   -------------------------------------------------------------------------------
-  procedure sp_cr_faceptacion( --fecha aceptacion de demanda 
+  procedure sp_cr_faceptacion( --fecha aceptacion de demanda
                               P_N_JAQM27PGC  in number,
                               P_N_JAQM27MOD  in number,
                               P_N_JAQM27SUC  in number,
@@ -5511,7 +5560,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                               P_N_JAQM33FACT out varchar2) is
     ld_fecha DATE;
   begin
-  
+
     begin
       select t.jaqm33fdem
         into ld_fecha
@@ -5526,18 +5575,18 @@ create or replace package body PQ_CR_jaql964_cartera is
          and j.jaqm27sbop = P_N_JAQM27SBOP
          and j.jaqm27tope = P_N_JAQM27TOPE
          and j.jaqm33cor = t.jaqm33cor;
-    
+
     exception
       when others then
         NULL;
     end;
     P_N_JAQM33FACT := to_char(ld_fecha, 'yyyy.mm.dd');
-  
+
   end sp_cr_faceptacion;
   -------------------------------------------------------------------------------
   procedure sp_cr_job_carga is
     --2023.11.07 se modifico numero de jobs, se agregó guia tp1cod1 = 10847 tp1corr1 = 9999
-  
+
     ln_ini      number;
     ln_fin      number;
     ln_divisor  number := 5000;
@@ -5547,18 +5596,18 @@ create or replace package body PQ_CR_jaql964_cartera is
     --ld_finmes   date;
     ln_contador number;
     ln_num      number := 1;
-  
+
     lc_hostname varchar2(64);
-  
+
   begin
-  
+
     begin
       select host_name into lc_hostname from v$instance;
     exception
       when others then
         null;
     end;
-  
+
     begin
       select TP1IMP1
         into ln_divisor
@@ -5571,7 +5620,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         ln_divisor := 5000;
     end;
-  
+
     begin
       DBMS_STATS.gather_table_stats(ownname          => '' /*'DESA010615'*/,
                                     tabname          => 'JAQL964',
@@ -5580,15 +5629,15 @@ create or replace package body PQ_CR_jaql964_cartera is
                                     estimate_percent => dbms_stats.auto_sample_size,
                                     cascade          => TRUE);
     end;
-  
+
     begin
       select ceil(count(*) / ln_divisor) into ln_contador from jaql964;
     end;
-  
+
     ln_ini := 1;
     ln_fin := ln_divisor; ---2023.11.07 se modifico inicial 5000
     WHILE ln_num <= ln_contador LOOP
-    
+
       lc_variable := 'begin ' ||
                      '  pq_cr_jaql964_cartera.sp_cr_carga_aval(' || ln_ini || ',' ||
                      ln_fin || ' );' || ' End;';
@@ -5612,24 +5661,24 @@ create or replace package body PQ_CR_jaql964_cartera is
                         no_parse  => false,
                         force     => false);
       end if;
-    
+
       ln_ini := ln_fin + 1;
       ln_fin := ln_ini + ln_divisor - 1;
-    
+
       ln_num := ln_num + 1;
       commit;
     END LOOP;
-  
+
   end sp_cr_job_carga;
   ----------------------------------------------------------------------
-  /*procedure sp_cr_job_carga_datos(P_D_FECPRO in date)  is 
-  
+  /*procedure sp_cr_job_carga_datos(P_D_FECPRO in date)  is
+
      cursor c_sucursal_job is  --sucursales
       select sucurs from fst001
           where sucurs < 800 or sucurs > 900
             and pgcod = 1;
-  
-  
+
+
   ln_ini number;
   ln_fin number;
   ln_divisor number:=5000;
@@ -5639,11 +5688,11 @@ create or replace package body PQ_CR_jaql964_cartera is
   ld_finmes date;
   ln_contador number;
   ln_num number:= 1;
-  
-   
+
+
   begin
-  
-    lc_fecpro := to_char(P_D_FECPRO,'RRRRMMDD');  
+
+    lc_fecpro := to_char(P_D_FECPRO,'RRRRMMDD');
     begin
         DBMS_STATS.gather_table_stats(ownname          => 'BANTPROD',
                                       tabname          => 'JAQL964',
@@ -5653,10 +5702,10 @@ create or replace package body PQ_CR_jaql964_cartera is
                                       cascade          => TRUE);
       end;
        for job in c_sucursal_job loop
-            
+
             lc_variable := 'begin '||'pq_cr_jaql964_cartera.sp_cr_carga_datos('||'TO_DATE('''||lc_fecpro||''',''RRRRMMDD'')'||','||job.sucurs||' );'||' End;';
             ln_job := ln_job +1;
-             DBMS_JOB.SUBMIT(job => ln_job, 
+             DBMS_JOB.SUBMIT(job => ln_job,
                           what => lc_variable,
                           next_date => sysdate+1/(24*60),
                           interval => null,
@@ -5664,17 +5713,17 @@ create or replace package body PQ_CR_jaql964_cartera is
                           instance => 2,
                           force => false
                           );
-                                           
+
   commit;
-  
-    END LOOP;   
-    
+
+    END LOOP;
+
   end sp_cr_job_carga_datos;*/
 
   ----------------------------------------------------------------------
   procedure sp_cr_job_actualiza_analistab(P_D_FECPRO in date) is
     --2023.11.07 se modifico numero de jobs, se agregó guia tp1cod1 = 10847 tp1corr1 = 9999
-  
+
     ln_ini      number;
     ln_fin      number;
     ln_divisor  number := 5000;
@@ -5685,16 +5734,16 @@ create or replace package body PQ_CR_jaql964_cartera is
     ln_contador number;
     ln_num      number := 1;
     lc_hostname varchar2(64);
-  
+
   begin
-  
+
     begin
       select host_name into lc_hostname from v$instance;
     exception
       when others then
         null;
     end;
-  
+
     begin
       select TP1IMP1
         into ln_divisor
@@ -5707,7 +5756,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         ln_divisor := 5000;
     end;
-  
+
     lc_fecpro := to_char(P_D_FECPRO, 'RRRR.MM.DD');
     begin
       DBMS_STATS.gather_table_stats(ownname          => 'BANTPROD', --desa011215',
@@ -5717,16 +5766,16 @@ create or replace package body PQ_CR_jaql964_cartera is
                                     estimate_percent => dbms_stats.auto_sample_size,
                                     cascade          => TRUE);
     end;
-  
+
     begin
       select ceil(count(*) / ln_divisor) into ln_contador from jaql964;
     end;
-  
+
     ln_ini := 1;
     ln_fin := ln_divisor; ---2023.11.07 se modifico inicial 5000
-  
+
     WHILE ln_num <= ln_contador LOOP
-    
+
       lc_variable := 'begin ' ||
                      '  pq_cr_jaql964_cartera.sp_cr_actualiza_analista_bulk(' ||
                      'TO_DATE(''' || lc_fecpro || ''',''RRRR.MM.DD'')' || ',' ||
@@ -5751,20 +5800,20 @@ create or replace package body PQ_CR_jaql964_cartera is
                         no_parse  => false,
                         force     => false);
       end if;
-    
+
       ln_ini := ln_fin + 1;
       ln_fin := ln_ini + ln_divisor - 1;
-    
+
       ln_num := ln_num + 1;
       commit;
     END LOOP;
-  
+
   end sp_cr_job_actualiza_analistab;
   ----------------------------------------------------------------------------------------
 
   procedure sp_cr_job_carga_971(P_D_FECPRO in varchar2) is
     --2023.11.07 se modifico numero de jobs, se agregó guia tp1cod1 = 10847 tp1corr1 = 9999
-  
+
     ln_ini      number;
     ln_fin      number;
     ln_divisor  number := 5000;
@@ -5775,16 +5824,16 @@ create or replace package body PQ_CR_jaql964_cartera is
     ln_contador number;
     ln_num      number := 1;
     lc_hostname varchar2(64);
-  
+
   begin
-  
+
     begin
       select host_name into lc_hostname from v$instance;
     exception
       when others then
         null;
     end;
-  
+
     begin
       select TP1IMP1
         into ln_divisor
@@ -5797,7 +5846,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         ln_divisor := 5000;
     end;
-  
+
     begin
       DBMS_STATS.gather_table_stats(ownname          => 'BANTPROD', --'BANTPROD',
                                     tabname          => 'JAQL971',
@@ -5806,22 +5855,22 @@ create or replace package body PQ_CR_jaql964_cartera is
                                     estimate_percent => dbms_stats.auto_sample_size,
                                     cascade          => TRUE);
     end;
-  
+
     begin
       select ceil(count(*) / ln_divisor) into ln_contador from jaql964;
     end;
-  
+
     ---Insertar Historico
     pq_cr_jaql964_cartera.sp_cr_guardar_historico_2(P_D_FECPRO);
     ---
-  
+
     execute immediate 'truncate table jaql971';
     execute immediate 'truncate table jaql964a'; --2018.01.28
-  
+
     ln_ini := 1;
     ln_fin := ln_divisor; ---2023.11.07 se modifico inicial 5000
     WHILE ln_num <= ln_contador LOOP
-    
+
       lc_variable := 'begin ' || 'pq_cr_jaql964_cartera.sp_cr_carga_971(' ||
                      ln_ini || ',' || ln_fin || ' );' || ' End;';
       ln_job      := ln_job + 1;
@@ -5844,10 +5893,10 @@ create or replace package body PQ_CR_jaql964_cartera is
                         no_parse  => false,
                         force     => false);
       end if;
-    
+
       ln_ini := ln_fin + 1;
       ln_fin := ln_ini + ln_divisor - 1;
-    
+
       ln_num := ln_num + 1;
       commit;
     END LOOP;
@@ -5857,7 +5906,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                          -- P_C_ESTADO out varchar2,
                                          P_N_INI in NUMBER,
                                          P_N_FIN in NUMBER) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_actualiza
     -- Sistema                    : BANTOTAL
@@ -5868,15 +5917,15 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Actualiza campos de tabla jaql964
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
-    -- Retorno                    : 
+    -- Par¿metros de Entrada      :
+    --
+    -- Retorno                    :
     -- Fecha de Modificaci¿n      : 2014.01.03
     -- Autor de la Modificaci¿n   : DCASTRO
     -- Descripci¿n de Modificaci¿n: Se modifico actualizacion lc_analista
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor cartera(P_N_INI in number, P_N_FIN in number) is
       select /*+parallel (j,2,1)*/ --jflor 23.01.2014
        j.jaql964cta,
@@ -5894,7 +5943,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         from jaql964 j /*where j.jaql964cta=4042;*/
        where j.jaql964cor >= P_N_INI
          and j.jaql964cor <= P_N_FIN;
-  
+
     TYPE Tp_jaql964mod IS TABLE OF jaql964.jaql964mod%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964cta IS TABLE OF jaql964.jaql964cta%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964ope IS TABLE OF jaql964.jaql964ope%TYPE INDEX BY PLS_INTEGER;
@@ -5907,7 +5956,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     TYPE Tp_jaql964csb IS TABLE OF jaql964.jaql964csb%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964cor IS TABLE OF jaql964.jaql964cor%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964pap IS TABLE OF jaql964.jaql964pap%TYPE INDEX BY PLS_INTEGER;
-  
+
     jaql964mod Tp_jaql964mod;
     jaql964cta Tp_jaql964cta;
     jaql964ope Tp_jaql964ope;
@@ -5920,7 +5969,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     jaql964csb Tp_jaql964csb;
     jaql964cor Tp_jaql964cor;
     jaql964pap Tp_jaql964pap;
-  
+
     --lc_tipocontable varchar2(20);
     --lc_abogado      varchar2(50);
     --lc_garantia     varchar2(300);
@@ -5941,14 +5990,14 @@ create or replace package body PQ_CR_jaql964_cartera is
     ln_sector number := 0;
     --ln_tipsbs       number := 0;
     --ln_pgcod        number := 1;
-  
+
     --lc_telava fsr005.dotelfp%TYPE;
     --ln_ctaava fsd011.sccta%TYPE;
     --lc_nomava fsd001.penom%TYPE;
     --lc_dirava varchar2(180);
-  
+
   begin
-  
+
     OPEN cartera(P_N_INI, P_N_FIN);
     LOOP
       FETCH cartera BULK COLLECT
@@ -5966,7 +6015,7 @@ create or replace package body PQ_CR_jaql964_cartera is
              jaql964pap;
       IF jaql964cta.COUNT > 0 THEN
         FOR i IN jaql964cta.FIRST .. jaql964cta.LAST LOOP
-        
+
           begin
             --tipo contable
             pq_cr_jaql964_cartera.sp_cr_tipocontable(P_D_FECPRO,
@@ -5979,7 +6028,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                      jaql964mda(i),
                                                      lc_tipcon);
           end;
-        
+
           update jaql964
              set jaql964tco = lc_tipcon
            where jaql964cor = jaql964cor(i);
@@ -5990,17 +6039,17 @@ create or replace package body PQ_CR_jaql964_cartera is
             commit;
             ln_corr := 0;
           end if;
-        
+
         END LOOP;
       END IF;
       EXIT WHEN cartera%NOTFOUND;
     END LOOP;
     COMMIT;
-  
+
   end sp_cr_actualiza_tipocontable;
 
   ----------------------------------------------------------------------------------------
-  /*procedure sp_cr_job_tipocontable(P_D_FECPRO in date)  is 
+  /*procedure sp_cr_job_tipocontable(P_D_FECPRO in date)  is
   ln_ini number;
   ln_fin number;
   ln_divisor number:=1000;
@@ -6010,11 +6059,11 @@ create or replace package body PQ_CR_jaql964_cartera is
   ld_finmes date;
   ln_contador number;
   ln_num number:= 1;
-  
-   
+
+
   begin
-  
-    lc_fecpro := to_char(P_D_FECPRO,'RRRR.MM.DD');  
+
+    lc_fecpro := to_char(P_D_FECPRO,'RRRR.MM.DD');
     begin
         DBMS_STATS.gather_table_stats(ownname          => 'BANTPROD',
                                       tabname          => 'JAQL964',
@@ -6023,20 +6072,20 @@ create or replace package body PQ_CR_jaql964_cartera is
                                       estimate_percent => dbms_stats.auto_sample_size,
                                       cascade          => TRUE);
       end;
-  
+
        begin
          select ceil(count(*)/ln_divisor) into ln_contador from jaql964;
-     end;       
-  
-     ln_ini := 1; 
+     end;
+
+     ln_ini := 1;
      ln_fin := 5000;
      WHILE ln_num <= ln_contador
      LOOP
-     
-            
+
+
             lc_variable := 'begin '||'  pq_cr_jaql964_cartera.sp_cr_actualiza_tipocontable('||'TO_DATE('''||lc_fecpro||''',''RRRR.MM.DD'')'||','||ln_ini||','||ln_fin||' );'||' End;';
             ln_job := ln_job +1;
-             DBMS_JOB.SUBMIT(job => ln_job, 
+             DBMS_JOB.SUBMIT(job => ln_job,
                           what => lc_variable,
                           next_date => sysdate+1/(24*60),
                           interval => null,
@@ -6044,15 +6093,15 @@ create or replace package body PQ_CR_jaql964_cartera is
                           instance => 2,
                           force => false
                           );
-                          
-  
+
+
            ln_ini := ln_fin + 1;
            ln_fin := ln_ini + ln_divisor - 1;
-           
+
            ln_num := ln_num + 1;
            commit;
-    END LOOP;   
-    
+    END LOOP;
+
   end sp_cr_job_tipocontable;*/
 
   ----------------------------------------------------------------------------------------
@@ -6066,7 +6115,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                             P_N_SUBOPER   in number,
                             P_N_TIPOPER   in number,
                             P_C_ABOGADO   out varchar2)
-  
+
     -- *****************************************************************
     -- Nombre                     : fn_cr_abogado
     -- Sistema                    : BANTOTAL
@@ -6084,16 +6133,16 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Autor de la Modificaci¿n   :
     -- Descripci¿n de Modificaci¿n:
     --
-    -- ***************************************************************** 
+    -- *****************************************************************
    is
-  
+
     lc_abogado varchar2(50);
     lc_coderr  varchar2(100);
     lc_msgerr  varchar2(100);
-  
+
   begin
     BEGIN
-    
+
       SELECT distinct s.jaqm34nom
         into P_C_ABOGADO
         from jaqm35 t
@@ -6119,7 +6168,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                and t.jaqm35tcon='S'
       )*/
       ;
-    
+
     exception
       WHEN TOO_MANY_ROWS THEN
         begin
@@ -6138,7 +6187,7 @@ create or replace package body PQ_CR_jaql964_cartera is
              and t.jaqm35oper = f.aooper
              and t.jaqm35sbop = f.aosbop
              and t.jaqm35tope = f.aotope
-          
+
            where t.jaqm35pgco = P_N_PGCOD
              and t.jaqm35mda = P_N_MONEDA
              and t.jaqm35pap = P_N_PAPEL
@@ -6160,7 +6209,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         exception
           when no_data_found then
             begin
-            
+
               select distinct s.jaqm34nom
                 into P_C_ABOGADO
                 from jaqm35 t
@@ -6216,14 +6265,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                      and f.r2sbop = P_N_SUBOPER
                      and f.r2tope = P_N_TIPOPER
                      and f.relcod = 36;
-                
+
                 EXCEPTION
                   when others then
                     /*lc_coderr := sqlcode;
                     lc_msgerr := sqlerrm;*/
                     null;
                 end;
-              
+
               when others then
                 /*lc_coderr := sqlcode;
                 lc_msgerr := sqlerrm;*/
@@ -6243,7 +6292,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         lc_msgerr := sqlerrm;*/
         null;
     end;
-  
+
   end sp_cr_abogado_1;
 
   --------------------------------------------------------------------------------------
@@ -6294,7 +6343,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     --JAQM35Sbop fsr011.R1sbop%type;
     --JAQM35Tope fsr011.R1tope%type;
     --estado_cre fsd010.aostat%type;
-  
+
     ln_Pgcod  fsr011.r1cod%type;
     ln_R1mod  fsr011.R1mod%type;
     ln_R1suc  fsr011.R1suc%type;
@@ -6304,7 +6353,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     ln_R1oper fsr011.R1oper%type;
     ln_R1sbop fsr011.R1sbop%type;
     ln_R1tope fsr011.R1tope%type;
-  
+
     --ln_Pgcod2 fsr011.r2cod%type;
     --ln_R2mod  fsr011.R2mod%type;
     --ln_R2suc  fsr011.R2suc%type;
@@ -6314,16 +6363,16 @@ create or replace package body PQ_CR_jaql964_cartera is
     --ln_R2oper fsr011.R2oper%type;
     --ln_R2sbop fsr011.R2sbop%type;
     --ln_R2tope fsr011.R2tope%type;
-  
+
     instancia xwf700.XWFPRCINS%type;
   begin
     pf_asig  := null;
     pc_abrev := null;
-  
+
     --fecha de asignacion/ abrev de abogado
-  
-    /*begin 
-    
+
+    /*begin
+
        select distinct t.jaqm35tfec, s.jaqm34nom
         into pf_asig, pc_abrev
         from jaqm35 t
@@ -6347,7 +6396,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                   and t.jaqm35oper=pt_operac
                    and t.jaqm35tcon='S'
           );
-    
+
         exception
            WHEN TOO_MANY_ROWS THEN
              begin
@@ -6366,7 +6415,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                     and t.jaqm35oper=f.aooper
                     and t.jaqm35sbop=f.aosbop
                     and t.jaqm35tope=f.aotope
-    
+
                 where t.jaqm35pgco=pt_pgcod
                 and t.jaqm35mda=pt_moneda
                 and t.jaqm35pap=pt_papel
@@ -6389,7 +6438,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                   exception
              when no_data_found then
                begin
-    
+
                           select distinct t.jaqm35tfec, s.jaqm34nom
                             into pf_asig, pc_abrev
                               from jaqm35 t
@@ -6445,14 +6494,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                                 and f.r2sbop   =pt_sboper
                                 and f.r2tope   =pt_toper
                                 and f.relcod=36 ;
-    
+
                      EXCEPTION
                         when others then
                              lc_coderr := sqlcode;
                              lc_msgerr := sqlerrm;
-    
+
                      end;
-    
+
                when others then
                              lc_coderr := sqlcode;
                              lc_msgerr := sqlerrm;
@@ -6469,7 +6518,7 @@ create or replace package body PQ_CR_jaql964_cartera is
              lc_msgerr := sqlerrm;
     end;
     */
-  
+
     --fecha demanda /pasaje a judicial
     If pt_modu <> 117 then
       BEGIN
@@ -6534,19 +6583,19 @@ create or replace package body PQ_CR_jaql964_cartera is
                 when others then
                   lc_coderr := sqlcode;
                   lc_msgerr := sqlerrm;
-                
+
               end;
             when others then
               lc_coderr := sqlcode;
               lc_msgerr := sqlerrm;
           end;
-        
+
         when others then
           lc_coderr := sqlcode;
           lc_msgerr := sqlerrm;
       end;
     Else
-    
+
       BEGIN
         select r1cod,
                R1mod,
@@ -6609,7 +6658,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                           R2tope,
                           Relcod asc) ff
          where rownum = 1;
-      
+
       exception
         when no_data_found then
           begin
@@ -6800,10 +6849,10 @@ create or replace package body PQ_CR_jaql964_cartera is
                       when others then
                         lc_coderr := sqlcode;
                         lc_msgerr := sqlerrm;
-                      
+
                     END;
                 END;
-              
+
               EXCEPTION
                 when others then
                   lc_coderr := sqlcode;
@@ -6812,13 +6861,13 @@ create or replace package body PQ_CR_jaql964_cartera is
             when others then
               lc_coderr := sqlcode;
               lc_msgerr := sqlerrm;
-            
+
           END;
         when others then
           lc_coderr := sqlcode;
           lc_msgerr := sqlerrm;
       END;
-    
+
       BEGIN
         select m.jaqm33fint --fecha de demanda
           into pf_deman
@@ -6832,7 +6881,7 @@ create or replace package body PQ_CR_jaql964_cartera is
            and JAQM27Pap = ln_R1pap
            and JAQM27Cta = ln_R1cta
            and JAQM27Oper = ln_R1oper;
-      
+
       exception
         when others then
           lc_coderr := sqlcode;
@@ -6857,7 +6906,7 @@ create or replace package body PQ_CR_jaql964_cartera is
 
   ---------------------------------------------------------------------------------------------
   Procedure sp_cr_garantia(P_N_INI in NUMBER, P_N_FIN in NUMBER) is
-  
+
     -- *****************************************************************
     -- Nombre                     : sp_cr_actualiza
     -- Sistema                    : BANTOTAL
@@ -6868,15 +6917,15 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Actualiza campos de tabla jaql964
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
-    -- Retorno                    : 
+    -- Par¿metros de Entrada      :
+    --
+    -- Retorno                    :
     -- Fecha de Modificaci¿n      : 2014.01.03
     -- Autor de la Modificaci¿n   : DCASTRO
     -- Descripci¿n de Modificaci¿n: Se modifico actualizacion lc_analista
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     cursor cartera(P_N_INI in number, P_N_FIN in number) is
       select /*+parallel (j,2,1)*/ --jflor 23.01.2014
        j.jaql964cta,
@@ -6895,7 +6944,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         from jaql964 j /*where j.jaql964cta=158708;*/
        where j.jaql964cor >= P_N_INI
          and j.jaql964cor <= P_N_FIN;
-  
+
     TYPE Tp_jaql964mod IS TABLE OF jaql964.jaql964mod%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964cta IS TABLE OF jaql964.jaql964cta%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964ope IS TABLE OF jaql964.jaql964ope%TYPE INDEX BY PLS_INTEGER;
@@ -6909,7 +6958,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     TYPE Tp_jaql964cor IS TABLE OF jaql964.jaql964cor%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964pap IS TABLE OF jaql964.jaql964pap%TYPE INDEX BY PLS_INTEGER;
     TYPE Tp_jaql964est IS TABLE OF jaql964.jaql964est%TYPE INDEX BY PLS_INTEGER;
-  
+
     jaql964mod Tp_jaql964mod;
     jaql964cta Tp_jaql964cta;
     jaql964ope Tp_jaql964ope;
@@ -6923,7 +6972,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     jaql964cor Tp_jaql964cor;
     jaql964pap Tp_jaql964pap;
     jaql964est Tp_jaql964est;
-  
+
     --lc_tipocontable varchar2(20);
     --lc_abogado      varchar2(50);
     lc_garantia varchar2(300);
@@ -6944,21 +6993,21 @@ create or replace package body PQ_CR_jaql964_cartera is
     --ln_sector       number := 0;
     --ln_tipsbs       number := 0;
     --ln_pgcod        number := 1;
-  
+
     --ln_papel    number := 0;
     --pf_asig     date;
     --pc_abrev    varchar2(50);
     --pf_deman    date;
     --pf_pasajud  date;
     --pf_trancart date;
-  
+
     /* lc_telava fsr005.dotelfp%TYPE;
     ln_ctaava fsd011.sccta%TYPE;
     lc_nomava fsd001.penom%TYPE;
     lc_dirava varchar2(180);*/
-  
+
   begin
-  
+
     OPEN cartera(P_N_INI, P_N_FIN);
     LOOP
       FETCH cartera BULK COLLECT
@@ -6977,7 +7026,7 @@ create or replace package body PQ_CR_jaql964_cartera is
              jaql964est;
       IF jaql964cta.COUNT > 0 THEN
         FOR i IN jaql964cta.FIRST .. jaql964cta.LAST LOOP
-        
+
           begin
             --garantia
             lc_garantia := pq_cr_jaql964_cartera.fn_cr_garantia(jaql964mod(i),
@@ -6987,35 +7036,35 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                                 jaql964top(i),
                                                                 jaql964suc(i),
                                                                 jaql964mda(i));
-          
+
           end;
-        
+
           update jaql964
              set jaql964gar = lc_garantia
-          
+
            where jaql964cor = jaql964cor(i);
           --and jaql964ope = jaql964ope(i);
-        
+
           ln_corr := ln_corr + 1;
           /*if ln_corr = 5000 then
              commit;
              ln_corr := 0;
           end if; */
           commit;
-        
+
         END LOOP;
       END IF;
       EXIT WHEN cartera%NOTFOUND;
     END LOOP;
     COMMIT;
-  
+
   end sp_cr_garantia;
 
   ----------------------------------------------------------------------
 
   procedure sp_cr_job_garantia(P_D_FECPRO in date) is
-    --2023.11.07 se modifico numero de jobs, se agregó guia tp1cod1 = 10847 tp1corr1 = 9999  
-  
+    --2023.11.07 se modifico numero de jobs, se agregó guia tp1cod1 = 10847 tp1corr1 = 9999
+
     ln_ini      number;
     ln_fin      number;
     ln_divisor  number := 5000;
@@ -7026,7 +7075,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     ln_contador number;
     ln_num      number := 1;
     lc_hostname varchar2(64);
-  
+
   begin
     begin
       select host_name into lc_hostname from v$instance;
@@ -7034,7 +7083,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         null;
     end;
-  
+
     begin
       select TP1IMP1
         into ln_divisor
@@ -7047,7 +7096,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         ln_divisor := 5000;
     end;
-  
+
     lc_fecpro := to_char(P_D_FECPRO, 'RRRR.MM.DD');
     begin
       DBMS_STATS.gather_table_stats(ownname          => 'BANTPROD',
@@ -7057,16 +7106,16 @@ create or replace package body PQ_CR_jaql964_cartera is
                                     estimate_percent => dbms_stats.auto_sample_size,
                                     cascade          => TRUE);
     end;
-  
+
     begin
       select ceil(count(*) / ln_divisor) into ln_contador from jaql964;
     end;
-  
+
     ln_ini := 1;
     ln_fin := ln_divisor; ---2023.11.07 se modifico inicial 5000
-  
+
     WHILE ln_num <= ln_contador LOOP
-    
+
       lc_variable := 'begin ' || '  pq_cr_jaql964_cartera.sp_cr_garantia(' ||
                      'TO_DATE(''' || lc_fecpro || ''',''RRRR.MM.DD'')' || ',' ||
                      ln_ini || ',' || ln_fin || ' );' || ' End;';
@@ -7089,14 +7138,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                         no_parse  => false,
                         force     => false);
       end if;
-    
+
       ln_ini := ln_fin + 1;
       ln_fin := ln_ini + ln_divisor - 1;
-    
+
       ln_num := ln_num + 1;
       commit;
     END LOOP;
-  
+
   end sp_cr_job_garantia;
 
   ----------------------------------------------------------------------
@@ -7116,16 +7165,16 @@ create or replace package body PQ_CR_jaql964_cartera is
                                  P_N_MONT_APROB   out number,
                                  P_C_ABOGADO      out varchar2,
                                  P_N_PLAZO        out number) is
-  
+
     ld_fechenvjudic    date;
     ld_fechasigabogado date;
     ld_firl            date;
     ld_fecha           date;
     monto_aprobado     number;
     ln_plazo           number;
-  
+
   begin
-  
+
     BEGIN
       select g4.sng410fecg
         into ld_firl
@@ -7140,7 +7189,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     exception
       when others then
         NULL;
-      
+
         if ld_firl is null then
           BEGIN
             select max(g4.sng410fecg) -- 2015.07
@@ -7156,7 +7205,7 @@ create or replace package body PQ_CR_jaql964_cartera is
             when others then
               NULL;
           end;
-        
+
           if ld_firl is null then
             BEGIN
               select y514.jaqy514fec
@@ -7173,15 +7222,15 @@ create or replace package body PQ_CR_jaql964_cartera is
             exception
               when others then
                 NULL;
-              
+
             end;
           end if;
-        
+
         end if;
-      
+
     end;
-  
-    --2015.07.31   
+
+    --2015.07.31
     /*Begin
        select m35.jaqm35tfec into ld_fechasigabogado from jaqm35 m35
         where m35.jaqm35pgco = 1
@@ -7193,7 +7242,7 @@ create or replace package body PQ_CR_jaql964_cartera is
           and m35.jaqm35mod = P_N_MODULO
           AND (JAQM35TCon = 'S');
           exception when others then NULL;
-    
+
     END; */
     begin
       pq_cr_jaql964_cartera.sp_cr_abogado(p_n_pgcod     => 1,
@@ -7213,7 +7262,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         NULL;
     end;
     --2015.07.31
-  
+
     begin
       select m33.JAQM33FDem
         into ld_fechenvjudic
@@ -7229,9 +7278,9 @@ create or replace package body PQ_CR_jaql964_cartera is
     exception
       when others then
         NULL;
-      
+
     end;
-  
+
     BEGIN
       select d010.aofval, d010.aoimp, d010.aopzo
         into ld_fecha, monto_aprobado, ln_plazo
@@ -7255,42 +7304,42 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         NULL;
     END;
-  
+
     P_N_JAQL964FIRL  := to_char(ld_firl, 'yyyy.mm.dd');
     P_N_JAQL964FAABO := to_char(ld_fechasigabogado, 'yyyy.mm.dd');
     P_N_JAQL964FEJUD := to_char(ld_fechenvjudic, 'yyyy.mm.dd');
     P_N_JAQL964FDES  := to_char(ld_fecha, 'yyyy.mm.dd');
     P_N_MONT_APROB   := monto_aprobado;
     P_N_PLAZO        := (ln_plazo / 30);
-  
+
     --P_C_ABOGADO := p_c_abogado;
-  
+
   end UpdateCampos_JAQL964;
 
   ----------------------------------------------------------------------------------------
   /*
   function UpdateCampos_JAQL964 (P_N_INSTANCIA in number,
-                                  P_N_MONEDA in number, 
-                                  P_N_CUENTA in number, 
-                                  P_N_OPERACION in number, 
+                                  P_N_MONEDA in number,
+                                  P_N_CUENTA in number,
+                                  P_N_OPERACION in number,
                                   P_N_SUCURSAL in number,
                                   P_N_SUBOPER in number,
                                   P_N_TIPOPER in number,
                                   P_N_MODULO in number
                                    ) return  date  is
-   
+
     ld_fechenvjudic date;
     ld_fechasigabogado date;
     ld_firl date;
     ld_fecha date;
     monto_aprobado number;
     P_N_JAQL964FIRL date;
-  
+
   begin
-  
+
      BEGIN
-      select g4.sng410fecg    
-        into ld_firl    
+      select g4.sng410fecg
+        into ld_firl
         from sng410 g4
        where g4.sng410inst = P_N_INSTANCIA
          AND g4.sng410mda = P_N_MONEDA
@@ -7300,7 +7349,7 @@ create or replace package body PQ_CR_jaql964_cartera is
          and g4.sng400evto in (1101, 1100)
          and g4.sng410its <> 999;
          exception when others then NULL;
-         
+
          if ld_firl is null then
          BEGIN
             select g4.sng410fecg
@@ -7314,11 +7363,11 @@ create or replace package body PQ_CR_jaql964_cartera is
                and g4.sng410its <> 999;
             exception when others then NULL;
           end;
-         
+
          end if;
-         
+
       end;
-     
+
       Begin
          select m35.jaqm35tfec into ld_fechasigabogado from jaqm35 m35
           where m35.jaqm35pgco = 1
@@ -7330,9 +7379,9 @@ create or replace package body PQ_CR_jaql964_cartera is
             and m35.jaqm35mod = P_N_MODULO
             AND (JAQM35TCon = 'S');
             exception when others then NULL;
-      
-      END; 
-   
+
+      END;
+
       begin
          select m33.JAQM33FDem
            into ld_fechenvjudic
@@ -7345,9 +7394,9 @@ create or replace package body PQ_CR_jaql964_cartera is
             and m27.jaqm27cta = P_N_CUENTA
             and m27.jaqm27oper = P_N_OPERACION;
          exception when others then NULL;
-            
+
       end;
-      
+
       BEGIN
              select d010.aofval, d010.aoimp
                into ld_fecha, monto_aprobado
@@ -7369,18 +7418,18 @@ create or replace package body PQ_CR_jaql964_cartera is
                         and d.aosuc = P_N_SUCURSAL);
              exception when others then NULL;
         END;
-        
+
   --     P_N_JAQL964FIRL :=to_char(ld_firl,'yyyy.mm.dd');
         P_N_JAQL964FIRL :=ld_firl;
         return P_N_JAQL964FIRL;
-       
+
     ---   P_N_JAQL964FAABO :=to_char(ld_fechasigabogado,'yyyy.mm.dd');
     ---   P_N_JAQL964FEJUD :=to_char(ld_fechenvjudic,'yyyy.mm.dd');
     ---   P_N_JAQL964FDES :=to_char(ld_fecha,'yyyy.mm.dd');
     ---   P_N_MONT_APROB := monto_aprobado;
-    
+
   end UpdateCampos_JAQL964;
-  
+
   */
   ----------------------------------------------------------------------------------------
   function fn_tipo_credito_desem(P_N_JAQL964PAI in number,
@@ -7388,17 +7437,17 @@ create or replace package body PQ_CR_jaql964_cartera is
                                  P_N_JAQL964DOC in char,
                                  P_D_JAQL964FEC in date,
                                  P_N_JAQL964CTA in number) return number is
-  
+
     ln_tipcre number;
-  
+
     ----retorna
-    --1 'CREDITO NUEVO'    
-    --2 'CREDITO RECURRENTE'  
-  
+    --1 'CREDITO NUEVO'
+    --2 'CREDITO RECURRENTE'
+
   begin
-  
+
     begin
-    
+
       select (case
                when count(*) = 0 then
                 1
@@ -7420,19 +7469,19 @@ create or replace package body PQ_CR_jaql964_cartera is
                            select 117
                              from dual)
          and des.aomod <> 141
-         and des.aomod <> 120 --prestamos pasivos        
+         and des.aomod <> 120 --prestamos pasivos
          and pers.pepais = P_N_JAQL964PAI
          and pers.petdoc = P_N_JAQL964TID
          and pers.pendoc = P_N_JAQL964DOC
          and des.aofval < P_D_JAQL964FEC;
-    
+
     exception
       when no_data_found then
         ln_tipcre := null;
     end;
-  
+
     return ln_tipcre;
-  
+
   end fn_tipo_credito_desem;
 
   ------------------------------------------
@@ -7453,12 +7502,12 @@ create or replace package body PQ_CR_jaql964_cartera is
                              pn_gastos out number, -- GASTOS
                              pn_otros  out number, --OTROS
                              pn_totdeu out number --TOTALDEUDA
-                             
+
                              ) is
-  
+
     -- 2015.08.10 DCASTRO - Se modifico sp_cr_abogado, sp_cr_saldototal
     -- 2015.09.14 DCASTRO - Se modifico sp_cr_saldototal
-  
+
     estado_602       varchar2(2);
     fecha_602        date;
     capital_601      number;
@@ -7471,20 +7520,20 @@ create or replace package body PQ_CR_jaql964_cartera is
     interes          number;
     capital_estp_601 number;
     interes_estp_601 number;
-  
+
     ln_gasto1     number;
     ln_gasto2     number;
     pn_otrospp003 number;
     pn_otrospp002 number;
-  
+
   begin
-  
+
     if pa_ppmod in (200, 33) or pa_pptope = 550 then
-    
+
       begin
-      
+
         SELECT
-        --r.pgcod, r.scsuc, r.scmda, r.scpap, r.sccta, r.scoper, r.scsbop, r.sctope, R.SCMOD, R.SCRUB, 
+        --r.pgcod, r.scsuc, r.scmda, r.scpap, r.sccta, r.scoper, r.scsbop, r.sctope, R.SCMOD, R.SCRUB,
          r.scsdo * -1 saldo_capital, --pn_captot
          nvl((SELECT /*+parallel (a,4) */
               a.scsdo
@@ -7591,7 +7640,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         when others then
           pn_captot := 0;
       end;
-    
+
       if pn_captot < 0 then
         pn_captot := pn_captot * -1;
       end if;
@@ -7613,16 +7662,16 @@ create or replace package body PQ_CR_jaql964_cartera is
       if ln_gasto2 < 0 then
         ln_gasto2 := ln_gasto2 * -1;
       end if;
-    
+
       pn_gastos := nvl(ln_gasto1, 0) + nvl(ln_gasto2, 0);
       pn_totdeu := nvl(pn_captot, 0) + nvl(pn_inttot, 0) +
                    nvl(pn_intext, 0) + nvl(pn_mora, 0) + nvl(pn_otros, 0) +
                    nvl(pn_gastos, 0);
-    
+
     else
-    
-      --begin   
-    
+
+      --begin
+
       begin
         select max(d602.pp1stat),
                d602.ppfpag,
@@ -7657,10 +7706,10 @@ create or replace package body PQ_CR_jaql964_cartera is
         when others then
           NULL;
       end;
-    
+
       if fecha_602 is null then
         -- 16/11/15 MPOSTIGOC
-      
+
         begin
           select min(ppfpag)
             into fecha_602
@@ -7678,10 +7727,10 @@ create or replace package body PQ_CR_jaql964_cartera is
         exception
           when too_many_rows then
             NULL;
-          
+
         end;
       end if;
-    
+
       begin
         select sum(pp002imp)
           into pn_otrospp002
@@ -7700,7 +7749,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         when others then
           pn_otrospp002 := 0;
       end;
-    
+
       begin
         -- 09/11/15 mpostigoc
         select sum(pp003imp)
@@ -7717,16 +7766,16 @@ create or replace package body PQ_CR_jaql964_cartera is
            and p3.pptope = pa_pptope
            and p3.prestconc <> 3 -- 3 penalidad
            and p3.ppfpag = fecha_602;
-      
+
       exception
         when others then
           pn_otrospp003 := 0;
       end;
-    
+
       pn_otros := nvl(pn_otrospp002, 0) - nvl(pn_otrospp003, 0); -- 09/11/15 mpostigoc
-    
+
       if estado_602 = 'T' then
-      
+
         begin
           select sum(d601.ppcap), sum(d601.ppint)
             into capital_601, interes_601
@@ -7748,9 +7797,9 @@ create or replace package body PQ_CR_jaql964_cartera is
             interes_601 := 0;
         end;
       end if;
-    
+
       if estado_602 = 'P' then
-      
+
         begin
           select d601.ppcap, d601.ppint
             into capital_estp, interes_estp
@@ -7771,10 +7820,10 @@ create or replace package body PQ_CR_jaql964_cartera is
             capital_estp := 0;
             interes_estp := 0;
         end;
-      
+
         capital := nvl(capital_estp, 0) - nvl(capital_602, 0);
         interes := nvl(interes_estp, 0) - nvl(interes_602, 0);
-      
+
         begin
           select sum(d601.ppcap), sum(d601.ppint)
             into capital_estp_601, interes_estp_601
@@ -7794,19 +7843,19 @@ create or replace package body PQ_CR_jaql964_cartera is
           when others then
             NULL;
         end;
-      
+
         capital_601 := nvl(capital, 0) + nvl(capital_estp_601, 0);
         interes_601 := nvl(interes, 0) + nvl(interes_estp_601, 0);
-      
+
         if capital_estp_601 is null then
           capital_601 := capital;
           interes_601 := interes;
         end if;
-      
+
       end if;
-    
+
       if estado_602 is null then
-      
+
         begin
           select sum(d601.ppcap), sum(d601.ppint)
             into capital_601, interes_601
@@ -7821,15 +7870,15 @@ create or replace package body PQ_CR_jaql964_cartera is
              and d601.ppsbop = pa_ppsbop
              and d601.pptope = pa_pptope
              and d601.d601co = 'S';
-        
+
         exception
           when others then
             capital_601 := 0;
             interes_601 := 0;
         end;
-      
+
       end if;
-    
+
       --mora
       begin
         select j.jaql964mor
@@ -7843,17 +7892,17 @@ create or replace package body PQ_CR_jaql964_cartera is
       exception
         when others then
           pn_mora := 0;
-        
+
       end;
-    
+
       pn_captot := nvl(capital_601, 0);
       pn_inttot := nvl(interes_601, 0);
-    
+
       pn_totdeu := nvl(capital_601, 0) + nvl(interes_601, 0) +
                    nvl(pn_otros, 0) + nvl(pn_mora, 0);
-    
+
     end if;
-  
+
   end sp_cr_saldototal;
   ----------------------------------------------------------------------------------------
   procedure sp_cr_abogado(P_N_PGCOD     in number,
@@ -7868,7 +7917,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                           P_N_ESTADO    in number,
                           P_C_ABOGADO   out varchar2,
                           pf_asig       out date)
-  
+
     -- *****************************************************************
     -- Nombre                     : fn_cr_abogado
     -- Sistema                    : BANTOTAL
@@ -7889,9 +7938,9 @@ create or replace package body PQ_CR_jaql964_cartera is
     --                              2015.08.18 DCASTRO - Se modifico agrego exception when no_data_found en jaqm35
     --                              2015.09.22 DCASTRO - SE comento variables suboperacion, tipooperacion
     --                              2015.09.29 DCASTRO - Se agrego consulta para otener abogado por soboepracion y tipooperacion
-    -- ***************************************************************** 
+    -- *****************************************************************
    is
-  
+
     --lc_abogado varchar2(50);
     --lc_coderr  varchar2(100);
     --lc_msgerr  varchar2(100);
@@ -7905,11 +7954,11 @@ create or replace package body PQ_CR_jaql964_cartera is
     ln_tipope fsr011.r1tope%type;
     ln_subope fsr011.r1sbop%type;
     --ld_fecabo  date;
-  
+
   begin
-  
+
     if P_N_MODULO in (200, 33) then
-    
+
       begin
         --Inicio Begin 1
         select distinct r1cod,
@@ -7941,7 +7990,7 @@ create or replace package body PQ_CR_jaql964_cartera is
            and r2pap = P_N_PAPEL
            and r2tope = P_N_TIPOPER
            and relcod = 34;
-      
+
       exception
         when no_data_found then
           begin
@@ -8021,7 +8070,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                             r1mda,
                             r1pap,
                             r1cta,
-                            r1oper --, r1sbop, r1tope  
+                            r1oper --, r1sbop, r1tope
               into ln_pgcod,
                    ln_modulo,
                    ln_sucur,
@@ -8044,9 +8093,9 @@ create or replace package body PQ_CR_jaql964_cartera is
             when others then
               ln_cuenta := null;
           end;
-        
+
       end; --Fin Begin 1
-    
+
     else
       begin
         --Inicio Begin 2
@@ -8079,7 +8128,7 @@ create or replace package body PQ_CR_jaql964_cartera is
            and r2pap = P_N_PAPEL
            and r2tope = P_N_TIPOPER
            and relcod in (33, 34); --= 33;
-      
+
       exception
         when no_data_found then
           ---A
@@ -8189,7 +8238,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                         r1mda,
                                         r1pap,
                                         r1cta,
-                                        r1oper --, r1sbop, r1tope  
+                                        r1oper --, r1sbop, r1tope
                           into ln_pgcod,
                                ln_modulo,
                                ln_sucur,
@@ -8215,9 +8264,9 @@ create or replace package body PQ_CR_jaql964_cartera is
               end;
             when others then
               ln_cuenta := null;
-            
+
           end; --
-      
+
         when too_many_rows then
           --B
           begin
@@ -8227,7 +8276,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                             r1mda,
                             r1pap,
                             r1cta,
-                            r1oper --, r1sbop, r1tope  
+                            r1oper --, r1sbop, r1tope
               into ln_pgcod,
                    ln_modulo,
                    ln_sucur,
@@ -8250,11 +8299,11 @@ create or replace package body PQ_CR_jaql964_cartera is
             when others then
               ln_cuenta := null;
           end;
-        
+
       end; --Fin Begin 2
-    
+
     end if;
-  
+
     if ln_cuenta is null then
       ln_pgcod  := P_N_PGCOD;
       ln_modulo := P_N_MODULO;
@@ -8265,9 +8314,9 @@ create or replace package body PQ_CR_jaql964_cartera is
       ln_opera  := P_N_OPERACION;
       ln_subope := P_N_SUBOPER;
       ln_tipope := P_N_TIPOPER;
-    
+
     end if;
-  
+
     if P_N_ESTADO = 33 then
       begin
         SELECT distinct s.jaqm34nom, t.jaqm35tfec
@@ -8286,10 +8335,10 @@ create or replace package body PQ_CR_jaql964_cartera is
            and t.jaqm35suc = P_N_SUCURSAL
            and t.jaqm35tcon = 'S';
       end;
-    
+
     else
       Begin
-      
+
         SELECT distinct s.jaqm34nom
           into P_C_ABOGADO
           from jaqm35 t
@@ -8333,20 +8382,20 @@ create or replace package body PQ_CR_jaql964_cartera is
                    and t.jaqm35sbop = ln_subope
                    and t.jaqm35tope = ln_tipope
                    and t.jaqm35tcon = 'S';
-              
+
               exception
                 when others then
                   P_C_ABOGADO := null;
               end;
-            
+
             WHEN others THEN
               P_C_ABOGADO := null;
-            
+
           end;
         when no_data_found then
           P_C_ABOGADO := null;
       end;
-    
+
       begin
         select distinct jaqm35tfec
           into pf_asig --fecha asignacion abogado
@@ -8408,7 +8457,7 @@ create or replace package body PQ_CR_jaql964_cartera is
     ld_fechas     date;
     cont          number := 0;
     --lc_mesyear     varchar2(6);
-  
+
     /*  cursor ld_FechasHistoricas is
         select distinct (h.jaqy490fec) FechHisto
           from jaqy490h h
@@ -8419,67 +8468,67 @@ create or replace package body PQ_CR_jaql964_cartera is
     lc_fgsobact := 'N';
     lc_fgsobhis := 'N';
     lc_fgsob    := 'N';
-  
+
     begin
-    
+
       select max(jaqy490fec) into ld_fechas from jaqy490s s;
     exception
       when others then
         null;
-      
+
     end;
-  
+
     begin
-      --jaqy490s 
+      --jaqy490s
       begin
         select jaqy490sob
           into ln_sobreen
           from jaqy490s s
-         where s.Jaqy490fec <= ld_fecha --'21/07/2016' 
+         where s.Jaqy490fec <= ld_fecha --'21/07/2016'
            and s.Jaqy490pai = ln_pepais --604
            and s.Jaqy490tdo = ln_petdoc --21
-           and s.JAQY490NDO = ln_pendoc --'00006472' 
+           and s.JAQY490NDO = ln_pendoc --'00006472'
         -- and s. jaqy490sob = 1
          order by s.jaqy490fec desc;
-      
+
       exception
         when others then
           null;
       end;
-    
+
       if ln_sobreen = 1 then
         lc_fgsobact := 'S';
-      
+
       else
         if (ln_sobreen = 0) or (ld_fecha >= ld_fechas) then
           lc_fgsobact := 'N';
           cont        := cont + 1;
         end if;
       end if;
-    
+
     end;
-  
+
     if lc_fgsobact = 'N' THEN
-    
+
       /*for f in ld_FechasHistoricas loop
-      
+
         if cont < 3 then
-        
+
           begin
             select jaqy490fec Fecha, jaqy490sob sobreen
-            
+
               into ld_jaqy490fec, ln_sobreen
               from jaqy490h h
              where h.Jaqy490fec = f.fechhisto
                and h.Jaqy490pai = ln_pepais
                and h.Jaqy490tdo = ln_petdoc
                and h.JAQY490NDO = ln_pendoc;
-          
+
           exception
             when others then
               null;
           end;
-        
+
           if ln_sobreen = 1 then
             lc_fgsobhis := 'S';
             exit;
@@ -8487,13 +8536,13 @@ create or replace package body PQ_CR_jaql964_cartera is
             if ln_sobreen = 0 or ln_sobreen is null then
               lc_fgsobhis := 'N';
               cont        := cont + 1;
-            
+
             end if;
           end if;
         end if;
-      
+
       end loop;*/
-    
+
       /*if ld_fecha = last_day(ld_fecha) then
         ld_primes := ld_fecha;
         ld_segmes :=  last_day(add_months(ld_fecha, -1));
@@ -8503,7 +8552,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         ld_segmes :=  last_day(add_months(ld_fecha, -2));
         ld_termes :=  last_day(add_months(ld_fecha, -3));
       end if;*/
-    
+
       if ld_fecha = last_day(ld_fecha) and cont = 0 then
         ld_primes := ld_fecha;
         ld_segmes := last_day(add_months(ld_fecha, -1));
@@ -8520,52 +8569,52 @@ create or replace package body PQ_CR_jaql964_cartera is
           end if;
         end if;
       end if;
-    
+
       --  fecha_final    := last_day(ld_fecha);
-    
+
       begin
         -- Primer Mes Historico
         select jaqy490fec Fecha, jaqy490sob sobreen
-        
+
           into ld_jaqy490fec, ln_sobreen
           from jaqy490h h
          where h.Jaqy490fec = ld_primes
            and h.Jaqy490pai = ln_pepais
            and h.Jaqy490tdo = ln_petdoc
            and h.JAQY490NDO = ln_pendoc;
-      
+
       exception
         when others then
           null;
       end;
-    
+
       --  for s in Sobreendeudaant loop
       if ln_sobreen = 1 then
         lc_fgsobhis := 'S';
-      
+
       else
         if ln_sobreen = 0 or ln_sobreen is null then
           lc_fgsobhis := 'N';
           cont        := cont + 1;
-        
+
         end if;
       end if;
-    
+
       if lc_fgsobhis = 'N' then
-      
+
         begin
           -- Segundo Mes Historico
-        
+
           -- ld_fecha := fecha_final;
-        
+
           /* fecha_anterior := add_months(fecha_final, -1);
-          
+
           fecha_final    := last_day(fecha_anterior);*/
-        
+
           begin
-          
+
             select jaqy490fec Fecha, jaqy490sob sobreen
-            
+
               into ld_jaqy490fec, ln_sobreen
               from jaqy490h h
              where h.Jaqy490fec = ld_segmes
@@ -8576,7 +8625,7 @@ create or replace package body PQ_CR_jaql964_cartera is
             when others then
               null;
           end;
-        
+
           if ln_sobreen = 1 then
             lc_fgsobhis := 'S';
             --exit;
@@ -8586,24 +8635,24 @@ create or replace package body PQ_CR_jaql964_cartera is
               cont        := cont + 1;
             end if;
           end if;
-        
+
         end;
-      
+
         if lc_fgsobhis = 'N' and cont < 3 then
-        
+
           begin
             -- Tercer Mes Historico
-          
+
             -- ld_fecha := fecha_final;
-          
+
             /* fecha_anterior := add_months(fecha_final, -1);
-            
+
             fecha_final    := last_day(fecha_anterior);*/
-          
+
             begin
-            
+
               select jaqy490fec Fecha, jaqy490sob sobreen
-              
+
                 into ld_jaqy490fec, ln_sobreen
                 from jaqy490h h
                where h.Jaqy490fec = ld_termes
@@ -8614,7 +8663,7 @@ create or replace package body PQ_CR_jaql964_cartera is
               when others then
                 null;
             end;
-          
+
             if ln_sobreen = 1 then
               lc_fgsobhis := 'S';
               --exit;
@@ -8624,21 +8673,21 @@ create or replace package body PQ_CR_jaql964_cartera is
                 -- cont:= cont + 1;
               end if;
             end if;
-          
+
           end;
-        
+
         end if;
-      
+
       end if;
-    
+
     end if;
-  
+
     if lc_fgsobact = 'S' or lc_fgsobhis = 'S' then
       lc_fgsob := 'S';
     else
       lc_fgsob := 'N';
     end if;
-  
+
   end sp_cr_sobreendeudado;
 
   ----------------------------------------------------------------------------
@@ -8648,9 +8697,9 @@ create or replace package body PQ_CR_jaql964_cartera is
                               pa_ppoper       in number,
                               FechTransfAboga out varchar2) is
     ld_fecha DATE;
-  
+
   begin
-  
+
     begin
       select s.sng419fect
         into ld_fecha
@@ -8663,15 +8712,15 @@ create or replace package body PQ_CR_jaql964_cartera is
                               where sng419acc = 4
                                 and sng419cta = pa_ppcta
                                 and sng419ope = pa_ppoper);
-    
+
     exception
       when others then
         NULL;
-      
+
     end;
-  
+
     FechTransfAboga := to_char(ld_fecha, 'yyyy.mm.dd');
-  
+
   end sp_cr_fectransabo;
 
   ----------------------------------------------------------------------------------------
@@ -8687,7 +8736,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                                   pn_top    in number,
                                   pd_fecpro in date,
                                   pd_fecha  out date) is
-  
+
     ld_fecpxv date;
   begin
     begin
@@ -8731,21 +8780,21 @@ create or replace package body PQ_CR_jaql964_cartera is
         ld_fecpxv := null;
     end;
     pd_fecha := ld_fecpxv;
-  
+
   end sp_cr_Fec_Proximo_vto;
 
   ----------------------------------------------------------------------------------------
   Procedure sp_cr_tit_representante(pn_corr in number) is
-  
+
     cursor creditos is
       select * from jaql964 where jaql964cor = pn_corr;
-  
+
     cursor titular(cuenta in number) is
       select *
         from fsr008
        where ctnro = cuenta
          and cttfir <> 'T';
-  
+
     cursor representante(pais in number, tipdoc in number, numdoc in char) is
       select * /*f.pfpai1, f.pftdo1, f.pfndo1
                                                                                                                                                                                                                                                                                                                                                                                                                                           into ln_PaisDocII, ln_TipoDocII, lc_NdocII*/
@@ -8754,13 +8803,13 @@ create or replace package body PQ_CR_jaql964_cartera is
          and f.pjtdoc = TipDoc
          and f.pjndoc = Numdoc
          and f.vicod = 7;
-  
-    --lc_pendoc char(12);      
+
+    --lc_pendoc char(12);
     lc_nom     char(30);
     lc_tipdoc  numbeR;
     ln_cont_pn number := 0;
     ln_cont_pj number := 0;
-  
+
     lc_titular varchar2(100);
     ln_pais    number;
     ln_tdo     number;
@@ -8772,19 +8821,19 @@ create or replace package body PQ_CR_jaql964_cartera is
     lc_dpto    varchar2(50);
     lc_prov    varchar2(50);
     lc_dist    varchar2(50);
-  
+
   begin
-  
+
     for i in creditos loop
-    
+
       lc_tipdoc := i.jaql964tid;
-    
+
       if lc_tipdoc = 9 then
-      
+
         for z in representante(i.jaql964pai, i.jaql964tid, i.jaql964doc) loop
-        
+
           ln_cont_pj := ln_cont_pj + 1;
-        
+
           begin
             select penom
               into lc_nom
@@ -8795,15 +8844,15 @@ create or replace package body PQ_CR_jaql964_cartera is
           exception
             when no_data_found then
               lc_nom := null;
-            
+
           end;
-        
+
           --dbms_output.put_line('cor PJ-'||i.jaql964cor|| ' i.jaql964doc '||i.jaql964doc||' numdoc '||z.pfndo1|| ' lc_nom '||lc_nom );
           lc_titular := lc_nom;
           ln_pais    := z.pfpai1;
           ln_tdo     := z.pftdo1;
           ln_doc     := z.pfndo1;
-        
+
           begin
             pq_cr_jaql964_cartera.sp_cr_direccion_aval(p_n_pepais => ln_pais,
                                                        p_n_petdoc => ln_tdo,
@@ -8813,14 +8862,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                        p_c_refer1 => lc_refer1,
                                                        p_c_ubigeo => lc_ubigeo);
           end;
-        
+
           begin
             pq_cr_jaql964_cartera.sp_cr_dpto_prov_dis(pc_ubigeo => lc_ubigeo,
                                                       pc_dpto   => lc_dpto,
                                                       pc_prov   => lc_prov,
                                                       pc_dist   => lc_dist);
           end;
-        
+
           if ln_cont_pj = 1 then
             insert into JAQL964a
               (JAQL964ACOR,
@@ -8845,7 +8894,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                lc_prov,
                lc_dist);
           else
-          
+
             update jaql964a
                set JAQL964ATIT3 = lc_titular,
                    JAQL964APAI3 = ln_pais,
@@ -8857,16 +8906,16 @@ create or replace package body PQ_CR_jaql964_cartera is
                    JAQL964APRO3 = lc_prov,
                    JAQL964ADIS3 = lc_dist
              where jaql964acor = pn_corr;
-          
+
           end if;
           commit;
-        
+
         end loop;
-      
+
       else
         for y in titular(i.jaql964cta) loop
           ln_cont_pn := ln_cont_pn + 1;
-        
+
           begin
             select penom
               into lc_nom
@@ -8877,16 +8926,16 @@ create or replace package body PQ_CR_jaql964_cartera is
           exception
             when no_data_found then
               lc_nom := null;
-            
+
           end;
-        
+
           -- dbms_output.put_line('cor PN-'||i.jaql964cor|| ' i.jaql964doc '||i.jaql964doc||' numdoc '||y.pendoc|| ' lc_nom '||lc_nom );
-        
+
           lc_titular := lc_nom;
           ln_pais    := y.pepais;
           ln_tdo     := y.petdoc;
           ln_doc     := y.pendoc;
-        
+
           begin
             pq_cr_jaql964_cartera.sp_cr_direccion_aval(p_n_pepais => ln_pais,
                                                        p_n_petdoc => ln_tdo,
@@ -8896,14 +8945,14 @@ create or replace package body PQ_CR_jaql964_cartera is
                                                        p_c_refer1 => lc_refer1,
                                                        p_c_ubigeo => lc_ubigeo);
           end;
-        
+
           begin
             pq_cr_jaql964_cartera.sp_cr_dpto_prov_dis(pc_ubigeo => lc_ubigeo,
                                                       pc_dpto   => lc_dpto,
                                                       pc_prov   => lc_prov,
                                                       pc_dist   => lc_dist);
           end;
-        
+
           if ln_cont_pn = 1 then
             insert into JAQL964a
               (JAQL964ACOR,
@@ -8928,7 +8977,7 @@ create or replace package body PQ_CR_jaql964_cartera is
                lc_prov,
                lc_dist);
           else
-          
+
             update jaql964a
                set JAQL964ATIT3 = lc_titular,
                    JAQL964APAI3 = ln_pais,
@@ -8940,21 +8989,21 @@ create or replace package body PQ_CR_jaql964_cartera is
                    JAQL964APRO3 = lc_prov,
                    JAQL964ADIS3 = lc_dist
              where jaql964acor = pn_corr;
-          
+
           end if;
           commit;
-        
+
         end loop;
-      
+
       end if;
-    
+
       ln_cont_pn := 0;
       ln_cont_pj := 0;
     end loop;
-  
+
   end sp_cr_tit_representante;
 
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   procedure sp_cr_dpto_prov(vjaql964cta   in number,
                             vjaql964doc   in char,
@@ -8970,8 +9019,8 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Retorna Provincia-Dpto
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
+    -- Par¿metros de Entrada      :
+    --
     -- Retorno                    : ESTADO
     -- Fecha de Modificaci¿n      :
     -- Autor de la Modificaci¿n   :
@@ -8982,14 +9031,14 @@ create or replace package body PQ_CR_jaql964_cartera is
     lc_telefo varchar2(20);
     ln_pepais number(3);
     ln_petdoc number(2);
-  
+
     ln_coddpto      number(5);
     ln_codprov      number(5);
     lc_provincia    varchar2(50);
     lc_departamento varchar2(50);
-  
+
   begin
-  
+
     begin
       select /*+choose*/
        pepais, petdoc
@@ -9004,7 +9053,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         ln_pepais := null;
         ln_petdoc := null;
     end;
-  
+
     ---OBTENER PROVINCIA
     begin
       select sngc13dpto, sngc13prov
@@ -9021,7 +9070,7 @@ create or replace package body PQ_CR_jaql964_cartera is
         ln_coddpto := null;
         ln_codprov := null;
     end;
-  
+
     begin
       select locnom
         into lc_provincia
@@ -9033,28 +9082,28 @@ create or replace package body PQ_CR_jaql964_cartera is
       when NO_DATA_FOUND then
         lc_provincia := ' ';
     end;
-  
+
     --DPTO
     begin
-    
+
       select depnom
         into lc_departamento
         from fst068 f
        where f.pais = ln_pepais
          and f.depcod = ln_coddpto;
-    
+
     exception
       when NO_DATA_FOUND then
         lc_departamento := ' ';
     end;
-  
+
     vprovincia    := lc_provincia;
     vdepartamento := lc_departamento;
-  
+
   end sp_cr_dpto_prov;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
   procedure sp_cr_DPTO_PROV_DIS(pc_ubigeo in char,
                                 pc_dpto   out char,
@@ -9070,8 +9119,8 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Retorna Distrito-Provincia-Dpto
     -- Estado                     : Activo
     -- Acceso                     : P¿blico
-    -- Par¿metros de Entrada      : 
-    --                              
+    -- Par¿metros de Entrada      :
+    --
     -- Retorno                    : ESTADO
     -- Fecha de Modificaci¿n      :
     -- Autor de la Modificaci¿n   :
@@ -9082,14 +9131,14 @@ create or replace package body PQ_CR_jaql964_cartera is
     lc_telefo varchar2(20);
     ln_pepais number(3);
     ln_petdoc number(2);
-  
+
     ln_coddpto      number(5);
     ln_codprov      number(5);
     lc_provincia    varchar2(50);
     lc_departamento varchar2(50);
-  
+
   begin
-  
+
     begin
       select depnom DPTO, locnom PROVINCIA, fst071dsc DISTRITO
         into pc_dpto, pc_prov, pc_dist
@@ -9106,16 +9155,16 @@ create or replace package body PQ_CR_jaql964_cartera is
         pc_prov := ' ';
         pc_dist := ' ';
     end;
-  
+
   end sp_cr_DPTO_PROV_DIS;
 
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_cr_guardar_historico_1(pc_fecha in varchar2) is
-  
+
     --Registro en la tabla JAQL964H
   begin
-  
+
     insert into JAQL964H
       select to_date(pc_fecha, 'rrrrmmdd') - 1 jaql964hfeh,
              jaql964cor,
@@ -9247,16 +9296,16 @@ create or replace package body PQ_CR_jaql964_cartera is
              to_char(sysdate, 'DD/MM/YYYY'),
              to_char(sysdate, 'HH24:MI:SS')
         from JAQL964;
-  
+
     commit;
-  
+
   end sp_cr_guardar_historico_1;
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_cr_guardar_historico_2(pc_fecha in varchar2) is
-  
+
     --Registro en la tabla JAQL964H
   begin
-  
+
     --Registro en la tabla JAQL964AH
     insert into jaql964ah
       select to_date(pc_fecha, 'rrrrmmdd') - 1 jaql964ahfeh,
@@ -9282,7 +9331,7 @@ create or replace package body PQ_CR_jaql964_cartera is
              to_char(sysdate, 'DD/MM/YYYY'),
              to_char(sysdate, 'HH24:MI:SS')
         from jaql964a;
-  
+
     --Registro en la tabla JAQL971H
     insert into JAQL971H
       select to_date(pc_fecha, 'rrrrmmdd') - 1 jaql964hfeh,
@@ -9370,9 +9419,9 @@ create or replace package body PQ_CR_jaql964_cartera is
              to_char(sysdate, 'DD/MM/YYYY'),
              to_char(sysdate, 'HH24:MI:SS')
         from jaql971;
-  
+
     commit;
-  
+
   end sp_cr_guardar_historico_2;
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_cr_verificar_fin_mes(pc_fecha in varchar2) is
@@ -9386,24 +9435,24 @@ create or replace package body PQ_CR_jaql964_cartera is
     sr_mes_act  char(2);
     sr_anio_act char(4);
     STR_SQL     varchar2(1000);
-  
+
   begin
-  
+
     pe_fecha := TO_DATE(pc_fecha, 'YYYY/MM/DD HH:MI:SS') - 1;
-  
+
     if (last_day(pe_fecha) - pe_fecha) = 0 then
-    
+
       pe_fecha := pe_fecha - 1;
-    
-      ---Evaluar año y mes   
+
+      ---Evaluar año y mes
       pe_mes  := extract(month from pe_fecha);
       pe_anio := extract(year from pe_fecha);
-    
+
       sr_mes_act  := lpad(to_char(pe_mes), 2, '0');
       sr_anio_act := to_char(pe_anio);
-    
+
       pe_mes := pe_mes + 1;
-    
+
       if pe_mes = 13 then
         sr_mes      := lpad(to_char(1), 2, '0');
         sr_mes_sig  := lpad(to_char(2), 2, '0');
@@ -9420,45 +9469,80 @@ create or replace package body PQ_CR_jaql964_cartera is
         sr_anio     := to_char(pe_anio);
         sr_anio_sig := to_char(pe_anio);
       end if;
-    
+      
       ---Agregar particiones
-      STR_SQL := 'ALTER TABLE JAQL964H ADD PARTITION JAQL964H_' || sr_anio || '' ||
+      -- SE AGREGO EXCEPTION A LA PARTICION - MCHAVEZ - 22/09/2025
+      BEGIN
+        STR_SQL := 'ALTER TABLE JAQL964H ADD PARTITION JAQL964H_' || sr_anio || '' ||
                  sr_mes || ' VALUES LESS THAN (TO_DATE(''' || sr_anio_sig || '-' ||
                  sr_mes_sig || '-01'',''YYYY-MM-DD''))';
-      --dbms_output.put_line(STR_SQL);     
-      EXECUTE IMMEDIATE STR_SQL;
-    
-      STR_SQL := 'ALTER TABLE JAQL964AH ADD PARTITION JAQL964AH_' ||
+        --dbms_output.put_line(STR_SQL);
+        EXECUTE IMMEDIATE STR_SQL;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
+      
+      -- SE AGREGO EXCEPTION A LA PARTICION - MCHAVEZ - 22/09/2025
+      BEGIN
+        STR_SQL := 'ALTER TABLE JAQL964AH ADD PARTITION JAQL964AH_' ||
                  sr_anio || '' || sr_mes || ' VALUES LESS THAN (TO_DATE(''' ||
                  sr_anio_sig || '-' || sr_mes_sig ||
                  '-01'',''YYYY-MM-DD''))';
-      --dbms_output.put_line(STR_SQL);     
-      EXECUTE IMMEDIATE STR_SQL;
-    
-      STR_SQL := 'ALTER TABLE JAQL971H ADD PARTITION JAQL971H_' || sr_anio || '' ||
+        --dbms_output.put_line(STR_SQL);
+        EXECUTE IMMEDIATE STR_SQL;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
+      
+      -- SE AGREGO EXCEPTION A LA PARTICION - MCHAVEZ - 22/09/2025
+      BEGIN
+        STR_SQL := 'ALTER TABLE JAQL971H ADD PARTITION JAQL971H_' || sr_anio || '' ||
                  sr_mes || ' VALUES LESS THAN (TO_DATE(''' || sr_anio_sig || '-' ||
                  sr_mes_sig || '-01'',''YYYY-MM-DD''))';
-      --dbms_output.put_line(STR_SQL);     
-      EXECUTE IMMEDIATE STR_SQL;
-    
-      STR_SQL := 'ALTER TABLE JAQL964H TRUNCATE PARTITION (JAQL964H_' ||
+        --dbms_output.put_line(STR_SQL);
+        EXECUTE IMMEDIATE STR_SQL;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
+      
+      -- SE AGREGO EXCEPTION A LA PARTICION - MCHAVEZ - 22/09/2025
+      BEGIN
+        STR_SQL := 'ALTER TABLE JAQL964H TRUNCATE PARTITION (JAQL964H_' ||
                  sr_anio_act || '' || sr_mes_act || ')';
-      --dbms_output.put_line(STR_SQL);  
-      EXECUTE IMMEDIATE STR_SQL;
-      --alter table jaql964H truncate partition JAQL964H_202002 UPDATE INDEXES;    
-    
-      STR_SQL := 'ALTER TABLE JAQL964AH TRUNCATE PARTITION (JAQL964AH_' ||
+        --dbms_output.put_line(STR_SQL);
+        EXECUTE IMMEDIATE STR_SQL;
+        --alter table jaql964H truncate partition JAQL964H_202002 UPDATE INDEXES;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
+      
+      -- SE AGREGO EXCEPTION A LA PARTICION - MCHAVEZ - 22/09/2025
+      BEGIN
+        STR_SQL := 'ALTER TABLE JAQL964AH TRUNCATE PARTITION (JAQL964AH_' ||
                  sr_anio_act || '' || sr_mes_act || ')';
-      --dbms_output.put_line(STR_SQL);     
-      EXECUTE IMMEDIATE STR_SQL;
-    
-      STR_SQL := 'ALTER TABLE JAQL971H TRUNCATE PARTITION (JAQL971H_' ||
+        --dbms_output.put_line(STR_SQL);
+        EXECUTE IMMEDIATE STR_SQL;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
+      
+      -- SE AGREGO EXCEPTION A LA PARTICION - MCHAVEZ - 22/09/2025
+      BEGIN
+        STR_SQL := 'ALTER TABLE JAQL971H TRUNCATE PARTITION (JAQL971H_' ||
                  sr_anio_act || '' || sr_mes_act || ')';
-      --dbms_output.put_line(STR_SQL);       
-      EXECUTE IMMEDIATE STR_SQL;
-    
+        --dbms_output.put_line(STR_SQL);
+        EXECUTE IMMEDIATE STR_SQL;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
     end if;
-  
+
   end sp_cr_verificar_fin_mes;
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   ---------------------------------------------------------------------------------------------
@@ -9466,7 +9550,7 @@ create or replace package body PQ_CR_jaql964_cartera is
   function fn_cr_telefono_valido(P_N_PEPAIS in number,
                                  P_N_PETDOC in number,
                                  P_N_PENDOC in char) return varchar2 is
-  
+
     -- *****************************************************************
     -- Nombre                     : fn_cr_telefono_valido
     -- Sistema                    : BANTOTAL
@@ -9477,20 +9561,20 @@ create or replace package body PQ_CR_jaql964_cartera is
     -- Uso                        : Telefono valido
     -- Estado                     : Activo
     -- Acceso                     : Publico
-    -- Par¿metros de Entrada      : 
-    --                              
-    -- Retorno                    : 
+    -- Par¿metros de Entrada      :
+    --
+    -- Retorno                    :
     -- Fecha de Modificacion      :
     -- Autor de la Modificacion   :
     -- Descripci¿n de Modificacion:
     --
-    -- ***************************************************************** 
-  
+    -- *****************************************************************
+
     lc_telefono varchar2(20);
-  
+
   begin
-  
-    --busqueda telefonos Validados  
+
+    --busqueda telefonos Validados
     begin
       select ww.jaqn2atelf --telefval
         into lc_telefono
@@ -9520,31 +9604,31 @@ create or replace package body PQ_CR_jaql964_cartera is
     exception
       when others then
         lc_telefono := null;
-      
+
     end;
-  
+
     return(lc_telefono);
-  
+
   end fn_cr_telefono_valido;
   ---------------------------------------------------------------------------------------------
   procedure sp_Cr_UpdAQPB183(ld_fecha in date) is
-  
+
     ln_SaldCIIU number(17, 2) := 0.00;
     ln_SaldTC   number(17, 2) := 0.00;
     ln_Porctj   number(10, 6) := 0.000000;
     ln_corr     number;
     lc_hora     varchar2(8) := '00:00:00';
     ln_NroReg   number;
-  
+
   begin
-  
+
     begin
       select to_char(sysdate, 'HH24:MI:SS') into lc_hora from dual;
     exception
       when others then
         null;
     end;
-  
+
     begin
       select count(*)
         into ln_NroReg
@@ -9554,30 +9638,30 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         null;
     end;
-  
+
     if ln_NroReg > 0 then
-    
+
       delete from aqpb183 a where a.aqpb183fecha = ld_fecha;
       commit;
-    
+
     end if;
-  
+
     begin
       select max(a.aqpb183cor) into ln_corr from aqpb183 a;
     exception
       when others then
         null;
     end;
-  
+
     ln_corr := nvl(ln_corr, 0);
-  
+
     begin
       select sum(j.jaql964sdo) * -1 into ln_SaldTC from jaql964 j;
     exception
       when others then
         ln_SaldTC := 0.00;
     end;
-  
+
     begin
       select sum(j.jaql964sdo) * -1
         into ln_SaldCIIU
@@ -9593,16 +9677,16 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         ln_SaldCIIU := 0.00;
     end;
-  
+
     ln_SaldCIIU := nvl(ln_SaldCIIU, 0);
     ln_SaldTC   := nvl(ln_SaldTC, 0);
-  
+
     if ln_SaldTC > 0 then
-    
+
       ln_Porctj := (ln_SaldCIIU * 100) / ln_SaldTC;
-    
+
     end if;
-  
+
     begin
       insert into aqpb183
         (aqpb183cor,
@@ -9618,19 +9702,19 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         null;
     end;
-  
+
     commit;
-  
+
   end sp_Cr_UpdAQPB183;
   ---------------------------------------------------------------------------------------------
   procedure sp_Cr_CargaReconver is
-  
+
     ln_HayData     number;
     ln_HayDataMala number;
     ln_FlagEjec    number := 0;
-  
+
   begin
-  
+
     begin
       select count(*)
         into ln_HayData
@@ -9641,7 +9725,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         ln_HayData := 0;
     end;
-  
+
     begin
       select count(*)
         into ln_HayDataMala
@@ -9653,7 +9737,7 @@ create or replace package body PQ_CR_jaql964_cartera is
       when others then
         ln_HayDataMala := 0;
     end;
-  
+
     if ln_HayData = 0 then
       begin
         begin
@@ -9669,7 +9753,7 @@ create or replace package body PQ_CR_jaql964_cartera is
           when others then
             ln_FlagEjec := 0;
         end;
-      
+
         if ln_FlagEjec = 1 then
           begin
             -- Call the procedure
@@ -9678,15 +9762,15 @@ create or replace package body PQ_CR_jaql964_cartera is
         end if;
       end;
     end if;
-  
+
     if ln_HayDataMala > 0 then
-    
+
       delete aqpb297 a
        where a.aqpb297fec =
              (select f.pgfape from fst017 f where f.pgcod = 1)
          and a.aqpb297est <> 'S';
       commit;
-    
+
       begin
         begin
           select f.tp1nro3
@@ -9701,7 +9785,7 @@ create or replace package body PQ_CR_jaql964_cartera is
           when others then
             ln_FlagEjec := 0;
         end;
-      
+
         if ln_FlagEjec = 1 then
           begin
             -- Call the procedure
@@ -9709,12 +9793,11 @@ create or replace package body PQ_CR_jaql964_cartera is
           end;
         end if;
       end;
-    
+
     end if;
-  
+
   end sp_Cr_CargaReconver;
-  ---------------------------------------------------------------------------------------------     
+  ---------------------------------------------------------------------------------------------
 
 end PQ_CR_jaql964_cartera;
 /
-
