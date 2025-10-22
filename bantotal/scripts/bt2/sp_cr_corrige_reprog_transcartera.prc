@@ -175,7 +175,7 @@ cursor DESGRA(cta in number, ope in number)is
                                  and b.aostat <> 99)
              and a.aocta = cta
              and a.aooper = ope
-             and a.sgcod in (select sgcod from fst300 where sgsn02 ='5' and sgcod >350)
+             and a.sgcod in (select sgcod from fst300 where sgsn02 ='5')
              ;
   cursor VEHICULAR(cta in number, ope in number)is
    select a.*
@@ -1454,4 +1454,3 @@ begin
   commit;
 end SP_CR_CORRIGE_REPROG_TRANSCARTERA;
 /
-

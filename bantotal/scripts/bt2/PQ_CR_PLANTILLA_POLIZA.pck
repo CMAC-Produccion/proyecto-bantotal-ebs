@@ -10,6 +10,7 @@ create or replace package PQ_CR_PLANTILLA_POLIZA is
 -- Uso      : Uso
 -- Estado   : Activo
 -- Acceso   : Público
+-- Modificacion : SMARQUEZ 07/10/2025 control de grupo no encontrado
 -- *****************************************************************
   procedure OBTIENE_TIPO_CREDITO(
                 pn_emp in number,
@@ -25,6 +26,7 @@ create or replace package PQ_CR_PLANTILLA_POLIZA is
 end PQ_CR_PLANTILLA_POLIZA;
 /
 create or replace package body PQ_CR_PLANTILLA_POLIZA is
+
   procedure OBTIENE_TIPO_CREDITO(
                           pn_emp in number,
                           pn_mod in number,
@@ -48,6 +50,8 @@ create or replace package body PQ_CR_PLANTILLA_POLIZA is
                           pn_ope,
                           pn_sbo,
                           pn_top);
+  
+                            
     case
     when ln_grupo in (2, 12, 13) then
       pn_var := 'PYME';
@@ -55,6 +59,8 @@ create or replace package body PQ_CR_PLANTILLA_POLIZA is
       pn_var := 'CONSUMO';
     when ln_grupo = 4 then
       pn_var := 'HIPOTECARIO';
+    else
+      pn_var := ' ';
     end case;
   END OBTIENE_TIPO_CREDITO;                          
 end PQ_CR_PLANTILLA_POLIZA;

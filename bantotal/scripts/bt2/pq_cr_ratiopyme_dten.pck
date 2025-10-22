@@ -15,6 +15,9 @@ create or replace package PQ_CR_RATIOPYME_DTEN is
   -- Fecha de Modificación        : 25/02/2025
   -- Autor de Modificación        : MPOSTIGOC
   -- Descripción de Modificación  : Se modifico el denominador para el calculo del ratio, ahora se considera ingreso neto para consumo
+  -- Fecha de Modificación        : 10/10/2025
+  -- Autor de Modificación        : MPOSTIGOC
+  -- Descripción de Modificación  : Se modifico el denominador para el calculo del ratio, ahora se considera el excedente Mensual para consumo
   -----------------------------------------------------------
 
   procedure sp_CalculoRatio(ln_Pepais      in number,
@@ -354,7 +357,6 @@ create or replace package PQ_CR_RATIOPYME_DTEN is
 
 end PQ_CR_RATIOPYME_DTEN;
 /
-
 create or replace package body PQ_CR_RATIOPYME_DTEN is
 
   ------- RATIO CUOTA RESULTADO PARA DATA ENTRY
@@ -1179,7 +1181,7 @@ create or replace package body PQ_CR_RATIOPYME_DTEN is
          and j.jaqy142est = 'H'
          and j.jaqy142mod = 117
          and j.jaqy142indic in ( /*'CredVigent',
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               'CredVencid',*/'CredVuelo',
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               'CredVencid',*/'CredVuelo',
                                 'LineaVencd',
                                 'CredProp'); --mpostigoc 24.08.2022
     exception
@@ -1254,8 +1256,10 @@ create or replace package body PQ_CR_RATIOPYME_DTEN is
                    nvl(ln_MntPotncial, 0);
       else
         if ln_ModEva = 14 then
-          Divisor       := ln_IngNeto;
-          ln_ResultNeto := ln_IngNeto;
+          divisor := nvl(ln_ResultNeto, 0) + nvl(saldo_externo, 0) +
+                     nvl(ln_MntPotncial, 0);
+          -- Divisor       := ln_IngNeto;
+          -- ln_ResultNeto := ln_IngNeto;
         end if;
       end if;
     end;
@@ -4847,4 +4851,3 @@ create or replace package body PQ_CR_RATIOPYME_DTEN is
   -------------------------------------------------------------
 end PQ_CR_RATIOPYME_DTEN;
 /
-

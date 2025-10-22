@@ -12,6 +12,9 @@ create or replace package PQ_CR_RATIOCNSM_FLJEXP is
   -- Fecha de Modificación        : 25/02/2025
   -- Autor de Modificación        : MPOSTIGOC
   -- Descripción de Modificación  : Se modifico el denominador para el calculo del ratio, ahora se considera ingreso neto
+  -- Fecha de Modificación        : 10/10/2025
+  -- Autor de Modificación        : MPOSTIGOC
+  -- Descripción de Modificación  : Se modifico el denominador para el calculo del ratio, ahora se considera Excedente Mensual
   -- *****************************************************************  
 
   procedure sp_CalculoRatio(ln_Correlativo in number,
@@ -132,7 +135,6 @@ create or replace package PQ_CR_RATIOCNSM_FLJEXP is
 
 end PQ_CR_RATIOCNSM_FLJEXP;
 /
-
 create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
 
   procedure sp_CalculoRatio(ln_Correlativo in number,
@@ -925,69 +927,68 @@ create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
       saldo_externo  := nvl(saldo_externo, 0);
     end;
   
-    /* begin
-        select a.aqpa190bmto
-          into ln_ExcSoles
-          from aqpa190b_bdj a
-         where a.aqpa190beval = ln_NroEva
-           and a.aqpa190bcod = 27;
-      exception
-        when others then
-          null;
-      end;
-    
-      begin
-        select a.aqpa190bmto
-          into ln_ExcDolar
-          from aqpa190b_bdj a
-         where a.aqpa190beval = ln_NroEva
-           and a.aqpa190bcod = 527;
-      exception
-        when others then
-          null;
-      end;
-    
-      ln_ExcdentMnsl := nvl(ln_ExcSoles, 0) + nvl(ln_ExcDolar, 0);
-    */
-  
     begin
-      --24/02/2025
-      begin
-        select sum(case
-                     when a.aqpa190bcod in (5, 6, 7, 8) then
-                      a.aqpa190bmto * -1
-                     else
-                      a.aqpa190bmto
-                   end)
-          into ln_IngNetoSol
-          from aqpa190b_bdj a
-         where a.aqpa190beval = ln_NroEva
-           AND a.aqpa190bcod IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-      exception
-        when others then
-          null;
-      end;
-    
-      begin
-        select sum(case
-                     when a.aqpa190bcod in (505, 506, 507, 508) then
-                      a.aqpa190bmto * -1
-                     else
-                      a.aqpa190bmto
-                   end)
-          into ln_IngNetoDol
-          from aqpa190b_bdj a
-         where a.aqpa190beval = ln_NroEva
-           AND a.aqpa190bcod IN
-               (501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512);
-      exception
-        when others then
-          null;
-      end;
-    
-      ln_IngNeto := nvl(ln_IngNetoSol, 0) + nvl(ln_IngNetoDol, 0);
+      select a.aqpa190bmto
+        into ln_ExcSoles
+        from aqpa190b_bdj a
+       where a.aqpa190beval = ln_NroEva
+         and a.aqpa190bcod = 27;
+    exception
+      when others then
+        null;
     end;
   
+    begin
+      select a.aqpa190bmto
+        into ln_ExcDolar
+        from aqpa190b_bdj a
+       where a.aqpa190beval = ln_NroEva
+         and a.aqpa190bcod = 527;
+    exception
+      when others then
+        null;
+    end;
+  
+    ln_ExcdentMnsl := nvl(ln_ExcSoles, 0) + nvl(ln_ExcDolar, 0);
+  
+    /* begin
+        --24/02/2025
+        begin
+          select sum(case
+                       when a.aqpa190bcod in (5, 6, 7, 8) then
+                        a.aqpa190bmto * -1
+                       else
+                        a.aqpa190bmto
+                     end)
+            into ln_IngNetoSol
+            from aqpa190b_bdj a
+           where a.aqpa190beval = ln_NroEva
+             AND a.aqpa190bcod IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+        exception
+          when others then
+            null;
+        end;
+      
+        begin
+          select sum(case
+                       when a.aqpa190bcod in (505, 506, 507, 508) then
+                        a.aqpa190bmto * -1
+                       else
+                        a.aqpa190bmto
+                     end)
+            into ln_IngNetoDol
+            from aqpa190b_bdj a
+           where a.aqpa190beval = ln_NroEva
+             AND a.aqpa190bcod IN
+                 (501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511, 512);
+        exception
+          when others then
+            null;
+        end;
+      
+        ln_IngNeto := nvl(ln_IngNetoSol, 0) + nvl(ln_IngNetoDol, 0);
+      end;
+    */
     begin
     
       -- Suma de Deuda Caja y Deuda Externa
@@ -995,10 +996,10 @@ create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
       ln_cajaext := nvl(ln_captotcaja, 0) + nvl(saldo_externo, 0) +
                     nvl(ln_MntCuoCntg, 0) + nvl(ln_MntPotncial, 0);
     
-      /*  Divisor := nvl(ln_ExcdentMnsl, 0) + nvl(saldo_externo, 0) +
-      nvl(ln_MntPotncial, 0);*/
+      Divisor := nvl(ln_ExcdentMnsl, 0) + nvl(saldo_externo, 0) +
+                 nvl(ln_MntPotncial, 0);
     
-      Divisor := nvl(ln_IngNeto, 0);
+      --   Divisor := nvl(ln_IngNeto, 0);
     
     end;
   
@@ -1028,10 +1029,10 @@ create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
                                                   ln_mntifi  => saldo_externo,
                                                   ln_cuopot  => ln_MntPotncial,
                                                   ln_cuocont => ln_MntCuoCntg,
-                                                  ln_exdmns  => ln_IngNeto,
+                                                  ln_exdmns  => ln_ExcdentMnsl,
                                                   ln_ratio   => ln_Ratio);
   
-    ln_ExcdentMnsl := ln_IngNeto;
+    ln_ExcdentMnsl := ln_ExcdentMnsl;
   
   end sp_CalculoRatio;
   ---------------------------------------------------
@@ -2481,4 +2482,3 @@ create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
   end sp_cr_get_segurodesgra;
 end PQ_CR_RATIOCNSM_FLJEXP;
 /
-

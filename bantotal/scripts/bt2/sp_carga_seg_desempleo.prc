@@ -7,6 +7,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
 -- Modificacion : SMARQUEZ 15/04/2025, Verifica Resagados
 -- Modificacion : SMARQUEZ 02/07/2025, Adición de tipo de desembolso
 -- Modificacion : SMARQUEZ 07/08/2025, Modificaciobn longitud telefono
+-- Modificacion : SMARQUEZ 07/10/2025 , Modificacion eleccion celular
   CURSOR CUENTAS IS
       select a.*, b.itfcon fechacont, b.ithora hora, c.jaqm66ins ins
       from fsd016 a,
@@ -37,7 +38,12 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
            and petdoc = tdoc
            and pendoc = ndoc
            and docod = 1
-           and rownum = 1;
+           and DOORDP = (select max (DOORDP)
+                           from fsr005
+                          where pepais = pais
+                            and petdoc = tdoc
+                            and pendoc = ndoc
+                            and docod = 1);
 
       cursor correo (pais number,tdoc number,ndoc char) is
         select trim(lower(substr(pextxt,1,(instr(pextxt,'\')-1)))) mail
@@ -248,7 +254,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
             tele := trim(t.fono);
             exit;
           else
-            tele := rpad(t.fono,9,'0');
+            tele := lpad(t.fono,9,'9');
             exit;
           end if;         
           
@@ -870,13 +876,13 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
             tele := trim(t.fono);
             exit;
           else
-            tele := rpad(t.fono,9,'0');
+            tele := lpad(t.fono,9,'9');
             exit;
           end if;         
           
       end loop;
       if tele is null or tele =' ' then
-         lc_telefono := 111111111;
+         lc_telefono := 984569115;
       else
          lc_telefono := substr(tele,1,9);
       end if;
