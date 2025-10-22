@@ -694,6 +694,11 @@ function fn_obtanalista(ps_dni varchar2) return varchar2;
 procedure sp_repseguiclientedetCRM(ps_fecini varchar2,ps_fecfin varchar2,
                                 ps_codact varchar2,ps_codbas varchar2,
                                 lc_liscur out types.cursor_type);
+--sgamero - 09/10/2025                                
+procedure sp_repseguiclientedet2(ps_fecini varchar2,ps_fecfin varchar2,
+                                ps_codact varchar2,ps_codbas varchar2,
+                                ps_codest varchar2,ps_tiprep varchar2,
+                                lc_liscur out types.cursor_type);
 end PQ_AGENDA_COMERCIAL;
  /* GOLDENGATE_DDL_REPLICATION */
 /
@@ -20058,6 +20063,494 @@ begin
 
 
 end sp_repseguiclientedetCRM;
+
+
+procedure sp_repseguiclientedet2(ps_fecini varchar2,ps_fecfin varchar2,
+                                ps_codact varchar2,ps_codbas varchar2,
+                                ps_codest varchar2,ps_tiprep varchar2,
+                                lc_liscur out types.cursor_type) as
+-- *****************************************************************
+-- Nombre                     : sp_repseguiclientedet2
+-- Sistema                    : AGENDA COMERCIAL
+-- Módulo                     : CONSULTAS BANTOTAL
+-- Versión                    : 1.0
+-- Fecha de Creación          : 07/04/2017
+-- Autor de Creación          : BDEG
+-- Uso                        : Reporte de Seguimiento de Clientes detallado
+-- Estado                     : Activo
+-- Fecha Modificación         : 17/07/2019
+-- Autor de Modificación      : WCRW
+-- Descripcion Modificacion   : Diferenciar Reportes
+-- Fecha Modificación         : 29/09/2023
+-- Autor de Modificación      : Frank Pinto Carpio
+-- Descripcion Modificacion   : Se aumenta descripcion de modulo y tipo de operacion de credito
+-- Fecha Modificación         : 09/10/2025
+-- Autor de Modificación      : Sergio Gamero
+-- Descripcion Modificacion   : Se aumenta monto de registro agencia de preferencia, usuario, 
+--                              fecha y tipo de transferencia.
+-- ***************************************************************** 
+ls_codusu varchar2(10);
+ls_fecini date;
+ls_fecfin date;
+ls_fectem date;
+ls_codbas number;
+begin
+   ls_fecini := to_date(ps_fecini, 'yyyy/mm/dd');
+   ls_fecfin := to_date(ps_fecfin, 'yyyy/mm/dd');
+   if ls_fecini > ls_fecfin then
+      ls_fectem := ls_fecfin;
+      ls_fecfin := ls_fecini;
+      ls_fecini := ls_fectem;
+   end if;
+   if ps_codbas = 'elige Base...' then
+      ls_codbas := null;
+   else
+      ls_codbas := ps_codbas;
+   end if;
+   if ps_tiprep='V' then
+      if ps_codest = 'F' then
+      open lc_liscur for
+      select distinct sucing.cnomsuc,coalesce(eva.cusuing, ' ') as cusuing,oping.cnomope,upper(regi.cnomreg) as reging,
+             upper(regi.cdeszon) as zoning,' ' as DNI,rolin.cdesrol,to_char(eva.dfeceva,'YYYY-MM-DD') as dfecreg,
+             eva.cnumdoc,eva.cclinom,fn_resusuing(eva.npaicli, eva.ntipdoc, eva.cnumdoc,eva.ncorcli,eva.cusuing) as ultresing,
+             coalesce(trim(eva.ctelneg), trim(eva.ctelfij),trim(eva.ctelmov)) as telcli,tip.cdesatr as tipcli,
+             eva.cusuasi as ccodusu,resu.cnomres,to_char(eva.dfecvis,'YYYY-MM-DD') as dfecvis,coalesce(eva.cobserv, ' ') as cobserv,
+             coalesce(desem.ctipcli,' ') as ctipcli,to_char(desem.dfecdes,'YYYY-MM-DD') as dfecdes,upper(regd.cnomreg) as regdes,
+             upper(regd.cdeszon) as zondes,upper(regd.cnomsuc) as sucdes,desem.CNUMDOC,desem.NAOCTA,desem.NAOOPER,
+             desem.NNUMSOL,desem.CNOMANA,
+             case
+             when trim(desem.ncodmon) = '0' then 'SOLES'
+             when trim(desem.ncodmon) = '101' then 'DOLARES'
+             else ''
+             end as cmoneda,
+             desem.ncanimp,desem.cnompro,desem.aotasa,to_char(eva.dfeceva,'HH24:MI:SS') as chorreg,
+             eva.cfecmod,eva.chormod,eva.cnomreg,eva.cnomsuc,eva.cdeszon,eva.cfecdes,eva.czonpro,
+             nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
+             case when eva.ccodusu = 'USRAGECOM' then 'ALEATORIA'
+             else 'EXCEPCIONAL'
+             end as Tiptra, eva.cusumod as Usutra, eva.dfecasi as Fectra,
+             sucup.cnomsuc as Agepre, eva.nmoneva as Monto
+        from (select a.dfeceva,a.cnumdoc,a.cclinom,a.npaicli,a.ntipdoc,a.ncorcli,a.cusuing,a.ctelneg,
+                     a.ctelfij,a.ctelmov,asi.ncorasi,asi.ccodusu as cusuasi,a.ncodact,a.ncodbas,a.ccodcal,
+                     a.ctipcli,a.ncodage,asi.ncodbas as nasibas,rev.nrespue,rev.cobserv,rev.dfecvis,
+                     to_char(asi.dfecmod,'YYYY-MM-DD') as cfecmod,to_char(asi.dfecmod,'HH24:MI:SS') as chormod,
+                     zon.cnomreg,zon.cnomsuc,zon.cdeszon,a.cfecdes,a.czonpro,asi.cusumod,asi.ccodusu,asi.dfecasi,a.nagepre,a.nmoneva
+                 from acdeval a
+              left join acdasig asi
+                  on asi.ncorcli = a.ncorcli 
+              left join acdagen agen
+                  on agen.ncorasi = asi.ncorasi
+              left join acdrevi rev
+                  on rev.ncorage = agen.ncorage
+              left join acdagus pau
+                  on pau.ccodope = upper(trim(asi.ccodusu))
+              left join actregi zon
+                  on zon.ncodsuc = pau.ncodsuc           
+               where a.ncodact = ps_codact
+                 and a.ncodbas = coalesce(ls_codbas, a.ncodbas)
+              union
+              select b.dfeceva,b.cnumdoc,b.cclinom,b.npaicli,b.ntipdoc,b.ncorcli,b.cusuing,b.ctelneg,
+                     b.ctelfij,b.ctelmov,hasi.ncorasi,hasi.ccodusu as cusuasi,b.ncodact,b.ncodbas,b.ccodcal,
+                     b.ctipcli,b.ncodage,hasi.ncodbas as nasibas,hrev.nrespue,hrev.cobserv,hrev.dfecvis,
+                     to_char(hasi.dfecmod,'YYYY-MM-DD') as cfecmod,to_char(hasi.dfecmod,'HH24:MI:SS') as chormod,
+                     zon.cnomreg,zon.cnomsuc,zon.cdeszon,b.cfecdes,b.czonpro,hasi.cusumod,hasi.ccodusu,hasi.dfecasi,b.nagepre,b.nmoneva
+                from acheval b
+              left join achasig hasi
+                  on hasi.ncorcli = b.ncorcli
+              left join achagen hagen
+                  on hagen.ncorasi = hasi.ncorasi
+              left join achrevi hrev
+                  on hrev.ncorage = hagen.ncorage
+               left join acdagus pau
+                  on pau.ccodope = upper(trim(hasi.ccodusu))
+              left join actregi zon
+                  on zon.ncodsuc = pau.ncodsuc          
+               where b.ncodact = ps_codact
+                 and b.ncodbas = coalesce(ls_codbas, b.ncodbas)) eva
+      inner join actacti act
+          on act.ncodact = eva.ncodact
+      inner join actbase bas
+          on bas.ncodbas = eva.ncodbas
+         and bas.ncodact = eva.ncodact
+      inner join acmsucu sucup
+          on sucup.ncodsuc = eva.nagepre
+      left join acdatri cal
+          on cal.ncodtab = 5
+         and cal.ctipatr = 'D'
+         and cal.cestado = '1'
+         and cal.ccodatr = eva.ccodcal
+      left join acdagus pau1
+          on pau1.ccodope = upper(trim(eva.cusuing))
+      left join acdagus pau
+          on pau.ccodope = upper(trim(eva.cusuasi))
+      left join acmsucu age
+          on age.ncodsuc = pau.ncodsuc
+      left join acdatri tip
+          on tip.ncodtab = 9
+         and tip.ctipatr = 'D'
+         and tip.ccodatr = eva.ctipcli
+         and tip.cestado = '1'
+      left join acdrepu repu
+          on repu.nrespue = eva.nrespue
+      left join acdprre prre
+          on prre.npreres = repu.npreres
+      left join acdresu resu
+          on resu.ncodres = prre.ncodres
+      left join ACDDESE desem
+          on desem.ncorcli = eva.ncorcli
+      left join acdagus usin
+          on upper(trim(eva.cusuing)) = usin.ccodope
+         and usin.ccodest = '1'
+      left join acmsucu sucing
+          on sucing.ncodsuc = eva.ncodage
+      left join acmoper oping
+          on oping.ccodope = upper(trim(eva.cusuing))
+      left join acdrole rolin
+          on rolin.ncodrol = oping.ccodcar
+      left join actregi regi
+          on regi.ncodsuc = eva.ncodage
+      left join actregi regd
+          on regd.ncodsuc = desem.naosuc
+      left join fsd010 f1 
+            on f1.aocta = desem.naocta
+            and f1.aooper= desem.naooper
+            and f1.AOPERIOD >0
+      left join fst003 f2
+            on f2.modulo=f1.aomod
+      left join fst004 f3
+            on f3.modulo = f1.aomod
+            and f3.totope = f1.aotope
+       where eva.ncodact = ps_codact
+         and eva.ncodbas = coalesce(ls_codbas,eva.nasibas)
+         and trunc(eva.dfeceva) between ls_fecini and ls_fecfin
+         and (repu.nrescod = 4 or repu.nrescod is null);
+      else
+      open lc_liscur for
+      select distinct sucing.cnomsuc,coalesce(eva.cusuing, ' ') as cusuing,oping.cnomope,upper(regi.cnomreg) as reging,
+             upper(regi.cdeszon) as zoning,' ' as DNI,rolin.cdesrol,to_char(eva.dfeceva,'YYYY-MM-DD') as dfecreg,
+             eva.cnumdoc,eva.cclinom,fn_resusuing(eva.npaicli, eva.ntipdoc, eva.cnumdoc,eva.ncorcli,eva.cusuing) as ultresing,
+             coalesce(trim(eva.ctelneg), trim(eva.ctelfij),trim(eva.ctelmov)) as telcli,tip.cdesatr as tipcli,
+             eva.cusuasi as ccodusu,resu.cnomres,to_char(eva.dfecvis,'YYYY-MM-DD') as dfecvis,coalesce(eva.cobserv, ' ') as cobserv,
+             coalesce(desem.ctipcli,' ') as ctipcli,to_char(desem.dfecdes,'YYYY-MM-DD') as dfecdes,upper(regd.cnomreg) as regdes,
+             upper(regd.cdeszon) as zondes,upper(regd.cnomsuc) as sucdes,desem.CNUMDOC,desem.NAOCTA,desem.NAOOPER,
+             desem.NNUMSOL,desem.CNOMANA,
+             case
+             when trim(desem.ncodmon) = '0' then 'SOLES'
+             when trim(desem.ncodmon) = '101' then 'DOLARES'
+             else ''
+             end as cmoneda,
+             desem.ncanimp,desem.cnompro,desem.aotasa,to_char(eva.dfeceva,'HH24:MI:SS') as chorreg,
+             eva.cfecmod,eva.chormod,eva.cnomreg,eva.cnomsuc,eva.cdeszon,eva.cfecdes,eva.czonpro,
+             nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
+             case when eva.ccodusu = 'USRAGECOM' then 'ALEATORIA'
+             else 'EXCEPCIONAL'
+             end as Tiptra, eva.cusumod as Usutra, eva.dfecasi as Fectra,
+             sucup.cnomsuc as Agepre, eva.nmoneva as Monto
+        from (select a.dfeceva,a.cnumdoc,a.cclinom,a.npaicli,a.ntipdoc,a.ncorcli,a.cusuing,a.ctelneg,
+                     a.ctelfij,a.ctelmov,asi.ncorasi,asi.ccodusu as cusuasi,a.ncodact,a.ncodbas,a.ccodcal,
+                     a.ctipcli,a.ncodage,asi.ncodbas as nasibas,rev.nrespue,rev.cobserv,rev.dfecvis,
+                     to_char(asi.dfecmod,'YYYY-MM-DD') as cfecmod,to_char(asi.dfecmod,'HH24:MI:SS') as chormod,
+                     zon.cnomreg,zon.cnomsuc,zon.cdeszon,a.cfecdes,a.czonpro,asi.cusumod,asi.ccodusu,asi.dfecasi,a.nagepre,a.nmoneva
+                 from acdeval a
+              left join acdasig asi
+                  on asi.ncorcli = a.ncorcli 
+              left join acdagen agen
+                  on agen.ncorasi = asi.ncorasi
+              left join acdrevi rev
+                  on rev.ncorage = agen.ncorage
+              left join acdagus pau
+                  on pau.ccodope = upper(trim(asi.ccodusu))
+              left join actregi zon
+                  on zon.ncodsuc = pau.ncodsuc        
+               where a.ncodact = ps_codact
+                 and a.ncodbas = coalesce(ls_codbas, a.ncodbas)
+              union
+              select b.dfeceva,b.cnumdoc,b.cclinom,b.npaicli,b.ntipdoc,b.ncorcli,b.cusuing,b.ctelneg,
+                     b.ctelfij,b.ctelmov,hasi.ncorasi,hasi.ccodusu as cusuasi,b.ncodact,b.ncodbas,b.ccodcal,
+                     b.ctipcli,b.ncodage,hasi.ncodbas as nasibas,hrev.nrespue,hrev.cobserv,hrev.dfecvis,
+                     to_char(hasi.dfecmod,'YYYY-MM-DD') as cfecmod,to_char(hasi.dfecmod,'HH24:MI:SS') as chormod,
+                     zon.cnomreg,zon.cnomsuc,zon.cdeszon,b.cfecdes,b.czonpro,hasi.cusumod,hasi.ccodusu,hasi.dfecasi,b.nagepre,b.nmoneva
+                from acheval b
+              left join achasig hasi
+                  on hasi.ncorcli = b.ncorcli
+              left join achagen hagen
+                  on hagen.ncorasi = hasi.ncorasi
+              left join achrevi hrev
+                  on hrev.ncorage = hagen.ncorage
+              left join acdagus pau
+                  on pau.ccodope = upper(trim(hasi.ccodusu))
+              left join actregi zon
+                  on zon.ncodsuc = pau.ncodsuc               
+               where b.ncodact = ps_codact
+                 and b.ncodbas = coalesce(ls_codbas, b.ncodbas)) eva
+      inner join actacti act
+          on act.ncodact = eva.ncodact
+      inner join actbase bas
+          on bas.ncodbas = eva.ncodbas
+         and bas.ncodact = eva.ncodact
+      inner join acmsucu sucup
+          on sucup.ncodsuc = eva.nagepre
+      left join acdatri cal
+          on cal.ncodtab = 5
+         and cal.ctipatr = 'D'
+         and cal.cestado = '1'
+         and cal.ccodatr = eva.ccodcal
+      left join acdagus pau1
+          on pau1.ccodope = upper(trim(eva.cusuing))
+      left join acdagus pau
+          on pau.ccodope = upper(trim(eva.cusuasi))
+      left join acmsucu age
+          on age.ncodsuc = pau.ncodsuc
+      left join acdatri tip
+          on tip.ncodtab = 9
+         and tip.ctipatr = 'D'
+         and tip.ccodatr = eva.ctipcli
+         and tip.cestado = '1'
+      left join acdrepu repu
+          on repu.nrespue = eva.nrespue
+      left join acdprre prre
+          on prre.npreres = repu.npreres
+      left join acdresu resu
+          on resu.ncodres = prre.ncodres
+      left join ACDDESE desem
+          on desem.ncorcli = eva.ncorcli
+      left join acdagus usin
+          on upper(trim(eva.cusuing)) = usin.ccodope
+         and usin.ccodest = '1'
+      left join acmsucu sucing
+          on sucing.ncodsuc = eva.ncodage
+      left join acmoper oping
+          on oping.ccodope = upper(trim(eva.cusuing))
+      left join acdrole rolin
+          on rolin.ncodrol = oping.ccodcar
+      left join actregi regi
+          on regi.ncodsuc = eva.ncodage
+      left join actregi regd
+          on regd.ncodsuc = desem.naosuc
+      left join fsd010 f1 
+            on f1.aocta = desem.naocta
+            and f1.aooper= desem.naooper
+            and f1.AOPERIOD >0
+      left join fst003 f2
+            on f2.modulo=f1.aomod
+      left join fst004 f3
+            on f3.modulo = f1.aomod
+            and f3.totope = f1.aotope
+       where eva.ncodact = ps_codact
+         and eva.ncodbas = coalesce(ls_codbas,eva.nasibas)
+         and trunc(desem.dfecdes) between ls_fecini and ls_fecfin
+         and (repu.nrescod = 4 or repu.nrescod is null);
+   end if;
+   else
+   if ps_codest = 'F' then
+      open lc_liscur for
+      select distinct sucing.cnomsuc,coalesce(eva.cusuing, ' ') as cusuing,oping.cnomope,
+             upper(regi.cnomreg) as reging,upper(regi.cdeszon) as zoning,' ' as DNI,
+             rolin.cdesrol,to_char(eva.dfeceva, 'YYYY-MM-DD') as dfecreg,eva.cnumdoc,
+             eva.cclinom,fn_resusuing(eva.npaicli, eva.ntipdoc, eva.cnumdoc,
+             eva.ncorcli, eva.cusuing) as ultresing,coalesce(trim(eva.ctelneg), 
+             trim(eva.ctelfij),trim(eva.ctelmov)) as telcli,tip.cdesatr as tipcli,
+             asi.ccodusu,resu.cnomres,to_char(rev.dfecvis, 'YYYY-MM-DD') as dfecvis,
+             coalesce(rev.cobserv, ' ') as cobserv,coalesce(desem.ctipcli, ' ') as ctipcli,
+             to_char(desem.dfecdes, 'YYYY-MM-DD') as dfecdes,upper(regd.cnomreg) as regdes,
+             upper(regd.cdeszon) as zondes,upper(regd.cnomsuc) as sucdes,desem.CNUMDOC,
+             desem.NAOCTA,desem.NAOOPER,desem.NNUMSOL,desem.CNOMANA,
+             case
+             when trim(desem.ncodmon) = '0' then 'SOLES'
+             when trim(desem.ncodmon) = '101' then 'DOLARES'
+             else ''
+             end as cmoneda,
+             desem.ncanimp,desem.cnompro,desem.aotasa, nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
+             case when asi.ccodusu = 'USRAGECOM' then 'ALEATORIA'
+             else 'EXCEPCIONAL'
+             end as Tiptra, asi.cusumod as Usutra, asi.dfecasi as Fectra,
+             sucup.cnomsuc as Agepre, eva.nmoneva as Monto
+        from (select *
+                from acdeval
+               where ncodact = ps_codact
+                 and ncodbas = coalesce(ls_codbas, ncodbas)
+                union
+              select *
+                from acheval
+               where ncodact = ps_codact
+                 and ncodbas = coalesce(ls_codbas, ncodbas)) eva
+      inner join actacti act
+          on act.ncodact = eva.ncodact
+      inner join actbase bas
+          on bas.ncodbas = eva.ncodbas
+         and bas.ncodact = eva.ncodact
+      inner join acmsucu sucup
+          on sucup.ncodsuc = eva.nagepre
+      left join acdatri cal
+          on cal.ncodtab = 5
+         and cal.ctipatr = 'D'
+         and cal.cestado = '1'
+         and cal.ccodatr = eva.ccodcal
+      left join acdasig asi
+          on asi.npaicli = eva.npaicli
+         and asi.ntipdoc = eva.ntipdoc
+         and asi.cnumdoc = eva.cnumdoc
+         and asi.ncodact = eva.ncodact
+      left join acdagus pau1
+          on pau1.ccodope = upper(trim(eva.cusuing))
+      left join acdagus pau
+          on pau.ccodope = upper(trim(asi.ccodusu))
+      left join acmsucu age
+          on age.ncodsuc = pau.ncodsuc
+      left join acdatri tip
+          on tip.ncodtab = 9
+         and tip.ctipatr = 'D'
+         and tip.ccodatr = eva.ctipcli
+         and tip.cestado = '1'
+      left join acdagen agen
+          on agen.npaicli = asi.npaicli
+         and agen.ntipdoc = asi.ntipdoc
+         and agen.cnumdoc = asi.cnumdoc
+         and agen.ncodact = asi.ncodact
+      left join acdrevi rev
+          on rev.npaicli = agen.npaicli
+         and rev.ntipdoc = agen.ntipdoc
+         and rev.cnumdoc = agen.cnumdoc
+         and rev.ncodact = agen.ncodact
+      left join acdrepu repu
+          on repu.nrespue = rev.nrespue
+      left join acdprre prre
+          on prre.npreres = repu.npreres
+      left join acdresu resu
+          on resu.ncodres = prre.ncodres
+      left join ACDDESE desem
+          on desem.ncorcli = eva.ncorcli
+      left join acdagus usin
+          on upper(trim(eva.cusuing)) = usin.ccodope
+         and usin.ccodest = '1'
+      left join acmsucu sucing
+          on sucing.ncodsuc = eva.NCODAGE
+      left join acmoper oping
+          on oping.ccodope = upper(trim(eva.cusuing))
+      left join acdrole rolin
+          on rolin.ncodrol = oping.ccodcar
+      left join actregi regi
+          on regi.ncodsuc = eva.NCODAGE
+      left join actregi regd
+          on regd.ncodsuc = desem.naosuc
+      left join fsd010 f1 
+            on f1.aocta = desem.naocta
+            and f1.aooper= desem.naooper
+            and f1.AOPERIOD >0
+      left join fst003 f2
+            on f2.modulo=f1.aomod
+      left join fst004 f3
+            on f3.modulo = f1.aomod
+            and f3.totope = f1.aotope
+       where eva.ncodact = ps_codact
+         and eva.ncodbas = coalesce(ls_codbas, asi.ncodbas)
+         and trunc(eva.dfeceva) between ls_fecini and ls_fecfin
+         and (repu.nrescod = 4 or repu.nrescod is null);
+   else
+      open lc_liscur for
+      select distinct sucing.cnomsuc,coalesce(eva.cusuing, ' ') as cusuing,oping.cnomope,upper(regi.cnomreg) as reging,
+             upper(regi.cdeszon) as zoning,' ' as DNI,rolin.cdesrol,to_char(eva.dfeceva, 'YYYY-MM-DD') as dfecreg,
+             eva.cnumdoc,eva.cclinom,fn_resusuing(eva.npaicli, eva.ntipdoc, eva.cnumdoc,eva.ncorcli, eva.cusuing) as ultresing,
+             coalesce(trim(eva.ctelneg), trim(eva.ctelfij),trim(eva.ctelmov)) as telcli,tip.cdesatr as tipcli,
+             asi.ccodusu,resu.cnomres,to_char(rev.dfecvis, 'YYYY-MM-DD') as dfecvis,coalesce(rev.cobserv, ' ') as cobserv,
+             coalesce(desem.ctipcli, ' ') as ctipcli,to_char(desem.dfecdes, 'YYYY-MM-DD') as dfecdes,upper(regd.cnomreg) as regdes,
+             upper(regd.cdeszon) as zondes,upper(regd.cnomsuc) as sucdes,desem.CNUMDOC,desem.NAOCTA,desem.NAOOPER,
+             desem.NNUMSOL,desem.CNOMANA,
+              case
+              when trim(desem.ncodmon) = '0' then 'SOLES'
+              when trim(desem.ncodmon) = '101' then 'DOLARES'
+              else ''
+              end as cmoneda,
+              desem.ncanimp,desem.cnompro,desem.aotasa, nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
+             case when asi.ccodusu = 'USRAGECOM' then 'ALEATORIA'
+             else 'EXCEPCIONAL'
+             end as Tiptra, asi.cusumod as Usutra, asi.dfecasi as Fectra,
+             sucup.cnomsuc as Agepre, eva.nmoneva as Monto
+         from (select *
+                 from acdeval
+                where ncodact = ps_codact
+                  and ncodbas = coalesce(ls_codbas, ncodbas)
+                union
+               select *
+                 from acheval
+                where ncodact = ps_codact
+                  and ncodbas = coalesce(ls_codbas, ncodbas)) eva
+      inner join actacti act
+           on act.ncodact = eva.ncodact
+      inner join actbase bas
+           on bas.ncodbas = eva.ncodbas
+          and bas.ncodact = eva.ncodact
+      inner join acmsucu sucup
+           on sucup.ncodsuc = eva.nagepre  
+      left join acdatri cal
+           on cal.ncodtab = 5
+          and cal.ctipatr = 'D'
+          and cal.cestado = '1'
+          and cal.ccodatr = eva.ccodcal
+      left join acdasig asi
+           on asi.npaicli = eva.npaicli
+          and asi.ntipdoc = eva.ntipdoc
+          and asi.cnumdoc = eva.cnumdoc
+          and asi.ncodact = eva.ncodact
+      left join acdagus pau1
+           on pau1.ccodope = upper(trim(eva.cusuing))
+      left join acdagus pau
+           on pau.ccodope = upper(trim(asi.ccodusu))
+      left join acmsucu age
+           on age.ncodsuc = pau.ncodsuc
+      left join acdatri tip
+           on tip.ncodtab = 9
+          and tip.ctipatr = 'D'
+          and tip.ccodatr = eva.ctipcli
+          and tip.cestado = '1'
+      left join acdagen agen
+           on agen.npaicli = asi.npaicli
+          and agen.ntipdoc = asi.ntipdoc
+          and agen.cnumdoc = asi.cnumdoc
+          and agen.ncodact = asi.ncodact
+      left join acdrevi rev
+           on rev.npaicli = agen.npaicli
+          and rev.ntipdoc = agen.ntipdoc
+          and rev.cnumdoc = agen.cnumdoc
+          and rev.ncodact = agen.ncodact
+      left join acdrepu repu
+           on repu.nrespue = rev.nrespue
+      left join acdprre prre
+           on prre.npreres = repu.npreres
+      left join acdresu resu
+           on resu.ncodres = prre.ncodres
+      left join ACDDESE desem
+           on desem.ncorcli = eva.ncorcli
+      left join acdagus usin
+           on upper(trim(eva.cusuing)) = usin.ccodope
+          and usin.ccodest = '1'
+      left join acmsucu sucing
+           on sucing.ncodsuc = eva.NCODAGE
+      left join acmoper oping
+           on oping.ccodope = upper(trim(eva.cusuing))
+      left join acdrole rolin
+           on rolin.ncodrol = oping.ccodcar
+      left join actregi regi
+           on regi.ncodsuc = eva.NCODAGE
+      left join actregi regd
+           on regd.ncodsuc = desem.naosuc
+      left join fsd010 f1 
+            on f1.aocta = desem.naocta
+            and f1.aooper= desem.naooper
+            and f1.AOPERIOD >0
+      left join fst003 f2
+            on f2.modulo=f1.aomod
+      left join fst004 f3
+            on f3.modulo = f1.aomod
+            and f3.totope = f1.aotope
+        where eva.ncodact = ps_codact
+          and eva.ncodbas = coalesce(ls_codbas, asi.ncodbas)
+          and trunc(desem.dfecdes) between ls_fecini and ls_fecfin
+          and (repu.nrescod = 4 or repu.nrescod is null);
+      end if;
+   end if;
+end sp_repseguiclientedet2;
+
 
 end PQ_AGENDA_COMERCIAL;
  /* GOLDENGATE_DDL_REPLICATION */
