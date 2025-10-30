@@ -13,9 +13,9 @@ create or replace package PQ_OP_ASIENTOS_MPLUS is
     -- Fecha de Modificación      : 2025.02.24
     -- Autor de la Modificación   : RCUADROS
     -- Descripción de Modificación: Se adicionaron nuevos campos a la tabla JAQL977
-    -- Fecha de Modificación      : 
-    -- Autor de la Modificación   :  
-    -- Descripción de Modificación:     
+    -- Fecha de Modificación      : 2025.10.24
+    -- Autor de la Modificación   : RCUADROS
+    -- Descripción de Modificación: Se adecuaron los campos del asiento en la JAQL977   
     -- *****************************************************************
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
   procedure sp_ah_trx_ori_off(pn_hcmod    in number,
@@ -495,9 +495,9 @@ create or replace package body PQ_OP_ASIENTOS_MPLUS is
     -- Fecha de Modificación      : 2025.02.24
     -- Autor de la Modificación   : RCUADROS
     -- Descripción de Modificación: Se adicionaron nuevos campos a la tabla JAQL977
-    -- Fecha de Modificación      : 
-    -- Autor de la Modificación   : 
-    -- Descripción de Modificación: 
+    -- Fecha de Modificación      : 2025.10.24
+    -- Autor de la Modificación   : RCUADROS
+    -- Descripción de Modificación: Se adecuaron los campos del asiento en la JAQL977
     -- *****************************************************************
   procedure sp_ah_trx_ori_off(pn_hcmod    in number,
                               pn_htran    in number,
@@ -3629,8 +3629,8 @@ create or replace package body PQ_OP_ASIENTOS_MPLUS is
         lc_jaql97787714,
         ln_jaql97787527,
         LC_JAQL97787716,
-        pn_hcmod, -- RCUADROS 2025.02.24
-        pn_hsucor,
+        pn_hsucor, -- RCUADROS 2025.02.24
+        pn_hcmod,  -- RCUADROS 2025.10.24
         pn_htran,
         pn_hnrel,
         pd_fecpro
