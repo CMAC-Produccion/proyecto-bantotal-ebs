@@ -8,7 +8,7 @@ CREATE OR REPLACE PACKAGE pq_saldos_iniciales IS
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --                                                     
   --procedure sp_extra_garantia_cts ;
   procedure sp_saldos_iniciales_BNJ;
-
+  procedure sp_saldos_iniciales_Act_BNJ ;
 END pq_saldos_iniciales;
 
  
@@ -201,6 +201,237 @@ group by moneda,
   ----------------------------------------------
   ----------------------------------------------
   
+    update LOG_CARGA_BANDEJA
+       set d_fecfin = sysdate,n_sizegb = ln_tamano,c_diffec = lc_diffec
+     where n_nro = ln_nro;
+    commit;
+   EXCEPTION
+       when others then
+            NULL;
+         --p_c_coderr := sqlcode;
+         lc_msgerr := sqlerrm;
+  END;
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  
+  procedure sp_saldos_iniciales_Act_BNJ IS
+  -- ***************************************************************************************
+  -- Llena las bandejas BNJ000 y  BNJ005 con datos de inventario de CREDITOS
+  -- ***************************************************************************************
+    
+       
+  ln_emp number    :=1;
+  ln_cod number    :=105;
+  lc_tippro varchar2(1):='P';
+  lc_rubint varchar2(50);
+  ld_fecini date;
+  --ln_coderr varchar2(100);
+  lc_msgerr varchar2(300);
+  ln_nro log_carga_bandeja.n_nro%type;
+  ln_tamano log_carga_bandeja.n_sizegb%type;
+  lc_diffec log_carga_bandeja.c_diffec%type;
+  --lc_coderr varchar2(50);
+  
+ 
+  --
+  
+  BEGIN
+    /* Datos de control */
+    ld_fecini := sysdate;
+    insert into LOG_CARGA_BANDEJA
+      (n_nro,c_codbdj,c_cptbdj,d_fecini)
+    values
+      (seq_nro_ejecucion.NEXTVAL,
+       'BNJ000',
+       'Saldos Iniciales Consolidados.Activas',
+       ld_fecini);
+    commit;
+    select seq_nro_ejecucion.nextval into ln_nro from dual;
+    ---
+    EXECUTE IMMEDIATE ('TRUNCATE TABLE bandejas.bnj000');
+
+
+  -- Saldos Capital 
+    begin
+        insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                    bnjsdrub,bnjsdmda,bnjsdpap,
+                    BnjSdImp,BnjSdEst)
+        select BnjEmp,105,BnjSuc,a.BnjIm14,BnjMda,0,
+               sum(bnjim12 ),'P'
+          from bnj002 a
+         where a.BnjIm14 > 0 
+         group by BnjEmp,BnjSuc,BnjMda,BnjIm14;
+         commit;
+    exception 
+      when others then 
+        null;
+    end;  
+    -- contra cuenta Saldo capital e interes
+    begin    
+       insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                      bnjsdrub,bnjsdmda,bnjsdpap,
+                      BnjSdImp,BnjSdEst)
+   
+        select BnjEmp,105,BnjSuc,b.rrrubr,BnjMda,0,
+               sum(nvl(a.bnjim12,0)+ nvl(a.bnjim4,0)),'P'
+        from bnj002 a, fsr014 b
+       where a.bnjim12 > 0 
+         and a.BnjIm14 = b.rubro
+         and b.rrcod = 18
+       group by BnjEmp,BnjSuc,BnjMda,b.rrrubr;
+       commit;
+   exception 
+     when others then 
+       null;
+   end; 
+   -- Saldos de Garantia    
+   begin
+     insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                      bnjsdrub,bnjsdmda,bnjsdpap,
+                      BnjSdImp,BnjSdEst)
+   
+        select a.Bnjscemp,105,a.bnjscsuc,b.rrrubr,a.bnjscmda,0,
+               sum(BNJSCSDO /*+  nvl(n_salpag,0)*/),'P'
+          from bnj005 a, fsr014 b
+         where a.BNJSCSDO > 0 
+           and a.BNJSIM14 = b.rubro
+           and b.rrcod = 18
+         group by Bnjscemp,bnjscsuc,bnjscmda,b.rrrubr;
+         commit;
+    exception 
+      when others then 
+        null;
+    end;
+    -- Contracuenta de Garantia
+    begin    
+        insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                      bnjsdrub,bnjsdmda,bnjsdpap,
+                      BnjSdImp,BnjSdEst)
+         select aa.Bnjscemp,105,aa.bnjscsuc,aa.BNJSIM14,aa.bnjscmda,0,
+                sum(BNJSCSDO /*+  nvl(n_salpag,0)*/),'P'
+           from bnj005 aa
+          where aa.BNJSCSDO > 0 
+          group by Bnjscemp,bnjscsuc,bnjscmda,BNJSIM14;
+          commit;
+    exception 
+      when others then 
+        null;
+    end;     
+    -- interes Mora Judicial
+    begin
+        insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                      bnjsdrub,bnjsdmda,bnjsdpap,
+                      BnjSdImp,BnjSdEst)
+   
+        select BnjEmp,105,BnjSuc,b.rrrubr,BnjMda,0,
+               sum(BnjIm7 /*+  nvl(n_salpag,0)*/),'P'
+        from bnj002 a, fsr014 b
+       where a.BnjIm7 > 0 --and (n_saldo +  nvl(n_salpag,0)) > 0--
+         and a.BnjIm14 = b.rubro
+         and b.rrcod = 145
+       group by BnjEmp,BnjSuc,BnjMda,b.rrrubr;
+    exception 
+      when others then 
+        null;
+    end; 
+    -- interes saldo Judicial
+    begin
+        insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                      bnjsdrub,bnjsdmda,bnjsdpap,
+                      BnjSdImp,BnjSdEst)
+   
+        select BnjEmp,105,BnjSuc,b.rrrubr,BnjMda,0,
+               sum(BbjIm6 /*+  nvl(n_salpag,0)*/),'P'
+        from bnj002 a, fsr014 b
+       where a.BbjIm6 > 0 --and (n_saldo +  nvl(n_salpag,0)) > 0--
+         and a.BnjIm14 = b.rubro
+         and b.rrcod = 136
+       group by BnjEmp,BnjSuc,BnjMda,b.rrrubr;
+    exception 
+      when others then 
+        null;
+    end; 
+    -- Contra cuenta de Interes Moratorio Judicial
+    begin 
+        insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                      bnjsdrub,bnjsdmda,bnjsdpap,
+                      BnjSdImp,BnjSdEst)
+          select BnjEmp,105,BnjSuc,c.rrrubr,BnjMda,0,
+                 sum(BbjIm6 /*+  nvl(n_salpag,0)*/),'P'
+            from bnj002 a, fsr014 b, fsr014 c
+           where a.BbjIm6 > 0 
+             and a.BnjIm14 = b.rubro
+             and b.rrcod = 136
+             and b.rrrubr = c.rubro
+             and c.rrcod = 18
+           group by BnjEmp,BnjSuc,BnjMda,c.rrrubr; 
+    exception 
+      when others then 
+        null;
+    end;      
+    -- Contra cuenta de Interes Moratorio Judicial
+    begin 
+        insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                      bnjsdrub,bnjsdmda,bnjsdpap,
+                      BnjSdImp,BnjSdEst)
+          select BnjEmp,105,BnjSuc,c.rrrubr,BnjMda,0,
+                 sum(BnjIm7 /*+  nvl(n_salpag,0)*/),'P'
+            from bnj002 a, fsr014 b, fsr014 c
+           where a.BnjIm7 > 0 
+             and a.BnjIm14 = b.rubro
+             and b.rrcod = 145
+             and b.rrrubr = c.rubro
+             and c.rrcod = 18
+           group by BnjEmp,BnjSuc,BnjMda,c.rrrubr; 
+    exception 
+      when others then 
+        null;
+    end;      
+    -- interes
+    begin 
+       insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                      bnjsdrub,bnjsdmda,bnjsdpap,
+                      BnjSdImp,BnjSdEst)
+   
+        select BnjEmp,105,BnjSuc,b.rrrubr,BnjMda,0,
+               sum(BnjIm4 /*+  nvl(n_salpag,0)*/),'P' 
+          from bnj002 a, fsr014 b
+         where a.BnjIm4 > 0 
+           and a.BnjIm14 = b.rubro
+           and b.rrcod = 148
+         group by BnjEmp,BnjSuc,BnjMda,b.rrrubr;
+     exception 
+       when others then 
+         null;
+     end;
+     -- contra cuenta interes 
+    /* begin 
+       insert into bnj000 (bnjsdcode,bnjsdcodb,bnjsdsuc,
+                      bnjsdrub,bnjsdmda,bnjsdpap,
+                      BnjSdImp,BnjSdEst)
+        select BnjEmp,105,BnjSuc,c.rrrubr,BnjMda,0,
+               sum(BnjIm4 \*+  nvl(n_salpag,0)*\),'P'
+          from bnj002 a, fsr014 b, fsr014 c
+         where a.Bnjsdo > 0
+           and a.BnjIm14 = b.rubro
+           and b.rrcod = 148
+           and b.rrrubr = c.rubro
+           and c.rrcod = 18
+       group by BnjEmp,BnjSuc,BnjMda,c.rrrubr;
+     exception 
+       when dup_val_on_index then
+                 update bnj000
+                    set BnjSdImp  = BnjSdImp + i.devengado
+                  where bnjsdcode = ln_emp
+                    and bnjsdcodb = ln_cod
+                    and bnjsdsuc  = i.bnjsuc
+                    and bnjsdrub  = lc_rubint
+                    and bnjsdmda  = i.moneda
+                    and bnjsdpap  = 0;
+             commit; 
+       when others then 
+         null;
+            
+    end;*/
     update LOG_CARGA_BANDEJA
        set d_fecfin = sysdate,n_sizegb = ln_tamano,c_diffec = lc_diffec
      where n_nro = ln_nro;

@@ -8,20 +8,24 @@ CREATE OR REPLACE FUNCTION FN_CR_REPORTE25_TIPCRE(BNJ096SUC IN NUMBER,
                                                   BNJ096MOD IN NUMBER,
                                                   BNJ096TOP IN NUMBER)
   RETURN NUMBER IS
--- *****************************************************************
-    -- Nombre                     : FUNCION PARA OBTENER EL SALDO DIARIO DE UN RUBRO
-    -- Sistema                    : BANTOTAL
-    -- Módulo                     : Créditos - Activas
-    -- Versión                    : 1.0
-    -- Fecha de Creación          : 22/10/2021
-    -- Autor de Creación          : DRODRIGUEZ
-    -- Uso                        : Función genera reporte 25
-    -- Estado                     : Activo
-    -- Acceso                     : Público
-    -- Fecha de Modificación      : 07/07/2025
-    -- Autor de la Modificación   : MHUAMANIA
-    -- Descripción de Modificación: Correción para dar correcto tipo sbs en el reporte 25
--- *****************************************************************
+  -- *****************************************************************
+  -- Nombre                     : FUNCION PARA OBTENER EL SALDO DIARIO DE UN RUBRO
+  -- Sistema                    : BANTOTAL
+  -- Módulo                     : Créditos - Activas
+  -- Versión                    : 1.0
+  -- Fecha de Creación          : 22/10/2021
+  -- Autor de Creación          : DRODRIGUEZ
+  -- Uso                        : Función genera reporte 25
+  -- Estado                     : Activo
+  -- Acceso                     : Público
+  -- Fecha de Modificación      : 07/07/2025
+  -- Autor de la Modificación   : MHUAMANIA
+  -- Descripción de Modificación: Correción para dar correcto tipo sbs en el reporte 25
+  -- Fecha de Modificación      : 23/10/2025
+  -- Autor de la Modificación   : MHUAMANIA
+  -- Descripción de Modificación: Ajuste para migración credinka
+  
+  -- *****************************************************************
 
   p_c_pas     char(1);
   p_c_tcr     jaql114.jaql114tcrd%type;
@@ -41,7 +45,9 @@ CREATE OR REPLACE FUNCTION FN_CR_REPORTE25_TIPCRE(BNJ096SUC IN NUMBER,
 
   P_N_GPO     NUMBER(2);
   P_N_GPO_AUX NUMBER(2);
-
+  vi_migra    number(9);
+  vi_gpo_c    char(2);
+  vi_activa   number(9);
 BEGIN
 
   lc_codsbs   := null;
@@ -61,6 +67,53 @@ BEGIN
      where ctnro = BNJ096CTA
        and cttfir = 'T';
   
+    BEGIN
+      SELECT TP1NRO1, TP1NRO2
+        INTO vi_migra, vi_activa
+        FROM FST198
+       WHERE tp1cod1 = 11181
+         AND TP1CORR1 = 10;
+    EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+        vi_activa := 0;
+    END;
+    if vi_activa = 1 then
+      BEGIN
+        select JQY470CTIP
+          into vi_gpo_c
+          from jaqy470c
+         where JQY470CCT1 = BNJ096CTA
+           and JQY470COPE = BNJ096OPE
+           and JQY470CNRO = vi_migra
+           and rownum = 1;
+      EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+          vi_gpo_c := NULL;
+      END;
+    
+      if vi_gpo_c is not null then
+        CASE
+          WHEN vi_gpo_c = 7 THEN
+            P_N_GPO := 11;
+          WHEN vi_gpo_c = 8 THEN
+            P_N_GPO := 12;
+          WHEN vi_gpo_c = 9 THEN
+            P_N_GPO := 13;
+          WHEN vi_gpo_c = 10 THEN
+            P_N_GPO := 2;
+          WHEN vi_gpo_c in (11, 12) THEN
+            P_N_GPO := 3;
+          WHEN vi_gpo_c = 13 THEN
+            P_N_GPO := 4;
+          WHEN vi_gpo_c in (3, 1, 2, 5, 4, 6) THEN
+            P_N_GPO := 10;
+          ELSE
+            P_N_GPO := 0;
+        END CASE;
+        return P_N_GPO;
+      end if;
+    end if;
+  
     if BNJ096MOD = 33 then
       P_N_GPO_AUX := PQ_CR_TIPSBS_REPORTE25.fn_cr_reporte25_rubro(VARSUC => BNJ096SUC,
                                                                   VARMDA => BNJ096MDA,
@@ -70,8 +123,8 @@ BEGIN
                                                                   VARSUB => BNJ096SUB,
                                                                   VARMOD => BNJ096MOD,
                                                                   VARTOP => BNJ096TOP);
-      P_N_GPO := P_N_GPO_AUX;
-   else
+      P_N_GPO     := P_N_GPO_AUX;
+    else
       begin
         select c_codsbs
           into lc_codsbs
@@ -98,6 +151,7 @@ BEGIN
     when others then
       cod_tipsbs := null;
   end;
+
   if cod_tipsbs <> 99 and cod_tipsbs is not null then
   
     P_N_GPO := 0;

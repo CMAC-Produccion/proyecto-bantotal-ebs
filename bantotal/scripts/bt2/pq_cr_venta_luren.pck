@@ -2,7 +2,10 @@ create or replace package PQ_CR_VENTA_LUREN is
 
   -- Author  : ABERNEDO
   -- Created : 21/07/2015 05:40:34 p.m.
-  -- Purpose : 
+  -- Purpose :
+    -- Author  : KVALENCIAC
+  -- Created : 23/10/2025
+  -- Purpose : Se ha modificado algunso datos por la migraciónd e credinka.
   
   Procedure Sp_Venta(P_C_DIGITO in varchar2);
   Procedure Sp_PreVenta(pn_nro in number);
@@ -60,10 +63,20 @@ create or replace package PQ_CR_VENTA_LUREN is
                      pn_pap in number,pn_cta in number,pn_ope in number,pn_sbo in number,
                      pn_top in number,ld_fju out date,ld_fca out date,lc_ref out varchar2,
                      ld_fup out date,ln_cpa out number,ld_fde out date,ln_mde out number,
-                     lc_cal out varchar2,ln_ppv out number,lc_dir out varchar2);                        
+                     lc_cal out varchar2,ln_ppv out number,lc_dir out varchar2);  
+  --inicio kvalenciac 22/10/2025
+   procedure sp_cr_ubigeo(pn_pai     in number,
+                         pn_tdo     in number,
+                         pc_doc     in char,
+                         P_C_ubigeo out char);
+
+  procedure sp_cr_DPTO_PROV_DIS(pc_ubigeo in char,
+                                pc_dpto   out char,
+                                pc_prov   out char,
+                                pc_dist   out char);
+  --fin kvalenciac 22/10/2025                      
 end PQ_CR_VENTA_LUREN;
 /
-
 create or replace package body PQ_CR_VENTA_LUREN is
 
 Procedure Sp_PreVenta(pn_nro in number) is
@@ -73,7 +86,7 @@ begin
   begin
   insert into jaqz064_aux(JAQY952NRO,
                           JAQY953EMP,
-                          JAQY953MOD,
+                           JAQY953MOD,
                           JAQY953SUC,
                           JAQY953MDA,
                           JAQY953PAP,
@@ -225,7 +238,7 @@ Procedure Sp_Venta(P_C_DIGITO in varchar2) is
 cursor creditos is
 select * 
   from jaqz064_aux a 
- where to_char(substr(trim(a.jaqy953cta), -1, 1)) = P_C_DIGITO;
+ where to_char(substr(trim(a.jaqy953cta), -1, 1)) = P_C_DIGITO;--20/10/2025 kvalenciac
 
 ln_emp number(3);
 ln_mod number(3);
@@ -236,18 +249,18 @@ ln_cta number(9);
 ln_ope number(9);
 ln_sbo number(3);
 ln_top number(3);           
-lc_dirLeg char(140);
+lc_dirLeg varchar(140);  --20/10/2025 kvalenciac
 lv_refLeg varchar2(140);
-lc_disLeg char(30);
-lc_dirGes char(140);
+lc_disLeg varchar(30); --20/10/2025 kvalenciac
+lc_dirGes varchar(140); --20/10/2025 kvalenciac
 lv_refGes varchar2(140);
-lc_disGes char(30);
-lc_dirNeg char(140);
+lc_disGes varchar(30); --20/10/2025 kvalenciac
+lc_dirNeg varchar(140); --20/10/2025 kvalenciac
 lv_refNeg varchar2(140);
-lc_disNeg char(30);
+lc_disNeg varchar(30); --20/10/2025 kvalenciac
 lv_sbs varchar2(10);           
-lc_actividad char(60);
-lc_categoria char(15);
+lc_actividad varchar(60);--20/10/2025 kvalenciac
+lc_categoria varchar(15); --20/10/2025 kvalenciac
 fec_des date;
 ln_aoimp number(17,2);
 ln_provision number(14,8);
@@ -266,13 +279,16 @@ lc_docaval char(12);
 lc_nomaval char(30);
 lc_dirLegAv char(140);
 lv_refLegAv varchar2(140);
-lc_disLegAv char(30);
-lc_telaval char(20);
-lc_tipSBS char(30);   
+lc_disLegAv varchar(30); --20/10/2025 kvalenciac
+lc_telaval varchar(20); --20/10/2025 kvalenciac
+lc_tipSBS varchar(30); --20/10/2025 kvalenciac   
 ld_fecSBS date;  
 ln_correlativo number(30);
 lc_coderr varchar2(300); 
-
+lc_ubigeo       char(6);--20/10/2025 kvalenciac
+    lc_departamento char(20);--20/10/2025 kvalenciac
+    lc_provincia    char(30);--20/10/2025 kvalenciac
+    lc_distrito     char(30);--20/10/2025 kvalenciac
 
 ld_fju date;
 ld_fca date;
@@ -283,7 +299,7 @@ ld_fde date;
 ln_mde number(18,2);
 lc_cal varchar2(50);
 ln_ppv number(3);
-lc_dir varchar2(100);
+lc_dir varchar2(140);--kvalenciac 16/10/2025
 
   begin
   
@@ -358,7 +374,8 @@ lc_dir varchar2(100);
         PQ_CR_VENTA_LUREN.sp_jaql124(i.jaqy953emp,i.jaqy953mod,i.jaqy953suc,i.jaqy953mda,i.jaqy953pap,
                                  i.jaqy953cta,i.jaqy953ope,i.jaqy953sbo,i.jaqy953top,ld_fju,ld_fca,
                                      lc_ref,ld_fup,ln_cpa,ld_fde,ln_mde,lc_cal,ln_ppv,lc_dir);
-        if lc_dirLeg is null then
+        lc_dirLeg:= trim(lc_dirLeg); --20/10/2025 kvalenciac                           
+        if lc_dirLeg is null or lc_dirLeg='' then  --20/10/2025 kvalenciac 
            lc_dirLeg:=lc_dir;
         end if;
                 
@@ -410,6 +427,22 @@ lc_dir varchar2(100);
         --numero de avales, aval
         PQ_CR_VENTA_LUREN.Sp_cr_Avales(i.instancia,ln_numaval,ln_paiaval,ln_tipaval,lc_docaval,lc_nomaval,
                                  lc_telaval);
+        -- /*KVALENCIAC 22/10/2025 SE AGREGO UBIGEO, DEPARTAMENTO PROVINCIA DISTRITO*/ --
+        
+          --ubigeo
+          --departamento
+          --provincia
+          --distrito
+        
+          pq_cr_venta.sp_cr_ubigeo(i.pepais, i.petdoc, i.pendoc, lc_ubigeo);
+        
+          pq_cr_venta.sp_cr_DPTO_PROV_DIS(lc_ubigeo,
+                                          lc_departamento,
+                                          lc_provincia,
+                                          lc_distrito);
+        
+          -- /*KVALENCIAC 22/10/2025 SE AGREGO UBIGEO, DEPARTAMENTO PROVINCIA DISTRITO*/ --
+          
         --direccion legal aval
         PQ_CR_VENTA_LUREN.Sp_cr_Direcciones(ln_paiaval,ln_tipaval,lc_docaval,1,lc_dirLegAv,lv_refLegAv,lc_disLegAv); 
 
@@ -430,7 +463,11 @@ lc_dir varchar2(100);
                              Jaqz064pro,Jaqz064tic,Jaqz064tod,Jaqz064ref,Jaqz064ful,Jaqz064fij,
                              Jaqz064fic,Jaqz064dia,Jaqz064cuo,Jaqz064nav,Jaqz064paa,Jaqz064tda,
                              Jaqz064nda,Jaqz064noa,Jaqz064dra,Jaqz064rea,Jaqz064dsa,Jaqz064tea,
-                             Jaqz064tsb,Jaqz064cor,Jaqz064gru,jaqz064tit)
+                             Jaqz064tsb,Jaqz064cor,Jaqz064gru,jaqz064tit,
+                             jaqz064ubi,
+             jaqz064dep,
+             jaqz064prv,
+             jaqz064dit)
         values(i.jaqy952nro,i.jaqy953emp,i.jaqy953mod,i.jaqy953suc,i.jaqy953mda,i.jaqy953pap,
                i.jaqy953cta,i.jaqy953ope,i.jaqy953sbo,i.jaqy953top,i.pepais,i.petdoc,i.pendoc,
                i.jaqy953cav,i.jaqy953inv,i.jaqy953mov,i.jaqy953otv,lc_dirLeg,i.telLeg,fec_des,
@@ -439,7 +476,11 @@ lc_dir varchar2(100);
                lv_sbs,lc_categoria,ln_aoimp,ln_provision,i.tipcre,i.totdeu,lc_refinan,ld_fecul,
                ld_fvalJ,ld_fvalC,ln_dia,ln_cuotas,ln_numaval,ln_paiaval,ln_tipaval,lc_docaval,
                lc_nomaval,lc_dirLegAv,lv_refLegAv,lc_disLegAv,lc_telaval,lc_tipSBS,ln_correlativo,
-               i.jaqy952gru,I.TITULAR);
+               i.jaqy952gru,I.TITULAR,
+               lc_ubigeo,
+             lc_departamento,
+             lc_provincia,
+             lc_distrito);
         
            commit;
            
@@ -1509,8 +1550,7 @@ function fn_codsbs (pn_pepais in number,pn_petdoc in number, pc_pendoc in varcha
 is
 lc_codsbs varchar2(10);
 begin
-  begin
-    
+  begin    
     select lpad(to_char(c.bc739sbs),10,0) 
       into lc_codsbs
       from/*bantprod.*/fbc739 c
@@ -1519,8 +1559,16 @@ begin
        and c.bc739ndoc = pc_pendoc
        and c.bc739cta  = pn_cta;
   exception 
-      when others then 
+     when no_data_found then 
+       begin
+         Select substr(JQY470BIDE,11,10)
+         into lc_codsbs
+         from jaqy470b 
+         where jqy470bcta=pn_cta;
+       exception       
+       when others then 
          lc_codsbs := null;
+       end;
   end;   
    return lc_codsbs;
 end fn_codsbs;
@@ -1569,6 +1617,20 @@ begin
       when too_many_rows then
          lc_activi := null;
   end;
+  if (lc_activi is null or rtrim(lc_activi)='') then  --inicio kvalenciac 21/10/2025 
+    begin             
+        select substr(jaql124act,1,60) 
+                           into  lc_activi
+                           from jaql124
+                           where JAQL124PAI= pn_pais
+                           and JAQL124TDC  = pn_tdoc
+                           and JAQL124NDC  = trim(pc_ndoc)
+                           and rownum=1;                         
+     exception
+               when no_data_found then
+                  lc_activi := null;
+     end;
+  end if;--fin kvalenciac 21/10/2025 
    return lc_activi;
 end fn_actividad;
 
@@ -1924,92 +1986,90 @@ begin
      end;
 
 end Sp_cr_fsd010;    
+    
+Procedure Sp_cr_Avales(pn_ins in number,
+                         pn_num out number,
+                         pn_pai out number,
+                         pn_tdo out number,
+                         pc_doc out char,
+                         pc_nom out char,
+                         pc_tel out char) is
+  
+    ln_cta number(9);
+  
+  begin
+  
+    begin
+    
+      select count(a.sng003cta)
+        into pn_num
+        from sng003 a
+       where a.sng001inst = pn_ins
+         and a.sng003pgc = 1;
+    exception
+      when others then
+        pn_num := 0;
+    end;
+  
+    begin
+    
+      select a.sng003cta
+        into ln_cta
+        from sng003 a
+       where a.sng001inst = pn_ins
+         and a.sng003pgc = 1
+         and rownum = 1;
+    exception
+      when others then
+        ln_cta := null;
+    end;
+  
+    begin
+    
+      select a.pepais, a.petdoc, a.pendoc
+        into pn_pai, pn_tdo, pc_doc
+        from fsr008 a
+       where a.pgcod = 1
+         and a.ctnro = ln_cta
+         and a.cttfir = 'T'; --mod@abr 20190107
+    exception
+      when others then
+        pn_pai := null;
+        pn_tdo := null;
+        pc_doc := null;
+    end;
+  
+    begin
+    
+      select a.penom
+        into pc_nom
+        from fsd001 a
+       where a.pepais = pn_pai
+         and a.petdoc = pn_tdo
+         and a.pendoc = pc_doc;
+    exception
+      when others then
+        pc_nom := null;
       
-Procedure Sp_cr_Avales (pn_ins in number,pn_num out number, pn_pai out number,
-                        pn_tdo out number,pc_doc out char,pc_nom out char,
-                        pc_tel out char)is
-
-ln_cta number(9);
-
-
-begin
-       
-      begin
-         
-          select count(a.sng003cta)
-            into pn_num
-            from/*bantprod.*/sng003 a
-           where a.sng001inst = pn_ins
-             and a.sng003pgc  = 1;
-      exception
-           when others then 
-                pn_num := 0;
-      end;
+    end;
+  
+    begin
+    
+      select a.dotelfp
+        into pc_tel
+        from fsr005 a
+       where a.pepais = pn_pai
+         and a.petdoc = pn_tdo
+         and a.pendoc = pc_doc
+         and a.docod = 1
+         and rownum = 1;
+    exception
+      when others then
+        pc_tel := null;
       
-      begin
-         
-          select a.sng003cta
-            into ln_cta
-            from/*bantprod.*/sng003 a
-           where a.sng001inst = pn_ins
-             and a.sng003pgc  = 1
-             and rownum = 1;
-      exception
-           when others then 
-                ln_cta := null;
-      end;
-      
-      begin
-         
-          select a.pepais,
-                 a.petdoc,
-                 a.pendoc
-            into pn_pai,
-                 pn_tdo,
-                 pc_doc
-            from/*bantprod.*/fsr008 a
-           where a.pgcod = 1
-             and a.ctnro = ln_cta;
-      exception
-           when others then 
-                pn_pai := null;
-                pn_tdo := null;
-                pc_doc := null;
-      end;
-      
-      begin
-         
-          select a.penom
-            into pc_nom
-            from/*bantprod.*/fsd001 a
-           where a.pepais = pn_pai
-             and a.petdoc = pn_tdo
-             and a.pendoc = pc_doc;
-      exception
-           when others then 
-                pc_nom := null;
-             
-      end;
-      
-      begin
-         
-          select a.dotelfp
-            into pc_tel
-            from/*bantprod.*/fsr005 a
-           where a.pepais = pn_pai
-             and a.petdoc = pn_tdo
-             and a.pendoc = pc_doc
-             and a.docod = 1
-             and rownum=1;
-      exception
-           when others then 
-                pc_tel := null;
-             
-      end;
-      
-
-end Sp_cr_Avales;    
-
+    end;
+  
+  end Sp_cr_Avales;
 function fn_tipSBS (/*pd_fecpro in date,pn_emp in number,pn_mod in number,pn_suc in number,
                     pn_mda in number,pn_pap in number,*/pn_cta in number,pn_ope in number/*,
                     pn_sbo in number,pn_top in number*/) return char is
@@ -2545,6 +2605,61 @@ begin
           and a.jaql124top = pn_top;
   end;
 end;
+procedure sp_cr_ubigeo(pn_pai     in number,
+                         pn_tdo     in number,
+                         pc_doc     in char,
+                         P_C_ubigeo out char) is
+  
+  begin
+  
+    begin
+      select trim(s.sngc13ugeo)
+        into P_C_ubigeo
+        from sngc13 s, fst071 f
+       where f.fst071pai = s.sngc13pais
+         and f.fst071col = s.sngc13dist
+         and s.sngc13pdoc = pn_pai
+         and s.sngc13tdoc = pn_tdo
+         and s.sngc13ndoc = pc_doc
+         and s.docod = 1
+         and s.sngc13est = 'H'
+         and rownum < 2;
+    
+    exception
+      when others then
+      
+        P_C_ubigeo := ' ';
+      
+    end;
+  
+  end sp_cr_ubigeo;
+
+  procedure sp_cr_DPTO_PROV_DIS(pc_ubigeo in char,
+                                pc_dpto   out char,
+                                pc_prov   out char,
+                                pc_dist   out char) is
+  
+  begin
+  
+    begin
+      select depnom DPTO, locnom PROVINCIA, fst071dsc DISTRITO
+        into pc_dpto, pc_prov, pc_dist
+        from fst068 f, fst070 h, fst071 g
+       where h.pais = f.pais
+         and h.depcod = f.depcod
+         and h.loccod = g.fst071loc
+         and f.pais = g.fst071pai
+         and f.depcod = g.fst071dpt
+         and g.fst071col = pc_ubigeo;
+    exception
+      when others then
+        pc_dpto := ' ';
+        pc_prov := ' ';
+        pc_dist := ' ';
+    end;
+  
+  end sp_cr_DPTO_PROV_DIS;
+
 /*Procedure Sp_fechaUltimoPag(pn_cta in number,pn_ope in number,pd_fec out date)is
 
 begin
@@ -2687,4 +2802,3 @@ begin
 end Sp_fechaUltimoPag;*/
 end PQ_CR_VENTA_LUREN;
 /
-
