@@ -78,6 +78,10 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
   -- Fecha de Modificación      : 14/03/2025
   -- Autor de la Modificación   : FPINTO
   -- Descripción de Modificación: Se añade variable nueva para empresas online estandar 
+  -- Fecha de Modificación      : 13/10/2025
+  -- Autor de la Modificación   : Danny Manrique
+  -- Descripción de Modificación: Se añade canales de P51 Y app agentes 
+  
   -- *****************************************************************
 
   procedure sp_enviar_correo(p_c_CodEnt number,
@@ -778,6 +782,10 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
                           ' 53'
                          when p.jaql515cotca = 4 then
                           ' 14' 
+                         when p.jaql515cotca = 9 then
+                          ' 53' 
+                         when p.jaql515cotca = 10 then
+                          ' 53' 
                        end || ',' || ' ' || ',' || to_char(p.jaql515femov, 'YYYYMMDD') || ',' ||
                     substr(p.jaql515homov,1,2)|| substr(p.jaql515homov,4,2)|| 
                     substr(p.jaql515homov,7,2) || ','
