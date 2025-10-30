@@ -694,7 +694,7 @@ function fn_obtanalista(ps_dni varchar2) return varchar2;
 procedure sp_repseguiclientedetCRM(ps_fecini varchar2,ps_fecfin varchar2,
                                 ps_codact varchar2,ps_codbas varchar2,
                                 lc_liscur out types.cursor_type);
---sgamero - 09/10/2025                                
+--sgamero - 06/10/2025                                
 procedure sp_repseguiclientedet2(ps_fecini varchar2,ps_fecfin varchar2,
                                 ps_codact varchar2,ps_codbas varchar2,
                                 ps_codest varchar2,ps_tiprep varchar2,
@@ -19932,9 +19932,10 @@ procedure sp_repseguiclientedetCRM(ps_fecini varchar2,ps_fecfin varchar2,
 -- Autor de Creación          : Frank Pinto Carpio
 -- Uso                        : Reporte de Seguimiento de Clientes detallado para CRM, solo Valorres F/F
 -- Estado                     : Activo
--- Fecha Modificación         : 
--- Autor de Modificación      : 
--- Descripcion Modificacion   : 
+-- Fecha Modificación         : 20/10/2025
+-- Autor de Modificación      : Sergio Gamero
+-- Descripcion Modificacion   : Se agrega monto de registro, agencia de preferencia, usuario, 
+--                              fecha y tipo de transferencia.
 -- Fecha Modificación         : 
 -- Autor de Modificación      : 
 -- Descripcion Modificacion   : 
@@ -19980,7 +19981,10 @@ begin
              when trim(desem.ncodmon) = '101' then 'DOLARES'
              else ''
              end as cmoneda,
-             desem.ncanimp,desem.cnompro,desem.aotasa, nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe
+             desem.ncanimp,desem.cnompro,desem.aotasa, nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
+
+             nvl(sub_tran.tiptran, '') as Tiptra, nvl(sub_tran.canaini, '') as Usutra,
+             sub_tran.dfectra as Fectra, eva.nagepre as Agepre, eva.nmoneva as Monto
         from (select *
                 from acdeval
                where ncodact = ps_codact
@@ -20056,6 +20060,35 @@ begin
       left join fst004 f3
             on f3.modulo = f1.aomod
             and f3.totope = f1.aotope
+      --
+      left join (
+             select 
+                 cnumdoc,
+                 canaini,
+                 canafin,
+                 dfectra,
+                 dfeceva,
+                 case
+                     when canafin is null then 'SIN TRANSFERIR'
+                     when canafin = 'USRAGECOM' then 'ALEATORIA'
+                     else 'EXCEPCIONAL'
+                 end as tiptran
+             from (
+                 select
+                     eva1.cnumdoc,
+                     tran.canaini,
+                     tran.canafin,
+                     tran.dfectra,
+                     tran.dfeceva,
+                     row_number() over (partition by eva1.cnumdoc order by tran.dfectra desc nulls last) as rn 
+                 from agecom.acdeval eva1 
+                 left join agecom.acdtran tran 
+                     on eva1.cnumdoc = tran.cnumdoc
+                     and tran.dfeceva = eva1.dfeceva
+             )
+             where rn = 1
+      ) sub_tran on sub_tran.cnumdoc = eva.cnumdoc
+      --
        where eva.ncodact = ps_codact
          and eva.ncodbas = coalesce(ls_codbas, asi.ncodbas)
          and trunc(eva.dfeceva) between ls_fecini and ls_fecfin
@@ -20088,6 +20121,9 @@ procedure sp_repseguiclientedet2(ps_fecini varchar2,ps_fecfin varchar2,
 -- Autor de Modificación      : Sergio Gamero
 -- Descripcion Modificacion   : Se aumenta monto de registro agencia de preferencia, usuario, 
 --                              fecha y tipo de transferencia.
+-- Fecha Modificacion         : 20/10/2025
+-- Descripcion Modificacion   : Se agrega tipo de transferencia 'SIN TRANSFERIR'
+-- Autor de Modificación      : Sergio Gamero
 -- ***************************************************************** 
 ls_codusu varchar2(10);
 ls_fecini date;
@@ -20126,10 +20162,10 @@ begin
              desem.ncanimp,desem.cnompro,desem.aotasa,to_char(eva.dfeceva,'HH24:MI:SS') as chorreg,
              eva.cfecmod,eva.chormod,eva.cnomreg,eva.cnomsuc,eva.cdeszon,eva.cfecdes,eva.czonpro,
              nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
-             case when eva.ccodusu = 'USRAGECOM' then 'ALEATORIA'
-             else 'EXCEPCIONAL'
-             end as Tiptra, eva.cusumod as Usutra, eva.dfecasi as Fectra,
-             sucup.cnomsuc as Agepre, eva.nmoneva as Monto
+             
+             sub_tran.tiptran as Tiptra, nvl(sub_tran.canaini, ' ') as Usutra,
+             sub_tran.dfectra as Fectra, eva.nagepre as Agepre, eva.nmoneva as Monto
+      
         from (select a.dfeceva,a.cnumdoc,a.cclinom,a.npaicli,a.ntipdoc,a.ncorcli,a.cusuing,a.ctelneg,
                      a.ctelfij,a.ctelmov,asi.ncorasi,asi.ccodusu as cusuasi,a.ncodact,a.ncodbas,a.ccodcal,
                      a.ctipcli,a.ncodage,asi.ncodbas as nasibas,rev.nrespue,rev.cobserv,rev.dfecvis,
@@ -20166,7 +20202,7 @@ begin
               left join actregi zon
                   on zon.ncodsuc = pau.ncodsuc          
                where b.ncodact = ps_codact
-                 and b.ncodbas = coalesce(ls_codbas, b.ncodbas)) eva
+                 and b.ncodbas = coalesce(ls_codbas, b.ncodbas)) eva      
       inner join actacti act
           on act.ncodact = eva.ncodact
       inner join actbase bas
@@ -20219,7 +20255,34 @@ begin
             on f2.modulo=f1.aomod
       left join fst004 f3
             on f3.modulo = f1.aomod
-            and f3.totope = f1.aotope
+            and f3.totope = f1.aotope 
+     --       
+     left join (
+             select 
+                 cnumdoc,
+                 canaini,
+                 canafin,
+                 dfectra,
+                 case
+                     when canafin is null then 'SIN TRANSFERIR'
+                     when canafin = 'USRAGECOM' then 'ALEATORIA'
+                     else 'EXCEPCIONAL'
+                 end as tiptran
+             from (
+                 select
+                     eva1.cnumdoc,
+                     tran.canaini,
+                     tran.canafin,
+                     tran.dfectra,
+                     row_number() over (partition by eva1.cnumdoc order by tran.dfectra desc nulls last) as rn 
+                 from agecom.acdeval eva1 
+                 left join agecom.acdtran tran 
+                     on eva1.cnumdoc = tran.cnumdoc
+                     and tran.dfeceva = eva1.dfeceva
+             )
+             where rn = 1
+      ) sub_tran on sub_tran.cnumdoc = eva.cnumdoc
+      --
        where eva.ncodact = ps_codact
          and eva.ncodbas = coalesce(ls_codbas,eva.nasibas)
          and trunc(eva.dfeceva) between ls_fecini and ls_fecfin
@@ -20242,10 +20305,10 @@ begin
              desem.ncanimp,desem.cnompro,desem.aotasa,to_char(eva.dfeceva,'HH24:MI:SS') as chorreg,
              eva.cfecmod,eva.chormod,eva.cnomreg,eva.cnomsuc,eva.cdeszon,eva.cfecdes,eva.czonpro,
              nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
-             case when eva.ccodusu = 'USRAGECOM' then 'ALEATORIA'
-             else 'EXCEPCIONAL'
-             end as Tiptra, eva.cusumod as Usutra, eva.dfecasi as Fectra,
-             sucup.cnomsuc as Agepre, eva.nmoneva as Monto
+             
+             sub_tran.tiptran as Tiptra, nvl(sub_tran.canaini, ' ') as Usutra,
+             sub_tran.dfectra as Fectra, eva.nagepre as Agepre, eva.nmoneva as Monto
+             
         from (select a.dfeceva,a.cnumdoc,a.cclinom,a.npaicli,a.ntipdoc,a.ncorcli,a.cusuing,a.ctelneg,
                      a.ctelfij,a.ctelmov,asi.ncorasi,asi.ccodusu as cusuasi,a.ncodact,a.ncodbas,a.ccodcal,
                      a.ctipcli,a.ncodage,asi.ncodbas as nasibas,rev.nrespue,rev.cobserv,rev.dfecvis,
@@ -20335,7 +20398,34 @@ begin
             on f2.modulo=f1.aomod
       left join fst004 f3
             on f3.modulo = f1.aomod
-            and f3.totope = f1.aotope
+            and f3.totope = f1.aotope  
+      --
+      left join (
+           select 
+                 cnumdoc,
+                 canaini,
+                 canafin,
+                 dfectra,
+                 case
+                     when canafin is null then 'SIN TRANSFERIR'
+                     when canafin = 'USRAGECOM' then 'ALEATORIA'
+                     else 'EXCEPCIONAL'
+                 end as tiptran
+           from (
+                 select
+                     eva1.cnumdoc,
+                     tran.canaini,
+                     tran.canafin,
+                     tran.dfectra,
+                     row_number() over (partition by eva1.cnumdoc order by tran.dfectra desc nulls last) as rn 
+                 from agecom.acdeval eva1 
+                 left join agecom.acdtran tran 
+                 on eva1.cnumdoc = tran.cnumdoc
+                 and tran.dfeceva = eva1.dfeceva
+             )
+             where rn = 1
+      ) sub_tran on sub_tran.cnumdoc = eva.cnumdoc
+      --
        where eva.ncodact = ps_codact
          and eva.ncodbas = coalesce(ls_codbas,eva.nasibas)
          and trunc(desem.dfecdes) between ls_fecini and ls_fecfin
@@ -20361,10 +20451,10 @@ begin
              else ''
              end as cmoneda,
              desem.ncanimp,desem.cnompro,desem.aotasa, nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
-             case when asi.ccodusu = 'USRAGECOM' then 'ALEATORIA'
-             else 'EXCEPCIONAL'
-             end as Tiptra, asi.cusumod as Usutra, asi.dfecasi as Fectra,
-             sucup.cnomsuc as Agepre, eva.nmoneva as Monto
+             
+             sub_tran.tiptran as Tiptra, nvl(sub_tran.canaini, ' ') as Usutra,
+             sub_tran.dfectra as Fectra, eva.nagepre as Agepre, eva.nmoneva as Monto
+
         from (select *
                 from acdeval
                where ncodact = ps_codact
@@ -20442,6 +20532,33 @@ begin
       left join fst004 f3
             on f3.modulo = f1.aomod
             and f3.totope = f1.aotope
+      --
+      left join (
+           select 
+                 cnumdoc,
+                 canaini,
+                 canafin,
+                 dfectra,
+                 case
+                     when canafin is null then 'SIN TRANSFERIR'
+                     when canafin = 'USRAGECOM' then 'ALEATORIA'
+                     else 'EXCEPCIONAL'
+                 end as tiptran
+           from (
+                 select
+                     eva1.cnumdoc,
+                     tran.canaini,
+                     tran.canafin,
+                     tran.dfectra,
+                     row_number() over (partition by eva1.cnumdoc order by tran.dfectra desc nulls last) as rn 
+                 from agecom.acdeval eva1 
+                 left join agecom.acdtran tran 
+                 on eva1.cnumdoc = tran.cnumdoc
+                 and tran.dfeceva = eva1.dfeceva
+             )
+             where rn = 1
+      ) sub_tran on sub_tran.cnumdoc = eva.cnumdoc 
+      --
        where eva.ncodact = ps_codact
          and eva.ncodbas = coalesce(ls_codbas, asi.ncodbas)
          and trunc(eva.dfeceva) between ls_fecini and ls_fecfin
@@ -20462,10 +20579,10 @@ begin
               else ''
               end as cmoneda,
               desem.ncanimp,desem.cnompro,desem.aotasa, nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
-             case when asi.ccodusu = 'USRAGECOM' then 'ALEATORIA'
-             else 'EXCEPCIONAL'
-             end as Tiptra, asi.cusumod as Usutra, asi.dfecasi as Fectra,
-             sucup.cnomsuc as Agepre, eva.nmoneva as Monto
+             
+             sub_tran.tiptran as Tiptra, nvl(sub_tran.canaini, ' ') as Usutra,
+             sub_tran.dfectra as Fectra, eva.nagepre as Agepre, eva.nmoneva as Monto
+
          from (select *
                  from acdeval
                 where ncodact = ps_codact
@@ -20543,6 +20660,33 @@ begin
       left join fst004 f3
             on f3.modulo = f1.aomod
             and f3.totope = f1.aotope
+      --
+      left join (
+           select 
+                 cnumdoc,
+                 canaini,
+                 canafin,
+                 dfectra,
+                 case
+                     when canafin is null then 'SIN TRANSFERIR'
+                     when canafin = 'USRAGECOM' then 'ALEATORIA'
+                     else 'EXCEPCIONAL'
+                 end as tiptran
+           from (
+                 select
+                     eva1.cnumdoc,
+                     tran.canaini,
+                     tran.canafin,
+                     tran.dfectra,
+                     row_number() over (partition by eva1.cnumdoc order by tran.dfectra desc nulls last) as rn 
+                 from agecom.acdeval eva1 
+                 left join agecom.acdtran tran 
+                 on eva1.cnumdoc = tran.cnumdoc
+                 and tran.dfeceva = eva1.dfeceva
+             )
+             where rn = 1
+      ) sub_tran on sub_tran.cnumdoc = eva.cnumdoc  
+      --            
         where eva.ncodact = ps_codact
           and eva.ncodbas = coalesce(ls_codbas, asi.ncodbas)
           and trunc(desem.dfecdes) between ls_fecini and ls_fecfin
