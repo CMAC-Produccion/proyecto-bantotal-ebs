@@ -20055,6 +20055,7 @@ begin
             on f1.aocta = desem.naocta
             and f1.aooper= desem.naooper
             and f1.AOPERIOD >0
+            and f1.pgcod = 1
       left join fst003 f2
             on f2.modulo=f1.aomod
       left join fst004 f3
@@ -20124,6 +20125,9 @@ procedure sp_repseguiclientedet2(ps_fecini varchar2,ps_fecfin varchar2,
 -- Fecha Modificacion         : 20/10/2025
 -- Descripcion Modificacion   : Se agrega tipo de transferencia 'SIN TRANSFERIR'
 -- Autor de Modificación      : Sergio Gamero
+-- Fecha Modificacion         : 23/10/2025
+-- Descripcion Modificacion   : Se agrega descripcion de agencia
+-- Autor de Modificación      : Sergio Gamero
 -- ***************************************************************** 
 ls_codusu varchar2(10);
 ls_fecini date;
@@ -20164,7 +20168,7 @@ begin
              nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
              
              sub_tran.tiptran as Tiptra, nvl(sub_tran.canaini, ' ') as Usutra,
-             sub_tran.dfectra as Fectra, eva.nagepre as Agepre, eva.nmoneva as Monto
+             sub_tran.dfectra as Fectra, sucup.cnomsuc as Agepre, eva.nmoneva as Monto
       
         from (select a.dfeceva,a.cnumdoc,a.cclinom,a.npaicli,a.ntipdoc,a.ncorcli,a.cusuing,a.ctelneg,
                      a.ctelfij,a.ctelmov,asi.ncorasi,asi.ccodusu as cusuasi,a.ncodact,a.ncodbas,a.ccodcal,
@@ -20251,6 +20255,7 @@ begin
             on f1.aocta = desem.naocta
             and f1.aooper= desem.naooper
             and f1.AOPERIOD >0
+            and f1.pgcod = 1
       left join fst003 f2
             on f2.modulo=f1.aomod
       left join fst004 f3
@@ -20307,7 +20312,7 @@ begin
              nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
              
              sub_tran.tiptran as Tiptra, nvl(sub_tran.canaini, ' ') as Usutra,
-             sub_tran.dfectra as Fectra, eva.nagepre as Agepre, eva.nmoneva as Monto
+             sub_tran.dfectra as Fectra, sucup.cnomsuc as Agepre, eva.nmoneva as Monto
              
         from (select a.dfeceva,a.cnumdoc,a.cclinom,a.npaicli,a.ntipdoc,a.ncorcli,a.cusuing,a.ctelneg,
                      a.ctelfij,a.ctelmov,asi.ncorasi,asi.ccodusu as cusuasi,a.ncodact,a.ncodbas,a.ccodcal,
@@ -20394,6 +20399,7 @@ begin
             on f1.aocta = desem.naocta
             and f1.aooper= desem.naooper
             and f1.AOPERIOD >0
+            and f1.pgcod = 1
       left join fst003 f2
             on f2.modulo=f1.aomod
       left join fst004 f3
@@ -20453,7 +20459,7 @@ begin
              desem.ncanimp,desem.cnompro,desem.aotasa, nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
              
              sub_tran.tiptran as Tiptra, nvl(sub_tran.canaini, ' ') as Usutra,
-             sub_tran.dfectra as Fectra, eva.nagepre as Agepre, eva.nmoneva as Monto
+             sub_tran.dfectra as Fectra, sucup.cnomsuc as Agepre, eva.nmoneva as Monto
 
         from (select *
                 from acdeval
@@ -20527,6 +20533,7 @@ begin
             on f1.aocta = desem.naocta
             and f1.aooper= desem.naooper
             and f1.AOPERIOD >0
+            and f1.pgcod = 1
       left join fst003 f2
             on f2.modulo=f1.aomod
       left join fst004 f3
@@ -20581,7 +20588,7 @@ begin
               desem.ncanimp,desem.cnompro,desem.aotasa, nvl(f2.mdnom,' ') as modulo, nvl(f3.tonom,' ') as TipOpe,
              
              sub_tran.tiptran as Tiptra, nvl(sub_tran.canaini, ' ') as Usutra,
-             sub_tran.dfectra as Fectra, eva.nagepre as Agepre, eva.nmoneva as Monto
+             sub_tran.dfectra as Fectra, sucup.cnomsuc as Agepre, eva.nmoneva as Monto
 
          from (select *
                  from acdeval
@@ -20655,6 +20662,7 @@ begin
             on f1.aocta = desem.naocta
             and f1.aooper= desem.naooper
             and f1.AOPERIOD >0
+            and f1.pgcod = 1
       left join fst003 f2
             on f2.modulo=f1.aomod
       left join fst004 f3
