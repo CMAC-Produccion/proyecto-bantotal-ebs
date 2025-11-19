@@ -11,9 +11,9 @@
   -- ACCESO                      : PUBLICO
   -- Purpose                     : REPORTE DE GARANTIAS REALES INSCRITAS
   -----------------------------------------------------------------------------------------
-  -- FECHA DE MODIFICACION       : 
-  -- AUTOR DE LA MODIFICACION    : 
-  -- DESCRIPCION DE MODIFICACION : 
+  -- FECHA DE MODIFICACION       : 13/11/2025
+  -- AUTOR DE LA MODIFICACION    : JALVAROH
+  -- DESCRIPCION DE MODIFICACION : AGREGAMOS PROCEDIMIENTO PARA LA CALIFICACION DE CREDITOS
   -- ************************************************************************************** 
 
   PROCEDURE SP_CR_LISTA_GARANTIA(VI_FECHA    IN DATE,
@@ -146,7 +146,8 @@
                                  
                                  VI_AQPD722FCHA  IN DATE,
                                  VI_AQPD722HRAA  IN VARCHAR2,
-                                 VI_AQPD722USUA2 IN VARCHAR);
+                                 VI_AQPD722USUA2 IN VARCHAR,
+                                 VI_AQPD722DCALF IN VARCHAR2);
   ----------------------------------------------------------------------
   PROCEDURE SP_CR_FECHA_MAXIMA(VI_FECHA OUT DATE);
   ----------------------------------------------------------------------
@@ -215,6 +216,17 @@
                                  VI_AOSBOP IN NUMBER,
                                  VI_AOTOPE IN NUMBER,
                                  VI_sgcod  OUT NUMBER);
+  -------------------------------------------------------------------------
+  PROCEDURE SP_CR_CALIFICACION_CREDITO(VI_PGCOD  IN NUMBER,
+                                       VI_AOMOD  IN NUMBER,
+                                       VI_AOSUC  IN NUMBER,
+                                       VI_AOMDA  IN NUMBER,
+                                       VI_AOPAP  IN NUMBER,
+                                       VI_AOCTA  IN NUMBER,
+                                       VI_AOOPER IN NUMBER,
+                                       VI_AOSBOP IN NUMBER,
+                                       VI_AOTOPE IN NUMBER,
+                                       VI_DCALF  OUT VARCHAR2);
 
 end PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS;
 /
@@ -231,9 +243,9 @@ create or replace package body PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS is
   -- ACCESO                      : PUBLICO
   -- Purpose                     : REPORTE DE GARANTIAS REALES INSCRITAS
   -----------------------------------------------------------------------------------------
-  -- FECHA DE MODIFICACION       : 
-  -- AUTOR DE LA MODIFICACION    : 
-  -- DESCRIPCION DE MODIFICACION : 
+  -- FECHA DE MODIFICACION       : 13/11/2025
+  -- AUTOR DE LA MODIFICACION    : JALVAROH
+  -- DESCRIPCION DE MODIFICACION : AGREGAMOS PROCEDIMIENTO PARA LA CALIFICACION DE CREDITOS
   -- ************************************************************************************** 
 
   PROCEDURE SP_CR_LISTA_GARANTIA(VI_FECHA    IN DATE,
@@ -302,6 +314,7 @@ create or replace package body PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS is
     VI_AQPD722VALR      NUMBER(17, 2);
     VI_AQPD722PSBS      VARCHAR2(10);
     VI_AQPD722POLM      NUMBER(9);
+    VI_DCALF            VARCHAR2(50);
   
     VI_HORA VARCHAR2(10);
   
@@ -647,6 +660,19 @@ create or replace package body PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS is
                                                                   VI_SALDO  => VI_SALDO_C,
                                                                   VI_SCRUB  => VI_SCRUB_C);
           
+            -- Obtenemos la calificacion de credito
+          
+            PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS.SP_CR_CALIFICACION_CREDITO(VI_PGCOD  => vi_r1cod,
+                                                                                VI_AOMOD  => vi_r1mod,
+                                                                                VI_AOSUC  => vi_r1suc,
+                                                                                VI_AOMDA  => vi_r1mda,
+                                                                                VI_AOPAP  => vi_r1pap,
+                                                                                VI_AOCTA  => vi_r1cta,
+                                                                                VI_AOOPER => vi_r1oper,
+                                                                                VI_AOSBOP => vi_r1sbop,
+                                                                                VI_AOTOPE => vi_r1tope,
+                                                                                VI_DCALF  => VI_DCALF);
+          
             -- obtenemso el saldo por la clave de garantia r2                                                  
             PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS.SP_CR_FSD011(vi_r1cod  => f.pgcod,
                                                                   vi_r1suc  => f.SCSUC,
@@ -956,7 +982,8 @@ create or replace package body PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS is
                                                                             VI_AQPD722PSBS   => VI_AQPD722PSBS,
                                                                             VI_AQPD722FCHA   => VI_FECHA,
                                                                             VI_AQPD722HRAA   => VI_HORA,
-                                                                            VI_AQPD722USUA2  => VI_USUARIO);
+                                                                            VI_AQPD722USUA2  => VI_USUARIO,
+                                                                            VI_AQPD722DCALF  => VI_DCALF);
             
             EXCEPTION
               WHEN OTHERS THEN
@@ -1319,7 +1346,8 @@ create or replace package body PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS is
                                  
                                  VI_AQPD722FCHA  IN DATE,
                                  VI_AQPD722HRAA  IN VARCHAR2,
-                                 VI_AQPD722USUA2 IN VARCHAR) IS
+                                 VI_AQPD722USUA2 IN VARCHAR,
+                                 VI_AQPD722DCALF IN VARCHAR2) IS
   
   BEGIN
   
@@ -1393,7 +1421,8 @@ create or replace package body PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS is
        
        AQPD722FCHA,
        AQPD722HRAA,
-       AQPD722USUA2
+       AQPD722USUA2,
+       AQPD722DCALF
        
        )
     VALUES
@@ -1466,7 +1495,8 @@ create or replace package body PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS is
        
        VI_AQPD722FCHA,
        VI_AQPD722HRAA,
-       VI_AQPD722USUA2);
+       VI_AQPD722USUA2,
+       VI_AQPD722DCALF);
   
     COMMIT;
     -- DBMS_OUTPUT.PUT_LINE('Registro insertado exitosamente en AQPD722.');
@@ -1765,6 +1795,40 @@ create or replace package body PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS is
     END;
   
   END SP_CR_POLIZA_MULTIRR;
+
+  PROCEDURE SP_CR_CALIFICACION_CREDITO(VI_PGCOD  IN NUMBER,
+                                       VI_AOMOD  IN NUMBER,
+                                       VI_AOSUC  IN NUMBER,
+                                       VI_AOMDA  IN NUMBER,
+                                       VI_AOPAP  IN NUMBER,
+                                       VI_AOCTA  IN NUMBER,
+                                       VI_AOOPER IN NUMBER,
+                                       VI_AOSBOP IN NUMBER,
+                                       VI_AOTOPE IN NUMBER,
+                                       VI_DCALF  OUT VARCHAR2) IS
+  
+  BEGIN
+  
+    BEGIN
+      SELECT jaql964dcalf
+        INTO VI_DCALF
+        FROM jaql964
+       WHERE jaql964pgcod = VI_PGCOD
+         AND jaql964mod = VI_AOMOD
+         AND jaql964suc = VI_AOSUC
+         AND jaql964mda = VI_AOMDA
+         AND jaql964pap = VI_AOPAP
+         AND jaql964cta = VI_AOCTA
+         AND jaql964ope = VI_AOOPER
+         AND jaql964sob = VI_AOSBOP
+         AND jaql964top = VI_AOTOPE;
+    
+    EXCEPTION
+      WHEN OTHERS THEN
+        VI_DCALF := null;
+    END;
+  
+  END SP_CR_CALIFICACION_CREDITO;
 
 end PQ_CR_REPORTE_GARANTIAS_REALES_INSCRITAS;
 /
