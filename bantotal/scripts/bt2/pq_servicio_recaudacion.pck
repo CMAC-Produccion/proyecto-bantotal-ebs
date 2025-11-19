@@ -81,7 +81,9 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
   -- Fecha de Modificación      : 13/10/2025
   -- Autor de la Modificación   : Danny Manrique
   -- Descripción de Modificación: Se añade canales de P51 Y app agentes 
-  
+  -- Fecha de Modificación      : 13/11/2025
+  -- Autor de la Modificación   : FPINTO
+  -- Descripción de Modificación: Se corrige Movistar canal 3  
   -- *****************************************************************
 
   procedure sp_enviar_correo(p_c_CodEnt number,
@@ -696,7 +698,7 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
        --14/03/2025 se comenta listado de empresas y se cambia a una variable
        --p_c_CodEnt in (414, 413, 466, 470, 686, 690,691,700, 706) then --ESTANDAR --fpinto 21/04/2022 se aumenta empresas LCC a formato estandar
                                                          --fpinto 22/09/2023 se aumenta COMBOPLAY  19/03/2024 UPEU fpinto 24/06/2024 se aumenta CBPPUNO y SJBDELASALLE 
-                                                         --fpinto 27/11/2024 colegio Buen Pastor 
+                                                         --fpinto 27/11/2024 colegio Buen Pastor                                                 
         for e in (
           select 'T' ||','|| p_c_CodEnt ||','|| to_char(p_c_FecEnv, 'YYYY/MM/DD')||','|| count(1) ||','|| trim(to_char(sum(b.jaql516mocob), '9999999.99'))||',' fila
             from jaql515 a
@@ -721,7 +723,7 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
         loop
             select e.fila into rec from dual;
             pipe row (rec);
-        end loop;               
+        end loop;                     
      end if;	
     --//
     If p_c_CodEnt in (22, 14) then
@@ -776,7 +778,7 @@ create or replace package body PQ_SERVICIO_RECAUDACION is
                     ' ' || ',' || case
                          when p.jaql515cotca = 1 then
                           ' 90'
-                         when p.jaql515cotca = 7 then
+                         when p.jaql515cotca = 3 then --se corrige fpinto 13/11/2025
                           ' 15'
                          when p.jaql515cotca = 6 then
                           ' 53'
