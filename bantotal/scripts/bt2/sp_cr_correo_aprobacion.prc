@@ -12,6 +12,7 @@ create or replace procedure SP_CR_CORREO_APROBACION(P_N_PGCOD  IN number,
                                                     P_D_PGFAPE IN date,
                                                     p_n_coderr out number,
                                                     p_c_msgerr out varchar2) is
+  -- ***************************************************************** 
   -- Author  : HSUAREZ
   -- Created : 29/01/2021 09:42:39
   -- Purpose : Envio de correo de Aprobacion
@@ -24,15 +25,18 @@ create or replace procedure SP_CR_CORREO_APROBACION(P_N_PGCOD  IN number,
   -- Modificacion: HSUAREZ
   -- Fecha Modificacion: 16/09/2024
   -- Descripción: Se realiza una modificación para los correos de reprogramados sin CRM
-  
-  CURSOR lista_Aprobadores_sinCRM(vi_codrpg in number,vi_instance in number,vi_fecharpg in date) is
+  -- v_html_texto  VARCHAR2(32767);
+  -- *****************************************************************
+  CURSOR lista_Aprobadores_sinCRM(vi_codrpg   in number,
+                                  vi_instance in number,
+                                  vi_fecharpg in date) is
     select *
       from aqpd157 a
      where a.aqpd157codrep = vi_codrpg
-       and a.aqpd157inst   = vi_instance
-       and a.aqpd157fecapro= vi_fecharpg
-       and a.aqpd157est    = 'P'
-       and a.AQPD157REQ    = 'S';
+       and a.aqpd157inst = vi_instance
+       and a.aqpd157fecapro = vi_fecharpg
+       and a.aqpd157est = 'P'
+       and a.AQPD157REQ = 'S';
   CURSOR lista_gerente(viagencia in number, vicargo in number) is
     select b.sng057usr
       from sng057 b, fst046 d
@@ -105,20 +109,20 @@ create or replace procedure SP_CR_CORREO_APROBACION(P_N_PGCOD  IN number,
   vi_fecharpg      date;
   --variables de envio de correos para el nivel multiple
   vi_usuarios_aprobador varchar(150);
-  vi_cargos_aprobador varchar(300);
+  vi_cargos_aprobador   varchar(300);
   --
   vi_cargo_papr varchar(150);
   vi_usr_papr   varchar(150);
   vi_email_papr varchar(50);
   vi_correos    varchar(300);
   --
-  vo_coderror   varchar(5);
-  vo_msgerror   varchar(150);
+  vo_coderror varchar(5);
+  vo_msgerror varchar(150);
   ----
   VOI_N_COD_TRPG NUMBER(9);
   VOI_V_DSC_TRPG VARCHAR(250);
 begin
-                                 
+
   --manda mail a gerente
   --busca agencia de analista
 
@@ -136,7 +140,7 @@ begin
       p_c_msgerr := 'No se encontró agencia';
   end;
 
-  if p_c_coderr = '00' then  
+  if p_c_coderr = '00' then
     -- Busca a gerente de agencia
     -- 
     begin
@@ -555,7 +559,7 @@ begin
                      where f.regcod = VI_REGCOD
                        and s.sng055car = 220
                        and t.ubuser = s.sng057usr
-                       --and s.sng057aut = 'S'
+                          --and s.sng057aut = 'S'
                        and f.oficod = t.ubsuc
                        AND ROWNUM = 1;
                     vi_aprobador := vgerentec;
@@ -582,7 +586,7 @@ begin
                        AND S.SNG057USR = P.UBUSER
                        AND S.SNG055CAR = 220
                        AND ROWNUM = 1;
-                       --AND S.SNG057AUT = 'S';
+                    --AND S.SNG057AUT = 'S';
                     vi_aprobador := vgerentec;
                   EXCEPTION
                     WHEN OTHERS THEN
@@ -604,289 +608,293 @@ begin
                 NULL;
             END;
           else
-              if vi_aqpb556tprg = 4 then
-                  ---PROCESO PARA OBTENER EL PERFIL DE LA REPROGRAMACION FONDOS
-                  BEGIN
-                    SELECT F.PERFIL
-                      into VI_PERFIL
-                      FROM FONDOS G, FONDOS_CREDITOSFACILIDAD F
-                     WHERE F.IDFONDO = G.IDFONDO
-                       AND G.ESTADOSOLICITUD = 'BT'
-                       AND SUBSTR(F.CUENTAOPERACION,
-                                  0,
-                                  INSTR(F.CUENTAOPERACION, '-') - 1) =
-                           P_N_SCCTA
-                       AND SUBSTR(F.CUENTAOPERACION,
-                                  INSTR(F.CUENTAOPERACION, '-') + 1,
-                                  99) = P_N_SCOPER
-                       AND F.EMPRESA = P_N_PGCOD
-                       AND F.SUCURSAL = P_N_SCSUC
-                       AND F.MODULO = P_N_SCMOD
-                       AND F.MONEDA = P_N_SCMDA
-                       AND F.PAPEL = P_N_SCPAP
-                       AND F.SUBOPERACION = P_N_SCSBOP
-                       AND F.TIPOOPERACION = P_N_SCTOPE;
-                  EXCEPTION
-                    WHEN OTHERS THEN
-                      NULL;
-                  END;
-                  --Evaluar en Guia de Proceso Especial, de acuerdo al Perfil encontrado quien debe ser el aprobador.
-                  --ve_rpta := 'N';
-                  BEGIN
-                    SELECT tp1nro1
-                      INTO vi_cargo
-                      FROM FST198 F
-                     WHERE TP1COD1 = 10899
-                       AND TP1CORR1 = 400000
-                       AND TP1CORR2 = 5
-                       AND TP1CORR2 > 0
-                       AND tp1imp1 = VI_PERFIL;
-                    --AND tp1nro1  in (ve_cargo,ve_cargo2);  
-                  EXCEPTION
-                    WHEN OTHERS THEN
-                      NULL; --ve_rpta:= 'N';         
-                  END;
-                  BEGIN
-                    SELECT F.REGCOD
-                      INTO VI_REGCOD
-                      FROM FST811 F
-                     WHERE F.OFICOD = P_N_SCSUC
-                       AND F.REGCOD <= 100;
-                  EXCEPTION
-                    WHEN OTHERS THEN
-                      NULL;
-                  END;
-                  BEGIN
-                    select sng057usr
-                      INTO vgerentec
-                      from fst811 f, sng057 s, fst046 t
-                     where f.regcod = VI_REGCOD
-                       and s.sng055car = 220
-                       and t.ubuser = s.sng057usr
-                       and s.sng057aut = 'S'
-                       and f.oficod = t.ubsuc;
-                  
-                    vi_aprobador := vgerentec;
-                  EXCEPTION
-                    WHEN OTHERS THEN
-                      NULL;
-                  END;
-                  if vi_cargo >= 230 then
-                    pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vi_Cargo,
-                                                                  P_N_SCSUC,
-                                                                  VI_APROBADOR,
-                                                                  VI_APROBADOR_SUP);
-                  
-                  end if;
-              end if;  
-              --ARBOL DE APROBACION CASO DIFERENTE A REPROG CAJA CUALQUIER REPROGRAMACION COVID
-              IF vi_aqpb556tprg <= 5 THEN  
-                  PQ_CR_CREDITOS_CAP_HS.sp_tipo_cambio_fijo(vi_pFechaN,
-                                                            vi_TIPOCAMBIO);
-                  PQ_CR_RESOLUTOR_AUTONOMIA.sp_cuentas(vi_aqpb556pais,
-                                                       vi_AQPB556PTDC,
-                                                       vi_AQPB556DNI,
-                                                       vi_TIPOCAMBIO,
-                                                       vi_AQPB556INST,
-                                                       vi_pFechaN,
-                                                       vi_AQPB556CONS);
-                  -----------------------------------
-                  --VALIDANDO CUAL ES EL CARGO QUE DEBE APROBAR EL CREDITO.
-                  BEGIN
-                    SELECT F.TP1NRO1
-                      INTO vi_cargo
-                      FROM FST198 F
-                     WHERE F.TP1COD = 1
-                       AND F.TP1COD1 = 10899
-                       AND F.TP1CORR1 = 400000
-                       AND F.TP1CORR2 = 1
-                       AND F.TP1IMP1 <= vi_AQPB556CONS
-                       AND F.TP1IMP2 >= vi_AQPB556CONS;
-                  EXCEPTION
-                    WHEN OTHERS THEN
-                      vi_cargo := 202;
-                  END;
-                  -----------------------------------
-                  --determinar jefe
-                  vgerentec := '';
-                  flag_enc  := 'N';
-                
-                  PQ_CR_CREDITOS_CAP_HS.sp_obtener_jefe_cargo(vi_cargo,
-                                                              vanalista,
-                                                              vgerentec);
-                
-                  if vgerentec is null or vgerentec <> trim(vgerentec) then
-                    --11/08/2021
-                    pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vo_Cargo,
-                                                                  P_N_SCSUC,
-                                                                  VI_APROBADOR,
-                                                                  VI_APROBADOR_SUP);
-                  end if;
-                
-                  if vgerentec <> '' and vgerentec is not null then
-                    vgerente := vgerentec;
-                    flag_enc := 'S';
-                  end if;
-                  vi_aprobador := vgerentec;
-                  if vi_cargo >= 230 then
-                    pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vo_Cargo,
-                                                                  P_N_SCSUC,
-                                                                  VI_APROBADOR,
-                                                                  VI_APROBADOR_SUP);
-                  end if;
-              END IF;
-              --REPROGRAMACION MEMO 2024 HACIA ADELANTE. CON CRM
-              IF vi_aqpb556tprg > 5 AND vi_aqpb556tprg < 10 THEN
-                BEGIN
-                  --VALIDANDO CUAL ES EL CARGO QUE DEBE APROBAR EL CREDITO MEMO 2024.
-                  BEGIN
-                    SELECT F.TP1NRO1, TP1DESC
-                      INTO vi_cargo, vi_perfilc
-                      FROM FST198 F
-                     WHERE F.TP1COD = 1
-                       AND F.TP1COD1 = 10899
-                       AND F.TP1CORR1 = 400000
-                       AND F.TP1CORR2 = 65
-                       AND F.TP1IMP1 <= abs(vcapital)
-                       AND F.TP1IMP2 >= abs(vcapital);
-                  EXCEPTION
-                    WHEN OTHERS THEN
-                      vi_cargo := 202;
-                  END;
-                  --OBTENER CODIGO DE REGION
-                  BEGIN
-                    SELECT F.REGCOD
-                      INTO VI_REGCOD
-                      FROM FST811 F
-                     WHERE F.OFICOD = P_N_SCSUC
-                       AND F.REGCOD <= 100
-                       AND ROWNUM = 1;
-                  EXCEPTION
-                    WHEN OTHERS THEN
-                      NULL;
-                  END;
-                  -----------------------------------
-                  --determinar jefe
-                  vgerentec := '';
-                  flag_enc  := 'N';
-                
-                  PQ_CR_CREDITOS_CAP_HS.sp_obtener_jefe_cargo(vi_cargo,
-                                                              vanalista,
-                                                              vgerentec);
-                
-                  if vgerentec is null or vgerentec <> trim(vgerentec) then
-                    --11/08/2021
-                    pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vi_Cargo,
-                                                                  P_N_SCSUC,
-                                                                  VI_APROBADOR,
-                                                                  VI_APROBADOR_SUP);
-                  end if;
-                  IF vi_cargo = 202 THEN
-                    flag_enc := 'S';
-                  END IF;
-                  IF vi_cargo = 220 THEN
-                    IF TRIM(vi_perfilc) = 'JZON01' THEN
-                      BEGIN
-                        select sng057usr
-                          INTO vgerentec
-                          from fst811 f, sng057 s, fst046 t
-                         where f.regcod = VI_REGCOD
-                           and s.sng055car = 220
-                           and t.ubuser = s.sng057usr
-                           and s.sng057aut = 'S'
-                           and f.oficod = t.ubsuc
-                           AND ROWNUM = 1;
-                        vi_aprobador := vgerentec;
-                      EXCEPTION
-                        WHEN OTHERS THEN
-                          NULL;
-                      END;
-                    END IF;
-                    IF TRIM(vi_perfilc) = 'GREG01' THEN
-                      BEGIN
-                        SELECT F.REGCOD
-                          INTO VI_REGCOD
-                          FROM REGSUC F
-                         WHERE F.SUCURS = P_N_SCSUC;
-                      
-                        SELECT F.UBUSER
-                          INTO vgerentec
-                          FROM REGSUC R, FST046 F, PRFU00 P, SNG057 S
-                         WHERE R.REGCOD = VI_REGCOD
-                           AND R.SUCURS = F.UBSUC
-                           AND F.UBUSER = P.UBUSER
-                           AND P.PRFGCOD = 'GREG01'
-                           AND S.SNG055EMP = F.PGCOD
-                           AND S.SNG057USR = P.UBUSER
-                           AND S.SNG055CAR = 220
-                           AND S.SNG057AUT = 'S';
-                        vi_aprobador := vgerentec;
-                      EXCEPTION
-                        WHEN OTHERS THEN
-                          NULL;
-                      END;
-                    END IF;
-                  END IF;
-                
-                  if vi_cargo >= 230 then
-                    pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vi_Cargo,
-                                                                  P_N_SCSUC,
-                                                                  VI_APROBADOR,
-                                                                  VI_APROBADOR_SUP);
-                    vgerentec := vi_aprobador;
-                  end if;
-                  vgerente := vgerentec;
-                END;
+            if vi_aqpb556tprg = 4 then
+              ---PROCESO PARA OBTENER EL PERFIL DE LA REPROGRAMACION FONDOS
+              BEGIN
+                SELECT F.PERFIL
+                  into VI_PERFIL
+                  FROM FONDOS G, FONDOS_CREDITOSFACILIDAD F
+                 WHERE F.IDFONDO = G.IDFONDO
+                   AND G.ESTADOSOLICITUD = 'BT'
+                   AND SUBSTR(F.CUENTAOPERACION,
+                              0,
+                              INSTR(F.CUENTAOPERACION, '-') - 1) =
+                       P_N_SCCTA
+                   AND SUBSTR(F.CUENTAOPERACION,
+                              INSTR(F.CUENTAOPERACION, '-') + 1,
+                              99) = P_N_SCOPER
+                   AND F.EMPRESA = P_N_PGCOD
+                   AND F.SUCURSAL = P_N_SCSUC
+                   AND F.MODULO = P_N_SCMOD
+                   AND F.MONEDA = P_N_SCMDA
+                   AND F.PAPEL = P_N_SCPAP
+                   AND F.SUBOPERACION = P_N_SCSBOP
+                   AND F.TIPOOPERACION = P_N_SCTOPE;
+              EXCEPTION
+                WHEN OTHERS THEN
+                  NULL;
+              END;
+              --Evaluar en Guia de Proceso Especial, de acuerdo al Perfil encontrado quien debe ser el aprobador.
+              --ve_rpta := 'N';
+              BEGIN
+                SELECT tp1nro1
+                  INTO vi_cargo
+                  FROM FST198 F
+                 WHERE TP1COD1 = 10899
+                   AND TP1CORR1 = 400000
+                   AND TP1CORR2 = 5
+                   AND TP1CORR2 > 0
+                   AND tp1imp1 = VI_PERFIL;
+                --AND tp1nro1  in (ve_cargo,ve_cargo2);  
+              EXCEPTION
+                WHEN OTHERS THEN
+                  NULL; --ve_rpta:= 'N';         
+              END;
+              BEGIN
+                SELECT F.REGCOD
+                  INTO VI_REGCOD
+                  FROM FST811 F
+                 WHERE F.OFICOD = P_N_SCSUC
+                   AND F.REGCOD <= 100;
+              EXCEPTION
+                WHEN OTHERS THEN
+                  NULL;
+              END;
+              BEGIN
+                select sng057usr
+                  INTO vgerentec
+                  from fst811 f, sng057 s, fst046 t
+                 where f.regcod = VI_REGCOD
+                   and s.sng055car = 220
+                   and t.ubuser = s.sng057usr
+                   and s.sng057aut = 'S'
+                   and f.oficod = t.ubsuc;
+              
+                vi_aprobador := vgerentec;
+              EXCEPTION
+                WHEN OTHERS THEN
+                  NULL;
+              END;
+              if vi_cargo >= 230 then
+                pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vi_Cargo,
+                                                              P_N_SCSUC,
+                                                              VI_APROBADOR,
+                                                              VI_APROBADOR_SUP);
+              
               end if;
-              --REPROGRAMACION MEMO 2024 HACIA ADELANTE. SIN CRM - 
-              IF vi_aqpb556tprg = 10 THEN
-                 vi_contador := 0;                             
-                 for x in lista_Aprobadores_sinCRM(vi_aqpb556cod,vi_AQPB556INST,vi_fecharpg) loop
-                     --OBTENER DESCRIPCION CARGO
-                     BEGIN
-                        SELECT s.sng055dsc
-                          INTO vi_dcargo
-                          FROM SNG055 s
-                         WHERE s.SNG055CAR = x.AQPD157CODCAR;
-                     EXCEPTION
-                        WHEN OTHERS THEN
-                          vi_dcargo := 'Gerente';
-                     END;
-                     --OBTENER CORREO DEL APROBADOR
-                     BEGIN
-                        select wfusremail
-                          into lv_correog
-                          from WFUSERS
-                         where wfusrcod = X.AQPD157UAPRO;
-                     EXCEPTION
-                        WHEN OTHERS THEN
-                          p_c_coderr := '05';
-                          p_c_msgerr := 'No se encontró correo de ';
-                     END;
-                     if x.AQPD157NIAP = 1 AND x.AQPD157NIDP = 0 then
-                          vi_cargo_papr := vi_dcargo; 
-                          vi_usr_papr   := X.AQPD157UAPRO;
-                          vi_email_papr := lv_correog;
-                          vi_cargo      := x.AQPD157CODCAR;
-                     end if;
-                       
-                     if vi_contador = 0 then
-                        lv_destinos := lv_correog;
-                        vi_usuarios_aprobador := X.AQPD157UAPRO;
-                        vi_cargos_aprobador := vi_dcargo;
-                     else
-                        if lv_correog is not null then
-                          lv_destinos := TRIM(lv_destinos)||';'||lv_correog;
-                          vi_usuarios_aprobador := TRIM(vi_usuarios_aprobador)||';'||X.AQPD157UAPRO;
-                          vi_cargos_aprobador := TRIM(vi_cargos_aprobador)||';'||vi_dcargo;
-                        end if;
-                     end if;
-                     vi_contador:=vi_contador+1;
-                 end loop;                   
-              END IF;
+            end if;
+            --ARBOL DE APROBACION CASO DIFERENTE A REPROG CAJA CUALQUIER REPROGRAMACION COVID
+            IF vi_aqpb556tprg <= 5 THEN
+              PQ_CR_CREDITOS_CAP_HS.sp_tipo_cambio_fijo(vi_pFechaN,
+                                                        vi_TIPOCAMBIO);
+              PQ_CR_RESOLUTOR_AUTONOMIA.sp_cuentas(vi_aqpb556pais,
+                                                   vi_AQPB556PTDC,
+                                                   vi_AQPB556DNI,
+                                                   vi_TIPOCAMBIO,
+                                                   vi_AQPB556INST,
+                                                   vi_pFechaN,
+                                                   vi_AQPB556CONS);
+              -----------------------------------
+              --VALIDANDO CUAL ES EL CARGO QUE DEBE APROBAR EL CREDITO.
+              BEGIN
+                SELECT F.TP1NRO1
+                  INTO vi_cargo
+                  FROM FST198 F
+                 WHERE F.TP1COD = 1
+                   AND F.TP1COD1 = 10899
+                   AND F.TP1CORR1 = 400000
+                   AND F.TP1CORR2 = 1
+                   AND F.TP1IMP1 <= vi_AQPB556CONS
+                   AND F.TP1IMP2 >= vi_AQPB556CONS;
+              EXCEPTION
+                WHEN OTHERS THEN
+                  vi_cargo := 202;
+              END;
+              -----------------------------------
+              --determinar jefe
+              vgerentec := '';
+              flag_enc  := 'N';
+            
+              PQ_CR_CREDITOS_CAP_HS.sp_obtener_jefe_cargo(vi_cargo,
+                                                          vanalista,
+                                                          vgerentec);
+            
+              if vgerentec is null or vgerentec <> trim(vgerentec) then
+                --11/08/2021
+                pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vo_Cargo,
+                                                              P_N_SCSUC,
+                                                              VI_APROBADOR,
+                                                              VI_APROBADOR_SUP);
+              end if;
+            
+              if vgerentec <> '' and vgerentec is not null then
+                vgerente := vgerentec;
+                flag_enc := 'S';
+              end if;
+              vi_aprobador := vgerentec;
+              if vi_cargo >= 230 then
+                pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vo_Cargo,
+                                                              P_N_SCSUC,
+                                                              VI_APROBADOR,
+                                                              VI_APROBADOR_SUP);
+              end if;
+            END IF;
+            --REPROGRAMACION MEMO 2024 HACIA ADELANTE. CON CRM
+            IF vi_aqpb556tprg > 5 AND vi_aqpb556tprg < 10 THEN
+              BEGIN
+                --VALIDANDO CUAL ES EL CARGO QUE DEBE APROBAR EL CREDITO MEMO 2024.
+                BEGIN
+                  SELECT F.TP1NRO1, TP1DESC
+                    INTO vi_cargo, vi_perfilc
+                    FROM FST198 F
+                   WHERE F.TP1COD = 1
+                     AND F.TP1COD1 = 10899
+                     AND F.TP1CORR1 = 400000
+                     AND F.TP1CORR2 = 65
+                     AND F.TP1IMP1 <= abs(vcapital)
+                     AND F.TP1IMP2 >= abs(vcapital);
+                EXCEPTION
+                  WHEN OTHERS THEN
+                    vi_cargo := 202;
+                END;
+                --OBTENER CODIGO DE REGION
+                BEGIN
+                  SELECT F.REGCOD
+                    INTO VI_REGCOD
+                    FROM FST811 F
+                   WHERE F.OFICOD = P_N_SCSUC
+                     AND F.REGCOD <= 100
+                     AND ROWNUM = 1;
+                EXCEPTION
+                  WHEN OTHERS THEN
+                    NULL;
+                END;
+                -----------------------------------
+                --determinar jefe
+                vgerentec := '';
+                flag_enc  := 'N';
+              
+                PQ_CR_CREDITOS_CAP_HS.sp_obtener_jefe_cargo(vi_cargo,
+                                                            vanalista,
+                                                            vgerentec);
+              
+                if vgerentec is null or vgerentec <> trim(vgerentec) then
+                  --11/08/2021
+                  pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vi_Cargo,
+                                                                P_N_SCSUC,
+                                                                VI_APROBADOR,
+                                                                VI_APROBADOR_SUP);
+                end if;
+                IF vi_cargo = 202 THEN
+                  flag_enc := 'S';
+                END IF;
+                IF vi_cargo = 220 THEN
+                  IF TRIM(vi_perfilc) = 'JZON01' THEN
+                    BEGIN
+                      select sng057usr
+                        INTO vgerentec
+                        from fst811 f, sng057 s, fst046 t
+                       where f.regcod = VI_REGCOD
+                         and s.sng055car = 220
+                         and t.ubuser = s.sng057usr
+                         and s.sng057aut = 'S'
+                         and f.oficod = t.ubsuc
+                         AND ROWNUM = 1;
+                      vi_aprobador := vgerentec;
+                    EXCEPTION
+                      WHEN OTHERS THEN
+                        NULL;
+                    END;
+                  END IF;
+                  IF TRIM(vi_perfilc) = 'GREG01' THEN
+                    BEGIN
+                      SELECT F.REGCOD
+                        INTO VI_REGCOD
+                        FROM REGSUC F
+                       WHERE F.SUCURS = P_N_SCSUC;
+                    
+                      SELECT F.UBUSER
+                        INTO vgerentec
+                        FROM REGSUC R, FST046 F, PRFU00 P, SNG057 S
+                       WHERE R.REGCOD = VI_REGCOD
+                         AND R.SUCURS = F.UBSUC
+                         AND F.UBUSER = P.UBUSER
+                         AND P.PRFGCOD = 'GREG01'
+                         AND S.SNG055EMP = F.PGCOD
+                         AND S.SNG057USR = P.UBUSER
+                         AND S.SNG055CAR = 220
+                         AND S.SNG057AUT = 'S';
+                      vi_aprobador := vgerentec;
+                    EXCEPTION
+                      WHEN OTHERS THEN
+                        NULL;
+                    END;
+                  END IF;
+                END IF;
+              
+                if vi_cargo >= 230 then
+                  pq_cr_reprog_sin_cap.SP_CRD_OBTENER_APROBADOR(vi_Cargo,
+                                                                P_N_SCSUC,
+                                                                VI_APROBADOR,
+                                                                VI_APROBADOR_SUP);
+                  vgerentec := vi_aprobador;
+                end if;
+                vgerente := vgerentec;
+              END;
+            end if;
+            --REPROGRAMACION MEMO 2024 HACIA ADELANTE. SIN CRM - 
+            IF vi_aqpb556tprg = 10 THEN
+              vi_contador := 0;
+              for x in lista_Aprobadores_sinCRM(vi_aqpb556cod, vi_AQPB556INST, vi_fecharpg) loop
+                --OBTENER DESCRIPCION CARGO
+                BEGIN
+                  SELECT s.sng055dsc
+                    INTO vi_dcargo
+                    FROM SNG055 s
+                   WHERE s.SNG055CAR = x.AQPD157CODCAR;
+                EXCEPTION
+                  WHEN OTHERS THEN
+                    vi_dcargo := 'Gerente';
+                END;
+                --OBTENER CORREO DEL APROBADOR
+                BEGIN
+                  select wfusremail
+                    into lv_correog
+                    from WFUSERS
+                   where wfusrcod = X.AQPD157UAPRO;
+                EXCEPTION
+                  WHEN OTHERS THEN
+                    p_c_coderr := '05';
+                    p_c_msgerr := 'No se encontró correo de ';
+                END;
+                if x.AQPD157NIAP = 1 AND x.AQPD157NIDP = 0 then
+                  vi_cargo_papr := vi_dcargo;
+                  vi_usr_papr   := X.AQPD157UAPRO;
+                  vi_email_papr := lv_correog;
+                  vi_cargo      := x.AQPD157CODCAR;
+                end if;
+              
+                if vi_contador = 0 then
+                  lv_destinos           := lv_correog;
+                  vi_usuarios_aprobador := X.AQPD157UAPRO;
+                  vi_cargos_aprobador   := vi_dcargo;
+                else
+                  if lv_correog is not null then
+                    lv_destinos           := TRIM(lv_destinos) || ';' ||
+                                             lv_correog;
+                    vi_usuarios_aprobador := TRIM(vi_usuarios_aprobador) || ';' ||
+                                             X.AQPD157UAPRO;
+                    vi_cargos_aprobador   := TRIM(vi_cargos_aprobador) || ';' ||
+                                             vi_dcargo;
+                  end if;
+                end if;
+                vi_contador := vi_contador + 1;
+              end loop;
+            END IF;
             -- condicion para reprogramacion Fondos 
           end if; --fin de condicional reprogramacion caja 3        
-        else -- FIN DE LA CONDICION DIFERENTE A UNILATERAL, EL ELSE ES PARA LOS UNILATERALES.
+        else
+          -- FIN DE LA CONDICION DIFERENTE A UNILATERAL, EL ELSE ES PARA LOS UNILATERALES.
         
           vi_cargo := 202;
           PQ_CR_CREDITOS_CAP_HS.sp_obtener_jefe_cargo(vi_cargo,
@@ -899,7 +907,7 @@ begin
           vi_aprobador    := vgerentec;
           v_mensaje_covid := 'Tipo Reprogramación: Reprogramación Covid Unilateral';
         end if; -- comentado hastahabilitar tipo de reprogrmacion 3
-        
+      
         --EXTRAYENDO DESCRIPCION DEL CARGO.
         BEGIN
           SELECT s.sng055dsc
@@ -931,11 +939,10 @@ begin
             p_c_msgerr := 'No se encontró correo de ';
         end;
         BEGIN
-             pq_cr_reprog_sin_cap.SP_VALIDAR_TIPO_REPROGD( vi_aqpb556cod,
-                                                           vi_AQPB556INST,
-                                                           VOI_N_COD_TRPG,
-                                                           VOI_V_DSC_TRPG
-                                                          );
+          pq_cr_reprog_sin_cap.SP_VALIDAR_TIPO_REPROGD(vi_aqpb556cod,
+                                                       vi_AQPB556INST,
+                                                       VOI_N_COD_TRPG,
+                                                       VOI_V_DSC_TRPG);
         EXCEPTION
           WHEN OTHERS THEN
             NULL;
@@ -955,36 +962,42 @@ begin
                         trim(v_mensaje_covid) || '; correo enviado a ' ||
                         trim(vi_perfilc) || ':' || trim(vanalista) || '-' ||
                         trim(lv_correoa) || '-' || trim(vgerente) || '-' ||
-                        trim(lv_correog);         
-                   
+                        trim(lv_correog);
+        
         else
-          
+        
           lv_mensaje    := '<p "font-family: Arial, sans-serif; font-size: 14px;">Estimado(s) ' ||
                            trim(vi_cargo_papr) || ',</p>' ||
-                           '<p "font-family: Arial, sans-serif; font-size: 14px;">Tiene pendiente de aprobación la reprogramación por '||VOI_V_DSC_TRPG||' sin CRM de ' ||
-                           trim(lv_cuentat) || '<br />' || trim(v_mensaje_a) ||
-                           '<br />' || trim(v_mensaje_covid) || '.</p>';
-          lv_destinos   := vi_email_papr;      
+                           '<p "font-family: Arial, sans-serif; font-size: 14px;">Tiene pendiente de aprobación la reprogramación por ' ||
+                           VOI_V_DSC_TRPG || ' sin CRM de ' ||
+                           trim(lv_cuentat) || '<br />' ||
+                           trim(v_mensaje_a) || '<br />' ||
+                           trim(v_mensaje_covid) || '.</p>';
+          lv_destinos   := vi_email_papr;
           lv_destinos_c := lv_correoa;
-          vi_correos    := 'para: '||TRIM(lv_destinos)||'***con copia:'||TRIM(lv_destinos_c);
+          vi_correos    := 'para: ' || TRIM(lv_destinos) || '***con copia:' ||
+                           TRIM(lv_destinos_c);
           --Grabando log de mensaje enviado.
-          vi_mensaje    := 'Tiene pendiente de aprobación la reprogramación por '||VOI_V_DSC_TRPG||' sin CRM de'||trim(lv_cuentat)||' '||trim(v_mensaje_a)||' '|| trim(v_mensaje_covid);
-          vi_mensaje    := SUBSTR(trim(vi_mensaje),1,250)||'...';
+          vi_mensaje := 'Tiene pendiente de aprobación la reprogramación por ' ||
+                        VOI_V_DSC_TRPG || ' sin CRM de' || trim(lv_cuentat) || ' ' ||
+                        trim(v_mensaje_a) || ' ' || trim(v_mensaje_covid);
+          vi_mensaje := SUBSTR(trim(vi_mensaje), 1, 250) || '...';
           --Enviar a tabla log aqpd157 para sabe que se envio y a quien.
-           pq_cr_reprog_sin_cap.SP_CRD_LOG_APROB_AQPD157(vi_aqpb556cod,
-                                                         vi_AQPB556INST,
-                                                         vi_fecharpg,
-                                                         vi_cargo,
-                                                         vi_correos,
-                                                         'P', --ESTADO
-                                                         vi_usr_papr,
-                                                         vi_mensaje,
-                                                         vo_coderror,
-                                                         vo_msgerror                                                          
-                                                        );
+          pq_cr_reprog_sin_cap.SP_CRD_LOG_APROB_AQPD157(vi_aqpb556cod,
+                                                        vi_AQPB556INST,
+                                                        vi_fecharpg,
+                                                        vi_cargo,
+                                                        vi_correos,
+                                                        'P', --ESTADO
+                                                        vi_usr_papr,
+                                                        vi_mensaje,
+                                                        vo_coderror,
+                                                        vo_msgerror);
           --Cargando los datos para la tabla LOG aqpb556
-          VI_MENSAJE  := trim(VI_MENSAJE)||'***aprobadores_cargos:'||vi_cargos_aprobador||'***Usuarios:'||vi_usuarios_aprobador;
-          VI_MENSAJE  := SUBSTR(trim(vi_mensaje),1,400)||'...';
+          VI_MENSAJE := trim(VI_MENSAJE) || '***aprobadores_cargos:' ||
+                        vi_cargos_aprobador || '***Usuarios:' ||
+                        vi_usuarios_aprobador;
+          VI_MENSAJE := SUBSTR(trim(vi_mensaje), 1, 400) || '...';
         end if;
         --GRABANDO EL LOG
         pq_cr_reprog_sin_cap.SP_CRD_SAVE_APROB_PRP(vi_aqpb556cod,
@@ -992,7 +1005,40 @@ begin
                                                    vi_cargo,
                                                    vi_usr_papr,
                                                    vi_mensaje);
-    --FIN DE GRABACION 
+        --FIN DE GRABACION 
+      
+        -- insercion log
+        --v_html_texto := DBMS_LOB.SUBSTR(ll_mensaje, 32767, 1);
+        /*insert into prueba_log(pgcod,msg) values (69,'P_N_PGCOD' || ' - ' || to_char(P_N_PGCOD) || ' - ' || 
+        'P_N_SCSUC ' || ' - ' || to_char(P_N_SCSUC) || ' - ' ||
+        'P_N_SCMDA ' || ' - ' || to_char(P_N_SCMDA) || ' - ' ||
+        'P_N_SCPAP ' || ' - ' || to_char(P_N_SCPAP) || ' - ' ||
+        'P_N_SCCTA ' || ' - ' || to_char(P_N_SCCTA) || ' - ' ||
+        'P_N_SCOPER' || ' - ' || to_char(P_N_SCOPER)|| ' - ' ||
+        'P_N_SCSBOP' || ' - ' || to_char(P_N_SCSBOP)|| ' - ' ||
+        'P_N_SCTOPE' || ' - ' || to_char(P_N_SCTOPE)|| ' - ' ||
+        'P_N_SCMOD ' || ' - ' || to_char(P_N_SCMOD) || ' - ' ||
+        'P_V_UBUSER' || ' - ' || to_char(P_V_UBUSER)|| ' - ' ||
+        'P_V_TIPO  ' || ' - ' || to_char(P_V_TIPO)  || ' - ' ||
+        'P_D_PGFAPE' || ' - ' || to_char(P_D_PGFAPE)|| ' - ' ||
+        'vi_aqpb556cod' || ' - ' || to_char(vi_aqpb556cod) || ' - ' ||
+        'vi_AQPB556INST' || ' - ' || to_char(vi_AQPB556INST) || ' - ' ||
+        'vanalista' || ' - ' || vanalista || ' - ' ||
+        'lv_asunto' || ' - ' || lv_asunto || ' - ' ||
+        'll_mensaje' || ' - ' || lv_mensaje || ' - ' ||
+        'lv_destinos' || ' - ' || lv_destinos || ' - ' ||
+        'lv_remitente' || ' - ' || lv_remitente
+        );*/
+        -------------------------------
+        --   proceso que desencadena el primer proceso, envio de correo con los botones.
+      
+        PQ_CR_BOT__APROB_REPROG.SP_ENVIO_CORREO_BOT(P_CORR_REPRO => vi_aqpb556cod,
+                                                    INSTANCIA    => vi_AQPB556INST,
+                                                    P_USUARIOING => vanalista,
+                                                    P_ASUNTO     => lv_asunto,
+                                                    P_MENSAJE    => lv_mensaje, -- ll_mensaje
+                                                    P_CORRPARA   => lv_destinos,
+                                                    P_CORRDE     => lv_correoa); -- lv_remitente
       when P_V_TIPO = 'GG' then
       
         lv_destinos   := lv_correog;
@@ -1066,12 +1112,12 @@ begin
         VI_MENSAJEA := 'Estimado analista ' || lv_estado ||
                        ' la reprogramación de ' || lv_cuentat ||
                        ';correo enviado a:' || lv_correoa;
-
-begin
-        pq_cr_reprog_sin_cap.SP_CRD_SAVE_APROB_AUT(vi_aqpb556cod,
-                                                   vi_AQPB556INST,
-                                                   VI_MENSAJEA);
-                                                    exception
+      
+        begin
+          pq_cr_reprog_sin_cap.SP_CRD_SAVE_APROB_AUT(vi_aqpb556cod,
+                                                     vi_AQPB556INST,
+                                                     VI_MENSAJEA);
+        exception
           when others then
             null;
         end;
@@ -1115,9 +1161,9 @@ begin
       -- if LV_DIRECTORIO is null then 
       --     LV_DIRECTORIO := '';            
       -- end if;
-	  
-      pq_ah_planillas.p_sendmailattach(p_destinatariospara => lv_destinos,
-                                       p_destinatarioscc   => lv_destinos_c,
+    
+      pq_ah_planillas.p_sendmailattach(p_destinatariospara => lv_destinos, -- 'eninah@cajaarequipa.pe', --
+                                       p_destinatarioscc   => lv_destinos_c, -- 'jalvaroh@cajaarequipa.pe', --
                                        p_destinatariosbcc  => '',
                                        p_mensaje           => ll_mensaje, --ll_mensaje
                                        p_remitente         => lv_remitente,
@@ -1127,8 +1173,7 @@ begin
                                        p_archivosadjuntos  => lv_archivo,
                                        p_c_coderr          => p_c_coderr,
                                        p_c_deserr          => p_c_msgerr);
-
-
+    
     exception
       when others then
         p_c_coderr := '99';
@@ -1142,4 +1187,3 @@ begin
 
 end SP_CR_CORREO_APROBACION;
 /
-

@@ -1,8 +1,12 @@
 create or replace package PQ_CR_PROCESAR_BOT is
-
+  -- *****************************************************************
   -- Author  : HSUAREZ
   -- Created : 30/09/2022 10:45:26
   -- Purpose : Paquete que sirve de intermedio que el bot llamara para procesar lo solicitado
+  -- Autor modificacion  : ENINAH
+  -- Fecha de modificacion : 23/10/2025
+  -- Modificaion: Se hicieron adecuacione para el bot de autorizaciones de reprogramaciones.
+  -- *****************************************************************  
   PROCEDURE SP_ENVIAR_MAIL_BOT(VI_IDCORRELATIVO NUMBER, --CORRELATIVO GENERAL
                                VI_GESTION       NUMBER, -- SI REQUIERE GESTION DE USUARIO
                                VI_IDCODIGOPE    NUMBER, --PROCESO A EJECUTAR
@@ -44,15 +48,22 @@ create or replace package PQ_CR_PROCESAR_BOT is
   PROCEDURE SP_CR_ARMAR_CONSULTA(VE_CORRELATIVO in number,
                                  VE_PROCESO     IN NUMBER,
                                  VE_PROCESO_INT IN NUMBER,
+                                 VE_AUTORIZADOR IN VARCHAR2,
+                                 VE_COMENTARIO  IN VARCHAR2,
+                                 VE_ESTADO      IN VARCHAR2,
                                  VE_CANT_VAR    IN NUMBER,
                                  VE_PQT         IN VARCHAR,
                                  VE_PCDM        IN VARCHAR,
                                  VO_CONSULTA    OUT VARCHAR);
+
   PROCEDURE SP_CR_EJECUTAR_PROCESO_MANUAL(VE_PROCESO     in number,
                                           VE_CORRELATIVO IN NUMBER);
+  PROCEDURE split_string_to_table(p_input     IN VARCHAR2,
+                                  p_delimiter IN VARCHAR2,
+                                  p_tab       OUT DBMS_SQL.VARCHAR2_TABLE,
+                                  p_count     OUT INTEGER);
 end PQ_CR_PROCESAR_BOT;
 /
-
 create or replace package body PQ_CR_PROCESAR_BOT is
 
   PROCEDURE SP_ENVIAR_MAIL_BOT(VI_IDCORRELATIVO NUMBER, --CORRELATIVO GENERAL
@@ -142,7 +153,7 @@ create or replace package body PQ_CR_PROCESAR_BOT is
     vi_rcod_crd     number(3);
     vi_autorizador  varchar(10);
     vi_sautorizador varchar(10);
-    lv_bcc varchar(100);
+    lv_bcc          varchar(100);
     --
     VI_AQPC565PARA  aqpc565.aqpc565para%type;
     VI_AQPC565DE    aqpc565.aqpc565de%type;
@@ -190,13 +201,13 @@ create or replace package body PQ_CR_PROCESAR_BOT is
     END;
     --VI_AQPC565CC := 'hsuarez@cajaarequipa.pe'; --borrar
     --VI_AQPC565DE := 'hsuarez@cajaarequipa.pe'; --borrar
-    lv_mailbot   := 'autorizacionesbt';
-    lv_paracc    := VI_AQPC565CC;
-    lv_parar     := VI_AQPC565PARA;--'rmontesr@cajaarequipa.pe';
-    lv_paraa     := lv_paracc;--'eninah@cajaarequipa.pe;apachecoh@cajaarequipa.pe;doris.choque@sesitdigital.com'; --||';'||lv_paracc;
+    lv_mailbot := 'autorizacionesbt';
+    lv_paracc  := VI_AQPC565CC;
+    lv_parar   := VI_AQPC565PARA; --'rmontesr@cajaarequipa.pe';
+    lv_paraa   := lv_paracc; --'eninah@cajaarequipa.pe;apachecoh@cajaarequipa.pe;doris.choque@sesitdigital.com'; --||';'||lv_paracc;
   
     lv_remit  := 'notificacionesbantotal@cajaarequipa.pe';
-    lv_asunto := VI_AQPC565ASNT;
+    lv_asunto := nvl(VI_AQPC565ASNT, ' ');
   
     dbms_lob.createtemporary(ll_mensaje, TRUE);
     dbms_lob.createtemporary(ll_mensaje1, TRUE);
@@ -206,7 +217,7 @@ create or replace package body PQ_CR_PROCESAR_BOT is
     lv_mensaje := '<td align="center" style="padding:25px 0px"><img src="https://homebanking.cajaarequipa.pe:4443/assets/img/logos/logo.png"></td><hr>';
     dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
     ---
-    lv_mensaje := VI_AQPC565CRPO;
+    lv_mensaje := nvl(VI_AQPC565CRPO, ' ');
     lv_mensaje := pq_ah_email_trx.fn_ah_replace_tildes(lv_mensaje);
     dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
     dbms_lob.writeappend(ll_mensaje1, length(lv_mensaje), lv_mensaje);
@@ -262,25 +273,25 @@ create or replace package body PQ_CR_PROCESAR_BOT is
     dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
     --GUIA PARA ENVIAR CORREO CON COPIA 
     --
-      BEGIN
-           select trim(tp1desc)
-           into lv_bcc
-           from fst198
-           where tp1cod1  = 11161
-             and tp1corr1 = 100
-             and tp1corr2 = 1
-             and tp1corr3 = 1;
-      EXCEPTION
-        WHEN OTHERS THEN
-          lv_bcc :='';       
-      END;
+    BEGIN
+      select trim(tp1desc)
+        into lv_bcc
+        from fst198
+       where tp1cod1 = 11161
+         and tp1corr1 = 100
+         and tp1corr2 = 1
+         and tp1corr3 = 1;
+    EXCEPTION
+      WHEN OTHERS THEN
+        lv_bcc := '';
+    END;
     --
     --envio correo usuario aprobador            
     begin
       -- Call the procedure
-      pq_ah_planillas.p_sendmailattach(p_destinatariospara => lv_parar,
-                                       p_destinatarioscc   => lv_paraa,
-                                       p_destinatariosbcc  => lv_bcc,
+      pq_ah_planillas.p_sendmailattach(p_destinatariospara => lv_parar, -- 'eninah@cajaarequipa.pe', --
+                                       p_destinatarioscc   => lv_paraa, -- 'jalvaroh@cajaarequipa.pe', --
+                                       p_destinatariosbcc  => lv_bcc, -- 'hsuarez@cajaarequipa.pe', --
                                        p_mensaje           => ll_mensaje,
                                        p_remitente         => lv_remit,
                                        p_asunto            => lv_asunto,
@@ -446,10 +457,10 @@ create or replace package body PQ_CR_PROCESAR_BOT is
     lv_body4 := lv_body4;
     lv_body4 := replace(lv_body4, ' ', '%20');
   
-    lv_asuntoa := '[C01] - ' || ve_correlativo ||
+    lv_asuntoa := '[C05] - ' || ve_correlativo ||
                   '- Se Autoriza la Solicitud de Excepción de Eliminación de Tasa ';
     lv_asuntoa := replace(lv_asuntoa, ' ', '%20') || Ve_AQPC565ASBOT;
-    lv_asuntor := '[C01] - ' || ve_correlativo ||
+    lv_asuntor := '[C05] - ' || ve_correlativo ||
                   '- Se Rechaza la Solicitud de Excepción de Eliinación de Tasa ';
     lv_asuntor := replace(lv_asuntor, ' ', '%20') || Ve_AQPC565ASBOT;
     lv_asuntoa := pq_ah_email_trx.fn_ah_replace_tildes(lv_asuntoa);
@@ -622,6 +633,11 @@ create or replace package body PQ_CR_PROCESAR_BOT is
         PQ_CR_PROCESAR_BOT.SP_CR_ARMAR_CONSULTA(VE_IDCODIGO,
                                                 VE_IDCODPRO,
                                                 VE_IDCODPROC_INT,
+                                                --------------------
+                                                VE_AUTORIZADOR,
+                                                VE_COMENTARIO,
+                                                VE_ESTADO,
+                                                ---------------------
                                                 Y,
                                                 VI_PI_PQT,
                                                 VI_PI_PCDM,
@@ -637,25 +653,26 @@ create or replace package body PQ_CR_PROCESAR_BOT is
     END;
     --PROCESO PARA ACTUALIZAR LOS DATOS DE LA TABLA PARA INDICAR SI SE EHJECUTO EL PROCESO O SI NO SE PUDO EJECUTAR.
     BEGIN
-     update aqpc565 A5
-           set A5.AQPC565MSJERR = VO_MSG_ERROR,
-               A5.AQPC565C_ERR  = TO_NUMBER(VO_COD_ERROR),
-               A5.AQPC565EST    = upper(substr(VE_ESTADO, 1, 1)) --PARA INDICAR QUE ES ERROR
-         WHERE AQPC565CORR = VE_IDCODIGO
-           AND AQPC565IDCPE = VE_IDCODPRO;
-        COMMIT;
+      update aqpc565 A5
+         set A5.AQPC565MSJERR = VO_MSG_ERROR,
+             A5.AQPC565C_ERR  = TO_NUMBER(VO_COD_ERROR),
+             A5.AQPC565EST    = upper(substr(VE_ESTADO, 1, 1)) --PARA INDICAR QUE ES ERROR
+       WHERE AQPC565CORR = VE_IDCODIGO
+         AND AQPC565IDCPE = VE_IDCODPRO;
+      COMMIT;
     EXCEPTION
       WHEN OTHERS THEN
-           VO_COD_ERROR := '0007';
-           VO_MSG_ERROR := 'Ocurrio un problema al Actualizar los registros, registro no encontrado ' ||
+        VO_COD_ERROR := '0007';
+        VO_MSG_ERROR := 'Ocurrio un problema al Actualizar los registros, registro no encontrado ' ||
                         VE_IDCODIGO;
-           VO_MSG_ERROR := 'Ocurrio un problema al Ejecutar el proceso de Eliminacion de Tasa'; --Borrar 
-    END;    
+        VO_MSG_ERROR := 'Ocurrio un problema al Ejecutar el proceso de Eliminacion de Tasa'; --Borrar 
+    END;
     BEGIN
-      VS_CONSULTA := 'BEGIN ' || VS_CONSULTA || ' END';
-      --EXECUTE IMMEDIATE VS_CONSULTA; regresar a cmo estaba antes HSUAREZ
-      execute immediate 'DECLARE BEGIN PQ_CR_BOT_TASA.SP_ELIMINAR_TASA(' ||
-                        VE_IDCODIGO || ',1); END;';
+      VS_CONSULTA := 'DECLARE BEGIN ' || VS_CONSULTA || ' END;';
+      dbms_output.put_line(VS_CONSULTA);
+      EXECUTE IMMEDIATE VS_CONSULTA; -- regresar a cmo estaba antes HSUAREZ
+      /*    execute immediate 'DECLARE BEGIN PQ_CR_BOT_TASA.SP_ELIMINAR_TASA(' ||
+      VE_IDCODIGO || ',1); END;'; */
       --dbms_output.put_line('DECLARE BEGIN PQ_CR_BOT_TASA.SP_ELIMINAR_TASA(' ||
       --                     VE_IDCODIGO || ',1) END');
     EXCEPTION
@@ -708,13 +725,13 @@ create or replace package body PQ_CR_PROCESAR_BOT is
       VO_MSG_ERROR := 'Ocurrio un problema al trata de ejecutar el proceso con correlativo: ' ||
                       VE_IDCODIGO;
       VO_MSG_ERROR := 'Ocurrio un problema al Ejecutar el proceso de Eliminacion de Tasa'; --Borrar
-      /*
-      insert into prueba_log
-        (pgcod, msg, fecha)
-      values
-        (100, 'BOT-' || VE_IDCODIGO || '-' || VO_COD_ERROR, sysdate);
-      commit;
-      */
+    /*
+    insert into prueba_log
+      (pgcod, msg, fecha)
+    values
+      (100, 'BOT-' || VE_IDCODIGO || '-' || VO_COD_ERROR, sysdate);
+    commit;
+    */
   END;
   ---------------------------------------------------------------------
   PROCEDURE SP_SR_GENERAR_ARRAY_VARCHAR(VE_PROCESO     in number,
@@ -724,40 +741,58 @@ create or replace package body PQ_CR_PROCESAR_BOT is
                                         vo_cantidad    out number) IS
     l_input varchar2(4000) := VE_CADENA;
     l_count binary_integer;
-    l_array dbms_utility.lname_array;
+    l_array DBMS_SQL.VARCHAR2_TABLE;
   
     vi_variable  varchar(20);
     vi_tipo_dato varchar(20);
     vi_valor     varchar(150);
+    fecha        date;
+    fecha_c      varchar2(8);
+  
   BEGIN
+    begin
+      select pgfape into fecha from fst017 where pgcod = 1;
+      fecha_c := to_char(fecha, 'RRRR');
+    exception
+      when others then
+        fecha   := SYSDATE;
+        fecha_c := to_char(fecha, 'RRRR');
+    end;
     l_input := replace(l_input, '|', ',');
+    /*
     dbms_utility.comma_to_table(list   => regexp_replace(l_input,
                                                          '(^|,)',
                                                          '\1x'),
                                 tablen => l_count,
                                 tab    => l_array);
     dbms_output.put_line(l_count);
+    */
+    pq_cr_procesar_bot.split_string_to_table(p_input     => l_input,
+                                             p_delimiter => ',',
+                                             p_tab       => l_array,
+                                             p_count     => l_count);
+  
     for i in 1 .. l_count loop
       dbms_output.put_line('Element ' || to_char(i) ||
-                           ' of array contains: ' || substr(l_array(i), 2));
+                           ' of array contains: ' || l_array(i) /*substr(l_array(i), 2)*/);
       if l_count = 2 then
         if i = 1 then
-          vi_variable := substr(l_array(i), 2);
+          vi_variable := l_array(i); --substr(l_array(i), 2);
         end if;
         if i = 2 then
-          vi_valor := substr(l_array(i), 2);
+          vi_valor := l_array(i); --substr(l_array(i), 2);
         end if;
       end if;
     
       if l_count = 3 then
         if i = 1 then
-          vi_variable := substr(l_array(i), 2);
+          vi_variable := l_array(i); --substr(l_array(i), 2);
         end if;
         if i = 2 then
-          vi_tipo_dato := substr(l_array(i), 2);
+          vi_tipo_dato := l_array(i); --substr(l_array(i), 2);
         end if;
         if i = 3 then
-          vi_valor := substr(l_array(i), 2);
+          vi_valor := l_array(i); --substr(l_array(i), 2);
         end if;
       end if;
     end loop;
@@ -766,8 +801,10 @@ create or replace package body PQ_CR_PROCESAR_BOT is
     BEGIN
       delete from aqpc702
        where aqpc702cor = VE_CORRELATIVO
-         and aqpc702anno = TO_CHAR(SYSDATE, 'RRRR')
-         and aqpc702cpe = VE_PROCESO;
+         and aqpc702anno = fecha_c -- TO_CHAR(SYSDATE, 'RRRR') eninah 21/04/2025
+         and aqpc702cpe = VE_PROCESO
+         and aqpc702var = vi_variable;
+      commit;
     EXCEPTION
       WHEN OTHERS THEN
         NULL;
@@ -785,7 +822,7 @@ create or replace package body PQ_CR_PROCESAR_BOT is
            aqpc702valor)
         values
           (VE_CORRELATIVO,
-           TO_CHAR(SYSDATE, 'RRRR'),
+           fecha_c, -- TO_CHAR(SYSDATE, 'RRRR'),
            VE_ORDEN,
            VE_PROCESO,
            vi_variable,
@@ -805,6 +842,9 @@ create or replace package body PQ_CR_PROCESAR_BOT is
   PROCEDURE SP_CR_ARMAR_CONSULTA(VE_CORRELATIVO in number,
                                  VE_PROCESO     IN NUMBER,
                                  VE_PROCESO_INT IN NUMBER,
+                                 VE_AUTORIZADOR IN VARCHAR2,
+                                 VE_COMENTARIO  IN VARCHAR2,
+                                 VE_ESTADO      IN VARCHAR2,
                                  VE_CANT_VAR    IN NUMBER,
                                  VE_PQT         IN VARCHAR,
                                  VE_PCDM        IN VARCHAR,
@@ -819,7 +859,7 @@ create or replace package body PQ_CR_PROCESAR_BOT is
        order by A.AQPC702ORD ASC;
     ---
     vi_variables varchar(300);
-    y            number(3);
+    y            number(3) := 0; --eninah 21/04/2025
     ---
   BEGIN
     --VALIDAR SI ES UN PAQUETE O SOLO UN PROCEDIMIENTO.
@@ -848,7 +888,7 @@ create or replace package body PQ_CR_PROCESAR_BOT is
         
           if x.aqpc702tdato = 'N' and (VE_CANT_VAR = 1 OR y = VE_CANT_VAR) then
             --para indicar que es de tipo varchar O CHARACTER
-            vi_variables := vi_variables || '''' || x.aqpc702valor || '''';
+            vi_variables := vi_variables || x.aqpc702valor;
           ELSE
             IF x.aqpc702tdato = 'N' THEN
               vi_variables := vi_variables || x.aqpc702valor || ',';
@@ -857,19 +897,26 @@ create or replace package body PQ_CR_PROCESAR_BOT is
         
           if x.aqpc702tdato = 'D' and (VE_CANT_VAR = 1 OR y = VE_CANT_VAR) then
             --para indicar que es de tipo varchar O CHARACTER
-            vi_variables := vi_variables || 'to_date(' || x.aqpc702valor ||
-                            ',''RRRR'')';
+            vi_variables := vi_variables || 'to_date(''' || x.aqpc702valor ||
+                            ''',''DD/MM/RRRR'')';
           ELSE
             IF x.aqpc702tdato = 'D' THEN
-              vi_variables := vi_variables || 'to_date(' || x.aqpc702valor ||
-                              ',''RRRR''),';
+              vi_variables := vi_variables || 'to_date(''' ||
+                              x.aqpc702valor || ''',''DD/MM/RRRR''),';
             END IF;
           END IF;
         END LOOP;
       END;
+      -- eninah 21/04/2025 Eliminamos la última coma
+      IF SUBSTR(vi_variables, -1) = ',' THEN
+        vi_variables := SUBSTR(vi_variables, 1, LENGTH(vi_variables) - 1);
+      END IF;
+      --------------------------------------------------------------------
       --FINALIZAR ARMADO DE CONSULTA
-      VO_CONSULTA := VO_CONSULTA || '(' || VE_CORRELATIVO || ',' ||
-                     vi_variables || ');';
+      VO_CONSULTA := VO_CONSULTA || '(' || VE_CORRELATIVO || ',' || '''' ||
+                     VE_AUTORIZADOR || '''' || ',' || '''' || VE_COMENTARIO || '''' || ',' || '''' ||
+                     VE_ESTADO || '''' || ',' || vi_variables || ');';
+    
     ELSE
       --FINALIZAR ARMADO DE CONSULTA  
       VO_CONSULTA := VO_CONSULTA;
@@ -996,6 +1043,9 @@ create or replace package body PQ_CR_PROCESAR_BOT is
         PQ_CR_PROCESAR_BOT.SP_CR_ARMAR_CONSULTA(VE_CORRELATIVO,
                                                 VE_PROCESO,
                                                 0,
+                                                vi_aqpc565usue,
+                                                '',
+                                                vi_aqpc565est,
                                                 Y,
                                                 VI_PI_PQT,
                                                 VI_PI_PCDM,
@@ -1011,12 +1061,12 @@ create or replace package body PQ_CR_PROCESAR_BOT is
     END;
     --PROCESO PARA ACTUALIZAR LOS DATOS DE LA TABLA PARA INDICAR SI SE EHJECUTO EL PROCESO O SI NO SE PUDO EJECUTAR.
     BEGIN
-      VS_CONSULTA := 'BEGIN ' || VS_CONSULTA || ' END';
-      --EXECUTE IMMEDIATE VS_CONSULTA;
-      execute immediate 'DECLARE BEGIN PQ_CR_BOT_TASA.SP_ELIMINAR_TASA(' ||
-                        VE_CORRELATIVO || ',1); END;';
+      VS_CONSULTA := 'BEGIN DECLARE ' || VS_CONSULTA || ' END;';
+      EXECUTE IMMEDIATE VS_CONSULTA;
+      /*execute immediate 'DECLARE BEGIN PQ_CR_BOT_TASA.SP_ELIMINAR_TASA(' ||
+      VE_CORRELATIVO || ',1); END;'; */
       /*dbms_output.put_line('DECLARE BEGIN PQ_CR_BOT_TASA.SP_ELIMINAR_TASA(' ||
-                           VE_IDCODIGO || ',1) END');*/
+      VE_IDCODIGO || ',1) END');*/
     EXCEPTION
       WHEN OTHERS THEN
         VO_COD_ERROR := '0006';
@@ -1041,8 +1091,8 @@ create or replace package body PQ_CR_PROCESAR_BOT is
                A5.AQPC565EST    = upper(substr(vi_aqpc565est, 1, 1)) --PARA INDICAR QUE ES ERROR
          WHERE AQPC565CORR = VE_CORRELATIVO
            AND AQPC565IDCPE = VE_PROCESO; /*
-                                         AND AQPC565IDCPI  = VE_IDCODPROC_INT
-                                         AND AQPC565PARA   = VE_AUTORIZADOR; */
+                                                                                                     AND AQPC565IDCPI  = VE_IDCODPROC_INT
+                                                                                                     AND AQPC565PARA   = VE_AUTORIZADOR; */
         COMMIT;
       END IF;
       COMMIT;
@@ -1078,7 +1128,28 @@ create or replace package body PQ_CR_PROCESAR_BOT is
         (100, 'BOT-' || VE_CORRELATIVO, sysdate);
       */
   END;
+  PROCEDURE split_string_to_table(p_input     IN VARCHAR2,
+                                  p_delimiter IN VARCHAR2,
+                                  p_tab       OUT DBMS_SQL.VARCHAR2_TABLE,
+                                  p_count     OUT INTEGER) AS
+    v_start PLS_INTEGER := 1;
+    v_end   PLS_INTEGER;
+    v_index PLS_INTEGER := 1;
+  BEGIN
+    p_count := 0;
+    LOOP
+      v_end := INSTR(p_input, p_delimiter, v_start);
+      IF v_end = 0 THEN
+        p_tab(v_index) := SUBSTR(p_input, v_start);
+        p_count := v_index;
+        EXIT;
+      ELSE
+        p_tab(v_index) := SUBSTR(p_input, v_start, v_end - v_start);
+        v_start := v_end + LENGTH(p_delimiter);
+        v_index := v_index + 1;
+      END IF;
+    END LOOP;
+  END;
 
 end PQ_CR_PROCESAR_BOT;
 /
-
