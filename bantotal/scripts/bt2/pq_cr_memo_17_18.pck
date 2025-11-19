@@ -17,6 +17,9 @@ CREATE OR REPLACE PACKAGE PQ_CR_MEMO_17_18 IS
   -- Autor de la Modificación   : HSUAREZ
   -- Descripción de Modificación: Se modificó el procedimiento sp_cr_insertar_aqpd154 para que por parametros
   --                              se guarde el monto capitalizado cambiado por el analista en caso sea el caso.
+  -- Fecha de Modificación      : 2025.10.03
+  -- Autor de la Modificación   : ENINAH
+  -- Descripción de Modificación: Se adicionó un nuevo procedimiento para saneamiento sp_cr_obtener_cargo_saneamiento
   -- *****************************************************************
   -----------------------------------------------------------------------
   PROCEDURE SP_CR_VALIDAR_CREDITO_VUELO(P_EMPRESA        IN NUMBER,
@@ -40,14 +43,14 @@ CREATE OR REPLACE PACKAGE PQ_CR_MEMO_17_18 IS
                                 cargo      out varchar2,
                                 codcargo   out number);
 
-  procedure sp_cr_insertar_aqpd154(emp        in number, --1
-                                   modulo     in number, --2
-                                   sucursal   in number, --3
-                                   moneda     in number, --4
-                                   papel      in number, --5
-                                   cuenta     in number, --6
-                                   operacion  in number, --7  -- Fecha de Modificación      : 2024.01.29
-  -- Autor de la Modificación   : ENINAH
+  procedure sp_cr_insertar_aqpd154(emp       in number, --1
+                                   modulo    in number, --2
+                                   sucursal  in number, --3
+                                   moneda    in number, --4
+                                   papel     in number, --5
+                                   cuenta    in number, --6
+                                   operacion in number, --7  -- Fecha de Modificación      : 2024.01.29
+                                   -- Autor de la Modificación   : ENINAH
                                    subope     in number, --8
                                    tope       in number, --9
                                    anlreg     in varchar2, --10
@@ -77,9 +80,12 @@ CREATE OR REPLACE PACKAGE PQ_CR_MEMO_17_18 IS
                                      tope      in number,
                                      bloquear  out varchar2);
 
+  procedure sp_cr_obtener_cargo_saneamiento(instancia in number,
+                                            cargo     out varchar2,
+                                            codcargo  out number);
+
 END PQ_CR_MEMO_17_18;
 /
-
 CREATE OR REPLACE PACKAGE BODY PQ_CR_MEMO_17_18 IS
   -- *****************************************************************
   -- Nombre                     : PAQUETES PARA HACER CONTROLES DEL PANEL DE BENEFICIOS PARA CRÉDITOS REFINANCIA CAJA HAQPD155 
@@ -95,8 +101,10 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_MEMO_17_18 IS
   -- Fecha de Modificación      : 2024.01.29
   -- Autor de la Modificación   : ENINAH
   -- Descripción de Modificación: Se modificó el procedimiento sp_cr_insertar_aqpd154 para que se inserte dos campos mas a la tabla AQPD154
-  --
-  --
+  -- Fecha de Modificación      : 2025.10.03
+  -- Autor de la Modificación   : ENINAH
+  -- Descripción de Modificación: Se adicionó un nuevo procedimiento para saneamiento sp_cr_obtener_cargo_saneamiento
+  -- *****************************************************************
   -- *****************************************************************
   -----------------------------------------------------------------------
 
@@ -345,9 +353,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_MEMO_17_18 IS
                                    cod_cargo  in number, --21
                                    cod_cargo2 in number, --22
                                    por_desc   in number, --23
-                                   msgerr     out varchar2)
-   is
-   
+                                   msgerr     out varchar2) is
+  
     -- *****************************************************************
     -- Nombre                     : sp_cr_insertar_aqpd154
     -- Sistema                    : BANTOTAL
@@ -367,9 +374,9 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_MEMO_17_18 IS
     --
     -- *****************************************************************
     vi_cambio varchar(1) := 'N';
-    vi_usrcmb varchar(10):='-';
-    contador number := 0;
-    vi_msg varchar(250);
+    vi_usrcmb varchar(10) := '-';
+    contador  number := 0;
+    vi_msg    varchar(250);
   begin
     /*
     begin
@@ -385,12 +392,12 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_MEMO_17_18 IS
       commit;
     end;
     */
-      IF capint <> capinana THEN
-         vi_cambio := 'S';
-         vi_usrcmb := anlreg;
-      ELSE
-         vi_cambio := 'N';   
-      END IF;
+    IF capint <> capinana THEN
+      vi_cambio := 'S';
+      vi_usrcmb := anlreg;
+    ELSE
+      vi_cambio := 'N';
+    END IF;
     begin
       select count(cuenta)
         into contador
@@ -446,8 +453,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_MEMO_17_18 IS
         msgerr := 'El crédito fue procesado con éxito.';
       exception
         when others then
-          vi_msg := substr(sqlerrm,1,100);
-          msgerr :=  vi_msg;
+          vi_msg := substr(sqlerrm, 1, 100);
+          msgerr := vi_msg;
       end;
     else
       begin
@@ -476,8 +483,7 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_MEMO_17_18 IS
            a.aqpd154estreg,
            a.aqpd154fec,
            a.aqpc154hor,
-           aqpd154mntcpe
-           )
+           aqpd154mntcpe)
         values
           (emp,
            modulo,
@@ -503,18 +509,17 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_MEMO_17_18 IS
            estado,
            TO_DATE(SYSDATE, 'DD/MM/RRRR'),
            to_char(SYSDATE, 'HH24:MI:SS'),
-           vi_cambio
-           );
+           vi_cambio);
         commit;
         msgerr := 'El crédito fue procesado con éxito.';
       exception
         when others then
-          vi_msg := substr(sqlerrm,1,100);
+          vi_msg := substr(sqlerrm, 1, 100);
           /*insert into prueba_log(msg,pgcod)values(vi_msg,250);
           commit;*/
-          msgerr :=  vi_msg;
+          msgerr := vi_msg;
       end;
-    End If;  
+    End If;
   end sp_cr_insertar_aqpd154;
 
   procedure sp_cr_validar_existencia(emp       in number, --1
@@ -576,6 +581,54 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_MEMO_17_18 IS
     End If;
   end sp_cr_validar_existencia;
 
+  procedure sp_cr_obtener_cargo_saneamiento(instancia in number,
+                                            cargo     out varchar2,
+                                            codcargo  out number) is
+  
+    SALDOCAP      number(17, 2);
+    cod_cargo_sc  number(9);
+    desc_cargo_sc varchar2(30);
+  begin
+    BEGIN
+      SELECT abs(F.SCSDO)
+        INTO SALDOCAP
+        FROM FSD011 F, XWF700 X
+       WHERE X.XWFPRCINS = instancia
+         AND x.XWFCAR3 = '1'
+         AND X.XWFEMPRESA = F.PGCOD
+         AND X.XWFSUCURSAL = F.SCSUC
+         AND X.XWFMODULO = F.SCMOD
+         AND X.XWFMONEDA = F.SCMDA
+         AND X.XWFPAPEL = F.SCPAP
+         AND X.XWFCUENTA = F.SCCTA
+         AND X.XWFOPERACION = F.SCOPER
+         AND X.XWFSUBOPE = F.SCSBOP
+         AND X.XWFTIPOPE = F.SCTOPE;
+    EXCEPTION
+      WHEN OTHERS THEN
+        SALDOCAP := 0;
+    END;
+    --OBTENER APROBADO SEGUN GUIA.
+    BEGIN
+      select TP1NRO3, tp1desc
+        into cod_cargo_sc, desc_cargo_sc
+        from fst198 f
+       where tp1cod = 1
+         and tp1cod1 = 111154
+         and tp1corr1 = 1
+         and tp1corr2 = 18
+         and tp1imp1 <= SALDOCAP
+         and tp1imp2 >= SALDOCAP;
+    EXCEPTION
+      WHEN OTHERS THEN
+        cod_cargo_sc  := 0;
+        desc_cargo_sc := '';
+    END;
+  
+    cargo    := desc_cargo_sc;
+    codcargo := cod_cargo_sc;
+  
+  end sp_cr_obtener_cargo_saneamiento;
+
 END PQ_CR_MEMO_17_18;
 /
-
