@@ -18,6 +18,7 @@ create or replace procedure SP_CR_CORRIGE_REPROG_TRANSCARTERA(cuenta    in numbe
   -- Descripción de Modificación: ADICIÓN DE TIPO PARA DIFERENCIAR INCIDENCIAS
   -- Modificación               : SMARQUEZ 12/06/2024 ADICIÓN DE LA OPCION SEGURO VEHICULAR
   -- Modificacion               : SMARQUEZ 14/08/2024 CONTROL DE  ELIMINACION
+  -- Modificacion               : SMARQUEZ 28/10/2025 Adicion insercion seguro a lineas 
   -- *****************************************************************
 
 is
@@ -175,7 +176,7 @@ cursor DESGRA(cta in number, ope in number)is
                                  and b.aostat <> 99)
              and a.aocta = cta
              and a.aooper = ope
-             and a.sgcod in (select sgcod from fst300 where sgsn02 ='5')
+             and a.sgcod in (select sgcod from fst300 where sgsn02 ='5' and sgcod >350)
              ;
   cursor VEHICULAR(cta in number, ope in number)is
    select a.*
@@ -242,6 +243,7 @@ cursor dato2(cta in number, ope in number, sbo in number) is
  --- existe char(1);
   Flag   char(1);
   Fleje  char(1);
+  
 begin
 
     n_cont := 0;
@@ -1444,6 +1446,29 @@ begin
            end if;
 
         end loop;
+  elsif tipo = 9 then ----Inserta Linea
+    Begin
+      SELECT 'S'
+        INTO FLAG
+        FROM FPP001 WHERE PGCOD = 1 AND AOMOD = 116 AND AOCTA = CUENTA AND AOOPER = OPERACION;   
+    exception
+      WHEN NO_DATA_FOUND THEN 
+        bEGIN
+           Select 'S' into flag
+             from fpp001 
+            where pgcod = 1 and aomod = 116 and aocta = 999999999 and aooper = operacion  ;
+            INSERT INTO FPP001 (PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, AOCTA, AOOPER, AOSBOP, AOTOPE, SGCOD, PP001VC, PP001IMP, PP001PORC, PP001PLUS, PP001PART) 
+            Select PGCOD, AOMOD, AOSUC, AOMDA, AOPAP, CUENTA, AOOPER, AOSBOP, AOTOPE, SGCOD, PP001VC, PP001IMP, PP001PORC, PP001PLUS, PP001PART from fpp001 
+            where pgcod = 1 and aomod = 116 and aocta = 999999999 and aooper = operacion  ;
+        EXCEPTION
+           WHEN DUP_VAL_ON_INDEX THEN NULL;
+           WHEN Too_MANY_ROWS THEN
+           DBMS_OUTPUT.PUT_LINE('El credito tiene dos seguros  eliminar uno');
+        end ;
+       WHEN Too_MANY_ROWS THEN
+           DBMS_OUTPUT.PUT_LINE('El credito tiene dos seguros  eliminar uno');
+    end;
+    
   end if;
   insert into AQPB876
   values
