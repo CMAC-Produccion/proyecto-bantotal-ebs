@@ -72,6 +72,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
   -- Modificacion: SMARQUEZ 29/05/2025 Modificacion persona juridica
   -- Modificacion: SMARQUEZ 01/07/2025 Modificacion error ora 1722 422
   -- Modificacion: SMARQUEZ 04/11/2025 Adicion de proceso codigo ABM
+  -- Modificacion: SMARQUEZ 18/11/2025 Adicion de proceso codigo ABM
   ---------------------------------------------------------------
   procedure Carga_SRetiroSeguro(p_fechapro in date) is
     cursor tran is
@@ -2595,10 +2596,33 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
           and b.JAQA49EST ='C';
     exception
       when no_data_found then
-        p_codigo:= 'Sigsretail';
-        p_c_usu :=' ';
-        p_c_descu :=' '; 
-        p_c_tplan := ' ';
+        begin
+           select a.jaqa41naf, a.jaqa41usu,(select Ubnom from fst746 where ubuser =  a.jaqa41usu),(select substr(SGTXT,21,14) from fst300 where sgcod = a.jaqa41cse)
+             into p_codigo, p_c_usu,p_c_descu, p_c_tplan
+             from jaqa41 a 
+            inner join jaqa49 b
+               on a.jaqa41emp = b.jaqa49emp                 
+              and a.jaqa41naf = b.jaqa49naf
+            inner join jaqa45 c
+               On b.jaqa49emp = c.jaqa45emp 
+              and b.jaqa49naf = c.jaqa45naf         
+            where a.jaqa41ndc = documento
+              and a.jaqa41tse = 3
+              and b.jaqa49fpg =  p_d_fecha
+              and b.jaqa49npg = p_n_cuota
+              and b.jaqa49mod = p_n_mod
+              and b.jaqa49trn = p_n_tran
+              and b.jaqa49rel = p_n_rel
+              and b.JAQA49EST ='C'
+              and c.jaqa45cct = p_n_cta
+              and c.jaqa45est = 'H';
+        exception
+          when no_Data_found then
+            p_codigo:= 'Sigsretail';
+            p_c_usu :=' ';
+            p_c_descu :=' '; 
+            p_c_tplan := ' ';
+       end;
     end;
    
     
