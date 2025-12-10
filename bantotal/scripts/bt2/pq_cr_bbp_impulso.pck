@@ -14,7 +14,12 @@ create or replace package PQ_CR_BBP_IMPULSO is
   -- Descripción de Modificación: Se modifico el procedimiento sp_Cr_VerfAntUltCuot la logica para obtener el saldo pendiente.
   -- Fecha de Modificación      : 03/03/2025
   -- Autor de la Modificación   : MPOSTIGOC
-  -- Descripción de Modificación: 
+  -- Descripción de Modificación: Se modifico el mensaje de la RTE de pagos a Solicitud de Negocio Linea 1546
+  -- Fecha de Modificación      : 08/05/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se modifico el mensaje de la voucher de pagos a Solicitud de Negocio Linea 1271
+  -- Fecha de Modificación      : 24/11/2025
+  -- Autor de la Modificación   : MPOSTIGOC
   -- *****************************************************************
 
   procedure sp_Cr_Inicio;
@@ -164,7 +169,6 @@ create or replace package PQ_CR_BBP_IMPULSO is
   -------------------------------------------------------------------
 end PQ_CR_BBP_IMPULSO;
 /
-
 create or replace package body PQ_CR_BBP_IMPULSO is
 
   procedure sp_Cr_Inicio is
@@ -1435,7 +1439,7 @@ create or replace package body PQ_CR_BBP_IMPULSO is
     if ln_cont > 0 then
     
       lv_Flag := 'S';
-      lv_msg  := 'Usted ha calificado al Bono del Buen Pagador, en los siguientes días le confirmaremos la aplicación del beneficio vía SMS al celular registrado en Caja Arequipa';
+      lv_msg  := 'Usted ha calificado al Bono del Buen Pagador de su crédito Impulso';
     
     else
       lv_Flag := 'N';
@@ -1710,7 +1714,7 @@ create or replace package body PQ_CR_BBP_IMPULSO is
             if ln_NCuoAtraso < 3 then
             
               lv_pcancel := 'S';
-              lv_msj     := 'El cliente con el pago total de esta cuota califica al BBP, para lo cual se debe actualizar los datos de celular y correo vigente del cliente';
+              lv_msj     := 'Informar al cliente que con el pago total de esta cuota califica al BBP, no pudiendo realizar una cancelación o pago anticipado sino perderá el  beneficio, para lo cual se debe actualizar los datos de celular y correo vigente del cliente';
             
               pq_Cr_bbp_impulso.sp_Cr_LogAQPB189(ld_fch     => ld_FchSist,
                                                  ln_pgcod   => ln_pgcodt,
@@ -1801,4 +1805,3 @@ create or replace package body PQ_CR_BBP_IMPULSO is
   -----------------------------------------------------------
 end PQ_CR_BBP_IMPULSO;
 /
-

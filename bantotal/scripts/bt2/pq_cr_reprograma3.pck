@@ -1,15 +1,20 @@
 create or replace package pq_cr_reprograma3 is
-
-  -- Author  : KVALENCIAC
-  -- Created : 21/06/2021
-  -- Purpose : Proceso para los reprogramados FOndos Gobierno Reactiva y FAE y actualización de tablas CMR 
-  -- Modificar  : KVALENCIAC
-  -- MOdificado : 30/07/2021
-  -- Modificado  : KVALENCIAC
-  -- MOdificado : 30/03/2022
+    -- *****************************************************************
+    -- Nombre  : pq_cr_reprograma3
+    -- Sistema : BANTOTAL    
+    -- Author  : KVALENCIAC
+    -- Created : 21/06/2021
+    -- Purpose : Proceso para los reprogramados FOndos Gobierno Reactiva y FAE y actualización de tablas CMR 
+    -- Modificar  : KVALENCIAC
+    -- MOdificado : 30/07/2021
     -- Modificado  : KVALENCIAC
-  -- MOdificado : 23/01/2023
-  --Comentario  : Se ha modificado 
+    -- MOdificado : 30/03/2022
+    -- Modificado  : KVALENCIAC
+    -- MOdificado : 23/01/2023
+    --Comentario  : Se ha modificado 
+    -- Modificado  : DCASTRO
+    -- MOdificado : 25/10/2025 se agregó procedimiento sp_credito_BBP 
+    -- *****************************************************************  
   procedure sp_reprogramafondo(
                              v_pgcod   in number,
                              v_Scmod   in number,
@@ -131,10 +136,20 @@ procedure sp_comisionFAET(
                              lc_tipo_fondo out varchar,
                              ln_monto   out number
                              ) ;  
---fin 15/03/2023  kvalenciac                                                                                                                                                                                           
+--fin 15/03/2023  kvalenciac      
+
+
+procedure sp_credito_BBP(
+                                 vn_Ppgcod in number, 
+                                 vn_Pitsuc in number, 
+                                 vn_Pitmod in number, 
+                                 vn_PIttran in number, 
+                                 vn_Pitnrel in number, 
+                                 vn_Pitord in number, 
+                                 vn_monto  out number                                                          
+                             ) ;                                                                                                                                                                                 
 end pq_cr_reprograma3;
 /
-
 create or replace package body pq_cr_reprograma3 is
 
 procedure sp_reprogramafondo(
@@ -762,6 +777,112 @@ Begin
     end if;
 end sp_comisionFAET; 
 --fin 15/03/2023 kvalenciac
+
+procedure sp_credito_BBP(
+                                 vn_Ppgcod in number, 
+                                 vn_Pitsuc in number, 
+                                 vn_Pitmod in number, 
+                                 vn_PIttran in number, 
+                                 vn_Pitnrel in number, 
+                                 vn_Pitord in number, 
+                                 vn_monto  out number                                                          
+                             ) is
+    -- *****************************************************************
+    -- Nombre                       : sp_credito_BBP
+    -- Sistema                      : BANTOTAL
+    -- Módulo                       : retorna indicador si es credito BBP y tiene pagos pendientes
+    -- Versión                      : 1.0
+    -- Fecha de Creación            : 2025.10.25
+    -- Autor de Creación            : dcastro
+    -- Estado                       : Activo
+    -- Acceso                       : Público
+    -- Fecha de Modificación        : 
+    -- Autor de Modificación        : 
+    -- *****************************************************************
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+  lc_indicador char(1);       
+  ln_mtoInt number;
+  ln_mtoSeg number;                  
+  ln_mtoITF number; 
+  ln_mtosdo number; 
+  ln_monto number;
+  v_pgcod number;
+  v_Scmda number; 
+  v_Scpap number; 
+  v_Sccta number;
+  v_Scoper number;
+   
+      
+Begin
+    ln_monto:=0;
+    
+    --JAQA93MIN // INTERES PENDIENTE
+    --JAQA93AI1 // SEGUROS
+    --JAQA93AI2 //ITF
+    --Realizar pago mediante transaccion Se ingresa al panel de Ingreso de transacciones (panel de Plataforma)
+    -- y se ingresa la transacción 30/129,
+    begin
+       select PGCOD, MONEDA, PAPEL, CTNRO, ITOPER--MODULO, ITTOPE, ITSUCD,  MONEDA, PAPEL, CTNRO, ITOPER, ITSUBO
+       into v_pgcod, v_Scmda, v_Scpap, v_Sccta, v_Scoper
+         from fsd016 f
+         where f.pgcod  = vn_Ppgcod 
+           and f.itsuc  = vn_Pitsuc 
+           and f.itmod  = vn_Pitmod 
+           and f.ittran = vn_PIttran
+           and f.itnrel = vn_Pitnrel
+           and f.itord  = vn_Pitord; 
+    exception when others then
+       v_Sccta := 0;
+       v_Scoper := 0;
+    end;
+    
+    
+    
+    begin        
+      select 'S', j.JAQA93MIN, j.JAQA93AI1, j.JAQA93AI2
+        into lc_indicador , ln_mtoInt, ln_mtoSeg, ln_mtoITF
+        from JAQA93 J
+       where j.jaqa93emp = v_pgcod  
+ --        and j.jaqa93mod =  v_Scmod  
+         and j.jaqa93mda =  v_Scmda  
+         and j.jaqa93pap =  v_Scpap  
+         and j.jaqa93cta =  v_Sccta  
+         and j.jaqa93ope =  v_Scoper
+ --        and j.jaqa93tope =  v_Sctope
+         and j.JAQA93EST = 'C' ;   
+    exception when others then
+        ln_mtoInt := 0;    
+        ln_mtoSeg := 0;    
+        ln_mtoITF := 0;          
+    end;  
+    
+    ln_monto := nvl(ln_mtoInt,0) + nvl(ln_mtoSeg,0) + nvl(ln_mtoITF,0);
+    
+    if ln_monto <> 0 then ---verifica si existe en FSD011
+       begin
+         select f.scsdo * -1
+           into ln_mtosdo  
+           from fsd011 f
+          where f.pgcod = 1
+            and f.sccta =  v_Sccta
+            and f.scoper = v_Scoper
+            and f.scrub = '1517010000010';
+       exception when others then     
+            ln_mtosdo := 0;
+       end;
+       if ln_mtosdo = ln_monto then
+         ln_monto := ln_mtosdo;
+       else
+         ln_monto := 0;  
+       end if;         
+    else 
+        ln_monto := 0; 
+    end if;   
+    
+    vn_monto := ln_monto;
+    
+
+end sp_credito_BBP; 
+
 end pq_cr_reprograma3;
 /
-

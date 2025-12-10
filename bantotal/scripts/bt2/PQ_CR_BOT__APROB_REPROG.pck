@@ -1,22 +1,22 @@
 create or replace package PQ_CR_BOT__APROB_REPROG is
-   -- *****************************************************************
-    -- Nombre                     : PQ_CR_BOT__APROB_REPROG
-    -- Sistema                    : BANTOTAL
-    -- Módulo                     : Créditos - Activas
-    -- Versión                    : 1.0
-    -- Fecha de Creación          : 10/04/2025 14:16:53
-    -- Autor de Creación          : IGS_RCASTRO
-    -- Uso                        : Bot de reprogramaciones
-    -- Estado                     : Activo
-    -- Acceso                     : Público
-    -- Parámetros de Entrada      : 
-    --
-    -- Retorno                    : 
-    -- Fecha de Modificación      : 
-    -- Autor de la Modificación   : 
-    -- Descripción de Modificación: 
-    --
-    -- *****************************************************************
+  -- *****************************************************************
+  -- Nombre                     : PQ_CR_BOT__APROB_REPROG
+  -- Sistema                    : BANTOTAL
+  -- Módulo                     : Créditos - Activas
+  -- Versión                    : 1.0
+  -- Fecha de Creación          : 10/04/2025 14:16:53
+  -- Autor de Creación          : IGS_RCASTRO
+  -- Uso                        : Bot de reprogramaciones
+  -- Estado                     : Activo
+  -- Acceso                     : Público
+  -- Parámetros de Entrada      : 
+  --
+  -- Retorno                    : 
+  -- Fecha de Modificación      : 21/11/2025
+  -- Autor de la Modificación   : eninah
+  -- Descripción de Modificación: se modificacion el procedimiento sp_cr_llamado_reprogramacion para cuando no encuentra data en la tabla wfusers
+  --
+  -- *****************************************************************
 
   PROCEDURE SP_ENVIO_CORREO_BOT(P_CORR_REPRO NUMBER,
                                 INSTANCIA    NUMBER,
@@ -267,14 +267,16 @@ create or replace package body PQ_CR_BOT__APROB_REPROG is
   begin
   
     begin
-      select WFUSRCOD
+      select UPPER(WFUSRCOD)
         into usuario
         from wfusers a
        where a.WFUSREMAIL = RPAD(ve_usuario, 40, ' ')
          and rownum = 1;
     exception
+      when no_data_found then
+        usuario := UPPER(ve_usuario); -- eninah 21/11/2025
       when others then
-        null;
+        usuario := UPPER(ve_usuario); -- eninah 21/11/2025
     end;
   
     begin

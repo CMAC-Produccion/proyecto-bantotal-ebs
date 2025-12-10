@@ -7,17 +7,19 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
 -- Modificacion : SMARQUEZ 15/04/2025, Verifica Resagados
 -- Modificacion : SMARQUEZ 02/07/2025, Adición de tipo de desembolso
 -- Modificacion : SMARQUEZ 07/08/2025, Modificaciobn longitud telefono
--- Modificacion : SMARQUEZ 07/10/2025 , Modificacion eleccion celular
+-- Modificacion : SMARQUEZ 07/10/2025, Modificacion eleccion celular
+-- Modificaicon : SMARQUEZ 24/11/2025, Modifica linea 1081 ORA-01422
+
   CURSOR CUENTAS IS
       select a.*, b.itfcon fechacont, b.ithora hora, c.jaqm66ins ins
       from fsd016 a,
            fsd015 b,
-           jaqm66 c      
+           jaqm66 c
      where a.pgcod = 1
-       and a.itmod =30 
+       and a.itmod =30
        and a.ittran =441
-       and a.rubro = 2514020000022       
-    --------   and a.ctnro = 4904312pruebas       
+       and a.rubro = 2514020000022
+    --------   and a.ctnro = 4904312pruebas
        and b.pgcod = a.pgcod
        and b.itsuc = a.itsuc
        and b.itmod = a.itmod
@@ -27,10 +29,10 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
        and b.itcont ='S'
      --------- SMA.19032
        and c.jaqm66cta = a.CTNRO --SMA.190325
-       and c.jaqm66fea = b.ITFCON       
+       and c.jaqm66fea = b.ITFCON
        and c.JAQM66HOR = b.ithora
        ;
-    
+
     cursor celular (pais number,tdoc number,ndoc char) is
         select trim(dotelfp) fono
           from fsr005
@@ -55,28 +57,28 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
            and pextxt <> 'SI'
            and pextxt Like '%@%'
            and rownum = 1;
-           
+
       cursor resagados (fecha1 in date)is
-       select sccta hcta, scsdo HCIMP1 
+       select sccta hcta, scsdo HCIMP1
          from fsd011 where sccta not in (select aqpa562cta from aqpa562)
           and scrub = 2514020000022
-          and scfcon = fecha1;  
+          and scfcon = fecha1;
 
       CURSOR datos(cta in number) IS
-       select jb.jaqm66per periodo, jc.xwfplazo1 plazo1, jc.xwffec1 fechaxwf, jc.xwfoperacion operacion, jc.xwfmodulo mod1, 
+       select jb.jaqm66per periodo, jc.xwfplazo1 plazo1, jc.xwffec1 fechaxwf, jc.xwfoperacion operacion, jc.xwfmodulo mod1,
               jc.xwfsucursal suc1, jc.xwfsubope subop1, jc.xwftipope tipo1 ,jc.xwfmoneda mda1,jc.xwfprcins instancia,
               (select jaqm64por  from jaqm64 where jaqm64tad =ja.jaqm65tad and jaqm64cod =  ja.jaqm65cod) CTASA,
-              jb.jaqm66imp saldoasegurado, jb.jaqm66ime costo,ja.jaqm65cod plan1,             
+              jb.jaqm66imp saldoasegurado, jb.jaqm66ime costo,ja.jaqm65cod plan1,
               jb.jaqm66fec fecha
-          from jaqm65 ja, 
-               xwf700 jc, jaqm66 jb 
+          from jaqm65 ja,
+               xwf700 jc, jaqm66 jb
          where ja.jaqm65tad = 2
            and ja.jaqm65ac1 = 'C'
-           and ja.jaqm65ins = jc.xwfprcins 
-           and jb.jaqm66ins = ja.jaqm65ins           
-           and jc.xwfprcins = jb.jaqm66ins -- select * from xwf700 where xwfcuenta = 2484590                  
+           and ja.jaqm65ins = jc.xwfprcins
+           and jb.jaqm66ins = ja.jaqm65ins
+           and jc.xwfprcins = jb.jaqm66ins -- select * from xwf700 where xwfcuenta = 2484590
            and jc.xwfcar3 = '1'
-           and jc.xwfprcins = (select max(xwfprcins) from xwf700 where xwfcuenta = cta and xwfprcins = jb.jaqm66ins) ; 
+           and jc.xwfprcins = (select max(xwfprcins) from xwf700 where xwfcuenta = cta and xwfprcins = jb.jaqm66ins) ;
 
   lc_telefono   char(50);
   tele varchar2(1000);
@@ -141,7 +143,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
   subop1 number;
   tipo1 number;
   mda1 number;
-  instancia number; 
+  instancia number;
   CTASA number(10,6);
   fechades date;
   fechavto date;
@@ -150,9 +152,9 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
   nrocredito char(30);
   moneda varchar2(3);
   nro_cuotas  number;
-  plandes number;  
+  plandes number;
   segmento char(1);
-  codigocia number;  
+  codigocia number;
   ln_pgcod number;
   ln_grupo number;
   lc_plan  char(50);
@@ -171,8 +173,8 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       when no_data_found then
         fecha := trunc(sysdate);
     end;
-    
-  
+
+
     For a in cuentas loop
          apepat := NULL;
          apemat := NULL;
@@ -191,7 +193,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
          ocupacion := null;
          sucursal := null;
          funcionario :=null;
-      
+
          certificado := null;
       Begin
          select  trim(d.pfape1),
@@ -249,22 +251,22 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       lc_telefono := null;
       lc_correo := null;
       tele := null;
-      For t in celular(pais,tipodoc,numdoc)loop         
+      For t in celular(pais,tipodoc,numdoc)loop
           if length (t.fono) = 9 then
             tele := trim(t.fono);
             exit;
           else
             tele := lpad(t.fono,9,'9');
             exit;
-          end if;         
-          
+          end if;
+
       end loop;
       if tele is null or tele =' ' then
          lc_telefono := 111111111;
       else
          lc_telefono := substr(tele,1,9);
-      end if;         
-      
+      end if;
+
       For c in correo(pais,tipodoc,numdoc)loop
             mail := trim(c.mail);
       end loop;
@@ -277,7 +279,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
         select
         (SELECT trim(substr(A1.AQPA558ACT,1,50)) FROM FST198 F1, AQPA558 A1 WHERE F1.TP1COD = 1
             AND F1.TP1COD1=10884 AND F1.TP1CORR1 =66 AND F1.TP1NRO1 = ctnroi
-            AND A1.AQPA558COD = trunc(F1.TP1IMP1) and rownum = 1 ),         
+            AND A1.AQPA558COD = trunc(F1.TP1IMP1) and rownum = 1 ),
             (SELECT Trim(substr(A1.AQPA558DGIRO,1,300)) FROM FST198 F1, AQPA558 A1 WHERE F1.TP1COD = 1
             AND F1.TP1COD1=10884 AND F1.TP1CORR1 =66 AND F1.TP1NRO1 = ctnroi
             AND A1.AQPA558COD = trunc(F1.TP1IMP1) and rownum = 1 ),
@@ -287,34 +289,34 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
           into ocupacion,
                giro,
                codigo_giro
-          from fsd008 
+          from fsd008
          where pgcod = 1
            and ctnro = a.ctnro;
       exception
         when no_data_found then
            beGIN
-              select 
+              select
                   (SELECT trim(substr(A1.AQPA558ACT,1,50))
-                     FROM FST198 F1, AQPA558 A1 
-                    WHERE F1.TP1COD = 1 
-                      AND F1.TP1COD1=10884 AND F1.TP1CORR1 =66 AND F1.TP1NRO1 = ctnroi 
-                      AND A1.AQPA558COD = TRUNC(F1.TP1IMP1) ), 
-                  (SELECT Trim(substr(A1.AQPA558DGIRO,1,300))
-                     FROM FST198 F1, AQPA558 A1 
-                    WHERE F1.TP1COD = 1 
-                      AND F1.TP1COD1=10884 
-                      AND F1.TP1CORR1 =66 
-                      AND F1.TP1NRO1 = ctnroi 
+                     FROM FST198 F1, AQPA558 A1
+                    WHERE F1.TP1COD = 1
+                      AND F1.TP1COD1=10884 AND F1.TP1CORR1 =66 AND F1.TP1NRO1 = ctnroi
                       AND A1.AQPA558COD = TRUNC(F1.TP1IMP1) ),
-                   (SELECT A1.AQPA558cod 
-                      FROM FST198 F1, AQPA558 A1 
-                     WHERE F1.TP1COD = 1 
-                       AND F1.TP1COD1=10884 AND F1.TP1CORR1 =66 AND F1.TP1NRO1 = ctnroi 
+                  (SELECT Trim(substr(A1.AQPA558DGIRO,1,300))
+                     FROM FST198 F1, AQPA558 A1
+                    WHERE F1.TP1COD = 1
+                      AND F1.TP1COD1=10884
+                      AND F1.TP1CORR1 =66
+                      AND F1.TP1NRO1 = ctnroi
+                      AND A1.AQPA558COD = TRUNC(F1.TP1IMP1) ),
+                   (SELECT A1.AQPA558cod
+                      FROM FST198 F1, AQPA558 A1
+                     WHERE F1.TP1COD = 1
+                       AND F1.TP1COD1=10884 AND F1.TP1CORR1 =66 AND F1.TP1NRO1 = ctnroi
                        AND A1.AQPA558COD = TRUNC(F1.TP1IMP1) )
                 into ocupacion,
                      giro,
                      codigo_giro
-                 from fsd008 
+                 from fsd008
                 where pgcod = 1
                   and ctnro = a.ctnro;
             exception
@@ -324,22 +326,22 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
             end;
       end;
 
-   
-    
+
+
       Begin
         select jb.jaqm66per, jc.xwfplazo1, jc.xwffec1, jc.xwfoperacion, jc.xwfmodulo, jc.xwfsucursal,
                jc.xwfsubope, jc.xwftipope ,jc.xwfmoneda,jc.xwfprcins,
                (select jaqm64por  from jaqm64 where jaqm64tad =ja.jaqm65tad and jaqm64cod =  ja.jaqm65cod),
-                 jb.jaqm66imp, 
+                 jb.jaqm66imp,
                  jb.jaqm66ime,
                  ja.jaqm65cod
           into periodo, plazo1, fechaxwf, operacion, mod1, suc1, subop1,tipo1,mda1, instancia, CTASA, saldoasegurado, costo,plandes
           from jaqm65 ja, xwf700 jc, jaqm66 jb --,
          where ja.jaqm65tad = 2
-           and ja.jaqm65ac1 = 'C'   
-           and ja.jaqm65ins = a.ins        
+           and ja.jaqm65ac1 = 'C'
+           and ja.jaqm65ins = a.ins
            and jb.jaqm66ins = ja.jaqm65ins
-           and jb.jaqm66fea = a.fechacont   --sma 19102023       
+           and jb.jaqm66fea = a.fechacont   --sma 19102023
            and substr(jb.jaqm66hor,1,5) = substr(a.hora,1,5)
            and jc.xwfprcins = jb.jaqm66ins
            and jc.xwfcar3 = '1'
@@ -347,12 +349,12 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       exception
         when no_data_found then
           periodo :=0;
-          plazo1:=0; 
-          fechaxwf:=null; 
-       --   cuenta:=0; 
-          operacion:=0; 
-          mod1:=0; 
-          suc1:=0; 
+          plazo1:=0;
+          fechaxwf:=null;
+       --   cuenta:=0;
+          operacion:=0;
+          mod1:=0;
+          suc1:=0;
           subop1:=0;
           tipo1:=0;
           mda1 :=0;
@@ -361,10 +363,10 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
           costo :=0;
       end;
       nro_cuotas := 0 ;
-      select count(*) into nro_cuotas 
+      select count(*) into nro_cuotas
         from fsd601
        where pgcod = 1
-         and ppmod =  mod1 
+         and ppmod =  mod1
          and ppsuc =  suc1
          and ppmda = mda1
          and pppap = 0
@@ -372,7 +374,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
          and ppoper = operacion
          and ppsbop = subop1
          and pptope = tipo1;
-      
+
       BEgin
         select to_char(aofval,'yyyymmdd'), to_char(aofvto,'yyyymmdd'), (lpad(aocta,9,'0') || lpad(aooper,9,'0')),
               (select scnom from fst001 where sucurs = aosuc)
@@ -383,10 +385,10 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
           fechades1:=null;
           fechavto1:= null;
       end;
-      
+
       PAPel := 0;
-      funcionario := FN_ANALISTA_CREDITO(MOD1, SUC1, MDA1, PAPel, A.CTNRO, operacion, subop1, tipo1);  
-        
+      funcionario := FN_ANALISTA_CREDITO(MOD1, SUC1, MDA1, PAPel, A.CTNRO, operacion, subop1, tipo1);
+
       nrocuota := 1;
       --------------------SMA 28092023--------------
       ln_pgcod := 1;
@@ -398,8 +400,8 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                                                   A.CTNRO,
                                                   operacion,
                                                   subop1,
-                                                  tipo1);    
-                                                  
+                                                  tipo1);
+
        ln_instancia := fn_instancia_credito(MOD1,
                                             SUC1,
                                             MDA1,
@@ -407,24 +409,24 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                                             A.CTNRO,
                                             operacion,
                                             subop1,
-                                            subop1);   
+                                            subop1);
      ------------------SMA 02072025----------------------
       BEGIN
          select 'Ventanilla'
            into tipodes
-           from jaqy782 
-          where jaqy782pgc = 1 
-            and jaqy782mod = MOD1        
+           from jaqy782
+          where jaqy782pgc = 1
+            and jaqy782mod = MOD1
             and jaqy782mda = MDA1
             and jaqy782pap = 0
             and jaqy782cta = A.CTNRO
-            and jaqy782ope = operacion          
+            and jaqy782ope = operacion
             and jaqy782fchdes = pfecha
             and jaqy782est ='A'
-            and JAQY782HRASIS = (select max(JAQY782HRASIS)  
+            and JAQY782HRASIS = (select max(JAQY782HRASIS)
                                    from jaqy782
-                                   where jaqy782pgc = 1    
-                                     and jaqy782mod = MOD1       
+                                   where jaqy782pgc = 1
+                                     and jaqy782mod = MOD1
                                      and jaqy782mda = MDA1
                                      and jaqy782pap = 0
                                      and jaqy782cta = A.CTNRO
@@ -488,17 +490,17 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                          and b.hNREL = a.hNREL
                          and b.hfcon = a.hfcon
                          and b.hcCORR = 0;
-                  exception  
+                  exception
                      when no_Data_found then
                         tipodes := 'Ventanilla';
                   end;
              end;
          end;
       end;
-                                                                                                
+
 
      ----------------------plan--------------------------
-     
+
       begin
          select trim(substr(wfattsval, instr(wfattsval, ';', 1) + 1, 25))
            into ln_tip
@@ -525,16 +527,16 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
            if trim(lc_plan) ='CONSUMO Consumo No Revolvente' then
             tipocuenta := '019';
           elsif trim(lc_plan) ='CONSUMO Consumo Revolvente' then
-            tipocuenta := '020';          
+            tipocuenta := '020';
           end if;
         when ln_grupo = 4 then
           lc_plan := 'HIPOTECARIO'||' '||ln_tip;
-          tipocuenta := '021';     
+          tipocuenta := '021';
         else
           null;
-      end case;    
+      end case;
       -------------------------------------------------------------
-     -- doc     
+     -- doc
       if tipodoc = 9 then
         doctipo := '002';
       else
@@ -544,22 +546,22 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       begin
         select trim(substr(sngc13dir,1,300)), -- direccion
                sngc13ugeo/*, -- ubigeo
-               sngc13dpto, 
-               sngc13prov, 
+               sngc13dpto,
+               sngc13prov,
                sngc13dist*/
-           into dirdomi, ubidomi --,  ocudomi,actdomi               
+           into dirdomi, ubidomi --,  ocudomi,actdomi
           from sngc13
-         where sngc13pais = pais 
-           and sngc13tdoc = tipodoc    
+         where sngc13pais = pais
+           and sngc13tdoc = tipodoc
            and sngc13ndoc = numdoc
-           and sngc13est='H' 
+           and sngc13est='H'
            and docod =1;
       exception
         when no_data_found then
           dirdomi:='0';
           ubidomi :='0';
       end;
-      
+
       select REGEXP_INSTR( dirdomi,'[0-9]') into v_num1 from dual;
       select trim( substr(dirdomi,v_num1)) into v_char1 from dual;
       select instr(v_char1,' ') into v_num2 from dual;
@@ -568,7 +570,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       end if;
       if v_num2 = 0 then
         v_num2 := 4;
-      end if; 
+      end if;
       select substr(trim(substr(v_char1,1,v_num2)),1,10) into v_char2 from dual;
       direccion1 := upper(dirdomi);
 
@@ -593,8 +595,8 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
           end if;
         end if;
       end if;
-      
-      
+
+
       USO := '0';
       TIPOCONSTRUCCION :='0';
       Nro_Piso :='0';
@@ -602,7 +604,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       A_Fabrica :='00';
       A_Constru :='00';
       contenido := '0';
- 
+
      if dirdomi is null or dirdomi =' ' then
         dirdomi:= direcc;
       end if;
@@ -624,7 +626,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       BEgin
       select DEcode(sngc60ocup, 1,'D',2,'D',8,'D',9,'D','I')
         into segmento
-        from  sngc60 
+        from  sngc60
        where sngc60pais = pais
          and sngc60tdoc = tipodoc
          and sngc60ndoc = numdoc
@@ -632,7 +634,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       exception
         when others then
           segmento := 'I';
-      end;   
+      end;
       if segmento = 'I' then
         codigocia:= 51;
       else
@@ -640,10 +642,10 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
      end if;
       ----------------------------------------------------
       ocupacion := trim(ocupacion);
-      giro :=trim(giro);    
-      
+      giro :=trim(giro);
+
       --------------------------------------------------
-      
+
      begin
       insert into aqpa562(aqpa562cod,
                           aqpa562mod,
@@ -755,7 +757,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                           COSTO,---prima,---'Prima', sacar de la 611
                           cTasa,
                           0,----'Sobretasa'/*,
-                          tipocuenta,-- sma07/11/2023 tipo cuenta                          
+                          tipocuenta,-- sma07/11/2023 tipo cuenta
                           nrocredito,
                           tipodes, --numero tarjeta
                           fechavto1, --ult pago
@@ -769,7 +771,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                           'N',
                           null,
                           'N',
-                           giro, 
+                           giro,
                            dirdomi,--direccion_neg,
                            ubidomi, --ubigeo_neg,
                            'L',  --tipoinmueble
@@ -788,15 +790,15 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                           saldoasegurado,
                           nro_cuotas,
                           periodo,
-                          lc_plan 
-                          
+                          lc_plan
+
                          ); -- dirdomi, ubidomi, actdomi, ocudomi
                          COMMIT;
      exception
        when dup_val_on_index then
          null;
-     end ;     
-   end loop; 
+     end ;
+   end loop;
    For r in resagados(fecha) loop
          apepat := NULL;
          apemat := NULL;
@@ -814,7 +816,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
          giro := null;
          ocupacion := null;
          sucursal := null;
-         funcionario :=null;      
+         funcionario :=null;
          certificado := null;
        Begin
          select trim(d.pfape1),
@@ -867,7 +869,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
               null;
           end;
       end;
-      -- telefono y correo 
+      -- telefono y correo
       lc_telefono := null;
       lc_correo := null;
       tele := null;
@@ -878,17 +880,17 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
           else
             tele := lpad(t.fono,9,'9');
             exit;
-          end if;         
-          
+          end if;
+
       end loop;
       if tele is null or tele =' ' then
          lc_telefono := 984569115;
       else
          lc_telefono := substr(tele,1,9);
       end if;
-      
+
       For c in correo(pais,tipodoc,numdoc)loop
-         mail := trim(c.mail);      
+         mail := trim(c.mail);
       end loop;
       if lc_correo is null then
          lc_correo:= 'sindato@gmail.com';
@@ -900,7 +902,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
         select
         (SELECT NVL(substr(trim(A1.AQPA558ACT),1,50),'OTROS') FROM FST198 F1, AQPA558 A1 WHERE F1.TP1COD = 1
             AND F1.TP1COD1=10884 AND F1.TP1CORR1 =66 AND F1.TP1NRO1 = sngc60acte
-            AND A1.AQPA558COD = trunc(F1.TP1IMP1) and rownum = 1 ),         
+            AND A1.AQPA558COD = trunc(F1.TP1IMP1) and rownum = 1 ),
             (SELECT NVL(substr(Trim(A1.AQPA558DGIRO),1,300),'OTROS') FROM FST198 F1, AQPA558 A1 WHERE F1.TP1COD = 1
             AND F1.TP1COD1=10884 AND F1.TP1CORR1 =66 AND F1.TP1NRO1 = sngc60acte
             AND A1.AQPA558COD = trunc(F1.TP1IMP1) and rownum = 1 ),
@@ -923,7 +925,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       ---direccion
       PAPel := 0;
       nrocuota := 1;
-      
+
       if tipodoc = 9 then
         doctipo := '002';
       else
@@ -932,12 +934,12 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
 
       begin
         select TRim(sngc13dir), sngc13ugeo
-           into dirdomi, ubidomi --,  ocudomi,actdomi               
+           into dirdomi, ubidomi --,  ocudomi,actdomi
           from sngc13
-         where sngc13pais = pais 
-           and sngc13tdoc = tipodoc    
+         where sngc13pais = pais
+           and sngc13tdoc = tipodoc
            and sngc13ndoc = numdoc
-           and sngc13est='H' 
+           and sngc13est='H'
            and docod =1;
       exception
         when no_data_found then
@@ -954,7 +956,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
 
       if v_num2 = 0 then
         v_num2 := 4;
-      end if; 
+      end if;
 
       select substr(trim(substr(v_char1,1,v_num2)),1,10) into v_char2 from dual;
       direccion1 := upper(dirdomi);
@@ -981,7 +983,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
           end if;
         end if;
       end if;
-      ---------      
+      ---------
       USO := '0';
       TIPOCONSTRUCCION :='0';
       Nro_Piso :='0';
@@ -989,7 +991,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       A_Fabrica :='00';
       A_Constru :='00';
       contenido := '0';
-       
+
       if dirdomi is null or dirdomi =' ' then
         dirdomi:= direcc;
       end if;
@@ -1002,13 +1004,13 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       else
         moneda := '002';
       end if;
-      
-       
+
+
       --- segmento persona /codigo servicio
       BEgin
       select DEcode(sngc60ocup, 1,'D',2,'D',8,'D',9,'D','I')
         into segmento
-        from  sngc60 
+        from  sngc60
        where sngc60pais = pais
          and sngc60tdoc = tipodoc
          and sngc60ndoc = numdoc
@@ -1016,7 +1018,7 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       exception
         when others then
           segmento := 'I';
-      end;   
+      end;
       if segmento = 'I' then
         codigocia:= 51;
       else
@@ -1025,10 +1027,10 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
       ---------------------------------------------------
       for j in datos(r.hcta) loop
             nro_cuotas := 0 ;
-          select count(*) into nro_cuotas 
+          select count(*) into nro_cuotas
             from fsd601
            where pgcod = 1
-             and ppmod =  j.mod1 
+             and ppmod =  j.mod1
              and ppsuc =  j.suc1
              and ppmda = j.mda1
              and pppap = 0
@@ -1040,19 +1042,19 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
             BEGIN
                select 'Ventanilla'
                  into tipodes
-                 from jaqy782 
-                where jaqy782pgc = 1 
-                  and jaqy782mod = j.mod1     
+                 from jaqy782
+                where jaqy782pgc = 1
+                  and jaqy782mod = j.mod1
                   and jaqy782mda = j.mda1
                   and jaqy782pap = 0
                   and jaqy782cta = r.hcta
-                  and jaqy782ope = j.operacion         
+                  and jaqy782ope = j.operacion
                   and jaqy782fchdes = j.fecha
                   and jaqy782est ='A'
-                  and JAQY782HRASIS = (select max(JAQY782HRASIS)  
+                  and JAQY782HRASIS = (select max(JAQY782HRASIS)
                                          from jaqy782
-                                         where jaqy782pgc = 1    
-                                           and jaqy782mod = j.mod1       
+                                         where jaqy782pgc = 1
+                                           and jaqy782mod = j.mod1
                                            and jaqy782mda = j.mda1
                                            and jaqy782pap = 0
                                            and jaqy782cta = r.hcta
@@ -1074,7 +1076,19 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                     and jaqm1apap = 0
                     and jaqm1acta = r.hcta
                     and jaqm1aope = j.operacion
-                    and jaqm1aest = 'P';
+                    and jaqm1aest = 'P'
+                    and JAQM1AHOR = (select max(JAQM1AHOR) from  jaqm1a
+                                      where jaqm1atem = 1
+                                        and jaqm1atfc = j.fecha
+                                        and jaqm1atmo = 30
+                                        and jaqm1attr in (951, 360)
+                                        and jaqm1amod = j.mod1
+                                        and jaqm1amda = j.mda1
+                                        and jaqm1apap = 0
+                                        and jaqm1acta = r.hcta
+                                        and jaqm1aope = j.operacion
+                                        and jaqm1aest = 'P')
+                    and rownum = 1;
                 exception
                   when no_Data_found then
                     Begin
@@ -1116,13 +1130,13 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
                                and b.hNREL = a.hNREL
                                and b.hfcon = a.hfcon
                                and b.hcCORR = 0;
-                        exception  
+                        exception
                            when no_Data_found then
                               tipodes := 'Ventanilla';
                         end;
                    end;
                end;
-            end;  
+            end;
            BEgin
             select to_char(aofval,'yyyymmdd'), to_char(aofvto,'yyyymmdd'), (lpad(aocta,9,'0') || lpad(aooper,9,'0')),
                   (select scnom from fst001 where sucurs = aosuc)
@@ -1132,177 +1146,177 @@ create or replace procedure "SP_CARGA_SEG_DESEMPLEO"(pfecha in date) is
             when no_data_found then
               fechades1:=null;
               fechavto1:= null;
-          end; 
-       
+          end;
+
           select max(aqpa562corr) into correlativo from aqpa562;
-          
+
           correlativo := correlativo + 1;
           certificado := lpad(r.hcta, 10, '0') || lpad(j.operacion, 10, '0');
-          
+
            select sng001ase
              into funcionario
              from sng001 --Cambiar la tabla para producción
             where sng001inst = j.instancia;
 
-      
-           begin   
-      insert into aqpa562(aqpa562cod,   
-                          aqpa562mod,   
-                          aqpa562suc,   
-                          aqpa562mda,   
-                          aqpa562pap,   
-                          aqpa562cta,   
-                          aqpa562ope,   
-                          aqpa562sbo,   
-                          aqpa562tip,   
-                          aqpa562fec,   
-                          aqpa562mov,   
-                          aqpa562canal,   
-                          aqpa562cpro,    
-                          aqpa562corr,    
-                          aqpa562apat,    
-                          aqpa562amat,    
-                          aqpa562nom,   
-                          aqpa562rsoc,    
-                          aqpa562ndo,   
-                          aqpa562tdo,   
-                          aqpa562mail,    
-                          aqpa562eciv,    
-                          aqpa562sexo,    
-                          aqpa562fnac,    
-                          aqpa562cel ,    
-                          aqpa562ocup,    
-                          aqpa562ubig,    
-                          aqpa562dire,    
-                          aqpa562ncert,   
-                          aqpa562nsol,    
-                          aqpa562cage,    
-                          aqpa562ades,    
-                          aqpa562func,    
-                          aqpa562plan,    
-                          aqpa562cost,    
-                          aqpa562prim,    
-                          aqpa562tasa,    
-                          aqpa562stas,    
-                          aqpa562tcta,    
-                          aqpa562ncred,   
-                          aqpa562ntar,    
-                          aqpa562finpa,   
-                          aqpa562fafil,   
-                          aqpa562fdes,    
-                          aqpa562hdes,    
-                          aqpa562fven,    
-                          aqpa562fcan,    
-                          aqpa562cimp ,   
-                          aqpa562mone,    
-                          aqpa562ctmov,   
-                          aqpa562cant ,   
-                          aqpa562hlegal,    
-                          --aqpa562dcneg,---act   
-                          aqpa562dgneg,--giro   
-                          aqpa562ddir, --dir    
-                          aqpa562dubige,--ubigeo    
-                          aqpa562dtinm, --tipo inmueble   
-                          aqpa562dnum ,--numero   
-                          aqpa562pai,   
-                          aqpa562cseg,    
-                          aqpa562a3,    
-                          aqpa562dnpiso,    
-                          aqpa562dnsota,    
-                          aqpa562dfabri,    
-                          aqpa562dcont,   
-                          aqpa562dmate,   
-                          aqpa562dtedi,   
-                          aqpa562dcneg,   
-                          aqpa562dsase ,    
-                          aqpa562dsacon,    
-                          aqpa562a1,
-                          aqpa562a2 )   
-                   values(1,   
-                          j.mod1,   
-                          j.suc1,   
-                          j.mda1,   
-                          papel,    
-                          r.hcta,   
-                          j.operacion,    
-                          j.subop1,   
-                          j.tipo1,    
-                          fecha,   
-                          'A',    
-                          13,   
-                          codigocia,--50,51   
-                          correlativo,   
-                          apepat,   
-                          apemat,   
-                          nombres,    
-                          razons,   
-                          numdoc,   
-                          doctipo,    
-                          lc_correo,    
-                          ecivil,   
-                          sexo,   
-                          fechanac, --fecha nacimiento    
-                          lc_telefono,
-                          ocupacion,--ocudomi,--OCUPACION,    
-                          ubigeo,   
-                          direcc,   
-                          certificado,    
-                          certificado, --numero solicitud   
-                          j.suc1,   
-                          sucursal,   
-                          funcionario,    
-                          j.plan1,---'Plan',    
-                          1,--'Costo', sacar de la 611    
-                          r.hcimp1,---prima,---'Prima', sacar de la 611    
-                          j.cTasa,    
-                          0,----'Sobretasa'/*,    
-                          '016',    
-                          nrocredito,   
-                          tipodes, --numero tarjeta    
-                          fechavto1, --ult pago   
-                          fechades1, --f afiliacion   
-                          fechades1,    
-                          '00:00', --hora   
-                          fechavto1, 
-                          null, --f cancelacion   
-                          j.saldoasegurado, --a.monto,    
-                          moneda, ---moneda_cuenta,   
-                          'N',    
-                          null,   
-                          'N',    
-                           giro, --actdomi,--Giro,    
-                           dirdomi,--direccion_neg,   
-                           ubidomi, --ubigeo_neg,   
-                           'L',  --tipoinmueble   
-                           v_char2,--numero inm   
-                          pais,   
-                          000,--seguro    
-                          'N',    
-                          Nro_Piso,   
-                          Nro_Sotano,   
-                          A_Fabrica,    
-                          contenido,  -- caracterista del bien  A_Constru,    
-                          TIPOCONSTRUCCION,   
-                          uso,    
-                          codigo_giro,    
-                          saldoasegurado,   
-                          saldoasegurado,   
-                          nro_cuotas ,
-                          nro_cuotas   
-                         ); -- dirdomi, ubidomi, actdomi, ocudomi   
-                         COMMIT;    
-     exception    
-       when dup_val_on_index then   
-         null;    
-     end ;    
 
-         
+           begin
+      insert into aqpa562(aqpa562cod,
+                          aqpa562mod,
+                          aqpa562suc,
+                          aqpa562mda,
+                          aqpa562pap,
+                          aqpa562cta,
+                          aqpa562ope,
+                          aqpa562sbo,
+                          aqpa562tip,
+                          aqpa562fec,
+                          aqpa562mov,
+                          aqpa562canal,
+                          aqpa562cpro,
+                          aqpa562corr,
+                          aqpa562apat,
+                          aqpa562amat,
+                          aqpa562nom,
+                          aqpa562rsoc,
+                          aqpa562ndo,
+                          aqpa562tdo,
+                          aqpa562mail,
+                          aqpa562eciv,
+                          aqpa562sexo,
+                          aqpa562fnac,
+                          aqpa562cel ,
+                          aqpa562ocup,
+                          aqpa562ubig,
+                          aqpa562dire,
+                          aqpa562ncert,
+                          aqpa562nsol,
+                          aqpa562cage,
+                          aqpa562ades,
+                          aqpa562func,
+                          aqpa562plan,
+                          aqpa562cost,
+                          aqpa562prim,
+                          aqpa562tasa,
+                          aqpa562stas,
+                          aqpa562tcta,
+                          aqpa562ncred,
+                          aqpa562ntar,
+                          aqpa562finpa,
+                          aqpa562fafil,
+                          aqpa562fdes,
+                          aqpa562hdes,
+                          aqpa562fven,
+                          aqpa562fcan,
+                          aqpa562cimp ,
+                          aqpa562mone,
+                          aqpa562ctmov,
+                          aqpa562cant ,
+                          aqpa562hlegal,
+                          --aqpa562dcneg,---act
+                          aqpa562dgneg,--giro
+                          aqpa562ddir, --dir
+                          aqpa562dubige,--ubigeo
+                          aqpa562dtinm, --tipo inmueble
+                          aqpa562dnum ,--numero
+                          aqpa562pai,
+                          aqpa562cseg,
+                          aqpa562a3,
+                          aqpa562dnpiso,
+                          aqpa562dnsota,
+                          aqpa562dfabri,
+                          aqpa562dcont,
+                          aqpa562dmate,
+                          aqpa562dtedi,
+                          aqpa562dcneg,
+                          aqpa562dsase ,
+                          aqpa562dsacon,
+                          aqpa562a1,
+                          aqpa562a2 )
+                   values(1,
+                          j.mod1,
+                          j.suc1,
+                          j.mda1,
+                          papel,
+                          r.hcta,
+                          j.operacion,
+                          j.subop1,
+                          j.tipo1,
+                          fecha,
+                          'A',
+                          13,
+                          codigocia,--50,51
+                          correlativo,
+                          apepat,
+                          apemat,
+                          nombres,
+                          razons,
+                          numdoc,
+                          doctipo,
+                          lc_correo,
+                          ecivil,
+                          sexo,
+                          fechanac, --fecha nacimiento
+                          lc_telefono,
+                          ocupacion,--ocudomi,--OCUPACION,
+                          ubigeo,
+                          direcc,
+                          certificado,
+                          certificado, --numero solicitud
+                          j.suc1,
+                          sucursal,
+                          funcionario,
+                          j.plan1,---'Plan',
+                          1,--'Costo', sacar de la 611
+                          r.hcimp1,---prima,---'Prima', sacar de la 611
+                          j.cTasa,
+                          0,----'Sobretasa'/*,
+                          '016',
+                          nrocredito,
+                          tipodes, --numero tarjeta
+                          fechavto1, --ult pago
+                          fechades1, --f afiliacion
+                          fechades1,
+                          '00:00', --hora
+                          fechavto1,
+                          null, --f cancelacion
+                          j.saldoasegurado, --a.monto,
+                          moneda, ---moneda_cuenta,
+                          'N',
+                          null,
+                          'N',
+                           giro, --actdomi,--Giro,
+                           dirdomi,--direccion_neg,
+                           ubidomi, --ubigeo_neg,
+                           'L',  --tipoinmueble
+                           v_char2,--numero inm
+                          pais,
+                          000,--seguro
+                          'N',
+                          Nro_Piso,
+                          Nro_Sotano,
+                          A_Fabrica,
+                          contenido,  -- caracterista del bien  A_Constru,
+                          TIPOCONSTRUCCION,
+                          uso,
+                          codigo_giro,
+                          saldoasegurado,
+                          saldoasegurado,
+                          nro_cuotas ,
+                          nro_cuotas
+                         ); -- dirdomi, ubidomi, actdomi, ocudomi
+                         COMMIT;
+     exception
+       when dup_val_on_index then
+         null;
+     end ;
+
+
       end loop;
-      
-      
-      
+
+
+
    end loop;
-  
+
 end SP_CARGA_SEG_DESEMPLEO;
  /* GOLDENGATE_DDL_REPLICATION */
 /
