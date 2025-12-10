@@ -63,6 +63,16 @@ function Fecha_judicial(pn_emp in number,
                         pn_top in number,
                         pn_est in number)return date;
 ----------------------------------------------------------------
+procedure suboper_correcta (ln_Aomod in number,
+                           ln_Aosuc in number,
+                           ln_Aomda in number,
+                           ln_Aocta in number,
+                           ln_Aooper in number,
+                           ln_Aosbop in number,
+                           ln_Aotope in number,
+                           ln_subop out number,
+                           ln_tope  out number);                           
+                           
 
 END PQ_AH_PAGARE_VIGENTE;
 /
@@ -114,7 +124,8 @@ CREATE OR REPLACE PACKAGE BODY PQ_AH_PAGARE_VIGENTE  IS
 -- fecha              : 25/01/2023
 -- Modificacion       : SMARQUEZ 22/01/2025 correccion lineas 117
 -- Modificación       : SMARQUEZ 02/05/2025 modificacion credinka y  movil
--- Modificacion       : SMARQUEZ 23/05/2025 modificacion Lineas remotas
+-- Modificacion       : SMARQUEZ 23/05/2025 modificacion Lineas remotas -- se quito abajo
+-- Modificación       : SMARQUEZ 03/07/2025 OPTIMIZACION TIEMPO 
 --------------------------------------------------------------
 
 Procedure SP_AH_GENERA_UNO (LN_SUCUR    IN NUMBER,
@@ -175,11 +186,14 @@ cursor modulos is
  flagI char(1):='N';
  var_refiImprime char(1);
  flagnewope char(1):= 'N';
+ suboper2 number;
+ toper2 number;
 BEGIN
    execute immediate 'alter session set "_optimizer_batch_table_access_by_rowid" =false';
    delete jaqy680
     where jaqy680au4 = LC_USUARIO;
    commit;
+   execute immediate 'alter session set "_optimizer_batch_table_access_by_rowid" =false';
    delete jaqz596_tem
     where usuariot = rpad(LC_USUARIO,12,' ');
    commit;
@@ -204,9 +218,11 @@ BEGIN
                 from fsd010 b
                where b.pgcod = 1
                  and b.aomod = f.scmod
+                 and b.aosuc = f.scsuc
+                 and b.aopap = 0
                  and b.aocta = f.sccta
                  and b.aooper = f.scoper
-                 and b.aosuc = f.scsuc) fecha_inicial,
+                 ) fecha_inicial,
              (SELECT Cenom FROM fst026 where Cecod = f.Scstat) ESTADO,
              (SELECT Mdnom from fst003 where Modulo = f.Scmod) PRODUCTO,
              (select r.penom
@@ -274,10 +290,15 @@ BEGIN
          and f.SCSUC <> c.xwftsuc
          ---validacion credinka
          and not exists(SELECT 1 
-                          FROM AQPB178 A 
-                         WHERE A.AQPB178TFLU = 'D' 
-                           and aqpb178ctacr = a.xwfcuenta	
-                           and aqpb178opecr = a.xwfoperacion
+                          FROM AQPB178 c, fsr008 d
+                         WHERE d.ctnro = a.xwfcuenta	
+                           and d.cttfir = 'T'
+                           and c.aqpb178pai = d.pepais
+                           and c.aqpb178tdo = d.petdoc
+                           and c.aqpb178ndo = d.pendoc
+                           and c.aqpb178ctacr = d.ctnro 
+                           and c.aqpb178opecr = a.xwfoperacion                           
+                           and c.AQPB178TFLU = 'D'                            
                            and rownum = 1 )
          ;
          commit;
@@ -297,14 +318,15 @@ BEGIN
              Scstat v1scstat,
              abs(Scsdo) v1Scsdo,
              to_char(scfcon,'dd/mm/yyyy')  Fecha_contable,
-
              (select min(b.aofval)
                 from fsd010 b
                where b.pgcod = 1
                  and b.aomod = scmod
+                 and b.aosuc = scsuc
+                 and b.aopap = 0
                  and b.aocta = sccta
                  and b.aooper = scoper
-                 and b.aosuc = scsuc) fecha_inicial,
+                 ) fecha_inicial,
              (SELECT Cenom FROM fst026 where Cecod = Scstat) ESTADO,
              (SELECT Mdnom from fst003 where Modulo = Scmod) PRODUCTO,
              (select r.penom
@@ -355,11 +377,17 @@ BEGIN
                                    and pptope = sctope
                                    and d601mo = 489
                                    and rownum = 1)
+          -- valida Credinka                                   
           and not exists(SELECT 1 
-                            FROM AQPB178 A 
-                           WHERE A.AQPB178TFLU = 'D' 
-                             and aqpb178ctacr = sccta
-                             and aqpb178opecr = scoper
+                            FROM AQPB178 c, fsr008 d
+                           WHERE d.ctnro = sccta
+                             and d.cttfir = 'T'
+                             and c.aqpb178pai = d.pepais
+                             and c.aqpb178tdo = d.petdoc
+                             and c.aqpb178ndo = d.pendoc
+                             and c.aqpb178ctacr = d.ctnro
+                             and c.aqpb178opecr = scoper
+                             and c.AQPB178TFLU = 'D' 
                              and rownum = 1 )                           
          ;
 
@@ -442,8 +470,8 @@ BEGIN
                                   and flag ='N');
 
      commit;
------------------------------- sma 116 --------------------------------
-insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, v1scsbop, v1sctope, v1scfval, v1scstat,
+------------------------------ sma 116 -------------------------------- SMA 04072025
+/*insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, v1scsbop, v1sctope, v1scfval, v1scstat,
                             v1scsdo, fecha_contable,fecha_inicial, estado, producto, cliente, moneda ,sucursal, transac, usuariot, flag )
 
      select  f.aosuc  v1scsuc, --c.hsucor  v1scsuc,
@@ -478,11 +506,12 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
              c.htran transac,
              LC_USUARIO usuariot,
              'R' flag
-         FROM fsh015 d,fsh016 c, fsd010 f
+              FROM fsh015 d,fsh016 c, fsd010 f
              where c.pgcod = d.pgcod
                and c.hcmod = d.hcmod
                and c.hsucor = d.hsucor
                and c.htran = d.htran
+               and c.hnrel = d.hnrel
                and c.hfcon = d.hfcon
                and c.hsucur <> d.HSUCoR
                and d.hfcon >=  to_Date('01/07/2013','dd/mm/rrrr')
@@ -519,7 +548,7 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                                   and transac = 0
                                   and flag ='N');
 
-     commit;
+     commit;*/
 ---------------------------------------------------------------
 
        For r in transac1  loop
@@ -544,16 +573,17 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                       from fsd010 b
                      where b.pgcod = 1
                        and b.aomod = f.AOmod
+                       and b.aosuc = f.AOsuc
+                       and b.aopap = 0
                        and b.aocta = f.AOcta
                        and b.aooper = f.AOoper
-                       and b.aosuc = f.AOsuc) fecha_inicial,
+                       ) fecha_inicial,
                    'REPROGRAMADO' ESTADO,--(SELECT Cenom FROM fst026 where Cecod = f.AOstat) ESTADO,
                    (SELECT Mdnom from fst003 where Modulo = f.AOmod) PRODUCTO,
                    (select r.penom
                       from fsr008 t ,
                            fsd001 r
-                     where t.pgcod = 1
-                       and t.ctnro = f.AOcta
+                     where t.ctnro = f.AOcta
                        and t.cttfir ='T'
                        and r.pepais = t.pepais
                        and r.petdoc = t.petdoc
@@ -601,11 +631,17 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                               and aosbop <> 0
                               and aotope = f.aotope
                               and aostat <> 99)
+               ---Valida Credinka
                and not exists(SELECT 1 
-                            FROM AQPB178 A 
-                           WHERE A.AQPB178TFLU = 'D' 
-                             and aqpb178ctacr = f.aocta
-                             and aqpb178opecr = f.aooper
+                            FROM AQPB178 c , fsr008 d
+                           WHERE d.ctnro = f.aocta
+                             and d.cttfir = 'T'
+                             and c.aqpb178pai = d.pepais
+                             and c.aqpb178tdo = d.petdoc
+                             and c.aqpb178ndo = d.pendoc
+                             and c.aqpb178ctacr = d.ctnro
+                             and c.aqpb178opecr = f.aooper
+                             and c.AQPB178TFLU = 'D' 
                              and rownum = 1 ) 
               ;
            else
@@ -627,9 +663,11 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                       from fsd010 b
                      where b.pgcod = 1
                        and b.aomod = f.AOmod
+                       and b.aosuc = f.AOsuc
+                       and b.aopap = 0
                        and b.aocta = f.AOcta
                        and b.aooper = f.AOoper
-                       and b.aosuc = f.AOsuc) fecha_inicial,
+                       ) fecha_inicial,
                    'REPROGRAMADO' ESTADO,--(SELECT Cenom FROM fst026 where Cecod = f.AOstat) ESTADO,
                    (SELECT Mdnom from fst003 where Modulo = f.AOmod) PRODUCTO,
                    (select r.penom
@@ -705,10 +743,15 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                                    and rownum = 1)
                ---validacion credinka
                and not exists(SELECT 1 
-                                FROM AQPB178 A 
-                               WHERE A.AQPB178TFLU = 'D' 
-                                 and aqpb178ctacr = f.aocta	
-                                 and aqpb178opecr = f.aooper
+                                FROM AQPB178 c, fsr008 d
+                               WHERE d.ctnro = f.aocta
+                                 and d.cttfir = 'T'
+                                 and c.aqpb178pai = d.pepais
+                                 and c.aqpb178tdo = d.petdoc
+                                 and c.aqpb178ndo = d.pendoc
+                                 and c.aqpb178ctacr = d.ctnro
+                                 and c.aqpb178opecr = f.aooper
+                                 and c.AQPB178TFLU = 'D' 
                                  and rownum = 1 )
              ;
         end if;
@@ -728,6 +771,24 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                                        reg.v1scoper,
                                        reg.v1scsbop,
                                        reg.v1Sctope);
+          suboper2:= 0;
+          toper2:= 0;                                       
+         if reg.v1Sctope = 550 or reg.v1Sctope = 200 then -- SMA 26112025
+       
+            suboper_correcta(reg.v1scmod,
+                            reg.v1scsuc,
+                            reg.v1scmda,
+                            reg.v1sccta,
+                            reg.v1scoper,
+                            reg.v1scsbop,
+                            reg.v1Sctope,
+                            suboper2,
+                            toper2);
+         else
+           suboper2 := reg.v1Scsbop;
+           toper2   := reg.v1Sctope;
+         end if;  
+                                                        
          Begin
            select 1
               into Existe --- Verifica desembolso Caja Movil
@@ -739,8 +800,8 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                and pppap = reg.v1Scpap
                and ppcta = reg.v1SCCTA
                and ppoper = reg.v1SCOPER
-               and ppsbop = reg.v1Scsbop
-               and pptope = reg.v1Sctope
+               and ppsbop = suboper2 --reg.v1Scsbop SMA 20251126
+               and pptope = toper2
                and d601mo = 489
                and rownum = 1;
 ---               and d601tr = 951;
@@ -755,14 +816,13 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                   and a.hcmod = 489
                   and a.htran = 951
                   and a.hmodul = reg.v1Scmod
-                  and a.htoper = reg.v1Sctope
+                  and a.htoper = toper2--reg.v1Sctope
                   and a.hsucur = LN_SUCUR
                   and a.hmda = reg.v1Scmda
                   and a.hpap = reg.v1Scpap
                   and a.hcta = reg.v1SCCTA
---and a.hcta = 1960046
                   and a.hoper = reg.v1SCOPER
-                  and a.hsubop = reg.v1Scsbop
+                  and a.hsubop = suboper2 --reg.v1Scsbop
                   and a.hfcon = reg.v1Scfval
                   and b.pgcod = a.pgcod
                   and b.hcmod = a.hcmod
@@ -1059,34 +1119,8 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                                    End if;
                               exception
                                 when no_data_found then
-                                  Begin --SMA 23052025
-                                    select d601su
-                                      into agencia
-                                      from fsd601
-                                     where pgcod = 1
-                                       and ppmod = 116
-                                       and ppsuc = reg.v1scsuc
-                                       and ppmda = reg.v1scmda
-                                       and pppap = reg.v1scpap
-                                       and ppcta = reg.v1sccta
-                                       and ppoper = reg.v1scoper
-                                       and ppsbop = reg.v1scsbop
-                                       and pptope = reg.v1sctope
-                                       and d601mo  = 116
-                                       and d601tr  = 50
-                                       and d601fc  = reg.fecha_inicial
-                                       and d601co = 'S'
-                                       and rownum = 1;
-                                       if agencia <>  reg.v1scsuc then
-                                         observacion :='OTRA AGENCIA';
-                                       else
-                                         observacion := null;
-                                       End if;
-                                  exception
-                                    when no_data_found then
-                                      agencia := reg.v1scsuc;
-                                      observacion := null;
-                                  end;
+                                  agencia := reg.v1scsuc;
+                                  observacion := null;
                               end;
                           end;
                       end;
@@ -1409,34 +1443,8 @@ insert into jaqz596_tem (v1scsuc, v1sccta, v1scoper, v1scmda, v1scpap, v1scmod, 
                                End if;
                               exception
                                 when no_data_found then
-                                  begin --SMA 23/058/2025
-                                    select d601su
-                                      into agencia
-                                      from fsd601
-                                     where pgcod = 1
-                                       and ppmod = 116
-                                       and ppsuc = reg1.v1scsuc
-                                       and ppmda = reg1.v1scmda
-                                       and pppap = reg1.v1scpap
-                                       and ppcta = reg1.v1sccta
-                                       and ppoper = reg1.v1scoper
-                                       and ppsbop = reg1.v1scsbop
-                                       and pptope = reg1.v1sctope
-                                       and d601mo  = 116
-                                       and d601tr  = 50
-                                       and d601fc  = reg1.fecha_inicial
-                                       and d601co = 'S'
-                                       and rownum = 1;
-                                       if agencia <>  reg1.v1scsuc then
-                                         observacion :='OTRA AGENCIA';
-                                       else
-                                         observacion := null;
-                                       End if;
-                                  exception
-                                    when no_data_found then     
-                                      agencia := reg1.v1scsuc;
-                                      observacion := null;
-                                  end;
+                                  agencia := reg1.v1scsuc;
+                                  observacion := null;
                               end;
                           end;
                           When too_many_rows then
@@ -1570,7 +1578,7 @@ Begin
           monto1 := 0;
      end;
    end if;
-   if modulo = 116 then
+  /* if modulo = 116 then
      Begin  --R1COD, R1MOD, R1SUC, R1MDA, R1PAP, R1CTA, R1OPER, R1SBOP, R1TOPE, RELCOD, R2MOD, R2CTA, R2OPER, R2SBOP
        select b.Scsdo
          into monto1
@@ -1602,7 +1610,7 @@ Begin
        when no_data_found then
          monto1 := 0;
      end;
-    End if;
+    End if;*/
    return monto1;
 end Monto_Aprobado;
 
@@ -1701,6 +1709,7 @@ begin
           and b.Aosbop = a.R1sbop
           and b.Aotope = a.R1tope;
     end if;
+    /*
     if ln_aomod = 116  then
        Begin
          select min(b.Aofval)
@@ -1732,7 +1741,7 @@ begin
          when no_data_found then
            fec2Desem := null;
        end;
-     end if;
+     end if;*/
      if (ln_aomod = 200 or  ln_aotope = 550)then
        Begin
         select min(b.Aofval)
@@ -2092,5 +2101,48 @@ begin
   return fecha;
 
 end Fecha_judicial;
+
+procedure suboper_correcta (ln_Aomod in number,
+                           ln_Aosuc in number,
+                           ln_Aomda in number,
+                           ln_Aocta in number,
+                           ln_Aooper in number,
+                           ln_Aosbop in number,
+                           ln_Aotope in number,
+                           ln_subop out number,
+                           ln_tope  out number) is
+suboperacion number;
+begin
+           Begin
+            select a.R1sbop, a.R1tope
+              into ln_subop, ln_tope
+              from fsr011 a,
+                   fsd010 b
+             where a.Relcod = 52
+               and a.R2mod  = ln_aomod
+               and a.R2cta  = ln_Aocta
+               and a.R2oper = ln_Aooper
+               and a.R2sbop = ln_Aosbop
+               and a.R2cod  = 1
+               and a.R2suc  = ln_aosuc
+               and a.R2mda  = ln_aomda
+               and a.R2pap  = 0
+               and a.R2tope = ln_aotope
+               and a.R011co = 'S'
+               and b.Pgcod = a.R1COD
+               and b.Aomod = a.R1MOD
+               and b.Aosuc = a.R1suc
+               and b.Aomda = a.R1mda
+               and b.Aopap = a.R1pap
+               and b.Aocta = a.R1cta
+               and b.Aooper = a.R1oper
+               and b.Aosbop = a.R1sbop
+               and b.Aotope = a.R1tope;
+           exception
+             when no_data_found then
+                ln_subop := ln_Aosbop;
+                ln_tope  := ln_aotope;
+           end;
+end suboper_correcta;
 END PQ_AH_PAGARE_VIGENTE;
 /

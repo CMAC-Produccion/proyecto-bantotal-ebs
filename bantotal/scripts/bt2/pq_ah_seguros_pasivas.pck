@@ -43,7 +43,8 @@ create or replace package PQ_AH_SEGUROS_PASIVAS is
                               P_V_ESTA   IN varchar2,
                               P_V_OBSER  IN varchar2);
   procedure REPORTE_RetiroSeguro(p_fechaini in date,
-                                 p_fechafin in date);
+                                 p_fechafin in date,
+                                 p_usuario in varchar2);
   procedure SP_CODIGO_ABM(p_d_fecha in date,
                           p_n_cta   in number,
                           p_c_dni   in varchar2,
@@ -73,6 +74,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
   -- Modificacion: SMARQUEZ 01/07/2025 Modificacion error ora 1722 422
   -- Modificacion: SMARQUEZ 04/11/2025 Adicion de proceso codigo ABM
   -- Modificacion: SMARQUEZ 18/11/2025 Adicion de proceso codigo ABM
+  -- Modificacion: SMARQUEZ 26/11/2025 usuario para retiro seguro
   ---------------------------------------------------------------
   procedure Carga_SRetiroSeguro(p_fechapro in date) is
     cursor tran is
@@ -1043,7 +1045,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
   -----------------------------------------------------------------
 
   procedure REPORTE_RetiroSeguro(p_fechaini in date,
-                                 p_fechafin in date) is
+                                 p_fechafin in date,
+                                 p_usuario in varchar2) is
     cursor tran is
       select distinct tp1nro1, tp1nro2 --, tp1nro3
         from fst198
@@ -1315,8 +1318,10 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
     fecha      date;
     pais     number;
     tipodoc  number;
-  begin
-    delete aqpa571;
+    usuario  varchar2(20) ;
+  begin    
+   
+    delete aqpa571 where aqpa571au4 = p_usuario;
     commit;
     Fecha1 := p_fechaini; --TRUNC(p_fechapro, 'MM');
     Fecha2 := p_fechafin; --last_day(p_fechapro);
@@ -1856,7 +1861,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                aqpa571dis3,
                aqpa571tel3,
                aqpa571eciv3,
-               aqpa571corr3 )
+               aqpa571corr3,
+               aqpa571au4 )
             values
               (1,
                sucur,
@@ -1931,7 +1937,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                dist3,
                telefono3,
                ecivil3,
-               correo3);
+               correo3,
+               p_usuario);
           exception
             when dup_val_on_index then
               null;
@@ -2478,7 +2485,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                    aqpa571dis3,
                    aqpa571tel3,
                    aqpa571eciv3,
-                   aqpa571corr3 )
+                   aqpa571corr3,
+                   aqpa571au4 )
                 values
                   (1,
                    sucur,
@@ -2553,7 +2561,8 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
                    dist3,
                    telefono3,
                    ecivil3,
-                   correo3);
+                   correo3,
+                   p_usuario);
               exception
                 when dup_val_on_index then
                   null;
