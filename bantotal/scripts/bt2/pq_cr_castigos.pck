@@ -6,7 +6,9 @@ create or replace package pq_cr_castigos is
   -- Author  : KVALENCIAC
   -- Created : 03/09/2024
   -- Purpose : Paquete de castigos se adiciono actualización de numero de propuesto en guía para procesar la contabilización 
-  
+ -- Author MOdificación : KVALENCIAC
+  -- Created : 04/11/2025
+  -- Purpose : Se adicionó estado diferente de 99 para que solo toem el registore vigente en caso se haya pasado a otro estado el mismo día y se tenga doble registro pero uno en 99
   procedure sp_otrosdatos(  pn_opcion number,
                             pd_fecha in date,
                             pn_cod  in number,
@@ -56,7 +58,6 @@ procedure sp_ActualizaGuia( pn_codemp in number,
                             pn_propuesta  in number);                           
 end pq_cr_castigos;
 /
-
 create or replace package body pq_cr_castigos is
 
 procedure sp_otrosdatos(pn_opcion number,
@@ -151,7 +152,8 @@ begin
           and d.SCSUC  = pn_suc 
           and d.SCOPER = pn_ope  
           and d.SCSBOP = pn_sbo
-          and d.SCTOPE = pn_top;
+          and d.SCTOPE = pn_top
+          and d.scstat<>99;--se adicionó estado <>99 kvalenciac 04/11/2025
     exception
          when no_data_found then
            ln_saldo:=0;
@@ -313,7 +315,8 @@ begin
           and d.scrub like '2911%'
           and d.SCCTA  = pn_cta 
           and d.Scoper = pn_ope
-          and d.scmod  = 419;         
+          and d.scmod  = 419
+          and d.scstat<>99;--se adicionó estado <>99 kvalenciac 04/11/2025;         
        exception
          when no_data_found then
            ln_JAQL175INTDIF:=0;
@@ -347,7 +350,8 @@ begin
              and SCSUC = i.R2SUC
              and SCOPER= i.R2OPER
              and SCSBOP= i.R2SBOP
-             and SCTOPE= i.R2TOPE;
+             and SCTOPE= i.R2TOPE
+             and scstat<>99;--se adicionó estado <>99 kvalenciac 04/11/2025;
         exception
           when others then
             ln_montogar:=0;
@@ -506,4 +510,3 @@ procedure sp_ActualizaGuia( pn_codemp in number,
 end sp_ActualizaGuia;         
 end pq_cr_castigos;
 /
-
