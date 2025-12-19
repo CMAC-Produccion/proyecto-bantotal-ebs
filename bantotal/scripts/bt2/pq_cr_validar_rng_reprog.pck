@@ -18,10 +18,10 @@ create or replace package pq_cr_validar_rng_reprog is
   -- Detalle:      Se modifica validacion de reprogramaciones por normalizacion
   -- Modificacion: MCORDOVA - 2025.05.19
   -- Detalle:      Se agrega logica para control reprogramaciones gradientes
-  -- Modificacion: MCORDOVA - 2025.08.14
-  -- Detalle:      Se modifica flag gradientes
-  -- Modificacion: MPOSTIGOC - 2025.09.23
-  -- Detalle:      Se cambio el mensaje para el control de Limites de Reprogramaciones, lineas 6061 y 6063
+  -- Modificacion: RCASTRO - 2025.11.04
+  -- Detalle:      Se agrega logica para validar aprobacion en aqpc203 de limite reprogramados
+  -- Modificacion: RCASTRO - 2025.11.20
+  -- Detalle:      Se agrega logica para validar aprobaciones de bloquantes limites
 
   type reglas_excepcion is record(
     v_codigo      number(10),
@@ -120,12 +120,15 @@ create or replace package pq_cr_validar_rng_reprog is
   PROCEDURE SP_CARGAR_REGLAS_EXCEPCION(ve_Instancia number,
                                        VI_NRO       number,
                                        VE_USER      varchar);
-  PROCEDURE SP_GRABAR_LISTA_EXCEPCION(ve_variable  varchar, --VARIABLE
-                                      ve_mensaje   varchar, --VALOR
-                                      ve_regla     number, --REGLA
-                                      ve_instancia number, --INSTANCIA
-                                      ve_usuario   varchar --USUARIO
-                                      );
+  PROCEDURE SP_GRABAR_LISTA_EXCEPCION(
+    ve_variable   VARCHAR2,   -- VARIABLE
+    ve_mensaje    VARCHAR2,   -- VALOR
+    ve_regla      NUMBER,     -- REGLA
+    ve_instancia  NUMBER,     -- INSTANCIA
+    ve_codcargo   VARCHAR2,   -- COD CARGO AUTORIZANTE
+    ve_perfil     VARCHAR2,   -- PERFIL AUTORIZANTE
+    ve_usuario    VARCHAR2    -- USUARIO SOLICITANTE
+  ) ;
   PROCEDURE SP_SAVE_EXCEPCION_HS(ve_codigo      number,
                                  ve_estado      varchar,
                                  ve_autorizador varchar,
@@ -240,11 +243,6 @@ create or replace package body pq_cr_validar_rng_reprog is
   -- Detalle:      Se agrega logica para control reprogramaciones gradientes
   -- Modificacion: MCORDOVA - 2025.08.08
   -- Detalle:      Se modifica flag de periodo gracia
-  -- Modificacion: MCORDOVA - 2025.08.14
-  -- Detalle:      Se modifica flag gradientes
-  -- Modificacion: MPOSTIGOC - 2025.09.23
-  -- Detalle:      Se cambio el mensaje para el control de Limites de Reprogramaciones, lineas 6061 y 6063
-  -----------------------------------------------------------------------------------------------------------------
   procedure sp_cr_validarrng91(ve_pgcod     number,
                                ve_scmod     number,
                                ve_scsuc     number,
@@ -291,9 +289,9 @@ create or replace package body pq_cr_validar_rng_reprog is
     VO_MSGERROR            VARCHAR(250);
     VIO_RPTA_DESACTIVA_REG VARCHAR2(10);
     VIO_EXCEPCION          VARCHAR2(10);
-  
-    VE_RPTAMSG VARCHAR2(100);
-  
+    
+    VE_RPTAMSG             VARCHAR2(100); 
+    
     --apacheco 31.12.2021 bloqueo
     ve_mensaje_bloqueo varchar(250);
     cursor mensaje_bloqueo_fondos is
@@ -344,32 +342,31 @@ create or replace package body pq_cr_validar_rng_reprog is
       -----------------------------------------------------------------------------------
       -- VALIDAR TODAS LAS REGLAS
       -----------------------------------------------------------------------------------
-      ve_mensaje := '';
+      ve_mensaje := ''; 
       ----15/07/2025
-      begin
+       begin
         ve_rptac := '';
         pq_cr_controles_cartera_reprogramada.sp_cr_cliente_validar_instancia(VE_INSTANCIA,
                                                                              VE_RPTAC,
                                                                              VE_RPTAMSG);
-      
+          
         PQ_CR_VALIDAR_RNG_REPROG.SP_GRABAR_LOG_RNG(VI_NRO,
                                                    'LISTNEGR_MEMO225', --variable
                                                    VE_RPTAC, --valor
                                                    91, --regla
                                                    ve_instancia --instancia
                                                    );
-      
+          
         PQ_CR_VALIDAR_RNG_REPROG.SP_DESACTIVAR_REGLA(VI_NRO,
                                                      VE_INSTANCIA,
                                                      'LISTNEGR_MEMO225',
                                                      VE_RPTA_DESACTIVA_REG);
-      
+          
         IF trim(ve_rptac) <> 'S' OR VE_RPTA_DESACTIVA_REG = 'S' THEN
           --VE_MENSAJE:= '';
           NULL;
         ELSE
-          IF LENGTH(TRIM(VE_MENSAJE)) > 0 and
-             LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
+          IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
             VE_MENSAJE := VE_MENSAJE || ';' || 'RSC: ' || VE_RPTAMSG;
           ELSE
             ve_mensaje := 'RSC: ' || VE_RPTAMSG;
@@ -379,9 +376,9 @@ create or replace package body pq_cr_validar_rng_reprog is
       exception
         when others then
           null;
-      end;
-      ----15/07/2025      
-    
+      end;      
+       ----15/07/2025      
+      
       pq_cr_funciones_cho.sp_indicador_CRM_Caja(ve_instancia, VE_RPTAC);
       vi_tipo_reprog := VE_RPTAC;
       IF VE_RPTAC != 'N' THEN
@@ -674,6 +671,7 @@ create or replace package body pq_cr_validar_rng_reprog is
           --Dbms_Output.put_line('V_CONTROL_CMT');
           --Dbms_Output.put_line(VE_RPTAC);
           --SP_VALIDAR_REPROGRAMACIONES_CRM(ve_instancia, ve_respuesta);
+
           IF trim(ve_rptac) = 'N' AND VE_RPTA_DESACTIVA_REG <> 'S' AND
              vo_excepcion <> 'S' THEN
             IF LENGTH(TRIM(VE_MENSAJE)) > 0 and
@@ -696,7 +694,7 @@ create or replace package body pq_cr_validar_rng_reprog is
             NULL;
         END;
         --BLOQUEO CREDINKA
-        BEGIN
+        /*BEGIN
           BEGIN
             PQ_CR_VALIDAR_RNG_REPROG.SP_BLOQUEO_CREDINKA(VE_INSTANCIA,
                                                          '',
@@ -742,7 +740,8 @@ create or replace package body pq_cr_validar_rng_reprog is
         EXCEPTION
           WHEN OTHERS THEN
             NULL;
-        END;
+        END;*/
+        
         -- OPINION DE RIESGOS LISTA NEGRA NO SE PUEDE REPROGRAMAR
         BEGIN
           PQ_CR_VALIDAR_RNG_REPROG.SP_VALIDAR_OPINION_RSG(ve_instancia,
@@ -807,19 +806,26 @@ create or replace package body pq_cr_validar_rng_reprog is
               ve_mensaje := 'RSC: Requiere opinion de riesgos - ' ||
                             VO_MSGERROR;
             END IF;
-            RETURN;
+            --RETURN;
           END IF;
         EXCEPTION
           WHEN OTHERS THEN
             NULL;
         END;
       
-        IF VI_REGLA = 93 THEN
+        /*IF VI_REGLA = 93 THEN
           PQ_CR_VALIDAR_RNG_REPROG.SP_VALIDAR_RPDNATURAL_SINCRM(ve_instancia,
                                                                 VI_NRO,
                                                                 VE_MENSAJE,
                                                                 VO_CODERROR,
                                                                 VO_MSGERROR);
+        END IF;*/
+        IF VI_REGLA = 93 THEN
+          PQ_CR_VALIDAR_RNG_RPSC.SP_VALIDAR_RNG_GENERAL(ve_instancia,
+                                                        VI_NRO,
+                                                        12,
+                                                        VI_USUARIO,
+                                                        VE_MENSAJE);
         END IF;
         IF VI_REGLA = 94 THEN
           PQ_CR_VALIDAR_RNG_RPSC.SP_VALIDAR_RNG_GENERAL(ve_instancia,
@@ -845,7 +851,7 @@ create or replace package body pq_cr_validar_rng_reprog is
           end if;
           */
         END IF;
-        BEGIN
+       /* BEGIN
           pq_cr_validar_rng_reprog.SP_CR_RATIOS_REPROGRAMADOS(ve_instancia,
                                                               VI_USUARIO,
                                                               VE_RPTAC,
@@ -868,7 +874,7 @@ create or replace package body pq_cr_validar_rng_reprog is
           WHEN OTHERS THEN
             NULL;
         END;
-        --MCHIGS
+
         -----VALIDAR MENSAJE SI SALTA POLITICA
         IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or
            VIO_EXCEPCION = 'S' THEN
@@ -883,7 +889,7 @@ create or replace package body pq_cr_validar_rng_reprog is
             ve_mensaje := 'RSC:Ratio capacidad de pago mayor al establecido.';
           END IF;
         END IF;
-      
+      */
       END IF; --FIN CONDICION GENERAL
     
       if length(vi_mensaje_caja) > 0 and vi_mensaje_caja is not null then
@@ -1988,7 +1994,11 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                            ve_mensaje,
                                                            91,
                                                            ve_Instancia,
+                                                           0, --CCARGO
+                                                           '',--PERFIL
                                                            VE_USER);
+                                                           
+                                                           
       END IF;
     END IF;
     -- FIN PLAZO
@@ -2025,6 +2035,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                            ve_mensaje,
                                                            91,
                                                            ve_Instancia,
+                                                           0, --CCARGO
+                                                           '',--PERFIL
                                                            VE_USER);
       END IF;
     ELSE
@@ -2039,6 +2051,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                            ve_mensaje,
                                                            91,
                                                            ve_Instancia,
+                                                           0, --CCARGO
+                                                           '',--PERFIL
                                                            VE_USER);
       END IF;
     ELSE
@@ -2054,8 +2068,7 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                  'GRADIENTE_CAJA', --variable
                                                  ve_rptac, --valor
                                                  91, --regla
-                                                 ve_instancia --instancia
-                                                 );
+                                                 ve_instancia);
       IF ve_rptac = 'N' OR vo_excepcion <> 'S' THEN
         VE_MENSAJE := 'RNG Caja: Revisar la Grediente no cumple con lo indicado segun matriz-Caja';
       
@@ -2194,6 +2207,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                                  'RSC: Plazo propuesto Caja, mayor al Permitido de acuerdo al cuadro-Sol. Juntos',
                                                                  91,
                                                                  ve_Instancia,
+                                                                 0, --CCARGO
+                                                                 '',--PERFIL
                                                                  VE_USER);
             END IF;
           END IF;
@@ -2240,6 +2255,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                                'RNG Caja: La Gracia es mayor a la permitida de acuerdo a la matriz-Sol.Juntos',
                                                                91,
                                                                ve_Instancia,
+                                                               0, --CCARGO
+                                                               '',--PERFIL
                                                                VE_USER);
           END IF;
         ELSE
@@ -2259,6 +2276,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                                'RNG Caja: La Gracia es mayor a la permitida de acuerdo a la matriz-Sol.Juntos',
                                                                91,
                                                                ve_Instancia,
+                                                               0, --CCARGO
+                                                               '',--PERFIL
                                                                VE_USER);
           END IF;
         ELSE
@@ -4708,6 +4727,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                              ve_mensaje,
                                                              91,
                                                              ve_Instancia,
+                                                             0, --CCARGO
+                                                             '',--PERFIL
                                                              VE_USER);
         ELSE
           NULL;
@@ -4736,6 +4757,8 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                              ve_mensaje,
                                                              91,
                                                              ve_Instancia,
+                                                             0, --CCARGO
+                                                             '',--PERFIL
                                                              VE_USER);
         ELSE
           NULL;
@@ -4780,24 +4803,68 @@ create or replace package body pq_cr_validar_rng_reprog is
     END;
   END;
 
-  PROCEDURE SP_GRABAR_LISTA_EXCEPCION(ve_variable  varchar, --VARIABLE
-                                      ve_mensaje   varchar, --VALOR
-                                      ve_regla     number, --REGLA
-                                      ve_instancia number, --INSTANCIA
-                                      ve_usuario   varchar --USUARIO
-                                      ) IS
+  PROCEDURE SP_GRABAR_LISTA_EXCEPCION(
+    ve_variable   VARCHAR2,   -- VARIABLE
+    ve_mensaje    VARCHAR2,   -- VALOR
+    ve_regla      NUMBER,     -- REGLA
+    ve_instancia  NUMBER,     -- INSTANCIA
+    ve_codcargo   VARCHAR2,   -- COD CARGO AUTORIZANTE
+    ve_perfil     VARCHAR2,   -- PERFIL AUTORIZANTE
+    ve_usuario    VARCHAR2    -- USUARIO SOLICITANTE
+  ) IS
+      v_count NUMBER;
   BEGIN
-    BEGIN
-      INSERT INTO aqpb955
-        (aqpb955cod, aqpb955reg, aqpb955des, aqpb955usr)
-      VALUES
-        (VE_INSTANCIA, VE_VARIABLE, ve_mensaje, ve_usuario);
+      -- Verificar si ya existe el registro
+      SELECT COUNT(*)
+        INTO v_count
+        FROM aqpb955
+       WHERE aqpb955cod = ve_instancia
+         AND aqpb955reg = ve_variable;
+
+      IF v_count = 0 THEN
+          -- No existe ? INSERT
+          INSERT INTO aqpb955 (
+              aqpb955cod,
+              aqpb955reg,
+              aqpb955des,
+              aqpb955usr,
+              aqpb955ccar,
+              aqpb955perfi
+          ) VALUES (
+              ve_instancia,
+              ve_variable,
+              ve_mensaje,
+              ve_usuario,
+              ve_codcargo,
+              ve_perfil
+          );
+
+      ELSE
+          -- Ya existe ? UPDATE (concatenar nuevos valores)
+          UPDATE aqpb955
+             SET aqpb955des   = ve_mensaje,
+                 aqpb955usr   = ve_usuario,
+                 aqpb955ccar  = CASE 
+                                   WHEN aqpb955ccar IS NULL OR aqpb955ccar = '' THEN ve_codcargo
+                                   WHEN INSTR(aqpb955ccar, ve_codcargo) = 0 THEN aqpb955ccar || ',' || ve_codcargo
+                                   ELSE aqpb955ccar
+                                END,
+                 aqpb955perfi = CASE 
+                                   WHEN aqpb955perfi IS NULL OR aqpb955perfi = '' THEN ve_perfil
+                                   WHEN INSTR(aqpb955perfi, ve_perfil) = 0 THEN aqpb955perfi || ',' || ve_perfil
+                                   ELSE aqpb955perfi
+                                END
+           WHERE aqpb955cod = ve_instancia
+             AND aqpb955reg = ve_variable;
+      END IF;
+
       COMMIT;
-    END;
+
   EXCEPTION
-    WHEN OTHERS THEN
-      NULL;
-  END;
+      WHEN OTHERS THEN
+          ROLLBACK;
+          DBMS_OUTPUT.PUT_LINE('? Error en SP_GRABAR_LISTA_EXCEPCION: ' || SQLERRM);
+  END SP_GRABAR_LISTA_EXCEPCION;
 
   PROCEDURE SP_SAVE_EXCEPCION_HS(ve_codigo      number,
                                  ve_estado      varchar,
@@ -5563,6 +5630,13 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                         VE_INSTANCIA,
                                                         VE_VARIABLE,
                                                         VE_EXCEPTION_U); --VALIDAR SI LA REGLA ESTA EXCEPTUADA PARA LA INSTANCIA SELECCIONADA.
+    
+    IF VE_EXCEPTION_U = 'N' THEN
+    pq_cr_gestion_bloq_excepc_rpgsincap.SP_VALIDAR_APROB_BLOQ_203_RC(VE_INSTANCIA => VE_INSTANCIA,
+                                                                     VE_VARIABLE  => VE_VARIABLE,
+                                                                     VO_FLAGEXCEP => VE_EXCEPTION_U);
+    END IF;                                                                     
+    
     PQ_CR_VALIDAR_RNG_REPROG.SP_GRABAR_LOG_RNG(VE_NRO,
                                                VE_VARIABLE, --variable
                                                VE_RPTAC, --valor
@@ -5974,18 +6048,18 @@ create or replace package body pq_cr_validar_rng_reprog is
       --PLAZO GRACIAS <= 6 MESES
       --VALIDAR GRACIA
       /*pq_cr_controles_memo24.sp_cr_control_periodio_gracia(VE_INSTANCE,
-      vo_gracia,
-      vo_monto,
-      VE_RPTAC);*/
-      PQ_CR_CALIFICAC_REPRG_DESAS_NATURAL.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
-                                                                                VE_RPTAC,
-                                                                                VO_CODERROR,
-                                                                                VO_MSGERROR);
-      /*PQ_CR_GRADIENTE.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
-      '',
+                                                           vo_gracia,
+                                                           vo_monto,
+                                                           VE_RPTAC);*/
+     PQ_CR_CALIFICAC_REPRG_DESAS_NATURAL.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
       VE_RPTAC,
       VO_CODERROR,
-      VO_MSGERROR);*/
+      VO_MSGERROR);
+      /*PQ_CR_GRADIENTE.sp_cr_control_periodio_gracia_sin_CRM(VE_INSTANCE,
+                                                            '',
+                                                            VE_RPTAC,
+                                                            VO_CODERROR,
+                                                            VO_MSGERROR);*/
       --VALIDAR SI ESTA EXCEPTUADO
       PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
                                                         VE_INSTANCE,
@@ -6107,7 +6181,7 @@ create or replace package body pq_cr_validar_rng_reprog is
                                                         VIO_EXCEPCION);
       ----VALIDAR MENSAJE SI SALTA POLITICA
       IF VE_RPTAC = 'N' or VIO_RPTA_DESACTIVA_REG = 'S' or -- MCORDOVA - 17/07/2025
-        --IF VE_RPTAC = 'S' or VIO_RPTA_DESACTIVA_REG = 'S' or 
+      --IF VE_RPTAC = 'S' or VIO_RPTA_DESACTIVA_REG = 'S' or 
          VIO_EXCEPCION = 'S' THEN
         --VE_MENSAJE:= '';
         NULL;
@@ -6154,12 +6228,12 @@ create or replace package body pq_cr_validar_rng_reprog is
     END;
   
     --VALIDAR CUENTA GRADIENTE MENOS DEL 30%
-    BEGIN
+    BEGIN   
       pq_cr_contrl_reprog_refin25.SP_CR_RP_GRADIENTE_CAJ_REPRGSINCAP(VE_INSTANCE,
                                                                      '',
                                                                      VE_RPTAC,
                                                                      VO_CODERROR,
-                                                                     VO_MSGERROR);
+                                                                     VO_MSGERROR);    
       ----VALIDAR SI ESTA EXCEPTUADO
       PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
                                                         VE_INSTANCE,
@@ -6220,15 +6294,15 @@ create or replace package body pq_cr_validar_rng_reprog is
       WHEN OTHERS THEN
         NULL;
     END;
-  
+ 
     --VALIDAR ESTADO DE ACTA DIGITAL
     BEGIN
       PQ_CR_REGISTRO_ACTA_DIGITAL.SP_CR_VALIDA_ACTA_CERRADA2(VE_INSTANCE,
-                                                             '',
-                                                             VE_RPTAC,
-                                                             VO_CODERROR,
-                                                             VO_MSGERROR);
-    
+                                           '',
+                                           VE_RPTAC,
+                                           VO_CODERROR,
+                                           VO_MSGERROR);
+     DBMS_OUTPUT.put_line (VE_RPTAC);
       --VALIDAR SI ESTA EXCEPTUADO
       PQ_CR_VALIDAR_RNG_REPROG.SP_REGLAS_LOGS_EXCEPTION(VE_NRO,
                                                         VE_INSTANCE,
@@ -6254,8 +6328,8 @@ create or replace package body pq_cr_validar_rng_reprog is
     EXCEPTION
       WHEN OTHERS THEN
         NULL;
-    END;
-    --VALIDA LIMITES POR REGION - MILTON CORDOVA IGS
+    END; 
+        --VALIDA LIMITES POR REGION - MILTON CORDOVA IGS
     BEGIN
       PQ_CR_LIMITES_RPG.SP_CR_VALIDA_LIMITE_REGION(VE_INSTANCE,
                                                    '',
@@ -6279,11 +6353,11 @@ create or replace package body pq_cr_validar_rng_reprog is
       ELSE
         IF LENGTH(TRIM(VE_MENSAJE)) > 0 and LENGTH(TRIM(VE_MENSAJE)) < 700 THEN
           VE_MENSAJE := VE_MENSAJE || ';' ||
-                        'RNG:Supero límite de reprogramaciones para la región, el caso necesita opinión de riesgos';
+                        'RNG:Supero el monto límite de reprogramaciones para la región';
         ELSE
-          VE_MENSAJE := 'RNG:Supero límite de reprogramaciones para la región, el caso necesita opinión de riesgos';
+          VE_MENSAJE := 'RNG:Supero el monto límite de reprogramaciones para la región';
         END IF;
-      END IF;
+      END IF;   
     EXCEPTION
       WHEN OTHERS THEN
         NULL;

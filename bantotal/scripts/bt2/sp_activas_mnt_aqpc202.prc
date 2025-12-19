@@ -138,7 +138,7 @@ BEGIN
               P_C_DESERR := 'El registro fue enviado para autorizar, no puede agregar sustento(s).';  
             ELSE
               P_C_CODERR := '000';
-              P_C_DESERR := 'Registro existente';
+              --P_C_DESERR := 'Registro existente';*/
             END IF;
           END IF;          
         END;
@@ -203,4 +203,3 @@ EXCEPTION
   P_N_CO2    := 0; 
 END SP_ACTIVAS_MNT_AQPC202;
 /
-

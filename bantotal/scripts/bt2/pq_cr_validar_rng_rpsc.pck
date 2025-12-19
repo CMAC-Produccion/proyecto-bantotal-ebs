@@ -11,9 +11,15 @@ create or replace package PQ_CR_VALIDAR_RNG_RPSC is
      -- Autor de Creación          : HSUAREZ
      -- Estado                     : Activo
      -- Acceso                     : Público  
-     -- Fecha de Modificacion      : 03/01/2025
+     -- Fecha de Modificacion      : 02/05/2025
      -- Autor de Modificacion      : CALARCONAP
      -- Descripcion Modificacion   : Se agrega reglas para normalizacion
+     -- Fecha de Modificacion      : 28/10/2025
+     -- Autor de Modificacion      : HSUAREZ
+     -- Descripcion Modificacion   : Se agrega reglas para bloque c. excepcion	 
+     -- Fecha de Modificacion      : 21/11/2025
+     -- Autor de Modificacion      : RCASTRO
+     -- Descripcion Modificacion   : Se agrega mensaje en caso espcial de aprob. admision y seguim.	      
  * *************************************************************************************************************/
   PROCEDURE SP_VALIDAR_RNG_GENERAL(
                                      VE_INSTANCIA IN NUMBER,
@@ -55,6 +61,18 @@ create or replace package PQ_CR_VALIDAR_RNG_RPSC is
                                   VE_USUARIO IN VARCHAR,
                                   VO_MSG OUT VARCHAR 
                                ); 
+  PROCEDURE SP_REGISTRAR_AUTORIZANTE(--DATOS GENERALES DE LA REGLA
+                                     VE_COD_REGLA IN NUMBER,
+                                     VE_NOM_VAR IN VARCHAR,
+                                     VE_MSG_REG IN VARCHAR,
+                                     VE_TIPORPG IN NUMBER,
+                                     --DATOS DEL CREDITO Y SOLICITANTE
+                                     VE_INSTANCIA IN NUMBER,
+                                     VE_USUARIO IN VARCHAR,
+                                     VO_MENSAJE_ESP  OUT VARCHAR2,
+                                     VO_COD_ERROR OUT VARCHAR,
+                                     VO_MSG_ERROR OUT VARCHAR
+                                 );
 end PQ_CR_VALIDAR_RNG_RPSC;
 /
 create or replace package body PQ_CR_VALIDAR_RNG_RPSC is
@@ -69,7 +87,7 @@ create or replace package body PQ_CR_VALIDAR_RNG_RPSC is
       -- Autor de Creación          : HSUAREZ
       -- Estado                     : Activo
       -- Acceso                     : Público  
-      -- Fecha de Modificacion      : 03/01/2025
+      -- Fecha de Modificacion      : 02/05/2025
       -- Autor de Modificacion      : CALARCONAP
       -- Descripcion Modificacion   : Se agrega reglas para normalizacion
   * *************************************************************************************************************/
@@ -96,16 +114,30 @@ create or replace package body PQ_CR_VALIDAR_RNG_RPSC is
     CURSOR LISTADO_REGLAS_CAMBIO_FECHA(VCI_N_INSTANCE IN NUMBER, VCI_N_TPREPR IN NUMBER ) IS
       SELECT A.*
         FROM AQPC780 A, JAQA400 J
-       WHERE A.AQPC780MEMO IN ('CAMBIO_FECHA','NORMALIZACION')
-         AND A.AQPC780TPREPR = VCI_N_TPREPR --10(Cambio fecha) o 11(Normalizacion)
-         AND A.AQPC780GRPREG IN ('CAMBIO_FECHA','NORMALIZACION')
+       WHERE A.AQPC780MEMO IN ('CAMBIO_FECHA','NORMALIZACION','DESASTRE_NATURAL','GENERAL')
+         AND A.AQPC780TPREPR = VCI_N_TPREPR --10(Cambio fecha), 11(Normalizacion), 12(Desastre Natural)
+         AND A.AQPC780GRPREG IN ('CAMBIO_FECHA','NORMALIZACION','DESASTRE_NATURAL','GENERAL')
          AND A.AQPC780NUMRGL = J.JAQA400AN1
          AND A.AQPC780ESTADO = 'S'
          AND J.JAQA400AI1 = VCI_N_INSTANCE
-         AND J.JAQA400FEC = (SELECT PGFAPE FROM FST017 WHERE PGCOD = 1) 
+         AND J.JAQA400FEC = (SELECT PGFAPE FROM FST017 WHERE PGCOD = 1)
+      UNION ALL   
+      SELECT A.*
+        FROM AQPC780 A, JAQA400 J
+       WHERE A.AQPC780MEMO IN ('GENERAL')
+         --AND A.AQPC780TPREPR = VCI_N_TPREPR --10(Cambio fecha) o 11(Normalizacion)
+         AND A.AQPC780GRPREG IN ('GENERAL')
+         AND A.AQPC780ESTADO = 'S'
+         AND J.JAQA400AI1 = VCI_N_INSTANCE
+         AND J.JAQA400FEC = (SELECT PGFAPE FROM FST017 WHERE PGCOD = 1)  
          ;        
   
     VE_MSG VARCHAR(300);
+    VE_USERING VARCHAR2(10);
+    VIO_COD_ERROR VARCHAR2(5):='';
+    VIO_MSG_ERROR VARCHAR2(300):='';
+    VO_MSG_REG_ESPC VARCHAR2(300):='';
+    
   BEGIN
     --REGLAS PARA MEMO 17
     ----REGLAS PARA CREDITOS ENTRE DIC2022 AL JUN2023
@@ -146,7 +178,16 @@ create or replace package body PQ_CR_VALIDAR_RNG_RPSC is
        END;              
     END LOOP;
     */
-    -----REGLAS DE CAMBIO DE FECHA REPROGRAMADOS SIN CRM.
+    -----REGLAS DE CAMBIO DE FECHA REPROGRAMADOS SIN CRM.  
+    VE_USERING := TRIM(VE_USUARIO);        
+    BEGIN
+      DELETE FROM aqpb955 A WHERE (A.AQPB955USR = rpad(VE_USERING, 10, ' ') or A.AQPB955USR = VE_USERING);
+      COMMIT;
+    EXCEPTION
+      WHEN OTHERS THEN
+        NULL;
+    END;
+    
     FOR Y IN LISTADO_REGLAS_CAMBIO_FECHA(VE_INSTANCIA, VE_TIPO_REPROG) LOOP
       BEGIN
         PQ_CR_VALIDAR_RNG_RPSC.SP_VALIDAR_REGLA_RPSC(VE_INSTANCIA,
@@ -158,11 +199,29 @@ create or replace package body PQ_CR_VALIDAR_RNG_RPSC is
                                                      VE_MSG);
         ----OBTENER LOS MENSAJES BLOQUEANTE EN CASO HUBIERA Y ALMACENARLOS EN LA VARIABLE GENERAL.
         If LENGTH(TRIM(VE_MSG)) > 0 THEN
+         --24/10/2025
+         PQ_CR_VALIDAR_RNG_RPSC.SP_REGISTRAR_AUTORIZANTE(--DATOS GENERALES DE LA REGLA
+                                                         Y.AQPC780CORR,
+                                                         Y.AQPC780NOMVAR,
+                                                         Y.AQPC780MGBLOQ,
+                                                         Y.AQPC780TPREPR,
+                                                         --DATOS DEL CREDITO Y SOLICITANTE
+                                                         VE_INSTANCIA,
+                                                         VE_USUARIO,
+                                                         VO_MSG_REG_ESPC, 
+                                                         VIO_COD_ERROR,
+                                                         VIO_MSG_ERROR
+                                                        );
+         --        
+          IF TRIM(VO_MSG_REG_ESPC) IS NOT NULL AND  LENGTH(TRIM(VO_MSG_REG_ESPC))  > 0 THEN
+             VE_MSG := VO_MSG_REG_ESPC;
+          END IF;
+          
           IF LENGTH(TRIM(VO_MSG)) > 0 AND LENGTH(TRIM(VO_MSG)) < 800 THEN
             VO_MSG := VO_MSG || ';' || VE_MSG;
           ELSE
             VO_MSG := VE_MSG;
-          END IF;
+          END IF;                           
         END IF;
       EXCEPTION
         WHEN OTHERS THEN
@@ -364,64 +423,122 @@ create or replace package body PQ_CR_VALIDAR_RNG_RPSC is
       DBMS_OUTPUT.PUT_LINE(v_parameters2(i));
     END LOOP;
     v_parameters2.DELETE;
-    /*   
-    -- Agregar parámetros para el primer procedimiento
-    v_parameters('VE_INSTANCIA') := TO_CHAR(v_INSTANCIA1);
-    v_parameters('VO_RPTAC') := NULL;
-    v_parameters('v_CODMSG') := NULL;
-    v_parameters('v_DESMSG') := NULL;
-    
-    -- Ejecución del primer procedimiento
-    v_sql := 'BEGIN ' || v_procedure_name1 || '(';
-    
-    -- Obtener información sobre los parámetros del primer procedimiento
-    FOR param IN (SELECT AQPC782NOMVAR argument_name,AQPC782TPDATO data_type,AQPC782TPINPT in_out
-                  FROM AQPC782
-                  WHERE AQPC782CORRAS = VE_CODIGO_PRC
-                  ORDER BY AQPC782ORDEN)
-    LOOP
-      v_parameter_name := param.argument_name;
-      v_data_type := param.data_type;
-      v_parameter_mode := param.in_out;
-    
-      IF v_parameter_mode = 'I' THEN
-        v_sql := v_sql || ':' || v_parameter_name || ', ';
-        EXECUTE IMMEDIATE 'BEGIN :1 := ' || v_parameters(v_parameter_name) || '; END;' USING IN OUT v_parameters(v_parameter_name);
-      ELSIF v_parameter_mode = 'O' THEN
-        v_sql := v_sql || ':' || v_parameter_name || ' OUT, ';
-    
-        IF v_data_type = 'V' THEN
-          EXECUTE IMMEDIATE 'BEGIN :1 := NULL; END;' USING OUT v_parameters(v_parameter_name);
-        ELSIF v_data_type = 'N' THEN
-          EXECUTE IMMEDIATE 'BEGIN :1 := NULL; END;' USING OUT v_parameters(v_parameter_name);
-        END IF;
-      END IF;
-    END LOOP;
-    
-    v_sql := RTRIM(v_sql, ', ') || '); END;';
-    EXECUTE IMMEDIATE v_sql USING v_parameters;
-    
-    -- Mostrar o hacer algo con los resultados del primer procedimiento
-    DBMS_OUTPUT.PUT_LINE('Resultado del primer procedimiento:');
-    DBMS_OUTPUT.PUT_LINE('FLAG: ' || v_parameters('v_FLAG'));
-    DBMS_OUTPUT.PUT_LINE('CODMSG: ' || v_parameters('v_CODMSG'));
-    DBMS_OUTPUT.PUT_LINE('DESMSG: ' || v_parameters('v_DESMSG'));
-    
-    -- Limpiar parámetros para el segundo procedimiento
-    v_parameters.DELETE;
-    
-    -- Agregar parámetros para el segundo procedimiento
-    v_parameters('v_VE_INSTANCIA') := TO_CHAR(v_VE_INSTANCIA);
-    v_parameters('v_VE_NRO_RPG') := NULL;
-    v_parameters('v_VE_CARGO_APROB') := NULL;
-    v_parameters('v_VE_APROBADOR') := NULL;
-    v_parameters('v_VE_RPTA') := NULL;
-    */
   EXCEPTION
     WHEN OTHERS THEN
       DBMS_OUTPUT.PUT_LINE(SQLERRM);
   END SP_OBTENER_PARAMETROS;
 
+  PROCEDURE SP_REGISTRAR_AUTORIZANTE(--DATOS GENERALES DE LA REGLA
+                                     VE_COD_REGLA IN NUMBER,
+                                     VE_NOM_VAR IN VARCHAR,
+                                     VE_MSG_REG IN VARCHAR,
+                                     VE_TIPORPG IN NUMBER,
+                                     --DATOS DEL CREDITO Y SOLICITANTE
+                                     VE_INSTANCIA IN NUMBER,
+                                     VE_USUARIO IN VARCHAR, 
+                                     VO_MENSAJE_ESP  OUT VARCHAR2,                                    
+                                     VO_COD_ERROR OUT VARCHAR,
+                                     VO_MSG_ERROR OUT VARCHAR                                     
+                                 )
+  IS
+  --VARIABLES
+  VI_TMP_PERFIL VARCHAR2(20) :='';
+  VI_TMP_CARGO  NUMBER(5)    :=0;
+  VI_TMP_USER   VARCHAR2(10) :='';
+  VI_NOM_VAR    VARCHAR2(20) :='';
+  VI_MSG_REG    VARCHAR2(300):='';
+  VII_CTA       NUMBER(9)    :=0;
+  VII_OPE       NUMBER(9)    :=0;
+  VII_CODPRO    NUMBER(5)    :=0;
+  VII_CODMTDO   NUMBER(9)    :=0;
+  VII_NOMMTDO   VARCHAR2(100):='';
+  VIO_CODCARGO  NUMBER(5)    :='';
+  VIO_PERFIL    VARCHAR2(20) :='';
+  VIO_USUARIO   VARCHAR2(10) :='';
+  VIO_MSG_REGLA VARCHAR2(300):='';
+  
+  --
+  VI_SQL        VARCHAR2(300):='';
+  --CURSORES LISTADO
+  CURSOR LISTADO_AUTORIZANTES(VI_COD_REGLA IN NUMBER, VI_TIPORPG IN NUMBER) IS
+  SELECT *
+    FROM AQPC849 A
+   WHERE A.AQPC849CODVARI =  VI_COD_REGLA
+     AND A.AQPC849TPRG    =  VI_TIPORPG
+     AND A.AQPC849EST     =  'S'
+     AND A.AQPC849REQ     =  'S';
+  CURSOR LISTADO_AUTORIZANTES_EXCEPCIONAL(VI_COD_PROC IN NUMBER) IS
+  SELECT *
+    FROM AQPD160 A
+   WHERE A.AQPD160CORR = VI_COD_PROC;
+  
+  BEGIN
+        ---SI EL AUTORIZANTE ESTA EN EL LISTADO_AUTORIZANTES SE OBTIENE el CARGO/PERFIL
+        FOR X IN LISTADO_AUTORIZANTES(VE_COD_REGLA,VE_TIPORPG) LOOP 
+            VI_TMP_CARGO   := X.AQPC849CCARG;
+            VI_TMP_PERFIL  := X.AQPC849PCARG;
+            --
+            VII_CODPRO     := X.AQPC849CODPROC;
+            VII_CODMTDO    := X.AQPC849CODFUNC;
+            VII_NOMMTDO    := X.AQPC849NOMFUNC;
+            VI_NOM_VAR     := VE_NOM_VAR;
+            VI_MSG_REG     := VE_MSG_REG;
+            --SI EL AUTORIZADOR NO ESTA ESPECIFICADO SU CARGO O PERFIL
+            ----SE GESTIONA POR LISTADO_AUTORIZANTES EXCEPCIONAL ES DECIR PROCESO QUE DETERMINA EL AUTORIZADOR
+            IF TRIM(VI_TMP_CARGO) IS NULL AND TRIM(VI_TMP_PERFIL) IS NULL THEN
+               FOR Y IN LISTADO_AUTORIZANTES_EXCEPCIONAL(X.AQPC849CODPROC) LOOP
+                    --EJECUTAR PROCEDIMIENTO VALIDAR REGLA
+                    --VE_NOMBRE_VAR,VI_VALOR_VAR,VI_MSG_REGLA,
+                    --VALIDAR SI ESTA EXCEPTUADO
+                    BEGIN
+                        -- Construcción de la sentencia SQL dinámica
+                        VI_SQL := Y.AQPD160CONSQL;
+                        --
+                        BEGIN
+                          SELECT XWFCUENTA,XWFOPERACION INTO VII_CTA,VII_OPE FROM XWF700 WHERE XWFPRCINS=VE_INSTANCIA AND XWFCAR3='1';
+                        EXCEPTION
+                          WHEN OTHERS THEN
+                            NULL;  
+                        END;
+                        -- Ejecución del procedimiento almacenado utilizando EXECUTE IMMEDIATE
+                        EXECUTE IMMEDIATE VI_SQL USING IN VE_INSTANCIA,IN VII_CTA,IN VII_OPE,IN VII_CODPRO,IN VII_CODMTDO,IN VII_NOMMTDO,OUT VIO_CODCARGO,OUT VIO_PERFIL,OUT VIO_USUARIO,OUT VIO_MSG_REGLA, OUT VO_COD_ERROR, OUT VO_MSG_ERROR;
+                        -- Mostrar o hacer algo con los resultados
+                        VI_TMP_CARGO   := VIO_CODCARGO;
+                        VI_TMP_PERFIL  := VIO_PERFIL;
+                        VI_NOM_VAR     := Y.AQPD160NOMVAR;
+                        VI_MSG_REG     := VIO_MSG_REGLA;--Y.AQPD160MGBLOQ; --ACA ROMARIO
+                    EXCEPTION
+                      WHEN OTHERS THEN
+                        NULL;  --LOG DE QUE ALGUN ERROR SE GENERO POR MALA CONSTRUCCIÓN DE LA REGLA.
+                        DBMS_OUTPUT.put_line(SUBSTR(SQLERRM,1,150));
+                        VO_MSG_ERROR := SUBSTR(SQLERRM,1,150);
+                    END;    
+               END LOOP;
+            END IF;
+            --GRABAR BLOQUEANTE.
+            IF TRIM(VI_TMP_CARGO) IS NOT NULL and VI_TMP_CARGO <> 0 THEN
+              BEGIN
+                PQ_CR_VALIDAR_RNG_REPROG.SP_GRABAR_LISTA_EXCEPCION ( VI_NOM_VAR, --variable de la regla que salto.
+                                                                     VI_MSG_REG, --Mensaje Bloqueante que salto 
+                                                                     91, --Fijo 
+                                                                     ve_Instancia, --Instancia del crédito evaluado
+                                                                     TO_CHAR(VI_TMP_CARGO),
+                                                                     VI_TMP_PERFIL,
+                                                                     VE_USUARIO); -- Usuario que lo esta gestionando              
+              EXCEPTION 
+                WHEN OTHERS THEN
+                  NULL;
+              END;
+            ELSE
+               VO_MENSAJE_ESP := VI_MSG_REG;
+            END IF;
+                        
+        END LOOP;
+        
+        
+        
+  END;   
+  
   PROCEDURE SP_VALIDAR_RNG_CAJA(VE_INSTANCIA   IN NUMBER,
                                 VE_NRO         IN NUMBER,
                                 VE_TIPO_REPROG IN NUMBER,

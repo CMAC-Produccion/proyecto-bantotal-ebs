@@ -30,6 +30,9 @@ P_C_DESERR OUT VARCHAR2)
 --                              P_C_AC2, P_N_AN1, P_N_AN2, P_D_AD1, P_D_AD2, P_D_FEC,
 --                              P_C_HOR, P_C_USU, P_C_MOD
 -- Retorno                    : P_C_CODERR, P_C_DESERR
+-- Fecha de Modificacion      : 28/10/2025
+-- Autor de Modificacion      : RCASTRO
+-- Uso                        : Se modifica logica de eliminacion de reg. en aqpc203
 -- *****************************************************************
 AS
 L_BFILE BFILE;
@@ -67,7 +70,7 @@ BEGIN
             DBMS_LOB.fileclose(L_BFILE);
             COMMIT;
             P_C_CODERR := '000';
-            P_C_DESERR := 'Registro ingresado exitosamente.';
+            --P_C_DESERR := 'Registro ingresado exitosamente.';
           ELSIF DBMS_LOB.FILEEXISTS(L_BFILE) = 0 THEN
             P_C_CODERR := '000';
             P_C_DESERR := 'Archivo no existe en directorio.';
@@ -85,11 +88,17 @@ BEGIN
           P_C_CODERR := '000';
           P_C_DESERR := 'No existe archivo a registrar.';  
       END IF;
-    ELSIF P_C_MOD = 'DEL' THEN   
+    ELSIF P_C_MOD = 'DEL' THEN 
+      BEGIN   
       DELETE FROM AQPC204 WHERE AQPC204CO1 = P_N_CO1 AND AQPC204VRE = P_C_VRE;
+      COMMIT;
+      EXCEPTION
+        WHEN OTHERS THEN
+          NULL;
+      END;
       P_C_CODERR := '000';
       P_C_DESERR := 'Registro eliminado exitosamente.'; 
-      BEGIN
+     /* BEGIN
       SELECT 'S' INTO P_C_FLAG_AQPC203 FROM AQPC203 WHERE AQPC203COR = P_N_CO1;      
       EXCEPTION
         WHEN NO_DATA_FOUND THEN
@@ -105,6 +114,7 @@ BEGIN
          DELETE FROM AQPC202 WHERE AQPC202COR = P_N_CO1;
          COMMIT;
       END IF; 
+      */
     END IF;
   END;
 EXCEPTION
@@ -114,4 +124,3 @@ EXCEPTION
   COMMIT;
 END SP_ACTIVAS_MNT_AQPC204;
 /
-

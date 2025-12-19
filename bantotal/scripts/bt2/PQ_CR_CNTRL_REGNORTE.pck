@@ -10,8 +10,9 @@ create or replace package PQ_CR_CNTRL_REGNORTE is
   -- Estado                     : Activo
   -- Acceso                     : Público
   -- Parámetros de Entrada      :
-  -- Fecha de Modificación      : 
-  -- Autor de la Modificación   : 
+  -- Fecha de Modificación      : 19/11/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descrip de la Modificacion : Se agrego procedimientos para la generacion del reporte de controles implementados para contencion Norte.
   -- *****************************************************************
   -- Public type declarations
 
@@ -26,6 +27,40 @@ create or replace package PQ_CR_CNTRL_REGNORTE is
   --------------------------------------------------------------------------
   procedure sp_cr_NroCredVig(ln_Instancia  in number,
                              ln_NroCredVig out number);
+  ------------------------------------------------------------------
+  procedure sp_cr_InicioReporte(lc_Usuario  in varchar2,
+                                ln_region   in number,
+                                ln_zona     in number,
+                                ln_sucursal in number,
+                                ld_fchIni   in date,
+                                ld_fchFin   in date);
+  ------------------------------------------------------------------
+  procedure sp_cr_LogAQPD068_Repor(ln_cor     in number,
+                                   ld_fchini  in date,
+                                   ld_fchfin  in date,
+                                   ln_RegPan  in number,
+                                   ln_ZonPan  in number,
+                                   ln_SucPan  in number,
+                                   lv_user    in varchar2,
+                                   ln_region  in number,
+                                   lv_nombreg in varchar2,
+                                   ln_zona    in number,
+                                   lv_nombzon in varchar2,
+                                   ln_sucur   in number,
+                                   lv_nombsuc in varchar2,
+                                   ld_fchpol  in date,
+                                   lv_cliente in varchar2,
+                                   ln_instan  in number,
+                                   ln_cuenta  in number,
+                                   ln_operac  in number,
+                                   ln_mntcred in number,
+                                   ln_nropol  in number,
+                                   lv_descpol in varchar2,
+                                   lv_estpol  in varchar2,
+                                   lv_estaut  in varchar2,
+                                   lv_autrzn  in varchar2,
+                                   lv_analst  in varchar2,
+                                   lv_comite  in varchar2);
 
 end PQ_CR_CNTRL_REGNORTE;
 /
@@ -347,7 +382,7 @@ create or replace package body PQ_CR_CNTRL_REGNORTE is
   
     if ln_TipSol = 0 and ln_CredVig = 0 then
       -- Nuevo
-      ln_PorcAumnMntOri := 999;
+      ln_PorcAumnMntOri := 0;
     
     else
       -- Adicional
@@ -491,7 +526,7 @@ create or replace package body PQ_CR_CNTRL_REGNORTE is
              (select s.sng021eval
                 from sng021 s
                where s.sng021sol = ln_Instancia)
-         and n.sng026cod = 38;
+         and n.sng026cod = 73;
     exception
       when others then
         null;
@@ -505,7 +540,7 @@ create or replace package body PQ_CR_CNTRL_REGNORTE is
              (select s.sng021eval
                 from sng021 s
                where s.sng021sol = ln_Instancia)
-         and n.sng026cod = 538;
+         and n.sng026cod = 573;
     exception
       when others then
         null;
@@ -542,7 +577,7 @@ create or replace package body PQ_CR_CNTRL_REGNORTE is
   
     if ln_TipSol = 0 and ln_CredVig = 0 then
       -- Nuevo
-      ln_PorcAumNivVnt := 999;
+      ln_PorcAumNivVnt := 0;
     
     else
       -- Adicional
@@ -590,7 +625,7 @@ create or replace package body PQ_CR_CNTRL_REGNORTE is
                  (select s.sng021eval
                     from sng021 s
                    where s.sng021sol = ln_InsCredDesmb)
-             and n.sng026cod = 38;
+             and n.sng026cod = 73;
         exception
           when others then
             null;
@@ -604,7 +639,7 @@ create or replace package body PQ_CR_CNTRL_REGNORTE is
                  (select s.sng021eval
                     from sng021 s
                    where s.sng021sol = ln_InsCredDesmb)
-             and n.sng026cod = 538;
+             and n.sng026cod = 573;
         exception
           when others then
             ln_NvlVntAntDol := 0;
@@ -1099,6 +1134,1209 @@ create or replace package body PQ_CR_CNTRL_REGNORTE is
     ln_NroCredVig := nvl(ln_CredVig, 0);
   
   end sp_cr_NroCredVig;
+  --------------------------------------------------------------------------
+  procedure sp_cr_InicioReporte(lc_Usuario  in varchar2,
+                                ln_region   in number,
+                                ln_zona     in number,
+                                ln_sucursal in number,
+                                ld_fchIni   in date,
+                                ld_fchFin   in date) is
+  
+    cursor lista_todos is
+      select rownum corre,
+             s.sng001inst Instancia,
+             s.sng091num Nro_Politica,
+             to_date(d.sng060now, 'DD/MM/YY') Fch_Originacion,
+             to_char(d.sng060now, 'HH24:MI:SS') hra_Orign,
+             g.sng065usr Autorizante,
+             to_date(g.sng065now, 'DD/MM/YY') Fch_Autorizacion,
+             to_char(g.sng065now, 'HH24:MI:SS') hra_Autoriza,
+             case
+               when g.sng065res = 'A' THEN
+                'Aprobado'
+               when g.sng065res = 'R' then
+                'Rechazado'
+               when g.sng065res = 'P' then
+                'Pendiente'
+             end Respuesta,
+             g.sng065com Comentario
+        from sng091 s, sng060 d, sng065 g
+       where s.sng090pqt = d.sng060pqt
+         and s.sng091aut = g.sng062aut
+         and s.sng091num in (select f.tp1nro3
+                               from fst198 f
+                              where f.tp1cod = 1
+                                and f.tp1cod1 = 10899
+                                and f.tp1corr1 = 156
+                                and f.tp1corr2 = 1
+                                and f.tp1corr3 > 0)
+         and d.sng060fap between ld_fchIni and ld_fchFin;
+  
+    cursor lista_PorRegion is
+      select rownum corre,
+             s.sng001inst Instancia,
+             s.sng091num Nro_Politica,
+             to_date(d.sng060now, 'DD/MM/YY') Fch_Originacion,
+             to_char(d.sng060now, 'HH24:MI:SS') hra_Orign,
+             g.sng065usr Autorizante,
+             to_date(g.sng065now, 'DD/MM/YY') Fch_Autorizacion,
+             to_char(g.sng065now, 'HH24:MI:SS') hra_Autoriza,
+             case
+               when g.sng065res = 'A' THEN
+                'Aprobado'
+               when g.sng065res = 'R' then
+                'Rechazado'
+               when g.sng065res = 'P' then
+                'Pendiente'
+             end Respuesta,
+             g.sng065com Comentario
+        from sng091 s, sng060 d, sng065 g, sng001 n
+       where s.sng090pqt = d.sng060pqt
+         and s.sng091aut = g.sng062aut
+         and s.sng001inst = n.sng001inst
+         and s.sng091num in (select f.tp1nro3
+                               from fst198 f
+                              where f.tp1cod = 1
+                                and f.tp1cod1 = 10899
+                                and f.tp1corr1 = 156
+                                and f.tp1corr2 = 1
+                                and f.tp1corr3 > 0)
+         and d.sng060fap between ld_fchIni and ld_fchFin
+         and n.sng001age in
+             (select r.sucurs from regsuc r where r.regcod = ln_region);
+  
+    cursor lista_PorZona is
+      select rownum corre,
+             s.sng001inst Instancia,
+             s.sng091num Nro_Politica,
+             to_date(d.sng060now, 'DD/MM/YY') Fch_Originacion,
+             to_char(d.sng060now, 'HH24:MI:SS') hra_Orign,
+             g.sng065usr Autorizante,
+             to_date(g.sng065now, 'DD/MM/YY') Fch_Autorizacion,
+             to_char(g.sng065now, 'HH24:MI:SS') hra_Autoriza,
+             case
+               when g.sng065res = 'A' THEN
+                'Aprobado'
+               when g.sng065res = 'R' then
+                'Rechazado'
+               when g.sng065res = 'P' then
+                'Pendiente'
+             end Respuesta,
+             g.sng065com Comentario
+        from sng091 s, sng060 d, sng065 g, sng001 n
+       where s.sng090pqt = d.sng060pqt
+         and s.sng091aut = g.sng062aut
+         and s.sng001inst = n.sng001inst
+         and s.sng091num in (select f.tp1nro3
+                               from fst198 f
+                              where f.tp1cod = 1
+                                and f.tp1cod1 = 10899
+                                and f.tp1corr1 = 156
+                                and f.tp1corr2 = 1
+                                and f.tp1corr3 > 0)
+         and d.sng060fap between ld_fchIni and ld_fchFin
+         and n.sng001age in (select r.sucurs
+                               from regsuc r
+                              where r.regcod = ln_region
+                                and r.codzon = ln_zona);
+  
+    cursor lista_PorSucursal is
+      select rownum corre,
+             s.sng001inst Instancia,
+             s.sng091num Nro_Politica,
+             to_date(d.sng060now, 'DD/MM/YY') Fch_Originacion,
+             to_char(d.sng060now, 'HH24:MI:SS') hra_Orign,
+             g.sng065usr Autorizante,
+             to_date(g.sng065now, 'DD/MM/YY') Fch_Autorizacion,
+             to_char(g.sng065now, 'HH24:MI:SS') hra_Autoriza,
+             case
+               when g.sng065res = 'A' THEN
+                'Aprobado'
+               when g.sng065res = 'R' then
+                'Rechazado'
+               when g.sng065res = 'P' then
+                'Pendiente'
+             end Respuesta,
+             g.sng065com Comentario
+        from sng091 s, sng060 d, sng065 g, sng001 n
+       where s.sng090pqt = d.sng060pqt
+         and s.sng091aut = g.sng062aut
+         and s.sng001inst = n.sng001inst
+         and s.sng091num in (select f.tp1nro3
+                               from fst198 f
+                              where f.tp1cod = 1
+                                and f.tp1cod1 = 10899
+                                and f.tp1corr1 = 156
+                                and f.tp1corr2 = 1
+                                and f.tp1corr3 > 0)
+         and d.sng060fap between ld_fchIni and ld_fchFin
+         and n.sng001age = ln_sucursal;
+  
+    ln_pgcod      number;
+    ln_suc        number;
+    ln_mod        number;
+    ln_mda        number;
+    ln_pap        number;
+    ln_cta        number;
+    ln_ope        number;
+    ln_sbop       number;
+    ln_tope       number;
+    lc_NombClien  varchar2(150);
+    lc_NombAge    varchar2(35);
+    lc_Analista   varchar2(10);
+    lc_NomTipProd varchar2(35);
+    ln_MntSolic   number(17, 2);
+    ln_tdoc       number := 0;
+    ld_FecPro     date;
+    ln_RegCred    number;
+    lv_NombReg    varchar2(50);
+    ln_ZonCred    number;
+    lv_NombZon    varchar2(50);
+    ln_SucCred    number;
+    lv_NombSuc    varchar2(100);
+    ln_cargo      number;
+    lv_Jefe       varchar2(15);
+    lv_comite     varchar2(15);
+    lv_EstAutori  varchar2(5);
+    lv_DescPol    varchar2(100);
+  
+  begin
+  
+    begin
+      delete aqpd068 a where a.aqpd068user = lc_Usuario;
+      commit;
+    end;
+  
+    begin
+      select f.pgfape into ld_FecPro from fst017 f where f.pgcod = 1;
+    exception
+      when others then
+        null;
+    end;
+  
+    if ln_region = 0 and ln_zona = 0 and ln_sucursal = 0 then
+      for t in lista_todos loop
+      
+        ln_pgcod      := 0;
+        ln_suc        := 0;
+        ln_mod        := 0;
+        ln_mda        := 0;
+        ln_pap        := 0;
+        ln_cta        := 0;
+        ln_ope        := 0;
+        ln_sbop       := 0;
+        ln_tope       := 0;
+        ln_MntSolic   := 0.00;
+        lc_NombClien  := null;
+        lc_NombAge    := null;
+        lc_NomTipProd := null;
+        lc_Analista   := null;
+      
+        begin
+          select x.xwfempresa,
+                 x.xwfsucursal,
+                 x.xwfmodulo,
+                 x.xwfmoneda,
+                 x.xwfpapel,
+                 x.xwfcuenta,
+                 x.xwfoperacion,
+                 x.xwfsubope,
+                 x.xwftipope
+            into ln_pgcod,
+                 ln_suc,
+                 ln_mod,
+                 ln_mda,
+                 ln_pap,
+                 ln_cta,
+                 ln_ope,
+                 ln_sbop,
+                 ln_tope
+            from xwf700 x
+           where x.xwfprcins = t.instancia
+             and x.xwfcar3 = '1';
+        exception
+          when others then
+            null;
+        end;
+      
+        if ln_pgcod = 0 then
+        
+          begin
+            select x.xwfempresa,
+                   x.xwfsucursal,
+                   x.xwfmodulo,
+                   x.xwfmoneda,
+                   x.xwfpapel,
+                   x.xwfcuenta,
+                   x.xwfoperacion,
+                   x.xwfsubope,
+                   x.xwftipope
+              into ln_pgcod,
+                   ln_suc,
+                   ln_mod,
+                   ln_mda,
+                   ln_pap,
+                   ln_cta,
+                   ln_ope,
+                   ln_sbop,
+                   ln_tope
+              from xwf700 x
+             where x.xwfprcins = t.instancia
+               and x.xwfcar3 = '1';
+          exception
+            when others then
+              null;
+          end;
+        
+        end if;
+      
+        begin
+          select x.xllcapital
+            into ln_MntSolic
+            from x054023 x
+           where x.xllpgcod = ln_pgcod
+             and x.xllaomod = ln_mod
+             and x.xllaosuc = ln_suc
+             and x.xllaomda = ln_mda
+             and x.xllaopap = ln_pap
+             and x.xllaocta = ln_cta
+             and x.xllaooper = ln_ope
+             and x.xllaosbop = ln_sbop
+             and x.xllaotop = ln_tope;
+        exception
+          when others then
+            null;
+          
+        end;
+      
+        begin
+          select s.sng001tdoc
+            into ln_tdoc
+            from sng001 s
+           where s.sng001inst = t.instancia;
+        exception
+          when others then
+            ln_tdoc := 0;
+        end;
+      
+        if ln_tdoc = 9 then
+          begin
+            select trim(f.pjrazs)
+              into lc_NombClien
+              from sng001 s, fsd003 f
+             where s.sng001inst = t.instancia
+               and s.sng001pais = f.pjpais
+               and s.sng001tdoc = f.pjtdoc
+               and s.sng001ndoc = f.pjndoc;
+          exception
+            when others then
+              null;
+          end;
+        
+        else
+          begin
+            select trim(f.pfnom1) || ' ' || trim(f.pfnom2) || ' ' ||
+                   trim(f.pfape1) || ' ' || trim(f.pfape2)
+              into lc_NombClien
+              from sng001 s, fsd002 f
+             where s.sng001inst = t.instancia
+               and s.sng001pais = f.pfpais
+               and s.sng001tdoc = f.pftdoc
+               and s.sng001ndoc = f.pfndoc;
+          exception
+            when others then
+              null;
+          end;
+        end if;
+      
+        begin
+          lc_Analista := fn_analista_credito(v_Scmod  => ln_mod,
+                                             v_Scsuc  => ln_suc,
+                                             v_Scmda  => ln_mda,
+                                             v_Scpap  => ln_pap,
+                                             v_Sccta  => ln_cta,
+                                             v_Scoper => ln_ope,
+                                             v_Scsbop => ln_sbop,
+                                             v_Sctope => ln_tope);
+        end;
+      
+        -- comite
+        begin
+          begin
+            select s.sng055car, s.sng057jef
+              into ln_cargo, lv_Jefe
+              from sng057 s
+             where s.sng057usr = lc_Analista;
+          exception
+            when others then
+              null;
+          end;
+          if ln_cargo = 200 then
+            lv_comite := lv_Jefe;
+          else
+            if ln_cargo = 201 then
+              lv_comite := lc_Analista;
+            
+            end if;
+          end if;
+        end;
+        ---
+      
+        begin
+          select r.regcod, r.regnom, r.codzon, r.deszon, r.sucurs, r.scnom
+            into ln_RegCred,
+                 lv_NombReg,
+                 ln_ZonCred,
+                 lv_NombZon,
+                 ln_SucCred,
+                 lv_NombSuc
+            from regsuc r
+           where r.sucurs = ln_suc;
+        exception
+          when others then
+            null;
+        end;
+      
+        if t.respuesta = 'Aprobado' then
+          lv_EstAutori := 'SI';
+        else
+          lv_EstAutori := 'NO';
+        end if;
+      
+        begin
+          select f.pae90msg
+            into lv_DescPol
+            from fpae90 f
+           where f.pae90pol = t.nro_politica;
+        exception
+          when others then
+            null;
+        end;
+      
+        Pq_Cr_Cntrl_Regnorte.sp_cr_LogAQPD068_Repor(ln_cor     => t.corre,
+                                                    ld_fchini  => ld_fchIni,
+                                                    ld_fchfin  => ld_fchFin,
+                                                    ln_RegPan  => ln_region,
+                                                    ln_ZonPan  => ln_zona,
+                                                    ln_SucPan  => ln_sucursal,
+                                                    lv_user    => lc_Usuario,
+                                                    ln_region  => ln_RegCred,
+                                                    lv_nombreg => lv_NombReg,
+                                                    ln_zona    => ln_ZonCred,
+                                                    lv_nombzon => lv_NombZon,
+                                                    ln_sucur   => ln_SucCred,
+                                                    lv_nombsuc => lv_NombSuc,
+                                                    ld_fchpol  => t.fch_originacion,
+                                                    lv_cliente => lc_NombClien,
+                                                    ln_instan  => t.instancia,
+                                                    ln_cuenta  => ln_cta,
+                                                    ln_operac  => ln_ope,
+                                                    ln_mntcred => ln_MntSolic,
+                                                    ln_nropol  => t.nro_politica,
+                                                    lv_descpol => lv_DescPol,
+                                                    lv_estpol  => t.respuesta,
+                                                    lv_estaut  => lv_EstAutori,
+                                                    lv_autrzn  => T.AUTORIZANTE,
+                                                    lv_analst  => lc_Analista,
+                                                    lv_comite  => lv_comite);
+      
+      end loop;
+      commit;
+    else
+      if ln_region > 0 and ln_zona = 0 and ln_sucursal = 0 then
+        for t in lista_PorRegion loop
+        
+          ln_pgcod      := 0;
+          ln_suc        := 0;
+          ln_mod        := 0;
+          ln_mda        := 0;
+          ln_pap        := 0;
+          ln_cta        := 0;
+          ln_ope        := 0;
+          ln_sbop       := 0;
+          ln_tope       := 0;
+          ln_MntSolic   := 0.00;
+          lc_NombClien  := null;
+          lc_NombAge    := null;
+          lc_NomTipProd := null;
+          lc_Analista   := null;
+        
+          begin
+            select x.xwfempresa,
+                   x.xwfsucursal,
+                   x.xwfmodulo,
+                   x.xwfmoneda,
+                   x.xwfpapel,
+                   x.xwfcuenta,
+                   x.xwfoperacion,
+                   x.xwfsubope,
+                   x.xwftipope
+              into ln_pgcod,
+                   ln_suc,
+                   ln_mod,
+                   ln_mda,
+                   ln_pap,
+                   ln_cta,
+                   ln_ope,
+                   ln_sbop,
+                   ln_tope
+              from xwf700 x
+             where x.xwfprcins = t.instancia
+               and x.xwfcar3 = '1';
+          exception
+            when others then
+              null;
+          end;
+        
+          if ln_pgcod = 0 then
+          
+            begin
+              select x.xwfempresa,
+                     x.xwfsucursal,
+                     x.xwfmodulo,
+                     x.xwfmoneda,
+                     x.xwfpapel,
+                     x.xwfcuenta,
+                     x.xwfoperacion,
+                     x.xwfsubope,
+                     x.xwftipope
+                into ln_pgcod,
+                     ln_suc,
+                     ln_mod,
+                     ln_mda,
+                     ln_pap,
+                     ln_cta,
+                     ln_ope,
+                     ln_sbop,
+                     ln_tope
+                from xwf700 x
+               where x.xwfprcins = t.instancia
+                 and x.xwfcar3 = '1';
+            exception
+              when others then
+                null;
+            end;
+          
+          end if;
+        
+          begin
+            select x.xllcapital
+              into ln_MntSolic
+              from x054023 x
+             where x.xllpgcod = ln_pgcod
+               and x.xllaomod = ln_mod
+               and x.xllaosuc = ln_suc
+               and x.xllaomda = ln_mda
+               and x.xllaopap = ln_pap
+               and x.xllaocta = ln_cta
+               and x.xllaooper = ln_ope
+               and x.xllaosbop = ln_sbop
+               and x.xllaotop = ln_tope;
+          exception
+            when others then
+              null;
+            
+          end;
+        
+          begin
+            select s.sng001tdoc
+              into ln_tdoc
+              from sng001 s
+             where s.sng001inst = t.instancia;
+          exception
+            when others then
+              ln_tdoc := 0;
+          end;
+        
+          if ln_tdoc = 9 then
+            begin
+              select trim(f.pjrazs)
+                into lc_NombClien
+                from sng001 s, fsd003 f
+               where s.sng001inst = t.instancia
+                 and s.sng001pais = f.pjpais
+                 and s.sng001tdoc = f.pjtdoc
+                 and s.sng001ndoc = f.pjndoc;
+            exception
+              when others then
+                null;
+            end;
+          
+          else
+            begin
+              select trim(f.pfnom1) || ' ' || trim(f.pfnom2) || ' ' ||
+                     trim(f.pfape1) || ' ' || trim(f.pfape2)
+                into lc_NombClien
+                from sng001 s, fsd002 f
+               where s.sng001inst = t.instancia
+                 and s.sng001pais = f.pfpais
+                 and s.sng001tdoc = f.pftdoc
+                 and s.sng001ndoc = f.pfndoc;
+            exception
+              when others then
+                null;
+            end;
+          end if;
+        
+          begin
+            lc_Analista := fn_analista_credito(v_Scmod  => ln_mod,
+                                               v_Scsuc  => ln_suc,
+                                               v_Scmda  => ln_mda,
+                                               v_Scpap  => ln_pap,
+                                               v_Sccta  => ln_cta,
+                                               v_Scoper => ln_ope,
+                                               v_Scsbop => ln_sbop,
+                                               v_Sctope => ln_tope);
+          end;
+        
+          -- comite
+          begin
+            begin
+              select s.sng055car, s.sng057jef
+                into ln_cargo, lv_Jefe
+                from sng057 s
+               where s.sng057usr = lc_Analista;
+            exception
+              when others then
+                null;
+            end;
+            if ln_cargo = 200 then
+              lv_comite := lv_Jefe;
+            else
+              if ln_cargo = 201 then
+                lv_comite := lc_Analista;
+              
+              end if;
+            end if;
+          end;
+          ---
+        
+          begin
+            select r.regcod,
+                   r.regnom,
+                   r.codzon,
+                   r.deszon,
+                   r.sucurs,
+                   r.scnom
+              into ln_RegCred,
+                   lv_NombReg,
+                   ln_ZonCred,
+                   lv_NombZon,
+                   ln_SucCred,
+                   lv_NombSuc
+              from regsuc r
+             where r.sucurs = ln_suc;
+          exception
+            when others then
+              null;
+          end;
+        
+          if t.respuesta = 'Aprobado' then
+            lv_EstAutori := 'SI';
+          else
+            lv_EstAutori := 'NO';
+          end if;
+        
+          begin
+            select f.pae90msg
+              into lv_DescPol
+              from fpae90 f
+             where f.pae90pol = t.nro_politica;
+          exception
+            when others then
+              null;
+          end;
+        
+          Pq_Cr_Cntrl_Regnorte.sp_cr_LogAQPD068_Repor(ln_cor     => t.corre,
+                                                      ld_fchini  => ld_fchIni,
+                                                      ld_fchfin  => ld_fchFin,
+                                                      ln_RegPan  => ln_region,
+                                                      ln_ZonPan  => ln_zona,
+                                                      ln_SucPan  => ln_sucursal,
+                                                      lv_user    => lc_Usuario,
+                                                      ln_region  => ln_RegCred,
+                                                      lv_nombreg => lv_NombReg,
+                                                      ln_zona    => ln_ZonCred,
+                                                      lv_nombzon => lv_NombZon,
+                                                      ln_sucur   => ln_SucCred,
+                                                      lv_nombsuc => lv_NombSuc,
+                                                      ld_fchpol  => t.fch_originacion,
+                                                      lv_cliente => lc_NombClien,
+                                                      ln_instan  => t.instancia,
+                                                      ln_cuenta  => ln_cta,
+                                                      ln_operac  => ln_ope,
+                                                      ln_mntcred => ln_MntSolic,
+                                                      ln_nropol  => t.nro_politica,
+                                                      lv_descpol => lv_DescPol,
+                                                      lv_estpol  => t.respuesta,
+                                                      lv_estaut  => lv_EstAutori,
+                                                      lv_autrzn  => T.AUTORIZANTE,
+                                                      lv_analst  => lc_Analista,
+                                                      lv_comite  => lv_comite);
+        
+        end loop;
+        commit;
+      else
+        if ln_region > 0 and ln_zona > 0 and ln_sucursal = 0 then
+        
+          for t in lista_PorZona loop
+          
+            ln_pgcod      := 0;
+            ln_suc        := 0;
+            ln_mod        := 0;
+            ln_mda        := 0;
+            ln_pap        := 0;
+            ln_cta        := 0;
+            ln_ope        := 0;
+            ln_sbop       := 0;
+            ln_tope       := 0;
+            ln_MntSolic   := 0.00;
+            lc_NombClien  := null;
+            lc_NombAge    := null;
+            lc_NomTipProd := null;
+            lc_Analista   := null;
+          
+            begin
+              select x.xwfempresa,
+                     x.xwfsucursal,
+                     x.xwfmodulo,
+                     x.xwfmoneda,
+                     x.xwfpapel,
+                     x.xwfcuenta,
+                     x.xwfoperacion,
+                     x.xwfsubope,
+                     x.xwftipope
+                into ln_pgcod,
+                     ln_suc,
+                     ln_mod,
+                     ln_mda,
+                     ln_pap,
+                     ln_cta,
+                     ln_ope,
+                     ln_sbop,
+                     ln_tope
+                from xwf700 x
+               where x.xwfprcins = t.instancia
+                 and x.xwfcar3 = '1';
+            exception
+              when others then
+                null;
+            end;
+          
+            if ln_pgcod = 0 then
+            
+              begin
+                select x.xwfempresa,
+                       x.xwfsucursal,
+                       x.xwfmodulo,
+                       x.xwfmoneda,
+                       x.xwfpapel,
+                       x.xwfcuenta,
+                       x.xwfoperacion,
+                       x.xwfsubope,
+                       x.xwftipope
+                  into ln_pgcod,
+                       ln_suc,
+                       ln_mod,
+                       ln_mda,
+                       ln_pap,
+                       ln_cta,
+                       ln_ope,
+                       ln_sbop,
+                       ln_tope
+                  from xwf700 x
+                 where x.xwfprcins = t.instancia
+                   and x.xwfcar3 = '1';
+              exception
+                when others then
+                  null;
+              end;
+            
+            end if;
+          
+            begin
+              select x.xllcapital
+                into ln_MntSolic
+                from x054023 x
+               where x.xllpgcod = ln_pgcod
+                 and x.xllaomod = ln_mod
+                 and x.xllaosuc = ln_suc
+                 and x.xllaomda = ln_mda
+                 and x.xllaopap = ln_pap
+                 and x.xllaocta = ln_cta
+                 and x.xllaooper = ln_ope
+                 and x.xllaosbop = ln_sbop
+                 and x.xllaotop = ln_tope;
+            exception
+              when others then
+                null;
+              
+            end;
+          
+            begin
+              select s.sng001tdoc
+                into ln_tdoc
+                from sng001 s
+               where s.sng001inst = t.instancia;
+            exception
+              when others then
+                ln_tdoc := 0;
+            end;
+          
+            if ln_tdoc = 9 then
+              begin
+                select trim(f.pjrazs)
+                  into lc_NombClien
+                  from sng001 s, fsd003 f
+                 where s.sng001inst = t.instancia
+                   and s.sng001pais = f.pjpais
+                   and s.sng001tdoc = f.pjtdoc
+                   and s.sng001ndoc = f.pjndoc;
+              exception
+                when others then
+                  null;
+              end;
+            
+            else
+              begin
+                select trim(f.pfnom1) || ' ' || trim(f.pfnom2) || ' ' ||
+                       trim(f.pfape1) || ' ' || trim(f.pfape2)
+                  into lc_NombClien
+                  from sng001 s, fsd002 f
+                 where s.sng001inst = t.instancia
+                   and s.sng001pais = f.pfpais
+                   and s.sng001tdoc = f.pftdoc
+                   and s.sng001ndoc = f.pfndoc;
+              exception
+                when others then
+                  null;
+              end;
+            end if;
+          
+            begin
+              lc_Analista := fn_analista_credito(v_Scmod  => ln_mod,
+                                                 v_Scsuc  => ln_suc,
+                                                 v_Scmda  => ln_mda,
+                                                 v_Scpap  => ln_pap,
+                                                 v_Sccta  => ln_cta,
+                                                 v_Scoper => ln_ope,
+                                                 v_Scsbop => ln_sbop,
+                                                 v_Sctope => ln_tope);
+            end;
+          
+            -- comite
+            begin
+              begin
+                select s.sng055car, s.sng057jef
+                  into ln_cargo, lv_Jefe
+                  from sng057 s
+                 where s.sng057usr = lc_Analista;
+              exception
+                when others then
+                  null;
+              end;
+              if ln_cargo = 200 then
+                lv_comite := lv_Jefe;
+              else
+                if ln_cargo = 201 then
+                  lv_comite := lc_Analista;
+                
+                end if;
+              end if;
+            end;
+            ---
+          
+            begin
+              select r.regcod,
+                     r.regnom,
+                     r.codzon,
+                     r.deszon,
+                     r.sucurs,
+                     r.scnom
+                into ln_RegCred,
+                     lv_NombReg,
+                     ln_ZonCred,
+                     lv_NombZon,
+                     ln_SucCred,
+                     lv_NombSuc
+                from regsuc r
+               where r.sucurs = ln_suc;
+            exception
+              when others then
+                null;
+            end;
+          
+            if t.respuesta = 'Aprobado' then
+              lv_EstAutori := 'SI';
+            else
+              lv_EstAutori := 'NO';
+            end if;
+          
+            begin
+              select f.pae90msg
+                into lv_DescPol
+                from fpae90 f
+               where f.pae90pol = t.nro_politica;
+            exception
+              when others then
+                null;
+            end;
+          
+            Pq_Cr_Cntrl_Regnorte.sp_cr_LogAQPD068_Repor(ln_cor     => t.corre,
+                                                        ld_fchini  => ld_fchIni,
+                                                        ld_fchfin  => ld_fchFin,
+                                                        ln_RegPan  => ln_region,
+                                                        ln_ZonPan  => ln_zona,
+                                                        ln_SucPan  => ln_sucursal,
+                                                        lv_user    => lc_Usuario,
+                                                        ln_region  => ln_RegCred,
+                                                        lv_nombreg => lv_NombReg,
+                                                        ln_zona    => ln_ZonCred,
+                                                        lv_nombzon => lv_NombZon,
+                                                        ln_sucur   => ln_SucCred,
+                                                        lv_nombsuc => lv_NombSuc,
+                                                        ld_fchpol  => t.fch_originacion,
+                                                        lv_cliente => lc_NombClien,
+                                                        ln_instan  => t.instancia,
+                                                        ln_cuenta  => ln_cta,
+                                                        ln_operac  => ln_ope,
+                                                        ln_mntcred => ln_MntSolic,
+                                                        ln_nropol  => t.nro_politica,
+                                                        lv_descpol => lv_DescPol,
+                                                        lv_estpol  => t.respuesta,
+                                                        lv_estaut  => lv_EstAutori,
+                                                        lv_autrzn  => T.AUTORIZANTE,
+                                                        lv_analst  => lc_Analista,
+                                                        lv_comite  => lv_comite);
+          
+          end loop;
+          commit;
+        else
+          if ln_region > 0 and ln_zona > 0 and ln_sucursal > 0 then
+            for t in lista_PorSucursal loop
+            
+              ln_pgcod      := 0;
+              ln_suc        := 0;
+              ln_mod        := 0;
+              ln_mda        := 0;
+              ln_pap        := 0;
+              ln_cta        := 0;
+              ln_ope        := 0;
+              ln_sbop       := 0;
+              ln_tope       := 0;
+              ln_MntSolic   := 0.00;
+              lc_NombClien  := null;
+              lc_NombAge    := null;
+              lc_NomTipProd := null;
+              lc_Analista   := null;
+            
+              begin
+                select x.xwfempresa,
+                       x.xwfsucursal,
+                       x.xwfmodulo,
+                       x.xwfmoneda,
+                       x.xwfpapel,
+                       x.xwfcuenta,
+                       x.xwfoperacion,
+                       x.xwfsubope,
+                       x.xwftipope
+                  into ln_pgcod,
+                       ln_suc,
+                       ln_mod,
+                       ln_mda,
+                       ln_pap,
+                       ln_cta,
+                       ln_ope,
+                       ln_sbop,
+                       ln_tope
+                  from xwf700 x
+                 where x.xwfprcins = t.instancia
+                   and x.xwfcar3 = '1';
+              exception
+                when others then
+                  null;
+              end;
+            
+              if ln_pgcod = 0 then
+              
+                begin
+                  select x.xwfempresa,
+                         x.xwfsucursal,
+                         x.xwfmodulo,
+                         x.xwfmoneda,
+                         x.xwfpapel,
+                         x.xwfcuenta,
+                         x.xwfoperacion,
+                         x.xwfsubope,
+                         x.xwftipope
+                    into ln_pgcod,
+                         ln_suc,
+                         ln_mod,
+                         ln_mda,
+                         ln_pap,
+                         ln_cta,
+                         ln_ope,
+                         ln_sbop,
+                         ln_tope
+                    from xwf700 x
+                   where x.xwfprcins = t.instancia
+                     and x.xwfcar3 = '1';
+                exception
+                  when others then
+                    null;
+                end;
+              
+              end if;
+            
+              begin
+                select x.xllcapital
+                  into ln_MntSolic
+                  from x054023 x
+                 where x.xllpgcod = ln_pgcod
+                   and x.xllaomod = ln_mod
+                   and x.xllaosuc = ln_suc
+                   and x.xllaomda = ln_mda
+                   and x.xllaopap = ln_pap
+                   and x.xllaocta = ln_cta
+                   and x.xllaooper = ln_ope
+                   and x.xllaosbop = ln_sbop
+                   and x.xllaotop = ln_tope;
+              exception
+                when others then
+                  null;
+                
+              end;
+            
+              begin
+                select s.sng001tdoc
+                  into ln_tdoc
+                  from sng001 s
+                 where s.sng001inst = t.instancia;
+              exception
+                when others then
+                  ln_tdoc := 0;
+              end;
+            
+              if ln_tdoc = 9 then
+                begin
+                  select trim(f.pjrazs)
+                    into lc_NombClien
+                    from sng001 s, fsd003 f
+                   where s.sng001inst = t.instancia
+                     and s.sng001pais = f.pjpais
+                     and s.sng001tdoc = f.pjtdoc
+                     and s.sng001ndoc = f.pjndoc;
+                exception
+                  when others then
+                    null;
+                end;
+              
+              else
+                begin
+                  select trim(f.pfnom1) || ' ' || trim(f.pfnom2) || ' ' ||
+                         trim(f.pfape1) || ' ' || trim(f.pfape2)
+                    into lc_NombClien
+                    from sng001 s, fsd002 f
+                   where s.sng001inst = t.instancia
+                     and s.sng001pais = f.pfpais
+                     and s.sng001tdoc = f.pftdoc
+                     and s.sng001ndoc = f.pfndoc;
+                exception
+                  when others then
+                    null;
+                end;
+              end if;
+            
+              begin
+                lc_Analista := fn_analista_credito(v_Scmod  => ln_mod,
+                                                   v_Scsuc  => ln_suc,
+                                                   v_Scmda  => ln_mda,
+                                                   v_Scpap  => ln_pap,
+                                                   v_Sccta  => ln_cta,
+                                                   v_Scoper => ln_ope,
+                                                   v_Scsbop => ln_sbop,
+                                                   v_Sctope => ln_tope);
+              end;
+            
+              -- comite
+              begin
+                begin
+                  select s.sng055car, s.sng057jef
+                    into ln_cargo, lv_Jefe
+                    from sng057 s
+                   where s.sng057usr = lc_Analista;
+                exception
+                  when others then
+                    null;
+                end;
+                if ln_cargo = 200 then
+                  lv_comite := lv_Jefe;
+                else
+                  if ln_cargo = 201 then
+                    lv_comite := lc_Analista;
+                  
+                  end if;
+                end if;
+              end;
+              ---
+            
+              begin
+                select r.regcod,
+                       r.regnom,
+                       r.codzon,
+                       r.deszon,
+                       r.sucurs,
+                       r.scnom
+                  into ln_RegCred,
+                       lv_NombReg,
+                       ln_ZonCred,
+                       lv_NombZon,
+                       ln_SucCred,
+                       lv_NombSuc
+                  from regsuc r
+                 where r.sucurs = ln_suc;
+              exception
+                when others then
+                  null;
+              end;
+            
+              if t.respuesta = 'Aprobado' then
+                lv_EstAutori := 'SI';
+              else
+                lv_EstAutori := 'NO';
+              end if;
+            
+              begin
+                select f.pae90msg
+                  into lv_DescPol
+                  from fpae90 f
+                 where f.pae90pol = t.nro_politica;
+              exception
+                when others then
+                  null;
+              end;
+            
+              Pq_Cr_Cntrl_Regnorte.sp_cr_LogAQPD068_Repor(ln_cor     => t.corre,
+                                                          ld_fchini  => ld_fchIni,
+                                                          ld_fchfin  => ld_fchFin,
+                                                          ln_RegPan  => ln_region,
+                                                          ln_ZonPan  => ln_zona,
+                                                          ln_SucPan  => ln_sucursal,
+                                                          lv_user    => lc_Usuario,
+                                                          ln_region  => ln_RegCred,
+                                                          lv_nombreg => lv_NombReg,
+                                                          ln_zona    => ln_ZonCred,
+                                                          lv_nombzon => lv_NombZon,
+                                                          ln_sucur   => ln_SucCred,
+                                                          lv_nombsuc => lv_NombSuc,
+                                                          ld_fchpol  => t.fch_originacion,
+                                                          lv_cliente => lc_NombClien,
+                                                          ln_instan  => t.instancia,
+                                                          ln_cuenta  => ln_cta,
+                                                          ln_operac  => ln_ope,
+                                                          ln_mntcred => ln_MntSolic,
+                                                          ln_nropol  => t.nro_politica,
+                                                          lv_descpol => lv_DescPol,
+                                                          lv_estpol  => t.respuesta,
+                                                          lv_estaut  => lv_EstAutori,
+                                                          lv_autrzn  => T.AUTORIZANTE,
+                                                          lv_analst  => lc_Analista,
+                                                          lv_comite  => lv_comite);
+            
+            end loop;
+            commit;
+          end if;
+        end if;
+      end if;
+    end if;
+  
+  end sp_cr_InicioReporte;
+  --------------------------------------------------------------------------
+  procedure sp_cr_LogAQPD068_Repor(ln_cor     in number,
+                                   ld_fchini  in date,
+                                   ld_fchfin  in date,
+                                   ln_RegPan  in number,
+                                   ln_ZonPan  in number,
+                                   ln_SucPan  in number,
+                                   lv_user    in varchar2,
+                                   ln_region  in number,
+                                   lv_nombreg in varchar2,
+                                   ln_zona    in number,
+                                   lv_nombzon in varchar2,
+                                   ln_sucur   in number,
+                                   lv_nombsuc in varchar2,
+                                   ld_fchpol  in date,
+                                   lv_cliente in varchar2,
+                                   ln_instan  in number,
+                                   ln_cuenta  in number,
+                                   ln_operac  in number,
+                                   ln_mntcred in number,
+                                   ln_nropol  in number,
+                                   lv_descpol in varchar2,
+                                   lv_estpol  in varchar2,
+                                   lv_estaut  in varchar2,
+                                   lv_autrzn  in varchar2,
+                                   lv_analst  in varchar2,
+                                   lv_comite  in varchar2) is
+  
+  begin
+    insert into aqpd068
+      (aqpd068cor,
+       aqpd068fchini,
+       aqpd068fchfin,
+       aqpd068regpan,
+       aqpd068zonpan,
+       aqpd068sucpan,
+       aqpd068user,
+       aqpd068region,
+       aqpd068nombreg,
+       aqpd068zona,
+       aqpd068nombzon,
+       aqpd068sucur,
+       aqpd068nombsuc,
+       aqpd068fchpol,
+       aqpd068cliente,
+       aqpd068instan,
+       aqpd068cuenta,
+       aqpd068operac,
+       aqpd068mntcred,
+       aqpd068nropol,
+       aqpd068descpol,
+       aqpd068estpol,
+       aqpd068estaut,
+       aqpd068autrzn,
+       aqpd068analst,
+       aqpd068comite)
+    values
+      (ln_cor,
+       ld_fchini,
+       ld_fchfin,
+       ln_RegPan,
+       ln_ZonPan,
+       ln_SucPan,
+       lv_user,
+       ln_region,
+       lv_nombreg,
+       ln_zona,
+       lv_nombzon,
+       ln_sucur,
+       lv_nombsuc,
+       ld_fchpol,
+       lv_cliente,
+       ln_instan,
+       ln_cuenta,
+       ln_operac,
+       ln_mntcred,
+       ln_nropol,
+       lv_descpol,
+       lv_estpol,
+       lv_estaut,
+       lv_autrzn,
+       lv_analst,
+       lv_comite);
+    commit;
+  
+  end sp_cr_LogAQPD068_Repor;
   --------------------------------------------------------------------------
 end PQ_CR_CNTRL_REGNORTE;
 /
