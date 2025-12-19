@@ -6,7 +6,7 @@ create or replace package PQ_CR_RESABM is
   -- Modificado : 07/06/2018 Se modifico por optimizacion sp_cant_cred_vig, sp_cant_cred_vig_ABM
   -- SMARQUEZ
   -- Modificado : 13/11/2019 Adicion de  Procedimiento de Edad Asistencia Médica
-
+  -- Modificado : 20/11/2025 Adicion de  Procedimiento de Seguro desgravamen
   type tp_nomvar is table of varchar2(30) index by binary_integer;
   type tp_valvar is table of varchar2(30) index by binary_integer;
   type tp_regla is record ( RNG49COD FRNG51.RNG49COD%type,
@@ -142,9 +142,21 @@ create or replace package PQ_CR_RESABM is
                                      pn_sbo in number,
                                      pn_top in number,
                                      pn_seg out number);
+--- SEguro Desgravamen
+  Procedure Sp_codigo_seguro_desgrav(pn_emp in number,
+                                     pn_mod in number,
+                                     pn_suc in number,
+                                     pn_mda in number,
+                                     pn_pap in number,
+                                     pn_cta in number,
+                                     pn_ope in number,
+                                     pn_sbo in number,
+                                     pn_top in number,
+                                     pn_seg out number);
+
+                                     
 end PQ_CR_RESABM;
 /
-
 create or replace package body PQ_CR_RESABM is
 
   -- Private type declarations
@@ -3247,7 +3259,62 @@ end Sp_Tiene_Multiriesgo;
            when others then  pn_seg := 0;
        end;
 end Sp_codigo_seguro_garantia;
+Procedure Sp_codigo_seguro_desgrav(pn_emp in number,
+                                   pn_mod in number,
+                                   pn_suc in number,
+                                   pn_mda in number,
+                                   pn_pap in number,
+                                   pn_cta in number,
+                                   pn_ope in number,
+                                   pn_sbo in number,
+                                   pn_top in number,
+                                   pn_seg out number)is
+
+  lc_des char(1);
+  begin
+
+        begin
+             select a.sgcod
+               into pn_seg
+               from fpp001 a
+              where a.pgcod  = pn_emp
+                and a.aomod  = pn_mod
+                and a.aosuc  = pn_suc
+                and a.aomda  = pn_mda
+                and a.aopap  = pn_pap
+                and a.aocta  = pn_cta
+                and a.aooper = pn_ope
+                and a.aosbop = pn_sbo
+                and a.aotope = pn_top
+                and a.sgcod in (select sgcod  from fst300 where SGSN02 ='5');
+       exception
+         when no_Data_Found then
+
+		 pn_seg := 0;
+          when too_many_rows then
+               begin
+                       select a.sgcod
+                         into pn_seg
+                         from fpp001 a
+                        where a.pgcod  = pn_emp
+                          and a.aomod  = pn_mod
+                          and a.aosuc  = pn_suc
+                          and a.aomda  = pn_mda
+                          and a.aopap  = pn_pap
+                          and a.aocta  = pn_cta
+                          and a.aooper = pn_ope
+                          and a.aosbop = pn_sbo
+                          and a.aotope = pn_top
+                          and a.sgcod  in (select sgcod  from fst300 where SGSN02 ='5')
+                         and rownum = 1;
+                 exception
+
+                    when others then
+                     pn_seg := 0;
+                 end;
+           when others then  pn_seg := 0;
+       end;
+end Sp_codigo_seguro_desgrav;
 
 end PQ_CR_RESABM;
 /
-
