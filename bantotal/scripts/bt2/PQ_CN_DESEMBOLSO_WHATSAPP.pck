@@ -9,9 +9,9 @@ create or replace package PQ_CN_DESEMBOLSO_WHATSAPP is
   -- Uso                   : Funcionalidad para desembolsos por whatsapp
   -- Estado                : Activo
   -- Acceso                : Público
-  -- Fecha de Modificación : 
-  -- Autor de Creación     : 
-  -- Descripción Modific.  : 
+  -- Fecha de Modificación : 28/11/2025
+  -- Autor de Creación     : Hernan Laqui Jimenez
+  -- Descripción Modific.  : Se agrega procedimiento para validar la tarea de una instancia (debe ser 55 activa)
   -- ------------------------------------------------------------------------------------------------
   
   -- Public function and procedure declarations
@@ -23,7 +23,10 @@ create or replace package PQ_CN_DESEMBOLSO_WHATSAPP is
                              P_C_CODERR out varchar2,
                     	       p_c_DESERR out varchar2
                             ); 
-
+  Procedure sp_valida_instancia_desembolso(
+                             P_N_INSTANCIA IN NUMBER,                                                          
+                              P_N_VALIDO OUT NUMBER) ;
+                             
 end PQ_CN_DESEMBOLSO_WHATSAPP;
 /
 create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
@@ -92,6 +95,7 @@ create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
                  and b.wfinsprcid = c.xwfprcins
                  and s.sng001inst = c.xwfprcins                                        
                  and s.sng001pais = 604
+                 and s.sng001tdoc = 21 --Solo DNI
                  and c.xwfcar3 = '1'
                  and b.wftaskcod in ('55')
                  and b.wfitemstsact=1 
@@ -295,7 +299,26 @@ create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
       dbms_lob.freetemporary(ll_mensaje);    
                                    
   end sp_ah_envio_constancia;                                                              
+  Procedure sp_valida_instancia_desembolso(
+                             P_N_INSTANCIA IN NUMBER,                                                          
+                             P_N_VALIDO OUT NUMBER) 
+                             is
       
+      /*
+      P_N_VALIDO = 0 --> SIGNIFICA QUE NO ESTA EN TAREA DE DESEMBOLSO
+      P_N_VALIDO > 0 --> SIGNIFICA QUE SI ESTA EN TAREA DE DESEMBOLSO
+      */                                                          
+  begin
+               
+   P_N_VALIDO :=0;
+    begin
+         select count(1) INTO P_N_VALIDO from wfwrkitems w where w.wfinsprcid= P_N_INSTANCIA and w.wfitemstsact= '1' and  w.wftaskcod ='55';
+    exception
+    when others then  
+         P_N_VALIDO := 0;
+    end;    
+                                           
+  end sp_valida_instancia_desembolso;
   
 
 end PQ_CN_DESEMBOLSO_WHATSAPP;
