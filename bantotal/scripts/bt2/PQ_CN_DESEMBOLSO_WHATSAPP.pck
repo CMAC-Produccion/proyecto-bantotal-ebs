@@ -12,6 +12,12 @@ create or replace package PQ_CN_DESEMBOLSO_WHATSAPP is
   -- Fecha de Modificación : 28/11/2025
   -- Autor de Creación     : Hernan Laqui Jimenez
   -- Descripción Modific.  : Se agrega procedimiento para validar la tarea de una instancia (debe ser 55 activa)
+  -- Fecha de Modificación : 04/12/2025
+  -- Autor de Creación     : Hernan Laqui Jimenez
+  -- Descripción Modific.  : Se agrega validacion de agencias activas.  
+  -- Fecha de Modificación : 10/12/2025
+  -- Autor de Creación     : Hernan Laqui Jimenez
+  -- Descripción Modific.  : Se habilita modulo 101
   -- ------------------------------------------------------------------------------------------------
   
   -- Public function and procedure declarations
@@ -20,6 +26,11 @@ create or replace package PQ_CN_DESEMBOLSO_WHATSAPP is
   Procedure sp_ah_envio_constancia(                            
                              P_N_ID IN NUMBER,     
                              P_C_EMAILS IN VARCHAR2,
+                             P_C_CODERR out varchar2,
+                    	       p_c_DESERR out varchar2
+                            ); 
+   Procedure sp_ah_enviar_alerta(                            
+                             P_N_ID IN NUMBER,
                              P_C_CODERR out varchar2,
                     	       p_c_DESERR out varchar2
                             ); 
@@ -100,16 +111,15 @@ create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
                  and b.wftaskcod in ('55')
                  and b.wfitemstsact=1 
                  and s.sng001ori=0 --Solo créditos NORMALES            
-                 and c.XWFMODULO=106 --Solo CONSUMO
+                 and c.XWFMODULO in (106,103,101) --hlaqui 10/12/2025 - Se habilitan modulos
                  ;   
-                
-                   
-  
+                                     
   ld_fechamax   DATE; 
   lv_horamax    VARCHAR(20); 
 
   ln_instancia  NUMBER(9); 
   ln_validainstancia  NUMBER(9);    
+  ln_validaagencia  NUMBER(9);    
   lv_error varchar(1000);
   lv_estadoinicial   VARCHAR(20); 
   
@@ -121,19 +131,23 @@ create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
     when others then  
          lv_horamax := '00:00:00';
     end;          
-
-    begin
-          select trim(TP1DESC) into lv_estadoinicial  from fst198 where tp1cod1=11147 and tp1corr1=100 and tp1corr2=1 and tp1corr3=1;
-    exception
-    when others then  
-         lv_estadoinicial := 'NOINICIADO';
-    end;          
-        
-
-      
+                         
    for i in c1 (ld_fechamax,lv_horamax) loop 
+        --Hlaqui 04/12/2025
+        begin
+          select trim(TP1DESC) into lv_estadoinicial  from fst198 where tp1cod=1 and tp1cod1=11147 and tp1corr1=100 and tp1corr2=1 and tp1corr3=1;
+        exception
+        when others then  
+             lv_estadoinicial := 'NOINICIADO';
+        end; 
+        
        ln_instancia := i.AQPB902AINST;
        select count(1) into ln_validainstancia from aqpd257 where aqpd257Instancia=ln_instancia and aqpd257fecreg=ld_fechamax;
+       select count(1) into ln_validaagencia  from fst198 where tp1cod=1 and tp1cod1=11147 and TP1CORR1=100 and tp1corr2=4 and TP1CORR3=i.aqpb902asuc;
+       --HLAQUI 03/12/2025 - Se agreg control por agencia
+       If ln_validaagencia=0 then
+          lv_estadoinicial:='NOHABILITADA';
+       End If;
        
        If ln_validainstancia=0 then
           begin
@@ -298,7 +312,129 @@ create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
       end;      
       dbms_lob.freetemporary(ll_mensaje);    
                                    
-  end sp_ah_envio_constancia;                                                              
+  end sp_ah_envio_constancia;    
+  
+   Procedure sp_ah_enviar_alerta(
+                             P_N_ID IN NUMBER,                             
+                             P_C_CODERR OUT VARCHAR2,
+                    	       p_c_DESERR OUT VARCHAR2) 
+                             is
+         
+   cursor destinatarios is    
+     select trim(tp1desc)||'@cajaarequipa.pe' correo
+     from fst198 
+     where tp1cod1=11147 
+     and tp1corr1=100 
+     and tp1corr2=6 
+     and tp1corr3>0;
+   
+   cursor datos_credito(idreg number) is          
+    select AQPD257INSTANCIA instancia, AQPD257CREMOD Modulo, AQPD257CRESUC Sucursal, AQPD257CRECTA Cuenta, AQPD257CREOPE Operacion, 
+    AQPD257FECREG Fecharegistro, AQPD257HORREG Horaregistro, AQPD257NUMDOC Documento, AQPD257NOMCLI Cliente, AQPD257CORREO CorreoCliente, 
+    AQPD257CELULAR CelularCliente, AQPD257MONTO Monto,
+    b.scnom nombreAgencia, c.sng001ase Analista, JAQL708NOM NombreAnalista, JAQL708TLF CelularAnalista, AQPD257RTAWHA WhatsapEnviado, a.aqpd257cremda moneda,
+    lpad(to_char(AQPD257CRECTA),9,'0') || lpad(to_char(AQPD257CREMDA),3,'0')  || lpad(to_char(AQPD257CREOPE),9,'0') numerocredito
+    from aqpd257 a 
+    inner join fst001 b on a.aqpd257cresuc = b.sucurs
+    inner join sng001 c on a.aqpd257instancia = c.sng001inst
+    left outer join Jaql708 d on d.JAQL708USR = c.sng001ase
+    where a.aqpd257id = idreg ;
+                                                     
+  ll_mensaje    CLOB;
+  lv_mensaje    VARCHAR2(32767);     
+  lv_remitente  VARCHAR2(50);  
+  lv_asunto     VARCHAR2(90);  
+  lv_directorio VARCHAR2(30);  
+  lv_archivos VARCHAR2(30);  
+
+  lv_destinos   VARCHAR2(32767):='';    
+  lv_moneda     VARCHAR2(10);   
+  lc_fecope   VARCHAR2(30); 
+  
+  L_cont number;
+
+  begin
+    p_c_coderr := '000';
+    p_c_deserr := '';        
+    L_cont := 0;
+    for j in destinatarios () loop 
+      if L_cont=0 then
+        lv_destinos:= j.correo ;
+      else
+        lv_destinos:=lv_destinos || ';' || j.correo;
+      End If;
+      L_cont:=L_cont + 1;
+    end loop;
+  
+    for i in datos_credito(P_N_ID) loop 
+                      
+      if i.moneda = 0 then
+         lv_moneda := 'S/ ';
+      else
+         lv_moneda := '$ ';
+      end if;       
+      lv_remitente := 'alertawhatsapp@cajaarequipa.pe';                 
+      lc_fecope:= trim(to_char(i.FechaRegistro, 'DD/MM/YYYY')) || ' ' || trim(i.horaRegistro) ;
+       
+      
+       lv_asunto    := 'ALERTA SEGUIMIENTO PARA REALIZAR DESEMBOLSO DE CREDITO POR WHATSAPP' ; 
+       lv_directorio:= 'DTPUMP_PR_EMAIL_DIG';        
+       dbms_lob.createtemporary(ll_mensaje, TRUE);              
+        
+       lv_mensaje := 
+       '<div style="background-color:#002753; width:100%; padding: 5px 0px; margin-bottom: 5px;font-family:Calibri; font-size: 24px; color:#FFFFFF; font-weight:lighter;">
+             Caja Arequipa</div>'||                  
+       '<b style="font-family:Calibri; font-size:14px"> ALERTA FUNCIONALIDAD - DESEMBOLSO DE CREDITO POR WHATSAPP</b>'||
+       '<br>'||
+       '<hr>' ||
+       '<table>'||
+       
+
+       '<tr style="font-family:Calibri; font-size:14px"><td>Titular</td><td> </td><td>' || i.Cliente || '</td></tr>' ||
+       '<tr style="font-family:Calibri; font-size:14px"><td>DNI</td><td> </td><td>' || i.Documento || '</td></tr>' ||       
+       '<tr style="font-family:Calibri; font-size:14px"><td>Celular Cliente</td><td> </td><td>' || trim(i.celularcliente)|| '</td></tr> '||                       
+       '<tr><td colspan="3">&nbsp;</td></tr>'||
+       '<tr style="font-family:Calibri; font-size:14px"><td>Instancia</td><td> </td><td>' || i.instancia || '</td></tr> '||               
+       '<tr style="font-family:Calibri; font-size:14px"><td>Numero de Credito</td><td> </td><td>' || i.numeroCredito || '</td></tr> '||               
+       '<tr style="font-family:Calibri; font-size:14px"><td>Fecha y hora</td><td> </td><td>' ||  trim(lc_fecope) || '</td></tr>' ||
+       '<tr style="font-family:Calibri; font-size:14px"><td>Monto del crédito</td><td> </td><td>' || lv_moneda ||trim(to_char(i.monto,'9999,999.99')) || '</td></tr> '||         
+
+       '<tr><td colspan="3">&nbsp;</td></tr>'||         
+
+       '<tr style="font-family:Calibri; font-size:14px"><td>Agencia</td><td> </td><td>' || trim(i.nombreAgencia) || '</td></tr> '||
+       '<tr style="font-family:Calibri; font-size:14px"><td>Analista</td><td> </td><td>' || trim(i.NombreAnalista) || '</td></tr> '||
+       '<tr style="font-family:Calibri; font-size:14px"><td>Celular Analista</td><td> </td><td>' || trim(i.celularAnalista)|| '</td></tr> '    ;                 
+          
+       lv_mensaje := lv_mensaje || '</table>';
+                 
+       lv_mensaje := pq_ah_email_trx.fn_ah_replace_tildes(lv_mensaje);              
+       dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);  
+                   
+    
+      End Loop;
+                                                           
+      begin
+              -- Call the procedure
+              pq_ah_planillas.p_sendmailattach(p_destinatariospara => lv_destinos,
+                                               p_destinatarioscc   => '',
+                                               p_destinatariosbcc  => '',
+                                               p_mensaje           => ll_mensaje,
+                                               p_remitente         => lv_remitente,
+                                               p_asunto            => lv_asunto,
+                                               p_tipomensaje       => 'HTML',
+                                               p_directorio        => lv_directorio,
+                                               p_archivosadjuntos  => lv_archivos,
+                                               p_c_coderr          => p_c_coderr,
+                                               p_c_deserr          => p_c_deserr
+                                               );
+      exception
+      when others then  
+           p_c_coderr := '00x';
+           p_c_deserr := sqlerrm;                                                   
+      end;      
+      dbms_lob.freetemporary(ll_mensaje);    
+                                   
+  end sp_ah_enviar_alerta;                                                          
   Procedure sp_valida_instancia_desembolso(
                              P_N_INSTANCIA IN NUMBER,                                                          
                              P_N_VALIDO OUT NUMBER) 

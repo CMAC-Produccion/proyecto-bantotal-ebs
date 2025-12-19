@@ -17,6 +17,10 @@ create or replace package pq_cn_reportes is
   -- Autor Modificacion: Frank Pinto Carpio
   -- Fecha Modificacion: 13/08/2025
   -- Descripcion: se aumenta en rteporte cajamovil el tipo de documento en subconsulta
+  -- Autor Modificacion: Sergio Gamero
+  -- Fecha Modificacion: 10/12/2025
+  -- Descripcion: Se añade modulo y canal en reporte cajamovil
+  
   procedure sp_reporte_limites(p_c_Codusu varchar2, p_d_FecIni date, p_d_FecFin date, p_c_numtar varchar2, p_c_error out varchar2);
   procedure sp_reporte_cajamovil(pd_fecini in date, pd_fecfin in date, pn_tiprep in number);
   procedure sp_reporte_trama745(pd_fecha in date);
@@ -88,28 +92,32 @@ procedure sp_reporte_cajamovil(pd_fecini in date,
                             
     
      cursor creditos is
-        select itimp1 Monto, to_char(ittasa, 'FM9999.00') Tasa, z.sucurs codAgencia,z.scnom Agencia, x.moneda,x.ctnro cuenta, y.pendoc documento,  
+         select itimp1 Monto, to_char(ittasa, 'FM9999.00') Tasa, z.sucurs codAgencia,z.scnom Agencia, x.moneda,x.ctnro cuenta, y.pendoc documento,  
                (SELECT penom from fsd001 where pendoc=y.pendoc and petdoc=y.PETDOC) Cliente, x.itfcon fecha_desembolso , x.ithora hora_desembolso,
-                x.itoper operacion, x.modulo, x.ittope 
+                x.itoper operacion, x.modulo, x.ittope, x.modtrx, x.canal 
         from (
-        select itsucd, ctnro, itoper, itsubo,itimp1, ittasa,a.itfcon, a.ithora, b.moneda, b.modulo, b.ittope from fsd015 a
+        select itsucd, ctnro, itoper, itsubo,itimp1, ittasa,a.itfcon, a.ithora, b.moneda, b.modulo, b.ittope,
+        a.itmod modtrx, case when a.itmod = 489 then 'APP' when a.itmod = 140 then 'HB' else 'WHA' end canal
+        from fsd015 a
         inner join fsd016 b on 
               a.pgcod= b.pgcod and a.itmod = b.itmod and 
-              a.ittran = b.ittran and a.itnrel=b.itnrel and
+              a.ittran = b.ittran and a.itnrel = b.itnrel and
               a.itsuc= b.itsuc and b.itord = 10
-        where a.itmod=489 and a.ittran in (951,360) and a.itcont='S'
-              and a.itfcon between pd_fecini and  pd_fecfin
+        where a.itmod in (489, 486, 140) and a.ittran in (951,360) and a.itcont = 'S'
+              and a.itfcon between pd_fecini and pd_fecfin
         union all
-        select hsucur, hcta, hoper, hsubop,hcimp1, hctasa,a.hfcon, a.hhora, b.hmda, b.hmodul, b.htoper from fsh015 a 
+        select hsucur, hcta, hoper, hsubop,hcimp1, hctasa,a.hfcon, a.hhora, b.hmda, b.hmodul, b.htoper, 
+        a.hcmod modtrx, case when a.hcmod = 489 then 'APP' when a.hcmod = 140 then 'HB' else 'WHA' end canal
+        from fsh015 a 
         inner join fsh016 b on 
-              a.pgcod = b.pgcod and a.hcmod=b.hcmod and 
+              a.pgcod = b.pgcod and a.hcmod = b.hcmod and 
               a.htran = b.htran and a.hnrel = b.hnrel and 
               a.hsucor = b.hsucor and a.hfcon = b.hfcon and b.hcord=10
-        where a.hcmod=489 and a.htran in (951,360) and a.hccorr=0
-              and a.hfcon between pd_fecini and  pd_fecfin ) x 
+        where a.hcmod in(489, 486, 140) and a.htran in (951,360) and a.hccorr = 0
+              and a.hfcon between pd_fecini and pd_fecfin ) x 
         inner join fsr008 y on y.ctnro = x.ctnro and y.cttfir='T'
         inner join fst001 z on z.sucurs = x.itsucd
-        order by x.itfcon desc, x.ithora desc;  
+        order by x.itfcon desc, x.ithora desc; 
     
      cursor lineas is
         select itimp1 Monto, to_char(ittasa, 'FM9999.00') Tasa, z.sucurs codAgencia,z.scnom Agencia, x.moneda,x.ctnro cuenta, y.pendoc documento,  
@@ -352,7 +360,8 @@ procedure sp_reporte_cajamovil(pd_fecini in date,
           v_wstring := ' ' || chr(9) || 'CODAGENCIA' || chr(9) || 'AGENCIA' || chr(9) || 'MONEDA'
                     || chr(9) || 'CUENTA' || chr(9) || 'DOCUMENTO' || chr(9) || 'CLIENTE' || chr(9) || 'TASA'
                     || chr(9) || 'MONTO DESEMBOLSO' || chr(9) || 'FECHA ' || chr(9) || 'HORA '
-                    || chr(9) || 'OPERACION' || chr(9) || 'MODULO' || chr(9) || 'TIP OPE' || chr(9);
+                    || chr(9) || 'OPERACION' || chr(9) || 'MODULO' || chr(9) || 'TIP OPE' 
+                    || chr(9) || 'MODTRX' || chr(9) || 'CANAL';
           rawData := utl_raw.cast_to_raw(v_wstring || utl_tcp.crlf);
           UTL_smtp.write_raw_data(V_Conexion, rawData);
           corr := 1;
@@ -362,7 +371,8 @@ procedure sp_reporte_cajamovil(pd_fecini in date,
             v_wstring := corr || chr(9) || x.codagencia || chr(9) || 
                          x.agencia || chr(9) || x.moneda || chr(9) || x.cuenta || chr(9) || x.documento || chr(9) ||
                          x.cliente || chr(9) || x.Tasa || chr(9) || x.Monto || chr(9) || x.fecha_desembolso || chr(9) || 
-                         x.hora_desembolso || chr(9) || x.operacion || chr(9) || x.modulo  || chr(9) || x.ittope || chr(9); 
+                         x.hora_desembolso || chr(9) || x.operacion || chr(9) || x.modulo  || chr(9) || x.ittope || chr(9) ||
+                         x.modtrx || chr(9) || x.canal || chr(9); 
             rawData := utl_raw.cast_to_raw(v_wstring || utl_tcp.crlf);
             UTL_smtp.write_raw_data(V_Conexion, rawData);
             corr:= corr + 1;
