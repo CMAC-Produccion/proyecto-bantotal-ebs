@@ -18,6 +18,9 @@ create or replace package PQ_CN_DESEMBOLSO_WHATSAPP is
   -- Fecha de Modificación : 10/12/2025
   -- Autor de Creación     : Hernan Laqui Jimenez
   -- Descripción Modific.  : Se habilita modulo 101
+  -- Fecha de Modificación : 15/12/2025
+  -- Autor de Creación     : Hernan Laqui Jimenez
+  -- Descripción Modific.  : Se implementa masificacion
   -- ------------------------------------------------------------------------------------------------
   
   -- Public function and procedure declarations
@@ -111,7 +114,7 @@ create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
                  and b.wftaskcod in ('55')
                  and b.wfitemstsact=1 
                  and s.sng001ori=0 --Solo créditos NORMALES            
-                 and c.XWFMODULO in (106,103,101) --hlaqui 10/12/2025 - Se habilitan modulos
+                 --and c.XWFMODULO in (106,103,101) --hlaqui 10/12/2025 - Se habilitan modulos
                  ;   
                                      
   ld_fechamax   DATE; 
@@ -119,7 +122,7 @@ create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
 
   ln_instancia  NUMBER(9); 
   ln_validainstancia  NUMBER(9);    
-  ln_validaagencia  NUMBER(9);    
+  --ln_validaagencia  NUMBER(9);    
   lv_error varchar(1000);
   lv_estadoinicial   VARCHAR(20); 
   
@@ -143,12 +146,14 @@ create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
         
        ln_instancia := i.AQPB902AINST;
        select count(1) into ln_validainstancia from aqpd257 where aqpd257Instancia=ln_instancia and aqpd257fecreg=ld_fechamax;
+       --Hlaqui 15/12/2025 - Se quita control por agencia
+       /*
        select count(1) into ln_validaagencia  from fst198 where tp1cod=1 and tp1cod1=11147 and TP1CORR1=100 and tp1corr2=4 and TP1CORR3=i.aqpb902asuc;
        --HLAQUI 03/12/2025 - Se agreg control por agencia
        If ln_validaagencia=0 then
           lv_estadoinicial:='NOHABILITADA';
        End If;
-       
+       */
        If ln_validainstancia=0 then
           begin
                for j in datos_credito (ln_instancia) loop
@@ -372,7 +377,10 @@ create or replace package body PQ_CN_DESEMBOLSO_WHATSAPP is
          lv_moneda := 'S/ ';
       else
          lv_moneda := '$ ';
-      end if;       
+      end if;    
+                 
+      lv_destinos:= trim(i.analista)||'@cajaarequipa.pe'; --Hlaqui 15/12/2025
+      
       lv_remitente := 'alertawhatsapp@cajaarequipa.pe';                 
       lc_fecope:= trim(to_char(i.FechaRegistro, 'DD/MM/YYYY')) || ' ' || trim(i.horaRegistro) ;
        
