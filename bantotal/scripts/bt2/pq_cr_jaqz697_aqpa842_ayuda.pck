@@ -15,6 +15,9 @@ CREATE OR REPLACE PACKAGE PQ_CR_JAQZ697_AQPA842_AYUDA IS
   -- Autor de la Modificación   :  MPOSTIGOC
   -- Descripción de Modificación: Se modifico en el procedimiento SP_HABILITA_CAMPANA para que considere el au5 original de la oferta y demas
   --                              condiciones
+  -- Fecha de Modificación      : 2025.10.22
+  -- Autor de la Modificación   :  MPOSTIGOC
+  -- Descripción de Modificación: Se modifico en el procedimiento SP_ASESOR para que considere el au5 desde una guia de procesos                         
   -- *****************************************************************
 
   PROCEDURE SP_MONTO_PLAZO(P_JAQZ697COR NUMBER,
@@ -49,7 +52,6 @@ CREATE OR REPLACE PACKAGE PQ_CR_JAQZ697_AQPA842_AYUDA IS
 
 END PQ_CR_JAQZ697_AQPA842_AYUDA;
 /
-
 CREATE OR REPLACE PACKAGE BODY PQ_CR_JAQZ697_AQPA842_AYUDA is
   --LUIS CARPIO/ERIKA HIDALGO
   PROCEDURE SP_MONTO_PLAZO(P_JAQZ697COR NUMBER,
@@ -157,7 +159,12 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_JAQZ697_AQPA842_AYUDA is
       FROM JAQZ697
      WHERE JAQZ697ASE = P_JAQZ697ASE_OLD
        AND JAQZ697FEP = P_FECHA
-       AND JAQZ697AU5 IN ('N', 'F')
+       AND JAQZ697AU5 IN (select trim(f.tp1desc)
+                            from fst198 f
+                           where f.tp1cod = 1
+                             and f.tp1cod1 = 10899
+                             and f.tp1corr1 = 154
+                             and f.tp1corr3 > 0)
        AND JAQZ697CTA = P_CTA; --26.04.2021
   
     IF N_CONT > 0 THEN
@@ -176,7 +183,12 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_JAQZ697_AQPA842_AYUDA is
          SET JAQZ697ASE = P_JAQZ697ASE_NEW
        WHERE JAQZ697ASE = P_JAQZ697ASE_OLD
          AND JAQZ697FEP = P_FECHA
-         AND JAQZ697AU5 IN ('N', 'F')
+         AND JAQZ697AU5 IN (select trim(f.tp1desc)
+                              from fst198 f
+                             where f.tp1cod = 1
+                               and f.tp1cod1 = 10899
+                               and f.tp1corr1 = 154
+                               and f.tp1corr3 > 0)
          AND JAQZ697CTA = P_CTA; --26.04.2021
       COMMIT;
       DBMS_OUTPUT.PUT_LINE('Se ACTUALIZÓ ' || N_CONT ||
@@ -412,4 +424,3 @@ CREATE OR REPLACE PACKAGE BODY PQ_CR_JAQZ697_AQPA842_AYUDA is
 
 END PQ_CR_JAQZ697_AQPA842_AYUDA;
 /
-

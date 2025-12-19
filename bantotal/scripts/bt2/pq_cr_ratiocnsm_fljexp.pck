@@ -15,6 +15,9 @@ create or replace package PQ_CR_RATIOCNSM_FLJEXP is
   -- Fecha de Modificación        : 10/10/2025
   -- Autor de Modificación        : MPOSTIGOC
   -- Descripción de Modificación  : Se modifico el denominador para el calculo del ratio, ahora se considera Excedente Mensual
+  -- Fecha de Modificación        : 02/12/2025
+  -- Autor de Modificación        : MPOSTIGOC
+  -- Descripción de Modificación  : Se agrego la validacion de Ratio, seguros para ofertas aprobadas pyme.
   -- *****************************************************************  
 
   procedure sp_CalculoRatio(ln_Correlativo in number,
@@ -462,6 +465,7 @@ create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
     ln_IngNetoSol     number(17, 2) := 0.00;
     ln_IngNetoDol     number(17, 2) := 0.00;
     ln_IngNeto        number(17, 2) := 0.00;
+    ln_ModEva         number(5);
   
   begin
   
@@ -473,8 +477,12 @@ create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
     ln_Ratio       := 0.0;
   
     begin
-      select a.jaqz697pai, a.jaqz697tdo, a.jaqz697ndo, a.jaqz697eva
-        into ln_Pepais, ln_Petdoc, ln_Pendoc, ln_NroEva
+      select a.jaqz697pai,
+             a.jaqz697tdo,
+             a.jaqz697ndo,
+             a.jaqz697eva,
+             a.jaqz697moe
+        into ln_Pepais, ln_Petdoc, ln_Pendoc, ln_NroEva, ln_ModEva
         from jaqz697 a
        where a.jaqz697fep = ld_fchcorre
          and a.jaqz697cor = ln_Correlativo
@@ -927,27 +935,56 @@ create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
       saldo_externo  := nvl(saldo_externo, 0);
     end;
   
-    begin
-      select a.aqpa190bmto
-        into ln_ExcSoles
-        from aqpa190b_bdj a
-       where a.aqpa190beval = ln_NroEva
-         and a.aqpa190bcod = 27;
-    exception
-      when others then
-        null;
-    end;
-  
-    begin
-      select a.aqpa190bmto
-        into ln_ExcDolar
-        from aqpa190b_bdj a
-       where a.aqpa190beval = ln_NroEva
-         and a.aqpa190bcod = 527;
-    exception
-      when others then
-        null;
-    end;
+    if ln_ModEva = 14 then
+    
+      begin
+        select a.aqpa190bmto
+          into ln_ExcSoles
+          from aqpa190b_bdj a
+         where a.aqpa190beval = ln_NroEva
+           and a.aqpa190bcod = 27;
+      exception
+        when others then
+          null;
+      end;
+    
+      begin
+        select a.aqpa190bmto
+          into ln_ExcDolar
+          from aqpa190b_bdj a
+         where a.aqpa190beval = ln_NroEva
+           and a.aqpa190bcod = 527;
+      exception
+        when others then
+          null;
+      end;
+    
+    else
+      if ln_ModEva = 13 then
+      
+        begin
+          select a.aqpa190bmto
+            into ln_ExcSoles
+            from aqpa190b_bdj a
+           where a.aqpa190beval = ln_NroEva
+             and a.aqpa190bcod = 40;
+        exception
+          when others then
+            null;
+        end;
+      
+        begin
+          select a.aqpa190bmto
+            into ln_ExcDolar
+            from aqpa190b_bdj a
+           where a.aqpa190beval = ln_NroEva
+             and a.aqpa190bcod = 540;
+        exception
+          when others then
+            null;
+        end;
+      end if;
+    end if;
   
     ln_ExcdentMnsl := nvl(ln_ExcSoles, 0) + nvl(ln_ExcDolar, 0);
   
@@ -2440,8 +2477,9 @@ create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
                                    pn_edad       out number,
                                    pn_seg_basico out number,
                                    pn_seg_devolu out number) is
-    ld_fnac date;
-    --ln_edad     numeric;
+    ld_fnac          date;
+    lc_SegmntoActual number;
+  
   begin
     begin
       select a.pffnac
@@ -2463,22 +2501,88 @@ create or replace package body PQ_CR_RATIOCNSM_FLJEXP is
       when others then
         null;
     end;
-    --basico
-    if pn_edad >= 71 then
-      pn_seg_basico := 393;
+  
+    if pn_tdoc <> 9 then
+    
+      begin
+        select to_number(trim(b.segcod))
+          into lc_SegmntoActual
+          from sngc60 a, sngc07 b
+         where a.sngc60pais = pn_pais
+           and a.sngc60tdoc = pn_tdoc
+           and a.sngc60ndoc = rpad(pc_ndoc, 12)
+           and a.sngc60ocup = b.sngc07cod;
+      exception
+        when too_many_rows then
+          begin
+            select to_number(trim(b.segcod))
+              into lc_SegmntoActual
+              from sngc60 a, sngc07 b
+             where a.sngc60pais = pn_pais
+               and a.sngc60tdoc = pn_tdoc
+               and a.sngc60ndoc = rpad(pc_ndoc, 12)
+               and a.sngc60ocup = b.sngc07cod
+               and a.sngc60corr =
+                   (select min(a.sngc60corr)
+                      from sngc60 a, sngc07 b
+                     where a.sngc60pais = pn_pais
+                       and a.sngc60tdoc = pn_tdoc
+                       and a.sngc60ndoc = rpad(pc_ndoc, 12)
+                       and a.sngc60ocup = b.sngc07cod);
+          end;
+        when others then
+          null;
+        
+      end;
+    
     else
-      pn_seg_basico := 363;
-    end if;
-    --devolucion
-    if pn_edad >= 71 then
-      pn_seg_devolu := 453;
-    else
-      if pn_edad >= 61 then
-        pn_seg_devolu := 483;
-      else
-        pn_seg_devolu := 423;
+      if pn_tdoc = 9 then
+        lc_SegmntoActual := 1;
       end if;
     end if;
+  
+    if lc_SegmntoActual = 2 then
+    
+      --basico
+      if pn_edad >= 71 then
+        pn_seg_basico := 393;
+      else
+        pn_seg_basico := 363;
+      end if;
+      --devolucion
+      if pn_edad >= 71 then
+        pn_seg_devolu := 453;
+      else
+        if pn_edad >= 61 then
+          pn_seg_devolu := 483;
+        else
+          pn_seg_devolu := 423;
+        end if;
+      end if;
+    
+    else
+      if lc_SegmntoActual = 1 then
+      
+        --basico
+        if pn_edad >= 71 then
+          pn_seg_basico := 383;
+        else
+          pn_seg_basico := 353;
+        end if;
+        --devolucion
+        if pn_edad >= 71 then
+          pn_seg_devolu := 443;
+        else
+          if pn_edad >= 61 then
+            pn_seg_devolu := 473;
+          else
+            pn_seg_devolu := 413;
+          end if;
+        end if;
+      
+      end if;
+    end if;
+  
   end sp_cr_get_segurodesgra;
 end PQ_CR_RATIOCNSM_FLJEXP;
 /

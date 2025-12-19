@@ -1,8 +1,22 @@
 create or replace package PQ_CR_DELEGACION_OFERTAS is
 
-  -- Author  : MPOSTIGOC
-  -- Created : 11/01/2022 20:36:50
-  -- Purpose : 
+  --*****************************************************************
+  -- Nombre                     : PQ_CR_DELEGACION_OFERTAS
+  -- Sistema                    : BANTOTAL
+  -- Módulo                     : Créditos - Activas
+  -- Versión                    : 1.0
+  -- Fecha de Creación          : 11/01/2022 20:36:50
+  -- Autor de Creación          : MARIA POSTIGO
+  -- Uso                        : Proceso de delegacion de ofertas de campaña
+  -- Estado                     : Activo
+  -- Acceso                     : Público
+  -- Fecha de Modificación      : 21/10/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se agrego una guia de procesos para los estados permitidos para la delegacion de ofertas de campaña.
+  -- Fecha de Modificación      : 
+  -- Autor de la Modificación   : 
+  -- Descripción de Modificación: 
+  -- *****************************************************************
 
   procedure sp_cr_inicio(lc_UsuLogin in varchar2, ln_TipoGrnt in number);
   -----------------------------------------------
@@ -49,7 +63,6 @@ create or replace package PQ_CR_DELEGACION_OFERTAS is
 
 end PQ_CR_DELEGACION_OFERTAS;
 /
-
 create or replace package body PQ_CR_DELEGACION_OFERTAS is
 
   procedure sp_cr_inicio(lc_UsuLogin in varchar2, ln_TipoGrnt in number) is
@@ -105,7 +118,12 @@ create or replace package body PQ_CR_DELEGACION_OFERTAS is
         from jaqz697 j
        where j.jaqz697fep = (select max(g.jaqz697fep) from jaqz697 g)
          and j.jaqz697suc = ln_sucursal
-         and j.jaqz697au5 in ('N', 'F');
+         and j.jaqz697au5 in (select f.tp1desc
+                                from fst198 f
+                               where f.tp1cod = 1
+                                 and f.tp1cod1 = 10899
+                                 and f.tp1corr1 = 154
+                                 and f.tp1corr3 > 0);
   
   begin
   
@@ -151,7 +169,12 @@ create or replace package body PQ_CR_DELEGACION_OFERTAS is
         from jaqz697 j
        where j.jaqz697fep = (select max(g.jaqz697fep) from jaqz697 g)
          and j.jaqz697suc = ln_SucReg
-         and j.jaqz697au5 in ('N', 'F');
+         and j.jaqz697au5 in (select f.tp1desc
+                                from fst198 f
+                               where f.tp1cod = 1
+                                 and f.tp1cod1 = 10899
+                                 and f.tp1corr1 = 154
+                                 and f.tp1corr3 > 0);
   
   begin
   
@@ -510,4 +533,3 @@ create or replace package body PQ_CR_DELEGACION_OFERTAS is
 
 end PQ_CR_DELEGACION_OFERTAS;
 /
-

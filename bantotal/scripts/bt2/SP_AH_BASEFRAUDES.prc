@@ -15,9 +15,9 @@ CREATE OR REPLACE PROCEDURE SP_AH_BASEFRAUDES (
     -- Acceso                     : Público
     -- Parámetros de Entrada      : 
     -- Retorno                    : 
-    -- Fecha de Modificación      : 
-    -- Autor de la Modificación   : 
-    -- Modificación               : 
+    -- Fecha de Modificación      : 04/012/2025
+    -- Autor de la Modificación   : Yrving Lozada
+    -- Modificación               : Se adicionó validadicón del estado en "S"
     -- *****************************************************************   
 	v_count NUMBER;
 BEGIN
@@ -27,7 +27,8 @@ BEGIN
                  WHEN EXISTS (
                    SELECT 1
                    FROM AQPA133
-                   WHERE AQPA133TIP = p_codigo
+                   WHERE AQPA133EST = 'S'
+                     AND AQPA133TIP = p_codigo
                      AND TRIM(AQPA133VAL) = TRIM(p_valor)
                  )
                  THEN 'S'
@@ -39,7 +40,8 @@ BEGIN
     
         SELECT COUNT(*) INTO v_count
 	    FROM AQPA133 
-	    WHERE AQPA133TIP = p_codigo
+	    WHERE AQPA133EST = 'S' 
+      AND AQPA133TIP = p_codigo
 	   	AND UPPER(TRIM(AQPA133VAL))  like  '%' || UPPER(TRIM(p_Valor)) || '%'
 	   	AND ROWNUM = 1; 
 		 

@@ -1,4 +1,4 @@
-create or replace procedure "SP_CA_MONITOREO_VALIDPIN" is
+create or replace procedure SP_CA_MONITOREO_VALIDPIN is
   -- *****************************************************************
   -- NOMBRE                     : SP_CA_MONITOREO_VALIDPIN
   -- SISTEMA                    : BANTOTAL
@@ -9,7 +9,7 @@ create or replace procedure "SP_CA_MONITOREO_VALIDPIN" is
   -- USO                        : MONITOREO VALIDACION PIN
   -- ESTADO                     : ACTIVO
   -- FECHA DE MODIFICACIÓN      : ERIKA HIDALGO
-  -- AUTOR DE MODIFICACIÓN      : 23/10/2025
+  -- AUTOR DE MODIFICACIÓN      : 28/11/2025
   -- *****************************************************************
   N_CONT     NUMBER;
   V_HOSTNAME VARCHAR(100);
@@ -21,7 +21,8 @@ BEGIN
    WHERE JAQY252FEINT = TRUNC(SYSDATE)
      AND JAQY252NUINT > 0
      AND A.JAQY252HOINT >= TO_CHAR(SYSDATE - 1 / 24 / 12, 'hh24:mi:ss');
-  IF N_CONT > 20 THEN --20251023 LCARPIO
+  IF N_CONT > 20 THEN
+    --20251023 LCARPIO
     SYS.SP_SY_ENVIAMAIL('alertacanales@cajaarequipa.pe',
                         'ehidalgom@cajaarequipa.pe',
                         'Revisar Validador de PIN - ' ||
@@ -76,7 +77,7 @@ BEGIN
                         'HOSTNAME=' || V_HOSTNAME || CHR(13) ||
                         'Hora Actual en Servidor : ' ||
                         TO_CHAR(SYSDATE, 'HH24:MI:SS') || CHR(13) ||
-                        CHR(13) || 'Revisar Validador de PIN.');   
+                        CHR(13) || 'Revisar Validador de PIN.');
     SYS.SP_SY_ENVIAMAIL('alertacanales@cajaarequipa.pe',
                         'rfeliciano@cajaarequipa.pe',
                         'Revisar Validador de PIN - ' ||
@@ -87,7 +88,7 @@ BEGIN
                         'HOSTNAME=' || V_HOSTNAME || CHR(13) ||
                         'Hora Actual en Servidor : ' ||
                         TO_CHAR(SYSDATE, 'HH24:MI:SS') || CHR(13) ||
-                        CHR(13) || 'Revisar Validador de PIN.');      
+                        CHR(13) || 'Revisar Validador de PIN.');
     SYS.SP_SY_ENVIAMAIL('alertacanales@cajaarequipa.pe',
                         'rmanriqueg@cajaarequipa.pe',
                         'Revisar Validador de PIN - ' ||
@@ -98,7 +99,7 @@ BEGIN
                         'HOSTNAME=' || V_HOSTNAME || CHR(13) ||
                         'Hora Actual en Servidor : ' ||
                         TO_CHAR(SYSDATE, 'HH24:MI:SS') || CHR(13) ||
-                        CHR(13) || 'Revisar Validador de PIN.');      
+                        CHR(13) || 'Revisar Validador de PIN.');
     SYS.SP_SY_ENVIAMAIL('alertacanales@cajaarequipa.pe',
                         'aaguilara@cajaarequipa.pe',
                         'Revisar Validador de PIN - ' ||
@@ -109,8 +110,8 @@ BEGIN
                         'HOSTNAME=' || V_HOSTNAME || CHR(13) ||
                         'Hora Actual en Servidor : ' ||
                         TO_CHAR(SYSDATE, 'HH24:MI:SS') || CHR(13) ||
-                        CHR(13) || 'Revisar Validador de PIN.');      
-
+                        CHR(13) || 'Revisar Validador de PIN.');
+  
     SYS.SP_SY_ENVIAMAIL('alertacanales@cajaarequipa.pe',
                         'phuarza@cajaarequipa.pe',
                         'Revisar Validador de PIN - ' ||
@@ -143,7 +144,7 @@ BEGIN
                         'HOSTNAME=' || V_HOSTNAME || CHR(13) ||
                         'Hora Actual en Servidor : ' ||
                         TO_CHAR(SYSDATE, 'HH24:MI:SS') || CHR(13) ||
-                        CHR(13) || 'Revisar Validador de PIN.');                                             
+                        CHR(13) || 'Revisar Validador de PIN.');
     SYS.SP_SY_ENVIAMAIL('alertacanales@cajaarequipa.pe',
                         'cpilares@cajaarequipa.pe',
                         'Revisar Validador de PIN - ' ||
@@ -212,5 +213,5 @@ BEGIN
                         CHR(13) || 'Revisar Validador de PIN.');
   END IF;
 END;
- /* GOLDENGATE_DDL_REPLICATION */
+/* GOLDENGATE_DDL_REPLICATION */
 /

@@ -13,9 +13,12 @@ create or replace package PQ_CR_LIMITE_REPROG is
   -- Fecha de Modificación      : 30/10/2025
   -- Autor de la Modificación   : MPOSTIGOC
   -- Descripción de Modificación: Se agrego los procedimientos para la carga de limites por agencia y Nacional
-  -- Fecha de Modificación      : 
-  -- Autor de la Modificación   : 
-  -- Descripción de Modificación: 
+  -- Fecha de Modificación      : 02/12/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se modifico las variables que devuelven el % limite por agencia y Nacional
+  -- Fecha de Modificación      : 03/12/2025
+  -- Autor de la Modificación   : MPOSTIGOC
+  -- Descripción de Modificación: Se modifico las variables que calculan el limite por agencia y Nacional
   -- *****************************************************************
 
   procedure sp_cr_CargaLimiteR;
@@ -212,7 +215,7 @@ create or replace package body PQ_CR_LIMITE_REPROG is
         ln_MaxLimt := 0;
       
         begin
-          select f.tp1imp1
+          select f.tp1imp1 / 100
             into ln_MaxLimt
             from fst198 f
            where f.tp1cod = 1
@@ -261,8 +264,8 @@ create or replace package body PQ_CR_LIMITE_REPROG is
              ld_fchaSist,
              lc_hora,
              ln_SaldLimReg,
-             l.aqpd064asaldm,
-             ln_SaldLimReg - l.aqpd064asaldm,
+             l.aqpd064asaldd,
+             ln_SaldLimReg - l.aqpd064asaldd,
              'H');
           commit;
         end;
@@ -335,7 +338,7 @@ create or replace package body PQ_CR_LIMITE_REPROG is
         ln_MaxLimt := 0;
       
         begin
-          select f.tp1imp1
+          select f.tp1imp1 / 100
             into ln_MaxLimt
             from fst198 f
            where f.tp1cod = 1
@@ -376,8 +379,8 @@ create or replace package body PQ_CR_LIMITE_REPROG is
              ld_fchaSist,
              lc_hora,
              ln_SaldLimReg,
-             l.aqpd065asaldm,
-             ln_SaldLimReg - l.aqpd065asaldm,
+             l.aqpd065asaldd,
+             ln_SaldLimReg - l.aqpd065asaldd,
              'H');
           commit;
         end;
