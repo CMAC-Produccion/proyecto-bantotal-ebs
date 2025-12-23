@@ -7,7 +7,22 @@ create or replace procedure SP_AH_AFILIACIONES_TARJETA(P_C_Z0E478NRO  IN VARCHAR
                                                        p_c_coderr     out varchar2,
                                                        p_c_msgerr     out varchar2
                                                        ) is
-                                                   
+                                                       
+  -- *****************************************************************
+  -- Nombre                      : SP_AH_AFILIACIONES_TARJETA
+  -- Sistema                     : BANTOTAL
+  -- Módulo                      : PASIVAS
+  -- Versión                     : 1.0
+  -- Fecha de Creación           : 2019.11.25
+  -- Autor de Creación           : Yrving Lozada
+  -- Uso                         : Afiliacion de tarjetas
+  -- Estado                      : Activo
+  -- Acceso                      : Público
+  -- Fecha de Modificación       : 2025.12.05
+  -- Autor de la Modificación    : Renzo Cuadros
+  -- Descripción la Modificación : Se agrega campo para control notif. push
+  -- *****************************************************************
+                                                     
 lc_z0e478nro1 char(19);
 begin  
   lc_z0e478nro1 := P_C_Z0E478NRO1;
@@ -175,7 +190,7 @@ begin
                 a.jaql629can03,a.jaql629can04,a.jaql629can05,a.jaql629can06,a.jaql629can07,
                 a.jaql629can08,a.jaql629can09,a.jaql629can10,a.jaql629can11,a.jaql629can12,
                 a.jaql629obser,a.jaql629uscre,a.jaql629fecre,a.jaql629hocre,a.jaqy629usmod,
-                a.jaql629femod,a.jaql629homod,a.jaql629auxc1,a.jaql629auxc2,a.jaql629auxc3,null
+                a.jaql629femod,a.jaql629homod,a.jaql629auxc1,a.jaql629auxc2,a.jaql629auxc3,null,null -- 2025.12.05 rcuadros
            from jaql629 a
           where a.jaql629nutar = rpad(lc_z0e478nro1,19,' ');
     exception
@@ -194,4 +209,3 @@ when others then
   return;
 end SP_AH_AFILIACIONES_TARJETA;
 /
-

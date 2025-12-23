@@ -12,18 +12,21 @@ CREATE OR REPLACE TRIGGER TG_AQPC341_AI_01
   -- Uso                         : Registro notificaciones push, correo y sms
   -- Estado                      : Activo
   -- Acceso                      : Público
-  -- Fecha de Modificación       : 23/05/2025
+  -- Fecha de Modificación       : 2025.05.23
   -- Autor de la Modificación    : Renzo Cuadros
   -- Descripción la Modificación : Se agrega trim al campo push token para envitar errores en envios
-  -- Fecha de Modificación       : 23/06/2025
+  -- Fecha de Modificación       : 2025.06.23
   -- Autor de la Modificación    : Renzo Cuadros
   -- Descripción la Modificación : Se intercambian los flags de celular y mail
-  -- Fecha de Modificación       : 14/07/2025
+  -- Fecha de Modificación       : 2025.07.14
   -- Autor de la Modificación    : Renzo Cuadros
   -- Descripción la modificación : Se toma en cuenta el flag en 's' para celular y correo
-  -- Fecha de modificación       : 22/09/2025
+  -- Fecha de modificación       : 2025.09.22
   -- Autor de la modificación    : Renzo Cuadros
   -- Descripción la modificación : Se obtiene datos del cliente juridico de la FSD001
+  -- Fecha de modificación       : 2025.12.05
+  -- Autor de la modificación    : Renzo Cuadros
+  -- Descripción la modificación : Se agrega control de notificaciones push activas
   -- *****************************************************************
   
 DECLARE
@@ -43,6 +46,8 @@ DECLARE
   lc_cel        CHAR(1) := 'N';
   lc_sex        CHAR(1);
   lv_aux1       VARCHAR2(100);
+  lc_numtar     CHAR(19);
+  
 BEGIN
 
   lv_codigo := LPAD(:new.AQPC341CTA, 9, '0') ||
@@ -111,27 +116,53 @@ BEGIN
         lv_cliente := NULL;
         lc_sex     := NULL;
     END;
-    -- verificamos si tiene push activo
+    
+    -- 2025.12.05 rcuadros
+    -- obtenemos la tarjeta
+    BEGIN
+      SELECT Z0E478NRO
+        INTO lc_numtar
+        FROM Z0E479
+       WHERE Z0E479SUC = :new.AQPC341SCS
+         AND Z0E479CTA = :new.AQPC341CTA
+         AND Z0E479SCT = :new.AQPC341SBO
+         AND Z0E479MOD = :new.AQPC341MOD
+         AND Z0E479MON = :new.AQPC341MDA
+         AND Z0E479PAP = :new.AQPC341PAP
+         AND Z0E479TOP = :new.AQPC341TOP
+         AND Z0E479OPE = :new.AQPC341OPE
+         AND Z0E479EST = 'AC'
+         AND ROWNUM = 1;
+    EXCEPTION
+      WHEN NO_DATA_FOUND THEN
+        lc_numtar := NULL;
+      WHEN OTHERS THEN
+        lc_numtar := NULL;
+    END;
+    
+    -- 2025.12.05 rcuadros
+    -- verificamos si tiene fcm token
     BEGIN
       SELECT JAQZ205AUX2
         INTO lv_fcm_token
         FROM jaqz205
-       WHERE JAQZ205NUTAR = (SELECT Z0E478NRO
-                               FROM Z0E479
-                              WHERE Z0E479SUC = :new.AQPC341SCS
-                                AND Z0E479CTA = :new.AQPC341CTA
-                                AND Z0E479SCT = :new.AQPC341SBO
-                                AND Z0E479MOD = :new.AQPC341MOD
-                                AND Z0E479MON = :new.AQPC341MDA
-                                AND Z0E479PAP = :new.AQPC341PAP
-                                AND Z0E479TOP = :new.AQPC341TOP
-                                AND Z0E479OPE = :new.AQPC341OPE
-                                AND Z0E479EST = 'AC'
-                                AND ROWNUM = 1
-                            );
+       WHERE JAQZ205NUTAR = lc_numtar;
     EXCEPTION
       WHEN OTHERS THEN
         lv_fcm_token := NULL;
+    END;
+    
+    -- 2025.12.05 rcuadros
+    -- verificamos si tiene notificaciones push activas
+    BEGIN
+      SELECT
+        CASE WHEN JAQL629CAN14 = 'N' THEN NULL ELSE lv_fcm_token END
+        INTO lv_fcm_token
+        FROM JAQL629
+       WHERE JAQL629NUTAR = lc_numtar;
+    EXCEPTION
+      WHEN OTHERS THEN
+        lv_fcm_token := lv_fcm_token;
     END;
   
     IF :new.AQPC341TIP = 'E' THEN

@@ -12,9 +12,9 @@ CREATE OR REPLACE TRIGGER TG_Z0E4GC_AI_01
   -- Uso                         : Registro notificaciones push, correo y sms de operaciones offline
   -- Estado                      : Activo
   -- Acceso                      : Público
-  -- Fecha de Modificación       :
-  -- Autor de la Modificación    :
-  -- Descripción la Modificación :
+  -- Fecha de Modificación       : 2025.12.05
+  -- Autor de la Modificación    : Renzo Cuadros
+  -- Descripción la Modificación : Se agrega control de notificaciones push activas
   -- *****************************************************************
 
 DECLARE
@@ -37,6 +37,7 @@ DECLARE
   ln_petdoc     NUMBER(2);
   lc_pendoc     CHAR(12);
   lv_aux1       VARCHAR2(100);
+  lc_numtar     CHAR(19);
 
   CURSOR c_notifica IS
     SELECT UPPER(x.operacion) operacion
@@ -147,29 +148,55 @@ BEGIN
           lv_cliente := NULL;
           lc_sex     := NULL;
       END;
-      -- verificamos si tiene push activo
+      
+      -- 2025.12.05 rcuadros
+      -- obtenemos la tarjeta
+      BEGIN
+        SELECT Z0E478NRO
+          INTO lc_numtar
+          FROM Z0E479
+          WHERE Z0E479SUC = :new.Z0E4GCDSU
+            AND Z0E479CTA = :new.Z0E4GCDCT
+            AND Z0E479SCT = :new.Z0E4GCDSC
+            AND Z0E479MOD = :new.Z0E4GCDMD
+            AND Z0E479MON = :new.Z0E4GCDMO
+            AND Z0E479PAP = :new.Z0E4GCDPA
+            AND Z0E479TOP = :new.Z0E4GCDTO
+            AND Z0E479OPE = :new.Z0E4GCDOP
+            AND Z0E479EST = 'AC'
+            AND ROWNUM = 1;
+      EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+          lc_numtar := NULL;
+        WHEN OTHERS THEN
+          lc_numtar := NULL;
+      END;
+      
+      -- 2025.12.05 rcuadros
+      -- verificamos si tiene fcm token
       BEGIN
         SELECT JAQZ205AUX2
           INTO lv_fcm_token
           FROM jaqz205
-         WHERE JAQZ205NUTAR = (SELECT Z0E478NRO
-                                 FROM Z0E479
-                                WHERE Z0E479SUC = :new.Z0E4GCDSU
-                                  AND Z0E479CTA = :new.Z0E4GCDCT
-                                  AND Z0E479SCT = :new.Z0E4GCDSC
-                                  AND Z0E479MOD = :new.Z0E4GCDMD
-                                  AND Z0E479MON = :new.Z0E4GCDMO
-                                  AND Z0E479PAP = :new.Z0E4GCDPA
-                                  AND Z0E479TOP = :new.Z0E4GCDTO
-                                  AND Z0E479OPE = :new.Z0E4GCDOP
-                                  AND Z0E479EST = 'AC'
-                                  AND ROWNUM = 1
-                              );
+         WHERE JAQZ205NUTAR = lc_numtar;
       EXCEPTION
         WHEN OTHERS THEN
           lv_fcm_token := NULL;
       END;
-
+      
+      -- 2025.12.05 rcuadros
+      -- verificamos si tiene notificaciones push activas
+      BEGIN
+        SELECT
+          CASE WHEN JAQL629CAN14 = 'N' THEN NULL ELSE lv_fcm_token END
+          INTO lv_fcm_token
+          FROM JAQL629
+         WHERE JAQL629NUTAR = lc_numtar;
+      EXCEPTION
+        WHEN OTHERS THEN
+          lv_fcm_token := lv_fcm_token;
+      END;
+      
       -- si tiene fcm token
       IF TRIM(lv_fcm_token) IS NOT NULL THEN
         CASE

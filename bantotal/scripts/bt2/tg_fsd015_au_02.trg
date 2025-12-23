@@ -53,7 +53,10 @@ CREATE OR REPLACE TRIGGER TG_FSD015_AU_02
     -- Modificación               : Se toma en cuenta el flag en 'S' para celular y correo
     -- Fecha de modificación      : 22/09/2025
     -- Autor de la modificación   : Renzo Cuadros
-    -- Modificación               : Se obtiene datos del cliente juridico de la FSD001    
+    -- Modificación               : Se obtiene datos del cliente juridico de la FSD001
+    -- Fecha de modificación      : 05/12/2025
+    -- Autor de la modificación   : Renzo Cuadros
+    -- Modificación               : Se agrega control de notificaciones push activas
     -- *****************************************************************
 declare
    cursor c_notifica is
@@ -149,6 +152,8 @@ declare
   lc_numdoc         char(12);
   lc_sex            char(1);
   ln_sucursal       number(3);
+  lc_numtar         char(19);
+    
 begin
   if :new.ITCONT = 'S' and :old.itcorr= 0 then
      for i in c_notifica loop
@@ -259,7 +264,7 @@ begin
            end;
 
            -- VERIFICAMOS SI TIENE PUSH ACTIVO
-           begin
+           /*begin
             select JAQZ205AUX2
               into lv_PUSH_TOKEN
               from jaqz205
@@ -279,8 +284,56 @@ begin
            exception
            when others then
              lv_PUSH_TOKEN := null;
-           end;
-
+           end;*/
+           
+            -- 05/12/2025 rcuadros
+            -- OBTENEMOS LA TARJETA
+            BEGIN
+              SELECT Z0E478NRO
+                INTO lc_numtar
+                FROM Z0E479
+                WHERE Z0E479SUC = ln_sucursal
+                  AND Z0E479CTA = ln_cuenta
+                  AND Z0E479SCT = i.itsubo
+                  AND Z0E479MOD = i.modulo
+                  AND Z0E479MON = i.moneda
+                  AND Z0E479PAP = i.papel
+                  AND Z0E479TOP = i.ittope
+                  AND Z0E479OPE = i.itoper
+                  AND Z0E479EST = 'AC'
+                  AND ROWNUM = 1;
+            EXCEPTION
+              WHEN NO_DATA_FOUND THEN
+                lc_numtar := NULL;
+              WHEN OTHERS THEN
+                lc_numtar := NULL;
+            END;
+            
+            -- 05/12/2025 rcuadros
+            -- VERIFICAMOS SI TIENE FCM TOKEN
+            BEGIN
+              SELECT JAQZ205AUX2
+                INTO lv_PUSH_TOKEN
+                FROM jaqz205
+               WHERE JAQZ205NUTAR = lc_numtar;
+            EXCEPTION
+              WHEN OTHERS THEN
+                lv_PUSH_TOKEN := NULL;
+            END;
+            
+            -- 05/12/2025 rcuadros
+            -- VERIFICAMOS SI TIENE NOTIFICACIONES PUSH ACTIVAS
+            BEGIN
+              SELECT
+                CASE WHEN JAQL629CAN14 = 'N' THEN NULL ELSE lv_PUSH_TOKEN END
+                INTO lv_PUSH_TOKEN
+                FROM JAQL629
+               WHERE JAQL629NUTAR = lc_numtar;
+            EXCEPTION
+              WHEN OTHERS THEN
+                lv_PUSH_TOKEN := lv_PUSH_TOKEN;
+            END;
+            
            --OBTENEMOS LA SUCURSAL
             BEGIN
               SELECT TRIM(tp1desc) tp1desc
