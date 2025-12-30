@@ -47,6 +47,9 @@ CREATE OR REPLACE TRIGGER TG_JAQL977_AI_01
     -- Fecha de modificación      : 05/12/2025
     -- Autor de la modificación   : Renzo Cuadros
     -- Modificación               : Se agrega control de notificaciones push activas
+    -- Fecha de modificación      : 29/12/2025
+    -- Autor de la modificación   : Renzo Cuadros
+    -- Modificación               : Se ajusta la concidion del envio de SMS
     -- *****************************************************************
 declare
    cursor c_notifica is
@@ -97,7 +100,8 @@ declare
   lc_sex            char(1);
   lv_hora           char(8);
   lc_numtar         char(19);
-
+  lc_flag_push      char(1);
+  
 begin
 
      for i in c_notifica loop
@@ -282,6 +286,13 @@ begin
                 lv_PUSH_TOKEN := NULL;
             END;
             
+            -- 26/12/2025 rcuadros
+            IF lv_PUSH_TOKEN IS NULL THEN
+              lc_flag_push := 'N';
+            ELSE
+              lc_flag_push := 'S';
+            END IF;
+                        
             -- 05/12/2025 rcuadros
             -- VERIFICAMOS SI TIENE NOTIFICACIONES PUSH ACTIVAS
             BEGIN
@@ -517,7 +528,7 @@ begin
                dbms_lob.freetemporary(ll_mensaje);
              End If;
              --REGISTRA NOTIFICACIÓN SMS
-             if ln_celular is not null and lc_cel = 'P' then
+             if ln_celular is not null and lc_cel = 'P' and lc_flag_push = 'N' then -- rcuadros 29/12/2025
                 if lc_sex = 'M' then
                    lv_mensaje := 'Estimado '||lv_nombre_cliente||' Caja Arequipa le informa sobre la operación '||lv_OPERACION||' por '||lv_MONEDA||trim(to_char(ln_MONTO,'9,999,999.90'))||lv_c4||' realizada en '||lv_c1||': '||lv_ubigueo;
                 else

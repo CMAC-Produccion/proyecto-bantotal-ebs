@@ -15,6 +15,9 @@ CREATE OR REPLACE TRIGGER TG_Z0E4GC_AI_01
   -- Fecha de Modificación       : 2025.12.05
   -- Autor de la Modificación    : Renzo Cuadros
   -- Descripción la Modificación : Se agrega control de notificaciones push activas
+  -- Fecha de modificación       : 2025.12.29
+  -- Autor de la modificación    : Renzo Cuadros
+  -- Descripción la modificación : Se ajusta la concidion del envio de SMS
   -- *****************************************************************
 
 DECLARE
@@ -38,7 +41,8 @@ DECLARE
   lc_pendoc     CHAR(12);
   lv_aux1       VARCHAR2(100);
   lc_numtar     CHAR(19);
-
+  lc_flag_push  CHAR(1);
+  
   CURSOR c_notifica IS
     SELECT UPPER(x.operacion) operacion
     FROM (
@@ -183,6 +187,13 @@ BEGIN
         WHEN OTHERS THEN
           lv_fcm_token := NULL;
       END;
+      
+      -- 2025.12.26 rcuadros
+      IF lv_fcm_token IS NULL THEN
+        lc_flag_push := 'N';
+      ELSE
+        lc_flag_push := 'S';
+      END IF;
       
       -- 2025.12.05 rcuadros
       -- verificamos si tiene notificaciones push activas
@@ -421,7 +432,7 @@ BEGIN
         END IF;
 
         -- registra notificación sms
-        IF ln_celular IS NOT NULL AND lc_cel = 'P' THEN
+        IF ln_celular IS NOT NULL AND lc_cel = 'P' AND lc_flag_push = 'N' THEN -- rcuadros 2025.12.29
           CASE
             WHEN lc_sex = 'M' THEN
               lv_aux1 := 'Estimado ' || lv_cliente;
