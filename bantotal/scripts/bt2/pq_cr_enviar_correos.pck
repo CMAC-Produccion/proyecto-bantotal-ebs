@@ -25,6 +25,9 @@ create or replace package "PQ_CR_ENVIAR_CORREOS" is
     -- Fecha de Modificación      : 28/06/2024
     -- Autor de la Modificación   : Ylozada
     -- Descripción de Modificación: Se corrigió query de sp_ah_verifica_trab    
+    -- Fecha de Modificación      : 30/12/2025
+    -- Autor de la Modificación   : Ylozada
+    -- Descripción de Modificación: Se deshabilitó envio de correo del reporte de rotación.    
     --
     -- *****************************************************************     
   function fn_cr_leer_usuario_empleado(num_dni varchar2) return varchar2;
@@ -112,7 +115,6 @@ create or replace package "PQ_CR_ENVIAR_CORREOS" is
 end PQ_CR_ENVIAR_CORREOS;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-
 create or replace package body "PQ_CR_ENVIAR_CORREOS" is
 
   --Crea un cursor a partir de JAQZ652 recuperando todos aquellos trabajadores con riesgo crediticio
@@ -1784,7 +1786,8 @@ union all
       dbms_lob.writeappend(ll_mensaje, length(lv_mensaje), lv_mensaje);
     End if;
         
-    if trim(lv_destinos) is not null then
+    --if trim(lv_destinos) is not null then
+    if trim(lv_destinos) is not null and (1 = 0) then    
       --Enviamos el correo
       
       begin
@@ -2440,4 +2443,3 @@ Procedure sp_ah_valida_CON_DIR is
 end PQ_CR_ENVIAR_CORREOS;
  /* GOLDENGATE_DDL_REPLICATION */
 /
-
