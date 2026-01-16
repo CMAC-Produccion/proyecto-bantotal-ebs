@@ -24,6 +24,7 @@ create or replace package PQ_CR_PRODUCTIVIDAD_NUEVA is
   --                              2025.04.30 dcastro se modificó sp_cr_inserta_cartera_diario - dias atraso diario y sp_cr_SaldosTraslados
   --                              2025.05.08 dcastro se modifico sp_cr_inserta_cartera_finmes y sp_cr_inserta_cartera_diario 
   --                              2025.06.20 dcastro se modifico sp_cr_SaldosTraslados
+  --                              2025.12.19 dcastro se modifico sp_cr_Cartera_Vendida y se agrego funcion que retorna analista de cartera vendida fn_analista_credito_v
   -- *****************************************************************
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
   procedure sp_cr_inserta_cartera(pd_fecpro in date);
@@ -445,7 +446,18 @@ procedure sp_cr_TipoAnalista(pc_analista IN varchar2,
                                  pn_proceso in varchar2) return number;
   -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --  
   procedure sp_cr_Calculo_Mensual_O(pd_fecpro in date);
- 
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --    
+  function fn_analista_credito_v(
+                             v_Scmod  in number,
+                             v_Scsuc  in number,
+                             v_Scmda  in number,
+                             v_Scpap  in number,
+                             v_Sccta  in number,
+                             v_Scoper in number,
+                             v_Scsbop in number,
+                             v_Sctope in number
+                           ) return varchar2;  
+  -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --   
 end PQ_CR_PRODUCTIVIDAD_NUEVA;
 /
 create or replace package body PQ_CR_PRODUCTIVIDAD_NUEVA is
@@ -7336,7 +7348,7 @@ select HCTA,
     -- Parámetros de Salida       : pn_saldo , pn_cantidad
     -- Fecha de Modificación      :
     -- Autor de la Modificación   :
-    -- Descripción de Modificación:
+    -- Descripción de Modificación:  2025.12.19 dcastro se modifico llamada a fn_analista_credito_v
     -- *****************************************************************
   
     ld_fecini   date;
@@ -7379,6 +7391,7 @@ select HCTA,
                                      jaqz064cap) SALDO,
                               jaqz064tdo,
                               jaqz064ndo,
+                              /*2025.12.19 se comento llamada a funciona analista
                               fn_analista_credito(jaqz064mod,
                                                   jaqz064suc,
                                                   jaqz064mda,
@@ -7386,11 +7399,25 @@ select HCTA,
                                                   jaqz064cta,
                                                   jaqz064ope,
                                                   jaqz064sbo,
+                                                  jaqz064top) analista*/
+                             --2025.12.19 se cambio llamada a funcion para retornar analista cartera vendida                     
+                             fn_analista_credito_v(jaqz064mod,
+                                                  jaqz064suc,
+                                                  jaqz064mda,
+                                                  jaqz064pap,
+                                                  jaqz064cta,
+                                                  jaqz064ope,
+                                                  jaqz064sbo,
                                                   jaqz064top) analista
+                                                  
+                                                  
+                                                  
                 from jaqz064 j, jaqy952 k
                where j.jaqz064GRU = k.jaqy952gru
-                 and k.jaqy952fec >= ld_fecini
-                 and k.jaqy952fec <= pd_fecpro
+                 /*and k.jaqy952fec >= ld_fecini
+                 and k.jaqy952fec <= pd_fecpro*/
+                 and k.JAQY952FEV >= ld_fecini
+                 and k.JAQY952FEV <= pd_fecpro --2025.12.19               
                  and j.jaqz064suc = pn_sucurs
                  and j.jaqz064mod <> 33) a
        where analista = lc_analista
@@ -14609,5 +14636,296 @@ procedure sp_cr_inserta_desembolsos_SUC(pd_fecpro in date) is
     commit;
  
   end sp_cr_Calculo_Mensual_O;  
+  
+function fn_analista_credito_v(
+                           v_Scmod  in number,
+                           v_Scsuc  in number,
+                           v_Scmda  in number,
+                           v_Scpap  in number,
+                           v_Sccta  in number,
+                           v_Scoper in number,
+                           v_Scsbop in number,
+                           v_Sctope in number
+                         ) return varchar2 is
+   -- *****************************************************************
+    -- Nombre                     : fn_analista_credito_v
+    -- Sistema                    : BANTOTAL
+    -- Módulo                     : Créditos - Activas
+    -- Versión                    : 1.0
+    -- Fecha de Creación          : 2025.12.19
+    -- Autor de Creación          : 
+    -- Uso                        : retorna analista, valida que exista instancia en FSD010
+    -- Estado                     : Activo
+    -- Acceso                     : Público
+    -- Fecha de Modificación      : 
+    -- Autor de la Modificación   : 
+    -- Descripción de Modificación: 
+    -- *****************************************************************
+
+
+
+    lc_analista fst046.ubuser%type;
+    ln_instancia number(10);
+    ln_lote fpp175.pp174cod%type;
+    
+  begin
+
+    --para prendario nombre del tasador
+   if (v_Scmod = 108) then
+     begin
+      SELECT max(pp174cod)
+             into ln_lote
+      FROM fpp175 d
+      where
+           d.pp175suc  = v_Scsuc
+       and d.pp175mda  = v_Scmda
+       and d.pp175pap  = v_Scpap
+       and d.pp175cta  = v_Sccta
+       and d.pp175oper = v_Scoper
+       and d.pp175sbop = v_Scsbop
+       and d.pp175mod  = v_Scmod
+       and d.pp175tope = v_Sctope;
+    exception
+      when no_data_found then
+           ln_lote := null;
+     end;
+
+
+      begin
+       select max(substr(pp178dtext,1,10))
+              into lc_analista
+       from fpp178
+       where
+            pp174cod = ln_lote
+        and pp177codd = 7;
+      exception
+        when no_data_found then
+             lc_analista := null;
+      end;
+   else
+       If v_Scmod = 116 THEN
+          Begin
+                select max(xw2.xwfprcins)
+                  into ln_instancia
+                  From Fsr011 rel  join xwf700 xw2 on xw2.xwfempresa   = rel.r2cod
+                                                  and xw2.xwfmodulo    = rel.r2mod
+                                                  and xw2.xwfsucursal  = rel.r2suc
+                                                  and xw2.xwfmoneda    = rel.r2mda
+                                                  and xw2.xwfpapel     = rel.r2pap
+                                                  and xw2.xwfcuenta    = rel.r2cta
+                                                  and xw2.xwfoperacion = rel.r2oper
+                                                  and xw2.xwfsubope    = rel.r2sbop
+                                                  and xw2.xwftipope    = rel.r2tope
+                                                  and rel.relcod       = 46
+                                                  and xw2.xwfcar3      = '1'
+                 where rel.r1cod = 1
+                   and rel.r1mod = v_Scmod
+                   and rel.r1suc = v_Scsuc
+                   and rel.r1mda = v_Scmda
+                   and rel.r1pap = v_Scpap
+                   and rel.r1cta = v_Sccta
+                   and rel.r1oper= v_Scoper
+                   and rel.r1sbop= v_Scsbop
+                   and rel.r1tope= v_Sctope;
+                   --dbms_output.put_line('1- '||ln_instancia);
+                   
+                   If nvl(ln_instancia,0) = 0 Then
+                    Begin
+                        select max(xw2.xwfprcins)
+                          into ln_instancia
+                          From Fsr011 rel  join   xwf700 xw2 on xw2.xwfempresa   = rel.r2cod
+                                                          and xw2.xwfmodulo    = rel.r2mod
+                                                          and xw2.xwfsucursal  = rel.r2suc
+                                                          and xw2.xwfmoneda    = rel.r2mda
+                                                          and xw2.xwfpapel     = rel.r2pap
+                                                          and xw2.xwfcuenta    = rel.r2cta
+                                                          and xw2.xwfoperacion = rel.r2oper
+                                                          and xw2.xwfsubope    = rel.r2sbop
+                                                          and xw2.xwftipope    = rel.r2tope
+                                                          and rel.relcod       = 46
+                         where rel.r1cod = 1
+                           and rel.r1mod = v_Scmod
+                           and rel.r1suc = v_Scsuc
+                           and rel.r1mda = v_Scmda
+                           and rel.r1pap = v_Scpap
+                           and rel.r1cta = v_Sccta
+                           and rel.r1oper= v_Scoper
+                           and rel.r1tope= v_Sctope;
+                          -- dbms_output.put_line('2- '||ln_instancia);
+                    End;
+                 End IF;
+          End;
+
+       Else
+           Begin
+               select xw2.xwfprcins
+                 into ln_instancia
+                 from xwf700 xw2
+                where xw2.xwfempresa   = 1
+                  and xw2.xwfsucursal  = v_Scsuc
+                  and xw2.xwfmodulo    = v_Scmod
+                  and xw2.xwfmoneda    = v_Scmda
+                  and xw2.xwfpapel     = v_Scpap
+                  and xw2.xwfcuenta    = v_Sccta
+                  and xw2.xwfoperacion = v_Scoper
+                  and xw2.xwfsubope    = v_Scsbop
+                  and xw2.xwftipope    = v_Sctope
+                  and xw2.xwfcar3      = '1';
+                  --dbms_output.put_line('3- '||ln_instancia);
+           Exception When Others Then
+                      If v_Scmod in (200,33) or  v_Sctope = 550  Then
+                         Begin
+                                 select max(xw2.xwfprcins)
+                                   into ln_instancia
+                                   from xwf700 xw2, xwf070 x
+                                  where x.xwfprcin = xw2.xwfprcins   
+                                    and x.XWFCONT = 'S'
+                                    and xw2.xwfempresa   = 1
+                                    and xw2.xwfsucursal  = v_Scsuc
+                                    and xw2.xwfmoneda    = v_Scmda
+                                    and xw2.xwfpapel     = v_Scpap
+                                    and xw2.xwfcuenta    = v_Sccta
+                                    and xw2.xwfoperacion = v_Scoper;
+                           end;
+                          -- dbms_output.put_line('4- '||ln_instancia);
+                      Else
+
+                           Begin
+                                  select  max(xw2.xwfprcins)
+                                   into ln_instancia
+                                   from   xwf700 xw2, xwf070 x
+                                  where x.xwfprcin = xw2.xwfprcins   
+                                    and x.XWFCONT = 'S'
+                                    and xw2.xwfempresa   = 1
+                                    and xw2.xwfsucursal  = v_Scsuc
+                                    and xw2.xwfmoneda    = v_Scmda
+                                    and xw2.xwfpapel     = v_Scpap
+                                    and xw2.xwfcuenta    = v_Sccta
+                                    and xw2.xwfoperacion = v_Scoper; 
+                                  --dbms_output.put_line('5- '||ln_instancia);
+                           Exception When Others Then
+                                  begin
+                                       select max(xw2.xwfprcins)
+                                         into ln_instancia
+                                         from xwf700 xw2, xwf070 x
+                                        where x.xwfprcin = xw2.xwfprcins   
+                                          and x.XWFCONT = 'S'
+                                          and xw2.xwfempresa   = 1
+                                          and xw2.xwfsucursal  = v_Scsuc
+                                          and xw2.xwfmodulo    = v_Scmod
+                                          and xw2.xwfmoneda    = v_Scmda
+                                          and xw2.xwfpapel     = v_Scpap
+                                          and xw2.xwfcuenta    = v_Sccta
+                                          and xw2.xwfoperacion = v_Scoper
+                                          and xw2.xwftipope    = v_Sctope
+                                          and xw2.xwfcar3      = '1';
+                                          --dbms_output.put_line('6- '||ln_instancia);
+                                    end;
+                           End;
+                           End IF;
+           End ;
+
+           --2015.11.23 cuando instancia es 0 verificar si es judicial
+           if nvl(ln_instancia,0) = 0 and v_Scmod in (200,33) then
+               begin
+                    select max(xw2.xwfprcins)
+                      into ln_instancia
+                      From Fsr011 rel  join   xwf700 xw2 on xw2.xwfempresa   = rel.r2cod
+                                                      and xw2.xwfmodulo    = rel.r2mod
+                                                      and xw2.xwfsucursal  = rel.r2suc
+                                                      and xw2.xwfmoneda    = rel.r2mda
+                                                      and xw2.xwfpapel     = rel.r2pap
+                                                      and xw2.xwfcuenta    = rel.r2cta
+                                                      and xw2.xwfoperacion = rel.r2oper
+                                                      and xw2.xwfsubope    = rel.r2sbop
+                                                      and xw2.xwftipope    = rel.r2tope
+                                                      and rel.relcod       = 46
+                                                      and xw2.xwfcar3      = '1'
+                     where rel.r1cod = 1
+                       and rel.r1mod = v_Scmod
+                       and rel.r1suc = v_Scsuc
+                       and rel.r1mda = v_Scmda
+                       and rel.r1pap = v_Scpap
+                       and rel.r1cta = v_Sccta
+                       and rel.r1oper= v_Scoper
+                       and rel.r1sbop= v_Scsbop
+                       and rel.r1tope= v_Sctope;
+                       --dbms_output.put_line('7- '||ln_instancia);
+                --2016.08.09        
+               if nvl(ln_instancia,0) = 0 then 
+                   begin        
+                        select max(xw2.xwfprcins)
+                          into ln_instancia
+                          From Fsr011 rel  join   xwf700 xw2 on xw2.xwfempresa   = rel.r2cod  
+                                                          and xw2.xwfmodulo    = rel.r2mod  
+                                                          and xw2.xwfsucursal  = rel.r2suc  
+                                                          and xw2.xwfmoneda    = rel.r2mda  
+                                                          and xw2.xwfpapel     = rel.r2pap  
+                                                          and xw2.xwfcuenta    = rel.r2cta  
+                                                          and xw2.xwfoperacion = rel.r2oper  
+                                                          and xw2.xwfsubope    = rel.r2sbop  
+                                                          and xw2.xwftipope    = rel.r2tope 
+                                                          and rel.relcod       = 46     
+                         where rel.r1cod = 1
+                           and rel.r1mod = v_Scmod
+                           and rel.r1suc = v_Scsuc
+                           and rel.r1mda = v_Scmda
+                           and rel.r1pap = v_Scpap
+                           and rel.r1cta = v_Sccta
+                           and rel.r1oper= v_Scoper
+                           and rel.r1sbop= v_Scsbop
+                           and rel.r1tope= v_Sctope;
+                           --dbms_output.put_line('8- '||ln_instancia);
+                  exception when no_Data_found then
+                     ln_instancia := 0;       
+                   end;        
+                 end if;  
+               end; 
+               --2016.08.09   
+
+
+           end if;
+           --2015.11.23
+
+       End IF;
+       if nvl(ln_instancia,0) = 0 then
+          Begin
+            select max(xw2.xwfprcins)
+              into ln_instancia
+              from xwf700 xw2, wfwrkitems x
+            where x.wfinsprcid = xw2.xwfprcins   
+               and x.wftaskcod = 55
+               and x.WFSTSCOD = 'C'
+               and x.WFITEMSTSACT = 0
+               and xw2.xwfempresa   = 1
+               and xw2.xwfsucursal  = v_Scsuc
+               and xw2.xwfmoneda    = v_Scmda
+               and xw2.xwfpapel     = v_Scpap
+               and xw2.xwfcuenta    = v_Sccta
+               and xw2.xwfoperacion = v_Scoper; 
+         end;
+           --dbms_output.put_line('9- '||ln_instancia);
+       end if;
+
+       If ln_instancia is not null then
+           Begin
+                 select sng001ase
+                   into lc_analista
+                   from sng001  --Cambiar la tabla para producción
+                  where sng001inst =  ln_instancia;
+           Exception when no_data_found then
+                      lc_analista := null;
+           end;
+       End If;
+
+     end if;
+
+
+  return lc_analista;
+  --dbms_output.put_line('10- instancia '||ln_instancia||' '||lc_analista);
+
+end fn_analista_credito_v;
+ 
+  
 end PQ_CR_PRODUCTIVIDAD_NUEVA;
 /

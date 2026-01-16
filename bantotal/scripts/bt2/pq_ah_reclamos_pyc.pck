@@ -9,9 +9,9 @@ CREATE OR REPLACE PACKAGE "PQ_AH_RECLAMOS_PYC" IS
   -- Uso                        : P&C
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.08.26
+  -- Fecha de Modificación      : 2025.11.14
   -- Modificado                 : CVILLON
-  -- Descripción                : Exportar ONR con TDV - TRX según GUIA - Nueva TRX
+  -- Descripción                : Lista de Tarjetas Vigentes
   -- ***************************************************************************************
   ---***
 
@@ -76,6 +76,13 @@ CREATE OR REPLACE PACKAGE "PQ_AH_RECLAMOS_PYC" IS
                                         P_ERRCOD OUT VARCHAR,
                                         P_ERRMSG OUT VARCHAR);
 
+  PROCEDURE SP_AH_LISTAR_TDV_VIGENTE(P_PAI    IN NUMBER,
+                                     P_TDC    IN NUMBER,
+                                     P_NDC    IN VARCHAR,
+                                     P_USR    IN VARCHAR,
+                                     P_ERRCOD OUT VARCHAR,
+                                     P_ERRMSG OUT VARCHAR);
+
 END PQ_AH_RECLAMOS_PYC;
 /* GOLDENGATE_DDL_REPLICATION */
 /
@@ -90,9 +97,9 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
   -- Uso                        : P&C
   -- Estado                     : Activo
   -- Acceso                     : Público
-  -- Fecha de Modificación      : 2025.08.26
+  -- Fecha de Modificación      : 2025.11.14
   -- Modificado                 : CVILLON
-  -- Descripción                : Exportar ONR con TDV - TRX según GUIA - Nueva TRX
+  -- Descripción                : Lista de Tarjetas Vigentes
   -- ***************************************************************************************
   ---***
 
@@ -1250,6 +1257,7 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
            AND TP1COD1 = 11009
            AND TP1NRO1 = XROW.AQPB545MOD
            AND TP1NRO2 = XROW.AQPB545TRAN
+           AND TP1NRO3 = XROW.AQPB545ORD
            AND ROWNUM = 1;
       EXCEPTION
         WHEN OTHERS THEN
@@ -1261,10 +1269,10 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
       
         IF (NVL(TRIM(lv_ERRMSG), '-') = '-') THEN
           lv_ERRMSG := '(ONR) TRX No Parametrizadas: ' || XROW.AQPB545MOD || '/' ||
-                       XROW.AQPB545TRAN;
+                       XROW.AQPB545TRAN || '/' || XROW.AQPB545ORD;
         ELSE
           lv_ERRMSG := lv_ERRMSG || '; ' || XROW.AQPB545MOD || '/' ||
-                       XROW.AQPB545TRAN;
+                       XROW.AQPB545TRAN || '/' || XROW.AQPB545ORD;
         END IF;
         ---***
         CONTINUE;
@@ -1321,73 +1329,79 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
           WHEN OTHERS THEN
             lv_CODAUTH := '-';
         END;
-      
-        INSERT INTO JAQZ759
-          (JAQZ759NTAR,
-           JAQZ759PAI,
-           JAQZ759TDC,
-           JAQZ759NDC,
-           JAQZ759CMOD,
-           JAQZ759SUCOR,
-           JAQZ759TRAN,
-           JAQZ759NREL,
-           JAQZ759CORD,
-           JAQZ759FCON,
-           JAQZ759CREC,
-           JAQZ759CIMP1,
-           JAQZ759MODUL,
-           JAQZ759OPER,
-           JAQZ759SCT,
-           JAQZ759CTA,
-           JAQZ759PAP,
-           JAQZ759MDA,
-           JAQZ759SUCUR,
-           JAQZ759TOPER,
-           JAQZ759MOD,
-           JAQZ759IMP,
-           JAQZ759EST,
-           JAQZ759CAN,
-           JAQZ759EXT,
-           JAQZ759HRC,
-           JAQZ759TIPOLO,
-           JAQZ759CODAUT,
-           JAQZ759ESTABL,
-           JAQZ759PAGORA,
-           JAQZ759DEVOLU,
-           JAQZ759VCTA)
-        VALUES
-          (lv_TARJET,
-           XROW.AQPB545PAI,
-           XROW.AQPB545TDC,
-           XROW.AQPB545NDC,
-           XROW.AQPB545MOD,
-           XROW.AQPB545SUCOR,
-           XROW.AQPB545TRAN,
-           XROW.AQPB545NREL,
-           ln_ORD,
-           XROW.AQPB545FCON,
-           XROW.AQPB545CREC,
-           XROW.AQPB545IMP1,
-           XROW.AQPB545MODUL,
-           XROW.AQPB545OPER,
-           XROW.AQPB545SUBOP,
-           XROW.AQPB545CTA,
-           XROW.AQPB545PAP,
-           XROW.AQPB545MDA,
-           XROW.AQPB545SUCUR,
-           XROW.AQPB545TOPER,
-           6,
-           0,
-           101,
-           ln_CANAL,
-           0,
-           XROW.AQPB545HORA,
-           14,
-           lv_CODAUTH,
-           lv_Establecimiento,
-           3,
-           1,
-           XROW.AQPB545AUCHA1);
+        ---***
+        BEGIN
+          INSERT INTO JAQZ759
+            (JAQZ759NTAR,
+             JAQZ759PAI,
+             JAQZ759TDC,
+             JAQZ759NDC,
+             JAQZ759CMOD,
+             JAQZ759SUCOR,
+             JAQZ759TRAN,
+             JAQZ759NREL,
+             JAQZ759CORD,
+             JAQZ759FCON,
+             JAQZ759CREC,
+             JAQZ759CIMP1,
+             JAQZ759MODUL,
+             JAQZ759OPER,
+             JAQZ759SCT,
+             JAQZ759CTA,
+             JAQZ759PAP,
+             JAQZ759MDA,
+             JAQZ759SUCUR,
+             JAQZ759TOPER,
+             JAQZ759MOD,
+             JAQZ759IMP,
+             JAQZ759EST,
+             JAQZ759CAN,
+             JAQZ759EXT,
+             JAQZ759HRC,
+             JAQZ759TIPOLO,
+             JAQZ759CODAUT,
+             JAQZ759ESTABL,
+             JAQZ759PAGORA,
+             JAQZ759DEVOLU,
+             JAQZ759VCTA)
+          VALUES
+            (lv_TARJET,
+             XROW.AQPB545PAI,
+             XROW.AQPB545TDC,
+             XROW.AQPB545NDC,
+             XROW.AQPB545MOD,
+             XROW.AQPB545SUCOR,
+             XROW.AQPB545TRAN,
+             XROW.AQPB545NREL,
+             ln_ORD,
+             XROW.AQPB545FCON,
+             XROW.AQPB545CREC,
+             XROW.AQPB545IMP1,
+             XROW.AQPB545MODUL,
+             XROW.AQPB545OPER,
+             XROW.AQPB545SUBOP,
+             XROW.AQPB545CTA,
+             XROW.AQPB545PAP,
+             XROW.AQPB545MDA,
+             XROW.AQPB545SUCUR,
+             XROW.AQPB545TOPER,
+             6,
+             0,
+             101,
+             ln_CANAL,
+             0,
+             XROW.AQPB545HORA,
+             14,
+             lv_CODAUTH,
+             lv_Establecimiento,
+             3,
+             1,
+             XROW.AQPB545AUCHA1);
+        EXCEPTION
+          WHEN OTHERS THEN
+            CONTINUE;
+        END;
+        ---***
       END IF;
     END LOOP;
     ---***
@@ -1402,6 +1416,76 @@ CREATE OR REPLACE PACKAGE BODY "PQ_AH_RECLAMOS_PYC" IS
       P_ERRMSG := sqlcode || ' ->>> ' || sqlerrm;
       ---***
   END SP_AH_RECLAMO_ONR_TDV_CREAR;
+
+  PROCEDURE SP_AH_LISTAR_TDV_VIGENTE(P_PAI    IN NUMBER,
+                                     P_TDC    IN NUMBER,
+                                     P_NDC    IN VARCHAR,
+                                     P_USR    IN VARCHAR,
+                                     P_ERRCOD OUT VARCHAR,
+                                     P_ERRMSG OUT VARCHAR) IS
+    ---***
+    lc_NDC CHAR(12);
+    ln_POS NUMBER;
+    ---***
+  
+  BEGIN
+    ---***
+    P_ERRCOD := '000';
+    P_ERRMSG := '';
+    ---***
+    lc_NDC := TRIM(P_NDC);
+    ln_POS := 0;
+    ---***
+    DELETE FROM AQPD335 WHERE AQPD335USR = P_USR;
+    COMMIT;
+    ---*** 
+    FOR TROW IN (SELECT d.Z0E468DSC, z.*
+                   FROM Z0E478 z
+                   JOIN Z0E468 d
+                     ON (z.Z0E468COD = d.Z0E468COD)
+                  WHERE Z0E478THP = P_PAI
+                    AND Z0E478THT = P_TDC
+                    AND Z0E478THD = lc_NDC
+                    AND Z0E463COD = 1
+                  ORDER BY Z0E478FAL DESC) LOOP
+    
+      --DBMS_OUTPUT.PUT_LINE('SP_AH_LISTAR_TDV_VIGENTE');
+      ---***
+      ln_POS := ln_POS + 1;
+      ---***
+    
+      INSERT INTO AQPD335
+        (AQPD335USR,
+         AQPD335COD,
+         AQPD335PAI,
+         AQPD335TDO,
+         AQPD335NDO,
+         AQPD335TRJ,
+         AQPD335TTR,
+         AQPD335TIM)
+      VALUES
+        (P_USR,
+         ln_POS,
+         P_PAI,
+         P_TDC,
+         P_NDC,
+         TRIM(TROW.Z0E478NRO),
+         TRIM(TROW.Z0E468DSC),
+         SYSDATE);
+    
+    END LOOP;
+    ---***
+    COMMIT;
+    ---***
+  EXCEPTION
+    WHEN OTHERS THEN
+      ---***
+      P_ERRCOD := '001';
+      P_ERRMSG := sqlcode || ' ->>> ' || sqlerrm;
+      ROLLBACK;
+      ---***
+  
+  END SP_AH_LISTAR_TDV_VIGENTE;
 
 END PQ_AH_RECLAMOS_PYC;
 /
