@@ -75,6 +75,7 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
   -- Modificacion: SMARQUEZ 04/11/2025 Adicion de proceso codigo ABM
   -- Modificacion: SMARQUEZ 18/11/2025 Adicion de proceso codigo ABM
   -- Modificacion: SMARQUEZ 26/11/2025 usuario para retiro seguro
+  -- Modificacion: SMARQUEZ 02/01/2026 usuario para retiro seguro
   ---------------------------------------------------------------
   procedure Carga_SRetiroSeguro(p_fechapro in date) is
     cursor tran is
@@ -1396,8 +1397,24 @@ create or replace package body PQ_AH_SEGUROS_PASIVAS is
 
         Exception
           when no_data_found then
-            dni := null; ---dni1;
-            nombre:= null;--substr((trim(apepat1)||' '||trim(apemat1)||' '||trim(nombre1)),1,100) ;
+          ---- Modifica persona juridica---------------  
+            Begin
+            select PFPAI1, PFTDO1, PFNDO1, (select penom from fsd001  where pepais =PFPAI1
+                                   and petdoc =PFTDO1 and pendoc =  PFNDO1 and rownum = 1) 
+              into pais, tipodoc, dni, nombre
+              from fsr008 f, fsr003 g
+             where f.ctnro = cuenta
+               and f.CTTFIR = 'T'
+               and g.pjpais = f.pepais
+               and g.pjtdoc = f.petdoc
+               and g.pjndoc = f.pendoc
+               and g.vicod = 7
+               and rownum = 1;
+            exception
+              when no_data_found then
+                dni := null; ---dni1;
+                nombre:= null;--substr((trim(apepat1)||' '||trim(apemat1)||' '||trim(nombre1)),1,100) ;
+            end;
         end;
 
         ---------------------------------------------------

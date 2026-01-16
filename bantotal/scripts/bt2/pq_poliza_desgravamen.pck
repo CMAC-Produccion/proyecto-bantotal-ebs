@@ -4,6 +4,7 @@ create or replace package PQ_POLIZA_DESGRAVAMEN is
   -- Created : 16/01/2014 09:50:23 a.m.
   -- MODIFICADO : DCASTRO/YYAMPI  22/10/2021
 
+
   PROCEDURE SP_DESGRAVAMEN(PD_FECHA  DATE,
                            PN_TIPCAM NUMBER,
                            PN_TOPE1  NUMBER,
@@ -30,20 +31,31 @@ create or replace package PQ_POLIZA_DESGRAVAMEN is
   Procedure recorrerData(ln_result out number);
 end PQ_POLIZA_DESGRAVAMEN;
 /
-
 create or replace package body PQ_POLIZA_DESGRAVAMEN is
-
+ -- *****************************************************************
+    -- Nombre                     : PAQUETE GENERA TRAMA GRUPAL DESGRAVAMEN
+    -- Sistema                    : BANTOTAL
+    -- M dulo                     : Cr ditos - Activas
+    -- Versi n                    : 1.0
+    -- Fecha de Creaci n          : 16/01/2014 09:50:23 a.m.
+    -- Autor de Creaci n          : Avernedo
+    -- Modificacion               : DCASTRO/YYAMPI  22/10/2021
+    -- Estado                     : Activo
+    -- Acceso                     : P blico
+    -- Modificacion               : 10/12/2025 SMARQUEZ GRUPAL- ADICION PARA TOMAR CREDITOS SIN SEGURO
+    --                              RS SBS N  890-2025
+    -- *****************************************************************
   PROCEDURE SP_DESGRAVAMEN(PD_FECHA  DATE,
                            PN_TIPCAM NUMBER,
                            PN_TOPE1  NUMBER,
                            PN_TOPE2  NUMBER,
                            PN_TOPE3  NUMBER,
                            PN_TOPE4  NUMBER) Is
-  
-    LD_FECHADESGRA DATE; -- gcarranzas 10052021   
-  
+
+    LD_FECHADESGRA DATE; -- gcarranzas 10052021
+
     cursor datos_ha_procesar is
-      select /*+parallel(t_hist,4) parallel(t_agen,4) parallel(t_rela,4) parallel(t_age1,4) 
+      select /*+parallel(t_hist,4) parallel(t_agen,4) parallel(t_rela,4) parallel(t_age1,4)
                                      parallel(t_rel1,4) parallel(t_pers,4) parallel(t_iden,4) parallel(t_cred,4)
                                      parallel(t_rubr,4) parallel(t_pena,4) parallel(t_relj,4) parallel(t_peju,4)*/
        t_hist.bcrubr,
@@ -72,9 +84,9 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
        case  ---- 21/10/2021
            when t_cred.aocta is null then
                     (SELECT decode( f.aomda, 0 ,f.aoimp ,  f.aoimp * PN_TIPCAM )
-                FROM fsd010 f where f.aocta = t_hist.bccta and f.aooper =	t_hist.bcoper and f.aomod in
-                (select modulo from fst111 where dscod = 50)  and f.aostat <> 99 and rownum = 1) 
-        
+                FROM fsd010 f where f.aocta = t_hist.bccta and f.aooper =  t_hist.bcoper and f.aomod in
+                (select modulo from fst111 where dscod = 50)  and f.aostat <> 99 and rownum = 1)
+
            else
                case
                  when t_hist.bcmda = 0 then
@@ -159,7 +171,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          and t_rubr.rubro = t_hist.bcrubr
          --and t_cred.aomod in (select modulo from fst111 where dscod = 50) -- modficado29012018
              and t_hist.BCMOD in (select modulo from fst111 where dscod = 50) ---- 21/10/2021-- modficado29012018
-            --and (t_cred.aofval > '02/11/2015') -- modficado29012018  --gcarranzas 26042021            
+            --and (t_cred.aofval > '02/11/2015') -- modficado29012018  --gcarranzas 26042021
             --AND t_cred.aostat <> 99 -- modficado29012018 --gcarranzas 10052021
             --and t_cred.aostat in (select fst198.tp1nro1 from fst198 where fst198.tp1cod1=11109 and fst198.tp1corr1=3) --gcarranzas 10052021
             --gcarranzas 10052021 ****** INICIO --
@@ -210,7 +222,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
             and t_cred.aooper = t_relcod.r1oper
             and t_cred.aosbop = t_relcod.r1sbop
             and t_cred.aotope = t_relcod.r1tope*/
-            ------------Refinanciado                       
+            ------------Refinanciado
          and not exists
        (SELECT P.AOMOD, P.AOSUC, P.AOCTA, P.AOOPER, P.AOSBOP, P.AOTOPE
                 FROM FPP001 P
@@ -230,9 +242,9 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                  and p.aotope = t_hist.bctop)
             --gcarranzas 26042021 ****** INICIO --
          and (
-             --Creditos con fecha valor mayor a 2 DE noviembre a 2015                             
---              t_cred.aofval >= LD_FECHADESGRA -- gcarranzas 10052021             
-              nvl(t_cred.aofval, t_hist.BCFVAL ) >= LD_FECHADESGRA -- ---21/10/2021 gcarranzas 10052021             
+             --Creditos con fecha valor mayor a 2 DE noviembre a 2015
+--              t_cred.aofval >= LD_FECHADESGRA -- gcarranzas 10052021
+              nvl(t_cred.aofval, t_hist.BCFVAL ) >= LD_FECHADESGRA -- ---21/10/2021 gcarranzas 10052021
              --O mayor a noviembre del 2015 en todas las suboperaciones
               OR exists (select pgcod,
                                 aomod,
@@ -269,7 +281,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                                 f.aopap,
                                 f.aocta,
                                 f.aooper,
-                                --aosbop, 
+                                --aosbop,
                                 f.aotope,
                                 min(f.aofval) fechaDes
                            from fsd010 f, fsd010 dd
@@ -293,19 +305,20 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                                    f.aopap,
                                    f.aocta,
                                    f.aooper,
-                                   f.aotope) --desdolarizacion       
+                                   f.aotope) --desdolarizacion
              )
             --gcarranzas 26042021 ****** FIN
 ---             and t_cred.aocta = 312841 and t_cred.aooper = 6593138  se comento
        order by t_hist.bcrubr, t_rubr.pcnomr, t_hist.bccta;
-  
+
     VALORES       NUMBER;
     control       number;
     evaluar       number;
     fechaestatica date;
     fechaevaluar  date;
     ln_result     number;
-  
+    flagE         char(1);
+
   BEGIN
     execute immediate ('truncate table Seg_Desgrav2');
     execute immediate ('truncate table Segu_Final');
@@ -315,10 +328,10 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
     execute immediate ('truncate table JAQY523');
     execute immediate ('truncate table JAQY524');
     execute immediate ('truncate table JAQY525');
-  
+
     BEGIN
-      LD_FECHADESGRA := TO_DATE('03/11/2015', 'DD/MM/YYYY'); -- gcarranzas 10052021   
-    
+      LD_FECHADESGRA := TO_DATE('03/11/2015', 'DD/MM/YYYY'); -- gcarranzas 10052021
+
       /*begin
          select g.cotcbi
              into PN_TIPCAM
@@ -333,17 +346,17 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                 from fsh005 g
                where g.moneda = 101
                  and g.cofdes = PD_FECHA - 1;
-              exception   
-                 When others then 
+              exception
+                 When others then
                       PN_TIPCAM:=1;
-              END;   
+              END;
            when others then
              PN_TIPCAM:=1;
       end;*/
-    
+
       /*update fst098 set tpnro = 1 where tpcod =9838;
       COMMIT;  */
-    
+
       INSERT INTO Seg_Desgrav2
         (bcrubr,
          pcnomr,
@@ -366,8 +379,8 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          PETIPO,
          Bcplaz,
          Nro_Cred)
-      
-        select /*+parallel(t_hist,4) parallel(t_agen,4) parallel(t_rela,4) parallel(t_age1,4) 
+
+        select /*+parallel(t_hist,4) parallel(t_agen,4) parallel(t_rela,4) parallel(t_age1,4)
                                                                                                                    parallel(t_rel1,4) parallel(t_pers,4) parallel(t_iden,4) parallel(t_cred,4)
                                                                                                                    parallel(t_rubr,4) parallel(t_pena,4) parallel(t_relj,4) parallel(t_peju,4)*/
          t_hist.bcrubr,
@@ -378,7 +391,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          t_pers.petdoc,
          t_pers.pendoc,
          t_pena.pffnac,
-         
+
          (select t_fecju.PFFNAC
             from fsd002 t_fecju
            where t_fecju.PFPAIS = t_relj.PFPAI1
@@ -396,10 +409,10 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          case  ---- 21/10/2021
            when t_cred.aocta is null then
                     (SELECT decode( f.aomda, 0 ,f.aoimp ,  f.aoimp * PN_TIPCAM )
-                FROM fsd010 f where f.aocta = t_hist.bccta and f.aooper =	t_hist.bcoper and f.aomod in
+                FROM fsd010 f where f.aocta = t_hist.bccta and f.aooper =  t_hist.bcoper and f.aomod in
                 (select modulo from fst111 where dscod = 50)  and f.aostat <> 99
-                 and rownum = 1) 
-        
+                 and rownum = 1)
+
            else
                case
                  when t_hist.bcmda = 0 then
@@ -434,7 +447,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          lpad(to_char(t_hist.bcoper), 9, '0') ||
          lpad(to_char(t_hist.bcsbop), 3, '0') ||
          lpad(to_char(t_hist.bctop), 3, '0')
-        
+
         --to_char(t_hist.bcmod||t_hist.bcsuc||t_hist.bcmda||t_hist.bcpap||t_hist.bccta||t_hist.bcoper||
         --t_hist.bcsbop||t_hist.bctop)
           from --fsh012 t_hist,
@@ -473,13 +486,13 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
            and t_iden.pendoc = t_pers.pendoc
            and t_rubr.rubro = t_hist.bcrubr
 --           and t_cred.aomod in (select modulo from fst111 where dscod = 50) -- modficado29012018
-           and t_hist.BCMOD in (select modulo from fst111 where dscod = 50) ---- 21/10/2021-- modficado29012018           
+           and t_hist.BCMOD in (select modulo from fst111 where dscod = 50) ---- 21/10/2021-- modficado29012018
 
               --and (t_cred.aofval < '03/11/2015' OR (t_cred.aomod = 116 and t_cred.aostat <> 99)) -- modficado29012018  --gcarranzas 10052021
               --AND t_cred.aostat <> 99 -- modficado29012018 --gcarranzas 10052021
               --gcarranzas 10052021 ****** INICIO --
            AND (
-               /*--NO cancelados 
+               /*--NO cancelados
                 t_cred.aostat <> 99
                -- o cancelados pero despues del mes consultado
                 OR (t_cred.aostat = 99 AND t_cred.aofe99 > PD_FECHA AND */ --10/10/2021
@@ -529,7 +542,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
            and (
                -- FECHA VALOR MENOR A 3 DE NOVIEMBRE 2015
               --  t_cred.aofval < LD_FECHADESGRA
-                nvl(t_cred.aofval, t_hist.BCFVAL ) < LD_FECHADESGRA ---21/10/2021 -- gcarranzas 10052021                             
+                nvl(t_cred.aofval, t_hist.BCFVAL ) < LD_FECHADESGRA ---21/10/2021 -- gcarranzas 10052021
                --O TODOS LOS CREDITOS CON MODULO 116
                 OR nvl(t_cred.aomod, t_hist.bcmod) = 116 -- 21/10/2021
                --creditos antes de noviembre 2015 en todas las suboperaciones
@@ -568,7 +581,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                                   f.aopap,
                                   f.aocta,
                                   f.aooper,
-                                  --aosbop, 
+                                  --aosbop,
                                   f.aotope,
                                   min(f.aofval) fechaDes
                              from fsd010 f, fsd010 dd
@@ -597,19 +610,19 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
               --gcarranzas 23042021******fin
 
          order by t_hist.bcrubr, t_rubr.pcnomr, t_hist.bccta;
-    
+
       commit;
       ----------------------------------------------------------------------------------------------------------------
       ----------------------------------------------------------------------------------------------------------------
-    
+
       for j in datos_ha_procesar loop
         control       := 0;
         evaluar       := 0;
         fechaestatica := '03/11/2015';
         fechaevaluar  := '01/01/0001';
-      
+
         if j.aostat = 61 then
-        
+
           begin
             SELECT count(*)
               into control
@@ -624,7 +637,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                and fsr011.r1sbop = j.aosbop
                and fsr011.r1tope = j.aotope
                and fsr011.relcod = 120;
-          
+
           end;
         end if;
         if control < 2 and control <> 0 then
@@ -662,7 +675,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                and valores.r2sbop = fsd010.aosbop
                and valores.r2tope = fsd010.aotope
                and fsd010.aofval < '03/11/2015';
-          
+
           end;
           if evaluar > 0 and evaluar < 2 then
             INSERT INTO Seg_Desgrav2
@@ -709,13 +722,13 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                j.petipo,
                j.bcplaz,
                j.valores);
-          
+
           end if;
-        
+
         end if;
         if j.aostat in (33, 34) then
           begin
-          
+
             PQ_POLIZA_DESGRAVAMEN.sp_fsr011buscar(j.pgcod,
                                                   j.aomod,
                                                   j.aosuc,
@@ -796,9 +809,9 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                                  j.petdoc,j.pendoc,j.pffnac,j.pjfnac,j.njcod,j.fec_des,j.mto_apr,
                                  j.saldo,j.cobert,j.bcsuc,j.pepais,j.bcmda,j.bcsdmo,j.petipo,
                                  j.bcplaz,j.valores
-                                 );     
+                                 );
           else*/
-        
+
           if fechaestatica > fechaevaluar and fechaevaluar <> '01/01/0001' then
             INSERT INTO Seg_Desgrav2
               (bcrubr,
@@ -846,7 +859,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                j.valores);
           end if;
           /*  end if;  */
-        
+
         end if;
         if j.aomod in (107, 109, 116) AND J.AOSTAT <> 99 then
           INSERT INTO Seg_Desgrav2
@@ -894,8 +907,8 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
              j.bcplaz,
              j.valores);
           /* else
-          
-           if fechaestatica> fechaevaluar and fechaevaluar<> '01/01/0001' then 
+
+           if fechaestatica> fechaevaluar and fechaevaluar<> '01/01/0001' then
                   INSERT INTO Seg_Desgrav2 (bcrubr,pcnomr,CTA_CLIENTE,OPERACION,TITULAR,petdoc,pendoc,pffnac,
                                     pjfnac,njcod,FEC_DES,Mto_Apr,Saldo,Cobert,bcsuc,Pepais,Bcmda,
                                     Bcsdmo,PETIPO,Bcplaz,Nro_Cred) values
@@ -903,13 +916,95 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                                  j.petdoc,j.pendoc,j.pffnac,j.pjfnac,j.njcod,j.fec_des,j.mto_apr,
                                  j.saldo,j.cobert,j.bcsuc,j.pepais,j.bcmda,j.bcsdmo,j.petipo,
                                  j.bcplaz,j.valores
-                                 );                        
+                                 );
           end if ;  */
         end if;
-      
+        --------------------- SMARQUEZ 10/12/2025 -----------------------
+        BEgin
+          select 'S'
+            into flagE
+            from jaqm8f
+           where jaqm8fins = (select xwfprcins
+                                from xwf700
+                               where xwfempresa = 1
+                                 and xwfcuenta = j.aocta
+                                 and xwfoperacion = j.aooper
+                                 and xwfcar3 ='1')
+              and jaqm8fval = 'N';
+        exception
+          when others then
+            begin
+              SELECT 'N'
+                into flagE
+                FROM FPP001 
+               WHERE pgcod = 1
+                 and aomod = j.aomod
+                 and aomda = j.aomda
+                 and aopap = j.aopap
+                 and aocta = j.aocta
+                 and aooper = j.aooper
+                 and aosbop = j.aosbop
+                 and aotope = j.aotope
+                 and sgcod in (select tp1imp1
+                                   from fst198
+                                  where tp1cod = 1
+                                    and tp1cod1 = 10898
+                                    and tp1corr1 = 8);
+            exception
+              when no_data_found  then
+                flagE :='S';                
+            end;
+        end;
+        if FlagE = 'S' then
+          INSERT INTO Seg_Desgrav2
+            (bcrubr,
+             pcnomr,
+             CTA_CLIENTE,
+             OPERACION,
+             TITULAR,
+             petdoc,
+             pendoc,
+             pffnac,
+             pjfnac,
+             njcod,
+             FEC_DES,
+             Mto_Apr,
+             Saldo,
+             Cobert,
+             bcsuc,
+             Pepais,
+             Bcmda,
+             Bcsdmo,
+             PETIPO,
+             Bcplaz,
+             Nro_Cred)
+          values
+            (j.bcrubr,
+             j.pcnomr,
+             j.cta_cliente,
+             j.operacion,
+             j.titular,
+             j.petdoc,
+             j.pendoc,
+             j.pffnac,
+             j.pjfnac,
+             j.njcod,
+             j.fec_des,
+             j.mto_apr,
+             j.saldo,
+             j.cobert,
+             j.bcsuc,
+             j.pepais,
+             j.bcmda,
+             j.bcsdmo,
+             j.petipo,
+             j.bcplaz,
+             j.valores);
+        end if;
+        -----------------------------------------------------
       end loop;
       ----------------------------------------------------------------------------------------------------------------
-    
+
       INSERT INTO Segu_Final
         (Estado,
          bcrubr,
@@ -986,7 +1081,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
            and t_base.petdoc = 21
             or (t_base.petdoc = 9 and t_base.njcod = 7);
       --                      or (t_base.petdoc =  9 and t_base.njcod = 14);
-    
+
       INSERT INTO TotCred
         ( /*cta_cliente,*/titular,
          tip_per,
@@ -1010,11 +1105,11 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                   t_segu.tip_doc,
                   t_segu.pendoc,
                   t_segu.fec_nac;
-    
+
       COMMIT;
-    
+
       ---------------------------------------------------- RESUMIDOS ----------------------------------------------
-    
+
       INSERT INTO Seg_Rangos
         (estado,
          bcrubr,
@@ -1139,7 +1234,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                   nro_cred
          order by estado, bcrubr, pcnomr, cta_cliente, titular, operacion;
       COMMIT;
-    
+
       INSERT INTO JAQY523
         (JAQY523fecpro,
          JAQY523estado,
@@ -1169,7 +1264,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          JAQY523PAIS,
          JAQY523TDOC,
          JAQY523NRO_CRED)
-      
+
         SELECT PD_FECHA,
                estado,
                bcrubr,
@@ -1201,12 +1296,12 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                seg.pepais,
                seg.petdoc,
                SEG.NRO_CRED
-        
+
           FROM Seg_Rangos seg
          order by estado, bcrubr, pcnomr, cta_cliente, titular, operacion;
-    
+
       COMMIT;
-    
+
       INSERT INTO JAQY524
         (JAQY524fecpro,
          JAQY524estado,
@@ -1234,7 +1329,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          JAQY524PETIPO,
          JAQY524BCPLAZ,
          JAQY524NRO_CRED /*,JAQY524FIL*/)
-      
+
         SELECT PD_FECHA,
                JAQY523estado,
                JAQY523bcrubr,
@@ -1273,9 +1368,9 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                   JAQY523cta_cliente,
                   JAQY523titular,
                   JAQY523operacion;
-    
+
       COMMIT;
-    
+
       INSERT INTO JAQY522
         (JAQY522fecpro,
          JAQY522TIPREP,
@@ -1291,7 +1386,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          JAQY522COBTOT,
          JAQY522PAIS,
          JAQY522TDOC)
-      
+
         select PD_FECHA,
                JAQY523tiprep,
                JAQY523titular,
@@ -1331,10 +1426,10 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                end,
                a.jaqy523pais,
                a.jaqy523tdoc
-        
+
           from JAQY523 a
         --where j.jaqy524fil in ('HIPO','NORMAL')
-        
+
          group by JAQY523tiprep,
                   JAQY523titular,
                   JAQY523tip_doc,
@@ -1349,7 +1444,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                                                                                                                                                                                                                                  JAQY523APR_CLI */
         ;
       COMMIT;
-    
+
       INSERT INTO JAQY525
         (JAQY525fecpro,
          JAQY525TIPREP,
@@ -1365,7 +1460,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          JAQY525COBTOT,
          JAQY525PAIS,
          JAQY525TDOC)
-      
+
         select PD_FECHA,
                JAQY522tiprep,
                JAQY522titular,
@@ -1380,7 +1475,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                JAQY522COBTOT,
                j.jaqy522pais,
                j.jaqy522tdoc
-        
+
           from JAQY522 j
          where (j.jaqy522tiprep in ('SD1', 'SD2') and
                j.jaqy522sal_cli >= 8000)
@@ -1397,23 +1492,23 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
         JAQY523APR_CLI *\   */
         ;
       COMMIT;
-    
+
       /*update fst098 set tpnro = 0 where tpcod =9838;
-      
+
       COMMIT;*/
-    
+
     END;
-  
+
   END;
 
   function fn_cr_years(P_D_FECPRO in date, P_D_FECNAC in date) return number is
-  
+
     ld_fecpro date;
     ld_fecnac date;
-  
+
     ln_year number;
   begin
-    -- Datos según Parámetros.
+    -- Datos seg n Par metros.
     ld_fecpro := trunc(P_D_FECPRO);
     ld_fecnac := trunc(P_D_FECNAC);
     --
@@ -1440,23 +1535,23 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
   function fn_tipo_rep(pcnomr   in varchar2,
                        fec_nac  in date,
                        PD_FECHA in date) return varchar2 is
-  
+
     lc_tiprep varchar2(20);
     ln_edad   number(5);
     ln_es     number;
-  
+
   begin
     begin
-    
+
       --ln_edad   := PQ_POLIZA_DESGRAVAMEN.fn_cr_years(PD_FECHA,fec_nac); --edad actual
       ln_edad := floor(MONTHS_BETWEEN(PD_FECHA, fec_nac) / 12);
-    
+
       if pcnomr like '%Hipo%' then
         ln_es := 1;
       else
         ln_es := 0;
       end if;
-    
+
       case
         when ln_es = 1 and ln_edad >= 18 and ln_edad <= 70 then
           lc_tiprep := 'HIPOA';
@@ -1469,22 +1564,22 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
         else
           lc_tiprep := '';
       end case;
-    
+
     end;
-  
+
     return lc_tiprep;
-  
+
   end fn_tipo_rep;
 
   function fn_nomtit(PD_PAIS in number,
                      PD_TDOC in NUMBER,
                      PD_NDOC in number) return varchar2 is
-  
+
     lc_nomtit varchar2(200);
-  
+
   begin
     begin
-    
+
       select k.penom
         into lc_nomtit
         from fsd001 k, fsr003 j
@@ -1495,7 +1590,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          and j.pftdo1 = k.petdoc
          and j.pfndo1 = k.pendoc
          and rownum = 1;
-    
+
     exception
       when others then
         lc_nomtit := null;
@@ -1513,7 +1608,7 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
                             ln_aosbop in number,
                             ln_tope   in number,
                             ln_result out number) IS
-  
+
   BEGIN
     execute immediate ('truncate table JAQZ747');
     ---------r2
@@ -1581,14 +1676,14 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
          and fsr011.relcod in (35, 36, 121, 38, 39);
     COMMIT;
     ------RESULTADO
-  
+
     PQ_POLIZA_DESGRAVAMEN.recorrerData(ln_result);
-  
+
   End sp_fsr011buscar;
 
   Procedure recorrerData(ln_result out number) IS
     minimo date;
-  
+
     cursor casojaqz747 is
       select jaqz747.jaqz747pgcod,
              jaqz747.jaqz747aomod,
@@ -1614,9 +1709,8 @@ create or replace package body PQ_POLIZA_DESGRAVAMEN is
         ln_result := 0;
       end if;
     end loop;
-  
+
   end recorrerData;
 
 end PQ_POLIZA_DESGRAVAMEN;
 /
-

@@ -43,6 +43,10 @@ create or replace package PQ_CR_AUTOMATIZACION_NEGOCIACION is
     -- Fecha de Modificación      : 2025.06.18
     -- Autor de la Modificación   : ENINAH
     -- Descripción de Modificación: Se modificó en todos los SP de envío de correos para que guarde en una tabla log si el proceso se ejecuta bien.
+    -- Fecha de Modificación      : 2026.01.12
+    -- Autor de la Modificación   : ENINAH
+    -- Descripción de Modificación: Se modifico el envio de correos para el rechazo, anteriormente se hacia una validacion para el pre aprobador
+
     
   *************************************************************************************************************/
   procedure sp_validar_calificacion_normal(instancia       in number,
@@ -345,6 +349,10 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
   -- Fecha de Modificación      : 2025.06.18
   -- Autor de la Modificación   : ENINAH
   -- Descripción de Modificación: Se modificó en todos los SP de envío de correos para que guarde en una tabla log si el proceso se ejecuta bien.
+  -- Fecha de Modificación      : 2026.01.12
+  -- Autor de la Modificación   : ENINAH
+  -- Descripción de Modificación: Se modifico el envio de correos para el rechazo, anteriormente se hacia una validacion para el pre aprobador
+
   -----------------------------------------------------------------------
   procedure sp_validar_calificacion_normal(instancia       in number,
                                            ln_cuenta       out number,
@@ -1938,8 +1946,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     vs_respuesta := 'No hubo errores';
     --DestinatariosBcc := '; eninah@cajaarequipa.pe';
     begin
-      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DESTINATARIO, --lv_DESTINATARIO 'katherine.perez@sesitdigital.com', 
-                                       p_DestinatariosCC   => lv_CC, --lv_CC, --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
+      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DESTINATARIO, --'eninah@cajaarequipa.pe',
+                                       p_DestinatariosCC   => lv_CC, -- 'hsuarez@cajaarequipa.pe',
                                        p_DestinatariosBcc  => LTRIM(DestinatariosBcc,
                                                                     ';'), --DestinatariosBcc, --- 'aangles@cajaarequipa.pe', --
                                        p_Mensaje           => ll_mensaje,
@@ -1966,8 +1974,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
                                                   P_C_ASUNTO => 'Gestión para negociación de Tasa - ' ||
                                                                 lv_ASUNTO ||
                                                                 ve_instancia, --ASUNTO
-                                                  p_c_despar => lv_DESTINATARIO, --PARA
-                                                  p_c_descoc => lv_CC, --CC
+                                                  p_c_despar => lv_DESTINATARIO, --'eninah@cajaarequipa.pe', --PARA
+                                                  p_c_descoc => lv_CC, -- 'hsuarez@cajaarequipa.pe', --CC
                                                   p_c_descco => LTRIM(DestinatariosBcc,
                                                                       ';'), --CCO
                                                   p_c_mensaj => ll_mensaje, --MENSAJE EN HTML CLOB
@@ -2556,14 +2564,16 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     ---
     -- AGREGANDO CONDICION PARA VALIDAR SI ES RECHAZO DE PRE-APROBACION O APROBACION
     begin
-      vi_motivo_rechazador := '';
-      IF trim(ve_panel) = 'HAQPC721' THEN
-        vi_rechazador        := 'Jefe Zonal/Gerente Regional';
-        vi_motivo_rechazador := motivopapr;
-      ELSE
-        vi_rechazador        := 'Gerencia de Créditos';
-        vi_motivo_rechazador := motivo;
-      END IF;
+      --vi_motivo_rechazador := '';
+      -- Se está modificando esta parte para que solo sea para gerencia de creditos ya que no existe 
+      -- el panel de preaprobador eninah 09/01/206      
+      --IF trim(ve_panel) = 'HAQPC721' THEN
+      --vi_rechazador        := 'Jefe Zonal/Gerente Regional';
+      --vi_motivo_rechazador := motivopapr;
+      --ELSE
+      vi_rechazador        := 'Gerencia de Créditos';
+      vi_motivo_rechazador := motivo;
+      --END IF;
     exception
       -- Se agregó exception eninah 18/02/2025
       when others then
@@ -2741,8 +2751,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     vs_respuesta := 'No hubo errores';
   
     begin
-      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, -- 'katherine.perez@sesitdigital.com', -- 
-                                       p_DestinatariosCC   => lv_DESTINATARIO, -- 'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', -- 
+      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, --'eninah@cajaarequipa.pe', 
+                                       p_DestinatariosCC   => lv_DESTINATARIO, --'hsuarez@cajaarequipa.pe', 
                                        p_DestinatariosBcc  => LTRIM(DestinatariosBcc,
                                                                     ';'), -- 'aangles@cajaarequipa.pe', -- 
                                        p_Mensaje           => ll_mensaje,
@@ -2766,8 +2776,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --¿DESCRIPCCION DE TU PROCESO¿ colocar el codigo de tu proceso númerico
                                                   P_C_ASUNTO => lv_ASUNTO ||
                                                                 ve_instancia, --ASUNTO
-                                                  p_c_despar => lv_DES, --PARA
-                                                  p_c_descoc => lv_DESTINATARIO, --CC
+                                                  p_c_despar => lv_DES, --'eninah@cajaarequipa.pe', --PARA
+                                                  p_c_descoc => lv_DESTINATARIO, -- 'hsuarez@cajaarequipa.pe', --CC
                                                   p_c_descco => LTRIM(DestinatariosBcc,
                                                                       ';'), --CCO
                                                   p_c_mensaj => ll_mensaje, --MENSAJE EN HTML CLOB
@@ -3607,8 +3617,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     --------------------------------------------------------------------------
     vs_respuesta := 'No hubo errores';
     begin
-      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, --'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', --
-                                       p_DestinatariosCC   => lv_DESTINATARIO, --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
+      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, --'eninah@cajaarequipa.pe', 
+                                       p_DestinatariosCC   => lv_DESTINATARIO, --'hsuarez@cajaarequipa.pe', 
                                        p_DestinatariosBcc  => LTRIM(DestinatariosBcc,
                                                                     ';'), --'aangles@cajaarequipa.pe', --
                                        p_Mensaje           => ll_mensaje,
@@ -3633,8 +3643,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --¿DESCRIPCCION DE TU PROCESO¿ colocar el codigo de tu proceso númerico
                                                   P_C_ASUNTO => lv_ASUNTO ||
                                                                 ve_instancia, --ASUNTO
-                                                  p_c_despar => lv_DES, --PARA
-                                                  p_c_descoc => lv_DESTINATARIO, --CC
+                                                  p_c_despar => lv_DES, --'eninah@cajaarequipa.pe', --PARA
+                                                  p_c_descoc => lv_DESTINATARIO, --'hsuarez@cajaarequipa.pe', --CC
                                                   p_c_descco => LTRIM(DestinatariosBcc,
                                                                       ';'), --CCO
                                                   p_c_mensaj => ll_mensaje, --MENSAJE EN HTML CLOB
@@ -4441,8 +4451,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
     --------------------------------------------------------------------------
   
     begin
-      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, --'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', --
-                                       p_DestinatariosCC   => lv_DESTINATARIO, --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
+      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, --'eninah@cajaarequipa.pe', 
+                                       p_DestinatariosCC   => lv_DESTINATARIO, -- 'hsuarez@cajaarequipa.pe',
                                        p_DestinatariosBcc  => LTRIM(DestinatariosBcc,
                                                                     ';'), --'aangles@cajaarequipa.pe', --
                                        p_Mensaje           => ll_mensaje,
@@ -4499,8 +4509,8 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
         DBMS_LOCK.SLEEP(segundos); -- continua el proceso en el intervalo de segundos.
         --Hace de nuevo el llamado al programa que envía correos.
         begin
-          pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, --'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', --
-                                           p_DestinatariosCC   => lv_DESTINATARIO, --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
+          pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => lv_DES, -- 'eninah@cajaarequipa.pe', 
+                                           p_DestinatariosCC   => lv_DESTINATARIO, --'hsuarez@cajaarequipa.pe',
                                            p_DestinatariosBcc  => LTRIM(DestinatariosBcc,
                                                                         ';'), --'aangles@cajaarequipa.pe', --
                                            p_Mensaje           => ll_mensaje,
@@ -5108,7 +5118,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
   
     vs_respuesta := 'No hubo errores';
     begin
-      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => conc_correos_gerente_creditos, --'apachecoh@cajaarequipa.pe;katherine.perez@sesitdigital.com', --
+      pq_ah_planillas.P_SendMailAttach(p_DestinatariosPara => conc_correos_gerente_creditos, -- 'eninah@cajaarequipa.pe',
                                        p_DestinatariosCC   => '', --'hsuarez@cajaarequipa.pe;eninah@cajaarequipa.pe', --
                                        p_DestinatariosBcc  => '', --'aangles@cajaarequipa.pe', --
                                        p_Mensaje           => ll_mensaje,
@@ -5131,7 +5141,7 @@ create or replace package body PQ_CR_AUTOMATIZACION_NEGOCIACION is
       begin
         PQ_CR_ENVIAR_CORREOS.sp_ah_reprocesa_mail(P_N_CODPRO => 1446, --¿DESCRIPCCION DE TU PROCESO¿ colocar el codigo de tu proceso númerico
                                                   P_C_ASUNTO => lv_ASUNTO, --ASUNTO
-                                                  p_c_despar => conc_correos_gerente_creditos, --PARA
+                                                  p_c_despar => conc_correos_gerente_creditos, -- 'eninah@cajaarequipa.pe', --PARA
                                                   p_c_descoc => '', --CC
                                                   p_c_descco => '', --CCO
                                                   p_c_mensaj => ll_mensaje, --MENSAJE EN HTML CLOB

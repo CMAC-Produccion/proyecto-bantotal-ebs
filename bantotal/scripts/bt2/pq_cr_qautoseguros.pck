@@ -31,7 +31,6 @@ create or replace package PQ_CR_QAUTOSEGUROS IS
 
 end PQ_CR_QAUTOSEGUROS;
 /
-
 create or replace package body PQ_CR_QAUTOSEGUROS is
 -------------------------------------------------------------------------------------------------------------------
   -- Author  : SMARQUEZ
@@ -2304,7 +2303,30 @@ create or replace package body PQ_CR_QAUTOSEGUROS is
                          and b.hcCORR = 0;
                   exception  
                      when no_Data_found then
-                        tipodes := 'Ventanilla';
+                       ---adicionar para Whatsapp silvia
+                       begin
+                           select 'WhatsApp'
+                              into tipodes
+                              from fsh016 a, fsh015 b
+                             where a.pgcod = 1
+                               and a.hcmod =486
+                               and a.htran in (951,360)
+                               and a.hfcon = fecha1
+                               and a.hcta = cuenta
+                               and a.hoper = operacion
+                               and a.hmodul = modulo
+                               and a.htoper = tipoope
+                               and b.PGCOD = a.pgcod
+                               and b.hSUCor = a.hsucor
+                               and b.hcMOD = a.hcMOD
+                               and b.htran = a.hTRAN
+                               and b.hNREL = a.hNREL
+                               and b.hfcon = a.hfcon
+                               and b.hcCORR = 0;   
+                        exception
+                          when no_data_found then     
+                            tipodes := 'Ventanilla';
+                       end; 
                   end;
               end;
          end;
@@ -2428,4 +2450,3 @@ create or replace package body PQ_CR_QAUTOSEGUROS is
   END  SP_TRANSFERIR;
 end PQ_CR_QAUTOSEGUROS;
 /
-
