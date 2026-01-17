@@ -15,9 +15,12 @@ CREATE OR REPLACE PROCEDURE SP_AH_BASEFRAUDES (
     -- Acceso                     : Público
     -- Parámetros de Entrada      : 
     -- Retorno                    : 
-    -- Fecha de Modificación      : 04/012/2025
+    -- Fecha de Modificación      : 04/12/2025
     -- Autor de la Modificación   : Yrving Lozada
     -- Modificación               : Se adicionó validadicón del estado en "S"
+    -- Fecha de Modificación      : 14/01/2026
+    -- Autor de la Modificación   : Yrving Lozada
+    -- Modificación               : Se corrigió validación de correo con expresion regular
     -- *****************************************************************   
 	v_count NUMBER;
 BEGIN
@@ -29,7 +32,7 @@ BEGIN
                    FROM AQPA133
                    WHERE AQPA133EST = 'S'
                      AND AQPA133TIP = p_codigo
-                     AND TRIM(AQPA133VAL) = TRIM(p_valor)
+                     AND REGEXP_REPLACE(AQPA133VAL, '[[:space:]]+', '') = TRIM(p_valor)
                  )
                  THEN 'S'
                  ELSE 'N'
@@ -42,7 +45,7 @@ BEGIN
 	    FROM AQPA133 
 	    WHERE AQPA133EST = 'S' 
       AND AQPA133TIP = p_codigo
-	   	AND UPPER(TRIM(AQPA133VAL))  like  '%' || UPPER(TRIM(p_Valor)) || '%'
+	   	AND REGEXP_REPLACE(UPPER(AQPA133VAL), '[[:space:]]+', '') = UPPER(TRIM(p_Valor))
 	   	AND ROWNUM = 1; 
 		 
 		IF v_count > 0 THEN
